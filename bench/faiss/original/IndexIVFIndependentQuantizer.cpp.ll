@@ -1147,456 +1147,457 @@ define void @_ZN5faiss28IndexIVFIndependentQuantizerC2EPNS_5IndexEPNS_8IndexIVFE
   %26 = getelementptr inbounds %"struct.faiss::Index", ptr %25, i32 0, i32 7
   %27 = load i32, ptr %26, align 4
   call void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(36) %20, i64 noundef %24, i32 noundef %27)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss28IndexIVFIndependentQuantizerE, i32 0, i32 0, i32 2), ptr %20, align 8
-  %28 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %20, i32 0, i32 2
-  %29 = load ptr, ptr %6, align 8
-  store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %20, i32 0, i32 3
-  %31 = load ptr, ptr %8, align 8
-  store ptr %31, ptr %30, align 8
-  %32 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %20, i32 0, i32 4
-  %33 = load ptr, ptr %7, align 8
-  store ptr %33, ptr %32, align 8
-  %34 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %20, i32 0, i32 5
-  store i8 0, ptr %34, align 8
-  %35 = load ptr, ptr %8, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %80
+  %28 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss28IndexIVFIndependentQuantizerE, i32 0, i32 0, i32 2
+  store ptr %28, ptr %20, align 8
+  %29 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %20, i32 0, i32 2
+  %30 = load ptr, ptr %6, align 8
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %20, i32 0, i32 3
+  %32 = load ptr, ptr %8, align 8
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %20, i32 0, i32 4
+  %34 = load ptr, ptr %7, align 8
+  store ptr %34, ptr %33, align 8
+  %35 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %20, i32 0, i32 5
+  store i8 0, ptr %35, align 8
+  %36 = load ptr, ptr %8, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %81
 
-37:                                               ; preds = %4
-  br label %38
+38:                                               ; preds = %4
+  br label %39
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %"struct.faiss::VectorTransform", ptr %39, i32 0, i32 1
-  %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds %"struct.faiss::Index", ptr %20, i32 0, i32 1
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp eq i32 %41, %43
-  br i1 %44, label %45, label %53
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds %"struct.faiss::VectorTransform", ptr %40, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8
+  %43 = getelementptr inbounds %"struct.faiss::Index", ptr %20, i32 0, i32 1
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp eq i32 %42, %44
+  br i1 %45, label %46, label %54
 
-45:                                               ; preds = %38
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %"struct.faiss::VectorTransform", ptr %46, i32 0, i32 2
-  %48 = load i32, ptr %47, align 4
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %"struct.faiss::Index", ptr %49, i32 0, i32 1
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %48, %51
-  br i1 %52, label %77, label %53
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %8, align 8
+  %48 = getelementptr inbounds %"struct.faiss::VectorTransform", ptr %47, i32 0, i32 2
+  %49 = load i32, ptr %48, align 4
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds %"struct.faiss::Index", ptr %50, i32 0, i32 1
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp eq i32 %49, %52
+  br i1 %53, label %78, label %54
 
-53:                                               ; preds = %45, %38
-  br label %54
+54:                                               ; preds = %46, %39
+  br label %55
 
-54:                                               ; preds = %53
+55:                                               ; preds = %54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #9
-  %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.1) #9
-  store i32 %55, ptr %10, align 4
-  %56 = load i32, ptr %10, align 4
-  %57 = add nsw i32 %56, 1
-  %58 = sext i32 %57 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %58)
-          to label %59 unwind label %66
+  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.1) #9
+  store i32 %56, ptr %10, align 4
+  %57 = load i32, ptr %10, align 4
+  %58 = add nsw i32 %57, 1
+  %59 = sext i32 %58 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %59)
+          to label %60 unwind label %67
 
-59:                                               ; preds = %54
-  %60 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0)
-          to label %61 unwind label %66
+60:                                               ; preds = %55
+  %61 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0)
+          to label %62 unwind label %67
 
-61:                                               ; preds = %59
-  %62 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #9
-  %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %62, ptr noundef @.str, ptr noundef @.str.1) #9
-  %64 = call ptr @__cxa_allocate_exception(i64 40) #9
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss28IndexIVFIndependentQuantizerC2EPNS_5IndexEPNS_8IndexIVFEPNS_15VectorTransformE, ptr noundef @.str.2, i32 noundef 26)
-          to label %65 unwind label %70
+62:                                               ; preds = %60
+  %63 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #9
+  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %61, i64 noundef %63, ptr noundef @.str, ptr noundef @.str.1) #9
+  %65 = call ptr @__cxa_allocate_exception(i64 40) #9
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %65, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss28IndexIVFIndependentQuantizerC2EPNS_5IndexEPNS_8IndexIVFEPNS_15VectorTransformE, ptr noundef @.str.2, i32 noundef 26)
+          to label %66 unwind label %71
 
-65:                                               ; preds = %61
-  invoke void @__cxa_throw(ptr %64, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #11
-          to label %257 unwind label %66
+66:                                               ; preds = %62
+  invoke void @__cxa_throw(ptr %65, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #11
+          to label %258 unwind label %67
 
-66:                                               ; preds = %65, %59, %54
-  %67 = landingpad { ptr, i32 }
+67:                                               ; preds = %66, %60, %55
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %11, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %12, align 4
-  br label %74
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %11, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %12, align 4
+  br label %75
 
-70:                                               ; preds = %61
-  %71 = landingpad { ptr, i32 }
+71:                                               ; preds = %62
+  %72 = landingpad { ptr, i32 }
           cleanup
-  %72 = extractvalue { ptr, i32 } %71, 0
-  store ptr %72, ptr %11, align 8
-  %73 = extractvalue { ptr, i32 } %71, 1
-  store i32 %73, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %64) #9
-  br label %74
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %11, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %12, align 4
+  call void @__cxa_free_exception(ptr %65) #9
+  br label %75
 
-74:                                               ; preds = %70, %66
+75:                                               ; preds = %71, %67
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #9
-  br label %251
+  br label %252
 
-75:                                               ; No predecessors!
-  br label %76
-
-76:                                               ; preds = %75
+76:                                               ; No predecessors!
   br label %77
 
-77:                                               ; preds = %76, %45
+77:                                               ; preds = %76
   br label %78
 
-78:                                               ; preds = %77
+78:                                               ; preds = %77, %46
   br label %79
 
 79:                                               ; preds = %78
-  br label %115
+  br label %80
 
-80:                                               ; preds = %4
-  br label %81
+80:                                               ; preds = %79
+  br label %116
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr %7, align 8
-  %83 = getelementptr inbounds %"struct.faiss::Index", ptr %82, i32 0, i32 1
-  %84 = load i32, ptr %83, align 8
-  %85 = getelementptr inbounds %"struct.faiss::Index", ptr %20, i32 0, i32 1
-  %86 = load i32, ptr %85, align 8
-  %87 = icmp eq i32 %84, %86
-  br i1 %87, label %112, label %88
+81:                                               ; preds = %4
+  br label %82
 
-88:                                               ; preds = %81
-  br label %89
+82:                                               ; preds = %81
+  %83 = load ptr, ptr %7, align 8
+  %84 = getelementptr inbounds %"struct.faiss::Index", ptr %83, i32 0, i32 1
+  %85 = load i32, ptr %84, align 8
+  %86 = getelementptr inbounds %"struct.faiss::Index", ptr %20, i32 0, i32 1
+  %87 = load i32, ptr %86, align 8
+  %88 = icmp eq i32 %85, %87
+  br i1 %88, label %113, label %89
 
-89:                                               ; preds = %88
+89:                                               ; preds = %82
+  br label %90
+
+90:                                               ; preds = %89
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #9
-  %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.3) #9
-  store i32 %90, ptr %14, align 4
-  %91 = load i32, ptr %14, align 4
-  %92 = add nsw i32 %91, 1
-  %93 = sext i32 %92 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %93)
-          to label %94 unwind label %101
+  %91 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.3) #9
+  store i32 %91, ptr %14, align 4
+  %92 = load i32, ptr %14, align 4
+  %93 = add nsw i32 %92, 1
+  %94 = sext i32 %93 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %94)
+          to label %95 unwind label %102
 
-94:                                               ; preds = %89
-  %95 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 0)
-          to label %96 unwind label %101
+95:                                               ; preds = %90
+  %96 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 0)
+          to label %97 unwind label %102
 
-96:                                               ; preds = %94
-  %97 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #9
-  %98 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %95, i64 noundef %97, ptr noundef @.str, ptr noundef @.str.3) #9
-  %99 = call ptr @__cxa_allocate_exception(i64 40) #9
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %99, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss28IndexIVFIndependentQuantizerC2EPNS_5IndexEPNS_8IndexIVFEPNS_15VectorTransformE, ptr noundef @.str.2, i32 noundef 28)
-          to label %100 unwind label %105
+97:                                               ; preds = %95
+  %98 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #9
+  %99 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %96, i64 noundef %98, ptr noundef @.str, ptr noundef @.str.3) #9
+  %100 = call ptr @__cxa_allocate_exception(i64 40) #9
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %100, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss28IndexIVFIndependentQuantizerC2EPNS_5IndexEPNS_8IndexIVFEPNS_15VectorTransformE, ptr noundef @.str.2, i32 noundef 28)
+          to label %101 unwind label %106
 
-100:                                              ; preds = %96
-  invoke void @__cxa_throw(ptr %99, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #11
-          to label %257 unwind label %101
+101:                                              ; preds = %97
+  invoke void @__cxa_throw(ptr %100, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #11
+          to label %258 unwind label %102
 
-101:                                              ; preds = %100, %94, %89
-  %102 = landingpad { ptr, i32 }
+102:                                              ; preds = %101, %95, %90
+  %103 = landingpad { ptr, i32 }
           cleanup
-  %103 = extractvalue { ptr, i32 } %102, 0
-  store ptr %103, ptr %11, align 8
-  %104 = extractvalue { ptr, i32 } %102, 1
-  store i32 %104, ptr %12, align 4
-  br label %109
+  %104 = extractvalue { ptr, i32 } %103, 0
+  store ptr %104, ptr %11, align 8
+  %105 = extractvalue { ptr, i32 } %103, 1
+  store i32 %105, ptr %12, align 4
+  br label %110
 
-105:                                              ; preds = %96
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %97
+  %107 = landingpad { ptr, i32 }
           cleanup
-  %107 = extractvalue { ptr, i32 } %106, 0
-  store ptr %107, ptr %11, align 8
-  %108 = extractvalue { ptr, i32 } %106, 1
-  store i32 %108, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %99) #9
-  br label %109
+  %108 = extractvalue { ptr, i32 } %107, 0
+  store ptr %108, ptr %11, align 8
+  %109 = extractvalue { ptr, i32 } %107, 1
+  store i32 %109, ptr %12, align 4
+  call void @__cxa_free_exception(ptr %100) #9
+  br label %110
 
-109:                                              ; preds = %105, %101
+110:                                              ; preds = %106, %102
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #9
-  br label %251
+  br label %252
 
-110:                                              ; No predecessors!
-  br label %111
-
-111:                                              ; preds = %110
+111:                                              ; No predecessors!
   br label %112
 
-112:                                              ; preds = %111, %81
+112:                                              ; preds = %111
   br label %113
 
-113:                                              ; preds = %112
+113:                                              ; preds = %112, %82
   br label %114
 
 114:                                              ; preds = %113
   br label %115
 
-115:                                              ; preds = %114, %79
-  %116 = load ptr, ptr %6, align 8
-  %117 = getelementptr inbounds %"struct.faiss::Index", ptr %116, i32 0, i32 5
-  %118 = load i8, ptr %117, align 1
-  %119 = trunc i8 %118 to i1
-  br i1 %119, label %120, label %162
+115:                                              ; preds = %114
+  br label %116
 
-120:                                              ; preds = %115
-  %121 = load ptr, ptr %6, align 8
-  %122 = getelementptr inbounds %"struct.faiss::Index", ptr %121, i32 0, i32 3
-  %123 = load i64, ptr %122, align 8
-  %124 = icmp ne i64 %123, 0
-  br i1 %124, label %125, label %162
+116:                                              ; preds = %115, %80
+  %117 = load ptr, ptr %6, align 8
+  %118 = getelementptr inbounds %"struct.faiss::Index", ptr %117, i32 0, i32 5
+  %119 = load i8, ptr %118, align 1
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %121, label %163
 
-125:                                              ; preds = %120
-  br label %126
+121:                                              ; preds = %116
+  %122 = load ptr, ptr %6, align 8
+  %123 = getelementptr inbounds %"struct.faiss::Index", ptr %122, i32 0, i32 3
+  %124 = load i64, ptr %123, align 8
+  %125 = icmp ne i64 %124, 0
+  br i1 %125, label %126, label %163
 
-126:                                              ; preds = %125
-  %127 = load ptr, ptr %6, align 8
-  %128 = getelementptr inbounds %"struct.faiss::Index", ptr %127, i32 0, i32 3
-  %129 = load i64, ptr %128, align 8
-  %130 = load ptr, ptr %7, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 48
-  %132 = getelementptr inbounds %"struct.faiss::Level1Quantizer", ptr %131, i32 0, i32 1
-  %133 = load i64, ptr %132, align 8
-  %134 = icmp eq i64 %129, %133
-  br i1 %134, label %159, label %135
+126:                                              ; preds = %121
+  br label %127
 
-135:                                              ; preds = %126
-  br label %136
+127:                                              ; preds = %126
+  %128 = load ptr, ptr %6, align 8
+  %129 = getelementptr inbounds %"struct.faiss::Index", ptr %128, i32 0, i32 3
+  %130 = load i64, ptr %129, align 8
+  %131 = load ptr, ptr %7, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 48
+  %133 = getelementptr inbounds %"struct.faiss::Level1Quantizer", ptr %132, i32 0, i32 1
+  %134 = load i64, ptr %133, align 8
+  %135 = icmp eq i64 %130, %134
+  br i1 %135, label %160, label %136
 
-136:                                              ; preds = %135
+136:                                              ; preds = %127
+  br label %137
+
+137:                                              ; preds = %136
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #9
-  %137 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.4, ptr noundef @.str.5) #9
-  store i32 %137, ptr %16, align 4
-  %138 = load i32, ptr %16, align 4
-  %139 = add nsw i32 %138, 1
-  %140 = sext i32 %139 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %140)
-          to label %141 unwind label %148
+  %138 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.4, ptr noundef @.str.5) #9
+  store i32 %138, ptr %16, align 4
+  %139 = load i32, ptr %16, align 4
+  %140 = add nsw i32 %139, 1
+  %141 = sext i32 %140 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %141)
+          to label %142 unwind label %149
 
-141:                                              ; preds = %136
-  %142 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef 0)
-          to label %143 unwind label %148
+142:                                              ; preds = %137
+  %143 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef 0)
+          to label %144 unwind label %149
 
-143:                                              ; preds = %141
-  %144 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #9
-  %145 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %142, i64 noundef %144, ptr noundef @.str.4, ptr noundef @.str.5) #9
-  %146 = call ptr @__cxa_allocate_exception(i64 40) #9
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %146, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss28IndexIVFIndependentQuantizerC2EPNS_5IndexEPNS_8IndexIVFEPNS_15VectorTransformE, ptr noundef @.str.2, i32 noundef 32)
-          to label %147 unwind label %152
+144:                                              ; preds = %142
+  %145 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #9
+  %146 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %143, i64 noundef %145, ptr noundef @.str.4, ptr noundef @.str.5) #9
+  %147 = call ptr @__cxa_allocate_exception(i64 40) #9
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %147, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss28IndexIVFIndependentQuantizerC2EPNS_5IndexEPNS_8IndexIVFEPNS_15VectorTransformE, ptr noundef @.str.2, i32 noundef 32)
+          to label %148 unwind label %153
 
-147:                                              ; preds = %143
-  invoke void @__cxa_throw(ptr %146, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #11
-          to label %257 unwind label %148
+148:                                              ; preds = %144
+  invoke void @__cxa_throw(ptr %147, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #11
+          to label %258 unwind label %149
 
-148:                                              ; preds = %147, %141, %136
-  %149 = landingpad { ptr, i32 }
+149:                                              ; preds = %148, %142, %137
+  %150 = landingpad { ptr, i32 }
           cleanup
-  %150 = extractvalue { ptr, i32 } %149, 0
-  store ptr %150, ptr %11, align 8
-  %151 = extractvalue { ptr, i32 } %149, 1
-  store i32 %151, ptr %12, align 4
-  br label %156
+  %151 = extractvalue { ptr, i32 } %150, 0
+  store ptr %151, ptr %11, align 8
+  %152 = extractvalue { ptr, i32 } %150, 1
+  store i32 %152, ptr %12, align 4
+  br label %157
 
-152:                                              ; preds = %143
-  %153 = landingpad { ptr, i32 }
+153:                                              ; preds = %144
+  %154 = landingpad { ptr, i32 }
           cleanup
-  %154 = extractvalue { ptr, i32 } %153, 0
-  store ptr %154, ptr %11, align 8
-  %155 = extractvalue { ptr, i32 } %153, 1
-  store i32 %155, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %146) #9
-  br label %156
+  %155 = extractvalue { ptr, i32 } %154, 0
+  store ptr %155, ptr %11, align 8
+  %156 = extractvalue { ptr, i32 } %154, 1
+  store i32 %156, ptr %12, align 4
+  call void @__cxa_free_exception(ptr %147) #9
+  br label %157
 
-156:                                              ; preds = %152, %148
+157:                                              ; preds = %153, %149
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #9
-  br label %251
+  br label %252
 
-157:                                              ; No predecessors!
-  br label %158
-
-158:                                              ; preds = %157
+158:                                              ; No predecessors!
   br label %159
 
-159:                                              ; preds = %158, %126
+159:                                              ; preds = %158
   br label %160
 
-160:                                              ; preds = %159
+160:                                              ; preds = %159, %127
   br label %161
 
 161:                                              ; preds = %160
   br label %162
 
-162:                                              ; preds = %161, %120, %115
-  %163 = load ptr, ptr %7, align 8
-  %164 = getelementptr inbounds %"struct.faiss::Index", ptr %163, i32 0, i32 5
-  %165 = load i8, ptr %164, align 1
-  %166 = trunc i8 %165 to i1
-  br i1 %166, label %167, label %203
+162:                                              ; preds = %161
+  br label %163
 
-167:                                              ; preds = %162
-  %168 = load ptr, ptr %8, align 8
-  %169 = icmp ne ptr %168, null
-  br i1 %169, label %170, label %203
+163:                                              ; preds = %162, %121, %116
+  %164 = load ptr, ptr %7, align 8
+  %165 = getelementptr inbounds %"struct.faiss::Index", ptr %164, i32 0, i32 5
+  %166 = load i8, ptr %165, align 1
+  %167 = trunc i8 %166 to i1
+  br i1 %167, label %168, label %204
 
-170:                                              ; preds = %167
-  br label %171
+168:                                              ; preds = %163
+  %169 = load ptr, ptr %8, align 8
+  %170 = icmp ne ptr %169, null
+  br i1 %170, label %171, label %204
 
-171:                                              ; preds = %170
-  %172 = load ptr, ptr %8, align 8
-  %173 = getelementptr inbounds %"struct.faiss::VectorTransform", ptr %172, i32 0, i32 3
-  %174 = load i8, ptr %173, align 8
-  %175 = trunc i8 %174 to i1
-  br i1 %175, label %200, label %176
+171:                                              ; preds = %168
+  br label %172
 
-176:                                              ; preds = %171
-  br label %177
+172:                                              ; preds = %171
+  %173 = load ptr, ptr %8, align 8
+  %174 = getelementptr inbounds %"struct.faiss::VectorTransform", ptr %173, i32 0, i32 3
+  %175 = load i8, ptr %174, align 8
+  %176 = trunc i8 %175 to i1
+  br i1 %176, label %201, label %177
 
-177:                                              ; preds = %176
+177:                                              ; preds = %172
+  br label %178
+
+178:                                              ; preds = %177
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #9
-  %178 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.4, ptr noundef @.str.6) #9
-  store i32 %178, ptr %18, align 4
-  %179 = load i32, ptr %18, align 4
-  %180 = add nsw i32 %179, 1
-  %181 = sext i32 %180 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %181)
-          to label %182 unwind label %189
+  %179 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.4, ptr noundef @.str.6) #9
+  store i32 %179, ptr %18, align 4
+  %180 = load i32, ptr %18, align 4
+  %181 = add nsw i32 %180, 1
+  %182 = sext i32 %181 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %182)
+          to label %183 unwind label %190
 
-182:                                              ; preds = %177
-  %183 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0)
-          to label %184 unwind label %189
+183:                                              ; preds = %178
+  %184 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0)
+          to label %185 unwind label %190
 
-184:                                              ; preds = %182
-  %185 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #9
-  %186 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %183, i64 noundef %185, ptr noundef @.str.4, ptr noundef @.str.6) #9
-  %187 = call ptr @__cxa_allocate_exception(i64 40) #9
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %187, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss28IndexIVFIndependentQuantizerC2EPNS_5IndexEPNS_8IndexIVFEPNS_15VectorTransformE, ptr noundef @.str.2, i32 noundef 35)
-          to label %188 unwind label %193
+185:                                              ; preds = %183
+  %186 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #9
+  %187 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %184, i64 noundef %186, ptr noundef @.str.4, ptr noundef @.str.6) #9
+  %188 = call ptr @__cxa_allocate_exception(i64 40) #9
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %188, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss28IndexIVFIndependentQuantizerC2EPNS_5IndexEPNS_8IndexIVFEPNS_15VectorTransformE, ptr noundef @.str.2, i32 noundef 35)
+          to label %189 unwind label %194
 
-188:                                              ; preds = %184
-  invoke void @__cxa_throw(ptr %187, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #11
-          to label %257 unwind label %189
+189:                                              ; preds = %185
+  invoke void @__cxa_throw(ptr %188, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #11
+          to label %258 unwind label %190
 
-189:                                              ; preds = %188, %182, %177
-  %190 = landingpad { ptr, i32 }
+190:                                              ; preds = %189, %183, %178
+  %191 = landingpad { ptr, i32 }
           cleanup
-  %191 = extractvalue { ptr, i32 } %190, 0
-  store ptr %191, ptr %11, align 8
-  %192 = extractvalue { ptr, i32 } %190, 1
-  store i32 %192, ptr %12, align 4
-  br label %197
+  %192 = extractvalue { ptr, i32 } %191, 0
+  store ptr %192, ptr %11, align 8
+  %193 = extractvalue { ptr, i32 } %191, 1
+  store i32 %193, ptr %12, align 4
+  br label %198
 
-193:                                              ; preds = %184
-  %194 = landingpad { ptr, i32 }
+194:                                              ; preds = %185
+  %195 = landingpad { ptr, i32 }
           cleanup
-  %195 = extractvalue { ptr, i32 } %194, 0
-  store ptr %195, ptr %11, align 8
-  %196 = extractvalue { ptr, i32 } %194, 1
-  store i32 %196, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %187) #9
-  br label %197
+  %196 = extractvalue { ptr, i32 } %195, 0
+  store ptr %196, ptr %11, align 8
+  %197 = extractvalue { ptr, i32 } %195, 1
+  store i32 %197, ptr %12, align 4
+  call void @__cxa_free_exception(ptr %188) #9
+  br label %198
 
-197:                                              ; preds = %193, %189
+198:                                              ; preds = %194, %190
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #9
-  br label %251
+  br label %252
 
-198:                                              ; No predecessors!
-  br label %199
-
-199:                                              ; preds = %198
+199:                                              ; No predecessors!
   br label %200
 
-200:                                              ; preds = %199, %171
+200:                                              ; preds = %199
   br label %201
 
-201:                                              ; preds = %200
+201:                                              ; preds = %200, %172
   br label %202
 
 202:                                              ; preds = %201
   br label %203
 
-203:                                              ; preds = %202, %167, %162
-  %204 = load ptr, ptr %7, align 8
-  %205 = getelementptr inbounds %"struct.faiss::Index", ptr %204, i32 0, i32 3
-  %206 = load i64, ptr %205, align 8
-  %207 = getelementptr inbounds %"struct.faiss::Index", ptr %20, i32 0, i32 3
-  store i64 %206, ptr %207, align 8
-  %208 = load ptr, ptr %6, align 8
-  %209 = getelementptr inbounds %"struct.faiss::Index", ptr %208, i32 0, i32 5
-  %210 = load i8, ptr %209, align 1
-  %211 = trunc i8 %210 to i1
-  br i1 %211, label %212, label %234
+203:                                              ; preds = %202
+  br label %204
 
-212:                                              ; preds = %203
-  %213 = load ptr, ptr %6, align 8
-  %214 = getelementptr inbounds %"struct.faiss::Index", ptr %213, i32 0, i32 3
-  %215 = load i64, ptr %214, align 8
-  %216 = load ptr, ptr %7, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 48
-  %218 = getelementptr inbounds %"struct.faiss::Level1Quantizer", ptr %217, i32 0, i32 1
-  %219 = load i64, ptr %218, align 8
-  %220 = icmp eq i64 %215, %219
-  br i1 %220, label %221, label %234
+204:                                              ; preds = %203, %168, %163
+  %205 = load ptr, ptr %7, align 8
+  %206 = getelementptr inbounds %"struct.faiss::Index", ptr %205, i32 0, i32 3
+  %207 = load i64, ptr %206, align 8
+  %208 = getelementptr inbounds %"struct.faiss::Index", ptr %20, i32 0, i32 3
+  store i64 %207, ptr %208, align 8
+  %209 = load ptr, ptr %6, align 8
+  %210 = getelementptr inbounds %"struct.faiss::Index", ptr %209, i32 0, i32 5
+  %211 = load i8, ptr %210, align 1
+  %212 = trunc i8 %211 to i1
+  br i1 %212, label %213, label %235
 
-221:                                              ; preds = %212
-  %222 = load ptr, ptr %8, align 8
-  %223 = icmp ne ptr %222, null
-  br i1 %223, label %224, label %229
+213:                                              ; preds = %204
+  %214 = load ptr, ptr %6, align 8
+  %215 = getelementptr inbounds %"struct.faiss::Index", ptr %214, i32 0, i32 3
+  %216 = load i64, ptr %215, align 8
+  %217 = load ptr, ptr %7, align 8
+  %218 = getelementptr inbounds i8, ptr %217, i64 48
+  %219 = getelementptr inbounds %"struct.faiss::Level1Quantizer", ptr %218, i32 0, i32 1
+  %220 = load i64, ptr %219, align 8
+  %221 = icmp eq i64 %216, %220
+  br i1 %221, label %222, label %235
 
-224:                                              ; preds = %221
-  %225 = load ptr, ptr %8, align 8
-  %226 = getelementptr inbounds %"struct.faiss::VectorTransform", ptr %225, i32 0, i32 3
-  %227 = load i8, ptr %226, align 8
-  %228 = trunc i8 %227 to i1
-  br i1 %228, label %229, label %234
+222:                                              ; preds = %213
+  %223 = load ptr, ptr %8, align 8
+  %224 = icmp ne ptr %223, null
+  br i1 %224, label %225, label %230
 
-229:                                              ; preds = %224, %221
-  %230 = load ptr, ptr %7, align 8
-  %231 = getelementptr inbounds %"struct.faiss::Index", ptr %230, i32 0, i32 5
-  %232 = load i8, ptr %231, align 1
-  %233 = trunc i8 %232 to i1
-  br label %234
+225:                                              ; preds = %222
+  %226 = load ptr, ptr %8, align 8
+  %227 = getelementptr inbounds %"struct.faiss::VectorTransform", ptr %226, i32 0, i32 3
+  %228 = load i8, ptr %227, align 8
+  %229 = trunc i8 %228 to i1
+  br i1 %229, label %230, label %235
 
-234:                                              ; preds = %229, %224, %212, %203
-  %235 = phi i1 [ false, %224 ], [ false, %212 ], [ false, %203 ], [ %233, %229 ]
-  %236 = getelementptr inbounds %"struct.faiss::Index", ptr %20, i32 0, i32 5
-  %237 = zext i1 %235 to i8
-  store i8 %237, ptr %236, align 1
-  %238 = load ptr, ptr %7, align 8
-  %239 = icmp eq ptr %238, null
-  br i1 %239, label %242, label %240
+230:                                              ; preds = %225, %222
+  %231 = load ptr, ptr %7, align 8
+  %232 = getelementptr inbounds %"struct.faiss::Index", ptr %231, i32 0, i32 5
+  %233 = load i8, ptr %232, align 1
+  %234 = trunc i8 %233 to i1
+  br label %235
 
-240:                                              ; preds = %234
-  %241 = call ptr @__dynamic_cast(ptr %238, ptr @_ZTIN5faiss8IndexIVFE, ptr @_ZTIN5faiss10IndexIVFPQE, i64 0) #9
-  br label %243
+235:                                              ; preds = %230, %225, %213, %204
+  %236 = phi i1 [ false, %225 ], [ false, %213 ], [ false, %204 ], [ %234, %230 ]
+  %237 = getelementptr inbounds %"struct.faiss::Index", ptr %20, i32 0, i32 5
+  %238 = zext i1 %236 to i8
+  store i8 %238, ptr %237, align 1
+  %239 = load ptr, ptr %7, align 8
+  %240 = icmp eq ptr %239, null
+  br i1 %240, label %243, label %241
 
-242:                                              ; preds = %234
-  br label %243
+241:                                              ; preds = %235
+  %242 = call ptr @__dynamic_cast(ptr %239, ptr @_ZTIN5faiss8IndexIVFE, ptr @_ZTIN5faiss10IndexIVFPQE, i64 0) #9
+  br label %244
 
-243:                                              ; preds = %242, %240
-  %244 = phi ptr [ %241, %240 ], [ null, %242 ]
-  store ptr %244, ptr %19, align 8
-  %245 = load ptr, ptr %19, align 8
-  %246 = icmp ne ptr %245, null
-  br i1 %246, label %247, label %250
+243:                                              ; preds = %235
+  br label %244
 
-247:                                              ; preds = %243
-  %248 = load ptr, ptr %19, align 8
-  %249 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %248, i32 0, i32 6
-  store i32 -1, ptr %249, align 4
-  br label %250
+244:                                              ; preds = %243, %241
+  %245 = phi ptr [ %242, %241 ], [ null, %243 ]
+  store ptr %245, ptr %19, align 8
+  %246 = load ptr, ptr %19, align 8
+  %247 = icmp ne ptr %246, null
+  br i1 %247, label %248, label %251
 
-250:                                              ; preds = %247, %243
+248:                                              ; preds = %244
+  %249 = load ptr, ptr %19, align 8
+  %250 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %249, i32 0, i32 6
+  store i32 -1, ptr %250, align 4
+  br label %251
+
+251:                                              ; preds = %248, %244
   ret void
 
-251:                                              ; preds = %197, %156, %109, %74
+252:                                              ; preds = %198, %157, %110, %75
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %20) #9
-  br label %252
+  br label %253
 
-252:                                              ; preds = %251
-  %253 = load ptr, ptr %11, align 8
-  %254 = load i32, ptr %12, align 4
-  %255 = insertvalue { ptr, i32 } poison, ptr %253, 0
-  %256 = insertvalue { ptr, i32 } %255, i32 %254, 1
-  resume { ptr, i32 } %256
+253:                                              ; preds = %252
+  %254 = load ptr, ptr %11, align 8
+  %255 = load i32, ptr %12, align 4
+  %256 = insertvalue { ptr, i32 } poison, ptr %254, 0
+  %257 = insertvalue { ptr, i32 } %256, i32 %255, 1
+  resume { ptr, i32 } %257
 
-257:                                              ; preds = %188, %147, %100, %65
+258:                                              ; preds = %189, %148, %101, %66
   unreachable
 }
 
@@ -1609,22 +1610,23 @@ define linkonce_odr void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnul
   store i64 %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %5, align 8
-  %10 = trunc i64 %9 to i32
-  store i32 %10, ptr %8, align 8
-  %11 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 3
-  store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 4
-  store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 5
-  store i8 1, ptr %13, align 1
-  %14 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 7
-  %15 = load i32, ptr %6, align 4
-  store i32 %15, ptr %14, align 4
-  %16 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 8
-  store float 0.000000e+00, ptr %16, align 8
+  %8 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %5, align 8
+  %11 = trunc i64 %10 to i32
+  store i32 %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 3
+  store i64 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 4
+  store i8 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 5
+  store i8 1, ptr %14, align 1
+  %15 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 7
+  %16 = load i32, ptr %6, align 4
+  store i32 %16, ptr %15, align 4
+  %17 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 8
+  store float 0.000000e+00, ptr %17, align 8
   ret void
 }
 
@@ -1654,9 +1656,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   ret void
 }
@@ -1680,55 +1683,56 @@ define void @_ZN5faiss28IndexIVFIndependentQuantizerD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss28IndexIVFIndependentQuantizerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %3, i32 0, i32 5
-  %5 = load i8, ptr %4, align 8
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %32
+  %4 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss28IndexIVFIndependentQuantizerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %3, i32 0, i32 5
+  %6 = load i8, ptr %5, align 8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %33
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %3, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %15, label %11
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %3, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %16, label %12
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 1
-  %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(36) %9) #9
-  br label %15
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %10, align 8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 1
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(36) %10) #9
+  br label %16
 
-15:                                               ; preds = %11, %7
-  %16 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %3, i32 0, i32 4
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %23, label %19
+16:                                               ; preds = %12, %8
+  %17 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %3, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %24, label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 1
-  %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(257) %17) #9
-  br label %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %18, align 8
+  %22 = getelementptr inbounds ptr, ptr %21, i64 1
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(257) %18) #9
+  br label %24
 
-23:                                               ; preds = %19, %15
-  %24 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %3, i32 0, i32 3
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %31, label %27
+24:                                               ; preds = %20, %16
+  %25 = getelementptr inbounds %"struct.faiss::IndexIVFIndependentQuantizer", ptr %3, i32 0, i32 3
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %32, label %28
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 5
-  %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(17) %25) #9
-  br label %31
-
-31:                                               ; preds = %27, %23
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %26, align 8
+  %30 = getelementptr inbounds ptr, ptr %29, i64 5
+  %31 = load ptr, ptr %30, align 8
+  call void %31(ptr noundef nonnull align 8 dereferenceable(17) %26) #9
   br label %32
 
-32:                                               ; preds = %31, %1
+32:                                               ; preds = %28, %24
+  br label %33
+
+33:                                               ; preds = %32, %1
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #9
   ret void
 }

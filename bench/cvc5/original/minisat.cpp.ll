@@ -1531,9 +1531,11 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop16MinisatSatSolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop16MinisatSatSolverE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop16MinisatSatSolverE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop16MinisatSatSolverE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %d_minisat = getelementptr inbounds %"class.cvc5::internal::prop::MinisatSatSolver", ptr %this1, i32 0, i32 2
   store ptr null, ptr %d_minisat, align 8
   %d_context = getelementptr inbounds %"class.cvc5::internal::prop::MinisatSatSolver", ptr %this1, i32 0, i32 3
@@ -1542,32 +1544,32 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.memset.p0.i64(ptr align 8 %d_assumptions, i8 0, i64 56, i1 false)
   call void @_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_assumptions) #3
   %d_statistics = getelementptr inbounds %"class.cvc5::internal::prop::MinisatSatSolver", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %registry.addr, align 8
-  invoke void @_ZN4cvc58internal4prop16MinisatSatSolver10StatisticsC1ERNS0_18StatisticsRegistryE(ptr noundef nonnull align 8 dereferenceable(72) %d_statistics, ptr noundef nonnull align 8 dereferenceable(72) %2)
+  %4 = load ptr, ptr %registry.addr, align 8
+  invoke void @_ZN4cvc58internal4prop16MinisatSatSolver10StatisticsC1ERNS0_18StatisticsRegistryE(ptr noundef nonnull align 8 dereferenceable(72) %d_statistics, ptr noundef nonnull align 8 dereferenceable(72) %4)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_assumptions) #3
-  %9 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  %11 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
@@ -1589,7 +1591,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal4prop9SatSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN4cvc58internal4prop14CDCLTSatSolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN4cvc58internal4prop14CDCLTSatSolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1636,24 +1639,26 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop16MinisatSatSolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop16MinisatSatSolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop16MinisatSatSolverE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop16MinisatSatSolverE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %d_statistics = getelementptr inbounds %"class.cvc5::internal::prop::MinisatSatSolver", ptr %this1, i32 0, i32 5
   invoke void @_ZN4cvc58internal4prop16MinisatSatSolver10Statistics6deinitEv(ptr noundef nonnull align 8 dereferenceable(72) %d_statistics)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %d_minisat = getelementptr inbounds %"class.cvc5::internal::prop::MinisatSatSolver", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %d_minisat, align 8
-  %isnull = icmp eq ptr %0, null
+  %2 = load ptr, ptr %d_minisat, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont
-  %vtable = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(1108) %0) #3
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(1108) %2) #3
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont
@@ -1661,16 +1666,16 @@ delete.end:                                       ; preds = %delete.notnull, %in
   call void @_ZN4cvc58internal4prop16MinisatSatSolver10StatisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %d_statistics2) #3
   %d_assumptions = getelementptr inbounds %"class.cvc5::internal::prop::MinisatSatSolver", ptr %this1, i32 0, i32 4
   call void @_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_assumptions) #3
-  %2 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #3
+  %4 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   call void @_ZN4cvc58internal4prop14CDCLTSatSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #18
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #18
   unreachable
 }
 
@@ -5637,7 +5642,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4cvc58internal4prop9SatSolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4cvc58internal4prop9SatSolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12730,7 +12736,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal18StatisticBaseValueC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal23StatisticReferenceValueIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc58internal23StatisticReferenceValueIlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_value = getelementptr inbounds %"struct.cvc5::internal::StatisticReferenceValue", ptr %this1, i32 0, i32 1
   store ptr null, ptr %d_value, align 8
   %d_committed = getelementptr inbounds %"struct.cvc5::internal::StatisticReferenceValue", ptr %this1, i32 0, i32 2
@@ -12768,7 +12775,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal18StatisticBaseValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc58internal18StatisticBaseValueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_internal = getelementptr inbounds %"struct.cvc5::internal::StatisticBaseValue", ptr %this1, i32 0, i32 1
   store i8 1, ptr %d_internal, align 8
   ret void

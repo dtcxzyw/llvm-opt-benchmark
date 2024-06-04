@@ -19328,16 +19328,17 @@ define hidden ptr @ir_mem_mmap(i64 noundef %0) #0 {
   %7 = call ptr @mmap(ptr noundef null, i64 noundef %5, i32 noundef %6, i32 noundef 34, i32 noundef -1, i64 noundef 0) #11
   store ptr %7, ptr %4, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
-  br i1 %9, label %10, label %11
+  %9 = inttoptr i64 -1 to ptr
+  %10 = icmp eq ptr %8, %9
+  br i1 %10, label %11, label %12
 
-10:                                               ; preds = %1
+11:                                               ; preds = %1
   store ptr null, ptr %4, align 8
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %1
-  %12 = load ptr, ptr %4, align 8
-  ret ptr %12
+12:                                               ; preds = %11, %1
+  %13 = load ptr, ptr %4, align 8
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind

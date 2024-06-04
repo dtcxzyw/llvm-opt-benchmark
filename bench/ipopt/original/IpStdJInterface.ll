@@ -265,292 +265,293 @@ define void @_ZN6JipoptC2EP7JNIEnv_P8_jobjectiiiii(ptr noundef nonnull align 8 d
   store i32 %7, ptr %16, align 4
   %20 = load ptr, ptr %9, align 8
   call void @_ZN5Ipopt4TNLPC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %20)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV6Jipopt, i32 0, i32 0, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %10, align 8
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 2
-  %24 = load ptr, ptr %11, align 8
-  store ptr %24, ptr %23, align 8
-  %25 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 3
-  %26 = load i32, ptr %12, align 4
-  store i32 %26, ptr %25, align 8
-  %27 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 4
-  %28 = load i32, ptr %13, align 4
-  store i32 %28, ptr %27, align 4
-  %29 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 5
-  %30 = load i32, ptr %14, align 4
-  store i32 %30, ptr %29, align 8
-  %31 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 6
-  %32 = load i32, ptr %15, align 4
-  store i32 %32, ptr %31, align 4
-  %33 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 7
-  %34 = load i32, ptr %16, align 4
-  store i32 %34, ptr %33, align 8
-  %35 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 8
-  store ptr null, ptr %35, align 8
-  %36 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 9
+  %21 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTV6Jipopt, i32 0, i32 0, i32 2
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
+  %23 = load ptr, ptr %10, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 2
+  %25 = load ptr, ptr %11, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 3
+  %27 = load i32, ptr %12, align 4
+  store i32 %27, ptr %26, align 8
+  %28 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 4
+  %29 = load i32, ptr %13, align 4
+  store i32 %29, ptr %28, align 4
+  %30 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 5
+  %31 = load i32, ptr %14, align 4
+  store i32 %31, ptr %30, align 8
+  %32 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 6
+  %33 = load i32, ptr %15, align 4
+  store i32 %33, ptr %32, align 4
+  %34 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 7
+  %35 = load i32, ptr %16, align 4
+  store i32 %35, ptr %34, align 8
+  %36 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 8
   store ptr null, ptr %36, align 8
-  %37 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 10
+  %37 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 9
   store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 11
+  %38 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 10
   store ptr null, ptr %38, align 8
-  %39 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 12
+  %39 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 11
   store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 13
+  %40 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 12
   store ptr null, ptr %40, align 8
-  %41 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 14
+  %41 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 13
   store ptr null, ptr %41, align 8
-  %42 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 15
+  %42 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 14
   store ptr null, ptr %42, align 8
-  %43 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 16
+  %43 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 15
   store ptr null, ptr %43, align 8
-  %44 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 17
-  store i8 0, ptr %44, align 8
-  %45 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 18
-  store i8 0, ptr %45, align 1
-  %46 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 19
-  %47 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 96) #13
-          to label %48 unwind label %172
+  %44 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 16
+  store ptr null, ptr %44, align 8
+  %45 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 17
+  store i8 0, ptr %45, align 8
+  %46 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 18
+  store i8 0, ptr %46, align 1
+  %47 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 19
+  %48 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 96) #13
+          to label %49 unwind label %173
 
-48:                                               ; preds = %8
-  invoke void @_ZN5Ipopt16IpoptApplicationC1Ebb(ptr noundef nonnull align 8 dereferenceable(90) %47, i1 noundef zeroext true, i1 noundef zeroext false)
-          to label %49 unwind label %176
-
-49:                                               ; preds = %48
-  invoke void @_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef %47)
-          to label %50 unwind label %172
+49:                                               ; preds = %8
+  invoke void @_ZN5Ipopt16IpoptApplicationC1Ebb(ptr noundef nonnull align 8 dereferenceable(90) %48, i1 noundef zeroext true, i1 noundef zeroext false)
+          to label %50 unwind label %177
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 19
-  %52 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_16IpoptApplicationEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %51)
-          to label %53 unwind label %180
+  invoke void @_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef %48)
+          to label %51 unwind label %173
 
-53:                                               ; preds = %50
-  %54 = invoke noundef zeroext i1 @_ZN5Ipopt16IpoptApplication24RethrowNonIpoptExceptionEb(ptr noundef nonnull align 8 dereferenceable(90) %52, i1 noundef zeroext false)
-          to label %55 unwind label %180
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 19
+  %53 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_16IpoptApplicationEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %52)
+          to label %54 unwind label %181
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 2
-  %59 = load ptr, ptr %58, align 8
-  %60 = invoke noundef ptr @_ZN7JNIEnv_14GetObjectClassEP8_jobject(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef %59)
-          to label %61 unwind label %180
+54:                                               ; preds = %51
+  %55 = invoke noundef zeroext i1 @_ZN5Ipopt16IpoptApplication24RethrowNonIpoptExceptionEb(ptr noundef nonnull align 8 dereferenceable(90) %53, i1 noundef zeroext false)
+          to label %56 unwind label %181
 
-61:                                               ; preds = %55
-  store ptr %60, ptr %19, align 8
-  %62 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %19, align 8
-  %65 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef %64, ptr noundef @.str, ptr noundef @.str.1)
-          to label %66 unwind label %180
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 2
+  %60 = load ptr, ptr %59, align 8
+  %61 = invoke noundef ptr @_ZN7JNIEnv_14GetObjectClassEP8_jobject(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %60)
+          to label %62 unwind label %181
 
-66:                                               ; preds = %61
-  %67 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 20
-  store ptr %65, ptr %67, align 8
-  %68 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %19, align 8
-  %71 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef %70, ptr noundef @.str.2, ptr noundef @.str.3)
-          to label %72 unwind label %180
+62:                                               ; preds = %56
+  store ptr %61, ptr %19, align 8
+  %63 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %19, align 8
+  %66 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %65, ptr noundef @.str, ptr noundef @.str.1)
+          to label %67 unwind label %181
 
-72:                                               ; preds = %66
-  %73 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 21
-  store ptr %71, ptr %73, align 8
-  %74 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
-  %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %19, align 8
-  %77 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef %76, ptr noundef @.str.4, ptr noundef @.str.5)
-          to label %78 unwind label %180
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 20
+  store ptr %66, ptr %68, align 8
+  %69 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8
+  %71 = load ptr, ptr %19, align 8
+  %72 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef %71, ptr noundef @.str.2, ptr noundef @.str.3)
+          to label %73 unwind label %181
 
-78:                                               ; preds = %72
-  %79 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 22
-  store ptr %77, ptr %79, align 8
-  %80 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %19, align 8
-  %83 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef %82, ptr noundef @.str.6, ptr noundef @.str.5)
-          to label %84 unwind label %180
+73:                                               ; preds = %67
+  %74 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 21
+  store ptr %72, ptr %74, align 8
+  %75 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %19, align 8
+  %78 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef %77, ptr noundef @.str.4, ptr noundef @.str.5)
+          to label %79 unwind label %181
 
-84:                                               ; preds = %78
-  %85 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 23
-  store ptr %83, ptr %85, align 8
-  %86 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
-  %87 = load ptr, ptr %86, align 8
-  %88 = load ptr, ptr %19, align 8
-  %89 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef %88, ptr noundef @.str.7, ptr noundef @.str.8)
-          to label %90 unwind label %180
+79:                                               ; preds = %73
+  %80 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 22
+  store ptr %78, ptr %80, align 8
+  %81 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr %19, align 8
+  %84 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef %83, ptr noundef @.str.6, ptr noundef @.str.5)
+          to label %85 unwind label %181
 
-90:                                               ; preds = %84
-  %91 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 24
-  store ptr %89, ptr %91, align 8
-  %92 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %19, align 8
-  %95 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef %94, ptr noundef @.str.9, ptr noundef @.str.10)
-          to label %96 unwind label %180
+85:                                               ; preds = %79
+  %86 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 23
+  store ptr %84, ptr %86, align 8
+  %87 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
+  %88 = load ptr, ptr %87, align 8
+  %89 = load ptr, ptr %19, align 8
+  %90 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef %89, ptr noundef @.str.7, ptr noundef @.str.8)
+          to label %91 unwind label %181
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 25
-  store ptr %95, ptr %97, align 8
-  %98 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
-  %99 = load ptr, ptr %98, align 8
-  %100 = load ptr, ptr %19, align 8
-  %101 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef %100, ptr noundef @.str.11, ptr noundef @.str.12)
-          to label %102 unwind label %180
+91:                                               ; preds = %85
+  %92 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 24
+  store ptr %90, ptr %92, align 8
+  %93 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
+  %94 = load ptr, ptr %93, align 8
+  %95 = load ptr, ptr %19, align 8
+  %96 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef %95, ptr noundef @.str.9, ptr noundef @.str.10)
+          to label %97 unwind label %181
 
-102:                                              ; preds = %96
-  %103 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 26
-  store ptr %101, ptr %103, align 8
-  %104 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
-  %105 = load ptr, ptr %104, align 8
-  %106 = load ptr, ptr %19, align 8
-  %107 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef %106, ptr noundef @.str.13, ptr noundef @.str.14)
-          to label %108 unwind label %180
+97:                                               ; preds = %91
+  %98 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 25
+  store ptr %96, ptr %98, align 8
+  %99 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
+  %100 = load ptr, ptr %99, align 8
+  %101 = load ptr, ptr %19, align 8
+  %102 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef %101, ptr noundef @.str.11, ptr noundef @.str.12)
+          to label %103 unwind label %181
 
-108:                                              ; preds = %102
-  %109 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 28
-  store ptr %107, ptr %109, align 8
-  %110 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
-  %111 = load ptr, ptr %110, align 8
-  %112 = load ptr, ptr %19, align 8
-  %113 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef %112, ptr noundef @.str.15, ptr noundef @.str.16)
-          to label %114 unwind label %180
+103:                                              ; preds = %97
+  %104 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 26
+  store ptr %102, ptr %104, align 8
+  %105 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
+  %106 = load ptr, ptr %105, align 8
+  %107 = load ptr, ptr %19, align 8
+  %108 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef %107, ptr noundef @.str.13, ptr noundef @.str.14)
+          to label %109 unwind label %181
 
-114:                                              ; preds = %108
-  %115 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 27
-  store ptr %113, ptr %115, align 8
-  %116 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
-  %117 = load ptr, ptr %116, align 8
-  %118 = load ptr, ptr %19, align 8
-  %119 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef %118, ptr noundef @.str.17, ptr noundef @.str.18)
-          to label %120 unwind label %180
+109:                                              ; preds = %103
+  %110 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 28
+  store ptr %108, ptr %110, align 8
+  %111 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
+  %112 = load ptr, ptr %111, align 8
+  %113 = load ptr, ptr %19, align 8
+  %114 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %112, ptr noundef %113, ptr noundef @.str.15, ptr noundef @.str.16)
+          to label %115 unwind label %181
 
-120:                                              ; preds = %114
-  %121 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 29
-  store ptr %119, ptr %121, align 8
-  %122 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
-  %123 = load ptr, ptr %122, align 8
-  %124 = load ptr, ptr %19, align 8
-  %125 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef %124, ptr noundef @.str.19, ptr noundef @.str.20)
-          to label %126 unwind label %180
+115:                                              ; preds = %109
+  %116 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 27
+  store ptr %114, ptr %116, align 8
+  %117 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
+  %118 = load ptr, ptr %117, align 8
+  %119 = load ptr, ptr %19, align 8
+  %120 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef %119, ptr noundef @.str.17, ptr noundef @.str.18)
+          to label %121 unwind label %181
 
-126:                                              ; preds = %120
-  %127 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 30
-  store ptr %125, ptr %127, align 8
-  %128 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 20
-  %129 = load ptr, ptr %128, align 8
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %167, label %131
+121:                                              ; preds = %115
+  %122 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 29
+  store ptr %120, ptr %122, align 8
+  %123 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 1
+  %124 = load ptr, ptr %123, align 8
+  %125 = load ptr, ptr %19, align 8
+  %126 = invoke noundef ptr @_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef %125, ptr noundef @.str.19, ptr noundef @.str.20)
+          to label %127 unwind label %181
 
-131:                                              ; preds = %126
-  %132 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 21
-  %133 = load ptr, ptr %132, align 8
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %167, label %135
+127:                                              ; preds = %121
+  %128 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 30
+  store ptr %126, ptr %128, align 8
+  %129 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 20
+  %130 = load ptr, ptr %129, align 8
+  %131 = icmp eq ptr %130, null
+  br i1 %131, label %168, label %132
 
-135:                                              ; preds = %131
-  %136 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 22
-  %137 = load ptr, ptr %136, align 8
-  %138 = icmp eq ptr %137, null
-  br i1 %138, label %167, label %139
+132:                                              ; preds = %127
+  %133 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 21
+  %134 = load ptr, ptr %133, align 8
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %168, label %136
 
-139:                                              ; preds = %135
-  %140 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 23
-  %141 = load ptr, ptr %140, align 8
-  %142 = icmp eq ptr %141, null
-  br i1 %142, label %167, label %143
+136:                                              ; preds = %132
+  %137 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 22
+  %138 = load ptr, ptr %137, align 8
+  %139 = icmp eq ptr %138, null
+  br i1 %139, label %168, label %140
 
-143:                                              ; preds = %139
-  %144 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 24
-  %145 = load ptr, ptr %144, align 8
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %167, label %147
+140:                                              ; preds = %136
+  %141 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 23
+  %142 = load ptr, ptr %141, align 8
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %168, label %144
 
-147:                                              ; preds = %143
-  %148 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 25
-  %149 = load ptr, ptr %148, align 8
-  %150 = icmp eq ptr %149, null
-  br i1 %150, label %167, label %151
+144:                                              ; preds = %140
+  %145 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 24
+  %146 = load ptr, ptr %145, align 8
+  %147 = icmp eq ptr %146, null
+  br i1 %147, label %168, label %148
 
-151:                                              ; preds = %147
-  %152 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 26
-  %153 = load ptr, ptr %152, align 8
-  %154 = icmp eq ptr %153, null
-  br i1 %154, label %167, label %155
+148:                                              ; preds = %144
+  %149 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 25
+  %150 = load ptr, ptr %149, align 8
+  %151 = icmp eq ptr %150, null
+  br i1 %151, label %168, label %152
 
-155:                                              ; preds = %151
-  %156 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 28
-  %157 = load ptr, ptr %156, align 8
-  %158 = icmp eq ptr %157, null
-  br i1 %158, label %167, label %159
+152:                                              ; preds = %148
+  %153 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 26
+  %154 = load ptr, ptr %153, align 8
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %168, label %156
 
-159:                                              ; preds = %155
-  %160 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 29
-  %161 = load ptr, ptr %160, align 8
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %167, label %163
+156:                                              ; preds = %152
+  %157 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 28
+  %158 = load ptr, ptr %157, align 8
+  %159 = icmp eq ptr %158, null
+  br i1 %159, label %168, label %160
 
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 30
-  %165 = load ptr, ptr %164, align 8
-  %166 = icmp eq ptr %165, null
-  br i1 %166, label %167, label %184
+160:                                              ; preds = %156
+  %161 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 29
+  %162 = load ptr, ptr %161, align 8
+  %163 = icmp eq ptr %162, null
+  br i1 %163, label %168, label %164
 
-167:                                              ; preds = %163, %159, %155, %151, %147, %143, %139, %135, %131, %126
-  %168 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef @.str.21)
-          to label %169 unwind label %180
+164:                                              ; preds = %160
+  %165 = getelementptr inbounds %class.Jipopt, ptr %20, i32 0, i32 30
+  %166 = load ptr, ptr %165, align 8
+  %167 = icmp eq ptr %166, null
+  br i1 %167, label %168, label %185
 
-169:                                              ; preds = %167
-  %170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %168, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %171 unwind label %180
+168:                                              ; preds = %164, %160, %156, %152, %148, %144, %140, %136, %132, %127
+  %169 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef @.str.21)
+          to label %170 unwind label %181
 
-171:                                              ; preds = %169
-  br label %184
+170:                                              ; preds = %168
+  %171 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %169, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %172 unwind label %181
 
-172:                                              ; preds = %49, %8
-  %173 = landingpad { ptr, i32 }
-          cleanup
-  %174 = extractvalue { ptr, i32 } %173, 0
-  store ptr %174, ptr %17, align 8
-  %175 = extractvalue { ptr, i32 } %173, 1
-  store i32 %175, ptr %18, align 4
+172:                                              ; preds = %170
   br label %185
 
-176:                                              ; preds = %48
-  %177 = landingpad { ptr, i32 }
+173:                                              ; preds = %50, %8
+  %174 = landingpad { ptr, i32 }
           cleanup
-  %178 = extractvalue { ptr, i32 } %177, 0
-  store ptr %178, ptr %17, align 8
-  %179 = extractvalue { ptr, i32 } %177, 1
-  store i32 %179, ptr %18, align 4
-  call void @_ZdlPv(ptr noundef %47) #14
-  br label %185
-
-180:                                              ; preds = %169, %167, %120, %114, %108, %102, %96, %90, %84, %78, %72, %66, %61, %55, %53, %50
-  %181 = landingpad { ptr, i32 }
-          cleanup
-  %182 = extractvalue { ptr, i32 } %181, 0
-  store ptr %182, ptr %17, align 8
-  %183 = extractvalue { ptr, i32 } %181, 1
-  store i32 %183, ptr %18, align 4
-  call void @_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #3
-  br label %185
-
-184:                                              ; preds = %171, %163
-  ret void
-
-185:                                              ; preds = %180, %176, %172
-  call void @_ZN5Ipopt4TNLPD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %20) #3
+  %175 = extractvalue { ptr, i32 } %174, 0
+  store ptr %175, ptr %17, align 8
+  %176 = extractvalue { ptr, i32 } %174, 1
+  store i32 %176, ptr %18, align 4
   br label %186
 
-186:                                              ; preds = %185
-  %187 = load ptr, ptr %17, align 8
-  %188 = load i32, ptr %18, align 4
-  %189 = insertvalue { ptr, i32 } poison, ptr %187, 0
-  %190 = insertvalue { ptr, i32 } %189, i32 %188, 1
-  resume { ptr, i32 } %190
+177:                                              ; preds = %49
+  %178 = landingpad { ptr, i32 }
+          cleanup
+  %179 = extractvalue { ptr, i32 } %178, 0
+  store ptr %179, ptr %17, align 8
+  %180 = extractvalue { ptr, i32 } %178, 1
+  store i32 %180, ptr %18, align 4
+  call void @_ZdlPv(ptr noundef %48) #14
+  br label %186
+
+181:                                              ; preds = %170, %168, %121, %115, %109, %103, %97, %91, %85, %79, %73, %67, %62, %56, %54, %51
+  %182 = landingpad { ptr, i32 }
+          cleanup
+  %183 = extractvalue { ptr, i32 } %182, 0
+  store ptr %183, ptr %17, align 8
+  %184 = extractvalue { ptr, i32 } %182, 1
+  store i32 %184, ptr %18, align 4
+  call void @_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #3
+  br label %186
+
+185:                                              ; preds = %172, %164
+  ret void
+
+186:                                              ; preds = %181, %177, %173
+  call void @_ZN5Ipopt4TNLPD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %20) #3
+  br label %187
+
+187:                                              ; preds = %186
+  %188 = load ptr, ptr %17, align 8
+  %189 = load i32, ptr %18, align 4
+  %190 = insertvalue { ptr, i32 } poison, ptr %188, 0
+  %191 = insertvalue { ptr, i32 } %190, i32 %189, 1
+  resume { ptr, i32 } %191
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -559,7 +560,8 @@ define linkonce_odr void @_ZN5Ipopt4TNLPC2Ev(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN5Ipopt4TNLPE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN5Ipopt4TNLPE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -849,7 +851,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7JNIEnv_17CallBooleanMethodEP8_jobjec
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %10)
+  call void @llvm.va_start.p0(ptr %10)
   %11 = getelementptr inbounds %struct.JNIEnv_, ptr %9, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds %struct.JNINativeInterface_, ptr %12, i32 0, i32 38
@@ -860,7 +862,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7JNIEnv_17CallBooleanMethodEP8_jobjec
   %18 = call noundef zeroext i8 %14(ptr noundef %9, ptr noundef %15, ptr noundef %16, ptr noundef %17)
   store i8 %18, ptr %8, align 1
   %19 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %19)
+  call void @llvm.va_end.p0(ptr %19)
   %20 = load i8, ptr %8, align 1
   ret i8 %20
 }
@@ -2062,7 +2064,7 @@ define linkonce_odr noundef i32 @_ZN7JNIEnv_13CallIntMethodEP8_jobjectP10_jmetho
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %10)
+  call void @llvm.va_start.p0(ptr %10)
   %11 = getelementptr inbounds %struct.JNIEnv_, ptr %9, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds %struct.JNINativeInterface_, ptr %12, i32 0, i32 50
@@ -2073,7 +2075,7 @@ define linkonce_odr noundef i32 @_ZN7JNIEnv_13CallIntMethodEP8_jobjectP10_jmetho
   %18 = call noundef i32 %14(ptr noundef %9, ptr noundef %15, ptr noundef %16, ptr noundef %17)
   store i32 %18, ptr %8, align 4
   %19 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %19)
+  call void @llvm.va_end.p0(ptr %19)
   %20 = load i32, ptr %8, align 4
   ret i32 %20
 }
@@ -3720,9 +3722,10 @@ define linkonce_odr void @_ZN6JipoptD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV6Jipopt, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.Jipopt, ptr %3, i32 0, i32 19
-  call void @_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTV6Jipopt, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.Jipopt, ptr %3, i32 0, i32 19
+  call void @_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN5Ipopt4TNLPD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #3
   ret void
 }
@@ -3819,9 +3822,10 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
   ret void
 }
 
@@ -3952,7 +3956,8 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3969,18 +3974,12 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD0Ev(ptr noundef nonnull al
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
-
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #11
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #7 comdat align 2 {
@@ -4176,7 +4175,7 @@ define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #12 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #15
   unreachable
@@ -4493,6 +4492,12 @@ define internal void @_GLOBAL__sub_I_IpStdJInterface.cpp() #0 section ".text.sta
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4503,9 +4508,9 @@ attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn }
 attributes #13 = { builtin allocsize(0) }
 attributes #14 = { builtin nounwind }
 attributes #15 = { noreturn nounwind }

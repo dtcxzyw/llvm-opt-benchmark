@@ -522,10 +522,12 @@ if.then:                                          ; preds = %invoke.cont8
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %absl_raw_log_internal_basename, align 8
-  %12 = load i32, ptr %x, align 4
-  %13 = load ptr, ptr %ptr, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 391, ptr noundef @.str.1, i32 noundef %12, ptr noundef %13)
+  %12 = getelementptr i8, ptr @.str, i64 129
+  store ptr %12, ptr %absl_raw_log_internal_basename, align 8
+  %13 = load i32, ptr %x, align 4
+  %14 = load ptr, ptr %ptr, align 8
+  %15 = getelementptr i8, ptr @.str, i64 129
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %15, i32 noundef 391, ptr noundef @.str.1, i32 noundef %13, ptr noundef %14)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %do.body
@@ -535,12 +537,12 @@ do.body12:                                        ; preds = %invoke.cont11
   unreachable
 
 lpad:                                             ; preds = %do.body49, %for.body41, %for.cond38, %do.body28, %if.end24, %do.body16, %do.body, %land.lhs.true, %invoke.cont3, %for.body, %for.cond
-  %14 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %ranks) #8
   br label %eh.resume
 
@@ -557,19 +559,21 @@ do.end14:                                         ; preds = %do.cond13
   br label %if.end
 
 if.end:                                           ; preds = %do.end14, %invoke.cont8, %invoke.cont5
-  %17 = load ptr, ptr %nx, align 8
-  %visited = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %17, i32 0, i32 3
-  %18 = load i8, ptr %visited, align 4
-  %tobool = trunc i8 %18 to i1
+  %19 = load ptr, ptr %nx, align 8
+  %visited = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %19, i32 0, i32 3
+  %20 = load i8, ptr %visited, align 4
+  %tobool = trunc i8 %20 to i1
   br i1 %tobool, label %if.then15, label %if.end24
 
 if.then15:                                        ; preds = %if.end
   br label %do.body16
 
 do.body16:                                        ; preds = %if.then15
-  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %absl_raw_log_internal_basename17, align 8
-  %19 = load i32, ptr %x, align 4
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 394, ptr noundef @.str.2, i32 noundef %19)
+  %21 = getelementptr i8, ptr @.str, i64 129
+  store ptr %21, ptr %absl_raw_log_internal_basename17, align 8
+  %22 = load i32, ptr %x, align 4
+  %23 = getelementptr i8, ptr @.str, i64 129
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %23, i32 noundef 394, ptr noundef @.str.2, i32 noundef %22)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %do.body16
@@ -591,10 +595,10 @@ do.end23:                                         ; preds = %do.cond22
   br label %if.end24
 
 if.end24:                                         ; preds = %do.end23, %if.end
-  %20 = load ptr, ptr %nx, align 8
-  %rank = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %20, i32 0, i32 0
-  %21 = load i32, ptr %rank, align 8
-  %call26 = invoke noundef zeroext i1 @_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet6insertEi(ptr noundef nonnull align 8 dereferenceable(52) %ranks, i32 noundef %21)
+  %24 = load ptr, ptr %nx, align 8
+  %rank = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %24, i32 0, i32 0
+  %25 = load i32, ptr %rank, align 8
+  %call26 = invoke noundef zeroext i1 @_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet6insertEi(ptr noundef nonnull align 8 dereferenceable(52) %ranks, i32 noundef %25)
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %if.end24
@@ -604,11 +608,13 @@ if.then27:                                        ; preds = %invoke.cont25
   br label %do.body28
 
 do.body28:                                        ; preds = %if.then27
-  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %absl_raw_log_internal_basename29, align 8
-  %22 = load ptr, ptr %nx, align 8
-  %rank30 = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %22, i32 0, i32 0
-  %23 = load i32, ptr %rank30, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 397, ptr noundef @.str.3, i32 noundef %23)
+  %26 = getelementptr i8, ptr @.str, i64 129
+  store ptr %26, ptr %absl_raw_log_internal_basename29, align 8
+  %27 = load ptr, ptr %nx, align 8
+  %rank30 = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %27, i32 0, i32 0
+  %28 = load i32, ptr %rank30, align 8
+  %29 = getelementptr i8, ptr @.str, i64 129
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %29, i32 noundef 397, ptr noundef @.str.3, i32 noundef %28)
           to label %invoke.cont31 unwind label %lpad
 
 invoke.cont31:                                    ; preds = %do.body28
@@ -634,8 +640,8 @@ if.end37:                                         ; preds = %do.end36, %invoke.c
   br label %for.cond38
 
 for.cond38:                                       ; preds = %if.end59, %if.end37
-  %24 = load ptr, ptr %nx, align 8
-  %out = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %24, i32 0, i32 6
+  %30 = load ptr, ptr %nx, align 8
+  %out = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %30, i32 0, i32 6
   %call40 = invoke noundef zeroext i1 @_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet4NextEPiS3_(ptr noundef nonnull align 8 dereferenceable(52) %out, ptr noundef %_cursor, ptr noundef %y)
           to label %invoke.cont39 unwind label %lpad
 
@@ -643,38 +649,40 @@ invoke.cont39:                                    ; preds = %for.cond38
   br i1 %call40, label %for.body41, label %for.end
 
 for.body41:                                       ; preds = %invoke.cont39
-  %25 = load ptr, ptr %r, align 8
-  %nodes_42 = getelementptr inbounds %"struct.absl::synchronization_internal::GraphCycles::Rep", ptr %25, i32 0, i32 0
-  %26 = load i32, ptr %y, align 4
-  %call44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIPNS1_4NodeEEixEj(ptr noundef nonnull align 8 dereferenceable(80) %nodes_42, i32 noundef %26)
+  %31 = load ptr, ptr %r, align 8
+  %nodes_42 = getelementptr inbounds %"struct.absl::synchronization_internal::GraphCycles::Rep", ptr %31, i32 0, i32 0
+  %32 = load i32, ptr %y, align 4
+  %call44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIPNS1_4NodeEEixEj(ptr noundef nonnull align 8 dereferenceable(80) %nodes_42, i32 noundef %32)
           to label %invoke.cont43 unwind label %lpad
 
 invoke.cont43:                                    ; preds = %for.body41
-  %27 = load ptr, ptr %call44, align 8
-  store ptr %27, ptr %ny, align 8
-  %28 = load ptr, ptr %nx, align 8
-  %rank45 = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %28, i32 0, i32 0
-  %29 = load i32, ptr %rank45, align 8
-  %30 = load ptr, ptr %ny, align 8
-  %rank46 = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %30, i32 0, i32 0
-  %31 = load i32, ptr %rank46, align 8
-  %cmp47 = icmp sge i32 %29, %31
+  %33 = load ptr, ptr %call44, align 8
+  store ptr %33, ptr %ny, align 8
+  %34 = load ptr, ptr %nx, align 8
+  %rank45 = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %34, i32 0, i32 0
+  %35 = load i32, ptr %rank45, align 8
+  %36 = load ptr, ptr %ny, align 8
+  %rank46 = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %36, i32 0, i32 0
+  %37 = load i32, ptr %rank46, align 8
+  %cmp47 = icmp sge i32 %35, %37
   br i1 %cmp47, label %if.then48, label %if.end59
 
 if.then48:                                        ; preds = %invoke.cont43
   br label %do.body49
 
 do.body49:                                        ; preds = %if.then48
-  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %absl_raw_log_internal_basename50, align 8
-  %32 = load i32, ptr %x, align 4
-  %33 = load i32, ptr %y, align 4
-  %34 = load ptr, ptr %nx, align 8
-  %rank51 = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %34, i32 0, i32 0
-  %35 = load i32, ptr %rank51, align 8
-  %36 = load ptr, ptr %ny, align 8
-  %rank52 = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %36, i32 0, i32 0
-  %37 = load i32, ptr %rank52, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 405, ptr noundef @.str.4, i32 noundef %32, i32 noundef %33, i32 noundef %35, i32 noundef %37)
+  %38 = getelementptr i8, ptr @.str, i64 129
+  store ptr %38, ptr %absl_raw_log_internal_basename50, align 8
+  %39 = load i32, ptr %x, align 4
+  %40 = load i32, ptr %y, align 4
+  %41 = load ptr, ptr %nx, align 8
+  %rank51 = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %41, i32 0, i32 0
+  %42 = load i32, ptr %rank51, align 8
+  %43 = load ptr, ptr %ny, align 8
+  %rank52 = getelementptr inbounds %"struct.absl::synchronization_internal::(anonymous namespace)::Node", ptr %43, i32 0, i32 0
+  %44 = load i32, ptr %rank52, align 8
+  %45 = getelementptr i8, ptr @.str, i64 129
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %45, i32 noundef 405, ptr noundef @.str.4, i32 noundef %39, i32 noundef %40, i32 noundef %42, i32 noundef %44)
           to label %invoke.cont53 unwind label %lpad
 
 invoke.cont53:                                    ; preds = %do.body49
@@ -702,8 +710,8 @@ for.end:                                          ; preds = %invoke.cont39
   br label %for.inc
 
 for.inc:                                          ; preds = %for.end
-  %38 = load i32, ptr %x, align 4
-  %inc = add i32 %38, 1
+  %46 = load i32, ptr %x, align 4
+  %inc = add i32 %46, 1
   store i32 %inc, ptr %x, align 4
   br label %for.cond, !llvm.loop !7
 

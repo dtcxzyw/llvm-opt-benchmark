@@ -118,7 +118,7 @@ define internal void @post(ptr noundef %0, i32 noundef %1) #0 {
   call void @uv_mutex_lock(ptr noundef @mutex)
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 2
-  br i1 %6, label %7, label %25
+  br i1 %6, label %7, label %27
 
 7:                                                ; preds = %2
   br label %8
@@ -127,68 +127,72 @@ define internal void @post(ptr noundef %0, i32 noundef %1) #0 {
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds [2 x ptr], ptr %9, i64 0, i64 0
   store ptr @slow_io_pending_wq, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @slow_io_pending_wq, i64 0, i64 1), align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds [2 x ptr], ptr %12, i64 0, i64 1
-  store ptr %11, ptr %13, align 8
-  %14 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds [2 x ptr], ptr @slow_io_pending_wq, i64 0, i64 1
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds [2 x ptr], ptr %13, i64 0, i64 1
+  store ptr %12, ptr %14, align 8
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds [2 x ptr], ptr %15, i64 0, i64 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds [2 x ptr], ptr %17, i64 0, i64 0
-  store ptr %14, ptr %18, align 8
-  %19 = load ptr, ptr %3, align 8
-  store ptr %19, ptr getelementptr inbounds ([2 x ptr], ptr @slow_io_pending_wq, i64 0, i64 1), align 8
-  br label %20
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds [2 x ptr], ptr %16, i64 0, i64 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds [2 x ptr], ptr %18, i64 0, i64 0
+  store ptr %15, ptr %19, align 8
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds [2 x ptr], ptr @slow_io_pending_wq, i64 0, i64 1
+  store ptr %20, ptr %21, align 8
+  br label %22
 
-20:                                               ; preds = %8
-  %21 = load ptr, ptr @run_slow_work_message, align 16
-  %22 = icmp eq ptr @run_slow_work_message, %21
-  br i1 %22, label %24, label %23
+22:                                               ; preds = %8
+  %23 = load ptr, ptr @run_slow_work_message, align 16
+  %24 = icmp eq ptr @run_slow_work_message, %23
+  br i1 %24, label %26, label %25
 
-23:                                               ; preds = %20
+25:                                               ; preds = %22
   call void @uv_mutex_unlock(ptr noundef @mutex)
-  br label %43
+  br label %47
 
-24:                                               ; preds = %20
+26:                                               ; preds = %22
   store ptr @run_slow_work_message, ptr %3, align 8
-  br label %25
+  br label %27
 
-25:                                               ; preds = %24, %2
-  br label %26
+27:                                               ; preds = %26, %2
+  br label %28
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds [2 x ptr], ptr %27, i64 0, i64 0
-  store ptr @wq, ptr %28, align 8
-  %29 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds [2 x ptr], ptr %30, i64 0, i64 1
-  store ptr %29, ptr %31, align 8
-  %32 = load ptr, ptr %3, align 8
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds [2 x ptr], ptr %29, i64 0, i64 0
+  store ptr @wq, ptr %30, align 8
+  %31 = getelementptr inbounds [2 x ptr], ptr @wq, i64 0, i64 1
+  %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %3, align 8
   %34 = getelementptr inbounds [2 x ptr], ptr %33, i64 0, i64 1
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds [2 x ptr], ptr %35, i64 0, i64 0
-  store ptr %32, ptr %36, align 8
-  %37 = load ptr, ptr %3, align 8
-  store ptr %37, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
-  br label %38
-
-38:                                               ; preds = %26
-  %39 = load i32, ptr @idle_threads, align 4
-  %40 = icmp ugt i32 %39, 0
-  br i1 %40, label %41, label %42
-
-41:                                               ; preds = %38
-  call void @uv_cond_signal(ptr noundef @cond)
+  store ptr %32, ptr %34, align 8
+  %35 = load ptr, ptr %3, align 8
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds [2 x ptr], ptr %36, i64 0, i64 1
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds [2 x ptr], ptr %38, i64 0, i64 0
+  store ptr %35, ptr %39, align 8
+  %40 = load ptr, ptr %3, align 8
+  %41 = getelementptr inbounds [2 x ptr], ptr @wq, i64 0, i64 1
+  store ptr %40, ptr %41, align 8
   br label %42
 
-42:                                               ; preds = %41, %38
-  call void @uv_mutex_unlock(ptr noundef @mutex)
-  br label %43
+42:                                               ; preds = %28
+  %43 = load i32, ptr @idle_threads, align 4
+  %44 = icmp ugt i32 %43, 0
+  br i1 %44, label %45, label %46
 
-43:                                               ; preds = %42, %23
+45:                                               ; preds = %42
+  call void @uv_cond_signal(ptr noundef @cond)
+  br label %46
+
+46:                                               ; preds = %45, %42
+  call void @uv_mutex_unlock(ptr noundef @mutex)
+  br label %47
+
+47:                                               ; preds = %46, %25
   ret void
 }
 
@@ -865,87 +869,90 @@ define internal void @init_threads() #0 {
 
 40:                                               ; preds = %39
   store ptr @wq, ptr @wq, align 16
-  store ptr @wq, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
-  br label %41
-
-41:                                               ; preds = %40
+  %41 = getelementptr inbounds [2 x ptr], ptr @wq, i64 0, i64 1
+  store ptr @wq, ptr %41, align 8
   br label %42
 
-42:                                               ; preds = %41
-  store ptr @slow_io_pending_wq, ptr @slow_io_pending_wq, align 16
-  store ptr @slow_io_pending_wq, ptr getelementptr inbounds ([2 x ptr], ptr @slow_io_pending_wq, i64 0, i64 1), align 8
+42:                                               ; preds = %40
   br label %43
 
 43:                                               ; preds = %42
-  br label %44
-
-44:                                               ; preds = %43
-  store ptr @run_slow_work_message, ptr @run_slow_work_message, align 16
-  store ptr @run_slow_work_message, ptr getelementptr inbounds ([2 x ptr], ptr @run_slow_work_message, i64 0, i64 1), align 8
+  store ptr @slow_io_pending_wq, ptr @slow_io_pending_wq, align 16
+  %44 = getelementptr inbounds [2 x ptr], ptr @slow_io_pending_wq, i64 0, i64 1
+  store ptr @slow_io_pending_wq, ptr %44, align 8
   br label %45
 
-45:                                               ; preds = %44
-  %46 = call i32 @uv_sem_init(ptr noundef %3, i32 noundef 0)
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %49
+45:                                               ; preds = %43
+  br label %46
 
-48:                                               ; preds = %45
+46:                                               ; preds = %45
+  store ptr @run_slow_work_message, ptr @run_slow_work_message, align 16
+  %47 = getelementptr inbounds [2 x ptr], ptr @run_slow_work_message, i64 0, i64 1
+  store ptr @run_slow_work_message, ptr %47, align 8
+  br label %48
+
+48:                                               ; preds = %46
+  %49 = call i32 @uv_sem_init(ptr noundef %3, i32 noundef 0)
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %48
   call void @abort() #6
   unreachable
 
-49:                                               ; preds = %45
+52:                                               ; preds = %48
   store i32 0, ptr %1, align 4
-  br label %50
+  br label %53
 
-50:                                               ; preds = %63, %49
-  %51 = load i32, ptr %1, align 4
-  %52 = load i32, ptr @nthreads, align 4
-  %53 = icmp ult i32 %51, %52
-  br i1 %53, label %54, label %66
+53:                                               ; preds = %66, %52
+  %54 = load i32, ptr %1, align 4
+  %55 = load i32, ptr @nthreads, align 4
+  %56 = icmp ult i32 %54, %55
+  br i1 %56, label %57, label %69
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr @threads, align 8
-  %56 = load i32, ptr %1, align 4
-  %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds i64, ptr %55, i64 %57
-  %59 = call i32 @uv_thread_create(ptr noundef %58, ptr noundef @worker, ptr noundef %3)
-  %60 = icmp ne i32 %59, 0
-  br i1 %60, label %61, label %62
+57:                                               ; preds = %53
+  %58 = load ptr, ptr @threads, align 8
+  %59 = load i32, ptr %1, align 4
+  %60 = zext i32 %59 to i64
+  %61 = getelementptr inbounds i64, ptr %58, i64 %60
+  %62 = call i32 @uv_thread_create(ptr noundef %61, ptr noundef @worker, ptr noundef %3)
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %65
 
-61:                                               ; preds = %54
+64:                                               ; preds = %57
   call void @abort() #6
   unreachable
 
-62:                                               ; preds = %54
-  br label %63
+65:                                               ; preds = %57
+  br label %66
 
-63:                                               ; preds = %62
-  %64 = load i32, ptr %1, align 4
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %1, align 4
-  br label %50, !llvm.loop !8
+66:                                               ; preds = %65
+  %67 = load i32, ptr %1, align 4
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %1, align 4
+  br label %53, !llvm.loop !8
 
-66:                                               ; preds = %50
+69:                                               ; preds = %53
   store i32 0, ptr %1, align 4
-  br label %67
+  br label %70
 
-67:                                               ; preds = %72, %66
-  %68 = load i32, ptr %1, align 4
-  %69 = load i32, ptr @nthreads, align 4
-  %70 = icmp ult i32 %68, %69
-  br i1 %70, label %71, label %75
+70:                                               ; preds = %75, %69
+  %71 = load i32, ptr %1, align 4
+  %72 = load i32, ptr @nthreads, align 4
+  %73 = icmp ult i32 %71, %72
+  br i1 %73, label %74, label %78
 
-71:                                               ; preds = %67
+74:                                               ; preds = %70
   call void @uv_sem_wait(ptr noundef %3)
-  br label %72
+  br label %75
 
-72:                                               ; preds = %71
-  %73 = load i32, ptr %1, align 4
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %1, align 4
-  br label %67, !llvm.loop !9
+75:                                               ; preds = %74
+  %76 = load i32, ptr %1, align 4
+  %77 = add i32 %76, 1
+  store i32 %77, ptr %1, align 4
+  br label %70, !llvm.loop !9
 
-75:                                               ; preds = %67
+78:                                               ; preds = %70
   call void @uv_sem_destroy(ptr noundef %3)
   ret void
 }
@@ -982,7 +989,7 @@ define internal void @worker(ptr noundef %0) #0 {
   call void @uv_mutex_lock(ptr noundef @mutex)
   br label %7
 
-7:                                                ; preds = %184, %83, %79, %1
+7:                                                ; preds = %190, %85, %81, %1
   br label %8
 
 8:                                                ; preds = %25, %7
@@ -1034,7 +1041,7 @@ define internal void @worker(ptr noundef %0) #0 {
 34:                                               ; preds = %30
   call void @uv_cond_signal(ptr noundef @cond)
   call void @uv_mutex_unlock(ptr noundef @mutex)
-  br label %185
+  br label %191
 
 35:                                               ; preds = %30
   br label %36
@@ -1076,13 +1083,13 @@ define internal void @worker(ptr noundef %0) #0 {
   store i32 0, ptr %5, align 4
   %60 = load ptr, ptr %4, align 8
   %61 = icmp eq ptr %60, @run_slow_work_message
-  br i1 %61, label %62, label %125
+  br i1 %61, label %62, label %131
 
 62:                                               ; preds = %59
   %63 = load i32, ptr @slow_io_work_running, align 4
   %64 = call i32 @slow_work_thread_threshold()
   %65 = icmp uge i32 %63, %64
-  br i1 %65, label %66, label %80
+  br i1 %65, label %66, label %82
 
 66:                                               ; preds = %62
   br label %67
@@ -1091,189 +1098,195 @@ define internal void @worker(ptr noundef %0) #0 {
   %68 = load ptr, ptr %4, align 8
   %69 = getelementptr inbounds [2 x ptr], ptr %68, i64 0, i64 0
   store ptr @wq, ptr %69, align 8
-  %70 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds [2 x ptr], ptr %71, i64 0, i64 1
-  store ptr %70, ptr %72, align 8
-  %73 = load ptr, ptr %4, align 8
+  %70 = getelementptr inbounds [2 x ptr], ptr @wq, i64 0, i64 1
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds [2 x ptr], ptr %72, i64 0, i64 1
+  store ptr %71, ptr %73, align 8
   %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds [2 x ptr], ptr %74, i64 0, i64 1
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds [2 x ptr], ptr %76, i64 0, i64 0
-  store ptr %73, ptr %77, align 8
-  %78 = load ptr, ptr %4, align 8
-  store ptr %78, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
-  br label %79
+  %75 = load ptr, ptr %4, align 8
+  %76 = getelementptr inbounds [2 x ptr], ptr %75, i64 0, i64 1
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds [2 x ptr], ptr %77, i64 0, i64 0
+  store ptr %74, ptr %78, align 8
+  %79 = load ptr, ptr %4, align 8
+  %80 = getelementptr inbounds [2 x ptr], ptr @wq, i64 0, i64 1
+  store ptr %79, ptr %80, align 8
+  br label %81
 
-79:                                               ; preds = %67
+81:                                               ; preds = %67
   br label %7
 
-80:                                               ; preds = %62
-  %81 = load ptr, ptr @slow_io_pending_wq, align 16
-  %82 = icmp eq ptr @slow_io_pending_wq, %81
-  br i1 %82, label %83, label %84
+82:                                               ; preds = %62
+  %83 = load ptr, ptr @slow_io_pending_wq, align 16
+  %84 = icmp eq ptr @slow_io_pending_wq, %83
+  br i1 %84, label %85, label %86
 
-83:                                               ; preds = %80
+85:                                               ; preds = %82
   br label %7
 
-84:                                               ; preds = %80
+86:                                               ; preds = %82
   store i32 1, ptr %5, align 4
-  %85 = load i32, ptr @slow_io_work_running, align 4
-  %86 = add i32 %85, 1
-  store i32 %86, ptr @slow_io_work_running, align 4
-  %87 = load ptr, ptr @slow_io_pending_wq, align 16
-  store ptr %87, ptr %4, align 8
-  br label %88
+  %87 = load i32, ptr @slow_io_work_running, align 4
+  %88 = add i32 %87, 1
+  store i32 %88, ptr @slow_io_work_running, align 4
+  %89 = load ptr, ptr @slow_io_pending_wq, align 16
+  store ptr %89, ptr %4, align 8
+  br label %90
 
-88:                                               ; preds = %84
-  %89 = load ptr, ptr %4, align 8
-  %90 = getelementptr inbounds [2 x ptr], ptr %89, i64 0, i64 0
-  %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds [2 x ptr], ptr %92, i64 0, i64 1
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds [2 x ptr], ptr %94, i64 0, i64 0
-  store ptr %91, ptr %95, align 8
-  %96 = load ptr, ptr %4, align 8
-  %97 = getelementptr inbounds [2 x ptr], ptr %96, i64 0, i64 1
-  %98 = load ptr, ptr %97, align 8
-  %99 = load ptr, ptr %4, align 8
-  %100 = getelementptr inbounds [2 x ptr], ptr %99, i64 0, i64 0
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds [2 x ptr], ptr %101, i64 0, i64 1
-  store ptr %98, ptr %102, align 8
-  br label %103
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %4, align 8
+  %92 = getelementptr inbounds [2 x ptr], ptr %91, i64 0, i64 0
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %4, align 8
+  %95 = getelementptr inbounds [2 x ptr], ptr %94, i64 0, i64 1
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds [2 x ptr], ptr %96, i64 0, i64 0
+  store ptr %93, ptr %97, align 8
+  %98 = load ptr, ptr %4, align 8
+  %99 = getelementptr inbounds [2 x ptr], ptr %98, i64 0, i64 1
+  %100 = load ptr, ptr %99, align 8
+  %101 = load ptr, ptr %4, align 8
+  %102 = getelementptr inbounds [2 x ptr], ptr %101, i64 0, i64 0
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds [2 x ptr], ptr %103, i64 0, i64 1
+  store ptr %100, ptr %104, align 8
+  br label %105
 
-103:                                              ; preds = %88
-  br label %104
+105:                                              ; preds = %90
+  br label %106
 
-104:                                              ; preds = %103
-  %105 = load ptr, ptr %4, align 8
-  %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds [2 x ptr], ptr %106, i64 0, i64 0
-  store ptr %105, ptr %107, align 8
+106:                                              ; preds = %105
+  %107 = load ptr, ptr %4, align 8
   %108 = load ptr, ptr %4, align 8
-  %109 = load ptr, ptr %4, align 8
-  %110 = getelementptr inbounds [2 x ptr], ptr %109, i64 0, i64 1
-  store ptr %108, ptr %110, align 8
-  br label %111
+  %109 = getelementptr inbounds [2 x ptr], ptr %108, i64 0, i64 0
+  store ptr %107, ptr %109, align 8
+  %110 = load ptr, ptr %4, align 8
+  %111 = load ptr, ptr %4, align 8
+  %112 = getelementptr inbounds [2 x ptr], ptr %111, i64 0, i64 1
+  store ptr %110, ptr %112, align 8
+  br label %113
 
-111:                                              ; preds = %104
-  %112 = load ptr, ptr @slow_io_pending_wq, align 16
-  %113 = icmp eq ptr @slow_io_pending_wq, %112
-  br i1 %113, label %124, label %114
+113:                                              ; preds = %106
+  %114 = load ptr, ptr @slow_io_pending_wq, align 16
+  %115 = icmp eq ptr @slow_io_pending_wq, %114
+  br i1 %115, label %130, label %116
 
-114:                                              ; preds = %111
-  br label %115
+116:                                              ; preds = %113
+  br label %117
 
-115:                                              ; preds = %114
+117:                                              ; preds = %116
   store ptr @wq, ptr @run_slow_work_message, align 16
-  %116 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
-  store ptr %116, ptr getelementptr inbounds ([2 x ptr], ptr @run_slow_work_message, i64 0, i64 1), align 8
-  %117 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @run_slow_work_message, i64 0, i64 1), align 8
-  %118 = getelementptr inbounds [2 x ptr], ptr %117, i64 0, i64 0
-  store ptr @run_slow_work_message, ptr %118, align 8
-  store ptr @run_slow_work_message, ptr getelementptr inbounds ([2 x ptr], ptr @wq, i64 0, i64 1), align 8
-  br label %119
-
-119:                                              ; preds = %115
-  %120 = load i32, ptr @idle_threads, align 4
-  %121 = icmp ugt i32 %120, 0
-  br i1 %121, label %122, label %123
-
-122:                                              ; preds = %119
-  call void @uv_cond_signal(ptr noundef @cond)
-  br label %123
-
-123:                                              ; preds = %122, %119
-  br label %124
-
-124:                                              ; preds = %123, %111
+  %118 = getelementptr inbounds [2 x ptr], ptr @wq, i64 0, i64 1
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds [2 x ptr], ptr @run_slow_work_message, i64 0, i64 1
+  store ptr %119, ptr %120, align 8
+  %121 = getelementptr inbounds [2 x ptr], ptr @run_slow_work_message, i64 0, i64 1
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds [2 x ptr], ptr %122, i64 0, i64 0
+  store ptr @run_slow_work_message, ptr %123, align 8
+  %124 = getelementptr inbounds [2 x ptr], ptr @wq, i64 0, i64 1
+  store ptr @run_slow_work_message, ptr %124, align 8
   br label %125
 
-125:                                              ; preds = %124, %59
+125:                                              ; preds = %117
+  %126 = load i32, ptr @idle_threads, align 4
+  %127 = icmp ugt i32 %126, 0
+  br i1 %127, label %128, label %129
+
+128:                                              ; preds = %125
+  call void @uv_cond_signal(ptr noundef @cond)
+  br label %129
+
+129:                                              ; preds = %128, %125
+  br label %130
+
+130:                                              ; preds = %129, %113
+  br label %131
+
+131:                                              ; preds = %130, %59
   call void @uv_mutex_unlock(ptr noundef @mutex)
-  %126 = load ptr, ptr %4, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 -24
-  store ptr %127, ptr %3, align 8
-  %128 = load ptr, ptr %3, align 8
-  %129 = getelementptr inbounds %struct.uv__work, ptr %128, i32 0, i32 0
-  %130 = load ptr, ptr %129, align 8
-  %131 = load ptr, ptr %3, align 8
-  call void %130(ptr noundef %131)
-  %132 = load ptr, ptr %3, align 8
-  %133 = getelementptr inbounds %struct.uv__work, ptr %132, i32 0, i32 2
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds %struct.uv_loop_s, ptr %134, i32 0, i32 14
-  call void @uv_mutex_lock(ptr noundef %135)
-  %136 = load ptr, ptr %3, align 8
-  %137 = getelementptr inbounds %struct.uv__work, ptr %136, i32 0, i32 0
-  store ptr null, ptr %137, align 8
-  br label %138
+  %132 = load ptr, ptr %4, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 -24
+  store ptr %133, ptr %3, align 8
+  %134 = load ptr, ptr %3, align 8
+  %135 = getelementptr inbounds %struct.uv__work, ptr %134, i32 0, i32 0
+  %136 = load ptr, ptr %135, align 8
+  %137 = load ptr, ptr %3, align 8
+  call void %136(ptr noundef %137)
+  %138 = load ptr, ptr %3, align 8
+  %139 = getelementptr inbounds %struct.uv__work, ptr %138, i32 0, i32 2
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds %struct.uv_loop_s, ptr %140, i32 0, i32 14
+  call void @uv_mutex_lock(ptr noundef %141)
+  %142 = load ptr, ptr %3, align 8
+  %143 = getelementptr inbounds %struct.uv__work, ptr %142, i32 0, i32 0
+  store ptr null, ptr %143, align 8
+  br label %144
 
-138:                                              ; preds = %125
-  %139 = load ptr, ptr %3, align 8
-  %140 = getelementptr inbounds %struct.uv__work, ptr %139, i32 0, i32 2
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds %struct.uv_loop_s, ptr %141, i32 0, i32 13
-  %143 = load ptr, ptr %3, align 8
-  %144 = getelementptr inbounds %struct.uv__work, ptr %143, i32 0, i32 3
-  %145 = getelementptr inbounds [2 x ptr], ptr %144, i64 0, i64 0
-  store ptr %142, ptr %145, align 8
-  %146 = load ptr, ptr %3, align 8
-  %147 = getelementptr inbounds %struct.uv__work, ptr %146, i32 0, i32 2
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds %struct.uv_loop_s, ptr %148, i32 0, i32 13
-  %150 = getelementptr inbounds [2 x ptr], ptr %149, i64 0, i64 1
-  %151 = load ptr, ptr %150, align 8
+144:                                              ; preds = %131
+  %145 = load ptr, ptr %3, align 8
+  %146 = getelementptr inbounds %struct.uv__work, ptr %145, i32 0, i32 2
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds %struct.uv_loop_s, ptr %147, i32 0, i32 13
+  %149 = load ptr, ptr %3, align 8
+  %150 = getelementptr inbounds %struct.uv__work, ptr %149, i32 0, i32 3
+  %151 = getelementptr inbounds [2 x ptr], ptr %150, i64 0, i64 0
+  store ptr %148, ptr %151, align 8
   %152 = load ptr, ptr %3, align 8
-  %153 = getelementptr inbounds %struct.uv__work, ptr %152, i32 0, i32 3
-  %154 = getelementptr inbounds [2 x ptr], ptr %153, i64 0, i64 1
-  store ptr %151, ptr %154, align 8
-  %155 = load ptr, ptr %3, align 8
-  %156 = getelementptr inbounds %struct.uv__work, ptr %155, i32 0, i32 3
-  %157 = load ptr, ptr %3, align 8
-  %158 = getelementptr inbounds %struct.uv__work, ptr %157, i32 0, i32 3
-  %159 = getelementptr inbounds [2 x ptr], ptr %158, i64 0, i64 1
-  %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds [2 x ptr], ptr %160, i64 0, i64 0
-  store ptr %156, ptr %161, align 8
-  %162 = load ptr, ptr %3, align 8
-  %163 = getelementptr inbounds %struct.uv__work, ptr %162, i32 0, i32 3
-  %164 = load ptr, ptr %3, align 8
-  %165 = getelementptr inbounds %struct.uv__work, ptr %164, i32 0, i32 2
+  %153 = getelementptr inbounds %struct.uv__work, ptr %152, i32 0, i32 2
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds %struct.uv_loop_s, ptr %154, i32 0, i32 13
+  %156 = getelementptr inbounds [2 x ptr], ptr %155, i64 0, i64 1
+  %157 = load ptr, ptr %156, align 8
+  %158 = load ptr, ptr %3, align 8
+  %159 = getelementptr inbounds %struct.uv__work, ptr %158, i32 0, i32 3
+  %160 = getelementptr inbounds [2 x ptr], ptr %159, i64 0, i64 1
+  store ptr %157, ptr %160, align 8
+  %161 = load ptr, ptr %3, align 8
+  %162 = getelementptr inbounds %struct.uv__work, ptr %161, i32 0, i32 3
+  %163 = load ptr, ptr %3, align 8
+  %164 = getelementptr inbounds %struct.uv__work, ptr %163, i32 0, i32 3
+  %165 = getelementptr inbounds [2 x ptr], ptr %164, i64 0, i64 1
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds %struct.uv_loop_s, ptr %166, i32 0, i32 13
-  %168 = getelementptr inbounds [2 x ptr], ptr %167, i64 0, i64 1
-  store ptr %163, ptr %168, align 8
-  br label %169
-
-169:                                              ; preds = %138
+  %167 = getelementptr inbounds [2 x ptr], ptr %166, i64 0, i64 0
+  store ptr %162, ptr %167, align 8
+  %168 = load ptr, ptr %3, align 8
+  %169 = getelementptr inbounds %struct.uv__work, ptr %168, i32 0, i32 3
   %170 = load ptr, ptr %3, align 8
   %171 = getelementptr inbounds %struct.uv__work, ptr %170, i32 0, i32 2
   %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds %struct.uv_loop_s, ptr %172, i32 0, i32 15
-  %174 = call i32 @uv_async_send(ptr noundef %173)
-  %175 = load ptr, ptr %3, align 8
-  %176 = getelementptr inbounds %struct.uv__work, ptr %175, i32 0, i32 2
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds %struct.uv_loop_s, ptr %177, i32 0, i32 14
-  call void @uv_mutex_unlock(ptr noundef %178)
+  %173 = getelementptr inbounds %struct.uv_loop_s, ptr %172, i32 0, i32 13
+  %174 = getelementptr inbounds [2 x ptr], ptr %173, i64 0, i64 1
+  store ptr %169, ptr %174, align 8
+  br label %175
+
+175:                                              ; preds = %144
+  %176 = load ptr, ptr %3, align 8
+  %177 = getelementptr inbounds %struct.uv__work, ptr %176, i32 0, i32 2
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds %struct.uv_loop_s, ptr %178, i32 0, i32 15
+  %180 = call i32 @uv_async_send(ptr noundef %179)
+  %181 = load ptr, ptr %3, align 8
+  %182 = getelementptr inbounds %struct.uv__work, ptr %181, i32 0, i32 2
+  %183 = load ptr, ptr %182, align 8
+  %184 = getelementptr inbounds %struct.uv_loop_s, ptr %183, i32 0, i32 14
+  call void @uv_mutex_unlock(ptr noundef %184)
   call void @uv_mutex_lock(ptr noundef @mutex)
-  %179 = load i32, ptr %5, align 4
-  %180 = icmp ne i32 %179, 0
-  br i1 %180, label %181, label %184
+  %185 = load i32, ptr %5, align 4
+  %186 = icmp ne i32 %185, 0
+  br i1 %186, label %187, label %190
 
-181:                                              ; preds = %169
-  %182 = load i32, ptr @slow_io_work_running, align 4
-  %183 = add i32 %182, -1
-  store i32 %183, ptr @slow_io_work_running, align 4
-  br label %184
+187:                                              ; preds = %175
+  %188 = load i32, ptr @slow_io_work_running, align 4
+  %189 = add i32 %188, -1
+  store i32 %189, ptr @slow_io_work_running, align 4
+  br label %190
 
-184:                                              ; preds = %181, %169
+190:                                              ; preds = %187, %175
   br label %7
 
-185:                                              ; preds = %34
+191:                                              ; preds = %34
   ret void
 }
 

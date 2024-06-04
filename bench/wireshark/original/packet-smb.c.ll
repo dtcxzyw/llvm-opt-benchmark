@@ -9647,7 +9647,7 @@ define internal i32 @dissect_smb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %229 = load ptr, ptr %16, align 8
   %230 = getelementptr inbounds %struct.smb_info, ptr %229, i32 0, i32 8
   store i32 1, ptr %230, align 8
-  br label %701
+  br label %702
 
 231:                                              ; preds = %223, %218, %213, %208, %203
   %232 = load ptr, ptr %16, align 8
@@ -9887,7 +9887,7 @@ define internal i32 @dissect_smb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %393
 
 393:                                              ; preds = %392, %376
-  br label %700
+  br label %701
 
 394:                                              ; preds = %249
   %395 = load ptr, ptr %16, align 8
@@ -9902,7 +9902,7 @@ define internal i32 @dissect_smb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %403 = and i16 %402, 1
   %404 = zext i16 %403 to i32
   %405 = icmp ne i32 %404, 0
-  br i1 %405, label %686, label %406
+  br i1 %405, label %687, label %406
 
 406:                                              ; preds = %394
   %407 = load ptr, ptr %16, align 8
@@ -10155,7 +10155,7 @@ define internal i32 @dissect_smb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %576 = getelementptr inbounds %struct.smb_info, ptr %575, i32 0, i32 7
   %577 = load i32, ptr %576, align 4
   %578 = icmp ne i32 %577, 0
-  br i1 %578, label %579, label %685
+  br i1 %578, label %579, label %686
 
 579:                                              ; preds = %574
   %580 = call ptr @wmem_file_scope()
@@ -10189,549 +10189,550 @@ define internal i32 @dissect_smb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %603 = sext i32 %602 to i64
   %604 = inttoptr i64 %603 to ptr
   %605 = call ptr @g_hash_table_lookup(ptr noundef %599, ptr noundef %604)
-  %606 = icmp eq ptr %605, inttoptr (i64 2 to ptr)
-  br i1 %606, label %607, label %614
+  %606 = inttoptr i64 2 to ptr
+  %607 = icmp eq ptr %605, %606
+  br i1 %607, label %608, label %615
 
-607:                                              ; preds = %579
-  %608 = load ptr, ptr %17, align 8
-  %609 = getelementptr inbounds %struct.smb_saved_info_t, ptr %608, i32 0, i32 3
-  %610 = load i16, ptr %609, align 8
-  %611 = zext i16 %610 to i32
-  %612 = or i32 %611, 1
-  %613 = trunc i32 %612 to i16
-  store i16 %613, ptr %609, align 8
-  br label %614
+608:                                              ; preds = %579
+  %609 = load ptr, ptr %17, align 8
+  %610 = getelementptr inbounds %struct.smb_saved_info_t, ptr %609, i32 0, i32 3
+  %611 = load i16, ptr %610, align 8
+  %612 = zext i16 %611 to i32
+  %613 = or i32 %612, 1
+  %614 = trunc i32 %613 to i16
+  store i16 %614, ptr %610, align 8
+  br label %615
 
-614:                                              ; preds = %607, %579
-  %615 = load ptr, ptr %16, align 8
-  %616 = getelementptr inbounds %struct.smb_info, ptr %615, i32 0, i32 0
-  %617 = load i8, ptr %616, align 8
-  %618 = load ptr, ptr %17, align 8
-  %619 = getelementptr inbounds %struct.smb_saved_info_t, ptr %618, i32 0, i32 4
-  store i8 %617, ptr %619, align 2
-  %620 = load ptr, ptr %17, align 8
-  %621 = getelementptr inbounds %struct.smb_saved_info_t, ptr %620, i32 0, i32 5
-  store ptr null, ptr %621, align 8
-  %622 = load ptr, ptr %17, align 8
-  %623 = getelementptr inbounds %struct.smb_saved_info_t, ptr %622, i32 0, i32 6
-  store i32 0, ptr %623, align 8
-  %624 = load ptr, ptr %17, align 8
-  %625 = getelementptr inbounds %struct.smb_saved_info_t, ptr %624, i32 0, i32 8
-  store i16 0, ptr %625, align 8
-  %626 = load ptr, ptr %17, align 8
-  %627 = getelementptr inbounds %struct.smb_saved_info_t, ptr %626, i32 0, i32 7
-  store i32 0, ptr %627, align 4
-  %628 = load ptr, ptr %16, align 8
-  %629 = getelementptr inbounds %struct.smb_info, ptr %628, i32 0, i32 12
-  %630 = load ptr, ptr %629, align 8
-  %631 = getelementptr inbounds %struct.conv_tables, ptr %630, i32 0, i32 0
-  %632 = load ptr, ptr %631, align 8
-  %633 = load i32, ptr %22, align 4
-  %634 = zext i32 %633 to i64
-  %635 = inttoptr i64 %634 to ptr
-  %636 = load ptr, ptr %17, align 8
-  %637 = call i32 @g_hash_table_insert(ptr noundef %632, ptr noundef %635, ptr noundef %636)
-  %638 = call ptr @wmem_file_scope()
-  %639 = call noalias ptr @wmem_alloc(ptr noundef %638, i64 noundef 8)
-  store ptr %639, ptr %19, align 8
-  %640 = load ptr, ptr %17, align 8
-  %641 = getelementptr inbounds %struct.smb_saved_info_t, ptr %640, i32 0, i32 0
-  %642 = load i32, ptr %641, align 8
-  %643 = load ptr, ptr %19, align 8
-  %644 = getelementptr inbounds %struct.smb_saved_info_key_t, ptr %643, i32 0, i32 0
-  store i32 %642, ptr %644, align 4
-  %645 = load i32, ptr %22, align 4
-  %646 = load ptr, ptr %19, align 8
-  %647 = getelementptr inbounds %struct.smb_saved_info_key_t, ptr %646, i32 0, i32 1
-  store i32 %645, ptr %647, align 4
-  %648 = load ptr, ptr %16, align 8
-  %649 = getelementptr inbounds %struct.smb_info, ptr %648, i32 0, i32 12
-  %650 = load ptr, ptr %649, align 8
-  %651 = getelementptr inbounds %struct.conv_tables, ptr %650, i32 0, i32 1
-  %652 = load ptr, ptr %651, align 8
-  %653 = load ptr, ptr %19, align 8
-  %654 = load ptr, ptr %17, align 8
-  %655 = call i32 @g_hash_table_insert(ptr noundef %652, ptr noundef %653, ptr noundef %654)
-  %656 = load ptr, ptr %16, align 8
-  %657 = getelementptr inbounds %struct.smb_info, ptr %656, i32 0, i32 0
-  %658 = load i8, ptr %657, align 8
-  %659 = zext i8 %658 to i32
-  %660 = icmp eq i32 %659, 37
-  br i1 %660, label %673, label %661
+615:                                              ; preds = %608, %579
+  %616 = load ptr, ptr %16, align 8
+  %617 = getelementptr inbounds %struct.smb_info, ptr %616, i32 0, i32 0
+  %618 = load i8, ptr %617, align 8
+  %619 = load ptr, ptr %17, align 8
+  %620 = getelementptr inbounds %struct.smb_saved_info_t, ptr %619, i32 0, i32 4
+  store i8 %618, ptr %620, align 2
+  %621 = load ptr, ptr %17, align 8
+  %622 = getelementptr inbounds %struct.smb_saved_info_t, ptr %621, i32 0, i32 5
+  store ptr null, ptr %622, align 8
+  %623 = load ptr, ptr %17, align 8
+  %624 = getelementptr inbounds %struct.smb_saved_info_t, ptr %623, i32 0, i32 6
+  store i32 0, ptr %624, align 8
+  %625 = load ptr, ptr %17, align 8
+  %626 = getelementptr inbounds %struct.smb_saved_info_t, ptr %625, i32 0, i32 8
+  store i16 0, ptr %626, align 8
+  %627 = load ptr, ptr %17, align 8
+  %628 = getelementptr inbounds %struct.smb_saved_info_t, ptr %627, i32 0, i32 7
+  store i32 0, ptr %628, align 4
+  %629 = load ptr, ptr %16, align 8
+  %630 = getelementptr inbounds %struct.smb_info, ptr %629, i32 0, i32 12
+  %631 = load ptr, ptr %630, align 8
+  %632 = getelementptr inbounds %struct.conv_tables, ptr %631, i32 0, i32 0
+  %633 = load ptr, ptr %632, align 8
+  %634 = load i32, ptr %22, align 4
+  %635 = zext i32 %634 to i64
+  %636 = inttoptr i64 %635 to ptr
+  %637 = load ptr, ptr %17, align 8
+  %638 = call i32 @g_hash_table_insert(ptr noundef %633, ptr noundef %636, ptr noundef %637)
+  %639 = call ptr @wmem_file_scope()
+  %640 = call noalias ptr @wmem_alloc(ptr noundef %639, i64 noundef 8)
+  store ptr %640, ptr %19, align 8
+  %641 = load ptr, ptr %17, align 8
+  %642 = getelementptr inbounds %struct.smb_saved_info_t, ptr %641, i32 0, i32 0
+  %643 = load i32, ptr %642, align 8
+  %644 = load ptr, ptr %19, align 8
+  %645 = getelementptr inbounds %struct.smb_saved_info_key_t, ptr %644, i32 0, i32 0
+  store i32 %643, ptr %645, align 4
+  %646 = load i32, ptr %22, align 4
+  %647 = load ptr, ptr %19, align 8
+  %648 = getelementptr inbounds %struct.smb_saved_info_key_t, ptr %647, i32 0, i32 1
+  store i32 %646, ptr %648, align 4
+  %649 = load ptr, ptr %16, align 8
+  %650 = getelementptr inbounds %struct.smb_info, ptr %649, i32 0, i32 12
+  %651 = load ptr, ptr %650, align 8
+  %652 = getelementptr inbounds %struct.conv_tables, ptr %651, i32 0, i32 1
+  %653 = load ptr, ptr %652, align 8
+  %654 = load ptr, ptr %19, align 8
+  %655 = load ptr, ptr %17, align 8
+  %656 = call i32 @g_hash_table_insert(ptr noundef %653, ptr noundef %654, ptr noundef %655)
+  %657 = load ptr, ptr %16, align 8
+  %658 = getelementptr inbounds %struct.smb_info, ptr %657, i32 0, i32 0
+  %659 = load i8, ptr %658, align 8
+  %660 = zext i8 %659 to i32
+  %661 = icmp eq i32 %660, 37
+  br i1 %661, label %674, label %662
 
-661:                                              ; preds = %614
-  %662 = load ptr, ptr %16, align 8
-  %663 = getelementptr inbounds %struct.smb_info, ptr %662, i32 0, i32 0
-  %664 = load i8, ptr %663, align 8
-  %665 = zext i8 %664 to i32
-  %666 = icmp eq i32 %665, 50
-  br i1 %666, label %673, label %667
+662:                                              ; preds = %615
+  %663 = load ptr, ptr %16, align 8
+  %664 = getelementptr inbounds %struct.smb_info, ptr %663, i32 0, i32 0
+  %665 = load i8, ptr %664, align 8
+  %666 = zext i8 %665 to i32
+  %667 = icmp eq i32 %666, 50
+  br i1 %667, label %674, label %668
 
-667:                                              ; preds = %661
-  %668 = load ptr, ptr %16, align 8
-  %669 = getelementptr inbounds %struct.smb_info, ptr %668, i32 0, i32 0
-  %670 = load i8, ptr %669, align 8
-  %671 = zext i8 %670 to i32
-  %672 = icmp eq i32 %671, 160
-  br i1 %672, label %673, label %684
+668:                                              ; preds = %662
+  %669 = load ptr, ptr %16, align 8
+  %670 = getelementptr inbounds %struct.smb_info, ptr %669, i32 0, i32 0
+  %671 = load i8, ptr %670, align 8
+  %672 = zext i8 %671 to i32
+  %673 = icmp eq i32 %672, 160
+  br i1 %673, label %674, label %685
 
-673:                                              ; preds = %667, %661, %614
-  %674 = load ptr, ptr %16, align 8
-  %675 = getelementptr inbounds %struct.smb_info, ptr %674, i32 0, i32 12
-  %676 = load ptr, ptr %675, align 8
-  %677 = getelementptr inbounds %struct.conv_tables, ptr %676, i32 0, i32 2
-  %678 = load ptr, ptr %677, align 8
-  %679 = load i32, ptr %22, align 4
-  %680 = zext i32 %679 to i64
-  %681 = inttoptr i64 %680 to ptr
-  %682 = load ptr, ptr %17, align 8
-  %683 = call i32 @g_hash_table_insert(ptr noundef %678, ptr noundef %681, ptr noundef %682)
-  br label %684
-
-684:                                              ; preds = %673, %667
+674:                                              ; preds = %668, %662, %615
+  %675 = load ptr, ptr %16, align 8
+  %676 = getelementptr inbounds %struct.smb_info, ptr %675, i32 0, i32 12
+  %677 = load ptr, ptr %676, align 8
+  %678 = getelementptr inbounds %struct.conv_tables, ptr %677, i32 0, i32 2
+  %679 = load ptr, ptr %678, align 8
+  %680 = load i32, ptr %22, align 4
+  %681 = zext i32 %680 to i64
+  %682 = inttoptr i64 %681 to ptr
+  %683 = load ptr, ptr %17, align 8
+  %684 = call i32 @g_hash_table_insert(ptr noundef %679, ptr noundef %682, ptr noundef %683)
   br label %685
 
-685:                                              ; preds = %684, %574
-  br label %699
+685:                                              ; preds = %674, %668
+  br label %686
 
-686:                                              ; preds = %394
-  %687 = load ptr, ptr %6, align 8
-  %688 = getelementptr inbounds %struct._packet_info, ptr %687, i32 0, i32 3
-  %689 = load i32, ptr %688, align 4
-  %690 = getelementptr inbounds %struct.smb_saved_info_key_t, ptr %18, i32 0, i32 0
-  store i32 %689, ptr %690, align 4
-  %691 = load i32, ptr %22, align 4
-  %692 = getelementptr inbounds %struct.smb_saved_info_key_t, ptr %18, i32 0, i32 1
-  store i32 %691, ptr %692, align 4
-  %693 = load ptr, ptr %16, align 8
-  %694 = getelementptr inbounds %struct.smb_info, ptr %693, i32 0, i32 12
-  %695 = load ptr, ptr %694, align 8
-  %696 = getelementptr inbounds %struct.conv_tables, ptr %695, i32 0, i32 1
-  %697 = load ptr, ptr %696, align 8
-  %698 = call ptr @g_hash_table_lookup(ptr noundef %697, ptr noundef %18)
-  store ptr %698, ptr %17, align 8
-  br label %699
-
-699:                                              ; preds = %686, %685
+686:                                              ; preds = %685, %574
   br label %700
 
-700:                                              ; preds = %699, %393
+687:                                              ; preds = %394
+  %688 = load ptr, ptr %6, align 8
+  %689 = getelementptr inbounds %struct._packet_info, ptr %688, i32 0, i32 3
+  %690 = load i32, ptr %689, align 4
+  %691 = getelementptr inbounds %struct.smb_saved_info_key_t, ptr %18, i32 0, i32 0
+  store i32 %690, ptr %691, align 4
+  %692 = load i32, ptr %22, align 4
+  %693 = getelementptr inbounds %struct.smb_saved_info_key_t, ptr %18, i32 0, i32 1
+  store i32 %692, ptr %693, align 4
+  %694 = load ptr, ptr %16, align 8
+  %695 = getelementptr inbounds %struct.smb_info, ptr %694, i32 0, i32 12
+  %696 = load ptr, ptr %695, align 8
+  %697 = getelementptr inbounds %struct.conv_tables, ptr %696, i32 0, i32 1
+  %698 = load ptr, ptr %697, align 8
+  %699 = call ptr @g_hash_table_lookup(ptr noundef %698, ptr noundef %18)
+  store ptr %699, ptr %17, align 8
+  br label %700
+
+700:                                              ; preds = %687, %686
   br label %701
 
-701:                                              ; preds = %700, %228
-  %702 = load ptr, ptr %17, align 8
-  %703 = load ptr, ptr %16, align 8
-  %704 = getelementptr inbounds %struct.smb_info, ptr %703, i32 0, i32 11
-  store ptr %702, ptr %704, align 8
-  %705 = load ptr, ptr %17, align 8
-  %706 = icmp ne ptr %705, null
-  br i1 %706, label %707, label %752
+701:                                              ; preds = %700, %393
+  br label %702
 
-707:                                              ; preds = %701
-  %708 = load ptr, ptr %16, align 8
-  %709 = getelementptr inbounds %struct.smb_info, ptr %708, i32 0, i32 7
-  %710 = load i32, ptr %709, align 4
-  %711 = icmp ne i32 %710, 0
-  br i1 %711, label %712, label %727
+702:                                              ; preds = %701, %228
+  %703 = load ptr, ptr %17, align 8
+  %704 = load ptr, ptr %16, align 8
+  %705 = getelementptr inbounds %struct.smb_info, ptr %704, i32 0, i32 11
+  store ptr %703, ptr %705, align 8
+  %706 = load ptr, ptr %17, align 8
+  %707 = icmp ne ptr %706, null
+  br i1 %707, label %708, label %753
 
-712:                                              ; preds = %707
-  %713 = load ptr, ptr %17, align 8
-  %714 = getelementptr inbounds %struct.smb_saved_info_t, ptr %713, i32 0, i32 1
-  %715 = load i32, ptr %714, align 4
-  %716 = icmp ne i32 %715, 0
-  br i1 %716, label %717, label %726
+708:                                              ; preds = %702
+  %709 = load ptr, ptr %16, align 8
+  %710 = getelementptr inbounds %struct.smb_info, ptr %709, i32 0, i32 7
+  %711 = load i32, ptr %710, align 4
+  %712 = icmp ne i32 %711, 0
+  br i1 %712, label %713, label %728
 
-717:                                              ; preds = %712
-  %718 = load ptr, ptr %12, align 8
-  %719 = load i32, ptr @hf_smb_response_in, align 4
-  %720 = load ptr, ptr %5, align 8
-  %721 = load ptr, ptr %17, align 8
-  %722 = getelementptr inbounds %struct.smb_saved_info_t, ptr %721, i32 0, i32 1
-  %723 = load i32, ptr %722, align 4
-  %724 = call ptr @proto_tree_add_uint(ptr noundef %718, i32 noundef %719, ptr noundef %720, i32 noundef 0, i32 noundef 0, i32 noundef %723)
-  store ptr %724, ptr %13, align 8
-  %725 = load ptr, ptr %13, align 8
-  call void @proto_item_set_generated(ptr noundef %725)
-  br label %726
+713:                                              ; preds = %708
+  %714 = load ptr, ptr %17, align 8
+  %715 = getelementptr inbounds %struct.smb_saved_info_t, ptr %714, i32 0, i32 1
+  %716 = load i32, ptr %715, align 4
+  %717 = icmp ne i32 %716, 0
+  br i1 %717, label %718, label %727
 
-726:                                              ; preds = %717, %712
-  br label %751
+718:                                              ; preds = %713
+  %719 = load ptr, ptr %12, align 8
+  %720 = load i32, ptr @hf_smb_response_in, align 4
+  %721 = load ptr, ptr %5, align 8
+  %722 = load ptr, ptr %17, align 8
+  %723 = getelementptr inbounds %struct.smb_saved_info_t, ptr %722, i32 0, i32 1
+  %724 = load i32, ptr %723, align 4
+  %725 = call ptr @proto_tree_add_uint(ptr noundef %719, i32 noundef %720, ptr noundef %721, i32 noundef 0, i32 noundef 0, i32 noundef %724)
+  store ptr %725, ptr %13, align 8
+  %726 = load ptr, ptr %13, align 8
+  call void @proto_item_set_generated(ptr noundef %726)
+  br label %727
 
-727:                                              ; preds = %707
-  %728 = load ptr, ptr %17, align 8
-  %729 = getelementptr inbounds %struct.smb_saved_info_t, ptr %728, i32 0, i32 0
-  %730 = load i32, ptr %729, align 8
-  %731 = icmp ne i32 %730, 0
-  br i1 %731, label %732, label %750
-
-732:                                              ; preds = %727
-  %733 = load ptr, ptr %12, align 8
-  %734 = load i32, ptr @hf_smb_response_to, align 4
-  %735 = load ptr, ptr %5, align 8
-  %736 = load ptr, ptr %17, align 8
-  %737 = getelementptr inbounds %struct.smb_saved_info_t, ptr %736, i32 0, i32 0
-  %738 = load i32, ptr %737, align 8
-  %739 = call ptr @proto_tree_add_uint(ptr noundef %733, i32 noundef %734, ptr noundef %735, i32 noundef 0, i32 noundef 0, i32 noundef %738)
-  store ptr %739, ptr %13, align 8
-  %740 = load ptr, ptr %13, align 8
-  call void @proto_item_set_generated(ptr noundef %740)
-  %741 = load ptr, ptr %6, align 8
-  %742 = getelementptr inbounds %struct._packet_info, ptr %741, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %742, i64 16, i1 false)
-  %743 = load ptr, ptr %17, align 8
-  %744 = getelementptr inbounds %struct.smb_saved_info_t, ptr %743, i32 0, i32 2
-  call void @nstime_delta(ptr noundef %25, ptr noundef %24, ptr noundef %744)
-  %745 = load ptr, ptr %12, align 8
-  %746 = load i32, ptr @hf_smb_time, align 4
-  %747 = load ptr, ptr %5, align 8
-  %748 = call ptr @proto_tree_add_time(ptr noundef %745, i32 noundef %746, ptr noundef %747, i32 noundef 0, i32 noundef 0, ptr noundef %25)
-  store ptr %748, ptr %13, align 8
-  %749 = load ptr, ptr %13, align 8
-  call void @proto_item_set_generated(ptr noundef %749)
-  br label %750
-
-750:                                              ; preds = %732, %727
-  br label %751
-
-751:                                              ; preds = %750, %726
+727:                                              ; preds = %718, %713
   br label %752
 
-752:                                              ; preds = %751, %701
-  %753 = load ptr, ptr %12, align 8
-  %754 = load i32, ptr @hf_smb_cmd, align 4
-  %755 = load ptr, ptr %5, align 8
-  %756 = load i32, ptr %9, align 4
-  %757 = load ptr, ptr %16, align 8
-  %758 = getelementptr inbounds %struct.smb_info, ptr %757, i32 0, i32 0
-  %759 = load i8, ptr %758, align 8
-  %760 = zext i8 %759 to i32
-  %761 = call ptr @proto_tree_add_uint(ptr noundef %753, i32 noundef %754, ptr noundef %755, i32 noundef %756, i32 noundef 1, i32 noundef %760)
-  %762 = load i32, ptr %9, align 4
-  %763 = add i32 %762, 1
-  store i32 %763, ptr %9, align 4
-  %764 = load i16, ptr %15, align 2
-  %765 = zext i16 %764 to i32
-  %766 = and i32 %765, 16384
-  %767 = icmp ne i32 %766, 0
-  br i1 %767, label %768, label %781
+728:                                              ; preds = %708
+  %729 = load ptr, ptr %17, align 8
+  %730 = getelementptr inbounds %struct.smb_saved_info_t, ptr %729, i32 0, i32 0
+  %731 = load i32, ptr %730, align 8
+  %732 = icmp ne i32 %731, 0
+  br i1 %732, label %733, label %751
 
-768:                                              ; preds = %752
-  %769 = load ptr, ptr %5, align 8
-  %770 = load i32, ptr %9, align 4
-  %771 = call i32 @tvb_get_letohl(ptr noundef %769, i32 noundef %770)
-  %772 = load ptr, ptr %16, align 8
-  %773 = getelementptr inbounds %struct.smb_info, ptr %772, i32 0, i32 5
-  store i32 %771, ptr %773, align 4
-  %774 = load ptr, ptr %12, align 8
-  %775 = load i32, ptr @hf_smb_nt_status, align 4
-  %776 = load ptr, ptr %5, align 8
-  %777 = load i32, ptr %9, align 4
-  %778 = call ptr @proto_tree_add_item(ptr noundef %774, i32 noundef %775, ptr noundef %776, i32 noundef %777, i32 noundef 4, i32 noundef -2147483648)
-  %779 = load i32, ptr %9, align 4
-  %780 = add i32 %779, 4
-  store i32 %780, ptr %9, align 4
-  br label %816
+733:                                              ; preds = %728
+  %734 = load ptr, ptr %12, align 8
+  %735 = load i32, ptr @hf_smb_response_to, align 4
+  %736 = load ptr, ptr %5, align 8
+  %737 = load ptr, ptr %17, align 8
+  %738 = getelementptr inbounds %struct.smb_saved_info_t, ptr %737, i32 0, i32 0
+  %739 = load i32, ptr %738, align 8
+  %740 = call ptr @proto_tree_add_uint(ptr noundef %734, i32 noundef %735, ptr noundef %736, i32 noundef 0, i32 noundef 0, i32 noundef %739)
+  store ptr %740, ptr %13, align 8
+  %741 = load ptr, ptr %13, align 8
+  call void @proto_item_set_generated(ptr noundef %741)
+  %742 = load ptr, ptr %6, align 8
+  %743 = getelementptr inbounds %struct._packet_info, ptr %742, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %743, i64 16, i1 false)
+  %744 = load ptr, ptr %17, align 8
+  %745 = getelementptr inbounds %struct.smb_saved_info_t, ptr %744, i32 0, i32 2
+  call void @nstime_delta(ptr noundef %25, ptr noundef %24, ptr noundef %745)
+  %746 = load ptr, ptr %12, align 8
+  %747 = load i32, ptr @hf_smb_time, align 4
+  %748 = load ptr, ptr %5, align 8
+  %749 = call ptr @proto_tree_add_time(ptr noundef %746, i32 noundef %747, ptr noundef %748, i32 noundef 0, i32 noundef 0, ptr noundef %25)
+  store ptr %749, ptr %13, align 8
+  %750 = load ptr, ptr %13, align 8
+  call void @proto_item_set_generated(ptr noundef %750)
+  br label %751
 
-781:                                              ; preds = %752
-  %782 = load ptr, ptr %5, align 8
-  %783 = load i32, ptr %9, align 4
-  %784 = call zeroext i8 @tvb_get_guint8(ptr noundef %782, i32 noundef %783)
-  store i8 %784, ptr %20, align 1
-  %785 = load ptr, ptr %12, align 8
-  %786 = load i32, ptr @hf_smb_error_class, align 4
-  %787 = load ptr, ptr %5, align 8
-  %788 = load i32, ptr %9, align 4
-  %789 = load i8, ptr %20, align 1
-  %790 = zext i8 %789 to i32
-  %791 = call ptr @proto_tree_add_uint(ptr noundef %785, i32 noundef %786, ptr noundef %787, i32 noundef %788, i32 noundef 1, i32 noundef %790)
-  %792 = load i32, ptr %9, align 4
-  %793 = add i32 %792, 1
-  store i32 %793, ptr %9, align 4
-  %794 = load ptr, ptr %12, align 8
-  %795 = load i32, ptr @hf_smb_reserved, align 4
-  %796 = load ptr, ptr %5, align 8
-  %797 = load i32, ptr %9, align 4
-  %798 = call ptr @proto_tree_add_item(ptr noundef %794, i32 noundef %795, ptr noundef %796, i32 noundef %797, i32 noundef 1, i32 noundef 0)
-  %799 = load i32, ptr %9, align 4
-  %800 = add i32 %799, 1
-  store i32 %800, ptr %9, align 4
-  %801 = load ptr, ptr %5, align 8
-  %802 = load i32, ptr %9, align 4
-  %803 = call zeroext i16 @tvb_get_letohs(ptr noundef %801, i32 noundef %802)
-  store i16 %803, ptr %21, align 2
-  %804 = load ptr, ptr %12, align 8
-  %805 = load i32, ptr @hf_smb_error_code, align 4
-  %806 = load ptr, ptr %5, align 8
-  %807 = load i32, ptr %9, align 4
-  %808 = load i16, ptr %21, align 2
-  %809 = zext i16 %808 to i32
-  %810 = load i8, ptr %20, align 1
-  %811 = load i16, ptr %21, align 2
-  %812 = call ptr @decode_smb_error(i8 noundef zeroext %810, i16 noundef zeroext %811)
-  %813 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %804, i32 noundef %805, ptr noundef %806, i32 noundef %807, i32 noundef 2, i32 noundef %809, ptr noundef @.str.2534, ptr noundef %812)
-  %814 = load i32, ptr %9, align 4
-  %815 = add i32 %814, 2
-  store i32 %815, ptr %9, align 4
-  br label %816
+751:                                              ; preds = %733, %728
+  br label %752
 
-816:                                              ; preds = %781, %768
-  %817 = load ptr, ptr %5, align 8
-  %818 = load ptr, ptr %12, align 8
-  %819 = load i32, ptr %9, align 4
-  %820 = call i32 @dissect_smb_flags(ptr noundef %817, ptr noundef %818, i32 noundef %819)
-  store i32 %820, ptr %9, align 4
-  %821 = load ptr, ptr %5, align 8
-  %822 = load ptr, ptr %12, align 8
-  %823 = load i32, ptr %9, align 4
-  %824 = call i32 @dissect_smb_flags2(ptr noundef %821, ptr noundef %822, i32 noundef %823)
-  store i32 %824, ptr %9, align 4
-  %825 = load ptr, ptr %12, align 8
-  %826 = load i32, ptr @hf_smb_pid_high, align 4
-  %827 = load ptr, ptr %5, align 8
-  %828 = load i32, ptr %9, align 4
-  %829 = call ptr @proto_tree_add_item(ptr noundef %825, i32 noundef %826, ptr noundef %827, i32 noundef %828, i32 noundef 2, i32 noundef -2147483648)
-  %830 = load i32, ptr %9, align 4
-  %831 = add i32 %830, 2
-  store i32 %831, ptr %9, align 4
-  %832 = load ptr, ptr %6, align 8
-  %833 = getelementptr inbounds %struct._packet_info, ptr %832, i32 0, i32 22
-  %834 = load i32, ptr %833, align 8
-  %835 = icmp eq i32 %834, 5
-  br i1 %835, label %836, label %880
+752:                                              ; preds = %751, %727
+  br label %753
 
-836:                                              ; preds = %816
-  %837 = load ptr, ptr %6, align 8
-  %838 = getelementptr inbounds %struct._packet_info, ptr %837, i32 0, i32 25
-  %839 = load i32, ptr %838, align 4
-  %840 = icmp eq i32 %839, 1360
-  br i1 %840, label %851, label %841
+753:                                              ; preds = %752, %702
+  %754 = load ptr, ptr %12, align 8
+  %755 = load i32, ptr @hf_smb_cmd, align 4
+  %756 = load ptr, ptr %5, align 8
+  %757 = load i32, ptr %9, align 4
+  %758 = load ptr, ptr %16, align 8
+  %759 = getelementptr inbounds %struct.smb_info, ptr %758, i32 0, i32 0
+  %760 = load i8, ptr %759, align 8
+  %761 = zext i8 %760 to i32
+  %762 = call ptr @proto_tree_add_uint(ptr noundef %754, i32 noundef %755, ptr noundef %756, i32 noundef %757, i32 noundef 1, i32 noundef %761)
+  %763 = load i32, ptr %9, align 4
+  %764 = add i32 %763, 1
+  store i32 %764, ptr %9, align 4
+  %765 = load i16, ptr %15, align 2
+  %766 = zext i16 %765 to i32
+  %767 = and i32 %766, 16384
+  %768 = icmp ne i32 %767, 0
+  br i1 %768, label %769, label %782
 
-841:                                              ; preds = %836
-  %842 = load ptr, ptr %6, align 8
-  %843 = getelementptr inbounds %struct._packet_info, ptr %842, i32 0, i32 25
-  %844 = load i32, ptr %843, align 4
-  %845 = icmp eq i32 %844, 1362
-  br i1 %845, label %851, label %846
+769:                                              ; preds = %753
+  %770 = load ptr, ptr %5, align 8
+  %771 = load i32, ptr %9, align 4
+  %772 = call i32 @tvb_get_letohl(ptr noundef %770, i32 noundef %771)
+  %773 = load ptr, ptr %16, align 8
+  %774 = getelementptr inbounds %struct.smb_info, ptr %773, i32 0, i32 5
+  store i32 %772, ptr %774, align 4
+  %775 = load ptr, ptr %12, align 8
+  %776 = load i32, ptr @hf_smb_nt_status, align 4
+  %777 = load ptr, ptr %5, align 8
+  %778 = load i32, ptr %9, align 4
+  %779 = call ptr @proto_tree_add_item(ptr noundef %775, i32 noundef %776, ptr noundef %777, i32 noundef %778, i32 noundef 4, i32 noundef -2147483648)
+  %780 = load i32, ptr %9, align 4
+  %781 = add i32 %780, 4
+  store i32 %781, ptr %9, align 4
+  br label %817
 
-846:                                              ; preds = %841
-  %847 = load ptr, ptr %6, align 8
-  %848 = getelementptr inbounds %struct._packet_info, ptr %847, i32 0, i32 25
-  %849 = load i32, ptr %848, align 4
-  %850 = icmp eq i32 %849, 1364
-  br i1 %850, label %851, label %880
+782:                                              ; preds = %753
+  %783 = load ptr, ptr %5, align 8
+  %784 = load i32, ptr %9, align 4
+  %785 = call zeroext i8 @tvb_get_guint8(ptr noundef %783, i32 noundef %784)
+  store i8 %785, ptr %20, align 1
+  %786 = load ptr, ptr %12, align 8
+  %787 = load i32, ptr @hf_smb_error_class, align 4
+  %788 = load ptr, ptr %5, align 8
+  %789 = load i32, ptr %9, align 4
+  %790 = load i8, ptr %20, align 1
+  %791 = zext i8 %790 to i32
+  %792 = call ptr @proto_tree_add_uint(ptr noundef %786, i32 noundef %787, ptr noundef %788, i32 noundef %789, i32 noundef 1, i32 noundef %791)
+  %793 = load i32, ptr %9, align 4
+  %794 = add i32 %793, 1
+  store i32 %794, ptr %9, align 4
+  %795 = load ptr, ptr %12, align 8
+  %796 = load i32, ptr @hf_smb_reserved, align 4
+  %797 = load ptr, ptr %5, align 8
+  %798 = load i32, ptr %9, align 4
+  %799 = call ptr @proto_tree_add_item(ptr noundef %795, i32 noundef %796, ptr noundef %797, i32 noundef %798, i32 noundef 1, i32 noundef 0)
+  %800 = load i32, ptr %9, align 4
+  %801 = add i32 %800, 1
+  store i32 %801, ptr %9, align 4
+  %802 = load ptr, ptr %5, align 8
+  %803 = load i32, ptr %9, align 4
+  %804 = call zeroext i16 @tvb_get_letohs(ptr noundef %802, i32 noundef %803)
+  store i16 %804, ptr %21, align 2
+  %805 = load ptr, ptr %12, align 8
+  %806 = load i32, ptr @hf_smb_error_code, align 4
+  %807 = load ptr, ptr %5, align 8
+  %808 = load i32, ptr %9, align 4
+  %809 = load i16, ptr %21, align 2
+  %810 = zext i16 %809 to i32
+  %811 = load i8, ptr %20, align 1
+  %812 = load i16, ptr %21, align 2
+  %813 = call ptr @decode_smb_error(i8 noundef zeroext %811, i16 noundef zeroext %812)
+  %814 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %805, i32 noundef %806, ptr noundef %807, i32 noundef %808, i32 noundef 2, i32 noundef %810, ptr noundef @.str.2534, ptr noundef %813)
+  %815 = load i32, ptr %9, align 4
+  %816 = add i32 %815, 2
+  store i32 %816, ptr %9, align 4
+  br label %817
 
-851:                                              ; preds = %846, %841, %836
-  %852 = load ptr, ptr %12, align 8
-  %853 = load i32, ptr @hf_smb_key, align 4
-  %854 = load ptr, ptr %5, align 8
-  %855 = load i32, ptr %9, align 4
-  %856 = call ptr @proto_tree_add_item(ptr noundef %852, i32 noundef %853, ptr noundef %854, i32 noundef %855, i32 noundef 4, i32 noundef -2147483648)
-  %857 = load i32, ptr %9, align 4
-  %858 = add i32 %857, 4
-  store i32 %858, ptr %9, align 4
-  %859 = load ptr, ptr %12, align 8
-  %860 = load i32, ptr @hf_smb_session_id, align 4
-  %861 = load ptr, ptr %5, align 8
-  %862 = load i32, ptr %9, align 4
-  %863 = call ptr @proto_tree_add_item(ptr noundef %859, i32 noundef %860, ptr noundef %861, i32 noundef %862, i32 noundef 2, i32 noundef -2147483648)
-  %864 = load i32, ptr %9, align 4
-  %865 = add i32 %864, 2
-  store i32 %865, ptr %9, align 4
-  %866 = load ptr, ptr %12, align 8
-  %867 = load i32, ptr @hf_smb_sequence_num, align 4
-  %868 = load ptr, ptr %5, align 8
-  %869 = load i32, ptr %9, align 4
-  %870 = call ptr @proto_tree_add_item(ptr noundef %866, i32 noundef %867, ptr noundef %868, i32 noundef %869, i32 noundef 2, i32 noundef -2147483648)
-  %871 = load i32, ptr %9, align 4
-  %872 = add i32 %871, 2
-  store i32 %872, ptr %9, align 4
-  %873 = load ptr, ptr %12, align 8
-  %874 = load i32, ptr @hf_smb_group_id, align 4
-  %875 = load ptr, ptr %5, align 8
-  %876 = load i32, ptr %9, align 4
-  %877 = call ptr @proto_tree_add_item(ptr noundef %873, i32 noundef %874, ptr noundef %875, i32 noundef %876, i32 noundef 2, i32 noundef -2147483648)
-  %878 = load i32, ptr %9, align 4
-  %879 = add i32 %878, 2
-  store i32 %879, ptr %9, align 4
-  br label %895
+817:                                              ; preds = %782, %769
+  %818 = load ptr, ptr %5, align 8
+  %819 = load ptr, ptr %12, align 8
+  %820 = load i32, ptr %9, align 4
+  %821 = call i32 @dissect_smb_flags(ptr noundef %818, ptr noundef %819, i32 noundef %820)
+  store i32 %821, ptr %9, align 4
+  %822 = load ptr, ptr %5, align 8
+  %823 = load ptr, ptr %12, align 8
+  %824 = load i32, ptr %9, align 4
+  %825 = call i32 @dissect_smb_flags2(ptr noundef %822, ptr noundef %823, i32 noundef %824)
+  store i32 %825, ptr %9, align 4
+  %826 = load ptr, ptr %12, align 8
+  %827 = load i32, ptr @hf_smb_pid_high, align 4
+  %828 = load ptr, ptr %5, align 8
+  %829 = load i32, ptr %9, align 4
+  %830 = call ptr @proto_tree_add_item(ptr noundef %826, i32 noundef %827, ptr noundef %828, i32 noundef %829, i32 noundef 2, i32 noundef -2147483648)
+  %831 = load i32, ptr %9, align 4
+  %832 = add i32 %831, 2
+  store i32 %832, ptr %9, align 4
+  %833 = load ptr, ptr %6, align 8
+  %834 = getelementptr inbounds %struct._packet_info, ptr %833, i32 0, i32 22
+  %835 = load i32, ptr %834, align 8
+  %836 = icmp eq i32 %835, 5
+  br i1 %836, label %837, label %881
 
-880:                                              ; preds = %846, %816
-  %881 = load ptr, ptr %12, align 8
-  %882 = load i32, ptr @hf_smb_sig, align 4
-  %883 = load ptr, ptr %5, align 8
-  %884 = load i32, ptr %9, align 4
-  %885 = call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %882, ptr noundef %883, i32 noundef %884, i32 noundef 8, i32 noundef 0)
-  %886 = load i32, ptr %9, align 4
-  %887 = add i32 %886, 8
-  store i32 %887, ptr %9, align 4
-  %888 = load ptr, ptr %12, align 8
-  %889 = load i32, ptr @hf_smb_reserved, align 4
-  %890 = load ptr, ptr %5, align 8
-  %891 = load i32, ptr %9, align 4
-  %892 = call ptr @proto_tree_add_item(ptr noundef %888, i32 noundef %889, ptr noundef %890, i32 noundef %891, i32 noundef 2, i32 noundef 0)
-  %893 = load i32, ptr %9, align 4
-  %894 = add i32 %893, 2
-  store i32 %894, ptr %9, align 4
-  br label %895
+837:                                              ; preds = %817
+  %838 = load ptr, ptr %6, align 8
+  %839 = getelementptr inbounds %struct._packet_info, ptr %838, i32 0, i32 25
+  %840 = load i32, ptr %839, align 4
+  %841 = icmp eq i32 %840, 1360
+  br i1 %841, label %852, label %842
 
-895:                                              ; preds = %880, %851
-  %896 = load ptr, ptr %6, align 8
-  %897 = getelementptr inbounds %struct._packet_info, ptr %896, i32 0, i32 8
-  %898 = load ptr, ptr %897, align 8
-  %899 = getelementptr inbounds %struct._frame_data, ptr %898, i32 0, i32 9
-  %900 = load i16, ptr %899, align 2
-  %901 = lshr i16 %900, 3
-  %902 = and i16 %901, 1
-  %903 = zext i16 %902 to i32
-  %904 = icmp ne i32 %903, 0
-  br i1 %904, label %927, label %905
+842:                                              ; preds = %837
+  %843 = load ptr, ptr %6, align 8
+  %844 = getelementptr inbounds %struct._packet_info, ptr %843, i32 0, i32 25
+  %845 = load i32, ptr %844, align 4
+  %846 = icmp eq i32 %845, 1362
+  br i1 %846, label %852, label %847
 
-905:                                              ; preds = %895
-  %906 = load ptr, ptr %16, align 8
-  %907 = getelementptr inbounds %struct.smb_info, ptr %906, i32 0, i32 0
-  %908 = load i8, ptr %907, align 8
-  %909 = zext i8 %908 to i32
-  %910 = icmp eq i32 %909, 117
-  br i1 %910, label %911, label %927
+847:                                              ; preds = %842
+  %848 = load ptr, ptr %6, align 8
+  %849 = getelementptr inbounds %struct._packet_info, ptr %848, i32 0, i32 25
+  %850 = load i32, ptr %849, align 4
+  %851 = icmp eq i32 %850, 1364
+  br i1 %851, label %852, label %881
 
-911:                                              ; preds = %905
-  %912 = load ptr, ptr %16, align 8
-  %913 = getelementptr inbounds %struct.smb_info, ptr %912, i32 0, i32 7
-  %914 = load i32, ptr %913, align 4
-  %915 = icmp ne i32 %914, 0
-  br i1 %915, label %927, label %916
+852:                                              ; preds = %847, %842, %837
+  %853 = load ptr, ptr %12, align 8
+  %854 = load i32, ptr @hf_smb_key, align 4
+  %855 = load ptr, ptr %5, align 8
+  %856 = load i32, ptr %9, align 4
+  %857 = call ptr @proto_tree_add_item(ptr noundef %853, i32 noundef %854, ptr noundef %855, i32 noundef %856, i32 noundef 4, i32 noundef -2147483648)
+  %858 = load i32, ptr %9, align 4
+  %859 = add i32 %858, 4
+  store i32 %859, ptr %9, align 4
+  %860 = load ptr, ptr %12, align 8
+  %861 = load i32, ptr @hf_smb_session_id, align 4
+  %862 = load ptr, ptr %5, align 8
+  %863 = load i32, ptr %9, align 4
+  %864 = call ptr @proto_tree_add_item(ptr noundef %860, i32 noundef %861, ptr noundef %862, i32 noundef %863, i32 noundef 2, i32 noundef -2147483648)
+  %865 = load i32, ptr %9, align 4
+  %866 = add i32 %865, 2
+  store i32 %866, ptr %9, align 4
+  %867 = load ptr, ptr %12, align 8
+  %868 = load i32, ptr @hf_smb_sequence_num, align 4
+  %869 = load ptr, ptr %5, align 8
+  %870 = load i32, ptr %9, align 4
+  %871 = call ptr @proto_tree_add_item(ptr noundef %867, i32 noundef %868, ptr noundef %869, i32 noundef %870, i32 noundef 2, i32 noundef -2147483648)
+  %872 = load i32, ptr %9, align 4
+  %873 = add i32 %872, 2
+  store i32 %873, ptr %9, align 4
+  %874 = load ptr, ptr %12, align 8
+  %875 = load i32, ptr @hf_smb_group_id, align 4
+  %876 = load ptr, ptr %5, align 8
+  %877 = load i32, ptr %9, align 4
+  %878 = call ptr @proto_tree_add_item(ptr noundef %874, i32 noundef %875, ptr noundef %876, i32 noundef %877, i32 noundef 2, i32 noundef -2147483648)
+  %879 = load i32, ptr %9, align 4
+  %880 = add i32 %879, 2
+  store i32 %880, ptr %9, align 4
+  br label %896
 
-916:                                              ; preds = %911
-  %917 = load ptr, ptr %5, align 8
-  %918 = load ptr, ptr %6, align 8
-  %919 = load ptr, ptr %12, align 8
-  %920 = load i32, ptr %9, align 4
-  %921 = load ptr, ptr %16, align 8
-  %922 = getelementptr inbounds %struct.smb_info, ptr %921, i32 0, i32 1
-  %923 = load i32, ptr %922, align 4
-  %924 = trunc i32 %923 to i16
-  %925 = load ptr, ptr %16, align 8
-  %926 = call i32 @dissect_smb_tid(ptr noundef %917, ptr noundef %918, ptr noundef %919, i32 noundef %920, i16 noundef zeroext %924, i32 noundef 1, i32 noundef 0, ptr noundef %925)
-  store i32 %926, ptr %9, align 4
-  br label %938
+881:                                              ; preds = %847, %817
+  %882 = load ptr, ptr %12, align 8
+  %883 = load i32, ptr @hf_smb_sig, align 4
+  %884 = load ptr, ptr %5, align 8
+  %885 = load i32, ptr %9, align 4
+  %886 = call ptr @proto_tree_add_item(ptr noundef %882, i32 noundef %883, ptr noundef %884, i32 noundef %885, i32 noundef 8, i32 noundef 0)
+  %887 = load i32, ptr %9, align 4
+  %888 = add i32 %887, 8
+  store i32 %888, ptr %9, align 4
+  %889 = load ptr, ptr %12, align 8
+  %890 = load i32, ptr @hf_smb_reserved, align 4
+  %891 = load ptr, ptr %5, align 8
+  %892 = load i32, ptr %9, align 4
+  %893 = call ptr @proto_tree_add_item(ptr noundef %889, i32 noundef %890, ptr noundef %891, i32 noundef %892, i32 noundef 2, i32 noundef 0)
+  %894 = load i32, ptr %9, align 4
+  %895 = add i32 %894, 2
+  store i32 %895, ptr %9, align 4
+  br label %896
 
-927:                                              ; preds = %911, %905, %895
-  %928 = load ptr, ptr %5, align 8
-  %929 = load ptr, ptr %6, align 8
-  %930 = load ptr, ptr %12, align 8
-  %931 = load i32, ptr %9, align 4
-  %932 = load ptr, ptr %16, align 8
-  %933 = getelementptr inbounds %struct.smb_info, ptr %932, i32 0, i32 1
-  %934 = load i32, ptr %933, align 4
-  %935 = trunc i32 %934 to i16
-  %936 = load ptr, ptr %16, align 8
-  %937 = call i32 @dissect_smb_tid(ptr noundef %928, ptr noundef %929, ptr noundef %930, i32 noundef %931, i16 noundef zeroext %935, i32 noundef 0, i32 noundef 0, ptr noundef %936)
-  store i32 %937, ptr %9, align 4
-  br label %938
+896:                                              ; preds = %881, %852
+  %897 = load ptr, ptr %6, align 8
+  %898 = getelementptr inbounds %struct._packet_info, ptr %897, i32 0, i32 8
+  %899 = load ptr, ptr %898, align 8
+  %900 = getelementptr inbounds %struct._frame_data, ptr %899, i32 0, i32 9
+  %901 = load i16, ptr %900, align 2
+  %902 = lshr i16 %901, 3
+  %903 = and i16 %902, 1
+  %904 = zext i16 %903 to i32
+  %905 = icmp ne i32 %904, 0
+  br i1 %905, label %928, label %906
 
-938:                                              ; preds = %927, %916
-  %939 = load ptr, ptr %12, align 8
-  %940 = load i32, ptr @hf_smb_pid, align 4
-  %941 = load ptr, ptr %5, align 8
-  %942 = load i32, ptr %9, align 4
-  %943 = load ptr, ptr %16, align 8
-  %944 = getelementptr inbounds %struct.smb_info, ptr %943, i32 0, i32 2
-  %945 = load i32, ptr %944, align 8
-  %946 = call ptr @proto_tree_add_uint(ptr noundef %939, i32 noundef %940, ptr noundef %941, i32 noundef %942, i32 noundef 2, i32 noundef %945)
-  %947 = load i32, ptr %9, align 4
-  %948 = add i32 %947, 2
-  store i32 %948, ptr %9, align 4
-  %949 = load ptr, ptr %5, align 8
-  %950 = load ptr, ptr %12, align 8
-  %951 = load i32, ptr %9, align 4
-  %952 = load ptr, ptr %16, align 8
-  %953 = call i32 @dissect_smb_uid(ptr noundef %949, ptr noundef %950, i32 noundef %951, ptr noundef %952)
-  store i32 %953, ptr %9, align 4
-  %954 = load ptr, ptr %12, align 8
-  %955 = load i32, ptr @hf_smb_mid, align 4
-  %956 = load ptr, ptr %5, align 8
-  %957 = load i32, ptr %9, align 4
-  %958 = load ptr, ptr %16, align 8
-  %959 = getelementptr inbounds %struct.smb_info, ptr %958, i32 0, i32 4
-  %960 = load i32, ptr %959, align 8
-  %961 = call ptr @proto_tree_add_uint(ptr noundef %954, i32 noundef %955, ptr noundef %956, i32 noundef %957, i32 noundef 2, i32 noundef %960)
-  %962 = load i32, ptr %9, align 4
-  %963 = add i32 %962, 2
-  store i32 %963, ptr %9, align 4
-  %964 = load i32, ptr @smb_tap, align 4
-  %965 = load ptr, ptr %6, align 8
-  %966 = load ptr, ptr %16, align 8
-  call void @tap_queue_packet(i32 noundef %964, ptr noundef %965, ptr noundef %966)
-  %967 = load ptr, ptr %5, align 8
-  %968 = load ptr, ptr %6, align 8
-  %969 = load i32, ptr %9, align 4
-  %970 = load ptr, ptr %11, align 8
-  %971 = load ptr, ptr %16, align 8
-  %972 = getelementptr inbounds %struct.smb_info, ptr %971, i32 0, i32 0
-  %973 = load i8, ptr %972, align 8
-  %974 = load ptr, ptr %16, align 8
-  %975 = call i32 @dissect_smb_command(ptr noundef %967, ptr noundef %968, i32 noundef %969, ptr noundef %970, i8 noundef zeroext %973, i32 noundef 1, ptr noundef %974)
-  %976 = load ptr, ptr %16, align 8
-  %977 = getelementptr inbounds %struct.smb_info, ptr %976, i32 0, i32 7
-  %978 = load i32, ptr %977, align 4
-  %979 = icmp ne i32 %978, 0
-  br i1 %979, label %1013, label %980
+906:                                              ; preds = %896
+  %907 = load ptr, ptr %16, align 8
+  %908 = getelementptr inbounds %struct.smb_info, ptr %907, i32 0, i32 0
+  %909 = load i8, ptr %908, align 8
+  %910 = zext i8 %909 to i32
+  %911 = icmp eq i32 %910, 117
+  br i1 %911, label %912, label %928
 
-980:                                              ; preds = %938
-  %981 = load i16, ptr %15, align 2
-  %982 = zext i16 %981 to i32
-  %983 = and i32 %982, 16384
-  %984 = icmp ne i32 %983, 0
-  br i1 %984, label %985, label %1000
+912:                                              ; preds = %906
+  %913 = load ptr, ptr %16, align 8
+  %914 = getelementptr inbounds %struct.smb_info, ptr %913, i32 0, i32 7
+  %915 = load i32, ptr %914, align 4
+  %916 = icmp ne i32 %915, 0
+  br i1 %916, label %928, label %917
 
-985:                                              ; preds = %980
-  %986 = load ptr, ptr %16, align 8
-  %987 = getelementptr inbounds %struct.smb_info, ptr %986, i32 0, i32 5
-  %988 = load i32, ptr %987, align 4
-  %989 = and i32 %988, -1073741824
-  %990 = icmp eq i32 %989, -1073741824
-  br i1 %990, label %991, label %999
+917:                                              ; preds = %912
+  %918 = load ptr, ptr %5, align 8
+  %919 = load ptr, ptr %6, align 8
+  %920 = load ptr, ptr %12, align 8
+  %921 = load i32, ptr %9, align 4
+  %922 = load ptr, ptr %16, align 8
+  %923 = getelementptr inbounds %struct.smb_info, ptr %922, i32 0, i32 1
+  %924 = load i32, ptr %923, align 4
+  %925 = trunc i32 %924 to i16
+  %926 = load ptr, ptr %16, align 8
+  %927 = call i32 @dissect_smb_tid(ptr noundef %918, ptr noundef %919, ptr noundef %920, i32 noundef %921, i16 noundef zeroext %925, i32 noundef 1, i32 noundef 0, ptr noundef %926)
+  store i32 %927, ptr %9, align 4
+  br label %939
 
-991:                                              ; preds = %985
-  %992 = load ptr, ptr %6, align 8
-  %993 = getelementptr inbounds %struct._packet_info, ptr %992, i32 0, i32 1
-  %994 = load ptr, ptr %993, align 8
-  %995 = load ptr, ptr %16, align 8
-  %996 = getelementptr inbounds %struct.smb_info, ptr %995, i32 0, i32 5
-  %997 = load i32, ptr %996, align 4
-  %998 = call ptr @val_to_str_ext(i32 noundef %997, ptr noundef @NT_errors_ext, ptr noundef @.str.2536)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %994, i32 noundef 25, ptr noundef @.str.2535, ptr noundef %998)
-  br label %999
+928:                                              ; preds = %912, %906, %896
+  %929 = load ptr, ptr %5, align 8
+  %930 = load ptr, ptr %6, align 8
+  %931 = load ptr, ptr %12, align 8
+  %932 = load i32, ptr %9, align 4
+  %933 = load ptr, ptr %16, align 8
+  %934 = getelementptr inbounds %struct.smb_info, ptr %933, i32 0, i32 1
+  %935 = load i32, ptr %934, align 4
+  %936 = trunc i32 %935 to i16
+  %937 = load ptr, ptr %16, align 8
+  %938 = call i32 @dissect_smb_tid(ptr noundef %929, ptr noundef %930, ptr noundef %931, i32 noundef %932, i16 noundef zeroext %936, i32 noundef 0, i32 noundef 0, ptr noundef %937)
+  store i32 %938, ptr %9, align 4
+  br label %939
 
-999:                                              ; preds = %991, %985
-  br label %1012
+939:                                              ; preds = %928, %917
+  %940 = load ptr, ptr %12, align 8
+  %941 = load i32, ptr @hf_smb_pid, align 4
+  %942 = load ptr, ptr %5, align 8
+  %943 = load i32, ptr %9, align 4
+  %944 = load ptr, ptr %16, align 8
+  %945 = getelementptr inbounds %struct.smb_info, ptr %944, i32 0, i32 2
+  %946 = load i32, ptr %945, align 8
+  %947 = call ptr @proto_tree_add_uint(ptr noundef %940, i32 noundef %941, ptr noundef %942, i32 noundef %943, i32 noundef 2, i32 noundef %946)
+  %948 = load i32, ptr %9, align 4
+  %949 = add i32 %948, 2
+  store i32 %949, ptr %9, align 4
+  %950 = load ptr, ptr %5, align 8
+  %951 = load ptr, ptr %12, align 8
+  %952 = load i32, ptr %9, align 4
+  %953 = load ptr, ptr %16, align 8
+  %954 = call i32 @dissect_smb_uid(ptr noundef %950, ptr noundef %951, i32 noundef %952, ptr noundef %953)
+  store i32 %954, ptr %9, align 4
+  %955 = load ptr, ptr %12, align 8
+  %956 = load i32, ptr @hf_smb_mid, align 4
+  %957 = load ptr, ptr %5, align 8
+  %958 = load i32, ptr %9, align 4
+  %959 = load ptr, ptr %16, align 8
+  %960 = getelementptr inbounds %struct.smb_info, ptr %959, i32 0, i32 4
+  %961 = load i32, ptr %960, align 8
+  %962 = call ptr @proto_tree_add_uint(ptr noundef %955, i32 noundef %956, ptr noundef %957, i32 noundef %958, i32 noundef 2, i32 noundef %961)
+  %963 = load i32, ptr %9, align 4
+  %964 = add i32 %963, 2
+  store i32 %964, ptr %9, align 4
+  %965 = load i32, ptr @smb_tap, align 4
+  %966 = load ptr, ptr %6, align 8
+  %967 = load ptr, ptr %16, align 8
+  call void @tap_queue_packet(i32 noundef %965, ptr noundef %966, ptr noundef %967)
+  %968 = load ptr, ptr %5, align 8
+  %969 = load ptr, ptr %6, align 8
+  %970 = load i32, ptr %9, align 4
+  %971 = load ptr, ptr %11, align 8
+  %972 = load ptr, ptr %16, align 8
+  %973 = getelementptr inbounds %struct.smb_info, ptr %972, i32 0, i32 0
+  %974 = load i8, ptr %973, align 8
+  %975 = load ptr, ptr %16, align 8
+  %976 = call i32 @dissect_smb_command(ptr noundef %968, ptr noundef %969, i32 noundef %970, ptr noundef %971, i8 noundef zeroext %974, i32 noundef 1, ptr noundef %975)
+  %977 = load ptr, ptr %16, align 8
+  %978 = getelementptr inbounds %struct.smb_info, ptr %977, i32 0, i32 7
+  %979 = load i32, ptr %978, align 4
+  %980 = icmp ne i32 %979, 0
+  br i1 %980, label %1014, label %981
 
-1000:                                             ; preds = %980
-  %1001 = load i8, ptr %20, align 1
-  %1002 = zext i8 %1001 to i32
-  %1003 = icmp ne i32 %1002, 0
-  br i1 %1003, label %1004, label %1011
+981:                                              ; preds = %939
+  %982 = load i16, ptr %15, align 2
+  %983 = zext i16 %982 to i32
+  %984 = and i32 %983, 16384
+  %985 = icmp ne i32 %984, 0
+  br i1 %985, label %986, label %1001
 
-1004:                                             ; preds = %1000
-  %1005 = load ptr, ptr %6, align 8
-  %1006 = getelementptr inbounds %struct._packet_info, ptr %1005, i32 0, i32 1
-  %1007 = load ptr, ptr %1006, align 8
-  %1008 = load i8, ptr %20, align 1
-  %1009 = load i16, ptr %21, align 2
-  %1010 = call ptr @decode_smb_error(i8 noundef zeroext %1008, i16 noundef zeroext %1009)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1007, i32 noundef 25, ptr noundef @.str.2535, ptr noundef %1010)
-  br label %1011
+986:                                              ; preds = %981
+  %987 = load ptr, ptr %16, align 8
+  %988 = getelementptr inbounds %struct.smb_info, ptr %987, i32 0, i32 5
+  %989 = load i32, ptr %988, align 4
+  %990 = and i32 %989, -1073741824
+  %991 = icmp eq i32 %990, -1073741824
+  br i1 %991, label %992, label %1000
 
-1011:                                             ; preds = %1004, %1000
-  br label %1012
+992:                                              ; preds = %986
+  %993 = load ptr, ptr %6, align 8
+  %994 = getelementptr inbounds %struct._packet_info, ptr %993, i32 0, i32 1
+  %995 = load ptr, ptr %994, align 8
+  %996 = load ptr, ptr %16, align 8
+  %997 = getelementptr inbounds %struct.smb_info, ptr %996, i32 0, i32 5
+  %998 = load i32, ptr %997, align 4
+  %999 = call ptr @val_to_str_ext(i32 noundef %998, ptr noundef @NT_errors_ext, ptr noundef @.str.2536)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %995, i32 noundef 25, ptr noundef @.str.2535, ptr noundef %999)
+  br label %1000
 
-1012:                                             ; preds = %1011, %999
+1000:                                             ; preds = %992, %986
   br label %1013
 
-1013:                                             ; preds = %1012, %938
-  %1014 = load ptr, ptr %5, align 8
-  %1015 = call i32 @tvb_captured_length(ptr noundef %1014)
-  ret i32 %1015
+1001:                                             ; preds = %981
+  %1002 = load i8, ptr %20, align 1
+  %1003 = zext i8 %1002 to i32
+  %1004 = icmp ne i32 %1003, 0
+  br i1 %1004, label %1005, label %1012
+
+1005:                                             ; preds = %1001
+  %1006 = load ptr, ptr %6, align 8
+  %1007 = getelementptr inbounds %struct._packet_info, ptr %1006, i32 0, i32 1
+  %1008 = load ptr, ptr %1007, align 8
+  %1009 = load i8, ptr %20, align 1
+  %1010 = load i16, ptr %21, align 2
+  %1011 = call ptr @decode_smb_error(i8 noundef zeroext %1009, i16 noundef zeroext %1010)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1008, i32 noundef 25, ptr noundef @.str.2535, ptr noundef %1011)
+  br label %1012
+
+1012:                                             ; preds = %1005, %1001
+  br label %1013
+
+1013:                                             ; preds = %1012, %1000
+  br label %1014
+
+1014:                                             ; preds = %1013, %939
+  %1015 = load ptr, ptr %5, align 8
+  %1016 = call i32 @tvb_captured_length(ptr noundef %1015)
+  ret i32 %1016
 }
 
 declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
@@ -22283,7 +22284,7 @@ define internal i32 @dissect_transaction_request(ptr noundef %0, ptr noundef %1,
   br i1 %424, label %425, label %426
 
 425:                                              ; preds = %409
-  br label %909
+  br label %910
 
 426:                                              ; preds = %409
   %427 = load i8, ptr %13, align 1
@@ -22311,7 +22312,7 @@ define internal i32 @dissect_transaction_request(ptr noundef %0, ptr noundef %1,
   br i1 %443, label %444, label %445
 
 444:                                              ; preds = %436
-  br label %909
+  br label %910
 
 445:                                              ; preds = %436
   %446 = load ptr, ptr %9, align 8
@@ -22404,7 +22405,7 @@ define internal i32 @dissect_transaction_request(ptr noundef %0, ptr noundef %1,
   br i1 %508, label %509, label %510
 
 509:                                              ; preds = %503
-  br label %909
+  br label %910
 
 510:                                              ; preds = %503
   %511 = load ptr, ptr %12, align 8
@@ -22514,7 +22515,7 @@ define internal i32 @dissect_transaction_request(ptr noundef %0, ptr noundef %1,
   br i1 %583, label %584, label %585
 
 584:                                              ; preds = %578
-  br label %909
+  br label %910
 
 585:                                              ; preds = %578
   %586 = load ptr, ptr %12, align 8
@@ -22570,13 +22571,13 @@ define internal i32 @dissect_transaction_request(ptr noundef %0, ptr noundef %1,
   %620 = load i8, ptr %619, align 8
   %621 = zext i8 %620 to i32
   %622 = icmp eq i32 %621, 37
-  br i1 %622, label %623, label %877
+  br i1 %622, label %623, label %878
 
 623:                                              ; preds = %617
   %624 = load i16, ptr %24, align 2
   %625 = zext i16 %624 to i32
   %626 = icmp eq i32 %625, 0
-  br i1 %626, label %627, label %872
+  br i1 %626, label %627, label %873
 
 627:                                              ; preds = %623
   %628 = load i16, ptr %21, align 2
@@ -22799,13 +22800,13 @@ define internal i32 @dissect_transaction_request(ptr noundef %0, ptr noundef %1,
   br i1 %770, label %771, label %772
 
 771:                                              ; preds = %768
-  br label %909
+  br label %910
 
 772:                                              ; preds = %768
   %773 = load ptr, ptr %28, align 8
   %774 = call i32 @strncmp(ptr noundef @.str.2630, ptr noundef %773, i64 noundef 6) #9
   %775 = icmp eq i32 %774, 0
-  br i1 %775, label %776, label %838
+  br i1 %775, label %776, label %839
 
 776:                                              ; preds = %772
   %777 = load ptr, ptr %30, align 8
@@ -22880,125 +22881,126 @@ define internal i32 @dissect_transaction_request(ptr noundef %0, ptr noundef %1,
   %834 = load i32, ptr %833, align 4
   %835 = sext i32 %834 to i64
   %836 = inttoptr i64 %835 to ptr
-  %837 = call i32 @g_hash_table_insert(ptr noundef %831, ptr noundef %836, ptr noundef inttoptr (i64 2 to ptr))
+  %837 = inttoptr i64 2 to ptr
+  %838 = call i32 @g_hash_table_insert(ptr noundef %831, ptr noundef %836, ptr noundef %837)
+  br label %864
+
+839:                                              ; preds = %772
+  %840 = load ptr, ptr %28, align 8
+  %841 = call i32 @strncmp(ptr noundef @.str.2631, ptr noundef %840, i64 noundef 10) #9
+  %842 = icmp eq i32 %841, 0
+  br i1 %842, label %843, label %863
+
+843:                                              ; preds = %839
+  %844 = load ptr, ptr %30, align 8
+  %845 = icmp ne ptr %844, null
+  br i1 %845, label %846, label %849
+
+846:                                              ; preds = %843
+  %847 = load ptr, ptr %30, align 8
+  %848 = getelementptr inbounds %struct.smb_transact_info_t, ptr %847, i32 0, i32 0
+  store i32 1, ptr %848, align 8
+  br label %849
+
+849:                                              ; preds = %846, %843
+  %850 = load ptr, ptr %7, align 8
+  %851 = load i32, ptr %17, align 4
+  %852 = load i32, ptr %18, align 4
+  %853 = call ptr @tvb_new_subset_length(ptr noundef %850, i32 noundef %851, i32 noundef %852)
+  store ptr %853, ptr %43, align 8
+  %854 = load ptr, ptr %43, align 8
+  %855 = load ptr, ptr %42, align 8
+  %856 = load ptr, ptr %41, align 8
+  %857 = load ptr, ptr %28, align 8
+  %858 = getelementptr i8, ptr %857, i64 10
+  %859 = load ptr, ptr %8, align 8
+  %860 = load ptr, ptr @top_tree_global, align 8
+  %861 = load ptr, ptr %12, align 8
+  %862 = call i32 @dissect_mailslot_smb(ptr noundef %854, ptr noundef %855, ptr noundef %856, ptr noundef %858, ptr noundef %859, ptr noundef %860, ptr noundef %861)
+  store i32 %862, ptr %33, align 4
   br label %863
 
-838:                                              ; preds = %772
-  %839 = load ptr, ptr %28, align 8
-  %840 = call i32 @strncmp(ptr noundef @.str.2631, ptr noundef %839, i64 noundef 10) #9
-  %841 = icmp eq i32 %840, 0
-  br i1 %841, label %842, label %862
+863:                                              ; preds = %849, %839
+  br label %864
 
-842:                                              ; preds = %838
-  %843 = load ptr, ptr %30, align 8
-  %844 = icmp ne ptr %843, null
-  br i1 %844, label %845, label %848
+864:                                              ; preds = %863, %826
+  %865 = load i32, ptr %33, align 4
+  %866 = icmp ne i32 %865, 0
+  br i1 %866, label %872, label %867
 
-845:                                              ; preds = %842
-  %846 = load ptr, ptr %30, align 8
-  %847 = getelementptr inbounds %struct.smb_transact_info_t, ptr %846, i32 0, i32 0
-  store i32 1, ptr %847, align 8
-  br label %848
+867:                                              ; preds = %864
+  %868 = load ptr, ptr %42, align 8
+  %869 = load ptr, ptr %40, align 8
+  %870 = load ptr, ptr %41, align 8
+  %871 = load ptr, ptr %9, align 8
+  call void @dissect_trans_data(ptr noundef %868, ptr noundef %869, ptr noundef %870, ptr noundef %871)
+  br label %872
 
-848:                                              ; preds = %845, %842
-  %849 = load ptr, ptr %7, align 8
-  %850 = load i32, ptr %17, align 4
-  %851 = load i32, ptr %18, align 4
-  %852 = call ptr @tvb_new_subset_length(ptr noundef %849, i32 noundef %850, i32 noundef %851)
-  store ptr %852, ptr %43, align 8
-  %853 = load ptr, ptr %43, align 8
-  %854 = load ptr, ptr %42, align 8
-  %855 = load ptr, ptr %41, align 8
-  %856 = load ptr, ptr %28, align 8
-  %857 = getelementptr i8, ptr %856, i64 10
-  %858 = load ptr, ptr %8, align 8
-  %859 = load ptr, ptr @top_tree_global, align 8
-  %860 = load ptr, ptr %12, align 8
-  %861 = call i32 @dissect_mailslot_smb(ptr noundef %853, ptr noundef %854, ptr noundef %855, ptr noundef %857, ptr noundef %858, ptr noundef %859, ptr noundef %860)
-  store i32 %861, ptr %33, align 4
-  br label %862
-
-862:                                              ; preds = %848, %838
-  br label %863
-
-863:                                              ; preds = %862, %826
-  %864 = load i32, ptr %33, align 4
-  %865 = icmp ne i32 %864, 0
-  br i1 %865, label %871, label %866
-
-866:                                              ; preds = %863
-  %867 = load ptr, ptr %42, align 8
-  %868 = load ptr, ptr %40, align 8
-  %869 = load ptr, ptr %41, align 8
-  %870 = load ptr, ptr %9, align 8
-  call void @dissect_trans_data(ptr noundef %867, ptr noundef %868, ptr noundef %869, ptr noundef %870)
-  br label %871
-
-871:                                              ; preds = %866, %863
-  br label %876
-
-872:                                              ; preds = %623
-  %873 = load ptr, ptr %8, align 8
-  %874 = getelementptr inbounds %struct._packet_info, ptr %873, i32 0, i32 1
-  %875 = load ptr, ptr %874, align 8
-  call void @col_append_str(ptr noundef %875, i32 noundef 25, ptr noundef @.str.2632)
-  br label %876
-
-876:                                              ; preds = %872, %871
+872:                                              ; preds = %867, %864
   br label %877
 
-877:                                              ; preds = %876, %617
-  %878 = load i16, ptr %31, align 2
-  %879 = zext i16 %878 to i32
-  %880 = icmp ne i32 %879, 0
-  br i1 %880, label %881, label %908
+873:                                              ; preds = %623
+  %874 = load ptr, ptr %8, align 8
+  %875 = getelementptr inbounds %struct._packet_info, ptr %874, i32 0, i32 1
+  %876 = load ptr, ptr %875, align 8
+  call void @col_append_str(ptr noundef %876, i32 noundef 25, ptr noundef @.str.2632)
+  br label %877
 
-881:                                              ; preds = %877
-  %882 = load ptr, ptr %7, align 8
-  %883 = load i32, ptr %10, align 4
-  %884 = call i32 @tvb_reported_length_remaining(ptr noundef %882, i32 noundef %883)
-  store i32 %884, ptr %45, align 4
-  %885 = load i16, ptr %31, align 2
-  %886 = zext i16 %885 to i32
-  %887 = load i32, ptr %45, align 4
-  %888 = icmp sgt i32 %886, %887
-  br i1 %888, label %889, label %892
+877:                                              ; preds = %873, %872
+  br label %878
 
-889:                                              ; preds = %881
-  %890 = load i32, ptr %45, align 4
-  %891 = trunc i32 %890 to i16
-  store i16 %891, ptr %31, align 2
-  br label %892
+878:                                              ; preds = %877, %617
+  %879 = load i16, ptr %31, align 2
+  %880 = zext i16 %879 to i32
+  %881 = icmp ne i32 %880, 0
+  br i1 %881, label %882, label %909
 
-892:                                              ; preds = %889, %881
-  %893 = load i16, ptr %31, align 2
-  %894 = icmp ne i16 %893, 0
-  br i1 %894, label %895, label %903
+882:                                              ; preds = %878
+  %883 = load ptr, ptr %7, align 8
+  %884 = load i32, ptr %10, align 4
+  %885 = call i32 @tvb_reported_length_remaining(ptr noundef %883, i32 noundef %884)
+  store i32 %885, ptr %45, align 4
+  %886 = load i16, ptr %31, align 2
+  %887 = zext i16 %886 to i32
+  %888 = load i32, ptr %45, align 4
+  %889 = icmp sgt i32 %887, %888
+  br i1 %889, label %890, label %893
 
-895:                                              ; preds = %892
-  %896 = load ptr, ptr %9, align 8
-  %897 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %898 = load ptr, ptr %7, align 8
-  %899 = load i32, ptr %10, align 4
-  %900 = load i16, ptr %31, align 2
-  %901 = zext i16 %900 to i32
-  %902 = call ptr @proto_tree_add_item(ptr noundef %896, i32 noundef %897, ptr noundef %898, i32 noundef %899, i32 noundef %901, i32 noundef 0)
-  br label %903
+890:                                              ; preds = %882
+  %891 = load i32, ptr %45, align 4
+  %892 = trunc i32 %891 to i16
+  store i16 %892, ptr %31, align 2
+  br label %893
 
-903:                                              ; preds = %895, %892
-  %904 = load i16, ptr %31, align 2
-  %905 = zext i16 %904 to i32
-  %906 = load i32, ptr %10, align 4
-  %907 = add i32 %906, %905
-  store i32 %907, ptr %10, align 4
-  br label %908
+893:                                              ; preds = %890, %882
+  %894 = load i16, ptr %31, align 2
+  %895 = icmp ne i16 %894, 0
+  br i1 %895, label %896, label %904
 
-908:                                              ; preds = %903, %877
+896:                                              ; preds = %893
+  %897 = load ptr, ptr %9, align 8
+  %898 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %899 = load ptr, ptr %7, align 8
+  %900 = load i32, ptr %10, align 4
+  %901 = load i16, ptr %31, align 2
+  %902 = zext i16 %901 to i32
+  %903 = call ptr @proto_tree_add_item(ptr noundef %897, i32 noundef %898, ptr noundef %899, i32 noundef %900, i32 noundef %902, i32 noundef 0)
+  br label %904
+
+904:                                              ; preds = %896, %893
+  %905 = load i16, ptr %31, align 2
+  %906 = zext i16 %905 to i32
+  %907 = load i32, ptr %10, align 4
+  %908 = add i32 %907, %906
+  store i32 %908, ptr %10, align 4
   br label %909
 
-909:                                              ; preds = %908, %771, %584, %509, %444, %425
-  %910 = load i32, ptr %10, align 4
-  ret i32 %910
+909:                                              ; preds = %904, %878
+  br label %910
+
+910:                                              ; preds = %909, %771, %584, %509, %444, %425
+  %911 = load i32, ptr %10, align 4
+  ret i32 %911
 }
 
 ; Function Attrs: nounwind uwtable
@@ -27842,14 +27844,14 @@ define internal i32 @dissect_write_andx_request(ptr noundef %0, ptr noundef %1, 
   br i1 %302, label %303, label %304
 
 303:                                              ; preds = %287
-  br label %472
+  br label %473
 
 304:                                              ; preds = %287
   %305 = load i16, ptr %25, align 2
   %306 = zext i16 %305 to i32
   %307 = and i32 %306, 8
   %308 = icmp ne i32 %307, 0
-  br i1 %308, label %309, label %394
+  br i1 %308, label %309, label %395
 
 309:                                              ; preds = %304
   %310 = load i16, ptr %25, align 2
@@ -27892,7 +27894,7 @@ define internal i32 @dissect_write_andx_request(ptr noundef %0, ptr noundef %1, 
   %339 = and i16 %338, 1
   %340 = zext i16 %339 to i32
   %341 = icmp ne i32 %340, 0
-  br i1 %341, label %379, label %342
+  br i1 %341, label %380, label %342
 
 342:                                              ; preds = %332
   %343 = load ptr, ptr %12, align 8
@@ -27934,173 +27936,174 @@ define internal i32 @dissect_write_andx_request(ptr noundef %0, ptr noundef %1, 
   %375 = load i32, ptr %374, align 4
   %376 = sext i32 %375 to i64
   %377 = inttoptr i64 %376 to ptr
-  %378 = call i32 @g_hash_table_insert(ptr noundef %372, ptr noundef %377, ptr noundef inttoptr (i64 2 to ptr))
-  br label %379
+  %378 = inttoptr i64 2 to ptr
+  %379 = call i32 @g_hash_table_insert(ptr noundef %372, ptr noundef %377, ptr noundef %378)
+  br label %380
 
-379:                                              ; preds = %367, %332
-  %380 = load ptr, ptr %12, align 8
-  %381 = getelementptr inbounds %struct.smb_info, ptr %380, i32 0, i32 11
-  %382 = load ptr, ptr %381, align 8
-  %383 = icmp ne ptr %382, null
-  br i1 %383, label %384, label %393
+380:                                              ; preds = %367, %332
+  %381 = load ptr, ptr %12, align 8
+  %382 = getelementptr inbounds %struct.smb_info, ptr %381, i32 0, i32 11
+  %383 = load ptr, ptr %382, align 8
+  %384 = icmp ne ptr %383, null
+  br i1 %384, label %385, label %394
 
-384:                                              ; preds = %379
-  %385 = load ptr, ptr %12, align 8
-  %386 = getelementptr inbounds %struct.smb_info, ptr %385, i32 0, i32 11
-  %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr inbounds %struct.smb_saved_info_t, ptr %387, i32 0, i32 3
-  %389 = load i16, ptr %388, align 8
-  %390 = zext i16 %389 to i32
-  %391 = or i32 %390, 1
-  %392 = trunc i32 %391 to i16
-  store i16 %392, ptr %388, align 8
-  br label %393
-
-393:                                              ; preds = %384, %379
+385:                                              ; preds = %380
+  %386 = load ptr, ptr %12, align 8
+  %387 = getelementptr inbounds %struct.smb_info, ptr %386, i32 0, i32 11
+  %388 = load ptr, ptr %387, align 8
+  %389 = getelementptr inbounds %struct.smb_saved_info_t, ptr %388, i32 0, i32 3
+  %390 = load i16, ptr %389, align 8
+  %391 = zext i16 %390 to i32
+  %392 = or i32 %391, 1
+  %393 = trunc i32 %392 to i16
+  store i16 %393, ptr %389, align 8
   br label %394
 
-394:                                              ; preds = %393, %304
-  %395 = load i16, ptr %16, align 2
-  %396 = zext i16 %395 to i32
-  %397 = icmp ne i32 %396, 0
-  br i1 %397, label %398, label %412
+394:                                              ; preds = %385, %380
+  br label %395
 
-398:                                              ; preds = %394
-  %399 = load ptr, ptr %7, align 8
-  %400 = load ptr, ptr %8, align 8
-  %401 = load ptr, ptr %9, align 8
-  %402 = load ptr, ptr @top_tree_global, align 8
-  %403 = load i32, ptr %10, align 4
-  %404 = load i16, ptr %16, align 2
-  %405 = load i16, ptr %17, align 2
-  %406 = zext i16 %405 to i32
-  %407 = load i32, ptr %23, align 4
-  %408 = trunc i32 %407 to i16
-  %409 = load i16, ptr %24, align 2
-  %410 = load ptr, ptr %12, align 8
-  %411 = call i32 @dissect_file_data_maybe_dcerpc(ptr noundef %399, ptr noundef %400, ptr noundef %401, ptr noundef %402, i32 noundef %403, i16 noundef zeroext %404, i32 noundef %406, i16 noundef zeroext %408, i32 noundef 0, i16 noundef zeroext %409, ptr noundef %410)
-  store i32 %411, ptr %10, align 4
+395:                                              ; preds = %394, %304
+  %396 = load i16, ptr %16, align 2
+  %397 = zext i16 %396 to i32
+  %398 = icmp ne i32 %397, 0
+  br i1 %398, label %399, label %413
+
+399:                                              ; preds = %395
+  %400 = load ptr, ptr %7, align 8
+  %401 = load ptr, ptr %8, align 8
+  %402 = load ptr, ptr %9, align 8
+  %403 = load ptr, ptr @top_tree_global, align 8
+  %404 = load i32, ptr %10, align 4
+  %405 = load i16, ptr %16, align 2
+  %406 = load i16, ptr %17, align 2
+  %407 = zext i16 %406 to i32
+  %408 = load i32, ptr %23, align 4
+  %409 = trunc i32 %408 to i16
+  %410 = load i16, ptr %24, align 2
+  %411 = load ptr, ptr %12, align 8
+  %412 = call i32 @dissect_file_data_maybe_dcerpc(ptr noundef %400, ptr noundef %401, ptr noundef %402, ptr noundef %403, i32 noundef %404, i16 noundef zeroext %405, i32 noundef %407, i16 noundef zeroext %409, i32 noundef 0, i16 noundef zeroext %410, ptr noundef %411)
+  store i32 %412, ptr %10, align 4
   store i16 0, ptr %16, align 2
-  br label %412
+  br label %413
 
-412:                                              ; preds = %398, %394
-  %413 = load ptr, ptr %7, align 8
-  %414 = load i16, ptr %17, align 2
-  %415 = zext i16 %414 to i32
-  %416 = call i32 @tvb_reported_length_remaining(ptr noundef %413, i32 noundef %415)
-  store i32 %416, ptr %27, align 4
-  %417 = load i32, ptr @smb_eo_tap, align 4
-  %418 = call i32 @have_tap_listener(i32 noundef %417)
-  %419 = icmp ne i32 %418, 0
-  br i1 %419, label %420, label %440
+413:                                              ; preds = %399, %395
+  %414 = load ptr, ptr %7, align 8
+  %415 = load i16, ptr %17, align 2
+  %416 = zext i16 %415 to i32
+  %417 = call i32 @tvb_reported_length_remaining(ptr noundef %414, i32 noundef %416)
+  store i32 %417, ptr %27, align 4
+  %418 = load i32, ptr @smb_eo_tap, align 4
+  %419 = call i32 @have_tap_listener(i32 noundef %418)
+  %420 = icmp ne i32 %419, 0
+  br i1 %420, label %421, label %441
 
-420:                                              ; preds = %412
-  %421 = load i32, ptr %23, align 4
-  %422 = load i32, ptr %27, align 4
-  %423 = icmp eq i32 %421, %422
-  br i1 %423, label %424, label %440
+421:                                              ; preds = %413
+  %422 = load i32, ptr %23, align 4
+  %423 = load i32, ptr %27, align 4
+  %424 = icmp eq i32 %422, %423
+  br i1 %424, label %425, label %441
 
-424:                                              ; preds = %420
-  %425 = load ptr, ptr %26, align 8
-  %426 = icmp ne ptr %425, null
-  br i1 %426, label %427, label %440
+425:                                              ; preds = %421
+  %426 = load ptr, ptr %26, align 8
+  %427 = icmp ne ptr %426, null
+  br i1 %427, label %428, label %441
 
-427:                                              ; preds = %424
-  %428 = load i16, ptr %24, align 2
-  %429 = load ptr, ptr %7, align 8
-  %430 = load ptr, ptr %8, align 8
-  %431 = load i16, ptr %17, align 2
-  %432 = load i32, ptr %23, align 4
-  %433 = load ptr, ptr %26, align 8
-  %434 = getelementptr inbounds %struct._rw_info_t, ptr %433, i32 0, i32 1
-  %435 = load i32, ptr %434, align 8
-  %436 = load ptr, ptr %26, align 8
-  %437 = getelementptr inbounds %struct._rw_info_t, ptr %436, i32 0, i32 0
-  %438 = load i64, ptr %437, align 8
-  %439 = load ptr, ptr %12, align 8
-  call void @feed_eo_smb(i16 noundef zeroext 47, i16 noundef zeroext %428, ptr noundef %429, ptr noundef %430, i16 noundef zeroext %431, i32 noundef %432, i32 noundef %435, i64 noundef %438, ptr noundef %439)
-  br label %440
+428:                                              ; preds = %425
+  %429 = load i16, ptr %24, align 2
+  %430 = load ptr, ptr %7, align 8
+  %431 = load ptr, ptr %8, align 8
+  %432 = load i16, ptr %17, align 2
+  %433 = load i32, ptr %23, align 4
+  %434 = load ptr, ptr %26, align 8
+  %435 = getelementptr inbounds %struct._rw_info_t, ptr %434, i32 0, i32 1
+  %436 = load i32, ptr %435, align 8
+  %437 = load ptr, ptr %26, align 8
+  %438 = getelementptr inbounds %struct._rw_info_t, ptr %437, i32 0, i32 0
+  %439 = load i64, ptr %438, align 8
+  %440 = load ptr, ptr %12, align 8
+  call void @feed_eo_smb(i16 noundef zeroext 47, i16 noundef zeroext %429, ptr noundef %430, ptr noundef %431, i16 noundef zeroext %432, i32 noundef %433, i32 noundef %436, i64 noundef %439, ptr noundef %440)
+  br label %441
 
-440:                                              ; preds = %427, %424, %420, %412
-  %441 = load i16, ptr %16, align 2
-  %442 = zext i16 %441 to i32
-  %443 = icmp ne i32 %442, 0
-  br i1 %443, label %444, label %471
+441:                                              ; preds = %428, %425, %421, %413
+  %442 = load i16, ptr %16, align 2
+  %443 = zext i16 %442 to i32
+  %444 = icmp ne i32 %443, 0
+  br i1 %444, label %445, label %472
 
-444:                                              ; preds = %440
-  %445 = load ptr, ptr %7, align 8
-  %446 = load i32, ptr %10, align 4
-  %447 = call i32 @tvb_reported_length_remaining(ptr noundef %445, i32 noundef %446)
-  store i32 %447, ptr %29, align 4
-  %448 = load i16, ptr %16, align 2
-  %449 = zext i16 %448 to i32
-  %450 = load i32, ptr %29, align 4
-  %451 = icmp sgt i32 %449, %450
-  br i1 %451, label %452, label %455
+445:                                              ; preds = %441
+  %446 = load ptr, ptr %7, align 8
+  %447 = load i32, ptr %10, align 4
+  %448 = call i32 @tvb_reported_length_remaining(ptr noundef %446, i32 noundef %447)
+  store i32 %448, ptr %29, align 4
+  %449 = load i16, ptr %16, align 2
+  %450 = zext i16 %449 to i32
+  %451 = load i32, ptr %29, align 4
+  %452 = icmp sgt i32 %450, %451
+  br i1 %452, label %453, label %456
 
-452:                                              ; preds = %444
-  %453 = load i32, ptr %29, align 4
-  %454 = trunc i32 %453 to i16
-  store i16 %454, ptr %16, align 2
-  br label %455
+453:                                              ; preds = %445
+  %454 = load i32, ptr %29, align 4
+  %455 = trunc i32 %454 to i16
+  store i16 %455, ptr %16, align 2
+  br label %456
 
-455:                                              ; preds = %452, %444
-  %456 = load i16, ptr %16, align 2
-  %457 = icmp ne i16 %456, 0
-  br i1 %457, label %458, label %466
+456:                                              ; preds = %453, %445
+  %457 = load i16, ptr %16, align 2
+  %458 = icmp ne i16 %457, 0
+  br i1 %458, label %459, label %467
 
-458:                                              ; preds = %455
-  %459 = load ptr, ptr %9, align 8
-  %460 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %461 = load ptr, ptr %7, align 8
-  %462 = load i32, ptr %10, align 4
-  %463 = load i16, ptr %16, align 2
-  %464 = zext i16 %463 to i32
-  %465 = call ptr @proto_tree_add_item(ptr noundef %459, i32 noundef %460, ptr noundef %461, i32 noundef %462, i32 noundef %464, i32 noundef 0)
-  br label %466
+459:                                              ; preds = %456
+  %460 = load ptr, ptr %9, align 8
+  %461 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %462 = load ptr, ptr %7, align 8
+  %463 = load i32, ptr %10, align 4
+  %464 = load i16, ptr %16, align 2
+  %465 = zext i16 %464 to i32
+  %466 = call ptr @proto_tree_add_item(ptr noundef %460, i32 noundef %461, ptr noundef %462, i32 noundef %463, i32 noundef %465, i32 noundef 0)
+  br label %467
 
-466:                                              ; preds = %458, %455
-  %467 = load i16, ptr %16, align 2
-  %468 = zext i16 %467 to i32
-  %469 = load i32, ptr %10, align 4
-  %470 = add i32 %469, %468
-  store i32 %470, ptr %10, align 4
-  br label %471
-
-471:                                              ; preds = %466, %440
+467:                                              ; preds = %459, %456
+  %468 = load i16, ptr %16, align 2
+  %469 = zext i16 %468 to i32
+  %470 = load i32, ptr %10, align 4
+  %471 = add i32 %470, %469
+  store i32 %471, ptr %10, align 4
   br label %472
 
-472:                                              ; preds = %471, %303
-  %473 = load i8, ptr %14, align 1
-  %474 = zext i8 %473 to i32
-  %475 = icmp ne i32 %474, 255
-  br i1 %475, label %476, label %491
+472:                                              ; preds = %467, %441
+  br label %473
 
-476:                                              ; preds = %472
-  %477 = load i16, ptr %15, align 2
-  %478 = zext i16 %477 to i32
-  %479 = load i32, ptr %10, align 4
-  %480 = icmp slt i32 %478, %479
-  br i1 %480, label %481, label %482
+473:                                              ; preds = %472, %303
+  %474 = load i8, ptr %14, align 1
+  %475 = zext i8 %474 to i32
+  %476 = icmp ne i32 %475, 255
+  br i1 %476, label %477, label %492
 
-481:                                              ; preds = %476
+477:                                              ; preds = %473
+  %478 = load i16, ptr %15, align 2
+  %479 = zext i16 %478 to i32
+  %480 = load i32, ptr %10, align 4
+  %481 = icmp slt i32 %479, %480
+  br i1 %481, label %482, label %483
+
+482:                                              ; preds = %477
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #8
   unreachable
 
-482:                                              ; preds = %476
-  %483 = load ptr, ptr %7, align 8
-  %484 = load ptr, ptr %8, align 8
-  %485 = load i16, ptr %15, align 2
-  %486 = zext i16 %485 to i32
-  %487 = load ptr, ptr %11, align 8
-  %488 = load i8, ptr %14, align 1
-  %489 = load ptr, ptr %12, align 8
-  %490 = call i32 @dissect_smb_command(ptr noundef %483, ptr noundef %484, i32 noundef %486, ptr noundef %487, i8 noundef zeroext %488, i32 noundef 0, ptr noundef %489)
-  br label %491
+483:                                              ; preds = %477
+  %484 = load ptr, ptr %7, align 8
+  %485 = load ptr, ptr %8, align 8
+  %486 = load i16, ptr %15, align 2
+  %487 = zext i16 %486 to i32
+  %488 = load ptr, ptr %11, align 8
+  %489 = load i8, ptr %14, align 1
+  %490 = load ptr, ptr %12, align 8
+  %491 = call i32 @dissect_smb_command(ptr noundef %484, ptr noundef %485, i32 noundef %487, ptr noundef %488, i8 noundef zeroext %489, i32 noundef 0, ptr noundef %490)
+  br label %492
 
-491:                                              ; preds = %482, %472
-  %492 = load i32, ptr %10, align 4
-  ret i32 %492
+492:                                              ; preds = %483, %473
+  %493 = load i32, ptr %10, align 4
+  ret i32 %493
 }
 
 ; Function Attrs: nounwind uwtable
@@ -32800,7 +32803,7 @@ define internal i32 @dissect_tree_connect_andx_response(ptr noundef %0, ptr noun
   br i1 %137, label %138, label %139
 
 138:                                              ; preds = %122
-  br label %290
+  br label %292
 
 139:                                              ; preds = %122
   %140 = load ptr, ptr %7, align 8
@@ -32814,7 +32817,7 @@ define internal i32 @dissect_tree_connect_andx_response(ptr noundef %0, ptr noun
   br i1 %146, label %147, label %148
 
 147:                                              ; preds = %139
-  br label %290
+  br label %292
 
 148:                                              ; preds = %139
   %149 = load ptr, ptr %9, align 8
@@ -32845,7 +32848,7 @@ define internal i32 @dissect_tree_connect_andx_response(ptr noundef %0, ptr noun
   %171 = and i16 %170, 1
   %172 = zext i16 %171 to i32
   %173 = icmp ne i32 %172, 0
-  br i1 %173, label %228, label %174
+  br i1 %173, label %230, label %174
 
 174:                                              ; preds = %148
   %175 = load ptr, ptr %12, align 8
@@ -32880,7 +32883,7 @@ define internal i32 @dissect_tree_connect_andx_response(ptr noundef %0, ptr noun
   %200 = load ptr, ptr %18, align 8
   %201 = call i32 @strcmp(ptr noundef %200, ptr noundef @.str.2680) #9
   %202 = icmp eq i32 %201, 0
-  br i1 %202, label %203, label %215
+  br i1 %202, label %203, label %216
 
 203:                                              ; preds = %199
   %204 = load ptr, ptr %12, align 8
@@ -32893,148 +32896,150 @@ define internal i32 @dissect_tree_connect_andx_response(ptr noundef %0, ptr noun
   %211 = load i32, ptr %210, align 4
   %212 = sext i32 %211 to i64
   %213 = inttoptr i64 %212 to ptr
-  %214 = call i32 @g_hash_table_insert(ptr noundef %208, ptr noundef %213, ptr noundef inttoptr (i64 2 to ptr))
-  br label %227
+  %214 = inttoptr i64 2 to ptr
+  %215 = call i32 @g_hash_table_insert(ptr noundef %208, ptr noundef %213, ptr noundef %214)
+  br label %229
 
-215:                                              ; preds = %199
-  %216 = load ptr, ptr %12, align 8
-  %217 = getelementptr inbounds %struct.smb_info, ptr %216, i32 0, i32 12
-  %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds %struct.conv_tables, ptr %218, i32 0, i32 3
-  %220 = load ptr, ptr %219, align 8
-  %221 = load ptr, ptr %12, align 8
-  %222 = getelementptr inbounds %struct.smb_info, ptr %221, i32 0, i32 1
-  %223 = load i32, ptr %222, align 4
-  %224 = sext i32 %223 to i64
-  %225 = inttoptr i64 %224 to ptr
-  %226 = call i32 @g_hash_table_insert(ptr noundef %220, ptr noundef %225, ptr noundef inttoptr (i64 1 to ptr))
-  br label %227
+216:                                              ; preds = %199
+  %217 = load ptr, ptr %12, align 8
+  %218 = getelementptr inbounds %struct.smb_info, ptr %217, i32 0, i32 12
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds %struct.conv_tables, ptr %219, i32 0, i32 3
+  %221 = load ptr, ptr %220, align 8
+  %222 = load ptr, ptr %12, align 8
+  %223 = getelementptr inbounds %struct.smb_info, ptr %222, i32 0, i32 1
+  %224 = load i32, ptr %223, align 4
+  %225 = sext i32 %224 to i64
+  %226 = inttoptr i64 %225 to ptr
+  %227 = inttoptr i64 1 to ptr
+  %228 = call i32 @g_hash_table_insert(ptr noundef %221, ptr noundef %226, ptr noundef %227)
+  br label %229
 
-227:                                              ; preds = %215, %203
-  br label %228
+229:                                              ; preds = %216, %203
+  br label %230
 
-228:                                              ; preds = %227, %148
-  %229 = load i16, ptr %16, align 2
-  %230 = zext i16 %229 to i32
-  %231 = icmp ne i32 %230, 0
-  br i1 %231, label %232, label %258
+230:                                              ; preds = %229, %148
+  %231 = load i16, ptr %16, align 2
+  %232 = zext i16 %231 to i32
+  %233 = icmp ne i32 %232, 0
+  br i1 %233, label %234, label %260
 
-232:                                              ; preds = %228
-  %233 = load ptr, ptr %7, align 8
-  %234 = load ptr, ptr %12, align 8
-  %235 = getelementptr inbounds %struct.smb_info, ptr %234, i32 0, i32 6
-  %236 = load i32, ptr %235, align 8
-  %237 = call ptr @get_unicode_or_ascii_string(ptr noundef %233, ptr noundef %10, i32 noundef %236, ptr noundef %17, i32 noundef 0, i32 noundef 0, ptr noundef %16)
-  store ptr %237, ptr %18, align 8
-  %238 = load ptr, ptr %18, align 8
-  %239 = icmp eq ptr %238, null
-  br i1 %239, label %240, label %241
+234:                                              ; preds = %230
+  %235 = load ptr, ptr %7, align 8
+  %236 = load ptr, ptr %12, align 8
+  %237 = getelementptr inbounds %struct.smb_info, ptr %236, i32 0, i32 6
+  %238 = load i32, ptr %237, align 8
+  %239 = call ptr @get_unicode_or_ascii_string(ptr noundef %235, ptr noundef %10, i32 noundef %238, ptr noundef %17, i32 noundef 0, i32 noundef 0, ptr noundef %16)
+  store ptr %239, ptr %18, align 8
+  %240 = load ptr, ptr %18, align 8
+  %241 = icmp eq ptr %240, null
+  br i1 %241, label %242, label %243
 
-240:                                              ; preds = %232
-  br label %290
+242:                                              ; preds = %234
+  br label %292
 
-241:                                              ; preds = %232
-  %242 = load ptr, ptr %9, align 8
-  %243 = load i32, ptr @hf_smb_fs, align 4
-  %244 = load ptr, ptr %7, align 8
-  %245 = load i32, ptr %10, align 4
-  %246 = load i32, ptr %17, align 4
-  %247 = load ptr, ptr %18, align 8
-  %248 = call ptr @proto_tree_add_string(ptr noundef %242, i32 noundef %243, ptr noundef %244, i32 noundef %245, i32 noundef %246, ptr noundef %247)
-  %249 = load i32, ptr %17, align 4
-  store i32 %249, ptr %21, align 4
-  %250 = load i32, ptr %21, align 4
-  %251 = load i32, ptr %10, align 4
-  %252 = add i32 %251, %250
-  store i32 %252, ptr %10, align 4
-  %253 = load i32, ptr %21, align 4
-  %254 = load i16, ptr %16, align 2
-  %255 = zext i16 %254 to i32
-  %256 = sub i32 %255, %253
-  %257 = trunc i32 %256 to i16
-  store i16 %257, ptr %16, align 2
-  br label %258
+243:                                              ; preds = %234
+  %244 = load ptr, ptr %9, align 8
+  %245 = load i32, ptr @hf_smb_fs, align 4
+  %246 = load ptr, ptr %7, align 8
+  %247 = load i32, ptr %10, align 4
+  %248 = load i32, ptr %17, align 4
+  %249 = load ptr, ptr %18, align 8
+  %250 = call ptr @proto_tree_add_string(ptr noundef %244, i32 noundef %245, ptr noundef %246, i32 noundef %247, i32 noundef %248, ptr noundef %249)
+  %251 = load i32, ptr %17, align 4
+  store i32 %251, ptr %21, align 4
+  %252 = load i32, ptr %21, align 4
+  %253 = load i32, ptr %10, align 4
+  %254 = add i32 %253, %252
+  store i32 %254, ptr %10, align 4
+  %255 = load i32, ptr %21, align 4
+  %256 = load i16, ptr %16, align 2
+  %257 = zext i16 %256 to i32
+  %258 = sub i32 %257, %255
+  %259 = trunc i32 %258 to i16
+  store i16 %259, ptr %16, align 2
+  br label %260
 
-258:                                              ; preds = %241, %228
-  %259 = load i16, ptr %16, align 2
-  %260 = zext i16 %259 to i32
-  %261 = icmp ne i32 %260, 0
-  br i1 %261, label %262, label %289
+260:                                              ; preds = %243, %230
+  %261 = load i16, ptr %16, align 2
+  %262 = zext i16 %261 to i32
+  %263 = icmp ne i32 %262, 0
+  br i1 %263, label %264, label %291
 
-262:                                              ; preds = %258
-  %263 = load ptr, ptr %7, align 8
-  %264 = load i32, ptr %10, align 4
-  %265 = call i32 @tvb_reported_length_remaining(ptr noundef %263, i32 noundef %264)
-  store i32 %265, ptr %22, align 4
-  %266 = load i16, ptr %16, align 2
-  %267 = zext i16 %266 to i32
-  %268 = load i32, ptr %22, align 4
-  %269 = icmp sgt i32 %267, %268
-  br i1 %269, label %270, label %273
+264:                                              ; preds = %260
+  %265 = load ptr, ptr %7, align 8
+  %266 = load i32, ptr %10, align 4
+  %267 = call i32 @tvb_reported_length_remaining(ptr noundef %265, i32 noundef %266)
+  store i32 %267, ptr %22, align 4
+  %268 = load i16, ptr %16, align 2
+  %269 = zext i16 %268 to i32
+  %270 = load i32, ptr %22, align 4
+  %271 = icmp sgt i32 %269, %270
+  br i1 %271, label %272, label %275
 
-270:                                              ; preds = %262
-  %271 = load i32, ptr %22, align 4
-  %272 = trunc i32 %271 to i16
-  store i16 %272, ptr %16, align 2
-  br label %273
+272:                                              ; preds = %264
+  %273 = load i32, ptr %22, align 4
+  %274 = trunc i32 %273 to i16
+  store i16 %274, ptr %16, align 2
+  br label %275
 
-273:                                              ; preds = %270, %262
-  %274 = load i16, ptr %16, align 2
-  %275 = icmp ne i16 %274, 0
-  br i1 %275, label %276, label %284
+275:                                              ; preds = %272, %264
+  %276 = load i16, ptr %16, align 2
+  %277 = icmp ne i16 %276, 0
+  br i1 %277, label %278, label %286
 
-276:                                              ; preds = %273
-  %277 = load ptr, ptr %9, align 8
-  %278 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %279 = load ptr, ptr %7, align 8
-  %280 = load i32, ptr %10, align 4
-  %281 = load i16, ptr %16, align 2
-  %282 = zext i16 %281 to i32
-  %283 = call ptr @proto_tree_add_item(ptr noundef %277, i32 noundef %278, ptr noundef %279, i32 noundef %280, i32 noundef %282, i32 noundef 0)
-  br label %284
+278:                                              ; preds = %275
+  %279 = load ptr, ptr %9, align 8
+  %280 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %281 = load ptr, ptr %7, align 8
+  %282 = load i32, ptr %10, align 4
+  %283 = load i16, ptr %16, align 2
+  %284 = zext i16 %283 to i32
+  %285 = call ptr @proto_tree_add_item(ptr noundef %279, i32 noundef %280, ptr noundef %281, i32 noundef %282, i32 noundef %284, i32 noundef 0)
+  br label %286
 
-284:                                              ; preds = %276, %273
-  %285 = load i16, ptr %16, align 2
-  %286 = zext i16 %285 to i32
-  %287 = load i32, ptr %10, align 4
-  %288 = add i32 %287, %286
-  store i32 %288, ptr %10, align 4
-  br label %289
+286:                                              ; preds = %278, %275
+  %287 = load i16, ptr %16, align 2
+  %288 = zext i16 %287 to i32
+  %289 = load i32, ptr %10, align 4
+  %290 = add i32 %289, %288
+  store i32 %290, ptr %10, align 4
+  br label %291
 
-289:                                              ; preds = %284, %258
-  br label %290
+291:                                              ; preds = %286, %260
+  br label %292
 
-290:                                              ; preds = %289, %240, %147, %138
-  %291 = load i8, ptr %14, align 1
-  %292 = zext i8 %291 to i32
-  %293 = icmp ne i32 %292, 255
-  br i1 %293, label %294, label %309
+292:                                              ; preds = %291, %242, %147, %138
+  %293 = load i8, ptr %14, align 1
+  %294 = zext i8 %293 to i32
+  %295 = icmp ne i32 %294, 255
+  br i1 %295, label %296, label %311
 
-294:                                              ; preds = %290
-  %295 = load i16, ptr %15, align 2
-  %296 = zext i16 %295 to i32
-  %297 = load i32, ptr %10, align 4
-  %298 = icmp slt i32 %296, %297
-  br i1 %298, label %299, label %300
+296:                                              ; preds = %292
+  %297 = load i16, ptr %15, align 2
+  %298 = zext i16 %297 to i32
+  %299 = load i32, ptr %10, align 4
+  %300 = icmp slt i32 %298, %299
+  br i1 %300, label %301, label %302
 
-299:                                              ; preds = %294
+301:                                              ; preds = %296
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #8
   unreachable
 
-300:                                              ; preds = %294
-  %301 = load ptr, ptr %7, align 8
-  %302 = load ptr, ptr %8, align 8
-  %303 = load i16, ptr %15, align 2
-  %304 = zext i16 %303 to i32
-  %305 = load ptr, ptr %11, align 8
-  %306 = load i8, ptr %14, align 1
-  %307 = load ptr, ptr %12, align 8
-  %308 = call i32 @dissect_smb_command(ptr noundef %301, ptr noundef %302, i32 noundef %304, ptr noundef %305, i8 noundef zeroext %306, i32 noundef 0, ptr noundef %307)
-  br label %309
+302:                                              ; preds = %296
+  %303 = load ptr, ptr %7, align 8
+  %304 = load ptr, ptr %8, align 8
+  %305 = load i16, ptr %15, align 2
+  %306 = zext i16 %305 to i32
+  %307 = load ptr, ptr %11, align 8
+  %308 = load i8, ptr %14, align 1
+  %309 = load ptr, ptr %12, align 8
+  %310 = call i32 @dissect_smb_command(ptr noundef %303, ptr noundef %304, i32 noundef %306, ptr noundef %307, i8 noundef zeroext %308, i32 noundef 0, ptr noundef %309)
+  br label %311
 
-309:                                              ; preds = %300, %290
-  %310 = load i32, ptr %10, align 4
-  ret i32 %310
+311:                                              ; preds = %302, %292
+  %312 = load i32, ptr %10, align 4
+  ret i32 %312
 }
 
 ; Function Attrs: nounwind uwtable

@@ -235,7 +235,8 @@ entry:
   %4 = load i8, ptr %useLinearReferenceFrameA.addr, align 1
   %tobool = trunc i8 %4 to i1
   call void @_ZN23btGeneric6DofConstraintC2ER11btRigidBodyS1_RK11btTransformS4_b(ptr noundef nonnull align 8 dereferenceable(1333) %this1, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(744) %1, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29btGeneric6DofSpringConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV29btGeneric6DofSpringConstraint, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   invoke void @_ZN29btGeneric6DofSpringConstraint4initEv(ptr noundef nonnull align 8 dereferenceable(1412) %this1)
           to label %invoke.cont unwind label %lpad
 
@@ -243,12 +244,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN23btGeneric6DofConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(1333) %this1) #10
   br label %eh.resume
 
@@ -345,7 +346,8 @@ entry:
   %2 = load i8, ptr %useLinearReferenceFrameB.addr, align 1
   %tobool = trunc i8 %2 to i1
   call void @_ZN23btGeneric6DofConstraintC2ER11btRigidBodyRK11btTransformb(ptr noundef nonnull align 8 dereferenceable(1333) %this1, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 4 dereferenceable(64) %1, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29btGeneric6DofSpringConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV29btGeneric6DofSpringConstraint, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   invoke void @_ZN29btGeneric6DofSpringConstraint4initEv(ptr noundef nonnull align 8 dereferenceable(1412) %this1)
           to label %invoke.cont unwind label %lpad
 
@@ -353,12 +355,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN23btGeneric6DofConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(1333) %this1) #10
   br label %eh.resume
 
@@ -1192,7 +1194,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

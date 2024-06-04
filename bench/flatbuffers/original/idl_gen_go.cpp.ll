@@ -1607,7 +1607,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN11flatbuffers13CodeGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #13
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers12_GLOBAL__N_115GoCodeGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN11flatbuffers12_GLOBAL__N_115GoCodeGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1706,7 +1707,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %status_detail = getelementptr inbounds %"class.flatbuffers::CodeGenerator", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_detail) #13
   ret void
@@ -1928,7 +1930,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %status_detail = getelementptr inbounds %"class.flatbuffers::CodeGenerator", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_detail) #13
   ret void
@@ -2053,7 +2056,8 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN11flatbuffers2go11GoGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN11flatbuffers2go11GoGeneratorE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %go_namespace_ = getelementptr inbounds %"class.flatbuffers::go::GoGenerator", ptr %this1, i32 0, i32 1
   invoke void @_ZN11flatbuffers9NamespaceC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %go_namespace_)
           to label %invoke.cont17 unwind label %lpad16
@@ -2066,10 +2070,10 @@ invoke.cont17:                                    ; preds = %invoke.cont11
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont17
-  %3 = load ptr, ptr %parser.addr, align 8
-  %opts = getelementptr inbounds %"class.flatbuffers::Parser", ptr %3, i32 0, i32 19
-  %4 = load ptr, ptr %path.addr, align 8
-  invoke void @_ZN11flatbuffers15WithFlagOptionsERKNS_5Namer6ConfigERKNS_10IDLOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"struct.flatbuffers::Namer::Config") align 8 %agg.tmp18, ptr noundef nonnull align 8 dereferenceable(336) %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(642) %opts, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %4 = load ptr, ptr %parser.addr, align 8
+  %opts = getelementptr inbounds %"class.flatbuffers::Parser", ptr %4, i32 0, i32 19
+  %5 = load ptr, ptr %path.addr, align 8
+  invoke void @_ZN11flatbuffers15WithFlagOptionsERKNS_5Namer6ConfigERKNS_10IDLOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"struct.flatbuffers::Namer::Config") align 8 %agg.tmp18, ptr noundef nonnull align 8 dereferenceable(336) %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(642) %opts, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont21
@@ -2090,8 +2094,8 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   store i8 0, ptr %needs_math_import_, align 8
   %needs_bytes_import_ = getelementptr inbounds %"class.flatbuffers::go::GoGenerator", ptr %this1, i32 0, i32 6
   store i8 0, ptr %needs_bytes_import_, align 1
-  %5 = load ptr, ptr %go_namespace.addr, align 8
-  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %iss, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 8)
+  %6 = load ptr, ptr %go_namespace.addr, align 8
+  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %iss, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 8)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont28
@@ -2123,39 +2127,39 @@ invoke.cont39:                                    ; preds = %while.body
   br label %while.cond, !llvm.loop !5
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup15
 
 lpad4:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad8:                                            ; preds = %invoke.cont5
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont9
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6) #13
   br label %ehcleanup
 
@@ -2174,48 +2178,48 @@ ehcleanup15:                                      ; preds = %ehcleanup13, %lpad
   br label %eh.resume
 
 lpad16:                                           ; preds = %invoke.cont11
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup45
 
 lpad20:                                           ; preds = %invoke.cont17
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   br label %ehcleanup44
 
 lpad22:                                           ; preds = %invoke.cont21
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   br label %ehcleanup31
 
 lpad25:                                           ; preds = %invoke.cont23
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot, align 4
   br label %ehcleanup30
 
 lpad27:                                           ; preds = %invoke.cont26
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %exn.slot, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %ehselector.slot, align 4
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp24) #13
   br label %ehcleanup30
 
@@ -2228,21 +2232,21 @@ ehcleanup31:                                      ; preds = %ehcleanup30, %lpad2
   br label %ehcleanup44
 
 lpad32:                                           ; preds = %invoke.cont28
-  %33 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %exn.slot, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %ehselector.slot, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %exn.slot, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %ehselector.slot, align 4
   br label %ehcleanup42
 
 lpad34:                                           ; preds = %while.body, %invoke.cont35, %while.cond
-  %36 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %exn.slot, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %ehselector.slot, align 4
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %exn.slot, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %component) #13
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %iss) #13
   br label %ehcleanup42
@@ -2457,7 +2461,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN11flatbuffers2go11GoGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN11flatbuffers2go11GoGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tracked_imported_namespaces_ = getelementptr inbounds %"class.flatbuffers::go::GoGenerator", ptr %this1, i32 0, i32 4
   call void @_ZNSt3setIPKN11flatbuffers10DefinitionENS0_2go11GoGenerator16NamespacePtrLessESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %tracked_imported_namespaces_) #13
   %namer_ = getelementptr inbounds %"class.flatbuffers::go::GoGenerator", ptr %this1, i32 0, i32 3
@@ -2554,16 +2559,17 @@ entry:
   store ptr %qualifying_separator, ptr %qualifying_separator.indirect_addr, align 8
   store ptr %default_extension, ptr %default_extension.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN11flatbuffers13BaseGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN11flatbuffers13BaseGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %parser_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %parser.addr, align 8
-  store ptr %0, ptr %parser_, align 8
+  %1 = load ptr, ptr %parser.addr, align 8
+  store ptr %1, ptr %parser_, align 8
   %path_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %path.addr, align 8
-  store ptr %1, ptr %path_, align 8
+  %2 = load ptr, ptr %path.addr, align 8
+  store ptr %2, ptr %path_, align 8
   %file_name_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %file_name.addr, align 8
-  store ptr %2, ptr %file_name_, align 8
+  %3 = load ptr, ptr %file_name.addr, align 8
+  store ptr %3, ptr %file_name_, align 8
   %qualifying_start_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %qualifying_start_, ptr noundef nonnull align 8 dereferenceable(32) %qualifying_start)
   %qualifying_separator_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this1, i32 0, i32 5
@@ -2579,21 +2585,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %qualifying_separator_) #13
   br label %ehcleanup
 
@@ -3676,16 +3682,17 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp2) #13
   call void @_ZN11flatbuffers5Namer6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %agg.tmp) #13
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN11flatbuffers8IdlNamerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN11flatbuffers8IdlNamerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp2) #13
   call void @_ZN11flatbuffers5Namer6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %agg.tmp) #13
   br label %eh.resume
@@ -4088,7 +4095,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN11flatbuffers13BaseGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN11flatbuffers13BaseGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %default_extension_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this1, i32 0, i32 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %default_extension_) #13
   %qualifying_separator_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this1, i32 0, i32 5
@@ -6068,7 +6076,8 @@ entry:
   store ptr %config, ptr %config.indirect_addr, align 8
   store ptr %keywords, ptr %keywords.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN11flatbuffers5NamerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN11flatbuffers5NamerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %config_ = getelementptr inbounds %"class.flatbuffers::Namer", ptr %this1, i32 0, i32 1
   call void @_ZN11flatbuffers5Namer6ConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(336) %config_, ptr noundef nonnull align 8 dereferenceable(336) %config)
   %keywords_ = getelementptr inbounds %"class.flatbuffers::Namer", ptr %this1, i32 0, i32 2
@@ -7663,7 +7672,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN11flatbuffers5NamerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN11flatbuffers5NamerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %keywords_ = getelementptr inbounds %"class.flatbuffers::Namer", ptr %this1, i32 0, i32 2
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %keywords_) #13
   %config_ = getelementptr inbounds %"class.flatbuffers::Namer", ptr %this1, i32 0, i32 1

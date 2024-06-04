@@ -2114,13 +2114,14 @@ entry:
   store i8 %frombool, ptr %dynamic.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev15DynamicPropertyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev19DynamicPropertyImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev19DynamicPropertyImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_type = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyImpl", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %type.addr, align 4
-  store i32 %0, ptr %m_type, align 8
+  %1 = load i32, ptr %type.addr, align 4
+  store i32 %1, ptr %m_type, align 8
   %m_isDynamic = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyImpl", ptr %this1, i32 0, i32 2
-  %1 = load i8, ptr %dynamic.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %dynamic.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %m_isDynamic, align 4
   ret void
@@ -2132,7 +2133,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15DynamicPropertyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15DynamicPropertyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2180,12 +2182,14 @@ entry:
   call void @_ZN19OpenColorIO_v2_4dev19DynamicPropertyImplC2ENS_19DynamicPropertyTypeEb(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef %0, i1 noundef zeroext %tobool)
   %2 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN19OpenColorIO_v2_4dev21DynamicPropertyDoubleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %m_value = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyDoubleImpl", ptr %this1, i32 0, i32 2
-  %3 = load double, ptr %value.addr, align 8
-  store double %3, ptr %m_value, align 8
+  %5 = load double, ptr %value.addr, align 8
+  store double %5, ptr %m_value, align 8
   ret void
 }
 
@@ -2195,7 +2199,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21DynamicPropertyDoubleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21DynamicPropertyDoubleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2283,27 +2288,29 @@ entry:
   call void @_ZN19OpenColorIO_v2_4dev19DynamicPropertyImplC2ENS_19DynamicPropertyTypeEb(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef 3, i1 noundef zeroext %tobool)
   %1 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN19OpenColorIO_v2_4dev29DynamicPropertyGradingPrimaryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %m_style = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %style.addr, align 4
-  store i32 %2, ptr %m_style, align 8
+  %4 = load i32, ptr %style.addr, align 4
+  store i32 %4, ptr %m_style, align 8
   %m_direction = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %dir.addr, align 4
-  store i32 %3, ptr %m_direction, align 4
+  %5 = load i32, ptr %dir.addr, align 4
+  store i32 %5, ptr %m_direction, align 4
   %m_value = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %value.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %4, i64 272, i1 false)
+  %6 = load ptr, ptr %value.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %6, i64 272, i1 false)
   %m_preRenderValues = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %this1, i32 0, i32 5
   call void @_ZN19OpenColorIO_v2_4dev23GradingPrimaryPreRenderC2Ev(ptr noundef nonnull align 8 dereferenceable(82) %m_preRenderValues) #13
   %m_preRenderValues2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %this1, i32 0, i32 5
   %m_style3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %this1, i32 0, i32 2
-  %5 = load i32, ptr %m_style3, align 8
+  %7 = load i32, ptr %m_style3, align 8
   %m_direction4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %this1, i32 0, i32 3
-  %6 = load i32, ptr %m_direction4, align 4
+  %8 = load i32, ptr %m_direction4, align 4
   %m_value5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %this1, i32 0, i32 4
-  call void @_ZN19OpenColorIO_v2_4dev23GradingPrimaryPreRender6updateENS_12GradingStyleENS_18TransformDirectionERKNS_14GradingPrimaryE(ptr noundef nonnull align 8 dereferenceable(82) %m_preRenderValues2, i32 noundef %5, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %m_value5) #13
+  call void @_ZN19OpenColorIO_v2_4dev23GradingPrimaryPreRender6updateENS_12GradingStyleENS_18TransformDirectionERKNS_14GradingPrimaryE(ptr noundef nonnull align 8 dereferenceable(82) %m_preRenderValues2, i32 noundef %7, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(272) %m_value5) #13
   ret void
 }
 
@@ -2313,7 +2320,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev29DynamicPropertyGradingPrimaryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev29DynamicPropertyGradingPrimaryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2408,21 +2416,23 @@ entry:
   call void @_ZN19OpenColorIO_v2_4dev19DynamicPropertyImplC2ENS_19DynamicPropertyTypeEb(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef 3, i1 noundef zeroext %tobool)
   %1 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN19OpenColorIO_v2_4dev29DynamicPropertyGradingPrimaryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %m_style = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %style.addr, align 4
-  store i32 %2, ptr %m_style, align 8
+  %4 = load i32, ptr %style.addr, align 4
+  store i32 %4, ptr %m_style, align 8
   %m_direction = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %dir.addr, align 4
-  store i32 %3, ptr %m_direction, align 4
+  %5 = load i32, ptr %dir.addr, align 4
+  store i32 %5, ptr %m_direction, align 4
   %m_value = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %value.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %4, i64 272, i1 false)
+  %6 = load ptr, ptr %value.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %6, i64 272, i1 false)
   %m_preRenderValues = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %comp.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_preRenderValues, ptr align 8 %5, i64 88, i1 false)
+  %7 = load ptr, ptr %comp.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_preRenderValues, ptr align 8 %7, i64 88, i1 false)
   ret void
 }
 
@@ -2636,9 +2646,11 @@ entry:
   call void @_ZN19OpenColorIO_v2_4dev19DynamicPropertyImplC2ENS_19DynamicPropertyTypeEb(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef 4, i1 noundef zeroext %tobool)
   %1 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingRGBCurveC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %m_gradingRGBCurve = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingRGBCurveImpl", ptr %this1, i32 0, i32 2
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev15GradingRGBCurveEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_gradingRGBCurve) #13
   %m_knotsCoefs = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingRGBCurveImpl", ptr %this1, i32 0, i32 3
@@ -2646,8 +2658,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %value.addr, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev15GradingRGBCurve6CreateERKSt10shared_ptrIKS0_E(ptr sret(%"class.std::shared_ptr.26") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %4 = load ptr, ptr %value.addr, align 8
+  invoke void @_ZN19OpenColorIO_v2_4dev15GradingRGBCurve6CreateERKSt10shared_ptrIKS0_E(ptr sret(%"class.std::shared_ptr.26") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -2661,28 +2673,28 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont3, %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN19OpenColorIO_v2_4dev23GradingBSplineCurveImpl10KnotsCoefsD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %m_knotsCoefs) #13
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev15GradingRGBCurveEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_gradingRGBCurve) #13
-  %9 = getelementptr inbounds i8, ptr %this1, i64 16
-  call void @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingRGBCurveD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  %11 = getelementptr inbounds i8, ptr %this1, i64 16
+  call void @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingRGBCurveD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
   call void @_ZN19OpenColorIO_v2_4dev19DynamicPropertyImplD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1) #13
   br label %eh.resume
 
@@ -2700,7 +2712,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingRGBCurveE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingRGBCurveE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3423,15 +3436,17 @@ entry:
   call void @_ZN19OpenColorIO_v2_4dev19DynamicPropertyImplC2ENS_19DynamicPropertyTypeEb(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef 5, i1 noundef zeroext %tobool)
   %1 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN19OpenColorIO_v2_4dev26DynamicPropertyGradingToneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %m_value = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %value.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %2, i64 248, i1 false)
+  %4 = load ptr, ptr %value.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %4, i64 248, i1 false)
   %m_preRenderValues = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %style.addr, align 4
-  invoke void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRenderC1ENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues, i32 noundef %3)
+  %5 = load i32, ptr %style.addr, align 4
+  invoke void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRenderC1ENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues, i32 noundef %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -3444,14 +3459,14 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  %7 = getelementptr inbounds i8, ptr %this1, i64 16
-  call void @_ZN19OpenColorIO_v2_4dev26DynamicPropertyGradingToneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
+  %9 = getelementptr inbounds i8, ptr %this1, i64 16
+  call void @_ZN19OpenColorIO_v2_4dev26DynamicPropertyGradingToneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
   call void @_ZN19OpenColorIO_v2_4dev19DynamicPropertyImplD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1) #13
   br label %eh.resume
 
@@ -3469,7 +3484,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev26DynamicPropertyGradingToneE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev26DynamicPropertyGradingToneE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3495,15 +3511,17 @@ entry:
   call void @_ZN19OpenColorIO_v2_4dev19DynamicPropertyImplC2ENS_19DynamicPropertyTypeEb(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef 5, i1 noundef zeroext %tobool)
   %1 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN19OpenColorIO_v2_4dev26DynamicPropertyGradingToneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %m_value = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %value.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %2, i64 248, i1 false)
+  %4 = load ptr, ptr %value.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %4, i64 248, i1 false)
   %m_preRenderValues = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %comp.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_preRenderValues, ptr align 8 %3, i64 936, i1 false)
+  %5 = load ptr, ptr %comp.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_preRenderValues, ptr align 8 %5, i64 936, i1 false)
   ret void
 }
 
@@ -3834,15 +3852,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %m_knotsCoefs = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingRGBCurveImpl", ptr %this1, i32 0, i32 3
   call void @_ZN19OpenColorIO_v2_4dev23GradingBSplineCurveImpl10KnotsCoefsD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %m_knotsCoefs) #13
   %m_gradingRGBCurve = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingRGBCurveImpl", ptr %this1, i32 0, i32 2
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev15GradingRGBCurveEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_gradingRGBCurve) #13
-  %0 = getelementptr inbounds i8, ptr %this1, i64 16
-  call void @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingRGBCurveD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %2 = getelementptr inbounds i8, ptr %this1, i64 16
+  call void @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingRGBCurveD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
   call void @_ZN19OpenColorIO_v2_4dev19DynamicPropertyImplD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1) #13
   ret void
 }
@@ -8575,26 +8595,27 @@ entry:
   store ptr %__args3, ptr %__args.addr4, align 8
   %this5 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this5) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this5, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this5, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl) #13
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %this5) #13
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEJNS3_19DynamicPropertyTypeEdbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEJNS3_19DynamicPropertyTypeEdbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this5) #13
   br label %eh.resume
 
@@ -8772,7 +8793,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -9422,28 +9444,29 @@ entry:
   store ptr %__args7, ptr %__args.addr8, align 8
   %this9 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this9) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this9, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this9, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.54", ptr %this9, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(392) %_M_impl) #13
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(408) %this9) #13
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  %3 = load ptr, ptr %__args.addr6, align 8
-  %4 = load ptr, ptr %__args.addr8, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEJRKNS3_12GradingStyleERKNS3_18TransformDirectionERKNS3_14GradingPrimaryERKNS3_23GradingPrimaryPreRenderEbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(272) %2, ptr noundef nonnull align 8 dereferenceable(82) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  %4 = load ptr, ptr %__args.addr6, align 8
+  %5 = load ptr, ptr %__args.addr8, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEJRKNS3_12GradingStyleERKNS3_18TransformDirectionERKNS3_14GradingPrimaryERKNS3_23GradingPrimaryPreRenderEbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(272) %3, ptr noundef nonnull align 8 dereferenceable(82) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this9) #13
   br label %eh.resume
 
@@ -10864,25 +10887,26 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.62", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl) #13
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(160) %this3) #13
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplEJRKSt10shared_ptrIKNS3_15GradingRGBCurveEEbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplEJRKSt10shared_ptrIKNS3_15GradingRGBCurveEEbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #13
   br label %eh.resume
 
@@ -11523,26 +11547,27 @@ entry:
   store ptr %__args3, ptr %__args.addr4, align 8
   %this5 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this5) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this5, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.70", ptr %this5, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(1208) %_M_impl) #13
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(1224) %this5) #13
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEJRKNS3_11GradingToneERKNS3_20GradingTonePreRenderEbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEJRKNS3_11GradingToneERKNS3_20GradingTonePreRenderEbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(936) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this5) #13
   br label %eh.resume
 

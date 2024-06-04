@@ -4038,7 +4038,8 @@ define internal ptr @_io_thr(ptr noundef %0) #0 {
   br label %72
 
 72:                                               ; preds = %71
-  ret ptr inttoptr (i64 1 to ptr)
+  %73 = inttoptr i64 1 to ptr
+  ret ptr %73
 }
 
 ; Function Attrs: nounwind

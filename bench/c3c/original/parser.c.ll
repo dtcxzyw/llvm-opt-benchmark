@@ -206,25 +206,27 @@ define dso_local zeroext i1 @parse_file(ptr noundef %0) #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %6, i64 120, i1 false)
   %15 = getelementptr inbounds %struct.ParseContext_, ptr %5, i32 0, i32 5
   call void @lexer_init(ptr noundef %15)
-  %16 = load i32, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 10), align 4
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %1
-  store i1 false, ptr %2, align 1
-  br label %23
+  %16 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 10
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %20
 
 19:                                               ; preds = %1
-  call void @parse_translation_unit(ptr noundef %5)
-  %20 = load i32, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 10), align 4
-  %21 = icmp ne i32 %20, 0
-  %22 = xor i1 %21, true
-  store i1 %22, ptr %2, align 1
-  br label %23
+  store i1 false, ptr %2, align 1
+  br label %25
 
-23:                                               ; preds = %19, %18
-  %24 = load i1, ptr %2, align 1
-  ret i1 %24
+20:                                               ; preds = %1
+  call void @parse_translation_unit(ptr noundef %5)
+  %21 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 10
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp ne i32 %22, 0
+  %24 = xor i1 %23, true
+  store i1 %24, ptr %2, align 1
+  br label %25
+
+25:                                               ; preds = %20, %19
+  %26 = load i1, ptr %2, align 1
+  ret i1 %26
 }
 
 declare ptr @unit_create(ptr noundef) #2
@@ -1023,41 +1025,44 @@ define dso_local zeroext i1 @parse_stdin() #0 {
 
 68:                                               ; preds = %66, %53
   %69 = load ptr, ptr %8, align 8
-  store ptr %69, ptr getelementptr inbounds (%struct.File, ptr @stdin_file, i32 0, i32 1), align 8
-  %70 = call ptr @unit_create(ptr noundef @stdin_file)
-  store ptr %70, ptr %9, align 8
+  %70 = getelementptr inbounds %struct.File, ptr @stdin_file, i32 0, i32 1
+  store ptr %69, ptr %70, align 8
+  %71 = call ptr @unit_create(ptr noundef @stdin_file)
+  store ptr %71, ptr %9, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 192, i1 false)
-  %71 = getelementptr inbounds %struct.ParseContext_, ptr %10, i32 0, i32 4
-  %72 = load ptr, ptr %9, align 8
-  store ptr %72, ptr %71, align 8
-  %73 = getelementptr inbounds %struct.ParseContext_, ptr %10, i32 0, i32 5
+  %72 = getelementptr inbounds %struct.ParseContext_, ptr %10, i32 0, i32 4
+  %73 = load ptr, ptr %9, align 8
+  store ptr %73, ptr %72, align 8
+  %74 = getelementptr inbounds %struct.ParseContext_, ptr %10, i32 0, i32 5
   call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 120, i1 false)
-  %74 = getelementptr inbounds %struct.Lexer, ptr %11, i32 0, i32 0
-  store ptr %10, ptr %74, align 8
-  %75 = getelementptr inbounds %struct.Lexer, ptr %11, i32 0, i32 8
-  store ptr @stdin_file, ptr %75, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %73, ptr align 8 %11, i64 120, i1 false)
-  %76 = getelementptr inbounds %struct.ParseContext_, ptr %10, i32 0, i32 5
-  call void @lexer_init(ptr noundef %76)
-  %77 = load i32, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 10), align 4
-  %78 = icmp ne i32 %77, 0
-  br i1 %78, label %79, label %80
+  %75 = getelementptr inbounds %struct.Lexer, ptr %11, i32 0, i32 0
+  store ptr %10, ptr %75, align 8
+  %76 = getelementptr inbounds %struct.Lexer, ptr %11, i32 0, i32 8
+  store ptr @stdin_file, ptr %76, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %74, ptr align 8 %11, i64 120, i1 false)
+  %77 = getelementptr inbounds %struct.ParseContext_, ptr %10, i32 0, i32 5
+  call void @lexer_init(ptr noundef %77)
+  %78 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 10
+  %79 = load i32, ptr %78, align 4
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %82
 
-79:                                               ; preds = %68
+81:                                               ; preds = %68
   store i1 false, ptr %1, align 1
-  br label %84
+  br label %87
 
-80:                                               ; preds = %68
+82:                                               ; preds = %68
   call void @parse_translation_unit(ptr noundef %10)
-  %81 = load i32, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 10), align 4
-  %82 = icmp ne i32 %81, 0
-  %83 = xor i1 %82, true
-  store i1 %83, ptr %1, align 1
-  br label %84
+  %83 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 10
+  %84 = load i32, ptr %83, align 4
+  %85 = icmp ne i32 %84, 0
+  %86 = xor i1 %85, true
+  store i1 %86, ptr %1, align 1
+  br label %87
 
-84:                                               ; preds = %80, %79
-  %85 = load i1, ptr %1, align 1
-  ret i1 %85
+87:                                               ; preds = %82, %81
+  %88 = load i1, ptr %1, align 1
+  ret i1 %88
 }
 
 declare i32 @getchar() #2

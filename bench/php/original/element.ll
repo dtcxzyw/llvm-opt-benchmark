@@ -110,222 +110,227 @@ define hidden void @zim_DOMElement___construct(ptr noundef %0, ptr noundef %1) #
   %22 = load i32, ptr %21, align 4
   %23 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %22, ptr noundef @.str, ptr noundef %8, ptr noundef %14, ptr noundef %9, ptr noundef %15, ptr noundef %10, ptr noundef %16)
   %24 = icmp eq i32 %23, -1
-  br i1 %24, label %25, label %30
+  br i1 %24, label %25, label %31
 
 25:                                               ; preds = %2
   br label %26
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
-  br label %141
+  %27 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp ne ptr %28, null
+  call void @llvm.assume(i1 %29)
+  br label %146
 
-29:                                               ; No predecessors!
-  br label %30
+30:                                               ; No predecessors!
+  br label %31
 
-30:                                               ; preds = %29, %2
-  %31 = load ptr, ptr %8, align 8
-  %32 = call i32 @xmlValidateName(ptr noundef %31, i32 noundef 0)
-  store i32 %32, ptr %17, align 4
-  %33 = load i32, ptr %17, align 4
-  %34 = icmp ne i32 %33, 0
-  br i1 %34, label %35, label %40
+31:                                               ; preds = %30, %2
+  %32 = load ptr, ptr %8, align 8
+  %33 = call i32 @xmlValidateName(ptr noundef %32, i32 noundef 0)
+  store i32 %33, ptr %17, align 4
+  %34 = load i32, ptr %17, align 4
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %42
 
-35:                                               ; preds = %30
+36:                                               ; preds = %31
   call void @php_dom_throw_error(i32 noundef 5, i32 noundef 1)
-  br label %36
+  br label %37
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %38 = icmp ne ptr %37, null
-  call void @llvm.assume(i1 %38)
-  br label %141
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp ne ptr %39, null
+  call void @llvm.assume(i1 %40)
+  br label %146
 
-39:                                               ; No predecessors!
-  br label %40
+41:                                               ; No predecessors!
+  br label %42
 
-40:                                               ; preds = %39, %30
-  %41 = load i64, ptr %16, align 8
-  %42 = icmp ugt i64 %41, 0
-  br i1 %42, label %43, label %91
+42:                                               ; preds = %41, %31
+  %43 = load i64, ptr %16, align 8
+  %44 = icmp ugt i64 %43, 0
+  br i1 %44, label %45, label %94
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %8, align 8
-  %45 = load i64, ptr %16, align 8
-  %46 = trunc i64 %45 to i32
-  %47 = load i64, ptr %14, align 8
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %8, align 8
+  %47 = load i64, ptr %16, align 8
   %48 = trunc i64 %47 to i32
-  %49 = call i32 @dom_check_qname(ptr noundef %44, ptr noundef %11, ptr noundef %12, i32 noundef %46, i32 noundef %48)
-  store i32 %49, ptr %13, align 4
-  %50 = load i32, ptr %13, align 4
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %68
+  %49 = load i64, ptr %14, align 8
+  %50 = trunc i64 %49 to i32
+  %51 = call i32 @dom_check_qname(ptr noundef %46, ptr noundef %11, ptr noundef %12, i32 noundef %48, i32 noundef %50)
+  store i32 %51, ptr %13, align 4
+  %52 = load i32, ptr %13, align 4
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %70
 
-52:                                               ; preds = %43
-  %53 = load ptr, ptr %11, align 8
-  %54 = call ptr @xmlNewNode(ptr noundef null, ptr noundef %53)
-  store ptr %54, ptr %5, align 8
-  %55 = load ptr, ptr %5, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %67
+54:                                               ; preds = %45
+  %55 = load ptr, ptr %11, align 8
+  %56 = call ptr @xmlNewNode(ptr noundef null, ptr noundef %55)
+  store ptr %56, ptr %5, align 8
+  %57 = load ptr, ptr %5, align 8
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %69
 
-57:                                               ; preds = %52
-  %58 = load ptr, ptr %10, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %60, label %67
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %10, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %69
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %5, align 8
-  %62 = load ptr, ptr %10, align 8
-  %63 = load ptr, ptr %12, align 8
-  %64 = call ptr @dom_get_ns(ptr noundef %61, ptr noundef %62, ptr noundef %13, ptr noundef %63)
-  store ptr %64, ptr %18, align 8
-  %65 = load ptr, ptr %5, align 8
-  %66 = load ptr, ptr %18, align 8
-  call void @xmlSetNs(ptr noundef %65, ptr noundef %66)
-  br label %67
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %5, align 8
+  %64 = load ptr, ptr %10, align 8
+  %65 = load ptr, ptr %12, align 8
+  %66 = call ptr @dom_get_ns(ptr noundef %63, ptr noundef %64, ptr noundef %13, ptr noundef %65)
+  store ptr %66, ptr %18, align 8
+  %67 = load ptr, ptr %5, align 8
+  %68 = load ptr, ptr %18, align 8
+  call void @xmlSetNs(ptr noundef %67, ptr noundef %68)
+  br label %69
 
-67:                                               ; preds = %60, %57, %52
-  br label %68
+69:                                               ; preds = %62, %59, %54
+  br label %70
 
-68:                                               ; preds = %67, %43
-  %69 = load ptr, ptr @xmlFree, align 8
-  %70 = load ptr, ptr %11, align 8
-  call void %69(ptr noundef %70)
-  %71 = load ptr, ptr %12, align 8
-  %72 = icmp ne ptr %71, null
-  br i1 %72, label %73, label %76
+70:                                               ; preds = %69, %45
+  %71 = load ptr, ptr @xmlFree, align 8
+  %72 = load ptr, ptr %11, align 8
+  call void %71(ptr noundef %72)
+  %73 = load ptr, ptr %12, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %78
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr @xmlFree, align 8
-  %75 = load ptr, ptr %12, align 8
-  call void %74(ptr noundef %75)
-  br label %76
+75:                                               ; preds = %70
+  %76 = load ptr, ptr @xmlFree, align 8
+  %77 = load ptr, ptr %12, align 8
+  call void %76(ptr noundef %77)
+  br label %78
 
-76:                                               ; preds = %73, %68
-  %77 = load i32, ptr %13, align 4
-  %78 = icmp ne i32 %77, 0
-  br i1 %78, label %79, label %90
+78:                                               ; preds = %75, %70
+  %79 = load i32, ptr %13, align 4
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %93
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %5, align 8
-  %81 = icmp ne ptr %80, null
-  br i1 %81, label %82, label %84
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %5, align 8
+  %83 = icmp ne ptr %82, null
+  br i1 %83, label %84, label %86
 
-82:                                               ; preds = %79
-  %83 = load ptr, ptr %5, align 8
-  call void @xmlFreeNode(ptr noundef %83)
-  br label %84
-
-84:                                               ; preds = %82, %79
-  %85 = load i32, ptr %13, align 4
-  call void @php_dom_throw_error(i32 noundef %85, i32 noundef 1)
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %5, align 8
+  call void @xmlFreeNode(ptr noundef %85)
   br label %86
 
-86:                                               ; preds = %84
-  %87 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %88 = icmp ne ptr %87, null
-  call void @llvm.assume(i1 %88)
-  br label %141
+86:                                               ; preds = %84, %81
+  %87 = load i32, ptr %13, align 4
+  call void @php_dom_throw_error(i32 noundef %87, i32 noundef 1)
+  br label %88
 
-89:                                               ; No predecessors!
-  br label %90
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp ne ptr %90, null
+  call void @llvm.assume(i1 %91)
+  br label %146
 
-90:                                               ; preds = %89, %76
-  br label %108
+92:                                               ; No predecessors!
+  br label %93
 
-91:                                               ; preds = %40
-  %92 = load ptr, ptr %8, align 8
-  %93 = call ptr @xmlSplitQName2(ptr noundef %92, ptr noundef %12)
-  store ptr %93, ptr %11, align 8
-  %94 = load ptr, ptr %12, align 8
-  %95 = icmp ne ptr %94, null
-  br i1 %95, label %96, label %105
-
-96:                                               ; preds = %91
-  %97 = load ptr, ptr @xmlFree, align 8
-  %98 = load ptr, ptr %11, align 8
-  call void %97(ptr noundef %98)
-  %99 = load ptr, ptr @xmlFree, align 8
-  %100 = load ptr, ptr %12, align 8
-  call void %99(ptr noundef %100)
-  call void @php_dom_throw_error(i32 noundef 14, i32 noundef 1)
-  br label %101
-
-101:                                              ; preds = %96
-  %102 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %103 = icmp ne ptr %102, null
-  call void @llvm.assume(i1 %103)
-  br label %141
-
-104:                                              ; No predecessors!
-  br label %105
-
-105:                                              ; preds = %104, %91
-  %106 = load ptr, ptr %8, align 8
-  %107 = call ptr @xmlNewNode(ptr noundef null, ptr noundef %106)
-  store ptr %107, ptr %5, align 8
-  br label %108
-
-108:                                              ; preds = %105, %90
-  %109 = load ptr, ptr %5, align 8
-  %110 = icmp ne ptr %109, null
-  br i1 %110, label %116, label %111
-
-111:                                              ; preds = %108
-  call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1)
+93:                                               ; preds = %92, %78
   br label %112
 
-112:                                              ; preds = %111
-  %113 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %114 = icmp ne ptr %113, null
-  call void @llvm.assume(i1 %114)
-  br label %141
+94:                                               ; preds = %42
+  %95 = load ptr, ptr %8, align 8
+  %96 = call ptr @xmlSplitQName2(ptr noundef %95, ptr noundef %12)
+  store ptr %96, ptr %11, align 8
+  %97 = load ptr, ptr %12, align 8
+  %98 = icmp ne ptr %97, null
+  br i1 %98, label %99, label %109
 
-115:                                              ; No predecessors!
+99:                                               ; preds = %94
+  %100 = load ptr, ptr @xmlFree, align 8
+  %101 = load ptr, ptr %11, align 8
+  call void %100(ptr noundef %101)
+  %102 = load ptr, ptr @xmlFree, align 8
+  %103 = load ptr, ptr %12, align 8
+  call void %102(ptr noundef %103)
+  call void @php_dom_throw_error(i32 noundef 14, i32 noundef 1)
+  br label %104
+
+104:                                              ; preds = %99
+  %105 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp ne ptr %106, null
+  call void @llvm.assume(i1 %107)
+  br label %146
+
+108:                                              ; No predecessors!
+  br label %109
+
+109:                                              ; preds = %108, %94
+  %110 = load ptr, ptr %8, align 8
+  %111 = call ptr @xmlNewNode(ptr noundef null, ptr noundef %110)
+  store ptr %111, ptr %5, align 8
+  br label %112
+
+112:                                              ; preds = %109, %93
+  %113 = load ptr, ptr %5, align 8
+  %114 = icmp ne ptr %113, null
+  br i1 %114, label %121, label %115
+
+115:                                              ; preds = %112
+  call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1)
   br label %116
 
-116:                                              ; preds = %115, %108
-  %117 = load i64, ptr %15, align 8
-  %118 = icmp ugt i64 %117, 0
-  br i1 %118, label %119, label %124
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %118 = load ptr, ptr %117, align 8
+  %119 = icmp ne ptr %118, null
+  call void @llvm.assume(i1 %119)
+  br label %146
 
-119:                                              ; preds = %116
-  %120 = load ptr, ptr %5, align 8
-  %121 = load ptr, ptr %9, align 8
+120:                                              ; No predecessors!
+  br label %121
+
+121:                                              ; preds = %120, %112
   %122 = load i64, ptr %15, align 8
-  %123 = trunc i64 %122 to i32
-  call void @xmlNodeSetContentLen(ptr noundef %120, ptr noundef %121, i32 noundef %123)
-  br label %124
+  %123 = icmp ugt i64 %122, 0
+  br i1 %123, label %124, label %129
 
-124:                                              ; preds = %119, %116
-  %125 = load ptr, ptr %3, align 8
-  %126 = getelementptr inbounds %struct._zend_execute_data, ptr %125, i32 0, i32 4
-  %127 = getelementptr inbounds %struct._zval_struct, ptr %126, i32 0, i32 0
-  %128 = load ptr, ptr %127, align 8
-  %129 = call ptr @php_dom_obj_from_obj(ptr noundef %128)
-  store ptr %129, ptr %7, align 8
-  %130 = load ptr, ptr %7, align 8
-  %131 = call ptr @dom_object_get_node(ptr noundef %130)
-  store ptr %131, ptr %6, align 8
-  %132 = load ptr, ptr %6, align 8
-  %133 = icmp ne ptr %132, null
-  br i1 %133, label %134, label %136
+124:                                              ; preds = %121
+  %125 = load ptr, ptr %5, align 8
+  %126 = load ptr, ptr %9, align 8
+  %127 = load i64, ptr %15, align 8
+  %128 = trunc i64 %127 to i32
+  call void @xmlNodeSetContentLen(ptr noundef %125, ptr noundef %126, i32 noundef %128)
+  br label %129
 
-134:                                              ; preds = %124
+129:                                              ; preds = %124, %121
+  %130 = load ptr, ptr %3, align 8
+  %131 = getelementptr inbounds %struct._zend_execute_data, ptr %130, i32 0, i32 4
+  %132 = getelementptr inbounds %struct._zval_struct, ptr %131, i32 0, i32 0
+  %133 = load ptr, ptr %132, align 8
+  %134 = call ptr @php_dom_obj_from_obj(ptr noundef %133)
+  store ptr %134, ptr %7, align 8
   %135 = load ptr, ptr %7, align 8
-  call void @php_libxml_node_decrement_resource(ptr noundef %135)
-  br label %136
+  %136 = call ptr @dom_object_get_node(ptr noundef %135)
+  store ptr %136, ptr %6, align 8
+  %137 = load ptr, ptr %6, align 8
+  %138 = icmp ne ptr %137, null
+  br i1 %138, label %139, label %141
 
-136:                                              ; preds = %134, %124
-  %137 = load ptr, ptr %7, align 8
-  %138 = load ptr, ptr %5, align 8
-  %139 = load ptr, ptr %7, align 8
-  %140 = call i32 @php_libxml_increment_node_ptr(ptr noundef %137, ptr noundef %138, ptr noundef %139)
+139:                                              ; preds = %129
+  %140 = load ptr, ptr %7, align 8
+  call void @php_libxml_node_decrement_resource(ptr noundef %140)
   br label %141
 
-141:                                              ; preds = %136, %112, %101, %86, %36, %26
+141:                                              ; preds = %139, %129
+  %142 = load ptr, ptr %7, align 8
+  %143 = load ptr, ptr %5, align 8
+  %144 = load ptr, ptr %7, align 8
+  %145 = call i32 @php_libxml_increment_node_ptr(ptr noundef %142, ptr noundef %143, ptr noundef %144)
+  br label %146
+
+146:                                              ; preds = %141, %116, %104, %88, %37, %26
   ret void
 }
 
@@ -2882,855 +2887,857 @@ define hidden void @zim_DOMElement_getAttribute(ptr noundef %0, ptr noundef %1) 
   %32 = load i32, ptr %31, align 4
   %33 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %32, ptr noundef @.str.4, ptr noundef %16, ptr noundef %20)
   %34 = icmp eq i32 %33, -1
-  br i1 %34, label %35, label %40
+  br i1 %34, label %35, label %41
 
 35:                                               ; preds = %2
   br label %36
 
 36:                                               ; preds = %35
-  %37 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %38 = icmp ne ptr %37, null
-  call void @llvm.assume(i1 %38)
-  br label %583
+  %37 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ne ptr %38, null
+  call void @llvm.assume(i1 %39)
+  br label %585
 
-39:                                               ; No predecessors!
-  br label %40
+40:                                               ; No predecessors!
+  br label %41
 
-40:                                               ; preds = %39, %2
-  %41 = load ptr, ptr %14, align 8
-  %42 = getelementptr inbounds %struct._zval_struct, ptr %41, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = call ptr @php_dom_obj_from_obj(ptr noundef %43)
-  store ptr %44, ptr %18, align 8
-  %45 = load ptr, ptr %18, align 8
-  %46 = getelementptr inbounds %struct._dom_object, ptr %45, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  %49 = xor i1 %48, true
+41:                                               ; preds = %40, %2
+  %42 = load ptr, ptr %14, align 8
+  %43 = getelementptr inbounds %struct._zval_struct, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = call ptr @php_dom_obj_from_obj(ptr noundef %44)
+  store ptr %45, ptr %18, align 8
+  %46 = load ptr, ptr %18, align 8
+  %47 = getelementptr inbounds %struct._dom_object, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
   %50 = xor i1 %49, true
-  %51 = zext i1 %50 to i32
-  %52 = sext i32 %51 to i64
-  %53 = icmp ne i64 %52, 0
-  br i1 %53, label %54, label %67
+  %51 = xor i1 %50, true
+  %52 = zext i1 %51 to i32
+  %53 = sext i32 %52 to i64
+  %54 = icmp ne i64 %53, 0
+  br i1 %54, label %55, label %69
 
-54:                                               ; preds = %40
-  %55 = load ptr, ptr %18, align 8
-  %56 = getelementptr inbounds %struct._dom_object, ptr %55, i32 0, i32 3
-  %57 = getelementptr inbounds %struct._zend_object, ptr %56, i32 0, i32 2
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct._zend_class_entry, ptr %58, i32 0, i32 1
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._zend_string, ptr %60, i32 0, i32 3
-  %62 = getelementptr inbounds [1 x i8], ptr %61, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %62)
-  br label %63
+55:                                               ; preds = %41
+  %56 = load ptr, ptr %18, align 8
+  %57 = getelementptr inbounds %struct._dom_object, ptr %56, i32 0, i32 3
+  %58 = getelementptr inbounds %struct._zend_object, ptr %57, i32 0, i32 2
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds %struct._zend_class_entry, ptr %59, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds %struct._zend_string, ptr %61, i32 0, i32 3
+  %63 = getelementptr inbounds [1 x i8], ptr %62, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %63)
+  br label %64
 
-63:                                               ; preds = %54
-  %64 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %65 = icmp ne ptr %64, null
-  call void @llvm.assume(i1 %65)
-  br label %583
+64:                                               ; preds = %55
+  %65 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp ne ptr %66, null
+  call void @llvm.assume(i1 %67)
+  br label %585
 
-66:                                               ; No predecessors!
-  br label %67
+68:                                               ; No predecessors!
+  br label %69
 
-67:                                               ; preds = %66, %40
-  %68 = load ptr, ptr %18, align 8
-  %69 = getelementptr inbounds %struct._dom_object, ptr %68, i32 0, i32 0
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %70, i32 0, i32 0
+69:                                               ; preds = %68, %41
+  %70 = load ptr, ptr %18, align 8
+  %71 = getelementptr inbounds %struct._dom_object, ptr %70, i32 0, i32 0
   %72 = load ptr, ptr %71, align 8
-  store ptr %72, ptr %15, align 8
-  %73 = load ptr, ptr %15, align 8
-  %74 = load ptr, ptr %16, align 8
-  %75 = call ptr @dom_get_dom1_attribute(ptr noundef %73, ptr noundef %74)
-  store ptr %75, ptr %19, align 8
-  %76 = load ptr, ptr %19, align 8
-  %77 = icmp ne ptr %76, null
-  br i1 %77, label %78, label %99
+  %73 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %72, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8
+  store ptr %74, ptr %15, align 8
+  %75 = load ptr, ptr %15, align 8
+  %76 = load ptr, ptr %16, align 8
+  %77 = call ptr @dom_get_dom1_attribute(ptr noundef %75, ptr noundef %76)
+  store ptr %77, ptr %19, align 8
+  %78 = load ptr, ptr %19, align 8
+  %79 = icmp ne ptr %78, null
+  br i1 %79, label %80, label %101
 
-78:                                               ; preds = %67
-  %79 = load ptr, ptr %19, align 8
-  %80 = getelementptr inbounds %struct._xmlNode, ptr %79, i32 0, i32 1
-  %81 = load i32, ptr %80, align 8
-  switch i32 %81, label %94 [
-    i32 2, label %82
-    i32 18, label %90
+80:                                               ; preds = %69
+  %81 = load ptr, ptr %19, align 8
+  %82 = getelementptr inbounds %struct._xmlNode, ptr %81, i32 0, i32 1
+  %83 = load i32, ptr %82, align 8
+  switch i32 %83, label %96 [
+    i32 2, label %84
+    i32 18, label %92
   ]
 
-82:                                               ; preds = %78
-  %83 = load ptr, ptr %19, align 8
-  %84 = getelementptr inbounds %struct._xmlNode, ptr %83, i32 0, i32 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %19, align 8
-  %87 = getelementptr inbounds %struct._xmlNode, ptr %86, i32 0, i32 3
-  %88 = load ptr, ptr %87, align 8
-  %89 = call ptr @xmlNodeListGetString(ptr noundef %85, ptr noundef %88, i32 noundef 1)
-  store ptr %89, ptr %17, align 8
+84:                                               ; preds = %80
+  %85 = load ptr, ptr %19, align 8
+  %86 = getelementptr inbounds %struct._xmlNode, ptr %85, i32 0, i32 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr %19, align 8
+  %89 = getelementptr inbounds %struct._xmlNode, ptr %88, i32 0, i32 3
+  %90 = load ptr, ptr %89, align 8
+  %91 = call ptr @xmlNodeListGetString(ptr noundef %87, ptr noundef %90, i32 noundef 1)
+  store ptr %91, ptr %17, align 8
   store i8 1, ptr %21, align 1
-  br label %98
+  br label %100
 
-90:                                               ; preds = %78
-  %91 = load ptr, ptr %19, align 8
-  %92 = getelementptr inbounds %struct._xmlNs, ptr %91, i32 0, i32 2
-  %93 = load ptr, ptr %92, align 8
-  store ptr %93, ptr %17, align 8
+92:                                               ; preds = %80
+  %93 = load ptr, ptr %19, align 8
+  %94 = getelementptr inbounds %struct._xmlNs, ptr %93, i32 0, i32 2
+  %95 = load ptr, ptr %94, align 8
+  store ptr %95, ptr %17, align 8
   store i8 0, ptr %21, align 1
-  br label %98
+  br label %100
 
-94:                                               ; preds = %78
-  %95 = load ptr, ptr %19, align 8
-  %96 = getelementptr inbounds %struct._xmlAttribute, ptr %95, i32 0, i32 12
-  %97 = load ptr, ptr %96, align 8
-  store ptr %97, ptr %17, align 8
+96:                                               ; preds = %80
+  %97 = load ptr, ptr %19, align 8
+  %98 = getelementptr inbounds %struct._xmlAttribute, ptr %97, i32 0, i32 12
+  %99 = load ptr, ptr %98, align 8
+  store ptr %99, ptr %17, align 8
   store i8 0, ptr %21, align 1
-  br label %98
+  br label %100
 
-98:                                               ; preds = %94, %90, %82
-  br label %99
+100:                                              ; preds = %96, %92, %84
+  br label %101
 
-99:                                               ; preds = %98, %67
-  %100 = load ptr, ptr %17, align 8
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %102, label %116
+101:                                              ; preds = %100, %69
+  %102 = load ptr, ptr %17, align 8
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %104, label %118
 
-102:                                              ; preds = %99
-  br label %103
-
-103:                                              ; preds = %102
-  br label %104
-
-104:                                              ; preds = %103
+104:                                              ; preds = %101
   br label %105
 
 105:                                              ; preds = %104
-  %106 = load ptr, ptr %13, align 8
-  store ptr %106, ptr %22, align 8
-  %107 = load ptr, ptr @zend_empty_string, align 8
-  store ptr %107, ptr %23, align 8
-  %108 = load ptr, ptr %23, align 8
-  %109 = load ptr, ptr %22, align 8
-  %110 = getelementptr inbounds %struct._zval_struct, ptr %109, i32 0, i32 0
-  store ptr %108, ptr %110, align 8
+  br label %106
+
+106:                                              ; preds = %105
+  br label %107
+
+107:                                              ; preds = %106
+  %108 = load ptr, ptr %13, align 8
+  store ptr %108, ptr %22, align 8
+  %109 = load ptr, ptr @zend_empty_string, align 8
+  store ptr %109, ptr %23, align 8
+  %110 = load ptr, ptr %23, align 8
   %111 = load ptr, ptr %22, align 8
-  %112 = getelementptr inbounds %struct._zval_struct, ptr %111, i32 0, i32 1
-  store i32 6, ptr %112, align 8
-  br label %113
+  %112 = getelementptr inbounds %struct._zval_struct, ptr %111, i32 0, i32 0
+  store ptr %110, ptr %112, align 8
+  %113 = load ptr, ptr %22, align 8
+  %114 = getelementptr inbounds %struct._zval_struct, ptr %113, i32 0, i32 1
+  store i32 6, ptr %114, align 8
+  br label %115
 
-113:                                              ; preds = %105
-  br label %114
+115:                                              ; preds = %107
+  br label %116
 
-114:                                              ; preds = %113
-  br label %583
+116:                                              ; preds = %115
+  br label %585
 
-115:                                              ; No predecessors!
-  br label %583
+117:                                              ; No predecessors!
+  br label %585
 
-116:                                              ; preds = %99
-  br label %117
-
-117:                                              ; preds = %116
-  %118 = load ptr, ptr %17, align 8
-  store ptr %118, ptr %24, align 8
+118:                                              ; preds = %101
   br label %119
 
-119:                                              ; preds = %117
-  br label %120
+119:                                              ; preds = %118
+  %120 = load ptr, ptr %17, align 8
+  store ptr %120, ptr %24, align 8
+  br label %121
 
-120:                                              ; preds = %119
-  %121 = load ptr, ptr %13, align 8
-  store ptr %121, ptr %25, align 8
-  %122 = load ptr, ptr %24, align 8
-  %123 = load ptr, ptr %24, align 8
-  %124 = call i64 @strlen(ptr noundef %123) #8
-  store ptr %122, ptr %8, align 8
-  store i64 %124, ptr %9, align 8
+121:                                              ; preds = %119
+  br label %122
+
+122:                                              ; preds = %121
+  %123 = load ptr, ptr %13, align 8
+  store ptr %123, ptr %25, align 8
+  %124 = load ptr, ptr %24, align 8
+  %125 = load ptr, ptr %24, align 8
+  %126 = call i64 @strlen(ptr noundef %125) #8
+  store ptr %124, ptr %8, align 8
+  store i64 %126, ptr %9, align 8
   store i8 0, ptr %10, align 1
-  %125 = load i64, ptr %9, align 8
-  %126 = load i8, ptr %10, align 1
-  %127 = trunc i8 %126 to i1
-  store i64 %125, ptr %5, align 8
-  %128 = zext i1 %127 to i8
-  store i8 %128, ptr %6, align 1
-  %129 = load i8, ptr %6, align 1
-  %130 = trunc i8 %129 to i1
-  br i1 %130, label %131, label %139
+  %127 = load i64, ptr %9, align 8
+  %128 = load i8, ptr %10, align 1
+  %129 = trunc i8 %128 to i1
+  store i64 %127, ptr %5, align 8
+  %130 = zext i1 %129 to i8
+  store i8 %130, ptr %6, align 1
+  %131 = load i8, ptr %6, align 1
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %133, label %141
 
-131:                                              ; preds = %120
-  %132 = load i64, ptr %5, align 8
-  %133 = add i64 24, %132
-  %134 = add i64 %133, 1
-  %135 = add i64 %134, 8
-  %136 = sub i64 %135, 1
-  %137 = and i64 %136, -8
-  %138 = call noalias ptr @__zend_malloc(i64 noundef %137) #9
-  br label %543
+133:                                              ; preds = %122
+  %134 = load i64, ptr %5, align 8
+  %135 = add i64 24, %134
+  %136 = add i64 %135, 1
+  %137 = add i64 %136, 8
+  %138 = sub i64 %137, 1
+  %139 = and i64 %138, -8
+  %140 = call noalias ptr @__zend_malloc(i64 noundef %139) #9
+  br label %545
 
-139:                                              ; preds = %120
-  %140 = load i64, ptr %5, align 8
-  %141 = add i64 24, %140
-  %142 = add i64 %141, 1
-  %143 = add i64 %142, 8
-  %144 = sub i64 %143, 1
-  %145 = and i64 %144, -8
-  %146 = call i1 @llvm.is.constant.i64(i64 %145)
-  br i1 %146, label %147, label %533
+141:                                              ; preds = %122
+  %142 = load i64, ptr %5, align 8
+  %143 = add i64 24, %142
+  %144 = add i64 %143, 1
+  %145 = add i64 %144, 8
+  %146 = sub i64 %145, 1
+  %147 = and i64 %146, -8
+  %148 = call i1 @llvm.is.constant.i64(i64 %147)
+  br i1 %148, label %149, label %535
 
-147:                                              ; preds = %139
-  %148 = load i64, ptr %5, align 8
-  %149 = add i64 24, %148
-  %150 = add i64 %149, 1
-  %151 = add i64 %150, 8
-  %152 = sub i64 %151, 1
-  %153 = and i64 %152, -8
-  %154 = icmp ule i64 %153, 8
-  br i1 %154, label %155, label %157
+149:                                              ; preds = %141
+  %150 = load i64, ptr %5, align 8
+  %151 = add i64 24, %150
+  %152 = add i64 %151, 1
+  %153 = add i64 %152, 8
+  %154 = sub i64 %153, 1
+  %155 = and i64 %154, -8
+  %156 = icmp ule i64 %155, 8
+  br i1 %156, label %157, label %159
 
-155:                                              ; preds = %147
-  %156 = call noalias ptr @_emalloc_8() #10
+157:                                              ; preds = %149
+  %158 = call noalias ptr @_emalloc_8() #10
+  br label %533
+
+159:                                              ; preds = %149
+  %160 = load i64, ptr %5, align 8
+  %161 = add i64 24, %160
+  %162 = add i64 %161, 1
+  %163 = add i64 %162, 8
+  %164 = sub i64 %163, 1
+  %165 = and i64 %164, -8
+  %166 = icmp ule i64 %165, 16
+  br i1 %166, label %167, label %169
+
+167:                                              ; preds = %159
+  %168 = call noalias ptr @_emalloc_16() #10
   br label %531
 
-157:                                              ; preds = %147
-  %158 = load i64, ptr %5, align 8
-  %159 = add i64 24, %158
-  %160 = add i64 %159, 1
-  %161 = add i64 %160, 8
-  %162 = sub i64 %161, 1
-  %163 = and i64 %162, -8
-  %164 = icmp ule i64 %163, 16
-  br i1 %164, label %165, label %167
+169:                                              ; preds = %159
+  %170 = load i64, ptr %5, align 8
+  %171 = add i64 24, %170
+  %172 = add i64 %171, 1
+  %173 = add i64 %172, 8
+  %174 = sub i64 %173, 1
+  %175 = and i64 %174, -8
+  %176 = icmp ule i64 %175, 24
+  br i1 %176, label %177, label %179
 
-165:                                              ; preds = %157
-  %166 = call noalias ptr @_emalloc_16() #10
+177:                                              ; preds = %169
+  %178 = call noalias ptr @_emalloc_24() #10
   br label %529
 
-167:                                              ; preds = %157
-  %168 = load i64, ptr %5, align 8
-  %169 = add i64 24, %168
-  %170 = add i64 %169, 1
-  %171 = add i64 %170, 8
-  %172 = sub i64 %171, 1
-  %173 = and i64 %172, -8
-  %174 = icmp ule i64 %173, 24
-  br i1 %174, label %175, label %177
+179:                                              ; preds = %169
+  %180 = load i64, ptr %5, align 8
+  %181 = add i64 24, %180
+  %182 = add i64 %181, 1
+  %183 = add i64 %182, 8
+  %184 = sub i64 %183, 1
+  %185 = and i64 %184, -8
+  %186 = icmp ule i64 %185, 32
+  br i1 %186, label %187, label %189
 
-175:                                              ; preds = %167
-  %176 = call noalias ptr @_emalloc_24() #10
+187:                                              ; preds = %179
+  %188 = call noalias ptr @_emalloc_32() #10
   br label %527
 
-177:                                              ; preds = %167
-  %178 = load i64, ptr %5, align 8
-  %179 = add i64 24, %178
-  %180 = add i64 %179, 1
-  %181 = add i64 %180, 8
-  %182 = sub i64 %181, 1
-  %183 = and i64 %182, -8
-  %184 = icmp ule i64 %183, 32
-  br i1 %184, label %185, label %187
+189:                                              ; preds = %179
+  %190 = load i64, ptr %5, align 8
+  %191 = add i64 24, %190
+  %192 = add i64 %191, 1
+  %193 = add i64 %192, 8
+  %194 = sub i64 %193, 1
+  %195 = and i64 %194, -8
+  %196 = icmp ule i64 %195, 40
+  br i1 %196, label %197, label %199
 
-185:                                              ; preds = %177
-  %186 = call noalias ptr @_emalloc_32() #10
+197:                                              ; preds = %189
+  %198 = call noalias ptr @_emalloc_40() #10
   br label %525
 
-187:                                              ; preds = %177
-  %188 = load i64, ptr %5, align 8
-  %189 = add i64 24, %188
-  %190 = add i64 %189, 1
-  %191 = add i64 %190, 8
-  %192 = sub i64 %191, 1
-  %193 = and i64 %192, -8
-  %194 = icmp ule i64 %193, 40
-  br i1 %194, label %195, label %197
+199:                                              ; preds = %189
+  %200 = load i64, ptr %5, align 8
+  %201 = add i64 24, %200
+  %202 = add i64 %201, 1
+  %203 = add i64 %202, 8
+  %204 = sub i64 %203, 1
+  %205 = and i64 %204, -8
+  %206 = icmp ule i64 %205, 48
+  br i1 %206, label %207, label %209
 
-195:                                              ; preds = %187
-  %196 = call noalias ptr @_emalloc_40() #10
+207:                                              ; preds = %199
+  %208 = call noalias ptr @_emalloc_48() #10
   br label %523
 
-197:                                              ; preds = %187
-  %198 = load i64, ptr %5, align 8
-  %199 = add i64 24, %198
-  %200 = add i64 %199, 1
-  %201 = add i64 %200, 8
-  %202 = sub i64 %201, 1
-  %203 = and i64 %202, -8
-  %204 = icmp ule i64 %203, 48
-  br i1 %204, label %205, label %207
+209:                                              ; preds = %199
+  %210 = load i64, ptr %5, align 8
+  %211 = add i64 24, %210
+  %212 = add i64 %211, 1
+  %213 = add i64 %212, 8
+  %214 = sub i64 %213, 1
+  %215 = and i64 %214, -8
+  %216 = icmp ule i64 %215, 56
+  br i1 %216, label %217, label %219
 
-205:                                              ; preds = %197
-  %206 = call noalias ptr @_emalloc_48() #10
+217:                                              ; preds = %209
+  %218 = call noalias ptr @_emalloc_56() #10
   br label %521
 
-207:                                              ; preds = %197
-  %208 = load i64, ptr %5, align 8
-  %209 = add i64 24, %208
-  %210 = add i64 %209, 1
-  %211 = add i64 %210, 8
-  %212 = sub i64 %211, 1
-  %213 = and i64 %212, -8
-  %214 = icmp ule i64 %213, 56
-  br i1 %214, label %215, label %217
+219:                                              ; preds = %209
+  %220 = load i64, ptr %5, align 8
+  %221 = add i64 24, %220
+  %222 = add i64 %221, 1
+  %223 = add i64 %222, 8
+  %224 = sub i64 %223, 1
+  %225 = and i64 %224, -8
+  %226 = icmp ule i64 %225, 64
+  br i1 %226, label %227, label %229
 
-215:                                              ; preds = %207
-  %216 = call noalias ptr @_emalloc_56() #10
+227:                                              ; preds = %219
+  %228 = call noalias ptr @_emalloc_64() #10
   br label %519
 
-217:                                              ; preds = %207
-  %218 = load i64, ptr %5, align 8
-  %219 = add i64 24, %218
-  %220 = add i64 %219, 1
-  %221 = add i64 %220, 8
-  %222 = sub i64 %221, 1
-  %223 = and i64 %222, -8
-  %224 = icmp ule i64 %223, 64
-  br i1 %224, label %225, label %227
+229:                                              ; preds = %219
+  %230 = load i64, ptr %5, align 8
+  %231 = add i64 24, %230
+  %232 = add i64 %231, 1
+  %233 = add i64 %232, 8
+  %234 = sub i64 %233, 1
+  %235 = and i64 %234, -8
+  %236 = icmp ule i64 %235, 80
+  br i1 %236, label %237, label %239
 
-225:                                              ; preds = %217
-  %226 = call noalias ptr @_emalloc_64() #10
+237:                                              ; preds = %229
+  %238 = call noalias ptr @_emalloc_80() #10
   br label %517
 
-227:                                              ; preds = %217
-  %228 = load i64, ptr %5, align 8
-  %229 = add i64 24, %228
-  %230 = add i64 %229, 1
-  %231 = add i64 %230, 8
-  %232 = sub i64 %231, 1
-  %233 = and i64 %232, -8
-  %234 = icmp ule i64 %233, 80
-  br i1 %234, label %235, label %237
+239:                                              ; preds = %229
+  %240 = load i64, ptr %5, align 8
+  %241 = add i64 24, %240
+  %242 = add i64 %241, 1
+  %243 = add i64 %242, 8
+  %244 = sub i64 %243, 1
+  %245 = and i64 %244, -8
+  %246 = icmp ule i64 %245, 96
+  br i1 %246, label %247, label %249
 
-235:                                              ; preds = %227
-  %236 = call noalias ptr @_emalloc_80() #10
+247:                                              ; preds = %239
+  %248 = call noalias ptr @_emalloc_96() #10
   br label %515
 
-237:                                              ; preds = %227
-  %238 = load i64, ptr %5, align 8
-  %239 = add i64 24, %238
-  %240 = add i64 %239, 1
-  %241 = add i64 %240, 8
-  %242 = sub i64 %241, 1
-  %243 = and i64 %242, -8
-  %244 = icmp ule i64 %243, 96
-  br i1 %244, label %245, label %247
+249:                                              ; preds = %239
+  %250 = load i64, ptr %5, align 8
+  %251 = add i64 24, %250
+  %252 = add i64 %251, 1
+  %253 = add i64 %252, 8
+  %254 = sub i64 %253, 1
+  %255 = and i64 %254, -8
+  %256 = icmp ule i64 %255, 112
+  br i1 %256, label %257, label %259
 
-245:                                              ; preds = %237
-  %246 = call noalias ptr @_emalloc_96() #10
+257:                                              ; preds = %249
+  %258 = call noalias ptr @_emalloc_112() #10
   br label %513
 
-247:                                              ; preds = %237
-  %248 = load i64, ptr %5, align 8
-  %249 = add i64 24, %248
-  %250 = add i64 %249, 1
-  %251 = add i64 %250, 8
-  %252 = sub i64 %251, 1
-  %253 = and i64 %252, -8
-  %254 = icmp ule i64 %253, 112
-  br i1 %254, label %255, label %257
+259:                                              ; preds = %249
+  %260 = load i64, ptr %5, align 8
+  %261 = add i64 24, %260
+  %262 = add i64 %261, 1
+  %263 = add i64 %262, 8
+  %264 = sub i64 %263, 1
+  %265 = and i64 %264, -8
+  %266 = icmp ule i64 %265, 128
+  br i1 %266, label %267, label %269
 
-255:                                              ; preds = %247
-  %256 = call noalias ptr @_emalloc_112() #10
+267:                                              ; preds = %259
+  %268 = call noalias ptr @_emalloc_128() #10
   br label %511
 
-257:                                              ; preds = %247
-  %258 = load i64, ptr %5, align 8
-  %259 = add i64 24, %258
-  %260 = add i64 %259, 1
-  %261 = add i64 %260, 8
-  %262 = sub i64 %261, 1
-  %263 = and i64 %262, -8
-  %264 = icmp ule i64 %263, 128
-  br i1 %264, label %265, label %267
+269:                                              ; preds = %259
+  %270 = load i64, ptr %5, align 8
+  %271 = add i64 24, %270
+  %272 = add i64 %271, 1
+  %273 = add i64 %272, 8
+  %274 = sub i64 %273, 1
+  %275 = and i64 %274, -8
+  %276 = icmp ule i64 %275, 160
+  br i1 %276, label %277, label %279
 
-265:                                              ; preds = %257
-  %266 = call noalias ptr @_emalloc_128() #10
+277:                                              ; preds = %269
+  %278 = call noalias ptr @_emalloc_160() #10
   br label %509
 
-267:                                              ; preds = %257
-  %268 = load i64, ptr %5, align 8
-  %269 = add i64 24, %268
-  %270 = add i64 %269, 1
-  %271 = add i64 %270, 8
-  %272 = sub i64 %271, 1
-  %273 = and i64 %272, -8
-  %274 = icmp ule i64 %273, 160
-  br i1 %274, label %275, label %277
+279:                                              ; preds = %269
+  %280 = load i64, ptr %5, align 8
+  %281 = add i64 24, %280
+  %282 = add i64 %281, 1
+  %283 = add i64 %282, 8
+  %284 = sub i64 %283, 1
+  %285 = and i64 %284, -8
+  %286 = icmp ule i64 %285, 192
+  br i1 %286, label %287, label %289
 
-275:                                              ; preds = %267
-  %276 = call noalias ptr @_emalloc_160() #10
+287:                                              ; preds = %279
+  %288 = call noalias ptr @_emalloc_192() #10
   br label %507
 
-277:                                              ; preds = %267
-  %278 = load i64, ptr %5, align 8
-  %279 = add i64 24, %278
-  %280 = add i64 %279, 1
-  %281 = add i64 %280, 8
-  %282 = sub i64 %281, 1
-  %283 = and i64 %282, -8
-  %284 = icmp ule i64 %283, 192
-  br i1 %284, label %285, label %287
+289:                                              ; preds = %279
+  %290 = load i64, ptr %5, align 8
+  %291 = add i64 24, %290
+  %292 = add i64 %291, 1
+  %293 = add i64 %292, 8
+  %294 = sub i64 %293, 1
+  %295 = and i64 %294, -8
+  %296 = icmp ule i64 %295, 224
+  br i1 %296, label %297, label %299
 
-285:                                              ; preds = %277
-  %286 = call noalias ptr @_emalloc_192() #10
+297:                                              ; preds = %289
+  %298 = call noalias ptr @_emalloc_224() #10
   br label %505
 
-287:                                              ; preds = %277
-  %288 = load i64, ptr %5, align 8
-  %289 = add i64 24, %288
-  %290 = add i64 %289, 1
-  %291 = add i64 %290, 8
-  %292 = sub i64 %291, 1
-  %293 = and i64 %292, -8
-  %294 = icmp ule i64 %293, 224
-  br i1 %294, label %295, label %297
+299:                                              ; preds = %289
+  %300 = load i64, ptr %5, align 8
+  %301 = add i64 24, %300
+  %302 = add i64 %301, 1
+  %303 = add i64 %302, 8
+  %304 = sub i64 %303, 1
+  %305 = and i64 %304, -8
+  %306 = icmp ule i64 %305, 256
+  br i1 %306, label %307, label %309
 
-295:                                              ; preds = %287
-  %296 = call noalias ptr @_emalloc_224() #10
+307:                                              ; preds = %299
+  %308 = call noalias ptr @_emalloc_256() #10
   br label %503
 
-297:                                              ; preds = %287
-  %298 = load i64, ptr %5, align 8
-  %299 = add i64 24, %298
-  %300 = add i64 %299, 1
-  %301 = add i64 %300, 8
-  %302 = sub i64 %301, 1
-  %303 = and i64 %302, -8
-  %304 = icmp ule i64 %303, 256
-  br i1 %304, label %305, label %307
+309:                                              ; preds = %299
+  %310 = load i64, ptr %5, align 8
+  %311 = add i64 24, %310
+  %312 = add i64 %311, 1
+  %313 = add i64 %312, 8
+  %314 = sub i64 %313, 1
+  %315 = and i64 %314, -8
+  %316 = icmp ule i64 %315, 320
+  br i1 %316, label %317, label %319
 
-305:                                              ; preds = %297
-  %306 = call noalias ptr @_emalloc_256() #10
+317:                                              ; preds = %309
+  %318 = call noalias ptr @_emalloc_320() #10
   br label %501
 
-307:                                              ; preds = %297
-  %308 = load i64, ptr %5, align 8
-  %309 = add i64 24, %308
-  %310 = add i64 %309, 1
-  %311 = add i64 %310, 8
-  %312 = sub i64 %311, 1
-  %313 = and i64 %312, -8
-  %314 = icmp ule i64 %313, 320
-  br i1 %314, label %315, label %317
+319:                                              ; preds = %309
+  %320 = load i64, ptr %5, align 8
+  %321 = add i64 24, %320
+  %322 = add i64 %321, 1
+  %323 = add i64 %322, 8
+  %324 = sub i64 %323, 1
+  %325 = and i64 %324, -8
+  %326 = icmp ule i64 %325, 384
+  br i1 %326, label %327, label %329
 
-315:                                              ; preds = %307
-  %316 = call noalias ptr @_emalloc_320() #10
+327:                                              ; preds = %319
+  %328 = call noalias ptr @_emalloc_384() #10
   br label %499
 
-317:                                              ; preds = %307
-  %318 = load i64, ptr %5, align 8
-  %319 = add i64 24, %318
-  %320 = add i64 %319, 1
-  %321 = add i64 %320, 8
-  %322 = sub i64 %321, 1
-  %323 = and i64 %322, -8
-  %324 = icmp ule i64 %323, 384
-  br i1 %324, label %325, label %327
+329:                                              ; preds = %319
+  %330 = load i64, ptr %5, align 8
+  %331 = add i64 24, %330
+  %332 = add i64 %331, 1
+  %333 = add i64 %332, 8
+  %334 = sub i64 %333, 1
+  %335 = and i64 %334, -8
+  %336 = icmp ule i64 %335, 448
+  br i1 %336, label %337, label %339
 
-325:                                              ; preds = %317
-  %326 = call noalias ptr @_emalloc_384() #10
+337:                                              ; preds = %329
+  %338 = call noalias ptr @_emalloc_448() #10
   br label %497
 
-327:                                              ; preds = %317
-  %328 = load i64, ptr %5, align 8
-  %329 = add i64 24, %328
-  %330 = add i64 %329, 1
-  %331 = add i64 %330, 8
-  %332 = sub i64 %331, 1
-  %333 = and i64 %332, -8
-  %334 = icmp ule i64 %333, 448
-  br i1 %334, label %335, label %337
+339:                                              ; preds = %329
+  %340 = load i64, ptr %5, align 8
+  %341 = add i64 24, %340
+  %342 = add i64 %341, 1
+  %343 = add i64 %342, 8
+  %344 = sub i64 %343, 1
+  %345 = and i64 %344, -8
+  %346 = icmp ule i64 %345, 512
+  br i1 %346, label %347, label %349
 
-335:                                              ; preds = %327
-  %336 = call noalias ptr @_emalloc_448() #10
+347:                                              ; preds = %339
+  %348 = call noalias ptr @_emalloc_512() #10
   br label %495
 
-337:                                              ; preds = %327
-  %338 = load i64, ptr %5, align 8
-  %339 = add i64 24, %338
-  %340 = add i64 %339, 1
-  %341 = add i64 %340, 8
-  %342 = sub i64 %341, 1
-  %343 = and i64 %342, -8
-  %344 = icmp ule i64 %343, 512
-  br i1 %344, label %345, label %347
+349:                                              ; preds = %339
+  %350 = load i64, ptr %5, align 8
+  %351 = add i64 24, %350
+  %352 = add i64 %351, 1
+  %353 = add i64 %352, 8
+  %354 = sub i64 %353, 1
+  %355 = and i64 %354, -8
+  %356 = icmp ule i64 %355, 640
+  br i1 %356, label %357, label %359
 
-345:                                              ; preds = %337
-  %346 = call noalias ptr @_emalloc_512() #10
+357:                                              ; preds = %349
+  %358 = call noalias ptr @_emalloc_640() #10
   br label %493
 
-347:                                              ; preds = %337
-  %348 = load i64, ptr %5, align 8
-  %349 = add i64 24, %348
-  %350 = add i64 %349, 1
-  %351 = add i64 %350, 8
-  %352 = sub i64 %351, 1
-  %353 = and i64 %352, -8
-  %354 = icmp ule i64 %353, 640
-  br i1 %354, label %355, label %357
+359:                                              ; preds = %349
+  %360 = load i64, ptr %5, align 8
+  %361 = add i64 24, %360
+  %362 = add i64 %361, 1
+  %363 = add i64 %362, 8
+  %364 = sub i64 %363, 1
+  %365 = and i64 %364, -8
+  %366 = icmp ule i64 %365, 768
+  br i1 %366, label %367, label %369
 
-355:                                              ; preds = %347
-  %356 = call noalias ptr @_emalloc_640() #10
+367:                                              ; preds = %359
+  %368 = call noalias ptr @_emalloc_768() #10
   br label %491
 
-357:                                              ; preds = %347
-  %358 = load i64, ptr %5, align 8
-  %359 = add i64 24, %358
-  %360 = add i64 %359, 1
-  %361 = add i64 %360, 8
-  %362 = sub i64 %361, 1
-  %363 = and i64 %362, -8
-  %364 = icmp ule i64 %363, 768
-  br i1 %364, label %365, label %367
+369:                                              ; preds = %359
+  %370 = load i64, ptr %5, align 8
+  %371 = add i64 24, %370
+  %372 = add i64 %371, 1
+  %373 = add i64 %372, 8
+  %374 = sub i64 %373, 1
+  %375 = and i64 %374, -8
+  %376 = icmp ule i64 %375, 896
+  br i1 %376, label %377, label %379
 
-365:                                              ; preds = %357
-  %366 = call noalias ptr @_emalloc_768() #10
+377:                                              ; preds = %369
+  %378 = call noalias ptr @_emalloc_896() #10
   br label %489
 
-367:                                              ; preds = %357
-  %368 = load i64, ptr %5, align 8
-  %369 = add i64 24, %368
-  %370 = add i64 %369, 1
-  %371 = add i64 %370, 8
-  %372 = sub i64 %371, 1
-  %373 = and i64 %372, -8
-  %374 = icmp ule i64 %373, 896
-  br i1 %374, label %375, label %377
+379:                                              ; preds = %369
+  %380 = load i64, ptr %5, align 8
+  %381 = add i64 24, %380
+  %382 = add i64 %381, 1
+  %383 = add i64 %382, 8
+  %384 = sub i64 %383, 1
+  %385 = and i64 %384, -8
+  %386 = icmp ule i64 %385, 1024
+  br i1 %386, label %387, label %389
 
-375:                                              ; preds = %367
-  %376 = call noalias ptr @_emalloc_896() #10
+387:                                              ; preds = %379
+  %388 = call noalias ptr @_emalloc_1024() #10
   br label %487
 
-377:                                              ; preds = %367
-  %378 = load i64, ptr %5, align 8
-  %379 = add i64 24, %378
-  %380 = add i64 %379, 1
-  %381 = add i64 %380, 8
-  %382 = sub i64 %381, 1
-  %383 = and i64 %382, -8
-  %384 = icmp ule i64 %383, 1024
-  br i1 %384, label %385, label %387
+389:                                              ; preds = %379
+  %390 = load i64, ptr %5, align 8
+  %391 = add i64 24, %390
+  %392 = add i64 %391, 1
+  %393 = add i64 %392, 8
+  %394 = sub i64 %393, 1
+  %395 = and i64 %394, -8
+  %396 = icmp ule i64 %395, 1280
+  br i1 %396, label %397, label %399
 
-385:                                              ; preds = %377
-  %386 = call noalias ptr @_emalloc_1024() #10
+397:                                              ; preds = %389
+  %398 = call noalias ptr @_emalloc_1280() #10
   br label %485
 
-387:                                              ; preds = %377
-  %388 = load i64, ptr %5, align 8
-  %389 = add i64 24, %388
-  %390 = add i64 %389, 1
-  %391 = add i64 %390, 8
-  %392 = sub i64 %391, 1
-  %393 = and i64 %392, -8
-  %394 = icmp ule i64 %393, 1280
-  br i1 %394, label %395, label %397
+399:                                              ; preds = %389
+  %400 = load i64, ptr %5, align 8
+  %401 = add i64 24, %400
+  %402 = add i64 %401, 1
+  %403 = add i64 %402, 8
+  %404 = sub i64 %403, 1
+  %405 = and i64 %404, -8
+  %406 = icmp ule i64 %405, 1536
+  br i1 %406, label %407, label %409
 
-395:                                              ; preds = %387
-  %396 = call noalias ptr @_emalloc_1280() #10
+407:                                              ; preds = %399
+  %408 = call noalias ptr @_emalloc_1536() #10
   br label %483
 
-397:                                              ; preds = %387
-  %398 = load i64, ptr %5, align 8
-  %399 = add i64 24, %398
-  %400 = add i64 %399, 1
-  %401 = add i64 %400, 8
-  %402 = sub i64 %401, 1
-  %403 = and i64 %402, -8
-  %404 = icmp ule i64 %403, 1536
-  br i1 %404, label %405, label %407
+409:                                              ; preds = %399
+  %410 = load i64, ptr %5, align 8
+  %411 = add i64 24, %410
+  %412 = add i64 %411, 1
+  %413 = add i64 %412, 8
+  %414 = sub i64 %413, 1
+  %415 = and i64 %414, -8
+  %416 = icmp ule i64 %415, 1792
+  br i1 %416, label %417, label %419
 
-405:                                              ; preds = %397
-  %406 = call noalias ptr @_emalloc_1536() #10
+417:                                              ; preds = %409
+  %418 = call noalias ptr @_emalloc_1792() #10
   br label %481
 
-407:                                              ; preds = %397
-  %408 = load i64, ptr %5, align 8
-  %409 = add i64 24, %408
-  %410 = add i64 %409, 1
-  %411 = add i64 %410, 8
-  %412 = sub i64 %411, 1
-  %413 = and i64 %412, -8
-  %414 = icmp ule i64 %413, 1792
-  br i1 %414, label %415, label %417
+419:                                              ; preds = %409
+  %420 = load i64, ptr %5, align 8
+  %421 = add i64 24, %420
+  %422 = add i64 %421, 1
+  %423 = add i64 %422, 8
+  %424 = sub i64 %423, 1
+  %425 = and i64 %424, -8
+  %426 = icmp ule i64 %425, 2048
+  br i1 %426, label %427, label %429
 
-415:                                              ; preds = %407
-  %416 = call noalias ptr @_emalloc_1792() #10
+427:                                              ; preds = %419
+  %428 = call noalias ptr @_emalloc_2048() #10
   br label %479
 
-417:                                              ; preds = %407
-  %418 = load i64, ptr %5, align 8
-  %419 = add i64 24, %418
-  %420 = add i64 %419, 1
-  %421 = add i64 %420, 8
-  %422 = sub i64 %421, 1
-  %423 = and i64 %422, -8
-  %424 = icmp ule i64 %423, 2048
-  br i1 %424, label %425, label %427
+429:                                              ; preds = %419
+  %430 = load i64, ptr %5, align 8
+  %431 = add i64 24, %430
+  %432 = add i64 %431, 1
+  %433 = add i64 %432, 8
+  %434 = sub i64 %433, 1
+  %435 = and i64 %434, -8
+  %436 = icmp ule i64 %435, 2560
+  br i1 %436, label %437, label %439
 
-425:                                              ; preds = %417
-  %426 = call noalias ptr @_emalloc_2048() #10
+437:                                              ; preds = %429
+  %438 = call noalias ptr @_emalloc_2560() #10
   br label %477
 
-427:                                              ; preds = %417
-  %428 = load i64, ptr %5, align 8
-  %429 = add i64 24, %428
-  %430 = add i64 %429, 1
-  %431 = add i64 %430, 8
-  %432 = sub i64 %431, 1
-  %433 = and i64 %432, -8
-  %434 = icmp ule i64 %433, 2560
-  br i1 %434, label %435, label %437
+439:                                              ; preds = %429
+  %440 = load i64, ptr %5, align 8
+  %441 = add i64 24, %440
+  %442 = add i64 %441, 1
+  %443 = add i64 %442, 8
+  %444 = sub i64 %443, 1
+  %445 = and i64 %444, -8
+  %446 = icmp ule i64 %445, 3072
+  br i1 %446, label %447, label %449
 
-435:                                              ; preds = %427
-  %436 = call noalias ptr @_emalloc_2560() #10
+447:                                              ; preds = %439
+  %448 = call noalias ptr @_emalloc_3072() #10
   br label %475
 
-437:                                              ; preds = %427
-  %438 = load i64, ptr %5, align 8
-  %439 = add i64 24, %438
-  %440 = add i64 %439, 1
-  %441 = add i64 %440, 8
-  %442 = sub i64 %441, 1
-  %443 = and i64 %442, -8
-  %444 = icmp ule i64 %443, 3072
-  br i1 %444, label %445, label %447
+449:                                              ; preds = %439
+  %450 = load i64, ptr %5, align 8
+  %451 = add i64 24, %450
+  %452 = add i64 %451, 1
+  %453 = add i64 %452, 8
+  %454 = sub i64 %453, 1
+  %455 = and i64 %454, -8
+  %456 = icmp ule i64 %455, 2093056
+  br i1 %456, label %457, label %465
 
-445:                                              ; preds = %437
-  %446 = call noalias ptr @_emalloc_3072() #10
+457:                                              ; preds = %449
+  %458 = load i64, ptr %5, align 8
+  %459 = add i64 24, %458
+  %460 = add i64 %459, 1
+  %461 = add i64 %460, 8
+  %462 = sub i64 %461, 1
+  %463 = and i64 %462, -8
+  %464 = call noalias ptr @_emalloc_large(i64 noundef %463) #9
   br label %473
 
-447:                                              ; preds = %437
-  %448 = load i64, ptr %5, align 8
-  %449 = add i64 24, %448
-  %450 = add i64 %449, 1
-  %451 = add i64 %450, 8
-  %452 = sub i64 %451, 1
-  %453 = and i64 %452, -8
-  %454 = icmp ule i64 %453, 2093056
-  br i1 %454, label %455, label %463
-
-455:                                              ; preds = %447
-  %456 = load i64, ptr %5, align 8
-  %457 = add i64 24, %456
-  %458 = add i64 %457, 1
-  %459 = add i64 %458, 8
-  %460 = sub i64 %459, 1
-  %461 = and i64 %460, -8
-  %462 = call noalias ptr @_emalloc_large(i64 noundef %461) #9
-  br label %471
-
-463:                                              ; preds = %447
-  %464 = load i64, ptr %5, align 8
-  %465 = add i64 24, %464
-  %466 = add i64 %465, 1
-  %467 = add i64 %466, 8
-  %468 = sub i64 %467, 1
-  %469 = and i64 %468, -8
-  %470 = call noalias ptr @_emalloc_huge(i64 noundef %469) #9
-  br label %471
-
-471:                                              ; preds = %463, %455
-  %472 = phi ptr [ %462, %455 ], [ %470, %463 ]
+465:                                              ; preds = %449
+  %466 = load i64, ptr %5, align 8
+  %467 = add i64 24, %466
+  %468 = add i64 %467, 1
+  %469 = add i64 %468, 8
+  %470 = sub i64 %469, 1
+  %471 = and i64 %470, -8
+  %472 = call noalias ptr @_emalloc_huge(i64 noundef %471) #9
   br label %473
 
-473:                                              ; preds = %471, %445
-  %474 = phi ptr [ %446, %445 ], [ %472, %471 ]
+473:                                              ; preds = %465, %457
+  %474 = phi ptr [ %464, %457 ], [ %472, %465 ]
   br label %475
 
-475:                                              ; preds = %473, %435
-  %476 = phi ptr [ %436, %435 ], [ %474, %473 ]
+475:                                              ; preds = %473, %447
+  %476 = phi ptr [ %448, %447 ], [ %474, %473 ]
   br label %477
 
-477:                                              ; preds = %475, %425
-  %478 = phi ptr [ %426, %425 ], [ %476, %475 ]
+477:                                              ; preds = %475, %437
+  %478 = phi ptr [ %438, %437 ], [ %476, %475 ]
   br label %479
 
-479:                                              ; preds = %477, %415
-  %480 = phi ptr [ %416, %415 ], [ %478, %477 ]
+479:                                              ; preds = %477, %427
+  %480 = phi ptr [ %428, %427 ], [ %478, %477 ]
   br label %481
 
-481:                                              ; preds = %479, %405
-  %482 = phi ptr [ %406, %405 ], [ %480, %479 ]
+481:                                              ; preds = %479, %417
+  %482 = phi ptr [ %418, %417 ], [ %480, %479 ]
   br label %483
 
-483:                                              ; preds = %481, %395
-  %484 = phi ptr [ %396, %395 ], [ %482, %481 ]
+483:                                              ; preds = %481, %407
+  %484 = phi ptr [ %408, %407 ], [ %482, %481 ]
   br label %485
 
-485:                                              ; preds = %483, %385
-  %486 = phi ptr [ %386, %385 ], [ %484, %483 ]
+485:                                              ; preds = %483, %397
+  %486 = phi ptr [ %398, %397 ], [ %484, %483 ]
   br label %487
 
-487:                                              ; preds = %485, %375
-  %488 = phi ptr [ %376, %375 ], [ %486, %485 ]
+487:                                              ; preds = %485, %387
+  %488 = phi ptr [ %388, %387 ], [ %486, %485 ]
   br label %489
 
-489:                                              ; preds = %487, %365
-  %490 = phi ptr [ %366, %365 ], [ %488, %487 ]
+489:                                              ; preds = %487, %377
+  %490 = phi ptr [ %378, %377 ], [ %488, %487 ]
   br label %491
 
-491:                                              ; preds = %489, %355
-  %492 = phi ptr [ %356, %355 ], [ %490, %489 ]
+491:                                              ; preds = %489, %367
+  %492 = phi ptr [ %368, %367 ], [ %490, %489 ]
   br label %493
 
-493:                                              ; preds = %491, %345
-  %494 = phi ptr [ %346, %345 ], [ %492, %491 ]
+493:                                              ; preds = %491, %357
+  %494 = phi ptr [ %358, %357 ], [ %492, %491 ]
   br label %495
 
-495:                                              ; preds = %493, %335
-  %496 = phi ptr [ %336, %335 ], [ %494, %493 ]
+495:                                              ; preds = %493, %347
+  %496 = phi ptr [ %348, %347 ], [ %494, %493 ]
   br label %497
 
-497:                                              ; preds = %495, %325
-  %498 = phi ptr [ %326, %325 ], [ %496, %495 ]
+497:                                              ; preds = %495, %337
+  %498 = phi ptr [ %338, %337 ], [ %496, %495 ]
   br label %499
 
-499:                                              ; preds = %497, %315
-  %500 = phi ptr [ %316, %315 ], [ %498, %497 ]
+499:                                              ; preds = %497, %327
+  %500 = phi ptr [ %328, %327 ], [ %498, %497 ]
   br label %501
 
-501:                                              ; preds = %499, %305
-  %502 = phi ptr [ %306, %305 ], [ %500, %499 ]
+501:                                              ; preds = %499, %317
+  %502 = phi ptr [ %318, %317 ], [ %500, %499 ]
   br label %503
 
-503:                                              ; preds = %501, %295
-  %504 = phi ptr [ %296, %295 ], [ %502, %501 ]
+503:                                              ; preds = %501, %307
+  %504 = phi ptr [ %308, %307 ], [ %502, %501 ]
   br label %505
 
-505:                                              ; preds = %503, %285
-  %506 = phi ptr [ %286, %285 ], [ %504, %503 ]
+505:                                              ; preds = %503, %297
+  %506 = phi ptr [ %298, %297 ], [ %504, %503 ]
   br label %507
 
-507:                                              ; preds = %505, %275
-  %508 = phi ptr [ %276, %275 ], [ %506, %505 ]
+507:                                              ; preds = %505, %287
+  %508 = phi ptr [ %288, %287 ], [ %506, %505 ]
   br label %509
 
-509:                                              ; preds = %507, %265
-  %510 = phi ptr [ %266, %265 ], [ %508, %507 ]
+509:                                              ; preds = %507, %277
+  %510 = phi ptr [ %278, %277 ], [ %508, %507 ]
   br label %511
 
-511:                                              ; preds = %509, %255
-  %512 = phi ptr [ %256, %255 ], [ %510, %509 ]
+511:                                              ; preds = %509, %267
+  %512 = phi ptr [ %268, %267 ], [ %510, %509 ]
   br label %513
 
-513:                                              ; preds = %511, %245
-  %514 = phi ptr [ %246, %245 ], [ %512, %511 ]
+513:                                              ; preds = %511, %257
+  %514 = phi ptr [ %258, %257 ], [ %512, %511 ]
   br label %515
 
-515:                                              ; preds = %513, %235
-  %516 = phi ptr [ %236, %235 ], [ %514, %513 ]
+515:                                              ; preds = %513, %247
+  %516 = phi ptr [ %248, %247 ], [ %514, %513 ]
   br label %517
 
-517:                                              ; preds = %515, %225
-  %518 = phi ptr [ %226, %225 ], [ %516, %515 ]
+517:                                              ; preds = %515, %237
+  %518 = phi ptr [ %238, %237 ], [ %516, %515 ]
   br label %519
 
-519:                                              ; preds = %517, %215
-  %520 = phi ptr [ %216, %215 ], [ %518, %517 ]
+519:                                              ; preds = %517, %227
+  %520 = phi ptr [ %228, %227 ], [ %518, %517 ]
   br label %521
 
-521:                                              ; preds = %519, %205
-  %522 = phi ptr [ %206, %205 ], [ %520, %519 ]
+521:                                              ; preds = %519, %217
+  %522 = phi ptr [ %218, %217 ], [ %520, %519 ]
   br label %523
 
-523:                                              ; preds = %521, %195
-  %524 = phi ptr [ %196, %195 ], [ %522, %521 ]
+523:                                              ; preds = %521, %207
+  %524 = phi ptr [ %208, %207 ], [ %522, %521 ]
   br label %525
 
-525:                                              ; preds = %523, %185
-  %526 = phi ptr [ %186, %185 ], [ %524, %523 ]
+525:                                              ; preds = %523, %197
+  %526 = phi ptr [ %198, %197 ], [ %524, %523 ]
   br label %527
 
-527:                                              ; preds = %525, %175
-  %528 = phi ptr [ %176, %175 ], [ %526, %525 ]
+527:                                              ; preds = %525, %187
+  %528 = phi ptr [ %188, %187 ], [ %526, %525 ]
   br label %529
 
-529:                                              ; preds = %527, %165
-  %530 = phi ptr [ %166, %165 ], [ %528, %527 ]
+529:                                              ; preds = %527, %177
+  %530 = phi ptr [ %178, %177 ], [ %528, %527 ]
   br label %531
 
-531:                                              ; preds = %529, %155
-  %532 = phi ptr [ %156, %155 ], [ %530, %529 ]
-  br label %541
+531:                                              ; preds = %529, %167
+  %532 = phi ptr [ %168, %167 ], [ %530, %529 ]
+  br label %533
 
-533:                                              ; preds = %139
-  %534 = load i64, ptr %5, align 8
-  %535 = add i64 24, %534
-  %536 = add i64 %535, 1
-  %537 = add i64 %536, 8
-  %538 = sub i64 %537, 1
-  %539 = and i64 %538, -8
-  %540 = call noalias ptr @_emalloc(i64 noundef %539) #9
-  br label %541
-
-541:                                              ; preds = %533, %531
-  %542 = phi ptr [ %532, %531 ], [ %540, %533 ]
+533:                                              ; preds = %531, %157
+  %534 = phi ptr [ %158, %157 ], [ %532, %531 ]
   br label %543
 
-543:                                              ; preds = %541, %131
-  %544 = phi ptr [ %138, %131 ], [ %542, %541 ]
-  store ptr %544, ptr %7, align 8
-  %545 = load ptr, ptr %7, align 8
-  store ptr %545, ptr %3, align 8
+535:                                              ; preds = %141
+  %536 = load i64, ptr %5, align 8
+  %537 = add i64 24, %536
+  %538 = add i64 %537, 1
+  %539 = add i64 %538, 8
+  %540 = sub i64 %539, 1
+  %541 = and i64 %540, -8
+  %542 = call noalias ptr @_emalloc(i64 noundef %541) #9
+  br label %543
+
+543:                                              ; preds = %535, %533
+  %544 = phi ptr [ %534, %533 ], [ %542, %535 ]
+  br label %545
+
+545:                                              ; preds = %543, %133
+  %546 = phi ptr [ %140, %133 ], [ %544, %543 ]
+  store ptr %546, ptr %7, align 8
+  %547 = load ptr, ptr %7, align 8
+  store ptr %547, ptr %3, align 8
   store i32 1, ptr %4, align 4
-  %546 = load i32, ptr %4, align 4
-  %547 = load ptr, ptr %3, align 8
-  store i32 %546, ptr %547, align 4
-  %548 = load i8, ptr %6, align 1
-  %549 = trunc i8 %548 to i1
-  %550 = select i1 %549, i32 128, i32 0
-  %551 = or i32 22, %550
-  %552 = load ptr, ptr %7, align 8
-  %553 = getelementptr inbounds %struct._zend_refcounted_h, ptr %552, i32 0, i32 1
-  store i32 %551, ptr %553, align 4
+  %548 = load i32, ptr %4, align 4
+  %549 = load ptr, ptr %3, align 8
+  store i32 %548, ptr %549, align 4
+  %550 = load i8, ptr %6, align 1
+  %551 = trunc i8 %550 to i1
+  %552 = select i1 %551, i32 128, i32 0
+  %553 = or i32 22, %552
   %554 = load ptr, ptr %7, align 8
-  %555 = getelementptr inbounds %struct._zend_string, ptr %554, i32 0, i32 1
-  store i64 0, ptr %555, align 8
-  %556 = load i64, ptr %5, align 8
-  %557 = load ptr, ptr %7, align 8
-  %558 = getelementptr inbounds %struct._zend_string, ptr %557, i32 0, i32 2
-  store i64 %556, ptr %558, align 8
+  %555 = getelementptr inbounds %struct._zend_refcounted_h, ptr %554, i32 0, i32 1
+  store i32 %553, ptr %555, align 4
+  %556 = load ptr, ptr %7, align 8
+  %557 = getelementptr inbounds %struct._zend_string, ptr %556, i32 0, i32 1
+  store i64 0, ptr %557, align 8
+  %558 = load i64, ptr %5, align 8
   %559 = load ptr, ptr %7, align 8
-  store ptr %559, ptr %11, align 8
-  %560 = load ptr, ptr %11, align 8
-  %561 = getelementptr inbounds %struct._zend_string, ptr %560, i32 0, i32 3
-  %562 = load ptr, ptr %8, align 8
-  %563 = load i64, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %561, ptr align 1 %562, i64 %563, i1 false)
-  %564 = load ptr, ptr %11, align 8
-  %565 = getelementptr inbounds %struct._zend_string, ptr %564, i32 0, i32 3
-  %566 = load i64, ptr %9, align 8
-  %567 = getelementptr inbounds [1 x i8], ptr %565, i64 0, i64 %566
-  store i8 0, ptr %567, align 1
-  %568 = load ptr, ptr %11, align 8
-  store ptr %568, ptr %26, align 8
-  %569 = load ptr, ptr %26, align 8
-  %570 = load ptr, ptr %25, align 8
-  %571 = getelementptr inbounds %struct._zval_struct, ptr %570, i32 0, i32 0
-  store ptr %569, ptr %571, align 8
+  %560 = getelementptr inbounds %struct._zend_string, ptr %559, i32 0, i32 2
+  store i64 %558, ptr %560, align 8
+  %561 = load ptr, ptr %7, align 8
+  store ptr %561, ptr %11, align 8
+  %562 = load ptr, ptr %11, align 8
+  %563 = getelementptr inbounds %struct._zend_string, ptr %562, i32 0, i32 3
+  %564 = load ptr, ptr %8, align 8
+  %565 = load i64, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %563, ptr align 1 %564, i64 %565, i1 false)
+  %566 = load ptr, ptr %11, align 8
+  %567 = getelementptr inbounds %struct._zend_string, ptr %566, i32 0, i32 3
+  %568 = load i64, ptr %9, align 8
+  %569 = getelementptr inbounds [1 x i8], ptr %567, i64 0, i64 %568
+  store i8 0, ptr %569, align 1
+  %570 = load ptr, ptr %11, align 8
+  store ptr %570, ptr %26, align 8
+  %571 = load ptr, ptr %26, align 8
   %572 = load ptr, ptr %25, align 8
-  %573 = getelementptr inbounds %struct._zval_struct, ptr %572, i32 0, i32 1
-  store i32 262, ptr %573, align 8
-  br label %574
-
-574:                                              ; preds = %543
-  br label %575
-
-575:                                              ; preds = %574
+  %573 = getelementptr inbounds %struct._zval_struct, ptr %572, i32 0, i32 0
+  store ptr %571, ptr %573, align 8
+  %574 = load ptr, ptr %25, align 8
+  %575 = getelementptr inbounds %struct._zval_struct, ptr %574, i32 0, i32 1
+  store i32 262, ptr %575, align 8
   br label %576
 
-576:                                              ; preds = %575
-  %577 = load i8, ptr %21, align 1
-  %578 = trunc i8 %577 to i1
-  br i1 %578, label %579, label %582
+576:                                              ; preds = %545
+  br label %577
 
-579:                                              ; preds = %576
-  %580 = load ptr, ptr @xmlFree, align 8
-  %581 = load ptr, ptr %17, align 8
-  call void %580(ptr noundef %581)
-  br label %582
+577:                                              ; preds = %576
+  br label %578
 
-582:                                              ; preds = %579, %576
-  br label %583
+578:                                              ; preds = %577
+  %579 = load i8, ptr %21, align 1
+  %580 = trunc i8 %579 to i1
+  br i1 %580, label %581, label %584
 
-583:                                              ; preds = %582, %115, %114, %63, %36
+581:                                              ; preds = %578
+  %582 = load ptr, ptr @xmlFree, align 8
+  %583 = load ptr, ptr %17, align 8
+  call void %582(ptr noundef %583)
+  br label %584
+
+584:                                              ; preds = %581, %578
+  br label %585
+
+585:                                              ; preds = %584, %117, %116, %64, %36
   ret void
 }
 
@@ -3942,199 +3949,201 @@ define hidden void @zim_DOMElement_getAttributeNames(ptr noundef %0, ptr noundef
 33:                                               ; preds = %32, %31
   %34 = phi i32 [ 0, %31 ], [ -1, %32 ]
   %35 = icmp eq i32 %34, -1
-  br i1 %35, label %36, label %41
+  br i1 %35, label %36, label %42
 
 36:                                               ; preds = %33
   br label %37
 
 37:                                               ; preds = %36
-  %38 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %39 = icmp ne ptr %38, null
-  call void @llvm.assume(i1 %39)
-  br label %157
+  %38 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp ne ptr %39, null
+  call void @llvm.assume(i1 %40)
+  br label %159
 
-40:                                               ; No predecessors!
-  br label %41
+41:                                               ; No predecessors!
+  br label %42
 
-41:                                               ; preds = %40, %33
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct._zend_execute_data, ptr %42, i32 0, i32 4
-  store ptr %43, ptr %7, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct._zval_struct, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = call ptr @php_dom_obj_from_obj(ptr noundef %46)
-  store ptr %47, ptr %9, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds %struct._dom_object, ptr %48, i32 0, i32 0
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp eq ptr %50, null
-  %52 = xor i1 %51, true
+42:                                               ; preds = %41, %33
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds %struct._zend_execute_data, ptr %43, i32 0, i32 4
+  store ptr %44, ptr %7, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = getelementptr inbounds %struct._zval_struct, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  %48 = call ptr @php_dom_obj_from_obj(ptr noundef %47)
+  store ptr %48, ptr %9, align 8
+  %49 = load ptr, ptr %9, align 8
+  %50 = getelementptr inbounds %struct._dom_object, ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr %51, null
   %53 = xor i1 %52, true
-  %54 = zext i1 %53 to i32
-  %55 = sext i32 %54 to i64
-  %56 = icmp ne i64 %55, 0
-  br i1 %56, label %57, label %70
+  %54 = xor i1 %53, true
+  %55 = zext i1 %54 to i32
+  %56 = sext i32 %55 to i64
+  %57 = icmp ne i64 %56, 0
+  br i1 %57, label %58, label %72
 
-57:                                               ; preds = %41
-  %58 = load ptr, ptr %9, align 8
-  %59 = getelementptr inbounds %struct._dom_object, ptr %58, i32 0, i32 3
-  %60 = getelementptr inbounds %struct._zend_object, ptr %59, i32 0, i32 2
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %struct._zend_class_entry, ptr %61, i32 0, i32 1
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds %struct._zend_string, ptr %63, i32 0, i32 3
-  %65 = getelementptr inbounds [1 x i8], ptr %64, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %65)
-  br label %66
+58:                                               ; preds = %42
+  %59 = load ptr, ptr %9, align 8
+  %60 = getelementptr inbounds %struct._dom_object, ptr %59, i32 0, i32 3
+  %61 = getelementptr inbounds %struct._zend_object, ptr %60, i32 0, i32 2
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds %struct._zend_class_entry, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds %struct._zend_string, ptr %64, i32 0, i32 3
+  %66 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %66)
+  br label %67
 
-66:                                               ; preds = %57
-  %67 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %68 = icmp ne ptr %67, null
-  call void @llvm.assume(i1 %68)
-  br label %157
+67:                                               ; preds = %58
+  %68 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp ne ptr %69, null
+  call void @llvm.assume(i1 %70)
+  br label %159
 
-69:                                               ; No predecessors!
-  br label %70
+71:                                               ; No predecessors!
+  br label %72
 
-70:                                               ; preds = %69, %41
-  %71 = load ptr, ptr %9, align 8
-  %72 = getelementptr inbounds %struct._dom_object, ptr %71, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %73, i32 0, i32 0
+72:                                               ; preds = %71, %42
+  %73 = load ptr, ptr %9, align 8
+  %74 = getelementptr inbounds %struct._dom_object, ptr %73, i32 0, i32 0
   %75 = load ptr, ptr %74, align 8
-  store ptr %75, ptr %8, align 8
-  br label %76
+  %76 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  store ptr %77, ptr %8, align 8
+  br label %78
 
-76:                                               ; preds = %70
-  %77 = call ptr @_zend_new_array_0()
-  store ptr %77, ptr %11, align 8
-  %78 = load ptr, ptr %6, align 8
-  store ptr %78, ptr %12, align 8
-  %79 = load ptr, ptr %11, align 8
-  %80 = load ptr, ptr %12, align 8
-  %81 = getelementptr inbounds %struct._zval_struct, ptr %80, i32 0, i32 0
-  store ptr %79, ptr %81, align 8
+78:                                               ; preds = %72
+  %79 = call ptr @_zend_new_array_0()
+  store ptr %79, ptr %11, align 8
+  %80 = load ptr, ptr %6, align 8
+  store ptr %80, ptr %12, align 8
+  %81 = load ptr, ptr %11, align 8
   %82 = load ptr, ptr %12, align 8
-  %83 = getelementptr inbounds %struct._zval_struct, ptr %82, i32 0, i32 1
-  store i32 775, ptr %83, align 8
-  br label %84
+  %83 = getelementptr inbounds %struct._zval_struct, ptr %82, i32 0, i32 0
+  store ptr %81, ptr %83, align 8
+  %84 = load ptr, ptr %12, align 8
+  %85 = getelementptr inbounds %struct._zval_struct, ptr %84, i32 0, i32 1
+  store i32 775, ptr %85, align 8
+  br label %86
 
-84:                                               ; preds = %76
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct._zval_struct, ptr %85, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  store ptr %87, ptr %13, align 8
-  %88 = load ptr, ptr %13, align 8
-  call void @zend_hash_real_init_packed(ptr noundef %88)
-  %89 = load ptr, ptr %8, align 8
-  %90 = getelementptr inbounds %struct._xmlNode, ptr %89, i32 0, i32 12
-  %91 = load ptr, ptr %90, align 8
-  store ptr %91, ptr %14, align 8
-  br label %92
+86:                                               ; preds = %78
+  %87 = load ptr, ptr %6, align 8
+  %88 = getelementptr inbounds %struct._zval_struct, ptr %87, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8
+  store ptr %89, ptr %13, align 8
+  %90 = load ptr, ptr %13, align 8
+  call void @zend_hash_real_init_packed(ptr noundef %90)
+  %91 = load ptr, ptr %8, align 8
+  %92 = getelementptr inbounds %struct._xmlNode, ptr %91, i32 0, i32 12
+  %93 = load ptr, ptr %92, align 8
+  store ptr %93, ptr %14, align 8
+  br label %94
 
-92:                                               ; preds = %121, %84
-  %93 = load ptr, ptr %14, align 8
-  %94 = icmp ne ptr %93, null
-  br i1 %94, label %95, label %125
+94:                                               ; preds = %123, %86
+  %95 = load ptr, ptr %14, align 8
+  %96 = icmp ne ptr %95, null
+  br i1 %96, label %97, label %127
 
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %14, align 8
-  %97 = getelementptr inbounds %struct._xmlNs, ptr %96, i32 0, i32 3
-  %98 = load ptr, ptr %97, align 8
-  store ptr %98, ptr %15, align 8
-  br label %99
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %14, align 8
+  %99 = getelementptr inbounds %struct._xmlNs, ptr %98, i32 0, i32 3
+  %100 = load ptr, ptr %99, align 8
+  store ptr %100, ptr %15, align 8
+  br label %101
 
-99:                                               ; preds = %95
+101:                                              ; preds = %97
   store ptr %10, ptr %16, align 8
-  %100 = load ptr, ptr %15, align 8
-  %101 = call i64 @strlen(ptr noundef %100) #8
   %102 = load ptr, ptr %15, align 8
-  %103 = call ptr @dom_node_concatenated_name_helper(i64 noundef %101, ptr noundef %102, i64 noundef 5, ptr noundef @.str.6)
-  store ptr %103, ptr %17, align 8
-  %104 = load ptr, ptr %17, align 8
-  %105 = load ptr, ptr %16, align 8
-  %106 = getelementptr inbounds %struct._zval_struct, ptr %105, i32 0, i32 0
-  store ptr %104, ptr %106, align 8
-  %107 = load ptr, ptr %17, align 8
-  %108 = getelementptr inbounds %struct._zend_string, ptr %107, i32 0, i32 0
-  %109 = getelementptr inbounds %struct._zend_refcounted_h, ptr %108, i32 0, i32 1
-  %110 = load i32, ptr %109, align 4
-  store i32 %110, ptr %3, align 4
-  %111 = load i32, ptr %3, align 4
-  %112 = and i32 %111, 1008
-  %113 = and i32 %112, 64
-  %114 = icmp ne i32 %113, 0
-  %115 = select i1 %114, i32 6, i32 262
-  %116 = load ptr, ptr %16, align 8
-  %117 = getelementptr inbounds %struct._zval_struct, ptr %116, i32 0, i32 1
-  store i32 %115, ptr %117, align 8
-  br label %118
+  %103 = call i64 @strlen(ptr noundef %102) #8
+  %104 = load ptr, ptr %15, align 8
+  %105 = call ptr @dom_node_concatenated_name_helper(i64 noundef %103, ptr noundef %104, i64 noundef 5, ptr noundef @.str.6)
+  store ptr %105, ptr %17, align 8
+  %106 = load ptr, ptr %17, align 8
+  %107 = load ptr, ptr %16, align 8
+  %108 = getelementptr inbounds %struct._zval_struct, ptr %107, i32 0, i32 0
+  store ptr %106, ptr %108, align 8
+  %109 = load ptr, ptr %17, align 8
+  %110 = getelementptr inbounds %struct._zend_string, ptr %109, i32 0, i32 0
+  %111 = getelementptr inbounds %struct._zend_refcounted_h, ptr %110, i32 0, i32 1
+  %112 = load i32, ptr %111, align 4
+  store i32 %112, ptr %3, align 4
+  %113 = load i32, ptr %3, align 4
+  %114 = and i32 %113, 1008
+  %115 = and i32 %114, 64
+  %116 = icmp ne i32 %115, 0
+  %117 = select i1 %116, i32 6, i32 262
+  %118 = load ptr, ptr %16, align 8
+  %119 = getelementptr inbounds %struct._zval_struct, ptr %118, i32 0, i32 1
+  store i32 %117, ptr %119, align 8
+  br label %120
 
-118:                                              ; preds = %99
-  %119 = load ptr, ptr %13, align 8
-  %120 = call ptr @zend_hash_next_index_insert(ptr noundef %119, ptr noundef %10)
-  br label %121
+120:                                              ; preds = %101
+  %121 = load ptr, ptr %13, align 8
+  %122 = call ptr @zend_hash_next_index_insert(ptr noundef %121, ptr noundef %10)
+  br label %123
 
-121:                                              ; preds = %118
-  %122 = load ptr, ptr %14, align 8
-  %123 = getelementptr inbounds %struct._xmlNs, ptr %122, i32 0, i32 0
-  %124 = load ptr, ptr %123, align 8
-  store ptr %124, ptr %14, align 8
-  br label %92
+123:                                              ; preds = %120
+  %124 = load ptr, ptr %14, align 8
+  %125 = getelementptr inbounds %struct._xmlNs, ptr %124, i32 0, i32 0
+  %126 = load ptr, ptr %125, align 8
+  store ptr %126, ptr %14, align 8
+  br label %94
 
-125:                                              ; preds = %92
-  %126 = load ptr, ptr %8, align 8
-  %127 = getelementptr inbounds %struct._xmlNode, ptr %126, i32 0, i32 11
-  %128 = load ptr, ptr %127, align 8
-  store ptr %128, ptr %18, align 8
-  br label %129
+127:                                              ; preds = %94
+  %128 = load ptr, ptr %8, align 8
+  %129 = getelementptr inbounds %struct._xmlNode, ptr %128, i32 0, i32 11
+  %130 = load ptr, ptr %129, align 8
+  store ptr %130, ptr %18, align 8
+  br label %131
 
-129:                                              ; preds = %153, %125
-  %130 = load ptr, ptr %18, align 8
-  %131 = icmp ne ptr %130, null
-  br i1 %131, label %132, label %157
+131:                                              ; preds = %155, %127
+  %132 = load ptr, ptr %18, align 8
+  %133 = icmp ne ptr %132, null
+  br i1 %133, label %134, label %159
 
-132:                                              ; preds = %129
-  br label %133
+134:                                              ; preds = %131
+  br label %135
 
-133:                                              ; preds = %132
+135:                                              ; preds = %134
   store ptr %10, ptr %19, align 8
-  %134 = load ptr, ptr %18, align 8
-  %135 = call ptr @dom_node_get_node_name_attribute_or_element(ptr noundef %134)
-  store ptr %135, ptr %20, align 8
-  %136 = load ptr, ptr %20, align 8
-  %137 = load ptr, ptr %19, align 8
-  %138 = getelementptr inbounds %struct._zval_struct, ptr %137, i32 0, i32 0
-  store ptr %136, ptr %138, align 8
-  %139 = load ptr, ptr %20, align 8
-  %140 = getelementptr inbounds %struct._zend_string, ptr %139, i32 0, i32 0
-  %141 = getelementptr inbounds %struct._zend_refcounted_h, ptr %140, i32 0, i32 1
-  %142 = load i32, ptr %141, align 4
-  store i32 %142, ptr %4, align 4
-  %143 = load i32, ptr %4, align 4
-  %144 = and i32 %143, 1008
-  %145 = and i32 %144, 64
-  %146 = icmp ne i32 %145, 0
-  %147 = select i1 %146, i32 6, i32 262
-  %148 = load ptr, ptr %19, align 8
-  %149 = getelementptr inbounds %struct._zval_struct, ptr %148, i32 0, i32 1
-  store i32 %147, ptr %149, align 8
-  br label %150
+  %136 = load ptr, ptr %18, align 8
+  %137 = call ptr @dom_node_get_node_name_attribute_or_element(ptr noundef %136)
+  store ptr %137, ptr %20, align 8
+  %138 = load ptr, ptr %20, align 8
+  %139 = load ptr, ptr %19, align 8
+  %140 = getelementptr inbounds %struct._zval_struct, ptr %139, i32 0, i32 0
+  store ptr %138, ptr %140, align 8
+  %141 = load ptr, ptr %20, align 8
+  %142 = getelementptr inbounds %struct._zend_string, ptr %141, i32 0, i32 0
+  %143 = getelementptr inbounds %struct._zend_refcounted_h, ptr %142, i32 0, i32 1
+  %144 = load i32, ptr %143, align 4
+  store i32 %144, ptr %4, align 4
+  %145 = load i32, ptr %4, align 4
+  %146 = and i32 %145, 1008
+  %147 = and i32 %146, 64
+  %148 = icmp ne i32 %147, 0
+  %149 = select i1 %148, i32 6, i32 262
+  %150 = load ptr, ptr %19, align 8
+  %151 = getelementptr inbounds %struct._zval_struct, ptr %150, i32 0, i32 1
+  store i32 %149, ptr %151, align 8
+  br label %152
 
-150:                                              ; preds = %133
-  %151 = load ptr, ptr %13, align 8
-  %152 = call ptr @zend_hash_next_index_insert(ptr noundef %151, ptr noundef %10)
-  br label %153
+152:                                              ; preds = %135
+  %153 = load ptr, ptr %13, align 8
+  %154 = call ptr @zend_hash_next_index_insert(ptr noundef %153, ptr noundef %10)
+  br label %155
 
-153:                                              ; preds = %150
-  %154 = load ptr, ptr %18, align 8
-  %155 = getelementptr inbounds %struct._xmlAttr, ptr %154, i32 0, i32 6
-  %156 = load ptr, ptr %155, align 8
-  store ptr %156, ptr %18, align 8
-  br label %129
+155:                                              ; preds = %152
+  %156 = load ptr, ptr %18, align 8
+  %157 = getelementptr inbounds %struct._xmlAttr, ptr %156, i32 0, i32 6
+  %158 = load ptr, ptr %157, align 8
+  store ptr %158, ptr %18, align 8
+  br label %131
 
-157:                                              ; preds = %129, %66, %37
+159:                                              ; preds = %131, %67, %37
   ret void
 }
 
@@ -4176,210 +4185,215 @@ define hidden void @zim_DOMElement_setAttribute(ptr noundef %0, ptr noundef %1) 
   %20 = load i32, ptr %19, align 4
   %21 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %20, ptr noundef @.str.7, ptr noundef %13, ptr noundef %10, ptr noundef %14, ptr noundef %11)
   %22 = icmp eq i32 %21, -1
-  br i1 %22, label %23, label %28
+  br i1 %22, label %23, label %29
 
 23:                                               ; preds = %2
   br label %24
 
 24:                                               ; preds = %23
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
-  br label %131
+  %25 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp ne ptr %26, null
+  call void @llvm.assume(i1 %27)
+  br label %136
 
-27:                                               ; No predecessors!
-  br label %28
+28:                                               ; No predecessors!
+  br label %29
 
-28:                                               ; preds = %27, %2
-  %29 = load i64, ptr %10, align 8
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %31, label %36
+29:                                               ; preds = %28, %2
+  %30 = load i64, ptr %10, align 8
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %32, label %38
 
-31:                                               ; preds = %28
+32:                                               ; preds = %29
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef @.str.8)
-  br label %32
+  br label %33
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  br label %131
+33:                                               ; preds = %32
+  %34 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp ne ptr %35, null
+  call void @llvm.assume(i1 %36)
+  br label %136
 
-35:                                               ; No predecessors!
-  br label %36
+37:                                               ; No predecessors!
+  br label %38
 
-36:                                               ; preds = %35, %28
-  %37 = load ptr, ptr %13, align 8
-  %38 = call i32 @xmlValidateName(ptr noundef %37, i32 noundef 0)
-  store i32 %38, ptr %9, align 4
-  %39 = load i32, ptr %9, align 4
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %46
+38:                                               ; preds = %37, %29
+  %39 = load ptr, ptr %13, align 8
+  %40 = call i32 @xmlValidateName(ptr noundef %39, i32 noundef 0)
+  store i32 %40, ptr %9, align 4
+  %41 = load i32, ptr %9, align 4
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %49
 
-41:                                               ; preds = %36
+43:                                               ; preds = %38
   call void @php_dom_throw_error(i32 noundef 5, i32 noundef 1)
-  br label %42
+  br label %44
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %44 = icmp ne ptr %43, null
-  call void @llvm.assume(i1 %44)
-  br label %131
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr %46, null
+  call void @llvm.assume(i1 %47)
+  br label %136
 
-45:                                               ; No predecessors!
-  br label %46
+48:                                               ; No predecessors!
+  br label %49
 
-46:                                               ; preds = %45, %36
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct._zval_struct, ptr %47, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  %50 = call ptr @php_dom_obj_from_obj(ptr noundef %49)
-  store ptr %50, ptr %12, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = getelementptr inbounds %struct._dom_object, ptr %51, i32 0, i32 0
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, null
-  %55 = xor i1 %54, true
-  %56 = xor i1 %55, true
-  %57 = zext i1 %56 to i32
-  %58 = sext i32 %57 to i64
-  %59 = icmp ne i64 %58, 0
-  br i1 %59, label %60, label %73
+49:                                               ; preds = %48, %38
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds %struct._zval_struct, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = call ptr @php_dom_obj_from_obj(ptr noundef %52)
+  store ptr %53, ptr %12, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = getelementptr inbounds %struct._dom_object, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, null
+  %58 = xor i1 %57, true
+  %59 = xor i1 %58, true
+  %60 = zext i1 %59 to i32
+  %61 = sext i32 %60 to i64
+  %62 = icmp ne i64 %61, 0
+  br i1 %62, label %63, label %77
 
-60:                                               ; preds = %46
-  %61 = load ptr, ptr %12, align 8
-  %62 = getelementptr inbounds %struct._dom_object, ptr %61, i32 0, i32 3
-  %63 = getelementptr inbounds %struct._zend_object, ptr %62, i32 0, i32 2
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds %struct._zend_class_entry, ptr %64, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds %struct._zend_string, ptr %66, i32 0, i32 3
-  %68 = getelementptr inbounds [1 x i8], ptr %67, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %68)
-  br label %69
+63:                                               ; preds = %49
+  %64 = load ptr, ptr %12, align 8
+  %65 = getelementptr inbounds %struct._dom_object, ptr %64, i32 0, i32 3
+  %66 = getelementptr inbounds %struct._zend_object, ptr %65, i32 0, i32 2
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds %struct._zend_class_entry, ptr %67, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds %struct._zend_string, ptr %69, i32 0, i32 3
+  %71 = getelementptr inbounds [1 x i8], ptr %70, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %71)
+  br label %72
 
-69:                                               ; preds = %60
-  %70 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %71 = icmp ne ptr %70, null
-  call void @llvm.assume(i1 %71)
-  br label %131
+72:                                               ; preds = %63
+  %73 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp ne ptr %74, null
+  call void @llvm.assume(i1 %75)
+  br label %136
 
-72:                                               ; No predecessors!
-  br label %73
+76:                                               ; No predecessors!
+  br label %77
 
-73:                                               ; preds = %72, %46
-  %74 = load ptr, ptr %12, align 8
-  %75 = getelementptr inbounds %struct._dom_object, ptr %74, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %76, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  store ptr %78, ptr %6, align 8
-  %79 = load ptr, ptr %6, align 8
-  %80 = load ptr, ptr %13, align 8
-  %81 = call ptr @dom_get_dom1_attribute(ptr noundef %79, ptr noundef %80)
-  store ptr %81, ptr %7, align 8
-  %82 = load ptr, ptr %7, align 8
-  %83 = icmp ne ptr %82, null
-  br i1 %83, label %84, label %101
+77:                                               ; preds = %76, %49
+  %78 = load ptr, ptr %12, align 8
+  %79 = getelementptr inbounds %struct._dom_object, ptr %78, i32 0, i32 0
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8
+  store ptr %82, ptr %6, align 8
+  %83 = load ptr, ptr %6, align 8
+  %84 = load ptr, ptr %13, align 8
+  %85 = call ptr @dom_get_dom1_attribute(ptr noundef %83, ptr noundef %84)
+  store ptr %85, ptr %7, align 8
+  %86 = load ptr, ptr %7, align 8
+  %87 = icmp ne ptr %86, null
+  br i1 %87, label %88, label %105
 
-84:                                               ; preds = %73
-  %85 = load ptr, ptr %7, align 8
-  %86 = getelementptr inbounds %struct._xmlNode, ptr %85, i32 0, i32 1
-  %87 = load i32, ptr %86, align 8
-  switch i32 %87, label %99 [
-    i32 2, label %88
-    i32 18, label %92
+88:                                               ; preds = %77
+  %89 = load ptr, ptr %7, align 8
+  %90 = getelementptr inbounds %struct._xmlNode, ptr %89, i32 0, i32 1
+  %91 = load i32, ptr %90, align 8
+  switch i32 %91, label %103 [
+    i32 2, label %92
+    i32 18, label %96
   ]
 
-88:                                               ; preds = %84
-  %89 = load ptr, ptr %7, align 8
-  %90 = getelementptr inbounds %struct._xmlNode, ptr %89, i32 0, i32 3
-  %91 = load ptr, ptr %90, align 8
-  call void @node_list_unlink(ptr noundef %91)
-  br label %100
+92:                                               ; preds = %88
+  %93 = load ptr, ptr %7, align 8
+  %94 = getelementptr inbounds %struct._xmlNode, ptr %93, i32 0, i32 3
+  %95 = load ptr, ptr %94, align 8
+  call void @node_list_unlink(ptr noundef %95)
+  br label %104
 
-92:                                               ; preds = %84
-  br label %93
-
-93:                                               ; preds = %92
-  br label %94
-
-94:                                               ; preds = %93
-  %95 = load ptr, ptr %4, align 8
-  %96 = getelementptr inbounds %struct._zval_struct, ptr %95, i32 0, i32 1
-  store i32 2, ptr %96, align 8
+96:                                               ; preds = %88
   br label %97
 
-97:                                               ; preds = %94
-  br label %131
+97:                                               ; preds = %96
+  br label %98
 
-98:                                               ; No predecessors!
-  br label %99
-
-99:                                               ; preds = %98, %84
-  br label %100
-
-100:                                              ; preds = %99, %88
+98:                                               ; preds = %97
+  %99 = load ptr, ptr %4, align 8
+  %100 = getelementptr inbounds %struct._zval_struct, ptr %99, i32 0, i32 1
+  store i32 2, ptr %100, align 8
   br label %101
 
-101:                                              ; preds = %100, %73
-  %102 = load ptr, ptr %6, align 8
-  %103 = load ptr, ptr %13, align 8
-  %104 = load ptr, ptr %14, align 8
-  %105 = call ptr @dom_create_attribute(ptr noundef %102, ptr noundef %103, ptr noundef %104)
-  store ptr %105, ptr %7, align 8
-  %106 = load ptr, ptr %7, align 8
-  %107 = icmp ne ptr %106, null
-  br i1 %107, label %113, label %108
+101:                                              ; preds = %98
+  br label %136
 
-108:                                              ; preds = %101
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef @.str.9)
-  br label %109
+102:                                              ; No predecessors!
+  br label %103
 
-109:                                              ; preds = %108
-  %110 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
+103:                                              ; preds = %102, %88
+  br label %104
+
+104:                                              ; preds = %103, %92
+  br label %105
+
+105:                                              ; preds = %104, %77
+  %106 = load ptr, ptr %6, align 8
+  %107 = load ptr, ptr %13, align 8
+  %108 = load ptr, ptr %14, align 8
+  %109 = call ptr @dom_create_attribute(ptr noundef %106, ptr noundef %107, ptr noundef %108)
+  store ptr %109, ptr %7, align 8
+  %110 = load ptr, ptr %7, align 8
   %111 = icmp ne ptr %110, null
-  call void @llvm.assume(i1 %111)
-  br label %131
+  br i1 %111, label %118, label %112
 
-112:                                              ; No predecessors!
+112:                                              ; preds = %105
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef @.str.9)
   br label %113
 
-113:                                              ; preds = %112, %101
-  %114 = load ptr, ptr %7, align 8
-  %115 = getelementptr inbounds %struct._xmlNode, ptr %114, i32 0, i32 1
-  %116 = load i32, ptr %115, align 8
-  %117 = icmp eq i32 %116, 18
-  br i1 %117, label %118, label %125
+113:                                              ; preds = %112
+  %114 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %115 = load ptr, ptr %114, align 8
+  %116 = icmp ne ptr %115, null
+  call void @llvm.assume(i1 %116)
+  br label %136
 
-118:                                              ; preds = %113
-  br label %119
+117:                                              ; No predecessors!
+  br label %118
 
-119:                                              ; preds = %118
-  br label %120
+118:                                              ; preds = %117, %105
+  %119 = load ptr, ptr %7, align 8
+  %120 = getelementptr inbounds %struct._xmlNode, ptr %119, i32 0, i32 1
+  %121 = load i32, ptr %120, align 8
+  %122 = icmp eq i32 %121, 18
+  br i1 %122, label %123, label %130
 
-120:                                              ; preds = %119
-  %121 = load ptr, ptr %4, align 8
-  %122 = getelementptr inbounds %struct._zval_struct, ptr %121, i32 0, i32 1
-  store i32 3, ptr %122, align 8
-  br label %123
+123:                                              ; preds = %118
+  br label %124
 
-123:                                              ; preds = %120
-  br label %131
-
-124:                                              ; No predecessors!
+124:                                              ; preds = %123
   br label %125
 
-125:                                              ; preds = %124, %113
-  %126 = load ptr, ptr %7, align 8
-  %127 = load ptr, ptr %4, align 8
-  %128 = load ptr, ptr %12, align 8
-  %129 = call zeroext i1 @php_dom_create_object(ptr noundef %126, ptr noundef %127, ptr noundef %128)
-  %130 = zext i1 %129 to i32
-  store i32 %130, ptr %8, align 4
-  br label %131
+125:                                              ; preds = %124
+  %126 = load ptr, ptr %4, align 8
+  %127 = getelementptr inbounds %struct._zval_struct, ptr %126, i32 0, i32 1
+  store i32 3, ptr %127, align 8
+  br label %128
 
-131:                                              ; preds = %125, %123, %109, %97, %69, %42, %32, %24
+128:                                              ; preds = %125
+  br label %136
+
+129:                                              ; No predecessors!
+  br label %130
+
+130:                                              ; preds = %129, %118
+  %131 = load ptr, ptr %7, align 8
+  %132 = load ptr, ptr %4, align 8
+  %133 = load ptr, ptr %12, align 8
+  %134 = call zeroext i1 @php_dom_create_object(ptr noundef %131, ptr noundef %132, ptr noundef %133)
+  %135 = zext i1 %134 to i32
+  store i32 %135, ptr %8, align 4
+  br label %136
+
+136:                                              ; preds = %130, %128, %113, %101, %72, %44, %33, %24
   ret void
 }
 
@@ -4444,111 +4458,113 @@ define hidden void @zim_DOMElement_removeAttribute(ptr noundef %0, ptr noundef %
   %16 = load i32, ptr %15, align 4
   %17 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %16, ptr noundef @.str.4, ptr noundef %10, ptr noundef %9)
   %18 = icmp eq i32 %17, -1
-  br i1 %18, label %19, label %24
+  br i1 %18, label %19, label %25
 
 19:                                               ; preds = %2
   br label %20
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %22 = icmp ne ptr %21, null
-  call void @llvm.assume(i1 %22)
-  br label %79
+  %21 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  call void @llvm.assume(i1 %23)
+  br label %81
 
-23:                                               ; No predecessors!
-  br label %24
+24:                                               ; No predecessors!
+  br label %25
 
-24:                                               ; preds = %23, %2
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct._zval_struct, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = call ptr @php_dom_obj_from_obj(ptr noundef %27)
-  store ptr %28, ptr %8, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct._dom_object, ptr %29, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  %33 = xor i1 %32, true
+25:                                               ; preds = %24, %2
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds %struct._zval_struct, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = call ptr @php_dom_obj_from_obj(ptr noundef %28)
+  store ptr %29, ptr %8, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds %struct._dom_object, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, null
   %34 = xor i1 %33, true
-  %35 = zext i1 %34 to i32
-  %36 = sext i32 %35 to i64
-  %37 = icmp ne i64 %36, 0
-  br i1 %37, label %38, label %51
+  %35 = xor i1 %34, true
+  %36 = zext i1 %35 to i32
+  %37 = sext i32 %36 to i64
+  %38 = icmp ne i64 %37, 0
+  br i1 %38, label %39, label %53
 
-38:                                               ; preds = %24
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct._dom_object, ptr %39, i32 0, i32 3
-  %41 = getelementptr inbounds %struct._zend_object, ptr %40, i32 0, i32 2
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct._zend_class_entry, ptr %42, i32 0, i32 1
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct._zend_string, ptr %44, i32 0, i32 3
-  %46 = getelementptr inbounds [1 x i8], ptr %45, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %46)
-  br label %47
+39:                                               ; preds = %25
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds %struct._dom_object, ptr %40, i32 0, i32 3
+  %42 = getelementptr inbounds %struct._zend_object, ptr %41, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct._zend_class_entry, ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct._zend_string, ptr %45, i32 0, i32 3
+  %47 = getelementptr inbounds [1 x i8], ptr %46, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %47)
+  br label %48
 
-47:                                               ; preds = %38
-  %48 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %49 = icmp ne ptr %48, null
-  call void @llvm.assume(i1 %49)
-  br label %79
+48:                                               ; preds = %39
+  %49 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp ne ptr %50, null
+  call void @llvm.assume(i1 %51)
+  br label %81
 
-50:                                               ; No predecessors!
-  br label %51
+52:                                               ; No predecessors!
+  br label %53
 
-51:                                               ; preds = %50, %24
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct._dom_object, ptr %52, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %54, i32 0, i32 0
+53:                                               ; preds = %52, %25
+  %54 = load ptr, ptr %8, align 8
+  %55 = getelementptr inbounds %struct._dom_object, ptr %54, i32 0, i32 0
   %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %6, align 8
-  %57 = load ptr, ptr %6, align 8
-  %58 = load ptr, ptr %10, align 8
-  %59 = call ptr @dom_get_dom1_attribute(ptr noundef %57, ptr noundef %58)
-  store ptr %59, ptr %7, align 8
-  %60 = load ptr, ptr %7, align 8
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %62, label %69
+  %57 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  store ptr %58, ptr %6, align 8
+  %59 = load ptr, ptr %6, align 8
+  %60 = load ptr, ptr %10, align 8
+  %61 = call ptr @dom_get_dom1_attribute(ptr noundef %59, ptr noundef %60)
+  store ptr %61, ptr %7, align 8
+  %62 = load ptr, ptr %7, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %64, label %71
 
-62:                                               ; preds = %51
-  br label %63
+64:                                               ; preds = %53
+  br label %65
 
-63:                                               ; preds = %62
-  br label %64
+65:                                               ; preds = %64
+  br label %66
 
-64:                                               ; preds = %63
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct._zval_struct, ptr %65, i32 0, i32 1
-  store i32 2, ptr %66, align 8
-  br label %67
-
-67:                                               ; preds = %64
-  br label %79
-
-68:                                               ; No predecessors!
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %4, align 8
+  %68 = getelementptr inbounds %struct._zval_struct, ptr %67, i32 0, i32 1
+  store i32 2, ptr %68, align 8
   br label %69
 
-69:                                               ; preds = %68, %51
-  br label %70
+69:                                               ; preds = %66
+  br label %81
 
-70:                                               ; preds = %69
+70:                                               ; No predecessors!
   br label %71
 
-71:                                               ; preds = %70
-  %72 = load ptr, ptr %6, align 8
-  %73 = load ptr, ptr %7, align 8
-  %74 = call zeroext i1 @dom_remove_attribute(ptr noundef %72, ptr noundef %73)
-  %75 = select i1 %74, i32 3, i32 2
-  %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds %struct._zval_struct, ptr %76, i32 0, i32 1
-  store i32 %75, ptr %77, align 8
-  br label %78
+71:                                               ; preds = %70, %53
+  br label %72
 
-78:                                               ; preds = %71
-  br label %79
+72:                                               ; preds = %71
+  br label %73
 
-79:                                               ; preds = %78, %67, %47, %20
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %6, align 8
+  %75 = load ptr, ptr %7, align 8
+  %76 = call zeroext i1 @dom_remove_attribute(ptr noundef %74, ptr noundef %75)
+  %77 = select i1 %76, i32 3, i32 2
+  %78 = load ptr, ptr %4, align 8
+  %79 = getelementptr inbounds %struct._zval_struct, ptr %78, i32 0, i32 1
+  store i32 %77, ptr %79, align 8
+  br label %80
+
+80:                                               ; preds = %73
+  br label %81
+
+81:                                               ; preds = %80, %69, %48, %20
   ret void
 }
 
@@ -4720,126 +4736,128 @@ define hidden void @zim_DOMElement_getAttributeNode(ptr noundef %0, ptr noundef 
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef @.str.4, ptr noundef %12, ptr noundef %9)
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %22, label %27
+  br i1 %21, label %22, label %28
 
 22:                                               ; preds = %2
   br label %23
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %25 = icmp ne ptr %24, null
-  call void @llvm.assume(i1 %25)
-  br label %96
+  %24 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  call void @llvm.assume(i1 %26)
+  br label %98
 
-26:                                               ; No predecessors!
-  br label %27
+27:                                               ; No predecessors!
+  br label %28
 
-27:                                               ; preds = %26, %2
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct._zval_struct, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = call ptr @php_dom_obj_from_obj(ptr noundef %30)
-  store ptr %31, ptr %11, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = getelementptr inbounds %struct._dom_object, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  %36 = xor i1 %35, true
+28:                                               ; preds = %27, %2
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = call ptr @php_dom_obj_from_obj(ptr noundef %31)
+  store ptr %32, ptr %11, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = getelementptr inbounds %struct._dom_object, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
   %37 = xor i1 %36, true
-  %38 = zext i1 %37 to i32
-  %39 = sext i32 %38 to i64
-  %40 = icmp ne i64 %39, 0
-  br i1 %40, label %41, label %54
+  %38 = xor i1 %37, true
+  %39 = zext i1 %38 to i32
+  %40 = sext i32 %39 to i64
+  %41 = icmp ne i64 %40, 0
+  br i1 %41, label %42, label %56
 
-41:                                               ; preds = %27
-  %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds %struct._dom_object, ptr %42, i32 0, i32 3
-  %44 = getelementptr inbounds %struct._zend_object, ptr %43, i32 0, i32 2
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct._zend_class_entry, ptr %45, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct._zend_string, ptr %47, i32 0, i32 3
-  %49 = getelementptr inbounds [1 x i8], ptr %48, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %49)
-  br label %50
+42:                                               ; preds = %28
+  %43 = load ptr, ptr %11, align 8
+  %44 = getelementptr inbounds %struct._dom_object, ptr %43, i32 0, i32 3
+  %45 = getelementptr inbounds %struct._zend_object, ptr %44, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %struct._zend_class_entry, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds %struct._zend_string, ptr %48, i32 0, i32 3
+  %50 = getelementptr inbounds [1 x i8], ptr %49, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %50)
+  br label %51
 
-50:                                               ; preds = %41
-  %51 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %52 = icmp ne ptr %51, null
-  call void @llvm.assume(i1 %52)
-  br label %96
+51:                                               ; preds = %42
+  %52 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  call void @llvm.assume(i1 %54)
+  br label %98
 
-53:                                               ; No predecessors!
-  br label %54
+55:                                               ; No predecessors!
+  br label %56
 
-54:                                               ; preds = %53, %27
-  %55 = load ptr, ptr %11, align 8
-  %56 = getelementptr inbounds %struct._dom_object, ptr %55, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %57, i32 0, i32 0
+56:                                               ; preds = %55, %28
+  %57 = load ptr, ptr %11, align 8
+  %58 = getelementptr inbounds %struct._dom_object, ptr %57, i32 0, i32 0
   %59 = load ptr, ptr %58, align 8
-  store ptr %59, ptr %7, align 8
-  %60 = load ptr, ptr %7, align 8
-  %61 = load ptr, ptr %12, align 8
-  %62 = call ptr @dom_get_dom1_attribute(ptr noundef %60, ptr noundef %61)
-  store ptr %62, ptr %8, align 8
-  %63 = load ptr, ptr %8, align 8
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %65, label %72
+  %60 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  store ptr %61, ptr %7, align 8
+  %62 = load ptr, ptr %7, align 8
+  %63 = load ptr, ptr %12, align 8
+  %64 = call ptr @dom_get_dom1_attribute(ptr noundef %62, ptr noundef %63)
+  store ptr %64, ptr %8, align 8
+  %65 = load ptr, ptr %8, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %74
 
-65:                                               ; preds = %54
-  br label %66
+67:                                               ; preds = %56
+  br label %68
 
-66:                                               ; preds = %65
-  br label %67
+68:                                               ; preds = %67
+  br label %69
 
-67:                                               ; preds = %66
-  %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds %struct._zval_struct, ptr %68, i32 0, i32 1
-  store i32 2, ptr %69, align 8
-  br label %70
-
-70:                                               ; preds = %67
-  br label %96
-
-71:                                               ; No predecessors!
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %5, align 8
+  %71 = getelementptr inbounds %struct._zval_struct, ptr %70, i32 0, i32 1
+  store i32 2, ptr %71, align 8
   br label %72
 
-72:                                               ; preds = %71, %54
-  %73 = load ptr, ptr %8, align 8
-  %74 = getelementptr inbounds %struct._xmlNode, ptr %73, i32 0, i32 1
-  %75 = load i32, ptr %74, align 8
-  %76 = icmp eq i32 %75, 18
-  br i1 %76, label %77, label %90
+72:                                               ; preds = %69
+  br label %98
 
-77:                                               ; preds = %72
-  %78 = load ptr, ptr %8, align 8
-  store ptr %78, ptr %13, align 8
-  %79 = load ptr, ptr %11, align 8
-  %80 = getelementptr inbounds %struct._dom_object, ptr %79, i32 0, i32 3
-  %81 = getelementptr inbounds %struct._zend_object, ptr %80, i32 0, i32 0
-  store ptr %81, ptr %3, align 8
-  %82 = load ptr, ptr %3, align 8
-  %83 = load i32, ptr %82, align 4
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %82, align 4
-  %85 = load ptr, ptr %7, align 8
-  %86 = load ptr, ptr %13, align 8
-  %87 = load ptr, ptr %5, align 8
-  %88 = load ptr, ptr %11, align 8
-  %89 = call ptr @php_dom_create_fake_namespace_decl(ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88)
-  br label %96
+73:                                               ; No predecessors!
+  br label %74
 
-90:                                               ; preds = %72
-  %91 = load ptr, ptr %8, align 8
-  %92 = load ptr, ptr %5, align 8
-  %93 = load ptr, ptr %11, align 8
-  %94 = call zeroext i1 @php_dom_create_object(ptr noundef %91, ptr noundef %92, ptr noundef %93)
-  %95 = zext i1 %94 to i32
-  store i32 %95, ptr %10, align 4
-  br label %96
+74:                                               ; preds = %73, %56
+  %75 = load ptr, ptr %8, align 8
+  %76 = getelementptr inbounds %struct._xmlNode, ptr %75, i32 0, i32 1
+  %77 = load i32, ptr %76, align 8
+  %78 = icmp eq i32 %77, 18
+  br i1 %78, label %79, label %92
 
-96:                                               ; preds = %90, %77, %70, %50, %23
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %8, align 8
+  store ptr %80, ptr %13, align 8
+  %81 = load ptr, ptr %11, align 8
+  %82 = getelementptr inbounds %struct._dom_object, ptr %81, i32 0, i32 3
+  %83 = getelementptr inbounds %struct._zend_object, ptr %82, i32 0, i32 0
+  store ptr %83, ptr %3, align 8
+  %84 = load ptr, ptr %3, align 8
+  %85 = load i32, ptr %84, align 4
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %84, align 4
+  %87 = load ptr, ptr %7, align 8
+  %88 = load ptr, ptr %13, align 8
+  %89 = load ptr, ptr %5, align 8
+  %90 = load ptr, ptr %11, align 8
+  %91 = call ptr @php_dom_create_fake_namespace_decl(ptr noundef %87, ptr noundef %88, ptr noundef %89, ptr noundef %90)
+  br label %98
+
+92:                                               ; preds = %74
+  %93 = load ptr, ptr %8, align 8
+  %94 = load ptr, ptr %5, align 8
+  %95 = load ptr, ptr %11, align 8
+  %96 = call zeroext i1 @php_dom_create_object(ptr noundef %93, ptr noundef %94, ptr noundef %95)
+  %97 = zext i1 %96 to i32
+  store i32 %97, ptr %10, align 4
+  br label %98
+
+98:                                               ; preds = %92, %79, %72, %51, %23
   ret void
 }
 
@@ -4871,280 +4889,283 @@ define hidden void @zim_DOMElement_setAttributeNode(ptr noundef %0, ptr noundef 
   %20 = load ptr, ptr @dom_attr_class_entry, align 8
   %21 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef @.str.10, ptr noundef %6, ptr noundef %20)
   %22 = icmp eq i32 %21, -1
-  br i1 %22, label %23, label %28
+  br i1 %22, label %23, label %29
 
 23:                                               ; preds = %2
   br label %24
 
 24:                                               ; preds = %23
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
-  br label %197
+  %25 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp ne ptr %26, null
+  call void @llvm.assume(i1 %27)
+  br label %200
 
-27:                                               ; No predecessors!
-  br label %28
+28:                                               ; No predecessors!
+  br label %29
 
-28:                                               ; preds = %27, %2
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = call ptr @php_dom_obj_from_obj(ptr noundef %31)
-  store ptr %32, ptr %10, align 8
-  %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds %struct._dom_object, ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  %37 = xor i1 %36, true
+29:                                               ; preds = %28, %2
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct._zval_struct, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = call ptr @php_dom_obj_from_obj(ptr noundef %32)
+  store ptr %33, ptr %10, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = getelementptr inbounds %struct._dom_object, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
   %38 = xor i1 %37, true
-  %39 = zext i1 %38 to i32
-  %40 = sext i32 %39 to i64
-  %41 = icmp ne i64 %40, 0
-  br i1 %41, label %42, label %55
+  %39 = xor i1 %38, true
+  %40 = zext i1 %39 to i32
+  %41 = sext i32 %40 to i64
+  %42 = icmp ne i64 %41, 0
+  br i1 %42, label %43, label %57
 
-42:                                               ; preds = %28
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct._dom_object, ptr %43, i32 0, i32 3
-  %45 = getelementptr inbounds %struct._zend_object, ptr %44, i32 0, i32 2
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct._zend_class_entry, ptr %46, i32 0, i32 1
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct._zend_string, ptr %48, i32 0, i32 3
-  %50 = getelementptr inbounds [1 x i8], ptr %49, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %50)
-  br label %51
+43:                                               ; preds = %29
+  %44 = load ptr, ptr %10, align 8
+  %45 = getelementptr inbounds %struct._dom_object, ptr %44, i32 0, i32 3
+  %46 = getelementptr inbounds %struct._zend_object, ptr %45, i32 0, i32 2
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %struct._zend_class_entry, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %struct._zend_string, ptr %49, i32 0, i32 3
+  %51 = getelementptr inbounds [1 x i8], ptr %50, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %51)
+  br label %52
 
-51:                                               ; preds = %42
-  %52 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %53 = icmp ne ptr %52, null
-  call void @llvm.assume(i1 %53)
-  br label %197
+52:                                               ; preds = %43
+  %53 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp ne ptr %54, null
+  call void @llvm.assume(i1 %55)
+  br label %200
 
-54:                                               ; No predecessors!
-  br label %55
+56:                                               ; No predecessors!
+  br label %57
 
-55:                                               ; preds = %54, %28
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds %struct._dom_object, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %58, i32 0, i32 0
+57:                                               ; preds = %56, %29
+  %58 = load ptr, ptr %10, align 8
+  %59 = getelementptr inbounds %struct._dom_object, ptr %58, i32 0, i32 0
   %60 = load ptr, ptr %59, align 8
-  store ptr %60, ptr %7, align 8
-  %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds %struct._zval_struct, ptr %61, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = call ptr @php_dom_obj_from_obj(ptr noundef %63)
-  store ptr %64, ptr %11, align 8
-  %65 = load ptr, ptr %11, align 8
-  %66 = getelementptr inbounds %struct._dom_object, ptr %65, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, null
-  %69 = xor i1 %68, true
-  %70 = xor i1 %69, true
-  %71 = zext i1 %70 to i32
-  %72 = sext i32 %71 to i64
-  %73 = icmp ne i64 %72, 0
-  br i1 %73, label %74, label %87
+  %61 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  store ptr %62, ptr %7, align 8
+  %63 = load ptr, ptr %6, align 8
+  %64 = getelementptr inbounds %struct._zval_struct, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = call ptr @php_dom_obj_from_obj(ptr noundef %65)
+  store ptr %66, ptr %11, align 8
+  %67 = load ptr, ptr %11, align 8
+  %68 = getelementptr inbounds %struct._dom_object, ptr %67, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, null
+  %71 = xor i1 %70, true
+  %72 = xor i1 %71, true
+  %73 = zext i1 %72 to i32
+  %74 = sext i32 %73 to i64
+  %75 = icmp ne i64 %74, 0
+  br i1 %75, label %76, label %90
 
-74:                                               ; preds = %55
-  %75 = load ptr, ptr %11, align 8
-  %76 = getelementptr inbounds %struct._dom_object, ptr %75, i32 0, i32 3
-  %77 = getelementptr inbounds %struct._zend_object, ptr %76, i32 0, i32 2
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct._zend_class_entry, ptr %78, i32 0, i32 1
+76:                                               ; preds = %57
+  %77 = load ptr, ptr %11, align 8
+  %78 = getelementptr inbounds %struct._dom_object, ptr %77, i32 0, i32 3
+  %79 = getelementptr inbounds %struct._zend_object, ptr %78, i32 0, i32 2
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds %struct._zend_string, ptr %80, i32 0, i32 3
-  %82 = getelementptr inbounds [1 x i8], ptr %81, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %82)
-  br label %83
+  %81 = getelementptr inbounds %struct._zend_class_entry, ptr %80, i32 0, i32 1
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds %struct._zend_string, ptr %82, i32 0, i32 3
+  %84 = getelementptr inbounds [1 x i8], ptr %83, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %84)
+  br label %85
 
-83:                                               ; preds = %74
-  %84 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %85 = icmp ne ptr %84, null
-  call void @llvm.assume(i1 %85)
-  br label %197
+85:                                               ; preds = %76
+  %86 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp ne ptr %87, null
+  call void @llvm.assume(i1 %88)
+  br label %200
 
-86:                                               ; No predecessors!
-  br label %87
+89:                                               ; No predecessors!
+  br label %90
 
-87:                                               ; preds = %86, %55
-  %88 = load ptr, ptr %11, align 8
-  %89 = getelementptr inbounds %struct._dom_object, ptr %88, i32 0, i32 0
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %90, i32 0, i32 0
-  %92 = load ptr, ptr %91, align 8
-  store ptr %92, ptr %8, align 8
-  %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds %struct._xmlAttr, ptr %93, i32 0, i32 1
-  %95 = load i32, ptr %94, align 8
-  %96 = icmp eq i32 %95, 2
-  call void @llvm.assume(i1 %96)
-  %97 = load ptr, ptr %8, align 8
-  %98 = getelementptr inbounds %struct._xmlAttr, ptr %97, i32 0, i32 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %120, label %101
+90:                                               ; preds = %89, %57
+  %91 = load ptr, ptr %11, align 8
+  %92 = getelementptr inbounds %struct._dom_object, ptr %91, i32 0, i32 0
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %93, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8
+  store ptr %95, ptr %8, align 8
+  %96 = load ptr, ptr %8, align 8
+  %97 = getelementptr inbounds %struct._xmlAttr, ptr %96, i32 0, i32 1
+  %98 = load i32, ptr %97, align 8
+  %99 = icmp eq i32 %98, 2
+  call void @llvm.assume(i1 %99)
+  %100 = load ptr, ptr %8, align 8
+  %101 = getelementptr inbounds %struct._xmlAttr, ptr %100, i32 0, i32 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %123, label %104
 
-101:                                              ; preds = %87
-  %102 = load ptr, ptr %8, align 8
-  %103 = getelementptr inbounds %struct._xmlAttr, ptr %102, i32 0, i32 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = load ptr, ptr %7, align 8
-  %106 = getelementptr inbounds %struct._xmlNode, ptr %105, i32 0, i32 8
+104:                                              ; preds = %90
+  %105 = load ptr, ptr %8, align 8
+  %106 = getelementptr inbounds %struct._xmlAttr, ptr %105, i32 0, i32 8
   %107 = load ptr, ptr %106, align 8
-  %108 = icmp eq ptr %104, %107
-  br i1 %108, label %120, label %109
+  %108 = load ptr, ptr %7, align 8
+  %109 = getelementptr inbounds %struct._xmlNode, ptr %108, i32 0, i32 8
+  %110 = load ptr, ptr %109, align 8
+  %111 = icmp eq ptr %107, %110
+  br i1 %111, label %123, label %112
 
-109:                                              ; preds = %101
-  %110 = load ptr, ptr %10, align 8
-  %111 = getelementptr inbounds %struct._dom_object, ptr %110, i32 0, i32 1
-  %112 = load ptr, ptr %111, align 8
-  %113 = call i32 @dom_get_strict_error(ptr noundef %112)
-  call void @php_dom_throw_error(i32 noundef 4, i32 noundef %113)
-  br label %114
+112:                                              ; preds = %104
+  %113 = load ptr, ptr %10, align 8
+  %114 = getelementptr inbounds %struct._dom_object, ptr %113, i32 0, i32 1
+  %115 = load ptr, ptr %114, align 8
+  %116 = call i32 @dom_get_strict_error(ptr noundef %115)
+  call void @php_dom_throw_error(i32 noundef 4, i32 noundef %116)
+  br label %117
 
-114:                                              ; preds = %109
-  br label %115
-
-115:                                              ; preds = %114
-  %116 = load ptr, ptr %4, align 8
-  %117 = getelementptr inbounds %struct._zval_struct, ptr %116, i32 0, i32 1
-  store i32 2, ptr %117, align 8
+117:                                              ; preds = %112
   br label %118
 
-118:                                              ; preds = %115
-  br label %197
+118:                                              ; preds = %117
+  %119 = load ptr, ptr %4, align 8
+  %120 = getelementptr inbounds %struct._zval_struct, ptr %119, i32 0, i32 1
+  store i32 2, ptr %120, align 8
+  br label %121
 
-119:                                              ; No predecessors!
-  br label %120
+121:                                              ; preds = %118
+  br label %200
 
-120:                                              ; preds = %119, %101, %87
-  %121 = load ptr, ptr %7, align 8
-  %122 = load ptr, ptr %8, align 8
-  %123 = getelementptr inbounds %struct._xmlAttr, ptr %122, i32 0, i32 2
-  %124 = load ptr, ptr %123, align 8
-  %125 = call ptr @xmlHasProp(ptr noundef %121, ptr noundef %124)
-  store ptr %125, ptr %9, align 8
-  %126 = load ptr, ptr %9, align 8
-  %127 = icmp ne ptr %126, null
-  br i1 %127, label %128, label %154
+122:                                              ; No predecessors!
+  br label %123
 
-128:                                              ; preds = %120
+123:                                              ; preds = %122, %104, %90
+  %124 = load ptr, ptr %7, align 8
+  %125 = load ptr, ptr %8, align 8
+  %126 = getelementptr inbounds %struct._xmlAttr, ptr %125, i32 0, i32 2
+  %127 = load ptr, ptr %126, align 8
+  %128 = call ptr @xmlHasProp(ptr noundef %124, ptr noundef %127)
+  store ptr %128, ptr %9, align 8
   %129 = load ptr, ptr %9, align 8
-  %130 = getelementptr inbounds %struct._xmlAttr, ptr %129, i32 0, i32 1
-  %131 = load i32, ptr %130, align 8
-  %132 = icmp ne i32 %131, 16
-  br i1 %132, label %133, label %154
+  %130 = icmp ne ptr %129, null
+  br i1 %130, label %131, label %157
 
-133:                                              ; preds = %128
-  %134 = load ptr, ptr %9, align 8
-  %135 = call ptr @php_dom_object_get_data(ptr noundef %134)
-  store ptr %135, ptr %12, align 8
-  %136 = icmp ne ptr %135, null
-  br i1 %136, label %137, label %152
+131:                                              ; preds = %123
+  %132 = load ptr, ptr %9, align 8
+  %133 = getelementptr inbounds %struct._xmlAttr, ptr %132, i32 0, i32 1
+  %134 = load i32, ptr %133, align 8
+  %135 = icmp ne i32 %134, 16
+  br i1 %135, label %136, label %157
 
-137:                                              ; preds = %133
-  %138 = load ptr, ptr %12, align 8
-  %139 = getelementptr inbounds %struct._dom_object, ptr %138, i32 0, i32 0
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %140, i32 0, i32 0
-  %142 = load ptr, ptr %141, align 8
-  %143 = load ptr, ptr %8, align 8
-  %144 = icmp eq ptr %142, %143
-  br i1 %144, label %145, label %152
+136:                                              ; preds = %131
+  %137 = load ptr, ptr %9, align 8
+  %138 = call ptr @php_dom_object_get_data(ptr noundef %137)
+  store ptr %138, ptr %12, align 8
+  %139 = icmp ne ptr %138, null
+  br i1 %139, label %140, label %155
 
-145:                                              ; preds = %137
-  br label %146
+140:                                              ; preds = %136
+  %141 = load ptr, ptr %12, align 8
+  %142 = getelementptr inbounds %struct._dom_object, ptr %141, i32 0, i32 0
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %143, i32 0, i32 0
+  %145 = load ptr, ptr %144, align 8
+  %146 = load ptr, ptr %8, align 8
+  %147 = icmp eq ptr %145, %146
+  br i1 %147, label %148, label %155
 
-146:                                              ; preds = %145
-  br label %147
+148:                                              ; preds = %140
+  br label %149
 
-147:                                              ; preds = %146
-  %148 = load ptr, ptr %4, align 8
-  %149 = getelementptr inbounds %struct._zval_struct, ptr %148, i32 0, i32 1
-  store i32 1, ptr %149, align 8
+149:                                              ; preds = %148
   br label %150
 
-150:                                              ; preds = %147
-  br label %197
+150:                                              ; preds = %149
+  %151 = load ptr, ptr %4, align 8
+  %152 = getelementptr inbounds %struct._zval_struct, ptr %151, i32 0, i32 1
+  store i32 1, ptr %152, align 8
+  br label %153
 
-151:                                              ; No predecessors!
-  br label %152
+153:                                              ; preds = %150
+  br label %200
 
-152:                                              ; preds = %151, %137, %133
-  %153 = load ptr, ptr %9, align 8
-  call void @xmlUnlinkNode(ptr noundef %153)
-  br label %154
+154:                                              ; No predecessors!
+  br label %155
 
-154:                                              ; preds = %152, %128, %120
-  %155 = load ptr, ptr %8, align 8
-  %156 = getelementptr inbounds %struct._xmlAttr, ptr %155, i32 0, i32 5
-  %157 = load ptr, ptr %156, align 8
-  %158 = icmp ne ptr %157, null
-  br i1 %158, label %159, label %161
+155:                                              ; preds = %154, %140, %136
+  %156 = load ptr, ptr %9, align 8
+  call void @xmlUnlinkNode(ptr noundef %156)
+  br label %157
 
-159:                                              ; preds = %154
-  %160 = load ptr, ptr %8, align 8
-  call void @xmlUnlinkNode(ptr noundef %160)
-  br label %161
+157:                                              ; preds = %155, %131, %123
+  %158 = load ptr, ptr %8, align 8
+  %159 = getelementptr inbounds %struct._xmlAttr, ptr %158, i32 0, i32 5
+  %160 = load ptr, ptr %159, align 8
+  %161 = icmp ne ptr %160, null
+  br i1 %161, label %162, label %164
 
-161:                                              ; preds = %159, %154
-  %162 = load ptr, ptr %8, align 8
-  %163 = getelementptr inbounds %struct._xmlAttr, ptr %162, i32 0, i32 8
-  %164 = load ptr, ptr %163, align 8
-  %165 = icmp eq ptr %164, null
-  br i1 %165, label %166, label %179
+162:                                              ; preds = %157
+  %163 = load ptr, ptr %8, align 8
+  call void @xmlUnlinkNode(ptr noundef %163)
+  br label %164
 
-166:                                              ; preds = %161
-  %167 = load ptr, ptr %7, align 8
-  %168 = getelementptr inbounds %struct._xmlNode, ptr %167, i32 0, i32 8
-  %169 = load ptr, ptr %168, align 8
-  %170 = icmp ne ptr %169, null
-  br i1 %170, label %171, label %179
+164:                                              ; preds = %162, %157
+  %165 = load ptr, ptr %8, align 8
+  %166 = getelementptr inbounds %struct._xmlAttr, ptr %165, i32 0, i32 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = icmp eq ptr %167, null
+  br i1 %168, label %169, label %182
 
-171:                                              ; preds = %166
-  %172 = load ptr, ptr %10, align 8
-  %173 = getelementptr inbounds %struct._dom_object, ptr %172, i32 0, i32 1
-  %174 = load ptr, ptr %173, align 8
-  %175 = load ptr, ptr %11, align 8
+169:                                              ; preds = %164
+  %170 = load ptr, ptr %7, align 8
+  %171 = getelementptr inbounds %struct._xmlNode, ptr %170, i32 0, i32 8
+  %172 = load ptr, ptr %171, align 8
+  %173 = icmp ne ptr %172, null
+  br i1 %173, label %174, label %182
+
+174:                                              ; preds = %169
+  %175 = load ptr, ptr %10, align 8
   %176 = getelementptr inbounds %struct._dom_object, ptr %175, i32 0, i32 1
-  store ptr %174, ptr %176, align 8
-  %177 = load ptr, ptr %11, align 8
-  %178 = call i32 @php_libxml_increment_doc_ref(ptr noundef %177, ptr noundef null)
-  br label %179
+  %177 = load ptr, ptr %176, align 8
+  %178 = load ptr, ptr %11, align 8
+  %179 = getelementptr inbounds %struct._dom_object, ptr %178, i32 0, i32 1
+  store ptr %177, ptr %179, align 8
+  %180 = load ptr, ptr %11, align 8
+  %181 = call i32 @php_libxml_increment_doc_ref(ptr noundef %180, ptr noundef null)
+  br label %182
 
-179:                                              ; preds = %171, %166, %161
-  %180 = load ptr, ptr %7, align 8
-  %181 = load ptr, ptr %8, align 8
-  %182 = call ptr @xmlAddChild(ptr noundef %180, ptr noundef %181)
-  %183 = load ptr, ptr %8, align 8
-  call void @php_dom_reconcile_attribute_namespace_after_insertion(ptr noundef %183)
-  %184 = load ptr, ptr %9, align 8
-  %185 = icmp ne ptr %184, null
-  br i1 %185, label %186, label %192
-
-186:                                              ; preds = %179
+182:                                              ; preds = %174, %169, %164
+  %183 = load ptr, ptr %7, align 8
+  %184 = load ptr, ptr %8, align 8
+  %185 = call ptr @xmlAddChild(ptr noundef %183, ptr noundef %184)
+  %186 = load ptr, ptr %8, align 8
+  call void @php_dom_reconcile_attribute_namespace_after_insertion(ptr noundef %186)
   %187 = load ptr, ptr %9, align 8
-  %188 = load ptr, ptr %4, align 8
-  %189 = load ptr, ptr %10, align 8
-  %190 = call zeroext i1 @php_dom_create_object(ptr noundef %187, ptr noundef %188, ptr noundef %189)
-  %191 = zext i1 %190 to i32
-  store i32 %191, ptr %13, align 4
-  br label %197
+  %188 = icmp ne ptr %187, null
+  br i1 %188, label %189, label %195
 
-192:                                              ; preds = %179
-  br label %193
+189:                                              ; preds = %182
+  %190 = load ptr, ptr %9, align 8
+  %191 = load ptr, ptr %4, align 8
+  %192 = load ptr, ptr %10, align 8
+  %193 = call zeroext i1 @php_dom_create_object(ptr noundef %190, ptr noundef %191, ptr noundef %192)
+  %194 = zext i1 %193 to i32
+  store i32 %194, ptr %13, align 4
+  br label %200
 
-193:                                              ; preds = %192
-  %194 = load ptr, ptr %4, align 8
-  %195 = getelementptr inbounds %struct._zval_struct, ptr %194, i32 0, i32 1
-  store i32 1, ptr %195, align 8
+195:                                              ; preds = %182
   br label %196
 
-196:                                              ; preds = %193
-  br label %197
+196:                                              ; preds = %195
+  %197 = load ptr, ptr %4, align 8
+  %198 = getelementptr inbounds %struct._zval_struct, ptr %197, i32 0, i32 1
+  store i32 1, ptr %198, align 8
+  br label %199
 
-197:                                              ; preds = %196, %186, %150, %118, %83, %51, %24
+199:                                              ; preds = %196
+  br label %200
+
+200:                                              ; preds = %199, %189, %153, %121, %85, %52, %24
   ret void
 }
 
@@ -5185,156 +5206,159 @@ define hidden void @zim_DOMElement_removeAttributeNode(ptr noundef %0, ptr nound
   %18 = load ptr, ptr @dom_attr_class_entry, align 8
   %19 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %17, ptr noundef @.str.10, ptr noundef %6, ptr noundef %18)
   %20 = icmp eq i32 %19, -1
-  br i1 %20, label %21, label %26
+  br i1 %20, label %21, label %27
 
 21:                                               ; preds = %2
   br label %22
 
 22:                                               ; preds = %21
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  br label %118
+  %23 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  call void @llvm.assume(i1 %25)
+  br label %121
 
-25:                                               ; No predecessors!
-  br label %26
+26:                                               ; No predecessors!
+  br label %27
 
-26:                                               ; preds = %25, %2
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct._zval_struct, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = call ptr @php_dom_obj_from_obj(ptr noundef %29)
-  store ptr %30, ptr %9, align 8
-  %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds %struct._dom_object, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, null
-  %35 = xor i1 %34, true
+27:                                               ; preds = %26, %2
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %struct._zval_struct, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = call ptr @php_dom_obj_from_obj(ptr noundef %30)
+  store ptr %31, ptr %9, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds %struct._dom_object, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
   %36 = xor i1 %35, true
-  %37 = zext i1 %36 to i32
-  %38 = sext i32 %37 to i64
-  %39 = icmp ne i64 %38, 0
-  br i1 %39, label %40, label %53
+  %37 = xor i1 %36, true
+  %38 = zext i1 %37 to i32
+  %39 = sext i32 %38 to i64
+  %40 = icmp ne i64 %39, 0
+  br i1 %40, label %41, label %55
 
-40:                                               ; preds = %26
-  %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds %struct._dom_object, ptr %41, i32 0, i32 3
-  %43 = getelementptr inbounds %struct._zend_object, ptr %42, i32 0, i32 2
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct._zend_class_entry, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct._zend_string, ptr %46, i32 0, i32 3
-  %48 = getelementptr inbounds [1 x i8], ptr %47, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %48)
-  br label %49
+41:                                               ; preds = %27
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds %struct._dom_object, ptr %42, i32 0, i32 3
+  %44 = getelementptr inbounds %struct._zend_object, ptr %43, i32 0, i32 2
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct._zend_class_entry, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %struct._zend_string, ptr %47, i32 0, i32 3
+  %49 = getelementptr inbounds [1 x i8], ptr %48, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %49)
+  br label %50
 
-49:                                               ; preds = %40
-  %50 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %51 = icmp ne ptr %50, null
-  call void @llvm.assume(i1 %51)
-  br label %118
+50:                                               ; preds = %41
+  %51 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp ne ptr %52, null
+  call void @llvm.assume(i1 %53)
+  br label %121
 
-52:                                               ; No predecessors!
-  br label %53
+54:                                               ; No predecessors!
+  br label %55
 
-53:                                               ; preds = %52, %26
-  %54 = load ptr, ptr %9, align 8
-  %55 = getelementptr inbounds %struct._dom_object, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %56, i32 0, i32 0
+55:                                               ; preds = %54, %27
+  %56 = load ptr, ptr %9, align 8
+  %57 = getelementptr inbounds %struct._dom_object, ptr %56, i32 0, i32 0
   %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %7, align 8
-  %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct._zval_struct, ptr %59, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  %62 = call ptr @php_dom_obj_from_obj(ptr noundef %61)
-  store ptr %62, ptr %10, align 8
-  %63 = load ptr, ptr %10, align 8
-  %64 = getelementptr inbounds %struct._dom_object, ptr %63, i32 0, i32 0
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, null
-  %67 = xor i1 %66, true
-  %68 = xor i1 %67, true
-  %69 = zext i1 %68 to i32
-  %70 = sext i32 %69 to i64
-  %71 = icmp ne i64 %70, 0
-  br i1 %71, label %72, label %85
+  %59 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  store ptr %60, ptr %7, align 8
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds %struct._zval_struct, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  %64 = call ptr @php_dom_obj_from_obj(ptr noundef %63)
+  store ptr %64, ptr %10, align 8
+  %65 = load ptr, ptr %10, align 8
+  %66 = getelementptr inbounds %struct._dom_object, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp eq ptr %67, null
+  %69 = xor i1 %68, true
+  %70 = xor i1 %69, true
+  %71 = zext i1 %70 to i32
+  %72 = sext i32 %71 to i64
+  %73 = icmp ne i64 %72, 0
+  br i1 %73, label %74, label %88
 
-72:                                               ; preds = %53
-  %73 = load ptr, ptr %10, align 8
-  %74 = getelementptr inbounds %struct._dom_object, ptr %73, i32 0, i32 3
-  %75 = getelementptr inbounds %struct._zend_object, ptr %74, i32 0, i32 2
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %struct._zend_class_entry, ptr %76, i32 0, i32 1
+74:                                               ; preds = %55
+  %75 = load ptr, ptr %10, align 8
+  %76 = getelementptr inbounds %struct._dom_object, ptr %75, i32 0, i32 3
+  %77 = getelementptr inbounds %struct._zend_object, ptr %76, i32 0, i32 2
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct._zend_string, ptr %78, i32 0, i32 3
-  %80 = getelementptr inbounds [1 x i8], ptr %79, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %80)
-  br label %81
+  %79 = getelementptr inbounds %struct._zend_class_entry, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds %struct._zend_string, ptr %80, i32 0, i32 3
+  %82 = getelementptr inbounds [1 x i8], ptr %81, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %82)
+  br label %83
 
-81:                                               ; preds = %72
-  %82 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %83 = icmp ne ptr %82, null
-  call void @llvm.assume(i1 %83)
-  br label %118
+83:                                               ; preds = %74
+  %84 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp ne ptr %85, null
+  call void @llvm.assume(i1 %86)
+  br label %121
 
-84:                                               ; No predecessors!
-  br label %85
+87:                                               ; No predecessors!
+  br label %88
 
-85:                                               ; preds = %84, %53
-  %86 = load ptr, ptr %10, align 8
-  %87 = getelementptr inbounds %struct._dom_object, ptr %86, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %88, i32 0, i32 0
-  %90 = load ptr, ptr %89, align 8
-  store ptr %90, ptr %8, align 8
-  %91 = load ptr, ptr %8, align 8
-  %92 = getelementptr inbounds %struct._xmlAttr, ptr %91, i32 0, i32 1
-  %93 = load i32, ptr %92, align 8
-  %94 = icmp eq i32 %93, 2
-  call void @llvm.assume(i1 %94)
-  %95 = load ptr, ptr %8, align 8
-  %96 = getelementptr inbounds %struct._xmlAttr, ptr %95, i32 0, i32 5
-  %97 = load ptr, ptr %96, align 8
-  %98 = load ptr, ptr %7, align 8
-  %99 = icmp ne ptr %97, %98
-  br i1 %99, label %100, label %111
+88:                                               ; preds = %87, %55
+  %89 = load ptr, ptr %10, align 8
+  %90 = getelementptr inbounds %struct._dom_object, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %91, i32 0, i32 0
+  %93 = load ptr, ptr %92, align 8
+  store ptr %93, ptr %8, align 8
+  %94 = load ptr, ptr %8, align 8
+  %95 = getelementptr inbounds %struct._xmlAttr, ptr %94, i32 0, i32 1
+  %96 = load i32, ptr %95, align 8
+  %97 = icmp eq i32 %96, 2
+  call void @llvm.assume(i1 %97)
+  %98 = load ptr, ptr %8, align 8
+  %99 = getelementptr inbounds %struct._xmlAttr, ptr %98, i32 0, i32 5
+  %100 = load ptr, ptr %99, align 8
+  %101 = load ptr, ptr %7, align 8
+  %102 = icmp ne ptr %100, %101
+  br i1 %102, label %103, label %114
 
-100:                                              ; preds = %85
-  %101 = load ptr, ptr %9, align 8
-  %102 = getelementptr inbounds %struct._dom_object, ptr %101, i32 0, i32 1
-  %103 = load ptr, ptr %102, align 8
-  %104 = call i32 @dom_get_strict_error(ptr noundef %103)
-  call void @php_dom_throw_error(i32 noundef 8, i32 noundef %104)
-  br label %105
+103:                                              ; preds = %88
+  %104 = load ptr, ptr %9, align 8
+  %105 = getelementptr inbounds %struct._dom_object, ptr %104, i32 0, i32 1
+  %106 = load ptr, ptr %105, align 8
+  %107 = call i32 @dom_get_strict_error(ptr noundef %106)
+  call void @php_dom_throw_error(i32 noundef 8, i32 noundef %107)
+  br label %108
 
-105:                                              ; preds = %100
-  br label %106
-
-106:                                              ; preds = %105
-  %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct._zval_struct, ptr %107, i32 0, i32 1
-  store i32 2, ptr %108, align 8
+108:                                              ; preds = %103
   br label %109
 
-109:                                              ; preds = %106
-  br label %118
+109:                                              ; preds = %108
+  %110 = load ptr, ptr %4, align 8
+  %111 = getelementptr inbounds %struct._zval_struct, ptr %110, i32 0, i32 1
+  store i32 2, ptr %111, align 8
+  br label %112
 
-110:                                              ; No predecessors!
-  br label %111
+112:                                              ; preds = %109
+  br label %121
 
-111:                                              ; preds = %110, %85
-  %112 = load ptr, ptr %8, align 8
-  call void @xmlUnlinkNode(ptr noundef %112)
-  %113 = load ptr, ptr %8, align 8
-  %114 = load ptr, ptr %4, align 8
-  %115 = load ptr, ptr %9, align 8
-  %116 = call zeroext i1 @php_dom_create_object(ptr noundef %113, ptr noundef %114, ptr noundef %115)
-  %117 = zext i1 %116 to i32
-  store i32 %117, ptr %11, align 4
-  br label %118
+113:                                              ; No predecessors!
+  br label %114
 
-118:                                              ; preds = %111, %109, %81, %49, %22
+114:                                              ; preds = %113, %88
+  %115 = load ptr, ptr %8, align 8
+  call void @xmlUnlinkNode(ptr noundef %115)
+  %116 = load ptr, ptr %8, align 8
+  %117 = load ptr, ptr %4, align 8
+  %118 = load ptr, ptr %9, align 8
+  %119 = call zeroext i1 @php_dom_create_object(ptr noundef %116, ptr noundef %117, ptr noundef %118)
+  %120 = zext i1 %119 to i32
+  store i32 %120, ptr %11, align 4
+  br label %121
+
+121:                                              ; preds = %114, %112, %83, %50, %22
   ret void
 }
 
@@ -5354,75 +5378,77 @@ define hidden void @zim_DOMElement_getElementsByTagName(ptr noundef %0, ptr noun
   %12 = load i32, ptr %11, align 4
   %13 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %12, ptr noundef @.str.4, ptr noundef %8, ptr noundef %5)
   %14 = icmp eq i32 %13, -1
-  br i1 %14, label %15, label %20
+  br i1 %14, label %15, label %21
 
 15:                                               ; preds = %2
   br label %16
 
 16:                                               ; preds = %15
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %58
+  %17 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %18, null
+  call void @llvm.assume(i1 %19)
+  br label %60
 
-19:                                               ; No predecessors!
-  br label %20
+20:                                               ; No predecessors!
+  br label %21
 
-20:                                               ; preds = %19, %2
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct._zend_execute_data, ptr %21, i32 0, i32 4
-  %23 = getelementptr inbounds %struct._zval_struct, ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = call ptr @php_dom_obj_from_obj(ptr noundef %24)
-  store ptr %25, ptr %6, align 8
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct._dom_object, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, null
-  %30 = xor i1 %29, true
+21:                                               ; preds = %20, %2
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds %struct._zend_execute_data, ptr %22, i32 0, i32 4
+  %24 = getelementptr inbounds %struct._zval_struct, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = call ptr @php_dom_obj_from_obj(ptr noundef %25)
+  store ptr %26, ptr %6, align 8
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds %struct._dom_object, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp eq ptr %29, null
   %31 = xor i1 %30, true
-  %32 = zext i1 %31 to i32
-  %33 = sext i32 %32 to i64
-  %34 = icmp ne i64 %33, 0
-  br i1 %34, label %35, label %48
+  %32 = xor i1 %31, true
+  %33 = zext i1 %32 to i32
+  %34 = sext i32 %33 to i64
+  %35 = icmp ne i64 %34, 0
+  br i1 %35, label %36, label %50
 
-35:                                               ; preds = %20
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct._dom_object, ptr %36, i32 0, i32 3
-  %38 = getelementptr inbounds %struct._zend_object, ptr %37, i32 0, i32 2
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct._zend_class_entry, ptr %39, i32 0, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct._zend_string, ptr %41, i32 0, i32 3
-  %43 = getelementptr inbounds [1 x i8], ptr %42, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %43)
-  br label %44
+36:                                               ; preds = %21
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds %struct._dom_object, ptr %37, i32 0, i32 3
+  %39 = getelementptr inbounds %struct._zend_object, ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds %struct._zend_class_entry, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds %struct._zend_string, ptr %42, i32 0, i32 3
+  %44 = getelementptr inbounds [1 x i8], ptr %43, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %44)
+  br label %45
 
-44:                                               ; preds = %35
-  %45 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %46 = icmp ne ptr %45, null
-  call void @llvm.assume(i1 %46)
-  br label %58
+45:                                               ; preds = %36
+  %46 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp ne ptr %47, null
+  call void @llvm.assume(i1 %48)
+  br label %60
 
-47:                                               ; No predecessors!
-  br label %48
+49:                                               ; No predecessors!
+  br label %50
 
-48:                                               ; preds = %47, %20
-  %49 = load ptr, ptr %4, align 8
-  call void @php_dom_create_iterator(ptr noundef %49, i32 noundef 0)
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct._zval_struct, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = call ptr @php_dom_obj_from_obj(ptr noundef %52)
-  store ptr %53, ptr %7, align 8
-  %54 = load ptr, ptr %6, align 8
-  %55 = load ptr, ptr %7, align 8
-  %56 = load ptr, ptr %8, align 8
-  %57 = load i64, ptr %5, align 8
-  call void @dom_namednode_iter(ptr noundef %54, i32 noundef 0, ptr noundef %55, ptr noundef null, ptr noundef %56, i64 noundef %57, ptr noundef null, i64 noundef 0)
-  br label %58
+50:                                               ; preds = %49, %21
+  %51 = load ptr, ptr %4, align 8
+  call void @php_dom_create_iterator(ptr noundef %51, i32 noundef 0)
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds %struct._zval_struct, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8
+  %55 = call ptr @php_dom_obj_from_obj(ptr noundef %54)
+  store ptr %55, ptr %7, align 8
+  %56 = load ptr, ptr %6, align 8
+  %57 = load ptr, ptr %7, align 8
+  %58 = load ptr, ptr %8, align 8
+  %59 = load i64, ptr %5, align 8
+  call void @dom_namednode_iter(ptr noundef %56, i32 noundef 0, ptr noundef %57, ptr noundef null, ptr noundef %58, i64 noundef %59, ptr noundef null, i64 noundef 0)
+  br label %60
 
-58:                                               ; preds = %48, %44, %16
+60:                                               ; preds = %50, %45, %16
   ret void
 }
 
@@ -5484,1539 +5510,1541 @@ define hidden void @zim_DOMElement_getAttributeNS(ptr noundef %0, ptr noundef %1
   %47 = load i32, ptr %46, align 4
   %48 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %47, ptr noundef @.str.11, ptr noundef %29, ptr noundef %27, ptr noundef %30, ptr noundef %28)
   %49 = icmp eq i32 %48, -1
-  br i1 %49, label %50, label %55
+  br i1 %49, label %50, label %56
 
 50:                                               ; preds = %2
   br label %51
 
 51:                                               ; preds = %50
-  %52 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %53 = icmp ne ptr %52, null
-  call void @llvm.assume(i1 %53)
-  br label %1056
+  %52 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  call void @llvm.assume(i1 %54)
+  br label %1058
 
-54:                                               ; No predecessors!
-  br label %55
+55:                                               ; No predecessors!
+  br label %56
 
-55:                                               ; preds = %54, %2
-  %56 = load ptr, ptr %23, align 8
-  %57 = getelementptr inbounds %struct._zval_struct, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @php_dom_obj_from_obj(ptr noundef %58)
-  store ptr %59, ptr %26, align 8
-  %60 = load ptr, ptr %26, align 8
-  %61 = getelementptr inbounds %struct._dom_object, ptr %60, i32 0, i32 0
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  %64 = xor i1 %63, true
+56:                                               ; preds = %55, %2
+  %57 = load ptr, ptr %23, align 8
+  %58 = getelementptr inbounds %struct._zval_struct, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @php_dom_obj_from_obj(ptr noundef %59)
+  store ptr %60, ptr %26, align 8
+  %61 = load ptr, ptr %26, align 8
+  %62 = getelementptr inbounds %struct._dom_object, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, null
   %65 = xor i1 %64, true
-  %66 = zext i1 %65 to i32
-  %67 = sext i32 %66 to i64
-  %68 = icmp ne i64 %67, 0
-  br i1 %68, label %69, label %82
+  %66 = xor i1 %65, true
+  %67 = zext i1 %66 to i32
+  %68 = sext i32 %67 to i64
+  %69 = icmp ne i64 %68, 0
+  br i1 %69, label %70, label %84
 
-69:                                               ; preds = %55
-  %70 = load ptr, ptr %26, align 8
-  %71 = getelementptr inbounds %struct._dom_object, ptr %70, i32 0, i32 3
-  %72 = getelementptr inbounds %struct._zend_object, ptr %71, i32 0, i32 2
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds %struct._zend_class_entry, ptr %73, i32 0, i32 1
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds %struct._zend_string, ptr %75, i32 0, i32 3
-  %77 = getelementptr inbounds [1 x i8], ptr %76, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %77)
-  br label %78
+70:                                               ; preds = %56
+  %71 = load ptr, ptr %26, align 8
+  %72 = getelementptr inbounds %struct._dom_object, ptr %71, i32 0, i32 3
+  %73 = getelementptr inbounds %struct._zend_object, ptr %72, i32 0, i32 2
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds %struct._zend_class_entry, ptr %74, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds %struct._zend_string, ptr %76, i32 0, i32 3
+  %78 = getelementptr inbounds [1 x i8], ptr %77, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %78)
+  br label %79
 
-78:                                               ; preds = %69
-  %79 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %80 = icmp ne ptr %79, null
-  call void @llvm.assume(i1 %80)
-  br label %1056
+79:                                               ; preds = %70
+  %80 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %81 = load ptr, ptr %80, align 8
+  %82 = icmp ne ptr %81, null
+  call void @llvm.assume(i1 %82)
+  br label %1058
 
-81:                                               ; No predecessors!
-  br label %82
+83:                                               ; No predecessors!
+  br label %84
 
-82:                                               ; preds = %81, %55
-  %83 = load ptr, ptr %26, align 8
-  %84 = getelementptr inbounds %struct._dom_object, ptr %83, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %85, i32 0, i32 0
+84:                                               ; preds = %83, %56
+  %85 = load ptr, ptr %26, align 8
+  %86 = getelementptr inbounds %struct._dom_object, ptr %85, i32 0, i32 0
   %87 = load ptr, ptr %86, align 8
-  store ptr %87, ptr %24, align 8
-  %88 = load ptr, ptr %24, align 8
-  %89 = load ptr, ptr %30, align 8
-  %90 = load ptr, ptr %29, align 8
-  %91 = call ptr @xmlGetNsProp(ptr noundef %88, ptr noundef %89, ptr noundef %90)
-  store ptr %91, ptr %31, align 8
-  %92 = load ptr, ptr %31, align 8
-  %93 = icmp ne ptr %92, null
-  br i1 %93, label %94, label %557
+  %88 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %87, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8
+  store ptr %89, ptr %24, align 8
+  %90 = load ptr, ptr %24, align 8
+  %91 = load ptr, ptr %30, align 8
+  %92 = load ptr, ptr %29, align 8
+  %93 = call ptr @xmlGetNsProp(ptr noundef %90, ptr noundef %91, ptr noundef %92)
+  store ptr %93, ptr %31, align 8
+  %94 = load ptr, ptr %31, align 8
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %96, label %559
 
-94:                                               ; preds = %82
-  br label %95
-
-95:                                               ; preds = %94
-  %96 = load ptr, ptr %31, align 8
-  store ptr %96, ptr %32, align 8
+96:                                               ; preds = %84
   br label %97
 
-97:                                               ; preds = %95
-  br label %98
+97:                                               ; preds = %96
+  %98 = load ptr, ptr %31, align 8
+  store ptr %98, ptr %32, align 8
+  br label %99
 
-98:                                               ; preds = %97
-  %99 = load ptr, ptr %22, align 8
-  store ptr %99, ptr %33, align 8
-  %100 = load ptr, ptr %32, align 8
-  %101 = load ptr, ptr %32, align 8
-  %102 = call i64 @strlen(ptr noundef %101) #8
-  store ptr %100, ptr %13, align 8
-  store i64 %102, ptr %14, align 8
+99:                                               ; preds = %97
+  br label %100
+
+100:                                              ; preds = %99
+  %101 = load ptr, ptr %22, align 8
+  store ptr %101, ptr %33, align 8
+  %102 = load ptr, ptr %32, align 8
+  %103 = load ptr, ptr %32, align 8
+  %104 = call i64 @strlen(ptr noundef %103) #8
+  store ptr %102, ptr %13, align 8
+  store i64 %104, ptr %14, align 8
   store i8 0, ptr %15, align 1
-  %103 = load i64, ptr %14, align 8
-  %104 = load i8, ptr %15, align 1
-  %105 = trunc i8 %104 to i1
-  store i64 %103, ptr %10, align 8
-  %106 = zext i1 %105 to i8
-  store i8 %106, ptr %11, align 1
-  %107 = load i8, ptr %11, align 1
-  %108 = trunc i8 %107 to i1
-  br i1 %108, label %109, label %117
+  %105 = load i64, ptr %14, align 8
+  %106 = load i8, ptr %15, align 1
+  %107 = trunc i8 %106 to i1
+  store i64 %105, ptr %10, align 8
+  %108 = zext i1 %107 to i8
+  store i8 %108, ptr %11, align 1
+  %109 = load i8, ptr %11, align 1
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %111, label %119
 
-109:                                              ; preds = %98
-  %110 = load i64, ptr %10, align 8
-  %111 = add i64 24, %110
-  %112 = add i64 %111, 1
-  %113 = add i64 %112, 8
-  %114 = sub i64 %113, 1
-  %115 = and i64 %114, -8
-  %116 = call noalias ptr @__zend_malloc(i64 noundef %115) #9
-  br label %521
+111:                                              ; preds = %100
+  %112 = load i64, ptr %10, align 8
+  %113 = add i64 24, %112
+  %114 = add i64 %113, 1
+  %115 = add i64 %114, 8
+  %116 = sub i64 %115, 1
+  %117 = and i64 %116, -8
+  %118 = call noalias ptr @__zend_malloc(i64 noundef %117) #9
+  br label %523
 
-117:                                              ; preds = %98
-  %118 = load i64, ptr %10, align 8
-  %119 = add i64 24, %118
-  %120 = add i64 %119, 1
-  %121 = add i64 %120, 8
-  %122 = sub i64 %121, 1
-  %123 = and i64 %122, -8
-  %124 = call i1 @llvm.is.constant.i64(i64 %123)
-  br i1 %124, label %125, label %511
+119:                                              ; preds = %100
+  %120 = load i64, ptr %10, align 8
+  %121 = add i64 24, %120
+  %122 = add i64 %121, 1
+  %123 = add i64 %122, 8
+  %124 = sub i64 %123, 1
+  %125 = and i64 %124, -8
+  %126 = call i1 @llvm.is.constant.i64(i64 %125)
+  br i1 %126, label %127, label %513
 
-125:                                              ; preds = %117
-  %126 = load i64, ptr %10, align 8
-  %127 = add i64 24, %126
-  %128 = add i64 %127, 1
-  %129 = add i64 %128, 8
-  %130 = sub i64 %129, 1
-  %131 = and i64 %130, -8
-  %132 = icmp ule i64 %131, 8
-  br i1 %132, label %133, label %135
+127:                                              ; preds = %119
+  %128 = load i64, ptr %10, align 8
+  %129 = add i64 24, %128
+  %130 = add i64 %129, 1
+  %131 = add i64 %130, 8
+  %132 = sub i64 %131, 1
+  %133 = and i64 %132, -8
+  %134 = icmp ule i64 %133, 8
+  br i1 %134, label %135, label %137
 
-133:                                              ; preds = %125
-  %134 = call noalias ptr @_emalloc_8() #10
+135:                                              ; preds = %127
+  %136 = call noalias ptr @_emalloc_8() #10
+  br label %511
+
+137:                                              ; preds = %127
+  %138 = load i64, ptr %10, align 8
+  %139 = add i64 24, %138
+  %140 = add i64 %139, 1
+  %141 = add i64 %140, 8
+  %142 = sub i64 %141, 1
+  %143 = and i64 %142, -8
+  %144 = icmp ule i64 %143, 16
+  br i1 %144, label %145, label %147
+
+145:                                              ; preds = %137
+  %146 = call noalias ptr @_emalloc_16() #10
   br label %509
 
-135:                                              ; preds = %125
-  %136 = load i64, ptr %10, align 8
-  %137 = add i64 24, %136
-  %138 = add i64 %137, 1
-  %139 = add i64 %138, 8
-  %140 = sub i64 %139, 1
-  %141 = and i64 %140, -8
-  %142 = icmp ule i64 %141, 16
-  br i1 %142, label %143, label %145
+147:                                              ; preds = %137
+  %148 = load i64, ptr %10, align 8
+  %149 = add i64 24, %148
+  %150 = add i64 %149, 1
+  %151 = add i64 %150, 8
+  %152 = sub i64 %151, 1
+  %153 = and i64 %152, -8
+  %154 = icmp ule i64 %153, 24
+  br i1 %154, label %155, label %157
 
-143:                                              ; preds = %135
-  %144 = call noalias ptr @_emalloc_16() #10
+155:                                              ; preds = %147
+  %156 = call noalias ptr @_emalloc_24() #10
   br label %507
 
-145:                                              ; preds = %135
-  %146 = load i64, ptr %10, align 8
-  %147 = add i64 24, %146
-  %148 = add i64 %147, 1
-  %149 = add i64 %148, 8
-  %150 = sub i64 %149, 1
-  %151 = and i64 %150, -8
-  %152 = icmp ule i64 %151, 24
-  br i1 %152, label %153, label %155
+157:                                              ; preds = %147
+  %158 = load i64, ptr %10, align 8
+  %159 = add i64 24, %158
+  %160 = add i64 %159, 1
+  %161 = add i64 %160, 8
+  %162 = sub i64 %161, 1
+  %163 = and i64 %162, -8
+  %164 = icmp ule i64 %163, 32
+  br i1 %164, label %165, label %167
 
-153:                                              ; preds = %145
-  %154 = call noalias ptr @_emalloc_24() #10
+165:                                              ; preds = %157
+  %166 = call noalias ptr @_emalloc_32() #10
   br label %505
 
-155:                                              ; preds = %145
-  %156 = load i64, ptr %10, align 8
-  %157 = add i64 24, %156
-  %158 = add i64 %157, 1
-  %159 = add i64 %158, 8
-  %160 = sub i64 %159, 1
-  %161 = and i64 %160, -8
-  %162 = icmp ule i64 %161, 32
-  br i1 %162, label %163, label %165
+167:                                              ; preds = %157
+  %168 = load i64, ptr %10, align 8
+  %169 = add i64 24, %168
+  %170 = add i64 %169, 1
+  %171 = add i64 %170, 8
+  %172 = sub i64 %171, 1
+  %173 = and i64 %172, -8
+  %174 = icmp ule i64 %173, 40
+  br i1 %174, label %175, label %177
 
-163:                                              ; preds = %155
-  %164 = call noalias ptr @_emalloc_32() #10
+175:                                              ; preds = %167
+  %176 = call noalias ptr @_emalloc_40() #10
   br label %503
 
-165:                                              ; preds = %155
-  %166 = load i64, ptr %10, align 8
-  %167 = add i64 24, %166
-  %168 = add i64 %167, 1
-  %169 = add i64 %168, 8
-  %170 = sub i64 %169, 1
-  %171 = and i64 %170, -8
-  %172 = icmp ule i64 %171, 40
-  br i1 %172, label %173, label %175
+177:                                              ; preds = %167
+  %178 = load i64, ptr %10, align 8
+  %179 = add i64 24, %178
+  %180 = add i64 %179, 1
+  %181 = add i64 %180, 8
+  %182 = sub i64 %181, 1
+  %183 = and i64 %182, -8
+  %184 = icmp ule i64 %183, 48
+  br i1 %184, label %185, label %187
 
-173:                                              ; preds = %165
-  %174 = call noalias ptr @_emalloc_40() #10
+185:                                              ; preds = %177
+  %186 = call noalias ptr @_emalloc_48() #10
   br label %501
 
-175:                                              ; preds = %165
-  %176 = load i64, ptr %10, align 8
-  %177 = add i64 24, %176
-  %178 = add i64 %177, 1
-  %179 = add i64 %178, 8
-  %180 = sub i64 %179, 1
-  %181 = and i64 %180, -8
-  %182 = icmp ule i64 %181, 48
-  br i1 %182, label %183, label %185
+187:                                              ; preds = %177
+  %188 = load i64, ptr %10, align 8
+  %189 = add i64 24, %188
+  %190 = add i64 %189, 1
+  %191 = add i64 %190, 8
+  %192 = sub i64 %191, 1
+  %193 = and i64 %192, -8
+  %194 = icmp ule i64 %193, 56
+  br i1 %194, label %195, label %197
 
-183:                                              ; preds = %175
-  %184 = call noalias ptr @_emalloc_48() #10
+195:                                              ; preds = %187
+  %196 = call noalias ptr @_emalloc_56() #10
   br label %499
 
-185:                                              ; preds = %175
-  %186 = load i64, ptr %10, align 8
-  %187 = add i64 24, %186
-  %188 = add i64 %187, 1
-  %189 = add i64 %188, 8
-  %190 = sub i64 %189, 1
-  %191 = and i64 %190, -8
-  %192 = icmp ule i64 %191, 56
-  br i1 %192, label %193, label %195
+197:                                              ; preds = %187
+  %198 = load i64, ptr %10, align 8
+  %199 = add i64 24, %198
+  %200 = add i64 %199, 1
+  %201 = add i64 %200, 8
+  %202 = sub i64 %201, 1
+  %203 = and i64 %202, -8
+  %204 = icmp ule i64 %203, 64
+  br i1 %204, label %205, label %207
 
-193:                                              ; preds = %185
-  %194 = call noalias ptr @_emalloc_56() #10
+205:                                              ; preds = %197
+  %206 = call noalias ptr @_emalloc_64() #10
   br label %497
 
-195:                                              ; preds = %185
-  %196 = load i64, ptr %10, align 8
-  %197 = add i64 24, %196
-  %198 = add i64 %197, 1
-  %199 = add i64 %198, 8
-  %200 = sub i64 %199, 1
-  %201 = and i64 %200, -8
-  %202 = icmp ule i64 %201, 64
-  br i1 %202, label %203, label %205
+207:                                              ; preds = %197
+  %208 = load i64, ptr %10, align 8
+  %209 = add i64 24, %208
+  %210 = add i64 %209, 1
+  %211 = add i64 %210, 8
+  %212 = sub i64 %211, 1
+  %213 = and i64 %212, -8
+  %214 = icmp ule i64 %213, 80
+  br i1 %214, label %215, label %217
 
-203:                                              ; preds = %195
-  %204 = call noalias ptr @_emalloc_64() #10
+215:                                              ; preds = %207
+  %216 = call noalias ptr @_emalloc_80() #10
   br label %495
 
-205:                                              ; preds = %195
-  %206 = load i64, ptr %10, align 8
-  %207 = add i64 24, %206
-  %208 = add i64 %207, 1
-  %209 = add i64 %208, 8
-  %210 = sub i64 %209, 1
-  %211 = and i64 %210, -8
-  %212 = icmp ule i64 %211, 80
-  br i1 %212, label %213, label %215
+217:                                              ; preds = %207
+  %218 = load i64, ptr %10, align 8
+  %219 = add i64 24, %218
+  %220 = add i64 %219, 1
+  %221 = add i64 %220, 8
+  %222 = sub i64 %221, 1
+  %223 = and i64 %222, -8
+  %224 = icmp ule i64 %223, 96
+  br i1 %224, label %225, label %227
 
-213:                                              ; preds = %205
-  %214 = call noalias ptr @_emalloc_80() #10
+225:                                              ; preds = %217
+  %226 = call noalias ptr @_emalloc_96() #10
   br label %493
 
-215:                                              ; preds = %205
-  %216 = load i64, ptr %10, align 8
-  %217 = add i64 24, %216
-  %218 = add i64 %217, 1
-  %219 = add i64 %218, 8
-  %220 = sub i64 %219, 1
-  %221 = and i64 %220, -8
-  %222 = icmp ule i64 %221, 96
-  br i1 %222, label %223, label %225
+227:                                              ; preds = %217
+  %228 = load i64, ptr %10, align 8
+  %229 = add i64 24, %228
+  %230 = add i64 %229, 1
+  %231 = add i64 %230, 8
+  %232 = sub i64 %231, 1
+  %233 = and i64 %232, -8
+  %234 = icmp ule i64 %233, 112
+  br i1 %234, label %235, label %237
 
-223:                                              ; preds = %215
-  %224 = call noalias ptr @_emalloc_96() #10
+235:                                              ; preds = %227
+  %236 = call noalias ptr @_emalloc_112() #10
   br label %491
 
-225:                                              ; preds = %215
-  %226 = load i64, ptr %10, align 8
-  %227 = add i64 24, %226
-  %228 = add i64 %227, 1
-  %229 = add i64 %228, 8
-  %230 = sub i64 %229, 1
-  %231 = and i64 %230, -8
-  %232 = icmp ule i64 %231, 112
-  br i1 %232, label %233, label %235
+237:                                              ; preds = %227
+  %238 = load i64, ptr %10, align 8
+  %239 = add i64 24, %238
+  %240 = add i64 %239, 1
+  %241 = add i64 %240, 8
+  %242 = sub i64 %241, 1
+  %243 = and i64 %242, -8
+  %244 = icmp ule i64 %243, 128
+  br i1 %244, label %245, label %247
 
-233:                                              ; preds = %225
-  %234 = call noalias ptr @_emalloc_112() #10
+245:                                              ; preds = %237
+  %246 = call noalias ptr @_emalloc_128() #10
   br label %489
 
-235:                                              ; preds = %225
-  %236 = load i64, ptr %10, align 8
-  %237 = add i64 24, %236
-  %238 = add i64 %237, 1
-  %239 = add i64 %238, 8
-  %240 = sub i64 %239, 1
-  %241 = and i64 %240, -8
-  %242 = icmp ule i64 %241, 128
-  br i1 %242, label %243, label %245
+247:                                              ; preds = %237
+  %248 = load i64, ptr %10, align 8
+  %249 = add i64 24, %248
+  %250 = add i64 %249, 1
+  %251 = add i64 %250, 8
+  %252 = sub i64 %251, 1
+  %253 = and i64 %252, -8
+  %254 = icmp ule i64 %253, 160
+  br i1 %254, label %255, label %257
 
-243:                                              ; preds = %235
-  %244 = call noalias ptr @_emalloc_128() #10
+255:                                              ; preds = %247
+  %256 = call noalias ptr @_emalloc_160() #10
   br label %487
 
-245:                                              ; preds = %235
-  %246 = load i64, ptr %10, align 8
-  %247 = add i64 24, %246
-  %248 = add i64 %247, 1
-  %249 = add i64 %248, 8
-  %250 = sub i64 %249, 1
-  %251 = and i64 %250, -8
-  %252 = icmp ule i64 %251, 160
-  br i1 %252, label %253, label %255
+257:                                              ; preds = %247
+  %258 = load i64, ptr %10, align 8
+  %259 = add i64 24, %258
+  %260 = add i64 %259, 1
+  %261 = add i64 %260, 8
+  %262 = sub i64 %261, 1
+  %263 = and i64 %262, -8
+  %264 = icmp ule i64 %263, 192
+  br i1 %264, label %265, label %267
 
-253:                                              ; preds = %245
-  %254 = call noalias ptr @_emalloc_160() #10
+265:                                              ; preds = %257
+  %266 = call noalias ptr @_emalloc_192() #10
   br label %485
 
-255:                                              ; preds = %245
-  %256 = load i64, ptr %10, align 8
-  %257 = add i64 24, %256
-  %258 = add i64 %257, 1
-  %259 = add i64 %258, 8
-  %260 = sub i64 %259, 1
-  %261 = and i64 %260, -8
-  %262 = icmp ule i64 %261, 192
-  br i1 %262, label %263, label %265
+267:                                              ; preds = %257
+  %268 = load i64, ptr %10, align 8
+  %269 = add i64 24, %268
+  %270 = add i64 %269, 1
+  %271 = add i64 %270, 8
+  %272 = sub i64 %271, 1
+  %273 = and i64 %272, -8
+  %274 = icmp ule i64 %273, 224
+  br i1 %274, label %275, label %277
 
-263:                                              ; preds = %255
-  %264 = call noalias ptr @_emalloc_192() #10
+275:                                              ; preds = %267
+  %276 = call noalias ptr @_emalloc_224() #10
   br label %483
 
-265:                                              ; preds = %255
-  %266 = load i64, ptr %10, align 8
-  %267 = add i64 24, %266
-  %268 = add i64 %267, 1
-  %269 = add i64 %268, 8
-  %270 = sub i64 %269, 1
-  %271 = and i64 %270, -8
-  %272 = icmp ule i64 %271, 224
-  br i1 %272, label %273, label %275
+277:                                              ; preds = %267
+  %278 = load i64, ptr %10, align 8
+  %279 = add i64 24, %278
+  %280 = add i64 %279, 1
+  %281 = add i64 %280, 8
+  %282 = sub i64 %281, 1
+  %283 = and i64 %282, -8
+  %284 = icmp ule i64 %283, 256
+  br i1 %284, label %285, label %287
 
-273:                                              ; preds = %265
-  %274 = call noalias ptr @_emalloc_224() #10
+285:                                              ; preds = %277
+  %286 = call noalias ptr @_emalloc_256() #10
   br label %481
 
-275:                                              ; preds = %265
-  %276 = load i64, ptr %10, align 8
-  %277 = add i64 24, %276
-  %278 = add i64 %277, 1
-  %279 = add i64 %278, 8
-  %280 = sub i64 %279, 1
-  %281 = and i64 %280, -8
-  %282 = icmp ule i64 %281, 256
-  br i1 %282, label %283, label %285
+287:                                              ; preds = %277
+  %288 = load i64, ptr %10, align 8
+  %289 = add i64 24, %288
+  %290 = add i64 %289, 1
+  %291 = add i64 %290, 8
+  %292 = sub i64 %291, 1
+  %293 = and i64 %292, -8
+  %294 = icmp ule i64 %293, 320
+  br i1 %294, label %295, label %297
 
-283:                                              ; preds = %275
-  %284 = call noalias ptr @_emalloc_256() #10
+295:                                              ; preds = %287
+  %296 = call noalias ptr @_emalloc_320() #10
   br label %479
 
-285:                                              ; preds = %275
-  %286 = load i64, ptr %10, align 8
-  %287 = add i64 24, %286
-  %288 = add i64 %287, 1
-  %289 = add i64 %288, 8
-  %290 = sub i64 %289, 1
-  %291 = and i64 %290, -8
-  %292 = icmp ule i64 %291, 320
-  br i1 %292, label %293, label %295
+297:                                              ; preds = %287
+  %298 = load i64, ptr %10, align 8
+  %299 = add i64 24, %298
+  %300 = add i64 %299, 1
+  %301 = add i64 %300, 8
+  %302 = sub i64 %301, 1
+  %303 = and i64 %302, -8
+  %304 = icmp ule i64 %303, 384
+  br i1 %304, label %305, label %307
 
-293:                                              ; preds = %285
-  %294 = call noalias ptr @_emalloc_320() #10
+305:                                              ; preds = %297
+  %306 = call noalias ptr @_emalloc_384() #10
   br label %477
 
-295:                                              ; preds = %285
-  %296 = load i64, ptr %10, align 8
-  %297 = add i64 24, %296
-  %298 = add i64 %297, 1
-  %299 = add i64 %298, 8
-  %300 = sub i64 %299, 1
-  %301 = and i64 %300, -8
-  %302 = icmp ule i64 %301, 384
-  br i1 %302, label %303, label %305
+307:                                              ; preds = %297
+  %308 = load i64, ptr %10, align 8
+  %309 = add i64 24, %308
+  %310 = add i64 %309, 1
+  %311 = add i64 %310, 8
+  %312 = sub i64 %311, 1
+  %313 = and i64 %312, -8
+  %314 = icmp ule i64 %313, 448
+  br i1 %314, label %315, label %317
 
-303:                                              ; preds = %295
-  %304 = call noalias ptr @_emalloc_384() #10
+315:                                              ; preds = %307
+  %316 = call noalias ptr @_emalloc_448() #10
   br label %475
 
-305:                                              ; preds = %295
-  %306 = load i64, ptr %10, align 8
-  %307 = add i64 24, %306
-  %308 = add i64 %307, 1
-  %309 = add i64 %308, 8
-  %310 = sub i64 %309, 1
-  %311 = and i64 %310, -8
-  %312 = icmp ule i64 %311, 448
-  br i1 %312, label %313, label %315
+317:                                              ; preds = %307
+  %318 = load i64, ptr %10, align 8
+  %319 = add i64 24, %318
+  %320 = add i64 %319, 1
+  %321 = add i64 %320, 8
+  %322 = sub i64 %321, 1
+  %323 = and i64 %322, -8
+  %324 = icmp ule i64 %323, 512
+  br i1 %324, label %325, label %327
 
-313:                                              ; preds = %305
-  %314 = call noalias ptr @_emalloc_448() #10
+325:                                              ; preds = %317
+  %326 = call noalias ptr @_emalloc_512() #10
   br label %473
 
-315:                                              ; preds = %305
-  %316 = load i64, ptr %10, align 8
-  %317 = add i64 24, %316
-  %318 = add i64 %317, 1
-  %319 = add i64 %318, 8
-  %320 = sub i64 %319, 1
-  %321 = and i64 %320, -8
-  %322 = icmp ule i64 %321, 512
-  br i1 %322, label %323, label %325
+327:                                              ; preds = %317
+  %328 = load i64, ptr %10, align 8
+  %329 = add i64 24, %328
+  %330 = add i64 %329, 1
+  %331 = add i64 %330, 8
+  %332 = sub i64 %331, 1
+  %333 = and i64 %332, -8
+  %334 = icmp ule i64 %333, 640
+  br i1 %334, label %335, label %337
 
-323:                                              ; preds = %315
-  %324 = call noalias ptr @_emalloc_512() #10
+335:                                              ; preds = %327
+  %336 = call noalias ptr @_emalloc_640() #10
   br label %471
 
-325:                                              ; preds = %315
-  %326 = load i64, ptr %10, align 8
-  %327 = add i64 24, %326
-  %328 = add i64 %327, 1
-  %329 = add i64 %328, 8
-  %330 = sub i64 %329, 1
-  %331 = and i64 %330, -8
-  %332 = icmp ule i64 %331, 640
-  br i1 %332, label %333, label %335
+337:                                              ; preds = %327
+  %338 = load i64, ptr %10, align 8
+  %339 = add i64 24, %338
+  %340 = add i64 %339, 1
+  %341 = add i64 %340, 8
+  %342 = sub i64 %341, 1
+  %343 = and i64 %342, -8
+  %344 = icmp ule i64 %343, 768
+  br i1 %344, label %345, label %347
 
-333:                                              ; preds = %325
-  %334 = call noalias ptr @_emalloc_640() #10
+345:                                              ; preds = %337
+  %346 = call noalias ptr @_emalloc_768() #10
   br label %469
 
-335:                                              ; preds = %325
-  %336 = load i64, ptr %10, align 8
-  %337 = add i64 24, %336
-  %338 = add i64 %337, 1
-  %339 = add i64 %338, 8
-  %340 = sub i64 %339, 1
-  %341 = and i64 %340, -8
-  %342 = icmp ule i64 %341, 768
-  br i1 %342, label %343, label %345
+347:                                              ; preds = %337
+  %348 = load i64, ptr %10, align 8
+  %349 = add i64 24, %348
+  %350 = add i64 %349, 1
+  %351 = add i64 %350, 8
+  %352 = sub i64 %351, 1
+  %353 = and i64 %352, -8
+  %354 = icmp ule i64 %353, 896
+  br i1 %354, label %355, label %357
 
-343:                                              ; preds = %335
-  %344 = call noalias ptr @_emalloc_768() #10
+355:                                              ; preds = %347
+  %356 = call noalias ptr @_emalloc_896() #10
   br label %467
 
-345:                                              ; preds = %335
-  %346 = load i64, ptr %10, align 8
-  %347 = add i64 24, %346
-  %348 = add i64 %347, 1
-  %349 = add i64 %348, 8
-  %350 = sub i64 %349, 1
-  %351 = and i64 %350, -8
-  %352 = icmp ule i64 %351, 896
-  br i1 %352, label %353, label %355
+357:                                              ; preds = %347
+  %358 = load i64, ptr %10, align 8
+  %359 = add i64 24, %358
+  %360 = add i64 %359, 1
+  %361 = add i64 %360, 8
+  %362 = sub i64 %361, 1
+  %363 = and i64 %362, -8
+  %364 = icmp ule i64 %363, 1024
+  br i1 %364, label %365, label %367
 
-353:                                              ; preds = %345
-  %354 = call noalias ptr @_emalloc_896() #10
+365:                                              ; preds = %357
+  %366 = call noalias ptr @_emalloc_1024() #10
   br label %465
 
-355:                                              ; preds = %345
-  %356 = load i64, ptr %10, align 8
-  %357 = add i64 24, %356
-  %358 = add i64 %357, 1
-  %359 = add i64 %358, 8
-  %360 = sub i64 %359, 1
-  %361 = and i64 %360, -8
-  %362 = icmp ule i64 %361, 1024
-  br i1 %362, label %363, label %365
+367:                                              ; preds = %357
+  %368 = load i64, ptr %10, align 8
+  %369 = add i64 24, %368
+  %370 = add i64 %369, 1
+  %371 = add i64 %370, 8
+  %372 = sub i64 %371, 1
+  %373 = and i64 %372, -8
+  %374 = icmp ule i64 %373, 1280
+  br i1 %374, label %375, label %377
 
-363:                                              ; preds = %355
-  %364 = call noalias ptr @_emalloc_1024() #10
+375:                                              ; preds = %367
+  %376 = call noalias ptr @_emalloc_1280() #10
   br label %463
 
-365:                                              ; preds = %355
-  %366 = load i64, ptr %10, align 8
-  %367 = add i64 24, %366
-  %368 = add i64 %367, 1
-  %369 = add i64 %368, 8
-  %370 = sub i64 %369, 1
-  %371 = and i64 %370, -8
-  %372 = icmp ule i64 %371, 1280
-  br i1 %372, label %373, label %375
+377:                                              ; preds = %367
+  %378 = load i64, ptr %10, align 8
+  %379 = add i64 24, %378
+  %380 = add i64 %379, 1
+  %381 = add i64 %380, 8
+  %382 = sub i64 %381, 1
+  %383 = and i64 %382, -8
+  %384 = icmp ule i64 %383, 1536
+  br i1 %384, label %385, label %387
 
-373:                                              ; preds = %365
-  %374 = call noalias ptr @_emalloc_1280() #10
+385:                                              ; preds = %377
+  %386 = call noalias ptr @_emalloc_1536() #10
   br label %461
 
-375:                                              ; preds = %365
-  %376 = load i64, ptr %10, align 8
-  %377 = add i64 24, %376
-  %378 = add i64 %377, 1
-  %379 = add i64 %378, 8
-  %380 = sub i64 %379, 1
-  %381 = and i64 %380, -8
-  %382 = icmp ule i64 %381, 1536
-  br i1 %382, label %383, label %385
+387:                                              ; preds = %377
+  %388 = load i64, ptr %10, align 8
+  %389 = add i64 24, %388
+  %390 = add i64 %389, 1
+  %391 = add i64 %390, 8
+  %392 = sub i64 %391, 1
+  %393 = and i64 %392, -8
+  %394 = icmp ule i64 %393, 1792
+  br i1 %394, label %395, label %397
 
-383:                                              ; preds = %375
-  %384 = call noalias ptr @_emalloc_1536() #10
+395:                                              ; preds = %387
+  %396 = call noalias ptr @_emalloc_1792() #10
   br label %459
 
-385:                                              ; preds = %375
-  %386 = load i64, ptr %10, align 8
-  %387 = add i64 24, %386
-  %388 = add i64 %387, 1
-  %389 = add i64 %388, 8
-  %390 = sub i64 %389, 1
-  %391 = and i64 %390, -8
-  %392 = icmp ule i64 %391, 1792
-  br i1 %392, label %393, label %395
+397:                                              ; preds = %387
+  %398 = load i64, ptr %10, align 8
+  %399 = add i64 24, %398
+  %400 = add i64 %399, 1
+  %401 = add i64 %400, 8
+  %402 = sub i64 %401, 1
+  %403 = and i64 %402, -8
+  %404 = icmp ule i64 %403, 2048
+  br i1 %404, label %405, label %407
 
-393:                                              ; preds = %385
-  %394 = call noalias ptr @_emalloc_1792() #10
+405:                                              ; preds = %397
+  %406 = call noalias ptr @_emalloc_2048() #10
   br label %457
 
-395:                                              ; preds = %385
-  %396 = load i64, ptr %10, align 8
-  %397 = add i64 24, %396
-  %398 = add i64 %397, 1
-  %399 = add i64 %398, 8
-  %400 = sub i64 %399, 1
-  %401 = and i64 %400, -8
-  %402 = icmp ule i64 %401, 2048
-  br i1 %402, label %403, label %405
+407:                                              ; preds = %397
+  %408 = load i64, ptr %10, align 8
+  %409 = add i64 24, %408
+  %410 = add i64 %409, 1
+  %411 = add i64 %410, 8
+  %412 = sub i64 %411, 1
+  %413 = and i64 %412, -8
+  %414 = icmp ule i64 %413, 2560
+  br i1 %414, label %415, label %417
 
-403:                                              ; preds = %395
-  %404 = call noalias ptr @_emalloc_2048() #10
+415:                                              ; preds = %407
+  %416 = call noalias ptr @_emalloc_2560() #10
   br label %455
 
-405:                                              ; preds = %395
-  %406 = load i64, ptr %10, align 8
-  %407 = add i64 24, %406
-  %408 = add i64 %407, 1
-  %409 = add i64 %408, 8
-  %410 = sub i64 %409, 1
-  %411 = and i64 %410, -8
-  %412 = icmp ule i64 %411, 2560
-  br i1 %412, label %413, label %415
+417:                                              ; preds = %407
+  %418 = load i64, ptr %10, align 8
+  %419 = add i64 24, %418
+  %420 = add i64 %419, 1
+  %421 = add i64 %420, 8
+  %422 = sub i64 %421, 1
+  %423 = and i64 %422, -8
+  %424 = icmp ule i64 %423, 3072
+  br i1 %424, label %425, label %427
 
-413:                                              ; preds = %405
-  %414 = call noalias ptr @_emalloc_2560() #10
+425:                                              ; preds = %417
+  %426 = call noalias ptr @_emalloc_3072() #10
   br label %453
 
-415:                                              ; preds = %405
-  %416 = load i64, ptr %10, align 8
-  %417 = add i64 24, %416
-  %418 = add i64 %417, 1
-  %419 = add i64 %418, 8
-  %420 = sub i64 %419, 1
-  %421 = and i64 %420, -8
-  %422 = icmp ule i64 %421, 3072
-  br i1 %422, label %423, label %425
+427:                                              ; preds = %417
+  %428 = load i64, ptr %10, align 8
+  %429 = add i64 24, %428
+  %430 = add i64 %429, 1
+  %431 = add i64 %430, 8
+  %432 = sub i64 %431, 1
+  %433 = and i64 %432, -8
+  %434 = icmp ule i64 %433, 2093056
+  br i1 %434, label %435, label %443
 
-423:                                              ; preds = %415
-  %424 = call noalias ptr @_emalloc_3072() #10
+435:                                              ; preds = %427
+  %436 = load i64, ptr %10, align 8
+  %437 = add i64 24, %436
+  %438 = add i64 %437, 1
+  %439 = add i64 %438, 8
+  %440 = sub i64 %439, 1
+  %441 = and i64 %440, -8
+  %442 = call noalias ptr @_emalloc_large(i64 noundef %441) #9
   br label %451
 
-425:                                              ; preds = %415
-  %426 = load i64, ptr %10, align 8
-  %427 = add i64 24, %426
-  %428 = add i64 %427, 1
-  %429 = add i64 %428, 8
-  %430 = sub i64 %429, 1
-  %431 = and i64 %430, -8
-  %432 = icmp ule i64 %431, 2093056
-  br i1 %432, label %433, label %441
-
-433:                                              ; preds = %425
-  %434 = load i64, ptr %10, align 8
-  %435 = add i64 24, %434
-  %436 = add i64 %435, 1
-  %437 = add i64 %436, 8
-  %438 = sub i64 %437, 1
-  %439 = and i64 %438, -8
-  %440 = call noalias ptr @_emalloc_large(i64 noundef %439) #9
-  br label %449
-
-441:                                              ; preds = %425
-  %442 = load i64, ptr %10, align 8
-  %443 = add i64 24, %442
-  %444 = add i64 %443, 1
-  %445 = add i64 %444, 8
-  %446 = sub i64 %445, 1
-  %447 = and i64 %446, -8
-  %448 = call noalias ptr @_emalloc_huge(i64 noundef %447) #9
-  br label %449
-
-449:                                              ; preds = %441, %433
-  %450 = phi ptr [ %440, %433 ], [ %448, %441 ]
+443:                                              ; preds = %427
+  %444 = load i64, ptr %10, align 8
+  %445 = add i64 24, %444
+  %446 = add i64 %445, 1
+  %447 = add i64 %446, 8
+  %448 = sub i64 %447, 1
+  %449 = and i64 %448, -8
+  %450 = call noalias ptr @_emalloc_huge(i64 noundef %449) #9
   br label %451
 
-451:                                              ; preds = %449, %423
-  %452 = phi ptr [ %424, %423 ], [ %450, %449 ]
+451:                                              ; preds = %443, %435
+  %452 = phi ptr [ %442, %435 ], [ %450, %443 ]
   br label %453
 
-453:                                              ; preds = %451, %413
-  %454 = phi ptr [ %414, %413 ], [ %452, %451 ]
+453:                                              ; preds = %451, %425
+  %454 = phi ptr [ %426, %425 ], [ %452, %451 ]
   br label %455
 
-455:                                              ; preds = %453, %403
-  %456 = phi ptr [ %404, %403 ], [ %454, %453 ]
+455:                                              ; preds = %453, %415
+  %456 = phi ptr [ %416, %415 ], [ %454, %453 ]
   br label %457
 
-457:                                              ; preds = %455, %393
-  %458 = phi ptr [ %394, %393 ], [ %456, %455 ]
+457:                                              ; preds = %455, %405
+  %458 = phi ptr [ %406, %405 ], [ %456, %455 ]
   br label %459
 
-459:                                              ; preds = %457, %383
-  %460 = phi ptr [ %384, %383 ], [ %458, %457 ]
+459:                                              ; preds = %457, %395
+  %460 = phi ptr [ %396, %395 ], [ %458, %457 ]
   br label %461
 
-461:                                              ; preds = %459, %373
-  %462 = phi ptr [ %374, %373 ], [ %460, %459 ]
+461:                                              ; preds = %459, %385
+  %462 = phi ptr [ %386, %385 ], [ %460, %459 ]
   br label %463
 
-463:                                              ; preds = %461, %363
-  %464 = phi ptr [ %364, %363 ], [ %462, %461 ]
+463:                                              ; preds = %461, %375
+  %464 = phi ptr [ %376, %375 ], [ %462, %461 ]
   br label %465
 
-465:                                              ; preds = %463, %353
-  %466 = phi ptr [ %354, %353 ], [ %464, %463 ]
+465:                                              ; preds = %463, %365
+  %466 = phi ptr [ %366, %365 ], [ %464, %463 ]
   br label %467
 
-467:                                              ; preds = %465, %343
-  %468 = phi ptr [ %344, %343 ], [ %466, %465 ]
+467:                                              ; preds = %465, %355
+  %468 = phi ptr [ %356, %355 ], [ %466, %465 ]
   br label %469
 
-469:                                              ; preds = %467, %333
-  %470 = phi ptr [ %334, %333 ], [ %468, %467 ]
+469:                                              ; preds = %467, %345
+  %470 = phi ptr [ %346, %345 ], [ %468, %467 ]
   br label %471
 
-471:                                              ; preds = %469, %323
-  %472 = phi ptr [ %324, %323 ], [ %470, %469 ]
+471:                                              ; preds = %469, %335
+  %472 = phi ptr [ %336, %335 ], [ %470, %469 ]
   br label %473
 
-473:                                              ; preds = %471, %313
-  %474 = phi ptr [ %314, %313 ], [ %472, %471 ]
+473:                                              ; preds = %471, %325
+  %474 = phi ptr [ %326, %325 ], [ %472, %471 ]
   br label %475
 
-475:                                              ; preds = %473, %303
-  %476 = phi ptr [ %304, %303 ], [ %474, %473 ]
+475:                                              ; preds = %473, %315
+  %476 = phi ptr [ %316, %315 ], [ %474, %473 ]
   br label %477
 
-477:                                              ; preds = %475, %293
-  %478 = phi ptr [ %294, %293 ], [ %476, %475 ]
+477:                                              ; preds = %475, %305
+  %478 = phi ptr [ %306, %305 ], [ %476, %475 ]
   br label %479
 
-479:                                              ; preds = %477, %283
-  %480 = phi ptr [ %284, %283 ], [ %478, %477 ]
+479:                                              ; preds = %477, %295
+  %480 = phi ptr [ %296, %295 ], [ %478, %477 ]
   br label %481
 
-481:                                              ; preds = %479, %273
-  %482 = phi ptr [ %274, %273 ], [ %480, %479 ]
+481:                                              ; preds = %479, %285
+  %482 = phi ptr [ %286, %285 ], [ %480, %479 ]
   br label %483
 
-483:                                              ; preds = %481, %263
-  %484 = phi ptr [ %264, %263 ], [ %482, %481 ]
+483:                                              ; preds = %481, %275
+  %484 = phi ptr [ %276, %275 ], [ %482, %481 ]
   br label %485
 
-485:                                              ; preds = %483, %253
-  %486 = phi ptr [ %254, %253 ], [ %484, %483 ]
+485:                                              ; preds = %483, %265
+  %486 = phi ptr [ %266, %265 ], [ %484, %483 ]
   br label %487
 
-487:                                              ; preds = %485, %243
-  %488 = phi ptr [ %244, %243 ], [ %486, %485 ]
+487:                                              ; preds = %485, %255
+  %488 = phi ptr [ %256, %255 ], [ %486, %485 ]
   br label %489
 
-489:                                              ; preds = %487, %233
-  %490 = phi ptr [ %234, %233 ], [ %488, %487 ]
+489:                                              ; preds = %487, %245
+  %490 = phi ptr [ %246, %245 ], [ %488, %487 ]
   br label %491
 
-491:                                              ; preds = %489, %223
-  %492 = phi ptr [ %224, %223 ], [ %490, %489 ]
+491:                                              ; preds = %489, %235
+  %492 = phi ptr [ %236, %235 ], [ %490, %489 ]
   br label %493
 
-493:                                              ; preds = %491, %213
-  %494 = phi ptr [ %214, %213 ], [ %492, %491 ]
+493:                                              ; preds = %491, %225
+  %494 = phi ptr [ %226, %225 ], [ %492, %491 ]
   br label %495
 
-495:                                              ; preds = %493, %203
-  %496 = phi ptr [ %204, %203 ], [ %494, %493 ]
+495:                                              ; preds = %493, %215
+  %496 = phi ptr [ %216, %215 ], [ %494, %493 ]
   br label %497
 
-497:                                              ; preds = %495, %193
-  %498 = phi ptr [ %194, %193 ], [ %496, %495 ]
+497:                                              ; preds = %495, %205
+  %498 = phi ptr [ %206, %205 ], [ %496, %495 ]
   br label %499
 
-499:                                              ; preds = %497, %183
-  %500 = phi ptr [ %184, %183 ], [ %498, %497 ]
+499:                                              ; preds = %497, %195
+  %500 = phi ptr [ %196, %195 ], [ %498, %497 ]
   br label %501
 
-501:                                              ; preds = %499, %173
-  %502 = phi ptr [ %174, %173 ], [ %500, %499 ]
+501:                                              ; preds = %499, %185
+  %502 = phi ptr [ %186, %185 ], [ %500, %499 ]
   br label %503
 
-503:                                              ; preds = %501, %163
-  %504 = phi ptr [ %164, %163 ], [ %502, %501 ]
+503:                                              ; preds = %501, %175
+  %504 = phi ptr [ %176, %175 ], [ %502, %501 ]
   br label %505
 
-505:                                              ; preds = %503, %153
-  %506 = phi ptr [ %154, %153 ], [ %504, %503 ]
+505:                                              ; preds = %503, %165
+  %506 = phi ptr [ %166, %165 ], [ %504, %503 ]
   br label %507
 
-507:                                              ; preds = %505, %143
-  %508 = phi ptr [ %144, %143 ], [ %506, %505 ]
+507:                                              ; preds = %505, %155
+  %508 = phi ptr [ %156, %155 ], [ %506, %505 ]
   br label %509
 
-509:                                              ; preds = %507, %133
-  %510 = phi ptr [ %134, %133 ], [ %508, %507 ]
-  br label %519
+509:                                              ; preds = %507, %145
+  %510 = phi ptr [ %146, %145 ], [ %508, %507 ]
+  br label %511
 
-511:                                              ; preds = %117
-  %512 = load i64, ptr %10, align 8
-  %513 = add i64 24, %512
-  %514 = add i64 %513, 1
-  %515 = add i64 %514, 8
-  %516 = sub i64 %515, 1
-  %517 = and i64 %516, -8
-  %518 = call noalias ptr @_emalloc(i64 noundef %517) #9
-  br label %519
-
-519:                                              ; preds = %511, %509
-  %520 = phi ptr [ %510, %509 ], [ %518, %511 ]
+511:                                              ; preds = %509, %135
+  %512 = phi ptr [ %136, %135 ], [ %510, %509 ]
   br label %521
 
-521:                                              ; preds = %519, %109
-  %522 = phi ptr [ %116, %109 ], [ %520, %519 ]
-  store ptr %522, ptr %12, align 8
-  %523 = load ptr, ptr %12, align 8
-  store ptr %523, ptr %3, align 8
+513:                                              ; preds = %119
+  %514 = load i64, ptr %10, align 8
+  %515 = add i64 24, %514
+  %516 = add i64 %515, 1
+  %517 = add i64 %516, 8
+  %518 = sub i64 %517, 1
+  %519 = and i64 %518, -8
+  %520 = call noalias ptr @_emalloc(i64 noundef %519) #9
+  br label %521
+
+521:                                              ; preds = %513, %511
+  %522 = phi ptr [ %512, %511 ], [ %520, %513 ]
+  br label %523
+
+523:                                              ; preds = %521, %111
+  %524 = phi ptr [ %118, %111 ], [ %522, %521 ]
+  store ptr %524, ptr %12, align 8
+  %525 = load ptr, ptr %12, align 8
+  store ptr %525, ptr %3, align 8
   store i32 1, ptr %4, align 4
-  %524 = load i32, ptr %4, align 4
-  %525 = load ptr, ptr %3, align 8
-  store i32 %524, ptr %525, align 4
-  %526 = load i8, ptr %11, align 1
-  %527 = trunc i8 %526 to i1
-  %528 = select i1 %527, i32 128, i32 0
-  %529 = or i32 22, %528
-  %530 = load ptr, ptr %12, align 8
-  %531 = getelementptr inbounds %struct._zend_refcounted_h, ptr %530, i32 0, i32 1
-  store i32 %529, ptr %531, align 4
+  %526 = load i32, ptr %4, align 4
+  %527 = load ptr, ptr %3, align 8
+  store i32 %526, ptr %527, align 4
+  %528 = load i8, ptr %11, align 1
+  %529 = trunc i8 %528 to i1
+  %530 = select i1 %529, i32 128, i32 0
+  %531 = or i32 22, %530
   %532 = load ptr, ptr %12, align 8
-  %533 = getelementptr inbounds %struct._zend_string, ptr %532, i32 0, i32 1
-  store i64 0, ptr %533, align 8
-  %534 = load i64, ptr %10, align 8
-  %535 = load ptr, ptr %12, align 8
-  %536 = getelementptr inbounds %struct._zend_string, ptr %535, i32 0, i32 2
-  store i64 %534, ptr %536, align 8
+  %533 = getelementptr inbounds %struct._zend_refcounted_h, ptr %532, i32 0, i32 1
+  store i32 %531, ptr %533, align 4
+  %534 = load ptr, ptr %12, align 8
+  %535 = getelementptr inbounds %struct._zend_string, ptr %534, i32 0, i32 1
+  store i64 0, ptr %535, align 8
+  %536 = load i64, ptr %10, align 8
   %537 = load ptr, ptr %12, align 8
-  store ptr %537, ptr %16, align 8
-  %538 = load ptr, ptr %16, align 8
-  %539 = getelementptr inbounds %struct._zend_string, ptr %538, i32 0, i32 3
-  %540 = load ptr, ptr %13, align 8
-  %541 = load i64, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %539, ptr align 1 %540, i64 %541, i1 false)
-  %542 = load ptr, ptr %16, align 8
-  %543 = getelementptr inbounds %struct._zend_string, ptr %542, i32 0, i32 3
-  %544 = load i64, ptr %14, align 8
-  %545 = getelementptr inbounds [1 x i8], ptr %543, i64 0, i64 %544
-  store i8 0, ptr %545, align 1
-  %546 = load ptr, ptr %16, align 8
-  store ptr %546, ptr %34, align 8
-  %547 = load ptr, ptr %34, align 8
-  %548 = load ptr, ptr %33, align 8
-  %549 = getelementptr inbounds %struct._zval_struct, ptr %548, i32 0, i32 0
-  store ptr %547, ptr %549, align 8
+  %538 = getelementptr inbounds %struct._zend_string, ptr %537, i32 0, i32 2
+  store i64 %536, ptr %538, align 8
+  %539 = load ptr, ptr %12, align 8
+  store ptr %539, ptr %16, align 8
+  %540 = load ptr, ptr %16, align 8
+  %541 = getelementptr inbounds %struct._zend_string, ptr %540, i32 0, i32 3
+  %542 = load ptr, ptr %13, align 8
+  %543 = load i64, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %541, ptr align 1 %542, i64 %543, i1 false)
+  %544 = load ptr, ptr %16, align 8
+  %545 = getelementptr inbounds %struct._zend_string, ptr %544, i32 0, i32 3
+  %546 = load i64, ptr %14, align 8
+  %547 = getelementptr inbounds [1 x i8], ptr %545, i64 0, i64 %546
+  store i8 0, ptr %547, align 1
+  %548 = load ptr, ptr %16, align 8
+  store ptr %548, ptr %34, align 8
+  %549 = load ptr, ptr %34, align 8
   %550 = load ptr, ptr %33, align 8
-  %551 = getelementptr inbounds %struct._zval_struct, ptr %550, i32 0, i32 1
-  store i32 262, ptr %551, align 8
-  br label %552
-
-552:                                              ; preds = %521
-  br label %553
-
-553:                                              ; preds = %552
+  %551 = getelementptr inbounds %struct._zval_struct, ptr %550, i32 0, i32 0
+  store ptr %549, ptr %551, align 8
+  %552 = load ptr, ptr %33, align 8
+  %553 = getelementptr inbounds %struct._zval_struct, ptr %552, i32 0, i32 1
+  store i32 262, ptr %553, align 8
   br label %554
 
-554:                                              ; preds = %553
-  %555 = load ptr, ptr @xmlFree, align 8
-  %556 = load ptr, ptr %31, align 8
-  call void %555(ptr noundef %556)
-  br label %1056
+554:                                              ; preds = %523
+  br label %555
 
-557:                                              ; preds = %82
-  %558 = load ptr, ptr %29, align 8
-  %559 = call i32 @xmlStrEqual(ptr noundef %558, ptr noundef @.str.12)
-  %560 = icmp ne i32 %559, 0
-  br i1 %560, label %561, label %1043
+555:                                              ; preds = %554
+  br label %556
 
-561:                                              ; preds = %557
-  %562 = load ptr, ptr %24, align 8
-  %563 = load ptr, ptr %30, align 8
-  %564 = call ptr @dom_get_nsdecl(ptr noundef %562, ptr noundef %563)
-  store ptr %564, ptr %25, align 8
-  %565 = load ptr, ptr %25, align 8
-  %566 = icmp ne ptr %565, null
-  br i1 %566, label %567, label %1030
+556:                                              ; preds = %555
+  %557 = load ptr, ptr @xmlFree, align 8
+  %558 = load ptr, ptr %31, align 8
+  call void %557(ptr noundef %558)
+  br label %1058
 
-567:                                              ; preds = %561
-  br label %568
+559:                                              ; preds = %84
+  %560 = load ptr, ptr %29, align 8
+  %561 = call i32 @xmlStrEqual(ptr noundef %560, ptr noundef @.str.12)
+  %562 = icmp ne i32 %561, 0
+  br i1 %562, label %563, label %1045
 
-568:                                              ; preds = %567
-  %569 = load ptr, ptr %25, align 8
-  %570 = getelementptr inbounds %struct._xmlNs, ptr %569, i32 0, i32 2
-  %571 = load ptr, ptr %570, align 8
-  store ptr %571, ptr %35, align 8
-  br label %572
+563:                                              ; preds = %559
+  %564 = load ptr, ptr %24, align 8
+  %565 = load ptr, ptr %30, align 8
+  %566 = call ptr @dom_get_nsdecl(ptr noundef %564, ptr noundef %565)
+  store ptr %566, ptr %25, align 8
+  %567 = load ptr, ptr %25, align 8
+  %568 = icmp ne ptr %567, null
+  br i1 %568, label %569, label %1032
 
-572:                                              ; preds = %568
-  br label %573
+569:                                              ; preds = %563
+  br label %570
 
-573:                                              ; preds = %572
-  %574 = load ptr, ptr %22, align 8
-  store ptr %574, ptr %36, align 8
-  %575 = load ptr, ptr %35, align 8
-  %576 = load ptr, ptr %35, align 8
-  %577 = call i64 @strlen(ptr noundef %576) #8
-  store ptr %575, ptr %17, align 8
-  store i64 %577, ptr %18, align 8
+570:                                              ; preds = %569
+  %571 = load ptr, ptr %25, align 8
+  %572 = getelementptr inbounds %struct._xmlNs, ptr %571, i32 0, i32 2
+  %573 = load ptr, ptr %572, align 8
+  store ptr %573, ptr %35, align 8
+  br label %574
+
+574:                                              ; preds = %570
+  br label %575
+
+575:                                              ; preds = %574
+  %576 = load ptr, ptr %22, align 8
+  store ptr %576, ptr %36, align 8
+  %577 = load ptr, ptr %35, align 8
+  %578 = load ptr, ptr %35, align 8
+  %579 = call i64 @strlen(ptr noundef %578) #8
+  store ptr %577, ptr %17, align 8
+  store i64 %579, ptr %18, align 8
   store i8 0, ptr %19, align 1
-  %578 = load i64, ptr %18, align 8
-  %579 = load i8, ptr %19, align 1
-  %580 = trunc i8 %579 to i1
-  store i64 %578, ptr %7, align 8
-  %581 = zext i1 %580 to i8
-  store i8 %581, ptr %8, align 1
-  %582 = load i8, ptr %8, align 1
-  %583 = trunc i8 %582 to i1
-  br i1 %583, label %584, label %592
+  %580 = load i64, ptr %18, align 8
+  %581 = load i8, ptr %19, align 1
+  %582 = trunc i8 %581 to i1
+  store i64 %580, ptr %7, align 8
+  %583 = zext i1 %582 to i8
+  store i8 %583, ptr %8, align 1
+  %584 = load i8, ptr %8, align 1
+  %585 = trunc i8 %584 to i1
+  br i1 %585, label %586, label %594
 
-584:                                              ; preds = %573
-  %585 = load i64, ptr %7, align 8
-  %586 = add i64 24, %585
-  %587 = add i64 %586, 1
-  %588 = add i64 %587, 8
-  %589 = sub i64 %588, 1
-  %590 = and i64 %589, -8
-  %591 = call noalias ptr @__zend_malloc(i64 noundef %590) #9
-  br label %996
+586:                                              ; preds = %575
+  %587 = load i64, ptr %7, align 8
+  %588 = add i64 24, %587
+  %589 = add i64 %588, 1
+  %590 = add i64 %589, 8
+  %591 = sub i64 %590, 1
+  %592 = and i64 %591, -8
+  %593 = call noalias ptr @__zend_malloc(i64 noundef %592) #9
+  br label %998
 
-592:                                              ; preds = %573
-  %593 = load i64, ptr %7, align 8
-  %594 = add i64 24, %593
-  %595 = add i64 %594, 1
-  %596 = add i64 %595, 8
-  %597 = sub i64 %596, 1
-  %598 = and i64 %597, -8
-  %599 = call i1 @llvm.is.constant.i64(i64 %598)
-  br i1 %599, label %600, label %986
+594:                                              ; preds = %575
+  %595 = load i64, ptr %7, align 8
+  %596 = add i64 24, %595
+  %597 = add i64 %596, 1
+  %598 = add i64 %597, 8
+  %599 = sub i64 %598, 1
+  %600 = and i64 %599, -8
+  %601 = call i1 @llvm.is.constant.i64(i64 %600)
+  br i1 %601, label %602, label %988
 
-600:                                              ; preds = %592
-  %601 = load i64, ptr %7, align 8
-  %602 = add i64 24, %601
-  %603 = add i64 %602, 1
-  %604 = add i64 %603, 8
-  %605 = sub i64 %604, 1
-  %606 = and i64 %605, -8
-  %607 = icmp ule i64 %606, 8
-  br i1 %607, label %608, label %610
+602:                                              ; preds = %594
+  %603 = load i64, ptr %7, align 8
+  %604 = add i64 24, %603
+  %605 = add i64 %604, 1
+  %606 = add i64 %605, 8
+  %607 = sub i64 %606, 1
+  %608 = and i64 %607, -8
+  %609 = icmp ule i64 %608, 8
+  br i1 %609, label %610, label %612
 
-608:                                              ; preds = %600
-  %609 = call noalias ptr @_emalloc_8() #10
+610:                                              ; preds = %602
+  %611 = call noalias ptr @_emalloc_8() #10
+  br label %986
+
+612:                                              ; preds = %602
+  %613 = load i64, ptr %7, align 8
+  %614 = add i64 24, %613
+  %615 = add i64 %614, 1
+  %616 = add i64 %615, 8
+  %617 = sub i64 %616, 1
+  %618 = and i64 %617, -8
+  %619 = icmp ule i64 %618, 16
+  br i1 %619, label %620, label %622
+
+620:                                              ; preds = %612
+  %621 = call noalias ptr @_emalloc_16() #10
   br label %984
 
-610:                                              ; preds = %600
-  %611 = load i64, ptr %7, align 8
-  %612 = add i64 24, %611
-  %613 = add i64 %612, 1
-  %614 = add i64 %613, 8
-  %615 = sub i64 %614, 1
-  %616 = and i64 %615, -8
-  %617 = icmp ule i64 %616, 16
-  br i1 %617, label %618, label %620
+622:                                              ; preds = %612
+  %623 = load i64, ptr %7, align 8
+  %624 = add i64 24, %623
+  %625 = add i64 %624, 1
+  %626 = add i64 %625, 8
+  %627 = sub i64 %626, 1
+  %628 = and i64 %627, -8
+  %629 = icmp ule i64 %628, 24
+  br i1 %629, label %630, label %632
 
-618:                                              ; preds = %610
-  %619 = call noalias ptr @_emalloc_16() #10
+630:                                              ; preds = %622
+  %631 = call noalias ptr @_emalloc_24() #10
   br label %982
 
-620:                                              ; preds = %610
-  %621 = load i64, ptr %7, align 8
-  %622 = add i64 24, %621
-  %623 = add i64 %622, 1
-  %624 = add i64 %623, 8
-  %625 = sub i64 %624, 1
-  %626 = and i64 %625, -8
-  %627 = icmp ule i64 %626, 24
-  br i1 %627, label %628, label %630
+632:                                              ; preds = %622
+  %633 = load i64, ptr %7, align 8
+  %634 = add i64 24, %633
+  %635 = add i64 %634, 1
+  %636 = add i64 %635, 8
+  %637 = sub i64 %636, 1
+  %638 = and i64 %637, -8
+  %639 = icmp ule i64 %638, 32
+  br i1 %639, label %640, label %642
 
-628:                                              ; preds = %620
-  %629 = call noalias ptr @_emalloc_24() #10
+640:                                              ; preds = %632
+  %641 = call noalias ptr @_emalloc_32() #10
   br label %980
 
-630:                                              ; preds = %620
-  %631 = load i64, ptr %7, align 8
-  %632 = add i64 24, %631
-  %633 = add i64 %632, 1
-  %634 = add i64 %633, 8
-  %635 = sub i64 %634, 1
-  %636 = and i64 %635, -8
-  %637 = icmp ule i64 %636, 32
-  br i1 %637, label %638, label %640
+642:                                              ; preds = %632
+  %643 = load i64, ptr %7, align 8
+  %644 = add i64 24, %643
+  %645 = add i64 %644, 1
+  %646 = add i64 %645, 8
+  %647 = sub i64 %646, 1
+  %648 = and i64 %647, -8
+  %649 = icmp ule i64 %648, 40
+  br i1 %649, label %650, label %652
 
-638:                                              ; preds = %630
-  %639 = call noalias ptr @_emalloc_32() #10
+650:                                              ; preds = %642
+  %651 = call noalias ptr @_emalloc_40() #10
   br label %978
 
-640:                                              ; preds = %630
-  %641 = load i64, ptr %7, align 8
-  %642 = add i64 24, %641
-  %643 = add i64 %642, 1
-  %644 = add i64 %643, 8
-  %645 = sub i64 %644, 1
-  %646 = and i64 %645, -8
-  %647 = icmp ule i64 %646, 40
-  br i1 %647, label %648, label %650
+652:                                              ; preds = %642
+  %653 = load i64, ptr %7, align 8
+  %654 = add i64 24, %653
+  %655 = add i64 %654, 1
+  %656 = add i64 %655, 8
+  %657 = sub i64 %656, 1
+  %658 = and i64 %657, -8
+  %659 = icmp ule i64 %658, 48
+  br i1 %659, label %660, label %662
 
-648:                                              ; preds = %640
-  %649 = call noalias ptr @_emalloc_40() #10
+660:                                              ; preds = %652
+  %661 = call noalias ptr @_emalloc_48() #10
   br label %976
 
-650:                                              ; preds = %640
-  %651 = load i64, ptr %7, align 8
-  %652 = add i64 24, %651
-  %653 = add i64 %652, 1
-  %654 = add i64 %653, 8
-  %655 = sub i64 %654, 1
-  %656 = and i64 %655, -8
-  %657 = icmp ule i64 %656, 48
-  br i1 %657, label %658, label %660
+662:                                              ; preds = %652
+  %663 = load i64, ptr %7, align 8
+  %664 = add i64 24, %663
+  %665 = add i64 %664, 1
+  %666 = add i64 %665, 8
+  %667 = sub i64 %666, 1
+  %668 = and i64 %667, -8
+  %669 = icmp ule i64 %668, 56
+  br i1 %669, label %670, label %672
 
-658:                                              ; preds = %650
-  %659 = call noalias ptr @_emalloc_48() #10
+670:                                              ; preds = %662
+  %671 = call noalias ptr @_emalloc_56() #10
   br label %974
 
-660:                                              ; preds = %650
-  %661 = load i64, ptr %7, align 8
-  %662 = add i64 24, %661
-  %663 = add i64 %662, 1
-  %664 = add i64 %663, 8
-  %665 = sub i64 %664, 1
-  %666 = and i64 %665, -8
-  %667 = icmp ule i64 %666, 56
-  br i1 %667, label %668, label %670
+672:                                              ; preds = %662
+  %673 = load i64, ptr %7, align 8
+  %674 = add i64 24, %673
+  %675 = add i64 %674, 1
+  %676 = add i64 %675, 8
+  %677 = sub i64 %676, 1
+  %678 = and i64 %677, -8
+  %679 = icmp ule i64 %678, 64
+  br i1 %679, label %680, label %682
 
-668:                                              ; preds = %660
-  %669 = call noalias ptr @_emalloc_56() #10
+680:                                              ; preds = %672
+  %681 = call noalias ptr @_emalloc_64() #10
   br label %972
 
-670:                                              ; preds = %660
-  %671 = load i64, ptr %7, align 8
-  %672 = add i64 24, %671
-  %673 = add i64 %672, 1
-  %674 = add i64 %673, 8
-  %675 = sub i64 %674, 1
-  %676 = and i64 %675, -8
-  %677 = icmp ule i64 %676, 64
-  br i1 %677, label %678, label %680
+682:                                              ; preds = %672
+  %683 = load i64, ptr %7, align 8
+  %684 = add i64 24, %683
+  %685 = add i64 %684, 1
+  %686 = add i64 %685, 8
+  %687 = sub i64 %686, 1
+  %688 = and i64 %687, -8
+  %689 = icmp ule i64 %688, 80
+  br i1 %689, label %690, label %692
 
-678:                                              ; preds = %670
-  %679 = call noalias ptr @_emalloc_64() #10
+690:                                              ; preds = %682
+  %691 = call noalias ptr @_emalloc_80() #10
   br label %970
 
-680:                                              ; preds = %670
-  %681 = load i64, ptr %7, align 8
-  %682 = add i64 24, %681
-  %683 = add i64 %682, 1
-  %684 = add i64 %683, 8
-  %685 = sub i64 %684, 1
-  %686 = and i64 %685, -8
-  %687 = icmp ule i64 %686, 80
-  br i1 %687, label %688, label %690
+692:                                              ; preds = %682
+  %693 = load i64, ptr %7, align 8
+  %694 = add i64 24, %693
+  %695 = add i64 %694, 1
+  %696 = add i64 %695, 8
+  %697 = sub i64 %696, 1
+  %698 = and i64 %697, -8
+  %699 = icmp ule i64 %698, 96
+  br i1 %699, label %700, label %702
 
-688:                                              ; preds = %680
-  %689 = call noalias ptr @_emalloc_80() #10
+700:                                              ; preds = %692
+  %701 = call noalias ptr @_emalloc_96() #10
   br label %968
 
-690:                                              ; preds = %680
-  %691 = load i64, ptr %7, align 8
-  %692 = add i64 24, %691
-  %693 = add i64 %692, 1
-  %694 = add i64 %693, 8
-  %695 = sub i64 %694, 1
-  %696 = and i64 %695, -8
-  %697 = icmp ule i64 %696, 96
-  br i1 %697, label %698, label %700
+702:                                              ; preds = %692
+  %703 = load i64, ptr %7, align 8
+  %704 = add i64 24, %703
+  %705 = add i64 %704, 1
+  %706 = add i64 %705, 8
+  %707 = sub i64 %706, 1
+  %708 = and i64 %707, -8
+  %709 = icmp ule i64 %708, 112
+  br i1 %709, label %710, label %712
 
-698:                                              ; preds = %690
-  %699 = call noalias ptr @_emalloc_96() #10
+710:                                              ; preds = %702
+  %711 = call noalias ptr @_emalloc_112() #10
   br label %966
 
-700:                                              ; preds = %690
-  %701 = load i64, ptr %7, align 8
-  %702 = add i64 24, %701
-  %703 = add i64 %702, 1
-  %704 = add i64 %703, 8
-  %705 = sub i64 %704, 1
-  %706 = and i64 %705, -8
-  %707 = icmp ule i64 %706, 112
-  br i1 %707, label %708, label %710
+712:                                              ; preds = %702
+  %713 = load i64, ptr %7, align 8
+  %714 = add i64 24, %713
+  %715 = add i64 %714, 1
+  %716 = add i64 %715, 8
+  %717 = sub i64 %716, 1
+  %718 = and i64 %717, -8
+  %719 = icmp ule i64 %718, 128
+  br i1 %719, label %720, label %722
 
-708:                                              ; preds = %700
-  %709 = call noalias ptr @_emalloc_112() #10
+720:                                              ; preds = %712
+  %721 = call noalias ptr @_emalloc_128() #10
   br label %964
 
-710:                                              ; preds = %700
-  %711 = load i64, ptr %7, align 8
-  %712 = add i64 24, %711
-  %713 = add i64 %712, 1
-  %714 = add i64 %713, 8
-  %715 = sub i64 %714, 1
-  %716 = and i64 %715, -8
-  %717 = icmp ule i64 %716, 128
-  br i1 %717, label %718, label %720
+722:                                              ; preds = %712
+  %723 = load i64, ptr %7, align 8
+  %724 = add i64 24, %723
+  %725 = add i64 %724, 1
+  %726 = add i64 %725, 8
+  %727 = sub i64 %726, 1
+  %728 = and i64 %727, -8
+  %729 = icmp ule i64 %728, 160
+  br i1 %729, label %730, label %732
 
-718:                                              ; preds = %710
-  %719 = call noalias ptr @_emalloc_128() #10
+730:                                              ; preds = %722
+  %731 = call noalias ptr @_emalloc_160() #10
   br label %962
 
-720:                                              ; preds = %710
-  %721 = load i64, ptr %7, align 8
-  %722 = add i64 24, %721
-  %723 = add i64 %722, 1
-  %724 = add i64 %723, 8
-  %725 = sub i64 %724, 1
-  %726 = and i64 %725, -8
-  %727 = icmp ule i64 %726, 160
-  br i1 %727, label %728, label %730
+732:                                              ; preds = %722
+  %733 = load i64, ptr %7, align 8
+  %734 = add i64 24, %733
+  %735 = add i64 %734, 1
+  %736 = add i64 %735, 8
+  %737 = sub i64 %736, 1
+  %738 = and i64 %737, -8
+  %739 = icmp ule i64 %738, 192
+  br i1 %739, label %740, label %742
 
-728:                                              ; preds = %720
-  %729 = call noalias ptr @_emalloc_160() #10
+740:                                              ; preds = %732
+  %741 = call noalias ptr @_emalloc_192() #10
   br label %960
 
-730:                                              ; preds = %720
-  %731 = load i64, ptr %7, align 8
-  %732 = add i64 24, %731
-  %733 = add i64 %732, 1
-  %734 = add i64 %733, 8
-  %735 = sub i64 %734, 1
-  %736 = and i64 %735, -8
-  %737 = icmp ule i64 %736, 192
-  br i1 %737, label %738, label %740
+742:                                              ; preds = %732
+  %743 = load i64, ptr %7, align 8
+  %744 = add i64 24, %743
+  %745 = add i64 %744, 1
+  %746 = add i64 %745, 8
+  %747 = sub i64 %746, 1
+  %748 = and i64 %747, -8
+  %749 = icmp ule i64 %748, 224
+  br i1 %749, label %750, label %752
 
-738:                                              ; preds = %730
-  %739 = call noalias ptr @_emalloc_192() #10
+750:                                              ; preds = %742
+  %751 = call noalias ptr @_emalloc_224() #10
   br label %958
 
-740:                                              ; preds = %730
-  %741 = load i64, ptr %7, align 8
-  %742 = add i64 24, %741
-  %743 = add i64 %742, 1
-  %744 = add i64 %743, 8
-  %745 = sub i64 %744, 1
-  %746 = and i64 %745, -8
-  %747 = icmp ule i64 %746, 224
-  br i1 %747, label %748, label %750
+752:                                              ; preds = %742
+  %753 = load i64, ptr %7, align 8
+  %754 = add i64 24, %753
+  %755 = add i64 %754, 1
+  %756 = add i64 %755, 8
+  %757 = sub i64 %756, 1
+  %758 = and i64 %757, -8
+  %759 = icmp ule i64 %758, 256
+  br i1 %759, label %760, label %762
 
-748:                                              ; preds = %740
-  %749 = call noalias ptr @_emalloc_224() #10
+760:                                              ; preds = %752
+  %761 = call noalias ptr @_emalloc_256() #10
   br label %956
 
-750:                                              ; preds = %740
-  %751 = load i64, ptr %7, align 8
-  %752 = add i64 24, %751
-  %753 = add i64 %752, 1
-  %754 = add i64 %753, 8
-  %755 = sub i64 %754, 1
-  %756 = and i64 %755, -8
-  %757 = icmp ule i64 %756, 256
-  br i1 %757, label %758, label %760
+762:                                              ; preds = %752
+  %763 = load i64, ptr %7, align 8
+  %764 = add i64 24, %763
+  %765 = add i64 %764, 1
+  %766 = add i64 %765, 8
+  %767 = sub i64 %766, 1
+  %768 = and i64 %767, -8
+  %769 = icmp ule i64 %768, 320
+  br i1 %769, label %770, label %772
 
-758:                                              ; preds = %750
-  %759 = call noalias ptr @_emalloc_256() #10
+770:                                              ; preds = %762
+  %771 = call noalias ptr @_emalloc_320() #10
   br label %954
 
-760:                                              ; preds = %750
-  %761 = load i64, ptr %7, align 8
-  %762 = add i64 24, %761
-  %763 = add i64 %762, 1
-  %764 = add i64 %763, 8
-  %765 = sub i64 %764, 1
-  %766 = and i64 %765, -8
-  %767 = icmp ule i64 %766, 320
-  br i1 %767, label %768, label %770
+772:                                              ; preds = %762
+  %773 = load i64, ptr %7, align 8
+  %774 = add i64 24, %773
+  %775 = add i64 %774, 1
+  %776 = add i64 %775, 8
+  %777 = sub i64 %776, 1
+  %778 = and i64 %777, -8
+  %779 = icmp ule i64 %778, 384
+  br i1 %779, label %780, label %782
 
-768:                                              ; preds = %760
-  %769 = call noalias ptr @_emalloc_320() #10
+780:                                              ; preds = %772
+  %781 = call noalias ptr @_emalloc_384() #10
   br label %952
 
-770:                                              ; preds = %760
-  %771 = load i64, ptr %7, align 8
-  %772 = add i64 24, %771
-  %773 = add i64 %772, 1
-  %774 = add i64 %773, 8
-  %775 = sub i64 %774, 1
-  %776 = and i64 %775, -8
-  %777 = icmp ule i64 %776, 384
-  br i1 %777, label %778, label %780
+782:                                              ; preds = %772
+  %783 = load i64, ptr %7, align 8
+  %784 = add i64 24, %783
+  %785 = add i64 %784, 1
+  %786 = add i64 %785, 8
+  %787 = sub i64 %786, 1
+  %788 = and i64 %787, -8
+  %789 = icmp ule i64 %788, 448
+  br i1 %789, label %790, label %792
 
-778:                                              ; preds = %770
-  %779 = call noalias ptr @_emalloc_384() #10
+790:                                              ; preds = %782
+  %791 = call noalias ptr @_emalloc_448() #10
   br label %950
 
-780:                                              ; preds = %770
-  %781 = load i64, ptr %7, align 8
-  %782 = add i64 24, %781
-  %783 = add i64 %782, 1
-  %784 = add i64 %783, 8
-  %785 = sub i64 %784, 1
-  %786 = and i64 %785, -8
-  %787 = icmp ule i64 %786, 448
-  br i1 %787, label %788, label %790
+792:                                              ; preds = %782
+  %793 = load i64, ptr %7, align 8
+  %794 = add i64 24, %793
+  %795 = add i64 %794, 1
+  %796 = add i64 %795, 8
+  %797 = sub i64 %796, 1
+  %798 = and i64 %797, -8
+  %799 = icmp ule i64 %798, 512
+  br i1 %799, label %800, label %802
 
-788:                                              ; preds = %780
-  %789 = call noalias ptr @_emalloc_448() #10
+800:                                              ; preds = %792
+  %801 = call noalias ptr @_emalloc_512() #10
   br label %948
 
-790:                                              ; preds = %780
-  %791 = load i64, ptr %7, align 8
-  %792 = add i64 24, %791
-  %793 = add i64 %792, 1
-  %794 = add i64 %793, 8
-  %795 = sub i64 %794, 1
-  %796 = and i64 %795, -8
-  %797 = icmp ule i64 %796, 512
-  br i1 %797, label %798, label %800
+802:                                              ; preds = %792
+  %803 = load i64, ptr %7, align 8
+  %804 = add i64 24, %803
+  %805 = add i64 %804, 1
+  %806 = add i64 %805, 8
+  %807 = sub i64 %806, 1
+  %808 = and i64 %807, -8
+  %809 = icmp ule i64 %808, 640
+  br i1 %809, label %810, label %812
 
-798:                                              ; preds = %790
-  %799 = call noalias ptr @_emalloc_512() #10
+810:                                              ; preds = %802
+  %811 = call noalias ptr @_emalloc_640() #10
   br label %946
 
-800:                                              ; preds = %790
-  %801 = load i64, ptr %7, align 8
-  %802 = add i64 24, %801
-  %803 = add i64 %802, 1
-  %804 = add i64 %803, 8
-  %805 = sub i64 %804, 1
-  %806 = and i64 %805, -8
-  %807 = icmp ule i64 %806, 640
-  br i1 %807, label %808, label %810
+812:                                              ; preds = %802
+  %813 = load i64, ptr %7, align 8
+  %814 = add i64 24, %813
+  %815 = add i64 %814, 1
+  %816 = add i64 %815, 8
+  %817 = sub i64 %816, 1
+  %818 = and i64 %817, -8
+  %819 = icmp ule i64 %818, 768
+  br i1 %819, label %820, label %822
 
-808:                                              ; preds = %800
-  %809 = call noalias ptr @_emalloc_640() #10
+820:                                              ; preds = %812
+  %821 = call noalias ptr @_emalloc_768() #10
   br label %944
 
-810:                                              ; preds = %800
-  %811 = load i64, ptr %7, align 8
-  %812 = add i64 24, %811
-  %813 = add i64 %812, 1
-  %814 = add i64 %813, 8
-  %815 = sub i64 %814, 1
-  %816 = and i64 %815, -8
-  %817 = icmp ule i64 %816, 768
-  br i1 %817, label %818, label %820
+822:                                              ; preds = %812
+  %823 = load i64, ptr %7, align 8
+  %824 = add i64 24, %823
+  %825 = add i64 %824, 1
+  %826 = add i64 %825, 8
+  %827 = sub i64 %826, 1
+  %828 = and i64 %827, -8
+  %829 = icmp ule i64 %828, 896
+  br i1 %829, label %830, label %832
 
-818:                                              ; preds = %810
-  %819 = call noalias ptr @_emalloc_768() #10
+830:                                              ; preds = %822
+  %831 = call noalias ptr @_emalloc_896() #10
   br label %942
 
-820:                                              ; preds = %810
-  %821 = load i64, ptr %7, align 8
-  %822 = add i64 24, %821
-  %823 = add i64 %822, 1
-  %824 = add i64 %823, 8
-  %825 = sub i64 %824, 1
-  %826 = and i64 %825, -8
-  %827 = icmp ule i64 %826, 896
-  br i1 %827, label %828, label %830
+832:                                              ; preds = %822
+  %833 = load i64, ptr %7, align 8
+  %834 = add i64 24, %833
+  %835 = add i64 %834, 1
+  %836 = add i64 %835, 8
+  %837 = sub i64 %836, 1
+  %838 = and i64 %837, -8
+  %839 = icmp ule i64 %838, 1024
+  br i1 %839, label %840, label %842
 
-828:                                              ; preds = %820
-  %829 = call noalias ptr @_emalloc_896() #10
+840:                                              ; preds = %832
+  %841 = call noalias ptr @_emalloc_1024() #10
   br label %940
 
-830:                                              ; preds = %820
-  %831 = load i64, ptr %7, align 8
-  %832 = add i64 24, %831
-  %833 = add i64 %832, 1
-  %834 = add i64 %833, 8
-  %835 = sub i64 %834, 1
-  %836 = and i64 %835, -8
-  %837 = icmp ule i64 %836, 1024
-  br i1 %837, label %838, label %840
+842:                                              ; preds = %832
+  %843 = load i64, ptr %7, align 8
+  %844 = add i64 24, %843
+  %845 = add i64 %844, 1
+  %846 = add i64 %845, 8
+  %847 = sub i64 %846, 1
+  %848 = and i64 %847, -8
+  %849 = icmp ule i64 %848, 1280
+  br i1 %849, label %850, label %852
 
-838:                                              ; preds = %830
-  %839 = call noalias ptr @_emalloc_1024() #10
+850:                                              ; preds = %842
+  %851 = call noalias ptr @_emalloc_1280() #10
   br label %938
 
-840:                                              ; preds = %830
-  %841 = load i64, ptr %7, align 8
-  %842 = add i64 24, %841
-  %843 = add i64 %842, 1
-  %844 = add i64 %843, 8
-  %845 = sub i64 %844, 1
-  %846 = and i64 %845, -8
-  %847 = icmp ule i64 %846, 1280
-  br i1 %847, label %848, label %850
+852:                                              ; preds = %842
+  %853 = load i64, ptr %7, align 8
+  %854 = add i64 24, %853
+  %855 = add i64 %854, 1
+  %856 = add i64 %855, 8
+  %857 = sub i64 %856, 1
+  %858 = and i64 %857, -8
+  %859 = icmp ule i64 %858, 1536
+  br i1 %859, label %860, label %862
 
-848:                                              ; preds = %840
-  %849 = call noalias ptr @_emalloc_1280() #10
+860:                                              ; preds = %852
+  %861 = call noalias ptr @_emalloc_1536() #10
   br label %936
 
-850:                                              ; preds = %840
-  %851 = load i64, ptr %7, align 8
-  %852 = add i64 24, %851
-  %853 = add i64 %852, 1
-  %854 = add i64 %853, 8
-  %855 = sub i64 %854, 1
-  %856 = and i64 %855, -8
-  %857 = icmp ule i64 %856, 1536
-  br i1 %857, label %858, label %860
+862:                                              ; preds = %852
+  %863 = load i64, ptr %7, align 8
+  %864 = add i64 24, %863
+  %865 = add i64 %864, 1
+  %866 = add i64 %865, 8
+  %867 = sub i64 %866, 1
+  %868 = and i64 %867, -8
+  %869 = icmp ule i64 %868, 1792
+  br i1 %869, label %870, label %872
 
-858:                                              ; preds = %850
-  %859 = call noalias ptr @_emalloc_1536() #10
+870:                                              ; preds = %862
+  %871 = call noalias ptr @_emalloc_1792() #10
   br label %934
 
-860:                                              ; preds = %850
-  %861 = load i64, ptr %7, align 8
-  %862 = add i64 24, %861
-  %863 = add i64 %862, 1
-  %864 = add i64 %863, 8
-  %865 = sub i64 %864, 1
-  %866 = and i64 %865, -8
-  %867 = icmp ule i64 %866, 1792
-  br i1 %867, label %868, label %870
+872:                                              ; preds = %862
+  %873 = load i64, ptr %7, align 8
+  %874 = add i64 24, %873
+  %875 = add i64 %874, 1
+  %876 = add i64 %875, 8
+  %877 = sub i64 %876, 1
+  %878 = and i64 %877, -8
+  %879 = icmp ule i64 %878, 2048
+  br i1 %879, label %880, label %882
 
-868:                                              ; preds = %860
-  %869 = call noalias ptr @_emalloc_1792() #10
+880:                                              ; preds = %872
+  %881 = call noalias ptr @_emalloc_2048() #10
   br label %932
 
-870:                                              ; preds = %860
-  %871 = load i64, ptr %7, align 8
-  %872 = add i64 24, %871
-  %873 = add i64 %872, 1
-  %874 = add i64 %873, 8
-  %875 = sub i64 %874, 1
-  %876 = and i64 %875, -8
-  %877 = icmp ule i64 %876, 2048
-  br i1 %877, label %878, label %880
+882:                                              ; preds = %872
+  %883 = load i64, ptr %7, align 8
+  %884 = add i64 24, %883
+  %885 = add i64 %884, 1
+  %886 = add i64 %885, 8
+  %887 = sub i64 %886, 1
+  %888 = and i64 %887, -8
+  %889 = icmp ule i64 %888, 2560
+  br i1 %889, label %890, label %892
 
-878:                                              ; preds = %870
-  %879 = call noalias ptr @_emalloc_2048() #10
+890:                                              ; preds = %882
+  %891 = call noalias ptr @_emalloc_2560() #10
   br label %930
 
-880:                                              ; preds = %870
-  %881 = load i64, ptr %7, align 8
-  %882 = add i64 24, %881
-  %883 = add i64 %882, 1
-  %884 = add i64 %883, 8
-  %885 = sub i64 %884, 1
-  %886 = and i64 %885, -8
-  %887 = icmp ule i64 %886, 2560
-  br i1 %887, label %888, label %890
+892:                                              ; preds = %882
+  %893 = load i64, ptr %7, align 8
+  %894 = add i64 24, %893
+  %895 = add i64 %894, 1
+  %896 = add i64 %895, 8
+  %897 = sub i64 %896, 1
+  %898 = and i64 %897, -8
+  %899 = icmp ule i64 %898, 3072
+  br i1 %899, label %900, label %902
 
-888:                                              ; preds = %880
-  %889 = call noalias ptr @_emalloc_2560() #10
+900:                                              ; preds = %892
+  %901 = call noalias ptr @_emalloc_3072() #10
   br label %928
 
-890:                                              ; preds = %880
-  %891 = load i64, ptr %7, align 8
-  %892 = add i64 24, %891
-  %893 = add i64 %892, 1
-  %894 = add i64 %893, 8
-  %895 = sub i64 %894, 1
-  %896 = and i64 %895, -8
-  %897 = icmp ule i64 %896, 3072
-  br i1 %897, label %898, label %900
+902:                                              ; preds = %892
+  %903 = load i64, ptr %7, align 8
+  %904 = add i64 24, %903
+  %905 = add i64 %904, 1
+  %906 = add i64 %905, 8
+  %907 = sub i64 %906, 1
+  %908 = and i64 %907, -8
+  %909 = icmp ule i64 %908, 2093056
+  br i1 %909, label %910, label %918
 
-898:                                              ; preds = %890
-  %899 = call noalias ptr @_emalloc_3072() #10
+910:                                              ; preds = %902
+  %911 = load i64, ptr %7, align 8
+  %912 = add i64 24, %911
+  %913 = add i64 %912, 1
+  %914 = add i64 %913, 8
+  %915 = sub i64 %914, 1
+  %916 = and i64 %915, -8
+  %917 = call noalias ptr @_emalloc_large(i64 noundef %916) #9
   br label %926
 
-900:                                              ; preds = %890
-  %901 = load i64, ptr %7, align 8
-  %902 = add i64 24, %901
-  %903 = add i64 %902, 1
-  %904 = add i64 %903, 8
-  %905 = sub i64 %904, 1
-  %906 = and i64 %905, -8
-  %907 = icmp ule i64 %906, 2093056
-  br i1 %907, label %908, label %916
-
-908:                                              ; preds = %900
-  %909 = load i64, ptr %7, align 8
-  %910 = add i64 24, %909
-  %911 = add i64 %910, 1
-  %912 = add i64 %911, 8
-  %913 = sub i64 %912, 1
-  %914 = and i64 %913, -8
-  %915 = call noalias ptr @_emalloc_large(i64 noundef %914) #9
-  br label %924
-
-916:                                              ; preds = %900
-  %917 = load i64, ptr %7, align 8
-  %918 = add i64 24, %917
-  %919 = add i64 %918, 1
-  %920 = add i64 %919, 8
-  %921 = sub i64 %920, 1
-  %922 = and i64 %921, -8
-  %923 = call noalias ptr @_emalloc_huge(i64 noundef %922) #9
-  br label %924
-
-924:                                              ; preds = %916, %908
-  %925 = phi ptr [ %915, %908 ], [ %923, %916 ]
+918:                                              ; preds = %902
+  %919 = load i64, ptr %7, align 8
+  %920 = add i64 24, %919
+  %921 = add i64 %920, 1
+  %922 = add i64 %921, 8
+  %923 = sub i64 %922, 1
+  %924 = and i64 %923, -8
+  %925 = call noalias ptr @_emalloc_huge(i64 noundef %924) #9
   br label %926
 
-926:                                              ; preds = %924, %898
-  %927 = phi ptr [ %899, %898 ], [ %925, %924 ]
+926:                                              ; preds = %918, %910
+  %927 = phi ptr [ %917, %910 ], [ %925, %918 ]
   br label %928
 
-928:                                              ; preds = %926, %888
-  %929 = phi ptr [ %889, %888 ], [ %927, %926 ]
+928:                                              ; preds = %926, %900
+  %929 = phi ptr [ %901, %900 ], [ %927, %926 ]
   br label %930
 
-930:                                              ; preds = %928, %878
-  %931 = phi ptr [ %879, %878 ], [ %929, %928 ]
+930:                                              ; preds = %928, %890
+  %931 = phi ptr [ %891, %890 ], [ %929, %928 ]
   br label %932
 
-932:                                              ; preds = %930, %868
-  %933 = phi ptr [ %869, %868 ], [ %931, %930 ]
+932:                                              ; preds = %930, %880
+  %933 = phi ptr [ %881, %880 ], [ %931, %930 ]
   br label %934
 
-934:                                              ; preds = %932, %858
-  %935 = phi ptr [ %859, %858 ], [ %933, %932 ]
+934:                                              ; preds = %932, %870
+  %935 = phi ptr [ %871, %870 ], [ %933, %932 ]
   br label %936
 
-936:                                              ; preds = %934, %848
-  %937 = phi ptr [ %849, %848 ], [ %935, %934 ]
+936:                                              ; preds = %934, %860
+  %937 = phi ptr [ %861, %860 ], [ %935, %934 ]
   br label %938
 
-938:                                              ; preds = %936, %838
-  %939 = phi ptr [ %839, %838 ], [ %937, %936 ]
+938:                                              ; preds = %936, %850
+  %939 = phi ptr [ %851, %850 ], [ %937, %936 ]
   br label %940
 
-940:                                              ; preds = %938, %828
-  %941 = phi ptr [ %829, %828 ], [ %939, %938 ]
+940:                                              ; preds = %938, %840
+  %941 = phi ptr [ %841, %840 ], [ %939, %938 ]
   br label %942
 
-942:                                              ; preds = %940, %818
-  %943 = phi ptr [ %819, %818 ], [ %941, %940 ]
+942:                                              ; preds = %940, %830
+  %943 = phi ptr [ %831, %830 ], [ %941, %940 ]
   br label %944
 
-944:                                              ; preds = %942, %808
-  %945 = phi ptr [ %809, %808 ], [ %943, %942 ]
+944:                                              ; preds = %942, %820
+  %945 = phi ptr [ %821, %820 ], [ %943, %942 ]
   br label %946
 
-946:                                              ; preds = %944, %798
-  %947 = phi ptr [ %799, %798 ], [ %945, %944 ]
+946:                                              ; preds = %944, %810
+  %947 = phi ptr [ %811, %810 ], [ %945, %944 ]
   br label %948
 
-948:                                              ; preds = %946, %788
-  %949 = phi ptr [ %789, %788 ], [ %947, %946 ]
+948:                                              ; preds = %946, %800
+  %949 = phi ptr [ %801, %800 ], [ %947, %946 ]
   br label %950
 
-950:                                              ; preds = %948, %778
-  %951 = phi ptr [ %779, %778 ], [ %949, %948 ]
+950:                                              ; preds = %948, %790
+  %951 = phi ptr [ %791, %790 ], [ %949, %948 ]
   br label %952
 
-952:                                              ; preds = %950, %768
-  %953 = phi ptr [ %769, %768 ], [ %951, %950 ]
+952:                                              ; preds = %950, %780
+  %953 = phi ptr [ %781, %780 ], [ %951, %950 ]
   br label %954
 
-954:                                              ; preds = %952, %758
-  %955 = phi ptr [ %759, %758 ], [ %953, %952 ]
+954:                                              ; preds = %952, %770
+  %955 = phi ptr [ %771, %770 ], [ %953, %952 ]
   br label %956
 
-956:                                              ; preds = %954, %748
-  %957 = phi ptr [ %749, %748 ], [ %955, %954 ]
+956:                                              ; preds = %954, %760
+  %957 = phi ptr [ %761, %760 ], [ %955, %954 ]
   br label %958
 
-958:                                              ; preds = %956, %738
-  %959 = phi ptr [ %739, %738 ], [ %957, %956 ]
+958:                                              ; preds = %956, %750
+  %959 = phi ptr [ %751, %750 ], [ %957, %956 ]
   br label %960
 
-960:                                              ; preds = %958, %728
-  %961 = phi ptr [ %729, %728 ], [ %959, %958 ]
+960:                                              ; preds = %958, %740
+  %961 = phi ptr [ %741, %740 ], [ %959, %958 ]
   br label %962
 
-962:                                              ; preds = %960, %718
-  %963 = phi ptr [ %719, %718 ], [ %961, %960 ]
+962:                                              ; preds = %960, %730
+  %963 = phi ptr [ %731, %730 ], [ %961, %960 ]
   br label %964
 
-964:                                              ; preds = %962, %708
-  %965 = phi ptr [ %709, %708 ], [ %963, %962 ]
+964:                                              ; preds = %962, %720
+  %965 = phi ptr [ %721, %720 ], [ %963, %962 ]
   br label %966
 
-966:                                              ; preds = %964, %698
-  %967 = phi ptr [ %699, %698 ], [ %965, %964 ]
+966:                                              ; preds = %964, %710
+  %967 = phi ptr [ %711, %710 ], [ %965, %964 ]
   br label %968
 
-968:                                              ; preds = %966, %688
-  %969 = phi ptr [ %689, %688 ], [ %967, %966 ]
+968:                                              ; preds = %966, %700
+  %969 = phi ptr [ %701, %700 ], [ %967, %966 ]
   br label %970
 
-970:                                              ; preds = %968, %678
-  %971 = phi ptr [ %679, %678 ], [ %969, %968 ]
+970:                                              ; preds = %968, %690
+  %971 = phi ptr [ %691, %690 ], [ %969, %968 ]
   br label %972
 
-972:                                              ; preds = %970, %668
-  %973 = phi ptr [ %669, %668 ], [ %971, %970 ]
+972:                                              ; preds = %970, %680
+  %973 = phi ptr [ %681, %680 ], [ %971, %970 ]
   br label %974
 
-974:                                              ; preds = %972, %658
-  %975 = phi ptr [ %659, %658 ], [ %973, %972 ]
+974:                                              ; preds = %972, %670
+  %975 = phi ptr [ %671, %670 ], [ %973, %972 ]
   br label %976
 
-976:                                              ; preds = %974, %648
-  %977 = phi ptr [ %649, %648 ], [ %975, %974 ]
+976:                                              ; preds = %974, %660
+  %977 = phi ptr [ %661, %660 ], [ %975, %974 ]
   br label %978
 
-978:                                              ; preds = %976, %638
-  %979 = phi ptr [ %639, %638 ], [ %977, %976 ]
+978:                                              ; preds = %976, %650
+  %979 = phi ptr [ %651, %650 ], [ %977, %976 ]
   br label %980
 
-980:                                              ; preds = %978, %628
-  %981 = phi ptr [ %629, %628 ], [ %979, %978 ]
+980:                                              ; preds = %978, %640
+  %981 = phi ptr [ %641, %640 ], [ %979, %978 ]
   br label %982
 
-982:                                              ; preds = %980, %618
-  %983 = phi ptr [ %619, %618 ], [ %981, %980 ]
+982:                                              ; preds = %980, %630
+  %983 = phi ptr [ %631, %630 ], [ %981, %980 ]
   br label %984
 
-984:                                              ; preds = %982, %608
-  %985 = phi ptr [ %609, %608 ], [ %983, %982 ]
-  br label %994
+984:                                              ; preds = %982, %620
+  %985 = phi ptr [ %621, %620 ], [ %983, %982 ]
+  br label %986
 
-986:                                              ; preds = %592
-  %987 = load i64, ptr %7, align 8
-  %988 = add i64 24, %987
-  %989 = add i64 %988, 1
-  %990 = add i64 %989, 8
-  %991 = sub i64 %990, 1
-  %992 = and i64 %991, -8
-  %993 = call noalias ptr @_emalloc(i64 noundef %992) #9
-  br label %994
-
-994:                                              ; preds = %986, %984
-  %995 = phi ptr [ %985, %984 ], [ %993, %986 ]
+986:                                              ; preds = %984, %610
+  %987 = phi ptr [ %611, %610 ], [ %985, %984 ]
   br label %996
 
-996:                                              ; preds = %994, %584
-  %997 = phi ptr [ %591, %584 ], [ %995, %994 ]
-  store ptr %997, ptr %9, align 8
-  %998 = load ptr, ptr %9, align 8
-  store ptr %998, ptr %5, align 8
+988:                                              ; preds = %594
+  %989 = load i64, ptr %7, align 8
+  %990 = add i64 24, %989
+  %991 = add i64 %990, 1
+  %992 = add i64 %991, 8
+  %993 = sub i64 %992, 1
+  %994 = and i64 %993, -8
+  %995 = call noalias ptr @_emalloc(i64 noundef %994) #9
+  br label %996
+
+996:                                              ; preds = %988, %986
+  %997 = phi ptr [ %987, %986 ], [ %995, %988 ]
+  br label %998
+
+998:                                              ; preds = %996, %586
+  %999 = phi ptr [ %593, %586 ], [ %997, %996 ]
+  store ptr %999, ptr %9, align 8
+  %1000 = load ptr, ptr %9, align 8
+  store ptr %1000, ptr %5, align 8
   store i32 1, ptr %6, align 4
-  %999 = load i32, ptr %6, align 4
-  %1000 = load ptr, ptr %5, align 8
-  store i32 %999, ptr %1000, align 4
-  %1001 = load i8, ptr %8, align 1
-  %1002 = trunc i8 %1001 to i1
-  %1003 = select i1 %1002, i32 128, i32 0
-  %1004 = or i32 22, %1003
-  %1005 = load ptr, ptr %9, align 8
-  %1006 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1005, i32 0, i32 1
-  store i32 %1004, ptr %1006, align 4
+  %1001 = load i32, ptr %6, align 4
+  %1002 = load ptr, ptr %5, align 8
+  store i32 %1001, ptr %1002, align 4
+  %1003 = load i8, ptr %8, align 1
+  %1004 = trunc i8 %1003 to i1
+  %1005 = select i1 %1004, i32 128, i32 0
+  %1006 = or i32 22, %1005
   %1007 = load ptr, ptr %9, align 8
-  %1008 = getelementptr inbounds %struct._zend_string, ptr %1007, i32 0, i32 1
-  store i64 0, ptr %1008, align 8
-  %1009 = load i64, ptr %7, align 8
-  %1010 = load ptr, ptr %9, align 8
-  %1011 = getelementptr inbounds %struct._zend_string, ptr %1010, i32 0, i32 2
-  store i64 %1009, ptr %1011, align 8
+  %1008 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1007, i32 0, i32 1
+  store i32 %1006, ptr %1008, align 4
+  %1009 = load ptr, ptr %9, align 8
+  %1010 = getelementptr inbounds %struct._zend_string, ptr %1009, i32 0, i32 1
+  store i64 0, ptr %1010, align 8
+  %1011 = load i64, ptr %7, align 8
   %1012 = load ptr, ptr %9, align 8
-  store ptr %1012, ptr %20, align 8
-  %1013 = load ptr, ptr %20, align 8
-  %1014 = getelementptr inbounds %struct._zend_string, ptr %1013, i32 0, i32 3
-  %1015 = load ptr, ptr %17, align 8
-  %1016 = load i64, ptr %18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1014, ptr align 1 %1015, i64 %1016, i1 false)
-  %1017 = load ptr, ptr %20, align 8
-  %1018 = getelementptr inbounds %struct._zend_string, ptr %1017, i32 0, i32 3
-  %1019 = load i64, ptr %18, align 8
-  %1020 = getelementptr inbounds [1 x i8], ptr %1018, i64 0, i64 %1019
-  store i8 0, ptr %1020, align 1
-  %1021 = load ptr, ptr %20, align 8
-  store ptr %1021, ptr %37, align 8
-  %1022 = load ptr, ptr %37, align 8
-  %1023 = load ptr, ptr %36, align 8
-  %1024 = getelementptr inbounds %struct._zval_struct, ptr %1023, i32 0, i32 0
-  store ptr %1022, ptr %1024, align 8
+  %1013 = getelementptr inbounds %struct._zend_string, ptr %1012, i32 0, i32 2
+  store i64 %1011, ptr %1013, align 8
+  %1014 = load ptr, ptr %9, align 8
+  store ptr %1014, ptr %20, align 8
+  %1015 = load ptr, ptr %20, align 8
+  %1016 = getelementptr inbounds %struct._zend_string, ptr %1015, i32 0, i32 3
+  %1017 = load ptr, ptr %17, align 8
+  %1018 = load i64, ptr %18, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1016, ptr align 1 %1017, i64 %1018, i1 false)
+  %1019 = load ptr, ptr %20, align 8
+  %1020 = getelementptr inbounds %struct._zend_string, ptr %1019, i32 0, i32 3
+  %1021 = load i64, ptr %18, align 8
+  %1022 = getelementptr inbounds [1 x i8], ptr %1020, i64 0, i64 %1021
+  store i8 0, ptr %1022, align 1
+  %1023 = load ptr, ptr %20, align 8
+  store ptr %1023, ptr %37, align 8
+  %1024 = load ptr, ptr %37, align 8
   %1025 = load ptr, ptr %36, align 8
-  %1026 = getelementptr inbounds %struct._zval_struct, ptr %1025, i32 0, i32 1
-  store i32 262, ptr %1026, align 8
-  br label %1027
-
-1027:                                             ; preds = %996
-  br label %1028
-
-1028:                                             ; preds = %1027
+  %1026 = getelementptr inbounds %struct._zval_struct, ptr %1025, i32 0, i32 0
+  store ptr %1024, ptr %1026, align 8
+  %1027 = load ptr, ptr %36, align 8
+  %1028 = getelementptr inbounds %struct._zval_struct, ptr %1027, i32 0, i32 1
+  store i32 262, ptr %1028, align 8
   br label %1029
 
-1029:                                             ; preds = %1028
-  br label %1042
+1029:                                             ; preds = %998
+  br label %1030
 
-1030:                                             ; preds = %561
+1030:                                             ; preds = %1029
   br label %1031
 
 1031:                                             ; preds = %1030
-  br label %1032
-
-1032:                                             ; preds = %1031
-  %1033 = load ptr, ptr %22, align 8
-  store ptr %1033, ptr %38, align 8
-  %1034 = load ptr, ptr @zend_empty_string, align 8
-  store ptr %1034, ptr %39, align 8
-  %1035 = load ptr, ptr %39, align 8
-  %1036 = load ptr, ptr %38, align 8
-  %1037 = getelementptr inbounds %struct._zval_struct, ptr %1036, i32 0, i32 0
-  store ptr %1035, ptr %1037, align 8
-  %1038 = load ptr, ptr %38, align 8
-  %1039 = getelementptr inbounds %struct._zval_struct, ptr %1038, i32 0, i32 1
-  store i32 6, ptr %1039, align 8
-  br label %1040
-
-1040:                                             ; preds = %1032
-  br label %1041
-
-1041:                                             ; preds = %1040
-  br label %1042
-
-1042:                                             ; preds = %1041, %1029
-  br label %1055
-
-1043:                                             ; preds = %557
   br label %1044
 
-1044:                                             ; preds = %1043
-  br label %1045
+1032:                                             ; preds = %563
+  br label %1033
 
-1045:                                             ; preds = %1044
-  %1046 = load ptr, ptr %22, align 8
-  store ptr %1046, ptr %40, align 8
-  %1047 = load ptr, ptr @zend_empty_string, align 8
-  store ptr %1047, ptr %41, align 8
-  %1048 = load ptr, ptr %41, align 8
-  %1049 = load ptr, ptr %40, align 8
-  %1050 = getelementptr inbounds %struct._zval_struct, ptr %1049, i32 0, i32 0
-  store ptr %1048, ptr %1050, align 8
+1033:                                             ; preds = %1032
+  br label %1034
+
+1034:                                             ; preds = %1033
+  %1035 = load ptr, ptr %22, align 8
+  store ptr %1035, ptr %38, align 8
+  %1036 = load ptr, ptr @zend_empty_string, align 8
+  store ptr %1036, ptr %39, align 8
+  %1037 = load ptr, ptr %39, align 8
+  %1038 = load ptr, ptr %38, align 8
+  %1039 = getelementptr inbounds %struct._zval_struct, ptr %1038, i32 0, i32 0
+  store ptr %1037, ptr %1039, align 8
+  %1040 = load ptr, ptr %38, align 8
+  %1041 = getelementptr inbounds %struct._zval_struct, ptr %1040, i32 0, i32 1
+  store i32 6, ptr %1041, align 8
+  br label %1042
+
+1042:                                             ; preds = %1034
+  br label %1043
+
+1043:                                             ; preds = %1042
+  br label %1044
+
+1044:                                             ; preds = %1043, %1031
+  br label %1057
+
+1045:                                             ; preds = %559
+  br label %1046
+
+1046:                                             ; preds = %1045
+  br label %1047
+
+1047:                                             ; preds = %1046
+  %1048 = load ptr, ptr %22, align 8
+  store ptr %1048, ptr %40, align 8
+  %1049 = load ptr, ptr @zend_empty_string, align 8
+  store ptr %1049, ptr %41, align 8
+  %1050 = load ptr, ptr %41, align 8
   %1051 = load ptr, ptr %40, align 8
-  %1052 = getelementptr inbounds %struct._zval_struct, ptr %1051, i32 0, i32 1
-  store i32 6, ptr %1052, align 8
-  br label %1053
-
-1053:                                             ; preds = %1045
-  br label %1054
-
-1054:                                             ; preds = %1053
+  %1052 = getelementptr inbounds %struct._zval_struct, ptr %1051, i32 0, i32 0
+  store ptr %1050, ptr %1052, align 8
+  %1053 = load ptr, ptr %40, align 8
+  %1054 = getelementptr inbounds %struct._zval_struct, ptr %1053, i32 0, i32 1
+  store i32 6, ptr %1054, align 8
   br label %1055
 
-1055:                                             ; preds = %1054, %1042
+1055:                                             ; preds = %1047
   br label %1056
 
-1056:                                             ; preds = %1055, %554, %78, %51
+1056:                                             ; preds = %1055
+  br label %1057
+
+1057:                                             ; preds = %1056, %1044
+  br label %1058
+
+1058:                                             ; preds = %1057, %556, %79, %51
   ret void
 }
 
@@ -7068,446 +7096,449 @@ define hidden void @zim_DOMElement_setAttributeNS(ptr noundef %0, ptr noundef %1
   %29 = load i32, ptr %28, align 4
   %30 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %29, ptr noundef @.str.13, ptr noundef %13, ptr noundef %10, ptr noundef %14, ptr noundef %11, ptr noundef %15, ptr noundef %12)
   %31 = icmp eq i32 %30, -1
-  br i1 %31, label %32, label %37
+  br i1 %31, label %32, label %38
 
 32:                                               ; preds = %2
   br label %33
 
 33:                                               ; preds = %32
-  %34 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %35 = icmp ne ptr %34, null
-  call void @llvm.assume(i1 %35)
-  br label %298
+  %34 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp ne ptr %35, null
+  call void @llvm.assume(i1 %36)
+  br label %301
 
-36:                                               ; No predecessors!
-  br label %37
+37:                                               ; No predecessors!
+  br label %38
 
-37:                                               ; preds = %36, %2
-  %38 = load i64, ptr %11, align 8
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %45
+38:                                               ; preds = %37, %2
+  %39 = load i64, ptr %11, align 8
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %41, label %47
 
-40:                                               ; preds = %37
+41:                                               ; preds = %38
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef @.str.8)
-  br label %41
+  br label %42
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %43 = icmp ne ptr %42, null
-  call void @llvm.assume(i1 %43)
-  br label %298
+42:                                               ; preds = %41
+  %43 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ne ptr %44, null
+  call void @llvm.assume(i1 %45)
+  br label %301
 
-44:                                               ; No predecessors!
-  br label %45
+46:                                               ; No predecessors!
+  br label %47
 
-45:                                               ; preds = %44, %37
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds %struct._zval_struct, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = call ptr @php_dom_obj_from_obj(ptr noundef %48)
-  store ptr %49, ptr %18, align 8
-  %50 = load ptr, ptr %18, align 8
-  %51 = getelementptr inbounds %struct._dom_object, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, null
-  %54 = xor i1 %53, true
-  %55 = xor i1 %54, true
-  %56 = zext i1 %55 to i32
-  %57 = sext i32 %56 to i64
-  %58 = icmp ne i64 %57, 0
-  br i1 %58, label %59, label %72
+47:                                               ; preds = %46, %38
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds %struct._zval_struct, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = call ptr @php_dom_obj_from_obj(ptr noundef %50)
+  store ptr %51, ptr %18, align 8
+  %52 = load ptr, ptr %18, align 8
+  %53 = getelementptr inbounds %struct._dom_object, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  %56 = xor i1 %55, true
+  %57 = xor i1 %56, true
+  %58 = zext i1 %57 to i32
+  %59 = sext i32 %58 to i64
+  %60 = icmp ne i64 %59, 0
+  br i1 %60, label %61, label %75
 
-59:                                               ; preds = %45
-  %60 = load ptr, ptr %18, align 8
-  %61 = getelementptr inbounds %struct._dom_object, ptr %60, i32 0, i32 3
-  %62 = getelementptr inbounds %struct._zend_object, ptr %61, i32 0, i32 2
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds %struct._zend_class_entry, ptr %63, i32 0, i32 1
+61:                                               ; preds = %47
+  %62 = load ptr, ptr %18, align 8
+  %63 = getelementptr inbounds %struct._dom_object, ptr %62, i32 0, i32 3
+  %64 = getelementptr inbounds %struct._zend_object, ptr %63, i32 0, i32 2
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds %struct._zend_string, ptr %65, i32 0, i32 3
-  %67 = getelementptr inbounds [1 x i8], ptr %66, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %67)
-  br label %68
+  %66 = getelementptr inbounds %struct._zend_class_entry, ptr %65, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds %struct._zend_string, ptr %67, i32 0, i32 3
+  %69 = getelementptr inbounds [1 x i8], ptr %68, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %69)
+  br label %70
 
-68:                                               ; preds = %59
-  %69 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %70 = icmp ne ptr %69, null
-  call void @llvm.assume(i1 %70)
-  br label %298
+70:                                               ; preds = %61
+  %71 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp ne ptr %72, null
+  call void @llvm.assume(i1 %73)
+  br label %301
 
-71:                                               ; No predecessors!
-  br label %72
+74:                                               ; No predecessors!
+  br label %75
 
-72:                                               ; preds = %71, %45
-  %73 = load ptr, ptr %18, align 8
-  %74 = getelementptr inbounds %struct._dom_object, ptr %73, i32 0, i32 0
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %75, i32 0, i32 0
-  %77 = load ptr, ptr %76, align 8
-  store ptr %77, ptr %6, align 8
-  %78 = load ptr, ptr %18, align 8
-  %79 = getelementptr inbounds %struct._dom_object, ptr %78, i32 0, i32 1
+75:                                               ; preds = %74, %47
+  %76 = load ptr, ptr %18, align 8
+  %77 = getelementptr inbounds %struct._dom_object, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %78, i32 0, i32 0
   %80 = load ptr, ptr %79, align 8
-  %81 = call i32 @dom_get_strict_error(ptr noundef %80)
-  store i32 %81, ptr %20, align 4
-  %82 = load ptr, ptr %14, align 8
-  %83 = load i64, ptr %10, align 8
-  %84 = trunc i64 %83 to i32
-  %85 = load i64, ptr %11, align 8
-  %86 = trunc i64 %85 to i32
-  %87 = call i32 @dom_check_qname(ptr noundef %82, ptr noundef %16, ptr noundef %17, i32 noundef %84, i32 noundef %86)
-  store i32 %87, ptr %19, align 4
-  %88 = load i32, ptr %19, align 4
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %278
+  store ptr %80, ptr %6, align 8
+  %81 = load ptr, ptr %18, align 8
+  %82 = getelementptr inbounds %struct._dom_object, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8
+  %84 = call i32 @dom_get_strict_error(ptr noundef %83)
+  store i32 %84, ptr %20, align 4
+  %85 = load ptr, ptr %14, align 8
+  %86 = load i64, ptr %10, align 8
+  %87 = trunc i64 %86 to i32
+  %88 = load i64, ptr %11, align 8
+  %89 = trunc i64 %88 to i32
+  %90 = call i32 @dom_check_qname(ptr noundef %85, ptr noundef %16, ptr noundef %17, i32 noundef %87, i32 noundef %89)
+  store i32 %90, ptr %19, align 4
+  %91 = load i32, ptr %19, align 4
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %281
 
-90:                                               ; preds = %72
-  %91 = load i64, ptr %10, align 8
-  %92 = icmp ugt i64 %91, 0
-  br i1 %92, label %93, label %250
+93:                                               ; preds = %75
+  %94 = load i64, ptr %10, align 8
+  %95 = icmp ugt i64 %94, 0
+  br i1 %95, label %96, label %253
 
-93:                                               ; preds = %90
-  %94 = load ptr, ptr %6, align 8
-  %95 = load ptr, ptr %16, align 8
-  %96 = load ptr, ptr %13, align 8
-  %97 = call ptr @xmlHasNsProp(ptr noundef %94, ptr noundef %95, ptr noundef %96)
-  store ptr %97, ptr %7, align 8
-  %98 = load ptr, ptr %7, align 8
-  %99 = icmp ne ptr %98, null
-  br i1 %99, label %100, label %109
-
-100:                                              ; preds = %93
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %6, align 8
+  %98 = load ptr, ptr %16, align 8
+  %99 = load ptr, ptr %13, align 8
+  %100 = call ptr @xmlHasNsProp(ptr noundef %97, ptr noundef %98, ptr noundef %99)
+  store ptr %100, ptr %7, align 8
   %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds %struct._xmlNode, ptr %101, i32 0, i32 1
-  %103 = load i32, ptr %102, align 8
-  %104 = icmp ne i32 %103, 16
-  br i1 %104, label %105, label %109
+  %102 = icmp ne ptr %101, null
+  br i1 %102, label %103, label %112
 
-105:                                              ; preds = %100
-  %106 = load ptr, ptr %7, align 8
-  %107 = getelementptr inbounds %struct._xmlNode, ptr %106, i32 0, i32 3
-  %108 = load ptr, ptr %107, align 8
-  call void @node_list_unlink(ptr noundef %108)
-  br label %109
+103:                                              ; preds = %96
+  %104 = load ptr, ptr %7, align 8
+  %105 = getelementptr inbounds %struct._xmlNode, ptr %104, i32 0, i32 1
+  %106 = load i32, ptr %105, align 8
+  %107 = icmp ne i32 %106, 16
+  br i1 %107, label %108, label %112
 
-109:                                              ; preds = %105, %100, %93
-  %110 = load ptr, ptr %17, align 8
-  %111 = call i32 @xmlStrEqual(ptr noundef %110, ptr noundef @.str.6)
-  %112 = icmp ne i32 %111, 0
-  br i1 %112, label %120, label %113
+108:                                              ; preds = %103
+  %109 = load ptr, ptr %7, align 8
+  %110 = getelementptr inbounds %struct._xmlNode, ptr %109, i32 0, i32 3
+  %111 = load ptr, ptr %110, align 8
+  call void @node_list_unlink(ptr noundef %111)
+  br label %112
 
-113:                                              ; preds = %109
-  %114 = load ptr, ptr %17, align 8
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %116, label %135
+112:                                              ; preds = %108, %103, %96
+  %113 = load ptr, ptr %17, align 8
+  %114 = call i32 @xmlStrEqual(ptr noundef %113, ptr noundef @.str.6)
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %123, label %116
 
-116:                                              ; preds = %113
-  %117 = load ptr, ptr %16, align 8
-  %118 = call i32 @xmlStrEqual(ptr noundef %117, ptr noundef @.str.6)
-  %119 = icmp ne i32 %118, 0
-  br i1 %119, label %120, label %135
+116:                                              ; preds = %112
+  %117 = load ptr, ptr %17, align 8
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %119, label %138
 
-120:                                              ; preds = %116, %109
-  %121 = load ptr, ptr %13, align 8
-  %122 = call i32 @xmlStrEqual(ptr noundef %121, ptr noundef @.str.12)
-  %123 = icmp ne i32 %122, 0
-  br i1 %123, label %124, label %135
+119:                                              ; preds = %116
+  %120 = load ptr, ptr %16, align 8
+  %121 = call i32 @xmlStrEqual(ptr noundef %120, ptr noundef @.str.6)
+  %122 = icmp ne i32 %121, 0
+  br i1 %122, label %123, label %138
 
-124:                                              ; preds = %120
+123:                                              ; preds = %119, %112
+  %124 = load ptr, ptr %13, align 8
+  %125 = call i32 @xmlStrEqual(ptr noundef %124, ptr noundef @.str.12)
+  %126 = icmp ne i32 %125, 0
+  br i1 %126, label %127, label %138
+
+127:                                              ; preds = %123
   store i32 1, ptr %21, align 4
-  %125 = load ptr, ptr %17, align 8
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %127, label %130
+  %128 = load ptr, ptr %17, align 8
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %130, label %133
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %6, align 8
-  %129 = call ptr @dom_get_nsdecl(ptr noundef %128, ptr noundef null)
-  store ptr %129, ptr %8, align 8
-  br label %134
-
-130:                                              ; preds = %124
+130:                                              ; preds = %127
   %131 = load ptr, ptr %6, align 8
-  %132 = load ptr, ptr %16, align 8
-  %133 = call ptr @dom_get_nsdecl(ptr noundef %131, ptr noundef %132)
-  store ptr %133, ptr %8, align 8
-  br label %134
+  %132 = call ptr @dom_get_nsdecl(ptr noundef %131, ptr noundef null)
+  store ptr %132, ptr %8, align 8
+  br label %137
 
-134:                                              ; preds = %130, %127
-  br label %190
+133:                                              ; preds = %127
+  %134 = load ptr, ptr %6, align 8
+  %135 = load ptr, ptr %16, align 8
+  %136 = call ptr @dom_get_nsdecl(ptr noundef %134, ptr noundef %135)
+  store ptr %136, ptr %8, align 8
+  br label %137
 
-135:                                              ; preds = %120, %116, %113
-  %136 = load ptr, ptr %6, align 8
-  %137 = getelementptr inbounds %struct._xmlNode, ptr %136, i32 0, i32 8
-  %138 = load ptr, ptr %137, align 8
+137:                                              ; preds = %133, %130
+  br label %193
+
+138:                                              ; preds = %123, %119, %116
   %139 = load ptr, ptr %6, align 8
-  %140 = load ptr, ptr %13, align 8
-  %141 = call ptr @xmlSearchNsByHref(ptr noundef %138, ptr noundef %139, ptr noundef %140)
-  store ptr %141, ptr %8, align 8
-  %142 = load ptr, ptr %8, align 8
-  %143 = icmp ne ptr %142, null
-  br i1 %143, label %144, label %189
-
-144:                                              ; preds = %135
+  %140 = getelementptr inbounds %struct._xmlNode, ptr %139, i32 0, i32 8
+  %141 = load ptr, ptr %140, align 8
+  %142 = load ptr, ptr %6, align 8
+  %143 = load ptr, ptr %13, align 8
+  %144 = call ptr @xmlSearchNsByHref(ptr noundef %141, ptr noundef %142, ptr noundef %143)
+  store ptr %144, ptr %8, align 8
   %145 = load ptr, ptr %8, align 8
-  %146 = getelementptr inbounds %struct._xmlNs, ptr %145, i32 0, i32 3
-  %147 = load ptr, ptr %146, align 8
-  %148 = icmp eq ptr %147, null
-  br i1 %148, label %149, label %189
+  %146 = icmp ne ptr %145, null
+  br i1 %146, label %147, label %192
 
-149:                                              ; preds = %144
-  %150 = load ptr, ptr %8, align 8
-  %151 = getelementptr inbounds %struct._xmlNs, ptr %150, i32 0, i32 0
-  %152 = load ptr, ptr %151, align 8
-  store ptr %152, ptr %23, align 8
-  br label %153
+147:                                              ; preds = %138
+  %148 = load ptr, ptr %8, align 8
+  %149 = getelementptr inbounds %struct._xmlNs, ptr %148, i32 0, i32 3
+  %150 = load ptr, ptr %149, align 8
+  %151 = icmp eq ptr %150, null
+  br i1 %151, label %152, label %192
 
-153:                                              ; preds = %175, %149
-  %154 = load ptr, ptr %23, align 8
-  %155 = icmp ne ptr %154, null
-  br i1 %155, label %156, label %179
+152:                                              ; preds = %147
+  %153 = load ptr, ptr %8, align 8
+  %154 = getelementptr inbounds %struct._xmlNs, ptr %153, i32 0, i32 0
+  %155 = load ptr, ptr %154, align 8
+  store ptr %155, ptr %23, align 8
+  br label %156
 
-156:                                              ; preds = %153
+156:                                              ; preds = %178, %152
   %157 = load ptr, ptr %23, align 8
-  %158 = getelementptr inbounds %struct._xmlNs, ptr %157, i32 0, i32 3
-  %159 = load ptr, ptr %158, align 8
-  %160 = icmp ne ptr %159, null
-  br i1 %160, label %161, label %175
+  %158 = icmp ne ptr %157, null
+  br i1 %158, label %159, label %182
 
-161:                                              ; preds = %156
-  %162 = load ptr, ptr %23, align 8
-  %163 = getelementptr inbounds %struct._xmlNs, ptr %162, i32 0, i32 2
-  %164 = load ptr, ptr %163, align 8
-  %165 = icmp ne ptr %164, null
-  br i1 %165, label %166, label %175
+159:                                              ; preds = %156
+  %160 = load ptr, ptr %23, align 8
+  %161 = getelementptr inbounds %struct._xmlNs, ptr %160, i32 0, i32 3
+  %162 = load ptr, ptr %161, align 8
+  %163 = icmp ne ptr %162, null
+  br i1 %163, label %164, label %178
 
-166:                                              ; preds = %161
-  %167 = load ptr, ptr %23, align 8
-  %168 = getelementptr inbounds %struct._xmlNs, ptr %167, i32 0, i32 2
-  %169 = load ptr, ptr %168, align 8
-  %170 = load ptr, ptr %13, align 8
-  %171 = call i32 @xmlStrEqual(ptr noundef %169, ptr noundef %170)
-  %172 = icmp ne i32 %171, 0
-  br i1 %172, label %173, label %175
+164:                                              ; preds = %159
+  %165 = load ptr, ptr %23, align 8
+  %166 = getelementptr inbounds %struct._xmlNs, ptr %165, i32 0, i32 2
+  %167 = load ptr, ptr %166, align 8
+  %168 = icmp ne ptr %167, null
+  br i1 %168, label %169, label %178
 
-173:                                              ; preds = %166
-  %174 = load ptr, ptr %23, align 8
-  store ptr %174, ptr %8, align 8
-  br label %179
+169:                                              ; preds = %164
+  %170 = load ptr, ptr %23, align 8
+  %171 = getelementptr inbounds %struct._xmlNs, ptr %170, i32 0, i32 2
+  %172 = load ptr, ptr %171, align 8
+  %173 = load ptr, ptr %13, align 8
+  %174 = call i32 @xmlStrEqual(ptr noundef %172, ptr noundef %173)
+  %175 = icmp ne i32 %174, 0
+  br i1 %175, label %176, label %178
 
-175:                                              ; preds = %166, %161, %156
-  %176 = load ptr, ptr %23, align 8
-  %177 = getelementptr inbounds %struct._xmlNs, ptr %176, i32 0, i32 0
-  %178 = load ptr, ptr %177, align 8
-  store ptr %178, ptr %23, align 8
-  br label %153
+176:                                              ; preds = %169
+  %177 = load ptr, ptr %23, align 8
+  store ptr %177, ptr %8, align 8
+  br label %182
 
-179:                                              ; preds = %173, %153
-  %180 = load ptr, ptr %23, align 8
-  %181 = icmp eq ptr %180, null
-  br i1 %181, label %182, label %188
+178:                                              ; preds = %169, %164, %159
+  %179 = load ptr, ptr %23, align 8
+  %180 = getelementptr inbounds %struct._xmlNs, ptr %179, i32 0, i32 0
+  %181 = load ptr, ptr %180, align 8
+  store ptr %181, ptr %23, align 8
+  br label %156
 
-182:                                              ; preds = %179
-  %183 = load ptr, ptr %6, align 8
-  %184 = load ptr, ptr %8, align 8
-  %185 = getelementptr inbounds %struct._xmlNs, ptr %184, i32 0, i32 2
-  %186 = load ptr, ptr %185, align 8
-  %187 = call ptr @dom_get_ns_resolve_prefix_conflict(ptr noundef %183, ptr noundef %186)
-  store ptr %187, ptr %8, align 8
-  br label %188
+182:                                              ; preds = %176, %156
+  %183 = load ptr, ptr %23, align 8
+  %184 = icmp eq ptr %183, null
+  br i1 %184, label %185, label %191
 
-188:                                              ; preds = %182, %179
-  br label %189
+185:                                              ; preds = %182
+  %186 = load ptr, ptr %6, align 8
+  %187 = load ptr, ptr %8, align 8
+  %188 = getelementptr inbounds %struct._xmlNs, ptr %187, i32 0, i32 2
+  %189 = load ptr, ptr %188, align 8
+  %190 = call ptr @dom_get_ns_resolve_prefix_conflict(ptr noundef %186, ptr noundef %189)
+  store ptr %190, ptr %8, align 8
+  br label %191
 
-189:                                              ; preds = %188, %144, %135
-  br label %190
+191:                                              ; preds = %185, %182
+  br label %192
 
-190:                                              ; preds = %189, %134
-  %191 = load ptr, ptr %8, align 8
-  %192 = icmp eq ptr %191, null
-  br i1 %192, label %193, label %218
+192:                                              ; preds = %191, %147, %138
+  br label %193
 
-193:                                              ; preds = %190
-  %194 = load i32, ptr %21, align 4
-  %195 = icmp eq i32 %194, 1
-  br i1 %195, label %196, label %207
+193:                                              ; preds = %192, %137
+  %194 = load ptr, ptr %8, align 8
+  %195 = icmp eq ptr %194, null
+  br i1 %195, label %196, label %221
 
 196:                                              ; preds = %193
-  %197 = load ptr, ptr %6, align 8
-  %198 = load ptr, ptr %15, align 8
-  %199 = load ptr, ptr %17, align 8
-  %200 = icmp eq ptr %199, null
-  br i1 %200, label %201, label %202
+  %197 = load i32, ptr %21, align 4
+  %198 = icmp eq i32 %197, 1
+  br i1 %198, label %199, label %210
 
-201:                                              ; preds = %196
-  br label %204
+199:                                              ; preds = %196
+  %200 = load ptr, ptr %6, align 8
+  %201 = load ptr, ptr %15, align 8
+  %202 = load ptr, ptr %17, align 8
+  %203 = icmp eq ptr %202, null
+  br i1 %203, label %204, label %205
 
-202:                                              ; preds = %196
-  %203 = load ptr, ptr %16, align 8
-  br label %204
+204:                                              ; preds = %199
+  br label %207
 
-204:                                              ; preds = %202, %201
-  %205 = phi ptr [ null, %201 ], [ %203, %202 ]
-  %206 = call ptr @xmlNewNs(ptr noundef %197, ptr noundef %198, ptr noundef %205)
-  br label %212
+205:                                              ; preds = %199
+  %206 = load ptr, ptr %16, align 8
+  br label %207
 
-207:                                              ; preds = %193
-  %208 = load ptr, ptr %6, align 8
-  %209 = load ptr, ptr %13, align 8
-  %210 = load ptr, ptr %17, align 8
-  %211 = call ptr @dom_get_ns(ptr noundef %208, ptr noundef %209, ptr noundef %19, ptr noundef %210)
-  store ptr %211, ptr %8, align 8
-  br label %212
+207:                                              ; preds = %205, %204
+  %208 = phi ptr [ null, %204 ], [ %206, %205 ]
+  %209 = call ptr @xmlNewNs(ptr noundef %200, ptr noundef %201, ptr noundef %208)
+  br label %215
 
-212:                                              ; preds = %207, %204
-  %213 = load ptr, ptr %6, align 8
-  %214 = getelementptr inbounds %struct._xmlNode, ptr %213, i32 0, i32 8
-  %215 = load ptr, ptr %214, align 8
+210:                                              ; preds = %196
+  %211 = load ptr, ptr %6, align 8
+  %212 = load ptr, ptr %13, align 8
+  %213 = load ptr, ptr %17, align 8
+  %214 = call ptr @dom_get_ns(ptr noundef %211, ptr noundef %212, ptr noundef %19, ptr noundef %213)
+  store ptr %214, ptr %8, align 8
+  br label %215
+
+215:                                              ; preds = %210, %207
   %216 = load ptr, ptr %6, align 8
-  %217 = call i32 @xmlReconciliateNs(ptr noundef %215, ptr noundef %216)
-  br label %237
+  %217 = getelementptr inbounds %struct._xmlNode, ptr %216, i32 0, i32 8
+  %218 = load ptr, ptr %217, align 8
+  %219 = load ptr, ptr %6, align 8
+  %220 = call i32 @xmlReconciliateNs(ptr noundef %218, ptr noundef %219)
+  br label %240
 
-218:                                              ; preds = %190
-  %219 = load i32, ptr %21, align 4
-  %220 = icmp eq i32 %219, 1
-  br i1 %220, label %221, label %236
+221:                                              ; preds = %193
+  %222 = load i32, ptr %21, align 4
+  %223 = icmp eq i32 %222, 1
+  br i1 %223, label %224, label %239
 
-221:                                              ; preds = %218
-  %222 = load ptr, ptr %8, align 8
-  %223 = getelementptr inbounds %struct._xmlNs, ptr %222, i32 0, i32 2
-  %224 = load ptr, ptr %223, align 8
-  %225 = icmp ne ptr %224, null
-  br i1 %225, label %226, label %231
+224:                                              ; preds = %221
+  %225 = load ptr, ptr %8, align 8
+  %226 = getelementptr inbounds %struct._xmlNs, ptr %225, i32 0, i32 2
+  %227 = load ptr, ptr %226, align 8
+  %228 = icmp ne ptr %227, null
+  br i1 %228, label %229, label %234
 
-226:                                              ; preds = %221
-  %227 = load ptr, ptr @xmlFree, align 8
-  %228 = load ptr, ptr %8, align 8
-  %229 = getelementptr inbounds %struct._xmlNs, ptr %228, i32 0, i32 2
-  %230 = load ptr, ptr %229, align 8
-  call void %227(ptr noundef %230)
-  br label %231
+229:                                              ; preds = %224
+  %230 = load ptr, ptr @xmlFree, align 8
+  %231 = load ptr, ptr %8, align 8
+  %232 = getelementptr inbounds %struct._xmlNs, ptr %231, i32 0, i32 2
+  %233 = load ptr, ptr %232, align 8
+  call void %230(ptr noundef %233)
+  br label %234
 
-231:                                              ; preds = %226, %221
-  %232 = load ptr, ptr %15, align 8
-  %233 = call ptr @xmlStrdup(ptr noundef %232)
-  %234 = load ptr, ptr %8, align 8
-  %235 = getelementptr inbounds %struct._xmlNs, ptr %234, i32 0, i32 2
-  store ptr %233, ptr %235, align 8
-  br label %236
+234:                                              ; preds = %229, %224
+  %235 = load ptr, ptr %15, align 8
+  %236 = call ptr @xmlStrdup(ptr noundef %235)
+  %237 = load ptr, ptr %8, align 8
+  %238 = getelementptr inbounds %struct._xmlNs, ptr %237, i32 0, i32 2
+  store ptr %236, ptr %238, align 8
+  br label %239
 
-236:                                              ; preds = %231, %218
-  br label %237
+239:                                              ; preds = %234, %221
+  br label %240
 
-237:                                              ; preds = %236, %212
-  %238 = load i32, ptr %19, align 4
-  %239 = icmp eq i32 %238, 0
-  br i1 %239, label %240, label %249
-
-240:                                              ; preds = %237
-  %241 = load i32, ptr %21, align 4
+240:                                              ; preds = %239, %215
+  %241 = load i32, ptr %19, align 4
   %242 = icmp eq i32 %241, 0
-  br i1 %242, label %243, label %249
+  br i1 %242, label %243, label %252
 
 243:                                              ; preds = %240
-  %244 = load ptr, ptr %6, align 8
-  %245 = load ptr, ptr %8, align 8
-  %246 = load ptr, ptr %16, align 8
-  %247 = load ptr, ptr %15, align 8
-  %248 = call ptr @xmlSetNsProp(ptr noundef %244, ptr noundef %245, ptr noundef %246, ptr noundef %247)
-  br label %249
+  %244 = load i32, ptr %21, align 4
+  %245 = icmp eq i32 %244, 0
+  br i1 %245, label %246, label %252
 
-249:                                              ; preds = %243, %240, %237
-  br label %277
+246:                                              ; preds = %243
+  %247 = load ptr, ptr %6, align 8
+  %248 = load ptr, ptr %8, align 8
+  %249 = load ptr, ptr %16, align 8
+  %250 = load ptr, ptr %15, align 8
+  %251 = call ptr @xmlSetNsProp(ptr noundef %247, ptr noundef %248, ptr noundef %249, ptr noundef %250)
+  br label %252
 
-250:                                              ; preds = %90
-  %251 = load ptr, ptr %16, align 8
-  %252 = call i32 @xmlValidateName(ptr noundef %251, i32 noundef 0)
-  store i32 %252, ptr %22, align 4
-  %253 = load i32, ptr %22, align 4
-  %254 = icmp ne i32 %253, 0
-  br i1 %254, label %255, label %256
+252:                                              ; preds = %246, %243, %240
+  br label %280
 
-255:                                              ; preds = %250
+253:                                              ; preds = %93
+  %254 = load ptr, ptr %16, align 8
+  %255 = call i32 @xmlValidateName(ptr noundef %254, i32 noundef 0)
+  store i32 %255, ptr %22, align 4
+  %256 = load i32, ptr %22, align 4
+  %257 = icmp ne i32 %256, 0
+  br i1 %257, label %258, label %259
+
+258:                                              ; preds = %253
   store i32 5, ptr %19, align 4
   store i32 1, ptr %20, align 4
-  br label %276
+  br label %279
 
-256:                                              ; preds = %250
-  %257 = load ptr, ptr %6, align 8
-  %258 = load ptr, ptr %16, align 8
-  %259 = call ptr @xmlHasProp(ptr noundef %257, ptr noundef %258)
-  store ptr %259, ptr %9, align 8
-  %260 = load ptr, ptr %9, align 8
-  %261 = icmp ne ptr %260, null
-  br i1 %261, label %262, label %271
-
-262:                                              ; preds = %256
+259:                                              ; preds = %253
+  %260 = load ptr, ptr %6, align 8
+  %261 = load ptr, ptr %16, align 8
+  %262 = call ptr @xmlHasProp(ptr noundef %260, ptr noundef %261)
+  store ptr %262, ptr %9, align 8
   %263 = load ptr, ptr %9, align 8
-  %264 = getelementptr inbounds %struct._xmlAttr, ptr %263, i32 0, i32 1
-  %265 = load i32, ptr %264, align 8
-  %266 = icmp ne i32 %265, 16
-  br i1 %266, label %267, label %271
+  %264 = icmp ne ptr %263, null
+  br i1 %264, label %265, label %274
 
-267:                                              ; preds = %262
-  %268 = load ptr, ptr %9, align 8
-  %269 = getelementptr inbounds %struct._xmlAttr, ptr %268, i32 0, i32 3
-  %270 = load ptr, ptr %269, align 8
-  call void @node_list_unlink(ptr noundef %270)
-  br label %271
+265:                                              ; preds = %259
+  %266 = load ptr, ptr %9, align 8
+  %267 = getelementptr inbounds %struct._xmlAttr, ptr %266, i32 0, i32 1
+  %268 = load i32, ptr %267, align 8
+  %269 = icmp ne i32 %268, 16
+  br i1 %269, label %270, label %274
 
-271:                                              ; preds = %267, %262, %256
-  %272 = load ptr, ptr %6, align 8
-  %273 = load ptr, ptr %16, align 8
-  %274 = load ptr, ptr %15, align 8
-  %275 = call ptr @xmlSetProp(ptr noundef %272, ptr noundef %273, ptr noundef %274)
-  br label %276
+270:                                              ; preds = %265
+  %271 = load ptr, ptr %9, align 8
+  %272 = getelementptr inbounds %struct._xmlAttr, ptr %271, i32 0, i32 3
+  %273 = load ptr, ptr %272, align 8
+  call void @node_list_unlink(ptr noundef %273)
+  br label %274
 
-276:                                              ; preds = %271, %255
-  br label %277
+274:                                              ; preds = %270, %265, %259
+  %275 = load ptr, ptr %6, align 8
+  %276 = load ptr, ptr %16, align 8
+  %277 = load ptr, ptr %15, align 8
+  %278 = call ptr @xmlSetProp(ptr noundef %275, ptr noundef %276, ptr noundef %277)
+  br label %279
 
-277:                                              ; preds = %276, %249
-  br label %278
+279:                                              ; preds = %274, %258
+  br label %280
 
-278:                                              ; preds = %277, %72
-  %279 = load ptr, ptr @xmlFree, align 8
-  %280 = load ptr, ptr %16, align 8
-  call void %279(ptr noundef %280)
-  %281 = load ptr, ptr %17, align 8
-  %282 = icmp ne ptr %281, null
-  br i1 %282, label %283, label %286
+280:                                              ; preds = %279, %252
+  br label %281
 
-283:                                              ; preds = %278
-  %284 = load ptr, ptr @xmlFree, align 8
-  %285 = load ptr, ptr %17, align 8
-  call void %284(ptr noundef %285)
-  br label %286
+281:                                              ; preds = %280, %75
+  %282 = load ptr, ptr @xmlFree, align 8
+  %283 = load ptr, ptr %16, align 8
+  call void %282(ptr noundef %283)
+  %284 = load ptr, ptr %17, align 8
+  %285 = icmp ne ptr %284, null
+  br i1 %285, label %286, label %289
 
-286:                                              ; preds = %283, %278
-  %287 = load i32, ptr %19, align 4
-  %288 = icmp ne i32 %287, 0
-  br i1 %288, label %289, label %292
+286:                                              ; preds = %281
+  %287 = load ptr, ptr @xmlFree, align 8
+  %288 = load ptr, ptr %17, align 8
+  call void %287(ptr noundef %288)
+  br label %289
 
-289:                                              ; preds = %286
+289:                                              ; preds = %286, %281
   %290 = load i32, ptr %19, align 4
-  %291 = load i32, ptr %20, align 4
-  call void @php_dom_throw_error(i32 noundef %290, i32 noundef %291)
-  br label %292
+  %291 = icmp ne i32 %290, 0
+  br i1 %291, label %292, label %295
 
-292:                                              ; preds = %289, %286
-  br label %293
+292:                                              ; preds = %289
+  %293 = load i32, ptr %19, align 4
+  %294 = load i32, ptr %20, align 4
+  call void @php_dom_throw_error(i32 noundef %293, i32 noundef %294)
+  br label %295
 
-293:                                              ; preds = %292
-  br label %294
+295:                                              ; preds = %292, %289
+  br label %296
 
-294:                                              ; preds = %293
-  %295 = load ptr, ptr %4, align 8
-  %296 = getelementptr inbounds %struct._zval_struct, ptr %295, i32 0, i32 1
-  store i32 1, ptr %296, align 8
+296:                                              ; preds = %295
   br label %297
 
-297:                                              ; preds = %294
-  br label %298
+297:                                              ; preds = %296
+  %298 = load ptr, ptr %4, align 8
+  %299 = getelementptr inbounds %struct._zval_struct, ptr %298, i32 0, i32 1
+  store i32 1, ptr %299, align 8
+  br label %300
 
-298:                                              ; preds = %297, %68, %41, %33
+300:                                              ; preds = %297
+  br label %301
+
+301:                                              ; preds = %300, %70, %42, %33
   ret void
 }
 
@@ -7549,167 +7580,169 @@ define hidden void @zim_DOMElement_removeAttributeNS(ptr noundef %0, ptr noundef
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef @.str.11, ptr noundef %13, ptr noundef %11, ptr noundef %12, ptr noundef %10)
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %22, label %27
+  br i1 %21, label %22, label %28
 
 22:                                               ; preds = %2
   br label %23
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %25 = icmp ne ptr %24, null
-  call void @llvm.assume(i1 %25)
-  br label %114
+  %24 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  call void @llvm.assume(i1 %26)
+  br label %116
 
-26:                                               ; No predecessors!
-  br label %27
+27:                                               ; No predecessors!
+  br label %28
 
-27:                                               ; preds = %26, %2
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct._zval_struct, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = call ptr @php_dom_obj_from_obj(ptr noundef %30)
-  store ptr %31, ptr %9, align 8
-  %32 = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds %struct._dom_object, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  %36 = xor i1 %35, true
+28:                                               ; preds = %27, %2
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = call ptr @php_dom_obj_from_obj(ptr noundef %31)
+  store ptr %32, ptr %9, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = getelementptr inbounds %struct._dom_object, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
   %37 = xor i1 %36, true
-  %38 = zext i1 %37 to i32
-  %39 = sext i32 %38 to i64
-  %40 = icmp ne i64 %39, 0
-  br i1 %40, label %41, label %54
+  %38 = xor i1 %37, true
+  %39 = zext i1 %38 to i32
+  %40 = sext i32 %39 to i64
+  %41 = icmp ne i64 %40, 0
+  br i1 %41, label %42, label %56
 
-41:                                               ; preds = %27
-  %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr inbounds %struct._dom_object, ptr %42, i32 0, i32 3
-  %44 = getelementptr inbounds %struct._zend_object, ptr %43, i32 0, i32 2
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct._zend_class_entry, ptr %45, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct._zend_string, ptr %47, i32 0, i32 3
-  %49 = getelementptr inbounds [1 x i8], ptr %48, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %49)
-  br label %50
+42:                                               ; preds = %28
+  %43 = load ptr, ptr %9, align 8
+  %44 = getelementptr inbounds %struct._dom_object, ptr %43, i32 0, i32 3
+  %45 = getelementptr inbounds %struct._zend_object, ptr %44, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %struct._zend_class_entry, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds %struct._zend_string, ptr %48, i32 0, i32 3
+  %50 = getelementptr inbounds [1 x i8], ptr %49, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %50)
+  br label %51
 
-50:                                               ; preds = %41
-  %51 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %52 = icmp ne ptr %51, null
-  call void @llvm.assume(i1 %52)
-  br label %114
+51:                                               ; preds = %42
+  %52 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  call void @llvm.assume(i1 %54)
+  br label %116
 
-53:                                               ; No predecessors!
-  br label %54
+55:                                               ; No predecessors!
+  br label %56
 
-54:                                               ; preds = %53, %27
-  %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds %struct._dom_object, ptr %55, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %57, i32 0, i32 0
+56:                                               ; preds = %55, %28
+  %57 = load ptr, ptr %9, align 8
+  %58 = getelementptr inbounds %struct._dom_object, ptr %57, i32 0, i32 0
   %59 = load ptr, ptr %58, align 8
-  store ptr %59, ptr %6, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = load ptr, ptr %12, align 8
-  %62 = load ptr, ptr %13, align 8
-  %63 = call ptr @xmlHasNsProp(ptr noundef %60, ptr noundef %61, ptr noundef %62)
-  store ptr %63, ptr %7, align 8
-  %64 = load ptr, ptr %6, align 8
-  %65 = load ptr, ptr %12, align 8
-  %66 = call ptr @dom_get_nsdecl(ptr noundef %64, ptr noundef %65)
-  store ptr %66, ptr %8, align 8
-  %67 = load ptr, ptr %8, align 8
-  %68 = icmp ne ptr %67, null
-  br i1 %68, label %69, label %87
+  %60 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  store ptr %61, ptr %6, align 8
+  %62 = load ptr, ptr %6, align 8
+  %63 = load ptr, ptr %12, align 8
+  %64 = load ptr, ptr %13, align 8
+  %65 = call ptr @xmlHasNsProp(ptr noundef %62, ptr noundef %63, ptr noundef %64)
+  store ptr %65, ptr %7, align 8
+  %66 = load ptr, ptr %6, align 8
+  %67 = load ptr, ptr %12, align 8
+  %68 = call ptr @dom_get_nsdecl(ptr noundef %66, ptr noundef %67)
+  store ptr %68, ptr %8, align 8
+  %69 = load ptr, ptr %8, align 8
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %89
 
-69:                                               ; preds = %54
-  %70 = load ptr, ptr %13, align 8
-  %71 = load ptr, ptr %8, align 8
-  %72 = getelementptr inbounds %struct._xmlNs, ptr %71, i32 0, i32 2
-  %73 = load ptr, ptr %72, align 8
-  %74 = call i32 @xmlStrEqual(ptr noundef %70, ptr noundef %73)
-  %75 = icmp ne i32 %74, 0
-  br i1 %75, label %76, label %79
+71:                                               ; preds = %56
+  %72 = load ptr, ptr %13, align 8
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds %struct._xmlNs, ptr %73, i32 0, i32 2
+  %75 = load ptr, ptr %74, align 8
+  %76 = call i32 @xmlStrEqual(ptr noundef %72, ptr noundef %75)
+  %77 = icmp ne i32 %76, 0
+  br i1 %77, label %78, label %81
 
-76:                                               ; preds = %69
-  %77 = load ptr, ptr %6, align 8
-  %78 = load ptr, ptr %8, align 8
-  call void @dom_eliminate_ns(ptr noundef %77, ptr noundef %78)
+78:                                               ; preds = %71
+  %79 = load ptr, ptr %6, align 8
+  %80 = load ptr, ptr %8, align 8
+  call void @dom_eliminate_ns(ptr noundef %79, ptr noundef %80)
+  br label %88
+
+81:                                               ; preds = %71
+  br label %82
+
+82:                                               ; preds = %81
+  br label %83
+
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %4, align 8
+  %85 = getelementptr inbounds %struct._zval_struct, ptr %84, i32 0, i32 1
+  store i32 1, ptr %85, align 8
   br label %86
 
-79:                                               ; preds = %69
-  br label %80
+86:                                               ; preds = %83
+  br label %116
 
-80:                                               ; preds = %79
-  br label %81
+87:                                               ; No predecessors!
+  br label %88
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct._zval_struct, ptr %82, i32 0, i32 1
-  store i32 1, ptr %83, align 8
-  br label %84
+88:                                               ; preds = %87, %78
+  br label %89
 
-84:                                               ; preds = %81
-  br label %114
+89:                                               ; preds = %88, %56
+  %90 = load ptr, ptr %7, align 8
+  %91 = icmp ne ptr %90, null
+  br i1 %91, label %92, label %110
 
-85:                                               ; No predecessors!
-  br label %86
+92:                                               ; preds = %89
+  %93 = load ptr, ptr %7, align 8
+  %94 = getelementptr inbounds %struct._xmlAttr, ptr %93, i32 0, i32 1
+  %95 = load i32, ptr %94, align 8
+  %96 = icmp ne i32 %95, 16
+  br i1 %96, label %97, label %110
 
-86:                                               ; preds = %85, %76
-  br label %87
+97:                                               ; preds = %92
+  %98 = load ptr, ptr %7, align 8
+  %99 = call ptr @php_dom_object_get_data(ptr noundef %98)
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %101, label %107
 
-87:                                               ; preds = %86, %54
-  %88 = load ptr, ptr %7, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %108
-
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %7, align 8
-  %92 = getelementptr inbounds %struct._xmlAttr, ptr %91, i32 0, i32 1
-  %93 = load i32, ptr %92, align 8
-  %94 = icmp ne i32 %93, 16
-  br i1 %94, label %95, label %108
-
-95:                                               ; preds = %90
-  %96 = load ptr, ptr %7, align 8
-  %97 = call ptr @php_dom_object_get_data(ptr noundef %96)
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %99, label %105
-
-99:                                               ; preds = %95
-  %100 = load ptr, ptr %7, align 8
-  %101 = getelementptr inbounds %struct._xmlAttr, ptr %100, i32 0, i32 3
-  %102 = load ptr, ptr %101, align 8
-  call void @node_list_unlink(ptr noundef %102)
-  %103 = load ptr, ptr %7, align 8
-  call void @xmlUnlinkNode(ptr noundef %103)
-  %104 = load ptr, ptr %7, align 8
-  call void @xmlFreeProp(ptr noundef %104)
-  br label %107
-
-105:                                              ; preds = %95
+101:                                              ; preds = %97
+  %102 = load ptr, ptr %7, align 8
+  %103 = getelementptr inbounds %struct._xmlAttr, ptr %102, i32 0, i32 3
+  %104 = load ptr, ptr %103, align 8
+  call void @node_list_unlink(ptr noundef %104)
+  %105 = load ptr, ptr %7, align 8
+  call void @xmlUnlinkNode(ptr noundef %105)
   %106 = load ptr, ptr %7, align 8
-  call void @xmlUnlinkNode(ptr noundef %106)
-  br label %107
-
-107:                                              ; preds = %105, %99
-  br label %108
-
-108:                                              ; preds = %107, %90, %87
+  call void @xmlFreeProp(ptr noundef %106)
   br label %109
 
-109:                                              ; preds = %108
+107:                                              ; preds = %97
+  %108 = load ptr, ptr %7, align 8
+  call void @xmlUnlinkNode(ptr noundef %108)
+  br label %109
+
+109:                                              ; preds = %107, %101
   br label %110
 
-110:                                              ; preds = %109
-  %111 = load ptr, ptr %4, align 8
-  %112 = getelementptr inbounds %struct._zval_struct, ptr %111, i32 0, i32 1
-  store i32 1, ptr %112, align 8
-  br label %113
+110:                                              ; preds = %109, %92, %89
+  br label %111
 
-113:                                              ; preds = %110
-  br label %114
+111:                                              ; preds = %110
+  br label %112
 
-114:                                              ; preds = %113, %84, %50, %23
+112:                                              ; preds = %111
+  %113 = load ptr, ptr %4, align 8
+  %114 = getelementptr inbounds %struct._zval_struct, ptr %113, i32 0, i32 1
+  store i32 1, ptr %114, align 8
+  br label %115
+
+115:                                              ; preds = %112
+  br label %116
+
+116:                                              ; preds = %115, %86, %51, %23
   ret void
 }
 
@@ -7852,157 +7885,159 @@ define hidden void @zim_DOMElement_getAttributeNodeNS(ptr noundef %0, ptr nounde
   %21 = load i32, ptr %20, align 4
   %22 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %21, ptr noundef @.str.11, ptr noundef %13, ptr noundef %10, ptr noundef %14, ptr noundef %11)
   %23 = icmp eq i32 %22, -1
-  br i1 %23, label %24, label %29
+  br i1 %23, label %24, label %30
 
 24:                                               ; preds = %2
   br label %25
 
 25:                                               ; preds = %24
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %27 = icmp ne ptr %26, null
-  call void @llvm.assume(i1 %27)
-  br label %112
+  %26 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp ne ptr %27, null
+  call void @llvm.assume(i1 %28)
+  br label %114
 
-28:                                               ; No predecessors!
-  br label %29
+29:                                               ; No predecessors!
+  br label %30
 
-29:                                               ; preds = %28, %2
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct._zval_struct, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = call ptr @php_dom_obj_from_obj(ptr noundef %32)
-  store ptr %33, ptr %9, align 8
-  %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %struct._dom_object, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, null
-  %38 = xor i1 %37, true
+30:                                               ; preds = %29, %2
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds %struct._zval_struct, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = call ptr @php_dom_obj_from_obj(ptr noundef %33)
+  store ptr %34, ptr %9, align 8
+  %35 = load ptr, ptr %9, align 8
+  %36 = getelementptr inbounds %struct._dom_object, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %37, null
   %39 = xor i1 %38, true
-  %40 = zext i1 %39 to i32
-  %41 = sext i32 %40 to i64
-  %42 = icmp ne i64 %41, 0
-  br i1 %42, label %43, label %56
+  %40 = xor i1 %39, true
+  %41 = zext i1 %40 to i32
+  %42 = sext i32 %41 to i64
+  %43 = icmp ne i64 %42, 0
+  br i1 %43, label %44, label %58
 
-43:                                               ; preds = %29
-  %44 = load ptr, ptr %9, align 8
-  %45 = getelementptr inbounds %struct._dom_object, ptr %44, i32 0, i32 3
-  %46 = getelementptr inbounds %struct._zend_object, ptr %45, i32 0, i32 2
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct._zend_class_entry, ptr %47, i32 0, i32 1
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds %struct._zend_string, ptr %49, i32 0, i32 3
-  %51 = getelementptr inbounds [1 x i8], ptr %50, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %51)
-  br label %52
+44:                                               ; preds = %30
+  %45 = load ptr, ptr %9, align 8
+  %46 = getelementptr inbounds %struct._dom_object, ptr %45, i32 0, i32 3
+  %47 = getelementptr inbounds %struct._zend_object, ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds %struct._zend_class_entry, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds %struct._zend_string, ptr %50, i32 0, i32 3
+  %52 = getelementptr inbounds [1 x i8], ptr %51, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %52)
+  br label %53
 
-52:                                               ; preds = %43
-  %53 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %54 = icmp ne ptr %53, null
-  call void @llvm.assume(i1 %54)
-  br label %112
+53:                                               ; preds = %44
+  %54 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp ne ptr %55, null
+  call void @llvm.assume(i1 %56)
+  br label %114
 
-55:                                               ; No predecessors!
-  br label %56
+57:                                               ; No predecessors!
+  br label %58
 
-56:                                               ; preds = %55, %29
-  %57 = load ptr, ptr %9, align 8
-  %58 = getelementptr inbounds %struct._dom_object, ptr %57, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %59, i32 0, i32 0
+58:                                               ; preds = %57, %30
+  %59 = load ptr, ptr %9, align 8
+  %60 = getelementptr inbounds %struct._dom_object, ptr %59, i32 0, i32 0
   %61 = load ptr, ptr %60, align 8
-  store ptr %61, ptr %7, align 8
-  %62 = load ptr, ptr %7, align 8
-  %63 = load ptr, ptr %14, align 8
-  %64 = load ptr, ptr %13, align 8
-  %65 = call ptr @xmlHasNsProp(ptr noundef %62, ptr noundef %63, ptr noundef %64)
-  store ptr %65, ptr %8, align 8
-  %66 = load ptr, ptr %8, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %106
+  %62 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  store ptr %63, ptr %7, align 8
+  %64 = load ptr, ptr %7, align 8
+  %65 = load ptr, ptr %14, align 8
+  %66 = load ptr, ptr %13, align 8
+  %67 = call ptr @xmlHasNsProp(ptr noundef %64, ptr noundef %65, ptr noundef %66)
+  store ptr %67, ptr %8, align 8
+  %68 = load ptr, ptr %8, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %70, label %108
 
-68:                                               ; preds = %56
-  %69 = load ptr, ptr %13, align 8
-  %70 = call i32 @xmlStrEqual(ptr noundef %69, ptr noundef @.str.12)
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %72, label %98
+70:                                               ; preds = %58
+  %71 = load ptr, ptr %13, align 8
+  %72 = call i32 @xmlStrEqual(ptr noundef %71, ptr noundef @.str.12)
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %100
 
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %7, align 8
-  %74 = load ptr, ptr %14, align 8
-  %75 = call ptr @dom_get_nsdecl(ptr noundef %73, ptr noundef %74)
-  store ptr %75, ptr %15, align 8
-  %76 = load ptr, ptr %15, align 8
-  %77 = icmp ne ptr %76, null
-  br i1 %77, label %78, label %90
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %7, align 8
+  %76 = load ptr, ptr %14, align 8
+  %77 = call ptr @dom_get_nsdecl(ptr noundef %75, ptr noundef %76)
+  store ptr %77, ptr %15, align 8
+  %78 = load ptr, ptr %15, align 8
+  %79 = icmp ne ptr %78, null
+  br i1 %79, label %80, label %92
 
-78:                                               ; preds = %72
-  %79 = load ptr, ptr %9, align 8
-  %80 = getelementptr inbounds %struct._dom_object, ptr %79, i32 0, i32 3
-  %81 = getelementptr inbounds %struct._zend_object, ptr %80, i32 0, i32 0
-  store ptr %81, ptr %3, align 8
-  %82 = load ptr, ptr %3, align 8
-  %83 = load i32, ptr %82, align 4
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %82, align 4
-  %85 = load ptr, ptr %7, align 8
-  %86 = load ptr, ptr %15, align 8
-  %87 = load ptr, ptr %5, align 8
-  %88 = load ptr, ptr %9, align 8
-  %89 = call ptr @php_dom_create_fake_namespace_decl(ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88)
-  br label %97
-
-90:                                               ; preds = %72
-  br label %91
-
-91:                                               ; preds = %90
-  br label %92
-
-92:                                               ; preds = %91
-  %93 = load ptr, ptr %5, align 8
-  %94 = getelementptr inbounds %struct._zval_struct, ptr %93, i32 0, i32 1
-  store i32 1, ptr %94, align 8
-  br label %95
-
-95:                                               ; preds = %92
-  br label %112
-
-96:                                               ; No predecessors!
-  br label %97
-
-97:                                               ; preds = %96, %78
-  br label %105
-
-98:                                               ; preds = %68
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %9, align 8
+  %82 = getelementptr inbounds %struct._dom_object, ptr %81, i32 0, i32 3
+  %83 = getelementptr inbounds %struct._zend_object, ptr %82, i32 0, i32 0
+  store ptr %83, ptr %3, align 8
+  %84 = load ptr, ptr %3, align 8
+  %85 = load i32, ptr %84, align 4
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %84, align 4
+  %87 = load ptr, ptr %7, align 8
+  %88 = load ptr, ptr %15, align 8
+  %89 = load ptr, ptr %5, align 8
+  %90 = load ptr, ptr %9, align 8
+  %91 = call ptr @php_dom_create_fake_namespace_decl(ptr noundef %87, ptr noundef %88, ptr noundef %89, ptr noundef %90)
   br label %99
 
-99:                                               ; preds = %98
-  br label %100
+92:                                               ; preds = %74
+  br label %93
 
-100:                                              ; preds = %99
-  %101 = load ptr, ptr %5, align 8
-  %102 = getelementptr inbounds %struct._zval_struct, ptr %101, i32 0, i32 1
-  store i32 1, ptr %102, align 8
-  br label %103
+93:                                               ; preds = %92
+  br label %94
 
-103:                                              ; preds = %100
-  br label %112
+94:                                               ; preds = %93
+  %95 = load ptr, ptr %5, align 8
+  %96 = getelementptr inbounds %struct._zval_struct, ptr %95, i32 0, i32 1
+  store i32 1, ptr %96, align 8
+  br label %97
 
-104:                                              ; No predecessors!
+97:                                               ; preds = %94
+  br label %114
+
+98:                                               ; No predecessors!
+  br label %99
+
+99:                                               ; preds = %98, %80
+  br label %107
+
+100:                                              ; preds = %70
+  br label %101
+
+101:                                              ; preds = %100
+  br label %102
+
+102:                                              ; preds = %101
+  %103 = load ptr, ptr %5, align 8
+  %104 = getelementptr inbounds %struct._zval_struct, ptr %103, i32 0, i32 1
+  store i32 1, ptr %104, align 8
   br label %105
 
-105:                                              ; preds = %104, %97
-  br label %112
+105:                                              ; preds = %102
+  br label %114
 
-106:                                              ; preds = %56
-  %107 = load ptr, ptr %8, align 8
-  %108 = load ptr, ptr %5, align 8
-  %109 = load ptr, ptr %9, align 8
-  %110 = call zeroext i1 @php_dom_create_object(ptr noundef %107, ptr noundef %108, ptr noundef %109)
-  %111 = zext i1 %110 to i32
-  store i32 %111, ptr %12, align 4
-  br label %112
+106:                                              ; No predecessors!
+  br label %107
 
-112:                                              ; preds = %106, %105, %103, %95, %52, %25
+107:                                              ; preds = %106, %99
+  br label %114
+
+108:                                              ; preds = %58
+  %109 = load ptr, ptr %8, align 8
+  %110 = load ptr, ptr %5, align 8
+  %111 = load ptr, ptr %9, align 8
+  %112 = call zeroext i1 @php_dom_create_object(ptr noundef %109, ptr noundef %110, ptr noundef %111)
+  %113 = zext i1 %112 to i32
+  store i32 %113, ptr %12, align 4
+  br label %114
+
+114:                                              ; preds = %108, %107, %105, %97, %53, %25
   ret void
 }
 
@@ -8033,304 +8068,307 @@ define hidden void @zim_DOMElement_setAttributeNodeNS(ptr noundef %0, ptr nounde
   %21 = load ptr, ptr @dom_attr_class_entry, align 8
   %22 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %20, ptr noundef @.str.10, ptr noundef %6, ptr noundef %21)
   %23 = icmp eq i32 %22, -1
-  br i1 %23, label %24, label %29
+  br i1 %23, label %24, label %30
 
 24:                                               ; preds = %2
   br label %25
 
 25:                                               ; preds = %24
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %27 = icmp ne ptr %26, null
-  call void @llvm.assume(i1 %27)
-  br label %214
+  %26 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp ne ptr %27, null
+  call void @llvm.assume(i1 %28)
+  br label %217
 
-28:                                               ; No predecessors!
-  br label %29
+29:                                               ; No predecessors!
+  br label %30
 
-29:                                               ; preds = %28, %2
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct._zval_struct, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = call ptr @php_dom_obj_from_obj(ptr noundef %32)
-  store ptr %33, ptr %11, align 8
-  %34 = load ptr, ptr %11, align 8
-  %35 = getelementptr inbounds %struct._dom_object, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, null
-  %38 = xor i1 %37, true
+30:                                               ; preds = %29, %2
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds %struct._zval_struct, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = call ptr @php_dom_obj_from_obj(ptr noundef %33)
+  store ptr %34, ptr %11, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = getelementptr inbounds %struct._dom_object, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %37, null
   %39 = xor i1 %38, true
-  %40 = zext i1 %39 to i32
-  %41 = sext i32 %40 to i64
-  %42 = icmp ne i64 %41, 0
-  br i1 %42, label %43, label %56
+  %40 = xor i1 %39, true
+  %41 = zext i1 %40 to i32
+  %42 = sext i32 %41 to i64
+  %43 = icmp ne i64 %42, 0
+  br i1 %43, label %44, label %58
 
-43:                                               ; preds = %29
-  %44 = load ptr, ptr %11, align 8
-  %45 = getelementptr inbounds %struct._dom_object, ptr %44, i32 0, i32 3
-  %46 = getelementptr inbounds %struct._zend_object, ptr %45, i32 0, i32 2
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct._zend_class_entry, ptr %47, i32 0, i32 1
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds %struct._zend_string, ptr %49, i32 0, i32 3
-  %51 = getelementptr inbounds [1 x i8], ptr %50, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %51)
-  br label %52
+44:                                               ; preds = %30
+  %45 = load ptr, ptr %11, align 8
+  %46 = getelementptr inbounds %struct._dom_object, ptr %45, i32 0, i32 3
+  %47 = getelementptr inbounds %struct._zend_object, ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds %struct._zend_class_entry, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds %struct._zend_string, ptr %50, i32 0, i32 3
+  %52 = getelementptr inbounds [1 x i8], ptr %51, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %52)
+  br label %53
 
-52:                                               ; preds = %43
-  %53 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %54 = icmp ne ptr %53, null
-  call void @llvm.assume(i1 %54)
-  br label %214
+53:                                               ; preds = %44
+  %54 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp ne ptr %55, null
+  call void @llvm.assume(i1 %56)
+  br label %217
 
-55:                                               ; No predecessors!
-  br label %56
+57:                                               ; No predecessors!
+  br label %58
 
-56:                                               ; preds = %55, %29
-  %57 = load ptr, ptr %11, align 8
-  %58 = getelementptr inbounds %struct._dom_object, ptr %57, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %59, i32 0, i32 0
+58:                                               ; preds = %57, %30
+  %59 = load ptr, ptr %11, align 8
+  %60 = getelementptr inbounds %struct._dom_object, ptr %59, i32 0, i32 0
   %61 = load ptr, ptr %60, align 8
-  store ptr %61, ptr %7, align 8
-  %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds %struct._zval_struct, ptr %62, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = call ptr @php_dom_obj_from_obj(ptr noundef %64)
-  store ptr %65, ptr %12, align 8
-  %66 = load ptr, ptr %12, align 8
-  %67 = getelementptr inbounds %struct._dom_object, ptr %66, i32 0, i32 0
-  %68 = load ptr, ptr %67, align 8
-  %69 = icmp eq ptr %68, null
-  %70 = xor i1 %69, true
-  %71 = xor i1 %70, true
-  %72 = zext i1 %71 to i32
-  %73 = sext i32 %72 to i64
-  %74 = icmp ne i64 %73, 0
-  br i1 %74, label %75, label %88
+  %62 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  store ptr %63, ptr %7, align 8
+  %64 = load ptr, ptr %6, align 8
+  %65 = getelementptr inbounds %struct._zval_struct, ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8
+  %67 = call ptr @php_dom_obj_from_obj(ptr noundef %66)
+  store ptr %67, ptr %12, align 8
+  %68 = load ptr, ptr %12, align 8
+  %69 = getelementptr inbounds %struct._dom_object, ptr %68, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %70, null
+  %72 = xor i1 %71, true
+  %73 = xor i1 %72, true
+  %74 = zext i1 %73 to i32
+  %75 = sext i32 %74 to i64
+  %76 = icmp ne i64 %75, 0
+  br i1 %76, label %77, label %91
 
-75:                                               ; preds = %56
-  %76 = load ptr, ptr %12, align 8
-  %77 = getelementptr inbounds %struct._dom_object, ptr %76, i32 0, i32 3
-  %78 = getelementptr inbounds %struct._zend_object, ptr %77, i32 0, i32 2
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds %struct._zend_class_entry, ptr %79, i32 0, i32 1
+77:                                               ; preds = %58
+  %78 = load ptr, ptr %12, align 8
+  %79 = getelementptr inbounds %struct._dom_object, ptr %78, i32 0, i32 3
+  %80 = getelementptr inbounds %struct._zend_object, ptr %79, i32 0, i32 2
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds %struct._zend_string, ptr %81, i32 0, i32 3
-  %83 = getelementptr inbounds [1 x i8], ptr %82, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %83)
-  br label %84
+  %82 = getelementptr inbounds %struct._zend_class_entry, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds %struct._zend_string, ptr %83, i32 0, i32 3
+  %85 = getelementptr inbounds [1 x i8], ptr %84, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %85)
+  br label %86
 
-84:                                               ; preds = %75
-  %85 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %86 = icmp ne ptr %85, null
-  call void @llvm.assume(i1 %86)
-  br label %214
+86:                                               ; preds = %77
+  %87 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp ne ptr %88, null
+  call void @llvm.assume(i1 %89)
+  br label %217
 
-87:                                               ; No predecessors!
-  br label %88
+90:                                               ; No predecessors!
+  br label %91
 
-88:                                               ; preds = %87, %56
-  %89 = load ptr, ptr %12, align 8
-  %90 = getelementptr inbounds %struct._dom_object, ptr %89, i32 0, i32 0
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %91, i32 0, i32 0
-  %93 = load ptr, ptr %92, align 8
-  store ptr %93, ptr %9, align 8
-  %94 = load ptr, ptr %9, align 8
-  %95 = getelementptr inbounds %struct._xmlAttr, ptr %94, i32 0, i32 1
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp eq i32 %96, 2
-  call void @llvm.assume(i1 %97)
-  %98 = load ptr, ptr %9, align 8
-  %99 = getelementptr inbounds %struct._xmlAttr, ptr %98, i32 0, i32 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %121, label %102
+91:                                               ; preds = %90, %58
+  %92 = load ptr, ptr %12, align 8
+  %93 = getelementptr inbounds %struct._dom_object, ptr %92, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %94, i32 0, i32 0
+  %96 = load ptr, ptr %95, align 8
+  store ptr %96, ptr %9, align 8
+  %97 = load ptr, ptr %9, align 8
+  %98 = getelementptr inbounds %struct._xmlAttr, ptr %97, i32 0, i32 1
+  %99 = load i32, ptr %98, align 8
+  %100 = icmp eq i32 %99, 2
+  call void @llvm.assume(i1 %100)
+  %101 = load ptr, ptr %9, align 8
+  %102 = getelementptr inbounds %struct._xmlAttr, ptr %101, i32 0, i32 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %124, label %105
 
-102:                                              ; preds = %88
-  %103 = load ptr, ptr %9, align 8
-  %104 = getelementptr inbounds %struct._xmlAttr, ptr %103, i32 0, i32 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = load ptr, ptr %7, align 8
-  %107 = getelementptr inbounds %struct._xmlNode, ptr %106, i32 0, i32 8
+105:                                              ; preds = %91
+  %106 = load ptr, ptr %9, align 8
+  %107 = getelementptr inbounds %struct._xmlAttr, ptr %106, i32 0, i32 8
   %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %105, %108
-  br i1 %109, label %121, label %110
+  %109 = load ptr, ptr %7, align 8
+  %110 = getelementptr inbounds %struct._xmlNode, ptr %109, i32 0, i32 8
+  %111 = load ptr, ptr %110, align 8
+  %112 = icmp eq ptr %108, %111
+  br i1 %112, label %124, label %113
 
-110:                                              ; preds = %102
-  %111 = load ptr, ptr %11, align 8
-  %112 = getelementptr inbounds %struct._dom_object, ptr %111, i32 0, i32 1
-  %113 = load ptr, ptr %112, align 8
-  %114 = call i32 @dom_get_strict_error(ptr noundef %113)
-  call void @php_dom_throw_error(i32 noundef 4, i32 noundef %114)
-  br label %115
+113:                                              ; preds = %105
+  %114 = load ptr, ptr %11, align 8
+  %115 = getelementptr inbounds %struct._dom_object, ptr %114, i32 0, i32 1
+  %116 = load ptr, ptr %115, align 8
+  %117 = call i32 @dom_get_strict_error(ptr noundef %116)
+  call void @php_dom_throw_error(i32 noundef 4, i32 noundef %117)
+  br label %118
 
-115:                                              ; preds = %110
-  br label %116
-
-116:                                              ; preds = %115
-  %117 = load ptr, ptr %4, align 8
-  %118 = getelementptr inbounds %struct._zval_struct, ptr %117, i32 0, i32 1
-  store i32 2, ptr %118, align 8
+118:                                              ; preds = %113
   br label %119
 
-119:                                              ; preds = %116
-  br label %214
+119:                                              ; preds = %118
+  %120 = load ptr, ptr %4, align 8
+  %121 = getelementptr inbounds %struct._zval_struct, ptr %120, i32 0, i32 1
+  store i32 2, ptr %121, align 8
+  br label %122
 
-120:                                              ; No predecessors!
-  br label %121
+122:                                              ; preds = %119
+  br label %217
 
-121:                                              ; preds = %120, %102, %88
-  %122 = load ptr, ptr %9, align 8
-  %123 = getelementptr inbounds %struct._xmlAttr, ptr %122, i32 0, i32 9
-  %124 = load ptr, ptr %123, align 8
-  store ptr %124, ptr %8, align 8
-  %125 = load ptr, ptr %8, align 8
-  %126 = icmp ne ptr %125, null
-  br i1 %126, label %127, label %136
+123:                                              ; No predecessors!
+  br label %124
 
-127:                                              ; preds = %121
-  %128 = load ptr, ptr %7, align 8
-  %129 = load ptr, ptr %9, align 8
-  %130 = getelementptr inbounds %struct._xmlAttr, ptr %129, i32 0, i32 2
-  %131 = load ptr, ptr %130, align 8
-  %132 = load ptr, ptr %8, align 8
-  %133 = getelementptr inbounds %struct._xmlNs, ptr %132, i32 0, i32 2
+124:                                              ; preds = %123, %105, %91
+  %125 = load ptr, ptr %9, align 8
+  %126 = getelementptr inbounds %struct._xmlAttr, ptr %125, i32 0, i32 9
+  %127 = load ptr, ptr %126, align 8
+  store ptr %127, ptr %8, align 8
+  %128 = load ptr, ptr %8, align 8
+  %129 = icmp ne ptr %128, null
+  br i1 %129, label %130, label %139
+
+130:                                              ; preds = %124
+  %131 = load ptr, ptr %7, align 8
+  %132 = load ptr, ptr %9, align 8
+  %133 = getelementptr inbounds %struct._xmlAttr, ptr %132, i32 0, i32 2
   %134 = load ptr, ptr %133, align 8
-  %135 = call ptr @xmlHasNsProp(ptr noundef %128, ptr noundef %131, ptr noundef %134)
-  store ptr %135, ptr %10, align 8
-  br label %142
+  %135 = load ptr, ptr %8, align 8
+  %136 = getelementptr inbounds %struct._xmlNs, ptr %135, i32 0, i32 2
+  %137 = load ptr, ptr %136, align 8
+  %138 = call ptr @xmlHasNsProp(ptr noundef %131, ptr noundef %134, ptr noundef %137)
+  store ptr %138, ptr %10, align 8
+  br label %145
 
-136:                                              ; preds = %121
-  %137 = load ptr, ptr %7, align 8
-  %138 = load ptr, ptr %9, align 8
-  %139 = getelementptr inbounds %struct._xmlAttr, ptr %138, i32 0, i32 2
-  %140 = load ptr, ptr %139, align 8
-  %141 = call ptr @xmlHasProp(ptr noundef %137, ptr noundef %140)
-  store ptr %141, ptr %10, align 8
-  br label %142
+139:                                              ; preds = %124
+  %140 = load ptr, ptr %7, align 8
+  %141 = load ptr, ptr %9, align 8
+  %142 = getelementptr inbounds %struct._xmlAttr, ptr %141, i32 0, i32 2
+  %143 = load ptr, ptr %142, align 8
+  %144 = call ptr @xmlHasProp(ptr noundef %140, ptr noundef %143)
+  store ptr %144, ptr %10, align 8
+  br label %145
 
-142:                                              ; preds = %136, %127
-  %143 = load ptr, ptr %10, align 8
-  %144 = icmp ne ptr %143, null
-  br i1 %144, label %145, label %171
-
-145:                                              ; preds = %142
+145:                                              ; preds = %139, %130
   %146 = load ptr, ptr %10, align 8
-  %147 = getelementptr inbounds %struct._xmlAttr, ptr %146, i32 0, i32 1
-  %148 = load i32, ptr %147, align 8
-  %149 = icmp ne i32 %148, 16
-  br i1 %149, label %150, label %171
+  %147 = icmp ne ptr %146, null
+  br i1 %147, label %148, label %174
 
-150:                                              ; preds = %145
-  %151 = load ptr, ptr %10, align 8
-  %152 = call ptr @php_dom_object_get_data(ptr noundef %151)
-  store ptr %152, ptr %13, align 8
-  %153 = icmp ne ptr %152, null
-  br i1 %153, label %154, label %169
+148:                                              ; preds = %145
+  %149 = load ptr, ptr %10, align 8
+  %150 = getelementptr inbounds %struct._xmlAttr, ptr %149, i32 0, i32 1
+  %151 = load i32, ptr %150, align 8
+  %152 = icmp ne i32 %151, 16
+  br i1 %152, label %153, label %174
 
-154:                                              ; preds = %150
-  %155 = load ptr, ptr %13, align 8
-  %156 = getelementptr inbounds %struct._dom_object, ptr %155, i32 0, i32 0
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %157, i32 0, i32 0
-  %159 = load ptr, ptr %158, align 8
-  %160 = load ptr, ptr %9, align 8
-  %161 = icmp eq ptr %159, %160
-  br i1 %161, label %162, label %169
+153:                                              ; preds = %148
+  %154 = load ptr, ptr %10, align 8
+  %155 = call ptr @php_dom_object_get_data(ptr noundef %154)
+  store ptr %155, ptr %13, align 8
+  %156 = icmp ne ptr %155, null
+  br i1 %156, label %157, label %172
 
-162:                                              ; preds = %154
-  br label %163
+157:                                              ; preds = %153
+  %158 = load ptr, ptr %13, align 8
+  %159 = getelementptr inbounds %struct._dom_object, ptr %158, i32 0, i32 0
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %160, i32 0, i32 0
+  %162 = load ptr, ptr %161, align 8
+  %163 = load ptr, ptr %9, align 8
+  %164 = icmp eq ptr %162, %163
+  br i1 %164, label %165, label %172
 
-163:                                              ; preds = %162
-  br label %164
+165:                                              ; preds = %157
+  br label %166
 
-164:                                              ; preds = %163
-  %165 = load ptr, ptr %4, align 8
-  %166 = getelementptr inbounds %struct._zval_struct, ptr %165, i32 0, i32 1
-  store i32 1, ptr %166, align 8
+166:                                              ; preds = %165
   br label %167
 
-167:                                              ; preds = %164
-  br label %214
+167:                                              ; preds = %166
+  %168 = load ptr, ptr %4, align 8
+  %169 = getelementptr inbounds %struct._zval_struct, ptr %168, i32 0, i32 1
+  store i32 1, ptr %169, align 8
+  br label %170
 
-168:                                              ; No predecessors!
-  br label %169
+170:                                              ; preds = %167
+  br label %217
 
-169:                                              ; preds = %168, %154, %150
-  %170 = load ptr, ptr %10, align 8
-  call void @xmlUnlinkNode(ptr noundef %170)
-  br label %171
+171:                                              ; No predecessors!
+  br label %172
 
-171:                                              ; preds = %169, %145, %142
-  %172 = load ptr, ptr %9, align 8
-  %173 = getelementptr inbounds %struct._xmlAttr, ptr %172, i32 0, i32 5
-  %174 = load ptr, ptr %173, align 8
-  %175 = icmp ne ptr %174, null
-  br i1 %175, label %176, label %178
+172:                                              ; preds = %171, %157, %153
+  %173 = load ptr, ptr %10, align 8
+  call void @xmlUnlinkNode(ptr noundef %173)
+  br label %174
 
-176:                                              ; preds = %171
-  %177 = load ptr, ptr %9, align 8
-  call void @xmlUnlinkNode(ptr noundef %177)
-  br label %178
+174:                                              ; preds = %172, %148, %145
+  %175 = load ptr, ptr %9, align 8
+  %176 = getelementptr inbounds %struct._xmlAttr, ptr %175, i32 0, i32 5
+  %177 = load ptr, ptr %176, align 8
+  %178 = icmp ne ptr %177, null
+  br i1 %178, label %179, label %181
 
-178:                                              ; preds = %176, %171
-  %179 = load ptr, ptr %9, align 8
-  %180 = getelementptr inbounds %struct._xmlAttr, ptr %179, i32 0, i32 8
-  %181 = load ptr, ptr %180, align 8
-  %182 = icmp eq ptr %181, null
-  br i1 %182, label %183, label %196
+179:                                              ; preds = %174
+  %180 = load ptr, ptr %9, align 8
+  call void @xmlUnlinkNode(ptr noundef %180)
+  br label %181
 
-183:                                              ; preds = %178
-  %184 = load ptr, ptr %7, align 8
-  %185 = getelementptr inbounds %struct._xmlNode, ptr %184, i32 0, i32 8
-  %186 = load ptr, ptr %185, align 8
-  %187 = icmp ne ptr %186, null
-  br i1 %187, label %188, label %196
+181:                                              ; preds = %179, %174
+  %182 = load ptr, ptr %9, align 8
+  %183 = getelementptr inbounds %struct._xmlAttr, ptr %182, i32 0, i32 8
+  %184 = load ptr, ptr %183, align 8
+  %185 = icmp eq ptr %184, null
+  br i1 %185, label %186, label %199
 
-188:                                              ; preds = %183
-  %189 = load ptr, ptr %11, align 8
-  %190 = getelementptr inbounds %struct._dom_object, ptr %189, i32 0, i32 1
-  %191 = load ptr, ptr %190, align 8
-  %192 = load ptr, ptr %12, align 8
+186:                                              ; preds = %181
+  %187 = load ptr, ptr %7, align 8
+  %188 = getelementptr inbounds %struct._xmlNode, ptr %187, i32 0, i32 8
+  %189 = load ptr, ptr %188, align 8
+  %190 = icmp ne ptr %189, null
+  br i1 %190, label %191, label %199
+
+191:                                              ; preds = %186
+  %192 = load ptr, ptr %11, align 8
   %193 = getelementptr inbounds %struct._dom_object, ptr %192, i32 0, i32 1
-  store ptr %191, ptr %193, align 8
-  %194 = load ptr, ptr %12, align 8
-  %195 = call i32 @php_libxml_increment_doc_ref(ptr noundef %194, ptr noundef null)
-  br label %196
+  %194 = load ptr, ptr %193, align 8
+  %195 = load ptr, ptr %12, align 8
+  %196 = getelementptr inbounds %struct._dom_object, ptr %195, i32 0, i32 1
+  store ptr %194, ptr %196, align 8
+  %197 = load ptr, ptr %12, align 8
+  %198 = call i32 @php_libxml_increment_doc_ref(ptr noundef %197, ptr noundef null)
+  br label %199
 
-196:                                              ; preds = %188, %183, %178
-  %197 = load ptr, ptr %7, align 8
-  %198 = load ptr, ptr %9, align 8
-  %199 = call ptr @xmlAddChild(ptr noundef %197, ptr noundef %198)
-  %200 = load ptr, ptr %9, align 8
-  call void @php_dom_reconcile_attribute_namespace_after_insertion(ptr noundef %200)
-  %201 = load ptr, ptr %10, align 8
-  %202 = icmp ne ptr %201, null
-  br i1 %202, label %203, label %209
-
-203:                                              ; preds = %196
+199:                                              ; preds = %191, %186, %181
+  %200 = load ptr, ptr %7, align 8
+  %201 = load ptr, ptr %9, align 8
+  %202 = call ptr @xmlAddChild(ptr noundef %200, ptr noundef %201)
+  %203 = load ptr, ptr %9, align 8
+  call void @php_dom_reconcile_attribute_namespace_after_insertion(ptr noundef %203)
   %204 = load ptr, ptr %10, align 8
-  %205 = load ptr, ptr %4, align 8
-  %206 = load ptr, ptr %11, align 8
-  %207 = call zeroext i1 @php_dom_create_object(ptr noundef %204, ptr noundef %205, ptr noundef %206)
-  %208 = zext i1 %207 to i32
-  store i32 %208, ptr %14, align 4
-  br label %214
+  %205 = icmp ne ptr %204, null
+  br i1 %205, label %206, label %212
 
-209:                                              ; preds = %196
-  br label %210
+206:                                              ; preds = %199
+  %207 = load ptr, ptr %10, align 8
+  %208 = load ptr, ptr %4, align 8
+  %209 = load ptr, ptr %11, align 8
+  %210 = call zeroext i1 @php_dom_create_object(ptr noundef %207, ptr noundef %208, ptr noundef %209)
+  %211 = zext i1 %210 to i32
+  store i32 %211, ptr %14, align 4
+  br label %217
 
-210:                                              ; preds = %209
-  %211 = load ptr, ptr %4, align 8
-  %212 = getelementptr inbounds %struct._zval_struct, ptr %211, i32 0, i32 1
-  store i32 1, ptr %212, align 8
+212:                                              ; preds = %199
   br label %213
 
-213:                                              ; preds = %210
-  br label %214
+213:                                              ; preds = %212
+  %214 = load ptr, ptr %4, align 8
+  %215 = getelementptr inbounds %struct._zval_struct, ptr %214, i32 0, i32 1
+  store i32 1, ptr %215, align 8
+  br label %216
 
-214:                                              ; preds = %213, %203, %167, %119, %84, %52, %25
+216:                                              ; preds = %213
+  br label %217
+
+217:                                              ; preds = %216, %206, %170, %122, %86, %53, %25
   ret void
 }
 
@@ -8352,89 +8390,91 @@ define hidden void @zim_DOMElement_getElementsByTagNameNS(ptr noundef %0, ptr no
   %14 = load i32, ptr %13, align 4
   %15 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %14, ptr noundef @.str.11, ptr noundef %9, ptr noundef %5, ptr noundef %10, ptr noundef %6)
   %16 = icmp eq i32 %15, -1
-  br i1 %16, label %17, label %22
+  br i1 %16, label %17, label %23
 
 17:                                               ; preds = %2
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  br label %68
+  %19 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  call void @llvm.assume(i1 %21)
+  br label %70
 
-21:                                               ; No predecessors!
-  br label %22
+22:                                               ; No predecessors!
+  br label %23
 
-22:                                               ; preds = %21, %2
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct._zend_execute_data, ptr %23, i32 0, i32 4
-  %25 = getelementptr inbounds %struct._zval_struct, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = call ptr @php_dom_obj_from_obj(ptr noundef %26)
-  store ptr %27, ptr %7, align 8
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds %struct._dom_object, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, null
-  %32 = xor i1 %31, true
+23:                                               ; preds = %22, %2
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds %struct._zend_execute_data, ptr %24, i32 0, i32 4
+  %26 = getelementptr inbounds %struct._zval_struct, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = call ptr @php_dom_obj_from_obj(ptr noundef %27)
+  store ptr %28, ptr %7, align 8
+  %29 = load ptr, ptr %7, align 8
+  %30 = getelementptr inbounds %struct._dom_object, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, null
   %33 = xor i1 %32, true
-  %34 = zext i1 %33 to i32
-  %35 = sext i32 %34 to i64
-  %36 = icmp ne i64 %35, 0
-  br i1 %36, label %37, label %50
+  %34 = xor i1 %33, true
+  %35 = zext i1 %34 to i32
+  %36 = sext i32 %35 to i64
+  %37 = icmp ne i64 %36, 0
+  br i1 %37, label %38, label %52
 
-37:                                               ; preds = %22
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct._dom_object, ptr %38, i32 0, i32 3
-  %40 = getelementptr inbounds %struct._zend_object, ptr %39, i32 0, i32 2
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct._zend_class_entry, ptr %41, i32 0, i32 1
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct._zend_string, ptr %43, i32 0, i32 3
-  %45 = getelementptr inbounds [1 x i8], ptr %44, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %45)
-  br label %46
+38:                                               ; preds = %23
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds %struct._dom_object, ptr %39, i32 0, i32 3
+  %41 = getelementptr inbounds %struct._zend_object, ptr %40, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds %struct._zend_class_entry, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %struct._zend_string, ptr %44, i32 0, i32 3
+  %46 = getelementptr inbounds [1 x i8], ptr %45, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %46)
+  br label %47
 
-46:                                               ; preds = %37
-  %47 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %48 = icmp ne ptr %47, null
-  call void @llvm.assume(i1 %48)
-  br label %68
+47:                                               ; preds = %38
+  %48 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp ne ptr %49, null
+  call void @llvm.assume(i1 %50)
+  br label %70
 
-49:                                               ; No predecessors!
-  br label %50
+51:                                               ; No predecessors!
+  br label %52
 
-50:                                               ; preds = %49, %22
-  %51 = load ptr, ptr %4, align 8
-  call void @php_dom_create_iterator(ptr noundef %51, i32 noundef 0)
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct._zval_struct, ptr %52, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  %55 = call ptr @php_dom_obj_from_obj(ptr noundef %54)
-  store ptr %55, ptr %8, align 8
-  %56 = load ptr, ptr %7, align 8
-  %57 = load ptr, ptr %8, align 8
-  %58 = load ptr, ptr %10, align 8
-  %59 = load i64, ptr %6, align 8
-  %60 = load ptr, ptr %9, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %64
+52:                                               ; preds = %51, %23
+  %53 = load ptr, ptr %4, align 8
+  call void @php_dom_create_iterator(ptr noundef %53, i32 noundef 0)
+  %54 = load ptr, ptr %4, align 8
+  %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  %57 = call ptr @php_dom_obj_from_obj(ptr noundef %56)
+  store ptr %57, ptr %8, align 8
+  %58 = load ptr, ptr %7, align 8
+  %59 = load ptr, ptr %8, align 8
+  %60 = load ptr, ptr %10, align 8
+  %61 = load i64, ptr %6, align 8
+  %62 = load ptr, ptr %9, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %66
 
-62:                                               ; preds = %50
-  %63 = load ptr, ptr %9, align 8
-  br label %65
+64:                                               ; preds = %52
+  %65 = load ptr, ptr %9, align 8
+  br label %67
 
-64:                                               ; preds = %50
-  br label %65
+66:                                               ; preds = %52
+  br label %67
 
-65:                                               ; preds = %64, %62
-  %66 = phi ptr [ %63, %62 ], [ @.str.14, %64 ]
-  %67 = load i64, ptr %5, align 8
-  call void @dom_namednode_iter(ptr noundef %56, i32 noundef 0, ptr noundef %57, ptr noundef null, ptr noundef %58, i64 noundef %59, ptr noundef %66, i64 noundef %67)
-  br label %68
+67:                                               ; preds = %66, %64
+  %68 = phi ptr [ %65, %64 ], [ @.str.14, %66 ]
+  %69 = load i64, ptr %5, align 8
+  call void @dom_namednode_iter(ptr noundef %58, i32 noundef 0, ptr noundef %59, ptr noundef null, ptr noundef %60, i64 noundef %61, ptr noundef %68, i64 noundef %69)
+  br label %70
 
-68:                                               ; preds = %65, %46, %18
+70:                                               ; preds = %67, %47, %18
   ret void
 }
 
@@ -8459,110 +8499,112 @@ define hidden void @zim_DOMElement_hasAttribute(ptr noundef %0, ptr noundef %1) 
   %16 = load i32, ptr %15, align 4
   %17 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %16, ptr noundef @.str.4, ptr noundef %8, ptr noundef %9)
   %18 = icmp eq i32 %17, -1
-  br i1 %18, label %19, label %24
+  br i1 %18, label %19, label %25
 
 19:                                               ; preds = %2
   br label %20
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %22 = icmp ne ptr %21, null
-  call void @llvm.assume(i1 %22)
-  br label %76
+  %21 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  call void @llvm.assume(i1 %23)
+  br label %78
 
-23:                                               ; No predecessors!
-  br label %24
+24:                                               ; No predecessors!
+  br label %25
 
-24:                                               ; preds = %23, %2
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct._zval_struct, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = call ptr @php_dom_obj_from_obj(ptr noundef %27)
-  store ptr %28, ptr %7, align 8
-  %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds %struct._dom_object, ptr %29, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  %33 = xor i1 %32, true
+25:                                               ; preds = %24, %2
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds %struct._zval_struct, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = call ptr @php_dom_obj_from_obj(ptr noundef %28)
+  store ptr %29, ptr %7, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds %struct._dom_object, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, null
   %34 = xor i1 %33, true
-  %35 = zext i1 %34 to i32
-  %36 = sext i32 %35 to i64
-  %37 = icmp ne i64 %36, 0
-  br i1 %37, label %38, label %51
+  %35 = xor i1 %34, true
+  %36 = zext i1 %35 to i32
+  %37 = sext i32 %36 to i64
+  %38 = icmp ne i64 %37, 0
+  br i1 %38, label %39, label %53
 
-38:                                               ; preds = %24
-  %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %struct._dom_object, ptr %39, i32 0, i32 3
-  %41 = getelementptr inbounds %struct._zend_object, ptr %40, i32 0, i32 2
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct._zend_class_entry, ptr %42, i32 0, i32 1
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct._zend_string, ptr %44, i32 0, i32 3
-  %46 = getelementptr inbounds [1 x i8], ptr %45, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %46)
-  br label %47
+39:                                               ; preds = %25
+  %40 = load ptr, ptr %7, align 8
+  %41 = getelementptr inbounds %struct._dom_object, ptr %40, i32 0, i32 3
+  %42 = getelementptr inbounds %struct._zend_object, ptr %41, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct._zend_class_entry, ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct._zend_string, ptr %45, i32 0, i32 3
+  %47 = getelementptr inbounds [1 x i8], ptr %46, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %47)
+  br label %48
 
-47:                                               ; preds = %38
-  %48 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %49 = icmp ne ptr %48, null
-  call void @llvm.assume(i1 %49)
-  br label %76
+48:                                               ; preds = %39
+  %49 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp ne ptr %50, null
+  call void @llvm.assume(i1 %51)
+  br label %78
 
-50:                                               ; No predecessors!
-  br label %51
+52:                                               ; No predecessors!
+  br label %53
 
-51:                                               ; preds = %50, %24
-  %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds %struct._dom_object, ptr %52, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %54, i32 0, i32 0
+53:                                               ; preds = %52, %25
+  %54 = load ptr, ptr %7, align 8
+  %55 = getelementptr inbounds %struct._dom_object, ptr %54, i32 0, i32 0
   %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %6, align 8
-  %57 = load ptr, ptr %6, align 8
-  %58 = load ptr, ptr %8, align 8
-  %59 = call ptr @dom_get_dom1_attribute(ptr noundef %57, ptr noundef %58)
-  store ptr %59, ptr %10, align 8
-  %60 = load ptr, ptr %10, align 8
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %62, label %69
+  %57 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  store ptr %58, ptr %6, align 8
+  %59 = load ptr, ptr %6, align 8
+  %60 = load ptr, ptr %8, align 8
+  %61 = call ptr @dom_get_dom1_attribute(ptr noundef %59, ptr noundef %60)
+  store ptr %61, ptr %10, align 8
+  %62 = load ptr, ptr %10, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %64, label %71
 
-62:                                               ; preds = %51
-  br label %63
+64:                                               ; preds = %53
+  br label %65
 
-63:                                               ; preds = %62
-  br label %64
+65:                                               ; preds = %64
+  br label %66
 
-64:                                               ; preds = %63
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct._zval_struct, ptr %65, i32 0, i32 1
-  store i32 2, ptr %66, align 8
-  br label %67
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %4, align 8
+  %68 = getelementptr inbounds %struct._zval_struct, ptr %67, i32 0, i32 1
+  store i32 2, ptr %68, align 8
+  br label %69
 
-67:                                               ; preds = %64
+69:                                               ; preds = %66
+  br label %78
+
+70:                                               ; No predecessors!
+  br label %78
+
+71:                                               ; preds = %53
+  br label %72
+
+72:                                               ; preds = %71
+  br label %73
+
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %4, align 8
+  %75 = getelementptr inbounds %struct._zval_struct, ptr %74, i32 0, i32 1
+  store i32 3, ptr %75, align 8
   br label %76
 
-68:                                               ; No predecessors!
-  br label %76
+76:                                               ; preds = %73
+  br label %78
 
-69:                                               ; preds = %51
-  br label %70
+77:                                               ; No predecessors!
+  br label %78
 
-70:                                               ; preds = %69
-  br label %71
-
-71:                                               ; preds = %70
-  %72 = load ptr, ptr %4, align 8
-  %73 = getelementptr inbounds %struct._zval_struct, ptr %72, i32 0, i32 1
-  store i32 3, ptr %73, align 8
-  br label %74
-
-74:                                               ; preds = %71
-  br label %76
-
-75:                                               ; No predecessors!
-  br label %76
-
-76:                                               ; preds = %75, %74, %68, %67, %47, %20
+78:                                               ; preds = %77, %76, %70, %69, %48, %20
   ret void
 }
 
@@ -8590,150 +8632,152 @@ define hidden void @zim_DOMElement_hasAttributeNS(ptr noundef %0, ptr noundef %1
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef @.str.11, ptr noundef %11, ptr noundef %9, ptr noundef %12, ptr noundef %10)
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %22, label %27
+  br i1 %21, label %22, label %28
 
 22:                                               ; preds = %2
   br label %23
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %25 = icmp ne ptr %24, null
-  call void @llvm.assume(i1 %25)
-  br label %100
+  %24 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  call void @llvm.assume(i1 %26)
+  br label %102
 
-26:                                               ; No predecessors!
-  br label %27
+27:                                               ; No predecessors!
+  br label %28
 
-27:                                               ; preds = %26, %2
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct._zval_struct, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = call ptr @php_dom_obj_from_obj(ptr noundef %30)
-  store ptr %31, ptr %8, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %struct._dom_object, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  %36 = xor i1 %35, true
+28:                                               ; preds = %27, %2
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = call ptr @php_dom_obj_from_obj(ptr noundef %31)
+  store ptr %32, ptr %8, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds %struct._dom_object, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
   %37 = xor i1 %36, true
-  %38 = zext i1 %37 to i32
-  %39 = sext i32 %38 to i64
-  %40 = icmp ne i64 %39, 0
-  br i1 %40, label %41, label %54
+  %38 = xor i1 %37, true
+  %39 = zext i1 %38 to i32
+  %40 = sext i32 %39 to i64
+  %41 = icmp ne i64 %40, 0
+  br i1 %41, label %42, label %56
 
-41:                                               ; preds = %27
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct._dom_object, ptr %42, i32 0, i32 3
-  %44 = getelementptr inbounds %struct._zend_object, ptr %43, i32 0, i32 2
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct._zend_class_entry, ptr %45, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct._zend_string, ptr %47, i32 0, i32 3
-  %49 = getelementptr inbounds [1 x i8], ptr %48, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %49)
-  br label %50
+42:                                               ; preds = %28
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct._dom_object, ptr %43, i32 0, i32 3
+  %45 = getelementptr inbounds %struct._zend_object, ptr %44, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %struct._zend_class_entry, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds %struct._zend_string, ptr %48, i32 0, i32 3
+  %50 = getelementptr inbounds [1 x i8], ptr %49, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %50)
+  br label %51
 
-50:                                               ; preds = %41
-  %51 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %52 = icmp ne ptr %51, null
-  call void @llvm.assume(i1 %52)
-  br label %100
+51:                                               ; preds = %42
+  %52 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  call void @llvm.assume(i1 %54)
+  br label %102
 
-53:                                               ; No predecessors!
-  br label %54
+55:                                               ; No predecessors!
+  br label %56
 
-54:                                               ; preds = %53, %27
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct._dom_object, ptr %55, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %57, i32 0, i32 0
+56:                                               ; preds = %55, %28
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds %struct._dom_object, ptr %57, i32 0, i32 0
   %59 = load ptr, ptr %58, align 8
-  store ptr %59, ptr %6, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = load ptr, ptr %12, align 8
-  %62 = load ptr, ptr %11, align 8
-  %63 = call ptr @xmlGetNsProp(ptr noundef %60, ptr noundef %61, ptr noundef %62)
-  store ptr %63, ptr %13, align 8
-  %64 = load ptr, ptr %13, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %66, label %75
+  %60 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  store ptr %61, ptr %6, align 8
+  %62 = load ptr, ptr %6, align 8
+  %63 = load ptr, ptr %12, align 8
+  %64 = load ptr, ptr %11, align 8
+  %65 = call ptr @xmlGetNsProp(ptr noundef %62, ptr noundef %63, ptr noundef %64)
+  store ptr %65, ptr %13, align 8
+  %66 = load ptr, ptr %13, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %77
 
-66:                                               ; preds = %54
-  %67 = load ptr, ptr @xmlFree, align 8
-  %68 = load ptr, ptr %13, align 8
-  call void %67(ptr noundef %68)
-  br label %69
+68:                                               ; preds = %56
+  %69 = load ptr, ptr @xmlFree, align 8
+  %70 = load ptr, ptr %13, align 8
+  call void %69(ptr noundef %70)
+  br label %71
 
-69:                                               ; preds = %66
-  br label %70
+71:                                               ; preds = %68
+  br label %72
 
-70:                                               ; preds = %69
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %struct._zval_struct, ptr %71, i32 0, i32 1
-  store i32 3, ptr %72, align 8
-  br label %73
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %4, align 8
+  %74 = getelementptr inbounds %struct._zval_struct, ptr %73, i32 0, i32 1
+  store i32 3, ptr %74, align 8
+  br label %75
 
-73:                                               ; preds = %70
-  br label %100
+75:                                               ; preds = %72
+  br label %102
 
-74:                                               ; No predecessors!
-  br label %94
-
-75:                                               ; preds = %54
-  %76 = load ptr, ptr %11, align 8
-  %77 = call i32 @xmlStrEqual(ptr noundef %76, ptr noundef @.str.12)
-  %78 = icmp ne i32 %77, 0
-  br i1 %78, label %79, label %93
-
-79:                                               ; preds = %75
-  %80 = load ptr, ptr %6, align 8
-  %81 = load ptr, ptr %12, align 8
-  %82 = call ptr @dom_get_nsdecl(ptr noundef %80, ptr noundef %81)
-  store ptr %82, ptr %7, align 8
-  %83 = load ptr, ptr %7, align 8
-  %84 = icmp ne ptr %83, null
-  br i1 %84, label %85, label %92
-
-85:                                               ; preds = %79
-  br label %86
-
-86:                                               ; preds = %85
-  br label %87
-
-87:                                               ; preds = %86
-  %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds %struct._zval_struct, ptr %88, i32 0, i32 1
-  store i32 3, ptr %89, align 8
-  br label %90
-
-90:                                               ; preds = %87
-  br label %100
-
-91:                                               ; No predecessors!
-  br label %92
-
-92:                                               ; preds = %91, %79
-  br label %93
-
-93:                                               ; preds = %92, %75
-  br label %94
-
-94:                                               ; preds = %93, %74
-  br label %95
-
-95:                                               ; preds = %94
+76:                                               ; No predecessors!
   br label %96
 
-96:                                               ; preds = %95
-  %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds %struct._zval_struct, ptr %97, i32 0, i32 1
-  store i32 2, ptr %98, align 8
-  br label %99
+77:                                               ; preds = %56
+  %78 = load ptr, ptr %11, align 8
+  %79 = call i32 @xmlStrEqual(ptr noundef %78, ptr noundef @.str.12)
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %95
 
-99:                                               ; preds = %96
-  br label %100
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %6, align 8
+  %83 = load ptr, ptr %12, align 8
+  %84 = call ptr @dom_get_nsdecl(ptr noundef %82, ptr noundef %83)
+  store ptr %84, ptr %7, align 8
+  %85 = load ptr, ptr %7, align 8
+  %86 = icmp ne ptr %85, null
+  br i1 %86, label %87, label %94
 
-100:                                              ; preds = %99, %90, %73, %50, %23
+87:                                               ; preds = %81
+  br label %88
+
+88:                                               ; preds = %87
+  br label %89
+
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %4, align 8
+  %91 = getelementptr inbounds %struct._zval_struct, ptr %90, i32 0, i32 1
+  store i32 3, ptr %91, align 8
+  br label %92
+
+92:                                               ; preds = %89
+  br label %102
+
+93:                                               ; No predecessors!
+  br label %94
+
+94:                                               ; preds = %93, %81
+  br label %95
+
+95:                                               ; preds = %94, %77
+  br label %96
+
+96:                                               ; preds = %95, %76
+  br label %97
+
+97:                                               ; preds = %96
+  br label %98
+
+98:                                               ; preds = %97
+  %99 = load ptr, ptr %4, align 8
+  %100 = getelementptr inbounds %struct._zval_struct, ptr %99, i32 0, i32 1
+  store i32 2, ptr %100, align 8
+  br label %101
+
+101:                                              ; preds = %98
+  br label %102
+
+102:                                              ; preds = %101, %92, %75, %51, %23
   ret void
 }
 
@@ -8759,111 +8803,113 @@ define hidden void @zim_DOMElement_setIdAttribute(ptr noundef %0, ptr noundef %1
   %17 = load i32, ptr %16, align 4
   %18 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %17, ptr noundef @.str.15, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %20, label %25
+  br i1 %19, label %20, label %26
 
 20:                                               ; preds = %2
   br label %21
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %23 = icmp ne ptr %22, null
-  call void @llvm.assume(i1 %23)
-  br label %83
+  %22 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp ne ptr %23, null
+  call void @llvm.assume(i1 %24)
+  br label %85
 
-24:                                               ; No predecessors!
-  br label %25
+25:                                               ; No predecessors!
+  br label %26
 
-25:                                               ; preds = %24, %2
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct._zval_struct, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = call ptr @php_dom_obj_from_obj(ptr noundef %28)
-  store ptr %29, ptr %8, align 8
-  %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds %struct._dom_object, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  %34 = xor i1 %33, true
+26:                                               ; preds = %25, %2
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %struct._zval_struct, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = call ptr @php_dom_obj_from_obj(ptr noundef %29)
+  store ptr %30, ptr %8, align 8
+  %31 = load ptr, ptr %8, align 8
+  %32 = getelementptr inbounds %struct._dom_object, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, null
   %35 = xor i1 %34, true
-  %36 = zext i1 %35 to i32
-  %37 = sext i32 %36 to i64
-  %38 = icmp ne i64 %37, 0
-  br i1 %38, label %39, label %52
+  %36 = xor i1 %35, true
+  %37 = zext i1 %36 to i32
+  %38 = sext i32 %37 to i64
+  %39 = icmp ne i64 %38, 0
+  br i1 %39, label %40, label %54
 
-39:                                               ; preds = %25
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds %struct._dom_object, ptr %40, i32 0, i32 3
-  %42 = getelementptr inbounds %struct._zend_object, ptr %41, i32 0, i32 2
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct._zend_class_entry, ptr %43, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct._zend_string, ptr %45, i32 0, i32 3
-  %47 = getelementptr inbounds [1 x i8], ptr %46, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %47)
-  br label %48
+40:                                               ; preds = %26
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds %struct._dom_object, ptr %41, i32 0, i32 3
+  %43 = getelementptr inbounds %struct._zend_object, ptr %42, i32 0, i32 2
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %struct._zend_class_entry, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %struct._zend_string, ptr %46, i32 0, i32 3
+  %48 = getelementptr inbounds [1 x i8], ptr %47, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %48)
+  br label %49
 
-48:                                               ; preds = %39
-  %49 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
-  br label %83
+49:                                               ; preds = %40
+  %50 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp ne ptr %51, null
+  call void @llvm.assume(i1 %52)
+  br label %85
 
-51:                                               ; No predecessors!
-  br label %52
+53:                                               ; No predecessors!
+  br label %54
 
-52:                                               ; preds = %51, %25
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds %struct._dom_object, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %55, i32 0, i32 0
+54:                                               ; preds = %53, %26
+  %55 = load ptr, ptr %8, align 8
+  %56 = getelementptr inbounds %struct._dom_object, ptr %55, i32 0, i32 0
   %57 = load ptr, ptr %56, align 8
-  store ptr %57, ptr %6, align 8
-  %58 = load ptr, ptr %6, align 8
-  %59 = load ptr, ptr %9, align 8
-  %60 = call ptr @xmlHasNsProp(ptr noundef %58, ptr noundef %59, ptr noundef null)
-  store ptr %60, ptr %7, align 8
-  %61 = load ptr, ptr %7, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %68, label %63
+  %58 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  store ptr %59, ptr %6, align 8
+  %60 = load ptr, ptr %6, align 8
+  %61 = load ptr, ptr %9, align 8
+  %62 = call ptr @xmlHasNsProp(ptr noundef %60, ptr noundef %61, ptr noundef null)
+  store ptr %62, ptr %7, align 8
+  %63 = load ptr, ptr %7, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %70, label %65
 
-63:                                               ; preds = %52
-  %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds %struct._xmlAttr, ptr %64, i32 0, i32 1
-  %66 = load i32, ptr %65, align 8
-  %67 = icmp eq i32 %66, 16
-  br i1 %67, label %68, label %73
+65:                                               ; preds = %54
+  %66 = load ptr, ptr %7, align 8
+  %67 = getelementptr inbounds %struct._xmlAttr, ptr %66, i32 0, i32 1
+  %68 = load i32, ptr %67, align 8
+  %69 = icmp eq i32 %68, 16
+  br i1 %69, label %70, label %75
 
-68:                                               ; preds = %63, %52
-  %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr inbounds %struct._dom_object, ptr %69, i32 0, i32 1
-  %71 = load ptr, ptr %70, align 8
-  %72 = call i32 @dom_get_strict_error(ptr noundef %71)
-  call void @php_dom_throw_error(i32 noundef 8, i32 noundef %72)
-  br label %77
-
-73:                                               ; preds = %63
-  %74 = load ptr, ptr %7, align 8
-  %75 = load i8, ptr %11, align 1
-  %76 = trunc i8 %75 to i1
-  call void @php_set_attribute_id(ptr noundef %74, i1 noundef zeroext %76)
-  br label %77
-
-77:                                               ; preds = %73, %68
-  br label %78
-
-78:                                               ; preds = %77
+70:                                               ; preds = %65, %54
+  %71 = load ptr, ptr %8, align 8
+  %72 = getelementptr inbounds %struct._dom_object, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8
+  %74 = call i32 @dom_get_strict_error(ptr noundef %73)
+  call void @php_dom_throw_error(i32 noundef 8, i32 noundef %74)
   br label %79
 
-79:                                               ; preds = %78
-  %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds %struct._zval_struct, ptr %80, i32 0, i32 1
-  store i32 1, ptr %81, align 8
-  br label %82
+75:                                               ; preds = %65
+  %76 = load ptr, ptr %7, align 8
+  %77 = load i8, ptr %11, align 1
+  %78 = trunc i8 %77 to i1
+  call void @php_set_attribute_id(ptr noundef %76, i1 noundef zeroext %78)
+  br label %79
 
-82:                                               ; preds = %79
-  br label %83
+79:                                               ; preds = %75, %70
+  br label %80
 
-83:                                               ; preds = %82, %48, %21
+80:                                               ; preds = %79
+  br label %81
+
+81:                                               ; preds = %80
+  %82 = load ptr, ptr %4, align 8
+  %83 = getelementptr inbounds %struct._zval_struct, ptr %82, i32 0, i32 1
+  store i32 1, ptr %83, align 8
+  br label %84
+
+84:                                               ; preds = %81
+  br label %85
+
+85:                                               ; preds = %84, %49, %21
   ret void
 }
 
@@ -8891,112 +8937,114 @@ define hidden void @zim_DOMElement_setIdAttributeNS(ptr noundef %0, ptr noundef 
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef @.str.16, ptr noundef %11, ptr noundef %9, ptr noundef %12, ptr noundef %10, ptr noundef %13)
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %22, label %27
+  br i1 %21, label %22, label %28
 
 22:                                               ; preds = %2
   br label %23
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %25 = icmp ne ptr %24, null
-  call void @llvm.assume(i1 %25)
-  br label %86
+  %24 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  call void @llvm.assume(i1 %26)
+  br label %88
 
-26:                                               ; No predecessors!
-  br label %27
+27:                                               ; No predecessors!
+  br label %28
 
-27:                                               ; preds = %26, %2
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct._zval_struct, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = call ptr @php_dom_obj_from_obj(ptr noundef %30)
-  store ptr %31, ptr %8, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %struct._dom_object, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  %36 = xor i1 %35, true
+28:                                               ; preds = %27, %2
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = call ptr @php_dom_obj_from_obj(ptr noundef %31)
+  store ptr %32, ptr %8, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds %struct._dom_object, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
   %37 = xor i1 %36, true
-  %38 = zext i1 %37 to i32
-  %39 = sext i32 %38 to i64
-  %40 = icmp ne i64 %39, 0
-  br i1 %40, label %41, label %54
+  %38 = xor i1 %37, true
+  %39 = zext i1 %38 to i32
+  %40 = sext i32 %39 to i64
+  %41 = icmp ne i64 %40, 0
+  br i1 %41, label %42, label %56
 
-41:                                               ; preds = %27
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct._dom_object, ptr %42, i32 0, i32 3
-  %44 = getelementptr inbounds %struct._zend_object, ptr %43, i32 0, i32 2
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct._zend_class_entry, ptr %45, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct._zend_string, ptr %47, i32 0, i32 3
-  %49 = getelementptr inbounds [1 x i8], ptr %48, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %49)
-  br label %50
+42:                                               ; preds = %28
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct._dom_object, ptr %43, i32 0, i32 3
+  %45 = getelementptr inbounds %struct._zend_object, ptr %44, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %struct._zend_class_entry, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds %struct._zend_string, ptr %48, i32 0, i32 3
+  %50 = getelementptr inbounds [1 x i8], ptr %49, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %50)
+  br label %51
 
-50:                                               ; preds = %41
-  %51 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %52 = icmp ne ptr %51, null
-  call void @llvm.assume(i1 %52)
-  br label %86
+51:                                               ; preds = %42
+  %52 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  call void @llvm.assume(i1 %54)
+  br label %88
 
-53:                                               ; No predecessors!
-  br label %54
+55:                                               ; No predecessors!
+  br label %56
 
-54:                                               ; preds = %53, %27
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct._dom_object, ptr %55, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %57, i32 0, i32 0
+56:                                               ; preds = %55, %28
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds %struct._dom_object, ptr %57, i32 0, i32 0
   %59 = load ptr, ptr %58, align 8
-  store ptr %59, ptr %6, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = load ptr, ptr %12, align 8
-  %62 = load ptr, ptr %11, align 8
-  %63 = call ptr @xmlHasNsProp(ptr noundef %60, ptr noundef %61, ptr noundef %62)
-  store ptr %63, ptr %7, align 8
-  %64 = load ptr, ptr %7, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %71, label %66
+  %60 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  store ptr %61, ptr %6, align 8
+  %62 = load ptr, ptr %6, align 8
+  %63 = load ptr, ptr %12, align 8
+  %64 = load ptr, ptr %11, align 8
+  %65 = call ptr @xmlHasNsProp(ptr noundef %62, ptr noundef %63, ptr noundef %64)
+  store ptr %65, ptr %7, align 8
+  %66 = load ptr, ptr %7, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %73, label %68
 
-66:                                               ; preds = %54
-  %67 = load ptr, ptr %7, align 8
-  %68 = getelementptr inbounds %struct._xmlAttr, ptr %67, i32 0, i32 1
-  %69 = load i32, ptr %68, align 8
-  %70 = icmp eq i32 %69, 16
-  br i1 %70, label %71, label %76
+68:                                               ; preds = %56
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds %struct._xmlAttr, ptr %69, i32 0, i32 1
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 16
+  br i1 %72, label %73, label %78
 
-71:                                               ; preds = %66, %54
-  %72 = load ptr, ptr %8, align 8
-  %73 = getelementptr inbounds %struct._dom_object, ptr %72, i32 0, i32 1
-  %74 = load ptr, ptr %73, align 8
-  %75 = call i32 @dom_get_strict_error(ptr noundef %74)
-  call void @php_dom_throw_error(i32 noundef 8, i32 noundef %75)
-  br label %80
-
-76:                                               ; preds = %66
-  %77 = load ptr, ptr %7, align 8
-  %78 = load i8, ptr %13, align 1
-  %79 = trunc i8 %78 to i1
-  call void @php_set_attribute_id(ptr noundef %77, i1 noundef zeroext %79)
-  br label %80
-
-80:                                               ; preds = %76, %71
-  br label %81
-
-81:                                               ; preds = %80
+73:                                               ; preds = %68, %56
+  %74 = load ptr, ptr %8, align 8
+  %75 = getelementptr inbounds %struct._dom_object, ptr %74, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8
+  %77 = call i32 @dom_get_strict_error(ptr noundef %76)
+  call void @php_dom_throw_error(i32 noundef 8, i32 noundef %77)
   br label %82
 
-82:                                               ; preds = %81
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %struct._zval_struct, ptr %83, i32 0, i32 1
-  store i32 1, ptr %84, align 8
-  br label %85
+78:                                               ; preds = %68
+  %79 = load ptr, ptr %7, align 8
+  %80 = load i8, ptr %13, align 1
+  %81 = trunc i8 %80 to i1
+  call void @php_set_attribute_id(ptr noundef %79, i1 noundef zeroext %81)
+  br label %82
 
-85:                                               ; preds = %82
-  br label %86
+82:                                               ; preds = %78, %73
+  br label %83
 
-86:                                               ; preds = %85, %50, %23
+83:                                               ; preds = %82
+  br label %84
+
+84:                                               ; preds = %83
+  %85 = load ptr, ptr %4, align 8
+  %86 = getelementptr inbounds %struct._zval_struct, ptr %85, i32 0, i32 1
+  store i32 1, ptr %86, align 8
+  br label %87
+
+87:                                               ; preds = %84
+  br label %88
+
+88:                                               ; preds = %87, %51, %23
   ret void
 }
 
@@ -9023,147 +9071,150 @@ define hidden void @zim_DOMElement_setIdAttributeNode(ptr noundef %0, ptr nounde
   %18 = load ptr, ptr @dom_attr_class_entry, align 8
   %19 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %17, ptr noundef @.str.17, ptr noundef %6, ptr noundef %18, ptr noundef %11)
   %20 = icmp eq i32 %19, -1
-  br i1 %20, label %21, label %26
+  br i1 %20, label %21, label %27
 
 21:                                               ; preds = %2
   br label %22
 
 22:                                               ; preds = %21
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  br label %111
+  %23 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  call void @llvm.assume(i1 %25)
+  br label %114
 
-25:                                               ; No predecessors!
-  br label %26
+26:                                               ; No predecessors!
+  br label %27
 
-26:                                               ; preds = %25, %2
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct._zval_struct, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = call ptr @php_dom_obj_from_obj(ptr noundef %29)
-  store ptr %30, ptr %9, align 8
-  %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds %struct._dom_object, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, null
-  %35 = xor i1 %34, true
+27:                                               ; preds = %26, %2
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %struct._zval_struct, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = call ptr @php_dom_obj_from_obj(ptr noundef %30)
+  store ptr %31, ptr %9, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds %struct._dom_object, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
   %36 = xor i1 %35, true
-  %37 = zext i1 %36 to i32
-  %38 = sext i32 %37 to i64
-  %39 = icmp ne i64 %38, 0
-  br i1 %39, label %40, label %53
+  %37 = xor i1 %36, true
+  %38 = zext i1 %37 to i32
+  %39 = sext i32 %38 to i64
+  %40 = icmp ne i64 %39, 0
+  br i1 %40, label %41, label %55
 
-40:                                               ; preds = %26
-  %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds %struct._dom_object, ptr %41, i32 0, i32 3
-  %43 = getelementptr inbounds %struct._zend_object, ptr %42, i32 0, i32 2
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct._zend_class_entry, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct._zend_string, ptr %46, i32 0, i32 3
-  %48 = getelementptr inbounds [1 x i8], ptr %47, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %48)
-  br label %49
+41:                                               ; preds = %27
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds %struct._dom_object, ptr %42, i32 0, i32 3
+  %44 = getelementptr inbounds %struct._zend_object, ptr %43, i32 0, i32 2
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct._zend_class_entry, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %struct._zend_string, ptr %47, i32 0, i32 3
+  %49 = getelementptr inbounds [1 x i8], ptr %48, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %49)
+  br label %50
 
-49:                                               ; preds = %40
-  %50 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %51 = icmp ne ptr %50, null
-  call void @llvm.assume(i1 %51)
-  br label %111
+50:                                               ; preds = %41
+  %51 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp ne ptr %52, null
+  call void @llvm.assume(i1 %53)
+  br label %114
 
-52:                                               ; No predecessors!
-  br label %53
+54:                                               ; No predecessors!
+  br label %55
 
-53:                                               ; preds = %52, %26
-  %54 = load ptr, ptr %9, align 8
-  %55 = getelementptr inbounds %struct._dom_object, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %56, i32 0, i32 0
+55:                                               ; preds = %54, %27
+  %56 = load ptr, ptr %9, align 8
+  %57 = getelementptr inbounds %struct._dom_object, ptr %56, i32 0, i32 0
   %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %7, align 8
-  %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct._zval_struct, ptr %59, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  %62 = call ptr @php_dom_obj_from_obj(ptr noundef %61)
-  store ptr %62, ptr %10, align 8
-  %63 = load ptr, ptr %10, align 8
-  %64 = getelementptr inbounds %struct._dom_object, ptr %63, i32 0, i32 0
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, null
-  %67 = xor i1 %66, true
-  %68 = xor i1 %67, true
-  %69 = zext i1 %68 to i32
-  %70 = sext i32 %69 to i64
-  %71 = icmp ne i64 %70, 0
-  br i1 %71, label %72, label %85
+  %59 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  store ptr %60, ptr %7, align 8
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds %struct._zval_struct, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  %64 = call ptr @php_dom_obj_from_obj(ptr noundef %63)
+  store ptr %64, ptr %10, align 8
+  %65 = load ptr, ptr %10, align 8
+  %66 = getelementptr inbounds %struct._dom_object, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp eq ptr %67, null
+  %69 = xor i1 %68, true
+  %70 = xor i1 %69, true
+  %71 = zext i1 %70 to i32
+  %72 = sext i32 %71 to i64
+  %73 = icmp ne i64 %72, 0
+  br i1 %73, label %74, label %88
 
-72:                                               ; preds = %53
-  %73 = load ptr, ptr %10, align 8
-  %74 = getelementptr inbounds %struct._dom_object, ptr %73, i32 0, i32 3
-  %75 = getelementptr inbounds %struct._zend_object, ptr %74, i32 0, i32 2
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %struct._zend_class_entry, ptr %76, i32 0, i32 1
+74:                                               ; preds = %55
+  %75 = load ptr, ptr %10, align 8
+  %76 = getelementptr inbounds %struct._dom_object, ptr %75, i32 0, i32 3
+  %77 = getelementptr inbounds %struct._zend_object, ptr %76, i32 0, i32 2
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct._zend_string, ptr %78, i32 0, i32 3
-  %80 = getelementptr inbounds [1 x i8], ptr %79, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %80)
-  br label %81
+  %79 = getelementptr inbounds %struct._zend_class_entry, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds %struct._zend_string, ptr %80, i32 0, i32 3
+  %82 = getelementptr inbounds [1 x i8], ptr %81, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %82)
+  br label %83
 
-81:                                               ; preds = %72
-  %82 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %83 = icmp ne ptr %82, null
-  call void @llvm.assume(i1 %83)
-  br label %111
+83:                                               ; preds = %74
+  %84 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp ne ptr %85, null
+  call void @llvm.assume(i1 %86)
+  br label %114
 
-84:                                               ; No predecessors!
-  br label %85
+87:                                               ; No predecessors!
+  br label %88
 
-85:                                               ; preds = %84, %53
-  %86 = load ptr, ptr %10, align 8
-  %87 = getelementptr inbounds %struct._dom_object, ptr %86, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %88, i32 0, i32 0
-  %90 = load ptr, ptr %89, align 8
-  store ptr %90, ptr %8, align 8
-  %91 = load ptr, ptr %8, align 8
-  %92 = getelementptr inbounds %struct._xmlAttr, ptr %91, i32 0, i32 5
+88:                                               ; preds = %87, %55
+  %89 = load ptr, ptr %10, align 8
+  %90 = getelementptr inbounds %struct._dom_object, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %91, i32 0, i32 0
   %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %7, align 8
-  %95 = icmp ne ptr %93, %94
-  br i1 %95, label %96, label %101
+  store ptr %93, ptr %8, align 8
+  %94 = load ptr, ptr %8, align 8
+  %95 = getelementptr inbounds %struct._xmlAttr, ptr %94, i32 0, i32 5
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %7, align 8
+  %98 = icmp ne ptr %96, %97
+  br i1 %98, label %99, label %104
 
-96:                                               ; preds = %85
-  %97 = load ptr, ptr %9, align 8
-  %98 = getelementptr inbounds %struct._dom_object, ptr %97, i32 0, i32 1
-  %99 = load ptr, ptr %98, align 8
-  %100 = call i32 @dom_get_strict_error(ptr noundef %99)
-  call void @php_dom_throw_error(i32 noundef 8, i32 noundef %100)
-  br label %105
+99:                                               ; preds = %88
+  %100 = load ptr, ptr %9, align 8
+  %101 = getelementptr inbounds %struct._dom_object, ptr %100, i32 0, i32 1
+  %102 = load ptr, ptr %101, align 8
+  %103 = call i32 @dom_get_strict_error(ptr noundef %102)
+  call void @php_dom_throw_error(i32 noundef 8, i32 noundef %103)
+  br label %108
 
-101:                                              ; preds = %85
-  %102 = load ptr, ptr %8, align 8
-  %103 = load i8, ptr %11, align 1
-  %104 = trunc i8 %103 to i1
-  call void @php_set_attribute_id(ptr noundef %102, i1 noundef zeroext %104)
-  br label %105
+104:                                              ; preds = %88
+  %105 = load ptr, ptr %8, align 8
+  %106 = load i8, ptr %11, align 1
+  %107 = trunc i8 %106 to i1
+  call void @php_set_attribute_id(ptr noundef %105, i1 noundef zeroext %107)
+  br label %108
 
-105:                                              ; preds = %101, %96
-  br label %106
+108:                                              ; preds = %104, %99
+  br label %109
 
-106:                                              ; preds = %105
-  br label %107
-
-107:                                              ; preds = %106
-  %108 = load ptr, ptr %4, align 8
-  %109 = getelementptr inbounds %struct._zval_struct, ptr %108, i32 0, i32 1
-  store i32 1, ptr %109, align 8
+109:                                              ; preds = %108
   br label %110
 
-110:                                              ; preds = %107
-  br label %111
+110:                                              ; preds = %109
+  %111 = load ptr, ptr %4, align 8
+  %112 = getelementptr inbounds %struct._zval_struct, ptr %111, i32 0, i32 1
+  store i32 1, ptr %112, align 8
+  br label %113
 
-111:                                              ; preds = %110, %81, %49, %22
+113:                                              ; preds = %110
+  br label %114
+
+114:                                              ; preds = %113, %83, %50, %22
   ret void
 }
 
@@ -9196,65 +9247,67 @@ define hidden void @zim_DOMElement_remove(ptr noundef %0, ptr noundef %1) #0 {
 18:                                               ; preds = %17, %16
   %19 = phi i32 [ 0, %16 ], [ -1, %17 ]
   %20 = icmp eq i32 %19, -1
-  br i1 %20, label %21, label %26
+  br i1 %20, label %21, label %27
 
 21:                                               ; preds = %18
   br label %22
 
 22:                                               ; preds = %21
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  br label %56
+  %23 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  call void @llvm.assume(i1 %25)
+  br label %58
 
-25:                                               ; No predecessors!
-  br label %26
+26:                                               ; No predecessors!
+  br label %27
 
-26:                                               ; preds = %25, %18
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct._zend_execute_data, ptr %27, i32 0, i32 4
-  %29 = getelementptr inbounds %struct._zval_struct, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = call ptr @php_dom_obj_from_obj(ptr noundef %30)
-  store ptr %31, ptr %5, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct._dom_object, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  %36 = xor i1 %35, true
+27:                                               ; preds = %26, %18
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds %struct._zend_execute_data, ptr %28, i32 0, i32 4
+  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = call ptr @php_dom_obj_from_obj(ptr noundef %31)
+  store ptr %32, ptr %5, align 8
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds %struct._dom_object, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
   %37 = xor i1 %36, true
-  %38 = zext i1 %37 to i32
-  %39 = sext i32 %38 to i64
-  %40 = icmp ne i64 %39, 0
-  br i1 %40, label %41, label %54
+  %38 = xor i1 %37, true
+  %39 = zext i1 %38 to i32
+  %40 = sext i32 %39 to i64
+  %41 = icmp ne i64 %40, 0
+  br i1 %41, label %42, label %56
 
-41:                                               ; preds = %26
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct._dom_object, ptr %42, i32 0, i32 3
-  %44 = getelementptr inbounds %struct._zend_object, ptr %43, i32 0, i32 2
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct._zend_class_entry, ptr %45, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct._zend_string, ptr %47, i32 0, i32 3
-  %49 = getelementptr inbounds [1 x i8], ptr %48, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %49)
-  br label %50
+42:                                               ; preds = %27
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds %struct._dom_object, ptr %43, i32 0, i32 3
+  %45 = getelementptr inbounds %struct._zend_object, ptr %44, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %struct._zend_class_entry, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds %struct._zend_string, ptr %48, i32 0, i32 3
+  %50 = getelementptr inbounds [1 x i8], ptr %49, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %50)
+  br label %51
 
-50:                                               ; preds = %41
-  %51 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %52 = icmp ne ptr %51, null
-  call void @llvm.assume(i1 %52)
+51:                                               ; preds = %42
+  %52 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  call void @llvm.assume(i1 %54)
+  br label %58
+
+55:                                               ; No predecessors!
   br label %56
 
-53:                                               ; No predecessors!
-  br label %54
+56:                                               ; preds = %55, %27
+  %57 = load ptr, ptr %5, align 8
+  call void @dom_child_node_remove(ptr noundef %57)
+  br label %58
 
-54:                                               ; preds = %53, %26
-  %55 = load ptr, ptr %5, align 8
-  call void @dom_child_node_remove(ptr noundef %55)
-  br label %56
-
-56:                                               ; preds = %54, %50, %22
+58:                                               ; preds = %56, %51, %22
   ret void
 }
 
@@ -9276,67 +9329,69 @@ define hidden void @zim_DOMElement_after(ptr noundef %0, ptr noundef %1) #0 {
   %11 = load i32, ptr %10, align 4
   %12 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %11, ptr noundef @.str.18, ptr noundef %6, ptr noundef %5)
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %19
+  br i1 %13, label %14, label %20
 
 14:                                               ; preds = %2
   br label %15
 
 15:                                               ; preds = %14
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %17 = icmp ne ptr %16, null
-  call void @llvm.assume(i1 %17)
-  br label %51
+  %16 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %18)
+  br label %53
 
-18:                                               ; No predecessors!
-  br label %19
+19:                                               ; No predecessors!
+  br label %20
 
-19:                                               ; preds = %18, %2
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct._zend_execute_data, ptr %20, i32 0, i32 4
-  %22 = getelementptr inbounds %struct._zval_struct, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = call ptr @php_dom_obj_from_obj(ptr noundef %23)
-  store ptr %24, ptr %7, align 8
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct._dom_object, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  %29 = xor i1 %28, true
+20:                                               ; preds = %19, %2
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds %struct._zend_execute_data, ptr %21, i32 0, i32 4
+  %23 = getelementptr inbounds %struct._zval_struct, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = call ptr @php_dom_obj_from_obj(ptr noundef %24)
+  store ptr %25, ptr %7, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds %struct._dom_object, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
   %30 = xor i1 %29, true
-  %31 = zext i1 %30 to i32
-  %32 = sext i32 %31 to i64
-  %33 = icmp ne i64 %32, 0
-  br i1 %33, label %34, label %47
+  %31 = xor i1 %30, true
+  %32 = zext i1 %31 to i32
+  %33 = sext i32 %32 to i64
+  %34 = icmp ne i64 %33, 0
+  br i1 %34, label %35, label %49
 
-34:                                               ; preds = %19
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct._dom_object, ptr %35, i32 0, i32 3
-  %37 = getelementptr inbounds %struct._zend_object, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._zend_class_entry, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct._zend_string, ptr %40, i32 0, i32 3
-  %42 = getelementptr inbounds [1 x i8], ptr %41, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %42)
-  br label %43
+35:                                               ; preds = %20
+  %36 = load ptr, ptr %7, align 8
+  %37 = getelementptr inbounds %struct._dom_object, ptr %36, i32 0, i32 3
+  %38 = getelementptr inbounds %struct._zend_object, ptr %37, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds %struct._zend_class_entry, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct._zend_string, ptr %41, i32 0, i32 3
+  %43 = getelementptr inbounds [1 x i8], ptr %42, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %43)
+  br label %44
 
-43:                                               ; preds = %34
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %45 = icmp ne ptr %44, null
-  call void @llvm.assume(i1 %45)
-  br label %51
+44:                                               ; preds = %35
+  %45 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr %46, null
+  call void @llvm.assume(i1 %47)
+  br label %53
 
-46:                                               ; No predecessors!
-  br label %47
+48:                                               ; No predecessors!
+  br label %49
 
-47:                                               ; preds = %46, %19
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %6, align 8
-  %50 = load i32, ptr %5, align 4
-  call void @dom_parent_node_after(ptr noundef %48, ptr noundef %49, i32 noundef %50)
-  br label %51
+49:                                               ; preds = %48, %20
+  %50 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %6, align 8
+  %52 = load i32, ptr %5, align 4
+  call void @dom_parent_node_after(ptr noundef %50, ptr noundef %51, i32 noundef %52)
+  br label %53
 
-51:                                               ; preds = %47, %43, %15
+53:                                               ; preds = %49, %44, %15
   ret void
 }
 
@@ -9358,67 +9413,69 @@ define hidden void @zim_DOMElement_before(ptr noundef %0, ptr noundef %1) #0 {
   %11 = load i32, ptr %10, align 4
   %12 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %11, ptr noundef @.str.18, ptr noundef %6, ptr noundef %5)
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %19
+  br i1 %13, label %14, label %20
 
 14:                                               ; preds = %2
   br label %15
 
 15:                                               ; preds = %14
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %17 = icmp ne ptr %16, null
-  call void @llvm.assume(i1 %17)
-  br label %51
+  %16 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %18)
+  br label %53
 
-18:                                               ; No predecessors!
-  br label %19
+19:                                               ; No predecessors!
+  br label %20
 
-19:                                               ; preds = %18, %2
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct._zend_execute_data, ptr %20, i32 0, i32 4
-  %22 = getelementptr inbounds %struct._zval_struct, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = call ptr @php_dom_obj_from_obj(ptr noundef %23)
-  store ptr %24, ptr %7, align 8
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct._dom_object, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  %29 = xor i1 %28, true
+20:                                               ; preds = %19, %2
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds %struct._zend_execute_data, ptr %21, i32 0, i32 4
+  %23 = getelementptr inbounds %struct._zval_struct, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = call ptr @php_dom_obj_from_obj(ptr noundef %24)
+  store ptr %25, ptr %7, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds %struct._dom_object, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
   %30 = xor i1 %29, true
-  %31 = zext i1 %30 to i32
-  %32 = sext i32 %31 to i64
-  %33 = icmp ne i64 %32, 0
-  br i1 %33, label %34, label %47
+  %31 = xor i1 %30, true
+  %32 = zext i1 %31 to i32
+  %33 = sext i32 %32 to i64
+  %34 = icmp ne i64 %33, 0
+  br i1 %34, label %35, label %49
 
-34:                                               ; preds = %19
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct._dom_object, ptr %35, i32 0, i32 3
-  %37 = getelementptr inbounds %struct._zend_object, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._zend_class_entry, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct._zend_string, ptr %40, i32 0, i32 3
-  %42 = getelementptr inbounds [1 x i8], ptr %41, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %42)
-  br label %43
+35:                                               ; preds = %20
+  %36 = load ptr, ptr %7, align 8
+  %37 = getelementptr inbounds %struct._dom_object, ptr %36, i32 0, i32 3
+  %38 = getelementptr inbounds %struct._zend_object, ptr %37, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds %struct._zend_class_entry, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct._zend_string, ptr %41, i32 0, i32 3
+  %43 = getelementptr inbounds [1 x i8], ptr %42, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %43)
+  br label %44
 
-43:                                               ; preds = %34
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %45 = icmp ne ptr %44, null
-  call void @llvm.assume(i1 %45)
-  br label %51
+44:                                               ; preds = %35
+  %45 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr %46, null
+  call void @llvm.assume(i1 %47)
+  br label %53
 
-46:                                               ; No predecessors!
-  br label %47
+48:                                               ; No predecessors!
+  br label %49
 
-47:                                               ; preds = %46, %19
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %6, align 8
-  %50 = load i32, ptr %5, align 4
-  call void @dom_parent_node_before(ptr noundef %48, ptr noundef %49, i32 noundef %50)
-  br label %51
+49:                                               ; preds = %48, %20
+  %50 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %6, align 8
+  %52 = load i32, ptr %5, align 4
+  call void @dom_parent_node_before(ptr noundef %50, ptr noundef %51, i32 noundef %52)
+  br label %53
 
-51:                                               ; preds = %47, %43, %15
+53:                                               ; preds = %49, %44, %15
   ret void
 }
 
@@ -9440,67 +9497,69 @@ define hidden void @zim_DOMElement_append(ptr noundef %0, ptr noundef %1) #0 {
   %11 = load i32, ptr %10, align 4
   %12 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %11, ptr noundef @.str.18, ptr noundef %6, ptr noundef %5)
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %19
+  br i1 %13, label %14, label %20
 
 14:                                               ; preds = %2
   br label %15
 
 15:                                               ; preds = %14
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %17 = icmp ne ptr %16, null
-  call void @llvm.assume(i1 %17)
-  br label %51
+  %16 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %18)
+  br label %53
 
-18:                                               ; No predecessors!
-  br label %19
+19:                                               ; No predecessors!
+  br label %20
 
-19:                                               ; preds = %18, %2
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct._zend_execute_data, ptr %20, i32 0, i32 4
-  %22 = getelementptr inbounds %struct._zval_struct, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = call ptr @php_dom_obj_from_obj(ptr noundef %23)
-  store ptr %24, ptr %7, align 8
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct._dom_object, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  %29 = xor i1 %28, true
+20:                                               ; preds = %19, %2
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds %struct._zend_execute_data, ptr %21, i32 0, i32 4
+  %23 = getelementptr inbounds %struct._zval_struct, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = call ptr @php_dom_obj_from_obj(ptr noundef %24)
+  store ptr %25, ptr %7, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds %struct._dom_object, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
   %30 = xor i1 %29, true
-  %31 = zext i1 %30 to i32
-  %32 = sext i32 %31 to i64
-  %33 = icmp ne i64 %32, 0
-  br i1 %33, label %34, label %47
+  %31 = xor i1 %30, true
+  %32 = zext i1 %31 to i32
+  %33 = sext i32 %32 to i64
+  %34 = icmp ne i64 %33, 0
+  br i1 %34, label %35, label %49
 
-34:                                               ; preds = %19
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct._dom_object, ptr %35, i32 0, i32 3
-  %37 = getelementptr inbounds %struct._zend_object, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._zend_class_entry, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct._zend_string, ptr %40, i32 0, i32 3
-  %42 = getelementptr inbounds [1 x i8], ptr %41, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %42)
-  br label %43
+35:                                               ; preds = %20
+  %36 = load ptr, ptr %7, align 8
+  %37 = getelementptr inbounds %struct._dom_object, ptr %36, i32 0, i32 3
+  %38 = getelementptr inbounds %struct._zend_object, ptr %37, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds %struct._zend_class_entry, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct._zend_string, ptr %41, i32 0, i32 3
+  %43 = getelementptr inbounds [1 x i8], ptr %42, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %43)
+  br label %44
 
-43:                                               ; preds = %34
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %45 = icmp ne ptr %44, null
-  call void @llvm.assume(i1 %45)
-  br label %51
+44:                                               ; preds = %35
+  %45 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr %46, null
+  call void @llvm.assume(i1 %47)
+  br label %53
 
-46:                                               ; No predecessors!
-  br label %47
+48:                                               ; No predecessors!
+  br label %49
 
-47:                                               ; preds = %46, %19
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %6, align 8
-  %50 = load i32, ptr %5, align 4
-  call void @dom_parent_node_append(ptr noundef %48, ptr noundef %49, i32 noundef %50)
-  br label %51
+49:                                               ; preds = %48, %20
+  %50 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %6, align 8
+  %52 = load i32, ptr %5, align 4
+  call void @dom_parent_node_append(ptr noundef %50, ptr noundef %51, i32 noundef %52)
+  br label %53
 
-51:                                               ; preds = %47, %43, %15
+53:                                               ; preds = %49, %44, %15
   ret void
 }
 
@@ -9522,67 +9581,69 @@ define hidden void @zim_DOMElement_prepend(ptr noundef %0, ptr noundef %1) #0 {
   %11 = load i32, ptr %10, align 4
   %12 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %11, ptr noundef @.str.18, ptr noundef %6, ptr noundef %5)
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %19
+  br i1 %13, label %14, label %20
 
 14:                                               ; preds = %2
   br label %15
 
 15:                                               ; preds = %14
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %17 = icmp ne ptr %16, null
-  call void @llvm.assume(i1 %17)
-  br label %51
+  %16 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %18)
+  br label %53
 
-18:                                               ; No predecessors!
-  br label %19
+19:                                               ; No predecessors!
+  br label %20
 
-19:                                               ; preds = %18, %2
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct._zend_execute_data, ptr %20, i32 0, i32 4
-  %22 = getelementptr inbounds %struct._zval_struct, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = call ptr @php_dom_obj_from_obj(ptr noundef %23)
-  store ptr %24, ptr %7, align 8
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct._dom_object, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  %29 = xor i1 %28, true
+20:                                               ; preds = %19, %2
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds %struct._zend_execute_data, ptr %21, i32 0, i32 4
+  %23 = getelementptr inbounds %struct._zval_struct, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = call ptr @php_dom_obj_from_obj(ptr noundef %24)
+  store ptr %25, ptr %7, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds %struct._dom_object, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
   %30 = xor i1 %29, true
-  %31 = zext i1 %30 to i32
-  %32 = sext i32 %31 to i64
-  %33 = icmp ne i64 %32, 0
-  br i1 %33, label %34, label %47
+  %31 = xor i1 %30, true
+  %32 = zext i1 %31 to i32
+  %33 = sext i32 %32 to i64
+  %34 = icmp ne i64 %33, 0
+  br i1 %34, label %35, label %49
 
-34:                                               ; preds = %19
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct._dom_object, ptr %35, i32 0, i32 3
-  %37 = getelementptr inbounds %struct._zend_object, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._zend_class_entry, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct._zend_string, ptr %40, i32 0, i32 3
-  %42 = getelementptr inbounds [1 x i8], ptr %41, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %42)
-  br label %43
+35:                                               ; preds = %20
+  %36 = load ptr, ptr %7, align 8
+  %37 = getelementptr inbounds %struct._dom_object, ptr %36, i32 0, i32 3
+  %38 = getelementptr inbounds %struct._zend_object, ptr %37, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds %struct._zend_class_entry, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct._zend_string, ptr %41, i32 0, i32 3
+  %43 = getelementptr inbounds [1 x i8], ptr %42, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %43)
+  br label %44
 
-43:                                               ; preds = %34
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %45 = icmp ne ptr %44, null
-  call void @llvm.assume(i1 %45)
-  br label %51
+44:                                               ; preds = %35
+  %45 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr %46, null
+  call void @llvm.assume(i1 %47)
+  br label %53
 
-46:                                               ; No predecessors!
-  br label %47
+48:                                               ; No predecessors!
+  br label %49
 
-47:                                               ; preds = %46, %19
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %6, align 8
-  %50 = load i32, ptr %5, align 4
-  call void @dom_parent_node_prepend(ptr noundef %48, ptr noundef %49, i32 noundef %50)
-  br label %51
+49:                                               ; preds = %48, %20
+  %50 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %6, align 8
+  %52 = load i32, ptr %5, align 4
+  call void @dom_parent_node_prepend(ptr noundef %50, ptr noundef %51, i32 noundef %52)
+  br label %53
 
-51:                                               ; preds = %47, %43, %15
+53:                                               ; preds = %49, %44, %15
   ret void
 }
 
@@ -9604,67 +9665,69 @@ define hidden void @zim_DOMElement_replaceWith(ptr noundef %0, ptr noundef %1) #
   %11 = load i32, ptr %10, align 4
   %12 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %11, ptr noundef @.str.18, ptr noundef %6, ptr noundef %5)
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %19
+  br i1 %13, label %14, label %20
 
 14:                                               ; preds = %2
   br label %15
 
 15:                                               ; preds = %14
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %17 = icmp ne ptr %16, null
-  call void @llvm.assume(i1 %17)
-  br label %51
+  %16 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %18)
+  br label %53
 
-18:                                               ; No predecessors!
-  br label %19
+19:                                               ; No predecessors!
+  br label %20
 
-19:                                               ; preds = %18, %2
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct._zend_execute_data, ptr %20, i32 0, i32 4
-  %22 = getelementptr inbounds %struct._zval_struct, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = call ptr @php_dom_obj_from_obj(ptr noundef %23)
-  store ptr %24, ptr %7, align 8
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct._dom_object, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  %29 = xor i1 %28, true
+20:                                               ; preds = %19, %2
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds %struct._zend_execute_data, ptr %21, i32 0, i32 4
+  %23 = getelementptr inbounds %struct._zval_struct, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = call ptr @php_dom_obj_from_obj(ptr noundef %24)
+  store ptr %25, ptr %7, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds %struct._dom_object, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
   %30 = xor i1 %29, true
-  %31 = zext i1 %30 to i32
-  %32 = sext i32 %31 to i64
-  %33 = icmp ne i64 %32, 0
-  br i1 %33, label %34, label %47
+  %31 = xor i1 %30, true
+  %32 = zext i1 %31 to i32
+  %33 = sext i32 %32 to i64
+  %34 = icmp ne i64 %33, 0
+  br i1 %34, label %35, label %49
 
-34:                                               ; preds = %19
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct._dom_object, ptr %35, i32 0, i32 3
-  %37 = getelementptr inbounds %struct._zend_object, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._zend_class_entry, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct._zend_string, ptr %40, i32 0, i32 3
-  %42 = getelementptr inbounds [1 x i8], ptr %41, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %42)
-  br label %43
+35:                                               ; preds = %20
+  %36 = load ptr, ptr %7, align 8
+  %37 = getelementptr inbounds %struct._dom_object, ptr %36, i32 0, i32 3
+  %38 = getelementptr inbounds %struct._zend_object, ptr %37, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds %struct._zend_class_entry, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct._zend_string, ptr %41, i32 0, i32 3
+  %43 = getelementptr inbounds [1 x i8], ptr %42, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %43)
+  br label %44
 
-43:                                               ; preds = %34
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %45 = icmp ne ptr %44, null
-  call void @llvm.assume(i1 %45)
-  br label %51
+44:                                               ; preds = %35
+  %45 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr %46, null
+  call void @llvm.assume(i1 %47)
+  br label %53
 
-46:                                               ; No predecessors!
-  br label %47
+48:                                               ; No predecessors!
+  br label %49
 
-47:                                               ; preds = %46, %19
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %6, align 8
-  %50 = load i32, ptr %5, align 4
-  call void @dom_child_replace_with(ptr noundef %48, ptr noundef %49, i32 noundef %50)
-  br label %51
+49:                                               ; preds = %48, %20
+  %50 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %6, align 8
+  %52 = load i32, ptr %5, align 4
+  call void @dom_child_replace_with(ptr noundef %50, ptr noundef %51, i32 noundef %52)
+  br label %53
 
-51:                                               ; preds = %47, %43, %15
+53:                                               ; preds = %49, %44, %15
   ret void
 }
 
@@ -9686,67 +9749,69 @@ define hidden void @zim_DOMElement_replaceChildren(ptr noundef %0, ptr noundef %
   %11 = load i32, ptr %10, align 4
   %12 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %11, ptr noundef @.str.18, ptr noundef %6, ptr noundef %5)
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %19
+  br i1 %13, label %14, label %20
 
 14:                                               ; preds = %2
   br label %15
 
 15:                                               ; preds = %14
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %17 = icmp ne ptr %16, null
-  call void @llvm.assume(i1 %17)
-  br label %51
+  %16 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %18)
+  br label %53
 
-18:                                               ; No predecessors!
-  br label %19
+19:                                               ; No predecessors!
+  br label %20
 
-19:                                               ; preds = %18, %2
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct._zend_execute_data, ptr %20, i32 0, i32 4
-  %22 = getelementptr inbounds %struct._zval_struct, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = call ptr @php_dom_obj_from_obj(ptr noundef %23)
-  store ptr %24, ptr %7, align 8
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct._dom_object, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  %29 = xor i1 %28, true
+20:                                               ; preds = %19, %2
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds %struct._zend_execute_data, ptr %21, i32 0, i32 4
+  %23 = getelementptr inbounds %struct._zval_struct, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = call ptr @php_dom_obj_from_obj(ptr noundef %24)
+  store ptr %25, ptr %7, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds %struct._dom_object, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
   %30 = xor i1 %29, true
-  %31 = zext i1 %30 to i32
-  %32 = sext i32 %31 to i64
-  %33 = icmp ne i64 %32, 0
-  br i1 %33, label %34, label %47
+  %31 = xor i1 %30, true
+  %32 = zext i1 %31 to i32
+  %33 = sext i32 %32 to i64
+  %34 = icmp ne i64 %33, 0
+  br i1 %34, label %35, label %49
 
-34:                                               ; preds = %19
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct._dom_object, ptr %35, i32 0, i32 3
-  %37 = getelementptr inbounds %struct._zend_object, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._zend_class_entry, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct._zend_string, ptr %40, i32 0, i32 3
-  %42 = getelementptr inbounds [1 x i8], ptr %41, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %42)
-  br label %43
+35:                                               ; preds = %20
+  %36 = load ptr, ptr %7, align 8
+  %37 = getelementptr inbounds %struct._dom_object, ptr %36, i32 0, i32 3
+  %38 = getelementptr inbounds %struct._zend_object, ptr %37, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds %struct._zend_class_entry, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct._zend_string, ptr %41, i32 0, i32 3
+  %43 = getelementptr inbounds [1 x i8], ptr %42, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %43)
+  br label %44
 
-43:                                               ; preds = %34
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %45 = icmp ne ptr %44, null
-  call void @llvm.assume(i1 %45)
-  br label %51
+44:                                               ; preds = %35
+  %45 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr %46, null
+  call void @llvm.assume(i1 %47)
+  br label %53
 
-46:                                               ; No predecessors!
-  br label %47
+48:                                               ; No predecessors!
+  br label %49
 
-47:                                               ; preds = %46, %19
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %6, align 8
-  %50 = load i32, ptr %5, align 4
-  call void @dom_parent_node_replace_children(ptr noundef %48, ptr noundef %49, i32 noundef %50)
-  br label %51
+49:                                               ; preds = %48, %20
+  %50 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %6, align 8
+  %52 = load i32, ptr %5, align 4
+  call void @dom_parent_node_replace_children(ptr noundef %50, ptr noundef %51, i32 noundef %52)
+  br label %53
 
-51:                                               ; preds = %47, %43, %15
+53:                                               ; preds = %49, %44, %15
   ret void
 }
 
@@ -9774,170 +9839,175 @@ define hidden void @zim_DOMElement_insertAdjacentElement(ptr noundef %0, ptr nou
   %18 = load ptr, ptr @dom_element_class_entry, align 8
   %19 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %17, ptr noundef @.str.19, ptr noundef %5, ptr noundef %6, ptr noundef %18)
   %20 = icmp eq i32 %19, -1
-  br i1 %20, label %21, label %26
+  br i1 %20, label %21, label %27
 
 21:                                               ; preds = %2
   br label %22
 
 22:                                               ; preds = %21
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  br label %122
+  %23 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  call void @llvm.assume(i1 %25)
+  br label %127
 
-25:                                               ; No predecessors!
-  br label %26
+26:                                               ; No predecessors!
+  br label %27
 
-26:                                               ; preds = %25, %2
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct._zend_execute_data, ptr %27, i32 0, i32 4
-  store ptr %28, ptr %7, align 8
-  %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = call ptr @php_dom_obj_from_obj(ptr noundef %31)
-  store ptr %32, ptr %10, align 8
-  %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds %struct._dom_object, ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  %37 = xor i1 %36, true
+27:                                               ; preds = %26, %2
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds %struct._zend_execute_data, ptr %28, i32 0, i32 4
+  store ptr %29, ptr %7, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds %struct._zval_struct, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = call ptr @php_dom_obj_from_obj(ptr noundef %32)
+  store ptr %33, ptr %10, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = getelementptr inbounds %struct._dom_object, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
   %38 = xor i1 %37, true
-  %39 = zext i1 %38 to i32
-  %40 = sext i32 %39 to i64
-  %41 = icmp ne i64 %40, 0
-  br i1 %41, label %42, label %55
+  %39 = xor i1 %38, true
+  %40 = zext i1 %39 to i32
+  %41 = sext i32 %40 to i64
+  %42 = icmp ne i64 %41, 0
+  br i1 %42, label %43, label %57
 
-42:                                               ; preds = %26
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct._dom_object, ptr %43, i32 0, i32 3
-  %45 = getelementptr inbounds %struct._zend_object, ptr %44, i32 0, i32 2
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct._zend_class_entry, ptr %46, i32 0, i32 1
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct._zend_string, ptr %48, i32 0, i32 3
-  %50 = getelementptr inbounds [1 x i8], ptr %49, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %50)
-  br label %51
+43:                                               ; preds = %27
+  %44 = load ptr, ptr %10, align 8
+  %45 = getelementptr inbounds %struct._dom_object, ptr %44, i32 0, i32 3
+  %46 = getelementptr inbounds %struct._zend_object, ptr %45, i32 0, i32 2
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %struct._zend_class_entry, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %struct._zend_string, ptr %49, i32 0, i32 3
+  %51 = getelementptr inbounds [1 x i8], ptr %50, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %51)
+  br label %52
 
-51:                                               ; preds = %42
-  %52 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %53 = icmp ne ptr %52, null
-  call void @llvm.assume(i1 %53)
-  br label %122
+52:                                               ; preds = %43
+  %53 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp ne ptr %54, null
+  call void @llvm.assume(i1 %55)
+  br label %127
 
-54:                                               ; No predecessors!
-  br label %55
+56:                                               ; No predecessors!
+  br label %57
 
-55:                                               ; preds = %54, %26
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds %struct._dom_object, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %58, i32 0, i32 0
+57:                                               ; preds = %56, %27
+  %58 = load ptr, ptr %10, align 8
+  %59 = getelementptr inbounds %struct._dom_object, ptr %58, i32 0, i32 0
   %60 = load ptr, ptr %59, align 8
-  store ptr %60, ptr %8, align 8
-  %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds %struct._zval_struct, ptr %61, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = call ptr @php_dom_obj_from_obj(ptr noundef %63)
-  store ptr %64, ptr %11, align 8
-  %65 = load ptr, ptr %11, align 8
-  %66 = getelementptr inbounds %struct._dom_object, ptr %65, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, null
-  %69 = xor i1 %68, true
-  %70 = xor i1 %69, true
-  %71 = zext i1 %70 to i32
-  %72 = sext i32 %71 to i64
-  %73 = icmp ne i64 %72, 0
-  br i1 %73, label %74, label %87
+  %61 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  store ptr %62, ptr %8, align 8
+  %63 = load ptr, ptr %6, align 8
+  %64 = getelementptr inbounds %struct._zval_struct, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = call ptr @php_dom_obj_from_obj(ptr noundef %65)
+  store ptr %66, ptr %11, align 8
+  %67 = load ptr, ptr %11, align 8
+  %68 = getelementptr inbounds %struct._dom_object, ptr %67, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, null
+  %71 = xor i1 %70, true
+  %72 = xor i1 %71, true
+  %73 = zext i1 %72 to i32
+  %74 = sext i32 %73 to i64
+  %75 = icmp ne i64 %74, 0
+  br i1 %75, label %76, label %90
 
-74:                                               ; preds = %55
-  %75 = load ptr, ptr %11, align 8
-  %76 = getelementptr inbounds %struct._dom_object, ptr %75, i32 0, i32 3
-  %77 = getelementptr inbounds %struct._zend_object, ptr %76, i32 0, i32 2
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct._zend_class_entry, ptr %78, i32 0, i32 1
+76:                                               ; preds = %57
+  %77 = load ptr, ptr %11, align 8
+  %78 = getelementptr inbounds %struct._dom_object, ptr %77, i32 0, i32 3
+  %79 = getelementptr inbounds %struct._zend_object, ptr %78, i32 0, i32 2
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds %struct._zend_string, ptr %80, i32 0, i32 3
-  %82 = getelementptr inbounds [1 x i8], ptr %81, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %82)
-  br label %83
+  %81 = getelementptr inbounds %struct._zend_class_entry, ptr %80, i32 0, i32 1
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds %struct._zend_string, ptr %82, i32 0, i32 3
+  %84 = getelementptr inbounds [1 x i8], ptr %83, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %84)
+  br label %85
 
-83:                                               ; preds = %74
-  %84 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %85 = icmp ne ptr %84, null
-  call void @llvm.assume(i1 %85)
-  br label %122
+85:                                               ; preds = %76
+  %86 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp ne ptr %87, null
+  call void @llvm.assume(i1 %88)
+  br label %127
 
-86:                                               ; No predecessors!
-  br label %87
+89:                                               ; No predecessors!
+  br label %90
 
-87:                                               ; preds = %86, %55
-  %88 = load ptr, ptr %11, align 8
-  %89 = getelementptr inbounds %struct._dom_object, ptr %88, i32 0, i32 0
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %90, i32 0, i32 0
-  %92 = load ptr, ptr %91, align 8
-  store ptr %92, ptr %9, align 8
-  %93 = load ptr, ptr %5, align 8
-  %94 = load ptr, ptr %8, align 8
-  %95 = load ptr, ptr %10, align 8
-  %96 = load ptr, ptr %9, align 8
-  %97 = call ptr @dom_insert_adjacent(ptr noundef %93, ptr noundef %94, ptr noundef %95, ptr noundef %96)
-  store ptr %97, ptr %13, align 8
-  %98 = load ptr, ptr %13, align 8
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %107
+90:                                               ; preds = %89, %57
+  %91 = load ptr, ptr %11, align 8
+  %92 = getelementptr inbounds %struct._dom_object, ptr %91, i32 0, i32 0
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %93, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8
+  store ptr %95, ptr %9, align 8
+  %96 = load ptr, ptr %5, align 8
+  %97 = load ptr, ptr %8, align 8
+  %98 = load ptr, ptr %10, align 8
+  %99 = load ptr, ptr %9, align 8
+  %100 = call ptr @dom_insert_adjacent(ptr noundef %96, ptr noundef %97, ptr noundef %98, ptr noundef %99)
+  store ptr %100, ptr %13, align 8
+  %101 = load ptr, ptr %13, align 8
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %103, label %110
 
-100:                                              ; preds = %87
-  br label %101
+103:                                              ; preds = %90
+  br label %104
 
-101:                                              ; preds = %100
-  br label %102
-
-102:                                              ; preds = %101
-  %103 = load ptr, ptr %4, align 8
-  %104 = getelementptr inbounds %struct._zval_struct, ptr %103, i32 0, i32 1
-  store i32 1, ptr %104, align 8
+104:                                              ; preds = %103
   br label %105
 
-105:                                              ; preds = %102
-  br label %122
+105:                                              ; preds = %104
+  %106 = load ptr, ptr %4, align 8
+  %107 = getelementptr inbounds %struct._zval_struct, ptr %106, i32 0, i32 1
+  store i32 1, ptr %107, align 8
+  br label %108
 
-106:                                              ; No predecessors!
-  br label %122
+108:                                              ; preds = %105
+  br label %127
 
-107:                                              ; preds = %87
-  %108 = load ptr, ptr %13, align 8
-  %109 = icmp ne ptr %108, inttoptr (i64 -1 to ptr)
-  br i1 %109, label %110, label %116
+109:                                              ; No predecessors!
+  br label %127
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr %9, align 8
-  %112 = load ptr, ptr %4, align 8
-  %113 = load ptr, ptr %11, align 8
-  %114 = call zeroext i1 @php_dom_create_object(ptr noundef %111, ptr noundef %112, ptr noundef %113)
-  %115 = zext i1 %114 to i32
-  store i32 %115, ptr %12, align 4
+110:                                              ; preds = %90
+  %111 = load ptr, ptr %13, align 8
+  %112 = inttoptr i64 -1 to ptr
+  %113 = icmp ne ptr %111, %112
+  br i1 %113, label %114, label %120
+
+114:                                              ; preds = %110
+  %115 = load ptr, ptr %9, align 8
+  %116 = load ptr, ptr %4, align 8
+  %117 = load ptr, ptr %11, align 8
+  %118 = call zeroext i1 @php_dom_create_object(ptr noundef %115, ptr noundef %116, ptr noundef %117)
+  %119 = zext i1 %118 to i32
+  store i32 %119, ptr %12, align 4
+  br label %126
+
+120:                                              ; preds = %110
   br label %121
 
-116:                                              ; preds = %107
-  br label %117
+121:                                              ; preds = %120
+  %122 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %123 = load ptr, ptr %122, align 8
+  %124 = icmp ne ptr %123, null
+  call void @llvm.assume(i1 %124)
+  br label %127
 
-117:                                              ; preds = %116
-  %118 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %119 = icmp ne ptr %118, null
-  call void @llvm.assume(i1 %119)
-  br label %122
+125:                                              ; No predecessors!
+  br label %126
 
-120:                                              ; No predecessors!
-  br label %121
+126:                                              ; preds = %125, %114
+  br label %127
 
-121:                                              ; preds = %120, %110
-  br label %122
-
-122:                                              ; preds = %121, %117, %106, %105, %83, %51, %22
+127:                                              ; preds = %126, %121, %109, %108, %85, %52, %22
   ret void
 }
 
@@ -9956,7 +10026,7 @@ define internal ptr @dom_insert_adjacent(ptr noundef %0, ptr noundef %1, ptr nou
   %11 = getelementptr inbounds %struct._zend_string, ptr %10, i32 0, i32 2
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 11
-  br i1 %13, label %14, label %53
+  br i1 %13, label %14, label %55
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %6, align 8
@@ -9967,7 +10037,7 @@ define internal ptr @dom_insert_adjacent(ptr noundef %0, ptr noundef %1, ptr nou
   %20 = load i64, ptr %19, align 8
   %21 = call i32 @zend_binary_strcasecmp(ptr noundef %17, i64 noundef %20, ptr noundef @.str.25, i64 noundef 11)
   %22 = icmp ne i32 %21, 0
-  br i1 %22, label %53, label %23
+  br i1 %22, label %55, label %23
 
 23:                                               ; preds = %14
   %24 = load ptr, ptr %7, align 8
@@ -9978,7 +10048,7 @@ define internal ptr @dom_insert_adjacent(ptr noundef %0, ptr noundef %1, ptr nou
 
 28:                                               ; preds = %23
   store ptr null, ptr %5, align 8
-  br label %195
+  br label %204
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr %7, align 8
@@ -9987,7 +10057,7 @@ define internal ptr @dom_insert_adjacent(ptr noundef %0, ptr noundef %1, ptr nou
   %33 = load ptr, ptr %9, align 8
   %34 = call i32 @dom_hierarchy(ptr noundef %32, ptr noundef %33)
   %35 = icmp eq i32 %34, -1
-  br i1 %35, label %36, label %41
+  br i1 %35, label %36, label %42
 
 36:                                               ; preds = %29
   %37 = load ptr, ptr %8, align 8
@@ -9995,254 +10065,263 @@ define internal ptr @dom_insert_adjacent(ptr noundef %0, ptr noundef %1, ptr nou
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 @dom_get_strict_error(ptr noundef %39)
   call void @php_dom_throw_error(i32 noundef 3, i32 noundef %40)
-  store ptr inttoptr (i64 -1 to ptr), ptr %5, align 8
-  br label %195
+  %41 = inttoptr i64 -1 to ptr
+  store ptr %41, ptr %5, align 8
+  br label %204
 
-41:                                               ; preds = %29
-  %42 = load ptr, ptr %9, align 8
-  %43 = load ptr, ptr %8, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct._xmlNode, ptr %44, i32 0, i32 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = call zeroext i1 @php_dom_adopt_node(ptr noundef %42, ptr noundef %43, ptr noundef %46)
-  br i1 %47, label %49, label %48
+42:                                               ; preds = %29
+  %43 = load ptr, ptr %9, align 8
+  %44 = load ptr, ptr %8, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = getelementptr inbounds %struct._xmlNode, ptr %45, i32 0, i32 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = call zeroext i1 @php_dom_adopt_node(ptr noundef %43, ptr noundef %44, ptr noundef %47)
+  br i1 %48, label %51, label %49
 
-48:                                               ; preds = %41
-  store ptr inttoptr (i64 -1 to ptr), ptr %5, align 8
-  br label %195
+49:                                               ; preds = %42
+  %50 = inttoptr i64 -1 to ptr
+  store ptr %50, ptr %5, align 8
+  br label %204
 
-49:                                               ; preds = %41
-  %50 = load ptr, ptr %7, align 8
-  %51 = load ptr, ptr %9, align 8
-  %52 = call ptr @xmlAddPrevSibling(ptr noundef %50, ptr noundef %51)
-  store ptr %52, ptr %9, align 8
-  br label %189
+51:                                               ; preds = %42
+  %52 = load ptr, ptr %7, align 8
+  %53 = load ptr, ptr %9, align 8
+  %54 = call ptr @xmlAddPrevSibling(ptr noundef %52, ptr noundef %53)
+  store ptr %54, ptr %9, align 8
+  br label %198
 
-53:                                               ; preds = %14, %4
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds %struct._zend_string, ptr %54, i32 0, i32 2
-  %56 = load i64, ptr %55, align 8
-  %57 = icmp eq i64 %56, 10
-  br i1 %57, label %58, label %101
+55:                                               ; preds = %14, %4
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds %struct._zend_string, ptr %56, i32 0, i32 2
+  %58 = load i64, ptr %57, align 8
+  %59 = icmp eq i64 %58, 10
+  br i1 %59, label %60, label %105
 
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct._zend_string, ptr %59, i32 0, i32 3
-  %61 = getelementptr inbounds [1 x i8], ptr %60, i64 0, i64 0
-  %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds %struct._zend_string, ptr %62, i32 0, i32 2
-  %64 = load i64, ptr %63, align 8
-  %65 = call i32 @zend_binary_strcasecmp(ptr noundef %61, i64 noundef %64, ptr noundef @.str.26, i64 noundef 10)
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %101, label %67
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds %struct._zend_string, ptr %61, i32 0, i32 3
+  %63 = getelementptr inbounds [1 x i8], ptr %62, i64 0, i64 0
+  %64 = load ptr, ptr %6, align 8
+  %65 = getelementptr inbounds %struct._zend_string, ptr %64, i32 0, i32 2
+  %66 = load i64, ptr %65, align 8
+  %67 = call i32 @zend_binary_strcasecmp(ptr noundef %63, i64 noundef %66, ptr noundef @.str.26, i64 noundef 10)
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %105, label %69
 
-67:                                               ; preds = %58
-  %68 = load ptr, ptr %7, align 8
-  %69 = load ptr, ptr %9, align 8
-  %70 = call i32 @dom_hierarchy(ptr noundef %68, ptr noundef %69)
-  %71 = icmp eq i32 %70, -1
-  br i1 %71, label %72, label %77
+69:                                               ; preds = %60
+  %70 = load ptr, ptr %7, align 8
+  %71 = load ptr, ptr %9, align 8
+  %72 = call i32 @dom_hierarchy(ptr noundef %70, ptr noundef %71)
+  %73 = icmp eq i32 %72, -1
+  br i1 %73, label %74, label %80
 
-72:                                               ; preds = %67
-  %73 = load ptr, ptr %8, align 8
-  %74 = getelementptr inbounds %struct._dom_object, ptr %73, i32 0, i32 1
-  %75 = load ptr, ptr %74, align 8
-  %76 = call i32 @dom_get_strict_error(ptr noundef %75)
-  call void @php_dom_throw_error(i32 noundef 3, i32 noundef %76)
-  store ptr inttoptr (i64 -1 to ptr), ptr %5, align 8
-  br label %195
+74:                                               ; preds = %69
+  %75 = load ptr, ptr %8, align 8
+  %76 = getelementptr inbounds %struct._dom_object, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  %78 = call i32 @dom_get_strict_error(ptr noundef %77)
+  call void @php_dom_throw_error(i32 noundef 3, i32 noundef %78)
+  %79 = inttoptr i64 -1 to ptr
+  store ptr %79, ptr %5, align 8
+  br label %204
 
-77:                                               ; preds = %67
-  %78 = load ptr, ptr %9, align 8
-  %79 = load ptr, ptr %8, align 8
-  %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds %struct._xmlNode, ptr %80, i32 0, i32 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = call zeroext i1 @php_dom_adopt_node(ptr noundef %78, ptr noundef %79, ptr noundef %82)
-  br i1 %83, label %85, label %84
+80:                                               ; preds = %69
+  %81 = load ptr, ptr %9, align 8
+  %82 = load ptr, ptr %8, align 8
+  %83 = load ptr, ptr %7, align 8
+  %84 = getelementptr inbounds %struct._xmlNode, ptr %83, i32 0, i32 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = call zeroext i1 @php_dom_adopt_node(ptr noundef %81, ptr noundef %82, ptr noundef %85)
+  br i1 %86, label %89, label %87
 
-84:                                               ; preds = %77
-  store ptr inttoptr (i64 -1 to ptr), ptr %5, align 8
-  br label %195
+87:                                               ; preds = %80
+  %88 = inttoptr i64 -1 to ptr
+  store ptr %88, ptr %5, align 8
+  br label %204
 
-85:                                               ; preds = %77
-  %86 = load ptr, ptr %7, align 8
-  %87 = getelementptr inbounds %struct._xmlNode, ptr %86, i32 0, i32 3
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %90, label %94
+89:                                               ; preds = %80
+  %90 = load ptr, ptr %7, align 8
+  %91 = getelementptr inbounds %struct._xmlNode, ptr %90, i32 0, i32 3
+  %92 = load ptr, ptr %91, align 8
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %94, label %98
 
-90:                                               ; preds = %85
-  %91 = load ptr, ptr %7, align 8
-  %92 = load ptr, ptr %9, align 8
-  %93 = call ptr @xmlAddChild(ptr noundef %91, ptr noundef %92)
-  store ptr %93, ptr %9, align 8
-  br label %100
-
-94:                                               ; preds = %85
+94:                                               ; preds = %89
   %95 = load ptr, ptr %7, align 8
-  %96 = getelementptr inbounds %struct._xmlNode, ptr %95, i32 0, i32 3
-  %97 = load ptr, ptr %96, align 8
-  %98 = load ptr, ptr %9, align 8
-  %99 = call ptr @xmlAddPrevSibling(ptr noundef %97, ptr noundef %98)
-  store ptr %99, ptr %9, align 8
-  br label %100
+  %96 = load ptr, ptr %9, align 8
+  %97 = call ptr @xmlAddChild(ptr noundef %95, ptr noundef %96)
+  store ptr %97, ptr %9, align 8
+  br label %104
 
-100:                                              ; preds = %94, %90
-  br label %188
+98:                                               ; preds = %89
+  %99 = load ptr, ptr %7, align 8
+  %100 = getelementptr inbounds %struct._xmlNode, ptr %99, i32 0, i32 3
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %9, align 8
+  %103 = call ptr @xmlAddPrevSibling(ptr noundef %101, ptr noundef %102)
+  store ptr %103, ptr %9, align 8
+  br label %104
 
-101:                                              ; preds = %58, %53
-  %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr inbounds %struct._zend_string, ptr %102, i32 0, i32 2
-  %104 = load i64, ptr %103, align 8
-  %105 = icmp eq i64 %104, 9
-  br i1 %105, label %106, label %137
+104:                                              ; preds = %98, %94
+  br label %197
 
-106:                                              ; preds = %101
-  %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds %struct._zend_string, ptr %107, i32 0, i32 3
-  %109 = getelementptr inbounds [1 x i8], ptr %108, i64 0, i64 0
-  %110 = load ptr, ptr %6, align 8
-  %111 = getelementptr inbounds %struct._zend_string, ptr %110, i32 0, i32 2
-  %112 = load i64, ptr %111, align 8
-  %113 = call i32 @zend_binary_strcasecmp(ptr noundef %109, i64 noundef %112, ptr noundef @.str.27, i64 noundef 9)
-  %114 = icmp ne i32 %113, 0
-  br i1 %114, label %137, label %115
+105:                                              ; preds = %60, %55
+  %106 = load ptr, ptr %6, align 8
+  %107 = getelementptr inbounds %struct._zend_string, ptr %106, i32 0, i32 2
+  %108 = load i64, ptr %107, align 8
+  %109 = icmp eq i64 %108, 9
+  br i1 %109, label %110, label %143
 
-115:                                              ; preds = %106
-  %116 = load ptr, ptr %7, align 8
-  %117 = load ptr, ptr %9, align 8
-  %118 = call i32 @dom_hierarchy(ptr noundef %116, ptr noundef %117)
-  %119 = icmp eq i32 %118, -1
-  br i1 %119, label %120, label %125
+110:                                              ; preds = %105
+  %111 = load ptr, ptr %6, align 8
+  %112 = getelementptr inbounds %struct._zend_string, ptr %111, i32 0, i32 3
+  %113 = getelementptr inbounds [1 x i8], ptr %112, i64 0, i64 0
+  %114 = load ptr, ptr %6, align 8
+  %115 = getelementptr inbounds %struct._zend_string, ptr %114, i32 0, i32 2
+  %116 = load i64, ptr %115, align 8
+  %117 = call i32 @zend_binary_strcasecmp(ptr noundef %113, i64 noundef %116, ptr noundef @.str.27, i64 noundef 9)
+  %118 = icmp ne i32 %117, 0
+  br i1 %118, label %143, label %119
 
-120:                                              ; preds = %115
-  %121 = load ptr, ptr %8, align 8
-  %122 = getelementptr inbounds %struct._dom_object, ptr %121, i32 0, i32 1
-  %123 = load ptr, ptr %122, align 8
-  %124 = call i32 @dom_get_strict_error(ptr noundef %123)
-  call void @php_dom_throw_error(i32 noundef 3, i32 noundef %124)
-  store ptr inttoptr (i64 -1 to ptr), ptr %5, align 8
-  br label %195
+119:                                              ; preds = %110
+  %120 = load ptr, ptr %7, align 8
+  %121 = load ptr, ptr %9, align 8
+  %122 = call i32 @dom_hierarchy(ptr noundef %120, ptr noundef %121)
+  %123 = icmp eq i32 %122, -1
+  br i1 %123, label %124, label %130
 
-125:                                              ; preds = %115
-  %126 = load ptr, ptr %9, align 8
-  %127 = load ptr, ptr %8, align 8
-  %128 = load ptr, ptr %7, align 8
-  %129 = getelementptr inbounds %struct._xmlNode, ptr %128, i32 0, i32 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = call zeroext i1 @php_dom_adopt_node(ptr noundef %126, ptr noundef %127, ptr noundef %130)
-  br i1 %131, label %133, label %132
+124:                                              ; preds = %119
+  %125 = load ptr, ptr %8, align 8
+  %126 = getelementptr inbounds %struct._dom_object, ptr %125, i32 0, i32 1
+  %127 = load ptr, ptr %126, align 8
+  %128 = call i32 @dom_get_strict_error(ptr noundef %127)
+  call void @php_dom_throw_error(i32 noundef 3, i32 noundef %128)
+  %129 = inttoptr i64 -1 to ptr
+  store ptr %129, ptr %5, align 8
+  br label %204
 
-132:                                              ; preds = %125
-  store ptr inttoptr (i64 -1 to ptr), ptr %5, align 8
-  br label %195
+130:                                              ; preds = %119
+  %131 = load ptr, ptr %9, align 8
+  %132 = load ptr, ptr %8, align 8
+  %133 = load ptr, ptr %7, align 8
+  %134 = getelementptr inbounds %struct._xmlNode, ptr %133, i32 0, i32 8
+  %135 = load ptr, ptr %134, align 8
+  %136 = call zeroext i1 @php_dom_adopt_node(ptr noundef %131, ptr noundef %132, ptr noundef %135)
+  br i1 %136, label %139, label %137
 
-133:                                              ; preds = %125
-  %134 = load ptr, ptr %7, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = call ptr @xmlAddChild(ptr noundef %134, ptr noundef %135)
-  store ptr %136, ptr %9, align 8
-  br label %187
+137:                                              ; preds = %130
+  %138 = inttoptr i64 -1 to ptr
+  store ptr %138, ptr %5, align 8
+  br label %204
 
-137:                                              ; preds = %106, %101
-  %138 = load ptr, ptr %6, align 8
-  %139 = getelementptr inbounds %struct._zend_string, ptr %138, i32 0, i32 2
-  %140 = load i64, ptr %139, align 8
-  %141 = icmp eq i64 %140, 8
-  br i1 %141, label %142, label %181
+139:                                              ; preds = %130
+  %140 = load ptr, ptr %7, align 8
+  %141 = load ptr, ptr %9, align 8
+  %142 = call ptr @xmlAddChild(ptr noundef %140, ptr noundef %141)
+  store ptr %142, ptr %9, align 8
+  br label %196
 
-142:                                              ; preds = %137
-  %143 = load ptr, ptr %6, align 8
-  %144 = getelementptr inbounds %struct._zend_string, ptr %143, i32 0, i32 3
-  %145 = getelementptr inbounds [1 x i8], ptr %144, i64 0, i64 0
-  %146 = load ptr, ptr %6, align 8
-  %147 = getelementptr inbounds %struct._zend_string, ptr %146, i32 0, i32 2
-  %148 = load i64, ptr %147, align 8
-  %149 = call i32 @zend_binary_strcasecmp(ptr noundef %145, i64 noundef %148, ptr noundef @.str.28, i64 noundef 8)
-  %150 = icmp ne i32 %149, 0
-  br i1 %150, label %181, label %151
+143:                                              ; preds = %110, %105
+  %144 = load ptr, ptr %6, align 8
+  %145 = getelementptr inbounds %struct._zend_string, ptr %144, i32 0, i32 2
+  %146 = load i64, ptr %145, align 8
+  %147 = icmp eq i64 %146, 8
+  br i1 %147, label %148, label %189
 
-151:                                              ; preds = %142
-  %152 = load ptr, ptr %7, align 8
-  %153 = getelementptr inbounds %struct._xmlNode, ptr %152, i32 0, i32 5
-  %154 = load ptr, ptr %153, align 8
-  %155 = icmp eq ptr %154, null
-  br i1 %155, label %156, label %157
+148:                                              ; preds = %143
+  %149 = load ptr, ptr %6, align 8
+  %150 = getelementptr inbounds %struct._zend_string, ptr %149, i32 0, i32 3
+  %151 = getelementptr inbounds [1 x i8], ptr %150, i64 0, i64 0
+  %152 = load ptr, ptr %6, align 8
+  %153 = getelementptr inbounds %struct._zend_string, ptr %152, i32 0, i32 2
+  %154 = load i64, ptr %153, align 8
+  %155 = call i32 @zend_binary_strcasecmp(ptr noundef %151, i64 noundef %154, ptr noundef @.str.28, i64 noundef 8)
+  %156 = icmp ne i32 %155, 0
+  br i1 %156, label %189, label %157
 
-156:                                              ; preds = %151
-  store ptr null, ptr %5, align 8
-  br label %195
-
-157:                                              ; preds = %151
+157:                                              ; preds = %148
   %158 = load ptr, ptr %7, align 8
   %159 = getelementptr inbounds %struct._xmlNode, ptr %158, i32 0, i32 5
   %160 = load ptr, ptr %159, align 8
-  %161 = load ptr, ptr %9, align 8
-  %162 = call i32 @dom_hierarchy(ptr noundef %160, ptr noundef %161)
-  %163 = icmp eq i32 %162, -1
-  br i1 %163, label %164, label %169
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %162, label %163
 
-164:                                              ; preds = %157
-  %165 = load ptr, ptr %8, align 8
-  %166 = getelementptr inbounds %struct._dom_object, ptr %165, i32 0, i32 1
-  %167 = load ptr, ptr %166, align 8
-  %168 = call i32 @dom_get_strict_error(ptr noundef %167)
-  call void @php_dom_throw_error(i32 noundef 3, i32 noundef %168)
-  store ptr inttoptr (i64 -1 to ptr), ptr %5, align 8
-  br label %195
+162:                                              ; preds = %157
+  store ptr null, ptr %5, align 8
+  br label %204
 
-169:                                              ; preds = %157
-  %170 = load ptr, ptr %9, align 8
+163:                                              ; preds = %157
+  %164 = load ptr, ptr %7, align 8
+  %165 = getelementptr inbounds %struct._xmlNode, ptr %164, i32 0, i32 5
+  %166 = load ptr, ptr %165, align 8
+  %167 = load ptr, ptr %9, align 8
+  %168 = call i32 @dom_hierarchy(ptr noundef %166, ptr noundef %167)
+  %169 = icmp eq i32 %168, -1
+  br i1 %169, label %170, label %176
+
+170:                                              ; preds = %163
   %171 = load ptr, ptr %8, align 8
-  %172 = load ptr, ptr %7, align 8
-  %173 = getelementptr inbounds %struct._xmlNode, ptr %172, i32 0, i32 8
-  %174 = load ptr, ptr %173, align 8
-  %175 = call zeroext i1 @php_dom_adopt_node(ptr noundef %170, ptr noundef %171, ptr noundef %174)
-  br i1 %175, label %177, label %176
+  %172 = getelementptr inbounds %struct._dom_object, ptr %171, i32 0, i32 1
+  %173 = load ptr, ptr %172, align 8
+  %174 = call i32 @dom_get_strict_error(ptr noundef %173)
+  call void @php_dom_throw_error(i32 noundef 3, i32 noundef %174)
+  %175 = inttoptr i64 -1 to ptr
+  store ptr %175, ptr %5, align 8
+  br label %204
 
-176:                                              ; preds = %169
-  store ptr inttoptr (i64 -1 to ptr), ptr %5, align 8
+176:                                              ; preds = %163
+  %177 = load ptr, ptr %9, align 8
+  %178 = load ptr, ptr %8, align 8
+  %179 = load ptr, ptr %7, align 8
+  %180 = getelementptr inbounds %struct._xmlNode, ptr %179, i32 0, i32 8
+  %181 = load ptr, ptr %180, align 8
+  %182 = call zeroext i1 @php_dom_adopt_node(ptr noundef %177, ptr noundef %178, ptr noundef %181)
+  br i1 %182, label %185, label %183
+
+183:                                              ; preds = %176
+  %184 = inttoptr i64 -1 to ptr
+  store ptr %184, ptr %5, align 8
+  br label %204
+
+185:                                              ; preds = %176
+  %186 = load ptr, ptr %7, align 8
+  %187 = load ptr, ptr %9, align 8
+  %188 = call ptr @xmlAddNextSibling(ptr noundef %186, ptr noundef %187)
+  store ptr %188, ptr %9, align 8
   br label %195
 
-177:                                              ; preds = %169
-  %178 = load ptr, ptr %7, align 8
-  %179 = load ptr, ptr %9, align 8
-  %180 = call ptr @xmlAddNextSibling(ptr noundef %178, ptr noundef %179)
-  store ptr %180, ptr %9, align 8
-  br label %186
-
-181:                                              ; preds = %142, %137
-  %182 = load ptr, ptr %8, align 8
-  %183 = getelementptr inbounds %struct._dom_object, ptr %182, i32 0, i32 1
-  %184 = load ptr, ptr %183, align 8
-  %185 = call i32 @dom_get_strict_error(ptr noundef %184)
-  call void @php_dom_throw_error(i32 noundef 12, i32 noundef %185)
-  store ptr inttoptr (i64 -1 to ptr), ptr %5, align 8
-  br label %195
-
-186:                                              ; preds = %177
-  br label %187
-
-187:                                              ; preds = %186, %133
-  br label %188
-
-188:                                              ; preds = %187, %100
-  br label %189
-
-189:                                              ; preds = %188, %49
-  %190 = load ptr, ptr %7, align 8
-  %191 = getelementptr inbounds %struct._xmlNode, ptr %190, i32 0, i32 8
+189:                                              ; preds = %148, %143
+  %190 = load ptr, ptr %8, align 8
+  %191 = getelementptr inbounds %struct._dom_object, ptr %190, i32 0, i32 1
   %192 = load ptr, ptr %191, align 8
-  %193 = load ptr, ptr %9, align 8
-  call void @dom_reconcile_ns(ptr noundef %192, ptr noundef %193)
-  %194 = load ptr, ptr %9, align 8
+  %193 = call i32 @dom_get_strict_error(ptr noundef %192)
+  call void @php_dom_throw_error(i32 noundef 12, i32 noundef %193)
+  %194 = inttoptr i64 -1 to ptr
   store ptr %194, ptr %5, align 8
-  br label %195
+  br label %204
 
-195:                                              ; preds = %189, %181, %176, %164, %156, %132, %120, %84, %72, %48, %36, %28
-  %196 = load ptr, ptr %5, align 8
-  ret ptr %196
+195:                                              ; preds = %185
+  br label %196
+
+196:                                              ; preds = %195, %139
+  br label %197
+
+197:                                              ; preds = %196, %104
+  br label %198
+
+198:                                              ; preds = %197, %51
+  %199 = load ptr, ptr %7, align 8
+  %200 = getelementptr inbounds %struct._xmlNode, ptr %199, i32 0, i32 8
+  %201 = load ptr, ptr %200, align 8
+  %202 = load ptr, ptr %9, align 8
+  call void @dom_reconcile_ns(ptr noundef %201, ptr noundef %202)
+  %203 = load ptr, ptr %9, align 8
+  store ptr %203, ptr %5, align 8
+  br label %204
+
+204:                                              ; preds = %198, %189, %183, %170, %162, %137, %124, %87, %74, %49, %36, %28
+  %205 = load ptr, ptr %5, align 8
+  ret ptr %205
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10264,131 +10343,135 @@ define hidden void @zim_DOMElement_insertAdjacentText(ptr noundef %0, ptr nounde
   %15 = load i32, ptr %14, align 4
   %16 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %15, ptr noundef @.str.20, ptr noundef %5, ptr noundef %6)
   %17 = icmp eq i32 %16, -1
-  br i1 %17, label %18, label %23
+  br i1 %17, label %18, label %24
 
 18:                                               ; preds = %2
   br label %19
 
 19:                                               ; preds = %18
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %21 = icmp ne ptr %20, null
-  call void @llvm.assume(i1 %21)
-  br label %101
+  %20 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  call void @llvm.assume(i1 %22)
+  br label %105
 
-22:                                               ; No predecessors!
-  br label %23
+23:                                               ; No predecessors!
+  br label %24
 
-23:                                               ; preds = %22, %2
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct._zend_execute_data, ptr %24, i32 0, i32 4
-  store ptr %25, ptr %8, align 8
-  %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds %struct._zval_struct, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = call ptr @php_dom_obj_from_obj(ptr noundef %28)
-  store ptr %29, ptr %7, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds %struct._dom_object, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  %34 = xor i1 %33, true
+24:                                               ; preds = %23, %2
+  %25 = load ptr, ptr %3, align 8
+  %26 = getelementptr inbounds %struct._zend_execute_data, ptr %25, i32 0, i32 4
+  store ptr %26, ptr %8, align 8
+  %27 = load ptr, ptr %8, align 8
+  %28 = getelementptr inbounds %struct._zval_struct, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = call ptr @php_dom_obj_from_obj(ptr noundef %29)
+  store ptr %30, ptr %7, align 8
+  %31 = load ptr, ptr %7, align 8
+  %32 = getelementptr inbounds %struct._dom_object, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, null
   %35 = xor i1 %34, true
-  %36 = zext i1 %35 to i32
-  %37 = sext i32 %36 to i64
-  %38 = icmp ne i64 %37, 0
-  br i1 %38, label %39, label %52
+  %36 = xor i1 %35, true
+  %37 = zext i1 %36 to i32
+  %38 = sext i32 %37 to i64
+  %39 = icmp ne i64 %38, 0
+  br i1 %39, label %40, label %54
 
-39:                                               ; preds = %23
-  %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds %struct._dom_object, ptr %40, i32 0, i32 3
-  %42 = getelementptr inbounds %struct._zend_object, ptr %41, i32 0, i32 2
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct._zend_class_entry, ptr %43, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct._zend_string, ptr %45, i32 0, i32 3
-  %47 = getelementptr inbounds [1 x i8], ptr %46, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %47)
-  br label %48
+40:                                               ; preds = %24
+  %41 = load ptr, ptr %7, align 8
+  %42 = getelementptr inbounds %struct._dom_object, ptr %41, i32 0, i32 3
+  %43 = getelementptr inbounds %struct._zend_object, ptr %42, i32 0, i32 2
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %struct._zend_class_entry, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %struct._zend_string, ptr %46, i32 0, i32 3
+  %48 = getelementptr inbounds [1 x i8], ptr %47, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %48)
+  br label %49
 
-48:                                               ; preds = %39
-  %49 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
-  br label %101
+49:                                               ; preds = %40
+  %50 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp ne ptr %51, null
+  call void @llvm.assume(i1 %52)
+  br label %105
 
-51:                                               ; No predecessors!
-  br label %52
+53:                                               ; No predecessors!
+  br label %54
 
-52:                                               ; preds = %51, %23
-  %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds %struct._dom_object, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %55, i32 0, i32 0
+54:                                               ; preds = %53, %24
+  %55 = load ptr, ptr %7, align 8
+  %56 = getelementptr inbounds %struct._dom_object, ptr %55, i32 0, i32 0
   %57 = load ptr, ptr %56, align 8
-  store ptr %57, ptr %9, align 8
-  %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds %struct._zend_string, ptr %58, i32 0, i32 2
-  %60 = load i64, ptr %59, align 8
-  %61 = icmp ugt i64 %60, 2147483647
-  %62 = xor i1 %61, true
-  %63 = xor i1 %62, true
-  %64 = zext i1 %63 to i32
-  %65 = sext i32 %64 to i64
-  %66 = icmp ne i64 %65, 0
-  %67 = xor i1 %66, true
-  %68 = xor i1 %67, true
-  %69 = zext i1 %68 to i32
-  %70 = sext i32 %69 to i64
-  %71 = icmp ne i64 %70, 0
-  br i1 %71, label %72, label %77
+  %58 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  store ptr %59, ptr %9, align 8
+  %60 = load ptr, ptr %6, align 8
+  %61 = getelementptr inbounds %struct._zend_string, ptr %60, i32 0, i32 2
+  %62 = load i64, ptr %61, align 8
+  %63 = icmp ugt i64 %62, 2147483647
+  %64 = xor i1 %63, true
+  %65 = xor i1 %64, true
+  %66 = zext i1 %65 to i32
+  %67 = sext i32 %66 to i64
+  %68 = icmp ne i64 %67, 0
+  %69 = xor i1 %68, true
+  %70 = xor i1 %69, true
+  %71 = zext i1 %70 to i32
+  %72 = sext i32 %71 to i64
+  %73 = icmp ne i64 %72, 0
+  br i1 %73, label %74, label %80
 
-72:                                               ; preds = %52
+74:                                               ; preds = %54
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef @.str.21)
-  br label %73
+  br label %75
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %75 = icmp ne ptr %74, null
-  call void @llvm.assume(i1 %75)
-  br label %101
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp ne ptr %77, null
+  call void @llvm.assume(i1 %78)
+  br label %105
 
-76:                                               ; No predecessors!
-  br label %77
+79:                                               ; No predecessors!
+  br label %80
 
-77:                                               ; preds = %76, %52
-  %78 = load ptr, ptr %9, align 8
-  %79 = getelementptr inbounds %struct._xmlNode, ptr %78, i32 0, i32 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %6, align 8
-  %82 = getelementptr inbounds %struct._zend_string, ptr %81, i32 0, i32 3
-  %83 = getelementptr inbounds [1 x i8], ptr %82, i64 0, i64 0
+80:                                               ; preds = %79, %54
+  %81 = load ptr, ptr %9, align 8
+  %82 = getelementptr inbounds %struct._xmlNode, ptr %81, i32 0, i32 8
+  %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %6, align 8
-  %85 = getelementptr inbounds %struct._zend_string, ptr %84, i32 0, i32 2
-  %86 = load i64, ptr %85, align 8
-  %87 = trunc i64 %86 to i32
-  %88 = call ptr @xmlNewDocTextLen(ptr noundef %80, ptr noundef %83, i32 noundef %87)
-  store ptr %88, ptr %10, align 8
-  %89 = load ptr, ptr %5, align 8
-  %90 = load ptr, ptr %9, align 8
-  %91 = load ptr, ptr %7, align 8
-  %92 = load ptr, ptr %10, align 8
-  %93 = call ptr @dom_insert_adjacent(ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92)
-  store ptr %93, ptr %11, align 8
-  %94 = load ptr, ptr %11, align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %99, label %96
-
-96:                                               ; preds = %77
+  %85 = getelementptr inbounds %struct._zend_string, ptr %84, i32 0, i32 3
+  %86 = getelementptr inbounds [1 x i8], ptr %85, i64 0, i64 0
+  %87 = load ptr, ptr %6, align 8
+  %88 = getelementptr inbounds %struct._zend_string, ptr %87, i32 0, i32 2
+  %89 = load i64, ptr %88, align 8
+  %90 = trunc i64 %89 to i32
+  %91 = call ptr @xmlNewDocTextLen(ptr noundef %83, ptr noundef %86, i32 noundef %90)
+  store ptr %91, ptr %10, align 8
+  %92 = load ptr, ptr %5, align 8
+  %93 = load ptr, ptr %9, align 8
+  %94 = load ptr, ptr %7, align 8
+  %95 = load ptr, ptr %10, align 8
+  %96 = call ptr @dom_insert_adjacent(ptr noundef %92, ptr noundef %93, ptr noundef %94, ptr noundef %95)
+  store ptr %96, ptr %11, align 8
   %97 = load ptr, ptr %11, align 8
-  %98 = icmp eq ptr %97, inttoptr (i64 -1 to ptr)
-  br i1 %98, label %99, label %101
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %103, label %99
 
-99:                                               ; preds = %96, %77
-  %100 = load ptr, ptr %10, align 8
-  call void @xmlFreeNode(ptr noundef %100)
-  br label %101
+99:                                               ; preds = %80
+  %100 = load ptr, ptr %11, align 8
+  %101 = inttoptr i64 -1 to ptr
+  %102 = icmp eq ptr %100, %101
+  br i1 %102, label %103, label %105
 
-101:                                              ; preds = %99, %96, %73, %48, %19
+103:                                              ; preds = %99, %80
+  %104 = load ptr, ptr %10, align 8
+  call void @xmlFreeNode(ptr noundef %104)
+  br label %105
+
+105:                                              ; preds = %103, %99, %75, %49, %19
   ret void
 }
 
@@ -10420,246 +10503,249 @@ define hidden void @zim_DOMElement_toggleAttribute(ptr noundef %0, ptr noundef %
   %20 = load i32, ptr %19, align 4
   %21 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %20, ptr noundef @.str.22, ptr noundef %5, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %22 = icmp eq i32 %21, -1
-  br i1 %22, label %23, label %28
+  br i1 %22, label %23, label %29
 
 23:                                               ; preds = %2
   br label %24
 
 24:                                               ; preds = %23
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
-  br label %168
+  %25 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp ne ptr %26, null
+  call void @llvm.assume(i1 %27)
+  br label %171
 
-27:                                               ; No predecessors!
-  br label %28
+28:                                               ; No predecessors!
+  br label %29
 
-28:                                               ; preds = %27, %2
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct._zend_execute_data, ptr %29, i32 0, i32 4
-  store ptr %30, ptr %11, align 8
-  %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds %struct._zval_struct, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = call ptr @php_dom_obj_from_obj(ptr noundef %33)
-  store ptr %34, ptr %12, align 8
-  %35 = load ptr, ptr %12, align 8
-  %36 = getelementptr inbounds %struct._dom_object, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  %39 = xor i1 %38, true
+29:                                               ; preds = %28, %2
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds %struct._zend_execute_data, ptr %30, i32 0, i32 4
+  store ptr %31, ptr %11, align 8
+  %32 = load ptr, ptr %11, align 8
+  %33 = getelementptr inbounds %struct._zval_struct, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = call ptr @php_dom_obj_from_obj(ptr noundef %34)
+  store ptr %35, ptr %12, align 8
+  %36 = load ptr, ptr %12, align 8
+  %37 = getelementptr inbounds %struct._dom_object, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, null
   %40 = xor i1 %39, true
-  %41 = zext i1 %40 to i32
-  %42 = sext i32 %41 to i64
-  %43 = icmp ne i64 %42, 0
-  br i1 %43, label %44, label %57
+  %41 = xor i1 %40, true
+  %42 = zext i1 %41 to i32
+  %43 = sext i32 %42 to i64
+  %44 = icmp ne i64 %43, 0
+  br i1 %44, label %45, label %59
 
-44:                                               ; preds = %28
-  %45 = load ptr, ptr %12, align 8
-  %46 = getelementptr inbounds %struct._dom_object, ptr %45, i32 0, i32 3
-  %47 = getelementptr inbounds %struct._zend_object, ptr %46, i32 0, i32 2
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct._zend_class_entry, ptr %48, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct._zend_string, ptr %50, i32 0, i32 3
-  %52 = getelementptr inbounds [1 x i8], ptr %51, i64 0, i64 0
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %52)
-  br label %53
+45:                                               ; preds = %29
+  %46 = load ptr, ptr %12, align 8
+  %47 = getelementptr inbounds %struct._dom_object, ptr %46, i32 0, i32 3
+  %48 = getelementptr inbounds %struct._zend_object, ptr %47, i32 0, i32 2
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %struct._zend_class_entry, ptr %49, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds %struct._zend_string, ptr %51, i32 0, i32 3
+  %53 = getelementptr inbounds [1 x i8], ptr %52, i64 0, i64 0
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.5, ptr noundef %53)
+  br label %54
 
-53:                                               ; preds = %44
-  %54 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %55 = icmp ne ptr %54, null
-  call void @llvm.assume(i1 %55)
-  br label %168
+54:                                               ; preds = %45
+  %55 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ne ptr %56, null
+  call void @llvm.assume(i1 %57)
+  br label %171
 
-56:                                               ; No predecessors!
-  br label %57
+58:                                               ; No predecessors!
+  br label %59
 
-57:                                               ; preds = %56, %28
-  %58 = load ptr, ptr %12, align 8
-  %59 = getelementptr inbounds %struct._dom_object, ptr %58, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %60, i32 0, i32 0
+59:                                               ; preds = %58, %29
+  %60 = load ptr, ptr %12, align 8
+  %61 = getelementptr inbounds %struct._dom_object, ptr %60, i32 0, i32 0
   %62 = load ptr, ptr %61, align 8
-  store ptr %62, ptr %10, align 8
-  %63 = load ptr, ptr %5, align 8
-  %64 = call i32 @xmlValidateName(ptr noundef %63, i32 noundef 0)
-  %65 = icmp ne i32 %64, 0
-  br i1 %65, label %66, label %71
+  %63 = getelementptr inbounds %struct._php_libxml_node_ptr, ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  store ptr %64, ptr %10, align 8
+  %65 = load ptr, ptr %5, align 8
+  %66 = call i32 @xmlValidateName(ptr noundef %65, i32 noundef 0)
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %74
 
-66:                                               ; preds = %57
+68:                                               ; preds = %59
   call void @php_dom_throw_error(i32 noundef 5, i32 noundef 1)
-  br label %67
+  br label %69
 
-67:                                               ; preds = %66
-  %68 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %69 = icmp ne ptr %68, null
-  call void @llvm.assume(i1 %69)
-  br label %168
+69:                                               ; preds = %68
+  %70 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp ne ptr %71, null
+  call void @llvm.assume(i1 %72)
+  br label %171
 
-70:                                               ; No predecessors!
-  br label %71
+73:                                               ; No predecessors!
+  br label %74
 
-71:                                               ; preds = %70, %57
-  %72 = load ptr, ptr %10, align 8
-  %73 = getelementptr inbounds %struct._xmlNode, ptr %72, i32 0, i32 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp ne ptr %74, null
-  br i1 %75, label %76, label %105
+74:                                               ; preds = %73, %59
+  %75 = load ptr, ptr %10, align 8
+  %76 = getelementptr inbounds %struct._xmlNode, ptr %75, i32 0, i32 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %79, label %108
 
-76:                                               ; preds = %71
-  %77 = load ptr, ptr %10, align 8
-  %78 = getelementptr inbounds %struct._xmlNode, ptr %77, i32 0, i32 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds %struct._xmlDoc, ptr %79, i32 0, i32 1
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 13
-  br i1 %82, label %83, label %105
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %10, align 8
+  %81 = getelementptr inbounds %struct._xmlNode, ptr %80, i32 0, i32 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds %struct._xmlDoc, ptr %82, i32 0, i32 1
+  %84 = load i32, ptr %83, align 8
+  %85 = icmp eq i32 %84, 13
+  br i1 %85, label %86, label %108
 
-83:                                               ; preds = %76
-  %84 = load ptr, ptr %10, align 8
-  %85 = getelementptr inbounds %struct._xmlNode, ptr %84, i32 0, i32 9
-  %86 = load ptr, ptr %85, align 8
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %96, label %88
+86:                                               ; preds = %79
+  %87 = load ptr, ptr %10, align 8
+  %88 = getelementptr inbounds %struct._xmlNode, ptr %87, i32 0, i32 9
+  %89 = load ptr, ptr %88, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %99, label %91
 
-88:                                               ; preds = %83
-  %89 = load ptr, ptr %10, align 8
-  %90 = getelementptr inbounds %struct._xmlNode, ptr %89, i32 0, i32 9
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds %struct._xmlNs, ptr %91, i32 0, i32 2
-  %93 = load ptr, ptr %92, align 8
-  %94 = call i32 @xmlStrEqual(ptr noundef %93, ptr noundef @.str.23)
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %105
+91:                                               ; preds = %86
+  %92 = load ptr, ptr %10, align 8
+  %93 = getelementptr inbounds %struct._xmlNode, ptr %92, i32 0, i32 9
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds %struct._xmlNs, ptr %94, i32 0, i32 2
+  %96 = load ptr, ptr %95, align 8
+  %97 = call i32 @xmlStrEqual(ptr noundef %96, ptr noundef @.str.23)
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %99, label %108
 
-96:                                               ; preds = %88, %83
-  %97 = load ptr, ptr %5, align 8
-  %98 = load i64, ptr %7, align 8
-  %99 = call ptr @zend_str_tolower_dup_ex(ptr noundef %97, i64 noundef %98)
-  store ptr %99, ptr %6, align 8
-  %100 = load ptr, ptr %6, align 8
-  %101 = icmp ne ptr %100, null
-  br i1 %101, label %102, label %104
-
-102:                                              ; preds = %96
+99:                                               ; preds = %91, %86
+  %100 = load ptr, ptr %5, align 8
+  %101 = load i64, ptr %7, align 8
+  %102 = call ptr @zend_str_tolower_dup_ex(ptr noundef %100, i64 noundef %101)
+  store ptr %102, ptr %6, align 8
   %103 = load ptr, ptr %6, align 8
-  store ptr %103, ptr %5, align 8
-  br label %104
+  %104 = icmp ne ptr %103, null
+  br i1 %104, label %105, label %107
 
-104:                                              ; preds = %102, %96
-  br label %105
+105:                                              ; preds = %99
+  %106 = load ptr, ptr %6, align 8
+  store ptr %106, ptr %5, align 8
+  br label %107
 
-105:                                              ; preds = %104, %88, %76, %71
-  %106 = load ptr, ptr %10, align 8
-  %107 = load ptr, ptr %5, align 8
-  %108 = call ptr @dom_get_dom1_attribute(ptr noundef %106, ptr noundef %107)
-  store ptr %108, ptr %14, align 8
-  %109 = load ptr, ptr %14, align 8
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %111, label %143
+107:                                              ; preds = %105, %99
+  br label %108
 
-111:                                              ; preds = %105
-  %112 = load i8, ptr %9, align 1
-  %113 = trunc i8 %112 to i1
-  br i1 %113, label %117, label %114
+108:                                              ; preds = %107, %91, %79, %74
+  %109 = load ptr, ptr %10, align 8
+  %110 = load ptr, ptr %5, align 8
+  %111 = call ptr @dom_get_dom1_attribute(ptr noundef %109, ptr noundef %110)
+  store ptr %111, ptr %14, align 8
+  %112 = load ptr, ptr %14, align 8
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %114, label %146
 
-114:                                              ; preds = %111
-  %115 = load i8, ptr %8, align 1
+114:                                              ; preds = %108
+  %115 = load i8, ptr %9, align 1
   %116 = trunc i8 %115 to i1
-  br i1 %116, label %117, label %142
+  br i1 %116, label %120, label %117
 
-117:                                              ; preds = %114, %111
-  %118 = load ptr, ptr %5, align 8
-  %119 = call ptr @xmlSplitQName3(ptr noundef %118, ptr noundef %15)
-  store ptr %119, ptr %16, align 8
-  %120 = load ptr, ptr %16, align 8
-  %121 = icmp eq ptr %120, null
-  br i1 %121, label %129, label %122
+117:                                              ; preds = %114
+  %118 = load i8, ptr %8, align 1
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %120, label %145
 
-122:                                              ; preds = %117
-  %123 = load ptr, ptr %5, align 8
-  %124 = load i32, ptr %15, align 4
-  %125 = add nsw i32 %124, 1
-  %126 = sext i32 %125 to i64
-  %127 = call i32 @strncmp(ptr noundef %123, ptr noundef @.str.24, i64 noundef %126) #8
-  %128 = icmp ne i32 %127, 0
-  br i1 %128, label %129, label %133
+120:                                              ; preds = %117, %114
+  %121 = load ptr, ptr %5, align 8
+  %122 = call ptr @xmlSplitQName3(ptr noundef %121, ptr noundef %15)
+  store ptr %122, ptr %16, align 8
+  %123 = load ptr, ptr %16, align 8
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %132, label %125
 
-129:                                              ; preds = %122, %117
-  %130 = load ptr, ptr %10, align 8
-  %131 = load ptr, ptr %5, align 8
-  %132 = call ptr @dom_create_attribute(ptr noundef %130, ptr noundef %131, ptr noundef @.str.14)
-  br label %141
+125:                                              ; preds = %120
+  %126 = load ptr, ptr %5, align 8
+  %127 = load i32, ptr %15, align 4
+  %128 = add nsw i32 %127, 1
+  %129 = sext i32 %128 to i64
+  %130 = call i32 @strncmp(ptr noundef %126, ptr noundef @.str.24, i64 noundef %129) #8
+  %131 = icmp ne i32 %130, 0
+  br i1 %131, label %132, label %136
 
-133:                                              ; preds = %122
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %5, align 8
-  %136 = load i32, ptr %15, align 4
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i8, ptr %135, i64 %137
-  %139 = getelementptr inbounds i8, ptr %138, i64 1
-  %140 = call ptr @xmlNewNs(ptr noundef %134, ptr noundef @.str.14, ptr noundef %139)
-  br label %141
+132:                                              ; preds = %125, %120
+  %133 = load ptr, ptr %10, align 8
+  %134 = load ptr, ptr %5, align 8
+  %135 = call ptr @dom_create_attribute(ptr noundef %133, ptr noundef %134, ptr noundef @.str.14)
+  br label %144
 
-141:                                              ; preds = %133, %129
+136:                                              ; preds = %125
+  %137 = load ptr, ptr %10, align 8
+  %138 = load ptr, ptr %5, align 8
+  %139 = load i32, ptr %15, align 4
+  %140 = sext i32 %139 to i64
+  %141 = getelementptr inbounds i8, ptr %138, i64 %140
+  %142 = getelementptr inbounds i8, ptr %141, i64 1
+  %143 = call ptr @xmlNewNs(ptr noundef %137, ptr noundef @.str.14, ptr noundef %142)
+  br label %144
+
+144:                                              ; preds = %136, %132
   store i8 1, ptr %13, align 1
-  br label %154
+  br label %157
 
-142:                                              ; preds = %114
+145:                                              ; preds = %117
   store i8 0, ptr %13, align 1
-  br label %154
+  br label %157
 
-143:                                              ; preds = %105
-  %144 = load i8, ptr %9, align 1
-  %145 = trunc i8 %144 to i1
-  br i1 %145, label %149, label %146
-
-146:                                              ; preds = %143
-  %147 = load i8, ptr %8, align 1
+146:                                              ; preds = %108
+  %147 = load i8, ptr %9, align 1
   %148 = trunc i8 %147 to i1
-  br i1 %148, label %153, label %149
+  br i1 %148, label %152, label %149
 
-149:                                              ; preds = %146, %143
-  %150 = load ptr, ptr %10, align 8
-  %151 = load ptr, ptr %14, align 8
-  %152 = call zeroext i1 @dom_remove_attribute(ptr noundef %150, ptr noundef %151)
+149:                                              ; preds = %146
+  %150 = load i8, ptr %8, align 1
+  %151 = trunc i8 %150 to i1
+  br i1 %151, label %156, label %152
+
+152:                                              ; preds = %149, %146
+  %153 = load ptr, ptr %10, align 8
+  %154 = load ptr, ptr %14, align 8
+  %155 = call zeroext i1 @dom_remove_attribute(ptr noundef %153, ptr noundef %154)
   store i8 0, ptr %13, align 1
-  br label %154
+  br label %157
 
-153:                                              ; preds = %146
+156:                                              ; preds = %149
   store i8 1, ptr %13, align 1
-  br label %154
+  br label %157
 
-154:                                              ; preds = %153, %149, %142, %141
-  %155 = load ptr, ptr %6, align 8
-  %156 = icmp ne ptr %155, null
-  br i1 %156, label %157, label %159
-
-157:                                              ; preds = %154
+157:                                              ; preds = %156, %152, %145, %144
   %158 = load ptr, ptr %6, align 8
-  call void @_efree(ptr noundef %158)
-  br label %159
+  %159 = icmp ne ptr %158, null
+  br i1 %159, label %160, label %162
 
-159:                                              ; preds = %157, %154
-  br label %160
+160:                                              ; preds = %157
+  %161 = load ptr, ptr %6, align 8
+  call void @_efree(ptr noundef %161)
+  br label %162
 
-160:                                              ; preds = %159
-  br label %161
+162:                                              ; preds = %160, %157
+  br label %163
 
-161:                                              ; preds = %160
-  %162 = load i8, ptr %13, align 1
-  %163 = trunc i8 %162 to i1
-  %164 = select i1 %163, i32 3, i32 2
-  %165 = load ptr, ptr %4, align 8
-  %166 = getelementptr inbounds %struct._zval_struct, ptr %165, i32 0, i32 1
-  store i32 %164, ptr %166, align 8
-  br label %167
+163:                                              ; preds = %162
+  br label %164
 
-167:                                              ; preds = %161
-  br label %168
+164:                                              ; preds = %163
+  %165 = load i8, ptr %13, align 1
+  %166 = trunc i8 %165 to i1
+  %167 = select i1 %166, i32 3, i32 2
+  %168 = load ptr, ptr %4, align 8
+  %169 = getelementptr inbounds %struct._zval_struct, ptr %168, i32 0, i32 1
+  store i32 %167, ptr %169, align 8
+  br label %170
 
-168:                                              ; preds = %167, %67, %53, %24
+170:                                              ; preds = %164
+  br label %171
+
+171:                                              ; preds = %170, %69, %54, %24
   ret void
 }
 

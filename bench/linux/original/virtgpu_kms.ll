@@ -856,36 +856,37 @@ define dso_local i32 @virtio_gpu_driver_open(ptr nocapture noundef readonly %0, 
   %5 = getelementptr inbounds i8, ptr %4, i64 62136
   %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %21, label %8
+  br i1 %7, label %22, label %8
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %10 = tail call noalias noundef align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 136) #10
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %21, label %12
+  %9 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %10 = load ptr, ptr %9, align 16
+  %11 = tail call noalias noundef align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 136) #10
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %22, label %13
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 32
-  tail call void @__mutex_init(ptr noundef %13, ptr noundef nonnull @.str.15, ptr noundef nonnull @virtio_gpu_driver_open.__key) #8
-  %14 = getelementptr inbounds i8, ptr %4, i64 62120
-  %15 = tail call i32 @ida_alloc_range(ptr noundef %14, i32 noundef 0, i32 noundef -1, i32 noundef 3264) #8
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %18
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %11, i64 32
+  tail call void @__mutex_init(ptr noundef %14, ptr noundef nonnull @.str.15, ptr noundef nonnull @virtio_gpu_driver_open.__key) #8
+  %15 = getelementptr inbounds i8, ptr %4, i64 62120
+  %16 = tail call i32 @ida_alloc_range(ptr noundef %15, i32 noundef 0, i32 noundef -1, i32 noundef 3264) #8
+  %17 = icmp slt i32 %16, 0
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %12
-  tail call void @kfree(ptr noundef nonnull %10) #8
-  br label %21
+18:                                               ; preds = %13
+  tail call void @kfree(ptr noundef nonnull %11) #8
+  br label %22
 
-18:                                               ; preds = %12
-  %19 = add nuw i32 %15, 1
-  store i32 %19, ptr %10, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 152
-  store ptr %10, ptr %20, align 8
-  br label %21
+19:                                               ; preds = %13
+  %20 = add nuw i32 %16, 1
+  store i32 %20, ptr %11, align 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 152
+  store ptr %11, ptr %21, align 8
+  br label %22
 
-21:                                               ; preds = %18, %17, %8, %2
-  %22 = phi i32 [ %15, %17 ], [ 0, %18 ], [ 0, %2 ], [ -12, %8 ]
-  ret i32 %22
+22:                                               ; preds = %19, %18, %8, %2
+  %23 = phi i32 [ %16, %18 ], [ 0, %19 ], [ 0, %2 ], [ -12, %8 ]
+  ret i32 %23
 }
 
 ; Function Attrs: null_pointer_is_valid

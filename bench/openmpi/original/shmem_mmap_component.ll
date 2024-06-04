@@ -42,11 +42,12 @@ define internal i32 @mmap_query(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.opal_shmem_mmap_component_t, ptr @mca_shmem_mmap_component, i32 0, i32 1), align 8
-  %6 = load ptr, ptr %4, align 8
-  store i32 %5, ptr %6, align 4
-  %7 = load ptr, ptr %3, align 8
-  store ptr @opal_shmem_mmap_module, ptr %7, align 8
+  %5 = getelementptr inbounds %struct.opal_shmem_mmap_component_t, ptr @mca_shmem_mmap_component, i32 0, i32 1
+  %6 = load i32, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  store i32 %6, ptr %7, align 4
+  %8 = load ptr, ptr %3, align 8
+  store ptr @opal_shmem_mmap_module, ptr %8, align 8
   ret i32 0
 }
 
@@ -54,64 +55,66 @@ define internal i32 @mmap_query(ptr noundef %0, ptr noundef %1) #0 {
 define internal i32 @mmap_register() #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
-  store i32 50, ptr getelementptr inbounds (%struct.opal_shmem_mmap_component_t, ptr @mca_shmem_mmap_component, i32 0, i32 1), align 8
-  %3 = call i32 @mca_base_component_var_register(ptr noundef @mca_shmem_mmap_component, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 2, i32 noundef 6, ptr noundef getelementptr inbounds (%struct.opal_shmem_mmap_component_t, ptr @mca_shmem_mmap_component, i32 0, i32 1))
-  store i32 %3, ptr %2, align 4
-  %4 = load i32, ptr %2, align 4
-  %5 = icmp sgt i32 0, %4
-  br i1 %5, label %6, label %8
-
-6:                                                ; preds = %0
-  %7 = load i32, ptr %2, align 4
-  store i32 %7, ptr %1, align 4
-  br label %27
+  %3 = getelementptr inbounds %struct.opal_shmem_mmap_component_t, ptr @mca_shmem_mmap_component, i32 0, i32 1
+  store i32 50, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.opal_shmem_mmap_component_t, ptr @mca_shmem_mmap_component, i32 0, i32 1
+  %5 = call i32 @mca_base_component_var_register(ptr noundef @mca_shmem_mmap_component, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 2, i32 noundef 6, ptr noundef %4)
+  store i32 %5, ptr %2, align 4
+  %6 = load i32, ptr %2, align 4
+  %7 = icmp sgt i32 0, %6
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %0
+  %9 = load i32, ptr %2, align 4
+  store i32 %9, ptr %1, align 4
+  br label %29
+
+10:                                               ; preds = %0
   store i8 1, ptr @opal_shmem_mmap_nfs_warning, align 1
-  %9 = call i32 @mca_base_component_var_register(ptr noundef @mca_shmem_mmap_component, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 8, i32 noundef 2, ptr noundef @opal_shmem_mmap_nfs_warning)
-  store i32 %9, ptr %2, align 4
-  %10 = load i32, ptr %2, align 4
-  %11 = icmp sgt i32 0, %10
-  br i1 %11, label %12, label %14
+  %11 = call i32 @mca_base_component_var_register(ptr noundef @mca_shmem_mmap_component, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 8, i32 noundef 2, ptr noundef @opal_shmem_mmap_nfs_warning)
+  store i32 %11, ptr %2, align 4
+  %12 = load i32, ptr %2, align 4
+  %13 = icmp sgt i32 0, %12
+  br i1 %13, label %14, label %16
 
-12:                                               ; preds = %8
-  %13 = load i32, ptr %2, align 4
-  store i32 %13, ptr %1, align 4
-  br label %27
+14:                                               ; preds = %10
+  %15 = load i32, ptr %2, align 4
+  store i32 %15, ptr %1, align 4
+  br label %29
 
-14:                                               ; preds = %8
+16:                                               ; preds = %10
   store i32 0, ptr @opal_shmem_mmap_relocate_backing_file, align 4
-  %15 = call i32 @mca_base_component_var_register(ptr noundef @mca_shmem_mmap_component, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 8, i32 noundef 6, ptr noundef @opal_shmem_mmap_relocate_backing_file)
-  store i32 %15, ptr %2, align 4
-  %16 = load i32, ptr %2, align 4
-  %17 = icmp sgt i32 0, %16
-  br i1 %17, label %18, label %20
+  %17 = call i32 @mca_base_component_var_register(ptr noundef @mca_shmem_mmap_component, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 8, i32 noundef 6, ptr noundef @opal_shmem_mmap_relocate_backing_file)
+  store i32 %17, ptr %2, align 4
+  %18 = load i32, ptr %2, align 4
+  %19 = icmp sgt i32 0, %18
+  br i1 %19, label %20, label %22
 
-18:                                               ; preds = %14
-  %19 = load i32, ptr %2, align 4
-  store i32 %19, ptr %1, align 4
-  br label %27
+20:                                               ; preds = %16
+  %21 = load i32, ptr %2, align 4
+  store i32 %21, ptr %1, align 4
+  br label %29
 
-20:                                               ; preds = %14
+22:                                               ; preds = %16
   store ptr @.str.7, ptr @opal_shmem_mmap_backing_file_base_dir, align 8
-  %21 = call i32 @mca_base_component_var_register(ptr noundef @mca_shmem_mmap_component, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 8, i32 noundef 6, ptr noundef @opal_shmem_mmap_backing_file_base_dir)
-  store i32 %21, ptr %2, align 4
-  %22 = load i32, ptr %2, align 4
-  %23 = icmp sgt i32 0, %22
-  br i1 %23, label %24, label %26
+  %23 = call i32 @mca_base_component_var_register(ptr noundef @mca_shmem_mmap_component, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 8, i32 noundef 6, ptr noundef @opal_shmem_mmap_backing_file_base_dir)
+  store i32 %23, ptr %2, align 4
+  %24 = load i32, ptr %2, align 4
+  %25 = icmp sgt i32 0, %24
+  br i1 %25, label %26, label %28
 
-24:                                               ; preds = %20
-  %25 = load i32, ptr %2, align 4
-  store i32 %25, ptr %1, align 4
-  br label %27
+26:                                               ; preds = %22
+  %27 = load i32, ptr %2, align 4
+  store i32 %27, ptr %1, align 4
+  br label %29
 
-26:                                               ; preds = %20
+28:                                               ; preds = %22
   store i32 0, ptr %1, align 4
-  br label %27
+  br label %29
 
-27:                                               ; preds = %26, %24, %18, %12, %6
-  %28 = load i32, ptr %1, align 4
-  ret i32 %28
+29:                                               ; preds = %28, %26, %20, %14, %8
+  %30 = load i32, ptr %1, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -122,11 +125,12 @@ define internal i32 @mmap_runtime_query(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.opal_shmem_mmap_component_t, ptr @mca_shmem_mmap_component, i32 0, i32 1), align 8
-  %8 = load ptr, ptr %5, align 8
-  store i32 %7, ptr %8, align 4
-  %9 = load ptr, ptr %4, align 8
-  store ptr @opal_shmem_mmap_module, ptr %9, align 8
+  %7 = getelementptr inbounds %struct.opal_shmem_mmap_component_t, ptr @mca_shmem_mmap_component, i32 0, i32 1
+  %8 = load i32, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8
+  store i32 %8, ptr %9, align 4
+  %10 = load ptr, ptr %4, align 8
+  store ptr @opal_shmem_mmap_module, ptr %10, align 8
   ret i32 0
 }
 

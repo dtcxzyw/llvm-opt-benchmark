@@ -142,7 +142,7 @@ define internal i32 @MPL_shm_seg_create_attach_templ(ptr noundef %0, i64 noundef
 
 35:                                               ; preds = %28
   store i32 9, ptr %12, align 4
-  br label %160
+  br label %161
 
 36:                                               ; preds = %28
   br label %37
@@ -193,7 +193,7 @@ define internal i32 @MPL_shm_seg_create_attach_templ(ptr noundef %0, i64 noundef
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %61
-  br label %160
+  br label %161
 
 67:                                               ; preds = %61
   %68 = load ptr, ptr %6, align 8
@@ -209,7 +209,7 @@ define internal i32 @MPL_shm_seg_create_attach_templ(ptr noundef %0, i64 noundef
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %67
-  br label %160
+  br label %161
 
 78:                                               ; preds = %67
   br label %98
@@ -234,7 +234,7 @@ define internal i32 @MPL_shm_seg_create_attach_templ(ptr noundef %0, i64 noundef
 
 92:                                               ; preds = %84
   store i32 9, ptr %12, align 4
-  br label %160
+  br label %161
 
 93:                                               ; preds = %84
   %94 = load i64, ptr %11, align 8
@@ -250,7 +250,7 @@ define internal i32 @MPL_shm_seg_create_attach_templ(ptr noundef %0, i64 noundef
   %99 = load i32, ptr %10, align 4
   %100 = and i32 %99, 16
   %101 = icmp ne i32 %100, 0
-  br i1 %101, label %102, label %142
+  br i1 %101, label %102, label %143
 
 102:                                              ; preds = %98
   %103 = load i32, ptr %10, align 4
@@ -301,57 +301,58 @@ define internal i32 @MPL_shm_seg_create_attach_templ(ptr noundef %0, i64 noundef
 132:                                              ; preds = %124, %123
   %133 = load ptr, ptr %8, align 8
   %134 = load ptr, ptr %133, align 8
-  %135 = icmp eq ptr %134, inttoptr (i64 -1 to ptr)
-  br i1 %135, label %140, label %136
+  %135 = inttoptr i64 -1 to ptr
+  %136 = icmp eq ptr %134, %135
+  br i1 %136, label %141, label %137
 
-136:                                              ; preds = %132
-  %137 = load ptr, ptr %8, align 8
-  %138 = load ptr, ptr %137, align 8
-  %139 = icmp eq ptr %138, null
-  br i1 %139, label %140, label %141
+137:                                              ; preds = %132
+  %138 = load ptr, ptr %8, align 8
+  %139 = load ptr, ptr %138, align 8
+  %140 = icmp eq ptr %139, null
+  br i1 %140, label %141, label %142
 
-140:                                              ; preds = %136, %132
+141:                                              ; preds = %137, %132
   store i32 10, ptr %12, align 4
-  br label %160
+  br label %161
 
-141:                                              ; preds = %136
-  br label %142
-
-142:                                              ; preds = %141, %98
+142:                                              ; preds = %137
   br label %143
 
-143:                                              ; preds = %160, %142
-  %144 = load ptr, ptr %6, align 8
-  %145 = getelementptr inbounds %struct.MPLI_shm_lghnd_t, ptr %144, i32 0, i32 0
-  %146 = load i64, ptr %145, align 8
-  %147 = icmp ne i64 %146, -1
-  br i1 %147, label %148, label %151
+143:                                              ; preds = %142, %98
+  br label %144
 
-148:                                              ; preds = %143
-  %149 = load ptr, ptr %6, align 8
-  %150 = call i32 @MPLI_shm_lhnd_close(ptr noundef %149)
-  store i32 %150, ptr %13, align 4
-  br label %151
+144:                                              ; preds = %161, %143
+  %145 = load ptr, ptr %6, align 8
+  %146 = getelementptr inbounds %struct.MPLI_shm_lghnd_t, ptr %145, i32 0, i32 0
+  %147 = load i64, ptr %146, align 8
+  %148 = icmp ne i64 %147, -1
+  br i1 %148, label %149, label %152
 
-151:                                              ; preds = %148, %143
-  %152 = load i32, ptr %12, align 4
-  %153 = icmp ne i32 %152, 0
-  br i1 %153, label %154, label %156
+149:                                              ; preds = %144
+  %150 = load ptr, ptr %6, align 8
+  %151 = call i32 @MPLI_shm_lhnd_close(ptr noundef %150)
+  store i32 %151, ptr %13, align 4
+  br label %152
 
-154:                                              ; preds = %151
-  %155 = load i32, ptr %12, align 4
-  br label %158
+152:                                              ; preds = %149, %144
+  %153 = load i32, ptr %12, align 4
+  %154 = icmp ne i32 %153, 0
+  br i1 %154, label %155, label %157
 
-156:                                              ; preds = %151
-  %157 = load i32, ptr %13, align 4
-  br label %158
+155:                                              ; preds = %152
+  %156 = load i32, ptr %12, align 4
+  br label %159
 
-158:                                              ; preds = %156, %154
-  %159 = phi i32 [ %155, %154 ], [ %157, %156 ]
-  ret i32 %159
+157:                                              ; preds = %152
+  %158 = load i32, ptr %13, align 4
+  br label %159
 
-160:                                              ; preds = %140, %92, %77, %66, %35
-  br label %143
+159:                                              ; preds = %157, %155
+  %160 = phi i32 [ %156, %155 ], [ %158, %157 ]
+  ret i32 %160
+
+161:                                              ; preds = %141, %92, %77, %66, %35
+  br label %144
 }
 
 ; Function Attrs: nounwind uwtable

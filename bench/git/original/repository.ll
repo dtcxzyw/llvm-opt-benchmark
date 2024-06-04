@@ -52,15 +52,19 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @initialize_the_repository() #0 {
 entry:
   store ptr @the_repo, ptr @the_repository, align 8
-  store ptr @the_index, ptr getelementptr inbounds (%struct.repository, ptr @the_repo, i32 0, i32 13), align 8
+  %0 = getelementptr inbounds %struct.repository, ptr @the_repo, i32 0, i32 13
+  store ptr @the_index, ptr %0, align 8
   %call = call ptr @raw_object_store_new()
-  store ptr %call, ptr getelementptr inbounds (%struct.repository, ptr @the_repo, i32 0, i32 2), align 8
+  %1 = getelementptr inbounds %struct.repository, ptr @the_repo, i32 0, i32 2
+  store ptr %call, ptr %1, align 8
   %call1 = call ptr @remote_state_new()
-  store ptr %call1, ptr getelementptr inbounds (%struct.repository, ptr @the_repo, i32 0, i32 14), align 8
+  %2 = getelementptr inbounds %struct.repository, ptr @the_repo, i32 0, i32 14
+  store ptr %call1, ptr %2, align 8
   %call2 = call ptr @parsed_object_pool_new()
-  store ptr %call2, ptr getelementptr inbounds (%struct.repository, ptr @the_repo, i32 0, i32 3), align 8
-  %0 = load ptr, ptr @the_repository, align 8
-  call void @index_state_init(ptr noundef @the_index, ptr noundef %0)
+  %3 = getelementptr inbounds %struct.repository, ptr @the_repo, i32 0, i32 3
+  store ptr %call2, ptr %3, align 8
+  %4 = load ptr, ptr @the_repository, align 8
+  call void @index_state_init(ptr noundef @the_index, ptr noundef %4)
   call void @repo_set_hash_algo(ptr noundef @the_repo, i32 noundef 1)
   ret void
 }

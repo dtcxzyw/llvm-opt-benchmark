@@ -1289,18 +1289,19 @@ define noundef zeroext i1 @"_ZN39_$LT$str$u20$as$u20$wiggle..Pointee$GT$5debug17
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @_ZN6wiggle21run_in_dummy_executor11dummy_waker17h341455c48116977cE() unnamed_addr #1 {
   %1 = alloca { { ptr, ptr } }, align 8
-  %2 = call { ptr, ptr } @_ZN6wiggle21run_in_dummy_executor11dummy_waker5clone17h47c15d2141360610E(ptr noundef inttoptr (i64 5 to ptr))
-  %3 = extractvalue { ptr, ptr } %2, 0
-  %4 = extractvalue { ptr, ptr } %2, 1
-  store ptr %3, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %4, ptr %5, align 8
-  %6 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !noundef !5
-  %9 = insertvalue { ptr, ptr } poison, ptr %6, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr %8, 1
-  ret { ptr, ptr } %10
+  %2 = inttoptr i64 5 to ptr
+  %3 = call { ptr, ptr } @_ZN6wiggle21run_in_dummy_executor11dummy_waker5clone17h47c15d2141360610E(ptr noundef %2)
+  %4 = extractvalue { ptr, ptr } %3, 0
+  %5 = extractvalue { ptr, ptr } %3, 1
+  store ptr %4, ptr %1, align 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %5, ptr %6, align 8
+  %7 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8, !noundef !5
+  %10 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %11 = insertvalue { ptr, ptr } %10, ptr %9, 1
+  ret { ptr, ptr } %11
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -706,12 +706,13 @@ define linkonce_odr void @_ZN7Minisat10BoolOptionC2EPKcS2_S2_b(ptr noundef nonnu
   %14 = load ptr, ptr %9, align 8
   %15 = load ptr, ptr %7, align 8
   call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef @.str.29)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat10BoolOptionE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %16 = getelementptr inbounds %"class.Minisat::BoolOption", ptr %12, i32 0, i32 1
-  %17 = load i8, ptr %10, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = zext i1 %18 to i8
-  store i8 %19, ptr %16, align 8
+  %16 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7Minisat10BoolOptionE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %12, align 8
+  %17 = getelementptr inbounds %"class.Minisat::BoolOption", ptr %12, i32 0, i32 1
+  %18 = load i8, ptr %10, align 1
+  %19 = trunc i8 %18 to i1
+  %20 = zext i1 %19 to i8
+  store i8 %20, ptr %17, align 8
   ret void
 }
 
@@ -791,12 +792,13 @@ define linkonce_odr void @_ZN7Minisat9IntOptionC2EPKcS2_S2_iNS_8IntRangeE(ptr no
   %15 = load ptr, ptr %11, align 8
   %16 = load ptr, ptr %9, align 8
   call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef @.str.39)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat9IntOptionE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %17 = getelementptr inbounds %"class.Minisat::IntOption", ptr %13, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 4 %7, i64 8, i1 false)
-  %18 = getelementptr inbounds %"class.Minisat::IntOption", ptr %13, i32 0, i32 2
-  %19 = load i32, ptr %12, align 4
-  store i32 %19, ptr %18, align 8
+  %17 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7Minisat9IntOptionE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %13, align 8
+  %18 = getelementptr inbounds %"class.Minisat::IntOption", ptr %13, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 4 %7, i64 8, i1 false)
+  %19 = getelementptr inbounds %"class.Minisat::IntOption", ptr %13, i32 0, i32 2
+  %20 = load i32, ptr %12, align 4
+  store i32 %20, ptr %19, align 8
   ret void
 }
 
@@ -892,12 +894,13 @@ define linkonce_odr void @_ZN7Minisat12DoubleOptionC2EPKcS2_S2_dNS_11DoubleRange
   %14 = load ptr, ptr %10, align 8
   %15 = load ptr, ptr %8, align 8
   call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef @.str.49)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat12DoubleOptionE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %16 = getelementptr inbounds %"class.Minisat::DoubleOption", ptr %12, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %5, i64 24, i1 false)
-  %17 = getelementptr inbounds %"class.Minisat::DoubleOption", ptr %12, i32 0, i32 2
-  %18 = load double, ptr %11, align 8
-  store double %18, ptr %17, align 8
+  %16 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7Minisat12DoubleOptionE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %12, align 8
+  %17 = getelementptr inbounds %"class.Minisat::DoubleOption", ptr %12, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %5, i64 24, i1 false)
+  %18 = getelementptr inbounds %"class.Minisat::DoubleOption", ptr %12, i32 0, i32 2
+  %19 = load double, ptr %11, align 8
+  store double %19, ptr %18, align 8
   ret void
 }
 
@@ -921,298 +924,299 @@ define void @_ZN7Minisat10SimpSolverC2Ev(ptr noundef nonnull align 8 dereference
   store ptr %0, ptr %2, align 8
   %8 = load ptr, ptr %2, align 8
   call void @_ZN7Minisat6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(857) %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Minisat10SimpSolverE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 2
-  %10 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Minisat9IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZL8opt_grow)
-          to label %11 unwind label %81
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Minisat10SimpSolverE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 2
+  %11 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Minisat9IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZL8opt_grow)
+          to label %12 unwind label %82
 
-11:                                               ; preds = %1
-  %12 = load i32, ptr %10, align 4
-  store i32 %12, ptr %9, align 4
-  %13 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 3
-  %14 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Minisat9IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZL14opt_clause_lim)
-          to label %15 unwind label %81
+12:                                               ; preds = %1
+  %13 = load i32, ptr %11, align 4
+  store i32 %13, ptr %10, align 4
+  %14 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 3
+  %15 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Minisat9IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZL14opt_clause_lim)
+          to label %16 unwind label %82
 
-15:                                               ; preds = %11
-  %16 = load i32, ptr %14, align 4
-  store i32 %16, ptr %13, align 8
-  %17 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 4
-  %18 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Minisat9IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZL19opt_subsumption_lim)
-          to label %19 unwind label %81
+16:                                               ; preds = %12
+  %17 = load i32, ptr %15, align 4
+  store i32 %17, ptr %14, align 8
+  %18 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 4
+  %19 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Minisat9IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZL19opt_subsumption_lim)
+          to label %20 unwind label %82
 
-19:                                               ; preds = %15
-  %20 = load i32, ptr %18, align 4
-  store i32 %20, ptr %17, align 4
-  %21 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 5
-  %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Minisat12DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZL21opt_simp_garbage_frac)
-          to label %23 unwind label %81
+20:                                               ; preds = %16
+  %21 = load i32, ptr %19, align 4
+  store i32 %21, ptr %18, align 4
+  %22 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 5
+  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Minisat12DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZL21opt_simp_garbage_frac)
+          to label %24 unwind label %82
 
-23:                                               ; preds = %19
-  %24 = load double, ptr %22, align 8
-  store double %24, ptr %21, align 8
-  %25 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 6
-  %26 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN7Minisat10BoolOptioncvRbEv(ptr noundef nonnull align 8 dereferenceable(41) @_ZL13opt_use_asymm)
-          to label %27 unwind label %81
+24:                                               ; preds = %20
+  %25 = load double, ptr %23, align 8
+  store double %25, ptr %22, align 8
+  %26 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 6
+  %27 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN7Minisat10BoolOptioncvRbEv(ptr noundef nonnull align 8 dereferenceable(41) @_ZL13opt_use_asymm)
+          to label %28 unwind label %82
 
-27:                                               ; preds = %23
-  %28 = load i8, ptr %26, align 1
-  %29 = trunc i8 %28 to i1
-  %30 = zext i1 %29 to i8
-  store i8 %30, ptr %25, align 8
-  %31 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 7
-  %32 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN7Minisat10BoolOptioncvRbEv(ptr noundef nonnull align 8 dereferenceable(41) @_ZL14opt_use_rcheck)
-          to label %33 unwind label %81
+28:                                               ; preds = %24
+  %29 = load i8, ptr %27, align 1
+  %30 = trunc i8 %29 to i1
+  %31 = zext i1 %30 to i8
+  store i8 %31, ptr %26, align 8
+  %32 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 7
+  %33 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN7Minisat10BoolOptioncvRbEv(ptr noundef nonnull align 8 dereferenceable(41) @_ZL14opt_use_rcheck)
+          to label %34 unwind label %82
 
-33:                                               ; preds = %27
-  %34 = load i8, ptr %32, align 1
-  %35 = trunc i8 %34 to i1
-  %36 = zext i1 %35 to i8
-  store i8 %36, ptr %31, align 1
-  %37 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 8
-  %38 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN7Minisat10BoolOptioncvRbEv(ptr noundef nonnull align 8 dereferenceable(41) @_ZL12opt_use_elim)
-          to label %39 unwind label %81
+34:                                               ; preds = %28
+  %35 = load i8, ptr %33, align 1
+  %36 = trunc i8 %35 to i1
+  %37 = zext i1 %36 to i8
+  store i8 %37, ptr %32, align 1
+  %38 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 8
+  %39 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN7Minisat10BoolOptioncvRbEv(ptr noundef nonnull align 8 dereferenceable(41) @_ZL12opt_use_elim)
+          to label %40 unwind label %82
 
-39:                                               ; preds = %33
-  %40 = load i8, ptr %38, align 1
-  %41 = trunc i8 %40 to i1
-  %42 = zext i1 %41 to i8
-  store i8 %42, ptr %37, align 2
-  %43 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 9
-  store i8 1, ptr %43, align 1
-  %44 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 10
-  store i32 0, ptr %44, align 4
-  %45 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 11
-  store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 12
-  store i32 0, ptr %46, align 4
-  %47 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 13
-  store i32 1, ptr %47, align 8
-  %48 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 14
-  store i8 1, ptr %48, align 4
-  %49 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 18
-  invoke void @_ZN7Minisat3vecIjiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %49)
-          to label %50 unwind label %81
+40:                                               ; preds = %34
+  %41 = load i8, ptr %39, align 1
+  %42 = trunc i8 %41 to i1
+  %43 = zext i1 %42 to i8
+  store i8 %43, ptr %38, align 2
+  %44 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 9
+  store i8 1, ptr %44, align 1
+  %45 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 10
+  store i32 0, ptr %45, align 4
+  %46 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 11
+  store i32 0, ptr %46, align 8
+  %47 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 12
+  store i32 0, ptr %47, align 4
+  %48 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 13
+  store i32 1, ptr %48, align 8
+  %49 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 14
+  store i8 1, ptr %49, align 4
+  %50 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 18
+  invoke void @_ZN7Minisat3vecIjiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %50)
+          to label %51 unwind label %82
 
-50:                                               ; preds = %39
-  %51 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 19
-  invoke void @_ZN7Minisat4VMapIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %51)
-          to label %52 unwind label %85
+51:                                               ; preds = %40
+  %52 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 19
+  invoke void @_ZN7Minisat4VMapIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %52)
+          to label %53 unwind label %86
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 20
-  %54 = getelementptr inbounds %"class.Minisat::Solver", ptr %8, i32 0, i32 62
-  invoke void @_ZN7Minisat10SimpSolver13ClauseDeletedC2ERKNS_15ClauseAllocatorE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(25) %54)
-          to label %55 unwind label %89
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 20
+  %55 = getelementptr inbounds %"class.Minisat::Solver", ptr %8, i32 0, i32 62
+  invoke void @_ZN7Minisat10SimpSolver13ClauseDeletedC2ERKNS_15ClauseAllocatorE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(25) %55)
+          to label %56 unwind label %90
 
-55:                                               ; preds = %52
-  invoke void @_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEEC2ERKS4_S6_(ptr noundef nonnull align 8 dereferenceable(72) %53, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %56 unwind label %89
+56:                                               ; preds = %53
+  invoke void @_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEEC2ERKS4_S6_(ptr noundef nonnull align 8 dereferenceable(72) %54, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %57 unwind label %90
 
-56:                                               ; preds = %55
-  %57 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 21
-  invoke void @_ZN7Minisat4LMapIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %57)
-          to label %58 unwind label %93
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 21
+  invoke void @_ZN7Minisat4LMapIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %58)
+          to label %59 unwind label %94
 
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 22
-  %60 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 21
-  invoke void @_ZN7Minisat10SimpSolver6ElimLtC2ERKNS_4LMapIiEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(17) %60)
-          to label %61 unwind label %97
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 22
+  %61 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 21
+  invoke void @_ZN7Minisat10SimpSolver6ElimLtC2ERKNS_4LMapIiEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(17) %61)
+          to label %62 unwind label %98
 
-61:                                               ; preds = %58
-  invoke void @_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEEC2ERKS2_S4_(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %62 unwind label %97
+62:                                               ; preds = %59
+  invoke void @_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEEC2ERKS2_S4_(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %63 unwind label %98
 
-62:                                               ; preds = %61
-  %63 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 23
-  invoke void @_ZN7Minisat5QueueIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %63)
-          to label %64 unwind label %101
+63:                                               ; preds = %62
+  %64 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 23
+  invoke void @_ZN7Minisat5QueueIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %64)
+          to label %65 unwind label %102
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 24
-  invoke void @_ZN7Minisat4VMapIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %65)
-          to label %66 unwind label %105
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 24
+  invoke void @_ZN7Minisat4VMapIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %66)
+          to label %67 unwind label %106
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 25
-  invoke void @_ZN7Minisat3vecIiiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %67)
-          to label %68 unwind label %109
+67:                                               ; preds = %65
+  %68 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 25
+  invoke void @_ZN7Minisat3vecIiiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %68)
+          to label %69 unwind label %110
 
-68:                                               ; preds = %66
-  %69 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 26
-  invoke void @_ZN7Minisat4VMapIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %69)
-          to label %70 unwind label %113
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 26
+  invoke void @_ZN7Minisat4VMapIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %70)
+          to label %71 unwind label %114
 
-70:                                               ; preds = %68
-  %71 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 27
-  store i32 0, ptr %71, align 8
-  %72 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 28
-  store i32 0, ptr %72, align 4
+71:                                               ; preds = %69
+  %72 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 27
+  store i32 0, ptr %72, align 8
+  %73 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 28
+  store i32 0, ptr %73, align 4
   invoke void @_ZN7Minisat3vecINS_3LitEiEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN7MinisatL9lit_UndefE)
-          to label %73 unwind label %117
+          to label %74 unwind label %118
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds %"class.Minisat::Solver", ptr %8, i32 0, i32 62
-  %75 = getelementptr inbounds %"class.Minisat::ClauseAllocator", ptr %74, i32 0, i32 1
-  store i8 1, ptr %75, align 8
-  %76 = getelementptr inbounds %"class.Minisat::Solver", ptr %8, i32 0, i32 62
-  %77 = invoke noundef i32 @_ZN7Minisat15ClauseAllocator5allocERKNS_3vecINS_3LitEiEEb(ptr noundef nonnull align 8 dereferenceable(25) %76, ptr noundef nonnull align 8 dereferenceable(16) %7, i1 noundef zeroext false)
-          to label %78 unwind label %121
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds %"class.Minisat::Solver", ptr %8, i32 0, i32 62
+  %76 = getelementptr inbounds %"class.Minisat::ClauseAllocator", ptr %75, i32 0, i32 1
+  store i8 1, ptr %76, align 8
+  %77 = getelementptr inbounds %"class.Minisat::Solver", ptr %8, i32 0, i32 62
+  %78 = invoke noundef i32 @_ZN7Minisat15ClauseAllocator5allocERKNS_3vecINS_3LitEiEEb(ptr noundef nonnull align 8 dereferenceable(25) %77, ptr noundef nonnull align 8 dereferenceable(16) %7, i1 noundef zeroext false)
+          to label %79 unwind label %122
 
-78:                                               ; preds = %73
-  %79 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 29
-  store i32 %77, ptr %79, align 8
-  %80 = getelementptr inbounds %"class.Minisat::Solver", ptr %8, i32 0, i32 59
-  store i8 0, ptr %80, align 8
+79:                                               ; preds = %74
+  %80 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %8, i32 0, i32 29
+  store i32 %78, ptr %80, align 8
+  %81 = getelementptr inbounds %"class.Minisat::Solver", ptr %8, i32 0, i32 59
+  store i8 0, ptr %81, align 8
   call void @_ZN7Minisat3vecINS_3LitEiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
   ret void
 
-81:                                               ; preds = %39, %33, %27, %23, %19, %15, %11, %1
-  %82 = landingpad { ptr, i32 }
+82:                                               ; preds = %40, %34, %28, %24, %20, %16, %12, %1
+  %83 = landingpad { ptr, i32 }
           cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %3, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %4, align 4
-  br label %134
-
-85:                                               ; preds = %50
-  %86 = landingpad { ptr, i32 }
-          cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %3, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %4, align 4
-  br label %133
-
-89:                                               ; preds = %55, %52
-  %90 = landingpad { ptr, i32 }
-          cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %3, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %4, align 4
-  br label %132
-
-93:                                               ; preds = %56
-  %94 = landingpad { ptr, i32 }
-          cleanup
-  %95 = extractvalue { ptr, i32 } %94, 0
-  store ptr %95, ptr %3, align 8
-  %96 = extractvalue { ptr, i32 } %94, 1
-  store i32 %96, ptr %4, align 4
-  br label %131
-
-97:                                               ; preds = %61, %58
-  %98 = landingpad { ptr, i32 }
-          cleanup
-  %99 = extractvalue { ptr, i32 } %98, 0
-  store ptr %99, ptr %3, align 8
-  %100 = extractvalue { ptr, i32 } %98, 1
-  store i32 %100, ptr %4, align 4
-  br label %130
-
-101:                                              ; preds = %62
-  %102 = landingpad { ptr, i32 }
-          cleanup
-  %103 = extractvalue { ptr, i32 } %102, 0
-  store ptr %103, ptr %3, align 8
-  %104 = extractvalue { ptr, i32 } %102, 1
-  store i32 %104, ptr %4, align 4
-  br label %129
-
-105:                                              ; preds = %64
-  %106 = landingpad { ptr, i32 }
-          cleanup
-  %107 = extractvalue { ptr, i32 } %106, 0
-  store ptr %107, ptr %3, align 8
-  %108 = extractvalue { ptr, i32 } %106, 1
-  store i32 %108, ptr %4, align 4
-  br label %128
-
-109:                                              ; preds = %66
-  %110 = landingpad { ptr, i32 }
-          cleanup
-  %111 = extractvalue { ptr, i32 } %110, 0
-  store ptr %111, ptr %3, align 8
-  %112 = extractvalue { ptr, i32 } %110, 1
-  store i32 %112, ptr %4, align 4
-  br label %127
-
-113:                                              ; preds = %68
-  %114 = landingpad { ptr, i32 }
-          cleanup
-  %115 = extractvalue { ptr, i32 } %114, 0
-  store ptr %115, ptr %3, align 8
-  %116 = extractvalue { ptr, i32 } %114, 1
-  store i32 %116, ptr %4, align 4
-  br label %126
-
-117:                                              ; preds = %70
-  %118 = landingpad { ptr, i32 }
-          cleanup
-  %119 = extractvalue { ptr, i32 } %118, 0
-  store ptr %119, ptr %3, align 8
-  %120 = extractvalue { ptr, i32 } %118, 1
-  store i32 %120, ptr %4, align 4
-  br label %125
-
-121:                                              ; preds = %73
-  %122 = landingpad { ptr, i32 }
-          cleanup
-  %123 = extractvalue { ptr, i32 } %122, 0
-  store ptr %123, ptr %3, align 8
-  %124 = extractvalue { ptr, i32 } %122, 1
-  store i32 %124, ptr %4, align 4
-  call void @_ZN7Minisat3vecINS_3LitEiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
-  br label %125
-
-125:                                              ; preds = %121, %117
-  call void @_ZN7Minisat4VMapIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %69) #3
-  br label %126
-
-126:                                              ; preds = %125, %113
-  call void @_ZN7Minisat3vecIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %67) #3
-  br label %127
-
-127:                                              ; preds = %126, %109
-  call void @_ZN7Minisat4VMapIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %65) #3
-  br label %128
-
-128:                                              ; preds = %127, %105
-  call void @_ZN7Minisat5QueueIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %63) #3
-  br label %129
-
-129:                                              ; preds = %128, %101
-  call void @_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %59) #3
-  br label %130
-
-130:                                              ; preds = %129, %97
-  call void @_ZN7Minisat4LMapIiED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %57) #3
-  br label %131
-
-131:                                              ; preds = %130, %93
-  call void @_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %53) #3
-  br label %132
-
-132:                                              ; preds = %131, %89
-  call void @_ZN7Minisat4VMapIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %51) #3
-  br label %133
-
-133:                                              ; preds = %132, %85
-  call void @_ZN7Minisat3vecIjiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %49) #3
-  br label %134
-
-134:                                              ; preds = %133, %81
-  call void @_ZN7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(857) %8) #3
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %3, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %4, align 4
   br label %135
 
-135:                                              ; preds = %134
-  %136 = load ptr, ptr %3, align 8
-  %137 = load i32, ptr %4, align 4
-  %138 = insertvalue { ptr, i32 } poison, ptr %136, 0
-  %139 = insertvalue { ptr, i32 } %138, i32 %137, 1
-  resume { ptr, i32 } %139
+86:                                               ; preds = %51
+  %87 = landingpad { ptr, i32 }
+          cleanup
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %3, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %4, align 4
+  br label %134
+
+90:                                               ; preds = %56, %53
+  %91 = landingpad { ptr, i32 }
+          cleanup
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %3, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %4, align 4
+  br label %133
+
+94:                                               ; preds = %57
+  %95 = landingpad { ptr, i32 }
+          cleanup
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %3, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %4, align 4
+  br label %132
+
+98:                                               ; preds = %62, %59
+  %99 = landingpad { ptr, i32 }
+          cleanup
+  %100 = extractvalue { ptr, i32 } %99, 0
+  store ptr %100, ptr %3, align 8
+  %101 = extractvalue { ptr, i32 } %99, 1
+  store i32 %101, ptr %4, align 4
+  br label %131
+
+102:                                              ; preds = %63
+  %103 = landingpad { ptr, i32 }
+          cleanup
+  %104 = extractvalue { ptr, i32 } %103, 0
+  store ptr %104, ptr %3, align 8
+  %105 = extractvalue { ptr, i32 } %103, 1
+  store i32 %105, ptr %4, align 4
+  br label %130
+
+106:                                              ; preds = %65
+  %107 = landingpad { ptr, i32 }
+          cleanup
+  %108 = extractvalue { ptr, i32 } %107, 0
+  store ptr %108, ptr %3, align 8
+  %109 = extractvalue { ptr, i32 } %107, 1
+  store i32 %109, ptr %4, align 4
+  br label %129
+
+110:                                              ; preds = %67
+  %111 = landingpad { ptr, i32 }
+          cleanup
+  %112 = extractvalue { ptr, i32 } %111, 0
+  store ptr %112, ptr %3, align 8
+  %113 = extractvalue { ptr, i32 } %111, 1
+  store i32 %113, ptr %4, align 4
+  br label %128
+
+114:                                              ; preds = %69
+  %115 = landingpad { ptr, i32 }
+          cleanup
+  %116 = extractvalue { ptr, i32 } %115, 0
+  store ptr %116, ptr %3, align 8
+  %117 = extractvalue { ptr, i32 } %115, 1
+  store i32 %117, ptr %4, align 4
+  br label %127
+
+118:                                              ; preds = %71
+  %119 = landingpad { ptr, i32 }
+          cleanup
+  %120 = extractvalue { ptr, i32 } %119, 0
+  store ptr %120, ptr %3, align 8
+  %121 = extractvalue { ptr, i32 } %119, 1
+  store i32 %121, ptr %4, align 4
+  br label %126
+
+122:                                              ; preds = %74
+  %123 = landingpad { ptr, i32 }
+          cleanup
+  %124 = extractvalue { ptr, i32 } %123, 0
+  store ptr %124, ptr %3, align 8
+  %125 = extractvalue { ptr, i32 } %123, 1
+  store i32 %125, ptr %4, align 4
+  call void @_ZN7Minisat3vecINS_3LitEiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %126
+
+126:                                              ; preds = %122, %118
+  call void @_ZN7Minisat4VMapIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %70) #3
+  br label %127
+
+127:                                              ; preds = %126, %114
+  call void @_ZN7Minisat3vecIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %68) #3
+  br label %128
+
+128:                                              ; preds = %127, %110
+  call void @_ZN7Minisat4VMapIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %66) #3
+  br label %129
+
+129:                                              ; preds = %128, %106
+  call void @_ZN7Minisat5QueueIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %64) #3
+  br label %130
+
+130:                                              ; preds = %129, %102
+  call void @_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %60) #3
+  br label %131
+
+131:                                              ; preds = %130, %98
+  call void @_ZN7Minisat4LMapIiED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %58) #3
+  br label %132
+
+132:                                              ; preds = %131, %94
+  call void @_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %54) #3
+  br label %133
+
+133:                                              ; preds = %132, %90
+  call void @_ZN7Minisat4VMapIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %52) #3
+  br label %134
+
+134:                                              ; preds = %133, %86
+  call void @_ZN7Minisat3vecIjiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %50) #3
+  br label %135
+
+135:                                              ; preds = %134, %82
+  call void @_ZN7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(857) %8) #3
+  br label %136
+
+136:                                              ; preds = %135
+  %137 = load ptr, ptr %3, align 8
+  %138 = load i32, ptr %4, align 4
+  %139 = insertvalue { ptr, i32 } poison, ptr %137, 0
+  %140 = insertvalue { ptr, i32 } %139, i32 %138, 1
+  resume { ptr, i32 } %140
 }
 
 declare void @_ZN7Minisat6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(857)) unnamed_addr #4
@@ -1601,25 +1605,26 @@ define void @_ZN7Minisat10SimpSolverD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Minisat10SimpSolverE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 26
-  call void @_ZN7Minisat4VMapIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #3
-  %5 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 25
-  call void @_ZN7Minisat3vecIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  %6 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 24
-  call void @_ZN7Minisat4VMapIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %6) #3
-  %7 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 23
-  call void @_ZN7Minisat5QueueIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 22
-  call void @_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
-  %9 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 21
-  call void @_ZN7Minisat4LMapIiED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %9) #3
-  %10 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 20
-  call void @_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #3
-  %11 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 19
-  call void @_ZN7Minisat4VMapIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %11) #3
-  %12 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 18
-  call void @_ZN7Minisat3vecIjiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Minisat10SimpSolverE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 26
+  call void @_ZN7Minisat4VMapIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %5) #3
+  %6 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 25
+  call void @_ZN7Minisat3vecIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  %7 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 24
+  call void @_ZN7Minisat4VMapIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %7) #3
+  %8 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 23
+  call void @_ZN7Minisat5QueueIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 22
+  call void @_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
+  %10 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 21
+  call void @_ZN7Minisat4LMapIiED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %10) #3
+  %11 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 20
+  call void @_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #3
+  %12 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 19
+  call void @_ZN7Minisat4VMapIcED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %12) #3
+  %13 = getelementptr inbounds %"class.Minisat::SimpSolver", ptr %3, i32 0, i32 18
+  call void @_ZN7Minisat3vecIjiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
   call void @_ZN7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(857) %3) #3
   ret void
 }
@@ -7614,22 +7619,23 @@ define linkonce_odr void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull 
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat6OptionE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.Minisat::Option", ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"class.Minisat::Option", ptr %12, i32 0, i32 2
-  %16 = load ptr, ptr %8, align 8
-  store ptr %16, ptr %15, align 8
-  %17 = getelementptr inbounds %"class.Minisat::Option", ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %9, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds %"class.Minisat::Option", ptr %12, i32 0, i32 4
-  %20 = load ptr, ptr %10, align 8
-  store ptr %20, ptr %19, align 8
-  %21 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7Minisat6Option13getOptionListEv()
+  %13 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7Minisat6OptionE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.Minisat::Option", ptr %12, i32 0, i32 1
+  %15 = load ptr, ptr %7, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.Minisat::Option", ptr %12, i32 0, i32 2
+  %17 = load ptr, ptr %8, align 8
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"class.Minisat::Option", ptr %12, i32 0, i32 3
+  %19 = load ptr, ptr %9, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.Minisat::Option", ptr %12, i32 0, i32 4
+  %21 = load ptr, ptr %10, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7Minisat6Option13getOptionListEv()
   store ptr %12, ptr %11, align 8
-  call void @_ZN7Minisat3vecIPNS_6OptionEiE4pushERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  call void @_ZN7Minisat3vecIPNS_6OptionEiE4pushERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %11)
   ret void
 }
 

@@ -2984,203 +2984,302 @@ entry:
   %call = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 0, double noundef 1.050000e+00)
   store double %call, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, align 8
   %call1 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 1, double noundef 1.050000e+00)
-  store double %call1, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 1), align 8
+  %0 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 1
+  store double %call1, ptr %0, align 8
   %call2 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 2, double noundef 1.050000e+00)
-  store double %call2, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 2), align 8
+  %1 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 2
+  store double %call2, ptr %1, align 8
   %call3 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 3, double noundef 1.050000e+00)
-  store double %call3, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 3), align 8
+  %2 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 3
+  store double %call3, ptr %2, align 8
   %call4 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 4, double noundef 1.050000e+00)
-  store double %call4, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 4), align 8
+  %3 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 4
+  store double %call4, ptr %3, align 8
   %call5 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 5, double noundef 1.050000e+00)
-  store double %call5, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 5), align 8
+  %4 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 5
+  store double %call5, ptr %4, align 8
   %call6 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 6, double noundef 1.050000e+00)
-  store double %call6, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 6), align 8
+  %5 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 6
+  store double %call6, ptr %5, align 8
   %call7 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 7, double noundef 1.050000e+00)
-  store double %call7, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 7), align 8
+  %6 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 7
+  store double %call7, ptr %6, align 8
   %call8 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 8, double noundef 1.050000e+00)
-  store double %call8, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 8), align 8
+  %7 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 8
+  store double %call8, ptr %7, align 8
   %call9 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 9, double noundef 1.050000e+00)
-  store double %call9, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 9), align 8
+  %8 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 9
+  store double %call9, ptr %8, align 8
   %call10 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 10, double noundef 1.050000e+00)
-  store double %call10, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 10), align 8
+  %9 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 10
+  store double %call10, ptr %9, align 8
   %call11 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 11, double noundef 1.050000e+00)
-  store double %call11, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 11), align 8
+  %10 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 11
+  store double %call11, ptr %10, align 8
   %call12 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 12, double noundef 1.050000e+00)
-  store double %call12, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 12), align 8
+  %11 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 12
+  store double %call12, ptr %11, align 8
   %call13 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 13, double noundef 1.050000e+00)
-  store double %call13, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 13), align 8
+  %12 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 13
+  store double %call13, ptr %12, align 8
   %call14 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 14, double noundef 1.050000e+00)
-  store double %call14, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 14), align 8
+  %13 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 14
+  store double %call14, ptr %13, align 8
   %call15 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 15, double noundef 1.050000e+00)
-  store double %call15, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 15), align 8
+  %14 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 15
+  store double %call15, ptr %14, align 8
   %call16 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 16, double noundef 1.050000e+00)
-  store double %call16, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 16), align 8
+  %15 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 16
+  store double %call16, ptr %15, align 8
   %call17 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 17, double noundef 1.050000e+00)
-  store double %call17, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 17), align 8
+  %16 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 17
+  store double %call17, ptr %16, align 8
   %call18 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 18, double noundef 1.050000e+00)
-  store double %call18, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 18), align 8
+  %17 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 18
+  store double %call18, ptr %17, align 8
   %call19 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 19, double noundef 1.050000e+00)
-  store double %call19, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 19), align 8
+  %18 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 19
+  store double %call19, ptr %18, align 8
   %call20 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 20, double noundef 1.050000e+00)
-  store double %call20, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 20), align 8
+  %19 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 20
+  store double %call20, ptr %19, align 8
   %call21 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 21, double noundef 1.050000e+00)
-  store double %call21, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 21), align 8
+  %20 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 21
+  store double %call21, ptr %20, align 8
   %call22 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 22, double noundef 1.050000e+00)
-  store double %call22, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 22), align 8
+  %21 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 22
+  store double %call22, ptr %21, align 8
   %call23 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 23, double noundef 1.050000e+00)
-  store double %call23, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 23), align 8
+  %22 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 23
+  store double %call23, ptr %22, align 8
   %call24 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 24, double noundef 1.050000e+00)
-  store double %call24, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 24), align 8
+  %23 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 24
+  store double %call24, ptr %23, align 8
   %call25 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 25, double noundef 1.050000e+00)
-  store double %call25, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 25), align 8
+  %24 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 25
+  store double %call25, ptr %24, align 8
   %call26 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 26, double noundef 1.050000e+00)
-  store double %call26, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 26), align 8
+  %25 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 26
+  store double %call26, ptr %25, align 8
   %call27 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 27, double noundef 1.050000e+00)
-  store double %call27, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 27), align 8
+  %26 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 27
+  store double %call27, ptr %26, align 8
   %call28 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 28, double noundef 1.050000e+00)
-  store double %call28, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 28), align 8
+  %27 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 28
+  store double %call28, ptr %27, align 8
   %call29 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 29, double noundef 1.050000e+00)
-  store double %call29, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 29), align 8
+  %28 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 29
+  store double %call29, ptr %28, align 8
   %call30 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 30, double noundef 1.050000e+00)
-  store double %call30, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 30), align 8
+  %29 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 30
+  store double %call30, ptr %29, align 8
   %call31 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 31, double noundef 1.050000e+00)
-  store double %call31, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 31), align 8
+  %30 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 31
+  store double %call31, ptr %30, align 8
   %call32 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 32, double noundef 1.050000e+00)
-  store double %call32, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 32), align 8
+  %31 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 32
+  store double %call32, ptr %31, align 8
   %call33 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 33, double noundef 1.050000e+00)
-  store double %call33, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 33), align 8
+  %32 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 33
+  store double %call33, ptr %32, align 8
   %call34 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 34, double noundef 1.050000e+00)
-  store double %call34, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 34), align 8
+  %33 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 34
+  store double %call34, ptr %33, align 8
   %call35 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 35, double noundef 1.050000e+00)
-  store double %call35, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 35), align 8
+  %34 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 35
+  store double %call35, ptr %34, align 8
   %call36 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 36, double noundef 1.050000e+00)
-  store double %call36, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 36), align 8
+  %35 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 36
+  store double %call36, ptr %35, align 8
   %call37 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 37, double noundef 1.050000e+00)
-  store double %call37, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 37), align 8
+  %36 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 37
+  store double %call37, ptr %36, align 8
   %call38 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 38, double noundef 1.050000e+00)
-  store double %call38, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 38), align 8
+  %37 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 38
+  store double %call38, ptr %37, align 8
   %call39 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 39, double noundef 1.050000e+00)
-  store double %call39, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 39), align 8
+  %38 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 39
+  store double %call39, ptr %38, align 8
   %call40 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 40, double noundef 1.050000e+00)
-  store double %call40, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 40), align 8
+  %39 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 40
+  store double %call40, ptr %39, align 8
   %call41 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 41, double noundef 1.050000e+00)
-  store double %call41, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 41), align 8
+  %40 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 41
+  store double %call41, ptr %40, align 8
   %call42 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 42, double noundef 1.050000e+00)
-  store double %call42, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 42), align 8
+  %41 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 42
+  store double %call42, ptr %41, align 8
   %call43 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 43, double noundef 1.050000e+00)
-  store double %call43, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 43), align 8
+  %42 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 43
+  store double %call43, ptr %42, align 8
   %call44 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 44, double noundef 1.050000e+00)
-  store double %call44, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 44), align 8
+  %43 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 44
+  store double %call44, ptr %43, align 8
   %call45 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 45, double noundef 1.050000e+00)
-  store double %call45, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 45), align 8
+  %44 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 45
+  store double %call45, ptr %44, align 8
   %call46 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 46, double noundef 1.050000e+00)
-  store double %call46, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 46), align 8
+  %45 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 46
+  store double %call46, ptr %45, align 8
   %call47 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 47, double noundef 1.050000e+00)
-  store double %call47, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 47), align 8
+  %46 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 47
+  store double %call47, ptr %46, align 8
   %call48 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 48, double noundef 1.050000e+00)
-  store double %call48, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 48), align 8
+  %47 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 48
+  store double %call48, ptr %47, align 8
   %call49 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 49, double noundef 1.050000e+00)
-  store double %call49, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 49), align 8
+  %48 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 49
+  store double %call49, ptr %48, align 8
   %call50 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 50, double noundef 1.050000e+00)
-  store double %call50, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 50), align 8
+  %49 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 50
+  store double %call50, ptr %49, align 8
   %call51 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 51, double noundef 1.050000e+00)
-  store double %call51, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 51), align 8
+  %50 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 51
+  store double %call51, ptr %50, align 8
   %call52 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 52, double noundef 1.050000e+00)
-  store double %call52, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 52), align 8
+  %51 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 52
+  store double %call52, ptr %51, align 8
   %call53 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 53, double noundef 1.050000e+00)
-  store double %call53, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 53), align 8
+  %52 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 53
+  store double %call53, ptr %52, align 8
   %call54 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 54, double noundef 1.050000e+00)
-  store double %call54, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 54), align 8
+  %53 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 54
+  store double %call54, ptr %53, align 8
   %call55 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 55, double noundef 1.050000e+00)
-  store double %call55, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 55), align 8
+  %54 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 55
+  store double %call55, ptr %54, align 8
   %call56 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 56, double noundef 1.050000e+00)
-  store double %call56, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 56), align 8
+  %55 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 56
+  store double %call56, ptr %55, align 8
   %call57 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 57, double noundef 1.050000e+00)
-  store double %call57, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 57), align 8
+  %56 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 57
+  store double %call57, ptr %56, align 8
   %call58 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 58, double noundef 1.050000e+00)
-  store double %call58, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 58), align 8
+  %57 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 58
+  store double %call58, ptr %57, align 8
   %call59 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 59, double noundef 1.050000e+00)
-  store double %call59, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 59), align 8
+  %58 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 59
+  store double %call59, ptr %58, align 8
   %call60 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 60, double noundef 1.050000e+00)
-  store double %call60, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 60), align 8
+  %59 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 60
+  store double %call60, ptr %59, align 8
   %call61 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 61, double noundef 1.050000e+00)
-  store double %call61, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 61), align 8
+  %60 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 61
+  store double %call61, ptr %60, align 8
   %call62 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 62, double noundef 1.050000e+00)
-  store double %call62, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 62), align 8
+  %61 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 62
+  store double %call62, ptr %61, align 8
   %call63 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 63, double noundef 1.050000e+00)
-  store double %call63, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 63), align 8
+  %62 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 63
+  store double %call63, ptr %62, align 8
   %call64 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 64, double noundef 1.050000e+00)
-  store double %call64, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 64), align 8
+  %63 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 64
+  store double %call64, ptr %63, align 8
   %call65 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 65, double noundef 1.050000e+00)
-  store double %call65, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 65), align 8
+  %64 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 65
+  store double %call65, ptr %64, align 8
   %call66 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 66, double noundef 1.050000e+00)
-  store double %call66, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 66), align 8
+  %65 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 66
+  store double %call66, ptr %65, align 8
   %call67 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 67, double noundef 1.050000e+00)
-  store double %call67, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 67), align 8
+  %66 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 67
+  store double %call67, ptr %66, align 8
   %call68 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 68, double noundef 1.050000e+00)
-  store double %call68, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 68), align 8
+  %67 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 68
+  store double %call68, ptr %67, align 8
   %call69 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 69, double noundef 1.050000e+00)
-  store double %call69, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 69), align 8
+  %68 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 69
+  store double %call69, ptr %68, align 8
   %call70 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 70, double noundef 1.050000e+00)
-  store double %call70, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 70), align 8
+  %69 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 70
+  store double %call70, ptr %69, align 8
   %call71 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 71, double noundef 1.050000e+00)
-  store double %call71, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 71), align 8
+  %70 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 71
+  store double %call71, ptr %70, align 8
   %call72 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 72, double noundef 1.050000e+00)
-  store double %call72, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 72), align 8
+  %71 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 72
+  store double %call72, ptr %71, align 8
   %call73 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 73, double noundef 1.050000e+00)
-  store double %call73, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 73), align 8
+  %72 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 73
+  store double %call73, ptr %72, align 8
   %call74 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 74, double noundef 1.050000e+00)
-  store double %call74, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 74), align 8
+  %73 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 74
+  store double %call74, ptr %73, align 8
   %call75 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 75, double noundef 1.050000e+00)
-  store double %call75, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 75), align 8
+  %74 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 75
+  store double %call75, ptr %74, align 8
   %call76 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 76, double noundef 1.050000e+00)
-  store double %call76, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 76), align 8
+  %75 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 76
+  store double %call76, ptr %75, align 8
   %call77 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 77, double noundef 1.050000e+00)
-  store double %call77, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 77), align 8
+  %76 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 77
+  store double %call77, ptr %76, align 8
   %call78 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 78, double noundef 1.050000e+00)
-  store double %call78, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 78), align 8
+  %77 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 78
+  store double %call78, ptr %77, align 8
   %call79 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 79, double noundef 1.050000e+00)
-  store double %call79, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 79), align 8
+  %78 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 79
+  store double %call79, ptr %78, align 8
   %call80 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 80, double noundef 1.050000e+00)
-  store double %call80, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 80), align 8
+  %79 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 80
+  store double %call80, ptr %79, align 8
   %call81 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 81, double noundef 1.050000e+00)
-  store double %call81, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 81), align 8
+  %80 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 81
+  store double %call81, ptr %80, align 8
   %call82 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 82, double noundef 1.050000e+00)
-  store double %call82, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 82), align 8
+  %81 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 82
+  store double %call82, ptr %81, align 8
   %call83 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 83, double noundef 1.050000e+00)
-  store double %call83, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 83), align 8
+  %82 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 83
+  store double %call83, ptr %82, align 8
   %call84 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 84, double noundef 1.050000e+00)
-  store double %call84, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 84), align 8
+  %83 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 84
+  store double %call84, ptr %83, align 8
   %call85 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 85, double noundef 1.050000e+00)
-  store double %call85, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 85), align 8
+  %84 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 85
+  store double %call85, ptr %84, align 8
   %call86 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 86, double noundef 1.050000e+00)
-  store double %call86, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 86), align 8
+  %85 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 86
+  store double %call86, ptr %85, align 8
   %call87 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 87, double noundef 1.050000e+00)
-  store double %call87, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 87), align 8
+  %86 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 87
+  store double %call87, ptr %86, align 8
   %call88 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 88, double noundef 1.050000e+00)
-  store double %call88, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 88), align 8
+  %87 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 88
+  store double %call88, ptr %87, align 8
   %call89 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 89, double noundef 1.050000e+00)
-  store double %call89, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 89), align 8
+  %88 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 89
+  store double %call89, ptr %88, align 8
   %call90 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 90, double noundef 1.050000e+00)
-  store double %call90, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 90), align 8
+  %89 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 90
+  store double %call90, ptr %89, align 8
   %call91 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 91, double noundef 1.050000e+00)
-  store double %call91, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 91), align 8
+  %90 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 91
+  store double %call91, ptr %90, align 8
   %call92 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 92, double noundef 1.050000e+00)
-  store double %call92, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 92), align 8
+  %91 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 92
+  store double %call92, ptr %91, align 8
   %call93 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 93, double noundef 1.050000e+00)
-  store double %call93, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 93), align 8
+  %92 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 93
+  store double %call93, ptr %92, align 8
   %call94 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 94, double noundef 1.050000e+00)
-  store double %call94, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 94), align 8
+  %93 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 94
+  store double %call94, ptr %93, align 8
   %call95 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 95, double noundef 1.050000e+00)
-  store double %call95, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 95), align 8
+  %94 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 95
+  store double %call95, ptr %94, align 8
   %call96 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 96, double noundef 1.050000e+00)
-  store double %call96, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 96), align 8
+  %95 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 96
+  store double %call96, ptr %95, align 8
   %call97 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 97, double noundef 1.050000e+00)
-  store double %call97, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 97), align 8
+  %96 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 97
+  store double %call97, ptr %96, align 8
   %call98 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 98, double noundef 1.050000e+00)
-  store double %call98, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 98), align 8
+  %97 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 98
+  store double %call98, ptr %97, align 8
   %call99 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 99, double noundef 1.050000e+00)
-  store double %call99, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 99), align 8
+  %98 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer9count_lutE, i64 99
+  store double %call99, ptr %98, align 8
   ret void
 }
 
@@ -3203,21 +3302,29 @@ define internal void @__cxx_global_var_init.3() #0 section ".text.startup" {
 entry:
   store double 0.000000e+00, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, align 8
   %call = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 1, double noundef -3.000000e+00)
-  store double %call, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 1), align 8
+  %0 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 1
+  store double %call, ptr %0, align 8
   %call1 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 2, double noundef -3.000000e+00)
-  store double %call1, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 2), align 8
+  %1 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 2
+  store double %call1, ptr %1, align 8
   %call2 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 3, double noundef -3.000000e+00)
-  store double %call2, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 3), align 8
+  %2 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 3
+  store double %call2, ptr %2, align 8
   %call3 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 4, double noundef -3.000000e+00)
-  store double %call3, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 4), align 8
+  %3 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 4
+  store double %call3, ptr %3, align 8
   %call4 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 5, double noundef -3.000000e+00)
-  store double %call4, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 5), align 8
+  %4 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 5
+  store double %call4, ptr %4, align 8
   %call5 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 6, double noundef -3.000000e+00)
-  store double %call5, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 6), align 8
+  %5 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 6
+  store double %call5, ptr %5, align 8
   %call6 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 7, double noundef -3.000000e+00)
-  store double %call6, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 7), align 8
+  %6 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 7
+  store double %call6, ptr %6, align 8
   %call7 = call noundef double @_ZSt3powIidEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(i32 noundef 8, double noundef -3.000000e+00)
-  store double %call7, ptr getelementptr inbounds (double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 8), align 8
+  %7 = getelementptr inbounds double, ptr @_ZN3ue212_GLOBAL__N_16Scorer7len_lutE, i64 8
+  store double %call7, ptr %7, align 8
   ret void
 }
 
@@ -38299,7 +38406,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -38650,7 +38758,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

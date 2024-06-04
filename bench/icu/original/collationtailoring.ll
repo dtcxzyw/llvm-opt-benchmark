@@ -79,12 +79,13 @@ entry:
   store ptr %baseSettings, ptr %baseSettings.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512SharedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CollationTailoringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7518CollationTailoringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 1
   store ptr null, ptr %data, align 8
   %settings = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %baseSettings.addr, align 8
-  store ptr %0, ptr %settings, align 8
+  %1 = load ptr, ptr %baseSettings.addr, align 8
+  store ptr %1, ptr %settings, align 8
   %rules = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 3
   invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %rules)
           to label %invoke.cont unwind label %lpad
@@ -111,29 +112,29 @@ invoke.cont3:                                     ; preds = %invoke.cont
   store ptr null, ptr %maxExpansions, align 8
   %maxExpansionsInitOnce = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 13
   call void @_ZN6icu_759UInitOnceC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %maxExpansionsInitOnce) #5
-  %1 = load ptr, ptr %baseSettings.addr, align 8
-  %cmp = icmp ne ptr %1, null
+  %2 = load ptr, ptr %baseSettings.addr, align 8
+  %cmp = icmp ne ptr %2, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont3
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup26
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup25
 
 if.else:                                          ; preds = %invoke.cont3
@@ -152,24 +153,24 @@ invoke.cont5:                                     ; preds = %new.notnull
   br label %new.cont
 
 new.cont:                                         ; preds = %invoke.cont5, %if.else
-  %8 = phi ptr [ %call, %invoke.cont5 ], [ null, %if.else ]
+  %9 = phi ptr [ %call, %invoke.cont5 ], [ null, %if.else ]
   %settings6 = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 2
-  store ptr %8, ptr %settings6, align 8
+  store ptr %9, ptr %settings6, align 8
   br label %if.end
 
 lpad4:                                            ; preds = %new.notnull
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad4
-  %12 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %12) #5
+  %13 = load ptr, ptr %saved-rvalue, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %13) #5
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad4
@@ -177,26 +178,26 @@ cleanup.done:                                     ; preds = %cleanup.action, %lp
 
 if.end:                                           ; preds = %new.cont, %if.then
   %settings7 = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 2
-  %13 = load ptr, ptr %settings7, align 8
-  %cmp8 = icmp ne ptr %13, null
+  %14 = load ptr, ptr %settings7, align 8
+  %cmp8 = icmp ne ptr %14, null
   br i1 %cmp8, label %if.then9, label %if.end13
 
 if.then9:                                         ; preds = %if.end
   %settings10 = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 2
-  %14 = load ptr, ptr %settings10, align 8
-  invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %15 = load ptr, ptr %settings10, align 8
+  invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %if.then9
   br label %if.end13
 
 lpad11:                                           ; preds = %invoke.cont15, %if.end13, %if.then9
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end13:                                         ; preds = %invoke.cont12, %if.end
@@ -251,7 +252,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %softRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %this1, i32 0, i32 1
   store i32 0, ptr %softRefCount, align 8
   %hardRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %this1, i32 0, i32 2
@@ -268,7 +270,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -302,7 +305,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512SharedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517CollationSettingsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7517CollationSettingsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %this1, i32 0, i32 1
   store i32 8208, ptr %options, align 8
   %variableTop = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %this1, i32 0, i32 2
@@ -359,67 +363,68 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CollationTailoringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7518CollationTailoringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %settings = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 2
   invoke void @_ZN6icu_7512SharedObject8clearPtrINS_17CollationSettingsEEEvRPKT_(ptr noundef nonnull align 8 dereferenceable(8) %settings)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %ownedData = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 6
-  %0 = load ptr, ptr %ownedData, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %ownedData, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %0) #5
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %1) #5
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont
   %builder = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 7
-  %1 = load ptr, ptr %builder, align 8
-  %isnull2 = icmp eq ptr %1, null
+  %2 = load ptr, ptr %builder, align 8
+  %isnull2 = icmp eq ptr %2, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  %vtable = load ptr, ptr %1, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #5
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #5
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
   %memory = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 8
-  %3 = load ptr, ptr %memory, align 8
-  invoke void @udata_close_75(ptr noundef %3)
+  %4 = load ptr, ptr %memory, align 8
+  invoke void @udata_close_75(ptr noundef %4)
           to label %invoke.cont5 unwind label %terminate.lpad
 
 invoke.cont5:                                     ; preds = %delete.end4
   %bundle = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 9
-  %4 = load ptr, ptr %bundle, align 8
-  invoke void @ures_close_75(ptr noundef %4)
+  %5 = load ptr, ptr %bundle, align 8
+  invoke void @ures_close_75(ptr noundef %5)
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont5
   %trie = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 10
-  %5 = load ptr, ptr %trie, align 8
-  invoke void @utrie2_close_75(ptr noundef %5)
+  %6 = load ptr, ptr %trie, align 8
+  invoke void @utrie2_close_75(ptr noundef %6)
           to label %invoke.cont7 unwind label %terminate.lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont6
   %unsafeBackwardSet = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 11
-  %6 = load ptr, ptr %unsafeBackwardSet, align 8
-  %isnull8 = icmp eq ptr %6, null
+  %7 = load ptr, ptr %unsafeBackwardSet, align 8
+  %isnull8 = icmp eq ptr %7, null
   br i1 %isnull8, label %delete.end10, label %delete.notnull9
 
 delete.notnull9:                                  ; preds = %invoke.cont7
-  call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %6) #5
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %6) #5
+  call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #5
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %7) #5
   br label %delete.end10
 
 delete.end10:                                     ; preds = %delete.notnull9, %invoke.cont7
   %maxExpansions = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %this1, i32 0, i32 12
-  %7 = load ptr, ptr %maxExpansions, align 8
-  invoke void @uhash_close_75(ptr noundef %7)
+  %8 = load ptr, ptr %maxExpansions, align 8
+  invoke void @uhash_close_75(ptr noundef %8)
           to label %invoke.cont11 unwind label %terminate.lpad
 
 invoke.cont11:                                    ; preds = %delete.end10
@@ -436,10 +441,10 @@ invoke.cont12:                                    ; preds = %invoke.cont11
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont11, %delete.end10, %invoke.cont6, %invoke.cont5, %delete.end4, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #6
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #6
   unreachable
 }
 
@@ -821,7 +826,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7519CollationCacheEntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7519CollationCacheEntryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tailoring = getelementptr inbounds %"struct.icu_75::CollationCacheEntry", ptr %this1, i32 0, i32 2
   invoke void @_ZN6icu_7512SharedObject8clearPtrINS_18CollationTailoringEEEvRPKT_(ptr noundef nonnull align 8 dereferenceable(8) %tailoring)
           to label %invoke.cont unwind label %terminate.lpad
@@ -833,10 +839,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #6
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #6
   unreachable
 }
 
@@ -881,7 +887,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -919,7 +926,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

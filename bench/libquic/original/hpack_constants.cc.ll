@@ -568,7 +568,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %agg.result, ptr %result.ptr, align 8
   call void @_ZNSaIN3net18HpackHuffmanSymbolEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
-  invoke void @_ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EEC2IPKS1_vEET_S7_RKS2_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef @_ZZN3net16HpackHuffmanCodeEvE17kHpackHuffmanCode, ptr noundef getelementptr inbounds (%"struct.net::HpackHuffmanSymbol", ptr @_ZZN3net16HpackHuffmanCodeEvE17kHpackHuffmanCode, i64 257), ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  %0 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr @_ZZN3net16HpackHuffmanCodeEvE17kHpackHuffmanCode, i64 257
+  invoke void @_ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EEC2IPKS1_vEET_S7_RKS2_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef @_ZZN3net16HpackHuffmanCodeEvE17kHpackHuffmanCode, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -576,12 +577,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSaIN3net18HpackHuffmanSymbolEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   br label %eh.resume
 
@@ -670,7 +671,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %agg.result, ptr %result.ptr, align 8
   call void @_ZNSaIN3net16HpackStaticEntryEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
-  invoke void @_ZNSt6vectorIN3net16HpackStaticEntryESaIS1_EEC2IPKS1_vEET_S7_RKS2_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef @_ZZN3net22HpackStaticTableVectorEvE17kHpackStaticTable, ptr noundef getelementptr inbounds (%"struct.net::HpackStaticEntry", ptr @_ZZN3net22HpackStaticTableVectorEvE17kHpackStaticTable, i64 61), ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  %0 = getelementptr inbounds %"struct.net::HpackStaticEntry", ptr @_ZZN3net22HpackStaticTableVectorEvE17kHpackStaticTable, i64 61
+  invoke void @_ZNSt6vectorIN3net16HpackStaticEntryESaIS1_EEC2IPKS1_vEET_S7_RKS2_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef @_ZZN3net22HpackStaticTableVectorEvE17kHpackStaticTable, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -678,12 +680,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSaIN3net16HpackStaticEntryEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   br label %eh.resume
 

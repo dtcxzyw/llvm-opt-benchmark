@@ -7216,62 +7216,65 @@ define internal zeroext i1 @before_stmt_triggers_fired(i32 noundef %0, i32 nound
   %6 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store i32 %1, ptr %4, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %8 = icmp slt i32 %7, 0
-  br i1 %8, label %9, label %19
+  %7 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp slt i32 %8, 0
+  br i1 %9, label %10, label %20
 
-9:                                                ; preds = %2
-  br label %10
-
-10:                                               ; preds = %9
-  br i1 true, label %11, label %13
+10:                                               ; preds = %2
+  br label %11
 
 11:                                               ; preds = %10
-  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  br i1 %12, label %15, label %17
+  br i1 true, label %12, label %14
 
-13:                                               ; preds = %10
-  %14 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %14, label %15, label %17
+12:                                               ; preds = %11
+  %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %13, label %16, label %18
 
-15:                                               ; preds = %13, %11
-  %16 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.93)
+14:                                               ; preds = %11
+  %15 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %15, label %16, label %18
+
+16:                                               ; preds = %14, %12
+  %17 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.93)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 6472, ptr noundef @__func__.before_stmt_triggers_fired)
-  br label %17
+  br label %18
 
-17:                                               ; preds = %15, %13, %11
+18:                                               ; preds = %16, %14, %12
   unreachable
 
-18:                                               ; No predecessors!
-  br label %19
+19:                                               ; No predecessors!
+  br label %20
 
-19:                                               ; preds = %18, %2
-  %20 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %21 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6), align 4
-  %22 = icmp sge i32 %20, %21
-  br i1 %22, label %23, label %24
+20:                                               ; preds = %19, %2
+  %21 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %22 = load i32, ptr %21, align 8
+  %23 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp sge i32 %22, %24
+  br i1 %25, label %26, label %27
 
-23:                                               ; preds = %19
+26:                                               ; preds = %20
   call void @AfterTriggerEnlargeQueryState()
-  br label %24
+  br label %27
 
-24:                                               ; preds = %23, %19
-  %25 = load i32, ptr %3, align 4
-  %26 = load i32, ptr %4, align 4
-  %27 = call ptr @GetAfterTriggersTableData(i32 noundef %25, i32 noundef %26)
-  store ptr %27, ptr %6, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %28, i32 0, i32 3
-  %30 = load i8, ptr %29, align 1
-  %31 = trunc i8 %30 to i1
-  %32 = zext i1 %31 to i8
-  store i8 %32, ptr %5, align 1
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %33, i32 0, i32 3
-  store i8 1, ptr %34, align 1
-  %35 = load i8, ptr %5, align 1
-  %36 = trunc i8 %35 to i1
-  ret i1 %36
+27:                                               ; preds = %26, %20
+  %28 = load i32, ptr %3, align 4
+  %29 = load i32, ptr %4, align 4
+  %30 = call ptr @GetAfterTriggersTableData(i32 noundef %28, i32 noundef %29)
+  store ptr %30, ptr %6, align 8
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %31, i32 0, i32 3
+  %33 = load i8, ptr %32, align 1
+  %34 = trunc i8 %33 to i1
+  %35 = zext i1 %34 to i8
+  store i8 %35, ptr %5, align 1
+  %36 = load ptr, ptr %6, align 8
+  %37 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %36, i32 0, i32 3
+  store i8 1, ptr %37, align 1
+  %38 = load i8, ptr %5, align 1
+  %39 = trunc i8 %38 to i1
+  ret i1 %39
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7823,819 +7826,824 @@ define internal void @AfterTriggerSaveEvent(ptr noundef %0, ptr noundef %1, ptr 
   %52 = load i8, ptr %51, align 1
   store i8 %52, ptr %29, align 1
   store ptr null, ptr %33, align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %55, label %65
+  %53 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %54 = load i32, ptr %53, align 8
+  %55 = icmp slt i32 %54, 0
+  br i1 %55, label %56, label %66
 
-55:                                               ; preds = %12
-  br label %56
-
-56:                                               ; preds = %55
-  br i1 true, label %57, label %59
+56:                                               ; preds = %12
+  br label %57
 
 57:                                               ; preds = %56
-  %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  br i1 %58, label %61, label %63
+  br i1 true, label %58, label %60
 
-59:                                               ; preds = %56
-  %60 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %60, label %61, label %63
+58:                                               ; preds = %57
+  %59 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %59, label %62, label %64
 
-61:                                               ; preds = %59, %57
-  %62 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.91)
+60:                                               ; preds = %57
+  %61 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %60, %58
+  %63 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.91)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 6093, ptr noundef @__func__.AfterTriggerSaveEvent)
-  br label %63
+  br label %64
 
-63:                                               ; preds = %61, %59, %57
+64:                                               ; preds = %62, %60, %58
   unreachable
 
-64:                                               ; No predecessors!
-  br label %65
+65:                                               ; No predecessors!
+  br label %66
 
-65:                                               ; preds = %64, %12
-  %66 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %67 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6), align 4
-  %68 = icmp sge i32 %66, %67
-  br i1 %68, label %69, label %70
+66:                                               ; preds = %65, %12
+  %67 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %68 = load i32, ptr %67, align 8
+  %69 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp sge i32 %68, %70
+  br i1 %71, label %72, label %73
 
-69:                                               ; preds = %65
+72:                                               ; preds = %66
   call void @AfterTriggerEnlargeQueryState()
-  br label %70
+  br label %73
 
-70:                                               ; preds = %69, %65
-  %71 = load i8, ptr %18, align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %179
-
-73:                                               ; preds = %70
-  %74 = load ptr, ptr %23, align 8
-  %75 = icmp ne ptr %74, null
-  br i1 %75, label %76, label %179
+73:                                               ; preds = %72, %66
+  %74 = load i8, ptr %18, align 1
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %182
 
 76:                                               ; preds = %73
   %77 = load ptr, ptr %23, align 8
-  %78 = getelementptr inbounds %struct.TransitionCaptureState, ptr %77, i32 0, i32 4
-  %79 = load ptr, ptr %78, align 8
-  store ptr %79, ptr %34, align 8
-  %80 = load ptr, ptr %19, align 8
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %99, label %82
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %79, label %182
 
-82:                                               ; preds = %76
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %23, align 8
+  %81 = getelementptr inbounds %struct.TransitionCaptureState, ptr %80, i32 0, i32 4
+  %82 = load ptr, ptr %81, align 8
+  store ptr %82, ptr %34, align 8
   %83 = load ptr, ptr %19, align 8
-  %84 = getelementptr inbounds %struct.TupleTableSlot, ptr %83, i32 0, i32 1
-  %85 = load i16, ptr %84, align 4
-  %86 = zext i16 %85 to i32
-  %87 = and i32 %86, 2
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %99, label %89
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %102, label %85
 
-89:                                               ; preds = %82
-  %90 = load i32, ptr %17, align 4
-  %91 = load ptr, ptr %19, align 8
-  %92 = load ptr, ptr %23, align 8
-  %93 = call ptr @GetAfterTriggersTransitionTable(i32 noundef %90, ptr noundef %91, ptr noundef null, ptr noundef %92)
-  store ptr %93, ptr %35, align 8
-  %94 = load ptr, ptr %13, align 8
+85:                                               ; preds = %79
+  %86 = load ptr, ptr %19, align 8
+  %87 = getelementptr inbounds %struct.TupleTableSlot, ptr %86, i32 0, i32 1
+  %88 = load i16, ptr %87, align 4
+  %89 = zext i16 %88 to i32
+  %90 = and i32 %89, 2
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %102, label %92
+
+92:                                               ; preds = %85
+  %93 = load i32, ptr %17, align 4
+  %94 = load ptr, ptr %19, align 8
   %95 = load ptr, ptr %23, align 8
-  %96 = load ptr, ptr %14, align 8
-  %97 = load ptr, ptr %19, align 8
-  %98 = load ptr, ptr %35, align 8
-  call void @TransitionTableAddTuple(ptr noundef %94, ptr noundef %95, ptr noundef %96, ptr noundef %97, ptr noundef null, ptr noundef %98)
-  br label %99
+  %96 = call ptr @GetAfterTriggersTransitionTable(i32 noundef %93, ptr noundef %94, ptr noundef null, ptr noundef %95)
+  store ptr %96, ptr %35, align 8
+  %97 = load ptr, ptr %13, align 8
+  %98 = load ptr, ptr %23, align 8
+  %99 = load ptr, ptr %14, align 8
+  %100 = load ptr, ptr %19, align 8
+  %101 = load ptr, ptr %35, align 8
+  call void @TransitionTableAddTuple(ptr noundef %97, ptr noundef %98, ptr noundef %99, ptr noundef %100, ptr noundef null, ptr noundef %101)
+  br label %102
 
-99:                                               ; preds = %89, %82, %76
-  %100 = load ptr, ptr %20, align 8
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %120, label %102
-
-102:                                              ; preds = %99
+102:                                              ; preds = %92, %85, %79
   %103 = load ptr, ptr %20, align 8
-  %104 = getelementptr inbounds %struct.TupleTableSlot, ptr %103, i32 0, i32 1
-  %105 = load i16, ptr %104, align 4
-  %106 = zext i16 %105 to i32
-  %107 = and i32 %106, 2
-  %108 = icmp ne i32 %107, 0
-  br i1 %108, label %120, label %109
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %123, label %105
 
-109:                                              ; preds = %102
-  %110 = load i32, ptr %17, align 4
-  %111 = load ptr, ptr %20, align 8
-  %112 = load ptr, ptr %23, align 8
-  %113 = call ptr @GetAfterTriggersTransitionTable(i32 noundef %110, ptr noundef null, ptr noundef %111, ptr noundef %112)
-  store ptr %113, ptr %36, align 8
-  %114 = load ptr, ptr %13, align 8
+105:                                              ; preds = %102
+  %106 = load ptr, ptr %20, align 8
+  %107 = getelementptr inbounds %struct.TupleTableSlot, ptr %106, i32 0, i32 1
+  %108 = load i16, ptr %107, align 4
+  %109 = zext i16 %108 to i32
+  %110 = and i32 %109, 2
+  %111 = icmp ne i32 %110, 0
+  br i1 %111, label %123, label %112
+
+112:                                              ; preds = %105
+  %113 = load i32, ptr %17, align 4
+  %114 = load ptr, ptr %20, align 8
   %115 = load ptr, ptr %23, align 8
-  %116 = load ptr, ptr %14, align 8
-  %117 = load ptr, ptr %20, align 8
-  %118 = load ptr, ptr %34, align 8
-  %119 = load ptr, ptr %36, align 8
-  call void @TransitionTableAddTuple(ptr noundef %114, ptr noundef %115, ptr noundef %116, ptr noundef %117, ptr noundef %118, ptr noundef %119)
-  br label %120
+  %116 = call ptr @GetAfterTriggersTransitionTable(i32 noundef %113, ptr noundef null, ptr noundef %114, ptr noundef %115)
+  store ptr %116, ptr %36, align 8
+  %117 = load ptr, ptr %13, align 8
+  %118 = load ptr, ptr %23, align 8
+  %119 = load ptr, ptr %14, align 8
+  %120 = load ptr, ptr %20, align 8
+  %121 = load ptr, ptr %34, align 8
+  %122 = load ptr, ptr %36, align 8
+  call void @TransitionTableAddTuple(ptr noundef %117, ptr noundef %118, ptr noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef %122)
+  br label %123
 
-120:                                              ; preds = %109, %102, %99
-  %121 = load ptr, ptr %26, align 8
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %177, label %123
-
-123:                                              ; preds = %120
-  %124 = load i32, ptr %17, align 4
-  %125 = icmp eq i32 %124, 1
-  br i1 %125, label %126, label %131
+123:                                              ; preds = %112, %105, %102
+  %124 = load ptr, ptr %26, align 8
+  %125 = icmp eq ptr %124, null
+  br i1 %125, label %180, label %126
 
 126:                                              ; preds = %123
-  %127 = load ptr, ptr %26, align 8
-  %128 = getelementptr inbounds %struct.TriggerDesc, ptr %127, i32 0, i32 13
-  %129 = load i8, ptr %128, align 1
-  %130 = trunc i8 %129 to i1
-  br i1 %130, label %131, label %177
+  %127 = load i32, ptr %17, align 4
+  %128 = icmp eq i32 %127, 1
+  br i1 %128, label %129, label %134
 
-131:                                              ; preds = %126, %123
-  %132 = load i32, ptr %17, align 4
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %134, label %139
+129:                                              ; preds = %126
+  %130 = load ptr, ptr %26, align 8
+  %131 = getelementptr inbounds %struct.TriggerDesc, ptr %130, i32 0, i32 13
+  %132 = load i8, ptr %131, align 1
+  %133 = trunc i8 %132 to i1
+  br i1 %133, label %134, label %180
 
-134:                                              ; preds = %131
-  %135 = load ptr, ptr %26, align 8
-  %136 = getelementptr inbounds %struct.TriggerDesc, ptr %135, i32 0, i32 3
-  %137 = load i8, ptr %136, align 1
-  %138 = trunc i8 %137 to i1
-  br i1 %138, label %139, label %177
+134:                                              ; preds = %129, %126
+  %135 = load i32, ptr %17, align 4
+  %136 = icmp eq i32 %135, 0
+  br i1 %136, label %137, label %142
 
-139:                                              ; preds = %134, %131
-  %140 = load i32, ptr %17, align 4
-  %141 = icmp eq i32 %140, 2
-  br i1 %141, label %142, label %147
+137:                                              ; preds = %134
+  %138 = load ptr, ptr %26, align 8
+  %139 = getelementptr inbounds %struct.TriggerDesc, ptr %138, i32 0, i32 3
+  %140 = load i8, ptr %139, align 1
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %142, label %180
 
-142:                                              ; preds = %139
-  %143 = load ptr, ptr %26, align 8
-  %144 = getelementptr inbounds %struct.TriggerDesc, ptr %143, i32 0, i32 8
-  %145 = load i8, ptr %144, align 2
-  %146 = trunc i8 %145 to i1
-  br i1 %146, label %147, label %177
+142:                                              ; preds = %137, %134
+  %143 = load i32, ptr %17, align 4
+  %144 = icmp eq i32 %143, 2
+  br i1 %144, label %145, label %150
 
-147:                                              ; preds = %142, %139
-  %148 = load i32, ptr %17, align 4
-  %149 = icmp eq i32 %148, 2
-  br i1 %149, label %150, label %178
+145:                                              ; preds = %142
+  %146 = load ptr, ptr %26, align 8
+  %147 = getelementptr inbounds %struct.TriggerDesc, ptr %146, i32 0, i32 8
+  %148 = load i8, ptr %147, align 2
+  %149 = trunc i8 %148 to i1
+  br i1 %149, label %150, label %180
 
-150:                                              ; preds = %147
-  %151 = load ptr, ptr %19, align 8
-  %152 = icmp eq ptr %151, null
-  br i1 %152, label %160, label %153
+150:                                              ; preds = %145, %142
+  %151 = load i32, ptr %17, align 4
+  %152 = icmp eq i32 %151, 2
+  br i1 %152, label %153, label %181
 
 153:                                              ; preds = %150
   %154 = load ptr, ptr %19, align 8
-  %155 = getelementptr inbounds %struct.TupleTableSlot, ptr %154, i32 0, i32 1
-  %156 = load i16, ptr %155, align 4
-  %157 = zext i16 %156 to i32
-  %158 = and i32 %157, 2
-  %159 = icmp ne i32 %158, 0
-  br label %160
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %163, label %156
 
-160:                                              ; preds = %153, %150
-  %161 = phi i1 [ true, %150 ], [ %159, %153 ]
-  %162 = zext i1 %161 to i32
-  %163 = load ptr, ptr %20, align 8
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %172, label %165
+156:                                              ; preds = %153
+  %157 = load ptr, ptr %19, align 8
+  %158 = getelementptr inbounds %struct.TupleTableSlot, ptr %157, i32 0, i32 1
+  %159 = load i16, ptr %158, align 4
+  %160 = zext i16 %159 to i32
+  %161 = and i32 %160, 2
+  %162 = icmp ne i32 %161, 0
+  br label %163
 
-165:                                              ; preds = %160
+163:                                              ; preds = %156, %153
+  %164 = phi i1 [ true, %153 ], [ %162, %156 ]
+  %165 = zext i1 %164 to i32
   %166 = load ptr, ptr %20, align 8
-  %167 = getelementptr inbounds %struct.TupleTableSlot, ptr %166, i32 0, i32 1
-  %168 = load i16, ptr %167, align 4
-  %169 = zext i16 %168 to i32
-  %170 = and i32 %169, 2
-  %171 = icmp ne i32 %170, 0
-  br label %172
+  %167 = icmp eq ptr %166, null
+  br i1 %167, label %175, label %168
 
-172:                                              ; preds = %165, %160
-  %173 = phi i1 [ true, %160 ], [ %171, %165 ]
-  %174 = zext i1 %173 to i32
-  %175 = xor i32 %162, %174
-  %176 = icmp ne i32 %175, 0
-  br i1 %176, label %177, label %178
+168:                                              ; preds = %163
+  %169 = load ptr, ptr %20, align 8
+  %170 = getelementptr inbounds %struct.TupleTableSlot, ptr %169, i32 0, i32 1
+  %171 = load i16, ptr %170, align 4
+  %172 = zext i16 %171 to i32
+  %173 = and i32 %172, 2
+  %174 = icmp ne i32 %173, 0
+  br label %175
 
-177:                                              ; preds = %172, %142, %134, %126, %120
-  br label %550
+175:                                              ; preds = %168, %163
+  %176 = phi i1 [ true, %163 ], [ %174, %168 ]
+  %177 = zext i1 %176 to i32
+  %178 = xor i32 %165, %177
+  %179 = icmp ne i32 %178, 0
+  br i1 %179, label %180, label %181
 
-178:                                              ; preds = %172, %147
-  br label %179
+180:                                              ; preds = %175, %145, %137, %129, %123
+  br label %555
 
-179:                                              ; preds = %178, %73, %70
-  %180 = load i32, ptr %17, align 4
-  switch i32 %180, label %255 [
-    i32 0, label %181
-    i32 1, label %197
-    i32 2, label %213
-    i32 3, label %252
+181:                                              ; preds = %175, %150
+  br label %182
+
+182:                                              ; preds = %181, %76, %73
+  %183 = load i32, ptr %17, align 4
+  switch i32 %183, label %258 [
+    i32 0, label %184
+    i32 1, label %200
+    i32 2, label %216
+    i32 3, label %255
   ]
 
-181:                                              ; preds = %179
+184:                                              ; preds = %182
   store i32 4, ptr %30, align 4
-  %182 = load i8, ptr %18, align 1
-  %183 = trunc i8 %182 to i1
-  br i1 %183, label %184, label %189
+  %185 = load i8, ptr %18, align 1
+  %186 = trunc i8 %185 to i1
+  br i1 %186, label %187, label %192
 
-184:                                              ; preds = %181
-  %185 = load ptr, ptr %20, align 8
-  %186 = getelementptr inbounds %struct.TupleTableSlot, ptr %185, i32 0, i32 8
-  %187 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 1
-  call void @ItemPointerCopy(ptr noundef %186, ptr noundef %187)
-  %188 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 2
-  call void @ItemPointerSetInvalid(ptr noundef %188)
-  br label %196
-
-189:                                              ; preds = %181
+187:                                              ; preds = %184
+  %188 = load ptr, ptr %20, align 8
+  %189 = getelementptr inbounds %struct.TupleTableSlot, ptr %188, i32 0, i32 8
   %190 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 1
-  call void @ItemPointerSetInvalid(ptr noundef %190)
+  call void @ItemPointerCopy(ptr noundef %189, ptr noundef %190)
   %191 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 2
   call void @ItemPointerSetInvalid(ptr noundef %191)
-  %192 = load ptr, ptr %25, align 8
-  %193 = getelementptr inbounds %struct.RelationData, ptr %192, i32 0, i32 15
-  %194 = load i32, ptr %193, align 8
-  %195 = load i32, ptr %17, align 4
-  call void @cancel_prior_stmt_triggers(i32 noundef %194, i32 noundef 3, i32 noundef %195)
-  br label %196
+  br label %199
 
-196:                                              ; preds = %189, %184
-  br label %266
+192:                                              ; preds = %184
+  %193 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 1
+  call void @ItemPointerSetInvalid(ptr noundef %193)
+  %194 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 2
+  call void @ItemPointerSetInvalid(ptr noundef %194)
+  %195 = load ptr, ptr %25, align 8
+  %196 = getelementptr inbounds %struct.RelationData, ptr %195, i32 0, i32 15
+  %197 = load i32, ptr %196, align 8
+  %198 = load i32, ptr %17, align 4
+  call void @cancel_prior_stmt_triggers(i32 noundef %197, i32 noundef 3, i32 noundef %198)
+  br label %199
 
-197:                                              ; preds = %179
+199:                                              ; preds = %192, %187
+  br label %269
+
+200:                                              ; preds = %182
   store i32 8, ptr %30, align 4
-  %198 = load i8, ptr %18, align 1
-  %199 = trunc i8 %198 to i1
-  br i1 %199, label %200, label %205
+  %201 = load i8, ptr %18, align 1
+  %202 = trunc i8 %201 to i1
+  br i1 %202, label %203, label %208
 
-200:                                              ; preds = %197
-  %201 = load ptr, ptr %19, align 8
-  %202 = getelementptr inbounds %struct.TupleTableSlot, ptr %201, i32 0, i32 8
-  %203 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 1
-  call void @ItemPointerCopy(ptr noundef %202, ptr noundef %203)
-  %204 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 2
-  call void @ItemPointerSetInvalid(ptr noundef %204)
-  br label %212
-
-205:                                              ; preds = %197
+203:                                              ; preds = %200
+  %204 = load ptr, ptr %19, align 8
+  %205 = getelementptr inbounds %struct.TupleTableSlot, ptr %204, i32 0, i32 8
   %206 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 1
-  call void @ItemPointerSetInvalid(ptr noundef %206)
+  call void @ItemPointerCopy(ptr noundef %205, ptr noundef %206)
   %207 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 2
   call void @ItemPointerSetInvalid(ptr noundef %207)
-  %208 = load ptr, ptr %25, align 8
-  %209 = getelementptr inbounds %struct.RelationData, ptr %208, i32 0, i32 15
-  %210 = load i32, ptr %209, align 8
-  %211 = load i32, ptr %17, align 4
-  call void @cancel_prior_stmt_triggers(i32 noundef %210, i32 noundef 4, i32 noundef %211)
-  br label %212
+  br label %215
 
-212:                                              ; preds = %205, %200
-  br label %266
+208:                                              ; preds = %200
+  %209 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 1
+  call void @ItemPointerSetInvalid(ptr noundef %209)
+  %210 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 2
+  call void @ItemPointerSetInvalid(ptr noundef %210)
+  %211 = load ptr, ptr %25, align 8
+  %212 = getelementptr inbounds %struct.RelationData, ptr %211, i32 0, i32 15
+  %213 = load i32, ptr %212, align 8
+  %214 = load i32, ptr %17, align 4
+  call void @cancel_prior_stmt_triggers(i32 noundef %213, i32 noundef 4, i32 noundef %214)
+  br label %215
 
-213:                                              ; preds = %179
+215:                                              ; preds = %208, %203
+  br label %269
+
+216:                                              ; preds = %182
   store i32 16, ptr %30, align 4
-  %214 = load i8, ptr %18, align 1
-  %215 = trunc i8 %214 to i1
-  br i1 %215, label %216, label %244
+  %217 = load i8, ptr %18, align 1
+  %218 = trunc i8 %217 to i1
+  br i1 %218, label %219, label %247
 
-216:                                              ; preds = %213
-  %217 = load ptr, ptr %19, align 8
-  %218 = getelementptr inbounds %struct.TupleTableSlot, ptr %217, i32 0, i32 8
-  %219 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 1
-  call void @ItemPointerCopy(ptr noundef %218, ptr noundef %219)
-  %220 = load ptr, ptr %20, align 8
+219:                                              ; preds = %216
+  %220 = load ptr, ptr %19, align 8
   %221 = getelementptr inbounds %struct.TupleTableSlot, ptr %220, i32 0, i32 8
-  %222 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 2
+  %222 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 1
   call void @ItemPointerCopy(ptr noundef %221, ptr noundef %222)
-  %223 = load ptr, ptr %25, align 8
-  %224 = getelementptr inbounds %struct.RelationData, ptr %223, i32 0, i32 13
-  %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds %struct.FormData_pg_class, ptr %225, i32 0, i32 16
-  %227 = load i8, ptr %226, align 1
-  %228 = sext i8 %227 to i32
-  %229 = icmp eq i32 %228, 112
-  br i1 %229, label %230, label %243
+  %223 = load ptr, ptr %20, align 8
+  %224 = getelementptr inbounds %struct.TupleTableSlot, ptr %223, i32 0, i32 8
+  %225 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 2
+  call void @ItemPointerCopy(ptr noundef %224, ptr noundef %225)
+  %226 = load ptr, ptr %25, align 8
+  %227 = getelementptr inbounds %struct.RelationData, ptr %226, i32 0, i32 13
+  %228 = load ptr, ptr %227, align 8
+  %229 = getelementptr inbounds %struct.FormData_pg_class, ptr %228, i32 0, i32 16
+  %230 = load i8, ptr %229, align 1
+  %231 = sext i8 %230 to i32
+  %232 = icmp eq i32 %231, 112
+  br i1 %232, label %233, label %246
 
-230:                                              ; preds = %216
-  %231 = load ptr, ptr %15, align 8
-  %232 = getelementptr inbounds %struct.ResultRelInfo, ptr %231, i32 0, i32 2
-  %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds %struct.RelationData, ptr %233, i32 0, i32 15
-  %235 = load i32, ptr %234, align 8
-  %236 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 3
-  store i32 %235, ptr %236, align 4
-  %237 = load ptr, ptr %16, align 8
-  %238 = getelementptr inbounds %struct.ResultRelInfo, ptr %237, i32 0, i32 2
-  %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds %struct.RelationData, ptr %239, i32 0, i32 15
-  %241 = load i32, ptr %240, align 8
-  %242 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 4
-  store i32 %241, ptr %242, align 4
-  br label %243
+233:                                              ; preds = %219
+  %234 = load ptr, ptr %15, align 8
+  %235 = getelementptr inbounds %struct.ResultRelInfo, ptr %234, i32 0, i32 2
+  %236 = load ptr, ptr %235, align 8
+  %237 = getelementptr inbounds %struct.RelationData, ptr %236, i32 0, i32 15
+  %238 = load i32, ptr %237, align 8
+  %239 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 3
+  store i32 %238, ptr %239, align 4
+  %240 = load ptr, ptr %16, align 8
+  %241 = getelementptr inbounds %struct.ResultRelInfo, ptr %240, i32 0, i32 2
+  %242 = load ptr, ptr %241, align 8
+  %243 = getelementptr inbounds %struct.RelationData, ptr %242, i32 0, i32 15
+  %244 = load i32, ptr %243, align 8
+  %245 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 4
+  store i32 %244, ptr %245, align 4
+  br label %246
 
-243:                                              ; preds = %230, %216
-  br label %251
+246:                                              ; preds = %233, %219
+  br label %254
 
-244:                                              ; preds = %213
-  %245 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 1
-  call void @ItemPointerSetInvalid(ptr noundef %245)
-  %246 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 2
-  call void @ItemPointerSetInvalid(ptr noundef %246)
-  %247 = load ptr, ptr %25, align 8
-  %248 = getelementptr inbounds %struct.RelationData, ptr %247, i32 0, i32 15
-  %249 = load i32, ptr %248, align 8
-  %250 = load i32, ptr %17, align 4
-  call void @cancel_prior_stmt_triggers(i32 noundef %249, i32 noundef 2, i32 noundef %250)
-  br label %251
+247:                                              ; preds = %216
+  %248 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 1
+  call void @ItemPointerSetInvalid(ptr noundef %248)
+  %249 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 2
+  call void @ItemPointerSetInvalid(ptr noundef %249)
+  %250 = load ptr, ptr %25, align 8
+  %251 = getelementptr inbounds %struct.RelationData, ptr %250, i32 0, i32 15
+  %252 = load i32, ptr %251, align 8
+  %253 = load i32, ptr %17, align 4
+  call void @cancel_prior_stmt_triggers(i32 noundef %252, i32 noundef 2, i32 noundef %253)
+  br label %254
 
-251:                                              ; preds = %244, %243
-  br label %266
+254:                                              ; preds = %247, %246
+  br label %269
 
-252:                                              ; preds = %179
+255:                                              ; preds = %182
   store i32 32, ptr %30, align 4
-  %253 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 1
-  call void @ItemPointerSetInvalid(ptr noundef %253)
-  %254 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 2
-  call void @ItemPointerSetInvalid(ptr noundef %254)
-  br label %266
+  %256 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 1
+  call void @ItemPointerSetInvalid(ptr noundef %256)
+  %257 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 2
+  call void @ItemPointerSetInvalid(ptr noundef %257)
+  br label %269
 
-255:                                              ; preds = %179
-  br label %256
+258:                                              ; preds = %182
+  br label %259
 
-256:                                              ; preds = %255
-  br i1 true, label %257, label %259
+259:                                              ; preds = %258
+  br i1 true, label %260, label %262
 
-257:                                              ; preds = %256
-  %258 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  br i1 %258, label %261, label %264
+260:                                              ; preds = %259
+  %261 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %261, label %264, label %267
 
-259:                                              ; preds = %256
-  %260 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %260, label %261, label %264
+262:                                              ; preds = %259
+  %263 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %263, label %264, label %267
 
-261:                                              ; preds = %259, %257
-  %262 = load i32, ptr %17, align 4
-  %263 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.92, i32 noundef %262)
+264:                                              ; preds = %262, %260
+  %265 = load i32, ptr %17, align 4
+  %266 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.92, i32 noundef %265)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 6259, ptr noundef @__func__.AfterTriggerSaveEvent)
-  br label %264
+  br label %267
 
-264:                                              ; preds = %261, %259, %257
+267:                                              ; preds = %264, %262, %260
   unreachable
 
-265:                                              ; No predecessors!
+268:                                              ; No predecessors!
   store i32 0, ptr %30, align 4
-  br label %266
+  br label %269
 
-266:                                              ; preds = %265, %252, %251, %212, %196
-  %267 = load i8, ptr %29, align 1
-  %268 = sext i8 %267 to i32
-  %269 = icmp eq i32 %268, 102
-  br i1 %269, label %270, label %273
+269:                                              ; preds = %268, %255, %254, %215, %199
+  %270 = load i8, ptr %29, align 1
+  %271 = sext i8 %270 to i32
+  %272 = icmp eq i32 %271, 102
+  br i1 %272, label %273, label %276
 
-270:                                              ; preds = %266
-  %271 = load i8, ptr %18, align 1
-  %272 = trunc i8 %271 to i1
-  br i1 %272, label %291, label %273
-
-273:                                              ; preds = %270, %266
+273:                                              ; preds = %269
   %274 = load i8, ptr %18, align 1
   %275 = trunc i8 %274 to i1
-  br i1 %275, label %276, label %288
+  br i1 %275, label %294, label %276
 
-276:                                              ; preds = %273
-  %277 = load i32, ptr %17, align 4
-  %278 = icmp eq i32 %277, 2
-  br i1 %278, label %279, label %288
+276:                                              ; preds = %273, %269
+  %277 = load i8, ptr %18, align 1
+  %278 = trunc i8 %277 to i1
+  br i1 %278, label %279, label %291
 
 279:                                              ; preds = %276
-  %280 = load i8, ptr %29, align 1
-  %281 = sext i8 %280 to i32
-  %282 = icmp eq i32 %281, 112
-  br i1 %282, label %283, label %285
+  %280 = load i32, ptr %17, align 4
+  %281 = icmp eq i32 %280, 2
+  br i1 %281, label %282, label %291
 
-283:                                              ; preds = %279
-  %284 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 0
-  store i32 134217728, ptr %284, align 4
-  br label %287
+282:                                              ; preds = %279
+  %283 = load i8, ptr %29, align 1
+  %284 = sext i8 %283 to i32
+  %285 = icmp eq i32 %284, 112
+  br i1 %285, label %286, label %288
 
-285:                                              ; preds = %279
-  %286 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 0
-  store i32 805306368, ptr %286, align 4
-  br label %287
-
-287:                                              ; preds = %285, %283
+286:                                              ; preds = %282
+  %287 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 0
+  store i32 134217728, ptr %287, align 4
   br label %290
 
-288:                                              ; preds = %276, %273
+288:                                              ; preds = %282
   %289 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 0
-  store i32 268435456, ptr %289, align 4
+  store i32 805306368, ptr %289, align 4
   br label %290
 
-290:                                              ; preds = %288, %287
-  br label %291
+290:                                              ; preds = %288, %286
+  br label %293
 
-291:                                              ; preds = %290, %270
-  %292 = load i8, ptr %18, align 1
-  %293 = trunc i8 %292 to i1
-  %294 = select i1 %293, i32 1, i32 0
-  store i32 %294, ptr %31, align 4
+291:                                              ; preds = %279, %276
+  %292 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 0
+  store i32 268435456, ptr %292, align 4
+  br label %293
+
+293:                                              ; preds = %291, %290
+  br label %294
+
+294:                                              ; preds = %293, %273
   %295 = load i8, ptr %18, align 1
   %296 = trunc i8 %295 to i1
-  br i1 %296, label %297, label %344
+  %297 = select i1 %296, i32 1, i32 0
+  store i32 %297, ptr %31, align 4
+  %298 = load i8, ptr %18, align 1
+  %299 = trunc i8 %298 to i1
+  br i1 %299, label %300, label %347
 
-297:                                              ; preds = %291
-  %298 = load ptr, ptr %25, align 8
-  %299 = getelementptr inbounds %struct.RelationData, ptr %298, i32 0, i32 13
-  %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds %struct.FormData_pg_class, ptr %300, i32 0, i32 16
-  %302 = load i8, ptr %301, align 1
-  %303 = sext i8 %302 to i32
-  %304 = icmp eq i32 %303, 112
-  br i1 %304, label %305, label %344
+300:                                              ; preds = %294
+  %301 = load ptr, ptr %25, align 8
+  %302 = getelementptr inbounds %struct.RelationData, ptr %301, i32 0, i32 13
+  %303 = load ptr, ptr %302, align 8
+  %304 = getelementptr inbounds %struct.FormData_pg_class, ptr %303, i32 0, i32 16
+  %305 = load i8, ptr %304, align 1
+  %306 = sext i8 %305 to i32
+  %307 = icmp eq i32 %306, 112
+  br i1 %307, label %308, label %347
 
-305:                                              ; preds = %297
-  %306 = load ptr, ptr %13, align 8
-  %307 = load ptr, ptr %14, align 8
-  %308 = call ptr @ExecGetTriggerOldSlot(ptr noundef %306, ptr noundef %307)
-  store ptr %308, ptr %37, align 8
-  %309 = load ptr, ptr %15, align 8
-  %310 = call ptr @ExecGetChildToRootMap(ptr noundef %309)
-  store ptr %310, ptr %38, align 8
-  %311 = load ptr, ptr %38, align 8
-  %312 = icmp ne ptr %311, null
-  br i1 %312, label %313, label %320
-
-313:                                              ; preds = %305
+308:                                              ; preds = %300
+  %309 = load ptr, ptr %13, align 8
+  %310 = load ptr, ptr %14, align 8
+  %311 = call ptr @ExecGetTriggerOldSlot(ptr noundef %309, ptr noundef %310)
+  store ptr %311, ptr %37, align 8
+  %312 = load ptr, ptr %15, align 8
+  %313 = call ptr @ExecGetChildToRootMap(ptr noundef %312)
+  store ptr %313, ptr %38, align 8
   %314 = load ptr, ptr %38, align 8
-  %315 = getelementptr inbounds %struct.TupleConversionMap, ptr %314, i32 0, i32 2
-  %316 = load ptr, ptr %315, align 8
-  %317 = load ptr, ptr %19, align 8
-  %318 = load ptr, ptr %37, align 8
-  %319 = call ptr @execute_attr_map_slot(ptr noundef %316, ptr noundef %317, ptr noundef %318)
-  store ptr %319, ptr %19, align 8
-  br label %324
+  %315 = icmp ne ptr %314, null
+  br i1 %315, label %316, label %323
 
-320:                                              ; preds = %305
+316:                                              ; preds = %308
+  %317 = load ptr, ptr %38, align 8
+  %318 = getelementptr inbounds %struct.TupleConversionMap, ptr %317, i32 0, i32 2
+  %319 = load ptr, ptr %318, align 8
+  %320 = load ptr, ptr %19, align 8
   %321 = load ptr, ptr %37, align 8
-  %322 = load ptr, ptr %19, align 8
-  %323 = call ptr @ExecCopySlot(ptr noundef %321, ptr noundef %322)
-  store ptr %323, ptr %19, align 8
-  br label %324
+  %322 = call ptr @execute_attr_map_slot(ptr noundef %319, ptr noundef %320, ptr noundef %321)
+  store ptr %322, ptr %19, align 8
+  br label %327
 
-324:                                              ; preds = %320, %313
-  %325 = load ptr, ptr %13, align 8
-  %326 = load ptr, ptr %14, align 8
-  %327 = call ptr @ExecGetTriggerNewSlot(ptr noundef %325, ptr noundef %326)
-  store ptr %327, ptr %37, align 8
-  %328 = load ptr, ptr %16, align 8
-  %329 = call ptr @ExecGetChildToRootMap(ptr noundef %328)
-  store ptr %329, ptr %38, align 8
-  %330 = load ptr, ptr %38, align 8
-  %331 = icmp ne ptr %330, null
-  br i1 %331, label %332, label %339
+323:                                              ; preds = %308
+  %324 = load ptr, ptr %37, align 8
+  %325 = load ptr, ptr %19, align 8
+  %326 = call ptr @ExecCopySlot(ptr noundef %324, ptr noundef %325)
+  store ptr %326, ptr %19, align 8
+  br label %327
 
-332:                                              ; preds = %324
+327:                                              ; preds = %323, %316
+  %328 = load ptr, ptr %13, align 8
+  %329 = load ptr, ptr %14, align 8
+  %330 = call ptr @ExecGetTriggerNewSlot(ptr noundef %328, ptr noundef %329)
+  store ptr %330, ptr %37, align 8
+  %331 = load ptr, ptr %16, align 8
+  %332 = call ptr @ExecGetChildToRootMap(ptr noundef %331)
+  store ptr %332, ptr %38, align 8
   %333 = load ptr, ptr %38, align 8
-  %334 = getelementptr inbounds %struct.TupleConversionMap, ptr %333, i32 0, i32 2
-  %335 = load ptr, ptr %334, align 8
-  %336 = load ptr, ptr %20, align 8
-  %337 = load ptr, ptr %37, align 8
-  %338 = call ptr @execute_attr_map_slot(ptr noundef %335, ptr noundef %336, ptr noundef %337)
-  store ptr %338, ptr %20, align 8
-  br label %343
+  %334 = icmp ne ptr %333, null
+  br i1 %334, label %335, label %342
 
-339:                                              ; preds = %324
+335:                                              ; preds = %327
+  %336 = load ptr, ptr %38, align 8
+  %337 = getelementptr inbounds %struct.TupleConversionMap, ptr %336, i32 0, i32 2
+  %338 = load ptr, ptr %337, align 8
+  %339 = load ptr, ptr %20, align 8
   %340 = load ptr, ptr %37, align 8
-  %341 = load ptr, ptr %20, align 8
-  %342 = call ptr @ExecCopySlot(ptr noundef %340, ptr noundef %341)
-  store ptr %342, ptr %20, align 8
-  br label %343
+  %341 = call ptr @execute_attr_map_slot(ptr noundef %338, ptr noundef %339, ptr noundef %340)
+  store ptr %341, ptr %20, align 8
+  br label %346
 
-343:                                              ; preds = %339, %332
-  br label %344
+342:                                              ; preds = %327
+  %343 = load ptr, ptr %37, align 8
+  %344 = load ptr, ptr %20, align 8
+  %345 = call ptr @ExecCopySlot(ptr noundef %343, ptr noundef %344)
+  store ptr %345, ptr %20, align 8
+  br label %346
 
-344:                                              ; preds = %343, %297, %291
+346:                                              ; preds = %342, %335
+  br label %347
+
+347:                                              ; preds = %346, %300, %294
   store i32 0, ptr %32, align 4
-  br label %345
+  br label %348
 
-345:                                              ; preds = %531, %344
-  %346 = load i32, ptr %32, align 4
-  %347 = load ptr, ptr %26, align 8
-  %348 = getelementptr inbounds %struct.TriggerDesc, ptr %347, i32 0, i32 1
-  %349 = load i32, ptr %348, align 8
-  %350 = icmp slt i32 %346, %349
-  br i1 %350, label %351, label %534
+348:                                              ; preds = %536, %347
+  %349 = load i32, ptr %32, align 4
+  %350 = load ptr, ptr %26, align 8
+  %351 = getelementptr inbounds %struct.TriggerDesc, ptr %350, i32 0, i32 1
+  %352 = load i32, ptr %351, align 8
+  %353 = icmp slt i32 %349, %352
+  br i1 %353, label %354, label %539
 
-351:                                              ; preds = %345
-  %352 = load ptr, ptr %26, align 8
-  %353 = getelementptr inbounds %struct.TriggerDesc, ptr %352, i32 0, i32 0
-  %354 = load ptr, ptr %353, align 8
-  %355 = load i32, ptr %32, align 4
-  %356 = sext i32 %355 to i64
-  %357 = getelementptr %struct.Trigger, ptr %354, i64 %356
-  store ptr %357, ptr %39, align 8
-  %358 = load ptr, ptr %39, align 8
-  %359 = getelementptr inbounds %struct.Trigger, ptr %358, i32 0, i32 3
-  %360 = load i16, ptr %359, align 4
-  %361 = sext i16 %360 to i32
-  %362 = load i32, ptr %30, align 4
-  %363 = or i32 67, %362
-  %364 = and i32 %361, %363
-  %365 = load i32, ptr %31, align 4
-  %366 = or i32 %365, 0
-  %367 = load i32, ptr %30, align 4
-  %368 = or i32 %366, %367
-  %369 = icmp eq i32 %364, %368
-  br i1 %369, label %371, label %370
+354:                                              ; preds = %348
+  %355 = load ptr, ptr %26, align 8
+  %356 = getelementptr inbounds %struct.TriggerDesc, ptr %355, i32 0, i32 0
+  %357 = load ptr, ptr %356, align 8
+  %358 = load i32, ptr %32, align 4
+  %359 = sext i32 %358 to i64
+  %360 = getelementptr %struct.Trigger, ptr %357, i64 %359
+  store ptr %360, ptr %39, align 8
+  %361 = load ptr, ptr %39, align 8
+  %362 = getelementptr inbounds %struct.Trigger, ptr %361, i32 0, i32 3
+  %363 = load i16, ptr %362, align 4
+  %364 = sext i16 %363 to i32
+  %365 = load i32, ptr %30, align 4
+  %366 = or i32 67, %365
+  %367 = and i32 %364, %366
+  %368 = load i32, ptr %31, align 4
+  %369 = or i32 %368, 0
+  %370 = load i32, ptr %30, align 4
+  %371 = or i32 %369, %370
+  %372 = icmp eq i32 %367, %371
+  br i1 %372, label %374, label %373
 
-370:                                              ; preds = %351
-  br label %531
+373:                                              ; preds = %354
+  br label %536
 
-371:                                              ; preds = %351
-  %372 = load ptr, ptr %13, align 8
-  %373 = load ptr, ptr %14, align 8
-  %374 = load ptr, ptr %39, align 8
-  %375 = load i32, ptr %17, align 4
-  %376 = load ptr, ptr %22, align 8
-  %377 = load ptr, ptr %19, align 8
-  %378 = load ptr, ptr %20, align 8
-  %379 = call zeroext i1 @TriggerEnabled(ptr noundef %372, ptr noundef %373, ptr noundef %374, i32 noundef %375, ptr noundef %376, ptr noundef %377, ptr noundef %378)
-  br i1 %379, label %381, label %380
+374:                                              ; preds = %354
+  %375 = load ptr, ptr %13, align 8
+  %376 = load ptr, ptr %14, align 8
+  %377 = load ptr, ptr %39, align 8
+  %378 = load i32, ptr %17, align 4
+  %379 = load ptr, ptr %22, align 8
+  %380 = load ptr, ptr %19, align 8
+  %381 = load ptr, ptr %20, align 8
+  %382 = call zeroext i1 @TriggerEnabled(ptr noundef %375, ptr noundef %376, ptr noundef %377, i32 noundef %378, ptr noundef %379, ptr noundef %380, ptr noundef %381)
+  br i1 %382, label %384, label %383
 
-380:                                              ; preds = %371
-  br label %531
+383:                                              ; preds = %374
+  br label %536
 
-381:                                              ; preds = %371
-  %382 = load i8, ptr %29, align 1
-  %383 = sext i8 %382 to i32
-  %384 = icmp eq i32 %383, 102
-  br i1 %384, label %385, label %397
+384:                                              ; preds = %374
+  %385 = load i8, ptr %29, align 1
+  %386 = sext i8 %385 to i32
+  %387 = icmp eq i32 %386, 102
+  br i1 %387, label %388, label %400
 
-385:                                              ; preds = %381
-  %386 = load i8, ptr %18, align 1
-  %387 = trunc i8 %386 to i1
-  br i1 %387, label %388, label %397
-
-388:                                              ; preds = %385
-  %389 = load ptr, ptr %33, align 8
-  %390 = icmp eq ptr %389, null
-  br i1 %390, label %391, label %394
+388:                                              ; preds = %384
+  %389 = load i8, ptr %18, align 1
+  %390 = trunc i8 %389 to i1
+  br i1 %390, label %391, label %400
 
 391:                                              ; preds = %388
-  %392 = call ptr @GetCurrentFDWTuplestore()
-  store ptr %392, ptr %33, align 8
-  %393 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 0
-  store i32 536870912, ptr %393, align 4
-  br label %396
+  %392 = load ptr, ptr %33, align 8
+  %393 = icmp eq ptr %392, null
+  br i1 %393, label %394, label %397
 
-394:                                              ; preds = %388
-  %395 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 0
-  store i32 0, ptr %395, align 4
-  br label %396
+394:                                              ; preds = %391
+  %395 = call ptr @GetCurrentFDWTuplestore()
+  store ptr %395, ptr %33, align 8
+  %396 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 0
+  store i32 536870912, ptr %396, align 4
+  br label %399
 
-396:                                              ; preds = %394, %391
-  br label %397
+397:                                              ; preds = %391
+  %398 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %27, i32 0, i32 0
+  store i32 0, ptr %398, align 4
+  br label %399
 
-397:                                              ; preds = %396, %385, %381
-  %398 = load i32, ptr %17, align 4
-  %399 = and i32 %398, 3
-  %400 = icmp eq i32 %399, 2
-  br i1 %400, label %405, label %401
+399:                                              ; preds = %397, %394
+  br label %400
 
-401:                                              ; preds = %397
-  %402 = load i32, ptr %17, align 4
-  %403 = and i32 %402, 3
-  %404 = icmp eq i32 %403, 1
-  br i1 %404, label %405, label %461
+400:                                              ; preds = %399, %388, %384
+  %401 = load i32, ptr %17, align 4
+  %402 = and i32 %401, 3
+  %403 = icmp eq i32 %402, 2
+  br i1 %403, label %408, label %404
 
-405:                                              ; preds = %401, %397
-  %406 = load ptr, ptr %39, align 8
-  %407 = getelementptr inbounds %struct.Trigger, ptr %406, i32 0, i32 2
-  %408 = load i32, ptr %407, align 8
-  %409 = call i32 @RI_FKey_trigger_type(i32 noundef %408)
-  switch i32 %409, label %460 [
-    i32 1, label %410
-    i32 2, label %431
-    i32 0, label %447
+404:                                              ; preds = %400
+  %405 = load i32, ptr %17, align 4
+  %406 = and i32 %405, 3
+  %407 = icmp eq i32 %406, 1
+  br i1 %407, label %408, label %464
+
+408:                                              ; preds = %404, %400
+  %409 = load ptr, ptr %39, align 8
+  %410 = getelementptr inbounds %struct.Trigger, ptr %409, i32 0, i32 2
+  %411 = load i32, ptr %410, align 8
+  %412 = call i32 @RI_FKey_trigger_type(i32 noundef %411)
+  switch i32 %412, label %463 [
+    i32 1, label %413
+    i32 2, label %434
+    i32 0, label %450
   ]
 
-410:                                              ; preds = %405
-  %411 = load i8, ptr %24, align 1
-  %412 = trunc i8 %411 to i1
-  br i1 %412, label %413, label %423
+413:                                              ; preds = %408
+  %414 = load i8, ptr %24, align 1
+  %415 = trunc i8 %414 to i1
+  br i1 %415, label %416, label %426
 
-413:                                              ; preds = %410
-  %414 = load i32, ptr %17, align 4
-  %415 = and i32 %414, 3
-  %416 = icmp eq i32 %415, 1
-  br i1 %416, label %417, label %423
+416:                                              ; preds = %413
+  %417 = load i32, ptr %17, align 4
+  %418 = and i32 %417, 3
+  %419 = icmp eq i32 %418, 1
+  br i1 %419, label %420, label %426
 
-417:                                              ; preds = %413
-  %418 = load ptr, ptr %39, align 8
-  %419 = getelementptr inbounds %struct.Trigger, ptr %418, i32 0, i32 6
-  %420 = load i8, ptr %419, align 8
-  %421 = trunc i8 %420 to i1
-  br i1 %421, label %422, label %423
+420:                                              ; preds = %416
+  %421 = load ptr, ptr %39, align 8
+  %422 = getelementptr inbounds %struct.Trigger, ptr %421, i32 0, i32 6
+  %423 = load i8, ptr %422, align 8
+  %424 = trunc i8 %423 to i1
+  br i1 %424, label %425, label %426
 
-422:                                              ; preds = %417
-  br label %531
+425:                                              ; preds = %420
+  br label %536
 
-423:                                              ; preds = %417, %413, %410
-  %424 = load ptr, ptr %39, align 8
-  %425 = load ptr, ptr %25, align 8
-  %426 = load ptr, ptr %19, align 8
-  %427 = load ptr, ptr %20, align 8
-  %428 = call zeroext i1 @RI_FKey_pk_upd_check_required(ptr noundef %424, ptr noundef %425, ptr noundef %426, ptr noundef %427)
-  br i1 %428, label %430, label %429
+426:                                              ; preds = %420, %416, %413
+  %427 = load ptr, ptr %39, align 8
+  %428 = load ptr, ptr %25, align 8
+  %429 = load ptr, ptr %19, align 8
+  %430 = load ptr, ptr %20, align 8
+  %431 = call zeroext i1 @RI_FKey_pk_upd_check_required(ptr noundef %427, ptr noundef %428, ptr noundef %429, ptr noundef %430)
+  br i1 %431, label %433, label %432
 
-429:                                              ; preds = %423
-  br label %531
+432:                                              ; preds = %426
+  br label %536
 
-430:                                              ; preds = %423
-  br label %460
+433:                                              ; preds = %426
+  br label %463
 
-431:                                              ; preds = %405
-  %432 = load ptr, ptr %25, align 8
-  %433 = getelementptr inbounds %struct.RelationData, ptr %432, i32 0, i32 13
-  %434 = load ptr, ptr %433, align 8
-  %435 = getelementptr inbounds %struct.FormData_pg_class, ptr %434, i32 0, i32 16
-  %436 = load i8, ptr %435, align 1
-  %437 = sext i8 %436 to i32
-  %438 = icmp eq i32 %437, 112
-  br i1 %438, label %445, label %439
+434:                                              ; preds = %408
+  %435 = load ptr, ptr %25, align 8
+  %436 = getelementptr inbounds %struct.RelationData, ptr %435, i32 0, i32 13
+  %437 = load ptr, ptr %436, align 8
+  %438 = getelementptr inbounds %struct.FormData_pg_class, ptr %437, i32 0, i32 16
+  %439 = load i8, ptr %438, align 1
+  %440 = sext i8 %439 to i32
+  %441 = icmp eq i32 %440, 112
+  br i1 %441, label %448, label %442
 
-439:                                              ; preds = %431
-  %440 = load ptr, ptr %39, align 8
-  %441 = load ptr, ptr %25, align 8
-  %442 = load ptr, ptr %19, align 8
-  %443 = load ptr, ptr %20, align 8
-  %444 = call zeroext i1 @RI_FKey_fk_upd_check_required(ptr noundef %440, ptr noundef %441, ptr noundef %442, ptr noundef %443)
-  br i1 %444, label %446, label %445
+442:                                              ; preds = %434
+  %443 = load ptr, ptr %39, align 8
+  %444 = load ptr, ptr %25, align 8
+  %445 = load ptr, ptr %19, align 8
+  %446 = load ptr, ptr %20, align 8
+  %447 = call zeroext i1 @RI_FKey_fk_upd_check_required(ptr noundef %443, ptr noundef %444, ptr noundef %445, ptr noundef %446)
+  br i1 %447, label %449, label %448
 
-445:                                              ; preds = %439, %431
-  br label %531
+448:                                              ; preds = %442, %434
+  br label %536
 
-446:                                              ; preds = %439
-  br label %460
+449:                                              ; preds = %442
+  br label %463
 
-447:                                              ; preds = %405
-  %448 = load i8, ptr %18, align 1
-  %449 = trunc i8 %448 to i1
-  br i1 %449, label %450, label %459
+450:                                              ; preds = %408
+  %451 = load i8, ptr %18, align 1
+  %452 = trunc i8 %451 to i1
+  br i1 %452, label %453, label %462
 
-450:                                              ; preds = %447
-  %451 = load ptr, ptr %25, align 8
-  %452 = getelementptr inbounds %struct.RelationData, ptr %451, i32 0, i32 13
-  %453 = load ptr, ptr %452, align 8
-  %454 = getelementptr inbounds %struct.FormData_pg_class, ptr %453, i32 0, i32 16
-  %455 = load i8, ptr %454, align 1
-  %456 = sext i8 %455 to i32
-  %457 = icmp eq i32 %456, 112
-  br i1 %457, label %458, label %459
+453:                                              ; preds = %450
+  %454 = load ptr, ptr %25, align 8
+  %455 = getelementptr inbounds %struct.RelationData, ptr %454, i32 0, i32 13
+  %456 = load ptr, ptr %455, align 8
+  %457 = getelementptr inbounds %struct.FormData_pg_class, ptr %456, i32 0, i32 16
+  %458 = load i8, ptr %457, align 1
+  %459 = sext i8 %458 to i32
+  %460 = icmp eq i32 %459, 112
+  br i1 %460, label %461, label %462
 
-458:                                              ; preds = %450
-  br label %531
+461:                                              ; preds = %453
+  br label %536
 
-459:                                              ; preds = %450, %447
-  br label %460
+462:                                              ; preds = %453, %450
+  br label %463
 
-460:                                              ; preds = %459, %446, %430, %405
-  br label %461
+463:                                              ; preds = %462, %449, %433, %408
+  br label %464
 
-461:                                              ; preds = %460, %401
-  %462 = load ptr, ptr %39, align 8
-  %463 = getelementptr inbounds %struct.Trigger, ptr %462, i32 0, i32 2
-  %464 = load i32, ptr %463, align 8
-  %465 = icmp eq i32 %464, 1250
-  br i1 %465, label %466, label %474
+464:                                              ; preds = %463, %404
+  %465 = load ptr, ptr %39, align 8
+  %466 = getelementptr inbounds %struct.Trigger, ptr %465, i32 0, i32 2
+  %467 = load i32, ptr %466, align 8
+  %468 = icmp eq i32 %467, 1250
+  br i1 %468, label %469, label %477
 
-466:                                              ; preds = %461
-  %467 = load ptr, ptr %21, align 8
-  %468 = load ptr, ptr %39, align 8
-  %469 = getelementptr inbounds %struct.Trigger, ptr %468, i32 0, i32 8
-  %470 = load i32, ptr %469, align 8
-  %471 = call zeroext i1 @list_member_oid(ptr noundef %467, i32 noundef %470)
-  br i1 %471, label %473, label %472
+469:                                              ; preds = %464
+  %470 = load ptr, ptr %21, align 8
+  %471 = load ptr, ptr %39, align 8
+  %472 = getelementptr inbounds %struct.Trigger, ptr %471, i32 0, i32 8
+  %473 = load i32, ptr %472, align 8
+  %474 = call zeroext i1 @list_member_oid(ptr noundef %470, i32 noundef %473)
+  br i1 %474, label %476, label %475
 
-472:                                              ; preds = %466
-  br label %531
+475:                                              ; preds = %469
+  br label %536
 
-473:                                              ; preds = %466
-  br label %474
+476:                                              ; preds = %469
+  br label %477
 
-474:                                              ; preds = %473, %461
-  %475 = load i32, ptr %17, align 4
-  %476 = and i32 %475, 3
-  %477 = load i8, ptr %18, align 1
-  %478 = trunc i8 %477 to i1
-  %479 = select i1 %478, i32 4, i32 0
-  %480 = or i32 %476, %479
-  %481 = load ptr, ptr %39, align 8
-  %482 = getelementptr inbounds %struct.Trigger, ptr %481, i32 0, i32 10
-  %483 = load i8, ptr %482, align 8
-  %484 = trunc i8 %483 to i1
-  %485 = select i1 %484, i32 32, i32 0
-  %486 = or i32 %480, %485
-  %487 = load ptr, ptr %39, align 8
-  %488 = getelementptr inbounds %struct.Trigger, ptr %487, i32 0, i32 11
-  %489 = load i8, ptr %488, align 1
-  %490 = trunc i8 %489 to i1
-  %491 = select i1 %490, i32 64, i32 0
-  %492 = or i32 %486, %491
-  %493 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %28, i32 0, i32 0
-  store i32 %492, ptr %493, align 8
-  %494 = load ptr, ptr %39, align 8
-  %495 = getelementptr inbounds %struct.Trigger, ptr %494, i32 0, i32 0
-  %496 = load i32, ptr %495, align 8
-  %497 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %28, i32 0, i32 1
-  store i32 %496, ptr %497, align 4
-  %498 = load ptr, ptr %25, align 8
-  %499 = getelementptr inbounds %struct.RelationData, ptr %498, i32 0, i32 15
-  %500 = load i32, ptr %499, align 8
-  %501 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %28, i32 0, i32 2
-  store i32 %500, ptr %501, align 8
-  %502 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %28, i32 0, i32 3
-  store i32 0, ptr %502, align 4
-  %503 = load ptr, ptr %39, align 8
-  %504 = getelementptr inbounds %struct.Trigger, ptr %503, i32 0, i32 17
-  %505 = load ptr, ptr %504, align 8
-  %506 = icmp ne ptr %505, null
-  br i1 %506, label %512, label %507
+477:                                              ; preds = %476, %464
+  %478 = load i32, ptr %17, align 4
+  %479 = and i32 %478, 3
+  %480 = load i8, ptr %18, align 1
+  %481 = trunc i8 %480 to i1
+  %482 = select i1 %481, i32 4, i32 0
+  %483 = or i32 %479, %482
+  %484 = load ptr, ptr %39, align 8
+  %485 = getelementptr inbounds %struct.Trigger, ptr %484, i32 0, i32 10
+  %486 = load i8, ptr %485, align 8
+  %487 = trunc i8 %486 to i1
+  %488 = select i1 %487, i32 32, i32 0
+  %489 = or i32 %483, %488
+  %490 = load ptr, ptr %39, align 8
+  %491 = getelementptr inbounds %struct.Trigger, ptr %490, i32 0, i32 11
+  %492 = load i8, ptr %491, align 1
+  %493 = trunc i8 %492 to i1
+  %494 = select i1 %493, i32 64, i32 0
+  %495 = or i32 %489, %494
+  %496 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %28, i32 0, i32 0
+  store i32 %495, ptr %496, align 8
+  %497 = load ptr, ptr %39, align 8
+  %498 = getelementptr inbounds %struct.Trigger, ptr %497, i32 0, i32 0
+  %499 = load i32, ptr %498, align 8
+  %500 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %28, i32 0, i32 1
+  store i32 %499, ptr %500, align 4
+  %501 = load ptr, ptr %25, align 8
+  %502 = getelementptr inbounds %struct.RelationData, ptr %501, i32 0, i32 15
+  %503 = load i32, ptr %502, align 8
+  %504 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %28, i32 0, i32 2
+  store i32 %503, ptr %504, align 8
+  %505 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %28, i32 0, i32 3
+  store i32 0, ptr %505, align 4
+  %506 = load ptr, ptr %39, align 8
+  %507 = getelementptr inbounds %struct.Trigger, ptr %506, i32 0, i32 17
+  %508 = load ptr, ptr %507, align 8
+  %509 = icmp ne ptr %508, null
+  br i1 %509, label %515, label %510
 
-507:                                              ; preds = %474
-  %508 = load ptr, ptr %39, align 8
-  %509 = getelementptr inbounds %struct.Trigger, ptr %508, i32 0, i32 18
-  %510 = load ptr, ptr %509, align 8
-  %511 = icmp ne ptr %510, null
-  br i1 %511, label %512, label %520
-
-512:                                              ; preds = %507, %474
-  %513 = load ptr, ptr %23, align 8
+510:                                              ; preds = %477
+  %511 = load ptr, ptr %39, align 8
+  %512 = getelementptr inbounds %struct.Trigger, ptr %511, i32 0, i32 18
+  %513 = load ptr, ptr %512, align 8
   %514 = icmp ne ptr %513, null
-  br i1 %514, label %515, label %520
+  br i1 %514, label %515, label %523
 
-515:                                              ; preds = %512
+515:                                              ; preds = %510, %477
   %516 = load ptr, ptr %23, align 8
-  %517 = getelementptr inbounds %struct.TransitionCaptureState, ptr %516, i32 0, i32 5
-  %518 = load ptr, ptr %517, align 8
-  %519 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %28, i32 0, i32 4
-  store ptr %518, ptr %519, align 8
-  br label %522
+  %517 = icmp ne ptr %516, null
+  br i1 %517, label %518, label %523
 
-520:                                              ; preds = %512, %507
-  %521 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %28, i32 0, i32 4
-  store ptr null, ptr %521, align 8
-  br label %522
+518:                                              ; preds = %515
+  %519 = load ptr, ptr %23, align 8
+  %520 = getelementptr inbounds %struct.TransitionCaptureState, ptr %519, i32 0, i32 5
+  %521 = load ptr, ptr %520, align 8
+  %522 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %28, i32 0, i32 4
+  store ptr %521, ptr %522, align 8
+  br label %525
 
-522:                                              ; preds = %520, %515
-  %523 = load ptr, ptr %22, align 8
-  %524 = call ptr @afterTriggerCopyBitmap(ptr noundef %523)
-  %525 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %28, i32 0, i32 5
-  store ptr %524, ptr %525, align 8
-  %526 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
-  %527 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %528 = sext i32 %527 to i64
-  %529 = getelementptr %struct.AfterTriggersQueryData, ptr %526, i64 %528
-  %530 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %529, i32 0, i32 0
-  call void @afterTriggerAddEvent(ptr noundef %530, ptr noundef %27, ptr noundef %28)
-  br label %531
+523:                                              ; preds = %515, %510
+  %524 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %28, i32 0, i32 4
+  store ptr null, ptr %524, align 8
+  br label %525
 
-531:                                              ; preds = %522, %472, %458, %445, %429, %422, %380, %370
-  %532 = load i32, ptr %32, align 4
-  %533 = add i32 %532, 1
-  store i32 %533, ptr %32, align 4
-  br label %345, !llvm.loop !31
+525:                                              ; preds = %523, %518
+  %526 = load ptr, ptr %22, align 8
+  %527 = call ptr @afterTriggerCopyBitmap(ptr noundef %526)
+  %528 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %28, i32 0, i32 5
+  store ptr %527, ptr %528, align 8
+  %529 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
+  %530 = load ptr, ptr %529, align 8
+  %531 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %532 = load i32, ptr %531, align 8
+  %533 = sext i32 %532 to i64
+  %534 = getelementptr %struct.AfterTriggersQueryData, ptr %530, i64 %533
+  %535 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %534, i32 0, i32 0
+  call void @afterTriggerAddEvent(ptr noundef %535, ptr noundef %27, ptr noundef %28)
+  br label %536
 
-534:                                              ; preds = %345
-  %535 = load ptr, ptr %33, align 8
-  %536 = icmp ne ptr %535, null
-  br i1 %536, label %537, label %550
+536:                                              ; preds = %525, %475, %461, %448, %432, %425, %383, %373
+  %537 = load i32, ptr %32, align 4
+  %538 = add i32 %537, 1
+  store i32 %538, ptr %32, align 4
+  br label %348, !llvm.loop !31
 
-537:                                              ; preds = %534
-  %538 = load ptr, ptr %19, align 8
-  %539 = icmp ne ptr %538, null
-  br i1 %539, label %540, label %543
+539:                                              ; preds = %348
+  %540 = load ptr, ptr %33, align 8
+  %541 = icmp ne ptr %540, null
+  br i1 %541, label %542, label %555
 
-540:                                              ; preds = %537
-  %541 = load ptr, ptr %33, align 8
-  %542 = load ptr, ptr %19, align 8
-  call void @tuplestore_puttupleslot(ptr noundef %541, ptr noundef %542)
-  br label %543
+542:                                              ; preds = %539
+  %543 = load ptr, ptr %19, align 8
+  %544 = icmp ne ptr %543, null
+  br i1 %544, label %545, label %548
 
-543:                                              ; preds = %540, %537
-  %544 = load ptr, ptr %20, align 8
-  %545 = icmp ne ptr %544, null
-  br i1 %545, label %546, label %549
+545:                                              ; preds = %542
+  %546 = load ptr, ptr %33, align 8
+  %547 = load ptr, ptr %19, align 8
+  call void @tuplestore_puttupleslot(ptr noundef %546, ptr noundef %547)
+  br label %548
 
-546:                                              ; preds = %543
-  %547 = load ptr, ptr %33, align 8
-  %548 = load ptr, ptr %20, align 8
-  call void @tuplestore_puttupleslot(ptr noundef %547, ptr noundef %548)
-  br label %549
+548:                                              ; preds = %545, %542
+  %549 = load ptr, ptr %20, align 8
+  %550 = icmp ne ptr %549, null
+  br i1 %550, label %551, label %554
 
-549:                                              ; preds = %546, %543
-  br label %550
+551:                                              ; preds = %548
+  %552 = load ptr, ptr %33, align 8
+  %553 = load ptr, ptr %20, align 8
+  call void @tuplestore_puttupleslot(ptr noundef %552, ptr noundef %553)
+  br label %554
 
-550:                                              ; preds = %549, %534, %177
+554:                                              ; preds = %551, %548
+  br label %555
+
+555:                                              ; preds = %554, %539, %180
   ret void
 }
 
@@ -11384,7 +11392,7 @@ define dso_local ptr @MakeTransitionCaptureState(ptr noundef %0, i32 noundef %1,
 
 18:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %203
+  br label %206
 
 19:                                               ; preds = %3
   %20 = load i32, ptr %7, align 4
@@ -11515,189 +11523,192 @@ define dso_local ptr @MakeTransitionCaptureState(ptr noundef %0, i32 noundef %1,
 
 88:                                               ; preds = %85
   store ptr null, ptr %4, align 8
-  br label %203
+  br label %206
 
 89:                                               ; preds = %85, %82, %79, %76
-  %90 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %91 = icmp slt i32 %90, 0
-  br i1 %91, label %92, label %102
+  %90 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %91 = load i32, ptr %90, align 8
+  %92 = icmp slt i32 %91, 0
+  br i1 %92, label %93, label %103
 
-92:                                               ; preds = %89
-  br label %93
-
-93:                                               ; preds = %92
-  br i1 true, label %94, label %96
+93:                                               ; preds = %89
+  br label %94
 
 94:                                               ; preds = %93
-  %95 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  br i1 %95, label %98, label %100
+  br i1 true, label %95, label %97
 
-96:                                               ; preds = %93
-  %97 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %97, label %98, label %100
+95:                                               ; preds = %94
+  %96 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %96, label %99, label %101
 
-98:                                               ; preds = %96, %94
-  %99 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.66)
+97:                                               ; preds = %94
+  %98 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %98, label %99, label %101
+
+99:                                               ; preds = %97, %95
+  %100 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.66)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 4936, ptr noundef @__func__.MakeTransitionCaptureState)
-  br label %100
+  br label %101
 
-100:                                              ; preds = %98, %96, %94
+101:                                              ; preds = %99, %97, %95
   unreachable
 
-101:                                              ; No predecessors!
-  br label %102
+102:                                              ; No predecessors!
+  br label %103
 
-102:                                              ; preds = %101, %89
-  %103 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %104 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6), align 4
-  %105 = icmp sge i32 %103, %104
-  br i1 %105, label %106, label %107
+103:                                              ; preds = %102, %89
+  %104 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %105 = load i32, ptr %104, align 8
+  %106 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6
+  %107 = load i32, ptr %106, align 4
+  %108 = icmp sge i32 %105, %107
+  br i1 %108, label %109, label %110
 
-106:                                              ; preds = %102
+109:                                              ; preds = %103
   call void @AfterTriggerEnlargeQueryState()
-  br label %107
+  br label %110
 
-107:                                              ; preds = %106, %102
-  %108 = load i32, ptr %6, align 4
-  %109 = load i32, ptr %7, align 4
-  %110 = call ptr @GetAfterTriggersTableData(i32 noundef %108, i32 noundef %109)
-  store ptr %110, ptr %13, align 8
-  %111 = load ptr, ptr @CurTransactionContext, align 8
-  %112 = call ptr @MemoryContextSwitchTo(ptr noundef %111)
-  store ptr %112, ptr %14, align 8
-  %113 = load ptr, ptr @CurrentResourceOwner, align 8
-  store ptr %113, ptr %15, align 8
-  %114 = load ptr, ptr @CurTransactionResourceOwner, align 8
-  store ptr %114, ptr @CurrentResourceOwner, align 8
-  %115 = load i8, ptr %9, align 1
-  %116 = trunc i8 %115 to i1
-  br i1 %116, label %117, label %127
+110:                                              ; preds = %109, %103
+  %111 = load i32, ptr %6, align 4
+  %112 = load i32, ptr %7, align 4
+  %113 = call ptr @GetAfterTriggersTableData(i32 noundef %111, i32 noundef %112)
+  store ptr %113, ptr %13, align 8
+  %114 = load ptr, ptr @CurTransactionContext, align 8
+  %115 = call ptr @MemoryContextSwitchTo(ptr noundef %114)
+  store ptr %115, ptr %14, align 8
+  %116 = load ptr, ptr @CurrentResourceOwner, align 8
+  store ptr %116, ptr %15, align 8
+  %117 = load ptr, ptr @CurTransactionResourceOwner, align 8
+  store ptr %117, ptr @CurrentResourceOwner, align 8
+  %118 = load i8, ptr %9, align 1
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %120, label %130
 
-117:                                              ; preds = %107
-  %118 = load ptr, ptr %13, align 8
-  %119 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %118, i32 0, i32 6
-  %120 = load ptr, ptr %119, align 8
-  %121 = icmp eq ptr %120, null
-  br i1 %121, label %122, label %127
+120:                                              ; preds = %110
+  %121 = load ptr, ptr %13, align 8
+  %122 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %121, i32 0, i32 6
+  %123 = load ptr, ptr %122, align 8
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %125, label %130
 
-122:                                              ; preds = %117
-  %123 = load i32, ptr @work_mem, align 4
-  %124 = call ptr @tuplestore_begin_heap(i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %123)
-  %125 = load ptr, ptr %13, align 8
-  %126 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %125, i32 0, i32 6
-  store ptr %124, ptr %126, align 8
-  br label %127
+125:                                              ; preds = %120
+  %126 = load i32, ptr @work_mem, align 4
+  %127 = call ptr @tuplestore_begin_heap(i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %126)
+  %128 = load ptr, ptr %13, align 8
+  %129 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %128, i32 0, i32 6
+  store ptr %127, ptr %129, align 8
+  br label %130
 
-127:                                              ; preds = %122, %117, %107
-  %128 = load i8, ptr %10, align 1
-  %129 = trunc i8 %128 to i1
-  br i1 %129, label %130, label %140
+130:                                              ; preds = %125, %120, %110
+  %131 = load i8, ptr %10, align 1
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %133, label %143
 
-130:                                              ; preds = %127
-  %131 = load ptr, ptr %13, align 8
-  %132 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %131, i32 0, i32 7
-  %133 = load ptr, ptr %132, align 8
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %135, label %140
+133:                                              ; preds = %130
+  %134 = load ptr, ptr %13, align 8
+  %135 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %134, i32 0, i32 7
+  %136 = load ptr, ptr %135, align 8
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %138, label %143
 
-135:                                              ; preds = %130
-  %136 = load i32, ptr @work_mem, align 4
-  %137 = call ptr @tuplestore_begin_heap(i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %136)
-  %138 = load ptr, ptr %13, align 8
-  %139 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %138, i32 0, i32 7
-  store ptr %137, ptr %139, align 8
-  br label %140
+138:                                              ; preds = %133
+  %139 = load i32, ptr @work_mem, align 4
+  %140 = call ptr @tuplestore_begin_heap(i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %139)
+  %141 = load ptr, ptr %13, align 8
+  %142 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %141, i32 0, i32 7
+  store ptr %140, ptr %142, align 8
+  br label %143
 
-140:                                              ; preds = %135, %130, %127
-  %141 = load i8, ptr %11, align 1
-  %142 = trunc i8 %141 to i1
-  br i1 %142, label %143, label %153
+143:                                              ; preds = %138, %133, %130
+  %144 = load i8, ptr %11, align 1
+  %145 = trunc i8 %144 to i1
+  br i1 %145, label %146, label %156
 
-143:                                              ; preds = %140
-  %144 = load ptr, ptr %13, align 8
-  %145 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %144, i32 0, i32 8
-  %146 = load ptr, ptr %145, align 8
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %148, label %153
+146:                                              ; preds = %143
+  %147 = load ptr, ptr %13, align 8
+  %148 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %147, i32 0, i32 8
+  %149 = load ptr, ptr %148, align 8
+  %150 = icmp eq ptr %149, null
+  br i1 %150, label %151, label %156
 
-148:                                              ; preds = %143
-  %149 = load i32, ptr @work_mem, align 4
-  %150 = call ptr @tuplestore_begin_heap(i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %149)
-  %151 = load ptr, ptr %13, align 8
-  %152 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %151, i32 0, i32 8
-  store ptr %150, ptr %152, align 8
-  br label %153
+151:                                              ; preds = %146
+  %152 = load i32, ptr @work_mem, align 4
+  %153 = call ptr @tuplestore_begin_heap(i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %152)
+  %154 = load ptr, ptr %13, align 8
+  %155 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %154, i32 0, i32 8
+  store ptr %153, ptr %155, align 8
+  br label %156
 
-153:                                              ; preds = %148, %143, %140
-  %154 = load i8, ptr %12, align 1
-  %155 = trunc i8 %154 to i1
-  br i1 %155, label %156, label %166
+156:                                              ; preds = %151, %146, %143
+  %157 = load i8, ptr %12, align 1
+  %158 = trunc i8 %157 to i1
+  br i1 %158, label %159, label %169
 
-156:                                              ; preds = %153
-  %157 = load ptr, ptr %13, align 8
-  %158 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %157, i32 0, i32 9
-  %159 = load ptr, ptr %158, align 8
-  %160 = icmp eq ptr %159, null
-  br i1 %160, label %161, label %166
+159:                                              ; preds = %156
+  %160 = load ptr, ptr %13, align 8
+  %161 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %160, i32 0, i32 9
+  %162 = load ptr, ptr %161, align 8
+  %163 = icmp eq ptr %162, null
+  br i1 %163, label %164, label %169
 
-161:                                              ; preds = %156
-  %162 = load i32, ptr @work_mem, align 4
-  %163 = call ptr @tuplestore_begin_heap(i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %162)
-  %164 = load ptr, ptr %13, align 8
-  %165 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %164, i32 0, i32 9
-  store ptr %163, ptr %165, align 8
-  br label %166
+164:                                              ; preds = %159
+  %165 = load i32, ptr @work_mem, align 4
+  %166 = call ptr @tuplestore_begin_heap(i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %165)
+  %167 = load ptr, ptr %13, align 8
+  %168 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %167, i32 0, i32 9
+  store ptr %166, ptr %168, align 8
+  br label %169
 
-166:                                              ; preds = %161, %156, %153
-  %167 = load ptr, ptr %15, align 8
-  store ptr %167, ptr @CurrentResourceOwner, align 8
-  %168 = load ptr, ptr %14, align 8
-  %169 = call ptr @MemoryContextSwitchTo(ptr noundef %168)
-  %170 = call ptr @palloc0(i64 noundef 24)
-  store ptr %170, ptr %8, align 8
-  %171 = load ptr, ptr %5, align 8
-  %172 = getelementptr inbounds %struct.TriggerDesc, ptr %171, i32 0, i32 22
-  %173 = load i8, ptr %172, align 8
-  %174 = trunc i8 %173 to i1
-  %175 = load ptr, ptr %8, align 8
-  %176 = getelementptr inbounds %struct.TransitionCaptureState, ptr %175, i32 0, i32 0
-  %177 = zext i1 %174 to i8
-  store i8 %177, ptr %176, align 8
-  %178 = load ptr, ptr %5, align 8
-  %179 = getelementptr inbounds %struct.TriggerDesc, ptr %178, i32 0, i32 20
-  %180 = load i8, ptr %179, align 2
-  %181 = trunc i8 %180 to i1
-  %182 = load ptr, ptr %8, align 8
-  %183 = getelementptr inbounds %struct.TransitionCaptureState, ptr %182, i32 0, i32 1
-  %184 = zext i1 %181 to i8
-  store i8 %184, ptr %183, align 1
-  %185 = load ptr, ptr %5, align 8
-  %186 = getelementptr inbounds %struct.TriggerDesc, ptr %185, i32 0, i32 21
-  %187 = load i8, ptr %186, align 1
-  %188 = trunc i8 %187 to i1
-  %189 = load ptr, ptr %8, align 8
-  %190 = getelementptr inbounds %struct.TransitionCaptureState, ptr %189, i32 0, i32 2
-  %191 = zext i1 %188 to i8
-  store i8 %191, ptr %190, align 2
-  %192 = load ptr, ptr %5, align 8
-  %193 = getelementptr inbounds %struct.TriggerDesc, ptr %192, i32 0, i32 19
-  %194 = load i8, ptr %193, align 1
-  %195 = trunc i8 %194 to i1
-  %196 = load ptr, ptr %8, align 8
-  %197 = getelementptr inbounds %struct.TransitionCaptureState, ptr %196, i32 0, i32 3
-  %198 = zext i1 %195 to i8
-  store i8 %198, ptr %197, align 1
-  %199 = load ptr, ptr %13, align 8
-  %200 = load ptr, ptr %8, align 8
-  %201 = getelementptr inbounds %struct.TransitionCaptureState, ptr %200, i32 0, i32 5
-  store ptr %199, ptr %201, align 8
-  %202 = load ptr, ptr %8, align 8
-  store ptr %202, ptr %4, align 8
-  br label %203
+169:                                              ; preds = %164, %159, %156
+  %170 = load ptr, ptr %15, align 8
+  store ptr %170, ptr @CurrentResourceOwner, align 8
+  %171 = load ptr, ptr %14, align 8
+  %172 = call ptr @MemoryContextSwitchTo(ptr noundef %171)
+  %173 = call ptr @palloc0(i64 noundef 24)
+  store ptr %173, ptr %8, align 8
+  %174 = load ptr, ptr %5, align 8
+  %175 = getelementptr inbounds %struct.TriggerDesc, ptr %174, i32 0, i32 22
+  %176 = load i8, ptr %175, align 8
+  %177 = trunc i8 %176 to i1
+  %178 = load ptr, ptr %8, align 8
+  %179 = getelementptr inbounds %struct.TransitionCaptureState, ptr %178, i32 0, i32 0
+  %180 = zext i1 %177 to i8
+  store i8 %180, ptr %179, align 8
+  %181 = load ptr, ptr %5, align 8
+  %182 = getelementptr inbounds %struct.TriggerDesc, ptr %181, i32 0, i32 20
+  %183 = load i8, ptr %182, align 2
+  %184 = trunc i8 %183 to i1
+  %185 = load ptr, ptr %8, align 8
+  %186 = getelementptr inbounds %struct.TransitionCaptureState, ptr %185, i32 0, i32 1
+  %187 = zext i1 %184 to i8
+  store i8 %187, ptr %186, align 1
+  %188 = load ptr, ptr %5, align 8
+  %189 = getelementptr inbounds %struct.TriggerDesc, ptr %188, i32 0, i32 21
+  %190 = load i8, ptr %189, align 1
+  %191 = trunc i8 %190 to i1
+  %192 = load ptr, ptr %8, align 8
+  %193 = getelementptr inbounds %struct.TransitionCaptureState, ptr %192, i32 0, i32 2
+  %194 = zext i1 %191 to i8
+  store i8 %194, ptr %193, align 2
+  %195 = load ptr, ptr %5, align 8
+  %196 = getelementptr inbounds %struct.TriggerDesc, ptr %195, i32 0, i32 19
+  %197 = load i8, ptr %196, align 1
+  %198 = trunc i8 %197 to i1
+  %199 = load ptr, ptr %8, align 8
+  %200 = getelementptr inbounds %struct.TransitionCaptureState, ptr %199, i32 0, i32 3
+  %201 = zext i1 %198 to i8
+  store i8 %201, ptr %200, align 1
+  %202 = load ptr, ptr %13, align 8
+  %203 = load ptr, ptr %8, align 8
+  %204 = getelementptr inbounds %struct.TransitionCaptureState, ptr %203, i32 0, i32 5
+  store ptr %202, ptr %204, align 8
+  %205 = load ptr, ptr %8, align 8
+  store ptr %205, ptr %4, align 8
+  br label %206
 
-203:                                              ; preds = %166, %88, %18
-  %204 = load ptr, ptr %4, align 8
-  ret ptr %204
+206:                                              ; preds = %169, %88, %18
+  %207 = load ptr, ptr %4, align 8
+  ret ptr %207
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11707,111 +11718,125 @@ define internal void @AfterTriggerEnlargeQueryState() #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6), align 4
-  store i32 %6, ptr %1, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6), align 4
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %25
+  %6 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6
+  %7 = load i32, ptr %6, align 4
+  store i32 %7, ptr %1, align 4
+  %8 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %31
 
-9:                                                ; preds = %0
-  %10 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %11 = add i32 %10, 1
-  %12 = icmp sgt i32 %11, 8
-  br i1 %12, label %13, label %16
+11:                                               ; preds = %0
+  %12 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %13 = load i32, ptr %12, align 8
+  %14 = add i32 %13, 1
+  %15 = icmp sgt i32 %14, 8
+  br i1 %15, label %16, label %20
 
-13:                                               ; preds = %9
-  %14 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %15 = add i32 %14, 1
-  br label %17
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %18 = load i32, ptr %17, align 8
+  %19 = add i32 %18, 1
+  br label %21
 
-16:                                               ; preds = %9
-  br label %17
+20:                                               ; preds = %11
+  br label %21
 
-17:                                               ; preds = %16, %13
-  %18 = phi i32 [ %15, %13 ], [ 8, %16 ]
-  store i32 %18, ptr %2, align 4
-  %19 = load ptr, ptr @TopTransactionContext, align 8
-  %20 = load i32, ptr %2, align 4
-  %21 = sext i32 %20 to i64
-  %22 = mul i64 %21, 40
-  %23 = call ptr @MemoryContextAlloc(ptr noundef %19, i64 noundef %22)
-  store ptr %23, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
+21:                                               ; preds = %20, %16
+  %22 = phi i32 [ %19, %16 ], [ 8, %20 ]
+  store i32 %22, ptr %2, align 4
+  %23 = load ptr, ptr @TopTransactionContext, align 8
   %24 = load i32, ptr %2, align 4
-  store i32 %24, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6), align 4
-  br label %46
+  %25 = sext i32 %24 to i64
+  %26 = mul i64 %25, 40
+  %27 = call ptr @MemoryContextAlloc(ptr noundef %23, i64 noundef %26)
+  %28 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
+  store ptr %27, ptr %28, align 8
+  %29 = load i32, ptr %2, align 4
+  %30 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6
+  store i32 %29, ptr %30, align 4
+  br label %58
 
-25:                                               ; preds = %0
-  %26 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6), align 4
-  store i32 %26, ptr %3, align 4
-  %27 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %28 = add i32 %27, 1
-  %29 = load i32, ptr %3, align 4
-  %30 = mul i32 %29, 2
-  %31 = icmp sgt i32 %28, %30
-  br i1 %31, label %32, label %35
+31:                                               ; preds = %0
+  %32 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6
+  %33 = load i32, ptr %32, align 4
+  store i32 %33, ptr %3, align 4
+  %34 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %35 = load i32, ptr %34, align 8
+  %36 = add i32 %35, 1
+  %37 = load i32, ptr %3, align 4
+  %38 = mul i32 %37, 2
+  %39 = icmp sgt i32 %36, %38
+  br i1 %39, label %40, label %44
 
-32:                                               ; preds = %25
-  %33 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %34 = add i32 %33, 1
-  br label %38
-
-35:                                               ; preds = %25
-  %36 = load i32, ptr %3, align 4
-  %37 = mul i32 %36, 2
-  br label %38
-
-38:                                               ; preds = %35, %32
-  %39 = phi i32 [ %34, %32 ], [ %37, %35 ]
-  store i32 %39, ptr %4, align 4
-  %40 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
-  %41 = load i32, ptr %4, align 4
-  %42 = sext i32 %41 to i64
-  %43 = mul i64 %42, 40
-  %44 = call ptr @repalloc(ptr noundef %40, i64 noundef %43)
-  store ptr %44, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
-  %45 = load i32, ptr %4, align 4
-  store i32 %45, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6), align 4
-  br label %46
-
-46:                                               ; preds = %38, %17
+40:                                               ; preds = %31
+  %41 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %42 = load i32, ptr %41, align 8
+  %43 = add i32 %42, 1
   br label %47
 
-47:                                               ; preds = %51, %46
-  %48 = load i32, ptr %1, align 4
-  %49 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6), align 4
-  %50 = icmp slt i32 %48, %49
-  br i1 %50, label %51, label %71
+44:                                               ; preds = %31
+  %45 = load i32, ptr %3, align 4
+  %46 = mul i32 %45, 2
+  br label %47
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
-  %53 = load i32, ptr %1, align 4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr %struct.AfterTriggersQueryData, ptr %52, i64 %54
-  store ptr %55, ptr %5, align 8
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %56, i32 0, i32 0
-  %58 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %57, i32 0, i32 0
-  store ptr null, ptr %58, align 8
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %59, i32 0, i32 0
-  %61 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %60, i32 0, i32 1
-  store ptr null, ptr %61, align 8
-  %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %62, i32 0, i32 0
-  %64 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %63, i32 0, i32 2
-  store ptr null, ptr %64, align 8
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %65, i32 0, i32 1
-  store ptr null, ptr %66, align 8
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %67, i32 0, i32 2
-  store ptr null, ptr %68, align 8
-  %69 = load i32, ptr %1, align 4
-  %70 = add i32 %69, 1
-  store i32 %70, ptr %1, align 4
-  br label %47, !llvm.loop !41
+47:                                               ; preds = %44, %40
+  %48 = phi i32 [ %43, %40 ], [ %46, %44 ]
+  store i32 %48, ptr %4, align 4
+  %49 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
+  %50 = load ptr, ptr %49, align 8
+  %51 = load i32, ptr %4, align 4
+  %52 = sext i32 %51 to i64
+  %53 = mul i64 %52, 40
+  %54 = call ptr @repalloc(ptr noundef %50, i64 noundef %53)
+  %55 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
+  store ptr %54, ptr %55, align 8
+  %56 = load i32, ptr %4, align 4
+  %57 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6
+  store i32 %56, ptr %57, align 4
+  br label %58
 
-71:                                               ; preds = %47
+58:                                               ; preds = %47, %21
+  br label %59
+
+59:                                               ; preds = %64, %58
+  %60 = load i32, ptr %1, align 4
+  %61 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp slt i32 %60, %62
+  br i1 %63, label %64, label %85
+
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
+  %66 = load ptr, ptr %65, align 8
+  %67 = load i32, ptr %1, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr %struct.AfterTriggersQueryData, ptr %66, i64 %68
+  store ptr %69, ptr %5, align 8
+  %70 = load ptr, ptr %5, align 8
+  %71 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %70, i32 0, i32 0
+  %72 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %71, i32 0, i32 0
+  store ptr null, ptr %72, align 8
+  %73 = load ptr, ptr %5, align 8
+  %74 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %73, i32 0, i32 0
+  %75 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %74, i32 0, i32 1
+  store ptr null, ptr %75, align 8
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %76, i32 0, i32 0
+  %78 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %77, i32 0, i32 2
+  store ptr null, ptr %78, align 8
+  %79 = load ptr, ptr %5, align 8
+  %80 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %79, i32 0, i32 1
+  store ptr null, ptr %80, align 8
+  %81 = load ptr, ptr %5, align 8
+  %82 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %81, i32 0, i32 2
+  store ptr null, ptr %82, align 8
+  %83 = load i32, ptr %1, align 4
+  %84 = add i32 %83, 1
+  store i32 %84, ptr %1, align 4
+  br label %59, !llvm.loop !41
+
+85:                                               ; preds = %59
   ret void
 }
 
@@ -11827,129 +11852,131 @@ define internal ptr @GetAfterTriggersTableData(i32 noundef %0, i32 noundef %1) #
   %10 = alloca %struct.ForEachState, align 8
   store i32 %0, ptr %4, align 4
   store i32 %1, ptr %5, align 4
-  %11 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
-  %12 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct.AfterTriggersQueryData, ptr %11, i64 %13
-  store ptr %14, ptr %7, align 8
-  %15 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 0
-  %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %15, align 8
-  %19 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 1
-  store i32 0, ptr %19, align 8
-  br label %20
+  %11 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %14 = load i32, ptr %13, align 8
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr %struct.AfterTriggersQueryData, ptr %12, i64 %15
+  store ptr %16, ptr %7, align 8
+  %17 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 0
+  %18 = load ptr, ptr %7, align 8
+  %19 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %17, align 8
+  %21 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 1
+  store i32 0, ptr %21, align 8
+  br label %22
 
-20:                                               ; preds = %67, %2
-  %21 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %41
+22:                                               ; preds = %69, %2
+  %23 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %43
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 1
-  %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.List, ptr %28, i32 0, i32 1
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp slt i32 %26, %30
-  br i1 %31, label %32, label %41
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 1
+  %28 = load i32, ptr %27, align 8
+  %29 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %struct.List, ptr %30, i32 0, i32 1
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp slt i32 %28, %32
+  br i1 %33, label %34, label %43
 
-32:                                               ; preds = %24
-  %33 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.List, ptr %34, i32 0, i32 3
+34:                                               ; preds = %26
+  %35 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 0
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 1
-  %38 = load i32, ptr %37, align 8
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr %union.ListCell, ptr %36, i64 %39
-  store ptr %40, ptr %9, align 8
-  br label %42
+  %37 = getelementptr inbounds %struct.List, ptr %36, i32 0, i32 3
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 1
+  %40 = load i32, ptr %39, align 8
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr %union.ListCell, ptr %38, i64 %41
+  store ptr %42, ptr %9, align 8
+  br label %44
 
-41:                                               ; preds = %24, %20
+43:                                               ; preds = %26, %22
   store ptr null, ptr %9, align 8
-  br label %42
+  br label %44
 
-42:                                               ; preds = %41, %32
-  %43 = phi i32 [ 1, %32 ], [ 0, %41 ]
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %45, label %71
+44:                                               ; preds = %43, %34
+  %45 = phi i32 [ 1, %34 ], [ 0, %43 ]
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %73
 
-45:                                               ; preds = %42
-  %46 = load ptr, ptr %9, align 8
-  %47 = load ptr, ptr %46, align 8
-  store ptr %47, ptr %6, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %48, i32 0, i32 0
-  %50 = load i32, ptr %49, align 8
-  %51 = load i32, ptr %4, align 4
-  %52 = icmp eq i32 %50, %51
-  br i1 %52, label %53, label %66
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %9, align 8
+  %49 = load ptr, ptr %48, align 8
+  store ptr %49, ptr %6, align 8
+  %50 = load ptr, ptr %6, align 8
+  %51 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %50, i32 0, i32 0
+  %52 = load i32, ptr %51, align 8
+  %53 = load i32, ptr %4, align 4
+  %54 = icmp eq i32 %52, %53
+  br i1 %54, label %55, label %68
 
-53:                                               ; preds = %45
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %54, i32 0, i32 1
-  %56 = load i32, ptr %55, align 4
-  %57 = load i32, ptr %5, align 4
-  %58 = icmp eq i32 %56, %57
-  br i1 %58, label %59, label %66
+55:                                               ; preds = %47
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %56, i32 0, i32 1
+  %58 = load i32, ptr %57, align 4
+  %59 = load i32, ptr %5, align 4
+  %60 = icmp eq i32 %58, %59
+  br i1 %60, label %61, label %68
 
-59:                                               ; preds = %53
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %60, i32 0, i32 2
-  %62 = load i8, ptr %61, align 8
-  %63 = trunc i8 %62 to i1
-  br i1 %63, label %66, label %64
+61:                                               ; preds = %55
+  %62 = load ptr, ptr %6, align 8
+  %63 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %62, i32 0, i32 2
+  %64 = load i8, ptr %63, align 8
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %68, label %66
 
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %6, align 8
-  store ptr %65, ptr %3, align 8
-  br label %91
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %6, align 8
+  store ptr %67, ptr %3, align 8
+  br label %93
 
-66:                                               ; preds = %59, %53, %45
-  br label %67
+68:                                               ; preds = %61, %55, %47
+  br label %69
 
-67:                                               ; preds = %66
-  %68 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 1
-  %69 = load i32, ptr %68, align 8
-  %70 = add i32 %69, 1
-  store i32 %70, ptr %68, align 8
-  br label %20, !llvm.loop !42
+69:                                               ; preds = %68
+  %70 = getelementptr inbounds %struct.ForEachState, ptr %10, i32 0, i32 1
+  %71 = load i32, ptr %70, align 8
+  %72 = add i32 %71, 1
+  store i32 %72, ptr %70, align 8
+  br label %22, !llvm.loop !42
 
-71:                                               ; preds = %42
-  %72 = load ptr, ptr @CurTransactionContext, align 8
-  %73 = call ptr @MemoryContextSwitchTo(ptr noundef %72)
-  store ptr %73, ptr %8, align 8
-  %74 = call ptr @palloc0(i64 noundef 80)
-  store ptr %74, ptr %6, align 8
-  %75 = load i32, ptr %4, align 4
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %76, i32 0, i32 0
-  store i32 %75, ptr %77, align 8
-  %78 = load i32, ptr %5, align 4
-  %79 = load ptr, ptr %6, align 8
-  %80 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %79, i32 0, i32 1
-  store i32 %78, ptr %80, align 4
-  %81 = load ptr, ptr %7, align 8
-  %82 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %81, i32 0, i32 2
-  %83 = load ptr, ptr %82, align 8
-  %84 = load ptr, ptr %6, align 8
-  %85 = call ptr @lappend(ptr noundef %83, ptr noundef %84)
-  %86 = load ptr, ptr %7, align 8
-  %87 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %86, i32 0, i32 2
-  store ptr %85, ptr %87, align 8
-  %88 = load ptr, ptr %8, align 8
-  %89 = call ptr @MemoryContextSwitchTo(ptr noundef %88)
-  %90 = load ptr, ptr %6, align 8
-  store ptr %90, ptr %3, align 8
-  br label %91
+73:                                               ; preds = %44
+  %74 = load ptr, ptr @CurTransactionContext, align 8
+  %75 = call ptr @MemoryContextSwitchTo(ptr noundef %74)
+  store ptr %75, ptr %8, align 8
+  %76 = call ptr @palloc0(i64 noundef 80)
+  store ptr %76, ptr %6, align 8
+  %77 = load i32, ptr %4, align 4
+  %78 = load ptr, ptr %6, align 8
+  %79 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %78, i32 0, i32 0
+  store i32 %77, ptr %79, align 8
+  %80 = load i32, ptr %5, align 4
+  %81 = load ptr, ptr %6, align 8
+  %82 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %81, i32 0, i32 1
+  store i32 %80, ptr %82, align 4
+  %83 = load ptr, ptr %7, align 8
+  %84 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %83, i32 0, i32 2
+  %85 = load ptr, ptr %84, align 8
+  %86 = load ptr, ptr %6, align 8
+  %87 = call ptr @lappend(ptr noundef %85, ptr noundef %86)
+  %88 = load ptr, ptr %7, align 8
+  %89 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %88, i32 0, i32 2
+  store ptr %87, ptr %89, align 8
+  %90 = load ptr, ptr %8, align 8
+  %91 = call ptr @MemoryContextSwitchTo(ptr noundef %90)
+  %92 = load ptr, ptr %6, align 8
+  store ptr %92, ptr %3, align 8
+  br label %93
 
-91:                                               ; preds = %71, %64
-  %92 = load ptr, ptr %3, align 8
-  ret ptr %92
+93:                                               ; preds = %73, %66
+  %94 = load ptr, ptr %3, align 8
+  ret ptr %94
 }
 
 declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 noundef) #2
@@ -11957,15 +11984,18 @@ declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 n
 ; Function Attrs: nounwind uwtable
 define dso_local void @AfterTriggerBeginXact() #0 {
   store i32 1, ptr @afterTriggers, align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
+  %1 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  store i32 -1, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AfterTriggerBeginQuery() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %2 = add i32 %1, 1
-  store i32 %2, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
+  %1 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %2 = load i32, ptr %1, align 8
+  %3 = add i32 %2, 1
+  %4 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  store i32 %3, ptr %4, align 8
   ret void
 }
 
@@ -11976,94 +12006,107 @@ define dso_local void @AfterTriggerEndQuery(ptr noundef %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6), align 4
-  %8 = icmp sge i32 %6, %7
-  br i1 %8, label %9, label %12
+  %6 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %7 = load i32, ptr %6, align 8
+  %8 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp sge i32 %7, %9
+  br i1 %10, label %11, label %16
 
-9:                                                ; preds = %1
-  %10 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %11 = add i32 %10, -1
-  store i32 %11, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  br label %58
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %13 = load i32, ptr %12, align 8
+  %14 = add i32 %13, -1
+  %15 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  store i32 %14, ptr %15, align 8
+  br label %71
 
-12:                                               ; preds = %1
-  %13 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
-  %14 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct.AfterTriggersQueryData, ptr %13, i64 %15
-  store ptr %16, ptr %3, align 8
-  br label %17
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %20 = load i32, ptr %19, align 8
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr %struct.AfterTriggersQueryData, ptr %18, i64 %21
+  store ptr %22, ptr %3, align 8
+  br label %23
 
-17:                                               ; preds = %50, %12
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %18, i32 0, i32 0
-  %20 = call zeroext i1 @afterTriggerMarkEvents(ptr noundef %19, ptr noundef getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2), i1 noundef zeroext true)
-  br i1 %20, label %21, label %49
-
-21:                                               ; preds = %17
-  %22 = load i32, ptr @afterTriggers, align 8
-  %23 = add i32 %22, 1
-  store i32 %23, ptr @afterTriggers, align 8
-  store i32 %22, ptr %4, align 4
+23:                                               ; preds = %59, %16
   %24 = load ptr, ptr %3, align 8
   %25 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %24, i32 0, i32 0
-  %26 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %25, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %5, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %28, i32 0, i32 0
-  %30 = load i32, ptr %4, align 4
-  %31 = load ptr, ptr %2, align 8
-  %32 = call zeroext i1 @afterTriggerInvokeEvents(ptr noundef %29, i32 noundef %30, ptr noundef %31, i1 noundef zeroext false)
-  br i1 %32, label %33, label %34
+  %26 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2
+  %27 = call zeroext i1 @afterTriggerMarkEvents(ptr noundef %25, ptr noundef %26, i1 noundef zeroext true)
+  br i1 %27, label %28, label %58
 
-33:                                               ; preds = %21
-  br label %51
+28:                                               ; preds = %23
+  %29 = load i32, ptr @afterTriggers, align 8
+  %30 = add i32 %29, 1
+  store i32 %30, ptr @afterTriggers, align 8
+  store i32 %29, ptr %4, align 4
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %5, align 8
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %35, i32 0, i32 0
+  %37 = load i32, ptr %4, align 4
+  %38 = load ptr, ptr %2, align 8
+  %39 = call zeroext i1 @afterTriggerInvokeEvents(ptr noundef %36, i32 noundef %37, ptr noundef %38, i1 noundef zeroext false)
+  br i1 %39, label %40, label %41
 
-34:                                               ; preds = %21
-  %35 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.AfterTriggersQueryData, ptr %35, i64 %37
-  store ptr %38, ptr %3, align 8
-  br label %39
+40:                                               ; preds = %28
+  br label %60
 
-39:                                               ; preds = %46, %34
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %40, i32 0, i32 0
-  %42 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %41, i32 0, i32 0
+41:                                               ; preds = %28
+  %42 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
   %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %5, align 8
-  %45 = icmp ne ptr %43, %44
-  br i1 %45, label %46, label %48
+  %44 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %45 = load i32, ptr %44, align 8
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr %struct.AfterTriggersQueryData, ptr %43, i64 %46
+  store ptr %47, ptr %3, align 8
+  br label %48
 
-46:                                               ; preds = %39
-  %47 = load ptr, ptr %3, align 8
-  call void @afterTriggerDeleteHeadEventChunk(ptr noundef %47)
-  br label %39, !llvm.loop !43
+48:                                               ; preds = %55, %41
+  %49 = load ptr, ptr %3, align 8
+  %50 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %49, i32 0, i32 0
+  %51 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = load ptr, ptr %5, align 8
+  %54 = icmp ne ptr %52, %53
+  br i1 %54, label %55, label %57
 
-48:                                               ; preds = %39
-  br label %50
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %3, align 8
+  call void @afterTriggerDeleteHeadEventChunk(ptr noundef %56)
+  br label %48, !llvm.loop !43
 
-49:                                               ; preds = %17
-  br label %51
+57:                                               ; preds = %48
+  br label %59
 
-50:                                               ; preds = %48
-  br label %17
+58:                                               ; preds = %23
+  br label %60
 
-51:                                               ; preds = %49, %33
-  %52 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr %struct.AfterTriggersQueryData, ptr %52, i64 %54
-  call void @AfterTriggerFreeQuery(ptr noundef %55)
-  %56 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %57 = add i32 %56, -1
-  store i32 %57, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  br label %58
+59:                                               ; preds = %57
+  br label %23
 
-58:                                               ; preds = %51, %9
+60:                                               ; preds = %58, %40
+  %61 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %64 = load i32, ptr %63, align 8
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr %struct.AfterTriggersQueryData, ptr %62, i64 %65
+  call void @AfterTriggerFreeQuery(ptr noundef %66)
+  %67 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %68 = load i32, ptr %67, align 8
+  %69 = add i32 %68, -1
+  %70 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  store i32 %69, ptr %70, align 8
+  br label %71
+
+71:                                               ; preds = %60, %11
   ret void
 }
 
@@ -13006,53 +13049,54 @@ define dso_local void @AfterTriggerFireDeferred() #0 {
   %2 = alloca i8, align 1
   %3 = alloca i32, align 4
   store i8 0, ptr %2, align 1
-  store ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2), ptr %1, align 8
-  %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %10
+  %4 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2
+  store ptr %4, ptr %1, align 8
+  %5 = load ptr, ptr %1, align 8
+  %6 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %11
 
-8:                                                ; preds = %0
-  %9 = call ptr @GetTransactionSnapshot()
-  call void @PushActiveSnapshot(ptr noundef %9)
+9:                                                ; preds = %0
+  %10 = call ptr @GetTransactionSnapshot()
+  call void @PushActiveSnapshot(ptr noundef %10)
   store i8 1, ptr %2, align 1
-  br label %10
-
-10:                                               ; preds = %8, %0
   br label %11
 
-11:                                               ; preds = %21, %10
-  %12 = load ptr, ptr %1, align 8
-  %13 = call zeroext i1 @afterTriggerMarkEvents(ptr noundef %12, ptr noundef null, i1 noundef zeroext false)
-  br i1 %13, label %14, label %22
+11:                                               ; preds = %9, %0
+  br label %12
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr @afterTriggers, align 8
-  %16 = add i32 %15, 1
-  store i32 %16, ptr @afterTriggers, align 8
-  store i32 %15, ptr %3, align 4
-  %17 = load ptr, ptr %1, align 8
-  %18 = load i32, ptr %3, align 4
-  %19 = call zeroext i1 @afterTriggerInvokeEvents(ptr noundef %17, i32 noundef %18, ptr noundef null, i1 noundef zeroext true)
-  br i1 %19, label %20, label %21
+12:                                               ; preds = %22, %11
+  %13 = load ptr, ptr %1, align 8
+  %14 = call zeroext i1 @afterTriggerMarkEvents(ptr noundef %13, ptr noundef null, i1 noundef zeroext false)
+  br i1 %14, label %15, label %23
 
-20:                                               ; preds = %14
-  br label %22
+15:                                               ; preds = %12
+  %16 = load i32, ptr @afterTriggers, align 8
+  %17 = add i32 %16, 1
+  store i32 %17, ptr @afterTriggers, align 8
+  store i32 %16, ptr %3, align 4
+  %18 = load ptr, ptr %1, align 8
+  %19 = load i32, ptr %3, align 4
+  %20 = call zeroext i1 @afterTriggerInvokeEvents(ptr noundef %18, i32 noundef %19, ptr noundef null, i1 noundef zeroext true)
+  br i1 %20, label %21, label %22
 
-21:                                               ; preds = %14
-  br label %11, !llvm.loop !50
+21:                                               ; preds = %15
+  br label %23
 
-22:                                               ; preds = %20, %11
-  %23 = load i8, ptr %2, align 1
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %25, label %26
+22:                                               ; preds = %15
+  br label %12, !llvm.loop !50
 
-25:                                               ; preds = %22
+23:                                               ; preds = %21, %12
+  %24 = load i8, ptr %2, align 1
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %23
   call void @PopActiveSnapshot()
-  br label %26
+  br label %27
 
-26:                                               ; preds = %25, %22
+27:                                               ; preds = %26, %23
   ret void
 }
 
@@ -13067,26 +13111,38 @@ define dso_local void @AfterTriggerEndXact(i1 noundef zeroext %0) #0 {
   %2 = alloca i8, align 1
   %3 = zext i1 %0 to i8
   store i8 %3, ptr %2, align 1
-  %4 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3), align 8
-  %5 = icmp ne ptr %4, null
-  br i1 %5, label %6, label %8
+  %4 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %14
 
-6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3), align 8
-  call void @MemoryContextDelete(ptr noundef %7)
-  store ptr null, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2, i32 2), align 8
-  br label %8
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3
+  %9 = load ptr, ptr %8, align 8
+  call void @MemoryContextDelete(ptr noundef %9)
+  %10 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3
+  store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2, i32 1
+  store ptr null, ptr %12, align 8
+  %13 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2, i32 2
+  store ptr null, ptr %13, align 8
+  br label %14
 
-8:                                                ; preds = %6, %1
-  store ptr null, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 8), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6), align 4
-  store ptr null, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
+14:                                               ; preds = %7, %1
+  %15 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 8
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1
+  store ptr null, ptr %19, align 8
+  %20 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  store i32 -1, ptr %20, align 8
   ret void
 }
 
@@ -13098,68 +13154,82 @@ define dso_local void @AfterTriggerBeginSubXact() #0 {
   store i32 %3, ptr %1, align 4
   br label %4
 
-4:                                                ; preds = %23, %0
+4:                                                ; preds = %31, %0
   %5 = load i32, ptr %1, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 8), align 8
-  %7 = icmp sge i32 %5, %6
-  br i1 %7, label %8, label %24
+  %6 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 8
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp sge i32 %5, %7
+  br i1 %8, label %9, label %32
 
-8:                                                ; preds = %4
-  %9 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 8), align 8
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %14
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 8
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %18
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr @TopTransactionContext, align 8
-  %13 = call ptr @MemoryContextAlloc(ptr noundef %12, i64 noundef 320)
-  store ptr %13, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  store i32 8, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 8), align 8
-  br label %23
+13:                                               ; preds = %9
+  %14 = load ptr, ptr @TopTransactionContext, align 8
+  %15 = call ptr @MemoryContextAlloc(ptr noundef %14, i64 noundef 320)
+  %16 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  store ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 8
+  store i32 8, ptr %17, align 8
+  br label %31
 
-14:                                               ; preds = %8
-  %15 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 8), align 8
-  %16 = mul i32 %15, 2
-  store i32 %16, ptr %2, align 4
-  %17 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %18 = load i32, ptr %2, align 4
-  %19 = sext i32 %18 to i64
-  %20 = mul i64 %19, 40
-  %21 = call ptr @repalloc(ptr noundef %17, i64 noundef %20)
-  store ptr %21, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %22 = load i32, ptr %2, align 4
-  store i32 %22, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 8), align 8
-  br label %23
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 8
+  %20 = load i32, ptr %19, align 8
+  %21 = mul i32 %20, 2
+  store i32 %21, ptr %2, align 4
+  %22 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i32, ptr %2, align 4
+  %25 = sext i32 %24 to i64
+  %26 = mul i64 %25, 40
+  %27 = call ptr @repalloc(ptr noundef %23, i64 noundef %26)
+  %28 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  store ptr %27, ptr %28, align 8
+  %29 = load i32, ptr %2, align 4
+  %30 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 8
+  store i32 %29, ptr %30, align 8
+  br label %31
 
-23:                                               ; preds = %14, %11
+31:                                               ; preds = %18, %13
   br label %4, !llvm.loop !51
 
-24:                                               ; preds = %4
-  %25 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %26 = load i32, ptr %1, align 4
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr %struct.AfterTriggersTransData, ptr %25, i64 %27
-  %29 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %28, i32 0, i32 0
-  store ptr null, ptr %29, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %31 = load i32, ptr %1, align 4
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr %struct.AfterTriggersTransData, ptr %30, i64 %32
-  %34 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %33, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2), i64 24, i1 false)
-  %35 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %36 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %37 = load i32, ptr %1, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.AfterTriggersTransData, ptr %36, i64 %38
-  %40 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %39, i32 0, i32 2
-  store i32 %35, ptr %40, align 8
-  %41 = load i32, ptr @afterTriggers, align 8
-  %42 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %43 = load i32, ptr %1, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr %struct.AfterTriggersTransData, ptr %42, i64 %44
-  %46 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %45, i32 0, i32 3
-  store i32 %41, ptr %46, align 4
+32:                                               ; preds = %4
+  %33 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i32, ptr %1, align 4
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr %struct.AfterTriggersTransData, ptr %34, i64 %36
+  %38 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %37, i32 0, i32 0
+  store ptr null, ptr %38, align 8
+  %39 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  %40 = load ptr, ptr %39, align 8
+  %41 = load i32, ptr %1, align 4
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr %struct.AfterTriggersTransData, ptr %40, i64 %42
+  %44 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %43, i32 0, i32 1
+  %45 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %45, i64 24, i1 false)
+  %46 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %47 = load i32, ptr %46, align 8
+  %48 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  %49 = load ptr, ptr %48, align 8
+  %50 = load i32, ptr %1, align 4
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr %struct.AfterTriggersTransData, ptr %49, i64 %51
+  %53 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %52, i32 0, i32 2
+  store i32 %47, ptr %53, align 8
+  %54 = load i32, ptr @afterTriggers, align 8
+  %55 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i32, ptr %1, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr %struct.AfterTriggersTransData, ptr %56, i64 %58
+  %60 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %59, i32 0, i32 3
+  store i32 %54, ptr %60, align 4
   ret void
 }
 
@@ -13182,233 +13252,252 @@ define dso_local void @AfterTriggerEndSubXact(i1 noundef zeroext %0) #0 {
   store i32 %10, ptr %3, align 4
   %11 = load i8, ptr %2, align 1
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %30
+  br i1 %12, label %13, label %32
 
 13:                                               ; preds = %1
-  %14 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %15 = load i32, ptr %3, align 4
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr %struct.AfterTriggersTransData, ptr %14, i64 %16
-  %18 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %4, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %24
+  %14 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8
+  %16 = load i32, ptr %3, align 4
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr %struct.AfterTriggersTransData, ptr %15, i64 %17
+  %19 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %4, align 8
+  %21 = load ptr, ptr %4, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %13
-  %23 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %23)
-  br label %24
+23:                                               ; preds = %13
+  %24 = load ptr, ptr %4, align 8
+  call void @pfree(ptr noundef %24)
+  br label %25
 
-24:                                               ; preds = %22, %13
-  %25 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %26 = load i32, ptr %3, align 4
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr %struct.AfterTriggersTransData, ptr %25, i64 %27
-  %29 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %28, i32 0, i32 0
-  store ptr null, ptr %29, align 8
-  br label %158
+25:                                               ; preds = %23, %13
+  %26 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i32, ptr %3, align 4
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr %struct.AfterTriggersTransData, ptr %27, i64 %29
+  %31 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %30, i32 0, i32 0
+  store ptr null, ptr %31, align 8
+  br label %177
 
-30:                                               ; preds = %1
-  %31 = load i32, ptr %3, align 4
-  %32 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 8), align 8
-  %33 = icmp sge i32 %31, %32
-  br i1 %33, label %34, label %35
+32:                                               ; preds = %1
+  %33 = load i32, ptr %3, align 4
+  %34 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 8
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp sge i32 %33, %35
+  br i1 %36, label %37, label %38
 
-34:                                               ; preds = %30
-  br label %158
+37:                                               ; preds = %32
+  br label %177
 
-35:                                               ; preds = %30
-  br label %36
+38:                                               ; preds = %32
+  br label %39
 
-36:                                               ; preds = %54, %35
-  %37 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %38 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %39 = load i32, ptr %3, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr %struct.AfterTriggersTransData, ptr %38, i64 %40
-  %42 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %41, i32 0, i32 2
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp sgt i32 %37, %43
-  br i1 %44, label %45, label %57
+39:                                               ; preds = %63, %38
+  %40 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %41 = load i32, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  %43 = load ptr, ptr %42, align 8
+  %44 = load i32, ptr %3, align 4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr %struct.AfterTriggersTransData, ptr %43, i64 %45
+  %47 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %46, i32 0, i32 2
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp sgt i32 %41, %48
+  br i1 %49, label %50, label %68
 
-45:                                               ; preds = %36
-  %46 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %47 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6), align 4
-  %48 = icmp slt i32 %46, %47
-  br i1 %48, label %49, label %54
+50:                                               ; preds = %39
+  %51 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %52 = load i32, ptr %51, align 8
+  %53 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp slt i32 %52, %54
+  br i1 %55, label %56, label %63
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr %struct.AfterTriggersQueryData, ptr %50, i64 %52
-  call void @AfterTriggerFreeQuery(ptr noundef %53)
-  br label %54
+56:                                               ; preds = %50
+  %57 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %60 = load i32, ptr %59, align 8
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr %struct.AfterTriggersQueryData, ptr %58, i64 %61
+  call void @AfterTriggerFreeQuery(ptr noundef %62)
+  br label %63
 
-54:                                               ; preds = %49, %45
-  %55 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %56 = add i32 %55, -1
-  store i32 %56, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  br label %36, !llvm.loop !52
+63:                                               ; preds = %56, %50
+  %64 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %65 = load i32, ptr %64, align 8
+  %66 = add i32 %65, -1
+  %67 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  store i32 %66, ptr %67, align 8
+  br label %39, !llvm.loop !52
 
-57:                                               ; preds = %36
-  %58 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %59 = load i32, ptr %3, align 4
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr %struct.AfterTriggersTransData, ptr %58, i64 %60
-  %62 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %61, i32 0, i32 1
-  call void @afterTriggerRestoreEventList(ptr noundef getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2), ptr noundef %62)
-  %63 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %64 = load i32, ptr %3, align 4
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr %struct.AfterTriggersTransData, ptr %63, i64 %65
-  %67 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %66, i32 0, i32 0
-  %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr %4, align 8
-  %69 = load ptr, ptr %4, align 8
-  %70 = icmp ne ptr %69, null
-  br i1 %70, label %71, label %74
+68:                                               ; preds = %39
+  %69 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  %70 = load ptr, ptr %69, align 8
+  %71 = load i32, ptr %3, align 4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr %struct.AfterTriggersTransData, ptr %70, i64 %72
+  %74 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %73, i32 0, i32 1
+  %75 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2
+  call void @afterTriggerRestoreEventList(ptr noundef %75, ptr noundef %74)
+  %76 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i32, ptr %3, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr %struct.AfterTriggersTransData, ptr %77, i64 %79
+  %81 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8
+  store ptr %82, ptr %4, align 8
+  %83 = load ptr, ptr %4, align 8
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %90
 
-71:                                               ; preds = %57
-  %72 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1), align 8
-  call void @pfree(ptr noundef %72)
-  %73 = load ptr, ptr %4, align 8
-  store ptr %73, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1), align 8
-  br label %74
+85:                                               ; preds = %68
+  %86 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1
+  %87 = load ptr, ptr %86, align 8
+  call void @pfree(ptr noundef %87)
+  %88 = load ptr, ptr %4, align 8
+  %89 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1
+  store ptr %88, ptr %89, align 8
+  br label %90
 
-74:                                               ; preds = %71, %57
-  %75 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %76 = load i32, ptr %3, align 4
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr %struct.AfterTriggersTransData, ptr %75, i64 %77
-  %79 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %78, i32 0, i32 0
-  store ptr null, ptr %79, align 8
-  %80 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %81 = load i32, ptr %3, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr %struct.AfterTriggersTransData, ptr %80, i64 %82
-  %84 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %83, i32 0, i32 3
-  %85 = load i32, ptr %84, align 4
-  store i32 %85, ptr %7, align 4
-  %86 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2), align 8
-  store ptr %86, ptr %6, align 8
-  br label %87
-
-87:                                               ; preds = %153, %74
-  %88 = load ptr, ptr %6, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %157
-
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %6, align 8
-  %92 = getelementptr i8, ptr %91, i64 32
-  store ptr %92, ptr %5, align 8
-  br label %93
-
-93:                                               ; preds = %149, %90
-  %94 = load ptr, ptr %5, align 8
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %95, i32 0, i32 1
-  %97 = load ptr, ptr %96, align 8
-  %98 = icmp ult ptr %94, %97
-  br i1 %98, label %99, label %152
-
-99:                                               ; preds = %93
-  %100 = load ptr, ptr %5, align 8
-  %101 = load ptr, ptr %5, align 8
-  %102 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %101, i32 0, i32 0
+90:                                               ; preds = %85, %68
+  %91 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  %92 = load ptr, ptr %91, align 8
+  %93 = load i32, ptr %3, align 4
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr %struct.AfterTriggersTransData, ptr %92, i64 %94
+  %96 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %95, i32 0, i32 0
+  store ptr null, ptr %96, align 8
+  %97 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  %98 = load ptr, ptr %97, align 8
+  %99 = load i32, ptr %3, align 4
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr %struct.AfterTriggersTransData, ptr %98, i64 %100
+  %102 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %101, i32 0, i32 3
   %103 = load i32, ptr %102, align 4
-  %104 = and i32 %103, 134217727
-  %105 = zext i32 %104 to i64
-  %106 = getelementptr i8, ptr %100, i64 %105
-  store ptr %106, ptr %8, align 8
-  %107 = load ptr, ptr %5, align 8
-  %108 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %107, i32 0, i32 0
-  %109 = load i32, ptr %108, align 4
-  %110 = and i32 %109, -1073741824
-  %111 = icmp ne i32 %110, 0
-  br i1 %111, label %112, label %124
+  store i32 %103, ptr %7, align 4
+  %104 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2
+  %105 = load ptr, ptr %104, align 8
+  store ptr %105, ptr %6, align 8
+  br label %106
 
-112:                                              ; preds = %99
-  %113 = load ptr, ptr %8, align 8
-  %114 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %113, i32 0, i32 3
-  %115 = load i32, ptr %114, align 4
-  %116 = load i32, ptr %7, align 4
-  %117 = icmp uge i32 %115, %116
-  br i1 %117, label %118, label %123
+106:                                              ; preds = %172, %90
+  %107 = load ptr, ptr %6, align 8
+  %108 = icmp ne ptr %107, null
+  br i1 %108, label %109, label %176
+
+109:                                              ; preds = %106
+  %110 = load ptr, ptr %6, align 8
+  %111 = getelementptr i8, ptr %110, i64 32
+  store ptr %111, ptr %5, align 8
+  br label %112
+
+112:                                              ; preds = %168, %109
+  %113 = load ptr, ptr %5, align 8
+  %114 = load ptr, ptr %6, align 8
+  %115 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %114, i32 0, i32 1
+  %116 = load ptr, ptr %115, align 8
+  %117 = icmp ult ptr %113, %116
+  br i1 %117, label %118, label %171
 
 118:                                              ; preds = %112
   %119 = load ptr, ptr %5, align 8
-  %120 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %119, i32 0, i32 0
-  %121 = load i32, ptr %120, align 4
-  %122 = and i32 %121, 1073741823
-  store i32 %122, ptr %120, align 4
-  br label %123
-
-123:                                              ; preds = %118, %112
-  br label %124
-
-124:                                              ; preds = %123, %99
-  br label %125
-
-125:                                              ; preds = %124
+  %120 = load ptr, ptr %5, align 8
+  %121 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %120, i32 0, i32 0
+  %122 = load i32, ptr %121, align 4
+  %123 = and i32 %122, 134217727
+  %124 = zext i32 %123 to i64
+  %125 = getelementptr i8, ptr %119, i64 %124
+  store ptr %125, ptr %8, align 8
   %126 = load ptr, ptr %5, align 8
-  %127 = load ptr, ptr %5, align 8
-  %128 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %127, i32 0, i32 0
-  %129 = load i32, ptr %128, align 4
-  %130 = and i32 %129, 939524096
-  %131 = icmp eq i32 %130, 134217728
-  br i1 %131, label %132, label %133
+  %127 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %126, i32 0, i32 0
+  %128 = load i32, ptr %127, align 4
+  %129 = and i32 %128, -1073741824
+  %130 = icmp ne i32 %129, 0
+  br i1 %130, label %131, label %143
 
-132:                                              ; preds = %125
-  br label %149
+131:                                              ; preds = %118
+  %132 = load ptr, ptr %8, align 8
+  %133 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %132, i32 0, i32 3
+  %134 = load i32, ptr %133, align 4
+  %135 = load i32, ptr %7, align 4
+  %136 = icmp uge i32 %134, %135
+  br i1 %136, label %137, label %142
 
-133:                                              ; preds = %125
-  %134 = load ptr, ptr %5, align 8
-  %135 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %134, i32 0, i32 0
-  %136 = load i32, ptr %135, align 4
-  %137 = and i32 %136, 939524096
-  %138 = icmp eq i32 %137, 805306368
-  br i1 %138, label %139, label %140
+137:                                              ; preds = %131
+  %138 = load ptr, ptr %5, align 8
+  %139 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %138, i32 0, i32 0
+  %140 = load i32, ptr %139, align 4
+  %141 = and i32 %140, 1073741823
+  store i32 %141, ptr %139, align 4
+  br label %142
 
-139:                                              ; preds = %133
-  br label %147
+142:                                              ; preds = %137, %131
+  br label %143
 
-140:                                              ; preds = %133
-  %141 = load ptr, ptr %5, align 8
-  %142 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %141, i32 0, i32 0
-  %143 = load i32, ptr %142, align 4
-  %144 = and i32 %143, 939524096
-  %145 = icmp eq i32 %144, 268435456
-  %146 = select i1 %145, i64 12, i64 4
-  br label %147
+143:                                              ; preds = %142, %118
+  br label %144
 
-147:                                              ; preds = %140, %139
-  %148 = phi i64 [ 16, %139 ], [ %146, %140 ]
-  br label %149
+144:                                              ; preds = %143
+  %145 = load ptr, ptr %5, align 8
+  %146 = load ptr, ptr %5, align 8
+  %147 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %146, i32 0, i32 0
+  %148 = load i32, ptr %147, align 4
+  %149 = and i32 %148, 939524096
+  %150 = icmp eq i32 %149, 134217728
+  br i1 %150, label %151, label %152
 
-149:                                              ; preds = %147, %132
-  %150 = phi i64 [ 24, %132 ], [ %148, %147 ]
-  %151 = getelementptr i8, ptr %126, i64 %150
-  store ptr %151, ptr %5, align 8
-  br label %93, !llvm.loop !53
+151:                                              ; preds = %144
+  br label %168
 
-152:                                              ; preds = %93
-  br label %153
+152:                                              ; preds = %144
+  %153 = load ptr, ptr %5, align 8
+  %154 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %153, i32 0, i32 0
+  %155 = load i32, ptr %154, align 4
+  %156 = and i32 %155, 939524096
+  %157 = icmp eq i32 %156, 805306368
+  br i1 %157, label %158, label %159
 
-153:                                              ; preds = %152
-  %154 = load ptr, ptr %6, align 8
-  %155 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %154, i32 0, i32 0
-  %156 = load ptr, ptr %155, align 8
-  store ptr %156, ptr %6, align 8
-  br label %87, !llvm.loop !54
+158:                                              ; preds = %152
+  br label %166
 
-157:                                              ; preds = %87
-  br label %158
+159:                                              ; preds = %152
+  %160 = load ptr, ptr %5, align 8
+  %161 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %160, i32 0, i32 0
+  %162 = load i32, ptr %161, align 4
+  %163 = and i32 %162, 939524096
+  %164 = icmp eq i32 %163, 268435456
+  %165 = select i1 %164, i64 12, i64 4
+  br label %166
 
-158:                                              ; preds = %157, %34, %24
+166:                                              ; preds = %159, %158
+  %167 = phi i64 [ 16, %158 ], [ %165, %159 ]
+  br label %168
+
+168:                                              ; preds = %166, %151
+  %169 = phi i64 [ 24, %151 ], [ %167, %166 ]
+  %170 = getelementptr i8, ptr %145, i64 %169
+  store ptr %170, ptr %5, align 8
+  br label %112, !llvm.loop !53
+
+171:                                              ; preds = %112
+  br label %172
+
+172:                                              ; preds = %171
+  %173 = load ptr, ptr %6, align 8
+  %174 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %173, i32 0, i32 0
+  %175 = load ptr, ptr %174, align 8
+  store ptr %175, ptr %6, align 8
+  br label %106, !llvm.loop !54
+
+176:                                              ; preds = %106
+  br label %177
+
+177:                                              ; preds = %176, %37, %25
   ret void
 }
 
@@ -13527,808 +13616,819 @@ define dso_local void @AfterTriggerSetState(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %42 = call i32 @GetCurrentTransactionNestLevel()
   store i32 %42, ptr %3, align 4
-  %43 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1), align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %47
+  %43 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %49
 
-45:                                               ; preds = %1
-  %46 = call ptr @SetConstraintStateCreate(i32 noundef 8)
-  store ptr %46, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1), align 8
-  br label %47
+46:                                               ; preds = %1
+  %47 = call ptr @SetConstraintStateCreate(i32 noundef 8)
+  %48 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1
+  store ptr %47, ptr %48, align 8
+  br label %49
 
-47:                                               ; preds = %45, %1
-  %48 = load i32, ptr %3, align 4
-  %49 = icmp sgt i32 %48, 1
-  br i1 %49, label %50, label %66
+49:                                               ; preds = %46, %1
+  %50 = load i32, ptr %3, align 4
+  %51 = icmp sgt i32 %50, 1
+  br i1 %51, label %52, label %71
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %52 = load i32, ptr %3, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr %struct.AfterTriggersTransData, ptr %51, i64 %53
-  %55 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %66
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  %54 = load ptr, ptr %53, align 8
+  %55 = load i32, ptr %3, align 4
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr %struct.AfterTriggersTransData, ptr %54, i64 %56
+  %58 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %71
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1), align 8
-  %60 = call ptr @SetConstraintStateCopy(ptr noundef %59)
-  %61 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7), align 8
-  %62 = load i32, ptr %3, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr %struct.AfterTriggersTransData, ptr %61, i64 %63
-  %65 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %64, i32 0, i32 0
-  store ptr %60, ptr %65, align 8
-  br label %66
+61:                                               ; preds = %52
+  %62 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8
+  %64 = call ptr @SetConstraintStateCopy(ptr noundef %63)
+  %65 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 7
+  %66 = load ptr, ptr %65, align 8
+  %67 = load i32, ptr %3, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr %struct.AfterTriggersTransData, ptr %66, i64 %68
+  %70 = getelementptr inbounds %struct.AfterTriggersTransData, ptr %69, i32 0, i32 0
+  store ptr %64, ptr %70, align 8
+  br label %71
 
-66:                                               ; preds = %58, %50, %47
-  %67 = load ptr, ptr %2, align 8
-  %68 = getelementptr inbounds %struct.ConstraintsSetStmt, ptr %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %83
+71:                                               ; preds = %61, %52, %49
+  %72 = load ptr, ptr %2, align 8
+  %73 = getelementptr inbounds %struct.ConstraintsSetStmt, ptr %72, i32 0, i32 1
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %76, label %91
 
-71:                                               ; preds = %66
-  %72 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1), align 8
-  %73 = getelementptr inbounds %struct.SetConstraintStateData, ptr %72, i32 0, i32 2
-  store i32 0, ptr %73, align 4
-  %74 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1), align 8
-  %75 = getelementptr inbounds %struct.SetConstraintStateData, ptr %74, i32 0, i32 0
-  store i8 1, ptr %75, align 4
-  %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds %struct.ConstraintsSetStmt, ptr %76, i32 0, i32 2
-  %78 = load i8, ptr %77, align 8
-  %79 = trunc i8 %78 to i1
-  %80 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1), align 8
-  %81 = getelementptr inbounds %struct.SetConstraintStateData, ptr %80, i32 0, i32 1
-  %82 = zext i1 %79 to i8
-  store i8 %82, ptr %81, align 1
-  br label %507
+76:                                               ; preds = %71
+  %77 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds %struct.SetConstraintStateData, ptr %78, i32 0, i32 2
+  store i32 0, ptr %79, align 4
+  %80 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds %struct.SetConstraintStateData, ptr %81, i32 0, i32 0
+  store i8 1, ptr %82, align 4
+  %83 = load ptr, ptr %2, align 8
+  %84 = getelementptr inbounds %struct.ConstraintsSetStmt, ptr %83, i32 0, i32 2
+  %85 = load i8, ptr %84, align 8
+  %86 = trunc i8 %85 to i1
+  %87 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds %struct.SetConstraintStateData, ptr %88, i32 0, i32 1
+  %90 = zext i1 %86 to i8
+  store i8 %90, ptr %89, align 1
+  br label %517
 
-83:                                               ; preds = %66
+91:                                               ; preds = %71
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
-  %84 = call ptr @table_open(i32 noundef 2606, i32 noundef 1)
-  store ptr %84, ptr %4, align 8
-  %85 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
-  %86 = load ptr, ptr %2, align 8
-  %87 = getelementptr inbounds %struct.ConstraintsSetStmt, ptr %86, i32 0, i32 1
-  %88 = load ptr, ptr %87, align 8
-  store ptr %88, ptr %85, align 8
-  %89 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
-  store i32 0, ptr %89, align 8
-  br label %90
+  %92 = call ptr @table_open(i32 noundef 2606, i32 noundef 1)
+  store ptr %92, ptr %4, align 8
+  %93 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
+  %94 = load ptr, ptr %2, align 8
+  %95 = getelementptr inbounds %struct.ConstraintsSetStmt, ptr %94, i32 0, i32 1
+  %96 = load ptr, ptr %95, align 8
+  store ptr %96, ptr %93, align 8
+  %97 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
+  store i32 0, ptr %97, align 8
+  br label %98
 
-90:                                               ; preds = %286, %83
-  %91 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
-  %92 = load ptr, ptr %91, align 8
-  %93 = icmp ne ptr %92, null
-  br i1 %93, label %94, label %111
+98:                                               ; preds = %294, %91
+  %99 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
+  %100 = load ptr, ptr %99, align 8
+  %101 = icmp ne ptr %100, null
+  br i1 %101, label %102, label %119
 
-94:                                               ; preds = %90
-  %95 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
-  %96 = load i32, ptr %95, align 8
-  %97 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.List, ptr %98, i32 0, i32 1
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp slt i32 %96, %100
-  br i1 %101, label %102, label %111
-
-102:                                              ; preds = %94
-  %103 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds %struct.List, ptr %104, i32 0, i32 3
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
+  %104 = load i32, ptr %103, align 8
+  %105 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
-  %108 = load i32, ptr %107, align 8
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr %union.ListCell, ptr %106, i64 %109
-  store ptr %110, ptr %8, align 8
-  br label %112
+  %107 = getelementptr inbounds %struct.List, ptr %106, i32 0, i32 1
+  %108 = load i32, ptr %107, align 4
+  %109 = icmp slt i32 %104, %108
+  br i1 %109, label %110, label %119
 
-111:                                              ; preds = %94, %90
+110:                                              ; preds = %102
+  %111 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds %struct.List, ptr %112, i32 0, i32 3
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
+  %116 = load i32, ptr %115, align 8
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr %union.ListCell, ptr %114, i64 %117
+  store ptr %118, ptr %8, align 8
+  br label %120
+
+119:                                              ; preds = %102, %98
   store ptr null, ptr %8, align 8
-  br label %112
+  br label %120
 
-112:                                              ; preds = %111, %102
-  %113 = phi i32 [ 1, %102 ], [ 0, %111 ]
-  %114 = icmp ne i32 %113, 0
-  br i1 %114, label %115, label %290
+120:                                              ; preds = %119, %110
+  %121 = phi i32 [ 1, %110 ], [ 0, %119 ]
+  %122 = icmp ne i32 %121, 0
+  br i1 %122, label %123, label %298
 
-115:                                              ; preds = %112
-  %116 = load ptr, ptr %8, align 8
-  %117 = load ptr, ptr %116, align 8
-  store ptr %117, ptr %10, align 8
-  %118 = load ptr, ptr %10, align 8
-  %119 = getelementptr inbounds %struct.RangeVar, ptr %118, i32 0, i32 1
-  %120 = load ptr, ptr %119, align 8
-  %121 = icmp ne ptr %120, null
-  br i1 %121, label %122, label %151
-
-122:                                              ; preds = %115
-  %123 = load ptr, ptr %10, align 8
-  %124 = getelementptr inbounds %struct.RangeVar, ptr %123, i32 0, i32 1
+123:                                              ; preds = %120
+  %124 = load ptr, ptr %8, align 8
   %125 = load ptr, ptr %124, align 8
-  %126 = load i32, ptr @MyDatabaseId, align 4
-  %127 = call ptr @get_database_name(i32 noundef %126)
-  %128 = call i32 @strcmp(ptr noundef %125, ptr noundef %127) #10
-  %129 = icmp ne i32 %128, 0
-  br i1 %129, label %130, label %150
+  store ptr %125, ptr %10, align 8
+  %126 = load ptr, ptr %10, align 8
+  %127 = getelementptr inbounds %struct.RangeVar, ptr %126, i32 0, i32 1
+  %128 = load ptr, ptr %127, align 8
+  %129 = icmp ne ptr %128, null
+  br i1 %129, label %130, label %159
 
-130:                                              ; preds = %122
-  br label %131
+130:                                              ; preds = %123
+  %131 = load ptr, ptr %10, align 8
+  %132 = getelementptr inbounds %struct.RangeVar, ptr %131, i32 0, i32 1
+  %133 = load ptr, ptr %132, align 8
+  %134 = load i32, ptr @MyDatabaseId, align 4
+  %135 = call ptr @get_database_name(i32 noundef %134)
+  %136 = call i32 @strcmp(ptr noundef %133, ptr noundef %135) #10
+  %137 = icmp ne i32 %136, 0
+  br i1 %137, label %138, label %158
 
-131:                                              ; preds = %130
-  br i1 true, label %132, label %134
+138:                                              ; preds = %130
+  br label %139
 
-132:                                              ; preds = %131
-  %133 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  br i1 %133, label %136, label %148
+139:                                              ; preds = %138
+  br i1 true, label %140, label %142
 
-134:                                              ; preds = %131
-  %135 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %135, label %136, label %148
+140:                                              ; preds = %139
+  %141 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %141, label %144, label %156
 
-136:                                              ; preds = %134, %132
-  %137 = call i32 @errcode(i32 noundef 1088)
-  %138 = load ptr, ptr %10, align 8
-  %139 = getelementptr inbounds %struct.RangeVar, ptr %138, i32 0, i32 1
-  %140 = load ptr, ptr %139, align 8
-  %141 = load ptr, ptr %10, align 8
-  %142 = getelementptr inbounds %struct.RangeVar, ptr %141, i32 0, i32 2
-  %143 = load ptr, ptr %142, align 8
-  %144 = load ptr, ptr %10, align 8
-  %145 = getelementptr inbounds %struct.RangeVar, ptr %144, i32 0, i32 3
-  %146 = load ptr, ptr %145, align 8
-  %147 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.67, ptr noundef %140, ptr noundef %143, ptr noundef %146)
-  call void @errfinish(ptr noundef @.str.2, i32 noundef 5739, ptr noundef @__func__.AfterTriggerSetState)
-  br label %148
+142:                                              ; preds = %139
+  %143 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %143, label %144, label %156
 
-148:                                              ; preds = %136, %134, %132
-  unreachable
-
-149:                                              ; No predecessors!
-  br label %150
-
-150:                                              ; preds = %149, %122
-  br label %151
-
-151:                                              ; preds = %150, %115
+144:                                              ; preds = %142, %140
+  %145 = call i32 @errcode(i32 noundef 1088)
+  %146 = load ptr, ptr %10, align 8
+  %147 = getelementptr inbounds %struct.RangeVar, ptr %146, i32 0, i32 1
+  %148 = load ptr, ptr %147, align 8
+  %149 = load ptr, ptr %10, align 8
+  %150 = getelementptr inbounds %struct.RangeVar, ptr %149, i32 0, i32 2
+  %151 = load ptr, ptr %150, align 8
   %152 = load ptr, ptr %10, align 8
-  %153 = getelementptr inbounds %struct.RangeVar, ptr %152, i32 0, i32 2
+  %153 = getelementptr inbounds %struct.RangeVar, ptr %152, i32 0, i32 3
   %154 = load ptr, ptr %153, align 8
-  %155 = icmp ne ptr %154, null
-  br i1 %155, label %156, label %165
+  %155 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.67, ptr noundef %148, ptr noundef %151, ptr noundef %154)
+  call void @errfinish(ptr noundef @.str.2, i32 noundef 5739, ptr noundef @__func__.AfterTriggerSetState)
+  br label %156
 
-156:                                              ; preds = %151
-  %157 = load ptr, ptr %10, align 8
-  %158 = getelementptr inbounds %struct.RangeVar, ptr %157, i32 0, i32 2
-  %159 = load ptr, ptr %158, align 8
-  %160 = call i32 @LookupExplicitNamespace(ptr noundef %159, i1 noundef zeroext false)
-  store i32 %160, ptr %14, align 4
-  %161 = load i32, ptr %14, align 4
-  store i32 %161, ptr %15, align 8
-  %162 = getelementptr inbounds %union.ListCell, ptr %15, i32 0, i32 0
-  %163 = load ptr, ptr %162, align 8
-  %164 = call ptr @list_make1_impl(i32 noundef 455, ptr %163)
-  store ptr %164, ptr %12, align 8
-  br label %167
-
-165:                                              ; preds = %151
-  %166 = call ptr @fetch_search_path(i1 noundef zeroext true)
-  store ptr %166, ptr %12, align 8
-  br label %167
-
-167:                                              ; preds = %165, %156
-  store i8 0, ptr %11, align 1
-  %168 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %169 = load ptr, ptr %12, align 8
-  store ptr %169, ptr %168, align 8
-  %170 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  store i32 0, ptr %170, align 8
-  br label %171
-
-171:                                              ; preds = %263, %167
-  %172 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %173 = load ptr, ptr %172, align 8
-  %174 = icmp ne ptr %173, null
-  br i1 %174, label %175, label %192
-
-175:                                              ; preds = %171
-  %176 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  %177 = load i32, ptr %176, align 8
-  %178 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds %struct.List, ptr %179, i32 0, i32 1
-  %181 = load i32, ptr %180, align 4
-  %182 = icmp slt i32 %177, %181
-  br i1 %182, label %183, label %192
-
-183:                                              ; preds = %175
-  %184 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds %struct.List, ptr %185, i32 0, i32 3
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  %189 = load i32, ptr %188, align 8
-  %190 = sext i32 %189 to i64
-  %191 = getelementptr %union.ListCell, ptr %187, i64 %190
-  store ptr %191, ptr %13, align 8
-  br label %193
-
-192:                                              ; preds = %175, %171
-  store ptr null, ptr %13, align 8
-  br label %193
-
-193:                                              ; preds = %192, %183
-  %194 = phi i32 [ 1, %183 ], [ 0, %192 ]
-  %195 = icmp ne i32 %194, 0
-  br i1 %195, label %196, label %267
-
-196:                                              ; preds = %193
-  %197 = load ptr, ptr %13, align 8
-  %198 = load i32, ptr %197, align 8
-  store i32 %198, ptr %17, align 4
-  %199 = getelementptr [2 x %struct.ScanKeyData], ptr %19, i64 0, i64 0
-  %200 = load ptr, ptr %10, align 8
-  %201 = getelementptr inbounds %struct.RangeVar, ptr %200, i32 0, i32 3
-  %202 = load ptr, ptr %201, align 8
-  %203 = call i64 @CStringGetDatum(ptr noundef %202)
-  call void @ScanKeyInit(ptr noundef %199, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %203)
-  %204 = getelementptr [2 x %struct.ScanKeyData], ptr %19, i64 0, i64 1
-  %205 = load i32, ptr %17, align 4
-  %206 = call i64 @ObjectIdGetDatum(i32 noundef %205)
-  call void @ScanKeyInit(ptr noundef %204, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %206)
-  %207 = load ptr, ptr %4, align 8
-  %208 = getelementptr inbounds [2 x %struct.ScanKeyData], ptr %19, i64 0, i64 0
-  %209 = call ptr @systable_beginscan(ptr noundef %207, i32 noundef 2664, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef %208)
-  store ptr %209, ptr %18, align 8
-  br label %210
-
-210:                                              ; preds = %256, %196
-  %211 = load ptr, ptr %18, align 8
-  %212 = call ptr @systable_getnext(ptr noundef %211)
-  store ptr %212, ptr %20, align 8
-  %213 = icmp ne ptr %212, null
-  br i1 %213, label %214, label %257
-
-214:                                              ; preds = %210
-  %215 = load ptr, ptr %20, align 8
-  %216 = getelementptr inbounds %struct.HeapTupleData, ptr %215, i32 0, i32 3
-  %217 = load ptr, ptr %216, align 8
-  %218 = load ptr, ptr %20, align 8
-  %219 = getelementptr inbounds %struct.HeapTupleData, ptr %218, i32 0, i32 3
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %220, i32 0, i32 4
-  %222 = load i8, ptr %221, align 2
-  %223 = zext i8 %222 to i32
-  %224 = sext i32 %223 to i64
-  %225 = getelementptr i8, ptr %217, i64 %224
-  store ptr %225, ptr %21, align 8
-  %226 = load ptr, ptr %21, align 8
-  %227 = getelementptr inbounds %struct.FormData_pg_constraint, ptr %226, i32 0, i32 4
-  %228 = load i8, ptr %227, align 1
-  %229 = trunc i8 %228 to i1
-  br i1 %229, label %230, label %236
-
-230:                                              ; preds = %214
-  %231 = load ptr, ptr %6, align 8
-  %232 = load ptr, ptr %21, align 8
-  %233 = getelementptr inbounds %struct.FormData_pg_constraint, ptr %232, i32 0, i32 0
-  %234 = load i32, ptr %233, align 4
-  %235 = call ptr @lappend_oid(ptr noundef %231, i32 noundef %234)
-  store ptr %235, ptr %6, align 8
-  br label %256
-
-236:                                              ; preds = %214
-  %237 = load ptr, ptr %2, align 8
-  %238 = getelementptr inbounds %struct.ConstraintsSetStmt, ptr %237, i32 0, i32 2
-  %239 = load i8, ptr %238, align 8
-  %240 = trunc i8 %239 to i1
-  br i1 %240, label %241, label %255
-
-241:                                              ; preds = %236
-  br label %242
-
-242:                                              ; preds = %241
-  br i1 true, label %243, label %245
-
-243:                                              ; preds = %242
-  %244 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  br i1 %244, label %247, label %253
-
-245:                                              ; preds = %242
-  %246 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %246, label %247, label %253
-
-247:                                              ; preds = %245, %243
-  %248 = call i32 @errcode(i32 noundef 151027844)
-  %249 = load ptr, ptr %10, align 8
-  %250 = getelementptr inbounds %struct.RangeVar, ptr %249, i32 0, i32 3
-  %251 = load ptr, ptr %250, align 8
-  %252 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.68, ptr noundef %251)
-  call void @errfinish(ptr noundef @.str.2, i32 noundef 5789, ptr noundef @__func__.AfterTriggerSetState)
-  br label %253
-
-253:                                              ; preds = %247, %245, %243
+156:                                              ; preds = %144, %142, %140
   unreachable
 
-254:                                              ; No predecessors!
-  br label %255
+157:                                              ; No predecessors!
+  br label %158
 
-255:                                              ; preds = %254, %236
-  br label %256
+158:                                              ; preds = %157, %130
+  br label %159
 
-256:                                              ; preds = %255, %230
-  store i8 1, ptr %11, align 1
-  br label %210, !llvm.loop !56
+159:                                              ; preds = %158, %123
+  %160 = load ptr, ptr %10, align 8
+  %161 = getelementptr inbounds %struct.RangeVar, ptr %160, i32 0, i32 2
+  %162 = load ptr, ptr %161, align 8
+  %163 = icmp ne ptr %162, null
+  br i1 %163, label %164, label %173
 
-257:                                              ; preds = %210
-  %258 = load ptr, ptr %18, align 8
-  call void @systable_endscan(ptr noundef %258)
-  %259 = load i8, ptr %11, align 1
-  %260 = trunc i8 %259 to i1
-  br i1 %260, label %261, label %262
+164:                                              ; preds = %159
+  %165 = load ptr, ptr %10, align 8
+  %166 = getelementptr inbounds %struct.RangeVar, ptr %165, i32 0, i32 2
+  %167 = load ptr, ptr %166, align 8
+  %168 = call i32 @LookupExplicitNamespace(ptr noundef %167, i1 noundef zeroext false)
+  store i32 %168, ptr %14, align 4
+  %169 = load i32, ptr %14, align 4
+  store i32 %169, ptr %15, align 8
+  %170 = getelementptr inbounds %union.ListCell, ptr %15, i32 0, i32 0
+  %171 = load ptr, ptr %170, align 8
+  %172 = call ptr @list_make1_impl(i32 noundef 455, ptr %171)
+  store ptr %172, ptr %12, align 8
+  br label %175
 
-261:                                              ; preds = %257
-  br label %267
+173:                                              ; preds = %159
+  %174 = call ptr @fetch_search_path(i1 noundef zeroext true)
+  store ptr %174, ptr %12, align 8
+  br label %175
 
-262:                                              ; preds = %257
+175:                                              ; preds = %173, %164
+  store i8 0, ptr %11, align 1
+  %176 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
+  %177 = load ptr, ptr %12, align 8
+  store ptr %177, ptr %176, align 8
+  %178 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
+  store i32 0, ptr %178, align 8
+  br label %179
+
+179:                                              ; preds = %271, %175
+  %180 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
+  %181 = load ptr, ptr %180, align 8
+  %182 = icmp ne ptr %181, null
+  br i1 %182, label %183, label %200
+
+183:                                              ; preds = %179
+  %184 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
+  %185 = load i32, ptr %184, align 8
+  %186 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds %struct.List, ptr %187, i32 0, i32 1
+  %189 = load i32, ptr %188, align 4
+  %190 = icmp slt i32 %185, %189
+  br i1 %190, label %191, label %200
+
+191:                                              ; preds = %183
+  %192 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds %struct.List, ptr %193, i32 0, i32 3
+  %195 = load ptr, ptr %194, align 8
+  %196 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
+  %197 = load i32, ptr %196, align 8
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr %union.ListCell, ptr %195, i64 %198
+  store ptr %199, ptr %13, align 8
+  br label %201
+
+200:                                              ; preds = %183, %179
+  store ptr null, ptr %13, align 8
+  br label %201
+
+201:                                              ; preds = %200, %191
+  %202 = phi i32 [ 1, %191 ], [ 0, %200 ]
+  %203 = icmp ne i32 %202, 0
+  br i1 %203, label %204, label %275
+
+204:                                              ; preds = %201
+  %205 = load ptr, ptr %13, align 8
+  %206 = load i32, ptr %205, align 8
+  store i32 %206, ptr %17, align 4
+  %207 = getelementptr [2 x %struct.ScanKeyData], ptr %19, i64 0, i64 0
+  %208 = load ptr, ptr %10, align 8
+  %209 = getelementptr inbounds %struct.RangeVar, ptr %208, i32 0, i32 3
+  %210 = load ptr, ptr %209, align 8
+  %211 = call i64 @CStringGetDatum(ptr noundef %210)
+  call void @ScanKeyInit(ptr noundef %207, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %211)
+  %212 = getelementptr [2 x %struct.ScanKeyData], ptr %19, i64 0, i64 1
+  %213 = load i32, ptr %17, align 4
+  %214 = call i64 @ObjectIdGetDatum(i32 noundef %213)
+  call void @ScanKeyInit(ptr noundef %212, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %214)
+  %215 = load ptr, ptr %4, align 8
+  %216 = getelementptr inbounds [2 x %struct.ScanKeyData], ptr %19, i64 0, i64 0
+  %217 = call ptr @systable_beginscan(ptr noundef %215, i32 noundef 2664, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef %216)
+  store ptr %217, ptr %18, align 8
+  br label %218
+
+218:                                              ; preds = %264, %204
+  %219 = load ptr, ptr %18, align 8
+  %220 = call ptr @systable_getnext(ptr noundef %219)
+  store ptr %220, ptr %20, align 8
+  %221 = icmp ne ptr %220, null
+  br i1 %221, label %222, label %265
+
+222:                                              ; preds = %218
+  %223 = load ptr, ptr %20, align 8
+  %224 = getelementptr inbounds %struct.HeapTupleData, ptr %223, i32 0, i32 3
+  %225 = load ptr, ptr %224, align 8
+  %226 = load ptr, ptr %20, align 8
+  %227 = getelementptr inbounds %struct.HeapTupleData, ptr %226, i32 0, i32 3
+  %228 = load ptr, ptr %227, align 8
+  %229 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %228, i32 0, i32 4
+  %230 = load i8, ptr %229, align 2
+  %231 = zext i8 %230 to i32
+  %232 = sext i32 %231 to i64
+  %233 = getelementptr i8, ptr %225, i64 %232
+  store ptr %233, ptr %21, align 8
+  %234 = load ptr, ptr %21, align 8
+  %235 = getelementptr inbounds %struct.FormData_pg_constraint, ptr %234, i32 0, i32 4
+  %236 = load i8, ptr %235, align 1
+  %237 = trunc i8 %236 to i1
+  br i1 %237, label %238, label %244
+
+238:                                              ; preds = %222
+  %239 = load ptr, ptr %6, align 8
+  %240 = load ptr, ptr %21, align 8
+  %241 = getelementptr inbounds %struct.FormData_pg_constraint, ptr %240, i32 0, i32 0
+  %242 = load i32, ptr %241, align 4
+  %243 = call ptr @lappend_oid(ptr noundef %239, i32 noundef %242)
+  store ptr %243, ptr %6, align 8
+  br label %264
+
+244:                                              ; preds = %222
+  %245 = load ptr, ptr %2, align 8
+  %246 = getelementptr inbounds %struct.ConstraintsSetStmt, ptr %245, i32 0, i32 2
+  %247 = load i8, ptr %246, align 8
+  %248 = trunc i8 %247 to i1
+  br i1 %248, label %249, label %263
+
+249:                                              ; preds = %244
+  br label %250
+
+250:                                              ; preds = %249
+  br i1 true, label %251, label %253
+
+251:                                              ; preds = %250
+  %252 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %252, label %255, label %261
+
+253:                                              ; preds = %250
+  %254 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %254, label %255, label %261
+
+255:                                              ; preds = %253, %251
+  %256 = call i32 @errcode(i32 noundef 151027844)
+  %257 = load ptr, ptr %10, align 8
+  %258 = getelementptr inbounds %struct.RangeVar, ptr %257, i32 0, i32 3
+  %259 = load ptr, ptr %258, align 8
+  %260 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.68, ptr noundef %259)
+  call void @errfinish(ptr noundef @.str.2, i32 noundef 5789, ptr noundef @__func__.AfterTriggerSetState)
+  br label %261
+
+261:                                              ; preds = %255, %253, %251
+  unreachable
+
+262:                                              ; No predecessors!
   br label %263
 
-263:                                              ; preds = %262
-  %264 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  %265 = load i32, ptr %264, align 8
-  %266 = add i32 %265, 1
-  store i32 %266, ptr %264, align 8
-  br label %171, !llvm.loop !57
+263:                                              ; preds = %262, %244
+  br label %264
 
-267:                                              ; preds = %261, %193
-  %268 = load ptr, ptr %12, align 8
-  call void @list_free(ptr noundef %268)
-  %269 = load i8, ptr %11, align 1
-  %270 = trunc i8 %269 to i1
-  br i1 %270, label %285, label %271
+264:                                              ; preds = %263, %238
+  store i8 1, ptr %11, align 1
+  br label %218, !llvm.loop !56
 
-271:                                              ; preds = %267
-  br label %272
+265:                                              ; preds = %218
+  %266 = load ptr, ptr %18, align 8
+  call void @systable_endscan(ptr noundef %266)
+  %267 = load i8, ptr %11, align 1
+  %268 = trunc i8 %267 to i1
+  br i1 %268, label %269, label %270
 
-272:                                              ; preds = %271
-  br i1 true, label %273, label %275
+269:                                              ; preds = %265
+  br label %275
 
-273:                                              ; preds = %272
-  %274 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  br i1 %274, label %277, label %283
+270:                                              ; preds = %265
+  br label %271
 
-275:                                              ; preds = %272
-  %276 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %276, label %277, label %283
+271:                                              ; preds = %270
+  %272 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
+  %273 = load i32, ptr %272, align 8
+  %274 = add i32 %273, 1
+  store i32 %274, ptr %272, align 8
+  br label %179, !llvm.loop !57
 
-277:                                              ; preds = %275, %273
-  %278 = call i32 @errcode(i32 noundef 67137668)
-  %279 = load ptr, ptr %10, align 8
-  %280 = getelementptr inbounds %struct.RangeVar, ptr %279, i32 0, i32 3
-  %281 = load ptr, ptr %280, align 8
-  %282 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.69, ptr noundef %281)
+275:                                              ; preds = %269, %201
+  %276 = load ptr, ptr %12, align 8
+  call void @list_free(ptr noundef %276)
+  %277 = load i8, ptr %11, align 1
+  %278 = trunc i8 %277 to i1
+  br i1 %278, label %293, label %279
+
+279:                                              ; preds = %275
+  br label %280
+
+280:                                              ; preds = %279
+  br i1 true, label %281, label %283
+
+281:                                              ; preds = %280
+  %282 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %282, label %285, label %291
+
+283:                                              ; preds = %280
+  %284 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %284, label %285, label %291
+
+285:                                              ; preds = %283, %281
+  %286 = call i32 @errcode(i32 noundef 67137668)
+  %287 = load ptr, ptr %10, align 8
+  %288 = getelementptr inbounds %struct.RangeVar, ptr %287, i32 0, i32 3
+  %289 = load ptr, ptr %288, align 8
+  %290 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.69, ptr noundef %289)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 5812, ptr noundef @__func__.AfterTriggerSetState)
-  br label %283
+  br label %291
 
-283:                                              ; preds = %277, %275, %273
+291:                                              ; preds = %285, %283, %281
   unreachable
 
-284:                                              ; No predecessors!
-  br label %285
+292:                                              ; No predecessors!
+  br label %293
 
-285:                                              ; preds = %284, %267
-  br label %286
-
-286:                                              ; preds = %285
-  %287 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
-  %288 = load i32, ptr %287, align 8
-  %289 = add i32 %288, 1
-  store i32 %289, ptr %287, align 8
-  br label %90, !llvm.loop !58
-
-290:                                              ; preds = %112
-  %291 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 0
-  %292 = load ptr, ptr %6, align 8
-  store ptr %292, ptr %291, align 8
-  %293 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 1
-  store i32 0, ptr %293, align 8
+293:                                              ; preds = %292, %275
   br label %294
 
-294:                                              ; preds = %349, %290
-  %295 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 0
-  %296 = load ptr, ptr %295, align 8
-  %297 = icmp ne ptr %296, null
-  br i1 %297, label %298, label %315
+294:                                              ; preds = %293
+  %295 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
+  %296 = load i32, ptr %295, align 8
+  %297 = add i32 %296, 1
+  store i32 %297, ptr %295, align 8
+  br label %98, !llvm.loop !58
 
-298:                                              ; preds = %294
-  %299 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 1
-  %300 = load i32, ptr %299, align 8
-  %301 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 0
-  %302 = load ptr, ptr %301, align 8
-  %303 = getelementptr inbounds %struct.List, ptr %302, i32 0, i32 1
-  %304 = load i32, ptr %303, align 4
-  %305 = icmp slt i32 %300, %304
-  br i1 %305, label %306, label %315
+298:                                              ; preds = %120
+  %299 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 0
+  %300 = load ptr, ptr %6, align 8
+  store ptr %300, ptr %299, align 8
+  %301 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 1
+  store i32 0, ptr %301, align 8
+  br label %302
 
-306:                                              ; preds = %298
-  %307 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 0
-  %308 = load ptr, ptr %307, align 8
-  %309 = getelementptr inbounds %struct.List, ptr %308, i32 0, i32 3
+302:                                              ; preds = %357, %298
+  %303 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 0
+  %304 = load ptr, ptr %303, align 8
+  %305 = icmp ne ptr %304, null
+  br i1 %305, label %306, label %323
+
+306:                                              ; preds = %302
+  %307 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 1
+  %308 = load i32, ptr %307, align 8
+  %309 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 0
   %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 1
-  %312 = load i32, ptr %311, align 8
-  %313 = sext i32 %312 to i64
-  %314 = getelementptr %union.ListCell, ptr %310, i64 %313
-  store ptr %314, ptr %8, align 8
-  br label %316
+  %311 = getelementptr inbounds %struct.List, ptr %310, i32 0, i32 1
+  %312 = load i32, ptr %311, align 4
+  %313 = icmp slt i32 %308, %312
+  br i1 %313, label %314, label %323
 
-315:                                              ; preds = %298, %294
+314:                                              ; preds = %306
+  %315 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 0
+  %316 = load ptr, ptr %315, align 8
+  %317 = getelementptr inbounds %struct.List, ptr %316, i32 0, i32 3
+  %318 = load ptr, ptr %317, align 8
+  %319 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 1
+  %320 = load i32, ptr %319, align 8
+  %321 = sext i32 %320 to i64
+  %322 = getelementptr %union.ListCell, ptr %318, i64 %321
+  store ptr %322, ptr %8, align 8
+  br label %324
+
+323:                                              ; preds = %306, %302
   store ptr null, ptr %8, align 8
-  br label %316
+  br label %324
 
-316:                                              ; preds = %315, %306
-  %317 = phi i32 [ 1, %306 ], [ 0, %315 ]
-  %318 = icmp ne i32 %317, 0
-  br i1 %318, label %319, label %353
+324:                                              ; preds = %323, %314
+  %325 = phi i32 [ 1, %314 ], [ 0, %323 ]
+  %326 = icmp ne i32 %325, 0
+  br i1 %326, label %327, label %361
 
-319:                                              ; preds = %316
-  %320 = load ptr, ptr %8, align 8
-  %321 = load i32, ptr %320, align 8
-  store i32 %321, ptr %23, align 4
-  %322 = load i32, ptr %23, align 4
-  %323 = call i64 @ObjectIdGetDatum(i32 noundef %322)
-  call void @ScanKeyInit(ptr noundef %24, i16 noundef signext 11, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %323)
-  %324 = load ptr, ptr %4, align 8
-  %325 = call ptr @systable_beginscan(ptr noundef %324, i32 noundef 2579, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef %24)
-  store ptr %325, ptr %25, align 8
-  br label %326
+327:                                              ; preds = %324
+  %328 = load ptr, ptr %8, align 8
+  %329 = load i32, ptr %328, align 8
+  store i32 %329, ptr %23, align 4
+  %330 = load i32, ptr %23, align 4
+  %331 = call i64 @ObjectIdGetDatum(i32 noundef %330)
+  call void @ScanKeyInit(ptr noundef %24, i16 noundef signext 11, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %331)
+  %332 = load ptr, ptr %4, align 8
+  %333 = call ptr @systable_beginscan(ptr noundef %332, i32 noundef 2579, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef %24)
+  store ptr %333, ptr %25, align 8
+  br label %334
 
-326:                                              ; preds = %330, %319
-  %327 = load ptr, ptr %25, align 8
-  %328 = call ptr @systable_getnext(ptr noundef %327)
-  store ptr %328, ptr %26, align 8
-  %329 = icmp ne ptr %328, null
-  br i1 %329, label %330, label %347
+334:                                              ; preds = %338, %327
+  %335 = load ptr, ptr %25, align 8
+  %336 = call ptr @systable_getnext(ptr noundef %335)
+  store ptr %336, ptr %26, align 8
+  %337 = icmp ne ptr %336, null
+  br i1 %337, label %338, label %355
 
-330:                                              ; preds = %326
-  %331 = load ptr, ptr %26, align 8
-  %332 = getelementptr inbounds %struct.HeapTupleData, ptr %331, i32 0, i32 3
-  %333 = load ptr, ptr %332, align 8
-  %334 = load ptr, ptr %26, align 8
-  %335 = getelementptr inbounds %struct.HeapTupleData, ptr %334, i32 0, i32 3
-  %336 = load ptr, ptr %335, align 8
-  %337 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %336, i32 0, i32 4
-  %338 = load i8, ptr %337, align 2
-  %339 = zext i8 %338 to i32
-  %340 = sext i32 %339 to i64
-  %341 = getelementptr i8, ptr %333, i64 %340
-  store ptr %341, ptr %27, align 8
-  %342 = load ptr, ptr %6, align 8
-  %343 = load ptr, ptr %27, align 8
-  %344 = getelementptr inbounds %struct.FormData_pg_constraint, ptr %343, i32 0, i32 0
-  %345 = load i32, ptr %344, align 4
-  %346 = call ptr @lappend_oid(ptr noundef %342, i32 noundef %345)
-  store ptr %346, ptr %6, align 8
-  br label %326, !llvm.loop !59
+338:                                              ; preds = %334
+  %339 = load ptr, ptr %26, align 8
+  %340 = getelementptr inbounds %struct.HeapTupleData, ptr %339, i32 0, i32 3
+  %341 = load ptr, ptr %340, align 8
+  %342 = load ptr, ptr %26, align 8
+  %343 = getelementptr inbounds %struct.HeapTupleData, ptr %342, i32 0, i32 3
+  %344 = load ptr, ptr %343, align 8
+  %345 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %344, i32 0, i32 4
+  %346 = load i8, ptr %345, align 2
+  %347 = zext i8 %346 to i32
+  %348 = sext i32 %347 to i64
+  %349 = getelementptr i8, ptr %341, i64 %348
+  store ptr %349, ptr %27, align 8
+  %350 = load ptr, ptr %6, align 8
+  %351 = load ptr, ptr %27, align 8
+  %352 = getelementptr inbounds %struct.FormData_pg_constraint, ptr %351, i32 0, i32 0
+  %353 = load i32, ptr %352, align 4
+  %354 = call ptr @lappend_oid(ptr noundef %350, i32 noundef %353)
+  store ptr %354, ptr %6, align 8
+  br label %334, !llvm.loop !59
 
-347:                                              ; preds = %326
-  %348 = load ptr, ptr %25, align 8
-  call void @systable_endscan(ptr noundef %348)
-  br label %349
+355:                                              ; preds = %334
+  %356 = load ptr, ptr %25, align 8
+  call void @systable_endscan(ptr noundef %356)
+  br label %357
 
-349:                                              ; preds = %347
-  %350 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 1
-  %351 = load i32, ptr %350, align 8
-  %352 = add i32 %351, 1
-  store i32 %352, ptr %350, align 8
-  br label %294, !llvm.loop !60
+357:                                              ; preds = %355
+  %358 = getelementptr inbounds %struct.ForEachState, ptr %22, i32 0, i32 1
+  %359 = load i32, ptr %358, align 8
+  %360 = add i32 %359, 1
+  store i32 %360, ptr %358, align 8
+  br label %302, !llvm.loop !60
 
-353:                                              ; preds = %316
-  %354 = load ptr, ptr %4, align 8
-  call void @table_close(ptr noundef %354, i32 noundef 1)
-  %355 = call ptr @table_open(i32 noundef 2620, i32 noundef 1)
-  store ptr %355, ptr %5, align 8
-  %356 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 0
-  %357 = load ptr, ptr %6, align 8
-  store ptr %357, ptr %356, align 8
-  %358 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 1
-  store i32 0, ptr %358, align 8
-  br label %359
+361:                                              ; preds = %324
+  %362 = load ptr, ptr %4, align 8
+  call void @table_close(ptr noundef %362, i32 noundef 1)
+  %363 = call ptr @table_open(i32 noundef 2620, i32 noundef 1)
+  store ptr %363, ptr %5, align 8
+  %364 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 0
+  %365 = load ptr, ptr %6, align 8
+  store ptr %365, ptr %364, align 8
+  %366 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 1
+  store i32 0, ptr %366, align 8
+  br label %367
 
-359:                                              ; preds = %420, %353
-  %360 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 0
-  %361 = load ptr, ptr %360, align 8
-  %362 = icmp ne ptr %361, null
-  br i1 %362, label %363, label %380
+367:                                              ; preds = %428, %361
+  %368 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 0
+  %369 = load ptr, ptr %368, align 8
+  %370 = icmp ne ptr %369, null
+  br i1 %370, label %371, label %388
 
-363:                                              ; preds = %359
-  %364 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 1
-  %365 = load i32, ptr %364, align 8
-  %366 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 0
-  %367 = load ptr, ptr %366, align 8
-  %368 = getelementptr inbounds %struct.List, ptr %367, i32 0, i32 1
-  %369 = load i32, ptr %368, align 4
-  %370 = icmp slt i32 %365, %369
-  br i1 %370, label %371, label %380
-
-371:                                              ; preds = %363
-  %372 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 0
-  %373 = load ptr, ptr %372, align 8
-  %374 = getelementptr inbounds %struct.List, ptr %373, i32 0, i32 3
+371:                                              ; preds = %367
+  %372 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 1
+  %373 = load i32, ptr %372, align 8
+  %374 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 0
   %375 = load ptr, ptr %374, align 8
-  %376 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 1
-  %377 = load i32, ptr %376, align 8
-  %378 = sext i32 %377 to i64
-  %379 = getelementptr %union.ListCell, ptr %375, i64 %378
-  store ptr %379, ptr %8, align 8
-  br label %381
+  %376 = getelementptr inbounds %struct.List, ptr %375, i32 0, i32 1
+  %377 = load i32, ptr %376, align 4
+  %378 = icmp slt i32 %373, %377
+  br i1 %378, label %379, label %388
 
-380:                                              ; preds = %363, %359
+379:                                              ; preds = %371
+  %380 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 0
+  %381 = load ptr, ptr %380, align 8
+  %382 = getelementptr inbounds %struct.List, ptr %381, i32 0, i32 3
+  %383 = load ptr, ptr %382, align 8
+  %384 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 1
+  %385 = load i32, ptr %384, align 8
+  %386 = sext i32 %385 to i64
+  %387 = getelementptr %union.ListCell, ptr %383, i64 %386
+  store ptr %387, ptr %8, align 8
+  br label %389
+
+388:                                              ; preds = %371, %367
   store ptr null, ptr %8, align 8
-  br label %381
+  br label %389
 
-381:                                              ; preds = %380, %371
-  %382 = phi i32 [ 1, %371 ], [ 0, %380 ]
-  %383 = icmp ne i32 %382, 0
-  br i1 %383, label %384, label %424
+389:                                              ; preds = %388, %379
+  %390 = phi i32 [ 1, %379 ], [ 0, %388 ]
+  %391 = icmp ne i32 %390, 0
+  br i1 %391, label %392, label %432
 
-384:                                              ; preds = %381
-  %385 = load ptr, ptr %8, align 8
-  %386 = load i32, ptr %385, align 8
-  store i32 %386, ptr %29, align 4
-  %387 = load i32, ptr %29, align 4
-  %388 = call i64 @ObjectIdGetDatum(i32 noundef %387)
-  call void @ScanKeyInit(ptr noundef %30, i16 noundef signext 11, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %388)
-  %389 = load ptr, ptr %5, align 8
-  %390 = call ptr @systable_beginscan(ptr noundef %389, i32 noundef 2699, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef %30)
-  store ptr %390, ptr %31, align 8
-  br label %391
+392:                                              ; preds = %389
+  %393 = load ptr, ptr %8, align 8
+  %394 = load i32, ptr %393, align 8
+  store i32 %394, ptr %29, align 4
+  %395 = load i32, ptr %29, align 4
+  %396 = call i64 @ObjectIdGetDatum(i32 noundef %395)
+  call void @ScanKeyInit(ptr noundef %30, i16 noundef signext 11, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %396)
+  %397 = load ptr, ptr %5, align 8
+  %398 = call ptr @systable_beginscan(ptr noundef %397, i32 noundef 2699, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef %30)
+  store ptr %398, ptr %31, align 8
+  br label %399
 
-391:                                              ; preds = %417, %384
-  %392 = load ptr, ptr %31, align 8
-  %393 = call ptr @systable_getnext(ptr noundef %392)
-  store ptr %393, ptr %32, align 8
-  %394 = icmp ne ptr %393, null
-  br i1 %394, label %395, label %418
+399:                                              ; preds = %425, %392
+  %400 = load ptr, ptr %31, align 8
+  %401 = call ptr @systable_getnext(ptr noundef %400)
+  store ptr %401, ptr %32, align 8
+  %402 = icmp ne ptr %401, null
+  br i1 %402, label %403, label %426
 
-395:                                              ; preds = %391
-  %396 = load ptr, ptr %32, align 8
-  %397 = getelementptr inbounds %struct.HeapTupleData, ptr %396, i32 0, i32 3
-  %398 = load ptr, ptr %397, align 8
-  %399 = load ptr, ptr %32, align 8
-  %400 = getelementptr inbounds %struct.HeapTupleData, ptr %399, i32 0, i32 3
-  %401 = load ptr, ptr %400, align 8
-  %402 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %401, i32 0, i32 4
-  %403 = load i8, ptr %402, align 2
-  %404 = zext i8 %403 to i32
-  %405 = sext i32 %404 to i64
-  %406 = getelementptr i8, ptr %398, i64 %405
-  store ptr %406, ptr %33, align 8
-  %407 = load ptr, ptr %33, align 8
-  %408 = getelementptr inbounds %struct.FormData_pg_trigger, ptr %407, i32 0, i32 11
-  %409 = load i8, ptr %408, align 4
-  %410 = trunc i8 %409 to i1
-  br i1 %410, label %411, label %417
+403:                                              ; preds = %399
+  %404 = load ptr, ptr %32, align 8
+  %405 = getelementptr inbounds %struct.HeapTupleData, ptr %404, i32 0, i32 3
+  %406 = load ptr, ptr %405, align 8
+  %407 = load ptr, ptr %32, align 8
+  %408 = getelementptr inbounds %struct.HeapTupleData, ptr %407, i32 0, i32 3
+  %409 = load ptr, ptr %408, align 8
+  %410 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %409, i32 0, i32 4
+  %411 = load i8, ptr %410, align 2
+  %412 = zext i8 %411 to i32
+  %413 = sext i32 %412 to i64
+  %414 = getelementptr i8, ptr %406, i64 %413
+  store ptr %414, ptr %33, align 8
+  %415 = load ptr, ptr %33, align 8
+  %416 = getelementptr inbounds %struct.FormData_pg_trigger, ptr %415, i32 0, i32 11
+  %417 = load i8, ptr %416, align 4
+  %418 = trunc i8 %417 to i1
+  br i1 %418, label %419, label %425
 
-411:                                              ; preds = %395
-  %412 = load ptr, ptr %7, align 8
-  %413 = load ptr, ptr %33, align 8
-  %414 = getelementptr inbounds %struct.FormData_pg_trigger, ptr %413, i32 0, i32 0
-  %415 = load i32, ptr %414, align 4
-  %416 = call ptr @lappend_oid(ptr noundef %412, i32 noundef %415)
-  store ptr %416, ptr %7, align 8
-  br label %417
+419:                                              ; preds = %403
+  %420 = load ptr, ptr %7, align 8
+  %421 = load ptr, ptr %33, align 8
+  %422 = getelementptr inbounds %struct.FormData_pg_trigger, ptr %421, i32 0, i32 0
+  %423 = load i32, ptr %422, align 4
+  %424 = call ptr @lappend_oid(ptr noundef %420, i32 noundef %423)
+  store ptr %424, ptr %7, align 8
+  br label %425
 
-417:                                              ; preds = %411, %395
-  br label %391, !llvm.loop !61
+425:                                              ; preds = %419, %403
+  br label %399, !llvm.loop !61
 
-418:                                              ; preds = %391
-  %419 = load ptr, ptr %31, align 8
-  call void @systable_endscan(ptr noundef %419)
-  br label %420
+426:                                              ; preds = %399
+  %427 = load ptr, ptr %31, align 8
+  call void @systable_endscan(ptr noundef %427)
+  br label %428
 
-420:                                              ; preds = %418
-  %421 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 1
-  %422 = load i32, ptr %421, align 8
-  %423 = add i32 %422, 1
-  store i32 %423, ptr %421, align 8
-  br label %359, !llvm.loop !62
+428:                                              ; preds = %426
+  %429 = getelementptr inbounds %struct.ForEachState, ptr %28, i32 0, i32 1
+  %430 = load i32, ptr %429, align 8
+  %431 = add i32 %430, 1
+  store i32 %431, ptr %429, align 8
+  br label %367, !llvm.loop !62
 
-424:                                              ; preds = %381
-  %425 = load ptr, ptr %5, align 8
-  call void @table_close(ptr noundef %425, i32 noundef 1)
-  %426 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 0
-  %427 = load ptr, ptr %7, align 8
-  store ptr %427, ptr %426, align 8
-  %428 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 1
-  store i32 0, ptr %428, align 8
-  br label %429
+432:                                              ; preds = %389
+  %433 = load ptr, ptr %5, align 8
+  call void @table_close(ptr noundef %433, i32 noundef 1)
+  %434 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 0
+  %435 = load ptr, ptr %7, align 8
+  store ptr %435, ptr %434, align 8
+  %436 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 1
+  store i32 0, ptr %436, align 8
+  br label %437
 
-429:                                              ; preds = %502, %424
-  %430 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 0
-  %431 = load ptr, ptr %430, align 8
-  %432 = icmp ne ptr %431, null
-  br i1 %432, label %433, label %450
+437:                                              ; preds = %512, %432
+  %438 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 0
+  %439 = load ptr, ptr %438, align 8
+  %440 = icmp ne ptr %439, null
+  br i1 %440, label %441, label %458
 
-433:                                              ; preds = %429
-  %434 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 1
-  %435 = load i32, ptr %434, align 8
-  %436 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 0
-  %437 = load ptr, ptr %436, align 8
-  %438 = getelementptr inbounds %struct.List, ptr %437, i32 0, i32 1
-  %439 = load i32, ptr %438, align 4
-  %440 = icmp slt i32 %435, %439
-  br i1 %440, label %441, label %450
-
-441:                                              ; preds = %433
-  %442 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 0
-  %443 = load ptr, ptr %442, align 8
-  %444 = getelementptr inbounds %struct.List, ptr %443, i32 0, i32 3
+441:                                              ; preds = %437
+  %442 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 1
+  %443 = load i32, ptr %442, align 8
+  %444 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 0
   %445 = load ptr, ptr %444, align 8
-  %446 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 1
-  %447 = load i32, ptr %446, align 8
-  %448 = sext i32 %447 to i64
-  %449 = getelementptr %union.ListCell, ptr %445, i64 %448
-  store ptr %449, ptr %8, align 8
-  br label %451
+  %446 = getelementptr inbounds %struct.List, ptr %445, i32 0, i32 1
+  %447 = load i32, ptr %446, align 4
+  %448 = icmp slt i32 %443, %447
+  br i1 %448, label %449, label %458
 
-450:                                              ; preds = %433, %429
+449:                                              ; preds = %441
+  %450 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 0
+  %451 = load ptr, ptr %450, align 8
+  %452 = getelementptr inbounds %struct.List, ptr %451, i32 0, i32 3
+  %453 = load ptr, ptr %452, align 8
+  %454 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 1
+  %455 = load i32, ptr %454, align 8
+  %456 = sext i32 %455 to i64
+  %457 = getelementptr %union.ListCell, ptr %453, i64 %456
+  store ptr %457, ptr %8, align 8
+  br label %459
+
+458:                                              ; preds = %441, %437
   store ptr null, ptr %8, align 8
-  br label %451
+  br label %459
 
-451:                                              ; preds = %450, %441
-  %452 = phi i32 [ 1, %441 ], [ 0, %450 ]
-  %453 = icmp ne i32 %452, 0
-  br i1 %453, label %454, label %506
+459:                                              ; preds = %458, %449
+  %460 = phi i32 [ 1, %449 ], [ 0, %458 ]
+  %461 = icmp ne i32 %460, 0
+  br i1 %461, label %462, label %516
 
-454:                                              ; preds = %451
-  %455 = load ptr, ptr %8, align 8
-  %456 = load i32, ptr %455, align 8
-  store i32 %456, ptr %35, align 4
-  %457 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1), align 8
-  store ptr %457, ptr %36, align 8
+462:                                              ; preds = %459
+  %463 = load ptr, ptr %8, align 8
+  %464 = load i32, ptr %463, align 8
+  store i32 %464, ptr %35, align 4
+  %465 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1
+  %466 = load ptr, ptr %465, align 8
+  store ptr %466, ptr %36, align 8
   store i8 0, ptr %37, align 1
   store i32 0, ptr %38, align 4
-  br label %458
+  br label %467
 
-458:                                              ; preds = %487, %454
-  %459 = load i32, ptr %38, align 4
-  %460 = load ptr, ptr %36, align 8
-  %461 = getelementptr inbounds %struct.SetConstraintStateData, ptr %460, i32 0, i32 2
-  %462 = load i32, ptr %461, align 4
-  %463 = icmp slt i32 %459, %462
-  br i1 %463, label %464, label %490
-
-464:                                              ; preds = %458
-  %465 = load ptr, ptr %36, align 8
-  %466 = getelementptr inbounds %struct.SetConstraintStateData, ptr %465, i32 0, i32 4
-  %467 = load i32, ptr %38, align 4
-  %468 = sext i32 %467 to i64
-  %469 = getelementptr [0 x %struct.SetConstraintTriggerData], ptr %466, i64 0, i64 %468
-  %470 = getelementptr inbounds %struct.SetConstraintTriggerData, ptr %469, i32 0, i32 0
+467:                                              ; preds = %496, %462
+  %468 = load i32, ptr %38, align 4
+  %469 = load ptr, ptr %36, align 8
+  %470 = getelementptr inbounds %struct.SetConstraintStateData, ptr %469, i32 0, i32 2
   %471 = load i32, ptr %470, align 4
-  %472 = load i32, ptr %35, align 4
-  %473 = icmp eq i32 %471, %472
-  br i1 %473, label %474, label %486
+  %472 = icmp slt i32 %468, %471
+  br i1 %472, label %473, label %499
 
-474:                                              ; preds = %464
-  %475 = load ptr, ptr %2, align 8
-  %476 = getelementptr inbounds %struct.ConstraintsSetStmt, ptr %475, i32 0, i32 2
-  %477 = load i8, ptr %476, align 8
-  %478 = trunc i8 %477 to i1
-  %479 = load ptr, ptr %36, align 8
-  %480 = getelementptr inbounds %struct.SetConstraintStateData, ptr %479, i32 0, i32 4
-  %481 = load i32, ptr %38, align 4
-  %482 = sext i32 %481 to i64
-  %483 = getelementptr [0 x %struct.SetConstraintTriggerData], ptr %480, i64 0, i64 %482
-  %484 = getelementptr inbounds %struct.SetConstraintTriggerData, ptr %483, i32 0, i32 1
-  %485 = zext i1 %478 to i8
-  store i8 %485, ptr %484, align 4
+473:                                              ; preds = %467
+  %474 = load ptr, ptr %36, align 8
+  %475 = getelementptr inbounds %struct.SetConstraintStateData, ptr %474, i32 0, i32 4
+  %476 = load i32, ptr %38, align 4
+  %477 = sext i32 %476 to i64
+  %478 = getelementptr [0 x %struct.SetConstraintTriggerData], ptr %475, i64 0, i64 %477
+  %479 = getelementptr inbounds %struct.SetConstraintTriggerData, ptr %478, i32 0, i32 0
+  %480 = load i32, ptr %479, align 4
+  %481 = load i32, ptr %35, align 4
+  %482 = icmp eq i32 %480, %481
+  br i1 %482, label %483, label %495
+
+483:                                              ; preds = %473
+  %484 = load ptr, ptr %2, align 8
+  %485 = getelementptr inbounds %struct.ConstraintsSetStmt, ptr %484, i32 0, i32 2
+  %486 = load i8, ptr %485, align 8
+  %487 = trunc i8 %486 to i1
+  %488 = load ptr, ptr %36, align 8
+  %489 = getelementptr inbounds %struct.SetConstraintStateData, ptr %488, i32 0, i32 4
+  %490 = load i32, ptr %38, align 4
+  %491 = sext i32 %490 to i64
+  %492 = getelementptr [0 x %struct.SetConstraintTriggerData], ptr %489, i64 0, i64 %491
+  %493 = getelementptr inbounds %struct.SetConstraintTriggerData, ptr %492, i32 0, i32 1
+  %494 = zext i1 %487 to i8
+  store i8 %494, ptr %493, align 4
   store i8 1, ptr %37, align 1
-  br label %490
+  br label %499
 
-486:                                              ; preds = %464
-  br label %487
+495:                                              ; preds = %473
+  br label %496
 
-487:                                              ; preds = %486
-  %488 = load i32, ptr %38, align 4
-  %489 = add i32 %488, 1
-  store i32 %489, ptr %38, align 4
-  br label %458, !llvm.loop !63
+496:                                              ; preds = %495
+  %497 = load i32, ptr %38, align 4
+  %498 = add i32 %497, 1
+  store i32 %498, ptr %38, align 4
+  br label %467, !llvm.loop !63
 
-490:                                              ; preds = %474, %458
-  %491 = load i8, ptr %37, align 1
-  %492 = trunc i8 %491 to i1
-  br i1 %492, label %501, label %493
+499:                                              ; preds = %483, %467
+  %500 = load i8, ptr %37, align 1
+  %501 = trunc i8 %500 to i1
+  br i1 %501, label %511, label %502
 
-493:                                              ; preds = %490
-  %494 = load ptr, ptr %36, align 8
-  %495 = load i32, ptr %35, align 4
-  %496 = load ptr, ptr %2, align 8
-  %497 = getelementptr inbounds %struct.ConstraintsSetStmt, ptr %496, i32 0, i32 2
-  %498 = load i8, ptr %497, align 8
-  %499 = trunc i8 %498 to i1
-  %500 = call ptr @SetConstraintStateAddItem(ptr noundef %494, i32 noundef %495, i1 noundef zeroext %499)
-  store ptr %500, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1), align 8
-  br label %501
+502:                                              ; preds = %499
+  %503 = load ptr, ptr %36, align 8
+  %504 = load i32, ptr %35, align 4
+  %505 = load ptr, ptr %2, align 8
+  %506 = getelementptr inbounds %struct.ConstraintsSetStmt, ptr %505, i32 0, i32 2
+  %507 = load i8, ptr %506, align 8
+  %508 = trunc i8 %507 to i1
+  %509 = call ptr @SetConstraintStateAddItem(ptr noundef %503, i32 noundef %504, i1 noundef zeroext %508)
+  %510 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1
+  store ptr %509, ptr %510, align 8
+  br label %511
 
-501:                                              ; preds = %493, %490
-  br label %502
+511:                                              ; preds = %502, %499
+  br label %512
 
-502:                                              ; preds = %501
-  %503 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 1
-  %504 = load i32, ptr %503, align 8
-  %505 = add i32 %504, 1
-  store i32 %505, ptr %503, align 8
-  br label %429, !llvm.loop !64
+512:                                              ; preds = %511
+  %513 = getelementptr inbounds %struct.ForEachState, ptr %34, i32 0, i32 1
+  %514 = load i32, ptr %513, align 8
+  %515 = add i32 %514, 1
+  store i32 %515, ptr %513, align 8
+  br label %437, !llvm.loop !64
 
-506:                                              ; preds = %451
-  br label %507
+516:                                              ; preds = %459
+  br label %517
 
-507:                                              ; preds = %506, %71
-  %508 = load ptr, ptr %2, align 8
-  %509 = getelementptr inbounds %struct.ConstraintsSetStmt, ptr %508, i32 0, i32 2
-  %510 = load i8, ptr %509, align 8
-  %511 = trunc i8 %510 to i1
-  br i1 %511, label %536, label %512
+517:                                              ; preds = %516, %76
+  %518 = load ptr, ptr %2, align 8
+  %519 = getelementptr inbounds %struct.ConstraintsSetStmt, ptr %518, i32 0, i32 2
+  %520 = load i8, ptr %519, align 8
+  %521 = trunc i8 %520 to i1
+  br i1 %521, label %547, label %522
 
-512:                                              ; preds = %507
-  store ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2), ptr %39, align 8
+522:                                              ; preds = %517
+  %523 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2
+  store ptr %523, ptr %39, align 8
   store i8 0, ptr %40, align 1
-  br label %513
+  br label %524
 
-513:                                              ; preds = %530, %512
-  %514 = load ptr, ptr %39, align 8
-  %515 = call zeroext i1 @afterTriggerMarkEvents(ptr noundef %514, ptr noundef null, i1 noundef zeroext true)
-  br i1 %515, label %516, label %531
+524:                                              ; preds = %541, %522
+  %525 = load ptr, ptr %39, align 8
+  %526 = call zeroext i1 @afterTriggerMarkEvents(ptr noundef %525, ptr noundef null, i1 noundef zeroext true)
+  br i1 %526, label %527, label %542
 
-516:                                              ; preds = %513
-  %517 = load i32, ptr @afterTriggers, align 8
-  %518 = add i32 %517, 1
-  store i32 %518, ptr @afterTriggers, align 8
-  store i32 %517, ptr %41, align 4
-  %519 = load i8, ptr %40, align 1
-  %520 = trunc i8 %519 to i1
-  br i1 %520, label %523, label %521
+527:                                              ; preds = %524
+  %528 = load i32, ptr @afterTriggers, align 8
+  %529 = add i32 %528, 1
+  store i32 %529, ptr @afterTriggers, align 8
+  store i32 %528, ptr %41, align 4
+  %530 = load i8, ptr %40, align 1
+  %531 = trunc i8 %530 to i1
+  br i1 %531, label %534, label %532
 
-521:                                              ; preds = %516
-  %522 = call ptr @GetTransactionSnapshot()
-  call void @PushActiveSnapshot(ptr noundef %522)
+532:                                              ; preds = %527
+  %533 = call ptr @GetTransactionSnapshot()
+  call void @PushActiveSnapshot(ptr noundef %533)
   store i8 1, ptr %40, align 1
-  br label %523
+  br label %534
 
-523:                                              ; preds = %521, %516
-  %524 = load ptr, ptr %39, align 8
-  %525 = load i32, ptr %41, align 4
-  %526 = call zeroext i1 @IsSubTransaction()
-  %527 = xor i1 %526, true
-  %528 = call zeroext i1 @afterTriggerInvokeEvents(ptr noundef %524, i32 noundef %525, ptr noundef null, i1 noundef zeroext %527)
-  br i1 %528, label %529, label %530
+534:                                              ; preds = %532, %527
+  %535 = load ptr, ptr %39, align 8
+  %536 = load i32, ptr %41, align 4
+  %537 = call zeroext i1 @IsSubTransaction()
+  %538 = xor i1 %537, true
+  %539 = call zeroext i1 @afterTriggerInvokeEvents(ptr noundef %535, i32 noundef %536, ptr noundef null, i1 noundef zeroext %538)
+  br i1 %539, label %540, label %541
 
-529:                                              ; preds = %523
-  br label %531
+540:                                              ; preds = %534
+  br label %542
 
-530:                                              ; preds = %523
-  br label %513, !llvm.loop !65
+541:                                              ; preds = %534
+  br label %524, !llvm.loop !65
 
-531:                                              ; preds = %529, %513
-  %532 = load i8, ptr %40, align 1
-  %533 = trunc i8 %532 to i1
-  br i1 %533, label %534, label %535
+542:                                              ; preds = %540, %524
+  %543 = load i8, ptr %40, align 1
+  %544 = trunc i8 %543 to i1
+  br i1 %544, label %545, label %546
 
-534:                                              ; preds = %531
+545:                                              ; preds = %542
   call void @PopActiveSnapshot()
-  br label %535
+  br label %546
 
-535:                                              ; preds = %534, %531
-  br label %536
+546:                                              ; preds = %545, %542
+  br label %547
 
-536:                                              ; preds = %535, %507
+547:                                              ; preds = %546, %517
   ret void
 }
 
@@ -14515,267 +14615,271 @@ define dso_local zeroext i1 @AfterTriggerPendingOnRel(i32 noundef %0) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
-  %9 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2), align 8
-  store ptr %9, ptr %5, align 8
-  br label %10
+  %9 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %5, align 8
+  br label %11
 
-10:                                               ; preds = %72, %1
-  %11 = load ptr, ptr %5, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %76
+11:                                               ; preds = %73, %1
+  %12 = load ptr, ptr %5, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %77
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr i8, ptr %14, i64 32
-  store ptr %15, ptr %4, align 8
-  br label %16
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr i8, ptr %15, i64 32
+  store ptr %16, ptr %4, align 8
+  br label %17
 
-16:                                               ; preds = %68, %13
-  %17 = load ptr, ptr %4, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp ult ptr %17, %20
-  br i1 %21, label %22, label %71
+17:                                               ; preds = %69, %14
+  %18 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ult ptr %18, %21
+  br i1 %22, label %23, label %72
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %4, align 8
+23:                                               ; preds = %17
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %24, i32 0, i32 0
-  %26 = load i32, ptr %25, align 4
-  %27 = and i32 %26, 134217727
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr i8, ptr %23, i64 %28
-  store ptr %29, ptr %7, align 8
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %30, i32 0, i32 0
-  %32 = load i32, ptr %31, align 4
-  %33 = and i32 %32, -2147483648
-  %34 = icmp ne i32 %33, 0
-  br i1 %34, label %35, label %36
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %25, i32 0, i32 0
+  %27 = load i32, ptr %26, align 4
+  %28 = and i32 %27, 134217727
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr i8, ptr %24, i64 %29
+  store ptr %30, ptr %7, align 8
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %31, i32 0, i32 0
+  %33 = load i32, ptr %32, align 4
+  %34 = and i32 %33, -2147483648
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %37
 
-35:                                               ; preds = %22
-  br label %44
+36:                                               ; preds = %23
+  br label %45
 
-36:                                               ; preds = %22
-  %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %37, i32 0, i32 2
-  %39 = load i32, ptr %38, align 8
-  %40 = load i32, ptr %3, align 4
-  %41 = icmp eq i32 %39, %40
-  br i1 %41, label %42, label %43
+37:                                               ; preds = %23
+  %38 = load ptr, ptr %7, align 8
+  %39 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %38, i32 0, i32 2
+  %40 = load i32, ptr %39, align 8
+  %41 = load i32, ptr %3, align 4
+  %42 = icmp eq i32 %40, %41
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %36
+43:                                               ; preds = %37
   store i1 true, ptr %2, align 1
-  br label %166
+  br label %170
 
-43:                                               ; preds = %36
-  br label %44
+44:                                               ; preds = %37
+  br label %45
 
-44:                                               ; preds = %43, %35
-  %45 = load ptr, ptr %4, align 8
+45:                                               ; preds = %44, %36
   %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %46, i32 0, i32 0
-  %48 = load i32, ptr %47, align 4
-  %49 = and i32 %48, 939524096
-  %50 = icmp eq i32 %49, 134217728
-  br i1 %50, label %51, label %52
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %47, i32 0, i32 0
+  %49 = load i32, ptr %48, align 4
+  %50 = and i32 %49, 939524096
+  %51 = icmp eq i32 %50, 134217728
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %44
-  br label %68
+52:                                               ; preds = %45
+  br label %69
 
-52:                                               ; preds = %44
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %53, i32 0, i32 0
-  %55 = load i32, ptr %54, align 4
-  %56 = and i32 %55, 939524096
-  %57 = icmp eq i32 %56, 805306368
-  br i1 %57, label %58, label %59
+53:                                               ; preds = %45
+  %54 = load ptr, ptr %4, align 8
+  %55 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 4
+  %57 = and i32 %56, 939524096
+  %58 = icmp eq i32 %57, 805306368
+  br i1 %58, label %59, label %60
 
-58:                                               ; preds = %52
-  br label %66
+59:                                               ; preds = %53
+  br label %67
 
-59:                                               ; preds = %52
-  %60 = load ptr, ptr %4, align 8
-  %61 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %60, i32 0, i32 0
-  %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 939524096
-  %64 = icmp eq i32 %63, 268435456
-  %65 = select i1 %64, i64 12, i64 4
-  br label %66
+60:                                               ; preds = %53
+  %61 = load ptr, ptr %4, align 8
+  %62 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %61, i32 0, i32 0
+  %63 = load i32, ptr %62, align 4
+  %64 = and i32 %63, 939524096
+  %65 = icmp eq i32 %64, 268435456
+  %66 = select i1 %65, i64 12, i64 4
+  br label %67
 
-66:                                               ; preds = %59, %58
-  %67 = phi i64 [ 16, %58 ], [ %65, %59 ]
-  br label %68
+67:                                               ; preds = %60, %59
+  %68 = phi i64 [ 16, %59 ], [ %66, %60 ]
+  br label %69
 
-68:                                               ; preds = %66, %51
-  %69 = phi i64 [ 24, %51 ], [ %67, %66 ]
-  %70 = getelementptr i8, ptr %45, i64 %69
-  store ptr %70, ptr %4, align 8
-  br label %16, !llvm.loop !66
+69:                                               ; preds = %67, %52
+  %70 = phi i64 [ 24, %52 ], [ %68, %67 ]
+  %71 = getelementptr i8, ptr %46, i64 %70
+  store ptr %71, ptr %4, align 8
+  br label %17, !llvm.loop !66
 
-71:                                               ; preds = %16
-  br label %72
+72:                                               ; preds = %17
+  br label %73
 
-72:                                               ; preds = %71
-  %73 = load ptr, ptr %5, align 8
-  %74 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %73, i32 0, i32 0
-  %75 = load ptr, ptr %74, align 8
-  store ptr %75, ptr %5, align 8
-  br label %10, !llvm.loop !67
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %5, align 8
+  %75 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %74, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8
+  store ptr %76, ptr %5, align 8
+  br label %11, !llvm.loop !67
 
-76:                                               ; preds = %10
+77:                                               ; preds = %11
   store i32 0, ptr %6, align 4
-  br label %77
+  br label %78
 
-77:                                               ; preds = %162, %76
-  %78 = load i32, ptr %6, align 4
-  %79 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %80 = icmp sle i32 %78, %79
-  br i1 %80, label %81, label %85
+78:                                               ; preds = %166, %77
+  %79 = load i32, ptr %6, align 4
+  %80 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %81 = load i32, ptr %80, align 8
+  %82 = icmp sle i32 %79, %81
+  br i1 %82, label %83, label %88
 
-81:                                               ; preds = %77
-  %82 = load i32, ptr %6, align 4
-  %83 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6), align 4
-  %84 = icmp slt i32 %82, %83
-  br label %85
+83:                                               ; preds = %78
+  %84 = load i32, ptr %6, align 4
+  %85 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 6
+  %86 = load i32, ptr %85, align 4
+  %87 = icmp slt i32 %84, %86
+  br label %88
 
-85:                                               ; preds = %81, %77
-  %86 = phi i1 [ false, %77 ], [ %84, %81 ]
-  br i1 %86, label %87, label %165
+88:                                               ; preds = %83, %78
+  %89 = phi i1 [ false, %78 ], [ %87, %83 ]
+  br i1 %89, label %90, label %169
 
-87:                                               ; preds = %85
-  %88 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
-  %89 = load i32, ptr %6, align 4
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr %struct.AfterTriggersQueryData, ptr %88, i64 %90
-  %92 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %91, i32 0, i32 0
-  %93 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %92, i32 0, i32 0
-  %94 = load ptr, ptr %93, align 8
-  store ptr %94, ptr %5, align 8
-  br label %95
+90:                                               ; preds = %88
+  %91 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
+  %92 = load ptr, ptr %91, align 8
+  %93 = load i32, ptr %6, align 4
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr %struct.AfterTriggersQueryData, ptr %92, i64 %94
+  %96 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %95, i32 0, i32 0
+  %97 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %96, i32 0, i32 0
+  %98 = load ptr, ptr %97, align 8
+  store ptr %98, ptr %5, align 8
+  br label %99
 
-95:                                               ; preds = %157, %87
-  %96 = load ptr, ptr %5, align 8
-  %97 = icmp ne ptr %96, null
-  br i1 %97, label %98, label %161
+99:                                               ; preds = %161, %90
+  %100 = load ptr, ptr %5, align 8
+  %101 = icmp ne ptr %100, null
+  br i1 %101, label %102, label %165
 
-98:                                               ; preds = %95
-  %99 = load ptr, ptr %5, align 8
-  %100 = getelementptr i8, ptr %99, i64 32
-  store ptr %100, ptr %4, align 8
-  br label %101
-
-101:                                              ; preds = %153, %98
-  %102 = load ptr, ptr %4, align 8
+102:                                              ; preds = %99
   %103 = load ptr, ptr %5, align 8
-  %104 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %103, i32 0, i32 1
-  %105 = load ptr, ptr %104, align 8
-  %106 = icmp ult ptr %102, %105
-  br i1 %106, label %107, label %156
+  %104 = getelementptr i8, ptr %103, i64 32
+  store ptr %104, ptr %4, align 8
+  br label %105
 
-107:                                              ; preds = %101
-  %108 = load ptr, ptr %4, align 8
-  %109 = load ptr, ptr %4, align 8
-  %110 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %109, i32 0, i32 0
-  %111 = load i32, ptr %110, align 4
-  %112 = and i32 %111, 134217727
-  %113 = zext i32 %112 to i64
-  %114 = getelementptr i8, ptr %108, i64 %113
-  store ptr %114, ptr %8, align 8
-  %115 = load ptr, ptr %4, align 8
-  %116 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %115, i32 0, i32 0
-  %117 = load i32, ptr %116, align 4
-  %118 = and i32 %117, -2147483648
-  %119 = icmp ne i32 %118, 0
-  br i1 %119, label %120, label %121
+105:                                              ; preds = %157, %102
+  %106 = load ptr, ptr %4, align 8
+  %107 = load ptr, ptr %5, align 8
+  %108 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %107, i32 0, i32 1
+  %109 = load ptr, ptr %108, align 8
+  %110 = icmp ult ptr %106, %109
+  br i1 %110, label %111, label %160
 
-120:                                              ; preds = %107
-  br label %129
+111:                                              ; preds = %105
+  %112 = load ptr, ptr %4, align 8
+  %113 = load ptr, ptr %4, align 8
+  %114 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %113, i32 0, i32 0
+  %115 = load i32, ptr %114, align 4
+  %116 = and i32 %115, 134217727
+  %117 = zext i32 %116 to i64
+  %118 = getelementptr i8, ptr %112, i64 %117
+  store ptr %118, ptr %8, align 8
+  %119 = load ptr, ptr %4, align 8
+  %120 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %119, i32 0, i32 0
+  %121 = load i32, ptr %120, align 4
+  %122 = and i32 %121, -2147483648
+  %123 = icmp ne i32 %122, 0
+  br i1 %123, label %124, label %125
 
-121:                                              ; preds = %107
-  %122 = load ptr, ptr %8, align 8
-  %123 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %122, i32 0, i32 2
-  %124 = load i32, ptr %123, align 8
-  %125 = load i32, ptr %3, align 4
-  %126 = icmp eq i32 %124, %125
-  br i1 %126, label %127, label %128
+124:                                              ; preds = %111
+  br label %133
 
-127:                                              ; preds = %121
+125:                                              ; preds = %111
+  %126 = load ptr, ptr %8, align 8
+  %127 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %126, i32 0, i32 2
+  %128 = load i32, ptr %127, align 8
+  %129 = load i32, ptr %3, align 4
+  %130 = icmp eq i32 %128, %129
+  br i1 %130, label %131, label %132
+
+131:                                              ; preds = %125
   store i1 true, ptr %2, align 1
-  br label %166
+  br label %170
 
-128:                                              ; preds = %121
-  br label %129
+132:                                              ; preds = %125
+  br label %133
 
-129:                                              ; preds = %128, %120
-  %130 = load ptr, ptr %4, align 8
-  %131 = load ptr, ptr %4, align 8
-  %132 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %131, i32 0, i32 0
-  %133 = load i32, ptr %132, align 4
-  %134 = and i32 %133, 939524096
-  %135 = icmp eq i32 %134, 134217728
-  br i1 %135, label %136, label %137
+133:                                              ; preds = %132, %124
+  %134 = load ptr, ptr %4, align 8
+  %135 = load ptr, ptr %4, align 8
+  %136 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %135, i32 0, i32 0
+  %137 = load i32, ptr %136, align 4
+  %138 = and i32 %137, 939524096
+  %139 = icmp eq i32 %138, 134217728
+  br i1 %139, label %140, label %141
 
-136:                                              ; preds = %129
-  br label %153
-
-137:                                              ; preds = %129
-  %138 = load ptr, ptr %4, align 8
-  %139 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %138, i32 0, i32 0
-  %140 = load i32, ptr %139, align 4
-  %141 = and i32 %140, 939524096
-  %142 = icmp eq i32 %141, 805306368
-  br i1 %142, label %143, label %144
-
-143:                                              ; preds = %137
-  br label %151
-
-144:                                              ; preds = %137
-  %145 = load ptr, ptr %4, align 8
-  %146 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %145, i32 0, i32 0
-  %147 = load i32, ptr %146, align 4
-  %148 = and i32 %147, 939524096
-  %149 = icmp eq i32 %148, 268435456
-  %150 = select i1 %149, i64 12, i64 4
-  br label %151
-
-151:                                              ; preds = %144, %143
-  %152 = phi i64 [ 16, %143 ], [ %150, %144 ]
-  br label %153
-
-153:                                              ; preds = %151, %136
-  %154 = phi i64 [ 24, %136 ], [ %152, %151 ]
-  %155 = getelementptr i8, ptr %130, i64 %154
-  store ptr %155, ptr %4, align 8
-  br label %101, !llvm.loop !68
-
-156:                                              ; preds = %101
+140:                                              ; preds = %133
   br label %157
 
-157:                                              ; preds = %156
-  %158 = load ptr, ptr %5, align 8
-  %159 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %158, i32 0, i32 0
-  %160 = load ptr, ptr %159, align 8
-  store ptr %160, ptr %5, align 8
-  br label %95, !llvm.loop !69
+141:                                              ; preds = %133
+  %142 = load ptr, ptr %4, align 8
+  %143 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %142, i32 0, i32 0
+  %144 = load i32, ptr %143, align 4
+  %145 = and i32 %144, 939524096
+  %146 = icmp eq i32 %145, 805306368
+  br i1 %146, label %147, label %148
 
-161:                                              ; preds = %95
-  br label %162
+147:                                              ; preds = %141
+  br label %155
 
-162:                                              ; preds = %161
-  %163 = load i32, ptr %6, align 4
-  %164 = add i32 %163, 1
-  store i32 %164, ptr %6, align 4
-  br label %77, !llvm.loop !70
+148:                                              ; preds = %141
+  %149 = load ptr, ptr %4, align 8
+  %150 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %149, i32 0, i32 0
+  %151 = load i32, ptr %150, align 4
+  %152 = and i32 %151, 939524096
+  %153 = icmp eq i32 %152, 268435456
+  %154 = select i1 %153, i64 12, i64 4
+  br label %155
 
-165:                                              ; preds = %85
-  store i1 false, ptr %2, align 1
+155:                                              ; preds = %148, %147
+  %156 = phi i64 [ 16, %147 ], [ %154, %148 ]
+  br label %157
+
+157:                                              ; preds = %155, %140
+  %158 = phi i64 [ 24, %140 ], [ %156, %155 ]
+  %159 = getelementptr i8, ptr %134, i64 %158
+  store ptr %159, ptr %4, align 8
+  br label %105, !llvm.loop !68
+
+160:                                              ; preds = %105
+  br label %161
+
+161:                                              ; preds = %160
+  %162 = load ptr, ptr %5, align 8
+  %163 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %162, i32 0, i32 0
+  %164 = load ptr, ptr %163, align 8
+  store ptr %164, ptr %5, align 8
+  br label %99, !llvm.loop !69
+
+165:                                              ; preds = %99
   br label %166
 
-166:                                              ; preds = %165, %127, %42
-  %167 = load i1, ptr %2, align 1
-  ret i1 %167
+166:                                              ; preds = %165
+  %167 = load i32, ptr %6, align 4
+  %168 = add i32 %167, 1
+  store i32 %168, ptr %6, align 4
+  br label %78, !llvm.loop !70
+
+169:                                              ; preds = %88
+  store i1 false, ptr %2, align 1
+  br label %170
+
+170:                                              ; preds = %169, %131, %43
+  %171 = load i1, ptr %2, align 1
+  ret i1 %171
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15166,99 +15270,100 @@ define internal zeroext i1 @afterTriggerCheckState(ptr noundef %0) #0 {
   %8 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %7, i32 0, i32 1
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %4, align 4
-  %10 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1), align 8
-  store ptr %10, ptr %5, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %11, i32 0, i32 0
-  %13 = load i32, ptr %12, align 8
-  %14 = and i32 %13, 32
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %1
-  store i1 false, ptr %2, align 1
-  br label %67
+  %10 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %5, align 8
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %12, i32 0, i32 0
+  %14 = load i32, ptr %13, align 8
+  %15 = and i32 %14, 32
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %1
-  %18 = load ptr, ptr %5, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %61
+  store i1 false, ptr %2, align 1
+  br label %68
 
-20:                                               ; preds = %17
+18:                                               ; preds = %1
+  %19 = load ptr, ptr %5, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %62
+
+21:                                               ; preds = %18
   store i32 0, ptr %6, align 4
-  br label %21
+  br label %22
 
-21:                                               ; preds = %47, %20
-  %22 = load i32, ptr %6, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.SetConstraintStateData, ptr %23, i32 0, i32 2
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp slt i32 %22, %25
-  br i1 %26, label %27, label %50
+22:                                               ; preds = %48, %21
+  %23 = load i32, ptr %6, align 4
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds %struct.SetConstraintStateData, ptr %24, i32 0, i32 2
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp slt i32 %23, %26
+  br i1 %27, label %28, label %51
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.SetConstraintStateData, ptr %28, i32 0, i32 4
-  %30 = load i32, ptr %6, align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr [0 x %struct.SetConstraintTriggerData], ptr %29, i64 0, i64 %31
-  %33 = getelementptr inbounds %struct.SetConstraintTriggerData, ptr %32, i32 0, i32 0
-  %34 = load i32, ptr %33, align 4
-  %35 = load i32, ptr %4, align 4
-  %36 = icmp eq i32 %34, %35
-  br i1 %36, label %37, label %46
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct.SetConstraintStateData, ptr %29, i32 0, i32 4
+  %31 = load i32, ptr %6, align 4
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr [0 x %struct.SetConstraintTriggerData], ptr %30, i64 0, i64 %32
+  %34 = getelementptr inbounds %struct.SetConstraintTriggerData, ptr %33, i32 0, i32 0
+  %35 = load i32, ptr %34, align 4
+  %36 = load i32, ptr %4, align 4
+  %37 = icmp eq i32 %35, %36
+  br i1 %37, label %38, label %47
 
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.SetConstraintStateData, ptr %38, i32 0, i32 4
-  %40 = load i32, ptr %6, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr [0 x %struct.SetConstraintTriggerData], ptr %39, i64 0, i64 %41
-  %43 = getelementptr inbounds %struct.SetConstraintTriggerData, ptr %42, i32 0, i32 1
-  %44 = load i8, ptr %43, align 4
-  %45 = trunc i8 %44 to i1
-  store i1 %45, ptr %2, align 1
-  br label %67
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds %struct.SetConstraintStateData, ptr %39, i32 0, i32 4
+  %41 = load i32, ptr %6, align 4
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr [0 x %struct.SetConstraintTriggerData], ptr %40, i64 0, i64 %42
+  %44 = getelementptr inbounds %struct.SetConstraintTriggerData, ptr %43, i32 0, i32 1
+  %45 = load i8, ptr %44, align 4
+  %46 = trunc i8 %45 to i1
+  store i1 %46, ptr %2, align 1
+  br label %68
 
-46:                                               ; preds = %27
-  br label %47
+47:                                               ; preds = %28
+  br label %48
 
-47:                                               ; preds = %46
-  %48 = load i32, ptr %6, align 4
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %6, align 4
-  br label %21, !llvm.loop !71
+48:                                               ; preds = %47
+  %49 = load i32, ptr %6, align 4
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %6, align 4
+  br label %22, !llvm.loop !71
 
-50:                                               ; preds = %21
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.SetConstraintStateData, ptr %51, i32 0, i32 0
-  %53 = load i8, ptr %52, align 4
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %55, label %60
+51:                                               ; preds = %22
+  %52 = load ptr, ptr %5, align 8
+  %53 = getelementptr inbounds %struct.SetConstraintStateData, ptr %52, i32 0, i32 0
+  %54 = load i8, ptr %53, align 4
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %61
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds %struct.SetConstraintStateData, ptr %56, i32 0, i32 1
-  %58 = load i8, ptr %57, align 1
-  %59 = trunc i8 %58 to i1
-  store i1 %59, ptr %2, align 1
-  br label %67
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %5, align 8
+  %58 = getelementptr inbounds %struct.SetConstraintStateData, ptr %57, i32 0, i32 1
+  %59 = load i8, ptr %58, align 1
+  %60 = trunc i8 %59 to i1
+  store i1 %60, ptr %2, align 1
+  br label %68
 
-60:                                               ; preds = %50
-  br label %61
+61:                                               ; preds = %51
+  br label %62
 
-61:                                               ; preds = %60, %17
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %62, i32 0, i32 0
-  %64 = load i32, ptr %63, align 8
-  %65 = and i32 %64, 64
-  %66 = icmp ne i32 %65, 0
-  store i1 %66, ptr %2, align 1
-  br label %67
+62:                                               ; preds = %61, %18
+  %63 = load ptr, ptr %3, align 8
+  %64 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %63, i32 0, i32 0
+  %65 = load i32, ptr %64, align 8
+  %66 = and i32 %65, 64
+  %67 = icmp ne i32 %66, 0
+  store i1 %67, ptr %2, align 1
+  br label %68
 
-67:                                               ; preds = %61, %55, %37, %16
-  %68 = load i1, ptr %2, align 1
-  ret i1 %68
+68:                                               ; preds = %62, %56, %38, %17
+  %69 = load i1, ptr %2, align 1
+  ret i1 %69
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15336,270 +15441,273 @@ define internal void @afterTriggerAddEvent(ptr noundef %0, ptr noundef %1, ptr n
   %54 = sub i64 %52, %53
   %55 = load i64, ptr %8, align 8
   %56 = icmp ult i64 %54, %55
-  br i1 %56, label %57, label %136
+  br i1 %56, label %57, label %139
 
 57:                                               ; preds = %45, %36
-  %58 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3), align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %65
+  %58 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %67
 
-60:                                               ; preds = %57
-  br label %61
-
-61:                                               ; preds = %60
+61:                                               ; preds = %57
   br label %62
 
 62:                                               ; preds = %61
+  br label %63
+
+63:                                               ; preds = %62
   store i32 1, ptr %13, align 4
-  %63 = load ptr, ptr @TopTransactionContext, align 8
-  %64 = call ptr @AllocSetContextCreateInternal(ptr noundef %63, ptr noundef @.str.85, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
-  store ptr %64, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3), align 8
-  br label %65
+  %64 = load ptr, ptr @TopTransactionContext, align 8
+  %65 = call ptr @AllocSetContextCreateInternal(ptr noundef %64, ptr noundef @.str.85, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
+  %66 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3
+  store ptr %65, ptr %66, align 8
+  br label %67
 
-65:                                               ; preds = %62, %57
-  %66 = load ptr, ptr %9, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %69
+67:                                               ; preds = %63, %57
+  %68 = load ptr, ptr %9, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %70, label %71
 
-68:                                               ; preds = %65
+70:                                               ; preds = %67
   store i64 1024, ptr %12, align 8
+  br label %103
+
+71:                                               ; preds = %67
+  %72 = load ptr, ptr %9, align 8
+  %73 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %72, i32 0, i32 3
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %9, align 8
+  %76 = ptrtoint ptr %74 to i64
+  %77 = ptrtoint ptr %75 to i64
+  %78 = sub i64 %76, %77
+  store i64 %78, ptr %12, align 8
+  %79 = load ptr, ptr %9, align 8
+  %80 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %79, i32 0, i32 3
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %9, align 8
+  %83 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %82, i32 0, i32 2
+  %84 = load ptr, ptr %83, align 8
+  %85 = ptrtoint ptr %81 to i64
+  %86 = ptrtoint ptr %84 to i64
+  %87 = sub i64 %85, %86
+  %88 = icmp ule i64 %87, 3200
+  br i1 %88, label %89, label %92
+
+89:                                               ; preds = %71
+  %90 = load i64, ptr %12, align 8
+  %91 = mul i64 %90, 2
+  store i64 %91, ptr %12, align 8
+  br label %95
+
+92:                                               ; preds = %71
+  %93 = load i64, ptr %12, align 8
+  %94 = udiv i64 %93, 2
+  store i64 %94, ptr %12, align 8
+  br label %95
+
+95:                                               ; preds = %92, %89
+  %96 = load i64, ptr %12, align 8
+  %97 = icmp ult i64 %96, 1048576
+  br i1 %97, label %98, label %100
+
+98:                                               ; preds = %95
+  %99 = load i64, ptr %12, align 8
   br label %101
 
-69:                                               ; preds = %65
-  %70 = load ptr, ptr %9, align 8
-  %71 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %70, i32 0, i32 3
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %9, align 8
-  %74 = ptrtoint ptr %72 to i64
-  %75 = ptrtoint ptr %73 to i64
-  %76 = sub i64 %74, %75
-  store i64 %76, ptr %12, align 8
-  %77 = load ptr, ptr %9, align 8
-  %78 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %77, i32 0, i32 3
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %9, align 8
-  %81 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %80, i32 0, i32 2
-  %82 = load ptr, ptr %81, align 8
-  %83 = ptrtoint ptr %79 to i64
-  %84 = ptrtoint ptr %82 to i64
-  %85 = sub i64 %83, %84
-  %86 = icmp ule i64 %85, 3200
-  br i1 %86, label %87, label %90
-
-87:                                               ; preds = %69
-  %88 = load i64, ptr %12, align 8
-  %89 = mul i64 %88, 2
-  store i64 %89, ptr %12, align 8
-  br label %93
-
-90:                                               ; preds = %69
-  %91 = load i64, ptr %12, align 8
-  %92 = udiv i64 %91, 2
-  store i64 %92, ptr %12, align 8
-  br label %93
-
-93:                                               ; preds = %90, %87
-  %94 = load i64, ptr %12, align 8
-  %95 = icmp ult i64 %94, 1048576
-  br i1 %95, label %96, label %98
-
-96:                                               ; preds = %93
-  %97 = load i64, ptr %12, align 8
-  br label %99
-
-98:                                               ; preds = %93
-  br label %99
-
-99:                                               ; preds = %98, %96
-  %100 = phi i64 [ %97, %96 ], [ 1048576, %98 ]
-  store i64 %100, ptr %12, align 8
+100:                                              ; preds = %95
   br label %101
 
-101:                                              ; preds = %99, %68
-  %102 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3), align 8
-  %103 = load i64, ptr %12, align 8
-  %104 = call ptr @MemoryContextAlloc(ptr noundef %102, i64 noundef %103)
-  store ptr %104, ptr %9, align 8
-  %105 = load ptr, ptr %9, align 8
-  %106 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %105, i32 0, i32 0
-  store ptr null, ptr %106, align 8
-  %107 = load ptr, ptr %9, align 8
-  %108 = getelementptr i8, ptr %107, i64 32
-  %109 = load ptr, ptr %9, align 8
-  %110 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %109, i32 0, i32 1
-  store ptr %108, ptr %110, align 8
-  %111 = load ptr, ptr %9, align 8
-  %112 = load i64, ptr %12, align 8
-  %113 = getelementptr i8, ptr %111, i64 %112
+101:                                              ; preds = %100, %98
+  %102 = phi i64 [ %99, %98 ], [ 1048576, %100 ]
+  store i64 %102, ptr %12, align 8
+  br label %103
+
+103:                                              ; preds = %101, %70
+  %104 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3
+  %105 = load ptr, ptr %104, align 8
+  %106 = load i64, ptr %12, align 8
+  %107 = call ptr @MemoryContextAlloc(ptr noundef %105, i64 noundef %106)
+  store ptr %107, ptr %9, align 8
+  %108 = load ptr, ptr %9, align 8
+  %109 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %108, i32 0, i32 0
+  store ptr null, ptr %109, align 8
+  %110 = load ptr, ptr %9, align 8
+  %111 = getelementptr i8, ptr %110, i64 32
+  %112 = load ptr, ptr %9, align 8
+  %113 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %112, i32 0, i32 1
+  store ptr %111, ptr %113, align 8
   %114 = load ptr, ptr %9, align 8
-  %115 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %114, i32 0, i32 2
-  store ptr %113, ptr %115, align 8
-  %116 = load ptr, ptr %9, align 8
-  %117 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %116, i32 0, i32 3
-  store ptr %113, ptr %117, align 8
-  %118 = load ptr, ptr %4, align 8
-  %119 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %118, i32 0, i32 0
-  %120 = load ptr, ptr %119, align 8
-  %121 = icmp eq ptr %120, null
-  br i1 %121, label %122, label %126
+  %115 = load i64, ptr %12, align 8
+  %116 = getelementptr i8, ptr %114, i64 %115
+  %117 = load ptr, ptr %9, align 8
+  %118 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %117, i32 0, i32 2
+  store ptr %116, ptr %118, align 8
+  %119 = load ptr, ptr %9, align 8
+  %120 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %119, i32 0, i32 3
+  store ptr %116, ptr %120, align 8
+  %121 = load ptr, ptr %4, align 8
+  %122 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %121, i32 0, i32 0
+  %123 = load ptr, ptr %122, align 8
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %125, label %129
 
-122:                                              ; preds = %101
-  %123 = load ptr, ptr %9, align 8
-  %124 = load ptr, ptr %4, align 8
-  %125 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %124, i32 0, i32 0
-  store ptr %123, ptr %125, align 8
-  br label %132
+125:                                              ; preds = %103
+  %126 = load ptr, ptr %9, align 8
+  %127 = load ptr, ptr %4, align 8
+  %128 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %127, i32 0, i32 0
+  store ptr %126, ptr %128, align 8
+  br label %135
 
-126:                                              ; preds = %101
-  %127 = load ptr, ptr %9, align 8
-  %128 = load ptr, ptr %4, align 8
-  %129 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %128, i32 0, i32 1
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %130, i32 0, i32 0
-  store ptr %127, ptr %131, align 8
-  br label %132
+129:                                              ; preds = %103
+  %130 = load ptr, ptr %9, align 8
+  %131 = load ptr, ptr %4, align 8
+  %132 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %131, i32 0, i32 1
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %133, i32 0, i32 0
+  store ptr %130, ptr %134, align 8
+  br label %135
 
-132:                                              ; preds = %126, %122
-  %133 = load ptr, ptr %9, align 8
-  %134 = load ptr, ptr %4, align 8
-  %135 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %134, i32 0, i32 1
-  store ptr %133, ptr %135, align 8
-  br label %136
+135:                                              ; preds = %129, %125
+  %136 = load ptr, ptr %9, align 8
+  %137 = load ptr, ptr %4, align 8
+  %138 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %137, i32 0, i32 1
+  store ptr %136, ptr %138, align 8
+  br label %139
 
-136:                                              ; preds = %132, %45
-  %137 = load ptr, ptr %9, align 8
-  %138 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %137, i32 0, i32 3
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr %struct.AfterTriggerSharedData, ptr %139, i64 -1
-  store ptr %140, ptr %10, align 8
-  br label %141
+139:                                              ; preds = %135, %45
+  %140 = load ptr, ptr %9, align 8
+  %141 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %140, i32 0, i32 3
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr %struct.AfterTriggerSharedData, ptr %142, i64 -1
+  store ptr %143, ptr %10, align 8
+  br label %144
 
-141:                                              ; preds = %186, %136
-  %142 = load ptr, ptr %10, align 8
-  %143 = load ptr, ptr %9, align 8
-  %144 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %143, i32 0, i32 2
-  %145 = load ptr, ptr %144, align 8
-  %146 = icmp uge ptr %142, %145
-  br i1 %146, label %147, label %189
+144:                                              ; preds = %189, %139
+  %145 = load ptr, ptr %10, align 8
+  %146 = load ptr, ptr %9, align 8
+  %147 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %146, i32 0, i32 2
+  %148 = load ptr, ptr %147, align 8
+  %149 = icmp uge ptr %145, %148
+  br i1 %149, label %150, label %192
 
-147:                                              ; preds = %141
-  %148 = load ptr, ptr %10, align 8
-  %149 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %148, i32 0, i32 1
-  %150 = load i32, ptr %149, align 4
-  %151 = load ptr, ptr %6, align 8
+150:                                              ; preds = %144
+  %151 = load ptr, ptr %10, align 8
   %152 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %151, i32 0, i32 1
   %153 = load i32, ptr %152, align 4
-  %154 = icmp eq i32 %150, %153
-  br i1 %154, label %155, label %185
+  %154 = load ptr, ptr %6, align 8
+  %155 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %154, i32 0, i32 1
+  %156 = load i32, ptr %155, align 4
+  %157 = icmp eq i32 %153, %156
+  br i1 %157, label %158, label %188
 
-155:                                              ; preds = %147
-  %156 = load ptr, ptr %10, align 8
-  %157 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %156, i32 0, i32 2
-  %158 = load i32, ptr %157, align 8
-  %159 = load ptr, ptr %6, align 8
+158:                                              ; preds = %150
+  %159 = load ptr, ptr %10, align 8
   %160 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %159, i32 0, i32 2
   %161 = load i32, ptr %160, align 8
-  %162 = icmp eq i32 %158, %161
-  br i1 %162, label %163, label %185
+  %162 = load ptr, ptr %6, align 8
+  %163 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %162, i32 0, i32 2
+  %164 = load i32, ptr %163, align 8
+  %165 = icmp eq i32 %161, %164
+  br i1 %165, label %166, label %188
 
-163:                                              ; preds = %155
-  %164 = load ptr, ptr %10, align 8
-  %165 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %164, i32 0, i32 0
-  %166 = load i32, ptr %165, align 8
-  %167 = load ptr, ptr %6, align 8
+166:                                              ; preds = %158
+  %167 = load ptr, ptr %10, align 8
   %168 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %167, i32 0, i32 0
   %169 = load i32, ptr %168, align 8
-  %170 = icmp eq i32 %166, %169
-  br i1 %170, label %171, label %185
+  %170 = load ptr, ptr %6, align 8
+  %171 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %170, i32 0, i32 0
+  %172 = load i32, ptr %171, align 8
+  %173 = icmp eq i32 %169, %172
+  br i1 %173, label %174, label %188
 
-171:                                              ; preds = %163
-  %172 = load ptr, ptr %10, align 8
-  %173 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %172, i32 0, i32 4
-  %174 = load ptr, ptr %173, align 8
-  %175 = load ptr, ptr %6, align 8
+174:                                              ; preds = %166
+  %175 = load ptr, ptr %10, align 8
   %176 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %175, i32 0, i32 4
   %177 = load ptr, ptr %176, align 8
-  %178 = icmp eq ptr %174, %177
-  br i1 %178, label %179, label %185
+  %178 = load ptr, ptr %6, align 8
+  %179 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %178, i32 0, i32 4
+  %180 = load ptr, ptr %179, align 8
+  %181 = icmp eq ptr %177, %180
+  br i1 %181, label %182, label %188
 
-179:                                              ; preds = %171
-  %180 = load ptr, ptr %10, align 8
-  %181 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %180, i32 0, i32 3
-  %182 = load i32, ptr %181, align 4
-  %183 = icmp eq i32 %182, 0
-  br i1 %183, label %184, label %185
+182:                                              ; preds = %174
+  %183 = load ptr, ptr %10, align 8
+  %184 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %183, i32 0, i32 3
+  %185 = load i32, ptr %184, align 4
+  %186 = icmp eq i32 %185, 0
+  br i1 %186, label %187, label %188
 
-184:                                              ; preds = %179
+187:                                              ; preds = %182
+  br label %192
+
+188:                                              ; preds = %182, %174, %166, %158, %150
   br label %189
 
-185:                                              ; preds = %179, %171, %163, %155, %147
-  br label %186
-
-186:                                              ; preds = %185
-  %187 = load ptr, ptr %10, align 8
-  %188 = getelementptr %struct.AfterTriggerSharedData, ptr %187, i32 -1
-  store ptr %188, ptr %10, align 8
-  br label %141, !llvm.loop !72
-
-189:                                              ; preds = %184, %141
+189:                                              ; preds = %188
   %190 = load ptr, ptr %10, align 8
-  %191 = load ptr, ptr %9, align 8
-  %192 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %191, i32 0, i32 2
-  %193 = load ptr, ptr %192, align 8
-  %194 = icmp ult ptr %190, %193
-  br i1 %194, label %195, label %203
+  %191 = getelementptr %struct.AfterTriggerSharedData, ptr %190, i32 -1
+  store ptr %191, ptr %10, align 8
+  br label %144, !llvm.loop !72
 
-195:                                              ; preds = %189
-  %196 = load ptr, ptr %10, align 8
-  %197 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %196, ptr align 8 %197, i64 32, i1 false)
-  %198 = load ptr, ptr %10, align 8
-  %199 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %198, i32 0, i32 3
-  store i32 0, ptr %199, align 4
-  %200 = load ptr, ptr %10, align 8
-  %201 = load ptr, ptr %9, align 8
-  %202 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %201, i32 0, i32 2
-  store ptr %200, ptr %202, align 8
-  br label %203
+192:                                              ; preds = %187, %144
+  %193 = load ptr, ptr %10, align 8
+  %194 = load ptr, ptr %9, align 8
+  %195 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %194, i32 0, i32 2
+  %196 = load ptr, ptr %195, align 8
+  %197 = icmp ult ptr %193, %196
+  br i1 %197, label %198, label %206
 
-203:                                              ; preds = %195, %189
+198:                                              ; preds = %192
+  %199 = load ptr, ptr %10, align 8
+  %200 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %199, ptr align 8 %200, i64 32, i1 false)
+  %201 = load ptr, ptr %10, align 8
+  %202 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %201, i32 0, i32 3
+  store i32 0, ptr %202, align 4
+  %203 = load ptr, ptr %10, align 8
   %204 = load ptr, ptr %9, align 8
-  %205 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %204, i32 0, i32 1
-  %206 = load ptr, ptr %205, align 8
-  store ptr %206, ptr %11, align 8
-  %207 = load ptr, ptr %11, align 8
-  %208 = load ptr, ptr %5, align 8
-  %209 = load i64, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %207, ptr align 4 %208, i64 %209, i1 false)
+  %205 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %204, i32 0, i32 2
+  store ptr %203, ptr %205, align 8
+  br label %206
+
+206:                                              ; preds = %198, %192
+  %207 = load ptr, ptr %9, align 8
+  %208 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %207, i32 0, i32 1
+  %209 = load ptr, ptr %208, align 8
+  store ptr %209, ptr %11, align 8
   %210 = load ptr, ptr %11, align 8
-  %211 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %210, i32 0, i32 0
-  %212 = load i32, ptr %211, align 4
-  %213 = and i32 %212, -134217728
-  store i32 %213, ptr %211, align 4
-  %214 = load ptr, ptr %10, align 8
-  %215 = load ptr, ptr %11, align 8
-  %216 = ptrtoint ptr %214 to i64
-  %217 = ptrtoint ptr %215 to i64
-  %218 = sub i64 %216, %217
-  %219 = load ptr, ptr %11, align 8
-  %220 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %219, i32 0, i32 0
-  %221 = load i32, ptr %220, align 4
-  %222 = zext i32 %221 to i64
-  %223 = or i64 %222, %218
-  %224 = trunc i64 %223 to i32
-  store i32 %224, ptr %220, align 4
-  %225 = load i64, ptr %7, align 8
-  %226 = load ptr, ptr %9, align 8
-  %227 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %226, i32 0, i32 1
-  %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr i8, ptr %228, i64 %225
-  store ptr %229, ptr %227, align 8
-  %230 = load ptr, ptr %9, align 8
-  %231 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %230, i32 0, i32 1
-  %232 = load ptr, ptr %231, align 8
-  %233 = load ptr, ptr %4, align 8
-  %234 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %233, i32 0, i32 2
-  store ptr %232, ptr %234, align 8
+  %211 = load ptr, ptr %5, align 8
+  %212 = load i64, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %210, ptr align 4 %211, i64 %212, i1 false)
+  %213 = load ptr, ptr %11, align 8
+  %214 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %213, i32 0, i32 0
+  %215 = load i32, ptr %214, align 4
+  %216 = and i32 %215, -134217728
+  store i32 %216, ptr %214, align 4
+  %217 = load ptr, ptr %10, align 8
+  %218 = load ptr, ptr %11, align 8
+  %219 = ptrtoint ptr %217 to i64
+  %220 = ptrtoint ptr %218 to i64
+  %221 = sub i64 %219, %220
+  %222 = load ptr, ptr %11, align 8
+  %223 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %222, i32 0, i32 0
+  %224 = load i32, ptr %223, align 4
+  %225 = zext i32 %224 to i64
+  %226 = or i64 %225, %221
+  %227 = trunc i64 %226 to i32
+  store i32 %227, ptr %223, align 4
+  %228 = load i64, ptr %7, align 8
+  %229 = load ptr, ptr %9, align 8
+  %230 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %229, i32 0, i32 1
+  %231 = load ptr, ptr %230, align 8
+  %232 = getelementptr i8, ptr %231, i64 %228
+  store ptr %232, ptr %230, align 8
+  %233 = load ptr, ptr %9, align 8
+  %234 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %233, i32 0, i32 1
+  %235 = load ptr, ptr %234, align 8
+  %236 = load ptr, ptr %4, align 8
+  %237 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %236, i32 0, i32 2
+  store ptr %235, ptr %237, align 8
   ret void
 }
 
@@ -16351,44 +16459,48 @@ define internal ptr @GetCurrentFDWTuplestore() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %6 = sext i32 %5 to i64
-  %7 = getelementptr %struct.AfterTriggersQueryData, ptr %4, i64 %6
-  %8 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %1, align 8
-  %10 = load ptr, ptr %1, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %28
+  %4 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %7 = load i32, ptr %6, align 8
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr %struct.AfterTriggersQueryData, ptr %5, i64 %8
+  %10 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %1, align 8
+  %12 = load ptr, ptr %1, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %32
 
-12:                                               ; preds = %0
-  %13 = load ptr, ptr @CurTransactionContext, align 8
-  %14 = call ptr @MemoryContextSwitchTo(ptr noundef %13)
-  store ptr %14, ptr %2, align 8
-  %15 = load ptr, ptr @CurrentResourceOwner, align 8
-  store ptr %15, ptr %3, align 8
-  %16 = load ptr, ptr @CurTransactionResourceOwner, align 8
-  store ptr %16, ptr @CurrentResourceOwner, align 8
-  %17 = load i32, ptr @work_mem, align 4
-  %18 = call ptr @tuplestore_begin_heap(i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %17)
-  store ptr %18, ptr %1, align 8
-  %19 = load ptr, ptr %3, align 8
-  store ptr %19, ptr @CurrentResourceOwner, align 8
-  %20 = load ptr, ptr %2, align 8
-  %21 = call ptr @MemoryContextSwitchTo(ptr noundef %20)
-  %22 = load ptr, ptr %1, align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
-  %24 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr %struct.AfterTriggersQueryData, ptr %23, i64 %25
-  %27 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %26, i32 0, i32 1
-  store ptr %22, ptr %27, align 8
-  br label %28
+14:                                               ; preds = %0
+  %15 = load ptr, ptr @CurTransactionContext, align 8
+  %16 = call ptr @MemoryContextSwitchTo(ptr noundef %15)
+  store ptr %16, ptr %2, align 8
+  %17 = load ptr, ptr @CurrentResourceOwner, align 8
+  store ptr %17, ptr %3, align 8
+  %18 = load ptr, ptr @CurTransactionResourceOwner, align 8
+  store ptr %18, ptr @CurrentResourceOwner, align 8
+  %19 = load i32, ptr @work_mem, align 4
+  %20 = call ptr @tuplestore_begin_heap(i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %19)
+  store ptr %20, ptr %1, align 8
+  %21 = load ptr, ptr %3, align 8
+  store ptr %21, ptr @CurrentResourceOwner, align 8
+  %22 = load ptr, ptr %2, align 8
+  %23 = call ptr @MemoryContextSwitchTo(ptr noundef %22)
+  %24 = load ptr, ptr %1, align 8
+  %25 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %28 = load i32, ptr %27, align 8
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr %struct.AfterTriggersQueryData, ptr %26, i64 %29
+  %31 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %30, i32 0, i32 1
+  store ptr %24, ptr %31, align 8
+  br label %32
 
-28:                                               ; preds = %12, %0
-  %29 = load ptr, ptr %1, align 8
-  ret ptr %29
+32:                                               ; preds = %14, %0
+  %33 = load ptr, ptr %1, align 8
+  ret ptr %33
 }
 
 declare zeroext i1 @tuplestore_gettupleslot(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) #2
@@ -16719,215 +16831,217 @@ define internal void @cancel_prior_stmt_triggers(i32 noundef %0, i32 noundef %1,
   store i32 %0, ptr %4, align 4
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
-  %12 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4), align 8
-  %13 = load i32, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5), align 8
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr %struct.AfterTriggersQueryData, ptr %12, i64 %14
-  store ptr %15, ptr %8, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = load i32, ptr %5, align 4
-  %18 = call ptr @GetAfterTriggersTableData(i32 noundef %16, i32 noundef %17)
-  store ptr %18, ptr %7, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %19, i32 0, i32 4
-  %21 = load i8, ptr %20, align 2
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %138
+  %12 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 5
+  %15 = load i32, ptr %14, align 8
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr %struct.AfterTriggersQueryData, ptr %13, i64 %16
+  store ptr %17, ptr %8, align 8
+  %18 = load i32, ptr %4, align 4
+  %19 = load i32, ptr %5, align 4
+  %20 = call ptr @GetAfterTriggersTableData(i32 noundef %18, i32 noundef %19)
+  store ptr %20, ptr %7, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %21, i32 0, i32 4
+  %23 = load i8, ptr %22, align 2
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %140
 
-23:                                               ; preds = %3
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %24, i32 0, i32 5
-  %26 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %25, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %38
+25:                                               ; preds = %3
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %26, i32 0, i32 5
+  %28 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %40
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %30, i32 0, i32 5
-  %32 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %31, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %10, align 8
-  %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %34, i32 0, i32 5
-  %36 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %35, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %9, align 8
-  br label %43
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %32, i32 0, i32 5
+  %34 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %33, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %10, align 8
+  %36 = load ptr, ptr %7, align 8
+  %37 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %36, i32 0, i32 5
+  %38 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %37, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %9, align 8
+  br label %45
 
-38:                                               ; preds = %23
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %39, i32 0, i32 0
-  %41 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %40, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %10, align 8
+40:                                               ; preds = %25
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %41, i32 0, i32 0
+  %43 = getelementptr inbounds %struct.AfterTriggerEventList, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  store ptr %44, ptr %10, align 8
   store ptr null, ptr %9, align 8
-  br label %43
+  br label %45
 
-43:                                               ; preds = %38, %29
-  br label %44
+45:                                               ; preds = %40, %31
+  br label %46
 
-44:                                               ; preds = %133, %43
-  %45 = load ptr, ptr %10, align 8
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %47, label %137
+46:                                               ; preds = %135, %45
+  %47 = load ptr, ptr %10, align 8
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %139
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %9, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %53
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %9, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %55
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr i8, ptr %51, i64 32
-  store ptr %52, ptr %9, align 8
-  br label %53
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %10, align 8
+  %54 = getelementptr i8, ptr %53, i64 32
+  store ptr %54, ptr %9, align 8
+  br label %55
 
-53:                                               ; preds = %50, %47
-  br label %54
+55:                                               ; preds = %52, %49
+  br label %56
 
-54:                                               ; preds = %129, %53
-  %55 = load ptr, ptr %9, align 8
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp ult ptr %55, %58
-  br i1 %59, label %60, label %132
+56:                                               ; preds = %131, %55
+  %57 = load ptr, ptr %9, align 8
+  %58 = load ptr, ptr %10, align 8
+  %59 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %58, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp ult ptr %57, %60
+  br i1 %61, label %62, label %134
 
-60:                                               ; preds = %54
-  %61 = load ptr, ptr %9, align 8
-  %62 = load ptr, ptr %9, align 8
-  %63 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %62, i32 0, i32 0
-  %64 = load i32, ptr %63, align 4
-  %65 = and i32 %64, 134217727
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr i8, ptr %61, i64 %66
-  store ptr %67, ptr %11, align 8
-  %68 = load ptr, ptr %11, align 8
-  %69 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %68, i32 0, i32 2
-  %70 = load i32, ptr %69, align 8
-  %71 = load i32, ptr %4, align 4
-  %72 = icmp ne i32 %70, %71
-  br i1 %72, label %73, label %74
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %9, align 8
+  %64 = load ptr, ptr %9, align 8
+  %65 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %64, i32 0, i32 0
+  %66 = load i32, ptr %65, align 4
+  %67 = and i32 %66, 134217727
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr i8, ptr %63, i64 %68
+  store ptr %69, ptr %11, align 8
+  %70 = load ptr, ptr %11, align 8
+  %71 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %70, i32 0, i32 2
+  %72 = load i32, ptr %71, align 8
+  %73 = load i32, ptr %4, align 4
+  %74 = icmp ne i32 %72, %73
+  br i1 %74, label %75, label %76
 
-73:                                               ; preds = %60
-  br label %139
+75:                                               ; preds = %62
+  br label %141
 
-74:                                               ; preds = %60
-  %75 = load ptr, ptr %11, align 8
-  %76 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %75, i32 0, i32 0
-  %77 = load i32, ptr %76, align 8
-  %78 = and i32 %77, 3
-  %79 = load i32, ptr %6, align 4
-  %80 = icmp ne i32 %78, %79
-  br i1 %80, label %81, label %82
+76:                                               ; preds = %62
+  %77 = load ptr, ptr %11, align 8
+  %78 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %77, i32 0, i32 0
+  %79 = load i32, ptr %78, align 8
+  %80 = and i32 %79, 3
+  %81 = load i32, ptr %6, align 4
+  %82 = icmp ne i32 %80, %81
+  br i1 %82, label %83, label %84
 
-81:                                               ; preds = %74
-  br label %139
+83:                                               ; preds = %76
+  br label %141
 
-82:                                               ; preds = %74
-  %83 = load ptr, ptr %11, align 8
-  %84 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %83, i32 0, i32 0
-  %85 = load i32, ptr %84, align 8
-  %86 = and i32 %85, 4
-  %87 = icmp ne i32 %86, 0
-  br i1 %87, label %88, label %89
+84:                                               ; preds = %76
+  %85 = load ptr, ptr %11, align 8
+  %86 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %85, i32 0, i32 0
+  %87 = load i32, ptr %86, align 8
+  %88 = and i32 %87, 4
+  %89 = icmp ne i32 %88, 0
+  br i1 %89, label %90, label %91
 
-88:                                               ; preds = %82
-  br label %139
+90:                                               ; preds = %84
+  br label %141
 
-89:                                               ; preds = %82
-  %90 = load ptr, ptr %11, align 8
-  %91 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %90, i32 0, i32 0
-  %92 = load i32, ptr %91, align 8
-  %93 = and i32 %92, 24
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %96, label %95
+91:                                               ; preds = %84
+  %92 = load ptr, ptr %11, align 8
+  %93 = getelementptr inbounds %struct.AfterTriggerSharedData, ptr %92, i32 0, i32 0
+  %94 = load i32, ptr %93, align 8
+  %95 = and i32 %94, 24
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %98, label %97
 
-95:                                               ; preds = %89
-  br label %139
+97:                                               ; preds = %91
+  br label %141
 
-96:                                               ; preds = %89
-  %97 = load ptr, ptr %9, align 8
-  %98 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %97, i32 0, i32 0
-  %99 = load i32, ptr %98, align 4
-  %100 = and i32 %99, -1073741825
-  store i32 %100, ptr %98, align 4
-  %101 = load ptr, ptr %9, align 8
-  %102 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %101, i32 0, i32 0
-  %103 = load i32, ptr %102, align 4
-  %104 = or i32 %103, -2147483648
-  store i32 %104, ptr %102, align 4
-  br label %105
+98:                                               ; preds = %91
+  %99 = load ptr, ptr %9, align 8
+  %100 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %99, i32 0, i32 0
+  %101 = load i32, ptr %100, align 4
+  %102 = and i32 %101, -1073741825
+  store i32 %102, ptr %100, align 4
+  %103 = load ptr, ptr %9, align 8
+  %104 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %103, i32 0, i32 0
+  %105 = load i32, ptr %104, align 4
+  %106 = or i32 %105, -2147483648
+  store i32 %106, ptr %104, align 4
+  br label %107
 
-105:                                              ; preds = %96
-  %106 = load ptr, ptr %9, align 8
-  %107 = load ptr, ptr %9, align 8
-  %108 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %107, i32 0, i32 0
-  %109 = load i32, ptr %108, align 4
-  %110 = and i32 %109, 939524096
-  %111 = icmp eq i32 %110, 134217728
-  br i1 %111, label %112, label %113
+107:                                              ; preds = %98
+  %108 = load ptr, ptr %9, align 8
+  %109 = load ptr, ptr %9, align 8
+  %110 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %109, i32 0, i32 0
+  %111 = load i32, ptr %110, align 4
+  %112 = and i32 %111, 939524096
+  %113 = icmp eq i32 %112, 134217728
+  br i1 %113, label %114, label %115
 
-112:                                              ; preds = %105
+114:                                              ; preds = %107
+  br label %131
+
+115:                                              ; preds = %107
+  %116 = load ptr, ptr %9, align 8
+  %117 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %116, i32 0, i32 0
+  %118 = load i32, ptr %117, align 4
+  %119 = and i32 %118, 939524096
+  %120 = icmp eq i32 %119, 805306368
+  br i1 %120, label %121, label %122
+
+121:                                              ; preds = %115
   br label %129
 
-113:                                              ; preds = %105
-  %114 = load ptr, ptr %9, align 8
-  %115 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %114, i32 0, i32 0
-  %116 = load i32, ptr %115, align 4
-  %117 = and i32 %116, 939524096
-  %118 = icmp eq i32 %117, 805306368
-  br i1 %118, label %119, label %120
-
-119:                                              ; preds = %113
-  br label %127
-
-120:                                              ; preds = %113
-  %121 = load ptr, ptr %9, align 8
-  %122 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %121, i32 0, i32 0
-  %123 = load i32, ptr %122, align 4
-  %124 = and i32 %123, 939524096
-  %125 = icmp eq i32 %124, 268435456
-  %126 = select i1 %125, i64 12, i64 4
-  br label %127
-
-127:                                              ; preds = %120, %119
-  %128 = phi i64 [ 16, %119 ], [ %126, %120 ]
+122:                                              ; preds = %115
+  %123 = load ptr, ptr %9, align 8
+  %124 = getelementptr inbounds %struct.AfterTriggerEventData, ptr %123, i32 0, i32 0
+  %125 = load i32, ptr %124, align 4
+  %126 = and i32 %125, 939524096
+  %127 = icmp eq i32 %126, 268435456
+  %128 = select i1 %127, i64 12, i64 4
   br label %129
 
-129:                                              ; preds = %127, %112
-  %130 = phi i64 [ 24, %112 ], [ %128, %127 ]
-  %131 = getelementptr i8, ptr %106, i64 %130
-  store ptr %131, ptr %9, align 8
-  br label %54, !llvm.loop !75
+129:                                              ; preds = %122, %121
+  %130 = phi i64 [ 16, %121 ], [ %128, %122 ]
+  br label %131
 
-132:                                              ; preds = %54
+131:                                              ; preds = %129, %114
+  %132 = phi i64 [ 24, %114 ], [ %130, %129 ]
+  %133 = getelementptr i8, ptr %108, i64 %132
+  store ptr %133, ptr %9, align 8
+  br label %56, !llvm.loop !75
+
+134:                                              ; preds = %56
   store ptr null, ptr %9, align 8
-  br label %133
+  br label %135
 
-133:                                              ; preds = %132
-  %134 = load ptr, ptr %10, align 8
-  %135 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %134, i32 0, i32 0
-  %136 = load ptr, ptr %135, align 8
-  store ptr %136, ptr %10, align 8
-  br label %44, !llvm.loop !76
+135:                                              ; preds = %134
+  %136 = load ptr, ptr %10, align 8
+  %137 = getelementptr inbounds %struct.AfterTriggerEventChunk, ptr %136, i32 0, i32 0
+  %138 = load ptr, ptr %137, align 8
+  store ptr %138, ptr %10, align 8
+  br label %46, !llvm.loop !76
 
-137:                                              ; preds = %44
-  br label %138
+139:                                              ; preds = %46
+  br label %140
 
-138:                                              ; preds = %137, %3
-  br label %139
+140:                                              ; preds = %139, %3
+  br label %141
 
-139:                                              ; preds = %138, %95, %88, %81, %73
-  %140 = load ptr, ptr %7, align 8
-  %141 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %140, i32 0, i32 4
-  store i8 1, ptr %141, align 2
+141:                                              ; preds = %140, %97, %90, %83, %75
   %142 = load ptr, ptr %7, align 8
-  %143 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %142, i32 0, i32 5
-  %144 = load ptr, ptr %8, align 8
-  %145 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %144, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %143, ptr align 8 %145, i64 24, i1 false)
+  %143 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %142, i32 0, i32 4
+  store i8 1, ptr %143, align 2
+  %144 = load ptr, ptr %7, align 8
+  %145 = getelementptr inbounds %struct.AfterTriggersTableData, ptr %144, i32 0, i32 5
+  %146 = load ptr, ptr %8, align 8
+  %147 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %146, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %145, ptr align 8 %147, i64 24, i1 false)
   ret void
 }
 
@@ -16953,42 +17067,45 @@ define internal ptr @afterTriggerCopyBitmap(ptr noundef %0) #0 {
 
 9:                                                ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %26
+  br label %29
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3), align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %18
+  %11 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %20
 
-13:                                               ; preds = %10
-  br label %14
-
-14:                                               ; preds = %13
+14:                                               ; preds = %10
   br label %15
 
 15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
   store i32 1, ptr %6, align 4
-  %16 = load ptr, ptr @TopTransactionContext, align 8
-  %17 = call ptr @AllocSetContextCreateInternal(ptr noundef %16, ptr noundef @.str.85, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
-  store ptr %17, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3), align 8
-  br label %18
+  %17 = load ptr, ptr @TopTransactionContext, align 8
+  %18 = call ptr @AllocSetContextCreateInternal(ptr noundef %17, ptr noundef @.str.85, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
+  %19 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3
+  store ptr %18, ptr %19, align 8
+  br label %20
 
-18:                                               ; preds = %15, %10
-  %19 = load ptr, ptr getelementptr inbounds (%struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3), align 8
-  %20 = call ptr @MemoryContextSwitchTo(ptr noundef %19)
-  store ptr %20, ptr %5, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = call ptr @bms_copy(ptr noundef %21)
-  store ptr %22, ptr %4, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = call ptr @MemoryContextSwitchTo(ptr noundef %23)
-  %25 = load ptr, ptr %4, align 8
-  store ptr %25, ptr %2, align 8
-  br label %26
+20:                                               ; preds = %16, %10
+  %21 = getelementptr inbounds %struct.AfterTriggersData, ptr @afterTriggers, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = call ptr @MemoryContextSwitchTo(ptr noundef %22)
+  store ptr %23, ptr %5, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = call ptr @bms_copy(ptr noundef %24)
+  store ptr %25, ptr %4, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = call ptr @MemoryContextSwitchTo(ptr noundef %26)
+  %28 = load ptr, ptr %4, align 8
+  store ptr %28, ptr %2, align 8
+  br label %29
 
-26:                                               ; preds = %18, %9
-  %27 = load ptr, ptr %2, align 8
-  ret ptr %27
+29:                                               ; preds = %20, %9
+  %30 = load ptr, ptr %2, align 8
+  ret ptr %30
 }
 
 declare void @tuplestore_puttupleslot(ptr noundef, ptr noundef) #2

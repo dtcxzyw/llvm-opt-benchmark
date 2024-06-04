@@ -1582,15 +1582,16 @@ define available_externally hidden noundef nonnull align 8 ptr @_ZN10wasmparser1
   %8 = getelementptr inbounds { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, i64 }, ptr %4, i32 0, i32 2
   store i64 %2, ptr %8, align 8
   %9 = load i64, ptr @anon.e3ea2fe3d58e70bd18ace8a15af77cc4.2.llvm.2989347547946838164, align 8, !range !17, !noundef !4
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @anon.e3ea2fe3d58e70bd18ace8a15af77cc4.2.llvm.2989347547946838164, i64 8), align 8
+  %10 = getelementptr inbounds i8, ptr @anon.e3ea2fe3d58e70bd18ace8a15af77cc4.2.llvm.2989347547946838164, i64 8
+  %11 = load i64, ptr %10, align 8
   store i64 %9, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %10, ptr %11, align 8
-  %12 = call noundef nonnull align 8 ptr @"_ZN5alloc5boxed12Box$LT$T$GT$3new17h61f01b01af6874e0E.llvm.2989347547946838164"(ptr noalias nocapture noundef align 8 dereferenceable(48) %4)
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %11, ptr %12, align 8
+  %13 = call noundef nonnull align 8 ptr @"_ZN5alloc5boxed12Box$LT$T$GT$3new17h61f01b01af6874e0E.llvm.2989347547946838164"(ptr noalias nocapture noundef align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr %4)
-  store ptr %12, ptr %6, align 8
-  %13 = load ptr, ptr %6, align 8, !nonnull !4, !align !6, !noundef !4
-  ret ptr %13
+  store ptr %13, ptr %6, align 8
+  %14 = load ptr, ptr %6, align 8, !nonnull !4, !align !6, !noundef !4
+  ret ptr %14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

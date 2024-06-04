@@ -392,7 +392,8 @@ entry:
   store ptr %paircache, ptr %paircache.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btBroadphaseInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV16btDbvtBroadphase, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV16btDbvtBroadphase, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_sets = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [2 x %struct.btDbvt], ptr %m_sets, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %struct.btDbvt, ptr %array.begin, i64 2
@@ -418,8 +419,8 @@ invoke.cont4:                                     ; preds = %arrayctor.cont
   store i8 0, ptr %m_deferedcollide, align 1
   %m_needcleanup = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this1, i32 0, i32 19
   store i8 1, ptr %m_needcleanup, align 2
-  %0 = load ptr, ptr %paircache.addr, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %paircache.addr, align 8
+  %cmp = icmp ne ptr %1, null
   %cond = select i1 %cmp, i1 false, i1 true
   %m_releasepaircache = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this1, i32 0, i32 17
   %frombool = zext i1 %cond to i8
@@ -444,13 +445,13 @@ invoke.cont4:                                     ; preds = %arrayctor.cont
   store i32 0, ptr %m_updates_done, align 8
   %m_updates_ratio = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this1, i32 0, i32 13
   store float 0.000000e+00, ptr %m_updates_ratio, align 4
-  %1 = load ptr, ptr %paircache.addr, align 8
-  %tobool = icmp ne ptr %1, null
+  %2 = load ptr, ptr %paircache.addr, align 8
+  %tobool = icmp ne ptr %2, null
   store i1 false, ptr %cleanup.cond, align 1
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont4
-  %2 = load ptr, ptr %paircache.addr, align 8
+  %3 = load ptr, ptr %paircache.addr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %invoke.cont4
@@ -472,7 +473,7 @@ invoke.cont11:                                    ; preds = %invoke.cont7
   br label %cond.end
 
 cond.end:                                         ; preds = %invoke.cont11, %cond.true
-  %cond12 = phi ptr [ %2, %cond.true ], [ %call8, %invoke.cont11 ]
+  %cond12 = phi ptr [ %3, %cond.true ], [ %call8, %invoke.cont11 ]
   %m_paircache = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this1, i32 0, i32 3
   store ptr %cond12, ptr %m_paircache, align 8
   %m_gid = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this1, i32 0, i32 16
@@ -485,31 +486,31 @@ cond.end:                                         ; preds = %invoke.cont11, %con
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %cond.end
-  %3 = load i32, ptr %i, align 4
-  %cmp13 = icmp sle i32 %3, 2
+  %4 = load i32, ptr %i, align 4
+  %cmp13 = icmp sle i32 %4, 2
   br i1 %cmp13, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %m_stageRoots = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this1, i32 0, i32 2
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
+  %5 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr inbounds [3 x ptr], ptr %m_stageRoots, i64 0, i64 %idxprom
   store ptr null, ptr %arrayidx, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
+  %6 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !5
 
 lpad:                                             ; preds = %arrayctor.loop
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   %arraydestroy.isempty = icmp eq ptr %array.begin, %arrayctor.cur
   br i1 %arraydestroy.isempty, label %arraydestroy.done2, label %arraydestroy.body
 
@@ -524,37 +525,37 @@ arraydestroy.done2:                               ; preds = %arraydestroy.body, 
   br label %ehcleanup25
 
 lpad3:                                            ; preds = %arrayctor.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup18
 
 lpad5:                                            ; preds = %for.end, %invoke.cont6, %cond.false
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont7
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad10
-  %18 = load ptr, ptr %saved-rvalue, align 8
-  %19 = load ptr, ptr %saved-rvalue9, align 8
-  call void @_ZN28btHashedOverlappingPairCachedlEPvS0_(ptr noundef %18, ptr noundef %19) #10
+  %19 = load ptr, ptr %saved-rvalue, align 8
+  %20 = load ptr, ptr %saved-rvalue9, align 8
+  call void @_ZN28btHashedOverlappingPairCachedlEPvS0_(ptr noundef %19, ptr noundef %20) #10
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad10
@@ -574,12 +575,12 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   ret void
 
 lpad16:                                           ; preds = %invoke.cont15
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp) #10
   br label %ehcleanup
 
@@ -589,11 +590,11 @@ ehcleanup:                                        ; preds = %lpad16, %cleanup.do
 
 ehcleanup18:                                      ; preds = %ehcleanup, %lpad3
   %array.begin19 = getelementptr inbounds [2 x %struct.btDbvt], ptr %m_sets, i32 0, i32 0
-  %23 = getelementptr inbounds %struct.btDbvt, ptr %array.begin19, i64 2
+  %24 = getelementptr inbounds %struct.btDbvt, ptr %array.begin19, i64 2
   br label %arraydestroy.body20
 
 arraydestroy.body20:                              ; preds = %arraydestroy.body20, %ehcleanup18
-  %arraydestroy.elementPast21 = phi ptr [ %23, %ehcleanup18 ], [ %arraydestroy.element22, %arraydestroy.body20 ]
+  %arraydestroy.elementPast21 = phi ptr [ %24, %ehcleanup18 ], [ %arraydestroy.element22, %arraydestroy.body20 ]
   %arraydestroy.element22 = getelementptr inbounds %struct.btDbvt, ptr %arraydestroy.elementPast21, i64 -1
   call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element22) #10
   %arraydestroy.done23 = icmp eq ptr %arraydestroy.element22, %array.begin19
@@ -620,7 +621,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV21btBroadphaseInterface, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV21btBroadphaseInterface, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -823,22 +825,23 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV16btDbvtBroadphase, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV16btDbvtBroadphase, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_releasepaircache = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this1, i32 0, i32 17
-  %0 = load i8, ptr %m_releasepaircache, align 4
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %m_releasepaircache, align 4
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_paircache = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %m_paircache, align 8
-  %vtable = load ptr, ptr %1, align 8
+  %2 = load ptr, ptr %m_paircache, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 0
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #10
   %m_paircache2 = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %m_paircache2, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
+  %4 = load ptr, ptr %m_paircache2, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %4)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -849,11 +852,11 @@ if.end:                                           ; preds = %invoke.cont, %entry
   call void @_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rayTestStacks) #10
   %m_sets = getelementptr inbounds %struct.btDbvtBroadphase, ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [2 x %struct.btDbvt], ptr %m_sets, i32 0, i32 0
-  %4 = getelementptr inbounds %struct.btDbvt, ptr %array.begin, i64 2
+  %5 = getelementptr inbounds %struct.btDbvt, ptr %array.begin, i64 2
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %if.end
-  %arraydestroy.elementPast = phi ptr [ %4, %if.end ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %5, %if.end ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %struct.btDbvt, ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #10
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -864,10 +867,10 @@ arraydestroy.done3:                               ; preds = %arraydestroy.body
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #11
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #11
   unreachable
 }
 
@@ -1147,10 +1150,11 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6btDbvt8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18btDbvtTreeCollider, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV18btDbvtTreeCollider, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pbp = getelementptr inbounds %struct.btDbvtTreeCollider, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %pbp, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %pbp, align 8
   ret void
 }
 
@@ -1564,10 +1568,11 @@ entry:
   store ptr %orgCallback, ptr %orgCallback.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6btDbvt8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19BroadphaseRayTester, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV19BroadphaseRayTester, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_rayCallback = getelementptr inbounds %struct.BroadphaseRayTester, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %orgCallback.addr, align 8
-  store ptr %0, ptr %m_rayCallback, align 8
+  %1 = load ptr, ptr %orgCallback.addr, align 8
+  store ptr %1, ptr %m_rayCallback, align 8
   ret void
 }
 
@@ -1863,10 +1868,11 @@ entry:
   store ptr %orgCallback, ptr %orgCallback.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6btDbvt8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20BroadphaseAabbTester, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV20BroadphaseAabbTester, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_aabbCallback = getelementptr inbounds %struct.BroadphaseAabbTester, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %orgCallback.addr, align 8
-  store ptr %0, ptr %m_aabbCallback, align 8
+  %1 = load ptr, ptr %orgCallback.addr, align 8
+  store ptr %1, ptr %m_aabbCallback, align 8
   ret void
 }
 
@@ -4260,7 +4266,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6btDbvt8ICollideE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6btDbvt8ICollideE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

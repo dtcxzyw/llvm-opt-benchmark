@@ -339,8 +339,9 @@ if.end4:                                          ; preds = %if.end
   call void @uv_once(ptr noundef @process_title_mutex_once, ptr noundef @init_process_title_mutex_once)
   call void @uv_mutex_lock(ptr noundef @process_title_mutex)
   %3 = load i64, ptr %size.addr, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.uv__process_title, ptr @process_title, i32 0, i32 1), align 8
-  %cmp5 = icmp ule i64 %3, %4
+  %4 = getelementptr inbounds %struct.uv__process_title, ptr @process_title, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  %cmp5 = icmp ule i64 %3, %5
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
@@ -349,30 +350,33 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %5 = load i64, ptr getelementptr inbounds (%struct.uv__process_title, ptr @process_title, i32 0, i32 1), align 8
-  %cmp8 = icmp ne i64 %5, 0
+  %6 = getelementptr inbounds %struct.uv__process_title, ptr @process_title, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  %cmp8 = icmp ne i64 %7, 0
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end7
-  %6 = load ptr, ptr %buffer.addr, align 8
-  %7 = load ptr, ptr @process_title, align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct.uv__process_title, ptr @process_title, i32 0, i32 1), align 8
-  %add = add i64 %8, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %7, i64 %add, i1 false)
+  %8 = load ptr, ptr %buffer.addr, align 8
+  %9 = load ptr, ptr @process_title, align 8
+  %10 = getelementptr inbounds %struct.uv__process_title, ptr @process_title, i32 0, i32 1
+  %11 = load i64, ptr %10, align 8
+  %add = add i64 %11, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %9, i64 %add, i1 false)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %if.end7
-  %9 = load ptr, ptr %buffer.addr, align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.uv__process_title, ptr @process_title, i32 0, i32 1), align 8
-  %arrayidx = getelementptr inbounds i8, ptr %9, i64 %10
+  %12 = load ptr, ptr %buffer.addr, align 8
+  %13 = getelementptr inbounds %struct.uv__process_title, ptr @process_title, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %12, i64 %14
   store i8 0, ptr %arrayidx, align 1
   call void @uv_mutex_unlock(ptr noundef @process_title_mutex)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end10, %if.then6, %if.then3, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+  %15 = load i32, ptr %retval, align 4
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable

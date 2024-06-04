@@ -23,27 +23,28 @@ define i32 @mca_coll_self_gather_intra(ptr noundef %0, i32 noundef %1, ptr nound
   store ptr %7, ptr %18, align 8
   store ptr %8, ptr %19, align 8
   %20 = load ptr, ptr %11, align 8
-  %21 = icmp eq ptr inttoptr (i64 1 to ptr), %20
-  br i1 %21, label %22, label %23
-
-22:                                               ; preds = %9
-  store i32 0, ptr %10, align 4
-  br label %31
+  %21 = inttoptr i64 1 to ptr
+  %22 = icmp eq ptr %21, %20
+  br i1 %22, label %23, label %24
 
 23:                                               ; preds = %9
-  %24 = load ptr, ptr %11, align 8
-  %25 = load i32, ptr %12, align 4
-  %26 = load ptr, ptr %13, align 8
-  %27 = load ptr, ptr %14, align 8
-  %28 = load i32, ptr %15, align 4
-  %29 = load ptr, ptr %16, align 8
-  %30 = call i32 @ompi_datatype_sndrcv(ptr noundef %24, i32 noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef %29)
-  store i32 %30, ptr %10, align 4
-  br label %31
+  store i32 0, ptr %10, align 4
+  br label %32
 
-31:                                               ; preds = %23, %22
-  %32 = load i32, ptr %10, align 4
-  ret i32 %32
+24:                                               ; preds = %9
+  %25 = load ptr, ptr %11, align 8
+  %26 = load i32, ptr %12, align 4
+  %27 = load ptr, ptr %13, align 8
+  %28 = load ptr, ptr %14, align 8
+  %29 = load i32, ptr %15, align 4
+  %30 = load ptr, ptr %16, align 8
+  %31 = call i32 @ompi_datatype_sndrcv(ptr noundef %25, i32 noundef %26, ptr noundef %27, ptr noundef %28, i32 noundef %29, ptr noundef %30)
+  store i32 %31, ptr %10, align 4
+  br label %32
+
+32:                                               ; preds = %24, %23
+  %33 = load i32, ptr %10, align 4
+  ret i32 %33
 }
 
 declare i32 @ompi_datatype_sndrcv(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1

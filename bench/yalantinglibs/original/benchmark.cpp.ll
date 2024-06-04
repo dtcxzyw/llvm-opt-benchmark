@@ -9187,7 +9187,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN11base_sampleC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18struct_pack_sample, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV18struct_pack_sample, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rect2s_ = getelementptr inbounds %struct.struct_pack_sample, ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorI5rect2IiESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %rect2s_) #3
   %rects_ = getelementptr inbounds %struct.struct_pack_sample, ptr %this1, i32 0, i32 2
@@ -9289,7 +9290,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN11base_sampleC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN16struct_pb_sample18struct_pb_sample_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN16struct_pb_sample18struct_pb_sample_tE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rects_ = getelementptr inbounds %"struct.struct_pb_sample::struct_pb_sample_t", ptr %this1, i32 0, i32 1
   call void @_ZN16struct_pb_sample7rect32sC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %rects_) #3
   %persons_ = getelementptr inbounds %"struct.struct_pb_sample::struct_pb_sample_t", ptr %this1, i32 0, i32 2
@@ -9391,7 +9393,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN11base_sampleC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17protobuf_sample_t, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV17protobuf_sample_t, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rects_ = getelementptr inbounds %struct.protobuf_sample_t, ptr %this1, i32 0, i32 1
   invoke void @_ZN6mygame7rect32sC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %rects_)
           to label %invoke.cont unwind label %lpad
@@ -9412,30 +9415,30 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup6
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont3
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6mygame7personsD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %persons_) #3
   br label %ehcleanup
 
@@ -12976,7 +12979,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11base_sample, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV11base_sample, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buf_size_map_ = getelementptr inbounds %struct.base_sample, ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapI10SampleTypemSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_mEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %buf_size_map_) #3
   %ser_time_elapsed_map_ = getelementptr inbounds %struct.base_sample, ptr %this1, i32 0, i32 2
@@ -13171,7 +13175,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18struct_pack_sample, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV18struct_pack_sample, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %struct.struct_pack_sample, ptr %this1, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer_) #3
   %monsters_ = getelementptr inbounds %struct.struct_pack_sample, ptr %this1, i32 0, i32 4
@@ -13224,7 +13229,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11base_sample, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV11base_sample, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %deser_time_elapsed_map_ = getelementptr inbounds %struct.base_sample, ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_mapI10SampleTypemSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %deser_time_elapsed_map_) #3
   %ser_time_elapsed_map_ = getelementptr inbounds %struct.base_sample, ptr %this1, i32 0, i32 2
@@ -22342,17 +22348,19 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %2 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm to i64), i64 1), !nosanitize !286
-  %memptr.virtualfn = load ptr, ptr %2, align 8, !nosanitize !286
+  %2 = ptrtoint ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm to i64
+  %3 = sub i64 %2, 1
+  %4 = getelementptr i8, ptr %vtable, i64 %3, !nosanitize !286
+  %memptr.virtualfn = load ptr, ptr %4, align 8, !nosanitize !286
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %3 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm, %memptr.nonvirtual ]
-  %4 = load i64, ptr %sz.addr, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %4)
+  %5 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm, %memptr.nonvirtual ]
+  %6 = load i64, ptr %sz.addr, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %6)
   ret void
 }
 
@@ -100674,7 +100682,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN16struct_pb_sample18struct_pb_sample_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN16struct_pb_sample18struct_pb_sample_tE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"struct.struct_pb_sample::struct_pb_sample_t", ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer_) #3
   %monsters_ = getelementptr inbounds %"struct.struct_pb_sample::struct_pb_sample_t", ptr %this1, i32 0, i32 3
@@ -118129,7 +118138,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17protobuf_sample_t, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV17protobuf_sample_t, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %struct.protobuf_sample_t, ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer_) #3
   %monsters_ = getelementptr inbounds %struct.protobuf_sample_t, ptr %this1, i32 0, i32 3
@@ -135888,10 +135898,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP18struct_pack_sampleLN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP18struct_pack_sampleLN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -135901,7 +135912,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -136853,10 +136865,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN16struct_pb_sample18struct_pb_sample_tELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN16struct_pb_sample18struct_pb_sample_tELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.404", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -137436,10 +137449,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP17protobuf_sample_tLN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP17protobuf_sample_tLN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.407", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 

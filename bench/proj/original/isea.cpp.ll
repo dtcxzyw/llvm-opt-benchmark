@@ -571,7 +571,7 @@ define internal { double, double } @_ZL14isea_s_forward5PJ_LPP8PJconsts(double %
 
 39:                                               ; preds = %35
   %40 = load i32, ptr %13, align 4
-  %41 = call i32 @llvm.eh.typeid.for(ptr @_ZTIPKc) #13
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIPKc) #13
   %42 = icmp eq i32 %40, %41
   br i1 %42, label %43, label %63
 
@@ -865,9 +865,6 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #7
 
 declare ptr @__cxa_begin_catch(ptr)
 
@@ -1405,268 +1402,269 @@ define internal noundef i32 @_ZL19isea_snyder_forwardPN12_GLOBAL__N_18isea_geoEP
   %26 = alloca double, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 16 getelementptr inbounds ([7 x %"struct.(anonymous namespace)::snyder_constants"], ptr @_ZL9constants, i64 0, i64 6), i64 72, i1 false)
-  %27 = getelementptr inbounds %"struct.(anonymous namespace)::snyder_constants", ptr %23, i32 0, i32 2
-  %28 = load double, ptr %27, align 8
-  %29 = fmul double %28, 0x400921FB54442D18
-  %30 = fdiv double %29, 1.800000e+02
-  store double %30, ptr %8, align 8
-  %31 = getelementptr inbounds %"struct.(anonymous namespace)::snyder_constants", ptr %23, i32 0, i32 0
-  %32 = load double, ptr %31, align 8
-  %33 = fmul double %32, 0x400921FB54442D18
-  %34 = fdiv double %33, 1.800000e+02
-  store double %34, ptr %6, align 8
-  %35 = getelementptr inbounds %"struct.(anonymous namespace)::snyder_constants", ptr %23, i32 0, i32 1
-  %36 = load double, ptr %35, align 8
-  %37 = fmul double %36, 0x400921FB54442D18
-  %38 = fdiv double %37, 1.800000e+02
-  store double %38, ptr %7, align 8
+  %27 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::snyder_constants"], ptr @_ZL9constants, i64 0, i64 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 16 %27, i64 72, i1 false)
+  %28 = getelementptr inbounds %"struct.(anonymous namespace)::snyder_constants", ptr %23, i32 0, i32 2
+  %29 = load double, ptr %28, align 8
+  %30 = fmul double %29, 0x400921FB54442D18
+  %31 = fdiv double %30, 1.800000e+02
+  store double %31, ptr %8, align 8
+  %32 = getelementptr inbounds %"struct.(anonymous namespace)::snyder_constants", ptr %23, i32 0, i32 0
+  %33 = load double, ptr %32, align 8
+  %34 = fmul double %33, 0x400921FB54442D18
+  %35 = fdiv double %34, 1.800000e+02
+  store double %35, ptr %6, align 8
+  %36 = getelementptr inbounds %"struct.(anonymous namespace)::snyder_constants", ptr %23, i32 0, i32 1
+  %37 = load double, ptr %36, align 8
+  %38 = fmul double %37, 0x400921FB54442D18
+  %39 = fdiv double %38, 1.800000e+02
+  store double %39, ptr %7, align 8
   store i32 1, ptr %5, align 4
-  br label %39
+  br label %40
 
-39:                                               ; preds = %209, %2
-  %40 = load i32, ptr %5, align 4
-  %41 = icmp sle i32 %40, 20
-  br i1 %41, label %42, label %212
+40:                                               ; preds = %210, %2
+  %41 = load i32, ptr %5, align 4
+  %42 = icmp sle i32 %41, 20
+  br i1 %42, label %43, label %213
 
-42:                                               ; preds = %39
-  %43 = load i32, ptr %5, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [21 x %"struct.(anonymous namespace)::isea_geo"], ptr @_ZL13icostriangles, i64 0, i64 %44
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 16 %45, i64 16, i1 false)
-  %46 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %25, i32 0, i32 1
-  %47 = load double, ptr %46, align 8
-  %48 = call double @sin(double noundef %47) #13
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %49, i32 0, i32 1
-  %51 = load double, ptr %50, align 8
-  %52 = call double @sin(double noundef %51) #13
-  %53 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %25, i32 0, i32 1
-  %54 = load double, ptr %53, align 8
-  %55 = call double @cos(double noundef %54) #13
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %56, i32 0, i32 1
-  %58 = load double, ptr %57, align 8
-  %59 = call double @cos(double noundef %58) #13
-  %60 = fmul double %55, %59
-  %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %61, i32 0, i32 0
-  %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %25, i32 0, i32 0
-  %65 = load double, ptr %64, align 8
-  %66 = fsub double %63, %65
-  %67 = call double @cos(double noundef %66) #13
-  %68 = fmul double %60, %67
-  %69 = call double @llvm.fmuladd.f64(double %48, double %52, double %68)
-  %70 = call double @acos(double noundef %69) #13
-  store double %70, ptr %24, align 8
-  %71 = load double, ptr %24, align 8
-  %72 = load double, ptr %6, align 8
-  %73 = fadd double %72, 5.000000e-06
-  %74 = fcmp ogt double %71, %73
-  br i1 %74, label %75, label %76
+43:                                               ; preds = %40
+  %44 = load i32, ptr %5, align 4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds [21 x %"struct.(anonymous namespace)::isea_geo"], ptr @_ZL13icostriangles, i64 0, i64 %45
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 16 %46, i64 16, i1 false)
+  %47 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %25, i32 0, i32 1
+  %48 = load double, ptr %47, align 8
+  %49 = call double @sin(double noundef %48) #13
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %50, i32 0, i32 1
+  %52 = load double, ptr %51, align 8
+  %53 = call double @sin(double noundef %52) #13
+  %54 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %25, i32 0, i32 1
+  %55 = load double, ptr %54, align 8
+  %56 = call double @cos(double noundef %55) #13
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %57, i32 0, i32 1
+  %59 = load double, ptr %58, align 8
+  %60 = call double @cos(double noundef %59) #13
+  %61 = fmul double %56, %60
+  %62 = load ptr, ptr %3, align 8
+  %63 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %62, i32 0, i32 0
+  %64 = load double, ptr %63, align 8
+  %65 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %25, i32 0, i32 0
+  %66 = load double, ptr %65, align 8
+  %67 = fsub double %64, %66
+  %68 = call double @cos(double noundef %67) #13
+  %69 = fmul double %61, %68
+  %70 = call double @llvm.fmuladd.f64(double %49, double %53, double %69)
+  %71 = call double @acos(double noundef %70) #13
+  store double %71, ptr %24, align 8
+  %72 = load double, ptr %24, align 8
+  %73 = load double, ptr %6, align 8
+  %74 = fadd double %73, 5.000000e-06
+  %75 = fcmp ogt double %72, %74
+  br i1 %75, label %76, label %77
 
-75:                                               ; preds = %42
-  br label %209
+76:                                               ; preds = %43
+  br label %210
 
-76:                                               ; preds = %42
-  %77 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %25, i32 0, i32 0
-  %78 = load double, ptr %77, align 8
-  %79 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %25, i32 0, i32 1
-  %80 = load double, ptr %79, align 8
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %81, i32 0, i32 0
-  %83 = load double, ptr %82, align 8
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %84, i32 0, i32 1
-  %86 = load double, ptr %85, align 8
-  %87 = call noundef double @_ZL11sph_azimuthdddd(double noundef %78, double noundef %80, double noundef %83, double noundef %86)
-  store double %87, ptr %13, align 8
-  %88 = load i32, ptr %5, align 4
-  %89 = call noundef double @_ZL13az_adjustmenti(i32 noundef %88)
-  store double %89, ptr %21, align 8
-  %90 = load double, ptr %21, align 8
-  %91 = load double, ptr %13, align 8
-  %92 = fsub double %91, %90
-  store double %92, ptr %13, align 8
-  %93 = load double, ptr %13, align 8
-  %94 = fcmp olt double %93, 0.000000e+00
-  br i1 %94, label %95, label %98
+77:                                               ; preds = %43
+  %78 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %25, i32 0, i32 0
+  %79 = load double, ptr %78, align 8
+  %80 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %25, i32 0, i32 1
+  %81 = load double, ptr %80, align 8
+  %82 = load ptr, ptr %3, align 8
+  %83 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %82, i32 0, i32 0
+  %84 = load double, ptr %83, align 8
+  %85 = load ptr, ptr %3, align 8
+  %86 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %85, i32 0, i32 1
+  %87 = load double, ptr %86, align 8
+  %88 = call noundef double @_ZL11sph_azimuthdddd(double noundef %79, double noundef %81, double noundef %84, double noundef %87)
+  store double %88, ptr %13, align 8
+  %89 = load i32, ptr %5, align 4
+  %90 = call noundef double @_ZL13az_adjustmenti(i32 noundef %89)
+  store double %90, ptr %21, align 8
+  %91 = load double, ptr %21, align 8
+  %92 = load double, ptr %13, align 8
+  %93 = fsub double %92, %91
+  store double %93, ptr %13, align 8
+  %94 = load double, ptr %13, align 8
+  %95 = fcmp olt double %94, 0.000000e+00
+  br i1 %95, label %96, label %99
 
-95:                                               ; preds = %76
-  %96 = load double, ptr %13, align 8
-  %97 = fadd double %96, 0x401921FB54442D18
-  store double %97, ptr %13, align 8
-  br label %98
-
-98:                                               ; preds = %95, %76
-  store i32 0, ptr %22, align 4
+96:                                               ; preds = %77
+  %97 = load double, ptr %13, align 8
+  %98 = fadd double %97, 0x401921FB54442D18
+  store double %98, ptr %13, align 8
   br label %99
 
-99:                                               ; preds = %102, %98
-  %100 = load double, ptr %13, align 8
-  %101 = fcmp olt double %100, 0.000000e+00
-  br i1 %101, label %102, label %107
+99:                                               ; preds = %96, %77
+  store i32 0, ptr %22, align 4
+  br label %100
 
-102:                                              ; preds = %99
-  %103 = load double, ptr %13, align 8
-  %104 = fadd double %103, 0x4000C152382D7366
-  store double %104, ptr %13, align 8
-  %105 = load i32, ptr %22, align 4
-  %106 = add nsw i32 %105, -1
-  store i32 %106, ptr %22, align 4
-  br label %99, !llvm.loop !7
+100:                                              ; preds = %103, %99
+  %101 = load double, ptr %13, align 8
+  %102 = fcmp olt double %101, 0.000000e+00
+  br i1 %102, label %103, label %108
 
-107:                                              ; preds = %99
-  br label %108
+103:                                              ; preds = %100
+  %104 = load double, ptr %13, align 8
+  %105 = fadd double %104, 0x4000C152382D7366
+  store double %105, ptr %13, align 8
+  %106 = load i32, ptr %22, align 4
+  %107 = add nsw i32 %106, -1
+  store i32 %107, ptr %22, align 4
+  br label %100, !llvm.loop !7
 
-108:                                              ; preds = %111, %107
-  %109 = load double, ptr %13, align 8
-  %110 = fcmp ogt double %109, 0x4000C152382D7366
-  br i1 %110, label %111, label %116
+108:                                              ; preds = %100
+  br label %109
 
-111:                                              ; preds = %108
-  %112 = load double, ptr %13, align 8
-  %113 = fsub double %112, 0x4000C152382D7366
-  store double %113, ptr %13, align 8
-  %114 = load i32, ptr %22, align 4
-  %115 = add nsw i32 %114, 1
-  store i32 %115, ptr %22, align 4
-  br label %108, !llvm.loop !8
+109:                                              ; preds = %112, %108
+  %110 = load double, ptr %13, align 8
+  %111 = fcmp ogt double %110, 0x4000C152382D7366
+  br i1 %111, label %112, label %117
 
-116:                                              ; preds = %108
-  %117 = load double, ptr %8, align 8
-  %118 = call double @tan(double noundef %117) #13
-  %119 = fdiv double 1.000000e+00, %118
-  store double %119, ptr %19, align 8
-  %120 = load double, ptr %6, align 8
-  %121 = call double @tan(double noundef %120) #13
-  store double %121, ptr %20, align 8
-  %122 = load double, ptr %20, align 8
-  %123 = load double, ptr %13, align 8
-  %124 = call double @cos(double noundef %123) #13
-  %125 = load double, ptr %13, align 8
-  %126 = call double @sin(double noundef %125) #13
-  %127 = load double, ptr %19, align 8
-  %128 = call double @llvm.fmuladd.f64(double %126, double %127, double %124)
-  %129 = call double @atan2(double noundef %122, double noundef %128) #13
-  store double %129, ptr %9, align 8
-  %130 = load double, ptr %24, align 8
-  %131 = load double, ptr %9, align 8
-  %132 = fadd double %131, 5.000000e-06
-  %133 = fcmp ogt double %130, %132
-  br i1 %133, label %134, label %135
+112:                                              ; preds = %109
+  %113 = load double, ptr %13, align 8
+  %114 = fsub double %113, 0x4000C152382D7366
+  store double %114, ptr %13, align 8
+  %115 = load i32, ptr %22, align 4
+  %116 = add nsw i32 %115, 1
+  store i32 %116, ptr %22, align 4
+  br label %109, !llvm.loop !8
 
-134:                                              ; preds = %116
-  br label %209
+117:                                              ; preds = %109
+  %118 = load double, ptr %8, align 8
+  %119 = call double @tan(double noundef %118) #13
+  %120 = fdiv double 1.000000e+00, %119
+  store double %120, ptr %19, align 8
+  %121 = load double, ptr %6, align 8
+  %122 = call double @tan(double noundef %121) #13
+  store double %122, ptr %20, align 8
+  %123 = load double, ptr %20, align 8
+  %124 = load double, ptr %13, align 8
+  %125 = call double @cos(double noundef %124) #13
+  %126 = load double, ptr %13, align 8
+  %127 = call double @sin(double noundef %126) #13
+  %128 = load double, ptr %19, align 8
+  %129 = call double @llvm.fmuladd.f64(double %127, double %128, double %125)
+  %130 = call double @atan2(double noundef %123, double noundef %129) #13
+  store double %130, ptr %9, align 8
+  %131 = load double, ptr %24, align 8
+  %132 = load double, ptr %9, align 8
+  %133 = fadd double %132, 5.000000e-06
+  %134 = fcmp ogt double %131, %133
+  br i1 %134, label %135, label %136
 
-135:                                              ; preds = %116
+135:                                              ; preds = %117
+  br label %210
+
+136:                                              ; preds = %117
   store double 0x3FED21DC1EA0032F, ptr %26, align 8
-  %136 = load double, ptr %13, align 8
-  %137 = call double @sin(double noundef %136) #13
-  %138 = load double, ptr %7, align 8
-  %139 = call double @sin(double noundef %138) #13
-  %140 = fmul double %137, %139
-  %141 = load double, ptr %6, align 8
-  %142 = call double @cos(double noundef %141) #13
-  %143 = load double, ptr %13, align 8
-  %144 = call double @cos(double noundef %143) #13
-  %145 = load double, ptr %7, align 8
-  %146 = call double @cos(double noundef %145) #13
-  %147 = fmul double %144, %146
-  %148 = fneg double %147
-  %149 = call double @llvm.fmuladd.f64(double %140, double %142, double %148)
-  %150 = call double @acos(double noundef %149) #13
-  store double %150, ptr %10, align 8
-  %151 = load double, ptr %13, align 8
-  %152 = load double, ptr %7, align 8
-  %153 = fadd double %151, %152
-  %154 = load double, ptr %10, align 8
-  %155 = fadd double %153, %154
-  %156 = fsub double %155, 0x400921FB54442D18
-  store double %156, ptr %11, align 8
-  %157 = load double, ptr %11, align 8
-  %158 = fmul double 2.000000e+00, %157
-  %159 = load double, ptr %20, align 8
-  %160 = fmul double 0x3FEA8582CB6B5501, %159
-  %161 = load double, ptr %20, align 8
-  %162 = load double, ptr %11, align 8
-  %163 = fmul double 2.000000e+00, %162
-  %164 = load double, ptr %19, align 8
-  %165 = fmul double %163, %164
-  %166 = fneg double %165
-  %167 = call double @llvm.fmuladd.f64(double %160, double %161, double %166)
-  %168 = call double @atan2(double noundef %158, double noundef %167) #13
-  store double %168, ptr %12, align 8
-  %169 = load double, ptr %20, align 8
-  %170 = fmul double 0x3FED21DC1EA0032F, %169
-  %171 = load double, ptr %12, align 8
-  %172 = call double @cos(double noundef %171) #13
-  %173 = load double, ptr %12, align 8
-  %174 = call double @sin(double noundef %173) #13
-  %175 = load double, ptr %19, align 8
-  %176 = call double @llvm.fmuladd.f64(double %174, double %175, double %172)
-  %177 = fdiv double %170, %176
-  store double %177, ptr %14, align 8
-  %178 = load double, ptr %14, align 8
-  %179 = load double, ptr %9, align 8
-  %180 = fdiv double %179, 2.000000e+00
-  %181 = call double @sin(double noundef %180) #13
-  %182 = fmul double 0x3FFD21DC1EA0032F, %181
-  %183 = fdiv double %178, %182
-  store double %183, ptr %15, align 8
-  %184 = load double, ptr %15, align 8
-  %185 = fmul double 0x3FFD21DC1EA0032F, %184
-  %186 = load double, ptr %24, align 8
-  %187 = fdiv double %186, 2.000000e+00
-  %188 = call double @sin(double noundef %187) #13
-  %189 = fmul double %185, %188
-  store double %189, ptr %16, align 8
-  %190 = load i32, ptr %22, align 4
-  %191 = sitofp i32 %190 to double
-  %192 = load double, ptr %12, align 8
-  %193 = call double @llvm.fmuladd.f64(double 0x4000C152382D7366, double %191, double %192)
-  store double %193, ptr %12, align 8
-  %194 = load double, ptr %16, align 8
-  %195 = load double, ptr %12, align 8
-  %196 = call double @sin(double noundef %195) #13
-  %197 = fmul double %194, %196
-  store double %197, ptr %17, align 8
-  %198 = load double, ptr %16, align 8
-  %199 = load double, ptr %12, align 8
-  %200 = call double @cos(double noundef %199) #13
-  %201 = fmul double %198, %200
-  store double %201, ptr %18, align 8
-  %202 = load double, ptr %17, align 8
-  %203 = load ptr, ptr %4, align 8
-  %204 = getelementptr inbounds %"struct.(anonymous namespace)::isea_pt", ptr %203, i32 0, i32 0
-  store double %202, ptr %204, align 8
-  %205 = load double, ptr %18, align 8
-  %206 = load ptr, ptr %4, align 8
-  %207 = getelementptr inbounds %"struct.(anonymous namespace)::isea_pt", ptr %206, i32 0, i32 1
-  store double %205, ptr %207, align 8
-  %208 = load i32, ptr %5, align 4
-  ret i32 %208
+  %137 = load double, ptr %13, align 8
+  %138 = call double @sin(double noundef %137) #13
+  %139 = load double, ptr %7, align 8
+  %140 = call double @sin(double noundef %139) #13
+  %141 = fmul double %138, %140
+  %142 = load double, ptr %6, align 8
+  %143 = call double @cos(double noundef %142) #13
+  %144 = load double, ptr %13, align 8
+  %145 = call double @cos(double noundef %144) #13
+  %146 = load double, ptr %7, align 8
+  %147 = call double @cos(double noundef %146) #13
+  %148 = fmul double %145, %147
+  %149 = fneg double %148
+  %150 = call double @llvm.fmuladd.f64(double %141, double %143, double %149)
+  %151 = call double @acos(double noundef %150) #13
+  store double %151, ptr %10, align 8
+  %152 = load double, ptr %13, align 8
+  %153 = load double, ptr %7, align 8
+  %154 = fadd double %152, %153
+  %155 = load double, ptr %10, align 8
+  %156 = fadd double %154, %155
+  %157 = fsub double %156, 0x400921FB54442D18
+  store double %157, ptr %11, align 8
+  %158 = load double, ptr %11, align 8
+  %159 = fmul double 2.000000e+00, %158
+  %160 = load double, ptr %20, align 8
+  %161 = fmul double 0x3FEA8582CB6B5501, %160
+  %162 = load double, ptr %20, align 8
+  %163 = load double, ptr %11, align 8
+  %164 = fmul double 2.000000e+00, %163
+  %165 = load double, ptr %19, align 8
+  %166 = fmul double %164, %165
+  %167 = fneg double %166
+  %168 = call double @llvm.fmuladd.f64(double %161, double %162, double %167)
+  %169 = call double @atan2(double noundef %159, double noundef %168) #13
+  store double %169, ptr %12, align 8
+  %170 = load double, ptr %20, align 8
+  %171 = fmul double 0x3FED21DC1EA0032F, %170
+  %172 = load double, ptr %12, align 8
+  %173 = call double @cos(double noundef %172) #13
+  %174 = load double, ptr %12, align 8
+  %175 = call double @sin(double noundef %174) #13
+  %176 = load double, ptr %19, align 8
+  %177 = call double @llvm.fmuladd.f64(double %175, double %176, double %173)
+  %178 = fdiv double %171, %177
+  store double %178, ptr %14, align 8
+  %179 = load double, ptr %14, align 8
+  %180 = load double, ptr %9, align 8
+  %181 = fdiv double %180, 2.000000e+00
+  %182 = call double @sin(double noundef %181) #13
+  %183 = fmul double 0x3FFD21DC1EA0032F, %182
+  %184 = fdiv double %179, %183
+  store double %184, ptr %15, align 8
+  %185 = load double, ptr %15, align 8
+  %186 = fmul double 0x3FFD21DC1EA0032F, %185
+  %187 = load double, ptr %24, align 8
+  %188 = fdiv double %187, 2.000000e+00
+  %189 = call double @sin(double noundef %188) #13
+  %190 = fmul double %186, %189
+  store double %190, ptr %16, align 8
+  %191 = load i32, ptr %22, align 4
+  %192 = sitofp i32 %191 to double
+  %193 = load double, ptr %12, align 8
+  %194 = call double @llvm.fmuladd.f64(double 0x4000C152382D7366, double %192, double %193)
+  store double %194, ptr %12, align 8
+  %195 = load double, ptr %16, align 8
+  %196 = load double, ptr %12, align 8
+  %197 = call double @sin(double noundef %196) #13
+  %198 = fmul double %195, %197
+  store double %198, ptr %17, align 8
+  %199 = load double, ptr %16, align 8
+  %200 = load double, ptr %12, align 8
+  %201 = call double @cos(double noundef %200) #13
+  %202 = fmul double %199, %201
+  store double %202, ptr %18, align 8
+  %203 = load double, ptr %17, align 8
+  %204 = load ptr, ptr %4, align 8
+  %205 = getelementptr inbounds %"struct.(anonymous namespace)::isea_pt", ptr %204, i32 0, i32 0
+  store double %203, ptr %205, align 8
+  %206 = load double, ptr %18, align 8
+  %207 = load ptr, ptr %4, align 8
+  %208 = getelementptr inbounds %"struct.(anonymous namespace)::isea_pt", ptr %207, i32 0, i32 1
+  store double %206, ptr %208, align 8
+  %209 = load i32, ptr %5, align 4
+  ret i32 %209
 
-209:                                              ; preds = %134, %75
-  %210 = load i32, ptr %5, align 4
-  %211 = add nsw i32 %210, 1
-  store i32 %211, ptr %5, align 4
-  br label %39, !llvm.loop !9
+210:                                              ; preds = %135, %76
+  %211 = load i32, ptr %5, align 4
+  %212 = add nsw i32 %211, 1
+  store i32 %212, ptr %5, align 4
+  br label %40, !llvm.loop !9
 
-212:                                              ; preds = %39
-  %213 = load ptr, ptr @stderr, align 8
-  %214 = load ptr, ptr %3, align 8
-  %215 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %214, i32 0, i32 0
-  %216 = load double, ptr %215, align 8
-  %217 = fmul double %216, 1.800000e+02
-  %218 = fdiv double %217, 0x400921FB54442D18
-  %219 = load ptr, ptr %3, align 8
-  %220 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %219, i32 0, i32 1
-  %221 = load double, ptr %220, align 8
-  %222 = fmul double %221, 1.800000e+02
-  %223 = fdiv double %222, 0x400921FB54442D18
-  %224 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef @.str.21, double noundef %218, double noundef %223) #13
+213:                                              ; preds = %40
+  %214 = load ptr, ptr @stderr, align 8
+  %215 = load ptr, ptr %3, align 8
+  %216 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %215, i32 0, i32 0
+  %217 = load double, ptr %216, align 8
+  %218 = fmul double %217, 1.800000e+02
+  %219 = fdiv double %218, 0x400921FB54442D18
+  %220 = load ptr, ptr %3, align 8
+  %221 = getelementptr inbounds %"struct.(anonymous namespace)::isea_geo", ptr %220, i32 0, i32 1
+  %222 = load double, ptr %221, align 8
+  %223 = fmul double %222, 1.800000e+02
+  %224 = fdiv double %223, 0x400921FB54442D18
+  %225 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %214, ptr noundef @.str.21, double noundef %219, double noundef %224) #13
   call void @exit(i32 noundef 1) #15
   unreachable
 }
@@ -1798,25 +1796,25 @@ define internal { double, double } @_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES
 }
 
 ; Function Attrs: nounwind
-declare double @fmod(double noundef, double noundef) #8
+declare double @fmod(double noundef, double noundef) #7
 
 ; Function Attrs: nounwind
-declare double @cos(double noundef) #8
+declare double @cos(double noundef) #7
 
 ; Function Attrs: nounwind
-declare double @sin(double noundef) #8
+declare double @sin(double noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: nounwind
-declare double @atan2(double noundef, double noundef) #8
+declare double @atan2(double noundef, double noundef) #7
 
 ; Function Attrs: nounwind
-declare double @asin(double noundef) #8
+declare double @asin(double noundef) #7
 
 ; Function Attrs: nounwind
-declare double @acos(double noundef) #8
+declare double @acos(double noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef double @_ZL11sph_azimuthdddd(double noundef %0, double noundef %1, double noundef %2, double noundef %3) #3 {
@@ -1915,13 +1913,13 @@ define internal noundef double @_ZL13az_adjustmenti(i32 noundef %0) #3 {
 }
 
 ; Function Attrs: nounwind
-declare double @tan(double noundef) #8
+declare double @tan(double noundef) #7
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #8
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #7
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #10
+declare void @exit(i32 noundef) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11isea_rotatePN12_GLOBAL__N_17isea_ptEd(ptr noundef %0, double noundef %1) #3 {
@@ -2631,7 +2629,7 @@ define linkonce_odr noundef double @_ZSt3powIidEN9__gnu_cxx11__promote_2IT_T0_NS
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
+declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #3 comdat align 2 {
@@ -2643,7 +2641,7 @@ declare ptr @__cxa_allocate_exception(i64)
 declare void @__cxa_throw(ptr, ptr, ptr)
 
 ; Function Attrs: nounwind
-declare i64 @lround(double noundef) #8
+declare i64 @lround(double noundef) #7
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL7hexbin2dddPlS_(double noundef %0, double noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -2942,10 +2940,10 @@ define linkonce_odr noundef double @_ZSt3powIdiEN9__gnu_cxx11__promote_2IT_T0_NS
 }
 
 ; Function Attrs: nounwind
-declare double @pow(double noundef, double noundef) #8
+declare double @pow(double noundef, double noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #9
+declare double @llvm.floor.f64(double) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL6hex_xyPN12_GLOBAL__N_13hexE(ptr noundef %0) #3 {
@@ -3008,6 +3006,9 @@ define internal void @_ZL6hex_xyPN12_GLOBAL__N_13hexE(ptr noundef %0) #3 {
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #10
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3015,10 +3016,10 @@ attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind memory(none) }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind memory(none) }
 attributes #11 = { nounwind allocsize(0,1) }
 attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { nounwind }

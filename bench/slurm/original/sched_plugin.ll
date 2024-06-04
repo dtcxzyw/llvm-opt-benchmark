@@ -53,50 +53,52 @@ define i32 @sched_g_init() #0 {
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  br label %28
+  br label %30
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %2, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 161), align 8
-  %20 = call ptr @plugin_context_create(ptr noundef %18, ptr noundef %19, ptr noundef @ops, ptr noundef @syms, i64 noundef 8)
-  store ptr %20, ptr @g_context, align 8
-  %21 = load ptr, ptr @g_context, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %27, label %23
+  %19 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 161
+  %20 = load ptr, ptr %19, align 8
+  %21 = call ptr @plugin_context_create(ptr noundef %18, ptr noundef %20, ptr noundef @ops, ptr noundef @syms, i64 noundef 8)
+  store ptr %21, ptr @g_context, align 8
+  %22 = load ptr, ptr @g_context, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %29, label %24
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %2, align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 161), align 8
-  %26 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %24, ptr noundef %25)
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 161
+  %27 = load ptr, ptr %26, align 8
+  %28 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %25, ptr noundef %27)
   store i32 -1, ptr %1, align 4
-  br label %28
+  br label %30
 
-27:                                               ; preds = %17
-  br label %28
+29:                                               ; preds = %17
+  br label %30
 
-28:                                               ; preds = %27, %23, %16
-  br label %29
+30:                                               ; preds = %29, %24, %16
+  br label %31
 
-29:                                               ; preds = %28
-  %30 = call i32 @pthread_mutex_unlock(ptr noundef @g_context_lock) #5
-  store i32 %30, ptr %4, align 4
-  %31 = load i32, ptr %4, align 4
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %36
+31:                                               ; preds = %30
+  %32 = call i32 @pthread_mutex_unlock(ptr noundef @g_context_lock) #5
+  store i32 %32, ptr %4, align 4
+  %33 = load i32, ptr %4, align 4
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %38
 
-33:                                               ; preds = %29
-  %34 = load i32, ptr %4, align 4
-  %35 = call ptr @__errno_location() #6
-  store i32 %34, ptr %35, align 4
+35:                                               ; preds = %31
+  %36 = load i32, ptr %4, align 4
+  %37 = call ptr @__errno_location() #6
+  store i32 %36, ptr %37, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 92, ptr noundef @__func__.sched_g_init) #7
   unreachable
 
-36:                                               ; preds = %29
-  br label %37
+38:                                               ; preds = %31
+  br label %39
 
-37:                                               ; preds = %36
-  %38 = load i32, ptr %1, align 4
-  ret i32 %38
+39:                                               ; preds = %38
+  %40 = load i32, ptr %1, align 4
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind

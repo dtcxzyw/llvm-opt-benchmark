@@ -83,103 +83,105 @@ define internal i32 @acpi_ac_probe(ptr noundef %0) #2 align 16 {
   %8 = select i1 %6, ptr %7, ptr null
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %10 = tail call noalias noundef align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 144) #11
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %63, label %12
+  %9 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %10 = load ptr, ptr %9, align 16
+  %11 = tail call noalias noundef align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 144) #11
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %65, label %13
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %10, i64 104
-  store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 120
-  %15 = getelementptr inbounds i8, ptr %8, i64 168
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %15, ptr noundef nonnull align 1 dereferenceable(11) @.str.1, i64 11, i1 false) #10
-  %16 = getelementptr inbounds i8, ptr %8, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %16, ptr noundef nonnull align 1 dereferenceable(11) @.str.2, i64 11, i1 false) #10
-  %17 = getelementptr inbounds i8, ptr %0, i64 136
-  store ptr %10, ptr %17, align 8
-  %18 = load i1, ptr @ac_only, align 4
-  br i1 %18, label %19, label %21
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds i8, ptr %11, i64 104
+  store ptr %8, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 120
+  %16 = getelementptr inbounds i8, ptr %8, i64 168
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %16, ptr noundef nonnull align 1 dereferenceable(11) @.str.1, i64 11, i1 false) #10
+  %17 = getelementptr inbounds i8, ptr %8, i64 208
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %17, ptr noundef nonnull align 1 dereferenceable(11) @.str.2, i64 11, i1 false) #10
+  %18 = getelementptr inbounds i8, ptr %0, i64 136
+  store ptr %11, ptr %18, align 8
+  %19 = load i1, ptr @ac_only, align 4
+  br i1 %19, label %20, label %22
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %10, i64 112
-  store i64 1, ptr %20, align 8
-  br label %33
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds i8, ptr %11, i64 112
+  store i64 1, ptr %21, align 8
+  br label %34
 
-21:                                               ; preds = %12
-  %22 = load ptr, ptr %13, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 112
-  %26 = tail call i32 @acpi_evaluate_integer(ptr noundef %24, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef %25) #10
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %33, label %28
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %14, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %11, i64 112
+  %27 = tail call i32 @acpi_evaluate_integer(ptr noundef %25, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef %26) #10
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %34, label %29
 
-28:                                               ; preds = %21
-  %29 = load ptr, ptr %13, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr @acpi_format_exception(i32 noundef %26) #10
-  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.6, ptr noundef %31, ptr noundef nonnull @.str.7, ptr noundef %32) #10
-  store i64 255, ptr %25, align 8
-  br label %33
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %14, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call ptr @acpi_format_exception(i32 noundef %27) #10
+  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.6, ptr noundef %32, ptr noundef nonnull @.str.7, ptr noundef %33) #10
+  store i64 255, ptr %26, align 8
+  br label %34
 
-33:                                               ; preds = %28, %21, %19
-  %34 = phi i1 [ true, %19 ], [ false, %28 ], [ true, %21 ]
-  %35 = phi i32 [ 0, %19 ], [ -19, %28 ], [ 0, %21 ]
-  br i1 %34, label %36, label %61
+34:                                               ; preds = %29, %22, %20
+  %35 = phi i1 [ true, %20 ], [ false, %29 ], [ true, %22 ]
+  %36 = phi i32 [ 0, %20 ], [ -19, %29 ], [ 0, %22 ]
+  br i1 %35, label %37, label %63
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %10, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %14, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %10, i64 16
-  store i32 3, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %10, i64 40
-  store ptr @ac_props, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %10, i64 48
-  store i64 1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %10, i64 56
-  store ptr @get_ac_property, ptr %42, align 8
-  %43 = call ptr @power_supply_register(ptr noundef %3, ptr noundef %38, ptr noundef nonnull %2) #10
-  store ptr %43, ptr %10, align 8
-  %44 = icmp ugt ptr %43, inttoptr (i64 -4096 to ptr)
-  br i1 %44, label %45, label %48
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %11, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %15, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %11, i64 16
+  store i32 3, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %11, i64 40
+  store ptr @ac_props, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %11, i64 48
+  store i64 1, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %11, i64 56
+  store ptr @get_ac_property, ptr %43, align 8
+  %44 = call ptr @power_supply_register(ptr noundef %3, ptr noundef %39, ptr noundef nonnull %2) #10
+  store ptr %44, ptr %11, align 8
+  %45 = inttoptr i64 -4096 to ptr
+  %46 = icmp ugt ptr %44, %45
+  br i1 %46, label %47, label %50
 
-45:                                               ; preds = %36
-  %46 = ptrtoint ptr %43 to i64
-  %47 = trunc i64 %46 to i32
-  br label %61
-
-48:                                               ; preds = %36
-  %49 = getelementptr inbounds i8, ptr %10, i64 112
-  %50 = load i64, ptr %49, align 8
-  %51 = icmp eq i64 %50, 0
-  %52 = select i1 %51, ptr @.str.9, ptr @.str.8
-  %53 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %15, ptr noundef %14, ptr noundef nonnull %52) #12
-  %54 = getelementptr inbounds i8, ptr %10, i64 120
-  store ptr @acpi_ac_battery_notify, ptr %54, align 8
-  %55 = call i32 @register_acpi_notifier(ptr noundef %54) #10
-  %56 = call i32 @acpi_dev_install_notify_handler(ptr noundef %8, i32 noundef 3, ptr noundef nonnull @acpi_ac_notify, ptr noundef nonnull %10) #10
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %63, label %58
-
-58:                                               ; preds = %48
-  %59 = load ptr, ptr %10, align 8
-  call void @power_supply_unregister(ptr noundef %59) #10
-  %60 = call i32 @unregister_acpi_notifier(ptr noundef %54) #10
-  br label %61
-
-61:                                               ; preds = %58, %45, %33
-  %62 = phi i32 [ %35, %33 ], [ %47, %45 ], [ %56, %58 ]
-  call void @kfree(ptr noundef nonnull %10) #10
+47:                                               ; preds = %37
+  %48 = ptrtoint ptr %44 to i64
+  %49 = trunc i64 %48 to i32
   br label %63
 
-63:                                               ; preds = %61, %48, %1
-  %64 = phi i32 [ %62, %61 ], [ -12, %1 ], [ 0, %48 ]
+50:                                               ; preds = %37
+  %51 = getelementptr inbounds i8, ptr %11, i64 112
+  %52 = load i64, ptr %51, align 8
+  %53 = icmp eq i64 %52, 0
+  %54 = select i1 %53, ptr @.str.9, ptr @.str.8
+  %55 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %16, ptr noundef %15, ptr noundef nonnull %54) #12
+  %56 = getelementptr inbounds i8, ptr %11, i64 120
+  store ptr @acpi_ac_battery_notify, ptr %56, align 8
+  %57 = call i32 @register_acpi_notifier(ptr noundef %56) #10
+  %58 = call i32 @acpi_dev_install_notify_handler(ptr noundef %8, i32 noundef 3, ptr noundef nonnull @acpi_ac_notify, ptr noundef nonnull %11) #10
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %65, label %60
+
+60:                                               ; preds = %50
+  %61 = load ptr, ptr %11, align 8
+  call void @power_supply_unregister(ptr noundef %61) #10
+  %62 = call i32 @unregister_acpi_notifier(ptr noundef %56) #10
+  br label %63
+
+63:                                               ; preds = %60, %47, %34
+  %64 = phi i32 [ %36, %34 ], [ %49, %47 ], [ %58, %60 ]
+  call void @kfree(ptr noundef nonnull %11) #10
+  br label %65
+
+65:                                               ; preds = %63, %50, %1
+  %66 = phi i32 [ %64, %63 ], [ -12, %1 ], [ 0, %50 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #10
-  ret i32 %64
+  ret i32 %66
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

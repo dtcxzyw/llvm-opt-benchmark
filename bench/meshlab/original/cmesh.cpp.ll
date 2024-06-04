@@ -5653,39 +5653,40 @@ define void @_ZN6CMeshOC2Ev(ptr noundef nonnull align 8 dereferenceable(1196) %0
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESA_SA_EC2Ev(ptr noundef nonnull align 8 dereferenceable(1116) %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6CMeshO, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.CMeshO, ptr %5, i32 0, i32 1
-  store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds %class.CMeshO, ptr %5, i32 0, i32 2
-  store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds %class.CMeshO, ptr %5, i32 0, i32 3
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds %class.CMeshO, ptr %5, i32 0, i32 4
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds %class.CMeshO, ptr %5, i32 0, i32 5
-  %11 = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZN3vcg8Matrix44IfE8IdentityEv()
-          to label %12 unwind label %13
-
-12:                                               ; preds = %1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %10, ptr align 4 %11, i64 64, i1 false)
-  ret void
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV6CMeshO, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.CMeshO, ptr %5, i32 0, i32 1
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds %class.CMeshO, ptr %5, i32 0, i32 2
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds %class.CMeshO, ptr %5, i32 0, i32 3
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds %class.CMeshO, ptr %5, i32 0, i32 4
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds %class.CMeshO, ptr %5, i32 0, i32 5
+  %12 = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZN3vcg8Matrix44IfE8IdentityEv()
+          to label %13 unwind label %14
 
 13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %3, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %4, align 4
-  call void @_ZN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESA_SA_ED2Ev(ptr noundef nonnull align 8 dereferenceable(1116) %5) #4
-  br label %17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 4 %12, i64 64, i1 false)
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %3, align 8
-  %19 = load i32, ptr %4, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %1
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %3, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %4, align 4
+  call void @_ZN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESA_SA_ED2Ev(ptr noundef nonnull align 8 dereferenceable(1116) %5) #4
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %3, align 8
+  %20 = load i32, ptr %4, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5695,120 +5696,121 @@ define linkonce_odr void @_ZN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEE
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESA_SA_EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 1
-  call void @_ZN3vcg6vertex10vector_ocfI8CVertexOEC2Ev(ptr noundef nonnull align 8 dereferenceable(249) %6)
-  %7 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 4
-  call void @_ZNSt6vectorI6CEdgeOSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #4
-  %8 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 7
-  invoke void @_ZN3vcg4face10vector_ocfI6CFaceOEC2Ev(ptr noundef nonnull align 8 dereferenceable(274) %8)
-          to label %9 unwind label %26
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESA_SA_EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 1
+  call void @_ZN3vcg6vertex10vector_ocfI8CVertexOEC2Ev(ptr noundef nonnull align 8 dereferenceable(249) %7)
+  %8 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 4
+  call void @_ZNSt6vectorI6CEdgeOSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
+  %9 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 7
+  invoke void @_ZN3vcg4face10vector_ocfI6CFaceOEC2Ev(ptr noundef nonnull align 8 dereferenceable(274) %9)
+          to label %10 unwind label %27
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 10
-  call void @_ZNSt6vectorIN3vcg5HEdgeINS0_9UsedTypesINS0_3UseI8CVertexOE12AsVertexTypeENS3_I6CEdgeOE10AsEdgeTypeENS3_I6CFaceOE10AsFaceTypeENS0_14DefaultDeriverESD_SD_SD_SD_EESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EESaISF_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  %11 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 13
-  call void @_ZNSt6vectorIN3vcg9TetraSimpINS0_9UsedTypesINS0_3UseI8CVertexOE12AsVertexTypeENS3_I6CEdgeOE10AsEdgeTypeENS3_I6CFaceOE10AsFaceTypeENS0_14DefaultDeriverESD_SD_SD_SD_EESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EESaISF_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  %12 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 15
-  invoke void @_ZN3vcg4Box3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %12)
-          to label %13 unwind label %30
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 10
+  call void @_ZNSt6vectorIN3vcg5HEdgeINS0_9UsedTypesINS0_3UseI8CVertexOE12AsVertexTypeENS3_I6CEdgeOE10AsEdgeTypeENS3_I6CFaceOE10AsFaceTypeENS0_14DefaultDeriverESD_SD_SD_SD_EESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EESaISF_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
+  %12 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 13
+  call void @_ZNSt6vectorIN3vcg9TetraSimpINS0_9UsedTypesINS0_3UseI8CVertexOE12AsVertexTypeENS3_I6CEdgeOE10AsEdgeTypeENS3_I6CFaceOE10AsFaceTypeENS0_14DefaultDeriverESD_SD_SD_SD_EESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EESaISF_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #4
+  %13 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 15
+  invoke void @_ZN3vcg4Box3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %13)
+          to label %14 unwind label %31
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 17
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  %15 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 18
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 17
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #4
-  %16 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 21
-  call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #4
-  %17 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 22
+  %16 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 18
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #4
+  %17 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 21
   call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #4
-  %18 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 23
+  %18 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 22
   call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #4
-  %19 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 24
+  %19 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 23
   call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #4
-  %20 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 25
+  %20 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 24
   call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #4
-  %21 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 26
-  invoke void @_ZN3vcg4ShotIfNS_8Matrix44IfEEEC2Ev(ptr noundef nonnull align 4 dereferenceable(132) %21)
-          to label %22 unwind label %34
+  %21 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 25
+  call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #4
+  %22 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 26
+  invoke void @_ZN3vcg4ShotIfNS_8Matrix44IfEEEC2Ev(ptr noundef nonnull align 4 dereferenceable(132) %22)
+          to label %23 unwind label %35
 
-22:                                               ; preds = %13
-  %23 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 27
-  invoke void @_ZN3vcg6Color4IhEC2Ev(ptr noundef nonnull align 1 dereferenceable(4) %23)
-          to label %24 unwind label %38
+23:                                               ; preds = %14
+  %24 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %5, i32 0, i32 27
+  invoke void @_ZN3vcg6Color4IhEC2Ev(ptr noundef nonnull align 1 dereferenceable(4) %24)
+          to label %25 unwind label %39
 
-24:                                               ; preds = %22
+25:                                               ; preds = %23
   invoke void @_ZN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESA_SA_E5ClearEv(ptr noundef nonnull align 8 dereferenceable(1116) %5)
-          to label %25 unwind label %38
+          to label %26 unwind label %39
 
-25:                                               ; preds = %24
+26:                                               ; preds = %25
   ret void
 
-26:                                               ; preds = %1
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %1
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %3, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %4, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %3, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %4, align 4
+  br label %45
+
+31:                                               ; preds = %10
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %3, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %4, align 4
   br label %44
 
-30:                                               ; preds = %9
-  %31 = landingpad { ptr, i32 }
+35:                                               ; preds = %14
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %3, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %4, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %3, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %4, align 4
   br label %43
 
-34:                                               ; preds = %13
-  %35 = landingpad { ptr, i32 }
+39:                                               ; preds = %25, %23
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %3, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %4, align 4
-  br label %42
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %3, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %4, align 4
+  call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEED2Ev(ptr noundef nonnull align 4 dereferenceable(132) %22) #4
+  br label %43
 
-38:                                               ; preds = %24, %22
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %3, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %4, align 4
-  call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEED2Ev(ptr noundef nonnull align 4 dereferenceable(132) %21) #4
-  br label %42
-
-42:                                               ; preds = %38, %34
+43:                                               ; preds = %39, %35
+  call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #4
   call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #4
   call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #4
   call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #4
   call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #4
-  call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #4
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  call void @_ZN3vcg4Box3IfED2Ev(ptr noundef nonnull align 4 dereferenceable(24) %12) #4
-  br label %43
-
-43:                                               ; preds = %42, %30
-  call void @_ZNSt6vectorIN3vcg9TetraSimpINS0_9UsedTypesINS0_3UseI8CVertexOE12AsVertexTypeENS3_I6CEdgeOE10AsEdgeTypeENS3_I6CFaceOE10AsFaceTypeENS0_14DefaultDeriverESD_SD_SD_SD_EESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EESaISF_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  call void @_ZNSt6vectorIN3vcg5HEdgeINS0_9UsedTypesINS0_3UseI8CVertexOE12AsVertexTypeENS3_I6CEdgeOE10AsEdgeTypeENS3_I6CFaceOE10AsFaceTypeENS0_14DefaultDeriverESD_SD_SD_SD_EESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EESaISF_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  call void @_ZN3vcg4face10vector_ocfI6CFaceOED2Ev(ptr noundef nonnull align 8 dereferenceable(274) %8) #4
+  call void @_ZN3vcg4Box3IfED2Ev(ptr noundef nonnull align 4 dereferenceable(24) %13) #4
   br label %44
 
-44:                                               ; preds = %43, %26
-  call void @_ZNSt6vectorI6CEdgeOSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #4
-  call void @_ZN3vcg6vertex10vector_ocfI8CVertexOED2Ev(ptr noundef nonnull align 8 dereferenceable(249) %6) #4
+44:                                               ; preds = %43, %31
+  call void @_ZNSt6vectorIN3vcg9TetraSimpINS0_9UsedTypesINS0_3UseI8CVertexOE12AsVertexTypeENS3_I6CEdgeOE10AsEdgeTypeENS3_I6CFaceOE10AsFaceTypeENS0_14DefaultDeriverESD_SD_SD_SD_EESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EESaISF_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #4
+  call void @_ZNSt6vectorIN3vcg5HEdgeINS0_9UsedTypesINS0_3UseI8CVertexOE12AsVertexTypeENS3_I6CEdgeOE10AsEdgeTypeENS3_I6CFaceOE10AsFaceTypeENS0_14DefaultDeriverESD_SD_SD_SD_EESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EESaISF_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
+  call void @_ZN3vcg4face10vector_ocfI6CFaceOED2Ev(ptr noundef nonnull align 8 dereferenceable(274) %9) #4
   br label %45
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %3, align 8
-  %47 = load i32, ptr %4, align 4
-  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
-  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
-  resume { ptr, i32 } %49
+45:                                               ; preds = %44, %27
+  call void @_ZNSt6vectorI6CEdgeOSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
+  call void @_ZN3vcg6vertex10vector_ocfI8CVertexOED2Ev(ptr noundef nonnull align 8 dereferenceable(249) %7) #4
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %3, align 8
+  %48 = load i32, ptr %4, align 4
+  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
+  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
+  resume { ptr, i32 } %50
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6452,46 +6454,47 @@ define linkonce_odr void @_ZN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESA_SA_EE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESA_SA_EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESA_SA_E5ClearEv(ptr noundef nonnull align 8 dereferenceable(1116) %3)
-          to label %4 unwind label %19
+          to label %5 unwind label %20
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 26
-  call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEED2Ev(ptr noundef nonnull align 4 dereferenceable(132) %5) #4
-  %6 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 25
-  call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #4
-  %7 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 24
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 26
+  call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEED2Ev(ptr noundef nonnull align 4 dereferenceable(132) %6) #4
+  %7 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 25
   call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #4
-  %8 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 23
+  %8 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 24
   call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #4
-  %9 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 22
+  %9 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 23
   call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #4
-  %10 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 21
+  %10 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 22
   call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #4
-  %11 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 18
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  %12 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 17
+  %11 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 21
+  call void @_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #4
+  %12 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 18
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #4
-  %13 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 15
-  call void @_ZN3vcg4Box3IfED2Ev(ptr noundef nonnull align 4 dereferenceable(24) %13) #4
-  %14 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 13
-  call void @_ZNSt6vectorIN3vcg9TetraSimpINS0_9UsedTypesINS0_3UseI8CVertexOE12AsVertexTypeENS3_I6CEdgeOE10AsEdgeTypeENS3_I6CFaceOE10AsFaceTypeENS0_14DefaultDeriverESD_SD_SD_SD_EESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EESaISF_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  %15 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 10
-  call void @_ZNSt6vectorIN3vcg5HEdgeINS0_9UsedTypesINS0_3UseI8CVertexOE12AsVertexTypeENS3_I6CEdgeOE10AsEdgeTypeENS3_I6CFaceOE10AsFaceTypeENS0_14DefaultDeriverESD_SD_SD_SD_EESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EESaISF_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #4
-  %16 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 7
-  call void @_ZN3vcg4face10vector_ocfI6CFaceOED2Ev(ptr noundef nonnull align 8 dereferenceable(274) %16) #4
-  %17 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorI6CEdgeOSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #4
-  %18 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 1
-  call void @_ZN3vcg6vertex10vector_ocfI8CVertexOED2Ev(ptr noundef nonnull align 8 dereferenceable(249) %18) #4
+  %13 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 17
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
+  %14 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 15
+  call void @_ZN3vcg4Box3IfED2Ev(ptr noundef nonnull align 4 dereferenceable(24) %14) #4
+  %15 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 13
+  call void @_ZNSt6vectorIN3vcg9TetraSimpINS0_9UsedTypesINS0_3UseI8CVertexOE12AsVertexTypeENS3_I6CEdgeOE10AsEdgeTypeENS3_I6CFaceOE10AsFaceTypeENS0_14DefaultDeriverESD_SD_SD_SD_EESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EESaISF_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #4
+  %16 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 10
+  call void @_ZNSt6vectorIN3vcg5HEdgeINS0_9UsedTypesINS0_3UseI8CVertexOE12AsVertexTypeENS3_I6CEdgeOE10AsEdgeTypeENS3_I6CFaceOE10AsFaceTypeENS0_14DefaultDeriverESD_SD_SD_SD_EESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EESaISF_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #4
+  %17 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 7
+  call void @_ZN3vcg4face10vector_ocfI6CFaceOED2Ev(ptr noundef nonnull align 8 dereferenceable(274) %17) #4
+  %18 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorI6CEdgeOSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #4
+  %19 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %3, i32 0, i32 1
+  call void @_ZN3vcg6vertex10vector_ocfI8CVertexOED2Ev(ptr noundef nonnull align 8 dereferenceable(249) %19) #4
   ret void
 
-19:                                               ; preds = %1
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %1
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #19
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #19
   unreachable
 }
 
@@ -12058,79 +12061,80 @@ define void @_ZN6CMeshOC2ERKS_(ptr noundef nonnull align 8 dereferenceable(1196)
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESA_SA_EC2Ev(ptr noundef nonnull align 8 dereferenceable(1116) %7)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6CMeshO, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.CMeshO, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %class.CMeshO, ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %10, align 4
-  store i32 %11, ptr %8, align 4
-  %12 = getelementptr inbounds %class.CMeshO, ptr %7, i32 0, i32 2
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %class.CMeshO, ptr %13, i32 0, i32 2
-  %15 = load i32, ptr %14, align 8
-  store i32 %15, ptr %12, align 8
-  %16 = getelementptr inbounds %class.CMeshO, ptr %7, i32 0, i32 3
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %class.CMeshO, ptr %17, i32 0, i32 3
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %16, align 4
-  %20 = getelementptr inbounds %class.CMeshO, ptr %7, i32 0, i32 4
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %class.CMeshO, ptr %21, i32 0, i32 4
-  %23 = load i32, ptr %22, align 8
-  store i32 %23, ptr %20, align 8
-  %24 = getelementptr inbounds %class.CMeshO, ptr %7, i32 0, i32 5
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %class.CMeshO, ptr %25, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %24, ptr align 4 %26, i64 64, i1 false)
-  %27 = load ptr, ptr %4, align 8
-  invoke void @_ZN6CMeshO29enableComponentsFromOtherMeshERKS_(ptr noundef nonnull align 8 dereferenceable(1196) %7, ptr noundef nonnull align 8 dereferenceable(1196) %27)
-          to label %28 unwind label %45
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV6CMeshO, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.CMeshO, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %class.CMeshO, ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4
+  store i32 %12, ptr %9, align 4
+  %13 = getelementptr inbounds %class.CMeshO, ptr %7, i32 0, i32 2
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %class.CMeshO, ptr %14, i32 0, i32 2
+  %16 = load i32, ptr %15, align 8
+  store i32 %16, ptr %13, align 8
+  %17 = getelementptr inbounds %class.CMeshO, ptr %7, i32 0, i32 3
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %class.CMeshO, ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr %17, align 4
+  %21 = getelementptr inbounds %class.CMeshO, ptr %7, i32 0, i32 4
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %class.CMeshO, ptr %22, i32 0, i32 4
+  %24 = load i32, ptr %23, align 8
+  store i32 %24, ptr %21, align 8
+  %25 = getelementptr inbounds %class.CMeshO, ptr %7, i32 0, i32 5
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %class.CMeshO, ptr %26, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %25, ptr align 4 %27, i64 64, i1 false)
+  %28 = load ptr, ptr %4, align 8
+  invoke void @_ZN6CMeshO29enableComponentsFromOtherMeshERKS_(ptr noundef nonnull align 8 dereferenceable(1196) %7, ptr noundef nonnull align 8 dereferenceable(1196) %28)
+          to label %29 unwind label %46
 
-28:                                               ; preds = %2
-  %29 = load ptr, ptr %4, align 8
-  invoke void @_ZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bb(ptr noundef nonnull align 8 dereferenceable(1116) %7, ptr noundef nonnull align 8 dereferenceable(1116) %29, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %30 unwind label %45
+29:                                               ; preds = %2
+  %30 = load ptr, ptr %4, align 8
+  invoke void @_ZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bb(ptr noundef nonnull align 8 dereferenceable(1116) %7, ptr noundef nonnull align 8 dereferenceable(1116) %30, i1 noundef zeroext false, i1 noundef zeroext false)
+          to label %31 unwind label %46
 
-30:                                               ; preds = %28
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %31, i32 0, i32 17
-  %33 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %7, i32 0, i32 17
-  %34 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %32)
-          to label %35 unwind label %45
+31:                                               ; preds = %29
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %32, i32 0, i32 17
+  %34 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %7, i32 0, i32 17
+  %35 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %33)
+          to label %36 unwind label %46
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %36, i32 0, i32 18
-  %38 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %7, i32 0, i32 18
-  %39 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %37)
-          to label %40 unwind label %45
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %37, i32 0, i32 18
+  %39 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %7, i32 0, i32 18
+  %40 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %38)
+          to label %41 unwind label %46
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %41, i32 0, i32 28
-  %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %7, i32 0, i32 28
-  store i32 %43, ptr %44, align 8
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %42, i32 0, i32 28
+  %44 = load i32, ptr %43, align 8
+  %45 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %7, i32 0, i32 28
+  store i32 %44, ptr %45, align 8
   ret void
 
-45:                                               ; preds = %35, %30, %28, %2
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %36, %31, %29, %2
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %5, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %6, align 4
-  call void @_ZN3vcg8Matrix44IfED2Ev(ptr noundef nonnull align 4 dereferenceable(64) %24) #4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %5, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %6, align 4
+  call void @_ZN3vcg8Matrix44IfED2Ev(ptr noundef nonnull align 4 dereferenceable(64) %25) #4
   call void @_ZN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESA_SA_ED2Ev(ptr noundef nonnull align 8 dereferenceable(1116) %7) #4
-  br label %49
+  br label %50
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %5, align 8
-  %51 = load i32, ptr %6, align 4
-  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
-  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
-  resume { ptr, i32 } %53
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %5, align 8
+  %52 = load i32, ptr %6, align 4
+  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
+  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
+  resume { ptr, i32 } %54
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -58852,49 +58856,50 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN3vcg18SimpleTempDataBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 2
-  call void @_ZN3vcg9VectorNBWIfJEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  %11 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 3
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 2
-  %13 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = call noundef i64 @_ZNKSt6vectorI8CVertexOSaIS0_EE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  invoke void @_ZNSt6vectorIfSaIfEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %15)
-          to label %16 unwind label %22
+  %8 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 2
+  call void @_ZN3vcg9VectorNBWIfJEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
+  %12 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 3
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 2
+  %14 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef i64 @_ZNKSt6vectorI8CVertexOSaIS0_EE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #4
+  invoke void @_ZNSt6vectorIfSaIfEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %16)
+          to label %17 unwind label %23
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 2
-  %18 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %20 = call noundef i64 @_ZNKSt6vectorI8CVertexOSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #4
-  invoke void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %20)
-          to label %21 unwind label %22
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 2
+  %19 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef i64 @_ZNKSt6vectorI8CVertexOSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #4
+  invoke void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %21)
+          to label %22 unwind label %23
 
-21:                                               ; preds = %16
+22:                                               ; preds = %17
   ret void
 
-22:                                               ; preds = %16, %2
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %17, %2
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %5, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %6, align 4
-  call void @_ZN3vcg9VectorNBWIfJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  call void @_ZN3vcg9VectorNBWIfJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
   call void @_ZN3vcg18SimpleTempDataBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #4
-  br label %26
+  br label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -59113,7 +59118,8 @@ define linkonce_odr void @_ZN3vcg18SimpleTempDataBaseC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg18SimpleTempDataBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3vcg18SimpleTempDataBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -59235,11 +59241,12 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIfSaIfEE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %3, i32 0, i32 2
-  call void @_ZN3vcg9VectorNBWIfJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  call void @_ZNSt6vectorIfSaIfEE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  %6 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %3, i32 0, i32 2
+  call void @_ZN3vcg9VectorNBWIfJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #4
   call void @_ZN3vcg18SimpleTempDataBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #4
   ret void
 }
@@ -60210,49 +60217,50 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN3vcg18SimpleTempDataBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_6Point3IfEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %7, i32 0, i32 2
-  call void @_ZN3vcg9VectorNBWINS_6Point3IfEEJEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  %11 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %7, i32 0, i32 3
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %7, i32 0, i32 2
-  %13 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %7, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = call noundef i64 @_ZNKSt6vectorI8CVertexOSaIS0_EE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  invoke void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %15)
-          to label %16 unwind label %22
+  %8 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_6Point3IfEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %7, i32 0, i32 2
+  call void @_ZN3vcg9VectorNBWINS_6Point3IfEEJEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
+  %12 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %7, i32 0, i32 3
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %7, i32 0, i32 2
+  %14 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %7, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef i64 @_ZNKSt6vectorI8CVertexOSaIS0_EE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #4
+  invoke void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %16)
+          to label %17 unwind label %23
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %7, i32 0, i32 2
-  %18 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %7, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %20 = call noundef i64 @_ZNKSt6vectorI8CVertexOSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #4
-  invoke void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %20)
-          to label %21 unwind label %22
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %7, i32 0, i32 2
+  %19 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %7, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef i64 @_ZNKSt6vectorI8CVertexOSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #4
+  invoke void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %21)
+          to label %22 unwind label %23
 
-21:                                               ; preds = %16
+22:                                               ; preds = %17
   ret void
 
-22:                                               ; preds = %16, %2
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %17, %2
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %5, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %6, align 4
-  call void @_ZN3vcg9VectorNBWINS_6Point3IfEEJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  call void @_ZN3vcg9VectorNBWINS_6Point3IfEEJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
   call void @_ZN3vcg18SimpleTempDataBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #4
-  br label %26
+  br label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -60370,11 +60378,12 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_6Point3IfEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_6Point3IfEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %3, i32 0, i32 2
-  call void @_ZN3vcg9VectorNBWINS_6Point3IfEEJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  %6 = getelementptr inbounds %"class.vcg::SimpleTempData.278", ptr %3, i32 0, i32 2
+  call void @_ZN3vcg9VectorNBWINS_6Point3IfEEJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #4
   call void @_ZN3vcg18SimpleTempDataBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #4
   ret void
 }
@@ -60787,49 +60796,50 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEE
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN3vcg18SimpleTempDataBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %7, i32 0, i32 2
-  call void @_ZN3vcg9VectorNBWIfJEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  %11 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %7, i32 0, i32 3
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %7, i32 0, i32 2
-  %13 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %7, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = call noundef i64 @_ZNKSt6vectorI6CFaceOSaIS0_EE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  invoke void @_ZNSt6vectorIfSaIfEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %15)
-          to label %16 unwind label %22
+  %8 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %7, i32 0, i32 2
+  call void @_ZN3vcg9VectorNBWIfJEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
+  %12 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %7, i32 0, i32 3
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %7, i32 0, i32 2
+  %14 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %7, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef i64 @_ZNKSt6vectorI6CFaceOSaIS0_EE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #4
+  invoke void @_ZNSt6vectorIfSaIfEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %16)
+          to label %17 unwind label %23
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %7, i32 0, i32 2
-  %18 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %7, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %20 = call noundef i64 @_ZNKSt6vectorI6CFaceOSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #4
-  invoke void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %20)
-          to label %21 unwind label %22
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %7, i32 0, i32 2
+  %19 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %7, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef i64 @_ZNKSt6vectorI6CFaceOSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #4
+  invoke void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %21)
+          to label %22 unwind label %23
 
-21:                                               ; preds = %16
+22:                                               ; preds = %17
   ret void
 
-22:                                               ; preds = %16, %2
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %17, %2
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %5, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %6, align 4
-  call void @_ZN3vcg9VectorNBWIfJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  call void @_ZN3vcg9VectorNBWIfJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
   call void @_ZN3vcg18SimpleTempDataBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #4
-  br label %26
+  br label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -60870,11 +60880,12 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIfSaIfEE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %3, i32 0, i32 2
-  call void @_ZN3vcg9VectorNBWIfJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  call void @_ZNSt6vectorIfSaIfEE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  %6 = getelementptr inbounds %"class.vcg::SimpleTempData.282", ptr %3, i32 0, i32 2
+  call void @_ZN3vcg9VectorNBWIfJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #4
   call void @_ZN3vcg18SimpleTempDataBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #4
   ret void
 }
@@ -61111,49 +61122,50 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEE
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN3vcg18SimpleTempDataBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEENS_6Point3IfEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %7, i32 0, i32 2
-  call void @_ZN3vcg9VectorNBWINS_6Point3IfEEJEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  %11 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %7, i32 0, i32 3
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %7, i32 0, i32 2
-  %13 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %7, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = call noundef i64 @_ZNKSt6vectorI6CFaceOSaIS0_EE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  invoke void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %15)
-          to label %16 unwind label %22
+  %8 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEENS_6Point3IfEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %7, i32 0, i32 2
+  call void @_ZN3vcg9VectorNBWINS_6Point3IfEEJEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
+  %12 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %7, i32 0, i32 3
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %7, i32 0, i32 2
+  %14 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %7, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef i64 @_ZNKSt6vectorI6CFaceOSaIS0_EE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #4
+  invoke void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %16)
+          to label %17 unwind label %23
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %7, i32 0, i32 2
-  %18 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %7, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %20 = call noundef i64 @_ZNKSt6vectorI6CFaceOSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #4
-  invoke void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %20)
-          to label %21 unwind label %22
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %7, i32 0, i32 2
+  %19 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %7, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef i64 @_ZNKSt6vectorI6CFaceOSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #4
+  invoke void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %21)
+          to label %22 unwind label %23
 
-21:                                               ; preds = %16
+22:                                               ; preds = %17
   ret void
 
-22:                                               ; preds = %16, %2
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %17, %2
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %5, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %6, align 4
-  call void @_ZN3vcg9VectorNBWINS_6Point3IfEEJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  call void @_ZN3vcg9VectorNBWINS_6Point3IfEEJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
   call void @_ZN3vcg18SimpleTempDataBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #4
-  br label %26
+  br label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -61176,11 +61188,12 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEENS_6Point3IfEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEENS_6Point3IfEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %3, i32 0, i32 2
-  call void @_ZN3vcg9VectorNBWINS_6Point3IfEEJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  %6 = getelementptr inbounds %"class.vcg::SimpleTempData.284", ptr %3, i32 0, i32 2
+  call void @_ZN3vcg9VectorNBWINS_6Point3IfEEJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #4
   call void @_ZN3vcg18SimpleTempDataBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #4
   ret void
 }

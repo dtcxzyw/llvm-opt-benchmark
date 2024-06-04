@@ -113,7 +113,7 @@ define dso_local void @i2c_register_spd(ptr noundef %0) #0 align 16 {
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %28, ptr noundef nonnull @.str) #8
-  br label %70
+  br label %71
 
 29:                                               ; preds = %25, %23
   %30 = phi i8 [ %8, %25 ], [ %21, %23 ]
@@ -127,7 +127,7 @@ define dso_local void @i2c_register_spd(ptr noundef %0) #0 align 16 {
   %36 = phi i8 [ 0, %1 ], [ %8, %17 ], [ %30, %29 ]
   %37 = phi i32 [ 0, %1 ], [ %14, %17 ], [ %14, %29 ]
   %38 = icmp eq i32 %35, 0
-  br i1 %38, label %70, label %39
+  br i1 %38, label %71, label %39
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds i8, ptr %0, i64 112
@@ -137,7 +137,7 @@ define dso_local void @i2c_register_spd(ptr noundef %0) #0 align 16 {
 
 42:                                               ; preds = %39
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %40, ptr noundef nonnull @.str.2) #8
-  br label %70
+  br label %71
 
 43:                                               ; preds = %39
   switch i8 %36, label %45 [
@@ -157,20 +157,20 @@ define dso_local void @i2c_register_spd(ptr noundef %0) #0 align 16 {
 45:                                               ; preds = %43
   %46 = zext i8 %36 to i32
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %40, ptr noundef nonnull @.str.5, i32 noundef %46) #8
-  br label %70
+  br label %71
 
 47:                                               ; preds = %44, %43, %43, %43, %43, %43, %43
   %48 = phi ptr [ @.str.4, %44 ], [ @.str.3, %43 ], [ @.str.3, %43 ], [ @.str.3, %43 ], [ @.str.3, %43 ], [ @.str.3, %43 ], [ @.str.3, %43 ]
   %49 = icmp sgt i32 %37, 0
-  br i1 %49, label %50, label %70
+  br i1 %49, label %50, label %71
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %3, i64 2
   br label %52
 
-52:                                               ; preds = %64, %50
-  %53 = phi i32 [ %35, %50 ], [ %65, %64 ]
-  %54 = phi i32 [ 0, %50 ], [ %66, %64 ]
+52:                                               ; preds = %65, %50
+  %53 = phi i32 [ %35, %50 ], [ %66, %65 ]
+  %54 = phi i32 [ 0, %50 ], [ %67, %65 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 80, i1 false), !annotation !8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
@@ -182,27 +182,28 @@ define dso_local void @i2c_register_spd(ptr noundef %0) #0 align 16 {
   store i16 %57, ptr %3, align 4
   store i16 -2, ptr %51, align 2
   %58 = call ptr @i2c_new_scanned_device(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null) #7
-  %59 = icmp ugt ptr %58, inttoptr (i64 -4096 to ptr)
-  br i1 %59, label %64, label %60
+  %59 = inttoptr i64 -4096 to ptr
+  %60 = icmp ugt ptr %58, %59
+  br i1 %60, label %65, label %61
 
-60:                                               ; preds = %52
-  %61 = load i16, ptr %3, align 4
-  %62 = zext i16 %61 to i32
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %40, ptr noundef nonnull @.str.6, i32 noundef %62) #8
-  %63 = add i32 %53, -1
-  br label %64
+61:                                               ; preds = %52
+  %62 = load i16, ptr %3, align 4
+  %63 = zext i16 %62 to i32
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %40, ptr noundef nonnull @.str.6, i32 noundef %63) #8
+  %64 = add i32 %53, -1
+  br label %65
 
-64:                                               ; preds = %60, %52
-  %65 = phi i32 [ %53, %52 ], [ %63, %60 ]
+65:                                               ; preds = %61, %52
+  %66 = phi i32 [ %53, %52 ], [ %64, %61 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #7
-  %66 = add nuw nsw i32 %54, 1
-  %67 = icmp slt i32 %66, %37
-  %68 = icmp ne i32 %65, 0
-  %69 = select i1 %67, i1 %68, i1 false
-  br i1 %69, label %52, label %70, !llvm.loop !9
+  %67 = add nuw nsw i32 %54, 1
+  %68 = icmp slt i32 %67, %37
+  %69 = icmp ne i32 %66, 0
+  %70 = select i1 %68, i1 %69, i1 false
+  br i1 %70, label %52, label %71, !llvm.loop !9
 
-70:                                               ; preds = %64, %47, %45, %42, %34, %27
+71:                                               ; preds = %65, %47, %45, %42, %34, %27
   ret void
 }
 

@@ -733,11 +733,11 @@ define internal void @color(ptr noundef %0) #0 {
   store i64 0, ptr %19, align 8
   br label %353
 
-353:                                              ; preds = %445, %352
+353:                                              ; preds = %447, %352
   %354 = load i64, ptr %19, align 8
   %355 = load i64, ptr %18, align 8
   %356 = icmp ult i64 %354, %355
-  br i1 %356, label %357, label %448
+  br i1 %356, label %357, label %450
 
 357:                                              ; preds = %353
   %358 = load ptr, ptr %8, align 8
@@ -846,37 +846,39 @@ define internal void @color(ptr noundef %0) #0 {
   %430 = getelementptr inbounds [3 x double], ptr %429, i64 0, i64 2
   %431 = load double, ptr %430, align 8
   store double %431, ptr %23, align 8
-  br label %436
+  br label %438
 
 432:                                              ; preds = %380
   %433 = load double, ptr @Defcolor, align 16
   store double %433, ptr %21, align 8
-  %434 = load double, ptr getelementptr inbounds ([3 x double], ptr @Defcolor, i64 0, i64 1), align 8
-  store double %434, ptr %22, align 8
-  %435 = load double, ptr getelementptr inbounds ([3 x double], ptr @Defcolor, i64 0, i64 2), align 16
-  store double %435, ptr %23, align 8
-  br label %436
+  %434 = getelementptr inbounds [3 x double], ptr @Defcolor, i64 0, i64 1
+  %435 = load double, ptr %434, align 8
+  store double %435, ptr %22, align 8
+  %436 = getelementptr inbounds [3 x double], ptr @Defcolor, i64 0, i64 2
+  %437 = load double, ptr %436, align 16
+  store double %437, ptr %23, align 8
+  br label %438
 
-436:                                              ; preds = %432, %415
-  %437 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %438 = load double, ptr %21, align 8
-  %439 = load double, ptr %22, align 8
-  %440 = load double, ptr %23, align 8
-  %441 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %437, i64 noundef 64, ptr noundef @.str.16, double noundef %438, double noundef %439, double noundef %440) #11
-  %442 = load ptr, ptr %6, align 8
-  %443 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
-  %444 = call i32 @agset(ptr noundef %442, ptr noundef @.str.15, ptr noundef %443)
-  br label %445
+438:                                              ; preds = %432, %415
+  %439 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %440 = load double, ptr %21, align 8
+  %441 = load double, ptr %22, align 8
+  %442 = load double, ptr %23, align 8
+  %443 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %439, i64 noundef 64, ptr noundef @.str.16, double noundef %440, double noundef %441, double noundef %442) #11
+  %444 = load ptr, ptr %6, align 8
+  %445 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 0
+  %446 = call i32 @agset(ptr noundef %444, ptr noundef @.str.15, ptr noundef %445)
+  br label %447
 
-445:                                              ; preds = %436
-  %446 = load i64, ptr %19, align 8
-  %447 = add i64 %446, 1
-  store i64 %447, ptr %19, align 8
+447:                                              ; preds = %438
+  %448 = load i64, ptr %19, align 8
+  %449 = add i64 %448, 1
+  store i64 %449, ptr %19, align 8
   br label %353
 
-448:                                              ; preds = %353
-  %449 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %449) #11
+450:                                              ; preds = %353
+  %451 = load ptr, ptr %8, align 8
+  call void @free(ptr noundef %451) #11
   ret void
 }
 

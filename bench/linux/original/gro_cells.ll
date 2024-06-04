@@ -225,7 +225,7 @@ declare dso_local void @napi_enable(ptr noundef) local_unnamed_addr #1
 define dso_local void @gro_cells_destroy(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %58, label %4
+  br i1 %3, label %59, label %4
 
 4:                                                ; preds = %46, %1
   %5 = phi i64 [ %47, %46 ], [ 0, %1 ]
@@ -295,29 +295,30 @@ define dso_local void @gro_cells_destroy(ptr nocapture noundef %0) #0 align 16 {
   br label %4, !llvm.loop !14
 
 48:                                               ; preds = %15
-  %49 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %50 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %49, i32 noundef 11456, i64 noundef 24) #8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %55, label %52, !prof !5
+  %49 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %50, i32 noundef 11456, i64 noundef 24) #8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %56, label %53, !prof !5
 
-52:                                               ; preds = %48
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %50, i64 16
-  store ptr %53, ptr %54, align 8
-  tail call void @call_rcu(ptr noundef nonnull %50, ptr noundef nonnull @percpu_free_defer_callback) #5
-  br label %57
-
-55:                                               ; preds = %48
-  tail call void @synchronize_rcu_expedited() #5
-  %56 = load ptr, ptr %0, align 8
-  tail call void @free_percpu(ptr noundef %56) #5
-  br label %57
-
-57:                                               ; preds = %55, %52
-  store ptr null, ptr %0, align 8
+53:                                               ; preds = %48
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr inbounds i8, ptr %51, i64 16
+  store ptr %54, ptr %55, align 8
+  tail call void @call_rcu(ptr noundef nonnull %51, ptr noundef nonnull @percpu_free_defer_callback) #5
   br label %58
 
-58:                                               ; preds = %57, %1
+56:                                               ; preds = %48
+  tail call void @synchronize_rcu_expedited() #5
+  %57 = load ptr, ptr %0, align 8
+  tail call void @free_percpu(ptr noundef %57) #5
+  br label %58
+
+58:                                               ; preds = %56, %53
+  store ptr null, ptr %0, align 8
+  br label %59
+
+59:                                               ; preds = %58, %1
   ret void
 }
 

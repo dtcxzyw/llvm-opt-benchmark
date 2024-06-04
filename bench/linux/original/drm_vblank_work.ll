@@ -492,25 +492,26 @@ define dso_local i32 @drm_vblank_worker_init(ptr noundef %0) local_unnamed_addr 
   %9 = getelementptr inbounds i8, ptr %0, i64 112
   %10 = load i32, ptr %9, align 8
   %11 = tail call ptr (i32, ptr, ...) @kthread_create_worker(i32 noundef 0, ptr noundef nonnull @.str.4, i32 noundef %8, i32 noundef %10) #5
-  %12 = icmp ugt ptr %11, inttoptr (i64 -4096 to ptr)
-  br i1 %12, label %13, label %16
+  %12 = inttoptr i64 -4096 to ptr
+  %13 = icmp ugt ptr %11, %12
+  br i1 %13, label %14, label %17
 
-13:                                               ; preds = %1
-  %14 = ptrtoint ptr %11 to i64
-  %15 = trunc i64 %14 to i32
-  br label %20
+14:                                               ; preds = %1
+  %15 = ptrtoint ptr %11 to i64
+  %16 = trunc i64 %15 to i32
+  br label %21
 
-16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 256
-  store ptr %11, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 40
-  %19 = load ptr, ptr %18, align 8
-  tail call void @sched_set_fifo(ptr noundef %19) #5
-  br label %20
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds i8, ptr %0, i64 256
+  store ptr %11, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %11, i64 40
+  %20 = load ptr, ptr %19, align 8
+  tail call void @sched_set_fifo(ptr noundef %20) #5
+  br label %21
 
-20:                                               ; preds = %16, %13
-  %21 = phi i32 [ %15, %13 ], [ 0, %16 ]
-  ret i32 %21
+21:                                               ; preds = %17, %14
+  %22 = phi i32 [ %16, %14 ], [ 0, %17 ]
+  ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid

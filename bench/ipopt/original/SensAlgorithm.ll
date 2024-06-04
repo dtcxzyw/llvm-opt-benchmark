@@ -1003,86 +1003,87 @@ define void @_ZN5Ipopt13SensAlgorithmC2ERSt6vectorINS_8SmartPtrINS_11SchurDriver
   store i32 %4, ptr %10, align 4
   %13 = load ptr, ptr %6, align 8
   call void @_ZN5Ipopt23AlgorithmStrategyObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt13SensAlgorithmE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 2
-  store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 3
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Ipopt13SensAlgorithmE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 2
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 4
+  %16 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 3
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 5
+  %17 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 4
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 6
+  %18 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 5
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 7
+  %19 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 6
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 8
+  %20 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 7
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 9
+  %21 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 8
   store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 18
-  %23 = load ptr, ptr %7, align 8
-  invoke void @_ZNSt6vectorIN5Ipopt8SmartPtrINS0_11SchurDriverEEESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23)
-          to label %24 unwind label %31
+  %22 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 9
+  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 18
+  %24 = load ptr, ptr %7, align 8
+  invoke void @_ZNSt6vectorIN5Ipopt8SmartPtrINS0_11SchurDriverEEESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24)
+          to label %25 unwind label %32
 
-24:                                               ; preds = %5
-  %25 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 19
-  invoke void @_ZN5Ipopt8SmartPtrINS_25SensitivityStepCalculatorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %26 unwind label %35
+25:                                               ; preds = %5
+  %26 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 19
+  invoke void @_ZN5Ipopt8SmartPtrINS_25SensitivityStepCalculatorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %27 unwind label %36
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 20
-  invoke void @_ZN5Ipopt8SmartPtrINS_11MeasurementEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %28 unwind label %39
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 20
+  invoke void @_ZN5Ipopt8SmartPtrINS_11MeasurementEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %29 unwind label %40
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 21
-  %30 = load i32, ptr %10, align 4
-  store i32 %30, ptr %29, align 8
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %13, i32 0, i32 21
+  %31 = load i32, ptr %10, align 4
+  store i32 %31, ptr %30, align 8
   ret void
 
-31:                                               ; preds = %5
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %5
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %11, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %12, align 4
-  br label %44
-
-35:                                               ; preds = %24
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %11, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %12, align 4
-  br label %43
-
-39:                                               ; preds = %26
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %11, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %12, align 4
-  call void @_ZN5Ipopt8SmartPtrINS_25SensitivityStepCalculatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #3
-  br label %43
-
-43:                                               ; preds = %39, %35
-  call void @_ZNSt6vectorIN5Ipopt8SmartPtrINS0_11SchurDriverEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
-  br label %44
-
-44:                                               ; preds = %43, %31
-  call void @_ZN5Ipopt23AlgorithmStrategyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %13) #3
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %11, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %12, align 4
   br label %45
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %11, align 8
-  %47 = load i32, ptr %12, align 4
-  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
-  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
-  resume { ptr, i32 } %49
+36:                                               ; preds = %25
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %11, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %12, align 4
+  br label %44
+
+40:                                               ; preds = %27
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %11, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %12, align 4
+  call void @_ZN5Ipopt8SmartPtrINS_25SensitivityStepCalculatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #3
+  br label %44
+
+44:                                               ; preds = %40, %36
+  call void @_ZNSt6vectorIN5Ipopt8SmartPtrINS0_11SchurDriverEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  br label %45
+
+45:                                               ; preds = %44, %32
+  call void @_ZN5Ipopt23AlgorithmStrategyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %13) #3
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
+  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
+  resume { ptr, i32 } %50
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1093,86 +1094,87 @@ define linkonce_odr void @_ZN5Ipopt23AlgorithmStrategyObjectC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 2
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %7 unwind label %15
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 2
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %8 unwind label %16
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 3
-  invoke void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %9 unwind label %19
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 3
+  invoke void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %10 unwind label %20
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 4
-  invoke void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %11 unwind label %23
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 4
+  invoke void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %12 unwind label %24
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 5
-  invoke void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %27
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 5
+  invoke void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %28
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 6
-  store i8 0, ptr %14, align 8
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 6
+  store i8 0, ptr %15, align 8
   ret void
 
-15:                                               ; preds = %1
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %3, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %4, align 4
-  br label %33
-
-19:                                               ; preds = %7
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %3, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %4, align 4
-  br label %32
-
-23:                                               ; preds = %9
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %3, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %4, align 4
-  br label %31
-
-27:                                               ; preds = %11
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %3, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %4, align 4
-  call void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %31
-
-31:                                               ; preds = %27, %23
-  call void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  br label %32
-
-32:                                               ; preds = %31, %19
-  call void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  br label %33
-
-33:                                               ; preds = %32, %15
-  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #3
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
   br label %34
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %3, align 8
-  %36 = load i32, ptr %4, align 4
-  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
-  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
-  resume { ptr, i32 } %38
+20:                                               ; preds = %8
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %3, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %4, align 4
+  br label %33
+
+24:                                               ; preds = %10
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %3, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %4, align 4
+  br label %32
+
+28:                                               ; preds = %12
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %3, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %4, align 4
+  call void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  br label %32
+
+32:                                               ; preds = %28, %24
+  call void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %33
+
+33:                                               ; preds = %32, %20
+  call void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %34
+
+34:                                               ; preds = %33, %16
+  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #3
+  br label %35
+
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %3, align 8
+  %37 = load i32, ptr %4, align 4
+  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
+  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
+  resume { ptr, i32 } %39
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1321,165 +1323,166 @@ define void @_ZN5Ipopt13SensAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt13SensAlgorithmE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr null, %5
-  br i1 %6, label %7, label %13
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Ipopt13SensAlgorithmE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr null, %6
+  br i1 %7, label %8, label %14
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %12, label %11
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %13, label %12
 
-11:                                               ; preds = %7
-  call void @_ZdaPv(ptr noundef %9) #15
-  br label %12
-
-12:                                               ; preds = %11, %7
+12:                                               ; preds = %8
+  call void @_ZdaPv(ptr noundef %10) #15
   br label %13
 
-13:                                               ; preds = %12, %1
-  %14 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 3
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp ne ptr null, %15
-  br i1 %16, label %17, label %23
+13:                                               ; preds = %12, %8
+  br label %14
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 3
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %22, label %21
+14:                                               ; preds = %13, %1
+  %15 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 3
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr null, %16
+  br i1 %17, label %18, label %24
 
-21:                                               ; preds = %17
-  call void @_ZdaPv(ptr noundef %19) #15
-  br label %22
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 3
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %23, label %22
 
-22:                                               ; preds = %21, %17
+22:                                               ; preds = %18
+  call void @_ZdaPv(ptr noundef %20) #15
   br label %23
 
-23:                                               ; preds = %22, %13
-  %24 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 5
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp ne ptr null, %25
-  br i1 %26, label %27, label %33
+23:                                               ; preds = %22, %18
+  br label %24
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 5
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %32, label %31
+24:                                               ; preds = %23, %14
+  %25 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 5
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp ne ptr null, %26
+  br i1 %27, label %28, label %34
 
-31:                                               ; preds = %27
-  call void @_ZdaPv(ptr noundef %29) #15
-  br label %32
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 5
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %33, label %32
 
-32:                                               ; preds = %31, %27
+32:                                               ; preds = %28
+  call void @_ZdaPv(ptr noundef %30) #15
   br label %33
 
-33:                                               ; preds = %32, %23
-  %34 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 4
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp ne ptr null, %35
-  br i1 %36, label %37, label %43
+33:                                               ; preds = %32, %28
+  br label %34
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 4
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %42, label %41
+34:                                               ; preds = %33, %24
+  %35 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 4
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr null, %36
+  br i1 %37, label %38, label %44
 
-41:                                               ; preds = %37
-  call void @_ZdaPv(ptr noundef %39) #15
-  br label %42
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 4
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %43, label %42
 
-42:                                               ; preds = %41, %37
+42:                                               ; preds = %38
+  call void @_ZdaPv(ptr noundef %40) #15
   br label %43
 
-43:                                               ; preds = %42, %33
-  %44 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 6
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp ne ptr null, %45
-  br i1 %46, label %47, label %53
+43:                                               ; preds = %42, %38
+  br label %44
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 6
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %52, label %51
+44:                                               ; preds = %43, %34
+  %45 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 6
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr null, %46
+  br i1 %47, label %48, label %54
 
-51:                                               ; preds = %47
-  call void @_ZdaPv(ptr noundef %49) #15
-  br label %52
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 6
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %53, label %52
 
-52:                                               ; preds = %51, %47
+52:                                               ; preds = %48
+  call void @_ZdaPv(ptr noundef %50) #15
   br label %53
 
-53:                                               ; preds = %52, %43
-  %54 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 7
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp ne ptr null, %55
-  br i1 %56, label %57, label %63
+53:                                               ; preds = %52, %48
+  br label %54
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 7
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %62, label %61
+54:                                               ; preds = %53, %44
+  %55 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 7
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ne ptr null, %56
+  br i1 %57, label %58, label %64
 
-61:                                               ; preds = %57
-  call void @_ZdaPv(ptr noundef %59) #15
-  br label %62
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 7
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %63, label %62
 
-62:                                               ; preds = %61, %57
+62:                                               ; preds = %58
+  call void @_ZdaPv(ptr noundef %60) #15
   br label %63
 
-63:                                               ; preds = %62, %53
-  %64 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 9
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp ne ptr null, %65
-  br i1 %66, label %67, label %73
+63:                                               ; preds = %62, %58
+  br label %64
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 9
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %72, label %71
+64:                                               ; preds = %63, %54
+  %65 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 9
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp ne ptr null, %66
+  br i1 %67, label %68, label %74
 
-71:                                               ; preds = %67
-  call void @_ZdaPv(ptr noundef %69) #15
-  br label %72
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 9
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %73, label %72
 
-72:                                               ; preds = %71, %67
+72:                                               ; preds = %68
+  call void @_ZdaPv(ptr noundef %70) #15
   br label %73
 
-73:                                               ; preds = %72, %63
-  %74 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp ne ptr null, %75
-  br i1 %76, label %77, label %83
+73:                                               ; preds = %72, %68
+  br label %74
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %82, label %81
+74:                                               ; preds = %73, %64
+  %75 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp ne ptr null, %76
+  br i1 %77, label %78, label %84
 
-81:                                               ; preds = %77
-  call void @_ZdaPv(ptr noundef %79) #15
-  br label %82
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %83, label %82
 
-82:                                               ; preds = %81, %77
+82:                                               ; preds = %78
+  call void @_ZdaPv(ptr noundef %80) #15
   br label %83
 
-83:                                               ; preds = %82, %73
-  %84 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 20
-  call void @_ZN5Ipopt8SmartPtrINS_11MeasurementEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %84) #3
-  %85 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 19
-  call void @_ZN5Ipopt8SmartPtrINS_25SensitivityStepCalculatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #3
-  %86 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 18
-  call void @_ZNSt6vectorIN5Ipopt8SmartPtrINS0_11SchurDriverEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %86) #3
+83:                                               ; preds = %82, %78
+  br label %84
+
+84:                                               ; preds = %83, %74
+  %85 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 20
+  call void @_ZN5Ipopt8SmartPtrINS_11MeasurementEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #3
+  %86 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 19
+  call void @_ZN5Ipopt8SmartPtrINS_25SensitivityStepCalculatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %86) #3
+  %87 = getelementptr inbounds %"class.Ipopt::SensAlgorithm", ptr %3, i32 0, i32 18
+  call void @_ZNSt6vectorIN5Ipopt8SmartPtrINS0_11SchurDriverEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %87) #3
   call void @_ZN5Ipopt23AlgorithmStrategyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #3
   ret void
 }
@@ -5640,13 +5643,14 @@ define linkonce_odr void @_ZN5Ipopt16DenseVectorSpaceC2Ei(ptr noundef nonnull al
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
   call void @_ZN5Ipopt11VectorSpaceC2Ei(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt16DenseVectorSpaceE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.Ipopt::DenseVectorSpace", ptr %5, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
-  %8 = getelementptr inbounds %"class.Ipopt::DenseVectorSpace", ptr %5, i32 0, i32 2
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIiSaIiEESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
-  %9 = getelementptr inbounds %"class.Ipopt::DenseVectorSpace", ptr %5, i32 0, i32 3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIdSaIdEESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Ipopt16DenseVectorSpaceE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.Ipopt::DenseVectorSpace", ptr %5, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  %9 = getelementptr inbounds %"class.Ipopt::DenseVectorSpace", ptr %5, i32 0, i32 2
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIiSaIiEESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
+  %10 = getelementptr inbounds %"class.Ipopt::DenseVectorSpace", ptr %5, i32 0, i32 3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIdSaIdEESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #3
   ret void
 }
 
@@ -6452,9 +6456,10 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
   ret void
 }
 
@@ -6560,15 +6565,16 @@ define linkonce_odr void @_ZN5Ipopt23AlgorithmStrategyObjectD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 5
-  call void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 4
-  call void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %6 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 3
-  call void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 2
-  call void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 5
+  call void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 4
+  call void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 3
+  call void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %8 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 2
+  call void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #3
   ret void
 }
@@ -6588,7 +6594,8 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8244,10 +8251,11 @@ define linkonce_odr void @_ZN5Ipopt11VectorSpaceC2Ei(ptr noundef nonnull align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt11VectorSpaceE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Ipopt::VectorSpace", ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %4, align 4
-  store i32 %7, ptr %6, align 4
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Ipopt11VectorSpaceE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Ipopt::VectorSpace", ptr %5, i32 0, i32 1
+  %8 = load i32, ptr %4, align 4
+  store i32 %8, ptr %7, align 4
   ret void
 }
 
@@ -8286,13 +8294,14 @@ define linkonce_odr void @_ZN5Ipopt16DenseVectorSpaceD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt16DenseVectorSpaceE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::DenseVectorSpace", ptr %3, i32 0, i32 3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIdSaIdEESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %"class.Ipopt::DenseVectorSpace", ptr %3, i32 0, i32 2
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIiSaIiEESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
-  %6 = getelementptr inbounds %"class.Ipopt::DenseVectorSpace", ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Ipopt16DenseVectorSpaceE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::DenseVectorSpace", ptr %3, i32 0, i32 3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIdSaIdEESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %6 = getelementptr inbounds %"class.Ipopt::DenseVectorSpace", ptr %3, i32 0, i32 2
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIiSaIiEESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
+  %7 = getelementptr inbounds %"class.Ipopt::DenseVectorSpace", ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
   call void @_ZN5Ipopt11VectorSpaceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }

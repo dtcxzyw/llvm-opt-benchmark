@@ -24,28 +24,29 @@ define i32 @mca_coll_self_reduce_scatter_intra(ptr noundef %0, ptr noundef %1, p
   store ptr %5, ptr %14, align 8
   store ptr %6, ptr %15, align 8
   %16 = load ptr, ptr %9, align 8
-  %17 = icmp eq ptr inttoptr (i64 1 to ptr), %16
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %7
-  store i32 0, ptr %8, align 4
-  br label %28
+  %17 = inttoptr i64 1 to ptr
+  %18 = icmp eq ptr %17, %16
+  br i1 %18, label %19, label %20
 
 19:                                               ; preds = %7
-  %20 = load ptr, ptr %12, align 8
-  %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds i32, ptr %21, i64 0
-  %23 = load i32, ptr %22, align 4
-  %24 = sext i32 %23 to i64
-  %25 = load ptr, ptr %10, align 8
-  %26 = load ptr, ptr %9, align 8
-  %27 = call i32 @ompi_datatype_copy_content_same_ddt(ptr noundef %20, i64 noundef %24, ptr noundef %25, ptr noundef %26)
-  store i32 %27, ptr %8, align 4
-  br label %28
+  store i32 0, ptr %8, align 4
+  br label %29
 
-28:                                               ; preds = %19, %18
-  %29 = load i32, ptr %8, align 4
-  ret i32 %29
+20:                                               ; preds = %7
+  %21 = load ptr, ptr %12, align 8
+  %22 = load ptr, ptr %11, align 8
+  %23 = getelementptr inbounds i32, ptr %22, i64 0
+  %24 = load i32, ptr %23, align 4
+  %25 = sext i32 %24 to i64
+  %26 = load ptr, ptr %10, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = call i32 @ompi_datatype_copy_content_same_ddt(ptr noundef %21, i64 noundef %25, ptr noundef %26, ptr noundef %27)
+  store i32 %28, ptr %8, align 4
+  br label %29
+
+29:                                               ; preds = %20, %19
+  %30 = load i32, ptr %8, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable

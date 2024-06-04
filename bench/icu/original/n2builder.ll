@@ -1039,7 +1039,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -3266,10 +3267,11 @@ entry:
   store ptr %loc, ptr %loc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_759ErrorCodeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %location = getelementptr inbounds %"class.icu_75::IcuToolErrorCode", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %loc.addr, align 8
-  store ptr %0, ptr %location, align 8
+  %1 = load ptr, ptr %loc.addr, align 8
+  store ptr %1, ptr %location, align 8
   ret void
 }
 
@@ -4449,7 +4451,8 @@ invoke.cont359:                                   ; preds = %if.then356
 if.end360:                                        ; preds = %invoke.cont359, %if.end352
   %unicodeVersion361 = getelementptr inbounds %"class.icu_75::Normalizer2DataBuilder", ptr %this1, i32 0, i32 11
   %arraydecay362 = getelementptr inbounds [4 x i8], ptr %unicodeVersion361, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 getelementptr inbounds (%struct.UDataInfo, ptr @_ZL8dataInfo, i32 0, i32 8), ptr align 8 %arraydecay362, i64 4, i1 false)
+  %105 = getelementptr inbounds %struct.UDataInfo, ptr @_ZL8dataInfo, i32 0, i32 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %105, ptr align 8 %arraydecay362, i64 4, i1 false)
   store i1 true, ptr %nrvo, align 1
   %nrvo.val = load i1, ptr %nrvo, align 1
   br i1 %nrvo.val, label %nrvo.skipdtor, label %nrvo.unused
@@ -4504,7 +4507,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %n.addr, align 8
   call void @_ZN6icu_755Norms10EnumeratorC2ERS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(424) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CompositionBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7518CompositionBuilderE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4520,7 +4524,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %n.addr, align 8
   call void @_ZN6icu_755Norms10EnumeratorC2ERS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(424) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7510DecomposerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7510DecomposerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %didDecompose = getelementptr inbounds %"class.icu_75::Decomposer", ptr %this1, i32 0, i32 1
   store i8 0, ptr %didDecompose, align 8
   ret void
@@ -4619,13 +4624,14 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %n.addr, align 8
   call void @_ZN6icu_755Norms10EnumeratorC2ERS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(424) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512Norm16WriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7512Norm16WriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %builder = getelementptr inbounds %"class.icu_75::Norm16Writer", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %b.addr, align 8
-  store ptr %1, ptr %builder, align 8
+  %2 = load ptr, ptr %b.addr, align 8
+  store ptr %2, ptr %builder, align 8
   %norm16Trie = getelementptr inbounds %"class.icu_75::Norm16Writer", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %trie.addr, align 8
-  store ptr %2, ptr %norm16Trie, align 8
+  %3 = load ptr, ptr %trie.addr, align 8
+  store ptr %3, ptr %norm16Trie, align 8
   ret void
 }
 
@@ -4729,7 +4735,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ExtraDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_759ExtraDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %previousNoNoMappingsEmpty = getelementptr inbounds %"class.icu_75::ExtraData", ptr %this1, i32 0, i32 13
   call void @_ZN6icu_759HashtableD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %previousNoNoMappingsEmpty) #12
   %previousNoNoMappingsCompNoMaybeCC = getelementptr inbounds %"class.icu_75::ExtraData", ptr %this1, i32 0, i32 12
@@ -5141,44 +5148,46 @@ invoke.cont32:                                    ; preds = %if.end31
   %call34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 100, ptr noundef @.str.42, ptr noundef %30) #12
   %31 = load ptr, ptr %f, align 8
   %arraydecay35 = getelementptr inbounds [100 x i8], ptr %line, i64 0, i64 0
-  invoke void @usrc_writeArray(ptr noundef %31, ptr noundef %arraydecay35, ptr noundef getelementptr inbounds (%struct.UDataInfo, ptr @_ZL8dataInfo, i32 0, i32 7), i32 noundef 8, i32 noundef 4, ptr noundef @.str.43, ptr noundef @.str.44)
+  %32 = getelementptr inbounds %struct.UDataInfo, ptr @_ZL8dataInfo, i32 0, i32 7
+  invoke void @usrc_writeArray(ptr noundef %31, ptr noundef %arraydecay35, ptr noundef %32, i32 noundef 8, i32 noundef 4, ptr noundef @.str.43, ptr noundef @.str.44)
           to label %invoke.cont36 unwind label %lpad17
 
 invoke.cont36:                                    ; preds = %invoke.cont32
   %arraydecay37 = getelementptr inbounds [100 x i8], ptr %line, i64 0, i64 0
-  %32 = load ptr, ptr %name, align 8
-  %call38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay37, i64 noundef 100, ptr noundef @.str.45, ptr noundef %32) #12
-  %33 = load ptr, ptr %f, align 8
+  %33 = load ptr, ptr %name, align 8
+  %call38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay37, i64 noundef 100, ptr noundef @.str.45, ptr noundef %33) #12
+  %34 = load ptr, ptr %f, align 8
   %arraydecay39 = getelementptr inbounds [100 x i8], ptr %line, i64 0, i64 0
-  invoke void @usrc_writeArray(ptr noundef %33, ptr noundef %arraydecay39, ptr noundef getelementptr inbounds (%struct.UDataInfo, ptr @_ZL8dataInfo, i32 0, i32 8), i32 noundef 8, i32 noundef 4, ptr noundef @.str.43, ptr noundef @.str.46)
+  %35 = getelementptr inbounds %struct.UDataInfo, ptr @_ZL8dataInfo, i32 0, i32 8
+  invoke void @usrc_writeArray(ptr noundef %34, ptr noundef %arraydecay39, ptr noundef %35, i32 noundef 8, i32 noundef 4, ptr noundef @.str.43, ptr noundef @.str.46)
           to label %invoke.cont40 unwind label %lpad17
 
 invoke.cont40:                                    ; preds = %invoke.cont36
   %arraydecay41 = getelementptr inbounds [100 x i8], ptr %line, i64 0, i64 0
-  %34 = load ptr, ptr %name, align 8
-  %call42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay41, i64 noundef 100, ptr noundef @.str.47, ptr noundef %34) #12
-  %35 = load ptr, ptr %f, align 8
+  %36 = load ptr, ptr %name, align 8
+  %call42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay41, i64 noundef 100, ptr noundef @.str.47, ptr noundef %36) #12
+  %37 = load ptr, ptr %f, align 8
   %arraydecay43 = getelementptr inbounds [100 x i8], ptr %line, i64 0, i64 0
   %indexes = getelementptr inbounds %"class.icu_75::Normalizer2DataBuilder", ptr %this1, i32 0, i32 4
   %arraydecay44 = getelementptr inbounds [20 x i32], ptr %indexes, i64 0, i64 0
-  invoke void @usrc_writeArray(ptr noundef %35, ptr noundef %arraydecay43, ptr noundef %arraydecay44, i32 noundef 32, i32 noundef 20, ptr noundef @.str.43, ptr noundef @.str.48)
+  invoke void @usrc_writeArray(ptr noundef %37, ptr noundef %arraydecay43, ptr noundef %arraydecay44, i32 noundef 32, i32 noundef 20, ptr noundef @.str.43, ptr noundef @.str.48)
           to label %invoke.cont45 unwind label %lpad17
 
 invoke.cont45:                                    ; preds = %invoke.cont40
-  %36 = load ptr, ptr %f, align 8
-  %37 = load ptr, ptr %name, align 8
+  %38 = load ptr, ptr %f, align 8
+  %39 = load ptr, ptr %name, align 8
   %call47 = invoke noundef ptr @_ZNK6icu_7516LocalPointerBaseI7UCPTrieE8getAliasEv(ptr noundef nonnull align 8 dereferenceable(8) %norm16Trie)
           to label %invoke.cont46 unwind label %lpad17
 
 invoke.cont46:                                    ; preds = %invoke.cont45
-  invoke void @usrc_writeUCPTrie(ptr noundef %36, ptr noundef %37, ptr noundef %call47, i32 noundef 0)
+  invoke void @usrc_writeUCPTrie(ptr noundef %38, ptr noundef %39, ptr noundef %call47, i32 noundef 0)
           to label %invoke.cont48 unwind label %lpad17
 
 invoke.cont48:                                    ; preds = %invoke.cont46
   %arraydecay49 = getelementptr inbounds [100 x i8], ptr %line, i64 0, i64 0
-  %38 = load ptr, ptr %name, align 8
-  %call50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay49, i64 noundef 100, ptr noundef @.str.49, ptr noundef %38) #12
-  %39 = load ptr, ptr %f, align 8
+  %40 = load ptr, ptr %name, align 8
+  %call50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay49, i64 noundef 100, ptr noundef @.str.49, ptr noundef %40) #12
+  %41 = load ptr, ptr %f, align 8
   %arraydecay51 = getelementptr inbounds [100 x i8], ptr %line, i64 0, i64 0
   %extraData = getelementptr inbounds %"class.icu_75::Normalizer2DataBuilder", ptr %this1, i32 0, i32 9
   %call53 = invoke noundef ptr @_ZNK6icu_7513UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %extraData)
@@ -5190,28 +5199,28 @@ invoke.cont52:                                    ; preds = %invoke.cont48
           to label %invoke.cont55 unwind label %lpad17
 
 invoke.cont55:                                    ; preds = %invoke.cont52
-  invoke void @usrc_writeArray(ptr noundef %39, ptr noundef %arraydecay51, ptr noundef %call53, i32 noundef 16, i32 noundef %call56, ptr noundef @.str.43, ptr noundef @.str.48)
+  invoke void @usrc_writeArray(ptr noundef %41, ptr noundef %arraydecay51, ptr noundef %call53, i32 noundef 16, i32 noundef %call56, ptr noundef @.str.43, ptr noundef @.str.48)
           to label %invoke.cont57 unwind label %lpad17
 
 invoke.cont57:                                    ; preds = %invoke.cont55
   %arraydecay58 = getelementptr inbounds [100 x i8], ptr %line, i64 0, i64 0
-  %40 = load ptr, ptr %name, align 8
-  %call59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay58, i64 noundef 100, ptr noundef @.str.50, ptr noundef %40) #12
-  %41 = load ptr, ptr %f, align 8
+  %42 = load ptr, ptr %name, align 8
+  %call59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay58, i64 noundef 100, ptr noundef @.str.50, ptr noundef %42) #12
+  %43 = load ptr, ptr %f, align 8
   %arraydecay60 = getelementptr inbounds [100 x i8], ptr %line, i64 0, i64 0
   %smallFCD = getelementptr inbounds %"class.icu_75::Normalizer2DataBuilder", ptr %this1, i32 0, i32 10
   %arraydecay61 = getelementptr inbounds [256 x i8], ptr %smallFCD, i64 0, i64 0
-  invoke void @usrc_writeArray(ptr noundef %41, ptr noundef %arraydecay60, ptr noundef %arraydecay61, i32 noundef 8, i32 noundef 256, ptr noundef @.str.43, ptr noundef @.str.48)
+  invoke void @usrc_writeArray(ptr noundef %43, ptr noundef %arraydecay60, ptr noundef %arraydecay61, i32 noundef 8, i32 noundef 256, ptr noundef @.str.43, ptr noundef @.str.48)
           to label %invoke.cont62 unwind label %lpad17
 
 invoke.cont62:                                    ; preds = %invoke.cont57
-  %42 = load ptr, ptr %f, align 8
-  %call64 = invoke i32 @fputs(ptr noundef @.str.51, ptr noundef %42)
+  %44 = load ptr, ptr %f, align 8
+  %call64 = invoke i32 @fputs(ptr noundef @.str.51, ptr noundef %44)
           to label %invoke.cont63 unwind label %lpad17
 
 invoke.cont63:                                    ; preds = %invoke.cont62
-  %43 = load ptr, ptr %f, align 8
-  %call66 = invoke i32 @fclose(ptr noundef %43)
+  %45 = load ptr, ptr %f, align 8
+  %call66 = invoke i32 @fclose(ptr noundef %45)
           to label %invoke.cont65 unwind label %lpad17
 
 invoke.cont65:                                    ; preds = %invoke.cont63
@@ -6408,7 +6417,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6418,7 +6428,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6512,7 +6523,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %errorCode = getelementptr inbounds %"class.icu_75::ErrorCode", ptr %this1, i32 0, i32 1
   store i32 0, ptr %errorCode, align 8
   ret void
@@ -6526,10 +6538,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %n, ptr %n.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_755Norms10EnumeratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_755Norms10EnumeratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %norms = getelementptr inbounds %"class.icu_75::Norms::Enumerator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %n.addr, align 8
-  store ptr %0, ptr %norms, align 8
+  %1 = load ptr, ptr %n.addr, align 8
+  store ptr %1, ptr %norms, align 8
   ret void
 }
 

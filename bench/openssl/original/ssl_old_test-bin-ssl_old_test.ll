@@ -4476,9 +4476,10 @@ entry:
   store i32 %inlen, ptr %inlen.addr, align 4
   store ptr %arg, ptr %arg.addr, align 8
   %0 = load ptr, ptr %out.addr, align 8
-  store ptr getelementptr inbounds (i8, ptr @NEXT_PROTO_STRING, i64 1), ptr %0, align 8
-  %1 = load ptr, ptr %outlen.addr, align 8
-  store i8 9, ptr %1, align 1
+  %1 = getelementptr inbounds i8, ptr @NEXT_PROTO_STRING, i64 1
+  store ptr %1, ptr %0, align 8
+  %2 = load ptr, ptr %outlen.addr, align 8
+  store i8 9, ptr %2, align 1
   ret i32 0
 }
 
@@ -8324,7 +8325,8 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   %16 = load ptr, ptr %client_s, align 8
   %17 = load i32, ptr %client_len, align 4
   %conv11 = zext i32 %17 to i64
-  %call12 = call i32 @memcmp(ptr noundef %16, ptr noundef getelementptr inbounds (i8, ptr @NEXT_PROTO_STRING, i64 1), i64 noundef %conv11) #7
+  %18 = getelementptr inbounds i8, ptr @NEXT_PROTO_STRING, i64 1
+  %call12 = call i32 @memcmp(ptr noundef %16, ptr noundef %18, i64 noundef %conv11) #7
   %tobool13 = icmp ne i32 %call12, 0
   br i1 %tobool13, label %if.then14, label %if.end15
 
@@ -8333,21 +8335,22 @@ if.then14:                                        ; preds = %lor.lhs.false, %lan
   br label %return
 
 if.end15:                                         ; preds = %lor.lhs.false, %if.end8
-  %18 = load i32, ptr %server_len, align 4
-  %tobool16 = icmp ne i32 %18, 0
+  %19 = load i32, ptr %server_len, align 4
+  %tobool16 = icmp ne i32 %19, 0
   br i1 %tobool16, label %land.lhs.true17, label %if.end26
 
 land.lhs.true17:                                  ; preds = %if.end15
-  %19 = load i32, ptr %server_len, align 4
-  %conv18 = zext i32 %19 to i64
+  %20 = load i32, ptr %server_len, align 4
+  %conv18 = zext i32 %20 to i64
   %cmp19 = icmp ne i64 %conv18, 9
   br i1 %cmp19, label %if.then25, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %land.lhs.true17
-  %20 = load ptr, ptr %server_s, align 8
-  %21 = load i32, ptr %server_len, align 4
-  %conv22 = zext i32 %21 to i64
-  %call23 = call i32 @memcmp(ptr noundef %20, ptr noundef getelementptr inbounds (i8, ptr @NEXT_PROTO_STRING, i64 1), i64 noundef %conv22) #7
+  %21 = load ptr, ptr %server_s, align 8
+  %22 = load i32, ptr %server_len, align 4
+  %conv22 = zext i32 %22 to i64
+  %23 = getelementptr inbounds i8, ptr @NEXT_PROTO_STRING, i64 1
+  %call23 = call i32 @memcmp(ptr noundef %21, ptr noundef %23, i64 noundef %conv22) #7
   %tobool24 = icmp ne i32 %call23, 0
   br i1 %tobool24, label %if.then25, label %if.end26
 
@@ -8356,13 +8359,13 @@ if.then25:                                        ; preds = %lor.lhs.false21, %l
   br label %return
 
 if.end26:                                         ; preds = %lor.lhs.false21, %if.end15
-  %22 = load i32, ptr @npn_client, align 4
-  %tobool27 = icmp ne i32 %22, 0
+  %24 = load i32, ptr @npn_client, align 4
+  %tobool27 = icmp ne i32 %24, 0
   br i1 %tobool27, label %if.end31, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %if.end26
-  %23 = load i32, ptr %client_len, align 4
-  %tobool29 = icmp ne i32 %23, 0
+  %25 = load i32, ptr %client_len, align 4
+  %tobool29 = icmp ne i32 %25, 0
   br i1 %tobool29, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %land.lhs.true28
@@ -8370,13 +8373,13 @@ if.then30:                                        ; preds = %land.lhs.true28
   br label %return
 
 if.end31:                                         ; preds = %land.lhs.true28, %if.end26
-  %24 = load i32, ptr @npn_server, align 4
-  %tobool32 = icmp ne i32 %24, 0
+  %26 = load i32, ptr @npn_server, align 4
+  %tobool32 = icmp ne i32 %26, 0
   br i1 %tobool32, label %if.end36, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %if.end31
-  %25 = load i32, ptr %server_len, align 4
-  %tobool34 = icmp ne i32 %25, 0
+  %27 = load i32, ptr %server_len, align 4
+  %tobool34 = icmp ne i32 %27, 0
   br i1 %tobool34, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %land.lhs.true33
@@ -8384,13 +8387,13 @@ if.then35:                                        ; preds = %land.lhs.true33
   br label %return
 
 if.end36:                                         ; preds = %land.lhs.true33, %if.end31
-  %26 = load i32, ptr @npn_server_reject, align 4
-  %tobool37 = icmp ne i32 %26, 0
+  %28 = load i32, ptr @npn_server_reject, align 4
+  %tobool37 = icmp ne i32 %28, 0
   br i1 %tobool37, label %land.lhs.true38, label %if.end41
 
 land.lhs.true38:                                  ; preds = %if.end36
-  %27 = load i32, ptr %server_len, align 4
-  %tobool39 = icmp ne i32 %27, 0
+  %29 = load i32, ptr %server_len, align 4
+  %tobool39 = icmp ne i32 %29, 0
   br i1 %tobool39, label %if.then40, label %if.end41
 
 if.then40:                                        ; preds = %land.lhs.true38
@@ -8398,23 +8401,23 @@ if.then40:                                        ; preds = %land.lhs.true38
   br label %return
 
 if.end41:                                         ; preds = %land.lhs.true38, %if.end36
-  %28 = load i32, ptr @npn_client, align 4
-  %tobool42 = icmp ne i32 %28, 0
+  %30 = load i32, ptr @npn_client, align 4
+  %tobool42 = icmp ne i32 %30, 0
   br i1 %tobool42, label %land.lhs.true43, label %if.end50
 
 land.lhs.true43:                                  ; preds = %if.end41
-  %29 = load i32, ptr @npn_server, align 4
-  %tobool44 = icmp ne i32 %29, 0
+  %31 = load i32, ptr @npn_server, align 4
+  %tobool44 = icmp ne i32 %31, 0
   br i1 %tobool44, label %land.lhs.true45, label %if.end50
 
 land.lhs.true45:                                  ; preds = %land.lhs.true43
-  %30 = load i32, ptr %client_len, align 4
-  %tobool46 = icmp ne i32 %30, 0
+  %32 = load i32, ptr %client_len, align 4
+  %tobool46 = icmp ne i32 %32, 0
   br i1 %tobool46, label %lor.lhs.false47, label %if.then49
 
 lor.lhs.false47:                                  ; preds = %land.lhs.true45
-  %31 = load i32, ptr %server_len, align 4
-  %tobool48 = icmp ne i32 %31, 0
+  %33 = load i32, ptr %server_len, align 4
+  %tobool48 = icmp ne i32 %33, 0
   br i1 %tobool48, label %if.end50, label %if.then49
 
 if.then49:                                        ; preds = %lor.lhs.false47, %land.lhs.true45
@@ -8426,8 +8429,8 @@ if.end50:                                         ; preds = %lor.lhs.false47, %l
   br label %return
 
 return:                                           ; preds = %if.end50, %if.then49, %if.then40, %if.then35, %if.then30, %if.then25, %if.then14
-  %32 = load i32, ptr %retval, align 4
-  ret i32 %32
+  %34 = load i32, ptr %retval, align 4
+  ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable

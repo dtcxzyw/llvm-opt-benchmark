@@ -96,23 +96,24 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   %32 = load i32, ptr %31, align 4, !tbaa !25
   %33 = and i32 %32, 530
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %42, label %35
+  br i1 %34, label %43, label %35
 
 35:                                               ; preds = %4
-  %36 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !35
-  %37 = getelementptr inbounds i8, ptr %36, i64 2568
-  %38 = load i32, ptr %37, align 8, !tbaa !42
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %42, label %40
+  %36 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %37 = load ptr, ptr %36, align 8, !tbaa !35
+  %38 = getelementptr inbounds i8, ptr %37, i64 2568
+  %39 = load i32, ptr %38, align 8, !tbaa !42
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %43, label %41
 
-40:                                               ; preds = %35
+41:                                               ; preds = %35
   store i32 0, ptr %3, align 4, !tbaa !55
   store i32 0, ptr %7, align 4, !tbaa !56
-  %41 = load <2 x i32>, ptr %14, align 8, !tbaa !7
-  store <2 x i32> %41, ptr %15, align 4, !tbaa !7
-  br label %42
+  %42 = load <2 x i32>, ptr %14, align 8, !tbaa !7
+  store <2 x i32> %42, ptr %15, align 4, !tbaa !7
+  br label %43
 
-42:                                               ; preds = %40, %35, %4
+43:                                               ; preds = %41, %35, %4
   ret void
 }
 
@@ -132,18 +133,19 @@ declare void @dt_interpolation_resample_1c(ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
-  %7 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !57
-  %8 = and i32 %7, 262144
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %13, label %10
+  %7 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %8 = load i32, ptr %7, align 8, !tbaa !57
+  %9 = and i32 %8, 262144
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %14, label %11
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !15
-  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.1, ptr noundef %12, ptr noundef %0, i32 noundef -1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @.str.2) #13
-  br label %13
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !15
+  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.1, ptr noundef %13, ptr noundef %0, i32 noundef -1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @.str.2) #13
+  br label %14
 
-13:                                               ; preds = %10, %6
+14:                                               ; preds = %11, %6
   tail call void @dt_iop_clip_and_zoom(ptr noundef %3, ptr noundef %2, ptr noundef %5, ptr noundef %4) #13
   ret void
 }
@@ -159,32 +161,33 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %7 = getelementptr inbounds i8, ptr %6, i64 620
   %8 = load i32, ptr %7, align 4, !tbaa !25
   %9 = icmp eq i32 %8, 1
-  br i1 %9, label %24, label %10
+  br i1 %9, label %25, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %2, i64 620
   %12 = load i32, ptr %11, align 4, !tbaa !25
   %13 = and i32 %12, 1536
   %14 = icmp eq i32 %13, 1536
-  br i1 %14, label %24, label %15
+  br i1 %14, label %25, label %15
 
 15:                                               ; preds = %10
   %16 = and i32 %8, 530
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %24, label %18
+  br i1 %17, label %25, label %18
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !35
-  %20 = getelementptr inbounds i8, ptr %19, i64 2568
-  %21 = load i32, ptr %20, align 8, !tbaa !42
-  %22 = icmp ne i32 %21, 0
-  %23 = zext i1 %22 to i32
-  br label %24
+  %19 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %20 = load ptr, ptr %19, align 8, !tbaa !35
+  %21 = getelementptr inbounds i8, ptr %20, i64 2568
+  %22 = load i32, ptr %21, align 8, !tbaa !42
+  %23 = icmp ne i32 %22, 0
+  %24 = zext i1 %23 to i32
+  br label %25
 
-24:                                               ; preds = %18, %15, %10, %4
-  %25 = phi i32 [ 1, %10 ], [ 1, %4 ], [ 0, %15 ], [ %23, %18 ]
-  %26 = getelementptr inbounds i8, ptr %3, i64 32
-  store i32 %25, ptr %26, align 16, !tbaa !58
+25:                                               ; preds = %18, %15, %10, %4
+  %26 = phi i32 [ 1, %10 ], [ 1, %4 ], [ 0, %15 ], [ %24, %18 ]
+  %27 = getelementptr inbounds i8, ptr %3, i64 32
+  store i32 %26, ptr %27, align 16, !tbaa !58
   ret void
 }
 
@@ -259,18 +262,22 @@ define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unn
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %6 = or i1 %5, %4
-  br i1 %6, label %8, label %7
+  br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 0, i32 7), align 8, !tbaa !71
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 7), align 16, !tbaa !71
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 7), align 8, !tbaa !71
-  store ptr @introspection_init.f1, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 2), align 16, !tbaa !71
-  br label %8
+  %8 = getelementptr inbounds <{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 0, i32 7
+  store ptr %0, ptr %8, align 8, !tbaa !71
+  %9 = getelementptr inbounds <{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 7
+  store ptr %0, ptr %9, align 16, !tbaa !71
+  %10 = getelementptr inbounds <{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 7
+  store ptr %0, ptr %10, align 8, !tbaa !71
+  %11 = getelementptr inbounds <{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 2
+  store ptr @introspection_init.f1, ptr %11, align 16, !tbaa !71
+  br label %12
 
-8:                                                ; preds = %7, %2
-  %9 = phi i32 [ 0, %7 ], [ 1, %2 ]
-  ret i32 %9
+12:                                               ; preds = %7, %2
+  %13 = phi i32 [ 0, %7 ], [ 1, %2 ]
+  ret i32 %13
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable

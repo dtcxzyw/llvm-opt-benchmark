@@ -281,327 +281,328 @@ define hidden void @_ZN7nanogui6CanvasC2EPNS_6WidgetEhbbb(ptr noundef nonnull al
   %27 = load ptr, ptr %7, align 8
   %28 = load ptr, ptr %8, align 8
   call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %27, ptr noundef %28)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui6CanvasE, i32 0, i32 0, i32 2), ptr %27, align 8
-  %29 = getelementptr inbounds %"class.nanogui::Canvas", ptr %27, i32 0, i32 2
-  invoke void @_ZN7nanogui3refINS_10RenderPassEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %30 unwind label %48
+  %29 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7nanogui6CanvasE, i32 0, i32 0, i32 2
+  store ptr %29, ptr %27, align 8
+  %30 = getelementptr inbounds %"class.nanogui::Canvas", ptr %27, i32 0, i32 2
+  invoke void @_ZN7nanogui3refINS_10RenderPassEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30)
+          to label %31 unwind label %49
 
-30:                                               ; preds = %6
-  %31 = getelementptr inbounds %"class.nanogui::Canvas", ptr %27, i32 0, i32 3
-  store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds %"class.nanogui::Canvas", ptr %27, i32 0, i32 5
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %32)
-          to label %33 unwind label %52
+31:                                               ; preds = %6
+  %32 = getelementptr inbounds %"class.nanogui::Canvas", ptr %27, i32 0, i32 3
+  store i8 1, ptr %32, align 8
+  %33 = getelementptr inbounds %"class.nanogui::Canvas", ptr %27, i32 0, i32 5
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %33)
+          to label %34 unwind label %53
 
-33:                                               ; preds = %30
+34:                                               ; preds = %31
   invoke void @_ZN7nanogui5ArrayIiLm2EEC2ILm2ETnNSt9enable_ifIXeqT_Li2EEiE4typeELi0EEEii(ptr noundef nonnull align 4 dereferenceable(8) %15, i32 noundef 250, i32 noundef 250)
-          to label %34 unwind label %52
+          to label %35 unwind label %53
 
-34:                                               ; preds = %33
-  %35 = getelementptr inbounds %"class.nanogui::Widget", ptr %27, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 4 %15, i64 8, i1 false)
-  %36 = getelementptr inbounds %"class.nanogui::Widget", ptr %27, i32 0, i32 3
-  %37 = invoke noundef ptr @_ZN7nanogui3refINS_5ThemeEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %36)
-          to label %38 unwind label %52
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds %"class.nanogui::Widget", ptr %27, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 4 %15, i64 8, i1 false)
+  %37 = getelementptr inbounds %"class.nanogui::Widget", ptr %27, i32 0, i32 3
+  %38 = invoke noundef ptr @_ZN7nanogui3refINS_5ThemeEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %37)
+          to label %39 unwind label %53
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds %"class.nanogui::Theme", ptr %37, i32 0, i32 23
-  %40 = getelementptr inbounds %"class.nanogui::Canvas", ptr %27, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 8 %39, i64 16, i1 false)
-  %41 = invoke noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(140) %27)
-          to label %42 unwind label %52
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds %"class.nanogui::Theme", ptr %38, i32 0, i32 23
+  %41 = getelementptr inbounds %"class.nanogui::Canvas", ptr %27, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %41, ptr align 8 %40, i64 16, i1 false)
+  %42 = invoke noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(140) %27)
+          to label %43 unwind label %53
 
-42:                                               ; preds = %38
-  store ptr %41, ptr %16, align 8
-  %43 = load ptr, ptr %16, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %60
+43:                                               ; preds = %39
+  store ptr %42, ptr %16, align 8
+  %44 = load ptr, ptr %16, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %61
 
-45:                                               ; preds = %42
-  %46 = call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef @.str)
-          to label %47 unwind label %56
+46:                                               ; preds = %43
+  %47 = call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef @.str)
+          to label %48 unwind label %57
 
-47:                                               ; preds = %45
-  invoke void @__cxa_throw(ptr %46, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #11
-          to label %181 unwind label %52
+48:                                               ; preds = %46
+  invoke void @__cxa_throw(ptr %47, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #11
+          to label %182 unwind label %53
 
-48:                                               ; preds = %6
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %6
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %13, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %14, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %13, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %14, align 4
+  br label %176
+
+53:                                               ; preds = %137, %120, %109, %93, %75, %68, %48, %39, %35, %34, %31
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %13, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %14, align 4
   br label %175
 
-52:                                               ; preds = %136, %119, %108, %92, %74, %67, %47, %38, %34, %33, %30
-  %53 = landingpad { ptr, i32 }
+57:                                               ; preds = %46
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %13, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %14, align 4
-  br label %174
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %13, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %14, align 4
+  call void @__cxa_free_exception(ptr %47) #10
+  br label %175
 
-56:                                               ; preds = %45
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %13, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %14, align 4
-  call void @__cxa_free_exception(ptr %46) #10
-  br label %174
+61:                                               ; preds = %43
+  %62 = load i8, ptr %9, align 1
+  %63 = zext i8 %62 to i32
+  %64 = icmp ne i32 %63, 1
+  br i1 %64, label %82, label %65
 
-60:                                               ; preds = %42
-  %61 = load i8, ptr %9, align 1
-  %62 = zext i8 %61 to i32
-  %63 = icmp ne i32 %62, 1
-  br i1 %63, label %81, label %64
+65:                                               ; preds = %61
+  %66 = load i8, ptr %10, align 1
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %72
 
-64:                                               ; preds = %60
-  %65 = load i8, ptr %10, align 1
-  %66 = trunc i8 %65 to i1
-  br i1 %66, label %67, label %71
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %16, align 8
+  %70 = invoke noundef zeroext i1 @_ZNK7nanogui6Screen16has_depth_bufferEv(ptr noundef nonnull align 8 dereferenceable(384) %69)
+          to label %71 unwind label %53
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %16, align 8
-  %69 = invoke noundef zeroext i1 @_ZNK7nanogui6Screen16has_depth_bufferEv(ptr noundef nonnull align 8 dereferenceable(384) %68)
-          to label %70 unwind label %52
+71:                                               ; preds = %68
+  br i1 %70, label %72, label %82
 
-70:                                               ; preds = %67
-  br i1 %69, label %71, label %81
+72:                                               ; preds = %71, %65
+  %73 = load i8, ptr %11, align 1
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %80
 
-71:                                               ; preds = %70, %64
-  %72 = load i8, ptr %11, align 1
-  %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %79
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %16, align 8
+  %77 = invoke noundef zeroext i1 @_ZNK7nanogui6Screen18has_stencil_bufferEv(ptr noundef nonnull align 8 dereferenceable(384) %76)
+          to label %78 unwind label %53
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %16, align 8
-  %76 = invoke noundef zeroext i1 @_ZNK7nanogui6Screen18has_stencil_bufferEv(ptr noundef nonnull align 8 dereferenceable(384) %75)
-          to label %77 unwind label %52
+78:                                               ; preds = %75
+  %79 = xor i1 %77, true
+  br label %80
 
-77:                                               ; preds = %74
-  %78 = xor i1 %76, true
-  br label %79
+80:                                               ; preds = %78, %72
+  %81 = phi i1 [ false, %72 ], [ %79, %78 ]
+  br label %82
 
-79:                                               ; preds = %77, %71
-  %80 = phi i1 [ false, %71 ], [ %78, %77 ]
-  br label %81
-
-81:                                               ; preds = %79, %70, %60
-  %82 = phi i1 [ true, %70 ], [ true, %60 ], [ %80, %79 ]
-  %83 = getelementptr inbounds %"class.nanogui::Canvas", ptr %27, i32 0, i32 6
-  %84 = zext i1 %82 to i8
-  store i8 %84, ptr %83, align 4
+82:                                               ; preds = %80, %71, %61
+  %83 = phi i1 [ true, %71 ], [ true, %61 ], [ %81, %80 ]
+  %84 = getelementptr inbounds %"class.nanogui::Canvas", ptr %27, i32 0, i32 6
+  %85 = zext i1 %83 to i8
+  store i8 %85, ptr %84, align 4
   store ptr null, ptr %17, align 8
   store ptr null, ptr %18, align 8
-  %85 = load i8, ptr %11, align 1
-  %86 = trunc i8 %85 to i1
-  br i1 %86, label %87, label %97
+  %86 = load i8, ptr %11, align 1
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %88, label %98
 
-87:                                               ; preds = %81
-  %88 = load i8, ptr %10, align 1
-  %89 = trunc i8 %88 to i1
-  br i1 %89, label %97, label %90
+88:                                               ; preds = %82
+  %89 = load i8, ptr %10, align 1
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %98, label %91
 
-90:                                               ; preds = %87
-  %91 = call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef @.str.1)
-          to label %92 unwind label %93
+91:                                               ; preds = %88
+  %92 = call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef @.str.1)
+          to label %93 unwind label %94
 
-92:                                               ; preds = %90
-  invoke void @__cxa_throw(ptr %91, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #11
-          to label %181 unwind label %52
+93:                                               ; preds = %91
+  invoke void @__cxa_throw(ptr %92, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #11
+          to label %182 unwind label %53
 
-93:                                               ; preds = %90
-  %94 = landingpad { ptr, i32 }
+94:                                               ; preds = %91
+  %95 = landingpad { ptr, i32 }
           cleanup
-  %95 = extractvalue { ptr, i32 } %94, 0
-  store ptr %95, ptr %13, align 8
-  %96 = extractvalue { ptr, i32 } %94, 1
-  store i32 %96, ptr %14, align 4
-  call void @__cxa_free_exception(ptr %91) #10
-  br label %174
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %13, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %14, align 4
+  call void @__cxa_free_exception(ptr %92) #10
+  br label %175
 
-97:                                               ; preds = %87, %81
-  %98 = getelementptr inbounds %"class.nanogui::Canvas", ptr %27, i32 0, i32 6
-  %99 = load i8, ptr %98, align 4
-  %100 = trunc i8 %99 to i1
-  br i1 %100, label %108, label %101
+98:                                               ; preds = %88, %82
+  %99 = getelementptr inbounds %"class.nanogui::Canvas", ptr %27, i32 0, i32 6
+  %100 = load i8, ptr %99, align 4
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %109, label %102
 
-101:                                              ; preds = %97
-  %102 = load ptr, ptr %16, align 8
-  store ptr %102, ptr %17, align 8
-  %103 = load i8, ptr %10, align 1
-  %104 = trunc i8 %103 to i1
-  br i1 %104, label %105, label %107
+102:                                              ; preds = %98
+  %103 = load ptr, ptr %16, align 8
+  store ptr %103, ptr %17, align 8
+  %104 = load i8, ptr %10, align 1
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %106, label %108
 
-105:                                              ; preds = %101
-  %106 = load ptr, ptr %16, align 8
-  store ptr %106, ptr %18, align 8
-  br label %107
+106:                                              ; preds = %102
+  %107 = load ptr, ptr %16, align 8
+  store ptr %107, ptr %18, align 8
+  br label %108
 
-107:                                              ; preds = %105, %101
-  br label %136
+108:                                              ; preds = %106, %102
+  br label %137
 
-108:                                              ; preds = %97
-  %109 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
-          to label %110 unwind label %52
+109:                                              ; preds = %98
+  %110 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+          to label %111 unwind label %53
 
-110:                                              ; preds = %108
-  %111 = load ptr, ptr %16, align 8
-  %112 = invoke noundef zeroext i8 @_ZNK7nanogui6Screen12pixel_formatEv(ptr noundef nonnull align 8 dereferenceable(384) %111)
-          to label %113 unwind label %128
+111:                                              ; preds = %109
+  %112 = load ptr, ptr %16, align 8
+  %113 = invoke noundef zeroext i8 @_ZNK7nanogui6Screen12pixel_formatEv(ptr noundef nonnull align 8 dereferenceable(384) %112)
+          to label %114 unwind label %129
 
-113:                                              ; preds = %110
-  %114 = load ptr, ptr %16, align 8
-  %115 = invoke noundef zeroext i8 @_ZNK7nanogui6Screen16component_formatEv(ptr noundef nonnull align 8 dereferenceable(384) %114)
-          to label %116 unwind label %128
+114:                                              ; preds = %111
+  %115 = load ptr, ptr %16, align 8
+  %116 = invoke noundef zeroext i8 @_ZNK7nanogui6Screen16component_formatEv(ptr noundef nonnull align 8 dereferenceable(384) %115)
+          to label %117 unwind label %129
 
-116:                                              ; preds = %113
-  %117 = getelementptr inbounds %"class.nanogui::Widget", ptr %27, i32 0, i32 6
-  %118 = load i8, ptr %9, align 1
-  invoke void @_ZN7nanogui7TextureC1ENS0_11PixelFormatENS0_15ComponentFormatERKNS_5ArrayIiLm2EEENS0_17InterpolationModeES7_NS0_8WrapModeEhhb(ptr noundef nonnull align 8 dereferenceable(40) %109, i8 noundef zeroext %112, i8 noundef zeroext %115, ptr noundef nonnull align 4 dereferenceable(8) %117, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 0, i8 noundef zeroext %118, i8 noundef zeroext 2, i1 noundef zeroext false)
-          to label %119 unwind label %128
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds %"class.nanogui::Widget", ptr %27, i32 0, i32 6
+  %119 = load i8, ptr %9, align 1
+  invoke void @_ZN7nanogui7TextureC1ENS0_11PixelFormatENS0_15ComponentFormatERKNS_5ArrayIiLm2EEENS0_17InterpolationModeES7_NS0_8WrapModeEhhb(ptr noundef nonnull align 8 dereferenceable(40) %110, i8 noundef zeroext %113, i8 noundef zeroext %116, ptr noundef nonnull align 4 dereferenceable(8) %118, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 0, i8 noundef zeroext %119, i8 noundef zeroext 2, i1 noundef zeroext false)
+          to label %120 unwind label %129
 
-119:                                              ; preds = %116
-  store ptr %109, ptr %17, align 8
-  %120 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
-          to label %121 unwind label %52
+120:                                              ; preds = %117
+  store ptr %110, ptr %17, align 8
+  %121 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+          to label %122 unwind label %53
 
-121:                                              ; preds = %119
-  %122 = load i8, ptr %11, align 1
-  %123 = trunc i8 %122 to i1
-  %124 = select i1 %123, i8 7, i8 6
-  %125 = getelementptr inbounds %"class.nanogui::Widget", ptr %27, i32 0, i32 6
-  %126 = load i8, ptr %9, align 1
-  invoke void @_ZN7nanogui7TextureC1ENS0_11PixelFormatENS0_15ComponentFormatERKNS_5ArrayIiLm2EEENS0_17InterpolationModeES7_NS0_8WrapModeEhhb(ptr noundef nonnull align 8 dereferenceable(40) %120, i8 noundef zeroext %124, i8 noundef zeroext 10, ptr noundef nonnull align 4 dereferenceable(8) %125, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 0, i8 noundef zeroext %126, i8 noundef zeroext 2, i1 noundef zeroext false)
-          to label %127 unwind label %132
+122:                                              ; preds = %120
+  %123 = load i8, ptr %11, align 1
+  %124 = trunc i8 %123 to i1
+  %125 = select i1 %124, i8 7, i8 6
+  %126 = getelementptr inbounds %"class.nanogui::Widget", ptr %27, i32 0, i32 6
+  %127 = load i8, ptr %9, align 1
+  invoke void @_ZN7nanogui7TextureC1ENS0_11PixelFormatENS0_15ComponentFormatERKNS_5ArrayIiLm2EEENS0_17InterpolationModeES7_NS0_8WrapModeEhhb(ptr noundef nonnull align 8 dereferenceable(40) %121, i8 noundef zeroext %125, i8 noundef zeroext 10, ptr noundef nonnull align 4 dereferenceable(8) %126, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 0, i8 noundef zeroext %127, i8 noundef zeroext 2, i1 noundef zeroext false)
+          to label %128 unwind label %133
 
-127:                                              ; preds = %121
-  store ptr %120, ptr %18, align 8
-  br label %136
+128:                                              ; preds = %122
+  store ptr %121, ptr %18, align 8
+  br label %137
 
-128:                                              ; preds = %116, %113, %110
-  %129 = landingpad { ptr, i32 }
+129:                                              ; preds = %117, %114, %111
+  %130 = landingpad { ptr, i32 }
           cleanup
-  %130 = extractvalue { ptr, i32 } %129, 0
-  store ptr %130, ptr %13, align 8
-  %131 = extractvalue { ptr, i32 } %129, 1
-  store i32 %131, ptr %14, align 4
-  call void @_ZdlPv(ptr noundef %109) #13
-  br label %174
+  %131 = extractvalue { ptr, i32 } %130, 0
+  store ptr %131, ptr %13, align 8
+  %132 = extractvalue { ptr, i32 } %130, 1
+  store i32 %132, ptr %14, align 4
+  call void @_ZdlPv(ptr noundef %110) #13
+  br label %175
 
-132:                                              ; preds = %121
-  %133 = landingpad { ptr, i32 }
+133:                                              ; preds = %122
+  %134 = landingpad { ptr, i32 }
           cleanup
-  %134 = extractvalue { ptr, i32 } %133, 0
-  store ptr %134, ptr %13, align 8
-  %135 = extractvalue { ptr, i32 } %133, 1
-  store i32 %135, ptr %14, align 4
-  call void @_ZdlPv(ptr noundef %120) #13
-  br label %174
+  %135 = extractvalue { ptr, i32 } %134, 0
+  store ptr %135, ptr %13, align 8
+  %136 = extractvalue { ptr, i32 } %134, 1
+  store i32 %136, ptr %14, align 4
+  call void @_ZdlPv(ptr noundef %121) #13
+  br label %175
 
-136:                                              ; preds = %127, %107
-  %137 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 176) #12
-          to label %138 unwind label %52
+137:                                              ; preds = %128, %108
+  %138 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 176) #12
+          to label %139 unwind label %53
 
-138:                                              ; preds = %136
+139:                                              ; preds = %137
   store i1 true, ptr %23, align 1
-  %139 = getelementptr inbounds [1 x ptr], ptr %21, i64 0, i64 0
-  %140 = load ptr, ptr %17, align 8
-  store ptr %140, ptr %139, align 8
-  %141 = getelementptr inbounds %"class.std::initializer_list", ptr %20, i32 0, i32 0
-  %142 = getelementptr inbounds [1 x ptr], ptr %21, i64 0, i64 0
-  store ptr %142, ptr %141, align 8
-  %143 = getelementptr inbounds %"class.std::initializer_list", ptr %20, i32 0, i32 1
-  store i64 1, ptr %143, align 8
+  %140 = getelementptr inbounds [1 x ptr], ptr %21, i64 0, i64 0
+  %141 = load ptr, ptr %17, align 8
+  store ptr %141, ptr %140, align 8
+  %142 = getelementptr inbounds %"class.std::initializer_list", ptr %20, i32 0, i32 0
+  %143 = getelementptr inbounds [1 x ptr], ptr %21, i64 0, i64 0
+  store ptr %143, ptr %142, align 8
+  %144 = getelementptr inbounds %"class.std::initializer_list", ptr %20, i32 0, i32 1
+  store i64 1, ptr %144, align 8
   call void @_ZNSaIPN7nanogui6ObjectEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #10
-  %144 = getelementptr inbounds { ptr, i64 }, ptr %20, i32 0, i32 0
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds { ptr, i64 }, ptr %20, i32 0, i32 1
-  %147 = load i64, ptr %146, align 8
-  invoke void @_ZNSt6vectorIPN7nanogui6ObjectESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %145, i64 %147, ptr noundef nonnull align 1 dereferenceable(1) %22)
-          to label %148 unwind label %162
+  %145 = getelementptr inbounds { ptr, i64 }, ptr %20, i32 0, i32 0
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds { ptr, i64 }, ptr %20, i32 0, i32 1
+  %148 = load i64, ptr %147, align 8
+  invoke void @_ZNSt6vectorIPN7nanogui6ObjectESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %146, i64 %148, ptr noundef nonnull align 1 dereferenceable(1) %22)
+          to label %149 unwind label %163
 
-148:                                              ; preds = %138
-  %149 = load ptr, ptr %18, align 8
-  %150 = load i8, ptr %11, align 1
-  %151 = trunc i8 %150 to i1
-  br i1 %151, label %152, label %154
+149:                                              ; preds = %139
+  %150 = load ptr, ptr %18, align 8
+  %151 = load i8, ptr %11, align 1
+  %152 = trunc i8 %151 to i1
+  br i1 %152, label %153, label %155
 
-152:                                              ; preds = %148
-  %153 = load ptr, ptr %18, align 8
-  br label %155
+153:                                              ; preds = %149
+  %154 = load ptr, ptr %18, align 8
+  br label %156
 
-154:                                              ; preds = %148
-  br label %155
+155:                                              ; preds = %149
+  br label %156
 
-155:                                              ; preds = %154, %152
-  %156 = phi ptr [ %153, %152 ], [ null, %154 ]
-  %157 = load i8, ptr %12, align 1
-  %158 = trunc i8 %157 to i1
-  invoke void @_ZN7nanogui10RenderPassC1ESt6vectorIPNS_6ObjectESaIS3_EES3_S3_S3_b(ptr noundef nonnull align 8 dereferenceable(173) %137, ptr noundef %19, ptr noundef %149, ptr noundef %156, ptr noundef null, i1 noundef zeroext %158)
-          to label %159 unwind label %166
+156:                                              ; preds = %155, %153
+  %157 = phi ptr [ %154, %153 ], [ null, %155 ]
+  %158 = load i8, ptr %12, align 1
+  %159 = trunc i8 %158 to i1
+  invoke void @_ZN7nanogui10RenderPassC1ESt6vectorIPNS_6ObjectESaIS3_EES3_S3_S3_b(ptr noundef nonnull align 8 dereferenceable(173) %138, ptr noundef %19, ptr noundef %150, ptr noundef %157, ptr noundef null, i1 noundef zeroext %159)
+          to label %160 unwind label %167
 
-159:                                              ; preds = %155
+160:                                              ; preds = %156
   store i1 false, ptr %23, align 1
-  %160 = getelementptr inbounds %"class.nanogui::Canvas", ptr %27, i32 0, i32 2
-  %161 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7nanogui3refINS_10RenderPassEEaSEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %160, ptr noundef %137) #10
+  %161 = getelementptr inbounds %"class.nanogui::Canvas", ptr %27, i32 0, i32 2
+  %162 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7nanogui3refINS_10RenderPassEEaSEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %161, ptr noundef %138) #10
   call void @_ZNSt6vectorIPN7nanogui6ObjectESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #10
   call void @_ZNSaIPN7nanogui6ObjectEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #10
   ret void
 
-162:                                              ; preds = %138
-  %163 = landingpad { ptr, i32 }
+163:                                              ; preds = %139
+  %164 = landingpad { ptr, i32 }
           cleanup
-  %164 = extractvalue { ptr, i32 } %163, 0
-  store ptr %164, ptr %13, align 8
-  %165 = extractvalue { ptr, i32 } %163, 1
-  store i32 %165, ptr %14, align 4
-  br label %170
+  %165 = extractvalue { ptr, i32 } %164, 0
+  store ptr %165, ptr %13, align 8
+  %166 = extractvalue { ptr, i32 } %164, 1
+  store i32 %166, ptr %14, align 4
+  br label %171
 
-166:                                              ; preds = %155
-  %167 = landingpad { ptr, i32 }
+167:                                              ; preds = %156
+  %168 = landingpad { ptr, i32 }
           cleanup
-  %168 = extractvalue { ptr, i32 } %167, 0
-  store ptr %168, ptr %13, align 8
-  %169 = extractvalue { ptr, i32 } %167, 1
-  store i32 %169, ptr %14, align 4
+  %169 = extractvalue { ptr, i32 } %168, 0
+  store ptr %169, ptr %13, align 8
+  %170 = extractvalue { ptr, i32 } %168, 1
+  store i32 %170, ptr %14, align 4
   call void @_ZNSt6vectorIPN7nanogui6ObjectESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #10
-  br label %170
+  br label %171
 
-170:                                              ; preds = %166, %162
+171:                                              ; preds = %167, %163
   call void @_ZNSaIPN7nanogui6ObjectEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #10
-  %171 = load i1, ptr %23, align 1
-  br i1 %171, label %172, label %173
+  %172 = load i1, ptr %23, align 1
+  br i1 %172, label %173, label %174
 
-172:                                              ; preds = %170
-  call void @_ZdlPv(ptr noundef %137) #13
-  br label %173
-
-173:                                              ; preds = %172, %170
+173:                                              ; preds = %171
+  call void @_ZdlPv(ptr noundef %138) #13
   br label %174
 
-174:                                              ; preds = %173, %132, %128, %93, %56, %52
-  call void @_ZN7nanogui3refINS_10RenderPassEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #10
+174:                                              ; preds = %173, %171
   br label %175
 
-175:                                              ; preds = %174, %48
-  call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %27) #10
+175:                                              ; preds = %174, %133, %129, %94, %57, %53
+  call void @_ZN7nanogui3refINS_10RenderPassEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #10
   br label %176
 
-176:                                              ; preds = %175
-  %177 = load ptr, ptr %13, align 8
-  %178 = load i32, ptr %14, align 4
-  %179 = insertvalue { ptr, i32 } poison, ptr %177, 0
-  %180 = insertvalue { ptr, i32 } %179, i32 %178, 1
-  resume { ptr, i32 } %180
+176:                                              ; preds = %175, %49
+  call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %27) #10
+  br label %177
 
-181:                                              ; preds = %92, %47
+177:                                              ; preds = %176
+  %178 = load ptr, ptr %13, align 8
+  %179 = load i32, ptr %14, align 4
+  %180 = insertvalue { ptr, i32 } poison, ptr %178, 0
+  %181 = insertvalue { ptr, i32 } %180, i32 %179, 1
+  resume { ptr, i32 } %181
+
+182:                                              ; preds = %93, %48
   unreachable
 }
 
@@ -1592,9 +1593,10 @@ define linkonce_odr hidden void @_ZN7nanogui6CanvasD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui6CanvasE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::Canvas", ptr %3, i32 0, i32 2
-  call void @_ZN7nanogui3refINS_10RenderPassEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
+  %4 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7nanogui6CanvasE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::Canvas", ptr %3, i32 0, i32 2
+  call void @_ZN7nanogui3refINS_10RenderPassEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %3) #10
   ret void
 }

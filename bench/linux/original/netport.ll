@@ -65,7 +65,7 @@ define dso_local i32 @sel_netport_sid(i8 noundef zeroext %0, i16 noundef zeroext
   %27 = load i32, ptr %24, align 8
   store i32 %27, ptr %2, align 4
   tail call void @__rcu_read_unlock() #5
-  br label %85
+  br label %87
 
 28:                                               ; preds = %23
   tail call void @__rcu_read_unlock() #5
@@ -105,77 +105,79 @@ define dso_local i32 @sel_netport_sid(i8 noundef zeroext %0, i16 noundef zeroext
   %49 = load i32, ptr %46, align 8
   store i32 %49, ptr %2, align 4
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @sel_netport_lock) #5
-  br label %85
+  br label %87
 
 50:                                               ; preds = %45
   %51 = tail call i32 @security_port_sid(i8 noundef zeroext %0, i16 noundef zeroext %1, ptr noundef %2) #5
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %83
+  br i1 %52, label %53, label %85
 
 53:                                               ; preds = %50
-  %54 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %55 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %54, i32 noundef 2336, i64 noundef 40) #6
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %82, label %57
+  %54 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %55 = load ptr, ptr %54, align 16
+  %56 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %55, i32 noundef 2336, i64 noundef 40) #6
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %84, label %58
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %55, i64 4
-  store i16 %1, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %55, i64 6
-  store i8 %0, ptr %59, align 2
-  %60 = load i32, ptr %2, align 4
-  store i32 %60, ptr %55, align 8
-  %61 = getelementptr inbounds i8, ptr %55, i64 8
-  %62 = getelementptr [256 x %struct.sel_netport_bkt], ptr @sel_netport_hash, i64 0, i64 %5
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8
-  store ptr %64, ptr %61, align 8
-  %65 = getelementptr inbounds i8, ptr %55, i64 16
-  store ptr %63, ptr %65, align 8
+58:                                               ; preds = %53
+  %59 = getelementptr inbounds i8, ptr %56, i64 4
+  store i16 %1, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %56, i64 6
+  store i8 %0, ptr %60, align 2
+  %61 = load i32, ptr %2, align 4
+  store i32 %61, ptr %56, align 8
+  %62 = getelementptr inbounds i8, ptr %56, i64 8
+  %63 = getelementptr [256 x %struct.sel_netport_bkt], ptr @sel_netport_hash, i64 0, i64 %5
+  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  %65 = load ptr, ptr %64, align 8
+  store ptr %65, ptr %62, align 8
+  %66 = getelementptr inbounds i8, ptr %56, i64 16
+  store ptr %64, ptr %66, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !8
-  store volatile ptr %61, ptr %63, align 8
-  %66 = getelementptr inbounds i8, ptr %64, i64 8
-  store ptr %61, ptr %66, align 8
-  %67 = load i32, ptr %62, align 8
-  %68 = icmp eq i32 %67, 16
-  br i1 %68, label %69, label %80
+  store volatile ptr %62, ptr %64, align 8
+  %67 = getelementptr inbounds i8, ptr %65, i64 8
+  store ptr %62, ptr %67, align 8
+  %68 = load i32, ptr %63, align 8
+  %69 = icmp eq i32 %68, 16
+  br i1 %69, label %70, label %82
 
-69:                                               ; preds = %57
-  %70 = getelementptr inbounds i8, ptr %62, i64 16
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr i8, ptr %71, i64 -8
-  %73 = getelementptr inbounds i8, ptr %71, i64 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %71, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
-  store ptr %74, ptr %76, align 8
-  store volatile ptr %75, ptr %74, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %73, align 8
-  %77 = icmp eq ptr %72, null
-  br i1 %77, label %82, label %78
+70:                                               ; preds = %58
+  %71 = getelementptr inbounds i8, ptr %63, i64 16
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr i8, ptr %72, i64 -8
+  %74 = getelementptr inbounds i8, ptr %72, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = load ptr, ptr %72, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  store ptr %75, ptr %77, align 8
+  store volatile ptr %76, ptr %75, align 8
+  %78 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %78, ptr %74, align 8
+  %79 = icmp eq ptr %73, null
+  br i1 %79, label %84, label %80
 
-78:                                               ; preds = %69
-  %79 = getelementptr i8, ptr %71, i64 16
-  tail call void @kvfree_call_rcu(ptr noundef %79, ptr noundef nonnull %72) #5
-  br label %82
+80:                                               ; preds = %70
+  %81 = getelementptr i8, ptr %72, i64 16
+  tail call void @kvfree_call_rcu(ptr noundef %81, ptr noundef nonnull %73) #5
+  br label %84
 
-80:                                               ; preds = %57
-  %81 = add i32 %67, 1
-  store i32 %81, ptr %62, align 8
-  br label %82
+82:                                               ; preds = %58
+  %83 = add i32 %68, 1
+  store i32 %83, ptr %63, align 8
+  br label %84
 
-82:                                               ; preds = %80, %78, %69, %53
+84:                                               ; preds = %82, %80, %70, %53
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @sel_netport_lock) #5
-  br label %85
+  br label %87
 
-83:                                               ; preds = %50
+85:                                               ; preds = %50
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @sel_netport_lock) #5
-  %84 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.sel_netport_sid_slow) #7
-  br label %85
+  %86 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.sel_netport_sid_slow) #7
+  br label %87
 
-85:                                               ; preds = %83, %82, %48, %26
-  %86 = phi i32 [ 0, %26 ], [ 0, %48 ], [ %51, %83 ], [ %51, %82 ]
-  ret i32 %86
+87:                                               ; preds = %85, %84, %48, %26
+  %88 = phi i32 [ 0, %26 ], [ 0, %48 ], [ %51, %85 ], [ %51, %84 ]
+  ret i32 %88
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -183,45 +185,46 @@ define dso_local void @sel_netport_flush() local_unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @sel_netport_lock) #5
   br label %1
 
-1:                                                ; preds = %21, %0
-  %2 = phi i64 [ 0, %0 ], [ %22, %21 ]
+1:                                                ; preds = %22, %0
+  %2 = phi i64 [ 0, %0 ], [ %23, %22 ]
   %3 = getelementptr [256 x %struct.sel_netport_bkt], ptr @sel_netport_hash, i64 0, i64 %2
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = icmp eq ptr %6, %3
-  br i1 %7, label %21, label %8
+  br i1 %7, label %22, label %8
 
-8:                                                ; preds = %18, %1
-  %9 = phi ptr [ %19, %18 ], [ %6, %1 ]
-  %10 = phi ptr [ %11, %18 ], [ %5, %1 ]
+8:                                                ; preds = %19, %1
+  %9 = phi ptr [ %20, %19 ], [ %6, %1 ]
+  %10 = phi ptr [ %11, %19 ], [ %5, %1 ]
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %13, ptr %14, align 8
   store volatile ptr %11, ptr %13, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %12, align 8
-  %15 = icmp eq ptr %9, null
-  br i1 %15, label %18, label %16
+  %15 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %15, ptr %12, align 8
+  %16 = icmp eq ptr %9, null
+  br i1 %16, label %19, label %17
 
-16:                                               ; preds = %8
-  %17 = getelementptr i8, ptr %10, i64 16
-  tail call void @kvfree_call_rcu(ptr noundef %17, ptr noundef nonnull %9) #5
-  br label %18
+17:                                               ; preds = %8
+  %18 = getelementptr i8, ptr %10, i64 16
+  tail call void @kvfree_call_rcu(ptr noundef %18, ptr noundef nonnull %9) #5
+  br label %19
 
-18:                                               ; preds = %16, %8
-  %19 = getelementptr i8, ptr %11, i64 -8
-  %20 = icmp eq ptr %19, %3
-  br i1 %20, label %21, label %8, !llvm.loop !9
+19:                                               ; preds = %17, %8
+  %20 = getelementptr i8, ptr %11, i64 -8
+  %21 = icmp eq ptr %20, %3
+  br i1 %21, label %22, label %8, !llvm.loop !9
 
-21:                                               ; preds = %18, %1
+22:                                               ; preds = %19, %1
   store i32 0, ptr %3, align 8
-  %22 = add nuw nsw i64 %2, 1
-  %23 = icmp eq i64 %22, 256
-  br i1 %23, label %24, label %1, !llvm.loop !10
+  %23 = add nuw nsw i64 %2, 1
+  %24 = icmp eq i64 %23, 256
+  br i1 %24, label %25, label %1, !llvm.loop !10
 
-24:                                               ; preds = %21
+25:                                               ; preds = %22
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @sel_netport_lock) #5
   ret void
 }

@@ -3523,7 +3523,7 @@ define hidden i32 @ma_wfopen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %45
 
 45:                                               ; preds = %42, %39, %38
-  %46 = call i64 @wcsrtombs(ptr noundef null, ptr noundef %16, i64 noundef 0, ptr noundef %14) #16
+  %46 = call i64 @wcsrtombs(ptr noundef null, ptr noundef %16, i64 noundef 0, ptr noundef %14) #15
   store i64 %46, ptr %15, align 8
   %47 = load i64, ptr %15, align 8
   %48 = icmp eq i64 %47, -1
@@ -3577,7 +3577,7 @@ define hidden i32 @ma_wfopen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %73 = load ptr, ptr %17, align 8
   %74 = load i64, ptr %15, align 8
   %75 = add i64 %74, 1
-  %76 = call i64 @wcsrtombs(ptr noundef %73, ptr noundef %16, i64 noundef %75, ptr noundef %14) #16
+  %76 = call i64 @wcsrtombs(ptr noundef %73, ptr noundef %16, i64 noundef %75, ptr noundef %14) #15
   store i64 0, ptr %19, align 8
   br label %77
 
@@ -4333,7 +4333,7 @@ define hidden i32 @ma_log_postv(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %21 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
   %22 = load ptr, ptr %8, align 8
   %23 = load ptr, ptr %9, align 8
-  %24 = call i32 @vsnprintf(ptr noundef %21, i64 noundef 1024, ptr noundef %22, ptr noundef %23) #16
+  %24 = call i32 @vsnprintf(ptr noundef %21, i64 noundef 1024, ptr noundef %22, ptr noundef %23) #15
   store i32 %24, ptr %11, align 4
   %25 = load i32, ptr %11, align 4
   %26 = icmp slt i32 %25, 0
@@ -4380,7 +4380,7 @@ define hidden i32 @ma_log_postv(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %51 = sext i32 %50 to i64
   %52 = load ptr, ptr %8, align 8
   %53 = load ptr, ptr %9, align 8
-  %54 = call i32 @vsnprintf(ptr noundef %48, i64 noundef %51, ptr noundef %52, ptr noundef %53) #16
+  %54 = call i32 @vsnprintf(ptr noundef %48, i64 noundef %51, ptr noundef %52, ptr noundef %53) #15
   store i32 %54, ptr %11, align 4
   %55 = load i32, ptr %11, align 4
   %56 = icmp slt i32 %55, 0
@@ -4445,7 +4445,7 @@ define hidden i32 @ma_log_postf(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_start(ptr %17)
+  call void @llvm.va_start.p0(ptr %17)
   %18 = load ptr, ptr %5, align 8
   %19 = load i32, ptr %6, align 4
   %20 = load ptr, ptr %7, align 8
@@ -4453,7 +4453,7 @@ define hidden i32 @ma_log_postf(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %22 = call i32 @ma_log_postv(ptr noundef %18, i32 noundef %19, ptr noundef %20, ptr noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_end(ptr %23)
+  call void @llvm.va_end.p0(ptr %23)
   %24 = load i32, ptr %8, align 4
   store i32 %24, ptr %4, align 4
   br label %25
@@ -4462,12 +4462,6 @@ define hidden i32 @ma_log_postf(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %26 = load i32, ptr %4, align 4
   ret i32 %26
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @ma_calculate_frame_count_after_resampling(i32 noundef %0, i32 noundef %1, i64 noundef %2) #0 {
@@ -4614,7 +4608,7 @@ define hidden i32 @ma_spinlock_lock(ptr noundef %0) #0 {
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %27
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   br label %31
 
 31:                                               ; preds = %30, %27
@@ -4683,7 +4677,7 @@ define hidden i32 @ma_spinlock_lock_noyield(ptr noundef %0) #0 {
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %27
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   br label %31
 
 31:                                               ; preds = %30, %27
@@ -4764,7 +4758,7 @@ define internal i32 @ma_mutex_init__posix(ptr noundef %0) #0 {
 
 21:                                               ; preds = %18, %15, %14
   %22 = load ptr, ptr %5, align 8
-  %23 = call i32 @pthread_mutex_init(ptr noundef %22, ptr noundef null) #16
+  %23 = call i32 @pthread_mutex_init(ptr noundef %22, ptr noundef null) #15
   store i32 %23, ptr %6, align 4
   %24 = load i32, ptr %6, align 4
   %25 = icmp ne i32 %24, 0
@@ -4790,7 +4784,7 @@ define internal void @ma_mutex_uninit__posix(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call i32 @pthread_mutex_destroy(ptr noundef %3) #16
+  %4 = call i32 @pthread_mutex_destroy(ptr noundef %3) #15
   ret void
 }
 
@@ -4819,7 +4813,7 @@ define internal void @ma_mutex_lock__posix(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call i32 @pthread_mutex_lock(ptr noundef %3) #16
+  %4 = call i32 @pthread_mutex_lock(ptr noundef %3) #15
   ret void
 }
 
@@ -4848,7 +4842,7 @@ define internal void @ma_mutex_unlock__posix(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call i32 @pthread_mutex_unlock(ptr noundef %3) #16
+  %4 = call i32 @pthread_mutex_unlock(ptr noundef %3) #15
   ret void
 }
 
@@ -4884,7 +4878,7 @@ define internal i32 @ma_event_init__posix(ptr noundef %0) #0 {
   store ptr %0, ptr %3, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds %struct.ma_event, ptr %5, i32 0, i32 1
-  %7 = call i32 @pthread_mutex_init(ptr noundef %6, ptr noundef null) #16
+  %7 = call i32 @pthread_mutex_init(ptr noundef %6, ptr noundef null) #15
   store i32 %7, ptr %4, align 4
   %8 = load i32, ptr %4, align 4
   %9 = icmp ne i32 %8, 0
@@ -4899,7 +4893,7 @@ define internal i32 @ma_event_init__posix(ptr noundef %0) #0 {
 13:                                               ; preds = %1
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds %struct.ma_event, ptr %14, i32 0, i32 2
-  %16 = call i32 @pthread_cond_init(ptr noundef %15, ptr noundef null) #16
+  %16 = call i32 @pthread_cond_init(ptr noundef %15, ptr noundef null) #15
   store i32 %16, ptr %4, align 4
   %17 = load i32, ptr %4, align 4
   %18 = icmp ne i32 %17, 0
@@ -4908,7 +4902,7 @@ define internal i32 @ma_event_init__posix(ptr noundef %0) #0 {
 19:                                               ; preds = %13
   %20 = load ptr, ptr %3, align 8
   %21 = getelementptr inbounds %struct.ma_event, ptr %20, i32 0, i32 1
-  %22 = call i32 @pthread_mutex_destroy(ptr noundef %21) #16
+  %22 = call i32 @pthread_mutex_destroy(ptr noundef %21) #15
   %23 = load i32, ptr %4, align 4
   %24 = call i32 @ma_result_from_errno(i32 noundef %23)
   store i32 %24, ptr %2, align 4
@@ -4952,10 +4946,10 @@ define internal void @ma_event_uninit__posix(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.ma_event, ptr %3, i32 0, i32 2
-  %5 = call i32 @pthread_cond_destroy(ptr noundef %4) #16
+  %5 = call i32 @pthread_cond_destroy(ptr noundef %4) #15
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds %struct.ma_event, ptr %6, i32 0, i32 1
-  %8 = call i32 @pthread_mutex_destroy(ptr noundef %7) #16
+  %8 = call i32 @pthread_mutex_destroy(ptr noundef %7) #15
   ret void
 }
 
@@ -4989,7 +4983,7 @@ define internal i32 @ma_event_wait__posix(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.ma_event, ptr %3, i32 0, i32 1
-  %5 = call i32 @pthread_mutex_lock(ptr noundef %4) #16
+  %5 = call i32 @pthread_mutex_lock(ptr noundef %4) #15
   br label %6
 
 6:                                                ; preds = %11, %1
@@ -5013,7 +5007,7 @@ define internal i32 @ma_event_wait__posix(ptr noundef %0) #0 {
   store i32 0, ptr %19, align 8
   %20 = load ptr, ptr %2, align 8
   %21 = getelementptr inbounds %struct.ma_event, ptr %20, i32 0, i32 1
-  %22 = call i32 @pthread_mutex_unlock(ptr noundef %21) #16
+  %22 = call i32 @pthread_mutex_unlock(ptr noundef %21) #15
   ret i32 0
 }
 
@@ -5047,16 +5041,16 @@ define internal i32 @ma_event_signal__posix(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.ma_event, ptr %3, i32 0, i32 1
-  %5 = call i32 @pthread_mutex_lock(ptr noundef %4) #16
+  %5 = call i32 @pthread_mutex_lock(ptr noundef %4) #15
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds %struct.ma_event, ptr %6, i32 0, i32 0
   store i32 1, ptr %7, align 8
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds %struct.ma_event, ptr %8, i32 0, i32 2
-  %10 = call i32 @pthread_cond_signal(ptr noundef %9) #16
+  %10 = call i32 @pthread_cond_signal(ptr noundef %9) #15
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds %struct.ma_event, ptr %11, i32 0, i32 1
-  %13 = call i32 @pthread_mutex_unlock(ptr noundef %12) #16
+  %13 = call i32 @pthread_mutex_unlock(ptr noundef %12) #15
   ret i32 0
 }
 
@@ -5110,7 +5104,7 @@ define internal i32 @ma_semaphore_init__posix(i32 noundef %0, ptr noundef %1) #0
   store i32 %11, ptr %13, align 8
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds %struct.ma_semaphore, ptr %14, i32 0, i32 1
-  %16 = call i32 @pthread_mutex_init(ptr noundef %15, ptr noundef null) #16
+  %16 = call i32 @pthread_mutex_init(ptr noundef %15, ptr noundef null) #15
   store i32 %16, ptr %6, align 4
   %17 = load i32, ptr %6, align 4
   %18 = icmp ne i32 %17, 0
@@ -5125,7 +5119,7 @@ define internal i32 @ma_semaphore_init__posix(i32 noundef %0, ptr noundef %1) #0
 22:                                               ; preds = %10
   %23 = load ptr, ptr %5, align 8
   %24 = getelementptr inbounds %struct.ma_semaphore, ptr %23, i32 0, i32 2
-  %25 = call i32 @pthread_cond_init(ptr noundef %24, ptr noundef null) #16
+  %25 = call i32 @pthread_cond_init(ptr noundef %24, ptr noundef null) #15
   store i32 %25, ptr %6, align 4
   %26 = load i32, ptr %6, align 4
   %27 = icmp ne i32 %26, 0
@@ -5134,7 +5128,7 @@ define internal i32 @ma_semaphore_init__posix(i32 noundef %0, ptr noundef %1) #0
 28:                                               ; preds = %22
   %29 = load ptr, ptr %5, align 8
   %30 = getelementptr inbounds %struct.ma_semaphore, ptr %29, i32 0, i32 1
-  %31 = call i32 @pthread_mutex_destroy(ptr noundef %30) #16
+  %31 = call i32 @pthread_mutex_destroy(ptr noundef %30) #15
   %32 = load i32, ptr %6, align 4
   %33 = call i32 @ma_result_from_errno(i32 noundef %32)
   store i32 %33, ptr %3, align 4
@@ -5183,10 +5177,10 @@ define internal void @ma_semaphore_uninit__posix(ptr noundef %0) #0 {
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds %struct.ma_semaphore, ptr %7, i32 0, i32 2
-  %9 = call i32 @pthread_cond_destroy(ptr noundef %8) #16
+  %9 = call i32 @pthread_cond_destroy(ptr noundef %8) #15
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds %struct.ma_semaphore, ptr %10, i32 0, i32 1
-  %12 = call i32 @pthread_mutex_destroy(ptr noundef %11) #16
+  %12 = call i32 @pthread_mutex_destroy(ptr noundef %11) #15
   br label %13
 
 13:                                               ; preds = %6, %5
@@ -5233,7 +5227,7 @@ define internal i32 @ma_semaphore_wait__posix(ptr noundef %0) #0 {
 7:                                                ; preds = %1
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds %struct.ma_semaphore, ptr %8, i32 0, i32 1
-  %10 = call i32 @pthread_mutex_lock(ptr noundef %9) #16
+  %10 = call i32 @pthread_mutex_lock(ptr noundef %9) #15
   br label %11
 
 11:                                               ; preds = %16, %7
@@ -5259,7 +5253,7 @@ define internal i32 @ma_semaphore_wait__posix(ptr noundef %0) #0 {
   store i32 %26, ptr %24, align 8
   %27 = load ptr, ptr %3, align 8
   %28 = getelementptr inbounds %struct.ma_semaphore, ptr %27, i32 0, i32 1
-  %29 = call i32 @pthread_mutex_unlock(ptr noundef %28) #16
+  %29 = call i32 @pthread_mutex_unlock(ptr noundef %28) #15
   store i32 0, ptr %2, align 4
   br label %30
 
@@ -5308,7 +5302,7 @@ define internal i32 @ma_semaphore_release__posix(ptr noundef %0) #0 {
 7:                                                ; preds = %1
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds %struct.ma_semaphore, ptr %8, i32 0, i32 1
-  %10 = call i32 @pthread_mutex_lock(ptr noundef %9) #16
+  %10 = call i32 @pthread_mutex_lock(ptr noundef %9) #15
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds %struct.ma_semaphore, ptr %11, i32 0, i32 0
   %13 = load i32, ptr %12, align 8
@@ -5316,10 +5310,10 @@ define internal i32 @ma_semaphore_release__posix(ptr noundef %0) #0 {
   store i32 %14, ptr %12, align 8
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr inbounds %struct.ma_semaphore, ptr %15, i32 0, i32 2
-  %17 = call i32 @pthread_cond_signal(ptr noundef %16) #16
+  %17 = call i32 @pthread_cond_signal(ptr noundef %16) #15
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr inbounds %struct.ma_semaphore, ptr %18, i32 0, i32 1
-  %20 = call i32 @pthread_mutex_unlock(ptr noundef %19) #16
+  %20 = call i32 @pthread_mutex_unlock(ptr noundef %19) #15
   store i32 0, ptr %2, align 4
   br label %21
 
@@ -6558,7 +6552,7 @@ define hidden i32 @ma_slot_allocator_alloc(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %145, label %146, label %147
 
 146:                                              ; preds = %138
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   br label %148
 
 147:                                              ; preds = %138
@@ -7935,7 +7929,7 @@ define hidden ptr @ma_dlopen(ptr noundef %0, ptr noundef %1) #0 {
   %7 = load ptr, ptr %4, align 8
   %8 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %6, i32 noundef 4, ptr noundef @.str.5, ptr noundef %7)
   %9 = load ptr, ptr %4, align 8
-  %10 = call ptr @dlopen(ptr noundef %9, i32 noundef 2) #16
+  %10 = call ptr @dlopen(ptr noundef %9, i32 noundef 2) #15
   store ptr %10, ptr %5, align 8
   %11 = load ptr, ptr %5, align 8
   %12 = icmp eq ptr %11, null
@@ -7962,7 +7956,7 @@ define hidden void @ma_dlclose(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = call i32 @dlclose(ptr noundef %5) #16
+  %6 = call i32 @dlclose(ptr noundef %5) #15
   ret void
 }
 
@@ -7983,7 +7977,7 @@ define hidden ptr @ma_dlsym(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %10 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %8, i32 noundef 4, ptr noundef @.str.7, ptr noundef %9)
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %6, align 8
-  %13 = call ptr @dlsym(ptr noundef %11, ptr noundef %12) #16
+  %13 = call ptr @dlsym(ptr noundef %11, ptr noundef %12) #15
   store ptr %13, ptr %7, align 8
   %14 = load ptr, ptr %7, align 8
   %15 = icmp eq ptr %14, null
@@ -16912,7 +16906,7 @@ define hidden float @ma_volume_db_to_linear(float noundef %0) #0 {
   store double %12, ptr %3, align 8
   %13 = load double, ptr %2, align 8
   %14 = load double, ptr %3, align 8
-  %15 = call double @pow(double noundef %13, double noundef %14) #16
+  %15 = call double @pow(double noundef %13, double noundef %14) #15
   %16 = fptrunc double %15 to float
   ret float %16
 }
@@ -16977,7 +16971,7 @@ define hidden float @ma_volume_linear_to_db(float noundef %0) #0 {
   %9 = load double, ptr %3, align 8
   store double %9, ptr %2, align 8
   %10 = load double, ptr %2, align 8
-  %11 = call double @log(double noundef %10) #16
+  %11 = call double @log(double noundef %10) #15
   %12 = fmul double %11, 0x3FDBCB7B1526E50E
   %13 = fptrunc double %12 to float
   %14 = fmul float 2.000000e+01, %13
@@ -27889,7 +27883,7 @@ define hidden void @ma_pcm_f32_to_u8(ptr noundef %0, ptr noundef %1, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_pcm_f32_to_s16(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #8 {
+define hidden void @ma_pcm_f32_to_s16(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #7 {
   %5 = alloca <4 x float>, align 16
   %6 = alloca <4 x float>, align 16
   %7 = alloca ptr, align 8
@@ -35451,7 +35445,7 @@ define hidden i32 @ma_lpf1_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %72 = fdiv double %67, %71
   store double %72, ptr %3, align 8
   %73 = load double, ptr %3, align 8
-  %74 = call double @exp(double noundef %73) #16
+  %74 = call double @exp(double noundef %73) #15
   store double %74, ptr %7, align 8
   %75 = load ptr, ptr %5, align 8
   %76 = getelementptr inbounds %struct.ma_lpf1_config, ptr %75, i32 0, i32 0
@@ -36007,7 +36001,7 @@ define hidden i32 @ma_lpf2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 {
   %29 = load double, ptr %8, align 8, !noalias !6
   store double %29, ptr %5, align 8, !noalias !6
   %30 = load double, ptr %5, align 8, !noalias !6
-  %31 = call double @sin(double noundef %30) #16, !noalias !6
+  %31 = call double @sin(double noundef %30) #15, !noalias !6
   store double %31, ptr %9, align 8, !noalias !6
   %32 = load double, ptr %8, align 8, !noalias !6
   store double %32, ptr %4, align 8, !noalias !6
@@ -36015,7 +36009,7 @@ define hidden i32 @ma_lpf2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 {
   %34 = fsub double 0x3FF921FB54442D18, %33
   store double %34, ptr %3, align 8, !noalias !6
   %35 = load double, ptr %3, align 8, !noalias !6
-  %36 = call double @sin(double noundef %35) #16, !noalias !6
+  %36 = call double @sin(double noundef %35) #15, !noalias !6
   store double %36, ptr %10, align 8, !noalias !6
   %37 = load double, ptr %9, align 8, !noalias !6
   %38 = load double, ptr %7, align 8, !noalias !6
@@ -36145,7 +36139,7 @@ define hidden i32 @ma_lpf2_init_preallocated(ptr noundef %0, ptr noundef %1, ptr
   %54 = load double, ptr %9, align 8, !noalias !9
   store double %54, ptr %6, align 8, !noalias !9
   %55 = load double, ptr %6, align 8, !noalias !9
-  %56 = call double @sin(double noundef %55) #16, !noalias !9
+  %56 = call double @sin(double noundef %55) #15, !noalias !9
   store double %56, ptr %10, align 8, !noalias !9
   %57 = load double, ptr %9, align 8, !noalias !9
   store double %57, ptr %5, align 8, !noalias !9
@@ -36153,7 +36147,7 @@ define hidden i32 @ma_lpf2_init_preallocated(ptr noundef %0, ptr noundef %1, ptr
   %59 = fsub double 0x3FF921FB54442D18, %58
   store double %59, ptr %4, align 8, !noalias !9
   %60 = load double, ptr %4, align 8, !noalias !9
-  %61 = call double @sin(double noundef %60) #16, !noalias !9
+  %61 = call double @sin(double noundef %60) #15, !noalias !9
   store double %61, ptr %11, align 8, !noalias !9
   %62 = load double, ptr %10, align 8, !noalias !9
   %63 = load double, ptr %8, align 8, !noalias !9
@@ -36375,7 +36369,7 @@ define hidden i32 @ma_lpf2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %38 = load double, ptr %8, align 8, !noalias !12
   store double %38, ptr %5, align 8, !noalias !12
   %39 = load double, ptr %5, align 8, !noalias !12
-  %40 = call double @sin(double noundef %39) #16, !noalias !12
+  %40 = call double @sin(double noundef %39) #15, !noalias !12
   store double %40, ptr %9, align 8, !noalias !12
   %41 = load double, ptr %8, align 8, !noalias !12
   store double %41, ptr %4, align 8, !noalias !12
@@ -36383,7 +36377,7 @@ define hidden i32 @ma_lpf2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %43 = fsub double 0x3FF921FB54442D18, %42
   store double %43, ptr %3, align 8, !noalias !12
   %44 = load double, ptr %3, align 8, !noalias !12
-  %45 = call double @sin(double noundef %44) #16, !noalias !12
+  %45 = call double @sin(double noundef %44) #15, !noalias !12
   store double %45, ptr %10, align 8, !noalias !12
   %46 = load double, ptr %9, align 8, !noalias !12
   %47 = load double, ptr %7, align 8, !noalias !12
@@ -37310,7 +37304,7 @@ define internal i32 @ma_lpf_reinit__internal(ptr noundef %0, ptr noundef %1, ptr
   %266 = fsub double 0x3FF921FB54442D18, %265
   store double %266, ptr %5, align 8
   %267 = load double, ptr %5, align 8
-  %268 = call double @sin(double noundef %267) #16
+  %268 = call double @sin(double noundef %267) #15
   %269 = fmul double 2.000000e+00, %268
   %270 = fdiv double 1.000000e+00, %269
   store double %270, ptr %26, align 8
@@ -39120,7 +39114,7 @@ define hidden i32 @ma_hpf1_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %72 = fdiv double %67, %71
   store double %72, ptr %3, align 8
   %73 = load double, ptr %3, align 8
-  %74 = call double @exp(double noundef %73) #16
+  %74 = call double @exp(double noundef %73) #15
   store double %74, ptr %7, align 8
   %75 = load ptr, ptr %5, align 8
   %76 = getelementptr inbounds %struct.ma_hpf1_config, ptr %75, i32 0, i32 0
@@ -39638,7 +39632,7 @@ define hidden i32 @ma_hpf2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 {
   %29 = load double, ptr %8, align 8, !noalias !15
   store double %29, ptr %5, align 8, !noalias !15
   %30 = load double, ptr %5, align 8, !noalias !15
-  %31 = call double @sin(double noundef %30) #16, !noalias !15
+  %31 = call double @sin(double noundef %30) #15, !noalias !15
   store double %31, ptr %9, align 8, !noalias !15
   %32 = load double, ptr %8, align 8, !noalias !15
   store double %32, ptr %4, align 8, !noalias !15
@@ -39646,7 +39640,7 @@ define hidden i32 @ma_hpf2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 {
   %34 = fsub double 0x3FF921FB54442D18, %33
   store double %34, ptr %3, align 8, !noalias !15
   %35 = load double, ptr %3, align 8, !noalias !15
-  %36 = call double @sin(double noundef %35) #16, !noalias !15
+  %36 = call double @sin(double noundef %35) #15, !noalias !15
   store double %36, ptr %10, align 8, !noalias !15
   %37 = load double, ptr %9, align 8, !noalias !15
   %38 = load double, ptr %7, align 8, !noalias !15
@@ -39777,7 +39771,7 @@ define hidden i32 @ma_hpf2_init_preallocated(ptr noundef %0, ptr noundef %1, ptr
   %54 = load double, ptr %9, align 8, !noalias !18
   store double %54, ptr %6, align 8, !noalias !18
   %55 = load double, ptr %6, align 8, !noalias !18
-  %56 = call double @sin(double noundef %55) #16, !noalias !18
+  %56 = call double @sin(double noundef %55) #15, !noalias !18
   store double %56, ptr %10, align 8, !noalias !18
   %57 = load double, ptr %9, align 8, !noalias !18
   store double %57, ptr %5, align 8, !noalias !18
@@ -39785,7 +39779,7 @@ define hidden i32 @ma_hpf2_init_preallocated(ptr noundef %0, ptr noundef %1, ptr
   %59 = fsub double 0x3FF921FB54442D18, %58
   store double %59, ptr %4, align 8, !noalias !18
   %60 = load double, ptr %4, align 8, !noalias !18
-  %61 = call double @sin(double noundef %60) #16, !noalias !18
+  %61 = call double @sin(double noundef %60) #15, !noalias !18
   store double %61, ptr %11, align 8, !noalias !18
   %62 = load double, ptr %10, align 8, !noalias !18
   %63 = load double, ptr %8, align 8, !noalias !18
@@ -40008,7 +40002,7 @@ define hidden i32 @ma_hpf2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %38 = load double, ptr %8, align 8, !noalias !21
   store double %38, ptr %5, align 8, !noalias !21
   %39 = load double, ptr %5, align 8, !noalias !21
-  %40 = call double @sin(double noundef %39) #16, !noalias !21
+  %40 = call double @sin(double noundef %39) #15, !noalias !21
   store double %40, ptr %9, align 8, !noalias !21
   %41 = load double, ptr %8, align 8, !noalias !21
   store double %41, ptr %4, align 8, !noalias !21
@@ -40016,7 +40010,7 @@ define hidden i32 @ma_hpf2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %43 = fsub double 0x3FF921FB54442D18, %42
   store double %43, ptr %3, align 8, !noalias !21
   %44 = load double, ptr %3, align 8, !noalias !21
-  %45 = call double @sin(double noundef %44) #16, !noalias !21
+  %45 = call double @sin(double noundef %44) #15, !noalias !21
   store double %45, ptr %10, align 8, !noalias !21
   %46 = load double, ptr %9, align 8, !noalias !21
   %47 = load double, ptr %7, align 8, !noalias !21
@@ -40919,7 +40913,7 @@ define internal i32 @ma_hpf_reinit__internal(ptr noundef %0, ptr noundef %1, ptr
   %266 = fsub double 0x3FF921FB54442D18, %265
   store double %266, ptr %5, align 8
   %267 = load double, ptr %5, align 8
-  %268 = call double @sin(double noundef %267) #16
+  %268 = call double @sin(double noundef %267) #15
   %269 = fmul double 2.000000e+00, %268
   %270 = fdiv double 1.000000e+00, %269
   store double %270, ptr %26, align 8
@@ -42293,7 +42287,7 @@ define hidden i32 @ma_bpf2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 {
   %29 = load double, ptr %8, align 8, !noalias !24
   store double %29, ptr %5, align 8, !noalias !24
   %30 = load double, ptr %5, align 8, !noalias !24
-  %31 = call double @sin(double noundef %30) #16, !noalias !24
+  %31 = call double @sin(double noundef %30) #15, !noalias !24
   store double %31, ptr %9, align 8, !noalias !24
   %32 = load double, ptr %8, align 8, !noalias !24
   store double %32, ptr %4, align 8, !noalias !24
@@ -42301,7 +42295,7 @@ define hidden i32 @ma_bpf2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 {
   %34 = fsub double 0x3FF921FB54442D18, %33
   store double %34, ptr %3, align 8, !noalias !24
   %35 = load double, ptr %3, align 8, !noalias !24
-  %36 = call double @sin(double noundef %35) #16, !noalias !24
+  %36 = call double @sin(double noundef %35) #15, !noalias !24
   store double %36, ptr %10, align 8, !noalias !24
   %37 = load double, ptr %9, align 8, !noalias !24
   %38 = load double, ptr %7, align 8, !noalias !24
@@ -42430,7 +42424,7 @@ define hidden i32 @ma_bpf2_init_preallocated(ptr noundef %0, ptr noundef %1, ptr
   %54 = load double, ptr %9, align 8, !noalias !27
   store double %54, ptr %6, align 8, !noalias !27
   %55 = load double, ptr %6, align 8, !noalias !27
-  %56 = call double @sin(double noundef %55) #16, !noalias !27
+  %56 = call double @sin(double noundef %55) #15, !noalias !27
   store double %56, ptr %10, align 8, !noalias !27
   %57 = load double, ptr %9, align 8, !noalias !27
   store double %57, ptr %5, align 8, !noalias !27
@@ -42438,7 +42432,7 @@ define hidden i32 @ma_bpf2_init_preallocated(ptr noundef %0, ptr noundef %1, ptr
   %59 = fsub double 0x3FF921FB54442D18, %58
   store double %59, ptr %4, align 8, !noalias !27
   %60 = load double, ptr %4, align 8, !noalias !27
-  %61 = call double @sin(double noundef %60) #16, !noalias !27
+  %61 = call double @sin(double noundef %60) #15, !noalias !27
   store double %61, ptr %11, align 8, !noalias !27
   %62 = load double, ptr %10, align 8, !noalias !27
   %63 = load double, ptr %8, align 8, !noalias !27
@@ -42659,7 +42653,7 @@ define hidden i32 @ma_bpf2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %38 = load double, ptr %8, align 8, !noalias !30
   store double %38, ptr %5, align 8, !noalias !30
   %39 = load double, ptr %5, align 8, !noalias !30
-  %40 = call double @sin(double noundef %39) #16, !noalias !30
+  %40 = call double @sin(double noundef %39) #15, !noalias !30
   store double %40, ptr %9, align 8, !noalias !30
   %41 = load double, ptr %8, align 8, !noalias !30
   store double %41, ptr %4, align 8, !noalias !30
@@ -42667,7 +42661,7 @@ define hidden i32 @ma_bpf2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %43 = fsub double 0x3FF921FB54442D18, %42
   store double %43, ptr %3, align 8, !noalias !30
   %44 = load double, ptr %3, align 8, !noalias !30
-  %45 = call double @sin(double noundef %44) #16, !noalias !30
+  %45 = call double @sin(double noundef %44) #15, !noalias !30
   store double %45, ptr %10, align 8, !noalias !30
   %46 = load double, ptr %9, align 8, !noalias !30
   %47 = load double, ptr %7, align 8, !noalias !30
@@ -44348,7 +44342,7 @@ define hidden i32 @ma_notch2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 {
   %29 = load double, ptr %8, align 8, !noalias !33
   store double %29, ptr %5, align 8, !noalias !33
   %30 = load double, ptr %5, align 8, !noalias !33
-  %31 = call double @sin(double noundef %30) #16, !noalias !33
+  %31 = call double @sin(double noundef %30) #15, !noalias !33
   store double %31, ptr %9, align 8, !noalias !33
   %32 = load double, ptr %8, align 8, !noalias !33
   store double %32, ptr %4, align 8, !noalias !33
@@ -44356,7 +44350,7 @@ define hidden i32 @ma_notch2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 {
   %34 = fsub double 0x3FF921FB54442D18, %33
   store double %34, ptr %3, align 8, !noalias !33
   %35 = load double, ptr %3, align 8, !noalias !33
-  %36 = call double @sin(double noundef %35) #16, !noalias !33
+  %36 = call double @sin(double noundef %35) #15, !noalias !33
   store double %36, ptr %10, align 8, !noalias !33
   %37 = load double, ptr %9, align 8, !noalias !33
   %38 = load double, ptr %7, align 8, !noalias !33
@@ -44480,7 +44474,7 @@ define hidden i32 @ma_notch2_init_preallocated(ptr noundef %0, ptr noundef %1, p
   %54 = load double, ptr %9, align 8, !noalias !36
   store double %54, ptr %6, align 8, !noalias !36
   %55 = load double, ptr %6, align 8, !noalias !36
-  %56 = call double @sin(double noundef %55) #16, !noalias !36
+  %56 = call double @sin(double noundef %55) #15, !noalias !36
   store double %56, ptr %10, align 8, !noalias !36
   %57 = load double, ptr %9, align 8, !noalias !36
   store double %57, ptr %5, align 8, !noalias !36
@@ -44488,7 +44482,7 @@ define hidden i32 @ma_notch2_init_preallocated(ptr noundef %0, ptr noundef %1, p
   %59 = fsub double 0x3FF921FB54442D18, %58
   store double %59, ptr %4, align 8, !noalias !36
   %60 = load double, ptr %4, align 8, !noalias !36
-  %61 = call double @sin(double noundef %60) #16, !noalias !36
+  %61 = call double @sin(double noundef %60) #15, !noalias !36
   store double %61, ptr %11, align 8, !noalias !36
   %62 = load double, ptr %10, align 8, !noalias !36
   %63 = load double, ptr %8, align 8, !noalias !36
@@ -44704,7 +44698,7 @@ define hidden i32 @ma_notch2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %38 = load double, ptr %8, align 8, !noalias !39
   store double %38, ptr %5, align 8, !noalias !39
   %39 = load double, ptr %5, align 8, !noalias !39
-  %40 = call double @sin(double noundef %39) #16, !noalias !39
+  %40 = call double @sin(double noundef %39) #15, !noalias !39
   store double %40, ptr %9, align 8, !noalias !39
   %41 = load double, ptr %8, align 8, !noalias !39
   store double %41, ptr %4, align 8, !noalias !39
@@ -44712,7 +44706,7 @@ define hidden i32 @ma_notch2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %43 = fsub double 0x3FF921FB54442D18, %42
   store double %43, ptr %3, align 8, !noalias !39
   %44 = load double, ptr %3, align 8, !noalias !39
-  %45 = call double @sin(double noundef %44) #16, !noalias !39
+  %45 = call double @sin(double noundef %44) #15, !noalias !39
   store double %45, ptr %10, align 8, !noalias !39
   %46 = load double, ptr %9, align 8, !noalias !39
   %47 = load double, ptr %7, align 8, !noalias !39
@@ -44938,7 +44932,7 @@ define hidden i32 @ma_peak2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 {
   %32 = load double, ptr %10, align 8, !noalias !42
   store double %32, ptr %5, align 8, !noalias !42
   %33 = load double, ptr %5, align 8, !noalias !42
-  %34 = call double @sin(double noundef %33) #16, !noalias !42
+  %34 = call double @sin(double noundef %33) #15, !noalias !42
   store double %34, ptr %11, align 8, !noalias !42
   %35 = load double, ptr %10, align 8, !noalias !42
   store double %35, ptr %4, align 8, !noalias !42
@@ -44946,7 +44940,7 @@ define hidden i32 @ma_peak2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 {
   %37 = fsub double 0x3FF921FB54442D18, %36
   store double %37, ptr %3, align 8, !noalias !42
   %38 = load double, ptr %3, align 8, !noalias !42
-  %39 = call double @sin(double noundef %38) #16, !noalias !42
+  %39 = call double @sin(double noundef %38) #15, !noalias !42
   store double %39, ptr %12, align 8, !noalias !42
   %40 = load double, ptr %11, align 8, !noalias !42
   %41 = load double, ptr %9, align 8, !noalias !42
@@ -44961,7 +44955,7 @@ define hidden i32 @ma_peak2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 {
   store double %47, ptr %7, align 8, !noalias !42
   %48 = load double, ptr %6, align 8, !noalias !42
   %49 = load double, ptr %7, align 8, !noalias !42
-  %50 = call double @pow(double noundef %48, double noundef %49) #16, !noalias !42
+  %50 = call double @pow(double noundef %48, double noundef %49) #15, !noalias !42
   store double %50, ptr %14, align 8, !noalias !42
   %51 = load double, ptr %13, align 8, !noalias !42
   %52 = load double, ptr %14, align 8, !noalias !42
@@ -45094,7 +45088,7 @@ define hidden i32 @ma_peak2_init_preallocated(ptr noundef %0, ptr noundef %1, pt
   %57 = load double, ptr %11, align 8, !noalias !45
   store double %57, ptr %6, align 8, !noalias !45
   %58 = load double, ptr %6, align 8, !noalias !45
-  %59 = call double @sin(double noundef %58) #16, !noalias !45
+  %59 = call double @sin(double noundef %58) #15, !noalias !45
   store double %59, ptr %12, align 8, !noalias !45
   %60 = load double, ptr %11, align 8, !noalias !45
   store double %60, ptr %5, align 8, !noalias !45
@@ -45102,7 +45096,7 @@ define hidden i32 @ma_peak2_init_preallocated(ptr noundef %0, ptr noundef %1, pt
   %62 = fsub double 0x3FF921FB54442D18, %61
   store double %62, ptr %4, align 8, !noalias !45
   %63 = load double, ptr %4, align 8, !noalias !45
-  %64 = call double @sin(double noundef %63) #16, !noalias !45
+  %64 = call double @sin(double noundef %63) #15, !noalias !45
   store double %64, ptr %13, align 8, !noalias !45
   %65 = load double, ptr %12, align 8, !noalias !45
   %66 = load double, ptr %10, align 8, !noalias !45
@@ -45117,7 +45111,7 @@ define hidden i32 @ma_peak2_init_preallocated(ptr noundef %0, ptr noundef %1, pt
   store double %72, ptr %8, align 8, !noalias !45
   %73 = load double, ptr %7, align 8, !noalias !45
   %74 = load double, ptr %8, align 8, !noalias !45
-  %75 = call double @pow(double noundef %73, double noundef %74) #16, !noalias !45
+  %75 = call double @pow(double noundef %73, double noundef %74) #15, !noalias !45
   store double %75, ptr %15, align 8, !noalias !45
   %76 = load double, ptr %14, align 8, !noalias !45
   %77 = load double, ptr %15, align 8, !noalias !45
@@ -45342,7 +45336,7 @@ define hidden i32 @ma_peak2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %41 = load double, ptr %10, align 8, !noalias !48
   store double %41, ptr %5, align 8, !noalias !48
   %42 = load double, ptr %5, align 8, !noalias !48
-  %43 = call double @sin(double noundef %42) #16, !noalias !48
+  %43 = call double @sin(double noundef %42) #15, !noalias !48
   store double %43, ptr %11, align 8, !noalias !48
   %44 = load double, ptr %10, align 8, !noalias !48
   store double %44, ptr %4, align 8, !noalias !48
@@ -45350,7 +45344,7 @@ define hidden i32 @ma_peak2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %46 = fsub double 0x3FF921FB54442D18, %45
   store double %46, ptr %3, align 8, !noalias !48
   %47 = load double, ptr %3, align 8, !noalias !48
-  %48 = call double @sin(double noundef %47) #16, !noalias !48
+  %48 = call double @sin(double noundef %47) #15, !noalias !48
   store double %48, ptr %12, align 8, !noalias !48
   %49 = load double, ptr %11, align 8, !noalias !48
   %50 = load double, ptr %9, align 8, !noalias !48
@@ -45365,7 +45359,7 @@ define hidden i32 @ma_peak2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   store double %56, ptr %7, align 8, !noalias !48
   %57 = load double, ptr %6, align 8, !noalias !48
   %58 = load double, ptr %7, align 8, !noalias !48
-  %59 = call double @pow(double noundef %57, double noundef %58) #16, !noalias !48
+  %59 = call double @pow(double noundef %57, double noundef %58) #15, !noalias !48
   store double %59, ptr %14, align 8, !noalias !48
   %60 = load double, ptr %13, align 8, !noalias !48
   %61 = load double, ptr %14, align 8, !noalias !48
@@ -45585,7 +45579,7 @@ define hidden i32 @ma_loshelf2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 
   %32 = load double, ptr %11, align 8, !noalias !51
   store double %32, ptr %5, align 8, !noalias !51
   %33 = load double, ptr %5, align 8, !noalias !51
-  %34 = call double @sin(double noundef %33) #16, !noalias !51
+  %34 = call double @sin(double noundef %33) #15, !noalias !51
   store double %34, ptr %12, align 8, !noalias !51
   %35 = load double, ptr %11, align 8, !noalias !51
   store double %35, ptr %4, align 8, !noalias !51
@@ -45593,7 +45587,7 @@ define hidden i32 @ma_loshelf2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 
   %37 = fsub double 0x3FF921FB54442D18, %36
   store double %37, ptr %3, align 8, !noalias !51
   %38 = load double, ptr %3, align 8, !noalias !51
-  %39 = call double @sin(double noundef %38) #16, !noalias !51
+  %39 = call double @sin(double noundef %38) #15, !noalias !51
   store double %39, ptr %13, align 8, !noalias !51
   %40 = load ptr, ptr %10, align 8, !noalias !51
   %41 = getelementptr inbounds %struct.ma_loshelf2_config, ptr %40, i32 0, i32 3
@@ -45603,7 +45597,7 @@ define hidden i32 @ma_loshelf2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 
   store double %43, ptr %7, align 8, !noalias !51
   %44 = load double, ptr %6, align 8, !noalias !51
   %45 = load double, ptr %7, align 8, !noalias !51
-  %46 = call double @pow(double noundef %44, double noundef %45) #16, !noalias !51
+  %46 = call double @pow(double noundef %44, double noundef %45) #15, !noalias !51
   store double %46, ptr %14, align 8, !noalias !51
   %47 = load ptr, ptr %10, align 8, !noalias !51
   %48 = getelementptr inbounds %struct.ma_loshelf2_config, ptr %47, i32 0, i32 4
@@ -45621,13 +45615,13 @@ define hidden i32 @ma_loshelf2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 
   %59 = call double @llvm.fmuladd.f64(double %55, double %58, double 2.000000e+00)
   store double %59, ptr %8, align 8, !noalias !51
   %60 = load double, ptr %8, align 8, !noalias !51
-  %61 = call double @sqrt(double noundef %60) #16, !noalias !51
+  %61 = call double @sqrt(double noundef %60) #15, !noalias !51
   %62 = fmul double %51, %61
   store double %62, ptr %16, align 8, !noalias !51
   %63 = load double, ptr %14, align 8, !noalias !51
   store double %63, ptr %9, align 8, !noalias !51
   %64 = load double, ptr %9, align 8, !noalias !51
-  %65 = call double @sqrt(double noundef %64) #16, !noalias !51
+  %65 = call double @sqrt(double noundef %64) #15, !noalias !51
   %66 = fmul double 2.000000e+00, %65
   %67 = load double, ptr %16, align 8, !noalias !51
   %68 = fmul double %66, %67
@@ -45798,7 +45792,7 @@ define hidden i32 @ma_loshelf2_init_preallocated(ptr noundef %0, ptr noundef %1,
   %57 = load double, ptr %12, align 8, !noalias !54
   store double %57, ptr %6, align 8, !noalias !54
   %58 = load double, ptr %6, align 8, !noalias !54
-  %59 = call double @sin(double noundef %58) #16, !noalias !54
+  %59 = call double @sin(double noundef %58) #15, !noalias !54
   store double %59, ptr %13, align 8, !noalias !54
   %60 = load double, ptr %12, align 8, !noalias !54
   store double %60, ptr %5, align 8, !noalias !54
@@ -45806,7 +45800,7 @@ define hidden i32 @ma_loshelf2_init_preallocated(ptr noundef %0, ptr noundef %1,
   %62 = fsub double 0x3FF921FB54442D18, %61
   store double %62, ptr %4, align 8, !noalias !54
   %63 = load double, ptr %4, align 8, !noalias !54
-  %64 = call double @sin(double noundef %63) #16, !noalias !54
+  %64 = call double @sin(double noundef %63) #15, !noalias !54
   store double %64, ptr %14, align 8, !noalias !54
   %65 = load ptr, ptr %11, align 8, !noalias !54
   %66 = getelementptr inbounds %struct.ma_loshelf2_config, ptr %65, i32 0, i32 3
@@ -45816,7 +45810,7 @@ define hidden i32 @ma_loshelf2_init_preallocated(ptr noundef %0, ptr noundef %1,
   store double %68, ptr %8, align 8, !noalias !54
   %69 = load double, ptr %7, align 8, !noalias !54
   %70 = load double, ptr %8, align 8, !noalias !54
-  %71 = call double @pow(double noundef %69, double noundef %70) #16, !noalias !54
+  %71 = call double @pow(double noundef %69, double noundef %70) #15, !noalias !54
   store double %71, ptr %15, align 8, !noalias !54
   %72 = load ptr, ptr %11, align 8, !noalias !54
   %73 = getelementptr inbounds %struct.ma_loshelf2_config, ptr %72, i32 0, i32 4
@@ -45834,13 +45828,13 @@ define hidden i32 @ma_loshelf2_init_preallocated(ptr noundef %0, ptr noundef %1,
   %84 = call double @llvm.fmuladd.f64(double %80, double %83, double 2.000000e+00)
   store double %84, ptr %9, align 8, !noalias !54
   %85 = load double, ptr %9, align 8, !noalias !54
-  %86 = call double @sqrt(double noundef %85) #16, !noalias !54
+  %86 = call double @sqrt(double noundef %85) #15, !noalias !54
   %87 = fmul double %76, %86
   store double %87, ptr %17, align 8, !noalias !54
   %88 = load double, ptr %15, align 8, !noalias !54
   store double %88, ptr %10, align 8, !noalias !54
   %89 = load double, ptr %10, align 8, !noalias !54
-  %90 = call double @sqrt(double noundef %89) #16, !noalias !54
+  %90 = call double @sqrt(double noundef %89) #15, !noalias !54
   %91 = fmul double 2.000000e+00, %90
   %92 = load double, ptr %17, align 8, !noalias !54
   %93 = fmul double %91, %92
@@ -46103,7 +46097,7 @@ define hidden i32 @ma_loshelf2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %41 = load double, ptr %11, align 8, !noalias !57
   store double %41, ptr %5, align 8, !noalias !57
   %42 = load double, ptr %5, align 8, !noalias !57
-  %43 = call double @sin(double noundef %42) #16, !noalias !57
+  %43 = call double @sin(double noundef %42) #15, !noalias !57
   store double %43, ptr %12, align 8, !noalias !57
   %44 = load double, ptr %11, align 8, !noalias !57
   store double %44, ptr %4, align 8, !noalias !57
@@ -46111,7 +46105,7 @@ define hidden i32 @ma_loshelf2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %46 = fsub double 0x3FF921FB54442D18, %45
   store double %46, ptr %3, align 8, !noalias !57
   %47 = load double, ptr %3, align 8, !noalias !57
-  %48 = call double @sin(double noundef %47) #16, !noalias !57
+  %48 = call double @sin(double noundef %47) #15, !noalias !57
   store double %48, ptr %13, align 8, !noalias !57
   %49 = load ptr, ptr %10, align 8, !noalias !57
   %50 = getelementptr inbounds %struct.ma_loshelf2_config, ptr %49, i32 0, i32 3
@@ -46121,7 +46115,7 @@ define hidden i32 @ma_loshelf2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   store double %52, ptr %7, align 8, !noalias !57
   %53 = load double, ptr %6, align 8, !noalias !57
   %54 = load double, ptr %7, align 8, !noalias !57
-  %55 = call double @pow(double noundef %53, double noundef %54) #16, !noalias !57
+  %55 = call double @pow(double noundef %53, double noundef %54) #15, !noalias !57
   store double %55, ptr %14, align 8, !noalias !57
   %56 = load ptr, ptr %10, align 8, !noalias !57
   %57 = getelementptr inbounds %struct.ma_loshelf2_config, ptr %56, i32 0, i32 4
@@ -46139,13 +46133,13 @@ define hidden i32 @ma_loshelf2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %68 = call double @llvm.fmuladd.f64(double %64, double %67, double 2.000000e+00)
   store double %68, ptr %8, align 8, !noalias !57
   %69 = load double, ptr %8, align 8, !noalias !57
-  %70 = call double @sqrt(double noundef %69) #16, !noalias !57
+  %70 = call double @sqrt(double noundef %69) #15, !noalias !57
   %71 = fmul double %60, %70
   store double %71, ptr %16, align 8, !noalias !57
   %72 = load double, ptr %14, align 8, !noalias !57
   store double %72, ptr %9, align 8, !noalias !57
   %73 = load double, ptr %9, align 8, !noalias !57
-  %74 = call double @sqrt(double noundef %73) #16, !noalias !57
+  %74 = call double @sqrt(double noundef %73) #15, !noalias !57
   %75 = fmul double 2.000000e+00, %74
   %76 = load double, ptr %16, align 8, !noalias !57
   %77 = fmul double %75, %76
@@ -46404,7 +46398,7 @@ define hidden i32 @ma_hishelf2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 
   %32 = load double, ptr %11, align 8, !noalias !60
   store double %32, ptr %5, align 8, !noalias !60
   %33 = load double, ptr %5, align 8, !noalias !60
-  %34 = call double @sin(double noundef %33) #16, !noalias !60
+  %34 = call double @sin(double noundef %33) #15, !noalias !60
   store double %34, ptr %12, align 8, !noalias !60
   %35 = load double, ptr %11, align 8, !noalias !60
   store double %35, ptr %4, align 8, !noalias !60
@@ -46412,7 +46406,7 @@ define hidden i32 @ma_hishelf2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 
   %37 = fsub double 0x3FF921FB54442D18, %36
   store double %37, ptr %3, align 8, !noalias !60
   %38 = load double, ptr %3, align 8, !noalias !60
-  %39 = call double @sin(double noundef %38) #16, !noalias !60
+  %39 = call double @sin(double noundef %38) #15, !noalias !60
   store double %39, ptr %13, align 8, !noalias !60
   %40 = load ptr, ptr %10, align 8, !noalias !60
   %41 = getelementptr inbounds %struct.ma_hishelf2_config, ptr %40, i32 0, i32 3
@@ -46422,7 +46416,7 @@ define hidden i32 @ma_hishelf2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 
   store double %43, ptr %7, align 8, !noalias !60
   %44 = load double, ptr %6, align 8, !noalias !60
   %45 = load double, ptr %7, align 8, !noalias !60
-  %46 = call double @pow(double noundef %44, double noundef %45) #16, !noalias !60
+  %46 = call double @pow(double noundef %44, double noundef %45) #15, !noalias !60
   store double %46, ptr %14, align 8, !noalias !60
   %47 = load ptr, ptr %10, align 8, !noalias !60
   %48 = getelementptr inbounds %struct.ma_hishelf2_config, ptr %47, i32 0, i32 4
@@ -46440,13 +46434,13 @@ define hidden i32 @ma_hishelf2_get_heap_size(ptr noundef %0, ptr noundef %1) #0 
   %59 = call double @llvm.fmuladd.f64(double %55, double %58, double 2.000000e+00)
   store double %59, ptr %8, align 8, !noalias !60
   %60 = load double, ptr %8, align 8, !noalias !60
-  %61 = call double @sqrt(double noundef %60) #16, !noalias !60
+  %61 = call double @sqrt(double noundef %60) #15, !noalias !60
   %62 = fmul double %51, %61
   store double %62, ptr %16, align 8, !noalias !60
   %63 = load double, ptr %14, align 8, !noalias !60
   store double %63, ptr %9, align 8, !noalias !60
   %64 = load double, ptr %9, align 8, !noalias !60
-  %65 = call double @sqrt(double noundef %64) #16, !noalias !60
+  %65 = call double @sqrt(double noundef %64) #15, !noalias !60
   %66 = fmul double 2.000000e+00, %65
   %67 = load double, ptr %16, align 8, !noalias !60
   %68 = fmul double %66, %67
@@ -46617,7 +46611,7 @@ define hidden i32 @ma_hishelf2_init_preallocated(ptr noundef %0, ptr noundef %1,
   %57 = load double, ptr %12, align 8, !noalias !63
   store double %57, ptr %6, align 8, !noalias !63
   %58 = load double, ptr %6, align 8, !noalias !63
-  %59 = call double @sin(double noundef %58) #16, !noalias !63
+  %59 = call double @sin(double noundef %58) #15, !noalias !63
   store double %59, ptr %13, align 8, !noalias !63
   %60 = load double, ptr %12, align 8, !noalias !63
   store double %60, ptr %5, align 8, !noalias !63
@@ -46625,7 +46619,7 @@ define hidden i32 @ma_hishelf2_init_preallocated(ptr noundef %0, ptr noundef %1,
   %62 = fsub double 0x3FF921FB54442D18, %61
   store double %62, ptr %4, align 8, !noalias !63
   %63 = load double, ptr %4, align 8, !noalias !63
-  %64 = call double @sin(double noundef %63) #16, !noalias !63
+  %64 = call double @sin(double noundef %63) #15, !noalias !63
   store double %64, ptr %14, align 8, !noalias !63
   %65 = load ptr, ptr %11, align 8, !noalias !63
   %66 = getelementptr inbounds %struct.ma_hishelf2_config, ptr %65, i32 0, i32 3
@@ -46635,7 +46629,7 @@ define hidden i32 @ma_hishelf2_init_preallocated(ptr noundef %0, ptr noundef %1,
   store double %68, ptr %8, align 8, !noalias !63
   %69 = load double, ptr %7, align 8, !noalias !63
   %70 = load double, ptr %8, align 8, !noalias !63
-  %71 = call double @pow(double noundef %69, double noundef %70) #16, !noalias !63
+  %71 = call double @pow(double noundef %69, double noundef %70) #15, !noalias !63
   store double %71, ptr %15, align 8, !noalias !63
   %72 = load ptr, ptr %11, align 8, !noalias !63
   %73 = getelementptr inbounds %struct.ma_hishelf2_config, ptr %72, i32 0, i32 4
@@ -46653,13 +46647,13 @@ define hidden i32 @ma_hishelf2_init_preallocated(ptr noundef %0, ptr noundef %1,
   %84 = call double @llvm.fmuladd.f64(double %80, double %83, double 2.000000e+00)
   store double %84, ptr %9, align 8, !noalias !63
   %85 = load double, ptr %9, align 8, !noalias !63
-  %86 = call double @sqrt(double noundef %85) #16, !noalias !63
+  %86 = call double @sqrt(double noundef %85) #15, !noalias !63
   %87 = fmul double %76, %86
   store double %87, ptr %17, align 8, !noalias !63
   %88 = load double, ptr %15, align 8, !noalias !63
   store double %88, ptr %10, align 8, !noalias !63
   %89 = load double, ptr %10, align 8, !noalias !63
-  %90 = call double @sqrt(double noundef %89) #16, !noalias !63
+  %90 = call double @sqrt(double noundef %89) #15, !noalias !63
   %91 = fmul double 2.000000e+00, %90
   %92 = load double, ptr %17, align 8, !noalias !63
   %93 = fmul double %91, %92
@@ -46922,7 +46916,7 @@ define hidden i32 @ma_hishelf2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %41 = load double, ptr %11, align 8, !noalias !66
   store double %41, ptr %5, align 8, !noalias !66
   %42 = load double, ptr %5, align 8, !noalias !66
-  %43 = call double @sin(double noundef %42) #16, !noalias !66
+  %43 = call double @sin(double noundef %42) #15, !noalias !66
   store double %43, ptr %12, align 8, !noalias !66
   %44 = load double, ptr %11, align 8, !noalias !66
   store double %44, ptr %4, align 8, !noalias !66
@@ -46930,7 +46924,7 @@ define hidden i32 @ma_hishelf2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %46 = fsub double 0x3FF921FB54442D18, %45
   store double %46, ptr %3, align 8, !noalias !66
   %47 = load double, ptr %3, align 8, !noalias !66
-  %48 = call double @sin(double noundef %47) #16, !noalias !66
+  %48 = call double @sin(double noundef %47) #15, !noalias !66
   store double %48, ptr %13, align 8, !noalias !66
   %49 = load ptr, ptr %10, align 8, !noalias !66
   %50 = getelementptr inbounds %struct.ma_hishelf2_config, ptr %49, i32 0, i32 3
@@ -46940,7 +46934,7 @@ define hidden i32 @ma_hishelf2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   store double %52, ptr %7, align 8, !noalias !66
   %53 = load double, ptr %6, align 8, !noalias !66
   %54 = load double, ptr %7, align 8, !noalias !66
-  %55 = call double @pow(double noundef %53, double noundef %54) #16, !noalias !66
+  %55 = call double @pow(double noundef %53, double noundef %54) #15, !noalias !66
   store double %55, ptr %14, align 8, !noalias !66
   %56 = load ptr, ptr %10, align 8, !noalias !66
   %57 = getelementptr inbounds %struct.ma_hishelf2_config, ptr %56, i32 0, i32 4
@@ -46958,13 +46952,13 @@ define hidden i32 @ma_hishelf2_reinit(ptr noundef %0, ptr noundef %1) #0 {
   %68 = call double @llvm.fmuladd.f64(double %64, double %67, double 2.000000e+00)
   store double %68, ptr %8, align 8, !noalias !66
   %69 = load double, ptr %8, align 8, !noalias !66
-  %70 = call double @sqrt(double noundef %69) #16, !noalias !66
+  %70 = call double @sqrt(double noundef %69) #15, !noalias !66
   %71 = fmul double %60, %70
   store double %71, ptr %16, align 8, !noalias !66
   %72 = load double, ptr %14, align 8, !noalias !66
   store double %72, ptr %9, align 8, !noalias !66
   %73 = load double, ptr %9, align 8, !noalias !66
-  %74 = call double @sqrt(double noundef %73) #16, !noalias !66
+  %74 = call double @sqrt(double noundef %73) #15, !noalias !66
   %75 = fmul double 2.000000e+00, %74
   %76 = load double, ptr %16, align 8, !noalias !66
   %77 = fmul double %75, %76
@@ -47574,7 +47568,7 @@ define hidden i32 @ma_delay_process_pcm_frames(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #9
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ma_delay_set_wet(ptr noundef %0, float noundef %1) #0 {
@@ -48229,7 +48223,7 @@ define hidden i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_gainer_process_pcm_frames_internal(ptr noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3) #8 {
+define internal i32 @ma_gainer_process_pcm_frames_internal(ptr noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3) #7 {
   %5 = alloca ptr, align 8
   %6 = alloca <4 x float>, align 16
   %7 = alloca ptr, align 8
@@ -51300,7 +51294,7 @@ define hidden { <2 x float>, float } @ma_vec3f_init_3f(float noundef %0, float n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden { <2 x float>, float } @ma_vec3f_sub(<2 x float> %0, float %1, <2 x float> %2, float %3) #10 {
+define hidden { <2 x float>, float } @ma_vec3f_sub(<2 x float> %0, float %1, <2 x float> %2, float %3) #9 {
   %5 = alloca %struct.ma_vec3f, align 4
   %6 = alloca %struct.ma_vec3f, align 4
   %7 = alloca { <2 x float>, float }, align 4
@@ -51342,7 +51336,7 @@ define hidden { <2 x float>, float } @ma_vec3f_sub(<2 x float> %0, float %1, <2 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden { <2 x float>, float } @ma_vec3f_neg(<2 x float> %0, float %1) #10 {
+define hidden { <2 x float>, float } @ma_vec3f_neg(<2 x float> %0, float %1) #9 {
   %3 = alloca %struct.ma_vec3f, align 4
   %4 = alloca %struct.ma_vec3f, align 4
   %5 = alloca { <2 x float>, float }, align 4
@@ -51371,7 +51365,7 @@ define hidden { <2 x float>, float } @ma_vec3f_neg(<2 x float> %0, float %1) #10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden float @ma_vec3f_dot(<2 x float> %0, float %1, <2 x float> %2, float %3) #10 {
+define hidden float @ma_vec3f_dot(<2 x float> %0, float %1, <2 x float> %2, float %3) #9 {
   %5 = alloca %struct.ma_vec3f, align 4
   %6 = alloca { <2 x float>, float }, align 4
   %7 = alloca %struct.ma_vec3f, align 4
@@ -51405,7 +51399,7 @@ define hidden float @ma_vec3f_dot(<2 x float> %0, float %1, <2 x float> %2, floa
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden float @ma_vec3f_len2(<2 x float> %0, float %1) #10 {
+define hidden float @ma_vec3f_len2(<2 x float> %0, float %1) #9 {
   %3 = alloca %struct.ma_vec3f, align 4
   %4 = alloca { <2 x float>, float }, align 4
   %5 = alloca { <2 x float>, float }, align 4
@@ -51430,7 +51424,7 @@ define hidden float @ma_vec3f_len2(<2 x float> %0, float %1) #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden float @ma_vec3f_len(<2 x float> %0, float %1) #10 {
+define hidden float @ma_vec3f_len(<2 x float> %0, float %1) #9 {
   %3 = alloca double, align 8
   %4 = alloca %struct.ma_vec3f, align 4
   %5 = alloca { <2 x float>, float }, align 4
@@ -51449,13 +51443,13 @@ define hidden float @ma_vec3f_len(<2 x float> %0, float %1) #10 {
   %14 = fpext float %13 to double
   store double %14, ptr %3, align 8
   %15 = load double, ptr %3, align 8
-  %16 = call double @sqrt(double noundef %15) #16
+  %16 = call double @sqrt(double noundef %15) #15
   %17 = fptrunc double %16 to float
   ret float %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden float @ma_vec3f_dist(<2 x float> %0, float %1, <2 x float> %2, float %3) #10 {
+define hidden float @ma_vec3f_dist(<2 x float> %0, float %1, <2 x float> %2, float %3) #9 {
   %5 = alloca %struct.ma_vec3f, align 4
   %6 = alloca { <2 x float>, float }, align 4
   %7 = alloca %struct.ma_vec3f, align 4
@@ -51498,7 +51492,7 @@ define hidden float @ma_vec3f_dist(<2 x float> %0, float %1, <2 x float> %2, flo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden { <2 x float>, float } @ma_vec3f_normalize(<2 x float> %0, float %1) #10 {
+define hidden { <2 x float>, float } @ma_vec3f_normalize(<2 x float> %0, float %1) #9 {
   %3 = alloca float, align 4
   %4 = alloca float, align 4
   %5 = alloca %struct.ma_vec3f, align 4
@@ -51535,7 +51529,7 @@ define hidden { <2 x float>, float } @ma_vec3f_normalize(<2 x float> %0, float %
   %25 = load float, ptr %9, align 4
   store float %25, ptr %3, align 4
   %26 = load float, ptr %3, align 4
-  %27 = call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %26) #16, !srcloc !69
+  %27 = call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %26) #15, !srcloc !69
   store float %27, ptr %4, align 4
   %28 = load float, ptr %4, align 4
   store float %28, ptr %8, align 4
@@ -51564,7 +51558,7 @@ define hidden { <2 x float>, float } @ma_vec3f_normalize(<2 x float> %0, float %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden { <2 x float>, float } @ma_vec3f_cross(<2 x float> %0, float %1, <2 x float> %2, float %3) #10 {
+define hidden { <2 x float>, float } @ma_vec3f_cross(<2 x float> %0, float %1, <2 x float> %2, float %3) #9 {
   %5 = alloca %struct.ma_vec3f, align 4
   %6 = alloca %struct.ma_vec3f, align 4
   %7 = alloca { <2 x float>, float }, align 4
@@ -51624,7 +51618,7 @@ define hidden { <2 x float>, float } @ma_vec3f_cross(<2 x float> %0, float %1, <
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_atomic_vec3f_init(ptr noundef %0, <2 x float> %1, float %2) #10 {
+define hidden void @ma_atomic_vec3f_init(ptr noundef %0, <2 x float> %1, float %2) #9 {
   %4 = alloca %struct.ma_vec3f, align 4
   %5 = alloca { <2 x float>, float }, align 4
   %6 = alloca ptr, align 8
@@ -51644,7 +51638,7 @@ define hidden void @ma_atomic_vec3f_init(ptr noundef %0, <2 x float> %1, float %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_atomic_vec3f_set(ptr noundef %0, <2 x float> %1, float %2) #10 {
+define hidden void @ma_atomic_vec3f_set(ptr noundef %0, <2 x float> %1, float %2) #9 {
   %4 = alloca %struct.ma_vec3f, align 4
   %5 = alloca { <2 x float>, float }, align 4
   %6 = alloca ptr, align 8
@@ -51687,7 +51681,7 @@ define hidden { <2 x float>, float } @ma_atomic_vec3f_get(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_spatializer_listener_config_init(ptr dead_on_unwind noalias writable sret(%struct.ma_spatializer_listener_config) align 8 %0, i32 noundef %1) #10 {
+define hidden void @ma_spatializer_listener_config_init(ptr dead_on_unwind noalias writable sret(%struct.ma_spatializer_listener_config) align 8 %0, i32 noundef %1) #9 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
@@ -51864,7 +51858,7 @@ define internal i32 @ma_spatializer_listener_get_heap_layout(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_spatializer_listener_init_preallocated(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10 {
+define hidden i32 @ma_spatializer_listener_init_preallocated(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -52092,7 +52086,7 @@ define hidden i32 @ma_spatializer_listener_init_preallocated(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden { <2 x float>, float } @ma_spatializer_listener_get_direction(ptr noundef %0) #10 {
+define hidden { <2 x float>, float } @ma_spatializer_listener_get_direction(ptr noundef %0) #9 {
   %2 = alloca %struct.ma_vec3f, align 4
   %3 = alloca ptr, align 8
   %4 = alloca { <2 x float>, float }, align 8
@@ -52124,7 +52118,7 @@ define hidden { <2 x float>, float } @ma_spatializer_listener_get_direction(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_spatializer_listener_set_direction(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #10 {
+define hidden void @ma_spatializer_listener_set_direction(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #9 {
   %5 = alloca ptr, align 8
   %6 = alloca float, align 4
   %7 = alloca float, align 4
@@ -52436,7 +52430,7 @@ define hidden void @ma_spatializer_listener_get_cone(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_spatializer_listener_set_position(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #10 {
+define hidden void @ma_spatializer_listener_set_position(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #9 {
   %5 = alloca ptr, align 8
   %6 = alloca float, align 4
   %7 = alloca float, align 4
@@ -52477,7 +52471,7 @@ define hidden void @ma_spatializer_listener_set_position(ptr noundef %0, float n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden { <2 x float>, float } @ma_spatializer_listener_get_position(ptr noundef %0) #10 {
+define hidden { <2 x float>, float } @ma_spatializer_listener_get_position(ptr noundef %0) #9 {
   %2 = alloca %struct.ma_vec3f, align 4
   %3 = alloca ptr, align 8
   %4 = alloca { <2 x float>, float }, align 8
@@ -52509,7 +52503,7 @@ define hidden { <2 x float>, float } @ma_spatializer_listener_get_position(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_spatializer_listener_set_velocity(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #10 {
+define hidden void @ma_spatializer_listener_set_velocity(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #9 {
   %5 = alloca ptr, align 8
   %6 = alloca float, align 4
   %7 = alloca float, align 4
@@ -52550,7 +52544,7 @@ define hidden void @ma_spatializer_listener_set_velocity(ptr noundef %0, float n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden { <2 x float>, float } @ma_spatializer_listener_get_velocity(ptr noundef %0) #10 {
+define hidden { <2 x float>, float } @ma_spatializer_listener_get_velocity(ptr noundef %0) #9 {
   %2 = alloca %struct.ma_vec3f, align 4
   %3 = alloca ptr, align 8
   %4 = alloca { <2 x float>, float }, align 8
@@ -52633,7 +52627,7 @@ define hidden float @ma_spatializer_listener_get_speed_of_sound(ptr noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_spatializer_listener_set_world_up(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #10 {
+define hidden void @ma_spatializer_listener_set_world_up(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #9 {
   %5 = alloca ptr, align 8
   %6 = alloca float, align 4
   %7 = alloca float, align 4
@@ -52669,7 +52663,7 @@ define hidden void @ma_spatializer_listener_set_world_up(ptr noundef %0, float n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden { <2 x float>, float } @ma_spatializer_listener_get_world_up(ptr noundef %0) #10 {
+define hidden { <2 x float>, float } @ma_spatializer_listener_get_world_up(ptr noundef %0) #9 {
   %2 = alloca %struct.ma_vec3f, align 4
   %3 = alloca ptr, align 8
   %4 = alloca { <2 x float>, float }, align 8
@@ -53010,7 +53004,7 @@ define internal i32 @ma_spatializer_get_heap_layout(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_spatializer_init_preallocated(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10 {
+define hidden i32 @ma_spatializer_init_preallocated(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -53363,7 +53357,7 @@ define hidden i32 @ma_spatializer_init_preallocated(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden { <2 x float>, float } @ma_spatializer_get_direction(ptr noundef %0) #10 {
+define hidden { <2 x float>, float } @ma_spatializer_get_direction(ptr noundef %0) #9 {
   %2 = alloca %struct.ma_vec3f, align 4
   %3 = alloca ptr, align 8
   %4 = alloca { <2 x float>, float }, align 8
@@ -53395,7 +53389,7 @@ define hidden { <2 x float>, float } @ma_spatializer_get_direction(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_spatializer_set_direction(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #10 {
+define hidden void @ma_spatializer_set_direction(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #9 {
   %5 = alloca ptr, align 8
   %6 = alloca float, align 4
   %7 = alloca float, align 4
@@ -53568,7 +53562,7 @@ define hidden void @ma_spatializer_uninit(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_spatializer_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #10 {
+define hidden i32 @ma_spatializer_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #9 {
   %6 = alloca float, align 4
   %7 = alloca float, align 4
   %8 = alloca float, align 4
@@ -55793,7 +55787,7 @@ define hidden i32 @ma_spatializer_get_positioning(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden { <2 x float>, float } @ma_spatializer_get_position(ptr noundef %0) #10 {
+define hidden { <2 x float>, float } @ma_spatializer_get_position(ptr noundef %0) #9 {
   %2 = alloca %struct.ma_vec3f, align 4
   %3 = alloca ptr, align 8
   %4 = alloca { <2 x float>, float }, align 8
@@ -55825,7 +55819,7 @@ define hidden { <2 x float>, float } @ma_spatializer_get_position(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_spatializer_get_relative_position_and_direction(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #10 {
+define hidden void @ma_spatializer_get_relative_position_and_direction(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #9 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -56612,7 +56606,7 @@ define internal float @ma_attenuation_exponential(float noundef %0, float nounde
   store double %47, ptr %6, align 8
   %48 = load double, ptr %5, align 8
   %49 = load double, ptr %6, align 8
-  %50 = call double @pow(double noundef %48, double noundef %49) #16
+  %50 = call double @pow(double noundef %48, double noundef %49) #15
   %51 = fptrunc double %50 to float
   store float %51, ptr %7, align 4
   br label %52
@@ -56779,7 +56773,7 @@ define hidden void @ma_spatializer_get_cone(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal float @ma_calculate_angular_gain(<2 x float> %0, float %1, <2 x float> %2, float %3, float noundef %4, float noundef %5, float noundef %6) #10 {
+define internal float @ma_calculate_angular_gain(<2 x float> %0, float %1, <2 x float> %2, float %3, float noundef %4, float noundef %5, float noundef %6) #9 {
   %8 = alloca double, align 8
   %9 = alloca double, align 8
   %10 = alloca double, align 8
@@ -56828,7 +56822,7 @@ define internal float @ma_calculate_angular_gain(<2 x float> %0, float %1, <2 x 
   %40 = fsub double 0x3FF921FB54442D18, %39
   store double %40, ptr %8, align 8
   %41 = load double, ptr %8, align 8
-  %42 = call double @sin(double noundef %41) #16
+  %42 = call double @sin(double noundef %41) #15
   %43 = fptrunc double %42 to float
   store float %43, ptr %24, align 4
   %44 = load float, ptr %21, align 4
@@ -56839,7 +56833,7 @@ define internal float @ma_calculate_angular_gain(<2 x float> %0, float %1, <2 x 
   %48 = fsub double 0x3FF921FB54442D18, %47
   store double %48, ptr %10, align 8
   %49 = load double, ptr %10, align 8
-  %50 = call double @sin(double noundef %49) #16
+  %50 = call double @sin(double noundef %49) #15
   %51 = fptrunc double %50 to float
   store float %51, ptr %25, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %27, ptr align 4 %16, i64 12, i1 false)
@@ -57157,7 +57151,7 @@ define internal i32 @ma_is_spatial_channel_position(i8 noundef zeroext %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { <2 x float>, float } @ma_get_channel_direction(i8 noundef zeroext %0) #10 {
+define internal { <2 x float>, float } @ma_get_channel_direction(i8 noundef zeroext %0) #9 {
   %2 = alloca %struct.ma_vec3f, align 4
   %3 = alloca i8, align 1
   %4 = alloca { <2 x float>, float }, align 8
@@ -57245,7 +57239,7 @@ define hidden float @ma_spatializer_get_directional_attenuation_factor(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal float @ma_doppler_pitch(<2 x float> %0, float %1, <2 x float> %2, float %3, <2 x float> %4, float %5, float noundef %6, float noundef %7) #10 {
+define internal float @ma_doppler_pitch(<2 x float> %0, float %1, <2 x float> %2, float %3, <2 x float> %4, float %5, float noundef %6, float noundef %7) #9 {
   %9 = alloca float, align 4
   %10 = alloca %struct.ma_vec3f, align 4
   %11 = alloca { <2 x float>, float }, align 4
@@ -57384,7 +57378,7 @@ define internal float @ma_doppler_pitch(<2 x float> %0, float %1, <2 x float> %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden { <2 x float>, float } @ma_spatializer_get_velocity(ptr noundef %0) #10 {
+define hidden { <2 x float>, float } @ma_spatializer_get_velocity(ptr noundef %0) #9 {
   %2 = alloca %struct.ma_vec3f, align 4
   %3 = alloca ptr, align 8
   %4 = alloca { <2 x float>, float }, align 8
@@ -58344,7 +58338,7 @@ define hidden void @ma_spatializer_set_directional_attenuation_factor(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_spatializer_set_position(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #10 {
+define hidden void @ma_spatializer_set_position(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #9 {
   %5 = alloca ptr, align 8
   %6 = alloca float, align 4
   %7 = alloca float, align 4
@@ -58385,7 +58379,7 @@ define hidden void @ma_spatializer_set_position(ptr noundef %0, float noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_spatializer_set_velocity(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #10 {
+define hidden void @ma_spatializer_set_velocity(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #9 {
   %5 = alloca ptr, align 8
   %6 = alloca float, align 4
   %7 = alloca float, align 4
@@ -72867,7 +72861,7 @@ define internal void @ma__free_default(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %5) #16
+  call void @free(ptr noundef %5) #15
   ret void
 }
 
@@ -89049,7 +89043,7 @@ define internal i32 @drwav_wfopen(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr null, ptr %13, align 8
   call void @llvm.memset.p0.i64(ptr align 16 %14, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr align 4 %10, i8 0, i64 8, i1 false)
-  %32 = call i64 @wcsrtombs(ptr noundef null, ptr noundef %12, i64 noundef 0, ptr noundef %10) #16
+  %32 = call i64 @wcsrtombs(ptr noundef null, ptr noundef %12, i64 noundef 0, ptr noundef %10) #15
   store i64 %32, ptr %11, align 8
   %33 = load i64, ptr %11, align 8
   %34 = icmp eq i64 %33, -1
@@ -89083,7 +89077,7 @@ define internal i32 @drwav_wfopen(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %49 = load ptr, ptr %13, align 8
   %50 = load i64, ptr %11, align 8
   %51 = add i64 %50, 1
-  %52 = call i64 @wcsrtombs(ptr noundef %49, ptr noundef %12, i64 noundef %51, ptr noundef %10) #16
+  %52 = call i64 @wcsrtombs(ptr noundef %49, ptr noundef %12, i64 noundef %51, ptr noundef %10) #15
   store i64 0, ptr %15, align 8
   br label %53
 
@@ -100174,7 +100168,7 @@ define internal void @drwav__free_default(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %5) #16
+  call void @free(ptr noundef %5) #15
   ret void
 }
 
@@ -100867,7 +100861,7 @@ define internal void @setup_free(ptr noundef %0, ptr noundef %1) #0 {
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %12) #16
+  call void @free(ptr noundef %12) #15
   br label %13
 
 13:                                               ; preds = %11, %10
@@ -110347,7 +110341,7 @@ define hidden i32 @stb_vorbis_decode_filename(ptr noundef %0, ptr noundef %1, pt
 
 93:                                               ; preds = %83
   %94 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %94) #16
+  call void @free(ptr noundef %94) #15
   %95 = load ptr, ptr %16, align 8
   call void @stb_vorbis_close(ptr noundef %95)
   store i32 -2, ptr %5, align 4
@@ -110377,10 +110371,10 @@ define hidden i32 @stb_vorbis_decode_filename(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #11
+declare noalias ptr @malloc(i64 noundef) #10
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #12
+declare ptr @realloc(ptr noundef, i64 noundef) #11
 
 ; Function Attrs: nounwind
 declare void @free(ptr noundef) #5
@@ -110522,7 +110516,7 @@ define hidden i32 @stb_vorbis_decode_memory(ptr noundef %0, i32 noundef %1, ptr 
 
 96:                                               ; preds = %86
   %97 = load ptr, ptr %17, align 8
-  call void @free(ptr noundef %97) #16
+  call void @free(ptr noundef %97) #15
   %98 = load ptr, ptr %18, align 8
   call void @stb_vorbis_close(ptr noundef %98)
   store i32 -2, ptr %6, align 4
@@ -113573,7 +113567,7 @@ define internal void @drmp3_L12_apply_scf_384(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @drmp3dec_f32_to_s16(ptr noundef %0, ptr noundef %1, i64 noundef %2) #8 {
+define hidden void @drmp3dec_f32_to_s16(ptr noundef %0, ptr noundef %1, i64 noundef %2) #7 {
   %4 = alloca <4 x float>, align 16
   %5 = alloca <4 x float>, align 16
   %6 = alloca <4 x float>, align 16
@@ -114544,7 +114538,7 @@ define internal i32 @drmp3_wfopen(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr null, ptr %13, align 8
   call void @llvm.memset.p0.i64(ptr align 16 %14, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr align 4 %10, i8 0, i64 8, i1 false)
-  %32 = call i64 @wcsrtombs(ptr noundef null, ptr noundef %12, i64 noundef 0, ptr noundef %10) #16
+  %32 = call i64 @wcsrtombs(ptr noundef null, ptr noundef %12, i64 noundef 0, ptr noundef %10) #15
   store i64 %32, ptr %11, align 8
   %33 = load i64, ptr %11, align 8
   %34 = icmp eq i64 %33, -1
@@ -114578,7 +114572,7 @@ define internal i32 @drmp3_wfopen(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %49 = load ptr, ptr %13, align 8
   %50 = load i64, ptr %11, align 8
   %51 = add i64 %50, 1
-  %52 = call i64 @wcsrtombs(ptr noundef %49, ptr noundef %12, i64 noundef %51, ptr noundef %10) #16
+  %52 = call i64 @wcsrtombs(ptr noundef %49, ptr noundef %12, i64 noundef %51, ptr noundef %10) #15
   store i64 0, ptr %15, align 8
   br label %53
 
@@ -116769,7 +116763,7 @@ define internal void @drmp3__free_default(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %5) #16
+  call void @free(ptr noundef %5) #15
   ret void
 }
 
@@ -118554,7 +118548,7 @@ define hidden i32 @qoa_write(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   %31 = load ptr, ptr %8, align 8
   %32 = call i32 @fclose(ptr noundef %31)
   %33 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %33) #16
+  call void @free(ptr noundef %33) #15
   %34 = load i32, ptr %9, align 4
   store i32 %34, ptr %4, align 4
   br label %35
@@ -118639,7 +118633,7 @@ define hidden ptr @qoa_read(ptr noundef %0, ptr noundef %1) #0 {
   %50 = call ptr @qoa_decode(ptr noundef %47, i32 noundef %48, ptr noundef %49)
   store ptr %50, ptr %10, align 8
   %51 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %51) #16
+  call void @free(ptr noundef %51) #15
   %52 = load ptr, ptr %10, align 8
   store ptr %52, ptr %3, align 8
   br label %53
@@ -118933,7 +118927,7 @@ define hidden void @qoaplay_close(ptr noundef %0) #0 {
   %23 = load ptr, ptr %2, align 8
   %24 = getelementptr inbounds %struct.qoaplay_desc, ptr %23, i32 0, i32 2
   %25 = load ptr, ptr %24, align 8
-  call void @free(ptr noundef %25) #16
+  call void @free(ptr noundef %25) #15
   %26 = load ptr, ptr %2, align 8
   %27 = getelementptr inbounds %struct.qoaplay_desc, ptr %26, i32 0, i32 3
   store i32 0, ptr %27, align 8
@@ -118941,7 +118935,7 @@ define hidden void @qoaplay_close(ptr noundef %0) #0 {
 
 28:                                               ; preds = %22, %17, %12
   %29 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %29) #16
+  call void @free(ptr noundef %29) #15
   ret void
 }
 
@@ -119385,7 +119379,7 @@ define hidden void @jar_xm_generate_samples_16bit(ptr noundef %0, ptr noundef %1
 
 41:                                               ; preds = %40, %3
   %42 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %42) #16
+  call void @free(ptr noundef %42) #15
   ret void
 }
 
@@ -119511,7 +119505,7 @@ define hidden void @jar_xm_generate_samples_8bit(ptr noundef %0, ptr noundef %1,
 
 41:                                               ; preds = %40, %3
   %42 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %42) #16
+  call void @free(ptr noundef %42) #15
   ret void
 }
 
@@ -125048,7 +125042,7 @@ define hidden void @jar_xm_free_context(ptr noundef %0) #0 {
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds %struct.jar_xm_context_s, ptr %6, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %8) #16
+  call void @free(ptr noundef %8) #15
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -127371,7 +127365,7 @@ define hidden i32 @jar_xm_create_context_from_file(ptr noundef %0, i32 noundef %
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr @stderr, align 8
-  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.175) #16
+  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.175) #15
   %20 = load ptr, ptr @stderr, align 8
   %21 = call i32 @fflush(ptr noundef %20)
   br label %22
@@ -127402,7 +127396,7 @@ define hidden i32 @jar_xm_create_context_from_file(ptr noundef %0, i32 noundef %
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr @stderr, align 8
-  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.176) #16
+  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.176) #15
   %39 = load ptr, ptr @stderr, align 8
   %40 = call i32 @fflush(ptr noundef %39)
   br label %41
@@ -127444,14 +127438,14 @@ define hidden i32 @jar_xm_create_context_from_file(ptr noundef %0, i32 noundef %
   %64 = load ptr, ptr %11, align 8
   %65 = icmp ne ptr %64, null
   %66 = select i1 %65, ptr @.str.177, ptr @.str.178
-  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef %66) #16
+  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef %66) #15
   %68 = load ptr, ptr @stderr, align 8
   %69 = call i32 @fflush(ptr noundef %68)
   br label %70
 
 70:                                               ; preds = %62
   %71 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %71) #16
+  call void @free(ptr noundef %71) #15
   %72 = load ptr, ptr %5, align 8
   store ptr null, ptr %72, align 8
   store i32 5, ptr %4, align 4
@@ -127468,7 +127462,7 @@ define hidden i32 @jar_xm_create_context_from_file(ptr noundef %0, i32 noundef %
   %81 = call i32 @jar_xm_create_context_safe(ptr noundef %76, ptr noundef %77, i64 noundef %79, i32 noundef %80)
   store i32 %81, ptr %10, align 4
   %82 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %82) #16
+  call void @free(ptr noundef %82) #15
   %83 = load i32, ptr %10, align 4
   switch i32 %83, label %100 [
     i32 0, label %84
@@ -127484,7 +127478,7 @@ define hidden i32 @jar_xm_create_context_from_file(ptr noundef %0, i32 noundef %
 
 86:                                               ; preds = %85
   %87 = load ptr, ptr @stderr, align 8
-  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef @.str.179) #16
+  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef @.str.179) #15
   %89 = load ptr, ptr @stderr, align 8
   %90 = call i32 @fflush(ptr noundef %89)
   br label %91
@@ -127500,7 +127494,7 @@ define hidden i32 @jar_xm_create_context_from_file(ptr noundef %0, i32 noundef %
 
 94:                                               ; preds = %93
   %95 = load ptr, ptr @stderr, align 8
-  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef @.str.180) #16
+  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef @.str.180) #15
   %97 = load ptr, ptr @stderr, align 8
   %98 = call i32 @fflush(ptr noundef %97)
   call void @exit(i32 noundef 1) #25
@@ -127515,7 +127509,7 @@ define hidden i32 @jar_xm_create_context_from_file(ptr noundef %0, i32 noundef %
 
 101:                                              ; preds = %100
   %102 = load ptr, ptr @stderr, align 8
-  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef @.str.181) #16
+  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef @.str.181) #15
   %104 = load ptr, ptr @stderr, align 8
   %105 = call i32 @fflush(ptr noundef %104)
   call void @exit(i32 noundef 1) #25
@@ -127542,7 +127536,7 @@ declare i32 @fflush(ptr noundef) #2
 declare void @rewind(ptr noundef) #2
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #13
+declare void @exit(i32 noundef) #12
 
 ; Function Attrs: nounwind uwtable
 define hidden void @jar_xm_reset(ptr noundef %0) #0 {
@@ -127924,7 +127918,7 @@ define hidden ptr @xm_octave_chr(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #9
+declare double @llvm.floor.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @xm_effect_chr(i32 noundef %0) #0 {
@@ -131275,7 +131269,7 @@ define hidden void @jar_mod_unload(ptr noundef %0) #0 {
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds %struct.jar_mod_context_t, ptr %11, i32 0, i32 24
   %13 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %13) #16
+  call void @free(ptr noundef %13) #15
   %14 = load ptr, ptr %2, align 8
   %15 = getelementptr inbounds %struct.jar_mod_context_t, ptr %14, i32 0, i32 24
   store ptr null, ptr %15, align 8
@@ -131394,7 +131388,7 @@ define hidden i64 @jar_mod_load_file(ptr noundef %0, ptr noundef %1) #0 {
   %12 = load ptr, ptr %3, align 8
   %13 = getelementptr inbounds %struct.jar_mod_context_t, ptr %12, i32 0, i32 24
   %14 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %14) #16
+  call void @free(ptr noundef %14) #15
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr inbounds %struct.jar_mod_context_t, ptr %15, i32 0, i32 24
   store ptr null, ptr %16, align 8
@@ -132134,7 +132128,7 @@ define void @InitAudioDevice() #0 {
 
 13:                                               ; preds = %0
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.221)
-  br label %60
+  br label %75
 
 14:                                               ; preds = %0
   call void @ma_device_config_init(ptr dead_on_unwind writable sret(%struct.ma_device_config) align 8 %4, i32 noundef 1)
@@ -132162,65 +132156,80 @@ define void @InitAudioDevice() #0 {
   store ptr @OnSendAudioDataToDevice, ptr %28, align 8
   %29 = getelementptr inbounds %struct.ma_device_config, ptr %4, i32 0, i32 13
   store ptr null, ptr %29, align 8
-  %30 = call i32 @ma_device_init(ptr noundef @AUDIO, ptr noundef %4, ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1))
-  store i32 %30, ptr %3, align 4
-  %31 = load i32, ptr %3, align 4
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %35
+  %30 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1
+  %31 = call i32 @ma_device_init(ptr noundef @AUDIO, ptr noundef %4, ptr noundef %30)
+  store i32 %31, ptr %3, align 4
+  %32 = load i32, ptr %3, align 4
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %14
+34:                                               ; preds = %14
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.222)
-  %34 = call i32 @ma_context_uninit(ptr noundef @AUDIO)
-  br label %60
+  %35 = call i32 @ma_context_uninit(ptr noundef @AUDIO)
+  br label %75
 
-35:                                               ; preds = %14
-  %36 = call i32 @ma_mutex_init(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %40
+36:                                               ; preds = %14
+  %37 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  %38 = call i32 @ma_mutex_init(ptr noundef %37)
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %43
 
-38:                                               ; preds = %35
+40:                                               ; preds = %36
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.223)
-  call void @ma_device_uninit(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1))
-  %39 = call i32 @ma_context_uninit(ptr noundef @AUDIO)
-  br label %60
+  %41 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1
+  call void @ma_device_uninit(ptr noundef %41)
+  %42 = call i32 @ma_context_uninit(ptr noundef @AUDIO)
+  br label %75
 
-40:                                               ; preds = %35
-  %41 = call i32 @ma_device_start(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1))
-  store i32 %41, ptr %3, align 4
-  %42 = load i32, ptr %3, align 4
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %46
+43:                                               ; preds = %36
+  %44 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1
+  %45 = call i32 @ma_device_start(ptr noundef %44)
+  store i32 %45, ptr %3, align 4
+  %46 = load i32, ptr %3, align 4
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %51
 
-44:                                               ; preds = %40
+48:                                               ; preds = %43
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.224)
-  call void @ma_device_uninit(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1))
-  %45 = call i32 @ma_context_uninit(ptr noundef @AUDIO)
-  br label %60
+  %49 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1
+  call void @ma_device_uninit(ptr noundef %49)
+  %50 = call i32 @ma_context_uninit(ptr noundef @AUDIO)
+  br label %75
 
-46:                                               ; preds = %40
+51:                                               ; preds = %43
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.225)
-  %47 = load i32, ptr getelementptr inbounds (%struct.ma_context, ptr @AUDIO, i32 0, i32 1), align 8
-  %48 = call ptr @ma_get_backend_name(i32 noundef %47)
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.226, ptr noundef %48)
-  %49 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 4), align 4
-  %50 = call ptr @ma_get_format_name(i32 noundef %49)
-  %51 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 7), align 4
-  %52 = call ptr @ma_get_format_name(i32 noundef %51)
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.227, ptr noundef %50, ptr noundef %52)
-  %53 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 5), align 8
-  %54 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 8), align 8
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.228, i32 noundef %53, i32 noundef %54)
-  %55 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  %56 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 9), align 4
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.229, i32 noundef %55, i32 noundef %56)
-  %57 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 11), align 8
-  %58 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 12), align 4
-  %59 = mul i32 %57, %58
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.230, i32 noundef %59)
-  store i8 1, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 3), align 8
-  br label %60
+  %52 = getelementptr inbounds %struct.ma_context, ptr @AUDIO, i32 0, i32 1
+  %53 = load i32, ptr %52, align 8
+  %54 = call ptr @ma_get_backend_name(i32 noundef %53)
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.226, ptr noundef %54)
+  %55 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 4
+  %56 = load i32, ptr %55, align 4
+  %57 = call ptr @ma_get_format_name(i32 noundef %56)
+  %58 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 7
+  %59 = load i32, ptr %58, align 4
+  %60 = call ptr @ma_get_format_name(i32 noundef %59)
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.227, ptr noundef %57, ptr noundef %60)
+  %61 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 5
+  %62 = load i32, ptr %61, align 8
+  %63 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 8
+  %64 = load i32, ptr %63, align 8
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.228, i32 noundef %62, i32 noundef %64)
+  %65 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %66 = load i32, ptr %65, align 4
+  %67 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 9
+  %68 = load i32, ptr %67, align 4
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.229, i32 noundef %66, i32 noundef %68)
+  %69 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 11
+  %70 = load i32, ptr %69, align 8
+  %71 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 12
+  %72 = load i32, ptr %71, align 4
+  %73 = mul i32 %70, %72
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.230, i32 noundef %73)
+  %74 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 3
+  store i8 1, ptr %74, align 8
+  br label %75
 
-60:                                               ; preds = %46, %44, %38, %33, %13
+75:                                               ; preds = %51, %48, %40, %34, %13
   ret void
 }
 
@@ -132274,250 +132283,263 @@ define internal void @OnSendAudioDataToDevice(ptr noundef %0, ptr noundef %1, pt
   %31 = mul i32 %25, %30
   %32 = zext i32 %31 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %19, i8 0, i64 %32, i1 false)
-  call void @ma_mutex_lock(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
-  %33 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 1), align 8
-  store ptr %33, ptr %9, align 8
-  br label %34
+  %33 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_lock(ptr noundef %33)
+  %34 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %9, align 8
+  br label %36
 
-34:                                               ; preds = %136, %4
-  %35 = load ptr, ptr %9, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %140
+36:                                               ; preds = %139, %4
+  %37 = load ptr, ptr %9, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %143
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr inbounds %struct.rAudioBuffer, ptr %38, i32 0, i32 6
-  %40 = load i8, ptr %39, align 4
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %42, label %47
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %9, align 8
+  %41 = getelementptr inbounds %struct.rAudioBuffer, ptr %40, i32 0, i32 6
+  %42 = load i8, ptr %41, align 4
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %49
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds %struct.rAudioBuffer, ptr %43, i32 0, i32 7
-  %45 = load i8, ptr %44, align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %47, label %48
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %9, align 8
+  %46 = getelementptr inbounds %struct.rAudioBuffer, ptr %45, i32 0, i32 7
+  %47 = load i8, ptr %46, align 1
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %50
 
-47:                                               ; preds = %42, %37
-  br label %136
+49:                                               ; preds = %44, %39
+  br label %139
 
-48:                                               ; preds = %42
+50:                                               ; preds = %44
   store i32 0, ptr %10, align 4
-  br label %49
+  br label %51
 
-49:                                               ; preds = %134, %48
-  %50 = load i32, ptr %10, align 4
-  %51 = load i32, ptr %8, align 4
-  %52 = icmp uge i32 %50, %51
-  br i1 %52, label %53, label %54
+51:                                               ; preds = %137, %50
+  %52 = load i32, ptr %10, align 4
+  %53 = load i32, ptr %8, align 4
+  %54 = icmp uge i32 %52, %53
+  br i1 %54, label %55, label %56
 
-53:                                               ; preds = %49
-  br label %135
+55:                                               ; preds = %51
+  br label %138
 
-54:                                               ; preds = %49
-  %55 = load i32, ptr %8, align 4
-  %56 = load i32, ptr %10, align 4
-  %57 = sub i32 %55, %56
-  store i32 %57, ptr %11, align 4
-  br label %58
+56:                                               ; preds = %51
+  %57 = load i32, ptr %8, align 4
+  %58 = load i32, ptr %10, align 4
+  %59 = sub i32 %57, %58
+  store i32 %59, ptr %11, align 4
+  br label %60
 
-58:                                               ; preds = %129, %126, %54
-  %59 = load i32, ptr %11, align 4
-  %60 = icmp ugt i32 %59, 0
-  br i1 %60, label %61, label %130
+60:                                               ; preds = %132, %129, %56
+  %61 = load i32, ptr %11, align 4
+  %62 = icmp ugt i32 %61, 0
+  br i1 %62, label %63, label %133
 
-61:                                               ; preds = %58
+63:                                               ; preds = %60
   call void @llvm.memset.p0.i64(ptr align 16 %12, i8 0, i64 4096, i1 false)
-  %62 = load i32, ptr %11, align 4
-  store i32 %62, ptr %13, align 4
-  %63 = load i32, ptr %13, align 4
-  %64 = zext i32 %63 to i64
-  %65 = icmp ugt i64 %64, 512
-  br i1 %65, label %66, label %67
+  %64 = load i32, ptr %11, align 4
+  store i32 %64, ptr %13, align 4
+  %65 = load i32, ptr %13, align 4
+  %66 = zext i32 %65 to i64
+  %67 = icmp ugt i64 %66, 512
+  br i1 %67, label %68, label %69
 
-66:                                               ; preds = %61
+68:                                               ; preds = %63
   store i32 512, ptr %13, align 4
-  br label %67
+  br label %69
 
-67:                                               ; preds = %66, %61
-  %68 = load ptr, ptr %9, align 8
-  %69 = getelementptr inbounds [1024 x float], ptr %12, i64 0, i64 0
-  %70 = load i32, ptr %13, align 4
-  %71 = call i32 @ReadAudioBufferFramesInMixingFormat(ptr noundef %68, ptr noundef %69, i32 noundef %70)
-  store i32 %71, ptr %14, align 4
-  %72 = load i32, ptr %14, align 4
-  %73 = icmp ugt i32 %72, 0
-  br i1 %73, label %74, label %108
+69:                                               ; preds = %68, %63
+  %70 = load ptr, ptr %9, align 8
+  %71 = getelementptr inbounds [1024 x float], ptr %12, i64 0, i64 0
+  %72 = load i32, ptr %13, align 4
+  %73 = call i32 @ReadAudioBufferFramesInMixingFormat(ptr noundef %70, ptr noundef %71, i32 noundef %72)
+  store i32 %73, ptr %14, align 4
+  %74 = load i32, ptr %14, align 4
+  %75 = icmp ugt i32 %74, 0
+  br i1 %75, label %76, label %111
 
-74:                                               ; preds = %67
-  %75 = load ptr, ptr %6, align 8
-  %76 = load i32, ptr %10, align 4
-  %77 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 5), align 8
-  %78 = mul i32 %76, %77
-  %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds float, ptr %75, i64 %79
-  store ptr %80, ptr %15, align 8
-  %81 = getelementptr inbounds [1024 x float], ptr %12, i64 0, i64 0
-  store ptr %81, ptr %16, align 8
-  %82 = load ptr, ptr %9, align 8
-  %83 = getelementptr inbounds %struct.rAudioBuffer, ptr %82, i32 0, i32 2
-  %84 = load ptr, ptr %83, align 8
-  store ptr %84, ptr %17, align 8
-  br label %85
+76:                                               ; preds = %69
+  %77 = load ptr, ptr %6, align 8
+  %78 = load i32, ptr %10, align 4
+  %79 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 5
+  %80 = load i32, ptr %79, align 8
+  %81 = mul i32 %78, %80
+  %82 = zext i32 %81 to i64
+  %83 = getelementptr inbounds float, ptr %77, i64 %82
+  store ptr %83, ptr %15, align 8
+  %84 = getelementptr inbounds [1024 x float], ptr %12, i64 0, i64 0
+  store ptr %84, ptr %16, align 8
+  %85 = load ptr, ptr %9, align 8
+  %86 = getelementptr inbounds %struct.rAudioBuffer, ptr %85, i32 0, i32 2
+  %87 = load ptr, ptr %86, align 8
+  store ptr %87, ptr %17, align 8
+  br label %88
 
-85:                                               ; preds = %88, %74
-  %86 = load ptr, ptr %17, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %88, label %97
-
-88:                                               ; preds = %85
+88:                                               ; preds = %91, %76
   %89 = load ptr, ptr %17, align 8
-  %90 = getelementptr inbounds %struct.rAudioProcessor, ptr %89, i32 0, i32 0
-  %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %16, align 8
-  %93 = load i32, ptr %14, align 4
-  call void %91(ptr noundef %92, i32 noundef %93)
-  %94 = load ptr, ptr %17, align 8
-  %95 = getelementptr inbounds %struct.rAudioProcessor, ptr %94, i32 0, i32 1
-  %96 = load ptr, ptr %95, align 8
-  store ptr %96, ptr %17, align 8
-  br label %85
+  %90 = icmp ne ptr %89, null
+  br i1 %90, label %91, label %100
 
-97:                                               ; preds = %85
-  %98 = load ptr, ptr %15, align 8
-  %99 = load ptr, ptr %16, align 8
-  %100 = load i32, ptr %14, align 4
-  %101 = load ptr, ptr %9, align 8
-  call void @MixAudioFrames(ptr noundef %98, ptr noundef %99, i32 noundef %100, ptr noundef %101)
-  %102 = load i32, ptr %14, align 4
-  %103 = load i32, ptr %11, align 4
-  %104 = sub i32 %103, %102
-  store i32 %104, ptr %11, align 4
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %17, align 8
+  %93 = getelementptr inbounds %struct.rAudioProcessor, ptr %92, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 8
+  %95 = load ptr, ptr %16, align 8
+  %96 = load i32, ptr %14, align 4
+  call void %94(ptr noundef %95, i32 noundef %96)
+  %97 = load ptr, ptr %17, align 8
+  %98 = getelementptr inbounds %struct.rAudioProcessor, ptr %97, i32 0, i32 1
+  %99 = load ptr, ptr %98, align 8
+  store ptr %99, ptr %17, align 8
+  br label %88
+
+100:                                              ; preds = %88
+  %101 = load ptr, ptr %15, align 8
+  %102 = load ptr, ptr %16, align 8
+  %103 = load i32, ptr %14, align 4
+  %104 = load ptr, ptr %9, align 8
+  call void @MixAudioFrames(ptr noundef %101, ptr noundef %102, i32 noundef %103, ptr noundef %104)
   %105 = load i32, ptr %14, align 4
-  %106 = load i32, ptr %10, align 4
-  %107 = add i32 %106, %105
-  store i32 %107, ptr %10, align 4
-  br label %108
+  %106 = load i32, ptr %11, align 4
+  %107 = sub i32 %106, %105
+  store i32 %107, ptr %11, align 4
+  %108 = load i32, ptr %14, align 4
+  %109 = load i32, ptr %10, align 4
+  %110 = add i32 %109, %108
+  store i32 %110, ptr %10, align 4
+  br label %111
 
-108:                                              ; preds = %97, %67
-  %109 = load ptr, ptr %9, align 8
-  %110 = getelementptr inbounds %struct.rAudioBuffer, ptr %109, i32 0, i32 6
-  %111 = load i8, ptr %110, align 4
-  %112 = trunc i8 %111 to i1
-  br i1 %112, label %115, label %113
+111:                                              ; preds = %100, %69
+  %112 = load ptr, ptr %9, align 8
+  %113 = getelementptr inbounds %struct.rAudioBuffer, ptr %112, i32 0, i32 6
+  %114 = load i8, ptr %113, align 4
+  %115 = trunc i8 %114 to i1
+  br i1 %115, label %118, label %116
 
-113:                                              ; preds = %108
-  %114 = load i32, ptr %8, align 4
-  store i32 %114, ptr %10, align 4
-  br label %130
+116:                                              ; preds = %111
+  %117 = load i32, ptr %8, align 4
+  store i32 %117, ptr %10, align 4
+  br label %133
 
-115:                                              ; preds = %108
-  %116 = load i32, ptr %14, align 4
-  %117 = load i32, ptr %13, align 4
-  %118 = icmp ult i32 %116, %117
-  br i1 %118, label %119, label %129
+118:                                              ; preds = %111
+  %119 = load i32, ptr %14, align 4
+  %120 = load i32, ptr %13, align 4
+  %121 = icmp ult i32 %119, %120
+  br i1 %121, label %122, label %132
 
-119:                                              ; preds = %115
-  %120 = load ptr, ptr %9, align 8
-  %121 = getelementptr inbounds %struct.rAudioBuffer, ptr %120, i32 0, i32 8
-  %122 = load i8, ptr %121, align 2
-  %123 = trunc i8 %122 to i1
-  br i1 %123, label %126, label %124
+122:                                              ; preds = %118
+  %123 = load ptr, ptr %9, align 8
+  %124 = getelementptr inbounds %struct.rAudioBuffer, ptr %123, i32 0, i32 8
+  %125 = load i8, ptr %124, align 2
+  %126 = trunc i8 %125 to i1
+  br i1 %126, label %129, label %127
 
-124:                                              ; preds = %119
-  %125 = load ptr, ptr %9, align 8
-  call void @StopAudioBuffer(ptr noundef %125)
-  br label %130
+127:                                              ; preds = %122
+  %128 = load ptr, ptr %9, align 8
+  call void @StopAudioBuffer(ptr noundef %128)
+  br label %133
 
-126:                                              ; preds = %119
-  %127 = load ptr, ptr %9, align 8
-  %128 = getelementptr inbounds %struct.rAudioBuffer, ptr %127, i32 0, i32 12
-  store i32 0, ptr %128, align 4
-  br label %58
+129:                                              ; preds = %122
+  %130 = load ptr, ptr %9, align 8
+  %131 = getelementptr inbounds %struct.rAudioBuffer, ptr %130, i32 0, i32 12
+  store i32 0, ptr %131, align 4
+  br label %60
 
-129:                                              ; preds = %115
-  br label %58
+132:                                              ; preds = %118
+  br label %60
 
-130:                                              ; preds = %124, %113, %58
-  %131 = load i32, ptr %11, align 4
-  %132 = icmp ugt i32 %131, 0
-  br i1 %132, label %133, label %134
+133:                                              ; preds = %127, %116, %60
+  %134 = load i32, ptr %11, align 4
+  %135 = icmp ugt i32 %134, 0
+  br i1 %135, label %136, label %137
 
-133:                                              ; preds = %130
-  br label %135
+136:                                              ; preds = %133
+  br label %138
 
-134:                                              ; preds = %130
-  br label %49
+137:                                              ; preds = %133
+  br label %51
 
-135:                                              ; preds = %133, %53
-  br label %136
+138:                                              ; preds = %136, %55
+  br label %139
 
-136:                                              ; preds = %135, %47
-  %137 = load ptr, ptr %9, align 8
-  %138 = getelementptr inbounds %struct.rAudioBuffer, ptr %137, i32 0, i32 15
-  %139 = load ptr, ptr %138, align 8
-  store ptr %139, ptr %9, align 8
-  br label %34
+139:                                              ; preds = %138, %49
+  %140 = load ptr, ptr %9, align 8
+  %141 = getelementptr inbounds %struct.rAudioBuffer, ptr %140, i32 0, i32 15
+  %142 = load ptr, ptr %141, align 8
+  store ptr %142, ptr %9, align 8
+  br label %36
 
-140:                                              ; preds = %34
-  %141 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 2), align 8
-  store ptr %141, ptr %18, align 8
-  br label %142
+143:                                              ; preds = %36
+  %144 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 2
+  %145 = load ptr, ptr %144, align 8
+  store ptr %145, ptr %18, align 8
+  br label %146
 
-142:                                              ; preds = %145, %140
-  %143 = load ptr, ptr %18, align 8
-  %144 = icmp ne ptr %143, null
-  br i1 %144, label %145, label %154
+146:                                              ; preds = %149, %143
+  %147 = load ptr, ptr %18, align 8
+  %148 = icmp ne ptr %147, null
+  br i1 %148, label %149, label %158
 
-145:                                              ; preds = %142
-  %146 = load ptr, ptr %18, align 8
-  %147 = getelementptr inbounds %struct.rAudioProcessor, ptr %146, i32 0, i32 0
-  %148 = load ptr, ptr %147, align 8
-  %149 = load ptr, ptr %6, align 8
-  %150 = load i32, ptr %8, align 4
-  call void %148(ptr noundef %149, i32 noundef %150)
-  %151 = load ptr, ptr %18, align 8
-  %152 = getelementptr inbounds %struct.rAudioProcessor, ptr %151, i32 0, i32 1
-  %153 = load ptr, ptr %152, align 8
-  store ptr %153, ptr %18, align 8
-  br label %142
+149:                                              ; preds = %146
+  %150 = load ptr, ptr %18, align 8
+  %151 = getelementptr inbounds %struct.rAudioProcessor, ptr %150, i32 0, i32 0
+  %152 = load ptr, ptr %151, align 8
+  %153 = load ptr, ptr %6, align 8
+  %154 = load i32, ptr %8, align 4
+  call void %152(ptr noundef %153, i32 noundef %154)
+  %155 = load ptr, ptr %18, align 8
+  %156 = getelementptr inbounds %struct.rAudioProcessor, ptr %155, i32 0, i32 1
+  %157 = load ptr, ptr %156, align 8
+  store ptr %157, ptr %18, align 8
+  br label %146
 
-154:                                              ; preds = %142
-  call void @ma_mutex_unlock(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
+158:                                              ; preds = %146
+  %159 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_unlock(ptr noundef %159)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @CloseAudioDevice() #0 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 3), align 8
-  %2 = trunc i8 %1 to i1
-  br i1 %2, label %3, label %6
+  %1 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 3
+  %2 = load i8, ptr %1, align 8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %13
 
-3:                                                ; preds = %0
-  call void @ma_mutex_uninit(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
-  call void @ma_device_uninit(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1))
-  %4 = call i32 @ma_context_uninit(ptr noundef @AUDIO)
-  store i8 0, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 3), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 5), align 8
-  call void @free(ptr noundef %5) #16
-  store ptr null, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 5), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 4), align 8
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_uninit(ptr noundef %5)
+  %6 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1
+  call void @ma_device_uninit(ptr noundef %6)
+  %7 = call i32 @ma_context_uninit(ptr noundef @AUDIO)
+  %8 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 3
+  store i8 0, ptr %8, align 8
+  %9 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %10) #15
+  %11 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 5
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 4
+  store i64 0, ptr %12, align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.231)
-  br label %7
+  br label %14
 
-6:                                                ; preds = %0
+13:                                               ; preds = %0
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.232)
-  br label %7
+  br label %14
 
-7:                                                ; preds = %6, %3
+14:                                               ; preds = %13, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @IsAudioDeviceReady() #0 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 3), align 8
-  %2 = trunc i8 %1 to i1
-  ret i1 %2
+  %1 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 3
+  %2 = load i8, ptr %1, align 8
+  %3 = trunc i8 %2 to i1
+  ret i1 %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -132525,7 +132547,8 @@ define void @SetMasterVolume(float noundef %0) #0 {
   %2 = alloca float, align 4
   store float %0, ptr %2, align 4
   %3 = load float, ptr %2, align 4
-  %4 = call i32 @ma_device_set_master_volume(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1), float noundef %3)
+  %4 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1
+  %5 = call i32 @ma_device_set_master_volume(ptr noundef %4, float noundef %3)
   ret void
 }
 
@@ -132533,9 +132556,10 @@ define void @SetMasterVolume(float noundef %0) #0 {
 define float @GetMasterVolume() #0 {
   %1 = alloca float, align 4
   store float 0.000000e+00, ptr %1, align 4
-  %2 = call i32 @ma_device_get_master_volume(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1), ptr noundef %1)
-  %3 = load float, ptr %1, align 4
-  ret float %3
+  %2 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1
+  %3 = call i32 @ma_device_get_master_volume(ptr noundef %2, ptr noundef %1)
+  %4 = load float, ptr %1, align 4
+  ret float %4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -132563,7 +132587,7 @@ define hidden ptr @LoadAudioBuffer(i32 noundef %0, i32 noundef %1, i32 noundef %
 18:                                               ; preds = %5
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.233)
   store ptr null, ptr %6, align 8
-  br label %79
+  br label %80
 
 19:                                               ; preds = %5
   %20 = load i32, ptr %10, align 4
@@ -132588,112 +132612,120 @@ define hidden ptr @LoadAudioBuffer(i32 noundef %0, i32 noundef %1, i32 noundef %
   %34 = load i32, ptr %7, align 4
   %35 = load i32, ptr %8, align 4
   %36 = load i32, ptr %9, align 4
-  %37 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  call void @ma_data_converter_config_init(ptr dead_on_unwind writable sret(%struct.ma_data_converter_config) align 8 %13, i32 noundef %34, i32 noundef 5, i32 noundef %35, i32 noundef 2, i32 noundef %36, i32 noundef %37)
-  %38 = getelementptr inbounds %struct.ma_data_converter_config, ptr %13, i32 0, i32 12
-  store i32 1, ptr %38, align 8
-  %39 = load ptr, ptr %12, align 8
-  %40 = getelementptr inbounds %struct.rAudioBuffer, ptr %39, i32 0, i32 0
-  %41 = call i32 @ma_data_converter_init(ptr noundef %13, ptr noundef null, ptr noundef %40)
-  store i32 %41, ptr %14, align 4
-  %42 = load i32, ptr %14, align 4
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %46
+  %37 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %38 = load i32, ptr %37, align 4
+  call void @ma_data_converter_config_init(ptr dead_on_unwind writable sret(%struct.ma_data_converter_config) align 8 %13, i32 noundef %34, i32 noundef 5, i32 noundef %35, i32 noundef 2, i32 noundef %36, i32 noundef %38)
+  %39 = getelementptr inbounds %struct.ma_data_converter_config, ptr %13, i32 0, i32 12
+  store i32 1, ptr %39, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = getelementptr inbounds %struct.rAudioBuffer, ptr %40, i32 0, i32 0
+  %42 = call i32 @ma_data_converter_init(ptr noundef %13, ptr noundef null, ptr noundef %41)
+  store i32 %42, ptr %14, align 4
+  %43 = load i32, ptr %14, align 4
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %47
 
-44:                                               ; preds = %33
+45:                                               ; preds = %33
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.234)
-  %45 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %45) #16
+  %46 = load ptr, ptr %12, align 8
+  call void @free(ptr noundef %46) #15
   store ptr null, ptr %6, align 8
-  br label %79
+  br label %80
 
-46:                                               ; preds = %33
-  %47 = load ptr, ptr %12, align 8
-  %48 = getelementptr inbounds %struct.rAudioBuffer, ptr %47, i32 0, i32 3
-  store float 1.000000e+00, ptr %48, align 8
-  %49 = load ptr, ptr %12, align 8
-  %50 = getelementptr inbounds %struct.rAudioBuffer, ptr %49, i32 0, i32 4
-  store float 1.000000e+00, ptr %50, align 4
-  %51 = load ptr, ptr %12, align 8
-  %52 = getelementptr inbounds %struct.rAudioBuffer, ptr %51, i32 0, i32 5
-  store float 5.000000e-01, ptr %52, align 8
-  %53 = load ptr, ptr %12, align 8
-  %54 = getelementptr inbounds %struct.rAudioBuffer, ptr %53, i32 0, i32 1
-  store ptr null, ptr %54, align 8
-  %55 = load ptr, ptr %12, align 8
-  %56 = getelementptr inbounds %struct.rAudioBuffer, ptr %55, i32 0, i32 2
-  store ptr null, ptr %56, align 8
-  %57 = load ptr, ptr %12, align 8
-  %58 = getelementptr inbounds %struct.rAudioBuffer, ptr %57, i32 0, i32 6
-  store i8 0, ptr %58, align 4
-  %59 = load ptr, ptr %12, align 8
-  %60 = getelementptr inbounds %struct.rAudioBuffer, ptr %59, i32 0, i32 7
-  store i8 0, ptr %60, align 1
-  %61 = load ptr, ptr %12, align 8
-  %62 = getelementptr inbounds %struct.rAudioBuffer, ptr %61, i32 0, i32 8
-  store i8 0, ptr %62, align 2
-  %63 = load i32, ptr %11, align 4
-  %64 = load ptr, ptr %12, align 8
-  %65 = getelementptr inbounds %struct.rAudioBuffer, ptr %64, i32 0, i32 9
-  store i32 %63, ptr %65, align 8
-  %66 = load ptr, ptr %12, align 8
-  %67 = getelementptr inbounds %struct.rAudioBuffer, ptr %66, i32 0, i32 12
-  store i32 0, ptr %67, align 4
-  %68 = load i32, ptr %10, align 4
-  %69 = load ptr, ptr %12, align 8
-  %70 = getelementptr inbounds %struct.rAudioBuffer, ptr %69, i32 0, i32 11
-  store i32 %68, ptr %70, align 8
-  %71 = load ptr, ptr %12, align 8
-  %72 = getelementptr inbounds %struct.rAudioBuffer, ptr %71, i32 0, i32 10
-  %73 = getelementptr inbounds [2 x i8], ptr %72, i64 0, i64 0
-  store i8 1, ptr %73, align 4
-  %74 = load ptr, ptr %12, align 8
-  %75 = getelementptr inbounds %struct.rAudioBuffer, ptr %74, i32 0, i32 10
-  %76 = getelementptr inbounds [2 x i8], ptr %75, i64 0, i64 1
-  store i8 1, ptr %76, align 1
-  %77 = load ptr, ptr %12, align 8
-  call void @TrackAudioBuffer(ptr noundef %77)
+47:                                               ; preds = %33
+  %48 = load ptr, ptr %12, align 8
+  %49 = getelementptr inbounds %struct.rAudioBuffer, ptr %48, i32 0, i32 3
+  store float 1.000000e+00, ptr %49, align 8
+  %50 = load ptr, ptr %12, align 8
+  %51 = getelementptr inbounds %struct.rAudioBuffer, ptr %50, i32 0, i32 4
+  store float 1.000000e+00, ptr %51, align 4
+  %52 = load ptr, ptr %12, align 8
+  %53 = getelementptr inbounds %struct.rAudioBuffer, ptr %52, i32 0, i32 5
+  store float 5.000000e-01, ptr %53, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = getelementptr inbounds %struct.rAudioBuffer, ptr %54, i32 0, i32 1
+  store ptr null, ptr %55, align 8
+  %56 = load ptr, ptr %12, align 8
+  %57 = getelementptr inbounds %struct.rAudioBuffer, ptr %56, i32 0, i32 2
+  store ptr null, ptr %57, align 8
+  %58 = load ptr, ptr %12, align 8
+  %59 = getelementptr inbounds %struct.rAudioBuffer, ptr %58, i32 0, i32 6
+  store i8 0, ptr %59, align 4
+  %60 = load ptr, ptr %12, align 8
+  %61 = getelementptr inbounds %struct.rAudioBuffer, ptr %60, i32 0, i32 7
+  store i8 0, ptr %61, align 1
+  %62 = load ptr, ptr %12, align 8
+  %63 = getelementptr inbounds %struct.rAudioBuffer, ptr %62, i32 0, i32 8
+  store i8 0, ptr %63, align 2
+  %64 = load i32, ptr %11, align 4
+  %65 = load ptr, ptr %12, align 8
+  %66 = getelementptr inbounds %struct.rAudioBuffer, ptr %65, i32 0, i32 9
+  store i32 %64, ptr %66, align 8
+  %67 = load ptr, ptr %12, align 8
+  %68 = getelementptr inbounds %struct.rAudioBuffer, ptr %67, i32 0, i32 12
+  store i32 0, ptr %68, align 4
+  %69 = load i32, ptr %10, align 4
+  %70 = load ptr, ptr %12, align 8
+  %71 = getelementptr inbounds %struct.rAudioBuffer, ptr %70, i32 0, i32 11
+  store i32 %69, ptr %71, align 8
+  %72 = load ptr, ptr %12, align 8
+  %73 = getelementptr inbounds %struct.rAudioBuffer, ptr %72, i32 0, i32 10
+  %74 = getelementptr inbounds [2 x i8], ptr %73, i64 0, i64 0
+  store i8 1, ptr %74, align 4
+  %75 = load ptr, ptr %12, align 8
+  %76 = getelementptr inbounds %struct.rAudioBuffer, ptr %75, i32 0, i32 10
+  %77 = getelementptr inbounds [2 x i8], ptr %76, i64 0, i64 1
+  store i8 1, ptr %77, align 1
   %78 = load ptr, ptr %12, align 8
-  store ptr %78, ptr %6, align 8
-  br label %79
+  call void @TrackAudioBuffer(ptr noundef %78)
+  %79 = load ptr, ptr %12, align 8
+  store ptr %79, ptr %6, align 8
+  br label %80
 
-79:                                               ; preds = %46, %44, %18
-  %80 = load ptr, ptr %6, align 8
-  ret ptr %80
+80:                                               ; preds = %47, %45, %18
+  %81 = load ptr, ptr %6, align 8
+  ret ptr %81
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #14
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #13
 
 ; Function Attrs: nounwind uwtable
 define hidden void @TrackAudioBuffer(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  call void @ma_mutex_lock(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
-  %3 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 1), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %7
-
-5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
-  store ptr %6, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 1), align 8
-  br label %14
+  %3 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_lock(ptr noundef %3)
+  %4 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 1, i32 1), align 8
-  %10 = getelementptr inbounds %struct.rAudioBuffer, ptr %9, i32 0, i32 15
-  store ptr %8, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 1, i32 1), align 8
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.rAudioBuffer, ptr %12, i32 0, i32 16
-  store ptr %11, ptr %13, align 8
-  br label %14
+  %9 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 1
+  store ptr %8, ptr %9, align 8
+  br label %19
 
-14:                                               ; preds = %7, %5
-  %15 = load ptr, ptr %2, align 8
-  store ptr %15, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 1, i32 1), align 8
-  call void @ma_mutex_unlock(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 1, i32 1
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds %struct.rAudioBuffer, ptr %13, i32 0, i32 15
+  store ptr %11, ptr %14, align 8
+  %15 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 1, i32 1
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.rAudioBuffer, ptr %17, i32 0, i32 16
+  store ptr %16, ptr %18, align 8
+  br label %19
+
+19:                                               ; preds = %10, %7
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 1, i32 1
+  store ptr %20, ptr %21, align 8
+  %22 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_unlock(ptr noundef %22)
   ret void
 }
 
@@ -132714,9 +132746,9 @@ define hidden void @UnloadAudioBuffer(ptr noundef %0) #0 {
   %9 = load ptr, ptr %2, align 8
   %10 = getelementptr inbounds %struct.rAudioBuffer, ptr %9, i32 0, i32 14
   %11 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %11) #16
+  call void @free(ptr noundef %11) #15
   %12 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %12) #16
+  call void @free(ptr noundef %12) #15
   br label %13
 
 13:                                               ; preds = %5, %1
@@ -132727,64 +132759,68 @@ define hidden void @UnloadAudioBuffer(ptr noundef %0) #0 {
 define hidden void @UntrackAudioBuffer(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  call void @ma_mutex_lock(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.rAudioBuffer, ptr %3, i32 0, i32 16
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %11
+  %3 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_lock(ptr noundef %3)
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds %struct.rAudioBuffer, ptr %4, i32 0, i32 16
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %13
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.rAudioBuffer, ptr %8, i32 0, i32 15
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 1), align 8
-  br label %19
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds %struct.rAudioBuffer, ptr %9, i32 0, i32 15
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 1
+  store ptr %11, ptr %12, align 8
+  br label %21
 
-11:                                               ; preds = %1
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.rAudioBuffer, ptr %12, i32 0, i32 15
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.rAudioBuffer, ptr %15, i32 0, i32 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.rAudioBuffer, ptr %17, i32 0, i32 15
-  store ptr %14, ptr %18, align 8
-  br label %19
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.rAudioBuffer, ptr %14, i32 0, i32 15
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.rAudioBuffer, ptr %17, i32 0, i32 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.rAudioBuffer, ptr %19, i32 0, i32 15
+  store ptr %16, ptr %20, align 8
+  br label %21
 
-19:                                               ; preds = %11, %7
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.rAudioBuffer, ptr %20, i32 0, i32 15
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %28
+21:                                               ; preds = %13, %8
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds %struct.rAudioBuffer, ptr %22, i32 0, i32 15
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %31
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.rAudioBuffer, ptr %25, i32 0, i32 16
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 1, i32 1), align 8
-  br label %36
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds %struct.rAudioBuffer, ptr %27, i32 0, i32 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 1, i32 1
+  store ptr %29, ptr %30, align 8
+  br label %39
 
-28:                                               ; preds = %19
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.rAudioBuffer, ptr %29, i32 0, i32 16
-  %31 = load ptr, ptr %30, align 8
+31:                                               ; preds = %21
   %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.rAudioBuffer, ptr %32, i32 0, i32 15
+  %33 = getelementptr inbounds %struct.rAudioBuffer, ptr %32, i32 0, i32 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.rAudioBuffer, ptr %34, i32 0, i32 16
-  store ptr %31, ptr %35, align 8
-  br label %36
-
-36:                                               ; preds = %28, %24
-  %37 = load ptr, ptr %2, align 8
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds %struct.rAudioBuffer, ptr %35, i32 0, i32 15
+  %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds %struct.rAudioBuffer, ptr %37, i32 0, i32 16
-  store ptr null, ptr %38, align 8
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.rAudioBuffer, ptr %39, i32 0, i32 15
-  store ptr null, ptr %40, align 8
-  call void @ma_mutex_unlock(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
+  store ptr %34, ptr %38, align 8
+  br label %39
+
+39:                                               ; preds = %31, %26
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds %struct.rAudioBuffer, ptr %40, i32 0, i32 16
+  store ptr null, ptr %41, align 8
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds %struct.rAudioBuffer, ptr %42, i32 0, i32 15
+  store ptr null, ptr %43, align 8
+  %44 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_unlock(ptr noundef %44)
   ret void
 }
 
@@ -133062,7 +133098,7 @@ define void @LoadWave(ptr dead_on_unwind noalias writable sret(%struct.Wave) ali
 
 16:                                               ; preds = %11, %2
   %17 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %17) #16
+  call void @free(ptr noundef %17) #15
   ret void
 }
 
@@ -133405,7 +133441,7 @@ define void @LoadSoundFromWave(ptr dead_on_unwind noalias writable sret(%struct.
   %7 = getelementptr inbounds %struct.Wave, ptr %1, i32 0, i32 4
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %78
+  br i1 %9, label %10, label %82
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds %struct.Wave, ptr %1, i32 0, i32 2
@@ -133429,89 +133465,93 @@ define void @LoadSoundFromWave(ptr dead_on_unwind noalias writable sret(%struct.
   %22 = getelementptr inbounds %struct.Wave, ptr %1, i32 0, i32 0
   %23 = load i32, ptr %22, align 8
   store i32 %23, ptr %4, align 4
-  %24 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  %25 = load i32, ptr %4, align 4
-  %26 = zext i32 %25 to i64
-  %27 = load i32, ptr %3, align 4
-  %28 = getelementptr inbounds %struct.Wave, ptr %1, i32 0, i32 3
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds %struct.Wave, ptr %1, i32 0, i32 1
-  %31 = load i32, ptr %30, align 4
-  %32 = call i64 @ma_convert_frames(ptr noundef null, i64 noundef 0, i32 noundef 5, i32 noundef 2, i32 noundef %24, ptr noundef null, i64 noundef %26, i32 noundef %27, i32 noundef %29, i32 noundef %31)
-  %33 = trunc i64 %32 to i32
-  store i32 %33, ptr %5, align 4
-  %34 = load i32, ptr %5, align 4
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %37
+  %24 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %25 = load i32, ptr %24, align 4
+  %26 = load i32, ptr %4, align 4
+  %27 = zext i32 %26 to i64
+  %28 = load i32, ptr %3, align 4
+  %29 = getelementptr inbounds %struct.Wave, ptr %1, i32 0, i32 3
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds %struct.Wave, ptr %1, i32 0, i32 1
+  %32 = load i32, ptr %31, align 4
+  %33 = call i64 @ma_convert_frames(ptr noundef null, i64 noundef 0, i32 noundef 5, i32 noundef 2, i32 noundef %25, ptr noundef null, i64 noundef %27, i32 noundef %28, i32 noundef %30, i32 noundef %32)
+  %34 = trunc i64 %33 to i32
+  store i32 %34, ptr %5, align 4
+  %35 = load i32, ptr %5, align 4
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %38
 
-36:                                               ; preds = %20
+37:                                               ; preds = %20
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.249)
-  br label %37
+  br label %38
 
-37:                                               ; preds = %36, %20
-  %38 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  %39 = load i32, ptr %5, align 4
-  %40 = call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef 2, i32 noundef %38, i32 noundef %39, i32 noundef 0)
-  store ptr %40, ptr %6, align 8
-  %41 = load ptr, ptr %6, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %44
+38:                                               ; preds = %37, %20
+  %39 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %40 = load i32, ptr %39, align 4
+  %41 = load i32, ptr %5, align 4
+  %42 = call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef 2, i32 noundef %40, i32 noundef %41, i32 noundef 0)
+  store ptr %42, ptr %6, align 8
+  %43 = load ptr, ptr %6, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %46
 
-43:                                               ; preds = %37
+45:                                               ; preds = %38
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.250)
-  br label %79
+  br label %83
 
-44:                                               ; preds = %37
-  %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct.rAudioBuffer, ptr %45, i32 0, i32 14
-  %47 = load ptr, ptr %46, align 8
-  %48 = load i32, ptr %5, align 4
-  %49 = zext i32 %48 to i64
-  %50 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  %51 = getelementptr inbounds %struct.Wave, ptr %1, i32 0, i32 4
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr %4, align 4
-  %54 = zext i32 %53 to i64
-  %55 = load i32, ptr %3, align 4
-  %56 = getelementptr inbounds %struct.Wave, ptr %1, i32 0, i32 3
-  %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds %struct.Wave, ptr %1, i32 0, i32 1
-  %59 = load i32, ptr %58, align 4
-  %60 = call i64 @ma_convert_frames(ptr noundef %47, i64 noundef %49, i32 noundef 5, i32 noundef 2, i32 noundef %50, ptr noundef %52, i64 noundef %54, i32 noundef %55, i32 noundef %57, i32 noundef %59)
-  %61 = trunc i64 %60 to i32
-  store i32 %61, ptr %5, align 4
-  %62 = load i32, ptr %5, align 4
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %65
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %6, align 8
+  %48 = getelementptr inbounds %struct.rAudioBuffer, ptr %47, i32 0, i32 14
+  %49 = load ptr, ptr %48, align 8
+  %50 = load i32, ptr %5, align 4
+  %51 = zext i32 %50 to i64
+  %52 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %53 = load i32, ptr %52, align 4
+  %54 = getelementptr inbounds %struct.Wave, ptr %1, i32 0, i32 4
+  %55 = load ptr, ptr %54, align 8
+  %56 = load i32, ptr %4, align 4
+  %57 = zext i32 %56 to i64
+  %58 = load i32, ptr %3, align 4
+  %59 = getelementptr inbounds %struct.Wave, ptr %1, i32 0, i32 3
+  %60 = load i32, ptr %59, align 4
+  %61 = getelementptr inbounds %struct.Wave, ptr %1, i32 0, i32 1
+  %62 = load i32, ptr %61, align 4
+  %63 = call i64 @ma_convert_frames(ptr noundef %49, i64 noundef %51, i32 noundef 5, i32 noundef 2, i32 noundef %53, ptr noundef %55, i64 noundef %57, i32 noundef %58, i32 noundef %60, i32 noundef %62)
+  %64 = trunc i64 %63 to i32
+  store i32 %64, ptr %5, align 4
+  %65 = load i32, ptr %5, align 4
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %68
 
-64:                                               ; preds = %44
+67:                                               ; preds = %46
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.251)
-  br label %65
+  br label %68
 
-65:                                               ; preds = %64, %44
-  %66 = load i32, ptr %5, align 4
-  %67 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 1
-  store i32 %66, ptr %67, align 8
-  %68 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  %69 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 0
-  %70 = getelementptr inbounds %struct.AudioStream, ptr %69, i32 0, i32 2
-  store i32 %68, ptr %70, align 8
-  %71 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 0
-  %72 = getelementptr inbounds %struct.AudioStream, ptr %71, i32 0, i32 3
-  store i32 32, ptr %72, align 4
+68:                                               ; preds = %67, %46
+  %69 = load i32, ptr %5, align 4
+  %70 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 1
+  store i32 %69, ptr %70, align 8
+  %71 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %72 = load i32, ptr %71, align 4
   %73 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 0
-  %74 = getelementptr inbounds %struct.AudioStream, ptr %73, i32 0, i32 4
-  store i32 2, ptr %74, align 8
-  %75 = load ptr, ptr %6, align 8
-  %76 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 0
-  %77 = getelementptr inbounds %struct.AudioStream, ptr %76, i32 0, i32 0
-  store ptr %75, ptr %77, align 8
-  br label %78
+  %74 = getelementptr inbounds %struct.AudioStream, ptr %73, i32 0, i32 2
+  store i32 %72, ptr %74, align 8
+  %75 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 0
+  %76 = getelementptr inbounds %struct.AudioStream, ptr %75, i32 0, i32 3
+  store i32 32, ptr %76, align 4
+  %77 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 0
+  %78 = getelementptr inbounds %struct.AudioStream, ptr %77, i32 0, i32 4
+  store i32 2, ptr %78, align 8
+  %79 = load ptr, ptr %6, align 8
+  %80 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 0
+  %81 = getelementptr inbounds %struct.AudioStream, ptr %80, i32 0, i32 0
+  store ptr %79, ptr %81, align 8
+  br label %82
 
-78:                                               ; preds = %65, %2
-  br label %79
+82:                                               ; preds = %68, %2
+  br label %83
 
-79:                                               ; preds = %78, %43
+83:                                               ; preds = %82, %45
   ret void
 }
 
@@ -133519,7 +133559,7 @@ define void @LoadSoundFromWave(ptr dead_on_unwind noalias writable sret(%struct.
 define void @UnloadWave(ptr noundef byval(%struct.Wave) align 8 %0) #0 {
   %2 = getelementptr inbounds %struct.Wave, ptr %0, i32 0, i32 4
   %3 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %3) #16
+  call void @free(ptr noundef %3) #15
   ret void
 }
 
@@ -133533,69 +133573,71 @@ define void @LoadSoundAlias(ptr dead_on_unwind noalias writable sret(%struct.Sou
   %7 = getelementptr inbounds %struct.rAudioBuffer, ptr %6, i32 0, i32 14
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %51
+  br i1 %9, label %10, label %53
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  %12 = call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef 2, i32 noundef %11, i32 noundef 0, i32 noundef 0)
-  store ptr %12, ptr %3, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %10
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.250)
-  br label %52
+  %11 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %12 = load i32, ptr %11, align 4
+  %13 = call ptr @LoadAudioBuffer(i32 noundef 5, i32 noundef 2, i32 noundef %12, i32 noundef 0, i32 noundef 0)
+  store ptr %13, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds %struct.Sound, ptr %1, i32 0, i32 0
-  %18 = getelementptr inbounds %struct.AudioStream, ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.rAudioBuffer, ptr %19, i32 0, i32 11
-  %21 = load i32, ptr %20, align 8
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.rAudioBuffer, ptr %22, i32 0, i32 11
-  store i32 %21, ptr %23, align 8
-  %24 = getelementptr inbounds %struct.Sound, ptr %1, i32 0, i32 0
-  %25 = getelementptr inbounds %struct.AudioStream, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.rAudioBuffer, ptr %26, i32 0, i32 3
-  %28 = load float, ptr %27, align 8
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.rAudioBuffer, ptr %29, i32 0, i32 3
-  store float %28, ptr %30, align 8
-  %31 = getelementptr inbounds %struct.Sound, ptr %1, i32 0, i32 0
-  %32 = getelementptr inbounds %struct.AudioStream, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.rAudioBuffer, ptr %33, i32 0, i32 14
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.rAudioBuffer, ptr %36, i32 0, i32 14
-  store ptr %35, ptr %37, align 8
-  %38 = getelementptr inbounds %struct.Sound, ptr %1, i32 0, i32 1
-  %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 1
-  store i32 %39, ptr %40, align 8
-  %41 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  %42 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 0
-  %43 = getelementptr inbounds %struct.AudioStream, ptr %42, i32 0, i32 2
-  store i32 %41, ptr %43, align 8
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.250)
+  br label %54
+
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds %struct.Sound, ptr %1, i32 0, i32 0
+  %19 = getelementptr inbounds %struct.AudioStream, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.rAudioBuffer, ptr %20, i32 0, i32 11
+  %22 = load i32, ptr %21, align 8
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds %struct.rAudioBuffer, ptr %23, i32 0, i32 11
+  store i32 %22, ptr %24, align 8
+  %25 = getelementptr inbounds %struct.Sound, ptr %1, i32 0, i32 0
+  %26 = getelementptr inbounds %struct.AudioStream, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds %struct.rAudioBuffer, ptr %27, i32 0, i32 3
+  %29 = load float, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds %struct.rAudioBuffer, ptr %30, i32 0, i32 3
+  store float %29, ptr %31, align 8
+  %32 = getelementptr inbounds %struct.Sound, ptr %1, i32 0, i32 0
+  %33 = getelementptr inbounds %struct.AudioStream, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds %struct.rAudioBuffer, ptr %34, i32 0, i32 14
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds %struct.rAudioBuffer, ptr %37, i32 0, i32 14
+  store ptr %36, ptr %38, align 8
+  %39 = getelementptr inbounds %struct.Sound, ptr %1, i32 0, i32 1
+  %40 = load i32, ptr %39, align 8
+  %41 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 1
+  store i32 %40, ptr %41, align 8
+  %42 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %43 = load i32, ptr %42, align 4
   %44 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 0
-  %45 = getelementptr inbounds %struct.AudioStream, ptr %44, i32 0, i32 3
-  store i32 32, ptr %45, align 4
+  %45 = getelementptr inbounds %struct.AudioStream, ptr %44, i32 0, i32 2
+  store i32 %43, ptr %45, align 8
   %46 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 0
-  %47 = getelementptr inbounds %struct.AudioStream, ptr %46, i32 0, i32 4
-  store i32 2, ptr %47, align 8
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 0
-  %50 = getelementptr inbounds %struct.AudioStream, ptr %49, i32 0, i32 0
-  store ptr %48, ptr %50, align 8
-  br label %51
+  %47 = getelementptr inbounds %struct.AudioStream, ptr %46, i32 0, i32 3
+  store i32 32, ptr %47, align 4
+  %48 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 0
+  %49 = getelementptr inbounds %struct.AudioStream, ptr %48, i32 0, i32 4
+  store i32 2, ptr %49, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 0
+  %52 = getelementptr inbounds %struct.AudioStream, ptr %51, i32 0, i32 0
+  store ptr %50, ptr %52, align 8
+  br label %53
 
-51:                                               ; preds = %16, %2
-  br label %52
+53:                                               ; preds = %17, %2
+  br label %54
 
-52:                                               ; preds = %51, %15
+54:                                               ; preds = %53, %16
   ret void
 }
 
@@ -133669,7 +133711,7 @@ define void @UnloadSoundAlias(ptr noundef byval(%struct.Sound) align 8 %0) #0 {
   %14 = getelementptr inbounds %struct.Sound, ptr %0, i32 0, i32 0
   %15 = getelementptr inbounds %struct.AudioStream, ptr %14, i32 0, i32 0
   %16 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %16) #16
+  call void @free(ptr noundef %16) #15
   br label %17
 
 17:                                               ; preds = %6, %1
@@ -133960,7 +134002,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %27 = load i32, ptr %7, align 4
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %26, i64 %28
-  %30 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %29, ptr noundef @.str.256) #16
+  %30 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %29, ptr noundef @.str.256) #15
   %31 = load i32, ptr %7, align 4
   %32 = add nsw i32 %31, %30
   store i32 %32, ptr %7, align 4
@@ -133968,7 +134010,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %34 = load i32, ptr %7, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %33, i64 %35
-  %37 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %36, ptr noundef @.str.257) #16
+  %37 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %36, ptr noundef @.str.257) #15
   %38 = load i32, ptr %7, align 4
   %39 = add nsw i32 %38, %37
   store i32 %39, ptr %7, align 4
@@ -133976,7 +134018,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %41 = load i32, ptr %7, align 4
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr %40, i64 %42
-  %44 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %43, ptr noundef @.str.258) #16
+  %44 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %43, ptr noundef @.str.258) #15
   %45 = load i32, ptr %7, align 4
   %46 = add nsw i32 %45, %44
   store i32 %46, ptr %7, align 4
@@ -133984,7 +134026,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %48 = load i32, ptr %7, align 4
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %47, i64 %49
-  %51 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %50, ptr noundef @.str.257) #16
+  %51 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %50, ptr noundef @.str.257) #15
   %52 = load i32, ptr %7, align 4
   %53 = add nsw i32 %52, %51
   store i32 %53, ptr %7, align 4
@@ -133992,7 +134034,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %55 = load i32, ptr %7, align 4
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %54, i64 %56
-  %58 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %57, ptr noundef @.str.259) #16
+  %58 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %57, ptr noundef @.str.259) #15
   %59 = load i32, ptr %7, align 4
   %60 = add nsw i32 %59, %58
   store i32 %60, ptr %7, align 4
@@ -134000,7 +134042,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %62 = load i32, ptr %7, align 4
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i8, ptr %61, i64 %63
-  %65 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %64, ptr noundef @.str.260) #16
+  %65 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %64, ptr noundef @.str.260) #15
   %66 = load i32, ptr %7, align 4
   %67 = add nsw i32 %66, %65
   store i32 %67, ptr %7, align 4
@@ -134008,7 +134050,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %69 = load i32, ptr %7, align 4
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %68, i64 %70
-  %72 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %71, ptr noundef @.str.257) #16
+  %72 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %71, ptr noundef @.str.257) #15
   %73 = load i32, ptr %7, align 4
   %74 = add nsw i32 %73, %72
   store i32 %74, ptr %7, align 4
@@ -134016,7 +134058,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %76 = load i32, ptr %7, align 4
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i8, ptr %75, i64 %77
-  %79 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %78, ptr noundef @.str.261) #16
+  %79 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %78, ptr noundef @.str.261) #15
   %80 = load i32, ptr %7, align 4
   %81 = add nsw i32 %80, %79
   store i32 %81, ptr %7, align 4
@@ -134024,7 +134066,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %83 = load i32, ptr %7, align 4
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i8, ptr %82, i64 %84
-  %86 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %85, ptr noundef @.str.257) #16
+  %86 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %85, ptr noundef @.str.257) #15
   %87 = load i32, ptr %7, align 4
   %88 = add nsw i32 %87, %86
   store i32 %88, ptr %7, align 4
@@ -134032,7 +134074,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %90 = load i32, ptr %7, align 4
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i8, ptr %89, i64 %91
-  %93 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %92, ptr noundef @.str.262) #16
+  %93 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %92, ptr noundef @.str.262) #15
   %94 = load i32, ptr %7, align 4
   %95 = add nsw i32 %94, %93
   store i32 %95, ptr %7, align 4
@@ -134040,7 +134082,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %96 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
   %97 = load ptr, ptr %3, align 8
   %98 = call ptr @GetFileNameWithoutExt(ptr noundef %97)
-  %99 = call ptr @strcpy(ptr noundef %96, ptr noundef %98) #16
+  %99 = call ptr @strcpy(ptr noundef %96, ptr noundef %98) #15
   store i32 0, ptr %9, align 4
   br label %100
 
@@ -134099,7 +134141,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %138 = load i32, ptr %7, align 4
   %139 = sext i32 %138 to i64
   %140 = getelementptr inbounds i8, ptr %137, i64 %139
-  %141 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %140, ptr noundef @.str.263) #16
+  %141 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %140, ptr noundef @.str.263) #15
   %142 = load i32, ptr %7, align 4
   %143 = add nsw i32 %142, %141
   store i32 %143, ptr %7, align 4
@@ -134110,7 +134152,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %148 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
   %149 = getelementptr inbounds %struct.Wave, ptr %0, i32 0, i32 0
   %150 = load i32, ptr %149, align 8
-  %151 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %147, ptr noundef @.str.264, ptr noundef %148, i32 noundef %150) #16
+  %151 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %147, ptr noundef @.str.264, ptr noundef %148, i32 noundef %150) #15
   %152 = load i32, ptr %7, align 4
   %153 = add nsw i32 %152, %151
   store i32 %153, ptr %7, align 4
@@ -134121,7 +134163,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %158 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
   %159 = getelementptr inbounds %struct.Wave, ptr %0, i32 0, i32 1
   %160 = load i32, ptr %159, align 4
-  %161 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %157, ptr noundef @.str.265, ptr noundef %158, i32 noundef %160) #16
+  %161 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %157, ptr noundef @.str.265, ptr noundef %158, i32 noundef %160) #15
   %162 = load i32, ptr %7, align 4
   %163 = add nsw i32 %162, %161
   store i32 %163, ptr %7, align 4
@@ -134132,7 +134174,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %168 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
   %169 = getelementptr inbounds %struct.Wave, ptr %0, i32 0, i32 2
   %170 = load i32, ptr %169, align 8
-  %171 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %167, ptr noundef @.str.266, ptr noundef %168, i32 noundef %170) #16
+  %171 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %167, ptr noundef @.str.266, ptr noundef %168, i32 noundef %170) #15
   %172 = load i32, ptr %7, align 4
   %173 = add nsw i32 %172, %171
   store i32 %173, ptr %7, align 4
@@ -134143,7 +134185,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %178 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
   %179 = getelementptr inbounds %struct.Wave, ptr %0, i32 0, i32 3
   %180 = load i32, ptr %179, align 4
-  %181 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %177, ptr noundef @.str.267, ptr noundef %178, i32 noundef %180) #16
+  %181 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %177, ptr noundef @.str.267, ptr noundef %178, i32 noundef %180) #15
   %182 = load i32, ptr %7, align 4
   %183 = add nsw i32 %182, %181
   store i32 %183, ptr %7, align 4
@@ -134160,7 +134202,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %192 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
   %193 = load i32, ptr %5, align 4
   %194 = sdiv i32 %193, 4
-  %195 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %191, ptr noundef @.str.268, ptr noundef %192, i32 noundef %194) #16
+  %195 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %191, ptr noundef @.str.268, ptr noundef %192, i32 noundef %194) #15
   %196 = load i32, ptr %7, align 4
   %197 = add nsw i32 %196, %195
   store i32 %197, ptr %7, align 4
@@ -134191,7 +134233,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %217 = getelementptr inbounds float, ptr %213, i64 %216
   %218 = load float, ptr %217, align 4
   %219 = fpext float %218 to double
-  %220 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %207, ptr noundef %211, double noundef %219) #16
+  %220 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %207, ptr noundef %211, double noundef %219) #15
   %221 = load i32, ptr %7, align 4
   %222 = add nsw i32 %221, %220
   store i32 %222, ptr %7, align 4
@@ -134217,7 +134259,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %237 = getelementptr inbounds float, ptr %232, i64 %236
   %238 = load float, ptr %237, align 4
   %239 = fpext float %238 to double
-  %240 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %230, ptr noundef @.str.271, double noundef %239) #16
+  %240 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %230, ptr noundef @.str.271, double noundef %239) #15
   %241 = load i32, ptr %7, align 4
   %242 = add nsw i32 %241, %240
   store i32 %242, ptr %7, align 4
@@ -134230,7 +134272,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %247 = getelementptr inbounds i8, ptr %244, i64 %246
   %248 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
   %249 = load i32, ptr %5, align 4
-  %250 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %247, ptr noundef @.str.272, ptr noundef %248, i32 noundef %249) #16
+  %250 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %247, ptr noundef @.str.272, ptr noundef %248, i32 noundef %249) #15
   %251 = load i32, ptr %7, align 4
   %252 = add nsw i32 %251, %250
   store i32 %252, ptr %7, align 4
@@ -134260,7 +134302,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %271 = getelementptr inbounds i8, ptr %267, i64 %270
   %272 = load i8, ptr %271, align 1
   %273 = zext i8 %272 to i32
-  %274 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %261, ptr noundef %265, i32 noundef %273) #16
+  %274 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %261, ptr noundef %265, i32 noundef %273) #15
   %275 = load i32, ptr %7, align 4
   %276 = add nsw i32 %275, %274
   store i32 %276, ptr %7, align 4
@@ -134285,7 +134327,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %290 = getelementptr inbounds i8, ptr %286, i64 %289
   %291 = load i8, ptr %290, align 1
   %292 = zext i8 %291 to i32
-  %293 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %284, ptr noundef @.str.275, i32 noundef %292) #16
+  %293 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %284, ptr noundef @.str.275, i32 noundef %292) #15
   %294 = load i32, ptr %7, align 4
   %295 = add nsw i32 %294, %293
   store i32 %295, ptr %7, align 4
@@ -134298,7 +134340,7 @@ define zeroext i1 @ExportWaveAsCode(ptr noundef byval(%struct.Wave) align 8 %0, 
   %300 = zext i1 %299 to i8
   store i8 %300, ptr %4, align 1
   %301 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %301) #16
+  call void @free(ptr noundef %301) #15
   %302 = load i8, ptr %4, align 1
   %303 = trunc i8 %302 to i1
   %304 = zext i1 %303 to i32
@@ -134549,7 +134591,7 @@ define void @WaveFormat(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noun
   %101 = load ptr, ptr %5, align 8
   %102 = getelementptr inbounds %struct.Wave, ptr %101, i32 0, i32 4
   %103 = load ptr, ptr %102, align 8
-  call void @free(ptr noundef %103) #16
+  call void @free(ptr noundef %103) #15
   %104 = load ptr, ptr %13, align 8
   %105 = load ptr, ptr %5, align 8
   %106 = getelementptr inbounds %struct.Wave, ptr %105, i32 0, i32 4
@@ -134692,7 +134734,7 @@ define void @WaveCrop(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %60 = load ptr, ptr %4, align 8
   %61 = getelementptr inbounds %struct.Wave, ptr %60, i32 0, i32 4
   %62 = load ptr, ptr %61, align 8
-  call void @free(ptr noundef %62) #16
+  call void @free(ptr noundef %62) #15
   %63 = load ptr, ptr %8, align 8
   %64 = load ptr, ptr %4, align 8
   %65 = getelementptr inbounds %struct.Wave, ptr %64, i32 0, i32 4
@@ -134824,7 +134866,7 @@ define void @UnloadWaveSamples(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %3) #16
+  call void @free(ptr noundef %3) #15
   ret void
 }
 
@@ -134916,7 +134958,7 @@ define void @LoadMusicStream(ptr dead_on_unwind noalias writable sret(%struct.Mu
   br label %64
 
 64:                                               ; preds = %48, %25
-  br label %203
+  br label %206
 
 65:                                               ; preds = %2
   %66 = load ptr, ptr %3, align 8
@@ -134957,7 +134999,7 @@ define void @LoadMusicStream(ptr dead_on_unwind noalias writable sret(%struct.Mu
   br label %89
 
 89:                                               ; preds = %76, %68
-  br label %202
+  br label %205
 
 90:                                               ; preds = %65
   %91 = load ptr, ptr %3, align 8
@@ -135001,7 +135043,7 @@ define void @LoadMusicStream(ptr dead_on_unwind noalias writable sret(%struct.Mu
   br label %116
 
 116:                                              ; preds = %103, %93
-  br label %201
+  br label %204
 
 117:                                              ; preds = %90
   %118 = load ptr, ptr %3, align 8
@@ -135047,259 +135089,262 @@ define void @LoadMusicStream(ptr dead_on_unwind noalias writable sret(%struct.Mu
   br label %146
 
 146:                                              ; preds = %130, %120
-  br label %200
+  br label %203
 
 147:                                              ; preds = %117
   %148 = load ptr, ptr %3, align 8
   %149 = call zeroext i1 @IsFileExtension(ptr noundef %148, ptr noundef @.str.281)
-  br i1 %149, label %150, label %171
+  br i1 %149, label %150, label %173
 
 150:                                              ; preds = %147
   store ptr null, ptr %16, align 8
-  %151 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  %152 = load ptr, ptr %3, align 8
-  %153 = call i32 @jar_xm_create_context_from_file(ptr noundef %16, i32 noundef %151, ptr noundef %152)
-  store i32 %153, ptr %17, align 4
-  %154 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  store i32 6, ptr %154, align 8
-  %155 = load ptr, ptr %16, align 8
-  %156 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  store ptr %155, ptr %156, align 8
-  %157 = load i32, ptr %17, align 4
-  %158 = icmp eq i32 %157, 0
-  br i1 %158, label %159, label %170
+  %151 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %152 = load i32, ptr %151, align 4
+  %153 = load ptr, ptr %3, align 8
+  %154 = call i32 @jar_xm_create_context_from_file(ptr noundef %16, i32 noundef %152, ptr noundef %153)
+  store i32 %154, ptr %17, align 4
+  %155 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  store i32 6, ptr %155, align 8
+  %156 = load ptr, ptr %16, align 8
+  %157 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  store ptr %156, ptr %157, align 8
+  %158 = load i32, ptr %17, align 4
+  %159 = icmp eq i32 %158, 0
+  br i1 %159, label %160, label %172
 
-159:                                              ; preds = %150
-  %160 = load ptr, ptr %16, align 8
-  call void @jar_xm_set_max_loop_count(ptr noundef %160, i8 noundef zeroext 0)
+160:                                              ; preds = %150
+  %161 = load ptr, ptr %16, align 8
+  call void @jar_xm_set_max_loop_count(ptr noundef %161, i8 noundef zeroext 0)
   store i32 32, ptr %18, align 4
-  %161 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %162 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  %163 = load i32, ptr %18, align 4
-  call void @LoadAudioStream(ptr dead_on_unwind writable sret(%struct.AudioStream) align 8 %19, i32 noundef %162, i32 noundef %163, i32 noundef 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %161, ptr align 8 %19, i64 32, i1 false)
-  %164 = load ptr, ptr %16, align 8
-  %165 = call i64 @jar_xm_get_remaining_samples(ptr noundef %164)
-  %166 = trunc i64 %165 to i32
-  %167 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
-  store i32 %166, ptr %167, align 8
-  %168 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 2
-  store i8 1, ptr %168, align 4
-  %169 = load ptr, ptr %16, align 8
-  call void @jar_xm_reset(ptr noundef %169)
+  %162 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %163 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %164 = load i32, ptr %163, align 4
+  %165 = load i32, ptr %18, align 4
+  call void @LoadAudioStream(ptr dead_on_unwind writable sret(%struct.AudioStream) align 8 %19, i32 noundef %164, i32 noundef %165, i32 noundef 2)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %162, ptr align 8 %19, i64 32, i1 false)
+  %166 = load ptr, ptr %16, align 8
+  %167 = call i64 @jar_xm_get_remaining_samples(ptr noundef %166)
+  %168 = trunc i64 %167 to i32
+  %169 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
+  store i32 %168, ptr %169, align 8
+  %170 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 2
+  store i8 1, ptr %170, align 4
+  %171 = load ptr, ptr %16, align 8
+  call void @jar_xm_reset(ptr noundef %171)
   store i8 1, ptr %4, align 1
-  br label %170
+  br label %172
 
-170:                                              ; preds = %159, %150
-  br label %199
-
-171:                                              ; preds = %147
-  %172 = load ptr, ptr %3, align 8
-  %173 = call zeroext i1 @IsFileExtension(ptr noundef %172, ptr noundef @.str.282)
-  br i1 %173, label %174, label %196
-
-174:                                              ; preds = %171
-  %175 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 7072) #26
-  store ptr %175, ptr %20, align 8
-  %176 = load ptr, ptr %20, align 8
-  %177 = call zeroext i1 @jar_mod_init(ptr noundef %176)
-  %178 = load ptr, ptr %20, align 8
-  %179 = load ptr, ptr %3, align 8
-  %180 = call i64 @jar_mod_load_file(ptr noundef %178, ptr noundef %179)
-  %181 = trunc i64 %180 to i32
-  store i32 %181, ptr %21, align 4
-  %182 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  store i32 7, ptr %182, align 8
-  %183 = load ptr, ptr %20, align 8
-  %184 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  store ptr %183, ptr %184, align 8
-  %185 = load i32, ptr %21, align 4
-  %186 = icmp sgt i32 %185, 0
-  br i1 %186, label %187, label %195
-
-187:                                              ; preds = %174
-  %188 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %189 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  call void @LoadAudioStream(ptr dead_on_unwind writable sret(%struct.AudioStream) align 8 %22, i32 noundef %189, i32 noundef 16, i32 noundef 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %188, ptr align 8 %22, i64 32, i1 false)
-  %190 = load ptr, ptr %20, align 8
-  %191 = call i64 @jar_mod_max_samples(ptr noundef %190)
-  %192 = trunc i64 %191 to i32
-  %193 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
-  store i32 %192, ptr %193, align 8
-  %194 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 2
-  store i8 1, ptr %194, align 4
-  store i8 1, ptr %4, align 1
-  br label %195
-
-195:                                              ; preds = %187, %174
-  br label %198
-
-196:                                              ; preds = %171
-  %197 = load ptr, ptr %3, align 8
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.283, ptr noundef %197)
-  br label %198
-
-198:                                              ; preds = %196, %195
-  br label %199
-
-199:                                              ; preds = %198, %170
-  br label %200
-
-200:                                              ; preds = %199, %146
-  br label %201
-
-201:                                              ; preds = %200, %116
+172:                                              ; preds = %160, %150
   br label %202
 
-202:                                              ; preds = %201, %89
+173:                                              ; preds = %147
+  %174 = load ptr, ptr %3, align 8
+  %175 = call zeroext i1 @IsFileExtension(ptr noundef %174, ptr noundef @.str.282)
+  br i1 %175, label %176, label %199
+
+176:                                              ; preds = %173
+  %177 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 7072) #26
+  store ptr %177, ptr %20, align 8
+  %178 = load ptr, ptr %20, align 8
+  %179 = call zeroext i1 @jar_mod_init(ptr noundef %178)
+  %180 = load ptr, ptr %20, align 8
+  %181 = load ptr, ptr %3, align 8
+  %182 = call i64 @jar_mod_load_file(ptr noundef %180, ptr noundef %181)
+  %183 = trunc i64 %182 to i32
+  store i32 %183, ptr %21, align 4
+  %184 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  store i32 7, ptr %184, align 8
+  %185 = load ptr, ptr %20, align 8
+  %186 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  store ptr %185, ptr %186, align 8
+  %187 = load i32, ptr %21, align 4
+  %188 = icmp sgt i32 %187, 0
+  br i1 %188, label %189, label %198
+
+189:                                              ; preds = %176
+  %190 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %191 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %192 = load i32, ptr %191, align 4
+  call void @LoadAudioStream(ptr dead_on_unwind writable sret(%struct.AudioStream) align 8 %22, i32 noundef %192, i32 noundef 16, i32 noundef 2)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %190, ptr align 8 %22, i64 32, i1 false)
+  %193 = load ptr, ptr %20, align 8
+  %194 = call i64 @jar_mod_max_samples(ptr noundef %193)
+  %195 = trunc i64 %194 to i32
+  %196 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
+  store i32 %195, ptr %196, align 8
+  %197 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 2
+  store i8 1, ptr %197, align 4
+  store i8 1, ptr %4, align 1
+  br label %198
+
+198:                                              ; preds = %189, %176
+  br label %201
+
+199:                                              ; preds = %173
+  %200 = load ptr, ptr %3, align 8
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.283, ptr noundef %200)
+  br label %201
+
+201:                                              ; preds = %199, %198
+  br label %202
+
+202:                                              ; preds = %201, %172
   br label %203
 
-203:                                              ; preds = %202, %64
-  %204 = load i8, ptr %4, align 1
-  %205 = trunc i8 %204 to i1
-  br i1 %205, label %261, label %206
+203:                                              ; preds = %202, %146
+  br label %204
 
-206:                                              ; preds = %203
-  %207 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  %208 = load i32, ptr %207, align 8
-  %209 = icmp eq i32 %208, 1
-  br i1 %209, label %210, label %214
+204:                                              ; preds = %203, %116
+  br label %205
 
-210:                                              ; preds = %206
-  %211 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %212 = load ptr, ptr %211, align 8
-  %213 = call i32 @drwav_uninit(ptr noundef %212)
+205:                                              ; preds = %204, %89
+  br label %206
+
+206:                                              ; preds = %205, %64
+  %207 = load i8, ptr %4, align 1
+  %208 = trunc i8 %207 to i1
+  br i1 %208, label %264, label %209
+
+209:                                              ; preds = %206
+  %210 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  %211 = load i32, ptr %210, align 8
+  %212 = icmp eq i32 %211, 1
+  br i1 %212, label %213, label %217
+
+213:                                              ; preds = %209
+  %214 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %215 = load ptr, ptr %214, align 8
+  %216 = call i32 @drwav_uninit(ptr noundef %215)
+  br label %261
+
+217:                                              ; preds = %209
+  %218 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  %219 = load i32, ptr %218, align 8
+  %220 = icmp eq i32 %219, 2
+  br i1 %220, label %221, label %224
+
+221:                                              ; preds = %217
+  %222 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %223 = load ptr, ptr %222, align 8
+  call void @stb_vorbis_close(ptr noundef %223)
+  br label %260
+
+224:                                              ; preds = %217
+  %225 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  %226 = load i32, ptr %225, align 8
+  %227 = icmp eq i32 %226, 4
+  br i1 %227, label %228, label %233
+
+228:                                              ; preds = %224
+  %229 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %230 = load ptr, ptr %229, align 8
+  call void @drmp3_uninit(ptr noundef %230)
+  %231 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %232 = load ptr, ptr %231, align 8
+  call void @free(ptr noundef %232) #15
+  br label %259
+
+233:                                              ; preds = %224
+  %234 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  %235 = load i32, ptr %234, align 8
+  %236 = icmp eq i32 %235, 5
+  br i1 %236, label %237, label %240
+
+237:                                              ; preds = %233
+  %238 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %239 = load ptr, ptr %238, align 8
+  call void @qoaplay_close(ptr noundef %239)
   br label %258
 
-214:                                              ; preds = %206
-  %215 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  %216 = load i32, ptr %215, align 8
-  %217 = icmp eq i32 %216, 2
-  br i1 %217, label %218, label %221
+240:                                              ; preds = %233
+  %241 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  %242 = load i32, ptr %241, align 8
+  %243 = icmp eq i32 %242, 6
+  br i1 %243, label %244, label %247
 
-218:                                              ; preds = %214
-  %219 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %220 = load ptr, ptr %219, align 8
-  call void @stb_vorbis_close(ptr noundef %220)
+244:                                              ; preds = %240
+  %245 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %246 = load ptr, ptr %245, align 8
+  call void @jar_xm_free_context(ptr noundef %246)
   br label %257
 
-221:                                              ; preds = %214
-  %222 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  %223 = load i32, ptr %222, align 8
-  %224 = icmp eq i32 %223, 4
-  br i1 %224, label %225, label %230
+247:                                              ; preds = %240
+  %248 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  %249 = load i32, ptr %248, align 8
+  %250 = icmp eq i32 %249, 7
+  br i1 %250, label %251, label %256
 
-225:                                              ; preds = %221
-  %226 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %227 = load ptr, ptr %226, align 8
-  call void @drmp3_uninit(ptr noundef %227)
-  %228 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %229 = load ptr, ptr %228, align 8
-  call void @free(ptr noundef %229) #16
+251:                                              ; preds = %247
+  %252 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %253 = load ptr, ptr %252, align 8
+  call void @jar_mod_unload(ptr noundef %253)
+  %254 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %255 = load ptr, ptr %254, align 8
+  call void @free(ptr noundef %255) #15
   br label %256
 
-230:                                              ; preds = %221
-  %231 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  %232 = load i32, ptr %231, align 8
-  %233 = icmp eq i32 %232, 5
-  br i1 %233, label %234, label %237
-
-234:                                              ; preds = %230
-  %235 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %236 = load ptr, ptr %235, align 8
-  call void @qoaplay_close(ptr noundef %236)
-  br label %255
-
-237:                                              ; preds = %230
-  %238 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  %239 = load i32, ptr %238, align 8
-  %240 = icmp eq i32 %239, 6
-  br i1 %240, label %241, label %244
-
-241:                                              ; preds = %237
-  %242 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %243 = load ptr, ptr %242, align 8
-  call void @jar_xm_free_context(ptr noundef %243)
-  br label %254
-
-244:                                              ; preds = %237
-  %245 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  %246 = load i32, ptr %245, align 8
-  %247 = icmp eq i32 %246, 7
-  br i1 %247, label %248, label %253
-
-248:                                              ; preds = %244
-  %249 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %250 = load ptr, ptr %249, align 8
-  call void @jar_mod_unload(ptr noundef %250)
-  %251 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %252 = load ptr, ptr %251, align 8
-  call void @free(ptr noundef %252) #16
-  br label %253
-
-253:                                              ; preds = %248, %244
-  br label %254
-
-254:                                              ; preds = %253, %241
-  br label %255
-
-255:                                              ; preds = %254, %234
-  br label %256
-
-256:                                              ; preds = %255, %225
+256:                                              ; preds = %251, %247
   br label %257
 
-257:                                              ; preds = %256, %218
+257:                                              ; preds = %256, %244
   br label %258
 
-258:                                              ; preds = %257, %210
-  %259 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  store ptr null, ptr %259, align 8
-  %260 = load ptr, ptr %3, align 8
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.284, ptr noundef %260)
-  br label %287
+258:                                              ; preds = %257, %237
+  br label %259
 
-261:                                              ; preds = %203
-  %262 = load ptr, ptr %3, align 8
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.285, ptr noundef %262)
-  %263 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %264 = getelementptr inbounds %struct.AudioStream, ptr %263, i32 0, i32 2
-  %265 = load i32, ptr %264, align 8
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.286, i32 noundef %265)
+259:                                              ; preds = %258, %228
+  br label %260
+
+260:                                              ; preds = %259, %221
+  br label %261
+
+261:                                              ; preds = %260, %213
+  %262 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  store ptr null, ptr %262, align 8
+  %263 = load ptr, ptr %3, align 8
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.284, ptr noundef %263)
+  br label %290
+
+264:                                              ; preds = %206
+  %265 = load ptr, ptr %3, align 8
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.285, ptr noundef %265)
   %266 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %267 = getelementptr inbounds %struct.AudioStream, ptr %266, i32 0, i32 3
-  %268 = load i32, ptr %267, align 4
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.287, i32 noundef %268)
+  %267 = getelementptr inbounds %struct.AudioStream, ptr %266, i32 0, i32 2
+  %268 = load i32, ptr %267, align 8
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.286, i32 noundef %268)
   %269 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %270 = getelementptr inbounds %struct.AudioStream, ptr %269, i32 0, i32 4
-  %271 = load i32, ptr %270, align 8
+  %270 = getelementptr inbounds %struct.AudioStream, ptr %269, i32 0, i32 3
+  %271 = load i32, ptr %270, align 4
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.287, i32 noundef %271)
   %272 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
   %273 = getelementptr inbounds %struct.AudioStream, ptr %272, i32 0, i32 4
   %274 = load i32, ptr %273, align 8
-  %275 = icmp eq i32 %274, 1
-  br i1 %275, label %276, label %277
+  %275 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %276 = getelementptr inbounds %struct.AudioStream, ptr %275, i32 0, i32 4
+  %277 = load i32, ptr %276, align 8
+  %278 = icmp eq i32 %277, 1
+  br i1 %278, label %279, label %280
 
-276:                                              ; preds = %261
-  br label %283
+279:                                              ; preds = %264
+  br label %286
 
-277:                                              ; preds = %261
-  %278 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %279 = getelementptr inbounds %struct.AudioStream, ptr %278, i32 0, i32 4
-  %280 = load i32, ptr %279, align 8
-  %281 = icmp eq i32 %280, 2
-  %282 = select i1 %281, ptr @.str.290, ptr @.str.291
-  br label %283
+280:                                              ; preds = %264
+  %281 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %282 = getelementptr inbounds %struct.AudioStream, ptr %281, i32 0, i32 4
+  %283 = load i32, ptr %282, align 8
+  %284 = icmp eq i32 %283, 2
+  %285 = select i1 %284, ptr @.str.290, ptr @.str.291
+  br label %286
 
-283:                                              ; preds = %277, %276
-  %284 = phi ptr [ @.str.289, %276 ], [ %282, %277 ]
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.288, i32 noundef %271, ptr noundef %284)
-  %285 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
-  %286 = load i32, ptr %285, align 8
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.292, i32 noundef %286)
-  br label %287
+286:                                              ; preds = %280, %279
+  %287 = phi ptr [ @.str.289, %279 ], [ %285, %280 ]
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.288, i32 noundef %274, ptr noundef %287)
+  %288 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
+  %289 = load i32, ptr %288, align 8
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.292, i32 noundef %289)
+  br label %290
 
-287:                                              ; preds = %283, %258
+290:                                              ; preds = %286, %261
   ret void
 }
 
@@ -135342,71 +135387,75 @@ define void @LoadAudioStream(ptr dead_on_unwind noalias writable sret(%struct.Au
 26:                                               ; preds = %21, %20
   %27 = phi i32 [ 1, %20 ], [ %25, %21 ]
   store i32 %27, ptr %8, align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 11), align 8
-  store i32 %28, ptr %9, align 4
-  %29 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 1, i32 2), align 8
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %34
+  %28 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %9, align 4
+  %30 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 1, i32 2
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %37
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  %33 = udiv i32 %32, 30
-  br label %36
+33:                                               ; preds = %26
+  %34 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %35 = load i32, ptr %34, align 4
+  %36 = udiv i32 %35, 30
+  br label %40
 
-34:                                               ; preds = %26
-  %35 = load i32, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 1, i32 2), align 8
-  br label %36
+37:                                               ; preds = %26
+  %38 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 1, i32 2
+  %39 = load i32, ptr %38, align 8
+  br label %40
 
-36:                                               ; preds = %34, %31
-  %37 = phi i32 [ %33, %31 ], [ %35, %34 ]
-  store i32 %37, ptr %10, align 4
-  %38 = load i32, ptr %10, align 4
-  %39 = load i32, ptr %9, align 4
-  %40 = icmp ult i32 %38, %39
-  br i1 %40, label %41, label %43
+40:                                               ; preds = %37, %33
+  %41 = phi i32 [ %36, %33 ], [ %39, %37 ]
+  store i32 %41, ptr %10, align 4
+  %42 = load i32, ptr %10, align 4
+  %43 = load i32, ptr %9, align 4
+  %44 = icmp ult i32 %42, %43
+  br i1 %44, label %45, label %47
 
-41:                                               ; preds = %36
-  %42 = load i32, ptr %9, align 4
-  store i32 %42, ptr %10, align 4
-  br label %43
+45:                                               ; preds = %40
+  %46 = load i32, ptr %9, align 4
+  store i32 %46, ptr %10, align 4
+  br label %47
 
-43:                                               ; preds = %41, %36
-  %44 = load i32, ptr %8, align 4
-  %45 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 4
-  %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 2
-  %48 = load i32, ptr %47, align 8
-  %49 = load i32, ptr %10, align 4
-  %50 = mul i32 %49, 2
-  %51 = call ptr @LoadAudioBuffer(i32 noundef %44, i32 noundef %46, i32 noundef %48, i32 noundef %50, i32 noundef 1)
-  %52 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
-  store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp ne ptr %54, null
-  br i1 %55, label %56, label %68
-
-56:                                               ; preds = %43
+47:                                               ; preds = %45, %40
+  %48 = load i32, ptr %8, align 4
+  %49 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 4
+  %50 = load i32, ptr %49, align 8
+  %51 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 2
+  %52 = load i32, ptr %51, align 8
+  %53 = load i32, ptr %10, align 4
+  %54 = mul i32 %53, 2
+  %55 = call ptr @LoadAudioBuffer(i32 noundef %48, i32 noundef %50, i32 noundef %52, i32 noundef %54, i32 noundef 1)
+  %56 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
+  store ptr %55, ptr %56, align 8
   %57 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct.rAudioBuffer, ptr %58, i32 0, i32 8
-  store i8 1, ptr %59, align 2
-  %60 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 2
-  %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 3
-  %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 4
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %72
+
+60:                                               ; preds = %47
+  %61 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds %struct.rAudioBuffer, ptr %62, i32 0, i32 8
+  store i8 1, ptr %63, align 2
+  %64 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 2
   %65 = load i32, ptr %64, align 8
-  %66 = icmp eq i32 %65, 1
-  %67 = select i1 %66, ptr @.str.289, ptr @.str.290
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.298, i32 noundef %61, i32 noundef %63, ptr noundef %67)
-  br label %69
+  %66 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 3
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 4
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp eq i32 %69, 1
+  %71 = select i1 %70, ptr @.str.289, ptr @.str.290
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.298, i32 noundef %65, i32 noundef %67, ptr noundef %71)
+  br label %73
 
-68:                                               ; preds = %43
+72:                                               ; preds = %47
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.299)
-  br label %69
+  br label %73
 
-69:                                               ; preds = %68, %56
+73:                                               ; preds = %72, %60
   ret void
 }
 
@@ -135514,7 +135563,7 @@ define void @LoadMusicStreamFromMemory(ptr dead_on_unwind noalias writable sret(
   br label %78
 
 78:                                               ; preds = %62, %37
-  br label %296
+  br label %299
 
 79:                                               ; preds = %33
   %80 = load ptr, ptr %5, align 8
@@ -135563,7 +135612,7 @@ define void @LoadMusicStreamFromMemory(ptr dead_on_unwind noalias writable sret(
   br label %109
 
 109:                                              ; preds = %96, %87
-  br label %295
+  br label %298
 
 110:                                              ; preds = %83
   %111 = load ptr, ptr %5, align 8
@@ -135616,7 +135665,7 @@ define void @LoadMusicStreamFromMemory(ptr dead_on_unwind noalias writable sret(
   br label %143
 
 143:                                              ; preds = %130, %118
-  br label %294
+  br label %297
 
 144:                                              ; preds = %114
   %145 = load ptr, ptr %5, align 8
@@ -135677,7 +135726,7 @@ define void @LoadMusicStreamFromMemory(ptr dead_on_unwind noalias writable sret(
   br label %184
 
 184:                                              ; preds = %168, %163, %152
-  br label %293
+  br label %296
 
 185:                                              ; preds = %148
   %186 = load ptr, ptr %5, align 8
@@ -135689,331 +135738,334 @@ define void @LoadMusicStreamFromMemory(ptr dead_on_unwind noalias writable sret(
   %190 = load ptr, ptr %5, align 8
   %191 = call i32 @strcmp(ptr noundef %190, ptr noundef @.str.293) #21
   %192 = icmp eq i32 %191, 0
-  br i1 %192, label %193, label %216
+  br i1 %192, label %193, label %218
 
 193:                                              ; preds = %189, %185
   store ptr null, ptr %20, align 8
   %194 = load ptr, ptr %6, align 8
   %195 = load i32, ptr %7, align 4
   %196 = sext i32 %195 to i64
-  %197 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  %198 = call i32 @jar_xm_create_context_safe(ptr noundef %20, ptr noundef %194, i64 noundef %196, i32 noundef %197)
-  store i32 %198, ptr %21, align 4
-  %199 = load i32, ptr %21, align 4
-  %200 = icmp eq i32 %199, 0
-  br i1 %200, label %201, label %215
+  %197 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %198 = load i32, ptr %197, align 4
+  %199 = call i32 @jar_xm_create_context_safe(ptr noundef %20, ptr noundef %194, i64 noundef %196, i32 noundef %198)
+  store i32 %199, ptr %21, align 4
+  %200 = load i32, ptr %21, align 4
+  %201 = icmp eq i32 %200, 0
+  br i1 %201, label %202, label %217
 
-201:                                              ; preds = %193
-  %202 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  store i32 6, ptr %202, align 8
-  %203 = load ptr, ptr %20, align 8
-  call void @jar_xm_set_max_loop_count(ptr noundef %203, i8 noundef zeroext 0)
+202:                                              ; preds = %193
+  %203 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  store i32 6, ptr %203, align 8
+  %204 = load ptr, ptr %20, align 8
+  call void @jar_xm_set_max_loop_count(ptr noundef %204, i8 noundef zeroext 0)
   store i32 32, ptr %22, align 4
-  %204 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %205 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  %206 = load i32, ptr %22, align 4
-  call void @LoadAudioStream(ptr dead_on_unwind writable sret(%struct.AudioStream) align 8 %23, i32 noundef %205, i32 noundef %206, i32 noundef 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %204, ptr align 8 %23, i64 32, i1 false)
-  %207 = load ptr, ptr %20, align 8
-  %208 = call i64 @jar_xm_get_remaining_samples(ptr noundef %207)
-  %209 = trunc i64 %208 to i32
-  %210 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
-  store i32 %209, ptr %210, align 8
-  %211 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 2
-  store i8 1, ptr %211, align 4
-  %212 = load ptr, ptr %20, align 8
-  call void @jar_xm_reset(ptr noundef %212)
-  %213 = load ptr, ptr %20, align 8
-  %214 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  store ptr %213, ptr %214, align 8
+  %205 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %206 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %207 = load i32, ptr %206, align 4
+  %208 = load i32, ptr %22, align 4
+  call void @LoadAudioStream(ptr dead_on_unwind writable sret(%struct.AudioStream) align 8 %23, i32 noundef %207, i32 noundef %208, i32 noundef 2)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %205, ptr align 8 %23, i64 32, i1 false)
+  %209 = load ptr, ptr %20, align 8
+  %210 = call i64 @jar_xm_get_remaining_samples(ptr noundef %209)
+  %211 = trunc i64 %210 to i32
+  %212 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
+  store i32 %211, ptr %212, align 8
+  %213 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 2
+  store i8 1, ptr %213, align 4
+  %214 = load ptr, ptr %20, align 8
+  call void @jar_xm_reset(ptr noundef %214)
+  %215 = load ptr, ptr %20, align 8
+  %216 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  store ptr %215, ptr %216, align 8
   store i8 1, ptr %8, align 1
-  br label %215
+  br label %217
 
-215:                                              ; preds = %201, %193
-  br label %292
-
-216:                                              ; preds = %189
-  %217 = load ptr, ptr %5, align 8
-  %218 = call i32 @strcmp(ptr noundef %217, ptr noundef @.str.282) #21
-  %219 = icmp eq i32 %218, 0
-  br i1 %219, label %224, label %220
-
-220:                                              ; preds = %216
-  %221 = load ptr, ptr %5, align 8
-  %222 = call i32 @strcmp(ptr noundef %221, ptr noundef @.str.294) #21
-  %223 = icmp eq i32 %222, 0
-  br i1 %223, label %224, label %290
-
-224:                                              ; preds = %220, %216
-  %225 = call noalias ptr @malloc(i64 noundef 7072) #23
-  store ptr %225, ptr %24, align 8
-  store i32 0, ptr %25, align 4
-  %226 = load ptr, ptr %24, align 8
-  %227 = call zeroext i1 @jar_mod_init(ptr noundef %226)
-  %228 = load i32, ptr %7, align 4
-  %229 = sext i32 %228 to i64
-  %230 = call noalias ptr @malloc(i64 noundef %229) #23
-  store ptr %230, ptr %26, align 8
-  %231 = load i32, ptr %7, align 4
-  %232 = sext i32 %231 to i64
-  %233 = udiv i64 %232, 1
-  %234 = trunc i64 %233 to i32
-  store i32 %234, ptr %27, align 4
-  store i32 0, ptr %28, align 4
-  br label %235
-
-235:                                              ; preds = %249, %224
-  %236 = load i32, ptr %28, align 4
-  %237 = load i32, ptr %27, align 4
-  %238 = icmp slt i32 %236, %237
-  br i1 %238, label %239, label %252
-
-239:                                              ; preds = %235
-  %240 = load ptr, ptr %6, align 8
-  %241 = load i32, ptr %28, align 4
-  %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds i8, ptr %240, i64 %242
-  %244 = load i8, ptr %243, align 1
-  %245 = load ptr, ptr %26, align 8
-  %246 = load i32, ptr %28, align 4
-  %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds i8, ptr %245, i64 %247
-  store i8 %244, ptr %248, align 1
-  br label %249
-
-249:                                              ; preds = %239
-  %250 = load i32, ptr %28, align 4
-  %251 = add nsw i32 %250, 1
-  store i32 %251, ptr %28, align 4
-  br label %235
-
-252:                                              ; preds = %235
-  %253 = load i32, ptr %7, align 4
-  %254 = icmp ne i32 %253, 0
-  br i1 %254, label %255, label %275
-
-255:                                              ; preds = %252
-  %256 = load i32, ptr %7, align 4
-  %257 = icmp slt i32 %256, 33554432
-  br i1 %257, label %258, label %275
-
-258:                                              ; preds = %255
-  %259 = load i32, ptr %7, align 4
-  %260 = sext i32 %259 to i64
-  %261 = load ptr, ptr %24, align 8
-  %262 = getelementptr inbounds %struct.jar_mod_context_t, ptr %261, i32 0, i32 25
-  store i64 %260, ptr %262, align 8
-  %263 = load ptr, ptr %26, align 8
-  %264 = load ptr, ptr %24, align 8
-  %265 = getelementptr inbounds %struct.jar_mod_context_t, ptr %264, i32 0, i32 24
-  store ptr %263, ptr %265, align 8
-  %266 = load ptr, ptr %24, align 8
-  %267 = load ptr, ptr %24, align 8
-  %268 = getelementptr inbounds %struct.jar_mod_context_t, ptr %267, i32 0, i32 24
-  %269 = load ptr, ptr %268, align 8
-  %270 = load i32, ptr %7, align 4
-  %271 = call zeroext i1 @jar_mod_load(ptr noundef %266, ptr noundef %269, i32 noundef %270)
-  br i1 %271, label %272, label %274
-
-272:                                              ; preds = %258
-  %273 = load i32, ptr %7, align 4
-  store i32 %273, ptr %25, align 4
-  br label %274
-
-274:                                              ; preds = %272, %258
-  br label %275
-
-275:                                              ; preds = %274, %255, %252
-  %276 = load i32, ptr %25, align 4
-  %277 = icmp sgt i32 %276, 0
-  br i1 %277, label %278, label %289
-
-278:                                              ; preds = %275
-  %279 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  store i32 7, ptr %279, align 8
-  %280 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %281 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2), align 4
-  call void @LoadAudioStream(ptr dead_on_unwind writable sret(%struct.AudioStream) align 8 %29, i32 noundef %281, i32 noundef 16, i32 noundef 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %280, ptr align 8 %29, i64 32, i1 false)
-  %282 = load ptr, ptr %24, align 8
-  %283 = call i64 @jar_mod_max_samples(ptr noundef %282)
-  %284 = trunc i64 %283 to i32
-  %285 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
-  store i32 %284, ptr %285, align 8
-  %286 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 2
-  store i8 1, ptr %286, align 4
-  store i8 1, ptr %8, align 1
-  %287 = load ptr, ptr %24, align 8
-  %288 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  store ptr %287, ptr %288, align 8
-  store i8 1, ptr %8, align 1
-  br label %289
-
-289:                                              ; preds = %278, %275
-  br label %291
-
-290:                                              ; preds = %220
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.295)
-  br label %291
-
-291:                                              ; preds = %290, %289
-  br label %292
-
-292:                                              ; preds = %291, %215
-  br label %293
-
-293:                                              ; preds = %292, %184
-  br label %294
-
-294:                                              ; preds = %293, %143
+217:                                              ; preds = %202, %193
   br label %295
 
-295:                                              ; preds = %294, %109
+218:                                              ; preds = %189
+  %219 = load ptr, ptr %5, align 8
+  %220 = call i32 @strcmp(ptr noundef %219, ptr noundef @.str.282) #21
+  %221 = icmp eq i32 %220, 0
+  br i1 %221, label %226, label %222
+
+222:                                              ; preds = %218
+  %223 = load ptr, ptr %5, align 8
+  %224 = call i32 @strcmp(ptr noundef %223, ptr noundef @.str.294) #21
+  %225 = icmp eq i32 %224, 0
+  br i1 %225, label %226, label %293
+
+226:                                              ; preds = %222, %218
+  %227 = call noalias ptr @malloc(i64 noundef 7072) #23
+  store ptr %227, ptr %24, align 8
+  store i32 0, ptr %25, align 4
+  %228 = load ptr, ptr %24, align 8
+  %229 = call zeroext i1 @jar_mod_init(ptr noundef %228)
+  %230 = load i32, ptr %7, align 4
+  %231 = sext i32 %230 to i64
+  %232 = call noalias ptr @malloc(i64 noundef %231) #23
+  store ptr %232, ptr %26, align 8
+  %233 = load i32, ptr %7, align 4
+  %234 = sext i32 %233 to i64
+  %235 = udiv i64 %234, 1
+  %236 = trunc i64 %235 to i32
+  store i32 %236, ptr %27, align 4
+  store i32 0, ptr %28, align 4
+  br label %237
+
+237:                                              ; preds = %251, %226
+  %238 = load i32, ptr %28, align 4
+  %239 = load i32, ptr %27, align 4
+  %240 = icmp slt i32 %238, %239
+  br i1 %240, label %241, label %254
+
+241:                                              ; preds = %237
+  %242 = load ptr, ptr %6, align 8
+  %243 = load i32, ptr %28, align 4
+  %244 = sext i32 %243 to i64
+  %245 = getelementptr inbounds i8, ptr %242, i64 %244
+  %246 = load i8, ptr %245, align 1
+  %247 = load ptr, ptr %26, align 8
+  %248 = load i32, ptr %28, align 4
+  %249 = sext i32 %248 to i64
+  %250 = getelementptr inbounds i8, ptr %247, i64 %249
+  store i8 %246, ptr %250, align 1
+  br label %251
+
+251:                                              ; preds = %241
+  %252 = load i32, ptr %28, align 4
+  %253 = add nsw i32 %252, 1
+  store i32 %253, ptr %28, align 4
+  br label %237
+
+254:                                              ; preds = %237
+  %255 = load i32, ptr %7, align 4
+  %256 = icmp ne i32 %255, 0
+  br i1 %256, label %257, label %277
+
+257:                                              ; preds = %254
+  %258 = load i32, ptr %7, align 4
+  %259 = icmp slt i32 %258, 33554432
+  br i1 %259, label %260, label %277
+
+260:                                              ; preds = %257
+  %261 = load i32, ptr %7, align 4
+  %262 = sext i32 %261 to i64
+  %263 = load ptr, ptr %24, align 8
+  %264 = getelementptr inbounds %struct.jar_mod_context_t, ptr %263, i32 0, i32 25
+  store i64 %262, ptr %264, align 8
+  %265 = load ptr, ptr %26, align 8
+  %266 = load ptr, ptr %24, align 8
+  %267 = getelementptr inbounds %struct.jar_mod_context_t, ptr %266, i32 0, i32 24
+  store ptr %265, ptr %267, align 8
+  %268 = load ptr, ptr %24, align 8
+  %269 = load ptr, ptr %24, align 8
+  %270 = getelementptr inbounds %struct.jar_mod_context_t, ptr %269, i32 0, i32 24
+  %271 = load ptr, ptr %270, align 8
+  %272 = load i32, ptr %7, align 4
+  %273 = call zeroext i1 @jar_mod_load(ptr noundef %268, ptr noundef %271, i32 noundef %272)
+  br i1 %273, label %274, label %276
+
+274:                                              ; preds = %260
+  %275 = load i32, ptr %7, align 4
+  store i32 %275, ptr %25, align 4
+  br label %276
+
+276:                                              ; preds = %274, %260
+  br label %277
+
+277:                                              ; preds = %276, %257, %254
+  %278 = load i32, ptr %25, align 4
+  %279 = icmp sgt i32 %278, 0
+  br i1 %279, label %280, label %292
+
+280:                                              ; preds = %277
+  %281 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  store i32 7, ptr %281, align 8
+  %282 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %283 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 2
+  %284 = load i32, ptr %283, align 4
+  call void @LoadAudioStream(ptr dead_on_unwind writable sret(%struct.AudioStream) align 8 %29, i32 noundef %284, i32 noundef 16, i32 noundef 2)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %282, ptr align 8 %29, i64 32, i1 false)
+  %285 = load ptr, ptr %24, align 8
+  %286 = call i64 @jar_mod_max_samples(ptr noundef %285)
+  %287 = trunc i64 %286 to i32
+  %288 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
+  store i32 %287, ptr %288, align 8
+  %289 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 2
+  store i8 1, ptr %289, align 4
+  store i8 1, ptr %8, align 1
+  %290 = load ptr, ptr %24, align 8
+  %291 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  store ptr %290, ptr %291, align 8
+  store i8 1, ptr %8, align 1
+  br label %292
+
+292:                                              ; preds = %280, %277
+  br label %294
+
+293:                                              ; preds = %222
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.295)
+  br label %294
+
+294:                                              ; preds = %293, %292
+  br label %295
+
+295:                                              ; preds = %294, %217
   br label %296
 
-296:                                              ; preds = %295, %78
-  %297 = load i8, ptr %8, align 1
-  %298 = trunc i8 %297 to i1
-  br i1 %298, label %353, label %299
+296:                                              ; preds = %295, %184
+  br label %297
 
-299:                                              ; preds = %296
-  %300 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  %301 = load i32, ptr %300, align 8
-  %302 = icmp eq i32 %301, 1
-  br i1 %302, label %303, label %307
+297:                                              ; preds = %296, %143
+  br label %298
 
-303:                                              ; preds = %299
-  %304 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %305 = load ptr, ptr %304, align 8
-  %306 = call i32 @drwav_uninit(ptr noundef %305)
+298:                                              ; preds = %297, %109
+  br label %299
+
+299:                                              ; preds = %298, %78
+  %300 = load i8, ptr %8, align 1
+  %301 = trunc i8 %300 to i1
+  br i1 %301, label %356, label %302
+
+302:                                              ; preds = %299
+  %303 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  %304 = load i32, ptr %303, align 8
+  %305 = icmp eq i32 %304, 1
+  br i1 %305, label %306, label %310
+
+306:                                              ; preds = %302
+  %307 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %308 = load ptr, ptr %307, align 8
+  %309 = call i32 @drwav_uninit(ptr noundef %308)
+  br label %354
+
+310:                                              ; preds = %302
+  %311 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  %312 = load i32, ptr %311, align 8
+  %313 = icmp eq i32 %312, 2
+  br i1 %313, label %314, label %317
+
+314:                                              ; preds = %310
+  %315 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %316 = load ptr, ptr %315, align 8
+  call void @stb_vorbis_close(ptr noundef %316)
+  br label %353
+
+317:                                              ; preds = %310
+  %318 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  %319 = load i32, ptr %318, align 8
+  %320 = icmp eq i32 %319, 4
+  br i1 %320, label %321, label %326
+
+321:                                              ; preds = %317
+  %322 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %323 = load ptr, ptr %322, align 8
+  call void @drmp3_uninit(ptr noundef %323)
+  %324 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %325 = load ptr, ptr %324, align 8
+  call void @free(ptr noundef %325) #15
+  br label %352
+
+326:                                              ; preds = %317
+  %327 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  %328 = load i32, ptr %327, align 8
+  %329 = icmp eq i32 %328, 5
+  br i1 %329, label %330, label %333
+
+330:                                              ; preds = %326
+  %331 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %332 = load ptr, ptr %331, align 8
+  call void @qoaplay_close(ptr noundef %332)
   br label %351
 
-307:                                              ; preds = %299
-  %308 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  %309 = load i32, ptr %308, align 8
-  %310 = icmp eq i32 %309, 2
-  br i1 %310, label %311, label %314
+333:                                              ; preds = %326
+  %334 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  %335 = load i32, ptr %334, align 8
+  %336 = icmp eq i32 %335, 6
+  br i1 %336, label %337, label %340
 
-311:                                              ; preds = %307
-  %312 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %313 = load ptr, ptr %312, align 8
-  call void @stb_vorbis_close(ptr noundef %313)
+337:                                              ; preds = %333
+  %338 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %339 = load ptr, ptr %338, align 8
+  call void @jar_xm_free_context(ptr noundef %339)
   br label %350
 
-314:                                              ; preds = %307
-  %315 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  %316 = load i32, ptr %315, align 8
-  %317 = icmp eq i32 %316, 4
-  br i1 %317, label %318, label %323
+340:                                              ; preds = %333
+  %341 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  %342 = load i32, ptr %341, align 8
+  %343 = icmp eq i32 %342, 7
+  br i1 %343, label %344, label %349
 
-318:                                              ; preds = %314
-  %319 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %320 = load ptr, ptr %319, align 8
-  call void @drmp3_uninit(ptr noundef %320)
-  %321 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %322 = load ptr, ptr %321, align 8
-  call void @free(ptr noundef %322) #16
+344:                                              ; preds = %340
+  %345 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %346 = load ptr, ptr %345, align 8
+  call void @jar_mod_unload(ptr noundef %346)
+  %347 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %348 = load ptr, ptr %347, align 8
+  call void @free(ptr noundef %348) #15
   br label %349
 
-323:                                              ; preds = %314
-  %324 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  %325 = load i32, ptr %324, align 8
-  %326 = icmp eq i32 %325, 5
-  br i1 %326, label %327, label %330
-
-327:                                              ; preds = %323
-  %328 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %329 = load ptr, ptr %328, align 8
-  call void @qoaplay_close(ptr noundef %329)
-  br label %348
-
-330:                                              ; preds = %323
-  %331 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  %332 = load i32, ptr %331, align 8
-  %333 = icmp eq i32 %332, 6
-  br i1 %333, label %334, label %337
-
-334:                                              ; preds = %330
-  %335 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %336 = load ptr, ptr %335, align 8
-  call void @jar_xm_free_context(ptr noundef %336)
-  br label %347
-
-337:                                              ; preds = %330
-  %338 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  %339 = load i32, ptr %338, align 8
-  %340 = icmp eq i32 %339, 7
-  br i1 %340, label %341, label %346
-
-341:                                              ; preds = %337
-  %342 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %343 = load ptr, ptr %342, align 8
-  call void @jar_mod_unload(ptr noundef %343)
-  %344 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %345 = load ptr, ptr %344, align 8
-  call void @free(ptr noundef %345) #16
-  br label %346
-
-346:                                              ; preds = %341, %337
-  br label %347
-
-347:                                              ; preds = %346, %334
-  br label %348
-
-348:                                              ; preds = %347, %327
-  br label %349
-
-349:                                              ; preds = %348, %318
+349:                                              ; preds = %344, %340
   br label %350
 
-350:                                              ; preds = %349, %311
+350:                                              ; preds = %349, %337
   br label %351
 
-351:                                              ; preds = %350, %303
-  %352 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  store ptr null, ptr %352, align 8
+351:                                              ; preds = %350, %330
+  br label %352
+
+352:                                              ; preds = %351, %321
+  br label %353
+
+353:                                              ; preds = %352, %314
+  br label %354
+
+354:                                              ; preds = %353, %306
+  %355 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  store ptr null, ptr %355, align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef @.str.296)
-  br label %378
+  br label %381
 
-353:                                              ; preds = %296
+356:                                              ; preds = %299
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.297)
-  %354 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %355 = getelementptr inbounds %struct.AudioStream, ptr %354, i32 0, i32 2
-  %356 = load i32, ptr %355, align 8
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.286, i32 noundef %356)
   %357 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %358 = getelementptr inbounds %struct.AudioStream, ptr %357, i32 0, i32 3
-  %359 = load i32, ptr %358, align 4
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.287, i32 noundef %359)
+  %358 = getelementptr inbounds %struct.AudioStream, ptr %357, i32 0, i32 2
+  %359 = load i32, ptr %358, align 8
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.286, i32 noundef %359)
   %360 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %361 = getelementptr inbounds %struct.AudioStream, ptr %360, i32 0, i32 4
-  %362 = load i32, ptr %361, align 8
+  %361 = getelementptr inbounds %struct.AudioStream, ptr %360, i32 0, i32 3
+  %362 = load i32, ptr %361, align 4
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.287, i32 noundef %362)
   %363 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
   %364 = getelementptr inbounds %struct.AudioStream, ptr %363, i32 0, i32 4
   %365 = load i32, ptr %364, align 8
-  %366 = icmp eq i32 %365, 1
-  br i1 %366, label %367, label %368
+  %366 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %367 = getelementptr inbounds %struct.AudioStream, ptr %366, i32 0, i32 4
+  %368 = load i32, ptr %367, align 8
+  %369 = icmp eq i32 %368, 1
+  br i1 %369, label %370, label %371
 
-367:                                              ; preds = %353
-  br label %374
+370:                                              ; preds = %356
+  br label %377
 
-368:                                              ; preds = %353
-  %369 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %370 = getelementptr inbounds %struct.AudioStream, ptr %369, i32 0, i32 4
-  %371 = load i32, ptr %370, align 8
-  %372 = icmp eq i32 %371, 2
-  %373 = select i1 %372, ptr @.str.290, ptr @.str.291
-  br label %374
+371:                                              ; preds = %356
+  %372 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %373 = getelementptr inbounds %struct.AudioStream, ptr %372, i32 0, i32 4
+  %374 = load i32, ptr %373, align 8
+  %375 = icmp eq i32 %374, 2
+  %376 = select i1 %375, ptr @.str.290, ptr @.str.291
+  br label %377
 
-374:                                              ; preds = %368, %367
-  %375 = phi ptr [ @.str.289, %367 ], [ %373, %368 ]
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.288, i32 noundef %362, ptr noundef %375)
-  %376 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
-  %377 = load i32, ptr %376, align 8
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.292, i32 noundef %377)
-  br label %378
+377:                                              ; preds = %371, %370
+  %378 = phi ptr [ @.str.289, %370 ], [ %376, %371 ]
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.288, i32 noundef %365, ptr noundef %378)
+  %379 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
+  %380 = load i32, ptr %379, align 8
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str.292, i32 noundef %380)
+  br label %381
 
-378:                                              ; preds = %374, %351
+381:                                              ; preds = %377, %354
   ret void
 }
 
@@ -136101,7 +136153,7 @@ define void @UnloadMusicStream(ptr noundef byval(%struct.Music) align 8 %0) #0 {
   call void @drmp3_uninit(ptr noundef %27)
   %28 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
   %29 = load ptr, ptr %28, align 8
-  call void @free(ptr noundef %29) #16
+  call void @free(ptr noundef %29) #15
   br label %56
 
 30:                                               ; preds = %21
@@ -136140,7 +136192,7 @@ define void @UnloadMusicStream(ptr noundef byval(%struct.Music) align 8 %0) #0 {
   call void @jar_mod_unload(ptr noundef %50)
   %51 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
   %52 = load ptr, ptr %51, align 8
-  call void @free(ptr noundef %52) #16
+  call void @free(ptr noundef %52) #15
   br label %53
 
 53:                                               ; preds = %48, %44
@@ -136422,7 +136474,7 @@ define void @UpdateMusicStream(ptr noundef byval(%struct.Music) align 8 %0) #0 {
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %1
-  br label %280
+  br label %292
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
@@ -136445,391 +136497,403 @@ define void @UpdateMusicStream(ptr noundef byval(%struct.Music) align 8 %0) #0 {
   %36 = load i32, ptr %3, align 4
   %37 = mul i32 %35, %36
   store i32 %37, ptr %4, align 4
-  %38 = load i64, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 4), align 8
-  %39 = load i32, ptr %4, align 4
-  %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %38, %40
-  br i1 %41, label %42, label %49
+  %38 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 4
+  %39 = load i64, ptr %38, align 8
+  %40 = load i32, ptr %4, align 4
+  %41 = zext i32 %40 to i64
+  %42 = icmp ult i64 %39, %41
+  br i1 %42, label %43, label %53
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 5), align 8
-  call void @free(ptr noundef %43) #16
-  %44 = load i32, ptr %4, align 4
-  %45 = zext i32 %44 to i64
-  %46 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %45) #26
-  store ptr %46, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 5), align 8
-  %47 = load i32, ptr %4, align 4
-  %48 = zext i32 %47 to i64
-  store i64 %48, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 4), align 8
-  br label %49
+43:                                               ; preds = %20
+  %44 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 5
+  %45 = load ptr, ptr %44, align 8
+  call void @free(ptr noundef %45) #15
+  %46 = load i32, ptr %4, align 4
+  %47 = zext i32 %46 to i64
+  %48 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %47) #26
+  %49 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 5
+  store ptr %48, ptr %49, align 8
+  %50 = load i32, ptr %4, align 4
+  %51 = zext i32 %50 to i64
+  %52 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 4
+  store i64 %51, ptr %52, align 8
+  br label %53
 
-49:                                               ; preds = %42, %20
+53:                                               ; preds = %43, %20
   store i32 0, ptr %5, align 4
-  br label %50
+  br label %54
 
-50:                                               ; preds = %274, %49
-  %51 = load i32, ptr %5, align 4
-  %52 = icmp slt i32 %51, 2
-  br i1 %52, label %53, label %277
+54:                                               ; preds = %286, %53
+  %55 = load i32, ptr %5, align 4
+  %56 = icmp slt i32 %55, 2
+  br i1 %56, label %57, label %289
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %55 = getelementptr inbounds %struct.AudioStream, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %58, label %69
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %59 = getelementptr inbounds %struct.AudioStream, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %73
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %60 = getelementptr inbounds %struct.AudioStream, ptr %59, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %struct.rAudioBuffer, ptr %61, i32 0, i32 10
-  %63 = load i32, ptr %5, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [2 x i8], ptr %62, i64 0, i64 %64
-  %66 = load i8, ptr %65, align 1
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %69, label %68
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %64 = getelementptr inbounds %struct.AudioStream, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds %struct.rAudioBuffer, ptr %65, i32 0, i32 10
+  %67 = load i32, ptr %5, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds [2 x i8], ptr %66, i64 0, i64 %68
+  %70 = load i8, ptr %69, align 1
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %73, label %72
 
-68:                                               ; preds = %58
-  br label %274
+72:                                               ; preds = %62
+  br label %286
 
-69:                                               ; preds = %58, %53
-  %70 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
-  %71 = load i32, ptr %70, align 8
-  %72 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %73 = getelementptr inbounds %struct.AudioStream, ptr %72, i32 0, i32 0
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct.rAudioBuffer, ptr %74, i32 0, i32 13
-  %76 = load i32, ptr %75, align 8
-  %77 = sub i32 %71, %76
-  store i32 %77, ptr %6, align 4
+73:                                               ; preds = %62, %57
+  %74 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
+  %75 = load i32, ptr %74, align 8
+  %76 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %77 = getelementptr inbounds %struct.AudioStream, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds %struct.rAudioBuffer, ptr %78, i32 0, i32 13
+  %80 = load i32, ptr %79, align 8
+  %81 = sub i32 %75, %80
+  store i32 %81, ptr %6, align 4
   store i32 0, ptr %7, align 4
-  %78 = load i32, ptr %6, align 4
-  %79 = load i32, ptr %2, align 4
-  %80 = icmp uge i32 %78, %79
-  br i1 %80, label %85, label %81
+  %82 = load i32, ptr %6, align 4
+  %83 = load i32, ptr %2, align 4
+  %84 = icmp uge i32 %82, %83
+  br i1 %84, label %89, label %85
 
-81:                                               ; preds = %69
-  %82 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 2
-  %83 = load i8, ptr %82, align 4
-  %84 = trunc i8 %83 to i1
-  br i1 %84, label %85, label %87
+85:                                               ; preds = %73
+  %86 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 2
+  %87 = load i8, ptr %86, align 4
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %89, label %91
 
-85:                                               ; preds = %81, %69
-  %86 = load i32, ptr %2, align 4
-  store i32 %86, ptr %7, align 4
-  br label %89
+89:                                               ; preds = %85, %73
+  %90 = load i32, ptr %2, align 4
+  store i32 %90, ptr %7, align 4
+  br label %93
 
-87:                                               ; preds = %81
-  %88 = load i32, ptr %6, align 4
-  store i32 %88, ptr %7, align 4
-  br label %89
+91:                                               ; preds = %85
+  %92 = load i32, ptr %6, align 4
+  store i32 %92, ptr %7, align 4
+  br label %93
 
-89:                                               ; preds = %87, %85
-  %90 = load i32, ptr %7, align 4
-  store i32 %90, ptr %8, align 4
+93:                                               ; preds = %91, %89
+  %94 = load i32, ptr %7, align 4
+  store i32 %94, ptr %8, align 4
   store i32 0, ptr %9, align 4
-  %91 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
-  %92 = load i32, ptr %91, align 8
-  switch i32 %92, label %247 [
-    i32 1, label %93
-    i32 2, label %163
-    i32 4, label %197
-    i32 5, label %226
-    i32 6, label %235
-    i32 7, label %241
+  %95 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 3
+  %96 = load i32, ptr %95, align 8
+  switch i32 %96, label %258 [
+    i32 1, label %97
+    i32 2, label %169
+    i32 4, label %204
+    i32 5, label %234
+    i32 6, label %244
+    i32 7, label %251
   ]
 
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %95 = getelementptr inbounds %struct.AudioStream, ptr %94, i32 0, i32 3
-  %96 = load i32, ptr %95, align 4
-  %97 = icmp eq i32 %96, 16
-  br i1 %97, label %98, label %127
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %99 = getelementptr inbounds %struct.AudioStream, ptr %98, i32 0, i32 3
+  %100 = load i32, ptr %99, align 4
+  %101 = icmp eq i32 %100, 16
+  br i1 %101, label %102, label %132
 
-98:                                               ; preds = %93
-  br label %99
+102:                                              ; preds = %97
+  br label %103
 
-99:                                               ; preds = %125, %98
-  %100 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %101 = load ptr, ptr %100, align 8
-  %102 = load i32, ptr %8, align 4
-  %103 = sext i32 %102 to i64
-  %104 = load ptr, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 5), align 8
-  %105 = load i32, ptr %9, align 4
-  %106 = load i32, ptr %3, align 4
-  %107 = mul nsw i32 %105, %106
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i8, ptr %104, i64 %108
-  %110 = call i64 @drwav_read_pcm_frames_s16(ptr noundef %101, i64 noundef %103, ptr noundef %109)
-  %111 = trunc i64 %110 to i32
-  store i32 %111, ptr %10, align 4
-  %112 = load i32, ptr %10, align 4
-  %113 = load i32, ptr %9, align 4
-  %114 = add nsw i32 %113, %112
-  store i32 %114, ptr %9, align 4
-  %115 = load i32, ptr %10, align 4
-  %116 = load i32, ptr %8, align 4
-  %117 = sub nsw i32 %116, %115
-  store i32 %117, ptr %8, align 4
-  %118 = load i32, ptr %8, align 4
-  %119 = icmp eq i32 %118, 0
-  br i1 %119, label %120, label %121
+103:                                              ; preds = %130, %102
+  %104 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %105 = load ptr, ptr %104, align 8
+  %106 = load i32, ptr %8, align 4
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 5
+  %109 = load ptr, ptr %108, align 8
+  %110 = load i32, ptr %9, align 4
+  %111 = load i32, ptr %3, align 4
+  %112 = mul nsw i32 %110, %111
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %109, i64 %113
+  %115 = call i64 @drwav_read_pcm_frames_s16(ptr noundef %105, i64 noundef %107, ptr noundef %114)
+  %116 = trunc i64 %115 to i32
+  store i32 %116, ptr %10, align 4
+  %117 = load i32, ptr %10, align 4
+  %118 = load i32, ptr %9, align 4
+  %119 = add nsw i32 %118, %117
+  store i32 %119, ptr %9, align 4
+  %120 = load i32, ptr %10, align 4
+  %121 = load i32, ptr %8, align 4
+  %122 = sub nsw i32 %121, %120
+  store i32 %122, ptr %8, align 4
+  %123 = load i32, ptr %8, align 4
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %126
 
-120:                                              ; preds = %99
-  br label %126
+125:                                              ; preds = %103
+  br label %131
 
-121:                                              ; preds = %99
-  %122 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %123 = load ptr, ptr %122, align 8
-  %124 = call i32 @drwav_seek_to_first_pcm_frame(ptr noundef %123)
-  br label %125
+126:                                              ; preds = %103
+  %127 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %128 = load ptr, ptr %127, align 8
+  %129 = call i32 @drwav_seek_to_first_pcm_frame(ptr noundef %128)
+  br label %130
 
-125:                                              ; preds = %121
-  br label %99
+130:                                              ; preds = %126
+  br label %103
 
-126:                                              ; preds = %120
-  br label %162
+131:                                              ; preds = %125
+  br label %168
 
-127:                                              ; preds = %93
-  %128 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %129 = getelementptr inbounds %struct.AudioStream, ptr %128, i32 0, i32 3
-  %130 = load i32, ptr %129, align 4
-  %131 = icmp eq i32 %130, 32
-  br i1 %131, label %132, label %161
+132:                                              ; preds = %97
+  %133 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %134 = getelementptr inbounds %struct.AudioStream, ptr %133, i32 0, i32 3
+  %135 = load i32, ptr %134, align 4
+  %136 = icmp eq i32 %135, 32
+  br i1 %136, label %137, label %167
 
-132:                                              ; preds = %127
-  br label %133
+137:                                              ; preds = %132
+  br label %138
 
-133:                                              ; preds = %159, %132
-  %134 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %135 = load ptr, ptr %134, align 8
-  %136 = load i32, ptr %8, align 4
-  %137 = sext i32 %136 to i64
-  %138 = load ptr, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 5), align 8
-  %139 = load i32, ptr %9, align 4
-  %140 = load i32, ptr %3, align 4
-  %141 = mul nsw i32 %139, %140
+138:                                              ; preds = %165, %137
+  %139 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %140 = load ptr, ptr %139, align 8
+  %141 = load i32, ptr %8, align 4
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds i8, ptr %138, i64 %142
-  %144 = call i64 @drwav_read_pcm_frames_f32(ptr noundef %135, i64 noundef %137, ptr noundef %143)
-  %145 = trunc i64 %144 to i32
-  store i32 %145, ptr %11, align 4
-  %146 = load i32, ptr %11, align 4
-  %147 = load i32, ptr %9, align 4
-  %148 = add nsw i32 %147, %146
-  store i32 %148, ptr %9, align 4
-  %149 = load i32, ptr %11, align 4
-  %150 = load i32, ptr %8, align 4
-  %151 = sub nsw i32 %150, %149
-  store i32 %151, ptr %8, align 4
-  %152 = load i32, ptr %8, align 4
-  %153 = icmp eq i32 %152, 0
-  br i1 %153, label %154, label %155
+  %143 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 5
+  %144 = load ptr, ptr %143, align 8
+  %145 = load i32, ptr %9, align 4
+  %146 = load i32, ptr %3, align 4
+  %147 = mul nsw i32 %145, %146
+  %148 = sext i32 %147 to i64
+  %149 = getelementptr inbounds i8, ptr %144, i64 %148
+  %150 = call i64 @drwav_read_pcm_frames_f32(ptr noundef %140, i64 noundef %142, ptr noundef %149)
+  %151 = trunc i64 %150 to i32
+  store i32 %151, ptr %11, align 4
+  %152 = load i32, ptr %11, align 4
+  %153 = load i32, ptr %9, align 4
+  %154 = add nsw i32 %153, %152
+  store i32 %154, ptr %9, align 4
+  %155 = load i32, ptr %11, align 4
+  %156 = load i32, ptr %8, align 4
+  %157 = sub nsw i32 %156, %155
+  store i32 %157, ptr %8, align 4
+  %158 = load i32, ptr %8, align 4
+  %159 = icmp eq i32 %158, 0
+  br i1 %159, label %160, label %161
 
-154:                                              ; preds = %133
-  br label %160
+160:                                              ; preds = %138
+  br label %166
 
-155:                                              ; preds = %133
-  %156 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %157 = load ptr, ptr %156, align 8
-  %158 = call i32 @drwav_seek_to_first_pcm_frame(ptr noundef %157)
-  br label %159
+161:                                              ; preds = %138
+  %162 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %163 = load ptr, ptr %162, align 8
+  %164 = call i32 @drwav_seek_to_first_pcm_frame(ptr noundef %163)
+  br label %165
 
-159:                                              ; preds = %155
-  br label %133
+165:                                              ; preds = %161
+  br label %138
 
-160:                                              ; preds = %154
-  br label %161
+166:                                              ; preds = %160
+  br label %167
 
-161:                                              ; preds = %160, %127
-  br label %162
+167:                                              ; preds = %166, %132
+  br label %168
 
-162:                                              ; preds = %161, %126
-  br label %248
+168:                                              ; preds = %167, %131
+  br label %259
 
-163:                                              ; preds = %89
-  br label %164
+169:                                              ; preds = %93
+  br label %170
 
-164:                                              ; preds = %195, %163
-  %165 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %168 = getelementptr inbounds %struct.AudioStream, ptr %167, i32 0, i32 4
-  %169 = load i32, ptr %168, align 8
-  %170 = load ptr, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 5), align 8
-  %171 = load i32, ptr %9, align 4
-  %172 = load i32, ptr %3, align 4
-  %173 = mul nsw i32 %171, %172
-  %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds i8, ptr %170, i64 %174
-  %176 = load i32, ptr %8, align 4
-  %177 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %178 = getelementptr inbounds %struct.AudioStream, ptr %177, i32 0, i32 4
-  %179 = load i32, ptr %178, align 8
-  %180 = mul i32 %176, %179
-  %181 = call i32 @stb_vorbis_get_samples_short_interleaved(ptr noundef %166, i32 noundef %169, ptr noundef %175, i32 noundef %180)
-  store i32 %181, ptr %12, align 4
-  %182 = load i32, ptr %12, align 4
-  %183 = load i32, ptr %9, align 4
-  %184 = add nsw i32 %183, %182
-  store i32 %184, ptr %9, align 4
-  %185 = load i32, ptr %12, align 4
-  %186 = load i32, ptr %8, align 4
-  %187 = sub nsw i32 %186, %185
-  store i32 %187, ptr %8, align 4
-  %188 = load i32, ptr %8, align 4
-  %189 = icmp eq i32 %188, 0
-  br i1 %189, label %190, label %191
+170:                                              ; preds = %202, %169
+  %171 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %174 = getelementptr inbounds %struct.AudioStream, ptr %173, i32 0, i32 4
+  %175 = load i32, ptr %174, align 8
+  %176 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 5
+  %177 = load ptr, ptr %176, align 8
+  %178 = load i32, ptr %9, align 4
+  %179 = load i32, ptr %3, align 4
+  %180 = mul nsw i32 %178, %179
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds i8, ptr %177, i64 %181
+  %183 = load i32, ptr %8, align 4
+  %184 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %185 = getelementptr inbounds %struct.AudioStream, ptr %184, i32 0, i32 4
+  %186 = load i32, ptr %185, align 8
+  %187 = mul i32 %183, %186
+  %188 = call i32 @stb_vorbis_get_samples_short_interleaved(ptr noundef %172, i32 noundef %175, ptr noundef %182, i32 noundef %187)
+  store i32 %188, ptr %12, align 4
+  %189 = load i32, ptr %12, align 4
+  %190 = load i32, ptr %9, align 4
+  %191 = add nsw i32 %190, %189
+  store i32 %191, ptr %9, align 4
+  %192 = load i32, ptr %12, align 4
+  %193 = load i32, ptr %8, align 4
+  %194 = sub nsw i32 %193, %192
+  store i32 %194, ptr %8, align 4
+  %195 = load i32, ptr %8, align 4
+  %196 = icmp eq i32 %195, 0
+  br i1 %196, label %197, label %198
 
-190:                                              ; preds = %164
-  br label %196
+197:                                              ; preds = %170
+  br label %203
 
-191:                                              ; preds = %164
-  %192 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %193 = load ptr, ptr %192, align 8
-  %194 = call i32 @stb_vorbis_seek_start(ptr noundef %193)
-  br label %195
-
-195:                                              ; preds = %191
-  br label %164
-
-196:                                              ; preds = %190
-  br label %248
-
-197:                                              ; preds = %89
-  br label %198
-
-198:                                              ; preds = %224, %197
+198:                                              ; preds = %170
   %199 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
   %200 = load ptr, ptr %199, align 8
-  %201 = load i32, ptr %8, align 4
-  %202 = sext i32 %201 to i64
-  %203 = load ptr, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 5), align 8
-  %204 = load i32, ptr %9, align 4
-  %205 = load i32, ptr %3, align 4
-  %206 = mul nsw i32 %204, %205
-  %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds i8, ptr %203, i64 %207
-  %209 = call i64 @drmp3_read_pcm_frames_f32(ptr noundef %200, i64 noundef %202, ptr noundef %208)
-  %210 = trunc i64 %209 to i32
-  store i32 %210, ptr %13, align 4
-  %211 = load i32, ptr %13, align 4
+  %201 = call i32 @stb_vorbis_seek_start(ptr noundef %200)
+  br label %202
+
+202:                                              ; preds = %198
+  br label %170
+
+203:                                              ; preds = %197
+  br label %259
+
+204:                                              ; preds = %93
+  br label %205
+
+205:                                              ; preds = %232, %204
+  %206 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %207 = load ptr, ptr %206, align 8
+  %208 = load i32, ptr %8, align 4
+  %209 = sext i32 %208 to i64
+  %210 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 5
+  %211 = load ptr, ptr %210, align 8
   %212 = load i32, ptr %9, align 4
-  %213 = add nsw i32 %212, %211
-  store i32 %213, ptr %9, align 4
-  %214 = load i32, ptr %13, align 4
-  %215 = load i32, ptr %8, align 4
-  %216 = sub nsw i32 %215, %214
-  store i32 %216, ptr %8, align 4
-  %217 = load i32, ptr %8, align 4
-  %218 = icmp eq i32 %217, 0
-  br i1 %218, label %219, label %220
+  %213 = load i32, ptr %3, align 4
+  %214 = mul nsw i32 %212, %213
+  %215 = sext i32 %214 to i64
+  %216 = getelementptr inbounds i8, ptr %211, i64 %215
+  %217 = call i64 @drmp3_read_pcm_frames_f32(ptr noundef %207, i64 noundef %209, ptr noundef %216)
+  %218 = trunc i64 %217 to i32
+  store i32 %218, ptr %13, align 4
+  %219 = load i32, ptr %13, align 4
+  %220 = load i32, ptr %9, align 4
+  %221 = add nsw i32 %220, %219
+  store i32 %221, ptr %9, align 4
+  %222 = load i32, ptr %13, align 4
+  %223 = load i32, ptr %8, align 4
+  %224 = sub nsw i32 %223, %222
+  store i32 %224, ptr %8, align 4
+  %225 = load i32, ptr %8, align 4
+  %226 = icmp eq i32 %225, 0
+  br i1 %226, label %227, label %228
 
-219:                                              ; preds = %198
-  br label %225
+227:                                              ; preds = %205
+  br label %233
 
-220:                                              ; preds = %198
-  %221 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %222 = load ptr, ptr %221, align 8
-  %223 = call i32 @drmp3_seek_to_start_of_stream(ptr noundef %222)
-  br label %224
+228:                                              ; preds = %205
+  %229 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %230 = load ptr, ptr %229, align 8
+  %231 = call i32 @drmp3_seek_to_start_of_stream(ptr noundef %230)
+  br label %232
 
-224:                                              ; preds = %220
-  br label %198
+232:                                              ; preds = %228
+  br label %205
 
-225:                                              ; preds = %219
-  br label %248
+233:                                              ; preds = %227
+  br label %259
 
-226:                                              ; preds = %89
-  %227 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %228 = load ptr, ptr %227, align 8
-  %229 = load ptr, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 5), align 8
-  %230 = load i32, ptr %7, align 4
-  %231 = call i32 @qoaplay_decode(ptr noundef %228, ptr noundef %229, i32 noundef %230)
-  store i32 %231, ptr %14, align 4
-  %232 = load i32, ptr %14, align 4
-  %233 = load i32, ptr %9, align 4
-  %234 = add i32 %233, %232
-  store i32 %234, ptr %9, align 4
-  br label %248
-
-235:                                              ; preds = %89
-  %236 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %237 = load ptr, ptr %236, align 8
-  %238 = load ptr, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 5), align 8
+234:                                              ; preds = %93
+  %235 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %236 = load ptr, ptr %235, align 8
+  %237 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 5
+  %238 = load ptr, ptr %237, align 8
   %239 = load i32, ptr %7, align 4
-  %240 = zext i32 %239 to i64
-  call void @jar_xm_generate_samples(ptr noundef %237, ptr noundef %238, i64 noundef %240)
-  br label %248
+  %240 = call i32 @qoaplay_decode(ptr noundef %236, ptr noundef %238, i32 noundef %239)
+  store i32 %240, ptr %14, align 4
+  %241 = load i32, ptr %14, align 4
+  %242 = load i32, ptr %9, align 4
+  %243 = add i32 %242, %241
+  store i32 %243, ptr %9, align 4
+  br label %259
 
-241:                                              ; preds = %89
-  %242 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
-  %243 = load ptr, ptr %242, align 8
-  %244 = load ptr, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 5), align 8
-  %245 = load i32, ptr %7, align 4
-  %246 = zext i32 %245 to i64
-  call void @jar_mod_fillbuffer(ptr noundef %243, ptr noundef %244, i64 noundef %246, ptr noundef null)
-  br label %248
+244:                                              ; preds = %93
+  %245 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %246 = load ptr, ptr %245, align 8
+  %247 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 5
+  %248 = load ptr, ptr %247, align 8
+  %249 = load i32, ptr %7, align 4
+  %250 = zext i32 %249 to i64
+  call void @jar_xm_generate_samples(ptr noundef %246, ptr noundef %248, i64 noundef %250)
+  br label %259
 
-247:                                              ; preds = %89
-  br label %248
+251:                                              ; preds = %93
+  %252 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 4
+  %253 = load ptr, ptr %252, align 8
+  %254 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 5
+  %255 = load ptr, ptr %254, align 8
+  %256 = load i32, ptr %7, align 4
+  %257 = zext i32 %256 to i64
+  call void @jar_mod_fillbuffer(ptr noundef %253, ptr noundef %255, i64 noundef %257, ptr noundef null)
+  br label %259
 
-248:                                              ; preds = %247, %241, %235, %226, %225, %196, %162
-  %249 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %250 = load ptr, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 5), align 8
-  %251 = load i32, ptr %7, align 4
-  call void @UpdateAudioStream(ptr noundef byval(%struct.AudioStream) align 8 %249, ptr noundef %250, i32 noundef %251)
-  %252 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %253 = getelementptr inbounds %struct.AudioStream, ptr %252, i32 0, i32 0
-  %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds %struct.rAudioBuffer, ptr %254, i32 0, i32 13
-  %256 = load i32, ptr %255, align 8
-  %257 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
-  %258 = load i32, ptr %257, align 8
-  %259 = urem i32 %256, %258
+258:                                              ; preds = %93
+  br label %259
+
+259:                                              ; preds = %258, %251, %244, %234, %233, %203, %168
   %260 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
-  %261 = getelementptr inbounds %struct.AudioStream, ptr %260, i32 0, i32 0
+  %261 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 5
   %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds %struct.rAudioBuffer, ptr %262, i32 0, i32 13
-  store i32 %259, ptr %263, align 8
-  %264 = load i32, ptr %6, align 4
-  %265 = load i32, ptr %2, align 4
-  %266 = icmp ule i32 %264, %265
-  br i1 %266, label %267, label %273
+  %263 = load i32, ptr %7, align 4
+  call void @UpdateAudioStream(ptr noundef byval(%struct.AudioStream) align 8 %260, ptr noundef %262, i32 noundef %263)
+  %264 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %265 = getelementptr inbounds %struct.AudioStream, ptr %264, i32 0, i32 0
+  %266 = load ptr, ptr %265, align 8
+  %267 = getelementptr inbounds %struct.rAudioBuffer, ptr %266, i32 0, i32 13
+  %268 = load i32, ptr %267, align 8
+  %269 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 1
+  %270 = load i32, ptr %269, align 8
+  %271 = urem i32 %268, %270
+  %272 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 0
+  %273 = getelementptr inbounds %struct.AudioStream, ptr %272, i32 0, i32 0
+  %274 = load ptr, ptr %273, align 8
+  %275 = getelementptr inbounds %struct.rAudioBuffer, ptr %274, i32 0, i32 13
+  store i32 %271, ptr %275, align 8
+  %276 = load i32, ptr %6, align 4
+  %277 = load i32, ptr %2, align 4
+  %278 = icmp ule i32 %276, %277
+  br i1 %278, label %279, label %285
 
-267:                                              ; preds = %248
-  %268 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 2
-  %269 = load i8, ptr %268, align 4
-  %270 = trunc i8 %269 to i1
-  br i1 %270, label %272, label %271
+279:                                              ; preds = %259
+  %280 = getelementptr inbounds %struct.Music, ptr %0, i32 0, i32 2
+  %281 = load i8, ptr %280, align 4
+  %282 = trunc i8 %281 to i1
+  br i1 %282, label %284, label %283
 
-271:                                              ; preds = %267
+283:                                              ; preds = %279
   call void @StopMusicStream(ptr noundef byval(%struct.Music) align 8 %0)
-  br label %280
+  br label %292
 
-272:                                              ; preds = %267
-  br label %273
+284:                                              ; preds = %279
+  br label %285
 
-273:                                              ; preds = %272, %248
-  br label %274
+285:                                              ; preds = %284, %259
+  br label %286
 
-274:                                              ; preds = %273, %68
-  %275 = load i32, ptr %5, align 4
-  %276 = add nsw i32 %275, 1
-  store i32 %276, ptr %5, align 4
-  br label %50
+286:                                              ; preds = %285, %72
+  %287 = load i32, ptr %5, align 4
+  %288 = add nsw i32 %287, 1
+  store i32 %288, ptr %5, align 4
+  br label %54
 
-277:                                              ; preds = %50
-  %278 = call zeroext i1 @IsMusicStreamPlaying(ptr noundef byval(%struct.Music) align 8 %0)
-  br i1 %278, label %279, label %280
+289:                                              ; preds = %54
+  %290 = call zeroext i1 @IsMusicStreamPlaying(ptr noundef byval(%struct.Music) align 8 %0)
+  br i1 %290, label %291, label %292
 
-279:                                              ; preds = %277
+291:                                              ; preds = %289
   call void @PlayMusicStream(ptr noundef byval(%struct.Music) align 8 %0)
-  br label %280
+  br label %292
 
-280:                                              ; preds = %279, %277, %271, %19
+292:                                              ; preds = %291, %289, %283, %19
   ret void
 }
 
@@ -137326,7 +137390,8 @@ define void @SetAudioStreamBufferSizeDefault(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
-  store i32 %3, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 1, i32 2), align 8
+  %4 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 1, i32 2
+  store i32 %3, ptr %4, align 8
   ret void
 }
 
@@ -137357,69 +137422,71 @@ define void @AttachAudioStreamProcessor(ptr noundef byval(%struct.AudioStream) a
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
-  call void @ma_mutex_lock(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
-  %6 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 24) #26
-  store ptr %6, ptr %4, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.rAudioProcessor, ptr %8, i32 0, i32 0
-  store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.rAudioBuffer, ptr %11, i32 0, i32 2
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %5, align 8
-  br label %14
+  %6 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_lock(ptr noundef %6)
+  %7 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 24) #26
+  store ptr %7, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %struct.rAudioProcessor, ptr %9, i32 0, i32 0
+  store ptr %8, ptr %10, align 8
+  %11 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.rAudioBuffer, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %5, align 8
+  br label %15
 
-14:                                               ; preds = %24, %2
-  %15 = load ptr, ptr %5, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %17, label %22
+15:                                               ; preds = %25, %2
+  %16 = load ptr, ptr %5, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %23
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.rAudioProcessor, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp ne ptr %20, null
-  br label %22
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds %struct.rAudioProcessor, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  br label %23
 
-22:                                               ; preds = %17, %14
-  %23 = phi i1 [ false, %14 ], [ %21, %17 ]
-  br i1 %23, label %24, label %28
+23:                                               ; preds = %18, %15
+  %24 = phi i1 [ false, %15 ], [ %22, %18 ]
+  br i1 %24, label %25, label %29
 
-24:                                               ; preds = %22
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.rAudioProcessor, ptr %25, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %5, align 8
-  br label %14
+25:                                               ; preds = %23
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds %struct.rAudioProcessor, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %5, align 8
+  br label %15
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr %5, align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %38
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %5, align 8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %39
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %5, align 8
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.rAudioProcessor, ptr %33, i32 0, i32 2
-  store ptr %32, ptr %34, align 8
-  %35 = load ptr, ptr %4, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.rAudioProcessor, ptr %36, i32 0, i32 1
-  store ptr %35, ptr %37, align 8
-  br label %43
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %5, align 8
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %struct.rAudioProcessor, ptr %34, i32 0, i32 2
+  store ptr %33, ptr %35, align 8
+  %36 = load ptr, ptr %4, align 8
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds %struct.rAudioProcessor, ptr %37, i32 0, i32 1
+  store ptr %36, ptr %38, align 8
+  br label %44
 
-38:                                               ; preds = %28
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.rAudioBuffer, ptr %41, i32 0, i32 2
-  store ptr %39, ptr %42, align 8
-  br label %43
+39:                                               ; preds = %29
+  %40 = load ptr, ptr %4, align 8
+  %41 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds %struct.rAudioBuffer, ptr %42, i32 0, i32 2
+  store ptr %40, ptr %43, align 8
+  br label %44
 
-43:                                               ; preds = %38, %31
-  call void @ma_mutex_unlock(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
+44:                                               ; preds = %39, %32
+  %45 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_unlock(ptr noundef %45)
   ret void
 }
 
@@ -137430,88 +137497,90 @@ define void @DetachAudioStreamProcessor(ptr noundef byval(%struct.AudioStream) a
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
-  call void @ma_mutex_lock(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
-  %7 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds %struct.rAudioBuffer, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %4, align 8
-  br label %11
+  %7 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_lock(ptr noundef %7)
+  %8 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %struct.rAudioBuffer, ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %4, align 8
+  br label %12
 
-11:                                               ; preds = %54, %2
-  %12 = load ptr, ptr %4, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %14, label %56
+12:                                               ; preds = %55, %2
+  %13 = load ptr, ptr %4, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %57
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.rAudioProcessor, ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %5, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.rAudioProcessor, ptr %18, i32 0, i32 2
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %6, align 8
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.rAudioProcessor, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %3, align 8
-  %25 = icmp eq ptr %23, %24
-  br i1 %25, label %26, label %54
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %struct.rAudioProcessor, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %5, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %struct.rAudioProcessor, ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %6, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %struct.rAudioProcessor, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %3, align 8
+  %26 = icmp eq ptr %24, %25
+  br i1 %26, label %27, label %55
 
-26:                                               ; preds = %14
-  %27 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.rAudioBuffer, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = icmp eq ptr %30, %31
-  br i1 %32, label %33, label %38
+27:                                               ; preds = %15
+  %28 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %struct.rAudioBuffer, ptr %29, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = icmp eq ptr %31, %32
+  br i1 %33, label %34, label %39
 
-33:                                               ; preds = %26
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.rAudioBuffer, ptr %36, i32 0, i32 2
-  store ptr %34, ptr %37, align 8
-  br label %38
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %5, align 8
+  %36 = getelementptr inbounds %struct.AudioStream, ptr %0, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct.rAudioBuffer, ptr %37, i32 0, i32 2
+  store ptr %35, ptr %38, align 8
+  br label %39
 
-38:                                               ; preds = %33, %26
-  %39 = load ptr, ptr %6, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %45
+39:                                               ; preds = %34, %27
+  %40 = load ptr, ptr %6, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %46
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %5, align 8
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct.rAudioProcessor, ptr %43, i32 0, i32 1
-  store ptr %42, ptr %44, align 8
-  br label %45
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %5, align 8
+  %44 = load ptr, ptr %6, align 8
+  %45 = getelementptr inbounds %struct.rAudioProcessor, ptr %44, i32 0, i32 1
+  store ptr %43, ptr %45, align 8
+  br label %46
 
-45:                                               ; preds = %41, %38
-  %46 = load ptr, ptr %5, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %48, label %52
+46:                                               ; preds = %42, %39
+  %47 = load ptr, ptr %5, align 8
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %6, align 8
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.rAudioProcessor, ptr %50, i32 0, i32 2
-  store ptr %49, ptr %51, align 8
-  br label %52
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %6, align 8
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds %struct.rAudioProcessor, ptr %51, i32 0, i32 2
+  store ptr %50, ptr %52, align 8
+  br label %53
 
-52:                                               ; preds = %48, %45
-  %53 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %53) #16
-  br label %54
+53:                                               ; preds = %49, %46
+  %54 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %54) #15
+  br label %55
 
-54:                                               ; preds = %52, %14
-  %55 = load ptr, ptr %5, align 8
-  store ptr %55, ptr %4, align 8
-  br label %11
+55:                                               ; preds = %53, %15
+  %56 = load ptr, ptr %5, align 8
+  store ptr %56, ptr %4, align 8
+  br label %12
 
-56:                                               ; preds = %11
-  call void @ma_mutex_unlock(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
+57:                                               ; preds = %12
+  %58 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_unlock(ptr noundef %58)
   ret void
 }
 
@@ -137521,63 +137590,67 @@ define void @AttachAudioMixedProcessor(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  call void @ma_mutex_lock(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
-  %5 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 24) #26
-  store ptr %5, ptr %3, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.rAudioProcessor, ptr %7, i32 0, i32 0
-  store ptr %6, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 2), align 8
-  store ptr %9, ptr %4, align 8
-  br label %10
+  %5 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_lock(ptr noundef %5)
+  %6 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 24) #26
+  store ptr %6, ptr %3, align 8
+  %7 = load ptr, ptr %2, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds %struct.rAudioProcessor, ptr %8, i32 0, i32 0
+  store ptr %7, ptr %9, align 8
+  %10 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %4, align 8
+  br label %12
 
-10:                                               ; preds = %20, %1
-  %11 = load ptr, ptr %4, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %18
+12:                                               ; preds = %22, %1
+  %13 = load ptr, ptr %4, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %20
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.rAudioProcessor, ptr %14, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp ne ptr %16, null
-  br label %18
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %struct.rAudioProcessor, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %18, null
+  br label %20
 
-18:                                               ; preds = %13, %10
-  %19 = phi i1 [ false, %10 ], [ %17, %13 ]
-  br i1 %19, label %20, label %24
+20:                                               ; preds = %15, %12
+  %21 = phi i1 [ false, %12 ], [ %19, %15 ]
+  br i1 %21, label %22, label %26
 
-20:                                               ; preds = %18
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.rAudioProcessor, ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %4, align 8
-  br label %10
+22:                                               ; preds = %20
+  %23 = load ptr, ptr %4, align 8
+  %24 = getelementptr inbounds %struct.rAudioProcessor, ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %4, align 8
+  br label %12
 
-24:                                               ; preds = %18
-  %25 = load ptr, ptr %4, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %27, label %34
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %4, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %36
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %4, align 8
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.rAudioProcessor, ptr %29, i32 0, i32 2
-  store ptr %28, ptr %30, align 8
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %4, align 8
   %31 = load ptr, ptr %3, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.rAudioProcessor, ptr %32, i32 0, i32 1
-  store ptr %31, ptr %33, align 8
-  br label %36
+  %32 = getelementptr inbounds %struct.rAudioProcessor, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8
+  %33 = load ptr, ptr %3, align 8
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %struct.rAudioProcessor, ptr %34, i32 0, i32 1
+  store ptr %33, ptr %35, align 8
+  br label %39
 
-34:                                               ; preds = %24
-  %35 = load ptr, ptr %3, align 8
-  store ptr %35, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 2), align 8
-  br label %36
+36:                                               ; preds = %26
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 2
+  store ptr %37, ptr %38, align 8
+  br label %39
 
-36:                                               ; preds = %34, %27
-  call void @ma_mutex_unlock(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
+39:                                               ; preds = %36, %29
+  %40 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_unlock(ptr noundef %40)
   ret void
 }
 
@@ -137588,79 +137661,84 @@ define void @DetachAudioMixedProcessor(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  call void @ma_mutex_lock(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
-  %6 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 2), align 8
-  store ptr %6, ptr %3, align 8
-  br label %7
+  %6 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_lock(ptr noundef %6)
+  %7 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %3, align 8
+  br label %9
 
-7:                                                ; preds = %44, %1
-  %8 = load ptr, ptr %3, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %46
+9:                                                ; preds = %48, %1
+  %10 = load ptr, ptr %3, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %50
 
-10:                                               ; preds = %7
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.rAudioProcessor, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %4, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.rAudioProcessor, ptr %14, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %5, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.rAudioProcessor, ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %2, align 8
-  %21 = icmp eq ptr %19, %20
-  br i1 %21, label %22, label %44
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds %struct.rAudioProcessor, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %4, align 8
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds %struct.rAudioProcessor, ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %5, align 8
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds %struct.rAudioProcessor, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %2, align 8
+  %23 = icmp eq ptr %21, %22
+  br i1 %23, label %24, label %48
 
-22:                                               ; preds = %10
-  %23 = load ptr, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 2), align 8
-  %24 = load ptr, ptr %3, align 8
-  %25 = icmp eq ptr %23, %24
-  br i1 %25, label %26, label %28
+24:                                               ; preds = %12
+  %25 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %3, align 8
+  %28 = icmp eq ptr %26, %27
+  br i1 %28, label %29, label %32
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %4, align 8
-  store ptr %27, ptr getelementptr inbounds (%struct.AudioData, ptr @AUDIO, i32 0, i32 2), align 8
-  br label %28
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds %struct.AudioData, ptr @AUDIO, i32 0, i32 2
+  store ptr %30, ptr %31, align 8
+  br label %32
 
-28:                                               ; preds = %26, %22
-  %29 = load ptr, ptr %5, align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %35
-
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %4, align 8
+32:                                               ; preds = %29, %24
   %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.rAudioProcessor, ptr %33, i32 0, i32 1
-  store ptr %32, ptr %34, align 8
-  br label %35
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %39
 
-35:                                               ; preds = %31, %28
+35:                                               ; preds = %32
   %36 = load ptr, ptr %4, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %42
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds %struct.rAudioProcessor, ptr %37, i32 0, i32 1
+  store ptr %36, ptr %38, align 8
+  br label %39
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %5, align 8
+39:                                               ; preds = %35, %32
   %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.rAudioProcessor, ptr %40, i32 0, i32 2
-  store ptr %39, ptr %41, align 8
-  br label %42
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %46
 
-42:                                               ; preds = %38, %35
-  %43 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %43) #16
-  br label %44
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %5, align 8
+  %44 = load ptr, ptr %4, align 8
+  %45 = getelementptr inbounds %struct.rAudioProcessor, ptr %44, i32 0, i32 2
+  store ptr %43, ptr %45, align 8
+  br label %46
 
-44:                                               ; preds = %42, %10
-  %45 = load ptr, ptr %4, align 8
-  store ptr %45, ptr %3, align 8
-  br label %7
+46:                                               ; preds = %42, %39
+  %47 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %47) #15
+  br label %48
 
-46:                                               ; preds = %7
-  call void @ma_mutex_unlock(ptr noundef getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 2))
+48:                                               ; preds = %46, %12
+  %49 = load ptr, ptr %4, align 8
+  store ptr %49, ptr %3, align 8
+  br label %9
+
+50:                                               ; preds = %9
+  %51 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 2
+  call void @ma_mutex_unlock(ptr noundef %51)
   ret void
 }
 
@@ -137846,7 +137924,7 @@ define internal i32 @ma_thread_create__posix(ptr noundef %0, i32 noundef %1, i64
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr null, ptr %13, align 8
-  %20 = call i32 @pthread_attr_init(ptr noundef %14) #16
+  %20 = call i32 @pthread_attr_init(ptr noundef %14) #15
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %98
 
@@ -137866,7 +137944,7 @@ define internal i32 @ma_thread_create__posix(ptr noundef %0, i32 noundef %1, i64
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %26
-  %30 = call i32 @pthread_attr_setschedpolicy(ptr noundef %14, i32 noundef 1) #16
+  %30 = call i32 @pthread_attr_setschedpolicy(ptr noundef %14, i32 noundef 1) #15
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %33
 
@@ -137878,7 +137956,7 @@ define internal i32 @ma_thread_create__posix(ptr noundef %0, i32 noundef %1, i64
   br label %36
 
 34:                                               ; preds = %26
-  %35 = call i32 @sched_getscheduler(i32 noundef 0) #16
+  %35 = call i32 @sched_getscheduler(i32 noundef 0) #15
   store i32 %35, ptr %15, align 4
   br label %36
 
@@ -137892,7 +137970,7 @@ define internal i32 @ma_thread_create__posix(ptr noundef %0, i32 noundef %1, i64
 
 40:                                               ; preds = %37
   %41 = load i64, ptr %9, align 8
-  %42 = call i32 @pthread_attr_setstacksize(ptr noundef %14, i64 noundef %41) #16
+  %42 = call i32 @pthread_attr_setstacksize(ptr noundef %14, i64 noundef %41) #15
   br label %43
 
 43:                                               ; preds = %40, %37
@@ -137902,17 +137980,17 @@ define internal i32 @ma_thread_create__posix(ptr noundef %0, i32 noundef %1, i64
 
 46:                                               ; preds = %43
   %47 = load i32, ptr %15, align 4
-  %48 = call i32 @sched_get_priority_min(i32 noundef %47) #16
+  %48 = call i32 @sched_get_priority_min(i32 noundef %47) #15
   store i32 %48, ptr %16, align 4
   %49 = load i32, ptr %15, align 4
-  %50 = call i32 @sched_get_priority_max(i32 noundef %49) #16
+  %50 = call i32 @sched_get_priority_max(i32 noundef %49) #15
   store i32 %50, ptr %17, align 4
   %51 = load i32, ptr %17, align 4
   %52 = load i32, ptr %16, align 4
   %53 = sub nsw i32 %51, %52
   %54 = sdiv i32 %53, 7
   store i32 %54, ptr %18, align 4
-  %55 = call i32 @pthread_attr_getschedparam(ptr noundef %14, ptr noundef %19) #16
+  %55 = call i32 @pthread_attr_getschedparam(ptr noundef %14, ptr noundef %19) #15
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %96
 
@@ -137979,7 +138057,7 @@ define internal i32 @ma_thread_create__posix(ptr noundef %0, i32 noundef %1, i64
   br label %94
 
 94:                                               ; preds = %93, %60
-  %95 = call i32 @pthread_attr_setschedparam(ptr noundef %14, ptr noundef %19) #16
+  %95 = call i32 @pthread_attr_setschedparam(ptr noundef %14, ptr noundef %19) #15
   br label %96
 
 96:                                               ; preds = %94, %46
@@ -137993,7 +138071,7 @@ define internal i32 @ma_thread_create__posix(ptr noundef %0, i32 noundef %1, i64
   %100 = load ptr, ptr %13, align 8
   %101 = load ptr, ptr %10, align 8
   %102 = load ptr, ptr %11, align 8
-  %103 = call i32 @pthread_create(ptr noundef %99, ptr noundef %100, ptr noundef %101, ptr noundef %102) #16
+  %103 = call i32 @pthread_create(ptr noundef %99, ptr noundef %100, ptr noundef %101, ptr noundef %102) #15
   store i32 %103, ptr %12, align 4
   %104 = load ptr, ptr %13, align 8
   %105 = icmp ne ptr %104, null
@@ -138001,7 +138079,7 @@ define internal i32 @ma_thread_create__posix(ptr noundef %0, i32 noundef %1, i64
 
 106:                                              ; preds = %98
   %107 = load ptr, ptr %13, align 8
-  %108 = call i32 @pthread_attr_destroy(ptr noundef %107) #16
+  %108 = call i32 @pthread_attr_destroy(ptr noundef %107) #15
   br label %109
 
 109:                                              ; preds = %106, %98
@@ -143366,11 +143444,11 @@ define internal i32 @ma_context_enumerate_devices__alsa(ptr noundef %0, ptr noun
 
 290:                                              ; preds = %289, %146, %133
   %291 = load ptr, ptr %18, align 8
-  call void @free(ptr noundef %291) #16
+  call void @free(ptr noundef %291) #15
   %292 = load ptr, ptr %19, align 8
-  call void @free(ptr noundef %292) #16
+  call void @free(ptr noundef %292) #15
   %293 = load ptr, ptr %20, align 8
-  call void @free(ptr noundef %293) #16
+  call void @free(ptr noundef %293) #15
   %294 = load ptr, ptr %17, align 8
   %295 = getelementptr inbounds ptr, ptr %294, i64 1
   store ptr %295, ptr %17, align 8
@@ -147273,7 +147351,7 @@ define internal i32 @ma_device_init_by_type__alsa(ptr noundef %0, ptr noundef %1
 
 871:                                              ; preds = %870, %802
   %872 = load ptr, ptr %35, align 8
-  call void @free(ptr noundef %872) #16
+  call void @free(ptr noundef %872) #15
   store ptr null, ptr %35, align 8
   br label %876
 
@@ -147343,7 +147421,7 @@ define internal i32 @ma_device_init_by_type__alsa(ptr noundef %0, ptr noundef %1
   br label %1102
 
 923:                                              ; preds = %899
-  %924 = call i32 @eventfd(i32 noundef 0, i32 noundef 0) #16
+  %924 = call i32 @eventfd(i32 noundef 0, i32 noundef 0) #15
   store i32 %924, ptr %29, align 4
   %925 = load i32, ptr %29, align 4
   %926 = icmp slt i32 %925, 0
@@ -149216,7 +149294,7 @@ define internal void @ma_timer_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.timespec, align 8
   store ptr %0, ptr %2, align 8
-  %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %3) #16
+  %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %3) #15
   %5 = getelementptr inbounds %struct.timespec, ptr %3, i32 0, i32 0
   %6 = load i64, ptr %5, align 8
   %7 = mul nsw i64 %6, 1000000000
@@ -149235,7 +149313,7 @@ define internal double @ma_timer_get_time_in_seconds(ptr noundef %0) #0 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.timespec, align 8
   store ptr %0, ptr %2, align 8
-  %6 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %5) #16
+  %6 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %5) #15
   %7 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, 1000000000
@@ -150734,10 +150812,10 @@ define internal void @ma_device__on_data(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind memory(argmem: write)
-declare void @llvm.x86.sse.stmxcsr(ptr) #15
+declare void @llvm.x86.sse.stmxcsr(ptr) #14
 
 ; Function Attrs: nounwind
-declare void @llvm.x86.sse.ldmxcsr(ptr) #16
+declare void @llvm.x86.sse.ldmxcsr(ptr) #15
 
 ; Function Attrs: nounwind uwtable
 define internal void @ma_device__on_data_inner(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
@@ -150794,7 +150872,7 @@ declare double @log(double noundef) #5
 declare double @pow(double noundef, double noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float>) #17
+declare <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float>) #16
 
 ; Function Attrs: nounwind uwtable
 define internal void @ma_pcm_interleave_f32__reference(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
@@ -150951,7 +151029,7 @@ define internal void @ma_pcm_deinterleave_f32__reference(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #18
+declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nounwind
 declare double @exp(double noundef) #5
@@ -151001,7 +151079,7 @@ define internal void @ma_hpf_calculate_sub_hpf_counts(i32 noundef %0, ptr nounde
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: nounwind uwtable
 define internal float @ma_gainer_calculate_current_gain(ptr noundef %0, i32 noundef %1) #0 {
@@ -154709,7 +154787,7 @@ define internal i32 @ma_channel_map_apply_mono_out_f32(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_channel_map_apply_mono_in_f32(ptr noalias noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef %3, i64 noundef %4, i32 noundef %5) #8 {
+define internal i32 @ma_channel_map_apply_mono_in_f32(ptr noalias noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef %3, i64 noundef %4, i32 noundef %5) #7 {
   %7 = alloca ptr, align 8
   %8 = alloca <4 x float>, align 16
   %9 = alloca ptr, align 8
@@ -159455,7 +159533,7 @@ define internal i32 @ma_default_vfs_read__stdio(ptr noundef %0, ptr noundef %1, 
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %8, align 8
-  %31 = call i32 @feof(ptr noundef %30) #16
+  %31 = call i32 @feof(ptr noundef %30) #15
   %32 = icmp ne i32 %31, 0
   br i1 %32, label %33, label %34
 
@@ -159465,7 +159543,7 @@ define internal i32 @ma_default_vfs_read__stdio(ptr noundef %0, ptr noundef %1, 
 
 34:                                               ; preds = %29, %26
   %35 = load ptr, ptr %8, align 8
-  %36 = call i32 @ferror(ptr noundef %35) #16
+  %36 = call i32 @ferror(ptr noundef %35) #15
   %37 = call i32 @ma_result_from_errno(i32 noundef %36)
   store i32 %37, ptr %6, align 4
   br label %39
@@ -159522,7 +159600,7 @@ define internal i32 @ma_default_vfs_write__stdio(ptr noundef %0, ptr noundef %1,
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %8, align 8
-  %28 = call i32 @ferror(ptr noundef %27) #16
+  %28 = call i32 @ferror(ptr noundef %27) #15
   %29 = call i32 @ma_result_from_errno(i32 noundef %28)
   store i32 %29, ptr %6, align 4
   br label %31
@@ -159626,10 +159704,10 @@ define internal i32 @ma_default_vfs_info__stdio(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = call i32 @fileno(ptr noundef %10) #16
+  %11 = call i32 @fileno(ptr noundef %10) #15
   store i32 %11, ptr %8, align 4
   %12 = load i32, ptr %8, align 4
-  %13 = call i32 @fstat(i32 noundef %12, ptr noundef %9) #16
+  %13 = call i32 @fstat(i32 noundef %12, ptr noundef %9) #15
   %14 = icmp ne i32 %13, 0
   br i1 %14, label %15, label %19
 
@@ -166012,7 +166090,7 @@ define internal i64 @drwav__write_or_count_metadata(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #9
+declare i16 @llvm.bswap.i16(i16) #8
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @drwav__write_or_count(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
@@ -166251,7 +166329,7 @@ define internal i64 @drwav__write_f32ne_to_le(ptr noundef %0, float noundef %1) 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #9
+declare i32 @llvm.bswap.i32(i32) #8
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @drwav__write_byte(ptr noundef %0, i8 noundef zeroext %1) #0 {
@@ -167491,7 +167569,7 @@ define internal ptr @drwav__realloc_from_callbacks(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #9
+declare i64 @llvm.bswap.i64(i64) #8
 
 ; Function Attrs: nounwind uwtable
 define internal void @drwav__pcm_to_s16(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
@@ -174044,7 +174122,7 @@ define internal i32 @bit_reverse(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @make_block_array(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -176992,7 +177070,7 @@ define internal void @setup_temp_free(ptr noundef %0, ptr noundef %1, i32 nounde
 
 20:                                               ; preds = %3
   %21 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %21) #16
+  call void @free(ptr noundef %21) #15
   br label %22
 
 22:                                               ; preds = %20, %12
@@ -177782,7 +177860,7 @@ define internal float @float32_unpack(i32 noundef %0) #0 {
   %27 = fpext float %26 to double
   %28 = load i32, ptr %5, align 4
   %29 = sub nsw i32 %28, 788
-  %30 = call double @ldexp(double noundef %27, i32 noundef %29) #16
+  %30 = call double @ldexp(double noundef %27, i32 noundef %29) #15
   %31 = fptrunc double %30 to float
   ret float %31
 }
@@ -177798,13 +177876,13 @@ define internal i32 @lookup1_values(i32 noundef %0, i32 noundef %1) #0 {
   %7 = load i32, ptr %4, align 4
   %8 = sitofp i32 %7 to float
   %9 = fpext float %8 to double
-  %10 = call double @log(double noundef %9) #16
+  %10 = call double @log(double noundef %9) #15
   %11 = fptrunc double %10 to float
   %12 = load i32, ptr %5, align 4
   %13 = sitofp i32 %12 to float
   %14 = fdiv float %11, %13
   %15 = fpext float %14 to double
-  %16 = call double @exp(double noundef %15) #16
+  %16 = call double @exp(double noundef %15) #15
   %17 = call double @llvm.floor.f64(double %16)
   %18 = fptosi double %17 to i32
   store i32 %18, ptr %6, align 4
@@ -177814,7 +177892,7 @@ define internal i32 @lookup1_values(i32 noundef %0, i32 noundef %1) #0 {
   %22 = fpext float %21 to double
   %23 = load i32, ptr %5, align 4
   %24 = sitofp i32 %23 to double
-  %25 = call double @pow(double noundef %22, double noundef %24) #16
+  %25 = call double @pow(double noundef %22, double noundef %24) #15
   %26 = call double @llvm.floor.f64(double %25)
   %27 = fptosi double %26 to i32
   %28 = load i32, ptr %4, align 4
@@ -177834,7 +177912,7 @@ define internal i32 @lookup1_values(i32 noundef %0, i32 noundef %1) #0 {
   %37 = fpext float %36 to double
   %38 = load i32, ptr %5, align 4
   %39 = sitofp i32 %38 to double
-  %40 = call double @pow(double noundef %37, double noundef %39) #16
+  %40 = call double @pow(double noundef %37, double noundef %39) #15
   %41 = load i32, ptr %4, align 4
   %42 = sitofp i32 %41 to double
   %43 = fcmp ole double %40, %42
@@ -177850,7 +177928,7 @@ define internal i32 @lookup1_values(i32 noundef %0, i32 noundef %1) #0 {
   %48 = fpext float %47 to double
   %49 = load i32, ptr %5, align 4
   %50 = sitofp i32 %49 to double
-  %51 = call double @pow(double noundef %48, double noundef %50) #16
+  %51 = call double @pow(double noundef %48, double noundef %50) #15
   %52 = call double @llvm.floor.f64(double %51)
   %53 = fptosi double %52 to i32
   %54 = load i32, ptr %4, align 4
@@ -178409,7 +178487,7 @@ define internal void @compute_twiddle_factors(i32 noundef %0, ptr noundef %1, pt
   %26 = load i32, ptr %5, align 4
   %27 = sitofp i32 %26 to double
   %28 = fdiv double %25, %27
-  %29 = call double @cos(double noundef %28) #16
+  %29 = call double @cos(double noundef %28) #15
   %30 = fptrunc double %29 to float
   %31 = load ptr, ptr %6, align 8
   %32 = load i32, ptr %12, align 4
@@ -178423,7 +178501,7 @@ define internal void @compute_twiddle_factors(i32 noundef %0, ptr noundef %1, pt
   %39 = load i32, ptr %5, align 4
   %40 = sitofp i32 %39 to double
   %41 = fdiv double %38, %40
-  %42 = call double @sin(double noundef %41) #16
+  %42 = call double @sin(double noundef %41) #15
   %43 = fneg double %42
   %44 = fptrunc double %43 to float
   %45 = load ptr, ptr %6, align 8
@@ -178440,7 +178518,7 @@ define internal void @compute_twiddle_factors(i32 noundef %0, ptr noundef %1, pt
   %55 = sitofp i32 %54 to double
   %56 = fdiv double %53, %55
   %57 = fdiv double %56, 2.000000e+00
-  %58 = call double @cos(double noundef %57) #16
+  %58 = call double @cos(double noundef %57) #15
   %59 = fptrunc double %58 to float
   %60 = fmul float %59, 5.000000e-01
   %61 = load ptr, ptr %7, align 8
@@ -178456,7 +178534,7 @@ define internal void @compute_twiddle_factors(i32 noundef %0, ptr noundef %1, pt
   %70 = sitofp i32 %69 to double
   %71 = fdiv double %68, %70
   %72 = fdiv double %71, 2.000000e+00
-  %73 = call double @sin(double noundef %72) #16
+  %73 = call double @sin(double noundef %72) #15
   %74 = fptrunc double %73 to float
   %75 = fmul float %74, 5.000000e-01
   %76 = load ptr, ptr %7, align 8
@@ -178496,7 +178574,7 @@ define internal void @compute_twiddle_factors(i32 noundef %0, ptr noundef %1, pt
   %97 = load i32, ptr %5, align 4
   %98 = sitofp i32 %97 to double
   %99 = fdiv double %96, %98
-  %100 = call double @cos(double noundef %99) #16
+  %100 = call double @cos(double noundef %99) #15
   %101 = fptrunc double %100 to float
   %102 = load ptr, ptr %8, align 8
   %103 = load i32, ptr %12, align 4
@@ -178511,7 +178589,7 @@ define internal void @compute_twiddle_factors(i32 noundef %0, ptr noundef %1, pt
   %111 = load i32, ptr %5, align 4
   %112 = sitofp i32 %111 to double
   %113 = fdiv double %110, %112
-  %114 = call double @sin(double noundef %113) #16
+  %114 = call double @sin(double noundef %113) #15
   %115 = fneg double %114
   %116 = fptrunc double %115 to float
   %117 = load ptr, ptr %8, align 8
@@ -178565,12 +178643,12 @@ define internal void @compute_window(i32 noundef %0, ptr noundef %1) #0 {
   %20 = fdiv double %17, %19
   %21 = fmul double %20, 5.000000e-01
   %22 = fmul double %21, 0x400921FB54442D18
-  %23 = call double @sin(double noundef %22) #16
+  %23 = call double @sin(double noundef %22) #15
   %24 = fptrunc double %23 to float
   %25 = call float @square(float noundef %24)
   %26 = fpext float %25 to double
   %27 = fmul double 0x3FF921FB54442D18, %26
-  %28 = call double @sin(double noundef %27) #16
+  %28 = call double @sin(double noundef %27) #15
   %29 = fptrunc double %28 to float
   %30 = load ptr, ptr %4, align 8
   %31 = load i32, ptr %6, align 4
@@ -181119,7 +181197,7 @@ define internal void @drmp3_L3_intensity_stereo(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @drmp3_L3_midside_stereo(ptr noundef %0, i32 noundef %1) #8 {
+define internal void @drmp3_L3_midside_stereo(ptr noundef %0, i32 noundef %1) #7 {
   %3 = alloca <4 x float>, align 16
   %4 = alloca <4 x float>, align 16
   %5 = alloca ptr, align 8
@@ -181393,7 +181471,7 @@ define internal void @drmp3_L3_reorder(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @drmp3_L3_antialias(ptr noundef %0, i32 noundef %1) #8 {
+define internal void @drmp3_L3_antialias(ptr noundef %0, i32 noundef %1) #7 {
   %3 = alloca <4 x float>, align 16
   %4 = alloca <4 x float>, align 16
   %5 = alloca ptr, align 8
@@ -181425,24 +181503,24 @@ define internal void @drmp3_L3_antialias(ptr noundef %0, i32 noundef %1) #8 {
   store i32 %1, ptr %24, align 4
   br label %30
 
-30:                                               ; preds = %118, %2
+30:                                               ; preds = %119, %2
   %31 = load i32, ptr %24, align 4
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %123
+  br i1 %32, label %33, label %124
 
 33:                                               ; preds = %30
   store i32 0, ptr %25, align 4
   %34 = call i32 @drmp3_have_simd()
   %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %117
+  br i1 %35, label %36, label %118
 
 36:                                               ; preds = %33
   br label %37
 
-37:                                               ; preds = %113, %36
+37:                                               ; preds = %114, %36
   %38 = load i32, ptr %25, align 4
   %39 = icmp slt i32 %38, 8
-  br i1 %39, label %40, label %116
+  br i1 %39, label %40, label %117
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %23, align 8
@@ -181473,102 +181551,103 @@ define internal void @drmp3_L3_antialias(ptr noundef %0, i32 noundef %1) #8 {
   store <4 x float> %60, ptr %28, align 16
   %61 = load i32, ptr %25, align 4
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds float, ptr getelementptr inbounds ([2 x [8 x float]], ptr @drmp3_L3_antialias.g_aa, i64 0, i64 1), i64 %62
-  store ptr %63, ptr %14, align 8
-  %64 = load ptr, ptr %14, align 8
-  %65 = load <4 x float>, ptr %64, align 1
-  store <4 x float> %65, ptr %29, align 16
-  %66 = load <4 x float>, ptr %27, align 16
+  %63 = getelementptr inbounds [2 x [8 x float]], ptr @drmp3_L3_antialias.g_aa, i64 0, i64 1
+  %64 = getelementptr inbounds float, ptr %63, i64 %62
+  store ptr %64, ptr %14, align 8
+  %65 = load ptr, ptr %14, align 8
+  %66 = load <4 x float>, ptr %65, align 1
+  store <4 x float> %66, ptr %29, align 16
   %67 = load <4 x float>, ptr %27, align 16
-  %68 = shufflevector <4 x float> %66, <4 x float> %67, <4 x i32> <i32 3, i32 2, i32 5, i32 4>
-  store <4 x float> %68, ptr %27, align 16
-  %69 = load ptr, ptr %23, align 8
-  %70 = getelementptr inbounds float, ptr %69, i64 18
-  %71 = load i32, ptr %25, align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds float, ptr %70, i64 %72
-  %74 = load <4 x float>, ptr %26, align 16
-  %75 = load <4 x float>, ptr %28, align 16
-  store <4 x float> %74, ptr %15, align 16
-  store <4 x float> %75, ptr %16, align 16
-  %76 = load <4 x float>, ptr %15, align 16
-  %77 = load <4 x float>, ptr %16, align 16
-  %78 = fmul <4 x float> %76, %77
-  %79 = load <4 x float>, ptr %27, align 16
-  %80 = load <4 x float>, ptr %29, align 16
-  store <4 x float> %79, ptr %17, align 16
-  store <4 x float> %80, ptr %18, align 16
-  %81 = load <4 x float>, ptr %17, align 16
-  %82 = load <4 x float>, ptr %18, align 16
-  %83 = fmul <4 x float> %81, %82
-  store <4 x float> %78, ptr %3, align 16
-  store <4 x float> %83, ptr %4, align 16
-  %84 = load <4 x float>, ptr %3, align 16
-  %85 = load <4 x float>, ptr %4, align 16
-  %86 = fsub <4 x float> %84, %85
-  store ptr %73, ptr %5, align 8
-  store <4 x float> %86, ptr %6, align 16
-  %87 = load <4 x float>, ptr %6, align 16
-  %88 = load ptr, ptr %5, align 8
-  store <4 x float> %87, ptr %88, align 1
-  %89 = load <4 x float>, ptr %26, align 16
-  %90 = load <4 x float>, ptr %29, align 16
-  store <4 x float> %89, ptr %19, align 16
-  store <4 x float> %90, ptr %20, align 16
-  %91 = load <4 x float>, ptr %19, align 16
-  %92 = load <4 x float>, ptr %20, align 16
-  %93 = fmul <4 x float> %91, %92
-  %94 = load <4 x float>, ptr %27, align 16
-  %95 = load <4 x float>, ptr %28, align 16
-  store <4 x float> %94, ptr %21, align 16
-  store <4 x float> %95, ptr %22, align 16
-  %96 = load <4 x float>, ptr %21, align 16
-  %97 = load <4 x float>, ptr %22, align 16
-  %98 = fmul <4 x float> %96, %97
-  store <4 x float> %93, ptr %9, align 16
-  store <4 x float> %98, ptr %10, align 16
-  %99 = load <4 x float>, ptr %9, align 16
-  %100 = load <4 x float>, ptr %10, align 16
-  %101 = fadd <4 x float> %99, %100
-  store <4 x float> %101, ptr %27, align 16
-  %102 = load ptr, ptr %23, align 8
-  %103 = getelementptr inbounds float, ptr %102, i64 14
-  %104 = load i32, ptr %25, align 4
-  %105 = sext i32 %104 to i64
-  %106 = sub i64 0, %105
-  %107 = getelementptr inbounds float, ptr %103, i64 %106
-  %108 = load <4 x float>, ptr %27, align 16
+  %68 = load <4 x float>, ptr %27, align 16
+  %69 = shufflevector <4 x float> %67, <4 x float> %68, <4 x i32> <i32 3, i32 2, i32 5, i32 4>
+  store <4 x float> %69, ptr %27, align 16
+  %70 = load ptr, ptr %23, align 8
+  %71 = getelementptr inbounds float, ptr %70, i64 18
+  %72 = load i32, ptr %25, align 4
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds float, ptr %71, i64 %73
+  %75 = load <4 x float>, ptr %26, align 16
+  %76 = load <4 x float>, ptr %28, align 16
+  store <4 x float> %75, ptr %15, align 16
+  store <4 x float> %76, ptr %16, align 16
+  %77 = load <4 x float>, ptr %15, align 16
+  %78 = load <4 x float>, ptr %16, align 16
+  %79 = fmul <4 x float> %77, %78
+  %80 = load <4 x float>, ptr %27, align 16
+  %81 = load <4 x float>, ptr %29, align 16
+  store <4 x float> %80, ptr %17, align 16
+  store <4 x float> %81, ptr %18, align 16
+  %82 = load <4 x float>, ptr %17, align 16
+  %83 = load <4 x float>, ptr %18, align 16
+  %84 = fmul <4 x float> %82, %83
+  store <4 x float> %79, ptr %3, align 16
+  store <4 x float> %84, ptr %4, align 16
+  %85 = load <4 x float>, ptr %3, align 16
+  %86 = load <4 x float>, ptr %4, align 16
+  %87 = fsub <4 x float> %85, %86
+  store ptr %74, ptr %5, align 8
+  store <4 x float> %87, ptr %6, align 16
+  %88 = load <4 x float>, ptr %6, align 16
+  %89 = load ptr, ptr %5, align 8
+  store <4 x float> %88, ptr %89, align 1
+  %90 = load <4 x float>, ptr %26, align 16
+  %91 = load <4 x float>, ptr %29, align 16
+  store <4 x float> %90, ptr %19, align 16
+  store <4 x float> %91, ptr %20, align 16
+  %92 = load <4 x float>, ptr %19, align 16
+  %93 = load <4 x float>, ptr %20, align 16
+  %94 = fmul <4 x float> %92, %93
+  %95 = load <4 x float>, ptr %27, align 16
+  %96 = load <4 x float>, ptr %28, align 16
+  store <4 x float> %95, ptr %21, align 16
+  store <4 x float> %96, ptr %22, align 16
+  %97 = load <4 x float>, ptr %21, align 16
+  %98 = load <4 x float>, ptr %22, align 16
+  %99 = fmul <4 x float> %97, %98
+  store <4 x float> %94, ptr %9, align 16
+  store <4 x float> %99, ptr %10, align 16
+  %100 = load <4 x float>, ptr %9, align 16
+  %101 = load <4 x float>, ptr %10, align 16
+  %102 = fadd <4 x float> %100, %101
+  store <4 x float> %102, ptr %27, align 16
+  %103 = load ptr, ptr %23, align 8
+  %104 = getelementptr inbounds float, ptr %103, i64 14
+  %105 = load i32, ptr %25, align 4
+  %106 = sext i32 %105 to i64
+  %107 = sub i64 0, %106
+  %108 = getelementptr inbounds float, ptr %104, i64 %107
   %109 = load <4 x float>, ptr %27, align 16
-  %110 = shufflevector <4 x float> %108, <4 x float> %109, <4 x i32> <i32 3, i32 2, i32 5, i32 4>
-  store ptr %107, ptr %7, align 8
-  store <4 x float> %110, ptr %8, align 16
-  %111 = load <4 x float>, ptr %8, align 16
-  %112 = load ptr, ptr %7, align 8
-  store <4 x float> %111, ptr %112, align 1
-  br label %113
+  %110 = load <4 x float>, ptr %27, align 16
+  %111 = shufflevector <4 x float> %109, <4 x float> %110, <4 x i32> <i32 3, i32 2, i32 5, i32 4>
+  store ptr %108, ptr %7, align 8
+  store <4 x float> %111, ptr %8, align 16
+  %112 = load <4 x float>, ptr %8, align 16
+  %113 = load ptr, ptr %7, align 8
+  store <4 x float> %112, ptr %113, align 1
+  br label %114
 
-113:                                              ; preds = %40
-  %114 = load i32, ptr %25, align 4
-  %115 = add nsw i32 %114, 4
-  store i32 %115, ptr %25, align 4
+114:                                              ; preds = %40
+  %115 = load i32, ptr %25, align 4
+  %116 = add nsw i32 %115, 4
+  store i32 %116, ptr %25, align 4
   br label %37
 
-116:                                              ; preds = %37
-  br label %117
-
-117:                                              ; preds = %116, %33
+117:                                              ; preds = %37
   br label %118
 
-118:                                              ; preds = %117
-  %119 = load i32, ptr %24, align 4
-  %120 = add nsw i32 %119, -1
-  store i32 %120, ptr %24, align 4
-  %121 = load ptr, ptr %23, align 8
-  %122 = getelementptr inbounds float, ptr %121, i64 18
-  store ptr %122, ptr %23, align 8
+118:                                              ; preds = %117, %33
+  br label %119
+
+119:                                              ; preds = %118
+  %120 = load i32, ptr %24, align 4
+  %121 = add nsw i32 %120, -1
+  store i32 %121, ptr %24, align 4
+  %122 = load ptr, ptr %23, align 8
+  %123 = getelementptr inbounds float, ptr %122, i64 18
+  store ptr %123, ptr %23, align 8
   br label %30
 
-123:                                              ; preds = %30
+124:                                              ; preds = %30
   ret void
 }
 
@@ -182371,10 +182450,10 @@ define internal i32 @drmp3_have_simd() #0 {
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i32(i32) #19
+declare i1 @llvm.is.constant.i32(i32) #18
 
 ; Function Attrs: nounwind uwtable
-define internal void @drmp3_L3_imdct36(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #8 {
+define internal void @drmp3_L3_imdct36(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #7 {
   %5 = alloca <4 x float>, align 16
   %6 = alloca <4 x float>, align 16
   %7 = alloca <4 x float>, align 16
@@ -182437,11 +182516,11 @@ define internal void @drmp3_L3_imdct36(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 0, ptr %47, align 4
   br label %60
 
-60:                                               ; preds = %409, %4
+60:                                               ; preds = %410, %4
   %61 = load i32, ptr %47, align 4
   %62 = load i32, ptr %45, align 4
   %63 = icmp slt i32 %61, %62
-  br i1 %63, label %64, label %416
+  br i1 %63, label %64, label %417
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %42, align 8
@@ -182585,15 +182664,15 @@ define internal void @drmp3_L3_imdct36(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 0, ptr %46, align 4
   %181 = call i32 @drmp3_have_simd()
   %182 = icmp ne i32 %181, 0
-  br i1 %182, label %183, label %308
+  br i1 %182, label %183, label %309
 
 183:                                              ; preds = %162
   br label %184
 
-184:                                              ; preds = %304, %183
+184:                                              ; preds = %305, %183
   %185 = load i32, ptr %46, align 4
   %186 = icmp slt i32 %185, 8
-  br i1 %186, label %187, label %307
+  br i1 %186, label %187, label %308
 
 187:                                              ; preds = %184
   %188 = load ptr, ptr %43, align 8
@@ -182629,279 +182708,280 @@ define internal void @drmp3_L3_imdct36(ptr noundef %0, ptr noundef %1, ptr nound
   store <4 x float> %210, ptr %53, align 16
   %211 = load i32, ptr %46, align 4
   %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds float, ptr getelementptr inbounds (float, ptr @drmp3_L3_imdct36.g_twid9, i64 9), i64 %212
-  store ptr %213, ptr %23, align 8
-  %214 = load ptr, ptr %23, align 8
-  %215 = load <4 x float>, ptr %214, align 1
-  store <4 x float> %215, ptr %54, align 16
-  %216 = load ptr, ptr %44, align 8
-  %217 = load i32, ptr %46, align 4
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds float, ptr %216, i64 %218
-  store ptr %219, ptr %24, align 8
-  %220 = load ptr, ptr %24, align 8
-  %221 = load <4 x float>, ptr %220, align 1
-  store <4 x float> %221, ptr %55, align 16
-  %222 = load ptr, ptr %44, align 8
-  %223 = getelementptr inbounds float, ptr %222, i64 9
-  %224 = load i32, ptr %46, align 4
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds float, ptr %223, i64 %225
-  store ptr %226, ptr %25, align 8
-  %227 = load ptr, ptr %25, align 8
-  %228 = load <4 x float>, ptr %227, align 1
-  store <4 x float> %228, ptr %56, align 16
-  %229 = load <4 x float>, ptr %51, align 16
-  %230 = load <4 x float>, ptr %54, align 16
-  store <4 x float> %229, ptr %26, align 16
-  store <4 x float> %230, ptr %27, align 16
-  %231 = load <4 x float>, ptr %26, align 16
-  %232 = load <4 x float>, ptr %27, align 16
-  %233 = fmul <4 x float> %231, %232
-  %234 = load <4 x float>, ptr %52, align 16
-  %235 = load <4 x float>, ptr %53, align 16
-  store <4 x float> %234, ptr %28, align 16
-  store <4 x float> %235, ptr %29, align 16
-  %236 = load <4 x float>, ptr %28, align 16
-  %237 = load <4 x float>, ptr %29, align 16
-  %238 = fmul <4 x float> %236, %237
-  store <4 x float> %233, ptr %15, align 16
-  store <4 x float> %238, ptr %16, align 16
-  %239 = load <4 x float>, ptr %15, align 16
-  %240 = load <4 x float>, ptr %16, align 16
-  %241 = fadd <4 x float> %239, %240
-  store <4 x float> %241, ptr %57, align 16
-  %242 = load ptr, ptr %43, align 8
-  %243 = load i32, ptr %46, align 4
-  %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds float, ptr %242, i64 %244
-  %246 = load <4 x float>, ptr %51, align 16
-  %247 = load <4 x float>, ptr %53, align 16
-  store <4 x float> %246, ptr %30, align 16
-  store <4 x float> %247, ptr %31, align 16
-  %248 = load <4 x float>, ptr %30, align 16
-  %249 = load <4 x float>, ptr %31, align 16
-  %250 = fmul <4 x float> %248, %249
-  %251 = load <4 x float>, ptr %52, align 16
-  %252 = load <4 x float>, ptr %54, align 16
-  store <4 x float> %251, ptr %32, align 16
-  store <4 x float> %252, ptr %33, align 16
-  %253 = load <4 x float>, ptr %32, align 16
-  %254 = load <4 x float>, ptr %33, align 16
-  %255 = fmul <4 x float> %253, %254
-  store <4 x float> %250, ptr %5, align 16
-  store <4 x float> %255, ptr %6, align 16
-  %256 = load <4 x float>, ptr %5, align 16
-  %257 = load <4 x float>, ptr %6, align 16
-  %258 = fsub <4 x float> %256, %257
-  store ptr %245, ptr %9, align 8
-  store <4 x float> %258, ptr %10, align 16
-  %259 = load <4 x float>, ptr %10, align 16
-  %260 = load ptr, ptr %9, align 8
-  store <4 x float> %259, ptr %260, align 1
-  %261 = load ptr, ptr %42, align 8
-  %262 = load i32, ptr %46, align 4
-  %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds float, ptr %261, i64 %263
-  %265 = load <4 x float>, ptr %50, align 16
-  %266 = load <4 x float>, ptr %55, align 16
-  store <4 x float> %265, ptr %34, align 16
-  store <4 x float> %266, ptr %35, align 16
-  %267 = load <4 x float>, ptr %34, align 16
-  %268 = load <4 x float>, ptr %35, align 16
-  %269 = fmul <4 x float> %267, %268
-  %270 = load <4 x float>, ptr %57, align 16
-  %271 = load <4 x float>, ptr %56, align 16
-  store <4 x float> %270, ptr %36, align 16
-  store <4 x float> %271, ptr %37, align 16
-  %272 = load <4 x float>, ptr %36, align 16
-  %273 = load <4 x float>, ptr %37, align 16
-  %274 = fmul <4 x float> %272, %273
-  store <4 x float> %269, ptr %7, align 16
-  store <4 x float> %274, ptr %8, align 16
-  %275 = load <4 x float>, ptr %7, align 16
-  %276 = load <4 x float>, ptr %8, align 16
-  %277 = fsub <4 x float> %275, %276
-  store ptr %264, ptr %11, align 8
-  store <4 x float> %277, ptr %12, align 16
-  %278 = load <4 x float>, ptr %12, align 16
-  %279 = load ptr, ptr %11, align 8
-  store <4 x float> %278, ptr %279, align 1
-  %280 = load <4 x float>, ptr %50, align 16
-  %281 = load <4 x float>, ptr %56, align 16
-  store <4 x float> %280, ptr %38, align 16
-  store <4 x float> %281, ptr %39, align 16
-  %282 = load <4 x float>, ptr %38, align 16
-  %283 = load <4 x float>, ptr %39, align 16
-  %284 = fmul <4 x float> %282, %283
-  %285 = load <4 x float>, ptr %57, align 16
-  %286 = load <4 x float>, ptr %55, align 16
-  store <4 x float> %285, ptr %40, align 16
-  store <4 x float> %286, ptr %41, align 16
-  %287 = load <4 x float>, ptr %40, align 16
-  %288 = load <4 x float>, ptr %41, align 16
-  %289 = fmul <4 x float> %287, %288
-  store <4 x float> %284, ptr %17, align 16
-  store <4 x float> %289, ptr %18, align 16
-  %290 = load <4 x float>, ptr %17, align 16
-  %291 = load <4 x float>, ptr %18, align 16
-  %292 = fadd <4 x float> %290, %291
-  store <4 x float> %292, ptr %57, align 16
-  %293 = load ptr, ptr %42, align 8
-  %294 = getelementptr inbounds float, ptr %293, i64 14
-  %295 = load i32, ptr %46, align 4
-  %296 = sext i32 %295 to i64
-  %297 = sub i64 0, %296
-  %298 = getelementptr inbounds float, ptr %294, i64 %297
-  %299 = load <4 x float>, ptr %57, align 16
+  %213 = getelementptr inbounds float, ptr @drmp3_L3_imdct36.g_twid9, i64 9
+  %214 = getelementptr inbounds float, ptr %213, i64 %212
+  store ptr %214, ptr %23, align 8
+  %215 = load ptr, ptr %23, align 8
+  %216 = load <4 x float>, ptr %215, align 1
+  store <4 x float> %216, ptr %54, align 16
+  %217 = load ptr, ptr %44, align 8
+  %218 = load i32, ptr %46, align 4
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr inbounds float, ptr %217, i64 %219
+  store ptr %220, ptr %24, align 8
+  %221 = load ptr, ptr %24, align 8
+  %222 = load <4 x float>, ptr %221, align 1
+  store <4 x float> %222, ptr %55, align 16
+  %223 = load ptr, ptr %44, align 8
+  %224 = getelementptr inbounds float, ptr %223, i64 9
+  %225 = load i32, ptr %46, align 4
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds float, ptr %224, i64 %226
+  store ptr %227, ptr %25, align 8
+  %228 = load ptr, ptr %25, align 8
+  %229 = load <4 x float>, ptr %228, align 1
+  store <4 x float> %229, ptr %56, align 16
+  %230 = load <4 x float>, ptr %51, align 16
+  %231 = load <4 x float>, ptr %54, align 16
+  store <4 x float> %230, ptr %26, align 16
+  store <4 x float> %231, ptr %27, align 16
+  %232 = load <4 x float>, ptr %26, align 16
+  %233 = load <4 x float>, ptr %27, align 16
+  %234 = fmul <4 x float> %232, %233
+  %235 = load <4 x float>, ptr %52, align 16
+  %236 = load <4 x float>, ptr %53, align 16
+  store <4 x float> %235, ptr %28, align 16
+  store <4 x float> %236, ptr %29, align 16
+  %237 = load <4 x float>, ptr %28, align 16
+  %238 = load <4 x float>, ptr %29, align 16
+  %239 = fmul <4 x float> %237, %238
+  store <4 x float> %234, ptr %15, align 16
+  store <4 x float> %239, ptr %16, align 16
+  %240 = load <4 x float>, ptr %15, align 16
+  %241 = load <4 x float>, ptr %16, align 16
+  %242 = fadd <4 x float> %240, %241
+  store <4 x float> %242, ptr %57, align 16
+  %243 = load ptr, ptr %43, align 8
+  %244 = load i32, ptr %46, align 4
+  %245 = sext i32 %244 to i64
+  %246 = getelementptr inbounds float, ptr %243, i64 %245
+  %247 = load <4 x float>, ptr %51, align 16
+  %248 = load <4 x float>, ptr %53, align 16
+  store <4 x float> %247, ptr %30, align 16
+  store <4 x float> %248, ptr %31, align 16
+  %249 = load <4 x float>, ptr %30, align 16
+  %250 = load <4 x float>, ptr %31, align 16
+  %251 = fmul <4 x float> %249, %250
+  %252 = load <4 x float>, ptr %52, align 16
+  %253 = load <4 x float>, ptr %54, align 16
+  store <4 x float> %252, ptr %32, align 16
+  store <4 x float> %253, ptr %33, align 16
+  %254 = load <4 x float>, ptr %32, align 16
+  %255 = load <4 x float>, ptr %33, align 16
+  %256 = fmul <4 x float> %254, %255
+  store <4 x float> %251, ptr %5, align 16
+  store <4 x float> %256, ptr %6, align 16
+  %257 = load <4 x float>, ptr %5, align 16
+  %258 = load <4 x float>, ptr %6, align 16
+  %259 = fsub <4 x float> %257, %258
+  store ptr %246, ptr %9, align 8
+  store <4 x float> %259, ptr %10, align 16
+  %260 = load <4 x float>, ptr %10, align 16
+  %261 = load ptr, ptr %9, align 8
+  store <4 x float> %260, ptr %261, align 1
+  %262 = load ptr, ptr %42, align 8
+  %263 = load i32, ptr %46, align 4
+  %264 = sext i32 %263 to i64
+  %265 = getelementptr inbounds float, ptr %262, i64 %264
+  %266 = load <4 x float>, ptr %50, align 16
+  %267 = load <4 x float>, ptr %55, align 16
+  store <4 x float> %266, ptr %34, align 16
+  store <4 x float> %267, ptr %35, align 16
+  %268 = load <4 x float>, ptr %34, align 16
+  %269 = load <4 x float>, ptr %35, align 16
+  %270 = fmul <4 x float> %268, %269
+  %271 = load <4 x float>, ptr %57, align 16
+  %272 = load <4 x float>, ptr %56, align 16
+  store <4 x float> %271, ptr %36, align 16
+  store <4 x float> %272, ptr %37, align 16
+  %273 = load <4 x float>, ptr %36, align 16
+  %274 = load <4 x float>, ptr %37, align 16
+  %275 = fmul <4 x float> %273, %274
+  store <4 x float> %270, ptr %7, align 16
+  store <4 x float> %275, ptr %8, align 16
+  %276 = load <4 x float>, ptr %7, align 16
+  %277 = load <4 x float>, ptr %8, align 16
+  %278 = fsub <4 x float> %276, %277
+  store ptr %265, ptr %11, align 8
+  store <4 x float> %278, ptr %12, align 16
+  %279 = load <4 x float>, ptr %12, align 16
+  %280 = load ptr, ptr %11, align 8
+  store <4 x float> %279, ptr %280, align 1
+  %281 = load <4 x float>, ptr %50, align 16
+  %282 = load <4 x float>, ptr %56, align 16
+  store <4 x float> %281, ptr %38, align 16
+  store <4 x float> %282, ptr %39, align 16
+  %283 = load <4 x float>, ptr %38, align 16
+  %284 = load <4 x float>, ptr %39, align 16
+  %285 = fmul <4 x float> %283, %284
+  %286 = load <4 x float>, ptr %57, align 16
+  %287 = load <4 x float>, ptr %55, align 16
+  store <4 x float> %286, ptr %40, align 16
+  store <4 x float> %287, ptr %41, align 16
+  %288 = load <4 x float>, ptr %40, align 16
+  %289 = load <4 x float>, ptr %41, align 16
+  %290 = fmul <4 x float> %288, %289
+  store <4 x float> %285, ptr %17, align 16
+  store <4 x float> %290, ptr %18, align 16
+  %291 = load <4 x float>, ptr %17, align 16
+  %292 = load <4 x float>, ptr %18, align 16
+  %293 = fadd <4 x float> %291, %292
+  store <4 x float> %293, ptr %57, align 16
+  %294 = load ptr, ptr %42, align 8
+  %295 = getelementptr inbounds float, ptr %294, i64 14
+  %296 = load i32, ptr %46, align 4
+  %297 = sext i32 %296 to i64
+  %298 = sub i64 0, %297
+  %299 = getelementptr inbounds float, ptr %295, i64 %298
   %300 = load <4 x float>, ptr %57, align 16
-  %301 = shufflevector <4 x float> %299, <4 x float> %300, <4 x i32> <i32 3, i32 2, i32 5, i32 4>
-  store ptr %298, ptr %13, align 8
-  store <4 x float> %301, ptr %14, align 16
-  %302 = load <4 x float>, ptr %14, align 16
-  %303 = load ptr, ptr %13, align 8
-  store <4 x float> %302, ptr %303, align 1
-  br label %304
+  %301 = load <4 x float>, ptr %57, align 16
+  %302 = shufflevector <4 x float> %300, <4 x float> %301, <4 x i32> <i32 3, i32 2, i32 5, i32 4>
+  store ptr %299, ptr %13, align 8
+  store <4 x float> %302, ptr %14, align 16
+  %303 = load <4 x float>, ptr %14, align 16
+  %304 = load ptr, ptr %13, align 8
+  store <4 x float> %303, ptr %304, align 1
+  br label %305
 
-304:                                              ; preds = %187
-  %305 = load i32, ptr %46, align 4
-  %306 = add nsw i32 %305, 4
-  store i32 %306, ptr %46, align 4
+305:                                              ; preds = %187
+  %306 = load i32, ptr %46, align 4
+  %307 = add nsw i32 %306, 4
+  store i32 %307, ptr %46, align 4
   br label %184
 
-307:                                              ; preds = %184
-  br label %308
-
-308:                                              ; preds = %307, %162
+308:                                              ; preds = %184
   br label %309
 
-309:                                              ; preds = %405, %308
-  %310 = load i32, ptr %46, align 4
-  %311 = icmp slt i32 %310, 9
-  br i1 %311, label %312, label %408
+309:                                              ; preds = %308, %162
+  br label %310
 
-312:                                              ; preds = %309
-  %313 = load ptr, ptr %43, align 8
-  %314 = load i32, ptr %46, align 4
-  %315 = sext i32 %314 to i64
-  %316 = getelementptr inbounds float, ptr %313, i64 %315
-  %317 = load float, ptr %316, align 4
-  store float %317, ptr %58, align 4
-  %318 = load i32, ptr %46, align 4
-  %319 = sext i32 %318 to i64
-  %320 = getelementptr inbounds [9 x float], ptr %48, i64 0, i64 %319
-  %321 = load float, ptr %320, align 4
-  %322 = load i32, ptr %46, align 4
-  %323 = add nsw i32 9, %322
-  %324 = sext i32 %323 to i64
-  %325 = getelementptr inbounds [18 x float], ptr @drmp3_L3_imdct36.g_twid9, i64 0, i64 %324
-  %326 = load float, ptr %325, align 4
-  %327 = load i32, ptr %46, align 4
-  %328 = sext i32 %327 to i64
-  %329 = getelementptr inbounds [9 x float], ptr %49, i64 0, i64 %328
-  %330 = load float, ptr %329, align 4
-  %331 = load i32, ptr %46, align 4
-  %332 = add nsw i32 0, %331
-  %333 = sext i32 %332 to i64
-  %334 = getelementptr inbounds [18 x float], ptr @drmp3_L3_imdct36.g_twid9, i64 0, i64 %333
-  %335 = load float, ptr %334, align 4
-  %336 = fmul float %330, %335
-  %337 = call float @llvm.fmuladd.f32(float %321, float %326, float %336)
-  store float %337, ptr %59, align 4
-  %338 = load i32, ptr %46, align 4
-  %339 = sext i32 %338 to i64
-  %340 = getelementptr inbounds [9 x float], ptr %48, i64 0, i64 %339
-  %341 = load float, ptr %340, align 4
-  %342 = load i32, ptr %46, align 4
-  %343 = add nsw i32 0, %342
-  %344 = sext i32 %343 to i64
-  %345 = getelementptr inbounds [18 x float], ptr @drmp3_L3_imdct36.g_twid9, i64 0, i64 %344
-  %346 = load float, ptr %345, align 4
-  %347 = load i32, ptr %46, align 4
-  %348 = sext i32 %347 to i64
-  %349 = getelementptr inbounds [9 x float], ptr %49, i64 0, i64 %348
-  %350 = load float, ptr %349, align 4
-  %351 = load i32, ptr %46, align 4
-  %352 = add nsw i32 9, %351
-  %353 = sext i32 %352 to i64
-  %354 = getelementptr inbounds [18 x float], ptr @drmp3_L3_imdct36.g_twid9, i64 0, i64 %353
-  %355 = load float, ptr %354, align 4
-  %356 = fmul float %350, %355
-  %357 = fneg float %356
-  %358 = call float @llvm.fmuladd.f32(float %341, float %346, float %357)
-  %359 = load ptr, ptr %43, align 8
-  %360 = load i32, ptr %46, align 4
-  %361 = sext i32 %360 to i64
-  %362 = getelementptr inbounds float, ptr %359, i64 %361
-  store float %358, ptr %362, align 4
-  %363 = load float, ptr %58, align 4
-  %364 = load ptr, ptr %44, align 8
-  %365 = load i32, ptr %46, align 4
-  %366 = add nsw i32 0, %365
-  %367 = sext i32 %366 to i64
-  %368 = getelementptr inbounds float, ptr %364, i64 %367
-  %369 = load float, ptr %368, align 4
-  %370 = load float, ptr %59, align 4
-  %371 = load ptr, ptr %44, align 8
-  %372 = load i32, ptr %46, align 4
-  %373 = add nsw i32 9, %372
-  %374 = sext i32 %373 to i64
-  %375 = getelementptr inbounds float, ptr %371, i64 %374
-  %376 = load float, ptr %375, align 4
-  %377 = fmul float %370, %376
-  %378 = fneg float %377
-  %379 = call float @llvm.fmuladd.f32(float %363, float %369, float %378)
-  %380 = load ptr, ptr %42, align 8
-  %381 = load i32, ptr %46, align 4
-  %382 = sext i32 %381 to i64
-  %383 = getelementptr inbounds float, ptr %380, i64 %382
-  store float %379, ptr %383, align 4
-  %384 = load float, ptr %58, align 4
-  %385 = load ptr, ptr %44, align 8
-  %386 = load i32, ptr %46, align 4
-  %387 = add nsw i32 9, %386
-  %388 = sext i32 %387 to i64
-  %389 = getelementptr inbounds float, ptr %385, i64 %388
-  %390 = load float, ptr %389, align 4
-  %391 = load float, ptr %59, align 4
-  %392 = load ptr, ptr %44, align 8
-  %393 = load i32, ptr %46, align 4
-  %394 = add nsw i32 0, %393
-  %395 = sext i32 %394 to i64
-  %396 = getelementptr inbounds float, ptr %392, i64 %395
-  %397 = load float, ptr %396, align 4
-  %398 = fmul float %391, %397
-  %399 = call float @llvm.fmuladd.f32(float %384, float %390, float %398)
-  %400 = load ptr, ptr %42, align 8
-  %401 = load i32, ptr %46, align 4
-  %402 = sub nsw i32 17, %401
-  %403 = sext i32 %402 to i64
-  %404 = getelementptr inbounds float, ptr %400, i64 %403
-  store float %399, ptr %404, align 4
-  br label %405
+310:                                              ; preds = %406, %309
+  %311 = load i32, ptr %46, align 4
+  %312 = icmp slt i32 %311, 9
+  br i1 %312, label %313, label %409
 
-405:                                              ; preds = %312
-  %406 = load i32, ptr %46, align 4
-  %407 = add nsw i32 %406, 1
-  store i32 %407, ptr %46, align 4
-  br label %309
+313:                                              ; preds = %310
+  %314 = load ptr, ptr %43, align 8
+  %315 = load i32, ptr %46, align 4
+  %316 = sext i32 %315 to i64
+  %317 = getelementptr inbounds float, ptr %314, i64 %316
+  %318 = load float, ptr %317, align 4
+  store float %318, ptr %58, align 4
+  %319 = load i32, ptr %46, align 4
+  %320 = sext i32 %319 to i64
+  %321 = getelementptr inbounds [9 x float], ptr %48, i64 0, i64 %320
+  %322 = load float, ptr %321, align 4
+  %323 = load i32, ptr %46, align 4
+  %324 = add nsw i32 9, %323
+  %325 = sext i32 %324 to i64
+  %326 = getelementptr inbounds [18 x float], ptr @drmp3_L3_imdct36.g_twid9, i64 0, i64 %325
+  %327 = load float, ptr %326, align 4
+  %328 = load i32, ptr %46, align 4
+  %329 = sext i32 %328 to i64
+  %330 = getelementptr inbounds [9 x float], ptr %49, i64 0, i64 %329
+  %331 = load float, ptr %330, align 4
+  %332 = load i32, ptr %46, align 4
+  %333 = add nsw i32 0, %332
+  %334 = sext i32 %333 to i64
+  %335 = getelementptr inbounds [18 x float], ptr @drmp3_L3_imdct36.g_twid9, i64 0, i64 %334
+  %336 = load float, ptr %335, align 4
+  %337 = fmul float %331, %336
+  %338 = call float @llvm.fmuladd.f32(float %322, float %327, float %337)
+  store float %338, ptr %59, align 4
+  %339 = load i32, ptr %46, align 4
+  %340 = sext i32 %339 to i64
+  %341 = getelementptr inbounds [9 x float], ptr %48, i64 0, i64 %340
+  %342 = load float, ptr %341, align 4
+  %343 = load i32, ptr %46, align 4
+  %344 = add nsw i32 0, %343
+  %345 = sext i32 %344 to i64
+  %346 = getelementptr inbounds [18 x float], ptr @drmp3_L3_imdct36.g_twid9, i64 0, i64 %345
+  %347 = load float, ptr %346, align 4
+  %348 = load i32, ptr %46, align 4
+  %349 = sext i32 %348 to i64
+  %350 = getelementptr inbounds [9 x float], ptr %49, i64 0, i64 %349
+  %351 = load float, ptr %350, align 4
+  %352 = load i32, ptr %46, align 4
+  %353 = add nsw i32 9, %352
+  %354 = sext i32 %353 to i64
+  %355 = getelementptr inbounds [18 x float], ptr @drmp3_L3_imdct36.g_twid9, i64 0, i64 %354
+  %356 = load float, ptr %355, align 4
+  %357 = fmul float %351, %356
+  %358 = fneg float %357
+  %359 = call float @llvm.fmuladd.f32(float %342, float %347, float %358)
+  %360 = load ptr, ptr %43, align 8
+  %361 = load i32, ptr %46, align 4
+  %362 = sext i32 %361 to i64
+  %363 = getelementptr inbounds float, ptr %360, i64 %362
+  store float %359, ptr %363, align 4
+  %364 = load float, ptr %58, align 4
+  %365 = load ptr, ptr %44, align 8
+  %366 = load i32, ptr %46, align 4
+  %367 = add nsw i32 0, %366
+  %368 = sext i32 %367 to i64
+  %369 = getelementptr inbounds float, ptr %365, i64 %368
+  %370 = load float, ptr %369, align 4
+  %371 = load float, ptr %59, align 4
+  %372 = load ptr, ptr %44, align 8
+  %373 = load i32, ptr %46, align 4
+  %374 = add nsw i32 9, %373
+  %375 = sext i32 %374 to i64
+  %376 = getelementptr inbounds float, ptr %372, i64 %375
+  %377 = load float, ptr %376, align 4
+  %378 = fmul float %371, %377
+  %379 = fneg float %378
+  %380 = call float @llvm.fmuladd.f32(float %364, float %370, float %379)
+  %381 = load ptr, ptr %42, align 8
+  %382 = load i32, ptr %46, align 4
+  %383 = sext i32 %382 to i64
+  %384 = getelementptr inbounds float, ptr %381, i64 %383
+  store float %380, ptr %384, align 4
+  %385 = load float, ptr %58, align 4
+  %386 = load ptr, ptr %44, align 8
+  %387 = load i32, ptr %46, align 4
+  %388 = add nsw i32 9, %387
+  %389 = sext i32 %388 to i64
+  %390 = getelementptr inbounds float, ptr %386, i64 %389
+  %391 = load float, ptr %390, align 4
+  %392 = load float, ptr %59, align 4
+  %393 = load ptr, ptr %44, align 8
+  %394 = load i32, ptr %46, align 4
+  %395 = add nsw i32 0, %394
+  %396 = sext i32 %395 to i64
+  %397 = getelementptr inbounds float, ptr %393, i64 %396
+  %398 = load float, ptr %397, align 4
+  %399 = fmul float %392, %398
+  %400 = call float @llvm.fmuladd.f32(float %385, float %391, float %399)
+  %401 = load ptr, ptr %42, align 8
+  %402 = load i32, ptr %46, align 4
+  %403 = sub nsw i32 17, %402
+  %404 = sext i32 %403 to i64
+  %405 = getelementptr inbounds float, ptr %401, i64 %404
+  store float %400, ptr %405, align 4
+  br label %406
 
-408:                                              ; preds = %309
-  br label %409
+406:                                              ; preds = %313
+  %407 = load i32, ptr %46, align 4
+  %408 = add nsw i32 %407, 1
+  store i32 %408, ptr %46, align 4
+  br label %310
 
-409:                                              ; preds = %408
-  %410 = load i32, ptr %47, align 4
-  %411 = add nsw i32 %410, 1
-  store i32 %411, ptr %47, align 4
-  %412 = load ptr, ptr %42, align 8
-  %413 = getelementptr inbounds float, ptr %412, i64 18
-  store ptr %413, ptr %42, align 8
-  %414 = load ptr, ptr %43, align 8
-  %415 = getelementptr inbounds float, ptr %414, i64 9
-  store ptr %415, ptr %43, align 8
+409:                                              ; preds = %310
+  br label %410
+
+410:                                              ; preds = %409
+  %411 = load i32, ptr %47, align 4
+  %412 = add nsw i32 %411, 1
+  store i32 %412, ptr %47, align 4
+  %413 = load ptr, ptr %42, align 8
+  %414 = getelementptr inbounds float, ptr %413, i64 18
+  store ptr %414, ptr %42, align 8
+  %415 = load ptr, ptr %43, align 8
+  %416 = getelementptr inbounds float, ptr %415, i64 9
+  store ptr %416, ptr %43, align 8
   br label %60
 
-416:                                              ; preds = %60
+417:                                              ; preds = %60
   ret void
 }
 
@@ -183382,7 +183462,7 @@ define internal void @drmp3_L3_idct3(float noundef %0, float noundef %1, float n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @drmp3d_DCT_II(ptr noundef %0, i32 noundef %1) #8 {
+define internal void @drmp3d_DCT_II(ptr noundef %0, i32 noundef %1) #7 {
   %3 = alloca ptr, align 8
   %4 = alloca <4 x float>, align 16
   %5 = alloca ptr, align 8
@@ -184708,7 +184788,7 @@ define internal void @drmp3d_DCT_II(ptr noundef %0, i32 noundef %1) #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @drmp3d_synth(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #8 {
+define internal void @drmp3d_synth(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #7 {
   %5 = alloca <4 x float>, align 16
   %6 = alloca <4 x float>, align 16
   %7 = alloca <4 x float>, align 16
@@ -186639,16 +186719,16 @@ define internal void @drmp3_L12_read_scalefactors(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #17
+declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float>) #17
+declare <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float>) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #17
+declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #17
+declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #16
 
 ; Function Attrs: nounwind uwtable
 define internal void @drmp3_copy_allocation_callbacks_or_defaults(ptr dead_on_unwind noalias writable sret(%struct.drmp3_allocation_callbacks) align 8 %0, ptr noundef %1) #0 {
@@ -192381,7 +192461,7 @@ define internal void @jar_xm_key_off(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
+declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
 define internal void @jar_xm_post_pattern_change(ptr noundef %0) #0 {
@@ -192787,7 +192867,7 @@ define internal float @jar_xm_waveform(i32 noundef %0, i8 noundef zeroext %1) #0
   %13 = uitofp i8 %12 to float
   %14 = fmul float 0x401921FB00000000, %13
   %15 = fdiv float %14, 6.400000e+01
-  %16 = call float @sinf(float noundef %15) #16
+  %16 = call float @sinf(float noundef %15) #15
   %17 = fneg float %16
   store float %17, ptr %3, align 4
   br label %47
@@ -192866,7 +192946,7 @@ define internal float @jar_xm_frequency(ptr noundef %0, float noundef %1, float 
   %15 = getelementptr inbounds %struct.jar_xm_context_s, ptr %14, i32 0, i32 1
   %16 = getelementptr inbounds %struct.jar_xm_module_s, ptr %15, i32 0, i32 9
   %17 = load i32, ptr %16, align 8
-  switch i32 %17, label %172 [
+  switch i32 %17, label %174 [
     i32 0, label %18
     i32 1, label %23
   ]
@@ -192877,7 +192957,7 @@ define internal float @jar_xm_frequency(ptr noundef %0, float noundef %1, float 
   %21 = call float @llvm.fmuladd.f32(float -6.400000e+01, float %20, float %19)
   %22 = call float @jar_xm_linear_frequency(float noundef %21)
   store float %22, ptr %4, align 4
-  br label %173
+  br label %175
 
 23:                                               ; preds = %3
   %24 = load float, ptr %7, align 4
@@ -192888,7 +192968,7 @@ define internal float @jar_xm_frequency(ptr noundef %0, float noundef %1, float 
   %27 = load float, ptr %6, align 4
   %28 = call float @jar_xm_amiga_frequency(float noundef %27)
   store float %28, ptr %4, align 4
-  br label %173
+  br label %175
 
 29:                                               ; preds = %23
   store i8 0, ptr %8, align 1
@@ -192925,186 +193005,188 @@ define internal float @jar_xm_frequency(ptr noundef %0, float noundef %1, float 
   br label %38
 
 51:                                               ; preds = %38
-  br label %75
+  br label %77
 
 52:                                               ; preds = %29
   %53 = load float, ptr %6, align 4
-  %54 = load i16, ptr getelementptr inbounds ([13 x i16], ptr @amiga_frequencies, i64 0, i64 12), align 8
-  %55 = zext i16 %54 to i32
-  %56 = sitofp i32 %55 to float
-  %57 = fcmp olt float %53, %56
-  br i1 %57, label %58, label %74
+  %54 = getelementptr inbounds [13 x i16], ptr @amiga_frequencies, i64 0, i64 12
+  %55 = load i16, ptr %54, align 8
+  %56 = zext i16 %55 to i32
+  %57 = sitofp i32 %56 to float
+  %58 = fcmp olt float %53, %57
+  br i1 %58, label %59, label %76
 
-58:                                               ; preds = %52
-  %59 = load i8, ptr %8, align 1
-  %60 = add i8 %59, 1
-  store i8 %60, ptr %8, align 1
-  br label %61
+59:                                               ; preds = %52
+  %60 = load i8, ptr %8, align 1
+  %61 = add i8 %60, 1
+  store i8 %61, ptr %8, align 1
+  br label %62
 
-61:                                               ; preds = %70, %58
-  %62 = load float, ptr %6, align 4
-  %63 = load i16, ptr getelementptr inbounds ([13 x i16], ptr @amiga_frequencies, i64 0, i64 12), align 8
-  %64 = zext i16 %63 to i32
-  %65 = load i8, ptr %8, align 1
-  %66 = sext i8 %65 to i32
-  %67 = ashr i32 %64, %66
-  %68 = sitofp i32 %67 to float
-  %69 = fcmp olt float %62, %68
-  br i1 %69, label %70, label %73
+62:                                               ; preds = %72, %59
+  %63 = load float, ptr %6, align 4
+  %64 = getelementptr inbounds [13 x i16], ptr @amiga_frequencies, i64 0, i64 12
+  %65 = load i16, ptr %64, align 8
+  %66 = zext i16 %65 to i32
+  %67 = load i8, ptr %8, align 1
+  %68 = sext i8 %67 to i32
+  %69 = ashr i32 %66, %68
+  %70 = sitofp i32 %69 to float
+  %71 = fcmp olt float %63, %70
+  br i1 %71, label %72, label %75
 
-70:                                               ; preds = %61
-  %71 = load i8, ptr %8, align 1
-  %72 = add i8 %71, 1
-  store i8 %72, ptr %8, align 1
-  br label %61
+72:                                               ; preds = %62
+  %73 = load i8, ptr %8, align 1
+  %74 = add i8 %73, 1
+  store i8 %74, ptr %8, align 1
+  br label %62
 
-73:                                               ; preds = %61
-  br label %74
+75:                                               ; preds = %62
+  br label %76
 
-74:                                               ; preds = %73, %52
-  br label %75
+76:                                               ; preds = %75, %52
+  br label %77
 
-75:                                               ; preds = %74, %51
+77:                                               ; preds = %76, %51
   store i8 0, ptr %13, align 1
-  br label %76
+  br label %78
 
-76:                                               ; preds = %142, %75
-  %77 = load i8, ptr %13, align 1
-  %78 = zext i8 %77 to i32
-  %79 = icmp slt i32 %78, 12
-  br i1 %79, label %80, label %145
+78:                                               ; preds = %144, %77
+  %79 = load i8, ptr %13, align 1
+  %80 = zext i8 %79 to i32
+  %81 = icmp slt i32 %80, 12
+  br i1 %81, label %82, label %147
 
-80:                                               ; preds = %76
-  %81 = load i8, ptr %13, align 1
-  %82 = zext i8 %81 to i64
-  %83 = getelementptr inbounds [13 x i16], ptr @amiga_frequencies, i64 0, i64 %82
-  %84 = load i16, ptr %83, align 2
-  store i16 %84, ptr %10, align 2
-  %85 = load i8, ptr %13, align 1
-  %86 = zext i8 %85 to i32
-  %87 = add nsw i32 %86, 1
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [13 x i16], ptr @amiga_frequencies, i64 0, i64 %88
-  %90 = load i16, ptr %89, align 2
-  store i16 %90, ptr %11, align 2
-  %91 = load i8, ptr %8, align 1
-  %92 = sext i8 %91 to i32
-  %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %94, label %107
+82:                                               ; preds = %78
+  %83 = load i8, ptr %13, align 1
+  %84 = zext i8 %83 to i64
+  %85 = getelementptr inbounds [13 x i16], ptr @amiga_frequencies, i64 0, i64 %84
+  %86 = load i16, ptr %85, align 2
+  store i16 %86, ptr %10, align 2
+  %87 = load i8, ptr %13, align 1
+  %88 = zext i8 %87 to i32
+  %89 = add nsw i32 %88, 1
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds [13 x i16], ptr @amiga_frequencies, i64 0, i64 %90
+  %92 = load i16, ptr %91, align 2
+  store i16 %92, ptr %11, align 2
+  %93 = load i8, ptr %8, align 1
+  %94 = sext i8 %93 to i32
+  %95 = icmp sgt i32 %94, 0
+  br i1 %95, label %96, label %109
 
-94:                                               ; preds = %80
-  %95 = load i8, ptr %8, align 1
-  %96 = sext i8 %95 to i32
-  %97 = load i16, ptr %10, align 2
-  %98 = zext i16 %97 to i32
-  %99 = ashr i32 %98, %96
-  %100 = trunc i32 %99 to i16
-  store i16 %100, ptr %10, align 2
-  %101 = load i8, ptr %8, align 1
-  %102 = sext i8 %101 to i32
-  %103 = load i16, ptr %11, align 2
-  %104 = zext i16 %103 to i32
-  %105 = ashr i32 %104, %102
-  %106 = trunc i32 %105 to i16
-  store i16 %106, ptr %11, align 2
-  br label %127
+96:                                               ; preds = %82
+  %97 = load i8, ptr %8, align 1
+  %98 = sext i8 %97 to i32
+  %99 = load i16, ptr %10, align 2
+  %100 = zext i16 %99 to i32
+  %101 = ashr i32 %100, %98
+  %102 = trunc i32 %101 to i16
+  store i16 %102, ptr %10, align 2
+  %103 = load i8, ptr %8, align 1
+  %104 = sext i8 %103 to i32
+  %105 = load i16, ptr %11, align 2
+  %106 = zext i16 %105 to i32
+  %107 = ashr i32 %106, %104
+  %108 = trunc i32 %107 to i16
+  store i16 %108, ptr %11, align 2
+  br label %129
 
-107:                                              ; preds = %80
-  %108 = load i8, ptr %8, align 1
-  %109 = sext i8 %108 to i32
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %126
+109:                                              ; preds = %82
+  %110 = load i8, ptr %8, align 1
+  %111 = sext i8 %110 to i32
+  %112 = icmp slt i32 %111, 0
+  br i1 %112, label %113, label %128
 
-111:                                              ; preds = %107
-  %112 = load i8, ptr %8, align 1
-  %113 = sext i8 %112 to i32
-  %114 = sub nsw i32 0, %113
-  %115 = load i16, ptr %10, align 2
-  %116 = zext i16 %115 to i32
-  %117 = shl i32 %116, %114
-  %118 = trunc i32 %117 to i16
-  store i16 %118, ptr %10, align 2
-  %119 = load i8, ptr %8, align 1
-  %120 = sext i8 %119 to i32
-  %121 = sub nsw i32 0, %120
-  %122 = load i16, ptr %11, align 2
-  %123 = zext i16 %122 to i32
-  %124 = shl i32 %123, %121
-  %125 = trunc i32 %124 to i16
-  store i16 %125, ptr %11, align 2
-  br label %126
+113:                                              ; preds = %109
+  %114 = load i8, ptr %8, align 1
+  %115 = sext i8 %114 to i32
+  %116 = sub nsw i32 0, %115
+  %117 = load i16, ptr %10, align 2
+  %118 = zext i16 %117 to i32
+  %119 = shl i32 %118, %116
+  %120 = trunc i32 %119 to i16
+  store i16 %120, ptr %10, align 2
+  %121 = load i8, ptr %8, align 1
+  %122 = sext i8 %121 to i32
+  %123 = sub nsw i32 0, %122
+  %124 = load i16, ptr %11, align 2
+  %125 = zext i16 %124 to i32
+  %126 = shl i32 %125, %123
+  %127 = trunc i32 %126 to i16
+  store i16 %127, ptr %11, align 2
+  br label %128
 
-126:                                              ; preds = %111, %107
-  br label %127
+128:                                              ; preds = %113, %109
+  br label %129
 
-127:                                              ; preds = %126, %94
-  %128 = load i16, ptr %11, align 2
-  %129 = zext i16 %128 to i32
-  %130 = sitofp i32 %129 to float
-  %131 = load float, ptr %6, align 4
-  %132 = fcmp ole float %130, %131
-  br i1 %132, label %133, label %141
+129:                                              ; preds = %128, %96
+  %130 = load i16, ptr %11, align 2
+  %131 = zext i16 %130 to i32
+  %132 = sitofp i32 %131 to float
+  %133 = load float, ptr %6, align 4
+  %134 = fcmp ole float %132, %133
+  br i1 %134, label %135, label %143
 
-133:                                              ; preds = %127
-  %134 = load float, ptr %6, align 4
-  %135 = load i16, ptr %10, align 2
-  %136 = zext i16 %135 to i32
-  %137 = sitofp i32 %136 to float
-  %138 = fcmp ole float %134, %137
-  br i1 %138, label %139, label %141
+135:                                              ; preds = %129
+  %136 = load float, ptr %6, align 4
+  %137 = load i16, ptr %10, align 2
+  %138 = zext i16 %137 to i32
+  %139 = sitofp i32 %138 to float
+  %140 = fcmp ole float %136, %139
+  br i1 %140, label %141, label %143
 
-139:                                              ; preds = %133
-  %140 = load i8, ptr %13, align 1
-  store i8 %140, ptr %12, align 1
-  br label %145
+141:                                              ; preds = %135
+  %142 = load i8, ptr %13, align 1
+  store i8 %142, ptr %12, align 1
+  br label %147
 
-141:                                              ; preds = %133, %127
-  br label %142
+143:                                              ; preds = %135, %129
+  br label %144
 
-142:                                              ; preds = %141
-  %143 = load i8, ptr %13, align 1
-  %144 = add i8 %143, 1
-  store i8 %144, ptr %13, align 1
-  br label %76
+144:                                              ; preds = %143
+  %145 = load i8, ptr %13, align 1
+  %146 = add i8 %145, 1
+  store i8 %146, ptr %13, align 1
+  br label %78
 
-145:                                              ; preds = %139, %76
-  %146 = load i8, ptr %8, align 1
-  %147 = sext i8 %146 to i32
-  %148 = add nsw i32 %147, 2
-  %149 = sitofp i32 %148 to float
-  %150 = load i8, ptr %12, align 1
-  %151 = zext i8 %150 to i32
-  %152 = sitofp i32 %151 to float
-  %153 = call float @llvm.fmuladd.f32(float 1.200000e+01, float %149, float %152)
-  %154 = load float, ptr %6, align 4
-  %155 = load i16, ptr %10, align 2
-  %156 = zext i16 %155 to i32
-  %157 = sitofp i32 %156 to float
-  %158 = fsub float %154, %157
-  %159 = load i16, ptr %11, align 2
-  %160 = zext i16 %159 to i32
-  %161 = load i16, ptr %10, align 2
+147:                                              ; preds = %141, %78
+  %148 = load i8, ptr %8, align 1
+  %149 = sext i8 %148 to i32
+  %150 = add nsw i32 %149, 2
+  %151 = sitofp i32 %150 to float
+  %152 = load i8, ptr %12, align 1
+  %153 = zext i8 %152 to i32
+  %154 = sitofp i32 %153 to float
+  %155 = call float @llvm.fmuladd.f32(float 1.200000e+01, float %151, float %154)
+  %156 = load float, ptr %6, align 4
+  %157 = load i16, ptr %10, align 2
+  %158 = zext i16 %157 to i32
+  %159 = sitofp i32 %158 to float
+  %160 = fsub float %156, %159
+  %161 = load i16, ptr %11, align 2
   %162 = zext i16 %161 to i32
-  %163 = sub nsw i32 %160, %162
-  %164 = sitofp i32 %163 to float
-  %165 = fdiv float %158, %164
-  %166 = fadd float %153, %165
-  store float %166, ptr %9, align 4
-  %167 = load float, ptr %9, align 4
-  %168 = load float, ptr %7, align 4
-  %169 = fadd float %167, %168
-  %170 = call float @jar_xm_amiga_period(float noundef %169)
-  %171 = call float @jar_xm_amiga_frequency(float noundef %170)
-  store float %171, ptr %4, align 4
-  br label %173
+  %163 = load i16, ptr %10, align 2
+  %164 = zext i16 %163 to i32
+  %165 = sub nsw i32 %162, %164
+  %166 = sitofp i32 %165 to float
+  %167 = fdiv float %160, %166
+  %168 = fadd float %155, %167
+  store float %168, ptr %9, align 4
+  %169 = load float, ptr %9, align 4
+  %170 = load float, ptr %7, align 4
+  %171 = fadd float %169, %170
+  %172 = call float @jar_xm_amiga_period(float noundef %171)
+  %173 = call float @jar_xm_amiga_frequency(float noundef %172)
+  store float %173, ptr %4, align 4
+  br label %175
 
-172:                                              ; preds = %3
+174:                                              ; preds = %3
   store float 0.000000e+00, ptr %4, align 4
-  br label %173
+  br label %175
 
-173:                                              ; preds = %172, %145, %26, %18
-  %174 = load float, ptr %4, align 4
-  ret float %174
+175:                                              ; preds = %174, %147, %26, %18
+  %176 = load float, ptr %4, align 4
+  ret float %176
 }
 
 ; Function Attrs: nounwind uwtable
@@ -193114,7 +193196,7 @@ define internal float @jar_xm_linear_frequency(float noundef %0) #0 {
   %3 = load float, ptr %2, align 4
   %4 = fsub float 4.608000e+03, %3
   %5 = fdiv float %4, 7.680000e+02
-  %6 = call float @powf(float noundef 2.000000e+00, float noundef %5) #16
+  %6 = call float @powf(float noundef 2.000000e+00, float noundef %5) #15
   %7 = fmul float 8.363000e+03, %6
   ret float %7
 }
@@ -193557,162 +193639,163 @@ define internal void @MixAudioFrames(ptr noundef %0, ptr noundef %1, i32 noundef
   %22 = getelementptr inbounds %struct.rAudioBuffer, ptr %21, i32 0, i32 3
   %23 = load float, ptr %22, align 8
   store float %23, ptr %9, align 4
-  %24 = load i32, ptr getelementptr inbounds (%struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 5), align 8
-  store i32 %24, ptr %10, align 4
-  %25 = load i32, ptr %10, align 4
-  %26 = icmp eq i32 %25, 2
-  br i1 %26, label %27, label %86
+  %24 = getelementptr inbounds %struct.anon.62, ptr @AUDIO, i32 0, i32 1, i32 22, i32 5
+  %25 = load i32, ptr %24, align 8
+  store i32 %25, ptr %10, align 4
+  %26 = load i32, ptr %10, align 4
+  %27 = icmp eq i32 %26, 2
+  br i1 %27, label %28, label %87
 
-27:                                               ; preds = %4
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct.rAudioBuffer, ptr %28, i32 0, i32 5
-  %30 = load float, ptr %29, align 8
-  store float %30, ptr %11, align 4
-  %31 = load float, ptr %11, align 4
-  %32 = fsub float 1.000000e+00, %31
-  store float %32, ptr %12, align 4
-  %33 = getelementptr inbounds [2 x float], ptr %13, i64 0, i64 0
-  %34 = load float, ptr %9, align 4
-  %35 = fmul float %34, 5.000000e-01
-  %36 = load float, ptr %11, align 4
-  %37 = fmul float %35, %36
-  %38 = load float, ptr %11, align 4
+28:                                               ; preds = %4
+  %29 = load ptr, ptr %8, align 8
+  %30 = getelementptr inbounds %struct.rAudioBuffer, ptr %29, i32 0, i32 5
+  %31 = load float, ptr %30, align 8
+  store float %31, ptr %11, align 4
+  %32 = load float, ptr %11, align 4
+  %33 = fsub float 1.000000e+00, %32
+  store float %33, ptr %12, align 4
+  %34 = getelementptr inbounds [2 x float], ptr %13, i64 0, i64 0
+  %35 = load float, ptr %9, align 4
+  %36 = fmul float %35, 5.000000e-01
+  %37 = load float, ptr %11, align 4
+  %38 = fmul float %36, %37
   %39 = load float, ptr %11, align 4
-  %40 = fneg float %38
-  %41 = call float @llvm.fmuladd.f32(float %40, float %39, float 3.000000e+00)
-  %42 = fmul float %37, %41
-  store float %42, ptr %33, align 4
-  %43 = getelementptr inbounds float, ptr %33, i64 1
-  %44 = load float, ptr %9, align 4
-  %45 = fmul float %44, 5.000000e-01
-  %46 = load float, ptr %12, align 4
-  %47 = fmul float %45, %46
-  %48 = load float, ptr %12, align 4
+  %40 = load float, ptr %11, align 4
+  %41 = fneg float %39
+  %42 = call float @llvm.fmuladd.f32(float %41, float %40, float 3.000000e+00)
+  %43 = fmul float %38, %42
+  store float %43, ptr %34, align 4
+  %44 = getelementptr inbounds float, ptr %34, i64 1
+  %45 = load float, ptr %9, align 4
+  %46 = fmul float %45, 5.000000e-01
+  %47 = load float, ptr %12, align 4
+  %48 = fmul float %46, %47
   %49 = load float, ptr %12, align 4
-  %50 = fneg float %48
-  %51 = call float @llvm.fmuladd.f32(float %50, float %49, float 3.000000e+00)
-  %52 = fmul float %47, %51
-  store float %52, ptr %43, align 4
-  %53 = load ptr, ptr %5, align 8
-  store ptr %53, ptr %14, align 8
-  %54 = load ptr, ptr %6, align 8
-  store ptr %54, ptr %15, align 8
+  %50 = load float, ptr %12, align 4
+  %51 = fneg float %49
+  %52 = call float @llvm.fmuladd.f32(float %51, float %50, float 3.000000e+00)
+  %53 = fmul float %48, %52
+  store float %53, ptr %44, align 4
+  %54 = load ptr, ptr %5, align 8
+  store ptr %54, ptr %14, align 8
+  %55 = load ptr, ptr %6, align 8
+  store ptr %55, ptr %15, align 8
   store i32 0, ptr %16, align 4
-  br label %55
+  br label %56
 
-55:                                               ; preds = %82, %27
-  %56 = load i32, ptr %16, align 4
-  %57 = load i32, ptr %7, align 4
-  %58 = icmp ult i32 %56, %57
-  br i1 %58, label %59, label %85
+56:                                               ; preds = %83, %28
+  %57 = load i32, ptr %16, align 4
+  %58 = load i32, ptr %7, align 4
+  %59 = icmp ult i32 %57, %58
+  br i1 %59, label %60, label %86
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %15, align 8
-  %61 = getelementptr inbounds float, ptr %60, i64 0
-  %62 = load float, ptr %61, align 4
-  %63 = getelementptr inbounds [2 x float], ptr %13, i64 0, i64 0
-  %64 = load float, ptr %63, align 4
-  %65 = load ptr, ptr %14, align 8
-  %66 = getelementptr inbounds float, ptr %65, i64 0
-  %67 = load float, ptr %66, align 4
-  %68 = call float @llvm.fmuladd.f32(float %62, float %64, float %67)
-  store float %68, ptr %66, align 4
-  %69 = load ptr, ptr %15, align 8
-  %70 = getelementptr inbounds float, ptr %69, i64 1
-  %71 = load float, ptr %70, align 4
-  %72 = getelementptr inbounds [2 x float], ptr %13, i64 0, i64 1
-  %73 = load float, ptr %72, align 4
-  %74 = load ptr, ptr %14, align 8
-  %75 = getelementptr inbounds float, ptr %74, i64 1
-  %76 = load float, ptr %75, align 4
-  %77 = call float @llvm.fmuladd.f32(float %71, float %73, float %76)
-  store float %77, ptr %75, align 4
-  %78 = load ptr, ptr %14, align 8
-  %79 = getelementptr inbounds float, ptr %78, i64 2
-  store ptr %79, ptr %14, align 8
-  %80 = load ptr, ptr %15, align 8
-  %81 = getelementptr inbounds float, ptr %80, i64 2
-  store ptr %81, ptr %15, align 8
-  br label %82
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %15, align 8
+  %62 = getelementptr inbounds float, ptr %61, i64 0
+  %63 = load float, ptr %62, align 4
+  %64 = getelementptr inbounds [2 x float], ptr %13, i64 0, i64 0
+  %65 = load float, ptr %64, align 4
+  %66 = load ptr, ptr %14, align 8
+  %67 = getelementptr inbounds float, ptr %66, i64 0
+  %68 = load float, ptr %67, align 4
+  %69 = call float @llvm.fmuladd.f32(float %63, float %65, float %68)
+  store float %69, ptr %67, align 4
+  %70 = load ptr, ptr %15, align 8
+  %71 = getelementptr inbounds float, ptr %70, i64 1
+  %72 = load float, ptr %71, align 4
+  %73 = getelementptr inbounds [2 x float], ptr %13, i64 0, i64 1
+  %74 = load float, ptr %73, align 4
+  %75 = load ptr, ptr %14, align 8
+  %76 = getelementptr inbounds float, ptr %75, i64 1
+  %77 = load float, ptr %76, align 4
+  %78 = call float @llvm.fmuladd.f32(float %72, float %74, float %77)
+  store float %78, ptr %76, align 4
+  %79 = load ptr, ptr %14, align 8
+  %80 = getelementptr inbounds float, ptr %79, i64 2
+  store ptr %80, ptr %14, align 8
+  %81 = load ptr, ptr %15, align 8
+  %82 = getelementptr inbounds float, ptr %81, i64 2
+  store ptr %82, ptr %15, align 8
+  br label %83
 
-82:                                               ; preds = %59
-  %83 = load i32, ptr %16, align 4
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %16, align 4
-  br label %55
+83:                                               ; preds = %60
+  %84 = load i32, ptr %16, align 4
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %16, align 4
+  br label %56
 
-85:                                               ; preds = %55
-  br label %129
+86:                                               ; preds = %56
+  br label %130
 
-86:                                               ; preds = %4
+87:                                               ; preds = %4
   store i32 0, ptr %17, align 4
-  br label %87
+  br label %88
 
-87:                                               ; preds = %125, %86
-  %88 = load i32, ptr %17, align 4
-  %89 = load i32, ptr %7, align 4
-  %90 = icmp ult i32 %88, %89
-  br i1 %90, label %91, label %128
+88:                                               ; preds = %126, %87
+  %89 = load i32, ptr %17, align 4
+  %90 = load i32, ptr %7, align 4
+  %91 = icmp ult i32 %89, %90
+  br i1 %91, label %92, label %129
 
-91:                                               ; preds = %87
+92:                                               ; preds = %88
   store i32 0, ptr %18, align 4
-  br label %92
+  br label %93
 
-92:                                               ; preds = %121, %91
-  %93 = load i32, ptr %18, align 4
-  %94 = load i32, ptr %10, align 4
-  %95 = icmp ult i32 %93, %94
-  br i1 %95, label %96, label %124
+93:                                               ; preds = %122, %92
+  %94 = load i32, ptr %18, align 4
+  %95 = load i32, ptr %10, align 4
+  %96 = icmp ult i32 %94, %95
+  br i1 %96, label %97, label %125
 
-96:                                               ; preds = %92
-  %97 = load ptr, ptr %5, align 8
-  %98 = load i32, ptr %17, align 4
-  %99 = load i32, ptr %10, align 4
-  %100 = mul i32 %98, %99
-  %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds float, ptr %97, i64 %101
-  store ptr %102, ptr %19, align 8
-  %103 = load ptr, ptr %6, align 8
-  %104 = load i32, ptr %17, align 4
-  %105 = load i32, ptr %10, align 4
-  %106 = mul i32 %104, %105
-  %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds float, ptr %103, i64 %107
-  store ptr %108, ptr %20, align 8
-  %109 = load ptr, ptr %20, align 8
-  %110 = load i32, ptr %18, align 4
-  %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds float, ptr %109, i64 %111
-  %113 = load float, ptr %112, align 4
-  %114 = load float, ptr %9, align 4
-  %115 = load ptr, ptr %19, align 8
-  %116 = load i32, ptr %18, align 4
-  %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds float, ptr %115, i64 %117
-  %119 = load float, ptr %118, align 4
-  %120 = call float @llvm.fmuladd.f32(float %113, float %114, float %119)
-  store float %120, ptr %118, align 4
-  br label %121
+97:                                               ; preds = %93
+  %98 = load ptr, ptr %5, align 8
+  %99 = load i32, ptr %17, align 4
+  %100 = load i32, ptr %10, align 4
+  %101 = mul i32 %99, %100
+  %102 = zext i32 %101 to i64
+  %103 = getelementptr inbounds float, ptr %98, i64 %102
+  store ptr %103, ptr %19, align 8
+  %104 = load ptr, ptr %6, align 8
+  %105 = load i32, ptr %17, align 4
+  %106 = load i32, ptr %10, align 4
+  %107 = mul i32 %105, %106
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds float, ptr %104, i64 %108
+  store ptr %109, ptr %20, align 8
+  %110 = load ptr, ptr %20, align 8
+  %111 = load i32, ptr %18, align 4
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds float, ptr %110, i64 %112
+  %114 = load float, ptr %113, align 4
+  %115 = load float, ptr %9, align 4
+  %116 = load ptr, ptr %19, align 8
+  %117 = load i32, ptr %18, align 4
+  %118 = zext i32 %117 to i64
+  %119 = getelementptr inbounds float, ptr %116, i64 %118
+  %120 = load float, ptr %119, align 4
+  %121 = call float @llvm.fmuladd.f32(float %114, float %115, float %120)
+  store float %121, ptr %119, align 4
+  br label %122
 
-121:                                              ; preds = %96
-  %122 = load i32, ptr %18, align 4
-  %123 = add i32 %122, 1
-  store i32 %123, ptr %18, align 4
-  br label %92
+122:                                              ; preds = %97
+  %123 = load i32, ptr %18, align 4
+  %124 = add i32 %123, 1
+  store i32 %124, ptr %18, align 4
+  br label %93
 
-124:                                              ; preds = %92
-  br label %125
+125:                                              ; preds = %93
+  br label %126
 
-125:                                              ; preds = %124
-  %126 = load i32, ptr %17, align 4
-  %127 = add i32 %126, 1
-  store i32 %127, ptr %17, align 4
-  br label %87
+126:                                              ; preds = %125
+  %127 = load i32, ptr %17, align 4
+  %128 = add i32 %127, 1
+  store i32 %128, ptr %17, align 4
+  br label %88
 
-128:                                              ; preds = %87
-  br label %129
+129:                                              ; preds = %88
+  br label %130
 
-129:                                              ; preds = %128, %85
+130:                                              ; preds = %129, %86
   ret void
 }
 
@@ -194047,7 +194130,13 @@ define internal i32 @ReadAudioBufferFramesInInternalFormat(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #20
+declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #20
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #20
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -194056,20 +194145,20 @@ attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-tra
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind memory(argmem: write) }
-attributes #16 = { nounwind }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #19 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind memory(argmem: write) }
+attributes #15 = { nounwind }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn }
 attributes #21 = { nounwind willreturn memory(read) }
 attributes #22 = { nounwind willreturn memory(none) }
 attributes #23 = { nounwind allocsize(0) }

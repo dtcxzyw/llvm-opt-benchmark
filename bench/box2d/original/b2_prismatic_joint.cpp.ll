@@ -243,17 +243,18 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %def.addr, align 8
   call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16b2PrismaticJoint, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %def.addr, align 8
-  %localAnchorA = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %1, i32 0, i32 1
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV16b2PrismaticJoint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %def.addr, align 8
+  %localAnchorA = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %2, i32 0, i32 1
   %m_localAnchorA2 = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorA2, ptr align 4 %localAnchorA, i64 8, i1 false)
-  %2 = load ptr, ptr %def.addr, align 8
-  %localAnchorB = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %def.addr, align 8
+  %localAnchorB = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %3, i32 0, i32 2
   %m_localAnchorB3 = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorB3, ptr align 4 %localAnchorB, i64 8, i1 false)
-  %3 = load ptr, ptr %def.addr, align 8
-  %localAxisA = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %3, i32 0, i32 3
+  %4 = load ptr, ptr %def.addr, align 8
+  %localAxisA = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %4, i32 0, i32 3
   %m_localXAxisA4 = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localXAxisA4, ptr align 4 %localAxisA, i64 8, i1 false)
   %m_localXAxisA5 = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 3
@@ -269,11 +270,11 @@ invoke.cont7:                                     ; preds = %invoke.cont
   store <2 x float> %call8, ptr %ref.tmp, align 4
   %m_localYAxisA9 = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localYAxisA9, ptr align 4 %ref.tmp, i64 8, i1 false)
-  %4 = load ptr, ptr %def.addr, align 8
-  %referenceAngle = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %4, i32 0, i32 4
-  %5 = load float, ptr %referenceAngle, align 4
+  %5 = load ptr, ptr %def.addr, align 8
+  %referenceAngle = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %5, i32 0, i32 4
+  %6 = load float, ptr %referenceAngle, align 4
   %m_referenceAngle = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 5
-  store float %5, ptr %m_referenceAngle, align 8
+  store float %6, ptr %m_referenceAngle, align 8
   %m_impulse10 = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 6
   invoke void @_ZN6b2Vec27SetZeroEv(ptr noundef nonnull align 4 dereferenceable(8) %m_impulse10)
           to label %invoke.cont11 unwind label %lpad
@@ -287,37 +288,37 @@ invoke.cont11:                                    ; preds = %invoke.cont7
   store float 0.000000e+00, ptr %m_lowerImpulse, align 8
   %m_upperImpulse = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 9
   store float 0.000000e+00, ptr %m_upperImpulse, align 4
-  %6 = load ptr, ptr %def.addr, align 8
-  %lowerTranslation = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %6, i32 0, i32 6
-  %7 = load float, ptr %lowerTranslation, align 4
+  %7 = load ptr, ptr %def.addr, align 8
+  %lowerTranslation = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %7, i32 0, i32 6
+  %8 = load float, ptr %lowerTranslation, align 4
   %m_lowerTranslation = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 10
-  store float %7, ptr %m_lowerTranslation, align 8
-  %8 = load ptr, ptr %def.addr, align 8
-  %upperTranslation = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %8, i32 0, i32 7
-  %9 = load float, ptr %upperTranslation, align 8
+  store float %8, ptr %m_lowerTranslation, align 8
+  %9 = load ptr, ptr %def.addr, align 8
+  %upperTranslation = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %9, i32 0, i32 7
+  %10 = load float, ptr %upperTranslation, align 8
   %m_upperTranslation = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 11
-  store float %9, ptr %m_upperTranslation, align 4
-  %10 = load ptr, ptr %def.addr, align 8
-  %maxMotorForce = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %10, i32 0, i32 9
-  %11 = load float, ptr %maxMotorForce, align 8
+  store float %10, ptr %m_upperTranslation, align 4
+  %11 = load ptr, ptr %def.addr, align 8
+  %maxMotorForce = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %11, i32 0, i32 9
+  %12 = load float, ptr %maxMotorForce, align 8
   %m_maxMotorForce = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 12
-  store float %11, ptr %m_maxMotorForce, align 8
-  %12 = load ptr, ptr %def.addr, align 8
-  %motorSpeed = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %12, i32 0, i32 10
-  %13 = load float, ptr %motorSpeed, align 4
+  store float %12, ptr %m_maxMotorForce, align 8
+  %13 = load ptr, ptr %def.addr, align 8
+  %motorSpeed = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %13, i32 0, i32 10
+  %14 = load float, ptr %motorSpeed, align 4
   %m_motorSpeed = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 13
-  store float %13, ptr %m_motorSpeed, align 4
-  %14 = load ptr, ptr %def.addr, align 8
-  %enableLimit = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %14, i32 0, i32 5
-  %15 = load i8, ptr %enableLimit, align 8
-  %tobool = trunc i8 %15 to i1
+  store float %14, ptr %m_motorSpeed, align 4
+  %15 = load ptr, ptr %def.addr, align 8
+  %enableLimit = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %15, i32 0, i32 5
+  %16 = load i8, ptr %enableLimit, align 8
+  %tobool = trunc i8 %16 to i1
   %m_enableLimit = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 14
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %m_enableLimit, align 8
-  %16 = load ptr, ptr %def.addr, align 8
-  %enableMotor = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %16, i32 0, i32 8
-  %17 = load i8, ptr %enableMotor, align 4
-  %tobool12 = trunc i8 %17 to i1
+  %17 = load ptr, ptr %def.addr, align 8
+  %enableMotor = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %17, i32 0, i32 8
+  %18 = load i8, ptr %enableMotor, align 4
+  %tobool12 = trunc i8 %18 to i1
   %m_enableMotor = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 15
   %frombool13 = zext i1 %tobool12 to i8
   store i8 %frombool13, ptr %m_enableMotor, align 1
@@ -336,12 +337,12 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   ret void
 
 lpad:                                             ; preds = %invoke.cont15, %invoke.cont11, %invoke.cont7, %invoke.cont, %entry
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZN7b2JointD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this1) #9
   br label %eh.resume
 

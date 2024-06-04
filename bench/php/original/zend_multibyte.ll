@@ -213,31 +213,34 @@ define ptr @zend_multibyte_get_functions() #0 {
 define ptr @zend_multibyte_fetch_encoding(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 1), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call ptr %3(ptr noundef %4)
-  ret ptr %5
+  %3 = getelementptr inbounds %struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 1
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call ptr %4(ptr noundef %5)
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @zend_multibyte_get_encoding_name(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 2), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call ptr %3(ptr noundef %4)
-  ret ptr %5
+  %3 = getelementptr inbounds %struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 2
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call ptr %4(ptr noundef %5)
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @zend_multibyte_check_lexer_compatibility(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 3), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call zeroext i1 %3(ptr noundef %4)
-  %6 = zext i1 %5 to i32
-  ret i32 %6
+  %3 = getelementptr inbounds %struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call zeroext i1 %4(ptr noundef %5)
+  %7 = zext i1 %6 to i32
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -250,13 +253,14 @@ define ptr @zend_multibyte_encoding_detector(ptr noundef %0, i64 noundef %1, ptr
   store i64 %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 4), align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load i64, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = load i64, ptr %8, align 8
-  %14 = call ptr %9(ptr noundef %10, i64 noundef %11, ptr noundef %12, i64 noundef %13)
-  ret ptr %14
+  %9 = getelementptr inbounds %struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = load i64, ptr %6, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i64, ptr %8, align 8
+  %15 = call ptr %10(ptr noundef %11, i64 noundef %12, ptr noundef %13, i64 noundef %14)
+  ret ptr %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -273,15 +277,16 @@ define i64 @zend_multibyte_encoding_converter(ptr noundef %0, ptr noundef %1, pt
   store i64 %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 5), align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = load i64, ptr %10, align 8
-  %18 = load ptr, ptr %11, align 8
-  %19 = load ptr, ptr %12, align 8
-  %20 = call i64 %13(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, ptr noundef %18, ptr noundef %19)
-  ret i64 %20
+  %13 = getelementptr inbounds %struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load i64, ptr %10, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = load ptr, ptr %12, align 8
+  %21 = call i64 %14(ptr noundef %15, ptr noundef %16, ptr noundef %17, i64 noundef %18, ptr noundef %19, ptr noundef %20)
+  ret i64 %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -297,28 +302,31 @@ define i32 @zend_multibyte_parse_encoding_list(ptr noundef %0, i64 noundef %1, p
   store ptr %3, ptr %9, align 8
   %11 = zext i1 %4 to i8
   store i8 %11, ptr %10, align 1
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 6), align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load i64, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = load i8, ptr %10, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = call i32 %12(ptr noundef %13, i64 noundef %14, ptr noundef %15, ptr noundef %16, i1 noundef zeroext %18)
-  ret i32 %19
+  %12 = getelementptr inbounds %struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 6
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = load i64, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load i8, ptr %10, align 1
+  %19 = trunc i8 %18 to i1
+  %20 = call i32 %13(ptr noundef %14, i64 noundef %15, ptr noundef %16, ptr noundef %17, i1 noundef zeroext %19)
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @zend_multibyte_get_internal_encoding() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 7), align 8
-  %2 = call ptr %1()
-  ret ptr %2
+  %1 = getelementptr inbounds %struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 7
+  %2 = load ptr, ptr %1, align 8
+  %3 = call ptr %2()
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @zend_multibyte_get_script_encoding() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i32 0, i32 21), align 8
-  ret ptr %1
+  %1 = getelementptr inbounds %struct._zend_php_scanner_globals, ptr @language_scanner_globals, i32 0, i32 21
+  %2 = load ptr, ptr %1, align 8
+  ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -327,20 +335,24 @@ define i32 @zend_multibyte_set_script_encoding(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 26), align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %9
+  %5 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 26
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 26), align 8
-  call void @free(ptr noundef %8) #7
-  br label %9
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 26
+  %10 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %10) #7
+  br label %11
 
-9:                                                ; preds = %7, %2
-  %10 = load ptr, ptr %3, align 8
-  store ptr %10, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 26), align 8
-  %11 = load i64, ptr %4, align 8
-  store i64 %11, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 27), align 8
+11:                                               ; preds = %8, %2
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 26
+  store ptr %12, ptr %13, align 8
+  %14 = load i64, ptr %4, align 8
+  %15 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 27
+  store i64 %14, ptr %15, align 8
   ret i32 0
 }
 
@@ -351,10 +363,11 @@ declare void @free(ptr noundef) #4
 define i32 @zend_multibyte_set_internal_encoding(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 8), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct._zend_multibyte_functions, ptr @multibyte_functions, i32 0, i32 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable

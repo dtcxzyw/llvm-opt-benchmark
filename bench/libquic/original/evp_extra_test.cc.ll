@@ -1401,12 +1401,13 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %derp, align 8
-  %cmp = icmp ne ptr %0, getelementptr inbounds (i8, ptr @_ZL19kExampleBadECKeyDER, i64 104)
+  %1 = getelementptr inbounds i8, ptr @_ZL19kExampleBadECKeyDER, i64 104
+  %cmp = icmp ne ptr %0, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %1 = load ptr, ptr @stderr, align 8
-  %call2 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef @.str.26)
+  %2 = load ptr, ptr @stderr, align 8
+  %call2 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef @.str.26)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -1415,12 +1416,12 @@ invoke.cont:                                      ; preds = %if.then
   br label %cleanup13
 
 lpad:                                             ; preds = %if.end, %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -1434,8 +1435,8 @@ invoke.cont4:                                     ; preds = %if.end
   br i1 %call6, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %invoke.cont4
-  %5 = load ptr, ptr @stderr, align 8
-  %call10 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.27)
+  %6 = load ptr, ptr @stderr, align 8
+  %call10 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.27)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %if.then7
@@ -1444,12 +1445,12 @@ invoke.cont9:                                     ; preds = %if.then7
   br label %cleanup
 
 lpad8:                                            ; preds = %if.end11, %if.then7
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pkey) #11
   br label %ehcleanup
 
@@ -1468,8 +1469,8 @@ cleanup:                                          ; preds = %invoke.cont12, %inv
 
 cleanup13:                                        ; preds = %cleanup, %invoke.cont
   call void @_ZNSt10unique_ptrI22pkcs8_priv_key_info_st14OpenSSLDeleterIS0_XadL_Z24PKCS8_PRIV_KEY_INFO_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %p8inf) #11
-  %9 = load i1, ptr %retval, align 1
-  ret i1 %9
+  %10 = load i1, ptr %retval, align 1
+  ret i1 %10
 
 ehcleanup:                                        ; preds = %lpad8, %lpad
   call void @_ZNSt10unique_ptrI22pkcs8_priv_key_info_st14OpenSSLDeleterIS0_XadL_Z24PKCS8_PRIV_KEY_INFO_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %p8inf) #11
@@ -1616,12 +1617,13 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %derp, align 8
-  %cmp = icmp ne ptr %0, getelementptr inbounds (i8, ptr @_ZL17kExampleRSAKeyDER, i64 608)
+  %1 = getelementptr inbounds i8, ptr @_ZL17kExampleRSAKeyDER, i64 608
+  %cmp = icmp ne ptr %0, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %1 = load ptr, ptr @stderr, align 8
-  %call2 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef @.str.30)
+  %2 = load ptr, ptr @stderr, align 8
+  %call2 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef @.str.30)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -1630,12 +1632,12 @@ invoke.cont:                                      ; preds = %if.then
   br label %cleanup59
 
 lpad:                                             ; preds = %if.end36, %if.then33, %if.end29, %if.then26, %if.end20, %if.then17, %if.end11, %if.then8, %if.end, %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -1649,13 +1651,14 @@ invoke.cont3:                                     ; preds = %if.end
   br i1 %call5, label %lor.lhs.false6, label %if.then8
 
 lor.lhs.false6:                                   ; preds = %invoke.cont3
-  %5 = load ptr, ptr %derp, align 8
-  %cmp7 = icmp ne ptr %5, getelementptr inbounds (i8, ptr @_ZL17kExampleDSAKeyDER, i64 858)
+  %6 = load ptr, ptr %derp, align 8
+  %7 = getelementptr inbounds i8, ptr @_ZL17kExampleDSAKeyDER, i64 858
+  %cmp7 = icmp ne ptr %6, %7
   br i1 %cmp7, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %lor.lhs.false6, %invoke.cont3
-  %6 = load ptr, ptr @stderr, align 8
-  %call10 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.31)
+  %8 = load ptr, ptr @stderr, align 8
+  %call10 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.31)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %if.then8
@@ -1674,13 +1677,14 @@ invoke.cont12:                                    ; preds = %if.end11
   br i1 %call14, label %lor.lhs.false15, label %if.then17
 
 lor.lhs.false15:                                  ; preds = %invoke.cont12
-  %7 = load ptr, ptr %derp, align 8
-  %cmp16 = icmp ne ptr %7, getelementptr inbounds (i8, ptr @_ZL19kExampleRSAKeyPKCS8, i64 634)
+  %9 = load ptr, ptr %derp, align 8
+  %10 = getelementptr inbounds i8, ptr @_ZL19kExampleRSAKeyPKCS8, i64 634
+  %cmp16 = icmp ne ptr %9, %10
   br i1 %cmp16, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %lor.lhs.false15, %invoke.cont12
-  %8 = load ptr, ptr @stderr, align 8
-  %call19 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.32)
+  %11 = load ptr, ptr @stderr, align 8
+  %call19 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.32)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.then17
@@ -1699,13 +1703,14 @@ invoke.cont21:                                    ; preds = %if.end20
   br i1 %call23, label %lor.lhs.false24, label %if.then26
 
 lor.lhs.false24:                                  ; preds = %invoke.cont21
-  %9 = load ptr, ptr %derp, align 8
-  %cmp25 = icmp ne ptr %9, getelementptr inbounds (i8, ptr @_ZL16kExampleECKeyDER, i64 121)
+  %12 = load ptr, ptr %derp, align 8
+  %13 = getelementptr inbounds i8, ptr @_ZL16kExampleECKeyDER, i64 121
+  %cmp25 = icmp ne ptr %12, %13
   br i1 %cmp25, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %lor.lhs.false24, %invoke.cont21
-  %10 = load ptr, ptr @stderr, align 8
-  %call28 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.33)
+  %14 = load ptr, ptr @stderr, align 8
+  %call28 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.33)
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %if.then26
@@ -1724,8 +1729,8 @@ invoke.cont30:                                    ; preds = %if.end29
   br i1 %call32, label %if.then33, label %if.end36
 
 if.then33:                                        ; preds = %invoke.cont30
-  %11 = load ptr, ptr @stderr, align 8
-  %call35 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.34)
+  %15 = load ptr, ptr @stderr, align 8
+  %call35 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.34)
           to label %invoke.cont34 unwind label %lpad
 
 invoke.cont34:                                    ; preds = %if.then33
@@ -1739,7 +1744,8 @@ if.end36:                                         ; preds = %invoke.cont30
 
 invoke.cont37:                                    ; preds = %if.end36
   call void @_ZNSaIhEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
-  invoke void @_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %copy, ptr noundef @_ZL20kExampleBadECKeyDER2, ptr noundef getelementptr inbounds (i8, ptr @_ZL20kExampleBadECKeyDER2, i64 157), ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  %16 = getelementptr inbounds i8, ptr @_ZL20kExampleBadECKeyDER2, i64 157
+  invoke void @_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %copy, ptr noundef @_ZL20kExampleBadECKeyDER2, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont37
@@ -1756,8 +1762,8 @@ invoke.cont43:                                    ; preds = %invoke.cont39
   br i1 %call45, label %if.then46, label %if.end49
 
 if.then46:                                        ; preds = %invoke.cont43
-  %12 = load ptr, ptr @stderr, align 8
-  %call48 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.35)
+  %17 = load ptr, ptr @stderr, align 8
+  %call48 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.35)
           to label %invoke.cont47 unwind label %lpad42
 
 invoke.cont47:                                    ; preds = %if.then46
@@ -1766,22 +1772,22 @@ invoke.cont47:                                    ; preds = %if.then46
   br label %cleanup
 
 lpad38:                                           ; preds = %invoke.cont37
-  %13 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   br label %ehcleanup
 
 lpad42:                                           ; preds = %if.end57, %if.then54, %invoke.cont50, %if.end49, %if.then46, %invoke.cont39
-  %16 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %copy) #11
   br label %ehcleanup
 
@@ -1800,8 +1806,8 @@ invoke.cont51:                                    ; preds = %invoke.cont50
   br i1 %call53, label %if.then54, label %if.end57
 
 if.then54:                                        ; preds = %invoke.cont51
-  %19 = load ptr, ptr @stderr, align 8
-  %call56 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.36)
+  %24 = load ptr, ptr @stderr, align 8
+  %call56 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.36)
           to label %invoke.cont55 unwind label %lpad42
 
 invoke.cont55:                                    ; preds = %if.then54
@@ -1824,8 +1830,8 @@ cleanup:                                          ; preds = %invoke.cont58, %inv
 
 cleanup59:                                        ; preds = %cleanup, %invoke.cont34, %invoke.cont27, %invoke.cont18, %invoke.cont9, %invoke.cont
   call void @_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pkey) #11
-  %20 = load i1, ptr %retval, align 1
-  ret i1 %20
+  %25 = load i1, ptr %retval, align 1
+  ret i1 %25
 
 ehcleanup:                                        ; preds = %lpad42, %lpad38, %lpad
   call void @_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pkey) #11

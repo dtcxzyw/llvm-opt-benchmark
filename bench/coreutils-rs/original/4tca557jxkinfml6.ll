@@ -314,33 +314,34 @@ define internal { i64, i64 } @"_ZN93_$LT$core..ops..index_range..IndexRange$u20$
   %7 = load i64, ptr %4, align 8, !noundef !4
   %8 = sub nuw i64 %6, %7
   %9 = icmp ugt i64 %8, 0
-  br i1 %9, label %14, label %10
+  br i1 %9, label %15, label %10
 
 10:                                               ; preds = %1
   %11 = load i64, ptr @anon.3c1651062bc25cc4c0d50f7ac1cd28e9.2, align 8, !range !7, !noundef !4
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @anon.3c1651062bc25cc4c0d50f7ac1cd28e9.2, i64 8), align 8
+  %12 = getelementptr inbounds i8, ptr @anon.3c1651062bc25cc4c0d50f7ac1cd28e9.2, i64 8
+  %13 = load i64, ptr %12, align 8
   store i64 %11, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %12, ptr %13, align 8
-  br label %19
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %13, ptr %14, align 8
+  br label %20
 
-14:                                               ; preds = %1
-  %15 = load ptr, ptr %3, align 8, !nonnull !4, !align !8, !noundef !4
-  %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = add nuw i64 %16, 1
-  store i64 %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %16, ptr %18, align 8
+15:                                               ; preds = %1
+  %16 = load ptr, ptr %3, align 8, !nonnull !4, !align !8, !noundef !4
+  %17 = load i64, ptr %16, align 8, !noundef !4
+  %18 = add nuw i64 %17, 1
+  store i64 %18, ptr %16, align 8
+  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %17, ptr %19, align 8
   store i64 1, ptr %2, align 8
-  br label %19
+  br label %20
 
-19:                                               ; preds = %14, %10
-  %20 = load i64, ptr %2, align 8, !range !7, !noundef !4
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
-  %22 = load i64, ptr %21, align 8
-  %23 = insertvalue { i64, i64 } poison, i64 %20, 0
-  %24 = insertvalue { i64, i64 } %23, i64 %22, 1
-  ret { i64, i64 } %24
+20:                                               ; preds = %15, %10
+  %21 = load i64, ptr %2, align 8, !range !7, !noundef !4
+  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = load i64, ptr %22, align 8
+  %24 = insertvalue { i64, i64 } poison, i64 %21, 0
+  %25 = insertvalue { i64, i64 } %24, i64 %23, 1
+  ret { i64, i64 } %25
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

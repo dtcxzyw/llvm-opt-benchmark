@@ -67,12 +67,14 @@ entry:
   %p.addr = alloca ptr, align 8
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
+  %1 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %2 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
-  %cmp = icmp ule i64 %sub.ptr.sub, %2
+  %3 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
+  %4 = load i64, ptr %3, align 8
+  %cmp = icmp ule i64 %sub.ptr.sub, %4
   ret i1 %cmp
 }
 
@@ -179,8 +181,9 @@ if.end:                                           ; preds = %if.then
 
 if.end3:                                          ; preds = %if.end, %entry
   %4 = load ptr, ptr %p.addr, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
-  %cmp = icmp ult ptr %4, %5
+  %5 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %cmp = icmp ult ptr %4, %6
   br i1 %cmp, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end3
@@ -188,30 +191,35 @@ if.then4:                                         ; preds = %if.end3
   br label %if.end10
 
 if.else:                                          ; preds = %if.end3
-  %6 = load ptr, ptr %p.addr, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
+  %7 = load ptr, ptr %p.addr, align 8
+  %8 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %9 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %offset, align 8
-  %8 = load i64, ptr %offset, align 8
-  %9 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 5), align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %sub = sub i64 %10, 1
-  %mul = mul i64 %9, %sub
-  %cmp5 = icmp ugt i64 %8, %mul
+  %10 = load i64, ptr %offset, align 8
+  %11 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 5
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %14 = load i64, ptr %13, align 8
+  %sub = sub i64 %14, 1
+  %mul = mul i64 %12, %sub
+  %cmp5 = icmp ugt i64 %10, %mul
   br i1 %cmp5, label %if.then6, label %if.else8
 
 if.then6:                                         ; preds = %if.else
-  %11 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %sub7 = sub i64 %11, 1
+  %15 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %16 = load i64, ptr %15, align 8
+  %sub7 = sub i64 %16, 1
   store i64 %sub7, ptr %region_idx, align 8
   br label %if.end9
 
 if.else8:                                         ; preds = %if.else
-  %12 = load i64, ptr %offset, align 8
-  %13 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 5), align 8
-  %div = udiv i64 %12, %13
+  %17 = load i64, ptr %offset, align 8
+  %18 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 5
+  %19 = load i64, ptr %18, align 8
+  %div = udiv i64 %17, %19
   store i64 %div, ptr %region_idx, align 8
   br label %if.end9
 
@@ -219,17 +227,17 @@ if.end9:                                          ; preds = %if.else8, %if.then6
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end9, %if.then4
-  %14 = load ptr, ptr @region_trees, align 8
-  %15 = load i64, ptr %region_idx, align 8
-  %16 = load i64, ptr @tree_size, align 8
-  %mul11 = mul i64 %15, %16
-  %add.ptr12 = getelementptr i8, ptr %14, i64 %mul11
+  %20 = load ptr, ptr @region_trees, align 8
+  %21 = load i64, ptr %region_idx, align 8
+  %22 = load i64, ptr @tree_size, align 8
+  %mul11 = mul i64 %21, %22
+  %add.ptr12 = getelementptr i8, ptr %20, i64 %mul11
   store ptr %add.ptr12, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end10, %if.then2
-  %17 = load ptr, ptr %retval, align 8
-  ret ptr %17
+  %23 = load ptr, ptr %retval, align 8
+  ret ptr %23
 }
 
 ; Function Attrs: noreturn
@@ -403,28 +411,29 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load i64, ptr %i, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %cmp = icmp ult i64 %0, %1
+  %1 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %2 = load i64, ptr %1, align 8
+  %cmp = icmp ult i64 %0, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr @region_trees, align 8
-  %3 = load i64, ptr %i, align 8
-  %4 = load i64, ptr @tree_size, align 8
-  %mul = mul i64 %3, %4
-  %add.ptr = getelementptr i8, ptr %2, i64 %mul
+  %3 = load ptr, ptr @region_trees, align 8
+  %4 = load i64, ptr %i, align 8
+  %5 = load i64, ptr @tree_size, align 8
+  %mul = mul i64 %4, %5
+  %add.ptr = getelementptr i8, ptr %3, i64 %mul
   store ptr %add.ptr, ptr %rt, align 8
-  %5 = load ptr, ptr %rt, align 8
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %tree, align 8
-  %7 = load ptr, ptr %func.addr, align 8
-  %8 = load ptr, ptr %user_data.addr, align 8
-  call void @q_tree_foreach(ptr noundef %6, ptr noundef %7, ptr noundef %8)
+  %6 = load ptr, ptr %rt, align 8
+  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %6, i32 0, i32 1
+  %7 = load ptr, ptr %tree, align 8
+  %8 = load ptr, ptr %func.addr, align 8
+  %9 = load ptr, ptr %user_data.addr, align 8
+  call void @q_tree_foreach(ptr noundef %7, ptr noundef %8, ptr noundef %9)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %9 = load i64, ptr %i, align 8
-  %inc = add i64 %9, 1
+  %10 = load i64, ptr %i, align 8
+  %inc = add i64 %10, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !5
 
@@ -446,16 +455,17 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load i64, ptr %i, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %cmp = icmp ult i64 %0, %1
+  %1 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %2 = load i64, ptr %1, align 8
+  %cmp = icmp ult i64 %0, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr @region_trees, align 8
-  %3 = load i64, ptr %i, align 8
-  %4 = load i64, ptr @tree_size, align 8
-  %mul = mul i64 %3, %4
-  %add.ptr = getelementptr i8, ptr %2, i64 %mul
+  %3 = load ptr, ptr @region_trees, align 8
+  %4 = load i64, ptr %i, align 8
+  %5 = load i64, ptr @tree_size, align 8
+  %mul = mul i64 %4, %5
+  %add.ptr = getelementptr i8, ptr %3, i64 %mul
   store ptr %add.ptr, ptr %rt, align 8
   br label %while.cond
 
@@ -473,21 +483,21 @@ do.end:                                           ; No predecessors!
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  store i64 %5, ptr %atomic-temp, align 8
-  %6 = load ptr, ptr %atomic-temp, align 8
-  store ptr %6, ptr %tmp, align 8
-  %7 = load ptr, ptr %tmp, align 8
-  store ptr %7, ptr %_f, align 8
-  %8 = load ptr, ptr %_f, align 8
-  %9 = load ptr, ptr %rt, align 8
-  %lock = getelementptr inbounds %struct.tcg_region_tree, ptr %9, i32 0, i32 0
-  call void %8(ptr noundef %lock, ptr noundef @.str, i32 noundef 271)
+  %6 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  store i64 %6, ptr %atomic-temp, align 8
+  %7 = load ptr, ptr %atomic-temp, align 8
+  store ptr %7, ptr %tmp, align 8
+  %8 = load ptr, ptr %tmp, align 8
+  store ptr %8, ptr %_f, align 8
+  %9 = load ptr, ptr %_f, align 8
+  %10 = load ptr, ptr %rt, align 8
+  %lock = getelementptr inbounds %struct.tcg_region_tree, ptr %10, i32 0, i32 0
+  call void %9(ptr noundef %lock, ptr noundef @.str, i32 noundef 271)
   br label %for.inc
 
 for.inc:                                          ; preds = %while.end
-  %10 = load i64, ptr %i, align 8
-  %inc = add i64 %10, 1
+  %11 = load i64, ptr %i, align 8
+  %inc = add i64 %11, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !7
 
@@ -507,25 +517,26 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load i64, ptr %i, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %cmp = icmp ult i64 %0, %1
+  %1 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %2 = load i64, ptr %1, align 8
+  %cmp = icmp ult i64 %0, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr @region_trees, align 8
-  %3 = load i64, ptr %i, align 8
-  %4 = load i64, ptr @tree_size, align 8
-  %mul = mul i64 %3, %4
-  %add.ptr = getelementptr i8, ptr %2, i64 %mul
+  %3 = load ptr, ptr @region_trees, align 8
+  %4 = load i64, ptr %i, align 8
+  %5 = load i64, ptr @tree_size, align 8
+  %mul = mul i64 %4, %5
+  %add.ptr = getelementptr i8, ptr %3, i64 %mul
   store ptr %add.ptr, ptr %rt, align 8
-  %5 = load ptr, ptr %rt, align 8
-  %lock = getelementptr inbounds %struct.tcg_region_tree, ptr %5, i32 0, i32 0
+  %6 = load ptr, ptr %rt, align 8
+  %lock = getelementptr inbounds %struct.tcg_region_tree, ptr %6, i32 0, i32 0
   call void @qemu_mutex_unlock_impl(ptr noundef %lock, ptr noundef @.str, i32 noundef 282)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %6 = load i64, ptr %i, align 8
-  %inc = add i64 %6, 1
+  %7 = load i64, ptr %i, align 8
+  %inc = add i64 %7, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !8
 
@@ -546,37 +557,38 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load i64, ptr %i, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %cmp = icmp ult i64 %0, %1
+  %1 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %2 = load i64, ptr %1, align 8
+  %cmp = icmp ult i64 %0, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr @region_trees, align 8
-  %3 = load i64, ptr %i, align 8
-  %4 = load i64, ptr @tree_size, align 8
-  %mul = mul i64 %3, %4
-  %add.ptr = getelementptr i8, ptr %2, i64 %mul
+  %3 = load ptr, ptr @region_trees, align 8
+  %4 = load i64, ptr %i, align 8
+  %5 = load i64, ptr @tree_size, align 8
+  %mul = mul i64 %4, %5
+  %add.ptr = getelementptr i8, ptr %3, i64 %mul
   store ptr %add.ptr, ptr %rt, align 8
-  %5 = load ptr, ptr %rt, align 8
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %tree, align 8
-  %call = call i32 @q_tree_nnodes(ptr noundef %6)
+  %6 = load ptr, ptr %rt, align 8
+  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %6, i32 0, i32 1
+  %7 = load ptr, ptr %tree, align 8
+  %call = call i32 @q_tree_nnodes(ptr noundef %7)
   %conv = sext i32 %call to i64
-  %7 = load i64, ptr %nb_tbs, align 8
-  %add = add i64 %7, %conv
+  %8 = load i64, ptr %nb_tbs, align 8
+  %add = add i64 %8, %conv
   store i64 %add, ptr %nb_tbs, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %i, align 8
-  %inc = add i64 %8, 1
+  %9 = load i64, ptr %i, align 8
+  %inc = add i64 %9, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %for.cond
   call void @tcg_region_tree_unlock_all()
-  %9 = load i64, ptr %nb_tbs, align 8
-  ret i64 %9
+  %10 = load i64, ptr %nb_tbs, align 8
+  ret i64 %10
 }
 
 declare i32 @q_tree_nnodes(ptr noundef) #2
@@ -630,15 +642,17 @@ while.end:                                        ; preds = %while.cond
 if.then:                                          ; preds = %while.end
   %8 = load i64, ptr %size_full, align 8
   %sub = sub i64 %8, 1024
-  %9 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 8), align 8
-  %add = add i64 %9, %sub
-  store i64 %add, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 8), align 8
+  %9 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 8
+  %10 = load i64, ptr %9, align 8
+  %add = add i64 %10, %sub
+  %11 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 8
+  store i64 %add, ptr %11, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.end
   call void @qemu_mutex_unlock_impl(ptr noundef @region, ptr noundef @.str, i32 noundef 385)
-  %10 = load i8, ptr %err, align 1
-  %tobool1 = trunc i8 %10 to i1
+  %12 = load i8, ptr %err, align 1
+  %tobool1 = trunc i8 %12 to i1
   ret i1 %tobool1
 }
 
@@ -648,9 +662,11 @@ entry:
   %retval = alloca i1, align 1
   %s.addr = alloca ptr, align 8
   store ptr %s, ptr %s.addr, align 8
-  %0 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 7), align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %cmp = icmp eq i64 %0, %1
+  %0 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 7
+  %1 = load i64, ptr %0, align 8
+  %2 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %3 = load i64, ptr %2, align 8
+  %cmp = icmp eq i64 %1, %3
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -658,18 +674,21 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %s.addr, align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 7), align 8
-  call void @tcg_region_assign(ptr noundef %2, i64 noundef %3)
-  %4 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 7), align 8
-  %inc = add i64 %4, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 7), align 8
+  %4 = load ptr, ptr %s.addr, align 8
+  %5 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 7
+  %6 = load i64, ptr %5, align 8
+  call void @tcg_region_assign(ptr noundef %4, i64 noundef %6)
+  %7 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 7
+  %8 = load i64, ptr %7, align 8
+  %inc = add i64 %8, 1
+  %9 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 7
+  store i64 %inc, ptr %9, align 8
   store i1 false, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %5 = load i1, ptr %retval, align 1
-  ret i1 %5
+  %10 = load i1, ptr %retval, align 1
+  ret i1 %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -800,15 +819,17 @@ while.end5:                                       ; preds = %while.cond1
   store ptr %5, ptr %_f, align 8
   %6 = load ptr, ptr %_f, align 8
   call void %6(ptr noundef @region, ptr noundef @.str, i32 noundef 412)
-  store i64 0, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 7), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 8), align 8
+  %7 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 7
+  store i64 0, ptr %7, align 8
+  %8 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 8
+  store i64 0, ptr %8, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %while.end5
-  %7 = load i32, ptr %i, align 4
-  %8 = load i32, ptr %n_ctxs, align 4
-  %cmp = icmp ult i32 %7, %8
+  %9 = load i32, ptr %i, align 4
+  %10 = load i32, ptr %n_ctxs, align 4
+  %cmp = icmp ult i32 %9, %10
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
@@ -828,23 +849,23 @@ do.end11:                                         ; No predecessors!
   br label %while.cond8
 
 while.end12:                                      ; preds = %while.cond8
-  %9 = load ptr, ptr @tcg_ctxs, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %10 to i64
-  %arrayidx = getelementptr ptr, ptr %9, i64 %idxprom
-  %11 = load atomic i64, ptr %arrayidx monotonic, align 8
-  store i64 %11, ptr %atomic-temp14, align 8
-  %12 = load ptr, ptr %atomic-temp14, align 8
-  store ptr %12, ptr %tmp13, align 8
-  %13 = load ptr, ptr %tmp13, align 8
-  store ptr %13, ptr %s, align 8
-  %14 = load ptr, ptr %s, align 8
-  call void @tcg_region_initial_alloc__locked(ptr noundef %14)
+  %11 = load ptr, ptr @tcg_ctxs, align 8
+  %12 = load i32, ptr %i, align 4
+  %idxprom = zext i32 %12 to i64
+  %arrayidx = getelementptr ptr, ptr %11, i64 %idxprom
+  %13 = load atomic i64, ptr %arrayidx monotonic, align 8
+  store i64 %13, ptr %atomic-temp14, align 8
+  %14 = load ptr, ptr %atomic-temp14, align 8
+  store ptr %14, ptr %tmp13, align 8
+  %15 = load ptr, ptr %tmp13, align 8
+  store ptr %15, ptr %s, align 8
+  %16 = load ptr, ptr %s, align 8
+  call void @tcg_region_initial_alloc__locked(ptr noundef %16)
   br label %for.inc
 
 for.inc:                                          ; preds = %while.end12
-  %15 = load i32, ptr %i, align 4
-  %inc = add i32 %15, 1
+  %17 = load i32, ptr %i, align 4
+  %inc = add i32 %17, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !10
 
@@ -865,30 +886,31 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load i64, ptr %i, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %cmp = icmp ult i64 %0, %1
+  %1 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %2 = load i64, ptr %1, align 8
+  %cmp = icmp ult i64 %0, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr @region_trees, align 8
-  %3 = load i64, ptr %i, align 8
-  %4 = load i64, ptr @tree_size, align 8
-  %mul = mul i64 %3, %4
-  %add.ptr = getelementptr i8, ptr %2, i64 %mul
+  %3 = load ptr, ptr @region_trees, align 8
+  %4 = load i64, ptr %i, align 8
+  %5 = load i64, ptr @tree_size, align 8
+  %mul = mul i64 %4, %5
+  %add.ptr = getelementptr i8, ptr %3, i64 %mul
   store ptr %add.ptr, ptr %rt, align 8
-  %5 = load ptr, ptr %rt, align 8
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %tree, align 8
-  %call = call ptr @q_tree_ref(ptr noundef %6)
-  %7 = load ptr, ptr %rt, align 8
-  %tree1 = getelementptr inbounds %struct.tcg_region_tree, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %tree1, align 8
-  call void @q_tree_destroy(ptr noundef %8)
+  %6 = load ptr, ptr %rt, align 8
+  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %6, i32 0, i32 1
+  %7 = load ptr, ptr %tree, align 8
+  %call = call ptr @q_tree_ref(ptr noundef %7)
+  %8 = load ptr, ptr %rt, align 8
+  %tree1 = getelementptr inbounds %struct.tcg_region_tree, ptr %8, i32 0, i32 1
+  %9 = load ptr, ptr %tree1, align 8
+  call void @q_tree_destroy(ptr noundef %9)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %9 = load i64, ptr %i, align 8
-  %inc = add i64 %9, 1
+  %10 = load i64, ptr %i, align 8
+  %inc = add i64 %10, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !11
 
@@ -1005,43 +1027,49 @@ if.else16:                                        ; preds = %if.end12
   unreachable
 
 if.end17:                                         ; preds = %if.then15
-  %16 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
-  %17 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
-  %call18 = call i32 @qemu_madvise(ptr noundef %16, i64 noundef %17, i32 noundef 14)
-  %18 = load i64, ptr @tcg_splitwx_diff, align 8
-  %tobool = icmp ne i64 %18, 0
+  %16 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
+  %19 = load i64, ptr %18, align 8
+  %call18 = call i32 @qemu_madvise(ptr noundef %17, i64 noundef %19, i32 noundef 14)
+  %20 = load i64, ptr @tcg_splitwx_diff, align 8
+  %tobool = icmp ne i64 %20, 0
   br i1 %tobool, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %if.end17
-  %19 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
-  %20 = load i64, ptr @tcg_splitwx_diff, align 8
-  %add.ptr = getelementptr i8, ptr %19, i64 %20
-  %21 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
-  %call20 = call i32 @qemu_madvise(ptr noundef %add.ptr, i64 noundef %21, i32 noundef 14)
+  %21 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i64, ptr @tcg_splitwx_diff, align 8
+  %add.ptr = getelementptr i8, ptr %22, i64 %23
+  %24 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
+  %25 = load i64, ptr %24, align 8
+  %call20 = call i32 @qemu_madvise(ptr noundef %add.ptr, i64 noundef %25, i32 noundef 14)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %if.end17
-  %22 = load i64, ptr %tb_size.addr, align 8
-  %23 = load i32, ptr %max_cpus.addr, align 4
-  %call22 = call i64 @tcg_n_regions(i64 noundef %22, i32 noundef %23)
-  store i64 %call22, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %24 = load i64, ptr %tb_size.addr, align 8
-  %25 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %div23 = udiv i64 %24, %25
+  %26 = load i64, ptr %tb_size.addr, align 8
+  %27 = load i32, ptr %max_cpus.addr, align 4
+  %call22 = call i64 @tcg_n_regions(i64 noundef %26, i32 noundef %27)
+  %28 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  store i64 %call22, ptr %28, align 8
+  %29 = load i64, ptr %tb_size.addr, align 8
+  %30 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %31 = load i64, ptr %30, align 8
+  %div23 = udiv i64 %29, %31
   store i64 %div23, ptr %region_size, align 8
-  %26 = load i64, ptr %region_size, align 8
-  %27 = load i64, ptr %page_size, align 8
-  %div24 = udiv i64 %26, %27
-  %28 = load i64, ptr %page_size, align 8
-  %mul25 = mul i64 %div24, %28
+  %32 = load i64, ptr %region_size, align 8
+  %33 = load i64, ptr %page_size, align 8
+  %div24 = udiv i64 %32, %33
+  %34 = load i64, ptr %page_size, align 8
+  %mul25 = mul i64 %div24, %34
   store i64 %mul25, ptr %region_size, align 8
   br label %do.body
 
 do.body:                                          ; preds = %if.end21
-  %29 = load i64, ptr %region_size, align 8
-  %30 = load i64, ptr %page_size, align 8
-  %mul26 = mul i64 2, %30
-  %cmp27 = icmp uge i64 %29, %mul26
+  %35 = load i64, ptr %region_size, align 8
+  %36 = load i64, ptr %page_size, align 8
+  %mul26 = mul i64 2, %36
+  %cmp27 = icmp uge i64 %35, %mul26
   br i1 %cmp27, label %if.then28, label %if.else29
 
 if.then28:                                        ; preds = %do.body
@@ -1055,92 +1083,99 @@ if.end30:                                         ; preds = %if.then28
   br label %do.end
 
 do.end:                                           ; preds = %if.end30
-  %31 = load i64, ptr %region_size, align 8
-  store i64 %31, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 5), align 8
-  %32 = load i64, ptr %region_size, align 8
-  %33 = load i64, ptr %page_size, align 8
-  %sub = sub i64 %32, %33
-  store i64 %sub, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 4), align 8
-  %34 = load i64, ptr %page_size, align 8
-  %35 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
-  %sub31 = sub i64 %35, %34
-  store i64 %sub31, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
-  %36 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
-  store ptr %36, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 2), align 8
+  %37 = load i64, ptr %region_size, align 8
+  %38 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 5
+  store i64 %37, ptr %38, align 8
+  %39 = load i64, ptr %region_size, align 8
+  %40 = load i64, ptr %page_size, align 8
+  %sub = sub i64 %39, %40
+  %41 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 4
+  store i64 %sub, ptr %41, align 8
+  %42 = load i64, ptr %page_size, align 8
+  %43 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
+  %44 = load i64, ptr %43, align 8
+  %sub31 = sub i64 %44, %42
+  %45 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
+  store i64 %sub31, ptr %45, align 8
+  %46 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 2
+  store ptr %47, ptr %48, align 8
   call void @qemu_mutex_init(ptr noundef @region)
   store i32 3, ptr %need_prot, align 4
-  %37 = load i64, ptr @tcg_splitwx_diff, align 8
-  %cmp32 = icmp eq i64 %37, 0
+  %49 = load i64, ptr @tcg_splitwx_diff, align 8
+  %cmp32 = icmp eq i64 %49, 0
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %do.end
   %call34 = call i32 @host_prot_read_exec()
-  %38 = load i32, ptr %need_prot, align 4
-  %or = or i32 %38, %call34
+  %50 = load i32, ptr %need_prot, align 4
+  %or = or i32 %50, %call34
   store i32 %or, ptr %need_prot, align 4
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then33, %do.end
   store i64 0, ptr %i, align 8
-  %39 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  store i64 %39, ptr %n, align 8
+  %51 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %52 = load i64, ptr %51, align 8
+  store i64 %52, ptr %n, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end35
-  %40 = load i64, ptr %i, align 8
-  %41 = load i64, ptr %n, align 8
-  %cmp36 = icmp ult i64 %40, %41
+  %53 = load i64, ptr %i, align 8
+  %54 = load i64, ptr %n, align 8
+  %cmp36 = icmp ult i64 %53, %54
   br i1 %cmp36, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %42 = load i64, ptr %i, align 8
-  call void @tcg_region_bounds(i64 noundef %42, ptr noundef %start, ptr noundef %end)
-  %43 = load i32, ptr %have_prot, align 4
-  %44 = load i32, ptr %need_prot, align 4
-  %cmp37 = icmp ne i32 %43, %44
+  %55 = load i64, ptr %i, align 8
+  call void @tcg_region_bounds(i64 noundef %55, ptr noundef %start, ptr noundef %end)
+  %56 = load i32, ptr %have_prot, align 4
+  %57 = load i32, ptr %need_prot, align 4
+  %cmp37 = icmp ne i32 %56, %57
   br i1 %cmp37, label %if.then38, label %if.end60
 
 if.then38:                                        ; preds = %for.body
-  %45 = load i32, ptr %need_prot, align 4
-  %cmp39 = icmp eq i32 %45, 7
+  %58 = load i32, ptr %need_prot, align 4
+  %cmp39 = icmp eq i32 %58, 7
   br i1 %cmp39, label %if.then40, label %if.else42
 
 if.then40:                                        ; preds = %if.then38
-  %46 = load ptr, ptr %start, align 8
-  %47 = load ptr, ptr %end, align 8
-  %48 = load ptr, ptr %start, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %47 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %48 to i64
+  %59 = load ptr, ptr %start, align 8
+  %60 = load ptr, ptr %end, align 8
+  %61 = load ptr, ptr %start, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %60 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %61 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call41 = call i32 @qemu_mprotect_rwx(ptr noundef %46, i64 noundef %sub.ptr.sub)
+  %call41 = call i32 @qemu_mprotect_rwx(ptr noundef %59, i64 noundef %sub.ptr.sub)
   store i32 %call41, ptr %rc, align 4
   br label %if.end55
 
 if.else42:                                        ; preds = %if.then38
-  %49 = load i32, ptr %need_prot, align 4
-  %cmp43 = icmp eq i32 %49, 3
+  %62 = load i32, ptr %need_prot, align 4
+  %cmp43 = icmp eq i32 %62, 3
   br i1 %cmp43, label %if.then44, label %if.else49
 
 if.then44:                                        ; preds = %if.else42
-  %50 = load ptr, ptr %start, align 8
-  %51 = load ptr, ptr %end, align 8
-  %52 = load ptr, ptr %start, align 8
-  %sub.ptr.lhs.cast45 = ptrtoint ptr %51 to i64
-  %sub.ptr.rhs.cast46 = ptrtoint ptr %52 to i64
+  %63 = load ptr, ptr %start, align 8
+  %64 = load ptr, ptr %end, align 8
+  %65 = load ptr, ptr %start, align 8
+  %sub.ptr.lhs.cast45 = ptrtoint ptr %64 to i64
+  %sub.ptr.rhs.cast46 = ptrtoint ptr %65 to i64
   %sub.ptr.sub47 = sub i64 %sub.ptr.lhs.cast45, %sub.ptr.rhs.cast46
-  %call48 = call i32 @qemu_mprotect_rw(ptr noundef %50, i64 noundef %sub.ptr.sub47)
+  %call48 = call i32 @qemu_mprotect_rw(ptr noundef %63, i64 noundef %sub.ptr.sub47)
   store i32 %call48, ptr %rc, align 4
   br label %if.end54
 
 if.else49:                                        ; preds = %if.else42
-  %53 = load ptr, ptr %start, align 8
-  %54 = load ptr, ptr %end, align 8
-  %55 = load ptr, ptr %start, align 8
-  %sub.ptr.lhs.cast50 = ptrtoint ptr %54 to i64
-  %sub.ptr.rhs.cast51 = ptrtoint ptr %55 to i64
+  %66 = load ptr, ptr %start, align 8
+  %67 = load ptr, ptr %end, align 8
+  %68 = load ptr, ptr %start, align 8
+  %sub.ptr.lhs.cast50 = ptrtoint ptr %67 to i64
+  %sub.ptr.rhs.cast51 = ptrtoint ptr %68 to i64
   %sub.ptr.sub52 = sub i64 %sub.ptr.lhs.cast50, %sub.ptr.rhs.cast51
-  %56 = load i32, ptr %need_prot, align 4
-  %call53 = call i32 @mprotect(ptr noundef %53, i64 noundef %sub.ptr.sub52, i32 noundef %56) #8
+  %69 = load i32, ptr %need_prot, align 4
+  %call53 = call i32 @mprotect(ptr noundef %66, i64 noundef %sub.ptr.sub52, i32 noundef %69) #8
   store i32 %call53, ptr %rc, align 4
   br label %if.end54
 
@@ -1148,36 +1183,36 @@ if.end54:                                         ; preds = %if.else49, %if.then
   br label %if.end55
 
 if.end55:                                         ; preds = %if.end54, %if.then40
-  %57 = load i32, ptr %rc, align 4
-  %tobool56 = icmp ne i32 %57, 0
+  %70 = load i32, ptr %rc, align 4
+  %tobool56 = icmp ne i32 %70, 0
   br i1 %tobool56, label %if.then57, label %if.end59
 
 if.then57:                                        ; preds = %if.end55
   %call58 = call ptr @__errno_location() #9
-  %58 = load i32, ptr %call58, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef @error_fatal, ptr noundef @.str, i32 noundef 846, ptr noundef @__func__.tcg_region_init, i32 noundef %58, ptr noundef @.str.4)
+  %71 = load i32, ptr %call58, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef @error_fatal, ptr noundef @.str, i32 noundef 846, ptr noundef @__func__.tcg_region_init, i32 noundef %71, ptr noundef @.str.4)
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then57, %if.end55
   br label %if.end60
 
 if.end60:                                         ; preds = %if.end59, %for.body
-  %59 = load i32, ptr %have_prot, align 4
-  %cmp61 = icmp ne i32 %59, 0
+  %72 = load i32, ptr %have_prot, align 4
+  %cmp61 = icmp ne i32 %72, 0
   br i1 %cmp61, label %if.then62, label %if.end64
 
 if.then62:                                        ; preds = %if.end60
-  %60 = load ptr, ptr %end, align 8
-  %61 = load i64, ptr %page_size, align 8
-  %call63 = call i32 @qemu_mprotect_none(ptr noundef %60, i64 noundef %61)
+  %73 = load ptr, ptr %end, align 8
+  %74 = load i64, ptr %page_size, align 8
+  %call63 = call i32 @qemu_mprotect_none(ptr noundef %73, i64 noundef %74)
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then62, %if.end60
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end64
-  %62 = load i64, ptr %i, align 8
-  %inc = add i64 %62, 1
+  %75 = load i64, ptr %i, align 8
+  %inc = add i64 %75, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !12
 
@@ -1326,46 +1361,53 @@ entry:
   store i64 %curr_region, ptr %curr_region.addr, align 8
   store ptr %pstart, ptr %pstart.addr, align 8
   store ptr %pend, ptr %pend.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
-  %1 = load i64, ptr %curr_region.addr, align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 5), align 8
-  %mul = mul i64 %1, %2
-  %add.ptr = getelementptr i8, ptr %0, i64 %mul
+  %0 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i64, ptr %curr_region.addr, align 8
+  %3 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 5
+  %4 = load i64, ptr %3, align 8
+  %mul = mul i64 %2, %4
+  %add.ptr = getelementptr i8, ptr %1, i64 %mul
   store ptr %add.ptr, ptr %start, align 8
-  %3 = load ptr, ptr %start, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 4), align 8
-  %add.ptr1 = getelementptr i8, ptr %3, i64 %4
+  %5 = load ptr, ptr %start, align 8
+  %6 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 4
+  %7 = load i64, ptr %6, align 8
+  %add.ptr1 = getelementptr i8, ptr %5, i64 %7
   store ptr %add.ptr1, ptr %end, align 8
-  %5 = load i64, ptr %curr_region.addr, align 8
-  %cmp = icmp eq i64 %5, 0
+  %8 = load i64, ptr %curr_region.addr, align 8
+  %cmp = icmp eq i64 %8, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 2), align 8
-  store ptr %6, ptr %start, align 8
+  %9 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %start, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %7 = load i64, ptr %curr_region.addr, align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %sub = sub i64 %8, 1
-  %cmp2 = icmp eq i64 %7, %sub
+  %11 = load i64, ptr %curr_region.addr, align 8
+  %12 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %13 = load i64, ptr %12, align 8
+  %sub = sub i64 %13, 1
+  %cmp2 = icmp eq i64 %11, %sub
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %9 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
-  %add.ptr4 = getelementptr i8, ptr %9, i64 %10
+  %14 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
+  %17 = load i64, ptr %16, align 8
+  %add.ptr4 = getelementptr i8, ptr %15, i64 %17
   store ptr %add.ptr4, ptr %end, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %11 = load ptr, ptr %start, align 8
-  %12 = load ptr, ptr %pstart.addr, align 8
-  store ptr %11, ptr %12, align 8
-  %13 = load ptr, ptr %end, align 8
-  %14 = load ptr, ptr %pend.addr, align 8
-  store ptr %13, ptr %14, align 8
+  %18 = load ptr, ptr %start, align 8
+  %19 = load ptr, ptr %pstart.addr, align 8
+  store ptr %18, ptr %19, align 8
+  %20 = load ptr, ptr %end, align 8
+  %21 = load ptr, ptr %pend.addr, align 8
+  store ptr %20, ptr %21, align 8
   ret void
 }
 
@@ -1399,39 +1441,41 @@ entry:
   store i64 %and, ptr @tree_size, align 8
   %2 = load i32, ptr @qemu_dcache_linesize, align 4
   %conv3 = sext i32 %2 to i64
-  %3 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %4 = load i64, ptr @tree_size, align 8
-  %mul = mul i64 %3, %4
+  %3 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %4 = load i64, ptr %3, align 8
+  %5 = load i64, ptr @tree_size, align 8
+  %mul = mul i64 %4, %5
   %call = call ptr @qemu_memalign(i64 noundef %conv3, i64 noundef %mul)
   store ptr %call, ptr @region_trees, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %5 = load i64, ptr %i, align 8
-  %6 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %cmp = icmp ult i64 %5, %6
+  %6 = load i64, ptr %i, align 8
+  %7 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %8 = load i64, ptr %7, align 8
+  %cmp = icmp ult i64 %6, %8
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %7 = load ptr, ptr @region_trees, align 8
-  %8 = load i64, ptr %i, align 8
-  %9 = load i64, ptr @tree_size, align 8
-  %mul5 = mul i64 %8, %9
-  %add.ptr = getelementptr i8, ptr %7, i64 %mul5
+  %9 = load ptr, ptr @region_trees, align 8
+  %10 = load i64, ptr %i, align 8
+  %11 = load i64, ptr @tree_size, align 8
+  %mul5 = mul i64 %10, %11
+  %add.ptr = getelementptr i8, ptr %9, i64 %mul5
   store ptr %add.ptr, ptr %rt, align 8
-  %10 = load ptr, ptr %rt, align 8
-  %lock = getelementptr inbounds %struct.tcg_region_tree, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %rt, align 8
+  %lock = getelementptr inbounds %struct.tcg_region_tree, ptr %12, i32 0, i32 0
   call void @qemu_mutex_init(ptr noundef %lock)
   %call6 = call ptr @q_tree_new_full(ptr noundef @tb_tc_cmp, ptr noundef null, ptr noundef null, ptr noundef @tb_destroy)
-  %11 = load ptr, ptr %rt, align 8
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %rt, align 8
+  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %13, i32 0, i32 1
   store ptr %call6, ptr %tree, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %12 = load i64, ptr %i, align 8
-  %inc = add i64 %12, 1
+  %14 = load i64, ptr %i, align 8
+  %inc = add i64 %14, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !13
 
@@ -1447,11 +1491,12 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
-  %1 = load ptr, ptr %s.addr, align 8
-  %code_gen_buffer = getelementptr inbounds %struct.TCGContext, ptr %1, i32 0, i32 24
-  %2 = load ptr, ptr %code_gen_buffer, align 8
-  %cmp = icmp eq ptr %0, %2
+  %0 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %s.addr, align 8
+  %code_gen_buffer = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 24
+  %3 = load ptr, ptr %code_gen_buffer, align 8
+  %cmp = icmp eq ptr %1, %3
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %do.body
@@ -1465,20 +1510,25 @@ if.end:                                           ; preds = %if.then
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %3 = load ptr, ptr %s.addr, align 8
-  %code_ptr = getelementptr inbounds %struct.TCGContext, ptr %3, i32 0, i32 23
-  %4 = load ptr, ptr %code_ptr, align 8
-  store ptr %4, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 2), align 8
-  %5 = load ptr, ptr %s.addr, align 8
-  call void @tcg_region_assign(ptr noundef %5, i64 noundef 0)
-  %6 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 2), align 8
-  %call = call ptr @tcg_splitwx_to_rx(ptr noundef %6)
-  %7 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
-  %add.ptr = getelementptr i8, ptr %7, i64 %8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 2), align 8
+  %4 = load ptr, ptr %s.addr, align 8
+  %code_ptr = getelementptr inbounds %struct.TCGContext, ptr %4, i32 0, i32 23
+  %5 = load ptr, ptr %code_ptr, align 8
+  %6 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 2
+  store ptr %5, ptr %6, align 8
+  %7 = load ptr, ptr %s.addr, align 8
+  call void @tcg_region_assign(ptr noundef %7, i64 noundef 0)
+  %8 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  %call = call ptr @tcg_splitwx_to_rx(ptr noundef %9)
+  %10 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
+  %13 = load i64, ptr %12, align 8
+  %add.ptr = getelementptr i8, ptr %11, i64 %13
+  %14 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %15 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   call void @tcg_register_jit(ptr noundef %call, i64 noundef %sub.ptr.sub)
   ret void
@@ -1607,15 +1657,16 @@ while.end5:                                       ; preds = %while.cond1
   store ptr %5, ptr %_f, align 8
   %6 = load ptr, ptr %_f, align 8
   call void %6(ptr noundef @region, ptr noundef @.str, i32 noundef 893)
-  %7 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 8), align 8
-  store i64 %7, ptr %total, align 8
+  %7 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 8
+  %8 = load i64, ptr %7, align 8
+  store i64 %8, ptr %total, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %while.end5
-  %8 = load i32, ptr %i, align 4
-  %9 = load i32, ptr %n_ctxs, align 4
-  %cmp = icmp ult i32 %8, %9
+  %9 = load i32, ptr %i, align 4
+  %10 = load i32, ptr %n_ctxs, align 4
+  %cmp = icmp ult i32 %9, %10
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
@@ -1635,16 +1686,16 @@ do.end11:                                         ; No predecessors!
   br label %while.cond8
 
 while.end12:                                      ; preds = %while.cond8
-  %10 = load ptr, ptr @tcg_ctxs, align 8
-  %11 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %11 to i64
-  %arrayidx = getelementptr ptr, ptr %10, i64 %idxprom
-  %12 = load atomic i64, ptr %arrayidx monotonic, align 8
-  store i64 %12, ptr %atomic-temp14, align 8
-  %13 = load ptr, ptr %atomic-temp14, align 8
-  store ptr %13, ptr %tmp13, align 8
-  %14 = load ptr, ptr %tmp13, align 8
-  store ptr %14, ptr %s, align 8
+  %11 = load ptr, ptr @tcg_ctxs, align 8
+  %12 = load i32, ptr %i, align 4
+  %idxprom = zext i32 %12 to i64
+  %arrayidx = getelementptr ptr, ptr %11, i64 %idxprom
+  %13 = load atomic i64, ptr %arrayidx monotonic, align 8
+  store i64 %13, ptr %atomic-temp14, align 8
+  %14 = load ptr, ptr %atomic-temp14, align 8
+  store ptr %14, ptr %tmp13, align 8
+  %15 = load ptr, ptr %tmp13, align 8
+  store ptr %15, ptr %s, align 8
   br label %while.cond15
 
 while.cond15:                                     ; preds = %do.end18, %while.end12
@@ -1661,28 +1712,28 @@ do.end18:                                         ; No predecessors!
   br label %while.cond15
 
 while.end19:                                      ; preds = %while.cond15
-  %15 = load ptr, ptr %s, align 8
-  %code_gen_ptr = getelementptr inbounds %struct.TCGContext, ptr %15, i32 0, i32 26
-  %16 = load atomic i64, ptr %code_gen_ptr monotonic, align 8
-  store i64 %16, ptr %atomic-temp21, align 8
-  %17 = load ptr, ptr %atomic-temp21, align 8
-  store ptr %17, ptr %tmp20, align 8
-  %18 = load ptr, ptr %tmp20, align 8
-  %19 = load ptr, ptr %s, align 8
-  %code_gen_buffer = getelementptr inbounds %struct.TCGContext, ptr %19, i32 0, i32 24
-  %20 = load ptr, ptr %code_gen_buffer, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %20 to i64
+  %16 = load ptr, ptr %s, align 8
+  %code_gen_ptr = getelementptr inbounds %struct.TCGContext, ptr %16, i32 0, i32 26
+  %17 = load atomic i64, ptr %code_gen_ptr monotonic, align 8
+  store i64 %17, ptr %atomic-temp21, align 8
+  %18 = load ptr, ptr %atomic-temp21, align 8
+  store ptr %18, ptr %tmp20, align 8
+  %19 = load ptr, ptr %tmp20, align 8
+  %20 = load ptr, ptr %s, align 8
+  %code_gen_buffer = getelementptr inbounds %struct.TCGContext, ptr %20, i32 0, i32 24
+  %21 = load ptr, ptr %code_gen_buffer, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %21 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %size, align 8
   br label %do.body22
 
 do.body22:                                        ; preds = %while.end19
-  %21 = load i64, ptr %size, align 8
-  %22 = load ptr, ptr %s, align 8
-  %code_gen_buffer_size = getelementptr inbounds %struct.TCGContext, ptr %22, i32 0, i32 25
-  %23 = load i64, ptr %code_gen_buffer_size, align 8
-  %cmp23 = icmp ule i64 %21, %23
+  %22 = load i64, ptr %size, align 8
+  %23 = load ptr, ptr %s, align 8
+  %code_gen_buffer_size = getelementptr inbounds %struct.TCGContext, ptr %23, i32 0, i32 25
+  %24 = load i64, ptr %code_gen_buffer_size, align 8
+  %cmp23 = icmp ule i64 %22, %24
   br i1 %cmp23, label %if.then, label %if.else
 
 if.then:                                          ; preds = %do.body22
@@ -1696,22 +1747,22 @@ if.end:                                           ; preds = %if.then
   br label %do.end24
 
 do.end24:                                         ; preds = %if.end
-  %24 = load i64, ptr %size, align 8
-  %25 = load i64, ptr %total, align 8
-  %add = add i64 %25, %24
+  %25 = load i64, ptr %size, align 8
+  %26 = load i64, ptr %total, align 8
+  %add = add i64 %26, %25
   store i64 %add, ptr %total, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %do.end24
-  %26 = load i32, ptr %i, align 4
-  %inc = add i32 %26, 1
+  %27 = load i32, ptr %i, align 4
+  %inc = add i32 %27, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !14
 
 for.end:                                          ; preds = %for.cond
   call void @qemu_mutex_unlock_impl(ptr noundef @region, ptr noundef @.str, i32 noundef 903)
-  %27 = load i64, ptr %total, align 8
-  ret i64 %27
+  %28 = load i64, ptr %total, align 8
+  ret i64 %28
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1719,26 +1770,31 @@ define dso_local i64 @tcg_code_capacity() #0 {
 entry:
   %guard_size = alloca i64, align 8
   %capacity = alloca i64, align 8
-  %0 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 5), align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 4), align 8
-  %sub = sub i64 %0, %1
+  %0 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 5
+  %1 = load i64, ptr %0, align 8
+  %2 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 4
+  %3 = load i64, ptr %2, align 8
+  %sub = sub i64 %1, %3
   store i64 %sub, ptr %guard_size, align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
-  store i64 %2, ptr %capacity, align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %sub1 = sub i64 %3, 1
-  %4 = load i64, ptr %guard_size, align 8
-  %mul = mul i64 %sub1, %4
-  %5 = load i64, ptr %capacity, align 8
-  %sub2 = sub i64 %5, %mul
+  %4 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
+  %5 = load i64, ptr %4, align 8
+  store i64 %5, ptr %capacity, align 8
+  %6 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %7 = load i64, ptr %6, align 8
+  %sub1 = sub i64 %7, 1
+  %8 = load i64, ptr %guard_size, align 8
+  %mul = mul i64 %sub1, %8
+  %9 = load i64, ptr %capacity, align 8
+  %sub2 = sub i64 %9, %mul
   store i64 %sub2, ptr %capacity, align 8
-  %6 = load i64, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
-  %mul3 = mul i64 %6, 1024
-  %7 = load i64, ptr %capacity, align 8
-  %sub4 = sub i64 %7, %mul3
+  %10 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
+  %11 = load i64, ptr %10, align 8
+  %mul3 = mul i64 %11, 1024
+  %12 = load i64, ptr %capacity, align 8
+  %sub4 = sub i64 %12, %mul3
   store i64 %sub4, ptr %capacity, align 8
-  %8 = load i64, ptr %capacity, align 8
-  ret i64 %8
+  %13 = load i64, ptr %capacity, align 8
+  ret i64 %13
 }
 
 declare ptr @q_tree_ref(ptr noundef) #2
@@ -1792,30 +1848,33 @@ entry:
   %call = call ptr @mmap64(ptr noundef null, i64 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef -1, i64 noundef 0) #8
   store ptr %call, ptr %buf, align 8
   %3 = load ptr, ptr %buf, align 8
-  %cmp = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
+  %4 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %3, %4
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %errp.addr, align 8
+  %5 = load ptr, ptr %errp.addr, align 8
   %call1 = call ptr @__errno_location() #9
-  %5 = load i32, ptr %call1, align 4
-  %6 = load i64, ptr %size.addr, align 8
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %4, ptr noundef @.str, i32 noundef 562, ptr noundef @__func__.alloc_code_gen_buffer_anon, i32 noundef %5, ptr noundef @.str.10, i64 noundef %6)
+  %6 = load i32, ptr %call1, align 4
+  %7 = load i64, ptr %size.addr, align 8
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %5, ptr noundef @.str, i32 noundef 562, ptr noundef @__func__.alloc_code_gen_buffer_anon, i32 noundef %6, ptr noundef @.str.10, i64 noundef %7)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %7 = load ptr, ptr %buf, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
-  %8 = load i64, ptr %size.addr, align 8
-  store i64 %8, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
-  %9 = load i32, ptr %prot.addr, align 4
-  store i32 %9, ptr %retval, align 4
+  %8 = load ptr, ptr %buf, align 8
+  %9 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
+  store ptr %8, ptr %9, align 8
+  %10 = load i64, ptr %size.addr, align 8
+  %11 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
+  store i64 %10, ptr %11, align 8
+  %12 = load i32, ptr %prot.addr, align 4
+  store i32 %12, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+  %13 = load i32, ptr %retval, align 4
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1847,85 +1906,90 @@ entry:
   store i64 %size, ptr %size.addr, align 8
   store ptr %errp, ptr %errp.addr, align 8
   store ptr null, ptr %buf_rw, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %buf_rx, align 8
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %buf_rx, align 8
   store i32 -1, ptr %fd, align 4
-  %0 = load i64, ptr %size.addr, align 8
-  %1 = load ptr, ptr %errp.addr, align 8
-  %call = call ptr @qemu_memfd_alloc(ptr noundef @.str.8, i64 noundef %0, i32 noundef 0, ptr noundef %fd, ptr noundef %1)
+  %1 = load i64, ptr %size.addr, align 8
+  %2 = load ptr, ptr %errp.addr, align 8
+  %call = call ptr @qemu_memfd_alloc(ptr noundef @.str.8, i64 noundef %1, i32 noundef 0, ptr noundef %fd, ptr noundef %2)
   store ptr %call, ptr %buf_rw, align 8
-  %2 = load ptr, ptr %buf_rw, align 8
-  %cmp = icmp eq ptr %2, null
+  %3 = load ptr, ptr %buf_rw, align 8
+  %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   br label %fail
 
 if.end:                                           ; preds = %entry
-  %3 = load i64, ptr %size.addr, align 8
+  %4 = load i64, ptr %size.addr, align 8
   %call1 = call i32 @host_prot_read_exec()
-  %4 = load i32, ptr %fd, align 4
-  %call2 = call ptr @mmap64(ptr noundef null, i64 noundef %3, i32 noundef %call1, i32 noundef 1, i32 noundef %4, i64 noundef 0) #8
+  %5 = load i32, ptr %fd, align 4
+  %call2 = call ptr @mmap64(ptr noundef null, i64 noundef %4, i32 noundef %call1, i32 noundef 1, i32 noundef %5, i64 noundef 0) #8
   store ptr %call2, ptr %buf_rx, align 8
-  %5 = load ptr, ptr %buf_rx, align 8
-  %cmp3 = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
+  %6 = load ptr, ptr %buf_rx, align 8
+  %7 = inttoptr i64 -1 to ptr
+  %cmp3 = icmp eq ptr %6, %7
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
   br label %fail_rx
 
 if.end5:                                          ; preds = %if.end
-  %6 = load i32, ptr %fd, align 4
-  %call6 = call i32 @close(i32 noundef %6)
-  %7 = load ptr, ptr %buf_rw, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
-  %8 = load i64, ptr %size.addr, align 8
-  store i64 %8, ptr getelementptr inbounds (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
-  %9 = load ptr, ptr %buf_rx, align 8
-  %10 = load ptr, ptr %buf_rw, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %10 to i64
+  %8 = load i32, ptr %fd, align 4
+  %call6 = call i32 @close(i32 noundef %8)
+  %9 = load ptr, ptr %buf_rw, align 8
+  %10 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
+  store ptr %9, ptr %10, align 8
+  %11 = load i64, ptr %size.addr, align 8
+  %12 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
+  store i64 %11, ptr %12, align 8
+  %13 = load ptr, ptr %buf_rx, align 8
+  %14 = load ptr, ptr %buf_rw, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %14 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr @tcg_splitwx_diff, align 8
   store i32 3, ptr %retval, align 4
   br label %return
 
 fail_rx:                                          ; preds = %if.then4
-  %11 = load ptr, ptr %errp.addr, align 8
+  %15 = load ptr, ptr %errp.addr, align 8
   %call7 = call ptr @__errno_location() #9
-  %12 = load i32, ptr %call7, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %11, ptr noundef @.str, i32 noundef 598, ptr noundef @__func__.alloc_code_gen_buffer_splitwx_memfd, i32 noundef %12, ptr noundef @.str.9)
+  %16 = load i32, ptr %call7, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %15, ptr noundef @.str, i32 noundef 598, ptr noundef @__func__.alloc_code_gen_buffer_splitwx_memfd, i32 noundef %16, ptr noundef @.str.9)
   br label %fail
 
 fail:                                             ; preds = %fail_rx, %if.then
-  %13 = load ptr, ptr %buf_rx, align 8
-  %cmp8 = icmp ne ptr %13, inttoptr (i64 -1 to ptr)
+  %17 = load ptr, ptr %buf_rx, align 8
+  %18 = inttoptr i64 -1 to ptr
+  %cmp8 = icmp ne ptr %17, %18
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %fail
-  %14 = load ptr, ptr %buf_rx, align 8
-  %15 = load i64, ptr %size.addr, align 8
-  %call10 = call i32 @munmap(ptr noundef %14, i64 noundef %15) #8
+  %19 = load ptr, ptr %buf_rx, align 8
+  %20 = load i64, ptr %size.addr, align 8
+  %call10 = call i32 @munmap(ptr noundef %19, i64 noundef %20) #8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %fail
-  %16 = load ptr, ptr %buf_rw, align 8
-  %tobool = icmp ne ptr %16, null
+  %21 = load ptr, ptr %buf_rw, align 8
+  %tobool = icmp ne ptr %21, null
   br i1 %tobool, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.end11
-  %17 = load ptr, ptr %buf_rw, align 8
-  %18 = load i64, ptr %size.addr, align 8
-  %call13 = call i32 @munmap(ptr noundef %17, i64 noundef %18) #8
+  %22 = load ptr, ptr %buf_rw, align 8
+  %23 = load i64, ptr %size.addr, align 8
+  %call13 = call i32 @munmap(ptr noundef %22, i64 noundef %23) #8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %if.end11
-  %19 = load i32, ptr %fd, align 4
-  %cmp15 = icmp sge i32 %19, 0
+  %24 = load i32, ptr %fd, align 4
+  %cmp15 = icmp sge i32 %24, 0
   br i1 %cmp15, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %if.end14
-  %20 = load i32, ptr %fd, align 4
-  %call17 = call i32 @close(i32 noundef %20)
+  %25 = load i32, ptr %fd, align 4
+  %call17 = call i32 @close(i32 noundef %25)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then16, %if.end14
@@ -1933,8 +1997,8 @@ if.end18:                                         ; preds = %if.then16, %if.end1
   br label %return
 
 return:                                           ; preds = %if.end18, %if.end5
-  %21 = load i32, ptr %retval, align 4
-  ret i32 %21
+  %26 = load i32, ptr %retval, align 4
+  ret i32 %26
 }
 
 declare ptr @qemu_memfd_alloc(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) #2

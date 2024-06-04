@@ -99,7 +99,7 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) #0 {
 
 47:                                               ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %299
+  br label %300
 
 48:                                               ; preds = %2
   %49 = getelementptr inbounds %struct.CFileInStream, ptr %6, i32 0, i32 0
@@ -129,12 +129,12 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) #0 {
   %64 = load ptr, ptr %4, align 8
   %65 = call i32 @cli_append_potentially_unwanted(ptr noundef %64, ptr noundef @.str.1)
   store i32 %65, ptr %13, align 4
-  br label %266
+  br label %267
 
 66:                                               ; preds = %55, %48
   %67 = load i32, ptr %9, align 4
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %265
+  br i1 %68, label %69, label %266
 
 69:                                               ; preds = %66
   store i32 -1, ptr %16, align 4
@@ -465,95 +465,96 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) #0 {
   br label %70
 
 262:                                              ; preds = %255, %220, %201, %176, %126, %86, %70
-  %263 = load ptr, ptr getelementptr inbounds (%struct.ISzAlloc, ptr @allocImp, i32 0, i32 1), align 8
-  %264 = load ptr, ptr %17, align 8
-  call void %263(ptr noundef @allocImp, ptr noundef %264)
-  br label %265
-
-265:                                              ; preds = %262, %66
+  %263 = getelementptr inbounds %struct.ISzAlloc, ptr @allocImp, i32 0, i32 1
+  %264 = load ptr, ptr %263, align 8
+  %265 = load ptr, ptr %17, align 8
+  call void %264(ptr noundef @allocImp, ptr noundef %265)
   br label %266
 
-266:                                              ; preds = %265, %63
+266:                                              ; preds = %262, %66
+  br label %267
+
+267:                                              ; preds = %266, %63
   call void @SzArEx_Free(ptr noundef %8, ptr noundef @allocImp)
-  %267 = load i32, ptr %12, align 4
-  %268 = icmp sgt i32 %267, 256
-  br i1 %268, label %269, label %271
+  %268 = load i32, ptr %12, align 4
+  %269 = icmp sgt i32 %268, 256
+  br i1 %269, label %270, label %272
 
-269:                                              ; preds = %266
-  %270 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %270) #4
-  br label %271
+270:                                              ; preds = %267
+  %271 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %271) #4
+  br label %272
 
-271:                                              ; preds = %269, %266
-  %272 = load i32, ptr %9, align 4
-  %273 = icmp eq i32 %272, 0
-  br i1 %273, label %274, label %275
+272:                                              ; preds = %270, %267
+  %273 = load i32, ptr %9, align 4
+  %274 = icmp eq i32 %273, 0
+  br i1 %274, label %275, label %276
 
-274:                                              ; preds = %271
+275:                                              ; preds = %272
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.8)
-  br label %297
+  br label %298
 
-275:                                              ; preds = %271
-  %276 = load i32, ptr %9, align 4
-  %277 = icmp eq i32 %276, 4
-  br i1 %277, label %278, label %279
+276:                                              ; preds = %272
+  %277 = load i32, ptr %9, align 4
+  %278 = icmp eq i32 %277, 4
+  br i1 %278, label %279, label %280
 
-278:                                              ; preds = %275
+279:                                              ; preds = %276
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.9)
-  br label %296
-
-279:                                              ; preds = %275
-  %280 = load i32, ptr %9, align 4
-  %281 = icmp eq i32 %280, 2
-  br i1 %281, label %282, label %283
-
-282:                                              ; preds = %279
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.10)
-  br label %295
-
-283:                                              ; preds = %279
-  %284 = load i32, ptr %9, align 4
-  %285 = icmp eq i32 %284, 3
-  br i1 %285, label %286, label %287
-
-286:                                              ; preds = %283
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.11)
-  br label %294
-
-287:                                              ; preds = %283
-  %288 = load i32, ptr %9, align 4
-  %289 = icmp eq i32 %288, 18
-  br i1 %289, label %290, label %291
-
-290:                                              ; preds = %287
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.12)
-  br label %293
-
-291:                                              ; preds = %287
-  %292 = load i32, ptr %9, align 4
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.13, i32 noundef %292)
-  br label %293
-
-293:                                              ; preds = %291, %290
-  br label %294
-
-294:                                              ; preds = %293, %286
-  br label %295
-
-295:                                              ; preds = %294, %282
-  br label %296
-
-296:                                              ; preds = %295, %278
   br label %297
 
-297:                                              ; preds = %296, %274
-  %298 = load i32, ptr %13, align 4
-  store i32 %298, ptr %3, align 4
-  br label %299
+280:                                              ; preds = %276
+  %281 = load i32, ptr %9, align 4
+  %282 = icmp eq i32 %281, 2
+  br i1 %282, label %283, label %284
 
-299:                                              ; preds = %297, %47
-  %300 = load i32, ptr %3, align 4
-  ret i32 %300
+283:                                              ; preds = %280
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.10)
+  br label %296
+
+284:                                              ; preds = %280
+  %285 = load i32, ptr %9, align 4
+  %286 = icmp eq i32 %285, 3
+  br i1 %286, label %287, label %288
+
+287:                                              ; preds = %284
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.11)
+  br label %295
+
+288:                                              ; preds = %284
+  %289 = load i32, ptr %9, align 4
+  %290 = icmp eq i32 %289, 18
+  br i1 %290, label %291, label %292
+
+291:                                              ; preds = %288
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.12)
+  br label %294
+
+292:                                              ; preds = %288
+  %293 = load i32, ptr %9, align 4
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.13, i32 noundef %293)
+  br label %294
+
+294:                                              ; preds = %292, %291
+  br label %295
+
+295:                                              ; preds = %294, %287
+  br label %296
+
+296:                                              ; preds = %295, %283
+  br label %297
+
+297:                                              ; preds = %296, %279
+  br label %298
+
+298:                                              ; preds = %297, %275
+  %299 = load i32, ptr %13, align 4
+  store i32 %299, ptr %3, align 4
+  br label %300
+
+300:                                              ; preds = %298, %47
+  %301 = load i32, ptr %3, align 4
+  ret i32 %301
 }
 
 ; Function Attrs: nounwind uwtable

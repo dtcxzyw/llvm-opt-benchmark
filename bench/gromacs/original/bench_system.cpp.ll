@@ -2367,7 +2367,7 @@ define internal void @_ZN3gmxL19generateCoordinatesEiPSt6vectorINS_11BasicVector
   %32 = extractvalue { ptr, i32 } %30, 1
   store i32 %32, ptr %9, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #4
-  br label %180
+  br label %182
 
 33:                                               ; preds = %3
   %34 = load i32, ptr %4, align 4
@@ -2379,7 +2379,7 @@ define internal void @_ZN3gmxL19generateCoordinatesEiPSt6vectorINS_11BasicVector
   %38 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) @_ZL15coordinates1000)
   %39 = load ptr, ptr %6, align 8
   call void @_ZL8copy_matPA3_KfPA3_f(ptr noundef @_ZL7box1000, ptr noundef %39)
-  br label %179
+  br label %181
 
 40:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %10, ptr align 4 @__const._ZN3gmxL19generateCoordinatesEiPSt6vectorINS_11BasicVectorIfEESaIS2_EEPA3_f.factors, i64 12, i1 false)
@@ -2442,12 +2442,12 @@ define internal void @_ZN3gmxL19generateCoordinatesEiPSt6vectorINS_11BasicVector
   store i32 0, ptr %14, align 4
   br label %79
 
-79:                                               ; preds = %140, %58
+79:                                               ; preds = %142, %58
   %80 = load i32, ptr %14, align 4
   %81 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 0
   %82 = load i32, ptr %81, align 4
   %83 = icmp slt i32 %80, %82
-  br i1 %83, label %84, label %143
+  br i1 %83, label %84, label %145
 
 84:                                               ; preds = %79
   %85 = load i32, ptr %14, align 4
@@ -2459,165 +2459,167 @@ define internal void @_ZN3gmxL19generateCoordinatesEiPSt6vectorINS_11BasicVector
   store i32 0, ptr %15, align 4
   br label %90
 
-90:                                               ; preds = %136, %84
+90:                                               ; preds = %138, %84
   %91 = load i32, ptr %15, align 4
   %92 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 1
   %93 = load i32, ptr %92, align 4
   %94 = icmp slt i32 %91, %93
-  br i1 %94, label %95, label %139
+  br i1 %94, label %95, label %141
 
 95:                                               ; preds = %90
   %96 = load i32, ptr %15, align 4
   %97 = sitofp i32 %96 to float
-  %98 = load float, ptr getelementptr inbounds ([3 x [3 x float]], ptr @_ZL7box1000, i64 0, i64 1, i64 1), align 4
-  %99 = fmul float %97, %98
-  %100 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %13, i32 noundef 1)
-  store float %99, ptr %100, align 4
+  %98 = getelementptr inbounds [3 x [3 x float]], ptr @_ZL7box1000, i64 0, i64 1, i64 1
+  %99 = load float, ptr %98, align 4
+  %100 = fmul float %97, %99
+  %101 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %13, i32 noundef 1)
+  store float %100, ptr %101, align 4
   store i32 0, ptr %16, align 4
-  br label %101
+  br label %102
 
-101:                                              ; preds = %132, %95
-  %102 = load i32, ptr %16, align 4
-  %103 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 2
-  %104 = load i32, ptr %103, align 4
-  %105 = icmp slt i32 %102, %104
-  br i1 %105, label %106, label %135
+102:                                              ; preds = %134, %95
+  %103 = load i32, ptr %16, align 4
+  %104 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 2
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp slt i32 %103, %105
+  br i1 %106, label %107, label %137
 
-106:                                              ; preds = %101
-  %107 = load i32, ptr %16, align 4
-  %108 = sitofp i32 %107 to float
-  %109 = load float, ptr getelementptr inbounds ([3 x [3 x float]], ptr @_ZL7box1000, i64 0, i64 2, i64 2), align 8
-  %110 = fmul float %108, %109
-  %111 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %13, i32 noundef 2)
-  store float %110, ptr %111, align 4
+107:                                              ; preds = %102
+  %108 = load i32, ptr %16, align 4
+  %109 = sitofp i32 %108 to float
+  %110 = getelementptr inbounds [3 x [3 x float]], ptr @_ZL7box1000, i64 0, i64 2, i64 2
+  %111 = load float, ptr %110, align 8
+  %112 = fmul float %109, %111
+  %113 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %13, i32 noundef 2)
+  store float %112, ptr %113, align 4
   store ptr @_ZL15coordinates1000, ptr %17, align 8
-  %112 = call ptr @_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZL15coordinates1000) #4
-  %113 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.133", ptr %18, i32 0, i32 0
-  store ptr %112, ptr %113, align 8
-  %114 = call ptr @_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZL15coordinates1000) #4
-  %115 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.133", ptr %19, i32 0, i32 0
+  %114 = call ptr @_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZL15coordinates1000) #4
+  %115 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.133", ptr %18, i32 0, i32 0
   store ptr %114, ptr %115, align 8
-  br label %116
+  %116 = call ptr @_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZL15coordinates1000) #4
+  %117 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.133", ptr %19, i32 0, i32 0
+  store ptr %116, ptr %117, align 8
+  br label %118
 
-116:                                              ; preds = %129, %106
-  %117 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKN3gmx11BasicVectorIfEESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19) #4
-  br i1 %117, label %118, label %131
+118:                                              ; preds = %131, %107
+  %119 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKN3gmx11BasicVectorIfEESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19) #4
+  br i1 %119, label %120, label %133
 
-118:                                              ; preds = %116
-  %119 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN3gmx11BasicVectorIfEESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #4
-  store ptr %119, ptr %20, align 8
-  %120 = load ptr, ptr %20, align 8
-  %121 = call { <2 x float>, float } @_ZNK3gmx11BasicVectorIfEplERKS1_(ptr noundef nonnull align 4 dereferenceable(12) %120, ptr noundef nonnull align 4 dereferenceable(12) %13)
-  %122 = getelementptr inbounds %"class.gmx::BasicVector", ptr %21, i32 0, i32 0
-  store { <2 x float>, float } %121, ptr %22, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %122, ptr align 8 %22, i64 12, i1 false)
-  %123 = load ptr, ptr %5, align 8
-  %124 = load i32, ptr %12, align 4
-  %125 = sext i32 %124 to i64
-  %126 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %123, i64 noundef %125) #4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %126, ptr align 4 %21, i64 12, i1 false)
-  %127 = load i32, ptr %12, align 4
-  %128 = add nsw i32 %127, 1
-  store i32 %128, ptr %12, align 4
-  br label %129
+120:                                              ; preds = %118
+  %121 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN3gmx11BasicVectorIfEESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #4
+  store ptr %121, ptr %20, align 8
+  %122 = load ptr, ptr %20, align 8
+  %123 = call { <2 x float>, float } @_ZNK3gmx11BasicVectorIfEplERKS1_(ptr noundef nonnull align 4 dereferenceable(12) %122, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %124 = getelementptr inbounds %"class.gmx::BasicVector", ptr %21, i32 0, i32 0
+  store { <2 x float>, float } %123, ptr %22, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %124, ptr align 8 %22, i64 12, i1 false)
+  %125 = load ptr, ptr %5, align 8
+  %126 = load i32, ptr %12, align 4
+  %127 = sext i32 %126 to i64
+  %128 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %125, i64 noundef %127) #4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %128, ptr align 4 %21, i64 12, i1 false)
+  %129 = load i32, ptr %12, align 4
+  %130 = add nsw i32 %129, 1
+  store i32 %130, ptr %12, align 4
+  br label %131
 
-129:                                              ; preds = %118
-  %130 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN3gmx11BasicVectorIfEESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #4
-  br label %116
+131:                                              ; preds = %120
+  %132 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN3gmx11BasicVectorIfEESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #4
+  br label %118
 
-131:                                              ; preds = %116
-  br label %132
+133:                                              ; preds = %118
+  br label %134
 
-132:                                              ; preds = %131
-  %133 = load i32, ptr %16, align 4
-  %134 = add nsw i32 %133, 1
-  store i32 %134, ptr %16, align 4
-  br label %101, !llvm.loop !9
+134:                                              ; preds = %133
+  %135 = load i32, ptr %16, align 4
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %16, align 4
+  br label %102, !llvm.loop !9
 
-135:                                              ; preds = %101
-  br label %136
+137:                                              ; preds = %102
+  br label %138
 
-136:                                              ; preds = %135
-  %137 = load i32, ptr %15, align 4
-  %138 = add nsw i32 %137, 1
-  store i32 %138, ptr %15, align 4
+138:                                              ; preds = %137
+  %139 = load i32, ptr %15, align 4
+  %140 = add nsw i32 %139, 1
+  store i32 %140, ptr %15, align 4
   br label %90, !llvm.loop !10
 
-139:                                              ; preds = %90
-  br label %140
+141:                                              ; preds = %90
+  br label %142
 
-140:                                              ; preds = %139
-  %141 = load i32, ptr %14, align 4
-  %142 = add nsw i32 %141, 1
-  store i32 %142, ptr %14, align 4
+142:                                              ; preds = %141
+  %143 = load i32, ptr %14, align 4
+  %144 = add nsw i32 %143, 1
+  store i32 %144, ptr %14, align 4
   br label %79, !llvm.loop !11
 
-143:                                              ; preds = %79
+145:                                              ; preds = %79
   store i32 0, ptr %23, align 4
-  br label %144
+  br label %146
 
-144:                                              ; preds = %176, %143
-  %145 = load i32, ptr %23, align 4
-  %146 = icmp slt i32 %145, 3
-  br i1 %146, label %147, label %179
+146:                                              ; preds = %178, %145
+  %147 = load i32, ptr %23, align 4
+  %148 = icmp slt i32 %147, 3
+  br i1 %148, label %149, label %181
 
-147:                                              ; preds = %144
+149:                                              ; preds = %146
   store i32 0, ptr %24, align 4
-  br label %148
+  br label %150
 
-148:                                              ; preds = %172, %147
-  %149 = load i32, ptr %24, align 4
-  %150 = icmp slt i32 %149, 3
-  br i1 %150, label %151, label %175
+150:                                              ; preds = %174, %149
+  %151 = load i32, ptr %24, align 4
+  %152 = icmp slt i32 %151, 3
+  br i1 %152, label %153, label %177
 
-151:                                              ; preds = %148
-  %152 = load i32, ptr %23, align 4
-  %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %153
-  %155 = load i32, ptr %154, align 4
-  %156 = sitofp i32 %155 to float
-  %157 = load i32, ptr %23, align 4
-  %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds [3 x [3 x float]], ptr @_ZL7box1000, i64 0, i64 %158
-  %160 = load i32, ptr %24, align 4
-  %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds [3 x float], ptr %159, i64 0, i64 %161
-  %163 = load float, ptr %162, align 4
-  %164 = fmul float %156, %163
-  %165 = load ptr, ptr %6, align 8
-  %166 = load i32, ptr %23, align 4
-  %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds [3 x float], ptr %165, i64 %167
-  %169 = load i32, ptr %24, align 4
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds [3 x float], ptr %168, i64 0, i64 %170
-  store float %164, ptr %171, align 4
-  br label %172
+153:                                              ; preds = %150
+  %154 = load i32, ptr %23, align 4
+  %155 = sext i32 %154 to i64
+  %156 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %155
+  %157 = load i32, ptr %156, align 4
+  %158 = sitofp i32 %157 to float
+  %159 = load i32, ptr %23, align 4
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr inbounds [3 x [3 x float]], ptr @_ZL7box1000, i64 0, i64 %160
+  %162 = load i32, ptr %24, align 4
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds [3 x float], ptr %161, i64 0, i64 %163
+  %165 = load float, ptr %164, align 4
+  %166 = fmul float %158, %165
+  %167 = load ptr, ptr %6, align 8
+  %168 = load i32, ptr %23, align 4
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds [3 x float], ptr %167, i64 %169
+  %171 = load i32, ptr %24, align 4
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr inbounds [3 x float], ptr %170, i64 0, i64 %172
+  store float %166, ptr %173, align 4
+  br label %174
 
-172:                                              ; preds = %151
-  %173 = load i32, ptr %24, align 4
-  %174 = add nsw i32 %173, 1
-  store i32 %174, ptr %24, align 4
-  br label %148, !llvm.loop !12
+174:                                              ; preds = %153
+  %175 = load i32, ptr %24, align 4
+  %176 = add nsw i32 %175, 1
+  store i32 %176, ptr %24, align 4
+  br label %150, !llvm.loop !12
 
-175:                                              ; preds = %148
-  br label %176
+177:                                              ; preds = %150
+  br label %178
 
-176:                                              ; preds = %175
-  %177 = load i32, ptr %23, align 4
-  %178 = add nsw i32 %177, 1
-  store i32 %178, ptr %23, align 4
-  br label %144, !llvm.loop !13
+178:                                              ; preds = %177
+  %179 = load i32, ptr %23, align 4
+  %180 = add nsw i32 %179, 1
+  store i32 %180, ptr %23, align 4
+  br label %146, !llvm.loop !13
 
-179:                                              ; preds = %144, %36
+181:                                              ; preds = %146, %36
   ret void
 
-180:                                              ; preds = %29
-  %181 = load ptr, ptr %8, align 8
-  %182 = load i32, ptr %9, align 4
-  %183 = insertvalue { ptr, i32 } poison, ptr %181, 0
-  %184 = insertvalue { ptr, i32 } %183, i32 %182, 1
-  resume { ptr, i32 } %184
+182:                                              ; preds = %29
+  %183 = load ptr, ptr %8, align 8
+  %184 = load i32, ptr %9, align 4
+  %185 = insertvalue { ptr, i32 } poison, ptr %183, 0
+  %186 = insertvalue { ptr, i32 } %185, i32 %184, 1
+  resume { ptr, i32 } %186
 }
 
 declare void @_Z16put_atoms_in_box7PbcTypePA3_KfN3gmx8ArrayRefINS3_11BasicVectorIfEEEE(i32 noundef, ptr noundef, ptr, ptr) #10

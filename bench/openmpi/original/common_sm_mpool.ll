@@ -50,103 +50,105 @@ define ptr @opal_btl_smcuda_common_sm_mpool_create(ptr noundef %0) #0 {
   store ptr %17, ptr %5, align 8
   %18 = load ptr, ptr %5, align 8
   %19 = icmp eq ptr null, %18
-  br i1 %19, label %20, label %41
+  br i1 %19, label %20, label %43
 
 20:                                               ; preds = %1
-  %21 = call i64 @opal_list_get_size(ptr noundef getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_allocator_base_framework, i32 0, i32 12))
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %35
+  %21 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_allocator_base_framework, i32 0, i32 12
+  %22 = call i64 @opal_list_get_size(ptr noundef %21)
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %24, label %37
 
-23:                                               ; preds = %20
-  %24 = call ptr @opal_list_get_first(ptr noundef getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_allocator_base_framework, i32 0, i32 12))
-  store ptr %24, ptr %6, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %25, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %5, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.mca_common_sm_mpool_resources_t, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.mca_allocator_base_component_2_0_0_t, ptr %31, i32 0, i32 0
-  %33 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %32, i32 0, i32 11
-  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 0, i64 0
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str, ptr noundef %30, ptr noundef %34)
-  br label %40
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_allocator_base_framework, i32 0, i32 12
+  %26 = call ptr @opal_list_get_first(ptr noundef %25)
+  store ptr %26, ptr %6, align 8
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr %5, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds %struct.mca_common_sm_mpool_resources_t, ptr %30, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds %struct.mca_allocator_base_component_2_0_0_t, ptr %33, i32 0, i32 0
+  %35 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %34, i32 0, i32 11
+  %36 = getelementptr inbounds [64 x i8], ptr %35, i64 0, i64 0
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str, ptr noundef %32, ptr noundef %36)
+  br label %42
 
-35:                                               ; preds = %20
-  %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.mca_common_sm_mpool_resources_t, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.1, ptr noundef %38)
-  %39 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %39) #5
+37:                                               ; preds = %20
+  %38 = load ptr, ptr %3, align 8
+  %39 = getelementptr inbounds %struct.mca_common_sm_mpool_resources_t, ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.1, ptr noundef %40)
+  %41 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %41) #5
   store ptr null, ptr %2, align 8
-  br label %78
+  br label %80
 
-40:                                               ; preds = %23
-  br label %41
+42:                                               ; preds = %24
+  br label %43
 
-41:                                               ; preds = %40, %1
-  %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.mca_common_sm_mpool_resources_t, ptr %42, i32 0, i32 1
-  %44 = load i32, ptr %43, align 8
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.mca_common_sm_mpool_module_t, ptr %45, i32 0, i32 5
-  store i32 %44, ptr %46, align 8
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.mca_common_sm_mpool_resources_t, ptr %47, i32 0, i32 3
-  %49 = call ptr @mca_common_sm_module_attach(ptr noundef %48, i64 noundef 4208, i64 noundef 8)
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.mca_common_sm_mpool_module_t, ptr %50, i32 0, i32 4
-  store ptr %49, ptr %51, align 8
-  %52 = icmp eq ptr null, %49
-  br i1 %52, label %53, label %59
+43:                                               ; preds = %42, %1
+  %44 = load ptr, ptr %3, align 8
+  %45 = getelementptr inbounds %struct.mca_common_sm_mpool_resources_t, ptr %44, i32 0, i32 1
+  %46 = load i32, ptr %45, align 8
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds %struct.mca_common_sm_mpool_module_t, ptr %47, i32 0, i32 5
+  store i32 %46, ptr %48, align 8
+  %49 = load ptr, ptr %3, align 8
+  %50 = getelementptr inbounds %struct.mca_common_sm_mpool_resources_t, ptr %49, i32 0, i32 3
+  %51 = call ptr @mca_common_sm_module_attach(ptr noundef %50, i64 noundef 4208, i64 noundef 8)
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds %struct.mca_common_sm_mpool_module_t, ptr %52, i32 0, i32 4
+  store ptr %51, ptr %53, align 8
+  %54 = icmp eq ptr null, %51
+  br i1 %54, label %55, label %61
 
-53:                                               ; preds = %41
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.mca_common_sm_mpool_resources_t, ptr %54, i32 0, i32 3
-  %56 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %55, i32 0, i32 5
-  %57 = getelementptr inbounds [4097 x i8], ptr %56, i64 0, i64 0
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.2, ptr noundef %57)
-  %58 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %58) #5
+55:                                               ; preds = %43
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds %struct.mca_common_sm_mpool_resources_t, ptr %56, i32 0, i32 3
+  %58 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %57, i32 0, i32 5
+  %59 = getelementptr inbounds [4097 x i8], ptr %58, i64 0, i64 0
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.2, ptr noundef %59)
+  %60 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %60) #5
   store ptr null, ptr %2, align 8
-  br label %78
+  br label %80
 
-59:                                               ; preds = %41
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.mca_allocator_base_component_2_0_0_t, ptr %60, i32 0, i32 2
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %struct.mca_common_sm_mpool_module_t, ptr %63, i32 0, i32 4
-  %65 = load ptr, ptr %64, align 8
-  %66 = call ptr %62(i1 noundef zeroext true, ptr noundef @mca_common_sm_seg_alloc, ptr noundef null, ptr noundef %65)
-  %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds %struct.mca_common_sm_mpool_module_t, ptr %67, i32 0, i32 2
-  store ptr %66, ptr %68, align 8
+61:                                               ; preds = %43
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds %struct.mca_allocator_base_component_2_0_0_t, ptr %62, i32 0, i32 2
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds %struct.mca_common_sm_mpool_module_t, ptr %65, i32 0, i32 4
+  %67 = load ptr, ptr %66, align 8
+  %68 = call ptr %64(i1 noundef zeroext true, ptr noundef @mca_common_sm_seg_alloc, ptr noundef null, ptr noundef %67)
   %69 = load ptr, ptr %4, align 8
   %70 = getelementptr inbounds %struct.mca_common_sm_mpool_module_t, ptr %69, i32 0, i32 2
-  %71 = load ptr, ptr %70, align 8
-  %72 = icmp eq ptr null, %71
-  br i1 %72, label %73, label %75
+  store ptr %68, ptr %70, align 8
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds %struct.mca_common_sm_mpool_module_t, ptr %71, i32 0, i32 2
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp eq ptr null, %73
+  br i1 %74, label %75, label %77
 
-73:                                               ; preds = %59
+75:                                               ; preds = %61
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.3)
-  %74 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %74) #5
-  store ptr null, ptr %2, align 8
-  br label %78
-
-75:                                               ; preds = %59
   %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds %struct.mca_common_sm_mpool_module_t, ptr %76, i32 0, i32 0
-  store ptr %77, ptr %2, align 8
-  br label %78
+  call void @free(ptr noundef %76) #5
+  store ptr null, ptr %2, align 8
+  br label %80
 
-78:                                               ; preds = %75, %73, %53, %35
-  %79 = load ptr, ptr %2, align 8
-  ret ptr %79
+77:                                               ; preds = %61
+  %78 = load ptr, ptr %4, align 8
+  %79 = getelementptr inbounds %struct.mca_common_sm_mpool_module_t, ptr %78, i32 0, i32 0
+  store ptr %79, ptr %2, align 8
+  br label %80
+
+80:                                               ; preds = %77, %75, %55, %37
+  %81 = load ptr, ptr %2, align 8
+  ret ptr %81
 }
 
 ; Function Attrs: nounwind allocsize(0)

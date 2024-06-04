@@ -2935,9 +2935,11 @@ entry:
   call void @_ZN4node10BaseObjectC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
   %2 = getelementptr inbounds i8, ptr %this3, i64 32
   call void @_ZN4node3mem18NgLibMemoryManagerINS_4wasi4WASIE12uvwasi_mem_sEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4wasi4WASIE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %3 = getelementptr inbounds { [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4wasi4WASIE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 32
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4wasi4WASIE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4wasi4WASIE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %memory_ = getelementptr inbounds %"class.node::wasi::WASI", ptr %this3, i32 0, i32 3
   store ptr %memory_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -2954,16 +2956,16 @@ entry:
   %alloc_info_8 = getelementptr inbounds %"class.node::wasi::WASI", ptr %this3, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %alloc_info_8, ptr align 8 %ref.tmp, i64 40, i1 false)
   %alloc_info_9 = getelementptr inbounds %"class.node::wasi::WASI", ptr %this3, i32 0, i32 4
-  %3 = load ptr, ptr %options.addr, align 8
-  %allocator = getelementptr inbounds %struct.uvwasi_options_s, ptr %3, i32 0, i32 11
+  %5 = load ptr, ptr %options.addr, align 8
+  %allocator = getelementptr inbounds %struct.uvwasi_options_s, ptr %5, i32 0, i32 11
   store ptr %alloc_info_9, ptr %allocator, align 8
   %uvw_10 = getelementptr inbounds %"class.node::wasi::WASI", ptr %this3, i32 0, i32 2
-  %4 = load ptr, ptr %options.addr, align 8
-  %call = call zeroext i16 @uvwasi_init(ptr noundef %uvw_10, ptr noundef %4)
+  %6 = load ptr, ptr %options.addr, align 8
+  %call = call zeroext i16 @uvwasi_init(ptr noundef %uvw_10, ptr noundef %6)
   %conv = zext i16 %call to i32
   store i32 %conv, ptr %err, align 4
-  %5 = load i32, ptr %err, align 4
-  %cmp = icmp ne i32 %5, 0
+  %7 = load i32, ptr %err, align 4
+  %cmp = icmp ne i32 %7, 0
   br i1 %cmp, label %if.then, label %if.end41
 
 if.then:                                          ; preds = %entry
@@ -2977,18 +2979,18 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  %6 = load ptr, ptr %env.addr, align 8
-  %call13 = call ptr @_ZNK4node11Environment7contextEv(ptr noundef nonnull align 8 dereferenceable(2872) %6)
+  %8 = load ptr, ptr %env.addr, align 8
+  %call13 = call ptr @_ZNK4node11Environment7contextEv(ptr noundef nonnull align 8 dereferenceable(2872) %8)
   %coerce.dive14 = getelementptr inbounds %"class.v8::Local.4", ptr %agg.tmp12, i32 0, i32 0
   %coerce.dive15 = getelementptr inbounds %"class.v8::LocalBase.5", ptr %coerce.dive14, i32 0, i32 0
   %coerce.dive16 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive15, i32 0, i32 0
   store ptr %call13, ptr %coerce.dive16, align 8
-  %7 = load i32, ptr %err, align 4
+  %9 = load i32, ptr %err, align 4
   %coerce.dive17 = getelementptr inbounds %"class.v8::Local.4", ptr %agg.tmp12, i32 0, i32 0
   %coerce.dive18 = getelementptr inbounds %"class.v8::LocalBase.5", ptr %coerce.dive17, i32 0, i32 0
   %coerce.dive19 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive18, i32 0, i32 0
-  %8 = load ptr, ptr %coerce.dive19, align 8
-  %call20 = call ptr @_ZN4node4wasiL13WASIExceptionEN2v85LocalINS1_7ContextEEEiPKc(ptr %8, i32 noundef %7, ptr noundef @.str)
+  %10 = load ptr, ptr %coerce.dive19, align 8
+  %call20 = call ptr @_ZN4node4wasiL13WASIExceptionEN2v85LocalINS1_7ContextEEEiPKc(ptr %10, i32 noundef %9, ptr noundef @.str)
   %coerce.dive21 = getelementptr inbounds %"class.v8::MaybeLocal", ptr %ref.tmp11, i32 0, i32 0
   %coerce.dive22 = getelementptr inbounds %"class.v8::Local.2", ptr %coerce.dive21, i32 0, i32 0
   %coerce.dive23 = getelementptr inbounds %"class.v8::LocalBase.3", ptr %coerce.dive22, i32 0, i32 0
@@ -2997,14 +2999,14 @@ do.body:                                          ; preds = %if.then
   store ptr %ref.tmp11, ptr %this.addr.i44, align 8
   store ptr %exception, ptr %out.addr.i, align 8
   %this1.i45 = load ptr, ptr %this.addr.i44, align 8
-  %9 = load ptr, ptr %out.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %this1.i45, i64 8, i1 false)
+  %11 = load ptr, ptr %out.addr.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %this1.i45, i64 8, i1 false)
   store ptr %this1.i45, ptr %this.addr.i53, align 8
   %this1.i54 = load ptr, ptr %this.addr.i53, align 8
   store ptr %this1.i54, ptr %this.addr.i.i52, align 8
   %this1.i.i55 = load ptr, ptr %this.addr.i.i52, align 8
-  %10 = load ptr, ptr %this1.i.i55, align 8
-  %cmp.i.i = icmp eq ptr %10, null
+  %12 = load ptr, ptr %this1.i.i55, align 8
+  %cmp.i.i = icmp eq ptr %12, null
   %lnot.i = xor i1 %cmp.i.i, true
   %lnot = xor i1 %lnot.i, true
   %lnot26 = xor i1 %lnot, true
@@ -3026,14 +3028,14 @@ if.end:                                           ; preds = %do.end, %do.body
   br label %do.end31
 
 do.end31:                                         ; preds = %if.end
-  %11 = load ptr, ptr %env.addr, align 8
-  %call32 = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %11)
+  %13 = load ptr, ptr %env.addr, align 8
+  %call32 = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %13)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp33, ptr align 8 %exception, i64 8, i1 false)
   %coerce.dive34 = getelementptr inbounds %"class.v8::Local.2", ptr %agg.tmp33, i32 0, i32 0
   %coerce.dive35 = getelementptr inbounds %"class.v8::LocalBase.3", ptr %coerce.dive34, i32 0, i32 0
   %coerce.dive36 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive35, i32 0, i32 0
-  %12 = load ptr, ptr %coerce.dive36, align 8
-  %call37 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call32, ptr %12)
+  %14 = load ptr, ptr %coerce.dive36, align 8
+  %call37 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call32, ptr %14)
   %coerce.dive38 = getelementptr inbounds %"class.v8::Local.2", ptr %coerce, i32 0, i32 0
   %coerce.dive39 = getelementptr inbounds %"class.v8::LocalBase.3", ptr %coerce.dive38, i32 0, i32 0
   %coerce.dive40 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive39, i32 0, i32 0
@@ -3079,7 +3081,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node3mem22NgLibMemoryManagerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN4node3mem18NgLibMemoryManagerINS_4wasi4WASIE12uvwasi_mem_sEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN4node3mem18NgLibMemoryManagerINS_4wasi4WASIE12uvwasi_mem_sEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3686,17 +3689,19 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4wasi4WASIE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4wasi4WASIE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 32
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4wasi4WASIE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4wasi4WASIE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %uvw_ = getelementptr inbounds %"class.node::wasi::WASI", ptr %this1, i32 0, i32 2
   call void @uvwasi_destroy(ptr noundef %uvw_)
   br label %do.body
 
 do.body:                                          ; preds = %entry
   %current_uvwasi_memory_ = getelementptr inbounds %"class.node::wasi::WASI", ptr %this1, i32 0, i32 5
-  %0 = load i64, ptr %current_uvwasi_memory_, align 8
-  %cmp = icmp eq i64 %0, 0
+  %2 = load i64, ptr %current_uvwasi_memory_, align 8
+  %cmp = icmp eq i64 %2, 0
   %lnot = xor i1 %cmp, true
   %lnot2 = xor i1 %lnot, true
   %lnot3 = xor i1 %lnot2, true
@@ -3730,8 +3735,8 @@ do.end6:                                          ; preds = %do.cond5
   %this1.i8 = load ptr, ptr %this.addr.i7, align 8
   store ptr %this1.i8, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %1 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %1, null
+  %3 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.end6
@@ -3740,8 +3745,8 @@ if.then.i:                                        ; preds = %do.end6
 if.end.i:                                         ; preds = %do.end6
   store ptr %this1.i8, ptr %this.addr.i9, align 8
   %this1.i10 = load ptr, ptr %this.addr.i9, align 8
-  %2 = load ptr, ptr %this1.i10, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %2) #3
+  %4 = load ptr, ptr %this1.i10, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %4) #3
   store ptr %this1.i8, ptr %this.addr.i11, align 8
   %this1.i12 = load ptr, ptr %this.addr.i11, align 8
   store ptr null, ptr %this1.i12, align 8
@@ -15994,7 +15999,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN4node3mem22NgLibMemoryManagerBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN4node3mem22NgLibMemoryManagerBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16731,7 +16737,8 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -16742,14 +16749,14 @@ entry:
   store i64 0, ptr %size_, align 8
   %detachedness_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 0, ptr %detachedness_, align 8
-  %0 = load ptr, ptr %name.addr, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
-  store ptr %0, ptr %name_, align 8
-  %1 = load i64, ptr %size.addr, align 8
+  store ptr %1, ptr %name_, align 8
+  %2 = load i64, ptr %size.addr, align 8
   %size_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
-  store i64 %1, ptr %size_2, align 8
-  %2 = load i8, ptr %is_root_node.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  store i64 %2, ptr %size_2, align 8
+  %3 = load i8, ptr %is_root_node.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %is_root_node_3 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %is_root_node_3, align 8
@@ -16831,7 +16838,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

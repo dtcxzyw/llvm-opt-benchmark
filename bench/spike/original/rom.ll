@@ -150,30 +150,31 @@ define void @_ZN12rom_device_tC2ESt6vectorIcSaIcEE(ptr noundef nonnull align 8 d
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN17abstract_device_tC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12rom_device_t, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.rom_device_t, ptr %7, i32 0, i32 1
-  invoke void @_ZNSt6vectorIcSaIcEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %9 unwind label %10
-
-9:                                                ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV12rom_device_t, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.rom_device_t, ptr %7, i32 0, i32 1
+  invoke void @_ZNSt6vectorIcSaIcEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1)
+          to label %10 unwind label %11
 
 10:                                               ; preds = %2
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %5, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %6, align 4
-  call void @_ZN17abstract_device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %14
+  ret void
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i32, ptr %6, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+11:                                               ; preds = %2
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  call void @_ZN17abstract_device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %15
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -181,7 +182,8 @@ define linkonce_odr void @_ZN17abstract_device_tC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV17abstract_device_t, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV17abstract_device_t, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -354,9 +356,10 @@ define linkonce_odr void @_ZN12rom_device_tD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12rom_device_t, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.rom_device_t, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV12rom_device_t, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.rom_device_t, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN17abstract_device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }

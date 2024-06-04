@@ -11771,7 +11771,7 @@ define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 n
   %32 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %33 = extractvalue { i64, i64 } %29, 1
   store i64 %33, ptr %32, align 8
-  br label %158
+  br label %159
 
 34:                                               ; preds = %5
   %35 = load ptr, ptr %8, align 8
@@ -11790,7 +11790,7 @@ define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 n
   store i32 0, ptr %45, align 8
   %46 = getelementptr inbounds %struct.JSValue, ptr %6, i32 0, i32 1
   store i64 6, ptr %46, align 8
-  br label %158
+  br label %159
 
 47:                                               ; preds = %34
   %48 = load i32, ptr %14, align 4
@@ -11806,7 +11806,7 @@ define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 n
   %55 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %56 = extractvalue { i64, i64 } %52, 1
   store i64 %56, ptr %55, align 8
-  br label %158
+  br label %159
 
 57:                                               ; preds = %47
   %58 = load ptr, ptr %10, align 8
@@ -11827,7 +11827,7 @@ define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 n
   %70 = load i64, ptr %69, align 8
   %71 = call i32 @JS_IsUndefined(i64 %68, i64 %70)
   %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %96
+  br i1 %72, label %73, label %97
 
 73:                                               ; preds = %66, %57
   %74 = load ptr, ptr %12, align 8
@@ -11856,113 +11856,114 @@ define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 n
 
 90:                                               ; preds = %83
   store ptr null, ptr %16, align 8
-  br label %92
+  br label %93
 
 91:                                               ; preds = %83
-  store ptr inttoptr (i64 1 to ptr), ptr %16, align 8
-  br label %92
+  %92 = inttoptr i64 1 to ptr
+  store ptr %92, ptr %16, align 8
+  br label %93
 
-92:                                               ; preds = %91, %90
-  %93 = load i32, ptr %14, align 4
-  %94 = load ptr, ptr %16, align 8
-  %95 = call ptr @signal(i32 noundef %93, ptr noundef %94) #12
-  br label %155
+93:                                               ; preds = %91, %90
+  %94 = load i32, ptr %14, align 4
+  %95 = load ptr, ptr %16, align 8
+  %96 = call ptr @signal(i32 noundef %94, ptr noundef %95) #12
+  br label %156
 
-96:                                               ; preds = %66
-  %97 = load ptr, ptr %8, align 8
-  %98 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 0
-  %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 1
-  %101 = load i64, ptr %100, align 8
-  %102 = call i32 @JS_IsFunction(ptr noundef %97, i64 %99, i64 %101)
-  %103 = icmp ne i32 %102, 0
-  br i1 %103, label %111, label %104
+97:                                               ; preds = %66
+  %98 = load ptr, ptr %8, align 8
+  %99 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 0
+  %100 = load i64, ptr %99, align 8
+  %101 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 1
+  %102 = load i64, ptr %101, align 8
+  %103 = call i32 @JS_IsFunction(ptr noundef %98, i64 %100, i64 %102)
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %112, label %105
 
-104:                                              ; preds = %96
-  %105 = load ptr, ptr %8, align 8
-  %106 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %105, ptr noundef @.str.106)
-  %107 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 0
-  %108 = extractvalue { i64, i64 } %106, 0
-  store i64 %108, ptr %107, align 8
-  %109 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
-  %110 = extractvalue { i64, i64 } %106, 1
-  store i64 %110, ptr %109, align 8
-  br label %158
+105:                                              ; preds = %97
+  %106 = load ptr, ptr %8, align 8
+  %107 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %106, ptr noundef @.str.106)
+  %108 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 0
+  %109 = extractvalue { i64, i64 } %107, 0
+  store i64 %109, ptr %108, align 8
+  %110 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
+  %111 = extractvalue { i64, i64 } %107, 1
+  store i64 %111, ptr %110, align 8
+  br label %159
 
-111:                                              ; preds = %96
-  %112 = load ptr, ptr %12, align 8
-  %113 = load i32, ptr %14, align 4
-  %114 = call ptr @find_sh(ptr noundef %112, i32 noundef %113)
-  store ptr %114, ptr %13, align 8
-  %115 = load ptr, ptr %13, align 8
-  %116 = icmp ne ptr %115, null
-  br i1 %116, label %133, label %117
+112:                                              ; preds = %97
+  %113 = load ptr, ptr %12, align 8
+  %114 = load i32, ptr %14, align 4
+  %115 = call ptr @find_sh(ptr noundef %113, i32 noundef %114)
+  store ptr %115, ptr %13, align 8
+  %116 = load ptr, ptr %13, align 8
+  %117 = icmp ne ptr %116, null
+  br i1 %117, label %134, label %118
 
-117:                                              ; preds = %111
-  %118 = load ptr, ptr %8, align 8
-  %119 = call ptr @js_mallocz(ptr noundef %118, i64 noundef 40)
-  store ptr %119, ptr %13, align 8
-  %120 = load ptr, ptr %13, align 8
-  %121 = icmp ne ptr %120, null
-  br i1 %121, label %125, label %122
+118:                                              ; preds = %112
+  %119 = load ptr, ptr %8, align 8
+  %120 = call ptr @js_mallocz(ptr noundef %119, i64 noundef 40)
+  store ptr %120, ptr %13, align 8
+  %121 = load ptr, ptr %13, align 8
+  %122 = icmp ne ptr %121, null
+  br i1 %122, label %126, label %123
 
-122:                                              ; preds = %117
-  %123 = getelementptr inbounds %struct.JSValue, ptr %6, i32 0, i32 0
-  store i32 0, ptr %123, align 8
-  %124 = getelementptr inbounds %struct.JSValue, ptr %6, i32 0, i32 1
-  store i64 6, ptr %124, align 8
-  br label %158
+123:                                              ; preds = %118
+  %124 = getelementptr inbounds %struct.JSValue, ptr %6, i32 0, i32 0
+  store i32 0, ptr %124, align 8
+  %125 = getelementptr inbounds %struct.JSValue, ptr %6, i32 0, i32 1
+  store i64 6, ptr %125, align 8
+  br label %159
 
-125:                                              ; preds = %117
-  %126 = load i32, ptr %14, align 4
-  %127 = load ptr, ptr %13, align 8
-  %128 = getelementptr inbounds %struct.JSOSSignalHandler, ptr %127, i32 0, i32 1
-  store i32 %126, ptr %128, align 8
-  %129 = load ptr, ptr %13, align 8
-  %130 = getelementptr inbounds %struct.JSOSSignalHandler, ptr %129, i32 0, i32 0
-  %131 = load ptr, ptr %12, align 8
-  %132 = getelementptr inbounds %struct.JSThreadState, ptr %131, i32 0, i32 1
-  call void @list_add_tail(ptr noundef %130, ptr noundef %132)
-  br label %133
+126:                                              ; preds = %118
+  %127 = load i32, ptr %14, align 4
+  %128 = load ptr, ptr %13, align 8
+  %129 = getelementptr inbounds %struct.JSOSSignalHandler, ptr %128, i32 0, i32 1
+  store i32 %127, ptr %129, align 8
+  %130 = load ptr, ptr %13, align 8
+  %131 = getelementptr inbounds %struct.JSOSSignalHandler, ptr %130, i32 0, i32 0
+  %132 = load ptr, ptr %12, align 8
+  %133 = getelementptr inbounds %struct.JSThreadState, ptr %132, i32 0, i32 1
+  call void @list_add_tail(ptr noundef %131, ptr noundef %133)
+  br label %134
 
-133:                                              ; preds = %125, %111
-  %134 = load ptr, ptr %8, align 8
-  %135 = load ptr, ptr %13, align 8
-  %136 = getelementptr inbounds %struct.JSOSSignalHandler, ptr %135, i32 0, i32 2
-  %137 = getelementptr inbounds { i64, i64 }, ptr %136, i32 0, i32 0
-  %138 = load i64, ptr %137, align 8
-  %139 = getelementptr inbounds { i64, i64 }, ptr %136, i32 0, i32 1
-  %140 = load i64, ptr %139, align 8
-  call void @JS_FreeValue(ptr noundef %134, i64 %138, i64 %140)
-  %141 = load ptr, ptr %13, align 8
-  %142 = getelementptr inbounds %struct.JSOSSignalHandler, ptr %141, i32 0, i32 2
-  %143 = load ptr, ptr %8, align 8
-  %144 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 0
-  %145 = load i64, ptr %144, align 8
-  %146 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 1
-  %147 = load i64, ptr %146, align 8
-  %148 = call { i64, i64 } @JS_DupValue(ptr noundef %143, i64 %145, i64 %147)
-  %149 = getelementptr inbounds { i64, i64 }, ptr %17, i32 0, i32 0
-  %150 = extractvalue { i64, i64 } %148, 0
-  store i64 %150, ptr %149, align 8
-  %151 = getelementptr inbounds { i64, i64 }, ptr %17, i32 0, i32 1
-  %152 = extractvalue { i64, i64 } %148, 1
-  store i64 %152, ptr %151, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %142, ptr align 8 %17, i64 16, i1 false)
-  %153 = load i32, ptr %14, align 4
-  %154 = call ptr @signal(i32 noundef %153, ptr noundef @os_signal_handler) #12
-  br label %155
+134:                                              ; preds = %126, %112
+  %135 = load ptr, ptr %8, align 8
+  %136 = load ptr, ptr %13, align 8
+  %137 = getelementptr inbounds %struct.JSOSSignalHandler, ptr %136, i32 0, i32 2
+  %138 = getelementptr inbounds { i64, i64 }, ptr %137, i32 0, i32 0
+  %139 = load i64, ptr %138, align 8
+  %140 = getelementptr inbounds { i64, i64 }, ptr %137, i32 0, i32 1
+  %141 = load i64, ptr %140, align 8
+  call void @JS_FreeValue(ptr noundef %135, i64 %139, i64 %141)
+  %142 = load ptr, ptr %13, align 8
+  %143 = getelementptr inbounds %struct.JSOSSignalHandler, ptr %142, i32 0, i32 2
+  %144 = load ptr, ptr %8, align 8
+  %145 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 0
+  %146 = load i64, ptr %145, align 8
+  %147 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 1
+  %148 = load i64, ptr %147, align 8
+  %149 = call { i64, i64 } @JS_DupValue(ptr noundef %144, i64 %146, i64 %148)
+  %150 = getelementptr inbounds { i64, i64 }, ptr %17, i32 0, i32 0
+  %151 = extractvalue { i64, i64 } %149, 0
+  store i64 %151, ptr %150, align 8
+  %152 = getelementptr inbounds { i64, i64 }, ptr %17, i32 0, i32 1
+  %153 = extractvalue { i64, i64 } %149, 1
+  store i64 %153, ptr %152, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %143, ptr align 8 %17, i64 16, i1 false)
+  %154 = load i32, ptr %14, align 4
+  %155 = call ptr @signal(i32 noundef %154, ptr noundef @os_signal_handler) #12
+  br label %156
 
-155:                                              ; preds = %133, %92
-  %156 = getelementptr inbounds %struct.JSValue, ptr %6, i32 0, i32 0
-  store i32 0, ptr %156, align 8
-  %157 = getelementptr inbounds %struct.JSValue, ptr %6, i32 0, i32 1
-  store i64 3, ptr %157, align 8
-  br label %158
+156:                                              ; preds = %134, %93
+  %157 = getelementptr inbounds %struct.JSValue, ptr %6, i32 0, i32 0
+  store i32 0, ptr %157, align 8
+  %158 = getelementptr inbounds %struct.JSValue, ptr %6, i32 0, i32 1
+  store i64 3, ptr %158, align 8
+  br label %159
 
-158:                                              ; preds = %155, %122, %104, %50, %44, %27
-  %159 = load { i64, i64 }, ptr %6, align 8
-  ret { i64, i64 } %159
+159:                                              ; preds = %156, %123, %105, %50, %44, %27
+  %160 = load { i64, i64 }, ptr %6, align 8
+  ret { i64, i64 } %160
 }
 
 ; Function Attrs: nounwind uwtable

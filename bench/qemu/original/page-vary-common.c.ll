@@ -11,19 +11,21 @@ entry:
   %retval = alloca i1, align 1
   %bits.addr = alloca i32, align 4
   store i32 %bits, ptr %bits.addr, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.TargetPageBits, ptr @target_page, i32 0, i32 1), align 4
-  %cmp = icmp eq i32 %0, 0
+  %0 = getelementptr inbounds %struct.TargetPageBits, ptr @target_page, i32 0, i32 1
+  %1 = load i32, ptr %0, align 4
+  %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.TargetPageBits, ptr @target_page, i32 0, i32 1), align 4
-  %2 = load i32, ptr %bits.addr, align 4
-  %cmp1 = icmp sgt i32 %1, %2
+  %2 = getelementptr inbounds %struct.TargetPageBits, ptr @target_page, i32 0, i32 1
+  %3 = load i32, ptr %2, align 4
+  %4 = load i32, ptr %bits.addr, align 4
+  %cmp1 = icmp sgt i32 %3, %4
   br i1 %cmp1, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %3 = load i8, ptr @target_page, align 8
-  %tobool = trunc i8 %3 to i1
+  %5 = load i8, ptr @target_page, align 8
+  %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
@@ -31,8 +33,9 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %4 = load i32, ptr %bits.addr, align 4
-  store i32 %4, ptr getelementptr inbounds (%struct.TargetPageBits, ptr @target_page, i32 0, i32 1), align 4
+  %6 = load i32, ptr %bits.addr, align 4
+  %7 = getelementptr inbounds %struct.TargetPageBits, ptr @target_page, i32 0, i32 1
+  store i32 %6, ptr %7, align 4
   br label %if.end3
 
 if.end3:                                          ; preds = %if.end, %lor.lhs.false
@@ -40,8 +43,8 @@ if.end3:                                          ; preds = %if.end, %lor.lhs.fa
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2
-  %5 = load i1, ptr %retval, align 1
-  ret i1 %5
+  %8 = load i1, ptr %retval, align 1
+  ret i1 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -49,20 +52,24 @@ define dso_local void @finalize_target_page_bits_common(i32 noundef %min) #0 {
 entry:
   %min.addr = alloca i32, align 4
   store i32 %min, ptr %min.addr, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.TargetPageBits, ptr @target_page, i32 0, i32 1), align 4
-  %cmp = icmp eq i32 %0, 0
+  %0 = getelementptr inbounds %struct.TargetPageBits, ptr @target_page, i32 0, i32 1
+  %1 = load i32, ptr %0, align 4
+  %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %min.addr, align 4
-  store i32 %1, ptr getelementptr inbounds (%struct.TargetPageBits, ptr @target_page, i32 0, i32 1), align 4
+  %2 = load i32, ptr %min.addr, align 4
+  %3 = getelementptr inbounds %struct.TargetPageBits, ptr @target_page, i32 0, i32 1
+  store i32 %2, ptr %3, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.TargetPageBits, ptr @target_page, i32 0, i32 1), align 4
-  %sh_prom = zext i32 %2 to i64
+  %4 = getelementptr inbounds %struct.TargetPageBits, ptr @target_page, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4
+  %sh_prom = zext i32 %5 to i64
   %shl = shl i64 -1, %sh_prom
-  store i64 %shl, ptr getelementptr inbounds (%struct.TargetPageBits, ptr @target_page, i32 0, i32 2), align 8
+  %6 = getelementptr inbounds %struct.TargetPageBits, ptr @target_page, i32 0, i32 2
+  store i64 %shl, ptr %6, align 8
   store i8 1, ptr @target_page, align 8
   ret void
 }

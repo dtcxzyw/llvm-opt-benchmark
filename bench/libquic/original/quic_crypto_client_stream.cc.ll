@@ -902,9 +902,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %session.addr, align 8
   call void @_ZN3net16QuicCryptoStreamC2EPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(1048) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net26QuicCryptoClientStreamBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net26QuicCryptoClientStreamBaseE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 384
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net26QuicCryptoClientStreamBaseE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net26QuicCryptoClientStreamBaseE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   ret void
 }
 
@@ -919,10 +921,11 @@ entry:
   store ptr %stream, ptr %stream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net23ChannelIDSourceCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStream27ChannelIDSourceCallbackImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStream27ChannelIDSourceCallbackImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.net::QuicCryptoClientStream::ChannelIDSourceCallbackImpl", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %stream.addr, align 8
-  store ptr %0, ptr %stream_, align 8
+  %1 = load ptr, ptr %stream.addr, align 8
+  store ptr %1, ptr %stream_, align 8
   ret void
 }
 
@@ -932,7 +935,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net23ChannelIDSourceCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net23ChannelIDSourceCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1244,10 +1248,11 @@ entry:
   store ptr %stream, ptr %stream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net21ProofVerifierCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStream25ProofVerifierCallbackImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStream25ProofVerifierCallbackImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.net::QuicCryptoClientStream::ProofVerifierCallbackImpl", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %stream.addr, align 8
-  store ptr %0, ptr %stream_, align 8
+  %1 = load ptr, ptr %stream.addr, align 8
+  store ptr %1, ptr %stream_, align 8
   ret void
 }
 
@@ -1257,7 +1262,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net21ProofVerifierCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net21ProofVerifierCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1395,21 +1401,23 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %session.addr, align 8
   call void @_ZN3net26QuicCryptoClientStreamBaseC2EPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(1048) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 384
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %next_state_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 1
   store i32 0, ptr %next_state_, align 8
   %num_client_hellos_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 2
   store i32 0, ptr %num_client_hellos_, align 4
   %crypto_config_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %crypto_config.addr, align 8
-  store ptr %1, ptr %crypto_config_, align 8
+  %3 = load ptr, ptr %crypto_config.addr, align 8
+  store ptr %3, ptr %crypto_config_, align 8
   %chlo_hash_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %chlo_hash_) #14
   %server_id_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %server_id.addr, align 8
-  invoke void @_ZN3net12QuicServerIdC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %server_id_, ptr noundef nonnull align 8 dereferenceable(44) %2)
+  %4 = load ptr, ptr %server_id.addr, align 8
+  invoke void @_ZN3net12QuicServerIdC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %server_id_, ptr noundef nonnull align 8 dereferenceable(44) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1424,13 +1432,13 @@ invoke.cont:                                      ; preds = %entry
   %channel_id_key_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 11
   call void @_ZNSt10unique_ptrIN3net12ChannelIDKeyESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %channel_id_key_) #14
   %verify_context_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 12
-  %3 = load ptr, ptr %verify_context.addr, align 8
-  call void @_ZNSt10unique_ptrIN3net18ProofVerifyContextESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %verify_context_, ptr noundef %3) #14
+  %5 = load ptr, ptr %verify_context.addr, align 8
+  call void @_ZNSt10unique_ptrIN3net18ProofVerifyContextESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %verify_context_, ptr noundef %5) #14
   %proof_verify_callback_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 13
   store ptr null, ptr %proof_verify_callback_, align 8
   %proof_handler_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 14
-  %4 = load ptr, ptr %proof_handler.addr, align 8
-  store ptr %4, ptr %proof_handler_, align 8
+  %6 = load ptr, ptr %proof_handler.addr, align 8
+  store ptr %6, ptr %proof_handler_, align 8
   %verify_error_details_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %verify_error_details_) #14
   %verify_details_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 18
@@ -1458,21 +1466,21 @@ if.then:                                          ; preds = %invoke.cont5
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup16
 
 lpad2:                                            ; preds = %invoke.cont6, %if.else, %invoke.cont4, %invoke.cont3, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont5
@@ -1492,12 +1500,12 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   br label %if.end
 
 lpad9:                                            ; preds = %invoke.cont8
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp) #14
   br label %ehcleanup
 
@@ -1767,30 +1775,32 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 384
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %channel_id_source_callback_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 10
-  %0 = load ptr, ptr %channel_id_source_callback_, align 8
-  %tobool = icmp ne ptr %0, null
+  %2 = load ptr, ptr %channel_id_source_callback_, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %channel_id_source_callback_2 = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 10
-  %1 = load ptr, ptr %channel_id_source_callback_2, align 8
-  call void @_ZN3net22QuicCryptoClientStream27ChannelIDSourceCallbackImpl6CancelEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %3 = load ptr, ptr %channel_id_source_callback_2, align 8
+  call void @_ZN3net22QuicCryptoClientStream27ChannelIDSourceCallbackImpl6CancelEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %proof_verify_callback_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 13
-  %2 = load ptr, ptr %proof_verify_callback_, align 8
-  %tobool3 = icmp ne ptr %2, null
+  %4 = load ptr, ptr %proof_verify_callback_, align 8
+  %tobool3 = icmp ne ptr %4, null
   br i1 %tobool3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
   %proof_verify_callback_5 = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 13
-  %3 = load ptr, ptr %proof_verify_callback_5, align 8
-  call void @_ZN3net22QuicCryptoClientStream25ProofVerifierCallbackImpl6CancelEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = load ptr, ptr %proof_verify_callback_5, align 8
+  call void @_ZN3net22QuicCryptoClientStream25ProofVerifierCallbackImpl6CancelEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then4, %if.end
@@ -5698,15 +5708,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [6 x ptr] }, ptr @_ZTVN3net16QuicCryptoStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr], [6 x ptr] }, ptr @_ZTVN3net16QuicCryptoStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 384
-  store ptr getelementptr inbounds ({ [19 x ptr], [6 x ptr] }, ptr @_ZTVN3net16QuicCryptoStreamE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [19 x ptr], [6 x ptr] }, ptr @_ZTVN3net16QuicCryptoStreamE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %crypto_framer_ = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this1, i32 0, i32 6
   call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_) #14
   %crypto_negotiated_params_ = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this1, i32 0, i32 5
   call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_) #14
-  %0 = getelementptr inbounds i8, ptr %this1, i64 384
-  call void @_ZN3net28CryptoFramerVisitorInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  %2 = getelementptr inbounds i8, ptr %this1, i64 384
+  call void @_ZN3net28CryptoFramerVisitorInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #14
   call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377) %this1) #14
   ret void
 }

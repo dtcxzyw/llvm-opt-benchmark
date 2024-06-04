@@ -166,66 +166,68 @@ define void @_ZN11ElidedLabelC2EP7QWidget(ptr noundef nonnull align 8 dereferenc
   %11 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %12 = load i32, ptr %11, align 4
   call void @_ZN6QLabelC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %10, i32 %12)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11ElidedLabel, i32 0, i32 0, i32 2), ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11ElidedLabel, i32 0, i32 1, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %class.ElidedLabel, ptr %9, i32 0, i32 1
-  store i8 0, ptr %14, align 8
-  %15 = getelementptr inbounds %class.ElidedLabel, ptr %9, i32 0, i32 2
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #7
-  %16 = getelementptr inbounds %class.ElidedLabel, ptr %9, i32 0, i32 3
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #7
-  %17 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget4fontEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
-          to label %18 unwind label %24
+  %13 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV11ElidedLabel, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV11ElidedLabel, i32 0, i32 1, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %class.ElidedLabel, ptr %9, i32 0, i32 1
+  store i8 0, ptr %16, align 8
+  %17 = getelementptr inbounds %class.ElidedLabel, ptr %9, i32 0, i32 2
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #7
+  %18 = getelementptr inbounds %class.ElidedLabel, ptr %9, i32 0, i32 3
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #7
+  %19 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget4fontEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
+          to label %20 unwind label %26
 
-18:                                               ; preds = %2
-  invoke void @_ZN12QFontMetricsC1ERK5QFont(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(12) %17)
-          to label %19 unwind label %24
+20:                                               ; preds = %2
+  invoke void @_ZN12QFontMetricsC1ERK5QFont(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(12) %19)
+          to label %21 unwind label %26
 
-19:                                               ; preds = %18
-  %20 = invoke noundef i32 @_ZNK12QFontMetrics6heightEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %21 unwind label %28
-
-21:                                               ; preds = %19
-  %22 = mul i32 %20, 5
-  invoke void @_ZN7QWidget15setMinimumWidthEi(ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef %22)
-          to label %23 unwind label %28
+21:                                               ; preds = %20
+  %22 = invoke noundef i32 @_ZNK12QFontMetrics6heightEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %23 unwind label %30
 
 23:                                               ; preds = %21
+  %24 = mul i32 %22, 5
+  invoke void @_ZN7QWidget15setMinimumWidthEi(ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef %24)
+          to label %25 unwind label %30
+
+25:                                               ; preds = %23
   call void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
   ret void
 
-24:                                               ; preds = %18, %2
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %20, %2
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %7, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %8, align 4
-  br label %32
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %7, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %8, align 4
+  br label %34
 
-28:                                               ; preds = %21, %19
-  %29 = landingpad { ptr, i32 }
+30:                                               ; preds = %23, %21
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %7, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %8, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %7, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %8, align 4
   call void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  br label %32
+  br label %34
 
-32:                                               ; preds = %28, %24
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #7
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #7
+34:                                               ; preds = %30, %26
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #7
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #7
   call void @_ZN6QLabelD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #7
-  br label %33
+  br label %35
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %7, align 8
-  %35 = load i32, ptr %8, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %7, align 8
+  %37 = load i32, ptr %8, align 4
+  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
+  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
+  resume { ptr, i32 } %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

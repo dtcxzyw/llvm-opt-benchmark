@@ -266,30 +266,32 @@ entry:
   store i8 %c, ptr %c.addr, align 1
   store ptr @_ZN6hermes9base64vlqL11Base64CharsE, ptr %__range2, align 8
   store ptr @_ZN6hermes9base64vlqL11Base64CharsE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN6hermes9base64vlqL11Base64CharsE, i64 65), ptr %__end2, align 8
+  %0 = getelementptr inbounds i8, ptr @_ZN6hermes9base64vlqL11Base64CharsE, i64 65
+  store ptr %0, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin2, align 8
-  %1 = load ptr, ptr %__end2, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin2, align 8
+  %2 = load ptr, ptr %__end2, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin2, align 8
-  store ptr %2, ptr %bc, align 8
-  %3 = load i8, ptr %c.addr, align 1
-  %conv = sext i8 %3 to i32
-  %4 = load ptr, ptr %bc, align 8
-  %5 = load i8, ptr %4, align 1
-  %conv1 = sext i8 %5 to i32
+  %3 = load ptr, ptr %__begin2, align 8
+  store ptr %3, ptr %bc, align 8
+  %4 = load i8, ptr %c.addr, align 1
+  %conv = sext i8 %4 to i32
+  %5 = load ptr, ptr %bc, align 8
+  %6 = load i8, ptr %5, align 1
+  %conv1 = sext i8 %6 to i32
   %cmp2 = icmp eq i32 %conv, %conv1
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %6 = load ptr, ptr %bc, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %6 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @_ZN6hermes9base64vlqL11Base64CharsE to i64)
+  %7 = load ptr, ptr %bc, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %7 to i64
+  %8 = ptrtoint ptr @_ZN6hermes9base64vlqL11Base64CharsE to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %8
   %conv3 = trunc i64 %sub.ptr.sub to i32
   store i32 %conv3, ptr %ref.tmp, align 4
   call void @_ZN6hermes8OptValueIjEC2ERKj(ptr noundef nonnull align 4 dereferenceable(5) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
@@ -299,8 +301,8 @@ if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %7 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %7, i32 1
+  %9 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %9, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
@@ -309,8 +311,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %8 = load i64, ptr %retval, align 4
-  ret i64 %8
+  %10 = load i64, ptr %retval, align 4
+  ret i64 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

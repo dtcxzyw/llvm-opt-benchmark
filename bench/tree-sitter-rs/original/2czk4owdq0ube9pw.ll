@@ -1384,28 +1384,30 @@ define hidden void @_ZN11tree_sitter11QueryCursor7matches17hee7c3f4ab5d59ecaE(pt
   %26 = getelementptr inbounds { i64, ptr }, ptr %9, i32 0, i32 0
   store i64 0, ptr %26, align 8
   %27 = getelementptr inbounds { i64, ptr }, ptr %9, i32 0, i32 1
-  store ptr inttoptr (i64 1 to ptr), ptr %27, align 8
-  %28 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %9, i32 0, i32 1
-  store i64 0, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr %8)
-  %29 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 0
+  %28 = inttoptr i64 1 to ptr
+  store ptr %28, ptr %27, align 8
+  %29 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %9, i32 0, i32 1
   store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 1
-  store ptr inttoptr (i64 1 to ptr), ptr %30, align 8
-  %31 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %8, i32 0, i32 1
-  store i64 0, ptr %31, align 8
-  %32 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} }, ptr %0, i32 0, i32 4
-  store ptr %11, ptr %32, align 8
-  %33 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} }, ptr %0, i32 0, i32 2
-  store ptr %2, ptr %33, align 8
-  %34 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} }, ptr %0, i32 0, i32 3
-  %35 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 0
-  store ptr %4, ptr %35, align 8
-  %36 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 1
-  store i64 %5, ptr %36, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8)
+  %30 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 0
+  store i64 0, ptr %30, align 8
+  %31 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 1
+  %32 = inttoptr i64 1 to ptr
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %8, i32 0, i32 1
+  store i64 0, ptr %33, align 8
+  %34 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} }, ptr %0, i32 0, i32 4
+  store ptr %11, ptr %34, align 8
+  %35 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} }, ptr %0, i32 0, i32 2
+  store ptr %2, ptr %35, align 8
+  %36 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} }, ptr %0, i32 0, i32 3
+  %37 = getelementptr inbounds { ptr, i64 }, ptr %36, i32 0, i32 0
+  store ptr %4, ptr %37, align 8
+  %38 = getelementptr inbounds { ptr, i64 }, ptr %36, i32 0, i32 1
+  store i64 %5, ptr %38, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %9, i64 24, i1 false)
-  %37 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %8, i64 24, i1 false)
+  %39 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %39, ptr align 8 %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr %9)
   ret void

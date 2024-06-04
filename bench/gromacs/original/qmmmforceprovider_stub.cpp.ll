@@ -4379,120 +4379,121 @@ define void @_ZN3gmx17QMMMForceProviderC2ERKNS_14QMMMParametersERKNS_12LocalAtom
   store ptr %5, ptr %12, align 8
   %20 = load ptr, ptr %7, align 8
   call void @_ZN3gmx14IForceProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #4
-  store ptr getelementptr inbounds inrange(-16, 8) ({ [3 x ptr] }, ptr @_ZTVN3gmx17QMMMForceProviderE, i32 0, i32 0, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %8, align 8
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 2
-  %24 = load ptr, ptr %9, align 8
-  store ptr %24, ptr %23, align 8
-  %25 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 3
-  %26 = load ptr, ptr %10, align 8
-  store ptr %26, ptr %25, align 8
-  %27 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 4
-  %28 = load i32, ptr %11, align 4
-  store i32 %28, ptr %27, align 8
-  %29 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 6
-  %30 = load ptr, ptr %12, align 8
-  store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 7
-  call void @llvm.memset.p0.i64(ptr align 8 %31, i8 0, i64 36, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 4 @constinit, i64 36, i1 false)
-  %32 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 8
-  store i8 0, ptr %32, align 4
-  %33 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 10
-  store i32 -1, ptr %33, align 8
+  %21 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3gmx17QMMMForceProviderE, i32 0, i32 0, i32 2
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 1
+  %23 = load ptr, ptr %8, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 2
+  %25 = load ptr, ptr %9, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 3
+  %27 = load ptr, ptr %10, align 8
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 4
+  %29 = load i32, ptr %11, align 4
+  store i32 %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 6
+  %31 = load ptr, ptr %12, align 8
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 7
+  call void @llvm.memset.p0.i64(ptr align 8 %32, i8 0, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 4 @constinit, i64 36, i1 false)
+  %33 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 8
+  store i8 0, ptr %33, align 4
+  %34 = getelementptr inbounds %"class.gmx::QMMMForceProvider", ptr %20, i32 0, i32 10
+  store i32 -1, ptr %34, align 8
   store i1 true, ptr %19, align 1
-  %34 = call ptr @__cxa_allocate_exception(i64 24) #4
+  %35 = call ptr @__cxa_allocate_exception(i64 24) #4
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef @.str.121)
-          to label %35 unwind label %40
+          to label %36 unwind label %41
 
-35:                                               ; preds = %6
+36:                                               ; preds = %6
   invoke void @_ZN3gmx13InternalErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(56) %14)
-          to label %36 unwind label %44
-
-36:                                               ; preds = %35
-  invoke void @_ZN3gmx13ThrowLocationC2EPKcS2_i(ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef @__PRETTY_FUNCTION__._ZN3gmx17QMMMForceProviderC2ERKNS_14QMMMParametersERKNS_12LocalAtomSetES6_7PbcTypeRKNS_8MDLoggerE, ptr noundef @.str.122, i32 noundef 70)
-          to label %37 unwind label %48
+          to label %37 unwind label %45
 
 37:                                               ; preds = %36
-  invoke void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(20) %18)
-          to label %38 unwind label %48
+  invoke void @_ZN3gmx13ThrowLocationC2EPKcS2_i(ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef @__PRETTY_FUNCTION__._ZN3gmx17QMMMForceProviderC2ERKNS_14QMMMParametersERKNS_12LocalAtomSetES6_7PbcTypeRKNS_8MDLoggerE, ptr noundef @.str.122, i32 noundef 70)
+          to label %38 unwind label %49
 
 38:                                               ; preds = %37
-  invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %34, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %39 unwind label %52
+  invoke void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(20) %18)
+          to label %39 unwind label %49
 
 39:                                               ; preds = %38
+  invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %35, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %40 unwind label %53
+
+40:                                               ; preds = %39
   store i1 false, ptr %19, align 1
-  invoke void @__cxa_throw(ptr %34, ptr @_ZTIN3gmx13InternalErrorE, ptr @_ZN3gmx13InternalErrorD2Ev) #13
-          to label %67 unwind label %52
+  invoke void @__cxa_throw(ptr %35, ptr @_ZTIN3gmx13InternalErrorE, ptr @_ZN3gmx13InternalErrorD2Ev) #13
+          to label %68 unwind label %53
 
-40:                                               ; preds = %6
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %6
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %15, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %16, align 4
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %15, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %16, align 4
+  br label %59
+
+45:                                               ; preds = %36
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %15, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %16, align 4
   br label %58
 
-44:                                               ; preds = %35
-  %45 = landingpad { ptr, i32 }
+49:                                               ; preds = %38, %37
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %15, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %16, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %15, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %16, align 4
   br label %57
 
-48:                                               ; preds = %37, %36
-  %49 = landingpad { ptr, i32 }
+53:                                               ; preds = %40, %39
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %15, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %16, align 4
-  br label %56
-
-52:                                               ; preds = %39, %38
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %15, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %16, align 4
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %15, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %16, align 4
   call void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
-  br label %56
-
-56:                                               ; preds = %52, %48
-  call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
   br label %57
 
-57:                                               ; preds = %56, %44
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #4
+57:                                               ; preds = %53, %49
+  call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
   br label %58
 
-58:                                               ; preds = %57, %40
-  %59 = load i1, ptr %19, align 1
-  br i1 %59, label %60, label %61
+58:                                               ; preds = %57, %45
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #4
+  br label %59
 
-60:                                               ; preds = %58
-  call void @__cxa_free_exception(ptr %34) #4
-  br label %61
+59:                                               ; preds = %58, %41
+  %60 = load i1, ptr %19, align 1
+  br i1 %60, label %61, label %62
 
-61:                                               ; preds = %60, %58
-  call void @_ZN3gmx14IForceProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #4
+61:                                               ; preds = %59
+  call void @__cxa_free_exception(ptr %35) #4
   br label %62
 
-62:                                               ; preds = %61
-  %63 = load ptr, ptr %15, align 8
-  %64 = load i32, ptr %16, align 4
-  %65 = insertvalue { ptr, i32 } poison, ptr %63, 0
-  %66 = insertvalue { ptr, i32 } %65, i32 %64, 1
-  resume { ptr, i32 } %66
+62:                                               ; preds = %61, %59
+  call void @_ZN3gmx14IForceProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #4
+  br label %63
 
-67:                                               ; preds = %39
+63:                                               ; preds = %62
+  %64 = load ptr, ptr %15, align 8
+  %65 = load i32, ptr %16, align 4
+  %66 = insertvalue { ptr, i32 } poison, ptr %64, 0
+  %67 = insertvalue { ptr, i32 } %66, i32 %65, 1
+  resume { ptr, i32 } %67
+
+68:                                               ; preds = %40
   unreachable
 }
 
@@ -4501,7 +4502,8 @@ define linkonce_odr void @_ZN3gmx14IForceProviderC2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) ({ [3 x ptr] }, ptr @_ZTVN3gmx14IForceProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3gmx14IForceProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4576,7 +4578,8 @@ define linkonce_odr void @_ZN3gmx13InternalErrorC2ERKNS_20ExceptionInitializerE(
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -4611,10 +4614,11 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3gmx8internal14IExceptionInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #4
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 24, i1 false)
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 24, i1 false)
   ret void
 }
 
@@ -4711,7 +4715,8 @@ define linkonce_odr void @_ZN3gmx13InternalErrorC2EOS0_(ptr noundef nonnull alig
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #4
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -4724,11 +4729,12 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx8internal14IExceptionInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #4
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 24, i1 false)
+  %7 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 24, i1 false)
   ret void
 }
 
@@ -4814,7 +4820,8 @@ define linkonce_odr void @_ZN3gmx8internal14IExceptionInfoC2ERKS1_(ptr noundef n
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -5041,11 +5048,12 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #4
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::GromacsException", ptr %8, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %9) #4
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::GromacsException", ptr %9, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10) #4
   ret void
 }
 
@@ -5056,7 +5064,8 @@ define linkonce_odr void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -5195,7 +5204,8 @@ define linkonce_odr void @_ZN3gmx8internal14IExceptionInfoC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5204,9 +5214,10 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #4
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #4
   ret void
 }

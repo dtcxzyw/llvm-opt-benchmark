@@ -4580,9 +4580,11 @@ entry:
   call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
   %2 = getelementptr inbounds i8, ptr %this3, i64 32
   call void @_ZN4node3mem18NgLibMemoryManagerINS_4quic11BindingDataE10ngtcp2_memEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4quic11BindingDataE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %3 = getelementptr inbounds { [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4quic11BindingDataE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 32
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4quic11BindingDataE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4quic11BindingDataE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %packet_freelist = getelementptr inbounds %"class.node::quic::BindingData", ptr %this3, i32 0, i32 2
   call void @_ZNSt6vectorIN4node17BaseObjectPtrImplINS0_10BaseObjectELb0EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %packet_freelist) #3
   %listening_endpoints = getelementptr inbounds %"class.node::quic::BindingData", ptr %this3, i32 0, i32 3
@@ -5290,7 +5292,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node3mem22NgLibMemoryManagerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN4node3mem18NgLibMemoryManagerINS_4quic11BindingDataE10ngtcp2_memEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN4node3mem18NgLibMemoryManagerINS_4quic11BindingDataE10ngtcp2_memEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8365,7 +8368,8 @@ if.then:                                          ; preds = %entry
   %call4 = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %call3)
   %call5 = call noundef ptr @_ZNK4node10BaseObject3envEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
   %call6 = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %call5)
-  %call7 = call ptr @_ZN4node13OneByteStringEPN2v87IsolateEPKci(ptr noundef %call6, ptr noundef getelementptr inbounds ([4 x i8], ptr @.str.101, i64 0, i64 1), i32 noundef -1)
+  %1 = getelementptr inbounds [4 x i8], ptr @.str.101, i64 0, i64 1
+  %call7 = call ptr @_ZN4node13OneByteStringEPN2v87IsolateEPKci(ptr noundef %call6, ptr noundef %1, i32 noundef -1)
   %coerce.dive = getelementptr inbounds %"class.v8::Local.328", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive8 = getelementptr inbounds %"class.v8::LocalBase.329", ptr %coerce.dive, i32 0, i32 0
   %coerce.dive9 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive8, i32 0, i32 0
@@ -8373,8 +8377,8 @@ if.then:                                          ; preds = %entry
   %coerce.dive10 = getelementptr inbounds %"class.v8::Local.328", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive11 = getelementptr inbounds %"class.v8::LocalBase.329", ptr %coerce.dive10, i32 0, i32 0
   %coerce.dive12 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive11, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive12, align 8
-  call void @_ZN2v87EternalINS_6StringEE3SetIS1_EEvPNS_7IsolateENS_5LocalIT_EE(ptr noundef nonnull align 8 dereferenceable(8) %http3_alpn_string_2, ptr noundef %call4, ptr %1)
+  %2 = load ptr, ptr %coerce.dive12, align 8
+  call void @_ZN2v87EternalINS_6StringEE3SetIS1_EEvPNS_7IsolateENS_5LocalIT_EE(ptr noundef nonnull align 8 dereferenceable(8) %http3_alpn_string_2, ptr noundef %call4, ptr %2)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -8386,39 +8390,39 @@ if.end:                                           ; preds = %if.then, %entry
   %this1.i24 = load ptr, ptr %this.addr.i23, align 8
   store ptr %this1.i24, ptr %this.addr.i25, align 8
   %this1.i26 = load ptr, ptr %this.addr.i25, align 8
-  %2 = load ptr, ptr %this1.i26, align 8
-  store ptr %2, ptr %slot.addr.i, align 8
-  %3 = load ptr, ptr %slot.addr.i, align 8
-  store ptr %3, ptr %slot.addr.i29, align 8
-  %4 = load ptr, ptr %slot.addr.i29, align 8
+  %3 = load ptr, ptr %this1.i26, align 8
+  store ptr %3, ptr %slot.addr.i, align 8
+  %4 = load ptr, ptr %slot.addr.i, align 8
+  store ptr %4, ptr %slot.addr.i29, align 8
+  %5 = load ptr, ptr %slot.addr.i29, align 8
   store ptr %retval.i28, ptr %this.addr.i32, align 8
-  store ptr %4, ptr %location.addr.i, align 8
+  store ptr %5, ptr %location.addr.i, align 8
   %this1.i33 = load ptr, ptr %this.addr.i32, align 8
-  %5 = load ptr, ptr %location.addr.i, align 8
+  %6 = load ptr, ptr %location.addr.i, align 8
   store ptr %this1.i33, ptr %this.addr.i.i, align 8
-  store ptr %5, ptr %location.addr.i.i, align 8
+  store ptr %6, ptr %location.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %6 = load ptr, ptr %location.addr.i.i, align 8
-  store ptr %6, ptr %this1.i.i, align 8
-  %7 = load ptr, ptr %retval.i28, align 8
-  store ptr %7, ptr %ref.tmp.i, align 8
+  %7 = load ptr, ptr %location.addr.i.i, align 8
+  store ptr %7, ptr %this1.i.i, align 8
+  %8 = load ptr, ptr %retval.i28, align 8
+  store ptr %8, ptr %ref.tmp.i, align 8
   store ptr %retval.i27, ptr %this.addr.i30, align 8
   store ptr %ref.tmp.i, ptr %other.addr.i, align 8
   %this1.i31 = load ptr, ptr %this.addr.i30, align 8
-  %8 = load ptr, ptr %other.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i31, ptr align 8 %8, i64 8, i1 false)
-  %9 = load ptr, ptr %retval.i27, align 8
-  store ptr %9, ptr %retval.i, align 8
-  %10 = load ptr, ptr %retval.i, align 8
+  %9 = load ptr, ptr %other.addr.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i31, ptr align 8 %9, i64 8, i1 false)
+  %10 = load ptr, ptr %retval.i27, align 8
+  store ptr %10, ptr %retval.i, align 8
+  %11 = load ptr, ptr %retval.i, align 8
   %coerce.dive17 = getelementptr inbounds %"class.v8::Local.328", ptr %retval, i32 0, i32 0
   %coerce.dive18 = getelementptr inbounds %"class.v8::LocalBase.329", ptr %coerce.dive17, i32 0, i32 0
   %coerce.dive19 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive18, i32 0, i32 0
-  store ptr %10, ptr %coerce.dive19, align 8
+  store ptr %11, ptr %coerce.dive19, align 8
   %coerce.dive20 = getelementptr inbounds %"class.v8::Local.328", ptr %retval, i32 0, i32 0
   %coerce.dive21 = getelementptr inbounds %"class.v8::LocalBase.329", ptr %coerce.dive20, i32 0, i32 0
   %coerce.dive22 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive21, i32 0, i32 0
-  %11 = load ptr, ptr %coerce.dive22, align 8
-  ret ptr %11
+  %12 = load ptr, ptr %coerce.dive22, align 8
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -19711,7 +19715,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN4node3mem22NgLibMemoryManagerBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN4node3mem22NgLibMemoryManagerBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

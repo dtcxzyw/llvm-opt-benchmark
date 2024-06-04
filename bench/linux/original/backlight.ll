@@ -238,82 +238,84 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @backlight_device_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) #0 align 16 {
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %7 = tail call noalias noundef align 8 dereferenceable_or_null(912) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 912) #14
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %41, label %9
+  %6 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %7 = load ptr, ptr %6, align 16
+  %8 = tail call noalias noundef align 8 dereferenceable_or_null(912) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 912) #14
+  %9 = icmp eq ptr %8, null
+  %10 = inttoptr i64 -12 to ptr
+  br i1 %9, label %43, label %11
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
-  tail call void @__mutex_init(ptr noundef %10, ptr noundef nonnull @.str.1, ptr noundef nonnull @backlight_device_register.__key) #12
-  %11 = getelementptr inbounds i8, ptr %7, i64 64
-  tail call void @__mutex_init(ptr noundef %11, ptr noundef nonnull @.str.3, ptr noundef nonnull @backlight_device_register.__key.2) #12
-  %12 = load ptr, ptr @backlight_class, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 144
-  %14 = getelementptr inbounds i8, ptr %7, i64 816
-  store ptr %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 208
-  store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 832
-  store ptr @bl_device_release, ptr %16, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %13, ptr noundef nonnull @.str.4, ptr noundef %0) #12
-  %18 = getelementptr inbounds i8, ptr %7, i64 264
-  store ptr %2, ptr %18, align 8
-  %19 = icmp eq ptr %4, null
-  br i1 %19, label %26, label %20
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %8, i64 32
+  tail call void @__mutex_init(ptr noundef %12, ptr noundef nonnull @.str.1, ptr noundef nonnull @backlight_device_register.__key) #12
+  %13 = getelementptr inbounds i8, ptr %8, i64 64
+  tail call void @__mutex_init(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef nonnull @backlight_device_register.__key.2) #12
+  %14 = load ptr, ptr @backlight_class, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 144
+  %16 = getelementptr inbounds i8, ptr %8, i64 816
+  store ptr %14, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %8, i64 208
+  store ptr %1, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %8, i64 832
+  store ptr @bl_device_release, ptr %18, align 8
+  %19 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %15, ptr noundef nonnull @.str.4, ptr noundef %0) #12
+  %20 = getelementptr inbounds i8, ptr %8, i64 264
+  store ptr %2, ptr %20, align 8
+  %21 = icmp eq ptr %4, null
+  br i1 %21, label %28, label %22
 
-20:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false)
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
-  %22 = load i32, ptr %21, align 4
-  %23 = add i32 %22, -4
-  %24 = icmp ult i32 %23, -3
-  br i1 %24, label %25, label %28
+22:                                               ; preds = %11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %8, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false)
+  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = load i32, ptr %23, align 4
+  %25 = add i32 %24, -4
+  %26 = icmp ult i32 %25, -3
+  br i1 %26, label %27, label %30
 
-25:                                               ; preds = %20
+27:                                               ; preds = %22
   tail call void asm sideeffect "433: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 433b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 433) #12, !srcloc !6
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.5, ptr noundef %0) #12
   tail call void asm sideeffect "434: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 434b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 434) #12, !srcloc !7
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 432, i32 2313, i64 12) #12, !srcloc !8
   tail call void asm sideeffect "435: nop\0A\09.pushsection .discard.instr_end\0A\09.long 435b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 435) #12, !srcloc !9
   tail call void asm sideeffect "436: nop\0A\09.pushsection .discard.instr_end\0A\09.long 436b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 436) #12, !srcloc !10
-  br label %26
-
-26:                                               ; preds = %25, %9
-  %27 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 1, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %26, %20
-  %29 = tail call i32 @device_register(ptr noundef %13) #12
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %34, label %31
+28:                                               ; preds = %27, %11
+  %29 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 1, ptr %29, align 8
+  br label %30
 
-31:                                               ; preds = %28
-  tail call void @put_device(ptr noundef %13) #12
-  %32 = sext i32 %29 to i64
-  %33 = inttoptr i64 %32 to ptr
-  br label %41
+30:                                               ; preds = %28, %22
+  %31 = tail call i32 @device_register(ptr noundef %15) #12
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %36, label %33
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %7, i64 96
-  store ptr %3, ptr %35, align 8
+33:                                               ; preds = %30
+  tail call void @put_device(ptr noundef %15) #12
+  %34 = sext i32 %31 to i64
+  %35 = inttoptr i64 %34 to ptr
+  br label %43
+
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds i8, ptr %8, i64 96
+  store ptr %3, ptr %37, align 8
   tail call void @mutex_lock(ptr noundef nonnull @backlight_dev_list_mutex) #12
-  %36 = getelementptr inbounds i8, ptr %7, i64 128
-  %37 = load ptr, ptr @backlight_dev_list, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr %36, ptr %38, align 8
-  store ptr %37, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %7, i64 136
-  store ptr @backlight_dev_list, ptr %39, align 8
-  store volatile ptr %36, ptr @backlight_dev_list, align 8
+  %38 = getelementptr inbounds i8, ptr %8, i64 128
+  %39 = load ptr, ptr @backlight_dev_list, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  store ptr %38, ptr %40, align 8
+  store ptr %39, ptr %38, align 8
+  %41 = getelementptr inbounds i8, ptr %8, i64 136
+  store ptr @backlight_dev_list, ptr %41, align 8
+  store volatile ptr %38, ptr @backlight_dev_list, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @backlight_dev_list_mutex) #12
-  %40 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @backlight_notifier, i64 noundef 0, ptr noundef nonnull %7) #12
-  br label %41
+  %42 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @backlight_notifier, i64 noundef 0, ptr noundef nonnull %8) #12
+  br label %43
 
-41:                                               ; preds = %34, %31, %5
-  %42 = phi ptr [ %33, %31 ], [ %7, %34 ], [ inttoptr (i64 -12 to ptr), %5 ]
-  ret ptr %42
+43:                                               ; preds = %36, %33, %5
+  %44 = phi ptr [ %35, %33 ], [ %8, %36 ], [ %10, %5 ]
+  ret ptr %44
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -384,7 +386,7 @@ define dso_local ptr @backlight_device_get_by_name(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @backlight_device_unregister(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %13, label %3
+  br i1 %2, label %15, label %3
 
 3:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @backlight_dev_list_mutex) #12
@@ -395,20 +397,22 @@ define dso_local void @backlight_device_unregister(ptr noundef %0) #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %8, align 8
   store volatile ptr %7, ptr %6, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %5, align 8
+  %9 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %9, ptr %4, align 8
+  %10 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %10, ptr %5, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @backlight_dev_list_mutex) #12
-  %9 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @backlight_notifier, i64 noundef 1, ptr noundef nonnull %0) #12
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @mutex_lock(ptr noundef %10) #12
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr null, ptr %11, align 8
-  tail call void @mutex_unlock(ptr noundef %10) #12
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @device_unregister(ptr noundef %12) #12
-  br label %13
+  %11 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @backlight_notifier, i64 noundef 1, ptr noundef nonnull %0) #12
+  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  tail call void @mutex_lock(ptr noundef %12) #12
+  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr null, ptr %13, align 8
+  tail call void @mutex_unlock(ptr noundef %12) #12
+  %14 = getelementptr inbounds i8, ptr %0, i64 144
+  tail call void @device_unregister(ptr noundef %14) #12
+  br label %15
 
-13:                                               ; preds = %3, %1
+15:                                               ; preds = %3, %1
   ret void
 }
 
@@ -434,25 +438,27 @@ declare dso_local i32 @blocking_notifier_chain_unregister(ptr noundef, ptr nound
 define dso_local ptr @devm_backlight_device_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 align 16 {
   %7 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_backlight_device_release, i64 noundef 8, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str.7) #12
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %14, label %9
+  %9 = inttoptr i64 -12 to ptr
+  br i1 %8, label %16, label %10
 
-9:                                                ; preds = %6
-  %10 = tail call ptr @backlight_device_register(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %11 = icmp ugt ptr %10, inttoptr (i64 -4096 to ptr)
-  br i1 %11, label %13, label %12
+10:                                               ; preds = %6
+  %11 = tail call ptr @backlight_device_register(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %12 = inttoptr i64 -4096 to ptr
+  %13 = icmp ugt ptr %11, %12
+  br i1 %13, label %15, label %14
 
-12:                                               ; preds = %9
-  store ptr %10, ptr %7, align 8
+14:                                               ; preds = %10
+  store ptr %11, ptr %7, align 8
   tail call void @devres_add(ptr noundef %0, ptr noundef nonnull %7) #12
-  br label %14
+  br label %16
 
-13:                                               ; preds = %9
+15:                                               ; preds = %10
   tail call void @devres_free(ptr noundef nonnull %7) #12
-  br label %14
+  br label %16
 
-14:                                               ; preds = %13, %12, %6
-  %15 = phi ptr [ %10, %13 ], [ %10, %12 ], [ inttoptr (i64 -12 to ptr), %6 ]
-  ret ptr %15
+16:                                               ; preds = %15, %14, %6
+  %17 = phi ptr [ %11, %15 ], [ %11, %14 ], [ %9, %6 ]
+  ret ptr %17
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -517,32 +523,35 @@ declare dso_local void @class_destroy(ptr noundef) local_unnamed_addr #2
 define internal i32 @backlight_class_init() #7 section ".init.text" align 16 {
   %1 = tail call ptr @class_create(ptr noundef nonnull @.str.14) #12
   store ptr %1, ptr @backlight_class, align 8
-  %2 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
-  br i1 %2, label %3, label %9
+  %2 = inttoptr i64 -4096 to ptr
+  %3 = icmp ugt ptr %1, %2
+  br i1 %3, label %4, label %10
 
-3:                                                ; preds = %0
-  %4 = ptrtoint ptr %1 to i64
-  %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, i64 noundef %4) #13
-  %6 = load ptr, ptr @backlight_class, align 8
-  %7 = ptrtoint ptr %6 to i64
-  %8 = trunc i64 %7 to i32
-  br label %12
+4:                                                ; preds = %0
+  %5 = ptrtoint ptr %1 to i64
+  %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, i64 noundef %5) #13
+  %7 = load ptr, ptr @backlight_class, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %9 = trunc i64 %8 to i32
+  br label %15
 
-9:                                                ; preds = %0
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr @bl_device_groups, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
-  store ptr @backlight_class_dev_pm_ops, ptr %11, align 8
+10:                                               ; preds = %0
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr @bl_device_groups, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 88
+  store ptr @backlight_class_dev_pm_ops, ptr %12, align 8
   store volatile ptr @backlight_dev_list, ptr @backlight_dev_list, align 8
-  store volatile ptr @backlight_dev_list, ptr getelementptr inbounds (%struct.list_head, ptr @backlight_dev_list, i64 0, i32 1), align 8
+  %13 = getelementptr inbounds %struct.list_head, ptr @backlight_dev_list, i64 0, i32 1
+  store volatile ptr @backlight_dev_list, ptr %13, align 8
   tail call void @__mutex_init(ptr noundef nonnull @backlight_dev_list_mutex, ptr noundef nonnull @.str.16, ptr noundef nonnull @backlight_class_init.__key) #12
   tail call void @__init_rwsem(ptr noundef nonnull @backlight_notifier, ptr noundef nonnull @.str.18, ptr noundef nonnull @backlight_class_init.__key.17) #12
-  store ptr null, ptr getelementptr inbounds (%struct.blocking_notifier_head, ptr @backlight_notifier, i64 0, i32 1), align 8
-  br label %12
+  %14 = getelementptr inbounds %struct.blocking_notifier_head, ptr @backlight_notifier, i64 0, i32 1
+  store ptr null, ptr %14, align 8
+  br label %15
 
-12:                                               ; preds = %9, %3
-  %13 = phi i32 [ %8, %3 ], [ 0, %9 ]
-  ret i32 %13
+15:                                               ; preds = %10, %4
+  %16 = phi i32 [ %9, %4 ], [ 0, %10 ]
+  ret i32 %16
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

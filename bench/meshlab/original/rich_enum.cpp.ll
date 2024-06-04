@@ -520,45 +520,46 @@ define void @_ZN8RichEnumC2ERK7QStringiRK11QStringListS2_S2_bS2_(ptr noundef non
   %27 = trunc i8 %26 to i1
   %28 = load ptr, ptr %16, align 8
   invoke void @_ZN13RichParameterC2ERK7QStringRK5ValueS2_S2_bS2_(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %25, i1 noundef zeroext %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
-          to label %29 unwind label %33
+          to label %29 unwind label %34
 
 29:                                               ; preds = %8
   call void @_ZN8IntValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %17) #5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichEnum, i32 0, i32 0, i32 2), ptr %21, align 8
-  %30 = getelementptr inbounds %class.RichEnum, ptr %21, i32 0, i32 1
-  %31 = load ptr, ptr %12, align 8
-  invoke void @_ZN11QStringListC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %31)
-          to label %32 unwind label %37
+  %30 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV8RichEnum, i32 0, i32 0, i32 2
+  store ptr %30, ptr %21, align 8
+  %31 = getelementptr inbounds %class.RichEnum, ptr %21, i32 0, i32 1
+  %32 = load ptr, ptr %12, align 8
+  invoke void @_ZN11QStringListC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
+          to label %33 unwind label %38
 
-32:                                               ; preds = %29
+33:                                               ; preds = %29
   ret void
 
-33:                                               ; preds = %8
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %8
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %18, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %19, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %18, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %19, align 4
   call void @_ZN8IntValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %17) #5
-  br label %41
+  br label %42
 
-37:                                               ; preds = %29
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %29
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %18, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %19, align 4
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %18, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %19, align 4
   call void @_ZN13RichParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #5
-  br label %41
+  br label %42
 
-41:                                               ; preds = %37, %33
-  %42 = load ptr, ptr %18, align 8
-  %43 = load i32, ptr %19, align 4
-  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
-  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
-  resume { ptr, i32 } %45
+42:                                               ; preds = %38, %34
+  %43 = load ptr, ptr %18, align 8
+  %44 = load i32, ptr %19, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 declare void @_ZN8IntValueC1Ei(ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) unnamed_addr #3
@@ -970,9 +971,10 @@ define void @_ZN8RichEnumD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichEnum, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.RichEnum, ptr %3, i32 0, i32 1
-  call void @_ZN11QStringListD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV8RichEnum, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.RichEnum, ptr %3, i32 0, i32 1
+  call void @_ZN11QStringListD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
   call void @_ZN13RichParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #5
   ret void
 }
@@ -1413,32 +1415,33 @@ define linkonce_odr void @_ZN8RichEnumC2ERKS_(ptr noundef nonnull align 8 derefe
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %8)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichEnum, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %class.RichEnum, ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %class.RichEnum, ptr %10, i32 0, i32 1
-  invoke void @_ZN11QStringListC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV8RichEnum, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %class.RichEnum, ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %class.RichEnum, ptr %11, i32 0, i32 1
+  invoke void @_ZN11QStringListC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN13RichParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #5
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN13RichParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #5
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 declare void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3

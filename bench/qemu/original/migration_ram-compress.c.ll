@@ -1013,9 +1013,11 @@ for.end:                                          ; preds = %for.cond
 
 if.then22:                                        ; preds = %for.end
   call void @qemu_mutex_unlock_impl(ptr noundef @comp_done_lock, ptr noundef @.str, i32 noundef 310)
-  %29 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 1), align 8
-  %inc23 = add i64 %29, 1
-  store i64 %inc23, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 1), align 8
+  %29 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 1
+  %30 = load i64, ptr %29, align 8
+  %inc23 = add i64 %30, 1
+  %31 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 1
+  store i64 %inc23, ptr %31, align 8
   store i1 false, ptr %retval, align 1
   br label %return
 
@@ -1036,19 +1038,19 @@ do.end29:                                         ; No predecessors!
   br label %while.cond26
 
 while.end30:                                      ; preds = %while.cond26
-  %30 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  store i64 %30, ptr %atomic-temp32, align 8
-  %31 = load ptr, ptr %atomic-temp32, align 8
-  store ptr %31, ptr %tmp31, align 8
-  %32 = load ptr, ptr %tmp31, align 8
-  store ptr %32, ptr %_f25, align 8
-  %33 = load ptr, ptr %_f25, align 8
-  call void %33(ptr noundef @comp_done_cond, ptr noundef @comp_done_lock, ptr noundef @.str, i32 noundef 319)
+  %32 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  store i64 %32, ptr %atomic-temp32, align 8
+  %33 = load ptr, ptr %atomic-temp32, align 8
+  store ptr %33, ptr %tmp31, align 8
+  %34 = load ptr, ptr %tmp31, align 8
+  store ptr %34, ptr %_f25, align 8
+  %35 = load ptr, ptr %_f25, align 8
+  call void %35(ptr noundef @comp_done_cond, ptr noundef @comp_done_lock, ptr noundef @.str, i32 noundef 319)
   br label %while.body3
 
 return:                                           ; preds = %if.then22, %if.end
-  %34 = load i1, ptr %retval, align 1
-  ret i1 %34
+  %36 = load i1, ptr %retval, align 1
+  ret i1 %36
 }
 
 declare i32 @migrate_compress_wait_thread() #1
@@ -2000,30 +2002,34 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %compression2, align 8
   %pages = getelementptr inbounds %struct.CompressionStats, ptr %3, i32 0, i32 0
   store i64 %1, ptr %pages, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 1), align 8
-  %5 = load ptr, ptr %info.addr, align 8
-  %compression3 = getelementptr inbounds %struct.MigrationInfo, ptr %5, i32 0, i32 23
-  %6 = load ptr, ptr %compression3, align 8
-  %busy = getelementptr inbounds %struct.CompressionStats, ptr %6, i32 0, i32 1
-  store i64 %4, ptr %busy, align 8
-  %7 = load double, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 2), align 8
-  %8 = load ptr, ptr %info.addr, align 8
-  %compression4 = getelementptr inbounds %struct.MigrationInfo, ptr %8, i32 0, i32 23
-  %9 = load ptr, ptr %compression4, align 8
-  %busy_rate = getelementptr inbounds %struct.CompressionStats, ptr %9, i32 0, i32 2
-  store double %7, ptr %busy_rate, align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 3), align 8
-  %11 = load ptr, ptr %info.addr, align 8
-  %compression5 = getelementptr inbounds %struct.MigrationInfo, ptr %11, i32 0, i32 23
-  %12 = load ptr, ptr %compression5, align 8
-  %compressed_size = getelementptr inbounds %struct.CompressionStats, ptr %12, i32 0, i32 3
-  store i64 %10, ptr %compressed_size, align 8
-  %13 = load double, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 4), align 8
+  %4 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  %6 = load ptr, ptr %info.addr, align 8
+  %compression3 = getelementptr inbounds %struct.MigrationInfo, ptr %6, i32 0, i32 23
+  %7 = load ptr, ptr %compression3, align 8
+  %busy = getelementptr inbounds %struct.CompressionStats, ptr %7, i32 0, i32 1
+  store i64 %5, ptr %busy, align 8
+  %8 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 2
+  %9 = load double, ptr %8, align 8
+  %10 = load ptr, ptr %info.addr, align 8
+  %compression4 = getelementptr inbounds %struct.MigrationInfo, ptr %10, i32 0, i32 23
+  %11 = load ptr, ptr %compression4, align 8
+  %busy_rate = getelementptr inbounds %struct.CompressionStats, ptr %11, i32 0, i32 2
+  store double %9, ptr %busy_rate, align 8
+  %12 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 3
+  %13 = load i64, ptr %12, align 8
   %14 = load ptr, ptr %info.addr, align 8
-  %compression6 = getelementptr inbounds %struct.MigrationInfo, ptr %14, i32 0, i32 23
-  %15 = load ptr, ptr %compression6, align 8
-  %compression_rate = getelementptr inbounds %struct.CompressionStats, ptr %15, i32 0, i32 4
-  store double %13, ptr %compression_rate, align 8
+  %compression5 = getelementptr inbounds %struct.MigrationInfo, ptr %14, i32 0, i32 23
+  %15 = load ptr, ptr %compression5, align 8
+  %compressed_size = getelementptr inbounds %struct.CompressionStats, ptr %15, i32 0, i32 3
+  store i64 %13, ptr %compressed_size, align 8
+  %16 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 4
+  %17 = load double, ptr %16, align 8
+  %18 = load ptr, ptr %info.addr, align 8
+  %compression6 = getelementptr inbounds %struct.MigrationInfo, ptr %18, i32 0, i32 23
+  %19 = load ptr, ptr %compression6, align 8
+  %compression_rate = getelementptr inbounds %struct.CompressionStats, ptr %19, i32 0, i32 4
+  store double %17, ptr %compression_rate, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -2054,18 +2060,21 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @stat64_add(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 14), i64 noundef 1)
+  %3 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 14
+  call void @stat64_add(ptr noundef %3, i64 noundef 1)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %3 = load i32, ptr %bytes_xmit.addr, align 4
-  %sub = sub i32 %3, 8
+  %4 = load i32, ptr %bytes_xmit.addr, align 4
+  %sub = sub i32 %4, 8
   %conv2 = sext i32 %sub to i64
-  %4 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 3), align 8
-  %add = add i64 %4, %conv2
-  store i64 %add, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 3), align 8
-  %5 = load i64, ptr @compression_counters, align 8
-  %inc = add i64 %5, 1
+  %5 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 3
+  %6 = load i64, ptr %5, align 8
+  %add = add i64 %6, %conv2
+  %7 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 3
+  store i64 %add, ptr %7, align 8
+  %8 = load i64, ptr @compression_counters, align 8
+  %inc = add i64 %8, 1
   store i64 %inc, ptr @compression_counters, align 8
   br label %return
 
@@ -2108,41 +2117,53 @@ if.then:                                          ; preds = %entry
   br label %if.end9
 
 if.end:                                           ; preds = %entry
-  %0 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 1), align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 5), align 8
-  %sub = sub i64 %0, %1
+  %0 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 1
+  %1 = load i64, ptr %0, align 8
+  %2 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 5
+  %3 = load i64, ptr %2, align 8
+  %sub = sub i64 %1, %3
   %conv = uitofp i64 %sub to double
-  %2 = load i64, ptr %page_count.addr, align 8
-  %conv1 = uitofp i64 %2 to double
+  %4 = load i64, ptr %page_count.addr, align 8
+  %conv1 = uitofp i64 %4 to double
   %div = fdiv double %conv, %conv1
-  store double %div, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 2), align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 1), align 8
-  store i64 %3, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 5), align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 3), align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 6), align 8
-  %sub2 = sub i64 %4, %5
+  %5 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 2
+  store double %div, ptr %5, align 8
+  %6 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 5
+  store i64 %7, ptr %8, align 8
+  %9 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 3
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 6
+  %12 = load i64, ptr %11, align 8
+  %sub2 = sub i64 %10, %12
   %conv3 = uitofp i64 %sub2 to double
   store double %conv3, ptr %compressed_size, align 8
-  %6 = load double, ptr %compressed_size, align 8
-  %tobool = fcmp une double %6, 0.000000e+00
+  %13 = load double, ptr %compressed_size, align 8
+  %tobool = fcmp une double %13, 0.000000e+00
   br i1 %tobool, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %if.end
-  %7 = load i64, ptr @compression_counters, align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 7), align 8
-  %sub5 = sub i64 %7, %8
+  %14 = load i64, ptr @compression_counters, align 8
+  %15 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 7
+  %16 = load i64, ptr %15, align 8
+  %sub5 = sub i64 %14, %16
   %call6 = call i64 @qemu_target_page_size()
   %mul = mul i64 %sub5, %call6
   %conv7 = uitofp i64 %mul to double
   store double %conv7, ptr %uncompressed_size, align 8
-  %9 = load double, ptr %uncompressed_size, align 8
-  %10 = load double, ptr %compressed_size, align 8
-  %div8 = fdiv double %9, %10
-  store double %div8, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 4), align 8
-  %11 = load i64, ptr @compression_counters, align 8
-  store i64 %11, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 7), align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 3), align 8
-  store i64 %12, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i32 0, i32 6), align 8
+  %17 = load double, ptr %uncompressed_size, align 8
+  %18 = load double, ptr %compressed_size, align 8
+  %div8 = fdiv double %17, %18
+  %19 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 4
+  store double %div8, ptr %19, align 8
+  %20 = load i64, ptr @compression_counters, align 8
+  %21 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 7
+  store i64 %20, ptr %21, align 8
+  %22 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 3
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds %struct.anon.0, ptr @compression_counters, i32 0, i32 6
+  store i64 %23, ptr %24, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then4, %if.end, %if.then

@@ -63,10 +63,12 @@ define hidden i32 @psa_is_valid_key_id(i32 noundef %0, i32 noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_initialize_key_slots() #0 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i32 0, i32 1), align 8
-  %2 = and i8 %1, -2
-  %3 = or i8 %2, 1
-  store i8 %3, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i32 0, i32 1), align 8
+  %1 = getelementptr inbounds %struct.psa_global_data_t, ptr @global_data, i32 0, i32 1
+  %2 = load i8, ptr %1, align 8
+  %3 = and i8 %2, -2
+  %4 = or i8 %3, 1
+  %5 = getelementptr inbounds %struct.psa_global_data_t, ptr @global_data, i32 0, i32 1
+  store i8 %4, ptr %5, align 8
   ret i32 0
 }
 
@@ -100,10 +102,12 @@ define hidden void @psa_wipe_all_key_slots() #0 {
   br label %3, !llvm.loop !4
 
 16:                                               ; preds = %3
-  %17 = load i8, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i32 0, i32 1), align 8
-  %18 = and i8 %17, -2
-  %19 = or i8 %18, 0
-  store i8 %19, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i32 0, i32 1), align 8
+  %17 = getelementptr inbounds %struct.psa_global_data_t, ptr @global_data, i32 0, i32 1
+  %18 = load i8, ptr %17, align 8
+  %19 = and i8 %18, -2
+  %20 = or i8 %19, 0
+  %21 = getelementptr inbounds %struct.psa_global_data_t, ptr @global_data, i32 0, i32 1
+  store i8 %20, ptr %21, align 8
   ret void
 }
 
@@ -122,144 +126,146 @@ define hidden i32 @psa_get_empty_key_slot(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 -151, ptr %6, align 4
-  %11 = load i8, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i32 0, i32 1), align 8
-  %12 = and i8 %11, 1
-  %13 = zext i8 %12 to i32
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %16, label %15
-
-15:                                               ; preds = %2
-  store i32 -137, ptr %6, align 4
-  br label %82
+  %11 = getelementptr inbounds %struct.psa_global_data_t, ptr @global_data, i32 0, i32 1
+  %12 = load i8, ptr %11, align 8
+  %13 = and i8 %12, 1
+  %14 = zext i8 %13 to i32
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %17, label %16
 
 16:                                               ; preds = %2
+  store i32 -137, ptr %6, align 4
+  br label %84
+
+17:                                               ; preds = %2
   store ptr null, ptr %9, align 8
   store ptr null, ptr %8, align 8
   store i64 0, ptr %7, align 8
-  br label %17
+  br label %18
 
-17:                                               ; preds = %47, %16
-  %18 = load i64, ptr %7, align 8
-  %19 = icmp ult i64 %18, 32
-  br i1 %19, label %20, label %50
+18:                                               ; preds = %48, %17
+  %19 = load i64, ptr %7, align 8
+  %20 = icmp ult i64 %19, 32
+  br i1 %20, label %21, label %51
 
-20:                                               ; preds = %17
-  %21 = load i64, ptr %7, align 8
-  %22 = getelementptr inbounds [32 x %struct.psa_key_slot_t], ptr @global_data, i64 0, i64 %21
-  store ptr %22, ptr %10, align 8
-  %23 = load ptr, ptr %10, align 8
-  %24 = call i32 @psa_is_key_slot_occupied(ptr noundef %23)
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %28, label %26
+21:                                               ; preds = %18
+  %22 = load i64, ptr %7, align 8
+  %23 = getelementptr inbounds [32 x %struct.psa_key_slot_t], ptr @global_data, i64 0, i64 %22
+  store ptr %23, ptr %10, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = call i32 @psa_is_key_slot_occupied(ptr noundef %24)
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %29, label %27
 
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %10, align 8
-  store ptr %27, ptr %8, align 8
-  br label %50
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %10, align 8
+  store ptr %28, ptr %8, align 8
+  br label %51
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %9, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %46
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %9, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %47
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds %struct.psa_key_slot_t, ptr %32, i32 0, i32 0
-  %34 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %33, i32 0, i32 2
-  %35 = load i32, ptr %34, align 4
-  %36 = and i32 %35, 255
-  %37 = trunc i32 %36 to i8
-  %38 = zext i8 %37 to i32
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %46, label %40
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %10, align 8
+  %34 = getelementptr inbounds %struct.psa_key_slot_t, ptr %33, i32 0, i32 0
+  %35 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %34, i32 0, i32 2
+  %36 = load i32, ptr %35, align 4
+  %37 = and i32 %36, 255
+  %38 = trunc i32 %37 to i8
+  %39 = zext i8 %38 to i32
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %47, label %41
 
-40:                                               ; preds = %31
-  %41 = load ptr, ptr %10, align 8
-  %42 = call i32 @psa_is_key_slot_locked(ptr noundef %41)
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %46, label %44
+41:                                               ; preds = %32
+  %42 = load ptr, ptr %10, align 8
+  %43 = call i32 @psa_is_key_slot_locked(ptr noundef %42)
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %47, label %45
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %10, align 8
-  store ptr %45, ptr %9, align 8
-  br label %46
-
-46:                                               ; preds = %44, %40, %31, %28
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %10, align 8
+  store ptr %46, ptr %9, align 8
   br label %47
 
-47:                                               ; preds = %46
-  %48 = load i64, ptr %7, align 8
-  %49 = add i64 %48, 1
-  store i64 %49, ptr %7, align 8
-  br label %17, !llvm.loop !6
+47:                                               ; preds = %45, %41, %32, %29
+  br label %48
 
-50:                                               ; preds = %26, %17
-  %51 = load ptr, ptr %8, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %62
+48:                                               ; preds = %47
+  %49 = load i64, ptr %7, align 8
+  %50 = add i64 %49, 1
+  store i64 %50, ptr %7, align 8
+  br label %18, !llvm.loop !6
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %9, align 8
-  %55 = icmp ne ptr %54, null
-  br i1 %55, label %56, label %62
+51:                                               ; preds = %27, %18
+  %52 = load ptr, ptr %8, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %63
 
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %9, align 8
-  store ptr %57, ptr %8, align 8
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds %struct.psa_key_slot_t, ptr %58, i32 0, i32 1
-  store i64 1, ptr %59, align 8
-  %60 = load ptr, ptr %8, align 8
-  %61 = call i32 @psa_wipe_key_slot(ptr noundef %60)
-  br label %62
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %9, align 8
+  %56 = icmp ne ptr %55, null
+  br i1 %56, label %57, label %63
 
-62:                                               ; preds = %56, %53, %50
-  %63 = load ptr, ptr %8, align 8
-  %64 = icmp ne ptr %63, null
-  br i1 %64, label %65, label %81
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %9, align 8
+  store ptr %58, ptr %8, align 8
+  %59 = load ptr, ptr %8, align 8
+  %60 = getelementptr inbounds %struct.psa_key_slot_t, ptr %59, i32 0, i32 1
+  store i64 1, ptr %60, align 8
+  %61 = load ptr, ptr %8, align 8
+  %62 = call i32 @psa_wipe_key_slot(ptr noundef %61)
+  br label %63
 
-65:                                               ; preds = %62
-  %66 = load ptr, ptr %8, align 8
-  %67 = call i32 @psa_lock_key_slot(ptr noundef %66)
-  store i32 %67, ptr %6, align 4
-  %68 = load i32, ptr %6, align 4
-  %69 = icmp ne i32 %68, 0
-  br i1 %69, label %70, label %71
+63:                                               ; preds = %57, %54, %51
+  %64 = load ptr, ptr %8, align 8
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %66, label %83
 
-70:                                               ; preds = %65
-  br label %82
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %8, align 8
+  %68 = call i32 @psa_lock_key_slot(ptr noundef %67)
+  store i32 %68, ptr %6, align 4
+  %69 = load i32, ptr %6, align 4
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %72
 
-71:                                               ; preds = %65
-  %72 = load ptr, ptr %8, align 8
-  %73 = ptrtoint ptr %72 to i64
-  %74 = sub i64 %73, ptrtoint (ptr @global_data to i64)
-  %75 = sdiv exact i64 %74, 56
-  %76 = trunc i64 %75 to i32
-  %77 = add i32 2147483616, %76
-  %78 = load ptr, ptr %4, align 8
-  store i32 %77, ptr %78, align 4
-  %79 = load ptr, ptr %8, align 8
-  %80 = load ptr, ptr %5, align 8
-  store ptr %79, ptr %80, align 8
+71:                                               ; preds = %66
+  br label %84
+
+72:                                               ; preds = %66
+  %73 = load ptr, ptr %8, align 8
+  %74 = ptrtoint ptr %73 to i64
+  %75 = ptrtoint ptr @global_data to i64
+  %76 = sub i64 %74, %75
+  %77 = sdiv exact i64 %76, 56
+  %78 = trunc i64 %77 to i32
+  %79 = add i32 2147483616, %78
+  %80 = load ptr, ptr %4, align 8
+  store i32 %79, ptr %80, align 4
+  %81 = load ptr, ptr %8, align 8
+  %82 = load ptr, ptr %5, align 8
+  store ptr %81, ptr %82, align 8
   store i32 0, ptr %3, align 4
-  br label %86
+  br label %88
 
-81:                                               ; preds = %62
+83:                                               ; preds = %63
   store i32 -141, ptr %6, align 4
-  br label %82
+  br label %84
 
-82:                                               ; preds = %81, %70, %15
-  %83 = load ptr, ptr %5, align 8
-  store ptr null, ptr %83, align 8
-  %84 = load ptr, ptr %4, align 8
-  store i32 0, ptr %84, align 4
-  %85 = load i32, ptr %6, align 4
-  store i32 %85, ptr %3, align 4
-  br label %86
+84:                                               ; preds = %83, %71, %16
+  %85 = load ptr, ptr %5, align 8
+  store ptr null, ptr %85, align 8
+  %86 = load ptr, ptr %4, align 8
+  store i32 0, ptr %86, align 4
+  %87 = load i32, ptr %6, align 4
+  store i32 %87, ptr %3, align 4
+  br label %88
 
-86:                                               ; preds = %82, %71
-  %87 = load i32, ptr %3, align 4
-  ret i32 %87
+88:                                               ; preds = %84, %72
+  %89 = load i32, ptr %3, align 4
+  ret i32 %89
 }
 
 ; Function Attrs: nounwind uwtable
@@ -329,104 +335,105 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef %1) #0 
   store i32 -151, ptr %6, align 4
   %8 = load ptr, ptr %5, align 8
   store ptr null, ptr %8, align 8
-  %9 = load i8, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i32 0, i32 1), align 8
-  %10 = and i8 %9, 1
-  %11 = zext i8 %10 to i32
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %14, label %13
-
-13:                                               ; preds = %2
-  store i32 -137, ptr %3, align 4
-  br label %64
+  %9 = getelementptr inbounds %struct.psa_global_data_t, ptr @global_data, i32 0, i32 1
+  %10 = load i8, ptr %9, align 8
+  %11 = and i8 %10, 1
+  %12 = zext i8 %11 to i32
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %2
-  %15 = load i32, ptr %4, align 4
-  %16 = load ptr, ptr %5, align 8
-  %17 = call i32 @psa_get_and_lock_key_slot_in_memory(i32 noundef %15, ptr noundef %16)
-  store i32 %17, ptr %6, align 4
-  %18 = load i32, ptr %6, align 4
-  %19 = icmp ne i32 %18, -140
-  br i1 %19, label %20, label %22
+  store i32 -137, ptr %3, align 4
+  br label %65
 
-20:                                               ; preds = %14
-  %21 = load i32, ptr %6, align 4
-  store i32 %21, ptr %3, align 4
-  br label %64
+15:                                               ; preds = %2
+  %16 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %5, align 8
+  %18 = call i32 @psa_get_and_lock_key_slot_in_memory(i32 noundef %16, ptr noundef %17)
+  store i32 %18, ptr %6, align 4
+  %19 = load i32, ptr %6, align 4
+  %20 = icmp ne i32 %19, -140
+  br i1 %20, label %21, label %23
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %5, align 8
-  %24 = call i32 @psa_get_empty_key_slot(ptr noundef %7, ptr noundef %23)
-  store i32 %24, ptr %6, align 4
-  %25 = load i32, ptr %6, align 4
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %29
+21:                                               ; preds = %15
+  %22 = load i32, ptr %6, align 4
+  store i32 %22, ptr %3, align 4
+  br label %65
 
-27:                                               ; preds = %22
-  %28 = load i32, ptr %6, align 4
-  store i32 %28, ptr %3, align 4
-  br label %64
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %5, align 8
+  %25 = call i32 @psa_get_empty_key_slot(ptr noundef %7, ptr noundef %24)
+  store i32 %25, ptr %6, align 4
+  %26 = load i32, ptr %6, align 4
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %30
 
-29:                                               ; preds = %22
-  %30 = load i32, ptr %4, align 4
-  %31 = load ptr, ptr %5, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.psa_key_slot_t, ptr %32, i32 0, i32 0
-  %34 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %33, i32 0, i32 3
-  store i32 %30, ptr %34, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.psa_key_slot_t, ptr %36, i32 0, i32 0
-  %38 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %37, i32 0, i32 2
-  store i32 1, ptr %38, align 4
+28:                                               ; preds = %23
+  %29 = load i32, ptr %6, align 4
+  store i32 %29, ptr %3, align 4
+  br label %65
+
+30:                                               ; preds = %23
+  %31 = load i32, ptr %4, align 4
+  %32 = load ptr, ptr %5, align 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct.psa_key_slot_t, ptr %33, i32 0, i32 0
+  %35 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %34, i32 0, i32 3
+  store i32 %31, ptr %35, align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct.psa_key_slot_t, ptr %37, i32 0, i32 0
+  %39 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %38, i32 0, i32 2
+  store i32 1, ptr %39, align 4
   store i32 -140, ptr %6, align 4
-  %39 = load i32, ptr %6, align 4
-  %40 = icmp eq i32 %39, -140
-  br i1 %40, label %41, label %45
+  %40 = load i32, ptr %6, align 4
+  %41 = icmp eq i32 %40, -140
+  br i1 %41, label %42, label %46
 
-41:                                               ; preds = %29
-  %42 = load ptr, ptr %5, align 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = call i32 @psa_load_persistent_key_into_slot(ptr noundef %43)
-  store i32 %44, ptr %6, align 4
-  br label %45
+42:                                               ; preds = %30
+  %43 = load ptr, ptr %5, align 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = call i32 @psa_load_persistent_key_into_slot(ptr noundef %44)
+  store i32 %45, ptr %6, align 4
+  br label %46
 
-45:                                               ; preds = %41, %29
-  %46 = load i32, ptr %6, align 4
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %56
+46:                                               ; preds = %42, %30
+  %47 = load i32, ptr %6, align 4
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %57
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %5, align 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = call i32 @psa_wipe_key_slot(ptr noundef %50)
-  %52 = load i32, ptr %6, align 4
-  %53 = icmp eq i32 %52, -140
-  br i1 %53, label %54, label %55
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %5, align 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = call i32 @psa_wipe_key_slot(ptr noundef %51)
+  %53 = load i32, ptr %6, align 4
+  %54 = icmp eq i32 %53, -140
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %48
+55:                                               ; preds = %49
   store i32 -136, ptr %6, align 4
-  br label %55
+  br label %56
 
-55:                                               ; preds = %54, %48
-  br label %62
+56:                                               ; preds = %55, %49
+  br label %63
 
-56:                                               ; preds = %45
-  %57 = load ptr, ptr %5, align 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct.psa_key_slot_t, ptr %58, i32 0, i32 0
-  %60 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %59, i32 0, i32 4
-  %61 = getelementptr inbounds %struct.psa_key_policy_s, ptr %60, i32 0, i32 0
-  call void @psa_extend_key_usage_flags(ptr noundef %61)
-  br label %62
+57:                                               ; preds = %46
+  %58 = load ptr, ptr %5, align 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds %struct.psa_key_slot_t, ptr %59, i32 0, i32 0
+  %61 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %60, i32 0, i32 4
+  %62 = getelementptr inbounds %struct.psa_key_policy_s, ptr %61, i32 0, i32 0
+  call void @psa_extend_key_usage_flags(ptr noundef %62)
+  br label %63
 
-62:                                               ; preds = %56, %55
-  %63 = load i32, ptr %6, align 4
-  store i32 %63, ptr %3, align 4
-  br label %64
+63:                                               ; preds = %57, %56
+  %64 = load i32, ptr %6, align 4
+  store i32 %64, ptr %3, align 4
+  br label %65
 
-64:                                               ; preds = %62, %27, %20, %13
-  %65 = load i32, ptr %3, align 4
-  ret i32 %65
+65:                                               ; preds = %63, %28, %21, %14
+  %66 = load i32, ptr %3, align 4
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable

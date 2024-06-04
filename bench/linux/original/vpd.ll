@@ -192,63 +192,66 @@ define internal zeroext i16 @vpd_attr_is_visible(ptr nocapture noundef readonly 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @pci_vpd_alloc(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = tail call fastcc zeroext i1 @pci_vpd_available(ptr noundef %0, i1 noundef zeroext true)
-  br i1 %3, label %4, label %35
+  %4 = inttoptr i64 -19 to ptr
+  br i1 %3, label %5, label %38
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 2000
-  %6 = load i32, ptr %5, align 8
-  %7 = zext i32 %6 to i64
-  %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef 3264) #12
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %35, label %10
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds i8, ptr %0, i64 2000
+  %7 = load i32, ptr %6, align 8
+  %8 = zext i32 %7 to i64
+  %9 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %8, i32 noundef 3264) #12
+  %10 = icmp eq ptr %9, null
+  %11 = inttoptr i64 -12 to ptr
+  br i1 %10, label %38, label %12
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 1694
-  %12 = load i16, ptr %11, align 2
-  %13 = and i16 %12, 256
-  %14 = icmp eq i16 %13, 0
-  br i1 %14, label %25, label %15
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds i8, ptr %0, i64 1694
+  %14 = load i16, ptr %13, align 2
+  %15 = and i16 %14, 256
+  %16 = icmp eq i16 %15, 0
+  br i1 %16, label %27, label %17
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
-  %19 = load i32, ptr %18, align 8
-  %20 = and i32 %19, 248
-  %21 = tail call ptr @pci_get_slot(ptr noundef %17, i32 noundef %20) #11
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %27, label %23
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = load i32, ptr %20, align 8
+  %22 = and i32 %21, 248
+  %23 = tail call ptr @pci_get_slot(ptr noundef %19, i32 noundef %22) #11
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %29, label %25
 
-23:                                               ; preds = %15
-  %24 = tail call fastcc i64 @pci_vpd_read(ptr noundef nonnull %21, i64 noundef 0, i64 noundef %7, ptr noundef nonnull %8, i1 noundef zeroext true)
-  tail call void @pci_dev_put(ptr noundef nonnull %21) #11
-  br label %27
+25:                                               ; preds = %17
+  %26 = tail call fastcc i64 @pci_vpd_read(ptr noundef nonnull %23, i64 noundef 0, i64 noundef %8, ptr noundef nonnull %9, i1 noundef zeroext true)
+  tail call void @pci_dev_put(ptr noundef nonnull %23) #11
+  br label %29
 
-25:                                               ; preds = %10
-  %26 = tail call fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef 0, i64 noundef %7, ptr noundef nonnull %8, i1 noundef zeroext true)
-  br label %27
+27:                                               ; preds = %12
+  %28 = tail call fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef 0, i64 noundef %8, ptr noundef nonnull %9, i1 noundef zeroext true)
+  br label %29
 
-27:                                               ; preds = %25, %23, %15
-  %28 = phi i64 [ %24, %23 ], [ %26, %25 ], [ -19, %15 ]
-  %29 = trunc i64 %28 to i32
-  %30 = icmp eq i32 %6, %29
-  br i1 %30, label %32, label %31
+29:                                               ; preds = %27, %25, %17
+  %30 = phi i64 [ %26, %25 ], [ %28, %27 ], [ -19, %17 ]
+  %31 = trunc i64 %30 to i32
+  %32 = icmp eq i32 %7, %31
+  br i1 %32, label %35, label %33
 
-31:                                               ; preds = %27
-  tail call void @kfree(ptr noundef nonnull %8) #11
-  br label %35
+33:                                               ; preds = %29
+  tail call void @kfree(ptr noundef nonnull %9) #11
+  %34 = inttoptr i64 -5 to ptr
+  br label %38
 
-32:                                               ; preds = %27
-  %33 = icmp eq ptr %1, null
-  br i1 %33, label %35, label %34
+35:                                               ; preds = %29
+  %36 = icmp eq ptr %1, null
+  br i1 %36, label %38, label %37
 
-34:                                               ; preds = %32
-  store i32 %6, ptr %1, align 4
-  br label %35
+37:                                               ; preds = %35
+  store i32 %7, ptr %1, align 4
+  br label %38
 
-35:                                               ; preds = %34, %32, %31, %4, %2
-  %36 = phi ptr [ inttoptr (i64 -5 to ptr), %31 ], [ %8, %34 ], [ %8, %32 ], [ inttoptr (i64 -19 to ptr), %2 ], [ inttoptr (i64 -12 to ptr), %4 ]
-  ret ptr %36
+38:                                               ; preds = %37, %35, %33, %5, %2
+  %39 = phi ptr [ %34, %33 ], [ %9, %37 ], [ %9, %35 ], [ %4, %2 ], [ %11, %5 ]
+  ret ptr %39
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

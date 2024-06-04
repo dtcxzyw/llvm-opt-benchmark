@@ -1018,126 +1018,127 @@ define internal ptr @H5O__sdspace_shared_copy_file(ptr noundef %0, ptr noundef %
   store ptr null, ptr %15, align 8
   store ptr null, ptr %16, align 8
   store i8 0, ptr %17, align 1
-  %18 = load ptr, ptr getelementptr inbounds (%struct.H5O_msg_class_t, ptr @H5O_MSG_SDSPACE, i32 0, i32 6), align 16
-  %19 = load ptr, ptr %9, align 8
-  %20 = call ptr %18(ptr noundef %19, ptr noundef null)
-  store ptr %20, ptr %15, align 8
-  %21 = icmp eq ptr null, %20
-  br i1 %21, label %22, label %37
+  %18 = getelementptr inbounds %struct.H5O_msg_class_t, ptr @H5O_MSG_SDSPACE, i32 0, i32 6
+  %19 = load ptr, ptr %18, align 16
+  %20 = load ptr, ptr %9, align 8
+  %21 = call ptr %19(ptr noundef %20, ptr noundef null)
+  store ptr %21, ptr %15, align 8
+  %22 = icmp eq ptr null, %21
+  br i1 %22, label %23, label %38
 
-22:                                               ; preds = %7
-  br label %23
-
-23:                                               ; preds = %22
+23:                                               ; preds = %7
   br label %24
 
 24:                                               ; preds = %23
   br label %25
 
 25:                                               ; preds = %24
-  %26 = load i64, ptr @H5E_OHDR_g, align 8
-  %27 = load i64, ptr @H5E_CANTCOPY_g, align 8
-  %28 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str.1, ptr noundef @__func__.H5O__sdspace_shared_copy_file, i32 noundef 307, i64 noundef %26, i64 noundef %27, ptr noundef @.str.18)
-  br label %29
+  br label %26
 
-29:                                               ; preds = %25
+26:                                               ; preds = %25
+  %27 = load i64, ptr @H5E_OHDR_g, align 8
+  %28 = load i64, ptr @H5E_CANTCOPY_g, align 8
+  %29 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str.1, ptr noundef @__func__.H5O__sdspace_shared_copy_file, i32 noundef 307, i64 noundef %27, i64 noundef %28, ptr noundef @.str.18)
+  br label %30
+
+30:                                               ; preds = %26
   store i8 1, ptr %17, align 1
-  %30 = load i8, ptr %17, align 1
-  %31 = trunc i8 %30 to i1
-  %32 = zext i1 %31 to i8
-  store i8 %32, ptr %17, align 1
-  br label %33
-
-33:                                               ; preds = %29
+  %31 = load i8, ptr %17, align 1
+  %32 = trunc i8 %31 to i1
+  %33 = zext i1 %32 to i8
+  store i8 %33, ptr %17, align 1
   br label %34
 
-34:                                               ; preds = %33
+34:                                               ; preds = %30
+  br label %35
+
+35:                                               ; preds = %34
   store ptr null, ptr %16, align 8
-  br label %66
+  br label %67
 
-35:                                               ; No predecessors!
-  br label %36
-
-36:                                               ; preds = %35
+36:                                               ; No predecessors!
   br label %37
 
-37:                                               ; preds = %36, %7
-  %38 = load ptr, ptr %15, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %38, i8 0, i64 40, i1 false)
-  %39 = load ptr, ptr %8, align 8
-  %40 = load ptr, ptr %10, align 8
-  %41 = load ptr, ptr %9, align 8
-  %42 = load ptr, ptr %15, align 8
-  %43 = load ptr, ptr %11, align 8
-  %44 = load ptr, ptr %12, align 8
-  %45 = load ptr, ptr %13, align 8
-  %46 = load ptr, ptr %14, align 8
-  %47 = call i32 @H5O__shared_copy_file(ptr noundef %39, ptr noundef %40, ptr noundef @H5O_MSG_SDSPACE, ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46)
-  %48 = icmp slt i32 %47, 0
-  br i1 %48, label %49, label %64
+37:                                               ; preds = %36
+  br label %38
 
-49:                                               ; preds = %37
-  br label %50
+38:                                               ; preds = %37, %7
+  %39 = load ptr, ptr %15, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %39, i8 0, i64 40, i1 false)
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %10, align 8
+  %42 = load ptr, ptr %9, align 8
+  %43 = load ptr, ptr %15, align 8
+  %44 = load ptr, ptr %11, align 8
+  %45 = load ptr, ptr %12, align 8
+  %46 = load ptr, ptr %13, align 8
+  %47 = load ptr, ptr %14, align 8
+  %48 = call i32 @H5O__shared_copy_file(ptr noundef %40, ptr noundef %41, ptr noundef @H5O_MSG_SDSPACE, ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47)
+  %49 = icmp slt i32 %48, 0
+  br i1 %49, label %50, label %65
 
-50:                                               ; preds = %49
+50:                                               ; preds = %38
   br label %51
 
 51:                                               ; preds = %50
   br label %52
 
 52:                                               ; preds = %51
-  %53 = load i64, ptr @H5E_OHDR_g, align 8
-  %54 = load i64, ptr @H5E_WRITEERROR_g, align 8
-  %55 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str.1, ptr noundef @__func__.H5O__sdspace_shared_copy_file, i32 noundef 316, i64 noundef %53, i64 noundef %54, ptr noundef @.str.19)
-  br label %56
+  br label %53
 
-56:                                               ; preds = %52
+53:                                               ; preds = %52
+  %54 = load i64, ptr @H5E_OHDR_g, align 8
+  %55 = load i64, ptr @H5E_WRITEERROR_g, align 8
+  %56 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str.1, ptr noundef @__func__.H5O__sdspace_shared_copy_file, i32 noundef 316, i64 noundef %54, i64 noundef %55, ptr noundef @.str.19)
+  br label %57
+
+57:                                               ; preds = %53
   store i8 1, ptr %17, align 1
-  %57 = load i8, ptr %17, align 1
-  %58 = trunc i8 %57 to i1
-  %59 = zext i1 %58 to i8
-  store i8 %59, ptr %17, align 1
-  br label %60
-
-60:                                               ; preds = %56
+  %58 = load i8, ptr %17, align 1
+  %59 = trunc i8 %58 to i1
+  %60 = zext i1 %59 to i8
+  store i8 %60, ptr %17, align 1
   br label %61
 
-61:                                               ; preds = %60
+61:                                               ; preds = %57
+  br label %62
+
+62:                                               ; preds = %61
   store ptr null, ptr %16, align 8
-  br label %66
+  br label %67
 
-62:                                               ; No predecessors!
-  br label %63
-
-63:                                               ; preds = %62
+63:                                               ; No predecessors!
   br label %64
 
-64:                                               ; preds = %63, %37
-  %65 = load ptr, ptr %15, align 8
-  store ptr %65, ptr %16, align 8
-  br label %66
+64:                                               ; preds = %63
+  br label %65
 
-66:                                               ; preds = %64, %61, %34
-  %67 = load ptr, ptr %16, align 8
-  %68 = icmp ne ptr %67, null
-  br i1 %68, label %76, label %69
+65:                                               ; preds = %64, %38
+  %66 = load ptr, ptr %15, align 8
+  store ptr %66, ptr %16, align 8
+  br label %67
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr %15, align 8
-  %71 = icmp ne ptr %70, null
-  br i1 %71, label %72, label %75
+67:                                               ; preds = %65, %62, %35
+  %68 = load ptr, ptr %16, align 8
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %77, label %70
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %15, align 8
-  %74 = call ptr @H5O_msg_free(i32 noundef 1, ptr noundef %73)
-  br label %75
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %15, align 8
+  %72 = icmp ne ptr %71, null
+  br i1 %72, label %73, label %76
 
-75:                                               ; preds = %72, %69
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %15, align 8
+  %75 = call ptr @H5O_msg_free(i32 noundef 1, ptr noundef %74)
   br label %76
 
-76:                                               ; preds = %75, %66
-  %77 = load ptr, ptr %16, align 8
-  ret ptr %77
+76:                                               ; preds = %73, %70
+  br label %77
+
+77:                                               ; preds = %76, %67
+  %78 = load ptr, ptr %16, align 8
+  ret ptr %78
 }
 
 ; Function Attrs: nounwind uwtable

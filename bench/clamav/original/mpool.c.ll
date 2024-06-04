@@ -64,36 +64,37 @@ define ptr @mpool_create() #0 {
   %15 = load i64, ptr %4, align 8
   %16 = call ptr @mmap(ptr noundef null, i64 noundef %15, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #6
   store ptr %16, ptr %3, align 8
-  %17 = icmp eq ptr %16, inttoptr (i64 -1 to ptr)
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %0
-  store ptr null, ptr %1, align 8
-  br label %34
+  %17 = inttoptr i64 -1 to ptr
+  %18 = icmp eq ptr %16, %17
+  br i1 %18, label %19, label %20
 
 19:                                               ; preds = %0
-  %20 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %2, i64 832, i1 false)
-  %21 = load ptr, ptr %3, align 8
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.MP, ptr %2, i32 0, i32 2
-  %24 = getelementptr inbounds %struct.MPMAP, ptr %23, i32 0, i32 1
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 %25
-  %27 = getelementptr inbounds %struct.MP, ptr %2, i32 0, i32 2
-  %28 = getelementptr inbounds %struct.MPMAP, ptr %27, i32 0, i32 2
-  %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds %struct.MP, ptr %2, i32 0, i32 2
-  %31 = getelementptr inbounds %struct.MPMAP, ptr %30, i32 0, i32 1
-  %32 = load i64, ptr %31, align 8
-  call void (ptr, ...) @spam(ptr noundef @.str, ptr noundef %21, ptr noundef %26, i64 noundef %29, i64 noundef %32, i64 noundef 8)
-  %33 = load ptr, ptr %3, align 8
-  store ptr %33, ptr %1, align 8
-  br label %34
+  store ptr null, ptr %1, align 8
+  br label %35
 
-34:                                               ; preds = %19, %18
-  %35 = load ptr, ptr %1, align 8
-  ret ptr %35
+20:                                               ; preds = %0
+  %21 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %2, i64 832, i1 false)
+  %22 = load ptr, ptr %3, align 8
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds %struct.MP, ptr %2, i32 0, i32 2
+  %25 = getelementptr inbounds %struct.MPMAP, ptr %24, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %23, i64 %26
+  %28 = getelementptr inbounds %struct.MP, ptr %2, i32 0, i32 2
+  %29 = getelementptr inbounds %struct.MPMAP, ptr %28, i32 0, i32 2
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds %struct.MP, ptr %2, i32 0, i32 2
+  %32 = getelementptr inbounds %struct.MPMAP, ptr %31, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  call void (ptr, ...) @spam(ptr noundef @.str, ptr noundef %22, ptr noundef %27, i64 noundef %30, i64 noundef %33, i64 noundef 8)
+  %34 = load ptr, ptr %3, align 8
+  store ptr %34, ptr %1, align 8
+  br label %35
+
+35:                                               ; preds = %20, %19
+  %36 = load ptr, ptr %1, align 8
+  ret ptr %36
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -456,7 +457,7 @@ define ptr @mpool_malloc(ptr noundef %0, i64 noundef %1) #0 {
   %31 = load i64, ptr %5, align 8
   call void (ptr, ...) @cli_errmsg(ptr noundef @.str.4, i64 noundef %31)
   store ptr null, ptr %3, align 8
-  br label %159
+  br label %160
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %4, align 8
@@ -524,7 +525,7 @@ define ptr @mpool_malloc(ptr noundef %0, i64 noundef %1) #0 {
   %86 = getelementptr inbounds %struct.FRAG, ptr %85, i32 0, i32 0
   %87 = getelementptr inbounds %struct.alloced, ptr %86, i32 0, i32 2
   store ptr %87, ptr %3, align 8
-  br label %159
+  br label %160
 
 88:                                               ; preds = %32
   %89 = load i32, ptr %9, align 4
@@ -537,7 +538,7 @@ define ptr @mpool_malloc(ptr noundef %0, i64 noundef %1) #0 {
   %93 = load i64, ptr %5, align 8
   call void (ptr, ...) @cli_errmsg(ptr noundef @.str.4, i64 noundef %93)
   store ptr null, ptr %3, align 8
-  br label %159
+  br label %160
 
 94:                                               ; preds = %88
   br label %95
@@ -566,7 +567,7 @@ define ptr @mpool_malloc(ptr noundef %0, i64 noundef %1) #0 {
   %112 = trunc i64 %111 to i32
   %113 = call ptr @allocate_aligned(ptr noundef %109, i64 noundef %110, i32 noundef %112, ptr noundef @.str.6)
   store ptr %113, ptr %3, align 8
-  br label %159
+  br label %160
 
 114:                                              ; preds = %98
   %115 = load ptr, ptr %11, align 8
@@ -599,49 +600,50 @@ define ptr @mpool_malloc(ptr noundef %0, i64 noundef %1) #0 {
   %131 = load i64, ptr %7, align 8
   %132 = call ptr @mmap(ptr noundef null, i64 noundef %131, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #6
   store ptr %132, ptr %11, align 8
-  %133 = icmp eq ptr %132, inttoptr (i64 -1 to ptr)
-  br i1 %133, label %134, label %138
+  %133 = inttoptr i64 -1 to ptr
+  %134 = icmp eq ptr %132, %133
+  br i1 %134, label %135, label %139
 
-134:                                              ; preds = %130
-  %135 = load i64, ptr %7, align 8
-  call void (ptr, ...) @cli_errmsg(ptr noundef @.str.7, i64 noundef %135)
+135:                                              ; preds = %130
   %136 = load i64, ptr %7, align 8
-  %137 = load i64, ptr %5, align 8
-  call void (ptr, ...) @spam(ptr noundef @.str.8, i64 noundef %136, i64 noundef %137)
+  call void (ptr, ...) @cli_errmsg(ptr noundef @.str.7, i64 noundef %136)
+  %137 = load i64, ptr %7, align 8
+  %138 = load i64, ptr %5, align 8
+  call void (ptr, ...) @spam(ptr noundef @.str.8, i64 noundef %137, i64 noundef %138)
   store ptr null, ptr %3, align 8
-  br label %159
+  br label %160
 
-138:                                              ; preds = %130
-  %139 = load i64, ptr %7, align 8
-  %140 = load ptr, ptr %11, align 8
-  %141 = getelementptr inbounds %struct.MPMAP, ptr %140, i32 0, i32 1
-  store i64 %139, ptr %141, align 8
-  %142 = load ptr, ptr %11, align 8
-  %143 = getelementptr inbounds %struct.MPMAP, ptr %142, i32 0, i32 2
-  store i64 24, ptr %143, align 8
-  %144 = load ptr, ptr %4, align 8
-  %145 = getelementptr inbounds %struct.MP, ptr %144, i32 0, i32 2
-  %146 = getelementptr inbounds %struct.MPMAP, ptr %145, i32 0, i32 0
-  %147 = load ptr, ptr %146, align 8
-  %148 = load ptr, ptr %11, align 8
-  %149 = getelementptr inbounds %struct.MPMAP, ptr %148, i32 0, i32 0
-  store ptr %147, ptr %149, align 8
-  %150 = load ptr, ptr %11, align 8
-  %151 = load ptr, ptr %4, align 8
-  %152 = getelementptr inbounds %struct.MP, ptr %151, i32 0, i32 2
-  %153 = getelementptr inbounds %struct.MPMAP, ptr %152, i32 0, i32 0
-  store ptr %150, ptr %153, align 8
-  %154 = load ptr, ptr %11, align 8
-  %155 = load i64, ptr %5, align 8
-  %156 = load i64, ptr %6, align 8
-  %157 = trunc i64 %156 to i32
-  %158 = call ptr @allocate_aligned(ptr noundef %154, i64 noundef %155, i32 noundef %157, ptr noundef @.str.9)
-  store ptr %158, ptr %3, align 8
-  br label %159
+139:                                              ; preds = %130
+  %140 = load i64, ptr %7, align 8
+  %141 = load ptr, ptr %11, align 8
+  %142 = getelementptr inbounds %struct.MPMAP, ptr %141, i32 0, i32 1
+  store i64 %140, ptr %142, align 8
+  %143 = load ptr, ptr %11, align 8
+  %144 = getelementptr inbounds %struct.MPMAP, ptr %143, i32 0, i32 2
+  store i64 24, ptr %144, align 8
+  %145 = load ptr, ptr %4, align 8
+  %146 = getelementptr inbounds %struct.MP, ptr %145, i32 0, i32 2
+  %147 = getelementptr inbounds %struct.MPMAP, ptr %146, i32 0, i32 0
+  %148 = load ptr, ptr %147, align 8
+  %149 = load ptr, ptr %11, align 8
+  %150 = getelementptr inbounds %struct.MPMAP, ptr %149, i32 0, i32 0
+  store ptr %148, ptr %150, align 8
+  %151 = load ptr, ptr %11, align 8
+  %152 = load ptr, ptr %4, align 8
+  %153 = getelementptr inbounds %struct.MP, ptr %152, i32 0, i32 2
+  %154 = getelementptr inbounds %struct.MPMAP, ptr %153, i32 0, i32 0
+  store ptr %151, ptr %154, align 8
+  %155 = load ptr, ptr %11, align 8
+  %156 = load i64, ptr %5, align 8
+  %157 = load i64, ptr %6, align 8
+  %158 = trunc i64 %157 to i32
+  %159 = call ptr @allocate_aligned(ptr noundef %155, i64 noundef %156, i32 noundef %158, ptr noundef @.str.9)
+  store ptr %159, ptr %3, align 8
+  br label %160
 
-159:                                              ; preds = %138, %134, %108, %92, %40, %30
-  %160 = load ptr, ptr %3, align 8
-  ret ptr %160
+160:                                              ; preds = %139, %135, %108, %92, %40, %30
+  %161 = load ptr, ptr %3, align 8
+  ret ptr %161
 }
 
 ; Function Attrs: nounwind uwtable

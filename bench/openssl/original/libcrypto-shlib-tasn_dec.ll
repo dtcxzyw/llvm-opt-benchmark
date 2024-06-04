@@ -3249,12 +3249,13 @@ if.then22:                                        ; preds = %sw.bb20
 
 if.end23:                                         ; preds = %sw.bb20
   %33 = load ptr, ptr %pval.addr, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %33, align 8
+  %34 = inttoptr i64 1 to ptr
+  store ptr %34, ptr %33, align 8
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %if.end15
-  %34 = load i32, ptr %len.addr, align 4
-  %cmp25 = icmp ne i32 %34, 1
+  %35 = load i32, ptr %len.addr, align 4
+  %cmp25 = icmp ne i32 %35, 1
   br i1 %cmp25, label %if.then27, label %if.else28
 
 if.then27:                                        ; preds = %sw.bb24
@@ -3264,23 +3265,23 @@ if.then27:                                        ; preds = %sw.bb24
   br label %err
 
 if.else28:                                        ; preds = %sw.bb24
-  %35 = load ptr, ptr %pval.addr, align 8
-  store ptr %35, ptr %tbool, align 8
-  %36 = load ptr, ptr %cont.addr, align 8
-  %37 = load i8, ptr %36, align 1
-  %conv29 = zext i8 %37 to i32
-  %38 = load ptr, ptr %tbool, align 8
-  store i32 %conv29, ptr %38, align 4
+  %36 = load ptr, ptr %pval.addr, align 8
+  store ptr %36, ptr %tbool, align 8
+  %37 = load ptr, ptr %cont.addr, align 8
+  %38 = load i8, ptr %37, align 1
+  %conv29 = zext i8 %38 to i32
+  %39 = load ptr, ptr %tbool, align 8
+  store i32 %conv29, ptr %39, align 4
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else28
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %if.end15
-  %39 = load ptr, ptr %pval.addr, align 8
-  %40 = load i32, ptr %len.addr, align 4
-  %conv32 = sext i32 %40 to i64
-  %call33 = call ptr @ossl_c2i_ASN1_BIT_STRING(ptr noundef %39, ptr noundef %cont.addr, i64 noundef %conv32)
+  %40 = load ptr, ptr %pval.addr, align 8
+  %41 = load i32, ptr %len.addr, align 4
+  %conv32 = sext i32 %41 to i64
+  %call33 = call ptr @ossl_c2i_ASN1_BIT_STRING(ptr noundef %40, ptr noundef %cont.addr, i64 noundef %conv32)
   %tobool34 = icmp ne ptr %call33, null
   br i1 %tobool34, label %if.end36, label %if.then35
 
@@ -3291,12 +3292,12 @@ if.end36:                                         ; preds = %sw.bb31
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %if.end15, %if.end15
-  %41 = load ptr, ptr %pval.addr, align 8
-  store ptr %41, ptr %tint, align 8
-  %42 = load ptr, ptr %tint, align 8
-  %43 = load i32, ptr %len.addr, align 4
-  %conv38 = sext i32 %43 to i64
-  %call39 = call ptr @ossl_c2i_ASN1_INTEGER(ptr noundef %42, ptr noundef %cont.addr, i64 noundef %conv38)
+  %42 = load ptr, ptr %pval.addr, align 8
+  store ptr %42, ptr %tint, align 8
+  %43 = load ptr, ptr %tint, align 8
+  %44 = load i32, ptr %len.addr, align 4
+  %conv38 = sext i32 %44 to i64
+  %call39 = call ptr @ossl_c2i_ASN1_INTEGER(ptr noundef %43, ptr noundef %cont.addr, i64 noundef %conv38)
   %tobool40 = icmp ne ptr %call39, null
   br i1 %tobool40, label %if.end42, label %if.then41
 
@@ -3304,16 +3305,16 @@ if.then41:                                        ; preds = %sw.bb37
   br label %err
 
 if.end42:                                         ; preds = %sw.bb37
-  %44 = load i32, ptr %utype.addr, align 4
-  %45 = load ptr, ptr %tint, align 8
-  %46 = load ptr, ptr %45, align 8
-  %type43 = getelementptr inbounds %struct.asn1_string_st, ptr %46, i32 0, i32 1
-  %47 = load i32, ptr %type43, align 4
-  %and = and i32 %47, 256
-  %or = or i32 %44, %and
-  %48 = load ptr, ptr %tint, align 8
-  %49 = load ptr, ptr %48, align 8
-  %type44 = getelementptr inbounds %struct.asn1_string_st, ptr %49, i32 0, i32 1
+  %45 = load i32, ptr %utype.addr, align 4
+  %46 = load ptr, ptr %tint, align 8
+  %47 = load ptr, ptr %46, align 8
+  %type43 = getelementptr inbounds %struct.asn1_string_st, ptr %47, i32 0, i32 1
+  %48 = load i32, ptr %type43, align 4
+  %and = and i32 %48, 256
+  %or = or i32 %45, %and
+  %49 = load ptr, ptr %tint, align 8
+  %50 = load ptr, ptr %49, align 8
+  %type44 = getelementptr inbounds %struct.asn1_string_st, ptr %50, i32 0, i32 1
   store i32 %or, ptr %type44, align 4
   br label %sw.epilog
 
@@ -3321,13 +3322,13 @@ sw.bb45:                                          ; preds = %if.end15, %if.end15
   br label %sw.default
 
 sw.default:                                       ; preds = %sw.bb45, %if.end15
-  %50 = load i32, ptr %utype.addr, align 4
-  %cmp46 = icmp eq i32 %50, 30
+  %51 = load i32, ptr %utype.addr, align 4
+  %cmp46 = icmp eq i32 %51, 30
   br i1 %cmp46, label %land.lhs.true48, label %if.end52
 
 land.lhs.true48:                                  ; preds = %sw.default
-  %51 = load i32, ptr %len.addr, align 4
-  %and49 = and i32 %51, 1
+  %52 = load i32, ptr %len.addr, align 4
+  %and49 = and i32 %52, 1
   %tobool50 = icmp ne i32 %and49, 0
   br i1 %tobool50, label %if.then51, label %if.end52
 
@@ -3338,13 +3339,13 @@ if.then51:                                        ; preds = %land.lhs.true48
   br label %err
 
 if.end52:                                         ; preds = %land.lhs.true48, %sw.default
-  %52 = load i32, ptr %utype.addr, align 4
-  %cmp53 = icmp eq i32 %52, 28
+  %53 = load i32, ptr %utype.addr, align 4
+  %cmp53 = icmp eq i32 %53, 28
   br i1 %cmp53, label %land.lhs.true55, label %if.end59
 
 land.lhs.true55:                                  ; preds = %if.end52
-  %53 = load i32, ptr %len.addr, align 4
-  %and56 = and i32 %53, 3
+  %54 = load i32, ptr %len.addr, align 4
+  %and56 = and i32 %54, 3
   %tobool57 = icmp ne i32 %and56, 0
   br i1 %tobool57, label %if.then58, label %if.end59
 
@@ -3355,17 +3356,17 @@ if.then58:                                        ; preds = %land.lhs.true55
   br label %err
 
 if.end59:                                         ; preds = %land.lhs.true55, %if.end52
-  %54 = load ptr, ptr %pval.addr, align 8
-  %55 = load ptr, ptr %54, align 8
-  %cmp60 = icmp eq ptr %55, null
+  %55 = load ptr, ptr %pval.addr, align 8
+  %56 = load ptr, ptr %55, align 8
+  %cmp60 = icmp eq ptr %56, null
   br i1 %cmp60, label %if.then62, label %if.else68
 
 if.then62:                                        ; preds = %if.end59
-  %56 = load i32, ptr %utype.addr, align 4
-  %call63 = call ptr @ASN1_STRING_type_new(i32 noundef %56)
+  %57 = load i32, ptr %utype.addr, align 4
+  %call63 = call ptr @ASN1_STRING_type_new(i32 noundef %57)
   store ptr %call63, ptr %stmp, align 8
-  %57 = load ptr, ptr %stmp, align 8
-  %cmp64 = icmp eq ptr %57, null
+  %58 = load ptr, ptr %stmp, align 8
+  %cmp64 = icmp eq ptr %58, null
   br i1 %cmp64, label %if.then66, label %if.end67
 
 if.then66:                                        ; preds = %if.then62
@@ -3375,41 +3376,41 @@ if.then66:                                        ; preds = %if.then62
   br label %err
 
 if.end67:                                         ; preds = %if.then62
-  %58 = load ptr, ptr %stmp, align 8
-  %59 = load ptr, ptr %pval.addr, align 8
-  store ptr %58, ptr %59, align 8
+  %59 = load ptr, ptr %stmp, align 8
+  %60 = load ptr, ptr %pval.addr, align 8
+  store ptr %59, ptr %60, align 8
   br label %if.end70
 
 if.else68:                                        ; preds = %if.end59
-  %60 = load ptr, ptr %pval.addr, align 8
-  %61 = load ptr, ptr %60, align 8
-  store ptr %61, ptr %stmp, align 8
-  %62 = load i32, ptr %utype.addr, align 4
-  %63 = load ptr, ptr %stmp, align 8
-  %type69 = getelementptr inbounds %struct.asn1_string_st, ptr %63, i32 0, i32 1
-  store i32 %62, ptr %type69, align 4
+  %61 = load ptr, ptr %pval.addr, align 8
+  %62 = load ptr, ptr %61, align 8
+  store ptr %62, ptr %stmp, align 8
+  %63 = load i32, ptr %utype.addr, align 4
+  %64 = load ptr, ptr %stmp, align 8
+  %type69 = getelementptr inbounds %struct.asn1_string_st, ptr %64, i32 0, i32 1
+  store i32 %63, ptr %type69, align 4
   br label %if.end70
 
 if.end70:                                         ; preds = %if.else68, %if.end67
-  %64 = load ptr, ptr %free_cont.addr, align 8
-  %65 = load i8, ptr %64, align 1
-  %tobool71 = icmp ne i8 %65, 0
+  %65 = load ptr, ptr %free_cont.addr, align 8
+  %66 = load i8, ptr %65, align 1
+  %tobool71 = icmp ne i8 %66, 0
   br i1 %tobool71, label %if.then72, label %if.else73
 
 if.then72:                                        ; preds = %if.end70
-  %66 = load ptr, ptr %stmp, align 8
-  %67 = load ptr, ptr %cont.addr, align 8
-  %68 = load i32, ptr %len.addr, align 4
-  call void @ASN1_STRING_set0(ptr noundef %66, ptr noundef %67, i32 noundef %68)
-  %69 = load ptr, ptr %free_cont.addr, align 8
-  store i8 0, ptr %69, align 1
+  %67 = load ptr, ptr %stmp, align 8
+  %68 = load ptr, ptr %cont.addr, align 8
+  %69 = load i32, ptr %len.addr, align 4
+  call void @ASN1_STRING_set0(ptr noundef %67, ptr noundef %68, i32 noundef %69)
+  %70 = load ptr, ptr %free_cont.addr, align 8
+  store i8 0, ptr %70, align 1
   br label %if.end78
 
 if.else73:                                        ; preds = %if.end70
-  %70 = load ptr, ptr %stmp, align 8
-  %71 = load ptr, ptr %cont.addr, align 8
-  %72 = load i32, ptr %len.addr, align 4
-  %call74 = call i32 @ASN1_STRING_set(ptr noundef %70, ptr noundef %71, i32 noundef %72)
+  %71 = load ptr, ptr %stmp, align 8
+  %72 = load ptr, ptr %cont.addr, align 8
+  %73 = load i32, ptr %len.addr, align 4
+  %call74 = call i32 @ASN1_STRING_set(ptr noundef %71, ptr noundef %72, i32 noundef %73)
   %tobool75 = icmp ne i32 %call74, 0
   br i1 %tobool75, label %if.end77, label %if.then76
 
@@ -3417,10 +3418,10 @@ if.then76:                                        ; preds = %if.else73
   call void @ERR_new()
   call void @ERR_set_debug(ptr noundef @.str, i32 noundef 942, ptr noundef @__func__.asn1_ex_c2i)
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524301, ptr noundef null)
-  %73 = load ptr, ptr %stmp, align 8
-  call void @ASN1_STRING_free(ptr noundef %73)
-  %74 = load ptr, ptr %pval.addr, align 8
-  store ptr null, ptr %74, align 8
+  %74 = load ptr, ptr %stmp, align 8
+  call void @ASN1_STRING_free(ptr noundef %74)
+  %75 = load ptr, ptr %pval.addr, align 8
+  store ptr null, ptr %75, align 8
   br label %err
 
 if.end77:                                         ; preds = %if.else73
@@ -3430,18 +3431,18 @@ if.end78:                                         ; preds = %if.end77, %if.then7
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end78, %if.end42, %if.end36, %if.end30, %if.end23, %if.end19
-  %75 = load ptr, ptr %typ, align 8
-  %tobool79 = icmp ne ptr %75, null
+  %76 = load ptr, ptr %typ, align 8
+  %tobool79 = icmp ne ptr %76, null
   br i1 %tobool79, label %land.lhs.true80, label %if.end85
 
 land.lhs.true80:                                  ; preds = %sw.epilog
-  %76 = load i32, ptr %utype.addr, align 4
-  %cmp81 = icmp eq i32 %76, 5
+  %77 = load i32, ptr %utype.addr, align 4
+  %cmp81 = icmp eq i32 %77, 5
   br i1 %cmp81, label %if.then83, label %if.end85
 
 if.then83:                                        ; preds = %land.lhs.true80
-  %77 = load ptr, ptr %typ, align 8
-  %value84 = getelementptr inbounds %struct.asn1_type_st, ptr %77, i32 0, i32 1
+  %78 = load ptr, ptr %typ, align 8
+  %value84 = getelementptr inbounds %struct.asn1_type_st, ptr %78, i32 0, i32 1
   store ptr null, ptr %value84, align 8
   br label %if.end85
 
@@ -3450,33 +3451,33 @@ if.end85:                                         ; preds = %if.then83, %land.lh
   br label %err
 
 err:                                              ; preds = %if.end85, %if.then76, %if.then66, %if.then58, %if.then51, %if.then41, %if.then35, %if.then27, %if.then22, %if.then18, %if.then9
-  %78 = load i32, ptr %ret, align 4
-  %tobool86 = icmp ne i32 %78, 0
+  %79 = load i32, ptr %ret, align 4
+  %tobool86 = icmp ne i32 %79, 0
   br i1 %tobool86, label %if.end91, label %if.then87
 
 if.then87:                                        ; preds = %err
-  %79 = load ptr, ptr %typ, align 8
-  call void @ASN1_TYPE_free(ptr noundef %79)
-  %80 = load ptr, ptr %opval, align 8
-  %tobool88 = icmp ne ptr %80, null
+  %80 = load ptr, ptr %typ, align 8
+  call void @ASN1_TYPE_free(ptr noundef %80)
+  %81 = load ptr, ptr %opval, align 8
+  %tobool88 = icmp ne ptr %81, null
   br i1 %tobool88, label %if.then89, label %if.end90
 
 if.then89:                                        ; preds = %if.then87
-  %81 = load ptr, ptr %opval, align 8
-  store ptr null, ptr %81, align 8
+  %82 = load ptr, ptr %opval, align 8
+  store ptr null, ptr %82, align 8
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then89, %if.then87
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end90, %err
-  %82 = load i32, ptr %ret, align 4
-  store i32 %82, ptr %retval, align 4
+  %83 = load i32, ptr %ret, align 4
+  store i32 %83, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end91, %if.then
-  %83 = load i32, ptr %retval, align 4
-  ret i32 %83
+  %84 = load i32, ptr %retval, align 4
+  ret i32 %84
 }
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) #1

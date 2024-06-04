@@ -26,76 +26,77 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_input_ff_cre
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @input_ff_create_memless(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(840) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 840) #8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %40, label %7
+  %4 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %5 = load ptr, ptr %4, align 16
+  %6 = tail call noalias noundef align 8 dereferenceable_or_null(840) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 840) #8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %41, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 824
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 832
-  store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 776
-  store i32 65535, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 784
-  tail call void @init_timer_key(ptr noundef %11, ptr noundef nonnull @ml_effect_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #9
-  %12 = getelementptr i8, ptr %0, i64 196
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %12, i32 1, ptr elementtype(i8) %12) #9, !srcloc !5
-  %13 = tail call i32 @input_ff_create(ptr noundef %0, i32 noundef 16) #9
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %16, label %15
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %6, i64 824
+  store ptr %0, ptr %9, align 8
+  store ptr %1, ptr %6, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 832
+  store ptr %2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %6, i64 776
+  store i32 65535, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 784
+  tail call void @init_timer_key(ptr noundef %12, ptr noundef nonnull @ml_effect_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #9
+  %13 = getelementptr i8, ptr %0, i64 196
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %13, i32 1, ptr elementtype(i8) %13) #9, !srcloc !5
+  %14 = tail call i32 @input_ff_create(ptr noundef %0, i32 noundef 16) #9
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %17, label %16
 
-15:                                               ; preds = %7
-  tail call void @kfree(ptr noundef nonnull %5) #9
-  br label %40
+16:                                               ; preds = %8
+  tail call void @kfree(ptr noundef nonnull %6) #9
+  br label %41
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %0, i64 248
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
-  store ptr %5, ptr %19, align 8
-  store ptr @ml_ff_upload, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr @ml_ff_playback, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
-  store ptr @ml_ff_set_gain, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 40
-  store ptr @ml_ff_destroy, ptr %22, align 8
-  %23 = getelementptr i8, ptr %18, i64 64
-  %24 = load volatile i64, ptr %23, align 8
-  %25 = and i64 %24, 65536
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %30, label %27
+17:                                               ; preds = %8
+  %18 = getelementptr inbounds i8, ptr %0, i64 248
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  store ptr %6, ptr %20, align 8
+  store ptr @ml_ff_upload, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  store ptr @ml_ff_playback, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  store ptr @ml_ff_set_gain, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %19, i64 40
+  store ptr @ml_ff_destroy, ptr %23, align 8
+  %24 = getelementptr i8, ptr %19, i64 64
+  %25 = load volatile i64, ptr %24, align 8
+  %26 = and i64 %25, 65536
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %31, label %28
 
-27:                                               ; preds = %16
-  %28 = getelementptr i8, ptr %0, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %28, i32 2, ptr elementtype(i8) %28) #9, !srcloc !5
-  %29 = getelementptr i8, ptr %0, i64 195
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %29, i32 4, ptr elementtype(i8) %29) #9, !srcloc !5
+28:                                               ; preds = %17
+  %29 = getelementptr i8, ptr %0, i64 194
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %29, i32 2, ptr elementtype(i8) %29) #9, !srcloc !5
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %29, i32 1, ptr elementtype(i8) %29) #9, !srcloc !5
-  br label %30
+  %30 = getelementptr i8, ptr %0, i64 195
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %30, i32 4, ptr elementtype(i8) %30) #9, !srcloc !5
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %30, i32 2, ptr elementtype(i8) %30) #9, !srcloc !5
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %30, i32 1, ptr elementtype(i8) %30) #9, !srcloc !5
+  br label %31
 
-30:                                               ; preds = %27, %16
-  %31 = getelementptr inbounds i8, ptr %18, i64 112
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
-  br label %33
+31:                                               ; preds = %28, %17
+  %32 = getelementptr inbounds i8, ptr %19, i64 112
+  %33 = getelementptr inbounds i8, ptr %6, i64 8
+  br label %34
 
-33:                                               ; preds = %33, %30
-  %34 = phi i64 [ 0, %30 ], [ %38, %33 ]
-  %35 = load ptr, ptr %31, align 8
-  %36 = getelementptr %struct.ff_effect, ptr %35, i64 %34
-  %37 = getelementptr [16 x %struct.ml_effect_state], ptr %32, i64 0, i64 %34
-  store ptr %36, ptr %37, align 8
-  %38 = add nuw nsw i64 %34, 1
-  %39 = icmp eq i64 %38, 16
-  br i1 %39, label %40, label %33, !llvm.loop !6
+34:                                               ; preds = %34, %31
+  %35 = phi i64 [ 0, %31 ], [ %39, %34 ]
+  %36 = load ptr, ptr %32, align 8
+  %37 = getelementptr %struct.ff_effect, ptr %36, i64 %35
+  %38 = getelementptr [16 x %struct.ml_effect_state], ptr %33, i64 0, i64 %35
+  store ptr %37, ptr %38, align 8
+  %39 = add nuw nsw i64 %35, 1
+  %40 = icmp eq i64 %39, 16
+  br i1 %40, label %41, label %34, !llvm.loop !6
 
-40:                                               ; preds = %33, %15, %3
-  %41 = phi i32 [ %13, %15 ], [ -12, %3 ], [ 0, %33 ]
-  ret i32 %41
+41:                                               ; preds = %34, %16, %3
+  %42 = phi i32 [ %14, %16 ], [ -12, %3 ], [ 0, %34 ]
+  ret i32 %42
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

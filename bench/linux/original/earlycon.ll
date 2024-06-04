@@ -40,81 +40,83 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local i32 @setup_earlycon(ptr noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %44, label %3
+  br i1 %2, label %46, label %3
 
 3:                                                ; preds = %1
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %44, label %6
+  br i1 %5, label %46, label %6
 
 6:                                                ; preds = %3
   tail call void @console_list_lock() #6
-  %7 = load ptr, ptr getelementptr inbounds (%struct.console, ptr @early_con, i64 0, i32 16, i32 1), align 8
-  %8 = icmp eq ptr %7, null
+  %7 = getelementptr inbounds %struct.console, ptr @early_con, i64 0, i32 16, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
   tail call void @console_list_unlock() #6
-  br i1 %8, label %9, label %44
+  br i1 %9, label %10, label %46
 
-9:                                                ; preds = %41, %6
-  %10 = phi i32 [ %42, %41 ], [ undef, %6 ]
-  %11 = phi ptr [ %43, %41 ], [ %0, %6 ]
-  %12 = phi i1 [ false, %41 ], [ true, %6 ]
-  br i1 icmp ult (ptr @__earlycon_table, ptr @__earlycon_table_end), label %16, label %41
+10:                                               ; preds = %43, %6
+  %11 = phi i32 [ %44, %43 ], [ undef, %6 ]
+  %12 = phi ptr [ %45, %43 ], [ %0, %6 ]
+  %13 = phi i1 [ false, %43 ], [ true, %6 ]
+  %14 = icmp ult ptr @__earlycon_table, @__earlycon_table_end
+  br i1 %14, label %18, label %43
 
-13:                                               ; preds = %37
-  %14 = getelementptr i8, ptr %17, i64 152
-  %15 = icmp ult ptr %14, @__earlycon_table_end
-  br i1 %15, label %16, label %41, !llvm.loop !5
+15:                                               ; preds = %39
+  %16 = getelementptr i8, ptr %19, i64 152
+  %17 = icmp ult ptr %16, @__earlycon_table_end
+  br i1 %17, label %18, label %43, !llvm.loop !5
 
-16:                                               ; preds = %13, %9
-  %17 = phi ptr [ %14, %13 ], [ @__earlycon_table, %9 ]
-  %18 = phi ptr [ %39, %13 ], [ %11, %9 ]
-  %19 = phi i32 [ %38, %13 ], [ %10, %9 ]
-  %20 = tail call i64 @strlen(ptr noundef %17) #6
-  %21 = tail call i32 @strncmp(ptr noundef %18, ptr noundef %17, i64 noundef %20) #6
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %37
+18:                                               ; preds = %15, %10
+  %19 = phi ptr [ %16, %15 ], [ @__earlycon_table, %10 ]
+  %20 = phi ptr [ %41, %15 ], [ %12, %10 ]
+  %21 = phi i32 [ %40, %15 ], [ %11, %10 ]
+  %22 = tail call i64 @strlen(ptr noundef %19) #6
+  %23 = tail call i32 @strncmp(ptr noundef %20, ptr noundef %19, i64 noundef %22) #6
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %39
 
-23:                                               ; preds = %16
-  br i1 %12, label %24, label %28
+25:                                               ; preds = %18
+  br i1 %13, label %26, label %30
 
-24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %17, i64 16
-  %26 = load i8, ptr %25, align 8
-  %27 = icmp eq i8 %26, 0
-  br i1 %27, label %28, label %37
+26:                                               ; preds = %25
+  %27 = getelementptr inbounds i8, ptr %19, i64 16
+  %28 = load i8, ptr %27, align 8
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %30, label %39
 
-28:                                               ; preds = %24, %23
-  %29 = getelementptr i8, ptr %18, i64 %20
-  %30 = load i8, ptr %29, align 1
-  switch i8 %30, label %37 [
-    i8 0, label %34
-    i8 44, label %31
+30:                                               ; preds = %26, %25
+  %31 = getelementptr i8, ptr %20, i64 %22
+  %32 = load i8, ptr %31, align 1
+  switch i8 %32, label %39 [
+    i8 0, label %36
+    i8 44, label %33
   ]
 
-31:                                               ; preds = %28
-  %32 = add i64 %20, 1
-  %33 = getelementptr i8, ptr %18, i64 %32
-  br label %34
+33:                                               ; preds = %30
+  %34 = add i64 %22, 1
+  %35 = getelementptr i8, ptr %20, i64 %34
+  br label %36
 
-34:                                               ; preds = %31, %28
-  %35 = phi ptr [ %33, %31 ], [ null, %28 ]
-  %36 = tail call fastcc i32 @register_earlycon(ptr noundef %35, ptr noundef %17) #7, !range !8
-  br label %37
+36:                                               ; preds = %33, %30
+  %37 = phi ptr [ %35, %33 ], [ null, %30 ]
+  %38 = tail call fastcc i32 @register_earlycon(ptr noundef %37, ptr noundef %19) #7, !range !8
+  br label %39
 
-37:                                               ; preds = %34, %28, %24, %16
-  %38 = phi i32 [ %36, %34 ], [ %19, %16 ], [ %19, %24 ], [ %19, %28 ]
-  %39 = phi ptr [ %35, %34 ], [ %18, %16 ], [ %18, %24 ], [ %18, %28 ]
-  %40 = phi i1 [ false, %34 ], [ true, %16 ], [ true, %24 ], [ true, %28 ]
-  br i1 %40, label %13, label %44
+39:                                               ; preds = %36, %30, %26, %18
+  %40 = phi i32 [ %38, %36 ], [ %21, %18 ], [ %21, %26 ], [ %21, %30 ]
+  %41 = phi ptr [ %37, %36 ], [ %20, %18 ], [ %20, %26 ], [ %20, %30 ]
+  %42 = phi i1 [ false, %36 ], [ true, %18 ], [ true, %26 ], [ true, %30 ]
+  br i1 %42, label %15, label %46
 
-41:                                               ; preds = %13, %9
-  %42 = phi i32 [ %10, %9 ], [ %38, %13 ]
-  %43 = phi ptr [ %11, %9 ], [ %39, %13 ]
-  br i1 %12, label %9, label %44
+43:                                               ; preds = %15, %10
+  %44 = phi i32 [ %11, %10 ], [ %40, %15 ]
+  %45 = phi ptr [ %12, %10 ], [ %41, %15 ]
+  br i1 %13, label %10, label %46
 
-44:                                               ; preds = %41, %37, %6, %3, %1
-  %45 = phi i32 [ -22, %3 ], [ -22, %1 ], [ -114, %6 ], [ %38, %37 ], [ -2, %41 ]
-  ret i32 %45
+46:                                               ; preds = %43, %39, %6, %3, %1
+  %47 = phi i32 [ -22, %3 ], [ -22, %1 ], [ -114, %6 ], [ %40, %39 ], [ -2, %43 ]
+  ret i32 %47
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -139,53 +141,59 @@ define internal fastcc i32 @register_earlycon(ptr noundef %0, ptr noundef %1) un
 
 8:                                                ; preds = %4, %2
   %9 = phi ptr [ null, %2 ], [ %7, %4 ]
-  store i32 0, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1), align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 24), align 8
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %13
+  %10 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 24
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %16
 
-12:                                               ; preds = %8
-  store i32 1843200, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 24), align 8
-  br label %13
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 24
+  store i32 1843200, ptr %15, align 8
+  br label %16
 
-13:                                               ; preds = %12, %8
-  %14 = load i64, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45), align 8
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %22, label %16
+16:                                               ; preds = %14, %8
+  %17 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45
+  %18 = load i64, ptr %17, align 8
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %28, label %20
 
-16:                                               ; preds = %13
-  %17 = and i64 %14, -4096
-  %18 = load i64, ptr @__default_kernel_pte_mask, align 8
-  %19 = and i64 %18, -9223372036854775453
-  tail call void @native_set_fixmap(i32 noundef 513, i64 noundef %17, i64 %19) #6
-  %20 = and i64 %14, 4095
-  %21 = getelementptr i8, ptr inttoptr (i64 -10493952 to ptr), i64 %20
-  store ptr %21, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 2), align 8
-  br label %22
+20:                                               ; preds = %16
+  %21 = and i64 %18, -4096
+  %22 = load i64, ptr @__default_kernel_pte_mask, align 8
+  %23 = and i64 %22, -9223372036854775453
+  tail call void @native_set_fixmap(i32 noundef 513, i64 noundef %21, i64 %23) #6
+  %24 = and i64 %18, 4095
+  %25 = inttoptr i64 -10493952 to ptr
+  %26 = getelementptr i8, ptr %25, i64 %24
+  %27 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 2
+  store ptr %26, ptr %27, align 8
+  br label %28
 
-22:                                               ; preds = %16, %13
+28:                                               ; preds = %20, %16
   tail call fastcc void @earlycon_init(ptr noundef %1) #7
-  %23 = getelementptr inbounds i8, ptr %1, i64 144
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 %24(ptr noundef nonnull @early_console_dev, ptr noundef %9) #6
-  tail call fastcc void @earlycon_print_info() #7
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %33, label %27
-
-27:                                               ; preds = %22
-  %28 = load ptr, ptr @early_console_dev, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds i8, ptr %1, i64 144
   %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %33, label %32
+  %31 = tail call i32 %30(ptr noundef nonnull @early_console_dev, ptr noundef %9) #6
+  tail call fastcc void @earlycon_print_info() #7
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %39, label %33
 
-32:                                               ; preds = %27
-  tail call void @register_console(ptr noundef %28) #6
-  br label %33
+33:                                               ; preds = %28
+  %34 = load ptr, ptr @early_console_dev, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %39, label %38
 
-33:                                               ; preds = %32, %27, %22
-  %34 = phi i32 [ 0, %32 ], [ %25, %22 ], [ -19, %27 ]
-  ret i32 %34
+38:                                               ; preds = %33
+  tail call void @register_console(ptr noundef %34) #6
+  br label %39
+
+39:                                               ; preds = %38, %33, %28
+  %40 = phi i32 [ 0, %38 ], [ %31, %28 ], [ -19, %33 ]
+  ret i32 %40
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -233,79 +241,90 @@ define internal fastcc noundef i32 @parse_options(ptr noundef %0) unnamed_addr #
   store ptr %0, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   store i64 0, ptr %3, align 8, !annotation !9
-  %4 = call i32 @uart_parse_earlycon(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 28), ptr noundef nonnull %3, ptr noundef nonnull %2) #6
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %38
+  %4 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 28
+  %5 = call i32 @uart_parse_earlycon(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %2) #6
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %7, label %49
 
-6:                                                ; preds = %1
-  %7 = load i8, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 28), align 2
-  switch i8 %7, label %38 [
-    i8 2, label %8
-    i8 7, label %10
-    i8 3, label %12
-    i8 6, label %12
-    i8 0, label %14
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 28
+  %9 = load i8, ptr %8, align 2
+  switch i8 %9, label %49 [
+    i8 2, label %10
+    i8 7, label %13
+    i8 3, label %17
+    i8 6, label %17
+    i8 0, label %21
   ]
 
-8:                                                ; preds = %6
-  %9 = load i64, ptr %3, align 8
-  store i64 %9, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45), align 8
-  br label %16
-
-10:                                               ; preds = %6
-  store i8 1, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 27), align 1
+10:                                               ; preds = %7
   %11 = load i64, ptr %3, align 8
-  store i64 %11, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45), align 8
-  br label %16
+  %12 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45
+  store i64 %11, ptr %12, align 8
+  br label %24
 
-12:                                               ; preds = %6, %6
-  store i8 2, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 27), align 1
-  %13 = load i64, ptr %3, align 8
-  store i64 %13, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45), align 8
-  br label %16
-
-14:                                               ; preds = %6
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 27
+  store i8 1, ptr %14, align 1
   %15 = load i64, ptr %3, align 8
-  store i64 %15, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 1), align 8
-  br label %16
+  %16 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45
+  store i64 %15, ptr %16, align 8
+  br label %24
 
-16:                                               ; preds = %14, %12, %10, %8
-  %17 = load ptr, ptr %2, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %38, label %19
+17:                                               ; preds = %7, %7
+  %18 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 27
+  store i8 2, ptr %18, align 1
+  %19 = load i64, ptr %3, align 8
+  %20 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45
+  store i64 %19, ptr %20, align 8
+  br label %24
 
-19:                                               ; preds = %16
-  %20 = call i64 @simple_strtoul(ptr noundef nonnull %17, ptr noundef null, i32 noundef 0) #6
-  %21 = trunc i64 %20 to i32
-  store i32 %21, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 3), align 8
-  %22 = load ptr, ptr %2, align 8
-  %23 = call ptr @strchr(ptr noundef %22, i32 noundef 44) #6
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %32, label %25
+21:                                               ; preds = %7
+  %22 = load i64, ptr %3, align 8
+  %23 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 1
+  store i64 %22, ptr %23, align 8
+  br label %24
 
-25:                                               ; preds = %19
-  %26 = getelementptr i8, ptr %23, i64 1
-  %27 = call i32 @kstrtouint(ptr noundef %26, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 24)) #6
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %32
+24:                                               ; preds = %21, %17, %13, %10
+  %25 = load ptr, ptr %2, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %49, label %27
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %2, align 8
-  %31 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %30) #8
-  br label %32
+27:                                               ; preds = %24
+  %28 = call i64 @simple_strtoul(ptr noundef nonnull %25, ptr noundef null, i32 noundef 0) #6
+  %29 = trunc i64 %28 to i32
+  %30 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 3
+  store i32 %29, ptr %30, align 8
+  %31 = load ptr, ptr %2, align 8
+  %32 = call ptr @strchr(ptr noundef %31, i32 noundef 44) #6
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %42, label %34
 
-32:                                               ; preds = %29, %25, %19
-  %33 = load ptr, ptr %2, align 8
-  %34 = call i64 @strcspn(ptr noundef %33, ptr noundef nonnull @.str.1)
-  %35 = add i64 %34, 1
-  %36 = call i64 @llvm.umin.i64(i64 %35, i64 32)
-  %37 = call i64 @strscpy(ptr noundef nonnull getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 2), ptr noundef %33, i64 noundef %36) #6
-  br label %38
+34:                                               ; preds = %27
+  %35 = getelementptr i8, ptr %32, i64 1
+  %36 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 24
+  %37 = call i32 @kstrtouint(ptr noundef %35, i32 noundef 0, ptr noundef nonnull %36) #6
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %32, %16, %6, %1
-  %39 = phi i32 [ -22, %1 ], [ -22, %6 ], [ 0, %32 ], [ 0, %16 ]
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %2, align 8
+  %41 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %40) #8
+  br label %42
+
+42:                                               ; preds = %39, %34, %27
+  %43 = load ptr, ptr %2, align 8
+  %44 = call i64 @strcspn(ptr noundef %43, ptr noundef nonnull @.str.1)
+  %45 = add i64 %44, 1
+  %46 = call i64 @llvm.umin.i64(i64 %45, i64 32)
+  %47 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 2
+  %48 = call i64 @strscpy(ptr noundef nonnull %47, ptr noundef %43, i64 noundef %46) #6
+  br label %49
+
+49:                                               ; preds = %42, %24, %7, %1
+  %50 = phi i32 [ -22, %1 ], [ -22, %7 ], [ 0, %42 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  ret i32 %39
+  ret i32 %50
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -354,45 +373,50 @@ define internal fastcc void @earlycon_init(ptr noundef %0) unnamed_addr #0 secti
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @earlycon_print_info() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load ptr, ptr @early_console_dev, align 8
-  %2 = load i8, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 28), align 2
-  switch i8 %2, label %14 [
-    i8 2, label %3
-    i8 7, label %3
-    i8 3, label %3
-    i8 6, label %3
+  %2 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 28
+  %3 = load i8, ptr %2, align 2
+  switch i8 %3, label %17 [
+    i8 2, label %4
+    i8 7, label %4
+    i8 3, label %4
+    i8 6, label %4
   ]
 
-3:                                                ; preds = %0, %0, %0, %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 74
-  %5 = load i16, ptr %4, align 2
-  %6 = sext i16 %5 to i32
-  switch i8 %2, label %7 [
-    i8 2, label %11
-    i8 7, label %10
+4:                                                ; preds = %0, %0, %0, %0
+  %5 = getelementptr inbounds i8, ptr %1, i64 74
+  %6 = load i16, ptr %5, align 2
+  %7 = sext i16 %6 to i32
+  switch i8 %3, label %8 [
+    i8 2, label %12
+    i8 7, label %11
   ]
 
-7:                                                ; preds = %3
-  %8 = icmp eq i8 %2, 3
-  %9 = select i1 %8, ptr @.str.6, ptr @.str.7
-  br label %11
+8:                                                ; preds = %4
+  %9 = icmp eq i8 %3, 3
+  %10 = select i1 %9, ptr @.str.6, ptr @.str.7
+  br label %12
 
-10:                                               ; preds = %3
-  br label %11
+11:                                               ; preds = %4
+  br label %12
 
-11:                                               ; preds = %10, %7, %3
-  %12 = phi ptr [ @.str.4, %3 ], [ %9, %7 ], [ @.str.5, %10 ]
-  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %1, i32 noundef %6, ptr noundef nonnull %12, ptr noundef nonnull getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45), ptr noundef nonnull getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 2)) #8
-  br label %20
+12:                                               ; preds = %11, %8, %4
+  %13 = phi ptr [ @.str.4, %4 ], [ %10, %8 ], [ @.str.5, %11 ]
+  %14 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 45
+  %15 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 2
+  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %1, i32 noundef %7, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #8
+  br label %25
 
-14:                                               ; preds = %0
-  %15 = getelementptr inbounds i8, ptr %1, i64 74
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i32
-  %18 = load i64, ptr getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 1), align 8
-  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef %1, i32 noundef %17, i64 noundef %18, ptr noundef nonnull getelementptr inbounds (%struct.earlycon_device, ptr @early_console_dev, i64 0, i32 2)) #8
-  br label %20
+17:                                               ; preds = %0
+  %18 = getelementptr inbounds i8, ptr %1, i64 74
+  %19 = load i16, ptr %18, align 2
+  %20 = sext i16 %19 to i32
+  %21 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 1, i32 1
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds %struct.earlycon_device, ptr @early_console_dev, i64 0, i32 2
+  %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef %1, i32 noundef %20, i64 noundef %22, ptr noundef nonnull %23) #8
+  br label %25
 
-20:                                               ; preds = %14, %11
+25:                                               ; preds = %17, %12
   ret void
 }
 

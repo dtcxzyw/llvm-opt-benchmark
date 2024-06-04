@@ -1310,208 +1310,211 @@ define void @_ZN14RtpAudioStreamC2EP7QObjectP13_rtpstream_idb(ptr noundef nonnul
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV14RtpAudioStream, i32 0, i32 0, i32 2), ptr %12, align 8
-  %14 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 3
-  store i8 1, ptr %14, align 8
-  %15 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 4
-  call void @_ZN5QListIP11_rtp_packetEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #20
-  %16 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 7
-  %17 = invoke ptr @rtp_decoder_hash_table_new()
-          to label %18 unwind label %63
+  %14 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV14RtpAudioStream, i32 0, i32 0, i32 2
+  store ptr %14, ptr %12, align 8
+  %15 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 3
+  store i8 1, ptr %15, align 8
+  %16 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 4
+  call void @_ZN5QListIP11_rtp_packetEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #20
+  %17 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 7
+  %18 = invoke ptr @rtp_decoder_hash_table_new()
+          to label %19 unwind label %66
 
-18:                                               ; preds = %4
-  store ptr %17, ptr %16, align 8
-  %19 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 8
-  store double 0.000000e+00, ptr %19, align 8
-  %20 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 9
+19:                                               ; preds = %4
+  store ptr %18, ptr %17, align 8
+  %20 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 8
   store double 0.000000e+00, ptr %20, align 8
-  %21 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 10
+  %21 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 9
   store double 0.000000e+00, ptr %21, align 8
-  %22 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 11
+  %22 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 10
   store double 0.000000e+00, ptr %22, align 8
-  %23 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 14
-  %24 = load i8, ptr %8, align 1
-  %25 = trunc i8 %24 to i1
-  %26 = zext i1 %25 to i8
-  store i8 %26, ptr %23, align 8
-  %27 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 15
-  store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 16
-  store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 17
-  store i32 0, ptr %29, align 4
-  %30 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 18
-  call void @_ZN4QSetI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #20
-  %31 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 20
-  call void @_ZN4QMapIdjEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #20
-  %32 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 21
-  call void @_ZN5QListIsEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #20
-  %33 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 22
-  call void @_ZN5QListIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #20
-  %34 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 23
+  %23 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 11
+  store double 0.000000e+00, ptr %23, align 8
+  %24 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 14
+  %25 = load i8, ptr %8, align 1
+  %26 = trunc i8 %25 to i1
+  %27 = zext i1 %26 to i8
+  store i8 %27, ptr %24, align 8
+  %28 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 15
+  store i32 0, ptr %28, align 4
+  %29 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 16
+  store i32 0, ptr %29, align 8
+  %30 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 17
+  store i32 0, ptr %30, align 4
+  %31 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 18
+  call void @_ZN4QSetI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #20
+  %32 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 20
+  call void @_ZN4QMapIdjEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #20
+  %33 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 21
+  call void @_ZN5QListIsEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #20
+  %34 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 22
   call void @_ZN5QListIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #20
-  %35 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 24
+  %35 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 23
   call void @_ZN5QListIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #20
-  %36 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 25
+  %36 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 24
   call void @_ZN5QListIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #20
-  %37 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 26
-  store i16 1, ptr %37, align 8
-  %38 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 27
-  store i16 1, ptr %38, align 2
-  %39 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 28
-  store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 29
-  store i32 50, ptr %40, align 8
-  %41 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 30
-  store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 31
-  store double 0.000000e+00, ptr %42, align 8
-  %43 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 32
-  store ptr null, ptr %43, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 1
-  invoke void @rtpstream_id_copy(ptr noundef %44, ptr noundef %45)
-          to label %46 unwind label %67
+  %37 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 25
+  call void @_ZN5QListIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #20
+  %38 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 26
+  store i16 1, ptr %38, align 8
+  %39 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 27
+  store i16 1, ptr %39, align 2
+  %40 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 28
+  store i32 0, ptr %40, align 4
+  %41 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 29
+  store i32 50, ptr %41, align 8
+  %42 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 30
+  store i32 0, ptr %42, align 4
+  %43 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 31
+  store double 0.000000e+00, ptr %43, align 8
+  %44 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 32
+  store ptr null, ptr %44, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 1
+  invoke void @rtpstream_id_copy(ptr noundef %45, ptr noundef %46)
+          to label %47 unwind label %70
 
-46:                                               ; preds = %18
-  %47 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 2
-  call void @llvm.memset.p0.i64(ptr align 8 %47, i8 0, i64 7304, i1 false)
-  %48 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 1
-  %49 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 2
-  %50 = getelementptr inbounds %struct._rtpstream_info, ptr %49, i32 0, i32 0
-  invoke void @rtpstream_id_copy(ptr noundef %48, ptr noundef %50)
-          to label %51 unwind label %67
+47:                                               ; preds = %19
+  %48 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 2
+  call void @llvm.memset.p0.i64(ptr align 8 %48, i8 0, i64 7304, i1 false)
+  %49 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 1
+  %50 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 2
+  %51 = getelementptr inbounds %struct._rtpstream_info, ptr %50, i32 0, i32 0
+  invoke void @rtpstream_id_copy(ptr noundef %49, ptr noundef %51)
+          to label %52 unwind label %70
 
-51:                                               ; preds = %46
-  %52 = invoke ptr @speex_resampler_init(i32 noundef 1, i32 noundef 1000, i32 noundef 1000, i32 noundef 0, ptr noundef null)
-          to label %53 unwind label %67
+52:                                               ; preds = %47
+  %53 = invoke ptr @speex_resampler_init(i32 noundef 1, i32 noundef 1000, i32 noundef 1000, i32 noundef 0, ptr noundef null)
+          to label %54 unwind label %70
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 19
-  store ptr %52, ptr %54, align 8
-  %55 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 96) #21
-          to label %56 unwind label %71
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 19
+  store ptr %53, ptr %55, align 8
+  %56 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 96) #21
+          to label %57 unwind label %74
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 102), align 8
-  %58 = icmp ne i32 %57, 0
-  %59 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 103), align 4
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 102
+  %59 = load i32, ptr %58, align 8
   %60 = icmp ne i32 %59, 0
-  invoke void @_ZN12RtpAudioFileC1Ebb(ptr noundef nonnull align 8 dereferenceable(96) %55, i1 noundef zeroext %58, i1 noundef zeroext %60)
-          to label %61 unwind label %75
+  %61 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 103
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp ne i32 %62, 0
+  invoke void @_ZN12RtpAudioFileC1Ebb(ptr noundef nonnull align 8 dereferenceable(96) %56, i1 noundef zeroext %60, i1 noundef zeroext %63)
+          to label %64 unwind label %78
 
-61:                                               ; preds = %56
-  %62 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 5
-  store ptr %55, ptr %62, align 8
-  br label %95
+64:                                               ; preds = %57
+  %65 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 5
+  store ptr %56, ptr %65, align 8
+  br label %98
 
-63:                                               ; preds = %4
-  %64 = landingpad { ptr, i32 }
+66:                                               ; preds = %4
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %9, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %10, align 4
-  br label %97
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %9, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %10, align 4
+  br label %100
 
-67:                                               ; preds = %51, %46, %18
-  %68 = landingpad { ptr, i32 }
+70:                                               ; preds = %52, %47, %19
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %9, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %10, align 4
-  br label %96
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %9, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %10, align 4
+  br label %99
 
-71:                                               ; preds = %53
-  %72 = landingpad { ptr, i32 }
+74:                                               ; preds = %54
+  %75 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %9, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %10, align 4
-  br label %79
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %9, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %10, align 4
+  br label %82
 
-75:                                               ; preds = %56
-  %76 = landingpad { ptr, i32 }
+78:                                               ; preds = %57
+  %79 = landingpad { ptr, i32 }
           catch ptr null
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %9, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %10, align 4
-  call void @_ZdlPv(ptr noundef %55) #22
-  br label %79
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %9, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %10, align 4
+  call void @_ZdlPv(ptr noundef %56) #22
+  br label %82
 
-79:                                               ; preds = %75, %71
-  %80 = load ptr, ptr %9, align 8
-  %81 = call ptr @__cxa_begin_catch(ptr %80) #20
-  %82 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 19
-  %83 = load ptr, ptr %82, align 8
-  invoke void @speex_resampler_destroy(ptr noundef %83)
-          to label %84 unwind label %90
+82:                                               ; preds = %78, %74
+  %83 = load ptr, ptr %9, align 8
+  %84 = call ptr @__cxa_begin_catch(ptr %83) #20
+  %85 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 19
+  %86 = load ptr, ptr %85, align 8
+  invoke void @speex_resampler_destroy(ptr noundef %86)
+          to label %87 unwind label %93
 
-84:                                               ; preds = %79
-  %85 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 2
-  invoke void @rtpstream_info_free_data(ptr noundef %85)
-          to label %86 unwind label %90
+87:                                               ; preds = %82
+  %88 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 2
+  invoke void @rtpstream_info_free_data(ptr noundef %88)
+          to label %89 unwind label %93
 
-86:                                               ; preds = %84
-  %87 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 1
-  invoke void @rtpstream_id_free(ptr noundef %87)
-          to label %88 unwind label %90
+89:                                               ; preds = %87
+  %90 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 1
+  invoke void @rtpstream_id_free(ptr noundef %90)
+          to label %91 unwind label %93
 
-88:                                               ; preds = %86
-  %89 = call ptr @__cxa_allocate_exception(i64 4) #20
-  store i32 -1, ptr %89, align 16
-  invoke void @__cxa_throw(ptr %89, ptr @_ZTIi, ptr null) #23
-          to label %106 unwind label %90
+91:                                               ; preds = %89
+  %92 = call ptr @__cxa_allocate_exception(i64 4) #20
+  store i32 -1, ptr %92, align 16
+  invoke void @__cxa_throw(ptr %92, ptr @_ZTIi, ptr null) #23
+          to label %109 unwind label %93
 
-90:                                               ; preds = %88, %86, %84, %79
-  %91 = landingpad { ptr, i32 }
+93:                                               ; preds = %91, %89, %87, %82
+  %94 = landingpad { ptr, i32 }
           cleanup
-  %92 = extractvalue { ptr, i32 } %91, 0
-  store ptr %92, ptr %9, align 8
-  %93 = extractvalue { ptr, i32 } %91, 1
-  store i32 %93, ptr %10, align 4
+  %95 = extractvalue { ptr, i32 } %94, 0
+  store ptr %95, ptr %9, align 8
+  %96 = extractvalue { ptr, i32 } %94, 1
+  store i32 %96, ptr %10, align 4
   invoke void @__cxa_end_catch()
-          to label %94 unwind label %103
+          to label %97 unwind label %106
 
-94:                                               ; preds = %90
-  br label %96
+97:                                               ; preds = %93
+  br label %99
 
-95:                                               ; preds = %61
+98:                                               ; preds = %64
   ret void
 
-96:                                               ; preds = %94, %67
+99:                                               ; preds = %97, %70
+  call void @_ZN5QListIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #20
   call void @_ZN5QListIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #20
   call void @_ZN5QListIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #20
   call void @_ZN5QListIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #20
-  call void @_ZN5QListIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #20
-  call void @_ZN5QListIsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #20
-  call void @_ZN4QMapIdjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #20
-  call void @_ZN4QSetI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #20
-  br label %97
+  call void @_ZN5QListIsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #20
+  call void @_ZN4QMapIdjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #20
+  call void @_ZN4QSetI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #20
+  br label %100
 
-97:                                               ; preds = %96, %63
-  call void @_ZN5QListIP11_rtp_packetED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #20
+100:                                              ; preds = %99, %66
+  call void @_ZN5QListIP11_rtp_packetED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #20
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
-  br label %98
+  br label %101
 
-98:                                               ; preds = %97
-  %99 = load ptr, ptr %9, align 8
-  %100 = load i32, ptr %10, align 4
-  %101 = insertvalue { ptr, i32 } poison, ptr %99, 0
-  %102 = insertvalue { ptr, i32 } %101, i32 %100, 1
-  resume { ptr, i32 } %102
+101:                                              ; preds = %100
+  %102 = load ptr, ptr %9, align 8
+  %103 = load i32, ptr %10, align 4
+  %104 = insertvalue { ptr, i32 } poison, ptr %102, 0
+  %105 = insertvalue { ptr, i32 } %104, i32 %103, 1
+  resume { ptr, i32 } %105
 
-103:                                              ; preds = %90
-  %104 = landingpad { ptr, i32 }
+106:                                              ; preds = %93
+  %107 = landingpad { ptr, i32 }
           catch ptr null
-  %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #24
+  %108 = extractvalue { ptr, i32 } %107, 0
+  call void @__clang_call_terminate(ptr %108) #24
   unreachable
 
-106:                                              ; preds = %88
+109:                                              ; preds = %91
   unreachable
 }
 
@@ -1669,146 +1672,147 @@ define void @_ZN14RtpAudioStreamD2Ev(ptr noundef nonnull align 8 dereferenceable
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV14RtpAudioStream, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV14RtpAudioStream, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   store i32 0, ptr %3, align 4
-  br label %6
+  br label %7
 
-6:                                                ; preds = %29, %1
-  %7 = load i32, ptr %3, align 4
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 4
-  %10 = call noundef i64 @_ZNK5QListIP11_rtp_packetE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #20
-  %11 = icmp slt i64 %8, %10
-  br i1 %11, label %12, label %32
+7:                                                ; preds = %30, %1
+  %8 = load i32, ptr %3, align 4
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 4
+  %11 = call noundef i64 @_ZNK5QListIP11_rtp_packetE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #20
+  %12 = icmp slt i64 %9, %11
+  br i1 %12, label %13, label %33
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 4
-  %14 = load i32, ptr %3, align 4
-  %15 = sext i32 %14 to i64
-  %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP11_rtp_packetEixEx(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %15)
-          to label %17 unwind label %77
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 4
+  %15 = load i32, ptr %3, align 4
+  %16 = sext i32 %15 to i64
+  %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP11_rtp_packetEixEx(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %16)
+          to label %18 unwind label %78
 
-17:                                               ; preds = %12
-  %18 = load ptr, ptr %16, align 8
-  store ptr %18, ptr %4, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct._rtp_packet, ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  invoke void @g_free(ptr noundef %21)
-          to label %22 unwind label %77
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %17, align 8
+  store ptr %19, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %struct._rtp_packet, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  invoke void @g_free(ptr noundef %22)
+          to label %23 unwind label %78
 
-22:                                               ; preds = %17
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct._rtp_packet, ptr %23, i32 0, i32 3
-  %25 = load ptr, ptr %24, align 8
-  invoke void @g_free(ptr noundef %25)
-          to label %26 unwind label %77
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %struct._rtp_packet, ptr %24, i32 0, i32 3
+  %26 = load ptr, ptr %25, align 8
+  invoke void @g_free(ptr noundef %26)
+          to label %27 unwind label %78
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %4, align 8
-  invoke void @g_free(ptr noundef %27)
-          to label %28 unwind label %77
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %4, align 8
+  invoke void @g_free(ptr noundef %28)
+          to label %29 unwind label %78
 
-28:                                               ; preds = %26
-  br label %29
+29:                                               ; preds = %27
+  br label %30
 
-29:                                               ; preds = %28
-  %30 = load i32, ptr %3, align 4
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %3, align 4
-  br label %6, !llvm.loop !4
+30:                                               ; preds = %29
+  %31 = load i32, ptr %3, align 4
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %3, align 4
+  br label %7, !llvm.loop !4
 
-32:                                               ; preds = %6
-  %33 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 7
-  %34 = load ptr, ptr %33, align 8
-  invoke void @g_hash_table_destroy(ptr noundef %34)
-          to label %35 unwind label %77
+33:                                               ; preds = %7
+  %34 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 7
+  %35 = load ptr, ptr %34, align 8
+  invoke void @g_hash_table_destroy(ptr noundef %35)
+          to label %36 unwind label %78
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 19
-  %37 = load ptr, ptr %36, align 8
-  invoke void @speex_resampler_destroy(ptr noundef %37)
-          to label %38 unwind label %77
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 19
+  %38 = load ptr, ptr %37, align 8
+  invoke void @speex_resampler_destroy(ptr noundef %38)
+          to label %39 unwind label %78
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 2
-  invoke void @rtpstream_info_free_data(ptr noundef %39)
-          to label %40 unwind label %77
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 2
+  invoke void @rtpstream_info_free_data(ptr noundef %40)
+          to label %41 unwind label %78
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 1
-  invoke void @rtpstream_id_free(ptr noundef %41)
-          to label %42 unwind label %77
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 1
+  invoke void @rtpstream_id_free(ptr noundef %42)
+          to label %43 unwind label %78
 
-42:                                               ; preds = %40
-  %43 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 5
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %55
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 5
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %56
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 5
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %54, label %50
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 5
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %55, label %51
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %48, align 8
-  %52 = getelementptr inbounds ptr, ptr %51, i64 4
-  %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(96) %48) #20
-  br label %54
-
-54:                                               ; preds = %50, %46
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %49, align 8
+  %53 = getelementptr inbounds ptr, ptr %52, i64 4
+  %54 = load ptr, ptr %53, align 8
+  call void %54(ptr noundef nonnull align 8 dereferenceable(96) %49) #20
   br label %55
 
-55:                                               ; preds = %54, %42
-  %56 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 32
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp ne ptr %57, null
-  br i1 %58, label %59, label %68
+55:                                               ; preds = %51, %47
+  br label %56
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 32
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %67, label %63
+56:                                               ; preds = %55, %43
+  %57 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 32
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %69
 
-63:                                               ; preds = %59
-  %64 = load ptr, ptr %61, align 8
-  %65 = getelementptr inbounds ptr, ptr %64, i64 4
-  %66 = load ptr, ptr %65, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(24) %61) #20
-  br label %67
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 32
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %68, label %64
 
-67:                                               ; preds = %63, %59
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %62, align 8
+  %66 = getelementptr inbounds ptr, ptr %65, i64 4
+  %67 = load ptr, ptr %66, align 8
+  call void %67(ptr noundef nonnull align 8 dereferenceable(24) %62) #20
   br label %68
 
-68:                                               ; preds = %67, %55
-  %69 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 25
-  call void @_ZN5QListIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %69) #20
-  %70 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 24
+68:                                               ; preds = %64, %60
+  br label %69
+
+69:                                               ; preds = %68, %56
+  %70 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 25
   call void @_ZN5QListIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %70) #20
-  %71 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 23
+  %71 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 24
   call void @_ZN5QListIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %71) #20
-  %72 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 22
+  %72 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 23
   call void @_ZN5QListIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %72) #20
-  %73 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 21
-  call void @_ZN5QListIsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %73) #20
-  %74 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 20
-  call void @_ZN4QMapIdjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %74) #20
-  %75 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 18
-  call void @_ZN4QSetI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %75) #20
-  %76 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 4
-  call void @_ZN5QListIP11_rtp_packetED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %76) #20
+  %73 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 22
+  call void @_ZN5QListIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %73) #20
+  %74 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 21
+  call void @_ZN5QListIsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %74) #20
+  %75 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 20
+  call void @_ZN4QMapIdjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %75) #20
+  %76 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 18
+  call void @_ZN4QSetI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %76) #20
+  %77 = getelementptr inbounds %class.RtpAudioStream, ptr %5, i32 0, i32 4
+  call void @_ZN5QListIP11_rtp_packetED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %77) #20
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
   ret void
 
-77:                                               ; preds = %40, %38, %35, %32, %26, %22, %17, %12
-  %78 = landingpad { ptr, i32 }
+78:                                               ; preds = %41, %39, %36, %33, %27, %23, %18, %13
+  %79 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #24
+  %80 = extractvalue { ptr, i32 } %79, 0
+  call void @__clang_call_terminate(ptr %80) #24
   unreachable
 }
 

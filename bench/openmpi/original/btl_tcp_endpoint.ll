@@ -173,98 +173,101 @@ define internal void @mca_btl_tcp_endpoint_construct(ptr noundef %0) #0 {
 
 30:                                               ; preds = %29
   %31 = load i32, ptr @opal_class_init_epoch, align 4
-  %32 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %33 = icmp ne i32 %31, %32
-  br i1 %33, label %34, label %35
+  %32 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp ne i32 %31, %33
+  br i1 %34, label %35, label %36
 
-34:                                               ; preds = %30
+35:                                               ; preds = %30
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %35
+  br label %36
 
-35:                                               ; preds = %34, %30
-  %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %36, i32 0, i32 13
-  %38 = getelementptr inbounds %struct.opal_object_t, ptr %37, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %38, align 8
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %39, i32 0, i32 13
-  %41 = getelementptr inbounds %struct.opal_object_t, ptr %40, i32 0, i32 1
-  store volatile i32 1, ptr %41, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %42, i32 0, i32 13
-  call void @opal_obj_run_constructors(ptr noundef %43)
-  br label %44
-
-44:                                               ; preds = %35
+36:                                               ; preds = %35, %30
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %37, i32 0, i32 13
+  %39 = getelementptr inbounds %struct.opal_object_t, ptr %38, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %39, align 8
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %40, i32 0, i32 13
+  %42 = getelementptr inbounds %struct.opal_object_t, ptr %41, i32 0, i32 1
+  store volatile i32 1, ptr %42, align 8
+  %43 = load ptr, ptr %2, align 8
+  %44 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %43, i32 0, i32 13
+  call void @opal_obj_run_constructors(ptr noundef %44)
   br label %45
 
-45:                                               ; preds = %44
+45:                                               ; preds = %36
   br label %46
 
 46:                                               ; preds = %45
   br label %47
 
 47:                                               ; preds = %46
-  %48 = load i32, ptr @opal_class_init_epoch, align 4
-  %49 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %50 = icmp ne i32 %48, %49
-  br i1 %50, label %51, label %52
+  br label %48
 
-51:                                               ; preds = %47
+48:                                               ; preds = %47
+  %49 = load i32, ptr @opal_class_init_epoch, align 4
+  %50 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %51 = load i32, ptr %50, align 8
+  %52 = icmp ne i32 %49, %51
+  br i1 %52, label %53, label %54
+
+53:                                               ; preds = %48
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %52
+  br label %54
 
-52:                                               ; preds = %51, %47
-  %53 = load ptr, ptr %2, align 8
-  %54 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %53, i32 0, i32 14
-  %55 = getelementptr inbounds %struct.opal_object_t, ptr %54, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %55, align 8
-  %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %56, i32 0, i32 14
-  %58 = getelementptr inbounds %struct.opal_object_t, ptr %57, i32 0, i32 1
-  store volatile i32 1, ptr %58, align 8
-  %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %59, i32 0, i32 14
-  call void @opal_obj_run_constructors(ptr noundef %60)
-  br label %61
-
-61:                                               ; preds = %52
-  br label %62
-
-62:                                               ; preds = %61
+54:                                               ; preds = %53, %48
+  %55 = load ptr, ptr %2, align 8
+  %56 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %55, i32 0, i32 14
+  %57 = getelementptr inbounds %struct.opal_object_t, ptr %56, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %57, align 8
+  %58 = load ptr, ptr %2, align 8
+  %59 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %58, i32 0, i32 14
+  %60 = getelementptr inbounds %struct.opal_object_t, ptr %59, i32 0, i32 1
+  store volatile i32 1, ptr %60, align 8
+  %61 = load ptr, ptr %2, align 8
+  %62 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %61, i32 0, i32 14
+  call void @opal_obj_run_constructors(ptr noundef %62)
   br label %63
 
-63:                                               ; preds = %62
+63:                                               ; preds = %54
   br label %64
 
 64:                                               ; preds = %63
-  %65 = load i32, ptr @opal_class_init_epoch, align 4
-  %66 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %67 = icmp ne i32 %65, %66
-  br i1 %67, label %68, label %69
+  br label %65
 
-68:                                               ; preds = %64
+65:                                               ; preds = %64
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load i32, ptr @opal_class_init_epoch, align 4
+  %68 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp ne i32 %67, %69
+  br i1 %70, label %71, label %72
+
+71:                                               ; preds = %66
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %69
+  br label %72
 
-69:                                               ; preds = %68, %64
-  %70 = load ptr, ptr %2, align 8
-  %71 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %70, i32 0, i32 15
-  %72 = getelementptr inbounds %struct.opal_object_t, ptr %71, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %72, align 8
+72:                                               ; preds = %71, %66
   %73 = load ptr, ptr %2, align 8
   %74 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %73, i32 0, i32 15
-  %75 = getelementptr inbounds %struct.opal_object_t, ptr %74, i32 0, i32 1
-  store volatile i32 1, ptr %75, align 8
+  %75 = getelementptr inbounds %struct.opal_object_t, ptr %74, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %75, align 8
   %76 = load ptr, ptr %2, align 8
   %77 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %76, i32 0, i32 15
-  call void @opal_obj_run_constructors(ptr noundef %77)
-  br label %78
+  %78 = getelementptr inbounds %struct.opal_object_t, ptr %77, i32 0, i32 1
+  store volatile i32 1, ptr %78, align 8
+  %79 = load ptr, ptr %2, align 8
+  %80 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %79, i32 0, i32 15
+  call void @opal_obj_run_constructors(ptr noundef %80)
+  br label %81
 
-78:                                               ; preds = %69
-  br label %79
+81:                                               ; preds = %72
+  br label %82
 
-79:                                               ; preds = %78
+82:                                               ; preds = %81
   ret void
 }
 
@@ -345,7 +348,7 @@ define i32 @mca_btl_tcp_endpoint_send(ptr noundef %0, ptr noundef %1) #0 {
   %22 = load ptr, ptr %4, align 8
   %23 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %22, i32 0, i32 11
   %24 = load i32, ptr %23, align 8
-  switch i32 %24, label %146 [
+  switch i32 %24, label %147 [
     i32 0, label %25
     i32 1, label %25
     i32 2, label %25
@@ -377,18 +380,18 @@ define i32 @mca_btl_tcp_endpoint_send(ptr noundef %0, ptr noundef %1) #0 {
   br label %41
 
 41:                                               ; preds = %38, %25
-  br label %146
+  br label %147
 
 42:                                               ; preds = %21
   store i32 -12, ptr %6, align 4
-  br label %146
+  br label %147
 
 43:                                               ; preds = %21
   %44 = load ptr, ptr %4, align 8
   %45 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %44, i32 0, i32 9
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr null, %46
-  br i1 %47, label %48, label %136
+  br i1 %47, label %48, label %137
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %5, align 8
@@ -479,7 +482,7 @@ define i32 @mca_btl_tcp_endpoint_send(ptr noundef %0, ptr noundef %1) #0 {
 
 111:                                              ; preds = %106, %103
   store i32 1, ptr %3, align 4
-  br label %161
+  br label %162
 
 112:                                              ; preds = %55, %48
   %113 = load ptr, ptr %5, align 8
@@ -497,77 +500,78 @@ define i32 @mca_btl_tcp_endpoint_send(ptr noundef %0, ptr noundef %1) #0 {
 121:                                              ; preds = %112
   %122 = load i32, ptr @mca_btl_tcp_progress_thread_trigger, align 4
   %123 = icmp slt i32 0, %122
-  br i1 %123, label %124, label %129
+  br i1 %123, label %124, label %130
 
 124:                                              ; preds = %121
   %125 = load ptr, ptr %4, align 8
   %126 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %125, i32 0, i32 17
   store ptr %126, ptr %8, align 8
-  %127 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @mca_btl_tcp_pipe_to_progress, i64 0, i64 1), align 4
-  %128 = call i32 @opal_fd_write(i32 noundef %127, i32 noundef 8, ptr noundef %8)
-  br label %133
-
-129:                                              ; preds = %121
-  %130 = load ptr, ptr %4, align 8
-  %131 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %130, i32 0, i32 17
-  %132 = call i32 @event_add(ptr noundef %131, ptr noundef null)
-  br label %133
-
-133:                                              ; preds = %129, %124
+  %127 = getelementptr inbounds [2 x i32], ptr @mca_btl_tcp_pipe_to_progress, i64 0, i64 1
+  %128 = load i32, ptr %127, align 4
+  %129 = call i32 @opal_fd_write(i32 noundef %128, i32 noundef 8, ptr noundef %8)
   br label %134
 
-134:                                              ; preds = %133
+130:                                              ; preds = %121
+  %131 = load ptr, ptr %4, align 8
+  %132 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %131, i32 0, i32 17
+  %133 = call i32 @event_add(ptr noundef %132, ptr noundef null)
+  br label %134
+
+134:                                              ; preds = %130, %124
   br label %135
 
 135:                                              ; preds = %134
-  br label %145
+  br label %136
 
-136:                                              ; preds = %43
-  %137 = load ptr, ptr %5, align 8
-  %138 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %137, i32 0, i32 0
-  %139 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %138, i32 0, i32 6
-  %140 = load i32, ptr %139, align 8
-  %141 = or i32 %140, 4
-  store i32 %141, ptr %139, align 8
-  %142 = load ptr, ptr %4, align 8
-  %143 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %142, i32 0, i32 13
-  %144 = load ptr, ptr %5, align 8
-  call void @_opal_list_append(ptr noundef %143, ptr noundef %144)
-  br label %145
-
-145:                                              ; preds = %136, %135
+136:                                              ; preds = %135
   br label %146
 
-146:                                              ; preds = %145, %42, %41, %21
+137:                                              ; preds = %43
+  %138 = load ptr, ptr %5, align 8
+  %139 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %138, i32 0, i32 0
+  %140 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %139, i32 0, i32 6
+  %141 = load i32, ptr %140, align 8
+  %142 = or i32 %141, 4
+  store i32 %142, ptr %140, align 8
+  %143 = load ptr, ptr %4, align 8
+  %144 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %143, i32 0, i32 13
+  %145 = load ptr, ptr %5, align 8
+  call void @_opal_list_append(ptr noundef %144, ptr noundef %145)
+  br label %146
+
+146:                                              ; preds = %137, %136
   br label %147
 
-147:                                              ; preds = %146
-  %148 = load i8, ptr @opal_uses_threads, align 1
-  %149 = trunc i8 %148 to i1
-  %150 = xor i1 %149, true
+147:                                              ; preds = %146, %42, %41, %21
+  br label %148
+
+148:                                              ; preds = %147
+  %149 = load i8, ptr @opal_uses_threads, align 1
+  %150 = trunc i8 %149 to i1
   %151 = xor i1 %150, true
-  %152 = zext i1 %151 to i32
-  %153 = sext i32 %152 to i64
-  %154 = icmp ne i64 %153, 0
-  br i1 %154, label %155, label %158
+  %152 = xor i1 %151, true
+  %153 = zext i1 %152 to i32
+  %154 = sext i32 %153 to i64
+  %155 = icmp ne i64 %154, 0
+  br i1 %155, label %156, label %159
 
-155:                                              ; preds = %147
-  %156 = load ptr, ptr %4, align 8
-  %157 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %156, i32 0, i32 14
-  call void @opal_mutex_unlock(ptr noundef %157)
-  br label %158
-
-158:                                              ; preds = %155, %147
+156:                                              ; preds = %148
+  %157 = load ptr, ptr %4, align 8
+  %158 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %157, i32 0, i32 14
+  call void @opal_mutex_unlock(ptr noundef %158)
   br label %159
 
-159:                                              ; preds = %158
-  %160 = load i32, ptr %6, align 4
-  store i32 %160, ptr %3, align 4
-  br label %161
+159:                                              ; preds = %156, %148
+  br label %160
 
-161:                                              ; preds = %159, %111
-  %162 = load i32, ptr %3, align 4
-  ret i32 %162
+160:                                              ; preds = %159
+  %161 = load i32, ptr %6, align 4
+  store i32 %161, ptr %3, align 4
+  br label %162
+
+162:                                              ; preds = %160, %111
+  %163 = load i32, ptr %3, align 4
+  ret i32 %163
 }
 
 ; Function Attrs: nounwind uwtable
@@ -654,7 +658,7 @@ define internal i32 @mca_btl_tcp_endpoint_start_connect(ptr noundef %0) #0 {
   %27 = add i32 %26, 1
   store i32 %27, ptr %25, align 4
   store i32 -12, ptr %2, align 4
-  br label %274
+  br label %285
 
 28:                                               ; preds = %1
   %29 = load ptr, ptr %3, align 8
@@ -669,359 +673,370 @@ define internal i32 @mca_btl_tcp_endpoint_start_connect(ptr noundef %0) #0 {
   %36 = call i32 (i32, i32, ...) @fcntl(i32 noundef %35, i32 noundef 3, i32 noundef 0)
   store i32 %36, ptr %5, align 4
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %48
+  br i1 %37, label %38, label %49
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr @opal_show_help, align 8
-  %40 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %41 = call i32 @getpid() #8
-  %42 = call ptr @__errno_location() #9
-  %43 = load i32, ptr %42, align 4
-  %44 = call ptr @strerror(i32 noundef %43) #8
-  %45 = call ptr @__errno_location() #9
-  %46 = load i32, ptr %45, align 4
-  %47 = call i32 (ptr, ptr, i32, ...) %39(ptr noundef @.str.9, ptr noundef @.str.20, i32 noundef 1, ptr noundef %40, i32 noundef %41, ptr noundef @.str.21, ptr noundef %44, i32 noundef %46)
+  %40 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8
+  %42 = call i32 @getpid() #8
+  %43 = call ptr @__errno_location() #9
+  %44 = load i32, ptr %43, align 4
+  %45 = call ptr @strerror(i32 noundef %44) #8
+  %46 = call ptr @__errno_location() #9
+  %47 = load i32, ptr %46, align 4
+  %48 = call i32 (ptr, ptr, i32, ...) %39(ptr noundef @.str.9, ptr noundef @.str.20, i32 noundef 1, ptr noundef %41, i32 noundef %42, ptr noundef @.str.21, ptr noundef %45, i32 noundef %47)
   store i32 -12, ptr %2, align 4
-  br label %274
+  br label %285
 
-48:                                               ; preds = %28
-  %49 = load i32, ptr %5, align 4
-  %50 = or i32 %49, 2048
-  store i32 %50, ptr %5, align 4
-  %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %51, i32 0, i32 4
-  %53 = load i32, ptr %52, align 8
-  %54 = load i32, ptr %5, align 4
-  %55 = call i32 (i32, i32, ...) @fcntl(i32 noundef %53, i32 noundef 4, i32 noundef %54)
-  %56 = icmp slt i32 %55, 0
-  br i1 %56, label %57, label %67
+49:                                               ; preds = %28
+  %50 = load i32, ptr %5, align 4
+  %51 = or i32 %50, 2048
+  store i32 %51, ptr %5, align 4
+  %52 = load ptr, ptr %3, align 8
+  %53 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %52, i32 0, i32 4
+  %54 = load i32, ptr %53, align 8
+  %55 = load i32, ptr %5, align 4
+  %56 = call i32 (i32, i32, ...) @fcntl(i32 noundef %54, i32 noundef 4, i32 noundef %55)
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %58, label %69
 
-57:                                               ; preds = %48
-  %58 = load ptr, ptr @opal_show_help, align 8
-  %59 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %60 = call i32 @getpid() #8
-  %61 = call ptr @__errno_location() #9
-  %62 = load i32, ptr %61, align 4
-  %63 = call ptr @strerror(i32 noundef %62) #8
-  %64 = call ptr @__errno_location() #9
-  %65 = load i32, ptr %64, align 4
-  %66 = call i32 (ptr, ptr, i32, ...) %58(ptr noundef @.str.9, ptr noundef @.str.20, i32 noundef 1, ptr noundef %59, i32 noundef %60, ptr noundef @.str.26, ptr noundef %63, i32 noundef %65)
+58:                                               ; preds = %49
+  %59 = load ptr, ptr @opal_show_help, align 8
+  %60 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %61 = load ptr, ptr %60, align 8
+  %62 = call i32 @getpid() #8
+  %63 = call ptr @__errno_location() #9
+  %64 = load i32, ptr %63, align 4
+  %65 = call ptr @strerror(i32 noundef %64) #8
+  %66 = call ptr @__errno_location() #9
+  %67 = load i32, ptr %66, align 4
+  %68 = call i32 (ptr, ptr, i32, ...) %59(ptr noundef @.str.9, ptr noundef @.str.20, i32 noundef 1, ptr noundef %61, i32 noundef %62, ptr noundef @.str.26, ptr noundef %65, i32 noundef %67)
   store i32 -12, ptr %2, align 4
-  br label %274
+  br label %285
 
-67:                                               ; preds = %48
-  br label %68
+69:                                               ; preds = %49
+  br label %70
 
-68:                                               ; preds = %67
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %69, i32 0, i32 3
-  %71 = load ptr, ptr %70, align 8
-  %72 = call zeroext i1 @mca_btl_tcp_proc_tosocks(ptr noundef %71, ptr noundef %6)
-  %73 = getelementptr inbounds %struct.sockaddr_storage, ptr %6, i32 0, i32 0
-  %74 = load i16, ptr %73, align 8
-  %75 = zext i16 %74 to i32
-  %76 = icmp eq i32 %75, 2
-  br i1 %76, label %77, label %128
+70:                                               ; preds = %69
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %71, i32 0, i32 3
+  %73 = load ptr, ptr %72, align 8
+  %74 = call zeroext i1 @mca_btl_tcp_proc_tosocks(ptr noundef %73, ptr noundef %6)
+  %75 = getelementptr inbounds %struct.sockaddr_storage, ptr %6, i32 0, i32 0
+  %76 = load i16, ptr %75, align 8
+  %77 = zext i16 %76 to i32
+  %78 = icmp eq i32 %77, 2
+  br i1 %78, label %79, label %131
 
-77:                                               ; preds = %68
-  %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %78, i32 0, i32 4
-  %80 = load i32, ptr %79, align 8
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %81, i32 0, i32 1
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds %struct.mca_btl_tcp_module_t, ptr %83, i32 0, i32 3
-  store ptr %84, ptr %9, align 8
-  %85 = getelementptr inbounds %union.__CONST_SOCKADDR_ARG, ptr %9, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8
-  %87 = call i32 @bind(i32 noundef %80, ptr %86, i32 noundef 16) #8
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %89, label %127
+79:                                               ; preds = %70
+  %80 = load ptr, ptr %3, align 8
+  %81 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %80, i32 0, i32 4
+  %82 = load i32, ptr %81, align 8
+  %83 = load ptr, ptr %3, align 8
+  %84 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %83, i32 0, i32 1
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds %struct.mca_btl_tcp_module_t, ptr %85, i32 0, i32 3
+  store ptr %86, ptr %9, align 8
+  %87 = getelementptr inbounds %union.__CONST_SOCKADDR_ARG, ptr %9, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8
+  %89 = call i32 @bind(i32 noundef %82, ptr %88, i32 noundef 16) #8
+  %90 = icmp slt i32 %89, 0
+  br i1 %90, label %91, label %130
 
-89:                                               ; preds = %77
-  br label %90
+91:                                               ; preds = %79
+  br label %92
 
-90:                                               ; preds = %89
-  %91 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %92 = load ptr, ptr @opal_process_name_print, align 8
-  %93 = call ptr @opal_proc_local_get()
-  %94 = getelementptr inbounds %struct.opal_proc_t, ptr %93, i32 0, i32 1
-  %95 = load i64, ptr %94, align 8
-  %96 = call ptr %92(i64 %95)
-  %97 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %91, ptr noundef %96, ptr noundef @.str.3, i32 noundef 789, ptr noundef @__func__.mca_btl_tcp_endpoint_start_connect)
-  %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %98, i32 0, i32 1
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds %struct.mca_btl_tcp_module_t, ptr %100, i32 0, i32 3
-  %102 = call ptr @opal_net_get_hostname(ptr noundef %101)
-  %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %103, i32 0, i32 1
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds %struct.mca_btl_tcp_module_t, ptr %105, i32 0, i32 3
-  %107 = getelementptr inbounds %struct.sockaddr_in, ptr %106, i32 0, i32 1
-  %108 = load i16, ptr %107, align 2
-  %109 = call zeroext i16 @htons(i16 noundef zeroext %108) #9
-  %110 = zext i16 %109 to i32
-  %111 = call ptr @__errno_location() #9
-  %112 = load i32, ptr %111, align 4
-  %113 = call ptr @strerror(i32 noundef %112) #8
+92:                                               ; preds = %91
+  %93 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %94 = load ptr, ptr %93, align 8
+  %95 = load ptr, ptr @opal_process_name_print, align 8
+  %96 = call ptr @opal_proc_local_get()
+  %97 = getelementptr inbounds %struct.opal_proc_t, ptr %96, i32 0, i32 1
+  %98 = load i64, ptr %97, align 8
+  %99 = call ptr %95(i64 %98)
+  %100 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %94, ptr noundef %99, ptr noundef @.str.3, i32 noundef 789, ptr noundef @__func__.mca_btl_tcp_endpoint_start_connect)
+  %101 = load ptr, ptr %3, align 8
+  %102 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %101, i32 0, i32 1
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds %struct.mca_btl_tcp_module_t, ptr %103, i32 0, i32 3
+  %105 = call ptr @opal_net_get_hostname(ptr noundef %104)
+  %106 = load ptr, ptr %3, align 8
+  %107 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %106, i32 0, i32 1
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds %struct.mca_btl_tcp_module_t, ptr %108, i32 0, i32 3
+  %110 = getelementptr inbounds %struct.sockaddr_in, ptr %109, i32 0, i32 1
+  %111 = load i16, ptr %110, align 2
+  %112 = call zeroext i16 @htons(i16 noundef zeroext %111) #9
+  %113 = zext i16 %112 to i32
   %114 = call ptr @__errno_location() #9
   %115 = load i32, ptr %114, align 4
-  %116 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.27, ptr noundef %102, i32 noundef %110, ptr noundef %113, i32 noundef %115)
-  %117 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
-  br label %118
+  %116 = call ptr @strerror(i32 noundef %115) #8
+  %117 = call ptr @__errno_location() #9
+  %118 = load i32, ptr %117, align 4
+  %119 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.27, ptr noundef %105, i32 noundef %113, ptr noundef %116, i32 noundef %118)
+  %120 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
+  br label %121
 
-118:                                              ; preds = %90
-  %119 = load ptr, ptr %3, align 8
-  %120 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %119, i32 0, i32 4
-  %121 = load i32, ptr %120, align 8
-  %122 = call i32 @shutdown(i32 noundef %121, i32 noundef 2) #8
-  %123 = load ptr, ptr %3, align 8
-  %124 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %123, i32 0, i32 4
-  %125 = load i32, ptr %124, align 8
-  %126 = call i32 @close(i32 noundef %125)
+121:                                              ; preds = %92
+  %122 = load ptr, ptr %3, align 8
+  %123 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %122, i32 0, i32 4
+  %124 = load i32, ptr %123, align 8
+  %125 = call i32 @shutdown(i32 noundef %124, i32 noundef 2) #8
+  %126 = load ptr, ptr %3, align 8
+  %127 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %126, i32 0, i32 4
+  %128 = load i32, ptr %127, align 8
+  %129 = call i32 @close(i32 noundef %128)
   store i32 -1, ptr %2, align 4
-  br label %274
+  br label %285
 
-127:                                              ; preds = %77
-  br label %128
+130:                                              ; preds = %79
+  br label %131
 
-128:                                              ; preds = %127, %68
-  br label %129
+131:                                              ; preds = %130, %70
+  br label %132
 
-129:                                              ; preds = %128
-  %130 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11), align 4
-  %131 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %130)
-  br i1 %131, label %132, label %151
+132:                                              ; preds = %131
+  %133 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11
+  %134 = load i32, ptr %133, align 4
+  %135 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %134)
+  br i1 %135, label %136, label %156
 
-132:                                              ; preds = %129
-  %133 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11), align 4
-  %134 = load ptr, ptr @opal_process_name_print, align 8
-  %135 = load ptr, ptr %3, align 8
-  %136 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %135, i32 0, i32 2
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds %struct.mca_btl_tcp_proc_t, ptr %137, i32 0, i32 1
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds %struct.opal_proc_t, ptr %139, i32 0, i32 1
-  %141 = load i64, ptr %140, align 8
-  %142 = call ptr %134(i64 %141)
-  %143 = call ptr @opal_net_get_hostname(ptr noundef %6)
-  %144 = load ptr, ptr %3, align 8
-  %145 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %144, i32 0, i32 3
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds %struct.mca_btl_tcp_addr_t, ptr %146, i32 0, i32 1
-  %148 = load i16, ptr %147, align 4
-  %149 = call zeroext i16 @ntohs(i16 noundef zeroext %148) #9
-  %150 = zext i16 %149 to i32
-  call void (i32, ptr, ...) @opal_output(i32 noundef %133, ptr noundef @.str.28, ptr noundef %142, ptr noundef %143, i32 noundef %150)
-  br label %151
+136:                                              ; preds = %132
+  %137 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11
+  %138 = load i32, ptr %137, align 4
+  %139 = load ptr, ptr @opal_process_name_print, align 8
+  %140 = load ptr, ptr %3, align 8
+  %141 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %140, i32 0, i32 2
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds %struct.mca_btl_tcp_proc_t, ptr %142, i32 0, i32 1
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds %struct.opal_proc_t, ptr %144, i32 0, i32 1
+  %146 = load i64, ptr %145, align 8
+  %147 = call ptr %139(i64 %146)
+  %148 = call ptr @opal_net_get_hostname(ptr noundef %6)
+  %149 = load ptr, ptr %3, align 8
+  %150 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %149, i32 0, i32 3
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds %struct.mca_btl_tcp_addr_t, ptr %151, i32 0, i32 1
+  %153 = load i16, ptr %152, align 4
+  %154 = call zeroext i16 @ntohs(i16 noundef zeroext %153) #9
+  %155 = zext i16 %154 to i32
+  call void (i32, ptr, ...) @opal_output(i32 noundef %138, ptr noundef @.str.28, ptr noundef %147, ptr noundef %148, i32 noundef %155)
+  br label %156
 
-151:                                              ; preds = %132, %129
-  br label %152
+156:                                              ; preds = %136, %132
+  br label %157
 
-152:                                              ; preds = %151
-  %153 = load ptr, ptr %3, align 8
-  %154 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %153, i32 0, i32 4
-  %155 = load i32, ptr %154, align 8
+157:                                              ; preds = %156
+  %158 = load ptr, ptr %3, align 8
+  %159 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %158, i32 0, i32 4
+  %160 = load i32, ptr %159, align 8
   store ptr %6, ptr %10, align 8
-  %156 = load i32, ptr %8, align 4
-  %157 = getelementptr inbounds %union.__CONST_SOCKADDR_ARG, ptr %10, i32 0, i32 0
-  %158 = load ptr, ptr %157, align 8
-  %159 = call i32 @connect(i32 noundef %155, ptr %158, i32 noundef %156)
-  %160 = icmp eq i32 0, %159
-  br i1 %160, label %161, label %189
+  %161 = load i32, ptr %8, align 4
+  %162 = getelementptr inbounds %union.__CONST_SOCKADDR_ARG, ptr %10, i32 0, i32 0
+  %163 = load ptr, ptr %162, align 8
+  %164 = call i32 @connect(i32 noundef %160, ptr %163, i32 noundef %161)
+  %165 = icmp eq i32 0, %164
+  br i1 %165, label %166, label %196
 
-161:                                              ; preds = %152
-  br label %162
+166:                                              ; preds = %157
+  br label %167
 
-162:                                              ; preds = %161
-  %163 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11), align 4
-  %164 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %163)
-  br i1 %164, label %165, label %172
+167:                                              ; preds = %166
+  %168 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11
+  %169 = load i32, ptr %168, align 4
+  %170 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %169)
+  br i1 %170, label %171, label %179
 
-165:                                              ; preds = %162
-  %166 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11), align 4
-  %167 = call ptr @opal_net_get_hostname(ptr noundef %6)
-  %168 = getelementptr inbounds %struct.sockaddr_in, ptr %6, i32 0, i32 1
-  %169 = load i16, ptr %168, align 2
-  %170 = call zeroext i16 @ntohs(i16 noundef zeroext %169) #9
-  %171 = zext i16 %170 to i32
-  call void (i32, ptr, ...) @opal_output(i32 noundef %166, ptr noundef @.str.29, ptr noundef %167, i32 noundef %171)
-  br label %172
+171:                                              ; preds = %167
+  %172 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11
+  %173 = load i32, ptr %172, align 4
+  %174 = call ptr @opal_net_get_hostname(ptr noundef %6)
+  %175 = getelementptr inbounds %struct.sockaddr_in, ptr %6, i32 0, i32 1
+  %176 = load i16, ptr %175, align 2
+  %177 = call zeroext i16 @ntohs(i16 noundef zeroext %176) #9
+  %178 = zext i16 %177 to i32
+  call void (i32, ptr, ...) @opal_output(i32 noundef %173, ptr noundef @.str.29, ptr noundef %174, i32 noundef %178)
+  br label %179
 
-172:                                              ; preds = %165, %162
-  br label %173
+179:                                              ; preds = %171, %167
+  br label %180
 
-173:                                              ; preds = %172
-  %174 = load ptr, ptr %3, align 8
-  %175 = call i32 @mca_btl_tcp_endpoint_send_connect_ack(ptr noundef %174)
-  store i32 %175, ptr %4, align 4
-  %176 = icmp eq i32 %175, 0
-  br i1 %176, label %177, label %188
+180:                                              ; preds = %179
+  %181 = load ptr, ptr %3, align 8
+  %182 = call i32 @mca_btl_tcp_endpoint_send_connect_ack(ptr noundef %181)
+  store i32 %182, ptr %4, align 4
+  %183 = icmp eq i32 %182, 0
+  br i1 %183, label %184, label %195
 
-177:                                              ; preds = %173
-  %178 = load ptr, ptr %3, align 8
-  %179 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %178, i32 0, i32 11
-  store i32 1, ptr %179, align 8
-  %180 = load ptr, ptr %3, align 8
-  %181 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %180, i32 0, i32 18
-  %182 = call i32 @event_add(ptr noundef %181, ptr noundef null)
-  %183 = load ptr, ptr @mca_btl_tcp_event_base, align 8
-  %184 = load ptr, ptr @opal_sync_event_base, align 8
-  %185 = icmp eq ptr %183, %184
-  br i1 %185, label %186, label %187
+184:                                              ; preds = %180
+  %185 = load ptr, ptr %3, align 8
+  %186 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %185, i32 0, i32 11
+  store i32 1, ptr %186, align 8
+  %187 = load ptr, ptr %3, align 8
+  %188 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %187, i32 0, i32 18
+  %189 = call i32 @event_add(ptr noundef %188, ptr noundef null)
+  %190 = load ptr, ptr @mca_btl_tcp_event_base, align 8
+  %191 = load ptr, ptr @opal_sync_event_base, align 8
+  %192 = icmp eq ptr %190, %191
+  br i1 %192, label %193, label %194
 
-186:                                              ; preds = %177
+193:                                              ; preds = %184
   call void @opal_progress_event_users_increment()
-  br label %187
+  br label %194
 
-187:                                              ; preds = %186, %177
+194:                                              ; preds = %193, %184
   store i32 0, ptr %2, align 4
-  br label %274
+  br label %285
 
-188:                                              ; preds = %173
-  br label %222
+195:                                              ; preds = %180
+  br label %232
 
-189:                                              ; preds = %152
-  %190 = call ptr @__errno_location() #9
-  %191 = load i32, ptr %190, align 4
-  %192 = icmp eq i32 %191, 115
-  br i1 %192, label %197, label %193
+196:                                              ; preds = %157
+  %197 = call ptr @__errno_location() #9
+  %198 = load i32, ptr %197, align 4
+  %199 = icmp eq i32 %198, 115
+  br i1 %199, label %204, label %200
 
-193:                                              ; preds = %189
-  %194 = call ptr @__errno_location() #9
-  %195 = load i32, ptr %194, align 4
-  %196 = icmp eq i32 %195, 11
-  br i1 %196, label %197, label %221
+200:                                              ; preds = %196
+  %201 = call ptr @__errno_location() #9
+  %202 = load i32, ptr %201, align 4
+  %203 = icmp eq i32 %202, 11
+  br i1 %203, label %204, label %231
 
-197:                                              ; preds = %193, %189
-  %198 = load ptr, ptr %3, align 8
-  %199 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %198, i32 0, i32 11
-  store i32 0, ptr %199, align 8
-  br label %200
+204:                                              ; preds = %200, %196
+  %205 = load ptr, ptr %3, align 8
+  %206 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %205, i32 0, i32 11
+  store i32 0, ptr %206, align 8
+  br label %207
 
-200:                                              ; preds = %197
-  %201 = load i32, ptr @mca_btl_tcp_progress_thread_trigger, align 4
-  %202 = icmp slt i32 0, %201
-  br i1 %202, label %203, label %208
+207:                                              ; preds = %204
+  %208 = load i32, ptr @mca_btl_tcp_progress_thread_trigger, align 4
+  %209 = icmp slt i32 0, %208
+  br i1 %209, label %210, label %216
 
-203:                                              ; preds = %200
-  %204 = load ptr, ptr %3, align 8
-  %205 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %204, i32 0, i32 17
-  store ptr %205, ptr %11, align 8
-  %206 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @mca_btl_tcp_pipe_to_progress, i64 0, i64 1), align 4
-  %207 = call i32 @opal_fd_write(i32 noundef %206, i32 noundef 8, ptr noundef %11)
-  br label %212
-
-208:                                              ; preds = %200
-  %209 = load ptr, ptr %3, align 8
-  %210 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %209, i32 0, i32 17
-  %211 = call i32 @event_add(ptr noundef %210, ptr noundef null)
-  br label %212
-
-212:                                              ; preds = %208, %203
-  br label %213
-
-213:                                              ; preds = %212
-  br label %214
-
-214:                                              ; preds = %213
-  %215 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11), align 4
-  %216 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 30, i32 noundef %215)
-  br i1 %216, label %217, label %219
-
-217:                                              ; preds = %214
-  %218 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %218, ptr noundef @.str.30)
-  br label %219
-
-219:                                              ; preds = %217, %214
+210:                                              ; preds = %207
+  %211 = load ptr, ptr %3, align 8
+  %212 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %211, i32 0, i32 17
+  store ptr %212, ptr %11, align 8
+  %213 = getelementptr inbounds [2 x i32], ptr @mca_btl_tcp_pipe_to_progress, i64 0, i64 1
+  %214 = load i32, ptr %213, align 4
+  %215 = call i32 @opal_fd_write(i32 noundef %214, i32 noundef 8, ptr noundef %11)
   br label %220
 
-220:                                              ; preds = %219
-  store i32 0, ptr %2, align 4
-  br label %274
+216:                                              ; preds = %207
+  %217 = load ptr, ptr %3, align 8
+  %218 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %217, i32 0, i32 17
+  %219 = call i32 @event_add(ptr noundef %218, ptr noundef null)
+  br label %220
 
-221:                                              ; preds = %193
+220:                                              ; preds = %216, %210
+  br label %221
+
+221:                                              ; preds = %220
   br label %222
 
-222:                                              ; preds = %221, %188
-  %223 = call ptr @opal_net_get_hostname(ptr noundef %6)
-  store ptr %223, ptr %12, align 8
-  br label %224
+222:                                              ; preds = %221
+  %223 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11
+  %224 = load i32, ptr %223, align 4
+  %225 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 30, i32 noundef %224)
+  br i1 %225, label %226, label %229
 
-224:                                              ; preds = %222
-  %225 = load i32, ptr @mca_btl_base_warn_peer_error, align 4
-  %226 = icmp ne i32 %225, 0
-  br i1 %226, label %230, label %227
+226:                                              ; preds = %222
+  %227 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11
+  %228 = load i32, ptr %227, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %228, ptr noundef @.str.30)
+  br label %229
 
-227:                                              ; preds = %224
-  %228 = load i32, ptr @mca_btl_base_verbose, align 4
-  %229 = icmp sgt i32 %228, 0
-  br i1 %229, label %230, label %269
+229:                                              ; preds = %226, %222
+  br label %230
 
-230:                                              ; preds = %227, %224
-  %231 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %232 = load ptr, ptr @opal_process_name_print, align 8
-  %233 = call ptr @opal_proc_local_get()
-  %234 = getelementptr inbounds %struct.opal_proc_t, ptr %233, i32 0, i32 1
-  %235 = load i64, ptr %234, align 8
-  %236 = call ptr %232(i64 %235)
-  %237 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %231, ptr noundef %236, ptr noundef @.str.3, i32 noundef 857, ptr noundef @__func__.mca_btl_tcp_endpoint_start_connect)
-  %238 = load ptr, ptr %3, align 8
-  %239 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %238, i32 0, i32 2
-  %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds %struct.mca_btl_tcp_proc_t, ptr %240, i32 0, i32 1
+230:                                              ; preds = %229
+  store i32 0, ptr %2, align 4
+  br label %285
+
+231:                                              ; preds = %200
+  br label %232
+
+232:                                              ; preds = %231, %195
+  %233 = call ptr @opal_net_get_hostname(ptr noundef %6)
+  store ptr %233, ptr %12, align 8
+  br label %234
+
+234:                                              ; preds = %232
+  %235 = load i32, ptr @mca_btl_base_warn_peer_error, align 4
+  %236 = icmp ne i32 %235, 0
+  br i1 %236, label %240, label %237
+
+237:                                              ; preds = %234
+  %238 = load i32, ptr @mca_btl_base_verbose, align 4
+  %239 = icmp sgt i32 %238, 0
+  br i1 %239, label %240, label %280
+
+240:                                              ; preds = %237, %234
+  %241 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
   %242 = load ptr, ptr %241, align 8
-  %243 = icmp ne ptr %242, null
-  br i1 %243, label %244, label %255
+  %243 = load ptr, ptr @opal_process_name_print, align 8
+  %244 = call ptr @opal_proc_local_get()
+  %245 = getelementptr inbounds %struct.opal_proc_t, ptr %244, i32 0, i32 1
+  %246 = load i64, ptr %245, align 8
+  %247 = call ptr %243(i64 %246)
+  %248 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %242, ptr noundef %247, ptr noundef @.str.3, i32 noundef 857, ptr noundef @__func__.mca_btl_tcp_endpoint_start_connect)
+  %249 = load ptr, ptr %3, align 8
+  %250 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %249, i32 0, i32 2
+  %251 = load ptr, ptr %250, align 8
+  %252 = getelementptr inbounds %struct.mca_btl_tcp_proc_t, ptr %251, i32 0, i32 1
+  %253 = load ptr, ptr %252, align 8
+  %254 = icmp ne ptr %253, null
+  br i1 %254, label %255, label %266
 
-244:                                              ; preds = %230
-  %245 = load ptr, ptr @opal_get_proc_hostname, align 8
-  %246 = load ptr, ptr %3, align 8
-  %247 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %246, i32 0, i32 2
-  %248 = load ptr, ptr %247, align 8
-  %249 = getelementptr inbounds %struct.mca_btl_tcp_proc_t, ptr %248, i32 0, i32 1
-  %250 = load ptr, ptr %249, align 8
-  %251 = call ptr %245(ptr noundef %250)
-  store ptr %251, ptr %13, align 8
-  %252 = load ptr, ptr %13, align 8
-  %253 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.31, ptr noundef %252)
-  %254 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %254) #8
-  br label %255
-
-255:                                              ; preds = %244, %230
-  %256 = load ptr, ptr %12, align 8
+255:                                              ; preds = %240
+  %256 = load ptr, ptr @opal_get_proc_hostname, align 8
   %257 = load ptr, ptr %3, align 8
-  %258 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %257, i32 0, i32 3
+  %258 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %257, i32 0, i32 2
   %259 = load ptr, ptr %258, align 8
-  %260 = getelementptr inbounds %struct.mca_btl_tcp_addr_t, ptr %259, i32 0, i32 1
-  %261 = load i16, ptr %260, align 4
-  %262 = call zeroext i16 @ntohs(i16 noundef zeroext %261) #9
-  %263 = zext i16 %262 to i32
-  %264 = call ptr @__errno_location() #9
-  %265 = load i32, ptr %264, align 4
-  %266 = call ptr @strerror(i32 noundef %265) #8
-  %267 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.32, ptr noundef %256, i32 noundef %263, ptr noundef %266)
-  %268 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
-  br label %269
+  %260 = getelementptr inbounds %struct.mca_btl_tcp_proc_t, ptr %259, i32 0, i32 1
+  %261 = load ptr, ptr %260, align 8
+  %262 = call ptr %256(ptr noundef %261)
+  store ptr %262, ptr %13, align 8
+  %263 = load ptr, ptr %13, align 8
+  %264 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.31, ptr noundef %263)
+  %265 = load ptr, ptr %13, align 8
+  call void @free(ptr noundef %265) #8
+  br label %266
 
-269:                                              ; preds = %255, %227
-  br label %270
+266:                                              ; preds = %255, %240
+  %267 = load ptr, ptr %12, align 8
+  %268 = load ptr, ptr %3, align 8
+  %269 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %268, i32 0, i32 3
+  %270 = load ptr, ptr %269, align 8
+  %271 = getelementptr inbounds %struct.mca_btl_tcp_addr_t, ptr %270, i32 0, i32 1
+  %272 = load i16, ptr %271, align 4
+  %273 = call zeroext i16 @ntohs(i16 noundef zeroext %272) #9
+  %274 = zext i16 %273 to i32
+  %275 = call ptr @__errno_location() #9
+  %276 = load i32, ptr %275, align 4
+  %277 = call ptr @strerror(i32 noundef %276) #8
+  %278 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.32, ptr noundef %267, i32 noundef %274, ptr noundef %277)
+  %279 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
+  br label %280
 
-270:                                              ; preds = %269
-  %271 = load ptr, ptr %3, align 8
-  %272 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %271, i32 0, i32 11
-  store i32 3, ptr %272, align 8
-  %273 = load ptr, ptr %3, align 8
-  call void @mca_btl_tcp_endpoint_close(ptr noundef %273)
+280:                                              ; preds = %266, %237
+  br label %281
+
+281:                                              ; preds = %280
+  %282 = load ptr, ptr %3, align 8
+  %283 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %282, i32 0, i32 11
+  store i32 3, ptr %283, align 8
+  %284 = load ptr, ptr %3, align 8
+  call void @mca_btl_tcp_endpoint_close(ptr noundef %284)
   store i32 -12, ptr %2, align 4
-  br label %274
+  br label %285
 
-274:                                              ; preds = %270, %220, %187, %118, %57, %38, %23
-  %275 = load i32, ptr %2, align 4
-  ret i32 %275
+285:                                              ; preds = %281, %230, %194, %121, %58, %38, %23
+  %286 = load i32, ptr %2, align 4
+  ret i32 %286
 }
 
 declare zeroext i1 @mca_btl_tcp_frag_send(ptr noundef, i32 noundef) #1
@@ -1711,108 +1726,116 @@ define void @mca_btl_tcp_set_socket_options(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 31), align 8
-  %5 = icmp ne i32 %4, 0
-  %6 = xor i1 %5, true
-  %7 = zext i1 %6 to i32
-  store i32 %7, ptr %3, align 4
-  %8 = load i32, ptr %2, align 4
-  %9 = call i32 @setsockopt(i32 noundef %8, i32 noundef 6, i32 noundef 1, ptr noundef %3, i32 noundef 4) #8
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %28
+  %4 = getelementptr inbounds %struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 31
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp ne i32 %5, 0
+  %7 = xor i1 %6, true
+  %8 = zext i1 %7 to i32
+  store i32 %8, ptr %3, align 4
+  %9 = load i32, ptr %2, align 4
+  %10 = call i32 @setsockopt(i32 noundef %9, i32 noundef 6, i32 noundef 1, ptr noundef %3, i32 noundef 4) #8
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %30
 
-11:                                               ; preds = %1
-  br label %12
+12:                                               ; preds = %1
+  br label %13
 
-12:                                               ; preds = %11
-  %13 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %14 = load ptr, ptr @opal_process_name_print, align 8
-  %15 = call ptr @opal_proc_local_get()
-  %16 = getelementptr inbounds %struct.opal_proc_t, ptr %15, i32 0, i32 1
-  %17 = load i64, ptr %16, align 8
-  %18 = call ptr %14(i64 %17)
-  %19 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %13, ptr noundef %18, ptr noundef @.str.3, i32 noundef 684, ptr noundef @__func__.mca_btl_tcp_set_socket_options)
-  %20 = call ptr @__errno_location() #9
-  %21 = load i32, ptr %20, align 4
-  %22 = call ptr @strerror(i32 noundef %21) #8
-  %23 = call ptr @__errno_location() #9
-  %24 = load i32, ptr %23, align 4
-  %25 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.4, ptr noundef %22, i32 noundef %24)
-  %26 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
-  br label %27
+13:                                               ; preds = %12
+  %14 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr @opal_process_name_print, align 8
+  %17 = call ptr @opal_proc_local_get()
+  %18 = getelementptr inbounds %struct.opal_proc_t, ptr %17, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8
+  %20 = call ptr %16(i64 %19)
+  %21 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %15, ptr noundef %20, ptr noundef @.str.3, i32 noundef 684, ptr noundef @__func__.mca_btl_tcp_set_socket_options)
+  %22 = call ptr @__errno_location() #9
+  %23 = load i32, ptr %22, align 4
+  %24 = call ptr @strerror(i32 noundef %23) #8
+  %25 = call ptr @__errno_location() #9
+  %26 = load i32, ptr %25, align 4
+  %27 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.4, ptr noundef %24, i32 noundef %26)
+  %28 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
+  br label %29
 
-27:                                               ; preds = %12
-  br label %28
+29:                                               ; preds = %13
+  br label %30
 
-28:                                               ; preds = %27, %1
-  %29 = load i32, ptr getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 20), align 16
-  %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %31, label %52
+30:                                               ; preds = %29, %1
+  %31 = getelementptr inbounds %struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 20
+  %32 = load i32, ptr %31, align 16
+  %33 = icmp sgt i32 %32, 0
+  br i1 %33, label %34, label %57
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr %2, align 4
-  %33 = call i32 @setsockopt(i32 noundef %32, i32 noundef 1, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 20), i32 noundef 4) #8
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %52
+34:                                               ; preds = %30
+  %35 = load i32, ptr %2, align 4
+  %36 = getelementptr inbounds %struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 20
+  %37 = call i32 @setsockopt(i32 noundef %35, i32 noundef 1, i32 noundef 7, ptr noundef %36, i32 noundef 4) #8
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %39, label %57
 
-35:                                               ; preds = %31
-  br label %36
+39:                                               ; preds = %34
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %38 = load ptr, ptr @opal_process_name_print, align 8
-  %39 = call ptr @opal_proc_local_get()
-  %40 = getelementptr inbounds %struct.opal_proc_t, ptr %39, i32 0, i32 1
-  %41 = load i64, ptr %40, align 8
-  %42 = call ptr %38(i64 %41)
-  %43 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %37, ptr noundef %42, ptr noundef @.str.3, i32 noundef 693, ptr noundef @__func__.mca_btl_tcp_set_socket_options)
-  %44 = call ptr @__errno_location() #9
-  %45 = load i32, ptr %44, align 4
-  %46 = call ptr @strerror(i32 noundef %45) #8
-  %47 = call ptr @__errno_location() #9
-  %48 = load i32, ptr %47, align 4
-  %49 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.6, ptr noundef %46, i32 noundef %48)
-  %50 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
-  br label %51
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr @opal_process_name_print, align 8
+  %44 = call ptr @opal_proc_local_get()
+  %45 = getelementptr inbounds %struct.opal_proc_t, ptr %44, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
+  %47 = call ptr %43(i64 %46)
+  %48 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %42, ptr noundef %47, ptr noundef @.str.3, i32 noundef 693, ptr noundef @__func__.mca_btl_tcp_set_socket_options)
+  %49 = call ptr @__errno_location() #9
+  %50 = load i32, ptr %49, align 4
+  %51 = call ptr @strerror(i32 noundef %50) #8
+  %52 = call ptr @__errno_location() #9
+  %53 = load i32, ptr %52, align 4
+  %54 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.6, ptr noundef %51, i32 noundef %53)
+  %55 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
+  br label %56
 
-51:                                               ; preds = %36
-  br label %52
+56:                                               ; preds = %40
+  br label %57
 
-52:                                               ; preds = %51, %31, %28
-  %53 = load i32, ptr getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 21), align 4
-  %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %55, label %76
+57:                                               ; preds = %56, %34, %30
+  %58 = getelementptr inbounds %struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 21
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp sgt i32 %59, 0
+  br i1 %60, label %61, label %84
 
-55:                                               ; preds = %52
-  %56 = load i32, ptr %2, align 4
-  %57 = call i32 @setsockopt(i32 noundef %56, i32 noundef 1, i32 noundef 8, ptr noundef getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 21), i32 noundef 4) #8
-  %58 = icmp slt i32 %57, 0
-  br i1 %58, label %59, label %76
+61:                                               ; preds = %57
+  %62 = load i32, ptr %2, align 4
+  %63 = getelementptr inbounds %struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 21
+  %64 = call i32 @setsockopt(i32 noundef %62, i32 noundef 1, i32 noundef 8, ptr noundef %63, i32 noundef 4) #8
+  %65 = icmp slt i32 %64, 0
+  br i1 %65, label %66, label %84
 
-59:                                               ; preds = %55
-  br label %60
+66:                                               ; preds = %61
+  br label %67
 
-60:                                               ; preds = %59
-  %61 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %62 = load ptr, ptr @opal_process_name_print, align 8
-  %63 = call ptr @opal_proc_local_get()
-  %64 = getelementptr inbounds %struct.opal_proc_t, ptr %63, i32 0, i32 1
-  %65 = load i64, ptr %64, align 8
-  %66 = call ptr %62(i64 %65)
-  %67 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %61, ptr noundef %66, ptr noundef @.str.3, i32 noundef 702, ptr noundef @__func__.mca_btl_tcp_set_socket_options)
-  %68 = call ptr @__errno_location() #9
-  %69 = load i32, ptr %68, align 4
-  %70 = call ptr @strerror(i32 noundef %69) #8
-  %71 = call ptr @__errno_location() #9
-  %72 = load i32, ptr %71, align 4
-  %73 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.7, ptr noundef %70, i32 noundef %72)
-  %74 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
-  br label %75
+67:                                               ; preds = %66
+  %68 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr @opal_process_name_print, align 8
+  %71 = call ptr @opal_proc_local_get()
+  %72 = getelementptr inbounds %struct.opal_proc_t, ptr %71, i32 0, i32 1
+  %73 = load i64, ptr %72, align 8
+  %74 = call ptr %70(i64 %73)
+  %75 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %69, ptr noundef %74, ptr noundef @.str.3, i32 noundef 702, ptr noundef @__func__.mca_btl_tcp_set_socket_options)
+  %76 = call ptr @__errno_location() #9
+  %77 = load i32, ptr %76, align 4
+  %78 = call ptr @strerror(i32 noundef %77) #8
+  %79 = call ptr @__errno_location() #9
+  %80 = load i32, ptr %79, align 4
+  %81 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.7, ptr noundef %78, i32 noundef %80)
+  %82 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
+  br label %83
 
-75:                                               ; preds = %60
-  br label %76
+83:                                               ; preds = %67
+  br label %84
 
-76:                                               ; preds = %75, %55, %52
+84:                                               ; preds = %83, %61, %57
   ret void
 }
 
@@ -2183,56 +2206,58 @@ define internal i32 @mca_btl_tcp_endpoint_send_connect_ack(ptr noundef %0) #0 {
   %12 = call i32 @mca_btl_tcp_endpoint_send_blocking(ptr noundef %11, ptr noundef %5, i64 noundef 24)
   %13 = sext i32 %12 to i64
   %14 = icmp ne i64 24, %13
-  br i1 %14, label %15, label %19
+  br i1 %14, label %15, label %20
 
 15:                                               ; preds = %1
   %16 = load ptr, ptr @opal_show_help, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %18 = call i32 (ptr, ptr, i32, ...) %16(ptr noundef @.str.9, ptr noundef @.str.10, i32 noundef 1, ptr noundef %17, i64 noundef 24, ptr noundef @.str.11)
+  %17 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %18 = load ptr, ptr %17, align 8
+  %19 = call i32 (ptr, ptr, i32, ...) %16(ptr noundef @.str.9, ptr noundef @.str.10, i32 noundef 1, ptr noundef %18, i64 noundef 24, ptr noundef @.str.11)
   store i32 -12, ptr %2, align 4
-  br label %20
+  br label %21
 
-19:                                               ; preds = %1
+20:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %20
+  br label %21
 
-20:                                               ; preds = %19, %15
-  %21 = load i32, ptr %2, align 4
-  ret i32 %21
+21:                                               ; preds = %20, %15
+  %22 = load i32, ptr %2, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @mca_btl_tcp_endpoint_event_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 9), align 4
-  %4 = sext i32 %3 to i64
-  %5 = call noalias ptr @malloc(i64 noundef %4) #10
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %6, i32 0, i32 6
-  store ptr %5, ptr %7, align 8
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %8, i32 0, i32 6
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %11, i32 0, i32 7
-  store ptr %10, ptr %12, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %13, i32 0, i32 18
-  %15 = load ptr, ptr @mca_btl_tcp_event_base, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %16, i32 0, i32 4
-  %18 = load i32, ptr %17, align 8
-  %19 = load ptr, ptr %2, align 8
-  %20 = call i32 @event_assign(ptr noundef %14, ptr noundef %15, i32 noundef %18, i16 noundef signext 18, ptr noundef @mca_btl_tcp_endpoint_recv_handler, ptr noundef %19)
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %21, i32 0, i32 17
-  %23 = load ptr, ptr @mca_btl_tcp_event_base, align 8
-  %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %24, i32 0, i32 4
-  %26 = load i32, ptr %25, align 8
-  %27 = load ptr, ptr %2, align 8
-  %28 = call i32 @event_assign(ptr noundef %22, ptr noundef %23, i32 noundef %26, i16 noundef signext 20, ptr noundef @mca_btl_tcp_endpoint_send_handler, ptr noundef %27)
+  %3 = getelementptr inbounds %struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 9
+  %4 = load i32, ptr %3, align 4
+  %5 = sext i32 %4 to i64
+  %6 = call noalias ptr @malloc(i64 noundef %5) #10
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %7, i32 0, i32 6
+  store ptr %6, ptr %8, align 8
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %9, i32 0, i32 6
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %12, i32 0, i32 7
+  store ptr %11, ptr %13, align 8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %14, i32 0, i32 18
+  %16 = load ptr, ptr @mca_btl_tcp_event_base, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %17, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8
+  %20 = load ptr, ptr %2, align 8
+  %21 = call i32 @event_assign(ptr noundef %15, ptr noundef %16, i32 noundef %19, i16 noundef signext 18, ptr noundef @mca_btl_tcp_endpoint_recv_handler, ptr noundef %20)
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %22, i32 0, i32 17
+  %24 = load ptr, ptr @mca_btl_tcp_event_base, align 8
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %25, i32 0, i32 4
+  %27 = load i32, ptr %26, align 8
+  %28 = load ptr, ptr %2, align 8
+  %29 = call i32 @event_assign(ptr noundef %23, ptr noundef %24, i32 noundef %27, i16 noundef signext 20, ptr noundef @mca_btl_tcp_endpoint_send_handler, ptr noundef %28)
   ret void
 }
 
@@ -2326,7 +2351,7 @@ define internal void @mca_btl_tcp_endpoint_recv_handler(i32 noundef %0, i16 noun
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %3
-  br label %355
+  br label %360
 
 20:                                               ; preds = %3
   %21 = load i8, ptr @opal_uses_threads, align 1
@@ -2349,16 +2374,16 @@ define internal void @mca_btl_tcp_endpoint_recv_handler(i32 noundef %0, i16 noun
   br i1 false, label %34, label %35
 
 34:                                               ; preds = %33, %28
-  br label %355
+  br label %360
 
 35:                                               ; preds = %33, %28
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %36, i32 0, i32 11
   %38 = load i32, ptr %37, align 8
-  switch i32 %38, label %324 [
+  switch i32 %38, label %328 [
     i32 1, label %39
     i32 4, label %113
-    i32 2, label %310
+    i32 2, label %314
   ]
 
 39:                                               ; preds = %35
@@ -2484,7 +2509,7 @@ define internal void @mca_btl_tcp_endpoint_recv_handler(i32 noundef %0, i16 noun
   br label %112
 
 112:                                              ; preds = %111
-  br label %355
+  br label %360
 
 113:                                              ; preds = %35
   %114 = load ptr, ptr %7, align 8
@@ -2493,361 +2518,366 @@ define internal void @mca_btl_tcp_endpoint_recv_handler(i32 noundef %0, i16 noun
   store ptr %116, ptr %10, align 8
   %117 = load ptr, ptr %10, align 8
   %118 = icmp eq ptr null, %117
-  br i1 %118, label %119, label %185
+  br i1 %118, label %119, label %189
 
 119:                                              ; preds = %113
-  %120 = load i64, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_tcp_module, i32 0, i32 3), align 8
-  %121 = load i64, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_tcp_module, i32 0, i32 1), align 8
-  %122 = icmp ugt i64 %120, %121
-  br i1 %122, label %123, label %125
-
-123:                                              ; preds = %119
-  %124 = call ptr @opal_free_list_get(ptr noundef getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 24))
-  store ptr %124, ptr %10, align 8
-  br label %127
+  %120 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_tcp_module, i32 0, i32 3
+  %121 = load i64, ptr %120, align 8
+  %122 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_tcp_module, i32 0, i32 1
+  %123 = load i64, ptr %122, align 8
+  %124 = icmp ugt i64 %121, %123
+  br i1 %124, label %125, label %128
 
 125:                                              ; preds = %119
-  %126 = call ptr @opal_free_list_get(ptr noundef getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 23))
-  store ptr %126, ptr %10, align 8
-  br label %127
-
-127:                                              ; preds = %125, %123
-  %128 = load ptr, ptr %10, align 8
-  %129 = icmp eq ptr null, %128
-  br i1 %129, label %130, label %144
-
-130:                                              ; preds = %127
+  %126 = getelementptr inbounds %struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 24
+  %127 = call ptr @opal_free_list_get(ptr noundef %126)
+  store ptr %127, ptr %10, align 8
   br label %131
 
-131:                                              ; preds = %130
-  %132 = load i8, ptr @opal_uses_threads, align 1
-  %133 = trunc i8 %132 to i1
-  %134 = xor i1 %133, true
-  %135 = xor i1 %134, true
-  %136 = zext i1 %135 to i32
-  %137 = sext i32 %136 to i64
-  %138 = icmp ne i64 %137, 0
-  br i1 %138, label %139, label %142
+128:                                              ; preds = %119
+  %129 = getelementptr inbounds %struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i32 0, i32 23
+  %130 = call ptr @opal_free_list_get(ptr noundef %129)
+  store ptr %130, ptr %10, align 8
+  br label %131
 
-139:                                              ; preds = %131
-  %140 = load ptr, ptr %7, align 8
-  %141 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %140, i32 0, i32 15
-  call void @opal_mutex_unlock(ptr noundef %141)
-  br label %142
+131:                                              ; preds = %128, %125
+  %132 = load ptr, ptr %10, align 8
+  %133 = icmp eq ptr null, %132
+  br i1 %133, label %134, label %148
 
-142:                                              ; preds = %139, %131
-  br label %143
+134:                                              ; preds = %131
+  br label %135
 
-143:                                              ; preds = %142
-  br label %355
+135:                                              ; preds = %134
+  %136 = load i8, ptr @opal_uses_threads, align 1
+  %137 = trunc i8 %136 to i1
+  %138 = xor i1 %137, true
+  %139 = xor i1 %138, true
+  %140 = zext i1 %139 to i32
+  %141 = sext i32 %140 to i64
+  %142 = icmp ne i64 %141, 0
+  br i1 %142, label %143, label %146
 
-144:                                              ; preds = %127
-  br label %145
+143:                                              ; preds = %135
+  %144 = load ptr, ptr %7, align 8
+  %145 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %144, i32 0, i32 15
+  call void @opal_mutex_unlock(ptr noundef %145)
+  br label %146
 
-145:                                              ; preds = %144
-  %146 = load ptr, ptr %10, align 8
-  %147 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %146, i32 0, i32 11
-  store i32 0, ptr %147, align 4
-  %148 = load ptr, ptr %7, align 8
-  %149 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %148, i32 0, i32 1
-  %150 = load ptr, ptr %149, align 8
-  %151 = load ptr, ptr %10, align 8
-  %152 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %151, i32 0, i32 3
-  store ptr %150, ptr %152, align 8
-  %153 = load ptr, ptr %7, align 8
-  %154 = load ptr, ptr %10, align 8
-  %155 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %154, i32 0, i32 2
-  store ptr %153, ptr %155, align 8
-  %156 = load ptr, ptr %10, align 8
-  %157 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %156, i32 0, i32 5
-  %158 = getelementptr inbounds [5 x %struct.iovec], ptr %157, i64 0, i64 0
-  %159 = getelementptr inbounds %struct.iovec, ptr %158, i32 0, i32 1
-  store i64 8, ptr %159, align 8
+146:                                              ; preds = %143, %135
+  br label %147
+
+147:                                              ; preds = %146
+  br label %360
+
+148:                                              ; preds = %131
+  br label %149
+
+149:                                              ; preds = %148
+  %150 = load ptr, ptr %10, align 8
+  %151 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %150, i32 0, i32 11
+  store i32 0, ptr %151, align 4
+  %152 = load ptr, ptr %7, align 8
+  %153 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %152, i32 0, i32 1
+  %154 = load ptr, ptr %153, align 8
+  %155 = load ptr, ptr %10, align 8
+  %156 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %155, i32 0, i32 3
+  store ptr %154, ptr %156, align 8
+  %157 = load ptr, ptr %7, align 8
+  %158 = load ptr, ptr %10, align 8
+  %159 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %158, i32 0, i32 2
+  store ptr %157, ptr %159, align 8
   %160 = load ptr, ptr %10, align 8
-  %161 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %160, i32 0, i32 4
-  %162 = load ptr, ptr %10, align 8
-  %163 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %162, i32 0, i32 5
-  %164 = getelementptr inbounds [5 x %struct.iovec], ptr %163, i64 0, i64 0
-  %165 = getelementptr inbounds %struct.iovec, ptr %164, i32 0, i32 0
-  store ptr %161, ptr %165, align 8
+  %161 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %160, i32 0, i32 5
+  %162 = getelementptr inbounds [5 x %struct.iovec], ptr %161, i64 0, i64 0
+  %163 = getelementptr inbounds %struct.iovec, ptr %162, i32 0, i32 1
+  store i64 8, ptr %163, align 8
+  %164 = load ptr, ptr %10, align 8
+  %165 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %164, i32 0, i32 4
   %166 = load ptr, ptr %10, align 8
-  %167 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %166, i32 0, i32 7
-  store i32 1, ptr %167, align 8
-  %168 = load ptr, ptr %10, align 8
-  %169 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %168, i32 0, i32 8
-  store i32 0, ptr %169, align 4
+  %167 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %166, i32 0, i32 5
+  %168 = getelementptr inbounds [5 x %struct.iovec], ptr %167, i64 0, i64 0
+  %169 = getelementptr inbounds %struct.iovec, ptr %168, i32 0, i32 0
+  store ptr %165, ptr %169, align 8
   %170 = load ptr, ptr %10, align 8
-  %171 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %170, i32 0, i32 5
-  %172 = getelementptr inbounds [5 x %struct.iovec], ptr %171, i64 0, i64 0
-  %173 = load ptr, ptr %10, align 8
-  %174 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %173, i32 0, i32 6
-  store ptr %172, ptr %174, align 8
-  %175 = load ptr, ptr %10, align 8
-  %176 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %175, i32 0, i32 1
-  %177 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %176, i64 0, i64 0
-  %178 = load ptr, ptr %10, align 8
-  %179 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %178, i32 0, i32 0
-  %180 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %179, i32 0, i32 1
-  store ptr %177, ptr %180, align 8
-  %181 = load ptr, ptr %10, align 8
-  %182 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %181, i32 0, i32 0
-  %183 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %182, i32 0, i32 2
-  store i64 1, ptr %183, align 8
-  br label %184
+  %171 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %170, i32 0, i32 7
+  store i32 1, ptr %171, align 8
+  %172 = load ptr, ptr %10, align 8
+  %173 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %172, i32 0, i32 8
+  store i32 0, ptr %173, align 4
+  %174 = load ptr, ptr %10, align 8
+  %175 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %174, i32 0, i32 5
+  %176 = getelementptr inbounds [5 x %struct.iovec], ptr %175, i64 0, i64 0
+  %177 = load ptr, ptr %10, align 8
+  %178 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %177, i32 0, i32 6
+  store ptr %176, ptr %178, align 8
+  %179 = load ptr, ptr %10, align 8
+  %180 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %179, i32 0, i32 1
+  %181 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %180, i64 0, i64 0
+  %182 = load ptr, ptr %10, align 8
+  %183 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %182, i32 0, i32 0
+  %184 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %183, i32 0, i32 1
+  store ptr %181, ptr %184, align 8
+  %185 = load ptr, ptr %10, align 8
+  %186 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %185, i32 0, i32 0
+  %187 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %186, i32 0, i32 2
+  store i64 1, ptr %187, align 8
+  br label %188
 
-184:                                              ; preds = %145
-  br label %185
+188:                                              ; preds = %149
+  br label %189
 
-185:                                              ; preds = %184, %113
-  br label %186
+189:                                              ; preds = %188, %113
+  br label %190
 
-186:                                              ; preds = %290, %185
-  %187 = load ptr, ptr %10, align 8
-  %188 = load ptr, ptr %7, align 8
-  %189 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %188, i32 0, i32 4
-  %190 = load i32, ptr %189, align 8
-  %191 = call zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %187, i32 noundef %190)
-  %192 = zext i1 %191 to i32
-  %193 = icmp eq i32 %192, 0
-  br i1 %193, label %194, label %198
+190:                                              ; preds = %294, %189
+  %191 = load ptr, ptr %10, align 8
+  %192 = load ptr, ptr %7, align 8
+  %193 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %192, i32 0, i32 4
+  %194 = load i32, ptr %193, align 8
+  %195 = call zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %191, i32 noundef %194)
+  %196 = zext i1 %195 to i32
+  %197 = icmp eq i32 %196, 0
+  br i1 %197, label %198, label %202
 
-194:                                              ; preds = %186
-  %195 = load ptr, ptr %10, align 8
-  %196 = load ptr, ptr %7, align 8
-  %197 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %196, i32 0, i32 10
-  store ptr %195, ptr %197, align 8
-  br label %296
+198:                                              ; preds = %190
+  %199 = load ptr, ptr %10, align 8
+  %200 = load ptr, ptr %7, align 8
+  %201 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %200, i32 0, i32 10
+  store ptr %199, ptr %201, align 8
+  br label %300
 
-198:                                              ; preds = %186
-  %199 = load ptr, ptr %7, align 8
-  %200 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %199, i32 0, i32 10
-  store ptr null, ptr %200, align 8
-  %201 = load ptr, ptr %10, align 8
-  %202 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %201, i32 0, i32 4
-  %203 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %202, i32 0, i32 1
-  %204 = load i8, ptr %203, align 1
-  %205 = zext i8 %204 to i32
-  %206 = icmp eq i32 1, %205
-  br i1 %206, label %207, label %245
+202:                                              ; preds = %190
+  %203 = load ptr, ptr %7, align 8
+  %204 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %203, i32 0, i32 10
+  store ptr null, ptr %204, align 8
+  %205 = load ptr, ptr %10, align 8
+  %206 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %205, i32 0, i32 4
+  %207 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %206, i32 0, i32 1
+  %208 = load i8, ptr %207, align 1
+  %209 = zext i8 %208 to i32
+  %210 = icmp eq i32 1, %209
+  br i1 %210, label %211, label %249
 
-207:                                              ; preds = %198
-  %208 = load ptr, ptr %10, align 8
-  %209 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %208, i32 0, i32 4
-  %210 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %209, i32 0, i32 0
-  %211 = getelementptr inbounds %struct.mca_btl_base_header_t, ptr %210, i32 0, i32 0
-  %212 = load i8, ptr %211, align 8
-  %213 = zext i8 %212 to i32
-  %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds %struct.mca_btl_active_message_callback_t, ptr @mca_btl_base_active_message_trigger, i64 %214
-  store ptr %215, ptr %11, align 8
-  %216 = getelementptr inbounds %struct.mca_btl_base_receive_descriptor_t, ptr %12, i32 0, i32 0
-  %217 = load ptr, ptr %7, align 8
-  store ptr %217, ptr %216, align 8
-  %218 = getelementptr inbounds %struct.mca_btl_base_receive_descriptor_t, ptr %12, i32 0, i32 1
-  %219 = load ptr, ptr %10, align 8
-  %220 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %219, i32 0, i32 0
-  %221 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %220, i32 0, i32 1
-  %222 = load ptr, ptr %221, align 8
-  store ptr %222, ptr %218, align 8
-  %223 = getelementptr inbounds %struct.mca_btl_base_receive_descriptor_t, ptr %12, i32 0, i32 2
-  %224 = load ptr, ptr %10, align 8
-  %225 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %224, i32 0, i32 0
-  %226 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %225, i32 0, i32 2
-  %227 = load i64, ptr %226, align 8
-  store i64 %227, ptr %223, align 8
-  %228 = getelementptr inbounds %struct.mca_btl_base_receive_descriptor_t, ptr %12, i32 0, i32 3
-  %229 = load ptr, ptr %10, align 8
-  %230 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %229, i32 0, i32 4
-  %231 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %230, i32 0, i32 0
-  %232 = getelementptr inbounds %struct.mca_btl_base_header_t, ptr %231, i32 0, i32 0
-  %233 = load i8, ptr %232, align 8
-  store i8 %233, ptr %228, align 8
-  %234 = getelementptr inbounds %struct.mca_btl_base_receive_descriptor_t, ptr %12, i32 0, i32 4
-  %235 = load ptr, ptr %11, align 8
-  %236 = getelementptr inbounds %struct.mca_btl_active_message_callback_t, ptr %235, i32 0, i32 1
-  %237 = load ptr, ptr %236, align 8
-  store ptr %237, ptr %234, align 8
-  %238 = load ptr, ptr %11, align 8
-  %239 = getelementptr inbounds %struct.mca_btl_active_message_callback_t, ptr %238, i32 0, i32 0
-  %240 = load ptr, ptr %239, align 8
-  %241 = load ptr, ptr %10, align 8
-  %242 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %241, i32 0, i32 3
-  %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds %struct.mca_btl_tcp_module_t, ptr %243, i32 0, i32 0
-  call void %240(ptr noundef %244, ptr noundef %12)
-  br label %245
+211:                                              ; preds = %202
+  %212 = load ptr, ptr %10, align 8
+  %213 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %212, i32 0, i32 4
+  %214 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %213, i32 0, i32 0
+  %215 = getelementptr inbounds %struct.mca_btl_base_header_t, ptr %214, i32 0, i32 0
+  %216 = load i8, ptr %215, align 8
+  %217 = zext i8 %216 to i32
+  %218 = sext i32 %217 to i64
+  %219 = getelementptr inbounds %struct.mca_btl_active_message_callback_t, ptr @mca_btl_base_active_message_trigger, i64 %218
+  store ptr %219, ptr %11, align 8
+  %220 = getelementptr inbounds %struct.mca_btl_base_receive_descriptor_t, ptr %12, i32 0, i32 0
+  %221 = load ptr, ptr %7, align 8
+  store ptr %221, ptr %220, align 8
+  %222 = getelementptr inbounds %struct.mca_btl_base_receive_descriptor_t, ptr %12, i32 0, i32 1
+  %223 = load ptr, ptr %10, align 8
+  %224 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %223, i32 0, i32 0
+  %225 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %224, i32 0, i32 1
+  %226 = load ptr, ptr %225, align 8
+  store ptr %226, ptr %222, align 8
+  %227 = getelementptr inbounds %struct.mca_btl_base_receive_descriptor_t, ptr %12, i32 0, i32 2
+  %228 = load ptr, ptr %10, align 8
+  %229 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %228, i32 0, i32 0
+  %230 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %229, i32 0, i32 2
+  %231 = load i64, ptr %230, align 8
+  store i64 %231, ptr %227, align 8
+  %232 = getelementptr inbounds %struct.mca_btl_base_receive_descriptor_t, ptr %12, i32 0, i32 3
+  %233 = load ptr, ptr %10, align 8
+  %234 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %233, i32 0, i32 4
+  %235 = getelementptr inbounds %struct.mca_btl_tcp_hdr_t, ptr %234, i32 0, i32 0
+  %236 = getelementptr inbounds %struct.mca_btl_base_header_t, ptr %235, i32 0, i32 0
+  %237 = load i8, ptr %236, align 8
+  store i8 %237, ptr %232, align 8
+  %238 = getelementptr inbounds %struct.mca_btl_base_receive_descriptor_t, ptr %12, i32 0, i32 4
+  %239 = load ptr, ptr %11, align 8
+  %240 = getelementptr inbounds %struct.mca_btl_active_message_callback_t, ptr %239, i32 0, i32 1
+  %241 = load ptr, ptr %240, align 8
+  store ptr %241, ptr %238, align 8
+  %242 = load ptr, ptr %11, align 8
+  %243 = getelementptr inbounds %struct.mca_btl_active_message_callback_t, ptr %242, i32 0, i32 0
+  %244 = load ptr, ptr %243, align 8
+  %245 = load ptr, ptr %10, align 8
+  %246 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %245, i32 0, i32 3
+  %247 = load ptr, ptr %246, align 8
+  %248 = getelementptr inbounds %struct.mca_btl_tcp_module_t, ptr %247, i32 0, i32 0
+  call void %244(ptr noundef %248, ptr noundef %12)
+  br label %249
 
-245:                                              ; preds = %207, %198
-  %246 = load ptr, ptr %7, align 8
-  %247 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %246, i32 0, i32 8
-  %248 = load i64, ptr %247, align 8
-  %249 = icmp ne i64 0, %248
-  br i1 %249, label %250, label %291
+249:                                              ; preds = %211, %202
+  %250 = load ptr, ptr %7, align 8
+  %251 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %250, i32 0, i32 8
+  %252 = load i64, ptr %251, align 8
+  %253 = icmp ne i64 0, %252
+  br i1 %253, label %254, label %295
 
-250:                                              ; preds = %245
-  br label %251
+254:                                              ; preds = %249
+  br label %255
 
-251:                                              ; preds = %250
-  %252 = load ptr, ptr %10, align 8
-  %253 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %252, i32 0, i32 11
-  store i32 0, ptr %253, align 4
-  %254 = load ptr, ptr %7, align 8
-  %255 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %254, i32 0, i32 1
-  %256 = load ptr, ptr %255, align 8
-  %257 = load ptr, ptr %10, align 8
-  %258 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %257, i32 0, i32 3
-  store ptr %256, ptr %258, align 8
-  %259 = load ptr, ptr %7, align 8
-  %260 = load ptr, ptr %10, align 8
-  %261 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %260, i32 0, i32 2
-  store ptr %259, ptr %261, align 8
-  %262 = load ptr, ptr %10, align 8
-  %263 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %262, i32 0, i32 5
-  %264 = getelementptr inbounds [5 x %struct.iovec], ptr %263, i64 0, i64 0
-  %265 = getelementptr inbounds %struct.iovec, ptr %264, i32 0, i32 1
-  store i64 8, ptr %265, align 8
+255:                                              ; preds = %254
+  %256 = load ptr, ptr %10, align 8
+  %257 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %256, i32 0, i32 11
+  store i32 0, ptr %257, align 4
+  %258 = load ptr, ptr %7, align 8
+  %259 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %258, i32 0, i32 1
+  %260 = load ptr, ptr %259, align 8
+  %261 = load ptr, ptr %10, align 8
+  %262 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %261, i32 0, i32 3
+  store ptr %260, ptr %262, align 8
+  %263 = load ptr, ptr %7, align 8
+  %264 = load ptr, ptr %10, align 8
+  %265 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %264, i32 0, i32 2
+  store ptr %263, ptr %265, align 8
   %266 = load ptr, ptr %10, align 8
-  %267 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %266, i32 0, i32 4
-  %268 = load ptr, ptr %10, align 8
-  %269 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %268, i32 0, i32 5
-  %270 = getelementptr inbounds [5 x %struct.iovec], ptr %269, i64 0, i64 0
-  %271 = getelementptr inbounds %struct.iovec, ptr %270, i32 0, i32 0
-  store ptr %267, ptr %271, align 8
+  %267 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %266, i32 0, i32 5
+  %268 = getelementptr inbounds [5 x %struct.iovec], ptr %267, i64 0, i64 0
+  %269 = getelementptr inbounds %struct.iovec, ptr %268, i32 0, i32 1
+  store i64 8, ptr %269, align 8
+  %270 = load ptr, ptr %10, align 8
+  %271 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %270, i32 0, i32 4
   %272 = load ptr, ptr %10, align 8
-  %273 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %272, i32 0, i32 7
-  store i32 1, ptr %273, align 8
-  %274 = load ptr, ptr %10, align 8
-  %275 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %274, i32 0, i32 8
-  store i32 0, ptr %275, align 4
+  %273 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %272, i32 0, i32 5
+  %274 = getelementptr inbounds [5 x %struct.iovec], ptr %273, i64 0, i64 0
+  %275 = getelementptr inbounds %struct.iovec, ptr %274, i32 0, i32 0
+  store ptr %271, ptr %275, align 8
   %276 = load ptr, ptr %10, align 8
-  %277 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %276, i32 0, i32 5
-  %278 = getelementptr inbounds [5 x %struct.iovec], ptr %277, i64 0, i64 0
-  %279 = load ptr, ptr %10, align 8
-  %280 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %279, i32 0, i32 6
-  store ptr %278, ptr %280, align 8
-  %281 = load ptr, ptr %10, align 8
-  %282 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %281, i32 0, i32 1
-  %283 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %282, i64 0, i64 0
-  %284 = load ptr, ptr %10, align 8
-  %285 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %284, i32 0, i32 0
-  %286 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %285, i32 0, i32 1
-  store ptr %283, ptr %286, align 8
-  %287 = load ptr, ptr %10, align 8
-  %288 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %287, i32 0, i32 0
-  %289 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %288, i32 0, i32 2
-  store i64 1, ptr %289, align 8
-  br label %290
+  %277 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %276, i32 0, i32 7
+  store i32 1, ptr %277, align 8
+  %278 = load ptr, ptr %10, align 8
+  %279 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %278, i32 0, i32 8
+  store i32 0, ptr %279, align 4
+  %280 = load ptr, ptr %10, align 8
+  %281 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %280, i32 0, i32 5
+  %282 = getelementptr inbounds [5 x %struct.iovec], ptr %281, i64 0, i64 0
+  %283 = load ptr, ptr %10, align 8
+  %284 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %283, i32 0, i32 6
+  store ptr %282, ptr %284, align 8
+  %285 = load ptr, ptr %10, align 8
+  %286 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %285, i32 0, i32 1
+  %287 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %286, i64 0, i64 0
+  %288 = load ptr, ptr %10, align 8
+  %289 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %288, i32 0, i32 0
+  %290 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %289, i32 0, i32 1
+  store ptr %287, ptr %290, align 8
+  %291 = load ptr, ptr %10, align 8
+  %292 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %291, i32 0, i32 0
+  %293 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %292, i32 0, i32 2
+  store i64 1, ptr %293, align 8
+  br label %294
 
-290:                                              ; preds = %251
-  br label %186
+294:                                              ; preds = %255
+  br label %190
 
-291:                                              ; preds = %245
-  %292 = load ptr, ptr %10, align 8
-  %293 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %292, i32 0, i32 12
-  %294 = load ptr, ptr %293, align 8
-  %295 = load ptr, ptr %10, align 8
-  call void @opal_free_list_return(ptr noundef %294, ptr noundef %295)
-  br label %296
+295:                                              ; preds = %249
+  %296 = load ptr, ptr %10, align 8
+  %297 = getelementptr inbounds %struct.mca_btl_tcp_frag_t, ptr %296, i32 0, i32 12
+  %298 = load ptr, ptr %297, align 8
+  %299 = load ptr, ptr %10, align 8
+  call void @opal_free_list_return(ptr noundef %298, ptr noundef %299)
+  br label %300
 
-296:                                              ; preds = %291, %194
-  br label %297
+300:                                              ; preds = %295, %198
+  br label %301
 
-297:                                              ; preds = %296
-  %298 = load i8, ptr @opal_uses_threads, align 1
-  %299 = trunc i8 %298 to i1
-  %300 = xor i1 %299, true
-  %301 = xor i1 %300, true
-  %302 = zext i1 %301 to i32
-  %303 = sext i32 %302 to i64
-  %304 = icmp ne i64 %303, 0
-  br i1 %304, label %305, label %308
+301:                                              ; preds = %300
+  %302 = load i8, ptr @opal_uses_threads, align 1
+  %303 = trunc i8 %302 to i1
+  %304 = xor i1 %303, true
+  %305 = xor i1 %304, true
+  %306 = zext i1 %305 to i32
+  %307 = sext i32 %306 to i64
+  %308 = icmp ne i64 %307, 0
+  br i1 %308, label %309, label %312
 
-305:                                              ; preds = %297
-  %306 = load ptr, ptr %7, align 8
-  %307 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %306, i32 0, i32 15
-  call void @opal_mutex_unlock(ptr noundef %307)
-  br label %308
+309:                                              ; preds = %301
+  %310 = load ptr, ptr %7, align 8
+  %311 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %310, i32 0, i32 15
+  call void @opal_mutex_unlock(ptr noundef %311)
+  br label %312
 
-308:                                              ; preds = %305, %297
-  br label %309
+312:                                              ; preds = %309, %301
+  br label %313
 
-309:                                              ; preds = %308
-  br label %355
+313:                                              ; preds = %312
+  br label %360
 
-310:                                              ; preds = %35
-  br label %311
+314:                                              ; preds = %35
+  br label %315
 
-311:                                              ; preds = %310
-  %312 = load i8, ptr @opal_uses_threads, align 1
-  %313 = trunc i8 %312 to i1
-  %314 = xor i1 %313, true
-  %315 = xor i1 %314, true
-  %316 = zext i1 %315 to i32
-  %317 = sext i32 %316 to i64
-  %318 = icmp ne i64 %317, 0
-  br i1 %318, label %319, label %322
+315:                                              ; preds = %314
+  %316 = load i8, ptr @opal_uses_threads, align 1
+  %317 = trunc i8 %316 to i1
+  %318 = xor i1 %317, true
+  %319 = xor i1 %318, true
+  %320 = zext i1 %319 to i32
+  %321 = sext i32 %320 to i64
+  %322 = icmp ne i64 %321, 0
+  br i1 %322, label %323, label %326
 
-319:                                              ; preds = %311
-  %320 = load ptr, ptr %7, align 8
-  %321 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %320, i32 0, i32 15
-  call void @opal_mutex_unlock(ptr noundef %321)
-  br label %322
+323:                                              ; preds = %315
+  %324 = load ptr, ptr %7, align 8
+  %325 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %324, i32 0, i32 15
+  call void @opal_mutex_unlock(ptr noundef %325)
+  br label %326
 
-322:                                              ; preds = %319, %311
-  br label %323
+326:                                              ; preds = %323, %315
+  br label %327
 
-323:                                              ; preds = %322
-  br label %355
+327:                                              ; preds = %326
+  br label %360
 
-324:                                              ; preds = %35
-  br label %325
+328:                                              ; preds = %35
+  br label %329
 
-325:                                              ; preds = %324
-  %326 = load i8, ptr @opal_uses_threads, align 1
-  %327 = trunc i8 %326 to i1
-  %328 = xor i1 %327, true
-  %329 = xor i1 %328, true
-  %330 = zext i1 %329 to i32
-  %331 = sext i32 %330 to i64
-  %332 = icmp ne i64 %331, 0
-  br i1 %332, label %333, label %336
+329:                                              ; preds = %328
+  %330 = load i8, ptr @opal_uses_threads, align 1
+  %331 = trunc i8 %330 to i1
+  %332 = xor i1 %331, true
+  %333 = xor i1 %332, true
+  %334 = zext i1 %333 to i32
+  %335 = sext i32 %334 to i64
+  %336 = icmp ne i64 %335, 0
+  br i1 %336, label %337, label %340
 
-333:                                              ; preds = %325
-  %334 = load ptr, ptr %7, align 8
-  %335 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %334, i32 0, i32 15
-  call void @opal_mutex_unlock(ptr noundef %335)
-  br label %336
+337:                                              ; preds = %329
+  %338 = load ptr, ptr %7, align 8
+  %339 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %338, i32 0, i32 15
+  call void @opal_mutex_unlock(ptr noundef %339)
+  br label %340
 
-336:                                              ; preds = %333, %325
-  br label %337
+340:                                              ; preds = %337, %329
+  br label %341
 
-337:                                              ; preds = %336
-  br label %338
+341:                                              ; preds = %340
+  br label %342
 
-338:                                              ; preds = %337
-  %339 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %340 = load ptr, ptr @opal_process_name_print, align 8
-  %341 = call ptr @opal_proc_local_get()
-  %342 = getelementptr inbounds %struct.opal_proc_t, ptr %341, i32 0, i32 1
-  %343 = load i64, ptr %342, align 8
-  %344 = call ptr %340(i64 %343)
-  %345 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %339, ptr noundef %344, ptr noundef @.str.3, i32 noundef 1074, ptr noundef @__func__.mca_btl_tcp_endpoint_recv_handler)
-  %346 = load ptr, ptr %7, align 8
-  %347 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %346, i32 0, i32 11
-  %348 = load i32, ptr %347, align 8
-  %349 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.13, i32 noundef %348)
-  %350 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
-  br label %351
+342:                                              ; preds = %341
+  %343 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %344 = load ptr, ptr %343, align 8
+  %345 = load ptr, ptr @opal_process_name_print, align 8
+  %346 = call ptr @opal_proc_local_get()
+  %347 = getelementptr inbounds %struct.opal_proc_t, ptr %346, i32 0, i32 1
+  %348 = load i64, ptr %347, align 8
+  %349 = call ptr %345(i64 %348)
+  %350 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %344, ptr noundef %349, ptr noundef @.str.3, i32 noundef 1074, ptr noundef @__func__.mca_btl_tcp_endpoint_recv_handler)
+  %351 = load ptr, ptr %7, align 8
+  %352 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %351, i32 0, i32 11
+  %353 = load i32, ptr %352, align 8
+  %354 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.13, i32 noundef %353)
+  %355 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
+  br label %356
 
-351:                                              ; preds = %338
-  %352 = load ptr, ptr %7, align 8
-  %353 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %352, i32 0, i32 11
-  store i32 3, ptr %353, align 8
-  %354 = load ptr, ptr %7, align 8
-  call void @mca_btl_tcp_endpoint_close(ptr noundef %354)
-  br label %355
+356:                                              ; preds = %342
+  %357 = load ptr, ptr %7, align 8
+  %358 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %357, i32 0, i32 11
+  store i32 3, ptr %358, align 8
+  %359 = load ptr, ptr %7, align 8
+  call void @mca_btl_tcp_endpoint_close(ptr noundef %359)
+  br label %360
 
-355:                                              ; preds = %351, %323, %309, %143, %112, %34, %19
+360:                                              ; preds = %356, %327, %313, %147, %112, %34, %19
   ret void
 }
 
@@ -2884,7 +2914,7 @@ define internal void @mca_btl_tcp_endpoint_send_handler(i32 noundef %0, i16 noun
   br i1 false, label %24, label %25
 
 24:                                               ; preds = %23, %18
-  br label %165
+  br label %166
 
 25:                                               ; preds = %23, %18
   %26 = load ptr, ptr %7, align 8
@@ -2899,7 +2929,7 @@ define internal void @mca_btl_tcp_endpoint_send_handler(i32 noundef %0, i16 noun
 29:                                               ; preds = %25
   %30 = load ptr, ptr %7, align 8
   %31 = call i32 @mca_btl_tcp_endpoint_complete_connect(ptr noundef %30)
-  br label %152
+  br label %153
 
 32:                                               ; preds = %25
   br label %33
@@ -3024,7 +3054,7 @@ define internal void @mca_btl_tcp_endpoint_send_handler(i32 noundef %0, i16 noun
   br i1 false, label %118, label %119
 
 118:                                              ; preds = %117, %112
-  br label %165
+  br label %166
 
 119:                                              ; preds = %117, %112
   br label %33, !llvm.loop !8
@@ -3043,61 +3073,62 @@ define internal void @mca_btl_tcp_endpoint_send_handler(i32 noundef %0, i16 noun
   br label %129
 
 129:                                              ; preds = %125, %120
-  br label %152
+  br label %153
 
 130:                                              ; preds = %25
   %131 = load ptr, ptr %7, align 8
   %132 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %131, i32 0, i32 17
   %133 = call i32 @event_del(ptr noundef %132)
-  br label %152
+  br label %153
 
 134:                                              ; preds = %25
   br label %135
 
 135:                                              ; preds = %134
-  %136 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %137 = load ptr, ptr @opal_process_name_print, align 8
-  %138 = call ptr @opal_proc_local_get()
-  %139 = getelementptr inbounds %struct.opal_proc_t, ptr %138, i32 0, i32 1
-  %140 = load i64, ptr %139, align 8
-  %141 = call ptr %137(i64 %140)
-  %142 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %136, ptr noundef %141, ptr noundef @.str.3, i32 noundef 1144, ptr noundef @__func__.mca_btl_tcp_endpoint_send_handler)
-  %143 = load ptr, ptr %7, align 8
-  %144 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %143, i32 0, i32 11
-  %145 = load i32, ptr %144, align 8
-  %146 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.19, i32 noundef %145)
-  %147 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
-  br label %148
+  %136 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %137 = load ptr, ptr %136, align 8
+  %138 = load ptr, ptr @opal_process_name_print, align 8
+  %139 = call ptr @opal_proc_local_get()
+  %140 = getelementptr inbounds %struct.opal_proc_t, ptr %139, i32 0, i32 1
+  %141 = load i64, ptr %140, align 8
+  %142 = call ptr %138(i64 %141)
+  %143 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %137, ptr noundef %142, ptr noundef @.str.3, i32 noundef 1144, ptr noundef @__func__.mca_btl_tcp_endpoint_send_handler)
+  %144 = load ptr, ptr %7, align 8
+  %145 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %144, i32 0, i32 11
+  %146 = load i32, ptr %145, align 8
+  %147 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.19, i32 noundef %146)
+  %148 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
+  br label %149
 
-148:                                              ; preds = %135
-  %149 = load ptr, ptr %7, align 8
-  %150 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %149, i32 0, i32 17
-  %151 = call i32 @event_del(ptr noundef %150)
-  br label %152
-
-152:                                              ; preds = %148, %130, %129, %29
+149:                                              ; preds = %135
+  %150 = load ptr, ptr %7, align 8
+  %151 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %150, i32 0, i32 17
+  %152 = call i32 @event_del(ptr noundef %151)
   br label %153
 
-153:                                              ; preds = %152
-  %154 = load i8, ptr @opal_uses_threads, align 1
-  %155 = trunc i8 %154 to i1
-  %156 = xor i1 %155, true
+153:                                              ; preds = %149, %130, %129, %29
+  br label %154
+
+154:                                              ; preds = %153
+  %155 = load i8, ptr @opal_uses_threads, align 1
+  %156 = trunc i8 %155 to i1
   %157 = xor i1 %156, true
-  %158 = zext i1 %157 to i32
-  %159 = sext i32 %158 to i64
-  %160 = icmp ne i64 %159, 0
-  br i1 %160, label %161, label %164
+  %158 = xor i1 %157, true
+  %159 = zext i1 %158 to i32
+  %160 = sext i32 %159 to i64
+  %161 = icmp ne i64 %160, 0
+  br i1 %161, label %162, label %165
 
-161:                                              ; preds = %153
-  %162 = load ptr, ptr %7, align 8
-  %163 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %162, i32 0, i32 14
-  call void @opal_mutex_unlock(ptr noundef %163)
-  br label %164
-
-164:                                              ; preds = %161, %153
+162:                                              ; preds = %154
+  %163 = load ptr, ptr %7, align 8
+  %164 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %163, i32 0, i32 14
+  call void @opal_mutex_unlock(ptr noundef %164)
   br label %165
 
-165:                                              ; preds = %164, %118, %24
+165:                                              ; preds = %162, %154
+  br label %166
+
+166:                                              ; preds = %165, %118, %24
   ret void
 }
 
@@ -3124,7 +3155,7 @@ define internal i32 @mca_btl_tcp_endpoint_recv_connect_ack(ptr noundef %0) #0 {
   store i64 %16, ptr %4, align 8
   %17 = load i64, ptr %4, align 8
   %18 = icmp ne i64 24, %17
-  br i1 %18, label %19, label %29
+  br i1 %18, label %19, label %30
 
 19:                                               ; preds = %1
   %20 = load ptr, ptr %3, align 8
@@ -3135,89 +3166,92 @@ define internal i32 @mca_btl_tcp_endpoint_recv_connect_ack(ptr noundef %0) #0 {
 
 23:                                               ; preds = %19
   store i32 -1, ptr %2, align 4
-  br label %79
+  br label %82
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr @opal_show_help, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %27 = call i32 @getpid() #8
-  %28 = call i32 (ptr, ptr, i32, ...) %25(ptr noundef @.str.9, ptr noundef @.str.10, i32 noundef 1, ptr noundef %26, i32 noundef %27, ptr noundef @.str.14)
+  %26 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %27 = load ptr, ptr %26, align 8
+  %28 = call i32 @getpid() #8
+  %29 = call i32 (ptr, ptr, i32, ...) %25(ptr noundef @.str.9, ptr noundef @.str.10, i32 noundef 1, ptr noundef %27, i32 noundef %28, ptr noundef @.str.14)
   store i32 -5, ptr %2, align 4
-  br label %79
+  br label %82
 
-29:                                               ; preds = %1
-  %30 = getelementptr inbounds %struct.mca_btl_tcp_endpoint_hs_msg_t, ptr %8, i32 0, i32 1
-  %31 = getelementptr inbounds [16 x i8], ptr %30, i64 0, i64 0
-  %32 = load i64, ptr %5, align 8
-  %33 = call i32 @strncmp(ptr noundef %31, ptr noundef @mca_btl_tcp_magic_id_string, i64 noundef %32) #11
-  %34 = icmp ne i32 0, %33
-  br i1 %34, label %35, label %42
+30:                                               ; preds = %1
+  %31 = getelementptr inbounds %struct.mca_btl_tcp_endpoint_hs_msg_t, ptr %8, i32 0, i32 1
+  %32 = getelementptr inbounds [16 x i8], ptr %31, i64 0, i64 0
+  %33 = load i64, ptr %5, align 8
+  %34 = call i32 @strncmp(ptr noundef %32, ptr noundef @mca_btl_tcp_magic_id_string, i64 noundef %33) #11
+  %35 = icmp ne i32 0, %34
+  br i1 %35, label %36, label %44
 
-35:                                               ; preds = %29
-  %36 = load ptr, ptr @opal_show_help, align 8
-  %37 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %38 = call i32 @getpid() #8
-  %39 = getelementptr inbounds %struct.mca_btl_tcp_endpoint_hs_msg_t, ptr %8, i32 0, i32 1
-  %40 = getelementptr inbounds [16 x i8], ptr %39, i64 0, i64 0
-  %41 = call i32 (ptr, ptr, i32, ...) %36(ptr noundef @.str.9, ptr noundef @.str.15, i32 noundef 1, ptr noundef %37, i32 noundef %38, ptr noundef @.str.16, ptr noundef %40, ptr noundef @.str.17)
+36:                                               ; preds = %30
+  %37 = load ptr, ptr @opal_show_help, align 8
+  %38 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %39 = load ptr, ptr %38, align 8
+  %40 = call i32 @getpid() #8
+  %41 = getelementptr inbounds %struct.mca_btl_tcp_endpoint_hs_msg_t, ptr %8, i32 0, i32 1
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 0, i64 0
+  %43 = call i32 (ptr, ptr, i32, ...) %37(ptr noundef @.str.9, ptr noundef @.str.15, i32 noundef 1, ptr noundef %39, i32 noundef %40, ptr noundef @.str.16, ptr noundef %42, ptr noundef @.str.17)
   store i32 -5, ptr %2, align 4
-  br label %79
+  br label %82
 
-42:                                               ; preds = %29
-  %43 = getelementptr inbounds %struct.mca_btl_tcp_endpoint_hs_msg_t, ptr %8, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %43, i64 8, i1 false)
-  %44 = load ptr, ptr @opal_compare_proc, align 8
-  %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct.mca_btl_tcp_proc_t, ptr %45, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct.opal_proc_t, ptr %47, i32 0, i32 1
-  %49 = load i64, ptr %48, align 8
-  %50 = load i64, ptr %7, align 4
-  %51 = call i32 %44(i64 %49, i64 %50)
-  %52 = icmp ne i32 0, %51
-  br i1 %52, label %53, label %78
+44:                                               ; preds = %30
+  %45 = getelementptr inbounds %struct.mca_btl_tcp_endpoint_hs_msg_t, ptr %8, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %45, i64 8, i1 false)
+  %46 = load ptr, ptr @opal_compare_proc, align 8
+  %47 = load ptr, ptr %6, align 8
+  %48 = getelementptr inbounds %struct.mca_btl_tcp_proc_t, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %struct.opal_proc_t, ptr %49, i32 0, i32 1
+  %51 = load i64, ptr %50, align 8
+  %52 = load i64, ptr %7, align 4
+  %53 = call i32 %46(i64 %51, i64 %52)
+  %54 = icmp ne i32 0, %53
+  br i1 %54, label %55, label %81
 
-53:                                               ; preds = %42
-  br label %54
+55:                                               ; preds = %44
+  br label %56
 
-54:                                               ; preds = %53
-  %55 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %56 = load ptr, ptr @opal_process_name_print, align 8
-  %57 = call ptr @opal_proc_local_get()
-  %58 = getelementptr inbounds %struct.opal_proc_t, ptr %57, i32 0, i32 1
-  %59 = load i64, ptr %58, align 8
-  %60 = call ptr %56(i64 %59)
-  %61 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %55, ptr noundef %60, ptr noundef @.str.3, i32 noundef 668, ptr noundef @__func__.mca_btl_tcp_endpoint_recv_connect_ack)
-  %62 = load ptr, ptr @opal_process_name_print, align 8
-  %63 = load i64, ptr %7, align 4
-  %64 = call ptr %62(i64 %63)
+56:                                               ; preds = %55
+  %57 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr @opal_process_name_print, align 8
+  %60 = call ptr @opal_proc_local_get()
+  %61 = getelementptr inbounds %struct.opal_proc_t, ptr %60, i32 0, i32 1
+  %62 = load i64, ptr %61, align 8
+  %63 = call ptr %59(i64 %62)
+  %64 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %58, ptr noundef %63, ptr noundef @.str.3, i32 noundef 668, ptr noundef @__func__.mca_btl_tcp_endpoint_recv_connect_ack)
   %65 = load ptr, ptr @opal_process_name_print, align 8
-  %66 = load ptr, ptr %6, align 8
-  %67 = getelementptr inbounds %struct.mca_btl_tcp_proc_t, ptr %66, i32 0, i32 1
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds %struct.opal_proc_t, ptr %68, i32 0, i32 1
-  %70 = load i64, ptr %69, align 8
-  %71 = call ptr %65(i64 %70)
-  %72 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.18, ptr noundef %64, ptr noundef %71)
-  %73 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
-  br label %74
+  %66 = load i64, ptr %7, align 4
+  %67 = call ptr %65(i64 %66)
+  %68 = load ptr, ptr @opal_process_name_print, align 8
+  %69 = load ptr, ptr %6, align 8
+  %70 = getelementptr inbounds %struct.mca_btl_tcp_proc_t, ptr %69, i32 0, i32 1
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds %struct.opal_proc_t, ptr %71, i32 0, i32 1
+  %73 = load i64, ptr %72, align 8
+  %74 = call ptr %68(i64 %73)
+  %75 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.18, ptr noundef %67, ptr noundef %74)
+  %76 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
+  br label %77
 
-74:                                               ; preds = %54
-  %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %75, i32 0, i32 11
-  store i32 3, ptr %76, align 8
-  %77 = load ptr, ptr %3, align 8
-  call void @mca_btl_tcp_endpoint_close(ptr noundef %77)
+77:                                               ; preds = %56
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %78, i32 0, i32 11
+  store i32 3, ptr %79, align 8
+  %80 = load ptr, ptr %3, align 8
+  call void @mca_btl_tcp_endpoint_close(ptr noundef %80)
   store i32 -12, ptr %2, align 4
-  br label %79
+  br label %82
 
-78:                                               ; preds = %42
+81:                                               ; preds = %44
   store i32 0, ptr %2, align 4
-  br label %79
+  br label %82
 
-79:                                               ; preds = %78, %74, %35, %24, %23
-  %80 = load i32, ptr %2, align 4
-  ret i32 %80
+82:                                               ; preds = %81, %77, %36, %24, %23
+  %83 = load i32, ptr %2, align 4
+  ret i32 %83
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3542,166 +3576,171 @@ define internal i32 @mca_btl_tcp_endpoint_complete_connect(ptr noundef %0) #0 {
   %17 = load i32, ptr %16, align 8
   %18 = call i32 @getsockopt(i32 noundef %17, i32 noundef 1, i32 noundef 4, ptr noundef %4, ptr noundef %5) #8
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %53
+  br i1 %19, label %20, label %55
 
 20:                                               ; preds = %1
   %21 = load ptr, ptr @opal_show_help, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %23 = call i32 @getpid() #8
-  %24 = call ptr @__errno_location() #9
-  %25 = load i32, ptr %24, align 4
-  %26 = call ptr @strerror(i32 noundef %25) #8
-  %27 = call ptr @__errno_location() #9
-  %28 = load i32, ptr %27, align 4
-  %29 = call i32 (ptr, ptr, i32, ...) %21(ptr noundef @.str.9, ptr noundef @.str.20, i32 noundef 1, ptr noundef %22, i32 noundef %23, ptr noundef @.str.21, ptr noundef %26, i32 noundef %28)
-  br label %30
+  %22 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %23 = load ptr, ptr %22, align 8
+  %24 = call i32 @getpid() #8
+  %25 = call ptr @__errno_location() #9
+  %26 = load i32, ptr %25, align 4
+  %27 = call ptr @strerror(i32 noundef %26) #8
+  %28 = call ptr @__errno_location() #9
+  %29 = load i32, ptr %28, align 4
+  %30 = call i32 (ptr, ptr, i32, ...) %21(ptr noundef @.str.9, ptr noundef @.str.20, i32 noundef 1, ptr noundef %23, i32 noundef %24, ptr noundef @.str.21, ptr noundef %27, i32 noundef %29)
+  br label %31
 
-30:                                               ; preds = %20
-  %31 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %32 = load ptr, ptr @opal_process_name_print, align 8
-  %33 = call ptr @opal_proc_local_get()
-  %34 = getelementptr inbounds %struct.opal_proc_t, ptr %33, i32 0, i32 1
-  %35 = load i64, ptr %34, align 8
-  %36 = call ptr %32(i64 %35)
-  %37 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %31, ptr noundef %36, ptr noundef @.str.3, i32 noundef 892, ptr noundef @__func__.mca_btl_tcp_endpoint_complete_connect)
-  %38 = call ptr @opal_net_get_hostname(ptr noundef %6)
-  %39 = getelementptr inbounds %struct.sockaddr_in, ptr %6, i32 0, i32 1
-  %40 = load i16, ptr %39, align 2
-  %41 = zext i16 %40 to i32
-  %42 = call ptr @__errno_location() #9
-  %43 = load i32, ptr %42, align 4
-  %44 = call ptr @strerror(i32 noundef %43) #8
-  %45 = call ptr @__errno_location() #9
-  %46 = load i32, ptr %45, align 4
-  %47 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.22, ptr noundef %38, i32 noundef %41, ptr noundef %44, i32 noundef %46)
-  %48 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
-  br label %49
+31:                                               ; preds = %20
+  %32 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr @opal_process_name_print, align 8
+  %35 = call ptr @opal_proc_local_get()
+  %36 = getelementptr inbounds %struct.opal_proc_t, ptr %35, i32 0, i32 1
+  %37 = load i64, ptr %36, align 8
+  %38 = call ptr %34(i64 %37)
+  %39 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.2, ptr noundef %33, ptr noundef %38, ptr noundef @.str.3, i32 noundef 892, ptr noundef @__func__.mca_btl_tcp_endpoint_complete_connect)
+  %40 = call ptr @opal_net_get_hostname(ptr noundef %6)
+  %41 = getelementptr inbounds %struct.sockaddr_in, ptr %6, i32 0, i32 1
+  %42 = load i16, ptr %41, align 2
+  %43 = zext i16 %42 to i32
+  %44 = call ptr @__errno_location() #9
+  %45 = load i32, ptr %44, align 4
+  %46 = call ptr @strerror(i32 noundef %45) #8
+  %47 = call ptr @__errno_location() #9
+  %48 = load i32, ptr %47, align 4
+  %49 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.22, ptr noundef %40, i32 noundef %43, ptr noundef %46, i32 noundef %48)
+  %50 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef @.str.5)
+  br label %51
 
-49:                                               ; preds = %30
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %50, i32 0, i32 11
-  store i32 3, ptr %51, align 8
+51:                                               ; preds = %31
   %52 = load ptr, ptr %3, align 8
-  call void @mca_btl_tcp_endpoint_close(ptr noundef %52)
+  %53 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %52, i32 0, i32 11
+  store i32 3, ptr %53, align 8
+  %54 = load ptr, ptr %3, align 8
+  call void @mca_btl_tcp_endpoint_close(ptr noundef %54)
   store i32 -1, ptr %2, align 4
-  br label %120
+  br label %125
 
-53:                                               ; preds = %1
-  %54 = load i32, ptr %4, align 4
-  %55 = icmp eq i32 %54, 115
-  br i1 %55, label %59, label %56
+55:                                               ; preds = %1
+  %56 = load i32, ptr %4, align 4
+  %57 = icmp eq i32 %56, 115
+  br i1 %57, label %61, label %58
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr %4, align 4
-  %58 = icmp eq i32 %57, 11
-  br i1 %58, label %59, label %60
+58:                                               ; preds = %55
+  %59 = load i32, ptr %4, align 4
+  %60 = icmp eq i32 %59, 11
+  br i1 %60, label %61, label %62
 
-59:                                               ; preds = %56, %53
+61:                                               ; preds = %58, %55
   store i32 0, ptr %2, align 4
-  br label %120
+  br label %125
 
-60:                                               ; preds = %56
-  %61 = load i32, ptr %4, align 4
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %63, label %89
+62:                                               ; preds = %58
+  %63 = load i32, ptr %4, align 4
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %92
 
-63:                                               ; preds = %60
-  %64 = load i32, ptr @mca_btl_base_warn_peer_error, align 4
-  %65 = icmp ne i32 %64, 0
-  br i1 %65, label %69, label %66
+65:                                               ; preds = %62
+  %66 = load i32, ptr @mca_btl_base_warn_peer_error, align 4
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %71, label %68
 
-66:                                               ; preds = %63
-  %67 = load i32, ptr @mca_btl_base_verbose, align 4
-  %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %69, label %85
+68:                                               ; preds = %65
+  %69 = load i32, ptr @mca_btl_base_verbose, align 4
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %71, label %88
 
-69:                                               ; preds = %66, %63
-  %70 = call ptr @opal_net_get_hostname(ptr noundef %6)
-  %71 = getelementptr inbounds %struct.sockaddr_in, ptr %6, i32 0, i32 1
-  %72 = load i16, ptr %71, align 2
-  %73 = call zeroext i16 @ntohs(i16 noundef zeroext %72) #9
-  %74 = zext i16 %73 to i32
-  %75 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %7, ptr noundef @.str.23, ptr noundef %70, i32 noundef %74)
-  %76 = load ptr, ptr @opal_show_help, align 8
-  %77 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %78 = call i32 @getpid() #8
-  %79 = load ptr, ptr %7, align 8
-  %80 = load i32, ptr %4, align 4
-  %81 = call ptr @strerror(i32 noundef %80) #8
-  %82 = load i32, ptr %4, align 4
-  %83 = call i32 (ptr, ptr, i32, ...) %76(ptr noundef @.str.9, ptr noundef @.str.24, i32 noundef 1, ptr noundef %77, i32 noundef %78, ptr noundef %79, ptr noundef %81, i32 noundef %82)
-  %84 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %84) #8
-  br label %85
+71:                                               ; preds = %68, %65
+  %72 = call ptr @opal_net_get_hostname(ptr noundef %6)
+  %73 = getelementptr inbounds %struct.sockaddr_in, ptr %6, i32 0, i32 1
+  %74 = load i16, ptr %73, align 2
+  %75 = call zeroext i16 @ntohs(i16 noundef zeroext %74) #9
+  %76 = zext i16 %75 to i32
+  %77 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %7, ptr noundef @.str.23, ptr noundef %72, i32 noundef %76)
+  %78 = load ptr, ptr @opal_show_help, align 8
+  %79 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %80 = load ptr, ptr %79, align 8
+  %81 = call i32 @getpid() #8
+  %82 = load ptr, ptr %7, align 8
+  %83 = load i32, ptr %4, align 4
+  %84 = call ptr @strerror(i32 noundef %83) #8
+  %85 = load i32, ptr %4, align 4
+  %86 = call i32 (ptr, ptr, i32, ...) %78(ptr noundef @.str.9, ptr noundef @.str.24, i32 noundef 1, ptr noundef %80, i32 noundef %81, ptr noundef %82, ptr noundef %84, i32 noundef %85)
+  %87 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %87) #8
+  br label %88
 
-85:                                               ; preds = %69, %66
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %86, i32 0, i32 11
-  store i32 3, ptr %87, align 8
-  %88 = load ptr, ptr %3, align 8
-  call void @mca_btl_tcp_endpoint_close(ptr noundef %88)
+88:                                               ; preds = %71, %68
+  %89 = load ptr, ptr %3, align 8
+  %90 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %89, i32 0, i32 11
+  store i32 3, ptr %90, align 8
+  %91 = load ptr, ptr %3, align 8
+  call void @mca_btl_tcp_endpoint_close(ptr noundef %91)
   store i32 -1, ptr %2, align 4
-  br label %120
+  br label %125
 
-89:                                               ; preds = %60
-  br label %90
+92:                                               ; preds = %62
+  br label %93
 
-90:                                               ; preds = %89
-  %91 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11), align 4
-  %92 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %91)
-  br i1 %92, label %93, label %100
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11
+  %95 = load i32, ptr %94, align 4
+  %96 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %95)
+  br i1 %96, label %97, label %105
 
-93:                                               ; preds = %90
-  %94 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11), align 4
-  %95 = call ptr @opal_net_get_hostname(ptr noundef %6)
-  %96 = getelementptr inbounds %struct.sockaddr_in, ptr %6, i32 0, i32 1
-  %97 = load i16, ptr %96, align 2
-  %98 = call zeroext i16 @ntohs(i16 noundef zeroext %97) #9
-  %99 = zext i16 %98 to i32
-  call void (i32, ptr, ...) @opal_output(i32 noundef %94, ptr noundef @.str.25, ptr noundef %95, i32 noundef %99)
-  br label %100
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11
+  %99 = load i32, ptr %98, align 4
+  %100 = call ptr @opal_net_get_hostname(ptr noundef %6)
+  %101 = getelementptr inbounds %struct.sockaddr_in, ptr %6, i32 0, i32 1
+  %102 = load i16, ptr %101, align 2
+  %103 = call zeroext i16 @ntohs(i16 noundef zeroext %102) #9
+  %104 = zext i16 %103 to i32
+  call void (i32, ptr, ...) @opal_output(i32 noundef %99, ptr noundef @.str.25, ptr noundef %100, i32 noundef %104)
+  br label %105
 
-100:                                              ; preds = %93, %90
-  br label %101
+105:                                              ; preds = %97, %93
+  br label %106
 
-101:                                              ; preds = %100
-  %102 = load ptr, ptr %3, align 8
-  %103 = call i32 @mca_btl_tcp_endpoint_send_connect_ack(ptr noundef %102)
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %116
+106:                                              ; preds = %105
+  %107 = load ptr, ptr %3, align 8
+  %108 = call i32 @mca_btl_tcp_endpoint_send_connect_ack(ptr noundef %107)
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %121
 
-105:                                              ; preds = %101
-  %106 = load ptr, ptr %3, align 8
-  %107 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %106, i32 0, i32 11
-  store i32 1, ptr %107, align 8
-  %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %108, i32 0, i32 18
-  %110 = call i32 @event_add(ptr noundef %109, ptr noundef null)
-  %111 = load ptr, ptr @mca_btl_tcp_event_base, align 8
-  %112 = load ptr, ptr @opal_sync_event_base, align 8
-  %113 = icmp eq ptr %111, %112
-  br i1 %113, label %114, label %115
+110:                                              ; preds = %106
+  %111 = load ptr, ptr %3, align 8
+  %112 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %111, i32 0, i32 11
+  store i32 1, ptr %112, align 8
+  %113 = load ptr, ptr %3, align 8
+  %114 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %113, i32 0, i32 18
+  %115 = call i32 @event_add(ptr noundef %114, ptr noundef null)
+  %116 = load ptr, ptr @mca_btl_tcp_event_base, align 8
+  %117 = load ptr, ptr @opal_sync_event_base, align 8
+  %118 = icmp eq ptr %116, %117
+  br i1 %118, label %119, label %120
 
-114:                                              ; preds = %105
+119:                                              ; preds = %110
   call void @opal_progress_event_users_increment()
-  br label %115
+  br label %120
 
-115:                                              ; preds = %114, %105
+120:                                              ; preds = %119, %110
   store i32 0, ptr %2, align 4
-  br label %120
+  br label %125
 
-116:                                              ; preds = %101
-  %117 = load ptr, ptr %3, align 8
-  %118 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %117, i32 0, i32 11
-  store i32 3, ptr %118, align 8
-  %119 = load ptr, ptr %3, align 8
-  call void @mca_btl_tcp_endpoint_close(ptr noundef %119)
+121:                                              ; preds = %106
+  %122 = load ptr, ptr %3, align 8
+  %123 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %122, i32 0, i32 11
+  store i32 3, ptr %123, align 8
+  %124 = load ptr, ptr %3, align 8
+  call void @mca_btl_tcp_endpoint_close(ptr noundef %124)
   store i32 -1, ptr %2, align 4
-  br label %120
+  br label %125
 
-120:                                              ; preds = %116, %115, %85, %59, %49
-  %121 = load i32, ptr %2, align 4
-  ret i32 %121
+125:                                              ; preds = %121, %120, %88, %61, %51
+  %126 = load i32, ptr %2, align 4
+  ret i32 %126
 }
 
 declare zeroext i1 @mca_btl_tcp_proc_tosocks(ptr noundef, ptr noundef) #1

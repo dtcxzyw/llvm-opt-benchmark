@@ -178,7 +178,8 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fPluralCountToCurrencyUnitPattern, align 8
   %fPluralRules = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 2
@@ -191,20 +192,20 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7518CurrencyPluralInfo10initializeERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef nonnull align 8 dereferenceable(217) %call, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %1 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7518CurrencyPluralInfo10initializeERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef nonnull align 8 dereferenceable(217) %call, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
   br label %eh.resume
 
@@ -222,7 +223,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -343,7 +345,8 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fPluralCountToCurrencyUnitPattern, align 8
   %fPluralRules = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 2
@@ -352,21 +355,21 @@ entry:
   store ptr null, ptr %fLocale, align 8
   %fInternalStatus = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 4
   store i32 0, ptr %fInternalStatus, align 8
-  %0 = load ptr, ptr %locale.addr, align 8
-  %1 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7518CurrencyPluralInfo10initializeERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %1 = load ptr, ptr %locale.addr, align 8
+  %2 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7518CurrencyPluralInfo10initializeERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
   br label %eh.resume
 
@@ -390,7 +393,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %info.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fPluralCountToCurrencyUnitPattern, align 8
   %fPluralRules = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 2
@@ -399,20 +403,20 @@ entry:
   store ptr null, ptr %fLocale, align 8
   %fInternalStatus = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 4
   store i32 0, ptr %fInternalStatus, align 8
-  %1 = load ptr, ptr %info.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN6icu_7518CurrencyPluralInfoaSERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef nonnull align 8 dereferenceable(36) %1)
+  %2 = load ptr, ptr %info.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN6icu_7518CurrencyPluralInfoaSERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef nonnull align 8 dereferenceable(36) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
   br label %eh.resume
 
@@ -432,7 +436,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -1025,38 +1030,39 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %fPluralCountToCurrencyUnitPattern, align 8
-  invoke void @_ZN6icu_7518CurrencyPluralInfo10deleteHashEPNS_9HashtableE(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef %0)
+  %1 = load ptr, ptr %fPluralCountToCurrencyUnitPattern, align 8
+  invoke void @_ZN6icu_7518CurrencyPluralInfo10deleteHashEPNS_9HashtableE(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %fPluralCountToCurrencyUnitPattern2 = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fPluralCountToCurrencyUnitPattern2, align 8
   %fPluralRules = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %fPluralRules, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %fPluralRules, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont
-  %vtable = load ptr, ptr %1, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(28) %1) #7
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(28) %2) #7
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont
   %fLocale = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %fLocale, align 8
-  %isnull3 = icmp eq ptr %3, null
+  %4 = load ptr, ptr %fLocale, align 8
+  %isnull3 = icmp eq ptr %4, null
   br i1 %isnull3, label %delete.end7, label %delete.notnull4
 
 delete.notnull4:                                  ; preds = %delete.end
-  %vtable5 = load ptr, ptr %3, align 8
+  %vtable5 = load ptr, ptr %4, align 8
   %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 1
-  %4 = load ptr, ptr %vfn6, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(217) %3) #7
+  %5 = load ptr, ptr %vfn6, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(217) %4) #7
   br label %delete.end7
 
 delete.end7:                                      ; preds = %delete.notnull4, %delete.end
@@ -1068,10 +1074,10 @@ delete.end7:                                      ; preds = %delete.notnull4, %d
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #8
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #8
   unreachable
 }
 

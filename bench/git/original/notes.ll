@@ -1433,34 +1433,36 @@ entry:
   %item = alloca ptr, align 8
   store ptr %opt, ptr %opt.addr, align 8
   store i32 0, ptr %load_config_refs, align 4
-  %bf.load = load i8, ptr getelementptr inbounds (%struct.string_list, ptr @display_notes_refs, i32 0, i32 3), align 8
+  %0 = getelementptr inbounds %struct.string_list, ptr @display_notes_refs, i32 0, i32 3
+  %bf.load = load i8, ptr %0, align 8
   %bf.clear = and i8 %bf.load, -2
   %bf.set = or i8 %bf.clear, 1
-  store i8 %bf.set, ptr getelementptr inbounds (%struct.string_list, ptr @display_notes_refs, i32 0, i32 3), align 8
-  %0 = load ptr, ptr %opt.addr, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = getelementptr inbounds %struct.string_list, ptr @display_notes_refs, i32 0, i32 3
+  store i8 %bf.set, ptr %1, align 8
+  %2 = load ptr, ptr %opt.addr, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %opt.addr, align 8
-  %use_default_notes = getelementptr inbounds %struct.display_notes_opt, ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %use_default_notes, align 8
-  %cmp = icmp sgt i32 %2, 0
+  %3 = load ptr, ptr %opt.addr, align 8
+  %use_default_notes = getelementptr inbounds %struct.display_notes_opt, ptr %3, i32 0, i32 0
+  %4 = load i32, ptr %use_default_notes, align 8
+  %cmp = icmp sgt i32 %4, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false1
 
 lor.lhs.false1:                                   ; preds = %lor.lhs.false
-  %3 = load ptr, ptr %opt.addr, align 8
-  %use_default_notes2 = getelementptr inbounds %struct.display_notes_opt, ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %use_default_notes2, align 8
-  %cmp3 = icmp eq i32 %4, -1
+  %5 = load ptr, ptr %opt.addr, align 8
+  %use_default_notes2 = getelementptr inbounds %struct.display_notes_opt, ptr %5, i32 0, i32 0
+  %6 = load i32, ptr %use_default_notes2, align 8
+  %cmp3 = icmp eq i32 %6, -1
   br i1 %cmp3, label %land.lhs.true, label %if.end9
 
 land.lhs.true:                                    ; preds = %lor.lhs.false1
-  %5 = load ptr, ptr %opt.addr, align 8
-  %extra_notes_refs = getelementptr inbounds %struct.display_notes_opt, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %opt.addr, align 8
+  %extra_notes_refs = getelementptr inbounds %struct.display_notes_opt, ptr %7, i32 0, i32 1
   %nr = getelementptr inbounds %struct.string_list, ptr %extra_notes_refs, i32 0, i32 1
-  %6 = load i64, ptr %nr, align 8
-  %tobool4 = icmp ne i64 %6, 0
+  %8 = load i64, ptr %nr, align 8
+  %tobool4 = icmp ne i64 %8, 0
   br i1 %tobool4, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true, %lor.lhs.false, %entry
@@ -1468,13 +1470,13 @@ if.then:                                          ; preds = %land.lhs.true, %lor
   %call5 = call ptr @string_list_append(ptr noundef @display_notes_refs, ptr noundef %call)
   %call6 = call ptr @getenv(ptr noundef @.str.7) #7
   store ptr %call6, ptr %display_ref_env, align 8
-  %7 = load ptr, ptr %display_ref_env, align 8
-  %tobool7 = icmp ne ptr %7, null
+  %9 = load ptr, ptr %display_ref_env, align 8
+  %tobool7 = icmp ne ptr %9, null
   br i1 %tobool7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.then
-  %8 = load ptr, ptr %display_ref_env, align 8
-  call void @string_list_add_refs_from_colon_sep(ptr noundef @display_notes_refs, ptr noundef %8)
+  %10 = load ptr, ptr %display_ref_env, align 8
+  call void @string_list_add_refs_from_colon_sep(ptr noundef @display_notes_refs, ptr noundef %10)
   store i32 0, ptr %load_config_refs, align 4
   br label %if.end
 
@@ -1487,51 +1489,51 @@ if.end:                                           ; preds = %if.else, %if.then8
 
 if.end9:                                          ; preds = %if.end, %land.lhs.true, %lor.lhs.false1
   call void @git_config(ptr noundef @notes_display_config, ptr noundef %load_config_refs)
-  %9 = load ptr, ptr %opt.addr, align 8
-  %tobool10 = icmp ne ptr %9, null
+  %11 = load ptr, ptr %opt.addr, align 8
+  %tobool10 = icmp ne ptr %11, null
   br i1 %tobool10, label %if.then11, label %if.end19
 
 if.then11:                                        ; preds = %if.end9
-  %10 = load ptr, ptr %opt.addr, align 8
-  %extra_notes_refs12 = getelementptr inbounds %struct.display_notes_opt, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %opt.addr, align 8
+  %extra_notes_refs12 = getelementptr inbounds %struct.display_notes_opt, ptr %12, i32 0, i32 1
   %items = getelementptr inbounds %struct.string_list, ptr %extra_notes_refs12, i32 0, i32 0
-  %11 = load ptr, ptr %items, align 8
-  store ptr %11, ptr %item, align 8
+  %13 = load ptr, ptr %items, align 8
+  store ptr %13, ptr %item, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then11
-  %12 = load ptr, ptr %item, align 8
-  %tobool13 = icmp ne ptr %12, null
+  %14 = load ptr, ptr %item, align 8
+  %tobool13 = icmp ne ptr %14, null
   br i1 %tobool13, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.cond
-  %13 = load ptr, ptr %item, align 8
-  %14 = load ptr, ptr %opt.addr, align 8
-  %extra_notes_refs14 = getelementptr inbounds %struct.display_notes_opt, ptr %14, i32 0, i32 1
-  %items15 = getelementptr inbounds %struct.string_list, ptr %extra_notes_refs14, i32 0, i32 0
-  %15 = load ptr, ptr %items15, align 8
+  %15 = load ptr, ptr %item, align 8
   %16 = load ptr, ptr %opt.addr, align 8
-  %extra_notes_refs16 = getelementptr inbounds %struct.display_notes_opt, ptr %16, i32 0, i32 1
+  %extra_notes_refs14 = getelementptr inbounds %struct.display_notes_opt, ptr %16, i32 0, i32 1
+  %items15 = getelementptr inbounds %struct.string_list, ptr %extra_notes_refs14, i32 0, i32 0
+  %17 = load ptr, ptr %items15, align 8
+  %18 = load ptr, ptr %opt.addr, align 8
+  %extra_notes_refs16 = getelementptr inbounds %struct.display_notes_opt, ptr %18, i32 0, i32 1
   %nr17 = getelementptr inbounds %struct.string_list, ptr %extra_notes_refs16, i32 0, i32 1
-  %17 = load i64, ptr %nr17, align 8
-  %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %15, i64 %17
-  %cmp18 = icmp ult ptr %13, %add.ptr
+  %19 = load i64, ptr %nr17, align 8
+  %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %17, i64 %19
+  %cmp18 = icmp ult ptr %15, %add.ptr
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.cond
-  %18 = phi i1 [ false, %for.cond ], [ %cmp18, %land.rhs ]
-  br i1 %18, label %for.body, label %for.end
+  %20 = phi i1 [ false, %for.cond ], [ %cmp18, %land.rhs ]
+  br i1 %20, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.end
-  %19 = load ptr, ptr %item, align 8
-  %string = getelementptr inbounds %struct.string_list_item, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %string, align 8
-  call void @string_list_add_refs_by_glob(ptr noundef @display_notes_refs, ptr noundef %20)
+  %21 = load ptr, ptr %item, align 8
+  %string = getelementptr inbounds %struct.string_list_item, ptr %21, i32 0, i32 0
+  %22 = load ptr, ptr %string, align 8
+  call void @string_list_add_refs_by_glob(ptr noundef @display_notes_refs, ptr noundef %22)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %21 = load ptr, ptr %item, align 8
-  %incdec.ptr = getelementptr inbounds %struct.string_list_item, ptr %21, i32 1
+  %23 = load ptr, ptr %item, align 8
+  %incdec.ptr = getelementptr inbounds %struct.string_list_item, ptr %23, i32 1
   store ptr %incdec.ptr, ptr %item, align 8
   br label %for.cond, !llvm.loop !10
 
@@ -3779,7 +3781,8 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @hash_algos to i64)
+  %1 = ptrtoint ptr @hash_algos to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 104
   %conv = trunc i64 %sub.ptr.div to i32
   ret i32 %conv

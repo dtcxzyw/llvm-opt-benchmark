@@ -163,43 +163,45 @@ define internal i32 @get_rsrc_ompi_bound(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  %5 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 23), align 4
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %9, label %7
+  %5 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 23
+  %6 = load i8, ptr %5, align 4
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %10, label %8
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %3, align 8
-  call void @opal_string_copy(ptr noundef %8, ptr noundef @ompi_nobind_str, i64 noundef 1024)
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8
+  call void @opal_string_copy(ptr noundef %9, ptr noundef @ompi_nobind_str, i64 noundef 1024)
   store i32 0, ptr %2, align 4
+  br label %25
+
+10:                                               ; preds = %1
+  %11 = call noalias ptr @hwloc_bitmap_alloc()
+  store ptr %11, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 11
+  %14 = load ptr, ptr %13, align 8
+  %15 = call i32 @hwloc_bitmap_list_sscanf(ptr noundef %12, ptr noundef %14)
+  %16 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr @opal_hwloc_topology, align 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = call i32 @cset2str(ptr noundef %16, i32 noundef 1024, ptr noundef %17, ptr noundef %18)
+  %20 = icmp eq i32 -45, %19
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %10
+  %22 = load ptr, ptr %3, align 8
+  call void @opal_string_copy(ptr noundef %22, ptr noundef @not_bound_str, i64 noundef 1024)
   br label %23
 
-9:                                                ; preds = %1
-  %10 = call noalias ptr @hwloc_bitmap_alloc()
-  store ptr %10, ptr %4, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 11), align 8
-  %13 = call i32 @hwloc_bitmap_list_sscanf(ptr noundef %11, ptr noundef %12)
-  %14 = load ptr, ptr %3, align 8
-  %15 = load ptr, ptr @opal_hwloc_topology, align 8
-  %16 = load ptr, ptr %4, align 8
-  %17 = call i32 @cset2str(ptr noundef %14, i32 noundef 1024, ptr noundef %15, ptr noundef %16)
-  %18 = icmp eq i32 -45, %17
-  br i1 %18, label %19, label %21
-
-19:                                               ; preds = %9
-  %20 = load ptr, ptr %3, align 8
-  call void @opal_string_copy(ptr noundef %20, ptr noundef @not_bound_str, i64 noundef 1024)
-  br label %21
-
-21:                                               ; preds = %19, %9
-  %22 = load ptr, ptr %4, align 8
-  call void @hwloc_bitmap_free(ptr noundef %22)
+23:                                               ; preds = %21, %10
+  %24 = load ptr, ptr %4, align 8
+  call void @hwloc_bitmap_free(ptr noundef %24)
   store i32 0, ptr %2, align 4
-  br label %23
+  br label %25
 
-23:                                               ; preds = %21, %7
-  %24 = load i32, ptr %2, align 4
-  ret i32 %24
+25:                                               ; preds = %23, %8
+  %26 = load i32, ptr %2, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -655,43 +657,45 @@ define internal i32 @get_layout_ompi_bound(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  %5 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 23), align 4
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %9, label %7
+  %5 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 23
+  %6 = load i8, ptr %5, align 4
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %10, label %8
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %3, align 8
-  call void @opal_string_copy(ptr noundef %8, ptr noundef @ompi_nobind_str, i64 noundef 1024)
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8
+  call void @opal_string_copy(ptr noundef %9, ptr noundef @ompi_nobind_str, i64 noundef 1024)
   store i32 0, ptr %2, align 4
+  br label %25
+
+10:                                               ; preds = %1
+  %11 = call noalias ptr @hwloc_bitmap_alloc()
+  store ptr %11, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 11
+  %14 = load ptr, ptr %13, align 8
+  %15 = call i32 @hwloc_bitmap_list_sscanf(ptr noundef %12, ptr noundef %14)
+  %16 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr @opal_hwloc_topology, align 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = call i32 @cset2mapstr(ptr noundef %16, i32 noundef 1024, ptr noundef %17, ptr noundef %18)
+  %20 = icmp eq i32 -45, %19
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %10
+  %22 = load ptr, ptr %3, align 8
+  call void @opal_string_copy(ptr noundef %22, ptr noundef @not_bound_str, i64 noundef 1024)
   br label %23
 
-9:                                                ; preds = %1
-  %10 = call noalias ptr @hwloc_bitmap_alloc()
-  store ptr %10, ptr %4, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 11), align 8
-  %13 = call i32 @hwloc_bitmap_list_sscanf(ptr noundef %11, ptr noundef %12)
-  %14 = load ptr, ptr %3, align 8
-  %15 = load ptr, ptr @opal_hwloc_topology, align 8
-  %16 = load ptr, ptr %4, align 8
-  %17 = call i32 @cset2mapstr(ptr noundef %14, i32 noundef 1024, ptr noundef %15, ptr noundef %16)
-  %18 = icmp eq i32 -45, %17
-  br i1 %18, label %19, label %21
-
-19:                                               ; preds = %9
-  %20 = load ptr, ptr %3, align 8
-  call void @opal_string_copy(ptr noundef %20, ptr noundef @not_bound_str, i64 noundef 1024)
-  br label %21
-
-21:                                               ; preds = %19, %9
-  %22 = load ptr, ptr %4, align 8
-  call void @hwloc_bitmap_free(ptr noundef %22)
+23:                                               ; preds = %21, %10
+  %24 = load ptr, ptr %4, align 8
+  call void @hwloc_bitmap_free(ptr noundef %24)
   store i32 0, ptr %2, align 4
-  br label %23
+  br label %25
 
-23:                                               ; preds = %21, %7
-  %24 = load i32, ptr %2, align 4
-  ret i32 %24
+25:                                               ; preds = %23, %8
+  %26 = load i32, ptr %2, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable

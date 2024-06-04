@@ -2303,34 +2303,44 @@ entry:
   %counterLen = alloca i64, align 8
   %origAllocated = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
-  br i1 icmp eq (ptr @mallocx, ptr null), label %if.then, label %lor.lhs.false
+  %0 = icmp eq ptr @mallocx, null
+  br i1 %0, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  br i1 icmp eq (ptr @rallocx, ptr null), label %if.then, label %lor.lhs.false2
+  %1 = icmp eq ptr @rallocx, null
+  br i1 %1, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  br i1 icmp eq (ptr @xallocx, ptr null), label %if.then, label %lor.lhs.false3
+  %2 = icmp eq ptr @xallocx, null
+  br i1 %2, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false2
-  br i1 icmp eq (ptr @sallocx, ptr null), label %if.then, label %lor.lhs.false4
+  %3 = icmp eq ptr @sallocx, null
+  br i1 %3, label %if.then, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false3
-  br i1 icmp eq (ptr @dallocx, ptr null), label %if.then, label %lor.lhs.false5
+  %4 = icmp eq ptr @dallocx, null
+  br i1 %4, label %if.then, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false4
-  br i1 icmp eq (ptr @sdallocx, ptr null), label %if.then, label %lor.lhs.false6
+  %5 = icmp eq ptr @sdallocx, null
+  br i1 %5, label %if.then, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false5
-  br i1 icmp eq (ptr @nallocx, ptr null), label %if.then, label %lor.lhs.false7
+  %6 = icmp eq ptr @nallocx, null
+  br i1 %6, label %if.then, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false6
-  br i1 icmp eq (ptr @mallctl, ptr null), label %if.then, label %lor.lhs.false8
+  %7 = icmp eq ptr @mallctl, null
+  br i1 %7, label %if.then, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false7
-  br i1 icmp eq (ptr @mallctlnametomib, ptr null), label %if.then, label %lor.lhs.false9
+  %8 = icmp eq ptr @mallctlnametomib, null
+  br i1 %8, label %if.then, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false8
-  br i1 icmp eq (ptr @mallctlbymib, ptr null), label %if.then, label %if.end
+  %9 = icmp eq ptr @mallctlbymib, null
+  br i1 %9, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false9, %lor.lhs.false8, %lor.lhs.false7, %lor.lhs.false6, %lor.lhs.false5, %lor.lhs.false4, %lor.lhs.false3, %lor.lhs.false2, %lor.lhs.false, %entry
   store i1 false, ptr %retval, align 1
@@ -2347,8 +2357,8 @@ if.then10:                                        ; preds = %if.end
   br label %return
 
 if.end11:                                         ; preds = %if.end
-  %0 = load i64, ptr %counterLen, align 8
-  %cmp12 = icmp ne i64 %0, 8
+  %10 = load i64, ptr %counterLen, align 8
+  %cmp12 = icmp ne i64 %10, 8
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end11
@@ -2356,16 +2366,16 @@ if.then13:                                        ; preds = %if.end11
   br label %return
 
 if.end14:                                         ; preds = %if.end11
-  %1 = load ptr, ptr %counter, align 8
-  %2 = load volatile i64, ptr %1, align 8
-  store i64 %2, ptr %origAllocated, align 8
-  %3 = load atomic i8, ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr acquire, align 8
-  %guard.uninitialized = icmp eq i8 %3, 0
+  %11 = load ptr, ptr %counter, align 8
+  %12 = load volatile i64, ptr %11, align 8
+  store i64 %12, ptr %origAllocated, align 8
+  %13 = load atomic i8, ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr acquire, align 8
+  %guard.uninitialized = icmp eq i8 %13, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !11
 
 init.check:                                       ; preds = %if.end14
-  %4 = call i32 @__cxa_guard_acquire(ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr) #3
-  %tobool = icmp ne i32 %4, 0
+  %14 = call i32 @__cxa_guard_acquire(ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr) #3
+  %tobool = icmp ne i32 %14, 0
   br i1 %tobool, label %init, label %init.end
 
 init:                                             ; preds = %init.check
@@ -2375,8 +2385,8 @@ init:                                             ; preds = %init.check
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %if.end14
-  %5 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8
-  %tobool16 = icmp ne ptr %5, null
+  %15 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8
+  %tobool16 = icmp ne ptr %15, null
   br i1 %tobool16, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %init.end
@@ -2384,18 +2394,18 @@ if.then17:                                        ; preds = %init.end
   br label %return
 
 if.end18:                                         ; preds = %init.end
-  %6 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8
-  call void @free(ptr noundef %6) #3
-  %7 = load i64, ptr %origAllocated, align 8
-  %8 = load ptr, ptr %counter, align 8
-  %9 = load volatile i64, ptr %8, align 8
-  %cmp19 = icmp ne i64 %7, %9
+  %16 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8
+  call void @free(ptr noundef %16) #3
+  %17 = load i64, ptr %origAllocated, align 8
+  %18 = load ptr, ptr %counter, align 8
+  %19 = load volatile i64, ptr %18, align 8
+  %cmp19 = icmp ne i64 %17, %19
   store i1 %cmp19, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end18, %if.then17, %if.then13, %if.then10, %if.then
-  %10 = load i1, ptr %retval, align 1
-  ret i1 %10
+  %20 = load i1, ptr %retval, align 1
+  ret i1 %20
 }
 
 ; Function Attrs: nounwind allocsize(0)
@@ -2439,13 +2449,16 @@ entry:
   %before_bytes = alloca i64, align 8
   %after_bytes = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
-  br i1 icmp eq (ptr @MallocExtension_Internal_GetNumericProperty, ptr null), label %if.then, label %lor.lhs.false
+  %0 = icmp eq ptr @MallocExtension_Internal_GetNumericProperty, null
+  br i1 %0, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  br i1 icmp eq (ptr @sdallocx, ptr null), label %if.then, label %lor.lhs.false2
+  %1 = icmp eq ptr @sdallocx, null
+  br i1 %1, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  br i1 icmp eq (ptr @nallocx, ptr null), label %if.then, label %if.end
+  %2 = icmp eq ptr @nallocx, null
+  br i1 %2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false2, %lor.lhs.false, %entry
   store i1 false, ptr %retval, align 1
@@ -2454,13 +2467,13 @@ if.then:                                          ; preds = %lor.lhs.false2, %lo
 if.end:                                           ; preds = %lor.lhs.false2
   store i64 0, ptr %before_bytes, align 8
   %call = call noundef zeroext i1 @_ZN5folly26getTCMallocNumericPropertyEPKcPm(ptr noundef @_ZZZN5folly13usingTCMallocEvENK11InitializerclEvE11kAllocBytes, ptr noundef %before_bytes) #3
-  %0 = load atomic i8, ptr @_ZGVZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr acquire, align 8
-  %guard.uninitialized = icmp eq i8 %0, 0
+  %3 = load atomic i8, ptr @_ZGVZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr acquire, align 8
+  %guard.uninitialized = icmp eq i8 %3, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !11
 
 init.check:                                       ; preds = %if.end
-  %1 = call i32 @__cxa_guard_acquire(ptr @_ZGVZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr) #3
-  %tobool = icmp ne i32 %1, 0
+  %4 = call i32 @__cxa_guard_acquire(ptr @_ZGVZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr) #3
+  %tobool = icmp ne i32 %4, 0
   br i1 %tobool, label %init, label %init.end
 
 init:                                             ; preds = %init.check
@@ -2470,8 +2483,8 @@ init:                                             ; preds = %init.check
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %if.end
-  %2 = load volatile ptr, ptr @_ZZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr, align 8
-  %tobool4 = icmp ne ptr %2, null
+  %5 = load volatile ptr, ptr @_ZZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr, align 8
+  %tobool4 = icmp ne ptr %5, null
   br i1 %tobool4, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %init.end
@@ -2481,17 +2494,17 @@ if.then5:                                         ; preds = %init.end
 if.end6:                                          ; preds = %init.end
   store i64 0, ptr %after_bytes, align 8
   %call7 = call noundef zeroext i1 @_ZN5folly26getTCMallocNumericPropertyEPKcPm(ptr noundef @_ZZZN5folly13usingTCMallocEvENK11InitializerclEvE11kAllocBytes, ptr noundef %after_bytes) #3
-  %3 = load volatile ptr, ptr @_ZZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr, align 8
-  call void @free(ptr noundef %3) #3
-  %4 = load i64, ptr %before_bytes, align 8
-  %5 = load i64, ptr %after_bytes, align 8
-  %cmp = icmp ne i64 %4, %5
+  %6 = load volatile ptr, ptr @_ZZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr, align 8
+  call void @free(ptr noundef %6) #3
+  %7 = load i64, ptr %before_bytes, align 8
+  %8 = load i64, ptr %after_bytes, align 8
+  %cmp = icmp ne i64 %7, %8
   store i1 %cmp, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then5, %if.then
-  %6 = load i1, ptr %retval, align 1
-  ret i1 %6
+  %9 = load i1, ptr %retval, align 1
+  ret i1 %9
 }
 
 declare extern_weak zeroext i1 @MallocExtension_Internal_GetNumericProperty(ptr noundef, i64 noundef, ptr noundef) #10
@@ -2574,7 +2587,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2593,7 +2607,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -2607,7 +2622,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -2617,7 +2633,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2743,7 +2760,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -5926,7 +5944,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12out_of_range, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 

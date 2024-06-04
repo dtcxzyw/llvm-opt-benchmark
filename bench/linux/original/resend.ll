@@ -67,18 +67,18 @@ define dso_local noundef i32 @check_irq_resend(ptr noundef %0, i1 noundef zeroex
 
 9:                                                ; preds = %2
   %10 = and i32 %8, -513
-  br label %73
+  br label %75
 
 11:                                               ; preds = %2
   %12 = and i32 %8, 64
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %76
+  br i1 %13, label %14, label %78
 
 14:                                               ; preds = %11
   %15 = and i32 %8, 512
   %16 = icmp ne i32 %15, 0
   %17 = or i1 %16, %1
-  br i1 %17, label %18, label %76
+  br i1 %17, label %18, label %78
 
 18:                                               ; preds = %14
   %19 = and i32 %8, -577
@@ -102,7 +102,7 @@ define dso_local noundef i32 @check_irq_resend(ptr noundef %0, i1 noundef zeroex
 30:                                               ; preds = %28, %26
   %31 = phi i32 [ %27, %26 ], [ %29, %28 ]
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %67
+  br i1 %32, label %33, label %69
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %0, i64 56
@@ -110,7 +110,7 @@ define dso_local noundef i32 @check_irq_resend(ptr noundef %0, i1 noundef zeroex
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 134217728
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %67
+  br i1 %38, label %39, label %69
 
 39:                                               ; preds = %33
   %40 = load i32, ptr %3, align 8
@@ -122,12 +122,12 @@ define dso_local noundef i32 @check_irq_resend(ptr noundef %0, i1 noundef zeroex
   %44 = getelementptr inbounds i8, ptr %0, i64 384
   %45 = load i32, ptr %44, align 64
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %67, label %47
+  br i1 %46, label %69, label %47
 
 47:                                               ; preds = %43
   %48 = tail call ptr @irq_to_desc(i32 noundef %45) #5
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %67, label %50
+  br i1 %49, label %69, label %50
 
 50:                                               ; preds = %47, %39
   %51 = phi ptr [ %48, %47 ], [ %0, %39 ]
@@ -156,35 +156,37 @@ define dso_local noundef i32 @check_irq_resend(ptr noundef %0, i1 noundef zeroex
 
 62:                                               ; preds = %61, %50
   tail call void @_raw_spin_unlock(ptr noundef nonnull @irq_resend_lock) #5
-  %63 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @resend_tasklet, i64 0, i32 1), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tasklet_struct, ptr @resend_tasklet, i64 0, i32 1)) #5, !srcloc !5
-  %64 = icmp ult i8 %63, 2
-  tail call void @llvm.assume(i1 %64)
-  %65 = icmp eq i8 %63, 0
-  br i1 %65, label %66, label %67
+  %63 = getelementptr inbounds %struct.tasklet_struct, ptr @resend_tasklet, i64 0, i32 1
+  %64 = getelementptr inbounds %struct.tasklet_struct, ptr @resend_tasklet, i64 0, i32 1
+  %65 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %63, i64 0, ptr nonnull elementtype(i64) %64) #5, !srcloc !5
+  %66 = icmp ult i8 %65, 2
+  tail call void @llvm.assume(i1 %66)
+  %67 = icmp eq i8 %65, 0
+  br i1 %67, label %68, label %69
 
-66:                                               ; preds = %62
+68:                                               ; preds = %62
   tail call void @__tasklet_schedule(ptr noundef nonnull @resend_tasklet) #5
-  br label %67
+  br label %69
 
-67:                                               ; preds = %66, %62, %47, %43, %33, %30
-  %68 = phi i1 [ true, %30 ], [ false, %33 ], [ false, %43 ], [ false, %47 ], [ true, %62 ], [ true, %66 ]
-  %69 = phi i32 [ 0, %30 ], [ -22, %33 ], [ -22, %43 ], [ -22, %47 ], [ 0, %62 ], [ 0, %66 ]
-  br i1 %68, label %70, label %76
+69:                                               ; preds = %68, %62, %47, %43, %33, %30
+  %70 = phi i1 [ true, %30 ], [ false, %33 ], [ false, %43 ], [ false, %47 ], [ true, %62 ], [ true, %68 ]
+  %71 = phi i32 [ 0, %30 ], [ -22, %33 ], [ -22, %43 ], [ -22, %47 ], [ 0, %62 ], [ 0, %68 ]
+  br i1 %70, label %72, label %78
 
-70:                                               ; preds = %67
-  %71 = load i32, ptr %7, align 4
-  %72 = or i32 %71, 64
-  br label %73
+72:                                               ; preds = %69
+  %73 = load i32, ptr %7, align 4
+  %74 = or i32 %73, 64
+  br label %75
 
-73:                                               ; preds = %70, %9
-  %74 = phi i32 [ %72, %70 ], [ %10, %9 ]
-  %75 = phi i32 [ %69, %70 ], [ -22, %9 ]
-  store i32 %74, ptr %7, align 4
-  br label %76
+75:                                               ; preds = %72, %9
+  %76 = phi i32 [ %74, %72 ], [ %10, %9 ]
+  %77 = phi i32 [ %71, %72 ], [ -22, %9 ]
+  store i32 %76, ptr %7, align 4
+  br label %78
 
-76:                                               ; preds = %73, %67, %14, %11
-  %77 = phi i32 [ -16, %11 ], [ 0, %14 ], [ %69, %67 ], [ %75, %73 ]
-  ret i32 %77
+78:                                               ; preds = %75, %69, %14, %11
+  %79 = phi i32 [ -16, %11 ], [ 0, %14 ], [ %71, %69 ], [ %77, %75 ]
+  ret i32 %79
 }
 
 ; Function Attrs: null_pointer_is_valid

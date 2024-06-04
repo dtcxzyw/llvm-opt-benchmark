@@ -1469,7 +1469,8 @@ define dso_local ptr @str_copy(ptr noundef %0, i64 noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @scratch_buffer_clear() #0 {
-  store i32 0, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
+  %1 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  store i32 0, ptr %1, align 4
   ret void
 }
 
@@ -1480,28 +1481,32 @@ define dso_local void @scratch_buffer_append_len(ptr noundef %0, i64 noundef %1)
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load i64, ptr %4, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %7 = zext i32 %6 to i64
-  %8 = add i64 %5, %7
-  %9 = icmp ugt i64 %8, 65535
-  br i1 %9, label %10, label %11
+  %6 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4
+  %8 = zext i32 %7 to i64
+  %9 = add i64 %5, %8
+  %10 = icmp ugt i64 %9, 65535
+  br i1 %10, label %11, label %12
 
-10:                                               ; preds = %2
+11:                                               ; preds = %2
   call void (ptr, ...) @error_exit(ptr noundef @.str.1, i32 noundef 65535) #9
   unreachable
 
-11:                                               ; preds = %2
-  %12 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %13
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i64, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %15, i64 %16, i1 false)
-  %17 = load i64, ptr %4, align 8
-  %18 = trunc i64 %17 to i32
-  %19 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %20 = add i32 %19, %18
-  store i32 %20, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4
+  %15 = zext i32 %14 to i64
+  %16 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %15
+  %17 = load ptr, ptr %3, align 8
+  %18 = load i64, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %17, i64 %18, i1 false)
+  %19 = load i64, ptr %4, align 8
+  %20 = trunc i64 %19 to i32
+  %21 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %22 = load i32, ptr %21, align 4
+  %23 = add i32 %22, %20
+  %24 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  store i32 %23, ptr %24, align 4
   ret void
 }
 
@@ -1537,36 +1542,40 @@ define dso_local void @scratch_buffer_printf(ptr noundef %0, ...) #0 {
   store ptr %0, ptr %2, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
   call void @llvm.va_start.p0(ptr %6)
-  %7 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %8 = sub i32 65536, %7
-  %9 = zext i32 %8 to i64
-  store i64 %9, ptr %4, align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %11
-  %13 = load i64, ptr %4, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  %16 = call i32 @vsnprintf(ptr noundef %12, i64 noundef %13, ptr noundef %14, ptr noundef %15) #8
-  store i32 %16, ptr %5, align 4
-  %17 = load i32, ptr %5, align 4
-  %18 = zext i32 %17 to i64
-  %19 = load i64, ptr %4, align 8
-  %20 = sub i64 %19, 1
-  %21 = icmp ugt i64 %18, %20
-  br i1 %21, label %22, label %23
+  %7 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %8 = load i32, ptr %7, align 4
+  %9 = sub i32 65536, %8
+  %10 = zext i32 %9 to i64
+  store i64 %10, ptr %4, align 8
+  %11 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4
+  %13 = zext i32 %12 to i64
+  %14 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %13
+  %15 = load i64, ptr %4, align 8
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
+  %18 = call i32 @vsnprintf(ptr noundef %14, i64 noundef %15, ptr noundef %16, ptr noundef %17) #8
+  store i32 %18, ptr %5, align 4
+  %19 = load i32, ptr %5, align 4
+  %20 = zext i32 %19 to i64
+  %21 = load i64, ptr %4, align 8
+  %22 = sub i64 %21, 1
+  %23 = icmp ugt i64 %20, %22
+  br i1 %23, label %24, label %25
 
-22:                                               ; preds = %1
+24:                                               ; preds = %1
   call void (ptr, ...) @error_exit(ptr noundef @.str.1, i32 noundef 65535) #9
   unreachable
 
-23:                                               ; preds = %1
-  %24 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end.p0(ptr %24)
-  %25 = load i32, ptr %5, align 4
-  %26 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %27 = add i32 %26, %25
-  store i32 %27, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
+25:                                               ; preds = %1
+  %26 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %26)
+  %27 = load i32, ptr %5, align 4
+  %28 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %29 = load i32, ptr %28, align 4
+  %30 = add i32 %29, %27
+  %31 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  store i32 %30, ptr %31, align 4
   ret void
 }
 
@@ -1578,41 +1587,46 @@ define dso_local void @scratch_buffer_append_double(double noundef %0) #0 {
   call void (ptr, ...) @scratch_buffer_printf(ptr noundef @.str.3, double noundef %3)
   br label %4
 
-4:                                                ; preds = %24, %1
-  %5 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %6 = icmp ugt i32 %5, 0
-  br i1 %6, label %7, label %27
+4:                                                ; preds = %27, %1
+  %5 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %6 = load i32, ptr %5, align 4
+  %7 = icmp ugt i32 %6, 0
+  br i1 %7, label %8, label %32
 
-7:                                                ; preds = %4
-  %8 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %9 = sub i32 %8, 1
-  %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %10
-  %12 = load i8, ptr %11, align 1
-  %13 = sext i8 %12 to i32
-  %14 = icmp ne i32 %13, 48
-  br i1 %14, label %15, label %24
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %10 = load i32, ptr %9, align 4
+  %11 = sub i32 %10, 1
+  %12 = zext i32 %11 to i64
+  %13 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %12
+  %14 = load i8, ptr %13, align 1
+  %15 = sext i8 %14 to i32
+  %16 = icmp ne i32 %15, 48
+  br i1 %16, label %17, label %27
 
-15:                                               ; preds = %7
-  %16 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %17 = sub i32 %16, 1
-  %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = sext i8 %20 to i32
-  %22 = icmp ne i32 %21, 46
-  br i1 %22, label %23, label %24
+17:                                               ; preds = %8
+  %18 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %19 = load i32, ptr %18, align 4
+  %20 = sub i32 %19, 1
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %21
+  %23 = load i8, ptr %22, align 1
+  %24 = sext i8 %23 to i32
+  %25 = icmp ne i32 %24, 46
+  br i1 %25, label %26, label %27
 
-23:                                               ; preds = %15
-  br label %27
+26:                                               ; preds = %17
+  br label %32
 
-24:                                               ; preds = %15, %7
-  %25 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %26 = add i32 %25, -1
-  store i32 %26, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
+27:                                               ; preds = %17, %8
+  %28 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %29 = load i32, ptr %28, align 4
+  %30 = add i32 %29, -1
+  %31 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  store i32 %30, ptr %31, align 4
   br label %4, !llvm.loop !23
 
-27:                                               ; preds = %23, %4
+32:                                               ; preds = %26, %4
   ret void
 }
 
@@ -1629,41 +1643,46 @@ define dso_local void @scratch_buffer_append_unsigned_int(i64 noundef %0) #0 {
 define dso_local void @scratch_buffer_append_char(i8 noundef signext %0) #0 {
   %2 = alloca i8, align 1
   store i8 %0, ptr %2, align 1
-  %3 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %4 = add i32 %3, 1
-  %5 = icmp ugt i32 %4, 65535
-  br i1 %5, label %6, label %7
+  %3 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %4 = load i32, ptr %3, align 4
+  %5 = add i32 %4, 1
+  %6 = icmp ugt i32 %5, 65535
+  br i1 %6, label %7, label %8
 
-6:                                                ; preds = %1
+7:                                                ; preds = %1
   call void (ptr, ...) @error_exit(ptr noundef @.str.1, i32 noundef 65535) #9
   unreachable
 
-7:                                                ; preds = %1
-  %8 = load i8, ptr %2, align 1
-  %9 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %10 = add i32 %9, 1
-  store i32 %10, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %11
-  store i8 %8, ptr %12, align 1
+8:                                                ; preds = %1
+  %9 = load i8, ptr %2, align 1
+  %10 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %11 = load i32, ptr %10, align 4
+  %12 = add i32 %11, 1
+  %13 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  store i32 %12, ptr %13, align 4
+  %14 = zext i32 %11 to i64
+  %15 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %14
+  store i8 %9, ptr %15, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @scratch_buffer_to_string() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %2 = zext i32 %1 to i64
-  %3 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %2
-  store i8 0, ptr %3, align 1
+  %1 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %2 = load i32, ptr %1, align 4
+  %3 = zext i32 %2 to i64
+  %4 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %3
+  store i8 0, ptr %4, align 1
   ret ptr @scratch_buffer
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @scratch_buffer_copy() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %2 = zext i32 %1 to i64
-  %3 = call ptr @str_copy(ptr noundef @scratch_buffer, i64 noundef %2)
-  ret ptr %3
+  %1 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %2 = load i32, ptr %1, align 4
+  %3 = zext i32 %2 to i64
+  %4 = call ptr @str_copy(ptr noundef @scratch_buffer, i64 noundef %3)
+  ret ptr %4
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -105,156 +105,157 @@ define void @_ZN18ExportObjectActionC2EP7QObjectP11register_eo(ptr noundef nonnu
   %18 = load ptr, ptr %4, align 8
   %19 = load ptr, ptr %5, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %19)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV18ExportObjectAction, i32 0, i32 0, i32 2), ptr %18, align 8
-  %20 = getelementptr inbounds %class.ExportObjectAction, ptr %18, i32 0, i32 1
-  %21 = load ptr, ptr %6, align 8
-  store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds %class.ExportObjectAction, ptr %18, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %75
+  %20 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV18ExportObjectAction, i32 0, i32 0, i32 2
+  store ptr %20, ptr %18, align 8
+  %21 = getelementptr inbounds %class.ExportObjectAction, ptr %18, i32 0, i32 1
+  %22 = load ptr, ptr %6, align 8
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %class.ExportObjectAction, ptr %18, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %76
 
-25:                                               ; preds = %3
+26:                                               ; preds = %3
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef @.str)
-          to label %26 unwind label %47
+          to label %27 unwind label %48
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %6, align 8
-  %28 = invoke i32 @get_eo_proto_id(ptr noundef %27)
-          to label %29 unwind label %51
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %6, align 8
+  %29 = invoke i32 @get_eo_proto_id(ptr noundef %28)
+          to label %30 unwind label %52
 
-29:                                               ; preds = %26
-  %30 = invoke ptr @find_protocol_by_id(i32 noundef %28)
-          to label %31 unwind label %51
+30:                                               ; preds = %27
+  %31 = invoke ptr @find_protocol_by_id(i32 noundef %29)
+          to label %32 unwind label %52
 
-31:                                               ; preds = %29
-  %32 = invoke ptr @proto_get_protocol_short_name(ptr noundef %30)
-          to label %33 unwind label %51
+32:                                               ; preds = %30
+  %33 = invoke ptr @proto_get_protocol_short_name(ptr noundef %31)
+          to label %34 unwind label %52
 
-33:                                               ; preds = %31
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %32)
-          to label %34 unwind label %51
+34:                                               ; preds = %32
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %33)
+          to label %35 unwind label %52
 
-34:                                               ; preds = %33
+35:                                               ; preds = %34
   call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %14, i8 noundef signext 32) #5
-  %35 = getelementptr inbounds %struct.QLatin1Char, ptr %14, i32 0, i32 0
-  %36 = load i8, ptr %35, align 1
-  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %13, i8 %36) #5
-  %37 = getelementptr inbounds %class.QChar, ptr %13, i32 0, i32 0
-  %38 = load i16, ptr %37, align 2
-  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 0, i16 %38)
-          to label %39 unwind label %55
+  %36 = getelementptr inbounds %struct.QLatin1Char, ptr %14, i32 0, i32 0
+  %37 = load i8, ptr %36, align 1
+  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %13, i8 %37) #5
+  %38 = getelementptr inbounds %class.QChar, ptr %13, i32 0, i32 0
+  %39 = load i16, ptr %38, align 2
+  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 0, i16 %39)
+          to label %40 unwind label %56
 
-39:                                               ; preds = %34
+40:                                               ; preds = %35
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef @.str.1)
-          to label %40 unwind label %59
+          to label %41 unwind label %60
 
-40:                                               ; preds = %39
+41:                                               ; preds = %40
   call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %17, i8 noundef signext 32) #5
-  %41 = getelementptr inbounds %struct.QLatin1Char, ptr %17, i32 0, i32 0
-  %42 = load i8, ptr %41, align 1
-  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %16, i8 %42) #5
-  %43 = getelementptr inbounds %class.QChar, ptr %16, i32 0, i32 0
-  %44 = load i16, ptr %43, align 2
-  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %15, i32 noundef 0, i16 %44)
-          to label %45 unwind label %63
+  %42 = getelementptr inbounds %struct.QLatin1Char, ptr %17, i32 0, i32 0
+  %43 = load i8, ptr %42, align 1
+  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %16, i8 %43) #5
+  %44 = getelementptr inbounds %class.QChar, ptr %16, i32 0, i32 0
+  %45 = load i16, ptr %44, align 2
+  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %15, i32 noundef 0, i16 %45)
+          to label %46 unwind label %64
 
-45:                                               ; preds = %40
+46:                                               ; preds = %41
   invoke void @_ZN7QAction7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %46 unwind label %67
+          to label %47 unwind label %68
 
-46:                                               ; preds = %45
+47:                                               ; preds = %46
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #5
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #5
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #5
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #5
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #5
-  br label %75
-
-47:                                               ; preds = %25
-  %48 = landingpad { ptr, i32 }
-          cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %10, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %11, align 4
   br label %76
 
-51:                                               ; preds = %33, %31, %29, %26
-  %52 = landingpad { ptr, i32 }
+48:                                               ; preds = %26
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %10, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %11, align 4
-  br label %74
-
-55:                                               ; preds = %34
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %10, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %11, align 4
-  br label %73
-
-59:                                               ; preds = %39
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %10, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %11, align 4
-  br label %72
-
-63:                                               ; preds = %40
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %10, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %11, align 4
-  br label %71
-
-67:                                               ; preds = %45
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %10, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %11, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #5
-  br label %71
-
-71:                                               ; preds = %67, %63
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #5
-  br label %72
-
-72:                                               ; preds = %71, %59
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #5
-  br label %73
-
-73:                                               ; preds = %72, %55
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #5
-  br label %74
-
-74:                                               ; preds = %73, %51
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #5
-  br label %76
-
-75:                                               ; preds = %46, %3
-  ret void
-
-76:                                               ; preds = %74, %47
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #5
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %10, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %11, align 4
   br label %77
 
-77:                                               ; preds = %76
-  %78 = load ptr, ptr %10, align 8
-  %79 = load i32, ptr %11, align 4
-  %80 = insertvalue { ptr, i32 } poison, ptr %78, 0
-  %81 = insertvalue { ptr, i32 } %80, i32 %79, 1
-  resume { ptr, i32 } %81
+52:                                               ; preds = %34, %32, %30, %27
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %10, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %11, align 4
+  br label %75
+
+56:                                               ; preds = %35
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %10, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %11, align 4
+  br label %74
+
+60:                                               ; preds = %40
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %10, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %11, align 4
+  br label %73
+
+64:                                               ; preds = %41
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %10, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %11, align 4
+  br label %72
+
+68:                                               ; preds = %46
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %10, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %11, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #5
+  br label %72
+
+72:                                               ; preds = %68, %64
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #5
+  br label %73
+
+73:                                               ; preds = %72, %60
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #5
+  br label %74
+
+74:                                               ; preds = %73, %56
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #5
+  br label %75
+
+75:                                               ; preds = %74, %52
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #5
+  br label %77
+
+76:                                               ; preds = %47, %3
+  ret void
+
+77:                                               ; preds = %75, %48
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #5
+  br label %78
+
+78:                                               ; preds = %77
+  %79 = load ptr, ptr %10, align 8
+  %80 = load i32, ptr %11, align 4
+  %81 = insertvalue { ptr, i32 } poison, ptr %79, 0
+  %82 = insertvalue { ptr, i32 } %81, i32 %80, 1
+  resume { ptr, i32 } %82
 }
 
 declare void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1

@@ -242,7 +242,8 @@ entry:
   %json = getelementptr inbounds %struct.json_writer, ptr %jw, i32 0, i32 0
   call void @tr2_dst_write_line(ptr noundef @tr2dst_event, ptr noundef %json)
   call void @jw_release(ptr noundef %jw)
-  %bf.load = load i8, ptr getelementptr inbounds (%struct.tr2_dst, ptr @tr2dst_event, i32 0, i32 2), align 4
+  %3 = getelementptr inbounds %struct.tr2_dst, ptr @tr2dst_event, i32 0, i32 2
+  %bf.load = load i8, ptr %3, align 4
   %bf.lshr = lshr i8 %bf.load, 2
   %bf.clear = and i8 %bf.lshr, 1
   %bf.cast = zext i8 %bf.clear to i32
@@ -250,9 +251,9 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %file.addr, align 8
-  %4 = load i32, ptr %line.addr, align 4
-  call void @fn_too_many_files_fl(ptr noundef %3, i32 noundef %4)
+  %4 = load ptr, ptr %file.addr, align 8
+  %5 = load i32, ptr %line.addr, align 4
+  call void @fn_too_many_files_fl(ptr noundef %4, i32 noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1655,12 +1656,12 @@ if.then:                                          ; preds = %land.lhs.true
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buf, ptr align 8 @__const.maybe_add_string_va.buf, i64 24, i1 false)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %copy_ap, i64 0, i64 0
   %3 = load ptr, ptr %ap.addr, align 8
-  call void @llvm.va_copy(ptr %arraydecay, ptr %3)
+  call void @llvm.va_copy.p0(ptr %arraydecay, ptr %3)
   %4 = load ptr, ptr %fmt.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %copy_ap, i64 0, i64 0
   call void @strbuf_vaddf(ptr noundef %buf, ptr noundef %4, ptr noundef %arraydecay2)
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %copy_ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %5 = load ptr, ptr %jw.addr, align 8
   %6 = load ptr, ptr %field_name.addr, align 8
   %buf4 = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 2
@@ -1673,13 +1674,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #4
-
 declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 declare void @strbuf_release(ptr noundef) #1
 
@@ -1690,6 +1685,12 @@ declare void @jw_object_bool(ptr noundef, ptr noundef, i32 noundef) #1
 declare ptr @config_scope_name(i32 noundef) #1
 
 declare void @jw_object_sub_jw(ptr noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

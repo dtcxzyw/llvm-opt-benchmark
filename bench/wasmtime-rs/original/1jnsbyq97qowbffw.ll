@@ -78,41 +78,42 @@ define hidden { i64, i32 } @"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$
   %20 = icmp eq i32 %19, 1114112
   %21 = select i1 %20, i64 0, i64 1
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %27
+  br i1 %22, label %23, label %28
 
 23:                                               ; preds = %17
   %24 = load i64, ptr @anon.3c095be5c7f61b5c27572a717ecb25a4.3, align 8
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @anon.3c095be5c7f61b5c27572a717ecb25a4.3, i64 8), align 8, !range !5, !noundef !3
+  %25 = getelementptr inbounds i8, ptr @anon.3c095be5c7f61b5c27572a717ecb25a4.3, i64 8
+  %26 = load i32, ptr %25, align 8, !range !5, !noundef !3
   store i64 %24, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %25, ptr %26, align 8
-  br label %37
+  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %26, ptr %27, align 8
+  br label %38
 
-27:                                               ; preds = %17
-  %28 = load i32, ptr %4, align 4, !range !6, !noundef !3
-  %29 = load i64, ptr %18, align 8, !noundef !3
-  %30 = call i64 @"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h7eab9d2a1400214eE"(ptr align 8 %0)
-  %31 = add i64 %29, %30
-  store i64 %31, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %28, ptr %32, align 8
-  %33 = load i64, ptr %2, align 8, !noundef !3
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
-  %35 = load i32, ptr %34, align 8, !range !6, !noundef !3
-  store i64 %33, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %35, ptr %36, align 8
-  br label %37
+28:                                               ; preds = %17
+  %29 = load i32, ptr %4, align 4, !range !6, !noundef !3
+  %30 = load i64, ptr %18, align 8, !noundef !3
+  %31 = call i64 @"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h7eab9d2a1400214eE"(ptr align 8 %0)
+  %32 = add i64 %30, %31
+  store i64 %32, ptr %2, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %29, ptr %33, align 8
+  %34 = load i64, ptr %2, align 8, !noundef !3
+  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = load i32, ptr %35, align 8, !range !6, !noundef !3
+  store i64 %34, ptr %5, align 8
+  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %36, ptr %37, align 8
+  br label %38
 
-37:                                               ; preds = %27, %23
-  %38 = load i64, ptr %5, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
-  %40 = load i32, ptr %39, align 8, !range !5, !noundef !3
-  %41 = insertvalue { i64, i32 } poison, i64 %38, 0
-  %42 = insertvalue { i64, i32 } %41, i32 %40, 1
-  ret { i64, i32 } %42
+38:                                               ; preds = %28, %23
+  %39 = load i64, ptr %5, align 8
+  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = load i32, ptr %40, align 8, !range !5, !noundef !3
+  %42 = insertvalue { i64, i32 } poison, i64 %39, 0
+  %43 = insertvalue { i64, i32 } %42, i32 %41, 1
+  ret { i64, i32 } %43
 
-43:                                               ; No predecessors!
+44:                                               ; No predecessors!
   unreachable
 }
 
@@ -130,11 +131,12 @@ define hidden { ptr, i64 } @"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..i
 define hidden void @"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdbf2d49fcbbdb0dcE"(ptr sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   %3 = load i64, ptr @anon.3c095be5c7f61b5c27572a717ecb25a4.4, align 8, !range !7, !noundef !3
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @anon.3c095be5c7f61b5c27572a717ecb25a4.4, i64 8), align 8
-  %5 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %4, ptr %6, align 8
+  %4 = getelementptr inbounds i8, ptr @anon.3c095be5c7f61b5c27572a717ecb25a4.4, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %3, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %5, ptr %7, align 8
   ret void
 }
 
@@ -171,47 +173,48 @@ define hidden { i64, i32 } @"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$c
   %20 = icmp eq i32 %19, 1114112
   %21 = select i1 %20, i64 0, i64 1
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %27
+  br i1 %22, label %23, label %28
 
 23:                                               ; preds = %18
   %24 = load i64, ptr @anon.3c095be5c7f61b5c27572a717ecb25a4.3, align 8
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @anon.3c095be5c7f61b5c27572a717ecb25a4.3, i64 8), align 8, !range !5, !noundef !3
+  %25 = getelementptr inbounds i8, ptr @anon.3c095be5c7f61b5c27572a717ecb25a4.3, i64 8
+  %26 = load i32, ptr %25, align 8, !range !5, !noundef !3
   store i64 %24, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %25, ptr %26, align 8
-  br label %42
+  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %26, ptr %27, align 8
+  br label %43
 
-27:                                               ; preds = %18
-  %28 = load i32, ptr %4, align 4, !range !6, !noundef !3
-  %29 = getelementptr inbounds { { { ptr, ptr, {} } }, i64 }, ptr %0, i32 0, i32 1
-  %30 = load i64, ptr %29, align 8, !noundef !3
-  %31 = call i64 @"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h7eab9d2a1400214eE"(ptr align 8 %0)
-  %32 = sub i64 %6, %31
-  %33 = getelementptr inbounds { { { ptr, ptr, {} } }, i64 }, ptr %0, i32 0, i32 1
+28:                                               ; preds = %18
+  %29 = load i32, ptr %4, align 4, !range !6, !noundef !3
+  %30 = getelementptr inbounds { { { ptr, ptr, {} } }, i64 }, ptr %0, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8, !noundef !3
+  %32 = call i64 @"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h7eab9d2a1400214eE"(ptr align 8 %0)
+  %33 = sub i64 %6, %32
   %34 = getelementptr inbounds { { { ptr, ptr, {} } }, i64 }, ptr %0, i32 0, i32 1
-  %35 = load i64, ptr %34, align 8, !noundef !3
-  %36 = add i64 %35, %32
-  store i64 %36, ptr %33, align 8
-  store i64 %30, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %28, ptr %37, align 8
-  %38 = load i64, ptr %3, align 8, !noundef !3
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
-  %40 = load i32, ptr %39, align 8, !range !6, !noundef !3
-  store i64 %38, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %40, ptr %41, align 8
-  br label %42
+  %35 = getelementptr inbounds { { { ptr, ptr, {} } }, i64 }, ptr %0, i32 0, i32 1
+  %36 = load i64, ptr %35, align 8, !noundef !3
+  %37 = add i64 %36, %33
+  store i64 %37, ptr %34, align 8
+  store i64 %31, ptr %3, align 8
+  %38 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %29, ptr %38, align 8
+  %39 = load i64, ptr %3, align 8, !noundef !3
+  %40 = getelementptr inbounds i8, ptr %3, i64 8
+  %41 = load i32, ptr %40, align 8, !range !6, !noundef !3
+  store i64 %39, ptr %5, align 8
+  %42 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %41, ptr %42, align 8
+  br label %43
 
-42:                                               ; preds = %27, %23
-  %43 = load i64, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %5, i64 8
-  %45 = load i32, ptr %44, align 8, !range !5, !noundef !3
-  %46 = insertvalue { i64, i32 } poison, i64 %43, 0
-  %47 = insertvalue { i64, i32 } %46, i32 %45, 1
-  ret { i64, i32 } %47
+43:                                               ; preds = %28, %23
+  %44 = load i64, ptr %5, align 8
+  %45 = getelementptr inbounds i8, ptr %5, i64 8
+  %46 = load i32, ptr %45, align 8, !range !5, !noundef !3
+  %47 = insertvalue { i64, i32 } poison, i64 %44, 0
+  %48 = insertvalue { i64, i32 } %47, i32 %46, 1
+  ret { i64, i32 } %48
 
-48:                                               ; No predecessors!
+49:                                               ; No predecessors!
   unreachable
 }
 

@@ -100,59 +100,64 @@ entry:
   store ptr %argv, ptr %argv.addr, align 8
   store i32 0, ptr %errorCode, align 4
   %call = call ptr @u_getDataDirectory_75()
-  store ptr %call, ptr getelementptr inbounds ([7 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1), align 8
-  store ptr %call, ptr getelementptr inbounds ([7 x %struct.UOption], ptr @options, i64 0, i64 4, i32 1), align 8
-  %0 = load i32, ptr %argc.addr, align 4
-  %1 = load ptr, ptr %argv.addr, align 8
-  %call1 = call i32 @u_parseArgs(i32 noundef %0, ptr noundef %1, i32 noundef 7, ptr noundef @options)
-  store i32 %call1, ptr %argc.addr, align 4
+  %0 = getelementptr inbounds [7 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1
+  store ptr %call, ptr %0, align 8
+  %1 = getelementptr inbounds [7 x %struct.UOption], ptr @options, i64 0, i64 4, i32 1
+  store ptr %call, ptr %1, align 8
   %2 = load i32, ptr %argc.addr, align 4
-  %cmp = icmp slt i32 %2, 0
+  %3 = load ptr, ptr %argv.addr, align 8
+  %call1 = call i32 @u_parseArgs(i32 noundef %2, ptr noundef %3, i32 noundef 7, ptr noundef @options)
+  store i32 %call1, ptr %argc.addr, align 4
+  %4 = load i32, ptr %argc.addr, align 4
+  %cmp = icmp slt i32 %4, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = load ptr, ptr %argv.addr, align 8
-  %5 = load i32, ptr %argc.addr, align 4
-  %sub = sub nsw i32 0, %5
+  %5 = load ptr, ptr @stderr, align 8
+  %6 = load ptr, ptr %argv.addr, align 8
+  %7 = load i32, ptr %argc.addr, align 4
+  %sub = sub nsw i32 0, %7
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
-  %6 = load ptr, ptr %arrayidx, align 8
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str, ptr noundef %6)
+  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %8 = load ptr, ptr %arrayidx, align 8
+  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str, ptr noundef %8)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %7 = load i32, ptr %argc.addr, align 4
-  %cmp3 = icmp slt i32 %7, 0
+  %9 = load i32, ptr %argc.addr, align 4
+  %cmp3 = icmp slt i32 %9, 0
   br i1 %cmp3, label %if.then7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %8 = load i8, ptr getelementptr inbounds (%struct.UOption, ptr @options, i32 0, i32 6), align 2
-  %conv = sext i8 %8 to i32
+  %10 = getelementptr inbounds %struct.UOption, ptr @options, i32 0, i32 6
+  %11 = load i8, ptr %10, align 2
+  %conv = sext i8 %11 to i32
   %tobool = icmp ne i32 %conv, 0
   br i1 %tobool, label %if.then7, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %9 = load i8, ptr getelementptr inbounds ([7 x %struct.UOption], ptr @options, i64 0, i64 1, i32 6), align 2
-  %conv5 = sext i8 %9 to i32
+  %12 = getelementptr inbounds [7 x %struct.UOption], ptr @options, i64 0, i64 1, i32 6
+  %13 = load i8, ptr %12, align 2
+  %conv5 = sext i8 %13 to i32
   %tobool6 = icmp ne i32 %conv5, 0
   br i1 %tobool6, label %if.then7, label %if.end12
 
 if.then7:                                         ; preds = %lor.lhs.false4, %lor.lhs.false, %if.end
-  %10 = load ptr, ptr @stderr, align 8
-  %11 = load ptr, ptr %argv.addr, align 8
-  %arrayidx8 = getelementptr inbounds ptr, ptr %11, i64 0
-  %12 = load ptr, ptr %arrayidx8, align 8
-  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.1, ptr noundef %12)
-  %13 = load i32, ptr %argc.addr, align 4
-  %cmp10 = icmp slt i32 %13, 0
+  %14 = load ptr, ptr @stderr, align 8
+  %15 = load ptr, ptr %argv.addr, align 8
+  %arrayidx8 = getelementptr inbounds ptr, ptr %15, i64 0
+  %16 = load ptr, ptr %arrayidx8, align 8
+  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.1, ptr noundef %16)
+  %17 = load i32, ptr %argc.addr, align 4
+  %cmp10 = icmp slt i32 %17, 0
   %cond = select i1 %cmp10, i32 1, i32 0
   store i32 %cond, ptr %retval, align 4
   br label %return
 
 if.end12:                                         ; preds = %lor.lhs.false4
-  %14 = load i8, ptr getelementptr inbounds ([7 x %struct.UOption], ptr @options, i64 0, i64 2, i32 6), align 2
-  %tobool13 = icmp ne i8 %14, 0
+  %18 = getelementptr inbounds [7 x %struct.UOption], ptr @options, i64 0, i64 2, i32 6
+  %19 = load i8, ptr %18, align 2
+  %tobool13 = icmp ne i8 %19, 0
   br i1 %tobool13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end12
@@ -160,8 +165,9 @@ if.then14:                                        ; preds = %if.end12
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %if.end12
-  %15 = load i8, ptr getelementptr inbounds ([7 x %struct.UOption], ptr @options, i64 0, i64 6, i32 6), align 2
-  %tobool16 = icmp ne i8 %15, 0
+  %20 = getelementptr inbounds [7 x %struct.UOption], ptr @options, i64 0, i64 6, i32 6
+  %21 = load i8, ptr %20, align 2
+  %tobool16 = icmp ne i8 %21, 0
   br i1 %tobool16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.end15
@@ -169,15 +175,15 @@ if.then17:                                        ; preds = %if.end15
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %if.end15
-  %16 = load i32, ptr %argc.addr, align 4
-  %cmp19 = icmp sge i32 %16, 2
+  %22 = load i32, ptr %argc.addr, align 4
+  %cmp19 = icmp sge i32 %22, 2
   br i1 %cmp19, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.end18
-  %17 = load ptr, ptr %argv.addr, align 8
-  %arrayidx22 = getelementptr inbounds ptr, ptr %17, i64 1
-  %18 = load ptr, ptr %arrayidx22, align 8
-  store ptr %18, ptr @path, align 8
+  %23 = load ptr, ptr %argv.addr, align 8
+  %arrayidx22 = getelementptr inbounds ptr, ptr %23, i64 1
+  %24 = load ptr, ptr %arrayidx22, align 8
+  store ptr %24, ptr @path, align 8
   br label %if.end23
 
 if.else:                                          ; preds = %if.end18
@@ -185,44 +191,45 @@ if.else:                                          ; preds = %if.end18
   br label %if.end23
 
 if.end23:                                         ; preds = %if.else, %if.then21
-  %19 = load ptr, ptr getelementptr inbounds ([7 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1), align 8
-  store ptr %19, ptr %sourcedir, align 8
-  %20 = load ptr, ptr %sourcedir, align 8
-  %cmp24 = icmp ne ptr %20, null
+  %25 = getelementptr inbounds [7 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %sourcedir, align 8
+  %27 = load ptr, ptr %sourcedir, align 8
+  %cmp24 = icmp ne ptr %27, null
   br i1 %cmp24, label %land.lhs.true, label %if.end40
 
 land.lhs.true:                                    ; preds = %if.end23
-  %21 = load ptr, ptr %sourcedir, align 8
-  %22 = load i8, ptr %21, align 1
-  %conv26 = sext i8 %22 to i32
+  %28 = load ptr, ptr %sourcedir, align 8
+  %29 = load i8, ptr %28, align 1
+  %conv26 = sext i8 %29 to i32
   %cmp27 = icmp ne i32 %conv26, 0
   br i1 %cmp27, label %if.then29, label %if.end40
 
 if.then29:                                        ; preds = %land.lhs.true
   %arraydecay = getelementptr inbounds [512 x i8], ptr %pathBuf, i64 0, i64 0
-  %23 = load ptr, ptr %sourcedir, align 8
-  %call30 = call ptr @strcpy(ptr noundef %arraydecay, ptr noundef %23) #10
+  %30 = load ptr, ptr %sourcedir, align 8
+  %call30 = call ptr @strcpy(ptr noundef %arraydecay, ptr noundef %30) #10
   %arraydecay31 = getelementptr inbounds [512 x i8], ptr %pathBuf, i64 0, i64 0
   %call32 = call ptr @strchr(ptr noundef %arraydecay31, i32 noundef 0) #11
   store ptr %call32, ptr %end, align 8
-  %24 = load ptr, ptr %end, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %24, i64 -1
-  %25 = load i8, ptr %add.ptr, align 1
-  %conv33 = sext i8 %25 to i32
+  %31 = load ptr, ptr %end, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %31, i64 -1
+  %32 = load i8, ptr %add.ptr, align 1
+  %conv33 = sext i8 %32 to i32
   %cmp34 = icmp ne i32 %conv33, 47
   br i1 %cmp34, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %if.then29
-  %26 = load ptr, ptr %end, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %26, i32 1
+  %33 = load ptr, ptr %end, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %33, i32 1
   store ptr %incdec.ptr, ptr %end, align 8
-  store i8 47, ptr %26, align 1
+  store i8 47, ptr %33, align 1
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then36, %if.then29
-  %27 = load ptr, ptr %end, align 8
-  %28 = load ptr, ptr @path, align 8
-  %call38 = call ptr @strcpy(ptr noundef %27, ptr noundef %28) #10
+  %34 = load ptr, ptr %end, align 8
+  %35 = load ptr, ptr @path, align 8
+  %call38 = call ptr @strcpy(ptr noundef %34, ptr noundef %35) #10
   %arraydecay39 = getelementptr inbounds [512 x i8], ptr %pathBuf, i64 0, i64 0
   store ptr %arraydecay39, ptr @path, align 8
   br label %if.end40
@@ -234,61 +241,63 @@ if.end40:                                         ; preds = %if.end37, %land.lhs
   call void @llvm.memset.p0.i64(ptr align 16 @tags, i8 0, i64 4128264, i1 false)
   call void @llvm.memset.p0.i64(ptr align 16 @aliasLists, i8 0, i64 131070, i1 false)
   call void @llvm.memset.p0.i64(ptr align 16 @knownAliases, i8 0, i64 131070, i1 false)
-  %29 = load ptr, ptr @path, align 8
-  %call41 = call ptr @T_FileStream_open(ptr noundef %29, ptr noundef @.str.3)
+  %36 = load ptr, ptr @path, align 8
+  %call41 = call ptr @T_FileStream_open(ptr noundef %36, ptr noundef @.str.3)
   store ptr %call41, ptr %in, align 8
-  %30 = load ptr, ptr %in, align 8
-  %cmp42 = icmp eq ptr %30, null
+  %37 = load ptr, ptr %in, align 8
+  %cmp42 = icmp eq ptr %37, null
   br i1 %cmp42, label %if.then44, label %if.end46
 
 if.then44:                                        ; preds = %if.end40
-  %31 = load ptr, ptr @stderr, align 8
-  %32 = load ptr, ptr @path, align 8
-  %call45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.4, ptr noundef %32)
+  %38 = load ptr, ptr @stderr, align 8
+  %39 = load ptr, ptr @path, align 8
+  %call45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef @.str.4, ptr noundef %39)
   call void @exit(i32 noundef 4) #12
   unreachable
 
 if.end46:                                         ; preds = %if.end40
-  %33 = load ptr, ptr %in, align 8
-  call void @parseFile(ptr noundef %33)
-  %34 = load ptr, ptr %in, align 8
-  call void @T_FileStream_close(ptr noundef %34)
-  %35 = load ptr, ptr getelementptr inbounds ([7 x %struct.UOption], ptr @options, i64 0, i64 4, i32 1), align 8
-  %36 = load i8, ptr getelementptr inbounds ([7 x %struct.UOption], ptr @options, i64 0, i64 3, i32 6), align 2
-  %conv47 = sext i8 %36 to i32
+  %40 = load ptr, ptr %in, align 8
+  call void @parseFile(ptr noundef %40)
+  %41 = load ptr, ptr %in, align 8
+  call void @T_FileStream_close(ptr noundef %41)
+  %42 = getelementptr inbounds [7 x %struct.UOption], ptr @options, i64 0, i64 4, i32 1
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds [7 x %struct.UOption], ptr @options, i64 0, i64 3, i32 6
+  %45 = load i8, ptr %44, align 2
+  %conv47 = sext i8 %45 to i32
   %tobool48 = icmp ne i32 %conv47, 0
   %cond49 = select i1 %tobool48, ptr @.str.7, ptr null
-  %call50 = call ptr @udata_create(ptr noundef %35, ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef @dataInfo, ptr noundef %cond49, ptr noundef %errorCode)
+  %call50 = call ptr @udata_create(ptr noundef %43, ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef @dataInfo, ptr noundef %cond49, ptr noundef %errorCode)
   store ptr %call50, ptr %out, align 8
-  %37 = load i32, ptr %errorCode, align 4
-  %cmp51 = icmp sgt i32 %37, 0
+  %46 = load i32, ptr %errorCode, align 4
+  %cmp51 = icmp sgt i32 %46, 0
   br i1 %cmp51, label %if.then53, label %if.end56
 
 if.then53:                                        ; preds = %if.end46
-  %38 = load ptr, ptr @stderr, align 8
-  %39 = load i32, ptr %errorCode, align 4
-  %call54 = call ptr @u_errorName_75(i32 noundef %39)
-  %call55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef @.str.8, ptr noundef %call54)
-  %40 = load i32, ptr %errorCode, align 4
-  call void @exit(i32 noundef %40) #12
+  %47 = load ptr, ptr @stderr, align 8
+  %48 = load i32, ptr %errorCode, align 4
+  %call54 = call ptr @u_errorName_75(i32 noundef %48)
+  %call55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str.8, ptr noundef %call54)
+  %49 = load i32, ptr %errorCode, align 4
+  call void @exit(i32 noundef %49) #12
   unreachable
 
 if.end56:                                         ; preds = %if.end46
-  %41 = load ptr, ptr %out, align 8
-  call void @writeAliasTable(ptr noundef %41)
-  %42 = load ptr, ptr %out, align 8
-  %call57 = call i32 @udata_finish(ptr noundef %42, ptr noundef %errorCode)
-  %43 = load i32, ptr %errorCode, align 4
-  %cmp58 = icmp sgt i32 %43, 0
+  %50 = load ptr, ptr %out, align 8
+  call void @writeAliasTable(ptr noundef %50)
+  %51 = load ptr, ptr %out, align 8
+  %call57 = call i32 @udata_finish(ptr noundef %51, ptr noundef %errorCode)
+  %52 = load i32, ptr %errorCode, align 4
+  %cmp58 = icmp sgt i32 %52, 0
   br i1 %cmp58, label %if.then60, label %if.end63
 
 if.then60:                                        ; preds = %if.end56
-  %44 = load ptr, ptr @stderr, align 8
-  %45 = load i32, ptr %errorCode, align 4
-  %call61 = call ptr @u_errorName_75(i32 noundef %45)
-  %call62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef @.str.9, ptr noundef %call61)
-  %46 = load i32, ptr %errorCode, align 4
-  call void @exit(i32 noundef %46) #12
+  %53 = load ptr, ptr @stderr, align 8
+  %54 = load i32, ptr %errorCode, align 4
+  %call61 = call ptr @u_errorName_75(i32 noundef %54)
+  %call62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef @.str.9, ptr noundef %call61)
+  %55 = load i32, ptr %errorCode, align 4
+  call void @exit(i32 noundef %55) #12
   unreachable
 
 if.end63:                                         ; preds = %if.end56
@@ -296,8 +305,8 @@ if.end63:                                         ; preds = %if.end56
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc84, %if.end63
-  %47 = load i32, ptr %i, align 4
-  %cmp64 = icmp slt i32 %47, 63
+  %56 = load i32, ptr %i, align 4
+  %cmp64 = icmp slt i32 %56, 63
   br i1 %cmp64, label %for.body, label %for.end86
 
 for.body:                                         ; preds = %for.cond
@@ -305,42 +314,42 @@ for.body:                                         ; preds = %for.cond
   br label %for.cond66
 
 for.cond66:                                       ; preds = %for.inc, %for.body
-  %48 = load i32, ptr %n, align 4
-  %cmp67 = icmp slt i32 %48, 4095
+  %57 = load i32, ptr %n, align 4
+  %cmp67 = icmp slt i32 %57, 4095
   br i1 %cmp67, label %for.body69, label %for.end
 
 for.body69:                                       ; preds = %for.cond66
-  %49 = load i32, ptr %i, align 4
-  %idxprom70 = sext i32 %49 to i64
+  %58 = load i32, ptr %i, align 4
+  %idxprom70 = sext i32 %58 to i64
   %arrayidx71 = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %idxprom70
   %aliasList = getelementptr inbounds %struct.Tag, ptr %arrayidx71, i32 0, i32 2
-  %50 = load i32, ptr %n, align 4
-  %idxprom72 = sext i32 %50 to i64
+  %59 = load i32, ptr %n, align 4
+  %idxprom72 = sext i32 %59 to i64
   %arrayidx73 = getelementptr inbounds [4095 x %struct.AliasList], ptr %aliasList, i64 0, i64 %idxprom72
   %aliases = getelementptr inbounds %struct.AliasList, ptr %arrayidx73, i32 0, i32 1
-  %51 = load ptr, ptr %aliases, align 8
-  %cmp74 = icmp ne ptr %51, null
+  %60 = load ptr, ptr %aliases, align 8
+  %cmp74 = icmp ne ptr %60, null
   br i1 %cmp74, label %if.then76, label %if.end83
 
 if.then76:                                        ; preds = %for.body69
-  %52 = load i32, ptr %i, align 4
-  %idxprom77 = sext i32 %52 to i64
+  %61 = load i32, ptr %i, align 4
+  %idxprom77 = sext i32 %61 to i64
   %arrayidx78 = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %idxprom77
   %aliasList79 = getelementptr inbounds %struct.Tag, ptr %arrayidx78, i32 0, i32 2
-  %53 = load i32, ptr %n, align 4
-  %idxprom80 = sext i32 %53 to i64
+  %62 = load i32, ptr %n, align 4
+  %idxprom80 = sext i32 %62 to i64
   %arrayidx81 = getelementptr inbounds [4095 x %struct.AliasList], ptr %aliasList79, i64 0, i64 %idxprom80
   %aliases82 = getelementptr inbounds %struct.AliasList, ptr %arrayidx81, i32 0, i32 1
-  %54 = load ptr, ptr %aliases82, align 8
-  call void @uprv_free_75(ptr noundef %54)
+  %63 = load ptr, ptr %aliases82, align 8
+  call void @uprv_free_75(ptr noundef %63)
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then76, %for.body69
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end83
-  %55 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %55, 1
+  %64 = load i32, ptr %n, align 4
+  %inc = add nsw i32 %64, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond66, !llvm.loop !5
 
@@ -348,8 +357,8 @@ for.end:                                          ; preds = %for.cond66
   br label %for.inc84
 
 for.inc84:                                        ; preds = %for.end
-  %56 = load i32, ptr %i, align 4
-  %inc85 = add nsw i32 %56, 1
+  %65 = load i32, ptr %i, align 4
+  %inc85 = add nsw i32 %65, 1
   store i32 %inc85, ptr %i, align 4
   br label %for.cond, !llvm.loop !7
 
@@ -358,8 +367,8 @@ for.end86:                                        ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end86, %if.then7
-  %57 = load i32, ptr %retval, align 4
-  ret i32 %57
+  %66 = load i32, ptr %retval, align 4
+  ret i32 %66
 }
 
 declare ptr @u_getDataDirectory_75() #1
@@ -619,47 +628,48 @@ entry:
   %uniqueAliasesToConverter = alloca ptr, align 8
   %normalizedStrings = alloca ptr, align 8
   store ptr %out, ptr %out.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @tagBlock, i32 0, i32 1), align 8
-  %conv = zext i32 %0 to i64
+  %0 = getelementptr inbounds %struct.StringBlock, ptr @tagBlock, i32 0, i32 1
+  %1 = load i32, ptr %0, align 8
+  %conv = zext i32 %1 to i64
   %div = udiv i64 %conv, 2
   %conv1 = trunc i64 %div to i16
   store i16 %conv1, ptr %aliasOffset, align 2
-  %1 = load i16, ptr @tagCount, align 2
-  %conv2 = zext i16 %1 to i32
-  %2 = load i16, ptr @converterCount, align 2
-  %conv3 = zext i16 %2 to i32
+  %2 = load i16, ptr @tagCount, align 2
+  %conv2 = zext i16 %2 to i32
+  %3 = load i16, ptr @converterCount, align 2
+  %conv3 = zext i16 %3 to i32
   %mul = mul nsw i32 %conv2, %conv3
   %conv4 = sext i32 %mul to i64
   %mul5 = mul i64 %conv4, 2
   %call = call noalias ptr @uprv_malloc_75(i64 noundef %mul5) #14
   store ptr %call, ptr %aliasArrLists, align 8
-  %3 = load i16, ptr @knownAliasesCount, align 2
-  %conv6 = zext i16 %3 to i64
+  %4 = load i16, ptr @knownAliasesCount, align 2
+  %conv6 = zext i16 %4 to i64
   %mul7 = mul i64 %conv6, 2
   %call8 = call noalias ptr @uprv_malloc_75(i64 noundef %mul7) #14
   store ptr %call8, ptr %uniqueAliases, align 8
-  %4 = load i16, ptr @knownAliasesCount, align 2
-  %conv9 = zext i16 %4 to i64
+  %5 = load i16, ptr @knownAliasesCount, align 2
+  %conv9 = zext i16 %5 to i64
   %mul10 = mul i64 %conv9, 2
   %call11 = call noalias ptr @uprv_malloc_75(i64 noundef %mul10) #14
   store ptr %call11, ptr %uniqueAliasesToConverter, align 8
-  %5 = load i16, ptr @knownAliasesCount, align 2
-  %conv12 = zext i16 %5 to i64
+  %6 = load i16, ptr @knownAliasesCount, align 2
+  %conv12 = zext i16 %6 to i64
   call void @qsort(ptr noundef @knownAliases, i64 noundef %conv12, i64 noundef 2, ptr noundef @compareAliases)
-  %6 = load ptr, ptr %uniqueAliases, align 8
-  %7 = load ptr, ptr %uniqueAliasesToConverter, align 8
-  %8 = load i16, ptr %aliasOffset, align 2
-  %call13 = call i32 @resolveAliases(ptr noundef %6, ptr noundef %7, i16 noundef zeroext %8)
+  %7 = load ptr, ptr %uniqueAliases, align 8
+  %8 = load ptr, ptr %uniqueAliasesToConverter, align 8
+  %9 = load i16, ptr %aliasOffset, align 2
+  %call13 = call i32 @resolveAliases(ptr noundef %7, ptr noundef %8, i16 noundef zeroext %9)
   store i32 %call13, ptr %uniqueAliasesSize, align 4
   store i16 0, ptr @aliasListsSize, align 2
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc21, %entry
-  %9 = load i32, ptr %i, align 4
-  %10 = load i16, ptr @tagCount, align 2
-  %conv14 = zext i16 %10 to i32
-  %cmp = icmp ult i32 %9, %conv14
+  %10 = load i32, ptr %i, align 4
+  %11 = load i16, ptr @tagCount, align 2
+  %conv14 = zext i16 %11 to i32
+  %cmp = icmp ult i32 %10, %conv14
   br i1 %cmp, label %for.body, label %for.end23
 
 for.body:                                         ; preds = %for.cond
@@ -667,23 +677,23 @@ for.body:                                         ; preds = %for.cond
   br label %for.cond16
 
 for.cond16:                                       ; preds = %for.inc, %for.body
-  %11 = load i32, ptr %j, align 4
-  %12 = load i16, ptr @converterCount, align 2
-  %conv17 = zext i16 %12 to i32
-  %cmp18 = icmp ult i32 %11, %conv17
+  %12 = load i32, ptr %j, align 4
+  %13 = load i16, ptr @converterCount, align 2
+  %conv17 = zext i16 %13 to i32
+  %cmp18 = icmp ult i32 %12, %conv17
   br i1 %cmp18, label %for.body20, label %for.end
 
 for.body20:                                       ; preds = %for.cond16
-  %13 = load ptr, ptr %aliasArrLists, align 8
-  %14 = load i32, ptr %i, align 4
-  %15 = load i32, ptr %j, align 4
-  %16 = load i16, ptr %aliasOffset, align 2
-  call void @createOneAliasList(ptr noundef %13, i32 noundef %14, i32 noundef %15, i16 noundef zeroext %16)
+  %14 = load ptr, ptr %aliasArrLists, align 8
+  %15 = load i32, ptr %i, align 4
+  %16 = load i32, ptr %j, align 4
+  %17 = load i16, ptr %aliasOffset, align 2
+  call void @createOneAliasList(ptr noundef %14, i32 noundef %15, i32 noundef %16, i16 noundef zeroext %17)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body20
-  %17 = load i32, ptr %j, align 4
-  %inc = add i32 %17, 1
+  %18 = load i32, ptr %j, align 4
+  %inc = add i32 %18, 1
   store i32 %inc, ptr %j, align 4
   br label %for.cond16, !llvm.loop !10
 
@@ -691,78 +701,82 @@ for.end:                                          ; preds = %for.cond16
   br label %for.inc21
 
 for.inc21:                                        ; preds = %for.end
-  %18 = load i32, ptr %i, align 4
-  %inc22 = add i32 %18, 1
+  %19 = load i32, ptr %i, align 4
+  %inc22 = add i32 %19, 1
   store i32 %inc22, ptr %i, align 4
   br label %for.cond, !llvm.loop !11
 
 for.end23:                                        ; preds = %for.cond
-  %19 = load i16, ptr @tableOptions, align 2
-  %conv24 = zext i16 %19 to i32
+  %20 = load i16, ptr @tableOptions, align 2
+  %conv24 = zext i16 %20 to i32
   %cmp25 = icmp eq i32 %conv24, 0
   br i1 %cmp25, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.end23
-  %20 = load ptr, ptr %out.addr, align 8
-  call void @udata_write32(ptr noundef %20, i32 noundef 8)
+  %21 = load ptr, ptr %out.addr, align 8
+  call void @udata_write32(ptr noundef %21, i32 noundef 8)
   br label %if.end
 
 if.else:                                          ; preds = %for.end23
-  %21 = load ptr, ptr %out.addr, align 8
-  call void @udata_write32(ptr noundef %21, i32 noundef 9)
+  %22 = load ptr, ptr %out.addr, align 8
+  call void @udata_write32(ptr noundef %22, i32 noundef 9)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %22 = load ptr, ptr %out.addr, align 8
-  %23 = load i16, ptr @converterCount, align 2
-  %conv27 = zext i16 %23 to i32
-  call void @udata_write32(ptr noundef %22, i32 noundef %conv27)
-  %24 = load ptr, ptr %out.addr, align 8
-  %25 = load i16, ptr @tagCount, align 2
-  %conv28 = zext i16 %25 to i32
-  call void @udata_write32(ptr noundef %24, i32 noundef %conv28)
-  %26 = load ptr, ptr %out.addr, align 8
-  %27 = load i32, ptr %uniqueAliasesSize, align 4
-  call void @udata_write32(ptr noundef %26, i32 noundef %27)
-  %28 = load ptr, ptr %out.addr, align 8
-  %29 = load i32, ptr %uniqueAliasesSize, align 4
-  call void @udata_write32(ptr noundef %28, i32 noundef %29)
-  %30 = load ptr, ptr %out.addr, align 8
-  %31 = load i16, ptr @tagCount, align 2
-  %conv29 = zext i16 %31 to i32
-  %32 = load i16, ptr @converterCount, align 2
-  %conv30 = zext i16 %32 to i32
+  %23 = load ptr, ptr %out.addr, align 8
+  %24 = load i16, ptr @converterCount, align 2
+  %conv27 = zext i16 %24 to i32
+  call void @udata_write32(ptr noundef %23, i32 noundef %conv27)
+  %25 = load ptr, ptr %out.addr, align 8
+  %26 = load i16, ptr @tagCount, align 2
+  %conv28 = zext i16 %26 to i32
+  call void @udata_write32(ptr noundef %25, i32 noundef %conv28)
+  %27 = load ptr, ptr %out.addr, align 8
+  %28 = load i32, ptr %uniqueAliasesSize, align 4
+  call void @udata_write32(ptr noundef %27, i32 noundef %28)
+  %29 = load ptr, ptr %out.addr, align 8
+  %30 = load i32, ptr %uniqueAliasesSize, align 4
+  call void @udata_write32(ptr noundef %29, i32 noundef %30)
+  %31 = load ptr, ptr %out.addr, align 8
+  %32 = load i16, ptr @tagCount, align 2
+  %conv29 = zext i16 %32 to i32
+  %33 = load i16, ptr @converterCount, align 2
+  %conv30 = zext i16 %33 to i32
   %mul31 = mul nsw i32 %conv29, %conv30
-  call void @udata_write32(ptr noundef %30, i32 noundef %mul31)
-  %33 = load ptr, ptr %out.addr, align 8
-  %34 = load i16, ptr @aliasListsSize, align 2
-  %conv32 = zext i16 %34 to i32
+  call void @udata_write32(ptr noundef %31, i32 noundef %mul31)
+  %34 = load ptr, ptr %out.addr, align 8
+  %35 = load i16, ptr @aliasListsSize, align 2
+  %conv32 = zext i16 %35 to i32
   %add = add nsw i32 %conv32, 1
-  call void @udata_write32(ptr noundef %33, i32 noundef %add)
-  %35 = load ptr, ptr %out.addr, align 8
-  call void @udata_write32(ptr noundef %35, i32 noundef 2)
+  call void @udata_write32(ptr noundef %34, i32 noundef %add)
   %36 = load ptr, ptr %out.addr, align 8
-  %37 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @tagBlock, i32 0, i32 1), align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @stringBlock, i32 0, i32 1), align 8
-  %add33 = add i32 %37, %38
+  call void @udata_write32(ptr noundef %36, i32 noundef 2)
+  %37 = load ptr, ptr %out.addr, align 8
+  %38 = getelementptr inbounds %struct.StringBlock, ptr @tagBlock, i32 0, i32 1
+  %39 = load i32, ptr %38, align 8
+  %40 = getelementptr inbounds %struct.StringBlock, ptr @stringBlock, i32 0, i32 1
+  %41 = load i32, ptr %40, align 8
+  %add33 = add i32 %39, %41
   %conv34 = zext i32 %add33 to i64
   %div35 = udiv i64 %conv34, 2
   %conv36 = trunc i64 %div35 to i32
-  call void @udata_write32(ptr noundef %36, i32 noundef %conv36)
-  %39 = load i16, ptr @tableOptions, align 2
-  %conv37 = zext i16 %39 to i32
+  call void @udata_write32(ptr noundef %37, i32 noundef %conv36)
+  %42 = load i16, ptr @tableOptions, align 2
+  %conv37 = zext i16 %42 to i32
   %cmp38 = icmp ne i32 %conv37, 0
   br i1 %cmp38, label %if.then40, label %if.end45
 
 if.then40:                                        ; preds = %if.end
-  %40 = load ptr, ptr %out.addr, align 8
-  %41 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @tagBlock, i32 0, i32 1), align 8
-  %42 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @stringBlock, i32 0, i32 1), align 8
-  %add41 = add i32 %41, %42
+  %43 = load ptr, ptr %out.addr, align 8
+  %44 = getelementptr inbounds %struct.StringBlock, ptr @tagBlock, i32 0, i32 1
+  %45 = load i32, ptr %44, align 8
+  %46 = getelementptr inbounds %struct.StringBlock, ptr @stringBlock, i32 0, i32 1
+  %47 = load i32, ptr %46, align 8
+  %add41 = add i32 %45, %47
   %conv42 = zext i32 %add41 to i64
   %div43 = udiv i64 %conv42, 2
   %conv44 = trunc i64 %div43 to i32
-  call void @udata_write32(ptr noundef %40, i32 noundef %conv44)
+  call void @udata_write32(ptr noundef %43, i32 noundef %conv44)
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then40, %if.end
@@ -770,30 +784,30 @@ if.end45:                                         ; preds = %if.then40, %if.end
   br label %for.cond46
 
 for.cond46:                                       ; preds = %for.inc55, %if.end45
-  %43 = load i32, ptr %i, align 4
-  %44 = load i16, ptr @converterCount, align 2
-  %conv47 = zext i16 %44 to i32
-  %cmp48 = icmp ult i32 %43, %conv47
+  %48 = load i32, ptr %i, align 4
+  %49 = load i16, ptr @converterCount, align 2
+  %conv47 = zext i16 %49 to i32
+  %cmp48 = icmp ult i32 %48, %conv47
   br i1 %cmp48, label %for.body50, label %for.end57
 
 for.body50:                                       ; preds = %for.cond46
-  %45 = load ptr, ptr %out.addr, align 8
-  %46 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %46 to i64
+  %50 = load ptr, ptr %out.addr, align 8
+  %51 = load i32, ptr %i, align 4
+  %idxprom = zext i32 %51 to i64
   %arrayidx = getelementptr inbounds [4095 x %struct.Converter], ptr @converters, i64 0, i64 %idxprom
   %converter = getelementptr inbounds %struct.Converter, ptr %arrayidx, i32 0, i32 0
-  %47 = load i16, ptr %converter, align 4
-  %conv51 = zext i16 %47 to i32
-  %48 = load i16, ptr %aliasOffset, align 2
-  %conv52 = zext i16 %48 to i32
+  %52 = load i16, ptr %converter, align 4
+  %conv51 = zext i16 %52 to i32
+  %53 = load i16, ptr %aliasOffset, align 2
+  %conv52 = zext i16 %53 to i32
   %add53 = add nsw i32 %conv51, %conv52
   %conv54 = trunc i32 %add53 to i16
-  call void @udata_write16(ptr noundef %45, i16 noundef zeroext %conv54)
+  call void @udata_write16(ptr noundef %50, i16 noundef zeroext %conv54)
   br label %for.inc55
 
 for.inc55:                                        ; preds = %for.body50
-  %49 = load i32, ptr %i, align 4
-  %inc56 = add i32 %49, 1
+  %54 = load i32, ptr %i, align 4
+  %inc56 = add i32 %54, 1
   store i32 %inc56, ptr %i, align 4
   br label %for.cond46, !llvm.loop !12
 
@@ -802,133 +816,143 @@ for.end57:                                        ; preds = %for.cond46
   br label %for.cond58
 
 for.cond58:                                       ; preds = %for.inc65, %for.end57
-  %50 = load i32, ptr %i, align 4
-  %51 = load i16, ptr @tagCount, align 2
-  %conv59 = zext i16 %51 to i32
-  %cmp60 = icmp ult i32 %50, %conv59
+  %55 = load i32, ptr %i, align 4
+  %56 = load i16, ptr @tagCount, align 2
+  %conv59 = zext i16 %56 to i32
+  %cmp60 = icmp ult i32 %55, %conv59
   br i1 %cmp60, label %for.body62, label %for.end67
 
 for.body62:                                       ; preds = %for.cond58
-  %52 = load ptr, ptr %out.addr, align 8
-  %53 = load i32, ptr %i, align 4
-  %idxprom63 = zext i32 %53 to i64
+  %57 = load ptr, ptr %out.addr, align 8
+  %58 = load i32, ptr %i, align 4
+  %idxprom63 = zext i32 %58 to i64
   %arrayidx64 = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %idxprom63
   %tag = getelementptr inbounds %struct.Tag, ptr %arrayidx64, i32 0, i32 0
-  %54 = load i16, ptr %tag, align 8
-  call void @udata_write16(ptr noundef %52, i16 noundef zeroext %54)
+  %59 = load i16, ptr %tag, align 8
+  call void @udata_write16(ptr noundef %57, i16 noundef zeroext %59)
   br label %for.inc65
 
 for.inc65:                                        ; preds = %for.body62
-  %55 = load i32, ptr %i, align 4
-  %inc66 = add i32 %55, 1
+  %60 = load i32, ptr %i, align 4
+  %inc66 = add i32 %60, 1
   store i32 %inc66, ptr %i, align 4
   br label %for.cond58, !llvm.loop !13
 
 for.end67:                                        ; preds = %for.cond58
-  %56 = load ptr, ptr %out.addr, align 8
-  %57 = load i16, ptr @tags, align 16
-  call void @udata_write16(ptr noundef %56, i16 noundef zeroext %57)
-  %58 = load ptr, ptr %out.addr, align 8
-  %59 = load i16, ptr getelementptr inbounds ([63 x %struct.Tag], ptr @tags, i64 0, i64 1), align 8
-  call void @udata_write16(ptr noundef %58, i16 noundef zeroext %59)
-  %60 = load ptr, ptr %out.addr, align 8
-  %61 = load ptr, ptr %uniqueAliases, align 8
-  %62 = load i32, ptr %uniqueAliasesSize, align 4
-  %conv68 = zext i32 %62 to i64
+  %61 = load ptr, ptr %out.addr, align 8
+  %62 = load i16, ptr @tags, align 16
+  call void @udata_write16(ptr noundef %61, i16 noundef zeroext %62)
+  %63 = load ptr, ptr %out.addr, align 8
+  %64 = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 1
+  %65 = load i16, ptr %64, align 8
+  call void @udata_write16(ptr noundef %63, i16 noundef zeroext %65)
+  %66 = load ptr, ptr %out.addr, align 8
+  %67 = load ptr, ptr %uniqueAliases, align 8
+  %68 = load i32, ptr %uniqueAliasesSize, align 4
+  %conv68 = zext i32 %68 to i64
   %mul69 = mul i64 %conv68, 2
   %conv70 = trunc i64 %mul69 to i32
-  call void @udata_writeBlock(ptr noundef %60, ptr noundef %61, i32 noundef %conv70)
-  %63 = load ptr, ptr %out.addr, align 8
-  %64 = load ptr, ptr %uniqueAliasesToConverter, align 8
-  %65 = load i32, ptr %uniqueAliasesSize, align 4
-  %conv71 = zext i32 %65 to i64
+  call void @udata_writeBlock(ptr noundef %66, ptr noundef %67, i32 noundef %conv70)
+  %69 = load ptr, ptr %out.addr, align 8
+  %70 = load ptr, ptr %uniqueAliasesToConverter, align 8
+  %71 = load i32, ptr %uniqueAliasesSize, align 4
+  %conv71 = zext i32 %71 to i64
   %mul72 = mul i64 %conv71, 2
   %conv73 = trunc i64 %mul72 to i32
-  call void @udata_writeBlock(ptr noundef %63, ptr noundef %64, i32 noundef %conv73)
-  %66 = load ptr, ptr %out.addr, align 8
-  %67 = load ptr, ptr %aliasArrLists, align 8
-  %68 = load i16, ptr @converterCount, align 2
-  %conv74 = zext i16 %68 to i32
+  call void @udata_writeBlock(ptr noundef %69, ptr noundef %70, i32 noundef %conv73)
+  %72 = load ptr, ptr %out.addr, align 8
+  %73 = load ptr, ptr %aliasArrLists, align 8
+  %74 = load i16, ptr @converterCount, align 2
+  %conv74 = zext i16 %74 to i32
   %mul75 = mul nsw i32 2, %conv74
   %idx.ext = sext i32 %mul75 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %67, i64 %idx.ext
-  %69 = load i16, ptr @tagCount, align 2
-  %conv76 = zext i16 %69 to i32
+  %add.ptr = getelementptr inbounds i16, ptr %73, i64 %idx.ext
+  %75 = load i16, ptr @tagCount, align 2
+  %conv76 = zext i16 %75 to i32
   %sub = sub nsw i32 %conv76, 2
-  %70 = load i16, ptr @converterCount, align 2
-  %conv77 = zext i16 %70 to i32
+  %76 = load i16, ptr @converterCount, align 2
+  %conv77 = zext i16 %76 to i32
   %mul78 = mul nsw i32 %sub, %conv77
   %conv79 = sext i32 %mul78 to i64
   %mul80 = mul i64 %conv79, 2
   %conv81 = trunc i64 %mul80 to i32
-  call void @udata_writeBlock(ptr noundef %66, ptr noundef %add.ptr, i32 noundef %conv81)
-  %71 = load ptr, ptr %out.addr, align 8
-  %72 = load ptr, ptr %aliasArrLists, align 8
-  %73 = load i16, ptr @converterCount, align 2
-  %conv82 = zext i16 %73 to i32
+  call void @udata_writeBlock(ptr noundef %72, ptr noundef %add.ptr, i32 noundef %conv81)
+  %77 = load ptr, ptr %out.addr, align 8
+  %78 = load ptr, ptr %aliasArrLists, align 8
+  %79 = load i16, ptr @converterCount, align 2
+  %conv82 = zext i16 %79 to i32
   %mul83 = mul nsw i32 2, %conv82
   %conv84 = sext i32 %mul83 to i64
   %mul85 = mul i64 %conv84, 2
   %conv86 = trunc i64 %mul85 to i32
-  call void @udata_writeBlock(ptr noundef %71, ptr noundef %72, i32 noundef %conv86)
-  %74 = load ptr, ptr %out.addr, align 8
-  call void @udata_write16(ptr noundef %74, i16 noundef zeroext -8531)
-  %75 = load ptr, ptr %out.addr, align 8
-  %76 = load i16, ptr @aliasListsSize, align 2
-  %conv87 = zext i16 %76 to i64
+  call void @udata_writeBlock(ptr noundef %77, ptr noundef %78, i32 noundef %conv86)
+  %80 = load ptr, ptr %out.addr, align 8
+  call void @udata_write16(ptr noundef %80, i16 noundef zeroext -8531)
+  %81 = load ptr, ptr %out.addr, align 8
+  %82 = load i16, ptr @aliasListsSize, align 2
+  %conv87 = zext i16 %82 to i64
   %mul88 = mul i64 %conv87, 2
   %conv89 = trunc i64 %mul88 to i32
-  call void @udata_writeBlock(ptr noundef %75, ptr noundef @aliasLists, i32 noundef %conv89)
-  %77 = load ptr, ptr %out.addr, align 8
-  call void @udata_writeBlock(ptr noundef %77, ptr noundef @tableOptions, i32 noundef 4)
-  %78 = load ptr, ptr %out.addr, align 8
-  %79 = load ptr, ptr @tagBlock, align 8
-  %80 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @tagBlock, i32 0, i32 1), align 8
-  call void @udata_writeString(ptr noundef %78, ptr noundef %79, i32 noundef %80)
-  %81 = load ptr, ptr %out.addr, align 8
-  %82 = load ptr, ptr @stringBlock, align 8
-  %83 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @stringBlock, i32 0, i32 1), align 8
-  call void @udata_writeString(ptr noundef %81, ptr noundef %82, i32 noundef %83)
-  %84 = load i16, ptr @tableOptions, align 2
-  %conv90 = zext i16 %84 to i32
+  call void @udata_writeBlock(ptr noundef %81, ptr noundef @aliasLists, i32 noundef %conv89)
+  %83 = load ptr, ptr %out.addr, align 8
+  call void @udata_writeBlock(ptr noundef %83, ptr noundef @tableOptions, i32 noundef 4)
+  %84 = load ptr, ptr %out.addr, align 8
+  %85 = load ptr, ptr @tagBlock, align 8
+  %86 = getelementptr inbounds %struct.StringBlock, ptr @tagBlock, i32 0, i32 1
+  %87 = load i32, ptr %86, align 8
+  call void @udata_writeString(ptr noundef %84, ptr noundef %85, i32 noundef %87)
+  %88 = load ptr, ptr %out.addr, align 8
+  %89 = load ptr, ptr @stringBlock, align 8
+  %90 = getelementptr inbounds %struct.StringBlock, ptr @stringBlock, i32 0, i32 1
+  %91 = load i32, ptr %90, align 8
+  call void @udata_writeString(ptr noundef %88, ptr noundef %89, i32 noundef %91)
+  %92 = load i16, ptr @tableOptions, align 2
+  %conv90 = zext i16 %92 to i32
   %cmp91 = icmp ne i32 %conv90, 0
   br i1 %cmp91, label %if.then93, label %if.end100
 
 if.then93:                                        ; preds = %for.end67
-  %85 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @tagBlock, i32 0, i32 1), align 8
-  %86 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @stringBlock, i32 0, i32 1), align 8
-  %add94 = add i32 %85, %86
+  %93 = getelementptr inbounds %struct.StringBlock, ptr @tagBlock, i32 0, i32 1
+  %94 = load i32, ptr %93, align 8
+  %95 = getelementptr inbounds %struct.StringBlock, ptr @stringBlock, i32 0, i32 1
+  %96 = load i32, ptr %95, align 8
+  %add94 = add i32 %94, %96
   %conv95 = zext i32 %add94 to i64
   %call96 = call noalias ptr @uprv_malloc_75(i64 noundef %conv95) #14
   store ptr %call96, ptr %normalizedStrings, align 8
-  %87 = load ptr, ptr %normalizedStrings, align 8
-  %88 = load ptr, ptr @tagBlock, align 8
-  %89 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @tagBlock, i32 0, i32 1), align 8
-  call void @createNormalizedAliasStrings(ptr noundef %87, ptr noundef %88, i32 noundef %89)
-  %90 = load ptr, ptr %normalizedStrings, align 8
-  %91 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @tagBlock, i32 0, i32 1), align 8
-  %idx.ext97 = zext i32 %91 to i64
-  %add.ptr98 = getelementptr inbounds i8, ptr %90, i64 %idx.ext97
-  %92 = load ptr, ptr @stringBlock, align 8
-  %93 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @stringBlock, i32 0, i32 1), align 8
-  call void @createNormalizedAliasStrings(ptr noundef %add.ptr98, ptr noundef %92, i32 noundef %93)
-  %94 = load ptr, ptr %out.addr, align 8
-  %95 = load ptr, ptr %normalizedStrings, align 8
-  %96 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @tagBlock, i32 0, i32 1), align 8
-  %97 = load i32, ptr getelementptr inbounds (%struct.StringBlock, ptr @stringBlock, i32 0, i32 1), align 8
-  %add99 = add i32 %96, %97
-  call void @udata_writeString(ptr noundef %94, ptr noundef %95, i32 noundef %add99)
-  %98 = load ptr, ptr %normalizedStrings, align 8
-  call void @uprv_free_75(ptr noundef %98)
+  %97 = load ptr, ptr %normalizedStrings, align 8
+  %98 = load ptr, ptr @tagBlock, align 8
+  %99 = getelementptr inbounds %struct.StringBlock, ptr @tagBlock, i32 0, i32 1
+  %100 = load i32, ptr %99, align 8
+  call void @createNormalizedAliasStrings(ptr noundef %97, ptr noundef %98, i32 noundef %100)
+  %101 = load ptr, ptr %normalizedStrings, align 8
+  %102 = getelementptr inbounds %struct.StringBlock, ptr @tagBlock, i32 0, i32 1
+  %103 = load i32, ptr %102, align 8
+  %idx.ext97 = zext i32 %103 to i64
+  %add.ptr98 = getelementptr inbounds i8, ptr %101, i64 %idx.ext97
+  %104 = load ptr, ptr @stringBlock, align 8
+  %105 = getelementptr inbounds %struct.StringBlock, ptr @stringBlock, i32 0, i32 1
+  %106 = load i32, ptr %105, align 8
+  call void @createNormalizedAliasStrings(ptr noundef %add.ptr98, ptr noundef %104, i32 noundef %106)
+  %107 = load ptr, ptr %out.addr, align 8
+  %108 = load ptr, ptr %normalizedStrings, align 8
+  %109 = getelementptr inbounds %struct.StringBlock, ptr @tagBlock, i32 0, i32 1
+  %110 = load i32, ptr %109, align 8
+  %111 = getelementptr inbounds %struct.StringBlock, ptr @stringBlock, i32 0, i32 1
+  %112 = load i32, ptr %111, align 8
+  %add99 = add i32 %110, %112
+  call void @udata_writeString(ptr noundef %107, ptr noundef %108, i32 noundef %add99)
+  %113 = load ptr, ptr %normalizedStrings, align 8
+  call void @uprv_free_75(ptr noundef %113)
   br label %if.end100
 
 if.end100:                                        ; preds = %if.then93, %for.end67
-  %99 = load ptr, ptr %uniqueAliasesToConverter, align 8
-  call void @uprv_free_75(ptr noundef %99)
-  %100 = load ptr, ptr %uniqueAliases, align 8
-  call void @uprv_free_75(ptr noundef %100)
-  %101 = load ptr, ptr %aliasArrLists, align 8
-  call void @uprv_free_75(ptr noundef %101)
+  %114 = load ptr, ptr %uniqueAliasesToConverter, align 8
+  call void @uprv_free_75(ptr noundef %114)
+  %115 = load ptr, ptr %uniqueAliases, align 8
+  call void @uprv_free_75(ptr noundef %115)
+  %116 = load ptr, ptr %aliasArrLists, align 8
+  call void @uprv_free_75(ptr noundef %116)
   ret void
 }
 
@@ -1108,23 +1132,24 @@ if.end49:                                         ; preds = %if.then47, %land.lh
 if.end50:                                         ; preds = %if.end49
   %38 = load ptr, ptr %atag, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %38 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @tagStore to i64)
+  %39 = ptrtoint ptr @tagStore to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %39
   %shr = ashr i64 %sub.ptr.sub, 1
   %conv51 = trunc i64 %shr to i16
-  %39 = load i16, ptr @tagCount, align 2
-  %idxprom52 = zext i16 %39 to i64
+  %40 = load i16, ptr @tagCount, align 2
+  %idxprom52 = zext i16 %40 to i64
   %arrayidx53 = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %idxprom52
   %tag54 = getelementptr inbounds %struct.Tag, ptr %arrayidx53, i32 0, i32 0
   store i16 %conv51, ptr %tag54, align 8
-  %40 = load i16, ptr @tagCount, align 2
-  %inc55 = add i16 %40, 1
+  %41 = load i16, ptr @tagCount, align 2
+  %inc55 = add i16 %41, 1
   store i16 %inc55, ptr @tagCount, align 2
-  store i16 %40, ptr %retval, align 2
+  store i16 %41, ptr %retval, align 2
   br label %return
 
 return:                                           ; preds = %if.end50, %if.then27
-  %41 = load i16, ptr %retval, align 2
-  ret i16 %41
+  %42 = load i16, ptr %retval, align 2
+  ret i16 %42
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1418,13 +1443,14 @@ while.body:                                       ; preds = %while.cond
   store ptr %call17, ptr %atag, align 8
   %19 = load ptr, ptr %atag, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %19 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @tagStore to i64)
+  %20 = ptrtoint ptr @tagStore to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %20
   %shr = ashr i64 %sub.ptr.sub, 1
   %conv18 = trunc i64 %shr to i16
-  %20 = load i16, ptr @tagCount, align 2
-  %inc = add i16 %20, 1
+  %21 = load i16, ptr @tagCount, align 2
+  %inc = add i16 %21, 1
   store i16 %inc, ptr @tagCount, align 2
-  %idxprom = zext i16 %20 to i64
+  %idxprom = zext i16 %21 to i64
   %arrayidx19 = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %idxprom
   %tag20 = getelementptr inbounds %struct.Tag, ptr %arrayidx19, i32 0, i32 0
   store i16 %conv18, ptr %tag20, align 8
@@ -1926,10 +1952,11 @@ if.else205:                                       ; preds = %while.end108
   %128 = load i16, ptr %cnv, align 2
   %129 = load i16, ptr %cnv, align 2
   %idxprom206 = zext i16 %129 to i64
-  %arrayidx207 = getelementptr inbounds [4095 x %struct.AliasList], ptr getelementptr inbounds (%struct.Tag, ptr @tags, i32 0, i32 2), i64 0, i64 %idxprom206
+  %130 = getelementptr inbounds %struct.Tag, ptr @tags, i32 0, i32 2
+  %arrayidx207 = getelementptr inbounds [4095 x %struct.AliasList], ptr %130, i64 0, i64 %idxprom206
   %aliasCount = getelementptr inbounds %struct.AliasList, ptr %arrayidx207, i32 0, i32 0
-  %130 = load i16, ptr %aliasCount, align 8
-  %conv208 = zext i16 %130 to i32
+  %131 = load i16, ptr %aliasCount, align 8
+  %conv208 = zext i16 %131 to i32
   %cmp209 = icmp eq i32 %conv208, 0
   %conv210 = zext i1 %cmp209 to i32
   %conv211 = trunc i32 %conv210 to i8
@@ -2024,23 +2051,24 @@ for.inc:                                          ; preds = %if.end12
 for.end:                                          ; preds = %for.cond
   %14 = load ptr, ptr %converter.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %14 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @stringStore to i64)
+  %15 = ptrtoint ptr @stringStore to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %15
   %shr = ashr i64 %sub.ptr.sub, 1
   %conv13 = trunc i64 %shr to i16
-  %15 = load i16, ptr @converterCount, align 2
-  %idxprom14 = zext i16 %15 to i64
+  %16 = load i16, ptr @converterCount, align 2
+  %idxprom14 = zext i16 %16 to i64
   %arrayidx15 = getelementptr inbounds [4095 x %struct.Converter], ptr @converters, i64 0, i64 %idxprom14
   %converter16 = getelementptr inbounds %struct.Converter, ptr %arrayidx15, i32 0, i32 0
   store i16 %conv13, ptr %converter16, align 4
-  %16 = load i16, ptr @converterCount, align 2
-  %idxprom17 = zext i16 %16 to i64
+  %17 = load i16, ptr @converterCount, align 2
+  %idxprom17 = zext i16 %17 to i64
   %arrayidx18 = getelementptr inbounds [4095 x %struct.Converter], ptr @converters, i64 0, i64 %idxprom17
   %totalAliasCount = getelementptr inbounds %struct.Converter, ptr %arrayidx18, i32 0, i32 1
   store i16 0, ptr %totalAliasCount, align 2
-  %17 = load i16, ptr @converterCount, align 2
-  %inc19 = add i16 %17, 1
+  %18 = load i16, ptr @converterCount, align 2
+  %inc19 = add i16 %18, 1
   store i16 %inc19, ptr @converterCount, align 2
-  ret i16 %17
+  ret i16 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2457,54 +2485,56 @@ if.then169:                                       ; preds = %if.then163
 if.end188:                                        ; preds = %if.then163
   %103 = load ptr, ptr %alias.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %103 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @stringStore to i64)
+  %104 = ptrtoint ptr @stringStore to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %104
   %shr = ashr i64 %sub.ptr.sub, 1
   %conv189 = trunc i64 %shr to i16
-  %104 = load ptr, ptr %aliasList, align 8
-  %aliases190 = getelementptr inbounds %struct.AliasList, ptr %104, i32 0, i32 1
-  %105 = load ptr, ptr %aliases190, align 8
-  %arrayidx191 = getelementptr inbounds i16, ptr %105, i64 0
+  %105 = load ptr, ptr %aliasList, align 8
+  %aliases190 = getelementptr inbounds %struct.AliasList, ptr %105, i32 0, i32 1
+  %106 = load ptr, ptr %aliases190, align 8
+  %arrayidx191 = getelementptr inbounds i16, ptr %106, i64 0
   store i16 %conv189, ptr %arrayidx191, align 2
   br label %if.end202
 
 if.else192:                                       ; preds = %if.end161
-  %106 = load ptr, ptr %alias.addr, align 8
-  %sub.ptr.lhs.cast193 = ptrtoint ptr %106 to i64
-  %sub.ptr.sub194 = sub i64 %sub.ptr.lhs.cast193, ptrtoint (ptr @stringStore to i64)
+  %107 = load ptr, ptr %alias.addr, align 8
+  %sub.ptr.lhs.cast193 = ptrtoint ptr %107 to i64
+  %108 = ptrtoint ptr @stringStore to i64
+  %sub.ptr.sub194 = sub i64 %sub.ptr.lhs.cast193, %108
   %shr195 = ashr i64 %sub.ptr.sub194, 1
   %conv196 = trunc i64 %shr195 to i16
-  %107 = load ptr, ptr %aliasList, align 8
-  %aliases197 = getelementptr inbounds %struct.AliasList, ptr %107, i32 0, i32 1
-  %108 = load ptr, ptr %aliases197, align 8
   %109 = load ptr, ptr %aliasList, align 8
-  %aliasCount198 = getelementptr inbounds %struct.AliasList, ptr %109, i32 0, i32 0
-  %110 = load i16, ptr %aliasCount198, align 8
-  %inc199 = add i16 %110, 1
+  %aliases197 = getelementptr inbounds %struct.AliasList, ptr %109, i32 0, i32 1
+  %110 = load ptr, ptr %aliases197, align 8
+  %111 = load ptr, ptr %aliasList, align 8
+  %aliasCount198 = getelementptr inbounds %struct.AliasList, ptr %111, i32 0, i32 0
+  %112 = load i16, ptr %aliasCount198, align 8
+  %inc199 = add i16 %112, 1
   store i16 %inc199, ptr %aliasCount198, align 8
-  %idxprom200 = zext i16 %110 to i64
-  %arrayidx201 = getelementptr inbounds i16, ptr %108, i64 %idxprom200
+  %idxprom200 = zext i16 %112 to i64
+  %arrayidx201 = getelementptr inbounds i16, ptr %110, i64 %idxprom200
   store i16 %conv196, ptr %arrayidx201, align 2
   br label %if.end202
 
 if.end202:                                        ; preds = %if.else192, %if.end188
-  %111 = load i16, ptr %converter.addr, align 2
-  %idxprom203 = zext i16 %111 to i64
+  %113 = load i16, ptr %converter.addr, align 2
+  %idxprom203 = zext i16 %113 to i64
   %arrayidx204 = getelementptr inbounds [4095 x %struct.Converter], ptr @converters, i64 0, i64 %idxprom203
   %totalAliasCount = getelementptr inbounds %struct.Converter, ptr %arrayidx204, i32 0, i32 1
-  %112 = load i16, ptr %totalAliasCount, align 2
-  %inc205 = add i16 %112, 1
+  %114 = load i16, ptr %totalAliasCount, align 2
+  %inc205 = add i16 %114, 1
   store i16 %inc205, ptr %totalAliasCount, align 2
-  %113 = load i16, ptr %standard.addr, align 2
-  %idxprom206 = zext i16 %113 to i64
+  %115 = load i16, ptr %standard.addr, align 2
+  %idxprom206 = zext i16 %115 to i64
   %arrayidx207 = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %idxprom206
   %totalAliasCount208 = getelementptr inbounds %struct.Tag, ptr %arrayidx207, i32 0, i32 1
-  %114 = load i16, ptr %totalAliasCount208, align 2
-  %inc209 = add i16 %114, 1
+  %116 = load i16, ptr %totalAliasCount208, align 2
+  %inc209 = add i16 %116, 1
   store i16 %inc209, ptr %totalAliasCount208, align 2
-  %115 = load ptr, ptr %aliasList, align 8
-  %aliasCount210 = getelementptr inbounds %struct.AliasList, ptr %115, i32 0, i32 0
-  %116 = load i16, ptr %aliasCount210, align 8
-  ret i16 %116
+  %117 = load ptr, ptr %aliasList, align 8
+  %aliasCount210 = getelementptr inbounds %struct.AliasList, ptr %117, i32 0, i32 0
+  %118 = load i16, ptr %aliasCount210, align 8
+  ret i16 %118
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2528,13 +2558,14 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %alias.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @stringStore to i64)
+  %5 = ptrtoint ptr @stringStore to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %5
   %shr = ashr i64 %sub.ptr.sub, 1
   %conv2 = trunc i64 %shr to i16
-  %5 = load i16, ptr @knownAliasesCount, align 2
-  %inc = add i16 %5, 1
+  %6 = load i16, ptr @knownAliasesCount, align 2
+  %inc = add i16 %6, 1
   store i16 %inc, ptr @knownAliasesCount, align 2
-  %idxprom = zext i16 %5 to i64
+  %idxprom = zext i16 %6 to i64
   %arrayidx = getelementptr inbounds [65535 x i16], ptr @knownAliases, i64 0, i64 %idxprom
   store i16 %conv2, ptr %arrayidx, align 2
   ret i16 %conv2

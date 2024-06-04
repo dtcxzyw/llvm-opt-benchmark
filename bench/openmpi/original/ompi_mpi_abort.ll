@@ -59,146 +59,149 @@ define i32 @ompi_mpi_abort(ptr noundef %0, i32 noundef %1) #0 {
   store i8 1, ptr @have_been_invoked, align 1
   %15 = load volatile i8, ptr @ompi_rte_initialized, align 1
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %19
+  br i1 %16, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  store ptr %18, ptr %5, align 8
-  br label %21
+  %18 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %5, align 8
+  br label %22
 
-19:                                               ; preds = %14
-  %20 = call ptr @opal_gethostname()
-  store ptr %20, ptr %5, align 8
-  br label %21
+20:                                               ; preds = %14
+  %21 = call ptr @opal_gethostname()
+  store ptr %21, ptr %5, align 8
+  br label %22
 
-21:                                               ; preds = %19, %17
-  %22 = call i32 @getpid() #6
-  store i32 %22, ptr %6, align 4
-  %23 = load i8, ptr @opal_abort_print_stack, align 1
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %25, label %55
+22:                                               ; preds = %20, %17
+  %23 = call i32 @getpid() #6
+  store i32 %23, ptr %6, align 4
+  %24 = load i8, ptr @opal_abort_print_stack, align 1
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %56
 
-25:                                               ; preds = %21
-  %26 = call i32 @opal_backtrace_buffer(ptr noundef %7, ptr noundef %8)
-  %27 = icmp eq i32 0, %26
-  br i1 %27, label %28, label %51
+26:                                               ; preds = %22
+  %27 = call i32 @opal_backtrace_buffer(ptr noundef %7, ptr noundef %8)
+  %28 = icmp eq i32 0, %27
+  br i1 %28, label %29, label %52
 
-28:                                               ; preds = %25
+29:                                               ; preds = %26
   store i32 0, ptr %9, align 4
-  br label %29
+  br label %30
 
-29:                                               ; preds = %46, %28
-  %30 = load i32, ptr %9, align 4
-  %31 = load i32, ptr %8, align 4
-  %32 = icmp slt i32 %30, %31
-  br i1 %32, label %33, label %49
+30:                                               ; preds = %47, %29
+  %31 = load i32, ptr %9, align 4
+  %32 = load i32, ptr %8, align 4
+  %33 = icmp slt i32 %31, %32
+  br i1 %33, label %34, label %50
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr @stderr, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = load i32, ptr %6, align 4
-  %37 = load i32, ptr %9, align 4
-  %38 = load ptr, ptr %7, align 8
-  %39 = load i32, ptr %9, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %38, i64 %40
-  %42 = load ptr, ptr %41, align 8
-  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str, ptr noundef %35, i32 noundef %36, i32 noundef %37, ptr noundef %42) #6
-  %44 = load ptr, ptr @stderr, align 8
-  %45 = call i32 @fflush(ptr noundef %44)
-  br label %46
+34:                                               ; preds = %30
+  %35 = load ptr, ptr @stderr, align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = load i32, ptr %6, align 4
+  %38 = load i32, ptr %9, align 4
+  %39 = load ptr, ptr %7, align 8
+  %40 = load i32, ptr %9, align 4
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
+  %43 = load ptr, ptr %42, align 8
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str, ptr noundef %36, i32 noundef %37, i32 noundef %38, ptr noundef %43) #6
+  %45 = load ptr, ptr @stderr, align 8
+  %46 = call i32 @fflush(ptr noundef %45)
+  br label %47
 
-46:                                               ; preds = %33
-  %47 = load i32, ptr %9, align 4
-  %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %9, align 4
-  br label %29, !llvm.loop !4
+47:                                               ; preds = %34
+  %48 = load i32, ptr %9, align 4
+  %49 = add nsw i32 %48, 1
+  store i32 %49, ptr %9, align 4
+  br label %30, !llvm.loop !4
 
-49:                                               ; preds = %29
-  %50 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %50) #6
-  br label %54
-
-51:                                               ; preds = %25
-  %52 = load ptr, ptr @stderr, align 8
-  %53 = call i32 @opal_backtrace_print(ptr noundef %52, ptr noundef null, i32 noundef 1)
-  br label %54
-
-54:                                               ; preds = %51, %49
+50:                                               ; preds = %30
+  %51 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %51) #6
   br label %55
 
-55:                                               ; preds = %54, %21
+52:                                               ; preds = %26
+  %53 = load ptr, ptr @stderr, align 8
+  %54 = call i32 @opal_backtrace_print(ptr noundef %53, ptr noundef null, i32 noundef 1)
+  br label %55
+
+55:                                               ; preds = %52, %50
+  br label %56
+
+56:                                               ; preds = %55, %22
   call void @opal_delay_abort()
-  %56 = load volatile i32, ptr @ompi_mpi_state, align 4
-  store i32 %56, ptr %10, align 4
-  %57 = load volatile i8, ptr @ompi_rte_initialized, align 1
-  %58 = trunc i8 %57 to i1
-  br i1 %58, label %74, label %59
+  %57 = load volatile i32, ptr @ompi_mpi_state, align 4
+  store i32 %57, ptr %10, align 4
+  %58 = load volatile i8, ptr @ompi_rte_initialized, align 1
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %75, label %60
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr @stderr, align 8
-  %61 = load ptr, ptr %5, align 8
-  %62 = load i32, ptr %6, align 4
-  %63 = load i32, ptr %10, align 4
-  %64 = icmp sge i32 %63, 3
-  %65 = select i1 %64, ptr @.str.2, ptr @.str.3
-  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef @.str.1, ptr noundef %61, i32 noundef %62, ptr noundef %65) #6
-  %67 = load i32, ptr %4, align 4
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %70
+60:                                               ; preds = %56
+  %61 = load ptr, ptr @stderr, align 8
+  %62 = load ptr, ptr %5, align 8
+  %63 = load i32, ptr %6, align 4
+  %64 = load i32, ptr %10, align 4
+  %65 = icmp sge i32 %64, 3
+  %66 = select i1 %65, ptr @.str.2, ptr @.str.3
+  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef @.str.1, ptr noundef %62, i32 noundef %63, ptr noundef %66) #6
+  %68 = load i32, ptr %4, align 4
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %71
 
-69:                                               ; preds = %59
-  br label %72
+70:                                               ; preds = %60
+  br label %73
 
-70:                                               ; preds = %59
-  %71 = load i32, ptr %4, align 4
-  br label %72
+71:                                               ; preds = %60
+  %72 = load i32, ptr %4, align 4
+  br label %73
 
-72:                                               ; preds = %70, %69
-  %73 = phi i32 [ 1, %69 ], [ %71, %70 ]
-  call void @_exit(i32 noundef %73) #7
+73:                                               ; preds = %71, %70
+  %74 = phi i32 [ 1, %70 ], [ %72, %71 ]
+  call void @_exit(i32 noundef %74) #7
   unreachable
 
-74:                                               ; preds = %55
-  %75 = load i32, ptr %10, align 4
-  %76 = icmp sge i32 %75, 2
-  br i1 %76, label %77, label %86
+75:                                               ; preds = %56
+  %76 = load i32, ptr %10, align 4
+  %77 = icmp sge i32 %76, 2
+  br i1 %77, label %78, label %87
 
-77:                                               ; preds = %74
-  %78 = load i32, ptr %10, align 4
-  %79 = icmp slt i32 %78, 4
-  br i1 %79, label %80, label %86
+78:                                               ; preds = %75
+  %79 = load i32, ptr %10, align 4
+  %80 = icmp slt i32 %79, 4
+  br i1 %80, label %81, label %87
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr %3, align 8
-  %82 = icmp ne ptr null, %81
-  br i1 %82, label %83, label %86
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %3, align 8
+  %83 = icmp ne ptr null, %82
+  br i1 %83, label %84, label %87
 
-83:                                               ; preds = %80
-  %84 = load ptr, ptr %3, align 8
-  %85 = load i32, ptr %4, align 4
-  call void @try_kill_peers(ptr noundef %84, i32 noundef %85)
-  br label %86
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %3, align 8
+  %86 = load i32, ptr %4, align 4
+  call void @try_kill_peers(ptr noundef %85, i32 noundef %86)
+  br label %87
 
-86:                                               ; preds = %83, %80, %77, %74
-  %87 = load i32, ptr %4, align 4
-  call void (i32, ptr, ...) @ompi_rte_abort(i32 noundef %87, ptr noundef null) #7
+87:                                               ; preds = %84, %81, %78, %75
+  %88 = load i32, ptr %4, align 4
+  call void (i32, ptr, ...) @ompi_rte_abort(i32 noundef %88, ptr noundef null) #7
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @opal_gethostname() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %2 = icmp eq ptr null, %1
-  br i1 %2, label %3, label %5
+  %1 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp eq ptr null, %2
+  br i1 %3, label %4, label %6
 
-3:                                                ; preds = %0
-  %4 = call i32 @opal_init_gethostname()
-  br label %5
+4:                                                ; preds = %0
+  %5 = call i32 @opal_init_gethostname()
+  br label %6
 
-5:                                                ; preds = %3, %0
-  %6 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  ret ptr %6
+6:                                                ; preds = %4, %0
+  %7 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind

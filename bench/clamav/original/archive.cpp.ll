@@ -1501,270 +1501,271 @@ define void @_ZN7ArchiveC2EP11CommandData(ptr noundef nonnull align 8 dereferenc
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN4FileC2Ev(ptr noundef nonnull align 8 dereferenceable(8256) %10)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7Archive, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 1
-  invoke void @_ZN9CryptDataC1Ev(ptr noundef nonnull align 8 dereferenceable(2516) %11)
-          to label %12 unwind label %82
+  %11 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7Archive, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 1
+  invoke void @_ZN9CryptDataC1Ev(ptr noundef nonnull align 8 dereferenceable(2516) %12)
+          to label %13 unwind label %83
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 2
-  invoke void @_ZN11ComprDataIOC1Ev(ptr noundef nonnull align 8 dereferenceable(266) %13)
-          to label %14 unwind label %86
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 2
+  invoke void @_ZN11ComprDataIOC1Ev(ptr noundef nonnull align 8 dereferenceable(266) %14)
+          to label %15 unwind label %87
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 6
-  invoke void @_ZN7RarTimeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %16 unwind label %90
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 6
+  invoke void @_ZN7RarTimeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %17 unwind label %91
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 11
-  invoke void @_ZN9QuickOpenC1Ev(ptr noundef nonnull align 8 dereferenceable(2673) %17)
-          to label %18 unwind label %90
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 11
+  invoke void @_ZN9QuickOpenC1Ev(ptr noundef nonnull align 8 dereferenceable(2673) %18)
+          to label %19 unwind label %91
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 17
-  invoke void @_ZN10MainHeaderC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %19)
-          to label %20 unwind label %94
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 17
+  invoke void @_ZN10MainHeaderC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %20)
+          to label %21 unwind label %95
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 20
-  invoke void @_ZN10FileHeaderC2Ev(ptr noundef nonnull align 8 dereferenceable(17184) %21)
-          to label %22 unwind label %98
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 20
+  invoke void @_ZN10FileHeaderC2Ev(ptr noundef nonnull align 8 dereferenceable(17184) %22)
+          to label %23 unwind label %99
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 24
-  invoke void @_ZN10FileHeaderC2Ev(ptr noundef nonnull align 8 dereferenceable(17184) %23)
-          to label %24 unwind label %102
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 24
+  invoke void @_ZN10FileHeaderC2Ev(ptr noundef nonnull align 8 dereferenceable(17184) %24)
+          to label %25 unwind label %103
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 5
-  store ptr null, ptr %25, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = icmp eq ptr %26, null
-  %28 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 3
-  %29 = zext i1 %27 to i8
-  store i8 %29, ptr %28, align 8
-  %30 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 3
-  %31 = load i8, ptr %30, align 8
-  %32 = trunc i8 %31 to i1
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 5
+  store ptr null, ptr %26, align 8
+  %27 = load ptr, ptr %4, align 8
+  %28 = icmp eq ptr %27, null
+  %29 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 3
+  %30 = zext i1 %28 to i8
+  store i8 %30, ptr %29, align 8
+  %31 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 3
+  %32 = load i8, ptr %31, align 8
+  %33 = trunc i8 %32 to i1
   store i1 false, ptr %8, align 1
-  br i1 %32, label %33, label %37
+  br i1 %33, label %34, label %38
 
-33:                                               ; preds = %24
-  %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 100904) #13
-          to label %35 unwind label %106
+34:                                               ; preds = %25
+  %35 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 100904) #13
+          to label %36 unwind label %107
 
-35:                                               ; preds = %33
-  store ptr %34, ptr %7, align 8
+36:                                               ; preds = %34
+  store ptr %35, ptr %7, align 8
   store i1 true, ptr %8, align 1
-  invoke void @_ZN11CommandDataC1Ev(ptr noundef nonnull align 8 dereferenceable(100904) %34)
-          to label %36 unwind label %110
+  invoke void @_ZN11CommandDataC1Ev(ptr noundef nonnull align 8 dereferenceable(100904) %35)
+          to label %37 unwind label %111
 
-36:                                               ; preds = %35
-  br label %39
+37:                                               ; preds = %36
+  br label %40
 
-37:                                               ; preds = %24
-  %38 = load ptr, ptr %4, align 8
-  br label %39
+38:                                               ; preds = %25
+  %39 = load ptr, ptr %4, align 8
+  br label %40
 
-39:                                               ; preds = %37, %36
-  %40 = phi ptr [ %34, %36 ], [ %38, %37 ]
-  %41 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 5
-  store ptr %40, ptr %41, align 8
+40:                                               ; preds = %38, %37
+  %41 = phi ptr [ %35, %37 ], [ %39, %38 ]
   %42 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 5
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %class.RAROptions, ptr %43, i32 0, i32 58
-  %45 = load i8, ptr %44, align 1
-  %46 = trunc i8 %45 to i1
-  %47 = getelementptr inbounds %class.File, ptr %10, i32 0, i32 13
-  %48 = zext i1 %46 to i8
-  store i8 %48, ptr %47, align 8
-  %49 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 32
-  store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 33
-  store i8 0, ptr %50, align 4
-  %51 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 34
-  store i8 0, ptr %51, align 1
-  %52 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 35
-  store i8 0, ptr %52, align 2
-  %53 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 36
-  store i8 0, ptr %53, align 1
-  %54 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 37
-  store i8 0, ptr %54, align 8
-  %55 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 38
-  store i8 0, ptr %55, align 1
-  %56 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 39
-  store i8 0, ptr %56, align 2
-  %57 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 43
-  store i64 0, ptr %57, align 8
-  %58 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 6
-  invoke void @_ZN7RarTime5ResetEv(ptr noundef nonnull align 8 dereferenceable(8) %58)
-          to label %59 unwind label %106
+  store ptr %41, ptr %42, align 8
+  %43 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 5
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %class.RAROptions, ptr %44, i32 0, i32 58
+  %46 = load i8, ptr %45, align 1
+  %47 = trunc i8 %46 to i1
+  %48 = getelementptr inbounds %class.File, ptr %10, i32 0, i32 13
+  %49 = zext i1 %47 to i8
+  store i8 %49, ptr %48, align 8
+  %50 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 32
+  store i32 0, ptr %50, align 8
+  %51 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 33
+  store i8 0, ptr %51, align 4
+  %52 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 34
+  store i8 0, ptr %52, align 1
+  %53 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 35
+  store i8 0, ptr %53, align 2
+  %54 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 36
+  store i8 0, ptr %54, align 1
+  %55 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 37
+  store i8 0, ptr %55, align 8
+  %56 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 38
+  store i8 0, ptr %56, align 1
+  %57 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 39
+  store i8 0, ptr %57, align 2
+  %58 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 43
+  store i64 0, ptr %58, align 8
+  %59 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 6
+  invoke void @_ZN7RarTime5ResetEv(ptr noundef nonnull align 8 dereferenceable(8) %59)
+          to label %60 unwind label %107
 
-59:                                               ; preds = %39
-  %60 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 40
-  store i8 0, ptr %60, align 1
-  %61 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 41
-  store i8 0, ptr %61, align 4
-  %62 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 45
-  store i8 0, ptr %62, align 1
-  %63 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 44
-  store i8 0, ptr %63, align 8
-  %64 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 7
-  store i32 0, ptr %64, align 8
-  %65 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 30
-  store i64 0, ptr %65, align 8
-  %66 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 31
+60:                                               ; preds = %40
+  %61 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 40
+  store i8 0, ptr %61, align 1
+  %62 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 41
+  store i8 0, ptr %62, align 4
+  %63 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 45
+  store i8 0, ptr %63, align 1
+  %64 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 44
+  store i8 0, ptr %64, align 8
+  %65 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 7
+  store i32 0, ptr %65, align 8
+  %66 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 30
   store i64 0, ptr %66, align 8
-  %67 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 17
-  invoke void @_ZN10MainHeader5ResetEv(ptr noundef nonnull align 8 dereferenceable(112) %67)
-          to label %68 unwind label %106
+  %67 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 31
+  store i64 0, ptr %67, align 8
+  %68 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 17
+  invoke void @_ZN10MainHeader5ResetEv(ptr noundef nonnull align 8 dereferenceable(112) %68)
+          to label %69 unwind label %107
 
-68:                                               ; preds = %59
+69:                                               ; preds = %60
   call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 52, i1 false)
-  %69 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 18
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %69, ptr align 4 %9, i64 52, i1 false)
-  %70 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 21
-  invoke void @_ZN12EndArcHeader5ResetEv(ptr noundef nonnull align 4 dereferenceable(32) %70)
-          to label %71 unwind label %106
+  %70 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %70, ptr align 4 %9, i64 52, i1 false)
+  %71 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 21
+  invoke void @_ZN12EndArcHeader5ResetEv(ptr noundef nonnull align 4 dereferenceable(32) %71)
+          to label %72 unwind label %107
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 49
-  store i32 0, ptr %72, align 4
-  %73 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 50
-  store i64 0, ptr %73, align 8
-  %74 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 51
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 49
+  store i32 0, ptr %73, align 4
+  %74 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 50
   store i64 0, ptr %74, align 8
-  %75 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 52
+  %75 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 51
   store i64 0, ptr %75, align 8
-  %76 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 55
-  %77 = getelementptr inbounds [2048 x i32], ptr %76, i64 0, i64 0
-  store i32 0, ptr %77, align 4
-  %78 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 47
-  store i8 0, ptr %78, align 2
-  %79 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 53
-  store i8 0, ptr %79, align 8
-  %80 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 9
+  %76 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 52
+  store i64 0, ptr %76, align 8
+  %77 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 55
+  %78 = getelementptr inbounds [2048 x i32], ptr %77, i64 0, i64 0
+  store i32 0, ptr %78, align 4
+  %79 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 47
+  store i8 0, ptr %79, align 2
+  %80 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 53
   store i8 0, ptr %80, align 8
-  %81 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 12
+  %81 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 9
   store i8 0, ptr %81, align 8
+  %82 = getelementptr inbounds %class.Archive, ptr %10, i32 0, i32 12
+  store i8 0, ptr %82, align 8
   ret void
 
-82:                                               ; preds = %2
-  %83 = landingpad { ptr, i32 }
+83:                                               ; preds = %2
+  %84 = landingpad { ptr, i32 }
           cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %5, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %6, align 4
-  br label %124
-
-86:                                               ; preds = %12
-  %87 = landingpad { ptr, i32 }
-          cleanup
-  %88 = extractvalue { ptr, i32 } %87, 0
-  store ptr %88, ptr %5, align 8
-  %89 = extractvalue { ptr, i32 } %87, 1
-  store i32 %89, ptr %6, align 4
-  br label %123
-
-90:                                               ; preds = %16, %14
-  %91 = landingpad { ptr, i32 }
-          cleanup
-  %92 = extractvalue { ptr, i32 } %91, 0
-  store ptr %92, ptr %5, align 8
-  %93 = extractvalue { ptr, i32 } %91, 1
-  store i32 %93, ptr %6, align 4
-  br label %122
-
-94:                                               ; preds = %18
-  %95 = landingpad { ptr, i32 }
-          cleanup
-  %96 = extractvalue { ptr, i32 } %95, 0
-  store ptr %96, ptr %5, align 8
-  %97 = extractvalue { ptr, i32 } %95, 1
-  store i32 %97, ptr %6, align 4
-  br label %121
-
-98:                                               ; preds = %20
-  %99 = landingpad { ptr, i32 }
-          cleanup
-  %100 = extractvalue { ptr, i32 } %99, 0
-  store ptr %100, ptr %5, align 8
-  %101 = extractvalue { ptr, i32 } %99, 1
-  store i32 %101, ptr %6, align 4
-  br label %120
-
-102:                                              ; preds = %22
-  %103 = landingpad { ptr, i32 }
-          cleanup
-  %104 = extractvalue { ptr, i32 } %103, 0
-  store ptr %104, ptr %5, align 8
-  %105 = extractvalue { ptr, i32 } %103, 1
-  store i32 %105, ptr %6, align 4
-  br label %119
-
-106:                                              ; preds = %68, %59, %39, %33
-  %107 = landingpad { ptr, i32 }
-          cleanup
-  %108 = extractvalue { ptr, i32 } %107, 0
-  store ptr %108, ptr %5, align 8
-  %109 = extractvalue { ptr, i32 } %107, 1
-  store i32 %109, ptr %6, align 4
-  br label %118
-
-110:                                              ; preds = %35
-  %111 = landingpad { ptr, i32 }
-          cleanup
-  %112 = extractvalue { ptr, i32 } %111, 0
-  store ptr %112, ptr %5, align 8
-  %113 = extractvalue { ptr, i32 } %111, 1
-  store i32 %113, ptr %6, align 4
-  %114 = load i1, ptr %8, align 1
-  br i1 %114, label %115, label %117
-
-115:                                              ; preds = %110
-  %116 = load ptr, ptr %7, align 8
-  call void @_ZdlPv(ptr noundef %116) #14
-  br label %117
-
-117:                                              ; preds = %115, %110
-  br label %118
-
-118:                                              ; preds = %117, %106
-  call void @_ZN10FileHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(17184) %23) #11
-  br label %119
-
-119:                                              ; preds = %118, %102
-  call void @_ZN10FileHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(17184) %21) #11
-  br label %120
-
-120:                                              ; preds = %119, %98
-  call void @_ZN10MainHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %19) #11
-  br label %121
-
-121:                                              ; preds = %120, %94
-  call void @_ZN9QuickOpenD1Ev(ptr noundef nonnull align 8 dereferenceable(2673) %17) #11
-  br label %122
-
-122:                                              ; preds = %121, %90
-  call void @_ZN11ComprDataIOD1Ev(ptr noundef nonnull align 8 dereferenceable(266) %13) #11
-  br label %123
-
-123:                                              ; preds = %122, %86
-  call void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2516) %11) #11
-  br label %124
-
-124:                                              ; preds = %123, %82
-  call void @_ZN4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(8256) %10) #11
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %5, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %6, align 4
   br label %125
 
-125:                                              ; preds = %124
-  %126 = load ptr, ptr %5, align 8
-  %127 = load i32, ptr %6, align 4
-  %128 = insertvalue { ptr, i32 } poison, ptr %126, 0
-  %129 = insertvalue { ptr, i32 } %128, i32 %127, 1
-  resume { ptr, i32 } %129
+87:                                               ; preds = %13
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %5, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %6, align 4
+  br label %124
+
+91:                                               ; preds = %17, %15
+  %92 = landingpad { ptr, i32 }
+          cleanup
+  %93 = extractvalue { ptr, i32 } %92, 0
+  store ptr %93, ptr %5, align 8
+  %94 = extractvalue { ptr, i32 } %92, 1
+  store i32 %94, ptr %6, align 4
+  br label %123
+
+95:                                               ; preds = %19
+  %96 = landingpad { ptr, i32 }
+          cleanup
+  %97 = extractvalue { ptr, i32 } %96, 0
+  store ptr %97, ptr %5, align 8
+  %98 = extractvalue { ptr, i32 } %96, 1
+  store i32 %98, ptr %6, align 4
+  br label %122
+
+99:                                               ; preds = %21
+  %100 = landingpad { ptr, i32 }
+          cleanup
+  %101 = extractvalue { ptr, i32 } %100, 0
+  store ptr %101, ptr %5, align 8
+  %102 = extractvalue { ptr, i32 } %100, 1
+  store i32 %102, ptr %6, align 4
+  br label %121
+
+103:                                              ; preds = %23
+  %104 = landingpad { ptr, i32 }
+          cleanup
+  %105 = extractvalue { ptr, i32 } %104, 0
+  store ptr %105, ptr %5, align 8
+  %106 = extractvalue { ptr, i32 } %104, 1
+  store i32 %106, ptr %6, align 4
+  br label %120
+
+107:                                              ; preds = %69, %60, %40, %34
+  %108 = landingpad { ptr, i32 }
+          cleanup
+  %109 = extractvalue { ptr, i32 } %108, 0
+  store ptr %109, ptr %5, align 8
+  %110 = extractvalue { ptr, i32 } %108, 1
+  store i32 %110, ptr %6, align 4
+  br label %119
+
+111:                                              ; preds = %36
+  %112 = landingpad { ptr, i32 }
+          cleanup
+  %113 = extractvalue { ptr, i32 } %112, 0
+  store ptr %113, ptr %5, align 8
+  %114 = extractvalue { ptr, i32 } %112, 1
+  store i32 %114, ptr %6, align 4
+  %115 = load i1, ptr %8, align 1
+  br i1 %115, label %116, label %118
+
+116:                                              ; preds = %111
+  %117 = load ptr, ptr %7, align 8
+  call void @_ZdlPv(ptr noundef %117) #14
+  br label %118
+
+118:                                              ; preds = %116, %111
+  br label %119
+
+119:                                              ; preds = %118, %107
+  call void @_ZN10FileHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(17184) %24) #11
+  br label %120
+
+120:                                              ; preds = %119, %103
+  call void @_ZN10FileHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(17184) %22) #11
+  br label %121
+
+121:                                              ; preds = %120, %99
+  call void @_ZN10MainHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %20) #11
+  br label %122
+
+122:                                              ; preds = %121, %95
+  call void @_ZN9QuickOpenD1Ev(ptr noundef nonnull align 8 dereferenceable(2673) %18) #11
+  br label %123
+
+123:                                              ; preds = %122, %91
+  call void @_ZN11ComprDataIOD1Ev(ptr noundef nonnull align 8 dereferenceable(266) %14) #11
+  br label %124
+
+124:                                              ; preds = %123, %87
+  call void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2516) %12) #11
+  br label %125
+
+125:                                              ; preds = %124, %83
+  call void @_ZN4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(8256) %10) #11
+  br label %126
+
+126:                                              ; preds = %125
+  %127 = load ptr, ptr %5, align 8
+  %128 = load i32, ptr %6, align 4
+  %129 = insertvalue { ptr, i32 } poison, ptr %127, 0
+  %130 = insertvalue { ptr, i32 } %129, i32 %128, 1
+  resume { ptr, i32 } %130
 }
 
 declare void @_ZN4FileC2Ev(ptr noundef nonnull align 8 dereferenceable(8256)) unnamed_addr #1
@@ -1965,39 +1966,40 @@ define void @_ZN7ArchiveD2Ev(ptr noundef nonnull align 8 dereferenceable(57108) 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7Archive, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 3
-  %5 = load i8, ptr %4, align 8
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %13
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7Archive, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 3
+  %6 = load i8, ptr %5, align 8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %14
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 5
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %12, label %11
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %13, label %12
 
-11:                                               ; preds = %7
-  call void @_ZN11CommandDataD2Ev(ptr noundef nonnull align 8 dereferenceable(100904) %9) #11
-  call void @_ZdlPv(ptr noundef %9) #14
-  br label %12
-
-12:                                               ; preds = %11, %7
+12:                                               ; preds = %8
+  call void @_ZN11CommandDataD2Ev(ptr noundef nonnull align 8 dereferenceable(100904) %10) #11
+  call void @_ZdlPv(ptr noundef %10) #14
   br label %13
 
-13:                                               ; preds = %12, %1
-  %14 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 24
-  call void @_ZN10FileHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(17184) %14) #11
-  %15 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 20
+13:                                               ; preds = %12, %8
+  br label %14
+
+14:                                               ; preds = %13, %1
+  %15 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 24
   call void @_ZN10FileHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(17184) %15) #11
-  %16 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 17
-  call void @_ZN10MainHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %16) #11
-  %17 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 11
-  call void @_ZN9QuickOpenD1Ev(ptr noundef nonnull align 8 dereferenceable(2673) %17) #11
-  %18 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 2
-  call void @_ZN11ComprDataIOD1Ev(ptr noundef nonnull align 8 dereferenceable(266) %18) #11
-  %19 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 1
-  call void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2516) %19) #11
+  %16 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 20
+  call void @_ZN10FileHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(17184) %16) #11
+  %17 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 17
+  call void @_ZN10MainHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %17) #11
+  %18 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 11
+  call void @_ZN9QuickOpenD1Ev(ptr noundef nonnull align 8 dereferenceable(2673) %18) #11
+  %19 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 2
+  call void @_ZN11ComprDataIOD1Ev(ptr noundef nonnull align 8 dereferenceable(266) %19) #11
+  %20 = getelementptr inbounds %class.Archive, ptr %3, i32 0, i32 1
+  call void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2516) %20) #11
   call void @_ZN4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(8256) %3) #11
   ret void
 }

@@ -9547,7 +9547,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue211GoughSSAVarE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3ue211GoughSSAVarE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %outputs = getelementptr inbounds %"struct.ue2::GoughSSAVar", ptr %this1, i32 0, i32 4
   call void @_ZN3ue28flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %outputs) #1
   %inputs = getelementptr inbounds %"struct.ue2::GoughSSAVar", ptr %this1, i32 0, i32 3
@@ -14085,16 +14086,17 @@ entry:
   %0 = load ptr, ptr %r.addr, align 8
   %1 = load ptr, ptr %rm_in.addr, align 8
   call void @_ZN3ue221mcclellan_build_stratC2ERNS_7raw_dfaERKNS_13ReportManagerEb(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(560) %0, ptr noundef nonnull align 8 dereferenceable(505) %1, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_117gough_build_stratE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_117gough_build_stratE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %rdfa = getelementptr inbounds %"class.ue2::(anonymous namespace)::gough_build_strat", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %r.addr, align 8
-  store ptr %2, ptr %rdfa, align 8
+  %3 = load ptr, ptr %r.addr, align 8
+  store ptr %3, ptr %rdfa, align 8
   %gg = getelementptr inbounds %"class.ue2::(anonymous namespace)::gough_build_strat", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %g.addr, align 8
-  store ptr %3, ptr %gg, align 8
+  %4 = load ptr, ptr %g.addr, align 8
+  store ptr %4, ptr %gg, align 8
   %accel_gough_info = getelementptr inbounds %"class.ue2::(anonymous namespace)::gough_build_strat", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %accel_info.addr, align 8
-  invoke void @_ZNSt3mapItN3ue222gough_accel_state_infoESt4lessItESaISt4pairIKtS1_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %accel_gough_info, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %5 = load ptr, ptr %accel_info.addr, align 8
+  invoke void @_ZNSt3mapItN3ue222gough_accel_state_infoESt4lessItESaISt4pairIKtS1_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %accel_gough_info, ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -14103,12 +14105,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN3ue221mcclellan_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #1
   br label %eh.resume
 
@@ -14973,7 +14975,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_117gough_build_stratE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_117gough_build_stratE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %built_accel = getelementptr inbounds %"class.ue2::(anonymous namespace)::gough_build_strat", ptr %this1, i32 0, i32 4
   call void @_ZNSt3mapIP11gough_acceltSt4lessIS1_ESaISt4pairIKS1_tEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %built_accel) #1
   %accel_gough_info = getelementptr inbounds %"class.ue2::(anonymous namespace)::gough_build_strat", ptr %this1, i32 0, i32 3
@@ -15048,7 +15051,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue211raw_som_dfaE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3ue211raw_som_dfaE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %new_som_nfa_states = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %this1, i32 0, i32 5
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %new_som_nfa_states) #1
   %state_som = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %this1, i32 0, i32 1
@@ -15179,7 +15183,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN3ue215GoughSSAVarJoinE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3ue215GoughSSAVarJoinE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %input_map = getelementptr inbounds %"struct.ue2::GoughSSAVarJoin", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIPN3ue211GoughSSAVarENS0_8flat_setIN5boost6detail14edge_desc_implINS4_17bidirectional_tagEmEESt4lessIS8_ESaIS8_EEES9_IS2_ESaISt4pairIKS2_SC_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %input_map) #1
   call void @_ZN3ue221GoughSSAVarWithInputsD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #1
@@ -28476,7 +28481,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue215GoughSSAVarJoinESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue215GoughSSAVarJoinESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN3ue215GoughSSAVarJoinESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(128) %_M_impl) #1
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3ue215GoughSSAVarJoinESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(144) %this1) #1
@@ -28487,12 +28493,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #1
   br label %eh.resume
 
@@ -28670,7 +28676,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -28863,7 +28870,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue221GoughSSAVarWithInputsC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN3ue215GoughSSAVarJoinE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3ue215GoughSSAVarJoinE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %input_map = getelementptr inbounds %"struct.ue2::GoughSSAVarJoin", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIPN3ue211GoughSSAVarENS0_8flat_setIN5boost6detail14edge_desc_implINS4_17bidirectional_tagEmEESt4lessIS8_ESaIS8_EEES9_IS2_ESaISt4pairIKS2_SC_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %input_map) #1
   ret void
@@ -28876,7 +28884,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue211GoughSSAVarC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN3ue221GoughSSAVarWithInputsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3ue221GoughSSAVarWithInputsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -28903,7 +28912,8 @@ entry:
   %ref.tmp4 = alloca %"class.std::allocator.74", align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue211GoughSSAVarE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3ue211GoughSSAVarE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %seen = getelementptr inbounds %"struct.ue2::GoughSSAVar", ptr %this1, i32 0, i32 1
   store i8 0, ptr %seen, align 8
   %slot = getelementptr inbounds %"struct.ue2::GoughSSAVar", ptr %this1, i32 0, i32 2
@@ -28925,22 +28935,22 @@ invoke.cont6:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSaIPN3ue211GoughSSAVarEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #1
   br label %eh.resume
 
 lpad5:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSaIPN3ue221GoughSSAVarWithInputsEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #1
   call void @_ZN3ue28flat_setIPNS_11GoughSSAVarESt4lessIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %inputs) #1
   br label %eh.resume
@@ -37684,16 +37694,21 @@ entry:
   %vbase.offset.ptr3 = getelementptr i8, ptr %vtable2, i64 -32
   %vbase.offset4 = load i64, ptr %vbase.offset.ptr3, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %1, i64 %vbase.offset4
-  call void @_ZN5boost12graph_detail21forward_container_tagC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([6 x ptr], ptr @_ZTTN5boost12graph_detail27back_insertion_sequence_tagE, i64 0, i64 5), ptr noundef nonnull align 8 dereferenceable(8) %add.ptr5) #1
-  %2 = load ptr, ptr %.addr, align 8
-  %vtable6 = load ptr, ptr %2, align 8
+  %2 = getelementptr inbounds [6 x ptr], ptr @_ZTTN5boost12graph_detail27back_insertion_sequence_tagE, i64 0, i64 5
+  call void @_ZN5boost12graph_detail21forward_container_tagC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr5) #1
+  %3 = load ptr, ptr %.addr, align 8
+  %vtable6 = load ptr, ptr %3, align 8
   %vbase.offset.ptr7 = getelementptr i8, ptr %vtable6, i64 -40
   %vbase.offset8 = load i64, ptr %vbase.offset.ptr7, align 8
-  %add.ptr9 = getelementptr inbounds i8, ptr %2, i64 %vbase.offset8
-  call void @_ZN5boost12graph_detail12sequence_tagC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([6 x ptr], ptr @_ZTTN5boost12graph_detail27back_insertion_sequence_tagE, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %add.ptr9) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5), ptr %this1, align 8
+  %add.ptr9 = getelementptr inbounds i8, ptr %3, i64 %vbase.offset8
+  %4 = getelementptr inbounds [6 x ptr], ptr @_ZTTN5boost12graph_detail27back_insertion_sequence_tagE, i64 0, i64 3
+  call void @_ZN5boost12graph_detail12sequence_tagC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr9) #1
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5
+  store ptr %5, ptr %this1, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5
+  store ptr %6, ptr %this1, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5
+  store ptr %7, ptr %this1, align 8
   ret void
 }
 
@@ -38092,19 +38107,28 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN5boost12graph_detail21forward_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 7)) #1
-  call void @_ZN5boost12graph_detail24reversible_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 5)) #1
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN5boost12graph_detail12sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef getelementptr inbounds ([13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 11)) #1
-  %1 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN5boost12graph_detail27back_insertion_sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef getelementptr inbounds ([13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 8)) #1
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7), ptr %this1, align 8
+  %0 = getelementptr inbounds [13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 7
+  call void @_ZN5boost12graph_detail21forward_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %0) #1
+  %1 = getelementptr inbounds [13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 5
+  call void @_ZN5boost12graph_detail24reversible_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1) #1
+  %2 = getelementptr inbounds i8, ptr %this1, i64 8
+  %3 = getelementptr inbounds [13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 11
+  call void @_ZN5boost12graph_detail12sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #1
+  %4 = getelementptr inbounds i8, ptr %this1, i64 8
+  %5 = getelementptr inbounds [13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 8
+  call void @_ZN5boost12graph_detail27back_insertion_sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5) #1
+  %6 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7
+  store ptr %6, ptr %this1, align 8
+  %7 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7
+  store ptr %7, ptr %this1, align 8
+  %8 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7
+  store ptr %8, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 1, i32 5), ptr %add.ptr, align 8
+  %9 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 1, i32 5
+  store ptr %9, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 1, i32 5), ptr %add.ptr2, align 8
+  %10 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 1, i32 5
+  store ptr %10, ptr %add.ptr2, align 8
   ret void
 }
 
@@ -39005,21 +39029,32 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN5boost12graph_detail21forward_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 11)) #1
-  call void @_ZN5boost12graph_detail24reversible_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 9)) #1
-  call void @_ZN5boost12graph_detail27random_access_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 6)) #1
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN5boost12graph_detail12sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef getelementptr inbounds ([17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 15)) #1
-  %1 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN5boost12graph_detail27back_insertion_sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef getelementptr inbounds ([17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 12)) #1
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8), ptr %this1, align 8
+  %0 = getelementptr inbounds [17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 11
+  call void @_ZN5boost12graph_detail21forward_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %0) #1
+  %1 = getelementptr inbounds [17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 9
+  call void @_ZN5boost12graph_detail24reversible_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1) #1
+  %2 = getelementptr inbounds [17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 6
+  call void @_ZN5boost12graph_detail27random_access_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %2) #1
+  %3 = getelementptr inbounds i8, ptr %this1, i64 8
+  %4 = getelementptr inbounds [17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 15
+  call void @_ZN5boost12graph_detail12sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4) #1
+  %5 = getelementptr inbounds i8, ptr %this1, i64 8
+  %6 = getelementptr inbounds [17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 12
+  call void @_ZN5boost12graph_detail27back_insertion_sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6) #1
+  %7 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8
+  store ptr %7, ptr %this1, align 8
+  %8 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8
+  store ptr %8, ptr %this1, align 8
+  %9 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8
+  store ptr %9, ptr %this1, align 8
+  %10 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8
+  store ptr %10, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 1, i32 5), ptr %add.ptr, align 8
+  %11 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 1, i32 5
+  store ptr %11, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 1, i32 5), ptr %add.ptr2, align 8
+  %12 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 1, i32 5
+  store ptr %12, ptr %add.ptr2, align 8
   ret void
 }
 
@@ -39628,7 +39663,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -39867,24 +39903,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarNewESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarNewESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.422", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarNewESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl) #1
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarNewESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %this1) #1
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3ue214GoughSSAVarNewEJjEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3ue214GoughSSAVarNewEJjEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #1
   br label %eh.resume
 
@@ -40193,10 +40230,11 @@ entry:
   store i32 %adjust_in, ptr %adjust_in.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue211GoughSSAVarC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue214GoughSSAVarNewE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3ue214GoughSSAVarNewE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %adjust = getelementptr inbounds %"struct.ue2::GoughSSAVarNew", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %adjust_in.addr, align 4
-  store i32 %0, ptr %adjust, align 8
+  %1 = load i32, ptr %adjust_in.addr, align 4
+  store i32 %1, ptr %adjust, align 8
   ret void
 }
 
@@ -42311,7 +42349,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarMinESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarMinESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.435", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarMinESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(80) %_M_impl) #1
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarMinESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(96) %this1) #1
@@ -42322,12 +42361,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #1
   br label %eh.resume
 
@@ -42627,7 +42666,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue221GoughSSAVarWithInputsC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue214GoughSSAVarMinE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue214GoughSSAVarMinE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -42740,7 +42780,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -46830,24 +46871,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarNewESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarNewESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.422", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarNewESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl) #1
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3ue214GoughSSAVarNewESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %this1) #1
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3ue214GoughSSAVarNewEJRjEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3ue214GoughSSAVarNewEJRjEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #1
   br label %eh.resume
 
@@ -65455,10 +65497,11 @@ entry:
   %1 = load i8, ptr %only_accel_init_in.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN3ue221accel_dfa_build_stratC2ERKNS_13ReportManagerEb(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef nonnull align 8 dereferenceable(505) %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue221mcclellan_build_stratE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN3ue221mcclellan_build_stratE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %rdfa = getelementptr inbounds %"class.ue2::mcclellan_build_strat", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %rdfa_in.addr, align 8
-  store ptr %2, ptr %rdfa, align 8
+  %3 = load ptr, ptr %rdfa_in.addr, align 8
+  store ptr %3, ptr %rdfa, align 8
   ret void
 }
 
@@ -66288,10 +66331,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %rm_in.addr, align 8
   call void @_ZN3ue215dfa_build_stratC2ERKNS_13ReportManagerE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(505) %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue221accel_dfa_build_stratE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN3ue221accel_dfa_build_stratE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %only_accel_init = getelementptr inbounds %"class.ue2::accel_dfa_build_strat", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %only_accel_init_in.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %only_accel_init_in.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %only_accel_init, align 8
   ret void
@@ -66305,10 +66349,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %rm_in, ptr %rm_in.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue215dfa_build_stratE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3ue215dfa_build_stratE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rm = getelementptr inbounds %"class.ue2::dfa_build_strat", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %rm_in.addr, align 8
-  store ptr %0, ptr %rm, align 8
+  %1 = load ptr, ptr %rm_in.addr, align 8
+  store ptr %1, ptr %rm, align 8
   ret void
 }
 
@@ -67919,7 +67964,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue215raw_report_infoC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_126raw_gough_report_info_implE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_126raw_gough_report_info_implE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rl = getelementptr inbounds %"struct.ue2::(anonymous namespace)::raw_gough_report_info_impl", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %rl) #1
   ret void
@@ -67955,7 +68001,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue215raw_report_infoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3ue215raw_report_infoE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -67975,7 +68022,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_126raw_gough_report_info_implE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_126raw_gough_report_info_implE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rl = getelementptr inbounds %"struct.ue2::(anonymous namespace)::raw_gough_report_info_impl", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %rl) #1
   call void @_ZN3ue215raw_report_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #1

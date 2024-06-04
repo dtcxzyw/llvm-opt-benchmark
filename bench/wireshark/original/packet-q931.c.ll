@@ -2853,84 +2853,86 @@ define hidden void @proto_register_q931() #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr @ett_q931, ptr @proto_register_q931.ett, align 16
-  store ptr @ett_q931_segments, ptr getelementptr inbounds ([259 x ptr], ptr @proto_register_q931.ett, i64 0, i64 1), align 8
-  store ptr @ett_q931_segment, ptr getelementptr inbounds ([259 x ptr], ptr @proto_register_q931.ett, i64 0, i64 2), align 16
+  %5 = getelementptr inbounds [259 x ptr], ptr @proto_register_q931.ett, i64 0, i64 1
+  store ptr @ett_q931_segments, ptr %5, align 8
+  %6 = getelementptr inbounds [259 x ptr], ptr @proto_register_q931.ett, i64 0, i64 2
+  store ptr @ett_q931_segment, ptr %6, align 16
   store i32 3, ptr %2, align 4
   store i32 0, ptr %1, align 4
-  br label %5
+  br label %7
 
-5:                                                ; preds = %15, %0
-  %6 = load i32, ptr %1, align 4
-  %7 = icmp ult i32 %6, 256
-  br i1 %7, label %8, label %20
+7:                                                ; preds = %17, %0
+  %8 = load i32, ptr %1, align 4
+  %9 = icmp ult i32 %8, 256
+  br i1 %9, label %10, label %22
 
-8:                                                ; preds = %5
-  %9 = load i32, ptr %1, align 4
-  %10 = zext i32 %9 to i64
-  %11 = getelementptr [256 x i32], ptr @ett_q931_ie, i64 0, i64 %10
-  %12 = load i32, ptr %2, align 4
-  %13 = zext i32 %12 to i64
-  %14 = getelementptr [259 x ptr], ptr @proto_register_q931.ett, i64 0, i64 %13
-  store ptr %11, ptr %14, align 8
-  br label %15
+10:                                               ; preds = %7
+  %11 = load i32, ptr %1, align 4
+  %12 = zext i32 %11 to i64
+  %13 = getelementptr [256 x i32], ptr @ett_q931_ie, i64 0, i64 %12
+  %14 = load i32, ptr %2, align 4
+  %15 = zext i32 %14 to i64
+  %16 = getelementptr [259 x ptr], ptr @proto_register_q931.ett, i64 0, i64 %15
+  store ptr %13, ptr %16, align 8
+  br label %17
 
-15:                                               ; preds = %8
-  %16 = load i32, ptr %1, align 4
-  %17 = add i32 %16, 1
-  store i32 %17, ptr %1, align 4
-  %18 = load i32, ptr %2, align 4
+17:                                               ; preds = %10
+  %18 = load i32, ptr %1, align 4
   %19 = add i32 %18, 1
-  store i32 %19, ptr %2, align 4
-  br label %5, !llvm.loop !6
+  store i32 %19, ptr %1, align 4
+  %20 = load i32, ptr %2, align 4
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %2, align 4
+  br label %7, !llvm.loop !6
 
-20:                                               ; preds = %5
-  %21 = call i32 @proto_register_protocol(ptr noundef @.str.363, ptr noundef @.str.363, ptr noundef @.str.364)
-  store i32 %21, ptr @proto_q931, align 4
-  %22 = load i32, ptr @proto_q931, align 4
-  call void @proto_register_field_array(i32 noundef %22, ptr noundef @proto_register_q931.hf, i32 noundef 153)
+22:                                               ; preds = %7
+  %23 = call i32 @proto_register_protocol(ptr noundef @.str.363, ptr noundef @.str.363, ptr noundef @.str.364)
+  store i32 %23, ptr @proto_q931, align 4
+  %24 = load i32, ptr @proto_q931, align 4
+  call void @proto_register_field_array(i32 noundef %24, ptr noundef @proto_register_q931.hf, i32 noundef 153)
   call void @proto_register_subtree_array(ptr noundef @proto_register_q931.ett, i32 noundef 259)
-  %23 = load i32, ptr @proto_q931, align 4
-  %24 = call ptr @expert_register_protocol(i32 noundef %23)
-  store ptr %24, ptr %4, align 8
-  %25 = load ptr, ptr %4, align 8
-  call void @expert_register_field_array(ptr noundef %25, ptr noundef @proto_register_q931.ei, i32 noundef 4)
+  %25 = load i32, ptr @proto_q931, align 4
+  %26 = call ptr @expert_register_protocol(i32 noundef %25)
+  store ptr %26, ptr %4, align 8
+  %27 = load ptr, ptr %4, align 8
+  call void @expert_register_field_array(ptr noundef %27, ptr noundef @proto_register_q931.ei, i32 noundef 4)
   call void @reassembly_table_register(ptr noundef @q931_reassembly_table, ptr noundef @addresses_reassembly_table_functions)
-  %26 = load i32, ptr @proto_q931, align 4
-  %27 = call ptr @register_dissector(ptr noundef @.str.364, ptr noundef @dissect_q931, i32 noundef %26)
-  store ptr %27, ptr @q931_handle, align 8
   %28 = load i32, ptr @proto_q931, align 4
-  %29 = call ptr @register_dissector(ptr noundef @.str.365, ptr noundef @dissect_q931_tpkt, i32 noundef %28)
-  store ptr %29, ptr @q931_tpkt_handle, align 8
+  %29 = call ptr @register_dissector(ptr noundef @.str.364, ptr noundef @dissect_q931, i32 noundef %28)
+  store ptr %29, ptr @q931_handle, align 8
   %30 = load i32, ptr @proto_q931, align 4
-  %31 = call ptr @create_dissector_handle(ptr noundef @dissect_q931_tpkt_pdu, i32 noundef %30)
-  store ptr %31, ptr @q931_tpkt_pdu_handle, align 8
+  %31 = call ptr @register_dissector(ptr noundef @.str.365, ptr noundef @dissect_q931_tpkt, i32 noundef %30)
+  store ptr %31, ptr @q931_tpkt_handle, align 8
   %32 = load i32, ptr @proto_q931, align 4
-  %33 = call ptr @register_dissector(ptr noundef @.str.366, ptr noundef @dissect_q931_over_ip, i32 noundef %32)
-  store ptr %33, ptr @q931_over_ip_handle, align 8
+  %33 = call ptr @create_dissector_handle(ptr noundef @dissect_q931_tpkt_pdu, i32 noundef %32)
+  store ptr %33, ptr @q931_tpkt_pdu_handle, align 8
   %34 = load i32, ptr @proto_q931, align 4
-  %35 = call ptr @register_dissector(ptr noundef @.str.367, ptr noundef @dissect_q931_ie_cs0, i32 noundef %34)
+  %35 = call ptr @register_dissector(ptr noundef @.str.366, ptr noundef @dissect_q931_over_ip, i32 noundef %34)
+  store ptr %35, ptr @q931_over_ip_handle, align 8
   %36 = load i32, ptr @proto_q931, align 4
-  %37 = call ptr @register_dissector(ptr noundef @.str.368, ptr noundef @dissect_q931_ie_cs7, i32 noundef %36)
+  %37 = call ptr @register_dissector(ptr noundef @.str.367, ptr noundef @dissect_q931_ie_cs0, i32 noundef %36)
   %38 = load i32, ptr @proto_q931, align 4
-  %39 = call ptr @register_dissector_table(ptr noundef @.str.369, ptr noundef @.str.370, i32 noundef %38, i32 noundef 4, i32 noundef 2)
-  store ptr %39, ptr @codeset_dissector_table, align 8
+  %39 = call ptr @register_dissector(ptr noundef @.str.368, ptr noundef @dissect_q931_ie_cs7, i32 noundef %38)
   %40 = load i32, ptr @proto_q931, align 4
-  %41 = call ptr @register_dissector_table(ptr noundef @.str.367, ptr noundef @.str.371, i32 noundef %40, i32 noundef 5, i32 noundef 2)
-  store ptr %41, ptr @ie_dissector_table, align 8
+  %41 = call ptr @register_dissector_table(ptr noundef @.str.369, ptr noundef @.str.370, i32 noundef %40, i32 noundef 4, i32 noundef 2)
+  store ptr %41, ptr @codeset_dissector_table, align 8
   %42 = load i32, ptr @proto_q931, align 4
-  %43 = call ptr @register_heur_dissector_list_with_description(ptr noundef @.str.372, ptr noundef @.str.373, i32 noundef %42)
-  store ptr %43, ptr @q931_user_heur_subdissector_list, align 8
+  %43 = call ptr @register_dissector_table(ptr noundef @.str.367, ptr noundef @.str.371, i32 noundef %42, i32 noundef 5, i32 noundef 2)
+  store ptr %43, ptr @ie_dissector_table, align 8
   %44 = load i32, ptr @proto_q931, align 4
-  %45 = call ptr @prefs_register_protocol(i32 noundef %44, ptr noundef null)
-  store ptr %45, ptr %3, align 8
-  %46 = load ptr, ptr %3, align 8
-  call void @prefs_register_bool_preference(ptr noundef %46, ptr noundef @.str.374, ptr noundef @.str.375, ptr noundef @.str.376, ptr noundef @q931_desegment)
-  %47 = load ptr, ptr %3, align 8
-  call void @prefs_register_bool_preference(ptr noundef %47, ptr noundef @.str.377, ptr noundef @.str.378, ptr noundef @.str.379, ptr noundef @q931_reassembly)
+  %45 = call ptr @register_heur_dissector_list_with_description(ptr noundef @.str.372, ptr noundef @.str.373, i32 noundef %44)
+  store ptr %45, ptr @q931_user_heur_subdissector_list, align 8
+  %46 = load i32, ptr @proto_q931, align 4
+  %47 = call ptr @prefs_register_protocol(i32 noundef %46, ptr noundef null)
+  store ptr %47, ptr %3, align 8
   %48 = load ptr, ptr %3, align 8
-  call void @prefs_register_bool_preference(ptr noundef %48, ptr noundef @.str.380, ptr noundef @.str.381, ptr noundef @.str.381, ptr noundef @g931_iso_iec_cause)
-  %49 = call i32 @register_tap(ptr noundef @.str.364)
-  store i32 %49, ptr @q931_tap, align 4
+  call void @prefs_register_bool_preference(ptr noundef %48, ptr noundef @.str.374, ptr noundef @.str.375, ptr noundef @.str.376, ptr noundef @q931_desegment)
+  %49 = load ptr, ptr %3, align 8
+  call void @prefs_register_bool_preference(ptr noundef %49, ptr noundef @.str.377, ptr noundef @.str.378, ptr noundef @.str.379, ptr noundef @q931_reassembly)
+  %50 = load ptr, ptr %3, align 8
+  call void @prefs_register_bool_preference(ptr noundef %50, ptr noundef @.str.380, ptr noundef @.str.381, ptr noundef @.str.381, ptr noundef @g931_iso_iec_cause)
+  %51 = call i32 @register_tap(ptr noundef @.str.364)
+  store i32 %51, ptr @q931_tap, align 4
   ret void
 }
 

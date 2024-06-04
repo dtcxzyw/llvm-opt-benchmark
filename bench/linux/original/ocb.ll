@@ -104,7 +104,7 @@ define dso_local void @ieee80211_ocb_work(ptr noundef %0) local_unnamed_addr #0 
   %3 = getelementptr inbounds i8, ptr %0, i64 1976
   %4 = load i8, ptr %3, align 8, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %41, label %6
+  br i1 %5, label %43, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 1952
@@ -112,63 +112,65 @@ define dso_local void @ieee80211_ocb_work(ptr noundef %0) local_unnamed_addr #0 
   %8 = getelementptr inbounds i8, ptr %0, i64 1960
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %8
-  br i1 %10, label %30, label %11
+  br i1 %10, label %32, label %11
 
-11:                                               ; preds = %27, %6
-  %12 = phi ptr [ %28, %27 ], [ %9, %6 ]
+11:                                               ; preds = %29, %6
+  %12 = phi ptr [ %30, %29 ], [ %9, %6 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %14, ptr %16, align 8
   store volatile ptr %15, ptr %14, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %12, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %13, align 8
+  %17 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %17, ptr %12, align 8
+  %18 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %18, ptr %13, align 8
   call void @_raw_spin_unlock_bh(ptr noundef %7) #6
-  %17 = getelementptr inbounds i8, ptr %12, i64 80
-  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %12, i64 80
+  %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %2) #6
-  %19 = getelementptr inbounds i8, ptr %12, i64 2680
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2, ptr noundef align 8 dereferenceable(6) %19, i64 6, i1 false)
-  %20 = call i32 @sta_info_move_state(ptr noundef %12, i32 noundef 2) #6
-  %21 = call i32 @sta_info_move_state(ptr noundef %12, i32 noundef 3) #6
-  %22 = call i32 @sta_info_move_state(ptr noundef %12, i32 noundef 4) #6
+  %21 = getelementptr inbounds i8, ptr %12, i64 2680
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2, ptr noundef align 8 dereferenceable(6) %21, i64 6, i1 false)
+  %22 = call i32 @sta_info_move_state(ptr noundef %12, i32 noundef 2) #6
+  %23 = call i32 @sta_info_move_state(ptr noundef %12, i32 noundef 3) #6
+  %24 = call i32 @sta_info_move_state(ptr noundef %12, i32 noundef 4) #6
   call void @rate_control_rate_init(ptr noundef %12) #6
-  %23 = call i32 @sta_info_insert_rcu(ptr noundef %12) #6
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %27, label %25
+  %25 = call i32 @sta_info_insert_rcu(ptr noundef %12) #6
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %29, label %27
 
-25:                                               ; preds = %11
-  %26 = call ptr @sta_info_get(ptr noundef %18, ptr noundef nonnull %2) #6
-  br label %27
+27:                                               ; preds = %11
+  %28 = call ptr @sta_info_get(ptr noundef %20, ptr noundef nonnull %2) #6
+  br label %29
 
-27:                                               ; preds = %25, %11
+29:                                               ; preds = %27, %11
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %2) #6
   call void @__rcu_read_unlock() #6
   call void @_raw_spin_lock_bh(ptr noundef %7) #6
-  %28 = load volatile ptr, ptr %8, align 8
-  %29 = icmp eq ptr %28, %8
-  br i1 %29, label %30, label %11, !llvm.loop !11
+  %30 = load volatile ptr, ptr %8, align 8
+  %31 = icmp eq ptr %30, %8
+  br i1 %31, label %32, label %11, !llvm.loop !11
 
-30:                                               ; preds = %27, %6
+32:                                               ; preds = %29, %6
   call void @_raw_spin_unlock_bh(ptr noundef %7) #6
-  %31 = getelementptr inbounds i8, ptr %0, i64 1944
-  %32 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %31, i64 0, ptr elementtype(i64) %31) #6, !srcloc !14
-  %33 = icmp ult i8 %32, 2
-  call void @llvm.assume(i1 %33)
-  %34 = icmp eq i8 %32, 0
-  br i1 %34, label %41, label %35
+  %33 = getelementptr inbounds i8, ptr %0, i64 1944
+  %34 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %33, i64 0, ptr elementtype(i64) %33) #6, !srcloc !14
+  %35 = icmp ult i8 %34, 2
+  call void @llvm.assume(i1 %35)
+  %36 = icmp eq i8 %34, 0
+  br i1 %36, label %43, label %37
 
-35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 1904
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds i8, ptr %0, i64 1904
   call void @ieee80211_sta_expire(ptr noundef %0, i64 noundef 240000) #6
-  %37 = load volatile i64, ptr @jiffies, align 64
-  %38 = add i64 %37, 60000
-  %39 = call i64 @round_jiffies(i64 noundef %38) #6
-  %40 = call i32 @mod_timer(ptr noundef %36, i64 noundef %39) #6
-  br label %41
+  %39 = load volatile i64, ptr @jiffies, align 64
+  %40 = add i64 %39, 60000
+  %41 = call i64 @round_jiffies(i64 noundef %40) #6
+  %42 = call i32 @mod_timer(ptr noundef %38, i64 noundef %41) #6
+  br label %43
 
-41:                                               ; preds = %35, %30, %1
+43:                                               ; preds = %37, %32, %1
   ret void
 }
 
@@ -267,39 +269,41 @@ define dso_local noundef i32 @ieee80211_ocb_leave(ptr noundef %0) local_unnamed_
   %7 = getelementptr inbounds i8, ptr %0, i64 1960
   %8 = load volatile ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %7
-  br i1 %9, label %18, label %10
+  br i1 %9, label %20, label %10
 
 10:                                               ; preds = %10, %1
-  %11 = phi ptr [ %16, %10 ], [ %8, %1 ]
+  %11 = phi ptr [ %18, %10 ], [ %8, %1 ]
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %13, ptr %15, align 8
   store volatile ptr %14, ptr %13, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %11, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %12, align 8
+  %16 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %16, ptr %11, align 8
+  %17 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %17, ptr %12, align 8
   tail call void @_raw_spin_unlock_bh(ptr noundef %6) #6
   tail call void @sta_info_free(ptr noundef %3, ptr noundef %11) #6
   tail call void @_raw_spin_lock_bh(ptr noundef %6) #6
-  %16 = load volatile ptr, ptr %7, align 8
-  %17 = icmp eq ptr %16, %7
-  br i1 %17, label %18, label %10, !llvm.loop !16
+  %18 = load volatile ptr, ptr %7, align 8
+  %19 = icmp eq ptr %18, %7
+  br i1 %19, label %20, label %10, !llvm.loop !16
 
-18:                                               ; preds = %10, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 1904
+20:                                               ; preds = %10, %1
+  %21 = getelementptr inbounds i8, ptr %0, i64 1904
   tail call void @_raw_spin_unlock_bh(ptr noundef %6) #6
-  %20 = getelementptr inbounds i8, ptr %0, i64 1248
-  %21 = load ptr, ptr %20, align 8
-  tail call void @netif_carrier_off(ptr noundef %21) #6
-  %22 = getelementptr inbounds i8, ptr %0, i64 1272
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i32 -3, ptr elementtype(i8) %22) #6, !srcloc !17
+  %22 = getelementptr inbounds i8, ptr %0, i64 1248
+  %23 = load ptr, ptr %22, align 8
+  tail call void @netif_carrier_off(ptr noundef %23) #6
+  %24 = getelementptr inbounds i8, ptr %0, i64 1272
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %24, i32 -3, ptr elementtype(i8) %24) #6, !srcloc !17
   tail call void @ieee80211_bss_info_change_notify(ptr noundef %0, i64 noundef 4194304) #6
-  %23 = getelementptr inbounds i8, ptr %0, i64 3176
-  tail call void @ieee80211_link_release_channel(ptr noundef %23) #6
-  %24 = getelementptr inbounds i8, ptr %0, i64 1624
-  tail call void @skb_queue_purge_reason(ptr noundef %24, i32 noundef 82) #6
-  %25 = tail call i32 @timer_delete_sync(ptr noundef %19) #6
+  %25 = getelementptr inbounds i8, ptr %0, i64 3176
+  tail call void @ieee80211_link_release_channel(ptr noundef %25) #6
+  %26 = getelementptr inbounds i8, ptr %0, i64 1624
+  tail call void @skb_queue_purge_reason(ptr noundef %26, i32 noundef 82) #6
+  %27 = tail call i32 @timer_delete_sync(ptr noundef %21) #6
   ret i32 0
 }
 

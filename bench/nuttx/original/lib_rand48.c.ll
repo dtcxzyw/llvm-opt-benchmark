@@ -54,9 +54,10 @@ define i64 @jrand48(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call i64 @rand48_step(ptr noundef %3, ptr noundef getelementptr inbounds (i16, ptr @g_seed48, i64 3))
-  %5 = lshr i64 %4, 16
-  ret i64 %5
+  %4 = getelementptr inbounds i16, ptr @g_seed48, i64 3
+  %5 = call i64 @rand48_step(ptr noundef %3, ptr noundef %4)
+  %6 = lshr i64 %5, 16
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -147,9 +148,10 @@ define i64 @nrand48(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call i64 @rand48_step(ptr noundef %3, ptr noundef getelementptr inbounds (i16, ptr @g_seed48, i64 3))
-  %5 = lshr i64 %4, 17
-  ret i64 %5
+  %4 = getelementptr inbounds i16, ptr @g_seed48, i64 3
+  %5 = call i64 @rand48_step(ptr noundef %3, ptr noundef %4)
+  %6 = lshr i64 %5, 17
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -164,13 +166,14 @@ define double @erand48(ptr noundef %0) #0 {
   %3 = alloca %union.anon, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  %5 = call i64 @rand48_step(ptr noundef %4, ptr noundef getelementptr inbounds (i16, ptr @g_seed48, i64 3))
-  %6 = shl i64 %5, 4
-  %7 = or i64 4607182418800017408, %6
-  store i64 %7, ptr %3, align 8
-  %8 = load double, ptr %3, align 8
-  %9 = fsub double %8, 1.000000e+00
-  ret double %9
+  %5 = getelementptr inbounds i16, ptr @g_seed48, i64 3
+  %6 = call i64 @rand48_step(ptr noundef %4, ptr noundef %5)
+  %7 = shl i64 %6, 4
+  %8 = or i64 4607182418800017408, %7
+  store i64 %8, ptr %3, align 8
+  %9 = load double, ptr %3, align 8
+  %10 = fsub double %9, 1.000000e+00
+  ret double %10
 }
 
 ; Function Attrs: nounwind uwtable

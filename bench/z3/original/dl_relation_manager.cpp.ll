@@ -2648,7 +2648,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7datalog16relation_managerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7datalog16relation_managerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7datalog16relation_manager5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2672,10 +2673,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -4638,10 +4639,11 @@ entry:
   store ptr %call, ptr %coerce.dive, align 8
   %1 = load ptr, ptr %manager.addr, align 8
   call void @_ZN7datalog15relation_pluginC2ERK6symbolRNS_16relation_managerENS0_21special_relation_typeE(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(200) %1, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog21table_relation_pluginE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN7datalog21table_relation_pluginE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_table_plugin = getelementptr inbounds %"class.datalog::table_relation_plugin", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %tp.addr, align 8
-  store ptr %2, ptr %m_table_plugin, align 8
+  %3 = load ptr, ptr %tp.addr, align 8
+  store ptr %3, ptr %m_table_plugin, align 8
   ret void
 }
 
@@ -4802,19 +4804,20 @@ entry:
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef @.str.13)
   %0 = load ptr, ptr %manager.addr, align 8
   call void @_ZN7datalog12table_pluginC2ERK6symbolRNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(200) %0)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog18check_table_pluginE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN7datalog18check_table_pluginE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %manager.addr, align 8
-  %2 = load ptr, ptr %checker.addr, align 8
-  %call = invoke noundef ptr @_ZN7datalog16relation_manager16get_table_pluginERK6symbol(ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %2 = load ptr, ptr %manager.addr, align 8
+  %3 = load ptr, ptr %checker.addr, align 8
+  %call = invoke noundef ptr @_ZN7datalog16relation_manager16get_table_pluginERK6symbol(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %m_checker, align 8
   %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %manager.addr, align 8
-  %4 = load ptr, ptr %tocheck.addr, align 8
-  %call3 = invoke noundef ptr @_ZN7datalog16relation_manager16get_table_pluginERK6symbol(ptr noundef nonnull align 8 dereferenceable(200) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %4 = load ptr, ptr %manager.addr, align 8
+  %5 = load ptr, ptr %tocheck.addr, align 8
+  %call3 = invoke noundef ptr @_ZN7datalog16relation_manager16get_table_pluginERK6symbol(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -4824,12 +4827,12 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7datalog12table_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
   br label %eh.resume
 
@@ -5242,10 +5245,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -5255,7 +5259,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -7877,7 +7882,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE7join_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager32empty_signature_relation_join_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager32empty_signature_relation_join_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7996,10 +8002,11 @@ entry:
   store ptr %removed_cols, ptr %removed_cols.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14transformer_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager50default_relation_filter_interpreted_and_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager50default_relation_filter_interpreted_and_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_filter = getelementptr inbounds %"class.datalog::relation_manager::default_relation_filter_interpreted_and_project_fn", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %filter.addr, align 8
-  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_filter, ptr noundef %0)
+  %1 = load ptr, ptr %filter.addr, align 8
+  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_filter, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -8009,39 +8016,39 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %m_removed_cols = getelementptr inbounds %"class.datalog::relation_manager::default_relation_filter_interpreted_and_project_fn", ptr %this1, i32 0, i32 3
-  %1 = load i32, ptr %removed_col_cnt.addr, align 4
-  %2 = load ptr, ptr %removed_cols.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols, i32 noundef %1, ptr noundef %2)
+  %2 = load i32, ptr %removed_col_cnt.addr, align 4
+  %3 = load ptr, ptr %removed_cols.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols, i32 noundef %2, ptr noundef %3)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup6
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE14transformer_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_project) #3
   br label %ehcleanup
 
@@ -8090,23 +8097,24 @@ entry:
   store ptr %mutators, ptr %mutators.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE10mutator_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog16relation_manager36default_relation_apply_sequential_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7datalog16relation_manager36default_relation_apply_sequential_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_mutators = getelementptr inbounds %"class.datalog::relation_manager::default_relation_apply_sequential_fn", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %n.addr, align 4
-  %1 = load ptr, ptr %mutators.addr, align 8
-  invoke void @_ZN10ptr_vectorIN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnEEC2EjPKPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_mutators, i32 noundef %0, ptr noundef %1)
+  %1 = load i32, ptr %n.addr, align 4
+  %2 = load ptr, ptr %mutators.addr, align 8
+  invoke void @_ZN10ptr_vectorIN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnEEC2EjPKPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_mutators, i32 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE10mutator_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -8237,10 +8245,11 @@ entry:
   store ptr %removed_cols, ptr %removed_cols.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE7join_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager32default_relation_join_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager32default_relation_join_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_join = getelementptr inbounds %"class.datalog::relation_manager::default_relation_join_project_fn", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %join.addr, align 8
-  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE7join_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_join, ptr noundef %0)
+  %1 = load ptr, ptr %join.addr, align 8
+  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE7join_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_join, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -8250,39 +8259,39 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %m_removed_cols = getelementptr inbounds %"class.datalog::relation_manager::default_relation_join_project_fn", ptr %this1, i32 0, i32 3
-  %1 = load i32, ptr %removed_col_cnt.addr, align 4
-  %2 = load ptr, ptr %removed_cols.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols, i32 noundef %1, ptr noundef %2)
+  %2 = load i32, ptr %removed_col_cnt.addr, align 4
+  %3 = load ptr, ptr %removed_cols.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols, i32 noundef %2, ptr noundef %3)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup6
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE14transformer_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_project) #3
   br label %ehcleanup
 
@@ -8374,13 +8383,14 @@ entry:
   store ptr %permutation, ptr %permutation.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14transformer_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE29default_permutation_rename_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE29default_permutation_rename_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_permutation = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::relation_traits>::default_permutation_rename_fn", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %o.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7datalog17tr_infrastructureINS_15relation_traitsEE13base_ancestor13get_signatureEv(ptr noundef nonnull align 8 dereferenceable(28) %0)
+  %1 = load ptr, ptr %o.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7datalog17tr_infrastructureINS_15relation_traitsEE13base_ancestor13get_signatureEv(ptr noundef nonnull align 8 dereferenceable(28) %1)
   %call2 = call noundef i32 @_ZNK6vectorIP4sortLb0EjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %call)
-  %1 = load ptr, ptr %permutation.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_permutation, i32 noundef %call2, ptr noundef %1)
+  %2 = load ptr, ptr %permutation.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_permutation, i32 noundef %call2, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -8394,21 +8404,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_permutation) #3
   br label %ehcleanup
 
@@ -8750,37 +8760,38 @@ entry:
   store ptr %project, ptr %project.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14transformer_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager44default_relation_select_equal_and_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager44default_relation_select_equal_and_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_filter = getelementptr inbounds %"class.datalog::relation_manager::default_relation_select_equal_and_project_fn", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %filter.addr, align 8
-  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_filter, ptr noundef %0)
+  %1 = load ptr, ptr %filter.addr, align 8
+  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_filter, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_project = getelementptr inbounds %"class.datalog::relation_manager::default_relation_select_equal_and_project_fn", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %project.addr, align 8
-  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE14transformer_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_project, ptr noundef %1)
+  %2 = load ptr, ptr %project.addr, align 8
+  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE14transformer_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_project, ptr noundef %2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_filter) #3
   br label %ehcleanup
 
@@ -9232,37 +9243,38 @@ entry:
   store ptr %union_fun, ptr %union_fun.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE22intersection_filter_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager39default_relation_intersection_filter_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager39default_relation_intersection_filter_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_join_fun = getelementptr inbounds %"class.datalog::relation_manager::default_relation_intersection_filter_fn", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %join_fun.addr, align 8
-  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE7join_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_join_fun, ptr noundef %0)
+  %1 = load ptr, ptr %join_fun.addr, align 8
+  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE7join_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_join_fun, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_union_fun = getelementptr inbounds %"class.datalog::relation_manager::default_relation_intersection_filter_fn", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %union_fun.addr, align 8
-  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE8union_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_union_fun, ptr noundef %1)
+  %2 = load ptr, ptr %union_fun.addr, align 8
+  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE8union_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_union_fun, ptr noundef %2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE7join_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_join_fun) #3
   br label %ehcleanup
 
@@ -9838,10 +9850,11 @@ entry:
   %3 = load ptr, ptr %cols1.addr, align 8
   %4 = load ptr, ptr %cols2.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnC2ERKNS_15table_signatureES6_jPKjS8_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager21default_table_join_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager21default_table_join_fnE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   %m_col_cnt = getelementptr inbounds %"class.datalog::relation_manager::default_table_join_fn", ptr %this1, i32 0, i32 1
-  %5 = load i32, ptr %col_cnt.addr, align 4
-  store i32 %5, ptr %m_col_cnt, align 8
+  %6 = load i32, ptr %col_cnt.addr, align 4
+  store i32 %6, ptr %m_col_cnt, align 8
   ret void
 }
 
@@ -9914,7 +9927,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE14transformer_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager31null_signature_table_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager31null_signature_table_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_empty_sig = getelementptr inbounds %"class.datalog::relation_manager::null_signature_table_project_fn", ptr %this1, i32 0, i32 1
   invoke void @_ZN7datalog15table_signatureC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %m_empty_sig)
           to label %invoke.cont unwind label %lpad
@@ -9923,12 +9937,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE14transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -9963,18 +9977,20 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager24default_table_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager24default_table_project_fnE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 32
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager24default_table_project_fnE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %5 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager24default_table_project_fnE, i32 0, i32 1, i32 2
+  store ptr %5, ptr %add.ptr, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
   br label %eh.resume
 
@@ -10124,10 +10140,11 @@ entry:
   %5 = load i32, ptr %removed_col_cnt.addr, align 4
   %6 = load ptr, ptr %removed_cols.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE26convenient_join_project_fnC2ERKNS_15table_signatureES6_jPKjS8_jS8_(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef nonnull align 8 dereferenceable(12) %call2, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager29default_table_join_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager29default_table_join_project_fnE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %this1, align 8
   %m_join = getelementptr inbounds %"class.datalog::relation_manager::default_table_join_project_fn", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %join.addr, align 8
-  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_join, ptr noundef %7)
+  %8 = load ptr, ptr %join.addr, align 8
+  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_join, ptr noundef %8)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -10137,39 +10154,39 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %m_removed_cols = getelementptr inbounds %"class.datalog::relation_manager::default_table_join_project_fn", ptr %this1, i32 0, i32 3
-  %8 = load i32, ptr %removed_col_cnt.addr, align 4
-  %9 = load ptr, ptr %removed_cols.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols, i32 noundef %8, ptr noundef %9)
+  %9 = load i32, ptr %removed_col_cnt.addr, align 4
+  %10 = load ptr, ptr %removed_cols.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols, i32 noundef %9, ptr noundef %10)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup7
 
 lpad3:                                            ; preds = %invoke.cont
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont4
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_project) #3
   br label %ehcleanup
 
@@ -10253,18 +10270,20 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager23default_table_rename_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager23default_table_rename_fnE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 32
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager23default_table_rename_fnE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %5 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager23default_table_rename_fnE, i32 0, i32 1, i32 2
+  store ptr %5, ptr %add.ptr, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
   br label %eh.resume
 
@@ -10325,13 +10344,14 @@ entry:
   store ptr %permutation, ptr %permutation.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE14transformer_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE29default_permutation_rename_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE29default_permutation_rename_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_permutation = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::default_permutation_rename_fn", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %o.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor13get_signatureEv(ptr noundef nonnull align 8 dereferenceable(36) %0)
+  %1 = load ptr, ptr %o.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor13get_signatureEv(ptr noundef nonnull align 8 dereferenceable(36) %1)
   %call2 = call noundef i32 @_ZNK6vectorImLb0EjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %call)
-  %1 = load ptr, ptr %permutation.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_permutation, i32 noundef %call2, ptr noundef %1)
+  %2 = load ptr, ptr %permutation.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_permutation, i32 noundef %call2, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -10345,21 +10365,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_permutation) #3
   br label %ehcleanup
 
@@ -10487,7 +10507,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE8union_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager22default_table_union_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager22default_table_union_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_row = getelementptr inbounds %"class.datalog::relation_manager::default_table_union_fn", ptr %this1, i32 0, i32 1
   invoke void @_ZN7svectorImjEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_row)
           to label %invoke.cont unwind label %lpad
@@ -10496,12 +10517,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE8union_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -10675,39 +10696,41 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager33default_table_filter_identical_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager33default_table_filter_identical_fnE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager33default_table_filter_identical_fnE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager33default_table_filter_identical_fnE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %m_col_cnt = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_identical_fn", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %col_cnt.addr, align 4
-  store i32 %1, ptr %m_col_cnt, align 8
+  %3 = load i32, ptr %col_cnt.addr, align 4
+  store i32 %3, ptr %m_col_cnt, align 8
   %m_identical_cols = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_identical_fn", ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %col_cnt.addr, align 4
-  %3 = load ptr, ptr %identical_cols.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_identical_cols, i32 noundef %2, ptr noundef %3)
+  %4 = load i32, ptr %col_cnt.addr, align 4
+  %5 = load ptr, ptr %identical_cols.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_identical_cols, i32 noundef %4, ptr noundef %5)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
-  %10 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN7datalog16relation_manager25auxiliary_table_filter_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
+  %12 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN7datalog16relation_manager25auxiliary_table_filter_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
@@ -10779,25 +10802,27 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager29default_table_filter_equal_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager29default_table_filter_equal_fnE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager29default_table_filter_equal_fnE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager29default_table_filter_equal_fnE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %m_value = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_equal_fn", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %value.addr, align 8
-  %2 = load i64, ptr %1, align 8
-  store i64 %2, ptr %m_value, align 8
+  %3 = load ptr, ptr %value.addr, align 8
+  %4 = load i64, ptr %3, align 8
+  store i64 %4, ptr %m_value, align 8
   %m_col = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_equal_fn", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %col.addr, align 4
-  store i32 %3, ptr %m_col, align 8
+  %5 = load i32, ptr %col.addr, align 4
+  store i32 %5, ptr %m_col, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE10mutator_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -11018,36 +11043,38 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager35default_table_filter_interpreted_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager35default_table_filter_interpreted_fnE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager35default_table_filter_interpreted_fnE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager35default_table_filter_interpreted_fnE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %m_ast_manager = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_interpreted_fn", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK7datalog7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(3556) %1)
+  %3 = load ptr, ptr %ctx.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK7datalog7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(3556) %3)
   store ptr %call, ptr %m_ast_manager, align 8
   %m_vs = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_interpreted_fn", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %call4 = invoke noundef nonnull align 8 dereferenceable(545) ptr @_ZN7datalog7context13get_var_substEv(ptr noundef nonnull align 8 dereferenceable(3556) %2)
+  %4 = load ptr, ptr %ctx.addr, align 8
+  %call4 = invoke noundef nonnull align 8 dereferenceable(545) ptr @_ZN7datalog7context13get_var_substEv(ptr noundef nonnull align 8 dereferenceable(3556) %4)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %call4, ptr %m_vs, align 8
   %m_decl_util = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_interpreted_fn", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %call5 = call noundef nonnull align 8 dereferenceable(28) ptr @_ZN7datalog7context13get_decl_utilEv(ptr noundef nonnull align 8 dereferenceable(3556) %3)
+  %5 = load ptr, ptr %ctx.addr, align 8
+  %call5 = call noundef nonnull align 8 dereferenceable(28) ptr @_ZN7datalog7context13get_decl_utilEv(ptr noundef nonnull align 8 dereferenceable(3556) %5)
   store ptr %call5, ptr %m_decl_util, align 8
   %m_simp = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_interpreted_fn", ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %call7 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7datalog7context12get_rewriterEv(ptr noundef nonnull align 8 dereferenceable(3556) %4)
+  %6 = load ptr, ptr %ctx.addr, align 8
+  %call7 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7datalog7context12get_rewriterEv(ptr noundef nonnull align 8 dereferenceable(3556) %6)
           to label %invoke.cont6 unwind label %lpad2
 
 invoke.cont6:                                     ; preds = %invoke.cont3
   store ptr %call7, ptr %m_simp, align 8
   %m_condition = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_interpreted_fn", ptr %this1, i32 0, i32 6
-  %5 = load ptr, ptr %condition.addr, align 8
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %call8 = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK7datalog7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(3556) %6)
-  invoke void @_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_condition, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(976) %call8)
+  %7 = load ptr, ptr %condition.addr, align 8
+  %8 = load ptr, ptr %ctx.addr, align 8
+  %call8 = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK7datalog7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(3556) %8)
+  invoke void @_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_condition, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(976) %call8)
           to label %invoke.cont9 unwind label %lpad2
 
 invoke.cont9:                                     ; preds = %invoke.cont6
@@ -11057,8 +11084,8 @@ invoke.cont9:                                     ; preds = %invoke.cont6
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   %m_args = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_interpreted_fn", ptr %this1, i32 0, i32 8
-  %7 = load ptr, ptr %ctx.addr, align 8
-  %call12 = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK7datalog7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(3556) %7)
+  %9 = load ptr, ptr %ctx.addr, align 8
+  %call12 = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK7datalog7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(3556) %9)
   invoke void @_ZN10ref_vectorI4expr11ast_managerEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_args, ptr noundef nonnull align 8 dereferenceable(976) %call12)
           to label %invoke.cont14 unwind label %lpad13
 
@@ -11076,48 +11103,48 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   ret void
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup23
 
 lpad2:                                            ; preds = %invoke.cont6, %invoke.cont3, %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup22
 
 lpad10:                                           ; preds = %invoke.cont9
-  %14 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup21
 
 lpad13:                                           ; preds = %invoke.cont11
-  %17 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont14
-  %20 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_args) #3
   br label %ehcleanup
 
@@ -11130,8 +11157,8 @@ ehcleanup21:                                      ; preds = %ehcleanup, %lpad10
   br label %ehcleanup22
 
 ehcleanup22:                                      ; preds = %ehcleanup21, %lpad2
-  %23 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN7datalog16relation_manager25auxiliary_table_filter_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %25 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN7datalog16relation_manager25auxiliary_table_filter_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
   br label %ehcleanup23
 
 ehcleanup23:                                      ; preds = %ehcleanup22, %lpad
@@ -11224,10 +11251,11 @@ entry:
   store ptr %removed_cols, ptr %removed_cols.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE14transformer_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager47default_table_filter_interpreted_and_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager47default_table_filter_interpreted_and_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_filter = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_interpreted_and_project_fn", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %filter.addr, align 8
-  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_filter, ptr noundef %0)
+  %1 = load ptr, ptr %filter.addr, align 8
+  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_filter, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -11237,56 +11265,56 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %m_condition = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_interpreted_and_project_fn", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %condition.addr, align 8
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK7datalog7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(3556) %2)
-  invoke void @_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_condition, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(976) %call)
+  %2 = load ptr, ptr %condition.addr, align 8
+  %3 = load ptr, ptr %ctx.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK7datalog7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(3556) %3)
+  invoke void @_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_condition, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(976) %call)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   %m_removed_cols = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_interpreted_and_project_fn", ptr %this1, i32 0, i32 4
-  %3 = load i32, ptr %removed_col_cnt.addr, align 4
-  %4 = load ptr, ptr %removed_cols.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols, i32 noundef %3, ptr noundef %4)
+  %4 = load i32, ptr %removed_col_cnt.addr, align 4
+  %5 = load ptr, ptr %removed_cols.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols, i32 noundef %4, ptr noundef %5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup9
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup8
 
 lpad4:                                            ; preds = %invoke.cont3
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_condition) #3
   br label %ehcleanup
 
@@ -11475,9 +11503,11 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager32default_table_negation_filter_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [6 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager32default_table_negation_filter_fnE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 48
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager32default_table_negation_filter_fnE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %7 = getelementptr inbounds { [6 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager32default_table_negation_filter_fnE, i32 0, i32 1, i32 2
+  store ptr %7, ptr %add.ptr, align 8
   %m_negated_table = getelementptr inbounds %"class.datalog::relation_manager::default_table_negation_filter_fn", ptr %this1, i32 0, i32 2
   store ptr null, ptr %m_negated_table, align 8
   %m_aux_fact = getelementptr inbounds %"class.datalog::relation_manager::default_table_negation_filter_fn", ptr %this1, i32 0, i32 3
@@ -11486,8 +11516,8 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %m_aux_fact4 = getelementptr inbounds %"class.datalog::relation_manager::default_table_negation_filter_fn", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %neg_t.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor13get_signatureEv(ptr noundef nonnull align 8 dereferenceable(36) %6)
+  %8 = load ptr, ptr %neg_t.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor13get_signatureEv(ptr noundef nonnull align 8 dereferenceable(36) %8)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont3
@@ -11502,36 +11532,36 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup10
 
 lpad2:                                            ; preds = %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont7, %invoke.cont6, %invoke.cont3
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZN7svectorImjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_aux_fact) #3
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad5, %lpad2
-  %16 = getelementptr inbounds i8, ptr %this1, i64 48
-  call void @_ZN7datalog16relation_manager25auxiliary_table_filter_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %18 = getelementptr inbounds i8, ptr %this1, i64 48
+  call void @_ZN7datalog16relation_manager25auxiliary_table_filter_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
   br label %ehcleanup10
 
 ehcleanup10:                                      ; preds = %ehcleanup, %lpad
@@ -11644,37 +11674,38 @@ entry:
   store ptr %project, ptr %project.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE14transformer_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager41default_table_select_equal_and_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager41default_table_select_equal_and_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_filter = getelementptr inbounds %"class.datalog::relation_manager::default_table_select_equal_and_project_fn", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %filter.addr, align 8
-  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_filter, ptr noundef %0)
+  %1 = load ptr, ptr %filter.addr, align 8
+  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_filter, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_project = getelementptr inbounds %"class.datalog::relation_manager::default_table_select_equal_and_project_fn", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %project.addr, align 8
-  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_project, ptr noundef %1)
+  %2 = load ptr, ptr %project.addr, align 8
+  invoke void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %m_project, ptr noundef %2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_filter) #3
   br label %ehcleanup
 
@@ -11740,16 +11771,17 @@ entry:
   store ptr %mapper, ptr %mapper.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE10mutator_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog16relation_manager20default_table_map_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7datalog16relation_manager20default_table_map_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_mapper = getelementptr inbounds %"class.datalog::relation_manager::default_table_map_fn", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %mapper.addr, align 8
-  invoke void @_ZN10scoped_ptrIN7datalog20table_row_mutator_fnEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %m_mapper, ptr noundef %0)
+  %1 = load ptr, ptr %mapper.addr, align 8
+  invoke void @_ZN10scoped_ptrIN7datalog20table_row_mutator_fnEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %m_mapper, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_first_functional = getelementptr inbounds %"class.datalog::relation_manager::default_table_map_fn", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %t.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor13get_signatureEv(ptr noundef nonnull align 8 dereferenceable(36) %1)
+  %2 = load ptr, ptr %t.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor13get_signatureEv(ptr noundef nonnull align 8 dereferenceable(36) %2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -11773,22 +11805,22 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %2 = load ptr, ptr %t.addr, align 8
-  %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor10get_pluginEv(ptr noundef nonnull align 8 dereferenceable(36) %2)
+  %3 = load ptr, ptr %t.addr, align 8
+  %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor10get_pluginEv(ptr noundef nonnull align 8 dereferenceable(36) %3)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont10
   store ptr %call13, ptr %plugin, align 8
-  %3 = load ptr, ptr %plugin, align 8
-  %4 = load ptr, ptr %t.addr, align 8
-  %call15 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor13get_signatureEv(ptr noundef nonnull align 8 dereferenceable(36) %4)
+  %4 = load ptr, ptr %plugin, align 8
+  %5 = load ptr, ptr %t.addr, align 8
+  %call15 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor13get_signatureEv(ptr noundef nonnull align 8 dereferenceable(36) %5)
           to label %invoke.cont14 unwind label %lpad11
 
 invoke.cont14:                                    ; preds = %invoke.cont12
-  %vtable = load ptr, ptr %3, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
-  %5 = load ptr, ptr %vfn, align 8
-  %call17 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(12) %call15)
+  %6 = load ptr, ptr %vfn, align 8
+  %call17 = invoke noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %call15)
           to label %invoke.cont16 unwind label %lpad11
 
 invoke.cont16:                                    ; preds = %invoke.cont14
@@ -11797,14 +11829,14 @@ invoke.cont16:                                    ; preds = %invoke.cont14
           to label %invoke.cont19 unwind label %lpad11
 
 invoke.cont19:                                    ; preds = %invoke.cont16
-  %6 = load ptr, ptr %plugin, align 8
-  %7 = load ptr, ptr %t.addr, align 8
+  %7 = load ptr, ptr %plugin, align 8
+  %8 = load ptr, ptr %t.addr, align 8
   %m_aux_table21 = getelementptr inbounds %"class.datalog::relation_manager::default_table_map_fn", ptr %this1, i32 0, i32 3
   %call22 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN7datalog10scoped_relINS_10table_baseEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %m_aux_table21)
-  %vtable23 = load ptr, ptr %6, align 8
+  %vtable23 = load ptr, ptr %7, align 8
   %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 15
-  %8 = load ptr, ptr %vfn24, align 8
-  %call26 = invoke noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(36) %call22, ptr noundef null)
+  %9 = load ptr, ptr %vfn24, align 8
+  %call26 = invoke noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(36) %call22, ptr noundef null)
           to label %invoke.cont25 unwind label %lpad11
 
 invoke.cont25:                                    ; preds = %invoke.cont19
@@ -11816,48 +11848,48 @@ invoke.cont28:                                    ; preds = %invoke.cont25
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup32
 
 lpad2:                                            ; preds = %invoke.cont4, %invoke.cont3, %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup31
 
 lpad7:                                            ; preds = %invoke.cont6
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup30
 
 lpad9:                                            ; preds = %invoke.cont8
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont25, %invoke.cont19, %invoke.cont16, %invoke.cont14, %invoke.cont12, %invoke.cont10
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @_ZN7svectorImjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_curr_fact) #3
   br label %ehcleanup
 
@@ -11947,36 +11979,37 @@ entry:
   store ptr %reducer, ptr %reducer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager36default_table_project_with_reduce_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager36default_table_project_with_reduce_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_removed_cols = getelementptr inbounds %"class.datalog::relation_manager::default_table_project_with_reduce_fn", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %removed_col_cnt.addr, align 4
-  %1 = load ptr, ptr %removed_cols.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols, i32 noundef %0, ptr noundef %1)
+  %1 = load i32, ptr %removed_col_cnt.addr, align 4
+  %2 = load ptr, ptr %removed_cols.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols, i32 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_inp_col_cnt = getelementptr inbounds %"class.datalog::relation_manager::default_table_project_with_reduce_fn", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %orig_sig.addr, align 8
-  %call = invoke noundef i32 @_ZNK6vectorImLb0EjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %3 = load ptr, ptr %orig_sig.addr, align 8
+  %call = invoke noundef i32 @_ZNK6vectorImLb0EjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store i32 %call, ptr %m_inp_col_cnt, align 8
   %m_removed_col_cnt = getelementptr inbounds %"class.datalog::relation_manager::default_table_project_with_reduce_fn", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %removed_col_cnt.addr, align 4
-  store i32 %3, ptr %m_removed_col_cnt, align 4
+  %4 = load i32, ptr %removed_col_cnt.addr, align 4
+  store i32 %4, ptr %m_removed_col_cnt, align 4
   %m_result_col_cnt = getelementptr inbounds %"class.datalog::relation_manager::default_table_project_with_reduce_fn", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %orig_sig.addr, align 8
-  %call5 = invoke noundef i32 @_ZNK6vectorImLb0EjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %5 = load ptr, ptr %orig_sig.addr, align 8
+  %call5 = invoke noundef i32 @_ZNK6vectorImLb0EjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  %5 = load i32, ptr %removed_col_cnt.addr, align 4
-  %sub = sub i32 %call5, %5
+  %6 = load i32, ptr %removed_col_cnt.addr, align 4
+  %sub = sub i32 %call5, %6
   store i32 %sub, ptr %m_result_col_cnt, align 8
   %m_reducer = getelementptr inbounds %"class.datalog::relation_manager::default_table_project_with_reduce_fn", ptr %this1, i32 0, i32 5
-  %6 = load ptr, ptr %reducer.addr, align 8
-  invoke void @_ZN10scoped_ptrIN7datalog24table_row_pair_reduce_fnEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %m_reducer, ptr noundef %6)
+  %7 = load ptr, ptr %reducer.addr, align 8
+  invoke void @_ZN10scoped_ptrIN7datalog24table_row_pair_reduce_fnEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %m_reducer, ptr noundef %7)
           to label %invoke.cont6 unwind label %lpad2
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -11990,11 +12023,11 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %7 = load ptr, ptr %orig_sig.addr, align 8
-  %8 = load i32, ptr %removed_col_cnt.addr, align 4
-  %9 = load ptr, ptr %removed_cols.addr, align 8
+  %8 = load ptr, ptr %orig_sig.addr, align 8
+  %9 = load i32, ptr %removed_col_cnt.addr, align 4
+  %10 = load ptr, ptr %removed_cols.addr, align 8
   %call11 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fn20get_result_signatureEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  invoke void @_ZN7datalog15table_signature24from_project_with_reduceERKS0_jPKjRS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef %8, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(12) %call11)
+  invoke void @_ZN7datalog15table_signature24from_project_with_reduceERKS0_jPKjRS0_(ptr noundef nonnull align 8 dereferenceable(12) %8, i32 noundef %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(12) %call11)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
@@ -12028,48 +12061,48 @@ invoke.cont26:                                    ; preds = %invoke.cont24
   ret void
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup29
 
 lpad2:                                            ; preds = %invoke.cont4, %invoke.cont3, %invoke.cont
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup28
 
 lpad7:                                            ; preds = %invoke.cont6
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   br label %ehcleanup27
 
 lpad9:                                            ; preds = %invoke.cont8
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad12:                                           ; preds = %invoke.cont24, %invoke.cont21, %invoke.cont19, %invoke.cont15, %invoke.cont13, %invoke.cont10
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   call void @_ZN7svectorImjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_former_row) #3
   br label %ehcleanup
 
@@ -12947,10 +12980,11 @@ entry:
   %0 = load ptr, ptr %name.addr, align 8
   %1 = load ptr, ptr %manager.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE13plugin_objectC2ERK6symbolRNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(200) %1)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7datalog15relation_pluginE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTVN7datalog15relation_pluginE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_special_type = getelementptr inbounds %"class.datalog::relation_plugin", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %special_type.addr, align 4
-  store i32 %2, ptr %m_special_type, align 8
+  %3 = load i32, ptr %special_type.addr, align 4
+  store i32 %3, ptr %m_special_type, align 8
   ret void
 }
 
@@ -12964,15 +12998,16 @@ entry:
   store ptr %name, ptr %name.addr, align 8
   store ptr %manager, ptr %manager.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE13plugin_objectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE13plugin_objectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_kind = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::relation_traits>::plugin_object", ptr %this1, i32 0, i32 1
   store i32 -1, ptr %m_kind, align 8
   %m_name = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::relation_traits>::plugin_object", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %name.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_name, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %name.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_name, ptr align 8 %1, i64 8, i1 false)
   %m_manager = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::relation_traits>::plugin_object", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %manager.addr, align 8
-  store ptr %1, ptr %m_manager, align 8
+  %2 = load ptr, ptr %manager.addr, align 8
+  store ptr %2, ptr %m_manager, align 8
   ret void
 }
 
@@ -13465,7 +13500,8 @@ entry:
   %0 = load ptr, ptr %n.addr, align 8
   %1 = load ptr, ptr %manager.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_objectC2ERK6symbolRNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(200) %1)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog12table_pluginE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN7datalog12table_pluginE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -13479,15 +13515,16 @@ entry:
   store ptr %name, ptr %name.addr, align 8
   store ptr %manager, ptr %manager.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_objectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_objectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_kind = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %this1, i32 0, i32 1
   store i32 -1, ptr %m_kind, align 8
   %m_name = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %name.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_name, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %name.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_name, ptr align 8 %1, i64 8, i1 false)
   %m_manager = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %manager.addr, align 8
-  store ptr %1, ptr %m_manager, align 8
+  %2 = load ptr, ptr %manager.addr, align 8
+  store ptr %2, ptr %m_manager, align 8
   ret void
 }
 
@@ -14010,7 +14047,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14412,7 +14450,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE7base_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE7join_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE7join_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14519,7 +14558,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE7base_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE7base_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14590,7 +14630,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE7base_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE14transformer_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE14transformer_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14688,7 +14729,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager50default_relation_filter_interpreted_and_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager50default_relation_filter_interpreted_and_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_removed_cols = getelementptr inbounds %"class.datalog::relation_manager::default_relation_filter_interpreted_and_project_fn", ptr %this1, i32 0, i32 3
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols) #3
   %m_project = getelementptr inbounds %"class.datalog::relation_manager::default_relation_filter_interpreted_and_project_fn", ptr %this1, i32 0, i32 2
@@ -15257,7 +15299,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE7base_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE10mutator_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE10mutator_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15283,7 +15326,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog16relation_manager36default_relation_apply_sequential_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7datalog16relation_manager36default_relation_apply_sequential_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_mutators = getelementptr inbounds %"class.datalog::relation_manager::default_relation_apply_sequential_fn", ptr %this1, i32 0, i32 1
   %call = invoke noundef ptr @_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %m_mutators)
           to label %invoke.cont unwind label %terminate.lpad
@@ -15304,10 +15348,10 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont3, %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -15893,7 +15937,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager32default_relation_join_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager32default_relation_join_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_removed_cols = getelementptr inbounds %"class.datalog::relation_manager::default_relation_join_project_fn", ptr %this1, i32 0, i32 3
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols) #3
   %m_project = getelementptr inbounds %"class.datalog::relation_manager::default_relation_join_project_fn", ptr %this1, i32 0, i32 2
@@ -16121,7 +16166,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager44default_relation_select_equal_and_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager44default_relation_select_equal_and_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_project = getelementptr inbounds %"class.datalog::relation_manager::default_relation_select_equal_and_project_fn", ptr %this1, i32 0, i32 2
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE14transformer_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_project) #3
   %m_filter = getelementptr inbounds %"class.datalog::relation_manager::default_relation_select_equal_and_project_fn", ptr %this1, i32 0, i32 1
@@ -16215,7 +16261,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE7base_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE22intersection_filter_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE22intersection_filter_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16239,7 +16286,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager39default_relation_intersection_filter_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager39default_relation_intersection_filter_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_union_fun = getelementptr inbounds %"class.datalog::relation_manager::default_relation_intersection_filter_fn", ptr %this1, i32 0, i32 2
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE8union_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_union_fun) #3
   %m_join_fun = getelementptr inbounds %"class.datalog::relation_manager::default_relation_intersection_filter_fn", ptr %this1, i32 0, i32 1
@@ -16524,72 +16572,73 @@ entry:
   store ptr %cols2, ptr %cols2.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE7join_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_result_sig = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_join_fn", ptr %this1, i32 0, i32 1
   invoke void @_ZN7datalog15table_signatureC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %m_result_sig)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_cols1 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_join_fn", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %col_cnt.addr, align 4
-  %1 = load ptr, ptr %cols1.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_cols1, i32 noundef %0, ptr noundef %1)
+  %1 = load i32, ptr %col_cnt.addr, align 4
+  %2 = load ptr, ptr %cols1.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_cols1, i32 noundef %1, ptr noundef %2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %m_cols2 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_join_fn", ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %col_cnt.addr, align 4
-  %3 = load ptr, ptr %cols2.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_cols2, i32 noundef %2, ptr noundef %3)
+  %3 = load i32, ptr %col_cnt.addr, align 4
+  %4 = load ptr, ptr %cols2.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_cols2, i32 noundef %3, ptr noundef %4)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %4 = load ptr, ptr %o1_sig.addr, align 8
-  %5 = load ptr, ptr %o2_sig.addr, align 8
-  %6 = load i32, ptr %col_cnt.addr, align 4
-  %7 = load ptr, ptr %cols1.addr, align 8
-  %8 = load ptr, ptr %cols2.addr, align 8
+  %5 = load ptr, ptr %o1_sig.addr, align 8
+  %6 = load ptr, ptr %o2_sig.addr, align 8
+  %7 = load i32, ptr %col_cnt.addr, align 4
+  %8 = load ptr, ptr %cols1.addr, align 8
+  %9 = load ptr, ptr %cols2.addr, align 8
   %m_result_sig6 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_join_fn", ptr %this1, i32 0, i32 1
-  invoke void @_ZN7datalog15table_signature9from_joinERKS0_S2_jPKjS4_RS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(12) %m_result_sig6)
+  invoke void @_ZN7datalog15table_signature9from_joinERKS0_S2_jPKjS4_RS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(12) %m_result_sig6)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup10
 
 lpad2:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup9
 
 lpad4:                                            ; preds = %invoke.cont3
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont5
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols2) #3
   br label %ehcleanup
 
@@ -17111,7 +17160,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE7base_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE7join_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE7join_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17121,7 +17171,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_cols2 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_join_fn", ptr %this1, i32 0, i32 3
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols2) #3
   %m_cols1 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_join_fn", ptr %this1, i32 0, i32 2
@@ -17147,7 +17198,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE7base_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE7base_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17700,7 +17752,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE7base_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE14transformer_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE14transformer_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17710,7 +17763,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager31null_signature_table_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager31null_signature_table_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_empty_sig = getelementptr inbounds %"class.datalog::relation_manager::null_signature_table_project_fn", ptr %this1, i32 0, i32 1
   call void @_ZN7datalog15table_signatureD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %m_empty_sig) #3
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE14transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -17825,43 +17879,44 @@ entry:
   store ptr %removed_cols, ptr %removed_cols.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_removed_cols = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_project_fn", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %col_cnt.addr, align 4
-  %1 = load ptr, ptr %removed_cols.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols, i32 noundef %0, ptr noundef %1)
+  %1 = load i32, ptr %col_cnt.addr, align 4
+  %2 = load ptr, ptr %removed_cols.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols, i32 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %orig_sig.addr, align 8
-  %3 = load i32, ptr %col_cnt.addr, align 4
-  %4 = load ptr, ptr %removed_cols.addr, align 8
+  %3 = load ptr, ptr %orig_sig.addr, align 8
+  %4 = load i32, ptr %col_cnt.addr, align 4
+  %5 = load ptr, ptr %removed_cols.addr, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fn20get_result_signatureEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  invoke void @_ZN7datalog15table_signature12from_projectERKS0_jPKjRS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(12) %call)
+  invoke void @_ZN7datalog15table_signature12from_projectERKS0_jPKjRS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(12) %call)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont3, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols) #3
   br label %ehcleanup
 
@@ -17883,7 +17938,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager30auxiliary_table_transformer_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager30auxiliary_table_transformer_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_row = getelementptr inbounds %"class.datalog::relation_manager::auxiliary_table_transformer_fn", ptr %this1, i32 0, i32 1
   call void @_ZN7svectorImjEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_row)
   ret void
@@ -18006,7 +18062,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE14transformer_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_result_sig = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_transformer_fn", ptr %this1, i32 0, i32 1
   invoke void @_ZN7datalog15table_signatureC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %m_result_sig)
           to label %invoke.cont unwind label %lpad
@@ -18015,12 +18072,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE14transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -18050,7 +18107,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_removed_cols = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_project_fn", ptr %this1, i32 0, i32 1
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols) #3
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -18072,7 +18130,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_result_sig = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_transformer_fn", ptr %this1, i32 0, i32 1
   call void @_ZN7datalog15table_signatureD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %m_result_sig) #3
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE14transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -18094,7 +18153,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager30auxiliary_table_transformer_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager30auxiliary_table_transformer_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_row = getelementptr inbounds %"class.datalog::relation_manager::auxiliary_table_transformer_fn", ptr %this1, i32 0, i32 1
   call void @_ZN7svectorImjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_row) #3
   ret void
@@ -18390,90 +18450,91 @@ entry:
   store ptr %removed_cols, ptr %removed_cols.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE7join_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE26convenient_join_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE26convenient_join_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_result_sig = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_join_project_fn", ptr %this1, i32 0, i32 1
   invoke void @_ZN7datalog15table_signatureC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %m_result_sig)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_cols1 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_join_project_fn", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %joined_col_cnt.addr, align 4
-  %1 = load ptr, ptr %cols1.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_cols1, i32 noundef %0, ptr noundef %1)
+  %1 = load i32, ptr %joined_col_cnt.addr, align 4
+  %2 = load ptr, ptr %cols1.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_cols1, i32 noundef %1, ptr noundef %2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %m_cols2 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_join_project_fn", ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %joined_col_cnt.addr, align 4
-  %3 = load ptr, ptr %cols2.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_cols2, i32 noundef %2, ptr noundef %3)
+  %3 = load i32, ptr %joined_col_cnt.addr, align 4
+  %4 = load ptr, ptr %cols2.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_cols2, i32 noundef %3, ptr noundef %4)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   %m_removed_cols = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_join_project_fn", ptr %this1, i32 0, i32 4
-  %4 = load i32, ptr %removed_col_cnt.addr, align 4
-  %5 = load ptr, ptr %removed_cols.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols, i32 noundef %4, ptr noundef %5)
+  %5 = load i32, ptr %removed_col_cnt.addr, align 4
+  %6 = load ptr, ptr %removed_cols.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols, i32 noundef %5, ptr noundef %6)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %6 = load ptr, ptr %o1_sig.addr, align 8
-  %7 = load ptr, ptr %o2_sig.addr, align 8
-  %8 = load i32, ptr %joined_col_cnt.addr, align 4
-  %9 = load ptr, ptr %cols1.addr, align 8
-  %10 = load ptr, ptr %cols2.addr, align 8
-  %11 = load i32, ptr %removed_col_cnt.addr, align 4
-  %12 = load ptr, ptr %removed_cols.addr, align 8
+  %7 = load ptr, ptr %o1_sig.addr, align 8
+  %8 = load ptr, ptr %o2_sig.addr, align 8
+  %9 = load i32, ptr %joined_col_cnt.addr, align 4
+  %10 = load ptr, ptr %cols1.addr, align 8
+  %11 = load ptr, ptr %cols2.addr, align 8
+  %12 = load i32, ptr %removed_col_cnt.addr, align 4
+  %13 = load ptr, ptr %removed_cols.addr, align 8
   %m_result_sig8 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_join_project_fn", ptr %this1, i32 0, i32 1
-  invoke void @_ZN7datalog15table_signature17from_join_projectERKS0_S2_jPKjS4_jS4_RS0_(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(12) %m_result_sig8)
+  invoke void @_ZN7datalog15table_signature17from_join_projectERKS0_S2_jPKjS4_jS4_RS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8, i32 noundef %9, ptr noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(12) %m_result_sig8)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont7
   ret void
 
 lpad:                                             ; preds = %entry
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad2:                                            ; preds = %invoke.cont
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   br label %ehcleanup12
 
 lpad4:                                            ; preds = %invoke.cont3
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup11
 
 lpad6:                                            ; preds = %invoke.cont5
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont7
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols) #3
   br label %ehcleanup
 
@@ -18579,7 +18640,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager29default_table_join_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager29default_table_join_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_removed_cols = getelementptr inbounds %"class.datalog::relation_manager::default_table_join_project_fn", ptr %this1, i32 0, i32 3
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols) #3
   %m_project = getelementptr inbounds %"class.datalog::relation_manager::default_table_join_project_fn", ptr %this1, i32 0, i32 2
@@ -18765,7 +18827,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE26convenient_join_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE26convenient_join_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_removed_cols = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_join_project_fn", ptr %this1, i32 0, i32 4
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols) #3
   %m_cols2 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_join_project_fn", ptr %this1, i32 0, i32 3
@@ -18879,7 +18942,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog24table_row_pair_reduce_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager29default_table_join_project_fn19unreachable_reducerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager29default_table_join_project_fn19unreachable_reducerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18946,7 +19010,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog24table_row_pair_reduce_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog24table_row_pair_reduce_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19017,40 +19082,41 @@ entry:
   store ptr %permutation_cycle, ptr %permutation_cycle.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_cycle = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_rename_fn", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %cycle_len.addr, align 4
-  %1 = load ptr, ptr %permutation_cycle.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_cycle, i32 noundef %0, ptr noundef %1)
+  %1 = load i32, ptr %cycle_len.addr, align 4
+  %2 = load ptr, ptr %permutation_cycle.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_cycle, i32 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %orig_sig.addr, align 8
-  %3 = load i32, ptr %cycle_len.addr, align 4
-  %4 = load ptr, ptr %permutation_cycle.addr, align 8
+  %3 = load ptr, ptr %orig_sig.addr, align 8
+  %4 = load i32, ptr %cycle_len.addr, align 4
+  %5 = load ptr, ptr %permutation_cycle.addr, align 8
   %call = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fn20get_result_signatureEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  invoke void @_ZN7datalog15table_signature11from_renameERKS0_jPKjRS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(12) %call)
+  invoke void @_ZN7datalog15table_signature11from_renameERKS0_jPKjRS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(12) %call)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cycle) #3
   br label %ehcleanup
 
@@ -19203,7 +19269,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_cycle = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_rename_fn", ptr %this1, i32 0, i32 1
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cycle) #3
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -19816,7 +19883,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE7base_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE8union_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE8union_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19826,7 +19894,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager22default_table_union_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager22default_table_union_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_row = getelementptr inbounds %"class.datalog::relation_manager::default_table_union_fn", ptr %this1, i32 0, i32 1
   call void @_ZN7svectorImjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_row) #3
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE8union_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -20028,7 +20097,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE7base_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE10mutator_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE10mutator_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20040,7 +20110,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager25auxiliary_table_filter_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager25auxiliary_table_filter_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_row = getelementptr inbounds %"class.datalog::relation_manager::auxiliary_table_filter_fn", ptr %this1, i32 0, i32 1
   call void @_ZN7svectorImjEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_row)
   %m_to_remove = getelementptr inbounds %"class.datalog::relation_manager::auxiliary_table_filter_fn", ptr %this1, i32 0, i32 2
@@ -20051,12 +20122,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7svectorImjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_row) #3
   br label %eh.resume
 
@@ -20074,13 +20145,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager33default_table_filter_identical_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager33default_table_filter_identical_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager33default_table_filter_identical_fnE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager33default_table_filter_identical_fnE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %m_identical_cols = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_identical_fn", ptr %this1, i32 0, i32 3
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_identical_cols) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN7datalog16relation_manager25auxiliary_table_filter_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  %2 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN7datalog16relation_manager25auxiliary_table_filter_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #3
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE10mutator_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
 }
@@ -20255,7 +20328,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager25auxiliary_table_filter_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager25auxiliary_table_filter_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_to_remove = getelementptr inbounds %"class.datalog::relation_manager::auxiliary_table_filter_fn", ptr %this1, i32 0, i32 2
   call void @_ZN7svectorImjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_to_remove) #3
   %m_row = getelementptr inbounds %"class.datalog::relation_manager::auxiliary_table_filter_fn", ptr %this1, i32 0, i32 1
@@ -20747,24 +20821,26 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager33default_table_filter_not_equal_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager33default_table_filter_not_equal_fnE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager33default_table_filter_not_equal_fnE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager33default_table_filter_not_equal_fnE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %m_column = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_not_equal_fn", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %column.addr, align 4
-  store i32 %1, ptr %m_column, align 8
+  %3 = load i32, ptr %column.addr, align 4
+  store i32 %3, ptr %m_column, align 8
   %m_value = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_not_equal_fn", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %value.addr, align 8
-  store i64 %2, ptr %m_value, align 8
+  %4 = load i64, ptr %value.addr, align 8
+  store i64 %4, ptr %m_value, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE10mutator_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -21261,17 +21337,19 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager35default_table_filter_interpreted_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager35default_table_filter_interpreted_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager35default_table_filter_interpreted_fnE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager35default_table_filter_interpreted_fnE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %m_args = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_interpreted_fn", ptr %this1, i32 0, i32 8
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_args) #3
   %m_free_vars = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_interpreted_fn", ptr %this1, i32 0, i32 7
   call void @_ZN14expr_free_varsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_free_vars) #3
   %m_condition = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_interpreted_fn", ptr %this1, i32 0, i32 6
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_condition) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN7datalog16relation_manager25auxiliary_table_filter_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  %2 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN7datalog16relation_manager25auxiliary_table_filter_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #3
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE10mutator_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
 }
@@ -22504,7 +22582,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager47default_table_filter_interpreted_and_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager47default_table_filter_interpreted_and_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_removed_cols = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_interpreted_and_project_fn", ptr %this1, i32 0, i32 4
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols) #3
   %m_condition = getelementptr inbounds %"class.datalog::relation_manager::default_table_filter_interpreted_and_project_fn", ptr %this1, i32 0, i32 3
@@ -22827,21 +22906,22 @@ entry:
   store ptr %negated_cols, ptr %negated_cols.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE22intersection_filter_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE29convenient_negation_filter_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE29convenient_negation_filter_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_joined_col_cnt = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_negation_filter_fn", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %joined_col_cnt.addr, align 4
-  store i32 %0, ptr %m_joined_col_cnt, align 8
-  %m_cols1 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_negation_filter_fn", ptr %this1, i32 0, i32 2
   %1 = load i32, ptr %joined_col_cnt.addr, align 4
-  %2 = load ptr, ptr %t_cols.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_cols1, i32 noundef %1, ptr noundef %2)
+  store i32 %1, ptr %m_joined_col_cnt, align 8
+  %m_cols1 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_negation_filter_fn", ptr %this1, i32 0, i32 2
+  %2 = load i32, ptr %joined_col_cnt.addr, align 4
+  %3 = load ptr, ptr %t_cols.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_cols1, i32 noundef %2, ptr noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_cols2 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_negation_filter_fn", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %joined_col_cnt.addr, align 4
-  %4 = load ptr, ptr %negated_cols.addr, align 8
-  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_cols2, i32 noundef %3, ptr noundef %4)
+  %4 = load i32, ptr %joined_col_cnt.addr, align 4
+  %5 = load ptr, ptr %negated_cols.addr, align 8
+  invoke void @_ZN7svectorIjjEC2EjPKj(ptr noundef nonnull align 8 dereferenceable(8) %m_cols2, i32 noundef %4, ptr noundef %5)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -22850,8 +22930,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %5 = load ptr, ptr %neg_t.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor13get_signatureEv(ptr noundef nonnull align 8 dereferenceable(36) %5)
+  %6 = load ptr, ptr %neg_t.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor13get_signatureEv(ptr noundef nonnull align 8 dereferenceable(36) %6)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -22863,8 +22943,8 @@ invoke.cont8:                                     ; preds = %invoke.cont7
   %m_overlap = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_negation_filter_fn", ptr %this1, i32 0, i32 5
   store i8 0, ptr %m_overlap, align 1
   %m_bound10 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_negation_filter_fn", ptr %this1, i32 0, i32 6
-  %6 = load i32, ptr %neg_sig_size, align 4
-  invoke void (ptr, i32, i1, ...) @_ZN6vectorIbLb0EjE6resizeIbEEvjT_z(ptr noundef nonnull align 8 dereferenceable(8) %m_bound10, i32 noundef %6, i1 noundef zeroext false)
+  %7 = load i32, ptr %neg_sig_size, align 4
+  invoke void (ptr, i32, i1, ...) @_ZN6vectorIbLb0EjE6resizeIbEEvjT_z(ptr noundef nonnull align 8 dereferenceable(8) %m_bound10, i32 noundef %7, i1 noundef zeroext false)
           to label %invoke.cont11 unwind label %lpad6
 
 invoke.cont11:                                    ; preds = %invoke.cont8
@@ -22872,24 +22952,24 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont11
-  %7 = load i32, ptr %i, align 4
-  %8 = load i32, ptr %joined_col_cnt.addr, align 4
-  %cmp = icmp ult i32 %7, %8
+  %8 = load i32, ptr %i, align 4
+  %9 = load i32, ptr %joined_col_cnt.addr, align 4
+  %cmp = icmp ult i32 %8, %9
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %m_bound12 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_negation_filter_fn", ptr %this1, i32 0, i32 6
-  %9 = load ptr, ptr %negated_cols.addr, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %10 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %9, i64 %idxprom
-  %11 = load i32, ptr %arrayidx, align 4
-  %call14 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN6vectorIbLb0EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %m_bound12, i32 noundef %11)
+  %10 = load ptr, ptr %negated_cols.addr, align 8
+  %11 = load i32, ptr %i, align 4
+  %idxprom = zext i32 %11 to i64
+  %arrayidx = getelementptr inbounds i32, ptr %10, i64 %idxprom
+  %12 = load i32, ptr %arrayidx, align 4
+  %call14 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN6vectorIbLb0EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %m_bound12, i32 noundef %12)
           to label %invoke.cont13 unwind label %lpad6
 
 invoke.cont13:                                    ; preds = %for.body
-  %12 = load i8, ptr %call14, align 1
-  %tobool = trunc i8 %12 to i1
+  %13 = load i8, ptr %call14, align 1
+  %tobool = trunc i8 %13 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont13
@@ -22898,50 +22978,50 @@ if.then:                                          ; preds = %invoke.cont13
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup35
 
 lpad2:                                            ; preds = %invoke.cont
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   br label %ehcleanup34
 
 lpad4:                                            ; preds = %invoke.cont3
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont28, %invoke.cont26, %invoke.cont23, %land.rhs, %if.end, %for.body, %invoke.cont8, %invoke.cont7, %invoke.cont5
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   call void @_ZN7svectorIbjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_bound) #3
   br label %ehcleanup
 
 if.end:                                           ; preds = %if.then, %invoke.cont13
   %m_bound16 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_negation_filter_fn", ptr %this1, i32 0, i32 6
-  %25 = load ptr, ptr %negated_cols.addr, align 8
-  %26 = load i32, ptr %i, align 4
-  %idxprom17 = zext i32 %26 to i64
-  %arrayidx18 = getelementptr inbounds i32, ptr %25, i64 %idxprom17
-  %27 = load i32, ptr %arrayidx18, align 4
-  %call20 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN6vectorIbLb0EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %m_bound16, i32 noundef %27)
+  %26 = load ptr, ptr %negated_cols.addr, align 8
+  %27 = load i32, ptr %i, align 4
+  %idxprom17 = zext i32 %27 to i64
+  %arrayidx18 = getelementptr inbounds i32, ptr %26, i64 %idxprom17
+  %28 = load i32, ptr %arrayidx18, align 4
+  %call20 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN6vectorIbLb0EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %m_bound16, i32 noundef %28)
           to label %invoke.cont19 unwind label %lpad6
 
 invoke.cont19:                                    ; preds = %if.end
@@ -22949,15 +23029,15 @@ invoke.cont19:                                    ; preds = %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont19
-  %28 = load i32, ptr %i, align 4
-  %inc = add i32 %28, 1
+  %29 = load i32, ptr %i, align 4
+  %inc = add i32 %29, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !41
 
 for.end:                                          ; preds = %for.cond
-  %29 = load i32, ptr %neg_sig_size, align 4
-  %30 = load i32, ptr %joined_col_cnt.addr, align 4
-  %cmp21 = icmp ule i32 %29, %30
+  %30 = load i32, ptr %neg_sig_size, align 4
+  %31 = load i32, ptr %joined_col_cnt.addr, align 4
+  %cmp21 = icmp ule i32 %30, %31
   br i1 %cmp21, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.end
@@ -22985,9 +23065,9 @@ invoke.cont31:                                    ; preds = %invoke.cont28
   br label %land.end
 
 land.end:                                         ; preds = %invoke.cont31, %for.end
-  %31 = phi i1 [ false, %for.end ], [ %cmp33, %invoke.cont31 ]
+  %32 = phi i1 [ false, %for.end ], [ %cmp33, %invoke.cont31 ]
   %m_all_neg_bound = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_negation_filter_fn", ptr %this1, i32 0, i32 4
-  %frombool = zext i1 %31 to i8
+  %frombool = zext i1 %32 to i8
   store i8 %frombool, ptr %m_all_neg_bound, align 8
   ret void
 
@@ -23017,13 +23097,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager32default_table_negation_filter_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager32default_table_negation_filter_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 48
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager32default_table_negation_filter_fnE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [6 x ptr], [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager32default_table_negation_filter_fnE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %m_aux_fact = getelementptr inbounds %"class.datalog::relation_manager::default_table_negation_filter_fn", ptr %this1, i32 0, i32 3
   call void @_ZN7svectorImjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_aux_fact) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 48
-  call void @_ZN7datalog16relation_manager25auxiliary_table_filter_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  %2 = getelementptr inbounds i8, ptr %this1, i64 48
+  call void @_ZN7datalog16relation_manager25auxiliary_table_filter_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #3
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE29convenient_negation_filter_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
   ret void
 }
@@ -23266,7 +23348,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE7base_fnC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE22intersection_filter_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE22intersection_filter_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -23444,7 +23527,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE29convenient_negation_filter_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE29convenient_negation_filter_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_bound = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_negation_filter_fn", ptr %this1, i32 0, i32 6
   call void @_ZN7svectorIbjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_bound) #3
   %m_cols2 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::convenient_negation_filter_fn", ptr %this1, i32 0, i32 3
@@ -24189,7 +24273,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager41default_table_select_equal_and_project_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog16relation_manager41default_table_select_equal_and_project_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_project = getelementptr inbounds %"class.datalog::relation_manager::default_table_select_equal_and_project_fn", ptr %this1, i32 0, i32 2
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_project) #3
   %m_filter = getelementptr inbounds %"class.datalog::relation_manager::default_table_select_equal_and_project_fn", ptr %this1, i32 0, i32 1
@@ -24416,7 +24501,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog16relation_manager20default_table_map_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7datalog16relation_manager20default_table_map_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_curr_fact = getelementptr inbounds %"class.datalog::relation_manager::default_table_map_fn", ptr %this1, i32 0, i32 5
   call void @_ZN7svectorImjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_curr_fact) #3
   %m_union_fn = getelementptr inbounds %"class.datalog::relation_manager::default_table_map_fn", ptr %this1, i32 0, i32 4
@@ -24725,7 +24811,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager36default_table_project_with_reduce_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7datalog16relation_manager36default_table_project_with_reduce_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_former_row = getelementptr inbounds %"class.datalog::relation_manager::default_table_project_with_reduce_fn", ptr %this1, i32 0, i32 8
   call void @_ZN7svectorImjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_former_row) #3
   %m_row = getelementptr inbounds %"class.datalog::relation_manager::default_table_project_with_reduce_fn", ptr %this1, i32 0, i32 7
@@ -25772,12 +25859,13 @@ entry:
 land.rhs:                                         ; preds = %entry
   %m_ptr2 = getelementptr inbounds %class.obj_hash_entry, ptr %this1, i32 0, i32 0
   %1 = load ptr, ptr %m_ptr2, align 8
-  %cmp3 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp3 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp3, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp3, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -26704,12 +26792,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %"class.obj_map<func_decl, datalog::relation_base *>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key3 = getelementptr inbounds %"struct.obj_map<func_decl, datalog::relation_base *>::key_data", ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %m_key3, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -28059,12 +28148,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %"class.obj_map<func_decl, int>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key3 = getelementptr inbounds %"struct.obj_map<func_decl, int>::key_data", ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %m_key3, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -29914,7 +30004,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %m_data = getelementptr inbounds %"class.obj_map<func_decl, datalog::relation_base *>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key = getelementptr inbounds %"struct.obj_map<func_decl, datalog::relation_base *>::key_data", ptr %m_data, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_key, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %m_key, align 8
   ret void
 }
 
@@ -30267,7 +30358,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %m_ptr = getelementptr inbounds %class.obj_hash_entry, ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_ptr, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %m_ptr, align 8
   ret void
 }
 
@@ -32966,7 +33058,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE29default_permutation_rename_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE29default_permutation_rename_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_renamers = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::relation_traits>::default_permutation_rename_fn", ptr %this1, i32 0, i32 3
   invoke void @_ZN7datalog26dealloc_ptr_vector_contentINS_17tr_infrastructureINS_15relation_traitsEE14transformer_fnEEEvR10ptr_vectorIT_E(ptr noundef nonnull align 8 dereferenceable(8) %m_renamers)
           to label %invoke.cont unwind label %terminate.lpad
@@ -32980,10 +33073,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -33740,7 +33833,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE29default_permutation_rename_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE29default_permutation_rename_fnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_renamers = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::default_permutation_rename_fn", ptr %this1, i32 0, i32 3
   invoke void @_ZN7datalog26dealloc_ptr_vector_contentINS_17tr_infrastructureINS_12table_traitsEE14transformer_fnEEEvR10ptr_vectorIT_E(ptr noundef nonnull align 8 dereferenceable(8) %m_renamers)
           to label %invoke.cont unwind label %terminate.lpad
@@ -33754,10 +33848,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 

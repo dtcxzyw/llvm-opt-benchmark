@@ -37,7 +37,7 @@ define ptr @mca_mpool_basic_create(ptr noundef %0, i64 noundef %1, i32 noundef %
 
 17:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %52
+  br label %53
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %8, align 8
@@ -50,56 +50,57 @@ define ptr @mca_mpool_basic_create(ptr noundef %0, i64 noundef %1, i32 noundef %
 
 22:                                               ; preds = %21
   %23 = load i32, ptr @opal_class_init_epoch, align 4
-  %24 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %25 = icmp ne i32 %23, %24
-  br i1 %25, label %26, label %27
+  %24 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp ne i32 %23, %25
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %22
+27:                                               ; preds = %22
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %27
+  br label %28
 
-27:                                               ; preds = %26, %22
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %28, i32 0, i32 1
-  %30 = getelementptr inbounds %struct.opal_object_t, ptr %29, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %30, align 8
-  %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %31, i32 0, i32 1
-  %33 = getelementptr inbounds %struct.opal_object_t, ptr %32, i32 0, i32 1
-  store volatile i32 1, ptr %33, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %34, i32 0, i32 1
-  call void @opal_obj_run_constructors(ptr noundef %35)
-  br label %36
-
-36:                                               ; preds = %27
+28:                                               ; preds = %27, %22
+  %29 = load ptr, ptr %8, align 8
+  %30 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %29, i32 0, i32 1
+  %31 = getelementptr inbounds %struct.opal_object_t, ptr %30, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %31, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %32, i32 0, i32 1
+  %34 = getelementptr inbounds %struct.opal_object_t, ptr %33, i32 0, i32 1
+  store volatile i32 1, ptr %34, align 8
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %35, i32 0, i32 1
+  call void @opal_obj_run_constructors(ptr noundef %36)
   br label %37
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %5, align 8
-  %39 = ptrtoint ptr %38 to i64
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %40, i32 0, i32 2
-  store i64 %39, ptr %41, align 8
-  %42 = load i64, ptr %6, align 8
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %43, i32 0, i32 4
-  store i64 %42, ptr %44, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %45, i32 0, i32 3
-  store i64 %42, ptr %46, align 8
-  %47 = load i32, ptr %7, align 4
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %48, i32 0, i32 5
-  store i32 %47, ptr %49, align 8
-  %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %50, i32 0, i32 0
-  store ptr %51, ptr %4, align 8
-  br label %52
+37:                                               ; preds = %28
+  br label %38
 
-52:                                               ; preds = %37, %17
-  %53 = load ptr, ptr %4, align 8
-  ret ptr %53
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %5, align 8
+  %40 = ptrtoint ptr %39 to i64
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %41, i32 0, i32 2
+  store i64 %40, ptr %42, align 8
+  %43 = load i64, ptr %6, align 8
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %44, i32 0, i32 4
+  store i64 %43, ptr %45, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %46, i32 0, i32 3
+  store i64 %43, ptr %47, align 8
+  %48 = load i32, ptr %7, align 4
+  %49 = load ptr, ptr %8, align 8
+  %50 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %49, i32 0, i32 5
+  store i32 %48, ptr %50, align 8
+  %51 = load ptr, ptr %8, align 8
+  %52 = getelementptr inbounds %struct.mca_mpool_base_basic_module_t, ptr %51, i32 0, i32 0
+  store ptr %52, ptr %4, align 8
+  br label %53
+
+53:                                               ; preds = %38, %17
+  %54 = load ptr, ptr %4, align 8
+  ret ptr %54
 }
 
 ; Function Attrs: nounwind allocsize(0,1)

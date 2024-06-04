@@ -20,43 +20,47 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none)
 define dso_local zeroext i1 @cpc_supported_by_cpu() local_unnamed_addr #0 align 16 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
-  switch i8 %1, label %22 [
-    i8 2, label %2
-    i8 9, label %2
+  %1 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1
+  %2 = load i8, ptr %1, align 1
+  switch i8 %2, label %26 [
+    i8 2, label %3
+    i8 9, label %3
   ]
 
-2:                                                ; preds = %0, %0
-  %3 = load i8, ptr @boot_cpu_data, align 8
-  %4 = icmp eq i8 %3, 25
-  br i1 %4, label %5, label %11
+3:                                                ; preds = %0, %0
+  %4 = load i8, ptr @boot_cpu_data, align 8
+  %5 = icmp eq i8 %4, 25
+  br i1 %5, label %6, label %13
 
-5:                                                ; preds = %2
-  %6 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
-  %7 = icmp ult i8 %6, 16
-  %8 = and i8 %6, -16
-  %9 = icmp eq i8 %8, 32
-  %10 = or i1 %7, %9
-  br i1 %10, label %22, label %11
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2
+  %8 = load i8, ptr %7, align 2
+  %9 = icmp ult i8 %8, 16
+  %10 = and i8 %8, -16
+  %11 = icmp eq i8 %10, 32
+  %12 = or i1 %9, %11
+  br i1 %12, label %26, label %13
 
-11:                                               ; preds = %5, %2
-  %12 = icmp eq i8 %3, 23
-  %13 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
-  %14 = icmp ugt i8 %13, 111
-  %15 = select i1 %12, i1 %14, i1 false
-  %16 = icmp sgt i8 %13, -1
-  %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %22, label %18
+13:                                               ; preds = %6, %3
+  %14 = icmp eq i8 %4, 23
+  %15 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2
+  %16 = load i8, ptr %15, align 2
+  %17 = icmp ugt i8 %16, 111
+  %18 = select i1 %14, i1 %17, i1 false
+  %19 = icmp sgt i8 %16, -1
+  %20 = select i1 %18, i1 %19, i1 false
+  br i1 %20, label %26, label %21
 
-18:                                               ; preds = %11
-  %19 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 40), align 8
-  %20 = and i64 %19, 576460752303423488
-  %21 = icmp ne i64 %20, 0
-  br label %22
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 40
+  %23 = load volatile i64, ptr %22, align 8
+  %24 = and i64 %23, 576460752303423488
+  %25 = icmp ne i64 %24, 0
+  br label %26
 
-22:                                               ; preds = %18, %11, %5, %0
-  %23 = phi i1 [ %21, %18 ], [ true, %5 ], [ true, %11 ], [ false, %0 ]
-  ret i1 %23
+26:                                               ; preds = %21, %13, %6, %0
+  %27 = phi i1 [ %25, %21 ], [ true, %6 ], [ true, %13 ], [ false, %0 ]
+  ret i1 %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
@@ -157,60 +161,62 @@ declare dso_local i32 @wrmsrl_safe_on_cpu(i32 noundef, i32 noundef, i64 noundef)
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @init_freq_invariance_cppc() local_unnamed_addr #2 align 16 {
   %1 = alloca %struct.cppc_perf_caps, align 4
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 124, i32 16, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7)) #6
-          to label %3 [label %3, label %2], !srcloc !6
+  %2 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 124, i32 16, ptr nonnull %2) #6
+          to label %4 [label %4, label %3], !srcloc !6
 
-2:                                                ; preds = %0
-  br label %3
+3:                                                ; preds = %0
+  br label %4
 
-3:                                                ; preds = %2, %0, %0
-  %4 = phi i1 [ false, %2 ], [ true, %0 ], [ true, %0 ]
-  %5 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
-  %6 = icmp eq i8 %5, 2
-  %7 = select i1 %4, i1 %6, i1 false
-  br i1 %7, label %8, label %29
+4:                                                ; preds = %3, %0, %0
+  %5 = phi i1 [ false, %3 ], [ true, %0 ], [ true, %0 ]
+  %6 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 2
+  %9 = select i1 %5, i1 %8, i1 false
+  br i1 %9, label %10, label %31
 
-8:                                                ; preds = %3
+10:                                               ; preds = %4
   tail call void @mutex_lock(ptr noundef nonnull @freq_invariance_lock) #6
-  %9 = load i1, ptr @init_freq_invariance_cppc.init_done, align 1
-  br i1 %9, label %28, label %10
+  %11 = load i1, ptr @init_freq_invariance_cppc.init_done, align 1
+  br i1 %11, label %30, label %12
 
-10:                                               ; preds = %8
+12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %1) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %1, i8 0, i64 36, i1 false), !annotation !5
-  %11 = call i32 @cppc_get_perf_caps(i32 noundef 0, ptr noundef nonnull %1) #6
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %27
+  %13 = call i32 @cppc_get_perf_caps(i32 noundef 0, ptr noundef nonnull %1) #6
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %29
 
-13:                                               ; preds = %10
-  %14 = call i32 @amd_get_highest_perf() #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp ne i32 %14, 0
-  %18 = icmp ne i32 %16, 0
-  %19 = select i1 %17, i1 %18, i1 false
-  br i1 %19, label %20, label %27
+15:                                               ; preds = %12
+  %16 = call i32 @amd_get_highest_perf() #6
+  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp ne i32 %16, 0
+  %20 = icmp ne i32 %18, 0
+  %21 = select i1 %19, i1 %20, i1 false
+  br i1 %21, label %22, label %29
 
-20:                                               ; preds = %13
-  %21 = zext i32 %14 to i64
-  %22 = shl nuw nsw i64 %21, 10
+22:                                               ; preds = %15
   %23 = zext i32 %16 to i64
-  %24 = udiv i64 %22, %23
-  %25 = add nuw nsw i64 %24, 1024
-  %26 = lshr i64 %25, 1
-  call void @freq_invariance_set_perf_ratio(i64 noundef %26, i1 noundef zeroext false) #6
-  br label %27
-
-27:                                               ; preds = %20, %13, %10
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %1) #6
-  br label %28
-
-28:                                               ; preds = %27, %8
-  store i1 true, ptr @init_freq_invariance_cppc.init_done, align 1
-  call void @mutex_unlock(ptr noundef nonnull @freq_invariance_lock) #6
+  %24 = shl nuw nsw i64 %23, 10
+  %25 = zext i32 %18 to i64
+  %26 = udiv i64 %24, %25
+  %27 = add nuw nsw i64 %26, 1024
+  %28 = lshr i64 %27, 1
+  call void @freq_invariance_set_perf_ratio(i64 noundef %28, i1 noundef zeroext false) #6
   br label %29
 
-29:                                               ; preds = %28, %3
+29:                                               ; preds = %22, %15, %12
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %1) #6
+  br label %30
+
+30:                                               ; preds = %29, %10
+  store i1 true, ptr @init_freq_invariance_cppc.init_done, align 1
+  call void @mutex_unlock(ptr noundef nonnull @freq_invariance_lock) #6
+  br label %31
+
+31:                                               ; preds = %30, %4
   ret void
 }
 

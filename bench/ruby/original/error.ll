@@ -928,7 +928,7 @@ define dso_local void @rb_raise(i64 noundef %0, ptr noundef nonnull %1, ...) #3 
   store i64 %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = load i64, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
@@ -987,7 +987,7 @@ define dso_local void @rb_compile_warn(ptr noundef nonnull %0, i32 noundef %1, p
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_start(ptr %13)
+  call void @llvm.va_start.p0(ptr %13)
   %14 = load ptr, ptr %4, align 8
   %15 = load i32, ptr %5, align 4
   %16 = load ptr, ptr %6, align 8
@@ -995,7 +995,7 @@ define dso_local void @rb_compile_warn(ptr noundef nonnull %0, i32 noundef %1, p
   %18 = call i64 @warn_vsprintf(ptr noundef null, ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17)
   store i64 %18, ptr %7, align 8
   %19 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_end(ptr %19)
+  call void @llvm.va_end.p0(ptr %19)
   %20 = load i64, ptr %7, align 8
   call void @rb_write_warning_str(i64 noundef %20)
   br label %21
@@ -1005,9 +1005,6 @@ define dso_local void @rb_compile_warn(ptr noundef nonnull %0, i32 noundef %1, p
 }
 
 declare ptr @rb_ruby_verbose_ptr() #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @warn_vsprintf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -1036,9 +1033,6 @@ define internal i64 @warn_vsprintf(ptr noundef %0, ptr noundef %1, i32 noundef %
   ret i64 %21
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
-
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @rb_write_warning_str(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
@@ -1066,7 +1060,7 @@ define dso_local void @rb_compile_warning(ptr noundef nonnull %0, i32 noundef %1
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_start(ptr %13)
+  call void @llvm.va_start.p0(ptr %13)
   %14 = load ptr, ptr %4, align 8
   %15 = load i32, ptr %5, align 4
   %16 = load ptr, ptr %6, align 8
@@ -1074,7 +1068,7 @@ define dso_local void @rb_compile_warning(ptr noundef nonnull %0, i32 noundef %1
   %18 = call i64 @warn_vsprintf(ptr noundef null, ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17)
   store i64 %18, ptr %7, align 8
   %19 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_end(ptr %19)
+  call void @llvm.va_end.p0(ptr %19)
   %20 = load i64, ptr %7, align 8
   call void @rb_write_warning_str(i64 noundef %20)
   br label %21
@@ -1112,7 +1106,7 @@ define dso_local void @rb_category_compile_warn(i32 noundef %0, ptr noundef nonn
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_start(ptr %15)
+  call void @llvm.va_start.p0(ptr %15)
   %16 = load ptr, ptr %6, align 8
   %17 = load i32, ptr %7, align 4
   %18 = load ptr, ptr %8, align 8
@@ -1120,7 +1114,7 @@ define dso_local void @rb_category_compile_warn(i32 noundef %0, ptr noundef nonn
   %20 = call i64 @warn_vsprintf(ptr noundef null, ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19)
   store i64 %20, ptr %9, align 8
   %21 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %21)
+  call void @llvm.va_end.p0(ptr %21)
   %22 = load i64, ptr %9, align 8
   %23 = load i32, ptr %5, align 4
   %24 = call i64 @rb_warning_category_to_name(i32 noundef %23)
@@ -1179,39 +1173,40 @@ define internal i64 @rb_warning_category_to_name(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
   store i32 %0, ptr %2, align 4
-  %4 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @warning_categories, i32 0, i32 1), align 8
-  %5 = load i32, ptr %2, align 4
-  %6 = zext i32 %5 to i64
-  %7 = call i32 @rb_st_lookup(ptr noundef %4, i64 noundef %6, ptr noundef %3)
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %12, label %9
+  %4 = getelementptr inbounds %struct.anon, ptr @warning_categories, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = load i32, ptr %2, align 4
+  %7 = zext i32 %6 to i64
+  %8 = call i32 @rb_st_lookup(ptr noundef %5, i64 noundef %7, ptr noundef %3)
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %13, label %10
 
-9:                                                ; preds = %1
-  %10 = load i64, ptr @rb_eArgError, align 8
-  %11 = load i32, ptr %2, align 4
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef @.str.256, i32 noundef %11) #23
+10:                                               ; preds = %1
+  %11 = load i64, ptr @rb_eArgError, align 8
+  %12 = load i32, ptr %2, align 4
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef @.str.256, i32 noundef %12) #23
   unreachable
 
-12:                                               ; preds = %1
-  %13 = load i64, ptr %3, align 8
-  %14 = icmp ne i64 %13, 0
-  br i1 %14, label %15, label %18
+13:                                               ; preds = %1
+  %14 = load i64, ptr %3, align 8
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %19
 
-15:                                               ; preds = %12
-  %16 = load i64, ptr %3, align 8
-  %17 = call i64 @rb_id2sym(i64 noundef %16)
-  br label %19
+16:                                               ; preds = %13
+  %17 = load i64, ptr %3, align 8
+  %18 = call i64 @rb_id2sym(i64 noundef %17)
+  br label %20
 
-18:                                               ; preds = %12
-  br label %19
+19:                                               ; preds = %13
+  br label %20
 
-19:                                               ; preds = %18, %15
-  %20 = phi i64 [ %17, %15 ], [ 4, %18 ]
-  ret i64 %20
+20:                                               ; preds = %19, %16
+  %21 = phi i64 [ %18, %16 ], [ 4, %19 ]
+  ret i64 %21
 }
 
 ; Function Attrs: cold nounwind sspstrong uwtable
-define dso_local void @rb_warn(ptr noundef nonnull %0, ...) #5 {
+define dso_local void @rb_warn(ptr noundef nonnull %0, ...) #4 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
@@ -1223,13 +1218,13 @@ define dso_local void @rb_warn(ptr noundef nonnull %0, ...) #5 {
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
-  call void @llvm.va_start(ptr %9)
+  call void @llvm.va_start.p0(ptr %9)
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
   %12 = call i64 @warning_string(ptr noundef null, ptr noundef %10, ptr noundef %11)
   store i64 %12, ptr %3, align 8
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
-  call void @llvm.va_end(ptr %13)
+  call void @llvm.va_end.p0(ptr %13)
   %14 = load i64, ptr %3, align 8
   call void @rb_write_warning_str(i64 noundef %14)
   br label %15
@@ -1260,7 +1255,7 @@ define internal i64 @warning_string(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: cold nounwind sspstrong uwtable
-define dso_local void @rb_category_warn(i32 noundef %0, ptr noundef nonnull %1, ...) #5 {
+define dso_local void @rb_category_warn(i32 noundef %0, ptr noundef nonnull %1, ...) #4 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -1274,13 +1269,13 @@ define dso_local void @rb_category_warn(i32 noundef %0, ptr noundef nonnull %1, 
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %11)
+  call void @llvm.va_start.p0(ptr %11)
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %14 = call i64 @warning_string(ptr noundef null, ptr noundef %12, ptr noundef %13)
   store i64 %14, ptr %5, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %15)
+  call void @llvm.va_end.p0(ptr %15)
   %16 = load i64, ptr %5, align 8
   %17 = load i32, ptr %3, align 4
   %18 = call i64 @rb_warning_category_to_name(i32 noundef %17)
@@ -1306,14 +1301,14 @@ define hidden void @rb_enc_warn(ptr noundef %0, ptr noundef %1, ...) #0 {
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %11)
+  call void @llvm.va_start.p0(ptr %11)
   %12 = load ptr, ptr %3, align 8
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %15 = call i64 @warning_string(ptr noundef %12, ptr noundef %13, ptr noundef %14)
   store i64 %15, ptr %5, align 8
   %16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %16)
+  call void @llvm.va_end.p0(ptr %16)
   %17 = load i64, ptr %5, align 8
   call void @rb_write_warning_str(i64 noundef %17)
   br label %18
@@ -1335,13 +1330,13 @@ define dso_local void @rb_warning(ptr noundef nonnull %0, ...) #0 {
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
-  call void @llvm.va_start(ptr %9)
+  call void @llvm.va_start.p0(ptr %9)
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
   %12 = call i64 @warning_string(ptr noundef null, ptr noundef %10, ptr noundef %11)
   store i64 %12, ptr %3, align 8
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
-  call void @llvm.va_end(ptr %13)
+  call void @llvm.va_end.p0(ptr %13)
   %14 = load i64, ptr %3, align 8
   call void @rb_write_warning_str(i64 noundef %14)
   br label %15
@@ -1365,13 +1360,13 @@ define dso_local void @rb_category_warning(i32 noundef %0, ptr noundef nonnull %
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %11)
+  call void @llvm.va_start.p0(ptr %11)
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %14 = call i64 @warning_string(ptr noundef null, ptr noundef %12, ptr noundef %13)
   store i64 %14, ptr %5, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %15)
+  call void @llvm.va_end.p0(ptr %15)
   %16 = load i64, ptr %5, align 8
   %17 = load i32, ptr %3, align 4
   %18 = call i64 @rb_warning_category_to_name(i32 noundef %17)
@@ -1389,13 +1384,13 @@ define hidden i64 @rb_warning_string(ptr noundef %0, ...) #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %0, ptr %2, align 8
   %5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
-  call void @llvm.va_start(ptr %5)
+  call void @llvm.va_start.p0(ptr %5)
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
   %8 = call i64 @warning_string(ptr noundef null, ptr noundef %6, ptr noundef %7)
   store i64 %8, ptr %3, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
-  call void @llvm.va_end(ptr %9)
+  call void @llvm.va_end.p0(ptr %9)
   %10 = load i64, ptr %3, align 8
   ret i64 %10
 }
@@ -1416,13 +1411,13 @@ define hidden void @rb_warn_deprecated(ptr noundef %0, ptr noundef %1, ...) #0 {
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %10)
+  call void @llvm.va_start.p0(ptr %10)
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %13 = call i64 @warning_string(ptr noundef null, ptr noundef %11, ptr noundef %12)
   store i64 %13, ptr %5, align 8
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %14)
+  call void @llvm.va_end.p0(ptr %14)
   %15 = load i64, ptr %5, align 8
   %16 = load ptr, ptr %4, align 8
   call void @warn_deprecated(i64 noundef %15, ptr noundef null, ptr noundef %16)
@@ -1525,13 +1520,13 @@ define hidden void @rb_warn_deprecated_to_remove(ptr noundef %0, ptr noundef %1,
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_start(ptr %12)
+  call void @llvm.va_start.p0(ptr %12)
   %13 = load ptr, ptr %5, align 8
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
   %15 = call i64 @warning_string(ptr noundef null, ptr noundef %13, ptr noundef %14)
   store i64 %15, ptr %7, align 8
   %16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_end(ptr %16)
+  call void @llvm.va_end.p0(ptr %16)
   %17 = load i64, ptr %7, align 8
   %18 = load ptr, ptr %4, align 8
   %19 = load ptr, ptr %6, align 8
@@ -1838,17 +1833,17 @@ define internal void @bug_report_end(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: cold noreturn nounwind sspstrong uwtable
-define dso_local void @rb_bug(ptr noundef nonnull %0, ...) #6 {
+define dso_local void @rb_bug(ptr noundef nonnull %0, ...) #5 {
   %2 = alloca ptr, align 8
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %0, ptr %2, align 8
   %4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %4)
+  call void @llvm.va_start.p0(ptr %4)
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
   call void @rb_bug_without_die(ptr noundef %5, ptr noundef %6)
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %7)
+  call void @llvm.va_end.p0(ptr %7)
   call void @die() #23
   unreachable
 }
@@ -1903,13 +1898,13 @@ define hidden void @rb_bug_for_fatal_signal(ptr noundef %0, i32 noundef %1, ptr 
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %13, i64 0, i64 0
-  call void @llvm.va_start(ptr %27)
+  call void @llvm.va_start.p0(ptr %27)
   %28 = load ptr, ptr %12, align 8
   %29 = load ptr, ptr %8, align 8
   %30 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %13, i64 0, i64 0
   call void @bug_report_begin_valist(ptr noundef %28, ptr noundef %29, ptr noundef %30)
   %31 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %13, i64 0, i64 0
-  call void @llvm.va_end(ptr %31)
+  call void @llvm.va_end.p0(ptr %31)
   br label %32
 
 32:                                               ; preds = %26
@@ -3205,7 +3200,7 @@ define internal ptr @rb_strerrno(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) #7
+declare ptr @strerror(i32 noundef) #6
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define hidden void @rb_async_bug_errno(ptr noundef %0, i32 noundef %1) #3 {
@@ -3358,10 +3353,10 @@ define hidden void @rb_async_bug_errno(ptr noundef %0, i32 noundef %1) #3 {
 declare i64 @write(i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #8
+declare void @abort() #7
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #9
+declare i64 @strlen(ptr noundef) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_report_bug_valist(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -3408,7 +3403,7 @@ define hidden void @rb_report_bug_valist(i64 noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: cold noreturn nounwind sspstrong uwtable
-define dso_local void @rb_assert_failure(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define dso_local void @rb_assert_failure(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -3426,7 +3421,7 @@ define dso_local void @rb_assert_failure(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: cold noreturn nounwind sspstrong uwtable
-define dso_local void @rb_assert_failure_detail(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ...) #6 {
+define dso_local void @rb_assert_failure_detail(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ...) #5 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -3473,13 +3468,13 @@ define dso_local void @rb_assert_failure_detail(ptr noundef %0, i32 noundef %1, 
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
-  call void @llvm.va_start(ptr %37)
+  call void @llvm.va_start.p0(ptr %37)
   %38 = load ptr, ptr %11, align 8
   %39 = load ptr, ptr %10, align 8
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
   %41 = call i32 @vfprintf(ptr noundef %38, ptr noundef %39, ptr noundef %40) #26
   %42 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
-  call void @llvm.va_end(ptr %42)
+  call void @llvm.va_end.p0(ptr %42)
   br label %43
 
 43:                                               ; preds = %36, %31, %24
@@ -3494,10 +3489,10 @@ define dso_local void @rb_assert_failure_detail(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #7
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #6
 
 ; Function Attrs: nounwind
-declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #7
+declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @preface_dump(ptr noundef %0) #0 {
@@ -3876,7 +3871,7 @@ define internal ptr @builtin_class_name(i64 noundef %0) #0 {
 declare ptr @rb_obj_classname(i64 noundef) #2
 
 ; Function Attrs: cold nounwind sspstrong uwtable
-define dso_local void @rb_check_type(i64 noundef %0, i32 noundef %1) #5 {
+define dso_local void @rb_check_type(i64 noundef %0, i32 noundef %1) #4 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -3935,7 +3930,7 @@ define internal zeroext i1 @RB_UNDEF_P(i64 noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i32 @rb_type(i64 noundef %0) #10 {
+define internal i32 @rb_type(i64 noundef %0) #9 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
@@ -4016,7 +4011,7 @@ define internal i32 @rb_type(i64 noundef %0) #10 {
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @rbimpl_rtypeddata_p(i64 noundef %0) #10 {
+define internal zeroext i1 @rbimpl_rtypeddata_p(i64 noundef %0) #9 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
@@ -4040,7 +4035,7 @@ define internal zeroext i1 @rbimpl_rtypeddata_p(i64 noundef %0) #10 {
 }
 
 ; Function Attrs: cold noreturn nounwind sspstrong uwtable
-define internal void @unexpected_type(i64 noundef %0, i32 noundef %1, i32 noundef %2) #6 {
+define internal void @unexpected_type(i64 noundef %0, i32 noundef %1, i32 noundef %2) #5 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -4105,7 +4100,7 @@ define internal void @unexpected_type(i64 noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: cold noreturn nounwind sspstrong uwtable
-define dso_local void @rb_unexpected_type(i64 noundef %0, i32 noundef %1) #6 {
+define dso_local void @rb_unexpected_type(i64 noundef %0, i32 noundef %1) #5 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   store i64 %0, ptr %3, align 8
@@ -4324,7 +4319,7 @@ define dso_local i32 @rb_typeddata_is_kind_of(i64 noundef %0, ptr noundef %1) #0
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RB_TYPE_P(i64 noundef %0, i32 noundef %1) #10 {
+define internal zeroext i1 @RB_TYPE_P(i64 noundef %0, i32 noundef %1) #9 {
   %3 = alloca i1, align 1
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
@@ -4461,7 +4456,7 @@ define internal zeroext i1 @RB_TYPE_P(i64 noundef %0, i32 noundef %1) #10 {
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RTYPEDDATA_P(i64 noundef %0) #10 {
+define internal zeroext i1 @RTYPEDDATA_P(i64 noundef %0) #9 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -4470,7 +4465,7 @@ define internal zeroext i1 @RTYPEDDATA_P(i64 noundef %0) #10 {
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal ptr @RTYPEDDATA_TYPE(i64 noundef %0) #10 {
+define internal ptr @RTYPEDDATA_TYPE(i64 noundef %0) #9 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -4931,7 +4926,7 @@ define dso_local i64 @rb_exc_new(i64 noundef %0, ptr noundef %1, i64 noundef %2)
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #11
+declare i1 @llvm.is.constant.i64(i64) #10
 
 declare i64 @rb_str_new_static(ptr noundef, i64 noundef) #2
 
@@ -5442,7 +5437,7 @@ define hidden i64 @rb_get_backtrace(i64 noundef %0) #0 {
 declare i32 @rb_method_basic_definition_p(i64 noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @rb_class_of(i64 noundef %0) #10 {
+define internal i64 @rb_class_of(i64 noundef %0) #9 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
@@ -6105,14 +6100,14 @@ define dso_local void @rb_name_error(i64 noundef %0, ptr noundef nonnull %1, ...
   store i64 %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   %11 = call i64 @rb_vsprintf(ptr noundef %9, ptr noundef %10)
   %12 = getelementptr [2 x i64], ptr %6, i64 0, i64 0
   store i64 %11, ptr %12, align 16
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %13)
+  call void @llvm.va_end.p0(ptr %13)
   %14 = load i64, ptr %3, align 8
   %15 = call i64 @rb_id2sym(i64 noundef %14)
   %16 = getelementptr [2 x i64], ptr %6, i64 0, i64 1
@@ -6131,7 +6126,7 @@ declare i64 @rb_vsprintf(ptr noundef, ptr noundef) #2
 declare i64 @rb_id2sym(i64 noundef) #2
 
 ; Function Attrs: noreturn
-declare void @rb_exc_raise(i64 noundef) #12
+declare void @rb_exc_raise(i64 noundef) #11
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define dso_local void @rb_name_error_str(i64 noundef %0, ptr noundef nonnull %1, ...) #3 {
@@ -6143,14 +6138,14 @@ define dso_local void @rb_name_error_str(i64 noundef %0, ptr noundef nonnull %1,
   store i64 %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   %11 = call i64 @rb_vsprintf(ptr noundef %9, ptr noundef %10)
   %12 = getelementptr [2 x i64], ptr %6, i64 0, i64 0
   store i64 %11, ptr %12, align 16
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %13)
+  call void @llvm.va_end.p0(ptr %13)
   %14 = load i64, ptr %3, align 8
   %15 = getelementptr [2 x i64], ptr %6, i64 0, i64 1
   store i64 %14, ptr %15, align 8
@@ -6310,10 +6305,11 @@ declare i64 @rb_ivar_set(i64 noundef, i64 noundef, i64 noundef) #2
 define hidden void @rb_free_warning() #0 {
   %1 = load ptr, ptr @warning_categories, align 8
   call void @rb_st_free_table(ptr noundef %1)
-  %2 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @warning_categories, i32 0, i32 1), align 8
-  call void @rb_st_free_table(ptr noundef %2)
-  %3 = load ptr, ptr @syserr_tbl, align 8
+  %2 = getelementptr inbounds %struct.anon, ptr @warning_categories, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
   call void @rb_st_free_table(ptr noundef %3)
+  %4 = load ptr, ptr @syserr_tbl, align 8
+  call void @rb_st_free_table(ptr noundef %4)
   ret void
 }
 
@@ -6584,18 +6580,23 @@ define hidden void @Init_Exception() #0 {
   %151 = load i64, ptr @id_performance, align 8
   call void @rb_st_add_direct(ptr noundef %150, i64 noundef %151, i64 noundef 3)
   %152 = call ptr @rb_init_identtable()
-  store ptr %152, ptr getelementptr inbounds (%struct.anon, ptr @warning_categories, i32 0, i32 1), align 8
-  %153 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @warning_categories, i32 0, i32 1), align 8
-  call void @rb_st_add_direct(ptr noundef %153, i64 noundef 0, i64 noundef 0)
-  %154 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @warning_categories, i32 0, i32 1), align 8
-  %155 = load i64, ptr @id_deprecated, align 8
-  call void @rb_st_add_direct(ptr noundef %154, i64 noundef 1, i64 noundef %155)
-  %156 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @warning_categories, i32 0, i32 1), align 8
-  %157 = load i64, ptr @id_experimental, align 8
-  call void @rb_st_add_direct(ptr noundef %156, i64 noundef 2, i64 noundef %157)
-  %158 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @warning_categories, i32 0, i32 1), align 8
-  %159 = load i64, ptr @id_performance, align 8
-  call void @rb_st_add_direct(ptr noundef %158, i64 noundef 3, i64 noundef %159)
+  %153 = getelementptr inbounds %struct.anon, ptr @warning_categories, i32 0, i32 1
+  store ptr %152, ptr %153, align 8
+  %154 = getelementptr inbounds %struct.anon, ptr @warning_categories, i32 0, i32 1
+  %155 = load ptr, ptr %154, align 8
+  call void @rb_st_add_direct(ptr noundef %155, i64 noundef 0, i64 noundef 0)
+  %156 = getelementptr inbounds %struct.anon, ptr @warning_categories, i32 0, i32 1
+  %157 = load ptr, ptr %156, align 8
+  %158 = load i64, ptr @id_deprecated, align 8
+  call void @rb_st_add_direct(ptr noundef %157, i64 noundef 1, i64 noundef %158)
+  %159 = getelementptr inbounds %struct.anon, ptr @warning_categories, i32 0, i32 1
+  %160 = load ptr, ptr %159, align 8
+  %161 = load i64, ptr @id_experimental, align 8
+  call void @rb_st_add_direct(ptr noundef %160, i64 noundef 2, i64 noundef %161)
+  %162 = getelementptr inbounds %struct.anon, ptr @warning_categories, i32 0, i32 1
+  %163 = load ptr, ptr %162, align 8
+  %164 = load i64, ptr @id_performance, align 8
+  call void @rb_st_add_direct(ptr noundef %163, i64 noundef 3, i64 noundef %164)
   ret void
 }
 
@@ -9051,7 +9052,7 @@ define internal i64 @warning_write(i32 noundef %0, ptr noundef %1, i64 noundef %
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @rb_intern_const(ptr noundef nonnull %0) #10 {
+define internal i64 @rb_intern_const(ptr noundef nonnull %0) #9 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
@@ -9081,14 +9082,14 @@ define dso_local void @rb_enc_raise(ptr noundef %0, i64 noundef %1, ptr noundef 
   store i64 %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %9)
+  call void @llvm.va_start.p0(ptr %9)
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   %13 = call i64 @rb_enc_vsprintf(ptr noundef %10, ptr noundef %11, ptr noundef %12)
   store i64 %13, ptr %8, align 8
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %14)
+  call void @llvm.va_end.p0(ptr %14)
   %15 = load i64, ptr %5, align 8
   %16 = load i64, ptr %8, align 8
   %17 = call i64 @rb_exc_new_str(i64 noundef %15, i64 noundef %16)
@@ -9122,14 +9123,14 @@ define dso_local void @rb_loaderror(ptr noundef nonnull %0, ...) #3 {
   %4 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
   %5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %5)
+  call void @llvm.va_start.p0(ptr %5)
   %6 = call ptr @rb_locale_encoding()
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
   %9 = call i64 @rb_enc_vsprintf(ptr noundef %6, ptr noundef %7, ptr noundef %8)
   store i64 %9, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %10)
+  call void @llvm.va_end.p0(ptr %10)
   %11 = load i64, ptr %4, align 8
   call void @raise_loaderror(i64 noundef 4, i64 noundef %11) #23
   unreachable
@@ -9166,14 +9167,14 @@ define dso_local void @rb_loaderror_with_path(i64 noundef %0, ptr noundef nonnul
   store i64 %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = call ptr @rb_locale_encoding()
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %11 = call i64 @rb_enc_vsprintf(ptr noundef %8, ptr noundef %9, ptr noundef %10)
   store i64 %11, ptr %6, align 8
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   %13 = load i64, ptr %3, align 8
   %14 = load i64, ptr %6, align 8
   call void @raise_loaderror(i64 noundef %13, i64 noundef %14) #23
@@ -9213,13 +9214,13 @@ define dso_local void @rb_fatal(ptr noundef nonnull %0, ...) #3 {
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %12)
+  call void @llvm.va_start.p0(ptr %12)
   %13 = load ptr, ptr %2, align 8
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
   %15 = call i64 @rb_vsprintf(ptr noundef %13, ptr noundef %14)
   store i64 %15, ptr %4, align 8
   %16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %16)
+  call void @llvm.va_end.p0(ptr %16)
   %17 = load i64, ptr @rb_eFatal, align 8
   %18 = load i64, ptr %4, align 8
   %19 = call i64 @rb_exc_new_str(i64 noundef %17, i64 noundef %18)
@@ -9232,7 +9233,7 @@ declare i32 @ruby_thread_has_gvl_p() #2
 declare void @rb_print_backtrace(ptr noundef) #2
 
 ; Function Attrs: noreturn
-declare void @rb_exc_fatal(i64 noundef) #12
+declare void @rb_exc_fatal(i64 noundef) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_syserr_new(i32 noundef %0, ptr noundef %1) #0 {
@@ -9649,13 +9650,13 @@ define dso_local void @rb_sys_warning(ptr noundef nonnull %0, ...) #0 {
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %3, align 4
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %12)
+  call void @llvm.va_start.p0(ptr %12)
   %13 = load ptr, ptr %2, align 8
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %15 = call i64 @warning_string(ptr noundef null, ptr noundef %13, ptr noundef %14)
   store i64 %15, ptr %4, align 8
   %16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %16)
+  call void @llvm.va_end.p0(ptr %16)
   %17 = load i64, ptr %4, align 8
   %18 = load i32, ptr %3, align 4
   call void @syserr_warning(i64 noundef %17, i32 noundef %18)
@@ -9707,14 +9708,14 @@ define hidden void @rb_sys_enc_warning(ptr noundef %0, ptr noundef %1, ...) #0 {
   %13 = load i32, ptr %12, align 4
   store i32 %13, ptr %5, align 4
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %14)
+  call void @llvm.va_start.p0(ptr %14)
   %15 = load ptr, ptr %3, align 8
   %16 = load ptr, ptr %4, align 8
   %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   %18 = call i64 @warning_string(ptr noundef %15, ptr noundef %16, ptr noundef %17)
   store i64 %18, ptr %6, align 8
   %19 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %19)
+  call void @llvm.va_end.p0(ptr %19)
   %20 = load i64, ptr %6, align 8
   %21 = load i32, ptr %5, align 4
   call void @syserr_warning(i64 noundef %20, i32 noundef %21)
@@ -9744,14 +9745,14 @@ define hidden void @rb_syserr_enc_warning(i32 noundef %0, ptr noundef %1, ptr no
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_start(ptr %13)
+  call void @llvm.va_start.p0(ptr %13)
   %14 = load ptr, ptr %5, align 8
   %15 = load ptr, ptr %6, align 8
   %16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
   %17 = call i64 @warning_string(ptr noundef %14, ptr noundef %15, ptr noundef %16)
   store i64 %17, ptr %7, align 8
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_end(ptr %18)
+  call void @llvm.va_end.p0(ptr %18)
   %19 = load i64, ptr %7, align 8
   %20 = load i32, ptr %4, align 4
   call void @syserr_warning(i64 noundef %19, i32 noundef %20)
@@ -9825,13 +9826,13 @@ define dso_local void @rb_frozen_error_raise(i64 noundef %0, ptr noundef nonnull
   store i64 %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %11 = call i64 @rb_vsprintf(ptr noundef %9, ptr noundef %10)
   store i64 %11, ptr %7, align 8
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   %13 = load i64, ptr @rb_eFrozenError, align 8
   %14 = load i64, ptr %7, align 8
   %15 = call i64 @rb_exc_new_str(i64 noundef %13, i64 noundef %14)
@@ -9938,7 +9939,7 @@ define internal i64 @inspect_frozen_obj(i64 noundef %0, i64 noundef %1, i32 noun
 declare i64 @rb_attr_get(i64 noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @rb_ary_entry(i64 noundef, i64 noundef) #9
+declare i64 @rb_ary_entry(i64 noundef, i64 noundef) #8
 
 declare i64 @rb_str_catf(i64 noundef, ptr noundef, ...) #2
 
@@ -9974,7 +9975,7 @@ define dso_local void @rb_check_frozen(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RB_OBJ_FROZEN(i64 noundef %0) #10 {
+define internal zeroext i1 @RB_OBJ_FROZEN(i64 noundef %0) #9 {
   %2 = alloca i1, align 1
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
@@ -10936,7 +10937,7 @@ define internal i64 @rb_warn_m(ptr noundef %0, i64 noundef %1, i64 noundef %2, i
 declare void @rb_load_with_builtin_functions(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read, argmem: readwrite) uwtable
-define internal void @rbimpl_rstring_getmem(ptr dead_on_unwind noalias writable sret(%struct.RString) align 8 %0, i64 noundef %1) #13 {
+define internal void @rbimpl_rstring_getmem(ptr dead_on_unwind noalias writable sret(%struct.RString) align 8 %0, i64 noundef %1) #12 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = load i64, ptr %3, align 8
@@ -10969,7 +10970,7 @@ define internal void @rbimpl_rstring_getmem(ptr dead_on_unwind noalias writable 
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RB_FL_ANY_RAW(i64 noundef %0, i64 noundef %1) #10 {
+define internal zeroext i1 @RB_FL_ANY_RAW(i64 noundef %0, i64 noundef %1) #9 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
@@ -10982,10 +10983,10 @@ define internal zeroext i1 @RB_FL_ANY_RAW(i64 noundef %0, i64 noundef %1) #10 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @RSTRING_LEN(i64 noundef %0) #10 {
+define internal i64 @RSTRING_LEN(i64 noundef %0) #9 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -10996,7 +10997,7 @@ define internal i64 @RSTRING_LEN(i64 noundef %0) #10 {
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @RB_FL_TEST_RAW(i64 noundef %0, i64 noundef %1) #10 {
+define internal i64 @RB_FL_TEST_RAW(i64 noundef %0, i64 noundef %1) #9 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
@@ -11026,7 +11027,7 @@ define internal i64 @rbimpl_strlen(ptr noundef nonnull %0) #0 {
 declare i64 @rb_str_cat(i64 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i32(i32) #11
+declare i1 @llvm.is.constant.i32(i32) #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_warning_warn(i64 noundef %0, i64 noundef %1) #0 {
@@ -11080,10 +11081,10 @@ declare i32 @rb_method_entry_arity(ptr noundef) #2
 declare void @rb_str_set_len(i64 noundef, i64 noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #15
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #14
 
 ; Function Attrs: nounwind
-declare ptr @getenv(ptr noundef) #7
+declare ptr @getenv(ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @open_report_path(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
@@ -11290,7 +11291,7 @@ declare i64 @fwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #2
 declare i32 @fclose(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
 define internal i32 @rb_isspace(i32 noundef %0) #1 {
@@ -11923,15 +11924,15 @@ define internal ptr @rb_current_vm() #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @getpid() #7
+declare i32 @getpid() #6
 
 declare i32 @ruby_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) #7
+declare i64 @time(ptr noundef) #6
 
 ; Function Attrs: nounwind memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare i64 @ruby_scan_oct(ptr noundef, i64 noundef, ptr noundef) #17
+declare i64 @ruby_scan_oct(ptr noundef, i64 noundef, ptr noundef) #16
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @RSTRING_END(i64 noundef %0) #0 {
@@ -11960,7 +11961,7 @@ define internal zeroext i1 @path_sep_p(i8 noundef signext %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal nonnull ptr @ruby_nonempty_memcpy(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #18 {
+define internal nonnull ptr @ruby_nonempty_memcpy(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #17 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -12184,13 +12185,13 @@ define internal void @bug_important_message(ptr noundef %0, ptr noundef %1, i64 
 }
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) #7
+declare i32 @isatty(i32 noundef) #6
 
 ; Function Attrs: nounwind
-declare i32 @fileno(ptr noundef) #7
+declare i32 @fileno(ptr noundef) #6
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #9
+declare ptr @strchr(ptr noundef, i32 noundef) #8
 
 declare i32 @fputc(i32 noundef, ptr noundef) #2
 
@@ -12207,7 +12208,7 @@ define internal zeroext i1 @RB_FIXNUM_P(i64 noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RB_SYMBOL_P(i64 noundef %0) #10 {
+define internal zeroext i1 @RB_SYMBOL_P(i64 noundef %0) #9 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -12237,7 +12238,7 @@ define internal zeroext i1 @RB_STATIC_SYM_P(i64 noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RB_DYNAMIC_SYM_P(i64 noundef %0) #10 {
+define internal zeroext i1 @RB_DYNAMIC_SYM_P(i64 noundef %0) #9 {
   %2 = alloca i1, align 1
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
@@ -12280,7 +12281,7 @@ define internal zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i32 @RB_BUILTIN_TYPE(i64 noundef %0) #10 {
+define internal i32 @RB_BUILTIN_TYPE(i64 noundef %0) #9 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
@@ -12316,10 +12317,10 @@ define internal zeroext i1 @RB_FLONUM_P(i64 noundef %0) #1 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #19
+declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %0) #10 {
+define internal zeroext i1 @RB_FLOAT_TYPE_P(i64 noundef %0) #9 {
   %2 = alloca i1, align 1
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
@@ -12370,7 +12371,7 @@ define internal zeroext i1 @RTYPEDDATA_EMBEDDED_P(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @RBASIC_CLASS(i64 noundef %0) #10 {
+define internal i64 @RBASIC_CLASS(i64 noundef %0) #9 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -12428,7 +12429,7 @@ declare i64 @rb_backtrace_to_str_ary(i64 noundef) #2
 declare i64 @rb_ary_new_from_args(i64 noundef, ...) #2
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @rb_array_len(i64 noundef %0) #10 {
+define internal i64 @rb_array_len(i64 noundef %0) #9 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
@@ -12457,7 +12458,7 @@ define internal i64 @rb_array_len(i64 noundef %0) #10 {
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @RARRAY_AREF(i64 noundef %0, i64 noundef %1) #10 {
+define internal i64 @RARRAY_AREF(i64 noundef %0, i64 noundef %1) #9 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -12474,7 +12475,7 @@ define internal i64 @RARRAY_AREF(i64 noundef %0, i64 noundef %1) #10 {
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @RARRAY_EMBED_LEN(i64 noundef %0) #10 {
+define internal i64 @RARRAY_EMBED_LEN(i64 noundef %0) #9 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
@@ -12494,7 +12495,7 @@ define internal i64 @RARRAY_EMBED_LEN(i64 noundef %0) #10 {
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal ptr @rb_array_const_ptr(i64 noundef %0) #10 {
+define internal ptr @rb_array_const_ptr(i64 noundef %0) #9 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
@@ -12878,7 +12879,7 @@ define internal i32 @rb_check_arity(i32 noundef %0, i32 noundef %1, i32 noundef 
 declare i64 @rb_obj_clone(i64 noundef) #2
 
 ; Function Attrs: noreturn
-declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) #12
+declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) #11
 
 declare i64 @rb_protect(ptr noundef, i64 noundef, ptr noundef) #2
 
@@ -13110,7 +13111,7 @@ declare nonnull ptr @rb_usascii_encoding() #2
 declare i64 @rb_setup_fake_str(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strstr(ptr noundef, ptr noundef) #9
+declare ptr @strstr(ptr noundef, ptr noundef) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @name_err_mesg_receiver_name(i64 noundef %0) #0 {
@@ -13175,7 +13176,7 @@ declare i64 @rb_inspect(i64 noundef) #2
 declare i64 @rb_any_to_s(i64 noundef) #2
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @RB_FL_TEST(i64 noundef %0, i64 noundef %1) #10 {
+define internal i64 @RB_FL_TEST(i64 noundef %0, i64 noundef %1) #9 {
   %3 = alloca i1, align 1
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
@@ -13333,15 +13334,15 @@ define internal i64 @RB_FL_TEST(i64 noundef %0, i64 noundef %1) #10 {
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @rb_vm_top_self() #9
+declare i64 @rb_vm_top_self() #8
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @rb_class_real(i64 noundef) #9
+declare i64 @rb_class_real(i64 noundef) #8
 
 declare i64 @rb_str_format(i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal i64 @rbimpl_intern_const(ptr noundef nonnull %0, ptr noundef nonnull %1) #18 {
+define internal i64 @rbimpl_intern_const(ptr noundef nonnull %0, ptr noundef nonnull %1) #17 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -13548,7 +13549,7 @@ declare i64 @rb_str_buf_new(i64 noundef) #2
 declare i64 @rb_str_buf_cat(i64 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @RB_OBJ_FROZEN_RAW(i64 noundef %0) #10 {
+define internal i64 @RB_OBJ_FROZEN_RAW(i64 noundef %0) #9 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -13802,31 +13803,37 @@ define internal i32 @rb_long2int_inline(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: cold noreturn
-declare void @rb_out_of_int(i64 noundef) #20
+declare void @rb_out_of_int(i64 noundef) #19
 
 declare i32 @rb_str_end_with_asciichar(i64 noundef, i32 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #20
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #20
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn }
-attributes #5 = { cold nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind sspstrong willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind sspstrong willreturn memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #20 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind sspstrong willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind sspstrong willreturn memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nocallback nofree nosync nounwind willreturn }
 attributes #21 = { nounwind willreturn memory(none) }
 attributes #22 = { nounwind willreturn memory(read, argmem: readwrite) }
 attributes #23 = { noreturn }

@@ -88,12 +88,13 @@ entry:
   %read_kind = alloca i32, align 4
   %clock = alloca i64, align 8
   store i32 %kind, ptr %kind.addr, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 3), align 4
-  %sub = sub i32 %0, 28
+  %0 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 3
+  %1 = load i32, ptr %0, align 4
+  %sub = sub i32 %1, 28
   store i32 %sub, ptr %read_kind, align 4
-  %1 = load i32, ptr %read_kind, align 4
-  %2 = load i32, ptr %kind.addr, align 4
-  %cmp = icmp eq i32 %1, %2
+  %2 = load i32, ptr %read_kind, align 4
+  %3 = load i32, ptr %kind.addr, align 4
+  %cmp = icmp eq i32 %2, %3
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -108,11 +109,11 @@ if.end:                                           ; preds = %if.then
   store i64 %call, ptr %clock, align 8
   call void @replay_check_error()
   call void @replay_finish_event()
-  %3 = load i64, ptr %clock, align 8
-  %4 = load i32, ptr %read_kind, align 4
-  %idxprom = zext i32 %4 to i64
+  %4 = load i64, ptr %clock, align 8
+  %5 = load i32, ptr %read_kind, align 4
+  %idxprom = zext i32 %5 to i64
   %arrayidx = getelementptr [2 x i64], ptr @replay_state, i64 0, i64 %idxprom
-  store i64 %3, ptr %arrayidx, align 8
+  store i64 %4, ptr %arrayidx, align 8
   ret void
 }
 

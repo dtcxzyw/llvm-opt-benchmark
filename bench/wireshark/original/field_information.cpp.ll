@@ -213,14 +213,16 @@ define void @_ZN16FieldInformationC2EP10field_infoP7QObject(ptr noundef nonnull 
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN14IDataPrintableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #10
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FieldInformation, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FieldInformation, i32 0, i32 1, i32 2), ptr %10, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %class.FieldInformation, ptr %7, i32 0, i32 2
-  store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds %class.FieldInformation, ptr %7, i32 0, i32 3
-  store ptr null, ptr %13, align 8
+  %10 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTV16FieldInformation, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTV16FieldInformation, i32 0, i32 1, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds %class.FieldInformation, ptr %7, i32 0, i32 2
+  store ptr %13, ptr %14, align 8
+  %15 = getelementptr inbounds %class.FieldInformation, ptr %7, i32 0, i32 3
+  store ptr null, ptr %15, align 8
   ret void
 }
 
@@ -231,7 +233,8 @@ define linkonce_odr void @_ZN14IDataPrintableC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV14IDataPrintable, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV14IDataPrintable, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -250,58 +253,60 @@ define void @_ZN16FieldInformationC2EPK9ProtoNodeP7QObject(ptr noundef nonnull a
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %9, i64 16
   call void @_ZN14IDataPrintableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #10
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FieldInformation, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FieldInformation, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %class.FieldInformation, ptr %9, i32 0, i32 2
-  store ptr null, ptr %13, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %32
+  %12 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTV16FieldInformation, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTV16FieldInformation, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.FieldInformation, ptr %9, i32 0, i32 2
+  store ptr null, ptr %15, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %34
 
-16:                                               ; preds = %3
-  %17 = load ptr, ptr %5, align 8
-  %18 = invoke noundef zeroext i1 @_ZNK9ProtoNode7isValidEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
-          to label %19 unwind label %27
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %5, align 8
+  %20 = invoke noundef zeroext i1 @_ZNK9ProtoNode7isValidEv(ptr noundef nonnull align 8 dereferenceable(40) %19)
+          to label %21 unwind label %29
 
-19:                                               ; preds = %16
-  br i1 %18, label %20, label %32
+21:                                               ; preds = %18
+  br i1 %20, label %22, label %34
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %5, align 8
-  %22 = invoke noundef ptr @_ZNK9ProtoNode9protoNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %21)
-          to label %23 unwind label %27
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %5, align 8
+  %24 = invoke noundef ptr @_ZNK9ProtoNode9protoNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %23)
+          to label %25 unwind label %29
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds %struct._proto_node, ptr %22, i32 0, i32 4
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %class.FieldInformation, ptr %9, i32 0, i32 2
-  store ptr %25, ptr %26, align 8
-  br label %32
-
-27:                                               ; preds = %20, %16
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %7, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %8, align 4
-  %31 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @_ZN14IDataPrintableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #10
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #10
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds %struct._proto_node, ptr %24, i32 0, i32 4
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds %class.FieldInformation, ptr %9, i32 0, i32 2
+  store ptr %27, ptr %28, align 8
   br label %34
 
-32:                                               ; preds = %23, %19, %3
-  %33 = getelementptr inbounds %class.FieldInformation, ptr %9, i32 0, i32 3
-  store ptr null, ptr %33, align 8
+29:                                               ; preds = %22, %18
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %7, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %8, align 4
+  %33 = getelementptr inbounds i8, ptr %9, i64 16
+  call void @_ZN14IDataPrintableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #10
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #10
+  br label %36
+
+34:                                               ; preds = %25, %21, %3
+  %35 = getelementptr inbounds %class.FieldInformation, ptr %9, i32 0, i32 3
+  store ptr null, ptr %35, align 8
   ret void
 
-34:                                               ; preds = %27
-  %35 = load ptr, ptr %7, align 8
-  %36 = load i32, ptr %8, align 4
-  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
-  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
-  resume { ptr, i32 } %38
+36:                                               ; preds = %29
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 declare noundef zeroext i1 @_ZNK9ProtoNode7isValidEv(ptr noundef nonnull align 8 dereferenceable(40)) #1

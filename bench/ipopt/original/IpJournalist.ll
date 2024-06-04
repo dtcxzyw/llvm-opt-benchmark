@@ -253,9 +253,10 @@ define void @_ZN5Ipopt10JournalistC2Ev(ptr noundef nonnull align 8 dereferenceab
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5Ipopt10JournalistE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::Journalist", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN5Ipopt10JournalistE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::Journalist", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
   ret void
 }
 
@@ -264,9 +265,10 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
   ret void
 }
 
@@ -284,11 +286,12 @@ define void @_ZN5Ipopt10JournalistD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5Ipopt10JournalistE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::Journalist", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN5Ipopt10JournalistE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds %"class.Ipopt::Journalist", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  call void @_ZNSt6vectorIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %6 = getelementptr inbounds %"class.Ipopt::Journalist", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
   call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #11
   ret void
 }
@@ -358,7 +361,7 @@ define void @_ZNK5Ipopt10Journalist6PrintfENS_13EJournalLevelENS_16EJournalCateg
   store ptr %3, ptr %8, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_start(ptr %11)
+  call void @llvm.va_start.p0(ptr %11)
   %12 = load i32, ptr %6, align 4
   %13 = load i32, ptr %7, align 4
   %14 = load ptr, ptr %8, align 8
@@ -368,15 +371,9 @@ define void @_ZNK5Ipopt10Journalist6PrintfENS_13EJournalLevelENS_16EJournalCateg
   %18 = load ptr, ptr %17, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef %12, i32 noundef %13, ptr noundef %14, ptr noundef %15)
   %19 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_end(ptr %19)
+  call void @llvm.va_end.p0(ptr %19)
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_16EJournalCategoryEiiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 align 2 {
@@ -604,10 +601,10 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
 }
 
 ; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
 
 ; Function Attrs: nounwind
-declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #4
+declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5Ipopt10Journalist14PrintfIndentedENS_13EJournalLevelENS_16EJournalCategoryEiPKcz(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ...) unnamed_addr #0 align 2 {
@@ -624,7 +621,7 @@ define void @_ZNK5Ipopt10Journalist14PrintfIndentedENS_13EJournalLevelENS_16EJou
   store ptr %4, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @llvm.va_start(ptr %13)
+  call void @llvm.va_start.p0(ptr %13)
   %14 = load i32, ptr %7, align 4
   %15 = load i32, ptr %8, align 4
   %16 = load i32, ptr %9, align 4
@@ -635,7 +632,7 @@ define void @_ZNK5Ipopt10Journalist14PrintfIndentedENS_13EJournalLevelENS_16EJou
   %21 = load ptr, ptr %20, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
   %22 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @llvm.va_end(ptr %22)
+  call void @llvm.va_end.p0(ptr %22)
   ret void
 }
 
@@ -682,7 +679,7 @@ define void @_ZNK5Ipopt10Journalist7VPrintfENS_13EJournalLevelENS_16EJournalCate
 32:                                               ; preds = %20
   %33 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
   %34 = load ptr, ptr %10, align 8
-  call void @llvm.va_copy(ptr %33, ptr %34)
+  call void @llvm.va_copy.p0(ptr %33, ptr %34)
   %35 = getelementptr inbounds %"class.Ipopt::Journalist", ptr %13, i32 0, i32 1
   %36 = load i32, ptr %11, align 4
   %37 = sext i32 %36 to i64
@@ -697,7 +694,7 @@ define void @_ZNK5Ipopt10Journalist7VPrintfENS_13EJournalLevelENS_16EJournalCate
   %46 = load ptr, ptr %45, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(176) %39, i32 noundef %40, i32 noundef %41, ptr noundef %42, ptr noundef %43)
   %47 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
-  call void @llvm.va_end(ptr %47)
+  call void @llvm.va_end.p0(ptr %47)
   br label %48
 
 48:                                               ; preds = %32, %20
@@ -755,9 +752,6 @@ define linkonce_odr noundef ptr @_ZNK5Ipopt8SmartPtrINS_7JournalEEptEv(ptr nound
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJournalCategoryEiPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
@@ -835,7 +829,7 @@ define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJo
 54:                                               ; preds = %36
   %55 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %15, i64 0, i64 0
   %56 = load ptr, ptr %12, align 8
-  call void @llvm.va_copy(ptr %55, ptr %56)
+  call void @llvm.va_copy.p0(ptr %55, ptr %56)
   %57 = getelementptr inbounds %"class.Ipopt::Journalist", ptr %16, i32 0, i32 1
   %58 = load i32, ptr %13, align 4
   %59 = sext i32 %58 to i64
@@ -850,7 +844,7 @@ define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJo
   %68 = load ptr, ptr %67, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(176) %61, i32 noundef %62, i32 noundef %63, ptr noundef %64, ptr noundef %65)
   %69 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %15, i64 0, i64 0
-  call void @llvm.va_end(ptr %69)
+  call void @llvm.va_end.p0(ptr %69)
   br label %70
 
 70:                                               ; preds = %54, %23
@@ -1084,7 +1078,7 @@ define linkonce_odr void @_ZN5Ipopt8SmartPtrINS_7JournalEED2Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt10Journalist14AddFileJournalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_13EJournalLevelEb(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1238,7 +1232,7 @@ define void @_ZN5Ipopt10Journalist14AddFileJournalERKNSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #5
+declare noundef nonnull ptr @_Znwm(i64 noundef) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Ipopt8SmartPtrINS_11FileJournalEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
@@ -1265,7 +1259,7 @@ define linkonce_odr noundef ptr @_ZNK5Ipopt8SmartPtrINS_11FileJournalEEptEv(ptr 
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN5Ipopt9GetRawPtrINS_11FileJournalEEEPT_RKNS_8SmartPtrIS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat {
@@ -1653,67 +1647,69 @@ define void @_ZN5Ipopt7JournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store i32 %2, ptr %6, align 4
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ipopt7JournalE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Ipopt::Journal", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %13 unwind label %26
+  %11 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5Ipopt7JournalE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Ipopt::Journal", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %14 unwind label %27
 
-13:                                               ; preds = %3
+14:                                               ; preds = %3
   store i32 0, ptr %9, align 4
-  br label %14
+  br label %15
 
-14:                                               ; preds = %23, %13
-  %15 = load i32, ptr %9, align 4
-  %16 = icmp slt i32 %15, 32
-  br i1 %16, label %17, label %30
+15:                                               ; preds = %24, %14
+  %16 = load i32, ptr %9, align 4
+  %17 = icmp slt i32 %16, 32
+  br i1 %17, label %18, label %31
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr %6, align 4
-  %19 = getelementptr inbounds %"class.Ipopt::Journal", ptr %10, i32 0, i32 2
-  %20 = load i32, ptr %9, align 4
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [32 x i32], ptr %19, i64 0, i64 %21
-  store i32 %18, ptr %22, align 4
-  br label %23
+18:                                               ; preds = %15
+  %19 = load i32, ptr %6, align 4
+  %20 = getelementptr inbounds %"class.Ipopt::Journal", ptr %10, i32 0, i32 2
+  %21 = load i32, ptr %9, align 4
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds [32 x i32], ptr %20, i64 0, i64 %22
+  store i32 %19, ptr %23, align 4
+  br label %24
 
-23:                                               ; preds = %17
-  %24 = load i32, ptr %9, align 4
-  %25 = add nsw i32 %24, 1
-  store i32 %25, ptr %9, align 4
-  br label %14, !llvm.loop !15
+24:                                               ; preds = %18
+  %25 = load i32, ptr %9, align 4
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %9, align 4
+  br label %15, !llvm.loop !15
 
-26:                                               ; preds = %3
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %3
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %7, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %8, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %7, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %8, align 4
   call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #11
-  br label %31
+  br label %32
 
-30:                                               ; preds = %14
+31:                                               ; preds = %15
   ret void
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %7, align 8
-  %33 = load i32, ptr %8, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Ipopt7JournalD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #1 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ipopt7JournalE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::Journal", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5Ipopt7JournalE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::Journal", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #11
   ret void
 }
@@ -1727,7 +1723,7 @@ define void @_ZN5Ipopt7JournalD0Ev(ptr noundef nonnull align 8 dereferenceable(1
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #7
+declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt7Journal4NameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #0 align 2 {
@@ -1838,9 +1834,10 @@ define void @_ZN5Ipopt11FileJournalC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
   %8 = load ptr, ptr %5, align 8
   %9 = load i32, ptr %6, align 4
   call void @_ZN5Ipopt7JournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5Ipopt11FileJournalE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Ipopt::FileJournal", ptr %7, i32 0, i32 1
-  store ptr null, ptr %10, align 8
+  %10 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN5Ipopt11FileJournalE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Ipopt::FileJournal", ptr %7, i32 0, i32 1
+  store ptr null, ptr %11, align 8
   ret void
 }
 
@@ -1849,53 +1846,54 @@ define void @_ZN5Ipopt11FileJournalD2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5Ipopt11FileJournalE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::FileJournal", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %22
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN5Ipopt11FileJournalE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::FileJournal", ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %23
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Ipopt::FileJournal", ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr @stdout, align 8
-  %11 = icmp ne ptr %9, %10
-  br i1 %11, label %12, label %22
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Ipopt::FileJournal", ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr @stdout, align 8
+  %12 = icmp ne ptr %10, %11
+  br i1 %12, label %13, label %23
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds %"class.Ipopt::FileJournal", ptr %3, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr @stderr, align 8
-  %16 = icmp ne ptr %14, %15
-  br i1 %16, label %17, label %22
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds %"class.Ipopt::FileJournal", ptr %3, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr @stderr, align 8
+  %17 = icmp ne ptr %15, %16
+  br i1 %17, label %18, label %23
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds %"class.Ipopt::FileJournal", ptr %3, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %20 = invoke i32 @fclose(ptr noundef %19)
-          to label %21 unwind label %24
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds %"class.Ipopt::FileJournal", ptr %3, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %21 = invoke i32 @fclose(ptr noundef %20)
+          to label %22 unwind label %25
 
-21:                                               ; preds = %17
-  br label %22
+22:                                               ; preds = %18
+  br label %23
 
-22:                                               ; preds = %21, %12, %7, %1
-  %23 = getelementptr inbounds %"class.Ipopt::FileJournal", ptr %3, i32 0, i32 1
-  store ptr null, ptr %23, align 8
+23:                                               ; preds = %22, %13, %8, %1
+  %24 = getelementptr inbounds %"class.Ipopt::FileJournal", ptr %3, i32 0, i32 1
+  store ptr null, ptr %24, align 8
   call void @_ZN5Ipopt7JournalD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %3) #11
   ret void
 
-24:                                               ; preds = %17
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %18
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #12
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #12
   unreachable
 }
 
-declare i32 @fclose(ptr noundef) #6
+declare i32 @fclose(ptr noundef) #5
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #11
   call void @_ZSt9terminatev() #12
   unreachable
@@ -2022,9 +2020,9 @@ define noundef zeroext i1 @_ZN5Ipopt11FileJournal4OpenEPKcb(ptr noundef nonnull 
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #9
+declare i32 @strcmp(ptr noundef, ptr noundef) #8
 
-declare noalias ptr @fopen(ptr noundef, ptr noundef) #6
+declare noalias ptr @fopen(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Ipopt11FileJournal9PrintImplENS_16EJournalCategoryENS_13EJournalLevelEPKc(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 align 2 {
@@ -2054,7 +2052,7 @@ define void @_ZN5Ipopt11FileJournal9PrintImplENS_16EJournalCategoryENS_13EJourna
 }
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Ipopt11FileJournal10PrintfImplENS_16EJournalCategoryENS_13EJournalLevelEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 align 2 {
@@ -2087,7 +2085,7 @@ define void @_ZN5Ipopt11FileJournal10PrintfImplENS_16EJournalCategoryENS_13EJour
 }
 
 ; Function Attrs: nounwind
-declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt11FileJournal15FlushBufferImplEv(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 align 2 {
@@ -2109,7 +2107,7 @@ define void @_ZN5Ipopt11FileJournal15FlushBufferImplEv(ptr noundef nonnull align
   ret void
 }
 
-declare i32 @fflush(ptr noundef) #6
+declare i32 @fflush(ptr noundef) #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt13StreamJournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(32952) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #0 align 2 {
@@ -2123,9 +2121,10 @@ define void @_ZN5Ipopt13StreamJournalC2ERKNSt7__cxx1112basic_stringIcSt11char_tr
   %8 = load ptr, ptr %5, align 8
   %9 = load i32, ptr %6, align 4
   call void @_ZN5Ipopt7JournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ipopt13StreamJournalE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Ipopt::StreamJournal", ptr %7, i32 0, i32 1
-  store ptr null, ptr %10, align 8
+  %10 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5Ipopt13StreamJournalE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Ipopt::StreamJournal", ptr %7, i32 0, i32 1
+  store ptr null, ptr %11, align 8
   ret void
 }
 
@@ -2169,7 +2168,7 @@ define void @_ZN5Ipopt13StreamJournal9PrintImplENS_16EJournalCategoryENS_13EJour
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #6
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt13StreamJournal10PrintfImplENS_16EJournalCategoryENS_13EJournalLevelEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(32952) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
@@ -2207,7 +2206,7 @@ define void @_ZN5Ipopt13StreamJournal10PrintfImplENS_16EJournalCategoryENS_13EJo
 }
 
 ; Function Attrs: nounwind
-declare i32 @vsprintf(ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @vsprintf(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt13StreamJournal15FlushBufferImplEv(ptr noundef nonnull align 8 dereferenceable(32952) %0) unnamed_addr #0 align 2 {
@@ -2229,9 +2228,9 @@ define void @_ZN5Ipopt13StreamJournal15FlushBufferImplEv(ptr noundef nonnull ali
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #6
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #5
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #6
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13StreamJournalD2Ev(ptr noundef nonnull align 8 dereferenceable(32952) %0) unnamed_addr #1 comdat align 2 {
@@ -2316,7 +2315,8 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3082,7 +3082,7 @@ define linkonce_odr noundef i64 @_ZNKSt6vectorIN5Ipopt8SmartPtrINS0_7JournalEEES
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #10
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
@@ -3262,10 +3262,10 @@ define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIN5Ipopt8SmartPtrINS0_7Jo
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #10
+declare void @_ZSt28__throw_bad_array_new_lengthv() #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #10
+declare void @_ZSt17__throw_bad_allocv() #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt22__uninitialized_copy_aIPKN5Ipopt8SmartPtrINS0_7JournalEEEPS3_S3_ET0_T_S8_S7_RSaIT1_E(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
@@ -3577,7 +3577,7 @@ define linkonce_odr noundef ptr @_ZN5Ipopt9GetRawPtrINS_7JournalEEEPT_RKNS_8Smar
 }
 
 ; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNSt11char_traitsIcE7compareEPKcS2_m(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
@@ -3610,10 +3610,10 @@ define linkonce_odr noundef i32 @_ZNSt11char_traitsIcE7compareEPKcS2_m(ptr nound
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
 
 ; Function Attrs: nounwind
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3974,17 +3974,26 @@ define linkonce_odr void @_ZN5Ipopt8SmartPtrINS_7JournalEEC2Ev(ptr noundef nonnu
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #10
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind }
 attributes #12 = { noreturn nounwind }
 attributes #13 = { builtin nounwind }

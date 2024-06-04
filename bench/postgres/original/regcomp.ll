@@ -21869,7 +21869,7 @@ define internal i32 @lexescape(ptr noundef %0) #0 {
   %33 = getelementptr inbounds %struct.vars, ptr %32, i32 0, i32 7
   store i32 %31, ptr %33, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
 34:                                               ; preds = %25, %19, %13
   %35 = load ptr, ptr %3, align 8
@@ -21880,42 +21880,42 @@ define internal i32 @lexescape(ptr noundef %0) #0 {
   %40 = or i64 %39, 128
   store i64 %40, ptr %38, align 8
   %41 = load i32, ptr %4, align 4
-  switch i32 %41, label %454 [
+  switch i32 %41, label %456 [
     i32 97, label %42
-    i32 65, label %49
-    i32 98, label %54
-    i32 66, label %59
-    i32 99, label %64
-    i32 100, label %105
-    i32 68, label %116
-    i32 101, label %127
-    i32 102, label %140
-    i32 109, label %145
-    i32 77, label %148
-    i32 110, label %151
-    i32 114, label %156
-    i32 115, label %161
-    i32 83, label %172
-    i32 116, label %183
-    i32 117, label %188
-    i32 85, label %220
-    i32 118, label %252
-    i32 119, label %257
-    i32 87, label %268
-    i32 120, label %279
-    i32 121, label %317
-    i32 89, label %328
-    i32 90, label %339
-    i32 49, label %344
-    i32 50, label %344
-    i32 51, label %344
-    i32 52, label %344
-    i32 53, label %344
-    i32 54, label %344
-    i32 55, label %344
-    i32 56, label %344
-    i32 57, label %344
-    i32 48, label %405
+    i32 65, label %50
+    i32 98, label %55
+    i32 66, label %60
+    i32 99, label %65
+    i32 100, label %106
+    i32 68, label %117
+    i32 101, label %128
+    i32 102, label %142
+    i32 109, label %147
+    i32 77, label %150
+    i32 110, label %153
+    i32 114, label %158
+    i32 115, label %163
+    i32 83, label %174
+    i32 116, label %185
+    i32 117, label %190
+    i32 85, label %222
+    i32 118, label %254
+    i32 119, label %259
+    i32 87, label %270
+    i32 120, label %281
+    i32 121, label %319
+    i32 89, label %330
+    i32 90, label %341
+    i32 49, label %346
+    i32 50, label %346
+    i32 51, label %346
+    i32 52, label %346
+    i32 53, label %346
+    i32 54, label %346
+    i32 55, label %346
+    i32 56, label %346
+    i32 57, label %346
+    i32 48, label %407
   ]
 
 42:                                               ; preds = %34
@@ -21923,697 +21923,699 @@ define internal i32 @lexescape(ptr noundef %0) #0 {
   %44 = getelementptr inbounds %struct.vars, ptr %43, i32 0, i32 6
   store i32 112, ptr %44, align 4
   %45 = load ptr, ptr %3, align 8
-  %46 = call i32 @chrnamed(ptr noundef %45, ptr noundef @lexescape.alert, ptr noundef getelementptr (i32, ptr @lexescape.alert, i64 5), i32 noundef 7)
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.vars, ptr %47, i32 0, i32 7
-  store i32 %46, ptr %48, align 8
+  %46 = getelementptr i32, ptr @lexescape.alert, i64 5
+  %47 = call i32 @chrnamed(ptr noundef %45, ptr noundef @lexescape.alert, ptr noundef %46, i32 noundef 7)
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds %struct.vars, ptr %48, i32 0, i32 7
+  store i32 %47, ptr %49, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-49:                                               ; preds = %34
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.vars, ptr %50, i32 0, i32 6
-  store i32 65, ptr %51, align 4
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.vars, ptr %52, i32 0, i32 7
-  store i32 0, ptr %53, align 8
+50:                                               ; preds = %34
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds %struct.vars, ptr %51, i32 0, i32 6
+  store i32 65, ptr %52, align 4
+  %53 = load ptr, ptr %3, align 8
+  %54 = getelementptr inbounds %struct.vars, ptr %53, i32 0, i32 7
+  store i32 0, ptr %54, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-54:                                               ; preds = %34
-  %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds %struct.vars, ptr %55, i32 0, i32 6
-  store i32 112, ptr %56, align 4
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.vars, ptr %57, i32 0, i32 7
-  store i32 8, ptr %58, align 8
+55:                                               ; preds = %34
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds %struct.vars, ptr %56, i32 0, i32 6
+  store i32 112, ptr %57, align 4
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds %struct.vars, ptr %58, i32 0, i32 7
+  store i32 8, ptr %59, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-59:                                               ; preds = %34
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.vars, ptr %60, i32 0, i32 6
-  store i32 112, ptr %61, align 4
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.vars, ptr %62, i32 0, i32 7
-  store i32 92, ptr %63, align 8
+60:                                               ; preds = %34
+  %61 = load ptr, ptr %3, align 8
+  %62 = getelementptr inbounds %struct.vars, ptr %61, i32 0, i32 6
+  store i32 112, ptr %62, align 4
+  %63 = load ptr, ptr %3, align 8
+  %64 = getelementptr inbounds %struct.vars, ptr %63, i32 0, i32 7
+  store i32 92, ptr %64, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-64:                                               ; preds = %34
-  %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds %struct.vars, ptr %65, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct.regex_t, ptr %67, i32 0, i32 2
-  %69 = load i64, ptr %68, align 8
-  %70 = or i64 %69, 512
-  store i64 %70, ptr %68, align 8
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.vars, ptr %71, i32 0, i32 1
-  %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds %struct.vars, ptr %74, i32 0, i32 2
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp uge ptr %73, %76
-  br i1 %77, label %78, label %94
+65:                                               ; preds = %34
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds %struct.vars, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds %struct.regex_t, ptr %68, i32 0, i32 2
+  %70 = load i64, ptr %69, align 8
+  %71 = or i64 %70, 512
+  store i64 %71, ptr %69, align 8
+  %72 = load ptr, ptr %3, align 8
+  %73 = getelementptr inbounds %struct.vars, ptr %72, i32 0, i32 1
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds %struct.vars, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp uge ptr %74, %77
+  br i1 %78, label %79, label %95
 
-78:                                               ; preds = %64
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.vars, ptr %79, i32 0, i32 6
-  store i32 101, ptr %80, align 4
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct.vars, ptr %81, i32 0, i32 3
-  %83 = load i32, ptr %82, align 8
-  %84 = icmp ne i32 %83, 0
-  br i1 %84, label %85, label %89
+79:                                               ; preds = %65
+  %80 = load ptr, ptr %3, align 8
+  %81 = getelementptr inbounds %struct.vars, ptr %80, i32 0, i32 6
+  store i32 101, ptr %81, align 4
+  %82 = load ptr, ptr %3, align 8
+  %83 = getelementptr inbounds %struct.vars, ptr %82, i32 0, i32 3
+  %84 = load i32, ptr %83, align 8
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %90
 
-85:                                               ; preds = %78
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds %struct.vars, ptr %86, i32 0, i32 3
-  %88 = load i32, ptr %87, align 8
-  br label %90
+86:                                               ; preds = %79
+  %87 = load ptr, ptr %3, align 8
+  %88 = getelementptr inbounds %struct.vars, ptr %87, i32 0, i32 3
+  %89 = load i32, ptr %88, align 8
+  br label %91
 
-89:                                               ; preds = %78
-  br label %90
+90:                                               ; preds = %79
+  br label %91
 
-90:                                               ; preds = %89, %85
-  %91 = phi i32 [ %88, %85 ], [ 5, %89 ]
-  %92 = load ptr, ptr %3, align 8
-  %93 = getelementptr inbounds %struct.vars, ptr %92, i32 0, i32 3
-  store i32 %91, ptr %93, align 8
+91:                                               ; preds = %90, %86
+  %92 = phi i32 [ %89, %86 ], [ 5, %90 ]
+  %93 = load ptr, ptr %3, align 8
+  %94 = getelementptr inbounds %struct.vars, ptr %93, i32 0, i32 3
+  store i32 %92, ptr %94, align 8
   store i32 0, ptr %2, align 4
-  br label %470
+  br label %472
 
-94:                                               ; preds = %64
-  %95 = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds %struct.vars, ptr %95, i32 0, i32 6
-  store i32 112, ptr %96, align 4
-  %97 = load ptr, ptr %3, align 8
-  %98 = getelementptr inbounds %struct.vars, ptr %97, i32 0, i32 1
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr i32, ptr %99, i32 1
-  store ptr %100, ptr %98, align 8
-  %101 = load i32, ptr %99, align 4
-  %102 = and i32 %101, 31
-  %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds %struct.vars, ptr %103, i32 0, i32 7
-  store i32 %102, ptr %104, align 8
+95:                                               ; preds = %65
+  %96 = load ptr, ptr %3, align 8
+  %97 = getelementptr inbounds %struct.vars, ptr %96, i32 0, i32 6
+  store i32 112, ptr %97, align 4
+  %98 = load ptr, ptr %3, align 8
+  %99 = getelementptr inbounds %struct.vars, ptr %98, i32 0, i32 1
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr i32, ptr %100, i32 1
+  store ptr %101, ptr %99, align 8
+  %102 = load i32, ptr %100, align 4
+  %103 = and i32 %102, 31
+  %104 = load ptr, ptr %3, align 8
+  %105 = getelementptr inbounds %struct.vars, ptr %104, i32 0, i32 7
+  store i32 %103, ptr %105, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-105:                                              ; preds = %34
-  %106 = load ptr, ptr %3, align 8
-  %107 = getelementptr inbounds %struct.vars, ptr %106, i32 0, i32 0
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds %struct.regex_t, ptr %108, i32 0, i32 2
-  %110 = load i64, ptr %109, align 8
-  %111 = or i64 %110, 1024
-  store i64 %111, ptr %109, align 8
-  %112 = load ptr, ptr %3, align 8
-  %113 = getelementptr inbounds %struct.vars, ptr %112, i32 0, i32 6
-  store i32 115, ptr %113, align 4
-  %114 = load ptr, ptr %3, align 8
-  %115 = getelementptr inbounds %struct.vars, ptr %114, i32 0, i32 7
-  store i32 5, ptr %115, align 8
+106:                                              ; preds = %34
+  %107 = load ptr, ptr %3, align 8
+  %108 = getelementptr inbounds %struct.vars, ptr %107, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds %struct.regex_t, ptr %109, i32 0, i32 2
+  %111 = load i64, ptr %110, align 8
+  %112 = or i64 %111, 1024
+  store i64 %112, ptr %110, align 8
+  %113 = load ptr, ptr %3, align 8
+  %114 = getelementptr inbounds %struct.vars, ptr %113, i32 0, i32 6
+  store i32 115, ptr %114, align 4
+  %115 = load ptr, ptr %3, align 8
+  %116 = getelementptr inbounds %struct.vars, ptr %115, i32 0, i32 7
+  store i32 5, ptr %116, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-116:                                              ; preds = %34
-  %117 = load ptr, ptr %3, align 8
-  %118 = getelementptr inbounds %struct.vars, ptr %117, i32 0, i32 0
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds %struct.regex_t, ptr %119, i32 0, i32 2
-  %121 = load i64, ptr %120, align 8
-  %122 = or i64 %121, 1024
-  store i64 %122, ptr %120, align 8
-  %123 = load ptr, ptr %3, align 8
-  %124 = getelementptr inbounds %struct.vars, ptr %123, i32 0, i32 6
-  store i32 99, ptr %124, align 4
-  %125 = load ptr, ptr %3, align 8
-  %126 = getelementptr inbounds %struct.vars, ptr %125, i32 0, i32 7
-  store i32 5, ptr %126, align 8
+117:                                              ; preds = %34
+  %118 = load ptr, ptr %3, align 8
+  %119 = getelementptr inbounds %struct.vars, ptr %118, i32 0, i32 0
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds %struct.regex_t, ptr %120, i32 0, i32 2
+  %122 = load i64, ptr %121, align 8
+  %123 = or i64 %122, 1024
+  store i64 %123, ptr %121, align 8
+  %124 = load ptr, ptr %3, align 8
+  %125 = getelementptr inbounds %struct.vars, ptr %124, i32 0, i32 6
+  store i32 99, ptr %125, align 4
+  %126 = load ptr, ptr %3, align 8
+  %127 = getelementptr inbounds %struct.vars, ptr %126, i32 0, i32 7
+  store i32 5, ptr %127, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-127:                                              ; preds = %34
-  %128 = load ptr, ptr %3, align 8
-  %129 = getelementptr inbounds %struct.vars, ptr %128, i32 0, i32 0
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds %struct.regex_t, ptr %130, i32 0, i32 2
-  %132 = load i64, ptr %131, align 8
-  %133 = or i64 %132, 512
-  store i64 %133, ptr %131, align 8
-  %134 = load ptr, ptr %3, align 8
-  %135 = getelementptr inbounds %struct.vars, ptr %134, i32 0, i32 6
-  store i32 112, ptr %135, align 4
-  %136 = load ptr, ptr %3, align 8
-  %137 = call i32 @chrnamed(ptr noundef %136, ptr noundef @lexescape.esc, ptr noundef getelementptr (i32, ptr @lexescape.esc, i64 3), i32 noundef 27)
-  %138 = load ptr, ptr %3, align 8
-  %139 = getelementptr inbounds %struct.vars, ptr %138, i32 0, i32 7
-  store i32 %137, ptr %139, align 8
+128:                                              ; preds = %34
+  %129 = load ptr, ptr %3, align 8
+  %130 = getelementptr inbounds %struct.vars, ptr %129, i32 0, i32 0
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds %struct.regex_t, ptr %131, i32 0, i32 2
+  %133 = load i64, ptr %132, align 8
+  %134 = or i64 %133, 512
+  store i64 %134, ptr %132, align 8
+  %135 = load ptr, ptr %3, align 8
+  %136 = getelementptr inbounds %struct.vars, ptr %135, i32 0, i32 6
+  store i32 112, ptr %136, align 4
+  %137 = load ptr, ptr %3, align 8
+  %138 = getelementptr i32, ptr @lexescape.esc, i64 3
+  %139 = call i32 @chrnamed(ptr noundef %137, ptr noundef @lexescape.esc, ptr noundef %138, i32 noundef 27)
+  %140 = load ptr, ptr %3, align 8
+  %141 = getelementptr inbounds %struct.vars, ptr %140, i32 0, i32 7
+  store i32 %139, ptr %141, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-140:                                              ; preds = %34
-  %141 = load ptr, ptr %3, align 8
-  %142 = getelementptr inbounds %struct.vars, ptr %141, i32 0, i32 6
-  store i32 112, ptr %142, align 4
+142:                                              ; preds = %34
   %143 = load ptr, ptr %3, align 8
-  %144 = getelementptr inbounds %struct.vars, ptr %143, i32 0, i32 7
-  store i32 12, ptr %144, align 8
+  %144 = getelementptr inbounds %struct.vars, ptr %143, i32 0, i32 6
+  store i32 112, ptr %144, align 4
+  %145 = load ptr, ptr %3, align 8
+  %146 = getelementptr inbounds %struct.vars, ptr %145, i32 0, i32 7
+  store i32 12, ptr %146, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-145:                                              ; preds = %34
-  %146 = load ptr, ptr %3, align 8
-  %147 = getelementptr inbounds %struct.vars, ptr %146, i32 0, i32 6
-  store i32 60, ptr %147, align 4
+147:                                              ; preds = %34
+  %148 = load ptr, ptr %3, align 8
+  %149 = getelementptr inbounds %struct.vars, ptr %148, i32 0, i32 6
+  store i32 60, ptr %149, align 4
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-148:                                              ; preds = %34
-  %149 = load ptr, ptr %3, align 8
-  %150 = getelementptr inbounds %struct.vars, ptr %149, i32 0, i32 6
-  store i32 62, ptr %150, align 4
+150:                                              ; preds = %34
+  %151 = load ptr, ptr %3, align 8
+  %152 = getelementptr inbounds %struct.vars, ptr %151, i32 0, i32 6
+  store i32 62, ptr %152, align 4
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-151:                                              ; preds = %34
-  %152 = load ptr, ptr %3, align 8
-  %153 = getelementptr inbounds %struct.vars, ptr %152, i32 0, i32 6
-  store i32 112, ptr %153, align 4
+153:                                              ; preds = %34
   %154 = load ptr, ptr %3, align 8
-  %155 = getelementptr inbounds %struct.vars, ptr %154, i32 0, i32 7
-  store i32 10, ptr %155, align 8
+  %155 = getelementptr inbounds %struct.vars, ptr %154, i32 0, i32 6
+  store i32 112, ptr %155, align 4
+  %156 = load ptr, ptr %3, align 8
+  %157 = getelementptr inbounds %struct.vars, ptr %156, i32 0, i32 7
+  store i32 10, ptr %157, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-156:                                              ; preds = %34
-  %157 = load ptr, ptr %3, align 8
-  %158 = getelementptr inbounds %struct.vars, ptr %157, i32 0, i32 6
-  store i32 112, ptr %158, align 4
+158:                                              ; preds = %34
   %159 = load ptr, ptr %3, align 8
-  %160 = getelementptr inbounds %struct.vars, ptr %159, i32 0, i32 7
-  store i32 13, ptr %160, align 8
+  %160 = getelementptr inbounds %struct.vars, ptr %159, i32 0, i32 6
+  store i32 112, ptr %160, align 4
+  %161 = load ptr, ptr %3, align 8
+  %162 = getelementptr inbounds %struct.vars, ptr %161, i32 0, i32 7
+  store i32 13, ptr %162, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-161:                                              ; preds = %34
-  %162 = load ptr, ptr %3, align 8
-  %163 = getelementptr inbounds %struct.vars, ptr %162, i32 0, i32 0
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds %struct.regex_t, ptr %164, i32 0, i32 2
-  %166 = load i64, ptr %165, align 8
-  %167 = or i64 %166, 1024
-  store i64 %167, ptr %165, align 8
-  %168 = load ptr, ptr %3, align 8
-  %169 = getelementptr inbounds %struct.vars, ptr %168, i32 0, i32 6
-  store i32 115, ptr %169, align 4
+163:                                              ; preds = %34
+  %164 = load ptr, ptr %3, align 8
+  %165 = getelementptr inbounds %struct.vars, ptr %164, i32 0, i32 0
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds %struct.regex_t, ptr %166, i32 0, i32 2
+  %168 = load i64, ptr %167, align 8
+  %169 = or i64 %168, 1024
+  store i64 %169, ptr %167, align 8
   %170 = load ptr, ptr %3, align 8
-  %171 = getelementptr inbounds %struct.vars, ptr %170, i32 0, i32 7
-  store i32 10, ptr %171, align 8
+  %171 = getelementptr inbounds %struct.vars, ptr %170, i32 0, i32 6
+  store i32 115, ptr %171, align 4
+  %172 = load ptr, ptr %3, align 8
+  %173 = getelementptr inbounds %struct.vars, ptr %172, i32 0, i32 7
+  store i32 10, ptr %173, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-172:                                              ; preds = %34
-  %173 = load ptr, ptr %3, align 8
-  %174 = getelementptr inbounds %struct.vars, ptr %173, i32 0, i32 0
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds %struct.regex_t, ptr %175, i32 0, i32 2
-  %177 = load i64, ptr %176, align 8
-  %178 = or i64 %177, 1024
-  store i64 %178, ptr %176, align 8
-  %179 = load ptr, ptr %3, align 8
-  %180 = getelementptr inbounds %struct.vars, ptr %179, i32 0, i32 6
-  store i32 99, ptr %180, align 4
+174:                                              ; preds = %34
+  %175 = load ptr, ptr %3, align 8
+  %176 = getelementptr inbounds %struct.vars, ptr %175, i32 0, i32 0
+  %177 = load ptr, ptr %176, align 8
+  %178 = getelementptr inbounds %struct.regex_t, ptr %177, i32 0, i32 2
+  %179 = load i64, ptr %178, align 8
+  %180 = or i64 %179, 1024
+  store i64 %180, ptr %178, align 8
   %181 = load ptr, ptr %3, align 8
-  %182 = getelementptr inbounds %struct.vars, ptr %181, i32 0, i32 7
-  store i32 10, ptr %182, align 8
+  %182 = getelementptr inbounds %struct.vars, ptr %181, i32 0, i32 6
+  store i32 99, ptr %182, align 4
+  %183 = load ptr, ptr %3, align 8
+  %184 = getelementptr inbounds %struct.vars, ptr %183, i32 0, i32 7
+  store i32 10, ptr %184, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-183:                                              ; preds = %34
-  %184 = load ptr, ptr %3, align 8
-  %185 = getelementptr inbounds %struct.vars, ptr %184, i32 0, i32 6
-  store i32 112, ptr %185, align 4
+185:                                              ; preds = %34
   %186 = load ptr, ptr %3, align 8
-  %187 = getelementptr inbounds %struct.vars, ptr %186, i32 0, i32 7
-  store i32 9, ptr %187, align 8
+  %187 = getelementptr inbounds %struct.vars, ptr %186, i32 0, i32 6
+  store i32 112, ptr %187, align 4
+  %188 = load ptr, ptr %3, align 8
+  %189 = getelementptr inbounds %struct.vars, ptr %188, i32 0, i32 7
+  store i32 9, ptr %189, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-188:                                              ; preds = %34
-  %189 = load ptr, ptr %3, align 8
-  %190 = call i32 @lexdigits(ptr noundef %189, i32 noundef 16, i32 noundef 4, i32 noundef 4)
-  store i32 %190, ptr %4, align 4
+190:                                              ; preds = %34
   %191 = load ptr, ptr %3, align 8
-  %192 = getelementptr inbounds %struct.vars, ptr %191, i32 0, i32 3
-  %193 = load i32, ptr %192, align 8
-  %194 = icmp ne i32 %193, 0
-  br i1 %194, label %198, label %195
+  %192 = call i32 @lexdigits(ptr noundef %191, i32 noundef 16, i32 noundef 4, i32 noundef 4)
+  store i32 %192, ptr %4, align 4
+  %193 = load ptr, ptr %3, align 8
+  %194 = getelementptr inbounds %struct.vars, ptr %193, i32 0, i32 3
+  %195 = load i32, ptr %194, align 8
+  %196 = icmp ne i32 %195, 0
+  br i1 %196, label %200, label %197
 
-195:                                              ; preds = %188
-  %196 = load i32, ptr %4, align 4
-  %197 = icmp ule i32 %196, 2147483646
-  br i1 %197, label %214, label %198
+197:                                              ; preds = %190
+  %198 = load i32, ptr %4, align 4
+  %199 = icmp ule i32 %198, 2147483646
+  br i1 %199, label %216, label %200
 
-198:                                              ; preds = %195, %188
-  %199 = load ptr, ptr %3, align 8
-  %200 = getelementptr inbounds %struct.vars, ptr %199, i32 0, i32 6
-  store i32 101, ptr %200, align 4
+200:                                              ; preds = %197, %190
   %201 = load ptr, ptr %3, align 8
-  %202 = getelementptr inbounds %struct.vars, ptr %201, i32 0, i32 3
-  %203 = load i32, ptr %202, align 8
-  %204 = icmp ne i32 %203, 0
-  br i1 %204, label %205, label %209
+  %202 = getelementptr inbounds %struct.vars, ptr %201, i32 0, i32 6
+  store i32 101, ptr %202, align 4
+  %203 = load ptr, ptr %3, align 8
+  %204 = getelementptr inbounds %struct.vars, ptr %203, i32 0, i32 3
+  %205 = load i32, ptr %204, align 8
+  %206 = icmp ne i32 %205, 0
+  br i1 %206, label %207, label %211
 
-205:                                              ; preds = %198
-  %206 = load ptr, ptr %3, align 8
-  %207 = getelementptr inbounds %struct.vars, ptr %206, i32 0, i32 3
-  %208 = load i32, ptr %207, align 8
-  br label %210
+207:                                              ; preds = %200
+  %208 = load ptr, ptr %3, align 8
+  %209 = getelementptr inbounds %struct.vars, ptr %208, i32 0, i32 3
+  %210 = load i32, ptr %209, align 8
+  br label %212
 
-209:                                              ; preds = %198
-  br label %210
+211:                                              ; preds = %200
+  br label %212
 
-210:                                              ; preds = %209, %205
-  %211 = phi i32 [ %208, %205 ], [ 5, %209 ]
-  %212 = load ptr, ptr %3, align 8
-  %213 = getelementptr inbounds %struct.vars, ptr %212, i32 0, i32 3
-  store i32 %211, ptr %213, align 8
+212:                                              ; preds = %211, %207
+  %213 = phi i32 [ %210, %207 ], [ 5, %211 ]
+  %214 = load ptr, ptr %3, align 8
+  %215 = getelementptr inbounds %struct.vars, ptr %214, i32 0, i32 3
+  store i32 %213, ptr %215, align 8
   store i32 0, ptr %2, align 4
-  br label %470
+  br label %472
 
-214:                                              ; preds = %195
-  %215 = load ptr, ptr %3, align 8
-  %216 = getelementptr inbounds %struct.vars, ptr %215, i32 0, i32 6
-  store i32 112, ptr %216, align 4
-  %217 = load i32, ptr %4, align 4
-  %218 = load ptr, ptr %3, align 8
-  %219 = getelementptr inbounds %struct.vars, ptr %218, i32 0, i32 7
-  store i32 %217, ptr %219, align 8
+216:                                              ; preds = %197
+  %217 = load ptr, ptr %3, align 8
+  %218 = getelementptr inbounds %struct.vars, ptr %217, i32 0, i32 6
+  store i32 112, ptr %218, align 4
+  %219 = load i32, ptr %4, align 4
+  %220 = load ptr, ptr %3, align 8
+  %221 = getelementptr inbounds %struct.vars, ptr %220, i32 0, i32 7
+  store i32 %219, ptr %221, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-220:                                              ; preds = %34
-  %221 = load ptr, ptr %3, align 8
-  %222 = call i32 @lexdigits(ptr noundef %221, i32 noundef 16, i32 noundef 8, i32 noundef 8)
-  store i32 %222, ptr %4, align 4
+222:                                              ; preds = %34
   %223 = load ptr, ptr %3, align 8
-  %224 = getelementptr inbounds %struct.vars, ptr %223, i32 0, i32 3
-  %225 = load i32, ptr %224, align 8
-  %226 = icmp ne i32 %225, 0
-  br i1 %226, label %230, label %227
+  %224 = call i32 @lexdigits(ptr noundef %223, i32 noundef 16, i32 noundef 8, i32 noundef 8)
+  store i32 %224, ptr %4, align 4
+  %225 = load ptr, ptr %3, align 8
+  %226 = getelementptr inbounds %struct.vars, ptr %225, i32 0, i32 3
+  %227 = load i32, ptr %226, align 8
+  %228 = icmp ne i32 %227, 0
+  br i1 %228, label %232, label %229
 
-227:                                              ; preds = %220
-  %228 = load i32, ptr %4, align 4
-  %229 = icmp ule i32 %228, 2147483646
-  br i1 %229, label %246, label %230
+229:                                              ; preds = %222
+  %230 = load i32, ptr %4, align 4
+  %231 = icmp ule i32 %230, 2147483646
+  br i1 %231, label %248, label %232
 
-230:                                              ; preds = %227, %220
-  %231 = load ptr, ptr %3, align 8
-  %232 = getelementptr inbounds %struct.vars, ptr %231, i32 0, i32 6
-  store i32 101, ptr %232, align 4
+232:                                              ; preds = %229, %222
   %233 = load ptr, ptr %3, align 8
-  %234 = getelementptr inbounds %struct.vars, ptr %233, i32 0, i32 3
-  %235 = load i32, ptr %234, align 8
-  %236 = icmp ne i32 %235, 0
-  br i1 %236, label %237, label %241
+  %234 = getelementptr inbounds %struct.vars, ptr %233, i32 0, i32 6
+  store i32 101, ptr %234, align 4
+  %235 = load ptr, ptr %3, align 8
+  %236 = getelementptr inbounds %struct.vars, ptr %235, i32 0, i32 3
+  %237 = load i32, ptr %236, align 8
+  %238 = icmp ne i32 %237, 0
+  br i1 %238, label %239, label %243
 
-237:                                              ; preds = %230
-  %238 = load ptr, ptr %3, align 8
-  %239 = getelementptr inbounds %struct.vars, ptr %238, i32 0, i32 3
-  %240 = load i32, ptr %239, align 8
-  br label %242
+239:                                              ; preds = %232
+  %240 = load ptr, ptr %3, align 8
+  %241 = getelementptr inbounds %struct.vars, ptr %240, i32 0, i32 3
+  %242 = load i32, ptr %241, align 8
+  br label %244
 
-241:                                              ; preds = %230
-  br label %242
+243:                                              ; preds = %232
+  br label %244
 
-242:                                              ; preds = %241, %237
-  %243 = phi i32 [ %240, %237 ], [ 5, %241 ]
-  %244 = load ptr, ptr %3, align 8
-  %245 = getelementptr inbounds %struct.vars, ptr %244, i32 0, i32 3
-  store i32 %243, ptr %245, align 8
+244:                                              ; preds = %243, %239
+  %245 = phi i32 [ %242, %239 ], [ 5, %243 ]
+  %246 = load ptr, ptr %3, align 8
+  %247 = getelementptr inbounds %struct.vars, ptr %246, i32 0, i32 3
+  store i32 %245, ptr %247, align 8
   store i32 0, ptr %2, align 4
-  br label %470
+  br label %472
 
-246:                                              ; preds = %227
-  %247 = load ptr, ptr %3, align 8
-  %248 = getelementptr inbounds %struct.vars, ptr %247, i32 0, i32 6
-  store i32 112, ptr %248, align 4
-  %249 = load i32, ptr %4, align 4
-  %250 = load ptr, ptr %3, align 8
-  %251 = getelementptr inbounds %struct.vars, ptr %250, i32 0, i32 7
-  store i32 %249, ptr %251, align 8
+248:                                              ; preds = %229
+  %249 = load ptr, ptr %3, align 8
+  %250 = getelementptr inbounds %struct.vars, ptr %249, i32 0, i32 6
+  store i32 112, ptr %250, align 4
+  %251 = load i32, ptr %4, align 4
+  %252 = load ptr, ptr %3, align 8
+  %253 = getelementptr inbounds %struct.vars, ptr %252, i32 0, i32 7
+  store i32 %251, ptr %253, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-252:                                              ; preds = %34
-  %253 = load ptr, ptr %3, align 8
-  %254 = getelementptr inbounds %struct.vars, ptr %253, i32 0, i32 6
-  store i32 112, ptr %254, align 4
+254:                                              ; preds = %34
   %255 = load ptr, ptr %3, align 8
-  %256 = getelementptr inbounds %struct.vars, ptr %255, i32 0, i32 7
-  store i32 11, ptr %256, align 8
+  %256 = getelementptr inbounds %struct.vars, ptr %255, i32 0, i32 6
+  store i32 112, ptr %256, align 4
+  %257 = load ptr, ptr %3, align 8
+  %258 = getelementptr inbounds %struct.vars, ptr %257, i32 0, i32 7
+  store i32 11, ptr %258, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-257:                                              ; preds = %34
-  %258 = load ptr, ptr %3, align 8
-  %259 = getelementptr inbounds %struct.vars, ptr %258, i32 0, i32 0
-  %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds %struct.regex_t, ptr %260, i32 0, i32 2
-  %262 = load i64, ptr %261, align 8
-  %263 = or i64 %262, 1024
-  store i64 %263, ptr %261, align 8
-  %264 = load ptr, ptr %3, align 8
-  %265 = getelementptr inbounds %struct.vars, ptr %264, i32 0, i32 6
-  store i32 115, ptr %265, align 4
+259:                                              ; preds = %34
+  %260 = load ptr, ptr %3, align 8
+  %261 = getelementptr inbounds %struct.vars, ptr %260, i32 0, i32 0
+  %262 = load ptr, ptr %261, align 8
+  %263 = getelementptr inbounds %struct.regex_t, ptr %262, i32 0, i32 2
+  %264 = load i64, ptr %263, align 8
+  %265 = or i64 %264, 1024
+  store i64 %265, ptr %263, align 8
   %266 = load ptr, ptr %3, align 8
-  %267 = getelementptr inbounds %struct.vars, ptr %266, i32 0, i32 7
-  store i32 13, ptr %267, align 8
+  %267 = getelementptr inbounds %struct.vars, ptr %266, i32 0, i32 6
+  store i32 115, ptr %267, align 4
+  %268 = load ptr, ptr %3, align 8
+  %269 = getelementptr inbounds %struct.vars, ptr %268, i32 0, i32 7
+  store i32 13, ptr %269, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-268:                                              ; preds = %34
-  %269 = load ptr, ptr %3, align 8
-  %270 = getelementptr inbounds %struct.vars, ptr %269, i32 0, i32 0
-  %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds %struct.regex_t, ptr %271, i32 0, i32 2
-  %273 = load i64, ptr %272, align 8
-  %274 = or i64 %273, 1024
-  store i64 %274, ptr %272, align 8
-  %275 = load ptr, ptr %3, align 8
-  %276 = getelementptr inbounds %struct.vars, ptr %275, i32 0, i32 6
-  store i32 99, ptr %276, align 4
+270:                                              ; preds = %34
+  %271 = load ptr, ptr %3, align 8
+  %272 = getelementptr inbounds %struct.vars, ptr %271, i32 0, i32 0
+  %273 = load ptr, ptr %272, align 8
+  %274 = getelementptr inbounds %struct.regex_t, ptr %273, i32 0, i32 2
+  %275 = load i64, ptr %274, align 8
+  %276 = or i64 %275, 1024
+  store i64 %276, ptr %274, align 8
   %277 = load ptr, ptr %3, align 8
-  %278 = getelementptr inbounds %struct.vars, ptr %277, i32 0, i32 7
-  store i32 13, ptr %278, align 8
+  %278 = getelementptr inbounds %struct.vars, ptr %277, i32 0, i32 6
+  store i32 99, ptr %278, align 4
+  %279 = load ptr, ptr %3, align 8
+  %280 = getelementptr inbounds %struct.vars, ptr %279, i32 0, i32 7
+  store i32 13, ptr %280, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-279:                                              ; preds = %34
-  %280 = load ptr, ptr %3, align 8
-  %281 = getelementptr inbounds %struct.vars, ptr %280, i32 0, i32 0
-  %282 = load ptr, ptr %281, align 8
-  %283 = getelementptr inbounds %struct.regex_t, ptr %282, i32 0, i32 2
-  %284 = load i64, ptr %283, align 8
-  %285 = or i64 %284, 512
-  store i64 %285, ptr %283, align 8
-  %286 = load ptr, ptr %3, align 8
-  %287 = call i32 @lexdigits(ptr noundef %286, i32 noundef 16, i32 noundef 1, i32 noundef 255)
-  store i32 %287, ptr %4, align 4
+281:                                              ; preds = %34
+  %282 = load ptr, ptr %3, align 8
+  %283 = getelementptr inbounds %struct.vars, ptr %282, i32 0, i32 0
+  %284 = load ptr, ptr %283, align 8
+  %285 = getelementptr inbounds %struct.regex_t, ptr %284, i32 0, i32 2
+  %286 = load i64, ptr %285, align 8
+  %287 = or i64 %286, 512
+  store i64 %287, ptr %285, align 8
   %288 = load ptr, ptr %3, align 8
-  %289 = getelementptr inbounds %struct.vars, ptr %288, i32 0, i32 3
-  %290 = load i32, ptr %289, align 8
-  %291 = icmp ne i32 %290, 0
-  br i1 %291, label %295, label %292
+  %289 = call i32 @lexdigits(ptr noundef %288, i32 noundef 16, i32 noundef 1, i32 noundef 255)
+  store i32 %289, ptr %4, align 4
+  %290 = load ptr, ptr %3, align 8
+  %291 = getelementptr inbounds %struct.vars, ptr %290, i32 0, i32 3
+  %292 = load i32, ptr %291, align 8
+  %293 = icmp ne i32 %292, 0
+  br i1 %293, label %297, label %294
 
-292:                                              ; preds = %279
-  %293 = load i32, ptr %4, align 4
-  %294 = icmp ule i32 %293, 2147483646
-  br i1 %294, label %311, label %295
+294:                                              ; preds = %281
+  %295 = load i32, ptr %4, align 4
+  %296 = icmp ule i32 %295, 2147483646
+  br i1 %296, label %313, label %297
 
-295:                                              ; preds = %292, %279
-  %296 = load ptr, ptr %3, align 8
-  %297 = getelementptr inbounds %struct.vars, ptr %296, i32 0, i32 6
-  store i32 101, ptr %297, align 4
+297:                                              ; preds = %294, %281
   %298 = load ptr, ptr %3, align 8
-  %299 = getelementptr inbounds %struct.vars, ptr %298, i32 0, i32 3
-  %300 = load i32, ptr %299, align 8
-  %301 = icmp ne i32 %300, 0
-  br i1 %301, label %302, label %306
+  %299 = getelementptr inbounds %struct.vars, ptr %298, i32 0, i32 6
+  store i32 101, ptr %299, align 4
+  %300 = load ptr, ptr %3, align 8
+  %301 = getelementptr inbounds %struct.vars, ptr %300, i32 0, i32 3
+  %302 = load i32, ptr %301, align 8
+  %303 = icmp ne i32 %302, 0
+  br i1 %303, label %304, label %308
 
-302:                                              ; preds = %295
-  %303 = load ptr, ptr %3, align 8
-  %304 = getelementptr inbounds %struct.vars, ptr %303, i32 0, i32 3
-  %305 = load i32, ptr %304, align 8
-  br label %307
+304:                                              ; preds = %297
+  %305 = load ptr, ptr %3, align 8
+  %306 = getelementptr inbounds %struct.vars, ptr %305, i32 0, i32 3
+  %307 = load i32, ptr %306, align 8
+  br label %309
 
-306:                                              ; preds = %295
-  br label %307
+308:                                              ; preds = %297
+  br label %309
 
-307:                                              ; preds = %306, %302
-  %308 = phi i32 [ %305, %302 ], [ 5, %306 ]
-  %309 = load ptr, ptr %3, align 8
-  %310 = getelementptr inbounds %struct.vars, ptr %309, i32 0, i32 3
-  store i32 %308, ptr %310, align 8
+309:                                              ; preds = %308, %304
+  %310 = phi i32 [ %307, %304 ], [ 5, %308 ]
+  %311 = load ptr, ptr %3, align 8
+  %312 = getelementptr inbounds %struct.vars, ptr %311, i32 0, i32 3
+  store i32 %310, ptr %312, align 8
   store i32 0, ptr %2, align 4
-  br label %470
+  br label %472
 
-311:                                              ; preds = %292
-  %312 = load ptr, ptr %3, align 8
-  %313 = getelementptr inbounds %struct.vars, ptr %312, i32 0, i32 6
-  store i32 112, ptr %313, align 4
-  %314 = load i32, ptr %4, align 4
-  %315 = load ptr, ptr %3, align 8
-  %316 = getelementptr inbounds %struct.vars, ptr %315, i32 0, i32 7
-  store i32 %314, ptr %316, align 8
+313:                                              ; preds = %294
+  %314 = load ptr, ptr %3, align 8
+  %315 = getelementptr inbounds %struct.vars, ptr %314, i32 0, i32 6
+  store i32 112, ptr %315, align 4
+  %316 = load i32, ptr %4, align 4
+  %317 = load ptr, ptr %3, align 8
+  %318 = getelementptr inbounds %struct.vars, ptr %317, i32 0, i32 7
+  store i32 %316, ptr %318, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-317:                                              ; preds = %34
-  %318 = load ptr, ptr %3, align 8
-  %319 = getelementptr inbounds %struct.vars, ptr %318, i32 0, i32 0
-  %320 = load ptr, ptr %319, align 8
-  %321 = getelementptr inbounds %struct.regex_t, ptr %320, i32 0, i32 2
-  %322 = load i64, ptr %321, align 8
-  %323 = or i64 %322, 1024
-  store i64 %323, ptr %321, align 8
-  %324 = load ptr, ptr %3, align 8
-  %325 = getelementptr inbounds %struct.vars, ptr %324, i32 0, i32 6
-  store i32 119, ptr %325, align 4
+319:                                              ; preds = %34
+  %320 = load ptr, ptr %3, align 8
+  %321 = getelementptr inbounds %struct.vars, ptr %320, i32 0, i32 0
+  %322 = load ptr, ptr %321, align 8
+  %323 = getelementptr inbounds %struct.regex_t, ptr %322, i32 0, i32 2
+  %324 = load i64, ptr %323, align 8
+  %325 = or i64 %324, 1024
+  store i64 %325, ptr %323, align 8
   %326 = load ptr, ptr %3, align 8
-  %327 = getelementptr inbounds %struct.vars, ptr %326, i32 0, i32 7
-  store i32 0, ptr %327, align 8
+  %327 = getelementptr inbounds %struct.vars, ptr %326, i32 0, i32 6
+  store i32 119, ptr %327, align 4
+  %328 = load ptr, ptr %3, align 8
+  %329 = getelementptr inbounds %struct.vars, ptr %328, i32 0, i32 7
+  store i32 0, ptr %329, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-328:                                              ; preds = %34
-  %329 = load ptr, ptr %3, align 8
-  %330 = getelementptr inbounds %struct.vars, ptr %329, i32 0, i32 0
-  %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds %struct.regex_t, ptr %331, i32 0, i32 2
-  %333 = load i64, ptr %332, align 8
-  %334 = or i64 %333, 1024
-  store i64 %334, ptr %332, align 8
-  %335 = load ptr, ptr %3, align 8
-  %336 = getelementptr inbounds %struct.vars, ptr %335, i32 0, i32 6
-  store i32 87, ptr %336, align 4
+330:                                              ; preds = %34
+  %331 = load ptr, ptr %3, align 8
+  %332 = getelementptr inbounds %struct.vars, ptr %331, i32 0, i32 0
+  %333 = load ptr, ptr %332, align 8
+  %334 = getelementptr inbounds %struct.regex_t, ptr %333, i32 0, i32 2
+  %335 = load i64, ptr %334, align 8
+  %336 = or i64 %335, 1024
+  store i64 %336, ptr %334, align 8
   %337 = load ptr, ptr %3, align 8
-  %338 = getelementptr inbounds %struct.vars, ptr %337, i32 0, i32 7
-  store i32 0, ptr %338, align 8
+  %338 = getelementptr inbounds %struct.vars, ptr %337, i32 0, i32 6
+  store i32 87, ptr %338, align 4
+  %339 = load ptr, ptr %3, align 8
+  %340 = getelementptr inbounds %struct.vars, ptr %339, i32 0, i32 7
+  store i32 0, ptr %340, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-339:                                              ; preds = %34
-  %340 = load ptr, ptr %3, align 8
-  %341 = getelementptr inbounds %struct.vars, ptr %340, i32 0, i32 6
-  store i32 90, ptr %341, align 4
+341:                                              ; preds = %34
   %342 = load ptr, ptr %3, align 8
-  %343 = getelementptr inbounds %struct.vars, ptr %342, i32 0, i32 7
-  store i32 0, ptr %343, align 8
+  %343 = getelementptr inbounds %struct.vars, ptr %342, i32 0, i32 6
+  store i32 90, ptr %343, align 4
+  %344 = load ptr, ptr %3, align 8
+  %345 = getelementptr inbounds %struct.vars, ptr %344, i32 0, i32 7
+  store i32 0, ptr %345, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-344:                                              ; preds = %34, %34, %34, %34, %34, %34, %34, %34, %34
-  %345 = load ptr, ptr %3, align 8
-  %346 = getelementptr inbounds %struct.vars, ptr %345, i32 0, i32 1
-  %347 = load ptr, ptr %346, align 8
-  store ptr %347, ptr %5, align 8
-  %348 = load ptr, ptr %3, align 8
-  %349 = getelementptr inbounds %struct.vars, ptr %348, i32 0, i32 1
-  %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr i32, ptr %350, i32 -1
-  store ptr %351, ptr %349, align 8
-  %352 = load ptr, ptr %3, align 8
-  %353 = call i32 @lexdigits(ptr noundef %352, i32 noundef 10, i32 noundef 1, i32 noundef 255)
-  store i32 %353, ptr %4, align 4
+346:                                              ; preds = %34, %34, %34, %34, %34, %34, %34, %34, %34
+  %347 = load ptr, ptr %3, align 8
+  %348 = getelementptr inbounds %struct.vars, ptr %347, i32 0, i32 1
+  %349 = load ptr, ptr %348, align 8
+  store ptr %349, ptr %5, align 8
+  %350 = load ptr, ptr %3, align 8
+  %351 = getelementptr inbounds %struct.vars, ptr %350, i32 0, i32 1
+  %352 = load ptr, ptr %351, align 8
+  %353 = getelementptr i32, ptr %352, i32 -1
+  store ptr %353, ptr %351, align 8
   %354 = load ptr, ptr %3, align 8
-  %355 = getelementptr inbounds %struct.vars, ptr %354, i32 0, i32 3
-  %356 = load i32, ptr %355, align 8
-  %357 = icmp ne i32 %356, 0
-  br i1 %357, label %358, label %374
+  %355 = call i32 @lexdigits(ptr noundef %354, i32 noundef 10, i32 noundef 1, i32 noundef 255)
+  store i32 %355, ptr %4, align 4
+  %356 = load ptr, ptr %3, align 8
+  %357 = getelementptr inbounds %struct.vars, ptr %356, i32 0, i32 3
+  %358 = load i32, ptr %357, align 8
+  %359 = icmp ne i32 %358, 0
+  br i1 %359, label %360, label %376
 
-358:                                              ; preds = %344
-  %359 = load ptr, ptr %3, align 8
-  %360 = getelementptr inbounds %struct.vars, ptr %359, i32 0, i32 6
-  store i32 101, ptr %360, align 4
+360:                                              ; preds = %346
   %361 = load ptr, ptr %3, align 8
-  %362 = getelementptr inbounds %struct.vars, ptr %361, i32 0, i32 3
-  %363 = load i32, ptr %362, align 8
-  %364 = icmp ne i32 %363, 0
-  br i1 %364, label %365, label %369
+  %362 = getelementptr inbounds %struct.vars, ptr %361, i32 0, i32 6
+  store i32 101, ptr %362, align 4
+  %363 = load ptr, ptr %3, align 8
+  %364 = getelementptr inbounds %struct.vars, ptr %363, i32 0, i32 3
+  %365 = load i32, ptr %364, align 8
+  %366 = icmp ne i32 %365, 0
+  br i1 %366, label %367, label %371
 
-365:                                              ; preds = %358
-  %366 = load ptr, ptr %3, align 8
-  %367 = getelementptr inbounds %struct.vars, ptr %366, i32 0, i32 3
-  %368 = load i32, ptr %367, align 8
-  br label %370
+367:                                              ; preds = %360
+  %368 = load ptr, ptr %3, align 8
+  %369 = getelementptr inbounds %struct.vars, ptr %368, i32 0, i32 3
+  %370 = load i32, ptr %369, align 8
+  br label %372
 
-369:                                              ; preds = %358
-  br label %370
+371:                                              ; preds = %360
+  br label %372
 
-370:                                              ; preds = %369, %365
-  %371 = phi i32 [ %368, %365 ], [ 5, %369 ]
-  %372 = load ptr, ptr %3, align 8
-  %373 = getelementptr inbounds %struct.vars, ptr %372, i32 0, i32 3
-  store i32 %371, ptr %373, align 8
+372:                                              ; preds = %371, %367
+  %373 = phi i32 [ %370, %367 ], [ 5, %371 ]
+  %374 = load ptr, ptr %3, align 8
+  %375 = getelementptr inbounds %struct.vars, ptr %374, i32 0, i32 3
+  store i32 %373, ptr %375, align 8
   store i32 0, ptr %2, align 4
-  br label %470
+  br label %472
 
-374:                                              ; preds = %344
-  %375 = load ptr, ptr %3, align 8
-  %376 = getelementptr inbounds %struct.vars, ptr %375, i32 0, i32 1
-  %377 = load ptr, ptr %376, align 8
-  %378 = load ptr, ptr %5, align 8
-  %379 = icmp eq ptr %377, %378
-  br i1 %379, label %389, label %380
+376:                                              ; preds = %346
+  %377 = load ptr, ptr %3, align 8
+  %378 = getelementptr inbounds %struct.vars, ptr %377, i32 0, i32 1
+  %379 = load ptr, ptr %378, align 8
+  %380 = load ptr, ptr %5, align 8
+  %381 = icmp eq ptr %379, %380
+  br i1 %381, label %391, label %382
 
-380:                                              ; preds = %374
-  %381 = load i32, ptr %4, align 4
-  %382 = icmp sgt i32 %381, 0
-  br i1 %382, label %383, label %401
+382:                                              ; preds = %376
+  %383 = load i32, ptr %4, align 4
+  %384 = icmp sgt i32 %383, 0
+  br i1 %384, label %385, label %403
 
-383:                                              ; preds = %380
-  %384 = load i32, ptr %4, align 4
-  %385 = load ptr, ptr %3, align 8
-  %386 = getelementptr inbounds %struct.vars, ptr %385, i32 0, i32 9
-  %387 = load i32, ptr %386, align 8
-  %388 = icmp sle i32 %384, %387
-  br i1 %388, label %389, label %401
+385:                                              ; preds = %382
+  %386 = load i32, ptr %4, align 4
+  %387 = load ptr, ptr %3, align 8
+  %388 = getelementptr inbounds %struct.vars, ptr %387, i32 0, i32 9
+  %389 = load i32, ptr %388, align 8
+  %390 = icmp sle i32 %386, %389
+  br i1 %390, label %391, label %403
 
-389:                                              ; preds = %383, %374
-  %390 = load ptr, ptr %3, align 8
-  %391 = getelementptr inbounds %struct.vars, ptr %390, i32 0, i32 0
-  %392 = load ptr, ptr %391, align 8
-  %393 = getelementptr inbounds %struct.regex_t, ptr %392, i32 0, i32 2
-  %394 = load i64, ptr %393, align 8
-  %395 = or i64 %394, 1
-  store i64 %395, ptr %393, align 8
-  %396 = load ptr, ptr %3, align 8
-  %397 = getelementptr inbounds %struct.vars, ptr %396, i32 0, i32 6
-  store i32 98, ptr %397, align 4
-  %398 = load i32, ptr %4, align 4
-  %399 = load ptr, ptr %3, align 8
-  %400 = getelementptr inbounds %struct.vars, ptr %399, i32 0, i32 7
-  store i32 %398, ptr %400, align 8
+391:                                              ; preds = %385, %376
+  %392 = load ptr, ptr %3, align 8
+  %393 = getelementptr inbounds %struct.vars, ptr %392, i32 0, i32 0
+  %394 = load ptr, ptr %393, align 8
+  %395 = getelementptr inbounds %struct.regex_t, ptr %394, i32 0, i32 2
+  %396 = load i64, ptr %395, align 8
+  %397 = or i64 %396, 1
+  store i64 %397, ptr %395, align 8
+  %398 = load ptr, ptr %3, align 8
+  %399 = getelementptr inbounds %struct.vars, ptr %398, i32 0, i32 6
+  store i32 98, ptr %399, align 4
+  %400 = load i32, ptr %4, align 4
+  %401 = load ptr, ptr %3, align 8
+  %402 = getelementptr inbounds %struct.vars, ptr %401, i32 0, i32 7
+  store i32 %400, ptr %402, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-401:                                              ; preds = %383, %380
-  %402 = load ptr, ptr %5, align 8
-  %403 = load ptr, ptr %3, align 8
-  %404 = getelementptr inbounds %struct.vars, ptr %403, i32 0, i32 1
-  store ptr %402, ptr %404, align 8
-  br label %405
+403:                                              ; preds = %385, %382
+  %404 = load ptr, ptr %5, align 8
+  %405 = load ptr, ptr %3, align 8
+  %406 = getelementptr inbounds %struct.vars, ptr %405, i32 0, i32 1
+  store ptr %404, ptr %406, align 8
+  br label %407
 
-405:                                              ; preds = %401, %34
-  %406 = load ptr, ptr %3, align 8
-  %407 = getelementptr inbounds %struct.vars, ptr %406, i32 0, i32 0
-  %408 = load ptr, ptr %407, align 8
-  %409 = getelementptr inbounds %struct.regex_t, ptr %408, i32 0, i32 2
-  %410 = load i64, ptr %409, align 8
-  %411 = or i64 %410, 512
-  store i64 %411, ptr %409, align 8
-  %412 = load ptr, ptr %3, align 8
-  %413 = getelementptr inbounds %struct.vars, ptr %412, i32 0, i32 1
-  %414 = load ptr, ptr %413, align 8
-  %415 = getelementptr i32, ptr %414, i32 -1
-  store ptr %415, ptr %413, align 8
-  %416 = load ptr, ptr %3, align 8
-  %417 = call i32 @lexdigits(ptr noundef %416, i32 noundef 8, i32 noundef 1, i32 noundef 3)
-  store i32 %417, ptr %4, align 4
+407:                                              ; preds = %403, %34
+  %408 = load ptr, ptr %3, align 8
+  %409 = getelementptr inbounds %struct.vars, ptr %408, i32 0, i32 0
+  %410 = load ptr, ptr %409, align 8
+  %411 = getelementptr inbounds %struct.regex_t, ptr %410, i32 0, i32 2
+  %412 = load i64, ptr %411, align 8
+  %413 = or i64 %412, 512
+  store i64 %413, ptr %411, align 8
+  %414 = load ptr, ptr %3, align 8
+  %415 = getelementptr inbounds %struct.vars, ptr %414, i32 0, i32 1
+  %416 = load ptr, ptr %415, align 8
+  %417 = getelementptr i32, ptr %416, i32 -1
+  store ptr %417, ptr %415, align 8
   %418 = load ptr, ptr %3, align 8
-  %419 = getelementptr inbounds %struct.vars, ptr %418, i32 0, i32 3
-  %420 = load i32, ptr %419, align 8
-  %421 = icmp ne i32 %420, 0
-  br i1 %421, label %422, label %438
+  %419 = call i32 @lexdigits(ptr noundef %418, i32 noundef 8, i32 noundef 1, i32 noundef 3)
+  store i32 %419, ptr %4, align 4
+  %420 = load ptr, ptr %3, align 8
+  %421 = getelementptr inbounds %struct.vars, ptr %420, i32 0, i32 3
+  %422 = load i32, ptr %421, align 8
+  %423 = icmp ne i32 %422, 0
+  br i1 %423, label %424, label %440
 
-422:                                              ; preds = %405
-  %423 = load ptr, ptr %3, align 8
-  %424 = getelementptr inbounds %struct.vars, ptr %423, i32 0, i32 6
-  store i32 101, ptr %424, align 4
+424:                                              ; preds = %407
   %425 = load ptr, ptr %3, align 8
-  %426 = getelementptr inbounds %struct.vars, ptr %425, i32 0, i32 3
-  %427 = load i32, ptr %426, align 8
-  %428 = icmp ne i32 %427, 0
-  br i1 %428, label %429, label %433
+  %426 = getelementptr inbounds %struct.vars, ptr %425, i32 0, i32 6
+  store i32 101, ptr %426, align 4
+  %427 = load ptr, ptr %3, align 8
+  %428 = getelementptr inbounds %struct.vars, ptr %427, i32 0, i32 3
+  %429 = load i32, ptr %428, align 8
+  %430 = icmp ne i32 %429, 0
+  br i1 %430, label %431, label %435
 
-429:                                              ; preds = %422
-  %430 = load ptr, ptr %3, align 8
-  %431 = getelementptr inbounds %struct.vars, ptr %430, i32 0, i32 3
-  %432 = load i32, ptr %431, align 8
-  br label %434
+431:                                              ; preds = %424
+  %432 = load ptr, ptr %3, align 8
+  %433 = getelementptr inbounds %struct.vars, ptr %432, i32 0, i32 3
+  %434 = load i32, ptr %433, align 8
+  br label %436
 
-433:                                              ; preds = %422
-  br label %434
+435:                                              ; preds = %424
+  br label %436
 
-434:                                              ; preds = %433, %429
-  %435 = phi i32 [ %432, %429 ], [ 5, %433 ]
-  %436 = load ptr, ptr %3, align 8
-  %437 = getelementptr inbounds %struct.vars, ptr %436, i32 0, i32 3
-  store i32 %435, ptr %437, align 8
+436:                                              ; preds = %435, %431
+  %437 = phi i32 [ %434, %431 ], [ 5, %435 ]
+  %438 = load ptr, ptr %3, align 8
+  %439 = getelementptr inbounds %struct.vars, ptr %438, i32 0, i32 3
+  store i32 %437, ptr %439, align 8
   store i32 0, ptr %2, align 4
-  br label %470
+  br label %472
 
-438:                                              ; preds = %405
-  %439 = load i32, ptr %4, align 4
-  %440 = icmp ugt i32 %439, 255
-  br i1 %440, label %441, label %448
+440:                                              ; preds = %407
+  %441 = load i32, ptr %4, align 4
+  %442 = icmp ugt i32 %441, 255
+  br i1 %442, label %443, label %450
 
-441:                                              ; preds = %438
-  %442 = load ptr, ptr %3, align 8
-  %443 = getelementptr inbounds %struct.vars, ptr %442, i32 0, i32 1
-  %444 = load ptr, ptr %443, align 8
-  %445 = getelementptr i32, ptr %444, i32 -1
-  store ptr %445, ptr %443, align 8
-  %446 = load i32, ptr %4, align 4
-  %447 = lshr i32 %446, 3
-  store i32 %447, ptr %4, align 4
-  br label %448
+443:                                              ; preds = %440
+  %444 = load ptr, ptr %3, align 8
+  %445 = getelementptr inbounds %struct.vars, ptr %444, i32 0, i32 1
+  %446 = load ptr, ptr %445, align 8
+  %447 = getelementptr i32, ptr %446, i32 -1
+  store ptr %447, ptr %445, align 8
+  %448 = load i32, ptr %4, align 4
+  %449 = lshr i32 %448, 3
+  store i32 %449, ptr %4, align 4
+  br label %450
 
-448:                                              ; preds = %441, %438
-  %449 = load ptr, ptr %3, align 8
-  %450 = getelementptr inbounds %struct.vars, ptr %449, i32 0, i32 6
-  store i32 112, ptr %450, align 4
-  %451 = load i32, ptr %4, align 4
-  %452 = load ptr, ptr %3, align 8
-  %453 = getelementptr inbounds %struct.vars, ptr %452, i32 0, i32 7
-  store i32 %451, ptr %453, align 8
+450:                                              ; preds = %443, %440
+  %451 = load ptr, ptr %3, align 8
+  %452 = getelementptr inbounds %struct.vars, ptr %451, i32 0, i32 6
+  store i32 112, ptr %452, align 4
+  %453 = load i32, ptr %4, align 4
+  %454 = load ptr, ptr %3, align 8
+  %455 = getelementptr inbounds %struct.vars, ptr %454, i32 0, i32 7
+  store i32 %453, ptr %455, align 8
   store i32 1, ptr %2, align 4
-  br label %470
+  br label %472
 
-454:                                              ; preds = %34
-  %455 = load ptr, ptr %3, align 8
-  %456 = getelementptr inbounds %struct.vars, ptr %455, i32 0, i32 6
-  store i32 101, ptr %456, align 4
+456:                                              ; preds = %34
   %457 = load ptr, ptr %3, align 8
-  %458 = getelementptr inbounds %struct.vars, ptr %457, i32 0, i32 3
-  %459 = load i32, ptr %458, align 8
-  %460 = icmp ne i32 %459, 0
-  br i1 %460, label %461, label %465
+  %458 = getelementptr inbounds %struct.vars, ptr %457, i32 0, i32 6
+  store i32 101, ptr %458, align 4
+  %459 = load ptr, ptr %3, align 8
+  %460 = getelementptr inbounds %struct.vars, ptr %459, i32 0, i32 3
+  %461 = load i32, ptr %460, align 8
+  %462 = icmp ne i32 %461, 0
+  br i1 %462, label %463, label %467
 
-461:                                              ; preds = %454
-  %462 = load ptr, ptr %3, align 8
-  %463 = getelementptr inbounds %struct.vars, ptr %462, i32 0, i32 3
-  %464 = load i32, ptr %463, align 8
-  br label %466
+463:                                              ; preds = %456
+  %464 = load ptr, ptr %3, align 8
+  %465 = getelementptr inbounds %struct.vars, ptr %464, i32 0, i32 3
+  %466 = load i32, ptr %465, align 8
+  br label %468
 
-465:                                              ; preds = %454
-  br label %466
+467:                                              ; preds = %456
+  br label %468
 
-466:                                              ; preds = %465, %461
-  %467 = phi i32 [ %464, %461 ], [ 5, %465 ]
-  %468 = load ptr, ptr %3, align 8
-  %469 = getelementptr inbounds %struct.vars, ptr %468, i32 0, i32 3
-  store i32 %467, ptr %469, align 8
+468:                                              ; preds = %467, %463
+  %469 = phi i32 [ %466, %463 ], [ 5, %467 ]
+  %470 = load ptr, ptr %3, align 8
+  %471 = getelementptr inbounds %struct.vars, ptr %470, i32 0, i32 3
+  store i32 %469, ptr %471, align 8
   store i32 0, ptr %2, align 4
-  br label %470
+  br label %472
 
-470:                                              ; preds = %466, %448, %434, %389, %370, %339, %328, %317, %311, %307, %268, %257, %252, %246, %242, %214, %210, %183, %172, %161, %156, %151, %148, %145, %140, %127, %116, %105, %94, %90, %59, %54, %49, %42, %28
-  %471 = load i32, ptr %2, align 4
-  ret i32 %471
+472:                                              ; preds = %468, %450, %436, %391, %372, %341, %330, %319, %313, %309, %270, %259, %254, %248, %244, %216, %212, %185, %174, %163, %158, %153, %150, %147, %142, %128, %117, %106, %95, %91, %60, %55, %50, %42, %28
+  %473 = load i32, ptr %2, align 4
+  ret i32 %473
 }
 
 ; Function Attrs: nounwind uwtable

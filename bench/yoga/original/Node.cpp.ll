@@ -1696,17 +1696,19 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %1 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %1, align 8, !nosanitize !4
+  %1 = ptrtoint ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64
+  %2 = sub i64 %1, 1
+  %3 = getelementptr i8, ptr %vtable, i64 %2, !nosanitize !4
+  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !4
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %2 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual ]
-  %3 = load i8, ptr %rowEdge.addr, align 1
-  %call = call i32 %2(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %3)
+  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual ]
+  %5 = load i8, ptr %rowEdge.addr, align 1
+  %call = call i32 %4(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %5)
   %coerce.dive = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp, i32 0, i32 0
   store i32 %call, ptr %coerce.dive, align 4
   %call2 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #3
@@ -1714,44 +1716,48 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
 
 if.then:                                          ; preds = %memptr.end
   %style_3 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %4 = getelementptr inbounds i8, ptr %style_3, i64 0
+  %6 = getelementptr inbounds i8, ptr %style_3, i64 0
   br i1 false, label %memptr.virtual4, label %memptr.nonvirtual7
 
 memptr.virtual4:                                  ; preds = %if.then
-  %vtable5 = load ptr, ptr %4, align 8
-  %5 = getelementptr i8, ptr %vtable5, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn6 = load ptr, ptr %5, align 8, !nosanitize !4
+  %vtable5 = load ptr, ptr %6, align 8
+  %7 = ptrtoint ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64
+  %8 = sub i64 %7, 1
+  %9 = getelementptr i8, ptr %vtable5, i64 %8, !nosanitize !4
+  %memptr.virtualfn6 = load ptr, ptr %9, align 8, !nosanitize !4
   br label %memptr.end8
 
 memptr.nonvirtual7:                               ; preds = %if.then
   br label %memptr.end8
 
 memptr.end8:                                      ; preds = %memptr.nonvirtual7, %memptr.virtual4
-  %6 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual7 ]
-  %7 = load i8, ptr %rowEdge.addr, align 1
-  %call9 = call i32 %6(ptr noundef nonnull align 4 dereferenceable(204) %4, i8 noundef zeroext %7)
+  %10 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual7 ]
+  %11 = load i8, ptr %rowEdge.addr, align 1
+  %call9 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %6, i8 noundef zeroext %11)
   %coerce.dive10 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call9, ptr %coerce.dive10, align 4
   br label %return
 
 if.else:                                          ; preds = %memptr.end
   %style_12 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %8 = getelementptr inbounds i8, ptr %style_12, i64 0
+  %12 = getelementptr inbounds i8, ptr %style_12, i64 0
   br i1 false, label %memptr.virtual13, label %memptr.nonvirtual16
 
 memptr.virtual13:                                 ; preds = %if.else
-  %vtable14 = load ptr, ptr %8, align 8
-  %9 = getelementptr i8, ptr %vtable14, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn15 = load ptr, ptr %9, align 8, !nosanitize !4
+  %vtable14 = load ptr, ptr %12, align 8
+  %13 = ptrtoint ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64
+  %14 = sub i64 %13, 1
+  %15 = getelementptr i8, ptr %vtable14, i64 %14, !nosanitize !4
+  %memptr.virtualfn15 = load ptr, ptr %15, align 8, !nosanitize !4
   br label %memptr.end17
 
 memptr.nonvirtual16:                              ; preds = %if.else
   br label %memptr.end17
 
 memptr.end17:                                     ; preds = %memptr.nonvirtual16, %memptr.virtual13
-  %10 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual16 ]
-  %11 = load i8, ptr %edge.addr, align 1
-  %call18 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %8, i8 noundef zeroext %11)
+  %16 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual16 ]
+  %17 = load i8, ptr %edge.addr, align 1
+  %call18 = call i32 %16(ptr noundef nonnull align 4 dereferenceable(204) %12, i8 noundef zeroext %17)
   %coerce.dive19 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp11, i32 0, i32 0
   store i32 %call18, ptr %coerce.dive19, align 4
   %call20 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11) #3
@@ -1759,43 +1765,47 @@ memptr.end17:                                     ; preds = %memptr.nonvirtual16
 
 if.then21:                                        ; preds = %memptr.end17
   %style_22 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %12 = getelementptr inbounds i8, ptr %style_22, i64 0
+  %18 = getelementptr inbounds i8, ptr %style_22, i64 0
   br i1 false, label %memptr.virtual23, label %memptr.nonvirtual26
 
 memptr.virtual23:                                 ; preds = %if.then21
-  %vtable24 = load ptr, ptr %12, align 8
-  %13 = getelementptr i8, ptr %vtable24, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn25 = load ptr, ptr %13, align 8, !nosanitize !4
+  %vtable24 = load ptr, ptr %18, align 8
+  %19 = ptrtoint ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64
+  %20 = sub i64 %19, 1
+  %21 = getelementptr i8, ptr %vtable24, i64 %20, !nosanitize !4
+  %memptr.virtualfn25 = load ptr, ptr %21, align 8, !nosanitize !4
   br label %memptr.end27
 
 memptr.nonvirtual26:                              ; preds = %if.then21
   br label %memptr.end27
 
 memptr.end27:                                     ; preds = %memptr.nonvirtual26, %memptr.virtual23
-  %14 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual26 ]
-  %15 = load i8, ptr %edge.addr, align 1
-  %call28 = call i32 %14(ptr noundef nonnull align 4 dereferenceable(204) %12, i8 noundef zeroext %15)
+  %22 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual26 ]
+  %23 = load i8, ptr %edge.addr, align 1
+  %call28 = call i32 %22(ptr noundef nonnull align 4 dereferenceable(204) %18, i8 noundef zeroext %23)
   %coerce.dive29 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call28, ptr %coerce.dive29, align 4
   br label %return
 
 if.else30:                                        ; preds = %memptr.end17
   %style_32 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %16 = getelementptr inbounds i8, ptr %style_32, i64 0
+  %24 = getelementptr inbounds i8, ptr %style_32, i64 0
   br i1 false, label %memptr.virtual33, label %memptr.nonvirtual36
 
 memptr.virtual33:                                 ; preds = %if.else30
-  %vtable34 = load ptr, ptr %16, align 8
-  %17 = getelementptr i8, ptr %vtable34, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn35 = load ptr, ptr %17, align 8, !nosanitize !4
+  %vtable34 = load ptr, ptr %24, align 8
+  %25 = ptrtoint ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64
+  %26 = sub i64 %25, 1
+  %27 = getelementptr i8, ptr %vtable34, i64 %26, !nosanitize !4
+  %memptr.virtualfn35 = load ptr, ptr %27, align 8, !nosanitize !4
   br label %memptr.end37
 
 memptr.nonvirtual36:                              ; preds = %if.else30
   br label %memptr.end37
 
 memptr.end37:                                     ; preds = %memptr.nonvirtual36, %memptr.virtual33
-  %18 = phi ptr [ %memptr.virtualfn35, %memptr.virtual33 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual36 ]
-  %call38 = call i32 %18(ptr noundef nonnull align 4 dereferenceable(204) %16, i8 noundef zeroext 6)
+  %28 = phi ptr [ %memptr.virtualfn35, %memptr.virtual33 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual36 ]
+  %call38 = call i32 %28(ptr noundef nonnull align 4 dereferenceable(204) %24, i8 noundef zeroext 6)
   %coerce.dive39 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp31, i32 0, i32 0
   store i32 %call38, ptr %coerce.dive39, align 4
   %call40 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp31) #3
@@ -1803,50 +1813,54 @@ memptr.end37:                                     ; preds = %memptr.nonvirtual36
 
 if.then41:                                        ; preds = %memptr.end37
   %style_42 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %19 = getelementptr inbounds i8, ptr %style_42, i64 0
+  %29 = getelementptr inbounds i8, ptr %style_42, i64 0
   br i1 false, label %memptr.virtual43, label %memptr.nonvirtual46
 
 memptr.virtual43:                                 ; preds = %if.then41
-  %vtable44 = load ptr, ptr %19, align 8
-  %20 = getelementptr i8, ptr %vtable44, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn45 = load ptr, ptr %20, align 8, !nosanitize !4
+  %vtable44 = load ptr, ptr %29, align 8
+  %30 = ptrtoint ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64
+  %31 = sub i64 %30, 1
+  %32 = getelementptr i8, ptr %vtable44, i64 %31, !nosanitize !4
+  %memptr.virtualfn45 = load ptr, ptr %32, align 8, !nosanitize !4
   br label %memptr.end47
 
 memptr.nonvirtual46:                              ; preds = %if.then41
   br label %memptr.end47
 
 memptr.end47:                                     ; preds = %memptr.nonvirtual46, %memptr.virtual43
-  %21 = phi ptr [ %memptr.virtualfn45, %memptr.virtual43 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual46 ]
-  %call48 = call i32 %21(ptr noundef nonnull align 4 dereferenceable(204) %19, i8 noundef zeroext 6)
+  %33 = phi ptr [ %memptr.virtualfn45, %memptr.virtual43 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual46 ]
+  %call48 = call i32 %33(ptr noundef nonnull align 4 dereferenceable(204) %29, i8 noundef zeroext 6)
   %coerce.dive49 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call48, ptr %coerce.dive49, align 4
   br label %return
 
 if.else50:                                        ; preds = %memptr.end37
   %style_51 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %22 = getelementptr inbounds i8, ptr %style_51, i64 0
+  %34 = getelementptr inbounds i8, ptr %style_51, i64 0
   br i1 false, label %memptr.virtual52, label %memptr.nonvirtual55
 
 memptr.virtual52:                                 ; preds = %if.else50
-  %vtable53 = load ptr, ptr %22, align 8
-  %23 = getelementptr i8, ptr %vtable53, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn54 = load ptr, ptr %23, align 8, !nosanitize !4
+  %vtable53 = load ptr, ptr %34, align 8
+  %35 = ptrtoint ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64
+  %36 = sub i64 %35, 1
+  %37 = getelementptr i8, ptr %vtable53, i64 %36, !nosanitize !4
+  %memptr.virtualfn54 = load ptr, ptr %37, align 8, !nosanitize !4
   br label %memptr.end56
 
 memptr.nonvirtual55:                              ; preds = %if.else50
   br label %memptr.end56
 
 memptr.end56:                                     ; preds = %memptr.nonvirtual55, %memptr.virtual52
-  %24 = phi ptr [ %memptr.virtualfn54, %memptr.virtual52 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual55 ]
-  %call57 = call i32 %24(ptr noundef nonnull align 4 dereferenceable(204) %22, i8 noundef zeroext 8)
+  %38 = phi ptr [ %memptr.virtualfn54, %memptr.virtual52 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual55 ]
+  %call57 = call i32 %38(ptr noundef nonnull align 4 dereferenceable(204) %34, i8 noundef zeroext 8)
   %coerce.dive58 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call57, ptr %coerce.dive58, align 4
   br label %return
 
 return:                                           ; preds = %memptr.end56, %memptr.end47, %memptr.end27, %memptr.end8
   %coerce.dive59 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
-  %25 = load i32, ptr %coerce.dive59, align 4
-  ret i32 %25
+  %39 = load i32, ptr %coerce.dive59, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1866,17 +1880,19 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %1 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %1, align 8, !nosanitize !4
+  %1 = ptrtoint ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64
+  %2 = sub i64 %1, 1
+  %3 = getelementptr i8, ptr %vtable, i64 %2, !nosanitize !4
+  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !4
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %2 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual ]
-  %3 = load i8, ptr %edge.addr, align 1
-  %call = call i32 %2(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %3)
+  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual ]
+  %5 = load i8, ptr %edge.addr, align 1
+  %call = call i32 %4(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %5)
   %coerce.dive = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp, i32 0, i32 0
   store i32 %call, ptr %coerce.dive, align 4
   %call2 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #3
@@ -1884,43 +1900,47 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
 
 if.then:                                          ; preds = %memptr.end
   %style_3 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %4 = getelementptr inbounds i8, ptr %style_3, i64 0
+  %6 = getelementptr inbounds i8, ptr %style_3, i64 0
   br i1 false, label %memptr.virtual4, label %memptr.nonvirtual7
 
 memptr.virtual4:                                  ; preds = %if.then
-  %vtable5 = load ptr, ptr %4, align 8
-  %5 = getelementptr i8, ptr %vtable5, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn6 = load ptr, ptr %5, align 8, !nosanitize !4
+  %vtable5 = load ptr, ptr %6, align 8
+  %7 = ptrtoint ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64
+  %8 = sub i64 %7, 1
+  %9 = getelementptr i8, ptr %vtable5, i64 %8, !nosanitize !4
+  %memptr.virtualfn6 = load ptr, ptr %9, align 8, !nosanitize !4
   br label %memptr.end8
 
 memptr.nonvirtual7:                               ; preds = %if.then
   br label %memptr.end8
 
 memptr.end8:                                      ; preds = %memptr.nonvirtual7, %memptr.virtual4
-  %6 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual7 ]
-  %7 = load i8, ptr %edge.addr, align 1
-  %call9 = call i32 %6(ptr noundef nonnull align 4 dereferenceable(204) %4, i8 noundef zeroext %7)
+  %10 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual7 ]
+  %11 = load i8, ptr %edge.addr, align 1
+  %call9 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %6, i8 noundef zeroext %11)
   %coerce.dive10 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call9, ptr %coerce.dive10, align 4
   br label %return
 
 if.else:                                          ; preds = %memptr.end
   %style_12 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %8 = getelementptr inbounds i8, ptr %style_12, i64 0
+  %12 = getelementptr inbounds i8, ptr %style_12, i64 0
   br i1 false, label %memptr.virtual13, label %memptr.nonvirtual16
 
 memptr.virtual13:                                 ; preds = %if.else
-  %vtable14 = load ptr, ptr %8, align 8
-  %9 = getelementptr i8, ptr %vtable14, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn15 = load ptr, ptr %9, align 8, !nosanitize !4
+  %vtable14 = load ptr, ptr %12, align 8
+  %13 = ptrtoint ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64
+  %14 = sub i64 %13, 1
+  %15 = getelementptr i8, ptr %vtable14, i64 %14, !nosanitize !4
+  %memptr.virtualfn15 = load ptr, ptr %15, align 8, !nosanitize !4
   br label %memptr.end17
 
 memptr.nonvirtual16:                              ; preds = %if.else
   br label %memptr.end17
 
 memptr.end17:                                     ; preds = %memptr.nonvirtual16, %memptr.virtual13
-  %10 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual16 ]
-  %call18 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %8, i8 noundef zeroext 7)
+  %16 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual16 ]
+  %call18 = call i32 %16(ptr noundef nonnull align 4 dereferenceable(204) %12, i8 noundef zeroext 7)
   %coerce.dive19 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp11, i32 0, i32 0
   store i32 %call18, ptr %coerce.dive19, align 4
   %call20 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11) #3
@@ -1928,50 +1948,54 @@ memptr.end17:                                     ; preds = %memptr.nonvirtual16
 
 if.then21:                                        ; preds = %memptr.end17
   %style_22 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %11 = getelementptr inbounds i8, ptr %style_22, i64 0
+  %17 = getelementptr inbounds i8, ptr %style_22, i64 0
   br i1 false, label %memptr.virtual23, label %memptr.nonvirtual26
 
 memptr.virtual23:                                 ; preds = %if.then21
-  %vtable24 = load ptr, ptr %11, align 8
-  %12 = getelementptr i8, ptr %vtable24, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn25 = load ptr, ptr %12, align 8, !nosanitize !4
+  %vtable24 = load ptr, ptr %17, align 8
+  %18 = ptrtoint ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64
+  %19 = sub i64 %18, 1
+  %20 = getelementptr i8, ptr %vtable24, i64 %19, !nosanitize !4
+  %memptr.virtualfn25 = load ptr, ptr %20, align 8, !nosanitize !4
   br label %memptr.end27
 
 memptr.nonvirtual26:                              ; preds = %if.then21
   br label %memptr.end27
 
 memptr.end27:                                     ; preds = %memptr.nonvirtual26, %memptr.virtual23
-  %13 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual26 ]
-  %call28 = call i32 %13(ptr noundef nonnull align 4 dereferenceable(204) %11, i8 noundef zeroext 7)
+  %21 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual26 ]
+  %call28 = call i32 %21(ptr noundef nonnull align 4 dereferenceable(204) %17, i8 noundef zeroext 7)
   %coerce.dive29 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call28, ptr %coerce.dive29, align 4
   br label %return
 
 if.else30:                                        ; preds = %memptr.end17
   %style_31 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %14 = getelementptr inbounds i8, ptr %style_31, i64 0
+  %22 = getelementptr inbounds i8, ptr %style_31, i64 0
   br i1 false, label %memptr.virtual32, label %memptr.nonvirtual35
 
 memptr.virtual32:                                 ; preds = %if.else30
-  %vtable33 = load ptr, ptr %14, align 8
-  %15 = getelementptr i8, ptr %vtable33, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn34 = load ptr, ptr %15, align 8, !nosanitize !4
+  %vtable33 = load ptr, ptr %22, align 8
+  %23 = ptrtoint ptr @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE to i64
+  %24 = sub i64 %23, 1
+  %25 = getelementptr i8, ptr %vtable33, i64 %24, !nosanitize !4
+  %memptr.virtualfn34 = load ptr, ptr %25, align 8, !nosanitize !4
   br label %memptr.end36
 
 memptr.nonvirtual35:                              ; preds = %if.else30
   br label %memptr.end36
 
 memptr.end36:                                     ; preds = %memptr.nonvirtual35, %memptr.virtual32
-  %16 = phi ptr [ %memptr.virtualfn34, %memptr.virtual32 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual35 ]
-  %call37 = call i32 %16(ptr noundef nonnull align 4 dereferenceable(204) %14, i8 noundef zeroext 8)
+  %26 = phi ptr [ %memptr.virtualfn34, %memptr.virtual32 ], [ @_ZNK8facebook4yoga5Style8positionENS0_4EdgeE, %memptr.nonvirtual35 ]
+  %call37 = call i32 %26(ptr noundef nonnull align 4 dereferenceable(204) %22, i8 noundef zeroext 8)
   %coerce.dive38 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call37, ptr %coerce.dive38, align 4
   br label %return
 
 return:                                           ; preds = %memptr.end36, %memptr.end27, %memptr.end8
   %coerce.dive39 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
-  %17 = load i32, ptr %coerce.dive39, align 4
-  ret i32 %17
+  %27 = load i32, ptr %coerce.dive39, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2464,17 +2488,19 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %1 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %1, align 8, !nosanitize !4
+  %1 = ptrtoint ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64
+  %2 = sub i64 %1, 1
+  %3 = getelementptr i8, ptr %vtable, i64 %2, !nosanitize !4
+  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !4
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %2 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual ]
-  %3 = load i8, ptr %rowEdge.addr, align 1
-  %call = call i32 %2(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %3)
+  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual ]
+  %5 = load i8, ptr %rowEdge.addr, align 1
+  %call = call i32 %4(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %5)
   %coerce.dive = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp, i32 0, i32 0
   store i32 %call, ptr %coerce.dive, align 4
   %call2 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #3
@@ -2482,44 +2508,48 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
 
 if.then:                                          ; preds = %memptr.end
   %style_3 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %4 = getelementptr inbounds i8, ptr %style_3, i64 0
+  %6 = getelementptr inbounds i8, ptr %style_3, i64 0
   br i1 false, label %memptr.virtual4, label %memptr.nonvirtual7
 
 memptr.virtual4:                                  ; preds = %if.then
-  %vtable5 = load ptr, ptr %4, align 8
-  %5 = getelementptr i8, ptr %vtable5, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn6 = load ptr, ptr %5, align 8, !nosanitize !4
+  %vtable5 = load ptr, ptr %6, align 8
+  %7 = ptrtoint ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64
+  %8 = sub i64 %7, 1
+  %9 = getelementptr i8, ptr %vtable5, i64 %8, !nosanitize !4
+  %memptr.virtualfn6 = load ptr, ptr %9, align 8, !nosanitize !4
   br label %memptr.end8
 
 memptr.nonvirtual7:                               ; preds = %if.then
   br label %memptr.end8
 
 memptr.end8:                                      ; preds = %memptr.nonvirtual7, %memptr.virtual4
-  %6 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual7 ]
-  %7 = load i8, ptr %rowEdge.addr, align 1
-  %call9 = call i32 %6(ptr noundef nonnull align 4 dereferenceable(204) %4, i8 noundef zeroext %7)
+  %10 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual7 ]
+  %11 = load i8, ptr %rowEdge.addr, align 1
+  %call9 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %6, i8 noundef zeroext %11)
   %coerce.dive10 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call9, ptr %coerce.dive10, align 4
   br label %return
 
 if.else:                                          ; preds = %memptr.end
   %style_12 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %8 = getelementptr inbounds i8, ptr %style_12, i64 0
+  %12 = getelementptr inbounds i8, ptr %style_12, i64 0
   br i1 false, label %memptr.virtual13, label %memptr.nonvirtual16
 
 memptr.virtual13:                                 ; preds = %if.else
-  %vtable14 = load ptr, ptr %8, align 8
-  %9 = getelementptr i8, ptr %vtable14, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn15 = load ptr, ptr %9, align 8, !nosanitize !4
+  %vtable14 = load ptr, ptr %12, align 8
+  %13 = ptrtoint ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64
+  %14 = sub i64 %13, 1
+  %15 = getelementptr i8, ptr %vtable14, i64 %14, !nosanitize !4
+  %memptr.virtualfn15 = load ptr, ptr %15, align 8, !nosanitize !4
   br label %memptr.end17
 
 memptr.nonvirtual16:                              ; preds = %if.else
   br label %memptr.end17
 
 memptr.end17:                                     ; preds = %memptr.nonvirtual16, %memptr.virtual13
-  %10 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual16 ]
-  %11 = load i8, ptr %edge.addr, align 1
-  %call18 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %8, i8 noundef zeroext %11)
+  %16 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual16 ]
+  %17 = load i8, ptr %edge.addr, align 1
+  %call18 = call i32 %16(ptr noundef nonnull align 4 dereferenceable(204) %12, i8 noundef zeroext %17)
   %coerce.dive19 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp11, i32 0, i32 0
   store i32 %call18, ptr %coerce.dive19, align 4
   %call20 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11) #3
@@ -2527,43 +2557,47 @@ memptr.end17:                                     ; preds = %memptr.nonvirtual16
 
 if.then21:                                        ; preds = %memptr.end17
   %style_22 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %12 = getelementptr inbounds i8, ptr %style_22, i64 0
+  %18 = getelementptr inbounds i8, ptr %style_22, i64 0
   br i1 false, label %memptr.virtual23, label %memptr.nonvirtual26
 
 memptr.virtual23:                                 ; preds = %if.then21
-  %vtable24 = load ptr, ptr %12, align 8
-  %13 = getelementptr i8, ptr %vtable24, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn25 = load ptr, ptr %13, align 8, !nosanitize !4
+  %vtable24 = load ptr, ptr %18, align 8
+  %19 = ptrtoint ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64
+  %20 = sub i64 %19, 1
+  %21 = getelementptr i8, ptr %vtable24, i64 %20, !nosanitize !4
+  %memptr.virtualfn25 = load ptr, ptr %21, align 8, !nosanitize !4
   br label %memptr.end27
 
 memptr.nonvirtual26:                              ; preds = %if.then21
   br label %memptr.end27
 
 memptr.end27:                                     ; preds = %memptr.nonvirtual26, %memptr.virtual23
-  %14 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual26 ]
-  %15 = load i8, ptr %edge.addr, align 1
-  %call28 = call i32 %14(ptr noundef nonnull align 4 dereferenceable(204) %12, i8 noundef zeroext %15)
+  %22 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual26 ]
+  %23 = load i8, ptr %edge.addr, align 1
+  %call28 = call i32 %22(ptr noundef nonnull align 4 dereferenceable(204) %18, i8 noundef zeroext %23)
   %coerce.dive29 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call28, ptr %coerce.dive29, align 4
   br label %return
 
 if.else30:                                        ; preds = %memptr.end17
   %style_32 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %16 = getelementptr inbounds i8, ptr %style_32, i64 0
+  %24 = getelementptr inbounds i8, ptr %style_32, i64 0
   br i1 false, label %memptr.virtual33, label %memptr.nonvirtual36
 
 memptr.virtual33:                                 ; preds = %if.else30
-  %vtable34 = load ptr, ptr %16, align 8
-  %17 = getelementptr i8, ptr %vtable34, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn35 = load ptr, ptr %17, align 8, !nosanitize !4
+  %vtable34 = load ptr, ptr %24, align 8
+  %25 = ptrtoint ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64
+  %26 = sub i64 %25, 1
+  %27 = getelementptr i8, ptr %vtable34, i64 %26, !nosanitize !4
+  %memptr.virtualfn35 = load ptr, ptr %27, align 8, !nosanitize !4
   br label %memptr.end37
 
 memptr.nonvirtual36:                              ; preds = %if.else30
   br label %memptr.end37
 
 memptr.end37:                                     ; preds = %memptr.nonvirtual36, %memptr.virtual33
-  %18 = phi ptr [ %memptr.virtualfn35, %memptr.virtual33 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual36 ]
-  %call38 = call i32 %18(ptr noundef nonnull align 4 dereferenceable(204) %16, i8 noundef zeroext 6)
+  %28 = phi ptr [ %memptr.virtualfn35, %memptr.virtual33 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual36 ]
+  %call38 = call i32 %28(ptr noundef nonnull align 4 dereferenceable(204) %24, i8 noundef zeroext 6)
   %coerce.dive39 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp31, i32 0, i32 0
   store i32 %call38, ptr %coerce.dive39, align 4
   %call40 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp31) #3
@@ -2571,50 +2605,54 @@ memptr.end37:                                     ; preds = %memptr.nonvirtual36
 
 if.then41:                                        ; preds = %memptr.end37
   %style_42 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %19 = getelementptr inbounds i8, ptr %style_42, i64 0
+  %29 = getelementptr inbounds i8, ptr %style_42, i64 0
   br i1 false, label %memptr.virtual43, label %memptr.nonvirtual46
 
 memptr.virtual43:                                 ; preds = %if.then41
-  %vtable44 = load ptr, ptr %19, align 8
-  %20 = getelementptr i8, ptr %vtable44, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn45 = load ptr, ptr %20, align 8, !nosanitize !4
+  %vtable44 = load ptr, ptr %29, align 8
+  %30 = ptrtoint ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64
+  %31 = sub i64 %30, 1
+  %32 = getelementptr i8, ptr %vtable44, i64 %31, !nosanitize !4
+  %memptr.virtualfn45 = load ptr, ptr %32, align 8, !nosanitize !4
   br label %memptr.end47
 
 memptr.nonvirtual46:                              ; preds = %if.then41
   br label %memptr.end47
 
 memptr.end47:                                     ; preds = %memptr.nonvirtual46, %memptr.virtual43
-  %21 = phi ptr [ %memptr.virtualfn45, %memptr.virtual43 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual46 ]
-  %call48 = call i32 %21(ptr noundef nonnull align 4 dereferenceable(204) %19, i8 noundef zeroext 6)
+  %33 = phi ptr [ %memptr.virtualfn45, %memptr.virtual43 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual46 ]
+  %call48 = call i32 %33(ptr noundef nonnull align 4 dereferenceable(204) %29, i8 noundef zeroext 6)
   %coerce.dive49 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call48, ptr %coerce.dive49, align 4
   br label %return
 
 if.else50:                                        ; preds = %memptr.end37
   %style_51 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %22 = getelementptr inbounds i8, ptr %style_51, i64 0
+  %34 = getelementptr inbounds i8, ptr %style_51, i64 0
   br i1 false, label %memptr.virtual52, label %memptr.nonvirtual55
 
 memptr.virtual52:                                 ; preds = %if.else50
-  %vtable53 = load ptr, ptr %22, align 8
-  %23 = getelementptr i8, ptr %vtable53, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn54 = load ptr, ptr %23, align 8, !nosanitize !4
+  %vtable53 = load ptr, ptr %34, align 8
+  %35 = ptrtoint ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64
+  %36 = sub i64 %35, 1
+  %37 = getelementptr i8, ptr %vtable53, i64 %36, !nosanitize !4
+  %memptr.virtualfn54 = load ptr, ptr %37, align 8, !nosanitize !4
   br label %memptr.end56
 
 memptr.nonvirtual55:                              ; preds = %if.else50
   br label %memptr.end56
 
 memptr.end56:                                     ; preds = %memptr.nonvirtual55, %memptr.virtual52
-  %24 = phi ptr [ %memptr.virtualfn54, %memptr.virtual52 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual55 ]
-  %call57 = call i32 %24(ptr noundef nonnull align 4 dereferenceable(204) %22, i8 noundef zeroext 8)
+  %38 = phi ptr [ %memptr.virtualfn54, %memptr.virtual52 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual55 ]
+  %call57 = call i32 %38(ptr noundef nonnull align 4 dereferenceable(204) %34, i8 noundef zeroext 8)
   %coerce.dive58 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call57, ptr %coerce.dive58, align 4
   br label %return
 
 return:                                           ; preds = %memptr.end56, %memptr.end47, %memptr.end27, %memptr.end8
   %coerce.dive59 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
-  %25 = load i32, ptr %coerce.dive59, align 4
-  ret i32 %25
+  %39 = load i32, ptr %coerce.dive59, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2634,17 +2672,19 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %1 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %1, align 8, !nosanitize !4
+  %1 = ptrtoint ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64
+  %2 = sub i64 %1, 1
+  %3 = getelementptr i8, ptr %vtable, i64 %2, !nosanitize !4
+  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !4
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %2 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual ]
-  %3 = load i8, ptr %edge.addr, align 1
-  %call = call i32 %2(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %3)
+  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual ]
+  %5 = load i8, ptr %edge.addr, align 1
+  %call = call i32 %4(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %5)
   %coerce.dive = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp, i32 0, i32 0
   store i32 %call, ptr %coerce.dive, align 4
   %call2 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #3
@@ -2652,43 +2692,47 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
 
 if.then:                                          ; preds = %memptr.end
   %style_3 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %4 = getelementptr inbounds i8, ptr %style_3, i64 0
+  %6 = getelementptr inbounds i8, ptr %style_3, i64 0
   br i1 false, label %memptr.virtual4, label %memptr.nonvirtual7
 
 memptr.virtual4:                                  ; preds = %if.then
-  %vtable5 = load ptr, ptr %4, align 8
-  %5 = getelementptr i8, ptr %vtable5, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn6 = load ptr, ptr %5, align 8, !nosanitize !4
+  %vtable5 = load ptr, ptr %6, align 8
+  %7 = ptrtoint ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64
+  %8 = sub i64 %7, 1
+  %9 = getelementptr i8, ptr %vtable5, i64 %8, !nosanitize !4
+  %memptr.virtualfn6 = load ptr, ptr %9, align 8, !nosanitize !4
   br label %memptr.end8
 
 memptr.nonvirtual7:                               ; preds = %if.then
   br label %memptr.end8
 
 memptr.end8:                                      ; preds = %memptr.nonvirtual7, %memptr.virtual4
-  %6 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual7 ]
-  %7 = load i8, ptr %edge.addr, align 1
-  %call9 = call i32 %6(ptr noundef nonnull align 4 dereferenceable(204) %4, i8 noundef zeroext %7)
+  %10 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual7 ]
+  %11 = load i8, ptr %edge.addr, align 1
+  %call9 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %6, i8 noundef zeroext %11)
   %coerce.dive10 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call9, ptr %coerce.dive10, align 4
   br label %return
 
 if.else:                                          ; preds = %memptr.end
   %style_12 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %8 = getelementptr inbounds i8, ptr %style_12, i64 0
+  %12 = getelementptr inbounds i8, ptr %style_12, i64 0
   br i1 false, label %memptr.virtual13, label %memptr.nonvirtual16
 
 memptr.virtual13:                                 ; preds = %if.else
-  %vtable14 = load ptr, ptr %8, align 8
-  %9 = getelementptr i8, ptr %vtable14, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn15 = load ptr, ptr %9, align 8, !nosanitize !4
+  %vtable14 = load ptr, ptr %12, align 8
+  %13 = ptrtoint ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64
+  %14 = sub i64 %13, 1
+  %15 = getelementptr i8, ptr %vtable14, i64 %14, !nosanitize !4
+  %memptr.virtualfn15 = load ptr, ptr %15, align 8, !nosanitize !4
   br label %memptr.end17
 
 memptr.nonvirtual16:                              ; preds = %if.else
   br label %memptr.end17
 
 memptr.end17:                                     ; preds = %memptr.nonvirtual16, %memptr.virtual13
-  %10 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual16 ]
-  %call18 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %8, i8 noundef zeroext 7)
+  %16 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual16 ]
+  %call18 = call i32 %16(ptr noundef nonnull align 4 dereferenceable(204) %12, i8 noundef zeroext 7)
   %coerce.dive19 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp11, i32 0, i32 0
   store i32 %call18, ptr %coerce.dive19, align 4
   %call20 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11) #3
@@ -2696,50 +2740,54 @@ memptr.end17:                                     ; preds = %memptr.nonvirtual16
 
 if.then21:                                        ; preds = %memptr.end17
   %style_22 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %11 = getelementptr inbounds i8, ptr %style_22, i64 0
+  %17 = getelementptr inbounds i8, ptr %style_22, i64 0
   br i1 false, label %memptr.virtual23, label %memptr.nonvirtual26
 
 memptr.virtual23:                                 ; preds = %if.then21
-  %vtable24 = load ptr, ptr %11, align 8
-  %12 = getelementptr i8, ptr %vtable24, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn25 = load ptr, ptr %12, align 8, !nosanitize !4
+  %vtable24 = load ptr, ptr %17, align 8
+  %18 = ptrtoint ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64
+  %19 = sub i64 %18, 1
+  %20 = getelementptr i8, ptr %vtable24, i64 %19, !nosanitize !4
+  %memptr.virtualfn25 = load ptr, ptr %20, align 8, !nosanitize !4
   br label %memptr.end27
 
 memptr.nonvirtual26:                              ; preds = %if.then21
   br label %memptr.end27
 
 memptr.end27:                                     ; preds = %memptr.nonvirtual26, %memptr.virtual23
-  %13 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual26 ]
-  %call28 = call i32 %13(ptr noundef nonnull align 4 dereferenceable(204) %11, i8 noundef zeroext 7)
+  %21 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual26 ]
+  %call28 = call i32 %21(ptr noundef nonnull align 4 dereferenceable(204) %17, i8 noundef zeroext 7)
   %coerce.dive29 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call28, ptr %coerce.dive29, align 4
   br label %return
 
 if.else30:                                        ; preds = %memptr.end17
   %style_31 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %14 = getelementptr inbounds i8, ptr %style_31, i64 0
+  %22 = getelementptr inbounds i8, ptr %style_31, i64 0
   br i1 false, label %memptr.virtual32, label %memptr.nonvirtual35
 
 memptr.virtual32:                                 ; preds = %if.else30
-  %vtable33 = load ptr, ptr %14, align 8
-  %15 = getelementptr i8, ptr %vtable33, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn34 = load ptr, ptr %15, align 8, !nosanitize !4
+  %vtable33 = load ptr, ptr %22, align 8
+  %23 = ptrtoint ptr @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE to i64
+  %24 = sub i64 %23, 1
+  %25 = getelementptr i8, ptr %vtable33, i64 %24, !nosanitize !4
+  %memptr.virtualfn34 = load ptr, ptr %25, align 8, !nosanitize !4
   br label %memptr.end36
 
 memptr.nonvirtual35:                              ; preds = %if.else30
   br label %memptr.end36
 
 memptr.end36:                                     ; preds = %memptr.nonvirtual35, %memptr.virtual32
-  %16 = phi ptr [ %memptr.virtualfn34, %memptr.virtual32 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual35 ]
-  %call37 = call i32 %16(ptr noundef nonnull align 4 dereferenceable(204) %14, i8 noundef zeroext 8)
+  %26 = phi ptr [ %memptr.virtualfn34, %memptr.virtual32 ], [ @_ZNK8facebook4yoga5Style6marginENS0_4EdgeE, %memptr.nonvirtual35 ]
+  %call37 = call i32 %26(ptr noundef nonnull align 4 dereferenceable(204) %22, i8 noundef zeroext 8)
   %coerce.dive38 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call37, ptr %coerce.dive38, align 4
   br label %return
 
 return:                                           ; preds = %memptr.end36, %memptr.end27, %memptr.end8
   %coerce.dive39 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
-  %17 = load i32, ptr %coerce.dive39, align 4
-  ret i32 %17
+  %27 = load i32, ptr %coerce.dive39, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2956,17 +3004,19 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %1 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %1, align 8, !nosanitize !4
+  %1 = ptrtoint ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64
+  %2 = sub i64 %1, 1
+  %3 = getelementptr i8, ptr %vtable, i64 %2, !nosanitize !4
+  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !4
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %2 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual ]
-  %3 = load i8, ptr %rowEdge.addr, align 1
-  %call = call i32 %2(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %3)
+  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual ]
+  %5 = load i8, ptr %rowEdge.addr, align 1
+  %call = call i32 %4(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %5)
   %coerce.dive = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp, i32 0, i32 0
   store i32 %call, ptr %coerce.dive, align 4
   %call2 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #3
@@ -2974,44 +3024,48 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
 
 if.then:                                          ; preds = %memptr.end
   %style_3 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %4 = getelementptr inbounds i8, ptr %style_3, i64 0
+  %6 = getelementptr inbounds i8, ptr %style_3, i64 0
   br i1 false, label %memptr.virtual4, label %memptr.nonvirtual7
 
 memptr.virtual4:                                  ; preds = %if.then
-  %vtable5 = load ptr, ptr %4, align 8
-  %5 = getelementptr i8, ptr %vtable5, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn6 = load ptr, ptr %5, align 8, !nosanitize !4
+  %vtable5 = load ptr, ptr %6, align 8
+  %7 = ptrtoint ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64
+  %8 = sub i64 %7, 1
+  %9 = getelementptr i8, ptr %vtable5, i64 %8, !nosanitize !4
+  %memptr.virtualfn6 = load ptr, ptr %9, align 8, !nosanitize !4
   br label %memptr.end8
 
 memptr.nonvirtual7:                               ; preds = %if.then
   br label %memptr.end8
 
 memptr.end8:                                      ; preds = %memptr.nonvirtual7, %memptr.virtual4
-  %6 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual7 ]
-  %7 = load i8, ptr %rowEdge.addr, align 1
-  %call9 = call i32 %6(ptr noundef nonnull align 4 dereferenceable(204) %4, i8 noundef zeroext %7)
+  %10 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual7 ]
+  %11 = load i8, ptr %rowEdge.addr, align 1
+  %call9 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %6, i8 noundef zeroext %11)
   %coerce.dive10 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call9, ptr %coerce.dive10, align 4
   br label %return
 
 if.else:                                          ; preds = %memptr.end
   %style_12 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %8 = getelementptr inbounds i8, ptr %style_12, i64 0
+  %12 = getelementptr inbounds i8, ptr %style_12, i64 0
   br i1 false, label %memptr.virtual13, label %memptr.nonvirtual16
 
 memptr.virtual13:                                 ; preds = %if.else
-  %vtable14 = load ptr, ptr %8, align 8
-  %9 = getelementptr i8, ptr %vtable14, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn15 = load ptr, ptr %9, align 8, !nosanitize !4
+  %vtable14 = load ptr, ptr %12, align 8
+  %13 = ptrtoint ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64
+  %14 = sub i64 %13, 1
+  %15 = getelementptr i8, ptr %vtable14, i64 %14, !nosanitize !4
+  %memptr.virtualfn15 = load ptr, ptr %15, align 8, !nosanitize !4
   br label %memptr.end17
 
 memptr.nonvirtual16:                              ; preds = %if.else
   br label %memptr.end17
 
 memptr.end17:                                     ; preds = %memptr.nonvirtual16, %memptr.virtual13
-  %10 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual16 ]
-  %11 = load i8, ptr %edge.addr, align 1
-  %call18 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %8, i8 noundef zeroext %11)
+  %16 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual16 ]
+  %17 = load i8, ptr %edge.addr, align 1
+  %call18 = call i32 %16(ptr noundef nonnull align 4 dereferenceable(204) %12, i8 noundef zeroext %17)
   %coerce.dive19 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp11, i32 0, i32 0
   store i32 %call18, ptr %coerce.dive19, align 4
   %call20 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11) #3
@@ -3019,43 +3073,47 @@ memptr.end17:                                     ; preds = %memptr.nonvirtual16
 
 if.then21:                                        ; preds = %memptr.end17
   %style_22 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %12 = getelementptr inbounds i8, ptr %style_22, i64 0
+  %18 = getelementptr inbounds i8, ptr %style_22, i64 0
   br i1 false, label %memptr.virtual23, label %memptr.nonvirtual26
 
 memptr.virtual23:                                 ; preds = %if.then21
-  %vtable24 = load ptr, ptr %12, align 8
-  %13 = getelementptr i8, ptr %vtable24, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn25 = load ptr, ptr %13, align 8, !nosanitize !4
+  %vtable24 = load ptr, ptr %18, align 8
+  %19 = ptrtoint ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64
+  %20 = sub i64 %19, 1
+  %21 = getelementptr i8, ptr %vtable24, i64 %20, !nosanitize !4
+  %memptr.virtualfn25 = load ptr, ptr %21, align 8, !nosanitize !4
   br label %memptr.end27
 
 memptr.nonvirtual26:                              ; preds = %if.then21
   br label %memptr.end27
 
 memptr.end27:                                     ; preds = %memptr.nonvirtual26, %memptr.virtual23
-  %14 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual26 ]
-  %15 = load i8, ptr %edge.addr, align 1
-  %call28 = call i32 %14(ptr noundef nonnull align 4 dereferenceable(204) %12, i8 noundef zeroext %15)
+  %22 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual26 ]
+  %23 = load i8, ptr %edge.addr, align 1
+  %call28 = call i32 %22(ptr noundef nonnull align 4 dereferenceable(204) %18, i8 noundef zeroext %23)
   %coerce.dive29 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call28, ptr %coerce.dive29, align 4
   br label %return
 
 if.else30:                                        ; preds = %memptr.end17
   %style_32 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %16 = getelementptr inbounds i8, ptr %style_32, i64 0
+  %24 = getelementptr inbounds i8, ptr %style_32, i64 0
   br i1 false, label %memptr.virtual33, label %memptr.nonvirtual36
 
 memptr.virtual33:                                 ; preds = %if.else30
-  %vtable34 = load ptr, ptr %16, align 8
-  %17 = getelementptr i8, ptr %vtable34, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn35 = load ptr, ptr %17, align 8, !nosanitize !4
+  %vtable34 = load ptr, ptr %24, align 8
+  %25 = ptrtoint ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64
+  %26 = sub i64 %25, 1
+  %27 = getelementptr i8, ptr %vtable34, i64 %26, !nosanitize !4
+  %memptr.virtualfn35 = load ptr, ptr %27, align 8, !nosanitize !4
   br label %memptr.end37
 
 memptr.nonvirtual36:                              ; preds = %if.else30
   br label %memptr.end37
 
 memptr.end37:                                     ; preds = %memptr.nonvirtual36, %memptr.virtual33
-  %18 = phi ptr [ %memptr.virtualfn35, %memptr.virtual33 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual36 ]
-  %call38 = call i32 %18(ptr noundef nonnull align 4 dereferenceable(204) %16, i8 noundef zeroext 6)
+  %28 = phi ptr [ %memptr.virtualfn35, %memptr.virtual33 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual36 ]
+  %call38 = call i32 %28(ptr noundef nonnull align 4 dereferenceable(204) %24, i8 noundef zeroext 6)
   %coerce.dive39 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp31, i32 0, i32 0
   store i32 %call38, ptr %coerce.dive39, align 4
   %call40 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp31) #3
@@ -3063,50 +3121,54 @@ memptr.end37:                                     ; preds = %memptr.nonvirtual36
 
 if.then41:                                        ; preds = %memptr.end37
   %style_42 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %19 = getelementptr inbounds i8, ptr %style_42, i64 0
+  %29 = getelementptr inbounds i8, ptr %style_42, i64 0
   br i1 false, label %memptr.virtual43, label %memptr.nonvirtual46
 
 memptr.virtual43:                                 ; preds = %if.then41
-  %vtable44 = load ptr, ptr %19, align 8
-  %20 = getelementptr i8, ptr %vtable44, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn45 = load ptr, ptr %20, align 8, !nosanitize !4
+  %vtable44 = load ptr, ptr %29, align 8
+  %30 = ptrtoint ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64
+  %31 = sub i64 %30, 1
+  %32 = getelementptr i8, ptr %vtable44, i64 %31, !nosanitize !4
+  %memptr.virtualfn45 = load ptr, ptr %32, align 8, !nosanitize !4
   br label %memptr.end47
 
 memptr.nonvirtual46:                              ; preds = %if.then41
   br label %memptr.end47
 
 memptr.end47:                                     ; preds = %memptr.nonvirtual46, %memptr.virtual43
-  %21 = phi ptr [ %memptr.virtualfn45, %memptr.virtual43 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual46 ]
-  %call48 = call i32 %21(ptr noundef nonnull align 4 dereferenceable(204) %19, i8 noundef zeroext 6)
+  %33 = phi ptr [ %memptr.virtualfn45, %memptr.virtual43 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual46 ]
+  %call48 = call i32 %33(ptr noundef nonnull align 4 dereferenceable(204) %29, i8 noundef zeroext 6)
   %coerce.dive49 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call48, ptr %coerce.dive49, align 4
   br label %return
 
 if.else50:                                        ; preds = %memptr.end37
   %style_51 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %22 = getelementptr inbounds i8, ptr %style_51, i64 0
+  %34 = getelementptr inbounds i8, ptr %style_51, i64 0
   br i1 false, label %memptr.virtual52, label %memptr.nonvirtual55
 
 memptr.virtual52:                                 ; preds = %if.else50
-  %vtable53 = load ptr, ptr %22, align 8
-  %23 = getelementptr i8, ptr %vtable53, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn54 = load ptr, ptr %23, align 8, !nosanitize !4
+  %vtable53 = load ptr, ptr %34, align 8
+  %35 = ptrtoint ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64
+  %36 = sub i64 %35, 1
+  %37 = getelementptr i8, ptr %vtable53, i64 %36, !nosanitize !4
+  %memptr.virtualfn54 = load ptr, ptr %37, align 8, !nosanitize !4
   br label %memptr.end56
 
 memptr.nonvirtual55:                              ; preds = %if.else50
   br label %memptr.end56
 
 memptr.end56:                                     ; preds = %memptr.nonvirtual55, %memptr.virtual52
-  %24 = phi ptr [ %memptr.virtualfn54, %memptr.virtual52 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual55 ]
-  %call57 = call i32 %24(ptr noundef nonnull align 4 dereferenceable(204) %22, i8 noundef zeroext 8)
+  %38 = phi ptr [ %memptr.virtualfn54, %memptr.virtual52 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual55 ]
+  %call57 = call i32 %38(ptr noundef nonnull align 4 dereferenceable(204) %34, i8 noundef zeroext 8)
   %coerce.dive58 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call57, ptr %coerce.dive58, align 4
   br label %return
 
 return:                                           ; preds = %memptr.end56, %memptr.end47, %memptr.end27, %memptr.end8
   %coerce.dive59 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
-  %25 = load i32, ptr %coerce.dive59, align 4
-  ret i32 %25
+  %39 = load i32, ptr %coerce.dive59, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3126,17 +3188,19 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %1 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %1, align 8, !nosanitize !4
+  %1 = ptrtoint ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64
+  %2 = sub i64 %1, 1
+  %3 = getelementptr i8, ptr %vtable, i64 %2, !nosanitize !4
+  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !4
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %2 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual ]
-  %3 = load i8, ptr %edge.addr, align 1
-  %call = call i32 %2(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %3)
+  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual ]
+  %5 = load i8, ptr %edge.addr, align 1
+  %call = call i32 %4(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %5)
   %coerce.dive = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp, i32 0, i32 0
   store i32 %call, ptr %coerce.dive, align 4
   %call2 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #3
@@ -3144,43 +3208,47 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
 
 if.then:                                          ; preds = %memptr.end
   %style_3 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %4 = getelementptr inbounds i8, ptr %style_3, i64 0
+  %6 = getelementptr inbounds i8, ptr %style_3, i64 0
   br i1 false, label %memptr.virtual4, label %memptr.nonvirtual7
 
 memptr.virtual4:                                  ; preds = %if.then
-  %vtable5 = load ptr, ptr %4, align 8
-  %5 = getelementptr i8, ptr %vtable5, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn6 = load ptr, ptr %5, align 8, !nosanitize !4
+  %vtable5 = load ptr, ptr %6, align 8
+  %7 = ptrtoint ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64
+  %8 = sub i64 %7, 1
+  %9 = getelementptr i8, ptr %vtable5, i64 %8, !nosanitize !4
+  %memptr.virtualfn6 = load ptr, ptr %9, align 8, !nosanitize !4
   br label %memptr.end8
 
 memptr.nonvirtual7:                               ; preds = %if.then
   br label %memptr.end8
 
 memptr.end8:                                      ; preds = %memptr.nonvirtual7, %memptr.virtual4
-  %6 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual7 ]
-  %7 = load i8, ptr %edge.addr, align 1
-  %call9 = call i32 %6(ptr noundef nonnull align 4 dereferenceable(204) %4, i8 noundef zeroext %7)
+  %10 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual7 ]
+  %11 = load i8, ptr %edge.addr, align 1
+  %call9 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %6, i8 noundef zeroext %11)
   %coerce.dive10 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call9, ptr %coerce.dive10, align 4
   br label %return
 
 if.else:                                          ; preds = %memptr.end
   %style_12 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %8 = getelementptr inbounds i8, ptr %style_12, i64 0
+  %12 = getelementptr inbounds i8, ptr %style_12, i64 0
   br i1 false, label %memptr.virtual13, label %memptr.nonvirtual16
 
 memptr.virtual13:                                 ; preds = %if.else
-  %vtable14 = load ptr, ptr %8, align 8
-  %9 = getelementptr i8, ptr %vtable14, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn15 = load ptr, ptr %9, align 8, !nosanitize !4
+  %vtable14 = load ptr, ptr %12, align 8
+  %13 = ptrtoint ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64
+  %14 = sub i64 %13, 1
+  %15 = getelementptr i8, ptr %vtable14, i64 %14, !nosanitize !4
+  %memptr.virtualfn15 = load ptr, ptr %15, align 8, !nosanitize !4
   br label %memptr.end17
 
 memptr.nonvirtual16:                              ; preds = %if.else
   br label %memptr.end17
 
 memptr.end17:                                     ; preds = %memptr.nonvirtual16, %memptr.virtual13
-  %10 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual16 ]
-  %call18 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %8, i8 noundef zeroext 7)
+  %16 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual16 ]
+  %call18 = call i32 %16(ptr noundef nonnull align 4 dereferenceable(204) %12, i8 noundef zeroext 7)
   %coerce.dive19 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp11, i32 0, i32 0
   store i32 %call18, ptr %coerce.dive19, align 4
   %call20 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11) #3
@@ -3188,50 +3256,54 @@ memptr.end17:                                     ; preds = %memptr.nonvirtual16
 
 if.then21:                                        ; preds = %memptr.end17
   %style_22 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %11 = getelementptr inbounds i8, ptr %style_22, i64 0
+  %17 = getelementptr inbounds i8, ptr %style_22, i64 0
   br i1 false, label %memptr.virtual23, label %memptr.nonvirtual26
 
 memptr.virtual23:                                 ; preds = %if.then21
-  %vtable24 = load ptr, ptr %11, align 8
-  %12 = getelementptr i8, ptr %vtable24, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn25 = load ptr, ptr %12, align 8, !nosanitize !4
+  %vtable24 = load ptr, ptr %17, align 8
+  %18 = ptrtoint ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64
+  %19 = sub i64 %18, 1
+  %20 = getelementptr i8, ptr %vtable24, i64 %19, !nosanitize !4
+  %memptr.virtualfn25 = load ptr, ptr %20, align 8, !nosanitize !4
   br label %memptr.end27
 
 memptr.nonvirtual26:                              ; preds = %if.then21
   br label %memptr.end27
 
 memptr.end27:                                     ; preds = %memptr.nonvirtual26, %memptr.virtual23
-  %13 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual26 ]
-  %call28 = call i32 %13(ptr noundef nonnull align 4 dereferenceable(204) %11, i8 noundef zeroext 7)
+  %21 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual26 ]
+  %call28 = call i32 %21(ptr noundef nonnull align 4 dereferenceable(204) %17, i8 noundef zeroext 7)
   %coerce.dive29 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call28, ptr %coerce.dive29, align 4
   br label %return
 
 if.else30:                                        ; preds = %memptr.end17
   %style_31 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %14 = getelementptr inbounds i8, ptr %style_31, i64 0
+  %22 = getelementptr inbounds i8, ptr %style_31, i64 0
   br i1 false, label %memptr.virtual32, label %memptr.nonvirtual35
 
 memptr.virtual32:                                 ; preds = %if.else30
-  %vtable33 = load ptr, ptr %14, align 8
-  %15 = getelementptr i8, ptr %vtable33, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn34 = load ptr, ptr %15, align 8, !nosanitize !4
+  %vtable33 = load ptr, ptr %22, align 8
+  %23 = ptrtoint ptr @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE to i64
+  %24 = sub i64 %23, 1
+  %25 = getelementptr i8, ptr %vtable33, i64 %24, !nosanitize !4
+  %memptr.virtualfn34 = load ptr, ptr %25, align 8, !nosanitize !4
   br label %memptr.end36
 
 memptr.nonvirtual35:                              ; preds = %if.else30
   br label %memptr.end36
 
 memptr.end36:                                     ; preds = %memptr.nonvirtual35, %memptr.virtual32
-  %16 = phi ptr [ %memptr.virtualfn34, %memptr.virtual32 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual35 ]
-  %call37 = call i32 %16(ptr noundef nonnull align 4 dereferenceable(204) %14, i8 noundef zeroext 8)
+  %26 = phi ptr [ %memptr.virtualfn34, %memptr.virtual32 ], [ @_ZNK8facebook4yoga5Style6borderENS0_4EdgeE, %memptr.nonvirtual35 ]
+  %call37 = call i32 %26(ptr noundef nonnull align 4 dereferenceable(204) %22, i8 noundef zeroext 8)
   %coerce.dive38 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call37, ptr %coerce.dive38, align 4
   br label %return
 
 return:                                           ; preds = %memptr.end36, %memptr.end27, %memptr.end8
   %coerce.dive39 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
-  %17 = load i32, ptr %coerce.dive39, align 4
-  ret i32 %17
+  %27 = load i32, ptr %coerce.dive39, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3554,17 +3626,19 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %1 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %1, align 8, !nosanitize !4
+  %1 = ptrtoint ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64
+  %2 = sub i64 %1, 1
+  %3 = getelementptr i8, ptr %vtable, i64 %2, !nosanitize !4
+  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !4
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %2 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual ]
-  %3 = load i8, ptr %rowEdge.addr, align 1
-  %call = call i32 %2(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %3)
+  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual ]
+  %5 = load i8, ptr %rowEdge.addr, align 1
+  %call = call i32 %4(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %5)
   %coerce.dive = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp, i32 0, i32 0
   store i32 %call, ptr %coerce.dive, align 4
   %call2 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #3
@@ -3572,44 +3646,48 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
 
 if.then:                                          ; preds = %memptr.end
   %style_3 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %4 = getelementptr inbounds i8, ptr %style_3, i64 0
+  %6 = getelementptr inbounds i8, ptr %style_3, i64 0
   br i1 false, label %memptr.virtual4, label %memptr.nonvirtual7
 
 memptr.virtual4:                                  ; preds = %if.then
-  %vtable5 = load ptr, ptr %4, align 8
-  %5 = getelementptr i8, ptr %vtable5, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn6 = load ptr, ptr %5, align 8, !nosanitize !4
+  %vtable5 = load ptr, ptr %6, align 8
+  %7 = ptrtoint ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64
+  %8 = sub i64 %7, 1
+  %9 = getelementptr i8, ptr %vtable5, i64 %8, !nosanitize !4
+  %memptr.virtualfn6 = load ptr, ptr %9, align 8, !nosanitize !4
   br label %memptr.end8
 
 memptr.nonvirtual7:                               ; preds = %if.then
   br label %memptr.end8
 
 memptr.end8:                                      ; preds = %memptr.nonvirtual7, %memptr.virtual4
-  %6 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual7 ]
-  %7 = load i8, ptr %rowEdge.addr, align 1
-  %call9 = call i32 %6(ptr noundef nonnull align 4 dereferenceable(204) %4, i8 noundef zeroext %7)
+  %10 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual7 ]
+  %11 = load i8, ptr %rowEdge.addr, align 1
+  %call9 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %6, i8 noundef zeroext %11)
   %coerce.dive10 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call9, ptr %coerce.dive10, align 4
   br label %return
 
 if.else:                                          ; preds = %memptr.end
   %style_12 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %8 = getelementptr inbounds i8, ptr %style_12, i64 0
+  %12 = getelementptr inbounds i8, ptr %style_12, i64 0
   br i1 false, label %memptr.virtual13, label %memptr.nonvirtual16
 
 memptr.virtual13:                                 ; preds = %if.else
-  %vtable14 = load ptr, ptr %8, align 8
-  %9 = getelementptr i8, ptr %vtable14, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn15 = load ptr, ptr %9, align 8, !nosanitize !4
+  %vtable14 = load ptr, ptr %12, align 8
+  %13 = ptrtoint ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64
+  %14 = sub i64 %13, 1
+  %15 = getelementptr i8, ptr %vtable14, i64 %14, !nosanitize !4
+  %memptr.virtualfn15 = load ptr, ptr %15, align 8, !nosanitize !4
   br label %memptr.end17
 
 memptr.nonvirtual16:                              ; preds = %if.else
   br label %memptr.end17
 
 memptr.end17:                                     ; preds = %memptr.nonvirtual16, %memptr.virtual13
-  %10 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual16 ]
-  %11 = load i8, ptr %edge.addr, align 1
-  %call18 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %8, i8 noundef zeroext %11)
+  %16 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual16 ]
+  %17 = load i8, ptr %edge.addr, align 1
+  %call18 = call i32 %16(ptr noundef nonnull align 4 dereferenceable(204) %12, i8 noundef zeroext %17)
   %coerce.dive19 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp11, i32 0, i32 0
   store i32 %call18, ptr %coerce.dive19, align 4
   %call20 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11) #3
@@ -3617,43 +3695,47 @@ memptr.end17:                                     ; preds = %memptr.nonvirtual16
 
 if.then21:                                        ; preds = %memptr.end17
   %style_22 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %12 = getelementptr inbounds i8, ptr %style_22, i64 0
+  %18 = getelementptr inbounds i8, ptr %style_22, i64 0
   br i1 false, label %memptr.virtual23, label %memptr.nonvirtual26
 
 memptr.virtual23:                                 ; preds = %if.then21
-  %vtable24 = load ptr, ptr %12, align 8
-  %13 = getelementptr i8, ptr %vtable24, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn25 = load ptr, ptr %13, align 8, !nosanitize !4
+  %vtable24 = load ptr, ptr %18, align 8
+  %19 = ptrtoint ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64
+  %20 = sub i64 %19, 1
+  %21 = getelementptr i8, ptr %vtable24, i64 %20, !nosanitize !4
+  %memptr.virtualfn25 = load ptr, ptr %21, align 8, !nosanitize !4
   br label %memptr.end27
 
 memptr.nonvirtual26:                              ; preds = %if.then21
   br label %memptr.end27
 
 memptr.end27:                                     ; preds = %memptr.nonvirtual26, %memptr.virtual23
-  %14 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual26 ]
-  %15 = load i8, ptr %edge.addr, align 1
-  %call28 = call i32 %14(ptr noundef nonnull align 4 dereferenceable(204) %12, i8 noundef zeroext %15)
+  %22 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual26 ]
+  %23 = load i8, ptr %edge.addr, align 1
+  %call28 = call i32 %22(ptr noundef nonnull align 4 dereferenceable(204) %18, i8 noundef zeroext %23)
   %coerce.dive29 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call28, ptr %coerce.dive29, align 4
   br label %return
 
 if.else30:                                        ; preds = %memptr.end17
   %style_32 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %16 = getelementptr inbounds i8, ptr %style_32, i64 0
+  %24 = getelementptr inbounds i8, ptr %style_32, i64 0
   br i1 false, label %memptr.virtual33, label %memptr.nonvirtual36
 
 memptr.virtual33:                                 ; preds = %if.else30
-  %vtable34 = load ptr, ptr %16, align 8
-  %17 = getelementptr i8, ptr %vtable34, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn35 = load ptr, ptr %17, align 8, !nosanitize !4
+  %vtable34 = load ptr, ptr %24, align 8
+  %25 = ptrtoint ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64
+  %26 = sub i64 %25, 1
+  %27 = getelementptr i8, ptr %vtable34, i64 %26, !nosanitize !4
+  %memptr.virtualfn35 = load ptr, ptr %27, align 8, !nosanitize !4
   br label %memptr.end37
 
 memptr.nonvirtual36:                              ; preds = %if.else30
   br label %memptr.end37
 
 memptr.end37:                                     ; preds = %memptr.nonvirtual36, %memptr.virtual33
-  %18 = phi ptr [ %memptr.virtualfn35, %memptr.virtual33 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual36 ]
-  %call38 = call i32 %18(ptr noundef nonnull align 4 dereferenceable(204) %16, i8 noundef zeroext 6)
+  %28 = phi ptr [ %memptr.virtualfn35, %memptr.virtual33 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual36 ]
+  %call38 = call i32 %28(ptr noundef nonnull align 4 dereferenceable(204) %24, i8 noundef zeroext 6)
   %coerce.dive39 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp31, i32 0, i32 0
   store i32 %call38, ptr %coerce.dive39, align 4
   %call40 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp31) #3
@@ -3661,50 +3743,54 @@ memptr.end37:                                     ; preds = %memptr.nonvirtual36
 
 if.then41:                                        ; preds = %memptr.end37
   %style_42 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %19 = getelementptr inbounds i8, ptr %style_42, i64 0
+  %29 = getelementptr inbounds i8, ptr %style_42, i64 0
   br i1 false, label %memptr.virtual43, label %memptr.nonvirtual46
 
 memptr.virtual43:                                 ; preds = %if.then41
-  %vtable44 = load ptr, ptr %19, align 8
-  %20 = getelementptr i8, ptr %vtable44, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn45 = load ptr, ptr %20, align 8, !nosanitize !4
+  %vtable44 = load ptr, ptr %29, align 8
+  %30 = ptrtoint ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64
+  %31 = sub i64 %30, 1
+  %32 = getelementptr i8, ptr %vtable44, i64 %31, !nosanitize !4
+  %memptr.virtualfn45 = load ptr, ptr %32, align 8, !nosanitize !4
   br label %memptr.end47
 
 memptr.nonvirtual46:                              ; preds = %if.then41
   br label %memptr.end47
 
 memptr.end47:                                     ; preds = %memptr.nonvirtual46, %memptr.virtual43
-  %21 = phi ptr [ %memptr.virtualfn45, %memptr.virtual43 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual46 ]
-  %call48 = call i32 %21(ptr noundef nonnull align 4 dereferenceable(204) %19, i8 noundef zeroext 6)
+  %33 = phi ptr [ %memptr.virtualfn45, %memptr.virtual43 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual46 ]
+  %call48 = call i32 %33(ptr noundef nonnull align 4 dereferenceable(204) %29, i8 noundef zeroext 6)
   %coerce.dive49 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call48, ptr %coerce.dive49, align 4
   br label %return
 
 if.else50:                                        ; preds = %memptr.end37
   %style_51 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %22 = getelementptr inbounds i8, ptr %style_51, i64 0
+  %34 = getelementptr inbounds i8, ptr %style_51, i64 0
   br i1 false, label %memptr.virtual52, label %memptr.nonvirtual55
 
 memptr.virtual52:                                 ; preds = %if.else50
-  %vtable53 = load ptr, ptr %22, align 8
-  %23 = getelementptr i8, ptr %vtable53, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn54 = load ptr, ptr %23, align 8, !nosanitize !4
+  %vtable53 = load ptr, ptr %34, align 8
+  %35 = ptrtoint ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64
+  %36 = sub i64 %35, 1
+  %37 = getelementptr i8, ptr %vtable53, i64 %36, !nosanitize !4
+  %memptr.virtualfn54 = load ptr, ptr %37, align 8, !nosanitize !4
   br label %memptr.end56
 
 memptr.nonvirtual55:                              ; preds = %if.else50
   br label %memptr.end56
 
 memptr.end56:                                     ; preds = %memptr.nonvirtual55, %memptr.virtual52
-  %24 = phi ptr [ %memptr.virtualfn54, %memptr.virtual52 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual55 ]
-  %call57 = call i32 %24(ptr noundef nonnull align 4 dereferenceable(204) %22, i8 noundef zeroext 8)
+  %38 = phi ptr [ %memptr.virtualfn54, %memptr.virtual52 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual55 ]
+  %call57 = call i32 %38(ptr noundef nonnull align 4 dereferenceable(204) %34, i8 noundef zeroext 8)
   %coerce.dive58 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call57, ptr %coerce.dive58, align 4
   br label %return
 
 return:                                           ; preds = %memptr.end56, %memptr.end47, %memptr.end27, %memptr.end8
   %coerce.dive59 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
-  %25 = load i32, ptr %coerce.dive59, align 4
-  ret i32 %25
+  %39 = load i32, ptr %coerce.dive59, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3724,17 +3810,19 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %1 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %1, align 8, !nosanitize !4
+  %1 = ptrtoint ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64
+  %2 = sub i64 %1, 1
+  %3 = getelementptr i8, ptr %vtable, i64 %2, !nosanitize !4
+  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !4
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %2 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual ]
-  %3 = load i8, ptr %edge.addr, align 1
-  %call = call i32 %2(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %3)
+  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual ]
+  %5 = load i8, ptr %edge.addr, align 1
+  %call = call i32 %4(ptr noundef nonnull align 4 dereferenceable(204) %0, i8 noundef zeroext %5)
   %coerce.dive = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp, i32 0, i32 0
   store i32 %call, ptr %coerce.dive, align 4
   %call2 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #3
@@ -3742,43 +3830,47 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
 
 if.then:                                          ; preds = %memptr.end
   %style_3 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %4 = getelementptr inbounds i8, ptr %style_3, i64 0
+  %6 = getelementptr inbounds i8, ptr %style_3, i64 0
   br i1 false, label %memptr.virtual4, label %memptr.nonvirtual7
 
 memptr.virtual4:                                  ; preds = %if.then
-  %vtable5 = load ptr, ptr %4, align 8
-  %5 = getelementptr i8, ptr %vtable5, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn6 = load ptr, ptr %5, align 8, !nosanitize !4
+  %vtable5 = load ptr, ptr %6, align 8
+  %7 = ptrtoint ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64
+  %8 = sub i64 %7, 1
+  %9 = getelementptr i8, ptr %vtable5, i64 %8, !nosanitize !4
+  %memptr.virtualfn6 = load ptr, ptr %9, align 8, !nosanitize !4
   br label %memptr.end8
 
 memptr.nonvirtual7:                               ; preds = %if.then
   br label %memptr.end8
 
 memptr.end8:                                      ; preds = %memptr.nonvirtual7, %memptr.virtual4
-  %6 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual7 ]
-  %7 = load i8, ptr %edge.addr, align 1
-  %call9 = call i32 %6(ptr noundef nonnull align 4 dereferenceable(204) %4, i8 noundef zeroext %7)
+  %10 = phi ptr [ %memptr.virtualfn6, %memptr.virtual4 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual7 ]
+  %11 = load i8, ptr %edge.addr, align 1
+  %call9 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %6, i8 noundef zeroext %11)
   %coerce.dive10 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call9, ptr %coerce.dive10, align 4
   br label %return
 
 if.else:                                          ; preds = %memptr.end
   %style_12 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %8 = getelementptr inbounds i8, ptr %style_12, i64 0
+  %12 = getelementptr inbounds i8, ptr %style_12, i64 0
   br i1 false, label %memptr.virtual13, label %memptr.nonvirtual16
 
 memptr.virtual13:                                 ; preds = %if.else
-  %vtable14 = load ptr, ptr %8, align 8
-  %9 = getelementptr i8, ptr %vtable14, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn15 = load ptr, ptr %9, align 8, !nosanitize !4
+  %vtable14 = load ptr, ptr %12, align 8
+  %13 = ptrtoint ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64
+  %14 = sub i64 %13, 1
+  %15 = getelementptr i8, ptr %vtable14, i64 %14, !nosanitize !4
+  %memptr.virtualfn15 = load ptr, ptr %15, align 8, !nosanitize !4
   br label %memptr.end17
 
 memptr.nonvirtual16:                              ; preds = %if.else
   br label %memptr.end17
 
 memptr.end17:                                     ; preds = %memptr.nonvirtual16, %memptr.virtual13
-  %10 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual16 ]
-  %call18 = call i32 %10(ptr noundef nonnull align 4 dereferenceable(204) %8, i8 noundef zeroext 7)
+  %16 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual16 ]
+  %call18 = call i32 %16(ptr noundef nonnull align 4 dereferenceable(204) %12, i8 noundef zeroext 7)
   %coerce.dive19 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %ref.tmp11, i32 0, i32 0
   store i32 %call18, ptr %coerce.dive19, align 4
   %call20 = call noundef zeroext i1 @_ZNK8facebook4yoga12CompactValue9isDefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11) #3
@@ -3786,50 +3878,54 @@ memptr.end17:                                     ; preds = %memptr.nonvirtual16
 
 if.then21:                                        ; preds = %memptr.end17
   %style_22 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %11 = getelementptr inbounds i8, ptr %style_22, i64 0
+  %17 = getelementptr inbounds i8, ptr %style_22, i64 0
   br i1 false, label %memptr.virtual23, label %memptr.nonvirtual26
 
 memptr.virtual23:                                 ; preds = %if.then21
-  %vtable24 = load ptr, ptr %11, align 8
-  %12 = getelementptr i8, ptr %vtable24, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn25 = load ptr, ptr %12, align 8, !nosanitize !4
+  %vtable24 = load ptr, ptr %17, align 8
+  %18 = ptrtoint ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64
+  %19 = sub i64 %18, 1
+  %20 = getelementptr i8, ptr %vtable24, i64 %19, !nosanitize !4
+  %memptr.virtualfn25 = load ptr, ptr %20, align 8, !nosanitize !4
   br label %memptr.end27
 
 memptr.nonvirtual26:                              ; preds = %if.then21
   br label %memptr.end27
 
 memptr.end27:                                     ; preds = %memptr.nonvirtual26, %memptr.virtual23
-  %13 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual26 ]
-  %call28 = call i32 %13(ptr noundef nonnull align 4 dereferenceable(204) %11, i8 noundef zeroext 7)
+  %21 = phi ptr [ %memptr.virtualfn25, %memptr.virtual23 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual26 ]
+  %call28 = call i32 %21(ptr noundef nonnull align 4 dereferenceable(204) %17, i8 noundef zeroext 7)
   %coerce.dive29 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call28, ptr %coerce.dive29, align 4
   br label %return
 
 if.else30:                                        ; preds = %memptr.end17
   %style_31 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this1, i32 0, i32 6
-  %14 = getelementptr inbounds i8, ptr %style_31, i64 0
+  %22 = getelementptr inbounds i8, ptr %style_31, i64 0
   br i1 false, label %memptr.virtual32, label %memptr.nonvirtual35
 
 memptr.virtual32:                                 ; preds = %if.else30
-  %vtable33 = load ptr, ptr %14, align 8
-  %15 = getelementptr i8, ptr %vtable33, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn34 = load ptr, ptr %15, align 8, !nosanitize !4
+  %vtable33 = load ptr, ptr %22, align 8
+  %23 = ptrtoint ptr @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE to i64
+  %24 = sub i64 %23, 1
+  %25 = getelementptr i8, ptr %vtable33, i64 %24, !nosanitize !4
+  %memptr.virtualfn34 = load ptr, ptr %25, align 8, !nosanitize !4
   br label %memptr.end36
 
 memptr.nonvirtual35:                              ; preds = %if.else30
   br label %memptr.end36
 
 memptr.end36:                                     ; preds = %memptr.nonvirtual35, %memptr.virtual32
-  %16 = phi ptr [ %memptr.virtualfn34, %memptr.virtual32 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual35 ]
-  %call37 = call i32 %16(ptr noundef nonnull align 4 dereferenceable(204) %14, i8 noundef zeroext 8)
+  %26 = phi ptr [ %memptr.virtualfn34, %memptr.virtual32 ], [ @_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE, %memptr.nonvirtual35 ]
+  %call37 = call i32 %26(ptr noundef nonnull align 4 dereferenceable(204) %22, i8 noundef zeroext 8)
   %coerce.dive38 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
   store i32 %call37, ptr %coerce.dive38, align 4
   br label %return
 
 return:                                           ; preds = %memptr.end36, %memptr.end27, %memptr.end8
   %coerce.dive39 = getelementptr inbounds %"class.facebook::yoga::CompactValue", ptr %retval, i32 0, i32 0
-  %17 = load i32, ptr %coerce.dive39, align 4
-  ret i32 %17
+  %27 = load i32, ptr %coerce.dive39, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

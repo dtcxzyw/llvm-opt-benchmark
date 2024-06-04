@@ -1025,133 +1025,139 @@ define i32 @jobacct_gather_init() #0 {
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15
-  br label %68
+  br label %74
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr @slurmdbd_conf, align 8
   %21 = icmp ne ptr %20, null
-  br i1 %21, label %25, label %22
+  br i1 %21, label %26, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 65), align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %26, label %25
+  %23 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 65
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %27, label %26
 
-25:                                               ; preds = %22, %19
+26:                                               ; preds = %22, %19
   store i32 1, ptr @plugin_inited, align 4
-  br label %68
+  br label %74
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %1, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 65), align 8
-  %29 = call ptr @plugin_context_create(ptr noundef %27, ptr noundef %28, ptr noundef @ops, ptr noundef @syms, i64 noundef 24)
-  store ptr %29, ptr @g_context, align 8
-  %30 = load ptr, ptr @g_context, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %36, label %32
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %1, align 8
+  %29 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 65
+  %30 = load ptr, ptr %29, align 8
+  %31 = call ptr @plugin_context_create(ptr noundef %28, ptr noundef %30, ptr noundef @ops, ptr noundef @syms, i64 noundef 24)
+  store ptr %31, ptr @g_context, align 8
+  %32 = load ptr, ptr @g_context, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %39, label %34
 
-32:                                               ; preds = %26
-  %33 = load ptr, ptr %1, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 65), align 8
-  %35 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %33, ptr noundef %34)
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %1, align 8
+  %36 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 65
+  %37 = load ptr, ptr %36, align 8
+  %38 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %35, ptr noundef %37)
   store i32 -1, ptr %2, align 4
   store i32 0, ptr @plugin_inited, align 4
-  br label %68
+  br label %74
 
-36:                                               ; preds = %26
-  br label %37
+39:                                               ; preds = %27
+  br label %40
 
-37:                                               ; preds = %36
-  %38 = call i32 @pthread_mutex_lock(ptr noundef @init_run_mutex) #7
-  store i32 %38, ptr %4, align 4
-  %39 = load i32, ptr %4, align 4
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %44
-
-41:                                               ; preds = %37
+40:                                               ; preds = %39
+  %41 = call i32 @pthread_mutex_lock(ptr noundef @init_run_mutex) #7
+  store i32 %41, ptr %4, align 4
   %42 = load i32, ptr %4, align 4
-  %43 = call ptr @__errno_location() #8
-  store i32 %42, ptr %43, align 4
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %47
+
+44:                                               ; preds = %40
+  %45 = load i32, ptr %4, align 4
+  %46 = call ptr @__errno_location() #8
+  store i32 %45, ptr %46, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 547, ptr noundef @__func__.jobacct_gather_init) #9
   unreachable
 
-44:                                               ; preds = %37
-  br label %45
+47:                                               ; preds = %40
+  br label %48
 
-45:                                               ; preds = %44
+48:                                               ; preds = %47
   store i32 2, ptr @plugin_inited, align 4
-  br label %46
+  br label %49
 
-46:                                               ; preds = %45
-  %47 = call i32 @pthread_mutex_unlock(ptr noundef @init_run_mutex) #7
-  store i32 %47, ptr %5, align 4
-  %48 = load i32, ptr %5, align 4
-  %49 = icmp ne i32 %48, 0
-  br i1 %49, label %50, label %53
-
-50:                                               ; preds = %46
+49:                                               ; preds = %48
+  %50 = call i32 @pthread_mutex_unlock(ptr noundef @init_run_mutex) #7
+  store i32 %50, ptr %5, align 4
   %51 = load i32, ptr %5, align 4
-  %52 = call ptr @__errno_location() #8
-  store i32 %51, ptr %52, align 4
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %56
+
+53:                                               ; preds = %49
+  %54 = load i32, ptr %5, align 4
+  %55 = call ptr @__errno_location() #8
+  store i32 %54, ptr %55, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 549, ptr noundef @__func__.jobacct_gather_init) #9
   unreachable
 
-53:                                               ; preds = %46
-  br label %54
+56:                                               ; preds = %49
+  br label %57
 
-54:                                               ; preds = %53
-  %55 = call zeroext i1 @running_in_slurmctld()
-  br i1 %55, label %57, label %56
+57:                                               ; preds = %56
+  %58 = call zeroext i1 @running_in_slurmctld()
+  br i1 %58, label %60, label %59
 
-56:                                               ; preds = %54
+59:                                               ; preds = %57
+  br label %74
+
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 137
+  %62 = load ptr, ptr %61, align 8
+  %63 = call i32 @xstrcasecmp(ptr noundef %62, ptr noundef @.str.5)
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %68, label %65
+
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 65
+  %67 = load ptr, ptr %66, align 8
+  call void (ptr, ...) @warning(ptr noundef @.str.6, ptr noundef %67)
   br label %68
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 137), align 8
-  %59 = call i32 @xstrcasecmp(ptr noundef %58, ptr noundef @.str.5)
-  %60 = icmp ne i32 %59, 0
-  br i1 %60, label %63, label %61
+68:                                               ; preds = %65, %60
+  %69 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 9
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp ne ptr %70, null
+  br i1 %71, label %73, label %72
 
-61:                                               ; preds = %57
-  %62 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 65), align 8
-  call void (ptr, ...) @warning(ptr noundef @.str.6, ptr noundef %62)
-  br label %63
-
-63:                                               ; preds = %61, %57
-  %64 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 9), align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %67, label %66
-
-66:                                               ; preds = %63
+72:                                               ; preds = %68
   call void (ptr, ...) @warning(ptr noundef @.str.7)
-  br label %67
+  br label %73
 
-67:                                               ; preds = %66, %63
-  br label %68
+73:                                               ; preds = %72, %68
+  br label %74
 
-68:                                               ; preds = %67, %56, %32, %25, %18
-  br label %69
+74:                                               ; preds = %73, %59, %34, %26, %18
+  br label %75
 
-69:                                               ; preds = %68
-  %70 = call i32 @pthread_mutex_unlock(ptr noundef @g_context_lock) #7
-  store i32 %70, ptr %6, align 4
-  %71 = load i32, ptr %6, align 4
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %76
+75:                                               ; preds = %74
+  %76 = call i32 @pthread_mutex_unlock(ptr noundef @g_context_lock) #7
+  store i32 %76, ptr %6, align 4
+  %77 = load i32, ptr %6, align 4
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %82
 
-73:                                               ; preds = %69
-  %74 = load i32, ptr %6, align 4
-  %75 = call ptr @__errno_location() #8
-  store i32 %74, ptr %75, align 4
+79:                                               ; preds = %75
+  %80 = load i32, ptr %6, align 4
+  %81 = call ptr @__errno_location() #8
+  store i32 %80, ptr %81, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 564, ptr noundef @__func__.jobacct_gather_init) #9
   unreachable
 
-76:                                               ; preds = %69
-  br label %77
+82:                                               ; preds = %75
+  br label %83
 
-77:                                               ; preds = %76
-  %78 = load i32, ptr %2, align 4
-  ret i32 %78
+83:                                               ; preds = %82
+  %84 = load i32, ptr %2, align 4
+  ret i32 %84
 }
 
 ; Function Attrs: nounwind
@@ -1916,7 +1922,7 @@ define i32 @jobacct_gather_endpoll() #0 {
 
 9:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %57
+  br label %58
 
 10:                                               ; preds = %0
   br label %11
@@ -1997,36 +2003,37 @@ define i32 @jobacct_gather_endpoll() #0 {
   br label %44
 
 44:                                               ; preds = %43
-  %45 = load ptr, ptr getelementptr inbounds (%struct.slurm_jobacct_gather_ops, ptr @ops, i32 0, i32 1), align 8
-  %46 = call i32 (...) %45()
-  store i32 %46, ptr %2, align 4
-  br label %47
+  %45 = getelementptr inbounds %struct.slurm_jobacct_gather_ops, ptr @ops, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8
+  %47 = call i32 (...) %46()
+  store i32 %47, ptr %2, align 4
+  br label %48
 
-47:                                               ; preds = %44
-  %48 = call i32 @pthread_mutex_unlock(ptr noundef @task_list_lock) #7
-  store i32 %48, ptr %6, align 4
-  %49 = load i32, ptr %6, align 4
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %51, label %54
+48:                                               ; preds = %44
+  %49 = call i32 @pthread_mutex_unlock(ptr noundef @task_list_lock) #7
+  store i32 %49, ptr %6, align 4
+  %50 = load i32, ptr %6, align 4
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %55
 
-51:                                               ; preds = %47
-  %52 = load i32, ptr %6, align 4
-  %53 = call ptr @__errno_location() #8
-  store i32 %52, ptr %53, align 4
+52:                                               ; preds = %48
+  %53 = load i32, ptr %6, align 4
+  %54 = call ptr @__errno_location() #8
+  store i32 %53, ptr %54, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 645, ptr noundef @__func__.jobacct_gather_endpoll) #9
   unreachable
 
-54:                                               ; preds = %47
-  br label %55
+55:                                               ; preds = %48
+  br label %56
 
-55:                                               ; preds = %54
-  %56 = load i32, ptr %2, align 4
-  store i32 %56, ptr %1, align 4
-  br label %57
+56:                                               ; preds = %55
+  %57 = load i32, ptr %2, align 4
+  store i32 %57, ptr %1, align 4
+  br label %58
 
-57:                                               ; preds = %55, %9
-  %58 = load i32, ptr %1, align 4
-  ret i32 %58
+58:                                               ; preds = %56, %9
+  %59 = load i32, ptr %1, align 4
+  ret i32 %59
 }
 
 declare void @list_destroy(ptr noundef) #4
@@ -2050,7 +2057,7 @@ define i32 @jobacct_gather_add_task(i32 noundef %0, ptr noundef %1, i32 noundef 
 
 14:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %93
+  br label %94
 
 15:                                               ; preds = %3
   %16 = call zeroext i1 @_jobacct_shutdown_test()
@@ -2058,7 +2065,7 @@ define i32 @jobacct_gather_add_task(i32 noundef %0, ptr noundef %1, i32 noundef 
 
 17:                                               ; preds = %15
   store i32 -1, ptr %4, align 4
-  br label %93
+  br label %94
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %6, align 8
@@ -2091,7 +2098,7 @@ define i32 @jobacct_gather_add_task(i32 noundef %0, ptr noundef %1, i32 noundef 
 32:                                               ; preds = %29
   %33 = load i32, ptr %5, align 4
   %34 = call i32 (ptr, ...) @error(ptr noundef @.str.18, i32 noundef %33)
-  br label %82
+  br label %83
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr @task_list, align 8
@@ -2100,7 +2107,7 @@ define i32 @jobacct_gather_add_task(i32 noundef %0, ptr noundef %1, i32 noundef 
 
 38:                                               ; preds = %35
   %39 = call i32 (ptr, ...) @error(ptr noundef @.str.19)
-  br label %82
+  br label %83
 
 40:                                               ; preds = %35
   br label %41
@@ -2142,74 +2149,75 @@ define i32 @jobacct_gather_add_task(i32 noundef %0, ptr noundef %1, i32 noundef 
   br label %62
 
 62:                                               ; preds = %61
-  %63 = load ptr, ptr getelementptr inbounds (%struct.slurm_jobacct_gather_ops, ptr @ops, i32 0, i32 2), align 8
-  %64 = load i32, ptr %5, align 4
-  %65 = load ptr, ptr %6, align 8
-  %66 = call i32 %63(i32 noundef %64, ptr noundef %65)
-  %67 = load ptr, ptr @task_list, align 8
-  %68 = load ptr, ptr %8, align 8
-  call void @list_push(ptr noundef %67, ptr noundef %68)
-  br label %69
+  %63 = getelementptr inbounds %struct.slurm_jobacct_gather_ops, ptr @ops, i32 0, i32 2
+  %64 = load ptr, ptr %63, align 8
+  %65 = load i32, ptr %5, align 4
+  %66 = load ptr, ptr %6, align 8
+  %67 = call i32 %64(i32 noundef %65, ptr noundef %66)
+  %68 = load ptr, ptr @task_list, align 8
+  %69 = load ptr, ptr %8, align 8
+  call void @list_push(ptr noundef %68, ptr noundef %69)
+  br label %70
 
-69:                                               ; preds = %62
-  %70 = call i32 @pthread_mutex_unlock(ptr noundef @task_list_lock) #7
-  store i32 %70, ptr %10, align 4
-  %71 = load i32, ptr %10, align 4
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %76
+70:                                               ; preds = %62
+  %71 = call i32 @pthread_mutex_unlock(ptr noundef @task_list_lock) #7
+  store i32 %71, ptr %10, align 4
+  %72 = load i32, ptr %10, align 4
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %77
 
-73:                                               ; preds = %69
-  %74 = load i32, ptr %10, align 4
-  %75 = call ptr @__errno_location() #8
-  store i32 %74, ptr %75, align 4
+74:                                               ; preds = %70
+  %75 = load i32, ptr %10, align 4
+  %76 = call ptr @__errno_location() #8
+  store i32 %75, ptr %76, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 680, ptr noundef @__func__.jobacct_gather_add_task) #9
   unreachable
 
-76:                                               ; preds = %69
-  br label %77
+77:                                               ; preds = %70
+  br label %78
 
-77:                                               ; preds = %76
-  %78 = load i32, ptr %7, align 4
-  %79 = icmp eq i32 %78, 1
-  br i1 %79, label %80, label %81
+78:                                               ; preds = %77
+  %79 = load i32, ptr %7, align 4
+  %80 = icmp eq i32 %79, 1
+  br i1 %80, label %81, label %82
 
-80:                                               ; preds = %77
+81:                                               ; preds = %78
   call void @_poll_data(i1 noundef zeroext true)
-  br label %81
+  br label %82
 
-81:                                               ; preds = %80, %77
+82:                                               ; preds = %81, %78
   store i32 0, ptr %4, align 4
-  br label %93
+  br label %94
 
-82:                                               ; preds = %38, %32
-  br label %83
+83:                                               ; preds = %38, %32
+  br label %84
 
-83:                                               ; preds = %82
-  %84 = call i32 @pthread_mutex_unlock(ptr noundef @task_list_lock) #7
-  store i32 %84, ptr %11, align 4
-  %85 = load i32, ptr %11, align 4
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %90
+84:                                               ; preds = %83
+  %85 = call i32 @pthread_mutex_unlock(ptr noundef @task_list_lock) #7
+  store i32 %85, ptr %11, align 4
+  %86 = load i32, ptr %11, align 4
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %88, label %91
 
-87:                                               ; preds = %83
-  %88 = load i32, ptr %11, align 4
-  %89 = call ptr @__errno_location() #8
-  store i32 %88, ptr %89, align 4
+88:                                               ; preds = %84
+  %89 = load i32, ptr %11, align 4
+  %90 = call ptr @__errno_location() #8
+  store i32 %89, ptr %90, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 687, ptr noundef @__func__.jobacct_gather_add_task) #9
   unreachable
 
-90:                                               ; preds = %83
-  br label %91
+91:                                               ; preds = %84
+  br label %92
 
-91:                                               ; preds = %90
-  %92 = load ptr, ptr %8, align 8
-  call void @jobacctinfo_destroy(ptr noundef %92)
+92:                                               ; preds = %91
+  %93 = load ptr, ptr %8, align 8
+  call void @jobacctinfo_destroy(ptr noundef %93)
   store i32 -1, ptr %4, align 4
-  br label %93
+  br label %94
 
-93:                                               ; preds = %91, %81, %17, %14
-  %94 = load i32, ptr %4, align 4
-  ret i32 %94
+94:                                               ; preds = %92, %82, %17, %14
+  %95 = load i32, ptr %4, align 4
+  ret i32 %95
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2960,7 +2968,7 @@ define i32 @jobacct_gather_set_mem_limit(ptr noundef %0, i64 noundef %1) #0 {
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %36
+  br label %37
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %4, align 8
@@ -2981,7 +2989,7 @@ define i32 @jobacct_gather_set_mem_limit(ptr noundef %0, i64 noundef %1) #0 {
   %21 = load i64, ptr %5, align 8
   %22 = call i32 (ptr, ...) @error(ptr noundef @.str.25, i32 noundef %20, i64 noundef %21)
   store i32 -1, ptr %3, align 4
-  br label %36
+  br label %37
 
 23:                                               ; preds = %14
   %24 = load ptr, ptr %4, align 8
@@ -2991,21 +2999,22 @@ define i32 @jobacct_gather_set_mem_limit(ptr noundef %0, i64 noundef %1) #0 {
   store i64 %26, ptr @jobacct_mem_limit, align 8
   %27 = load i64, ptr @jobacct_mem_limit, align 8
   store i64 %27, ptr @jobacct_vmem_limit, align 8
-  %28 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 217), align 8
-  %29 = zext i16 %28 to i32
-  %30 = sitofp i32 %29 to double
-  %31 = fdiv double %30, 1.000000e+02
-  %32 = load i64, ptr @jobacct_vmem_limit, align 8
-  %33 = uitofp i64 %32 to double
-  %34 = fmul double %33, %31
-  %35 = fptoui double %34 to i64
-  store i64 %35, ptr @jobacct_vmem_limit, align 8
+  %28 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 217
+  %29 = load i16, ptr %28, align 8
+  %30 = zext i16 %29 to i32
+  %31 = sitofp i32 %30 to double
+  %32 = fdiv double %31, 1.000000e+02
+  %33 = load i64, ptr @jobacct_vmem_limit, align 8
+  %34 = uitofp i64 %33 to double
+  %35 = fmul double %34, %32
+  %36 = fptoui double %35 to i64
+  store i64 %36, ptr @jobacct_vmem_limit, align 8
   store i32 0, ptr %3, align 4
-  br label %36
+  br label %37
 
-36:                                               ; preds = %23, %17, %8
-  %37 = load i32, ptr %3, align 4
-  ret i32 %37
+37:                                               ; preds = %23, %17, %8
+  %38 = load i32, ptr %3, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind uwtable

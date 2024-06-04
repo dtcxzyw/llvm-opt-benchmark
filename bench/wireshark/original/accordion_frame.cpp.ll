@@ -182,123 +182,125 @@ define void @_ZN14AccordionFrameC2EP7QWidget(ptr noundef nonnull align 8 derefer
   %16 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %17 = load i32, ptr %16, align 4
   call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef %15, i32 %17)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14AccordionFrame, i32 0, i32 0, i32 2), ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14AccordionFrame, i32 0, i32 1, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %class.AccordionFrame, ptr %14, i32 0, i32 1
-  store i32 0, ptr %19, align 8
+  %18 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV14AccordionFrame, i32 0, i32 0, i32 2
+  store ptr %18, ptr %14, align 8
+  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV14AccordionFrame, i32 0, i32 1, i32 2
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds %class.AccordionFrame, ptr %14, i32 0, i32 1
+  store i32 0, ptr %21, align 8
   invoke void @_ZN14AccordionFrame16updateStyleSheetEv(ptr noundef nonnull align 8 dereferenceable(56) %14)
-          to label %20 unwind label %40
+          to label %22 unwind label %42
 
-20:                                               ; preds = %2
-  %21 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #8
-          to label %22 unwind label %40
+22:                                               ; preds = %2
+  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #8
+          to label %24 unwind label %42
 
-22:                                               ; preds = %20
+24:                                               ; preds = %22
   store i1 true, ptr %9, align 1
   invoke void @_ZN10QByteArrayC1EPKcx(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef @.str, i64 noundef -1)
-          to label %23 unwind label %44
+          to label %25 unwind label %46
 
-23:                                               ; preds = %22
-  invoke void @_ZN18QPropertyAnimationC1EP7QObjectRK10QByteArrayS1_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %14)
-          to label %24 unwind label %48
+25:                                               ; preds = %24
+  invoke void @_ZN18QPropertyAnimationC1EP7QObjectRK10QByteArrayS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %14)
+          to label %26 unwind label %50
 
-24:                                               ; preds = %23
+26:                                               ; preds = %25
   store i1 false, ptr %9, align 1
-  %25 = getelementptr inbounds %class.AccordionFrame, ptr %14, i32 0, i32 2
-  store ptr %21, ptr %25, align 8
+  %27 = getelementptr inbounds %class.AccordionFrame, ptr %14, i32 0, i32 2
+  store ptr %23, ptr %27, align 8
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #7
-  %26 = getelementptr inbounds %class.AccordionFrame, ptr %14, i32 0, i32 2
-  %27 = load ptr, ptr %26, align 8
-  invoke void @_ZN17QVariantAnimation11setDurationEi(ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 150)
-          to label %28 unwind label %40
+  %28 = getelementptr inbounds %class.AccordionFrame, ptr %14, i32 0, i32 2
+  %29 = load ptr, ptr %28, align 8
+  invoke void @_ZN17QVariantAnimation11setDurationEi(ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 150)
+          to label %30 unwind label %42
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds %class.AccordionFrame, ptr %14, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds %class.AccordionFrame, ptr %14, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8
   invoke void @_ZN12QEasingCurveC1ENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 3)
-          to label %31 unwind label %40
+          to label %33 unwind label %42
 
-31:                                               ; preds = %28
-  invoke void @_ZN17QVariantAnimation14setEasingCurveERK12QEasingCurve(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %32 unwind label %56
+33:                                               ; preds = %30
+  invoke void @_ZN17QVariantAnimation14setEasingCurveERK12QEasingCurve(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %34 unwind label %58
 
-32:                                               ; preds = %31
+34:                                               ; preds = %33
   call void @_ZN12QEasingCurveD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  %33 = getelementptr inbounds %class.AccordionFrame, ptr %14, i32 0, i32 2
-  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds %class.AccordionFrame, ptr %14, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18QAbstractAnimation8finishedEv to i64), i64 0 }, ptr %12, align 8
-  %35 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 0
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 1
+  %37 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 0
   %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 1
+  %40 = load i64, ptr %39, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN14AccordionFrame17animationFinishedEv to i64), i64 0 }, ptr %13, align 8
-  invoke void @_ZN7QObject7connectIM18QAbstractAnimationFvvEM14AccordionFrameFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %11, ptr noundef %34, i64 %36, i64 %38, ptr noundef %14, ptr noundef byval({ i64, i64 }) align 8 %13, i32 noundef 0)
-          to label %39 unwind label %40
+  invoke void @_ZN7QObject7connectIM18QAbstractAnimationFvvEM14AccordionFrameFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %11, ptr noundef %36, i64 %38, i64 %40, ptr noundef %14, ptr noundef byval({ i64, i64 }) align 8 %13, i32 noundef 0)
+          to label %41 unwind label %42
 
-39:                                               ; preds = %32
+41:                                               ; preds = %34
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #7
   ret void
 
-40:                                               ; preds = %32, %28, %24, %20, %2
-  %41 = landingpad { ptr, i32 }
+42:                                               ; preds = %34, %30, %26, %22, %2
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %6, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %7, align 4
-  br label %60
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %6, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %7, align 4
+  br label %62
 
-44:                                               ; preds = %22
-  %45 = landingpad { ptr, i32 }
+46:                                               ; preds = %24
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %6, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %7, align 4
-  br label %52
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %6, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %7, align 4
+  br label %54
 
-48:                                               ; preds = %23
-  %49 = landingpad { ptr, i32 }
+50:                                               ; preds = %25
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %6, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %7, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %6, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %7, align 4
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #7
-  br label %52
+  br label %54
 
-52:                                               ; preds = %48, %44
-  %53 = load i1, ptr %9, align 1
-  br i1 %53, label %54, label %55
+54:                                               ; preds = %50, %46
+  %55 = load i1, ptr %9, align 1
+  br i1 %55, label %56, label %57
 
-54:                                               ; preds = %52
-  call void @_ZdlPv(ptr noundef %21) #9
-  br label %55
+56:                                               ; preds = %54
+  call void @_ZdlPv(ptr noundef %23) #9
+  br label %57
 
-55:                                               ; preds = %54, %52
-  br label %60
+57:                                               ; preds = %56, %54
+  br label %62
 
-56:                                               ; preds = %31
-  %57 = landingpad { ptr, i32 }
+58:                                               ; preds = %33
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %6, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %7, align 4
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %6, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %7, align 4
   call void @_ZN12QEasingCurveD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  br label %60
+  br label %62
 
-60:                                               ; preds = %56, %55, %40
+62:                                               ; preds = %58, %57, %42
   call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #7
-  br label %61
+  br label %63
 
-61:                                               ; preds = %60
-  %62 = load ptr, ptr %6, align 8
-  %63 = load i32, ptr %7, align 4
-  %64 = insertvalue { ptr, i32 } poison, ptr %62, 0
-  %65 = insertvalue { ptr, i32 } %64, i32 %63, 1
-  resume { ptr, i32 } %65
+63:                                               ; preds = %62
+  %64 = load ptr, ptr %6, align 8
+  %65 = load i32, ptr %7, align 4
+  %66 = insertvalue { ptr, i32 } poison, ptr %64, 0
+  %67 = insertvalue { ptr, i32 } %66, i32 %65, 1
+  resume { ptr, i32 } %67
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -101,7 +101,7 @@ define dso_local void @ata_acpi_bind_port(ptr noundef %0) local_unnamed_addr #0 
   %10 = select i1 %8, ptr %9, ptr null
   %11 = load i32, ptr @libata_noacpi, align 4
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %56
+  br i1 %12, label %13, label %57
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds i8, ptr %0, i64 24
@@ -110,7 +110,7 @@ define dso_local void @ata_acpi_bind_port(ptr noundef %0) local_unnamed_addr #0 
   %17 = icmp eq i64 %16, 0
   %18 = icmp ne ptr %10, null
   %19 = and i1 %18, %17
-  br i1 %19, label %20, label %56
+  br i1 %19, label %20, label %57
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds i8, ptr %0, i64 14792
@@ -148,27 +148,28 @@ define dso_local void @ata_acpi_bind_port(ptr noundef %0) local_unnamed_addr #0 
   %43 = getelementptr i8, ptr %41, i64 -16
   %44 = icmp ne ptr %43, null
   %45 = and i1 %42, %44
-  br i1 %45, label %46, label %56
+  br i1 %45, label %46, label %57
 
 46:                                               ; preds = %39
   %47 = getelementptr i8, ptr %41, i64 568
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %56
+  br i1 %49, label %50, label %57
 
 50:                                               ; preds = %46
-  %51 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %52 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %51, i32 noundef 3520, i64 noundef 40) #10
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %56, label %54
+  %51 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %52 = load ptr, ptr %51, align 16
+  %53 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %52, i32 noundef 3520, i64 noundef 40) #10
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %57, label %55
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %52, i64 32
-  store ptr %0, ptr %55, align 8
-  tail call void @acpi_initialize_hp_context(ptr noundef nonnull %43, ptr noundef nonnull %52, ptr noundef nonnull @ata_acpi_ap_notify_dock, ptr noundef nonnull @ata_acpi_ap_uevent) #9
-  br label %56
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds i8, ptr %53, i64 32
+  store ptr %0, ptr %56, align 8
+  tail call void @acpi_initialize_hp_context(ptr noundef nonnull %43, ptr noundef nonnull %53, ptr noundef nonnull @ata_acpi_ap_notify_dock, ptr noundef nonnull @ata_acpi_ap_uevent) #9
+  br label %57
 
-56:                                               ; preds = %54, %50, %46, %39, %13, %1
+57:                                               ; preds = %55, %50, %46, %39, %13, %1
   ret void
 }
 
@@ -318,7 +319,7 @@ define dso_local void @ata_acpi_bind_dev(ptr noundef %0) local_unnamed_addr #0 a
   %19 = icmp eq i32 %18, 0
   %20 = icmp ne ptr %17, null
   %21 = and i1 %19, %20
-  br i1 %21, label %22, label %75
+  br i1 %21, label %22, label %76
 
 22:                                               ; preds = %1
   %23 = getelementptr inbounds i8, ptr %3, i64 24
@@ -327,7 +328,7 @@ define dso_local void @ata_acpi_bind_dev(ptr noundef %0) local_unnamed_addr #0 a
   %26 = icmp ne i64 %25, 0
   %27 = icmp ne ptr %8, null
   %28 = or i1 %27, %26
-  br i1 %28, label %29, label %75
+  br i1 %28, label %29, label %76
 
 29:                                               ; preds = %22
   br i1 %26, label %30, label %44
@@ -380,27 +381,28 @@ define dso_local void @ata_acpi_bind_dev(ptr noundef %0) local_unnamed_addr #0 a
   %62 = getelementptr i8, ptr %60, i64 -16
   %63 = icmp ne ptr %62, null
   %64 = and i1 %61, %63
-  br i1 %64, label %65, label %75
+  br i1 %64, label %65, label %76
 
 65:                                               ; preds = %57
   %66 = getelementptr i8, ptr %60, i64 568
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %69, label %75
+  br i1 %68, label %69, label %76
 
 69:                                               ; preds = %65
-  %70 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %71 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %70, i32 noundef 3520, i64 noundef 40) #10
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %75, label %73
+  %70 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %71 = load ptr, ptr %70, align 16
+  %72 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %71, i32 noundef 3520, i64 noundef 40) #10
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %76, label %74
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %71, i64 32
-  store ptr %0, ptr %74, align 8
-  tail call void @acpi_initialize_hp_context(ptr noundef nonnull %62, ptr noundef nonnull %71, ptr noundef nonnull @ata_acpi_dev_notify_dock, ptr noundef nonnull @ata_acpi_dev_uevent) #9
-  br label %75
+74:                                               ; preds = %69
+  %75 = getelementptr inbounds i8, ptr %72, i64 32
+  store ptr %0, ptr %75, align 8
+  tail call void @acpi_initialize_hp_context(ptr noundef nonnull %62, ptr noundef nonnull %72, ptr noundef nonnull @ata_acpi_dev_notify_dock, ptr noundef nonnull @ata_acpi_dev_uevent) #9
+  br label %76
 
-75:                                               ; preds = %73, %69, %65, %57, %22, %1
+76:                                               ; preds = %74, %69, %65, %57, %22, %1
   ret void
 }
 

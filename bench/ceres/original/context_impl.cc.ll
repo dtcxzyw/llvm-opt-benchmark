@@ -122,61 +122,62 @@ define hidden void @_ZN5ceres8internal11ContextImplC2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5ceres7ContextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5ceres8internal11ContextImplE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 1
-  invoke void @_ZN5ceres8internal10ThreadPoolC1Ev(ptr noundef nonnull align 8 dereferenceable(240) %6)
-          to label %7 unwind label %25
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5ceres8internal11ContextImplE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 1
+  invoke void @_ZN5ceres8internal10ThreadPoolC1Ev(ptr noundef nonnull align 8 dereferenceable(240) %7)
+          to label %8 unwind label %26
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 2
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 3
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 2
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 4
-  %11 = getelementptr inbounds [2 x ptr], ptr %10, i64 0, i64 0
-  store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 1
-  %13 = getelementptr inbounds ptr, ptr %11, i64 2
-  br label %14
+  %10 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 3
+  store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 4
+  %12 = getelementptr inbounds [2 x ptr], ptr %11, i64 0, i64 0
+  store ptr null, ptr %12, align 8
+  %13 = getelementptr inbounds ptr, ptr %12, i64 1
+  %14 = getelementptr inbounds ptr, ptr %12, i64 2
+  br label %15
 
-14:                                               ; preds = %14, %7
-  %15 = phi ptr [ %12, %7 ], [ %16, %14 ]
-  store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 1
-  %17 = icmp eq ptr %16, %13
-  br i1 %17, label %18, label %14
+15:                                               ; preds = %15, %8
+  %16 = phi ptr [ %13, %8 ], [ %17, %15 ]
+  store ptr null, ptr %16, align 8
+  %17 = getelementptr inbounds ptr, ptr %16, i64 1
+  %18 = icmp eq ptr %17, %14
+  br i1 %18, label %19, label %15
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 5
-  store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 6
-  store i8 0, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 8
-  store i32 -1, ptr %21, align 4
-  %22 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 10
-  store i8 0, ptr %22, align 8
-  %23 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 12
-  store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 13
-  store i32 0, ptr %24, align 8
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 5
+  store ptr null, ptr %20, align 8
+  %21 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 6
+  store i8 0, ptr %21, align 8
+  %22 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 8
+  store i32 -1, ptr %22, align 4
+  %23 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 10
+  store i8 0, ptr %23, align 8
+  %24 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 12
+  store i32 0, ptr %24, align 4
+  %25 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 13
+  store i32 0, ptr %25, align 8
   ret void
 
-25:                                               ; preds = %1
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %1
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %3, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %4, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %3, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %4, align 4
   call void @_ZN5ceres7ContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
-  br label %29
+  br label %30
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %3, align 8
-  %31 = load i32, ptr %4, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %3, align 8
+  %32 = load i32, ptr %4, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 declare void @_ZN5ceres7ContextC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1

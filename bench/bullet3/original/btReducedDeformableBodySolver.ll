@@ -1068,51 +1068,63 @@ entry:
   store float 0.000000e+00, ptr %ref.tmp3, align 4
   store float 1.000000e+00, ptr %ref.tmp4, align 4
   store float 0.000000e+00, ptr %ref.tmp5, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 1), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
+  %0 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 1
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
   store float 0.000000e+00, ptr %ref.tmp6, align 4
   store float 0.000000e+00, ptr %ref.tmp7, align 4
   store float 1.000000e+00, ptr %ref.tmp8, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 2), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8)
+  %1 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 2
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8)
   store float 1.000000e+00, ptr %ref.tmp9, align 4
   store float 1.000000e+00, ptr %ref.tmp10, align 4
   store float 0.000000e+00, ptr %ref.tmp11, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 3), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11)
+  %2 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 3
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11)
   store float 1.000000e+00, ptr %ref.tmp12, align 4
   store float 0.000000e+00, ptr %ref.tmp13, align 4
   store float 1.000000e+00, ptr %ref.tmp14, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 4), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14)
+  %3 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 4
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14)
   store float 0.000000e+00, ptr %ref.tmp15, align 4
   store float 1.000000e+00, ptr %ref.tmp16, align 4
   store float 1.000000e+00, ptr %ref.tmp17, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 5), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp17)
+  %4 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 5
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp17)
   store float 1.000000e+00, ptr %ref.tmp18, align 4
   store float -1.000000e+00, ptr %ref.tmp19, align 4
   store float 0.000000e+00, ptr %ref.tmp20, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 6), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20)
+  %5 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 6
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20)
   store float 1.000000e+00, ptr %ref.tmp21, align 4
   store float 0.000000e+00, ptr %ref.tmp22, align 4
   store float -1.000000e+00, ptr %ref.tmp23, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 7), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp22, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23)
+  %6 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 7
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp22, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23)
   store float 0.000000e+00, ptr %ref.tmp24, align 4
   store float 1.000000e+00, ptr %ref.tmp25, align 4
   store float -1.000000e+00, ptr %ref.tmp26, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 8), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp24, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp26)
+  %7 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 8
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp24, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp26)
   store float 1.000000e+00, ptr %ref.tmp27, align 4
   store float 1.000000e+00, ptr %ref.tmp28, align 4
   store float 1.000000e+00, ptr %ref.tmp29, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 9), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29)
+  %8 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 9
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29)
   store float 1.000000e+00, ptr %ref.tmp30, align 4
   store float -1.000000e+00, ptr %ref.tmp31, align 4
   store float 1.000000e+00, ptr %ref.tmp32, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 10), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp32)
+  %9 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 10
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp32)
   store float 1.000000e+00, ptr %ref.tmp33, align 4
   store float 1.000000e+00, ptr %ref.tmp34, align 4
   store float -1.000000e+00, ptr %ref.tmp35, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 11), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp33, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp34, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35)
+  %10 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 11
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp33, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp34, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35)
   store float 1.000000e+00, ptr %ref.tmp36, align 4
   store float -1.000000e+00, ptr %ref.tmp37, align 4
   store float -1.000000e+00, ptr %ref.tmp38, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 12), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp38)
+  %11 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 12
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp38)
   ret void
 }
 
@@ -2499,7 +2511,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN22btDeformableBodySolverC2Ev(ptr noundef nonnull align 8 dereferenceable(609) %this1)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV29btReducedDeformableBodySolver, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTV29btReducedDeformableBodySolver, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_gravity = getelementptr inbounds %class.btReducedDeformableBodySolver, ptr %this1, i32 0, i32 4
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_gravity)
           to label %invoke.cont unwind label %lpad
@@ -2540,39 +2553,39 @@ invoke.cont11:                                    ; preds = %invoke.cont6
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup14
 
 lpad3:                                            ; preds = %invoke.cont2
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad5:                                            ; preds = %invoke.cont4
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont6
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIS_I45btReducedDeformableFaceRigidContactConstraintEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faceRigidConstraints) #4
   br label %ehcleanup
 
@@ -6016,7 +6029,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6077,7 +6091,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV29btReducedDeformableBodySolver, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTV29btReducedDeformableBodySolver, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_faceRigidConstraints = getelementptr inbounds %class.btReducedDeformableBodySolver, ptr %this1, i32 0, i32 8
   call void @_ZN20btAlignedObjectArrayIS_I45btReducedDeformableFaceRigidContactConstraintEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faceRigidConstraints) #4
   %m_nodeRigidConstraints = getelementptr inbounds %class.btReducedDeformableBodySolver, ptr %this1, i32 0, i32 7
@@ -11199,7 +11214,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN28btDeformableStaticConstraintC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV35btReducedDeformableStaticConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV35btReducedDeformableStaticConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ri = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 3
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_ri)
           to label %invoke.cont unwind label %lpad
@@ -11223,12 +11239,12 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN28btDeformableStaticConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #4
   br label %eh.resume
 
@@ -11336,31 +11352,32 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN28btDeformableStaticConstraintC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(48) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV35btReducedDeformableStaticConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV35btReducedDeformableStaticConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_rsb = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_rsb2 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_rsb2 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_rsb, ptr align 8 %m_rsb2, i64 60, i1 false)
   %m_impulseFactorMatrix = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 6
-  %3 = load ptr, ptr %.addr, align 8
-  %m_impulseFactorMatrix3 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %3, i32 0, i32 6
+  %4 = load ptr, ptr %.addr, align 8
+  %m_impulseFactorMatrix3 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %4, i32 0, i32 6
   invoke void @_ZN11btMatrix3x3C2ERKS_(ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactorMatrix, ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactorMatrix3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_impulseFactor = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 7
-  %4 = load ptr, ptr %.addr, align 8
-  %m_impulseFactor4 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %4, i32 0, i32 7
+  %5 = load ptr, ptr %.addr, align 8
+  %m_impulseFactor4 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %5, i32 0, i32 7
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_impulseFactor, ptr align 4 %m_impulseFactor4, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN28btDeformableStaticConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #4
   br label %eh.resume
 
@@ -11526,12 +11543,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN29btDeformableContactConstraintC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV28btDeformableStaticConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV28btDeformableStaticConstraint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_node = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %m_node2 = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %m_node2, align 8
-  store ptr %2, ptr %m_node, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %m_node2 = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %m_node2, align 8
+  store ptr %3, ptr %m_node, align 8
   ret void
 }
 
@@ -11585,22 +11603,23 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_static = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %m_static2 = getelementptr inbounds %class.btDeformableContactConstraint, ptr %0, i32 0, i32 1
-  %1 = load i8, ptr %m_static2, align 8
-  %tobool = trunc i8 %1 to i1
+  %1 = load ptr, ptr %other.addr, align 8
+  %m_static2 = getelementptr inbounds %class.btDeformableContactConstraint, ptr %1, i32 0, i32 1
+  %2 = load i8, ptr %m_static2, align 8
+  %tobool = trunc i8 %2 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %m_static, align 8
   %m_infoGlobal = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %m_infoGlobal3 = getelementptr inbounds %class.btDeformableContactConstraint, ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %m_infoGlobal3, align 8
-  store ptr %3, ptr %m_infoGlobal, align 8
+  %3 = load ptr, ptr %other.addr, align 8
+  %m_infoGlobal3 = getelementptr inbounds %class.btDeformableContactConstraint, ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %m_infoGlobal3, align 8
+  store ptr %4, ptr %m_infoGlobal, align 8
   %m_normal = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %other.addr, align 8
-  %m_normal4 = getelementptr inbounds %class.btDeformableContactConstraint, ptr %4, i32 0, i32 3
+  %5 = load ptr, ptr %other.addr, align 8
+  %m_normal4 = getelementptr inbounds %class.btDeformableContactConstraint, ptr %5, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_normal, ptr align 8 %m_normal4, i64 16, i1 false)
   ret void
 }
@@ -11736,7 +11755,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN29btDeformableContactConstraintC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV28btDeformableStaticConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV28btDeformableStaticConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11746,7 +11766,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_static = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this1, i32 0, i32 1
   store i8 0, ptr %m_static, align 8
   %m_normal = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this1, i32 0, i32 3
@@ -12076,7 +12097,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN41btReducedDeformableRigidContactConstraintC2Ev(ptr noundef nonnull align 8 dereferenceable(436) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12174,12 +12196,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN41btReducedDeformableRigidContactConstraintC2ERKS_(ptr noundef nonnull align 8 dereferenceable(436) %this1, ptr noundef nonnull align 8 dereferenceable(436) %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_node = getelementptr inbounds %class.btReducedDeformableNodeRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_node2 = getelementptr inbounds %class.btReducedDeformableNodeRigidContactConstraint, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %m_node2, align 8
-  store ptr %3, ptr %m_node, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %m_node2 = getelementptr inbounds %class.btReducedDeformableNodeRigidContactConstraint, ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %m_node2, align 8
+  store ptr %4, ptr %m_node, align 8
   ret void
 }
 
@@ -12339,31 +12362,32 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN34btDeformableRigidContactConstraintC2ERKS_(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef nonnull align 8 dereferenceable(96) %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_collideStatic = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_collideStatic2 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_collideStatic2 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_collideStatic, ptr align 8 %m_collideStatic2, i64 196, i1 false)
   %m_impulseFactor = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 32
-  %3 = load ptr, ptr %.addr, align 8
-  %m_impulseFactor3 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %3, i32 0, i32 32
+  %4 = load ptr, ptr %.addr, align 8
+  %m_impulseFactor3 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %4, i32 0, i32 32
   invoke void @_ZN11btMatrix3x3C2ERKS_(ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactor, ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactor3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_bufferVelocityA = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 33
-  %4 = load ptr, ptr %.addr, align 8
-  %m_bufferVelocityA4 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %4, i32 0, i32 33
+  %5 = load ptr, ptr %.addr, align 8
+  %m_bufferVelocityA4 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %5, i32 0, i32 33
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_bufferVelocityA, ptr align 4 %m_bufferVelocityA4, i64 96, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN34btDeformableRigidContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #4
   br label %eh.resume
 
@@ -12386,7 +12410,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN34btDeformableRigidContactConstraintC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_contactNormalA = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 26
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormalA)
           to label %invoke.cont unwind label %lpad
@@ -12455,12 +12480,12 @@ invoke.cont13:                                    ; preds = %invoke.cont12
   ret void
 
 lpad:                                             ; preds = %invoke.cont12, %invoke.cont11, %invoke.cont10, %invoke.cont9, %invoke.cont8, %invoke.cont7, %invoke.cont6, %invoke.cont5, %invoke.cont4, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN34btDeformableRigidContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #4
   br label %eh.resume
 
@@ -12481,7 +12506,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN29btDeformableContactConstraintC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV34btDeformableRigidContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV34btDeformableRigidContactConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_total_normal_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_total_normal_dv)
           to label %invoke.cont unwind label %lpad
@@ -12497,12 +12523,12 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN29btDeformableContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #4
   br label %eh.resume
 

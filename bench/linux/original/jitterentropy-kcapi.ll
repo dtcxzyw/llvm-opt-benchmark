@@ -291,55 +291,56 @@ define internal i32 @jent_mod_init() #6 section ".init.text" align 16 {
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %1) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %1, i8 0, i64 376, i1 false), !annotation !7
   %2 = tail call ptr @crypto_alloc_shash(ptr noundef nonnull @.str.4, i32 noundef 0, i32 noundef 0) #10
-  %3 = icmp ugt ptr %2, inttoptr (i64 -4096 to ptr)
-  br i1 %3, label %4, label %7
+  %3 = inttoptr i64 -4096 to ptr
+  %4 = icmp ugt ptr %2, %3
+  br i1 %4, label %5, label %8
 
-4:                                                ; preds = %0
-  %5 = ptrtoint ptr %2 to i64
-  %6 = trunc i64 %5 to i32
-  br label %30
+5:                                                ; preds = %0
+  %6 = ptrtoint ptr %2 to i64
+  %7 = trunc i64 %6 to i32
+  br label %31
 
-7:                                                ; preds = %0
+8:                                                ; preds = %0
   store ptr %2, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 12
-  %9 = load i32, ptr %8, align 4
-  %10 = and i32 %9, 1
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %18
+  %9 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = load i32, ptr %9, align 4
+  %11 = and i32 %10, 1
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %19
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr i8, ptr %14, i64 -104
-  %16 = load ptr, ptr %15, align 8
-  %17 = call i32 %16(ptr noundef nonnull %1) #10
-  br label %18
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr i8, ptr %15, i64 -104
+  %17 = load ptr, ptr %16, align 8
+  %18 = call i32 %17(ptr noundef nonnull %1) #10
+  br label %19
 
-18:                                               ; preds = %12, %7
-  %19 = call i32 @jent_entropy_init(i32 noundef 1, i32 noundef 0, ptr noundef nonnull %1, ptr noundef null) #10
-  %20 = load ptr, ptr %1, align 8
-  %21 = load i32, ptr %20, align 8
-  %22 = zext i32 %21 to i64
-  %23 = add nuw nsw i64 %22, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, i8 0, i64 %23, i1 false)
+19:                                               ; preds = %13, %8
+  %20 = call i32 @jent_entropy_init(i32 noundef 1, i32 noundef 0, ptr noundef nonnull %1, ptr noundef null) #10
+  %21 = load ptr, ptr %1, align 8
+  %22 = load i32, ptr %21, align 8
+  %23 = zext i32 %22 to i64
+  %24 = add nuw nsw i64 %23, 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, i8 0, i64 %24, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #10, !srcloc !5
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @crypto_destroy_tfm(ptr noundef %2, ptr noundef %24) #10
-  %25 = icmp eq i32 %19, 0
-  br i1 %25, label %28, label %26
+  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  call void @crypto_destroy_tfm(ptr noundef %2, ptr noundef %25) #10
+  %26 = icmp eq i32 %20, 0
+  br i1 %26, label %29, label %27
 
-26:                                               ; preds = %18
-  %27 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef %19) #11
-  br label %30
+27:                                               ; preds = %19
+  %28 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef %20) #11
+  br label %31
 
-28:                                               ; preds = %18
-  %29 = call i32 @crypto_register_rng(ptr noundef nonnull @jent_alg) #10
-  br label %30
+29:                                               ; preds = %19
+  %30 = call i32 @crypto_register_rng(ptr noundef nonnull @jent_alg) #10
+  br label %31
 
-30:                                               ; preds = %28, %26, %4
-  %31 = phi i32 [ %6, %4 ], [ -14, %26 ], [ %29, %28 ]
+31:                                               ; preds = %29, %27, %5
+  %32 = phi i32 [ %7, %5 ], [ -14, %27 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %1) #10
-  ret i32 %31
+  ret i32 %32
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
@@ -397,61 +398,62 @@ define internal i32 @jent_kcapi_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %2, align 8
   %3 = tail call ptr @crypto_alloc_shash(ptr noundef nonnull @.str.4, i32 noundef 0, i32 noundef 0) #10
-  %4 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
-  br i1 %4, label %5, label %9
+  %4 = inttoptr i64 -4096 to ptr
+  %5 = icmp ugt ptr %3, %4
+  br i1 %5, label %6, label %10
 
-5:                                                ; preds = %1
-  %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #11
-  %7 = ptrtoint ptr %3 to i64
-  %8 = trunc i64 %7 to i32
-  br label %34
+6:                                                ; preds = %1
+  %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #11
+  %8 = ptrtoint ptr %3 to i64
+  %9 = trunc i64 %8 to i32
+  br label %35
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %3, ptr %10, align 8
-  %11 = load i32, ptr %3, align 8
-  %12 = add i32 %11, 8
-  %13 = sext i32 %12 to i64
-  %14 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %13, i32 noundef 3264) #9
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %33, label %16
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %3, ptr %11, align 8
+  %12 = load i32, ptr %3, align 8
+  %13 = add i32 %12, 8
+  %14 = sext i32 %13 to i64
+  %15 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %14, i32 noundef 3264) #9
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %34, label %17
 
-16:                                               ; preds = %9
-  store ptr %3, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 12
-  %18 = load i32, ptr %17, align 4
-  %19 = and i32 %18, 1
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %27
+17:                                               ; preds = %10
+  store ptr %3, ptr %15, align 8
+  %18 = getelementptr inbounds i8, ptr %3, i64 12
+  %19 = load i32, ptr %18, align 4
+  %20 = and i32 %19, 1
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %28
 
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %3, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr i8, ptr %23, i64 -104
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 %25(ptr noundef nonnull %14) #10
-  br label %27
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds i8, ptr %3, i64 32
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr i8, ptr %24, i64 -104
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call i32 %26(ptr noundef nonnull %15) #10
+  br label %28
 
-27:                                               ; preds = %21, %16
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %14, ptr %28, align 8
-  %29 = tail call ptr @jent_entropy_collector_alloc(i32 noundef 1, i32 noundef 0, ptr noundef nonnull %14) #10
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %29, ptr %30, align 8
-  %31 = icmp eq ptr %29, null
-  br i1 %31, label %33, label %32
+28:                                               ; preds = %22, %17
+  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %15, ptr %29, align 8
+  %30 = tail call ptr @jent_entropy_collector_alloc(i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15) #10
+  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %30, ptr %31, align 8
+  %32 = icmp eq ptr %30, null
+  br i1 %32, label %34, label %33
 
-32:                                               ; preds = %27
+33:                                               ; preds = %28
   store i32 0, ptr %2, align 8
-  br label %34
+  br label %35
 
-33:                                               ; preds = %27, %9
+34:                                               ; preds = %28, %10
   tail call void @jent_kcapi_cleanup(ptr noundef %0)
-  br label %34
+  br label %35
 
-34:                                               ; preds = %33, %32, %5
-  %35 = phi i32 [ %8, %5 ], [ 0, %32 ], [ -12, %33 ]
-  ret i32 %35
+35:                                               ; preds = %34, %33, %6
+  %36 = phi i32 [ %9, %6 ], [ 0, %33 ], [ -12, %34 ]
+  ret i32 %36
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

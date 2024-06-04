@@ -424,17 +424,18 @@ define void @_ZN6google8protobuf7strings20CheckedArrayByteSinkC2EPcm(ptr noundef
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN6google8protobuf7strings8ByteSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf7strings20CheckedArrayByteSinkE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.google::protobuf::strings::CheckedArrayByteSink", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.google::protobuf::strings::CheckedArrayByteSink", ptr %7, i32 0, i32 2
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.google::protobuf::strings::CheckedArrayByteSink", ptr %7, i32 0, i32 3
-  store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.google::protobuf::strings::CheckedArrayByteSink", ptr %7, i32 0, i32 4
-  store i8 0, ptr %13, align 8
+  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf7strings20CheckedArrayByteSinkE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.google::protobuf::strings::CheckedArrayByteSink", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.google::protobuf::strings::CheckedArrayByteSink", ptr %7, i32 0, i32 2
+  %12 = load i64, ptr %6, align 8
+  store i64 %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.google::protobuf::strings::CheckedArrayByteSink", ptr %7, i32 0, i32 3
+  store i64 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.google::protobuf::strings::CheckedArrayByteSink", ptr %7, i32 0, i32 4
+  store i8 0, ptr %14, align 8
   ret void
 }
 
@@ -443,7 +444,8 @@ define linkonce_odr void @_ZN6google8protobuf7strings8ByteSinkC2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf7strings8ByteSinkE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf7strings8ByteSinkE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -604,37 +606,38 @@ define void @_ZN6google8protobuf7strings20GrowingArrayByteSinkC2Em(ptr noundef n
   store i64 %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN6google8protobuf7strings8ByteSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf7strings20GrowingArrayByteSinkE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.google::protobuf::strings::GrowingArrayByteSink", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %4, align 8
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.google::protobuf::strings::GrowingArrayByteSink", ptr %7, i32 0, i32 2
-  %11 = load i64, ptr %4, align 8
-  %12 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %11) #10
-          to label %13 unwind label %15
+  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf7strings20GrowingArrayByteSinkE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.google::protobuf::strings::GrowingArrayByteSink", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %4, align 8
+  store i64 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.google::protobuf::strings::GrowingArrayByteSink", ptr %7, i32 0, i32 2
+  %12 = load i64, ptr %4, align 8
+  %13 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %12) #10
+          to label %14 unwind label %16
 
-13:                                               ; preds = %2
-  store ptr %12, ptr %10, align 8
-  %14 = getelementptr inbounds %"class.google::protobuf::strings::GrowingArrayByteSink", ptr %7, i32 0, i32 3
-  store i64 0, ptr %14, align 8
+14:                                               ; preds = %2
+  store ptr %13, ptr %11, align 8
+  %15 = getelementptr inbounds %"class.google::protobuf::strings::GrowingArrayByteSink", ptr %7, i32 0, i32 3
+  store i64 0, ptr %15, align 8
   ret void
 
-15:                                               ; preds = %2
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %2
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %5, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %6, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %5, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %6, align 4
   call void @_ZN6google8protobuf7strings8ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %5, align 8
-  %21 = load i32, ptr %6, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %5, align 8
+  %22 = load i32, ptr %6, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -645,17 +648,18 @@ define void @_ZN6google8protobuf7strings20GrowingArrayByteSinkD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf7strings20GrowingArrayByteSinkE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::strings::GrowingArrayByteSink", ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf7strings20GrowingArrayByteSinkE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.google::protobuf::strings::GrowingArrayByteSink", ptr %3, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZdaPv(ptr noundef %5) #11
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZdaPv(ptr noundef %6) #11
+  br label %9
 
-8:                                                ; preds = %7, %1
+9:                                                ; preds = %8, %1
   call void @_ZN6google8protobuf7strings8ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -1152,13 +1156,14 @@ define void @_ZN6google8protobuf7strings15LimitByteSourceC2EPNS1_10ByteSourceEm(
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN6google8protobuf7strings10ByteSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN6google8protobuf7strings15LimitByteSourceE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.google::protobuf::strings::LimitByteSource", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.google::protobuf::strings::LimitByteSource", ptr %7, i32 0, i32 2
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6google8protobuf7strings15LimitByteSourceE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.google::protobuf::strings::LimitByteSource", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.google::protobuf::strings::LimitByteSource", ptr %7, i32 0, i32 2
+  %12 = load i64, ptr %6, align 8
+  store i64 %12, ptr %11, align 8
   ret void
 }
 
@@ -1167,7 +1172,8 @@ define linkonce_odr void @_ZN6google8protobuf7strings10ByteSourceC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN6google8protobuf7strings10ByteSourceE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6google8protobuf7strings10ByteSourceE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

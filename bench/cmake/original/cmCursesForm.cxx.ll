@@ -58,9 +58,10 @@ define dso_local void @_ZN12cmCursesFormC2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12cmCursesForm, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV12cmCursesForm, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
   ret void
 }
 
@@ -69,37 +70,38 @@ define dso_local void @_ZN12cmCursesFormD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12cmCursesForm, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %17
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV12cmCursesForm, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %18
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = invoke i32 @unpost_form(ptr noundef %9)
-          to label %11 unwind label %18
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = invoke i32 @unpost_form(ptr noundef %10)
+          to label %12 unwind label %19
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = invoke i32 @free_form(ptr noundef %13)
-          to label %15 unwind label %18
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = invoke i32 @free_form(ptr noundef %14)
+          to label %16 unwind label %19
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
-  store ptr null, ptr %16, align 8
-  br label %17
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
+  store ptr null, ptr %17, align 8
+  br label %18
 
-17:                                               ; preds = %15, %1
+18:                                               ; preds = %16, %1
   ret void
 
-18:                                               ; preds = %11, %7
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %12, %8
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #9
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #9
   unreachable
 }
 

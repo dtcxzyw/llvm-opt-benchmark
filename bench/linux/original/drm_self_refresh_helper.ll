@@ -228,51 +228,52 @@ define dso_local noundef i32 @drm_self_refresh_helper_init(ptr noundef %0) #0 al
   tail call void asm sideeffect "382: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 382b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 382) #5, !srcloc !13
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 237, i32 2305, i64 12) #5, !srcloc !14
   tail call void asm sideeffect "383: nop\0A\09.pushsection .discard.instr_end\0A\09.long 383b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 383) #5, !srcloc !15
-  br label %31
+  br label %32
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %8 = tail call noalias noundef align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 144) #6
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %31, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %8 = load ptr, ptr %7, align 16
+  %9 = tail call noalias noundef align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 144) #6
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %32, label %11
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 68719476704, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
-  store volatile ptr %12, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
-  store volatile ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr @drm_self_refresh_helper_entry_work, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 40
-  tail call void @init_timer_key(ptr noundef %15, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #5
-  store ptr %0, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 96
-  tail call void @__mutex_init(ptr noundef %16, ptr noundef nonnull @.str.2, ptr noundef nonnull @drm_self_refresh_helper_init.__key.1) #5
-  %17 = getelementptr inbounds i8, ptr %8, i64 128
-  %18 = getelementptr inbounds i8, ptr %8, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  %19 = load volatile i64, ptr %17, align 8
-  %20 = icmp eq i64 %19, 0
-  %21 = mul i64 %19, 3
-  %22 = add i64 %21, 3200
-  %23 = lshr i64 %22, 2
-  %24 = select i1 %20, i64 3200, i64 %23
-  store volatile i64 %24, ptr %17, align 8
-  %25 = load volatile i64, ptr %18, align 8
-  %26 = icmp eq i64 %25, 0
-  %27 = mul i64 %25, 3
-  %28 = add i64 %27, 3200
-  %29 = lshr i64 %28, 2
-  %30 = select i1 %26, i64 3200, i64 %29
-  store volatile i64 %30, ptr %18, align 8
-  store ptr %8, ptr %2, align 8
-  br label %31
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 68719476704, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  store volatile ptr %13, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 24
+  store volatile ptr %13, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr @drm_self_refresh_helper_entry_work, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %9, i64 40
+  tail call void @init_timer_key(ptr noundef %16, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #5
+  store ptr %0, ptr %9, align 8
+  %17 = getelementptr inbounds i8, ptr %9, i64 96
+  tail call void @__mutex_init(ptr noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull @drm_self_refresh_helper_init.__key.1) #5
+  %18 = getelementptr inbounds i8, ptr %9, i64 128
+  %19 = getelementptr inbounds i8, ptr %9, i64 136
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  %20 = load volatile i64, ptr %18, align 8
+  %21 = icmp eq i64 %20, 0
+  %22 = mul i64 %20, 3
+  %23 = add i64 %22, 3200
+  %24 = lshr i64 %23, 2
+  %25 = select i1 %21, i64 3200, i64 %24
+  store volatile i64 %25, ptr %18, align 8
+  %26 = load volatile i64, ptr %19, align 8
+  %27 = icmp eq i64 %26, 0
+  %28 = mul i64 %26, 3
+  %29 = add i64 %28, 3200
+  %30 = lshr i64 %29, 2
+  %31 = select i1 %27, i64 3200, i64 %30
+  store volatile i64 %31, ptr %19, align 8
+  store ptr %9, ptr %2, align 8
+  br label %32
 
-31:                                               ; preds = %10, %6, %5
-  %32 = phi i32 [ 0, %10 ], [ -22, %5 ], [ -12, %6 ]
-  ret i32 %32
+32:                                               ; preds = %11, %6, %5
+  %33 = phi i32 [ 0, %11 ], [ -22, %5 ], [ -12, %6 ]
+  ret i32 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -286,7 +287,7 @@ define internal void @drm_self_refresh_helper_entry_work(ptr nocapture noundef r
   call void @drm_modeset_acquire_init(ptr noundef nonnull %2, i32 noundef 0) #5
   %6 = call ptr @drm_atomic_state_alloc(ptr noundef %5) #5
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %64, label %8
+  br i1 %7, label %65, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %6, i64 72
@@ -294,102 +295,103 @@ define internal void @drm_self_refresh_helper_entry_work(ptr nocapture noundef r
   %11 = getelementptr inbounds i8, ptr %6, i64 48
   br label %12
 
-12:                                               ; preds = %52, %8
+12:                                               ; preds = %53, %8
   store ptr %2, ptr %9, align 8
   %13 = call ptr @drm_atomic_get_crtc_state(ptr noundef nonnull %6, ptr noundef %4) #5
-  %14 = icmp ugt ptr %13, inttoptr (i64 -4096 to ptr)
-  br i1 %14, label %15, label %18
+  %14 = inttoptr i64 -4096 to ptr
+  %15 = icmp ugt ptr %13, %14
+  br i1 %15, label %16, label %19
 
-15:                                               ; preds = %12
-  %16 = ptrtoint ptr %13 to i64
-  %17 = trunc i64 %16 to i32
-  br label %49
+16:                                               ; preds = %12
+  %17 = ptrtoint ptr %13 to i64
+  %18 = trunc i64 %17 to i32
+  br label %50
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %13, i64 8
-  %20 = load i8, ptr %19, align 8, !range !5, !noundef !6
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %49, label %22
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds i8, ptr %13, i64 8
+  %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %50, label %23
 
-22:                                               ; preds = %18
-  %23 = call i32 @drm_atomic_add_affected_connectors(ptr noundef nonnull %6, ptr noundef %4) #5
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %49
+23:                                               ; preds = %19
+  %24 = call i32 @drm_atomic_add_affected_connectors(ptr noundef nonnull %6, ptr noundef %4) #5
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %50
 
-25:                                               ; preds = %22
-  %26 = load i32, ptr %10, align 8
-  %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %28, label %45
+26:                                               ; preds = %23
+  %27 = load i32, ptr %10, align 8
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %29, label %46
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %11, align 8
-  %30 = zext nneg i32 %26 to i64
-  br label %31
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %11, align 8
+  %31 = zext nneg i32 %27 to i64
+  br label %32
 
-31:                                               ; preds = %42, %28
-  %32 = phi i64 [ 0, %28 ], [ %43, %42 ]
-  %33 = getelementptr %struct.__drm_connnectors_state, ptr %29, i64 %32
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %42, label %36
+32:                                               ; preds = %43, %29
+  %33 = phi i64 [ 0, %29 ], [ %44, %43 ]
+  %34 = getelementptr %struct.__drm_connnectors_state, ptr %30, i64 %33
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %43, label %37
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %33, i64 24
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 104
-  %40 = load i8, ptr %39, align 8, !range !5, !noundef !6
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %49, label %42
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds i8, ptr %34, i64 24
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 104
+  %41 = load i8, ptr %40, align 8, !range !5, !noundef !6
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %50, label %43
 
-42:                                               ; preds = %36, %31
-  %43 = add nuw nsw i64 %32, 1
-  %44 = icmp eq i64 %43, %30
-  br i1 %44, label %45, label %31, !llvm.loop !17
+43:                                               ; preds = %37, %32
+  %44 = add nuw nsw i64 %33, 1
+  %45 = icmp eq i64 %44, %31
+  br i1 %45, label %46, label %32, !llvm.loop !17
 
-45:                                               ; preds = %42, %25
-  %46 = getelementptr inbounds i8, ptr %13, i64 9
-  store i8 0, ptr %46, align 1
-  %47 = getelementptr inbounds i8, ptr %13, i64 302
-  store i8 1, ptr %47, align 2
-  %48 = call i32 @drm_atomic_commit(ptr noundef nonnull %6) #5
-  br label %49
+46:                                               ; preds = %43, %26
+  %47 = getelementptr inbounds i8, ptr %13, i64 9
+  store i8 0, ptr %47, align 1
+  %48 = getelementptr inbounds i8, ptr %13, i64 302
+  store i8 1, ptr %48, align 2
+  %49 = call i32 @drm_atomic_commit(ptr noundef nonnull %6) #5
+  br label %50
 
-49:                                               ; preds = %45, %36, %22, %18, %15
-  %50 = phi i32 [ %17, %15 ], [ %23, %22 ], [ %48, %45 ], [ 0, %18 ], [ 0, %36 ]
-  %51 = icmp eq i32 %50, -35
-  br i1 %51, label %52, label %55
+50:                                               ; preds = %46, %37, %23, %19, %16
+  %51 = phi i32 [ %18, %16 ], [ %24, %23 ], [ %49, %46 ], [ 0, %19 ], [ 0, %37 ]
+  %52 = icmp eq i32 %51, -35
+  br i1 %52, label %53, label %56
 
-52:                                               ; preds = %49
+53:                                               ; preds = %50
   call void @drm_atomic_state_clear(ptr noundef nonnull %6) #5
-  %53 = call i32 @drm_modeset_backoff(ptr noundef nonnull %2) #5
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %12, label %55
+  %54 = call i32 @drm_modeset_backoff(ptr noundef nonnull %2) #5
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %12, label %56
 
-55:                                               ; preds = %52, %49
-  %56 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 -1, ptr nonnull elementtype(i32) %6) #5, !srcloc !18
-  %57 = icmp eq i32 %56, 1
-  br i1 %57, label %58, label %59
+56:                                               ; preds = %53, %50
+  %57 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 -1, ptr nonnull elementtype(i32) %6) #5, !srcloc !18
+  %58 = icmp eq i32 %57, 1
+  br i1 %58, label %59, label %60
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !19
-  br label %62
+  br label %63
 
-59:                                               ; preds = %55
-  %60 = icmp sgt i32 %56, 0
-  br i1 %60, label %62, label %61, !prof !12
+60:                                               ; preds = %56
+  %61 = icmp sgt i32 %57, 0
+  br i1 %61, label %63, label %62, !prof !12
 
-61:                                               ; preds = %59
+62:                                               ; preds = %60
   call void @refcount_warn_saturate(ptr noundef nonnull %6, i32 noundef 3) #5
-  br label %62
+  br label %63
 
-62:                                               ; preds = %61, %59, %58
-  br i1 %57, label %63, label %64
+63:                                               ; preds = %62, %60, %59
+  br i1 %58, label %64, label %65
 
-63:                                               ; preds = %62
+64:                                               ; preds = %63
   call void @__drm_atomic_state_free(ptr noundef nonnull %6) #5
-  br label %64
+  br label %65
 
-64:                                               ; preds = %63, %62, %1
+65:                                               ; preds = %64, %63, %1
   call void @drm_modeset_drop_locks(ptr noundef nonnull %2) #5
   call void @drm_modeset_acquire_fini(ptr noundef nonnull %2) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #5

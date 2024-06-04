@@ -386,8 +386,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body17
 
 do.body17:                                        ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 117), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 117), i32 noundef 160, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
+  %19 = getelementptr i8, ptr @.str, i64 117
+  store ptr %19, ptr %absl_raw_log_internal_basename, align 8
+  %20 = getelementptr i8, ptr @.str, i64 117
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %20, i32 noundef 160, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
   br label %do.body18
 
 do.body18:                                        ; preds = %do.body17
@@ -403,8 +405,8 @@ if.end:                                           ; preds = %do.end19, %do.body
   br label %do.end20
 
 do.end20:                                         ; preds = %if.end
-  %19 = load i32, ptr %j, align 4
-  ret i32 %19
+  %21 = load i32, ptr %j, align 4
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -550,7 +552,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl12crc_internal7CRCImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl12crc_internal5CRC32E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4absl12crc_internal5CRC32E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -708,8 +711,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body36
 
 do.body36:                                        ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 117), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 117), i32 noundef 208, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.3)
+  %26 = getelementptr i8, ptr @.str, i64 117
+  store ptr %26, ptr %absl_raw_log_internal_basename, align 8
+  %27 = getelementptr i8, ptr @.str, i64 117
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %27, i32 noundef 208, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.3)
   br label %do.body37
 
 do.body37:                                        ; preds = %do.body36
@@ -729,57 +734,57 @@ do.end39:                                         ; preds = %if.end
   br label %for.cond41
 
 for.cond41:                                       ; preds = %for.inc49, %do.end39
-  %26 = load i32, ptr %i40, align 4
-  %27 = load i32, ptr %j, align 4
-  %cmp42 = icmp slt i32 %26, %27
+  %28 = load i32, ptr %i40, align 4
+  %29 = load i32, ptr %j, align 4
+  %cmp42 = icmp slt i32 %28, %29
   br i1 %cmp42, label %for.body43, label %for.end51
 
 for.body43:                                       ; preds = %for.cond41
-  %28 = load ptr, ptr %t, align 8
-  %arrayidx44 = getelementptr inbounds [256 x i32], ptr %28, i64 0
-  %29 = load i32, ptr %i40, align 4
-  %idxprom45 = sext i32 %29 to i64
-  %arrayidx46 = getelementptr inbounds [256 x i32], ptr %arrayidx44, i64 0, i64 %idxprom45
-  %30 = load i32, ptr %arrayidx46, align 4
-  %zeroes_ = getelementptr inbounds %"class.absl::crc_internal::CRC32", ptr %this1, i32 0, i32 2
+  %30 = load ptr, ptr %t, align 8
+  %arrayidx44 = getelementptr inbounds [256 x i32], ptr %30, i64 0
   %31 = load i32, ptr %i40, align 4
-  %idxprom47 = sext i32 %31 to i64
+  %idxprom45 = sext i32 %31 to i64
+  %arrayidx46 = getelementptr inbounds [256 x i32], ptr %arrayidx44, i64 0, i64 %idxprom45
+  %32 = load i32, ptr %arrayidx46, align 4
+  %zeroes_ = getelementptr inbounds %"class.absl::crc_internal::CRC32", ptr %this1, i32 0, i32 2
+  %33 = load i32, ptr %i40, align 4
+  %idxprom47 = sext i32 %33 to i64
   %arrayidx48 = getelementptr inbounds [256 x i32], ptr %zeroes_, i64 0, i64 %idxprom47
-  store i32 %30, ptr %arrayidx48, align 4
+  store i32 %32, ptr %arrayidx48, align 4
   br label %for.inc49
 
 for.inc49:                                        ; preds = %for.body43
-  %32 = load i32, ptr %i40, align 4
-  %inc50 = add nsw i32 %32, 1
+  %34 = load i32, ptr %i40, align 4
+  %inc50 = add nsw i32 %34, 1
   store i32 %inc50, ptr %i40, align 4
   br label %for.cond41, !llvm.loop !18
 
 for.end51:                                        ; preds = %for.cond41
-  %33 = load ptr, ptr %t, align 8
-  %isnull = icmp eq ptr %33, null
+  %35 = load ptr, ptr %t, align 8
+  %isnull = icmp eq ptr %35, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.end51
-  %del.first = getelementptr inbounds [256 x i32], ptr %33, i32 0, i32 0
+  %del.first = getelementptr inbounds [256 x i32], ptr %35, i32 0, i32 0
   call void @_ZdaPv(ptr noundef %del.first) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.end51
   %call52 = call noundef i32 @_ZN4absl12crc_internal12_GLOBAL__N_111ReverseBitsEj(i32 noundef 99383025)
   store i32 %call52, ptr %kCrc32cUnextendPoly, align 4
-  %34 = load i32, ptr %kCrc32cUnextendPoly, align 4
-  %35 = load i32, ptr %kCrc32cUnextendPoly, align 4
-  %reverse_table0_ = getelementptr inbounds %"class.absl::crc_internal::CRC32", ptr %this1, i32 0, i32 4
-  call void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(i32 noundef %34, i32 noundef %35, i32 noundef 1, ptr noundef %reverse_table0_)
   %36 = load i32, ptr %kCrc32cUnextendPoly, align 4
+  %37 = load i32, ptr %kCrc32cUnextendPoly, align 4
+  %reverse_table0_ = getelementptr inbounds %"class.absl::crc_internal::CRC32", ptr %this1, i32 0, i32 4
+  call void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(i32 noundef %36, i32 noundef %37, i32 noundef 1, ptr noundef %reverse_table0_)
+  %38 = load i32, ptr %kCrc32cUnextendPoly, align 4
   %reverse_zeroes_ = getelementptr inbounds %"class.absl::crc_internal::CRC32", ptr %this1, i32 0, i32 5
-  %call53 = call noundef i32 @_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j(i32 noundef %36, ptr noundef %reverse_zeroes_)
+  %call53 = call noundef i32 @_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j(i32 noundef %38, ptr noundef %reverse_zeroes_)
   store i32 %call53, ptr %j, align 4
   br label %do.body54
 
 do.body54:                                        ; preds = %delete.end
-  %37 = load i32, ptr %j, align 4
-  %cmp55 = icmp sle i32 %37, 256
+  %39 = load i32, ptr %j, align 4
+  %cmp55 = icmp sle i32 %39, 256
   %lnot56 = xor i1 %cmp55, true
   br i1 %lnot56, label %if.then57, label %if.end63
 
@@ -787,8 +792,10 @@ if.then57:                                        ; preds = %do.body54
   br label %do.body58
 
 do.body58:                                        ; preds = %if.then57
-  store ptr getelementptr (i8, ptr @.str, i64 117), ptr %absl_raw_log_internal_basename59, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 117), i32 noundef 253, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.3)
+  %40 = getelementptr i8, ptr @.str, i64 117
+  store ptr %40, ptr %absl_raw_log_internal_basename59, align 8
+  %41 = getelementptr i8, ptr @.str, i64 117
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %41, i32 noundef 253, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.3)
   br label %do.body60
 
 do.body60:                                        ; preds = %do.body58
@@ -1584,7 +1591,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4absl12crc_internal3CRCE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4absl12crc_internal3CRCE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1672,7 +1680,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl12crc_internal3CRCC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl12crc_internal7CRCImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4absl12crc_internal7CRCImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

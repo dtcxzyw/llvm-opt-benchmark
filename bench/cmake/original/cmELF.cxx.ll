@@ -3350,240 +3350,241 @@ define linkonce_odr dso_local void @_ZN17cmELFInternalImplI12cmELFTypes32EC2EP5c
   call void @_ZNSt10unique_ptrISiSt14default_deleteISiEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %2) #13
   %18 = load i32, ptr %8, align 4
   invoke void @_ZN13cmELFInternalC2EP5cmELFSt10unique_ptrISiSt14default_deleteISiEENS_13ByteOrderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef %17, ptr noundef %9, i32 noundef %18)
-          to label %19 unwind label %27
+          to label %19 unwind label %28
 
 19:                                               ; preds = %4
   call void @_ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes32E, i32 0, i32 0, i32 2), ptr %16, align 8
-  %20 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 2
-  call void @_ZNSt6vectorI10Elf32_ShdrSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
-  %21 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 3
-  call void @_ZNSt6vectorI9Elf32_DynSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
-  %22 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 1
-  %23 = invoke noundef zeroext i1 @_ZN17cmELFInternalImplI12cmELFTypes32E4ReadER10Elf32_Ehdr(ptr noundef nonnull align 8 dereferenceable(192) %16, ptr noundef nonnull align 4 dereferenceable(52) %22)
-          to label %24 unwind label %31
+  %20 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes32E, i32 0, i32 0, i32 2
+  store ptr %20, ptr %16, align 8
+  %21 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 2
+  call void @_ZNSt6vectorI10Elf32_ShdrSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
+  %22 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 3
+  call void @_ZNSt6vectorI9Elf32_DynSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
+  %23 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 1
+  %24 = invoke noundef zeroext i1 @_ZN17cmELFInternalImplI12cmELFTypes32E4ReadER10Elf32_Ehdr(ptr noundef nonnull align 8 dereferenceable(192) %16, ptr noundef nonnull align 4 dereferenceable(52) %23)
+          to label %25 unwind label %32
 
-24:                                               ; preds = %19
-  br i1 %23, label %35, label %25
-
-25:                                               ; preds = %24
-  invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef @.str.7)
-          to label %26 unwind label %31
+25:                                               ; preds = %19
+  br i1 %24, label %36, label %26
 
 26:                                               ; preds = %25
-  br label %118
+  invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef @.str.7)
+          to label %27 unwind label %32
 
-27:                                               ; preds = %4
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %10, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %11, align 4
-  call void @_ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
-  br label %120
-
-31:                                               ; preds = %112, %108, %89, %70, %40, %25, %19
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %10, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %11, align 4
+27:                                               ; preds = %26
   br label %119
 
-35:                                               ; preds = %24
-  %36 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 1
-  %37 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %36, i32 0, i32 1
-  %38 = load i16, ptr %37, align 8
-  %39 = zext i16 %38 to i32
-  switch i32 %39, label %50 [
-    i32 0, label %40
-    i32 1, label %42
-    i32 2, label %44
-    i32 3, label %46
-    i32 4, label %48
+28:                                               ; preds = %4
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %10, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %11, align 4
+  call void @_ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  br label %121
+
+32:                                               ; preds = %113, %109, %90, %71, %41, %26, %19
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %10, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %11, align 4
+  br label %120
+
+36:                                               ; preds = %25
+  %37 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 1
+  %38 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %37, i32 0, i32 1
+  %39 = load i16, ptr %38, align 8
+  %40 = zext i16 %39 to i32
+  switch i32 %40, label %51 [
+    i32 0, label %41
+    i32 1, label %43
+    i32 2, label %45
+    i32 3, label %47
+    i32 4, label %49
   ]
 
-40:                                               ; preds = %35
+41:                                               ; preds = %36
   invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef @.str.8)
-          to label %41 unwind label %31
+          to label %42 unwind label %32
 
-41:                                               ; preds = %40
-  br label %118
+42:                                               ; preds = %41
+  br label %119
 
-42:                                               ; preds = %35
-  %43 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
-  store i32 1, ptr %43, align 4
-  br label %89
+43:                                               ; preds = %36
+  %44 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
+  store i32 1, ptr %44, align 4
+  br label %90
 
-44:                                               ; preds = %35
-  %45 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
-  store i32 2, ptr %45, align 4
-  br label %89
+45:                                               ; preds = %36
+  %46 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
+  store i32 2, ptr %46, align 4
+  br label %90
 
-46:                                               ; preds = %35
-  %47 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
-  store i32 3, ptr %47, align 4
-  br label %89
+47:                                               ; preds = %36
+  %48 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
+  store i32 3, ptr %48, align 4
+  br label %90
 
-48:                                               ; preds = %35
-  %49 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
-  store i32 4, ptr %49, align 4
-  br label %89
+49:                                               ; preds = %36
+  %50 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
+  store i32 4, ptr %50, align 4
+  br label %90
 
-50:                                               ; preds = %35
-  %51 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 1
-  %52 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %51, i32 0, i32 1
-  %53 = load i16, ptr %52, align 8
-  %54 = zext i16 %53 to i32
-  store i32 %54, ptr %12, align 4
-  %55 = load i32, ptr %12, align 4
-  %56 = icmp uge i32 %55, 65024
-  br i1 %56, label %57, label %62
+51:                                               ; preds = %36
+  %52 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 1
+  %53 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %52, i32 0, i32 1
+  %54 = load i16, ptr %53, align 8
+  %55 = zext i16 %54 to i32
+  store i32 %55, ptr %12, align 4
+  %56 = load i32, ptr %12, align 4
+  %57 = icmp uge i32 %56, 65024
+  br i1 %57, label %58, label %63
 
-57:                                               ; preds = %50
-  %58 = load i32, ptr %12, align 4
-  %59 = icmp ule i32 %58, 65279
-  br i1 %59, label %60, label %62
+58:                                               ; preds = %51
+  %59 = load i32, ptr %12, align 4
+  %60 = icmp ule i32 %59, 65279
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
-  store i32 5, ptr %61, align 4
-  br label %89
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
+  store i32 5, ptr %62, align 4
+  br label %90
 
-62:                                               ; preds = %57, %50
-  %63 = load i32, ptr %12, align 4
-  %64 = icmp uge i32 %63, 65280
-  br i1 %64, label %65, label %70
+63:                                               ; preds = %58, %51
+  %64 = load i32, ptr %12, align 4
+  %65 = icmp uge i32 %64, 65280
+  br i1 %65, label %66, label %71
 
-65:                                               ; preds = %62
-  %66 = load i32, ptr %12, align 4
-  %67 = icmp ule i32 %66, 65535
-  br i1 %67, label %68, label %70
+66:                                               ; preds = %63
+  %67 = load i32, ptr %12, align 4
+  %68 = icmp ule i32 %67, 65535
+  br i1 %68, label %69, label %71
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
-  store i32 6, ptr %69, align 4
-  br label %89
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
+  store i32 6, ptr %70, align 4
+  br label %90
 
-70:                                               ; preds = %65, %62
+71:                                               ; preds = %66, %63
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13)
-          to label %71 unwind label %31
+          to label %72 unwind label %32
 
-71:                                               ; preds = %70
-  %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef @.str.9)
-          to label %73 unwind label %80
+72:                                               ; preds = %71
+  %73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef @.str.9)
+          to label %74 unwind label %81
 
-73:                                               ; preds = %71
-  %74 = load i32, ptr %12, align 4
-  %75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %72, i32 noundef %74)
-          to label %76 unwind label %80
+74:                                               ; preds = %72
+  %75 = load i32, ptr %12, align 4
+  %76 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %73, i32 noundef %75)
+          to label %77 unwind label %81
 
-76:                                               ; preds = %73
+77:                                               ; preds = %74
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(112) %13)
-          to label %77 unwind label %80
+          to label %78 unwind label %81
 
-77:                                               ; preds = %76
-  %78 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef %78)
-          to label %79 unwind label %84
+78:                                               ; preds = %77
+  %79 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
+  invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef %79)
+          to label %80 unwind label %85
 
-79:                                               ; preds = %77
+80:                                               ; preds = %78
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #13
-  br label %118
-
-80:                                               ; preds = %76, %73, %71
-  %81 = landingpad { ptr, i32 }
-          cleanup
-  %82 = extractvalue { ptr, i32 } %81, 0
-  store ptr %82, ptr %10, align 8
-  %83 = extractvalue { ptr, i32 } %81, 1
-  store i32 %83, ptr %11, align 4
-  br label %88
-
-84:                                               ; preds = %77
-  %85 = landingpad { ptr, i32 }
-          cleanup
-  %86 = extractvalue { ptr, i32 } %85, 0
-  store ptr %86, ptr %10, align 8
-  %87 = extractvalue { ptr, i32 } %85, 1
-  store i32 %87, ptr %11, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  br label %88
-
-88:                                               ; preds = %84, %80
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #13
   br label %119
 
-89:                                               ; preds = %68, %60, %48, %46, %44, %42
-  %90 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 1
-  %91 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %90, i32 0, i32 2
-  %92 = load i16, ptr %91, align 2
-  %93 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 5
-  store i16 %92, ptr %93, align 8
-  %94 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 2
-  %95 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 1
-  %96 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %95, i32 0, i32 12
-  %97 = load i16, ptr %96, align 8
-  %98 = zext i16 %97 to i64
-  invoke void @_ZNSt6vectorI10Elf32_ShdrSaIS0_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %94, i64 noundef %98)
-          to label %99 unwind label %31
+81:                                               ; preds = %77, %74, %72
+  %82 = landingpad { ptr, i32 }
+          cleanup
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %10, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %11, align 4
+  br label %89
 
-99:                                               ; preds = %89
-  store i16 0, ptr %15, align 2
-  br label %100
+85:                                               ; preds = %78
+  %86 = landingpad { ptr, i32 }
+          cleanup
+  %87 = extractvalue { ptr, i32 } %86, 0
+  store ptr %87, ptr %10, align 8
+  %88 = extractvalue { ptr, i32 } %86, 1
+  store i32 %88, ptr %11, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
+  br label %89
 
-100:                                              ; preds = %115, %99
-  %101 = load i16, ptr %15, align 2
-  %102 = zext i16 %101 to i32
-  %103 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 1
-  %104 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %103, i32 0, i32 12
-  %105 = load i16, ptr %104, align 8
-  %106 = zext i16 %105 to i32
-  %107 = icmp slt i32 %102, %106
-  br i1 %107, label %108, label %118
-
-108:                                              ; preds = %100
-  %109 = load i16, ptr %15, align 2
-  %110 = invoke noundef zeroext i1 @_ZN17cmELFInternalImplI12cmELFTypes32E17LoadSectionHeaderEt(ptr noundef nonnull align 8 dereferenceable(192) %16, i16 noundef zeroext %109)
-          to label %111 unwind label %31
-
-111:                                              ; preds = %108
-  br i1 %110, label %114, label %112
-
-112:                                              ; preds = %111
-  invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef @.str.10)
-          to label %113 unwind label %31
-
-113:                                              ; preds = %112
-  br label %118
-
-114:                                              ; preds = %111
-  br label %115
-
-115:                                              ; preds = %114
-  %116 = load i16, ptr %15, align 2
-  %117 = add i16 %116, 1
-  store i16 %117, ptr %15, align 2
-  br label %100, !llvm.loop !5
-
-118:                                              ; preds = %113, %100, %79, %41, %26
-  ret void
-
-119:                                              ; preds = %88, %31
-  call void @_ZNSt6vectorI9Elf32_DynSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
-  call void @_ZNSt6vectorI10Elf32_ShdrSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
-  call void @_ZN13cmELFInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #13
+89:                                               ; preds = %85, %81
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #13
   br label %120
 
-120:                                              ; preds = %119, %27
-  %121 = load ptr, ptr %10, align 8
-  %122 = load i32, ptr %11, align 4
-  %123 = insertvalue { ptr, i32 } poison, ptr %121, 0
-  %124 = insertvalue { ptr, i32 } %123, i32 %122, 1
-  resume { ptr, i32 } %124
+90:                                               ; preds = %69, %61, %49, %47, %45, %43
+  %91 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 1
+  %92 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %91, i32 0, i32 2
+  %93 = load i16, ptr %92, align 2
+  %94 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 5
+  store i16 %93, ptr %94, align 8
+  %95 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 2
+  %96 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 1
+  %97 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %96, i32 0, i32 12
+  %98 = load i16, ptr %97, align 8
+  %99 = zext i16 %98 to i64
+  invoke void @_ZNSt6vectorI10Elf32_ShdrSaIS0_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %95, i64 noundef %99)
+          to label %100 unwind label %32
+
+100:                                              ; preds = %90
+  store i16 0, ptr %15, align 2
+  br label %101
+
+101:                                              ; preds = %116, %100
+  %102 = load i16, ptr %15, align 2
+  %103 = zext i16 %102 to i32
+  %104 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 1
+  %105 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %104, i32 0, i32 12
+  %106 = load i16, ptr %105, align 8
+  %107 = zext i16 %106 to i32
+  %108 = icmp slt i32 %103, %107
+  br i1 %108, label %109, label %119
+
+109:                                              ; preds = %101
+  %110 = load i16, ptr %15, align 2
+  %111 = invoke noundef zeroext i1 @_ZN17cmELFInternalImplI12cmELFTypes32E17LoadSectionHeaderEt(ptr noundef nonnull align 8 dereferenceable(192) %16, i16 noundef zeroext %110)
+          to label %112 unwind label %32
+
+112:                                              ; preds = %109
+  br i1 %111, label %115, label %113
+
+113:                                              ; preds = %112
+  invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef @.str.10)
+          to label %114 unwind label %32
+
+114:                                              ; preds = %113
+  br label %119
+
+115:                                              ; preds = %112
+  br label %116
+
+116:                                              ; preds = %115
+  %117 = load i16, ptr %15, align 2
+  %118 = add i16 %117, 1
+  store i16 %118, ptr %15, align 2
+  br label %101, !llvm.loop !5
+
+119:                                              ; preds = %114, %101, %80, %42, %27
+  ret void
+
+120:                                              ; preds = %89, %32
+  call void @_ZNSt6vectorI9Elf32_DynSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
+  call void @_ZNSt6vectorI10Elf32_ShdrSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
+  call void @_ZN13cmELFInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #13
+  br label %121
+
+121:                                              ; preds = %120, %28
+  %122 = load ptr, ptr %10, align 8
+  %123 = load i32, ptr %11, align 4
+  %124 = insertvalue { ptr, i32 } poison, ptr %122, 0
+  %125 = insertvalue { ptr, i32 } %124, i32 %123, 1
+  resume { ptr, i32 } %125
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3814,27 +3815,28 @@ define linkonce_odr dso_local void @_ZN13cmELFInternalC2EP5cmELFSt10unique_ptrIS
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13cmELFInternal, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 2
-  call void @_ZNSt10unique_ptrISiSt14default_deleteISiEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %2) #13
-  %13 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 3
-  %14 = load i32, ptr %8, align 4
-  store i32 %14, ptr %13, align 8
-  %15 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 4
-  store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 8
-  call void @_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #13
-  %17 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 3
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp eq i32 %18, 0
-  %20 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 6
-  %21 = zext i1 %19 to i8
-  store i8 %21, ptr %20, align 2
-  %22 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 7
-  store i32 -1, ptr %22, align 4
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV13cmELFInternal, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 2
+  call void @_ZNSt10unique_ptrISiSt14default_deleteISiEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+  %14 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 3
+  %15 = load i32, ptr %8, align 4
+  store i32 %15, ptr %14, align 8
+  %16 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 4
+  store i32 0, ptr %16, align 4
+  %17 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 8
+  call void @_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #13
+  %18 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 3
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp eq i32 %19, 0
+  %21 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 6
+  %22 = zext i1 %20 to i8
+  store i8 %22, ptr %21, align 2
+  %23 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 7
+  store i32 -1, ptr %23, align 4
   ret void
 }
 
@@ -4133,11 +4135,12 @@ define linkonce_odr dso_local void @_ZN17cmELFInternalImplI12cmELFTypes32ED2Ev(p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes32E, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmELFInternalImpl, ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorI9Elf32_DynSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
-  %5 = getelementptr inbounds %class.cmELFInternalImpl, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorI10Elf32_ShdrSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes32E, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmELFInternalImpl, ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorI9Elf32_DynSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  %6 = getelementptr inbounds %class.cmELFInternalImpl, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorI10Elf32_ShdrSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   call void @_ZN13cmELFInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #13
   ret void
 }
@@ -4960,11 +4963,12 @@ define linkonce_odr dso_local void @_ZN13cmELFInternalD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13cmELFInternal, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmELFInternal, ptr %3, i32 0, i32 8
-  call void @_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
-  %5 = getelementptr inbounds %class.cmELFInternal, ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV13cmELFInternal, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmELFInternal, ptr %3, i32 0, i32 8
+  call void @_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #13
+  %6 = getelementptr inbounds %class.cmELFInternal, ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   ret void
 }
 
@@ -12958,226 +12962,227 @@ define linkonce_odr dso_local void @_ZN17cmELFInternalImplI12cmELFTypes64EC2EP5c
   %18 = load i32, ptr %8, align 4
   call void @_ZN13cmELFInternalC2EP5cmELFSt10unique_ptrISiSt14default_deleteISiEENS_13ByteOrderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef %17, ptr noundef %9, i32 noundef %18)
   call void @_ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes64E, i32 0, i32 0, i32 2), ptr %16, align 8
-  %19 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 2
-  call void @_ZNSt6vectorI10Elf64_ShdrSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
-  %20 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 3
-  call void @_ZNSt6vectorI9Elf64_DynSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
-  %21 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 1
-  %22 = invoke noundef zeroext i1 @_ZN17cmELFInternalImplI12cmELFTypes64E4ReadER10Elf64_Ehdr(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef nonnull align 8 dereferenceable(64) %21)
-          to label %23 unwind label %26
+  %19 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes64E, i32 0, i32 0, i32 2
+  store ptr %19, ptr %16, align 8
+  %20 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 2
+  call void @_ZNSt6vectorI10Elf64_ShdrSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
+  %21 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 3
+  call void @_ZNSt6vectorI9Elf64_DynSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
+  %22 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 1
+  %23 = invoke noundef zeroext i1 @_ZN17cmELFInternalImplI12cmELFTypes64E4ReadER10Elf64_Ehdr(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef nonnull align 8 dereferenceable(64) %22)
+          to label %24 unwind label %27
 
-23:                                               ; preds = %4
-  br i1 %22, label %30, label %24
-
-24:                                               ; preds = %23
-  invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef @.str.7)
-          to label %25 unwind label %26
+24:                                               ; preds = %4
+  br i1 %23, label %31, label %25
 
 25:                                               ; preds = %24
-  br label %113
+  invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef @.str.7)
+          to label %26 unwind label %27
 
-26:                                               ; preds = %107, %103, %84, %65, %35, %24, %4
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %10, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %11, align 4
+26:                                               ; preds = %25
   br label %114
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 1
-  %32 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %31, i32 0, i32 1
-  %33 = load i16, ptr %32, align 8
-  %34 = zext i16 %33 to i32
-  switch i32 %34, label %45 [
-    i32 0, label %35
-    i32 1, label %37
-    i32 2, label %39
-    i32 3, label %41
-    i32 4, label %43
-  ]
-
-35:                                               ; preds = %30
-  invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef @.str.8)
-          to label %36 unwind label %26
-
-36:                                               ; preds = %35
-  br label %113
-
-37:                                               ; preds = %30
-  %38 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
-  store i32 1, ptr %38, align 4
-  br label %84
-
-39:                                               ; preds = %30
-  %40 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
-  store i32 2, ptr %40, align 4
-  br label %84
-
-41:                                               ; preds = %30
-  %42 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
-  store i32 3, ptr %42, align 4
-  br label %84
-
-43:                                               ; preds = %30
-  %44 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
-  store i32 4, ptr %44, align 4
-  br label %84
-
-45:                                               ; preds = %30
-  %46 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 1
-  %47 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %46, i32 0, i32 1
-  %48 = load i16, ptr %47, align 8
-  %49 = zext i16 %48 to i32
-  store i32 %49, ptr %12, align 4
-  %50 = load i32, ptr %12, align 4
-  %51 = icmp uge i32 %50, 65024
-  br i1 %51, label %52, label %57
-
-52:                                               ; preds = %45
-  %53 = load i32, ptr %12, align 4
-  %54 = icmp ule i32 %53, 65279
-  br i1 %54, label %55, label %57
-
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
-  store i32 5, ptr %56, align 4
-  br label %84
-
-57:                                               ; preds = %52, %45
-  %58 = load i32, ptr %12, align 4
-  %59 = icmp uge i32 %58, 65280
-  br i1 %59, label %60, label %65
-
-60:                                               ; preds = %57
-  %61 = load i32, ptr %12, align 4
-  %62 = icmp ule i32 %61, 65535
-  br i1 %62, label %63, label %65
-
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
-  store i32 6, ptr %64, align 4
-  br label %84
-
-65:                                               ; preds = %60, %57
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13)
-          to label %66 unwind label %26
-
-66:                                               ; preds = %65
-  %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef @.str.9)
-          to label %68 unwind label %75
-
-68:                                               ; preds = %66
-  %69 = load i32, ptr %12, align 4
-  %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %67, i32 noundef %69)
-          to label %71 unwind label %75
-
-71:                                               ; preds = %68
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(112) %13)
-          to label %72 unwind label %75
-
-72:                                               ; preds = %71
-  %73 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef %73)
-          to label %74 unwind label %79
-
-74:                                               ; preds = %72
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #13
-  br label %113
-
-75:                                               ; preds = %71, %68, %66
-  %76 = landingpad { ptr, i32 }
+27:                                               ; preds = %108, %104, %85, %66, %36, %25, %4
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %10, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %11, align 4
-  br label %83
-
-79:                                               ; preds = %72
-  %80 = landingpad { ptr, i32 }
-          cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %10, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %11, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  br label %83
-
-83:                                               ; preds = %79, %75
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #13
-  br label %114
-
-84:                                               ; preds = %63, %55, %43, %41, %39, %37
-  %85 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 1
-  %86 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %85, i32 0, i32 2
-  %87 = load i16, ptr %86, align 2
-  %88 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 5
-  store i16 %87, ptr %88, align 8
-  %89 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 2
-  %90 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 1
-  %91 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %90, i32 0, i32 12
-  %92 = load i16, ptr %91, align 4
-  %93 = zext i16 %92 to i64
-  invoke void @_ZNSt6vectorI10Elf64_ShdrSaIS0_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %89, i64 noundef %93)
-          to label %94 unwind label %26
-
-94:                                               ; preds = %84
-  store i16 0, ptr %15, align 2
-  br label %95
-
-95:                                               ; preds = %110, %94
-  %96 = load i16, ptr %15, align 2
-  %97 = zext i16 %96 to i32
-  %98 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 1
-  %99 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %98, i32 0, i32 12
-  %100 = load i16, ptr %99, align 4
-  %101 = zext i16 %100 to i32
-  %102 = icmp slt i32 %97, %101
-  br i1 %102, label %103, label %113
-
-103:                                              ; preds = %95
-  %104 = load i16, ptr %15, align 2
-  %105 = invoke noundef zeroext i1 @_ZN17cmELFInternalImplI12cmELFTypes64E17LoadSectionHeaderEt(ptr noundef nonnull align 8 dereferenceable(200) %16, i16 noundef zeroext %104)
-          to label %106 unwind label %26
-
-106:                                              ; preds = %103
-  br i1 %105, label %109, label %107
-
-107:                                              ; preds = %106
-  invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef @.str.10)
-          to label %108 unwind label %26
-
-108:                                              ; preds = %107
-  br label %113
-
-109:                                              ; preds = %106
-  br label %110
-
-110:                                              ; preds = %109
-  %111 = load i16, ptr %15, align 2
-  %112 = add i16 %111, 1
-  store i16 %112, ptr %15, align 2
-  br label %95, !llvm.loop !16
-
-113:                                              ; preds = %108, %95, %74, %36, %25
-  ret void
-
-114:                                              ; preds = %83, %26
-  call void @_ZNSt6vectorI9Elf64_DynSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
-  call void @_ZNSt6vectorI10Elf64_ShdrSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
-  call void @_ZN13cmELFInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #13
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %10, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %11, align 4
   br label %115
 
-115:                                              ; preds = %114
-  %116 = load ptr, ptr %10, align 8
-  %117 = load i32, ptr %11, align 4
-  %118 = insertvalue { ptr, i32 } poison, ptr %116, 0
-  %119 = insertvalue { ptr, i32 } %118, i32 %117, 1
-  resume { ptr, i32 } %119
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 1
+  %33 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %32, i32 0, i32 1
+  %34 = load i16, ptr %33, align 8
+  %35 = zext i16 %34 to i32
+  switch i32 %35, label %46 [
+    i32 0, label %36
+    i32 1, label %38
+    i32 2, label %40
+    i32 3, label %42
+    i32 4, label %44
+  ]
+
+36:                                               ; preds = %31
+  invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef @.str.8)
+          to label %37 unwind label %27
+
+37:                                               ; preds = %36
+  br label %114
+
+38:                                               ; preds = %31
+  %39 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
+  store i32 1, ptr %39, align 4
+  br label %85
+
+40:                                               ; preds = %31
+  %41 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
+  store i32 2, ptr %41, align 4
+  br label %85
+
+42:                                               ; preds = %31
+  %43 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
+  store i32 3, ptr %43, align 4
+  br label %85
+
+44:                                               ; preds = %31
+  %45 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
+  store i32 4, ptr %45, align 4
+  br label %85
+
+46:                                               ; preds = %31
+  %47 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 1
+  %48 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %47, i32 0, i32 1
+  %49 = load i16, ptr %48, align 8
+  %50 = zext i16 %49 to i32
+  store i32 %50, ptr %12, align 4
+  %51 = load i32, ptr %12, align 4
+  %52 = icmp uge i32 %51, 65024
+  br i1 %52, label %53, label %58
+
+53:                                               ; preds = %46
+  %54 = load i32, ptr %12, align 4
+  %55 = icmp ule i32 %54, 65279
+  br i1 %55, label %56, label %58
+
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
+  store i32 5, ptr %57, align 4
+  br label %85
+
+58:                                               ; preds = %53, %46
+  %59 = load i32, ptr %12, align 4
+  %60 = icmp uge i32 %59, 65280
+  br i1 %60, label %61, label %66
+
+61:                                               ; preds = %58
+  %62 = load i32, ptr %12, align 4
+  %63 = icmp ule i32 %62, 65535
+  br i1 %63, label %64, label %66
+
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 4
+  store i32 6, ptr %65, align 4
+  br label %85
+
+66:                                               ; preds = %61, %58
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13)
+          to label %67 unwind label %27
+
+67:                                               ; preds = %66
+  %68 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef @.str.9)
+          to label %69 unwind label %76
+
+69:                                               ; preds = %67
+  %70 = load i32, ptr %12, align 4
+  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %68, i32 noundef %70)
+          to label %72 unwind label %76
+
+72:                                               ; preds = %69
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(112) %13)
+          to label %73 unwind label %76
+
+73:                                               ; preds = %72
+  %74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
+  invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef %74)
+          to label %75 unwind label %80
+
+75:                                               ; preds = %73
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #13
+  br label %114
+
+76:                                               ; preds = %72, %69, %67
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %10, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %11, align 4
+  br label %84
+
+80:                                               ; preds = %73
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %10, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %11, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
+  br label %84
+
+84:                                               ; preds = %80, %76
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #13
+  br label %115
+
+85:                                               ; preds = %64, %56, %44, %42, %40, %38
+  %86 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 1
+  %87 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %86, i32 0, i32 2
+  %88 = load i16, ptr %87, align 2
+  %89 = getelementptr inbounds %class.cmELFInternal, ptr %16, i32 0, i32 5
+  store i16 %88, ptr %89, align 8
+  %90 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 2
+  %91 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 1
+  %92 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %91, i32 0, i32 12
+  %93 = load i16, ptr %92, align 4
+  %94 = zext i16 %93 to i64
+  invoke void @_ZNSt6vectorI10Elf64_ShdrSaIS0_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %90, i64 noundef %94)
+          to label %95 unwind label %27
+
+95:                                               ; preds = %85
+  store i16 0, ptr %15, align 2
+  br label %96
+
+96:                                               ; preds = %111, %95
+  %97 = load i16, ptr %15, align 2
+  %98 = zext i16 %97 to i32
+  %99 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 1
+  %100 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %99, i32 0, i32 12
+  %101 = load i16, ptr %100, align 4
+  %102 = zext i16 %101 to i32
+  %103 = icmp slt i32 %98, %102
+  br i1 %103, label %104, label %114
+
+104:                                              ; preds = %96
+  %105 = load i16, ptr %15, align 2
+  %106 = invoke noundef zeroext i1 @_ZN17cmELFInternalImplI12cmELFTypes64E17LoadSectionHeaderEt(ptr noundef nonnull align 8 dereferenceable(200) %16, i16 noundef zeroext %105)
+          to label %107 unwind label %27
+
+107:                                              ; preds = %104
+  br i1 %106, label %110, label %108
+
+108:                                              ; preds = %107
+  invoke void @_ZN13cmELFInternal15SetErrorMessageEPKc(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef @.str.10)
+          to label %109 unwind label %27
+
+109:                                              ; preds = %108
+  br label %114
+
+110:                                              ; preds = %107
+  br label %111
+
+111:                                              ; preds = %110
+  %112 = load i16, ptr %15, align 2
+  %113 = add i16 %112, 1
+  store i16 %113, ptr %15, align 2
+  br label %96, !llvm.loop !16
+
+114:                                              ; preds = %109, %96, %75, %37, %26
+  ret void
+
+115:                                              ; preds = %84, %27
+  call void @_ZNSt6vectorI9Elf64_DynSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
+  call void @_ZNSt6vectorI10Elf64_ShdrSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
+  call void @_ZN13cmELFInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #13
+  br label %116
+
+116:                                              ; preds = %115
+  %117 = load ptr, ptr %10, align 8
+  %118 = load i32, ptr %11, align 4
+  %119 = insertvalue { ptr, i32 } poison, ptr %117, 0
+  %120 = insertvalue { ptr, i32 } %119, i32 %118, 1
+  resume { ptr, i32 } %120
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13469,11 +13474,12 @@ define linkonce_odr dso_local void @_ZN17cmELFInternalImplI12cmELFTypes64ED2Ev(p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes64E, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorI9Elf64_DynSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
-  %5 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorI10Elf64_ShdrSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes64E, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorI9Elf64_DynSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  %6 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorI10Elf64_ShdrSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   call void @_ZN13cmELFInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #13
   ret void
 }

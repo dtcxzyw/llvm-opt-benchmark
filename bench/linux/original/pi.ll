@@ -37,30 +37,31 @@ define dso_local noundef i32 @refill_pi_state_cache() local_unnamed_addr #0 alig
   %3 = getelementptr inbounds i8, ptr %2, i64 2328
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %15, !prof !7
+  br i1 %5, label %6, label %16, !prof !7
 
 6:                                                ; preds = %0
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %8 = tail call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 88) #12
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %15, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 88) #12
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %16, label %11
 
-10:                                               ; preds = %6
-  store volatile ptr %8, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
-  store volatile ptr %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 48
-  store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 56
-  store volatile i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  store ptr %8, ptr %3, align 8
-  br label %15
+11:                                               ; preds = %6
+  store volatile ptr %9, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  store volatile ptr %9, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 48
+  store ptr null, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 56
+  store volatile i32 1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
+  store ptr %9, ptr %3, align 8
+  br label %16
 
-15:                                               ; preds = %10, %6, %0
-  %16 = phi i32 [ 0, %10 ], [ 0, %0 ], [ -12, %6 ]
-  ret i32 %16
+16:                                               ; preds = %11, %6, %0
+  %17 = phi i32 [ 0, %11 ], [ 0, %0 ], [ -12, %6 ]
+  ret i32 %17
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -889,206 +890,207 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
   %11 = getelementptr inbounds i8, ptr %10, i64 2328
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %23, !prof !7
+  br i1 %13, label %14, label %24, !prof !7
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 88) #12
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %116, label %18
+  %15 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3520, i64 noundef 88) #12
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %117, label %19
 
-18:                                               ; preds = %14
-  store volatile ptr %16, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
-  store volatile ptr %16, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 48
-  store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 56
-  store volatile i32 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  store ptr %16, ptr %11, align 8
-  br label %23
+19:                                               ; preds = %14
+  store volatile ptr %17, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  store volatile ptr %17, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %17, i64 48
+  store ptr null, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %17, i64 56
+  store volatile i32 1, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %17, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
+  store ptr %17, ptr %11, align 8
+  br label %24
 
-23:                                               ; preds = %18, %4
-  %24 = call ptr @futex_setup_timer(ptr noundef %2, ptr noundef nonnull %5, i32 noundef %1, i64 noundef 0) #13
-  %25 = getelementptr inbounds i8, ptr %8, i64 72
-  %26 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef %25, i32 noundef 1) #13
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %103, !prof !45
+24:                                               ; preds = %19, %4
+  %25 = call ptr @futex_setup_timer(ptr noundef %2, ptr noundef nonnull %5, i32 noundef %1, i64 noundef 0) #13
+  %26 = getelementptr inbounds i8, ptr %8, i64 72
+  %27 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef %26, i32 noundef 1) #13
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %104, !prof !45
 
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %8, i64 96
-  %30 = and i32 %1, 16
-  %31 = icmp eq i32 %30, 0
-  br label %32
+29:                                               ; preds = %24
+  %30 = getelementptr inbounds i8, ptr %8, i64 96
+  %31 = and i32 %1, 16
+  %32 = icmp eq i32 %31, 0
+  br label %33
 
-32:                                               ; preds = %115, %28
-  %33 = call ptr @futex_q_lock(ptr noundef nonnull %8) #13
-  %34 = call i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %33, ptr noundef %25, ptr noundef %29, ptr noundef %10, ptr noundef nonnull %6, i32 noundef 0)
-  switch i32 %34, label %101 [
-    i32 0, label %41
-    i32 1, label %100
-    i32 -14, label %111
-    i32 -16, label %35
-    i32 -11, label %35
+33:                                               ; preds = %116, %29
+  %34 = call ptr @futex_q_lock(ptr noundef nonnull %8) #13
+  %35 = call i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %34, ptr noundef %26, ptr noundef %30, ptr noundef %10, ptr noundef nonnull %6, i32 noundef 0)
+  switch i32 %35, label %102 [
+    i32 0, label %42
+    i32 1, label %101
+    i32 -14, label %112
+    i32 -16, label %36
+    i32 -11, label %36
   ], !prof !46
 
-35:                                               ; preds = %32, %32
-  call void @futex_q_unlock(ptr noundef %33) #13
-  %36 = load ptr, ptr %6, align 8
-  call void @wait_for_owner_exiting(i32 noundef %34, ptr noundef %36) #13
-  %37 = call i32 @__SCT__cond_resched() #13
-  br label %38
+36:                                               ; preds = %33, %33
+  call void @futex_q_unlock(ptr noundef %34) #13
+  %37 = load ptr, ptr %6, align 8
+  call void @wait_for_owner_exiting(i32 noundef %35, ptr noundef %37) #13
+  %38 = call i32 @__SCT__cond_resched() #13
+  br label %39
 
-38:                                               ; preds = %114, %35
-  %39 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef %25, i32 noundef 1) #13
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %115, label %103, !prof !47
+39:                                               ; preds = %115, %36
+  %40 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef %26, i32 noundef 1) #13
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %116, label %104, !prof !47
 
-41:                                               ; preds = %32
-  %42 = load ptr, ptr %29, align 8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %45, !prof !7
+42:                                               ; preds = %33
+  %43 = load ptr, ptr %30, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %46, !prof !7
 
-44:                                               ; preds = %41
+45:                                               ; preds = %42
   call void asm sideeffect "324: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 324b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 324) #13, !srcloc !48
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 979, i32 2305, i64 12) #13, !srcloc !49
   call void asm sideeffect "325: nop\0A\09.pushsection .discard.instr_end\0A\09.long 325b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 325) #13, !srcloc !50
-  br label %45
+  br label %46
 
-45:                                               ; preds = %44, %41
-  call void @__futex_queue(ptr noundef nonnull %8, ptr noundef %33) #13
-  %46 = icmp eq i32 %3, 0
-  br i1 %46, label %53, label %47
+46:                                               ; preds = %45, %42
+  call void @__futex_queue(ptr noundef nonnull %8, ptr noundef %34) #13
+  %47 = icmp eq i32 %3, 0
+  br i1 %47, label %54, label %48
 
-47:                                               ; preds = %45
-  %48 = load ptr, ptr %29, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
-  %50 = call i32 @rt_mutex_futex_trylock(ptr noundef %49) #13
-  %51 = icmp eq i32 %50, 0
-  %52 = select i1 %51, i32 -11, i32 0
-  br label %90
+48:                                               ; preds = %46
+  %49 = load ptr, ptr %30, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = call i32 @rt_mutex_futex_trylock(ptr noundef %50) #13
+  %52 = icmp eq i32 %51, 0
+  %53 = select i1 %52, i32 -11, i32 0
+  br label %91
 
-53:                                               ; preds = %45
+54:                                               ; preds = %46
   call void @rt_mutex_pre_schedule() #13
-  %54 = getelementptr inbounds i8, ptr %7, i64 40
-  %55 = ptrtoint ptr %54 to i64
-  store i64 %55, ptr %54, align 8
-  %56 = ptrtoint ptr %7 to i64
-  store i64 %56, ptr %7, align 8
-  %57 = getelementptr inbounds i8, ptr %7, i64 96
-  store i32 3, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %7, i64 80
-  store ptr null, ptr %58, align 8
-  %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
-  call void @_raw_spin_lock_irq(ptr noundef %60) #13
-  %61 = getelementptr inbounds i8, ptr %8, i64 48
-  %62 = load ptr, ptr %61, align 8
-  call void @_raw_spin_unlock(ptr noundef %62) #13
-  %63 = load ptr, ptr %29, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
-  %65 = call i32 @__rt_mutex_start_proxy_lock(ptr noundef %64, ptr noundef nonnull %7, ptr noundef %10) #13
-  %66 = load ptr, ptr %29, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
-  call void @_raw_spin_unlock_irq(ptr noundef %67) #13
-  %68 = icmp eq i32 %65, 0
-  br i1 %68, label %72, label %69
+  %55 = getelementptr inbounds i8, ptr %7, i64 40
+  %56 = ptrtoint ptr %55 to i64
+  store i64 %56, ptr %55, align 8
+  %57 = ptrtoint ptr %7 to i64
+  store i64 %57, ptr %7, align 8
+  %58 = getelementptr inbounds i8, ptr %7, i64 96
+  store i32 3, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %7, i64 80
+  store ptr null, ptr %59, align 8
+  %60 = load ptr, ptr %30, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  call void @_raw_spin_lock_irq(ptr noundef %61) #13
+  %62 = getelementptr inbounds i8, ptr %8, i64 48
+  %63 = load ptr, ptr %62, align 8
+  call void @_raw_spin_unlock(ptr noundef %63) #13
+  %64 = load ptr, ptr %30, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 16
+  %66 = call i32 @__rt_mutex_start_proxy_lock(ptr noundef %65, ptr noundef nonnull %7, ptr noundef %10) #13
+  %67 = load ptr, ptr %30, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  call void @_raw_spin_unlock_irq(ptr noundef %68) #13
+  %69 = icmp eq i32 %66, 0
+  br i1 %69, label %73, label %70
 
-69:                                               ; preds = %53
-  %70 = icmp eq i32 %65, 1
-  %71 = select i1 %70, i32 0, i32 %65
-  br label %79
+70:                                               ; preds = %54
+  %71 = icmp eq i32 %66, 1
+  %72 = select i1 %71, i32 0, i32 %66
+  br label %80
 
-72:                                               ; preds = %53
-  %73 = icmp eq ptr %24, null
-  br i1 %73, label %75, label %74, !prof !9
+73:                                               ; preds = %54
+  %74 = icmp eq ptr %25, null
+  br i1 %74, label %76, label %75, !prof !9
 
-74:                                               ; preds = %72
-  call void @hrtimer_sleeper_start_expires(ptr noundef nonnull %24, i32 noundef 0) #13
-  br label %75
+75:                                               ; preds = %73
+  call void @hrtimer_sleeper_start_expires(ptr noundef nonnull %25, i32 noundef 0) #13
+  br label %76
 
-75:                                               ; preds = %74, %72
-  %76 = load ptr, ptr %29, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
-  %78 = call i32 @rt_mutex_wait_proxy_lock(ptr noundef %77, ptr noundef %24, ptr noundef nonnull %7) #13
-  br label %79
+76:                                               ; preds = %75, %73
+  %77 = load ptr, ptr %30, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 16
+  %79 = call i32 @rt_mutex_wait_proxy_lock(ptr noundef %78, ptr noundef %25, ptr noundef nonnull %7) #13
+  br label %80
 
-79:                                               ; preds = %75, %69
-  %80 = phi i32 [ %71, %69 ], [ %78, %75 ]
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %87, label %82
+80:                                               ; preds = %76, %70
+  %81 = phi i32 [ %72, %70 ], [ %79, %76 ]
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %88, label %83
 
-82:                                               ; preds = %79
-  %83 = load ptr, ptr %29, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
-  %85 = call zeroext i1 @rt_mutex_cleanup_proxy_lock(ptr noundef %84, ptr noundef nonnull %7) #13
-  %86 = select i1 %85, i32 %80, i32 0
-  br label %87
+83:                                               ; preds = %80
+  %84 = load ptr, ptr %30, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %86 = call zeroext i1 @rt_mutex_cleanup_proxy_lock(ptr noundef %85, ptr noundef nonnull %7) #13
+  %87 = select i1 %86, i32 %81, i32 0
+  br label %88
 
-87:                                               ; preds = %82, %79
-  %88 = phi i32 [ 0, %79 ], [ %86, %82 ]
-  %89 = load ptr, ptr %61, align 8
-  call void @_raw_spin_lock(ptr noundef %89) #13
+88:                                               ; preds = %83, %80
+  %89 = phi i32 [ 0, %80 ], [ %87, %83 ]
+  %90 = load ptr, ptr %62, align 8
+  call void @_raw_spin_lock(ptr noundef %90) #13
   call void @rt_mutex_post_schedule() #13
-  br label %90
+  br label %91
 
-90:                                               ; preds = %87, %47
-  %91 = phi i32 [ %52, %47 ], [ %88, %87 ]
-  %92 = icmp eq i32 %91, 0
-  %93 = zext i1 %92 to i32
-  %94 = call i32 @fixup_pi_owner(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %93)
-  %95 = icmp eq i32 %94, 0
-  %96 = call i32 @llvm.smin.i32(i32 %94, i32 0)
-  %97 = select i1 %95, i32 %91, i32 %96
+91:                                               ; preds = %88, %48
+  %92 = phi i32 [ %53, %48 ], [ %89, %88 ]
+  %93 = icmp eq i32 %92, 0
+  %94 = zext i1 %93 to i32
+  %95 = call i32 @fixup_pi_owner(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %94)
+  %96 = icmp eq i32 %95, 0
+  %97 = call i32 @llvm.smin.i32(i32 %95, i32 0)
+  %98 = select i1 %96, i32 %92, i32 %97
   call void @futex_unqueue_pi(ptr noundef nonnull %8) #13
-  %98 = getelementptr inbounds i8, ptr %8, i64 48
-  %99 = load ptr, ptr %98, align 8
-  call void @_raw_spin_unlock(ptr noundef %99) #13
-  br label %103
+  %99 = getelementptr inbounds i8, ptr %8, i64 48
+  %100 = load ptr, ptr %99, align 8
+  call void @_raw_spin_unlock(ptr noundef %100) #13
+  br label %104
 
-100:                                              ; preds = %32
-  br label %101
+101:                                              ; preds = %33
+  br label %102
 
-101:                                              ; preds = %100, %32
-  %102 = phi i32 [ 0, %100 ], [ %34, %32 ]
-  call void @futex_q_unlock(ptr noundef %33) #13
-  br label %103
+102:                                              ; preds = %101, %33
+  %103 = phi i32 [ 0, %101 ], [ %35, %33 ]
+  call void @futex_q_unlock(ptr noundef %34) #13
+  br label %104
 
-103:                                              ; preds = %111, %101, %90, %38, %23
-  %104 = phi i32 [ %102, %101 ], [ %97, %90 ], [ %26, %23 ], [ %39, %38 ], [ %112, %111 ]
-  %105 = icmp eq ptr %24, null
-  br i1 %105, label %108, label %106
+104:                                              ; preds = %112, %102, %91, %39, %24
+  %105 = phi i32 [ %103, %102 ], [ %98, %91 ], [ %27, %24 ], [ %40, %39 ], [ %113, %112 ]
+  %106 = icmp eq ptr %25, null
+  br i1 %106, label %109, label %107
 
-106:                                              ; preds = %103
-  %107 = call i32 @hrtimer_cancel(ptr noundef nonnull %24) #13
-  br label %108
+107:                                              ; preds = %104
+  %108 = call i32 @hrtimer_cancel(ptr noundef nonnull %25) #13
+  br label %109
 
-108:                                              ; preds = %106, %103
-  %109 = icmp eq i32 %104, -4
-  %110 = select i1 %109, i32 -513, i32 %104
-  br label %116
+109:                                              ; preds = %107, %104
+  %110 = icmp eq i32 %105, -4
+  %111 = select i1 %110, i32 -513, i32 %105
+  br label %117
 
-111:                                              ; preds = %32
-  call void @futex_q_unlock(ptr noundef %33) #13
-  %112 = call i32 @fault_in_user_writeable(ptr noundef %0) #13
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %103
+112:                                              ; preds = %33
+  call void @futex_q_unlock(ptr noundef %34) #13
+  %113 = call i32 @fault_in_user_writeable(ptr noundef %0) #13
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %115, label %104
 
-114:                                              ; preds = %111
-  br i1 %31, label %115, label %38
+115:                                              ; preds = %112
+  br i1 %32, label %116, label %39
 
-115:                                              ; preds = %114, %38
-  br label %32
+116:                                              ; preds = %115, %39
+  br label %33
 
-116:                                              ; preds = %108, %14
-  %117 = phi i32 [ %110, %108 ], [ -12, %14 ]
+117:                                              ; preds = %109, %14
+  %118 = phi i32 [ %111, %109 ], [ -12, %14 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #13
-  ret i32 %117
+  ret i32 %118
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1160,25 +1162,25 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
   tail call void @llvm.write_register.i64(metadata !0, i64 %13)
   %15 = and i64 %14, 4294967295
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %141
+  br i1 %16, label %17, label %142
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %3, i64 8
   %19 = getelementptr inbounds i8, ptr %3, i64 16
   br label %20
 
-20:                                               ; preds = %128, %17
-  %21 = phi { ptr, i32, i64 } [ %11, %17 ], [ %131, %128 ]
-  %22 = phi i32 [ undef, %17 ], [ %129, %128 ]
+20:                                               ; preds = %129, %17
+  %21 = phi { ptr, i32, i64 } [ %11, %17 ], [ %132, %129 ]
+  %22 = phi i32 [ undef, %17 ], [ %130, %129 ]
   %23 = extractvalue { ptr, i32, i64 } %21, 1
   %24 = and i32 %23, 1073741823
   %25 = icmp eq i32 %24, %9
-  br i1 %25, label %26, label %141
+  br i1 %25, label %26, label %142
 
 26:                                               ; preds = %20
   %27 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %6, i32 noundef 1) #13
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %141
+  br i1 %28, label %29, label %142
 
 29:                                               ; preds = %26
   %30 = call ptr @futex_hash(ptr noundef nonnull %6) #13
@@ -1186,23 +1188,23 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
   call void @_raw_spin_lock(ptr noundef %31) #13
   br label %32
 
-32:                                               ; preds = %110, %29
-  %33 = phi i32 [ %22, %29 ], [ %113, %110 ]
+32:                                               ; preds = %111, %29
+  %33 = phi i32 [ %22, %29 ], [ %114, %111 ]
   %34 = call ptr @futex_top_waiter(ptr noundef %30, ptr noundef nonnull %6) #13
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %114, label %36
+  br i1 %35, label %115, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %34, i64 96
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %110, label %40
+  br i1 %39, label %111, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %38, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, %8
-  br i1 %43, label %44, label %110
+  br i1 %43, label %44, label %111
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %38, i64 16
@@ -1231,7 +1233,7 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
 57:                                               ; preds = %54
   call void @__futex_unqueue(ptr noundef nonnull %34) #13
   call void @_raw_spin_unlock_irq(ptr noundef %45) #13
-  br label %110
+  br label %111
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds i8, ptr %38, i64 56
@@ -1284,133 +1286,134 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
   call void @_raw_spin_unlock(ptr noundef %31) #13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !24
-  store ptr inttoptr (i64 1 to ptr), ptr %3, align 8
+  %85 = inttoptr i64 1 to ptr
+  store ptr %85, ptr %3, align 8
   store ptr %3, ptr %18, align 8
   store ptr null, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   store i32 0, ptr %4, align 4, !annotation !24
-  %85 = getelementptr inbounds i8, ptr %55, i64 80
-  %86 = load ptr, ptr %85, align 8
-  %87 = call i32 @__task_pid_nr_ns(ptr noundef %86, i32 noundef 0, ptr noundef null) #13
-  %88 = or i32 %87, -2147483648
-  %89 = call i32 @futex_cmpxchg_value_locked(ptr noundef nonnull %4, ptr noundef %0, i32 noundef %23, i32 noundef %88) #13
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %98
+  %86 = getelementptr inbounds i8, ptr %55, i64 80
+  %87 = load ptr, ptr %86, align 8
+  %88 = call i32 @__task_pid_nr_ns(ptr noundef %87, i32 noundef 0, ptr noundef null) #13
+  %89 = or i32 %88, -2147483648
+  %90 = call i32 @futex_cmpxchg_value_locked(ptr noundef nonnull %4, ptr noundef %0, i32 noundef %23, i32 noundef %89) #13
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %92, label %99
 
-91:                                               ; preds = %84
-  %92 = load i32, ptr %4, align 4
-  %93 = icmp eq i32 %92, %23
-  br i1 %93, label %98, label %94
+92:                                               ; preds = %84
+  %93 = load i32, ptr %4, align 4
+  %94 = icmp eq i32 %93, %23
+  br i1 %94, label %99, label %95
 
-94:                                               ; preds = %91
-  %95 = and i32 %92, 1073741823
-  %96 = icmp eq i32 %95, %23
-  %97 = select i1 %96, i32 -11, i32 -22
-  br label %98
+95:                                               ; preds = %92
+  %96 = and i32 %93, 1073741823
+  %97 = icmp eq i32 %96, %23
+  %98 = select i1 %97, i32 -11, i32 -22
+  br label %99
 
-98:                                               ; preds = %94, %91, %84
-  %99 = phi i32 [ %89, %84 ], [ 0, %91 ], [ %97, %94 ]
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %103
+99:                                               ; preds = %95, %92, %84
+  %100 = phi i32 [ %90, %84 ], [ 0, %92 ], [ %98, %95 ]
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %104
 
-101:                                              ; preds = %98
-  call fastcc void @pi_state_update_owner(ptr noundef nonnull %38, ptr noundef %86)
-  %102 = call zeroext i1 @__rt_mutex_futex_unlock(ptr noundef %45, ptr noundef nonnull %3) #13
-  br label %103
+102:                                              ; preds = %99
+  call fastcc void @pi_state_update_owner(ptr noundef nonnull %38, ptr noundef %87)
+  %103 = call zeroext i1 @__rt_mutex_futex_unlock(ptr noundef %45, ptr noundef nonnull %3) #13
+  br label %104
 
-103:                                              ; preds = %101, %98
-  %104 = phi i1 [ false, %98 ], [ %102, %101 ]
-  %105 = phi i32 [ %99, %98 ], [ 0, %101 ]
+104:                                              ; preds = %102, %99
+  %105 = phi i1 [ false, %99 ], [ %103, %102 ]
+  %106 = phi i32 [ %100, %99 ], [ 0, %102 ]
   call void @_raw_spin_unlock_irq(ptr noundef %45) #13
-  br i1 %104, label %106, label %107
+  br i1 %105, label %107, label %108
 
-106:                                              ; preds = %103
+107:                                              ; preds = %104
   call void @rt_mutex_postunlock(ptr noundef nonnull %3) #13
-  br label %107
+  br label %108
 
-107:                                              ; preds = %106, %103
+108:                                              ; preds = %107, %104
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
   call void @put_pi_state(ptr noundef nonnull %38)
-  switch i32 %105, label %110 [
-    i32 -11, label %109
-    i32 -14, label %108
+  switch i32 %106, label %111 [
+    i32 -11, label %110
+    i32 -14, label %109
   ]
 
-108:                                              ; preds = %107
-  br label %110
+109:                                              ; preds = %108
+  br label %111
 
-109:                                              ; preds = %107
-  br label %110
+110:                                              ; preds = %108
+  br label %111
 
-110:                                              ; preds = %109, %108, %107, %57, %40, %36
-  %111 = phi i32 [ %105, %108 ], [ %105, %109 ], [ -22, %57 ], [ -22, %36 ], [ -22, %40 ], [ %105, %107 ]
-  %112 = phi i32 [ 5, %108 ], [ 6, %109 ], [ 3, %57 ], [ 4, %36 ], [ 4, %40 ], [ 1, %107 ]
-  %113 = phi i32 [ %33, %108 ], [ %33, %109 ], [ %33, %57 ], [ %33, %36 ], [ %33, %40 ], [ %105, %107 ]
-  switch i32 %112, label %141 [
+111:                                              ; preds = %110, %109, %108, %57, %40, %36
+  %112 = phi i32 [ %106, %109 ], [ %106, %110 ], [ -22, %57 ], [ -22, %36 ], [ -22, %40 ], [ %106, %108 ]
+  %113 = phi i32 [ 5, %109 ], [ 6, %110 ], [ 3, %57 ], [ 4, %36 ], [ 4, %40 ], [ 1, %108 ]
+  %114 = phi i32 [ %33, %109 ], [ %33, %110 ], [ %33, %57 ], [ %33, %36 ], [ %33, %40 ], [ %106, %108 ]
+  switch i32 %113, label %142 [
     i32 3, label %32
-    i32 4, label %123
-    i32 6, label %125
-    i32 5, label %137
+    i32 4, label %124
+    i32 6, label %126
+    i32 5, label %138
   ]
 
-114:                                              ; preds = %32
-  %115 = call i32 @futex_cmpxchg_value_locked(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %23, i32 noundef 0) #13
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %119, label %117
+115:                                              ; preds = %32
+  %116 = call i32 @futex_cmpxchg_value_locked(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %23, i32 noundef 0) #13
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %120, label %118
 
-117:                                              ; preds = %114
+118:                                              ; preds = %115
   call void @_raw_spin_unlock(ptr noundef %31) #13
-  switch i32 %115, label %118 [
-    i32 -14, label %137
-    i32 -11, label %125
+  switch i32 %116, label %119 [
+    i32 -14, label %138
+    i32 -11, label %126
   ]
 
-118:                                              ; preds = %117
+119:                                              ; preds = %118
   call void asm sideeffect "326: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 326b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 326) #13, !srcloc !54
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1243, i32 2307, i64 12) #13, !srcloc !55
   call void asm sideeffect "327: nop\0A\09.pushsection .discard.instr_end\0A\09.long 327b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 327) #13, !srcloc !56
-  br label %141
+  br label %142
 
-119:                                              ; preds = %114
-  %120 = load i32, ptr %5, align 4
-  %121 = icmp eq i32 %120, %23
-  %122 = select i1 %121, i32 0, i32 -11
-  br label %123
+120:                                              ; preds = %115
+  %121 = load i32, ptr %5, align 4
+  %122 = icmp eq i32 %121, %23
+  %123 = select i1 %122, i32 0, i32 -11
+  br label %124
 
-123:                                              ; preds = %119, %110
-  %124 = phi i32 [ %122, %119 ], [ %111, %110 ]
+124:                                              ; preds = %120, %111
+  %125 = phi i32 [ %123, %120 ], [ %112, %111 ]
   call void @_raw_spin_unlock(ptr noundef %31) #13
-  br label %141
+  br label %142
 
-125:                                              ; preds = %117, %110
-  %126 = phi i32 [ %33, %117 ], [ %113, %110 ]
-  %127 = call i32 @__SCT__cond_resched() #13
-  br label %128
+126:                                              ; preds = %118, %111
+  %127 = phi i32 [ %33, %118 ], [ %114, %111 ]
+  %128 = call i32 @__SCT__cond_resched() #13
+  br label %129
 
-128:                                              ; preds = %137, %125
-  %129 = phi i32 [ %138, %137 ], [ %126, %125 ]
-  %130 = call i64 @llvm.read_register.i64(metadata !0)
-  %131 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %0, i64 4, i64 %130) #13, !srcloc !51
-  %132 = extractvalue { ptr, i32, i64 } %131, 0
-  %133 = extractvalue { ptr, i32, i64 } %131, 2
-  %134 = ptrtoint ptr %132 to i64
-  call void @llvm.write_register.i64(metadata !0, i64 %133)
-  %135 = and i64 %134, 4294967295
-  %136 = icmp eq i64 %135, 0
-  br i1 %136, label %20, label %141
+129:                                              ; preds = %138, %126
+  %130 = phi i32 [ %139, %138 ], [ %127, %126 ]
+  %131 = call i64 @llvm.read_register.i64(metadata !0)
+  %132 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %0, i64 4, i64 %131) #13, !srcloc !51
+  %133 = extractvalue { ptr, i32, i64 } %132, 0
+  %134 = extractvalue { ptr, i32, i64 } %132, 2
+  %135 = ptrtoint ptr %133 to i64
+  call void @llvm.write_register.i64(metadata !0, i64 %134)
+  %136 = and i64 %135, 4294967295
+  %137 = icmp eq i64 %136, 0
+  br i1 %137, label %20, label %142
 
-137:                                              ; preds = %117, %110
-  %138 = phi i32 [ %33, %117 ], [ %113, %110 ]
-  %139 = call i32 @fault_in_user_writeable(ptr noundef %0) #13
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %128, label %141
+138:                                              ; preds = %118, %111
+  %139 = phi i32 [ %33, %118 ], [ %114, %111 ]
+  %140 = call i32 @fault_in_user_writeable(ptr noundef %0) #13
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %129, label %142
 
-141:                                              ; preds = %137, %128, %123, %118, %110, %26, %20, %2
-  %142 = phi i32 [ %124, %123 ], [ %115, %118 ], [ -14, %2 ], [ %113, %110 ], [ %139, %137 ], [ %27, %26 ], [ -1, %20 ], [ -14, %128 ]
+142:                                              ; preds = %138, %129, %124, %119, %111, %26, %20, %2
+  %143 = phi i32 [ %125, %124 ], [ %116, %119 ], [ -14, %2 ], [ %114, %111 ], [ %140, %138 ], [ %27, %26 ], [ -1, %20 ], [ -14, %129 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
-  ret i32 %142
+  ret i32 %143
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(read)

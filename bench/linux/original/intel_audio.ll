@@ -2217,7 +2217,7 @@ define internal fastcc void @glk_force_audio_cdclk(ptr noundef %0, i1 noundef ze
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !50
   %4 = tail call ptr @intel_first_crtc(ptr noundef %0) #8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %65, label %6
+  br i1 %5, label %66, label %6
 
 6:                                                ; preds = %2
   call void @drm_modeset_acquire_init(ptr noundef nonnull %3, i32 noundef 0) #8
@@ -2247,7 +2247,7 @@ define internal fastcc void @glk_force_audio_cdclk(ptr noundef %0, i1 noundef ze
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1039, i32 2313, i64 12) #8, !srcloc !53
   call void asm sideeffect "924: nop\0A\09.pushsection .discard.instr_end\0A\09.long 924b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 924) #8, !srcloc !54
   call void asm sideeffect "925: nop\0A\09.pushsection .discard.instr_end\0A\09.long 925b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 925) #8, !srcloc !55
-  br label %65
+  br label %66
 
 21:                                               ; preds = %6
   %22 = getelementptr inbounds i8, ptr %7, i64 72
@@ -2258,94 +2258,95 @@ define internal fastcc void @glk_force_audio_cdclk(ptr noundef %0, i1 noundef ze
   %25 = select i1 %1, i32 192000, i32 0
   br label %26
 
-26:                                               ; preds = %41, %21
+26:                                               ; preds = %42, %21
   %27 = load ptr, ptr %22, align 8
   %28 = call i32 @drm_modeset_lock(ptr noundef %24, ptr noundef %27) #8
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %39
+  br i1 %29, label %30, label %40
 
 30:                                               ; preds = %26
   %31 = call ptr @intel_atomic_get_cdclk_state(ptr noundef nonnull %7) #8
-  %32 = icmp ugt ptr %31, inttoptr (i64 -4096 to ptr)
-  br i1 %32, label %33, label %36
+  %32 = inttoptr i64 -4096 to ptr
+  %33 = icmp ugt ptr %31, %32
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %30
-  %34 = ptrtoint ptr %31 to i64
-  %35 = trunc i64 %34 to i32
-  br label %39
+34:                                               ; preds = %30
+  %35 = ptrtoint ptr %31 to i64
+  %36 = trunc i64 %35 to i32
+  br label %40
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %31, i64 92
-  store i32 %25, ptr %37, align 4
-  %38 = call i32 @drm_atomic_commit(ptr noundef nonnull %7) #8
-  br label %39
+37:                                               ; preds = %30
+  %38 = getelementptr inbounds i8, ptr %31, i64 92
+  store i32 %25, ptr %38, align 4
+  %39 = call i32 @drm_atomic_commit(ptr noundef nonnull %7) #8
+  br label %40
 
-39:                                               ; preds = %36, %33, %26
-  %40 = phi i32 [ %35, %33 ], [ %38, %36 ], [ %28, %26 ]
-  switch i32 %40, label %43 [
-    i32 -35, label %41
-    i32 0, label %55
+40:                                               ; preds = %37, %34, %26
+  %41 = phi i32 [ %36, %34 ], [ %39, %37 ], [ %28, %26 ]
+  switch i32 %41, label %44 [
+    i32 -35, label %42
+    i32 0, label %56
   ], !prof !56
 
-41:                                               ; preds = %39
+42:                                               ; preds = %40
   call void @drm_atomic_state_clear(ptr noundef nonnull %7) #8
-  %42 = call i32 @drm_modeset_backoff(ptr noundef nonnull %3) #8
+  %43 = call i32 @drm_modeset_backoff(ptr noundef nonnull %3) #8
   br label %26
 
-43:                                               ; preds = %39
+44:                                               ; preds = %40
   call void asm sideeffect "926: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 926) #8, !srcloc !57
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = call ptr @dev_driver_string(ptr noundef %45) #8
-  %47 = load ptr, ptr %44, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 80
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %53
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = call ptr @dev_driver_string(ptr noundef %46) #8
+  %48 = load ptr, ptr %45, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 80
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %43
-  %52 = load ptr, ptr %47, align 8
-  br label %53
+52:                                               ; preds = %44
+  %53 = load ptr, ptr %48, align 8
+  br label %54
 
-53:                                               ; preds = %51, %43
-  %54 = phi ptr [ %52, %51 ], [ %49, %43 ]
-  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4, ptr noundef %46, ptr noundef %54, ptr noundef nonnull @.str.21) #8
+54:                                               ; preds = %52, %44
+  %55 = phi ptr [ %53, %52 ], [ %50, %44 ]
+  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4, ptr noundef %47, ptr noundef %55, ptr noundef nonnull @.str.21) #8
   call void asm sideeffect "927: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 927b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 927) #8, !srcloc !58
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1054, i32 2313, i64 12) #8, !srcloc !59
   call void asm sideeffect "928: nop\0A\09.pushsection .discard.instr_end\0A\09.long 928b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 928) #8, !srcloc !60
   call void asm sideeffect "929: nop\0A\09.pushsection .discard.instr_end\0A\09.long 929b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 929) #8, !srcloc !61
-  br label %55
+  br label %56
 
-55:                                               ; preds = %53, %39
-  %56 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 -1, ptr nonnull elementtype(i32) %7) #8, !srcloc !62
-  %57 = icmp eq i32 %56, 1
-  br i1 %57, label %58, label %59
+56:                                               ; preds = %54, %40
+  %57 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 -1, ptr nonnull elementtype(i32) %7) #8, !srcloc !62
+  %58 = icmp eq i32 %57, 1
+  br i1 %58, label %59, label %60
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !63
-  br label %62
+  br label %63
 
-59:                                               ; preds = %55
-  %60 = icmp sgt i32 %56, 0
-  br i1 %60, label %62, label %61, !prof !11
+60:                                               ; preds = %56
+  %61 = icmp sgt i32 %57, 0
+  br i1 %61, label %63, label %62, !prof !11
 
-61:                                               ; preds = %59
+62:                                               ; preds = %60
   call void @refcount_warn_saturate(ptr noundef nonnull %7, i32 noundef 3) #8
-  br label %62
+  br label %63
 
-62:                                               ; preds = %61, %59, %58
-  br i1 %57, label %63, label %64
+63:                                               ; preds = %62, %60, %59
+  br i1 %58, label %64, label %65
 
-63:                                               ; preds = %62
+64:                                               ; preds = %63
   call void @__drm_atomic_state_free(ptr noundef nonnull %7) #8
-  br label %64
-
-64:                                               ; preds = %63, %62
-  call void @drm_modeset_drop_locks(ptr noundef nonnull %3) #8
-  call void @drm_modeset_acquire_fini(ptr noundef nonnull %3) #8
   br label %65
 
-65:                                               ; preds = %64, %19, %2
+65:                                               ; preds = %64, %63
+  call void @drm_modeset_drop_locks(ptr noundef nonnull %3) #8
+  call void @drm_modeset_acquire_fini(ptr noundef nonnull %3) #8
+  br label %66
+
+66:                                               ; preds = %65, %19, %2
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #8
   ret void
 }

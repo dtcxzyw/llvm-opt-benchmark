@@ -121,26 +121,30 @@ declare dso_local void @pvclock_touch_watchdogs() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @kvm_clock_get_cycles(ptr nocapture readnone %0) #1 align 16 {
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #13, !srcloc !7
+  %2 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %3 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, ptr nonnull elementtype(i32) %3) #13, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
-  %2 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !9
-  %3 = inttoptr i64 %2 to ptr
-  %4 = tail call i64 @pvclock_clocksource_read_nowd(ptr noundef %3) #13
+  %4 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !9
+  %5 = inttoptr i64 %4 to ptr
+  %6 = tail call i64 @pvclock_clocksource_read_nowd(ptr noundef %5) #13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  %5 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #13, !srcloc !11
-  %6 = icmp ult i8 %5, 2
-  tail call void @llvm.assume(i1 %6)
-  %7 = icmp eq i8 %5, 0
-  br i1 %7, label %11, label %8, !prof !12
+  %7 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %8 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %9 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, ptr nonnull elementtype(i32) %8) #13, !srcloc !11
+  %10 = icmp ult i8 %9, 2
+  tail call void @llvm.assume(i1 %10)
+  %11 = icmp eq i8 %9, 0
+  br i1 %11, label %15, label %12, !prof !12
 
-8:                                                ; preds = %1
-  %9 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %10 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %9) #13, !srcloc !13
-  tail call void @llvm.write_register.i64(metadata !0, i64 %10)
-  br label %11
+12:                                               ; preds = %1
+  %13 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %14 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %13) #13, !srcloc !13
+  tail call void @llvm.write_register.i64(metadata !0, i64 %14)
+  br label %15
 
-11:                                               ; preds = %8, %1
-  ret i64 %4
+15:                                               ; preds = %12, %1
+  ret i64 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(readwrite, argmem: none)
@@ -155,18 +159,19 @@ define internal noundef i32 @kvm_cs_enable(ptr nocapture readnone %0) #3 align 1
 define dso_local void @kvmclock_disable() local_unnamed_addr #1 align 16 {
   %1 = load i32, ptr @msr_kvm_system_time, align 4
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %5, label %3
+  br i1 %2, label %6, label %3
 
 3:                                                ; preds = %0
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %1, i32 0, i32 0) #13, !srcloc !14
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
-          to label %5 [label %4], !srcloc !15
+  %4 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i32 2) #13
+          to label %6 [label %5], !srcloc !15
 
-4:                                                ; preds = %3
+5:                                                ; preds = %3
   tail call void @do_trace_write_msr(i32 noundef %1, i64 noundef 0, i32 noundef 0) #13
-  br label %5
+  br label %6
 
-5:                                                ; preds = %4, %3, %0
+6:                                                ; preds = %5, %3, %0
   ret void
 }
 
@@ -179,30 +184,32 @@ define internal noundef i32 @kvm_setup_vsyscall_timeinfo() #4 section ".init.tex
   %5 = load i8, ptr @nopv, align 1, !range !16
   %6 = icmp eq i8 %5, 0
   %7 = select i1 %4, i1 %6, i1 false
-  br i1 %7, label %8, label %21
+  br i1 %7, label %8, label %23
 
 8:                                                ; preds = %0
   tail call fastcc void @kvmclock_init_mem() #14
   %9 = load i64, ptr @__per_cpu_offset, align 16
-  %10 = add i64 %9, ptrtoint (ptr @hv_clock_per_cpu to i64)
-  %11 = inttoptr i64 %10 to ptr
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  %14 = load i1, ptr @kvmclock_vsyscall, align 4
-  %15 = select i1 %13, i1 true, i1 %14
-  br i1 %15, label %21, label %16
+  %10 = ptrtoint ptr @hv_clock_per_cpu to i64
+  %11 = add i64 %9, %10
+  %12 = inttoptr i64 %11 to ptr
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  %15 = load i1, ptr @kvmclock_vsyscall, align 4
+  %16 = select i1 %14, i1 true, i1 %15
+  br i1 %16, label %23, label %17
 
-16:                                               ; preds = %8
-  %17 = tail call zeroext i8 @pvclock_read_flags(ptr noundef nonnull @hv_clock_boot) #13
-  %18 = and i8 %17, 1
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %21, label %20
+17:                                               ; preds = %8
+  %18 = tail call zeroext i8 @pvclock_read_flags(ptr noundef nonnull @hv_clock_boot) #13
+  %19 = and i8 %18, 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %23, label %21
 
-20:                                               ; preds = %16
-  store i32 2, ptr getelementptr inbounds (%struct.clocksource, ptr @kvm_clock, i64 0, i32 12), align 8
-  br label %21
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds %struct.clocksource, ptr @kvm_clock, i64 0, i32 12
+  store i32 2, ptr %22, align 8
+  br label %23
 
-21:                                               ; preds = %20, %16, %8, %0
+23:                                               ; preds = %21, %17, %8, %0
   ret i32 0
 }
 
@@ -212,7 +219,7 @@ define dso_local void @kvmclock_init() local_unnamed_addr #4 section ".init.text
   %2 = load i1, ptr @kvmclock, align 4
   %3 = xor i1 %1, true
   %4 = select i1 %3, i1 true, i1 %2
-  br i1 %4, label %69, label %5
+  br i1 %4, label %84, label %5
 
 5:                                                ; preds = %0
   %6 = tail call i32 @kvm_arch_para_features() #13
@@ -224,7 +231,7 @@ define dso_local void @kvmclock_init() local_unnamed_addr #4 section ".init.text
   %10 = tail call i32 @kvm_arch_para_features() #13
   %11 = and i32 %10, 1
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %69, label %13
+  br i1 %12, label %84, label %13
 
 13:                                               ; preds = %9, %5
   %14 = phi i32 [ 1263947009, %5 ], [ 18, %9 ]
@@ -233,112 +240,127 @@ define dso_local void @kvmclock_init() local_unnamed_addr #4 section ".init.text
   store i32 %15, ptr @msr_kvm_wall_clock, align 4
   %16 = tail call i32 @__cpuhp_setup_state(i32 noundef 65, ptr noundef nonnull @.str.1, i1 noundef zeroext true, ptr noundef nonnull @kvmclock_setup_percpu, ptr noundef null, i1 noundef zeroext false) #13
   %17 = icmp slt i32 %16, 0
-  br i1 %17, label %69, label %18
+  br i1 %17, label %84, label %18
 
 18:                                               ; preds = %13
   %19 = load i32, ptr @msr_kvm_system_time, align 4
   %20 = load i32, ptr @msr_kvm_wall_clock, align 4
   %21 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %19, i32 noundef %20) #15
-  tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu, i64 ptrtoint (ptr @hv_clock_boot to i64), ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !17
-  %22 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !6
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %33, label %24
+  %22 = ptrtoint ptr @hv_clock_boot to i64
+  tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu, i64 %22, ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !17
+  %23 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !6
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %35, label %25
 
-24:                                               ; preds = %18
-  %25 = inttoptr i64 %22 to ptr
-  %26 = tail call i64 @slow_virt_to_phys(ptr noundef nonnull %25) #13
-  %27 = or i64 %26, 1
-  %28 = load i32, ptr @msr_kvm_system_time, align 4
-  %29 = trunc i64 %27 to i32
-  %30 = lshr i64 %26, 32
-  %31 = trunc i64 %30 to i32
-  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, i32 %29, i32 %31) #13, !srcloc !14
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
-          to label %33 [label %32], !srcloc !15
+25:                                               ; preds = %18
+  %26 = inttoptr i64 %23 to ptr
+  %27 = tail call i64 @slow_virt_to_phys(ptr noundef nonnull %26) #13
+  %28 = or i64 %27, 1
+  %29 = load i32, ptr @msr_kvm_system_time, align 4
+  %30 = trunc i64 %28 to i32
+  %31 = lshr i64 %27, 32
+  %32 = trunc i64 %31 to i32
+  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %29, i32 %30, i32 %32) #13, !srcloc !14
+  %33 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %33, i32 2) #13
+          to label %35 [label %34], !srcloc !15
 
-32:                                               ; preds = %24
-  tail call void @do_trace_write_msr(i32 noundef %28, i64 noundef %27, i32 noundef 0) #13
-  br label %33
+34:                                               ; preds = %25
+  tail call void @do_trace_write_msr(i32 noundef %29, i64 noundef %28, i32 noundef 0) #13
+  br label %35
 
-33:                                               ; preds = %32, %24, %18
+35:                                               ; preds = %34, %25, %18
   tail call void @pvclock_set_pvti_cpu0_va(ptr noundef nonnull @hv_clock_boot) #13
-  %34 = tail call i32 @kvm_arch_para_features() #13
-  %35 = and i32 %34, 16777216
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %38, label %37
+  %36 = tail call i32 @kvm_arch_para_features() #13
+  %37 = and i32 %36, 16777216
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %40, label %39
 
-37:                                               ; preds = %33
+39:                                               ; preds = %35
   tail call void @pvclock_set_flags(i8 noundef zeroext 1) #13
-  br label %38
+  br label %40
 
-38:                                               ; preds = %37, %33
-  %39 = tail call zeroext i8 @pvclock_read_flags(ptr noundef nonnull @hv_clock_boot) #13
-  %40 = and i8 %39, 1
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %42, label %43
+40:                                               ; preds = %39, %35
+  %41 = tail call zeroext i8 @pvclock_read_flags(ptr noundef nonnull @hv_clock_boot) #13
+  %42 = and i8 %41, 1
+  %43 = icmp eq i8 %42, 0
+  br i1 %43, label %44, label %45
 
-42:                                               ; preds = %38
+44:                                               ; preds = %40
   tail call void @clear_sched_clock_stable() #13
-  br label %43
+  br label %45
 
-43:                                               ; preds = %42, %38
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #13, !srcloc !7
+45:                                               ; preds = %44, %40
+  %46 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %47 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %46, ptr nonnull elementtype(i32) %47) #13, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
-  %44 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !9
-  %45 = inttoptr i64 %44 to ptr
-  %46 = tail call i64 @pvclock_clocksource_read_nowd(ptr noundef %45) #13
+  %48 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !9
+  %49 = inttoptr i64 %48 to ptr
+  %50 = tail call i64 @pvclock_clocksource_read_nowd(ptr noundef %49) #13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  %47 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #13, !srcloc !11
-  %48 = icmp ult i8 %47, 2
-  tail call void @llvm.assume(i1 %48)
-  %49 = icmp eq i8 %47, 0
-  br i1 %49, label %53, label %50, !prof !12
+  %51 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %52 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %53 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %51, ptr nonnull elementtype(i32) %52) #13, !srcloc !11
+  %54 = icmp ult i8 %53, 2
+  tail call void @llvm.assume(i1 %54)
+  %55 = icmp eq i8 %53, 0
+  br i1 %55, label %59, label %56, !prof !12
 
-50:                                               ; preds = %43
-  %51 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %52 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %51) #13, !srcloc !13
-  tail call void @llvm.write_register.i64(metadata !0, i64 %52)
-  br label %53
+56:                                               ; preds = %45
+  %57 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %58 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %57) #13, !srcloc !13
+  tail call void @llvm.write_register.i64(metadata !0, i64 %58)
+  br label %59
 
-53:                                               ; preds = %50, %43
-  store i64 %46, ptr @kvm_sched_clock_offset, align 8
+59:                                               ; preds = %56, %45
+  store i64 %50, ptr @kvm_sched_clock_offset, align 8
   tail call void @paravirt_set_sched_clock(ptr noundef nonnull @kvm_sched_clock_read) #13
-  %54 = load i64, ptr @kvm_sched_clock_offset, align 8
-  %55 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i64 noundef %54) #15
-  store ptr @kvm_get_tsc_khz, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 1), align 8
+  %60 = load i64, ptr @kvm_sched_clock_offset, align 8
+  %61 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i64 noundef %60) #15
+  %62 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 1
+  store ptr @kvm_get_tsc_khz, ptr %62, align 8
   store ptr @kvm_get_tsc_khz, ptr @x86_platform, align 8
-  store ptr @kvm_get_wallclock, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 2), align 8
-  store ptr @kvm_set_wallclock, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 3), align 8
-  store ptr @kvm_setup_secondary_clock, ptr getelementptr inbounds (%struct.x86_cpuinit_ops, ptr @x86_cpuinit, i64 0, i32 1), align 8
-  store ptr @kvm_save_sched_clock_state, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 8), align 8
-  store ptr @kvm_restore_sched_clock_state, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 9), align 8
+  %63 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 2
+  store ptr @kvm_get_wallclock, ptr %63, align 8
+  %64 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 3
+  store ptr @kvm_set_wallclock, ptr %64, align 8
+  %65 = getelementptr inbounds %struct.x86_cpuinit_ops, ptr @x86_cpuinit, i64 0, i32 1
+  store ptr @kvm_setup_secondary_clock, ptr %65, align 8
+  %66 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 8
+  store ptr @kvm_save_sched_clock_state, ptr %66, align 8
+  %67 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 9
+  store ptr @kvm_restore_sched_clock_state, ptr %67, align 8
   tail call fastcc void @kvm_get_preset_lpj() #14
-  %56 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 0), align 8
-  %57 = and i64 %56, 1099511627776
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %67, label %59
+  %68 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 0
+  %69 = load volatile i64, ptr %68, align 8
+  %70 = and i64 %69, 1099511627776
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %82, label %72
 
-59:                                               ; preds = %53
-  %60 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 0), align 8
-  %61 = and i64 %60, 72057594037927936
-  %62 = icmp eq i64 %61, 0
-  br i1 %62, label %67, label %63
+72:                                               ; preds = %59
+  %73 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 0
+  %74 = load volatile i64, ptr %73, align 8
+  %75 = and i64 %74, 72057594037927936
+  %76 = icmp eq i64 %75, 0
+  br i1 %76, label %82, label %77
 
-63:                                               ; preds = %59
-  %64 = tail call i32 @check_tsc_unstable() #13
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %67
+77:                                               ; preds = %72
+  %78 = tail call i32 @check_tsc_unstable() #13
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %82
 
-66:                                               ; preds = %63
-  store i32 299, ptr getelementptr inbounds (%struct.clocksource, ptr @kvm_clock, i64 0, i32 10), align 8
-  br label %67
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds %struct.clocksource, ptr @kvm_clock, i64 0, i32 10
+  store i32 299, ptr %81, align 8
+  br label %82
 
-67:                                               ; preds = %66, %63, %59, %53
-  %68 = tail call i32 @__clocksource_register_scale(ptr noundef nonnull @kvm_clock, i32 noundef 1, i32 noundef 1000000000) #13
+82:                                               ; preds = %80, %77, %72, %59
+  %83 = tail call i32 @__clocksource_register_scale(ptr noundef nonnull @kvm_clock, i32 noundef 1, i32 noundef 1000000000) #13
   store ptr @.str.4, ptr @pv_info, align 8
-  br label %69
+  br label %84
 
-69:                                               ; preds = %67, %13, %9, %0
+84:                                               ; preds = %82, %13, %9, %0
   ret void
 }
 
@@ -350,52 +372,54 @@ define internal i32 @kvmclock_setup_percpu(i32 noundef %0) #5 align 16 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
-  %5 = add i64 %4, ptrtoint (ptr @hv_clock_per_cpu to i64)
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq i32 %0, 0
-  br i1 %8, label %31, label %9
+  %5 = ptrtoint ptr @hv_clock_per_cpu to i64
+  %6 = add i64 %4, %5
+  %7 = inttoptr i64 %6 to ptr
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq i32 %0, 0
+  br i1 %9, label %33, label %10
 
-9:                                                ; preds = %1
-  %10 = icmp eq ptr %7, null
-  br i1 %10, label %17, label %11
+10:                                               ; preds = %1
+  %11 = icmp eq ptr %8, null
+  br i1 %11, label %19, label %12
 
-11:                                               ; preds = %9
-  %12 = load i64, ptr @__per_cpu_offset, align 16
-  %13 = add i64 %12, ptrtoint (ptr @hv_clock_per_cpu to i64)
-  %14 = inttoptr i64 %13 to ptr
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %7, %15
-  br i1 %16, label %17, label %31
+12:                                               ; preds = %10
+  %13 = load i64, ptr @__per_cpu_offset, align 16
+  %14 = ptrtoint ptr @hv_clock_per_cpu to i64
+  %15 = add i64 %13, %14
+  %16 = inttoptr i64 %15 to ptr
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %8, %17
+  br i1 %18, label %19, label %33
 
-17:                                               ; preds = %11, %9
-  %18 = icmp ult i32 %0, 64
-  br i1 %18, label %19, label %21
+19:                                               ; preds = %12, %10
+  %20 = icmp ult i32 %0, 64
+  br i1 %20, label %21, label %23
 
-19:                                               ; preds = %17
-  %20 = getelementptr [64 x %struct.pvclock_vsyscall_time_info], ptr @hv_clock_boot, i64 0, i64 %2
-  br label %27
+21:                                               ; preds = %19
+  %22 = getelementptr [64 x %struct.pvclock_vsyscall_time_info], ptr @hv_clock_boot, i64 0, i64 %2
+  br label %29
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr @hvclock_mem, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %31, label %24
+23:                                               ; preds = %19
+  %24 = load ptr, ptr @hvclock_mem, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %33, label %26
 
-24:                                               ; preds = %21
-  %25 = getelementptr %struct.pvclock_vsyscall_time_info, ptr %22, i64 %2
-  %26 = getelementptr i8, ptr %25, i64 -4096
-  br label %27
+26:                                               ; preds = %23
+  %27 = getelementptr %struct.pvclock_vsyscall_time_info, ptr %24, i64 %2
+  %28 = getelementptr i8, ptr %27, i64 -4096
+  br label %29
 
-27:                                               ; preds = %24, %19
-  %28 = phi ptr [ %20, %19 ], [ %26, %24 ]
-  store ptr %28, ptr %6, align 8
-  %29 = icmp eq ptr %28, null
-  %30 = select i1 %29, i32 -12, i32 0
-  br label %31
+29:                                               ; preds = %26, %21
+  %30 = phi ptr [ %22, %21 ], [ %28, %26 ]
+  store ptr %30, ptr %7, align 8
+  %31 = icmp eq ptr %30, null
+  %32 = select i1 %31, i32 -12, i32 0
+  br label %33
 
-31:                                               ; preds = %27, %21, %11, %1
-  %32 = phi i32 [ %30, %27 ], [ 0, %11 ], [ 0, %1 ], [ -12, %21 ]
-  ret i32 %32
+33:                                               ; preds = %29, %23, %12, %1
+  %34 = phi i32 [ %32, %29 ], [ 0, %12 ], [ 0, %1 ], [ -12, %23 ]
+  ret i32 %34
 }
 
 ; Function Attrs: cold null_pointer_is_valid
@@ -412,12 +436,16 @@ declare dso_local zeroext i8 @pvclock_read_flags(ptr noundef) local_unnamed_addr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @kvm_get_tsc_khz() #1 align 16 {
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7)) #13, !srcloc !18
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 15), i32 128, ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 15)) #13, !srcloc !18
-  %1 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !9
-  %2 = inttoptr i64 %1 to ptr
-  %3 = tail call i64 @pvclock_tsc_khz(ptr noundef %2) #13
-  ret i64 %3
+  %1 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7
+  %2 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, i32 128, ptr nonnull elementtype(i8) %2) #13, !srcloc !18
+  %3 = getelementptr i8, ptr @cpu_caps_set, i64 15
+  %4 = getelementptr i8, ptr @cpu_caps_set, i64 15
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i32 128, ptr elementtype(i8) %4) #13, !srcloc !18
+  %5 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !9
+  %6 = inttoptr i64 %5 to ptr
+  %7 = tail call i64 @pvclock_tsc_khz(ptr noundef %6) #13
+  ret i64 %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -428,33 +456,38 @@ define internal void @kvm_get_wallclock(ptr noundef %0) #1 align 16 {
   %5 = lshr i64 %3, 32
   %6 = trunc i64 %5 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %2, i32 %4, i32 %6) #13, !srcloc !14
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
-          to label %8 [label %7], !srcloc !15
+  %7 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7, i32 2) #13
+          to label %9 [label %8], !srcloc !15
 
-7:                                                ; preds = %1
+8:                                                ; preds = %1
   tail call void @do_trace_write_msr(i32 noundef %2, i64 noundef %3, i32 noundef 0) #13
-  br label %8
+  br label %9
 
-8:                                                ; preds = %7, %1
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #13, !srcloc !7
+9:                                                ; preds = %8, %1
+  %10 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %11 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, ptr nonnull elementtype(i32) %11) #13, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !19
-  %9 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !9
-  %10 = inttoptr i64 %9 to ptr
-  tail call void @pvclock_read_wallclock(ptr noundef nonnull @wall_clock, ptr noundef %10, ptr noundef %0) #13
+  %12 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !9
+  %13 = inttoptr i64 %12 to ptr
+  tail call void @pvclock_read_wallclock(ptr noundef nonnull @wall_clock, ptr noundef %13, ptr noundef %0) #13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !20
-  %11 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #13, !srcloc !11
-  %12 = icmp ult i8 %11, 2
-  tail call void @llvm.assume(i1 %12)
-  %13 = icmp eq i8 %11, 0
-  br i1 %13, label %17, label %14, !prof !12
+  %14 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %15 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %16 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, ptr nonnull elementtype(i32) %15) #13, !srcloc !11
+  %17 = icmp ult i8 %16, 2
+  tail call void @llvm.assume(i1 %17)
+  %18 = icmp eq i8 %16, 0
+  br i1 %18, label %22, label %19, !prof !12
 
-14:                                               ; preds = %8
-  %15 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %16 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %15) #13, !srcloc !21
-  tail call void @llvm.write_register.i64(metadata !0, i64 %16)
-  br label %17
+19:                                               ; preds = %9
+  %20 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %21 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %20) #13, !srcloc !21
+  tail call void @llvm.write_register.i64(metadata !0, i64 %21)
+  br label %22
 
-17:                                               ; preds = %14, %8
+22:                                               ; preds = %19, %9
   ret void
 }
 
@@ -467,7 +500,7 @@ define internal noundef i32 @kvm_set_wallclock(ptr nocapture readnone %0) #7 ali
 define internal void @kvm_setup_secondary_clock() #1 align 16 {
   %1 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !6
   %2 = icmp eq i64 %1, 0
-  br i1 %2, label %12, label %3
+  br i1 %2, label %13, label %3
 
 3:                                                ; preds = %0
   %4 = inttoptr i64 %1 to ptr
@@ -478,14 +511,15 @@ define internal void @kvm_setup_secondary_clock() #1 align 16 {
   %9 = lshr i64 %5, 32
   %10 = trunc i64 %9 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %7, i32 %8, i32 %10) #13, !srcloc !14
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
-          to label %12 [label %11], !srcloc !15
+  %11 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, i32 2) #13
+          to label %13 [label %12], !srcloc !15
 
-11:                                               ; preds = %3
+12:                                               ; preds = %3
   tail call void @do_trace_write_msr(i32 noundef %7, i64 noundef %6, i32 noundef 0) #13
-  br label %12
+  br label %13
 
-12:                                               ; preds = %11, %3, %0
+13:                                               ; preds = %12, %3, %0
   ret void
 }
 
@@ -498,7 +532,7 @@ define internal void @kvm_save_sched_clock_state() #7 align 16 {
 define internal void @kvm_restore_sched_clock_state() #1 align 16 {
   %1 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !6
   %2 = icmp eq i64 %1, 0
-  br i1 %2, label %12, label %3
+  br i1 %2, label %13, label %3
 
 3:                                                ; preds = %0
   %4 = inttoptr i64 %1 to ptr
@@ -509,27 +543,32 @@ define internal void @kvm_restore_sched_clock_state() #1 align 16 {
   %9 = lshr i64 %5, 32
   %10 = trunc i64 %9 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %7, i32 %8, i32 %10) #13, !srcloc !14
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
-          to label %12 [label %11], !srcloc !15
+  %11 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, i32 2) #13
+          to label %13 [label %12], !srcloc !15
 
-11:                                               ; preds = %3
+12:                                               ; preds = %3
   tail call void @do_trace_write_msr(i32 noundef %7, i64 noundef %6, i32 noundef 0) #13
-  br label %12
+  br label %13
 
-12:                                               ; preds = %11, %3, %0
+13:                                               ; preds = %12, %3, %0
   ret void
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @kvm_get_preset_lpj() unnamed_addr #4 section ".init.text" align 16 {
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7)) #13, !srcloc !18
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 15), i32 128, ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 15)) #13, !srcloc !18
-  %1 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !9
-  %2 = inttoptr i64 %1 to ptr
-  %3 = tail call i64 @pvclock_tsc_khz(ptr noundef %2) #13
-  %4 = mul i64 %3, 1000
-  %5 = udiv i64 %4, 1000
-  store i64 %5, ptr @preset_lpj, align 8
+  %1 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7
+  %2 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, i32 128, ptr nonnull elementtype(i8) %2) #13, !srcloc !18
+  %3 = getelementptr i8, ptr @cpu_caps_set, i64 15
+  %4 = getelementptr i8, ptr @cpu_caps_set, i64 15
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i32 128, ptr elementtype(i8) %4) #13, !srcloc !18
+  %5 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #13, !srcloc !9
+  %6 = inttoptr i64 %5 to ptr
+  %7 = tail call i64 @pvclock_tsc_khz(ptr noundef %6) #13
+  %8 = mul i64 %7, 1000
+  %9 = udiv i64 %8, 1000
+  store i64 %9, ptr @preset_lpj, align 8
   ret void
 }
 

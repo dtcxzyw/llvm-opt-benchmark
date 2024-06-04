@@ -275,35 +275,36 @@ entry:
   store ptr %vtable, ptr %vtable.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook3jsi7RuntimeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [73 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123HermesABIRuntimeWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [73 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123HermesABIRuntimeWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %abiVtable_ = getelementptr inbounds %"class.(anonymous namespace)::HermesABIRuntimeWrapper", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %vtable.addr, align 8
-  store ptr %0, ptr %abiVtable_, align 8
+  %1 = load ptr, ptr %vtable.addr, align 8
+  store ptr %1, ptr %abiVtable_, align 8
   %abiVtable_2 = getelementptr inbounds %"class.(anonymous namespace)::HermesABIRuntimeWrapper", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %abiVtable_2, align 8
-  %make_hermes_runtime = getelementptr inbounds %struct.HermesABIVTable, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %make_hermes_runtime, align 8
-  %call = invoke noundef ptr %2(ptr noundef null)
+  %2 = load ptr, ptr %abiVtable_2, align 8
+  %make_hermes_runtime = getelementptr inbounds %struct.HermesABIVTable, ptr %2, i32 0, i32 0
+  %3 = load ptr, ptr %make_hermes_runtime, align 8
+  %call = invoke noundef ptr %3(ptr noundef null)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %abiRt_ = getelementptr inbounds %"class.(anonymous namespace)::HermesABIRuntimeWrapper", ptr %this1, i32 0, i32 3
   store ptr %call, ptr %abiRt_, align 8
   %abiRt_3 = getelementptr inbounds %"class.(anonymous namespace)::HermesABIRuntimeWrapper", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %abiRt_3, align 8
-  %vt = getelementptr inbounds %struct.HermesABIRuntime, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %vt, align 8
+  %4 = load ptr, ptr %abiRt_3, align 8
+  %vt = getelementptr inbounds %struct.HermesABIRuntime, ptr %4, i32 0, i32 0
+  %5 = load ptr, ptr %vt, align 8
   %vtable_ = getelementptr inbounds %"class.(anonymous namespace)::HermesABIRuntimeWrapper", ptr %this1, i32 0, i32 2
-  store ptr %4, ptr %vtable_, align 8
+  store ptr %5, ptr %vtable_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
   br label %eh.resume
 
@@ -350,7 +351,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [73 x ptr] }, ptr @_ZTVN8facebook3jsi7RuntimeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [73 x ptr] }, ptr @_ZTVN8facebook3jsi7RuntimeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -363,14 +365,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [73 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123HermesABIRuntimeWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [73 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123HermesABIRuntimeWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.(anonymous namespace)::HermesABIRuntimeWrapper", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %vtable_, align 8
-  %release = getelementptr inbounds %struct.HermesABIRuntimeVTable, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %release, align 8
+  %1 = load ptr, ptr %vtable_, align 8
+  %release = getelementptr inbounds %struct.HermesABIRuntimeVTable, ptr %1, i32 0, i32 0
+  %2 = load ptr, ptr %release, align 8
   %abiRt_ = getelementptr inbounds %"class.(anonymous namespace)::HermesABIRuntimeWrapper", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %abiRt_, align 8
-  invoke void %1(ptr noundef %2)
+  %3 = load ptr, ptr %abiRt_, align 8
+  invoke void %2(ptr noundef %3)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -378,10 +381,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #12
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #12
   unreachable
 }
 
@@ -1470,16 +1473,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook3jsi18JSINativeExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8facebook3jsi18JSINativeExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #9
   br label %eh.resume
 
@@ -1731,7 +1735,8 @@ entry:
   store ptr %what, ptr %what.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %what_ = getelementptr inbounds %"class.facebook::jsi::JSIException", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %what_, ptr noundef nonnull align 8 dereferenceable(32) %what) #9
   ret void
@@ -1743,7 +1748,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

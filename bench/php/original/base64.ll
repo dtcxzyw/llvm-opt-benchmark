@@ -15049,84 +15049,92 @@ define internal i32 @zend_cpu_supports_avx512_vbmi() #6 {
   call void @__cpu_indicator_init()
   %1 = call i32 @zend_cpu_supports_avx512()
   %2 = icmp ne i32 %1, 0
-  br i1 %2, label %3, label %8
+  br i1 %2, label %3, label %9
 
 3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds ({ i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0), align 4
-  %5 = and i32 %4, 67108864
-  %6 = icmp eq i32 %5, 67108864
-  %7 = and i1 true, %6
-  br label %8
+  %4 = getelementptr inbounds { i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0
+  %5 = load i32, ptr %4, align 4
+  %6 = and i32 %5, 67108864
+  %7 = icmp eq i32 %6, 67108864
+  %8 = and i1 true, %7
+  br label %9
 
-8:                                                ; preds = %3, %0
-  %9 = phi i1 [ false, %0 ], [ %7, %3 ]
-  %10 = zext i1 %9 to i32
-  ret i32 %10
+9:                                                ; preds = %3, %0
+  %10 = phi i1 [ false, %0 ], [ %8, %3 ]
+  %11 = zext i1 %10 to i32
+  ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @zend_cpu_supports_avx512() #6 {
   call void @__cpu_indicator_init()
-  %1 = load i32, ptr getelementptr inbounds ({ i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0), align 4
-  %2 = and i32 %1, 32768
-  %3 = icmp eq i32 %2, 32768
-  %4 = and i1 true, %3
-  br i1 %4, label %5, label %25
+  %1 = getelementptr inbounds { i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0
+  %2 = load i32, ptr %1, align 4
+  %3 = and i32 %2, 32768
+  %4 = icmp eq i32 %3, 32768
+  %5 = and i1 true, %4
+  br i1 %5, label %6, label %30
 
-5:                                                ; preds = %0
-  %6 = load i32, ptr getelementptr inbounds ({ i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0), align 4
-  %7 = and i32 %6, 4194304
-  %8 = icmp eq i32 %7, 4194304
-  %9 = and i1 true, %8
-  br i1 %9, label %10, label %25
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds { i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0
+  %8 = load i32, ptr %7, align 4
+  %9 = and i32 %8, 4194304
+  %10 = icmp eq i32 %9, 4194304
+  %11 = and i1 true, %10
+  br i1 %11, label %12, label %30
 
-10:                                               ; preds = %5
-  %11 = load i32, ptr getelementptr inbounds ({ i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0), align 4
-  %12 = and i32 %11, 8388608
-  %13 = icmp eq i32 %12, 8388608
-  %14 = and i1 true, %13
-  br i1 %14, label %15, label %25
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds { i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0
+  %14 = load i32, ptr %13, align 4
+  %15 = and i32 %14, 8388608
+  %16 = icmp eq i32 %15, 8388608
+  %17 = and i1 true, %16
+  br i1 %17, label %18, label %30
 
-15:                                               ; preds = %10
-  %16 = load i32, ptr getelementptr inbounds ({ i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0), align 4
-  %17 = and i32 %16, 2097152
-  %18 = icmp eq i32 %17, 2097152
-  %19 = and i1 true, %18
-  br i1 %19, label %20, label %25
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds { i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0
+  %20 = load i32, ptr %19, align 4
+  %21 = and i32 %20, 2097152
+  %22 = icmp eq i32 %21, 2097152
+  %23 = and i1 true, %22
+  br i1 %23, label %24, label %30
 
-20:                                               ; preds = %15
-  %21 = load i32, ptr getelementptr inbounds ({ i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0), align 4
-  %22 = and i32 %21, 1048576
-  %23 = icmp eq i32 %22, 1048576
-  %24 = and i1 true, %23
-  br label %25
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds { i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0
+  %26 = load i32, ptr %25, align 4
+  %27 = and i32 %26, 1048576
+  %28 = icmp eq i32 %27, 1048576
+  %29 = and i1 true, %28
+  br label %30
 
-25:                                               ; preds = %20, %15, %10, %5, %0
-  %26 = phi i1 [ false, %15 ], [ false, %10 ], [ false, %5 ], [ false, %0 ], [ %24, %20 ]
-  %27 = zext i1 %26 to i32
-  ret i32 %27
+30:                                               ; preds = %24, %18, %12, %6, %0
+  %31 = phi i1 [ false, %18 ], [ false, %12 ], [ false, %6 ], [ false, %0 ], [ %29, %24 ]
+  %32 = zext i1 %31 to i32
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @zend_cpu_supports_avx2() #6 {
   call void @__cpu_indicator_init()
-  %1 = load i32, ptr getelementptr inbounds ({ i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0), align 4
-  %2 = and i32 %1, 1024
-  %3 = icmp eq i32 %2, 1024
-  %4 = and i1 true, %3
-  %5 = zext i1 %4 to i32
-  ret i32 %5
+  %1 = getelementptr inbounds { i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0
+  %2 = load i32, ptr %1, align 4
+  %3 = and i32 %2, 1024
+  %4 = icmp eq i32 %3, 1024
+  %5 = and i1 true, %4
+  %6 = zext i1 %5 to i32
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @zend_cpu_supports_ssse3() #6 {
   call void @__cpu_indicator_init()
-  %1 = load i32, ptr getelementptr inbounds ({ i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0), align 4
-  %2 = and i32 %1, 64
-  %3 = icmp eq i32 %2, 64
-  %4 = and i1 true, %3
-  %5 = zext i1 %4 to i32
-  ret i32 %5
+  %1 = getelementptr inbounds { i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0
+  %2 = load i32, ptr %1, align 4
+  %3 = and i32 %2, 64
+  %4 = icmp eq i32 %3, 64
+  %5 = and i1 true, %4
+  %6 = zext i1 %5 to i32
+  ret i32 %6
 }
 
 declare dso_local void @__cpu_indicator_init()

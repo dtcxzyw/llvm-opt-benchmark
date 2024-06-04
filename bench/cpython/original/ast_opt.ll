@@ -9223,16 +9223,22 @@ do.body:                                          ; preds = %if.then18
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %_tmp_old_dst, align 8
   %28 = load ptr, ptr %str, align 8
-  %call19 = call ptr @PyUnicode_Replace(ptr noundef %28, ptr noundef getelementptr inbounds (%struct.anon.89, ptr getelementptr inbounds (%struct.anon.87, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3), i32 0, i32 12), ptr noundef getelementptr inbounds (%struct.anon.89, ptr getelementptr inbounds (%struct.anon.87, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3), i32 0, i32 23), i64 noundef -1)
-  %29 = load ptr, ptr %_tmp_dst_ptr, align 8
-  store ptr %call19, ptr %29, align 8
-  %30 = load ptr, ptr %_tmp_old_dst, align 8
-  store ptr %30, ptr %op.addr.i29, align 8
-  %31 = load ptr, ptr %op.addr.i29, align 8
-  store ptr %31, ptr %op.addr.i38, align 8
-  %32 = load ptr, ptr %op.addr.i38, align 8
-  %33 = load i64, ptr %32, align 8
-  %conv.i = trunc i64 %33 to i32
+  %29 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %30 = getelementptr inbounds %struct.anon.87, ptr %29, i32 0, i32 3
+  %31 = getelementptr inbounds %struct.anon.89, ptr %30, i32 0, i32 12
+  %32 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %33 = getelementptr inbounds %struct.anon.87, ptr %32, i32 0, i32 3
+  %34 = getelementptr inbounds %struct.anon.89, ptr %33, i32 0, i32 23
+  %call19 = call ptr @PyUnicode_Replace(ptr noundef %28, ptr noundef %31, ptr noundef %34, i64 noundef -1)
+  %35 = load ptr, ptr %_tmp_dst_ptr, align 8
+  store ptr %call19, ptr %35, align 8
+  %36 = load ptr, ptr %_tmp_old_dst, align 8
+  store ptr %36, ptr %op.addr.i29, align 8
+  %37 = load ptr, ptr %op.addr.i29, align 8
+  store ptr %37, ptr %op.addr.i38, align 8
+  %38 = load ptr, ptr %op.addr.i38, align 8
+  %39 = load i64, ptr %38, align 8
+  %conv.i = trunc i64 %39 to i32
   %cmp.i39 = icmp slt i32 %conv.i, 0
   %conv1.i = zext i1 %cmp.i39 to i32
   %tobool.i31 = icmp ne i32 %conv1.i, 0
@@ -9242,16 +9248,16 @@ if.then.i36:                                      ; preds = %do.body
   br label %Py_DECREF.exit37
 
 if.end.i32:                                       ; preds = %do.body
-  %34 = load ptr, ptr %op.addr.i29, align 8
-  %35 = load i64, ptr %34, align 8
-  %dec.i33 = add i64 %35, -1
-  store i64 %dec.i33, ptr %34, align 8
+  %40 = load ptr, ptr %op.addr.i29, align 8
+  %41 = load i64, ptr %40, align 8
+  %dec.i33 = add i64 %41, -1
+  store i64 %dec.i33, ptr %40, align 8
   %cmp.i34 = icmp eq i64 %dec.i33, 0
   br i1 %cmp.i34, label %if.then1.i35, label %Py_DECREF.exit37
 
 if.then1.i35:                                     ; preds = %if.end.i32
-  %36 = load ptr, ptr %op.addr.i29, align 8
-  call void @_Py_Dealloc(ptr noundef %36) #5
+  %42 = load ptr, ptr %op.addr.i29, align 8
+  call void @_Py_Dealloc(ptr noundef %42) #5
   br label %Py_DECREF.exit37
 
 Py_DECREF.exit37:                                 ; preds = %if.then1.i35, %if.end.i32, %if.then.i36
@@ -9261,8 +9267,8 @@ do.end:                                           ; preds = %Py_DECREF.exit37
   br label %if.end20
 
 if.end20:                                         ; preds = %do.end, %land.lhs.true16, %if.end14
-  %37 = load ptr, ptr %str, align 8
-  %tobool21 = icmp ne ptr %37, null
+  %43 = load ptr, ptr %str, align 8
+  %tobool21 = icmp ne ptr %43, null
   br i1 %tobool21, label %if.end23, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
@@ -9270,20 +9276,20 @@ if.then22:                                        ; preds = %if.end20
   br label %return
 
 if.end23:                                         ; preds = %if.end20
-  %38 = load ptr, ptr %arena.addr, align 8
-  %39 = load ptr, ptr %str, align 8
-  %call24 = call i32 @_PyArena_AddPyObject(ptr noundef %38, ptr noundef %39)
+  %44 = load ptr, ptr %arena.addr, align 8
+  %45 = load ptr, ptr %str, align 8
+  %call24 = call i32 @_PyArena_AddPyObject(ptr noundef %44, ptr noundef %45)
   %cmp25 = icmp slt i32 %call24, 0
   br i1 %cmp25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end23
-  %40 = load ptr, ptr %str, align 8
-  store ptr %40, ptr %op.addr.i, align 8
-  %41 = load ptr, ptr %op.addr.i, align 8
-  store ptr %41, ptr %op.addr.i40, align 8
-  %42 = load ptr, ptr %op.addr.i40, align 8
-  %43 = load i64, ptr %42, align 8
-  %conv.i41 = trunc i64 %43 to i32
+  %46 = load ptr, ptr %str, align 8
+  store ptr %46, ptr %op.addr.i, align 8
+  %47 = load ptr, ptr %op.addr.i, align 8
+  store ptr %47, ptr %op.addr.i40, align 8
+  %48 = load ptr, ptr %op.addr.i40, align 8
+  %49 = load i64, ptr %48, align 8
+  %conv.i41 = trunc i64 %49 to i32
   %cmp.i42 = icmp slt i32 %conv.i41, 0
   %conv1.i43 = zext i1 %cmp.i42 to i32
   %tobool.i = icmp ne i32 %conv1.i43, 0
@@ -9293,16 +9299,16 @@ if.then.i:                                        ; preds = %if.then26
   br label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.then26
-  %44 = load ptr, ptr %op.addr.i, align 8
-  %45 = load i64, ptr %44, align 8
-  %dec.i = add i64 %45, -1
-  store i64 %dec.i, ptr %44, align 8
+  %50 = load ptr, ptr %op.addr.i, align 8
+  %51 = load i64, ptr %50, align 8
+  %dec.i = add i64 %51, -1
+  store i64 %dec.i, ptr %50, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %46 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %46) #5
+  %52 = load ptr, ptr %op.addr.i, align 8
+  call void @_Py_Dealloc(ptr noundef %52) #5
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
@@ -9310,15 +9316,15 @@ Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end
   br label %return
 
 if.end27:                                         ; preds = %if.end23
-  %47 = load ptr, ptr %str, align 8
-  %48 = load ptr, ptr %arena.addr, align 8
-  %call28 = call ptr @_PyAST_Constant(ptr noundef %47, ptr noundef null, i32 noundef -1, i32 noundef -1, i32 noundef -1, i32 noundef -1, ptr noundef %48)
+  %53 = load ptr, ptr %str, align 8
+  %54 = load ptr, ptr %arena.addr, align 8
+  %call28 = call ptr @_PyAST_Constant(ptr noundef %53, ptr noundef null, i32 noundef -1, i32 noundef -1, i32 noundef -1, i32 noundef -1, ptr noundef %54)
   store ptr %call28, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end27, %Py_DECREF.exit, %if.then22, %if.then13
-  %49 = load ptr, ptr %retval, align 8
-  ret ptr %49
+  %55 = load ptr, ptr %retval, align 8
+  ret ptr %55
 }
 
 declare ptr @PyErr_Occurred() #1

@@ -690,89 +690,91 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #0 {
   %16 = load ptr, ptr %14, align 8, !tbaa !68
   %17 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef 5) #18
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %16, ptr noundef %17) #18
-  %18 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !69
-  %19 = getelementptr inbounds i8, ptr %18, i64 288
-  %20 = load i32, ptr %19, align 8, !tbaa !77
-  %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %19, align 8, !tbaa !77
-  %22 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.12) #18
-  %23 = getelementptr inbounds i8, ptr %9, i64 24
-  store ptr %22, ptr %23, align 8, !tbaa !67
-  %24 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.13) #18
-  %25 = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr %24, ptr %25, align 8, !tbaa !66
-  %26 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.13) #18
-  store ptr %26, ptr %9, align 8, !tbaa !61
-  %27 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.12) #18
-  %28 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %27, ptr %28, align 8, !tbaa !63
-  %29 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 17), align 8, !tbaa !69
-  %30 = getelementptr inbounds i8, ptr %29, i64 288
-  %31 = load i32, ptr %30, align 8, !tbaa !77
-  %32 = add nsw i32 %31, -1
-  store i32 %32, ptr %30, align 8, !tbaa !77
-  %33 = load ptr, ptr %23, align 8, !tbaa !67
-  tail call void @dt_bauhaus_slider_set_hard_min(ptr noundef %33, float noundef 3.000000e+00) #18
-  %34 = load ptr, ptr %23, align 8, !tbaa !67
-  tail call void @dt_bauhaus_slider_set_default(ptr noundef %34, float noundef 5.000000e+01) #18
-  %35 = load ptr, ptr %23, align 8, !tbaa !67
-  tail call void @dt_bauhaus_slider_set_digits(ptr noundef %35, i32 noundef 0) #18
-  %36 = load ptr, ptr %23, align 8, !tbaa !67
-  %37 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %36, ptr noundef null, ptr noundef nonnull @.str.14) #18
-  %38 = load ptr, ptr %23, align 8, !tbaa !67
-  %39 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #18
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %38, ptr noundef %39) #18
-  %40 = load ptr, ptr %25, align 8, !tbaa !66
-  tail call void @dt_bauhaus_slider_set_hard_min(ptr noundef %40, float noundef 1.000000e+00) #18
-  %41 = load ptr, ptr %25, align 8, !tbaa !66
-  tail call void @dt_bauhaus_slider_set_default(ptr noundef %41, float noundef 2.000000e+01) #18
-  %42 = load ptr, ptr %25, align 8, !tbaa !66
-  tail call void @dt_bauhaus_slider_set_digits(ptr noundef %42, i32 noundef 0) #18
-  %43 = load ptr, ptr %25, align 8, !tbaa !66
-  %44 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %43, ptr noundef null, ptr noundef nonnull @.str.16) #18
-  %45 = load ptr, ptr %25, align 8, !tbaa !66
-  %46 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #18
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %45, ptr noundef %46) #18
-  %47 = load ptr, ptr %9, align 8, !tbaa !61
-  %48 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %47, ptr noundef null, ptr noundef nonnull @.str.18) #18
+  %18 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 17
+  %19 = load ptr, ptr %18, align 8, !tbaa !69
+  %20 = getelementptr inbounds i8, ptr %19, i64 288
+  %21 = load i32, ptr %20, align 8, !tbaa !77
+  %22 = add nsw i32 %21, 1
+  store i32 %22, ptr %20, align 8, !tbaa !77
+  %23 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.12) #18
+  %24 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr %23, ptr %24, align 8, !tbaa !67
+  %25 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.13) #18
+  %26 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr %25, ptr %26, align 8, !tbaa !66
+  %27 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.13) #18
+  store ptr %27, ptr %9, align 8, !tbaa !61
+  %28 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.12) #18
+  %29 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %28, ptr %29, align 8, !tbaa !63
+  %30 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 17
+  %31 = load ptr, ptr %30, align 8, !tbaa !69
+  %32 = getelementptr inbounds i8, ptr %31, i64 288
+  %33 = load i32, ptr %32, align 8, !tbaa !77
+  %34 = add nsw i32 %33, -1
+  store i32 %34, ptr %32, align 8, !tbaa !77
+  %35 = load ptr, ptr %24, align 8, !tbaa !67
+  tail call void @dt_bauhaus_slider_set_hard_min(ptr noundef %35, float noundef 3.000000e+00) #18
+  %36 = load ptr, ptr %24, align 8, !tbaa !67
+  tail call void @dt_bauhaus_slider_set_default(ptr noundef %36, float noundef 5.000000e+01) #18
+  %37 = load ptr, ptr %24, align 8, !tbaa !67
+  tail call void @dt_bauhaus_slider_set_digits(ptr noundef %37, i32 noundef 0) #18
+  %38 = load ptr, ptr %24, align 8, !tbaa !67
+  %39 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %38, ptr noundef null, ptr noundef nonnull @.str.14) #18
+  %40 = load ptr, ptr %24, align 8, !tbaa !67
+  %41 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #18
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %40, ptr noundef %41) #18
+  %42 = load ptr, ptr %26, align 8, !tbaa !66
+  tail call void @dt_bauhaus_slider_set_hard_min(ptr noundef %42, float noundef 1.000000e+00) #18
+  %43 = load ptr, ptr %26, align 8, !tbaa !66
+  tail call void @dt_bauhaus_slider_set_default(ptr noundef %43, float noundef 2.000000e+01) #18
+  %44 = load ptr, ptr %26, align 8, !tbaa !66
+  tail call void @dt_bauhaus_slider_set_digits(ptr noundef %44, i32 noundef 0) #18
+  %45 = load ptr, ptr %26, align 8, !tbaa !66
+  %46 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %45, ptr noundef null, ptr noundef nonnull @.str.16) #18
+  %47 = load ptr, ptr %26, align 8, !tbaa !66
+  %48 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #18
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %47, ptr noundef %48) #18
   %49 = load ptr, ptr %9, align 8, !tbaa !61
-  tail call void @dt_bauhaus_slider_set_hard_max(ptr noundef %49, float noundef 2.000000e+00) #18
-  %50 = load ptr, ptr %9, align 8, !tbaa !61
-  tail call void @dt_bauhaus_slider_set_format(ptr noundef %50, ptr noundef nonnull @.str.10) #18
+  %50 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %49, ptr noundef null, ptr noundef nonnull @.str.18) #18
   %51 = load ptr, ptr %9, align 8, !tbaa !61
-  %52 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 5) #18
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %51, ptr noundef %52) #18
-  %53 = load ptr, ptr %28, align 8, !tbaa !63
-  %54 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %53, ptr noundef null, ptr noundef nonnull @.str.20) #18
-  %55 = load ptr, ptr %28, align 8, !tbaa !63
-  tail call void @dt_bauhaus_slider_set_hard_max(ptr noundef %55, float noundef 2.000000e+00) #18
-  %56 = load ptr, ptr %28, align 8, !tbaa !63
-  tail call void @dt_bauhaus_slider_set_format(ptr noundef %56, ptr noundef nonnull @.str.10) #18
-  %57 = load ptr, ptr %28, align 8, !tbaa !63
-  %58 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #18
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %57, ptr noundef %58) #18
-  %59 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.22) #18
-  %60 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %59, ptr %60, align 8, !tbaa !64
-  tail call void @dt_bauhaus_slider_set_digits(ptr noundef %59, i32 noundef 3) #18
-  %61 = load ptr, ptr %60, align 8, !tbaa !64
-  %62 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef 5) #18
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %61, ptr noundef %62) #18
-  %63 = load ptr, ptr %9, align 8, !tbaa !61
-  %64 = tail call ptr @g_type_check_instance_cast(ptr noundef %63, i64 noundef 80) #18
-  tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %64, ptr noundef nonnull @.str.24, i32 noundef 1, ptr noundef null) #18
-  %65 = load ptr, ptr %28, align 8, !tbaa !63
+  tail call void @dt_bauhaus_slider_set_hard_max(ptr noundef %51, float noundef 2.000000e+00) #18
+  %52 = load ptr, ptr %9, align 8, !tbaa !61
+  tail call void @dt_bauhaus_slider_set_format(ptr noundef %52, ptr noundef nonnull @.str.10) #18
+  %53 = load ptr, ptr %9, align 8, !tbaa !61
+  %54 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 5) #18
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %53, ptr noundef %54) #18
+  %55 = load ptr, ptr %29, align 8, !tbaa !63
+  %56 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %55, ptr noundef null, ptr noundef nonnull @.str.20) #18
+  %57 = load ptr, ptr %29, align 8, !tbaa !63
+  tail call void @dt_bauhaus_slider_set_hard_max(ptr noundef %57, float noundef 2.000000e+00) #18
+  %58 = load ptr, ptr %29, align 8, !tbaa !63
+  tail call void @dt_bauhaus_slider_set_format(ptr noundef %58, ptr noundef nonnull @.str.10) #18
+  %59 = load ptr, ptr %29, align 8, !tbaa !63
+  %60 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #18
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %59, ptr noundef %60) #18
+  %61 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.22) #18
+  %62 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %61, ptr %62, align 8, !tbaa !64
+  tail call void @dt_bauhaus_slider_set_digits(ptr noundef %61, i32 noundef 3) #18
+  %63 = load ptr, ptr %62, align 8, !tbaa !64
+  %64 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef 5) #18
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %63, ptr noundef %64) #18
+  %65 = load ptr, ptr %9, align 8, !tbaa !61
   %66 = tail call ptr @g_type_check_instance_cast(ptr noundef %65, i64 noundef 80) #18
   tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %66, ptr noundef nonnull @.str.24, i32 noundef 1, ptr noundef null) #18
-  %67 = load ptr, ptr %60, align 8, !tbaa !64
+  %67 = load ptr, ptr %29, align 8, !tbaa !63
   %68 = tail call ptr @g_type_check_instance_cast(ptr noundef %67, i64 noundef 80) #18
   tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %68, ptr noundef nonnull @.str.24, i32 noundef 1, ptr noundef null) #18
-  %69 = load ptr, ptr %25, align 8, !tbaa !66
+  %69 = load ptr, ptr %62, align 8, !tbaa !64
   %70 = tail call ptr @g_type_check_instance_cast(ptr noundef %69, i64 noundef 80) #18
   tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %70, ptr noundef nonnull @.str.24, i32 noundef 1, ptr noundef null) #18
-  %71 = load ptr, ptr %23, align 8, !tbaa !67
+  %71 = load ptr, ptr %26, align 8, !tbaa !66
   %72 = tail call ptr @g_type_check_instance_cast(ptr noundef %71, i64 noundef 80) #18
   tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %72, ptr noundef nonnull @.str.24, i32 noundef 1, ptr noundef null) #18
+  %73 = load ptr, ptr %24, align 8, !tbaa !67
+  %74 = tail call ptr @g_type_check_instance_cast(ptr noundef %73, i64 noundef 80) #18
+  tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %74, ptr noundef nonnull @.str.24, i32 noundef 1, ptr noundef null) #18
   ret void
 }
 
@@ -816,23 +818,32 @@ define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unn
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %6 = or i1 %5, %4
-  br i1 %6, label %8, label %7
+  br i1 %6, label %17, label %7
 
 7:                                                ; preds = %2
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 0, i32 7), align 8, !tbaa !85
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 7), align 16, !tbaa !85
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 7), align 8, !tbaa !85
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 7), align 16, !tbaa !85
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 7), align 8, !tbaa !85
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 0, i32 7), align 16, !tbaa !85
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 6, i32 0, i32 7), align 8, !tbaa !85
-  store ptr @introspection_init.f0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 2), align 8, !tbaa !85
-  store ptr @introspection_init.f5, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 2), align 16, !tbaa !85
-  br label %8
+  %8 = getelementptr inbounds <{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 0, i32 7
+  store ptr %0, ptr %8, align 8, !tbaa !85
+  %9 = getelementptr inbounds <{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 7
+  store ptr %0, ptr %9, align 16, !tbaa !85
+  %10 = getelementptr inbounds <{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 7
+  store ptr %0, ptr %10, align 8, !tbaa !85
+  %11 = getelementptr inbounds <{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 7
+  store ptr %0, ptr %11, align 16, !tbaa !85
+  %12 = getelementptr inbounds <{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 7
+  store ptr %0, ptr %12, align 8, !tbaa !85
+  %13 = getelementptr inbounds <{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 0, i32 7
+  store ptr %0, ptr %13, align 16, !tbaa !85
+  %14 = getelementptr inbounds <{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 6, i32 0, i32 7
+  store ptr %0, ptr %14, align 8, !tbaa !85
+  %15 = getelementptr inbounds <{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 2
+  store ptr @introspection_init.f0, ptr %15, align 8, !tbaa !85
+  %16 = getelementptr inbounds <{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 2
+  store ptr @introspection_init.f5, ptr %16, align 16, !tbaa !85
+  br label %17
 
-8:                                                ; preds = %7, %2
-  %9 = phi i32 [ 0, %7 ], [ 1, %2 ]
-  ret i32 %9
+17:                                               ; preds = %7, %2
+  %18 = phi i32 [ 0, %7 ], [ 1, %2 ]
+  ret i32 %18
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
@@ -887,32 +898,36 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define ptr @get_f(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.7) #18
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %17, label %4
+  br i1 %3, label %21, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.13) #18
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %17, label %7
+  %7 = getelementptr inbounds <{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 0
+  br i1 %6, label %21, label %8
 
-7:                                                ; preds = %4
-  %8 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.12) #18
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %17, label %10
+8:                                                ; preds = %4
+  %9 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.12) #18
+  %10 = icmp eq i32 %9, 0
+  %11 = getelementptr inbounds <{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 0
+  br i1 %10, label %21, label %12
 
-10:                                               ; preds = %7
-  %11 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.9) #18
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %17, label %13
+12:                                               ; preds = %8
+  %13 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.9) #18
+  %14 = icmp eq i32 %13, 0
+  %15 = getelementptr inbounds <{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 0
+  br i1 %14, label %21, label %16
 
-13:                                               ; preds = %10
-  %14 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.22) #18
-  %15 = icmp eq i32 %14, 0
-  %16 = select i1 %15, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 0), ptr null
-  br label %17
+16:                                               ; preds = %12
+  %17 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.22) #18
+  %18 = icmp eq i32 %17, 0
+  %19 = getelementptr inbounds <{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 0
+  %20 = select i1 %18, ptr %19, ptr null
+  br label %21
 
-17:                                               ; preds = %13, %10, %7, %4, %1
-  %18 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 0), %4 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 0), %7 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 0), %10 ], [ %16, %13 ]
-  ret ptr %18
+21:                                               ; preds = %16, %12, %8, %4, %1
+  %22 = phi ptr [ @introspection_linear, %1 ], [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %20, %16 ]
+  ret ptr %22
 }
 
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4

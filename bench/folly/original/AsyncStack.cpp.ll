@@ -294,7 +294,8 @@ define internal void @_GLOBAL__sub_I_AsyncStack.cpp() #0 section ".text.startup"
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN5follyL17detachedRootFrameE, i8 0, i64 24, i1 false)
   %call.i.i = tail call fastcc noundef ptr @_ZN5follyL13detached_taskEv() #13
-  store ptr %call.i.i, ptr getelementptr inbounds (%"struct.folly::AsyncStackFrame", ptr @_ZN5follyL17detachedRootFrameE, i64 0, i32 1), align 8, !tbaa !26
+  %0 = getelementptr inbounds %"struct.folly::AsyncStackFrame", ptr @_ZN5follyL17detachedRootFrameE, i64 0, i32 1
+  store ptr %call.i.i, ptr %0, align 8, !tbaa !26
   ret void
 }
 

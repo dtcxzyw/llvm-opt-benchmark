@@ -128,15 +128,16 @@ define linkonce_odr dso_local void @_ZN31cmCTestTestMeasurementXMLParserD2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV31cmCTestTestMeasurementXMLParser, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmCTestTestMeasurementXMLParser, ptr %3, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
-  %5 = getelementptr inbounds %class.cmCTestTestMeasurementXMLParser, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV31cmCTestTestMeasurementXMLParser, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmCTestTestMeasurementXMLParser, ptr %3, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
-  %6 = getelementptr inbounds %class.cmCTestTestMeasurementXMLParser, ptr %3, i32 0, i32 2
+  %6 = getelementptr inbounds %class.cmCTestTestMeasurementXMLParser, ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #6
-  %7 = getelementptr inbounds %class.cmCTestTestMeasurementXMLParser, ptr %3, i32 0, i32 1
+  %7 = getelementptr inbounds %class.cmCTestTestMeasurementXMLParser, ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #6
+  %8 = getelementptr inbounds %class.cmCTestTestMeasurementXMLParser, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #6
   call void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #6
   ret void
 }

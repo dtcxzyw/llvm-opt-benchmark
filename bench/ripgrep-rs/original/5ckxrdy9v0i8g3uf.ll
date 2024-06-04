@@ -120,25 +120,26 @@ define internal noundef i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u2
 define internal void @_ZN4core3fmt9Arguments9new_const17h46d05cae8456bbbbE(ptr noalias nocapture noundef sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = icmp ugt i64 %2, 1
-  br i1 %5, label %14, label %6
+  br i1 %5, label %15, label %6
 
 6:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %7, align 8
   %8 = load ptr, ptr @anon.0923cb38b7fdc9785e1561170331db22.1.llvm.6679066857390535418, align 8, !align !7, !noundef !4
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @anon.0923cb38b7fdc9785e1561170331db22.1.llvm.6679066857390535418, i64 8), align 8
-  %10 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 2
-  store ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %9, ptr %11, align 8
-  %12 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store ptr @anon.0923cb38b7fdc9785e1561170331db22.0.llvm.6679066857390535418, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 0, ptr %13, align 8
+  %9 = getelementptr inbounds i8, ptr @anon.0923cb38b7fdc9785e1561170331db22.1.llvm.6679066857390535418, i64 8
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 2
+  store ptr %8, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %10, ptr %12, align 8
+  %13 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store ptr @anon.0923cb38b7fdc9785e1561170331db22.0.llvm.6679066857390535418, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 0, ptr %14, align 8
   ret void
 
-14:                                               ; preds = %3
+15:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 48, ptr %4)
   call void @_ZN4core3fmt9Arguments9new_const17h46d05cae8456bbbbE(ptr noalias nocapture noundef sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 @anon.0923cb38b7fdc9785e1561170331db22.3, i64 noundef 1)
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef align 8 dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0923cb38b7fdc9785e1561170331db22.5) #11
@@ -337,12 +338,12 @@ define hidden noundef align 8 dereferenceable(24) ptr @"_ZN4core4cell4once17Once
 29:                                               ; preds = %45, %26
   %30 = load i8, ptr %6, align 1, !range !10, !noundef !4
   %31 = trunc i8 %30 to i1
-  br i1 %31, label %77, label %56
+  br i1 %31, label %78, label %56
 
-32:                                               ; preds = %67, %35
+32:                                               ; preds = %68, %35
   %33 = load i8, ptr %6, align 1, !range !10, !noundef !4
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %84, label %78
+  br i1 %34, label %85, label %79
 
 35:                                               ; preds = %52, %44, %28
   %36 = landingpad { ptr, i32 }
@@ -407,13 +408,13 @@ define hidden noundef align 8 dereferenceable(24) ptr @"_ZN4core4cell4once17Once
 
 54:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 48, ptr %7)
-  br i1 false, label %66, label %58
+  br i1 false, label %67, label %58
 
 55:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(i64 32, ptr %8)
   br label %56
 
-56:                                               ; preds = %77, %55, %29
+56:                                               ; preds = %78, %55, %29
   %57 = load ptr, ptr %13, align 8, !nonnull !4, !align !7, !noundef !4
   ret ptr %57
 
@@ -422,65 +423,66 @@ define hidden noundef align 8 dereferenceable(24) ptr @"_ZN4core4cell4once17Once
   %59 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 1, ptr %59, align 8
   %60 = load ptr, ptr @anon.0923cb38b7fdc9785e1561170331db22.1.llvm.6679066857390535418, align 8, !align !7, !noundef !4
-  %61 = load i64, ptr getelementptr inbounds (i8, ptr @anon.0923cb38b7fdc9785e1561170331db22.1.llvm.6679066857390535418, i64 8), align 8
-  %62 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %7, i32 0, i32 2
-  store ptr %60, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
-  store i64 %61, ptr %63, align 8
-  %64 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %7, i32 0, i32 1
-  store ptr @anon.0923cb38b7fdc9785e1561170331db22.0.llvm.6679066857390535418, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
-  store i64 0, ptr %65, align 8
+  %61 = getelementptr inbounds i8, ptr @anon.0923cb38b7fdc9785e1561170331db22.1.llvm.6679066857390535418, i64 8
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %7, i32 0, i32 2
+  store ptr %60, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  store i64 %62, ptr %64, align 8
+  %65 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %7, i32 0, i32 1
+  store ptr @anon.0923cb38b7fdc9785e1561170331db22.0.llvm.6679066857390535418, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  store i64 0, ptr %66, align 8
   invoke void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef align 8 dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0923cb38b7fdc9785e1561170331db22.9) #11
-          to label %73 unwind label %68
+          to label %74 unwind label %69
 
-66:                                               ; preds = %54
+67:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 48, ptr %4)
   invoke void @_ZN4core3fmt9Arguments9new_const17h46d05cae8456bbbbE(ptr noalias nocapture noundef sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 @anon.0923cb38b7fdc9785e1561170331db22.3, i64 noundef 1)
-          to label %74 unwind label %68
+          to label %75 unwind label %69
 
-67:                                               ; preds = %68
+68:                                               ; preds = %69
   invoke void @"_ZN4core3ptr269drop_in_place$LT$core..result..Result$LT$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$$LP$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$RP$$GT$$GT$17h544b8d1467184fcfE"(ptr noalias noundef align 8 dereferenceable(32) %8) #12
-          to label %32 unwind label %75
+          to label %32 unwind label %76
 
-68:                                               ; preds = %74, %66, %58
-  %69 = landingpad { ptr, i32 }
+69:                                               ; preds = %75, %67, %58
+  %70 = landingpad { ptr, i32 }
           cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  %71 = extractvalue { ptr, i32 } %69, 1
+  %71 = extractvalue { ptr, i32 } %70, 0
+  %72 = extractvalue { ptr, i32 } %70, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr %3)
-  store ptr %70, ptr %3, align 8
-  %72 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %71, ptr %72, align 8
-  br label %67
+  store ptr %71, ptr %3, align 8
+  %73 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %72, ptr %73, align 8
+  br label %68
 
-73:                                               ; preds = %74, %58
+74:                                               ; preds = %75, %58
   unreachable
 
-74:                                               ; preds = %66
-  invoke void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef align 8 dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0923cb38b7fdc9785e1561170331db22.5) #11
-          to label %73 unwind label %68
-
 75:                                               ; preds = %67
-  %76 = landingpad { ptr, i32 }
+  invoke void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef align 8 dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0923cb38b7fdc9785e1561170331db22.5) #11
+          to label %74 unwind label %69
+
+76:                                               ; preds = %68
+  %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #13
   unreachable
 
-77:                                               ; preds = %29
+78:                                               ; preds = %29
   br label %56
 
-78:                                               ; preds = %84, %32
-  %79 = load ptr, ptr %3, align 8, !noundef !4
-  %80 = getelementptr inbounds i8, ptr %3, i64 8
-  %81 = load i32, ptr %80, align 8, !noundef !4
+79:                                               ; preds = %85, %32
+  %80 = load ptr, ptr %3, align 8, !noundef !4
+  %81 = getelementptr inbounds i8, ptr %3, i64 8
+  %82 = load i32, ptr %81, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr %3)
-  %82 = insertvalue { ptr, i32 } poison, ptr %79, 0
-  %83 = insertvalue { ptr, i32 } %82, i32 %81, 1
-  resume { ptr, i32 } %83
+  %83 = insertvalue { ptr, i32 } poison, ptr %80, 0
+  %84 = insertvalue { ptr, i32 } %83, i32 %82, 1
+  resume { ptr, i32 } %84
 
-84:                                               ; preds = %32
-  br label %78
+85:                                               ; preds = %32
+  br label %79
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -885,24 +887,25 @@ define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce
   store ptr %16, ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %18, ptr %19, align 8
-  br label %24
+  br label %25
 
 20:                                               ; preds = %2
   %21 = load ptr, ptr @anon.0923cb38b7fdc9785e1561170331db22.1.llvm.6679066857390535418, align 8, !align !6, !noundef !4
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @anon.0923cb38b7fdc9785e1561170331db22.1.llvm.6679066857390535418, i64 8), align 8
+  %22 = getelementptr inbounds i8, ptr @anon.0923cb38b7fdc9785e1561170331db22.1.llvm.6679066857390535418, i64 8
+  %23 = load i64, ptr %22, align 8
   store ptr %21, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %22, ptr %23, align 8
-  br label %24
+  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %23, ptr %24, align 8
+  br label %25
 
-24:                                               ; preds = %20, %15
+25:                                               ; preds = %20, %15
   call void @llvm.lifetime.end.p0(i64 16, ptr %3)
-  %25 = load ptr, ptr %4, align 8, !align !6, !noundef !4
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = load i64, ptr %26, align 8
-  %28 = insertvalue { ptr, i64 } poison, ptr %25, 0
-  %29 = insertvalue { ptr, i64 } %28, i64 %27, 1
-  ret { ptr, i64 } %29
+  %26 = load ptr, ptr %4, align 8, !align !6, !noundef !4
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = load i64, ptr %27, align 8
+  %29 = insertvalue { ptr, i64 } poison, ptr %26, 0
+  %30 = insertvalue { ptr, i64 } %29, i64 %28, 1
+  ret { ptr, i64 } %30
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -947,21 +950,22 @@ define hidden { ptr, ptr } @_ZN12grep_printer17hyperlink_aliases4iter17h25a94ade
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   store ptr %4, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ { ptr, i64 }, { ptr, i64 } }, ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 10), ptr %5, align 8
+  %6 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 10
+  store ptr %6, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr %1)
-  %6 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %8 = load ptr, ptr %7, align 8, !noundef !4
-  store ptr %6, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %8, ptr %9, align 8
+  %7 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = load ptr, ptr %8, align 8, !noundef !4
+  store ptr %7, ptr %3, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr %2)
-  %10 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
-  %12 = load ptr, ptr %11, align 8, !noundef !4
-  %13 = insertvalue { ptr, ptr } poison, ptr %10, 0
-  %14 = insertvalue { ptr, ptr } %13, ptr %12, 1
-  ret { ptr, ptr } %14
+  %11 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
+  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = load ptr, ptr %12, align 8, !noundef !4
+  %14 = insertvalue { ptr, ptr } poison, ptr %11, 0
+  %15 = insertvalue { ptr, ptr } %14, ptr %13, 1
+  ret { ptr, ptr } %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

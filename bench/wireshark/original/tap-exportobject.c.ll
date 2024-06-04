@@ -352,7 +352,7 @@ define internal void @eo_draw(ptr noundef %0) #0 {
   %38 = load i32, ptr %37, align 4
   %39 = call ptr @g_strerror(i32 noundef %38) #7
   %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.7, ptr noundef %36, ptr noundef %39) #5
-  br label %117
+  br label %118
 
 41:                                               ; preds = %30
   br label %42
@@ -360,10 +360,10 @@ define internal void @eo_draw(ptr noundef %0) #0 {
 42:                                               ; preds = %41, %1
   br label %43
 
-43:                                               ; preds = %104, %42
+43:                                               ; preds = %105, %42
   %44 = load ptr, ptr %5, align 8
   %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %117
+  br i1 %45, label %46, label %118
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr %5, align 8
@@ -372,7 +372,7 @@ define internal void @eo_draw(ptr noundef %0) #0 {
   store ptr %49, ptr %6, align 8
   br label %50
 
-50:                                               ; preds = %102, %46
+50:                                               ; preds = %103, %46
   %51 = load ptr, ptr %9, align 8
   call void @g_free(ptr noundef %51)
   %52 = load ptr, ptr %6, align 8
@@ -438,40 +438,41 @@ define internal void @eo_draw(ptr noundef %0) #0 {
   %94 = load ptr, ptr %9, align 8
   %95 = call i32 @g_file_test(ptr noundef %94, i32 noundef 16)
   %96 = icmp ne i32 %95, 0
-  br i1 %96, label %97, label %102
+  br i1 %96, label %97, label %103
 
 97:                                               ; preds = %93
   %98 = load i32, ptr %10, align 4
   %99 = add i32 %98, 1
   store i32 %99, ptr %10, align 4
-  %100 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 40), align 4
-  %101 = icmp ult i32 %99, %100
-  br label %102
+  %100 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 40
+  %101 = load i32, ptr %100, align 4
+  %102 = icmp ult i32 %99, %101
+  br label %103
 
-102:                                              ; preds = %97, %93
-  %103 = phi i1 [ false, %93 ], [ %101, %97 ]
-  br i1 %103, label %50, label %104, !llvm.loop !5
+103:                                              ; preds = %97, %93
+  %104 = phi i1 [ false, %93 ], [ %102, %97 ]
+  br i1 %104, label %50, label %105, !llvm.loop !5
 
-104:                                              ; preds = %102
+105:                                              ; preds = %103
   store i32 0, ptr %10, align 4
-  %105 = load ptr, ptr %9, align 8
-  %106 = load ptr, ptr %6, align 8
-  %107 = getelementptr inbounds %struct._export_object_entry_t, ptr %106, i32 0, i32 5
-  %108 = load ptr, ptr %107, align 8
-  %109 = load ptr, ptr %6, align 8
-  %110 = getelementptr inbounds %struct._export_object_entry_t, ptr %109, i32 0, i32 4
-  %111 = load i64, ptr %110, align 8
-  %112 = call zeroext i1 @write_file_binary_mode(ptr noundef %105, ptr noundef %108, i64 noundef %111)
-  %113 = load ptr, ptr %9, align 8
-  call void @g_free(ptr noundef %113)
+  %106 = load ptr, ptr %9, align 8
+  %107 = load ptr, ptr %6, align 8
+  %108 = getelementptr inbounds %struct._export_object_entry_t, ptr %107, i32 0, i32 5
+  %109 = load ptr, ptr %108, align 8
+  %110 = load ptr, ptr %6, align 8
+  %111 = getelementptr inbounds %struct._export_object_entry_t, ptr %110, i32 0, i32 4
+  %112 = load i64, ptr %111, align 8
+  %113 = call zeroext i1 @write_file_binary_mode(ptr noundef %106, ptr noundef %109, i64 noundef %112)
+  %114 = load ptr, ptr %9, align 8
+  call void @g_free(ptr noundef %114)
   store ptr null, ptr %9, align 8
-  %114 = load ptr, ptr %5, align 8
-  %115 = getelementptr inbounds %struct._GSList, ptr %114, i32 0, i32 1
-  %116 = load ptr, ptr %115, align 8
-  store ptr %116, ptr %5, align 8
+  %115 = load ptr, ptr %5, align 8
+  %116 = getelementptr inbounds %struct._GSList, ptr %115, i32 0, i32 1
+  %117 = load ptr, ptr %116, align 8
+  store ptr %117, ptr %5, align 8
   br label %43, !llvm.loop !7
 
-117:                                              ; preds = %43, %34
+118:                                              ; preds = %43, %34
   ret void
 }
 

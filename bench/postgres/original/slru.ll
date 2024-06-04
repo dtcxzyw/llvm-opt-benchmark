@@ -2362,7 +2362,7 @@ define internal void @SlruInternalWritePage(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %66, %57, %48
-  br label %174
+  br label %176
 
 77:                                               ; preds = %66
   %78 = load ptr, ptr %7, align 8
@@ -2490,15 +2490,17 @@ define internal void @SlruInternalWritePage(ptr noundef %0, i32 noundef %1, ptr 
 168:                                              ; preds = %165, %150
   %169 = load ptr, ptr %6, align 8
   %170 = icmp ne ptr %169, null
-  br i1 %170, label %171, label %174
+  br i1 %170, label %171, label %176
 
 171:                                              ; preds = %168
-  %172 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i32 0, i32 5), align 8
-  %173 = add i32 %172, 1
-  store i32 %173, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i32 0, i32 5), align 8
-  br label %174
+  %172 = getelementptr inbounds %struct.CheckpointStatsData, ptr @CheckpointStats, i32 0, i32 5
+  %173 = load i32, ptr %172, align 8
+  %174 = add i32 %173, 1
+  %175 = getelementptr inbounds %struct.CheckpointStatsData, ptr @CheckpointStats, i32 0, i32 5
+  store i32 %174, ptr %175, align 8
+  br label %176
 
-174:                                              ; preds = %171, %168, %76
+176:                                              ; preds = %171, %168, %76
   ret void
 }
 

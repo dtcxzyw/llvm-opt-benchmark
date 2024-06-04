@@ -4510,12 +4510,13 @@ define dso_local void @_ZN2c43yml5errorEPKcmNS0_8LocationE(ptr noundef %0, i64 n
   %6 = alloca %"struct.c4::yml::Location", align 8
   store ptr %0, ptr %4, align 8
   store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i32 0, i32 3), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i64, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i64, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %2, i64 40, i1 false)
-  %10 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %7(ptr noundef %8, i64 noundef %9, ptr noundef byval(%"struct.c4::yml::Location") align 8 %6, ptr noundef %10)
+  %11 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
+  call void %8(ptr noundef %9, i64 noundef %10, ptr noundef byval(%"struct.c4::yml::Location") align 8 %6, ptr noundef %11)
   ret void
 }
 
@@ -64563,19 +64564,20 @@ define linkonce_odr dso_local void @_ZN2c46detail26_MemoryResourceSingleChunkD2E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN2c46detail26_MemoryResourceSingleChunkE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2c46detail26_MemoryResourceSingleChunkE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN2c46detail26_MemoryResourceSingleChunk7releaseEv(ptr noundef nonnull align 8 dereferenceable(49) %3)
-          to label %4 unwind label %5
+          to label %5 unwind label %6
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @_ZN2c46detail21DerivedMemoryResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   ret void
 
-5:                                                ; preds = %1
-  %6 = landingpad { ptr, i32 }
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #16
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #16
   unreachable
 }
 

@@ -22597,18 +22597,19 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 7)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common24BigintValuesUsingBitmaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common24BigintValuesUsingBitmaskE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %bitmask_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %bitmask_) #13
   %min_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %min.addr, align 8
-  store i64 %1, ptr %min_, align 8
+  %2 = load i64, ptr %min.addr, align 8
+  store i64 %2, ptr %min_, align 8
   %max_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %max.addr, align 8
-  store i64 %2, ptr %max_, align 8
-  %3 = load i64, ptr %min.addr, align 8
-  %4 = load i64, ptr %max.addr, align 8
-  %cmp = icmp slt i64 %3, %4
+  %3 = load i64, ptr %max.addr, align 8
+  store i64 %3, ptr %max_, align 8
+  %4 = load i64, ptr %min.addr, align 8
+  %5 = load i64, ptr %max.addr, align 8
+  %cmp = icmp slt i64 %4, %5
   %lnot = xor i1 %cmp, true
   br i1 %lnot, label %if.then, label %if.end
 
@@ -22617,8 +22618,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %5 = load ptr, ptr %values.addr, align 8
-  %call = call noundef i64 @_ZNKSt6vectorIlSaIlEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  %6 = load ptr, ptr %values.addr, align 8
+  %call = call noundef i64 @_ZNKSt6vectorIlSaIlEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   %cmp2 = icmp ugt i64 %call, 1
   %lnot3 = xor i1 %cmp2, true
   br i1 %lnot3, label %if.then4, label %if.end5
@@ -22629,22 +22630,22 @@ if.then4:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.then4, %if.end
   %bitmask_6 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %this1, i32 0, i32 1
-  %6 = load i64, ptr %max.addr, align 8
-  %7 = load i64, ptr %min.addr, align 8
-  %sub = sub nsw i64 %6, %7
+  %7 = load i64, ptr %max.addr, align 8
+  %8 = load i64, ptr %min.addr, align 8
+  %sub = sub nsw i64 %7, %8
   %add = add nsw i64 %sub, 1
   invoke void @_ZNSt6vectorIbSaIbEE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(40) %bitmask_6, i64 noundef %add, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end5
-  %8 = load ptr, ptr %values.addr, align 8
-  store ptr %8, ptr %__range2, align 8
-  %9 = load ptr, ptr %__range2, align 8
-  %call7 = call ptr @_ZNKSt6vectorIlSaIlEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
+  %9 = load ptr, ptr %values.addr, align 8
+  store ptr %9, ptr %__range2, align 8
+  %10 = load ptr, ptr %__range2, align 8
+  %call7 = call ptr @_ZNKSt6vectorIlSaIlEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__begin2, i32 0, i32 0
   store ptr %call7, ptr %coerce.dive, align 8
-  %10 = load ptr, ptr %__range2, align 8
-  %call8 = call ptr @_ZNKSt6vectorIlSaIlEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
+  %11 = load ptr, ptr %__range2, align 8
+  %call8 = call ptr @_ZNKSt6vectorIlSaIlEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   %coerce.dive9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end2, i32 0, i32 0
   store ptr %call8, ptr %coerce.dive9, align 8
   br label %for.cond
@@ -22655,22 +22656,22 @@ for.cond:                                         ; preds = %for.inc, %invoke.co
 
 for.body:                                         ; preds = %for.cond
   %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #13
-  %11 = load i64, ptr %call11, align 8
-  store i64 %11, ptr %value, align 8
+  %12 = load i64, ptr %call11, align 8
+  store i64 %12, ptr %value, align 8
   %bitmask_12 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %this1, i32 0, i32 1
-  %12 = load i64, ptr %value, align 8
-  %13 = load i64, ptr %min.addr, align 8
-  %sub13 = sub nsw i64 %12, %13
+  %13 = load i64, ptr %value, align 8
+  %14 = load i64, ptr %min.addr, align 8
+  %sub13 = sub nsw i64 %13, %14
   %call15 = invoke { ptr, i64 } @_ZNSt6vectorIbSaIbEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %bitmask_12, i64 noundef %sub13)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %for.body
-  %14 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 0
-  %15 = extractvalue { ptr, i64 } %call15, 0
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 1
-  %17 = extractvalue { ptr, i64 } %call15, 1
-  store i64 %17, ptr %16, align 8
+  %15 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 0
+  %16 = extractvalue { ptr, i64 } %call15, 0
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 1
+  %18 = extractvalue { ptr, i64 } %call15, 1
+  store i64 %18, ptr %17, align 8
   %call16 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt14_Bit_referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i1 noundef zeroext true) #13
   br label %for.inc
 
@@ -22679,12 +22680,12 @@ for.inc:                                          ; preds = %invoke.cont14
   br label %for.cond
 
 lpad:                                             ; preds = %for.body, %if.end5
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %bitmask_) #13
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
@@ -22715,20 +22716,21 @@ entry:
   store i32 %kind, ptr %kind.addr, align 4
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox13ISerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6FilterE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6FilterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %nullAllowed_ = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %this2, i32 0, i32 1
-  %0 = load i8, ptr %nullAllowed.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %nullAllowed.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %frombool3 = zext i1 %tobool to i8
   store i8 %frombool3, ptr %nullAllowed_, align 8
   %deterministic_ = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %this2, i32 0, i32 2
-  %1 = load i8, ptr %deterministic.addr, align 1
-  %tobool4 = trunc i8 %1 to i1
+  %2 = load i8, ptr %deterministic.addr, align 1
+  %tobool4 = trunc i8 %2 to i1
   %frombool5 = zext i1 %tobool4 to i8
   store i8 %frombool5, ptr %deterministic_, align 1
   %kind_ = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %this2, i32 0, i32 3
-  %2 = load i32, ptr %kind.addr, align 4
-  store i32 %2, ptr %kind_, align 4
+  %3 = load i32, ptr %kind.addr, align 4
+  store i32 %3, ptr %kind_, align 4
   ret void
 }
 
@@ -23058,27 +23060,28 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 6)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common26BigintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common26BigintValuesUsingHashTableE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %min_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %min.addr, align 8
-  store i64 %1, ptr %min_, align 8
+  %2 = load i64, ptr %min.addr, align 8
+  store i64 %2, ptr %min_, align 8
   %max_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %max.addr, align 8
-  store i64 %2, ptr %max_, align 8
+  %3 = load i64, ptr %max.addr, align 8
+  store i64 %3, ptr %max_, align 8
   %hashTable_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIlSaIlEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %hashTable_) #13
   %containsEmptyMarker_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 4
   store i8 0, ptr %containsEmptyMarker_, align 8
   %values_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 6
-  %3 = load ptr, ptr %values.addr, align 8
-  invoke void @_ZNSt6vectorIlSaIlEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %values_, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %4 = load ptr, ptr %values.addr, align 8
+  invoke void @_ZNSt6vectorIlSaIlEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %values_, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store i32 4, ptr %kPaddingElements, align 4
-  %4 = load i64, ptr %min.addr, align 8
-  %5 = load i64, ptr %max.addr, align 8
-  %cmp = icmp slt i64 %4, %5
+  %5 = load i64, ptr %min.addr, align 8
+  %6 = load i64, ptr %max.addr, align 8
+  %cmp = icmp slt i64 %5, %6
   %lnot = xor i1 %cmp, true
   br i1 %lnot, label %if.then, label %if.end
 
@@ -23087,17 +23090,17 @@ if.then:                                          ; preds = %invoke.cont
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end:                                           ; preds = %if.then, %invoke.cont
-  %9 = load ptr, ptr %values.addr, align 8
-  %call = call noundef i64 @_ZNKSt6vectorIlSaIlEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
+  %10 = load ptr, ptr %values.addr, align 8
+  %call = call noundef i64 @_ZNKSt6vectorIlSaIlEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   %cmp2 = icmp ugt i64 %call, 1
   %lnot3 = xor i1 %cmp2, true
   br i1 %lnot3, label %if.then4, label %if.end5
@@ -23107,8 +23110,8 @@ if.then4:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %if.end
-  %10 = load ptr, ptr %values.addr, align 8
-  %call6 = call noundef i64 @_ZNKSt6vectorIlSaIlEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
+  %11 = load ptr, ptr %values.addr, align 8
+  %call6 = call noundef i64 @_ZNKSt6vectorIlSaIlEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   %mul = mul i64 %call6, 5
   %call9 = invoke noundef double @_ZSt4log2ImEN9__gnu_cxx11__enable_ifIXsr12__is_integerIT_EE7__valueEdE6__typeES2_(i64 noundef %mul)
           to label %invoke.cont8 unwind label %lpad7
@@ -23118,15 +23121,15 @@ invoke.cont8:                                     ; preds = %if.end5
   %shl = shl i32 1, %conv
   store i32 %shl, ptr %size, align 4
   %hashTable_10 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 3
-  %11 = load i32, ptr %size, align 4
-  %add = add i32 %11, 4
+  %12 = load i32, ptr %size, align 4
+  %add = add i32 %12, 4
   %conv11 = zext i32 %add to i64
   invoke void @_ZNSt6vectorIlSaIlEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %hashTable_10, i64 noundef %conv11)
           to label %invoke.cont12 unwind label %lpad7
 
 invoke.cont12:                                    ; preds = %invoke.cont8
-  %12 = load i32, ptr %size, align 4
-  %sub = sub i32 %12, 1
+  %13 = load i32, ptr %size, align 4
+  %sub = sub i32 %13, 1
   %sizeMask_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 7
   store i32 %sub, ptr %sizeMask_, align 8
   %hashTable_13 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 3
@@ -23138,21 +23141,21 @@ invoke.cont12:                                    ; preds = %invoke.cont8
   %coerce.dive18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.261", ptr %agg.tmp15, i32 0, i32 0
   store ptr %call17, ptr %coerce.dive18, align 8
   %coerce.dive19 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.261", ptr %agg.tmp, i32 0, i32 0
-  %13 = load ptr, ptr %coerce.dive19, align 8
+  %14 = load ptr, ptr %coerce.dive19, align 8
   %coerce.dive20 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.261", ptr %agg.tmp15, i32 0, i32 0
-  %14 = load ptr, ptr %coerce.dive20, align 8
-  invoke void @_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_(ptr %13, ptr %14, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8facebook5velox6common26BigintValuesUsingHashTable12kEmptyMarkerE)
+  %15 = load ptr, ptr %coerce.dive20, align 8
+  invoke void @_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_(ptr %14, ptr %15, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8facebook5velox6common26BigintValuesUsingHashTable12kEmptyMarkerE)
           to label %invoke.cont21 unwind label %lpad7
 
 invoke.cont21:                                    ; preds = %invoke.cont12
-  %15 = load ptr, ptr %values.addr, align 8
-  store ptr %15, ptr %__range2, align 8
-  %16 = load ptr, ptr %__range2, align 8
-  %call22 = call ptr @_ZNKSt6vectorIlSaIlEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
+  %16 = load ptr, ptr %values.addr, align 8
+  store ptr %16, ptr %__range2, align 8
+  %17 = load ptr, ptr %__range2, align 8
+  %call22 = call ptr @_ZNKSt6vectorIlSaIlEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   %coerce.dive23 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__begin2, i32 0, i32 0
   store ptr %call22, ptr %coerce.dive23, align 8
-  %17 = load ptr, ptr %__range2, align 8
-  %call24 = call ptr @_ZNKSt6vectorIlSaIlEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
+  %18 = load ptr, ptr %__range2, align 8
+  %call24 = call ptr @_ZNKSt6vectorIlSaIlEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   %coerce.dive25 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end2, i32 0, i32 0
   store ptr %call24, ptr %coerce.dive25, align 8
   br label %for.cond
@@ -23163,10 +23166,10 @@ for.cond:                                         ; preds = %for.inc53, %invoke.
 
 for.body:                                         ; preds = %for.cond
   %call27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #13
-  %18 = load i64, ptr %call27, align 8
-  store i64 %18, ptr %value, align 8
-  %19 = load i64, ptr %value, align 8
-  %cmp28 = icmp eq i64 %19, -2401053089476968723
+  %19 = load i64, ptr %call27, align 8
+  store i64 %19, ptr %value, align 8
+  %20 = load i64, ptr %value, align 8
+  %cmp28 = icmp eq i64 %20, -2401053089476968723
   br i1 %cmp28, label %if.then29, label %if.else
 
 if.then29:                                        ; preds = %for.body
@@ -23175,67 +23178,67 @@ if.then29:                                        ; preds = %for.body
   br label %if.end52
 
 lpad7:                                            ; preds = %for.end72, %invoke.cont12, %invoke.cont8, %if.end5
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIlSaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %values_) #13
   br label %ehcleanup
 
 if.else:                                          ; preds = %for.body
-  %23 = load i64, ptr %value, align 8
-  %mul31 = mul i64 %23, -4132994306676758123
+  %24 = load i64, ptr %value, align 8
+  %mul31 = mul i64 %24, -4132994306676758123
   %sizeMask_32 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 7
-  %24 = load i32, ptr %sizeMask_32, align 8
-  %conv33 = sext i32 %24 to i64
+  %25 = load i32, ptr %sizeMask_32, align 8
+  %conv33 = sext i32 %25 to i64
   %and = and i64 %mul31, %conv33
   store i64 %and, ptr %position, align 8
-  %25 = load i64, ptr %position, align 8
-  store i64 %25, ptr %i, align 8
+  %26 = load i64, ptr %position, align 8
+  store i64 %26, ptr %i, align 8
   br label %for.cond34
 
 for.cond34:                                       ; preds = %for.inc, %if.else
-  %26 = load i64, ptr %i, align 8
-  %27 = load i64, ptr %position, align 8
-  %28 = load i32, ptr %size, align 4
-  %conv35 = zext i32 %28 to i64
-  %add36 = add i64 %27, %conv35
-  %cmp37 = icmp ult i64 %26, %add36
+  %27 = load i64, ptr %i, align 8
+  %28 = load i64, ptr %position, align 8
+  %29 = load i32, ptr %size, align 4
+  %conv35 = zext i32 %29 to i64
+  %add36 = add i64 %28, %conv35
+  %cmp37 = icmp ult i64 %27, %add36
   br i1 %cmp37, label %for.body38, label %for.end
 
 for.body38:                                       ; preds = %for.cond34
-  %29 = load i64, ptr %i, align 8
+  %30 = load i64, ptr %i, align 8
   %sizeMask_39 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 7
-  %30 = load i32, ptr %sizeMask_39, align 8
-  %conv40 = sext i32 %30 to i64
-  %and41 = and i64 %29, %conv40
+  %31 = load i32, ptr %sizeMask_39, align 8
+  %conv40 = sext i32 %31 to i64
+  %and41 = and i64 %30, %conv40
   %conv42 = trunc i64 %and41 to i32
   store i32 %conv42, ptr %index, align 4
   %hashTable_43 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 3
-  %31 = load i32, ptr %index, align 4
-  %conv44 = zext i32 %31 to i64
+  %32 = load i32, ptr %index, align 4
+  %conv44 = zext i32 %32 to i64
   %call45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIlSaIlEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %hashTable_43, i64 noundef %conv44) #13
-  %32 = load i64, ptr %call45, align 8
-  %cmp46 = icmp eq i64 %32, -2401053089476968723
+  %33 = load i64, ptr %call45, align 8
+  %cmp46 = icmp eq i64 %33, -2401053089476968723
   br i1 %cmp46, label %if.then47, label %if.end51
 
 if.then47:                                        ; preds = %for.body38
-  %33 = load i64, ptr %value, align 8
+  %34 = load i64, ptr %value, align 8
   %hashTable_48 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 3
-  %34 = load i32, ptr %index, align 4
-  %conv49 = zext i32 %34 to i64
+  %35 = load i32, ptr %index, align 4
+  %conv49 = zext i32 %35 to i64
   %call50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIlSaIlEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %hashTable_48, i64 noundef %conv49) #13
-  store i64 %33, ptr %call50, align 8
+  store i64 %34, ptr %call50, align 8
   br label %for.end
 
 if.end51:                                         ; preds = %for.body38
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end51
-  %35 = load i64, ptr %i, align 8
-  %inc = add i64 %35, 1
+  %36 = load i64, ptr %i, align 8
+  %inc = add i64 %36, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond34, !llvm.loop !21
 
@@ -23254,31 +23257,31 @@ for.end55:                                        ; preds = %for.cond
   br label %for.cond57
 
 for.cond57:                                       ; preds = %for.inc70, %for.end55
-  %36 = load i32, ptr %i56, align 4
-  %cmp58 = icmp slt i32 %36, 4
+  %37 = load i32, ptr %i56, align 4
+  %cmp58 = icmp slt i32 %37, 4
   br i1 %cmp58, label %for.body59, label %for.end72
 
 for.body59:                                       ; preds = %for.cond57
   %hashTable_60 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 3
   %sizeMask_61 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 7
-  %37 = load i32, ptr %sizeMask_61, align 8
-  %conv62 = sext i32 %37 to i64
+  %38 = load i32, ptr %sizeMask_61, align 8
+  %conv62 = sext i32 %38 to i64
   %call63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIlSaIlEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %hashTable_60, i64 noundef %conv62) #13
-  %38 = load i64, ptr %call63, align 8
+  %39 = load i64, ptr %call63, align 8
   %hashTable_64 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 3
   %sizeMask_65 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 7
-  %39 = load i32, ptr %sizeMask_65, align 8
-  %add66 = add nsw i32 %39, 1
-  %40 = load i32, ptr %i56, align 4
-  %add67 = add nsw i32 %add66, %40
+  %40 = load i32, ptr %sizeMask_65, align 8
+  %add66 = add nsw i32 %40, 1
+  %41 = load i32, ptr %i56, align 4
+  %add67 = add nsw i32 %add66, %41
   %conv68 = sext i32 %add67 to i64
   %call69 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIlSaIlEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %hashTable_64, i64 noundef %conv68) #13
-  store i64 %38, ptr %call69, align 8
+  store i64 %39, ptr %call69, align 8
   br label %for.inc70
 
 for.inc70:                                        ; preds = %for.body59
-  %41 = load i32, ptr %i56, align 4
-  %inc71 = add nsw i32 %41, 1
+  %42 = load i32, ptr %i56, align 4
+  %inc71 = add nsw i32 %42, 1
   store i32 %inc71, ptr %i56, align 4
   br label %for.cond57, !llvm.loop !22
 
@@ -23292,10 +23295,10 @@ for.end72:                                        ; preds = %for.cond57
   %coerce.dive80 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.261", ptr %agg.tmp77, i32 0, i32 0
   store ptr %call79, ptr %coerce.dive80, align 8
   %coerce.dive81 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.261", ptr %agg.tmp73, i32 0, i32 0
-  %42 = load ptr, ptr %coerce.dive81, align 8
+  %43 = load ptr, ptr %coerce.dive81, align 8
   %coerce.dive82 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.261", ptr %agg.tmp77, i32 0, i32 0
-  %43 = load ptr, ptr %coerce.dive82, align 8
-  invoke void @_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEEvT_S7_(ptr %42, ptr %43)
+  %44 = load ptr, ptr %coerce.dive82, align 8
+  invoke void @_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEEvT_S7_(ptr %43, ptr %44)
           to label %invoke.cont83 unwind label %lpad7
 
 invoke.cont83:                                    ; preds = %for.end72
@@ -25919,17 +25922,18 @@ entry:
   %4 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %4 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this3, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 21)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common27HugeintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this3, align 16
+  %5 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common27HugeintValuesUsingHashTableE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this3, align 16
   %min_ = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %this3, i32 0, i32 1
-  %5 = load i128, ptr %min.addr, align 16
-  store i128 %5, ptr %min_, align 16
+  %6 = load i128, ptr %min.addr, align 16
+  store i128 %6, ptr %min_, align 16
   %max_ = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %this3, i32 0, i32 2
-  %6 = load i128, ptr %max.addr, align 16
-  store i128 %6, ptr %max_, align 16
+  %7 = load i128, ptr %max.addr, align 16
+  store i128 %7, ptr %max_, align 16
   %values_ = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %this3, i32 0, i32 3
   call void @_ZN5folly10F14FastSetInNS_23HeterogeneousAccessHashInvEENS_26HeterogeneousAccessEqualToInvEESaInEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %values_) #13
-  %7 = load ptr, ptr %values.addr, align 8
-  %call = call noundef zeroext i1 @_ZNKSt6vectorInSaInEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
+  %8 = load ptr, ptr %values.addr, align 8
+  %call = call noundef zeroext i1 @_ZNKSt6vectorInSaInEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   %lnot = xor i1 %call, true
   %lnot4 = xor i1 %lnot, true
   br i1 %lnot4, label %if.then, label %if.end
@@ -25940,10 +25944,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %min_5 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %this3, i32 0, i32 1
-  %8 = load i128, ptr %min_5, align 16
+  %9 = load i128, ptr %min_5, align 16
   %max_6 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %this3, i32 0, i32 2
-  %9 = load i128, ptr %max_6, align 16
-  %cmp = icmp sle i128 %8, %9
+  %10 = load i128, ptr %max_6, align 16
+  %cmp = icmp sle i128 %9, %10
   %lnot7 = xor i1 %cmp, true
   br i1 %lnot7, label %if.then8, label %if.end9
 
@@ -25952,14 +25956,14 @@ if.then8:                                         ; preds = %if.end
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then8, %if.end
-  %10 = load ptr, ptr %values.addr, align 8
-  store ptr %10, ptr %__range2, align 8
-  %11 = load ptr, ptr %__range2, align 8
-  %call10 = call ptr @_ZNKSt6vectorInSaInEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
+  %11 = load ptr, ptr %values.addr, align 8
+  store ptr %11, ptr %__range2, align 8
+  %12 = load ptr, ptr %__range2, align 8
+  %call10 = call ptr @_ZNKSt6vectorInSaInEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.308", ptr %__begin2, i32 0, i32 0
   store ptr %call10, ptr %coerce.dive, align 8
-  %12 = load ptr, ptr %__range2, align 8
-  %call11 = call ptr @_ZNKSt6vectorInSaInEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
+  %13 = load ptr, ptr %__range2, align 8
+  %call11 = call ptr @_ZNKSt6vectorInSaInEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   %coerce.dive12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.308", ptr %__end2, i32 0, i32 0
   store ptr %call11, ptr %coerce.dive12, align 8
   br label %for.cond
@@ -25970,8 +25974,8 @@ for.cond:                                         ; preds = %for.inc, %if.end9
 
 for.body:                                         ; preds = %for.cond
   %call14 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKnSt6vectorInSaInEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #13
-  %13 = load i128, ptr %call14, align 16
-  store i128 %13, ptr %value, align 16
+  %14 = load i128, ptr %call14, align 16
+  store i128 %14, ptr %value, align 16
   %values_15 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %this3, i32 0, i32 3
   invoke void @_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyInvvvvEEE6insertERKn(ptr sret(%"struct.std::pair") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(32) %values_15, ptr noundef nonnull align 16 dereferenceable(16) %value)
           to label %invoke.cont unwind label %lpad
@@ -25984,12 +25988,12 @@ for.inc:                                          ; preds = %invoke.cont
   br label %for.cond
 
 lpad:                                             ; preds = %for.body
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZN5folly10F14FastSetInNS_23HeterogeneousAccessHashInvEENS_26HeterogeneousAccessEqualToInvEESaInEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %values_) #13
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #13
   br label %eh.resume
@@ -26624,20 +26628,21 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 10)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common31NegatedBigintValuesUsingBitmaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common31NegatedBigintValuesUsingBitmaskE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %min_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %min.addr, align 8
-  %conv = trunc i64 %1 to i32
+  %2 = load i64, ptr %min.addr, align 8
+  %conv = trunc i64 %2 to i32
   store i32 %conv, ptr %min_, align 8
   %max_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %max.addr, align 8
-  %conv2 = trunc i64 %2 to i32
+  %3 = load i64, ptr %max.addr, align 8
+  %conv2 = trunc i64 %3 to i32
   store i32 %conv2, ptr %max_, align 4
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN8facebook5velox6common24BigintValuesUsingBitmaskESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #13
-  %3 = load i64, ptr %min.addr, align 8
-  %4 = load i64, ptr %max.addr, align 8
-  %cmp = icmp sle i64 %3, %4
+  %4 = load i64, ptr %min.addr, align 8
+  %5 = load i64, ptr %max.addr, align 8
+  %cmp = icmp sle i64 %4, %5
   %lnot = xor i1 %cmp, true
   br i1 %lnot, label %if.then, label %if.end
 
@@ -26646,13 +26651,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %5 = load ptr, ptr %values.addr, align 8
-  %6 = load i8, ptr %nullAllowed.addr, align 1
-  %tobool5 = trunc i8 %6 to i1
+  %6 = load ptr, ptr %values.addr, align 8
+  %7 = load i8, ptr %nullAllowed.addr, align 1
+  %tobool5 = trunc i8 %7 to i1
   %lnot6 = xor i1 %tobool5, true
   %frombool7 = zext i1 %lnot6 to i8
   store i8 %frombool7, ptr %ref.tmp4, align 1
-  invoke void @_ZSt11make_uniqueIN8facebook5velox6common24BigintValuesUsingBitmaskEJRlS4_RKSt6vectorIlSaIlEEbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.104") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %min.addr, ptr noundef nonnull align 8 dereferenceable(8) %max.addr, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZSt11make_uniqueIN8facebook5velox6common24BigintValuesUsingBitmaskEJRlS4_RKSt6vectorIlSaIlEEbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.104") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %min.addr, ptr noundef nonnull align 8 dereferenceable(8) %max.addr, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -26662,12 +26667,12 @@ invoke.cont:                                      ; preds = %if.end
   ret void
 
 lpad:                                             ; preds = %if.end
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN8facebook5velox6common24BigintValuesUsingBitmaskESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #13
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
@@ -26843,16 +26848,17 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 9)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common33NegatedBigintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common33NegatedBigintValuesUsingHashTableE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingHashTable", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN8facebook5velox6common26BigintValuesUsingHashTableESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #13
-  %1 = load ptr, ptr %values.addr, align 8
-  %2 = load i8, ptr %nullAllowed.addr, align 1
-  %tobool3 = trunc i8 %2 to i1
+  %2 = load ptr, ptr %values.addr, align 8
+  %3 = load i8, ptr %nullAllowed.addr, align 1
+  %tobool3 = trunc i8 %3 to i1
   %lnot = xor i1 %tobool3, true
   %frombool4 = zext i1 %lnot to i8
   store i8 %frombool4, ptr %ref.tmp2, align 1
-  invoke void @_ZSt11make_uniqueIN8facebook5velox6common26BigintValuesUsingHashTableEJRlS4_RKSt6vectorIlSaIlEEbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.92") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %min.addr, ptr noundef nonnull align 8 dereferenceable(8) %max.addr, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZSt11make_uniqueIN8facebook5velox6common26BigintValuesUsingHashTableEJRlS4_RKSt6vectorIlSaIlEEbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.92") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %min.addr, ptr noundef nonnull align 8 dereferenceable(8) %max.addr, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -26862,12 +26868,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN8facebook5velox6common26BigintValuesUsingHashTableESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #13
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
@@ -27617,7 +27623,8 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 17)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common16BigintMultiRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common16BigintMultiRangeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %ranges_ = getelementptr inbounds %"class.facebook::velox::common::BigintMultiRange", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS4_EESaIS7_EEC2EOS9_(ptr noundef nonnull align 8 dereferenceable(24) %ranges_, ptr noundef nonnull align 8 dereferenceable(24) %ranges) #13
   %lowerBounds_ = getelementptr inbounds %"class.facebook::velox::common::BigintMultiRange", ptr %this1, i32 0, i32 2
@@ -27646,12 +27653,12 @@ if.then7:                                         ; preds = %if.end
 if.end8:                                          ; preds = %if.then7, %if.end
   %ranges_9 = getelementptr inbounds %"class.facebook::velox::common::BigintMultiRange", ptr %this1, i32 0, i32 1
   store ptr %ranges_9, ptr %__range2, align 8
-  %1 = load ptr, ptr %__range2, align 8
-  %call10 = call ptr @_ZNKSt6vectorISt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS4_EESaIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #13
+  %2 = load ptr, ptr %__range2, align 8
+  %call10 = call ptr @_ZNKSt6vectorISt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS4_EESaIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #13
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.209", ptr %__begin2, i32 0, i32 0
   store ptr %call10, ptr %coerce.dive, align 8
-  %2 = load ptr, ptr %__range2, align 8
-  %call11 = call ptr @_ZNKSt6vectorISt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS4_EESaIS7_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #13
+  %3 = load ptr, ptr %__range2, align 8
+  %call11 = call ptr @_ZNKSt6vectorISt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS4_EESaIS7_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   %coerce.dive12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.209", ptr %__end2, i32 0, i32 0
   store ptr %call11, ptr %coerce.dive12, align 8
   br label %for.cond
@@ -27664,8 +27671,8 @@ for.body:                                         ; preds = %for.cond
   %call14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #13
   store ptr %call14, ptr %range, align 8
   %lowerBounds_15 = getelementptr inbounds %"class.facebook::velox::common::BigintMultiRange", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %range, align 8
-  %call16 = call noundef ptr @_ZNKSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
+  %4 = load ptr, ptr %range, align 8
+  %call16 = call noundef ptr @_ZNKSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   %call17 = invoke noundef i64 @_ZNK8facebook5velox6common11BigintRange5lowerEv(ptr noundef nonnull align 8 dereferenceable(48) %call16)
           to label %invoke.cont unwind label %lpad
 
@@ -27682,12 +27689,12 @@ for.inc:                                          ; preds = %invoke.cont18
   br label %for.cond
 
 lpad:                                             ; preds = %for.body24, %invoke.cont, %for.body
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIlSaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %lowerBounds_) #13
   call void @_ZNSt6vectorISt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ranges_) #13
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
@@ -27698,8 +27705,8 @@ for.end:                                          ; preds = %for.cond
   br label %for.cond20
 
 for.cond20:                                       ; preds = %for.inc39, %for.end
-  %7 = load i32, ptr %i, align 4
-  %conv = sext i32 %7 to i64
+  %8 = load i32, ptr %i, align 4
+  %conv = sext i32 %8 to i64
   %lowerBounds_21 = getelementptr inbounds %"class.facebook::velox::common::BigintMultiRange", ptr %this1, i32 0, i32 2
   %call22 = call noundef i64 @_ZNKSt6vectorIlSaIlEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %lowerBounds_21) #13
   %cmp23 = icmp ult i64 %conv, %call22
@@ -27707,13 +27714,13 @@ for.cond20:                                       ; preds = %for.inc39, %for.end
 
 for.body24:                                       ; preds = %for.cond20
   %lowerBounds_25 = getelementptr inbounds %"class.facebook::velox::common::BigintMultiRange", ptr %this1, i32 0, i32 2
-  %8 = load i32, ptr %i, align 4
-  %conv26 = sext i32 %8 to i64
+  %9 = load i32, ptr %i, align 4
+  %conv26 = sext i32 %9 to i64
   %call27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIlSaIlEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %lowerBounds_25, i64 noundef %conv26) #13
-  %9 = load i64, ptr %call27, align 8
+  %10 = load i64, ptr %call27, align 8
   %ranges_28 = getelementptr inbounds %"class.facebook::velox::common::BigintMultiRange", ptr %this1, i32 0, i32 1
-  %10 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 %10, 1
+  %11 = load i32, ptr %i, align 4
+  %sub = sub nsw i32 %11, 1
   %conv29 = sext i32 %sub to i64
   %call30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorISt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS4_EESaIS7_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %ranges_28, i64 noundef %conv29) #13
   %call31 = call noundef ptr @_ZNKSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %call30) #13
@@ -27721,7 +27728,7 @@ for.body24:                                       ; preds = %for.cond20
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %for.body24
-  %cmp34 = icmp sge i64 %9, %call33
+  %cmp34 = icmp sge i64 %10, %call33
   %lnot35 = xor i1 %cmp34, true
   br i1 %lnot35, label %if.then37, label %if.end38
 
@@ -27733,8 +27740,8 @@ if.end38:                                         ; preds = %if.then37, %invoke.
   br label %for.inc39
 
 for.inc39:                                        ; preds = %if.end38
-  %11 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %11, 1
+  %12 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %12, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond20, !llvm.loop !32
 
@@ -50177,7 +50184,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -50202,7 +50210,8 @@ entry:
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -50216,7 +50225,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -50809,12 +50819,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly19ConversionErrorBaseC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %code_ = getelementptr inbounds %"class.folly::ConversionError", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %code_2 = getelementptr inbounds %"class.folly::ConversionError", ptr %2, i32 0, i32 1
-  %3 = load i8, ptr %code_2, align 8
-  store i8 %3, ptr %code_, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %code_2 = getelementptr inbounds %"class.folly::ConversionError", ptr %3, i32 0, i32 1
+  %4 = load i8, ptr %code_2, align 8
+  store i8 %4, ptr %code_, align 8
   ret void
 }
 
@@ -50828,7 +50839,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11range_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly19ConversionErrorBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly19ConversionErrorBaseE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -50856,7 +50868,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11range_error, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt11range_error, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -50964,10 +50977,11 @@ entry:
   store i8 %error, ptr %error.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5folly17BadExpectedAccessIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %error_ = getelementptr inbounds %"class.folly::BadExpectedAccess.411", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %error.addr, align 1
-  store i8 %0, ptr %error_, align 8
+  %1 = load i8, ptr %error.addr, align 1
+  store i8 %1, ptr %error_, align 8
   ret void
 }
 
@@ -50991,12 +51005,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly17BadExpectedAccessIvEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %error_ = getelementptr inbounds %"class.folly::BadExpectedAccess.411", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %error_2 = getelementptr inbounds %"class.folly::BadExpectedAccess.411", ptr %2, i32 0, i32 1
-  %3 = load i8, ptr %error_2, align 8
-  store i8 %3, ptr %error_, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %error_2 = getelementptr inbounds %"class.folly::BadExpectedAccess.411", ptr %3, i32 0, i32 1
+  %4 = load i8, ptr %error_2, align 8
+  store i8 %4, ptr %error_, align 8
   ret void
 }
 
@@ -51381,7 +51396,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9TypeErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly9TypeErrorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -62373,10 +62389,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8facebook5velox13ISerializableESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8facebook5velox13ISerializableESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN8facebook5velox13ISerializableESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN8facebook5velox13ISerializableESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   ret void
 }
 
@@ -62386,7 +62403,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -64548,7 +64566,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox13ISerializableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8facebook5velox13ISerializableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -68387,7 +68406,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -68404,7 +68424,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -68416,7 +68437,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -69754,25 +69776,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.549", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -69868,25 +69891,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -70647,35 +70671,36 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.557", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  invoke void @_ZZN5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvE20constructValueAtItemIRNS1_8F14TableIS7_EEJRiDnEEEvOT_PPSt4pairIKS3_S3_EDpOT0_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %3 = load ptr, ptr %t.addr.i, align 8
+  invoke void @_ZZN5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvE20constructValueAtItemIRNS1_8F14TableIS7_EEJRiDnEEEvOT_PPSt4pairIKS3_S3_EDpOT0_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
   br label %_ZN5folly15catch_exceptionIRZNS_3f146detail19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvE20constructValueAtItemIRNS2_8F14TableIS8_EEJRiDnEEEvOT_PPSt4pairIKS4_S4_EDpOT0_EUlvE_RPFvvEJEvEET2_SF_OT0_DpOT1_.exit
 
 lpad.i:                                           ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot.i, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot.i, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot.i, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot.i, align 4
   %exn.i = load ptr, ptr %exn.slot.i, align 8
-  %6 = call ptr @__cxa_begin_catch(ptr %exn.i) #13
-  %7 = load ptr, ptr %c.addr.i, align 8
-  store ptr %7, ptr %f.addr.i, align 8
-  %8 = load ptr, ptr %f.addr.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  invoke void %9()
+  %7 = call ptr @__cxa_begin_catch(ptr %exn.i) #13
+  %8 = load ptr, ptr %c.addr.i, align 8
+  store ptr %8, ptr %f.addr.i, align 8
+  %9 = load ptr, ptr %f.addr.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  invoke void %10()
           to label %_ZN5folly11invoke_coldIRPFvvEJES1_TnNSt9enable_ifIXsr3std11is_functionIT1_EE5valueEiE4typeELi0EvEET3_OT_DpOT0_.exit unwind label %lpad1.i
 
 _ZN5folly11invoke_coldIRPFvvEJES1_TnNSt9enable_ifIXsr3std11is_functionIT1_EE5valueEiE4typeELi0EvEET3_OT_DpOT0_.exit: ; preds = %lpad.i
@@ -70689,13 +70714,13 @@ invoke.cont2.i:                                   ; preds = %_ZN5folly11invoke_c
   br label %_ZN5folly15catch_exceptionIRZNS_3f146detail19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvE20constructValueAtItemIRNS2_8F14TableIS8_EEJRiDnEEEvOT_PPSt4pairIKS4_S4_EDpOT0_EUlvE_RPFvvEJEvEET2_SF_OT0_DpOT1_.exit
 
 lpad1.i:                                          ; preds = %lpad.i
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot.i, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot.i, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot.i, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot.i, align 4
   invoke void @__cxa_end_catch()
           to label %invoke.cont3.i unwind label %terminate.lpad.i
 
@@ -70707,11 +70732,11 @@ invoke.cont3.i:                                   ; preds = %lpad1.i
   br label %terminate.lpad.body
 
 terminate.lpad.i:                                 ; preds = %lpad1.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #33
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #33
   unreachable
 
 _ZN5folly15catch_exceptionIRZNS_3f146detail19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvE20constructValueAtItemIRNS2_8F14TableIS8_EEJRiDnEEEvOT_PPSt4pairIKS4_S4_EDpOT0_EUlvE_RPFvvEJEvEET2_SF_OT0_DpOT1_.exit: ; preds = %.noexc, %invoke.cont.i
@@ -70721,14 +70746,14 @@ invoke.cont:                                      ; preds = %_ZN5folly15catch_ex
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont2.i
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %terminate.lpad, %invoke.cont3.i
-  %eh.lpad-body = phi { ptr, i32 } [ %15, %terminate.lpad ], [ %lpad.val5.i, %invoke.cont3.i ]
-  %16 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %16) #33
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %terminate.lpad ], [ %lpad.val5.i, %invoke.cont3.i ]
+  %17 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %17) #33
   unreachable
 }
 
@@ -73055,10 +73080,11 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 8)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBigintRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBigintRangeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintRange", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %nullAllowed.addr, align 1
-  %tobool2 = trunc i8 %1 to i1
+  %2 = load i8, ptr %nullAllowed.addr, align 1
+  %tobool2 = trunc i8 %2 to i1
   %lnot = xor i1 %tobool2, true
   %frombool3 = zext i1 %lnot to i8
   store i8 %frombool3, ptr %ref.tmp, align 1
@@ -73069,12 +73095,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
 
@@ -73178,13 +73204,14 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BigintRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BigintRangeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %lower.addr, align 8
-  store i64 %1, ptr %lower_, align 8
+  %2 = load i64, ptr %lower.addr, align 8
+  store i64 %2, ptr %lower_, align 8
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %upper.addr, align 8
-  store i64 %2, ptr %upper_, align 8
+  %3 = load i64, ptr %upper.addr, align 8
+  store i64 %3, ptr %upper_, align 8
   %lower32_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 3
   %call = call noundef i32 @_ZNSt14numeric_limitsIiE3minEv() #13
   %conv = sext i32 %call to i64
@@ -73193,8 +73220,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load i64, ptr %call2, align 8
-  %conv3 = trunc i64 %3 to i32
+  %4 = load i64, ptr %call2, align 8
+  %conv3 = trunc i64 %4 to i32
   store i32 %conv3, ptr %lower32_, align 8
   %upper32_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 4
   %call5 = call noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #13
@@ -73204,8 +73231,8 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %4 = load i64, ptr %call8, align 8
-  %conv9 = trunc i64 %4 to i32
+  %5 = load i64, ptr %call8, align 8
+  %conv9 = trunc i64 %5 to i32
   store i32 %conv9, ptr %upper32_, align 4
   %lower16_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 5
   %call11 = call noundef signext i16 @_ZNSt14numeric_limitsIsE3minEv() #13
@@ -73215,8 +73242,8 @@ invoke.cont7:                                     ; preds = %invoke.cont
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont7
-  %5 = load i64, ptr %call14, align 8
-  %conv15 = trunc i64 %5 to i16
+  %6 = load i64, ptr %call14, align 8
+  %conv15 = trunc i64 %6 to i16
   store i16 %conv15, ptr %lower16_, align 8
   %upper16_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 6
   %call17 = call noundef signext i16 @_ZNSt14numeric_limitsIsE3maxEv() #13
@@ -73226,26 +73253,26 @@ invoke.cont13:                                    ; preds = %invoke.cont7
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont13
-  %6 = load i64, ptr %call20, align 8
-  %conv21 = trunc i64 %6 to i16
+  %7 = load i64, ptr %call20, align 8
+  %conv21 = trunc i64 %7 to i16
   store i16 %conv21, ptr %upper16_, align 2
   %isSingleValue_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 7
   %upper_22 = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 2
-  %7 = load i64, ptr %upper_22, align 8
+  %8 = load i64, ptr %upper_22, align 8
   %lower_23 = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 1
-  %8 = load i64, ptr %lower_23, align 8
-  %cmp = icmp eq i64 %7, %8
+  %9 = load i64, ptr %lower_23, align 8
+  %cmp = icmp eq i64 %8, %9
   %frombool24 = zext i1 %cmp to i8
   store i8 %frombool24, ptr %isSingleValue_, align 4
   ret void
 
 lpad:                                             ; preds = %invoke.cont13, %invoke.cont7, %invoke.cont, %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
 
@@ -74465,7 +74492,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -75315,17 +75343,18 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 20)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common14TimestampRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common14TimestampRangeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::TimestampRange", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %lower.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lower_, ptr align 8 %1, i64 16, i1 false)
+  %2 = load ptr, ptr %lower.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lower_, ptr align 8 %2, i64 16, i1 false)
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::TimestampRange", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %upper.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %upper_, ptr align 8 %2, i64 16, i1 false)
+  %3 = load ptr, ptr %upper.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %upper_, ptr align 8 %3, i64 16, i1 false)
   %singleValue_ = getelementptr inbounds %"class.facebook::velox::common::TimestampRange", ptr %this1, i32 0, i32 3
   %lower_2 = getelementptr inbounds %"class.facebook::velox::common::TimestampRange", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %upper.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK8facebook5velox9TimestampeqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %lower_2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %4 = load ptr, ptr %upper.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK8facebook5velox9TimestampeqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %lower_2, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %frombool3 = zext i1 %call to i8
   store i8 %frombool3, ptr %singleValue_, align 8
   ret void
@@ -75505,10 +75534,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common14TimestampRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common14TimestampRangeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::TimestampRange", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::TimestampRange", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::TimestampRange", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lower_, ptr align 8 %lower_2, i64 33, i1 false)
   ret void
 }
@@ -75523,10 +75553,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox13ISerializableC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6FilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6FilterE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %nullAllowed_ = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %nullAllowed_2 = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %nullAllowed_2 = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %nullAllowed_, ptr align 8 %nullAllowed_2, i64 8, i1 false)
   ret void
 }
@@ -75539,7 +75570,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox13ISerializableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8facebook5velox13ISerializableE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -75802,46 +75834,47 @@ entry:
   %8 = load i8, ptr %nullAllowed.addr, align 1
   %tobool5 = trunc i8 %8 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this1, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool2, i1 noundef zeroext %tobool3, i1 noundef zeroext %tobool4, i1 noundef zeroext %tobool5, i32 noundef 13)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10BytesRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %9 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10BytesRangeE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this1, i32 0, i32 2
-  %9 = load ptr, ptr %other.addr, align 8
-  %lower_6 = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %9, i32 0, i32 2
+  %10 = load ptr, ptr %other.addr, align 8
+  %lower_6 = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %10, i32 0, i32 2
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %lower_, ptr noundef nonnull align 8 dereferenceable(32) %lower_6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this1, i32 0, i32 3
-  %10 = load ptr, ptr %other.addr, align 8
-  %upper_7 = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %10, i32 0, i32 3
+  %11 = load ptr, ptr %other.addr, align 8
+  %upper_7 = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %11, i32 0, i32 3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upper_, ptr noundef nonnull align 8 dereferenceable(32) %upper_7)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
   %singleValue_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this1, i32 0, i32 4
-  %11 = load ptr, ptr %other.addr, align 8
-  %singleValue_10 = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %11, i32 0, i32 4
-  %12 = load i8, ptr %singleValue_10, align 8
-  %tobool11 = trunc i8 %12 to i1
+  %12 = load ptr, ptr %other.addr, align 8
+  %singleValue_10 = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %12, i32 0, i32 4
+  %13 = load i8, ptr %singleValue_10, align 8
+  %tobool11 = trunc i8 %13 to i1
   %frombool12 = zext i1 %tobool11 to i8
   store i8 %frombool12, ptr %singleValue_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lower_) #13
   br label %ehcleanup
 
@@ -75908,42 +75941,43 @@ entry:
   %tobool = trunc i8 %0 to i1
   %1 = load i32, ptr %kind.addr, align 4
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this5, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common13AbstractRangeE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common13AbstractRangeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this5, align 8
   %lowerUnbounded_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 1
-  %2 = load i8, ptr %lowerUnbounded.addr, align 1
-  %tobool6 = trunc i8 %2 to i1
+  %3 = load i8, ptr %lowerUnbounded.addr, align 1
+  %tobool6 = trunc i8 %3 to i1
   %frombool7 = zext i1 %tobool6 to i8
   store i8 %frombool7, ptr %lowerUnbounded_, align 8
   %lowerExclusive_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 2
-  %3 = load i8, ptr %lowerExclusive.addr, align 1
-  %tobool8 = trunc i8 %3 to i1
+  %4 = load i8, ptr %lowerExclusive.addr, align 1
+  %tobool8 = trunc i8 %4 to i1
   %frombool9 = zext i1 %tobool8 to i8
   store i8 %frombool9, ptr %lowerExclusive_, align 1
   %upperUnbounded_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 3
-  %4 = load i8, ptr %upperUnbounded.addr, align 1
-  %tobool10 = trunc i8 %4 to i1
+  %5 = load i8, ptr %upperUnbounded.addr, align 1
+  %tobool10 = trunc i8 %5 to i1
   %frombool11 = zext i1 %tobool10 to i8
   store i8 %frombool11, ptr %upperUnbounded_, align 2
   %upperExclusive_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 4
-  %5 = load i8, ptr %upperExclusive.addr, align 1
-  %tobool12 = trunc i8 %5 to i1
+  %6 = load i8, ptr %upperExclusive.addr, align 1
+  %tobool12 = trunc i8 %6 to i1
   %frombool13 = zext i1 %tobool12 to i8
   store i8 %frombool13, ptr %upperExclusive_, align 1
   %lowerUnbounded_14 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 1
-  %6 = load i8, ptr %lowerUnbounded_14, align 8
-  %tobool15 = trunc i8 %6 to i1
+  %7 = load i8, ptr %lowerUnbounded_14, align 8
+  %tobool15 = trunc i8 %7 to i1
   br i1 %tobool15, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
   %upperUnbounded_16 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 3
-  %7 = load i8, ptr %upperUnbounded_16, align 2
-  %tobool17 = trunc i8 %7 to i1
+  %8 = load i8, ptr %upperUnbounded_16, align 2
+  %tobool17 = trunc i8 %8 to i1
   %lnot = xor i1 %tobool17, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
-  %8 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
-  %lnot18 = xor i1 %8, true
+  %9 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
+  %lnot18 = xor i1 %9, true
   br i1 %lnot18, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.end
@@ -76125,46 +76159,47 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common13AbstractRangeC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(20) %this1, ptr noundef nonnull align 8 dereferenceable(20) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10BytesRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10BytesRangeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %.addr, align 8
-  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %.addr, align 8
+  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %3, i32 0, i32 2
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %lower_, ptr noundef nonnull align 8 dereferenceable(32) %lower_2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %.addr, align 8
-  %upper_3 = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %3, i32 0, i32 3
+  %4 = load ptr, ptr %.addr, align 8
+  %upper_3 = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %4, i32 0, i32 3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upper_, ptr noundef nonnull align 8 dereferenceable(32) %upper_3)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
   %singleValue_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %.addr, align 8
-  %singleValue_6 = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %4, i32 0, i32 4
-  %5 = load i8, ptr %singleValue_6, align 8
-  %tobool = trunc i8 %5 to i1
+  %5 = load ptr, ptr %.addr, align 8
+  %singleValue_6 = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %5, i32 0, i32 4
+  %6 = load i8, ptr %singleValue_6, align 8
+  %tobool = trunc i8 %6 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %singleValue_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lower_) #13
   br label %ehcleanup
 
@@ -76190,10 +76225,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common13AbstractRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common13AbstractRangeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %lowerUnbounded_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %lowerUnbounded_2 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %lowerUnbounded_2 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lowerUnbounded_, ptr align 8 %lowerUnbounded_2, i64 4, i1 false)
   ret void
 }
@@ -76257,10 +76293,11 @@ entry:
   %1 = load ptr, ptr %other.addr, align 8
   %call = call noundef i32 @_ZNK8facebook5velox6common6Filter4kindEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %call)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common17NegatedBytesRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common17NegatedBytesRangeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesRange", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %other.addr, align 8
-  %nonNegated_2 = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesRange", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %other.addr, align 8
+  %nonNegated_2 = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesRange", ptr %3, i32 0, i32 1
   %call3 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNKSt10unique_ptrIN8facebook5velox6common10BytesRangeESt14default_deleteIS3_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_2) #13
   invoke void @_ZSt11make_uniqueIN8facebook5velox6common10BytesRangeEJRS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.148") align 8 %nonNegated_, ptr noundef nonnull align 8 dereferenceable(96) %call3)
           to label %invoke.cont unwind label %lpad
@@ -76269,12 +76306,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
 
@@ -76579,31 +76616,32 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 15)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BytesValuesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BytesValuesE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %other.addr, align 8
+  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %2, i32 0, i32 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %lower_, ptr noundef nonnull align 8 dereferenceable(32) %lower_2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %upper_3 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %other.addr, align 8
+  %upper_3 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %3, i32 0, i32 2
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upper_, ptr noundef nonnull align 8 dereferenceable(32) %upper_3)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
   %values_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %other.addr, align 8
-  %values_6 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %3, i32 0, i32 3
+  %4 = load ptr, ptr %other.addr, align 8
+  %values_6 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %4, i32 0, i32 3
   invoke void @_ZN5folly10F14FastSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS6_vEENS_26HeterogeneousAccessEqualToIS6_vEESaIS6_EEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(24) %values_, ptr noundef nonnull align 8 dereferenceable(24) %values_6)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont5
   %lengths_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %other.addr, align 8
-  %lengths_9 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %4, i32 0, i32 4
+  %5 = load ptr, ptr %other.addr, align 8
+  %lengths_9 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %5, i32 0, i32 4
   invoke void @_ZN5folly10F14FastSetIjNS_23HeterogeneousAccessHashIjvEENS_26HeterogeneousAccessEqualToIjvEESaIjEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(32) %lengths_, ptr noundef nonnull align 8 dereferenceable(32) %lengths_9)
           to label %invoke.cont11 unwind label %lpad10
 
@@ -76611,39 +76649,39 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad4:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup12
 
 lpad7:                                            ; preds = %invoke.cont5
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont8
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZN5folly10F14FastSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS6_vEENS_26HeterogeneousAccessEqualToIS6_vEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %values_) #13
   br label %ehcleanup
 
@@ -79948,25 +79986,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.585", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -80029,25 +80068,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.583", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -80711,25 +80751,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.589", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE15directBuildFromIRKSD_EEvOT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE15directBuildFromIRKSD_EEvOT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -81433,25 +81474,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.596", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE15rehashBuildFromIRKSD_EEvOT_ENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE15rehashBuildFromIRKSD_EEvOT_ENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -81492,25 +81534,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.594", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE15rehashBuildFromIRKSD_EEvOT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE15rehashBuildFromIRKSD_EEvOT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -84639,25 +84682,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.602", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -84720,25 +84764,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.600", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -85407,25 +85452,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.606", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE15directBuildFromIRKS5_EEvOT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE15directBuildFromIRKS5_EEvOT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -85953,25 +85999,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.612", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE15rehashBuildFromIRKS5_EEvOT_ENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE15rehashBuildFromIRKS5_EEvOT_ENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -86011,25 +86058,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.610", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE15rehashBuildFromIRKS5_EEvOT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE15rehashBuildFromIRKS5_EEvOT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -86556,31 +86604,32 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BytesValuesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BytesValuesE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %3, i32 0, i32 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %lower_, ptr noundef nonnull align 8 dereferenceable(32) %lower_2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %upper_3 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %.addr, align 8
+  %upper_3 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %4, i32 0, i32 2
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upper_, ptr noundef nonnull align 8 dereferenceable(32) %upper_3)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
   %values_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %.addr, align 8
-  %values_6 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %4, i32 0, i32 3
+  %5 = load ptr, ptr %.addr, align 8
+  %values_6 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %5, i32 0, i32 3
   invoke void @_ZN5folly10F14FastSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS6_vEENS_26HeterogeneousAccessEqualToIS6_vEESaIS6_EEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(24) %values_, ptr noundef nonnull align 8 dereferenceable(24) %values_6)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont5
   %lengths_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %.addr, align 8
-  %lengths_9 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %5, i32 0, i32 4
+  %6 = load ptr, ptr %.addr, align 8
+  %lengths_9 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %6, i32 0, i32 4
   invoke void @_ZN5folly10F14FastSetIjNS_23HeterogeneousAccessHashIjvEENS_26HeterogeneousAccessEqualToIjvEESaIjEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(32) %lengths_, ptr noundef nonnull align 8 dereferenceable(32) %lengths_9)
           to label %invoke.cont11 unwind label %lpad10
 
@@ -86588,39 +86637,39 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad4:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup12
 
 lpad7:                                            ; preds = %invoke.cont5
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont8
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZN5folly10F14FastSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS6_vEENS_26HeterogeneousAccessEqualToIS6_vEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %values_) #13
   br label %ehcleanup
 
@@ -87088,10 +87137,11 @@ entry:
   %1 = load ptr, ptr %other.addr, align 8
   %call = call noundef i32 @_ZNK8facebook5velox6common6Filter4kindEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %call)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBytesValuesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBytesValuesE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesValues", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %other.addr, align 8
-  %nonNegated_2 = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesValues", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %other.addr, align 8
+  %nonNegated_2 = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesValues", ptr %3, i32 0, i32 1
   %call3 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNKSt10unique_ptrIN8facebook5velox6common11BytesValuesESt14default_deleteIS3_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_2) #13
   invoke void @_ZSt11make_uniqueIN8facebook5velox6common11BytesValuesEJRS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.195") align 8 %nonNegated_, ptr noundef nonnull align 8 dereferenceable(136) %call3)
           to label %invoke.cont unwind label %lpad
@@ -87100,12 +87150,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
 
@@ -90316,12 +90366,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9BoolValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9BoolValueE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %value_ = getelementptr inbounds %"class.facebook::velox::common::BoolValue", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %value_2 = getelementptr inbounds %"class.facebook::velox::common::BoolValue", ptr %2, i32 0, i32 1
-  %3 = load i8, ptr %value_2, align 8
-  %tobool = trunc i8 %3 to i1
+  %3 = load ptr, ptr %.addr, align 8
+  %value_2 = getelementptr inbounds %"class.facebook::velox::common::BoolValue", ptr %3, i32 0, i32 1
+  %4 = load i8, ptr %value_2, align 8
+  %tobool = trunc i8 %4 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %value_, align 8
   ret void
@@ -93320,13 +93371,14 @@ entry:
   %4 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %4 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this3, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 19)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common12HugeintRangeE, i32 0, i32 0, i32 2), ptr %this3, align 16
+  %5 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common12HugeintRangeE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this3, align 16
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::HugeintRange", ptr %this3, i32 0, i32 1
-  %5 = load i128, ptr %lower.addr, align 16
-  store i128 %5, ptr %lower_, align 16
+  %6 = load i128, ptr %lower.addr, align 16
+  store i128 %6, ptr %lower_, align 16
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::HugeintRange", ptr %this3, i32 0, i32 2
-  %6 = load i128, ptr %upper.addr, align 16
-  store i128 %6, ptr %upper_, align 16
+  %7 = load i128, ptr %upper.addr, align 16
+  store i128 %7, ptr %upper_, align 16
   ret void
 }
 
@@ -93504,10 +93556,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common12HugeintRangeE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common12HugeintRangeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 16
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::HugeintRange", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::HugeintRange", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::HugeintRange", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %lower_, ptr align 16 %lower_2, i64 32, i1 false)
   ret void
 }
@@ -93845,61 +93898,62 @@ entry:
   %1 = load ptr, ptr %other.addr, align 8
   %call = call noundef i32 @_ZNK8facebook5velox6common6Filter4kindEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %call)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common26BigintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common26BigintValuesUsingHashTableE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %min_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %other.addr, align 8
-  %min_2 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %min_2, align 8
-  store i64 %3, ptr %min_, align 8
+  %3 = load ptr, ptr %other.addr, align 8
+  %min_2 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %3, i32 0, i32 1
+  %4 = load i64, ptr %min_2, align 8
+  store i64 %4, ptr %min_, align 8
   %max_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %other.addr, align 8
-  %max_3 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %4, i32 0, i32 2
-  %5 = load i64, ptr %max_3, align 8
-  store i64 %5, ptr %max_, align 8
+  %5 = load ptr, ptr %other.addr, align 8
+  %max_3 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %5, i32 0, i32 2
+  %6 = load i64, ptr %max_3, align 8
+  store i64 %6, ptr %max_, align 8
   %hashTable_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %other.addr, align 8
-  %hashTable_4 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %6, i32 0, i32 3
+  %7 = load ptr, ptr %other.addr, align 8
+  %hashTable_4 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %7, i32 0, i32 3
   invoke void @_ZNSt6vectorIlSaIlEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %hashTable_, ptr noundef nonnull align 8 dereferenceable(24) %hashTable_4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %containsEmptyMarker_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 4
-  %7 = load ptr, ptr %other.addr, align 8
-  %containsEmptyMarker_5 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %7, i32 0, i32 4
-  %8 = load i8, ptr %containsEmptyMarker_5, align 8
-  %tobool6 = trunc i8 %8 to i1
+  %8 = load ptr, ptr %other.addr, align 8
+  %containsEmptyMarker_5 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %8, i32 0, i32 4
+  %9 = load i8, ptr %containsEmptyMarker_5, align 8
+  %tobool6 = trunc i8 %9 to i1
   %frombool7 = zext i1 %tobool6 to i8
   store i8 %frombool7, ptr %containsEmptyMarker_, align 8
   %values_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 6
-  %9 = load ptr, ptr %other.addr, align 8
-  %values_8 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %9, i32 0, i32 6
+  %10 = load ptr, ptr %other.addr, align 8
+  %values_8 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %10, i32 0, i32 6
   invoke void @_ZNSt6vectorIlSaIlEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %values_, ptr noundef nonnull align 8 dereferenceable(24) %values_8)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont
   %sizeMask_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 7
-  %10 = load ptr, ptr %other.addr, align 8
-  %sizeMask_11 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %10, i32 0, i32 7
-  %11 = load i32, ptr %sizeMask_11, align 8
-  store i32 %11, ptr %sizeMask_, align 8
+  %11 = load ptr, ptr %other.addr, align 8
+  %sizeMask_11 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %11, i32 0, i32 7
+  %12 = load i32, ptr %sizeMask_11, align 8
+  store i32 %12, ptr %sizeMask_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIlSaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %hashTable_) #13
   br label %ehcleanup
 
@@ -93927,55 +93981,56 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common26BigintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common26BigintValuesUsingHashTableE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %min_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %min_2 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %min_2 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %min_, ptr align 8 %min_2, i64 16, i1 false)
   %hashTable_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %.addr, align 8
-  %hashTable_3 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %3, i32 0, i32 3
+  %4 = load ptr, ptr %.addr, align 8
+  %hashTable_3 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %4, i32 0, i32 3
   invoke void @_ZNSt6vectorIlSaIlEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %hashTable_, ptr noundef nonnull align 8 dereferenceable(24) %hashTable_3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %containsEmptyMarker_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %.addr, align 8
-  %containsEmptyMarker_4 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %4, i32 0, i32 4
-  %5 = load i8, ptr %containsEmptyMarker_4, align 8
-  %tobool = trunc i8 %5 to i1
+  %5 = load ptr, ptr %.addr, align 8
+  %containsEmptyMarker_4 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %5, i32 0, i32 4
+  %6 = load i8, ptr %containsEmptyMarker_4, align 8
+  %tobool = trunc i8 %6 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %containsEmptyMarker_, align 8
   %values_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 6
-  %6 = load ptr, ptr %.addr, align 8
-  %values_5 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %6, i32 0, i32 6
+  %7 = load ptr, ptr %.addr, align 8
+  %values_5 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %7, i32 0, i32 6
   invoke void @_ZNSt6vectorIlSaIlEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %values_, ptr noundef nonnull align 8 dereferenceable(24) %values_5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
   %sizeMask_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 7
-  %7 = load ptr, ptr %.addr, align 8
-  %sizeMask_8 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %7, i32 0, i32 7
-  %8 = load i32, ptr %sizeMask_8, align 8
-  store i32 %8, ptr %sizeMask_, align 8
+  %8 = load ptr, ptr %.addr, align 8
+  %sizeMask_8 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %8, i32 0, i32 7
+  %9 = load i32, ptr %sizeMask_8, align 8
+  store i32 %9, ptr %sizeMask_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIlSaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %hashTable_) #13
   br label %ehcleanup
 
@@ -94086,20 +94141,21 @@ entry:
   %1 = load ptr, ptr %other.addr, align 8
   %call = call noundef i32 @_ZNK8facebook5velox6common6Filter4kindEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %call)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common27HugeintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common27HugeintValuesUsingHashTableE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 16
   %min_ = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %other.addr, align 8
-  %min_2 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %2, i32 0, i32 1
-  %3 = load i128, ptr %min_2, align 16
-  store i128 %3, ptr %min_, align 16
+  %3 = load ptr, ptr %other.addr, align 8
+  %min_2 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %3, i32 0, i32 1
+  %4 = load i128, ptr %min_2, align 16
+  store i128 %4, ptr %min_, align 16
   %max_ = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %other.addr, align 8
-  %max_3 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %4, i32 0, i32 2
-  %5 = load i128, ptr %max_3, align 16
-  store i128 %5, ptr %max_, align 16
+  %5 = load ptr, ptr %other.addr, align 8
+  %max_3 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %5, i32 0, i32 2
+  %6 = load i128, ptr %max_3, align 16
+  store i128 %6, ptr %max_, align 16
   %values_ = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %other.addr, align 8
-  %values_4 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %6, i32 0, i32 3
+  %7 = load ptr, ptr %other.addr, align 8
+  %values_4 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %7, i32 0, i32 3
   invoke void @_ZN5folly10F14FastSetInNS_23HeterogeneousAccessHashInvEENS_26HeterogeneousAccessEqualToInvEESaInEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(32) %values_, ptr noundef nonnull align 8 dereferenceable(32) %values_4)
           to label %invoke.cont unwind label %lpad
 
@@ -94107,12 +94163,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
 
@@ -96929,25 +96985,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.666", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyInvvvvEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyInvvvvEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -97010,25 +97067,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.664", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyInvvvvEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyInvvvvEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -97665,25 +97723,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.670", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyInvvvvEEE15directBuildFromIRKS5_EEvOT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyInvvvvEEE15directBuildFromIRKS5_EEvOT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -98309,25 +98368,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.675", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyInvvvvEEE15rehashBuildFromIRKS5_EEvOT_ENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyInvvvvEEE15rehashBuildFromIRKS5_EEvOT_ENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -98367,25 +98427,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.673", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyInvvvvEEE15rehashBuildFromIRKS5_EEvOT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyInvvvvEEE15rehashBuildFromIRKS5_EEvOT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -98590,14 +98651,15 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common27HugeintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common27HugeintValuesUsingHashTableE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 16
   %min_ = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %min_2 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %min_2 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %min_, ptr align 16 %min_2, i64 32, i1 false)
   %values_ = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %.addr, align 8
-  %values_3 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %3, i32 0, i32 3
+  %4 = load ptr, ptr %.addr, align 8
+  %values_3 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %4, i32 0, i32 3
   invoke void @_ZN5folly10F14FastSetInNS_23HeterogeneousAccessHashInvEENS_26HeterogeneousAccessEqualToInvEESaInEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(32) %values_, ptr noundef nonnull align 8 dereferenceable(32) %values_3)
           to label %invoke.cont unwind label %lpad
 
@@ -98605,12 +98667,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
 
@@ -98715,33 +98777,34 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 7)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common24BigintValuesUsingBitmaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common24BigintValuesUsingBitmaskE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %bitmask_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %bitmask_2 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %other.addr, align 8
+  %bitmask_2 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %2, i32 0, i32 1
   invoke void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %bitmask_, ptr noundef nonnull align 8 dereferenceable(40) %bitmask_2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %min_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %min_3 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %2, i32 0, i32 2
-  %3 = load i64, ptr %min_3, align 8
-  store i64 %3, ptr %min_, align 8
+  %3 = load ptr, ptr %other.addr, align 8
+  %min_3 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %3, i32 0, i32 2
+  %4 = load i64, ptr %min_3, align 8
+  store i64 %4, ptr %min_, align 8
   %max_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %other.addr, align 8
-  %max_4 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %4, i32 0, i32 3
-  %5 = load i64, ptr %max_4, align 8
-  store i64 %5, ptr %max_, align 8
+  %5 = load ptr, ptr %other.addr, align 8
+  %max_4 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %5, i32 0, i32 3
+  %6 = load i64, ptr %max_4, align 8
+  store i64 %6, ptr %max_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
 
@@ -100257,27 +100320,28 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common24BigintValuesUsingBitmaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common24BigintValuesUsingBitmaskE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %bitmask_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %bitmask_2 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %bitmask_2 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %3, i32 0, i32 1
   invoke void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %bitmask_, ptr noundef nonnull align 8 dereferenceable(40) %bitmask_2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %min_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %min_3 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %.addr, align 8
+  %min_3 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %4, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %min_, ptr align 8 %min_3, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
 
@@ -101442,7 +101506,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -101934,7 +101999,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10AlwaysTrueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10AlwaysTrueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -102328,7 +102394,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -102722,7 +102789,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 3)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9IsNotNullE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9IsNotNullE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -103124,10 +103192,11 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this2, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 4)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9BoolValueE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9BoolValueE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this2, align 8
   %value_ = getelementptr inbounds %"class.facebook::velox::common::BoolValue", ptr %this2, i32 0, i32 1
-  %1 = load i8, ptr %value.addr, align 1
-  %tobool3 = trunc i8 %1 to i1
+  %2 = load i8, ptr %value.addr, align 1
+  %tobool3 = trunc i8 %2 to i1
   %frombool4 = zext i1 %tobool3 to i8
   store i8 %frombool4, ptr %value_, align 8
   ret void
@@ -103581,10 +103650,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BigintRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BigintRangeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lower_, ptr align 8 %lower_2, i64 29, i1 false)
   ret void
 }
@@ -105402,10 +105472,11 @@ entry:
   %1 = load ptr, ptr %other.addr, align 8
   %call = call noundef i32 @_ZNK8facebook5velox6common6Filter4kindEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %call)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common33NegatedBigintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common33NegatedBigintValuesUsingHashTableE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingHashTable", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %other.addr, align 8
-  %nonNegated_2 = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingHashTable", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %other.addr, align 8
+  %nonNegated_2 = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingHashTable", ptr %3, i32 0, i32 1
   %call3 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNKSt10unique_ptrIN8facebook5velox6common26BigintValuesUsingHashTableESt14default_deleteIS3_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_2) #13
   invoke void @_ZSt11make_uniqueIN8facebook5velox6common26BigintValuesUsingHashTableEJRS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.92") align 8 %nonNegated_, ptr noundef nonnull align 8 dereferenceable(96) %call3)
           to label %invoke.cont unwind label %lpad
@@ -105414,12 +105485,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
 
@@ -105767,20 +105838,21 @@ entry:
   %1 = load ptr, ptr %other.addr, align 8
   %call = call noundef i32 @_ZNK8facebook5velox6common6Filter4kindEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %call)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common31NegatedBigintValuesUsingBitmaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common31NegatedBigintValuesUsingBitmaskE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %min_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %other.addr, align 8
-  %min_2 = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %min_2, align 8
-  store i32 %3, ptr %min_, align 8
+  %3 = load ptr, ptr %other.addr, align 8
+  %min_2 = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %3, i32 0, i32 1
+  %4 = load i32, ptr %min_2, align 8
+  store i32 %4, ptr %min_, align 8
   %max_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %other.addr, align 8
-  %max_3 = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %4, i32 0, i32 2
-  %5 = load i32, ptr %max_3, align 4
-  store i32 %5, ptr %max_, align 4
+  %5 = load ptr, ptr %other.addr, align 8
+  %max_3 = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %5, i32 0, i32 2
+  %6 = load i32, ptr %max_3, align 4
+  store i32 %6, ptr %max_, align 4
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %other.addr, align 8
-  %nonNegated_4 = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %6, i32 0, i32 3
+  %7 = load ptr, ptr %other.addr, align 8
+  %nonNegated_4 = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %7, i32 0, i32 3
   %call5 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNKSt10unique_ptrIN8facebook5velox6common24BigintValuesUsingBitmaskESt14default_deleteIS3_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_4) #13
   invoke void @_ZSt11make_uniqueIN8facebook5velox6common24BigintValuesUsingBitmaskEJRS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.104") align 8 %nonNegated_, ptr noundef nonnull align 8 dereferenceable(72) %call5)
           to label %invoke.cont unwind label %lpad
@@ -105789,12 +105861,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
 
@@ -111077,25 +111149,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.713", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISE_EERKNS_7dynamicEEEvvvEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISE_EERKNS_7dynamicEEEvvvEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -111158,25 +111231,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.711", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISE_EERKNS_7dynamicEEEvvvEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #13
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISE_EERKNS_7dynamicEEEvvvEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %3) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #33
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #33
   unreachable
 }
 
@@ -111879,35 +111953,36 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.717", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  invoke void @_ZZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISD_EERKNS_7dynamicEEEvvvE20constructValueAtItemIRNS1_8F14TableISM_EEJRKSt21piecewise_construct_tSt5tupleIJRKS8_EESU_IJEEEEEvOT_PPSt4pairISV_SL_EDpOT0_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %3 = load ptr, ptr %t.addr.i, align 8
+  invoke void @_ZZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISD_EERKNS_7dynamicEEEvvvE20constructValueAtItemIRNS1_8F14TableISM_EEJRKSt21piecewise_construct_tSt5tupleIJRKS8_EESU_IJEEEEEvOT_PPSt4pairISV_SL_EDpOT0_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
   br label %_ZN5folly15catch_exceptionIRZNS_3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISE_EERKNS_7dynamicEEEvvvE20constructValueAtItemIRNS2_8F14TableISN_EEJRKSt21piecewise_construct_tSt5tupleIJRKS9_EESV_IJEEEEEvOT_PPSt4pairISW_SM_EDpOT0_EUlvE_RPFvvEJEvEET2_S11_OT0_DpOT1_.exit
 
 lpad.i:                                           ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot.i, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot.i, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot.i, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot.i, align 4
   %exn.i = load ptr, ptr %exn.slot.i, align 8
-  %6 = call ptr @__cxa_begin_catch(ptr %exn.i) #13
-  %7 = load ptr, ptr %c.addr.i, align 8
-  store ptr %7, ptr %f.addr.i.i, align 8
-  %8 = load ptr, ptr %f.addr.i.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  invoke void %9()
+  %7 = call ptr @__cxa_begin_catch(ptr %exn.i) #13
+  %8 = load ptr, ptr %c.addr.i, align 8
+  store ptr %8, ptr %f.addr.i.i, align 8
+  %9 = load ptr, ptr %f.addr.i.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  invoke void %10()
           to label %_ZN5folly11invoke_coldIRPFvvEJES1_TnNSt9enable_ifIXsr3std11is_functionIT1_EE5valueEiE4typeELi0EvEET3_OT_DpOT0_.exit.i unwind label %lpad1.i
 
 _ZN5folly11invoke_coldIRPFvvEJES1_TnNSt9enable_ifIXsr3std11is_functionIT1_EE5valueEiE4typeELi0EvEET3_OT_DpOT0_.exit.i: ; preds = %lpad.i
@@ -111918,13 +111993,13 @@ _ZN5folly11invoke_coldIRPFvvEJES1_TnNSt9enable_ifIXsr3std11is_functionIT1_EE5val
   br label %_ZN5folly15catch_exceptionIRZNS_3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISE_EERKNS_7dynamicEEEvvvE20constructValueAtItemIRNS2_8F14TableISN_EEJRKSt21piecewise_construct_tSt5tupleIJRKS9_EESV_IJEEEEEvOT_PPSt4pairISW_SM_EDpOT0_EUlvE_RPFvvEJEvEET2_S11_OT0_DpOT1_.exit
 
 lpad1.i:                                          ; preds = %lpad.i
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot.i, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot.i, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot.i, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot.i, align 4
   invoke void @__cxa_end_catch()
           to label %invoke.cont3.i unwind label %terminate.lpad.i
 
@@ -111936,11 +112011,11 @@ invoke.cont3.i:                                   ; preds = %lpad1.i
   br label %terminate.lpad.body
 
 terminate.lpad.i:                                 ; preds = %lpad1.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #33
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #33
   unreachable
 
 _ZN5folly15catch_exceptionIRZNS_3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISE_EERKNS_7dynamicEEEvvvE20constructValueAtItemIRNS2_8F14TableISN_EEJRKSt21piecewise_construct_tSt5tupleIJRKS9_EESV_IJEEEEEvOT_PPSt4pairISW_SM_EDpOT0_EUlvE_RPFvvEJEvEET2_S11_OT0_DpOT1_.exit: ; preds = %.noexc, %invoke.cont.i
@@ -111950,14 +112025,14 @@ invoke.cont:                                      ; preds = %_ZN5folly15catch_ex
   ret void
 
 terminate.lpad:                                   ; preds = %_ZN5folly11invoke_coldIRPFvvEJES1_TnNSt9enable_ifIXsr3std11is_functionIT1_EE5valueEiE4typeELi0EvEET3_OT_DpOT0_.exit.i
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %terminate.lpad, %invoke.cont3.i
-  %eh.lpad-body = phi { ptr, i32 } [ %15, %terminate.lpad ], [ %lpad.val5.i, %invoke.cont3.i ]
-  %16 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %16) #33
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %terminate.lpad ], [ %lpad.val5.i, %invoke.cont3.i ]
+  %17 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %17) #33
   unreachable
 }
 
@@ -115525,27 +115600,28 @@ entry:
   %4 = load i8, ptr %nullAllowed.addr, align 1
   %tobool9 = trunc i8 %4 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this5, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool6, i1 noundef zeroext %tobool7, i1 noundef zeroext %tobool8, i1 noundef zeroext %tobool9, i32 noundef 11)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %5 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this5, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %this5, i32 0, i32 1
-  %5 = load double, ptr %lower.addr, align 8
-  store double %5, ptr %lower_, align 8
+  %6 = load double, ptr %lower.addr, align 8
+  store double %6, ptr %lower_, align 8
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %this5, i32 0, i32 2
-  %6 = load double, ptr %upper.addr, align 8
-  store double %6, ptr %upper_, align 8
-  %7 = load i8, ptr %lowerUnbounded.addr, align 1
-  %tobool10 = trunc i8 %7 to i1
+  %7 = load double, ptr %upper.addr, align 8
+  store double %7, ptr %upper_, align 8
+  %8 = load i8, ptr %lowerUnbounded.addr, align 1
+  %tobool10 = trunc i8 %8 to i1
   br i1 %tobool10, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %lower_11 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %this5, i32 0, i32 1
-  %8 = load double, ptr %lower_11, align 8
-  %call = call noundef zeroext i1 @_ZSt5isnand(double noundef %8)
+  %9 = load double, ptr %lower_11, align 8
+  %call = call noundef zeroext i1 @_ZSt5isnand(double noundef %9)
   %lnot = xor i1 %call, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
-  %9 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
-  %lnot12 = xor i1 %9, true
+  %10 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
+  %lnot12 = xor i1 %10, true
   br i1 %lnot12, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.end
@@ -115553,20 +115629,20 @@ if.then:                                          ; preds = %lor.end
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.end
-  %10 = load i8, ptr %upperUnbounded.addr, align 1
-  %tobool13 = trunc i8 %10 to i1
+  %11 = load i8, ptr %upperUnbounded.addr, align 1
+  %tobool13 = trunc i8 %11 to i1
   br i1 %tobool13, label %lor.end18, label %lor.rhs14
 
 lor.rhs14:                                        ; preds = %if.end
   %upper_15 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %this5, i32 0, i32 2
-  %11 = load double, ptr %upper_15, align 8
-  %call16 = call noundef zeroext i1 @_ZSt5isnand(double noundef %11)
+  %12 = load double, ptr %upper_15, align 8
+  %call16 = call noundef zeroext i1 @_ZSt5isnand(double noundef %12)
   %lnot17 = xor i1 %call16, true
   br label %lor.end18
 
 lor.end18:                                        ; preds = %lor.rhs14, %if.end
-  %12 = phi i1 [ true, %if.end ], [ %lnot17, %lor.rhs14 ]
-  %lnot19 = xor i1 %12, true
+  %13 = phi i1 [ true, %if.end ], [ %lnot17, %lor.rhs14 ]
+  %lnot19 = xor i1 %13, true
   br i1 %lnot19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %lor.end18
@@ -116197,32 +116273,33 @@ entry:
   %8 = load i8, ptr %nullAllowed.addr, align 1
   %tobool5 = trunc i8 %8 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this1, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool2, i1 noundef zeroext %tobool3, i1 noundef zeroext %tobool4, i1 noundef zeroext %tobool5, i32 noundef 11)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %9 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %other.addr, align 8
-  %lower_6 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %9, i32 0, i32 1
-  %10 = load double, ptr %lower_6, align 8
-  store double %10, ptr %lower_, align 8
+  %10 = load ptr, ptr %other.addr, align 8
+  %lower_6 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %10, i32 0, i32 1
+  %11 = load double, ptr %lower_6, align 8
+  store double %11, ptr %lower_, align 8
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %this1, i32 0, i32 2
-  %11 = load ptr, ptr %other.addr, align 8
-  %upper_7 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %11, i32 0, i32 2
-  %12 = load double, ptr %upper_7, align 8
-  store double %12, ptr %upper_, align 8
+  %12 = load ptr, ptr %other.addr, align 8
+  %upper_7 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %12, i32 0, i32 2
+  %13 = load double, ptr %upper_7, align 8
+  store double %13, ptr %upper_, align 8
   %lowerUnbounded_8 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this1, i32 0, i32 1
-  %13 = load i8, ptr %lowerUnbounded_8, align 8
-  %tobool9 = trunc i8 %13 to i1
+  %14 = load i8, ptr %lowerUnbounded_8, align 8
+  %tobool9 = trunc i8 %14 to i1
   br i1 %tobool9, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %lower_10 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %this1, i32 0, i32 1
-  %14 = load double, ptr %lower_10, align 8
-  %call = call noundef zeroext i1 @_ZSt5isnand(double noundef %14)
+  %15 = load double, ptr %lower_10, align 8
+  %call = call noundef zeroext i1 @_ZSt5isnand(double noundef %15)
   %lnot = xor i1 %call, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
-  %15 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
-  %lnot11 = xor i1 %15, true
+  %16 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
+  %lnot11 = xor i1 %16, true
   br i1 %lnot11, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.end
@@ -116231,20 +116308,20 @@ if.then:                                          ; preds = %lor.end
 
 if.end:                                           ; preds = %if.then, %lor.end
   %upperUnbounded_12 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this1, i32 0, i32 3
-  %16 = load i8, ptr %upperUnbounded_12, align 2
-  %tobool13 = trunc i8 %16 to i1
+  %17 = load i8, ptr %upperUnbounded_12, align 2
+  %tobool13 = trunc i8 %17 to i1
   br i1 %tobool13, label %lor.end18, label %lor.rhs14
 
 lor.rhs14:                                        ; preds = %if.end
   %upper_15 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %this1, i32 0, i32 2
-  %17 = load double, ptr %upper_15, align 8
-  %call16 = call noundef zeroext i1 @_ZSt5isnand(double noundef %17)
+  %18 = load double, ptr %upper_15, align 8
+  %call16 = call noundef zeroext i1 @_ZSt5isnand(double noundef %18)
   %lnot17 = xor i1 %call16, true
   br label %lor.end18
 
 lor.end18:                                        ; preds = %lor.rhs14, %if.end
-  %18 = phi i1 [ true, %if.end ], [ %lnot17, %lor.rhs14 ]
-  %lnot19 = xor i1 %18, true
+  %19 = phi i1 [ true, %if.end ], [ %lnot17, %lor.rhs14 ]
+  %lnot19 = xor i1 %19, true
   br i1 %lnot19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %lor.end18
@@ -116265,10 +116342,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common13AbstractRangeC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(20) %this1, ptr noundef nonnull align 8 dereferenceable(20) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lower_, ptr align 8 %lower_2, i64 16, i1 false)
   ret void
 }
@@ -117618,7 +117696,7 @@ entry:
   %1 = alloca i8, i64 %mul, align 16
   store ptr %1, ptr %__s, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %__args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %2 = load ptr, ptr %__convf.addr, align 8
   %3 = load ptr, ptr %__s, align 8
   %4 = load i64, ptr %__n.addr, align 8
@@ -117627,7 +117705,7 @@ entry:
   %call = call noundef i32 %2(ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %arraydecay1)
   store i32 %call, ptr %__len, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %__args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %6 = load ptr, ptr %__s, align 8
   %7 = load ptr, ptr %__s, align 8
   %8 = load i32, ptr %__len, align 4
@@ -117661,12 +117739,6 @@ eh.resume:                                        ; preds = %lpad
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #29
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #29
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPcvEET_S7_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -118281,27 +118353,28 @@ entry:
   %4 = load i8, ptr %nullAllowed.addr, align 1
   %tobool9 = trunc i8 %4 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this5, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool6, i1 noundef zeroext %tobool7, i1 noundef zeroext %tobool8, i1 noundef zeroext %tobool9, i32 noundef 12)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %5 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this5, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this5, i32 0, i32 1
-  %5 = load float, ptr %lower.addr, align 4
-  store float %5, ptr %lower_, align 4
+  %6 = load float, ptr %lower.addr, align 4
+  store float %6, ptr %lower_, align 4
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this5, i32 0, i32 2
-  %6 = load float, ptr %upper.addr, align 4
-  store float %6, ptr %upper_, align 8
-  %7 = load i8, ptr %lowerUnbounded.addr, align 1
-  %tobool10 = trunc i8 %7 to i1
+  %7 = load float, ptr %upper.addr, align 4
+  store float %7, ptr %upper_, align 8
+  %8 = load i8, ptr %lowerUnbounded.addr, align 1
+  %tobool10 = trunc i8 %8 to i1
   br i1 %tobool10, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %lower_11 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this5, i32 0, i32 1
-  %8 = load float, ptr %lower_11, align 4
-  %call = call noundef zeroext i1 @_ZSt5isnanf(float noundef %8)
+  %9 = load float, ptr %lower_11, align 4
+  %call = call noundef zeroext i1 @_ZSt5isnanf(float noundef %9)
   %lnot = xor i1 %call, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
-  %9 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
-  %lnot12 = xor i1 %9, true
+  %10 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
+  %lnot12 = xor i1 %10, true
   br i1 %lnot12, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.end
@@ -118309,20 +118382,20 @@ if.then:                                          ; preds = %lor.end
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.end
-  %10 = load i8, ptr %upperUnbounded.addr, align 1
-  %tobool13 = trunc i8 %10 to i1
+  %11 = load i8, ptr %upperUnbounded.addr, align 1
+  %tobool13 = trunc i8 %11 to i1
   br i1 %tobool13, label %lor.end18, label %lor.rhs14
 
 lor.rhs14:                                        ; preds = %if.end
   %upper_15 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this5, i32 0, i32 2
-  %11 = load float, ptr %upper_15, align 8
-  %call16 = call noundef zeroext i1 @_ZSt5isnanf(float noundef %11)
+  %12 = load float, ptr %upper_15, align 8
+  %call16 = call noundef zeroext i1 @_ZSt5isnanf(float noundef %12)
   %lnot17 = xor i1 %call16, true
   br label %lor.end18
 
 lor.end18:                                        ; preds = %lor.rhs14, %if.end
-  %12 = phi i1 [ true, %if.end ], [ %lnot17, %lor.rhs14 ]
-  %lnot19 = xor i1 %12, true
+  %13 = phi i1 [ true, %if.end ], [ %lnot17, %lor.rhs14 ]
+  %lnot19 = xor i1 %13, true
   br i1 %lnot19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %lor.end18
@@ -118959,32 +119032,33 @@ entry:
   %8 = load i8, ptr %nullAllowed.addr, align 1
   %tobool5 = trunc i8 %8 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this1, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool2, i1 noundef zeroext %tobool3, i1 noundef zeroext %tobool4, i1 noundef zeroext %tobool5, i32 noundef 12)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %9 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %other.addr, align 8
-  %lower_6 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %9, i32 0, i32 1
-  %10 = load float, ptr %lower_6, align 4
-  store float %10, ptr %lower_, align 4
+  %10 = load ptr, ptr %other.addr, align 8
+  %lower_6 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %10, i32 0, i32 1
+  %11 = load float, ptr %lower_6, align 4
+  store float %11, ptr %lower_, align 4
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this1, i32 0, i32 2
-  %11 = load ptr, ptr %other.addr, align 8
-  %upper_7 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %11, i32 0, i32 2
-  %12 = load float, ptr %upper_7, align 8
-  store float %12, ptr %upper_, align 8
+  %12 = load ptr, ptr %other.addr, align 8
+  %upper_7 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %12, i32 0, i32 2
+  %13 = load float, ptr %upper_7, align 8
+  store float %13, ptr %upper_, align 8
   %lowerUnbounded_8 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this1, i32 0, i32 1
-  %13 = load i8, ptr %lowerUnbounded_8, align 8
-  %tobool9 = trunc i8 %13 to i1
+  %14 = load i8, ptr %lowerUnbounded_8, align 8
+  %tobool9 = trunc i8 %14 to i1
   br i1 %tobool9, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %lower_10 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this1, i32 0, i32 1
-  %14 = load float, ptr %lower_10, align 4
-  %call = call noundef zeroext i1 @_ZSt5isnanf(float noundef %14)
+  %15 = load float, ptr %lower_10, align 4
+  %call = call noundef zeroext i1 @_ZSt5isnanf(float noundef %15)
   %lnot = xor i1 %call, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
-  %15 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
-  %lnot11 = xor i1 %15, true
+  %16 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
+  %lnot11 = xor i1 %16, true
   br i1 %lnot11, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.end
@@ -118993,20 +119067,20 @@ if.then:                                          ; preds = %lor.end
 
 if.end:                                           ; preds = %if.then, %lor.end
   %upperUnbounded_12 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this1, i32 0, i32 3
-  %16 = load i8, ptr %upperUnbounded_12, align 2
-  %tobool13 = trunc i8 %16 to i1
+  %17 = load i8, ptr %upperUnbounded_12, align 2
+  %tobool13 = trunc i8 %17 to i1
   br i1 %tobool13, label %lor.end18, label %lor.rhs14
 
 lor.rhs14:                                        ; preds = %if.end
   %upper_15 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this1, i32 0, i32 2
-  %17 = load float, ptr %upper_15, align 8
-  %call16 = call noundef zeroext i1 @_ZSt5isnanf(float noundef %17)
+  %18 = load float, ptr %upper_15, align 8
+  %call16 = call noundef zeroext i1 @_ZSt5isnanf(float noundef %18)
   %lnot17 = xor i1 %call16, true
   br label %lor.end18
 
 lor.end18:                                        ; preds = %lor.rhs14, %if.end
-  %18 = phi i1 [ true, %if.end ], [ %lnot17, %lor.rhs14 ]
-  %lnot19 = xor i1 %18, true
+  %19 = phi i1 [ true, %if.end ], [ %lnot17, %lor.rhs14 ]
+  %lnot19 = xor i1 %19, true
   br i1 %lnot19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %lor.end18
@@ -119027,10 +119101,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common13AbstractRangeC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(20) %this1, ptr noundef nonnull align 8 dereferenceable(20) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %lower_, ptr align 4 %lower_2, i64 8, i1 false)
   ret void
 }
@@ -120427,41 +120502,42 @@ entry:
   %4 = load i8, ptr %nullAllowed.addr, align 1
   %tobool9 = trunc i8 %4 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this5, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool6, i1 noundef zeroext %tobool7, i1 noundef zeroext %tobool8, i1 noundef zeroext %tobool9, i32 noundef 13)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10BytesRangeE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %5 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10BytesRangeE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this5, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this5, i32 0, i32 2
-  %5 = load ptr, ptr %lower.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %lower_, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %6 = load ptr, ptr %lower.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %lower_, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this5, i32 0, i32 3
-  %6 = load ptr, ptr %upper.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upper_, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = load ptr, ptr %upper.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upper_, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont
   %singleValue_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this5, i32 0, i32 4
   %lowerExclusive_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 2
-  %7 = load i8, ptr %lowerExclusive_, align 1
-  %tobool12 = trunc i8 %7 to i1
+  %8 = load i8, ptr %lowerExclusive_, align 1
+  %tobool12 = trunc i8 %8 to i1
   br i1 %tobool12, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %invoke.cont11
   %upperExclusive_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 4
-  %8 = load i8, ptr %upperExclusive_, align 1
-  %tobool13 = trunc i8 %8 to i1
+  %9 = load i8, ptr %upperExclusive_, align 1
+  %tobool13 = trunc i8 %9 to i1
   br i1 %tobool13, label %land.end, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %land.lhs.true
   %lowerUnbounded_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 1
-  %9 = load i8, ptr %lowerUnbounded_, align 8
-  %tobool15 = trunc i8 %9 to i1
+  %10 = load i8, ptr %lowerUnbounded_, align 8
+  %tobool15 = trunc i8 %10 to i1
   br i1 %tobool15, label %land.end, label %land.lhs.true16
 
 land.lhs.true16:                                  ; preds = %land.lhs.true14
   %upperUnbounded_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 3
-  %10 = load i8, ptr %upperUnbounded_, align 2
-  %tobool17 = trunc i8 %10 to i1
+  %11 = load i8, ptr %upperUnbounded_, align 2
+  %tobool17 = trunc i8 %11 to i1
   br i1 %tobool17, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true16
@@ -120471,24 +120547,24 @@ land.rhs:                                         ; preds = %land.lhs.true16
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true16, %land.lhs.true14, %land.lhs.true, %invoke.cont11
-  %11 = phi i1 [ false, %land.lhs.true16 ], [ false, %land.lhs.true14 ], [ false, %land.lhs.true ], [ false, %invoke.cont11 ], [ %call, %land.rhs ]
-  %frombool20 = zext i1 %11 to i8
+  %12 = phi i1 [ false, %land.lhs.true16 ], [ false, %land.lhs.true14 ], [ false, %land.lhs.true ], [ false, %invoke.cont11 ], [ %call, %land.rhs ]
+  %frombool20 = zext i1 %12 to i8
   store i8 %frombool20, ptr %singleValue_, align 8
   %lowerUnbounded_21 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 1
-  %12 = load i8, ptr %lowerUnbounded_21, align 8
-  %tobool22 = trunc i8 %12 to i1
+  %13 = load i8, ptr %lowerUnbounded_21, align 8
+  %tobool22 = trunc i8 %13 to i1
   br i1 %tobool22, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %land.end
   %upperUnbounded_23 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 3
-  %13 = load i8, ptr %upperUnbounded_23, align 2
-  %tobool24 = trunc i8 %13 to i1
+  %14 = load i8, ptr %upperUnbounded_23, align 2
+  %tobool24 = trunc i8 %14 to i1
   %lnot = xor i1 %tobool24, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.end
-  %14 = phi i1 [ true, %land.end ], [ %lnot, %lor.rhs ]
-  %lnot25 = xor i1 %14, true
+  %15 = phi i1 [ true, %land.end ], [ %lnot, %lor.rhs ]
+  %lnot25 = xor i1 %15, true
   br i1 %lnot25, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.end
@@ -120496,21 +120572,21 @@ if.then:                                          ; preds = %lor.end
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lower_) #13
   br label %ehcleanup
 
@@ -120979,12 +121055,13 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this5, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 14)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common17NegatedBytesRangeE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common17NegatedBytesRangeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this5, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesRange", ptr %this5, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN8facebook5velox6common10BytesRangeESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #13
-  %1 = load ptr, ptr %lower.addr, align 8
-  %2 = load ptr, ptr %upper.addr, align 8
-  invoke void @_ZSt11make_uniqueIN8facebook5velox6common10BytesRangeEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbSC_SB_SC_SC_SC_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.148") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %lowerUnbounded.addr, ptr noundef nonnull align 1 dereferenceable(1) %lowerExclusive.addr, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 1 dereferenceable(1) %upperUnbounded.addr, ptr noundef nonnull align 1 dereferenceable(1) %upperExclusive.addr, ptr noundef nonnull align 1 dereferenceable(1) %nullAllowed.addr)
+  %2 = load ptr, ptr %lower.addr, align 8
+  %3 = load ptr, ptr %upper.addr, align 8
+  invoke void @_ZSt11make_uniqueIN8facebook5velox6common10BytesRangeEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbSC_SB_SC_SC_SC_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.148") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 1 dereferenceable(1) %lowerUnbounded.addr, ptr noundef nonnull align 1 dereferenceable(1) %lowerExclusive.addr, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(1) %upperUnbounded.addr, ptr noundef nonnull align 1 dereferenceable(1) %upperExclusive.addr, ptr noundef nonnull align 1 dereferenceable(1) %nullAllowed.addr)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -120994,12 +121071,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN8facebook5velox6common10BytesRangeESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #13
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this5) #13
   br label %eh.resume
@@ -121990,7 +122067,8 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 15)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BytesValuesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BytesValuesE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lower_) #13
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 2
@@ -121999,8 +122077,8 @@ entry:
   call void @_ZN5folly10F14FastSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS6_vEENS_26HeterogeneousAccessEqualToIS6_vEESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %values_) #13
   %lengths_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 4
   call void @_ZN5folly10F14FastSetIjNS_23HeterogeneousAccessHashIjvEENS_26HeterogeneousAccessEqualToIjvEESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lengths_) #13
-  %1 = load ptr, ptr %values.addr, align 8
-  %call = call noundef zeroext i1 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #13
+  %2 = load ptr, ptr %values.addr, align 8
+  %call = call noundef zeroext i1 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #13
   %lnot = xor i1 %call, true
   %lnot2 = xor i1 %lnot, true
   br i1 %lnot2, label %if.then, label %if.end
@@ -122010,14 +122088,14 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %2 = load ptr, ptr %values.addr, align 8
-  store ptr %2, ptr %__range3, align 8
-  %3 = load ptr, ptr %__range3, align 8
-  %call3 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
+  %3 = load ptr, ptr %values.addr, align 8
+  store ptr %3, ptr %__range3, align 8
+  %4 = load ptr, ptr %__range3, align 8
+  %call3 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.326", ptr %__begin3, i32 0, i32 0
   store ptr %call3, ptr %coerce.dive, align 8
-  %4 = load ptr, ptr %__range3, align 8
-  %call4 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
+  %5 = load ptr, ptr %__range3, align 8
+  %call4 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %coerce.dive5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.326", ptr %__end3, i32 0, i32 0
   store ptr %call4, ptr %coerce.dive5, align 8
   br label %for.cond
@@ -122030,8 +122108,8 @@ for.body:                                         ; preds = %for.cond
   %call7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin3) #13
   store ptr %call7, ptr %value, align 8
   %lengths_8 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %value, align 8
-  %call9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
+  %6 = load ptr, ptr %value, align 8
+  %call9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   %conv = trunc i64 %call9 to i32
   store i32 %conv, ptr %ref.tmp, align 4
   invoke void @_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIjvvvvEEE6insertEOj(ptr sret(%"struct.std::pair.740") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(32) %lengths_8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
@@ -122039,8 +122117,8 @@ for.body:                                         ; preds = %for.cond
 
 invoke.cont:                                      ; preds = %for.body
   %values_10 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %value, align 8
-  invoke void @_ZN5folly3f146detail11F14BasicSetINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE6insertERKS9_(ptr sret(%"struct.std::pair.743") align 8 %tmp11, ptr noundef nonnull align 8 dereferenceable(24) %values_10, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = load ptr, ptr %value, align 8
+  invoke void @_ZN5folly3f146detail11F14BasicSetINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE6insertERKS9_(ptr sret(%"struct.std::pair.743") align 8 %tmp11, ptr noundef nonnull align 8 dereferenceable(24) %values_10, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont
@@ -122051,12 +122129,12 @@ for.inc:                                          ; preds = %invoke.cont12
   br label %for.cond
 
 lpad:                                             ; preds = %invoke.cont37, %invoke.cont35, %invoke.cont31, %invoke.cont26, %invoke.cont22, %invoke.cont20, %invoke.cont16, %for.end, %invoke.cont, %for.body
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN5folly10F14FastSetIjNS_23HeterogeneousAccessHashIjvEENS_26HeterogeneousAccessEqualToIjvEESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lengths_) #13
   call void @_ZN5folly10F14FastSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS6_vEENS_26HeterogeneousAccessEqualToIS6_vEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %values_) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %upper_) #13
@@ -122070,41 +122148,41 @@ for.end:                                          ; preds = %for.cond
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %for.end
-  %10 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %11 = extractvalue { ptr, ptr } %call17, 0
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %13 = extractvalue { ptr, ptr } %call17, 1
-  store ptr %13, ptr %12, align 8
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %12 = extractvalue { ptr, ptr } %call17, 0
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %14 = extractvalue { ptr, ptr } %call17, 1
+  store ptr %14, ptr %13, align 8
   %values_19 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 3
   %call21 = invoke { ptr, ptr } @_ZN5folly3f146detail16F14VectorSetImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEESaIS8_ESt17integral_constantIbLb1EEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %values_19)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont16
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 0
-  %15 = extractvalue { ptr, ptr } %call21, 0
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 1
-  %17 = extractvalue { ptr, ptr } %call21, 1
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  %call23 = invoke { ptr, ptr } @_ZSt11min_elementIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SD_SD_(ptr %19, ptr %21, ptr %23, ptr %25)
+  %15 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 0
+  %16 = extractvalue { ptr, ptr } %call21, 0
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 1
+  %18 = extractvalue { ptr, ptr } %call21, 1
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  %call23 = invoke { ptr, ptr } @_ZSt11min_elementIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SD_SD_(ptr %20, ptr %22, ptr %24, ptr %26)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %invoke.cont20
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp14, i32 0, i32 0
-  %27 = extractvalue { ptr, ptr } %call23, 0
-  store ptr %27, ptr %26, align 8
-  %28 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp14, i32 0, i32 1
-  %29 = extractvalue { ptr, ptr } %call23, 1
-  store ptr %29, ptr %28, align 8
+  %27 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp14, i32 0, i32 0
+  %28 = extractvalue { ptr, ptr } %call23, 0
+  store ptr %28, ptr %27, align 8
+  %29 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp14, i32 0, i32 1
+  %30 = extractvalue { ptr, ptr } %call23, 1
+  store ptr %30, ptr %29, align 8
   %call24 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14)
   %lower_25 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 1
   %call27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %lower_25, ptr noundef nonnull align 8 dereferenceable(32) %call24)
@@ -122116,41 +122194,41 @@ invoke.cont26:                                    ; preds = %invoke.cont22
           to label %invoke.cont31 unwind label %lpad
 
 invoke.cont31:                                    ; preds = %invoke.cont26
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp29, i32 0, i32 0
-  %31 = extractvalue { ptr, ptr } %call32, 0
-  store ptr %31, ptr %30, align 8
-  %32 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp29, i32 0, i32 1
-  %33 = extractvalue { ptr, ptr } %call32, 1
-  store ptr %33, ptr %32, align 8
+  %31 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp29, i32 0, i32 0
+  %32 = extractvalue { ptr, ptr } %call32, 0
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp29, i32 0, i32 1
+  %34 = extractvalue { ptr, ptr } %call32, 1
+  store ptr %34, ptr %33, align 8
   %values_34 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 3
   %call36 = invoke { ptr, ptr } @_ZN5folly3f146detail16F14VectorSetImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEESaIS8_ESt17integral_constantIbLb1EEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %values_34)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %invoke.cont31
-  %34 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp33, i32 0, i32 0
-  %35 = extractvalue { ptr, ptr } %call36, 0
-  store ptr %35, ptr %34, align 8
-  %36 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp33, i32 0, i32 1
-  %37 = extractvalue { ptr, ptr } %call36, 1
-  store ptr %37, ptr %36, align 8
-  %38 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp29, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp29, i32 0, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp33, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp33, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  %call38 = invoke { ptr, ptr } @_ZSt11max_elementIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SD_SD_(ptr %39, ptr %41, ptr %43, ptr %45)
+  %35 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp33, i32 0, i32 0
+  %36 = extractvalue { ptr, ptr } %call36, 0
+  store ptr %36, ptr %35, align 8
+  %37 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp33, i32 0, i32 1
+  %38 = extractvalue { ptr, ptr } %call36, 1
+  store ptr %38, ptr %37, align 8
+  %39 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp29, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp29, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp33, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp33, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8
+  %call38 = invoke { ptr, ptr } @_ZSt11max_elementIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SD_SD_(ptr %40, ptr %42, ptr %44, ptr %46)
           to label %invoke.cont37 unwind label %lpad
 
 invoke.cont37:                                    ; preds = %invoke.cont35
-  %46 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp28, i32 0, i32 0
-  %47 = extractvalue { ptr, ptr } %call38, 0
-  store ptr %47, ptr %46, align 8
-  %48 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp28, i32 0, i32 1
-  %49 = extractvalue { ptr, ptr } %call38, 1
-  store ptr %49, ptr %48, align 8
+  %47 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp28, i32 0, i32 0
+  %48 = extractvalue { ptr, ptr } %call38, 0
+  store ptr %48, ptr %47, align 8
+  %49 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp28, i32 0, i32 1
+  %50 = extractvalue { ptr, ptr } %call38, 1
+  store ptr %50, ptr %49, align 8
   %call39 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp28)
   %upper_40 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 2
   %call42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upper_40, ptr noundef nonnull align 8 dereferenceable(32) %call39)
@@ -126768,11 +126846,12 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 16)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBytesValuesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBytesValuesE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesValues", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN8facebook5velox6common11BytesValuesESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #13
-  %1 = load ptr, ptr %values.addr, align 8
-  %call = call noundef zeroext i1 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #13
+  %2 = load ptr, ptr %values.addr, align 8
+  %call = call noundef zeroext i1 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #13
   %lnot = xor i1 %call, true
   %lnot2 = xor i1 %lnot, true
   br i1 %lnot2, label %if.then, label %if.end
@@ -126782,13 +126861,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %2 = load ptr, ptr %values.addr, align 8
-  %3 = load i8, ptr %nullAllowed.addr, align 1
-  %tobool4 = trunc i8 %3 to i1
+  %3 = load ptr, ptr %values.addr, align 8
+  %4 = load i8, ptr %nullAllowed.addr, align 1
+  %tobool4 = trunc i8 %4 to i1
   %lnot5 = xor i1 %tobool4, true
   %frombool6 = zext i1 %lnot5 to i8
   store i8 %frombool6, ptr %ref.tmp3, align 1
-  invoke void @_ZSt11make_uniqueIN8facebook5velox6common11BytesValuesEJRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.195") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
+  invoke void @_ZSt11make_uniqueIN8facebook5velox6common11BytesValuesEJRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.195") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -126798,12 +126877,12 @@ invoke.cont:                                      ; preds = %if.end
   ret void
 
 lpad:                                             ; preds = %if.end
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN8facebook5velox6common11BytesValuesESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #13
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
@@ -127768,12 +127847,13 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this2, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 18)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10MultiRangeE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10MultiRangeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this2, align 8
   %filters_ = getelementptr inbounds %"class.facebook::velox::common::MultiRange", ptr %this2, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN8facebook5velox6common6FilterESt14default_deleteIS4_EESaIS7_EEC2EOS9_(ptr noundef nonnull align 8 dereferenceable(24) %filters_, ptr noundef nonnull align 8 dereferenceable(24) %filters) #13
   %nanAllowed_ = getelementptr inbounds %"class.facebook::velox::common::MultiRange", ptr %this2, i32 0, i32 2
-  %1 = load i8, ptr %nanAllowed.addr, align 1
-  %tobool3 = trunc i8 %1 to i1
+  %2 = load i8, ptr %nanAllowed.addr, align 1
+  %tobool3 = trunc i8 %2 to i1
   %frombool4 = zext i1 %tobool3 to i8
   store i8 %frombool4, ptr %nanAllowed_, align 8
   ret void
@@ -132551,7 +132631,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(read)
-declare <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64>, ptr, <4 x i64>, <4 x i64>, i8 immarg) #30
+declare <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64>, ptr, <4 x i64>, <4 x i64>, i8 immarg) #29
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEElvEENS_5batchIT0_T_EES6_RKNS_3avxE(i64 noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #7 comdat {
@@ -139546,7 +139626,13 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #31
+declare void @llvm.experimental.noalias.scope.decl(metadata) #30
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #31
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #31
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -139577,9 +139663,9 @@ attributes #25 = { cold noreturn nounwind "frame-pointer"="all" "no-trapping-mat
 attributes #26 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #27 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #28 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #29 = { nocallback nofree nosync nounwind willreturn }
-attributes #30 = { nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #31 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #29 = { nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #30 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #31 = { nocallback nofree nosync nounwind willreturn }
 attributes #32 = { noreturn }
 attributes #33 = { noreturn nounwind }
 attributes #34 = { builtin allocsize(0) }

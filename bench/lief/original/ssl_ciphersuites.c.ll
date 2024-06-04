@@ -183,67 +183,68 @@ define hidden ptr @mbedtls_ssl_list_ciphersuites() #0 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @supported_init, align 4
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %36
+  br i1 %5, label %6, label %37
 
 6:                                                ; preds = %0
   store ptr @ciphersuite_preference, ptr %1, align 8
   store ptr @supported_ciphersuites, ptr %2, align 8
   br label %7
 
-7:                                                ; preds = %31, %6
+7:                                                ; preds = %32, %6
   %8 = load ptr, ptr %1, align 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp ne i32 %9, 0
-  br i1 %10, label %11, label %14
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %2, align 8
-  %13 = icmp ult ptr %12, getelementptr inbounds (i32, ptr @supported_ciphersuites, i64 165)
-  br label %14
+  %13 = getelementptr inbounds i32, ptr @supported_ciphersuites, i64 165
+  %14 = icmp ult ptr %12, %13
+  br label %15
 
-14:                                               ; preds = %11, %7
-  %15 = phi i1 [ false, %7 ], [ %13, %11 ]
-  br i1 %15, label %16, label %34
+15:                                               ; preds = %11, %7
+  %16 = phi i1 [ false, %7 ], [ %14, %11 ]
+  br i1 %16, label %17, label %35
 
-16:                                               ; preds = %14
-  %17 = load ptr, ptr %1, align 8
-  %18 = load i32, ptr %17, align 4
-  %19 = call ptr @mbedtls_ssl_ciphersuite_from_id(i32 noundef %18)
-  store ptr %19, ptr %3, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %30
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %1, align 8
+  %19 = load i32, ptr %18, align 4
+  %20 = call ptr @mbedtls_ssl_ciphersuite_from_id(i32 noundef %19)
+  store ptr %20, ptr %3, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %31
 
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %3, align 8
-  %23 = call i32 @ciphersuite_is_removed(ptr noundef %22)
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %30, label %25
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %3, align 8
+  %24 = call i32 @ciphersuite_is_removed(ptr noundef %23)
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %31, label %26
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %1, align 8
-  %27 = load i32, ptr %26, align 4
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i32 1
-  store ptr %29, ptr %2, align 8
-  store i32 %27, ptr %28, align 4
-  br label %30
-
-30:                                               ; preds = %25, %21, %16
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %1, align 8
+  %28 = load i32, ptr %27, align 4
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds i32, ptr %29, i32 1
+  store ptr %30, ptr %2, align 8
+  store i32 %28, ptr %29, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds i32, ptr %32, i32 1
-  store ptr %33, ptr %1, align 8
+31:                                               ; preds = %26, %22, %17
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %1, align 8
+  %34 = getelementptr inbounds i32, ptr %33, i32 1
+  store ptr %34, ptr %1, align 8
   br label %7, !llvm.loop !4
 
-34:                                               ; preds = %14
-  %35 = load ptr, ptr %2, align 8
-  store i32 0, ptr %35, align 4
+35:                                               ; preds = %15
+  %36 = load ptr, ptr %2, align 8
+  store i32 0, ptr %36, align 4
   store i32 1, ptr @supported_init, align 4
-  br label %36
+  br label %37
 
-36:                                               ; preds = %34, %0
+37:                                               ; preds = %35, %0
   ret ptr @supported_ciphersuites
 }
 

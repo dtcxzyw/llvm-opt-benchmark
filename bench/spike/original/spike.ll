@@ -24792,7 +24792,8 @@ define linkonce_odr void @_ZN12icache_sim_tC2EPKcS1_(ptr noundef nonnull align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN17cache_memtracer_tC2EPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12icache_sim_t, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV12icache_sim_t, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -24836,33 +24837,34 @@ define linkonce_odr void @_ZN17cache_memtracer_tC2EPKcS1_(ptr noundef nonnull al
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN11memtracer_tC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV17cache_memtracer_t, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = invoke noundef ptr @_ZN11cache_sim_t9constructEPKcS1_(ptr noundef %10, ptr noundef %11)
-          to label %13 unwind label %15
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV17cache_memtracer_t, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = invoke noundef ptr @_ZN11cache_sim_t9constructEPKcS1_(ptr noundef %11, ptr noundef %12)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %class.cache_memtracer_t, ptr %9, i32 0, i32 1
-  store ptr %12, ptr %14, align 8
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %class.cache_memtracer_t, ptr %9, i32 0, i32 1
+  store ptr %13, ptr %15, align 8
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
   call void @_ZN11memtracer_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -24958,7 +24960,8 @@ define linkonce_odr void @_ZN11memtracer_tC2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV11memtracer_t, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV11memtracer_t, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -24969,20 +24972,21 @@ define linkonce_odr void @_ZN17cache_memtracer_tD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV17cache_memtracer_t, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cache_memtracer_t, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %11, label %7
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV17cache_memtracer_t, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cache_memtracer_t, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %12, label %8
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 1
-  %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(153) %5) #3
-  br label %11
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 1
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(153) %6) #3
+  br label %12
 
-11:                                               ; preds = %7, %1
+12:                                               ; preds = %8, %1
   call void @_ZN11memtracer_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -25327,7 +25331,8 @@ define linkonce_odr void @_ZN12dcache_sim_tC2EPKcS1_(ptr noundef nonnull align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN17cache_memtracer_tC2EPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12dcache_sim_t, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV12dcache_sim_t, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 

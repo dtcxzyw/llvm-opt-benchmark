@@ -132,13 +132,14 @@ define hidden void @_ZN7nanogui12VScrollPanelC2EPNS_6WidgetE(ptr noundef nonnull
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui12VScrollPanelE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.nanogui::VScrollPanel", ptr %5, i32 0, i32 1
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds %"class.nanogui::VScrollPanel", ptr %5, i32 0, i32 2
-  store float 0.000000e+00, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.nanogui::VScrollPanel", ptr %5, i32 0, i32 3
-  store i8 0, ptr %9, align 4
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7nanogui12VScrollPanelE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.nanogui::VScrollPanel", ptr %5, i32 0, i32 1
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds %"class.nanogui::VScrollPanel", ptr %5, i32 0, i32 2
+  store float 0.000000e+00, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.nanogui::VScrollPanel", ptr %5, i32 0, i32 3
+  store i8 0, ptr %10, align 4
   ret void
 }
 

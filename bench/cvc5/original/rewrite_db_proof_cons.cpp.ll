@@ -135,25 +135,26 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 1 %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal8rewriter18RewriteDbProofConsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal8rewriter18RewriteDbProofConsE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_trrc = getelementptr inbounds %"class.cvc5::internal::rewriter::RewriteDbProofCons", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %env.addr, align 8
-  invoke void @_ZN4cvc58internal8rewriter17BasicRewriteRConsC1ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %d_trrc, ptr noundef nonnull align 1 %1)
+  %2 = load ptr, ptr %env.addr, align 8
+  invoke void @_ZN4cvc58internal8rewriter17BasicRewriteRConsC1ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %d_trrc, ptr noundef nonnull align 1 %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %d_db = getelementptr inbounds %"class.cvc5::internal::rewriter::RewriteDbProofCons", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %db.addr, align 8
-  store ptr %2, ptr %d_db, align 8
+  %3 = load ptr, ptr %db.addr, align 8
+  store ptr %3, ptr %d_db, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 

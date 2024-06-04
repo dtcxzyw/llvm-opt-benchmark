@@ -3765,32 +3765,33 @@ do.end:                                           ; preds = %do.body
 
 land.rhs.i:                                       ; preds = %do.end
   %5 = load ptr, ptr %tctx.addr.i, align 8
-  %cmp1.i = icmp ne ptr %5, inttoptr (i64 1 to ptr)
+  %6 = inttoptr i64 1 to ptr
+  %cmp1.i = icmp ne ptr %5, %6
   br label %prof_tctx_is_valid.exit
 
 prof_tctx_is_valid.exit:                          ; preds = %land.rhs.i, %do.end
-  %6 = phi i1 [ false, %do.end ], [ %cmp1.i, %land.rhs.i ]
-  br i1 %6, label %if.then, label %if.end6
+  %7 = phi i1 [ false, %do.end ], [ %cmp1.i, %land.rhs.i ]
+  br i1 %7, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %prof_tctx_is_valid.exit
-  %7 = load ptr, ptr %prof_info.addr, align 8
-  %alloc_time = getelementptr inbounds %struct.prof_info_s, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %edata.addr, align 8
-  %call3 = call ptr @edata_prof_alloc_time_get(ptr noundef %8)
-  call void @nstime_copy(ptr noundef %alloc_time, ptr noundef %call3)
+  %8 = load ptr, ptr %prof_info.addr, align 8
+  %alloc_time = getelementptr inbounds %struct.prof_info_s, ptr %8, i32 0, i32 0
   %9 = load ptr, ptr %edata.addr, align 8
-  %call4 = call i64 @edata_prof_alloc_size_get(ptr noundef %9)
-  %10 = load ptr, ptr %prof_info.addr, align 8
-  %alloc_size = getelementptr inbounds %struct.prof_info_s, ptr %10, i32 0, i32 2
+  %call3 = call ptr @edata_prof_alloc_time_get(ptr noundef %9)
+  call void @nstime_copy(ptr noundef %alloc_time, ptr noundef %call3)
+  %10 = load ptr, ptr %edata.addr, align 8
+  %call4 = call i64 @edata_prof_alloc_size_get(ptr noundef %10)
+  %11 = load ptr, ptr %prof_info.addr, align 8
+  %alloc_size = getelementptr inbounds %struct.prof_info_s, ptr %11, i32 0, i32 2
   store i64 %call4, ptr %alloc_size, align 8
-  %11 = load i8, ptr %reset_recent.addr, align 1
-  %tobool = trunc i8 %11 to i1
+  %12 = load i8, ptr %reset_recent.addr, align 1
+  %tobool = trunc i8 %12 to i1
   br i1 %tobool, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %if.then
-  %12 = load ptr, ptr %tsd.addr, align 8
-  %13 = load ptr, ptr %edata.addr, align 8
-  call void @prof_recent_alloc_reset(ptr noundef %12, ptr noundef %13)
+  %13 = load ptr, ptr %tsd.addr, align 8
+  %14 = load ptr, ptr %edata.addr, align 8
+  call void @prof_recent_alloc_reset(ptr noundef %13, ptr noundef %14)
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %if.then
@@ -3911,7 +3912,8 @@ entry:
   %edata.addr = alloca ptr, align 8
   store ptr %edata, ptr %edata.addr, align 8
   %0 = load ptr, ptr %edata.addr, align 8
-  call void @large_prof_tctx_set(ptr noundef %0, ptr noundef inttoptr (i64 1 to ptr))
+  %1 = inttoptr i64 1 to ptr
+  call void @large_prof_tctx_set(ptr noundef %0, ptr noundef %1)
   ret void
 }
 

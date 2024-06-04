@@ -145,8 +145,10 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !19
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 200
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !22
-  store ptr getelementptr inbounds inrange(-24, 32) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video22COpenGL3MaterialBaseCBE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video22COpenGL3MaterialBaseCBE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video22COpenGL3MaterialBaseCBE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video22COpenGL3MaterialBaseCBE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %FirstUpdateBase = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %FirstUpdateBase, align 8, !tbaa !6
   %WVPMatrixID = getelementptr inbounds i8, ptr %this, i64 12
@@ -839,8 +841,10 @@ entry:
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %FogColor.i, align 4, !tbaa !15
   %FogStart.i = getelementptr inbounds i8, ptr %this, i64 164
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %FogStart.i, align 4, !tbaa !15
-  store ptr getelementptr inbounds inrange(-24, 32) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video23COpenGL3MaterialSolidCBE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video23COpenGL3MaterialSolidCBE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video23COpenGL3MaterialSolidCBE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video23COpenGL3MaterialSolidCBE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %FirstUpdate = getelementptr inbounds i8, ptr %this, i64 180
   store i8 1, ptr %FirstUpdate, align 4, !tbaa !58
   %TMatrix0ID = getelementptr inbounds i8, ptr %this, i64 184
@@ -1052,8 +1056,10 @@ entry:
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %FogColor.i, align 4, !tbaa !15
   %FogStart.i = getelementptr inbounds i8, ptr %this, i64 164
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %FogStart.i, align 4, !tbaa !15
-  store ptr getelementptr inbounds inrange(-24, 32) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video33COpenGL3MaterialOneTextureBlendCBE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video33COpenGL3MaterialOneTextureBlendCBE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video33COpenGL3MaterialOneTextureBlendCBE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video33COpenGL3MaterialOneTextureBlendCBE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %FirstUpdate = getelementptr inbounds i8, ptr %this, i64 180
   store i8 1, ptr %FirstUpdate, align 4, !tbaa !72
   %TMatrix0ID = getelementptr inbounds i8, ptr %this, i64 184

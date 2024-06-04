@@ -148,7 +148,8 @@ cond.false:                                       ; preds = %entry
 invoke.cont:                                      ; preds = %cond.false
   %arg_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   %freeFunc_.i.i = getelementptr inbounds i8, ptr %call2, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2), ptr %call2, align 8, !tbaa !35
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2
+  store ptr %1, ptr %call2, align 8, !tbaa !35
   %timerData_.i = getelementptr inbounds i8, ptr %call2, i64 48
   store i64 0, ptr %timerData_.i, align 8, !tbaa !38
   store ptr %this, ptr %arg_.i.i, align 8, !tbaa !42
@@ -166,10 +167,10 @@ cond.end:                                         ; preds = %invoke.cont, %entry
   ret ptr %cond
 
 terminate.lpad:                                   ; preds = %cond.false
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #14
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #14
   unreachable
 }
 
@@ -205,7 +206,8 @@ cond.false.i:                                     ; preds = %entry
 invoke.cont.i:                                    ; preds = %cond.false.i
   %arg_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %freeFunc_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2), ptr %call2.i, align 8, !tbaa !35
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %call2.i, align 8, !tbaa !35
   %timerData_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 48
   store i64 0, ptr %timerData_.i.i, align 8, !tbaa !38
   store ptr %0, ptr %arg_.i.i.i, align 8, !tbaa !42
@@ -219,10 +221,10 @@ invoke.cont.i:                                    ; preds = %cond.false.i
   br label %_ZN5folly7TimerFD12allocateDataEv.exit
 
 terminate.lpad.i:                                 ; preds = %cond.false.i
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #14
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #14
   unreachable
 
 _ZN5folly7TimerFD12allocateDataEv.exit:           ; preds = %invoke.cont.i, %entry
@@ -301,17 +303,20 @@ entry:
   store i32 0, ptr %guardCount_.i.i.i, align 8, !tbaa !7
   %destroyPending_.i.i = getelementptr inbounds i8, ptr %this, i64 196
   store i8 0, ptr %destroyPending_.i.i, align 4, !tbaa !48
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !35
+  %2 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %this, align 8, !tbaa !35
+  %3 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2
+  store ptr %3, ptr %0, align 8, !tbaa !35
+  %4 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2
+  store ptr %4, ptr %1, align 8, !tbaa !35
   %ioVecPtr_.i = getelementptr inbounds i8, ptr %this, i64 200
   store ptr null, ptr %ioVecPtr_.i, align 8, !tbaa !49
   %fd_.i = getelementptr inbounds i8, ptr %this, i64 208
   store i32 %call.i, ptr %fd_.i, align 8, !tbaa !14
   %cb_.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   store i32 1, ptr %cb_.i.i.i, align 8, !tbaa !50
-  %2 = getelementptr inbounds i8, ptr %this, i64 160
-  store ptr %0, ptr %2, align 8, !tbaa !51
+  %5 = getelementptr inbounds i8, ptr %this, i64 160
+  store ptr %0, ptr %5, align 8, !tbaa !51
   %cmp.i = icmp sgt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %_ZN5folly7TimerFDC2EPNS_9EventBaseEi.exit
 
@@ -320,24 +325,24 @@ if.then.i:                                        ; preds = %entry
           to label %_ZN5folly7TimerFDC2EPNS_9EventBaseEi.exit unwind label %lpad5.i
 
 lpad5.i:                                          ; preds = %if.then.i
-  %3 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %4 = load ptr, ptr %ioVecPtr_.i, align 8, !tbaa !37
-  %cmp.not.i.i = icmp eq ptr %4, null
+  %7 = load ptr, ptr %ioVecPtr_.i, align 8, !tbaa !37
+  %cmp.not.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i.i: ; preds = %lpad5.i
-  %vtable.i.i.i = load ptr, ptr %4, align 8, !tbaa !35
+  %vtable.i.i.i = load ptr, ptr %7, align 8, !tbaa !35
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %5 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(56) %4) #15
+  %8 = load ptr, ptr %vfn.i.i.i, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(56) %7) #15
   br label %_ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i.i, %lpad5.i
   store ptr null, ptr %ioVecPtr_.i, align 8, !tbaa !37
   tail call void @_ZN5folly18DelayedDestructionD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %1) #15
   tail call void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #15
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %6
 
 _ZN5folly7TimerFDC2EPNS_9EventBaseEi.exit:        ; preds = %if.then.i, %entry
   ret void
@@ -360,17 +365,20 @@ invoke.cont6:
   store i32 0, ptr %guardCount_.i.i, align 8, !tbaa !7
   %destroyPending_.i = getelementptr inbounds i8, ptr %this, i64 196
   store i8 0, ptr %destroyPending_.i, align 4, !tbaa !48
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !35
+  %2 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %this, align 8, !tbaa !35
+  %3 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2
+  store ptr %3, ptr %0, align 8, !tbaa !35
+  %4 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2
+  store ptr %4, ptr %1, align 8, !tbaa !35
   %ioVecPtr_ = getelementptr inbounds i8, ptr %this, i64 200
   store ptr null, ptr %ioVecPtr_, align 8, !tbaa !49
   %fd_ = getelementptr inbounds i8, ptr %this, i64 208
   store i32 %fd, ptr %fd_, align 8, !tbaa !14
   %cb_.i.i = getelementptr inbounds i8, ptr %this, i64 152
   store i32 1, ptr %cb_.i.i, align 8, !tbaa !50
-  %2 = getelementptr inbounds i8, ptr %this, i64 160
-  store ptr %0, ptr %2, align 8, !tbaa !51
+  %5 = getelementptr inbounds i8, ptr %this, i64 160
+  store ptr %0, ptr %5, align 8, !tbaa !51
   %cmp = icmp sgt i32 %fd, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -379,24 +387,24 @@ if.then:                                          ; preds = %invoke.cont6
           to label %if.end unwind label %lpad5
 
 lpad5:                                            ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %4 = load ptr, ptr %ioVecPtr_, align 8, !tbaa !37
-  %cmp.not.i = icmp eq ptr %4, null
+  %7 = load ptr, ptr %ioVecPtr_, align 8, !tbaa !37
+  %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i: ; preds = %lpad5
-  %vtable.i.i = load ptr, ptr %4, align 8, !tbaa !35
+  %vtable.i.i = load ptr, ptr %7, align 8, !tbaa !35
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %5 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(56) %4) #15
+  %8 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(56) %7) #15
   br label %_ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i, %lpad5
   store ptr null, ptr %ioVecPtr_, align 8, !tbaa !37
   tail call void @_ZN5folly18DelayedDestructionD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %1) #15
   tail call void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #15
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %6
 
 if.end:                                           ; preds = %if.then, %invoke.cont6
   ret void
@@ -441,20 +449,23 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 define void @_ZN5folly7TimerFDD2Ev(ptr noundef nonnull align 8 dereferenceable(212) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i = alloca %struct.itimerspec, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
+  %0 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !35
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !35
+  %1 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2
+  store ptr %1, ptr %add.ptr, align 8, !tbaa !35
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !35
+  %2 = getelementptr inbounds { [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2
+  store ptr %2, ptr %add.ptr2, align 8, !tbaa !35
   %fd_.i.i = getelementptr inbounds i8, ptr %this, i64 208
-  %0 = load i32, ptr %fd_.i.i, align 8, !tbaa !14
-  %cmp.i.i = icmp slt i32 %0, 1
+  %3 = load i32, ptr %fd_.i.i, align 8, !tbaa !14
+  %cmp.i.i = icmp slt i32 %3, 1
   br i1 %cmp.i.i, label %invoke.cont, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %val.i.i) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %val.i.i, i8 0, i64 32, i1 false)
-  %call13.i.i = call i32 @timerfd_settime(i32 noundef %0, i32 noundef 0, ptr noundef nonnull %val.i.i, ptr noundef null) #15
+  %call13.i.i = call i32 @timerfd_settime(i32 noundef %3, i32 noundef 0, ptr noundef nonnull %val.i.i, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %val.i.i) #15
   br label %invoke.cont
 
@@ -463,8 +474,8 @@ invoke.cont:                                      ; preds = %if.end.i.i, %entry
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %invoke.cont
-  %1 = load i32, ptr %fd_.i.i, align 8, !tbaa !14
-  %cmp.i = icmp sgt i32 %1, 0
+  %4 = load i32, ptr %fd_.i.i, align 8, !tbaa !14
+  %cmp.i = icmp sgt i32 %4, 0
   br i1 %cmp.i, label %if.then.i, label %invoke.cont3
 
 if.then.i:                                        ; preds = %.noexc
@@ -476,8 +487,8 @@ if.then.i:                                        ; preds = %.noexc
           to label %.noexc5 unwind label %terminate.lpad
 
 .noexc5:                                          ; preds = %.noexc4
-  %2 = load i32, ptr %fd_.i.i, align 8, !tbaa !14
-  %call.i6 = invoke i32 @close(i32 noundef %2)
+  %5 = load i32, ptr %fd_.i.i, align 8, !tbaa !14
+  %call.i6 = invoke i32 @close(i32 noundef %5)
           to label %call.i.noexc unwind label %terminate.lpad
 
 call.i.noexc:                                     ; preds = %.noexc5
@@ -486,15 +497,15 @@ call.i.noexc:                                     ; preds = %.noexc5
 
 invoke.cont3:                                     ; preds = %call.i.noexc, %.noexc
   %ioVecPtr_ = getelementptr inbounds i8, ptr %this, i64 200
-  %3 = load ptr, ptr %ioVecPtr_, align 8, !tbaa !37
-  %cmp.not.i = icmp eq ptr %3, null
+  %6 = load ptr, ptr %ioVecPtr_, align 8, !tbaa !37
+  %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i: ; preds = %invoke.cont3
-  %vtable.i.i = load ptr, ptr %3, align 8, !tbaa !35
+  %vtable.i.i = load ptr, ptr %6, align 8, !tbaa !35
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %4 = load ptr, ptr %vfn.i.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  %7 = load ptr, ptr %vfn.i.i, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(56) %6) #15
   br label %_ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i, %invoke.cont3
@@ -504,10 +515,10 @@ _ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EED2Ev.exit: ; pre
   ret void
 
 terminate.lpad:                                   ; preds = %.noexc5, %.noexc4, %if.then.i, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #14
   unreachable
 }
 

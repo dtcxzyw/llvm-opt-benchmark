@@ -1074,8 +1074,9 @@ return:                                           ; preds = %if.end12, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal i64 @dtls1_link_min_mtu() #1 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @g_probable_mtu, i64 0, i64 2), align 16
-  ret i64 %0
+  %0 = getelementptr inbounds [3 x i64], ptr @g_probable_mtu, i64 0, i64 2
+  %1 = load i64, ptr %0, align 16
+  ret i64 %1
 }
 
 declare i64 @ssl3_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) #0

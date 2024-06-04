@@ -1704,96 +1704,104 @@ define hidden void @_ZN5osgeo4proj9operation14TransformationC1ERKN7dropbox6oxyge
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   call void @_ZN5osgeo4proj9operation19CoordinateOperationC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %18)
   %19 = load ptr, ptr %12, align 8
-  invoke void @_ZN5osgeo4proj9operation15SingleOperationC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation14TransformationE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %19)
-          to label %20 unwind label %44
+  %20 = getelementptr inbounds [12 x ptr], ptr @_ZTTN5osgeo4proj9operation14TransformationE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj9operation15SingleOperationC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(16) %19)
+          to label %21 unwind label %51
 
-20:                                               ; preds = %7
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 0, i32 3), ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 1, i32 11), ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 2, i32 2), ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 3, i32 2), ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 4, i32 2), ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %17, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 5, i32 2), ptr %25, align 8
-  %26 = getelementptr inbounds %"class.osgeo::proj::operation::Transformation", ptr %17, i32 0, i32 1
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_9operation14Transformation7PrivateEJEEESt10unique_ptrIT_St14default_deleteIS7_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.34") align 8 %26)
-          to label %27 unwind label %48
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 0, i32 3
+  store ptr %22, ptr %17, align 8
+  %23 = getelementptr inbounds i8, ptr %17, i64 24
+  %24 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 1, i32 11
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %17, i64 40
+  %26 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 2, i32 2
+  store ptr %26, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %17, i64 48
+  %28 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 3, i32 2
+  store ptr %28, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %17, i64 72
+  %30 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 4, i32 2
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %17, i64 80
+  %32 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 5, i32 2
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds %"class.osgeo::proj::operation::Transformation", ptr %17, i32 0, i32 1
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_9operation14Transformation7PrivateEJEEESt10unique_ptrIT_St14default_deleteIS7_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.34") align 8 %33)
+          to label %34 unwind label %55
 
-27:                                               ; preds = %20
-  %28 = load ptr, ptr %13, align 8
-  invoke void @_ZN5osgeo4proj9operation15SingleOperation18setParameterValuesERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_21GeneralParameterValueEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(24) %28)
-          to label %29 unwind label %52
+34:                                               ; preds = %21
+  %35 = load ptr, ptr %13, align 8
+  invoke void @_ZN5osgeo4proj9operation15SingleOperation18setParameterValuesERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_21GeneralParameterValueEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(24) %35)
+          to label %36 unwind label %59
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %17, align 8
-  %31 = getelementptr i8, ptr %30, i64 -24
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %17, i64 %32
-  %34 = load ptr, ptr %9, align 8
-  %35 = load ptr, ptr %10, align 8
-  %36 = load ptr, ptr %11, align 8
-  invoke void @_ZN5osgeo4proj9operation19CoordinateOperation7setCRSsERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEESC_RKS9_(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36)
-          to label %37 unwind label %52
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %17, align 8
+  %38 = getelementptr i8, ptr %37, i64 -24
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %17, i64 %39
+  %41 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = load ptr, ptr %11, align 8
+  invoke void @_ZN5osgeo4proj9operation19CoordinateOperation7setCRSsERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEESC_RKS9_(ptr noundef nonnull align 8 dereferenceable(72) %40, ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %43)
+          to label %44 unwind label %59
 
-37:                                               ; preds = %29
-  %38 = load ptr, ptr %17, align 8
-  %39 = getelementptr i8, ptr %38, i64 -24
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %17, i64 %40
-  %42 = load ptr, ptr %14, align 8
-  invoke void @_ZN5osgeo4proj9operation19CoordinateOperation13setAccuraciesERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_8metadata18PositionalAccuracyEEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef nonnull align 8 dereferenceable(24) %42)
-          to label %43 unwind label %52
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %17, align 8
+  %46 = getelementptr i8, ptr %45, i64 -24
+  %47 = load i64, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %17, i64 %47
+  %49 = load ptr, ptr %14, align 8
+  invoke void @_ZN5osgeo4proj9operation19CoordinateOperation13setAccuraciesERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_8metadata18PositionalAccuracyEEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(72) %48, ptr noundef nonnull align 8 dereferenceable(24) %49)
+          to label %50 unwind label %59
 
-43:                                               ; preds = %37
+50:                                               ; preds = %44
   ret void
 
-44:                                               ; preds = %7
-  %45 = landingpad { ptr, i32 }
+51:                                               ; preds = %7
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %15, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %16, align 4
-  br label %57
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %15, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %16, align 4
+  br label %65
 
-48:                                               ; preds = %20
-  %49 = landingpad { ptr, i32 }
+55:                                               ; preds = %21
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %15, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %16, align 4
-  br label %56
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %15, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %16, align 4
+  br label %63
 
-52:                                               ; preds = %37, %29, %27
-  %53 = landingpad { ptr, i32 }
+59:                                               ; preds = %44, %36, %34
+  %60 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %15, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %16, align 4
-  call void @_ZNSt10unique_ptrIN5osgeo4proj9operation14Transformation7PrivateESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #16
-  br label %56
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %15, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %16, align 4
+  call void @_ZNSt10unique_ptrIN5osgeo4proj9operation14Transformation7PrivateESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #16
+  br label %63
 
-56:                                               ; preds = %52, %48
-  call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation14TransformationE, i64 0, i64 1)) #16
-  br label %57
+63:                                               ; preds = %59, %55
+  %64 = getelementptr inbounds [12 x ptr], ptr @_ZTTN5osgeo4proj9operation14TransformationE, i64 0, i64 1
+  call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %64) #16
+  br label %65
 
-57:                                               ; preds = %56, %44
-  %58 = getelementptr inbounds i8, ptr %17, i64 24
-  call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %58) #16
-  br label %59
+65:                                               ; preds = %63, %51
+  %66 = getelementptr inbounds i8, ptr %17, i64 24
+  call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %66) #16
+  br label %67
 
-59:                                               ; preds = %57
-  %60 = load ptr, ptr %15, align 8
-  %61 = load i32, ptr %16, align 4
-  %62 = insertvalue { ptr, i32 } poison, ptr %60, 0
-  %63 = insertvalue { ptr, i32 } %62, i32 %61, 1
-  resume { ptr, i32 } %63
+67:                                               ; preds = %65
+  %68 = load ptr, ptr %15, align 8
+  %69 = load i32, ptr %16, align 4
+  %70 = insertvalue { ptr, i32 } poison, ptr %68, 0
+  %71 = insertvalue { ptr, i32 } %70, i32 %69, 1
+  resume { ptr, i32 } %71
 }
 
 declare hidden void @_ZN5osgeo4proj9operation19CoordinateOperationC2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
@@ -2154,61 +2162,69 @@ define hidden void @_ZN5osgeo4proj9operation14TransformationC1ERKS2_(ptr noundef
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
   call void @_ZN5osgeo4proj9operation19CoordinateOperationC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %13)
   %14 = load ptr, ptr %4, align 8
-  invoke void @_ZN5osgeo4proj9operation15SingleOperationC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation14TransformationE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %14)
-          to label %15 unwind label %26
+  %15 = getelementptr inbounds [12 x ptr], ptr @_ZTTN5osgeo4proj9operation14TransformationE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj9operation15SingleOperationC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %14)
+          to label %16 unwind label %33
 
-15:                                               ; preds = %2
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 1, i32 11), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 2, i32 2), ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 3, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 4, i32 2), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 5, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds %"class.osgeo::proj::operation::Transformation", ptr %7, i32 0, i32 1
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %"class.osgeo::proj::operation::Transformation", ptr %22, i32 0, i32 1
-  %24 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt10unique_ptrIN5osgeo4proj9operation14Transformation7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #16
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_9operation14Transformation7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.34") align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %24)
-          to label %25 unwind label %30
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 0, i32 3
+  store ptr %17, ptr %7, align 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 24
+  %19 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 1, i32 11
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 40
+  %21 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 2, i32 2
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 48
+  %23 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 3, i32 2
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 72
+  %25 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 4, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %7, i64 80
+  %27 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation14TransformationE, i32 0, i32 5, i32 2
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds %"class.osgeo::proj::operation::Transformation", ptr %7, i32 0, i32 1
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds %"class.osgeo::proj::operation::Transformation", ptr %29, i32 0, i32 1
+  %31 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt10unique_ptrIN5osgeo4proj9operation14Transformation7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %30) #16
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_9operation14Transformation7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.34") align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %31)
+          to label %32 unwind label %37
 
-25:                                               ; preds = %15
+32:                                               ; preds = %16
   ret void
 
-26:                                               ; preds = %2
-  %27 = landingpad { ptr, i32 }
+33:                                               ; preds = %2
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %5, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %6, align 4
-  br label %34
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %5, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %6, align 4
+  br label %42
 
-30:                                               ; preds = %15
-  %31 = landingpad { ptr, i32 }
+37:                                               ; preds = %16
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %5, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %6, align 4
-  call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([12 x ptr], ptr @_ZTTN5osgeo4proj9operation14TransformationE, i64 0, i64 1)) #16
-  br label %34
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %5, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %6, align 4
+  %41 = getelementptr inbounds [12 x ptr], ptr @_ZTTN5osgeo4proj9operation14TransformationE, i64 0, i64 1
+  call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %41) #16
+  br label %42
 
-34:                                               ; preds = %30, %26
-  %35 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %35) #16
-  br label %36
+42:                                               ; preds = %37, %33
+  %43 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %43) #16
+  br label %44
 
-36:                                               ; preds = %34
-  %37 = load ptr, ptr %5, align 8
-  %38 = load i32, ptr %6, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %5, align 8
+  %46 = load i32, ptr %6, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 declare hidden void @_ZN5osgeo4proj9operation19CoordinateOperationC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
@@ -12062,19 +12078,19 @@ define hidden void @_ZN5osgeo4proj9operation21InverseTransformationC1ERKN7dropbo
   call void @_ZN5osgeo4proj9operation19CoordinateOperationC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
   %12 = load ptr, ptr %4, align 8
   %13 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14TransformationEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %14 unwind label %68
+          to label %14 unwind label %77
 
 14:                                               ; preds = %2
   %15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation14Transformation9targetCRSEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #9
   %16 = load ptr, ptr %4, align 8
   %17 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14TransformationEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %18 unwind label %68
+          to label %18 unwind label %77
 
 18:                                               ; preds = %14
   %19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation14Transformation9sourceCRSEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #9
   %20 = load ptr, ptr %4, align 8
   %21 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14TransformationEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
-          to label %22 unwind label %68
+          to label %22 unwind label %77
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %21, align 8
@@ -12082,43 +12098,43 @@ define hidden void @_ZN5osgeo4proj9operation21InverseTransformationC1ERKN7dropbo
   %25 = load i64, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %21, i64 %25
   %27 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation19CoordinateOperation16interpolationCRSEv(ptr noundef nonnull align 8 dereferenceable(72) %26)
-          to label %28 unwind label %68
+          to label %28 unwind label %77
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %4, align 8
   %30 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14TransformationEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %29)
-          to label %31 unwind label %68
+          to label %31 unwind label %77
 
 31:                                               ; preds = %28
   %32 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation15SingleOperation6methodEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #9
   invoke void @_ZN5osgeo4proj9operation26createPropertiesForInverseERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEE(ptr dead_on_unwind writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %32)
-          to label %33 unwind label %68
+          to label %33 unwind label %77
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %4, align 8
   %35 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14TransformationEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %34)
-          to label %36 unwind label %72
+          to label %36 unwind label %81
 
 36:                                               ; preds = %33
   %37 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation15SingleOperation6methodEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #9
   %38 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation15OperationMethodEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %37)
-          to label %39 unwind label %72
+          to label %39 unwind label %81
 
 39:                                               ; preds = %36
   %40 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15OperationMethod10parametersEv(ptr noundef nonnull align 8 dereferenceable(56) %38) #9
   invoke void @_ZN5osgeo4proj9operation15OperationMethod6createERKNS0_4util11PropertyMapERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_25GeneralOperationParameterEEEESaISE_EE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(24) %40)
-          to label %41 unwind label %72
+          to label %41 unwind label %81
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %4, align 8
   %43 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14TransformationEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %42)
-          to label %44 unwind label %76
+          to label %44 unwind label %85
 
 44:                                               ; preds = %41
   %45 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation15parameterValuesEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #9
   %46 = load ptr, ptr %4, align 8
   %47 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14TransformationEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %46)
-          to label %48 unwind label %76
+          to label %48 unwind label %85
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %47, align 8
@@ -12126,123 +12142,134 @@ define hidden void @_ZN5osgeo4proj9operation21InverseTransformationC1ERKN7dropbo
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %47, i64 %51
   %53 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation19CoordinateOperation29coordinateOperationAccuraciesEv(ptr noundef nonnull align 8 dereferenceable(72) %52)
-          to label %54 unwind label %76
+          to label %54 unwind label %85
 
 54:                                               ; preds = %48
-  invoke void @_ZN5osgeo4proj9operation14TransformationC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEESC_RKS9_RKNS5_IS6_INS1_15OperationMethodEEEERKSt6vectorINS5_IS6_INS1_21GeneralParameterValueEEEESaISN_EERKSK_INS5_IS6_INS0_8metadata18PositionalAccuracyEEEESaISV_EE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %53)
-          to label %55 unwind label %76
+  %55 = getelementptr inbounds [25 x ptr], ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj9operation14TransformationC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEESC_RKS9_RKNS5_IS6_INS1_15OperationMethodEEEERKSt6vectorINS5_IS6_INS1_21GeneralParameterValueEEEESaISN_EERKSK_INS5_IS6_INS0_8metadata18PositionalAccuracyEEEESaISV_EE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %55, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %53)
+          to label %56 unwind label %85
 
-55:                                               ; preds = %54
+56:                                               ; preds = %54
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation15OperationMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
-  %56 = getelementptr inbounds i8, ptr %10, i64 24
-  %57 = load ptr, ptr %4, align 8
-  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEC2IS2_INS5_14TransformationEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %57)
-          to label %58 unwind label %81
+  %57 = getelementptr inbounds i8, ptr %10, i64 24
+  %58 = load ptr, ptr %4, align 8
+  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEC2IS2_INS5_14TransformationEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %58)
+          to label %59 unwind label %90
 
-58:                                               ; preds = %55
-  invoke void @_ZN5osgeo4proj9operation26InverseCoordinateOperationC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEEb(ptr noundef nonnull align 8 dereferenceable(25) %56, ptr noundef getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 0, i64 13), ptr noundef nonnull align 8 dereferenceable(16) %9, i1 noundef zeroext true)
-          to label %59 unwind label %85
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds [25 x ptr], ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 0, i64 13
+  invoke void @_ZN5osgeo4proj9operation26InverseCoordinateOperationC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEEb(ptr noundef nonnull align 8 dereferenceable(25) %57, ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(16) %9, i1 noundef zeroext true)
+          to label %61 unwind label %94
 
-59:                                               ; preds = %58
+61:                                               ; preds = %59
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation21InverseTransformationE, i32 0, i32 0, i32 3), ptr %10, align 8
-  %60 = getelementptr inbounds i8, ptr %10, i64 56
-  store ptr getelementptr inbounds inrange(-88, 56) ({ [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation21InverseTransformationE, i32 0, i32 2, i32 11), ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %10, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation21InverseTransformationE, i32 0, i32 3, i32 2), ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %10, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation21InverseTransformationE, i32 0, i32 4, i32 2), ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %10, i64 104
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation21InverseTransformationE, i32 0, i32 5, i32 2), ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %10, i64 112
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation21InverseTransformationE, i32 0, i32 6, i32 2), ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation21InverseTransformationE, i32 0, i32 1, i32 3), ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %10, i64 24
-  invoke void @_ZN5osgeo4proj9operation26InverseCoordinateOperation24setPropertiesFromForwardEv(ptr noundef nonnull align 8 dereferenceable(25) %66)
-          to label %67 unwind label %89
+  %62 = getelementptr inbounds { [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation21InverseTransformationE, i32 0, i32 0, i32 3
+  store ptr %62, ptr %10, align 8
+  %63 = getelementptr inbounds i8, ptr %10, i64 56
+  %64 = getelementptr inbounds { [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation21InverseTransformationE, i32 0, i32 2, i32 11
+  store ptr %64, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %10, i64 72
+  %66 = getelementptr inbounds { [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation21InverseTransformationE, i32 0, i32 3, i32 2
+  store ptr %66, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %10, i64 80
+  %68 = getelementptr inbounds { [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation21InverseTransformationE, i32 0, i32 4, i32 2
+  store ptr %68, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %10, i64 104
+  %70 = getelementptr inbounds { [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation21InverseTransformationE, i32 0, i32 5, i32 2
+  store ptr %70, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %10, i64 112
+  %72 = getelementptr inbounds { [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation21InverseTransformationE, i32 0, i32 6, i32 2
+  store ptr %72, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %10, i64 24
+  %74 = getelementptr inbounds { [12 x ptr], [8 x ptr], [18 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj9operation21InverseTransformationE, i32 0, i32 1, i32 3
+  store ptr %74, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %10, i64 24
+  invoke void @_ZN5osgeo4proj9operation26InverseCoordinateOperation24setPropertiesFromForwardEv(ptr noundef nonnull align 8 dereferenceable(25) %75)
+          to label %76 unwind label %98
 
-67:                                               ; preds = %59
+76:                                               ; preds = %61
   ret void
 
-68:                                               ; preds = %31, %28, %22, %18, %14, %2
-  %69 = landingpad { ptr, i32 }
+77:                                               ; preds = %31, %28, %22, %18, %14, %2
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %5, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %6, align 4
-  br label %95
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %5, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %6, align 4
+  br label %106
 
-72:                                               ; preds = %39, %36, %33
-  %73 = landingpad { ptr, i32 }
-          cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %5, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %6, align 4
-  br label %80
-
-76:                                               ; preds = %54, %48, %44, %41
-  %77 = landingpad { ptr, i32 }
-          cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %5, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %6, align 4
-  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation15OperationMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
-  br label %80
-
-80:                                               ; preds = %76, %72
-  call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
-  br label %95
-
-81:                                               ; preds = %55
+81:                                               ; preds = %39, %36, %33
   %82 = landingpad { ptr, i32 }
           cleanup
   %83 = extractvalue { ptr, i32 } %82, 0
   store ptr %83, ptr %5, align 8
   %84 = extractvalue { ptr, i32 } %82, 1
   store i32 %84, ptr %6, align 4
-  br label %94
+  br label %89
 
-85:                                               ; preds = %58
+85:                                               ; preds = %54, %48, %44, %41
   %86 = landingpad { ptr, i32 }
           cleanup
   %87 = extractvalue { ptr, i32 } %86, 0
   store ptr %87, ptr %5, align 8
   %88 = extractvalue { ptr, i32 } %86, 1
   store i32 %88, ptr %6, align 4
-  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
-  br label %94
+  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation15OperationMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
+  br label %89
 
-89:                                               ; preds = %59
-  %90 = landingpad { ptr, i32 }
+89:                                               ; preds = %85, %81
+  call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
+  br label %106
+
+90:                                               ; preds = %56
+  %91 = landingpad { ptr, i32 }
           cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %5, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %6, align 4
-  %93 = getelementptr inbounds i8, ptr %10, i64 24
-  call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %93, ptr noundef getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 0, i64 13)) #16
-  br label %94
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %5, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %6, align 4
+  br label %104
 
-94:                                               ; preds = %89, %85, %81
-  call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef getelementptr inbounds ([25 x ptr], ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 0, i64 1)) #16
-  br label %95
+94:                                               ; preds = %59
+  %95 = landingpad { ptr, i32 }
+          cleanup
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %5, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %6, align 4
+  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
+  br label %104
 
-95:                                               ; preds = %94, %80, %68
-  %96 = getelementptr inbounds i8, ptr %10, i64 56
-  call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %96) #16
-  br label %97
+98:                                               ; preds = %61
+  %99 = landingpad { ptr, i32 }
+          cleanup
+  %100 = extractvalue { ptr, i32 } %99, 0
+  store ptr %100, ptr %5, align 8
+  %101 = extractvalue { ptr, i32 } %99, 1
+  store i32 %101, ptr %6, align 4
+  %102 = getelementptr inbounds i8, ptr %10, i64 24
+  %103 = getelementptr inbounds [25 x ptr], ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 0, i64 13
+  call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %102, ptr noundef %103) #16
+  br label %104
 
-97:                                               ; preds = %95
-  %98 = load ptr, ptr %5, align 8
-  %99 = load i32, ptr %6, align 4
-  %100 = insertvalue { ptr, i32 } poison, ptr %98, 0
-  %101 = insertvalue { ptr, i32 } %100, i32 %99, 1
-  resume { ptr, i32 } %101
+104:                                              ; preds = %98, %94, %90
+  %105 = getelementptr inbounds [25 x ptr], ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 0, i64 1
+  call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %105) #16
+  br label %106
+
+106:                                              ; preds = %104, %89, %77
+  %107 = getelementptr inbounds i8, ptr %10, i64 56
+  call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %107) #16
+  br label %108
+
+108:                                              ; preds = %106
+  %109 = load ptr, ptr %5, align 8
+  %110 = load i32, ptr %6, align 4
+  %111 = insertvalue { ptr, i32 } poison, ptr %109, 0
+  %112 = insertvalue { ptr, i32 } %111, i32 %110, 1
+  resume { ptr, i32 } %112
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -18831,10 +18858,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj9operation14Transf
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj9operation14TransformationELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj9operation14TransformationELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -18843,11 +18871,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -21479,33 +21508,34 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9ope
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation21InverseTransformationESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation21InverseTransformationESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(128) %9) #16
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation21InverseTransformationESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(144) %8) #16
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5osgeo4proj9operation21InverseTransformationEJRKN7dropbox6oxygen2nnISt10shared_ptrINS5_14TransformationEEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation21InverseTransformationESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation21InverseTransformationESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(128) %10) #16
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation21InverseTransformationESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(144) %8) #16
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5osgeo4proj9operation21InverseTransformationEJRKN7dropbox6oxygen2nnISt10shared_ptrINS5_14TransformationEEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -22382,10 +22412,11 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj9operation2
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj9operation21InverseTransformationELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.304", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj9operation21InverseTransformationELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.304", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 

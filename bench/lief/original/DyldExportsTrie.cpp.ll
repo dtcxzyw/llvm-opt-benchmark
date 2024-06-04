@@ -286,15 +286,16 @@ define void @_ZN4LIEF5MachO15DyldExportsTrieC2Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldExportsTrieE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %3, i32 0, i32 2
-  store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %3, i32 0, i32 3
-  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #10
-  %7 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO10ExportInfoESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldExportsTrieE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %3, i32 0, i32 2
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %3, i32 0, i32 3
+  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #10
+  %8 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO10ExportInfoESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #10
   ret void
 }
 
@@ -325,9 +326,10 @@ define void @_ZN4LIEF5MachO15DyldExportsTrieD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldExportsTrieE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO10ExportInfoESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldExportsTrieE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO10ExportInfoESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
   call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #10
   ret void
 }
@@ -384,21 +386,22 @@ define void @_ZN4LIEF5MachO15DyldExportsTrieC2ERKS1_(ptr noundef nonnull align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldExportsTrieE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr %7, align 8
-  %11 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %12, i32 0, i32 2
-  %14 = load i32, ptr %13, align 4
-  store i32 %14, ptr %11, align 4
-  %15 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 3
-  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #10
-  %16 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 4
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO10ExportInfoESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #10
+  %7 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldExportsTrieE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %13, i32 0, i32 2
+  %15 = load i32, ptr %14, align 4
+  store i32 %15, ptr %12, align 4
+  %16 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 3
+  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #10
+  %17 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 4
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO10ExportInfoESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #10
   ret void
 }
 
@@ -458,21 +461,22 @@ define void @_ZN4LIEF5MachO15DyldExportsTrieC2ERKNS0_7details21linkedit_data_com
   %11 = getelementptr inbounds %"struct.LIEF::MachO::details::linkedit_data_command", ptr %10, i32 0, i32 1
   %12 = load i32, ptr %11, align 4
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %5, i64 noundef %9, i32 noundef %12)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldExportsTrieE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 1
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"struct.LIEF::MachO::details::linkedit_data_command", ptr %14, i32 0, i32 2
-  %16 = load i32, ptr %15, align 4
-  store i32 %16, ptr %13, align 8
-  %17 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.LIEF::MachO::details::linkedit_data_command", ptr %18, i32 0, i32 3
-  %20 = load i32, ptr %19, align 4
-  store i32 %20, ptr %17, align 4
-  %21 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 3
-  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #10
-  %22 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 4
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO10ExportInfoESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #10
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldExportsTrieE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 1
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"struct.LIEF::MachO::details::linkedit_data_command", ptr %15, i32 0, i32 2
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %14, align 8
+  %18 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 2
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %"struct.LIEF::MachO::details::linkedit_data_command", ptr %19, i32 0, i32 3
+  %21 = load i32, ptr %20, align 4
+  store i32 %21, ptr %18, align 4
+  %22 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 3
+  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #10
+  %23 = getelementptr inbounds %"class.LIEF::MachO::DyldExportsTrie", ptr %5, i32 0, i32 4
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO10ExportInfoESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #10
   ret void
 }
 

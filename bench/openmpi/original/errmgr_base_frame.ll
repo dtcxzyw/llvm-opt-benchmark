@@ -36,19 +36,21 @@ define internal i32 @prte_errmgr_base_open(i32 noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prte_errmgr_base_close() #1 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.prte_errmgr_base_module_2_3_0_t, ptr @prte_errmgr, i32 0, i32 1), align 8
-  %2 = icmp ne ptr null, %1
-  br i1 %2, label %3, label %6
+  %1 = getelementptr inbounds %struct.prte_errmgr_base_module_2_3_0_t, ptr @prte_errmgr, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp ne ptr null, %2
+  br i1 %3, label %4, label %8
 
-3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.prte_errmgr_base_module_2_3_0_t, ptr @prte_errmgr, i32 0, i32 1), align 8
-  %5 = call i32 %4()
-  br label %6
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.prte_errmgr_base_module_2_3_0_t, ptr @prte_errmgr, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = call i32 %6()
+  br label %8
 
-6:                                                ; preds = %3, %0
+8:                                                ; preds = %4, %0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @prte_errmgr, ptr align 8 @prte_errmgr_default_fns, i64 24, i1 false)
-  %7 = call i32 @pmix_mca_base_framework_components_close(ptr noundef @prte_errmgr_base_framework, ptr noundef null)
-  ret i32 %7
+  %9 = call i32 @pmix_mca_base_framework_components_close(ptr noundef @prte_errmgr_base_framework, ptr noundef null)
+  ret i32 %9
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

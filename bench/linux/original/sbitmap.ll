@@ -1374,35 +1374,36 @@ define dso_local void @sbitmap_queue_clear_batch(ptr noundef %0, i32 noundef %1,
 
 45:                                               ; preds = %43, %39
   tail call void @sbitmap_queue_wake_up(ptr noundef %0, i32 noundef %3)
-  %46 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #10, !srcloc !44
-  %47 = add i32 %3, -1
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr i32, ptr %2, i64 %48
-  %50 = load i32, ptr %49, align 4
-  %51 = sub i32 %50, %1
-  %52 = getelementptr inbounds i8, ptr %0, i64 12
-  %53 = load i8, ptr %52, align 4, !range !8, !noundef !9
-  %54 = icmp eq i8 %53, 0
-  br i1 %54, label %55, label %67, !prof !20
+  %46 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %47 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %46) #10, !srcloc !44
+  %48 = add i32 %3, -1
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr i32, ptr %2, i64 %49
+  %51 = load i32, ptr %50, align 4
+  %52 = sub i32 %51, %1
+  %53 = getelementptr inbounds i8, ptr %0, i64 12
+  %54 = load i8, ptr %53, align 4, !range !8, !noundef !9
+  %55 = icmp eq i8 %54, 0
+  br i1 %55, label %56, label %68, !prof !20
 
-55:                                               ; preds = %45
-  %56 = load i32, ptr %0, align 8
-  %57 = icmp ugt i32 %56, %51
-  br i1 %57, label %58, label %67, !prof !20
+56:                                               ; preds = %45
+  %57 = load i32, ptr %0, align 8
+  %58 = icmp ugt i32 %57, %52
+  br i1 %58, label %59, label %68, !prof !20
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %61 = ptrtoint ptr %60 to i64
-  %62 = sext i32 %46 to i64
-  %63 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %62
-  %64 = load i64, ptr %63, align 8
-  %65 = add i64 %64, %61
-  %66 = inttoptr i64 %65 to ptr
-  store i32 %51, ptr %66, align 4
-  br label %67
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = load ptr, ptr %60, align 8
+  %62 = ptrtoint ptr %61 to i64
+  %63 = sext i32 %47 to i64
+  %64 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %63
+  %65 = load i64, ptr %64, align 8
+  %66 = add i64 %65, %62
+  %67 = inttoptr i64 %66 to ptr
+  store i32 %52, ptr %67, align 4
+  br label %68
 
-67:                                               ; preds = %58, %55, %45
+68:                                               ; preds = %59, %56, %45
   ret void
 }
 

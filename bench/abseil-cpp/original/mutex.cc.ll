@@ -597,8 +597,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body2
 
 do.body2:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str.45, i64 118), ptr %absl_raw_log_internal_basename, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str.45, i64 118), i32 noundef 127, ptr noundef @.str.1, ptr noundef @.str.46, ptr noundef @.str.47)
+  %1 = getelementptr i8, ptr @.str.45, i64 118
+  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
+  %2 = getelementptr i8, ptr @.str.45, i64 118
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %2, i32 noundef 127, ptr noundef @.str.1, ptr noundef @.str.46, ptr noundef @.str.47)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %do.body2
@@ -629,10 +631,10 @@ do.end7:                                          ; preds = %do.cond6
   ret void
 
 terminate.lpad:                                   ; preds = %do.body2
-  %1 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #14
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #14
   unreachable
 }
 
@@ -854,66 +856,69 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 358, ptr noundef @.str.48, i64 noundef 102400)
+  %3 = getelementptr i8, ptr @.str, i64 120
+  store ptr %3, ptr %absl_raw_log_internal_basename, align 8
+  %4 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %4, i32 noundef 358, ptr noundef @.str.48, i64 noundef 102400)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
   store ptr @_ZN4abslL11synch_eventE, ptr %__range2, align 8
   store ptr @_ZN4abslL11synch_eventE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (ptr, ptr @_ZN4abslL11synch_eventE, i64 1031), ptr %__end2, align 8
+  %5 = getelementptr inbounds ptr, ptr @_ZN4abslL11synch_eventE, i64 1031
+  store ptr %5, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.end
-  %3 = load ptr, ptr %__begin2, align 8
-  %4 = load ptr, ptr %__end2, align 8
-  %cmp1 = icmp ne ptr %3, %4
+  %6 = load ptr, ptr %__begin2, align 8
+  %7 = load ptr, ptr %__end2, align 8
+  %cmp1 = icmp ne ptr %6, %7
   br i1 %cmp1, label %for.body, label %for.end8
 
 for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %__begin2, align 8
-  store ptr %5, ptr %head, align 8
-  %6 = load ptr, ptr %head, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %e, align 8
+  %8 = load ptr, ptr %__begin2, align 8
+  store ptr %8, ptr %head, align 8
+  %9 = load ptr, ptr %head, align 8
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %e, align 8
   br label %for.cond2
 
 for.cond2:                                        ; preds = %if.end, %for.body
-  %8 = load ptr, ptr %e, align 8
-  %cmp3 = icmp ne ptr %8, null
+  %11 = load ptr, ptr %e, align 8
+  %cmp3 = icmp ne ptr %11, null
   br i1 %cmp3, label %for.body4, label %for.end
 
 for.body4:                                        ; preds = %for.cond2
-  %9 = load ptr, ptr %e, align 8
-  %next5 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %next5, align 8
-  store ptr %10, ptr %next, align 8
-  %11 = load ptr, ptr %e, align 8
-  %refcount = getelementptr inbounds %"struct.absl::SynchEvent", ptr %11, i32 0, i32 0
-  %12 = load i32, ptr %refcount, align 8
-  %dec = add nsw i32 %12, -1
+  %12 = load ptr, ptr %e, align 8
+  %next5 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %12, i32 0, i32 1
+  %13 = load ptr, ptr %next5, align 8
+  store ptr %13, ptr %next, align 8
+  %14 = load ptr, ptr %e, align 8
+  %refcount = getelementptr inbounds %"struct.absl::SynchEvent", ptr %14, i32 0, i32 0
+  %15 = load i32, ptr %refcount, align 8
+  %dec = add nsw i32 %15, -1
   store i32 %dec, ptr %refcount, align 8
   %cmp6 = icmp eq i32 %dec, 0
   br i1 %cmp6, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %for.body4
-  %13 = load ptr, ptr %e, align 8
-  call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %13)
+  %16 = load ptr, ptr %e, align 8
+  call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %16)
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %for.body4
-  %14 = load ptr, ptr %next, align 8
-  store ptr %14, ptr %e, align 8
+  %17 = load ptr, ptr %next, align 8
+  store ptr %17, ptr %e, align 8
   br label %for.cond2, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond2
-  %15 = load ptr, ptr %head, align 8
-  store ptr null, ptr %15, align 8
+  %18 = load ptr, ptr %head, align 8
+  store ptr null, ptr %18, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.end
-  %16 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %16, i32 1
+  %19 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %19, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
@@ -922,59 +927,59 @@ for.end8:                                         ; preds = %for.cond
 
 if.end9:                                          ; preds = %for.end8, %entry
   store ptr null, ptr %e10, align 8
-  %17 = load ptr, ptr %addr.addr, align 8
-  %18 = load i64, ptr %bits.addr, align 8
-  %19 = load i64, ptr %lockbit.addr, align 8
-  %call = call noundef zeroext i1 @_ZN4abslL13AtomicSetBitsEPSt6atomicIlEll(ptr noundef %17, i64 noundef %18, i64 noundef %19)
+  %20 = load ptr, ptr %addr.addr, align 8
+  %21 = load i64, ptr %bits.addr, align 8
+  %22 = load i64, ptr %lockbit.addr, align 8
+  %call = call noundef zeroext i1 @_ZN4abslL13AtomicSetBitsEPSt6atomicIlEll(ptr noundef %20, i64 noundef %21, i64 noundef %22)
   br i1 %call, label %if.end20, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %20 = load i32, ptr %h, align 4
-  %idxprom = zext i32 %20 to i64
+  %23 = load i32, ptr %h, align 4
+  %idxprom = zext i32 %23 to i64
   %arrayidx = getelementptr inbounds [1031 x ptr], ptr @_ZN4abslL11synch_eventE, i64 0, i64 %idxprom
-  %21 = load ptr, ptr %arrayidx, align 8
-  store ptr %21, ptr %e10, align 8
+  %24 = load ptr, ptr %arrayidx, align 8
+  store ptr %24, ptr %e10, align 8
   br label %for.cond12
 
 for.cond12:                                       ; preds = %for.inc17, %if.then11
-  %22 = load ptr, ptr %e10, align 8
-  %cmp13 = icmp ne ptr %22, null
+  %25 = load ptr, ptr %e10, align 8
+  %cmp13 = icmp ne ptr %25, null
   br i1 %cmp13, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.cond12
-  %23 = load ptr, ptr %e10, align 8
-  %masked_addr = getelementptr inbounds %"struct.absl::SynchEvent", ptr %23, i32 0, i32 2
-  %24 = load i64, ptr %masked_addr, align 8
-  %25 = load ptr, ptr %addr.addr, align 8
-  %call14 = call noundef i64 @_ZN4absl13base_internal7HidePtrISt6atomicIlEEEmPT_(ptr noundef %25)
-  %cmp15 = icmp ne i64 %24, %call14
+  %26 = load ptr, ptr %e10, align 8
+  %masked_addr = getelementptr inbounds %"struct.absl::SynchEvent", ptr %26, i32 0, i32 2
+  %27 = load i64, ptr %masked_addr, align 8
+  %28 = load ptr, ptr %addr.addr, align 8
+  %call14 = call noundef i64 @_ZN4absl13base_internal7HidePtrISt6atomicIlEEEmPT_(ptr noundef %28)
+  %cmp15 = icmp ne i64 %27, %call14
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.cond12
-  %26 = phi i1 [ false, %for.cond12 ], [ %cmp15, %land.rhs ]
-  br i1 %26, label %for.body16, label %for.end19
+  %29 = phi i1 [ false, %for.cond12 ], [ %cmp15, %land.rhs ]
+  br i1 %29, label %for.body16, label %for.end19
 
 for.body16:                                       ; preds = %land.end
   br label %for.inc17
 
 for.inc17:                                        ; preds = %for.body16
-  %27 = load ptr, ptr %e10, align 8
-  %next18 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %27, i32 0, i32 1
-  %28 = load ptr, ptr %next18, align 8
-  store ptr %28, ptr %e10, align 8
+  %30 = load ptr, ptr %e10, align 8
+  %next18 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %30, i32 0, i32 1
+  %31 = load ptr, ptr %next18, align 8
+  store ptr %31, ptr %e10, align 8
   br label %for.cond12, !llvm.loop !7
 
 for.end19:                                        ; preds = %land.end
   br label %if.end20
 
 if.end20:                                         ; preds = %for.end19, %if.end9
-  %29 = load ptr, ptr %e10, align 8
-  %cmp21 = icmp eq ptr %29, null
+  %32 = load ptr, ptr %e10, align 8
+  %cmp21 = icmp eq ptr %32, null
   br i1 %cmp21, label %if.then22, label %if.else
 
 if.then22:                                        ; preds = %if.end20
-  %30 = load ptr, ptr %name.addr, align 8
-  %cmp23 = icmp eq ptr %30, null
+  %33 = load ptr, ptr %name.addr, align 8
+  %cmp23 = icmp eq ptr %33, null
   br i1 %cmp23, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %if.then22
@@ -982,61 +987,61 @@ if.then24:                                        ; preds = %if.then22
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then24, %if.then22
-  %31 = load ptr, ptr %name.addr, align 8
-  %call26 = call i64 @strlen(ptr noundef %31) #15
+  %34 = load ptr, ptr %name.addr, align 8
+  %call26 = call i64 @strlen(ptr noundef %34) #15
   store i64 %call26, ptr %l, align 8
-  %32 = load i64, ptr %l, align 8
-  %add = add i64 48, %32
+  %35 = load i64, ptr %l, align 8
+  %add = add i64 48, %35
   %call27 = call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc5AllocEm(i64 noundef %add)
   store ptr %call27, ptr %e10, align 8
-  %33 = load ptr, ptr %e10, align 8
-  %refcount28 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %33, i32 0, i32 0
-  store i32 2, ptr %refcount28, align 8
-  %34 = load ptr, ptr %addr.addr, align 8
-  %call29 = call noundef i64 @_ZN4absl13base_internal7HidePtrISt6atomicIlEEEmPT_(ptr noundef %34)
-  %35 = load ptr, ptr %e10, align 8
-  %masked_addr30 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %35, i32 0, i32 2
-  store i64 %call29, ptr %masked_addr30, align 8
   %36 = load ptr, ptr %e10, align 8
-  %invariant = getelementptr inbounds %"struct.absl::SynchEvent", ptr %36, i32 0, i32 3
-  store ptr null, ptr %invariant, align 8
-  %37 = load ptr, ptr %e10, align 8
-  %arg = getelementptr inbounds %"struct.absl::SynchEvent", ptr %37, i32 0, i32 4
-  store ptr null, ptr %arg, align 8
+  %refcount28 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %36, i32 0, i32 0
+  store i32 2, ptr %refcount28, align 8
+  %37 = load ptr, ptr %addr.addr, align 8
+  %call29 = call noundef i64 @_ZN4absl13base_internal7HidePtrISt6atomicIlEEEmPT_(ptr noundef %37)
   %38 = load ptr, ptr %e10, align 8
-  %log = getelementptr inbounds %"struct.absl::SynchEvent", ptr %38, i32 0, i32 5
-  store i8 0, ptr %log, align 8
+  %masked_addr30 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %38, i32 0, i32 2
+  store i64 %call29, ptr %masked_addr30, align 8
   %39 = load ptr, ptr %e10, align 8
-  %name31 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %39, i32 0, i32 6
+  %invariant = getelementptr inbounds %"struct.absl::SynchEvent", ptr %39, i32 0, i32 3
+  store ptr null, ptr %invariant, align 8
+  %40 = load ptr, ptr %e10, align 8
+  %arg = getelementptr inbounds %"struct.absl::SynchEvent", ptr %40, i32 0, i32 4
+  store ptr null, ptr %arg, align 8
+  %41 = load ptr, ptr %e10, align 8
+  %log = getelementptr inbounds %"struct.absl::SynchEvent", ptr %41, i32 0, i32 5
+  store i8 0, ptr %log, align 8
+  %42 = load ptr, ptr %e10, align 8
+  %name31 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %42, i32 0, i32 6
   %arraydecay = getelementptr inbounds [1 x i8], ptr %name31, i64 0, i64 0
-  %40 = load ptr, ptr %name.addr, align 8
-  %call32 = call ptr @strcpy(ptr noundef %arraydecay, ptr noundef %40) #13
-  %41 = load i32, ptr %h, align 4
-  %idxprom33 = zext i32 %41 to i64
+  %43 = load ptr, ptr %name.addr, align 8
+  %call32 = call ptr @strcpy(ptr noundef %arraydecay, ptr noundef %43) #13
+  %44 = load i32, ptr %h, align 4
+  %idxprom33 = zext i32 %44 to i64
   %arrayidx34 = getelementptr inbounds [1031 x ptr], ptr @_ZN4abslL11synch_eventE, i64 0, i64 %idxprom33
-  %42 = load ptr, ptr %arrayidx34, align 8
-  %43 = load ptr, ptr %e10, align 8
-  %next35 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %43, i32 0, i32 1
-  store ptr %42, ptr %next35, align 8
-  %44 = load ptr, ptr %e10, align 8
-  %45 = load i32, ptr %h, align 4
-  %idxprom36 = zext i32 %45 to i64
+  %45 = load ptr, ptr %arrayidx34, align 8
+  %46 = load ptr, ptr %e10, align 8
+  %next35 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %46, i32 0, i32 1
+  store ptr %45, ptr %next35, align 8
+  %47 = load ptr, ptr %e10, align 8
+  %48 = load i32, ptr %h, align 4
+  %idxprom36 = zext i32 %48 to i64
   %arrayidx37 = getelementptr inbounds [1031 x ptr], ptr @_ZN4abslL11synch_eventE, i64 0, i64 %idxprom36
-  store ptr %44, ptr %arrayidx37, align 8
+  store ptr %47, ptr %arrayidx37, align 8
   br label %if.end40
 
 if.else:                                          ; preds = %if.end20
-  %46 = load ptr, ptr %e10, align 8
-  %refcount38 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %46, i32 0, i32 0
-  %47 = load i32, ptr %refcount38, align 8
-  %inc39 = add nsw i32 %47, 1
+  %49 = load ptr, ptr %e10, align 8
+  %refcount38 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %49, i32 0, i32 0
+  %50 = load i32, ptr %refcount38, align 8
+  %inc39 = add nsw i32 %50, 1
   store i32 %inc39, ptr %refcount38, align 8
   br label %if.end40
 
 if.end40:                                         ; preds = %if.else, %if.end25
   call void @_ZN4absl13base_internal8SpinLock6UnlockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE)
-  %48 = load ptr, ptr %e10, align 8
-  ret ptr %48
+  %51 = load ptr, ptr %e10, align 8
+  ret ptr %51
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2615,8 +2620,10 @@ if.then15:                                        ; preds = %lor.end
   br label %do.body16
 
 do.body16:                                        ; preds = %if.then15
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 1184, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
+  %19 = getelementptr i8, ptr @.str, i64 120
+  store ptr %19, ptr %absl_raw_log_internal_basename, align 8
+  %20 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %20, i32 noundef 1184, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
   br label %do.body17
 
 do.body17:                                        ; preds = %do.body16
@@ -2632,8 +2639,8 @@ if.end19:                                         ; preds = %do.end18, %lor.end
   br label %do.end20
 
 do.end20:                                         ; preds = %if.end19
-  %19 = load ptr, ptr %s.addr, align 8
-  %waitp21 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %19, i32 0, i32 9
+  %21 = load ptr, ptr %s.addr, align 8
+  %waitp21 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %21, i32 0, i32 9
   store ptr null, ptr %waitp21, align 8
   ret void
 }
@@ -3185,74 +3192,75 @@ entry:
   %c = alloca i32, align 4
   %v = alloca i64, align 8
   store ptr %mu, ptr %mu.addr, align 8
-  store ptr getelementptr inbounds (%"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 1), ptr %this.addr.i13, align 8
+  %0 = getelementptr inbounds %"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 1
+  store ptr %0, ptr %this.addr.i13, align 8
   store i32 0, ptr %__m.addr.i14, align 4
   %this1.i17 = load ptr, ptr %this.addr.i13, align 8
-  %0 = load i32, ptr %__m.addr.i14, align 4
-  %call.i18 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef 65535)
-  store i32 %call.i18, ptr %__b.i15, align 4
   %1 = load i32, ptr %__m.addr.i14, align 4
-  switch i32 %1, label %monotonic.i21 [
+  %call.i18 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef 65535)
+  store i32 %call.i18, ptr %__b.i15, align 4
+  %2 = load i32, ptr %__m.addr.i14, align 4
+  switch i32 %2, label %monotonic.i21 [
     i32 1, label %acquire.i20
     i32 2, label %acquire.i20
     i32 5, label %seqcst.i19
   ]
 
 monotonic.i21:                                    ; preds = %entry
-  %2 = load atomic i32, ptr %this1.i17 monotonic, align 4
-  store i32 %2, ptr %atomic-temp.i16, align 4
-  br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
-
-acquire.i20:                                      ; preds = %entry, %entry
-  %3 = load atomic i32, ptr %this1.i17 acquire, align 4
+  %3 = load atomic i32, ptr %this1.i17 monotonic, align 4
   store i32 %3, ptr %atomic-temp.i16, align 4
   br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
 
-seqcst.i19:                                       ; preds = %entry
-  %4 = load atomic i32, ptr %this1.i17 seq_cst, align 4
+acquire.i20:                                      ; preds = %entry, %entry
+  %4 = load atomic i32, ptr %this1.i17 acquire, align 4
   store i32 %4, ptr %atomic-temp.i16, align 4
   br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
 
+seqcst.i19:                                       ; preds = %entry
+  %5 = load atomic i32, ptr %this1.i17 seq_cst, align 4
+  store i32 %5, ptr %atomic-temp.i16, align 4
+  br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
+
 _ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit: ; preds = %seqcst.i19, %acquire.i20, %monotonic.i21
-  %5 = load i32, ptr %atomic-temp.i16, align 4
-  store i32 %5, ptr %c, align 4
+  %6 = load i32, ptr %atomic-temp.i16, align 4
+  store i32 %6, ptr %c, align 4
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
-  %6 = load ptr, ptr %mu.addr, align 8
-  store ptr %6, ptr %this.addr.i, align 8
+  %7 = load ptr, ptr %mu.addr, align 8
+  store ptr %7, ptr %this.addr.i, align 8
   store i32 0, ptr %__m.addr.i, align 4
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %7 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %7, i32 noundef 65535)
-  store i32 %call.i, ptr %__b.i, align 4
   %8 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %8, label %monotonic.i [
+  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %8, i32 noundef 65535)
+  store i32 %call.i, ptr %__b.i, align 4
+  %9 = load i32, ptr %__m.addr.i, align 4
+  switch i32 %9, label %monotonic.i [
     i32 1, label %acquire.i
     i32 2, label %acquire.i
     i32 5, label %seqcst.i
   ]
 
 monotonic.i:                                      ; preds = %do.body
-  %9 = load atomic i64, ptr %this1.i monotonic, align 8
-  store i64 %9, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
-
-acquire.i:                                        ; preds = %do.body, %do.body
-  %10 = load atomic i64, ptr %this1.i acquire, align 8
+  %10 = load atomic i64, ptr %this1.i monotonic, align 8
   store i64 %10, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
 
-seqcst.i:                                         ; preds = %do.body
-  %11 = load atomic i64, ptr %this1.i seq_cst, align 8
+acquire.i:                                        ; preds = %do.body, %do.body
+  %11 = load atomic i64, ptr %this1.i acquire, align 8
   store i64 %11, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
 
+seqcst.i:                                         ; preds = %do.body
+  %12 = load atomic i64, ptr %this1.i seq_cst, align 8
+  store i64 %12, ptr %atomic-temp.i, align 8
+  br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
+
 _ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %12 = load i64, ptr %atomic-temp.i, align 8
-  store i64 %12, ptr %v, align 8
-  %13 = load i64, ptr %v, align 8
-  %and = and i64 %13, 17
+  %13 = load i64, ptr %atomic-temp.i, align 8
+  store i64 %13, ptr %v, align 8
+  %14 = load i64, ptr %v, align 8
+  %and = and i64 %14, 17
   %cmp = icmp ne i64 %and, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -3261,27 +3269,27 @@ if.then:                                          ; preds = %_ZNKSt13__atomic_ba
   br label %return
 
 if.else:                                          ; preds = %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
-  %14 = load i64, ptr %v, align 8
-  %and2 = and i64 %14, 8
+  %15 = load i64, ptr %v, align 8
+  %and2 = and i64 %15, 8
   %cmp3 = icmp eq i64 %and2, 0
   br i1 %cmp3, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %if.else
-  %15 = load ptr, ptr %mu.addr, align 8
-  %16 = load i64, ptr %v, align 8
-  %or = or i64 8, %16
-  store ptr %15, ptr %this.addr.i8, align 8
+  %16 = load ptr, ptr %mu.addr, align 8
+  %17 = load i64, ptr %v, align 8
+  %or = or i64 8, %17
+  store ptr %16, ptr %this.addr.i8, align 8
   store ptr %v, ptr %__i1.addr.i, align 8
   store i64 %or, ptr %__i2.addr.i, align 8
   store i32 2, ptr %__m1.addr.i, align 4
   store i32 0, ptr %__m2.addr.i, align 4
   %this1.i9 = load ptr, ptr %this.addr.i8, align 8
-  %17 = load i32, ptr %__m1.addr.i, align 4
-  %18 = load ptr, ptr %__i1.addr.i, align 8
-  %19 = load i64, ptr %__i2.addr.i, align 8
-  store i64 %19, ptr %.atomictmp.i, align 8
-  %20 = load i32, ptr %__m2.addr.i, align 4
-  switch i32 %17, label %monotonic.i12 [
+  %18 = load i32, ptr %__m1.addr.i, align 4
+  %19 = load ptr, ptr %__i1.addr.i, align 8
+  %20 = load i64, ptr %__i2.addr.i, align 8
+  store i64 %20, ptr %.atomictmp.i, align 8
+  %21 = load i32, ptr %__m2.addr.i, align 4
+  switch i32 %18, label %monotonic.i12 [
     i32 1, label %acquire.i11
     i32 2, label %acquire.i11
     i32 3, label %release.i
@@ -3290,313 +3298,313 @@ land.lhs.true:                                    ; preds = %if.else
   ]
 
 monotonic.i12:                                    ; preds = %land.lhs.true
-  switch i32 %20, label %monotonic_fail.i [
+  switch i32 %21, label %monotonic_fail.i [
     i32 1, label %acquire_fail.i
     i32 2, label %acquire_fail.i
     i32 5, label %seqcst_fail.i
   ]
 
 acquire.i11:                                      ; preds = %land.lhs.true, %land.lhs.true
-  switch i32 %20, label %monotonic_fail9.i [
+  switch i32 %21, label %monotonic_fail9.i [
     i32 1, label %acquire_fail10.i
     i32 2, label %acquire_fail10.i
     i32 5, label %seqcst_fail11.i
   ]
 
 release.i:                                        ; preds = %land.lhs.true
-  switch i32 %20, label %monotonic_fail22.i [
+  switch i32 %21, label %monotonic_fail22.i [
     i32 1, label %acquire_fail23.i
     i32 2, label %acquire_fail23.i
     i32 5, label %seqcst_fail24.i
   ]
 
 acqrel.i:                                         ; preds = %land.lhs.true
-  switch i32 %20, label %monotonic_fail35.i [
+  switch i32 %21, label %monotonic_fail35.i [
     i32 1, label %acquire_fail36.i
     i32 2, label %acquire_fail36.i
     i32 5, label %seqcst_fail37.i
   ]
 
 seqcst.i10:                                       ; preds = %land.lhs.true
-  switch i32 %20, label %monotonic_fail48.i [
+  switch i32 %21, label %monotonic_fail48.i [
     i32 1, label %acquire_fail49.i
     i32 2, label %acquire_fail49.i
     i32 5, label %seqcst_fail50.i
   ]
 
 monotonic_fail.i:                                 ; preds = %monotonic.i12
-  %21 = load i64, ptr %18, align 8
-  %22 = load i64, ptr %.atomictmp.i, align 8
-  %23 = cmpxchg ptr %this1.i9, i64 %21, i64 %22 monotonic monotonic, align 8
-  %24 = extractvalue { i64, i1 } %23, 0
-  %25 = extractvalue { i64, i1 } %23, 1
-  br i1 %25, label %cmpxchg.continue.i, label %cmpxchg.store_expected.i
+  %22 = load i64, ptr %19, align 8
+  %23 = load i64, ptr %.atomictmp.i, align 8
+  %24 = cmpxchg ptr %this1.i9, i64 %22, i64 %23 monotonic monotonic, align 8
+  %25 = extractvalue { i64, i1 } %24, 0
+  %26 = extractvalue { i64, i1 } %24, 1
+  br i1 %26, label %cmpxchg.continue.i, label %cmpxchg.store_expected.i
 
 acquire_fail.i:                                   ; preds = %monotonic.i12, %monotonic.i12
-  %26 = load i64, ptr %18, align 8
-  %27 = load i64, ptr %.atomictmp.i, align 8
-  %28 = cmpxchg ptr %this1.i9, i64 %26, i64 %27 monotonic acquire, align 8
-  %29 = extractvalue { i64, i1 } %28, 0
-  %30 = extractvalue { i64, i1 } %28, 1
-  br i1 %30, label %cmpxchg.continue4.i, label %cmpxchg.store_expected3.i
+  %27 = load i64, ptr %19, align 8
+  %28 = load i64, ptr %.atomictmp.i, align 8
+  %29 = cmpxchg ptr %this1.i9, i64 %27, i64 %28 monotonic acquire, align 8
+  %30 = extractvalue { i64, i1 } %29, 0
+  %31 = extractvalue { i64, i1 } %29, 1
+  br i1 %31, label %cmpxchg.continue4.i, label %cmpxchg.store_expected3.i
 
 seqcst_fail.i:                                    ; preds = %monotonic.i12
-  %31 = load i64, ptr %18, align 8
-  %32 = load i64, ptr %.atomictmp.i, align 8
-  %33 = cmpxchg ptr %this1.i9, i64 %31, i64 %32 monotonic seq_cst, align 8
-  %34 = extractvalue { i64, i1 } %33, 0
-  %35 = extractvalue { i64, i1 } %33, 1
-  br i1 %35, label %cmpxchg.continue7.i, label %cmpxchg.store_expected6.i
+  %32 = load i64, ptr %19, align 8
+  %33 = load i64, ptr %.atomictmp.i, align 8
+  %34 = cmpxchg ptr %this1.i9, i64 %32, i64 %33 monotonic seq_cst, align 8
+  %35 = extractvalue { i64, i1 } %34, 0
+  %36 = extractvalue { i64, i1 } %34, 1
+  br i1 %36, label %cmpxchg.continue7.i, label %cmpxchg.store_expected6.i
 
 atomic.continue2.i:                               ; preds = %cmpxchg.continue7.i, %cmpxchg.continue4.i, %cmpxchg.continue.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected.i:                         ; preds = %monotonic_fail.i
-  store i64 %24, ptr %18, align 8
+  store i64 %25, ptr %19, align 8
   br label %cmpxchg.continue.i
 
 cmpxchg.continue.i:                               ; preds = %cmpxchg.store_expected.i, %monotonic_fail.i
-  %frombool.i = zext i1 %25 to i8
+  %frombool.i = zext i1 %26 to i8
   store i8 %frombool.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue2.i
 
 cmpxchg.store_expected3.i:                        ; preds = %acquire_fail.i
-  store i64 %29, ptr %18, align 8
+  store i64 %30, ptr %19, align 8
   br label %cmpxchg.continue4.i
 
 cmpxchg.continue4.i:                              ; preds = %cmpxchg.store_expected3.i, %acquire_fail.i
-  %frombool5.i = zext i1 %30 to i8
+  %frombool5.i = zext i1 %31 to i8
   store i8 %frombool5.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue2.i
 
 cmpxchg.store_expected6.i:                        ; preds = %seqcst_fail.i
-  store i64 %34, ptr %18, align 8
+  store i64 %35, ptr %19, align 8
   br label %cmpxchg.continue7.i
 
 cmpxchg.continue7.i:                              ; preds = %cmpxchg.store_expected6.i, %seqcst_fail.i
-  %frombool8.i = zext i1 %35 to i8
+  %frombool8.i = zext i1 %36 to i8
   store i8 %frombool8.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue2.i
 
 monotonic_fail9.i:                                ; preds = %acquire.i11
-  %36 = load i64, ptr %18, align 8
-  %37 = load i64, ptr %.atomictmp.i, align 8
-  %38 = cmpxchg ptr %this1.i9, i64 %36, i64 %37 acquire monotonic, align 8
-  %39 = extractvalue { i64, i1 } %38, 0
-  %40 = extractvalue { i64, i1 } %38, 1
-  br i1 %40, label %cmpxchg.continue14.i, label %cmpxchg.store_expected13.i
+  %37 = load i64, ptr %19, align 8
+  %38 = load i64, ptr %.atomictmp.i, align 8
+  %39 = cmpxchg ptr %this1.i9, i64 %37, i64 %38 acquire monotonic, align 8
+  %40 = extractvalue { i64, i1 } %39, 0
+  %41 = extractvalue { i64, i1 } %39, 1
+  br i1 %41, label %cmpxchg.continue14.i, label %cmpxchg.store_expected13.i
 
 acquire_fail10.i:                                 ; preds = %acquire.i11, %acquire.i11
-  %41 = load i64, ptr %18, align 8
-  %42 = load i64, ptr %.atomictmp.i, align 8
-  %43 = cmpxchg ptr %this1.i9, i64 %41, i64 %42 acquire acquire, align 8
-  %44 = extractvalue { i64, i1 } %43, 0
-  %45 = extractvalue { i64, i1 } %43, 1
-  br i1 %45, label %cmpxchg.continue17.i, label %cmpxchg.store_expected16.i
+  %42 = load i64, ptr %19, align 8
+  %43 = load i64, ptr %.atomictmp.i, align 8
+  %44 = cmpxchg ptr %this1.i9, i64 %42, i64 %43 acquire acquire, align 8
+  %45 = extractvalue { i64, i1 } %44, 0
+  %46 = extractvalue { i64, i1 } %44, 1
+  br i1 %46, label %cmpxchg.continue17.i, label %cmpxchg.store_expected16.i
 
 seqcst_fail11.i:                                  ; preds = %acquire.i11
-  %46 = load i64, ptr %18, align 8
-  %47 = load i64, ptr %.atomictmp.i, align 8
-  %48 = cmpxchg ptr %this1.i9, i64 %46, i64 %47 acquire seq_cst, align 8
-  %49 = extractvalue { i64, i1 } %48, 0
-  %50 = extractvalue { i64, i1 } %48, 1
-  br i1 %50, label %cmpxchg.continue20.i, label %cmpxchg.store_expected19.i
+  %47 = load i64, ptr %19, align 8
+  %48 = load i64, ptr %.atomictmp.i, align 8
+  %49 = cmpxchg ptr %this1.i9, i64 %47, i64 %48 acquire seq_cst, align 8
+  %50 = extractvalue { i64, i1 } %49, 0
+  %51 = extractvalue { i64, i1 } %49, 1
+  br i1 %51, label %cmpxchg.continue20.i, label %cmpxchg.store_expected19.i
 
 atomic.continue12.i:                              ; preds = %cmpxchg.continue20.i, %cmpxchg.continue17.i, %cmpxchg.continue14.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected13.i:                       ; preds = %monotonic_fail9.i
-  store i64 %39, ptr %18, align 8
+  store i64 %40, ptr %19, align 8
   br label %cmpxchg.continue14.i
 
 cmpxchg.continue14.i:                             ; preds = %cmpxchg.store_expected13.i, %monotonic_fail9.i
-  %frombool15.i = zext i1 %40 to i8
+  %frombool15.i = zext i1 %41 to i8
   store i8 %frombool15.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue12.i
 
 cmpxchg.store_expected16.i:                       ; preds = %acquire_fail10.i
-  store i64 %44, ptr %18, align 8
+  store i64 %45, ptr %19, align 8
   br label %cmpxchg.continue17.i
 
 cmpxchg.continue17.i:                             ; preds = %cmpxchg.store_expected16.i, %acquire_fail10.i
-  %frombool18.i = zext i1 %45 to i8
+  %frombool18.i = zext i1 %46 to i8
   store i8 %frombool18.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue12.i
 
 cmpxchg.store_expected19.i:                       ; preds = %seqcst_fail11.i
-  store i64 %49, ptr %18, align 8
+  store i64 %50, ptr %19, align 8
   br label %cmpxchg.continue20.i
 
 cmpxchg.continue20.i:                             ; preds = %cmpxchg.store_expected19.i, %seqcst_fail11.i
-  %frombool21.i = zext i1 %50 to i8
+  %frombool21.i = zext i1 %51 to i8
   store i8 %frombool21.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue12.i
 
 monotonic_fail22.i:                               ; preds = %release.i
-  %51 = load i64, ptr %18, align 8
-  %52 = load i64, ptr %.atomictmp.i, align 8
-  %53 = cmpxchg ptr %this1.i9, i64 %51, i64 %52 release monotonic, align 8
-  %54 = extractvalue { i64, i1 } %53, 0
-  %55 = extractvalue { i64, i1 } %53, 1
-  br i1 %55, label %cmpxchg.continue27.i, label %cmpxchg.store_expected26.i
+  %52 = load i64, ptr %19, align 8
+  %53 = load i64, ptr %.atomictmp.i, align 8
+  %54 = cmpxchg ptr %this1.i9, i64 %52, i64 %53 release monotonic, align 8
+  %55 = extractvalue { i64, i1 } %54, 0
+  %56 = extractvalue { i64, i1 } %54, 1
+  br i1 %56, label %cmpxchg.continue27.i, label %cmpxchg.store_expected26.i
 
 acquire_fail23.i:                                 ; preds = %release.i, %release.i
-  %56 = load i64, ptr %18, align 8
-  %57 = load i64, ptr %.atomictmp.i, align 8
-  %58 = cmpxchg ptr %this1.i9, i64 %56, i64 %57 release acquire, align 8
-  %59 = extractvalue { i64, i1 } %58, 0
-  %60 = extractvalue { i64, i1 } %58, 1
-  br i1 %60, label %cmpxchg.continue30.i, label %cmpxchg.store_expected29.i
+  %57 = load i64, ptr %19, align 8
+  %58 = load i64, ptr %.atomictmp.i, align 8
+  %59 = cmpxchg ptr %this1.i9, i64 %57, i64 %58 release acquire, align 8
+  %60 = extractvalue { i64, i1 } %59, 0
+  %61 = extractvalue { i64, i1 } %59, 1
+  br i1 %61, label %cmpxchg.continue30.i, label %cmpxchg.store_expected29.i
 
 seqcst_fail24.i:                                  ; preds = %release.i
-  %61 = load i64, ptr %18, align 8
-  %62 = load i64, ptr %.atomictmp.i, align 8
-  %63 = cmpxchg ptr %this1.i9, i64 %61, i64 %62 release seq_cst, align 8
-  %64 = extractvalue { i64, i1 } %63, 0
-  %65 = extractvalue { i64, i1 } %63, 1
-  br i1 %65, label %cmpxchg.continue33.i, label %cmpxchg.store_expected32.i
+  %62 = load i64, ptr %19, align 8
+  %63 = load i64, ptr %.atomictmp.i, align 8
+  %64 = cmpxchg ptr %this1.i9, i64 %62, i64 %63 release seq_cst, align 8
+  %65 = extractvalue { i64, i1 } %64, 0
+  %66 = extractvalue { i64, i1 } %64, 1
+  br i1 %66, label %cmpxchg.continue33.i, label %cmpxchg.store_expected32.i
 
 atomic.continue25.i:                              ; preds = %cmpxchg.continue33.i, %cmpxchg.continue30.i, %cmpxchg.continue27.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected26.i:                       ; preds = %monotonic_fail22.i
-  store i64 %54, ptr %18, align 8
+  store i64 %55, ptr %19, align 8
   br label %cmpxchg.continue27.i
 
 cmpxchg.continue27.i:                             ; preds = %cmpxchg.store_expected26.i, %monotonic_fail22.i
-  %frombool28.i = zext i1 %55 to i8
+  %frombool28.i = zext i1 %56 to i8
   store i8 %frombool28.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue25.i
 
 cmpxchg.store_expected29.i:                       ; preds = %acquire_fail23.i
-  store i64 %59, ptr %18, align 8
+  store i64 %60, ptr %19, align 8
   br label %cmpxchg.continue30.i
 
 cmpxchg.continue30.i:                             ; preds = %cmpxchg.store_expected29.i, %acquire_fail23.i
-  %frombool31.i = zext i1 %60 to i8
+  %frombool31.i = zext i1 %61 to i8
   store i8 %frombool31.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue25.i
 
 cmpxchg.store_expected32.i:                       ; preds = %seqcst_fail24.i
-  store i64 %64, ptr %18, align 8
+  store i64 %65, ptr %19, align 8
   br label %cmpxchg.continue33.i
 
 cmpxchg.continue33.i:                             ; preds = %cmpxchg.store_expected32.i, %seqcst_fail24.i
-  %frombool34.i = zext i1 %65 to i8
+  %frombool34.i = zext i1 %66 to i8
   store i8 %frombool34.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue25.i
 
 monotonic_fail35.i:                               ; preds = %acqrel.i
-  %66 = load i64, ptr %18, align 8
-  %67 = load i64, ptr %.atomictmp.i, align 8
-  %68 = cmpxchg ptr %this1.i9, i64 %66, i64 %67 acq_rel monotonic, align 8
-  %69 = extractvalue { i64, i1 } %68, 0
-  %70 = extractvalue { i64, i1 } %68, 1
-  br i1 %70, label %cmpxchg.continue40.i, label %cmpxchg.store_expected39.i
+  %67 = load i64, ptr %19, align 8
+  %68 = load i64, ptr %.atomictmp.i, align 8
+  %69 = cmpxchg ptr %this1.i9, i64 %67, i64 %68 acq_rel monotonic, align 8
+  %70 = extractvalue { i64, i1 } %69, 0
+  %71 = extractvalue { i64, i1 } %69, 1
+  br i1 %71, label %cmpxchg.continue40.i, label %cmpxchg.store_expected39.i
 
 acquire_fail36.i:                                 ; preds = %acqrel.i, %acqrel.i
-  %71 = load i64, ptr %18, align 8
-  %72 = load i64, ptr %.atomictmp.i, align 8
-  %73 = cmpxchg ptr %this1.i9, i64 %71, i64 %72 acq_rel acquire, align 8
-  %74 = extractvalue { i64, i1 } %73, 0
-  %75 = extractvalue { i64, i1 } %73, 1
-  br i1 %75, label %cmpxchg.continue43.i, label %cmpxchg.store_expected42.i
+  %72 = load i64, ptr %19, align 8
+  %73 = load i64, ptr %.atomictmp.i, align 8
+  %74 = cmpxchg ptr %this1.i9, i64 %72, i64 %73 acq_rel acquire, align 8
+  %75 = extractvalue { i64, i1 } %74, 0
+  %76 = extractvalue { i64, i1 } %74, 1
+  br i1 %76, label %cmpxchg.continue43.i, label %cmpxchg.store_expected42.i
 
 seqcst_fail37.i:                                  ; preds = %acqrel.i
-  %76 = load i64, ptr %18, align 8
-  %77 = load i64, ptr %.atomictmp.i, align 8
-  %78 = cmpxchg ptr %this1.i9, i64 %76, i64 %77 acq_rel seq_cst, align 8
-  %79 = extractvalue { i64, i1 } %78, 0
-  %80 = extractvalue { i64, i1 } %78, 1
-  br i1 %80, label %cmpxchg.continue46.i, label %cmpxchg.store_expected45.i
+  %77 = load i64, ptr %19, align 8
+  %78 = load i64, ptr %.atomictmp.i, align 8
+  %79 = cmpxchg ptr %this1.i9, i64 %77, i64 %78 acq_rel seq_cst, align 8
+  %80 = extractvalue { i64, i1 } %79, 0
+  %81 = extractvalue { i64, i1 } %79, 1
+  br i1 %81, label %cmpxchg.continue46.i, label %cmpxchg.store_expected45.i
 
 atomic.continue38.i:                              ; preds = %cmpxchg.continue46.i, %cmpxchg.continue43.i, %cmpxchg.continue40.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected39.i:                       ; preds = %monotonic_fail35.i
-  store i64 %69, ptr %18, align 8
+  store i64 %70, ptr %19, align 8
   br label %cmpxchg.continue40.i
 
 cmpxchg.continue40.i:                             ; preds = %cmpxchg.store_expected39.i, %monotonic_fail35.i
-  %frombool41.i = zext i1 %70 to i8
+  %frombool41.i = zext i1 %71 to i8
   store i8 %frombool41.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue38.i
 
 cmpxchg.store_expected42.i:                       ; preds = %acquire_fail36.i
-  store i64 %74, ptr %18, align 8
+  store i64 %75, ptr %19, align 8
   br label %cmpxchg.continue43.i
 
 cmpxchg.continue43.i:                             ; preds = %cmpxchg.store_expected42.i, %acquire_fail36.i
-  %frombool44.i = zext i1 %75 to i8
+  %frombool44.i = zext i1 %76 to i8
   store i8 %frombool44.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue38.i
 
 cmpxchg.store_expected45.i:                       ; preds = %seqcst_fail37.i
-  store i64 %79, ptr %18, align 8
+  store i64 %80, ptr %19, align 8
   br label %cmpxchg.continue46.i
 
 cmpxchg.continue46.i:                             ; preds = %cmpxchg.store_expected45.i, %seqcst_fail37.i
-  %frombool47.i = zext i1 %80 to i8
+  %frombool47.i = zext i1 %81 to i8
   store i8 %frombool47.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue38.i
 
 monotonic_fail48.i:                               ; preds = %seqcst.i10
-  %81 = load i64, ptr %18, align 8
-  %82 = load i64, ptr %.atomictmp.i, align 8
-  %83 = cmpxchg ptr %this1.i9, i64 %81, i64 %82 seq_cst monotonic, align 8
-  %84 = extractvalue { i64, i1 } %83, 0
-  %85 = extractvalue { i64, i1 } %83, 1
-  br i1 %85, label %cmpxchg.continue53.i, label %cmpxchg.store_expected52.i
+  %82 = load i64, ptr %19, align 8
+  %83 = load i64, ptr %.atomictmp.i, align 8
+  %84 = cmpxchg ptr %this1.i9, i64 %82, i64 %83 seq_cst monotonic, align 8
+  %85 = extractvalue { i64, i1 } %84, 0
+  %86 = extractvalue { i64, i1 } %84, 1
+  br i1 %86, label %cmpxchg.continue53.i, label %cmpxchg.store_expected52.i
 
 acquire_fail49.i:                                 ; preds = %seqcst.i10, %seqcst.i10
-  %86 = load i64, ptr %18, align 8
-  %87 = load i64, ptr %.atomictmp.i, align 8
-  %88 = cmpxchg ptr %this1.i9, i64 %86, i64 %87 seq_cst acquire, align 8
-  %89 = extractvalue { i64, i1 } %88, 0
-  %90 = extractvalue { i64, i1 } %88, 1
-  br i1 %90, label %cmpxchg.continue56.i, label %cmpxchg.store_expected55.i
+  %87 = load i64, ptr %19, align 8
+  %88 = load i64, ptr %.atomictmp.i, align 8
+  %89 = cmpxchg ptr %this1.i9, i64 %87, i64 %88 seq_cst acquire, align 8
+  %90 = extractvalue { i64, i1 } %89, 0
+  %91 = extractvalue { i64, i1 } %89, 1
+  br i1 %91, label %cmpxchg.continue56.i, label %cmpxchg.store_expected55.i
 
 seqcst_fail50.i:                                  ; preds = %seqcst.i10
-  %91 = load i64, ptr %18, align 8
-  %92 = load i64, ptr %.atomictmp.i, align 8
-  %93 = cmpxchg ptr %this1.i9, i64 %91, i64 %92 seq_cst seq_cst, align 8
-  %94 = extractvalue { i64, i1 } %93, 0
-  %95 = extractvalue { i64, i1 } %93, 1
-  br i1 %95, label %cmpxchg.continue59.i, label %cmpxchg.store_expected58.i
+  %92 = load i64, ptr %19, align 8
+  %93 = load i64, ptr %.atomictmp.i, align 8
+  %94 = cmpxchg ptr %this1.i9, i64 %92, i64 %93 seq_cst seq_cst, align 8
+  %95 = extractvalue { i64, i1 } %94, 0
+  %96 = extractvalue { i64, i1 } %94, 1
+  br i1 %96, label %cmpxchg.continue59.i, label %cmpxchg.store_expected58.i
 
 atomic.continue51.i:                              ; preds = %cmpxchg.continue59.i, %cmpxchg.continue56.i, %cmpxchg.continue53.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected52.i:                       ; preds = %monotonic_fail48.i
-  store i64 %84, ptr %18, align 8
+  store i64 %85, ptr %19, align 8
   br label %cmpxchg.continue53.i
 
 cmpxchg.continue53.i:                             ; preds = %cmpxchg.store_expected52.i, %monotonic_fail48.i
-  %frombool54.i = zext i1 %85 to i8
+  %frombool54.i = zext i1 %86 to i8
   store i8 %frombool54.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue51.i
 
 cmpxchg.store_expected55.i:                       ; preds = %acquire_fail49.i
-  store i64 %89, ptr %18, align 8
+  store i64 %90, ptr %19, align 8
   br label %cmpxchg.continue56.i
 
 cmpxchg.continue56.i:                             ; preds = %cmpxchg.store_expected55.i, %acquire_fail49.i
-  %frombool57.i = zext i1 %90 to i8
+  %frombool57.i = zext i1 %91 to i8
   store i8 %frombool57.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue51.i
 
 cmpxchg.store_expected58.i:                       ; preds = %seqcst_fail50.i
-  store i64 %94, ptr %18, align 8
+  store i64 %95, ptr %19, align 8
   br label %cmpxchg.continue59.i
 
 cmpxchg.continue59.i:                             ; preds = %cmpxchg.store_expected58.i, %seqcst_fail50.i
-  %frombool60.i = zext i1 %95 to i8
+  %frombool60.i = zext i1 %96 to i8
   store i8 %frombool60.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue51.i
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit: ; preds = %atomic.continue51.i, %atomic.continue38.i, %atomic.continue25.i, %atomic.continue12.i, %atomic.continue2.i
-  %96 = load i8, ptr %cmpxchg.bool.i, align 1
-  %tobool.i = trunc i8 %96 to i1
+  %97 = load i8, ptr %cmpxchg.bool.i, align 1
+  %tobool.i = trunc i8 %97 to i1
   br i1 %tobool.i, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
@@ -3610,8 +3618,8 @@ if.end6:                                          ; preds = %if.end
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end6
-  %97 = load i32, ptr %c, align 4
-  %dec = add nsw i32 %97, -1
+  %98 = load i32, ptr %c, align 4
+  %dec = add nsw i32 %98, -1
   store i32 %dec, ptr %c, align 4
   %cmp7 = icmp sgt i32 %dec, 0
   br i1 %cmp7, label %do.body, label %do.end, !llvm.loop !13
@@ -3621,8 +3629,8 @@ do.end:                                           ; preds = %do.cond
   br label %return
 
 return:                                           ; preds = %do.end, %if.then5, %if.then
-  %98 = load i1, ptr %retval, align 1
-  ret i1 %98
+  %99 = load i1, ptr %retval, align 1
+  ret i1 %99
 }
 
 ; Function Attrs: cold mustprogress uwtable
@@ -3653,37 +3661,38 @@ entry:
   store ptr %cond, ptr %cond.addr, align 8
   store i32 %flags, ptr %flags.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds (%"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 1), ptr %this.addr.i, align 8
+  %0 = getelementptr inbounds %"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 1
+  store ptr %0, ptr %this.addr.i, align 8
   store i32 0, ptr %__m.addr.i, align 4
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef 65535)
-  store i32 %call.i, ptr %__b.i, align 4
   %1 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %1, label %monotonic.i [
+  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef 65535)
+  store i32 %call.i, ptr %__b.i, align 4
+  %2 = load i32, ptr %__m.addr.i, align 4
+  switch i32 %2, label %monotonic.i [
     i32 1, label %acquire.i
     i32 2, label %acquire.i
     i32 5, label %seqcst.i
   ]
 
 monotonic.i:                                      ; preds = %entry
-  %2 = load atomic i32, ptr %this1.i monotonic, align 4
-  store i32 %2, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
-
-acquire.i:                                        ; preds = %entry, %entry
-  %3 = load atomic i32, ptr %this1.i acquire, align 4
+  %3 = load atomic i32, ptr %this1.i monotonic, align 4
   store i32 %3, ptr %atomic-temp.i, align 4
   br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
 
-seqcst.i:                                         ; preds = %entry
-  %4 = load atomic i32, ptr %this1.i seq_cst, align 4
+acquire.i:                                        ; preds = %entry, %entry
+  %4 = load atomic i32, ptr %this1.i acquire, align 4
   store i32 %4, ptr %atomic-temp.i, align 4
   br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
 
+seqcst.i:                                         ; preds = %entry
+  %5 = load atomic i32, ptr %this1.i seq_cst, align 4
+  store i32 %5, ptr %atomic-temp.i, align 4
+  br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
+
 _ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %5 = load i32, ptr %atomic-temp.i, align 4
-  %cmp = icmp eq i32 %5, 0
+  %6 = load i32, ptr %atomic-temp.i, align 4
+  %cmp = icmp eq i32 %6, 0
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
@@ -3692,68 +3701,70 @@ if.then:                                          ; preds = %_ZNKSt13__atomic_ba
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
-  store ptr getelementptr inbounds (%"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 1), ptr %this.addr.i22, align 8
+  %7 = getelementptr inbounds %"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 1
+  store ptr %7, ptr %this.addr.i22, align 8
   store i32 1500, ptr %__i.addr.i23, align 4
   store i32 0, ptr %__m.addr.i24, align 4
   %this1.i27 = load ptr, ptr %this.addr.i22, align 8
-  %6 = load i32, ptr %__m.addr.i24, align 4
-  %call.i28 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %6, i32 noundef 65535)
+  %8 = load i32, ptr %__m.addr.i24, align 4
+  %call.i28 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %8, i32 noundef 65535)
   store i32 %call.i28, ptr %__b.i25, align 4
-  %7 = load i32, ptr %__m.addr.i24, align 4
-  %8 = load i32, ptr %__i.addr.i23, align 4
-  store i32 %8, ptr %.atomictmp.i26, align 4
-  switch i32 %7, label %monotonic.i31 [
+  %9 = load i32, ptr %__m.addr.i24, align 4
+  %10 = load i32, ptr %__i.addr.i23, align 4
+  store i32 %10, ptr %.atomictmp.i26, align 4
+  switch i32 %9, label %monotonic.i31 [
     i32 3, label %release.i30
     i32 5, label %seqcst.i29
   ]
 
 monotonic.i31:                                    ; preds = %if.then4
-  %9 = load i32, ptr %.atomictmp.i26, align 4
-  store atomic i32 %9, ptr %this1.i27 monotonic, align 4
+  %11 = load i32, ptr %.atomictmp.i26, align 4
+  store atomic i32 %11, ptr %this1.i27 monotonic, align 4
   br label %_ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit32
 
 release.i30:                                      ; preds = %if.then4
-  %10 = load i32, ptr %.atomictmp.i26, align 4
-  store atomic i32 %10, ptr %this1.i27 release, align 4
+  %12 = load i32, ptr %.atomictmp.i26, align 4
+  store atomic i32 %12, ptr %this1.i27 release, align 4
   br label %_ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit32
 
 seqcst.i29:                                       ; preds = %if.then4
-  %11 = load i32, ptr %.atomictmp.i26, align 4
-  store atomic i32 %11, ptr %this1.i27 seq_cst, align 4
+  %13 = load i32, ptr %.atomictmp.i26, align 4
+  store atomic i32 %13, ptr %this1.i27 seq_cst, align 4
   br label %_ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit32
 
 _ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit32: ; preds = %seqcst.i29, %release.i30, %monotonic.i31
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  store ptr getelementptr inbounds (%"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 1), ptr %this.addr.i15, align 8
+  %14 = getelementptr inbounds %"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 1
+  store ptr %14, ptr %this.addr.i15, align 8
   store i32 -1, ptr %__i.addr.i, align 4
   store i32 0, ptr %__m.addr.i16, align 4
   %this1.i18 = load ptr, ptr %this.addr.i15, align 8
-  %12 = load i32, ptr %__m.addr.i16, align 4
-  %call.i19 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %12, i32 noundef 65535)
+  %15 = load i32, ptr %__m.addr.i16, align 4
+  %call.i19 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %15, i32 noundef 65535)
   store i32 %call.i19, ptr %__b.i17, align 4
-  %13 = load i32, ptr %__m.addr.i16, align 4
-  %14 = load i32, ptr %__i.addr.i, align 4
-  store i32 %14, ptr %.atomictmp.i, align 4
-  switch i32 %13, label %monotonic.i21 [
+  %16 = load i32, ptr %__m.addr.i16, align 4
+  %17 = load i32, ptr %__i.addr.i, align 4
+  store i32 %17, ptr %.atomictmp.i, align 4
+  switch i32 %16, label %monotonic.i21 [
     i32 3, label %release.i
     i32 5, label %seqcst.i20
   ]
 
 monotonic.i21:                                    ; preds = %if.else
-  %15 = load i32, ptr %.atomictmp.i, align 4
-  store atomic i32 %15, ptr %this1.i18 monotonic, align 4
+  %18 = load i32, ptr %.atomictmp.i, align 4
+  store atomic i32 %18, ptr %this1.i18 monotonic, align 4
   br label %_ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit
 
 release.i:                                        ; preds = %if.else
-  %16 = load i32, ptr %.atomictmp.i, align 4
-  store atomic i32 %16, ptr %this1.i18 release, align 4
+  %19 = load i32, ptr %.atomictmp.i, align 4
+  store atomic i32 %19, ptr %this1.i18 release, align 4
   br label %_ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit
 
 seqcst.i20:                                       ; preds = %if.else
-  %17 = load i32, ptr %.atomictmp.i, align 4
-  store atomic i32 %17, ptr %this1.i18 seq_cst, align 4
+  %20 = load i32, ptr %.atomictmp.i, align 4
+  store atomic i32 %20, ptr %this1.i18 seq_cst, align 4
   br label %_ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit
 
 _ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit: ; preds = %seqcst.i20, %release.i, %monotonic.i21
@@ -3766,15 +3777,15 @@ if.end5:                                          ; preds = %if.end, %_ZNKSt13__
   br label %do.body
 
 do.body:                                          ; preds = %if.end5
-  %18 = load ptr, ptr %how.addr, align 8
-  %19 = load ptr, ptr %cond.addr, align 8
+  %21 = load ptr, ptr %how.addr, align 8
+  %22 = load ptr, ptr %cond.addr, align 8
   %call6 = call i64 @_ZN4absl24synchronization_internal13KernelTimeout5NeverEv()
   %coerce.dive = getelementptr inbounds %"class.absl::synchronization_internal::KernelTimeout", ptr %agg.tmp, i32 0, i32 0
   store i64 %call6, ptr %coerce.dive, align 8
-  %20 = load i32, ptr %flags.addr, align 4
+  %23 = load i32, ptr %flags.addr, align 4
   %coerce.dive7 = getelementptr inbounds %"class.absl::synchronization_internal::KernelTimeout", ptr %agg.tmp, i32 0, i32 0
-  %21 = load i64, ptr %coerce.dive7, align 8
-  %call8 = call noundef zeroext i1 @_ZN4absl5Mutex20LockSlowWithDeadlineEPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEi(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %18, ptr noundef %19, i64 %21, i32 noundef %20)
+  %24 = load i64, ptr %coerce.dive7, align 8
+  %call8 = call noundef zeroext i1 @_ZN4absl5Mutex20LockSlowWithDeadlineEPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEi(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %21, ptr noundef %22, i64 %24, i32 noundef %23)
   %lnot = xor i1 %call8, true
   br i1 %lnot, label %if.then9, label %if.end13
 
@@ -3782,8 +3793,10 @@ if.then9:                                         ; preds = %do.body
   br label %do.body10
 
 do.body10:                                        ; preds = %if.then9
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 1814, ptr noundef @.str.1, ptr noundef @.str.6, ptr noundef @.str.7)
+  %25 = getelementptr i8, ptr @.str, i64 120
+  store ptr %25, ptr %absl_raw_log_internal_basename, align 8
+  %26 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %26, i32 noundef 1814, ptr noundef @.str.1, ptr noundef @.str.6, ptr noundef @.str.7)
   br label %do.body11
 
 do.body11:                                        ; preds = %do.body10
@@ -4885,8 +4898,10 @@ if.then13:                                        ; preds = %lor.end12
   br label %do.body14
 
 do.body14:                                        ; preds = %if.then13
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 1588, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
+  %17 = getelementptr i8, ptr @.str, i64 120
+  store ptr %17, ptr %absl_raw_log_internal_basename, align 8
+  %18 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %18, i32 noundef 1588, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
   br label %do.body15
 
 do.body15:                                        ; preds = %do.body14
@@ -4902,14 +4917,14 @@ if.end17:                                         ; preds = %do.end16, %lor.end1
   br label %do.end18
 
 do.end18:                                         ; preds = %if.end17
-  %17 = load i8, ptr %res, align 1
-  %tobool19 = trunc i8 %17 to i1
+  %19 = load i8, ptr %res, align 1
+  %tobool19 = trunc i8 %19 to i1
   store i1 %tobool19, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %do.end18, %if.then
-  %18 = load i1, ptr %retval, align 1
-  ret i1 %18
+  %20 = load i1, ptr %retval, align 1
+  ret i1 %20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5175,44 +5190,47 @@ if.end:                                           ; preds = %invoke.cont5, %invo
   store ptr null, ptr %w, align 8
   store ptr null, ptr %pw, align 8
   store ptr null, ptr %old_h, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %wake_list, align 8
+  %12 = inttoptr i64 1 to ptr
+  store ptr %12, ptr %wake_list, align 8
   store i64 0, ptr %wr_wait, align 8
   br label %do.body
 
 do.body:                                          ; preds = %if.end
-  %12 = load ptr, ptr %waitp.addr, align 8
-  %cmp6 = icmp eq ptr %12, null
+  %13 = load ptr, ptr %waitp.addr, align 8
+  %cmp6 = icmp eq ptr %13, null
   br i1 %cmp6, label %lor.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.body
-  %13 = load ptr, ptr %waitp.addr, align 8
-  %thread = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %13, i32 0, i32 4
-  %14 = load ptr, ptr %thread, align 8
-  %waitp7 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %14, i32 0, i32 9
-  %15 = load ptr, ptr %waitp7, align 8
-  %cmp8 = icmp eq ptr %15, null
+  %14 = load ptr, ptr %waitp.addr, align 8
+  %thread = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %14, i32 0, i32 4
+  %15 = load ptr, ptr %thread, align 8
+  %waitp7 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %15, i32 0, i32 9
+  %16 = load ptr, ptr %waitp7, align 8
+  %cmp8 = icmp eq ptr %16, null
   br i1 %cmp8, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false
-  %16 = load ptr, ptr %waitp.addr, align 8
-  %thread9 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %16, i32 0, i32 4
-  %17 = load ptr, ptr %thread9, align 8
-  %suppress_fatal_errors = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %17, i32 0, i32 6
-  %18 = load i8, ptr %suppress_fatal_errors, align 4
-  %tobool = trunc i8 %18 to i1
+  %17 = load ptr, ptr %waitp.addr, align 8
+  %thread9 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %17, i32 0, i32 4
+  %18 = load ptr, ptr %thread9, align 8
+  %suppress_fatal_errors = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %18, i32 0, i32 6
+  %19 = load i8, ptr %suppress_fatal_errors, align 4
+  %tobool = trunc i8 %19 to i1
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false, %do.body
-  %19 = phi i1 [ true, %lor.lhs.false ], [ true, %do.body ], [ %tobool, %lor.rhs ]
-  %lnot = xor i1 %19, true
+  %20 = phi i1 [ true, %lor.lhs.false ], [ true, %do.body ], [ %tobool, %lor.rhs ]
+  %lnot = xor i1 %20, true
   br i1 %lnot, label %if.then10, label %if.end16
 
 if.then10:                                        ; preds = %lor.end
   br label %do.body11
 
 do.body11:                                        ; preds = %if.then10
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2109, ptr noundef @.str.1, ptr noundef @.str.15, ptr noundef @.str.9)
+  %21 = getelementptr i8, ptr @.str, i64 120
+  store ptr %21, ptr %absl_raw_log_internal_basename, align 8
+  %22 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %22, i32 noundef 2109, ptr noundef @.str.1, ptr noundef @.str.15, ptr noundef @.str.9)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %do.body11
@@ -5247,66 +5265,66 @@ for.cond:                                         ; preds = %invoke.cont354, %wh
   store ptr %mu_19, ptr %this.addr.i384, align 8
   store i32 0, ptr %__m.addr.i385, align 4
   %this1.i388 = load ptr, ptr %this.addr.i384, align 8
-  %20 = load i32, ptr %__m.addr.i385, align 4
-  %call.i389 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %20, i32 noundef 65535)
+  %23 = load i32, ptr %__m.addr.i385, align 4
+  %call.i389 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %23, i32 noundef 65535)
   store i32 %call.i389, ptr %__b.i386, align 4
-  %21 = load i32, ptr %__m.addr.i385, align 4
-  switch i32 %21, label %monotonic.i392 [
+  %24 = load i32, ptr %__m.addr.i385, align 4
+  switch i32 %24, label %monotonic.i392 [
     i32 1, label %acquire.i391
     i32 2, label %acquire.i391
     i32 5, label %seqcst.i390
   ]
 
 monotonic.i392:                                   ; preds = %for.cond
-  %22 = load atomic i64, ptr %this1.i388 monotonic, align 8
-  store i64 %22, ptr %atomic-temp.i387, align 8
+  %25 = load atomic i64, ptr %this1.i388 monotonic, align 8
+  store i64 %25, ptr %atomic-temp.i387, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit393
 
 acquire.i391:                                     ; preds = %for.cond, %for.cond
-  %23 = load atomic i64, ptr %this1.i388 acquire, align 8
-  store i64 %23, ptr %atomic-temp.i387, align 8
+  %26 = load atomic i64, ptr %this1.i388 acquire, align 8
+  store i64 %26, ptr %atomic-temp.i387, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit393
 
 seqcst.i390:                                      ; preds = %for.cond
-  %24 = load atomic i64, ptr %this1.i388 seq_cst, align 8
-  store i64 %24, ptr %atomic-temp.i387, align 8
+  %27 = load atomic i64, ptr %this1.i388 seq_cst, align 8
+  store i64 %27, ptr %atomic-temp.i387, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit393
 
 _ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit393: ; preds = %seqcst.i390, %acquire.i391, %monotonic.i392
-  %25 = load i64, ptr %atomic-temp.i387, align 8
-  store i64 %25, ptr %v, align 8
-  %26 = load i64, ptr %v, align 8
-  %and21 = and i64 %26, 8
+  %28 = load i64, ptr %atomic-temp.i387, align 8
+  store i64 %28, ptr %v, align 8
+  %29 = load i64, ptr %v, align 8
+  %and21 = and i64 %29, 8
   %cmp22 = icmp ne i64 %and21, 0
   br i1 %cmp22, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit393
-  %27 = load i64, ptr %v, align 8
-  %and23 = and i64 %27, 6
+  %30 = load i64, ptr %v, align 8
+  %and23 = and i64 %30, 6
   %cmp24 = icmp ne i64 %and23, 4
   br i1 %cmp24, label %land.lhs.true25, label %if.else
 
 land.lhs.true25:                                  ; preds = %land.lhs.true
-  %28 = load ptr, ptr %waitp.addr, align 8
-  %cmp26 = icmp eq ptr %28, null
+  %31 = load ptr, ptr %waitp.addr, align 8
+  %cmp26 = icmp eq ptr %31, null
   br i1 %cmp26, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %land.lhs.true25
   %mu_28 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %29 = load i64, ptr %v, align 8
-  %and29 = and i64 %29, -41
+  %32 = load i64, ptr %v, align 8
+  %and29 = and i64 %32, -41
   store ptr %mu_28, ptr %this.addr.i489, align 8
   store ptr %v, ptr %__i1.addr.i490, align 8
   store i64 %and29, ptr %__i2.addr.i491, align 8
   store i32 3, ptr %__m1.addr.i492, align 4
   store i32 0, ptr %__m2.addr.i493, align 4
   %this1.i496 = load ptr, ptr %this.addr.i489, align 8
-  %30 = load i32, ptr %__m1.addr.i492, align 4
-  %31 = load ptr, ptr %__i1.addr.i490, align 8
-  %32 = load i64, ptr %__i2.addr.i491, align 8
-  store i64 %32, ptr %.atomictmp.i494, align 8
-  %33 = load i32, ptr %__m2.addr.i493, align 4
-  switch i32 %30, label %monotonic.i554 [
+  %33 = load i32, ptr %__m1.addr.i492, align 4
+  %34 = load ptr, ptr %__i1.addr.i490, align 8
+  %35 = load i64, ptr %__i2.addr.i491, align 8
+  store i64 %35, ptr %.atomictmp.i494, align 8
+  %36 = load i32, ptr %__m2.addr.i493, align 4
+  switch i32 %33, label %monotonic.i554 [
     i32 1, label %acquire.i540
     i32 2, label %acquire.i540
     i32 3, label %release.i526
@@ -5315,313 +5333,313 @@ if.then27:                                        ; preds = %land.lhs.true25
   ]
 
 monotonic.i554:                                   ; preds = %if.then27
-  switch i32 %33, label %monotonic_fail.i564 [
+  switch i32 %36, label %monotonic_fail.i564 [
     i32 1, label %acquire_fail.i560
     i32 2, label %acquire_fail.i560
     i32 5, label %seqcst_fail.i555
   ]
 
 acquire.i540:                                     ; preds = %if.then27, %if.then27
-  switch i32 %33, label %monotonic_fail9.i550 [
+  switch i32 %36, label %monotonic_fail9.i550 [
     i32 1, label %acquire_fail10.i546
     i32 2, label %acquire_fail10.i546
     i32 5, label %seqcst_fail11.i541
   ]
 
 release.i526:                                     ; preds = %if.then27
-  switch i32 %33, label %monotonic_fail22.i536 [
+  switch i32 %36, label %monotonic_fail22.i536 [
     i32 1, label %acquire_fail23.i532
     i32 2, label %acquire_fail23.i532
     i32 5, label %seqcst_fail24.i527
   ]
 
 acqrel.i512:                                      ; preds = %if.then27
-  switch i32 %33, label %monotonic_fail35.i522 [
+  switch i32 %36, label %monotonic_fail35.i522 [
     i32 1, label %acquire_fail36.i518
     i32 2, label %acquire_fail36.i518
     i32 5, label %seqcst_fail37.i513
   ]
 
 seqcst.i497:                                      ; preds = %if.then27
-  switch i32 %33, label %monotonic_fail48.i508 [
+  switch i32 %36, label %monotonic_fail48.i508 [
     i32 1, label %acquire_fail49.i504
     i32 2, label %acquire_fail49.i504
     i32 5, label %seqcst_fail50.i498
   ]
 
 monotonic_fail.i564:                              ; preds = %monotonic.i554
-  %34 = load i64, ptr %31, align 8
-  %35 = load i64, ptr %.atomictmp.i494, align 8
-  %36 = cmpxchg ptr %this1.i496, i64 %34, i64 %35 monotonic monotonic, align 8
-  %37 = extractvalue { i64, i1 } %36, 0
-  %38 = extractvalue { i64, i1 } %36, 1
-  br i1 %38, label %cmpxchg.continue.i566, label %cmpxchg.store_expected.i565
+  %37 = load i64, ptr %34, align 8
+  %38 = load i64, ptr %.atomictmp.i494, align 8
+  %39 = cmpxchg ptr %this1.i496, i64 %37, i64 %38 monotonic monotonic, align 8
+  %40 = extractvalue { i64, i1 } %39, 0
+  %41 = extractvalue { i64, i1 } %39, 1
+  br i1 %41, label %cmpxchg.continue.i566, label %cmpxchg.store_expected.i565
 
 acquire_fail.i560:                                ; preds = %monotonic.i554, %monotonic.i554
-  %39 = load i64, ptr %31, align 8
-  %40 = load i64, ptr %.atomictmp.i494, align 8
-  %41 = cmpxchg ptr %this1.i496, i64 %39, i64 %40 monotonic acquire, align 8
-  %42 = extractvalue { i64, i1 } %41, 0
-  %43 = extractvalue { i64, i1 } %41, 1
-  br i1 %43, label %cmpxchg.continue4.i562, label %cmpxchg.store_expected3.i561
+  %42 = load i64, ptr %34, align 8
+  %43 = load i64, ptr %.atomictmp.i494, align 8
+  %44 = cmpxchg ptr %this1.i496, i64 %42, i64 %43 monotonic acquire, align 8
+  %45 = extractvalue { i64, i1 } %44, 0
+  %46 = extractvalue { i64, i1 } %44, 1
+  br i1 %46, label %cmpxchg.continue4.i562, label %cmpxchg.store_expected3.i561
 
 seqcst_fail.i555:                                 ; preds = %monotonic.i554
-  %44 = load i64, ptr %31, align 8
-  %45 = load i64, ptr %.atomictmp.i494, align 8
-  %46 = cmpxchg ptr %this1.i496, i64 %44, i64 %45 monotonic seq_cst, align 8
-  %47 = extractvalue { i64, i1 } %46, 0
-  %48 = extractvalue { i64, i1 } %46, 1
-  br i1 %48, label %cmpxchg.continue7.i557, label %cmpxchg.store_expected6.i556
+  %47 = load i64, ptr %34, align 8
+  %48 = load i64, ptr %.atomictmp.i494, align 8
+  %49 = cmpxchg ptr %this1.i496, i64 %47, i64 %48 monotonic seq_cst, align 8
+  %50 = extractvalue { i64, i1 } %49, 0
+  %51 = extractvalue { i64, i1 } %49, 1
+  br i1 %51, label %cmpxchg.continue7.i557, label %cmpxchg.store_expected6.i556
 
 atomic.continue2.i559:                            ; preds = %cmpxchg.continue7.i557, %cmpxchg.continue4.i562, %cmpxchg.continue.i566
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit568
 
 cmpxchg.store_expected.i565:                      ; preds = %monotonic_fail.i564
-  store i64 %37, ptr %31, align 8
+  store i64 %40, ptr %34, align 8
   br label %cmpxchg.continue.i566
 
 cmpxchg.continue.i566:                            ; preds = %cmpxchg.store_expected.i565, %monotonic_fail.i564
-  %frombool.i567 = zext i1 %38 to i8
+  %frombool.i567 = zext i1 %41 to i8
   store i8 %frombool.i567, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue2.i559
 
 cmpxchg.store_expected3.i561:                     ; preds = %acquire_fail.i560
-  store i64 %42, ptr %31, align 8
+  store i64 %45, ptr %34, align 8
   br label %cmpxchg.continue4.i562
 
 cmpxchg.continue4.i562:                           ; preds = %cmpxchg.store_expected3.i561, %acquire_fail.i560
-  %frombool5.i563 = zext i1 %43 to i8
+  %frombool5.i563 = zext i1 %46 to i8
   store i8 %frombool5.i563, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue2.i559
 
 cmpxchg.store_expected6.i556:                     ; preds = %seqcst_fail.i555
-  store i64 %47, ptr %31, align 8
+  store i64 %50, ptr %34, align 8
   br label %cmpxchg.continue7.i557
 
 cmpxchg.continue7.i557:                           ; preds = %cmpxchg.store_expected6.i556, %seqcst_fail.i555
-  %frombool8.i558 = zext i1 %48 to i8
+  %frombool8.i558 = zext i1 %51 to i8
   store i8 %frombool8.i558, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue2.i559
 
 monotonic_fail9.i550:                             ; preds = %acquire.i540
-  %49 = load i64, ptr %31, align 8
-  %50 = load i64, ptr %.atomictmp.i494, align 8
-  %51 = cmpxchg ptr %this1.i496, i64 %49, i64 %50 acquire monotonic, align 8
-  %52 = extractvalue { i64, i1 } %51, 0
-  %53 = extractvalue { i64, i1 } %51, 1
-  br i1 %53, label %cmpxchg.continue14.i552, label %cmpxchg.store_expected13.i551
+  %52 = load i64, ptr %34, align 8
+  %53 = load i64, ptr %.atomictmp.i494, align 8
+  %54 = cmpxchg ptr %this1.i496, i64 %52, i64 %53 acquire monotonic, align 8
+  %55 = extractvalue { i64, i1 } %54, 0
+  %56 = extractvalue { i64, i1 } %54, 1
+  br i1 %56, label %cmpxchg.continue14.i552, label %cmpxchg.store_expected13.i551
 
 acquire_fail10.i546:                              ; preds = %acquire.i540, %acquire.i540
-  %54 = load i64, ptr %31, align 8
-  %55 = load i64, ptr %.atomictmp.i494, align 8
-  %56 = cmpxchg ptr %this1.i496, i64 %54, i64 %55 acquire acquire, align 8
-  %57 = extractvalue { i64, i1 } %56, 0
-  %58 = extractvalue { i64, i1 } %56, 1
-  br i1 %58, label %cmpxchg.continue17.i548, label %cmpxchg.store_expected16.i547
+  %57 = load i64, ptr %34, align 8
+  %58 = load i64, ptr %.atomictmp.i494, align 8
+  %59 = cmpxchg ptr %this1.i496, i64 %57, i64 %58 acquire acquire, align 8
+  %60 = extractvalue { i64, i1 } %59, 0
+  %61 = extractvalue { i64, i1 } %59, 1
+  br i1 %61, label %cmpxchg.continue17.i548, label %cmpxchg.store_expected16.i547
 
 seqcst_fail11.i541:                               ; preds = %acquire.i540
-  %59 = load i64, ptr %31, align 8
-  %60 = load i64, ptr %.atomictmp.i494, align 8
-  %61 = cmpxchg ptr %this1.i496, i64 %59, i64 %60 acquire seq_cst, align 8
-  %62 = extractvalue { i64, i1 } %61, 0
-  %63 = extractvalue { i64, i1 } %61, 1
-  br i1 %63, label %cmpxchg.continue20.i543, label %cmpxchg.store_expected19.i542
+  %62 = load i64, ptr %34, align 8
+  %63 = load i64, ptr %.atomictmp.i494, align 8
+  %64 = cmpxchg ptr %this1.i496, i64 %62, i64 %63 acquire seq_cst, align 8
+  %65 = extractvalue { i64, i1 } %64, 0
+  %66 = extractvalue { i64, i1 } %64, 1
+  br i1 %66, label %cmpxchg.continue20.i543, label %cmpxchg.store_expected19.i542
 
 atomic.continue12.i545:                           ; preds = %cmpxchg.continue20.i543, %cmpxchg.continue17.i548, %cmpxchg.continue14.i552
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit568
 
 cmpxchg.store_expected13.i551:                    ; preds = %monotonic_fail9.i550
-  store i64 %52, ptr %31, align 8
+  store i64 %55, ptr %34, align 8
   br label %cmpxchg.continue14.i552
 
 cmpxchg.continue14.i552:                          ; preds = %cmpxchg.store_expected13.i551, %monotonic_fail9.i550
-  %frombool15.i553 = zext i1 %53 to i8
+  %frombool15.i553 = zext i1 %56 to i8
   store i8 %frombool15.i553, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue12.i545
 
 cmpxchg.store_expected16.i547:                    ; preds = %acquire_fail10.i546
-  store i64 %57, ptr %31, align 8
+  store i64 %60, ptr %34, align 8
   br label %cmpxchg.continue17.i548
 
 cmpxchg.continue17.i548:                          ; preds = %cmpxchg.store_expected16.i547, %acquire_fail10.i546
-  %frombool18.i549 = zext i1 %58 to i8
+  %frombool18.i549 = zext i1 %61 to i8
   store i8 %frombool18.i549, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue12.i545
 
 cmpxchg.store_expected19.i542:                    ; preds = %seqcst_fail11.i541
-  store i64 %62, ptr %31, align 8
+  store i64 %65, ptr %34, align 8
   br label %cmpxchg.continue20.i543
 
 cmpxchg.continue20.i543:                          ; preds = %cmpxchg.store_expected19.i542, %seqcst_fail11.i541
-  %frombool21.i544 = zext i1 %63 to i8
+  %frombool21.i544 = zext i1 %66 to i8
   store i8 %frombool21.i544, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue12.i545
 
 monotonic_fail22.i536:                            ; preds = %release.i526
-  %64 = load i64, ptr %31, align 8
-  %65 = load i64, ptr %.atomictmp.i494, align 8
-  %66 = cmpxchg ptr %this1.i496, i64 %64, i64 %65 release monotonic, align 8
-  %67 = extractvalue { i64, i1 } %66, 0
-  %68 = extractvalue { i64, i1 } %66, 1
-  br i1 %68, label %cmpxchg.continue27.i538, label %cmpxchg.store_expected26.i537
+  %67 = load i64, ptr %34, align 8
+  %68 = load i64, ptr %.atomictmp.i494, align 8
+  %69 = cmpxchg ptr %this1.i496, i64 %67, i64 %68 release monotonic, align 8
+  %70 = extractvalue { i64, i1 } %69, 0
+  %71 = extractvalue { i64, i1 } %69, 1
+  br i1 %71, label %cmpxchg.continue27.i538, label %cmpxchg.store_expected26.i537
 
 acquire_fail23.i532:                              ; preds = %release.i526, %release.i526
-  %69 = load i64, ptr %31, align 8
-  %70 = load i64, ptr %.atomictmp.i494, align 8
-  %71 = cmpxchg ptr %this1.i496, i64 %69, i64 %70 release acquire, align 8
-  %72 = extractvalue { i64, i1 } %71, 0
-  %73 = extractvalue { i64, i1 } %71, 1
-  br i1 %73, label %cmpxchg.continue30.i534, label %cmpxchg.store_expected29.i533
+  %72 = load i64, ptr %34, align 8
+  %73 = load i64, ptr %.atomictmp.i494, align 8
+  %74 = cmpxchg ptr %this1.i496, i64 %72, i64 %73 release acquire, align 8
+  %75 = extractvalue { i64, i1 } %74, 0
+  %76 = extractvalue { i64, i1 } %74, 1
+  br i1 %76, label %cmpxchg.continue30.i534, label %cmpxchg.store_expected29.i533
 
 seqcst_fail24.i527:                               ; preds = %release.i526
-  %74 = load i64, ptr %31, align 8
-  %75 = load i64, ptr %.atomictmp.i494, align 8
-  %76 = cmpxchg ptr %this1.i496, i64 %74, i64 %75 release seq_cst, align 8
-  %77 = extractvalue { i64, i1 } %76, 0
-  %78 = extractvalue { i64, i1 } %76, 1
-  br i1 %78, label %cmpxchg.continue33.i529, label %cmpxchg.store_expected32.i528
+  %77 = load i64, ptr %34, align 8
+  %78 = load i64, ptr %.atomictmp.i494, align 8
+  %79 = cmpxchg ptr %this1.i496, i64 %77, i64 %78 release seq_cst, align 8
+  %80 = extractvalue { i64, i1 } %79, 0
+  %81 = extractvalue { i64, i1 } %79, 1
+  br i1 %81, label %cmpxchg.continue33.i529, label %cmpxchg.store_expected32.i528
 
 atomic.continue25.i531:                           ; preds = %cmpxchg.continue33.i529, %cmpxchg.continue30.i534, %cmpxchg.continue27.i538
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit568
 
 cmpxchg.store_expected26.i537:                    ; preds = %monotonic_fail22.i536
-  store i64 %67, ptr %31, align 8
+  store i64 %70, ptr %34, align 8
   br label %cmpxchg.continue27.i538
 
 cmpxchg.continue27.i538:                          ; preds = %cmpxchg.store_expected26.i537, %monotonic_fail22.i536
-  %frombool28.i539 = zext i1 %68 to i8
+  %frombool28.i539 = zext i1 %71 to i8
   store i8 %frombool28.i539, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue25.i531
 
 cmpxchg.store_expected29.i533:                    ; preds = %acquire_fail23.i532
-  store i64 %72, ptr %31, align 8
+  store i64 %75, ptr %34, align 8
   br label %cmpxchg.continue30.i534
 
 cmpxchg.continue30.i534:                          ; preds = %cmpxchg.store_expected29.i533, %acquire_fail23.i532
-  %frombool31.i535 = zext i1 %73 to i8
+  %frombool31.i535 = zext i1 %76 to i8
   store i8 %frombool31.i535, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue25.i531
 
 cmpxchg.store_expected32.i528:                    ; preds = %seqcst_fail24.i527
-  store i64 %77, ptr %31, align 8
+  store i64 %80, ptr %34, align 8
   br label %cmpxchg.continue33.i529
 
 cmpxchg.continue33.i529:                          ; preds = %cmpxchg.store_expected32.i528, %seqcst_fail24.i527
-  %frombool34.i530 = zext i1 %78 to i8
+  %frombool34.i530 = zext i1 %81 to i8
   store i8 %frombool34.i530, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue25.i531
 
 monotonic_fail35.i522:                            ; preds = %acqrel.i512
-  %79 = load i64, ptr %31, align 8
-  %80 = load i64, ptr %.atomictmp.i494, align 8
-  %81 = cmpxchg ptr %this1.i496, i64 %79, i64 %80 acq_rel monotonic, align 8
-  %82 = extractvalue { i64, i1 } %81, 0
-  %83 = extractvalue { i64, i1 } %81, 1
-  br i1 %83, label %cmpxchg.continue40.i524, label %cmpxchg.store_expected39.i523
+  %82 = load i64, ptr %34, align 8
+  %83 = load i64, ptr %.atomictmp.i494, align 8
+  %84 = cmpxchg ptr %this1.i496, i64 %82, i64 %83 acq_rel monotonic, align 8
+  %85 = extractvalue { i64, i1 } %84, 0
+  %86 = extractvalue { i64, i1 } %84, 1
+  br i1 %86, label %cmpxchg.continue40.i524, label %cmpxchg.store_expected39.i523
 
 acquire_fail36.i518:                              ; preds = %acqrel.i512, %acqrel.i512
-  %84 = load i64, ptr %31, align 8
-  %85 = load i64, ptr %.atomictmp.i494, align 8
-  %86 = cmpxchg ptr %this1.i496, i64 %84, i64 %85 acq_rel acquire, align 8
-  %87 = extractvalue { i64, i1 } %86, 0
-  %88 = extractvalue { i64, i1 } %86, 1
-  br i1 %88, label %cmpxchg.continue43.i520, label %cmpxchg.store_expected42.i519
+  %87 = load i64, ptr %34, align 8
+  %88 = load i64, ptr %.atomictmp.i494, align 8
+  %89 = cmpxchg ptr %this1.i496, i64 %87, i64 %88 acq_rel acquire, align 8
+  %90 = extractvalue { i64, i1 } %89, 0
+  %91 = extractvalue { i64, i1 } %89, 1
+  br i1 %91, label %cmpxchg.continue43.i520, label %cmpxchg.store_expected42.i519
 
 seqcst_fail37.i513:                               ; preds = %acqrel.i512
-  %89 = load i64, ptr %31, align 8
-  %90 = load i64, ptr %.atomictmp.i494, align 8
-  %91 = cmpxchg ptr %this1.i496, i64 %89, i64 %90 acq_rel seq_cst, align 8
-  %92 = extractvalue { i64, i1 } %91, 0
-  %93 = extractvalue { i64, i1 } %91, 1
-  br i1 %93, label %cmpxchg.continue46.i515, label %cmpxchg.store_expected45.i514
+  %92 = load i64, ptr %34, align 8
+  %93 = load i64, ptr %.atomictmp.i494, align 8
+  %94 = cmpxchg ptr %this1.i496, i64 %92, i64 %93 acq_rel seq_cst, align 8
+  %95 = extractvalue { i64, i1 } %94, 0
+  %96 = extractvalue { i64, i1 } %94, 1
+  br i1 %96, label %cmpxchg.continue46.i515, label %cmpxchg.store_expected45.i514
 
 atomic.continue38.i517:                           ; preds = %cmpxchg.continue46.i515, %cmpxchg.continue43.i520, %cmpxchg.continue40.i524
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit568
 
 cmpxchg.store_expected39.i523:                    ; preds = %monotonic_fail35.i522
-  store i64 %82, ptr %31, align 8
+  store i64 %85, ptr %34, align 8
   br label %cmpxchg.continue40.i524
 
 cmpxchg.continue40.i524:                          ; preds = %cmpxchg.store_expected39.i523, %monotonic_fail35.i522
-  %frombool41.i525 = zext i1 %83 to i8
+  %frombool41.i525 = zext i1 %86 to i8
   store i8 %frombool41.i525, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue38.i517
 
 cmpxchg.store_expected42.i519:                    ; preds = %acquire_fail36.i518
-  store i64 %87, ptr %31, align 8
+  store i64 %90, ptr %34, align 8
   br label %cmpxchg.continue43.i520
 
 cmpxchg.continue43.i520:                          ; preds = %cmpxchg.store_expected42.i519, %acquire_fail36.i518
-  %frombool44.i521 = zext i1 %88 to i8
+  %frombool44.i521 = zext i1 %91 to i8
   store i8 %frombool44.i521, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue38.i517
 
 cmpxchg.store_expected45.i514:                    ; preds = %seqcst_fail37.i513
-  store i64 %92, ptr %31, align 8
+  store i64 %95, ptr %34, align 8
   br label %cmpxchg.continue46.i515
 
 cmpxchg.continue46.i515:                          ; preds = %cmpxchg.store_expected45.i514, %seqcst_fail37.i513
-  %frombool47.i516 = zext i1 %93 to i8
+  %frombool47.i516 = zext i1 %96 to i8
   store i8 %frombool47.i516, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue38.i517
 
 monotonic_fail48.i508:                            ; preds = %seqcst.i497
-  %94 = load i64, ptr %31, align 8
-  %95 = load i64, ptr %.atomictmp.i494, align 8
-  %96 = cmpxchg ptr %this1.i496, i64 %94, i64 %95 seq_cst monotonic, align 8
-  %97 = extractvalue { i64, i1 } %96, 0
-  %98 = extractvalue { i64, i1 } %96, 1
-  br i1 %98, label %cmpxchg.continue53.i510, label %cmpxchg.store_expected52.i509
+  %97 = load i64, ptr %34, align 8
+  %98 = load i64, ptr %.atomictmp.i494, align 8
+  %99 = cmpxchg ptr %this1.i496, i64 %97, i64 %98 seq_cst monotonic, align 8
+  %100 = extractvalue { i64, i1 } %99, 0
+  %101 = extractvalue { i64, i1 } %99, 1
+  br i1 %101, label %cmpxchg.continue53.i510, label %cmpxchg.store_expected52.i509
 
 acquire_fail49.i504:                              ; preds = %seqcst.i497, %seqcst.i497
-  %99 = load i64, ptr %31, align 8
-  %100 = load i64, ptr %.atomictmp.i494, align 8
-  %101 = cmpxchg ptr %this1.i496, i64 %99, i64 %100 seq_cst acquire, align 8
-  %102 = extractvalue { i64, i1 } %101, 0
-  %103 = extractvalue { i64, i1 } %101, 1
-  br i1 %103, label %cmpxchg.continue56.i506, label %cmpxchg.store_expected55.i505
+  %102 = load i64, ptr %34, align 8
+  %103 = load i64, ptr %.atomictmp.i494, align 8
+  %104 = cmpxchg ptr %this1.i496, i64 %102, i64 %103 seq_cst acquire, align 8
+  %105 = extractvalue { i64, i1 } %104, 0
+  %106 = extractvalue { i64, i1 } %104, 1
+  br i1 %106, label %cmpxchg.continue56.i506, label %cmpxchg.store_expected55.i505
 
 seqcst_fail50.i498:                               ; preds = %seqcst.i497
-  %104 = load i64, ptr %31, align 8
-  %105 = load i64, ptr %.atomictmp.i494, align 8
-  %106 = cmpxchg ptr %this1.i496, i64 %104, i64 %105 seq_cst seq_cst, align 8
-  %107 = extractvalue { i64, i1 } %106, 0
-  %108 = extractvalue { i64, i1 } %106, 1
-  br i1 %108, label %cmpxchg.continue59.i500, label %cmpxchg.store_expected58.i499
+  %107 = load i64, ptr %34, align 8
+  %108 = load i64, ptr %.atomictmp.i494, align 8
+  %109 = cmpxchg ptr %this1.i496, i64 %107, i64 %108 seq_cst seq_cst, align 8
+  %110 = extractvalue { i64, i1 } %109, 0
+  %111 = extractvalue { i64, i1 } %109, 1
+  br i1 %111, label %cmpxchg.continue59.i500, label %cmpxchg.store_expected58.i499
 
 atomic.continue51.i502:                           ; preds = %cmpxchg.continue59.i500, %cmpxchg.continue56.i506, %cmpxchg.continue53.i510
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit568
 
 cmpxchg.store_expected52.i509:                    ; preds = %monotonic_fail48.i508
-  store i64 %97, ptr %31, align 8
+  store i64 %100, ptr %34, align 8
   br label %cmpxchg.continue53.i510
 
 cmpxchg.continue53.i510:                          ; preds = %cmpxchg.store_expected52.i509, %monotonic_fail48.i508
-  %frombool54.i511 = zext i1 %98 to i8
+  %frombool54.i511 = zext i1 %101 to i8
   store i8 %frombool54.i511, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue51.i502
 
 cmpxchg.store_expected55.i505:                    ; preds = %acquire_fail49.i504
-  store i64 %102, ptr %31, align 8
+  store i64 %105, ptr %34, align 8
   br label %cmpxchg.continue56.i506
 
 cmpxchg.continue56.i506:                          ; preds = %cmpxchg.store_expected55.i505, %acquire_fail49.i504
-  %frombool57.i507 = zext i1 %103 to i8
+  %frombool57.i507 = zext i1 %106 to i8
   store i8 %frombool57.i507, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue51.i502
 
 cmpxchg.store_expected58.i499:                    ; preds = %seqcst_fail50.i498
-  store i64 %107, ptr %31, align 8
+  store i64 %110, ptr %34, align 8
   br label %cmpxchg.continue59.i500
 
 cmpxchg.continue59.i500:                          ; preds = %cmpxchg.store_expected58.i499, %seqcst_fail50.i498
-  %frombool60.i501 = zext i1 %108 to i8
+  %frombool60.i501 = zext i1 %111 to i8
   store i8 %frombool60.i501, ptr %cmpxchg.bool.i495, align 1
   br label %atomic.continue51.i502
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit568: ; preds = %atomic.continue51.i502, %atomic.continue38.i517, %atomic.continue25.i531, %atomic.continue12.i545, %atomic.continue2.i559
-  %109 = load i8, ptr %cmpxchg.bool.i495, align 1
-  %tobool.i503 = trunc i8 %109 to i1
+  %112 = load i8, ptr %cmpxchg.bool.i495, align 1
+  %tobool.i503 = trunc i8 %112 to i1
   br i1 %tobool.i503, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit568
@@ -5632,40 +5650,40 @@ if.end32:                                         ; preds = %_ZNSt13__atomic_bas
   br label %if.end353
 
 if.else:                                          ; preds = %land.lhs.true25, %land.lhs.true, %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit393
-  %110 = load i64, ptr %v, align 8
-  %and33 = and i64 %110, 5
+  %113 = load i64, ptr %v, align 8
+  %and33 = and i64 %113, 5
   %cmp34 = icmp eq i64 %and33, 1
   br i1 %cmp34, label %land.lhs.true35, label %if.else45
 
 land.lhs.true35:                                  ; preds = %if.else
-  %111 = load ptr, ptr %waitp.addr, align 8
-  %cmp36 = icmp eq ptr %111, null
+  %114 = load ptr, ptr %waitp.addr, align 8
+  %cmp36 = icmp eq ptr %114, null
   br i1 %cmp36, label %if.then37, label %if.else45
 
 if.then37:                                        ; preds = %land.lhs.true35
-  %112 = load i64, ptr %v, align 8
-  %call39 = invoke noundef zeroext i1 @_ZN4abslL16ExactlyOneReaderEl(i64 noundef %112)
+  %115 = load i64, ptr %v, align 8
+  %call39 = invoke noundef zeroext i1 @_ZN4abslL16ExactlyOneReaderEl(i64 noundef %115)
           to label %invoke.cont38 unwind label %lpad
 
 invoke.cont38:                                    ; preds = %if.then37
   %cond40 = select i1 %call39, i64 257, i64 256
   store i64 %cond40, ptr %clear, align 8
   %mu_41 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %113 = load i64, ptr %v, align 8
-  %114 = load i64, ptr %clear, align 8
-  %sub = sub nsw i64 %113, %114
+  %116 = load i64, ptr %v, align 8
+  %117 = load i64, ptr %clear, align 8
+  %sub = sub nsw i64 %116, %117
   store ptr %mu_41, ptr %this.addr.i409, align 8
   store ptr %v, ptr %__i1.addr.i410, align 8
   store i64 %sub, ptr %__i2.addr.i411, align 8
   store i32 3, ptr %__m1.addr.i412, align 4
   store i32 0, ptr %__m2.addr.i413, align 4
   %this1.i416 = load ptr, ptr %this.addr.i409, align 8
-  %115 = load i32, ptr %__m1.addr.i412, align 4
-  %116 = load ptr, ptr %__i1.addr.i410, align 8
-  %117 = load i64, ptr %__i2.addr.i411, align 8
-  store i64 %117, ptr %.atomictmp.i414, align 8
-  %118 = load i32, ptr %__m2.addr.i413, align 4
-  switch i32 %115, label %monotonic.i474 [
+  %118 = load i32, ptr %__m1.addr.i412, align 4
+  %119 = load ptr, ptr %__i1.addr.i410, align 8
+  %120 = load i64, ptr %__i2.addr.i411, align 8
+  store i64 %120, ptr %.atomictmp.i414, align 8
+  %121 = load i32, ptr %__m2.addr.i413, align 4
+  switch i32 %118, label %monotonic.i474 [
     i32 1, label %acquire.i460
     i32 2, label %acquire.i460
     i32 3, label %release.i446
@@ -5674,313 +5692,313 @@ invoke.cont38:                                    ; preds = %if.then37
   ]
 
 monotonic.i474:                                   ; preds = %invoke.cont38
-  switch i32 %118, label %monotonic_fail.i484 [
+  switch i32 %121, label %monotonic_fail.i484 [
     i32 1, label %acquire_fail.i480
     i32 2, label %acquire_fail.i480
     i32 5, label %seqcst_fail.i475
   ]
 
 acquire.i460:                                     ; preds = %invoke.cont38, %invoke.cont38
-  switch i32 %118, label %monotonic_fail9.i470 [
+  switch i32 %121, label %monotonic_fail9.i470 [
     i32 1, label %acquire_fail10.i466
     i32 2, label %acquire_fail10.i466
     i32 5, label %seqcst_fail11.i461
   ]
 
 release.i446:                                     ; preds = %invoke.cont38
-  switch i32 %118, label %monotonic_fail22.i456 [
+  switch i32 %121, label %monotonic_fail22.i456 [
     i32 1, label %acquire_fail23.i452
     i32 2, label %acquire_fail23.i452
     i32 5, label %seqcst_fail24.i447
   ]
 
 acqrel.i432:                                      ; preds = %invoke.cont38
-  switch i32 %118, label %monotonic_fail35.i442 [
+  switch i32 %121, label %monotonic_fail35.i442 [
     i32 1, label %acquire_fail36.i438
     i32 2, label %acquire_fail36.i438
     i32 5, label %seqcst_fail37.i433
   ]
 
 seqcst.i417:                                      ; preds = %invoke.cont38
-  switch i32 %118, label %monotonic_fail48.i428 [
+  switch i32 %121, label %monotonic_fail48.i428 [
     i32 1, label %acquire_fail49.i424
     i32 2, label %acquire_fail49.i424
     i32 5, label %seqcst_fail50.i418
   ]
 
 monotonic_fail.i484:                              ; preds = %monotonic.i474
-  %119 = load i64, ptr %116, align 8
-  %120 = load i64, ptr %.atomictmp.i414, align 8
-  %121 = cmpxchg ptr %this1.i416, i64 %119, i64 %120 monotonic monotonic, align 8
-  %122 = extractvalue { i64, i1 } %121, 0
-  %123 = extractvalue { i64, i1 } %121, 1
-  br i1 %123, label %cmpxchg.continue.i486, label %cmpxchg.store_expected.i485
+  %122 = load i64, ptr %119, align 8
+  %123 = load i64, ptr %.atomictmp.i414, align 8
+  %124 = cmpxchg ptr %this1.i416, i64 %122, i64 %123 monotonic monotonic, align 8
+  %125 = extractvalue { i64, i1 } %124, 0
+  %126 = extractvalue { i64, i1 } %124, 1
+  br i1 %126, label %cmpxchg.continue.i486, label %cmpxchg.store_expected.i485
 
 acquire_fail.i480:                                ; preds = %monotonic.i474, %monotonic.i474
-  %124 = load i64, ptr %116, align 8
-  %125 = load i64, ptr %.atomictmp.i414, align 8
-  %126 = cmpxchg ptr %this1.i416, i64 %124, i64 %125 monotonic acquire, align 8
-  %127 = extractvalue { i64, i1 } %126, 0
-  %128 = extractvalue { i64, i1 } %126, 1
-  br i1 %128, label %cmpxchg.continue4.i482, label %cmpxchg.store_expected3.i481
+  %127 = load i64, ptr %119, align 8
+  %128 = load i64, ptr %.atomictmp.i414, align 8
+  %129 = cmpxchg ptr %this1.i416, i64 %127, i64 %128 monotonic acquire, align 8
+  %130 = extractvalue { i64, i1 } %129, 0
+  %131 = extractvalue { i64, i1 } %129, 1
+  br i1 %131, label %cmpxchg.continue4.i482, label %cmpxchg.store_expected3.i481
 
 seqcst_fail.i475:                                 ; preds = %monotonic.i474
-  %129 = load i64, ptr %116, align 8
-  %130 = load i64, ptr %.atomictmp.i414, align 8
-  %131 = cmpxchg ptr %this1.i416, i64 %129, i64 %130 monotonic seq_cst, align 8
-  %132 = extractvalue { i64, i1 } %131, 0
-  %133 = extractvalue { i64, i1 } %131, 1
-  br i1 %133, label %cmpxchg.continue7.i477, label %cmpxchg.store_expected6.i476
+  %132 = load i64, ptr %119, align 8
+  %133 = load i64, ptr %.atomictmp.i414, align 8
+  %134 = cmpxchg ptr %this1.i416, i64 %132, i64 %133 monotonic seq_cst, align 8
+  %135 = extractvalue { i64, i1 } %134, 0
+  %136 = extractvalue { i64, i1 } %134, 1
+  br i1 %136, label %cmpxchg.continue7.i477, label %cmpxchg.store_expected6.i476
 
 atomic.continue2.i479:                            ; preds = %cmpxchg.continue7.i477, %cmpxchg.continue4.i482, %cmpxchg.continue.i486
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit488
 
 cmpxchg.store_expected.i485:                      ; preds = %monotonic_fail.i484
-  store i64 %122, ptr %116, align 8
+  store i64 %125, ptr %119, align 8
   br label %cmpxchg.continue.i486
 
 cmpxchg.continue.i486:                            ; preds = %cmpxchg.store_expected.i485, %monotonic_fail.i484
-  %frombool.i487 = zext i1 %123 to i8
+  %frombool.i487 = zext i1 %126 to i8
   store i8 %frombool.i487, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue2.i479
 
 cmpxchg.store_expected3.i481:                     ; preds = %acquire_fail.i480
-  store i64 %127, ptr %116, align 8
+  store i64 %130, ptr %119, align 8
   br label %cmpxchg.continue4.i482
 
 cmpxchg.continue4.i482:                           ; preds = %cmpxchg.store_expected3.i481, %acquire_fail.i480
-  %frombool5.i483 = zext i1 %128 to i8
+  %frombool5.i483 = zext i1 %131 to i8
   store i8 %frombool5.i483, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue2.i479
 
 cmpxchg.store_expected6.i476:                     ; preds = %seqcst_fail.i475
-  store i64 %132, ptr %116, align 8
+  store i64 %135, ptr %119, align 8
   br label %cmpxchg.continue7.i477
 
 cmpxchg.continue7.i477:                           ; preds = %cmpxchg.store_expected6.i476, %seqcst_fail.i475
-  %frombool8.i478 = zext i1 %133 to i8
+  %frombool8.i478 = zext i1 %136 to i8
   store i8 %frombool8.i478, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue2.i479
 
 monotonic_fail9.i470:                             ; preds = %acquire.i460
-  %134 = load i64, ptr %116, align 8
-  %135 = load i64, ptr %.atomictmp.i414, align 8
-  %136 = cmpxchg ptr %this1.i416, i64 %134, i64 %135 acquire monotonic, align 8
-  %137 = extractvalue { i64, i1 } %136, 0
-  %138 = extractvalue { i64, i1 } %136, 1
-  br i1 %138, label %cmpxchg.continue14.i472, label %cmpxchg.store_expected13.i471
+  %137 = load i64, ptr %119, align 8
+  %138 = load i64, ptr %.atomictmp.i414, align 8
+  %139 = cmpxchg ptr %this1.i416, i64 %137, i64 %138 acquire monotonic, align 8
+  %140 = extractvalue { i64, i1 } %139, 0
+  %141 = extractvalue { i64, i1 } %139, 1
+  br i1 %141, label %cmpxchg.continue14.i472, label %cmpxchg.store_expected13.i471
 
 acquire_fail10.i466:                              ; preds = %acquire.i460, %acquire.i460
-  %139 = load i64, ptr %116, align 8
-  %140 = load i64, ptr %.atomictmp.i414, align 8
-  %141 = cmpxchg ptr %this1.i416, i64 %139, i64 %140 acquire acquire, align 8
-  %142 = extractvalue { i64, i1 } %141, 0
-  %143 = extractvalue { i64, i1 } %141, 1
-  br i1 %143, label %cmpxchg.continue17.i468, label %cmpxchg.store_expected16.i467
+  %142 = load i64, ptr %119, align 8
+  %143 = load i64, ptr %.atomictmp.i414, align 8
+  %144 = cmpxchg ptr %this1.i416, i64 %142, i64 %143 acquire acquire, align 8
+  %145 = extractvalue { i64, i1 } %144, 0
+  %146 = extractvalue { i64, i1 } %144, 1
+  br i1 %146, label %cmpxchg.continue17.i468, label %cmpxchg.store_expected16.i467
 
 seqcst_fail11.i461:                               ; preds = %acquire.i460
-  %144 = load i64, ptr %116, align 8
-  %145 = load i64, ptr %.atomictmp.i414, align 8
-  %146 = cmpxchg ptr %this1.i416, i64 %144, i64 %145 acquire seq_cst, align 8
-  %147 = extractvalue { i64, i1 } %146, 0
-  %148 = extractvalue { i64, i1 } %146, 1
-  br i1 %148, label %cmpxchg.continue20.i463, label %cmpxchg.store_expected19.i462
+  %147 = load i64, ptr %119, align 8
+  %148 = load i64, ptr %.atomictmp.i414, align 8
+  %149 = cmpxchg ptr %this1.i416, i64 %147, i64 %148 acquire seq_cst, align 8
+  %150 = extractvalue { i64, i1 } %149, 0
+  %151 = extractvalue { i64, i1 } %149, 1
+  br i1 %151, label %cmpxchg.continue20.i463, label %cmpxchg.store_expected19.i462
 
 atomic.continue12.i465:                           ; preds = %cmpxchg.continue20.i463, %cmpxchg.continue17.i468, %cmpxchg.continue14.i472
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit488
 
 cmpxchg.store_expected13.i471:                    ; preds = %monotonic_fail9.i470
-  store i64 %137, ptr %116, align 8
+  store i64 %140, ptr %119, align 8
   br label %cmpxchg.continue14.i472
 
 cmpxchg.continue14.i472:                          ; preds = %cmpxchg.store_expected13.i471, %monotonic_fail9.i470
-  %frombool15.i473 = zext i1 %138 to i8
+  %frombool15.i473 = zext i1 %141 to i8
   store i8 %frombool15.i473, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue12.i465
 
 cmpxchg.store_expected16.i467:                    ; preds = %acquire_fail10.i466
-  store i64 %142, ptr %116, align 8
+  store i64 %145, ptr %119, align 8
   br label %cmpxchg.continue17.i468
 
 cmpxchg.continue17.i468:                          ; preds = %cmpxchg.store_expected16.i467, %acquire_fail10.i466
-  %frombool18.i469 = zext i1 %143 to i8
+  %frombool18.i469 = zext i1 %146 to i8
   store i8 %frombool18.i469, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue12.i465
 
 cmpxchg.store_expected19.i462:                    ; preds = %seqcst_fail11.i461
-  store i64 %147, ptr %116, align 8
+  store i64 %150, ptr %119, align 8
   br label %cmpxchg.continue20.i463
 
 cmpxchg.continue20.i463:                          ; preds = %cmpxchg.store_expected19.i462, %seqcst_fail11.i461
-  %frombool21.i464 = zext i1 %148 to i8
+  %frombool21.i464 = zext i1 %151 to i8
   store i8 %frombool21.i464, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue12.i465
 
 monotonic_fail22.i456:                            ; preds = %release.i446
-  %149 = load i64, ptr %116, align 8
-  %150 = load i64, ptr %.atomictmp.i414, align 8
-  %151 = cmpxchg ptr %this1.i416, i64 %149, i64 %150 release monotonic, align 8
-  %152 = extractvalue { i64, i1 } %151, 0
-  %153 = extractvalue { i64, i1 } %151, 1
-  br i1 %153, label %cmpxchg.continue27.i458, label %cmpxchg.store_expected26.i457
+  %152 = load i64, ptr %119, align 8
+  %153 = load i64, ptr %.atomictmp.i414, align 8
+  %154 = cmpxchg ptr %this1.i416, i64 %152, i64 %153 release monotonic, align 8
+  %155 = extractvalue { i64, i1 } %154, 0
+  %156 = extractvalue { i64, i1 } %154, 1
+  br i1 %156, label %cmpxchg.continue27.i458, label %cmpxchg.store_expected26.i457
 
 acquire_fail23.i452:                              ; preds = %release.i446, %release.i446
-  %154 = load i64, ptr %116, align 8
-  %155 = load i64, ptr %.atomictmp.i414, align 8
-  %156 = cmpxchg ptr %this1.i416, i64 %154, i64 %155 release acquire, align 8
-  %157 = extractvalue { i64, i1 } %156, 0
-  %158 = extractvalue { i64, i1 } %156, 1
-  br i1 %158, label %cmpxchg.continue30.i454, label %cmpxchg.store_expected29.i453
+  %157 = load i64, ptr %119, align 8
+  %158 = load i64, ptr %.atomictmp.i414, align 8
+  %159 = cmpxchg ptr %this1.i416, i64 %157, i64 %158 release acquire, align 8
+  %160 = extractvalue { i64, i1 } %159, 0
+  %161 = extractvalue { i64, i1 } %159, 1
+  br i1 %161, label %cmpxchg.continue30.i454, label %cmpxchg.store_expected29.i453
 
 seqcst_fail24.i447:                               ; preds = %release.i446
-  %159 = load i64, ptr %116, align 8
-  %160 = load i64, ptr %.atomictmp.i414, align 8
-  %161 = cmpxchg ptr %this1.i416, i64 %159, i64 %160 release seq_cst, align 8
-  %162 = extractvalue { i64, i1 } %161, 0
-  %163 = extractvalue { i64, i1 } %161, 1
-  br i1 %163, label %cmpxchg.continue33.i449, label %cmpxchg.store_expected32.i448
+  %162 = load i64, ptr %119, align 8
+  %163 = load i64, ptr %.atomictmp.i414, align 8
+  %164 = cmpxchg ptr %this1.i416, i64 %162, i64 %163 release seq_cst, align 8
+  %165 = extractvalue { i64, i1 } %164, 0
+  %166 = extractvalue { i64, i1 } %164, 1
+  br i1 %166, label %cmpxchg.continue33.i449, label %cmpxchg.store_expected32.i448
 
 atomic.continue25.i451:                           ; preds = %cmpxchg.continue33.i449, %cmpxchg.continue30.i454, %cmpxchg.continue27.i458
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit488
 
 cmpxchg.store_expected26.i457:                    ; preds = %monotonic_fail22.i456
-  store i64 %152, ptr %116, align 8
+  store i64 %155, ptr %119, align 8
   br label %cmpxchg.continue27.i458
 
 cmpxchg.continue27.i458:                          ; preds = %cmpxchg.store_expected26.i457, %monotonic_fail22.i456
-  %frombool28.i459 = zext i1 %153 to i8
+  %frombool28.i459 = zext i1 %156 to i8
   store i8 %frombool28.i459, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue25.i451
 
 cmpxchg.store_expected29.i453:                    ; preds = %acquire_fail23.i452
-  store i64 %157, ptr %116, align 8
+  store i64 %160, ptr %119, align 8
   br label %cmpxchg.continue30.i454
 
 cmpxchg.continue30.i454:                          ; preds = %cmpxchg.store_expected29.i453, %acquire_fail23.i452
-  %frombool31.i455 = zext i1 %158 to i8
+  %frombool31.i455 = zext i1 %161 to i8
   store i8 %frombool31.i455, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue25.i451
 
 cmpxchg.store_expected32.i448:                    ; preds = %seqcst_fail24.i447
-  store i64 %162, ptr %116, align 8
+  store i64 %165, ptr %119, align 8
   br label %cmpxchg.continue33.i449
 
 cmpxchg.continue33.i449:                          ; preds = %cmpxchg.store_expected32.i448, %seqcst_fail24.i447
-  %frombool34.i450 = zext i1 %163 to i8
+  %frombool34.i450 = zext i1 %166 to i8
   store i8 %frombool34.i450, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue25.i451
 
 monotonic_fail35.i442:                            ; preds = %acqrel.i432
-  %164 = load i64, ptr %116, align 8
-  %165 = load i64, ptr %.atomictmp.i414, align 8
-  %166 = cmpxchg ptr %this1.i416, i64 %164, i64 %165 acq_rel monotonic, align 8
-  %167 = extractvalue { i64, i1 } %166, 0
-  %168 = extractvalue { i64, i1 } %166, 1
-  br i1 %168, label %cmpxchg.continue40.i444, label %cmpxchg.store_expected39.i443
+  %167 = load i64, ptr %119, align 8
+  %168 = load i64, ptr %.atomictmp.i414, align 8
+  %169 = cmpxchg ptr %this1.i416, i64 %167, i64 %168 acq_rel monotonic, align 8
+  %170 = extractvalue { i64, i1 } %169, 0
+  %171 = extractvalue { i64, i1 } %169, 1
+  br i1 %171, label %cmpxchg.continue40.i444, label %cmpxchg.store_expected39.i443
 
 acquire_fail36.i438:                              ; preds = %acqrel.i432, %acqrel.i432
-  %169 = load i64, ptr %116, align 8
-  %170 = load i64, ptr %.atomictmp.i414, align 8
-  %171 = cmpxchg ptr %this1.i416, i64 %169, i64 %170 acq_rel acquire, align 8
-  %172 = extractvalue { i64, i1 } %171, 0
-  %173 = extractvalue { i64, i1 } %171, 1
-  br i1 %173, label %cmpxchg.continue43.i440, label %cmpxchg.store_expected42.i439
+  %172 = load i64, ptr %119, align 8
+  %173 = load i64, ptr %.atomictmp.i414, align 8
+  %174 = cmpxchg ptr %this1.i416, i64 %172, i64 %173 acq_rel acquire, align 8
+  %175 = extractvalue { i64, i1 } %174, 0
+  %176 = extractvalue { i64, i1 } %174, 1
+  br i1 %176, label %cmpxchg.continue43.i440, label %cmpxchg.store_expected42.i439
 
 seqcst_fail37.i433:                               ; preds = %acqrel.i432
-  %174 = load i64, ptr %116, align 8
-  %175 = load i64, ptr %.atomictmp.i414, align 8
-  %176 = cmpxchg ptr %this1.i416, i64 %174, i64 %175 acq_rel seq_cst, align 8
-  %177 = extractvalue { i64, i1 } %176, 0
-  %178 = extractvalue { i64, i1 } %176, 1
-  br i1 %178, label %cmpxchg.continue46.i435, label %cmpxchg.store_expected45.i434
+  %177 = load i64, ptr %119, align 8
+  %178 = load i64, ptr %.atomictmp.i414, align 8
+  %179 = cmpxchg ptr %this1.i416, i64 %177, i64 %178 acq_rel seq_cst, align 8
+  %180 = extractvalue { i64, i1 } %179, 0
+  %181 = extractvalue { i64, i1 } %179, 1
+  br i1 %181, label %cmpxchg.continue46.i435, label %cmpxchg.store_expected45.i434
 
 atomic.continue38.i437:                           ; preds = %cmpxchg.continue46.i435, %cmpxchg.continue43.i440, %cmpxchg.continue40.i444
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit488
 
 cmpxchg.store_expected39.i443:                    ; preds = %monotonic_fail35.i442
-  store i64 %167, ptr %116, align 8
+  store i64 %170, ptr %119, align 8
   br label %cmpxchg.continue40.i444
 
 cmpxchg.continue40.i444:                          ; preds = %cmpxchg.store_expected39.i443, %monotonic_fail35.i442
-  %frombool41.i445 = zext i1 %168 to i8
+  %frombool41.i445 = zext i1 %171 to i8
   store i8 %frombool41.i445, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue38.i437
 
 cmpxchg.store_expected42.i439:                    ; preds = %acquire_fail36.i438
-  store i64 %172, ptr %116, align 8
+  store i64 %175, ptr %119, align 8
   br label %cmpxchg.continue43.i440
 
 cmpxchg.continue43.i440:                          ; preds = %cmpxchg.store_expected42.i439, %acquire_fail36.i438
-  %frombool44.i441 = zext i1 %173 to i8
+  %frombool44.i441 = zext i1 %176 to i8
   store i8 %frombool44.i441, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue38.i437
 
 cmpxchg.store_expected45.i434:                    ; preds = %seqcst_fail37.i433
-  store i64 %177, ptr %116, align 8
+  store i64 %180, ptr %119, align 8
   br label %cmpxchg.continue46.i435
 
 cmpxchg.continue46.i435:                          ; preds = %cmpxchg.store_expected45.i434, %seqcst_fail37.i433
-  %frombool47.i436 = zext i1 %178 to i8
+  %frombool47.i436 = zext i1 %181 to i8
   store i8 %frombool47.i436, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue38.i437
 
 monotonic_fail48.i428:                            ; preds = %seqcst.i417
-  %179 = load i64, ptr %116, align 8
-  %180 = load i64, ptr %.atomictmp.i414, align 8
-  %181 = cmpxchg ptr %this1.i416, i64 %179, i64 %180 seq_cst monotonic, align 8
-  %182 = extractvalue { i64, i1 } %181, 0
-  %183 = extractvalue { i64, i1 } %181, 1
-  br i1 %183, label %cmpxchg.continue53.i430, label %cmpxchg.store_expected52.i429
+  %182 = load i64, ptr %119, align 8
+  %183 = load i64, ptr %.atomictmp.i414, align 8
+  %184 = cmpxchg ptr %this1.i416, i64 %182, i64 %183 seq_cst monotonic, align 8
+  %185 = extractvalue { i64, i1 } %184, 0
+  %186 = extractvalue { i64, i1 } %184, 1
+  br i1 %186, label %cmpxchg.continue53.i430, label %cmpxchg.store_expected52.i429
 
 acquire_fail49.i424:                              ; preds = %seqcst.i417, %seqcst.i417
-  %184 = load i64, ptr %116, align 8
-  %185 = load i64, ptr %.atomictmp.i414, align 8
-  %186 = cmpxchg ptr %this1.i416, i64 %184, i64 %185 seq_cst acquire, align 8
-  %187 = extractvalue { i64, i1 } %186, 0
-  %188 = extractvalue { i64, i1 } %186, 1
-  br i1 %188, label %cmpxchg.continue56.i426, label %cmpxchg.store_expected55.i425
+  %187 = load i64, ptr %119, align 8
+  %188 = load i64, ptr %.atomictmp.i414, align 8
+  %189 = cmpxchg ptr %this1.i416, i64 %187, i64 %188 seq_cst acquire, align 8
+  %190 = extractvalue { i64, i1 } %189, 0
+  %191 = extractvalue { i64, i1 } %189, 1
+  br i1 %191, label %cmpxchg.continue56.i426, label %cmpxchg.store_expected55.i425
 
 seqcst_fail50.i418:                               ; preds = %seqcst.i417
-  %189 = load i64, ptr %116, align 8
-  %190 = load i64, ptr %.atomictmp.i414, align 8
-  %191 = cmpxchg ptr %this1.i416, i64 %189, i64 %190 seq_cst seq_cst, align 8
-  %192 = extractvalue { i64, i1 } %191, 0
-  %193 = extractvalue { i64, i1 } %191, 1
-  br i1 %193, label %cmpxchg.continue59.i420, label %cmpxchg.store_expected58.i419
+  %192 = load i64, ptr %119, align 8
+  %193 = load i64, ptr %.atomictmp.i414, align 8
+  %194 = cmpxchg ptr %this1.i416, i64 %192, i64 %193 seq_cst seq_cst, align 8
+  %195 = extractvalue { i64, i1 } %194, 0
+  %196 = extractvalue { i64, i1 } %194, 1
+  br i1 %196, label %cmpxchg.continue59.i420, label %cmpxchg.store_expected58.i419
 
 atomic.continue51.i422:                           ; preds = %cmpxchg.continue59.i420, %cmpxchg.continue56.i426, %cmpxchg.continue53.i430
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit488
 
 cmpxchg.store_expected52.i429:                    ; preds = %monotonic_fail48.i428
-  store i64 %182, ptr %116, align 8
+  store i64 %185, ptr %119, align 8
   br label %cmpxchg.continue53.i430
 
 cmpxchg.continue53.i430:                          ; preds = %cmpxchg.store_expected52.i429, %monotonic_fail48.i428
-  %frombool54.i431 = zext i1 %183 to i8
+  %frombool54.i431 = zext i1 %186 to i8
   store i8 %frombool54.i431, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue51.i422
 
 cmpxchg.store_expected55.i425:                    ; preds = %acquire_fail49.i424
-  store i64 %187, ptr %116, align 8
+  store i64 %190, ptr %119, align 8
   br label %cmpxchg.continue56.i426
 
 cmpxchg.continue56.i426:                          ; preds = %cmpxchg.store_expected55.i425, %acquire_fail49.i424
-  %frombool57.i427 = zext i1 %188 to i8
+  %frombool57.i427 = zext i1 %191 to i8
   store i8 %frombool57.i427, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue51.i422
 
 cmpxchg.store_expected58.i419:                    ; preds = %seqcst_fail50.i418
-  store i64 %192, ptr %116, align 8
+  store i64 %195, ptr %119, align 8
   br label %cmpxchg.continue59.i420
 
 cmpxchg.continue59.i420:                          ; preds = %cmpxchg.store_expected58.i419, %seqcst_fail50.i418
-  %frombool60.i421 = zext i1 %193 to i8
+  %frombool60.i421 = zext i1 %196 to i8
   store i8 %frombool60.i421, ptr %cmpxchg.bool.i415, align 1
   br label %atomic.continue51.i422
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit488: ; preds = %atomic.continue51.i422, %atomic.continue38.i437, %atomic.continue25.i451, %atomic.continue12.i465, %atomic.continue2.i479
-  %194 = load i8, ptr %cmpxchg.bool.i415, align 1
-  %tobool.i423 = trunc i8 %194 to i1
+  %197 = load i8, ptr %cmpxchg.bool.i415, align 1
+  %tobool.i423 = trunc i8 %197 to i1
   br i1 %tobool.i423, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit488
@@ -5991,27 +6009,27 @@ if.end44:                                         ; preds = %_ZNSt13__atomic_bas
   br label %if.end352
 
 if.else45:                                        ; preds = %land.lhs.true35, %if.else
-  %195 = load i64, ptr %v, align 8
-  %and46 = and i64 %195, 64
+  %198 = load i64, ptr %v, align 8
+  %and46 = and i64 %198, 64
   %cmp47 = icmp eq i64 %and46, 0
   br i1 %cmp47, label %land.lhs.true48, label %if.end351
 
 land.lhs.true48:                                  ; preds = %if.else45
   %mu_49 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %196 = load i64, ptr %v, align 8
-  %or = or i64 %196, 64
+  %199 = load i64, ptr %v, align 8
+  %or = or i64 %199, 64
   store ptr %mu_49, ptr %this.addr.i404, align 8
   store ptr %v, ptr %__i1.addr.i, align 8
   store i64 %or, ptr %__i2.addr.i, align 8
   store i32 2, ptr %__m1.addr.i, align 4
   store i32 0, ptr %__m2.addr.i, align 4
   %this1.i405 = load ptr, ptr %this.addr.i404, align 8
-  %197 = load i32, ptr %__m1.addr.i, align 4
-  %198 = load ptr, ptr %__i1.addr.i, align 8
-  %199 = load i64, ptr %__i2.addr.i, align 8
-  store i64 %199, ptr %.atomictmp.i, align 8
-  %200 = load i32, ptr %__m2.addr.i, align 4
-  switch i32 %197, label %monotonic.i408 [
+  %200 = load i32, ptr %__m1.addr.i, align 4
+  %201 = load ptr, ptr %__i1.addr.i, align 8
+  %202 = load i64, ptr %__i2.addr.i, align 8
+  store i64 %202, ptr %.atomictmp.i, align 8
+  %203 = load i32, ptr %__m2.addr.i, align 4
+  switch i32 %200, label %monotonic.i408 [
     i32 1, label %acquire.i407
     i32 2, label %acquire.i407
     i32 3, label %release.i
@@ -6020,318 +6038,318 @@ land.lhs.true48:                                  ; preds = %if.else45
   ]
 
 monotonic.i408:                                   ; preds = %land.lhs.true48
-  switch i32 %200, label %monotonic_fail.i [
+  switch i32 %203, label %monotonic_fail.i [
     i32 1, label %acquire_fail.i
     i32 2, label %acquire_fail.i
     i32 5, label %seqcst_fail.i
   ]
 
 acquire.i407:                                     ; preds = %land.lhs.true48, %land.lhs.true48
-  switch i32 %200, label %monotonic_fail9.i [
+  switch i32 %203, label %monotonic_fail9.i [
     i32 1, label %acquire_fail10.i
     i32 2, label %acquire_fail10.i
     i32 5, label %seqcst_fail11.i
   ]
 
 release.i:                                        ; preds = %land.lhs.true48
-  switch i32 %200, label %monotonic_fail22.i [
+  switch i32 %203, label %monotonic_fail22.i [
     i32 1, label %acquire_fail23.i
     i32 2, label %acquire_fail23.i
     i32 5, label %seqcst_fail24.i
   ]
 
 acqrel.i:                                         ; preds = %land.lhs.true48
-  switch i32 %200, label %monotonic_fail35.i [
+  switch i32 %203, label %monotonic_fail35.i [
     i32 1, label %acquire_fail36.i
     i32 2, label %acquire_fail36.i
     i32 5, label %seqcst_fail37.i
   ]
 
 seqcst.i406:                                      ; preds = %land.lhs.true48
-  switch i32 %200, label %monotonic_fail48.i [
+  switch i32 %203, label %monotonic_fail48.i [
     i32 1, label %acquire_fail49.i
     i32 2, label %acquire_fail49.i
     i32 5, label %seqcst_fail50.i
   ]
 
 monotonic_fail.i:                                 ; preds = %monotonic.i408
-  %201 = load i64, ptr %198, align 8
-  %202 = load i64, ptr %.atomictmp.i, align 8
-  %203 = cmpxchg ptr %this1.i405, i64 %201, i64 %202 monotonic monotonic, align 8
-  %204 = extractvalue { i64, i1 } %203, 0
-  %205 = extractvalue { i64, i1 } %203, 1
-  br i1 %205, label %cmpxchg.continue.i, label %cmpxchg.store_expected.i
+  %204 = load i64, ptr %201, align 8
+  %205 = load i64, ptr %.atomictmp.i, align 8
+  %206 = cmpxchg ptr %this1.i405, i64 %204, i64 %205 monotonic monotonic, align 8
+  %207 = extractvalue { i64, i1 } %206, 0
+  %208 = extractvalue { i64, i1 } %206, 1
+  br i1 %208, label %cmpxchg.continue.i, label %cmpxchg.store_expected.i
 
 acquire_fail.i:                                   ; preds = %monotonic.i408, %monotonic.i408
-  %206 = load i64, ptr %198, align 8
-  %207 = load i64, ptr %.atomictmp.i, align 8
-  %208 = cmpxchg ptr %this1.i405, i64 %206, i64 %207 monotonic acquire, align 8
-  %209 = extractvalue { i64, i1 } %208, 0
-  %210 = extractvalue { i64, i1 } %208, 1
-  br i1 %210, label %cmpxchg.continue4.i, label %cmpxchg.store_expected3.i
+  %209 = load i64, ptr %201, align 8
+  %210 = load i64, ptr %.atomictmp.i, align 8
+  %211 = cmpxchg ptr %this1.i405, i64 %209, i64 %210 monotonic acquire, align 8
+  %212 = extractvalue { i64, i1 } %211, 0
+  %213 = extractvalue { i64, i1 } %211, 1
+  br i1 %213, label %cmpxchg.continue4.i, label %cmpxchg.store_expected3.i
 
 seqcst_fail.i:                                    ; preds = %monotonic.i408
-  %211 = load i64, ptr %198, align 8
-  %212 = load i64, ptr %.atomictmp.i, align 8
-  %213 = cmpxchg ptr %this1.i405, i64 %211, i64 %212 monotonic seq_cst, align 8
-  %214 = extractvalue { i64, i1 } %213, 0
-  %215 = extractvalue { i64, i1 } %213, 1
-  br i1 %215, label %cmpxchg.continue7.i, label %cmpxchg.store_expected6.i
+  %214 = load i64, ptr %201, align 8
+  %215 = load i64, ptr %.atomictmp.i, align 8
+  %216 = cmpxchg ptr %this1.i405, i64 %214, i64 %215 monotonic seq_cst, align 8
+  %217 = extractvalue { i64, i1 } %216, 0
+  %218 = extractvalue { i64, i1 } %216, 1
+  br i1 %218, label %cmpxchg.continue7.i, label %cmpxchg.store_expected6.i
 
 atomic.continue2.i:                               ; preds = %cmpxchg.continue7.i, %cmpxchg.continue4.i, %cmpxchg.continue.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected.i:                         ; preds = %monotonic_fail.i
-  store i64 %204, ptr %198, align 8
+  store i64 %207, ptr %201, align 8
   br label %cmpxchg.continue.i
 
 cmpxchg.continue.i:                               ; preds = %cmpxchg.store_expected.i, %monotonic_fail.i
-  %frombool.i = zext i1 %205 to i8
+  %frombool.i = zext i1 %208 to i8
   store i8 %frombool.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue2.i
 
 cmpxchg.store_expected3.i:                        ; preds = %acquire_fail.i
-  store i64 %209, ptr %198, align 8
+  store i64 %212, ptr %201, align 8
   br label %cmpxchg.continue4.i
 
 cmpxchg.continue4.i:                              ; preds = %cmpxchg.store_expected3.i, %acquire_fail.i
-  %frombool5.i = zext i1 %210 to i8
+  %frombool5.i = zext i1 %213 to i8
   store i8 %frombool5.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue2.i
 
 cmpxchg.store_expected6.i:                        ; preds = %seqcst_fail.i
-  store i64 %214, ptr %198, align 8
+  store i64 %217, ptr %201, align 8
   br label %cmpxchg.continue7.i
 
 cmpxchg.continue7.i:                              ; preds = %cmpxchg.store_expected6.i, %seqcst_fail.i
-  %frombool8.i = zext i1 %215 to i8
+  %frombool8.i = zext i1 %218 to i8
   store i8 %frombool8.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue2.i
 
 monotonic_fail9.i:                                ; preds = %acquire.i407
-  %216 = load i64, ptr %198, align 8
-  %217 = load i64, ptr %.atomictmp.i, align 8
-  %218 = cmpxchg ptr %this1.i405, i64 %216, i64 %217 acquire monotonic, align 8
-  %219 = extractvalue { i64, i1 } %218, 0
-  %220 = extractvalue { i64, i1 } %218, 1
-  br i1 %220, label %cmpxchg.continue14.i, label %cmpxchg.store_expected13.i
+  %219 = load i64, ptr %201, align 8
+  %220 = load i64, ptr %.atomictmp.i, align 8
+  %221 = cmpxchg ptr %this1.i405, i64 %219, i64 %220 acquire monotonic, align 8
+  %222 = extractvalue { i64, i1 } %221, 0
+  %223 = extractvalue { i64, i1 } %221, 1
+  br i1 %223, label %cmpxchg.continue14.i, label %cmpxchg.store_expected13.i
 
 acquire_fail10.i:                                 ; preds = %acquire.i407, %acquire.i407
-  %221 = load i64, ptr %198, align 8
-  %222 = load i64, ptr %.atomictmp.i, align 8
-  %223 = cmpxchg ptr %this1.i405, i64 %221, i64 %222 acquire acquire, align 8
-  %224 = extractvalue { i64, i1 } %223, 0
-  %225 = extractvalue { i64, i1 } %223, 1
-  br i1 %225, label %cmpxchg.continue17.i, label %cmpxchg.store_expected16.i
+  %224 = load i64, ptr %201, align 8
+  %225 = load i64, ptr %.atomictmp.i, align 8
+  %226 = cmpxchg ptr %this1.i405, i64 %224, i64 %225 acquire acquire, align 8
+  %227 = extractvalue { i64, i1 } %226, 0
+  %228 = extractvalue { i64, i1 } %226, 1
+  br i1 %228, label %cmpxchg.continue17.i, label %cmpxchg.store_expected16.i
 
 seqcst_fail11.i:                                  ; preds = %acquire.i407
-  %226 = load i64, ptr %198, align 8
-  %227 = load i64, ptr %.atomictmp.i, align 8
-  %228 = cmpxchg ptr %this1.i405, i64 %226, i64 %227 acquire seq_cst, align 8
-  %229 = extractvalue { i64, i1 } %228, 0
-  %230 = extractvalue { i64, i1 } %228, 1
-  br i1 %230, label %cmpxchg.continue20.i, label %cmpxchg.store_expected19.i
+  %229 = load i64, ptr %201, align 8
+  %230 = load i64, ptr %.atomictmp.i, align 8
+  %231 = cmpxchg ptr %this1.i405, i64 %229, i64 %230 acquire seq_cst, align 8
+  %232 = extractvalue { i64, i1 } %231, 0
+  %233 = extractvalue { i64, i1 } %231, 1
+  br i1 %233, label %cmpxchg.continue20.i, label %cmpxchg.store_expected19.i
 
 atomic.continue12.i:                              ; preds = %cmpxchg.continue20.i, %cmpxchg.continue17.i, %cmpxchg.continue14.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected13.i:                       ; preds = %monotonic_fail9.i
-  store i64 %219, ptr %198, align 8
+  store i64 %222, ptr %201, align 8
   br label %cmpxchg.continue14.i
 
 cmpxchg.continue14.i:                             ; preds = %cmpxchg.store_expected13.i, %monotonic_fail9.i
-  %frombool15.i = zext i1 %220 to i8
+  %frombool15.i = zext i1 %223 to i8
   store i8 %frombool15.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue12.i
 
 cmpxchg.store_expected16.i:                       ; preds = %acquire_fail10.i
-  store i64 %224, ptr %198, align 8
+  store i64 %227, ptr %201, align 8
   br label %cmpxchg.continue17.i
 
 cmpxchg.continue17.i:                             ; preds = %cmpxchg.store_expected16.i, %acquire_fail10.i
-  %frombool18.i = zext i1 %225 to i8
+  %frombool18.i = zext i1 %228 to i8
   store i8 %frombool18.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue12.i
 
 cmpxchg.store_expected19.i:                       ; preds = %seqcst_fail11.i
-  store i64 %229, ptr %198, align 8
+  store i64 %232, ptr %201, align 8
   br label %cmpxchg.continue20.i
 
 cmpxchg.continue20.i:                             ; preds = %cmpxchg.store_expected19.i, %seqcst_fail11.i
-  %frombool21.i = zext i1 %230 to i8
+  %frombool21.i = zext i1 %233 to i8
   store i8 %frombool21.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue12.i
 
 monotonic_fail22.i:                               ; preds = %release.i
-  %231 = load i64, ptr %198, align 8
-  %232 = load i64, ptr %.atomictmp.i, align 8
-  %233 = cmpxchg ptr %this1.i405, i64 %231, i64 %232 release monotonic, align 8
-  %234 = extractvalue { i64, i1 } %233, 0
-  %235 = extractvalue { i64, i1 } %233, 1
-  br i1 %235, label %cmpxchg.continue27.i, label %cmpxchg.store_expected26.i
+  %234 = load i64, ptr %201, align 8
+  %235 = load i64, ptr %.atomictmp.i, align 8
+  %236 = cmpxchg ptr %this1.i405, i64 %234, i64 %235 release monotonic, align 8
+  %237 = extractvalue { i64, i1 } %236, 0
+  %238 = extractvalue { i64, i1 } %236, 1
+  br i1 %238, label %cmpxchg.continue27.i, label %cmpxchg.store_expected26.i
 
 acquire_fail23.i:                                 ; preds = %release.i, %release.i
-  %236 = load i64, ptr %198, align 8
-  %237 = load i64, ptr %.atomictmp.i, align 8
-  %238 = cmpxchg ptr %this1.i405, i64 %236, i64 %237 release acquire, align 8
-  %239 = extractvalue { i64, i1 } %238, 0
-  %240 = extractvalue { i64, i1 } %238, 1
-  br i1 %240, label %cmpxchg.continue30.i, label %cmpxchg.store_expected29.i
+  %239 = load i64, ptr %201, align 8
+  %240 = load i64, ptr %.atomictmp.i, align 8
+  %241 = cmpxchg ptr %this1.i405, i64 %239, i64 %240 release acquire, align 8
+  %242 = extractvalue { i64, i1 } %241, 0
+  %243 = extractvalue { i64, i1 } %241, 1
+  br i1 %243, label %cmpxchg.continue30.i, label %cmpxchg.store_expected29.i
 
 seqcst_fail24.i:                                  ; preds = %release.i
-  %241 = load i64, ptr %198, align 8
-  %242 = load i64, ptr %.atomictmp.i, align 8
-  %243 = cmpxchg ptr %this1.i405, i64 %241, i64 %242 release seq_cst, align 8
-  %244 = extractvalue { i64, i1 } %243, 0
-  %245 = extractvalue { i64, i1 } %243, 1
-  br i1 %245, label %cmpxchg.continue33.i, label %cmpxchg.store_expected32.i
+  %244 = load i64, ptr %201, align 8
+  %245 = load i64, ptr %.atomictmp.i, align 8
+  %246 = cmpxchg ptr %this1.i405, i64 %244, i64 %245 release seq_cst, align 8
+  %247 = extractvalue { i64, i1 } %246, 0
+  %248 = extractvalue { i64, i1 } %246, 1
+  br i1 %248, label %cmpxchg.continue33.i, label %cmpxchg.store_expected32.i
 
 atomic.continue25.i:                              ; preds = %cmpxchg.continue33.i, %cmpxchg.continue30.i, %cmpxchg.continue27.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected26.i:                       ; preds = %monotonic_fail22.i
-  store i64 %234, ptr %198, align 8
+  store i64 %237, ptr %201, align 8
   br label %cmpxchg.continue27.i
 
 cmpxchg.continue27.i:                             ; preds = %cmpxchg.store_expected26.i, %monotonic_fail22.i
-  %frombool28.i = zext i1 %235 to i8
+  %frombool28.i = zext i1 %238 to i8
   store i8 %frombool28.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue25.i
 
 cmpxchg.store_expected29.i:                       ; preds = %acquire_fail23.i
-  store i64 %239, ptr %198, align 8
+  store i64 %242, ptr %201, align 8
   br label %cmpxchg.continue30.i
 
 cmpxchg.continue30.i:                             ; preds = %cmpxchg.store_expected29.i, %acquire_fail23.i
-  %frombool31.i = zext i1 %240 to i8
+  %frombool31.i = zext i1 %243 to i8
   store i8 %frombool31.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue25.i
 
 cmpxchg.store_expected32.i:                       ; preds = %seqcst_fail24.i
-  store i64 %244, ptr %198, align 8
+  store i64 %247, ptr %201, align 8
   br label %cmpxchg.continue33.i
 
 cmpxchg.continue33.i:                             ; preds = %cmpxchg.store_expected32.i, %seqcst_fail24.i
-  %frombool34.i = zext i1 %245 to i8
+  %frombool34.i = zext i1 %248 to i8
   store i8 %frombool34.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue25.i
 
 monotonic_fail35.i:                               ; preds = %acqrel.i
-  %246 = load i64, ptr %198, align 8
-  %247 = load i64, ptr %.atomictmp.i, align 8
-  %248 = cmpxchg ptr %this1.i405, i64 %246, i64 %247 acq_rel monotonic, align 8
-  %249 = extractvalue { i64, i1 } %248, 0
-  %250 = extractvalue { i64, i1 } %248, 1
-  br i1 %250, label %cmpxchg.continue40.i, label %cmpxchg.store_expected39.i
+  %249 = load i64, ptr %201, align 8
+  %250 = load i64, ptr %.atomictmp.i, align 8
+  %251 = cmpxchg ptr %this1.i405, i64 %249, i64 %250 acq_rel monotonic, align 8
+  %252 = extractvalue { i64, i1 } %251, 0
+  %253 = extractvalue { i64, i1 } %251, 1
+  br i1 %253, label %cmpxchg.continue40.i, label %cmpxchg.store_expected39.i
 
 acquire_fail36.i:                                 ; preds = %acqrel.i, %acqrel.i
-  %251 = load i64, ptr %198, align 8
-  %252 = load i64, ptr %.atomictmp.i, align 8
-  %253 = cmpxchg ptr %this1.i405, i64 %251, i64 %252 acq_rel acquire, align 8
-  %254 = extractvalue { i64, i1 } %253, 0
-  %255 = extractvalue { i64, i1 } %253, 1
-  br i1 %255, label %cmpxchg.continue43.i, label %cmpxchg.store_expected42.i
+  %254 = load i64, ptr %201, align 8
+  %255 = load i64, ptr %.atomictmp.i, align 8
+  %256 = cmpxchg ptr %this1.i405, i64 %254, i64 %255 acq_rel acquire, align 8
+  %257 = extractvalue { i64, i1 } %256, 0
+  %258 = extractvalue { i64, i1 } %256, 1
+  br i1 %258, label %cmpxchg.continue43.i, label %cmpxchg.store_expected42.i
 
 seqcst_fail37.i:                                  ; preds = %acqrel.i
-  %256 = load i64, ptr %198, align 8
-  %257 = load i64, ptr %.atomictmp.i, align 8
-  %258 = cmpxchg ptr %this1.i405, i64 %256, i64 %257 acq_rel seq_cst, align 8
-  %259 = extractvalue { i64, i1 } %258, 0
-  %260 = extractvalue { i64, i1 } %258, 1
-  br i1 %260, label %cmpxchg.continue46.i, label %cmpxchg.store_expected45.i
+  %259 = load i64, ptr %201, align 8
+  %260 = load i64, ptr %.atomictmp.i, align 8
+  %261 = cmpxchg ptr %this1.i405, i64 %259, i64 %260 acq_rel seq_cst, align 8
+  %262 = extractvalue { i64, i1 } %261, 0
+  %263 = extractvalue { i64, i1 } %261, 1
+  br i1 %263, label %cmpxchg.continue46.i, label %cmpxchg.store_expected45.i
 
 atomic.continue38.i:                              ; preds = %cmpxchg.continue46.i, %cmpxchg.continue43.i, %cmpxchg.continue40.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected39.i:                       ; preds = %monotonic_fail35.i
-  store i64 %249, ptr %198, align 8
+  store i64 %252, ptr %201, align 8
   br label %cmpxchg.continue40.i
 
 cmpxchg.continue40.i:                             ; preds = %cmpxchg.store_expected39.i, %monotonic_fail35.i
-  %frombool41.i = zext i1 %250 to i8
+  %frombool41.i = zext i1 %253 to i8
   store i8 %frombool41.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue38.i
 
 cmpxchg.store_expected42.i:                       ; preds = %acquire_fail36.i
-  store i64 %254, ptr %198, align 8
+  store i64 %257, ptr %201, align 8
   br label %cmpxchg.continue43.i
 
 cmpxchg.continue43.i:                             ; preds = %cmpxchg.store_expected42.i, %acquire_fail36.i
-  %frombool44.i = zext i1 %255 to i8
+  %frombool44.i = zext i1 %258 to i8
   store i8 %frombool44.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue38.i
 
 cmpxchg.store_expected45.i:                       ; preds = %seqcst_fail37.i
-  store i64 %259, ptr %198, align 8
+  store i64 %262, ptr %201, align 8
   br label %cmpxchg.continue46.i
 
 cmpxchg.continue46.i:                             ; preds = %cmpxchg.store_expected45.i, %seqcst_fail37.i
-  %frombool47.i = zext i1 %260 to i8
+  %frombool47.i = zext i1 %263 to i8
   store i8 %frombool47.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue38.i
 
 monotonic_fail48.i:                               ; preds = %seqcst.i406
-  %261 = load i64, ptr %198, align 8
-  %262 = load i64, ptr %.atomictmp.i, align 8
-  %263 = cmpxchg ptr %this1.i405, i64 %261, i64 %262 seq_cst monotonic, align 8
-  %264 = extractvalue { i64, i1 } %263, 0
-  %265 = extractvalue { i64, i1 } %263, 1
-  br i1 %265, label %cmpxchg.continue53.i, label %cmpxchg.store_expected52.i
+  %264 = load i64, ptr %201, align 8
+  %265 = load i64, ptr %.atomictmp.i, align 8
+  %266 = cmpxchg ptr %this1.i405, i64 %264, i64 %265 seq_cst monotonic, align 8
+  %267 = extractvalue { i64, i1 } %266, 0
+  %268 = extractvalue { i64, i1 } %266, 1
+  br i1 %268, label %cmpxchg.continue53.i, label %cmpxchg.store_expected52.i
 
 acquire_fail49.i:                                 ; preds = %seqcst.i406, %seqcst.i406
-  %266 = load i64, ptr %198, align 8
-  %267 = load i64, ptr %.atomictmp.i, align 8
-  %268 = cmpxchg ptr %this1.i405, i64 %266, i64 %267 seq_cst acquire, align 8
-  %269 = extractvalue { i64, i1 } %268, 0
-  %270 = extractvalue { i64, i1 } %268, 1
-  br i1 %270, label %cmpxchg.continue56.i, label %cmpxchg.store_expected55.i
+  %269 = load i64, ptr %201, align 8
+  %270 = load i64, ptr %.atomictmp.i, align 8
+  %271 = cmpxchg ptr %this1.i405, i64 %269, i64 %270 seq_cst acquire, align 8
+  %272 = extractvalue { i64, i1 } %271, 0
+  %273 = extractvalue { i64, i1 } %271, 1
+  br i1 %273, label %cmpxchg.continue56.i, label %cmpxchg.store_expected55.i
 
 seqcst_fail50.i:                                  ; preds = %seqcst.i406
-  %271 = load i64, ptr %198, align 8
-  %272 = load i64, ptr %.atomictmp.i, align 8
-  %273 = cmpxchg ptr %this1.i405, i64 %271, i64 %272 seq_cst seq_cst, align 8
-  %274 = extractvalue { i64, i1 } %273, 0
-  %275 = extractvalue { i64, i1 } %273, 1
-  br i1 %275, label %cmpxchg.continue59.i, label %cmpxchg.store_expected58.i
+  %274 = load i64, ptr %201, align 8
+  %275 = load i64, ptr %.atomictmp.i, align 8
+  %276 = cmpxchg ptr %this1.i405, i64 %274, i64 %275 seq_cst seq_cst, align 8
+  %277 = extractvalue { i64, i1 } %276, 0
+  %278 = extractvalue { i64, i1 } %276, 1
+  br i1 %278, label %cmpxchg.continue59.i, label %cmpxchg.store_expected58.i
 
 atomic.continue51.i:                              ; preds = %cmpxchg.continue59.i, %cmpxchg.continue56.i, %cmpxchg.continue53.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected52.i:                       ; preds = %monotonic_fail48.i
-  store i64 %264, ptr %198, align 8
+  store i64 %267, ptr %201, align 8
   br label %cmpxchg.continue53.i
 
 cmpxchg.continue53.i:                             ; preds = %cmpxchg.store_expected52.i, %monotonic_fail48.i
-  %frombool54.i = zext i1 %265 to i8
+  %frombool54.i = zext i1 %268 to i8
   store i8 %frombool54.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue51.i
 
 cmpxchg.store_expected55.i:                       ; preds = %acquire_fail49.i
-  store i64 %269, ptr %198, align 8
+  store i64 %272, ptr %201, align 8
   br label %cmpxchg.continue56.i
 
 cmpxchg.continue56.i:                             ; preds = %cmpxchg.store_expected55.i, %acquire_fail49.i
-  %frombool57.i = zext i1 %270 to i8
+  %frombool57.i = zext i1 %273 to i8
   store i8 %frombool57.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue51.i
 
 cmpxchg.store_expected58.i:                       ; preds = %seqcst_fail50.i
-  store i64 %274, ptr %198, align 8
+  store i64 %277, ptr %201, align 8
   br label %cmpxchg.continue59.i
 
 cmpxchg.continue59.i:                             ; preds = %cmpxchg.store_expected58.i, %seqcst_fail50.i
-  %frombool60.i = zext i1 %275 to i8
+  %frombool60.i = zext i1 %278 to i8
   store i8 %frombool60.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue51.i
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit: ; preds = %atomic.continue51.i, %atomic.continue38.i, %atomic.continue25.i, %atomic.continue12.i, %atomic.continue2.i
-  %276 = load i8, ptr %cmpxchg.bool.i, align 1
-  %tobool.i = trunc i8 %276 to i1
+  %279 = load i8, ptr %cmpxchg.bool.i, align 1
+  %tobool.i = trunc i8 %279 to i1
   br i1 %tobool.i, label %if.then51, label %if.end351
 
 if.then51:                                        ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
-  %277 = load i64, ptr %v, align 8
-  %and52 = and i64 %277, 4
+  %280 = load i64, ptr %v, align 8
+  %and52 = and i64 %280, 4
   %cmp53 = icmp eq i64 %and52, 0
   br i1 %cmp53, label %if.then54, label %if.end106
 
@@ -6340,8 +6358,8 @@ if.then54:                                        ; preds = %if.then51
   br label %do.body55
 
 do.body55:                                        ; preds = %if.then54
-  %278 = load ptr, ptr %waitp.addr, align 8
-  %cmp56 = icmp ne ptr %278, null
+  %281 = load ptr, ptr %waitp.addr, align 8
+  %cmp56 = icmp ne ptr %281, null
   %lnot57 = xor i1 %cmp56, true
   br i1 %lnot57, label %if.then58, label %if.end67
 
@@ -6349,8 +6367,10 @@ if.then58:                                        ; preds = %do.body55
   br label %do.body59
 
 do.body59:                                        ; preds = %if.then58
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename60, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2138, ptr noundef @.str.1, ptr noundef @.str.16, ptr noundef @.str.17)
+  %282 = getelementptr i8, ptr @.str, i64 120
+  store ptr %282, ptr %absl_raw_log_internal_basename60, align 8
+  %283 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %283, i32 noundef 2138, ptr noundef @.str.1, ptr noundef @.str.16, ptr noundef @.str.17)
           to label %invoke.cont61 unwind label %lpad
 
 invoke.cont61:                                    ; preds = %do.body59
@@ -6385,65 +6405,65 @@ do.body70:                                        ; preds = %_ZNSt13__atomic_bas
   store ptr %mu_71, ptr %this.addr.i, align 8
   store i32 0, ptr %__m.addr.i, align 4
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %279 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %279, i32 noundef 65535)
+  %284 = load i32, ptr %__m.addr.i, align 4
+  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %284, i32 noundef 65535)
   store i32 %call.i, ptr %__b.i, align 4
-  %280 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %280, label %monotonic.i [
+  %285 = load i32, ptr %__m.addr.i, align 4
+  switch i32 %285, label %monotonic.i [
     i32 1, label %acquire.i
     i32 2, label %acquire.i
     i32 5, label %seqcst.i
   ]
 
 monotonic.i:                                      ; preds = %do.body70
-  %281 = load atomic i64, ptr %this1.i monotonic, align 8
-  store i64 %281, ptr %atomic-temp.i, align 8
+  %286 = load atomic i64, ptr %this1.i monotonic, align 8
+  store i64 %286, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
 
 acquire.i:                                        ; preds = %do.body70, %do.body70
-  %282 = load atomic i64, ptr %this1.i acquire, align 8
-  store i64 %282, ptr %atomic-temp.i, align 8
+  %287 = load atomic i64, ptr %this1.i acquire, align 8
+  store i64 %287, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
 
 seqcst.i:                                         ; preds = %do.body70
-  %283 = load atomic i64, ptr %this1.i seq_cst, align 8
-  store i64 %283, ptr %atomic-temp.i, align 8
+  %288 = load atomic i64, ptr %this1.i seq_cst, align 8
+  store i64 %288, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
 
 _ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %284 = load i64, ptr %atomic-temp.i, align 8
-  store i64 %284, ptr %v, align 8
-  %285 = load i64, ptr %v, align 8
-  %cmp73 = icmp sge i64 %285, 256
+  %289 = load i64, ptr %atomic-temp.i, align 8
+  store i64 %289, ptr %v, align 8
+  %290 = load i64, ptr %v, align 8
+  %cmp73 = icmp sge i64 %290, 256
   br i1 %cmp73, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
-  %286 = load i64, ptr %v, align 8
-  %sub74 = sub nsw i64 %286, 256
+  %291 = load i64, ptr %v, align 8
+  %sub74 = sub nsw i64 %291, 256
   br label %cond.end
 
 cond.false:                                       ; preds = %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
-  %287 = load i64, ptr %v, align 8
+  %292 = load i64, ptr %v, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond75 = phi i64 [ %sub74, %cond.true ], [ %287, %cond.false ]
+  %cond75 = phi i64 [ %sub74, %cond.true ], [ %292, %cond.false ]
   store i64 %cond75, ptr %new_readers, align 8
   store ptr null, ptr %new_h, align 8
-  %288 = load i8, ptr %do_enqueue, align 1
-  %tobool76 = trunc i8 %288 to i1
+  %293 = load i8, ptr %do_enqueue, align 1
+  %tobool76 = trunc i8 %293 to i1
   br i1 %tobool76, label %if.then77, label %if.end81
 
 if.then77:                                        ; preds = %cond.end
-  %289 = load ptr, ptr %waitp.addr, align 8
-  %cv_word = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %289, i32 0, i32 5
-  %290 = load ptr, ptr %cv_word, align 8
-  %cmp78 = icmp eq ptr %290, null
+  %294 = load ptr, ptr %waitp.addr, align 8
+  %cv_word = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %294, i32 0, i32 5
+  %295 = load ptr, ptr %cv_word, align 8
+  %cmp78 = icmp eq ptr %295, null
   %frombool = zext i1 %cmp78 to i8
   store i8 %frombool, ptr %do_enqueue, align 1
-  %291 = load ptr, ptr %waitp.addr, align 8
-  %292 = load i64, ptr %new_readers, align 8
-  %call80 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef null, ptr noundef %291, i64 noundef %292, i32 noundef 2)
+  %296 = load ptr, ptr %waitp.addr, align 8
+  %297 = load i64, ptr %new_readers, align 8
+  %call80 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef null, ptr noundef %296, i64 noundef %297, i32 noundef 2)
           to label %invoke.cont79 unwind label %lpad
 
 invoke.cont79:                                    ; preds = %if.then77
@@ -6452,14 +6472,14 @@ invoke.cont79:                                    ; preds = %if.then77
 
 if.end81:                                         ; preds = %invoke.cont79, %cond.end
   store i64 40, ptr %clear82, align 8
-  %293 = load i64, ptr %v, align 8
-  %and83 = and i64 %293, 8
+  %298 = load i64, ptr %v, align 8
+  %and83 = and i64 %298, 8
   %cmp84 = icmp eq i64 %and83, 0
   br i1 %cmp84, label %land.lhs.true85, label %if.end89
 
 land.lhs.true85:                                  ; preds = %if.end81
-  %294 = load i64, ptr %v, align 8
-  %call87 = invoke noundef zeroext i1 @_ZN4abslL16ExactlyOneReaderEl(i64 noundef %294)
+  %299 = load i64, ptr %v, align 8
+  %call87 = invoke noundef zeroext i1 @_ZN4abslL16ExactlyOneReaderEl(i64 noundef %299)
           to label %invoke.cont86 unwind label %lpad
 
 invoke.cont86:                                    ; preds = %land.lhs.true85
@@ -6470,31 +6490,31 @@ if.then88:                                        ; preds = %invoke.cont86
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then88, %invoke.cont86, %if.end81
-  %295 = load i64, ptr %v, align 8
-  %and90 = and i64 %295, 255
-  %296 = load i64, ptr %clear82, align 8
-  %not = xor i64 %296, -1
+  %300 = load i64, ptr %v, align 8
+  %and90 = and i64 %300, 255
+  %301 = load i64, ptr %clear82, align 8
+  %not = xor i64 %301, -1
   %and91 = and i64 %and90, %not
   %and92 = and i64 %and91, -65
   store i64 %and92, ptr %nv, align 8
-  %297 = load ptr, ptr %new_h, align 8
-  %cmp93 = icmp ne ptr %297, null
+  %302 = load ptr, ptr %new_h, align 8
+  %cmp93 = icmp ne ptr %302, null
   br i1 %cmp93, label %if.then94, label %if.else97
 
 if.then94:                                        ; preds = %if.end89
-  %298 = load ptr, ptr %new_h, align 8
-  %299 = ptrtoint ptr %298 to i64
-  %or95 = or i64 4, %299
-  %300 = load i64, ptr %nv, align 8
-  %or96 = or i64 %300, %or95
+  %303 = load ptr, ptr %new_h, align 8
+  %304 = ptrtoint ptr %303 to i64
+  %or95 = or i64 4, %304
+  %305 = load i64, ptr %nv, align 8
+  %or96 = or i64 %305, %or95
   store i64 %or96, ptr %nv, align 8
   br label %if.end100
 
 if.else97:                                        ; preds = %if.end89
-  %301 = load i64, ptr %new_readers, align 8
-  %and98 = and i64 %301, -256
-  %302 = load i64, ptr %nv, align 8
-  %or99 = or i64 %302, %and98
+  %306 = load i64, ptr %new_readers, align 8
+  %and98 = and i64 %306, -256
+  %307 = load i64, ptr %nv, align 8
+  %or99 = or i64 %307, %and98
   store i64 %or99, ptr %nv, align 8
   br label %if.end100
 
@@ -6503,19 +6523,19 @@ if.end100:                                        ; preds = %if.else97, %if.then
 
 do.cond101:                                       ; preds = %if.end100
   %mu_102 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %303 = load i64, ptr %nv, align 8
+  %308 = load i64, ptr %nv, align 8
   store ptr %mu_102, ptr %this.addr.i569, align 8
   store ptr %v, ptr %__i1.addr.i570, align 8
-  store i64 %303, ptr %__i2.addr.i571, align 8
+  store i64 %308, ptr %__i2.addr.i571, align 8
   store i32 3, ptr %__m1.addr.i572, align 4
   store i32 0, ptr %__m2.addr.i573, align 4
   %this1.i576 = load ptr, ptr %this.addr.i569, align 8
-  %304 = load i32, ptr %__m1.addr.i572, align 4
-  %305 = load ptr, ptr %__i1.addr.i570, align 8
-  %306 = load i64, ptr %__i2.addr.i571, align 8
-  store i64 %306, ptr %.atomictmp.i574, align 8
-  %307 = load i32, ptr %__m2.addr.i573, align 4
-  switch i32 %304, label %monotonic.i634 [
+  %309 = load i32, ptr %__m1.addr.i572, align 4
+  %310 = load ptr, ptr %__i1.addr.i570, align 8
+  %311 = load i64, ptr %__i2.addr.i571, align 8
+  store i64 %311, ptr %.atomictmp.i574, align 8
+  %312 = load i32, ptr %__m2.addr.i573, align 4
+  switch i32 %309, label %monotonic.i634 [
     i32 1, label %acquire.i620
     i32 2, label %acquire.i620
     i32 3, label %release.i606
@@ -6524,313 +6544,313 @@ do.cond101:                                       ; preds = %if.end100
   ]
 
 monotonic.i634:                                   ; preds = %do.cond101
-  switch i32 %307, label %monotonic_fail.i644 [
+  switch i32 %312, label %monotonic_fail.i644 [
     i32 1, label %acquire_fail.i640
     i32 2, label %acquire_fail.i640
     i32 5, label %seqcst_fail.i635
   ]
 
 acquire.i620:                                     ; preds = %do.cond101, %do.cond101
-  switch i32 %307, label %monotonic_fail9.i630 [
+  switch i32 %312, label %monotonic_fail9.i630 [
     i32 1, label %acquire_fail10.i626
     i32 2, label %acquire_fail10.i626
     i32 5, label %seqcst_fail11.i621
   ]
 
 release.i606:                                     ; preds = %do.cond101
-  switch i32 %307, label %monotonic_fail22.i616 [
+  switch i32 %312, label %monotonic_fail22.i616 [
     i32 1, label %acquire_fail23.i612
     i32 2, label %acquire_fail23.i612
     i32 5, label %seqcst_fail24.i607
   ]
 
 acqrel.i592:                                      ; preds = %do.cond101
-  switch i32 %307, label %monotonic_fail35.i602 [
+  switch i32 %312, label %monotonic_fail35.i602 [
     i32 1, label %acquire_fail36.i598
     i32 2, label %acquire_fail36.i598
     i32 5, label %seqcst_fail37.i593
   ]
 
 seqcst.i577:                                      ; preds = %do.cond101
-  switch i32 %307, label %monotonic_fail48.i588 [
+  switch i32 %312, label %monotonic_fail48.i588 [
     i32 1, label %acquire_fail49.i584
     i32 2, label %acquire_fail49.i584
     i32 5, label %seqcst_fail50.i578
   ]
 
 monotonic_fail.i644:                              ; preds = %monotonic.i634
-  %308 = load i64, ptr %305, align 8
-  %309 = load i64, ptr %.atomictmp.i574, align 8
-  %310 = cmpxchg weak ptr %this1.i576, i64 %308, i64 %309 monotonic monotonic, align 8
-  %311 = extractvalue { i64, i1 } %310, 0
-  %312 = extractvalue { i64, i1 } %310, 1
-  br i1 %312, label %cmpxchg.continue.i646, label %cmpxchg.store_expected.i645
-
-acquire_fail.i640:                                ; preds = %monotonic.i634, %monotonic.i634
-  %313 = load i64, ptr %305, align 8
+  %313 = load i64, ptr %310, align 8
   %314 = load i64, ptr %.atomictmp.i574, align 8
-  %315 = cmpxchg weak ptr %this1.i576, i64 %313, i64 %314 monotonic acquire, align 8
+  %315 = cmpxchg weak ptr %this1.i576, i64 %313, i64 %314 monotonic monotonic, align 8
   %316 = extractvalue { i64, i1 } %315, 0
   %317 = extractvalue { i64, i1 } %315, 1
-  br i1 %317, label %cmpxchg.continue4.i642, label %cmpxchg.store_expected3.i641
+  br i1 %317, label %cmpxchg.continue.i646, label %cmpxchg.store_expected.i645
 
-seqcst_fail.i635:                                 ; preds = %monotonic.i634
-  %318 = load i64, ptr %305, align 8
+acquire_fail.i640:                                ; preds = %monotonic.i634, %monotonic.i634
+  %318 = load i64, ptr %310, align 8
   %319 = load i64, ptr %.atomictmp.i574, align 8
-  %320 = cmpxchg weak ptr %this1.i576, i64 %318, i64 %319 monotonic seq_cst, align 8
+  %320 = cmpxchg weak ptr %this1.i576, i64 %318, i64 %319 monotonic acquire, align 8
   %321 = extractvalue { i64, i1 } %320, 0
   %322 = extractvalue { i64, i1 } %320, 1
-  br i1 %322, label %cmpxchg.continue7.i637, label %cmpxchg.store_expected6.i636
+  br i1 %322, label %cmpxchg.continue4.i642, label %cmpxchg.store_expected3.i641
+
+seqcst_fail.i635:                                 ; preds = %monotonic.i634
+  %323 = load i64, ptr %310, align 8
+  %324 = load i64, ptr %.atomictmp.i574, align 8
+  %325 = cmpxchg weak ptr %this1.i576, i64 %323, i64 %324 monotonic seq_cst, align 8
+  %326 = extractvalue { i64, i1 } %325, 0
+  %327 = extractvalue { i64, i1 } %325, 1
+  br i1 %327, label %cmpxchg.continue7.i637, label %cmpxchg.store_expected6.i636
 
 atomic.continue2.i639:                            ; preds = %cmpxchg.continue7.i637, %cmpxchg.continue4.i642, %cmpxchg.continue.i646
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected.i645:                      ; preds = %monotonic_fail.i644
-  store i64 %311, ptr %305, align 8
+  store i64 %316, ptr %310, align 8
   br label %cmpxchg.continue.i646
 
 cmpxchg.continue.i646:                            ; preds = %cmpxchg.store_expected.i645, %monotonic_fail.i644
-  %frombool.i647 = zext i1 %312 to i8
+  %frombool.i647 = zext i1 %317 to i8
   store i8 %frombool.i647, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue2.i639
 
 cmpxchg.store_expected3.i641:                     ; preds = %acquire_fail.i640
-  store i64 %316, ptr %305, align 8
+  store i64 %321, ptr %310, align 8
   br label %cmpxchg.continue4.i642
 
 cmpxchg.continue4.i642:                           ; preds = %cmpxchg.store_expected3.i641, %acquire_fail.i640
-  %frombool5.i643 = zext i1 %317 to i8
+  %frombool5.i643 = zext i1 %322 to i8
   store i8 %frombool5.i643, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue2.i639
 
 cmpxchg.store_expected6.i636:                     ; preds = %seqcst_fail.i635
-  store i64 %321, ptr %305, align 8
+  store i64 %326, ptr %310, align 8
   br label %cmpxchg.continue7.i637
 
 cmpxchg.continue7.i637:                           ; preds = %cmpxchg.store_expected6.i636, %seqcst_fail.i635
-  %frombool8.i638 = zext i1 %322 to i8
+  %frombool8.i638 = zext i1 %327 to i8
   store i8 %frombool8.i638, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue2.i639
 
 monotonic_fail9.i630:                             ; preds = %acquire.i620
-  %323 = load i64, ptr %305, align 8
-  %324 = load i64, ptr %.atomictmp.i574, align 8
-  %325 = cmpxchg weak ptr %this1.i576, i64 %323, i64 %324 acquire monotonic, align 8
-  %326 = extractvalue { i64, i1 } %325, 0
-  %327 = extractvalue { i64, i1 } %325, 1
-  br i1 %327, label %cmpxchg.continue14.i632, label %cmpxchg.store_expected13.i631
-
-acquire_fail10.i626:                              ; preds = %acquire.i620, %acquire.i620
-  %328 = load i64, ptr %305, align 8
+  %328 = load i64, ptr %310, align 8
   %329 = load i64, ptr %.atomictmp.i574, align 8
-  %330 = cmpxchg weak ptr %this1.i576, i64 %328, i64 %329 acquire acquire, align 8
+  %330 = cmpxchg weak ptr %this1.i576, i64 %328, i64 %329 acquire monotonic, align 8
   %331 = extractvalue { i64, i1 } %330, 0
   %332 = extractvalue { i64, i1 } %330, 1
-  br i1 %332, label %cmpxchg.continue17.i628, label %cmpxchg.store_expected16.i627
+  br i1 %332, label %cmpxchg.continue14.i632, label %cmpxchg.store_expected13.i631
 
-seqcst_fail11.i621:                               ; preds = %acquire.i620
-  %333 = load i64, ptr %305, align 8
+acquire_fail10.i626:                              ; preds = %acquire.i620, %acquire.i620
+  %333 = load i64, ptr %310, align 8
   %334 = load i64, ptr %.atomictmp.i574, align 8
-  %335 = cmpxchg weak ptr %this1.i576, i64 %333, i64 %334 acquire seq_cst, align 8
+  %335 = cmpxchg weak ptr %this1.i576, i64 %333, i64 %334 acquire acquire, align 8
   %336 = extractvalue { i64, i1 } %335, 0
   %337 = extractvalue { i64, i1 } %335, 1
-  br i1 %337, label %cmpxchg.continue20.i623, label %cmpxchg.store_expected19.i622
+  br i1 %337, label %cmpxchg.continue17.i628, label %cmpxchg.store_expected16.i627
+
+seqcst_fail11.i621:                               ; preds = %acquire.i620
+  %338 = load i64, ptr %310, align 8
+  %339 = load i64, ptr %.atomictmp.i574, align 8
+  %340 = cmpxchg weak ptr %this1.i576, i64 %338, i64 %339 acquire seq_cst, align 8
+  %341 = extractvalue { i64, i1 } %340, 0
+  %342 = extractvalue { i64, i1 } %340, 1
+  br i1 %342, label %cmpxchg.continue20.i623, label %cmpxchg.store_expected19.i622
 
 atomic.continue12.i625:                           ; preds = %cmpxchg.continue20.i623, %cmpxchg.continue17.i628, %cmpxchg.continue14.i632
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected13.i631:                    ; preds = %monotonic_fail9.i630
-  store i64 %326, ptr %305, align 8
+  store i64 %331, ptr %310, align 8
   br label %cmpxchg.continue14.i632
 
 cmpxchg.continue14.i632:                          ; preds = %cmpxchg.store_expected13.i631, %monotonic_fail9.i630
-  %frombool15.i633 = zext i1 %327 to i8
+  %frombool15.i633 = zext i1 %332 to i8
   store i8 %frombool15.i633, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue12.i625
 
 cmpxchg.store_expected16.i627:                    ; preds = %acquire_fail10.i626
-  store i64 %331, ptr %305, align 8
+  store i64 %336, ptr %310, align 8
   br label %cmpxchg.continue17.i628
 
 cmpxchg.continue17.i628:                          ; preds = %cmpxchg.store_expected16.i627, %acquire_fail10.i626
-  %frombool18.i629 = zext i1 %332 to i8
+  %frombool18.i629 = zext i1 %337 to i8
   store i8 %frombool18.i629, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue12.i625
 
 cmpxchg.store_expected19.i622:                    ; preds = %seqcst_fail11.i621
-  store i64 %336, ptr %305, align 8
+  store i64 %341, ptr %310, align 8
   br label %cmpxchg.continue20.i623
 
 cmpxchg.continue20.i623:                          ; preds = %cmpxchg.store_expected19.i622, %seqcst_fail11.i621
-  %frombool21.i624 = zext i1 %337 to i8
+  %frombool21.i624 = zext i1 %342 to i8
   store i8 %frombool21.i624, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue12.i625
 
 monotonic_fail22.i616:                            ; preds = %release.i606
-  %338 = load i64, ptr %305, align 8
-  %339 = load i64, ptr %.atomictmp.i574, align 8
-  %340 = cmpxchg weak ptr %this1.i576, i64 %338, i64 %339 release monotonic, align 8
-  %341 = extractvalue { i64, i1 } %340, 0
-  %342 = extractvalue { i64, i1 } %340, 1
-  br i1 %342, label %cmpxchg.continue27.i618, label %cmpxchg.store_expected26.i617
-
-acquire_fail23.i612:                              ; preds = %release.i606, %release.i606
-  %343 = load i64, ptr %305, align 8
+  %343 = load i64, ptr %310, align 8
   %344 = load i64, ptr %.atomictmp.i574, align 8
-  %345 = cmpxchg weak ptr %this1.i576, i64 %343, i64 %344 release acquire, align 8
+  %345 = cmpxchg weak ptr %this1.i576, i64 %343, i64 %344 release monotonic, align 8
   %346 = extractvalue { i64, i1 } %345, 0
   %347 = extractvalue { i64, i1 } %345, 1
-  br i1 %347, label %cmpxchg.continue30.i614, label %cmpxchg.store_expected29.i613
+  br i1 %347, label %cmpxchg.continue27.i618, label %cmpxchg.store_expected26.i617
 
-seqcst_fail24.i607:                               ; preds = %release.i606
-  %348 = load i64, ptr %305, align 8
+acquire_fail23.i612:                              ; preds = %release.i606, %release.i606
+  %348 = load i64, ptr %310, align 8
   %349 = load i64, ptr %.atomictmp.i574, align 8
-  %350 = cmpxchg weak ptr %this1.i576, i64 %348, i64 %349 release seq_cst, align 8
+  %350 = cmpxchg weak ptr %this1.i576, i64 %348, i64 %349 release acquire, align 8
   %351 = extractvalue { i64, i1 } %350, 0
   %352 = extractvalue { i64, i1 } %350, 1
-  br i1 %352, label %cmpxchg.continue33.i609, label %cmpxchg.store_expected32.i608
+  br i1 %352, label %cmpxchg.continue30.i614, label %cmpxchg.store_expected29.i613
+
+seqcst_fail24.i607:                               ; preds = %release.i606
+  %353 = load i64, ptr %310, align 8
+  %354 = load i64, ptr %.atomictmp.i574, align 8
+  %355 = cmpxchg weak ptr %this1.i576, i64 %353, i64 %354 release seq_cst, align 8
+  %356 = extractvalue { i64, i1 } %355, 0
+  %357 = extractvalue { i64, i1 } %355, 1
+  br i1 %357, label %cmpxchg.continue33.i609, label %cmpxchg.store_expected32.i608
 
 atomic.continue25.i611:                           ; preds = %cmpxchg.continue33.i609, %cmpxchg.continue30.i614, %cmpxchg.continue27.i618
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected26.i617:                    ; preds = %monotonic_fail22.i616
-  store i64 %341, ptr %305, align 8
+  store i64 %346, ptr %310, align 8
   br label %cmpxchg.continue27.i618
 
 cmpxchg.continue27.i618:                          ; preds = %cmpxchg.store_expected26.i617, %monotonic_fail22.i616
-  %frombool28.i619 = zext i1 %342 to i8
+  %frombool28.i619 = zext i1 %347 to i8
   store i8 %frombool28.i619, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue25.i611
 
 cmpxchg.store_expected29.i613:                    ; preds = %acquire_fail23.i612
-  store i64 %346, ptr %305, align 8
+  store i64 %351, ptr %310, align 8
   br label %cmpxchg.continue30.i614
 
 cmpxchg.continue30.i614:                          ; preds = %cmpxchg.store_expected29.i613, %acquire_fail23.i612
-  %frombool31.i615 = zext i1 %347 to i8
+  %frombool31.i615 = zext i1 %352 to i8
   store i8 %frombool31.i615, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue25.i611
 
 cmpxchg.store_expected32.i608:                    ; preds = %seqcst_fail24.i607
-  store i64 %351, ptr %305, align 8
+  store i64 %356, ptr %310, align 8
   br label %cmpxchg.continue33.i609
 
 cmpxchg.continue33.i609:                          ; preds = %cmpxchg.store_expected32.i608, %seqcst_fail24.i607
-  %frombool34.i610 = zext i1 %352 to i8
+  %frombool34.i610 = zext i1 %357 to i8
   store i8 %frombool34.i610, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue25.i611
 
 monotonic_fail35.i602:                            ; preds = %acqrel.i592
-  %353 = load i64, ptr %305, align 8
-  %354 = load i64, ptr %.atomictmp.i574, align 8
-  %355 = cmpxchg weak ptr %this1.i576, i64 %353, i64 %354 acq_rel monotonic, align 8
-  %356 = extractvalue { i64, i1 } %355, 0
-  %357 = extractvalue { i64, i1 } %355, 1
-  br i1 %357, label %cmpxchg.continue40.i604, label %cmpxchg.store_expected39.i603
-
-acquire_fail36.i598:                              ; preds = %acqrel.i592, %acqrel.i592
-  %358 = load i64, ptr %305, align 8
+  %358 = load i64, ptr %310, align 8
   %359 = load i64, ptr %.atomictmp.i574, align 8
-  %360 = cmpxchg weak ptr %this1.i576, i64 %358, i64 %359 acq_rel acquire, align 8
+  %360 = cmpxchg weak ptr %this1.i576, i64 %358, i64 %359 acq_rel monotonic, align 8
   %361 = extractvalue { i64, i1 } %360, 0
   %362 = extractvalue { i64, i1 } %360, 1
-  br i1 %362, label %cmpxchg.continue43.i600, label %cmpxchg.store_expected42.i599
+  br i1 %362, label %cmpxchg.continue40.i604, label %cmpxchg.store_expected39.i603
 
-seqcst_fail37.i593:                               ; preds = %acqrel.i592
-  %363 = load i64, ptr %305, align 8
+acquire_fail36.i598:                              ; preds = %acqrel.i592, %acqrel.i592
+  %363 = load i64, ptr %310, align 8
   %364 = load i64, ptr %.atomictmp.i574, align 8
-  %365 = cmpxchg weak ptr %this1.i576, i64 %363, i64 %364 acq_rel seq_cst, align 8
+  %365 = cmpxchg weak ptr %this1.i576, i64 %363, i64 %364 acq_rel acquire, align 8
   %366 = extractvalue { i64, i1 } %365, 0
   %367 = extractvalue { i64, i1 } %365, 1
-  br i1 %367, label %cmpxchg.continue46.i595, label %cmpxchg.store_expected45.i594
+  br i1 %367, label %cmpxchg.continue43.i600, label %cmpxchg.store_expected42.i599
+
+seqcst_fail37.i593:                               ; preds = %acqrel.i592
+  %368 = load i64, ptr %310, align 8
+  %369 = load i64, ptr %.atomictmp.i574, align 8
+  %370 = cmpxchg weak ptr %this1.i576, i64 %368, i64 %369 acq_rel seq_cst, align 8
+  %371 = extractvalue { i64, i1 } %370, 0
+  %372 = extractvalue { i64, i1 } %370, 1
+  br i1 %372, label %cmpxchg.continue46.i595, label %cmpxchg.store_expected45.i594
 
 atomic.continue38.i597:                           ; preds = %cmpxchg.continue46.i595, %cmpxchg.continue43.i600, %cmpxchg.continue40.i604
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected39.i603:                    ; preds = %monotonic_fail35.i602
-  store i64 %356, ptr %305, align 8
+  store i64 %361, ptr %310, align 8
   br label %cmpxchg.continue40.i604
 
 cmpxchg.continue40.i604:                          ; preds = %cmpxchg.store_expected39.i603, %monotonic_fail35.i602
-  %frombool41.i605 = zext i1 %357 to i8
+  %frombool41.i605 = zext i1 %362 to i8
   store i8 %frombool41.i605, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue38.i597
 
 cmpxchg.store_expected42.i599:                    ; preds = %acquire_fail36.i598
-  store i64 %361, ptr %305, align 8
+  store i64 %366, ptr %310, align 8
   br label %cmpxchg.continue43.i600
 
 cmpxchg.continue43.i600:                          ; preds = %cmpxchg.store_expected42.i599, %acquire_fail36.i598
-  %frombool44.i601 = zext i1 %362 to i8
+  %frombool44.i601 = zext i1 %367 to i8
   store i8 %frombool44.i601, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue38.i597
 
 cmpxchg.store_expected45.i594:                    ; preds = %seqcst_fail37.i593
-  store i64 %366, ptr %305, align 8
+  store i64 %371, ptr %310, align 8
   br label %cmpxchg.continue46.i595
 
 cmpxchg.continue46.i595:                          ; preds = %cmpxchg.store_expected45.i594, %seqcst_fail37.i593
-  %frombool47.i596 = zext i1 %367 to i8
+  %frombool47.i596 = zext i1 %372 to i8
   store i8 %frombool47.i596, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue38.i597
 
 monotonic_fail48.i588:                            ; preds = %seqcst.i577
-  %368 = load i64, ptr %305, align 8
-  %369 = load i64, ptr %.atomictmp.i574, align 8
-  %370 = cmpxchg weak ptr %this1.i576, i64 %368, i64 %369 seq_cst monotonic, align 8
-  %371 = extractvalue { i64, i1 } %370, 0
-  %372 = extractvalue { i64, i1 } %370, 1
-  br i1 %372, label %cmpxchg.continue53.i590, label %cmpxchg.store_expected52.i589
-
-acquire_fail49.i584:                              ; preds = %seqcst.i577, %seqcst.i577
-  %373 = load i64, ptr %305, align 8
+  %373 = load i64, ptr %310, align 8
   %374 = load i64, ptr %.atomictmp.i574, align 8
-  %375 = cmpxchg weak ptr %this1.i576, i64 %373, i64 %374 seq_cst acquire, align 8
+  %375 = cmpxchg weak ptr %this1.i576, i64 %373, i64 %374 seq_cst monotonic, align 8
   %376 = extractvalue { i64, i1 } %375, 0
   %377 = extractvalue { i64, i1 } %375, 1
-  br i1 %377, label %cmpxchg.continue56.i586, label %cmpxchg.store_expected55.i585
+  br i1 %377, label %cmpxchg.continue53.i590, label %cmpxchg.store_expected52.i589
 
-seqcst_fail50.i578:                               ; preds = %seqcst.i577
-  %378 = load i64, ptr %305, align 8
+acquire_fail49.i584:                              ; preds = %seqcst.i577, %seqcst.i577
+  %378 = load i64, ptr %310, align 8
   %379 = load i64, ptr %.atomictmp.i574, align 8
-  %380 = cmpxchg weak ptr %this1.i576, i64 %378, i64 %379 seq_cst seq_cst, align 8
+  %380 = cmpxchg weak ptr %this1.i576, i64 %378, i64 %379 seq_cst acquire, align 8
   %381 = extractvalue { i64, i1 } %380, 0
   %382 = extractvalue { i64, i1 } %380, 1
-  br i1 %382, label %cmpxchg.continue59.i580, label %cmpxchg.store_expected58.i579
+  br i1 %382, label %cmpxchg.continue56.i586, label %cmpxchg.store_expected55.i585
+
+seqcst_fail50.i578:                               ; preds = %seqcst.i577
+  %383 = load i64, ptr %310, align 8
+  %384 = load i64, ptr %.atomictmp.i574, align 8
+  %385 = cmpxchg weak ptr %this1.i576, i64 %383, i64 %384 seq_cst seq_cst, align 8
+  %386 = extractvalue { i64, i1 } %385, 0
+  %387 = extractvalue { i64, i1 } %385, 1
+  br i1 %387, label %cmpxchg.continue59.i580, label %cmpxchg.store_expected58.i579
 
 atomic.continue51.i582:                           ; preds = %cmpxchg.continue59.i580, %cmpxchg.continue56.i586, %cmpxchg.continue53.i590
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected52.i589:                    ; preds = %monotonic_fail48.i588
-  store i64 %371, ptr %305, align 8
+  store i64 %376, ptr %310, align 8
   br label %cmpxchg.continue53.i590
 
 cmpxchg.continue53.i590:                          ; preds = %cmpxchg.store_expected52.i589, %monotonic_fail48.i588
-  %frombool54.i591 = zext i1 %372 to i8
+  %frombool54.i591 = zext i1 %377 to i8
   store i8 %frombool54.i591, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue51.i582
 
 cmpxchg.store_expected55.i585:                    ; preds = %acquire_fail49.i584
-  store i64 %376, ptr %305, align 8
+  store i64 %381, ptr %310, align 8
   br label %cmpxchg.continue56.i586
 
 cmpxchg.continue56.i586:                          ; preds = %cmpxchg.store_expected55.i585, %acquire_fail49.i584
-  %frombool57.i587 = zext i1 %377 to i8
+  %frombool57.i587 = zext i1 %382 to i8
   store i8 %frombool57.i587, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue51.i582
 
 cmpxchg.store_expected58.i579:                    ; preds = %seqcst_fail50.i578
-  store i64 %381, ptr %305, align 8
+  store i64 %386, ptr %310, align 8
   br label %cmpxchg.continue59.i580
 
 cmpxchg.continue59.i580:                          ; preds = %cmpxchg.store_expected58.i579, %seqcst_fail50.i578
-  %frombool60.i581 = zext i1 %382 to i8
+  %frombool60.i581 = zext i1 %387 to i8
   store i8 %frombool60.i581, ptr %cmpxchg.bool.i575, align 1
   br label %atomic.continue51.i582
 
 _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit: ; preds = %atomic.continue51.i582, %atomic.continue38.i597, %atomic.continue25.i611, %atomic.continue12.i625, %atomic.continue2.i639
-  %383 = load i8, ptr %cmpxchg.bool.i575, align 1
-  %tobool.i583 = trunc i8 %383 to i1
+  %388 = load i8, ptr %cmpxchg.bool.i575, align 1
+  %tobool.i583 = trunc i8 %388 to i1
   %lnot104 = xor i1 %tobool.i583, true
   br i1 %lnot104, label %do.body70, label %do.end105, !llvm.loop !15
 
@@ -6838,42 +6858,42 @@ do.end105:                                        ; preds = %_ZNSt13__atomic_bas
   br label %for.end
 
 if.end106:                                        ; preds = %if.then51
-  %384 = load i64, ptr %v, align 8
-  %call108 = invoke noundef ptr @_ZN4abslL17GetPerThreadSynchEl(i64 noundef %384)
+  %389 = load i64, ptr %v, align 8
+  %call108 = invoke noundef ptr @_ZN4abslL17GetPerThreadSynchEl(i64 noundef %389)
           to label %invoke.cont107 unwind label %lpad
 
 invoke.cont107:                                   ; preds = %if.end106
   store ptr %call108, ptr %h, align 8
-  %385 = load i64, ptr %v, align 8
-  %and109 = and i64 %385, 1
+  %390 = load i64, ptr %v, align 8
+  %and109 = and i64 %390, 1
   %cmp110 = icmp ne i64 %and109, 0
   br i1 %cmp110, label %land.lhs.true111, label %if.end143
 
 land.lhs.true111:                                 ; preds = %invoke.cont107
-  %386 = load ptr, ptr %h, align 8
-  %readers = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %386, i32 0, i32 10
-  %387 = load i64, ptr %readers, align 8
-  %and112 = and i64 %387, -256
+  %391 = load ptr, ptr %h, align 8
+  %readers = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %391, i32 0, i32 10
+  %392 = load i64, ptr %readers, align 8
+  %and112 = and i64 %392, -256
   %cmp113 = icmp sgt i64 %and112, 256
   br i1 %cmp113, label %if.then114, label %if.end143
 
 if.then114:                                       ; preds = %land.lhs.true111
-  %388 = load ptr, ptr %h, align 8
-  %readers115 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %388, i32 0, i32 10
-  %389 = load i64, ptr %readers115, align 8
-  %sub116 = sub nsw i64 %389, 256
+  %393 = load ptr, ptr %h, align 8
+  %readers115 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %393, i32 0, i32 10
+  %394 = load i64, ptr %readers115, align 8
+  %sub116 = sub nsw i64 %394, 256
   store i64 %sub116, ptr %readers115, align 8
-  %390 = load i64, ptr %v, align 8
-  store i64 %390, ptr %nv117, align 8
-  %391 = load ptr, ptr %waitp.addr, align 8
-  %cmp118 = icmp ne ptr %391, null
+  %395 = load i64, ptr %v, align 8
+  store i64 %395, ptr %nv117, align 8
+  %396 = load ptr, ptr %waitp.addr, align 8
+  %cmp118 = icmp ne ptr %396, null
   br i1 %cmp118, label %if.then119, label %if.end141
 
 if.then119:                                       ; preds = %if.then114
-  %392 = load ptr, ptr %h, align 8
-  %393 = load ptr, ptr %waitp.addr, align 8
-  %394 = load i64, ptr %v, align 8
-  %call122 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %392, ptr noundef %393, i64 noundef %394, i32 noundef 2)
+  %397 = load ptr, ptr %h, align 8
+  %398 = load ptr, ptr %waitp.addr, align 8
+  %399 = load i64, ptr %v, align 8
+  %call122 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %397, ptr noundef %398, i64 noundef %399, i32 noundef 2)
           to label %invoke.cont121 unwind label %lpad
 
 invoke.cont121:                                   ; preds = %if.then119
@@ -6881,8 +6901,8 @@ invoke.cont121:                                   ; preds = %if.then119
   br label %do.body123
 
 do.body123:                                       ; preds = %invoke.cont121
-  %395 = load ptr, ptr %new_h120, align 8
-  %cmp124 = icmp ne ptr %395, null
+  %400 = load ptr, ptr %new_h120, align 8
+  %cmp124 = icmp ne ptr %400, null
   %lnot125 = xor i1 %cmp124, true
   br i1 %lnot125, label %if.then126, label %if.end135
 
@@ -6890,8 +6910,10 @@ if.then126:                                       ; preds = %do.body123
   br label %do.body127
 
 do.body127:                                       ; preds = %if.then126
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename128, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2182, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.18)
+  %401 = getelementptr i8, ptr @.str, i64 120
+  store ptr %401, ptr %absl_raw_log_internal_basename128, align 8
+  %402 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %402, i32 noundef 2182, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.18)
           to label %invoke.cont129 unwind label %lpad
 
 invoke.cont129:                                   ; preds = %do.body127
@@ -6919,48 +6941,48 @@ do.cond136:                                       ; preds = %if.end135
   br label %do.end137
 
 do.end137:                                        ; preds = %do.cond136
-  %396 = load i64, ptr %nv117, align 8
-  %and138 = and i64 %396, 255
+  %403 = load i64, ptr %nv117, align 8
+  %and138 = and i64 %403, 255
   store i64 %and138, ptr %nv117, align 8
-  %397 = load ptr, ptr %new_h120, align 8
-  %398 = ptrtoint ptr %397 to i64
-  %or139 = or i64 4, %398
-  %399 = load i64, ptr %nv117, align 8
-  %or140 = or i64 %399, %or139
+  %404 = load ptr, ptr %new_h120, align 8
+  %405 = ptrtoint ptr %404 to i64
+  %or139 = or i64 4, %405
+  %406 = load i64, ptr %nv117, align 8
+  %or140 = or i64 %406, %or139
   store i64 %or140, ptr %nv117, align 8
   br label %if.end141
 
 if.end141:                                        ; preds = %do.end137, %if.then114
   %mu_142 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %400 = load i64, ptr %nv117, align 8
+  %407 = load i64, ptr %nv117, align 8
   store ptr %mu_142, ptr %this.addr.i679, align 8
-  store i64 %400, ptr %__i.addr.i680, align 8
+  store i64 %407, ptr %__i.addr.i680, align 8
   store i32 3, ptr %__m.addr.i681, align 4
   %this1.i684 = load ptr, ptr %this.addr.i679, align 8
-  %401 = load i32, ptr %__m.addr.i681, align 4
-  %call.i685 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %401, i32 noundef 65535)
+  %408 = load i32, ptr %__m.addr.i681, align 4
+  %call.i685 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %408, i32 noundef 65535)
   store i32 %call.i685, ptr %__b.i682, align 4
-  %402 = load i32, ptr %__m.addr.i681, align 4
-  %403 = load i64, ptr %__i.addr.i680, align 8
-  store i64 %403, ptr %.atomictmp.i683, align 8
-  switch i32 %402, label %monotonic.i688 [
+  %409 = load i32, ptr %__m.addr.i681, align 4
+  %410 = load i64, ptr %__i.addr.i680, align 8
+  store i64 %410, ptr %.atomictmp.i683, align 8
+  switch i32 %409, label %monotonic.i688 [
     i32 3, label %release.i687
     i32 5, label %seqcst.i686
   ]
 
 monotonic.i688:                                   ; preds = %if.end141
-  %404 = load i64, ptr %.atomictmp.i683, align 8
-  store atomic i64 %404, ptr %this1.i684 monotonic, align 8
+  %411 = load i64, ptr %.atomictmp.i683, align 8
+  store atomic i64 %411, ptr %this1.i684 monotonic, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit689
 
 release.i687:                                     ; preds = %if.end141
-  %405 = load i64, ptr %.atomictmp.i683, align 8
-  store atomic i64 %405, ptr %this1.i684 release, align 8
+  %412 = load i64, ptr %.atomictmp.i683, align 8
+  store atomic i64 %412, ptr %this1.i684 release, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit689
 
 seqcst.i686:                                      ; preds = %if.end141
-  %406 = load i64, ptr %.atomictmp.i683, align 8
-  store atomic i64 %406, ptr %this1.i684 seq_cst, align 8
+  %413 = load i64, ptr %.atomictmp.i683, align 8
+  store atomic i64 %413, ptr %this1.i684 seq_cst, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit689
 
 _ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit689: ; preds = %seqcst.i686, %release.i687, %monotonic.i688
@@ -6970,28 +6992,30 @@ if.end143:                                        ; preds = %land.lhs.true111, %
   br label %do.body144
 
 do.body144:                                       ; preds = %if.end143
-  %407 = load ptr, ptr %old_h, align 8
-  %cmp145 = icmp eq ptr %407, null
+  %414 = load ptr, ptr %old_h, align 8
+  %cmp145 = icmp eq ptr %414, null
   br i1 %cmp145, label %lor.end148, label %lor.rhs146
 
 lor.rhs146:                                       ; preds = %do.body144
-  %408 = load ptr, ptr %h, align 8
-  %maybe_unlocking = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %408, i32 0, i32 5
-  %409 = load i8, ptr %maybe_unlocking, align 1
-  %tobool147 = trunc i8 %409 to i1
+  %415 = load ptr, ptr %h, align 8
+  %maybe_unlocking = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %415, i32 0, i32 5
+  %416 = load i8, ptr %maybe_unlocking, align 1
+  %tobool147 = trunc i8 %416 to i1
   br label %lor.end148
 
 lor.end148:                                       ; preds = %lor.rhs146, %do.body144
-  %410 = phi i1 [ true, %do.body144 ], [ %tobool147, %lor.rhs146 ]
-  %lnot149 = xor i1 %410, true
+  %417 = phi i1 [ true, %do.body144 ], [ %tobool147, %lor.rhs146 ]
+  %lnot149 = xor i1 %417, true
   br i1 %lnot149, label %if.then150, label %if.end159
 
 if.then150:                                       ; preds = %lor.end148
   br label %do.body151
 
 do.body151:                                       ; preds = %if.then150
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename152, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2194, ptr noundef @.str.1, ptr noundef @.str.19, ptr noundef @.str.20)
+  %418 = getelementptr i8, ptr @.str, i64 120
+  store ptr %418, ptr %absl_raw_log_internal_basename152, align 8
+  %419 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %419, i32 noundef 2194, ptr noundef @.str.1, ptr noundef @.str.19, ptr noundef @.str.20)
           to label %invoke.cont153 unwind label %lpad
 
 invoke.cont153:                                   ; preds = %do.body151
@@ -7019,28 +7043,28 @@ do.cond160:                                       ; preds = %if.end159
   br label %do.end161
 
 do.end161:                                        ; preds = %do.cond160
-  %411 = load ptr, ptr %old_h, align 8
-  %cmp162 = icmp ne ptr %411, null
+  %420 = load ptr, ptr %old_h, align 8
+  %cmp162 = icmp ne ptr %420, null
   br i1 %cmp162, label %land.lhs.true163, label %if.end190
 
 land.lhs.true163:                                 ; preds = %do.end161
-  %412 = load ptr, ptr %old_h, align 8
-  %may_skip = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %412, i32 0, i32 2
-  %413 = load i8, ptr %may_skip, align 8
-  %tobool164 = trunc i8 %413 to i1
+  %421 = load ptr, ptr %old_h, align 8
+  %may_skip = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %421, i32 0, i32 2
+  %422 = load i8, ptr %may_skip, align 8
+  %tobool164 = trunc i8 %422 to i1
   br i1 %tobool164, label %if.end190, label %if.then165
 
 if.then165:                                       ; preds = %land.lhs.true163
-  %414 = load ptr, ptr %old_h, align 8
-  %may_skip166 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %414, i32 0, i32 2
+  %423 = load ptr, ptr %old_h, align 8
+  %may_skip166 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %423, i32 0, i32 2
   store i8 1, ptr %may_skip166, align 8
   br label %do.body167
 
 do.body167:                                       ; preds = %if.then165
-  %415 = load ptr, ptr %old_h, align 8
-  %skip = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %415, i32 0, i32 1
-  %416 = load ptr, ptr %skip, align 8
-  %cmp168 = icmp eq ptr %416, null
+  %424 = load ptr, ptr %old_h, align 8
+  %skip = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %424, i32 0, i32 1
+  %425 = load ptr, ptr %skip, align 8
+  %cmp168 = icmp eq ptr %425, null
   %lnot169 = xor i1 %cmp168, true
   br i1 %lnot169, label %if.then170, label %if.end179
 
@@ -7048,8 +7072,10 @@ if.then170:                                       ; preds = %do.body167
   br label %do.body171
 
 do.body171:                                       ; preds = %if.then170
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename172, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2200, ptr noundef @.str.1, ptr noundef @.str.21, ptr noundef @.str.22)
+  %426 = getelementptr i8, ptr @.str, i64 120
+  store ptr %426, ptr %absl_raw_log_internal_basename172, align 8
+  %427 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %427, i32 noundef 2200, ptr noundef @.str.1, ptr noundef @.str.21, ptr noundef @.str.22)
           to label %invoke.cont173 unwind label %lpad
 
 invoke.cont173:                                   ; preds = %do.body171
@@ -7077,144 +7103,144 @@ do.cond180:                                       ; preds = %if.end179
   br label %do.end181
 
 do.end181:                                        ; preds = %do.cond180
-  %417 = load ptr, ptr %h, align 8
-  %418 = load ptr, ptr %old_h, align 8
-  %cmp182 = icmp ne ptr %417, %418
+  %428 = load ptr, ptr %h, align 8
+  %429 = load ptr, ptr %old_h, align 8
+  %cmp182 = icmp ne ptr %428, %429
   br i1 %cmp182, label %land.lhs.true183, label %if.end189
 
 land.lhs.true183:                                 ; preds = %do.end181
-  %419 = load ptr, ptr %old_h, align 8
-  %420 = load ptr, ptr %old_h, align 8
-  %next = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %420, i32 0, i32 0
-  %421 = load ptr, ptr %next, align 8
-  %call185 = invoke noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef %419, ptr noundef %421)
+  %430 = load ptr, ptr %old_h, align 8
+  %431 = load ptr, ptr %old_h, align 8
+  %next = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %431, i32 0, i32 0
+  %432 = load ptr, ptr %next, align 8
+  %call185 = invoke noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef %430, ptr noundef %432)
           to label %invoke.cont184 unwind label %lpad
 
 invoke.cont184:                                   ; preds = %land.lhs.true183
   br i1 %call185, label %if.then186, label %if.end189
 
 if.then186:                                       ; preds = %invoke.cont184
-  %422 = load ptr, ptr %old_h, align 8
-  %next187 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %422, i32 0, i32 0
-  %423 = load ptr, ptr %next187, align 8
-  %424 = load ptr, ptr %old_h, align 8
-  %skip188 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %424, i32 0, i32 1
-  store ptr %423, ptr %skip188, align 8
+  %433 = load ptr, ptr %old_h, align 8
+  %next187 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %433, i32 0, i32 0
+  %434 = load ptr, ptr %next187, align 8
+  %435 = load ptr, ptr %old_h, align 8
+  %skip188 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %435, i32 0, i32 1
+  store ptr %434, ptr %skip188, align 8
   br label %if.end189
 
 if.end189:                                        ; preds = %if.then186, %invoke.cont184, %do.end181
   br label %if.end190
 
 if.end190:                                        ; preds = %if.end189, %land.lhs.true163, %do.end161
-  %425 = load ptr, ptr %h, align 8
-  %next191 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %425, i32 0, i32 0
-  %426 = load ptr, ptr %next191, align 8
-  %waitp192 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %426, i32 0, i32 9
-  %427 = load ptr, ptr %waitp192, align 8
-  %how = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %427, i32 0, i32 0
-  %428 = load ptr, ptr %how, align 8
-  %cmp193 = icmp eq ptr %428, @_ZN4abslL11kExclusiveSE
+  %436 = load ptr, ptr %h, align 8
+  %next191 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %436, i32 0, i32 0
+  %437 = load ptr, ptr %next191, align 8
+  %waitp192 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %437, i32 0, i32 9
+  %438 = load ptr, ptr %waitp192, align 8
+  %how = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %438, i32 0, i32 0
+  %439 = load ptr, ptr %how, align 8
+  %cmp193 = icmp eq ptr %439, @_ZN4abslL11kExclusiveSE
   br i1 %cmp193, label %land.lhs.true194, label %if.else201
 
 land.lhs.true194:                                 ; preds = %if.end190
-  %429 = load ptr, ptr %h, align 8
-  %next195 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %429, i32 0, i32 0
-  %430 = load ptr, ptr %next195, align 8
-  %waitp196 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %430, i32 0, i32 9
-  %431 = load ptr, ptr %waitp196, align 8
-  %cond197 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %431, i32 0, i32 1
-  %432 = load ptr, ptr %cond197, align 8
-  %cmp198 = icmp eq ptr %432, null
+  %440 = load ptr, ptr %h, align 8
+  %next195 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %440, i32 0, i32 0
+  %441 = load ptr, ptr %next195, align 8
+  %waitp196 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %441, i32 0, i32 9
+  %442 = load ptr, ptr %waitp196, align 8
+  %cond197 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %442, i32 0, i32 1
+  %443 = load ptr, ptr %cond197, align 8
+  %cmp198 = icmp eq ptr %443, null
   br i1 %cmp198, label %if.then199, label %if.else201
 
 if.then199:                                       ; preds = %land.lhs.true194
-  %433 = load ptr, ptr %h, align 8
-  store ptr %433, ptr %pw, align 8
-  %434 = load ptr, ptr %h, align 8
-  %next200 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %434, i32 0, i32 0
-  %435 = load ptr, ptr %next200, align 8
-  store ptr %435, ptr %w, align 8
-  %436 = load ptr, ptr %w, align 8
-  %wake = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %436, i32 0, i32 3
+  %444 = load ptr, ptr %h, align 8
+  store ptr %444, ptr %pw, align 8
+  %445 = load ptr, ptr %h, align 8
+  %next200 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %445, i32 0, i32 0
+  %446 = load ptr, ptr %next200, align 8
+  store ptr %446, ptr %w, align 8
+  %447 = load ptr, ptr %w, align 8
+  %wake = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %447, i32 0, i32 3
   store i8 1, ptr %wake, align 1
   store i64 32, ptr %wr_wait, align 8
   br label %if.end300
 
 if.else201:                                       ; preds = %land.lhs.true194, %if.end190
-  %437 = load ptr, ptr %w, align 8
-  %cmp202 = icmp ne ptr %437, null
+  %448 = load ptr, ptr %w, align 8
+  %cmp202 = icmp ne ptr %448, null
   br i1 %cmp202, label %land.lhs.true203, label %if.else213
 
 land.lhs.true203:                                 ; preds = %if.else201
-  %438 = load ptr, ptr %w, align 8
-  %waitp204 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %438, i32 0, i32 9
-  %439 = load ptr, ptr %waitp204, align 8
-  %how205 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %439, i32 0, i32 0
-  %440 = load ptr, ptr %how205, align 8
-  %cmp206 = icmp eq ptr %440, @_ZN4abslL11kExclusiveSE
+  %449 = load ptr, ptr %w, align 8
+  %waitp204 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %449, i32 0, i32 9
+  %450 = load ptr, ptr %waitp204, align 8
+  %how205 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %450, i32 0, i32 0
+  %451 = load ptr, ptr %how205, align 8
+  %cmp206 = icmp eq ptr %451, @_ZN4abslL11kExclusiveSE
   br i1 %cmp206, label %if.then209, label %lor.lhs.false207
 
 lor.lhs.false207:                                 ; preds = %land.lhs.true203
-  %441 = load ptr, ptr %h, align 8
-  %442 = load ptr, ptr %old_h, align 8
-  %cmp208 = icmp eq ptr %441, %442
+  %452 = load ptr, ptr %h, align 8
+  %453 = load ptr, ptr %old_h, align 8
+  %cmp208 = icmp eq ptr %452, %453
   br i1 %cmp208, label %if.then209, label %if.else213
 
 if.then209:                                       ; preds = %lor.lhs.false207, %land.lhs.true203
-  %443 = load ptr, ptr %pw, align 8
-  %cmp210 = icmp eq ptr %443, null
+  %454 = load ptr, ptr %pw, align 8
+  %cmp210 = icmp eq ptr %454, null
   br i1 %cmp210, label %if.then211, label %if.end212
 
 if.then211:                                       ; preds = %if.then209
-  %444 = load ptr, ptr %h, align 8
-  store ptr %444, ptr %pw, align 8
+  %455 = load ptr, ptr %h, align 8
+  store ptr %455, ptr %pw, align 8
   br label %if.end212
 
 if.end212:                                        ; preds = %if.then211, %if.then209
   br label %if.end299
 
 if.else213:                                       ; preds = %lor.lhs.false207, %if.else201
-  %445 = load ptr, ptr %old_h, align 8
-  %446 = load ptr, ptr %h, align 8
-  %cmp214 = icmp eq ptr %445, %446
+  %456 = load ptr, ptr %old_h, align 8
+  %457 = load ptr, ptr %h, align 8
+  %cmp214 = icmp eq ptr %456, %457
   br i1 %cmp214, label %if.then215, label %if.end233
 
 if.then215:                                       ; preds = %if.else213
-  %447 = load i64, ptr %v, align 8
-  %and217 = and i64 %447, -42
+  %458 = load i64, ptr %v, align 8
+  %and217 = and i64 %458, -42
   store i64 %and217, ptr %nv216, align 8
-  %448 = load ptr, ptr %h, align 8
-  %readers218 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %448, i32 0, i32 10
+  %459 = load ptr, ptr %h, align 8
+  %readers218 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %459, i32 0, i32 10
   store i64 0, ptr %readers218, align 8
-  %449 = load ptr, ptr %h, align 8
-  %maybe_unlocking219 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %449, i32 0, i32 5
+  %460 = load ptr, ptr %h, align 8
+  %maybe_unlocking219 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %460, i32 0, i32 5
   store i8 0, ptr %maybe_unlocking219, align 1
-  %450 = load ptr, ptr %waitp.addr, align 8
-  %cmp220 = icmp ne ptr %450, null
+  %461 = load ptr, ptr %waitp.addr, align 8
+  %cmp220 = icmp ne ptr %461, null
   br i1 %cmp220, label %if.then221, label %if.end231
 
 if.then221:                                       ; preds = %if.then215
-  %451 = load ptr, ptr %h, align 8
-  %452 = load ptr, ptr %waitp.addr, align 8
-  %453 = load i64, ptr %v, align 8
-  %call224 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %451, ptr noundef %452, i64 noundef %453, i32 noundef 2)
+  %462 = load ptr, ptr %h, align 8
+  %463 = load ptr, ptr %waitp.addr, align 8
+  %464 = load i64, ptr %v, align 8
+  %call224 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %462, ptr noundef %463, i64 noundef %464, i32 noundef 2)
           to label %invoke.cont223 unwind label %lpad
 
 invoke.cont223:                                   ; preds = %if.then221
   store ptr %call224, ptr %new_h222, align 8
-  %454 = load i64, ptr %nv216, align 8
-  %and225 = and i64 %454, 255
+  %465 = load i64, ptr %nv216, align 8
+  %and225 = and i64 %465, 255
   store i64 %and225, ptr %nv216, align 8
-  %455 = load ptr, ptr %new_h222, align 8
-  %cmp226 = icmp ne ptr %455, null
+  %466 = load ptr, ptr %new_h222, align 8
+  %cmp226 = icmp ne ptr %466, null
   br i1 %cmp226, label %if.then227, label %if.end230
 
 if.then227:                                       ; preds = %invoke.cont223
-  %456 = load ptr, ptr %new_h222, align 8
-  %457 = ptrtoint ptr %456 to i64
-  %or228 = or i64 4, %457
-  %458 = load i64, ptr %nv216, align 8
-  %or229 = or i64 %458, %or228
+  %467 = load ptr, ptr %new_h222, align 8
+  %468 = ptrtoint ptr %467 to i64
+  %or228 = or i64 4, %468
+  %469 = load i64, ptr %nv216, align 8
+  %or229 = or i64 %469, %or228
   store i64 %or229, ptr %nv216, align 8
   br label %if.end230
 
@@ -7223,73 +7249,73 @@ if.end230:                                        ; preds = %if.then227, %invoke
 
 if.end231:                                        ; preds = %if.end230, %if.then215
   %mu_232 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %459 = load i64, ptr %nv216, align 8
+  %470 = load i64, ptr %nv216, align 8
   store ptr %mu_232, ptr %this.addr.i668, align 8
-  store i64 %459, ptr %__i.addr.i669, align 8
+  store i64 %470, ptr %__i.addr.i669, align 8
   store i32 3, ptr %__m.addr.i670, align 4
   %this1.i673 = load ptr, ptr %this.addr.i668, align 8
-  %460 = load i32, ptr %__m.addr.i670, align 4
-  %call.i674 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %460, i32 noundef 65535)
+  %471 = load i32, ptr %__m.addr.i670, align 4
+  %call.i674 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %471, i32 noundef 65535)
   store i32 %call.i674, ptr %__b.i671, align 4
-  %461 = load i32, ptr %__m.addr.i670, align 4
-  %462 = load i64, ptr %__i.addr.i669, align 8
-  store i64 %462, ptr %.atomictmp.i672, align 8
-  switch i32 %461, label %monotonic.i677 [
+  %472 = load i32, ptr %__m.addr.i670, align 4
+  %473 = load i64, ptr %__i.addr.i669, align 8
+  store i64 %473, ptr %.atomictmp.i672, align 8
+  switch i32 %472, label %monotonic.i677 [
     i32 3, label %release.i676
     i32 5, label %seqcst.i675
   ]
 
 monotonic.i677:                                   ; preds = %if.end231
-  %463 = load i64, ptr %.atomictmp.i672, align 8
-  store atomic i64 %463, ptr %this1.i673 monotonic, align 8
+  %474 = load i64, ptr %.atomictmp.i672, align 8
+  store atomic i64 %474, ptr %this1.i673 monotonic, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit678
 
 release.i676:                                     ; preds = %if.end231
-  %464 = load i64, ptr %.atomictmp.i672, align 8
-  store atomic i64 %464, ptr %this1.i673 release, align 8
+  %475 = load i64, ptr %.atomictmp.i672, align 8
+  store atomic i64 %475, ptr %this1.i673 release, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit678
 
 seqcst.i675:                                      ; preds = %if.end231
-  %465 = load i64, ptr %.atomictmp.i672, align 8
-  store atomic i64 %465, ptr %this1.i673 seq_cst, align 8
+  %476 = load i64, ptr %.atomictmp.i672, align 8
+  store atomic i64 %476, ptr %this1.i673 seq_cst, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit678
 
 _ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit678: ; preds = %seqcst.i675, %release.i676, %monotonic.i677
   br label %for.end
 
 if.end233:                                        ; preds = %if.else213
-  %466 = load ptr, ptr %old_h, align 8
-  %cmp234 = icmp ne ptr %466, null
+  %477 = load ptr, ptr %old_h, align 8
+  %cmp234 = icmp ne ptr %477, null
   br i1 %cmp234, label %if.then235, label %if.else237
 
 if.then235:                                       ; preds = %if.end233
-  %467 = load ptr, ptr %old_h, align 8
-  store ptr %467, ptr %pw_walk, align 8
-  %468 = load ptr, ptr %old_h, align 8
-  %next236 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %468, i32 0, i32 0
-  %469 = load ptr, ptr %next236, align 8
-  store ptr %469, ptr %w_walk, align 8
+  %478 = load ptr, ptr %old_h, align 8
+  store ptr %478, ptr %pw_walk, align 8
+  %479 = load ptr, ptr %old_h, align 8
+  %next236 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %479, i32 0, i32 0
+  %480 = load ptr, ptr %next236, align 8
+  store ptr %480, ptr %w_walk, align 8
   br label %if.end239
 
 if.else237:                                       ; preds = %if.end233
   store ptr null, ptr %pw_walk, align 8
-  %470 = load ptr, ptr %h, align 8
-  %next238 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %470, i32 0, i32 0
-  %471 = load ptr, ptr %next238, align 8
-  store ptr %471, ptr %w_walk, align 8
+  %481 = load ptr, ptr %h, align 8
+  %next238 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %481, i32 0, i32 0
+  %482 = load ptr, ptr %next238, align 8
+  store ptr %482, ptr %w_walk, align 8
   br label %if.end239
 
 if.end239:                                        ; preds = %if.else237, %if.then235
-  %472 = load ptr, ptr %h, align 8
-  %may_skip240 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %472, i32 0, i32 2
+  %483 = load ptr, ptr %h, align 8
+  %may_skip240 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %483, i32 0, i32 2
   store i8 0, ptr %may_skip240, align 8
   br label %do.body241
 
 do.body241:                                       ; preds = %if.end239
-  %473 = load ptr, ptr %h, align 8
-  %skip242 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %473, i32 0, i32 1
-  %474 = load ptr, ptr %skip242, align 8
-  %cmp243 = icmp eq ptr %474, null
+  %484 = load ptr, ptr %h, align 8
+  %skip242 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %484, i32 0, i32 1
+  %485 = load ptr, ptr %skip242, align 8
+  %cmp243 = icmp eq ptr %485, null
   %lnot244 = xor i1 %cmp243, true
   br i1 %lnot244, label %if.then245, label %if.end254
 
@@ -7297,8 +7323,10 @@ if.then245:                                       ; preds = %do.body241
   br label %do.body246
 
 do.body246:                                       ; preds = %if.then245
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename247, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2264, ptr noundef @.str.1, ptr noundef @.str.23, ptr noundef @.str.22)
+  %486 = getelementptr i8, ptr @.str, i64 120
+  store ptr %486, ptr %absl_raw_log_internal_basename247, align 8
+  %487 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %487, i32 noundef 2264, ptr noundef @.str.1, ptr noundef @.str.23, ptr noundef @.str.22)
           to label %invoke.cont248 unwind label %lpad
 
 invoke.cont248:                                   ; preds = %do.body246
@@ -7326,95 +7354,95 @@ do.cond255:                                       ; preds = %if.end254
   br label %do.end256
 
 do.end256:                                        ; preds = %do.cond255
-  %475 = load ptr, ptr %h, align 8
-  %maybe_unlocking257 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %475, i32 0, i32 5
+  %488 = load ptr, ptr %h, align 8
+  %maybe_unlocking257 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %488, i32 0, i32 5
   store i8 1, ptr %maybe_unlocking257, align 1
   %mu_258 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %476 = load i64, ptr %v, align 8
+  %489 = load i64, ptr %v, align 8
   store ptr %mu_258, ptr %this.addr.i657, align 8
-  store i64 %476, ptr %__i.addr.i658, align 8
+  store i64 %489, ptr %__i.addr.i658, align 8
   store i32 3, ptr %__m.addr.i659, align 4
   %this1.i662 = load ptr, ptr %this.addr.i657, align 8
-  %477 = load i32, ptr %__m.addr.i659, align 4
-  %call.i663 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %477, i32 noundef 65535)
+  %490 = load i32, ptr %__m.addr.i659, align 4
+  %call.i663 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %490, i32 noundef 65535)
   store i32 %call.i663, ptr %__b.i660, align 4
-  %478 = load i32, ptr %__m.addr.i659, align 4
-  %479 = load i64, ptr %__i.addr.i658, align 8
-  store i64 %479, ptr %.atomictmp.i661, align 8
-  switch i32 %478, label %monotonic.i666 [
+  %491 = load i32, ptr %__m.addr.i659, align 4
+  %492 = load i64, ptr %__i.addr.i658, align 8
+  store i64 %492, ptr %.atomictmp.i661, align 8
+  switch i32 %491, label %monotonic.i666 [
     i32 3, label %release.i665
     i32 5, label %seqcst.i664
   ]
 
 monotonic.i666:                                   ; preds = %do.end256
-  %480 = load i64, ptr %.atomictmp.i661, align 8
-  store atomic i64 %480, ptr %this1.i662 monotonic, align 8
+  %493 = load i64, ptr %.atomictmp.i661, align 8
+  store atomic i64 %493, ptr %this1.i662 monotonic, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit667
 
 release.i665:                                     ; preds = %do.end256
-  %481 = load i64, ptr %.atomictmp.i661, align 8
-  store atomic i64 %481, ptr %this1.i662 release, align 8
+  %494 = load i64, ptr %.atomictmp.i661, align 8
+  store atomic i64 %494, ptr %this1.i662 release, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit667
 
 seqcst.i664:                                      ; preds = %do.end256
-  %482 = load i64, ptr %.atomictmp.i661, align 8
-  store atomic i64 %482, ptr %this1.i662 seq_cst, align 8
+  %495 = load i64, ptr %.atomictmp.i661, align 8
+  store atomic i64 %495, ptr %this1.i662 seq_cst, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit667
 
 _ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit667: ; preds = %seqcst.i664, %release.i665, %monotonic.i666
-  %483 = load ptr, ptr %h, align 8
-  store ptr %483, ptr %old_h, align 8
+  %496 = load ptr, ptr %h, align 8
+  store ptr %496, ptr %old_h, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end298, %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit667
-  %484 = load ptr, ptr %pw_walk, align 8
-  %485 = load ptr, ptr %h, align 8
-  %cmp259 = icmp ne ptr %484, %485
+  %497 = load ptr, ptr %pw_walk, align 8
+  %498 = load ptr, ptr %h, align 8
+  %cmp259 = icmp ne ptr %497, %498
   br i1 %cmp259, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %486 = load ptr, ptr %w_walk, align 8
-  %wake260 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %486, i32 0, i32 3
+  %499 = load ptr, ptr %w_walk, align 8
+  %wake260 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %499, i32 0, i32 3
   store i8 0, ptr %wake260, align 1
-  %487 = load ptr, ptr %w_walk, align 8
-  %waitp261 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %487, i32 0, i32 9
-  %488 = load ptr, ptr %waitp261, align 8
-  %cond262 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %488, i32 0, i32 1
-  %489 = load ptr, ptr %cond262, align 8
-  %cmp263 = icmp eq ptr %489, null
+  %500 = load ptr, ptr %w_walk, align 8
+  %waitp261 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %500, i32 0, i32 9
+  %501 = load ptr, ptr %waitp261, align 8
+  %cond262 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %501, i32 0, i32 1
+  %502 = load ptr, ptr %cond262, align 8
+  %cmp263 = icmp eq ptr %502, null
   br i1 %cmp263, label %if.then269, label %lor.lhs.false264
 
 lor.lhs.false264:                                 ; preds = %while.body
-  %490 = load ptr, ptr %w_walk, align 8
-  %waitp265 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %490, i32 0, i32 9
-  %491 = load ptr, ptr %waitp265, align 8
-  %cond266 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %491, i32 0, i32 1
-  %492 = load ptr, ptr %cond266, align 8
-  %call268 = invoke noundef zeroext i1 @_ZN4abslL20EvalConditionIgnoredEPNS_5MutexEPKNS_9ConditionE(ptr noundef %this1, ptr noundef %492)
+  %503 = load ptr, ptr %w_walk, align 8
+  %waitp265 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %503, i32 0, i32 9
+  %504 = load ptr, ptr %waitp265, align 8
+  %cond266 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %504, i32 0, i32 1
+  %505 = load ptr, ptr %cond266, align 8
+  %call268 = invoke noundef zeroext i1 @_ZN4abslL20EvalConditionIgnoredEPNS_5MutexEPKNS_9ConditionE(ptr noundef %this1, ptr noundef %505)
           to label %invoke.cont267 unwind label %lpad
 
 invoke.cont267:                                   ; preds = %lor.lhs.false264
   br i1 %call268, label %if.then269, label %if.end287
 
 if.then269:                                       ; preds = %invoke.cont267, %while.body
-  %493 = load ptr, ptr %w, align 8
-  %cmp270 = icmp eq ptr %493, null
+  %506 = load ptr, ptr %w, align 8
+  %cmp270 = icmp eq ptr %506, null
   br i1 %cmp270, label %if.then271, label %if.else278
 
 if.then271:                                       ; preds = %if.then269
-  %494 = load ptr, ptr %w_walk, align 8
-  %wake272 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %494, i32 0, i32 3
+  %507 = load ptr, ptr %w_walk, align 8
+  %wake272 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %507, i32 0, i32 3
   store i8 1, ptr %wake272, align 1
-  %495 = load ptr, ptr %w_walk, align 8
-  store ptr %495, ptr %w, align 8
-  %496 = load ptr, ptr %pw_walk, align 8
-  store ptr %496, ptr %pw, align 8
-  %497 = load ptr, ptr %w_walk, align 8
-  %waitp273 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %497, i32 0, i32 9
-  %498 = load ptr, ptr %waitp273, align 8
-  %how274 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %498, i32 0, i32 0
-  %499 = load ptr, ptr %how274, align 8
-  %cmp275 = icmp eq ptr %499, @_ZN4abslL11kExclusiveSE
+  %508 = load ptr, ptr %w_walk, align 8
+  store ptr %508, ptr %w, align 8
+  %509 = load ptr, ptr %pw_walk, align 8
+  store ptr %509, ptr %pw, align 8
+  %510 = load ptr, ptr %w_walk, align 8
+  %waitp273 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %510, i32 0, i32 9
+  %511 = load ptr, ptr %waitp273, align 8
+  %how274 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %511, i32 0, i32 0
+  %512 = load ptr, ptr %how274, align 8
+  %cmp275 = icmp eq ptr %512, @_ZN4abslL11kExclusiveSE
   br i1 %cmp275, label %if.then276, label %if.end277
 
 if.then276:                                       ; preds = %if.then271
@@ -7425,17 +7453,17 @@ if.end277:                                        ; preds = %if.then271
   br label %if.end286
 
 if.else278:                                       ; preds = %if.then269
-  %500 = load ptr, ptr %w_walk, align 8
-  %waitp279 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %500, i32 0, i32 9
-  %501 = load ptr, ptr %waitp279, align 8
-  %how280 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %501, i32 0, i32 0
-  %502 = load ptr, ptr %how280, align 8
-  %cmp281 = icmp eq ptr %502, @_ZN4abslL8kSharedSE
+  %513 = load ptr, ptr %w_walk, align 8
+  %waitp279 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %513, i32 0, i32 9
+  %514 = load ptr, ptr %waitp279, align 8
+  %how280 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %514, i32 0, i32 0
+  %515 = load ptr, ptr %how280, align 8
+  %cmp281 = icmp eq ptr %515, @_ZN4abslL8kSharedSE
   br i1 %cmp281, label %if.then282, label %if.else284
 
 if.then282:                                       ; preds = %if.else278
-  %503 = load ptr, ptr %w_walk, align 8
-  %wake283 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %503, i32 0, i32 3
+  %516 = load ptr, ptr %w_walk, align 8
+  %wake283 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %516, i32 0, i32 3
   store i8 1, ptr %wake283, align 1
   br label %if.end285
 
@@ -7450,20 +7478,20 @@ if.end286:                                        ; preds = %if.end285, %if.end2
   br label %if.end287
 
 if.end287:                                        ; preds = %if.end286, %invoke.cont267
-  %504 = load ptr, ptr %w_walk, align 8
-  %wake288 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %504, i32 0, i32 3
-  %505 = load i8, ptr %wake288, align 1
-  %tobool289 = trunc i8 %505 to i1
+  %517 = load ptr, ptr %w_walk, align 8
+  %wake288 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %517, i32 0, i32 3
+  %518 = load i8, ptr %wake288, align 1
+  %tobool289 = trunc i8 %518 to i1
   br i1 %tobool289, label %if.then290, label %if.else291
 
 if.then290:                                       ; preds = %if.end287
-  %506 = load ptr, ptr %w_walk, align 8
-  store ptr %506, ptr %pw_walk, align 8
+  %519 = load ptr, ptr %w_walk, align 8
+  store ptr %519, ptr %pw_walk, align 8
   br label %if.end294
 
 if.else291:                                       ; preds = %if.end287
-  %507 = load ptr, ptr %w_walk, align 8
-  %call293 = invoke noundef ptr @_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE(ptr noundef %507)
+  %520 = load ptr, ptr %w_walk, align 8
+  %call293 = invoke noundef ptr @_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE(ptr noundef %520)
           to label %invoke.cont292 unwind label %lpad
 
 invoke.cont292:                                   ; preds = %if.else291
@@ -7471,16 +7499,16 @@ invoke.cont292:                                   ; preds = %if.else291
   br label %if.end294
 
 if.end294:                                        ; preds = %invoke.cont292, %if.then290
-  %508 = load ptr, ptr %pw_walk, align 8
-  %509 = load ptr, ptr %h, align 8
-  %cmp295 = icmp ne ptr %508, %509
+  %521 = load ptr, ptr %pw_walk, align 8
+  %522 = load ptr, ptr %h, align 8
+  %cmp295 = icmp ne ptr %521, %522
   br i1 %cmp295, label %if.then296, label %if.end298
 
 if.then296:                                       ; preds = %if.end294
-  %510 = load ptr, ptr %pw_walk, align 8
-  %next297 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %510, i32 0, i32 0
-  %511 = load ptr, ptr %next297, align 8
-  store ptr %511, ptr %w_walk, align 8
+  %523 = load ptr, ptr %pw_walk, align 8
+  %next297 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %523, i32 0, i32 0
+  %524 = load ptr, ptr %next297, align 8
+  store ptr %524, ptr %w_walk, align 8
   br label %if.end298
 
 if.end298:                                        ; preds = %if.then296, %if.end294
@@ -7496,11 +7524,11 @@ if.end300:                                        ; preds = %if.end299, %if.then
   br label %do.body301
 
 do.body301:                                       ; preds = %if.end300
-  %512 = load ptr, ptr %pw, align 8
-  %next302 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %512, i32 0, i32 0
-  %513 = load ptr, ptr %next302, align 8
-  %514 = load ptr, ptr %w, align 8
-  %cmp303 = icmp eq ptr %513, %514
+  %525 = load ptr, ptr %pw, align 8
+  %next302 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %525, i32 0, i32 0
+  %526 = load ptr, ptr %next302, align 8
+  %527 = load ptr, ptr %w, align 8
+  %cmp303 = icmp eq ptr %526, %527
   %lnot304 = xor i1 %cmp303, true
   br i1 %lnot304, label %if.then305, label %if.end314
 
@@ -7508,8 +7536,10 @@ if.then305:                                       ; preds = %do.body301
   br label %do.body306
 
 do.body306:                                       ; preds = %if.then305
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename307, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2321, ptr noundef @.str.1, ptr noundef @.str.24, ptr noundef @.str.25)
+  %528 = getelementptr i8, ptr @.str, i64 120
+  store ptr %528, ptr %absl_raw_log_internal_basename307, align 8
+  %529 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %529, i32 noundef 2321, ptr noundef @.str.1, ptr noundef @.str.24, ptr noundef @.str.25)
           to label %invoke.cont308 unwind label %lpad
 
 invoke.cont308:                                   ; preds = %do.body306
@@ -7537,26 +7567,26 @@ do.cond315:                                       ; preds = %if.end314
   br label %do.end316
 
 do.end316:                                        ; preds = %do.cond315
-  %515 = load ptr, ptr %h, align 8
-  %516 = load ptr, ptr %pw, align 8
-  %call318 = invoke noundef ptr @_ZN4abslL18DequeueAllWakeableEPNS_13base_internal14PerThreadSynchES2_PS2_(ptr noundef %515, ptr noundef %516, ptr noundef %wake_list)
+  %530 = load ptr, ptr %h, align 8
+  %531 = load ptr, ptr %pw, align 8
+  %call318 = invoke noundef ptr @_ZN4abslL18DequeueAllWakeableEPNS_13base_internal14PerThreadSynchES2_PS2_(ptr noundef %530, ptr noundef %531, ptr noundef %wake_list)
           to label %invoke.cont317 unwind label %lpad
 
 invoke.cont317:                                   ; preds = %do.end316
   store ptr %call318, ptr %h, align 8
-  %517 = load i64, ptr %v, align 8
-  %and320 = and i64 %517, 16
+  %532 = load i64, ptr %v, align 8
+  %and320 = and i64 %532, 16
   %or321 = or i64 %and320, 2
   store i64 %or321, ptr %nv319, align 8
-  %518 = load ptr, ptr %waitp.addr, align 8
-  %cmp322 = icmp ne ptr %518, null
+  %533 = load ptr, ptr %waitp.addr, align 8
+  %cmp322 = icmp ne ptr %533, null
   br i1 %cmp322, label %if.then323, label %if.end326
 
 if.then323:                                       ; preds = %invoke.cont317
-  %519 = load ptr, ptr %h, align 8
-  %520 = load ptr, ptr %waitp.addr, align 8
-  %521 = load i64, ptr %v, align 8
-  %call325 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %519, ptr noundef %520, i64 noundef %521, i32 noundef 2)
+  %534 = load ptr, ptr %h, align 8
+  %535 = load ptr, ptr %waitp.addr, align 8
+  %536 = load i64, ptr %v, align 8
+  %call325 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %534, ptr noundef %535, i64 noundef %536, i32 noundef 2)
           to label %invoke.cont324 unwind label %lpad
 
 invoke.cont324:                                   ; preds = %if.then323
@@ -7567,8 +7597,9 @@ if.end326:                                        ; preds = %invoke.cont324, %in
   br label %do.body327
 
 do.body327:                                       ; preds = %if.end326
-  %522 = load ptr, ptr %wake_list, align 8
-  %cmp328 = icmp ne ptr %522, inttoptr (i64 1 to ptr)
+  %537 = load ptr, ptr %wake_list, align 8
+  %538 = inttoptr i64 1 to ptr
+  %cmp328 = icmp ne ptr %537, %538
   %lnot329 = xor i1 %cmp328, true
   br i1 %lnot329, label %if.then330, label %if.end339
 
@@ -7576,8 +7607,10 @@ if.then330:                                       ; preds = %do.body327
   br label %do.body331
 
 do.body331:                                       ; preds = %if.then330
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename332, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2344, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.27)
+  %539 = getelementptr i8, ptr @.str, i64 120
+  store ptr %539, ptr %absl_raw_log_internal_basename332, align 8
+  %540 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %540, i32 noundef 2344, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.27)
           to label %invoke.cont333 unwind label %lpad
 
 invoke.cont333:                                   ; preds = %do.body331
@@ -7605,58 +7638,58 @@ do.cond340:                                       ; preds = %if.end339
   br label %do.end341
 
 do.end341:                                        ; preds = %do.cond340
-  %523 = load ptr, ptr %h, align 8
-  %cmp342 = icmp ne ptr %523, null
+  %541 = load ptr, ptr %h, align 8
+  %cmp342 = icmp ne ptr %541, null
   br i1 %cmp342, label %if.then343, label %if.end349
 
 if.then343:                                       ; preds = %do.end341
-  %524 = load ptr, ptr %h, align 8
-  %readers344 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %524, i32 0, i32 10
+  %542 = load ptr, ptr %h, align 8
+  %readers344 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %542, i32 0, i32 10
   store i64 0, ptr %readers344, align 8
-  %525 = load ptr, ptr %h, align 8
-  %maybe_unlocking345 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %525, i32 0, i32 5
+  %543 = load ptr, ptr %h, align 8
+  %maybe_unlocking345 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %543, i32 0, i32 5
   store i8 0, ptr %maybe_unlocking345, align 1
-  %526 = load i64, ptr %wr_wait, align 8
-  %or346 = or i64 %526, 4
-  %527 = load ptr, ptr %h, align 8
-  %528 = ptrtoint ptr %527 to i64
-  %or347 = or i64 %or346, %528
-  %529 = load i64, ptr %nv319, align 8
-  %or348 = or i64 %529, %or347
+  %544 = load i64, ptr %wr_wait, align 8
+  %or346 = or i64 %544, 4
+  %545 = load ptr, ptr %h, align 8
+  %546 = ptrtoint ptr %545 to i64
+  %or347 = or i64 %or346, %546
+  %547 = load i64, ptr %nv319, align 8
+  %or348 = or i64 %547, %or347
   store i64 %or348, ptr %nv319, align 8
   br label %if.end349
 
 if.end349:                                        ; preds = %if.then343, %do.end341
   %mu_350 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %530 = load i64, ptr %nv319, align 8
+  %548 = load i64, ptr %nv319, align 8
   store ptr %mu_350, ptr %this.addr.i648, align 8
-  store i64 %530, ptr %__i.addr.i, align 8
+  store i64 %548, ptr %__i.addr.i, align 8
   store i32 3, ptr %__m.addr.i649, align 4
   %this1.i652 = load ptr, ptr %this.addr.i648, align 8
-  %531 = load i32, ptr %__m.addr.i649, align 4
-  %call.i653 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %531, i32 noundef 65535)
+  %549 = load i32, ptr %__m.addr.i649, align 4
+  %call.i653 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %549, i32 noundef 65535)
   store i32 %call.i653, ptr %__b.i650, align 4
-  %532 = load i32, ptr %__m.addr.i649, align 4
-  %533 = load i64, ptr %__i.addr.i, align 8
-  store i64 %533, ptr %.atomictmp.i651, align 8
-  switch i32 %532, label %monotonic.i656 [
+  %550 = load i32, ptr %__m.addr.i649, align 4
+  %551 = load i64, ptr %__i.addr.i, align 8
+  store i64 %551, ptr %.atomictmp.i651, align 8
+  switch i32 %550, label %monotonic.i656 [
     i32 3, label %release.i655
     i32 5, label %seqcst.i654
   ]
 
 monotonic.i656:                                   ; preds = %if.end349
-  %534 = load i64, ptr %.atomictmp.i651, align 8
-  store atomic i64 %534, ptr %this1.i652 monotonic, align 8
+  %552 = load i64, ptr %.atomictmp.i651, align 8
+  store atomic i64 %552, ptr %this1.i652 monotonic, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
 
 release.i655:                                     ; preds = %if.end349
-  %535 = load i64, ptr %.atomictmp.i651, align 8
-  store atomic i64 %535, ptr %this1.i652 release, align 8
+  %553 = load i64, ptr %.atomictmp.i651, align 8
+  store atomic i64 %553, ptr %this1.i652 release, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
 
 seqcst.i654:                                      ; preds = %if.end349
-  %536 = load i64, ptr %.atomictmp.i651, align 8
-  store atomic i64 %536, ptr %this1.i652 seq_cst, align 8
+  %554 = load i64, ptr %.atomictmp.i651, align 8
+  store atomic i64 %554, ptr %this1.i652 seq_cst, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
 
 _ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit: ; preds = %seqcst.i654, %release.i655, %monotonic.i656
@@ -7669,8 +7702,8 @@ if.end352:                                        ; preds = %if.end351, %if.end4
   br label %if.end353
 
 if.end353:                                        ; preds = %if.end352, %if.end32
-  %537 = load i32, ptr %c, align 4
-  %call355 = invoke noundef i32 @_ZN4absl24synchronization_internal10MutexDelayEii(i32 noundef %537, i32 noundef 0)
+  %555 = load i32, ptr %c, align 4
+  %call355 = invoke noundef i32 @_ZN4absl24synchronization_internal10MutexDelayEii(i32 noundef %555, i32 noundef 0)
           to label %invoke.cont354 unwind label %lpad
 
 invoke.cont354:                                   ; preds = %if.end353
@@ -7678,8 +7711,9 @@ invoke.cont354:                                   ; preds = %if.end353
   br label %for.cond, !llvm.loop !17
 
 for.end:                                          ; preds = %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit, %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit678, %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit689, %do.end105
-  %538 = load ptr, ptr %wake_list, align 8
-  %cmp356 = icmp ne ptr %538, inttoptr (i64 1 to ptr)
+  %556 = load ptr, ptr %wake_list, align 8
+  %557 = inttoptr i64 1 to ptr
+  %cmp356 = icmp ne ptr %556, %557
   br i1 %cmp356, label %if.then357, label %if.end382
 
 if.then357:                                       ; preds = %for.end
@@ -7693,51 +7727,51 @@ invoke.cont358:                                   ; preds = %if.then357
   br label %do.body360
 
 do.body360:                                       ; preds = %do.cond374, %invoke.cont358
-  %539 = load ptr, ptr %wake_list, align 8
-  %cond_waiter = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %539, i32 0, i32 4
-  %540 = load i8, ptr %cond_waiter, align 2
-  %tobool361 = trunc i8 %540 to i1
+  %558 = load ptr, ptr %wake_list, align 8
+  %cond_waiter = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %558, i32 0, i32 4
+  %559 = load i8, ptr %cond_waiter, align 2
+  %tobool361 = trunc i8 %559 to i1
   br i1 %tobool361, label %if.end371, label %if.then362
 
 if.then362:                                       ; preds = %do.body360
-  %541 = load i64, ptr %now, align 8
-  %542 = load ptr, ptr %wake_list, align 8
-  %waitp363 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %542, i32 0, i32 9
-  %543 = load ptr, ptr %waitp363, align 8
-  %contention_start_cycles = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %543, i32 0, i32 6
-  %544 = load i64, ptr %contention_start_cycles, align 8
-  %sub364 = sub nsw i64 %541, %544
+  %560 = load i64, ptr %now, align 8
+  %561 = load ptr, ptr %wake_list, align 8
+  %waitp363 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %561, i32 0, i32 9
+  %562 = load ptr, ptr %waitp363, align 8
+  %contention_start_cycles = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %562, i32 0, i32 6
+  %563 = load i64, ptr %contention_start_cycles, align 8
+  %sub364 = sub nsw i64 %560, %563
   store i64 %sub364, ptr %cycles_waited, align 8
-  %545 = load i64, ptr %cycles_waited, align 8
-  %546 = load i64, ptr %total_wait_cycles, align 8
-  %add = add nsw i64 %546, %545
+  %564 = load i64, ptr %cycles_waited, align 8
+  %565 = load i64, ptr %total_wait_cycles, align 8
+  %add = add nsw i64 %565, %564
   store i64 %add, ptr %total_wait_cycles, align 8
-  %547 = load i64, ptr %max_wait_cycles, align 8
-  %cmp365 = icmp eq i64 %547, 0
+  %566 = load i64, ptr %max_wait_cycles, align 8
+  %cmp365 = icmp eq i64 %566, 0
   br i1 %cmp365, label %if.then366, label %if.end367
 
 if.then366:                                       ; preds = %if.then362
-  %548 = load i64, ptr %cycles_waited, align 8
-  store i64 %548, ptr %max_wait_cycles, align 8
+  %567 = load i64, ptr %cycles_waited, align 8
+  store i64 %567, ptr %max_wait_cycles, align 8
   br label %if.end367
 
 if.end367:                                        ; preds = %if.then366, %if.then362
-  %549 = load i64, ptr %now, align 8
-  %550 = load ptr, ptr %wake_list, align 8
-  %waitp368 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %550, i32 0, i32 9
-  %551 = load ptr, ptr %waitp368, align 8
-  %contention_start_cycles369 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %551, i32 0, i32 6
-  store i64 %549, ptr %contention_start_cycles369, align 8
-  %552 = load ptr, ptr %wake_list, align 8
-  %waitp370 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %552, i32 0, i32 9
-  %553 = load ptr, ptr %waitp370, align 8
-  %should_submit_contention_data = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %553, i32 0, i32 7
+  %568 = load i64, ptr %now, align 8
+  %569 = load ptr, ptr %wake_list, align 8
+  %waitp368 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %569, i32 0, i32 9
+  %570 = load ptr, ptr %waitp368, align 8
+  %contention_start_cycles369 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %570, i32 0, i32 6
+  store i64 %568, ptr %contention_start_cycles369, align 8
+  %571 = load ptr, ptr %wake_list, align 8
+  %waitp370 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %571, i32 0, i32 9
+  %572 = load ptr, ptr %waitp370, align 8
+  %should_submit_contention_data = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %572, i32 0, i32 7
   store i8 1, ptr %should_submit_contention_data, align 8
   br label %if.end371
 
 if.end371:                                        ; preds = %if.end367, %do.body360
-  %554 = load ptr, ptr %wake_list, align 8
-  %call373 = invoke noundef ptr @_ZN4absl5Mutex6WakeupEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %554)
+  %573 = load ptr, ptr %wake_list, align 8
+  %call373 = invoke noundef ptr @_ZN4absl5Mutex6WakeupEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %573)
           to label %invoke.cont372 unwind label %lpad
 
 invoke.cont372:                                   ; preds = %if.end371
@@ -7745,13 +7779,14 @@ invoke.cont372:                                   ; preds = %if.end371
   br label %do.cond374
 
 do.cond374:                                       ; preds = %invoke.cont372
-  %555 = load ptr, ptr %wake_list, align 8
-  %cmp375 = icmp ne ptr %555, inttoptr (i64 1 to ptr)
+  %574 = load ptr, ptr %wake_list, align 8
+  %575 = inttoptr i64 1 to ptr
+  %cmp375 = icmp ne ptr %574, %575
   br i1 %cmp375, label %do.body360, label %do.end376, !llvm.loop !18
 
 do.end376:                                        ; preds = %do.cond374
-  %556 = load i64, ptr %total_wait_cycles, align 8
-  %cmp377 = icmp sgt i64 %556, 0
+  %576 = load i64, ptr %total_wait_cycles, align 8
+  %cmp377 = icmp sgt i64 %576, 0
   br i1 %cmp377, label %if.then378, label %if.end381
 
 if.then378:                                       ; preds = %do.end376
@@ -7971,8 +8006,10 @@ if.then6:                                         ; preds = %lor.end
   br label %do.body7
 
 do.body7:                                         ; preds = %if.then6
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 1970, ptr noundef @.str.1, ptr noundef @.str.8, ptr noundef @.str.9)
+  %19 = getelementptr i8, ptr @.str, i64 120
+  store ptr %19, ptr %absl_raw_log_internal_basename, align 8
+  %20 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %20, i32 noundef 1970, ptr noundef @.str.1, ptr noundef @.str.8, ptr noundef @.str.9)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %do.body7
@@ -8007,83 +8044,83 @@ for.cond:                                         ; preds = %invoke.cont217, %do
   store ptr %mu_15, ptr %this.addr.i260, align 8
   store i32 0, ptr %__m.addr.i261, align 4
   %this1.i264 = load ptr, ptr %this.addr.i260, align 8
-  %19 = load i32, ptr %__m.addr.i261, align 4
-  %call.i265 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %19, i32 noundef 65535)
+  %21 = load i32, ptr %__m.addr.i261, align 4
+  %call.i265 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %21, i32 noundef 65535)
   store i32 %call.i265, ptr %__b.i262, align 4
-  %20 = load i32, ptr %__m.addr.i261, align 4
-  switch i32 %20, label %monotonic.i268 [
+  %22 = load i32, ptr %__m.addr.i261, align 4
+  switch i32 %22, label %monotonic.i268 [
     i32 1, label %acquire.i267
     i32 2, label %acquire.i267
     i32 5, label %seqcst.i266
   ]
 
 monotonic.i268:                                   ; preds = %for.cond
-  %21 = load atomic i64, ptr %this1.i264 monotonic, align 8
-  store i64 %21, ptr %atomic-temp.i263, align 8
-  br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit269
-
-acquire.i267:                                     ; preds = %for.cond, %for.cond
-  %22 = load atomic i64, ptr %this1.i264 acquire, align 8
-  store i64 %22, ptr %atomic-temp.i263, align 8
-  br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit269
-
-seqcst.i266:                                      ; preds = %for.cond
-  %23 = load atomic i64, ptr %this1.i264 seq_cst, align 8
+  %23 = load atomic i64, ptr %this1.i264 monotonic, align 8
   store i64 %23, ptr %atomic-temp.i263, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit269
 
+acquire.i267:                                     ; preds = %for.cond, %for.cond
+  %24 = load atomic i64, ptr %this1.i264 acquire, align 8
+  store i64 %24, ptr %atomic-temp.i263, align 8
+  br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit269
+
+seqcst.i266:                                      ; preds = %for.cond
+  %25 = load atomic i64, ptr %this1.i264 seq_cst, align 8
+  store i64 %25, ptr %atomic-temp.i263, align 8
+  br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit269
+
 _ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit269: ; preds = %seqcst.i266, %acquire.i267, %monotonic.i268
-  %24 = load i64, ptr %atomic-temp.i263, align 8
-  store i64 %24, ptr %v, align 8
-  %25 = load i64, ptr %v, align 8
-  invoke void @_ZN4abslL23CheckForMutexCorruptionElPKc(i64 noundef %25, ptr noundef @.str.10)
+  %26 = load i64, ptr %atomic-temp.i263, align 8
+  store i64 %26, ptr %v, align 8
+  %27 = load i64, ptr %v, align 8
+  invoke void @_ZN4abslL23CheckForMutexCorruptionElPKc(i64 noundef %27, ptr noundef @.str.10)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit269
-  %26 = load i64, ptr %v, align 8
-  %27 = load ptr, ptr %waitp.addr, align 8
-  %how18 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %27, i32 0, i32 0
-  %28 = load ptr, ptr %how18, align 8
-  %slow_need_zero = getelementptr inbounds %"struct.absl::MuHowS", ptr %28, i32 0, i32 3
-  %29 = load i64, ptr %slow_need_zero, align 8
-  %and19 = and i64 %26, %29
+  %28 = load i64, ptr %v, align 8
+  %29 = load ptr, ptr %waitp.addr, align 8
+  %how18 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %29, i32 0, i32 0
+  %30 = load ptr, ptr %how18, align 8
+  %slow_need_zero = getelementptr inbounds %"struct.absl::MuHowS", ptr %30, i32 0, i32 3
+  %31 = load i64, ptr %slow_need_zero, align 8
+  %and19 = and i64 %28, %31
   %cmp20 = icmp eq i64 %and19, 0
   br i1 %cmp20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %invoke.cont17
   %mu_22 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %30 = load ptr, ptr %waitp.addr, align 8
-  %how23 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %how23, align 8
-  %fast_or = getelementptr inbounds %"struct.absl::MuHowS", ptr %31, i32 0, i32 1
-  %32 = load i64, ptr %fast_or, align 8
-  %33 = load i64, ptr %v, align 8
-  %34 = load i32, ptr %flags.addr, align 4
-  %and24 = and i32 %34, 1
+  %32 = load ptr, ptr %waitp.addr, align 8
+  %how23 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %32, i32 0, i32 0
+  %33 = load ptr, ptr %how23, align 8
+  %fast_or = getelementptr inbounds %"struct.absl::MuHowS", ptr %33, i32 0, i32 1
+  %34 = load i64, ptr %fast_or, align 8
+  %35 = load i64, ptr %v, align 8
+  %36 = load i32, ptr %flags.addr, align 4
+  %and24 = and i32 %36, 1
   %call26 = invoke noundef i64 @_ZN4abslL24ClearDesignatedWakerMaskEi(i32 noundef %and24)
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %if.then21
-  %and27 = and i64 %33, %call26
-  %or = or i64 %32, %and27
-  %35 = load ptr, ptr %waitp.addr, align 8
-  %how28 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %35, i32 0, i32 0
-  %36 = load ptr, ptr %how28, align 8
-  %fast_add = getelementptr inbounds %"struct.absl::MuHowS", ptr %36, i32 0, i32 2
-  %37 = load i64, ptr %fast_add, align 8
-  %add = add nsw i64 %or, %37
+  %and27 = and i64 %35, %call26
+  %or = or i64 %34, %and27
+  %37 = load ptr, ptr %waitp.addr, align 8
+  %how28 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %37, i32 0, i32 0
+  %38 = load ptr, ptr %how28, align 8
+  %fast_add = getelementptr inbounds %"struct.absl::MuHowS", ptr %38, i32 0, i32 2
+  %39 = load i64, ptr %fast_add, align 8
+  %add = add nsw i64 %or, %39
   store ptr %mu_22, ptr %this.addr.i445, align 8
   store ptr %v, ptr %__i1.addr.i446, align 8
   store i64 %add, ptr %__i2.addr.i447, align 8
   store i32 2, ptr %__m1.addr.i448, align 4
   store i32 0, ptr %__m2.addr.i449, align 4
   %this1.i452 = load ptr, ptr %this.addr.i445, align 8
-  %38 = load i32, ptr %__m1.addr.i448, align 4
-  %39 = load ptr, ptr %__i1.addr.i446, align 8
-  %40 = load i64, ptr %__i2.addr.i447, align 8
-  store i64 %40, ptr %.atomictmp.i450, align 8
-  %41 = load i32, ptr %__m2.addr.i449, align 4
-  switch i32 %38, label %monotonic.i510 [
+  %40 = load i32, ptr %__m1.addr.i448, align 4
+  %41 = load ptr, ptr %__i1.addr.i446, align 8
+  %42 = load i64, ptr %__i2.addr.i447, align 8
+  store i64 %42, ptr %.atomictmp.i450, align 8
+  %43 = load i32, ptr %__m2.addr.i449, align 4
+  switch i32 %40, label %monotonic.i510 [
     i32 1, label %acquire.i496
     i32 2, label %acquire.i496
     i32 3, label %release.i482
@@ -8092,331 +8129,331 @@ invoke.cont25:                                    ; preds = %if.then21
   ]
 
 monotonic.i510:                                   ; preds = %invoke.cont25
-  switch i32 %41, label %monotonic_fail.i520 [
+  switch i32 %43, label %monotonic_fail.i520 [
     i32 1, label %acquire_fail.i516
     i32 2, label %acquire_fail.i516
     i32 5, label %seqcst_fail.i511
   ]
 
 acquire.i496:                                     ; preds = %invoke.cont25, %invoke.cont25
-  switch i32 %41, label %monotonic_fail9.i506 [
+  switch i32 %43, label %monotonic_fail9.i506 [
     i32 1, label %acquire_fail10.i502
     i32 2, label %acquire_fail10.i502
     i32 5, label %seqcst_fail11.i497
   ]
 
 release.i482:                                     ; preds = %invoke.cont25
-  switch i32 %41, label %monotonic_fail22.i492 [
+  switch i32 %43, label %monotonic_fail22.i492 [
     i32 1, label %acquire_fail23.i488
     i32 2, label %acquire_fail23.i488
     i32 5, label %seqcst_fail24.i483
   ]
 
 acqrel.i468:                                      ; preds = %invoke.cont25
-  switch i32 %41, label %monotonic_fail35.i478 [
+  switch i32 %43, label %monotonic_fail35.i478 [
     i32 1, label %acquire_fail36.i474
     i32 2, label %acquire_fail36.i474
     i32 5, label %seqcst_fail37.i469
   ]
 
 seqcst.i453:                                      ; preds = %invoke.cont25
-  switch i32 %41, label %monotonic_fail48.i464 [
+  switch i32 %43, label %monotonic_fail48.i464 [
     i32 1, label %acquire_fail49.i460
     i32 2, label %acquire_fail49.i460
     i32 5, label %seqcst_fail50.i454
   ]
 
 monotonic_fail.i520:                              ; preds = %monotonic.i510
-  %42 = load i64, ptr %39, align 8
-  %43 = load i64, ptr %.atomictmp.i450, align 8
-  %44 = cmpxchg ptr %this1.i452, i64 %42, i64 %43 monotonic monotonic, align 8
-  %45 = extractvalue { i64, i1 } %44, 0
-  %46 = extractvalue { i64, i1 } %44, 1
-  br i1 %46, label %cmpxchg.continue.i522, label %cmpxchg.store_expected.i521
+  %44 = load i64, ptr %41, align 8
+  %45 = load i64, ptr %.atomictmp.i450, align 8
+  %46 = cmpxchg ptr %this1.i452, i64 %44, i64 %45 monotonic monotonic, align 8
+  %47 = extractvalue { i64, i1 } %46, 0
+  %48 = extractvalue { i64, i1 } %46, 1
+  br i1 %48, label %cmpxchg.continue.i522, label %cmpxchg.store_expected.i521
 
 acquire_fail.i516:                                ; preds = %monotonic.i510, %monotonic.i510
-  %47 = load i64, ptr %39, align 8
-  %48 = load i64, ptr %.atomictmp.i450, align 8
-  %49 = cmpxchg ptr %this1.i452, i64 %47, i64 %48 monotonic acquire, align 8
-  %50 = extractvalue { i64, i1 } %49, 0
-  %51 = extractvalue { i64, i1 } %49, 1
-  br i1 %51, label %cmpxchg.continue4.i518, label %cmpxchg.store_expected3.i517
+  %49 = load i64, ptr %41, align 8
+  %50 = load i64, ptr %.atomictmp.i450, align 8
+  %51 = cmpxchg ptr %this1.i452, i64 %49, i64 %50 monotonic acquire, align 8
+  %52 = extractvalue { i64, i1 } %51, 0
+  %53 = extractvalue { i64, i1 } %51, 1
+  br i1 %53, label %cmpxchg.continue4.i518, label %cmpxchg.store_expected3.i517
 
 seqcst_fail.i511:                                 ; preds = %monotonic.i510
-  %52 = load i64, ptr %39, align 8
-  %53 = load i64, ptr %.atomictmp.i450, align 8
-  %54 = cmpxchg ptr %this1.i452, i64 %52, i64 %53 monotonic seq_cst, align 8
-  %55 = extractvalue { i64, i1 } %54, 0
-  %56 = extractvalue { i64, i1 } %54, 1
-  br i1 %56, label %cmpxchg.continue7.i513, label %cmpxchg.store_expected6.i512
+  %54 = load i64, ptr %41, align 8
+  %55 = load i64, ptr %.atomictmp.i450, align 8
+  %56 = cmpxchg ptr %this1.i452, i64 %54, i64 %55 monotonic seq_cst, align 8
+  %57 = extractvalue { i64, i1 } %56, 0
+  %58 = extractvalue { i64, i1 } %56, 1
+  br i1 %58, label %cmpxchg.continue7.i513, label %cmpxchg.store_expected6.i512
 
 atomic.continue2.i515:                            ; preds = %cmpxchg.continue7.i513, %cmpxchg.continue4.i518, %cmpxchg.continue.i522
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit524
 
 cmpxchg.store_expected.i521:                      ; preds = %monotonic_fail.i520
-  store i64 %45, ptr %39, align 8
+  store i64 %47, ptr %41, align 8
   br label %cmpxchg.continue.i522
 
 cmpxchg.continue.i522:                            ; preds = %cmpxchg.store_expected.i521, %monotonic_fail.i520
-  %frombool.i523 = zext i1 %46 to i8
+  %frombool.i523 = zext i1 %48 to i8
   store i8 %frombool.i523, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue2.i515
 
 cmpxchg.store_expected3.i517:                     ; preds = %acquire_fail.i516
-  store i64 %50, ptr %39, align 8
+  store i64 %52, ptr %41, align 8
   br label %cmpxchg.continue4.i518
 
 cmpxchg.continue4.i518:                           ; preds = %cmpxchg.store_expected3.i517, %acquire_fail.i516
-  %frombool5.i519 = zext i1 %51 to i8
+  %frombool5.i519 = zext i1 %53 to i8
   store i8 %frombool5.i519, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue2.i515
 
 cmpxchg.store_expected6.i512:                     ; preds = %seqcst_fail.i511
-  store i64 %55, ptr %39, align 8
+  store i64 %57, ptr %41, align 8
   br label %cmpxchg.continue7.i513
 
 cmpxchg.continue7.i513:                           ; preds = %cmpxchg.store_expected6.i512, %seqcst_fail.i511
-  %frombool8.i514 = zext i1 %56 to i8
+  %frombool8.i514 = zext i1 %58 to i8
   store i8 %frombool8.i514, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue2.i515
 
 monotonic_fail9.i506:                             ; preds = %acquire.i496
-  %57 = load i64, ptr %39, align 8
-  %58 = load i64, ptr %.atomictmp.i450, align 8
-  %59 = cmpxchg ptr %this1.i452, i64 %57, i64 %58 acquire monotonic, align 8
-  %60 = extractvalue { i64, i1 } %59, 0
-  %61 = extractvalue { i64, i1 } %59, 1
-  br i1 %61, label %cmpxchg.continue14.i508, label %cmpxchg.store_expected13.i507
+  %59 = load i64, ptr %41, align 8
+  %60 = load i64, ptr %.atomictmp.i450, align 8
+  %61 = cmpxchg ptr %this1.i452, i64 %59, i64 %60 acquire monotonic, align 8
+  %62 = extractvalue { i64, i1 } %61, 0
+  %63 = extractvalue { i64, i1 } %61, 1
+  br i1 %63, label %cmpxchg.continue14.i508, label %cmpxchg.store_expected13.i507
 
 acquire_fail10.i502:                              ; preds = %acquire.i496, %acquire.i496
-  %62 = load i64, ptr %39, align 8
-  %63 = load i64, ptr %.atomictmp.i450, align 8
-  %64 = cmpxchg ptr %this1.i452, i64 %62, i64 %63 acquire acquire, align 8
-  %65 = extractvalue { i64, i1 } %64, 0
-  %66 = extractvalue { i64, i1 } %64, 1
-  br i1 %66, label %cmpxchg.continue17.i504, label %cmpxchg.store_expected16.i503
+  %64 = load i64, ptr %41, align 8
+  %65 = load i64, ptr %.atomictmp.i450, align 8
+  %66 = cmpxchg ptr %this1.i452, i64 %64, i64 %65 acquire acquire, align 8
+  %67 = extractvalue { i64, i1 } %66, 0
+  %68 = extractvalue { i64, i1 } %66, 1
+  br i1 %68, label %cmpxchg.continue17.i504, label %cmpxchg.store_expected16.i503
 
 seqcst_fail11.i497:                               ; preds = %acquire.i496
-  %67 = load i64, ptr %39, align 8
-  %68 = load i64, ptr %.atomictmp.i450, align 8
-  %69 = cmpxchg ptr %this1.i452, i64 %67, i64 %68 acquire seq_cst, align 8
-  %70 = extractvalue { i64, i1 } %69, 0
-  %71 = extractvalue { i64, i1 } %69, 1
-  br i1 %71, label %cmpxchg.continue20.i499, label %cmpxchg.store_expected19.i498
+  %69 = load i64, ptr %41, align 8
+  %70 = load i64, ptr %.atomictmp.i450, align 8
+  %71 = cmpxchg ptr %this1.i452, i64 %69, i64 %70 acquire seq_cst, align 8
+  %72 = extractvalue { i64, i1 } %71, 0
+  %73 = extractvalue { i64, i1 } %71, 1
+  br i1 %73, label %cmpxchg.continue20.i499, label %cmpxchg.store_expected19.i498
 
 atomic.continue12.i501:                           ; preds = %cmpxchg.continue20.i499, %cmpxchg.continue17.i504, %cmpxchg.continue14.i508
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit524
 
 cmpxchg.store_expected13.i507:                    ; preds = %monotonic_fail9.i506
-  store i64 %60, ptr %39, align 8
+  store i64 %62, ptr %41, align 8
   br label %cmpxchg.continue14.i508
 
 cmpxchg.continue14.i508:                          ; preds = %cmpxchg.store_expected13.i507, %monotonic_fail9.i506
-  %frombool15.i509 = zext i1 %61 to i8
+  %frombool15.i509 = zext i1 %63 to i8
   store i8 %frombool15.i509, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue12.i501
 
 cmpxchg.store_expected16.i503:                    ; preds = %acquire_fail10.i502
-  store i64 %65, ptr %39, align 8
+  store i64 %67, ptr %41, align 8
   br label %cmpxchg.continue17.i504
 
 cmpxchg.continue17.i504:                          ; preds = %cmpxchg.store_expected16.i503, %acquire_fail10.i502
-  %frombool18.i505 = zext i1 %66 to i8
+  %frombool18.i505 = zext i1 %68 to i8
   store i8 %frombool18.i505, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue12.i501
 
 cmpxchg.store_expected19.i498:                    ; preds = %seqcst_fail11.i497
-  store i64 %70, ptr %39, align 8
+  store i64 %72, ptr %41, align 8
   br label %cmpxchg.continue20.i499
 
 cmpxchg.continue20.i499:                          ; preds = %cmpxchg.store_expected19.i498, %seqcst_fail11.i497
-  %frombool21.i500 = zext i1 %71 to i8
+  %frombool21.i500 = zext i1 %73 to i8
   store i8 %frombool21.i500, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue12.i501
 
 monotonic_fail22.i492:                            ; preds = %release.i482
-  %72 = load i64, ptr %39, align 8
-  %73 = load i64, ptr %.atomictmp.i450, align 8
-  %74 = cmpxchg ptr %this1.i452, i64 %72, i64 %73 release monotonic, align 8
-  %75 = extractvalue { i64, i1 } %74, 0
-  %76 = extractvalue { i64, i1 } %74, 1
-  br i1 %76, label %cmpxchg.continue27.i494, label %cmpxchg.store_expected26.i493
+  %74 = load i64, ptr %41, align 8
+  %75 = load i64, ptr %.atomictmp.i450, align 8
+  %76 = cmpxchg ptr %this1.i452, i64 %74, i64 %75 release monotonic, align 8
+  %77 = extractvalue { i64, i1 } %76, 0
+  %78 = extractvalue { i64, i1 } %76, 1
+  br i1 %78, label %cmpxchg.continue27.i494, label %cmpxchg.store_expected26.i493
 
 acquire_fail23.i488:                              ; preds = %release.i482, %release.i482
-  %77 = load i64, ptr %39, align 8
-  %78 = load i64, ptr %.atomictmp.i450, align 8
-  %79 = cmpxchg ptr %this1.i452, i64 %77, i64 %78 release acquire, align 8
-  %80 = extractvalue { i64, i1 } %79, 0
-  %81 = extractvalue { i64, i1 } %79, 1
-  br i1 %81, label %cmpxchg.continue30.i490, label %cmpxchg.store_expected29.i489
+  %79 = load i64, ptr %41, align 8
+  %80 = load i64, ptr %.atomictmp.i450, align 8
+  %81 = cmpxchg ptr %this1.i452, i64 %79, i64 %80 release acquire, align 8
+  %82 = extractvalue { i64, i1 } %81, 0
+  %83 = extractvalue { i64, i1 } %81, 1
+  br i1 %83, label %cmpxchg.continue30.i490, label %cmpxchg.store_expected29.i489
 
 seqcst_fail24.i483:                               ; preds = %release.i482
-  %82 = load i64, ptr %39, align 8
-  %83 = load i64, ptr %.atomictmp.i450, align 8
-  %84 = cmpxchg ptr %this1.i452, i64 %82, i64 %83 release seq_cst, align 8
-  %85 = extractvalue { i64, i1 } %84, 0
-  %86 = extractvalue { i64, i1 } %84, 1
-  br i1 %86, label %cmpxchg.continue33.i485, label %cmpxchg.store_expected32.i484
+  %84 = load i64, ptr %41, align 8
+  %85 = load i64, ptr %.atomictmp.i450, align 8
+  %86 = cmpxchg ptr %this1.i452, i64 %84, i64 %85 release seq_cst, align 8
+  %87 = extractvalue { i64, i1 } %86, 0
+  %88 = extractvalue { i64, i1 } %86, 1
+  br i1 %88, label %cmpxchg.continue33.i485, label %cmpxchg.store_expected32.i484
 
 atomic.continue25.i487:                           ; preds = %cmpxchg.continue33.i485, %cmpxchg.continue30.i490, %cmpxchg.continue27.i494
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit524
 
 cmpxchg.store_expected26.i493:                    ; preds = %monotonic_fail22.i492
-  store i64 %75, ptr %39, align 8
+  store i64 %77, ptr %41, align 8
   br label %cmpxchg.continue27.i494
 
 cmpxchg.continue27.i494:                          ; preds = %cmpxchg.store_expected26.i493, %monotonic_fail22.i492
-  %frombool28.i495 = zext i1 %76 to i8
+  %frombool28.i495 = zext i1 %78 to i8
   store i8 %frombool28.i495, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue25.i487
 
 cmpxchg.store_expected29.i489:                    ; preds = %acquire_fail23.i488
-  store i64 %80, ptr %39, align 8
+  store i64 %82, ptr %41, align 8
   br label %cmpxchg.continue30.i490
 
 cmpxchg.continue30.i490:                          ; preds = %cmpxchg.store_expected29.i489, %acquire_fail23.i488
-  %frombool31.i491 = zext i1 %81 to i8
+  %frombool31.i491 = zext i1 %83 to i8
   store i8 %frombool31.i491, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue25.i487
 
 cmpxchg.store_expected32.i484:                    ; preds = %seqcst_fail24.i483
-  store i64 %85, ptr %39, align 8
+  store i64 %87, ptr %41, align 8
   br label %cmpxchg.continue33.i485
 
 cmpxchg.continue33.i485:                          ; preds = %cmpxchg.store_expected32.i484, %seqcst_fail24.i483
-  %frombool34.i486 = zext i1 %86 to i8
+  %frombool34.i486 = zext i1 %88 to i8
   store i8 %frombool34.i486, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue25.i487
 
 monotonic_fail35.i478:                            ; preds = %acqrel.i468
-  %87 = load i64, ptr %39, align 8
-  %88 = load i64, ptr %.atomictmp.i450, align 8
-  %89 = cmpxchg ptr %this1.i452, i64 %87, i64 %88 acq_rel monotonic, align 8
-  %90 = extractvalue { i64, i1 } %89, 0
-  %91 = extractvalue { i64, i1 } %89, 1
-  br i1 %91, label %cmpxchg.continue40.i480, label %cmpxchg.store_expected39.i479
+  %89 = load i64, ptr %41, align 8
+  %90 = load i64, ptr %.atomictmp.i450, align 8
+  %91 = cmpxchg ptr %this1.i452, i64 %89, i64 %90 acq_rel monotonic, align 8
+  %92 = extractvalue { i64, i1 } %91, 0
+  %93 = extractvalue { i64, i1 } %91, 1
+  br i1 %93, label %cmpxchg.continue40.i480, label %cmpxchg.store_expected39.i479
 
 acquire_fail36.i474:                              ; preds = %acqrel.i468, %acqrel.i468
-  %92 = load i64, ptr %39, align 8
-  %93 = load i64, ptr %.atomictmp.i450, align 8
-  %94 = cmpxchg ptr %this1.i452, i64 %92, i64 %93 acq_rel acquire, align 8
-  %95 = extractvalue { i64, i1 } %94, 0
-  %96 = extractvalue { i64, i1 } %94, 1
-  br i1 %96, label %cmpxchg.continue43.i476, label %cmpxchg.store_expected42.i475
+  %94 = load i64, ptr %41, align 8
+  %95 = load i64, ptr %.atomictmp.i450, align 8
+  %96 = cmpxchg ptr %this1.i452, i64 %94, i64 %95 acq_rel acquire, align 8
+  %97 = extractvalue { i64, i1 } %96, 0
+  %98 = extractvalue { i64, i1 } %96, 1
+  br i1 %98, label %cmpxchg.continue43.i476, label %cmpxchg.store_expected42.i475
 
 seqcst_fail37.i469:                               ; preds = %acqrel.i468
-  %97 = load i64, ptr %39, align 8
-  %98 = load i64, ptr %.atomictmp.i450, align 8
-  %99 = cmpxchg ptr %this1.i452, i64 %97, i64 %98 acq_rel seq_cst, align 8
-  %100 = extractvalue { i64, i1 } %99, 0
-  %101 = extractvalue { i64, i1 } %99, 1
-  br i1 %101, label %cmpxchg.continue46.i471, label %cmpxchg.store_expected45.i470
+  %99 = load i64, ptr %41, align 8
+  %100 = load i64, ptr %.atomictmp.i450, align 8
+  %101 = cmpxchg ptr %this1.i452, i64 %99, i64 %100 acq_rel seq_cst, align 8
+  %102 = extractvalue { i64, i1 } %101, 0
+  %103 = extractvalue { i64, i1 } %101, 1
+  br i1 %103, label %cmpxchg.continue46.i471, label %cmpxchg.store_expected45.i470
 
 atomic.continue38.i473:                           ; preds = %cmpxchg.continue46.i471, %cmpxchg.continue43.i476, %cmpxchg.continue40.i480
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit524
 
 cmpxchg.store_expected39.i479:                    ; preds = %monotonic_fail35.i478
-  store i64 %90, ptr %39, align 8
+  store i64 %92, ptr %41, align 8
   br label %cmpxchg.continue40.i480
 
 cmpxchg.continue40.i480:                          ; preds = %cmpxchg.store_expected39.i479, %monotonic_fail35.i478
-  %frombool41.i481 = zext i1 %91 to i8
+  %frombool41.i481 = zext i1 %93 to i8
   store i8 %frombool41.i481, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue38.i473
 
 cmpxchg.store_expected42.i475:                    ; preds = %acquire_fail36.i474
-  store i64 %95, ptr %39, align 8
+  store i64 %97, ptr %41, align 8
   br label %cmpxchg.continue43.i476
 
 cmpxchg.continue43.i476:                          ; preds = %cmpxchg.store_expected42.i475, %acquire_fail36.i474
-  %frombool44.i477 = zext i1 %96 to i8
+  %frombool44.i477 = zext i1 %98 to i8
   store i8 %frombool44.i477, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue38.i473
 
 cmpxchg.store_expected45.i470:                    ; preds = %seqcst_fail37.i469
-  store i64 %100, ptr %39, align 8
+  store i64 %102, ptr %41, align 8
   br label %cmpxchg.continue46.i471
 
 cmpxchg.continue46.i471:                          ; preds = %cmpxchg.store_expected45.i470, %seqcst_fail37.i469
-  %frombool47.i472 = zext i1 %101 to i8
+  %frombool47.i472 = zext i1 %103 to i8
   store i8 %frombool47.i472, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue38.i473
 
 monotonic_fail48.i464:                            ; preds = %seqcst.i453
-  %102 = load i64, ptr %39, align 8
-  %103 = load i64, ptr %.atomictmp.i450, align 8
-  %104 = cmpxchg ptr %this1.i452, i64 %102, i64 %103 seq_cst monotonic, align 8
-  %105 = extractvalue { i64, i1 } %104, 0
-  %106 = extractvalue { i64, i1 } %104, 1
-  br i1 %106, label %cmpxchg.continue53.i466, label %cmpxchg.store_expected52.i465
+  %104 = load i64, ptr %41, align 8
+  %105 = load i64, ptr %.atomictmp.i450, align 8
+  %106 = cmpxchg ptr %this1.i452, i64 %104, i64 %105 seq_cst monotonic, align 8
+  %107 = extractvalue { i64, i1 } %106, 0
+  %108 = extractvalue { i64, i1 } %106, 1
+  br i1 %108, label %cmpxchg.continue53.i466, label %cmpxchg.store_expected52.i465
 
 acquire_fail49.i460:                              ; preds = %seqcst.i453, %seqcst.i453
-  %107 = load i64, ptr %39, align 8
-  %108 = load i64, ptr %.atomictmp.i450, align 8
-  %109 = cmpxchg ptr %this1.i452, i64 %107, i64 %108 seq_cst acquire, align 8
-  %110 = extractvalue { i64, i1 } %109, 0
-  %111 = extractvalue { i64, i1 } %109, 1
-  br i1 %111, label %cmpxchg.continue56.i462, label %cmpxchg.store_expected55.i461
+  %109 = load i64, ptr %41, align 8
+  %110 = load i64, ptr %.atomictmp.i450, align 8
+  %111 = cmpxchg ptr %this1.i452, i64 %109, i64 %110 seq_cst acquire, align 8
+  %112 = extractvalue { i64, i1 } %111, 0
+  %113 = extractvalue { i64, i1 } %111, 1
+  br i1 %113, label %cmpxchg.continue56.i462, label %cmpxchg.store_expected55.i461
 
 seqcst_fail50.i454:                               ; preds = %seqcst.i453
-  %112 = load i64, ptr %39, align 8
-  %113 = load i64, ptr %.atomictmp.i450, align 8
-  %114 = cmpxchg ptr %this1.i452, i64 %112, i64 %113 seq_cst seq_cst, align 8
-  %115 = extractvalue { i64, i1 } %114, 0
-  %116 = extractvalue { i64, i1 } %114, 1
-  br i1 %116, label %cmpxchg.continue59.i456, label %cmpxchg.store_expected58.i455
+  %114 = load i64, ptr %41, align 8
+  %115 = load i64, ptr %.atomictmp.i450, align 8
+  %116 = cmpxchg ptr %this1.i452, i64 %114, i64 %115 seq_cst seq_cst, align 8
+  %117 = extractvalue { i64, i1 } %116, 0
+  %118 = extractvalue { i64, i1 } %116, 1
+  br i1 %118, label %cmpxchg.continue59.i456, label %cmpxchg.store_expected58.i455
 
 atomic.continue51.i458:                           ; preds = %cmpxchg.continue59.i456, %cmpxchg.continue56.i462, %cmpxchg.continue53.i466
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit524
 
 cmpxchg.store_expected52.i465:                    ; preds = %monotonic_fail48.i464
-  store i64 %105, ptr %39, align 8
+  store i64 %107, ptr %41, align 8
   br label %cmpxchg.continue53.i466
 
 cmpxchg.continue53.i466:                          ; preds = %cmpxchg.store_expected52.i465, %monotonic_fail48.i464
-  %frombool54.i467 = zext i1 %106 to i8
+  %frombool54.i467 = zext i1 %108 to i8
   store i8 %frombool54.i467, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue51.i458
 
 cmpxchg.store_expected55.i461:                    ; preds = %acquire_fail49.i460
-  store i64 %110, ptr %39, align 8
+  store i64 %112, ptr %41, align 8
   br label %cmpxchg.continue56.i462
 
 cmpxchg.continue56.i462:                          ; preds = %cmpxchg.store_expected55.i461, %acquire_fail49.i460
-  %frombool57.i463 = zext i1 %111 to i8
+  %frombool57.i463 = zext i1 %113 to i8
   store i8 %frombool57.i463, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue51.i458
 
 cmpxchg.store_expected58.i455:                    ; preds = %seqcst_fail50.i454
-  store i64 %115, ptr %39, align 8
+  store i64 %117, ptr %41, align 8
   br label %cmpxchg.continue59.i456
 
 cmpxchg.continue59.i456:                          ; preds = %cmpxchg.store_expected58.i455, %seqcst_fail50.i454
-  %frombool60.i457 = zext i1 %116 to i8
+  %frombool60.i457 = zext i1 %118 to i8
   store i8 %frombool60.i457, ptr %cmpxchg.bool.i451, align 1
   br label %atomic.continue51.i458
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit524: ; preds = %atomic.continue51.i458, %atomic.continue38.i473, %atomic.continue25.i487, %atomic.continue12.i501, %atomic.continue2.i515
-  %117 = load i8, ptr %cmpxchg.bool.i451, align 1
-  %tobool.i459 = trunc i8 %117 to i1
+  %119 = load i8, ptr %cmpxchg.bool.i451, align 1
+  %tobool.i459 = trunc i8 %119 to i1
   br i1 %tobool.i459, label %if.then30, label %if.end44
 
 if.then30:                                        ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit524
-  %118 = load ptr, ptr %waitp.addr, align 8
-  %cond31 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %118, i32 0, i32 1
-  %119 = load ptr, ptr %cond31, align 8
-  %cmp32 = icmp eq ptr %119, null
+  %120 = load ptr, ptr %waitp.addr, align 8
+  %cond31 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %120, i32 0, i32 1
+  %121 = load ptr, ptr %cond31, align 8
+  %cmp32 = icmp eq ptr %121, null
   br i1 %cmp32, label %if.then38, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then30
-  %120 = load ptr, ptr %waitp.addr, align 8
-  %cond33 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %120, i32 0, i32 1
-  %121 = load ptr, ptr %cond33, align 8
   %122 = load ptr, ptr %waitp.addr, align 8
-  %how34 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %122, i32 0, i32 0
-  %123 = load ptr, ptr %how34, align 8
-  %cmp35 = icmp eq ptr %123, @_ZN4abslL8kSharedSE
-  %call37 = invoke noundef zeroext i1 @_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb(ptr noundef %121, ptr noundef %this1, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %cmp35)
+  %cond33 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %122, i32 0, i32 1
+  %123 = load ptr, ptr %cond33, align 8
+  %124 = load ptr, ptr %waitp.addr, align 8
+  %how34 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %124, i32 0, i32 0
+  %125 = load ptr, ptr %how34, align 8
+  %cmp35 = icmp eq ptr %125, @_ZN4abslL8kSharedSE
+  %call37 = invoke noundef zeroext i1 @_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb(ptr noundef %123, ptr noundef %this1, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %cmp35)
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %lor.lhs.false
@@ -8426,20 +8463,20 @@ if.then38:                                        ; preds = %invoke.cont36, %if.
   br label %for.end
 
 if.end39:                                         ; preds = %invoke.cont36
-  %124 = load ptr, ptr %waitp.addr, align 8
-  invoke void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %124) #16
+  %126 = load ptr, ptr %waitp.addr, align 8
+  invoke void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %126) #16
           to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %if.end39
-  %125 = load ptr, ptr %waitp.addr, align 8
-  %thread41 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %125, i32 0, i32 4
-  %126 = load ptr, ptr %thread41, align 8
-  invoke void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %126)
+  %127 = load ptr, ptr %waitp.addr, align 8
+  %thread41 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %127, i32 0, i32 4
+  %128 = load ptr, ptr %thread41, align 8
+  invoke void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %128)
           to label %invoke.cont42 unwind label %lpad
 
 invoke.cont42:                                    ; preds = %invoke.cont40
-  %127 = load i32, ptr %flags.addr, align 4
-  %or43 = or i32 %127, 1
+  %129 = load i32, ptr %flags.addr, align 4
+  %or43 = or i32 %129, 1
   store i32 %or43, ptr %flags.addr, align 4
   store i32 0, ptr %c, align 4
   br label %if.end44
@@ -8449,36 +8486,36 @@ if.end44:                                         ; preds = %invoke.cont42, %_ZN
 
 if.else:                                          ; preds = %invoke.cont17
   store i8 0, ptr %dowait, align 1
-  %128 = load i64, ptr %v, align 8
-  %and45 = and i64 %128, 68
+  %130 = load i64, ptr %v, align 8
+  %and45 = and i64 %130, 68
   %cmp46 = icmp eq i64 %and45, 0
   br i1 %cmp46, label %if.then47, label %if.else86
 
 if.then47:                                        ; preds = %if.else
-  %129 = load ptr, ptr %waitp.addr, align 8
-  %130 = load i64, ptr %v, align 8
-  %131 = load i32, ptr %flags.addr, align 4
-  %call49 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef null, ptr noundef %129, i64 noundef %130, i32 noundef %131)
+  %131 = load ptr, ptr %waitp.addr, align 8
+  %132 = load i64, ptr %v, align 8
+  %133 = load i32, ptr %flags.addr, align 4
+  %call49 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef null, ptr noundef %131, i64 noundef %132, i32 noundef %133)
           to label %invoke.cont48 unwind label %lpad
 
 invoke.cont48:                                    ; preds = %if.then47
   store ptr %call49, ptr %new_h, align 8
-  %132 = load i64, ptr %v, align 8
-  %133 = load i32, ptr %flags.addr, align 4
-  %and50 = and i32 %133, 1
+  %134 = load i64, ptr %v, align 8
+  %135 = load i32, ptr %flags.addr, align 4
+  %and50 = and i32 %135, 1
   %call52 = invoke noundef i64 @_ZN4abslL24ClearDesignatedWakerMaskEi(i32 noundef %and50)
           to label %invoke.cont51 unwind label %lpad
 
 invoke.cont51:                                    ; preds = %invoke.cont48
-  %and53 = and i64 %132, %call52
+  %and53 = and i64 %134, %call52
   %and54 = and i64 %and53, 255
   %or55 = or i64 %and54, 4
   store i64 %or55, ptr %nv, align 8
   br label %do.body56
 
 do.body56:                                        ; preds = %invoke.cont51
-  %134 = load ptr, ptr %new_h, align 8
-  %cmp57 = icmp ne ptr %134, null
+  %136 = load ptr, ptr %new_h, align 8
+  %cmp57 = icmp ne ptr %136, null
   %lnot58 = xor i1 %cmp57, true
   br i1 %lnot58, label %if.then59, label %if.end68
 
@@ -8486,8 +8523,10 @@ if.then59:                                        ; preds = %do.body56
   br label %do.body60
 
 do.body60:                                        ; preds = %if.then59
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename61, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 1999, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.12)
+  %137 = getelementptr i8, ptr @.str, i64 120
+  store ptr %137, ptr %absl_raw_log_internal_basename61, align 8
+  %138 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %138, i32 noundef 1999, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.12)
           to label %invoke.cont62 unwind label %lpad
 
 invoke.cont62:                                    ; preds = %do.body60
@@ -8515,42 +8554,42 @@ do.cond69:                                        ; preds = %if.end68
   br label %do.end70
 
 do.end70:                                         ; preds = %do.cond69
-  %135 = load ptr, ptr %waitp.addr, align 8
-  %how71 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %135, i32 0, i32 0
-  %136 = load ptr, ptr %how71, align 8
-  %cmp72 = icmp eq ptr %136, @_ZN4abslL11kExclusiveSE
+  %139 = load ptr, ptr %waitp.addr, align 8
+  %how71 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %139, i32 0, i32 0
+  %140 = load ptr, ptr %how71, align 8
+  %cmp72 = icmp eq ptr %140, @_ZN4abslL11kExclusiveSE
   br i1 %cmp72, label %land.lhs.true, label %if.end77
 
 land.lhs.true:                                    ; preds = %do.end70
-  %137 = load i64, ptr %v, align 8
-  %and73 = and i64 %137, 1
+  %141 = load i64, ptr %v, align 8
+  %and73 = and i64 %141, 1
   %cmp74 = icmp ne i64 %and73, 0
   br i1 %cmp74, label %if.then75, label %if.end77
 
 if.then75:                                        ; preds = %land.lhs.true
-  %138 = load i64, ptr %nv, align 8
-  %or76 = or i64 %138, 32
+  %142 = load i64, ptr %nv, align 8
+  %or76 = or i64 %142, 32
   store i64 %or76, ptr %nv, align 8
   br label %if.end77
 
 if.end77:                                         ; preds = %if.then75, %land.lhs.true, %do.end70
   %mu_78 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %139 = load ptr, ptr %new_h, align 8
-  %140 = ptrtoint ptr %139 to i64
-  %141 = load i64, ptr %nv, align 8
-  %or79 = or i64 %140, %141
+  %143 = load ptr, ptr %new_h, align 8
+  %144 = ptrtoint ptr %143 to i64
+  %145 = load i64, ptr %nv, align 8
+  %or79 = or i64 %144, %145
   store ptr %mu_78, ptr %this.addr.i365, align 8
   store ptr %v, ptr %__i1.addr.i366, align 8
   store i64 %or79, ptr %__i2.addr.i367, align 8
   store i32 3, ptr %__m1.addr.i368, align 4
   store i32 0, ptr %__m2.addr.i369, align 4
   %this1.i372 = load ptr, ptr %this.addr.i365, align 8
-  %142 = load i32, ptr %__m1.addr.i368, align 4
-  %143 = load ptr, ptr %__i1.addr.i366, align 8
-  %144 = load i64, ptr %__i2.addr.i367, align 8
-  store i64 %144, ptr %.atomictmp.i370, align 8
-  %145 = load i32, ptr %__m2.addr.i369, align 4
-  switch i32 %142, label %monotonic.i430 [
+  %146 = load i32, ptr %__m1.addr.i368, align 4
+  %147 = load ptr, ptr %__i1.addr.i366, align 8
+  %148 = load i64, ptr %__i2.addr.i367, align 8
+  store i64 %148, ptr %.atomictmp.i370, align 8
+  %149 = load i32, ptr %__m2.addr.i369, align 4
+  switch i32 %146, label %monotonic.i430 [
     i32 1, label %acquire.i416
     i32 2, label %acquire.i416
     i32 3, label %release.i402
@@ -8559,313 +8598,313 @@ if.end77:                                         ; preds = %if.then75, %land.lh
   ]
 
 monotonic.i430:                                   ; preds = %if.end77
-  switch i32 %145, label %monotonic_fail.i440 [
+  switch i32 %149, label %monotonic_fail.i440 [
     i32 1, label %acquire_fail.i436
     i32 2, label %acquire_fail.i436
     i32 5, label %seqcst_fail.i431
   ]
 
 acquire.i416:                                     ; preds = %if.end77, %if.end77
-  switch i32 %145, label %monotonic_fail9.i426 [
+  switch i32 %149, label %monotonic_fail9.i426 [
     i32 1, label %acquire_fail10.i422
     i32 2, label %acquire_fail10.i422
     i32 5, label %seqcst_fail11.i417
   ]
 
 release.i402:                                     ; preds = %if.end77
-  switch i32 %145, label %monotonic_fail22.i412 [
+  switch i32 %149, label %monotonic_fail22.i412 [
     i32 1, label %acquire_fail23.i408
     i32 2, label %acquire_fail23.i408
     i32 5, label %seqcst_fail24.i403
   ]
 
 acqrel.i388:                                      ; preds = %if.end77
-  switch i32 %145, label %monotonic_fail35.i398 [
+  switch i32 %149, label %monotonic_fail35.i398 [
     i32 1, label %acquire_fail36.i394
     i32 2, label %acquire_fail36.i394
     i32 5, label %seqcst_fail37.i389
   ]
 
 seqcst.i373:                                      ; preds = %if.end77
-  switch i32 %145, label %monotonic_fail48.i384 [
+  switch i32 %149, label %monotonic_fail48.i384 [
     i32 1, label %acquire_fail49.i380
     i32 2, label %acquire_fail49.i380
     i32 5, label %seqcst_fail50.i374
   ]
 
 monotonic_fail.i440:                              ; preds = %monotonic.i430
-  %146 = load i64, ptr %143, align 8
-  %147 = load i64, ptr %.atomictmp.i370, align 8
-  %148 = cmpxchg ptr %this1.i372, i64 %146, i64 %147 monotonic monotonic, align 8
-  %149 = extractvalue { i64, i1 } %148, 0
-  %150 = extractvalue { i64, i1 } %148, 1
-  br i1 %150, label %cmpxchg.continue.i442, label %cmpxchg.store_expected.i441
+  %150 = load i64, ptr %147, align 8
+  %151 = load i64, ptr %.atomictmp.i370, align 8
+  %152 = cmpxchg ptr %this1.i372, i64 %150, i64 %151 monotonic monotonic, align 8
+  %153 = extractvalue { i64, i1 } %152, 0
+  %154 = extractvalue { i64, i1 } %152, 1
+  br i1 %154, label %cmpxchg.continue.i442, label %cmpxchg.store_expected.i441
 
 acquire_fail.i436:                                ; preds = %monotonic.i430, %monotonic.i430
-  %151 = load i64, ptr %143, align 8
-  %152 = load i64, ptr %.atomictmp.i370, align 8
-  %153 = cmpxchg ptr %this1.i372, i64 %151, i64 %152 monotonic acquire, align 8
-  %154 = extractvalue { i64, i1 } %153, 0
-  %155 = extractvalue { i64, i1 } %153, 1
-  br i1 %155, label %cmpxchg.continue4.i438, label %cmpxchg.store_expected3.i437
+  %155 = load i64, ptr %147, align 8
+  %156 = load i64, ptr %.atomictmp.i370, align 8
+  %157 = cmpxchg ptr %this1.i372, i64 %155, i64 %156 monotonic acquire, align 8
+  %158 = extractvalue { i64, i1 } %157, 0
+  %159 = extractvalue { i64, i1 } %157, 1
+  br i1 %159, label %cmpxchg.continue4.i438, label %cmpxchg.store_expected3.i437
 
 seqcst_fail.i431:                                 ; preds = %monotonic.i430
-  %156 = load i64, ptr %143, align 8
-  %157 = load i64, ptr %.atomictmp.i370, align 8
-  %158 = cmpxchg ptr %this1.i372, i64 %156, i64 %157 monotonic seq_cst, align 8
-  %159 = extractvalue { i64, i1 } %158, 0
-  %160 = extractvalue { i64, i1 } %158, 1
-  br i1 %160, label %cmpxchg.continue7.i433, label %cmpxchg.store_expected6.i432
+  %160 = load i64, ptr %147, align 8
+  %161 = load i64, ptr %.atomictmp.i370, align 8
+  %162 = cmpxchg ptr %this1.i372, i64 %160, i64 %161 monotonic seq_cst, align 8
+  %163 = extractvalue { i64, i1 } %162, 0
+  %164 = extractvalue { i64, i1 } %162, 1
+  br i1 %164, label %cmpxchg.continue7.i433, label %cmpxchg.store_expected6.i432
 
 atomic.continue2.i435:                            ; preds = %cmpxchg.continue7.i433, %cmpxchg.continue4.i438, %cmpxchg.continue.i442
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit444
 
 cmpxchg.store_expected.i441:                      ; preds = %monotonic_fail.i440
-  store i64 %149, ptr %143, align 8
+  store i64 %153, ptr %147, align 8
   br label %cmpxchg.continue.i442
 
 cmpxchg.continue.i442:                            ; preds = %cmpxchg.store_expected.i441, %monotonic_fail.i440
-  %frombool.i443 = zext i1 %150 to i8
+  %frombool.i443 = zext i1 %154 to i8
   store i8 %frombool.i443, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue2.i435
 
 cmpxchg.store_expected3.i437:                     ; preds = %acquire_fail.i436
-  store i64 %154, ptr %143, align 8
+  store i64 %158, ptr %147, align 8
   br label %cmpxchg.continue4.i438
 
 cmpxchg.continue4.i438:                           ; preds = %cmpxchg.store_expected3.i437, %acquire_fail.i436
-  %frombool5.i439 = zext i1 %155 to i8
+  %frombool5.i439 = zext i1 %159 to i8
   store i8 %frombool5.i439, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue2.i435
 
 cmpxchg.store_expected6.i432:                     ; preds = %seqcst_fail.i431
-  store i64 %159, ptr %143, align 8
+  store i64 %163, ptr %147, align 8
   br label %cmpxchg.continue7.i433
 
 cmpxchg.continue7.i433:                           ; preds = %cmpxchg.store_expected6.i432, %seqcst_fail.i431
-  %frombool8.i434 = zext i1 %160 to i8
+  %frombool8.i434 = zext i1 %164 to i8
   store i8 %frombool8.i434, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue2.i435
 
 monotonic_fail9.i426:                             ; preds = %acquire.i416
-  %161 = load i64, ptr %143, align 8
-  %162 = load i64, ptr %.atomictmp.i370, align 8
-  %163 = cmpxchg ptr %this1.i372, i64 %161, i64 %162 acquire monotonic, align 8
-  %164 = extractvalue { i64, i1 } %163, 0
-  %165 = extractvalue { i64, i1 } %163, 1
-  br i1 %165, label %cmpxchg.continue14.i428, label %cmpxchg.store_expected13.i427
+  %165 = load i64, ptr %147, align 8
+  %166 = load i64, ptr %.atomictmp.i370, align 8
+  %167 = cmpxchg ptr %this1.i372, i64 %165, i64 %166 acquire monotonic, align 8
+  %168 = extractvalue { i64, i1 } %167, 0
+  %169 = extractvalue { i64, i1 } %167, 1
+  br i1 %169, label %cmpxchg.continue14.i428, label %cmpxchg.store_expected13.i427
 
 acquire_fail10.i422:                              ; preds = %acquire.i416, %acquire.i416
-  %166 = load i64, ptr %143, align 8
-  %167 = load i64, ptr %.atomictmp.i370, align 8
-  %168 = cmpxchg ptr %this1.i372, i64 %166, i64 %167 acquire acquire, align 8
-  %169 = extractvalue { i64, i1 } %168, 0
-  %170 = extractvalue { i64, i1 } %168, 1
-  br i1 %170, label %cmpxchg.continue17.i424, label %cmpxchg.store_expected16.i423
+  %170 = load i64, ptr %147, align 8
+  %171 = load i64, ptr %.atomictmp.i370, align 8
+  %172 = cmpxchg ptr %this1.i372, i64 %170, i64 %171 acquire acquire, align 8
+  %173 = extractvalue { i64, i1 } %172, 0
+  %174 = extractvalue { i64, i1 } %172, 1
+  br i1 %174, label %cmpxchg.continue17.i424, label %cmpxchg.store_expected16.i423
 
 seqcst_fail11.i417:                               ; preds = %acquire.i416
-  %171 = load i64, ptr %143, align 8
-  %172 = load i64, ptr %.atomictmp.i370, align 8
-  %173 = cmpxchg ptr %this1.i372, i64 %171, i64 %172 acquire seq_cst, align 8
-  %174 = extractvalue { i64, i1 } %173, 0
-  %175 = extractvalue { i64, i1 } %173, 1
-  br i1 %175, label %cmpxchg.continue20.i419, label %cmpxchg.store_expected19.i418
+  %175 = load i64, ptr %147, align 8
+  %176 = load i64, ptr %.atomictmp.i370, align 8
+  %177 = cmpxchg ptr %this1.i372, i64 %175, i64 %176 acquire seq_cst, align 8
+  %178 = extractvalue { i64, i1 } %177, 0
+  %179 = extractvalue { i64, i1 } %177, 1
+  br i1 %179, label %cmpxchg.continue20.i419, label %cmpxchg.store_expected19.i418
 
 atomic.continue12.i421:                           ; preds = %cmpxchg.continue20.i419, %cmpxchg.continue17.i424, %cmpxchg.continue14.i428
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit444
 
 cmpxchg.store_expected13.i427:                    ; preds = %monotonic_fail9.i426
-  store i64 %164, ptr %143, align 8
+  store i64 %168, ptr %147, align 8
   br label %cmpxchg.continue14.i428
 
 cmpxchg.continue14.i428:                          ; preds = %cmpxchg.store_expected13.i427, %monotonic_fail9.i426
-  %frombool15.i429 = zext i1 %165 to i8
+  %frombool15.i429 = zext i1 %169 to i8
   store i8 %frombool15.i429, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue12.i421
 
 cmpxchg.store_expected16.i423:                    ; preds = %acquire_fail10.i422
-  store i64 %169, ptr %143, align 8
+  store i64 %173, ptr %147, align 8
   br label %cmpxchg.continue17.i424
 
 cmpxchg.continue17.i424:                          ; preds = %cmpxchg.store_expected16.i423, %acquire_fail10.i422
-  %frombool18.i425 = zext i1 %170 to i8
+  %frombool18.i425 = zext i1 %174 to i8
   store i8 %frombool18.i425, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue12.i421
 
 cmpxchg.store_expected19.i418:                    ; preds = %seqcst_fail11.i417
-  store i64 %174, ptr %143, align 8
+  store i64 %178, ptr %147, align 8
   br label %cmpxchg.continue20.i419
 
 cmpxchg.continue20.i419:                          ; preds = %cmpxchg.store_expected19.i418, %seqcst_fail11.i417
-  %frombool21.i420 = zext i1 %175 to i8
+  %frombool21.i420 = zext i1 %179 to i8
   store i8 %frombool21.i420, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue12.i421
 
 monotonic_fail22.i412:                            ; preds = %release.i402
-  %176 = load i64, ptr %143, align 8
-  %177 = load i64, ptr %.atomictmp.i370, align 8
-  %178 = cmpxchg ptr %this1.i372, i64 %176, i64 %177 release monotonic, align 8
-  %179 = extractvalue { i64, i1 } %178, 0
-  %180 = extractvalue { i64, i1 } %178, 1
-  br i1 %180, label %cmpxchg.continue27.i414, label %cmpxchg.store_expected26.i413
+  %180 = load i64, ptr %147, align 8
+  %181 = load i64, ptr %.atomictmp.i370, align 8
+  %182 = cmpxchg ptr %this1.i372, i64 %180, i64 %181 release monotonic, align 8
+  %183 = extractvalue { i64, i1 } %182, 0
+  %184 = extractvalue { i64, i1 } %182, 1
+  br i1 %184, label %cmpxchg.continue27.i414, label %cmpxchg.store_expected26.i413
 
 acquire_fail23.i408:                              ; preds = %release.i402, %release.i402
-  %181 = load i64, ptr %143, align 8
-  %182 = load i64, ptr %.atomictmp.i370, align 8
-  %183 = cmpxchg ptr %this1.i372, i64 %181, i64 %182 release acquire, align 8
-  %184 = extractvalue { i64, i1 } %183, 0
-  %185 = extractvalue { i64, i1 } %183, 1
-  br i1 %185, label %cmpxchg.continue30.i410, label %cmpxchg.store_expected29.i409
+  %185 = load i64, ptr %147, align 8
+  %186 = load i64, ptr %.atomictmp.i370, align 8
+  %187 = cmpxchg ptr %this1.i372, i64 %185, i64 %186 release acquire, align 8
+  %188 = extractvalue { i64, i1 } %187, 0
+  %189 = extractvalue { i64, i1 } %187, 1
+  br i1 %189, label %cmpxchg.continue30.i410, label %cmpxchg.store_expected29.i409
 
 seqcst_fail24.i403:                               ; preds = %release.i402
-  %186 = load i64, ptr %143, align 8
-  %187 = load i64, ptr %.atomictmp.i370, align 8
-  %188 = cmpxchg ptr %this1.i372, i64 %186, i64 %187 release seq_cst, align 8
-  %189 = extractvalue { i64, i1 } %188, 0
-  %190 = extractvalue { i64, i1 } %188, 1
-  br i1 %190, label %cmpxchg.continue33.i405, label %cmpxchg.store_expected32.i404
+  %190 = load i64, ptr %147, align 8
+  %191 = load i64, ptr %.atomictmp.i370, align 8
+  %192 = cmpxchg ptr %this1.i372, i64 %190, i64 %191 release seq_cst, align 8
+  %193 = extractvalue { i64, i1 } %192, 0
+  %194 = extractvalue { i64, i1 } %192, 1
+  br i1 %194, label %cmpxchg.continue33.i405, label %cmpxchg.store_expected32.i404
 
 atomic.continue25.i407:                           ; preds = %cmpxchg.continue33.i405, %cmpxchg.continue30.i410, %cmpxchg.continue27.i414
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit444
 
 cmpxchg.store_expected26.i413:                    ; preds = %monotonic_fail22.i412
-  store i64 %179, ptr %143, align 8
+  store i64 %183, ptr %147, align 8
   br label %cmpxchg.continue27.i414
 
 cmpxchg.continue27.i414:                          ; preds = %cmpxchg.store_expected26.i413, %monotonic_fail22.i412
-  %frombool28.i415 = zext i1 %180 to i8
+  %frombool28.i415 = zext i1 %184 to i8
   store i8 %frombool28.i415, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue25.i407
 
 cmpxchg.store_expected29.i409:                    ; preds = %acquire_fail23.i408
-  store i64 %184, ptr %143, align 8
+  store i64 %188, ptr %147, align 8
   br label %cmpxchg.continue30.i410
 
 cmpxchg.continue30.i410:                          ; preds = %cmpxchg.store_expected29.i409, %acquire_fail23.i408
-  %frombool31.i411 = zext i1 %185 to i8
+  %frombool31.i411 = zext i1 %189 to i8
   store i8 %frombool31.i411, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue25.i407
 
 cmpxchg.store_expected32.i404:                    ; preds = %seqcst_fail24.i403
-  store i64 %189, ptr %143, align 8
+  store i64 %193, ptr %147, align 8
   br label %cmpxchg.continue33.i405
 
 cmpxchg.continue33.i405:                          ; preds = %cmpxchg.store_expected32.i404, %seqcst_fail24.i403
-  %frombool34.i406 = zext i1 %190 to i8
+  %frombool34.i406 = zext i1 %194 to i8
   store i8 %frombool34.i406, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue25.i407
 
 monotonic_fail35.i398:                            ; preds = %acqrel.i388
-  %191 = load i64, ptr %143, align 8
-  %192 = load i64, ptr %.atomictmp.i370, align 8
-  %193 = cmpxchg ptr %this1.i372, i64 %191, i64 %192 acq_rel monotonic, align 8
-  %194 = extractvalue { i64, i1 } %193, 0
-  %195 = extractvalue { i64, i1 } %193, 1
-  br i1 %195, label %cmpxchg.continue40.i400, label %cmpxchg.store_expected39.i399
+  %195 = load i64, ptr %147, align 8
+  %196 = load i64, ptr %.atomictmp.i370, align 8
+  %197 = cmpxchg ptr %this1.i372, i64 %195, i64 %196 acq_rel monotonic, align 8
+  %198 = extractvalue { i64, i1 } %197, 0
+  %199 = extractvalue { i64, i1 } %197, 1
+  br i1 %199, label %cmpxchg.continue40.i400, label %cmpxchg.store_expected39.i399
 
 acquire_fail36.i394:                              ; preds = %acqrel.i388, %acqrel.i388
-  %196 = load i64, ptr %143, align 8
-  %197 = load i64, ptr %.atomictmp.i370, align 8
-  %198 = cmpxchg ptr %this1.i372, i64 %196, i64 %197 acq_rel acquire, align 8
-  %199 = extractvalue { i64, i1 } %198, 0
-  %200 = extractvalue { i64, i1 } %198, 1
-  br i1 %200, label %cmpxchg.continue43.i396, label %cmpxchg.store_expected42.i395
+  %200 = load i64, ptr %147, align 8
+  %201 = load i64, ptr %.atomictmp.i370, align 8
+  %202 = cmpxchg ptr %this1.i372, i64 %200, i64 %201 acq_rel acquire, align 8
+  %203 = extractvalue { i64, i1 } %202, 0
+  %204 = extractvalue { i64, i1 } %202, 1
+  br i1 %204, label %cmpxchg.continue43.i396, label %cmpxchg.store_expected42.i395
 
 seqcst_fail37.i389:                               ; preds = %acqrel.i388
-  %201 = load i64, ptr %143, align 8
-  %202 = load i64, ptr %.atomictmp.i370, align 8
-  %203 = cmpxchg ptr %this1.i372, i64 %201, i64 %202 acq_rel seq_cst, align 8
-  %204 = extractvalue { i64, i1 } %203, 0
-  %205 = extractvalue { i64, i1 } %203, 1
-  br i1 %205, label %cmpxchg.continue46.i391, label %cmpxchg.store_expected45.i390
+  %205 = load i64, ptr %147, align 8
+  %206 = load i64, ptr %.atomictmp.i370, align 8
+  %207 = cmpxchg ptr %this1.i372, i64 %205, i64 %206 acq_rel seq_cst, align 8
+  %208 = extractvalue { i64, i1 } %207, 0
+  %209 = extractvalue { i64, i1 } %207, 1
+  br i1 %209, label %cmpxchg.continue46.i391, label %cmpxchg.store_expected45.i390
 
 atomic.continue38.i393:                           ; preds = %cmpxchg.continue46.i391, %cmpxchg.continue43.i396, %cmpxchg.continue40.i400
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit444
 
 cmpxchg.store_expected39.i399:                    ; preds = %monotonic_fail35.i398
-  store i64 %194, ptr %143, align 8
+  store i64 %198, ptr %147, align 8
   br label %cmpxchg.continue40.i400
 
 cmpxchg.continue40.i400:                          ; preds = %cmpxchg.store_expected39.i399, %monotonic_fail35.i398
-  %frombool41.i401 = zext i1 %195 to i8
+  %frombool41.i401 = zext i1 %199 to i8
   store i8 %frombool41.i401, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue38.i393
 
 cmpxchg.store_expected42.i395:                    ; preds = %acquire_fail36.i394
-  store i64 %199, ptr %143, align 8
+  store i64 %203, ptr %147, align 8
   br label %cmpxchg.continue43.i396
 
 cmpxchg.continue43.i396:                          ; preds = %cmpxchg.store_expected42.i395, %acquire_fail36.i394
-  %frombool44.i397 = zext i1 %200 to i8
+  %frombool44.i397 = zext i1 %204 to i8
   store i8 %frombool44.i397, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue38.i393
 
 cmpxchg.store_expected45.i390:                    ; preds = %seqcst_fail37.i389
-  store i64 %204, ptr %143, align 8
+  store i64 %208, ptr %147, align 8
   br label %cmpxchg.continue46.i391
 
 cmpxchg.continue46.i391:                          ; preds = %cmpxchg.store_expected45.i390, %seqcst_fail37.i389
-  %frombool47.i392 = zext i1 %205 to i8
+  %frombool47.i392 = zext i1 %209 to i8
   store i8 %frombool47.i392, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue38.i393
 
 monotonic_fail48.i384:                            ; preds = %seqcst.i373
-  %206 = load i64, ptr %143, align 8
-  %207 = load i64, ptr %.atomictmp.i370, align 8
-  %208 = cmpxchg ptr %this1.i372, i64 %206, i64 %207 seq_cst monotonic, align 8
-  %209 = extractvalue { i64, i1 } %208, 0
-  %210 = extractvalue { i64, i1 } %208, 1
-  br i1 %210, label %cmpxchg.continue53.i386, label %cmpxchg.store_expected52.i385
+  %210 = load i64, ptr %147, align 8
+  %211 = load i64, ptr %.atomictmp.i370, align 8
+  %212 = cmpxchg ptr %this1.i372, i64 %210, i64 %211 seq_cst monotonic, align 8
+  %213 = extractvalue { i64, i1 } %212, 0
+  %214 = extractvalue { i64, i1 } %212, 1
+  br i1 %214, label %cmpxchg.continue53.i386, label %cmpxchg.store_expected52.i385
 
 acquire_fail49.i380:                              ; preds = %seqcst.i373, %seqcst.i373
-  %211 = load i64, ptr %143, align 8
-  %212 = load i64, ptr %.atomictmp.i370, align 8
-  %213 = cmpxchg ptr %this1.i372, i64 %211, i64 %212 seq_cst acquire, align 8
-  %214 = extractvalue { i64, i1 } %213, 0
-  %215 = extractvalue { i64, i1 } %213, 1
-  br i1 %215, label %cmpxchg.continue56.i382, label %cmpxchg.store_expected55.i381
+  %215 = load i64, ptr %147, align 8
+  %216 = load i64, ptr %.atomictmp.i370, align 8
+  %217 = cmpxchg ptr %this1.i372, i64 %215, i64 %216 seq_cst acquire, align 8
+  %218 = extractvalue { i64, i1 } %217, 0
+  %219 = extractvalue { i64, i1 } %217, 1
+  br i1 %219, label %cmpxchg.continue56.i382, label %cmpxchg.store_expected55.i381
 
 seqcst_fail50.i374:                               ; preds = %seqcst.i373
-  %216 = load i64, ptr %143, align 8
-  %217 = load i64, ptr %.atomictmp.i370, align 8
-  %218 = cmpxchg ptr %this1.i372, i64 %216, i64 %217 seq_cst seq_cst, align 8
-  %219 = extractvalue { i64, i1 } %218, 0
-  %220 = extractvalue { i64, i1 } %218, 1
-  br i1 %220, label %cmpxchg.continue59.i376, label %cmpxchg.store_expected58.i375
+  %220 = load i64, ptr %147, align 8
+  %221 = load i64, ptr %.atomictmp.i370, align 8
+  %222 = cmpxchg ptr %this1.i372, i64 %220, i64 %221 seq_cst seq_cst, align 8
+  %223 = extractvalue { i64, i1 } %222, 0
+  %224 = extractvalue { i64, i1 } %222, 1
+  br i1 %224, label %cmpxchg.continue59.i376, label %cmpxchg.store_expected58.i375
 
 atomic.continue51.i378:                           ; preds = %cmpxchg.continue59.i376, %cmpxchg.continue56.i382, %cmpxchg.continue53.i386
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit444
 
 cmpxchg.store_expected52.i385:                    ; preds = %monotonic_fail48.i384
-  store i64 %209, ptr %143, align 8
+  store i64 %213, ptr %147, align 8
   br label %cmpxchg.continue53.i386
 
 cmpxchg.continue53.i386:                          ; preds = %cmpxchg.store_expected52.i385, %monotonic_fail48.i384
-  %frombool54.i387 = zext i1 %210 to i8
+  %frombool54.i387 = zext i1 %214 to i8
   store i8 %frombool54.i387, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue51.i378
 
 cmpxchg.store_expected55.i381:                    ; preds = %acquire_fail49.i380
-  store i64 %214, ptr %143, align 8
+  store i64 %218, ptr %147, align 8
   br label %cmpxchg.continue56.i382
 
 cmpxchg.continue56.i382:                          ; preds = %cmpxchg.store_expected55.i381, %acquire_fail49.i380
-  %frombool57.i383 = zext i1 %215 to i8
+  %frombool57.i383 = zext i1 %219 to i8
   store i8 %frombool57.i383, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue51.i378
 
 cmpxchg.store_expected58.i375:                    ; preds = %seqcst_fail50.i374
-  store i64 %219, ptr %143, align 8
+  store i64 %223, ptr %147, align 8
   br label %cmpxchg.continue59.i376
 
 cmpxchg.continue59.i376:                          ; preds = %cmpxchg.store_expected58.i375, %seqcst_fail50.i374
-  %frombool60.i377 = zext i1 %220 to i8
+  %frombool60.i377 = zext i1 %224 to i8
   store i8 %frombool60.i377, ptr %cmpxchg.bool.i371, align 1
   br label %atomic.continue51.i378
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit444: ; preds = %atomic.continue51.i378, %atomic.continue38.i393, %atomic.continue25.i407, %atomic.continue12.i421, %atomic.continue2.i435
-  %221 = load i8, ptr %cmpxchg.bool.i371, align 1
-  %tobool.i379 = trunc i8 %221 to i1
+  %225 = load i8, ptr %cmpxchg.bool.i371, align 1
+  %tobool.i379 = trunc i8 %225 to i1
   br i1 %tobool.i379, label %if.then81, label %if.else82
 
 if.then81:                                        ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit444
@@ -8873,10 +8912,10 @@ if.then81:                                        ; preds = %_ZNSt13__atomic_bas
   br label %if.end85
 
 if.else82:                                        ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit444
-  %222 = load ptr, ptr %waitp.addr, align 8
-  %thread83 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %222, i32 0, i32 4
-  %223 = load ptr, ptr %thread83, align 8
-  %waitp84 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %223, i32 0, i32 9
+  %226 = load ptr, ptr %waitp.addr, align 8
+  %thread83 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %226, i32 0, i32 4
+  %227 = load ptr, ptr %thread83, align 8
+  %waitp84 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %227, i32 0, i32 9
   store ptr null, ptr %waitp84, align 8
   br label %if.end85
 
@@ -8884,15 +8923,15 @@ if.end85:                                         ; preds = %if.else82, %if.then
   br label %if.end187
 
 if.else86:                                        ; preds = %if.else
-  %224 = load i64, ptr %v, align 8
-  %225 = load ptr, ptr %waitp.addr, align 8
-  %how87 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %225, i32 0, i32 0
-  %226 = load ptr, ptr %how87, align 8
-  %slow_inc_need_zero = getelementptr inbounds %"struct.absl::MuHowS", ptr %226, i32 0, i32 4
-  %227 = load i64, ptr %slow_inc_need_zero, align 8
-  %and88 = and i64 %224, %227
-  %228 = load i32, ptr %flags.addr, align 4
-  %and89 = and i32 %228, 1
+  %228 = load i64, ptr %v, align 8
+  %229 = load ptr, ptr %waitp.addr, align 8
+  %how87 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %229, i32 0, i32 0
+  %230 = load ptr, ptr %how87, align 8
+  %slow_inc_need_zero = getelementptr inbounds %"struct.absl::MuHowS", ptr %230, i32 0, i32 4
+  %231 = load i64, ptr %slow_inc_need_zero, align 8
+  %and88 = and i64 %228, %231
+  %232 = load i32, ptr %flags.addr, align 4
+  %and89 = and i32 %232, 1
   %call91 = invoke noundef i64 @_ZN4abslL24IgnoreWaitingWritersMaskEi(i32 noundef %and89)
           to label %invoke.cont90 unwind label %lpad
 
@@ -8903,14 +8942,14 @@ invoke.cont90:                                    ; preds = %if.else86
 
 if.then94:                                        ; preds = %invoke.cont90
   %mu_95 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %229 = load i64, ptr %v, align 8
-  %230 = load i32, ptr %flags.addr, align 4
-  %and96 = and i32 %230, 1
+  %233 = load i64, ptr %v, align 8
+  %234 = load i32, ptr %flags.addr, align 4
+  %and96 = and i32 %234, 1
   %call98 = invoke noundef i64 @_ZN4abslL24ClearDesignatedWakerMaskEi(i32 noundef %and96)
           to label %invoke.cont97 unwind label %lpad
 
 invoke.cont97:                                    ; preds = %if.then94
-  %and99 = and i64 %229, %call98
+  %and99 = and i64 %233, %call98
   %or100 = or i64 %and99, 64
   %or101 = or i64 %or100, 1
   store ptr %mu_95, ptr %this.addr.i285, align 8
@@ -8919,12 +8958,12 @@ invoke.cont97:                                    ; preds = %if.then94
   store i32 2, ptr %__m1.addr.i288, align 4
   store i32 0, ptr %__m2.addr.i289, align 4
   %this1.i292 = load ptr, ptr %this.addr.i285, align 8
-  %231 = load i32, ptr %__m1.addr.i288, align 4
-  %232 = load ptr, ptr %__i1.addr.i286, align 8
-  %233 = load i64, ptr %__i2.addr.i287, align 8
-  store i64 %233, ptr %.atomictmp.i290, align 8
-  %234 = load i32, ptr %__m2.addr.i289, align 4
-  switch i32 %231, label %monotonic.i350 [
+  %235 = load i32, ptr %__m1.addr.i288, align 4
+  %236 = load ptr, ptr %__i1.addr.i286, align 8
+  %237 = load i64, ptr %__i2.addr.i287, align 8
+  store i64 %237, ptr %.atomictmp.i290, align 8
+  %238 = load i32, ptr %__m2.addr.i289, align 4
+  switch i32 %235, label %monotonic.i350 [
     i32 1, label %acquire.i336
     i32 2, label %acquire.i336
     i32 3, label %release.i322
@@ -8933,326 +8972,326 @@ invoke.cont97:                                    ; preds = %if.then94
   ]
 
 monotonic.i350:                                   ; preds = %invoke.cont97
-  switch i32 %234, label %monotonic_fail.i360 [
+  switch i32 %238, label %monotonic_fail.i360 [
     i32 1, label %acquire_fail.i356
     i32 2, label %acquire_fail.i356
     i32 5, label %seqcst_fail.i351
   ]
 
 acquire.i336:                                     ; preds = %invoke.cont97, %invoke.cont97
-  switch i32 %234, label %monotonic_fail9.i346 [
+  switch i32 %238, label %monotonic_fail9.i346 [
     i32 1, label %acquire_fail10.i342
     i32 2, label %acquire_fail10.i342
     i32 5, label %seqcst_fail11.i337
   ]
 
 release.i322:                                     ; preds = %invoke.cont97
-  switch i32 %234, label %monotonic_fail22.i332 [
+  switch i32 %238, label %monotonic_fail22.i332 [
     i32 1, label %acquire_fail23.i328
     i32 2, label %acquire_fail23.i328
     i32 5, label %seqcst_fail24.i323
   ]
 
 acqrel.i308:                                      ; preds = %invoke.cont97
-  switch i32 %234, label %monotonic_fail35.i318 [
+  switch i32 %238, label %monotonic_fail35.i318 [
     i32 1, label %acquire_fail36.i314
     i32 2, label %acquire_fail36.i314
     i32 5, label %seqcst_fail37.i309
   ]
 
 seqcst.i293:                                      ; preds = %invoke.cont97
-  switch i32 %234, label %monotonic_fail48.i304 [
+  switch i32 %238, label %monotonic_fail48.i304 [
     i32 1, label %acquire_fail49.i300
     i32 2, label %acquire_fail49.i300
     i32 5, label %seqcst_fail50.i294
   ]
 
 monotonic_fail.i360:                              ; preds = %monotonic.i350
-  %235 = load i64, ptr %232, align 8
-  %236 = load i64, ptr %.atomictmp.i290, align 8
-  %237 = cmpxchg ptr %this1.i292, i64 %235, i64 %236 monotonic monotonic, align 8
-  %238 = extractvalue { i64, i1 } %237, 0
-  %239 = extractvalue { i64, i1 } %237, 1
-  br i1 %239, label %cmpxchg.continue.i362, label %cmpxchg.store_expected.i361
+  %239 = load i64, ptr %236, align 8
+  %240 = load i64, ptr %.atomictmp.i290, align 8
+  %241 = cmpxchg ptr %this1.i292, i64 %239, i64 %240 monotonic monotonic, align 8
+  %242 = extractvalue { i64, i1 } %241, 0
+  %243 = extractvalue { i64, i1 } %241, 1
+  br i1 %243, label %cmpxchg.continue.i362, label %cmpxchg.store_expected.i361
 
 acquire_fail.i356:                                ; preds = %monotonic.i350, %monotonic.i350
-  %240 = load i64, ptr %232, align 8
-  %241 = load i64, ptr %.atomictmp.i290, align 8
-  %242 = cmpxchg ptr %this1.i292, i64 %240, i64 %241 monotonic acquire, align 8
-  %243 = extractvalue { i64, i1 } %242, 0
-  %244 = extractvalue { i64, i1 } %242, 1
-  br i1 %244, label %cmpxchg.continue4.i358, label %cmpxchg.store_expected3.i357
+  %244 = load i64, ptr %236, align 8
+  %245 = load i64, ptr %.atomictmp.i290, align 8
+  %246 = cmpxchg ptr %this1.i292, i64 %244, i64 %245 monotonic acquire, align 8
+  %247 = extractvalue { i64, i1 } %246, 0
+  %248 = extractvalue { i64, i1 } %246, 1
+  br i1 %248, label %cmpxchg.continue4.i358, label %cmpxchg.store_expected3.i357
 
 seqcst_fail.i351:                                 ; preds = %monotonic.i350
-  %245 = load i64, ptr %232, align 8
-  %246 = load i64, ptr %.atomictmp.i290, align 8
-  %247 = cmpxchg ptr %this1.i292, i64 %245, i64 %246 monotonic seq_cst, align 8
-  %248 = extractvalue { i64, i1 } %247, 0
-  %249 = extractvalue { i64, i1 } %247, 1
-  br i1 %249, label %cmpxchg.continue7.i353, label %cmpxchg.store_expected6.i352
+  %249 = load i64, ptr %236, align 8
+  %250 = load i64, ptr %.atomictmp.i290, align 8
+  %251 = cmpxchg ptr %this1.i292, i64 %249, i64 %250 monotonic seq_cst, align 8
+  %252 = extractvalue { i64, i1 } %251, 0
+  %253 = extractvalue { i64, i1 } %251, 1
+  br i1 %253, label %cmpxchg.continue7.i353, label %cmpxchg.store_expected6.i352
 
 atomic.continue2.i355:                            ; preds = %cmpxchg.continue7.i353, %cmpxchg.continue4.i358, %cmpxchg.continue.i362
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit364
 
 cmpxchg.store_expected.i361:                      ; preds = %monotonic_fail.i360
-  store i64 %238, ptr %232, align 8
+  store i64 %242, ptr %236, align 8
   br label %cmpxchg.continue.i362
 
 cmpxchg.continue.i362:                            ; preds = %cmpxchg.store_expected.i361, %monotonic_fail.i360
-  %frombool.i363 = zext i1 %239 to i8
+  %frombool.i363 = zext i1 %243 to i8
   store i8 %frombool.i363, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue2.i355
 
 cmpxchg.store_expected3.i357:                     ; preds = %acquire_fail.i356
-  store i64 %243, ptr %232, align 8
+  store i64 %247, ptr %236, align 8
   br label %cmpxchg.continue4.i358
 
 cmpxchg.continue4.i358:                           ; preds = %cmpxchg.store_expected3.i357, %acquire_fail.i356
-  %frombool5.i359 = zext i1 %244 to i8
+  %frombool5.i359 = zext i1 %248 to i8
   store i8 %frombool5.i359, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue2.i355
 
 cmpxchg.store_expected6.i352:                     ; preds = %seqcst_fail.i351
-  store i64 %248, ptr %232, align 8
+  store i64 %252, ptr %236, align 8
   br label %cmpxchg.continue7.i353
 
 cmpxchg.continue7.i353:                           ; preds = %cmpxchg.store_expected6.i352, %seqcst_fail.i351
-  %frombool8.i354 = zext i1 %249 to i8
+  %frombool8.i354 = zext i1 %253 to i8
   store i8 %frombool8.i354, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue2.i355
 
 monotonic_fail9.i346:                             ; preds = %acquire.i336
-  %250 = load i64, ptr %232, align 8
-  %251 = load i64, ptr %.atomictmp.i290, align 8
-  %252 = cmpxchg ptr %this1.i292, i64 %250, i64 %251 acquire monotonic, align 8
-  %253 = extractvalue { i64, i1 } %252, 0
-  %254 = extractvalue { i64, i1 } %252, 1
-  br i1 %254, label %cmpxchg.continue14.i348, label %cmpxchg.store_expected13.i347
+  %254 = load i64, ptr %236, align 8
+  %255 = load i64, ptr %.atomictmp.i290, align 8
+  %256 = cmpxchg ptr %this1.i292, i64 %254, i64 %255 acquire monotonic, align 8
+  %257 = extractvalue { i64, i1 } %256, 0
+  %258 = extractvalue { i64, i1 } %256, 1
+  br i1 %258, label %cmpxchg.continue14.i348, label %cmpxchg.store_expected13.i347
 
 acquire_fail10.i342:                              ; preds = %acquire.i336, %acquire.i336
-  %255 = load i64, ptr %232, align 8
-  %256 = load i64, ptr %.atomictmp.i290, align 8
-  %257 = cmpxchg ptr %this1.i292, i64 %255, i64 %256 acquire acquire, align 8
-  %258 = extractvalue { i64, i1 } %257, 0
-  %259 = extractvalue { i64, i1 } %257, 1
-  br i1 %259, label %cmpxchg.continue17.i344, label %cmpxchg.store_expected16.i343
+  %259 = load i64, ptr %236, align 8
+  %260 = load i64, ptr %.atomictmp.i290, align 8
+  %261 = cmpxchg ptr %this1.i292, i64 %259, i64 %260 acquire acquire, align 8
+  %262 = extractvalue { i64, i1 } %261, 0
+  %263 = extractvalue { i64, i1 } %261, 1
+  br i1 %263, label %cmpxchg.continue17.i344, label %cmpxchg.store_expected16.i343
 
 seqcst_fail11.i337:                               ; preds = %acquire.i336
-  %260 = load i64, ptr %232, align 8
-  %261 = load i64, ptr %.atomictmp.i290, align 8
-  %262 = cmpxchg ptr %this1.i292, i64 %260, i64 %261 acquire seq_cst, align 8
-  %263 = extractvalue { i64, i1 } %262, 0
-  %264 = extractvalue { i64, i1 } %262, 1
-  br i1 %264, label %cmpxchg.continue20.i339, label %cmpxchg.store_expected19.i338
+  %264 = load i64, ptr %236, align 8
+  %265 = load i64, ptr %.atomictmp.i290, align 8
+  %266 = cmpxchg ptr %this1.i292, i64 %264, i64 %265 acquire seq_cst, align 8
+  %267 = extractvalue { i64, i1 } %266, 0
+  %268 = extractvalue { i64, i1 } %266, 1
+  br i1 %268, label %cmpxchg.continue20.i339, label %cmpxchg.store_expected19.i338
 
 atomic.continue12.i341:                           ; preds = %cmpxchg.continue20.i339, %cmpxchg.continue17.i344, %cmpxchg.continue14.i348
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit364
 
 cmpxchg.store_expected13.i347:                    ; preds = %monotonic_fail9.i346
-  store i64 %253, ptr %232, align 8
+  store i64 %257, ptr %236, align 8
   br label %cmpxchg.continue14.i348
 
 cmpxchg.continue14.i348:                          ; preds = %cmpxchg.store_expected13.i347, %monotonic_fail9.i346
-  %frombool15.i349 = zext i1 %254 to i8
+  %frombool15.i349 = zext i1 %258 to i8
   store i8 %frombool15.i349, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue12.i341
 
 cmpxchg.store_expected16.i343:                    ; preds = %acquire_fail10.i342
-  store i64 %258, ptr %232, align 8
+  store i64 %262, ptr %236, align 8
   br label %cmpxchg.continue17.i344
 
 cmpxchg.continue17.i344:                          ; preds = %cmpxchg.store_expected16.i343, %acquire_fail10.i342
-  %frombool18.i345 = zext i1 %259 to i8
+  %frombool18.i345 = zext i1 %263 to i8
   store i8 %frombool18.i345, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue12.i341
 
 cmpxchg.store_expected19.i338:                    ; preds = %seqcst_fail11.i337
-  store i64 %263, ptr %232, align 8
+  store i64 %267, ptr %236, align 8
   br label %cmpxchg.continue20.i339
 
 cmpxchg.continue20.i339:                          ; preds = %cmpxchg.store_expected19.i338, %seqcst_fail11.i337
-  %frombool21.i340 = zext i1 %264 to i8
+  %frombool21.i340 = zext i1 %268 to i8
   store i8 %frombool21.i340, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue12.i341
 
 monotonic_fail22.i332:                            ; preds = %release.i322
-  %265 = load i64, ptr %232, align 8
-  %266 = load i64, ptr %.atomictmp.i290, align 8
-  %267 = cmpxchg ptr %this1.i292, i64 %265, i64 %266 release monotonic, align 8
-  %268 = extractvalue { i64, i1 } %267, 0
-  %269 = extractvalue { i64, i1 } %267, 1
-  br i1 %269, label %cmpxchg.continue27.i334, label %cmpxchg.store_expected26.i333
+  %269 = load i64, ptr %236, align 8
+  %270 = load i64, ptr %.atomictmp.i290, align 8
+  %271 = cmpxchg ptr %this1.i292, i64 %269, i64 %270 release monotonic, align 8
+  %272 = extractvalue { i64, i1 } %271, 0
+  %273 = extractvalue { i64, i1 } %271, 1
+  br i1 %273, label %cmpxchg.continue27.i334, label %cmpxchg.store_expected26.i333
 
 acquire_fail23.i328:                              ; preds = %release.i322, %release.i322
-  %270 = load i64, ptr %232, align 8
-  %271 = load i64, ptr %.atomictmp.i290, align 8
-  %272 = cmpxchg ptr %this1.i292, i64 %270, i64 %271 release acquire, align 8
-  %273 = extractvalue { i64, i1 } %272, 0
-  %274 = extractvalue { i64, i1 } %272, 1
-  br i1 %274, label %cmpxchg.continue30.i330, label %cmpxchg.store_expected29.i329
+  %274 = load i64, ptr %236, align 8
+  %275 = load i64, ptr %.atomictmp.i290, align 8
+  %276 = cmpxchg ptr %this1.i292, i64 %274, i64 %275 release acquire, align 8
+  %277 = extractvalue { i64, i1 } %276, 0
+  %278 = extractvalue { i64, i1 } %276, 1
+  br i1 %278, label %cmpxchg.continue30.i330, label %cmpxchg.store_expected29.i329
 
 seqcst_fail24.i323:                               ; preds = %release.i322
-  %275 = load i64, ptr %232, align 8
-  %276 = load i64, ptr %.atomictmp.i290, align 8
-  %277 = cmpxchg ptr %this1.i292, i64 %275, i64 %276 release seq_cst, align 8
-  %278 = extractvalue { i64, i1 } %277, 0
-  %279 = extractvalue { i64, i1 } %277, 1
-  br i1 %279, label %cmpxchg.continue33.i325, label %cmpxchg.store_expected32.i324
+  %279 = load i64, ptr %236, align 8
+  %280 = load i64, ptr %.atomictmp.i290, align 8
+  %281 = cmpxchg ptr %this1.i292, i64 %279, i64 %280 release seq_cst, align 8
+  %282 = extractvalue { i64, i1 } %281, 0
+  %283 = extractvalue { i64, i1 } %281, 1
+  br i1 %283, label %cmpxchg.continue33.i325, label %cmpxchg.store_expected32.i324
 
 atomic.continue25.i327:                           ; preds = %cmpxchg.continue33.i325, %cmpxchg.continue30.i330, %cmpxchg.continue27.i334
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit364
 
 cmpxchg.store_expected26.i333:                    ; preds = %monotonic_fail22.i332
-  store i64 %268, ptr %232, align 8
+  store i64 %272, ptr %236, align 8
   br label %cmpxchg.continue27.i334
 
 cmpxchg.continue27.i334:                          ; preds = %cmpxchg.store_expected26.i333, %monotonic_fail22.i332
-  %frombool28.i335 = zext i1 %269 to i8
+  %frombool28.i335 = zext i1 %273 to i8
   store i8 %frombool28.i335, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue25.i327
 
 cmpxchg.store_expected29.i329:                    ; preds = %acquire_fail23.i328
-  store i64 %273, ptr %232, align 8
+  store i64 %277, ptr %236, align 8
   br label %cmpxchg.continue30.i330
 
 cmpxchg.continue30.i330:                          ; preds = %cmpxchg.store_expected29.i329, %acquire_fail23.i328
-  %frombool31.i331 = zext i1 %274 to i8
+  %frombool31.i331 = zext i1 %278 to i8
   store i8 %frombool31.i331, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue25.i327
 
 cmpxchg.store_expected32.i324:                    ; preds = %seqcst_fail24.i323
-  store i64 %278, ptr %232, align 8
+  store i64 %282, ptr %236, align 8
   br label %cmpxchg.continue33.i325
 
 cmpxchg.continue33.i325:                          ; preds = %cmpxchg.store_expected32.i324, %seqcst_fail24.i323
-  %frombool34.i326 = zext i1 %279 to i8
+  %frombool34.i326 = zext i1 %283 to i8
   store i8 %frombool34.i326, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue25.i327
 
 monotonic_fail35.i318:                            ; preds = %acqrel.i308
-  %280 = load i64, ptr %232, align 8
-  %281 = load i64, ptr %.atomictmp.i290, align 8
-  %282 = cmpxchg ptr %this1.i292, i64 %280, i64 %281 acq_rel monotonic, align 8
-  %283 = extractvalue { i64, i1 } %282, 0
-  %284 = extractvalue { i64, i1 } %282, 1
-  br i1 %284, label %cmpxchg.continue40.i320, label %cmpxchg.store_expected39.i319
+  %284 = load i64, ptr %236, align 8
+  %285 = load i64, ptr %.atomictmp.i290, align 8
+  %286 = cmpxchg ptr %this1.i292, i64 %284, i64 %285 acq_rel monotonic, align 8
+  %287 = extractvalue { i64, i1 } %286, 0
+  %288 = extractvalue { i64, i1 } %286, 1
+  br i1 %288, label %cmpxchg.continue40.i320, label %cmpxchg.store_expected39.i319
 
 acquire_fail36.i314:                              ; preds = %acqrel.i308, %acqrel.i308
-  %285 = load i64, ptr %232, align 8
-  %286 = load i64, ptr %.atomictmp.i290, align 8
-  %287 = cmpxchg ptr %this1.i292, i64 %285, i64 %286 acq_rel acquire, align 8
-  %288 = extractvalue { i64, i1 } %287, 0
-  %289 = extractvalue { i64, i1 } %287, 1
-  br i1 %289, label %cmpxchg.continue43.i316, label %cmpxchg.store_expected42.i315
+  %289 = load i64, ptr %236, align 8
+  %290 = load i64, ptr %.atomictmp.i290, align 8
+  %291 = cmpxchg ptr %this1.i292, i64 %289, i64 %290 acq_rel acquire, align 8
+  %292 = extractvalue { i64, i1 } %291, 0
+  %293 = extractvalue { i64, i1 } %291, 1
+  br i1 %293, label %cmpxchg.continue43.i316, label %cmpxchg.store_expected42.i315
 
 seqcst_fail37.i309:                               ; preds = %acqrel.i308
-  %290 = load i64, ptr %232, align 8
-  %291 = load i64, ptr %.atomictmp.i290, align 8
-  %292 = cmpxchg ptr %this1.i292, i64 %290, i64 %291 acq_rel seq_cst, align 8
-  %293 = extractvalue { i64, i1 } %292, 0
-  %294 = extractvalue { i64, i1 } %292, 1
-  br i1 %294, label %cmpxchg.continue46.i311, label %cmpxchg.store_expected45.i310
+  %294 = load i64, ptr %236, align 8
+  %295 = load i64, ptr %.atomictmp.i290, align 8
+  %296 = cmpxchg ptr %this1.i292, i64 %294, i64 %295 acq_rel seq_cst, align 8
+  %297 = extractvalue { i64, i1 } %296, 0
+  %298 = extractvalue { i64, i1 } %296, 1
+  br i1 %298, label %cmpxchg.continue46.i311, label %cmpxchg.store_expected45.i310
 
 atomic.continue38.i313:                           ; preds = %cmpxchg.continue46.i311, %cmpxchg.continue43.i316, %cmpxchg.continue40.i320
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit364
 
 cmpxchg.store_expected39.i319:                    ; preds = %monotonic_fail35.i318
-  store i64 %283, ptr %232, align 8
+  store i64 %287, ptr %236, align 8
   br label %cmpxchg.continue40.i320
 
 cmpxchg.continue40.i320:                          ; preds = %cmpxchg.store_expected39.i319, %monotonic_fail35.i318
-  %frombool41.i321 = zext i1 %284 to i8
+  %frombool41.i321 = zext i1 %288 to i8
   store i8 %frombool41.i321, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue38.i313
 
 cmpxchg.store_expected42.i315:                    ; preds = %acquire_fail36.i314
-  store i64 %288, ptr %232, align 8
+  store i64 %292, ptr %236, align 8
   br label %cmpxchg.continue43.i316
 
 cmpxchg.continue43.i316:                          ; preds = %cmpxchg.store_expected42.i315, %acquire_fail36.i314
-  %frombool44.i317 = zext i1 %289 to i8
+  %frombool44.i317 = zext i1 %293 to i8
   store i8 %frombool44.i317, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue38.i313
 
 cmpxchg.store_expected45.i310:                    ; preds = %seqcst_fail37.i309
-  store i64 %293, ptr %232, align 8
+  store i64 %297, ptr %236, align 8
   br label %cmpxchg.continue46.i311
 
 cmpxchg.continue46.i311:                          ; preds = %cmpxchg.store_expected45.i310, %seqcst_fail37.i309
-  %frombool47.i312 = zext i1 %294 to i8
+  %frombool47.i312 = zext i1 %298 to i8
   store i8 %frombool47.i312, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue38.i313
 
 monotonic_fail48.i304:                            ; preds = %seqcst.i293
-  %295 = load i64, ptr %232, align 8
-  %296 = load i64, ptr %.atomictmp.i290, align 8
-  %297 = cmpxchg ptr %this1.i292, i64 %295, i64 %296 seq_cst monotonic, align 8
-  %298 = extractvalue { i64, i1 } %297, 0
-  %299 = extractvalue { i64, i1 } %297, 1
-  br i1 %299, label %cmpxchg.continue53.i306, label %cmpxchg.store_expected52.i305
+  %299 = load i64, ptr %236, align 8
+  %300 = load i64, ptr %.atomictmp.i290, align 8
+  %301 = cmpxchg ptr %this1.i292, i64 %299, i64 %300 seq_cst monotonic, align 8
+  %302 = extractvalue { i64, i1 } %301, 0
+  %303 = extractvalue { i64, i1 } %301, 1
+  br i1 %303, label %cmpxchg.continue53.i306, label %cmpxchg.store_expected52.i305
 
 acquire_fail49.i300:                              ; preds = %seqcst.i293, %seqcst.i293
-  %300 = load i64, ptr %232, align 8
-  %301 = load i64, ptr %.atomictmp.i290, align 8
-  %302 = cmpxchg ptr %this1.i292, i64 %300, i64 %301 seq_cst acquire, align 8
-  %303 = extractvalue { i64, i1 } %302, 0
-  %304 = extractvalue { i64, i1 } %302, 1
-  br i1 %304, label %cmpxchg.continue56.i302, label %cmpxchg.store_expected55.i301
+  %304 = load i64, ptr %236, align 8
+  %305 = load i64, ptr %.atomictmp.i290, align 8
+  %306 = cmpxchg ptr %this1.i292, i64 %304, i64 %305 seq_cst acquire, align 8
+  %307 = extractvalue { i64, i1 } %306, 0
+  %308 = extractvalue { i64, i1 } %306, 1
+  br i1 %308, label %cmpxchg.continue56.i302, label %cmpxchg.store_expected55.i301
 
 seqcst_fail50.i294:                               ; preds = %seqcst.i293
-  %305 = load i64, ptr %232, align 8
-  %306 = load i64, ptr %.atomictmp.i290, align 8
-  %307 = cmpxchg ptr %this1.i292, i64 %305, i64 %306 seq_cst seq_cst, align 8
-  %308 = extractvalue { i64, i1 } %307, 0
-  %309 = extractvalue { i64, i1 } %307, 1
-  br i1 %309, label %cmpxchg.continue59.i296, label %cmpxchg.store_expected58.i295
+  %309 = load i64, ptr %236, align 8
+  %310 = load i64, ptr %.atomictmp.i290, align 8
+  %311 = cmpxchg ptr %this1.i292, i64 %309, i64 %310 seq_cst seq_cst, align 8
+  %312 = extractvalue { i64, i1 } %311, 0
+  %313 = extractvalue { i64, i1 } %311, 1
+  br i1 %313, label %cmpxchg.continue59.i296, label %cmpxchg.store_expected58.i295
 
 atomic.continue51.i298:                           ; preds = %cmpxchg.continue59.i296, %cmpxchg.continue56.i302, %cmpxchg.continue53.i306
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit364
 
 cmpxchg.store_expected52.i305:                    ; preds = %monotonic_fail48.i304
-  store i64 %298, ptr %232, align 8
+  store i64 %302, ptr %236, align 8
   br label %cmpxchg.continue53.i306
 
 cmpxchg.continue53.i306:                          ; preds = %cmpxchg.store_expected52.i305, %monotonic_fail48.i304
-  %frombool54.i307 = zext i1 %299 to i8
+  %frombool54.i307 = zext i1 %303 to i8
   store i8 %frombool54.i307, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue51.i298
 
 cmpxchg.store_expected55.i301:                    ; preds = %acquire_fail49.i300
-  store i64 %303, ptr %232, align 8
+  store i64 %307, ptr %236, align 8
   br label %cmpxchg.continue56.i302
 
 cmpxchg.continue56.i302:                          ; preds = %cmpxchg.store_expected55.i301, %acquire_fail49.i300
-  %frombool57.i303 = zext i1 %304 to i8
+  %frombool57.i303 = zext i1 %308 to i8
   store i8 %frombool57.i303, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue51.i298
 
 cmpxchg.store_expected58.i295:                    ; preds = %seqcst_fail50.i294
-  store i64 %308, ptr %232, align 8
+  store i64 %312, ptr %236, align 8
   br label %cmpxchg.continue59.i296
 
 cmpxchg.continue59.i296:                          ; preds = %cmpxchg.store_expected58.i295, %seqcst_fail50.i294
-  %frombool60.i297 = zext i1 %309 to i8
+  %frombool60.i297 = zext i1 %313 to i8
   store i8 %frombool60.i297, ptr %cmpxchg.bool.i291, align 1
   br label %atomic.continue51.i298
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit364: ; preds = %atomic.continue51.i298, %atomic.continue38.i313, %atomic.continue25.i327, %atomic.continue12.i341, %atomic.continue2.i355
-  %310 = load i8, ptr %cmpxchg.bool.i291, align 1
-  %tobool.i299 = trunc i8 %310 to i1
+  %314 = load i8, ptr %cmpxchg.bool.i291, align 1
+  %tobool.i299 = trunc i8 %314 to i1
   br i1 %tobool.i299, label %if.then103, label %if.end131
 
 if.then103:                                       ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit364
-  %311 = load i64, ptr %v, align 8
-  %call105 = invoke noundef ptr @_ZN4abslL17GetPerThreadSynchEl(i64 noundef %311)
+  %315 = load i64, ptr %v, align 8
+  %call105 = invoke noundef ptr @_ZN4abslL17GetPerThreadSynchEl(i64 noundef %315)
           to label %invoke.cont104 unwind label %lpad
 
 invoke.cont104:                                   ; preds = %if.then103
   store ptr %call105, ptr %h, align 8
-  %312 = load ptr, ptr %h, align 8
-  %readers = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %312, i32 0, i32 10
-  %313 = load i64, ptr %readers, align 8
-  %add106 = add nsw i64 %313, 256
+  %316 = load ptr, ptr %h, align 8
+  %readers = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %316, i32 0, i32 10
+  %317 = load i64, ptr %readers, align 8
+  %add106 = add nsw i64 %317, 256
   store i64 %add106, ptr %readers, align 8
   br label %do.body107
 
@@ -9261,40 +9300,40 @@ do.body107:                                       ; preds = %_ZNSt13__atomic_bas
   store ptr %mu_108, ptr %this.addr.i250, align 8
   store i32 0, ptr %__m.addr.i251, align 4
   %this1.i254 = load ptr, ptr %this.addr.i250, align 8
-  %314 = load i32, ptr %__m.addr.i251, align 4
-  %call.i255 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %314, i32 noundef 65535)
+  %318 = load i32, ptr %__m.addr.i251, align 4
+  %call.i255 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %318, i32 noundef 65535)
   store i32 %call.i255, ptr %__b.i252, align 4
-  %315 = load i32, ptr %__m.addr.i251, align 4
-  switch i32 %315, label %monotonic.i258 [
+  %319 = load i32, ptr %__m.addr.i251, align 4
+  switch i32 %319, label %monotonic.i258 [
     i32 1, label %acquire.i257
     i32 2, label %acquire.i257
     i32 5, label %seqcst.i256
   ]
 
 monotonic.i258:                                   ; preds = %do.body107
-  %316 = load atomic i64, ptr %this1.i254 monotonic, align 8
-  store i64 %316, ptr %atomic-temp.i253, align 8
+  %320 = load atomic i64, ptr %this1.i254 monotonic, align 8
+  store i64 %320, ptr %atomic-temp.i253, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit259
 
 acquire.i257:                                     ; preds = %do.body107, %do.body107
-  %317 = load atomic i64, ptr %this1.i254 acquire, align 8
-  store i64 %317, ptr %atomic-temp.i253, align 8
+  %321 = load atomic i64, ptr %this1.i254 acquire, align 8
+  store i64 %321, ptr %atomic-temp.i253, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit259
 
 seqcst.i256:                                      ; preds = %do.body107
-  %318 = load atomic i64, ptr %this1.i254 seq_cst, align 8
-  store i64 %318, ptr %atomic-temp.i253, align 8
+  %322 = load atomic i64, ptr %this1.i254 seq_cst, align 8
+  store i64 %322, ptr %atomic-temp.i253, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit259
 
 _ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit259: ; preds = %seqcst.i256, %acquire.i257, %monotonic.i258
-  %319 = load i64, ptr %atomic-temp.i253, align 8
-  store i64 %319, ptr %v, align 8
+  %323 = load i64, ptr %atomic-temp.i253, align 8
+  store i64 %323, ptr %v, align 8
   br label %do.cond110
 
 do.cond110:                                       ; preds = %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit259
   %mu_111 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %320 = load i64, ptr %v, align 8
-  %and112 = and i64 %320, -65
+  %324 = load i64, ptr %v, align 8
+  %and112 = and i64 %324, -65
   %or113 = or i64 %and112, 1
   store ptr %mu_111, ptr %this.addr.i604, align 8
   store ptr %v, ptr %__i1.addr.i605, align 8
@@ -9302,12 +9341,12 @@ do.cond110:                                       ; preds = %_ZNKSt13__atomic_ba
   store i32 3, ptr %__m1.addr.i607, align 4
   store i32 0, ptr %__m2.addr.i608, align 4
   %this1.i611 = load ptr, ptr %this.addr.i604, align 8
-  %321 = load i32, ptr %__m1.addr.i607, align 4
-  %322 = load ptr, ptr %__i1.addr.i605, align 8
-  %323 = load i64, ptr %__i2.addr.i606, align 8
-  store i64 %323, ptr %.atomictmp.i609, align 8
-  %324 = load i32, ptr %__m2.addr.i608, align 4
-  switch i32 %321, label %monotonic.i669 [
+  %325 = load i32, ptr %__m1.addr.i607, align 4
+  %326 = load ptr, ptr %__i1.addr.i605, align 8
+  %327 = load i64, ptr %__i2.addr.i606, align 8
+  store i64 %327, ptr %.atomictmp.i609, align 8
+  %328 = load i32, ptr %__m2.addr.i608, align 4
+  switch i32 %325, label %monotonic.i669 [
     i32 1, label %acquire.i655
     i32 2, label %acquire.i655
     i32 3, label %release.i641
@@ -9316,332 +9355,332 @@ do.cond110:                                       ; preds = %_ZNKSt13__atomic_ba
   ]
 
 monotonic.i669:                                   ; preds = %do.cond110
-  switch i32 %324, label %monotonic_fail.i679 [
+  switch i32 %328, label %monotonic_fail.i679 [
     i32 1, label %acquire_fail.i675
     i32 2, label %acquire_fail.i675
     i32 5, label %seqcst_fail.i670
   ]
 
 acquire.i655:                                     ; preds = %do.cond110, %do.cond110
-  switch i32 %324, label %monotonic_fail9.i665 [
+  switch i32 %328, label %monotonic_fail9.i665 [
     i32 1, label %acquire_fail10.i661
     i32 2, label %acquire_fail10.i661
     i32 5, label %seqcst_fail11.i656
   ]
 
 release.i641:                                     ; preds = %do.cond110
-  switch i32 %324, label %monotonic_fail22.i651 [
+  switch i32 %328, label %monotonic_fail22.i651 [
     i32 1, label %acquire_fail23.i647
     i32 2, label %acquire_fail23.i647
     i32 5, label %seqcst_fail24.i642
   ]
 
 acqrel.i627:                                      ; preds = %do.cond110
-  switch i32 %324, label %monotonic_fail35.i637 [
+  switch i32 %328, label %monotonic_fail35.i637 [
     i32 1, label %acquire_fail36.i633
     i32 2, label %acquire_fail36.i633
     i32 5, label %seqcst_fail37.i628
   ]
 
 seqcst.i612:                                      ; preds = %do.cond110
-  switch i32 %324, label %monotonic_fail48.i623 [
+  switch i32 %328, label %monotonic_fail48.i623 [
     i32 1, label %acquire_fail49.i619
     i32 2, label %acquire_fail49.i619
     i32 5, label %seqcst_fail50.i613
   ]
 
 monotonic_fail.i679:                              ; preds = %monotonic.i669
-  %325 = load i64, ptr %322, align 8
-  %326 = load i64, ptr %.atomictmp.i609, align 8
-  %327 = cmpxchg weak ptr %this1.i611, i64 %325, i64 %326 monotonic monotonic, align 8
-  %328 = extractvalue { i64, i1 } %327, 0
-  %329 = extractvalue { i64, i1 } %327, 1
-  br i1 %329, label %cmpxchg.continue.i681, label %cmpxchg.store_expected.i680
+  %329 = load i64, ptr %326, align 8
+  %330 = load i64, ptr %.atomictmp.i609, align 8
+  %331 = cmpxchg weak ptr %this1.i611, i64 %329, i64 %330 monotonic monotonic, align 8
+  %332 = extractvalue { i64, i1 } %331, 0
+  %333 = extractvalue { i64, i1 } %331, 1
+  br i1 %333, label %cmpxchg.continue.i681, label %cmpxchg.store_expected.i680
 
 acquire_fail.i675:                                ; preds = %monotonic.i669, %monotonic.i669
-  %330 = load i64, ptr %322, align 8
-  %331 = load i64, ptr %.atomictmp.i609, align 8
-  %332 = cmpxchg weak ptr %this1.i611, i64 %330, i64 %331 monotonic acquire, align 8
-  %333 = extractvalue { i64, i1 } %332, 0
-  %334 = extractvalue { i64, i1 } %332, 1
-  br i1 %334, label %cmpxchg.continue4.i677, label %cmpxchg.store_expected3.i676
+  %334 = load i64, ptr %326, align 8
+  %335 = load i64, ptr %.atomictmp.i609, align 8
+  %336 = cmpxchg weak ptr %this1.i611, i64 %334, i64 %335 monotonic acquire, align 8
+  %337 = extractvalue { i64, i1 } %336, 0
+  %338 = extractvalue { i64, i1 } %336, 1
+  br i1 %338, label %cmpxchg.continue4.i677, label %cmpxchg.store_expected3.i676
 
 seqcst_fail.i670:                                 ; preds = %monotonic.i669
-  %335 = load i64, ptr %322, align 8
-  %336 = load i64, ptr %.atomictmp.i609, align 8
-  %337 = cmpxchg weak ptr %this1.i611, i64 %335, i64 %336 monotonic seq_cst, align 8
-  %338 = extractvalue { i64, i1 } %337, 0
-  %339 = extractvalue { i64, i1 } %337, 1
-  br i1 %339, label %cmpxchg.continue7.i672, label %cmpxchg.store_expected6.i671
+  %339 = load i64, ptr %326, align 8
+  %340 = load i64, ptr %.atomictmp.i609, align 8
+  %341 = cmpxchg weak ptr %this1.i611, i64 %339, i64 %340 monotonic seq_cst, align 8
+  %342 = extractvalue { i64, i1 } %341, 0
+  %343 = extractvalue { i64, i1 } %341, 1
+  br i1 %343, label %cmpxchg.continue7.i672, label %cmpxchg.store_expected6.i671
 
 atomic.continue2.i674:                            ; preds = %cmpxchg.continue7.i672, %cmpxchg.continue4.i677, %cmpxchg.continue.i681
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit683
 
 cmpxchg.store_expected.i680:                      ; preds = %monotonic_fail.i679
-  store i64 %328, ptr %322, align 8
+  store i64 %332, ptr %326, align 8
   br label %cmpxchg.continue.i681
 
 cmpxchg.continue.i681:                            ; preds = %cmpxchg.store_expected.i680, %monotonic_fail.i679
-  %frombool.i682 = zext i1 %329 to i8
+  %frombool.i682 = zext i1 %333 to i8
   store i8 %frombool.i682, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue2.i674
 
 cmpxchg.store_expected3.i676:                     ; preds = %acquire_fail.i675
-  store i64 %333, ptr %322, align 8
+  store i64 %337, ptr %326, align 8
   br label %cmpxchg.continue4.i677
 
 cmpxchg.continue4.i677:                           ; preds = %cmpxchg.store_expected3.i676, %acquire_fail.i675
-  %frombool5.i678 = zext i1 %334 to i8
+  %frombool5.i678 = zext i1 %338 to i8
   store i8 %frombool5.i678, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue2.i674
 
 cmpxchg.store_expected6.i671:                     ; preds = %seqcst_fail.i670
-  store i64 %338, ptr %322, align 8
+  store i64 %342, ptr %326, align 8
   br label %cmpxchg.continue7.i672
 
 cmpxchg.continue7.i672:                           ; preds = %cmpxchg.store_expected6.i671, %seqcst_fail.i670
-  %frombool8.i673 = zext i1 %339 to i8
+  %frombool8.i673 = zext i1 %343 to i8
   store i8 %frombool8.i673, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue2.i674
 
 monotonic_fail9.i665:                             ; preds = %acquire.i655
-  %340 = load i64, ptr %322, align 8
-  %341 = load i64, ptr %.atomictmp.i609, align 8
-  %342 = cmpxchg weak ptr %this1.i611, i64 %340, i64 %341 acquire monotonic, align 8
-  %343 = extractvalue { i64, i1 } %342, 0
-  %344 = extractvalue { i64, i1 } %342, 1
-  br i1 %344, label %cmpxchg.continue14.i667, label %cmpxchg.store_expected13.i666
+  %344 = load i64, ptr %326, align 8
+  %345 = load i64, ptr %.atomictmp.i609, align 8
+  %346 = cmpxchg weak ptr %this1.i611, i64 %344, i64 %345 acquire monotonic, align 8
+  %347 = extractvalue { i64, i1 } %346, 0
+  %348 = extractvalue { i64, i1 } %346, 1
+  br i1 %348, label %cmpxchg.continue14.i667, label %cmpxchg.store_expected13.i666
 
 acquire_fail10.i661:                              ; preds = %acquire.i655, %acquire.i655
-  %345 = load i64, ptr %322, align 8
-  %346 = load i64, ptr %.atomictmp.i609, align 8
-  %347 = cmpxchg weak ptr %this1.i611, i64 %345, i64 %346 acquire acquire, align 8
-  %348 = extractvalue { i64, i1 } %347, 0
-  %349 = extractvalue { i64, i1 } %347, 1
-  br i1 %349, label %cmpxchg.continue17.i663, label %cmpxchg.store_expected16.i662
+  %349 = load i64, ptr %326, align 8
+  %350 = load i64, ptr %.atomictmp.i609, align 8
+  %351 = cmpxchg weak ptr %this1.i611, i64 %349, i64 %350 acquire acquire, align 8
+  %352 = extractvalue { i64, i1 } %351, 0
+  %353 = extractvalue { i64, i1 } %351, 1
+  br i1 %353, label %cmpxchg.continue17.i663, label %cmpxchg.store_expected16.i662
 
 seqcst_fail11.i656:                               ; preds = %acquire.i655
-  %350 = load i64, ptr %322, align 8
-  %351 = load i64, ptr %.atomictmp.i609, align 8
-  %352 = cmpxchg weak ptr %this1.i611, i64 %350, i64 %351 acquire seq_cst, align 8
-  %353 = extractvalue { i64, i1 } %352, 0
-  %354 = extractvalue { i64, i1 } %352, 1
-  br i1 %354, label %cmpxchg.continue20.i658, label %cmpxchg.store_expected19.i657
+  %354 = load i64, ptr %326, align 8
+  %355 = load i64, ptr %.atomictmp.i609, align 8
+  %356 = cmpxchg weak ptr %this1.i611, i64 %354, i64 %355 acquire seq_cst, align 8
+  %357 = extractvalue { i64, i1 } %356, 0
+  %358 = extractvalue { i64, i1 } %356, 1
+  br i1 %358, label %cmpxchg.continue20.i658, label %cmpxchg.store_expected19.i657
 
 atomic.continue12.i660:                           ; preds = %cmpxchg.continue20.i658, %cmpxchg.continue17.i663, %cmpxchg.continue14.i667
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit683
 
 cmpxchg.store_expected13.i666:                    ; preds = %monotonic_fail9.i665
-  store i64 %343, ptr %322, align 8
+  store i64 %347, ptr %326, align 8
   br label %cmpxchg.continue14.i667
 
 cmpxchg.continue14.i667:                          ; preds = %cmpxchg.store_expected13.i666, %monotonic_fail9.i665
-  %frombool15.i668 = zext i1 %344 to i8
+  %frombool15.i668 = zext i1 %348 to i8
   store i8 %frombool15.i668, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue12.i660
 
 cmpxchg.store_expected16.i662:                    ; preds = %acquire_fail10.i661
-  store i64 %348, ptr %322, align 8
+  store i64 %352, ptr %326, align 8
   br label %cmpxchg.continue17.i663
 
 cmpxchg.continue17.i663:                          ; preds = %cmpxchg.store_expected16.i662, %acquire_fail10.i661
-  %frombool18.i664 = zext i1 %349 to i8
+  %frombool18.i664 = zext i1 %353 to i8
   store i8 %frombool18.i664, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue12.i660
 
 cmpxchg.store_expected19.i657:                    ; preds = %seqcst_fail11.i656
-  store i64 %353, ptr %322, align 8
+  store i64 %357, ptr %326, align 8
   br label %cmpxchg.continue20.i658
 
 cmpxchg.continue20.i658:                          ; preds = %cmpxchg.store_expected19.i657, %seqcst_fail11.i656
-  %frombool21.i659 = zext i1 %354 to i8
+  %frombool21.i659 = zext i1 %358 to i8
   store i8 %frombool21.i659, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue12.i660
 
 monotonic_fail22.i651:                            ; preds = %release.i641
-  %355 = load i64, ptr %322, align 8
-  %356 = load i64, ptr %.atomictmp.i609, align 8
-  %357 = cmpxchg weak ptr %this1.i611, i64 %355, i64 %356 release monotonic, align 8
-  %358 = extractvalue { i64, i1 } %357, 0
-  %359 = extractvalue { i64, i1 } %357, 1
-  br i1 %359, label %cmpxchg.continue27.i653, label %cmpxchg.store_expected26.i652
+  %359 = load i64, ptr %326, align 8
+  %360 = load i64, ptr %.atomictmp.i609, align 8
+  %361 = cmpxchg weak ptr %this1.i611, i64 %359, i64 %360 release monotonic, align 8
+  %362 = extractvalue { i64, i1 } %361, 0
+  %363 = extractvalue { i64, i1 } %361, 1
+  br i1 %363, label %cmpxchg.continue27.i653, label %cmpxchg.store_expected26.i652
 
 acquire_fail23.i647:                              ; preds = %release.i641, %release.i641
-  %360 = load i64, ptr %322, align 8
-  %361 = load i64, ptr %.atomictmp.i609, align 8
-  %362 = cmpxchg weak ptr %this1.i611, i64 %360, i64 %361 release acquire, align 8
-  %363 = extractvalue { i64, i1 } %362, 0
-  %364 = extractvalue { i64, i1 } %362, 1
-  br i1 %364, label %cmpxchg.continue30.i649, label %cmpxchg.store_expected29.i648
+  %364 = load i64, ptr %326, align 8
+  %365 = load i64, ptr %.atomictmp.i609, align 8
+  %366 = cmpxchg weak ptr %this1.i611, i64 %364, i64 %365 release acquire, align 8
+  %367 = extractvalue { i64, i1 } %366, 0
+  %368 = extractvalue { i64, i1 } %366, 1
+  br i1 %368, label %cmpxchg.continue30.i649, label %cmpxchg.store_expected29.i648
 
 seqcst_fail24.i642:                               ; preds = %release.i641
-  %365 = load i64, ptr %322, align 8
-  %366 = load i64, ptr %.atomictmp.i609, align 8
-  %367 = cmpxchg weak ptr %this1.i611, i64 %365, i64 %366 release seq_cst, align 8
-  %368 = extractvalue { i64, i1 } %367, 0
-  %369 = extractvalue { i64, i1 } %367, 1
-  br i1 %369, label %cmpxchg.continue33.i644, label %cmpxchg.store_expected32.i643
+  %369 = load i64, ptr %326, align 8
+  %370 = load i64, ptr %.atomictmp.i609, align 8
+  %371 = cmpxchg weak ptr %this1.i611, i64 %369, i64 %370 release seq_cst, align 8
+  %372 = extractvalue { i64, i1 } %371, 0
+  %373 = extractvalue { i64, i1 } %371, 1
+  br i1 %373, label %cmpxchg.continue33.i644, label %cmpxchg.store_expected32.i643
 
 atomic.continue25.i646:                           ; preds = %cmpxchg.continue33.i644, %cmpxchg.continue30.i649, %cmpxchg.continue27.i653
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit683
 
 cmpxchg.store_expected26.i652:                    ; preds = %monotonic_fail22.i651
-  store i64 %358, ptr %322, align 8
+  store i64 %362, ptr %326, align 8
   br label %cmpxchg.continue27.i653
 
 cmpxchg.continue27.i653:                          ; preds = %cmpxchg.store_expected26.i652, %monotonic_fail22.i651
-  %frombool28.i654 = zext i1 %359 to i8
+  %frombool28.i654 = zext i1 %363 to i8
   store i8 %frombool28.i654, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue25.i646
 
 cmpxchg.store_expected29.i648:                    ; preds = %acquire_fail23.i647
-  store i64 %363, ptr %322, align 8
+  store i64 %367, ptr %326, align 8
   br label %cmpxchg.continue30.i649
 
 cmpxchg.continue30.i649:                          ; preds = %cmpxchg.store_expected29.i648, %acquire_fail23.i647
-  %frombool31.i650 = zext i1 %364 to i8
+  %frombool31.i650 = zext i1 %368 to i8
   store i8 %frombool31.i650, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue25.i646
 
 cmpxchg.store_expected32.i643:                    ; preds = %seqcst_fail24.i642
-  store i64 %368, ptr %322, align 8
+  store i64 %372, ptr %326, align 8
   br label %cmpxchg.continue33.i644
 
 cmpxchg.continue33.i644:                          ; preds = %cmpxchg.store_expected32.i643, %seqcst_fail24.i642
-  %frombool34.i645 = zext i1 %369 to i8
+  %frombool34.i645 = zext i1 %373 to i8
   store i8 %frombool34.i645, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue25.i646
 
 monotonic_fail35.i637:                            ; preds = %acqrel.i627
-  %370 = load i64, ptr %322, align 8
-  %371 = load i64, ptr %.atomictmp.i609, align 8
-  %372 = cmpxchg weak ptr %this1.i611, i64 %370, i64 %371 acq_rel monotonic, align 8
-  %373 = extractvalue { i64, i1 } %372, 0
-  %374 = extractvalue { i64, i1 } %372, 1
-  br i1 %374, label %cmpxchg.continue40.i639, label %cmpxchg.store_expected39.i638
+  %374 = load i64, ptr %326, align 8
+  %375 = load i64, ptr %.atomictmp.i609, align 8
+  %376 = cmpxchg weak ptr %this1.i611, i64 %374, i64 %375 acq_rel monotonic, align 8
+  %377 = extractvalue { i64, i1 } %376, 0
+  %378 = extractvalue { i64, i1 } %376, 1
+  br i1 %378, label %cmpxchg.continue40.i639, label %cmpxchg.store_expected39.i638
 
 acquire_fail36.i633:                              ; preds = %acqrel.i627, %acqrel.i627
-  %375 = load i64, ptr %322, align 8
-  %376 = load i64, ptr %.atomictmp.i609, align 8
-  %377 = cmpxchg weak ptr %this1.i611, i64 %375, i64 %376 acq_rel acquire, align 8
-  %378 = extractvalue { i64, i1 } %377, 0
-  %379 = extractvalue { i64, i1 } %377, 1
-  br i1 %379, label %cmpxchg.continue43.i635, label %cmpxchg.store_expected42.i634
+  %379 = load i64, ptr %326, align 8
+  %380 = load i64, ptr %.atomictmp.i609, align 8
+  %381 = cmpxchg weak ptr %this1.i611, i64 %379, i64 %380 acq_rel acquire, align 8
+  %382 = extractvalue { i64, i1 } %381, 0
+  %383 = extractvalue { i64, i1 } %381, 1
+  br i1 %383, label %cmpxchg.continue43.i635, label %cmpxchg.store_expected42.i634
 
 seqcst_fail37.i628:                               ; preds = %acqrel.i627
-  %380 = load i64, ptr %322, align 8
-  %381 = load i64, ptr %.atomictmp.i609, align 8
-  %382 = cmpxchg weak ptr %this1.i611, i64 %380, i64 %381 acq_rel seq_cst, align 8
-  %383 = extractvalue { i64, i1 } %382, 0
-  %384 = extractvalue { i64, i1 } %382, 1
-  br i1 %384, label %cmpxchg.continue46.i630, label %cmpxchg.store_expected45.i629
+  %384 = load i64, ptr %326, align 8
+  %385 = load i64, ptr %.atomictmp.i609, align 8
+  %386 = cmpxchg weak ptr %this1.i611, i64 %384, i64 %385 acq_rel seq_cst, align 8
+  %387 = extractvalue { i64, i1 } %386, 0
+  %388 = extractvalue { i64, i1 } %386, 1
+  br i1 %388, label %cmpxchg.continue46.i630, label %cmpxchg.store_expected45.i629
 
 atomic.continue38.i632:                           ; preds = %cmpxchg.continue46.i630, %cmpxchg.continue43.i635, %cmpxchg.continue40.i639
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit683
 
 cmpxchg.store_expected39.i638:                    ; preds = %monotonic_fail35.i637
-  store i64 %373, ptr %322, align 8
+  store i64 %377, ptr %326, align 8
   br label %cmpxchg.continue40.i639
 
 cmpxchg.continue40.i639:                          ; preds = %cmpxchg.store_expected39.i638, %monotonic_fail35.i637
-  %frombool41.i640 = zext i1 %374 to i8
+  %frombool41.i640 = zext i1 %378 to i8
   store i8 %frombool41.i640, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue38.i632
 
 cmpxchg.store_expected42.i634:                    ; preds = %acquire_fail36.i633
-  store i64 %378, ptr %322, align 8
+  store i64 %382, ptr %326, align 8
   br label %cmpxchg.continue43.i635
 
 cmpxchg.continue43.i635:                          ; preds = %cmpxchg.store_expected42.i634, %acquire_fail36.i633
-  %frombool44.i636 = zext i1 %379 to i8
+  %frombool44.i636 = zext i1 %383 to i8
   store i8 %frombool44.i636, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue38.i632
 
 cmpxchg.store_expected45.i629:                    ; preds = %seqcst_fail37.i628
-  store i64 %383, ptr %322, align 8
+  store i64 %387, ptr %326, align 8
   br label %cmpxchg.continue46.i630
 
 cmpxchg.continue46.i630:                          ; preds = %cmpxchg.store_expected45.i629, %seqcst_fail37.i628
-  %frombool47.i631 = zext i1 %384 to i8
+  %frombool47.i631 = zext i1 %388 to i8
   store i8 %frombool47.i631, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue38.i632
 
 monotonic_fail48.i623:                            ; preds = %seqcst.i612
-  %385 = load i64, ptr %322, align 8
-  %386 = load i64, ptr %.atomictmp.i609, align 8
-  %387 = cmpxchg weak ptr %this1.i611, i64 %385, i64 %386 seq_cst monotonic, align 8
-  %388 = extractvalue { i64, i1 } %387, 0
-  %389 = extractvalue { i64, i1 } %387, 1
-  br i1 %389, label %cmpxchg.continue53.i625, label %cmpxchg.store_expected52.i624
+  %389 = load i64, ptr %326, align 8
+  %390 = load i64, ptr %.atomictmp.i609, align 8
+  %391 = cmpxchg weak ptr %this1.i611, i64 %389, i64 %390 seq_cst monotonic, align 8
+  %392 = extractvalue { i64, i1 } %391, 0
+  %393 = extractvalue { i64, i1 } %391, 1
+  br i1 %393, label %cmpxchg.continue53.i625, label %cmpxchg.store_expected52.i624
 
 acquire_fail49.i619:                              ; preds = %seqcst.i612, %seqcst.i612
-  %390 = load i64, ptr %322, align 8
-  %391 = load i64, ptr %.atomictmp.i609, align 8
-  %392 = cmpxchg weak ptr %this1.i611, i64 %390, i64 %391 seq_cst acquire, align 8
-  %393 = extractvalue { i64, i1 } %392, 0
-  %394 = extractvalue { i64, i1 } %392, 1
-  br i1 %394, label %cmpxchg.continue56.i621, label %cmpxchg.store_expected55.i620
+  %394 = load i64, ptr %326, align 8
+  %395 = load i64, ptr %.atomictmp.i609, align 8
+  %396 = cmpxchg weak ptr %this1.i611, i64 %394, i64 %395 seq_cst acquire, align 8
+  %397 = extractvalue { i64, i1 } %396, 0
+  %398 = extractvalue { i64, i1 } %396, 1
+  br i1 %398, label %cmpxchg.continue56.i621, label %cmpxchg.store_expected55.i620
 
 seqcst_fail50.i613:                               ; preds = %seqcst.i612
-  %395 = load i64, ptr %322, align 8
-  %396 = load i64, ptr %.atomictmp.i609, align 8
-  %397 = cmpxchg weak ptr %this1.i611, i64 %395, i64 %396 seq_cst seq_cst, align 8
-  %398 = extractvalue { i64, i1 } %397, 0
-  %399 = extractvalue { i64, i1 } %397, 1
-  br i1 %399, label %cmpxchg.continue59.i615, label %cmpxchg.store_expected58.i614
+  %399 = load i64, ptr %326, align 8
+  %400 = load i64, ptr %.atomictmp.i609, align 8
+  %401 = cmpxchg weak ptr %this1.i611, i64 %399, i64 %400 seq_cst seq_cst, align 8
+  %402 = extractvalue { i64, i1 } %401, 0
+  %403 = extractvalue { i64, i1 } %401, 1
+  br i1 %403, label %cmpxchg.continue59.i615, label %cmpxchg.store_expected58.i614
 
 atomic.continue51.i617:                           ; preds = %cmpxchg.continue59.i615, %cmpxchg.continue56.i621, %cmpxchg.continue53.i625
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit683
 
 cmpxchg.store_expected52.i624:                    ; preds = %monotonic_fail48.i623
-  store i64 %388, ptr %322, align 8
+  store i64 %392, ptr %326, align 8
   br label %cmpxchg.continue53.i625
 
 cmpxchg.continue53.i625:                          ; preds = %cmpxchg.store_expected52.i624, %monotonic_fail48.i623
-  %frombool54.i626 = zext i1 %389 to i8
+  %frombool54.i626 = zext i1 %393 to i8
   store i8 %frombool54.i626, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue51.i617
 
 cmpxchg.store_expected55.i620:                    ; preds = %acquire_fail49.i619
-  store i64 %393, ptr %322, align 8
+  store i64 %397, ptr %326, align 8
   br label %cmpxchg.continue56.i621
 
 cmpxchg.continue56.i621:                          ; preds = %cmpxchg.store_expected55.i620, %acquire_fail49.i619
-  %frombool57.i622 = zext i1 %394 to i8
+  %frombool57.i622 = zext i1 %398 to i8
   store i8 %frombool57.i622, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue51.i617
 
 cmpxchg.store_expected58.i614:                    ; preds = %seqcst_fail50.i613
-  store i64 %398, ptr %322, align 8
+  store i64 %402, ptr %326, align 8
   br label %cmpxchg.continue59.i615
 
 cmpxchg.continue59.i615:                          ; preds = %cmpxchg.store_expected58.i614, %seqcst_fail50.i613
-  %frombool60.i616 = zext i1 %399 to i8
+  %frombool60.i616 = zext i1 %403 to i8
   store i8 %frombool60.i616, ptr %cmpxchg.bool.i610, align 1
   br label %atomic.continue51.i617
 
 _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit683: ; preds = %atomic.continue51.i617, %atomic.continue38.i632, %atomic.continue25.i646, %atomic.continue12.i660, %atomic.continue2.i674
-  %400 = load i8, ptr %cmpxchg.bool.i610, align 1
-  %tobool.i618 = trunc i8 %400 to i1
+  %404 = load i8, ptr %cmpxchg.bool.i610, align 1
+  %tobool.i618 = trunc i8 %404 to i1
   %lnot115 = xor i1 %tobool.i618, true
   br i1 %lnot115, label %do.body107, label %do.end116, !llvm.loop !19
 
 do.end116:                                        ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit683
-  %401 = load ptr, ptr %waitp.addr, align 8
-  %cond117 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %401, i32 0, i32 1
-  %402 = load ptr, ptr %cond117, align 8
-  %cmp118 = icmp eq ptr %402, null
+  %405 = load ptr, ptr %waitp.addr, align 8
+  %cond117 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %405, i32 0, i32 1
+  %406 = load ptr, ptr %cond117, align 8
+  %cmp118 = icmp eq ptr %406, null
   br i1 %cmp118, label %if.then125, label %lor.lhs.false119
 
 lor.lhs.false119:                                 ; preds = %do.end116
-  %403 = load ptr, ptr %waitp.addr, align 8
-  %cond120 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %403, i32 0, i32 1
-  %404 = load ptr, ptr %cond120, align 8
-  %405 = load ptr, ptr %waitp.addr, align 8
-  %how121 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %405, i32 0, i32 0
-  %406 = load ptr, ptr %how121, align 8
-  %cmp122 = icmp eq ptr %406, @_ZN4abslL8kSharedSE
-  %call124 = invoke noundef zeroext i1 @_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb(ptr noundef %404, ptr noundef %this1, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %cmp122)
+  %407 = load ptr, ptr %waitp.addr, align 8
+  %cond120 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %407, i32 0, i32 1
+  %408 = load ptr, ptr %cond120, align 8
+  %409 = load ptr, ptr %waitp.addr, align 8
+  %how121 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %409, i32 0, i32 0
+  %410 = load ptr, ptr %how121, align 8
+  %cmp122 = icmp eq ptr %410, @_ZN4abslL8kSharedSE
+  %call124 = invoke noundef zeroext i1 @_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb(ptr noundef %408, ptr noundef %this1, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %cmp122)
           to label %invoke.cont123 unwind label %lpad
 
 invoke.cont123:                                   ; preds = %lor.lhs.false119
@@ -9651,20 +9690,20 @@ if.then125:                                       ; preds = %invoke.cont123, %do
   br label %for.end
 
 if.end126:                                        ; preds = %invoke.cont123
-  %407 = load ptr, ptr %waitp.addr, align 8
-  invoke void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %407) #16
+  %411 = load ptr, ptr %waitp.addr, align 8
+  invoke void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %411) #16
           to label %invoke.cont127 unwind label %lpad
 
 invoke.cont127:                                   ; preds = %if.end126
-  %408 = load ptr, ptr %waitp.addr, align 8
-  %thread128 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %408, i32 0, i32 4
-  %409 = load ptr, ptr %thread128, align 8
-  invoke void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %409)
+  %412 = load ptr, ptr %waitp.addr, align 8
+  %thread128 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %412, i32 0, i32 4
+  %413 = load ptr, ptr %thread128, align 8
+  invoke void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %413)
           to label %invoke.cont129 unwind label %lpad
 
 invoke.cont129:                                   ; preds = %invoke.cont127
-  %410 = load i32, ptr %flags.addr, align 4
-  %or130 = or i32 %410, 1
+  %414 = load i32, ptr %flags.addr, align 4
+  %or130 = or i32 %414, 1
   store i32 %or130, ptr %flags.addr, align 4
   store i32 0, ptr %c, align 4
   br label %if.end131
@@ -9673,21 +9712,21 @@ if.end131:                                        ; preds = %invoke.cont129, %_Z
   br label %if.end186
 
 if.else132:                                       ; preds = %invoke.cont90
-  %411 = load i64, ptr %v, align 8
-  %and133 = and i64 %411, 64
+  %415 = load i64, ptr %v, align 8
+  %and133 = and i64 %415, 64
   %cmp134 = icmp eq i64 %and133, 0
   br i1 %cmp134, label %land.lhs.true135, label %if.end185
 
 land.lhs.true135:                                 ; preds = %if.else132
   %mu_136 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %412 = load i64, ptr %v, align 8
-  %413 = load i32, ptr %flags.addr, align 4
-  %and137 = and i32 %413, 1
+  %416 = load i64, ptr %v, align 8
+  %417 = load i32, ptr %flags.addr, align 4
+  %and137 = and i32 %417, 1
   %call139 = invoke noundef i64 @_ZN4abslL24ClearDesignatedWakerMaskEi(i32 noundef %and137)
           to label %invoke.cont138 unwind label %lpad
 
 invoke.cont138:                                   ; preds = %land.lhs.true135
-  %and140 = and i64 %412, %call139
+  %and140 = and i64 %416, %call139
   %or141 = or i64 %and140, 64
   %or142 = or i64 %or141, 4
   store ptr %mu_136, ptr %this.addr.i280, align 8
@@ -9696,12 +9735,12 @@ invoke.cont138:                                   ; preds = %land.lhs.true135
   store i32 2, ptr %__m1.addr.i, align 4
   store i32 0, ptr %__m2.addr.i, align 4
   %this1.i281 = load ptr, ptr %this.addr.i280, align 8
-  %414 = load i32, ptr %__m1.addr.i, align 4
-  %415 = load ptr, ptr %__i1.addr.i, align 8
-  %416 = load i64, ptr %__i2.addr.i, align 8
-  store i64 %416, ptr %.atomictmp.i, align 8
-  %417 = load i32, ptr %__m2.addr.i, align 4
-  switch i32 %414, label %monotonic.i284 [
+  %418 = load i32, ptr %__m1.addr.i, align 4
+  %419 = load ptr, ptr %__i1.addr.i, align 8
+  %420 = load i64, ptr %__i2.addr.i, align 8
+  store i64 %420, ptr %.atomictmp.i, align 8
+  %421 = load i32, ptr %__m2.addr.i, align 4
+  switch i32 %418, label %monotonic.i284 [
     i32 1, label %acquire.i283
     i32 2, label %acquire.i283
     i32 3, label %release.i
@@ -9710,327 +9749,327 @@ invoke.cont138:                                   ; preds = %land.lhs.true135
   ]
 
 monotonic.i284:                                   ; preds = %invoke.cont138
-  switch i32 %417, label %monotonic_fail.i [
+  switch i32 %421, label %monotonic_fail.i [
     i32 1, label %acquire_fail.i
     i32 2, label %acquire_fail.i
     i32 5, label %seqcst_fail.i
   ]
 
 acquire.i283:                                     ; preds = %invoke.cont138, %invoke.cont138
-  switch i32 %417, label %monotonic_fail9.i [
+  switch i32 %421, label %monotonic_fail9.i [
     i32 1, label %acquire_fail10.i
     i32 2, label %acquire_fail10.i
     i32 5, label %seqcst_fail11.i
   ]
 
 release.i:                                        ; preds = %invoke.cont138
-  switch i32 %417, label %monotonic_fail22.i [
+  switch i32 %421, label %monotonic_fail22.i [
     i32 1, label %acquire_fail23.i
     i32 2, label %acquire_fail23.i
     i32 5, label %seqcst_fail24.i
   ]
 
 acqrel.i:                                         ; preds = %invoke.cont138
-  switch i32 %417, label %monotonic_fail35.i [
+  switch i32 %421, label %monotonic_fail35.i [
     i32 1, label %acquire_fail36.i
     i32 2, label %acquire_fail36.i
     i32 5, label %seqcst_fail37.i
   ]
 
 seqcst.i282:                                      ; preds = %invoke.cont138
-  switch i32 %417, label %monotonic_fail48.i [
+  switch i32 %421, label %monotonic_fail48.i [
     i32 1, label %acquire_fail49.i
     i32 2, label %acquire_fail49.i
     i32 5, label %seqcst_fail50.i
   ]
 
 monotonic_fail.i:                                 ; preds = %monotonic.i284
-  %418 = load i64, ptr %415, align 8
-  %419 = load i64, ptr %.atomictmp.i, align 8
-  %420 = cmpxchg ptr %this1.i281, i64 %418, i64 %419 monotonic monotonic, align 8
-  %421 = extractvalue { i64, i1 } %420, 0
-  %422 = extractvalue { i64, i1 } %420, 1
-  br i1 %422, label %cmpxchg.continue.i, label %cmpxchg.store_expected.i
+  %422 = load i64, ptr %419, align 8
+  %423 = load i64, ptr %.atomictmp.i, align 8
+  %424 = cmpxchg ptr %this1.i281, i64 %422, i64 %423 monotonic monotonic, align 8
+  %425 = extractvalue { i64, i1 } %424, 0
+  %426 = extractvalue { i64, i1 } %424, 1
+  br i1 %426, label %cmpxchg.continue.i, label %cmpxchg.store_expected.i
 
 acquire_fail.i:                                   ; preds = %monotonic.i284, %monotonic.i284
-  %423 = load i64, ptr %415, align 8
-  %424 = load i64, ptr %.atomictmp.i, align 8
-  %425 = cmpxchg ptr %this1.i281, i64 %423, i64 %424 monotonic acquire, align 8
-  %426 = extractvalue { i64, i1 } %425, 0
-  %427 = extractvalue { i64, i1 } %425, 1
-  br i1 %427, label %cmpxchg.continue4.i, label %cmpxchg.store_expected3.i
+  %427 = load i64, ptr %419, align 8
+  %428 = load i64, ptr %.atomictmp.i, align 8
+  %429 = cmpxchg ptr %this1.i281, i64 %427, i64 %428 monotonic acquire, align 8
+  %430 = extractvalue { i64, i1 } %429, 0
+  %431 = extractvalue { i64, i1 } %429, 1
+  br i1 %431, label %cmpxchg.continue4.i, label %cmpxchg.store_expected3.i
 
 seqcst_fail.i:                                    ; preds = %monotonic.i284
-  %428 = load i64, ptr %415, align 8
-  %429 = load i64, ptr %.atomictmp.i, align 8
-  %430 = cmpxchg ptr %this1.i281, i64 %428, i64 %429 monotonic seq_cst, align 8
-  %431 = extractvalue { i64, i1 } %430, 0
-  %432 = extractvalue { i64, i1 } %430, 1
-  br i1 %432, label %cmpxchg.continue7.i, label %cmpxchg.store_expected6.i
+  %432 = load i64, ptr %419, align 8
+  %433 = load i64, ptr %.atomictmp.i, align 8
+  %434 = cmpxchg ptr %this1.i281, i64 %432, i64 %433 monotonic seq_cst, align 8
+  %435 = extractvalue { i64, i1 } %434, 0
+  %436 = extractvalue { i64, i1 } %434, 1
+  br i1 %436, label %cmpxchg.continue7.i, label %cmpxchg.store_expected6.i
 
 atomic.continue2.i:                               ; preds = %cmpxchg.continue7.i, %cmpxchg.continue4.i, %cmpxchg.continue.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected.i:                         ; preds = %monotonic_fail.i
-  store i64 %421, ptr %415, align 8
+  store i64 %425, ptr %419, align 8
   br label %cmpxchg.continue.i
 
 cmpxchg.continue.i:                               ; preds = %cmpxchg.store_expected.i, %monotonic_fail.i
-  %frombool.i = zext i1 %422 to i8
+  %frombool.i = zext i1 %426 to i8
   store i8 %frombool.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue2.i
 
 cmpxchg.store_expected3.i:                        ; preds = %acquire_fail.i
-  store i64 %426, ptr %415, align 8
+  store i64 %430, ptr %419, align 8
   br label %cmpxchg.continue4.i
 
 cmpxchg.continue4.i:                              ; preds = %cmpxchg.store_expected3.i, %acquire_fail.i
-  %frombool5.i = zext i1 %427 to i8
+  %frombool5.i = zext i1 %431 to i8
   store i8 %frombool5.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue2.i
 
 cmpxchg.store_expected6.i:                        ; preds = %seqcst_fail.i
-  store i64 %431, ptr %415, align 8
+  store i64 %435, ptr %419, align 8
   br label %cmpxchg.continue7.i
 
 cmpxchg.continue7.i:                              ; preds = %cmpxchg.store_expected6.i, %seqcst_fail.i
-  %frombool8.i = zext i1 %432 to i8
+  %frombool8.i = zext i1 %436 to i8
   store i8 %frombool8.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue2.i
 
 monotonic_fail9.i:                                ; preds = %acquire.i283
-  %433 = load i64, ptr %415, align 8
-  %434 = load i64, ptr %.atomictmp.i, align 8
-  %435 = cmpxchg ptr %this1.i281, i64 %433, i64 %434 acquire monotonic, align 8
-  %436 = extractvalue { i64, i1 } %435, 0
-  %437 = extractvalue { i64, i1 } %435, 1
-  br i1 %437, label %cmpxchg.continue14.i, label %cmpxchg.store_expected13.i
+  %437 = load i64, ptr %419, align 8
+  %438 = load i64, ptr %.atomictmp.i, align 8
+  %439 = cmpxchg ptr %this1.i281, i64 %437, i64 %438 acquire monotonic, align 8
+  %440 = extractvalue { i64, i1 } %439, 0
+  %441 = extractvalue { i64, i1 } %439, 1
+  br i1 %441, label %cmpxchg.continue14.i, label %cmpxchg.store_expected13.i
 
 acquire_fail10.i:                                 ; preds = %acquire.i283, %acquire.i283
-  %438 = load i64, ptr %415, align 8
-  %439 = load i64, ptr %.atomictmp.i, align 8
-  %440 = cmpxchg ptr %this1.i281, i64 %438, i64 %439 acquire acquire, align 8
-  %441 = extractvalue { i64, i1 } %440, 0
-  %442 = extractvalue { i64, i1 } %440, 1
-  br i1 %442, label %cmpxchg.continue17.i, label %cmpxchg.store_expected16.i
+  %442 = load i64, ptr %419, align 8
+  %443 = load i64, ptr %.atomictmp.i, align 8
+  %444 = cmpxchg ptr %this1.i281, i64 %442, i64 %443 acquire acquire, align 8
+  %445 = extractvalue { i64, i1 } %444, 0
+  %446 = extractvalue { i64, i1 } %444, 1
+  br i1 %446, label %cmpxchg.continue17.i, label %cmpxchg.store_expected16.i
 
 seqcst_fail11.i:                                  ; preds = %acquire.i283
-  %443 = load i64, ptr %415, align 8
-  %444 = load i64, ptr %.atomictmp.i, align 8
-  %445 = cmpxchg ptr %this1.i281, i64 %443, i64 %444 acquire seq_cst, align 8
-  %446 = extractvalue { i64, i1 } %445, 0
-  %447 = extractvalue { i64, i1 } %445, 1
-  br i1 %447, label %cmpxchg.continue20.i, label %cmpxchg.store_expected19.i
+  %447 = load i64, ptr %419, align 8
+  %448 = load i64, ptr %.atomictmp.i, align 8
+  %449 = cmpxchg ptr %this1.i281, i64 %447, i64 %448 acquire seq_cst, align 8
+  %450 = extractvalue { i64, i1 } %449, 0
+  %451 = extractvalue { i64, i1 } %449, 1
+  br i1 %451, label %cmpxchg.continue20.i, label %cmpxchg.store_expected19.i
 
 atomic.continue12.i:                              ; preds = %cmpxchg.continue20.i, %cmpxchg.continue17.i, %cmpxchg.continue14.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected13.i:                       ; preds = %monotonic_fail9.i
-  store i64 %436, ptr %415, align 8
+  store i64 %440, ptr %419, align 8
   br label %cmpxchg.continue14.i
 
 cmpxchg.continue14.i:                             ; preds = %cmpxchg.store_expected13.i, %monotonic_fail9.i
-  %frombool15.i = zext i1 %437 to i8
+  %frombool15.i = zext i1 %441 to i8
   store i8 %frombool15.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue12.i
 
 cmpxchg.store_expected16.i:                       ; preds = %acquire_fail10.i
-  store i64 %441, ptr %415, align 8
+  store i64 %445, ptr %419, align 8
   br label %cmpxchg.continue17.i
 
 cmpxchg.continue17.i:                             ; preds = %cmpxchg.store_expected16.i, %acquire_fail10.i
-  %frombool18.i = zext i1 %442 to i8
+  %frombool18.i = zext i1 %446 to i8
   store i8 %frombool18.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue12.i
 
 cmpxchg.store_expected19.i:                       ; preds = %seqcst_fail11.i
-  store i64 %446, ptr %415, align 8
+  store i64 %450, ptr %419, align 8
   br label %cmpxchg.continue20.i
 
 cmpxchg.continue20.i:                             ; preds = %cmpxchg.store_expected19.i, %seqcst_fail11.i
-  %frombool21.i = zext i1 %447 to i8
+  %frombool21.i = zext i1 %451 to i8
   store i8 %frombool21.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue12.i
 
 monotonic_fail22.i:                               ; preds = %release.i
-  %448 = load i64, ptr %415, align 8
-  %449 = load i64, ptr %.atomictmp.i, align 8
-  %450 = cmpxchg ptr %this1.i281, i64 %448, i64 %449 release monotonic, align 8
-  %451 = extractvalue { i64, i1 } %450, 0
-  %452 = extractvalue { i64, i1 } %450, 1
-  br i1 %452, label %cmpxchg.continue27.i, label %cmpxchg.store_expected26.i
+  %452 = load i64, ptr %419, align 8
+  %453 = load i64, ptr %.atomictmp.i, align 8
+  %454 = cmpxchg ptr %this1.i281, i64 %452, i64 %453 release monotonic, align 8
+  %455 = extractvalue { i64, i1 } %454, 0
+  %456 = extractvalue { i64, i1 } %454, 1
+  br i1 %456, label %cmpxchg.continue27.i, label %cmpxchg.store_expected26.i
 
 acquire_fail23.i:                                 ; preds = %release.i, %release.i
-  %453 = load i64, ptr %415, align 8
-  %454 = load i64, ptr %.atomictmp.i, align 8
-  %455 = cmpxchg ptr %this1.i281, i64 %453, i64 %454 release acquire, align 8
-  %456 = extractvalue { i64, i1 } %455, 0
-  %457 = extractvalue { i64, i1 } %455, 1
-  br i1 %457, label %cmpxchg.continue30.i, label %cmpxchg.store_expected29.i
+  %457 = load i64, ptr %419, align 8
+  %458 = load i64, ptr %.atomictmp.i, align 8
+  %459 = cmpxchg ptr %this1.i281, i64 %457, i64 %458 release acquire, align 8
+  %460 = extractvalue { i64, i1 } %459, 0
+  %461 = extractvalue { i64, i1 } %459, 1
+  br i1 %461, label %cmpxchg.continue30.i, label %cmpxchg.store_expected29.i
 
 seqcst_fail24.i:                                  ; preds = %release.i
-  %458 = load i64, ptr %415, align 8
-  %459 = load i64, ptr %.atomictmp.i, align 8
-  %460 = cmpxchg ptr %this1.i281, i64 %458, i64 %459 release seq_cst, align 8
-  %461 = extractvalue { i64, i1 } %460, 0
-  %462 = extractvalue { i64, i1 } %460, 1
-  br i1 %462, label %cmpxchg.continue33.i, label %cmpxchg.store_expected32.i
+  %462 = load i64, ptr %419, align 8
+  %463 = load i64, ptr %.atomictmp.i, align 8
+  %464 = cmpxchg ptr %this1.i281, i64 %462, i64 %463 release seq_cst, align 8
+  %465 = extractvalue { i64, i1 } %464, 0
+  %466 = extractvalue { i64, i1 } %464, 1
+  br i1 %466, label %cmpxchg.continue33.i, label %cmpxchg.store_expected32.i
 
 atomic.continue25.i:                              ; preds = %cmpxchg.continue33.i, %cmpxchg.continue30.i, %cmpxchg.continue27.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected26.i:                       ; preds = %monotonic_fail22.i
-  store i64 %451, ptr %415, align 8
+  store i64 %455, ptr %419, align 8
   br label %cmpxchg.continue27.i
 
 cmpxchg.continue27.i:                             ; preds = %cmpxchg.store_expected26.i, %monotonic_fail22.i
-  %frombool28.i = zext i1 %452 to i8
+  %frombool28.i = zext i1 %456 to i8
   store i8 %frombool28.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue25.i
 
 cmpxchg.store_expected29.i:                       ; preds = %acquire_fail23.i
-  store i64 %456, ptr %415, align 8
+  store i64 %460, ptr %419, align 8
   br label %cmpxchg.continue30.i
 
 cmpxchg.continue30.i:                             ; preds = %cmpxchg.store_expected29.i, %acquire_fail23.i
-  %frombool31.i = zext i1 %457 to i8
+  %frombool31.i = zext i1 %461 to i8
   store i8 %frombool31.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue25.i
 
 cmpxchg.store_expected32.i:                       ; preds = %seqcst_fail24.i
-  store i64 %461, ptr %415, align 8
+  store i64 %465, ptr %419, align 8
   br label %cmpxchg.continue33.i
 
 cmpxchg.continue33.i:                             ; preds = %cmpxchg.store_expected32.i, %seqcst_fail24.i
-  %frombool34.i = zext i1 %462 to i8
+  %frombool34.i = zext i1 %466 to i8
   store i8 %frombool34.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue25.i
 
 monotonic_fail35.i:                               ; preds = %acqrel.i
-  %463 = load i64, ptr %415, align 8
-  %464 = load i64, ptr %.atomictmp.i, align 8
-  %465 = cmpxchg ptr %this1.i281, i64 %463, i64 %464 acq_rel monotonic, align 8
-  %466 = extractvalue { i64, i1 } %465, 0
-  %467 = extractvalue { i64, i1 } %465, 1
-  br i1 %467, label %cmpxchg.continue40.i, label %cmpxchg.store_expected39.i
+  %467 = load i64, ptr %419, align 8
+  %468 = load i64, ptr %.atomictmp.i, align 8
+  %469 = cmpxchg ptr %this1.i281, i64 %467, i64 %468 acq_rel monotonic, align 8
+  %470 = extractvalue { i64, i1 } %469, 0
+  %471 = extractvalue { i64, i1 } %469, 1
+  br i1 %471, label %cmpxchg.continue40.i, label %cmpxchg.store_expected39.i
 
 acquire_fail36.i:                                 ; preds = %acqrel.i, %acqrel.i
-  %468 = load i64, ptr %415, align 8
-  %469 = load i64, ptr %.atomictmp.i, align 8
-  %470 = cmpxchg ptr %this1.i281, i64 %468, i64 %469 acq_rel acquire, align 8
-  %471 = extractvalue { i64, i1 } %470, 0
-  %472 = extractvalue { i64, i1 } %470, 1
-  br i1 %472, label %cmpxchg.continue43.i, label %cmpxchg.store_expected42.i
+  %472 = load i64, ptr %419, align 8
+  %473 = load i64, ptr %.atomictmp.i, align 8
+  %474 = cmpxchg ptr %this1.i281, i64 %472, i64 %473 acq_rel acquire, align 8
+  %475 = extractvalue { i64, i1 } %474, 0
+  %476 = extractvalue { i64, i1 } %474, 1
+  br i1 %476, label %cmpxchg.continue43.i, label %cmpxchg.store_expected42.i
 
 seqcst_fail37.i:                                  ; preds = %acqrel.i
-  %473 = load i64, ptr %415, align 8
-  %474 = load i64, ptr %.atomictmp.i, align 8
-  %475 = cmpxchg ptr %this1.i281, i64 %473, i64 %474 acq_rel seq_cst, align 8
-  %476 = extractvalue { i64, i1 } %475, 0
-  %477 = extractvalue { i64, i1 } %475, 1
-  br i1 %477, label %cmpxchg.continue46.i, label %cmpxchg.store_expected45.i
+  %477 = load i64, ptr %419, align 8
+  %478 = load i64, ptr %.atomictmp.i, align 8
+  %479 = cmpxchg ptr %this1.i281, i64 %477, i64 %478 acq_rel seq_cst, align 8
+  %480 = extractvalue { i64, i1 } %479, 0
+  %481 = extractvalue { i64, i1 } %479, 1
+  br i1 %481, label %cmpxchg.continue46.i, label %cmpxchg.store_expected45.i
 
 atomic.continue38.i:                              ; preds = %cmpxchg.continue46.i, %cmpxchg.continue43.i, %cmpxchg.continue40.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected39.i:                       ; preds = %monotonic_fail35.i
-  store i64 %466, ptr %415, align 8
+  store i64 %470, ptr %419, align 8
   br label %cmpxchg.continue40.i
 
 cmpxchg.continue40.i:                             ; preds = %cmpxchg.store_expected39.i, %monotonic_fail35.i
-  %frombool41.i = zext i1 %467 to i8
+  %frombool41.i = zext i1 %471 to i8
   store i8 %frombool41.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue38.i
 
 cmpxchg.store_expected42.i:                       ; preds = %acquire_fail36.i
-  store i64 %471, ptr %415, align 8
+  store i64 %475, ptr %419, align 8
   br label %cmpxchg.continue43.i
 
 cmpxchg.continue43.i:                             ; preds = %cmpxchg.store_expected42.i, %acquire_fail36.i
-  %frombool44.i = zext i1 %472 to i8
+  %frombool44.i = zext i1 %476 to i8
   store i8 %frombool44.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue38.i
 
 cmpxchg.store_expected45.i:                       ; preds = %seqcst_fail37.i
-  store i64 %476, ptr %415, align 8
+  store i64 %480, ptr %419, align 8
   br label %cmpxchg.continue46.i
 
 cmpxchg.continue46.i:                             ; preds = %cmpxchg.store_expected45.i, %seqcst_fail37.i
-  %frombool47.i = zext i1 %477 to i8
+  %frombool47.i = zext i1 %481 to i8
   store i8 %frombool47.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue38.i
 
 monotonic_fail48.i:                               ; preds = %seqcst.i282
-  %478 = load i64, ptr %415, align 8
-  %479 = load i64, ptr %.atomictmp.i, align 8
-  %480 = cmpxchg ptr %this1.i281, i64 %478, i64 %479 seq_cst monotonic, align 8
-  %481 = extractvalue { i64, i1 } %480, 0
-  %482 = extractvalue { i64, i1 } %480, 1
-  br i1 %482, label %cmpxchg.continue53.i, label %cmpxchg.store_expected52.i
+  %482 = load i64, ptr %419, align 8
+  %483 = load i64, ptr %.atomictmp.i, align 8
+  %484 = cmpxchg ptr %this1.i281, i64 %482, i64 %483 seq_cst monotonic, align 8
+  %485 = extractvalue { i64, i1 } %484, 0
+  %486 = extractvalue { i64, i1 } %484, 1
+  br i1 %486, label %cmpxchg.continue53.i, label %cmpxchg.store_expected52.i
 
 acquire_fail49.i:                                 ; preds = %seqcst.i282, %seqcst.i282
-  %483 = load i64, ptr %415, align 8
-  %484 = load i64, ptr %.atomictmp.i, align 8
-  %485 = cmpxchg ptr %this1.i281, i64 %483, i64 %484 seq_cst acquire, align 8
-  %486 = extractvalue { i64, i1 } %485, 0
-  %487 = extractvalue { i64, i1 } %485, 1
-  br i1 %487, label %cmpxchg.continue56.i, label %cmpxchg.store_expected55.i
+  %487 = load i64, ptr %419, align 8
+  %488 = load i64, ptr %.atomictmp.i, align 8
+  %489 = cmpxchg ptr %this1.i281, i64 %487, i64 %488 seq_cst acquire, align 8
+  %490 = extractvalue { i64, i1 } %489, 0
+  %491 = extractvalue { i64, i1 } %489, 1
+  br i1 %491, label %cmpxchg.continue56.i, label %cmpxchg.store_expected55.i
 
 seqcst_fail50.i:                                  ; preds = %seqcst.i282
-  %488 = load i64, ptr %415, align 8
-  %489 = load i64, ptr %.atomictmp.i, align 8
-  %490 = cmpxchg ptr %this1.i281, i64 %488, i64 %489 seq_cst seq_cst, align 8
-  %491 = extractvalue { i64, i1 } %490, 0
-  %492 = extractvalue { i64, i1 } %490, 1
-  br i1 %492, label %cmpxchg.continue59.i, label %cmpxchg.store_expected58.i
+  %492 = load i64, ptr %419, align 8
+  %493 = load i64, ptr %.atomictmp.i, align 8
+  %494 = cmpxchg ptr %this1.i281, i64 %492, i64 %493 seq_cst seq_cst, align 8
+  %495 = extractvalue { i64, i1 } %494, 0
+  %496 = extractvalue { i64, i1 } %494, 1
+  br i1 %496, label %cmpxchg.continue59.i, label %cmpxchg.store_expected58.i
 
 atomic.continue51.i:                              ; preds = %cmpxchg.continue59.i, %cmpxchg.continue56.i, %cmpxchg.continue53.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected52.i:                       ; preds = %monotonic_fail48.i
-  store i64 %481, ptr %415, align 8
+  store i64 %485, ptr %419, align 8
   br label %cmpxchg.continue53.i
 
 cmpxchg.continue53.i:                             ; preds = %cmpxchg.store_expected52.i, %monotonic_fail48.i
-  %frombool54.i = zext i1 %482 to i8
+  %frombool54.i = zext i1 %486 to i8
   store i8 %frombool54.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue51.i
 
 cmpxchg.store_expected55.i:                       ; preds = %acquire_fail49.i
-  store i64 %486, ptr %415, align 8
+  store i64 %490, ptr %419, align 8
   br label %cmpxchg.continue56.i
 
 cmpxchg.continue56.i:                             ; preds = %cmpxchg.store_expected55.i, %acquire_fail49.i
-  %frombool57.i = zext i1 %487 to i8
+  %frombool57.i = zext i1 %491 to i8
   store i8 %frombool57.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue51.i
 
 cmpxchg.store_expected58.i:                       ; preds = %seqcst_fail50.i
-  store i64 %491, ptr %415, align 8
+  store i64 %495, ptr %419, align 8
   br label %cmpxchg.continue59.i
 
 cmpxchg.continue59.i:                             ; preds = %cmpxchg.store_expected58.i, %seqcst_fail50.i
-  %frombool60.i = zext i1 %492 to i8
+  %frombool60.i = zext i1 %496 to i8
   store i8 %frombool60.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue51.i
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit: ; preds = %atomic.continue51.i, %atomic.continue38.i, %atomic.continue25.i, %atomic.continue12.i, %atomic.continue2.i
-  %493 = load i8, ptr %cmpxchg.bool.i, align 1
-  %tobool.i = trunc i8 %493 to i1
+  %497 = load i8, ptr %cmpxchg.bool.i, align 1
+  %tobool.i = trunc i8 %497 to i1
   br i1 %tobool.i, label %if.then144, label %if.end185
 
 if.then144:                                       ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
-  %494 = load i64, ptr %v, align 8
-  %call147 = invoke noundef ptr @_ZN4abslL17GetPerThreadSynchEl(i64 noundef %494)
+  %498 = load i64, ptr %v, align 8
+  %call147 = invoke noundef ptr @_ZN4abslL17GetPerThreadSynchEl(i64 noundef %498)
           to label %invoke.cont146 unwind label %lpad
 
 invoke.cont146:                                   ; preds = %if.then144
   store ptr %call147, ptr %h145, align 8
-  %495 = load ptr, ptr %h145, align 8
-  %496 = load ptr, ptr %waitp.addr, align 8
-  %497 = load i64, ptr %v, align 8
-  %498 = load i32, ptr %flags.addr, align 4
-  %call150 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %495, ptr noundef %496, i64 noundef %497, i32 noundef %498)
+  %499 = load ptr, ptr %h145, align 8
+  %500 = load ptr, ptr %waitp.addr, align 8
+  %501 = load i64, ptr %v, align 8
+  %502 = load i32, ptr %flags.addr, align 4
+  %call150 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %499, ptr noundef %500, i64 noundef %501, i32 noundef %502)
           to label %invoke.cont149 unwind label %lpad
 
 invoke.cont149:                                   ; preds = %invoke.cont146
@@ -10039,8 +10078,8 @@ invoke.cont149:                                   ; preds = %invoke.cont146
   br label %do.body151
 
 do.body151:                                       ; preds = %invoke.cont149
-  %499 = load ptr, ptr %new_h148, align 8
-  %cmp152 = icmp ne ptr %499, null
+  %503 = load ptr, ptr %new_h148, align 8
+  %cmp152 = icmp ne ptr %503, null
   %lnot153 = xor i1 %cmp152, true
   br i1 %lnot153, label %if.then154, label %if.end163
 
@@ -10048,8 +10087,10 @@ if.then154:                                       ; preds = %do.body151
   br label %do.body155
 
 do.body155:                                       ; preds = %if.then154
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename156, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2046, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.13)
+  %504 = getelementptr i8, ptr @.str, i64 120
+  store ptr %504, ptr %absl_raw_log_internal_basename156, align 8
+  %505 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %505, i32 noundef 2046, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.13)
           to label %invoke.cont157 unwind label %lpad
 
 invoke.cont157:                                   ; preds = %do.body155
@@ -10077,15 +10118,15 @@ do.cond164:                                       ; preds = %if.end163
   br label %do.end165
 
 do.end165:                                        ; preds = %do.cond164
-  %500 = load ptr, ptr %waitp.addr, align 8
-  %how166 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %500, i32 0, i32 0
-  %501 = load ptr, ptr %how166, align 8
-  %cmp167 = icmp eq ptr %501, @_ZN4abslL11kExclusiveSE
+  %506 = load ptr, ptr %waitp.addr, align 8
+  %how166 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %506, i32 0, i32 0
+  %507 = load ptr, ptr %how166, align 8
+  %cmp167 = icmp eq ptr %507, @_ZN4abslL11kExclusiveSE
   br i1 %cmp167, label %land.lhs.true168, label %if.end172
 
 land.lhs.true168:                                 ; preds = %do.end165
-  %502 = load i64, ptr %v, align 8
-  %and169 = and i64 %502, 1
+  %508 = load i64, ptr %v, align 8
+  %and169 = and i64 %508, 1
   %cmp170 = icmp ne i64 %and169, 0
   br i1 %cmp170, label %if.then171, label %if.end172
 
@@ -10101,58 +10142,58 @@ do.body173:                                       ; preds = %_ZNSt13__atomic_bas
   store ptr %mu_174, ptr %this.addr.i, align 8
   store i32 0, ptr %__m.addr.i, align 4
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %503 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %503, i32 noundef 65535)
+  %509 = load i32, ptr %__m.addr.i, align 4
+  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %509, i32 noundef 65535)
   store i32 %call.i, ptr %__b.i, align 4
-  %504 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %504, label %monotonic.i [
+  %510 = load i32, ptr %__m.addr.i, align 4
+  switch i32 %510, label %monotonic.i [
     i32 1, label %acquire.i
     i32 2, label %acquire.i
     i32 5, label %seqcst.i
   ]
 
 monotonic.i:                                      ; preds = %do.body173
-  %505 = load atomic i64, ptr %this1.i monotonic, align 8
-  store i64 %505, ptr %atomic-temp.i, align 8
+  %511 = load atomic i64, ptr %this1.i monotonic, align 8
+  store i64 %511, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
 
 acquire.i:                                        ; preds = %do.body173, %do.body173
-  %506 = load atomic i64, ptr %this1.i acquire, align 8
-  store i64 %506, ptr %atomic-temp.i, align 8
+  %512 = load atomic i64, ptr %this1.i acquire, align 8
+  store i64 %512, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
 
 seqcst.i:                                         ; preds = %do.body173
-  %507 = load atomic i64, ptr %this1.i seq_cst, align 8
-  store i64 %507, ptr %atomic-temp.i, align 8
+  %513 = load atomic i64, ptr %this1.i seq_cst, align 8
+  store i64 %513, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
 
 _ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %508 = load i64, ptr %atomic-temp.i, align 8
-  store i64 %508, ptr %v, align 8
+  %514 = load i64, ptr %atomic-temp.i, align 8
+  store i64 %514, ptr %v, align 8
   br label %do.cond176
 
 do.cond176:                                       ; preds = %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
   %mu_177 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %509 = load i64, ptr %v, align 8
-  %and178 = and i64 %509, 191
+  %515 = load i64, ptr %v, align 8
+  %and178 = and i64 %515, 191
   %or179 = or i64 %and178, 4
-  %510 = load i64, ptr %wr_wait, align 8
-  %or180 = or i64 %or179, %510
-  %511 = load ptr, ptr %new_h148, align 8
-  %512 = ptrtoint ptr %511 to i64
-  %or181 = or i64 %or180, %512
+  %516 = load i64, ptr %wr_wait, align 8
+  %or180 = or i64 %or179, %516
+  %517 = load ptr, ptr %new_h148, align 8
+  %518 = ptrtoint ptr %517 to i64
+  %or181 = or i64 %or180, %518
   store ptr %mu_177, ptr %this.addr.i525, align 8
   store ptr %v, ptr %__i1.addr.i526, align 8
   store i64 %or181, ptr %__i2.addr.i527, align 8
   store i32 3, ptr %__m1.addr.i528, align 4
   store i32 0, ptr %__m2.addr.i529, align 4
   %this1.i532 = load ptr, ptr %this.addr.i525, align 8
-  %513 = load i32, ptr %__m1.addr.i528, align 4
-  %514 = load ptr, ptr %__i1.addr.i526, align 8
-  %515 = load i64, ptr %__i2.addr.i527, align 8
-  store i64 %515, ptr %.atomictmp.i530, align 8
-  %516 = load i32, ptr %__m2.addr.i529, align 4
-  switch i32 %513, label %monotonic.i590 [
+  %519 = load i32, ptr %__m1.addr.i528, align 4
+  %520 = load ptr, ptr %__i1.addr.i526, align 8
+  %521 = load i64, ptr %__i2.addr.i527, align 8
+  store i64 %521, ptr %.atomictmp.i530, align 8
+  %522 = load i32, ptr %__m2.addr.i529, align 4
+  switch i32 %519, label %monotonic.i590 [
     i32 1, label %acquire.i576
     i32 2, label %acquire.i576
     i32 3, label %release.i562
@@ -10161,313 +10202,313 @@ do.cond176:                                       ; preds = %_ZNKSt13__atomic_ba
   ]
 
 monotonic.i590:                                   ; preds = %do.cond176
-  switch i32 %516, label %monotonic_fail.i600 [
+  switch i32 %522, label %monotonic_fail.i600 [
     i32 1, label %acquire_fail.i596
     i32 2, label %acquire_fail.i596
     i32 5, label %seqcst_fail.i591
   ]
 
 acquire.i576:                                     ; preds = %do.cond176, %do.cond176
-  switch i32 %516, label %monotonic_fail9.i586 [
+  switch i32 %522, label %monotonic_fail9.i586 [
     i32 1, label %acquire_fail10.i582
     i32 2, label %acquire_fail10.i582
     i32 5, label %seqcst_fail11.i577
   ]
 
 release.i562:                                     ; preds = %do.cond176
-  switch i32 %516, label %monotonic_fail22.i572 [
+  switch i32 %522, label %monotonic_fail22.i572 [
     i32 1, label %acquire_fail23.i568
     i32 2, label %acquire_fail23.i568
     i32 5, label %seqcst_fail24.i563
   ]
 
 acqrel.i548:                                      ; preds = %do.cond176
-  switch i32 %516, label %monotonic_fail35.i558 [
+  switch i32 %522, label %monotonic_fail35.i558 [
     i32 1, label %acquire_fail36.i554
     i32 2, label %acquire_fail36.i554
     i32 5, label %seqcst_fail37.i549
   ]
 
 seqcst.i533:                                      ; preds = %do.cond176
-  switch i32 %516, label %monotonic_fail48.i544 [
+  switch i32 %522, label %monotonic_fail48.i544 [
     i32 1, label %acquire_fail49.i540
     i32 2, label %acquire_fail49.i540
     i32 5, label %seqcst_fail50.i534
   ]
 
 monotonic_fail.i600:                              ; preds = %monotonic.i590
-  %517 = load i64, ptr %514, align 8
-  %518 = load i64, ptr %.atomictmp.i530, align 8
-  %519 = cmpxchg weak ptr %this1.i532, i64 %517, i64 %518 monotonic monotonic, align 8
-  %520 = extractvalue { i64, i1 } %519, 0
-  %521 = extractvalue { i64, i1 } %519, 1
-  br i1 %521, label %cmpxchg.continue.i602, label %cmpxchg.store_expected.i601
+  %523 = load i64, ptr %520, align 8
+  %524 = load i64, ptr %.atomictmp.i530, align 8
+  %525 = cmpxchg weak ptr %this1.i532, i64 %523, i64 %524 monotonic monotonic, align 8
+  %526 = extractvalue { i64, i1 } %525, 0
+  %527 = extractvalue { i64, i1 } %525, 1
+  br i1 %527, label %cmpxchg.continue.i602, label %cmpxchg.store_expected.i601
 
 acquire_fail.i596:                                ; preds = %monotonic.i590, %monotonic.i590
-  %522 = load i64, ptr %514, align 8
-  %523 = load i64, ptr %.atomictmp.i530, align 8
-  %524 = cmpxchg weak ptr %this1.i532, i64 %522, i64 %523 monotonic acquire, align 8
-  %525 = extractvalue { i64, i1 } %524, 0
-  %526 = extractvalue { i64, i1 } %524, 1
-  br i1 %526, label %cmpxchg.continue4.i598, label %cmpxchg.store_expected3.i597
+  %528 = load i64, ptr %520, align 8
+  %529 = load i64, ptr %.atomictmp.i530, align 8
+  %530 = cmpxchg weak ptr %this1.i532, i64 %528, i64 %529 monotonic acquire, align 8
+  %531 = extractvalue { i64, i1 } %530, 0
+  %532 = extractvalue { i64, i1 } %530, 1
+  br i1 %532, label %cmpxchg.continue4.i598, label %cmpxchg.store_expected3.i597
 
 seqcst_fail.i591:                                 ; preds = %monotonic.i590
-  %527 = load i64, ptr %514, align 8
-  %528 = load i64, ptr %.atomictmp.i530, align 8
-  %529 = cmpxchg weak ptr %this1.i532, i64 %527, i64 %528 monotonic seq_cst, align 8
-  %530 = extractvalue { i64, i1 } %529, 0
-  %531 = extractvalue { i64, i1 } %529, 1
-  br i1 %531, label %cmpxchg.continue7.i593, label %cmpxchg.store_expected6.i592
+  %533 = load i64, ptr %520, align 8
+  %534 = load i64, ptr %.atomictmp.i530, align 8
+  %535 = cmpxchg weak ptr %this1.i532, i64 %533, i64 %534 monotonic seq_cst, align 8
+  %536 = extractvalue { i64, i1 } %535, 0
+  %537 = extractvalue { i64, i1 } %535, 1
+  br i1 %537, label %cmpxchg.continue7.i593, label %cmpxchg.store_expected6.i592
 
 atomic.continue2.i595:                            ; preds = %cmpxchg.continue7.i593, %cmpxchg.continue4.i598, %cmpxchg.continue.i602
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected.i601:                      ; preds = %monotonic_fail.i600
-  store i64 %520, ptr %514, align 8
+  store i64 %526, ptr %520, align 8
   br label %cmpxchg.continue.i602
 
 cmpxchg.continue.i602:                            ; preds = %cmpxchg.store_expected.i601, %monotonic_fail.i600
-  %frombool.i603 = zext i1 %521 to i8
+  %frombool.i603 = zext i1 %527 to i8
   store i8 %frombool.i603, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue2.i595
 
 cmpxchg.store_expected3.i597:                     ; preds = %acquire_fail.i596
-  store i64 %525, ptr %514, align 8
+  store i64 %531, ptr %520, align 8
   br label %cmpxchg.continue4.i598
 
 cmpxchg.continue4.i598:                           ; preds = %cmpxchg.store_expected3.i597, %acquire_fail.i596
-  %frombool5.i599 = zext i1 %526 to i8
+  %frombool5.i599 = zext i1 %532 to i8
   store i8 %frombool5.i599, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue2.i595
 
 cmpxchg.store_expected6.i592:                     ; preds = %seqcst_fail.i591
-  store i64 %530, ptr %514, align 8
+  store i64 %536, ptr %520, align 8
   br label %cmpxchg.continue7.i593
 
 cmpxchg.continue7.i593:                           ; preds = %cmpxchg.store_expected6.i592, %seqcst_fail.i591
-  %frombool8.i594 = zext i1 %531 to i8
+  %frombool8.i594 = zext i1 %537 to i8
   store i8 %frombool8.i594, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue2.i595
 
 monotonic_fail9.i586:                             ; preds = %acquire.i576
-  %532 = load i64, ptr %514, align 8
-  %533 = load i64, ptr %.atomictmp.i530, align 8
-  %534 = cmpxchg weak ptr %this1.i532, i64 %532, i64 %533 acquire monotonic, align 8
-  %535 = extractvalue { i64, i1 } %534, 0
-  %536 = extractvalue { i64, i1 } %534, 1
-  br i1 %536, label %cmpxchg.continue14.i588, label %cmpxchg.store_expected13.i587
+  %538 = load i64, ptr %520, align 8
+  %539 = load i64, ptr %.atomictmp.i530, align 8
+  %540 = cmpxchg weak ptr %this1.i532, i64 %538, i64 %539 acquire monotonic, align 8
+  %541 = extractvalue { i64, i1 } %540, 0
+  %542 = extractvalue { i64, i1 } %540, 1
+  br i1 %542, label %cmpxchg.continue14.i588, label %cmpxchg.store_expected13.i587
 
 acquire_fail10.i582:                              ; preds = %acquire.i576, %acquire.i576
-  %537 = load i64, ptr %514, align 8
-  %538 = load i64, ptr %.atomictmp.i530, align 8
-  %539 = cmpxchg weak ptr %this1.i532, i64 %537, i64 %538 acquire acquire, align 8
-  %540 = extractvalue { i64, i1 } %539, 0
-  %541 = extractvalue { i64, i1 } %539, 1
-  br i1 %541, label %cmpxchg.continue17.i584, label %cmpxchg.store_expected16.i583
+  %543 = load i64, ptr %520, align 8
+  %544 = load i64, ptr %.atomictmp.i530, align 8
+  %545 = cmpxchg weak ptr %this1.i532, i64 %543, i64 %544 acquire acquire, align 8
+  %546 = extractvalue { i64, i1 } %545, 0
+  %547 = extractvalue { i64, i1 } %545, 1
+  br i1 %547, label %cmpxchg.continue17.i584, label %cmpxchg.store_expected16.i583
 
 seqcst_fail11.i577:                               ; preds = %acquire.i576
-  %542 = load i64, ptr %514, align 8
-  %543 = load i64, ptr %.atomictmp.i530, align 8
-  %544 = cmpxchg weak ptr %this1.i532, i64 %542, i64 %543 acquire seq_cst, align 8
-  %545 = extractvalue { i64, i1 } %544, 0
-  %546 = extractvalue { i64, i1 } %544, 1
-  br i1 %546, label %cmpxchg.continue20.i579, label %cmpxchg.store_expected19.i578
+  %548 = load i64, ptr %520, align 8
+  %549 = load i64, ptr %.atomictmp.i530, align 8
+  %550 = cmpxchg weak ptr %this1.i532, i64 %548, i64 %549 acquire seq_cst, align 8
+  %551 = extractvalue { i64, i1 } %550, 0
+  %552 = extractvalue { i64, i1 } %550, 1
+  br i1 %552, label %cmpxchg.continue20.i579, label %cmpxchg.store_expected19.i578
 
 atomic.continue12.i581:                           ; preds = %cmpxchg.continue20.i579, %cmpxchg.continue17.i584, %cmpxchg.continue14.i588
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected13.i587:                    ; preds = %monotonic_fail9.i586
-  store i64 %535, ptr %514, align 8
+  store i64 %541, ptr %520, align 8
   br label %cmpxchg.continue14.i588
 
 cmpxchg.continue14.i588:                          ; preds = %cmpxchg.store_expected13.i587, %monotonic_fail9.i586
-  %frombool15.i589 = zext i1 %536 to i8
+  %frombool15.i589 = zext i1 %542 to i8
   store i8 %frombool15.i589, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue12.i581
 
 cmpxchg.store_expected16.i583:                    ; preds = %acquire_fail10.i582
-  store i64 %540, ptr %514, align 8
+  store i64 %546, ptr %520, align 8
   br label %cmpxchg.continue17.i584
 
 cmpxchg.continue17.i584:                          ; preds = %cmpxchg.store_expected16.i583, %acquire_fail10.i582
-  %frombool18.i585 = zext i1 %541 to i8
+  %frombool18.i585 = zext i1 %547 to i8
   store i8 %frombool18.i585, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue12.i581
 
 cmpxchg.store_expected19.i578:                    ; preds = %seqcst_fail11.i577
-  store i64 %545, ptr %514, align 8
+  store i64 %551, ptr %520, align 8
   br label %cmpxchg.continue20.i579
 
 cmpxchg.continue20.i579:                          ; preds = %cmpxchg.store_expected19.i578, %seqcst_fail11.i577
-  %frombool21.i580 = zext i1 %546 to i8
+  %frombool21.i580 = zext i1 %552 to i8
   store i8 %frombool21.i580, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue12.i581
 
 monotonic_fail22.i572:                            ; preds = %release.i562
-  %547 = load i64, ptr %514, align 8
-  %548 = load i64, ptr %.atomictmp.i530, align 8
-  %549 = cmpxchg weak ptr %this1.i532, i64 %547, i64 %548 release monotonic, align 8
-  %550 = extractvalue { i64, i1 } %549, 0
-  %551 = extractvalue { i64, i1 } %549, 1
-  br i1 %551, label %cmpxchg.continue27.i574, label %cmpxchg.store_expected26.i573
+  %553 = load i64, ptr %520, align 8
+  %554 = load i64, ptr %.atomictmp.i530, align 8
+  %555 = cmpxchg weak ptr %this1.i532, i64 %553, i64 %554 release monotonic, align 8
+  %556 = extractvalue { i64, i1 } %555, 0
+  %557 = extractvalue { i64, i1 } %555, 1
+  br i1 %557, label %cmpxchg.continue27.i574, label %cmpxchg.store_expected26.i573
 
 acquire_fail23.i568:                              ; preds = %release.i562, %release.i562
-  %552 = load i64, ptr %514, align 8
-  %553 = load i64, ptr %.atomictmp.i530, align 8
-  %554 = cmpxchg weak ptr %this1.i532, i64 %552, i64 %553 release acquire, align 8
-  %555 = extractvalue { i64, i1 } %554, 0
-  %556 = extractvalue { i64, i1 } %554, 1
-  br i1 %556, label %cmpxchg.continue30.i570, label %cmpxchg.store_expected29.i569
+  %558 = load i64, ptr %520, align 8
+  %559 = load i64, ptr %.atomictmp.i530, align 8
+  %560 = cmpxchg weak ptr %this1.i532, i64 %558, i64 %559 release acquire, align 8
+  %561 = extractvalue { i64, i1 } %560, 0
+  %562 = extractvalue { i64, i1 } %560, 1
+  br i1 %562, label %cmpxchg.continue30.i570, label %cmpxchg.store_expected29.i569
 
 seqcst_fail24.i563:                               ; preds = %release.i562
-  %557 = load i64, ptr %514, align 8
-  %558 = load i64, ptr %.atomictmp.i530, align 8
-  %559 = cmpxchg weak ptr %this1.i532, i64 %557, i64 %558 release seq_cst, align 8
-  %560 = extractvalue { i64, i1 } %559, 0
-  %561 = extractvalue { i64, i1 } %559, 1
-  br i1 %561, label %cmpxchg.continue33.i565, label %cmpxchg.store_expected32.i564
+  %563 = load i64, ptr %520, align 8
+  %564 = load i64, ptr %.atomictmp.i530, align 8
+  %565 = cmpxchg weak ptr %this1.i532, i64 %563, i64 %564 release seq_cst, align 8
+  %566 = extractvalue { i64, i1 } %565, 0
+  %567 = extractvalue { i64, i1 } %565, 1
+  br i1 %567, label %cmpxchg.continue33.i565, label %cmpxchg.store_expected32.i564
 
 atomic.continue25.i567:                           ; preds = %cmpxchg.continue33.i565, %cmpxchg.continue30.i570, %cmpxchg.continue27.i574
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected26.i573:                    ; preds = %monotonic_fail22.i572
-  store i64 %550, ptr %514, align 8
+  store i64 %556, ptr %520, align 8
   br label %cmpxchg.continue27.i574
 
 cmpxchg.continue27.i574:                          ; preds = %cmpxchg.store_expected26.i573, %monotonic_fail22.i572
-  %frombool28.i575 = zext i1 %551 to i8
+  %frombool28.i575 = zext i1 %557 to i8
   store i8 %frombool28.i575, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue25.i567
 
 cmpxchg.store_expected29.i569:                    ; preds = %acquire_fail23.i568
-  store i64 %555, ptr %514, align 8
+  store i64 %561, ptr %520, align 8
   br label %cmpxchg.continue30.i570
 
 cmpxchg.continue30.i570:                          ; preds = %cmpxchg.store_expected29.i569, %acquire_fail23.i568
-  %frombool31.i571 = zext i1 %556 to i8
+  %frombool31.i571 = zext i1 %562 to i8
   store i8 %frombool31.i571, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue25.i567
 
 cmpxchg.store_expected32.i564:                    ; preds = %seqcst_fail24.i563
-  store i64 %560, ptr %514, align 8
+  store i64 %566, ptr %520, align 8
   br label %cmpxchg.continue33.i565
 
 cmpxchg.continue33.i565:                          ; preds = %cmpxchg.store_expected32.i564, %seqcst_fail24.i563
-  %frombool34.i566 = zext i1 %561 to i8
+  %frombool34.i566 = zext i1 %567 to i8
   store i8 %frombool34.i566, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue25.i567
 
 monotonic_fail35.i558:                            ; preds = %acqrel.i548
-  %562 = load i64, ptr %514, align 8
-  %563 = load i64, ptr %.atomictmp.i530, align 8
-  %564 = cmpxchg weak ptr %this1.i532, i64 %562, i64 %563 acq_rel monotonic, align 8
-  %565 = extractvalue { i64, i1 } %564, 0
-  %566 = extractvalue { i64, i1 } %564, 1
-  br i1 %566, label %cmpxchg.continue40.i560, label %cmpxchg.store_expected39.i559
+  %568 = load i64, ptr %520, align 8
+  %569 = load i64, ptr %.atomictmp.i530, align 8
+  %570 = cmpxchg weak ptr %this1.i532, i64 %568, i64 %569 acq_rel monotonic, align 8
+  %571 = extractvalue { i64, i1 } %570, 0
+  %572 = extractvalue { i64, i1 } %570, 1
+  br i1 %572, label %cmpxchg.continue40.i560, label %cmpxchg.store_expected39.i559
 
 acquire_fail36.i554:                              ; preds = %acqrel.i548, %acqrel.i548
-  %567 = load i64, ptr %514, align 8
-  %568 = load i64, ptr %.atomictmp.i530, align 8
-  %569 = cmpxchg weak ptr %this1.i532, i64 %567, i64 %568 acq_rel acquire, align 8
-  %570 = extractvalue { i64, i1 } %569, 0
-  %571 = extractvalue { i64, i1 } %569, 1
-  br i1 %571, label %cmpxchg.continue43.i556, label %cmpxchg.store_expected42.i555
+  %573 = load i64, ptr %520, align 8
+  %574 = load i64, ptr %.atomictmp.i530, align 8
+  %575 = cmpxchg weak ptr %this1.i532, i64 %573, i64 %574 acq_rel acquire, align 8
+  %576 = extractvalue { i64, i1 } %575, 0
+  %577 = extractvalue { i64, i1 } %575, 1
+  br i1 %577, label %cmpxchg.continue43.i556, label %cmpxchg.store_expected42.i555
 
 seqcst_fail37.i549:                               ; preds = %acqrel.i548
-  %572 = load i64, ptr %514, align 8
-  %573 = load i64, ptr %.atomictmp.i530, align 8
-  %574 = cmpxchg weak ptr %this1.i532, i64 %572, i64 %573 acq_rel seq_cst, align 8
-  %575 = extractvalue { i64, i1 } %574, 0
-  %576 = extractvalue { i64, i1 } %574, 1
-  br i1 %576, label %cmpxchg.continue46.i551, label %cmpxchg.store_expected45.i550
+  %578 = load i64, ptr %520, align 8
+  %579 = load i64, ptr %.atomictmp.i530, align 8
+  %580 = cmpxchg weak ptr %this1.i532, i64 %578, i64 %579 acq_rel seq_cst, align 8
+  %581 = extractvalue { i64, i1 } %580, 0
+  %582 = extractvalue { i64, i1 } %580, 1
+  br i1 %582, label %cmpxchg.continue46.i551, label %cmpxchg.store_expected45.i550
 
 atomic.continue38.i553:                           ; preds = %cmpxchg.continue46.i551, %cmpxchg.continue43.i556, %cmpxchg.continue40.i560
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected39.i559:                    ; preds = %monotonic_fail35.i558
-  store i64 %565, ptr %514, align 8
+  store i64 %571, ptr %520, align 8
   br label %cmpxchg.continue40.i560
 
 cmpxchg.continue40.i560:                          ; preds = %cmpxchg.store_expected39.i559, %monotonic_fail35.i558
-  %frombool41.i561 = zext i1 %566 to i8
+  %frombool41.i561 = zext i1 %572 to i8
   store i8 %frombool41.i561, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue38.i553
 
 cmpxchg.store_expected42.i555:                    ; preds = %acquire_fail36.i554
-  store i64 %570, ptr %514, align 8
+  store i64 %576, ptr %520, align 8
   br label %cmpxchg.continue43.i556
 
 cmpxchg.continue43.i556:                          ; preds = %cmpxchg.store_expected42.i555, %acquire_fail36.i554
-  %frombool44.i557 = zext i1 %571 to i8
+  %frombool44.i557 = zext i1 %577 to i8
   store i8 %frombool44.i557, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue38.i553
 
 cmpxchg.store_expected45.i550:                    ; preds = %seqcst_fail37.i549
-  store i64 %575, ptr %514, align 8
+  store i64 %581, ptr %520, align 8
   br label %cmpxchg.continue46.i551
 
 cmpxchg.continue46.i551:                          ; preds = %cmpxchg.store_expected45.i550, %seqcst_fail37.i549
-  %frombool47.i552 = zext i1 %576 to i8
+  %frombool47.i552 = zext i1 %582 to i8
   store i8 %frombool47.i552, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue38.i553
 
 monotonic_fail48.i544:                            ; preds = %seqcst.i533
-  %577 = load i64, ptr %514, align 8
-  %578 = load i64, ptr %.atomictmp.i530, align 8
-  %579 = cmpxchg weak ptr %this1.i532, i64 %577, i64 %578 seq_cst monotonic, align 8
-  %580 = extractvalue { i64, i1 } %579, 0
-  %581 = extractvalue { i64, i1 } %579, 1
-  br i1 %581, label %cmpxchg.continue53.i546, label %cmpxchg.store_expected52.i545
+  %583 = load i64, ptr %520, align 8
+  %584 = load i64, ptr %.atomictmp.i530, align 8
+  %585 = cmpxchg weak ptr %this1.i532, i64 %583, i64 %584 seq_cst monotonic, align 8
+  %586 = extractvalue { i64, i1 } %585, 0
+  %587 = extractvalue { i64, i1 } %585, 1
+  br i1 %587, label %cmpxchg.continue53.i546, label %cmpxchg.store_expected52.i545
 
 acquire_fail49.i540:                              ; preds = %seqcst.i533, %seqcst.i533
-  %582 = load i64, ptr %514, align 8
-  %583 = load i64, ptr %.atomictmp.i530, align 8
-  %584 = cmpxchg weak ptr %this1.i532, i64 %582, i64 %583 seq_cst acquire, align 8
-  %585 = extractvalue { i64, i1 } %584, 0
-  %586 = extractvalue { i64, i1 } %584, 1
-  br i1 %586, label %cmpxchg.continue56.i542, label %cmpxchg.store_expected55.i541
+  %588 = load i64, ptr %520, align 8
+  %589 = load i64, ptr %.atomictmp.i530, align 8
+  %590 = cmpxchg weak ptr %this1.i532, i64 %588, i64 %589 seq_cst acquire, align 8
+  %591 = extractvalue { i64, i1 } %590, 0
+  %592 = extractvalue { i64, i1 } %590, 1
+  br i1 %592, label %cmpxchg.continue56.i542, label %cmpxchg.store_expected55.i541
 
 seqcst_fail50.i534:                               ; preds = %seqcst.i533
-  %587 = load i64, ptr %514, align 8
-  %588 = load i64, ptr %.atomictmp.i530, align 8
-  %589 = cmpxchg weak ptr %this1.i532, i64 %587, i64 %588 seq_cst seq_cst, align 8
-  %590 = extractvalue { i64, i1 } %589, 0
-  %591 = extractvalue { i64, i1 } %589, 1
-  br i1 %591, label %cmpxchg.continue59.i536, label %cmpxchg.store_expected58.i535
+  %593 = load i64, ptr %520, align 8
+  %594 = load i64, ptr %.atomictmp.i530, align 8
+  %595 = cmpxchg weak ptr %this1.i532, i64 %593, i64 %594 seq_cst seq_cst, align 8
+  %596 = extractvalue { i64, i1 } %595, 0
+  %597 = extractvalue { i64, i1 } %595, 1
+  br i1 %597, label %cmpxchg.continue59.i536, label %cmpxchg.store_expected58.i535
 
 atomic.continue51.i538:                           ; preds = %cmpxchg.continue59.i536, %cmpxchg.continue56.i542, %cmpxchg.continue53.i546
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected52.i545:                    ; preds = %monotonic_fail48.i544
-  store i64 %580, ptr %514, align 8
+  store i64 %586, ptr %520, align 8
   br label %cmpxchg.continue53.i546
 
 cmpxchg.continue53.i546:                          ; preds = %cmpxchg.store_expected52.i545, %monotonic_fail48.i544
-  %frombool54.i547 = zext i1 %581 to i8
+  %frombool54.i547 = zext i1 %587 to i8
   store i8 %frombool54.i547, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue51.i538
 
 cmpxchg.store_expected55.i541:                    ; preds = %acquire_fail49.i540
-  store i64 %585, ptr %514, align 8
+  store i64 %591, ptr %520, align 8
   br label %cmpxchg.continue56.i542
 
 cmpxchg.continue56.i542:                          ; preds = %cmpxchg.store_expected55.i541, %acquire_fail49.i540
-  %frombool57.i543 = zext i1 %586 to i8
+  %frombool57.i543 = zext i1 %592 to i8
   store i8 %frombool57.i543, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue51.i538
 
 cmpxchg.store_expected58.i535:                    ; preds = %seqcst_fail50.i534
-  store i64 %590, ptr %514, align 8
+  store i64 %596, ptr %520, align 8
   br label %cmpxchg.continue59.i536
 
 cmpxchg.continue59.i536:                          ; preds = %cmpxchg.store_expected58.i535, %seqcst_fail50.i534
-  %frombool60.i537 = zext i1 %591 to i8
+  %frombool60.i537 = zext i1 %597 to i8
   store i8 %frombool60.i537, ptr %cmpxchg.bool.i531, align 1
   br label %atomic.continue51.i538
 
 _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit: ; preds = %atomic.continue51.i538, %atomic.continue38.i553, %atomic.continue25.i567, %atomic.continue12.i581, %atomic.continue2.i595
-  %592 = load i8, ptr %cmpxchg.bool.i531, align 1
-  %tobool.i539 = trunc i8 %592 to i1
+  %598 = load i8, ptr %cmpxchg.bool.i531, align 1
+  %tobool.i539 = trunc i8 %598 to i1
   %lnot183 = xor i1 %tobool.i539, true
   br i1 %lnot183, label %do.body173, label %do.end184, !llvm.loop !20
 
@@ -10482,20 +10523,20 @@ if.end186:                                        ; preds = %if.end185, %if.end1
   br label %if.end187
 
 if.end187:                                        ; preds = %if.end186, %if.end85
-  %593 = load i8, ptr %dowait, align 1
-  %tobool188 = trunc i8 %593 to i1
+  %599 = load i8, ptr %dowait, align 1
+  %tobool188 = trunc i8 %599 to i1
   br i1 %tobool188, label %if.then189, label %if.end193
 
 if.then189:                                       ; preds = %if.end187
-  %594 = load ptr, ptr %waitp.addr, align 8
-  %thread190 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %594, i32 0, i32 4
-  %595 = load ptr, ptr %thread190, align 8
-  invoke void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %595)
+  %600 = load ptr, ptr %waitp.addr, align 8
+  %thread190 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %600, i32 0, i32 4
+  %601 = load ptr, ptr %thread190, align 8
+  invoke void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %601)
           to label %invoke.cont191 unwind label %lpad
 
 invoke.cont191:                                   ; preds = %if.then189
-  %596 = load i32, ptr %flags.addr, align 4
-  %or192 = or i32 %596, 1
+  %602 = load i32, ptr %flags.addr, align 4
+  %or192 = or i32 %602, 1
   store i32 %or192, ptr %flags.addr, align 4
   store i32 0, ptr %c, align 4
   br label %if.end193
@@ -10507,34 +10548,36 @@ if.end194:                                        ; preds = %if.end193, %if.end4
   br label %do.body195
 
 do.body195:                                       ; preds = %if.end194
-  %597 = load ptr, ptr %waitp.addr, align 8
-  %thread196 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %597, i32 0, i32 4
-  %598 = load ptr, ptr %thread196, align 8
-  %waitp197 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %598, i32 0, i32 9
-  %599 = load ptr, ptr %waitp197, align 8
-  %cmp198 = icmp eq ptr %599, null
+  %603 = load ptr, ptr %waitp.addr, align 8
+  %thread196 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %603, i32 0, i32 4
+  %604 = load ptr, ptr %thread196, align 8
+  %waitp197 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %604, i32 0, i32 9
+  %605 = load ptr, ptr %waitp197, align 8
+  %cmp198 = icmp eq ptr %605, null
   br i1 %cmp198, label %lor.end203, label %lor.rhs199
 
 lor.rhs199:                                       ; preds = %do.body195
-  %600 = load ptr, ptr %waitp.addr, align 8
-  %thread200 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %600, i32 0, i32 4
-  %601 = load ptr, ptr %thread200, align 8
-  %suppress_fatal_errors201 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %601, i32 0, i32 6
-  %602 = load i8, ptr %suppress_fatal_errors201, align 4
-  %tobool202 = trunc i8 %602 to i1
+  %606 = load ptr, ptr %waitp.addr, align 8
+  %thread200 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %606, i32 0, i32 4
+  %607 = load ptr, ptr %thread200, align 8
+  %suppress_fatal_errors201 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %607, i32 0, i32 6
+  %608 = load i8, ptr %suppress_fatal_errors201, align 4
+  %tobool202 = trunc i8 %608 to i1
   br label %lor.end203
 
 lor.end203:                                       ; preds = %lor.rhs199, %do.body195
-  %603 = phi i1 [ true, %do.body195 ], [ %tobool202, %lor.rhs199 ]
-  %lnot204 = xor i1 %603, true
+  %609 = phi i1 [ true, %do.body195 ], [ %tobool202, %lor.rhs199 ]
+  %lnot204 = xor i1 %609, true
   br i1 %lnot204, label %if.then205, label %if.end214
 
 if.then205:                                       ; preds = %lor.end203
   br label %do.body206
 
 do.body206:                                       ; preds = %if.then205
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename207, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2067, ptr noundef @.str.1, ptr noundef @.str.8, ptr noundef @.str.9)
+  %610 = getelementptr i8, ptr @.str, i64 120
+  store ptr %610, ptr %absl_raw_log_internal_basename207, align 8
+  %611 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %611, i32 noundef 2067, ptr noundef @.str.1, ptr noundef @.str.8, ptr noundef @.str.9)
           to label %invoke.cont208 unwind label %lpad
 
 invoke.cont208:                                   ; preds = %do.body206
@@ -10562,8 +10605,8 @@ do.cond215:                                       ; preds = %if.end214
   br label %do.end216
 
 do.end216:                                        ; preds = %do.cond215
-  %604 = load i32, ptr %c, align 4
-  %call218 = invoke noundef i32 @_ZN4absl24synchronization_internal10MutexDelayEii(i32 noundef %604, i32 noundef 1)
+  %612 = load i32, ptr %c, align 4
+  %call218 = invoke noundef i32 @_ZN4absl24synchronization_internal10MutexDelayEii(i32 noundef %612, i32 noundef 1)
           to label %invoke.cont217 unwind label %lpad
 
 invoke.cont217:                                   ; preds = %do.end216
@@ -10574,34 +10617,36 @@ for.end:                                          ; preds = %if.then125, %if.the
   br label %do.body219
 
 do.body219:                                       ; preds = %for.end
-  %605 = load ptr, ptr %waitp.addr, align 8
-  %thread220 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %605, i32 0, i32 4
-  %606 = load ptr, ptr %thread220, align 8
-  %waitp221 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %606, i32 0, i32 9
-  %607 = load ptr, ptr %waitp221, align 8
-  %cmp222 = icmp eq ptr %607, null
+  %613 = load ptr, ptr %waitp.addr, align 8
+  %thread220 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %613, i32 0, i32 4
+  %614 = load ptr, ptr %thread220, align 8
+  %waitp221 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %614, i32 0, i32 9
+  %615 = load ptr, ptr %waitp221, align 8
+  %cmp222 = icmp eq ptr %615, null
   br i1 %cmp222, label %lor.end227, label %lor.rhs223
 
 lor.rhs223:                                       ; preds = %do.body219
-  %608 = load ptr, ptr %waitp.addr, align 8
-  %thread224 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %608, i32 0, i32 4
-  %609 = load ptr, ptr %thread224, align 8
-  %suppress_fatal_errors225 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %609, i32 0, i32 6
-  %610 = load i8, ptr %suppress_fatal_errors225, align 4
-  %tobool226 = trunc i8 %610 to i1
+  %616 = load ptr, ptr %waitp.addr, align 8
+  %thread224 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %616, i32 0, i32 4
+  %617 = load ptr, ptr %thread224, align 8
+  %suppress_fatal_errors225 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %617, i32 0, i32 6
+  %618 = load i8, ptr %suppress_fatal_errors225, align 4
+  %tobool226 = trunc i8 %618 to i1
   br label %lor.end227
 
 lor.end227:                                       ; preds = %lor.rhs223, %do.body219
-  %611 = phi i1 [ true, %do.body219 ], [ %tobool226, %lor.rhs223 ]
-  %lnot228 = xor i1 %611, true
+  %619 = phi i1 [ true, %do.body219 ], [ %tobool226, %lor.rhs223 ]
+  %lnot228 = xor i1 %619, true
   br i1 %lnot228, label %if.then229, label %if.end238
 
 if.then229:                                       ; preds = %lor.end227
   br label %do.body230
 
 do.body230:                                       ; preds = %if.then229
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename231, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2073, ptr noundef @.str.1, ptr noundef @.str.8, ptr noundef @.str.9)
+  %620 = getelementptr i8, ptr @.str, i64 120
+  store ptr %620, ptr %absl_raw_log_internal_basename231, align 8
+  %621 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %621, i32 noundef 2073, ptr noundef @.str.1, ptr noundef @.str.8, ptr noundef @.str.9)
           to label %invoke.cont232 unwind label %lpad
 
 invoke.cont232:                                   ; preds = %do.body230
@@ -10629,16 +10674,16 @@ do.cond239:                                       ; preds = %if.end238
   br label %do.end240
 
 do.end240:                                        ; preds = %do.cond239
-  %612 = load i64, ptr %v, align 8
-  %and241 = and i64 %612, 16
+  %622 = load i64, ptr %v, align 8
+  %and241 = and i64 %622, 16
   %cmp242 = icmp ne i64 %and241, 0
   br i1 %cmp242, label %if.then243, label %if.end248
 
 if.then243:                                       ; preds = %do.end240
-  %613 = load ptr, ptr %waitp.addr, align 8
-  %how244 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %613, i32 0, i32 0
-  %614 = load ptr, ptr %how244, align 8
-  %cmp245 = icmp eq ptr %614, @_ZN4abslL11kExclusiveSE
+  %623 = load ptr, ptr %waitp.addr, align 8
+  %how244 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %623, i32 0, i32 0
+  %624 = load ptr, ptr %how244, align 8
+  %cmp245 = icmp eq ptr %624, @_ZN4abslL11kExclusiveSE
   %cond246 = select i1 %cmp245, i32 5, i32 7
   invoke void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %this1, i32 noundef %cond246)
           to label %invoke.cont247 unwind label %lpad
@@ -11643,92 +11688,94 @@ for.end:                                          ; preds = %if.then14, %for.con
   br label %do.body
 
 do.body:                                          ; preds = %for.end
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  %16 = load i32, ptr %ev.addr, align 4
-  %idxprom15 = sext i32 %16 to i64
+  %16 = getelementptr i8, ptr @.str, i64 120
+  store ptr %16, ptr %absl_raw_log_internal_basename, align 8
+  %17 = load i32, ptr %ev.addr, align 4
+  %idxprom15 = sext i32 %17 to i64
   %arrayidx16 = getelementptr inbounds [14 x %struct.anon], ptr @_ZN4abslL16event_propertiesE, i64 0, i64 %idxprom15
   %msg = getelementptr inbounds %struct.anon, ptr %arrayidx16, i32 0, i32 1
-  %17 = load ptr, ptr %msg, align 8
-  %18 = load ptr, ptr %obj.addr, align 8
-  %19 = load ptr, ptr %e, align 8
-  %cmp17 = icmp eq ptr %19, null
+  %18 = load ptr, ptr %msg, align 8
+  %19 = load ptr, ptr %obj.addr, align 8
+  %20 = load ptr, ptr %e, align 8
+  %cmp17 = icmp eq ptr %20, null
   br i1 %cmp17, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %do.body
   br label %cond.end
 
 cond.false:                                       ; preds = %do.body
-  %20 = load ptr, ptr %e, align 8
-  %name = getelementptr inbounds %"struct.absl::SynchEvent", ptr %20, i32 0, i32 6
+  %21 = load ptr, ptr %e, align 8
+  %name = getelementptr inbounds %"struct.absl::SynchEvent", ptr %21, i32 0, i32 6
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond-lvalue = phi ptr [ @.str.35, %cond.true ], [ %name, %cond.false ]
   %arraydecay18 = getelementptr inbounds [1 x i8], ptr %cond-lvalue, i64 0, i64 0
   %arraydecay19 = getelementptr inbounds [960 x i8], ptr %buffer, i64 0, i64 0
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 452, ptr noundef @.str.52, ptr noundef %17, ptr noundef %18, ptr noundef %arraydecay18, ptr noundef %arraydecay19)
+  %22 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef %22, i32 noundef 452, ptr noundef @.str.52, ptr noundef %18, ptr noundef %19, ptr noundef %arraydecay18, ptr noundef %arraydecay19)
   br label %do.end
 
 do.end:                                           ; preds = %cond.end
   br label %if.end20
 
 if.end20:                                         ; preds = %do.end, %lor.lhs.false
-  %21 = load i32, ptr %ev.addr, align 4
-  %idxprom21 = sext i32 %21 to i64
+  %23 = load i32, ptr %ev.addr, align 4
+  %idxprom21 = sext i32 %23 to i64
   %arrayidx22 = getelementptr inbounds [14 x %struct.anon], ptr @_ZN4abslL16event_propertiesE, i64 0, i64 %idxprom21
   %flags23 = getelementptr inbounds %struct.anon, ptr %arrayidx22, i32 0, i32 0
-  %22 = load i32, ptr %flags23, align 16
-  store i32 %22, ptr %flags, align 4
-  %23 = load i32, ptr %flags, align 4
-  %and = and i32 %23, 2
+  %24 = load i32, ptr %flags23, align 16
+  store i32 %24, ptr %flags, align 4
+  %25 = load i32, ptr %flags, align 4
+  %and = and i32 %25, 2
   %cmp24 = icmp ne i32 %and, 0
   br i1 %cmp24, label %land.lhs.true, label %if.end41
 
 land.lhs.true:                                    ; preds = %if.end20
-  %24 = load ptr, ptr %e, align 8
-  %cmp25 = icmp ne ptr %24, null
+  %26 = load ptr, ptr %e, align 8
+  %cmp25 = icmp ne ptr %26, null
   br i1 %cmp25, label %land.lhs.true26, label %if.end41
 
 land.lhs.true26:                                  ; preds = %land.lhs.true
-  %25 = load ptr, ptr %e, align 8
-  %invariant = getelementptr inbounds %"struct.absl::SynchEvent", ptr %25, i32 0, i32 3
-  %26 = load ptr, ptr %invariant, align 8
-  %cmp27 = icmp ne ptr %26, null
+  %27 = load ptr, ptr %e, align 8
+  %invariant = getelementptr inbounds %"struct.absl::SynchEvent", ptr %27, i32 0, i32 3
+  %28 = load ptr, ptr %invariant, align 8
+  %cmp27 = icmp ne ptr %28, null
   br i1 %cmp27, label %if.then28, label %if.end41
 
 if.then28:                                        ; preds = %land.lhs.true26
-  %27 = load ptr, ptr %e, align 8
-  call void @_ZN4absl9ConditionC2INS_10SynchEventEEEPFbPT_ES4_(ptr noundef nonnull align 8 dereferenceable(32) %cond, ptr noundef @_ZZN4abslL14PostSynchEventEPviEN5local4predEPNS_10SynchEventE, ptr noundef %27)
-  %28 = load ptr, ptr %obj.addr, align 8
-  store ptr %28, ptr %mu, align 8
-  %29 = load i32, ptr %flags, align 4
-  %and29 = and i32 %29, 8
+  %29 = load ptr, ptr %e, align 8
+  call void @_ZN4absl9ConditionC2INS_10SynchEventEEEPFbPT_ES4_(ptr noundef nonnull align 8 dereferenceable(32) %cond, ptr noundef @_ZZN4abslL14PostSynchEventEPviEN5local4predEPNS_10SynchEventE, ptr noundef %29)
+  %30 = load ptr, ptr %obj.addr, align 8
+  store ptr %30, ptr %mu, align 8
+  %31 = load i32, ptr %flags, align 4
+  %and29 = and i32 %31, 8
   %cmp30 = icmp eq i32 %and29, 0
   %frombool = zext i1 %cmp30 to i8
   store i8 %frombool, ptr %locking, align 1
-  %30 = load i32, ptr %flags, align 4
-  %and31 = and i32 %30, 4
+  %32 = load i32, ptr %flags, align 4
+  %and31 = and i32 %32, 4
   %cmp32 = icmp ne i32 %and31, 0
   %frombool33 = zext i1 %cmp32 to i8
   store i8 %frombool33, ptr %trylock, align 1
-  %31 = load i32, ptr %flags, align 4
-  %and34 = and i32 %31, 1
+  %33 = load i32, ptr %flags, align 4
+  %and34 = and i32 %33, 1
   %cmp35 = icmp ne i32 %and34, 0
   %frombool36 = zext i1 %cmp35 to i8
   store i8 %frombool36, ptr %read_lock, align 1
-  %32 = load ptr, ptr %mu, align 8
-  %33 = load i8, ptr %locking, align 1
-  %tobool37 = trunc i8 %33 to i1
-  %34 = load i8, ptr %trylock, align 1
-  %tobool38 = trunc i8 %34 to i1
-  %35 = load i8, ptr %read_lock, align 1
-  %tobool39 = trunc i8 %35 to i1
-  %call40 = call noundef zeroext i1 @_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb(ptr noundef %cond, ptr noundef %32, i1 noundef zeroext %tobool37, i1 noundef zeroext %tobool38, i1 noundef zeroext %tobool39)
+  %34 = load ptr, ptr %mu, align 8
+  %35 = load i8, ptr %locking, align 1
+  %tobool37 = trunc i8 %35 to i1
+  %36 = load i8, ptr %trylock, align 1
+  %tobool38 = trunc i8 %36 to i1
+  %37 = load i8, ptr %read_lock, align 1
+  %tobool39 = trunc i8 %37 to i1
+  %call40 = call noundef zeroext i1 @_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb(ptr noundef %cond, ptr noundef %34, i1 noundef zeroext %tobool37, i1 noundef zeroext %tobool38, i1 noundef zeroext %tobool39)
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then28, %land.lhs.true26, %land.lhs.true, %if.end20
-  %36 = load ptr, ptr %e, align 8
-  call void @_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE(ptr noundef %36)
+  %38 = load ptr, ptr %e, align 8
+  call void @_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE(ptr noundef %38)
   ret void
 }
 
@@ -13528,11 +13575,13 @@ if.then4:                                         ; preds = %do.body
   br label %do.body5
 
 do.body5:                                         ; preds = %if.then4
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  %4 = load ptr, ptr %label.addr, align 8
-  %5 = load i64, ptr %v.addr, align 8
-  %6 = inttoptr i64 %5 to ptr
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 1953, ptr noundef @.str.68, ptr noundef %4, ptr noundef %6)
+  %4 = getelementptr i8, ptr @.str, i64 120
+  store ptr %4, ptr %absl_raw_log_internal_basename, align 8
+  %5 = load ptr, ptr %label.addr, align 8
+  %6 = load i64, ptr %v.addr, align 8
+  %7 = inttoptr i64 %6 to ptr
+  %8 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %8, i32 noundef 1953, ptr noundef @.str.68, ptr noundef %5, ptr noundef %7)
   br label %do.body6
 
 do.body6:                                         ; preds = %do.body5
@@ -13551,8 +13600,8 @@ do.end9:                                          ; preds = %if.end8
   br label %do.body10
 
 do.body10:                                        ; preds = %do.end9
-  %7 = load i64, ptr %v.addr, align 8
-  %and11 = and i64 %7, 36
+  %9 = load i64, ptr %v.addr, align 8
+  %and11 = and i64 %9, 36
   %cmp12 = icmp ne i64 %and11, 32
   %lnot13 = xor i1 %cmp12, true
   br i1 %lnot13, label %if.then14, label %if.end20
@@ -13561,11 +13610,13 @@ if.then14:                                        ; preds = %do.body10
   br label %do.body15
 
 do.body15:                                        ; preds = %if.then14
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename16, align 8
-  %8 = load ptr, ptr %label.addr, align 8
-  %9 = load i64, ptr %v.addr, align 8
-  %10 = inttoptr i64 %9 to ptr
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 1956, ptr noundef @.str.69, ptr noundef %8, ptr noundef %10)
+  %10 = getelementptr i8, ptr @.str, i64 120
+  store ptr %10, ptr %absl_raw_log_internal_basename16, align 8
+  %11 = load ptr, ptr %label.addr, align 8
+  %12 = load i64, ptr %v.addr, align 8
+  %13 = inttoptr i64 %12 to ptr
+  %14 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %14, i32 noundef 1956, ptr noundef @.str.69, ptr noundef %11, ptr noundef %13)
   br label %do.body17
 
 do.body17:                                        ; preds = %do.body15
@@ -13657,8 +13708,10 @@ if.then5:                                         ; preds = %lor.end
   br label %do.body6
 
 do.body6:                                         ; preds = %if.then5
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 920, ptr noundef @.str.1, ptr noundef @.str.70, ptr noundef @.str.9)
+  %14 = getelementptr i8, ptr @.str, i64 120
+  store ptr %14, ptr %absl_raw_log_internal_basename, align 8
+  %15 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %15, i32 noundef 920, ptr noundef @.str.1, ptr noundef @.str.70, ptr noundef @.str.9)
   br label %do.body7
 
 do.body7:                                         ; preds = %do.body6
@@ -13674,56 +13727,58 @@ if.end9:                                          ; preds = %do.end8, %lor.end
   br label %do.end10
 
 do.end10:                                         ; preds = %if.end9
-  %14 = load ptr, ptr %waitp.addr, align 8
-  %15 = load ptr, ptr %s, align 8
-  %waitp11 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %15, i32 0, i32 9
-  store ptr %14, ptr %waitp11, align 8
-  %16 = load ptr, ptr %s, align 8
-  %skip = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %16, i32 0, i32 1
-  store ptr null, ptr %skip, align 8
+  %16 = load ptr, ptr %waitp.addr, align 8
   %17 = load ptr, ptr %s, align 8
-  %may_skip = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %17, i32 0, i32 2
-  store i8 1, ptr %may_skip, align 8
+  %waitp11 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %17, i32 0, i32 9
+  store ptr %16, ptr %waitp11, align 8
   %18 = load ptr, ptr %s, align 8
-  %wake = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %18, i32 0, i32 3
-  store i8 0, ptr %wake, align 1
-  %19 = load i32, ptr %flags.addr, align 4
-  %and = and i32 %19, 2
-  %cmp12 = icmp ne i32 %and, 0
+  %skip = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %18, i32 0, i32 1
+  store ptr null, ptr %skip, align 8
+  %19 = load ptr, ptr %s, align 8
+  %may_skip = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %19, i32 0, i32 2
+  store i8 1, ptr %may_skip, align 8
   %20 = load ptr, ptr %s, align 8
-  %cond_waiter = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %20, i32 0, i32 4
+  %wake = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %20, i32 0, i32 3
+  store i8 0, ptr %wake, align 1
+  %21 = load i32, ptr %flags.addr, align 4
+  %and = and i32 %21, 2
+  %cmp12 = icmp ne i32 %and, 0
+  %22 = load ptr, ptr %s, align 8
+  %cond_waiter = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %22, i32 0, i32 4
   %frombool = zext i1 %cmp12 to i8
   store i8 %frombool, ptr %cond_waiter, align 2
-  %21 = load i32, ptr %flags.addr, align 4
-  %and13 = and i32 %21, 4
+  %23 = load i32, ptr %flags.addr, align 4
+  %and13 = and i32 %23, 4
   %cmp14 = icmp eq i32 %and13, 0
   br i1 %cmp14, label %if.then15, label %if.end29
 
 if.then15:                                        ; preds = %do.end10
   %call = call noundef i64 @_ZN4absl13base_internal10CycleClock3NowEv()
   store i64 %call, ptr %now_cycles, align 8
-  %22 = load ptr, ptr %s, align 8
-  %next_priority_read_cycles = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %22, i32 0, i32 11
-  %23 = load i64, ptr %next_priority_read_cycles, align 8
-  %24 = load i64, ptr %now_cycles, align 8
-  %cmp16 = icmp slt i64 %23, %24
+  %24 = load ptr, ptr %s, align 8
+  %next_priority_read_cycles = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %24, i32 0, i32 11
+  %25 = load i64, ptr %next_priority_read_cycles, align 8
+  %26 = load i64, ptr %now_cycles, align 8
+  %cmp16 = icmp slt i64 %25, %26
   br i1 %cmp16, label %if.then17, label %if.end28
 
 if.then17:                                        ; preds = %if.then15
   %call18 = call i64 @pthread_self() #17
   %call19 = call i32 @pthread_getschedparam(i64 noundef %call18, ptr noundef %policy, ptr noundef %param) #13
   store i32 %call19, ptr %err, align 4
-  %25 = load i32, ptr %err, align 4
-  %cmp20 = icmp ne i32 %25, 0
+  %27 = load i32, ptr %err, align 4
+  %cmp20 = icmp ne i32 %27, 0
   br i1 %cmp20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.then17
   br label %do.body22
 
 do.body22:                                        ; preds = %if.then21
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename23, align 8
-  %26 = load i32, ptr %err, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 938, ptr noundef @.str.71, i32 noundef %26)
+  %28 = getelementptr i8, ptr @.str, i64 120
+  store ptr %28, ptr %absl_raw_log_internal_basename23, align 8
+  %29 = load i32, ptr %err, align 4
+  %30 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %30, i32 noundef 938, ptr noundef @.str.71, i32 noundef %29)
   br label %do.end24
 
 do.end24:                                         ; preds = %do.body22
@@ -13731,16 +13786,16 @@ do.end24:                                         ; preds = %do.body22
 
 if.else:                                          ; preds = %if.then17
   %sched_priority = getelementptr inbounds %struct.sched_param, ptr %param, i32 0, i32 0
-  %27 = load i32, ptr %sched_priority, align 4
-  %28 = load ptr, ptr %s, align 8
-  %priority = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %28, i32 0, i32 7
-  store i32 %27, ptr %priority, align 8
-  %29 = load i64, ptr %now_cycles, align 8
+  %31 = load i32, ptr %sched_priority, align 4
+  %32 = load ptr, ptr %s, align 8
+  %priority = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %32, i32 0, i32 7
+  store i32 %31, ptr %priority, align 8
+  %33 = load i64, ptr %now_cycles, align 8
   %call25 = call noundef double @_ZN4absl13base_internal10CycleClock9FrequencyEv()
   %conv = fptosi double %call25 to i64
-  %add = add nsw i64 %29, %conv
-  %30 = load ptr, ptr %s, align 8
-  %next_priority_read_cycles26 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %30, i32 0, i32 11
+  %add = add nsw i64 %33, %conv
+  %34 = load ptr, ptr %s, align 8
+  %next_priority_read_cycles26 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %34, i32 0, i32 11
   store i64 %add, ptr %next_priority_read_cycles26, align 8
   br label %if.end27
 
@@ -13751,89 +13806,89 @@ if.end28:                                         ; preds = %if.end27, %if.then1
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end28, %do.end10
-  %31 = load ptr, ptr %head.addr, align 8
-  %cmp30 = icmp eq ptr %31, null
+  %35 = load ptr, ptr %head.addr, align 8
+  %cmp30 = icmp eq ptr %35, null
   br i1 %cmp30, label %if.then31, label %if.else32
 
 if.then31:                                        ; preds = %if.end29
-  %32 = load ptr, ptr %s, align 8
-  %33 = load ptr, ptr %s, align 8
-  %next = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %33, i32 0, i32 0
-  store ptr %32, ptr %next, align 8
-  %34 = load i64, ptr %mu.addr, align 8
-  %35 = load ptr, ptr %s, align 8
-  %readers = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %35, i32 0, i32 10
-  store i64 %34, ptr %readers, align 8
   %36 = load ptr, ptr %s, align 8
-  %maybe_unlocking = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %36, i32 0, i32 5
-  store i8 0, ptr %maybe_unlocking, align 1
   %37 = load ptr, ptr %s, align 8
-  store ptr %37, ptr %head.addr, align 8
+  %next = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %37, i32 0, i32 0
+  store ptr %36, ptr %next, align 8
+  %38 = load i64, ptr %mu.addr, align 8
+  %39 = load ptr, ptr %s, align 8
+  %readers = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %39, i32 0, i32 10
+  store i64 %38, ptr %readers, align 8
+  %40 = load ptr, ptr %s, align 8
+  %maybe_unlocking = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %40, i32 0, i32 5
+  store i8 0, ptr %maybe_unlocking, align 1
+  %41 = load ptr, ptr %s, align 8
+  store ptr %41, ptr %head.addr, align 8
   br label %if.end141
 
 if.else32:                                        ; preds = %if.end29
   store ptr null, ptr %enqueue_after, align 8
-  %38 = load ptr, ptr %s, align 8
-  %priority33 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %38, i32 0, i32 7
-  %39 = load i32, ptr %priority33, align 8
-  %40 = load ptr, ptr %head.addr, align 8
-  %priority34 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %40, i32 0, i32 7
-  %41 = load i32, ptr %priority34, align 8
-  %cmp35 = icmp sgt i32 %39, %41
+  %42 = load ptr, ptr %s, align 8
+  %priority33 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %42, i32 0, i32 7
+  %43 = load i32, ptr %priority33, align 8
+  %44 = load ptr, ptr %head.addr, align 8
+  %priority34 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %44, i32 0, i32 7
+  %45 = load i32, ptr %priority34, align 8
+  %cmp35 = icmp sgt i32 %43, %45
   br i1 %cmp35, label %if.then36, label %if.end53
 
 if.then36:                                        ; preds = %if.else32
-  %42 = load ptr, ptr %head.addr, align 8
-  %maybe_unlocking37 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %42, i32 0, i32 5
-  %43 = load i8, ptr %maybe_unlocking37, align 1
-  %tobool38 = trunc i8 %43 to i1
+  %46 = load ptr, ptr %head.addr, align 8
+  %maybe_unlocking37 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %46, i32 0, i32 5
+  %47 = load i8, ptr %maybe_unlocking37, align 1
+  %tobool38 = trunc i8 %47 to i1
   br i1 %tobool38, label %if.else47, label %if.then39
 
 if.then39:                                        ; preds = %if.then36
-  %44 = load ptr, ptr %head.addr, align 8
-  store ptr %44, ptr %advance_to, align 8
+  %48 = load ptr, ptr %head.addr, align 8
+  store ptr %48, ptr %advance_to, align 8
   br label %do.body40
 
 do.body40:                                        ; preds = %do.cond, %if.then39
-  %45 = load ptr, ptr %advance_to, align 8
-  store ptr %45, ptr %enqueue_after, align 8
-  %46 = load ptr, ptr %enqueue_after, align 8
-  %next41 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %46, i32 0, i32 0
-  %47 = load ptr, ptr %next41, align 8
-  %call42 = call noundef ptr @_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE(ptr noundef %47)
+  %49 = load ptr, ptr %advance_to, align 8
+  store ptr %49, ptr %enqueue_after, align 8
+  %50 = load ptr, ptr %enqueue_after, align 8
+  %next41 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %50, i32 0, i32 0
+  %51 = load ptr, ptr %next41, align 8
+  %call42 = call noundef ptr @_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE(ptr noundef %51)
   store ptr %call42, ptr %advance_to, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body40
-  %48 = load ptr, ptr %s, align 8
-  %priority43 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %48, i32 0, i32 7
-  %49 = load i32, ptr %priority43, align 8
-  %50 = load ptr, ptr %advance_to, align 8
-  %priority44 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %50, i32 0, i32 7
-  %51 = load i32, ptr %priority44, align 8
-  %cmp45 = icmp sle i32 %49, %51
+  %52 = load ptr, ptr %s, align 8
+  %priority43 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %52, i32 0, i32 7
+  %53 = load i32, ptr %priority43, align 8
+  %54 = load ptr, ptr %advance_to, align 8
+  %priority44 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %54, i32 0, i32 7
+  %55 = load i32, ptr %priority44, align 8
+  %cmp45 = icmp sle i32 %53, %55
   br i1 %cmp45, label %do.body40, label %do.end46, !llvm.loop !27
 
 do.end46:                                         ; preds = %do.cond
   br label %if.end52
 
 if.else47:                                        ; preds = %if.then36
-  %52 = load ptr, ptr %waitp.addr, align 8
-  %how = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %52, i32 0, i32 0
-  %53 = load ptr, ptr %how, align 8
-  %cmp48 = icmp eq ptr %53, @_ZN4abslL11kExclusiveSE
+  %56 = load ptr, ptr %waitp.addr, align 8
+  %how = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %56, i32 0, i32 0
+  %57 = load ptr, ptr %how, align 8
+  %cmp48 = icmp eq ptr %57, @_ZN4abslL11kExclusiveSE
   br i1 %cmp48, label %land.lhs.true, label %if.end51
 
 land.lhs.true:                                    ; preds = %if.else47
-  %54 = load ptr, ptr %waitp.addr, align 8
-  %cond = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %54, i32 0, i32 1
-  %55 = load ptr, ptr %cond, align 8
-  %cmp49 = icmp eq ptr %55, null
+  %58 = load ptr, ptr %waitp.addr, align 8
+  %cond = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %58, i32 0, i32 1
+  %59 = load ptr, ptr %cond, align 8
+  %cmp49 = icmp eq ptr %59, null
   br i1 %cmp49, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %land.lhs.true
-  %56 = load ptr, ptr %head.addr, align 8
-  store ptr %56, ptr %enqueue_after, align 8
+  %60 = load ptr, ptr %head.addr, align 8
+  store ptr %60, ptr %enqueue_after, align 8
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then50, %land.lhs.true, %if.else47
@@ -13843,47 +13898,49 @@ if.end52:                                         ; preds = %if.end51, %do.end46
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end52, %if.else32
-  %57 = load ptr, ptr %enqueue_after, align 8
-  %cmp54 = icmp ne ptr %57, null
+  %61 = load ptr, ptr %enqueue_after, align 8
+  %cmp54 = icmp ne ptr %61, null
   br i1 %cmp54, label %if.then55, label %if.else95
 
 if.then55:                                        ; preds = %if.end53
-  %58 = load ptr, ptr %enqueue_after, align 8
-  %next56 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %58, i32 0, i32 0
-  %59 = load ptr, ptr %next56, align 8
-  %60 = load ptr, ptr %s, align 8
-  %next57 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %60, i32 0, i32 0
-  store ptr %59, ptr %next57, align 8
-  %61 = load ptr, ptr %s, align 8
   %62 = load ptr, ptr %enqueue_after, align 8
-  %next58 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %62, i32 0, i32 0
-  store ptr %61, ptr %next58, align 8
+  %next56 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %62, i32 0, i32 0
+  %63 = load ptr, ptr %next56, align 8
+  %64 = load ptr, ptr %s, align 8
+  %next57 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %64, i32 0, i32 0
+  store ptr %63, ptr %next57, align 8
+  %65 = load ptr, ptr %s, align 8
+  %66 = load ptr, ptr %enqueue_after, align 8
+  %next58 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %66, i32 0, i32 0
+  store ptr %65, ptr %next58, align 8
   br label %do.body59
 
 do.body59:                                        ; preds = %if.then55
-  %63 = load ptr, ptr %enqueue_after, align 8
-  %skip60 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %63, i32 0, i32 1
-  %64 = load ptr, ptr %skip60, align 8
-  %cmp61 = icmp eq ptr %64, null
+  %67 = load ptr, ptr %enqueue_after, align 8
+  %skip60 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %67, i32 0, i32 1
+  %68 = load ptr, ptr %skip60, align 8
+  %cmp61 = icmp eq ptr %68, null
   br i1 %cmp61, label %lor.end64, label %lor.rhs62
 
 lor.rhs62:                                        ; preds = %do.body59
-  %65 = load ptr, ptr %enqueue_after, align 8
-  %66 = load ptr, ptr %s, align 8
-  %call63 = call noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef %65, ptr noundef %66)
+  %69 = load ptr, ptr %enqueue_after, align 8
+  %70 = load ptr, ptr %s, align 8
+  %call63 = call noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef %69, ptr noundef %70)
   br label %lor.end64
 
 lor.end64:                                        ; preds = %lor.rhs62, %do.body59
-  %67 = phi i1 [ true, %do.body59 ], [ %call63, %lor.rhs62 ]
-  %lnot65 = xor i1 %67, true
+  %71 = phi i1 [ true, %do.body59 ], [ %call63, %lor.rhs62 ]
+  %lnot65 = xor i1 %71, true
   br i1 %lnot65, label %if.then67, label %if.end75
 
 if.then67:                                        ; preds = %lor.end64
   br label %do.body68
 
 do.body68:                                        ; preds = %if.then67
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename69, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 993, ptr noundef @.str.1, ptr noundef @.str.72, ptr noundef @.str.73)
+  %72 = getelementptr i8, ptr @.str, i64 120
+  store ptr %72, ptr %absl_raw_log_internal_basename69, align 8
+  %73 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %73, i32 noundef 993, ptr noundef @.str.1, ptr noundef @.str.72, ptr noundef @.str.73)
   br label %do.body70
 
 do.body70:                                        ; preds = %do.body68
@@ -13899,171 +13956,171 @@ if.end75:                                         ; preds = %do.end74, %lor.end6
   br label %do.end77
 
 do.end77:                                         ; preds = %if.end75
-  %68 = load ptr, ptr %enqueue_after, align 8
-  %69 = load ptr, ptr %head.addr, align 8
-  %cmp78 = icmp ne ptr %68, %69
+  %74 = load ptr, ptr %enqueue_after, align 8
+  %75 = load ptr, ptr %head.addr, align 8
+  %cmp78 = icmp ne ptr %74, %75
   br i1 %cmp78, label %land.lhs.true79, label %if.end88
 
 land.lhs.true79:                                  ; preds = %do.end77
-  %70 = load ptr, ptr %enqueue_after, align 8
-  %may_skip80 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %70, i32 0, i32 2
-  %71 = load i8, ptr %may_skip80, align 8
-  %tobool81 = trunc i8 %71 to i1
+  %76 = load ptr, ptr %enqueue_after, align 8
+  %may_skip80 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %76, i32 0, i32 2
+  %77 = load i8, ptr %may_skip80, align 8
+  %tobool81 = trunc i8 %77 to i1
   br i1 %tobool81, label %land.lhs.true82, label %if.end88
 
 land.lhs.true82:                                  ; preds = %land.lhs.true79
-  %72 = load ptr, ptr %enqueue_after, align 8
-  %73 = load ptr, ptr %enqueue_after, align 8
-  %next83 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %73, i32 0, i32 0
-  %74 = load ptr, ptr %next83, align 8
-  %call84 = call noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef %72, ptr noundef %74)
+  %78 = load ptr, ptr %enqueue_after, align 8
+  %79 = load ptr, ptr %enqueue_after, align 8
+  %next83 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %79, i32 0, i32 0
+  %80 = load ptr, ptr %next83, align 8
+  %call84 = call noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef %78, ptr noundef %80)
   br i1 %call84, label %if.then85, label %if.end88
 
 if.then85:                                        ; preds = %land.lhs.true82
-  %75 = load ptr, ptr %enqueue_after, align 8
-  %next86 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %75, i32 0, i32 0
-  %76 = load ptr, ptr %next86, align 8
-  %77 = load ptr, ptr %enqueue_after, align 8
-  %skip87 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %77, i32 0, i32 1
-  store ptr %76, ptr %skip87, align 8
+  %81 = load ptr, ptr %enqueue_after, align 8
+  %next86 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %81, i32 0, i32 0
+  %82 = load ptr, ptr %next86, align 8
+  %83 = load ptr, ptr %enqueue_after, align 8
+  %skip87 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %83, i32 0, i32 1
+  store ptr %82, ptr %skip87, align 8
   br label %if.end88
 
 if.end88:                                         ; preds = %if.then85, %land.lhs.true82, %land.lhs.true79, %do.end77
-  %78 = load ptr, ptr %s, align 8
-  %79 = load ptr, ptr %s, align 8
-  %next89 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %79, i32 0, i32 0
-  %80 = load ptr, ptr %next89, align 8
-  %call90 = call noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef %78, ptr noundef %80)
+  %84 = load ptr, ptr %s, align 8
+  %85 = load ptr, ptr %s, align 8
+  %next89 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %85, i32 0, i32 0
+  %86 = load ptr, ptr %next89, align 8
+  %call90 = call noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef %84, ptr noundef %86)
   br i1 %call90, label %if.then91, label %if.end94
 
 if.then91:                                        ; preds = %if.end88
-  %81 = load ptr, ptr %s, align 8
-  %next92 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %81, i32 0, i32 0
-  %82 = load ptr, ptr %next92, align 8
-  %83 = load ptr, ptr %s, align 8
-  %skip93 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %83, i32 0, i32 1
-  store ptr %82, ptr %skip93, align 8
+  %87 = load ptr, ptr %s, align 8
+  %next92 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %87, i32 0, i32 0
+  %88 = load ptr, ptr %next92, align 8
+  %89 = load ptr, ptr %s, align 8
+  %skip93 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %89, i32 0, i32 1
+  store ptr %88, ptr %skip93, align 8
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then91, %if.end88
   br label %if.end140
 
 if.else95:                                        ; preds = %if.end53
-  %84 = load i32, ptr %flags.addr, align 4
-  %and96 = and i32 %84, 1
+  %90 = load i32, ptr %flags.addr, align 4
+  %and96 = and i32 %90, 1
   %tobool97 = icmp ne i32 %and96, 0
   br i1 %tobool97, label %land.lhs.true98, label %if.else122
 
 land.lhs.true98:                                  ; preds = %if.else95
-  %85 = load ptr, ptr %s, align 8
-  %priority99 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %85, i32 0, i32 7
-  %86 = load i32, ptr %priority99, align 8
-  %87 = load ptr, ptr %head.addr, align 8
-  %next100 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %87, i32 0, i32 0
-  %88 = load ptr, ptr %next100, align 8
-  %priority101 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %88, i32 0, i32 7
-  %89 = load i32, ptr %priority101, align 8
-  %cmp102 = icmp sge i32 %86, %89
+  %91 = load ptr, ptr %s, align 8
+  %priority99 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %91, i32 0, i32 7
+  %92 = load i32, ptr %priority99, align 8
+  %93 = load ptr, ptr %head.addr, align 8
+  %next100 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %93, i32 0, i32 0
+  %94 = load ptr, ptr %next100, align 8
+  %priority101 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %94, i32 0, i32 7
+  %95 = load i32, ptr %priority101, align 8
+  %cmp102 = icmp sge i32 %92, %95
   br i1 %cmp102, label %land.lhs.true103, label %if.else122
 
 land.lhs.true103:                                 ; preds = %land.lhs.true98
-  %90 = load ptr, ptr %head.addr, align 8
-  %maybe_unlocking104 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %90, i32 0, i32 5
-  %91 = load i8, ptr %maybe_unlocking104, align 1
-  %tobool105 = trunc i8 %91 to i1
+  %96 = load ptr, ptr %head.addr, align 8
+  %maybe_unlocking104 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %96, i32 0, i32 5
+  %97 = load i8, ptr %maybe_unlocking104, align 1
+  %tobool105 = trunc i8 %97 to i1
   br i1 %tobool105, label %lor.lhs.false106, label %if.then112
 
 lor.lhs.false106:                                 ; preds = %land.lhs.true103
-  %92 = load ptr, ptr %waitp.addr, align 8
-  %how107 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %92, i32 0, i32 0
-  %93 = load ptr, ptr %how107, align 8
-  %cmp108 = icmp eq ptr %93, @_ZN4abslL11kExclusiveSE
+  %98 = load ptr, ptr %waitp.addr, align 8
+  %how107 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %98, i32 0, i32 0
+  %99 = load ptr, ptr %how107, align 8
+  %cmp108 = icmp eq ptr %99, @_ZN4abslL11kExclusiveSE
   br i1 %cmp108, label %land.lhs.true109, label %if.else122
 
 land.lhs.true109:                                 ; preds = %lor.lhs.false106
-  %94 = load ptr, ptr %waitp.addr, align 8
-  %cond110 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %94, i32 0, i32 1
-  %95 = load ptr, ptr %cond110, align 8
-  %call111 = call noundef zeroext i1 @_ZN4absl9Condition15GuaranteedEqualEPKS0_S2_(ptr noundef %95, ptr noundef null)
+  %100 = load ptr, ptr %waitp.addr, align 8
+  %cond110 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %100, i32 0, i32 1
+  %101 = load ptr, ptr %cond110, align 8
+  %call111 = call noundef zeroext i1 @_ZN4absl9Condition15GuaranteedEqualEPKS0_S2_(ptr noundef %101, ptr noundef null)
   br i1 %call111, label %if.then112, label %if.else122
 
 if.then112:                                       ; preds = %land.lhs.true109, %land.lhs.true103
-  %96 = load ptr, ptr %head.addr, align 8
-  %next113 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %96, i32 0, i32 0
-  %97 = load ptr, ptr %next113, align 8
-  %98 = load ptr, ptr %s, align 8
-  %next114 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %98, i32 0, i32 0
-  store ptr %97, ptr %next114, align 8
-  %99 = load ptr, ptr %s, align 8
-  %100 = load ptr, ptr %head.addr, align 8
-  %next115 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %100, i32 0, i32 0
-  store ptr %99, ptr %next115, align 8
-  %101 = load ptr, ptr %s, align 8
-  %102 = load ptr, ptr %s, align 8
-  %next116 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %102, i32 0, i32 0
-  %103 = load ptr, ptr %next116, align 8
-  %call117 = call noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef %101, ptr noundef %103)
+  %102 = load ptr, ptr %head.addr, align 8
+  %next113 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %102, i32 0, i32 0
+  %103 = load ptr, ptr %next113, align 8
+  %104 = load ptr, ptr %s, align 8
+  %next114 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %104, i32 0, i32 0
+  store ptr %103, ptr %next114, align 8
+  %105 = load ptr, ptr %s, align 8
+  %106 = load ptr, ptr %head.addr, align 8
+  %next115 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %106, i32 0, i32 0
+  store ptr %105, ptr %next115, align 8
+  %107 = load ptr, ptr %s, align 8
+  %108 = load ptr, ptr %s, align 8
+  %next116 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %108, i32 0, i32 0
+  %109 = load ptr, ptr %next116, align 8
+  %call117 = call noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef %107, ptr noundef %109)
   br i1 %call117, label %if.then118, label %if.end121
 
 if.then118:                                       ; preds = %if.then112
-  %104 = load ptr, ptr %s, align 8
-  %next119 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %104, i32 0, i32 0
-  %105 = load ptr, ptr %next119, align 8
-  %106 = load ptr, ptr %s, align 8
-  %skip120 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %106, i32 0, i32 1
-  store ptr %105, ptr %skip120, align 8
+  %110 = load ptr, ptr %s, align 8
+  %next119 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %110, i32 0, i32 0
+  %111 = load ptr, ptr %next119, align 8
+  %112 = load ptr, ptr %s, align 8
+  %skip120 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %112, i32 0, i32 1
+  store ptr %111, ptr %skip120, align 8
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then118, %if.then112
   br label %if.end139
 
 if.else122:                                       ; preds = %land.lhs.true109, %lor.lhs.false106, %land.lhs.true98, %if.else95
-  %107 = load ptr, ptr %head.addr, align 8
-  %next123 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %107, i32 0, i32 0
-  %108 = load ptr, ptr %next123, align 8
-  %109 = load ptr, ptr %s, align 8
-  %next124 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %109, i32 0, i32 0
-  store ptr %108, ptr %next124, align 8
-  %110 = load ptr, ptr %s, align 8
-  %111 = load ptr, ptr %head.addr, align 8
-  %next125 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %111, i32 0, i32 0
-  store ptr %110, ptr %next125, align 8
-  %112 = load ptr, ptr %head.addr, align 8
-  %readers126 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %112, i32 0, i32 10
-  %113 = load i64, ptr %readers126, align 8
-  %114 = load ptr, ptr %s, align 8
-  %readers127 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %114, i32 0, i32 10
-  store i64 %113, ptr %readers127, align 8
-  %115 = load ptr, ptr %head.addr, align 8
-  %maybe_unlocking128 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %115, i32 0, i32 5
-  %116 = load i8, ptr %maybe_unlocking128, align 1
-  %tobool129 = trunc i8 %116 to i1
-  %117 = load ptr, ptr %s, align 8
-  %maybe_unlocking130 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %117, i32 0, i32 5
+  %113 = load ptr, ptr %head.addr, align 8
+  %next123 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %113, i32 0, i32 0
+  %114 = load ptr, ptr %next123, align 8
+  %115 = load ptr, ptr %s, align 8
+  %next124 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %115, i32 0, i32 0
+  store ptr %114, ptr %next124, align 8
+  %116 = load ptr, ptr %s, align 8
+  %117 = load ptr, ptr %head.addr, align 8
+  %next125 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %117, i32 0, i32 0
+  store ptr %116, ptr %next125, align 8
+  %118 = load ptr, ptr %head.addr, align 8
+  %readers126 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %118, i32 0, i32 10
+  %119 = load i64, ptr %readers126, align 8
+  %120 = load ptr, ptr %s, align 8
+  %readers127 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %120, i32 0, i32 10
+  store i64 %119, ptr %readers127, align 8
+  %121 = load ptr, ptr %head.addr, align 8
+  %maybe_unlocking128 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %121, i32 0, i32 5
+  %122 = load i8, ptr %maybe_unlocking128, align 1
+  %tobool129 = trunc i8 %122 to i1
+  %123 = load ptr, ptr %s, align 8
+  %maybe_unlocking130 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %123, i32 0, i32 5
   %frombool131 = zext i1 %tobool129 to i8
   store i8 %frombool131, ptr %maybe_unlocking130, align 1
-  %118 = load ptr, ptr %head.addr, align 8
-  %may_skip132 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %118, i32 0, i32 2
-  %119 = load i8, ptr %may_skip132, align 8
-  %tobool133 = trunc i8 %119 to i1
+  %124 = load ptr, ptr %head.addr, align 8
+  %may_skip132 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %124, i32 0, i32 2
+  %125 = load i8, ptr %may_skip132, align 8
+  %tobool133 = trunc i8 %125 to i1
   br i1 %tobool133, label %land.lhs.true134, label %if.end138
 
 land.lhs.true134:                                 ; preds = %if.else122
-  %120 = load ptr, ptr %head.addr, align 8
-  %121 = load ptr, ptr %s, align 8
-  %call135 = call noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef %120, ptr noundef %121)
+  %126 = load ptr, ptr %head.addr, align 8
+  %127 = load ptr, ptr %s, align 8
+  %call135 = call noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef %126, ptr noundef %127)
   br i1 %call135, label %if.then136, label %if.end138
 
 if.then136:                                       ; preds = %land.lhs.true134
-  %122 = load ptr, ptr %s, align 8
-  %123 = load ptr, ptr %head.addr, align 8
-  %skip137 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %123, i32 0, i32 1
-  store ptr %122, ptr %skip137, align 8
+  %128 = load ptr, ptr %s, align 8
+  %129 = load ptr, ptr %head.addr, align 8
+  %skip137 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %129, i32 0, i32 1
+  store ptr %128, ptr %skip137, align 8
   br label %if.end138
 
 if.end138:                                        ; preds = %if.then136, %land.lhs.true134, %if.else122
-  %124 = load ptr, ptr %s, align 8
-  store ptr %124, ptr %head.addr, align 8
+  %130 = load ptr, ptr %s, align 8
+  store ptr %130, ptr %head.addr, align 8
   br label %if.end139
 
 if.end139:                                        ; preds = %if.end138, %if.end121
@@ -14073,16 +14130,16 @@ if.end140:                                        ; preds = %if.end139, %if.end9
   br label %if.end141
 
 if.end141:                                        ; preds = %if.end140, %if.then31
-  %125 = load ptr, ptr %s, align 8
-  %state = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %125, i32 0, i32 8
+  %131 = load ptr, ptr %s, align 8
+  %state = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %131, i32 0, i32 8
   call void @_ZNSt6atomicIN4absl13base_internal14PerThreadSynch5StateEE5storeES3_St12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 1, i32 noundef 0) #13
-  %126 = load ptr, ptr %head.addr, align 8
-  store ptr %126, ptr %retval, align 8
+  %132 = load ptr, ptr %head.addr, align 8
+  store ptr %132, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end141, %if.then
-  %127 = load ptr, ptr %retval, align 8
-  ret ptr %127
+  %133 = load ptr, ptr %retval, align 8
+  ret ptr %133
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14173,23 +14230,25 @@ if.then:                                          ; preds = %_ZNKSt13__atomic_ba
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  %6 = load ptr, ptr %e, align 8
-  %cmp3 = icmp eq ptr %6, null
+  %6 = getelementptr i8, ptr @.str, i64 120
+  store ptr %6, ptr %absl_raw_log_internal_basename, align 8
+  %7 = load ptr, ptr %e, align 8
+  %cmp3 = icmp eq ptr %7, null
   br i1 %cmp3, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %do.body
   br label %cond.end
 
 cond.false:                                       ; preds = %do.body
-  %7 = load ptr, ptr %e, align 8
-  %name = getelementptr inbounds %"struct.absl::SynchEvent", ptr %7, i32 0, i32 6
+  %8 = load ptr, ptr %e, align 8
+  %name = getelementptr inbounds %"struct.absl::SynchEvent", ptr %8, i32 0, i32 6
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond-lvalue = phi ptr [ @.str.35, %cond.true ], [ %name, %cond.false ]
   %arraydecay = getelementptr inbounds [1 x i8], ptr %cond-lvalue, i64 0, i64 0
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2473, ptr noundef @.str.36, ptr noundef %this1, ptr noundef %arraydecay)
+  %9 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %9, i32 noundef 2473, ptr noundef @.str.36, ptr noundef %this1, ptr noundef %arraydecay)
   br label %do.body4
 
 do.body4:                                         ; preds = %cond.end
@@ -14280,8 +14339,10 @@ if.then2:                                         ; preds = %do.body1
   br label %do.body3
 
 do.body3:                                         ; preds = %if.then2
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 1074, ptr noundef @.str.1, ptr noundef @.str.76, ptr noundef @.str.77)
+  %7 = getelementptr i8, ptr @.str, i64 120
+  store ptr %7, ptr %absl_raw_log_internal_basename, align 8
+  %8 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %8, i32 noundef 1074, ptr noundef @.str.1, ptr noundef @.str.76, ptr noundef @.str.77)
   br label %do.body4
 
 do.body4:                                         ; preds = %do.body3
@@ -14297,27 +14358,27 @@ if.end:                                           ; preds = %do.end5, %do.body1
   br label %do.end6
 
 do.end6:                                          ; preds = %if.end
-  %7 = load ptr, ptr %head.addr, align 8
-  %8 = load ptr, ptr %pw.addr, align 8
-  %call = call noundef ptr @_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_(ptr noundef %7, ptr noundef %8)
+  %9 = load ptr, ptr %head.addr, align 8
+  %10 = load ptr, ptr %pw.addr, align 8
+  %call = call noundef ptr @_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_(ptr noundef %9, ptr noundef %10)
   store ptr %call, ptr %head.addr, align 8
-  %9 = load ptr, ptr %wake_tail.addr, align 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %w, align 8
-  %next7 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %11, i32 0, i32 0
-  store ptr %10, ptr %next7, align 8
-  %12 = load ptr, ptr %w, align 8
-  %13 = load ptr, ptr %wake_tail.addr, align 8
-  store ptr %12, ptr %13, align 8
+  %11 = load ptr, ptr %wake_tail.addr, align 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %w, align 8
+  %next7 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %13, i32 0, i32 0
+  store ptr %12, ptr %next7, align 8
   %14 = load ptr, ptr %w, align 8
-  %next8 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %14, i32 0, i32 0
+  %15 = load ptr, ptr %wake_tail.addr, align 8
+  store ptr %14, ptr %15, align 8
+  %16 = load ptr, ptr %w, align 8
+  %next8 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %16, i32 0, i32 0
   store ptr %next8, ptr %wake_tail.addr, align 8
-  %15 = load ptr, ptr %w, align 8
-  %waitp = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %15, i32 0, i32 9
-  %16 = load ptr, ptr %waitp, align 8
-  %how = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %how, align 8
-  %cmp9 = icmp eq ptr %17, @_ZN4abslL11kExclusiveSE
+  %17 = load ptr, ptr %w, align 8
+  %waitp = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %17, i32 0, i32 9
+  %18 = load ptr, ptr %waitp, align 8
+  %how = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %18, i32 0, i32 0
+  %19 = load ptr, ptr %how, align 8
+  %cmp9 = icmp eq ptr %19, @_ZN4abslL11kExclusiveSE
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %do.end6
@@ -14327,48 +14388,48 @@ if.end11:                                         ; preds = %do.end6
   br label %if.end13
 
 if.else:                                          ; preds = %do.body
-  %18 = load ptr, ptr %w, align 8
-  %call12 = call noundef ptr @_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE(ptr noundef %18)
+  %20 = load ptr, ptr %w, align 8
+  %call12 = call noundef ptr @_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE(ptr noundef %20)
   store ptr %call12, ptr %pw.addr, align 8
   store i8 1, ptr %skipped, align 1
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.end11
-  %19 = load ptr, ptr %pw.addr, align 8
-  %next14 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %next14, align 8
-  store ptr %20, ptr %w, align 8
+  %21 = load ptr, ptr %pw.addr, align 8
+  %next14 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %21, i32 0, i32 0
+  %22 = load ptr, ptr %next14, align 8
+  store ptr %22, ptr %w, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end13
-  %21 = load ptr, ptr %orig_h, align 8
-  %22 = load ptr, ptr %head.addr, align 8
-  %cmp15 = icmp eq ptr %21, %22
+  %23 = load ptr, ptr %orig_h, align 8
+  %24 = load ptr, ptr %head.addr, align 8
+  %cmp15 = icmp eq ptr %23, %24
   br i1 %cmp15, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %do.cond
-  %23 = load ptr, ptr %pw.addr, align 8
-  %24 = load ptr, ptr %head.addr, align 8
-  %cmp16 = icmp ne ptr %23, %24
+  %25 = load ptr, ptr %pw.addr, align 8
+  %26 = load ptr, ptr %head.addr, align 8
+  %cmp16 = icmp ne ptr %25, %26
   br i1 %cmp16, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
-  %25 = load i8, ptr %skipped, align 1
-  %tobool17 = trunc i8 %25 to i1
+  %27 = load i8, ptr %skipped, align 1
+  %tobool17 = trunc i8 %27 to i1
   %lnot18 = xor i1 %tobool17, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.rhs
-  %26 = phi i1 [ true, %land.rhs ], [ %lnot18, %lor.rhs ]
+  %28 = phi i1 [ true, %land.rhs ], [ %lnot18, %lor.rhs ]
   br label %land.end
 
 land.end:                                         ; preds = %lor.end, %do.cond
-  %27 = phi i1 [ false, %do.cond ], [ %26, %lor.end ]
-  br i1 %27, label %do.body, label %do.end19, !llvm.loop !28
+  %29 = phi i1 [ false, %do.cond ], [ %28, %lor.end ]
+  br i1 %29, label %do.body, label %do.end19, !llvm.loop !28
 
 do.end19:                                         ; preds = %land.end, %if.then10
-  %28 = load ptr, ptr %head.addr, align 8
-  ret ptr %28
+  %30 = load ptr, ptr %head.addr, align 8
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14525,8 +14586,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body2
 
 do.body2:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2408, ptr noundef @.str.1, ptr noundef @.str.29, ptr noundef @.str.30)
+  %3 = getelementptr i8, ptr @.str, i64 120
+  store ptr %3, ptr %absl_raw_log_internal_basename, align 8
+  %4 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %4, i32 noundef 2408, ptr noundef @.str.1, ptr noundef @.str.29, ptr noundef @.str.30)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %do.body2
@@ -14536,12 +14599,12 @@ do.body3:                                         ; preds = %invoke.cont
   unreachable
 
 lpad:                                             ; preds = %if.end103, %do.body78, %invoke.cont68, %if.then67, %do.body42, %if.then34, %if.then30, %do.end23, %do.body13, %do.body2
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN4absl13base_internal15SchedulingGuard13ScopedDisableD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %disable_rescheduling) #13
   br label %eh.resume
 
@@ -14567,12 +14630,12 @@ do.end7:                                          ; preds = %do.cond6
   br label %do.body8
 
 do.body8:                                         ; preds = %do.end7
-  %6 = load ptr, ptr %w.addr, align 8
-  %waitp9 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %6, i32 0, i32 9
-  %7 = load ptr, ptr %waitp9, align 8
-  %cv_word = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %7, i32 0, i32 5
-  %8 = load ptr, ptr %cv_word, align 8
-  %cmp10 = icmp eq ptr %8, null
+  %8 = load ptr, ptr %w.addr, align 8
+  %waitp9 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %8, i32 0, i32 9
+  %9 = load ptr, ptr %waitp9, align 8
+  %cv_word = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %9, i32 0, i32 5
+  %10 = load ptr, ptr %cv_word, align 8
+  %cmp10 = icmp eq ptr %10, null
   %lnot11 = xor i1 %cmp10, true
   br i1 %lnot11, label %if.then12, label %if.end21
 
@@ -14580,8 +14643,10 @@ if.then12:                                        ; preds = %do.body8
   br label %do.body13
 
 do.body13:                                        ; preds = %if.then12
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename14, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2410, ptr noundef @.str.1, ptr noundef @.str.31, ptr noundef @.str.32)
+  %11 = getelementptr i8, ptr @.str, i64 120
+  store ptr %11, ptr %absl_raw_log_internal_basename14, align 8
+  %12 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %12, i32 noundef 2410, ptr noundef @.str.1, ptr noundef @.str.31, ptr noundef @.str.32)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %do.body13
@@ -14613,10 +14678,10 @@ do.end23:                                         ; preds = %do.cond22
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %do.end23
-  %9 = load ptr, ptr %w.addr, align 8
-  %waitp25 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %9, i32 0, i32 9
-  %10 = load ptr, ptr %waitp25, align 8
-  %timeout = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %10, i32 0, i32 2
+  %13 = load ptr, ptr %w.addr, align 8
+  %waitp25 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %13, i32 0, i32 9
+  %14 = load ptr, ptr %waitp25, align 8
+  %timeout = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %14, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %timeout, ptr align 8 %ref.tmp, i64 8, i1 false)
   br label %for.cond
 
@@ -14625,58 +14690,58 @@ for.cond:                                         ; preds = %invoke.cont104, %in
   store ptr %mu_, ptr %this.addr.i107, align 8
   store i32 0, ptr %__m.addr.i108, align 4
   %this1.i111 = load ptr, ptr %this.addr.i107, align 8
-  %11 = load i32, ptr %__m.addr.i108, align 4
-  %call.i112 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %11, i32 noundef 65535)
+  %15 = load i32, ptr %__m.addr.i108, align 4
+  %call.i112 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %15, i32 noundef 65535)
   store i32 %call.i112, ptr %__b.i109, align 4
-  %12 = load i32, ptr %__m.addr.i108, align 4
-  switch i32 %12, label %monotonic.i115 [
+  %16 = load i32, ptr %__m.addr.i108, align 4
+  switch i32 %16, label %monotonic.i115 [
     i32 1, label %acquire.i114
     i32 2, label %acquire.i114
     i32 5, label %seqcst.i113
   ]
 
 monotonic.i115:                                   ; preds = %for.cond
-  %13 = load atomic i64, ptr %this1.i111 monotonic, align 8
-  store i64 %13, ptr %atomic-temp.i110, align 8
+  %17 = load atomic i64, ptr %this1.i111 monotonic, align 8
+  store i64 %17, ptr %atomic-temp.i110, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit116
 
 acquire.i114:                                     ; preds = %for.cond, %for.cond
-  %14 = load atomic i64, ptr %this1.i111 acquire, align 8
-  store i64 %14, ptr %atomic-temp.i110, align 8
+  %18 = load atomic i64, ptr %this1.i111 acquire, align 8
+  store i64 %18, ptr %atomic-temp.i110, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit116
 
 seqcst.i113:                                      ; preds = %for.cond
-  %15 = load atomic i64, ptr %this1.i111 seq_cst, align 8
-  store i64 %15, ptr %atomic-temp.i110, align 8
+  %19 = load atomic i64, ptr %this1.i111 seq_cst, align 8
+  store i64 %19, ptr %atomic-temp.i110, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit116
 
 _ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit116: ; preds = %seqcst.i113, %acquire.i114, %monotonic.i115
-  %16 = load i64, ptr %atomic-temp.i110, align 8
-  store i64 %16, ptr %v, align 8
-  %17 = load ptr, ptr %w.addr, align 8
-  %waitp26 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %17, i32 0, i32 9
-  %18 = load ptr, ptr %waitp26, align 8
-  %how = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %how, align 8
-  %cmp27 = icmp eq ptr %19, @_ZN4abslL8kSharedSE
+  %20 = load i64, ptr %atomic-temp.i110, align 8
+  store i64 %20, ptr %v, align 8
+  %21 = load ptr, ptr %w.addr, align 8
+  %waitp26 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %21, i32 0, i32 9
+  %22 = load ptr, ptr %waitp26, align 8
+  %how = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %how, align 8
+  %cmp27 = icmp eq ptr %23, @_ZN4abslL8kSharedSE
   %cond28 = select i1 %cmp27, i64 0, i64 1
   %or = or i64 8, %cond28
   store i64 %or, ptr %conflicting, align 8
-  %20 = load i64, ptr %v, align 8
-  %21 = load i64, ptr %conflicting, align 8
-  %and = and i64 %20, %21
+  %24 = load i64, ptr %v, align 8
+  %25 = load i64, ptr %conflicting, align 8
+  %and = and i64 %24, %25
   %cmp29 = icmp eq i64 %and, 0
   br i1 %cmp29, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit116
-  %22 = load ptr, ptr %w.addr, align 8
-  %next = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %22, i32 0, i32 0
+  %26 = load ptr, ptr %w.addr, align 8
+  %next = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %26, i32 0, i32 0
   store ptr null, ptr %next, align 8
-  %23 = load ptr, ptr %w.addr, align 8
-  %state = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %23, i32 0, i32 8
+  %27 = load ptr, ptr %w.addr, align 8
+  %state = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %27, i32 0, i32 8
   call void @_ZNSt6atomicIN4absl13base_internal14PerThreadSynch5StateEE5storeES3_St12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 0, i32 noundef 3) #13
-  %24 = load ptr, ptr %w.addr, align 8
-  invoke void @_ZN4absl5Mutex17IncrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchE(ptr noundef %this1, ptr noundef %24)
+  %28 = load ptr, ptr %w.addr, align 8
+  invoke void @_ZN4absl5Mutex17IncrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchE(ptr noundef %this1, ptr noundef %28)
           to label %invoke.cont31 unwind label %lpad
 
 invoke.cont31:                                    ; preds = %if.then30
@@ -14684,17 +14749,17 @@ invoke.cont31:                                    ; preds = %if.then30
   br label %cleanup
 
 if.else:                                          ; preds = %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit116
-  %25 = load i64, ptr %v, align 8
-  %and32 = and i64 %25, 68
+  %29 = load i64, ptr %v, align 8
+  %and32 = and i64 %29, 68
   %cmp33 = icmp eq i64 %and32, 0
   br i1 %cmp33, label %if.then34, label %if.else60
 
 if.then34:                                        ; preds = %if.else
-  %26 = load ptr, ptr %w.addr, align 8
-  %waitp35 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %26, i32 0, i32 9
-  %27 = load ptr, ptr %waitp35, align 8
-  %28 = load i64, ptr %v, align 8
-  %call37 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef null, ptr noundef %27, i64 noundef %28, i32 noundef 6)
+  %30 = load ptr, ptr %w.addr, align 8
+  %waitp35 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %30, i32 0, i32 9
+  %31 = load ptr, ptr %waitp35, align 8
+  %32 = load i64, ptr %v, align 8
+  %call37 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef null, ptr noundef %31, i64 noundef %32, i32 noundef 6)
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %if.then34
@@ -14702,8 +14767,8 @@ invoke.cont36:                                    ; preds = %if.then34
   br label %do.body38
 
 do.body38:                                        ; preds = %invoke.cont36
-  %29 = load ptr, ptr %new_h, align 8
-  %cmp39 = icmp ne ptr %29, null
+  %33 = load ptr, ptr %new_h, align 8
+  %cmp39 = icmp ne ptr %33, null
   %lnot40 = xor i1 %cmp39, true
   br i1 %lnot40, label %if.then41, label %if.end50
 
@@ -14711,8 +14776,10 @@ if.then41:                                        ; preds = %do.body38
   br label %do.body42
 
 do.body42:                                        ; preds = %if.then41
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename43, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2434, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.33)
+  %34 = getelementptr i8, ptr @.str, i64 120
+  store ptr %34, ptr %absl_raw_log_internal_basename43, align 8
+  %35 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %35, i32 noundef 2434, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.33)
           to label %invoke.cont44 unwind label %lpad
 
 invoke.cont44:                                    ; preds = %do.body42
@@ -14741,11 +14808,11 @@ do.cond51:                                        ; preds = %if.end50
 
 do.end52:                                         ; preds = %do.cond51
   %mu_53 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %30 = load ptr, ptr %new_h, align 8
-  %31 = ptrtoint ptr %30 to i64
-  %32 = load i64, ptr %v, align 8
-  %and54 = and i64 %32, 255
-  %or55 = or i64 %31, %and54
+  %36 = load ptr, ptr %new_h, align 8
+  %37 = ptrtoint ptr %36 to i64
+  %38 = load i64, ptr %v, align 8
+  %and54 = and i64 %38, 255
+  %or55 = or i64 %37, %and54
   %or56 = or i64 %or55, 4
   store ptr %mu_53, ptr %this.addr.i117, align 8
   store ptr %v, ptr %__i1.addr.i, align 8
@@ -14753,12 +14820,12 @@ do.end52:                                         ; preds = %do.cond51
   store i32 3, ptr %__m1.addr.i, align 4
   store i32 0, ptr %__m2.addr.i, align 4
   %this1.i118 = load ptr, ptr %this.addr.i117, align 8
-  %33 = load i32, ptr %__m1.addr.i, align 4
-  %34 = load ptr, ptr %__i1.addr.i, align 8
-  %35 = load i64, ptr %__i2.addr.i, align 8
-  store i64 %35, ptr %.atomictmp.i, align 8
-  %36 = load i32, ptr %__m2.addr.i, align 4
-  switch i32 %33, label %monotonic.i121 [
+  %39 = load i32, ptr %__m1.addr.i, align 4
+  %40 = load ptr, ptr %__i1.addr.i, align 8
+  %41 = load i64, ptr %__i2.addr.i, align 8
+  store i64 %41, ptr %.atomictmp.i, align 8
+  %42 = load i32, ptr %__m2.addr.i, align 4
+  switch i32 %39, label %monotonic.i121 [
     i32 1, label %acquire.i120
     i32 2, label %acquire.i120
     i32 3, label %release.i
@@ -14767,313 +14834,313 @@ do.end52:                                         ; preds = %do.cond51
   ]
 
 monotonic.i121:                                   ; preds = %do.end52
-  switch i32 %36, label %monotonic_fail.i [
+  switch i32 %42, label %monotonic_fail.i [
     i32 1, label %acquire_fail.i
     i32 2, label %acquire_fail.i
     i32 5, label %seqcst_fail.i
   ]
 
 acquire.i120:                                     ; preds = %do.end52, %do.end52
-  switch i32 %36, label %monotonic_fail9.i [
+  switch i32 %42, label %monotonic_fail9.i [
     i32 1, label %acquire_fail10.i
     i32 2, label %acquire_fail10.i
     i32 5, label %seqcst_fail11.i
   ]
 
 release.i:                                        ; preds = %do.end52
-  switch i32 %36, label %monotonic_fail22.i [
+  switch i32 %42, label %monotonic_fail22.i [
     i32 1, label %acquire_fail23.i
     i32 2, label %acquire_fail23.i
     i32 5, label %seqcst_fail24.i
   ]
 
 acqrel.i:                                         ; preds = %do.end52
-  switch i32 %36, label %monotonic_fail35.i [
+  switch i32 %42, label %monotonic_fail35.i [
     i32 1, label %acquire_fail36.i
     i32 2, label %acquire_fail36.i
     i32 5, label %seqcst_fail37.i
   ]
 
 seqcst.i119:                                      ; preds = %do.end52
-  switch i32 %36, label %monotonic_fail48.i [
+  switch i32 %42, label %monotonic_fail48.i [
     i32 1, label %acquire_fail49.i
     i32 2, label %acquire_fail49.i
     i32 5, label %seqcst_fail50.i
   ]
 
 monotonic_fail.i:                                 ; preds = %monotonic.i121
-  %37 = load i64, ptr %34, align 8
-  %38 = load i64, ptr %.atomictmp.i, align 8
-  %39 = cmpxchg ptr %this1.i118, i64 %37, i64 %38 monotonic monotonic, align 8
-  %40 = extractvalue { i64, i1 } %39, 0
-  %41 = extractvalue { i64, i1 } %39, 1
-  br i1 %41, label %cmpxchg.continue.i, label %cmpxchg.store_expected.i
+  %43 = load i64, ptr %40, align 8
+  %44 = load i64, ptr %.atomictmp.i, align 8
+  %45 = cmpxchg ptr %this1.i118, i64 %43, i64 %44 monotonic monotonic, align 8
+  %46 = extractvalue { i64, i1 } %45, 0
+  %47 = extractvalue { i64, i1 } %45, 1
+  br i1 %47, label %cmpxchg.continue.i, label %cmpxchg.store_expected.i
 
 acquire_fail.i:                                   ; preds = %monotonic.i121, %monotonic.i121
-  %42 = load i64, ptr %34, align 8
-  %43 = load i64, ptr %.atomictmp.i, align 8
-  %44 = cmpxchg ptr %this1.i118, i64 %42, i64 %43 monotonic acquire, align 8
-  %45 = extractvalue { i64, i1 } %44, 0
-  %46 = extractvalue { i64, i1 } %44, 1
-  br i1 %46, label %cmpxchg.continue4.i, label %cmpxchg.store_expected3.i
+  %48 = load i64, ptr %40, align 8
+  %49 = load i64, ptr %.atomictmp.i, align 8
+  %50 = cmpxchg ptr %this1.i118, i64 %48, i64 %49 monotonic acquire, align 8
+  %51 = extractvalue { i64, i1 } %50, 0
+  %52 = extractvalue { i64, i1 } %50, 1
+  br i1 %52, label %cmpxchg.continue4.i, label %cmpxchg.store_expected3.i
 
 seqcst_fail.i:                                    ; preds = %monotonic.i121
-  %47 = load i64, ptr %34, align 8
-  %48 = load i64, ptr %.atomictmp.i, align 8
-  %49 = cmpxchg ptr %this1.i118, i64 %47, i64 %48 monotonic seq_cst, align 8
-  %50 = extractvalue { i64, i1 } %49, 0
-  %51 = extractvalue { i64, i1 } %49, 1
-  br i1 %51, label %cmpxchg.continue7.i, label %cmpxchg.store_expected6.i
+  %53 = load i64, ptr %40, align 8
+  %54 = load i64, ptr %.atomictmp.i, align 8
+  %55 = cmpxchg ptr %this1.i118, i64 %53, i64 %54 monotonic seq_cst, align 8
+  %56 = extractvalue { i64, i1 } %55, 0
+  %57 = extractvalue { i64, i1 } %55, 1
+  br i1 %57, label %cmpxchg.continue7.i, label %cmpxchg.store_expected6.i
 
 atomic.continue2.i:                               ; preds = %cmpxchg.continue7.i, %cmpxchg.continue4.i, %cmpxchg.continue.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected.i:                         ; preds = %monotonic_fail.i
-  store i64 %40, ptr %34, align 8
+  store i64 %46, ptr %40, align 8
   br label %cmpxchg.continue.i
 
 cmpxchg.continue.i:                               ; preds = %cmpxchg.store_expected.i, %monotonic_fail.i
-  %frombool.i = zext i1 %41 to i8
+  %frombool.i = zext i1 %47 to i8
   store i8 %frombool.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue2.i
 
 cmpxchg.store_expected3.i:                        ; preds = %acquire_fail.i
-  store i64 %45, ptr %34, align 8
+  store i64 %51, ptr %40, align 8
   br label %cmpxchg.continue4.i
 
 cmpxchg.continue4.i:                              ; preds = %cmpxchg.store_expected3.i, %acquire_fail.i
-  %frombool5.i = zext i1 %46 to i8
+  %frombool5.i = zext i1 %52 to i8
   store i8 %frombool5.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue2.i
 
 cmpxchg.store_expected6.i:                        ; preds = %seqcst_fail.i
-  store i64 %50, ptr %34, align 8
+  store i64 %56, ptr %40, align 8
   br label %cmpxchg.continue7.i
 
 cmpxchg.continue7.i:                              ; preds = %cmpxchg.store_expected6.i, %seqcst_fail.i
-  %frombool8.i = zext i1 %51 to i8
+  %frombool8.i = zext i1 %57 to i8
   store i8 %frombool8.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue2.i
 
 monotonic_fail9.i:                                ; preds = %acquire.i120
-  %52 = load i64, ptr %34, align 8
-  %53 = load i64, ptr %.atomictmp.i, align 8
-  %54 = cmpxchg ptr %this1.i118, i64 %52, i64 %53 acquire monotonic, align 8
-  %55 = extractvalue { i64, i1 } %54, 0
-  %56 = extractvalue { i64, i1 } %54, 1
-  br i1 %56, label %cmpxchg.continue14.i, label %cmpxchg.store_expected13.i
+  %58 = load i64, ptr %40, align 8
+  %59 = load i64, ptr %.atomictmp.i, align 8
+  %60 = cmpxchg ptr %this1.i118, i64 %58, i64 %59 acquire monotonic, align 8
+  %61 = extractvalue { i64, i1 } %60, 0
+  %62 = extractvalue { i64, i1 } %60, 1
+  br i1 %62, label %cmpxchg.continue14.i, label %cmpxchg.store_expected13.i
 
 acquire_fail10.i:                                 ; preds = %acquire.i120, %acquire.i120
-  %57 = load i64, ptr %34, align 8
-  %58 = load i64, ptr %.atomictmp.i, align 8
-  %59 = cmpxchg ptr %this1.i118, i64 %57, i64 %58 acquire acquire, align 8
-  %60 = extractvalue { i64, i1 } %59, 0
-  %61 = extractvalue { i64, i1 } %59, 1
-  br i1 %61, label %cmpxchg.continue17.i, label %cmpxchg.store_expected16.i
+  %63 = load i64, ptr %40, align 8
+  %64 = load i64, ptr %.atomictmp.i, align 8
+  %65 = cmpxchg ptr %this1.i118, i64 %63, i64 %64 acquire acquire, align 8
+  %66 = extractvalue { i64, i1 } %65, 0
+  %67 = extractvalue { i64, i1 } %65, 1
+  br i1 %67, label %cmpxchg.continue17.i, label %cmpxchg.store_expected16.i
 
 seqcst_fail11.i:                                  ; preds = %acquire.i120
-  %62 = load i64, ptr %34, align 8
-  %63 = load i64, ptr %.atomictmp.i, align 8
-  %64 = cmpxchg ptr %this1.i118, i64 %62, i64 %63 acquire seq_cst, align 8
-  %65 = extractvalue { i64, i1 } %64, 0
-  %66 = extractvalue { i64, i1 } %64, 1
-  br i1 %66, label %cmpxchg.continue20.i, label %cmpxchg.store_expected19.i
+  %68 = load i64, ptr %40, align 8
+  %69 = load i64, ptr %.atomictmp.i, align 8
+  %70 = cmpxchg ptr %this1.i118, i64 %68, i64 %69 acquire seq_cst, align 8
+  %71 = extractvalue { i64, i1 } %70, 0
+  %72 = extractvalue { i64, i1 } %70, 1
+  br i1 %72, label %cmpxchg.continue20.i, label %cmpxchg.store_expected19.i
 
 atomic.continue12.i:                              ; preds = %cmpxchg.continue20.i, %cmpxchg.continue17.i, %cmpxchg.continue14.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected13.i:                       ; preds = %monotonic_fail9.i
-  store i64 %55, ptr %34, align 8
+  store i64 %61, ptr %40, align 8
   br label %cmpxchg.continue14.i
 
 cmpxchg.continue14.i:                             ; preds = %cmpxchg.store_expected13.i, %monotonic_fail9.i
-  %frombool15.i = zext i1 %56 to i8
+  %frombool15.i = zext i1 %62 to i8
   store i8 %frombool15.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue12.i
 
 cmpxchg.store_expected16.i:                       ; preds = %acquire_fail10.i
-  store i64 %60, ptr %34, align 8
+  store i64 %66, ptr %40, align 8
   br label %cmpxchg.continue17.i
 
 cmpxchg.continue17.i:                             ; preds = %cmpxchg.store_expected16.i, %acquire_fail10.i
-  %frombool18.i = zext i1 %61 to i8
+  %frombool18.i = zext i1 %67 to i8
   store i8 %frombool18.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue12.i
 
 cmpxchg.store_expected19.i:                       ; preds = %seqcst_fail11.i
-  store i64 %65, ptr %34, align 8
+  store i64 %71, ptr %40, align 8
   br label %cmpxchg.continue20.i
 
 cmpxchg.continue20.i:                             ; preds = %cmpxchg.store_expected19.i, %seqcst_fail11.i
-  %frombool21.i = zext i1 %66 to i8
+  %frombool21.i = zext i1 %72 to i8
   store i8 %frombool21.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue12.i
 
 monotonic_fail22.i:                               ; preds = %release.i
-  %67 = load i64, ptr %34, align 8
-  %68 = load i64, ptr %.atomictmp.i, align 8
-  %69 = cmpxchg ptr %this1.i118, i64 %67, i64 %68 release monotonic, align 8
-  %70 = extractvalue { i64, i1 } %69, 0
-  %71 = extractvalue { i64, i1 } %69, 1
-  br i1 %71, label %cmpxchg.continue27.i, label %cmpxchg.store_expected26.i
+  %73 = load i64, ptr %40, align 8
+  %74 = load i64, ptr %.atomictmp.i, align 8
+  %75 = cmpxchg ptr %this1.i118, i64 %73, i64 %74 release monotonic, align 8
+  %76 = extractvalue { i64, i1 } %75, 0
+  %77 = extractvalue { i64, i1 } %75, 1
+  br i1 %77, label %cmpxchg.continue27.i, label %cmpxchg.store_expected26.i
 
 acquire_fail23.i:                                 ; preds = %release.i, %release.i
-  %72 = load i64, ptr %34, align 8
-  %73 = load i64, ptr %.atomictmp.i, align 8
-  %74 = cmpxchg ptr %this1.i118, i64 %72, i64 %73 release acquire, align 8
-  %75 = extractvalue { i64, i1 } %74, 0
-  %76 = extractvalue { i64, i1 } %74, 1
-  br i1 %76, label %cmpxchg.continue30.i, label %cmpxchg.store_expected29.i
+  %78 = load i64, ptr %40, align 8
+  %79 = load i64, ptr %.atomictmp.i, align 8
+  %80 = cmpxchg ptr %this1.i118, i64 %78, i64 %79 release acquire, align 8
+  %81 = extractvalue { i64, i1 } %80, 0
+  %82 = extractvalue { i64, i1 } %80, 1
+  br i1 %82, label %cmpxchg.continue30.i, label %cmpxchg.store_expected29.i
 
 seqcst_fail24.i:                                  ; preds = %release.i
-  %77 = load i64, ptr %34, align 8
-  %78 = load i64, ptr %.atomictmp.i, align 8
-  %79 = cmpxchg ptr %this1.i118, i64 %77, i64 %78 release seq_cst, align 8
-  %80 = extractvalue { i64, i1 } %79, 0
-  %81 = extractvalue { i64, i1 } %79, 1
-  br i1 %81, label %cmpxchg.continue33.i, label %cmpxchg.store_expected32.i
+  %83 = load i64, ptr %40, align 8
+  %84 = load i64, ptr %.atomictmp.i, align 8
+  %85 = cmpxchg ptr %this1.i118, i64 %83, i64 %84 release seq_cst, align 8
+  %86 = extractvalue { i64, i1 } %85, 0
+  %87 = extractvalue { i64, i1 } %85, 1
+  br i1 %87, label %cmpxchg.continue33.i, label %cmpxchg.store_expected32.i
 
 atomic.continue25.i:                              ; preds = %cmpxchg.continue33.i, %cmpxchg.continue30.i, %cmpxchg.continue27.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected26.i:                       ; preds = %monotonic_fail22.i
-  store i64 %70, ptr %34, align 8
+  store i64 %76, ptr %40, align 8
   br label %cmpxchg.continue27.i
 
 cmpxchg.continue27.i:                             ; preds = %cmpxchg.store_expected26.i, %monotonic_fail22.i
-  %frombool28.i = zext i1 %71 to i8
+  %frombool28.i = zext i1 %77 to i8
   store i8 %frombool28.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue25.i
 
 cmpxchg.store_expected29.i:                       ; preds = %acquire_fail23.i
-  store i64 %75, ptr %34, align 8
+  store i64 %81, ptr %40, align 8
   br label %cmpxchg.continue30.i
 
 cmpxchg.continue30.i:                             ; preds = %cmpxchg.store_expected29.i, %acquire_fail23.i
-  %frombool31.i = zext i1 %76 to i8
+  %frombool31.i = zext i1 %82 to i8
   store i8 %frombool31.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue25.i
 
 cmpxchg.store_expected32.i:                       ; preds = %seqcst_fail24.i
-  store i64 %80, ptr %34, align 8
+  store i64 %86, ptr %40, align 8
   br label %cmpxchg.continue33.i
 
 cmpxchg.continue33.i:                             ; preds = %cmpxchg.store_expected32.i, %seqcst_fail24.i
-  %frombool34.i = zext i1 %81 to i8
+  %frombool34.i = zext i1 %87 to i8
   store i8 %frombool34.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue25.i
 
 monotonic_fail35.i:                               ; preds = %acqrel.i
-  %82 = load i64, ptr %34, align 8
-  %83 = load i64, ptr %.atomictmp.i, align 8
-  %84 = cmpxchg ptr %this1.i118, i64 %82, i64 %83 acq_rel monotonic, align 8
-  %85 = extractvalue { i64, i1 } %84, 0
-  %86 = extractvalue { i64, i1 } %84, 1
-  br i1 %86, label %cmpxchg.continue40.i, label %cmpxchg.store_expected39.i
+  %88 = load i64, ptr %40, align 8
+  %89 = load i64, ptr %.atomictmp.i, align 8
+  %90 = cmpxchg ptr %this1.i118, i64 %88, i64 %89 acq_rel monotonic, align 8
+  %91 = extractvalue { i64, i1 } %90, 0
+  %92 = extractvalue { i64, i1 } %90, 1
+  br i1 %92, label %cmpxchg.continue40.i, label %cmpxchg.store_expected39.i
 
 acquire_fail36.i:                                 ; preds = %acqrel.i, %acqrel.i
-  %87 = load i64, ptr %34, align 8
-  %88 = load i64, ptr %.atomictmp.i, align 8
-  %89 = cmpxchg ptr %this1.i118, i64 %87, i64 %88 acq_rel acquire, align 8
-  %90 = extractvalue { i64, i1 } %89, 0
-  %91 = extractvalue { i64, i1 } %89, 1
-  br i1 %91, label %cmpxchg.continue43.i, label %cmpxchg.store_expected42.i
+  %93 = load i64, ptr %40, align 8
+  %94 = load i64, ptr %.atomictmp.i, align 8
+  %95 = cmpxchg ptr %this1.i118, i64 %93, i64 %94 acq_rel acquire, align 8
+  %96 = extractvalue { i64, i1 } %95, 0
+  %97 = extractvalue { i64, i1 } %95, 1
+  br i1 %97, label %cmpxchg.continue43.i, label %cmpxchg.store_expected42.i
 
 seqcst_fail37.i:                                  ; preds = %acqrel.i
-  %92 = load i64, ptr %34, align 8
-  %93 = load i64, ptr %.atomictmp.i, align 8
-  %94 = cmpxchg ptr %this1.i118, i64 %92, i64 %93 acq_rel seq_cst, align 8
-  %95 = extractvalue { i64, i1 } %94, 0
-  %96 = extractvalue { i64, i1 } %94, 1
-  br i1 %96, label %cmpxchg.continue46.i, label %cmpxchg.store_expected45.i
+  %98 = load i64, ptr %40, align 8
+  %99 = load i64, ptr %.atomictmp.i, align 8
+  %100 = cmpxchg ptr %this1.i118, i64 %98, i64 %99 acq_rel seq_cst, align 8
+  %101 = extractvalue { i64, i1 } %100, 0
+  %102 = extractvalue { i64, i1 } %100, 1
+  br i1 %102, label %cmpxchg.continue46.i, label %cmpxchg.store_expected45.i
 
 atomic.continue38.i:                              ; preds = %cmpxchg.continue46.i, %cmpxchg.continue43.i, %cmpxchg.continue40.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected39.i:                       ; preds = %monotonic_fail35.i
-  store i64 %85, ptr %34, align 8
+  store i64 %91, ptr %40, align 8
   br label %cmpxchg.continue40.i
 
 cmpxchg.continue40.i:                             ; preds = %cmpxchg.store_expected39.i, %monotonic_fail35.i
-  %frombool41.i = zext i1 %86 to i8
+  %frombool41.i = zext i1 %92 to i8
   store i8 %frombool41.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue38.i
 
 cmpxchg.store_expected42.i:                       ; preds = %acquire_fail36.i
-  store i64 %90, ptr %34, align 8
+  store i64 %96, ptr %40, align 8
   br label %cmpxchg.continue43.i
 
 cmpxchg.continue43.i:                             ; preds = %cmpxchg.store_expected42.i, %acquire_fail36.i
-  %frombool44.i = zext i1 %91 to i8
+  %frombool44.i = zext i1 %97 to i8
   store i8 %frombool44.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue38.i
 
 cmpxchg.store_expected45.i:                       ; preds = %seqcst_fail37.i
-  store i64 %95, ptr %34, align 8
+  store i64 %101, ptr %40, align 8
   br label %cmpxchg.continue46.i
 
 cmpxchg.continue46.i:                             ; preds = %cmpxchg.store_expected45.i, %seqcst_fail37.i
-  %frombool47.i = zext i1 %96 to i8
+  %frombool47.i = zext i1 %102 to i8
   store i8 %frombool47.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue38.i
 
 monotonic_fail48.i:                               ; preds = %seqcst.i119
-  %97 = load i64, ptr %34, align 8
-  %98 = load i64, ptr %.atomictmp.i, align 8
-  %99 = cmpxchg ptr %this1.i118, i64 %97, i64 %98 seq_cst monotonic, align 8
-  %100 = extractvalue { i64, i1 } %99, 0
-  %101 = extractvalue { i64, i1 } %99, 1
-  br i1 %101, label %cmpxchg.continue53.i, label %cmpxchg.store_expected52.i
+  %103 = load i64, ptr %40, align 8
+  %104 = load i64, ptr %.atomictmp.i, align 8
+  %105 = cmpxchg ptr %this1.i118, i64 %103, i64 %104 seq_cst monotonic, align 8
+  %106 = extractvalue { i64, i1 } %105, 0
+  %107 = extractvalue { i64, i1 } %105, 1
+  br i1 %107, label %cmpxchg.continue53.i, label %cmpxchg.store_expected52.i
 
 acquire_fail49.i:                                 ; preds = %seqcst.i119, %seqcst.i119
-  %102 = load i64, ptr %34, align 8
-  %103 = load i64, ptr %.atomictmp.i, align 8
-  %104 = cmpxchg ptr %this1.i118, i64 %102, i64 %103 seq_cst acquire, align 8
-  %105 = extractvalue { i64, i1 } %104, 0
-  %106 = extractvalue { i64, i1 } %104, 1
-  br i1 %106, label %cmpxchg.continue56.i, label %cmpxchg.store_expected55.i
+  %108 = load i64, ptr %40, align 8
+  %109 = load i64, ptr %.atomictmp.i, align 8
+  %110 = cmpxchg ptr %this1.i118, i64 %108, i64 %109 seq_cst acquire, align 8
+  %111 = extractvalue { i64, i1 } %110, 0
+  %112 = extractvalue { i64, i1 } %110, 1
+  br i1 %112, label %cmpxchg.continue56.i, label %cmpxchg.store_expected55.i
 
 seqcst_fail50.i:                                  ; preds = %seqcst.i119
-  %107 = load i64, ptr %34, align 8
-  %108 = load i64, ptr %.atomictmp.i, align 8
-  %109 = cmpxchg ptr %this1.i118, i64 %107, i64 %108 seq_cst seq_cst, align 8
-  %110 = extractvalue { i64, i1 } %109, 0
-  %111 = extractvalue { i64, i1 } %109, 1
-  br i1 %111, label %cmpxchg.continue59.i, label %cmpxchg.store_expected58.i
+  %113 = load i64, ptr %40, align 8
+  %114 = load i64, ptr %.atomictmp.i, align 8
+  %115 = cmpxchg ptr %this1.i118, i64 %113, i64 %114 seq_cst seq_cst, align 8
+  %116 = extractvalue { i64, i1 } %115, 0
+  %117 = extractvalue { i64, i1 } %115, 1
+  br i1 %117, label %cmpxchg.continue59.i, label %cmpxchg.store_expected58.i
 
 atomic.continue51.i:                              ; preds = %cmpxchg.continue59.i, %cmpxchg.continue56.i, %cmpxchg.continue53.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected52.i:                       ; preds = %monotonic_fail48.i
-  store i64 %100, ptr %34, align 8
+  store i64 %106, ptr %40, align 8
   br label %cmpxchg.continue53.i
 
 cmpxchg.continue53.i:                             ; preds = %cmpxchg.store_expected52.i, %monotonic_fail48.i
-  %frombool54.i = zext i1 %101 to i8
+  %frombool54.i = zext i1 %107 to i8
   store i8 %frombool54.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue51.i
 
 cmpxchg.store_expected55.i:                       ; preds = %acquire_fail49.i
-  store i64 %105, ptr %34, align 8
+  store i64 %111, ptr %40, align 8
   br label %cmpxchg.continue56.i
 
 cmpxchg.continue56.i:                             ; preds = %cmpxchg.store_expected55.i, %acquire_fail49.i
-  %frombool57.i = zext i1 %106 to i8
+  %frombool57.i = zext i1 %112 to i8
   store i8 %frombool57.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue51.i
 
 cmpxchg.store_expected58.i:                       ; preds = %seqcst_fail50.i
-  store i64 %110, ptr %34, align 8
+  store i64 %116, ptr %40, align 8
   br label %cmpxchg.continue59.i
 
 cmpxchg.continue59.i:                             ; preds = %cmpxchg.store_expected58.i, %seqcst_fail50.i
-  %frombool60.i = zext i1 %111 to i8
+  %frombool60.i = zext i1 %117 to i8
   store i8 %frombool60.i, ptr %cmpxchg.bool.i, align 1
   br label %atomic.continue51.i
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit: ; preds = %atomic.continue51.i, %atomic.continue38.i, %atomic.continue25.i, %atomic.continue12.i, %atomic.continue2.i
-  %112 = load i8, ptr %cmpxchg.bool.i, align 1
-  %tobool.i = trunc i8 %112 to i1
+  %118 = load i8, ptr %cmpxchg.bool.i, align 1
+  %tobool.i = trunc i8 %118 to i1
   br i1 %tobool.i, label %if.then58, label %if.end59
 
 if.then58:                                        ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
@@ -15084,38 +15151,38 @@ if.end59:                                         ; preds = %_ZNSt13__atomic_bas
   br label %if.end102
 
 if.else60:                                        ; preds = %if.else
-  %113 = load i64, ptr %v, align 8
-  %and61 = and i64 %113, 64
+  %119 = load i64, ptr %v, align 8
+  %and61 = and i64 %119, 64
   %cmp62 = icmp eq i64 %and61, 0
   br i1 %cmp62, label %land.lhs.true, label %if.end101
 
 land.lhs.true:                                    ; preds = %if.else60
   %mu_63 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %114 = load i64, ptr %v, align 8
-  %or64 = or i64 %114, 64
+  %120 = load i64, ptr %v, align 8
+  %or64 = or i64 %120, 64
   %or65 = or i64 %or64, 4
   store ptr %mu_63, ptr %this.addr.i201, align 8
   store ptr %v, ptr %__i1.addr.i202, align 8
   store i64 %or65, ptr %__i2.addr.i203, align 8
   store i32 5, ptr %__m.addr.i204, align 4
   %this1.i205 = load ptr, ptr %this.addr.i201, align 8
-  %115 = load ptr, ptr %__i1.addr.i202, align 8
-  %116 = load i64, ptr %__i2.addr.i203, align 8
-  %117 = load i32, ptr %__m.addr.i204, align 4
-  %118 = load i32, ptr %__m.addr.i204, align 4
-  %call.i206 = call noundef i32 @_ZSt23__cmpexch_failure_orderSt12memory_order(i32 noundef %118) #13
+  %121 = load ptr, ptr %__i1.addr.i202, align 8
+  %122 = load i64, ptr %__i2.addr.i203, align 8
+  %123 = load i32, ptr %__m.addr.i204, align 4
+  %124 = load i32, ptr %__m.addr.i204, align 4
+  %call.i206 = call noundef i32 @_ZSt23__cmpexch_failure_orderSt12memory_order(i32 noundef %124) #13
   store ptr %this1.i205, ptr %this.addr.i.i, align 8
-  store ptr %115, ptr %__i1.addr.i.i, align 8
-  store i64 %116, ptr %__i2.addr.i.i, align 8
-  store i32 %117, ptr %__m1.addr.i.i, align 4
+  store ptr %121, ptr %__i1.addr.i.i, align 8
+  store i64 %122, ptr %__i2.addr.i.i, align 8
+  store i32 %123, ptr %__m1.addr.i.i, align 4
   store i32 %call.i206, ptr %__m2.addr.i.i, align 4
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %119 = load i32, ptr %__m1.addr.i.i, align 4
-  %120 = load ptr, ptr %__i1.addr.i.i, align 8
-  %121 = load i64, ptr %__i2.addr.i.i, align 8
-  store i64 %121, ptr %.atomictmp.i.i, align 8
-  %122 = load i32, ptr %__m2.addr.i.i, align 4
-  switch i32 %119, label %monotonic.i.i [
+  %125 = load i32, ptr %__m1.addr.i.i, align 4
+  %126 = load ptr, ptr %__i1.addr.i.i, align 8
+  %127 = load i64, ptr %__i2.addr.i.i, align 8
+  store i64 %127, ptr %.atomictmp.i.i, align 8
+  %128 = load i32, ptr %__m2.addr.i.i, align 4
+  switch i32 %125, label %monotonic.i.i [
     i32 1, label %acquire.i.i
     i32 2, label %acquire.i.i
     i32 3, label %release.i.i
@@ -15124,328 +15191,328 @@ land.lhs.true:                                    ; preds = %if.else60
   ]
 
 monotonic.i.i:                                    ; preds = %land.lhs.true
-  switch i32 %122, label %monotonic_fail.i.i [
+  switch i32 %128, label %monotonic_fail.i.i [
     i32 1, label %acquire_fail.i.i
     i32 2, label %acquire_fail.i.i
     i32 5, label %seqcst_fail.i.i
   ]
 
 acquire.i.i:                                      ; preds = %land.lhs.true, %land.lhs.true
-  switch i32 %122, label %monotonic_fail9.i.i [
+  switch i32 %128, label %monotonic_fail9.i.i [
     i32 1, label %acquire_fail10.i.i
     i32 2, label %acquire_fail10.i.i
     i32 5, label %seqcst_fail11.i.i
   ]
 
 release.i.i:                                      ; preds = %land.lhs.true
-  switch i32 %122, label %monotonic_fail22.i.i [
+  switch i32 %128, label %monotonic_fail22.i.i [
     i32 1, label %acquire_fail23.i.i
     i32 2, label %acquire_fail23.i.i
     i32 5, label %seqcst_fail24.i.i
   ]
 
 acqrel.i.i:                                       ; preds = %land.lhs.true
-  switch i32 %122, label %monotonic_fail35.i.i [
+  switch i32 %128, label %monotonic_fail35.i.i [
     i32 1, label %acquire_fail36.i.i
     i32 2, label %acquire_fail36.i.i
     i32 5, label %seqcst_fail37.i.i
   ]
 
 seqcst.i.i:                                       ; preds = %land.lhs.true
-  switch i32 %122, label %monotonic_fail48.i.i [
+  switch i32 %128, label %monotonic_fail48.i.i [
     i32 1, label %acquire_fail49.i.i
     i32 2, label %acquire_fail49.i.i
     i32 5, label %seqcst_fail50.i.i
   ]
 
 monotonic_fail.i.i:                               ; preds = %monotonic.i.i
-  %123 = load i64, ptr %120, align 8
-  %124 = load i64, ptr %.atomictmp.i.i, align 8
-  %125 = cmpxchg ptr %this1.i.i, i64 %123, i64 %124 monotonic monotonic, align 8
-  %126 = extractvalue { i64, i1 } %125, 0
-  %127 = extractvalue { i64, i1 } %125, 1
-  br i1 %127, label %cmpxchg.continue.i.i, label %cmpxchg.store_expected.i.i
+  %129 = load i64, ptr %126, align 8
+  %130 = load i64, ptr %.atomictmp.i.i, align 8
+  %131 = cmpxchg ptr %this1.i.i, i64 %129, i64 %130 monotonic monotonic, align 8
+  %132 = extractvalue { i64, i1 } %131, 0
+  %133 = extractvalue { i64, i1 } %131, 1
+  br i1 %133, label %cmpxchg.continue.i.i, label %cmpxchg.store_expected.i.i
 
 acquire_fail.i.i:                                 ; preds = %monotonic.i.i, %monotonic.i.i
-  %128 = load i64, ptr %120, align 8
-  %129 = load i64, ptr %.atomictmp.i.i, align 8
-  %130 = cmpxchg ptr %this1.i.i, i64 %128, i64 %129 monotonic acquire, align 8
-  %131 = extractvalue { i64, i1 } %130, 0
-  %132 = extractvalue { i64, i1 } %130, 1
-  br i1 %132, label %cmpxchg.continue4.i.i, label %cmpxchg.store_expected3.i.i
+  %134 = load i64, ptr %126, align 8
+  %135 = load i64, ptr %.atomictmp.i.i, align 8
+  %136 = cmpxchg ptr %this1.i.i, i64 %134, i64 %135 monotonic acquire, align 8
+  %137 = extractvalue { i64, i1 } %136, 0
+  %138 = extractvalue { i64, i1 } %136, 1
+  br i1 %138, label %cmpxchg.continue4.i.i, label %cmpxchg.store_expected3.i.i
 
 seqcst_fail.i.i:                                  ; preds = %monotonic.i.i
-  %133 = load i64, ptr %120, align 8
-  %134 = load i64, ptr %.atomictmp.i.i, align 8
-  %135 = cmpxchg ptr %this1.i.i, i64 %133, i64 %134 monotonic seq_cst, align 8
-  %136 = extractvalue { i64, i1 } %135, 0
-  %137 = extractvalue { i64, i1 } %135, 1
-  br i1 %137, label %cmpxchg.continue7.i.i, label %cmpxchg.store_expected6.i.i
+  %139 = load i64, ptr %126, align 8
+  %140 = load i64, ptr %.atomictmp.i.i, align 8
+  %141 = cmpxchg ptr %this1.i.i, i64 %139, i64 %140 monotonic seq_cst, align 8
+  %142 = extractvalue { i64, i1 } %141, 0
+  %143 = extractvalue { i64, i1 } %141, 1
+  br i1 %143, label %cmpxchg.continue7.i.i, label %cmpxchg.store_expected6.i.i
 
 atomic.continue2.i.i:                             ; preds = %cmpxchg.continue7.i.i, %cmpxchg.continue4.i.i, %cmpxchg.continue.i.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_order.exit
 
 cmpxchg.store_expected.i.i:                       ; preds = %monotonic_fail.i.i
-  store i64 %126, ptr %120, align 8
+  store i64 %132, ptr %126, align 8
   br label %cmpxchg.continue.i.i
 
 cmpxchg.continue.i.i:                             ; preds = %cmpxchg.store_expected.i.i, %monotonic_fail.i.i
-  %frombool.i.i = zext i1 %127 to i8
+  %frombool.i.i = zext i1 %133 to i8
   store i8 %frombool.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue2.i.i
 
 cmpxchg.store_expected3.i.i:                      ; preds = %acquire_fail.i.i
-  store i64 %131, ptr %120, align 8
+  store i64 %137, ptr %126, align 8
   br label %cmpxchg.continue4.i.i
 
 cmpxchg.continue4.i.i:                            ; preds = %cmpxchg.store_expected3.i.i, %acquire_fail.i.i
-  %frombool5.i.i = zext i1 %132 to i8
+  %frombool5.i.i = zext i1 %138 to i8
   store i8 %frombool5.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue2.i.i
 
 cmpxchg.store_expected6.i.i:                      ; preds = %seqcst_fail.i.i
-  store i64 %136, ptr %120, align 8
+  store i64 %142, ptr %126, align 8
   br label %cmpxchg.continue7.i.i
 
 cmpxchg.continue7.i.i:                            ; preds = %cmpxchg.store_expected6.i.i, %seqcst_fail.i.i
-  %frombool8.i.i = zext i1 %137 to i8
+  %frombool8.i.i = zext i1 %143 to i8
   store i8 %frombool8.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue2.i.i
 
 monotonic_fail9.i.i:                              ; preds = %acquire.i.i
-  %138 = load i64, ptr %120, align 8
-  %139 = load i64, ptr %.atomictmp.i.i, align 8
-  %140 = cmpxchg ptr %this1.i.i, i64 %138, i64 %139 acquire monotonic, align 8
-  %141 = extractvalue { i64, i1 } %140, 0
-  %142 = extractvalue { i64, i1 } %140, 1
-  br i1 %142, label %cmpxchg.continue14.i.i, label %cmpxchg.store_expected13.i.i
+  %144 = load i64, ptr %126, align 8
+  %145 = load i64, ptr %.atomictmp.i.i, align 8
+  %146 = cmpxchg ptr %this1.i.i, i64 %144, i64 %145 acquire monotonic, align 8
+  %147 = extractvalue { i64, i1 } %146, 0
+  %148 = extractvalue { i64, i1 } %146, 1
+  br i1 %148, label %cmpxchg.continue14.i.i, label %cmpxchg.store_expected13.i.i
 
 acquire_fail10.i.i:                               ; preds = %acquire.i.i, %acquire.i.i
-  %143 = load i64, ptr %120, align 8
-  %144 = load i64, ptr %.atomictmp.i.i, align 8
-  %145 = cmpxchg ptr %this1.i.i, i64 %143, i64 %144 acquire acquire, align 8
-  %146 = extractvalue { i64, i1 } %145, 0
-  %147 = extractvalue { i64, i1 } %145, 1
-  br i1 %147, label %cmpxchg.continue17.i.i, label %cmpxchg.store_expected16.i.i
+  %149 = load i64, ptr %126, align 8
+  %150 = load i64, ptr %.atomictmp.i.i, align 8
+  %151 = cmpxchg ptr %this1.i.i, i64 %149, i64 %150 acquire acquire, align 8
+  %152 = extractvalue { i64, i1 } %151, 0
+  %153 = extractvalue { i64, i1 } %151, 1
+  br i1 %153, label %cmpxchg.continue17.i.i, label %cmpxchg.store_expected16.i.i
 
 seqcst_fail11.i.i:                                ; preds = %acquire.i.i
-  %148 = load i64, ptr %120, align 8
-  %149 = load i64, ptr %.atomictmp.i.i, align 8
-  %150 = cmpxchg ptr %this1.i.i, i64 %148, i64 %149 acquire seq_cst, align 8
-  %151 = extractvalue { i64, i1 } %150, 0
-  %152 = extractvalue { i64, i1 } %150, 1
-  br i1 %152, label %cmpxchg.continue20.i.i, label %cmpxchg.store_expected19.i.i
+  %154 = load i64, ptr %126, align 8
+  %155 = load i64, ptr %.atomictmp.i.i, align 8
+  %156 = cmpxchg ptr %this1.i.i, i64 %154, i64 %155 acquire seq_cst, align 8
+  %157 = extractvalue { i64, i1 } %156, 0
+  %158 = extractvalue { i64, i1 } %156, 1
+  br i1 %158, label %cmpxchg.continue20.i.i, label %cmpxchg.store_expected19.i.i
 
 atomic.continue12.i.i:                            ; preds = %cmpxchg.continue20.i.i, %cmpxchg.continue17.i.i, %cmpxchg.continue14.i.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_order.exit
 
 cmpxchg.store_expected13.i.i:                     ; preds = %monotonic_fail9.i.i
-  store i64 %141, ptr %120, align 8
+  store i64 %147, ptr %126, align 8
   br label %cmpxchg.continue14.i.i
 
 cmpxchg.continue14.i.i:                           ; preds = %cmpxchg.store_expected13.i.i, %monotonic_fail9.i.i
-  %frombool15.i.i = zext i1 %142 to i8
+  %frombool15.i.i = zext i1 %148 to i8
   store i8 %frombool15.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue12.i.i
 
 cmpxchg.store_expected16.i.i:                     ; preds = %acquire_fail10.i.i
-  store i64 %146, ptr %120, align 8
+  store i64 %152, ptr %126, align 8
   br label %cmpxchg.continue17.i.i
 
 cmpxchg.continue17.i.i:                           ; preds = %cmpxchg.store_expected16.i.i, %acquire_fail10.i.i
-  %frombool18.i.i = zext i1 %147 to i8
+  %frombool18.i.i = zext i1 %153 to i8
   store i8 %frombool18.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue12.i.i
 
 cmpxchg.store_expected19.i.i:                     ; preds = %seqcst_fail11.i.i
-  store i64 %151, ptr %120, align 8
+  store i64 %157, ptr %126, align 8
   br label %cmpxchg.continue20.i.i
 
 cmpxchg.continue20.i.i:                           ; preds = %cmpxchg.store_expected19.i.i, %seqcst_fail11.i.i
-  %frombool21.i.i = zext i1 %152 to i8
+  %frombool21.i.i = zext i1 %158 to i8
   store i8 %frombool21.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue12.i.i
 
 monotonic_fail22.i.i:                             ; preds = %release.i.i
-  %153 = load i64, ptr %120, align 8
-  %154 = load i64, ptr %.atomictmp.i.i, align 8
-  %155 = cmpxchg ptr %this1.i.i, i64 %153, i64 %154 release monotonic, align 8
-  %156 = extractvalue { i64, i1 } %155, 0
-  %157 = extractvalue { i64, i1 } %155, 1
-  br i1 %157, label %cmpxchg.continue27.i.i, label %cmpxchg.store_expected26.i.i
+  %159 = load i64, ptr %126, align 8
+  %160 = load i64, ptr %.atomictmp.i.i, align 8
+  %161 = cmpxchg ptr %this1.i.i, i64 %159, i64 %160 release monotonic, align 8
+  %162 = extractvalue { i64, i1 } %161, 0
+  %163 = extractvalue { i64, i1 } %161, 1
+  br i1 %163, label %cmpxchg.continue27.i.i, label %cmpxchg.store_expected26.i.i
 
 acquire_fail23.i.i:                               ; preds = %release.i.i, %release.i.i
-  %158 = load i64, ptr %120, align 8
-  %159 = load i64, ptr %.atomictmp.i.i, align 8
-  %160 = cmpxchg ptr %this1.i.i, i64 %158, i64 %159 release acquire, align 8
-  %161 = extractvalue { i64, i1 } %160, 0
-  %162 = extractvalue { i64, i1 } %160, 1
-  br i1 %162, label %cmpxchg.continue30.i.i, label %cmpxchg.store_expected29.i.i
+  %164 = load i64, ptr %126, align 8
+  %165 = load i64, ptr %.atomictmp.i.i, align 8
+  %166 = cmpxchg ptr %this1.i.i, i64 %164, i64 %165 release acquire, align 8
+  %167 = extractvalue { i64, i1 } %166, 0
+  %168 = extractvalue { i64, i1 } %166, 1
+  br i1 %168, label %cmpxchg.continue30.i.i, label %cmpxchg.store_expected29.i.i
 
 seqcst_fail24.i.i:                                ; preds = %release.i.i
-  %163 = load i64, ptr %120, align 8
-  %164 = load i64, ptr %.atomictmp.i.i, align 8
-  %165 = cmpxchg ptr %this1.i.i, i64 %163, i64 %164 release seq_cst, align 8
-  %166 = extractvalue { i64, i1 } %165, 0
-  %167 = extractvalue { i64, i1 } %165, 1
-  br i1 %167, label %cmpxchg.continue33.i.i, label %cmpxchg.store_expected32.i.i
+  %169 = load i64, ptr %126, align 8
+  %170 = load i64, ptr %.atomictmp.i.i, align 8
+  %171 = cmpxchg ptr %this1.i.i, i64 %169, i64 %170 release seq_cst, align 8
+  %172 = extractvalue { i64, i1 } %171, 0
+  %173 = extractvalue { i64, i1 } %171, 1
+  br i1 %173, label %cmpxchg.continue33.i.i, label %cmpxchg.store_expected32.i.i
 
 atomic.continue25.i.i:                            ; preds = %cmpxchg.continue33.i.i, %cmpxchg.continue30.i.i, %cmpxchg.continue27.i.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_order.exit
 
 cmpxchg.store_expected26.i.i:                     ; preds = %monotonic_fail22.i.i
-  store i64 %156, ptr %120, align 8
+  store i64 %162, ptr %126, align 8
   br label %cmpxchg.continue27.i.i
 
 cmpxchg.continue27.i.i:                           ; preds = %cmpxchg.store_expected26.i.i, %monotonic_fail22.i.i
-  %frombool28.i.i = zext i1 %157 to i8
+  %frombool28.i.i = zext i1 %163 to i8
   store i8 %frombool28.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue25.i.i
 
 cmpxchg.store_expected29.i.i:                     ; preds = %acquire_fail23.i.i
-  store i64 %161, ptr %120, align 8
+  store i64 %167, ptr %126, align 8
   br label %cmpxchg.continue30.i.i
 
 cmpxchg.continue30.i.i:                           ; preds = %cmpxchg.store_expected29.i.i, %acquire_fail23.i.i
-  %frombool31.i.i = zext i1 %162 to i8
+  %frombool31.i.i = zext i1 %168 to i8
   store i8 %frombool31.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue25.i.i
 
 cmpxchg.store_expected32.i.i:                     ; preds = %seqcst_fail24.i.i
-  store i64 %166, ptr %120, align 8
+  store i64 %172, ptr %126, align 8
   br label %cmpxchg.continue33.i.i
 
 cmpxchg.continue33.i.i:                           ; preds = %cmpxchg.store_expected32.i.i, %seqcst_fail24.i.i
-  %frombool34.i.i = zext i1 %167 to i8
+  %frombool34.i.i = zext i1 %173 to i8
   store i8 %frombool34.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue25.i.i
 
 monotonic_fail35.i.i:                             ; preds = %acqrel.i.i
-  %168 = load i64, ptr %120, align 8
-  %169 = load i64, ptr %.atomictmp.i.i, align 8
-  %170 = cmpxchg ptr %this1.i.i, i64 %168, i64 %169 acq_rel monotonic, align 8
-  %171 = extractvalue { i64, i1 } %170, 0
-  %172 = extractvalue { i64, i1 } %170, 1
-  br i1 %172, label %cmpxchg.continue40.i.i, label %cmpxchg.store_expected39.i.i
+  %174 = load i64, ptr %126, align 8
+  %175 = load i64, ptr %.atomictmp.i.i, align 8
+  %176 = cmpxchg ptr %this1.i.i, i64 %174, i64 %175 acq_rel monotonic, align 8
+  %177 = extractvalue { i64, i1 } %176, 0
+  %178 = extractvalue { i64, i1 } %176, 1
+  br i1 %178, label %cmpxchg.continue40.i.i, label %cmpxchg.store_expected39.i.i
 
 acquire_fail36.i.i:                               ; preds = %acqrel.i.i, %acqrel.i.i
-  %173 = load i64, ptr %120, align 8
-  %174 = load i64, ptr %.atomictmp.i.i, align 8
-  %175 = cmpxchg ptr %this1.i.i, i64 %173, i64 %174 acq_rel acquire, align 8
-  %176 = extractvalue { i64, i1 } %175, 0
-  %177 = extractvalue { i64, i1 } %175, 1
-  br i1 %177, label %cmpxchg.continue43.i.i, label %cmpxchg.store_expected42.i.i
+  %179 = load i64, ptr %126, align 8
+  %180 = load i64, ptr %.atomictmp.i.i, align 8
+  %181 = cmpxchg ptr %this1.i.i, i64 %179, i64 %180 acq_rel acquire, align 8
+  %182 = extractvalue { i64, i1 } %181, 0
+  %183 = extractvalue { i64, i1 } %181, 1
+  br i1 %183, label %cmpxchg.continue43.i.i, label %cmpxchg.store_expected42.i.i
 
 seqcst_fail37.i.i:                                ; preds = %acqrel.i.i
-  %178 = load i64, ptr %120, align 8
-  %179 = load i64, ptr %.atomictmp.i.i, align 8
-  %180 = cmpxchg ptr %this1.i.i, i64 %178, i64 %179 acq_rel seq_cst, align 8
-  %181 = extractvalue { i64, i1 } %180, 0
-  %182 = extractvalue { i64, i1 } %180, 1
-  br i1 %182, label %cmpxchg.continue46.i.i, label %cmpxchg.store_expected45.i.i
+  %184 = load i64, ptr %126, align 8
+  %185 = load i64, ptr %.atomictmp.i.i, align 8
+  %186 = cmpxchg ptr %this1.i.i, i64 %184, i64 %185 acq_rel seq_cst, align 8
+  %187 = extractvalue { i64, i1 } %186, 0
+  %188 = extractvalue { i64, i1 } %186, 1
+  br i1 %188, label %cmpxchg.continue46.i.i, label %cmpxchg.store_expected45.i.i
 
 atomic.continue38.i.i:                            ; preds = %cmpxchg.continue46.i.i, %cmpxchg.continue43.i.i, %cmpxchg.continue40.i.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_order.exit
 
 cmpxchg.store_expected39.i.i:                     ; preds = %monotonic_fail35.i.i
-  store i64 %171, ptr %120, align 8
+  store i64 %177, ptr %126, align 8
   br label %cmpxchg.continue40.i.i
 
 cmpxchg.continue40.i.i:                           ; preds = %cmpxchg.store_expected39.i.i, %monotonic_fail35.i.i
-  %frombool41.i.i = zext i1 %172 to i8
+  %frombool41.i.i = zext i1 %178 to i8
   store i8 %frombool41.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue38.i.i
 
 cmpxchg.store_expected42.i.i:                     ; preds = %acquire_fail36.i.i
-  store i64 %176, ptr %120, align 8
+  store i64 %182, ptr %126, align 8
   br label %cmpxchg.continue43.i.i
 
 cmpxchg.continue43.i.i:                           ; preds = %cmpxchg.store_expected42.i.i, %acquire_fail36.i.i
-  %frombool44.i.i = zext i1 %177 to i8
+  %frombool44.i.i = zext i1 %183 to i8
   store i8 %frombool44.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue38.i.i
 
 cmpxchg.store_expected45.i.i:                     ; preds = %seqcst_fail37.i.i
-  store i64 %181, ptr %120, align 8
+  store i64 %187, ptr %126, align 8
   br label %cmpxchg.continue46.i.i
 
 cmpxchg.continue46.i.i:                           ; preds = %cmpxchg.store_expected45.i.i, %seqcst_fail37.i.i
-  %frombool47.i.i = zext i1 %182 to i8
+  %frombool47.i.i = zext i1 %188 to i8
   store i8 %frombool47.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue38.i.i
 
 monotonic_fail48.i.i:                             ; preds = %seqcst.i.i
-  %183 = load i64, ptr %120, align 8
-  %184 = load i64, ptr %.atomictmp.i.i, align 8
-  %185 = cmpxchg ptr %this1.i.i, i64 %183, i64 %184 seq_cst monotonic, align 8
-  %186 = extractvalue { i64, i1 } %185, 0
-  %187 = extractvalue { i64, i1 } %185, 1
-  br i1 %187, label %cmpxchg.continue53.i.i, label %cmpxchg.store_expected52.i.i
+  %189 = load i64, ptr %126, align 8
+  %190 = load i64, ptr %.atomictmp.i.i, align 8
+  %191 = cmpxchg ptr %this1.i.i, i64 %189, i64 %190 seq_cst monotonic, align 8
+  %192 = extractvalue { i64, i1 } %191, 0
+  %193 = extractvalue { i64, i1 } %191, 1
+  br i1 %193, label %cmpxchg.continue53.i.i, label %cmpxchg.store_expected52.i.i
 
 acquire_fail49.i.i:                               ; preds = %seqcst.i.i, %seqcst.i.i
-  %188 = load i64, ptr %120, align 8
-  %189 = load i64, ptr %.atomictmp.i.i, align 8
-  %190 = cmpxchg ptr %this1.i.i, i64 %188, i64 %189 seq_cst acquire, align 8
-  %191 = extractvalue { i64, i1 } %190, 0
-  %192 = extractvalue { i64, i1 } %190, 1
-  br i1 %192, label %cmpxchg.continue56.i.i, label %cmpxchg.store_expected55.i.i
+  %194 = load i64, ptr %126, align 8
+  %195 = load i64, ptr %.atomictmp.i.i, align 8
+  %196 = cmpxchg ptr %this1.i.i, i64 %194, i64 %195 seq_cst acquire, align 8
+  %197 = extractvalue { i64, i1 } %196, 0
+  %198 = extractvalue { i64, i1 } %196, 1
+  br i1 %198, label %cmpxchg.continue56.i.i, label %cmpxchg.store_expected55.i.i
 
 seqcst_fail50.i.i:                                ; preds = %seqcst.i.i
-  %193 = load i64, ptr %120, align 8
-  %194 = load i64, ptr %.atomictmp.i.i, align 8
-  %195 = cmpxchg ptr %this1.i.i, i64 %193, i64 %194 seq_cst seq_cst, align 8
-  %196 = extractvalue { i64, i1 } %195, 0
-  %197 = extractvalue { i64, i1 } %195, 1
-  br i1 %197, label %cmpxchg.continue59.i.i, label %cmpxchg.store_expected58.i.i
+  %199 = load i64, ptr %126, align 8
+  %200 = load i64, ptr %.atomictmp.i.i, align 8
+  %201 = cmpxchg ptr %this1.i.i, i64 %199, i64 %200 seq_cst seq_cst, align 8
+  %202 = extractvalue { i64, i1 } %201, 0
+  %203 = extractvalue { i64, i1 } %201, 1
+  br i1 %203, label %cmpxchg.continue59.i.i, label %cmpxchg.store_expected58.i.i
 
 atomic.continue51.i.i:                            ; preds = %cmpxchg.continue59.i.i, %cmpxchg.continue56.i.i, %cmpxchg.continue53.i.i
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_order.exit
 
 cmpxchg.store_expected52.i.i:                     ; preds = %monotonic_fail48.i.i
-  store i64 %186, ptr %120, align 8
+  store i64 %192, ptr %126, align 8
   br label %cmpxchg.continue53.i.i
 
 cmpxchg.continue53.i.i:                           ; preds = %cmpxchg.store_expected52.i.i, %monotonic_fail48.i.i
-  %frombool54.i.i = zext i1 %187 to i8
+  %frombool54.i.i = zext i1 %193 to i8
   store i8 %frombool54.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue51.i.i
 
 cmpxchg.store_expected55.i.i:                     ; preds = %acquire_fail49.i.i
-  store i64 %191, ptr %120, align 8
+  store i64 %197, ptr %126, align 8
   br label %cmpxchg.continue56.i.i
 
 cmpxchg.continue56.i.i:                           ; preds = %cmpxchg.store_expected55.i.i, %acquire_fail49.i.i
-  %frombool57.i.i = zext i1 %192 to i8
+  %frombool57.i.i = zext i1 %198 to i8
   store i8 %frombool57.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue51.i.i
 
 cmpxchg.store_expected58.i.i:                     ; preds = %seqcst_fail50.i.i
-  store i64 %196, ptr %120, align 8
+  store i64 %202, ptr %126, align 8
   br label %cmpxchg.continue59.i.i
 
 cmpxchg.continue59.i.i:                           ; preds = %cmpxchg.store_expected58.i.i, %seqcst_fail50.i.i
-  %frombool60.i.i = zext i1 %197 to i8
+  %frombool60.i.i = zext i1 %203 to i8
   store i8 %frombool60.i.i, ptr %cmpxchg.bool.i.i, align 1
   br label %atomic.continue51.i.i
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_order.exit: ; preds = %atomic.continue51.i.i, %atomic.continue38.i.i, %atomic.continue25.i.i, %atomic.continue12.i.i, %atomic.continue2.i.i
-  %198 = load i8, ptr %cmpxchg.bool.i.i, align 1
-  %tobool.i.i = trunc i8 %198 to i1
+  %204 = load i8, ptr %cmpxchg.bool.i.i, align 1
+  %tobool.i.i = trunc i8 %204 to i1
   br i1 %tobool.i.i, label %if.then67, label %if.end101
 
 if.then67:                                        ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_order.exit
-  %199 = load i64, ptr %v, align 8
-  %call69 = invoke noundef ptr @_ZN4abslL17GetPerThreadSynchEl(i64 noundef %199)
+  %205 = load i64, ptr %v, align 8
+  %call69 = invoke noundef ptr @_ZN4abslL17GetPerThreadSynchEl(i64 noundef %205)
           to label %invoke.cont68 unwind label %lpad
 
 invoke.cont68:                                    ; preds = %if.then67
   store ptr %call69, ptr %h, align 8
-  %200 = load ptr, ptr %h, align 8
-  %201 = load ptr, ptr %w.addr, align 8
-  %waitp71 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %201, i32 0, i32 9
-  %202 = load ptr, ptr %waitp71, align 8
-  %203 = load i64, ptr %v, align 8
-  %call73 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %200, ptr noundef %202, i64 noundef %203, i32 noundef 6)
+  %206 = load ptr, ptr %h, align 8
+  %207 = load ptr, ptr %w.addr, align 8
+  %waitp71 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %207, i32 0, i32 9
+  %208 = load ptr, ptr %waitp71, align 8
+  %209 = load i64, ptr %v, align 8
+  %call73 = invoke noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %206, ptr noundef %208, i64 noundef %209, i32 noundef 6)
           to label %invoke.cont72 unwind label %lpad
 
 invoke.cont72:                                    ; preds = %invoke.cont68
@@ -15453,8 +15520,8 @@ invoke.cont72:                                    ; preds = %invoke.cont68
   br label %do.body74
 
 do.body74:                                        ; preds = %invoke.cont72
-  %204 = load ptr, ptr %new_h70, align 8
-  %cmp75 = icmp ne ptr %204, null
+  %210 = load ptr, ptr %new_h70, align 8
+  %cmp75 = icmp ne ptr %210, null
   %lnot76 = xor i1 %cmp75, true
   br i1 %lnot76, label %if.then77, label %if.end86
 
@@ -15462,8 +15529,10 @@ if.then77:                                        ; preds = %do.body74
   br label %do.body78
 
 do.body78:                                        ; preds = %if.then77
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename79, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2445, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.33)
+  %211 = getelementptr i8, ptr @.str, i64 120
+  store ptr %211, ptr %absl_raw_log_internal_basename79, align 8
+  %212 = getelementptr i8, ptr @.str, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %212, i32 noundef 2445, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.33)
           to label %invoke.cont80 unwind label %lpad
 
 invoke.cont80:                                    ; preds = %do.body78
@@ -15498,57 +15567,57 @@ do.body89:                                        ; preds = %_ZNSt13__atomic_bas
   store ptr %mu_90, ptr %this.addr.i, align 8
   store i32 0, ptr %__m.addr.i, align 4
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %205 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %205, i32 noundef 65535)
+  %213 = load i32, ptr %__m.addr.i, align 4
+  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %213, i32 noundef 65535)
   store i32 %call.i, ptr %__b.i, align 4
-  %206 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %206, label %monotonic.i [
+  %214 = load i32, ptr %__m.addr.i, align 4
+  switch i32 %214, label %monotonic.i [
     i32 1, label %acquire.i
     i32 2, label %acquire.i
     i32 5, label %seqcst.i
   ]
 
 monotonic.i:                                      ; preds = %do.body89
-  %207 = load atomic i64, ptr %this1.i monotonic, align 8
-  store i64 %207, ptr %atomic-temp.i, align 8
+  %215 = load atomic i64, ptr %this1.i monotonic, align 8
+  store i64 %215, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
 
 acquire.i:                                        ; preds = %do.body89, %do.body89
-  %208 = load atomic i64, ptr %this1.i acquire, align 8
-  store i64 %208, ptr %atomic-temp.i, align 8
+  %216 = load atomic i64, ptr %this1.i acquire, align 8
+  store i64 %216, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
 
 seqcst.i:                                         ; preds = %do.body89
-  %209 = load atomic i64, ptr %this1.i seq_cst, align 8
-  store i64 %209, ptr %atomic-temp.i, align 8
+  %217 = load atomic i64, ptr %this1.i seq_cst, align 8
+  store i64 %217, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
 
 _ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %210 = load i64, ptr %atomic-temp.i, align 8
-  store i64 %210, ptr %v, align 8
+  %218 = load i64, ptr %atomic-temp.i, align 8
+  store i64 %218, ptr %v, align 8
   br label %do.cond92
 
 do.cond92:                                        ; preds = %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
   %mu_93 = getelementptr inbounds %"class.absl::Mutex", ptr %this1, i32 0, i32 0
-  %211 = load i64, ptr %v, align 8
-  %and94 = and i64 %211, 255
+  %219 = load i64, ptr %v, align 8
+  %and94 = and i64 %219, 255
   %and95 = and i64 %and94, -65
   %or96 = or i64 %and95, 4
-  %212 = load ptr, ptr %new_h70, align 8
-  %213 = ptrtoint ptr %212 to i64
-  %or97 = or i64 %or96, %213
+  %220 = load ptr, ptr %new_h70, align 8
+  %221 = ptrtoint ptr %220 to i64
+  %or97 = or i64 %or96, %221
   store ptr %mu_93, ptr %this.addr.i122, align 8
   store ptr %v, ptr %__i1.addr.i123, align 8
   store i64 %or97, ptr %__i2.addr.i124, align 8
   store i32 3, ptr %__m1.addr.i125, align 4
   store i32 0, ptr %__m2.addr.i126, align 4
   %this1.i129 = load ptr, ptr %this.addr.i122, align 8
-  %214 = load i32, ptr %__m1.addr.i125, align 4
-  %215 = load ptr, ptr %__i1.addr.i123, align 8
-  %216 = load i64, ptr %__i2.addr.i124, align 8
-  store i64 %216, ptr %.atomictmp.i127, align 8
-  %217 = load i32, ptr %__m2.addr.i126, align 4
-  switch i32 %214, label %monotonic.i187 [
+  %222 = load i32, ptr %__m1.addr.i125, align 4
+  %223 = load ptr, ptr %__i1.addr.i123, align 8
+  %224 = load i64, ptr %__i2.addr.i124, align 8
+  store i64 %224, ptr %.atomictmp.i127, align 8
+  %225 = load i32, ptr %__m2.addr.i126, align 4
+  switch i32 %222, label %monotonic.i187 [
     i32 1, label %acquire.i173
     i32 2, label %acquire.i173
     i32 3, label %release.i159
@@ -15557,313 +15626,313 @@ do.cond92:                                        ; preds = %_ZNKSt13__atomic_ba
   ]
 
 monotonic.i187:                                   ; preds = %do.cond92
-  switch i32 %217, label %monotonic_fail.i197 [
+  switch i32 %225, label %monotonic_fail.i197 [
     i32 1, label %acquire_fail.i193
     i32 2, label %acquire_fail.i193
     i32 5, label %seqcst_fail.i188
   ]
 
 acquire.i173:                                     ; preds = %do.cond92, %do.cond92
-  switch i32 %217, label %monotonic_fail9.i183 [
+  switch i32 %225, label %monotonic_fail9.i183 [
     i32 1, label %acquire_fail10.i179
     i32 2, label %acquire_fail10.i179
     i32 5, label %seqcst_fail11.i174
   ]
 
 release.i159:                                     ; preds = %do.cond92
-  switch i32 %217, label %monotonic_fail22.i169 [
+  switch i32 %225, label %monotonic_fail22.i169 [
     i32 1, label %acquire_fail23.i165
     i32 2, label %acquire_fail23.i165
     i32 5, label %seqcst_fail24.i160
   ]
 
 acqrel.i145:                                      ; preds = %do.cond92
-  switch i32 %217, label %monotonic_fail35.i155 [
+  switch i32 %225, label %monotonic_fail35.i155 [
     i32 1, label %acquire_fail36.i151
     i32 2, label %acquire_fail36.i151
     i32 5, label %seqcst_fail37.i146
   ]
 
 seqcst.i130:                                      ; preds = %do.cond92
-  switch i32 %217, label %monotonic_fail48.i141 [
+  switch i32 %225, label %monotonic_fail48.i141 [
     i32 1, label %acquire_fail49.i137
     i32 2, label %acquire_fail49.i137
     i32 5, label %seqcst_fail50.i131
   ]
 
 monotonic_fail.i197:                              ; preds = %monotonic.i187
-  %218 = load i64, ptr %215, align 8
-  %219 = load i64, ptr %.atomictmp.i127, align 8
-  %220 = cmpxchg weak ptr %this1.i129, i64 %218, i64 %219 monotonic monotonic, align 8
-  %221 = extractvalue { i64, i1 } %220, 0
-  %222 = extractvalue { i64, i1 } %220, 1
-  br i1 %222, label %cmpxchg.continue.i199, label %cmpxchg.store_expected.i198
+  %226 = load i64, ptr %223, align 8
+  %227 = load i64, ptr %.atomictmp.i127, align 8
+  %228 = cmpxchg weak ptr %this1.i129, i64 %226, i64 %227 monotonic monotonic, align 8
+  %229 = extractvalue { i64, i1 } %228, 0
+  %230 = extractvalue { i64, i1 } %228, 1
+  br i1 %230, label %cmpxchg.continue.i199, label %cmpxchg.store_expected.i198
 
 acquire_fail.i193:                                ; preds = %monotonic.i187, %monotonic.i187
-  %223 = load i64, ptr %215, align 8
-  %224 = load i64, ptr %.atomictmp.i127, align 8
-  %225 = cmpxchg weak ptr %this1.i129, i64 %223, i64 %224 monotonic acquire, align 8
-  %226 = extractvalue { i64, i1 } %225, 0
-  %227 = extractvalue { i64, i1 } %225, 1
-  br i1 %227, label %cmpxchg.continue4.i195, label %cmpxchg.store_expected3.i194
+  %231 = load i64, ptr %223, align 8
+  %232 = load i64, ptr %.atomictmp.i127, align 8
+  %233 = cmpxchg weak ptr %this1.i129, i64 %231, i64 %232 monotonic acquire, align 8
+  %234 = extractvalue { i64, i1 } %233, 0
+  %235 = extractvalue { i64, i1 } %233, 1
+  br i1 %235, label %cmpxchg.continue4.i195, label %cmpxchg.store_expected3.i194
 
 seqcst_fail.i188:                                 ; preds = %monotonic.i187
-  %228 = load i64, ptr %215, align 8
-  %229 = load i64, ptr %.atomictmp.i127, align 8
-  %230 = cmpxchg weak ptr %this1.i129, i64 %228, i64 %229 monotonic seq_cst, align 8
-  %231 = extractvalue { i64, i1 } %230, 0
-  %232 = extractvalue { i64, i1 } %230, 1
-  br i1 %232, label %cmpxchg.continue7.i190, label %cmpxchg.store_expected6.i189
+  %236 = load i64, ptr %223, align 8
+  %237 = load i64, ptr %.atomictmp.i127, align 8
+  %238 = cmpxchg weak ptr %this1.i129, i64 %236, i64 %237 monotonic seq_cst, align 8
+  %239 = extractvalue { i64, i1 } %238, 0
+  %240 = extractvalue { i64, i1 } %238, 1
+  br i1 %240, label %cmpxchg.continue7.i190, label %cmpxchg.store_expected6.i189
 
 atomic.continue2.i192:                            ; preds = %cmpxchg.continue7.i190, %cmpxchg.continue4.i195, %cmpxchg.continue.i199
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected.i198:                      ; preds = %monotonic_fail.i197
-  store i64 %221, ptr %215, align 8
+  store i64 %229, ptr %223, align 8
   br label %cmpxchg.continue.i199
 
 cmpxchg.continue.i199:                            ; preds = %cmpxchg.store_expected.i198, %monotonic_fail.i197
-  %frombool.i200 = zext i1 %222 to i8
+  %frombool.i200 = zext i1 %230 to i8
   store i8 %frombool.i200, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue2.i192
 
 cmpxchg.store_expected3.i194:                     ; preds = %acquire_fail.i193
-  store i64 %226, ptr %215, align 8
+  store i64 %234, ptr %223, align 8
   br label %cmpxchg.continue4.i195
 
 cmpxchg.continue4.i195:                           ; preds = %cmpxchg.store_expected3.i194, %acquire_fail.i193
-  %frombool5.i196 = zext i1 %227 to i8
+  %frombool5.i196 = zext i1 %235 to i8
   store i8 %frombool5.i196, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue2.i192
 
 cmpxchg.store_expected6.i189:                     ; preds = %seqcst_fail.i188
-  store i64 %231, ptr %215, align 8
+  store i64 %239, ptr %223, align 8
   br label %cmpxchg.continue7.i190
 
 cmpxchg.continue7.i190:                           ; preds = %cmpxchg.store_expected6.i189, %seqcst_fail.i188
-  %frombool8.i191 = zext i1 %232 to i8
+  %frombool8.i191 = zext i1 %240 to i8
   store i8 %frombool8.i191, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue2.i192
 
 monotonic_fail9.i183:                             ; preds = %acquire.i173
-  %233 = load i64, ptr %215, align 8
-  %234 = load i64, ptr %.atomictmp.i127, align 8
-  %235 = cmpxchg weak ptr %this1.i129, i64 %233, i64 %234 acquire monotonic, align 8
-  %236 = extractvalue { i64, i1 } %235, 0
-  %237 = extractvalue { i64, i1 } %235, 1
-  br i1 %237, label %cmpxchg.continue14.i185, label %cmpxchg.store_expected13.i184
+  %241 = load i64, ptr %223, align 8
+  %242 = load i64, ptr %.atomictmp.i127, align 8
+  %243 = cmpxchg weak ptr %this1.i129, i64 %241, i64 %242 acquire monotonic, align 8
+  %244 = extractvalue { i64, i1 } %243, 0
+  %245 = extractvalue { i64, i1 } %243, 1
+  br i1 %245, label %cmpxchg.continue14.i185, label %cmpxchg.store_expected13.i184
 
 acquire_fail10.i179:                              ; preds = %acquire.i173, %acquire.i173
-  %238 = load i64, ptr %215, align 8
-  %239 = load i64, ptr %.atomictmp.i127, align 8
-  %240 = cmpxchg weak ptr %this1.i129, i64 %238, i64 %239 acquire acquire, align 8
-  %241 = extractvalue { i64, i1 } %240, 0
-  %242 = extractvalue { i64, i1 } %240, 1
-  br i1 %242, label %cmpxchg.continue17.i181, label %cmpxchg.store_expected16.i180
+  %246 = load i64, ptr %223, align 8
+  %247 = load i64, ptr %.atomictmp.i127, align 8
+  %248 = cmpxchg weak ptr %this1.i129, i64 %246, i64 %247 acquire acquire, align 8
+  %249 = extractvalue { i64, i1 } %248, 0
+  %250 = extractvalue { i64, i1 } %248, 1
+  br i1 %250, label %cmpxchg.continue17.i181, label %cmpxchg.store_expected16.i180
 
 seqcst_fail11.i174:                               ; preds = %acquire.i173
-  %243 = load i64, ptr %215, align 8
-  %244 = load i64, ptr %.atomictmp.i127, align 8
-  %245 = cmpxchg weak ptr %this1.i129, i64 %243, i64 %244 acquire seq_cst, align 8
-  %246 = extractvalue { i64, i1 } %245, 0
-  %247 = extractvalue { i64, i1 } %245, 1
-  br i1 %247, label %cmpxchg.continue20.i176, label %cmpxchg.store_expected19.i175
+  %251 = load i64, ptr %223, align 8
+  %252 = load i64, ptr %.atomictmp.i127, align 8
+  %253 = cmpxchg weak ptr %this1.i129, i64 %251, i64 %252 acquire seq_cst, align 8
+  %254 = extractvalue { i64, i1 } %253, 0
+  %255 = extractvalue { i64, i1 } %253, 1
+  br i1 %255, label %cmpxchg.continue20.i176, label %cmpxchg.store_expected19.i175
 
 atomic.continue12.i178:                           ; preds = %cmpxchg.continue20.i176, %cmpxchg.continue17.i181, %cmpxchg.continue14.i185
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected13.i184:                    ; preds = %monotonic_fail9.i183
-  store i64 %236, ptr %215, align 8
+  store i64 %244, ptr %223, align 8
   br label %cmpxchg.continue14.i185
 
 cmpxchg.continue14.i185:                          ; preds = %cmpxchg.store_expected13.i184, %monotonic_fail9.i183
-  %frombool15.i186 = zext i1 %237 to i8
+  %frombool15.i186 = zext i1 %245 to i8
   store i8 %frombool15.i186, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue12.i178
 
 cmpxchg.store_expected16.i180:                    ; preds = %acquire_fail10.i179
-  store i64 %241, ptr %215, align 8
+  store i64 %249, ptr %223, align 8
   br label %cmpxchg.continue17.i181
 
 cmpxchg.continue17.i181:                          ; preds = %cmpxchg.store_expected16.i180, %acquire_fail10.i179
-  %frombool18.i182 = zext i1 %242 to i8
+  %frombool18.i182 = zext i1 %250 to i8
   store i8 %frombool18.i182, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue12.i178
 
 cmpxchg.store_expected19.i175:                    ; preds = %seqcst_fail11.i174
-  store i64 %246, ptr %215, align 8
+  store i64 %254, ptr %223, align 8
   br label %cmpxchg.continue20.i176
 
 cmpxchg.continue20.i176:                          ; preds = %cmpxchg.store_expected19.i175, %seqcst_fail11.i174
-  %frombool21.i177 = zext i1 %247 to i8
+  %frombool21.i177 = zext i1 %255 to i8
   store i8 %frombool21.i177, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue12.i178
 
 monotonic_fail22.i169:                            ; preds = %release.i159
-  %248 = load i64, ptr %215, align 8
-  %249 = load i64, ptr %.atomictmp.i127, align 8
-  %250 = cmpxchg weak ptr %this1.i129, i64 %248, i64 %249 release monotonic, align 8
-  %251 = extractvalue { i64, i1 } %250, 0
-  %252 = extractvalue { i64, i1 } %250, 1
-  br i1 %252, label %cmpxchg.continue27.i171, label %cmpxchg.store_expected26.i170
+  %256 = load i64, ptr %223, align 8
+  %257 = load i64, ptr %.atomictmp.i127, align 8
+  %258 = cmpxchg weak ptr %this1.i129, i64 %256, i64 %257 release monotonic, align 8
+  %259 = extractvalue { i64, i1 } %258, 0
+  %260 = extractvalue { i64, i1 } %258, 1
+  br i1 %260, label %cmpxchg.continue27.i171, label %cmpxchg.store_expected26.i170
 
 acquire_fail23.i165:                              ; preds = %release.i159, %release.i159
-  %253 = load i64, ptr %215, align 8
-  %254 = load i64, ptr %.atomictmp.i127, align 8
-  %255 = cmpxchg weak ptr %this1.i129, i64 %253, i64 %254 release acquire, align 8
-  %256 = extractvalue { i64, i1 } %255, 0
-  %257 = extractvalue { i64, i1 } %255, 1
-  br i1 %257, label %cmpxchg.continue30.i167, label %cmpxchg.store_expected29.i166
+  %261 = load i64, ptr %223, align 8
+  %262 = load i64, ptr %.atomictmp.i127, align 8
+  %263 = cmpxchg weak ptr %this1.i129, i64 %261, i64 %262 release acquire, align 8
+  %264 = extractvalue { i64, i1 } %263, 0
+  %265 = extractvalue { i64, i1 } %263, 1
+  br i1 %265, label %cmpxchg.continue30.i167, label %cmpxchg.store_expected29.i166
 
 seqcst_fail24.i160:                               ; preds = %release.i159
-  %258 = load i64, ptr %215, align 8
-  %259 = load i64, ptr %.atomictmp.i127, align 8
-  %260 = cmpxchg weak ptr %this1.i129, i64 %258, i64 %259 release seq_cst, align 8
-  %261 = extractvalue { i64, i1 } %260, 0
-  %262 = extractvalue { i64, i1 } %260, 1
-  br i1 %262, label %cmpxchg.continue33.i162, label %cmpxchg.store_expected32.i161
+  %266 = load i64, ptr %223, align 8
+  %267 = load i64, ptr %.atomictmp.i127, align 8
+  %268 = cmpxchg weak ptr %this1.i129, i64 %266, i64 %267 release seq_cst, align 8
+  %269 = extractvalue { i64, i1 } %268, 0
+  %270 = extractvalue { i64, i1 } %268, 1
+  br i1 %270, label %cmpxchg.continue33.i162, label %cmpxchg.store_expected32.i161
 
 atomic.continue25.i164:                           ; preds = %cmpxchg.continue33.i162, %cmpxchg.continue30.i167, %cmpxchg.continue27.i171
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected26.i170:                    ; preds = %monotonic_fail22.i169
-  store i64 %251, ptr %215, align 8
+  store i64 %259, ptr %223, align 8
   br label %cmpxchg.continue27.i171
 
 cmpxchg.continue27.i171:                          ; preds = %cmpxchg.store_expected26.i170, %monotonic_fail22.i169
-  %frombool28.i172 = zext i1 %252 to i8
+  %frombool28.i172 = zext i1 %260 to i8
   store i8 %frombool28.i172, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue25.i164
 
 cmpxchg.store_expected29.i166:                    ; preds = %acquire_fail23.i165
-  store i64 %256, ptr %215, align 8
+  store i64 %264, ptr %223, align 8
   br label %cmpxchg.continue30.i167
 
 cmpxchg.continue30.i167:                          ; preds = %cmpxchg.store_expected29.i166, %acquire_fail23.i165
-  %frombool31.i168 = zext i1 %257 to i8
+  %frombool31.i168 = zext i1 %265 to i8
   store i8 %frombool31.i168, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue25.i164
 
 cmpxchg.store_expected32.i161:                    ; preds = %seqcst_fail24.i160
-  store i64 %261, ptr %215, align 8
+  store i64 %269, ptr %223, align 8
   br label %cmpxchg.continue33.i162
 
 cmpxchg.continue33.i162:                          ; preds = %cmpxchg.store_expected32.i161, %seqcst_fail24.i160
-  %frombool34.i163 = zext i1 %262 to i8
+  %frombool34.i163 = zext i1 %270 to i8
   store i8 %frombool34.i163, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue25.i164
 
 monotonic_fail35.i155:                            ; preds = %acqrel.i145
-  %263 = load i64, ptr %215, align 8
-  %264 = load i64, ptr %.atomictmp.i127, align 8
-  %265 = cmpxchg weak ptr %this1.i129, i64 %263, i64 %264 acq_rel monotonic, align 8
-  %266 = extractvalue { i64, i1 } %265, 0
-  %267 = extractvalue { i64, i1 } %265, 1
-  br i1 %267, label %cmpxchg.continue40.i157, label %cmpxchg.store_expected39.i156
+  %271 = load i64, ptr %223, align 8
+  %272 = load i64, ptr %.atomictmp.i127, align 8
+  %273 = cmpxchg weak ptr %this1.i129, i64 %271, i64 %272 acq_rel monotonic, align 8
+  %274 = extractvalue { i64, i1 } %273, 0
+  %275 = extractvalue { i64, i1 } %273, 1
+  br i1 %275, label %cmpxchg.continue40.i157, label %cmpxchg.store_expected39.i156
 
 acquire_fail36.i151:                              ; preds = %acqrel.i145, %acqrel.i145
-  %268 = load i64, ptr %215, align 8
-  %269 = load i64, ptr %.atomictmp.i127, align 8
-  %270 = cmpxchg weak ptr %this1.i129, i64 %268, i64 %269 acq_rel acquire, align 8
-  %271 = extractvalue { i64, i1 } %270, 0
-  %272 = extractvalue { i64, i1 } %270, 1
-  br i1 %272, label %cmpxchg.continue43.i153, label %cmpxchg.store_expected42.i152
+  %276 = load i64, ptr %223, align 8
+  %277 = load i64, ptr %.atomictmp.i127, align 8
+  %278 = cmpxchg weak ptr %this1.i129, i64 %276, i64 %277 acq_rel acquire, align 8
+  %279 = extractvalue { i64, i1 } %278, 0
+  %280 = extractvalue { i64, i1 } %278, 1
+  br i1 %280, label %cmpxchg.continue43.i153, label %cmpxchg.store_expected42.i152
 
 seqcst_fail37.i146:                               ; preds = %acqrel.i145
-  %273 = load i64, ptr %215, align 8
-  %274 = load i64, ptr %.atomictmp.i127, align 8
-  %275 = cmpxchg weak ptr %this1.i129, i64 %273, i64 %274 acq_rel seq_cst, align 8
-  %276 = extractvalue { i64, i1 } %275, 0
-  %277 = extractvalue { i64, i1 } %275, 1
-  br i1 %277, label %cmpxchg.continue46.i148, label %cmpxchg.store_expected45.i147
+  %281 = load i64, ptr %223, align 8
+  %282 = load i64, ptr %.atomictmp.i127, align 8
+  %283 = cmpxchg weak ptr %this1.i129, i64 %281, i64 %282 acq_rel seq_cst, align 8
+  %284 = extractvalue { i64, i1 } %283, 0
+  %285 = extractvalue { i64, i1 } %283, 1
+  br i1 %285, label %cmpxchg.continue46.i148, label %cmpxchg.store_expected45.i147
 
 atomic.continue38.i150:                           ; preds = %cmpxchg.continue46.i148, %cmpxchg.continue43.i153, %cmpxchg.continue40.i157
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected39.i156:                    ; preds = %monotonic_fail35.i155
-  store i64 %266, ptr %215, align 8
+  store i64 %274, ptr %223, align 8
   br label %cmpxchg.continue40.i157
 
 cmpxchg.continue40.i157:                          ; preds = %cmpxchg.store_expected39.i156, %monotonic_fail35.i155
-  %frombool41.i158 = zext i1 %267 to i8
+  %frombool41.i158 = zext i1 %275 to i8
   store i8 %frombool41.i158, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue38.i150
 
 cmpxchg.store_expected42.i152:                    ; preds = %acquire_fail36.i151
-  store i64 %271, ptr %215, align 8
+  store i64 %279, ptr %223, align 8
   br label %cmpxchg.continue43.i153
 
 cmpxchg.continue43.i153:                          ; preds = %cmpxchg.store_expected42.i152, %acquire_fail36.i151
-  %frombool44.i154 = zext i1 %272 to i8
+  %frombool44.i154 = zext i1 %280 to i8
   store i8 %frombool44.i154, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue38.i150
 
 cmpxchg.store_expected45.i147:                    ; preds = %seqcst_fail37.i146
-  store i64 %276, ptr %215, align 8
+  store i64 %284, ptr %223, align 8
   br label %cmpxchg.continue46.i148
 
 cmpxchg.continue46.i148:                          ; preds = %cmpxchg.store_expected45.i147, %seqcst_fail37.i146
-  %frombool47.i149 = zext i1 %277 to i8
+  %frombool47.i149 = zext i1 %285 to i8
   store i8 %frombool47.i149, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue38.i150
 
 monotonic_fail48.i141:                            ; preds = %seqcst.i130
-  %278 = load i64, ptr %215, align 8
-  %279 = load i64, ptr %.atomictmp.i127, align 8
-  %280 = cmpxchg weak ptr %this1.i129, i64 %278, i64 %279 seq_cst monotonic, align 8
-  %281 = extractvalue { i64, i1 } %280, 0
-  %282 = extractvalue { i64, i1 } %280, 1
-  br i1 %282, label %cmpxchg.continue53.i143, label %cmpxchg.store_expected52.i142
+  %286 = load i64, ptr %223, align 8
+  %287 = load i64, ptr %.atomictmp.i127, align 8
+  %288 = cmpxchg weak ptr %this1.i129, i64 %286, i64 %287 seq_cst monotonic, align 8
+  %289 = extractvalue { i64, i1 } %288, 0
+  %290 = extractvalue { i64, i1 } %288, 1
+  br i1 %290, label %cmpxchg.continue53.i143, label %cmpxchg.store_expected52.i142
 
 acquire_fail49.i137:                              ; preds = %seqcst.i130, %seqcst.i130
-  %283 = load i64, ptr %215, align 8
-  %284 = load i64, ptr %.atomictmp.i127, align 8
-  %285 = cmpxchg weak ptr %this1.i129, i64 %283, i64 %284 seq_cst acquire, align 8
-  %286 = extractvalue { i64, i1 } %285, 0
-  %287 = extractvalue { i64, i1 } %285, 1
-  br i1 %287, label %cmpxchg.continue56.i139, label %cmpxchg.store_expected55.i138
+  %291 = load i64, ptr %223, align 8
+  %292 = load i64, ptr %.atomictmp.i127, align 8
+  %293 = cmpxchg weak ptr %this1.i129, i64 %291, i64 %292 seq_cst acquire, align 8
+  %294 = extractvalue { i64, i1 } %293, 0
+  %295 = extractvalue { i64, i1 } %293, 1
+  br i1 %295, label %cmpxchg.continue56.i139, label %cmpxchg.store_expected55.i138
 
 seqcst_fail50.i131:                               ; preds = %seqcst.i130
-  %288 = load i64, ptr %215, align 8
-  %289 = load i64, ptr %.atomictmp.i127, align 8
-  %290 = cmpxchg weak ptr %this1.i129, i64 %288, i64 %289 seq_cst seq_cst, align 8
-  %291 = extractvalue { i64, i1 } %290, 0
-  %292 = extractvalue { i64, i1 } %290, 1
-  br i1 %292, label %cmpxchg.continue59.i133, label %cmpxchg.store_expected58.i132
+  %296 = load i64, ptr %223, align 8
+  %297 = load i64, ptr %.atomictmp.i127, align 8
+  %298 = cmpxchg weak ptr %this1.i129, i64 %296, i64 %297 seq_cst seq_cst, align 8
+  %299 = extractvalue { i64, i1 } %298, 0
+  %300 = extractvalue { i64, i1 } %298, 1
+  br i1 %300, label %cmpxchg.continue59.i133, label %cmpxchg.store_expected58.i132
 
 atomic.continue51.i135:                           ; preds = %cmpxchg.continue59.i133, %cmpxchg.continue56.i139, %cmpxchg.continue53.i143
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 cmpxchg.store_expected52.i142:                    ; preds = %monotonic_fail48.i141
-  store i64 %281, ptr %215, align 8
+  store i64 %289, ptr %223, align 8
   br label %cmpxchg.continue53.i143
 
 cmpxchg.continue53.i143:                          ; preds = %cmpxchg.store_expected52.i142, %monotonic_fail48.i141
-  %frombool54.i144 = zext i1 %282 to i8
+  %frombool54.i144 = zext i1 %290 to i8
   store i8 %frombool54.i144, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue51.i135
 
 cmpxchg.store_expected55.i138:                    ; preds = %acquire_fail49.i137
-  store i64 %286, ptr %215, align 8
+  store i64 %294, ptr %223, align 8
   br label %cmpxchg.continue56.i139
 
 cmpxchg.continue56.i139:                          ; preds = %cmpxchg.store_expected55.i138, %acquire_fail49.i137
-  %frombool57.i140 = zext i1 %287 to i8
+  %frombool57.i140 = zext i1 %295 to i8
   store i8 %frombool57.i140, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue51.i135
 
 cmpxchg.store_expected58.i132:                    ; preds = %seqcst_fail50.i131
-  store i64 %291, ptr %215, align 8
+  store i64 %299, ptr %223, align 8
   br label %cmpxchg.continue59.i133
 
 cmpxchg.continue59.i133:                          ; preds = %cmpxchg.store_expected58.i132, %seqcst_fail50.i131
-  %frombool60.i134 = zext i1 %292 to i8
+  %frombool60.i134 = zext i1 %300 to i8
   store i8 %frombool60.i134, ptr %cmpxchg.bool.i128, align 1
   br label %atomic.continue51.i135
 
 _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit: ; preds = %atomic.continue51.i135, %atomic.continue38.i150, %atomic.continue25.i164, %atomic.continue12.i178, %atomic.continue2.i192
-  %293 = load i8, ptr %cmpxchg.bool.i128, align 1
-  %tobool.i136 = trunc i8 %293 to i1
+  %301 = load i8, ptr %cmpxchg.bool.i128, align 1
+  %tobool.i136 = trunc i8 %301 to i1
   %lnot99 = xor i1 %tobool.i136, true
   br i1 %lnot99, label %do.body89, label %do.end100, !llvm.loop !29
 
@@ -15878,8 +15947,8 @@ if.end102:                                        ; preds = %if.end101, %if.end5
   br label %if.end103
 
 if.end103:                                        ; preds = %if.end102
-  %294 = load i32, ptr %c, align 4
-  %call105 = invoke noundef i32 @_ZN4absl24synchronization_internal10MutexDelayEii(i32 noundef %294, i32 noundef 1)
+  %302 = load i32, ptr %c, align 4
+  %call105 = invoke noundef i32 @_ZN4absl24synchronization_internal10MutexDelayEii(i32 noundef %302, i32 noundef 1)
           to label %invoke.cont104 unwind label %lpad
 
 invoke.cont104:                                   ; preds = %if.end103
@@ -15962,23 +16031,25 @@ if.then:                                          ; preds = %_ZNKSt13__atomic_ba
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  %6 = load ptr, ptr %e, align 8
-  %cmp3 = icmp eq ptr %6, null
+  %6 = getelementptr i8, ptr @.str, i64 120
+  store ptr %6, ptr %absl_raw_log_internal_basename, align 8
+  %7 = load ptr, ptr %e, align 8
+  %cmp3 = icmp eq ptr %7, null
   br i1 %cmp3, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %do.body
   br label %cond.end
 
 cond.false:                                       ; preds = %do.body
-  %7 = load ptr, ptr %e, align 8
-  %name = getelementptr inbounds %"struct.absl::SynchEvent", ptr %7, i32 0, i32 6
+  %8 = load ptr, ptr %e, align 8
+  %name = getelementptr inbounds %"struct.absl::SynchEvent", ptr %8, i32 0, i32 6
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond-lvalue = phi ptr [ @.str.35, %cond.true ], [ %name, %cond.false ]
   %arraydecay = getelementptr inbounds [1 x i8], ptr %cond-lvalue, i64 0, i64 0
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2464, ptr noundef @.str.34, ptr noundef %this1, ptr noundef %arraydecay)
+  %9 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %9, i32 noundef 2464, ptr noundef @.str.34, ptr noundef %this1, ptr noundef %arraydecay)
   br label %do.body4
 
 do.body4:                                         ; preds = %cond.end
@@ -16863,8 +16934,10 @@ if.then23:                                        ; preds = %do.body
   br label %do.body24
 
 do.body24:                                        ; preds = %if.then23
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2629, ptr noundef @.str.1, ptr noundef @.str.38, ptr noundef @.str.39)
+  %27 = getelementptr i8, ptr @.str, i64 120
+  store ptr %27, ptr %absl_raw_log_internal_basename, align 8
+  %28 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %28, i32 noundef 2629, ptr noundef @.str.1, ptr noundef @.str.38, ptr noundef @.str.39)
   br label %do.body25
 
 do.body25:                                        ; preds = %do.body24
@@ -16881,13 +16954,13 @@ if.end27:                                         ; preds = %do.end26, %do.body
 
 do.end28:                                         ; preds = %if.end27
   %thread29 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i32 0, i32 4
-  %27 = load ptr, ptr %thread29, align 8
-  %waitp30 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %27, i32 0, i32 9
+  %29 = load ptr, ptr %thread29, align 8
+  %waitp30 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %29, i32 0, i32 9
   store ptr null, ptr %waitp30, align 8
   store ptr %this1, ptr %ref.tmp31, align 8
   call void @_ZNK4absl13base_internal10AtomicHookIPFvPKcPKvEEclIJRA7_S2_PNS_7CondVarEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl12_GLOBAL__N_115cond_var_tracerE, ptr noundef nonnull align 1 dereferenceable(7) @.str.40, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp31)
-  %28 = load i64, ptr %v, align 8
-  %and32 = and i64 %28, 2
+  %30 = load i64, ptr %v, align 8
+  %and32 = and i64 %30, 2
   %cmp33 = icmp ne i64 %and32, 0
   br i1 %cmp33, label %if.then34, label %if.end35
 
@@ -16896,11 +16969,11 @@ if.then34:                                        ; preds = %do.end28
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then34, %do.end28
-  %29 = load ptr, ptr %mutex.addr, align 8
-  %30 = load ptr, ptr %mutex_how, align 8
-  call void @_ZN4absl5Mutex5TransEPKNS_6MuHowSE(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %30)
-  %31 = load i8, ptr %rc, align 1
-  %tobool = trunc i8 %31 to i1
+  %31 = load ptr, ptr %mutex.addr, align 8
+  %32 = load ptr, ptr %mutex_how, align 8
+  call void @_ZN4absl5Mutex5TransEPKNS_6MuHowSE(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %32)
+  %33 = load i8, ptr %rc, align 1
+  %tobool = trunc i8 %33 to i1
   ret i1 %tobool
 }
 
@@ -18121,8 +18194,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body2
 
 do.body2:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2728, ptr noundef @.str.1, ptr noundef @.str.43, ptr noundef @.str.44)
+  %1 = getelementptr i8, ptr @.str, i64 120
+  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
+  %2 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %2, i32 noundef 2728, ptr noundef @.str.1, ptr noundef @.str.43, ptr noundef @.str.44)
   br label %do.body3
 
 do.body3:                                         ; preds = %do.body2
@@ -18139,8 +18214,8 @@ if.end:                                           ; preds = %do.end4, %do.body
 
 do.end5:                                          ; preds = %if.end
   %mu_6 = getelementptr inbounds %"class.absl::ReleasableMutexLock", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %mu_6, align 8
-  call void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %3 = load ptr, ptr %mu_6, align 8
+  call void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %mu_7 = getelementptr inbounds %"class.absl::ReleasableMutexLock", ptr %this1, i32 0, i32 0
   store ptr null, ptr %mu_7, align 8
   ret void
@@ -19160,39 +19235,49 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  store i32 5000, ptr getelementptr inbounds (%"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 2), align 8
-  store i32 250, ptr getelementptr inbounds (%"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 2, i64 1), align 4
+  %0 = getelementptr inbounds %"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 2
+  store i32 5000, ptr %0, align 8
+  %1 = getelementptr inbounds %"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 2, i64 1
+  store i32 250, ptr %1, align 4
   %call2 = call { i64, i32 } @_ZN4absl12MicrosecondsIiTnNSt9enable_ifIXoosr3std11is_integralIT_EE5valuesr3std7is_enumIS2_EE5valueEiE4typeELi0EEENS_8DurationES2_(i32 noundef 10) #17
   store { i64, i32 } %call2, ptr %tmp.coerce, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp, ptr align 8 %tmp.coerce, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 getelementptr inbounds (%"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 3), ptr align 4 %ref.tmp, i64 12, i1 false)
+  %2 = getelementptr inbounds %"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %2, ptr align 4 %ref.tmp, i64 12, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  store i32 0, ptr getelementptr inbounds (%"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 2, i64 1), align 4
+  %3 = getelementptr inbounds %"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 2
+  store i32 0, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 2, i64 1
+  store i32 0, ptr %4, align 4
   %call4 = call { i64, i32 } @_ZN4absl12_GLOBAL__N_118MeasureTimeToYieldEv()
   store { i64, i32 } %call4, ptr %tmp.coerce5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp, ptr align 8 %tmp.coerce5, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp.coerce, ptr align 4 %agg.tmp, i64 12, i1 false)
-  %0 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp.coerce, i32 0, i32 0
-  %1 = load i64, ptr %0, align 4
-  %2 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp.coerce, i32 0, i32 1
-  %3 = load i32, ptr %2, align 4
-  %call6 = call { i64, i32 } @_ZN4abslmlIiEENS_8DurationES1_T_(i64 %1, i32 %3, i32 noundef 5) #17
+  %5 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp.coerce, i32 0, i32 0
+  %6 = load i64, ptr %5, align 4
+  %7 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp.coerce, i32 0, i32 1
+  %8 = load i32, ptr %7, align 4
+  %call6 = call { i64, i32 } @_ZN4abslmlIiEENS_8DurationES1_T_(i64 %6, i32 %8, i32 noundef 5) #17
   store { i64, i32 } %call6, ptr %tmp.coerce7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp3, ptr align 8 %tmp.coerce7, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 getelementptr inbounds (%"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 3), ptr align 4 %ref.tmp3, i64 12, i1 false)
+  %9 = getelementptr inbounds %"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %9, ptr align 4 %ref.tmp3, i64 12, i1 false)
   %call9 = call { i64, i32 } @_ZN4absl12MillisecondsIiTnNSt9enable_ifIXoosr3std11is_integralIT_EE5valuesr3std7is_enumIS2_EE5valueEiE4typeELi0EEENS_8DurationES2_(i32 noundef 1) #17
   store { i64, i32 } %call9, ptr %tmp.coerce10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp8, ptr align 8 %tmp.coerce10, i64 12, i1 false)
-  %call11 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZSt3minIN4absl8DurationEERKT_S4_S4_(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 3), ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp8)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 getelementptr inbounds (%"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 3), ptr align 4 %call11, i64 12, i1 false)
+  %10 = getelementptr inbounds %"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 3
+  %call11 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZSt3minIN4absl8DurationEERKT_S4_S4_(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp8)
+  %11 = getelementptr inbounds %"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %11, ptr align 4 %call11, i64 12, i1 false)
   %call13 = call { i64, i32 } @_ZN4absl12MicrosecondsIiTnNSt9enable_ifIXoosr3std11is_integralIT_EE5valuesr3std7is_enumIS2_EE5valueEiE4typeELi0EEENS_8DurationES2_(i32 noundef 10) #17
   store { i64, i32 } %call13, ptr %tmp.coerce14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp12, ptr align 8 %tmp.coerce14, i64 12, i1 false)
-  %call15 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZSt3maxIN4absl8DurationEERKT_S4_S4_(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 3), ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp12)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 getelementptr inbounds (%"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 3), ptr align 4 %call15, i64 12, i1 false)
+  %12 = getelementptr inbounds %"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 3
+  %call15 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZSt3maxIN4absl8DurationEERKT_S4_S4_(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp12)
+  %13 = getelementptr inbounds %"struct.absl::(anonymous namespace)::MutexGlobals", ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %13, ptr align 4 %call15, i64 12, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -21572,8 +21657,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body9
 
 do.body9:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 120), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 120), i32 noundef 2566, ptr noundef @.str.1, ptr noundef @.str.74, ptr noundef @.str.75)
+  %105 = getelementptr i8, ptr @.str, i64 120
+  store ptr %105, ptr %absl_raw_log_internal_basename, align 8
+  %106 = getelementptr i8, ptr @.str, i64 120
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %106, i32 noundef 2566, ptr noundef @.str.1, ptr noundef @.str.74, ptr noundef @.str.75)
   br label %do.body10
 
 do.body10:                                        ; preds = %do.body9
@@ -21589,90 +21676,90 @@ if.end:                                           ; preds = %do.end11, %do.body
   br label %do.end12
 
 do.end12:                                         ; preds = %if.end
-  %105 = load ptr, ptr %waitp.addr, align 8
-  %106 = load ptr, ptr %waitp.addr, align 8
-  %thread13 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %106, i32 0, i32 4
-  %107 = load ptr, ptr %thread13, align 8
-  %waitp14 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %107, i32 0, i32 9
-  store ptr %105, ptr %waitp14, align 8
-  %108 = load i64, ptr %v, align 8
-  %and15 = and i64 %108, -4
-  %109 = inttoptr i64 %and15 to ptr
-  store ptr %109, ptr %h, align 8
-  %110 = load ptr, ptr %h, align 8
-  %cmp16 = icmp eq ptr %110, null
+  %107 = load ptr, ptr %waitp.addr, align 8
+  %108 = load ptr, ptr %waitp.addr, align 8
+  %thread13 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %108, i32 0, i32 4
+  %109 = load ptr, ptr %thread13, align 8
+  %waitp14 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %109, i32 0, i32 9
+  store ptr %107, ptr %waitp14, align 8
+  %110 = load i64, ptr %v, align 8
+  %and15 = and i64 %110, -4
+  %111 = inttoptr i64 %and15 to ptr
+  store ptr %111, ptr %h, align 8
+  %112 = load ptr, ptr %h, align 8
+  %cmp16 = icmp eq ptr %112, null
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %do.end12
-  %111 = load ptr, ptr %waitp.addr, align 8
-  %thread18 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %111, i32 0, i32 4
-  %112 = load ptr, ptr %thread18, align 8
   %113 = load ptr, ptr %waitp.addr, align 8
-  %thread19 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %113, i32 0, i32 4
-  %114 = load ptr, ptr %thread19, align 8
-  %next = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %114, i32 0, i32 0
-  store ptr %112, ptr %next, align 8
+  %thread18 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %113, i32 0, i32 4
+  %114 = load ptr, ptr %thread18, align 8
+  %115 = load ptr, ptr %waitp.addr, align 8
+  %thread19 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %115, i32 0, i32 4
+  %116 = load ptr, ptr %thread19, align 8
+  %next = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %116, i32 0, i32 0
+  store ptr %114, ptr %next, align 8
   br label %if.end25
 
 if.else:                                          ; preds = %do.end12
-  %115 = load ptr, ptr %h, align 8
-  %next20 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %115, i32 0, i32 0
-  %116 = load ptr, ptr %next20, align 8
-  %117 = load ptr, ptr %waitp.addr, align 8
-  %thread21 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %117, i32 0, i32 4
-  %118 = load ptr, ptr %thread21, align 8
-  %next22 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %118, i32 0, i32 0
-  store ptr %116, ptr %next22, align 8
+  %117 = load ptr, ptr %h, align 8
+  %next20 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %117, i32 0, i32 0
+  %118 = load ptr, ptr %next20, align 8
   %119 = load ptr, ptr %waitp.addr, align 8
-  %thread23 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %119, i32 0, i32 4
-  %120 = load ptr, ptr %thread23, align 8
-  %121 = load ptr, ptr %h, align 8
-  %next24 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %121, i32 0, i32 0
-  store ptr %120, ptr %next24, align 8
+  %thread21 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %119, i32 0, i32 4
+  %120 = load ptr, ptr %thread21, align 8
+  %next22 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %120, i32 0, i32 0
+  store ptr %118, ptr %next22, align 8
+  %121 = load ptr, ptr %waitp.addr, align 8
+  %thread23 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %121, i32 0, i32 4
+  %122 = load ptr, ptr %thread23, align 8
+  %123 = load ptr, ptr %h, align 8
+  %next24 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %123, i32 0, i32 0
+  store ptr %122, ptr %next24, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.else, %if.then17
-  %122 = load ptr, ptr %waitp.addr, align 8
-  %thread26 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %122, i32 0, i32 4
-  %123 = load ptr, ptr %thread26, align 8
-  %state = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %123, i32 0, i32 8
+  %124 = load ptr, ptr %waitp.addr, align 8
+  %thread26 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %124, i32 0, i32 4
+  %125 = load ptr, ptr %thread26, align 8
+  %state = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %125, i32 0, i32 8
   call void @_ZNSt6atomicIN4absl13base_internal14PerThreadSynch5StateEE5storeES3_St12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 1, i32 noundef 0) #13
-  %124 = load ptr, ptr %cv_word, align 8
-  %125 = load i64, ptr %v, align 8
-  %and27 = and i64 %125, 2
-  %126 = load ptr, ptr %waitp.addr, align 8
-  %thread28 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %126, i32 0, i32 4
-  %127 = load ptr, ptr %thread28, align 8
-  %128 = ptrtoint ptr %127 to i64
-  %or29 = or i64 %and27, %128
-  store ptr %124, ptr %this.addr.i45, align 8
+  %126 = load ptr, ptr %cv_word, align 8
+  %127 = load i64, ptr %v, align 8
+  %and27 = and i64 %127, 2
+  %128 = load ptr, ptr %waitp.addr, align 8
+  %thread28 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %128, i32 0, i32 4
+  %129 = load ptr, ptr %thread28, align 8
+  %130 = ptrtoint ptr %129 to i64
+  %or29 = or i64 %and27, %130
+  store ptr %126, ptr %this.addr.i45, align 8
   store i64 %or29, ptr %__i.addr.i, align 8
   store i32 3, ptr %__m.addr.i46, align 4
   %this1.i49 = load ptr, ptr %this.addr.i45, align 8
-  %129 = load i32, ptr %__m.addr.i46, align 4
-  %call.i50 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %129, i32 noundef 65535)
+  %131 = load i32, ptr %__m.addr.i46, align 4
+  %call.i50 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %131, i32 noundef 65535)
   store i32 %call.i50, ptr %__b.i47, align 4
-  %130 = load i32, ptr %__m.addr.i46, align 4
-  %131 = load i64, ptr %__i.addr.i, align 8
-  store i64 %131, ptr %.atomictmp.i48, align 8
-  switch i32 %130, label %monotonic.i53 [
+  %132 = load i32, ptr %__m.addr.i46, align 4
+  %133 = load i64, ptr %__i.addr.i, align 8
+  store i64 %133, ptr %.atomictmp.i48, align 8
+  switch i32 %132, label %monotonic.i53 [
     i32 3, label %release.i52
     i32 5, label %seqcst.i51
   ]
 
 monotonic.i53:                                    ; preds = %if.end25
-  %132 = load i64, ptr %.atomictmp.i48, align 8
-  store atomic i64 %132, ptr %this1.i49 monotonic, align 8
+  %134 = load i64, ptr %.atomictmp.i48, align 8
+  store atomic i64 %134, ptr %this1.i49 monotonic, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
 
 release.i52:                                      ; preds = %if.end25
-  %133 = load i64, ptr %.atomictmp.i48, align 8
-  store atomic i64 %133, ptr %this1.i49 release, align 8
+  %135 = load i64, ptr %.atomictmp.i48, align 8
+  store atomic i64 %135, ptr %this1.i49 release, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
 
 seqcst.i51:                                       ; preds = %if.end25
-  %134 = load i64, ptr %.atomictmp.i48, align 8
-  store atomic i64 %134, ptr %this1.i49 seq_cst, align 8
+  %136 = load i64, ptr %.atomictmp.i48, align 8
+  store atomic i64 %136, ptr %this1.i49 seq_cst, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
 
 _ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit: ; preds = %seqcst.i51, %release.i52, %monotonic.i53

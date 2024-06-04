@@ -8544,84 +8544,90 @@ define void @_ZN22MeshShaderRenderPluginC1Ev(ptr noundef nonnull align 8 derefer
   call void @_ZN13MeshLabPluginC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6)
   %7 = getelementptr inbounds i8, ptr %5, i64 128
   invoke void @_ZN19MeshLabPluginLoggerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %8 unwind label %19
+          to label %8 unwind label %24
 
 8:                                                ; preds = %1
   invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null)
-          to label %9 unwind label %23
+          to label %9 unwind label %28
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN12RenderPluginC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef getelementptr inbounds ([7 x ptr], ptr @_ZTT22MeshShaderRenderPlugin, i64 0, i64 1))
-  store ptr getelementptr inbounds ({ [24 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV22MeshShaderRenderPlugin, i32 0, i32 0, i32 4), ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [24 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV22MeshShaderRenderPlugin, i32 0, i32 1, i32 4), ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr getelementptr inbounds ({ [24 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV22MeshShaderRenderPlugin, i32 0, i32 2, i32 6), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr getelementptr inbounds ({ [24 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV22MeshShaderRenderPlugin, i32 0, i32 3, i32 3), ptr %13, align 8
-  %14 = getelementptr inbounds %class.MeshShaderRenderPlugin, ptr %5, i32 0, i32 4
-  call void @_ZNSt3mapI7QString10ShaderInfoSt4lessIS0_ESaISt4pairIKS0_S1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #3
-  %15 = getelementptr inbounds %class.MeshShaderRenderPlugin, ptr %5, i32 0, i32 6
-  call void @_ZN5QListIP7QActionEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  %16 = getelementptr inbounds %class.MeshShaderRenderPlugin, ptr %5, i32 0, i32 5
-  store i8 0, ptr %16, align 8
-  %17 = getelementptr inbounds %class.MeshShaderRenderPlugin, ptr %5, i32 0, i32 7
-  store ptr null, ptr %17, align 8
+  %11 = getelementptr inbounds [7 x ptr], ptr @_ZTT22MeshShaderRenderPlugin, i64 0, i64 1
+  call void @_ZN12RenderPluginC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
+  %12 = getelementptr inbounds { [24 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV22MeshShaderRenderPlugin, i32 0, i32 0, i32 4
+  store ptr %12, ptr %5, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds { [24 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV22MeshShaderRenderPlugin, i32 0, i32 1, i32 4
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 104
+  %16 = getelementptr inbounds { [24 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV22MeshShaderRenderPlugin, i32 0, i32 2, i32 6
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 128
+  %18 = getelementptr inbounds { [24 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV22MeshShaderRenderPlugin, i32 0, i32 3, i32 3
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %class.MeshShaderRenderPlugin, ptr %5, i32 0, i32 4
+  call void @_ZNSt3mapI7QString10ShaderInfoSt4lessIS0_ESaISt4pairIKS0_S1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #3
+  %20 = getelementptr inbounds %class.MeshShaderRenderPlugin, ptr %5, i32 0, i32 6
+  call void @_ZN5QListIP7QActionEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
+  %21 = getelementptr inbounds %class.MeshShaderRenderPlugin, ptr %5, i32 0, i32 5
+  store i8 0, ptr %21, align 8
+  %22 = getelementptr inbounds %class.MeshShaderRenderPlugin, ptr %5, i32 0, i32 7
+  store ptr null, ptr %22, align 8
   invoke void @_ZN22MeshShaderRenderPlugin14initActionListEv(ptr noundef nonnull align 8 dereferenceable(104) %5)
-          to label %18 unwind label %27
+          to label %23 unwind label %32
 
-18:                                               ; preds = %9
+23:                                               ; preds = %9
   ret void
 
-19:                                               ; preds = %1
-  %20 = landingpad { ptr, i32 }
+24:                                               ; preds = %1
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %3, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %4, align 4
-  br label %34
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %3, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %4, align 4
+  br label %40
 
-23:                                               ; preds = %8
-  %24 = landingpad { ptr, i32 }
+28:                                               ; preds = %8
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %3, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %4, align 4
-  br label %32
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %3, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %4, align 4
+  br label %38
 
-27:                                               ; preds = %9
-  %28 = landingpad { ptr, i32 }
+32:                                               ; preds = %9
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %3, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %4, align 4
-  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  call void @_ZNSt3mapI7QString10ShaderInfoSt4lessIS0_ESaISt4pairIKS0_S1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #3
-  %31 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN12RenderPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef getelementptr inbounds ([7 x ptr], ptr @_ZTT22MeshShaderRenderPlugin, i64 0, i64 1)) #3
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %3, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %4, align 4
+  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
+  call void @_ZNSt3mapI7QString10ShaderInfoSt4lessIS0_ESaISt4pairIKS0_S1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #3
+  %36 = getelementptr inbounds i8, ptr %5, i64 16
+  %37 = getelementptr inbounds [7 x ptr], ptr @_ZTT22MeshShaderRenderPlugin, i64 0, i64 1
+  call void @_ZN12RenderPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef %37) #3
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  br label %32
+  br label %38
 
-32:                                               ; preds = %27, %23
-  %33 = getelementptr inbounds i8, ptr %5, i64 128
-  call void @_ZN19MeshLabPluginLoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #3
-  br label %34
+38:                                               ; preds = %32, %28
+  %39 = getelementptr inbounds i8, ptr %5, i64 128
+  call void @_ZN19MeshLabPluginLoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #3
+  br label %40
 
-34:                                               ; preds = %32, %19
-  %35 = getelementptr inbounds i8, ptr %5, i64 104
-  call void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #3
-  br label %36
+40:                                               ; preds = %38, %24
+  %41 = getelementptr inbounds i8, ptr %5, i64 104
+  call void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #3
+  br label %42
 
-36:                                               ; preds = %34
-  %37 = load ptr, ptr %3, align 8
-  %38 = load i32, ptr %4, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %3, align 8
+  %44 = load i32, ptr %4, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8629,11 +8635,12 @@ define linkonce_odr void @_ZN13MeshLabPluginC2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.MeshLabPlugin, ptr %3, i32 0, i32 1
-  store i8 1, ptr %4, align 8
-  %5 = getelementptr inbounds %class.MeshLabPlugin, ptr %3, i32 0, i32 2
-  call void @_ZN9QFileInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.MeshLabPlugin, ptr %3, i32 0, i32 1
+  store i8 1, ptr %5, align 8
+  %6 = getelementptr inbounds %class.MeshLabPlugin, ptr %3, i32 0, i32 2
+  call void @_ZN9QFileInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
   ret void
 }
 
@@ -8653,9 +8660,10 @@ define linkonce_odr void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.MeshLabPlugin, ptr %3, i32 0, i32 2
-  call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.MeshLabPlugin, ptr %3, i32 0, i32 2
+  call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   ret void
 }
 

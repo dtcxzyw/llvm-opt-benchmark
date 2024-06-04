@@ -27,26 +27,20 @@ define i32 @mca_btl_base_err(ptr noundef %0, ...) #0 {
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %5)
+  call void @llvm.va_start.p0(ptr %5)
   %6 = load ptr, ptr @stderr, align 8
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
   %9 = call i32 @vfprintf(ptr noundef %6, ptr noundef %7, ptr noundef %8) #4
   store i32 %9, ptr %4, align 4
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %10)
+  call void @llvm.va_end.p0(ptr %10)
   %11 = load i32, ptr %4, align 4
   ret i32 %11
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
-
 ; Function Attrs: nounwind
-declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
+declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_btl_base_out(ptr noundef %0, ...) #0 {
@@ -55,14 +49,14 @@ define i32 @mca_btl_base_out(ptr noundef %0, ...) #0 {
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %5)
+  call void @llvm.va_start.p0(ptr %5)
   %6 = load ptr, ptr @stdout, align 8
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
   %9 = call i32 @vfprintf(ptr noundef %6, ptr noundef %7, ptr noundef %8) #4
   store i32 %9, ptr %4, align 4
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %10)
+  call void @llvm.va_end.p0(ptr %10)
   %11 = load i32, ptr %4, align 4
   ret i32 %11
 }
@@ -76,7 +70,7 @@ define void @mca_btl_base_error_no_nics(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %4, align 8
   %6 = load i32, ptr @mca_btl_base_warn_component_unused, align 4
   %7 = icmp ne i32 %6, 0
-  br i1 %7, label %8, label %22
+  br i1 %7, label %8, label %23
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr @opal_process_name_print, align 8
@@ -88,23 +82,24 @@ define void @mca_btl_base_error_no_nics(ptr noundef %0, ptr noundef %1) #0 {
   %15 = load ptr, ptr @opal_show_help, align 8
   %16 = load ptr, ptr %5, align 8
   %17 = load ptr, ptr %3, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = call i32 (ptr, ptr, i32, ...) %15(ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 1, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19)
-  %21 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %21) #4
-  br label %22
+  %18 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = call i32 (ptr, ptr, i32, ...) %15(ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 1, ptr noundef %16, ptr noundef %17, ptr noundef %19, ptr noundef %20)
+  %22 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %22) #4
+  br label %23
 
-22:                                               ; preds = %8, %2
+23:                                               ; preds = %8, %2
   ret void
 }
 
-declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) #3
+declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @opal_proc_local_get() #3
+declare ptr @opal_proc_local_get() #2
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define void @mca_btl_base_dump(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -117,10 +112,16 @@ define void @mca_btl_base_dump(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #3
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind willreturn }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

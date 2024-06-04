@@ -368,7 +368,8 @@ entry:
   %m_parent = getelementptr inbounds %struct.btMultibodyLink, ptr %call, i32 0, i32 2
   %5 = load i32, ptr %m_parent, align 4
   call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %5, i32 noundef 3, i1 noundef zeroext true, i32 noundef 10)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV30btMultiBodySphericalJointLimit, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTV30btMultiBodySphericalJointLimit, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %m_desiredVelocity = getelementptr inbounds %class.btMultiBodySphericalJointLimit, ptr %this1, i32 0, i32 1
   store float 0.000000e+00, ptr %ref.tmp, align 4
   store float 0.000000e+00, ptr %ref.tmp2, align 4
@@ -415,9 +416,9 @@ invoke.cont16:                                    ; preds = %invoke.cont12
 invoke.cont17:                                    ; preds = %invoke.cont16
   %m_pivotA = getelementptr inbounds %class.btMultiBodySphericalJointLimit, ptr %this1, i32 0, i32 9
   %m_bodyA = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %m_bodyA, align 8
-  %7 = load i32, ptr %link.addr, align 4
-  %call19 = invoke noundef nonnull align 8 dereferenceable(688) ptr @_ZN11btMultiBody7getLinkEi(ptr noundef nonnull align 8 dereferenceable(640) %6, i32 noundef %7)
+  %7 = load ptr, ptr %m_bodyA, align 8
+  %8 = load i32, ptr %link.addr, align 4
+  %call19 = invoke noundef nonnull align 8 dereferenceable(688) ptr @_ZN11btMultiBody7getLinkEi(ptr noundef nonnull align 8 dereferenceable(640) %7, i32 noundef %8)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont17
@@ -425,35 +426,35 @@ invoke.cont18:                                    ; preds = %invoke.cont17
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_pivotA, ptr align 8 %m_eVector, i64 16, i1 false)
   %m_pivotB = getelementptr inbounds %class.btMultiBodySphericalJointLimit, ptr %this1, i32 0, i32 10
   %m_bodyB = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 2
-  %8 = load ptr, ptr %m_bodyB, align 8
-  %9 = load i32, ptr %link.addr, align 4
-  %call21 = invoke noundef nonnull align 8 dereferenceable(688) ptr @_ZN11btMultiBody7getLinkEi(ptr noundef nonnull align 8 dereferenceable(640) %8, i32 noundef %9)
+  %9 = load ptr, ptr %m_bodyB, align 8
+  %10 = load i32, ptr %link.addr, align 4
+  %call21 = invoke noundef nonnull align 8 dereferenceable(688) ptr @_ZN11btMultiBody7getLinkEi(ptr noundef nonnull align 8 dereferenceable(640) %9, i32 noundef %10)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont18
   %m_eVector22 = getelementptr inbounds %struct.btMultibodyLink, ptr %call21, i32 0, i32 5
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_pivotB, ptr align 8 %m_eVector22, i64 16, i1 false)
   %m_swingxRange = getelementptr inbounds %class.btMultiBodySphericalJointLimit, ptr %this1, i32 0, i32 11
-  %10 = load float, ptr %swingxRange.addr, align 4
-  store float %10, ptr %m_swingxRange, align 4
+  %11 = load float, ptr %swingxRange.addr, align 4
+  store float %11, ptr %m_swingxRange, align 4
   %m_swingyRange = getelementptr inbounds %class.btMultiBodySphericalJointLimit, ptr %this1, i32 0, i32 12
-  %11 = load float, ptr %swingyRange.addr, align 4
-  store float %11, ptr %m_swingyRange, align 8
+  %12 = load float, ptr %swingyRange.addr, align 4
+  store float %12, ptr %m_swingyRange, align 8
   %m_twistRange = getelementptr inbounds %class.btMultiBodySphericalJointLimit, ptr %this1, i32 0, i32 13
-  %12 = load float, ptr %twistRange.addr, align 4
-  store float %12, ptr %m_twistRange, align 4
-  %13 = load float, ptr %maxAppliedImpulse.addr, align 4
+  %13 = load float, ptr %twistRange.addr, align 4
+  store float %13, ptr %m_twistRange, align 4
+  %14 = load float, ptr %maxAppliedImpulse.addr, align 4
   %m_maxAppliedImpulse = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 12
-  store float %13, ptr %m_maxAppliedImpulse, align 4
+  store float %14, ptr %m_maxAppliedImpulse, align 4
   ret void
 
 lpad:                                             ; preds = %invoke.cont18, %invoke.cont17, %invoke.cont16, %invoke.cont12, %invoke.cont8, %invoke.cont, %entry
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #11
   br label %eh.resume
 
@@ -2491,7 +2492,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

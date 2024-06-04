@@ -476,10 +476,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers5ieval13TermEvaluatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers5ieval13TermEvaluatorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_tevMode = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::TermEvaluator", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %tev.addr, align 4
-  store i32 %1, ptr %d_tevMode, align 8
+  %2 = load i32, ptr %tev.addr, align 4
+  store i32 %2, ptr %d_tevMode, align 8
   ret void
 }
 
@@ -502,28 +503,29 @@ entry:
   %0 = load ptr, ptr %env.addr, align 8
   %1 = load i32, ptr %tev.addr, align 4
   call void @_ZN4cvc58internal6theory11quantifiers5ieval13TermEvaluatorC2ERNS0_3EnvENS3_17TermEvaluatorModeE(ptr noundef nonnull align 8 dereferenceable(20) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers5ieval21TermEvaluatorEntailedE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers5ieval21TermEvaluatorEntailedE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %d_qs = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::TermEvaluatorEntailed", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %qs.addr, align 8
-  store ptr %2, ptr %d_qs, align 8
+  %3 = load ptr, ptr %qs.addr, align 8
+  store ptr %3, ptr %d_qs, align 8
   %d_tdb = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::TermEvaluatorEntailed", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %tdb.addr, align 8
-  store ptr %3, ptr %d_tdb, align 8
+  %4 = load ptr, ptr %tdb.addr, align 8
+  store ptr %4, ptr %d_tdb, align 8
   %d_checkRelDom = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::TermEvaluatorEntailed", ptr %this1, i32 0, i32 4
   store i8 0, ptr %d_checkRelDom, align 8
-  %4 = load i32, ptr %tev.addr, align 4
-  %cmp = icmp eq i32 %4, 1
+  %5 = load i32, ptr %tev.addr, align 4
+  %cmp = icmp eq i32 %5, 1
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %5 = load i32, ptr %tev.addr, align 4
-  %cmp2 = icmp eq i32 %5, 2
+  %6 = load i32, ptr %tev.addr, align 4
+  %cmp2 = icmp eq i32 %6, 2
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
-  %6 = phi i1 [ true, %entry ], [ %cmp2, %lor.rhs ]
+  %7 = phi i1 [ true, %entry ], [ %cmp2, %lor.rhs ]
   %d_checkRelDom3 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::TermEvaluatorEntailed", ptr %this1, i32 0, i32 4
-  %frombool = zext i1 %6 to i8
+  %frombool = zext i1 %7 to i8
   store i8 %frombool, ptr %d_checkRelDom3, align 8
   ret void
 }

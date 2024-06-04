@@ -697,7 +697,7 @@ define internal i32 @GetLocalVictimBuffer() #0 {
   %89 = load i32, ptr %3, align 4
   %90 = and i32 %89, 8388608
   %91 = icmp ne i32 %90, 0
-  br i1 %91, label %92, label %138
+  br i1 %91, label %92, label %140
 
 92:                                               ; preds = %88
   %93 = load ptr, ptr @LocalBufferBlockPointers, align 8
@@ -755,70 +755,72 @@ define internal i32 @GetLocalVictimBuffer() #0 {
   %134 = getelementptr inbounds %struct.BufferDesc, ptr %133, i32 0, i32 2
   %135 = load i32, ptr %3, align 4
   call void @pg_atomic_unlocked_write_u32(ptr noundef %134, i32 noundef %135)
-  %136 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 7), align 8
-  %137 = add i64 %136, 1
-  store i64 %137, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 7), align 8
-  br label %138
+  %136 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 7
+  %137 = load i64, ptr %136, align 8
+  %138 = add i64 %137, 1
+  %139 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 7
+  store i64 %138, ptr %139, align 8
+  br label %140
 
-138:                                              ; preds = %92, %88
-  %139 = load i32, ptr %3, align 4
-  %140 = and i32 %139, 33554432
-  %141 = icmp ne i32 %140, 0
-  br i1 %141, label %142, label %167
+140:                                              ; preds = %92, %88
+  %141 = load i32, ptr %3, align 4
+  %142 = and i32 %141, 33554432
+  %143 = icmp ne i32 %142, 0
+  br i1 %143, label %144, label %169
 
-142:                                              ; preds = %138
-  %143 = load ptr, ptr @LocalBufHash, align 8
-  %144 = load ptr, ptr %4, align 8
-  %145 = getelementptr inbounds %struct.BufferDesc, ptr %144, i32 0, i32 0
-  %146 = call ptr @hash_search(ptr noundef %143, ptr noundef %145, i32 noundef 2, ptr noundef null)
-  store ptr %146, ptr %12, align 8
-  %147 = load ptr, ptr %12, align 8
-  %148 = icmp ne ptr %147, null
-  br i1 %148, label %159, label %149
+144:                                              ; preds = %140
+  %145 = load ptr, ptr @LocalBufHash, align 8
+  %146 = load ptr, ptr %4, align 8
+  %147 = getelementptr inbounds %struct.BufferDesc, ptr %146, i32 0, i32 0
+  %148 = call ptr @hash_search(ptr noundef %145, ptr noundef %147, i32 noundef 2, ptr noundef null)
+  store ptr %148, ptr %12, align 8
+  %149 = load ptr, ptr %12, align 8
+  %150 = icmp ne ptr %149, null
+  br i1 %150, label %161, label %151
 
-149:                                              ; preds = %142
-  br label %150
+151:                                              ; preds = %144
+  br label %152
 
-150:                                              ; preds = %149
-  br i1 true, label %151, label %153
+152:                                              ; preds = %151
+  br i1 true, label %153, label %155
 
-151:                                              ; preds = %150
-  %152 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  br i1 %152, label %155, label %157
+153:                                              ; preds = %152
+  %154 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  br i1 %154, label %157, label %159
 
-153:                                              ; preds = %150
-  %154 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %154, label %155, label %157
+155:                                              ; preds = %152
+  %156 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %156, label %157, label %159
 
-155:                                              ; preds = %153, %151
-  %156 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str)
+157:                                              ; preds = %155, %153
+  %158 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 279, ptr noundef @__func__.GetLocalVictimBuffer)
-  br label %157
-
-157:                                              ; preds = %155, %153, %151
-  unreachable
-
-158:                                              ; No predecessors!
   br label %159
 
-159:                                              ; preds = %158, %142
-  %160 = load ptr, ptr %4, align 8
-  %161 = getelementptr inbounds %struct.BufferDesc, ptr %160, i32 0, i32 0
-  call void @ClearBufferTag(ptr noundef %161)
-  %162 = load i32, ptr %3, align 4
-  %163 = and i32 %162, 262143
-  store i32 %163, ptr %3, align 4
-  %164 = load ptr, ptr %4, align 8
-  %165 = getelementptr inbounds %struct.BufferDesc, ptr %164, i32 0, i32 2
-  %166 = load i32, ptr %3, align 4
-  call void @pg_atomic_unlocked_write_u32(ptr noundef %165, i32 noundef %166)
-  call void @pgstat_count_io_op(i32 noundef 1, i32 noundef 2, i32 noundef 0)
-  br label %167
+159:                                              ; preds = %157, %155, %153
+  unreachable
 
-167:                                              ; preds = %159, %138
-  %168 = load ptr, ptr %4, align 8
-  %169 = call i32 @BufferDescriptorGetBuffer(ptr noundef %168)
-  ret i32 %169
+160:                                              ; No predecessors!
+  br label %161
+
+161:                                              ; preds = %160, %144
+  %162 = load ptr, ptr %4, align 8
+  %163 = getelementptr inbounds %struct.BufferDesc, ptr %162, i32 0, i32 0
+  call void @ClearBufferTag(ptr noundef %163)
+  %164 = load i32, ptr %3, align 4
+  %165 = and i32 %164, 262143
+  store i32 %165, ptr %3, align 4
+  %166 = load ptr, ptr %4, align 8
+  %167 = getelementptr inbounds %struct.BufferDesc, ptr %166, i32 0, i32 2
+  %168 = load i32, ptr %3, align 4
+  call void @pg_atomic_unlocked_write_u32(ptr noundef %167, i32 noundef %168)
+  call void @pgstat_count_io_op(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  br label %169
+
+169:                                              ; preds = %161, %140
+  %170 = load ptr, ptr %4, align 8
+  %171 = call i32 @BufferDescriptorGetBuffer(ptr noundef %170)
+  ret i32 %171
 }
 
 ; Function Attrs: cold
@@ -1248,11 +1250,13 @@ define dso_local i32 @ExtendBufferedRelLocal(ptr noundef byval(%struct.BufferMan
   store i32 %267, ptr %268, align 4
   %269 = load i32, ptr %10, align 4
   %270 = zext i32 %269 to i64
-  %271 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 7), align 8
-  %272 = add i64 %271, %270
-  store i64 %272, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 7), align 8
-  %273 = load i32, ptr %14, align 4
-  ret i32 %273
+  %271 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 7
+  %272 = load i64, ptr %271, align 8
+  %273 = add i64 %272, %270
+  %274 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 7
+  store i64 %273, ptr %274, align 8
+  %275 = load i32, ptr %14, align 4
+  ret i32 %275
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1347,22 +1351,24 @@ define dso_local void @MarkLocalBufferDirty(i32 noundef %0) #0 {
   %14 = load i32, ptr %5, align 4
   %15 = and i32 %14, 8388608
   %16 = icmp ne i32 %15, 0
-  br i1 %16, label %20, label %17
+  br i1 %16, label %22, label %17
 
 17:                                               ; preds = %1
-  %18 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 6), align 8
-  %19 = add i64 %18, 1
-  store i64 %19, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 6), align 8
-  br label %20
+  %18 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 6
+  %19 = load i64, ptr %18, align 8
+  %20 = add i64 %19, 1
+  %21 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 6
+  store i64 %20, ptr %21, align 8
+  br label %22
 
-20:                                               ; preds = %17, %1
-  %21 = load i32, ptr %5, align 4
-  %22 = or i32 %21, 8388608
-  store i32 %22, ptr %5, align 4
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.BufferDesc, ptr %23, i32 0, i32 2
-  %25 = load i32, ptr %5, align 4
-  call void @pg_atomic_unlocked_write_u32(ptr noundef %24, i32 noundef %25)
+22:                                               ; preds = %17, %1
+  %23 = load i32, ptr %5, align 4
+  %24 = or i32 %23, 8388608
+  store i32 %24, ptr %5, align 4
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %struct.BufferDesc, ptr %25, i32 0, i32 2
+  %27 = load i32, ptr %5, align 4
+  call void @pg_atomic_unlocked_write_u32(ptr noundef %26, i32 noundef %27)
   ret void
 }
 

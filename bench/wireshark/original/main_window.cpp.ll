@@ -705,93 +705,95 @@ define void @_ZN10MainWindowC2EP7QWidget(ptr noundef nonnull align 8 dereference
   %11 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %12 = load i32, ptr %11, align 4
   call void @_ZN11QMainWindowC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %10, i32 %12)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, i32 0, i32 2), ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, i32 1, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 1
-  call void @_ZN5QListI21register_stat_group_eEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #2
-  %15 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 2
-  store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 3
-  store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 4
-  invoke void @_ZN9QSplitterC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef null)
-          to label %18 unwind label %32
-
-18:                                               ; preds = %2
-  %19 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 5
+  %13 = getelementptr inbounds { [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds { [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, i32 1, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 1
+  call void @_ZN5QListI21register_stat_group_eEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #2
+  %17 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 2
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 3
+  store ptr null, ptr %18, align 8
+  %19 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 4
   invoke void @_ZN9QSplitterC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef null)
-          to label %20 unwind label %36
+          to label %20 unwind label %34
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 6
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 5
+  invoke void @_ZN9QSplitterC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef null)
+          to label %22 unwind label %38
+
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 6
   call void @_ZN6QFlagsIN2Qt10WindowTypeEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %8) #2
-  %22 = getelementptr inbounds %class.QFlags, ptr %8, i32 0, i32 0
-  %23 = load i32, ptr %22, align 4
-  invoke void @_ZN7QWidgetC1EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef null, i32 %23)
-          to label %24 unwind label %40
+  %24 = getelementptr inbounds %class.QFlags, ptr %8, i32 0, i32 0
+  %25 = load i32, ptr %24, align 4
+  invoke void @_ZN7QWidgetC1EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef null, i32 %25)
+          to label %26 unwind label %42
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 7
-  call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 24, i1 false)
-  call void @_ZN5QListIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #2
-  %26 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 8
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 9
-  store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 10
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 7
+  call void @llvm.memset.p0.i64(ptr align 8 %27, i8 0, i64 24, i1 false)
+  call void @_ZN5QListIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #2
+  %28 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 8
   store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 11
+  %29 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 9
   store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 12
+  %30 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 10
   store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 13
+  %31 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 11
   store ptr null, ptr %31, align 8
+  %32 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 12
+  store ptr null, ptr %32, align 8
+  %33 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 13
+  store ptr null, ptr %33, align 8
   ret void
 
-32:                                               ; preds = %2
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %2
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %6, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %7, align 4
-  br label %45
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %6, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %7, align 4
+  br label %47
 
-36:                                               ; preds = %18
-  %37 = landingpad { ptr, i32 }
+38:                                               ; preds = %20
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %6, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %7, align 4
-  br label %44
-
-40:                                               ; preds = %20
-  %41 = landingpad { ptr, i32 }
-          cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %6, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %7, align 4
-  call void @_ZN9QSplitterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #2
-  br label %44
-
-44:                                               ; preds = %40, %36
-  call void @_ZN9QSplitterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #2
-  br label %45
-
-45:                                               ; preds = %44, %32
-  call void @_ZN5QListI21register_stat_group_eED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #2
-  call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #2
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %6, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %7, align 4
   br label %46
 
-46:                                               ; preds = %45
-  %47 = load ptr, ptr %6, align 8
-  %48 = load i32, ptr %7, align 4
-  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
-  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
-  resume { ptr, i32 } %50
+42:                                               ; preds = %22
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %6, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %7, align 4
+  call void @_ZN9QSplitterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #2
+  br label %46
+
+46:                                               ; preds = %42, %38
+  call void @_ZN9QSplitterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #2
+  br label %47
+
+47:                                               ; preds = %46, %34
+  call void @_ZN5QListI21register_stat_group_eED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #2
+  call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #2
+  br label %48
+
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %6, align 8
+  %50 = load i32, ptr %7, align 4
+  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
+  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
+  resume { ptr, i32 } %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -856,31 +858,33 @@ define void @_ZN10MainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(272
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, i32 1, i32 2), ptr %4, align 8
+  %4 = getelementptr inbounds { [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
   invoke void @_ZN10MainWindow21clearAddedPacketMenusEv(ptr noundef nonnull align 8 dereferenceable(272) %3)
-          to label %5 unwind label %11
+          to label %7 unwind label %13
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds %class.MainWindow, ptr %3, i32 0, i32 7
-  call void @_ZN5QListIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #2
-  %7 = getelementptr inbounds %class.MainWindow, ptr %3, i32 0, i32 6
-  call void @_ZN7QWidgetD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #2
-  %8 = getelementptr inbounds %class.MainWindow, ptr %3, i32 0, i32 5
-  call void @_ZN9QSplitterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #2
-  %9 = getelementptr inbounds %class.MainWindow, ptr %3, i32 0, i32 4
-  call void @_ZN9QSplitterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #2
-  %10 = getelementptr inbounds %class.MainWindow, ptr %3, i32 0, i32 1
-  call void @_ZN5QListI21register_stat_group_eED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #2
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %class.MainWindow, ptr %3, i32 0, i32 7
+  call void @_ZN5QListIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #2
+  %9 = getelementptr inbounds %class.MainWindow, ptr %3, i32 0, i32 6
+  call void @_ZN7QWidgetD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #2
+  %10 = getelementptr inbounds %class.MainWindow, ptr %3, i32 0, i32 5
+  call void @_ZN9QSplitterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #2
+  %11 = getelementptr inbounds %class.MainWindow, ptr %3, i32 0, i32 4
+  call void @_ZN9QSplitterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #2
+  %12 = getelementptr inbounds %class.MainWindow, ptr %3, i32 0, i32 1
+  call void @_ZN5QListI21register_stat_group_eED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #2
   call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #2
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #18
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #18
   unreachable
 }
 

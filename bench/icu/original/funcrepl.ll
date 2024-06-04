@@ -106,15 +106,17 @@ entry:
   call void @_ZN6icu_7514UnicodeFunctorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_7515UnicodeReplacerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
-  %1 = load ptr, ptr %adoptedTranslit.addr, align 8
+  %2 = getelementptr inbounds { [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
+  %3 = load ptr, ptr %adoptedTranslit.addr, align 8
   %translit = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %translit, align 8
-  %2 = load ptr, ptr %adoptedReplacer.addr, align 8
+  store ptr %3, ptr %translit, align 8
+  %4 = load ptr, ptr %adoptedReplacer.addr, align 8
   %replacer = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this1, i32 0, i32 3
-  store ptr %2, ptr %replacer, align 8
+  store ptr %4, ptr %replacer, align 8
   ret void
 }
 
@@ -125,7 +127,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7514UnicodeFunctorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6icu_7514UnicodeFunctorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -135,7 +138,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7515UnicodeReplacerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7515UnicodeReplacerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -155,28 +159,30 @@ entry:
   %2 = load ptr, ptr %other.addr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 8
   call void @_ZN6icu_7515UnicodeReplacerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr) #6
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i32 0, i32 1, i32 2), ptr %add.ptr2, align 8
-  %3 = load ptr, ptr %other.addr, align 8
-  %translit = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %translit, align 8
-  %vtable = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds { [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr2, align 8
+  %5 = load ptr, ptr %other.addr, align 8
+  %translit = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %5, i32 0, i32 2
+  %6 = load ptr, ptr %translit, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %5 = load ptr, ptr %vfn, align 8
-  %call = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(84) %4)
+  %7 = load ptr, ptr %vfn, align 8
+  %call = invoke noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(84) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %translit3 = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this1, i32 0, i32 2
   store ptr %call, ptr %translit3, align 8
-  %6 = load ptr, ptr %other.addr, align 8
-  %replacer = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %6, i32 0, i32 3
-  %7 = load ptr, ptr %replacer, align 8
-  %vtable4 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %other.addr, align 8
+  %replacer = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %8, i32 0, i32 3
+  %9 = load ptr, ptr %replacer, align 8
+  %vtable4 = load ptr, ptr %9, align 8
   %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 3
-  %8 = load ptr, ptr %vfn5, align 8
-  %call7 = invoke noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %10 = load ptr, ptr %vfn5, align 8
+  %call7 = invoke noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
@@ -185,14 +191,14 @@ invoke.cont6:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  %12 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN6icu_7515UnicodeReplacerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #6
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
+  %14 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN6icu_7515UnicodeReplacerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
   call void @_ZN6icu_7514UnicodeFunctorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
   br label %eh.resume
 
@@ -214,7 +220,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #6
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7514UnicodeFunctorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6icu_7514UnicodeFunctorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -226,7 +233,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7515UnicodeReplacerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7515UnicodeReplacerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -244,37 +252,39 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %translit = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %translit, align 8
-  %isnull = icmp eq ptr %0, null
+  %2 = load ptr, ptr %translit, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(84) %0) #6
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(84) %2) #6
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   %replacer = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %replacer, align 8
-  %isnull2 = icmp eq ptr %2, null
+  %4 = load ptr, ptr %replacer, align 8
+  %isnull2 = icmp eq ptr %4, null
   br i1 %isnull2, label %delete.end6, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  %vtable4 = load ptr, ptr %2, align 8
+  %vtable4 = load ptr, ptr %4, align 8
   %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 1
-  %3 = load ptr, ptr %vfn5, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
+  %5 = load ptr, ptr %vfn5, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #6
   br label %delete.end6
 
 delete.end6:                                      ; preds = %delete.notnull3, %delete.end
-  %4 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN6icu_7515UnicodeReplacerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #6
+  %6 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN6icu_7515UnicodeReplacerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
   call void @_ZN6icu_7514UnicodeFunctorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
   ret void
 }
@@ -600,7 +610,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -834,7 +845,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -846,7 +858,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -857,7 +870,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

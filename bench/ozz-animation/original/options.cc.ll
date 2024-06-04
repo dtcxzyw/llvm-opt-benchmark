@@ -574,52 +574,53 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   %23 = trunc i8 %22 to i1
   %24 = load ptr, ptr %12, align 8
   call void @_ZN3ozz7options11TypedOptionIbEC2EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) %17, ptr noundef %18, ptr noundef %19, i1 noundef zeroext %21, i1 noundef zeroext %23, ptr noundef %24)
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %25 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv()
-          to label %26 unwind label %37
+  %25 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i32 0, i32 0, i32 2
+  store ptr %25, ptr %17, align 8
+  %26 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv()
+          to label %27 unwind label %38
 
-26:                                               ; preds = %6
-  %27 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %25, ptr noundef %17)
-          to label %28 unwind label %37
+27:                                               ; preds = %6
+  %28 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %26, ptr noundef %17)
+          to label %29 unwind label %38
 
-28:                                               ; preds = %26
-  br i1 %27, label %41, label %29
+29:                                               ; preds = %27
+  br i1 %28, label %42, label %30
 
-29:                                               ; preds = %28
-  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef @.str)
-          to label %31 unwind label %37
+30:                                               ; preds = %29
+  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef @.str)
+          to label %32 unwind label %38
 
-31:                                               ; preds = %29
-  %32 = load ptr, ptr %8, align 8
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %32)
-          to label %34 unwind label %37
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %8, align 8
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %33)
+          to label %35 unwind label %38
 
-34:                                               ; preds = %31
-  %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %36 unwind label %37
+35:                                               ; preds = %32
+  %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %37 unwind label %38
 
-36:                                               ; preds = %34
-  br label %41
-
-37:                                               ; preds = %34, %31, %29, %26, %6
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %13, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %14, align 4
-  call void @_ZN3ozz7options11TypedOptionIbED2Ev(ptr noundef nonnull align 8 dereferenceable(42) %17) #3
+37:                                               ; preds = %35
   br label %42
 
-41:                                               ; preds = %36, %28
+38:                                               ; preds = %35, %32, %30, %27, %6
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %13, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %14, align 4
+  call void @_ZN3ozz7options11TypedOptionIbED2Ev(ptr noundef nonnull align 8 dereferenceable(42) %17) #3
+  br label %43
+
+42:                                               ; preds = %37, %29
   ret void
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %13, align 8
-  %44 = load i32, ptr %14, align 4
-  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
-  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
-  resume { ptr, i32 } %46
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %13, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -645,17 +646,18 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIbEC2EPKcS4_bbPFbRKN
   %19 = trunc i8 %18 to i1
   %20 = load ptr, ptr %12, align 8
   call void @_ZN3ozz7options6OptionC2EPKcS3_bPFbRKS1_iE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef %16, ptr noundef %17, i1 noundef zeroext %19, ptr noundef %20)
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options11TypedOptionIbEE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %21 = getelementptr inbounds %"class.ozz::options::TypedOption", ptr %15, i32 0, i32 1
-  %22 = load i8, ptr %10, align 1
-  %23 = trunc i8 %22 to i1
-  %24 = zext i1 %23 to i8
-  store i8 %24, ptr %21, align 8
-  %25 = getelementptr inbounds %"class.ozz::options::TypedOption", ptr %15, i32 0, i32 2
-  %26 = load i8, ptr %10, align 1
-  %27 = trunc i8 %26 to i1
-  %28 = zext i1 %27 to i8
-  store i8 %28, ptr %25, align 1
+  %21 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ozz7options11TypedOptionIbEE, i32 0, i32 0, i32 2
+  store ptr %21, ptr %15, align 8
+  %22 = getelementptr inbounds %"class.ozz::options::TypedOption", ptr %15, i32 0, i32 1
+  %23 = load i8, ptr %10, align 1
+  %24 = trunc i8 %23 to i1
+  %25 = zext i1 %24 to i8
+  store i8 %25, ptr %22, align 8
+  %26 = getelementptr inbounds %"class.ozz::options::TypedOption", ptr %15, i32 0, i32 2
+  %27 = load i8, ptr %10, align 1
+  %28 = trunc i8 %27 to i1
+  %29 = zext i1 %28 to i8
+  store i8 %29, ptr %26, align 1
   ret void
 }
 
@@ -820,33 +822,34 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer6parserEv()
-          to label %6 unwind label %14
+  %5 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer6parserEv()
+          to label %7 unwind label %15
 
-6:                                                ; preds = %1
-  store ptr %5, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %13
+7:                                                ; preds = %1
+  store ptr %6, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
 
-9:                                                ; preds = %6
-  %10 = load ptr, ptr %3, align 8
-  %11 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %10, ptr noundef %4)
-          to label %12 unwind label %14
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %3, align 8
+  %12 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %11, ptr noundef %4)
+          to label %13 unwind label %15
 
-12:                                               ; preds = %9
-  br label %13
+13:                                               ; preds = %10
+  br label %14
 
-13:                                               ; preds = %12, %6
+14:                                               ; preds = %13, %7
   call void @_ZN3ozz7options11TypedOptionIbED2Ev(ptr noundef nonnull align 8 dereferenceable(42) %4) #3
   ret void
 
-14:                                               ; preds = %9, %1
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %10, %1
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #14
   unreachable
 }
 
@@ -953,52 +956,53 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   %21 = trunc i8 %20 to i1
   %22 = load ptr, ptr %12, align 8
   call void @_ZN3ozz7options11TypedOptionIiEC2EPKcS4_ibPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i1 noundef zeroext %21, ptr noundef %22)
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %23 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv()
-          to label %24 unwind label %35
+  %23 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i32 0, i32 0, i32 2
+  store ptr %23, ptr %16, align 8
+  %24 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv()
+          to label %25 unwind label %36
 
-24:                                               ; preds = %6
-  %25 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %23, ptr noundef %16)
-          to label %26 unwind label %35
+25:                                               ; preds = %6
+  %26 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %24, ptr noundef %16)
+          to label %27 unwind label %36
 
-26:                                               ; preds = %24
-  br i1 %25, label %39, label %27
+27:                                               ; preds = %25
+  br i1 %26, label %40, label %28
 
-27:                                               ; preds = %26
-  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef @.str)
-          to label %29 unwind label %35
+28:                                               ; preds = %27
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef @.str)
+          to label %30 unwind label %36
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %8, align 8
-  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %30)
-          to label %32 unwind label %35
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %8, align 8
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %31)
+          to label %33 unwind label %36
 
-32:                                               ; preds = %29
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %34 unwind label %35
+33:                                               ; preds = %30
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %35 unwind label %36
 
-34:                                               ; preds = %32
-  br label %39
-
-35:                                               ; preds = %32, %29, %27, %24, %6
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %13, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %14, align 4
-  call void @_ZN3ozz7options11TypedOptionIiED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #3
+35:                                               ; preds = %33
   br label %40
 
-39:                                               ; preds = %34, %26
+36:                                               ; preds = %33, %30, %28, %25, %6
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %13, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %14, align 4
+  call void @_ZN3ozz7options11TypedOptionIiED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #3
+  br label %41
+
+40:                                               ; preds = %35, %27
   ret void
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %13, align 8
-  %42 = load i32, ptr %14, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %13, align 8
+  %43 = load i32, ptr %14, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1023,13 +1027,14 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIiEC2EPKcS4_ibPFbRKN
   %18 = trunc i8 %17 to i1
   %19 = load ptr, ptr %12, align 8
   call void @_ZN3ozz7options6OptionC2EPKcS3_bPFbRKS1_iE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef %15, ptr noundef %16, i1 noundef zeroext %18, ptr noundef %19)
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options11TypedOptionIiEE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %20 = getelementptr inbounds %"class.ozz::options::TypedOption.1", ptr %14, i32 0, i32 1
-  %21 = load i32, ptr %10, align 4
-  store i32 %21, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.ozz::options::TypedOption.1", ptr %14, i32 0, i32 2
-  %23 = load i32, ptr %10, align 4
-  store i32 %23, ptr %22, align 4
+  %20 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ozz7options11TypedOptionIiEE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %14, align 8
+  %21 = getelementptr inbounds %"class.ozz::options::TypedOption.1", ptr %14, i32 0, i32 1
+  %22 = load i32, ptr %10, align 4
+  store i32 %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"class.ozz::options::TypedOption.1", ptr %14, i32 0, i32 2
+  %24 = load i32, ptr %10, align 4
+  store i32 %24, ptr %23, align 4
   ret void
 }
 
@@ -1048,33 +1053,34 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer6parserEv()
-          to label %6 unwind label %14
+  %5 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer6parserEv()
+          to label %7 unwind label %15
 
-6:                                                ; preds = %1
-  store ptr %5, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %13
+7:                                                ; preds = %1
+  store ptr %6, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
 
-9:                                                ; preds = %6
-  %10 = load ptr, ptr %3, align 8
-  %11 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %10, ptr noundef %4)
-          to label %12 unwind label %14
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %3, align 8
+  %12 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %11, ptr noundef %4)
+          to label %13 unwind label %15
 
-12:                                               ; preds = %9
-  br label %13
+13:                                               ; preds = %10
+  br label %14
 
-13:                                               ; preds = %12, %6
+14:                                               ; preds = %13, %7
   call void @_ZN3ozz7options11TypedOptionIiED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   ret void
 
-14:                                               ; preds = %9, %1
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %10, %1
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #14
   unreachable
 }
 
@@ -1113,52 +1119,53 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   %21 = trunc i8 %20 to i1
   %22 = load ptr, ptr %12, align 8
   call void @_ZN3ozz7options11TypedOptionIfEC2EPKcS4_fbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %17, ptr noundef %18, float noundef %19, i1 noundef zeroext %21, ptr noundef %22)
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %23 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv()
-          to label %24 unwind label %35
+  %23 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i32 0, i32 0, i32 2
+  store ptr %23, ptr %16, align 8
+  %24 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv()
+          to label %25 unwind label %36
 
-24:                                               ; preds = %6
-  %25 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %23, ptr noundef %16)
-          to label %26 unwind label %35
+25:                                               ; preds = %6
+  %26 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %24, ptr noundef %16)
+          to label %27 unwind label %36
 
-26:                                               ; preds = %24
-  br i1 %25, label %39, label %27
+27:                                               ; preds = %25
+  br i1 %26, label %40, label %28
 
-27:                                               ; preds = %26
-  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef @.str)
-          to label %29 unwind label %35
+28:                                               ; preds = %27
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef @.str)
+          to label %30 unwind label %36
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %8, align 8
-  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %30)
-          to label %32 unwind label %35
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %8, align 8
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %31)
+          to label %33 unwind label %36
 
-32:                                               ; preds = %29
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %34 unwind label %35
+33:                                               ; preds = %30
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %35 unwind label %36
 
-34:                                               ; preds = %32
-  br label %39
-
-35:                                               ; preds = %32, %29, %27, %24, %6
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %13, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %14, align 4
-  call void @_ZN3ozz7options11TypedOptionIfED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #3
+35:                                               ; preds = %33
   br label %40
 
-39:                                               ; preds = %34, %26
+36:                                               ; preds = %33, %30, %28, %25, %6
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %13, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %14, align 4
+  call void @_ZN3ozz7options11TypedOptionIfED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #3
+  br label %41
+
+40:                                               ; preds = %35, %27
   ret void
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %13, align 8
-  %42 = load i32, ptr %14, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %13, align 8
+  %43 = load i32, ptr %14, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1183,13 +1190,14 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIfEC2EPKcS4_fbPFbRKN
   %18 = trunc i8 %17 to i1
   %19 = load ptr, ptr %12, align 8
   call void @_ZN3ozz7options6OptionC2EPKcS3_bPFbRKS1_iE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef %15, ptr noundef %16, i1 noundef zeroext %18, ptr noundef %19)
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options11TypedOptionIfEE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %20 = getelementptr inbounds %"class.ozz::options::TypedOption.3", ptr %14, i32 0, i32 1
-  %21 = load float, ptr %10, align 4
-  store float %21, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.ozz::options::TypedOption.3", ptr %14, i32 0, i32 2
-  %23 = load float, ptr %10, align 4
-  store float %23, ptr %22, align 4
+  %20 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ozz7options11TypedOptionIfEE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %14, align 8
+  %21 = getelementptr inbounds %"class.ozz::options::TypedOption.3", ptr %14, i32 0, i32 1
+  %22 = load float, ptr %10, align 4
+  store float %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"class.ozz::options::TypedOption.3", ptr %14, i32 0, i32 2
+  %24 = load float, ptr %10, align 4
+  store float %24, ptr %23, align 4
   ret void
 }
 
@@ -1208,33 +1216,34 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer6parserEv()
-          to label %6 unwind label %14
+  %5 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer6parserEv()
+          to label %7 unwind label %15
 
-6:                                                ; preds = %1
-  store ptr %5, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %13
+7:                                                ; preds = %1
+  store ptr %6, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
 
-9:                                                ; preds = %6
-  %10 = load ptr, ptr %3, align 8
-  %11 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %10, ptr noundef %4)
-          to label %12 unwind label %14
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %3, align 8
+  %12 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %11, ptr noundef %4)
+          to label %13 unwind label %15
 
-12:                                               ; preds = %9
-  br label %13
+13:                                               ; preds = %10
+  br label %14
 
-13:                                               ; preds = %12, %6
+14:                                               ; preds = %13, %7
   call void @_ZN3ozz7options11TypedOptionIfED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   ret void
 
-14:                                               ; preds = %9, %1
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %10, %1
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #14
   unreachable
 }
 
@@ -1273,52 +1282,53 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   %21 = trunc i8 %20 to i1
   %22 = load ptr, ptr %12, align 8
   call void @_ZN3ozz7options11TypedOptionIPKcEC2ES3_S3_S3_bPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i1 noundef zeroext %21, ptr noundef %22)
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %23 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv()
-          to label %24 unwind label %35
+  %23 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i32 0, i32 0, i32 2
+  store ptr %23, ptr %16, align 8
+  %24 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv()
+          to label %25 unwind label %36
 
-24:                                               ; preds = %6
-  %25 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %23, ptr noundef %16)
-          to label %26 unwind label %35
+25:                                               ; preds = %6
+  %26 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %24, ptr noundef %16)
+          to label %27 unwind label %36
 
-26:                                               ; preds = %24
-  br i1 %25, label %39, label %27
+27:                                               ; preds = %25
+  br i1 %26, label %40, label %28
 
-27:                                               ; preds = %26
-  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef @.str)
-          to label %29 unwind label %35
+28:                                               ; preds = %27
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef @.str)
+          to label %30 unwind label %36
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %8, align 8
-  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %30)
-          to label %32 unwind label %35
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %8, align 8
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %31)
+          to label %33 unwind label %36
 
-32:                                               ; preds = %29
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %34 unwind label %35
+33:                                               ; preds = %30
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %35 unwind label %36
 
-34:                                               ; preds = %32
-  br label %39
-
-35:                                               ; preds = %32, %29, %27, %24, %6
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %13, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %14, align 4
-  call void @_ZN3ozz7options11TypedOptionIPKcED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #3
+35:                                               ; preds = %33
   br label %40
 
-39:                                               ; preds = %34, %26
+36:                                               ; preds = %33, %30, %28, %25, %6
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %13, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %14, align 4
+  call void @_ZN3ozz7options11TypedOptionIPKcED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #3
+  br label %41
+
+40:                                               ; preds = %35, %27
   ret void
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %13, align 8
-  %42 = load i32, ptr %14, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %13, align 8
+  %43 = load i32, ptr %14, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1343,13 +1353,14 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIPKcEC2ES3_S3_S3_bPF
   %18 = trunc i8 %17 to i1
   %19 = load ptr, ptr %12, align 8
   call void @_ZN3ozz7options6OptionC2EPKcS3_bPFbRKS1_iE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef %15, ptr noundef %16, i1 noundef zeroext %18, ptr noundef %19)
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options11TypedOptionIPKcEE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %20 = getelementptr inbounds %"class.ozz::options::TypedOption.5", ptr %14, i32 0, i32 1
-  %21 = load ptr, ptr %10, align 8
-  store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.ozz::options::TypedOption.5", ptr %14, i32 0, i32 2
-  %23 = load ptr, ptr %10, align 8
-  store ptr %23, ptr %22, align 8
+  %20 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ozz7options11TypedOptionIPKcEE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %14, align 8
+  %21 = getelementptr inbounds %"class.ozz::options::TypedOption.5", ptr %14, i32 0, i32 1
+  %22 = load ptr, ptr %10, align 8
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"class.ozz::options::TypedOption.5", ptr %14, i32 0, i32 2
+  %24 = load ptr, ptr %10, align 8
+  store ptr %24, ptr %23, align 8
   ret void
 }
 
@@ -1368,33 +1379,34 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer6parserEv()
-          to label %6 unwind label %14
+  %5 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = invoke noundef ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer6parserEv()
+          to label %7 unwind label %15
 
-6:                                                ; preds = %1
-  store ptr %5, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %13
+7:                                                ; preds = %1
+  store ptr %6, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
 
-9:                                                ; preds = %6
-  %10 = load ptr, ptr %3, align 8
-  %11 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %10, ptr noundef %4)
-          to label %12 unwind label %14
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %3, align 8
+  %12 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %11, ptr noundef %4)
+          to label %13 unwind label %15
 
-12:                                               ; preds = %9
-  br label %13
+13:                                               ; preds = %10
+  br label %14
 
-13:                                               ; preds = %12, %6
+14:                                               ; preds = %13, %7
   call void @_ZN3ozz7options11TypedOptionIPKcED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #3
   ret void
 
-14:                                               ; preds = %9, %1
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %10, %1
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #14
   unreachable
 }
 
@@ -1422,47 +1434,48 @@ define dso_local void @_ZN3ozz7options6OptionC2EPKcS3_bPFbRKS1_iE(ptr noundef no
   store i8 %11, ptr %9, align 1
   store ptr %4, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN3ozz7options6OptionE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.ozz::options::Option", ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %7, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %18
+  %13 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ozz7options6OptionE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.ozz::options::Option", ptr %12, i32 0, i32 1
+  %15 = load ptr, ptr %7, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %19
 
-16:                                               ; preds = %5
-  %17 = load ptr, ptr %7, align 8
-  br label %19
+17:                                               ; preds = %5
+  %18 = load ptr, ptr %7, align 8
+  br label %20
 
-18:                                               ; preds = %5
-  br label %19
+19:                                               ; preds = %5
+  br label %20
 
-19:                                               ; preds = %18, %16
-  %20 = phi ptr [ %17, %16 ], [ @.str.3, %18 ]
-  store ptr %20, ptr %13, align 8
-  %21 = getelementptr inbounds %"class.ozz::options::Option", ptr %12, i32 0, i32 2
-  %22 = load ptr, ptr %8, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %26
+20:                                               ; preds = %19, %17
+  %21 = phi ptr [ %18, %17 ], [ @.str.3, %19 ]
+  store ptr %21, ptr %14, align 8
+  %22 = getelementptr inbounds %"class.ozz::options::Option", ptr %12, i32 0, i32 2
+  %23 = load ptr, ptr %8, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %8, align 8
-  br label %27
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %8, align 8
+  br label %28
 
-26:                                               ; preds = %19
-  br label %27
+27:                                               ; preds = %20
+  br label %28
 
-27:                                               ; preds = %26, %24
-  %28 = phi ptr [ %25, %24 ], [ @.str.4, %26 ]
-  store ptr %28, ptr %21, align 8
-  %29 = getelementptr inbounds %"class.ozz::options::Option", ptr %12, i32 0, i32 3
-  %30 = load i8, ptr %9, align 1
-  %31 = trunc i8 %30 to i1
-  %32 = zext i1 %31 to i8
-  store i8 %32, ptr %29, align 8
-  %33 = getelementptr inbounds %"class.ozz::options::Option", ptr %12, i32 0, i32 4
-  store i8 0, ptr %33, align 1
-  %34 = getelementptr inbounds %"class.ozz::options::Option", ptr %12, i32 0, i32 5
-  %35 = load ptr, ptr %10, align 8
-  store ptr %35, ptr %34, align 8
+28:                                               ; preds = %27, %25
+  %29 = phi ptr [ %26, %25 ], [ @.str.4, %27 ]
+  store ptr %29, ptr %22, align 8
+  %30 = getelementptr inbounds %"class.ozz::options::Option", ptr %12, i32 0, i32 3
+  %31 = load i8, ptr %9, align 1
+  %32 = trunc i8 %31 to i1
+  %33 = zext i1 %32 to i8
+  store i8 %33, ptr %30, align 8
+  %34 = getelementptr inbounds %"class.ozz::options::Option", ptr %12, i32 0, i32 4
+  store i8 0, ptr %34, align 1
+  %35 = getelementptr inbounds %"class.ozz::options::Option", ptr %12, i32 0, i32 5
+  %36 = load ptr, ptr %10, align 8
+  store ptr %36, ptr %35, align 8
   ret void
 }
 

@@ -344,7 +344,8 @@ define void @_ZN10ColorUtilsC2EP7QObject(ptr noundef nonnull align 8 dereference
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV10ColorUtils, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV10ColorUtils, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 

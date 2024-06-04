@@ -478,7 +478,8 @@ entry:
   store ptr %endpoint, ptr %endpoint.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen15HTTPSessionBase12InfoCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN8proxygen13SessionHolderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [32 x ptr] }, ptr @_ZTVN8proxygen13SessionHolderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %listHook = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this1, i32 0, i32 1
   call void @_ZN5boost9intrusive16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %listHook) #3
   %secondaryListHook = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this1, i32 0, i32 2
@@ -488,18 +489,18 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %call, align 8
-  store ptr %0, ptr %session_, align 8
+  %1 = load ptr, ptr %call, align 8
+  store ptr %1, ptr %session_, align 8
   %parent_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this1, i32 0, i32 4
   %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen13SessionHolder8CallbackEEET_PKciS8_OS6_(ptr noundef @.str, i32 noundef 29, ptr noundef @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %parent.addr)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %1 = load ptr, ptr %call3, align 8
-  store ptr %1, ptr %parent_, align 8
+  %2 = load ptr, ptr %call3, align 8
+  store ptr %2, ptr %parent_, align 8
   %stats_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %stats.addr, align 8
-  store ptr %2, ptr %stats_, align 8
+  %3 = load ptr, ptr %stats.addr, align 8
+  store ptr %3, ptr %stats_, align 8
   %lastUseTime_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this1, i32 0, i32 6
   invoke void @_ZNSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lastUseTime_)
           to label %invoke.cont4 unwind label %lpad
@@ -516,36 +517,36 @@ invoke.cont5:                                     ; preds = %invoke.cont4
   %endpoint_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this1, i32 0, i32 10
   call void @_ZN8proxygen8EndpointC2EOS0_(ptr noundef nonnull align 8 dereferenceable(49) %endpoint_, ptr noundef nonnull align 8 dereferenceable(49) %endpoint) #3
   %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this1, i32 0, i32 11
-  %3 = load ptr, ptr %sess.addr, align 8
-  %call9 = invoke noundef ptr @_ZNK8proxygen15HTTPSessionBase15getInfoCallbackEv(ptr noundef nonnull align 8 dereferenceable(1582) %3)
+  %4 = load ptr, ptr %sess.addr, align 8
+  %call9 = invoke noundef ptr @_ZNK8proxygen15HTTPSessionBase15getInfoCallbackEv(ptr noundef nonnull align 8 dereferenceable(1582) %4)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont5
   store ptr %call9, ptr %originalSessionInfoCb_, align 8
   %session_10 = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %session_10, align 8
-  invoke void @_ZN8proxygen15HTTPSessionBase15setInfoCallbackEPNS0_12InfoCallbackE(ptr noundef nonnull align 8 dereferenceable(1582) %4, ptr noundef %this1)
+  %5 = load ptr, ptr %session_10, align 8
+  invoke void @_ZN8proxygen15HTTPSessionBase15setInfoCallbackEPNS0_12InfoCallbackE(ptr noundef nonnull align 8 dereferenceable(1582) %5, ptr noundef %this1)
           to label %invoke.cont11 unwind label %lpad7
 
 invoke.cont11:                                    ; preds = %invoke.cont8
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont8, %invoke.cont5
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN8proxygen8EndpointD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %endpoint_) #3
   br label %ehcleanup
 
@@ -569,7 +570,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN8proxygen15HTTPSessionBase12InfoCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [32 x ptr] }, ptr @_ZTVN8proxygen15HTTPSessionBase12InfoCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -876,10 +878,11 @@ entry:
   %cleanup.cond36 = alloca i1, align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN8proxygen13SessionHolderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [32 x ptr] }, ptr @_ZTVN8proxygen13SessionHolderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %state_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this1, i32 0, i32 8
-  %0 = load i32, ptr %state_, align 8
-  %cmp = icmp eq i32 %0, 0
+  %1 = load i32, ptr %state_, align 8
+  %cmp = icmp eq i32 %1, 0
   %lnot = xor i1 %cmp, true
   store i1 false, ptr %cleanup.cond, align 1
   br i1 %lnot, label %cond.false, label %cond.true
@@ -919,20 +922,20 @@ cleanup.action:                                   ; preds = %cond.end
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2) #16
   unreachable
 
-1:                                                ; No predecessors!
+2:                                                ; No predecessors!
   br label %cleanup.done
 
-cleanup.done:                                     ; preds = %1, %cond.end
+cleanup.done:                                     ; preds = %2, %cond.end
   %listHook = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this1, i32 0, i32 1
   store ptr %listHook, ptr %this.addr.i48, align 8
   %this1.i49 = load ptr, ptr %this.addr.i48, align 8
   store ptr %this1.i49, ptr %this.addr.i53, align 8
   %this1.i54 = load ptr, ptr %this.addr.i53, align 8
   store ptr %this1.i54, ptr %r.addr.i59, align 8
-  %2 = load ptr, ptr %r.addr.i59, align 8
-  store ptr %2, ptr %v.addr.i, align 8
-  %3 = load ptr, ptr %v.addr.i, align 8
-  %call2.i51 = call noundef zeroext i1 @_ZN5boost9intrusive24circular_list_algorithmsINS0_16list_node_traitsIPvEEE6uniqueEPKNS0_9list_nodeIS3_EE(ptr noundef %3) #3
+  %3 = load ptr, ptr %r.addr.i59, align 8
+  store ptr %3, ptr %v.addr.i, align 8
+  %4 = load ptr, ptr %v.addr.i, align 8
+  %call2.i51 = call noundef zeroext i1 @_ZN5boost9intrusive24circular_list_algorithmsINS0_16list_node_traitsIPvEEE6uniqueEPKNS0_9list_nodeIS3_EE(ptr noundef %4) #3
   %lnot.i52 = xor i1 %call2.i51, true
   %lnot9 = xor i1 %lnot.i52, true
   %lnot10 = xor i1 %lnot9, true
@@ -974,20 +977,20 @@ cleanup.action25:                                 ; preds = %cond.end23
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp15) #16
   unreachable
 
-4:                                                ; No predecessors!
+5:                                                ; No predecessors!
   br label %cleanup.done26
 
-cleanup.done26:                                   ; preds = %4, %cond.end23
+cleanup.done26:                                   ; preds = %5, %cond.end23
   %secondaryListHook = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this1, i32 0, i32 2
   store ptr %secondaryListHook, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   store ptr %this1.i, ptr %this.addr.i56, align 8
   %this1.i57 = load ptr, ptr %this.addr.i56, align 8
   store ptr %this1.i57, ptr %r.addr.i, align 8
-  %5 = load ptr, ptr %r.addr.i, align 8
-  store ptr %5, ptr %v.addr.i61, align 8
-  %6 = load ptr, ptr %v.addr.i61, align 8
-  %call2.i = call noundef zeroext i1 @_ZN5boost9intrusive24circular_list_algorithmsINS0_16list_node_traitsIPvEEE6uniqueEPKNS0_9list_nodeIS3_EE(ptr noundef %6) #3
+  %6 = load ptr, ptr %r.addr.i, align 8
+  store ptr %6, ptr %v.addr.i61, align 8
+  %7 = load ptr, ptr %v.addr.i61, align 8
+  %call2.i = call noundef zeroext i1 @_ZN5boost9intrusive24circular_list_algorithmsINS0_16list_node_traitsIPvEEE6uniqueEPKNS0_9list_nodeIS3_EE(ptr noundef %7) #3
   %lnot.i = xor i1 %call2.i, true
   %lnot28 = xor i1 %lnot.i, true
   %lnot29 = xor i1 %lnot28, true
@@ -1029,10 +1032,10 @@ cleanup.action44:                                 ; preds = %cond.end42
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp34) #16
   unreachable
 
-7:                                                ; No predecessors!
+8:                                                ; No predecessors!
   br label %cleanup.done45
 
-cleanup.done45:                                   ; preds = %7, %cond.end42
+cleanup.done45:                                   ; preds = %8, %cond.end42
   %endpoint_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this1, i32 0, i32 10
   call void @_ZN8proxygen8EndpointD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %endpoint_) #3
   %secondaryListHook46 = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this1, i32 0, i32 2
@@ -1043,10 +1046,10 @@ cleanup.done45:                                   ; preds = %7, %cond.end42
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont39, %invoke.cont37, %invoke.cont35, %invoke.cont33, %cond.false31, %invoke.cont20, %invoke.cont18, %invoke.cont16, %invoke.cont14, %cond.false12, %invoke.cont5, %invoke.cont4, %invoke.cont3, %invoke.cont, %cond.false
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #16
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #16
   unreachable
 }
 
@@ -4740,7 +4743,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef @.str.24)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4766,7 +4770,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 

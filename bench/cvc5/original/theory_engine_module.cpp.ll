@@ -133,33 +133,34 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4cvc58internal6theory18TheoryEngineModuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4cvc58internal6theory18TheoryEngineModuleE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_out = getelementptr inbounds %"class.cvc5::internal::theory::TheoryEngineModule", ptr %this1, i32 0, i32 1
   %call = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK4cvc58internal6EnvObj18statisticsRegistryEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %engine.addr, align 8
-  %2 = load ptr, ptr %name.addr, align 8
-  %3 = load i64, ptr @_ZN4cvc58internal6theory18TheoryEngineModule11d_idCounterE, align 8
-  invoke void @_ZN4cvc58internal6theory13OutputChannelC1ERNS0_18StatisticsRegistryEPNS0_12TheoryEngineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(100) %d_out, ptr noundef nonnull align 8 dereferenceable(72) %call, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3)
+  %2 = load ptr, ptr %engine.addr, align 8
+  %3 = load ptr, ptr %name.addr, align 8
+  %4 = load i64, ptr @_ZN4cvc58internal6theory18TheoryEngineModule11d_idCounterE, align 8
+  invoke void @_ZN4cvc58internal6theory13OutputChannelC1ERNS0_18StatisticsRegistryEPNS0_12TheoryEngineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(100) %d_out, ptr noundef nonnull align 8 dereferenceable(72) %call, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %4)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %d_name = getelementptr inbounds %"class.cvc5::internal::theory::TheoryEngineModule", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name) #3
-  %4 = load i64, ptr @_ZN4cvc58internal6theory18TheoryEngineModule11d_idCounterE, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr @_ZN4cvc58internal6theory18TheoryEngineModule11d_idCounterE, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr @_ZN4cvc58internal6theory18TheoryEngineModule11d_idCounterE, align 8
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -283,7 +284,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4cvc58internal6theory18TheoryEngineModuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4cvc58internal6theory18TheoryEngineModuleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_name = getelementptr inbounds %"class.cvc5::internal::theory::TheoryEngineModule", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name) #3
   %d_out = getelementptr inbounds %"class.cvc5::internal::theory::TheoryEngineModule", ptr %this1, i32 0, i32 1
@@ -431,7 +433,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4cvc58internal6theory13OutputChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4cvc58internal6theory13OutputChannelE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_name = getelementptr inbounds %"class.cvc5::internal::theory::OutputChannel", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name) #3
   ret void

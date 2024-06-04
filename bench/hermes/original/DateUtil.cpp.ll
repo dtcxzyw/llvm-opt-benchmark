@@ -2135,10 +2135,11 @@ entry:
   store ptr %O, ptr %O.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh17raw_pwrite_streamC2Eb(ptr noundef nonnull align 8 dereferenceable(36) %this1, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %OS = getelementptr inbounds %"class.llvh::raw_svector_ostream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %O.addr, align 8
-  store ptr %0, ptr %OS, align 8
+  %1 = load ptr, ptr %O.addr, align 8
+  store ptr %1, ptr %OS, align 8
   call void @_ZN4llvh11raw_ostream13SetUnbufferedEv(ptr noundef nonnull align 8 dereferenceable(36) %this1)
   ret void
 }
@@ -3324,33 +3325,34 @@ if.end:                                           ; preds = %entry
   store i8 0, ptr %foundWeekday, align 1
   store ptr @_ZN6hermes2vmL12weekdayNamesE, ptr %__range2, align 8
   store ptr @_ZN6hermes2vmL12weekdayNamesE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (ptr, ptr @_ZN6hermes2vmL12weekdayNamesE, i64 7), ptr %__end2, align 8
+  %22 = getelementptr inbounds ptr, ptr @_ZN6hermes2vmL12weekdayNamesE, i64 7
+  store ptr %22, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %22 = load ptr, ptr %__begin2, align 8
-  %23 = load ptr, ptr %__end2, align 8
-  %cmp = icmp ne ptr %22, %23
+  %23 = load ptr, ptr %__begin2, align 8
+  %24 = load ptr, ptr %__end2, align 8
+  %cmp = icmp ne ptr %23, %24
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %24 = load ptr, ptr %__begin2, align 8
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %name, align 8
-  %26 = load ptr, ptr %name, align 8
+  %25 = load ptr, ptr %__begin2, align 8
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %name, align 8
+  %27 = load ptr, ptr %name, align 8
   store ptr %agg.tmp, ptr %this.addr.i, align 8
-  store ptr %26, ptr %Str.addr.i, align 8
+  store ptr %27, ptr %Str.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %27 = load ptr, ptr %Str.addr.i, align 8
-  store ptr %27, ptr %this1.i, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
   %28 = load ptr, ptr %Str.addr.i, align 8
-  %tobool.i = icmp ne ptr %28, null
+  store ptr %28, ptr %this1.i, align 8
+  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
+  %29 = load ptr, ptr %Str.addr.i, align 8
+  %tobool.i = icmp ne ptr %29, null
   br i1 %tobool.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %for.body
-  %29 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %29) #8
+  %30 = load ptr, ptr %Str.addr.i, align 8
+  %call.i = call i64 @strlen(ptr noundef %30) #8
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %for.body
@@ -3359,17 +3361,17 @@ cond.false.i:                                     ; preds = %for.body
 _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond.true.i
   %cond.i = phi i64 [ %call.i, %cond.true.i ], [ 0, %cond.false.i ]
   store i64 %cond.i, ptr %Length.i, align 8
-  %30 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %33 = load i64, ptr %32, align 8
-  %call3 = call { ptr, i64 } @_ZN4llvh21arrayRefFromStringRefENS_9StringRefE(ptr %31, i64 %33)
-  %34 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 0
-  %35 = extractvalue { ptr, i64 } %call3, 0
-  store ptr %35, ptr %34, align 8
-  %36 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 1
-  %37 = extractvalue { ptr, i64 } %call3, 1
-  store i64 %37, ptr %36, align 8
+  %31 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8
+  %call3 = call { ptr, i64 } @_ZN4llvh21arrayRefFromStringRefENS_9StringRefE(ptr %32, i64 %34)
+  %35 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 0
+  %36 = extractvalue { ptr, i64 } %call3, 0
+  store ptr %36, ptr %35, align 8
+  %37 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 1
+  %38 = extractvalue { ptr, i64 } %call3, 1
+  store i64 %38, ptr %37, align 8
   %call4 = call noundef zeroext i1 @_ZNK6hermes2vm10StringView6equalsIhEEbRKN4llvh8ArrayRefIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %tok, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   br i1 %call4, label %if.then5, label %if.end6
 
@@ -3381,14 +3383,14 @@ if.end6:                                          ; preds = %_ZN4llvh9StringRefC
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end6
-  %38 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %38, i32 1
+  %39 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %39, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then5, %for.cond
-  %39 = load i8, ptr %foundWeekday, align 1
-  %tobool = trunc i8 %39 to i1
+  %40 = load i8, ptr %foundWeekday, align 1
+  %tobool = trunc i8 %40 to i1
   br i1 %tobool, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %for.end
@@ -3396,20 +3398,20 @@ if.then7:                                         ; preds = %for.end
   br label %return
 
 if.end8:                                          ; preds = %for.end
-  %40 = getelementptr inbounds %class.anon.80, ptr %tokIsMonth, i32 0, i32 0
-  store ptr %tok, ptr %40, align 8
-  %41 = getelementptr inbounds %class.anon.80, ptr %tokIsMonth, i32 0, i32 1
-  store ptr %m, ptr %41, align 8
+  %41 = getelementptr inbounds %class.anon.80, ptr %tokIsMonth, i32 0, i32 0
+  store ptr %tok, ptr %41, align 8
+  %42 = getelementptr inbounds %class.anon.80, ptr %tokIsMonth, i32 0, i32 1
+  store ptr %m, ptr %42, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end37, %if.end36, %if.end8
   %call10 = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str)
-  %42 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp9, i32 0, i32 0
-  %43 = extractvalue { ptr, ptr } %call10, 0
-  store ptr %43, ptr %42, align 8
-  %44 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp9, i32 0, i32 1
-  %45 = extractvalue { ptr, ptr } %call10, 1
-  store ptr %45, ptr %44, align 8
+  %43 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp9, i32 0, i32 0
+  %44 = extractvalue { ptr, ptr } %call10, 0
+  store ptr %44, ptr %43, align 8
+  %45 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp9, i32 0, i32 1
+  %46 = extractvalue { ptr, ptr } %call10, 1
+  store ptr %46, ptr %45, align 8
   %call11 = call noundef zeroext i1 @_ZNK6hermes2vm10StringView14const_iteratorneERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9)
   br i1 %call11, label %while.body, label %while.end
 
@@ -3420,11 +3422,11 @@ while.body:                                       ; preds = %while.cond
 
 if.then14:                                        ; preds = %while.body
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp15, ptr align 8 %end, i64 16, i1 false)
-  %46 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp15, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp15, i32 0, i32 1
-  %49 = load ptr, ptr %48, align 8
-  %call16 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %47, ptr %49, ptr noundef nonnull align 4 dereferenceable(4) %d)
+  %47 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp15, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp15, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8
+  %call16 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %48, ptr %50, ptr noundef nonnull align 4 dereferenceable(4) %d)
   call void @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv"(ptr noundef nonnull align 8 dereferenceable(16) %consumeSpacesOrDash)
   %call17 = call noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_2clEi"(ptr noundef nonnull align 8 dereferenceable(24) %scanStrAndSkipWord, i32 noundef 3)
   br i1 %call17, label %if.end19, label %if.then18
@@ -3464,11 +3466,11 @@ if.end29:                                         ; preds = %if.then26
 if.then31:                                        ; preds = %if.end29
   call void @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv"(ptr noundef nonnull align 8 dereferenceable(16) %consumeSpacesOrDash)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp32, ptr align 8 %end, i64 16, i1 false)
-  %50 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp32, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp32, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %call33 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %51, ptr %53, ptr noundef nonnull align 4 dereferenceable(4) %d)
+  %51 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp32, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp32, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8
+  %call33 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %52, ptr %54, ptr noundef nonnull align 4 dereferenceable(4) %d)
   br i1 %call33, label %if.end35, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
@@ -3488,11 +3490,11 @@ if.end37:                                         ; preds = %if.end23
 while.end:                                        ; preds = %if.end35, %if.end22, %while.cond
   call void @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv"(ptr noundef nonnull align 8 dereferenceable(16) %consumeSpacesOrDash)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp39, ptr align 8 %end, i64 16, i1 false)
-  %54 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp39, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp39, i32 0, i32 1
-  %57 = load ptr, ptr %56, align 8
-  %call40 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %55, ptr %57, ptr noundef nonnull align 4 dereferenceable(4) %y)
+  %55 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp39, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp39, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8
+  %call40 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %56, ptr %58, ptr noundef nonnull align 4 dereferenceable(4) %y)
   br i1 %call40, label %if.end42, label %if.then41
 
 if.then41:                                        ; preds = %while.end
@@ -3506,11 +3508,11 @@ if.end42:                                         ; preds = %while.end
 
 if.then44:                                        ; preds = %if.end42
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp45, ptr align 8 %end, i64 16, i1 false)
-  %58 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp45, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp45, i32 0, i32 1
-  %61 = load ptr, ptr %60, align 8
-  %call46 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %59, ptr %61, ptr noundef nonnull align 4 dereferenceable(4) %h)
+  %59 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp45, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp45, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8
+  %call46 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %60, ptr %62, ptr noundef nonnull align 4 dereferenceable(4) %h)
   br i1 %call46, label %if.end48, label %if.then47
 
 if.then47:                                        ; preds = %if.then44
@@ -3527,11 +3529,11 @@ if.then50:                                        ; preds = %if.end48
 
 if.end51:                                         ; preds = %if.end48
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp52, ptr align 8 %end, i64 16, i1 false)
-  %62 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp52, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp52, i32 0, i32 1
-  %65 = load ptr, ptr %64, align 8
-  %call53 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %63, ptr %65, ptr noundef nonnull align 4 dereferenceable(4) %min)
+  %63 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp52, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp52, i32 0, i32 1
+  %66 = load ptr, ptr %65, align 8
+  %call53 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %64, ptr %66, ptr noundef nonnull align 4 dereferenceable(4) %min)
   br i1 %call53, label %if.end55, label %if.then54
 
 if.then54:                                        ; preds = %if.end51
@@ -3548,11 +3550,11 @@ if.then57:                                        ; preds = %if.end55
 
 if.end58:                                         ; preds = %if.end55
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp59, ptr align 8 %end, i64 16, i1 false)
-  %66 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp59, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp59, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %call60 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %67, ptr %69, ptr noundef nonnull align 4 dereferenceable(4) %s)
+  %67 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp59, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp59, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8
+  %call60 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %68, ptr %70, ptr noundef nonnull align 4 dereferenceable(4) %s)
   br i1 %call60, label %if.end62, label %if.then61
 
 if.then61:                                        ; preds = %if.end58
@@ -3568,30 +3570,30 @@ if.end63:                                         ; preds = %if.end62, %if.end42
   br i1 %call64, label %if.then65, label %if.end76
 
 if.then65:                                        ; preds = %if.end63
-  %70 = load i32, ptr %y, align 4
-  %conv = sitofp i32 %70 to double
-  %71 = load i32, ptr %m, align 4
-  %sub = sub nsw i32 %71, 1
+  %71 = load i32, ptr %y, align 4
+  %conv = sitofp i32 %71 to double
+  %72 = load i32, ptr %m, align 4
+  %sub = sub nsw i32 %72, 1
   %conv66 = sitofp i32 %sub to double
-  %72 = load i32, ptr %d, align 4
-  %conv67 = sitofp i32 %72 to double
+  %73 = load i32, ptr %d, align 4
+  %conv67 = sitofp i32 %73 to double
   %call68 = call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %conv, double noundef %conv66, double noundef %conv67)
-  %73 = load i32, ptr %h, align 4
-  %conv69 = sitofp i32 %73 to double
-  %74 = load i32, ptr %min, align 4
-  %conv70 = sitofp i32 %74 to double
-  %75 = load i32, ptr %s, align 4
-  %conv71 = sitofp i32 %75 to double
-  %76 = load i32, ptr %ms, align 4
-  %conv72 = sitofp i32 %76 to double
+  %74 = load i32, ptr %h, align 4
+  %conv69 = sitofp i32 %74 to double
+  %75 = load i32, ptr %min, align 4
+  %conv70 = sitofp i32 %75 to double
+  %76 = load i32, ptr %s, align 4
+  %conv71 = sitofp i32 %76 to double
+  %77 = load i32, ptr %ms, align 4
+  %conv72 = sitofp i32 %77 to double
   %call73 = call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef %conv69, double noundef %conv70, double noundef %conv71, double noundef %conv72)
   %call74 = call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call68, double noundef %call73)
   store double %call74, ptr %t, align 8
-  %77 = load double, ptr %t, align 8
-  %call75 = call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %77)
-  store double %call75, ptr %t, align 8
   %78 = load double, ptr %t, align 8
-  store double %78, ptr %retval, align 8
+  %call75 = call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %78)
+  store double %call75, ptr %t, align 8
+  %79 = load double, ptr %t, align 8
+  store double %79, ptr %retval, align 8
   br label %return
 
 if.end76:                                         ; preds = %if.end63
@@ -3617,34 +3619,35 @@ if.then85:                                        ; preds = %if.then83
 if.end86:                                         ; preds = %if.then83
   store ptr @_ZZN6hermes2vmL11parseESDateENS0_10StringViewEE8knownTZs, ptr %__range3, align 8
   store ptr @_ZZN6hermes2vmL11parseESDateENS0_10StringViewEE8knownTZs, ptr %__begin3, align 8
-  store ptr getelementptr inbounds (%struct.KnownTZ, ptr @_ZZN6hermes2vmL11parseESDateENS0_10StringViewEE8knownTZs, i64 9), ptr %__end3, align 8
+  %80 = getelementptr inbounds %struct.KnownTZ, ptr @_ZZN6hermes2vmL11parseESDateENS0_10StringViewEE8knownTZs, i64 9
+  store ptr %80, ptr %__end3, align 8
   br label %for.cond87
 
 for.cond87:                                       ; preds = %for.inc97, %if.end86
-  %79 = load ptr, ptr %__begin3, align 8
-  %80 = load ptr, ptr %__end3, align 8
-  %cmp88 = icmp ne ptr %79, %80
+  %81 = load ptr, ptr %__begin3, align 8
+  %82 = load ptr, ptr %__end3, align 8
+  %cmp88 = icmp ne ptr %81, %82
   br i1 %cmp88, label %for.body89, label %for.end99
 
 for.body89:                                       ; preds = %for.cond87
-  %81 = load ptr, ptr %__begin3, align 8
-  store ptr %81, ptr %knownTZ, align 8
-  %82 = load ptr, ptr %knownTZ, align 8
-  %tz = getelementptr inbounds %struct.KnownTZ, ptr %82, i32 0, i32 0
-  %83 = load ptr, ptr %tz, align 8
+  %83 = load ptr, ptr %__begin3, align 8
+  store ptr %83, ptr %knownTZ, align 8
+  %84 = load ptr, ptr %knownTZ, align 8
+  %tz = getelementptr inbounds %struct.KnownTZ, ptr %84, i32 0, i32 0
+  %85 = load ptr, ptr %tz, align 8
   store ptr %agg.tmp91, ptr %this.addr.i172, align 8
-  store ptr %83, ptr %Str.addr.i173, align 8
+  store ptr %85, ptr %Str.addr.i173, align 8
   %this1.i174 = load ptr, ptr %this.addr.i172, align 8
-  %84 = load ptr, ptr %Str.addr.i173, align 8
-  store ptr %84, ptr %this1.i174, align 8
+  %86 = load ptr, ptr %Str.addr.i173, align 8
+  store ptr %86, ptr %this1.i174, align 8
   %Length.i175 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i174, i32 0, i32 1
-  %85 = load ptr, ptr %Str.addr.i173, align 8
-  %tobool.i176 = icmp ne ptr %85, null
+  %87 = load ptr, ptr %Str.addr.i173, align 8
+  %tobool.i176 = icmp ne ptr %87, null
   br i1 %tobool.i176, label %cond.true.i179, label %cond.false.i177
 
 cond.true.i179:                                   ; preds = %for.body89
-  %86 = load ptr, ptr %Str.addr.i173, align 8
-  %call.i180 = call i64 @strlen(ptr noundef %86) #8
+  %88 = load ptr, ptr %Str.addr.i173, align 8
+  %call.i180 = call i64 @strlen(ptr noundef %88) #8
   br label %_ZN4llvh9StringRefC2EPKc.exit181
 
 cond.false.i177:                                  ; preds = %for.body89
@@ -3653,33 +3656,33 @@ cond.false.i177:                                  ; preds = %for.body89
 _ZN4llvh9StringRefC2EPKc.exit181:                 ; preds = %cond.false.i177, %cond.true.i179
   %cond.i178 = phi i64 [ %call.i180, %cond.true.i179 ], [ 0, %cond.false.i177 ]
   store i64 %cond.i178, ptr %Length.i175, align 8
-  %87 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp91, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp91, i32 0, i32 1
-  %90 = load i64, ptr %89, align 8
-  %call92 = call { ptr, i64 } @_ZN4llvh21arrayRefFromStringRefENS_9StringRefE(ptr %88, i64 %90)
-  %91 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp90, i32 0, i32 0
-  %92 = extractvalue { ptr, i64 } %call92, 0
-  store ptr %92, ptr %91, align 8
-  %93 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp90, i32 0, i32 1
-  %94 = extractvalue { ptr, i64 } %call92, 1
-  store i64 %94, ptr %93, align 8
+  %89 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp91, i32 0, i32 0
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp91, i32 0, i32 1
+  %92 = load i64, ptr %91, align 8
+  %call92 = call { ptr, i64 } @_ZN4llvh21arrayRefFromStringRefENS_9StringRefE(ptr %90, i64 %92)
+  %93 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp90, i32 0, i32 0
+  %94 = extractvalue { ptr, i64 } %call92, 0
+  store ptr %94, ptr %93, align 8
+  %95 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp90, i32 0, i32 1
+  %96 = extractvalue { ptr, i64 } %call92, 1
+  store i64 %96, ptr %95, align 8
   %call93 = call noundef zeroext i1 @_ZNK6hermes2vm10StringView6equalsIhEEbRKN4llvh8ArrayRefIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %tok, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp90)
   br i1 %call93, label %if.then94, label %if.end96
 
 if.then94:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit181
-  %95 = load ptr, ptr %knownTZ, align 8
-  %tzh95 = getelementptr inbounds %struct.KnownTZ, ptr %95, i32 0, i32 1
-  %96 = load i32, ptr %tzh95, align 8
-  store i32 %96, ptr %tzh, align 4
+  %97 = load ptr, ptr %knownTZ, align 8
+  %tzh95 = getelementptr inbounds %struct.KnownTZ, ptr %97, i32 0, i32 1
+  %98 = load i32, ptr %tzh95, align 8
+  store i32 %98, ptr %tzh, align 4
   br label %for.end99
 
 if.end96:                                         ; preds = %_ZN4llvh9StringRefC2EPKc.exit181
   br label %for.inc97
 
 for.inc97:                                        ; preds = %if.end96
-  %97 = load ptr, ptr %__begin3, align 8
-  %incdec.ptr98 = getelementptr inbounds %struct.KnownTZ, ptr %97, i32 1
+  %99 = load ptr, ptr %__begin3, align 8
+  %incdec.ptr98 = getelementptr inbounds %struct.KnownTZ, ptr %99, i32 1
   store ptr %incdec.ptr98, ptr %__begin3, align 8
   br label %for.cond87
 
@@ -3694,8 +3697,8 @@ if.then102:                                       ; preds = %if.end100
   br label %complete
 
 if.end103:                                        ; preds = %if.end100
-  %98 = load i32, ptr %tzh, align 4
-  %cmp104 = icmp ne i32 %98, 0
+  %100 = load i32, ptr %tzh, align 4
+  %cmp104 = icmp ne i32 %100, 0
   br i1 %cmp104, label %land.lhs.true105, label %if.end108
 
 land.lhs.true105:                                 ; preds = %if.end103
@@ -3731,12 +3734,12 @@ if.end114:                                        ; preds = %if.then112
 
 if.end115:                                        ; preds = %if.end114, %if.then110
   %call117 = call { ptr, ptr } @_ZNK6hermes2vm10StringView14const_iteratormiEl(ptr noundef nonnull align 8 dereferenceable(16) %end, i64 noundef 4)
-  %99 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp116, i32 0, i32 0
-  %100 = extractvalue { ptr, ptr } %call117, 0
-  store ptr %100, ptr %99, align 8
-  %101 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp116, i32 0, i32 1
-  %102 = extractvalue { ptr, ptr } %call117, 1
+  %101 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp116, i32 0, i32 0
+  %102 = extractvalue { ptr, ptr } %call117, 0
   store ptr %102, ptr %101, align 8
+  %103 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp116, i32 0, i32 1
+  %104 = extractvalue { ptr, ptr } %call117, 1
+  store ptr %104, ptr %103, align 8
   %call118 = call noundef zeroext i1 @_ZNK6hermes2vm10StringView14const_iteratorgtERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp116)
   br i1 %call118, label %if.then119, label %if.end120
 
@@ -3746,17 +3749,17 @@ if.then119:                                       ; preds = %if.end115
 
 if.end120:                                        ; preds = %if.end115
   %call122 = call { ptr, ptr } @_ZNK6hermes2vm10StringView14const_iteratorplEl(ptr noundef nonnull align 8 dereferenceable(16) %it, i64 noundef 2)
-  %103 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp121, i32 0, i32 0
-  %104 = extractvalue { ptr, ptr } %call122, 0
-  store ptr %104, ptr %103, align 8
-  %105 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp121, i32 0, i32 1
-  %106 = extractvalue { ptr, ptr } %call122, 1
+  %105 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp121, i32 0, i32 0
+  %106 = extractvalue { ptr, ptr } %call122, 0
   store ptr %106, ptr %105, align 8
-  %107 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp121, i32 0, i32 0
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp121, i32 0, i32 1
+  %107 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp121, i32 0, i32 1
+  %108 = extractvalue { ptr, ptr } %call122, 1
+  store ptr %108, ptr %107, align 8
+  %109 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp121, i32 0, i32 0
   %110 = load ptr, ptr %109, align 8
-  %call123 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %108, ptr %110, ptr noundef nonnull align 4 dereferenceable(4) %tzh)
+  %111 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp121, i32 0, i32 1
+  %112 = load ptr, ptr %111, align 8
+  %call123 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %110, ptr %112, ptr noundef nonnull align 4 dereferenceable(4) %tzh)
   br i1 %call123, label %if.end125, label %if.then124
 
 if.then124:                                       ; preds = %if.end120
@@ -3764,24 +3767,24 @@ if.then124:                                       ; preds = %if.end120
   br label %return
 
 if.end125:                                        ; preds = %if.end120
-  %111 = load double, ptr %sign, align 8
-  %112 = load i32, ptr %tzh, align 4
-  %conv126 = sitofp i32 %112 to double
-  %mul = fmul double %conv126, %111
+  %113 = load double, ptr %sign, align 8
+  %114 = load i32, ptr %tzh, align 4
+  %conv126 = sitofp i32 %114 to double
+  %mul = fmul double %conv126, %113
   %conv127 = fptosi double %mul to i32
   store i32 %conv127, ptr %tzh, align 4
   %call129 = call { ptr, ptr } @_ZNK6hermes2vm10StringView14const_iteratorplEl(ptr noundef nonnull align 8 dereferenceable(16) %it, i64 noundef 2)
-  %113 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp128, i32 0, i32 0
-  %114 = extractvalue { ptr, ptr } %call129, 0
-  store ptr %114, ptr %113, align 8
-  %115 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp128, i32 0, i32 1
-  %116 = extractvalue { ptr, ptr } %call129, 1
+  %115 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp128, i32 0, i32 0
+  %116 = extractvalue { ptr, ptr } %call129, 0
   store ptr %116, ptr %115, align 8
-  %117 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp128, i32 0, i32 0
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp128, i32 0, i32 1
+  %117 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp128, i32 0, i32 1
+  %118 = extractvalue { ptr, ptr } %call129, 1
+  store ptr %118, ptr %117, align 8
+  %119 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp128, i32 0, i32 0
   %120 = load ptr, ptr %119, align 8
-  %call130 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %118, ptr %120, ptr noundef nonnull align 4 dereferenceable(4) %tzm)
+  %121 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp128, i32 0, i32 1
+  %122 = load ptr, ptr %121, align 8
+  %call130 = call noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr %120, ptr %122, ptr noundef nonnull align 4 dereferenceable(4) %tzm)
   br i1 %call130, label %if.end132, label %if.then131
 
 if.then131:                                       ; preds = %if.end125
@@ -3789,10 +3792,10 @@ if.then131:                                       ; preds = %if.end125
   br label %return
 
 if.end132:                                        ; preds = %if.end125
-  %121 = load double, ptr %sign, align 8
-  %122 = load i32, ptr %tzm, align 4
-  %conv133 = sitofp i32 %122 to double
-  %mul134 = fmul double %conv133, %121
+  %123 = load double, ptr %sign, align 8
+  %124 = load i32, ptr %tzm, align 4
+  %conv133 = sitofp i32 %124 to double
+  %mul134 = fmul double %conv133, %123
   %conv135 = fptosi double %mul134 to i32
   store i32 %conv135, ptr %tzm, align 4
   %call136 = call noundef zeroext i1 @_ZNK6hermes2vm10StringView14const_iteratorneERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr noundef nonnull align 8 dereferenceable(16) %end)
@@ -3828,8 +3831,8 @@ land.rhs:                                         ; preds = %while.cond144
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond144
-  %123 = phi i1 [ false, %while.cond144 ], [ %cmp148, %land.rhs ]
-  br i1 %123, label %while.body149, label %while.end151
+  %125 = phi i1 [ false, %while.cond144 ], [ %cmp148, %land.rhs ]
+  br i1 %125, label %while.body149, label %while.end151
 
 while.body149:                                    ; preds = %land.end
   %call150 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6hermes2vm10StringView14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %it)
@@ -3858,34 +3861,34 @@ if.end158:                                        ; preds = %if.end155
   br label %complete
 
 complete:                                         ; preds = %if.end158, %if.then102
-  %124 = load i32, ptr %y, align 4
-  %conv159 = sitofp i32 %124 to double
-  %125 = load i32, ptr %m, align 4
-  %sub160 = sub nsw i32 %125, 1
+  %126 = load i32, ptr %y, align 4
+  %conv159 = sitofp i32 %126 to double
+  %127 = load i32, ptr %m, align 4
+  %sub160 = sub nsw i32 %127, 1
   %conv161 = sitofp i32 %sub160 to double
-  %126 = load i32, ptr %d, align 4
-  %conv162 = sitofp i32 %126 to double
+  %128 = load i32, ptr %d, align 4
+  %conv162 = sitofp i32 %128 to double
   %call163 = call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %conv159, double noundef %conv161, double noundef %conv162)
-  %127 = load i32, ptr %h, align 4
-  %128 = load i32, ptr %tzh, align 4
-  %sub164 = sub nsw i32 %127, %128
+  %129 = load i32, ptr %h, align 4
+  %130 = load i32, ptr %tzh, align 4
+  %sub164 = sub nsw i32 %129, %130
   %conv165 = sitofp i32 %sub164 to double
-  %129 = load i32, ptr %min, align 4
-  %130 = load i32, ptr %tzm, align 4
-  %sub166 = sub nsw i32 %129, %130
+  %131 = load i32, ptr %min, align 4
+  %132 = load i32, ptr %tzm, align 4
+  %sub166 = sub nsw i32 %131, %132
   %conv167 = sitofp i32 %sub166 to double
-  %131 = load i32, ptr %s, align 4
-  %conv168 = sitofp i32 %131 to double
-  %132 = load i32, ptr %ms, align 4
-  %conv169 = sitofp i32 %132 to double
+  %133 = load i32, ptr %s, align 4
+  %conv168 = sitofp i32 %133 to double
+  %134 = load i32, ptr %ms, align 4
+  %conv169 = sitofp i32 %134 to double
   %call170 = call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef %conv165, double noundef %conv167, double noundef %conv168, double noundef %conv169)
   %call171 = call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call163, double noundef %call170)
   store double %call171, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %complete, %if.then157, %if.then153, %if.then142, %if.then139, %if.then131, %if.then124, %if.then119, %if.else113, %if.then107, %if.then85, %if.then65, %if.then61, %if.then57, %if.then54, %if.then50, %if.then47, %if.then41, %if.then34, %if.then28, %if.then21, %if.then18, %if.then7, %if.then
-  %133 = load double, ptr %retval, align 8
-  ret double %133
+  %135 = load double, ptr %retval, align 8
+  ret double %135
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4039,7 +4042,8 @@ entry:
   %0 = load i8, ptr %Unbuffered.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN4llvh11raw_ostreamC2Eb(ptr noundef nonnull align 8 dereferenceable(36) %this1, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh17raw_pwrite_streamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4llvh17raw_pwrite_streamE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4063,10 +4067,11 @@ entry:
   %frombool = zext i1 %unbuffered to i8
   store i8 %frombool, ptr %unbuffered.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh11raw_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4llvh11raw_ostreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %BufferMode = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this1, i32 0, i32 4
-  %0 = load i8, ptr %unbuffered.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %unbuffered.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %cond = select i1 %tobool, i32 0, i32 1
   store i32 %cond, ptr %BufferMode, align 8
   %OutBufCur = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this1, i32 0, i32 3
@@ -7723,12 +7728,13 @@ entry:
   %this5 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this5, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this5, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object", ptr %this5, i32 0, i32 1
-  %1 = load ptr, ptr %vals.addr, align 8
-  %2 = load ptr, ptr %vals.addr2, align 8
-  %3 = load ptr, ptr %vals.addr4, align 8
-  call void @_ZNSt5tupleIJiiiEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKiS4_S4_EEEbE4typeELb1EEES4_S4_S4_(ptr noundef nonnull align 4 dereferenceable(12) %Vals, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) #7
+  %2 = load ptr, ptr %vals.addr, align 8
+  %3 = load ptr, ptr %vals.addr2, align 8
+  %4 = load ptr, ptr %vals.addr4, align 8
+  call void @_ZNSt5tupleIJiiiEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKiS4_S4_EEEbE4typeELb1EEES4_S4_S4_(ptr noundef nonnull align 4 dereferenceable(12) %Vals, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) #7
   call void @_ZN4llvh26validate_format_parametersIJiiiEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.ensured)
   ret void
 }
@@ -7741,10 +7747,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh18format_object_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh18format_object_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Fmt = getelementptr inbounds %"class.llvh::format_object_base", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %fmt.addr, align 8
-  store ptr %0, ptr %Fmt, align 8
+  %1 = load ptr, ptr %fmt.addr, align 8
+  store ptr %1, ptr %Fmt, align 8
   ret void
 }
 
@@ -8082,13 +8089,14 @@ entry:
   %this7 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this7, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiiEEE, i32 0, i32 0, i32 2), ptr %this7, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiiEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this7, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object.5", ptr %this7, i32 0, i32 1
-  %1 = load ptr, ptr %vals.addr, align 8
-  %2 = load ptr, ptr %vals.addr2, align 8
-  %3 = load ptr, ptr %vals.addr4, align 8
-  %4 = load ptr, ptr %vals.addr6, align 8
-  call void @_ZNSt5tupleIJiiiiEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKiS4_S4_S4_EEEbE4typeELb1EEES4_S4_S4_S4_(ptr noundef nonnull align 4 dereferenceable(16) %Vals, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) #7
+  %2 = load ptr, ptr %vals.addr, align 8
+  %3 = load ptr, ptr %vals.addr2, align 8
+  %4 = load ptr, ptr %vals.addr4, align 8
+  %5 = load ptr, ptr %vals.addr6, align 8
+  call void @_ZNSt5tupleIJiiiiEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKiS4_S4_S4_EEEbE4typeELb1EEES4_S4_S4_S4_(ptr noundef nonnull align 4 dereferenceable(16) %Vals, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) #7
   call void @_ZN4llvh26validate_format_parametersIJiiiiEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.ensured)
   ret void
 }
@@ -8421,16 +8429,17 @@ entry:
   %this13 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this13, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiiciiEEE, i32 0, i32 0, i32 2), ptr %this13, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiiciiEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this13, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object.12", ptr %this13, i32 0, i32 1
-  %1 = load ptr, ptr %vals.addr, align 8
-  %2 = load ptr, ptr %vals.addr2, align 8
-  %3 = load ptr, ptr %vals.addr4, align 8
-  %4 = load ptr, ptr %vals.addr6, align 8
-  %5 = load ptr, ptr %vals.addr8, align 8
-  %6 = load ptr, ptr %vals.addr10, align 8
-  %7 = load ptr, ptr %vals.addr12, align 8
-  call void @_ZNSt5tupleIJiiiiciiEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKiS4_S4_S4_RKcS4_S4_EEEbE4typeELb1EEES4_S4_S4_S4_S6_S4_S4_(ptr noundef nonnull align 4 dereferenceable(28) %Vals, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7) #7
+  %2 = load ptr, ptr %vals.addr, align 8
+  %3 = load ptr, ptr %vals.addr2, align 8
+  %4 = load ptr, ptr %vals.addr4, align 8
+  %5 = load ptr, ptr %vals.addr6, align 8
+  %6 = load ptr, ptr %vals.addr8, align 8
+  %7 = load ptr, ptr %vals.addr10, align 8
+  %8 = load ptr, ptr %vals.addr12, align 8
+  call void @_ZNSt5tupleIJiiiiciiEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKiS4_S4_S4_RKcS4_S4_EEEbE4typeELb1EEES4_S4_S4_S4_S6_S4_S4_(ptr noundef nonnull align 4 dereferenceable(28) %Vals, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8) #7
   call void @_ZN4llvh26validate_format_parametersIJiiiiciiEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.ensured)
   ret void
 }
@@ -9049,13 +9058,14 @@ entry:
   %this7 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this7, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJPKcS2_iiEEE, i32 0, i32 0, i32 2), ptr %this7, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJPKcS2_iiEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this7, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object.26", ptr %this7, i32 0, i32 1
-  %1 = load ptr, ptr %vals.addr, align 8
-  %2 = load ptr, ptr %vals.addr2, align 8
-  %3 = load ptr, ptr %vals.addr4, align 8
-  %4 = load ptr, ptr %vals.addr6, align 8
-  call void @_ZNSt5tupleIJPKcS1_iiEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKS1_S6_RKiS8_EEEbE4typeELb1EEES6_S6_S8_S8_(ptr noundef nonnull align 8 dereferenceable(24) %Vals, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) #7
+  %2 = load ptr, ptr %vals.addr, align 8
+  %3 = load ptr, ptr %vals.addr2, align 8
+  %4 = load ptr, ptr %vals.addr4, align 8
+  %5 = load ptr, ptr %vals.addr6, align 8
+  call void @_ZNSt5tupleIJPKcS1_iiEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKS1_S6_RKiS8_EEEbE4typeELb1EEES6_S6_S8_S8_(ptr noundef nonnull align 8 dereferenceable(24) %Vals, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) #7
   call void @_ZN4llvh26validate_format_parametersIJPKcS2_iiEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.ensured)
   ret void
 }
@@ -9343,12 +9353,13 @@ entry:
   %this5 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this5, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJciiEEE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJciiEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this5, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object.32", ptr %this5, i32 0, i32 1
-  %1 = load ptr, ptr %vals.addr, align 8
-  %2 = load ptr, ptr %vals.addr2, align 8
-  %3 = load ptr, ptr %vals.addr4, align 8
-  call void @_ZNSt5tupleIJciiEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKcRKiS6_EEEbE4typeELb1EEES4_S6_S6_(ptr noundef nonnull align 4 dereferenceable(9) %Vals, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) #7
+  %2 = load ptr, ptr %vals.addr, align 8
+  %3 = load ptr, ptr %vals.addr2, align 8
+  %4 = load ptr, ptr %vals.addr4, align 8
+  call void @_ZNSt5tupleIJciiEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKcRKiS6_EEEbE4typeELb1EEES4_S6_S6_(ptr noundef nonnull align 4 dereferenceable(9) %Vals, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) #7
   call void @_ZN4llvh26validate_format_parametersIJciiEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.ensured)
   ret void
 }
@@ -9533,13 +9544,14 @@ entry:
   %this7 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this7, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJPKciS2_iEEE, i32 0, i32 0, i32 2), ptr %this7, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJPKciS2_iEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this7, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object.38", ptr %this7, i32 0, i32 1
-  %1 = load ptr, ptr %vals.addr, align 8
-  %2 = load ptr, ptr %vals.addr2, align 8
-  %3 = load ptr, ptr %vals.addr4, align 8
-  %4 = load ptr, ptr %vals.addr6, align 8
-  call void @_ZNSt5tupleIJPKciS1_iEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKS1_RKiS6_S8_EEEbE4typeELb1EEES6_S8_S6_S8_(ptr noundef nonnull align 8 dereferenceable(32) %Vals, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) #7
+  %2 = load ptr, ptr %vals.addr, align 8
+  %3 = load ptr, ptr %vals.addr2, align 8
+  %4 = load ptr, ptr %vals.addr4, align 8
+  %5 = load ptr, ptr %vals.addr6, align 8
+  call void @_ZNSt5tupleIJPKciS1_iEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKS1_RKiS6_S8_EEEbE4typeELb1EEES6_S8_S6_S8_(ptr noundef nonnull align 8 dereferenceable(32) %Vals, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) #7
   call void @_ZN4llvh26validate_format_parametersIJPKciS2_iEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.ensured)
   ret void
 }

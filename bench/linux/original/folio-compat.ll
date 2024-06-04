@@ -711,31 +711,32 @@ declare dso_local i32 @filemap_add_folio(ptr noundef, ptr noundef, i64 noundef, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @pagecache_get_page(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = tail call ptr @__filemap_get_folio(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) #2
-  %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
-  br i1 %6, label %20, label %7
+  %6 = inttoptr i64 -4096 to ptr
+  %7 = icmp ugt ptr %5, %6
+  br i1 %7, label %21, label %8
 
-7:                                                ; preds = %4
-  %8 = load volatile i64, ptr %5, align 8
-  %9 = and i64 %8, 64
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %16, label %11
+8:                                                ; preds = %4
+  %9 = load volatile i64, ptr %5, align 8
+  %10 = and i64 %9, 64
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %17, label %12
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 100
-  %13 = load i32, ptr %12, align 4
-  %14 = zext i32 %13 to i64
-  %15 = add nsw i64 %14, -1
-  br label %16
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %5, i64 100
+  %14 = load i32, ptr %13, align 4
+  %15 = zext i32 %14 to i64
+  %16 = add nsw i64 %15, -1
+  br label %17
 
-16:                                               ; preds = %11, %7
-  %17 = phi i64 [ %15, %11 ], [ 0, %7 ]
-  %18 = and i64 %17, %1
-  %19 = getelementptr %struct.page, ptr %5, i64 %18
-  br label %20
+17:                                               ; preds = %12, %8
+  %18 = phi i64 [ %16, %12 ], [ 0, %8 ]
+  %19 = and i64 %18, %1
+  %20 = getelementptr %struct.page, ptr %5, i64 %19
+  br label %21
 
-20:                                               ; preds = %16, %4
-  %21 = phi ptr [ %19, %16 ], [ null, %4 ]
-  ret ptr %21
+21:                                               ; preds = %17, %4
+  %22 = phi ptr [ %20, %17 ], [ null, %4 ]
+  ret ptr %22
 }
 
 ; Function Attrs: null_pointer_is_valid

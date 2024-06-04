@@ -25,111 +25,119 @@ define dso_local i64 @kaslr_get_random_long(ptr noundef %0) local_unnamed_addr #
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 8), align 8
-  %6 = and i64 %5, 1073741824
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %24, label %8
+  %5 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 8
+  %6 = load volatile i64, ptr %5, align 8
+  %7 = and i64 %6, 1073741824
+  %8 = icmp eq i64 %7, 0
+  %9 = ptrtoint ptr @_text to i64
+  %10 = sub i64 %9, -2130706432
+  br i1 %8, label %31, label %11
 
-8:                                                ; preds = %4
-  br i1 %2, label %10, label %9
+11:                                               ; preds = %4
+  br i1 %2, label %13, label %12
 
-9:                                                ; preds = %8
+12:                                               ; preds = %11
   tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #3
-  br label %10
+  br label %13
 
-10:                                               ; preds = %9, %8
-  br label %11
+13:                                               ; preds = %12, %11
+  br label %14
 
-11:                                               ; preds = %11, %10
-  %12 = phi i32 [ %17, %11 ], [ 10, %10 ]
-  %13 = tail call { i8, i64 } asm sideeffect "rdrand $1\0A\09/* output condition code c*/\0A", "={@ccc},=r,~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !5
-  %14 = extractvalue { i8, i64 } %13, 0
-  %15 = icmp ult i8 %14, 2
-  tail call void @llvm.assume(i1 %15)
-  %16 = icmp ne i8 %14, 0
-  %17 = add nsw i32 %12, -1
-  %18 = icmp eq i32 %17, 0
-  %19 = select i1 %16, i1 true, i1 %18
-  br i1 %19, label %20, label %11, !llvm.loop !6
+14:                                               ; preds = %14, %13
+  %15 = phi i32 [ %20, %14 ], [ 10, %13 ]
+  %16 = tail call { i8, i64 } asm sideeffect "rdrand $1\0A\09/* output condition code c*/\0A", "={@ccc},=r,~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !5
+  %17 = extractvalue { i8, i64 } %16, 0
+  %18 = icmp ult i8 %17, 2
+  tail call void @llvm.assume(i1 %18)
+  %19 = icmp ne i8 %17, 0
+  %20 = add nsw i32 %15, -1
+  %21 = icmp eq i32 %20, 0
+  %22 = select i1 %19, i1 true, i1 %21
+  br i1 %22, label %23, label %14, !llvm.loop !6
 
-20:                                               ; preds = %11
-  br i1 %16, label %21, label %24
+23:                                               ; preds = %14
+  %24 = ptrtoint ptr @_text to i64
+  %25 = sub i64 %24, -2130706432
+  br i1 %19, label %26, label %31
 
-21:                                               ; preds = %20
-  %22 = extractvalue { i8, i64 } %13, 1
-  %23 = xor i64 %22, sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432)
-  br label %24
+26:                                               ; preds = %23
+  %27 = extractvalue { i8, i64 } %16, 1
+  %28 = ptrtoint ptr @_text to i64
+  %29 = sub i64 %28, -2130706432
+  %30 = xor i64 %27, %29
+  br label %31
 
-24:                                               ; preds = %21, %20, %4
-  %25 = phi i64 [ %23, %21 ], [ sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432), %20 ], [ sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432), %4 ]
-  %26 = phi i1 [ false, %21 ], [ true, %20 ], [ true, %4 ]
-  %27 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), align 8
-  %28 = and i64 %27, 16
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %39, label %30
+31:                                               ; preds = %26, %23, %4
+  %32 = phi i64 [ %30, %26 ], [ %25, %23 ], [ %10, %4 ]
+  %33 = phi i1 [ false, %26 ], [ true, %23 ], [ true, %4 ]
+  %34 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11
+  %35 = load volatile i64, ptr %34, align 8
+  %36 = and i64 %35, 16
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %47, label %38
 
-30:                                               ; preds = %24
-  br i1 %2, label %32, label %31
+38:                                               ; preds = %31
+  br i1 %2, label %40, label %39
 
-31:                                               ; preds = %30
+39:                                               ; preds = %38
   tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #3
-  br label %32
+  br label %40
 
-32:                                               ; preds = %31, %30
-  %33 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
-  %34 = extractvalue { i64, i64 } %33, 0
-  %35 = extractvalue { i64, i64 } %33, 1
-  %36 = shl i64 %35, 32
-  %37 = or i64 %36, %34
-  %38 = xor i64 %37, %25
-  br label %39
+40:                                               ; preds = %39, %38
+  %41 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
+  %42 = extractvalue { i64, i64 } %41, 0
+  %43 = extractvalue { i64, i64 } %41, 1
+  %44 = shl i64 %43, 32
+  %45 = or i64 %44, %42
+  %46 = xor i64 %45, %32
+  br label %47
 
-39:                                               ; preds = %32, %24
-  %40 = phi i64 [ %38, %32 ], [ %25, %24 ]
-  %41 = phi i1 [ false, %32 ], [ %26, %24 ]
-  br i1 %41, label %42, label %57
+47:                                               ; preds = %40, %31
+  %48 = phi i64 [ %46, %40 ], [ %32, %31 ]
+  %49 = phi i1 [ false, %40 ], [ %33, %31 ]
+  br i1 %49, label %50, label %65
 
-42:                                               ; preds = %39
-  br i1 %2, label %44, label %43
+50:                                               ; preds = %47
+  br i1 %2, label %52, label %51
 
-43:                                               ; preds = %42
+51:                                               ; preds = %50
   tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #3
-  br label %44
+  br label %52
 
-44:                                               ; preds = %43, %42
-  br label %45
+52:                                               ; preds = %51, %50
+  br label %53
 
-45:                                               ; preds = %45, %44
+53:                                               ; preds = %53, %52
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -62, i16 67) #3, !srcloc !10
-  %46 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 64) #3, !srcloc !11
-  %47 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 64) #3, !srcloc !11
-  %48 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 64) #3, !srcloc !11
-  %49 = and i8 %46, 64
-  %50 = icmp eq i8 %49, 0
-  br i1 %50, label %51, label %45, !llvm.loop !12
+  %54 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 64) #3, !srcloc !11
+  %55 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 64) #3, !srcloc !11
+  %56 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 64) #3, !srcloc !11
+  %57 = and i8 %54, 64
+  %58 = icmp eq i8 %57, 0
+  br i1 %58, label %59, label %53, !llvm.loop !12
 
-51:                                               ; preds = %45
-  %52 = zext i8 %48 to i64
-  %53 = shl nuw nsw i64 %52, 8
-  %54 = zext i8 %47 to i64
-  %55 = or disjoint i64 %53, %54
-  %56 = xor i64 %55, %40
-  br label %57
+59:                                               ; preds = %53
+  %60 = zext i8 %56 to i64
+  %61 = shl nuw nsw i64 %60, 8
+  %62 = zext i8 %55 to i64
+  %63 = or disjoint i64 %61, %62
+  %64 = xor i64 %63, %48
+  br label %65
 
-57:                                               ; preds = %51, %39
-  %58 = phi i64 [ %56, %51 ], [ %40, %39 ]
-  %59 = tail call { i64, i64 } asm " mulq $3", "={ax},={dx},{ax},rm,~{dirflag},~{fpsr},~{flags}"(i64 %58, i64 6728387515348454867) #4, !srcloc !13
-  br i1 %2, label %61, label %60
+65:                                               ; preds = %59, %47
+  %66 = phi i64 [ %64, %59 ], [ %48, %47 ]
+  %67 = tail call { i64, i64 } asm " mulq $3", "={ax},={dx},{ax},rm,~{dirflag},~{fpsr},~{flags}"(i64 %66, i64 6728387515348454867) #4, !srcloc !13
+  br i1 %2, label %69, label %68
 
-60:                                               ; preds = %57
+68:                                               ; preds = %65
   tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #3
-  br label %61
+  br label %69
 
-61:                                               ; preds = %60, %57
-  %62 = extractvalue { i64, i64 } %59, 1
-  %63 = extractvalue { i64, i64 } %59, 0
-  %64 = add i64 %63, %62
-  ret i64 %64
+69:                                               ; preds = %68, %65
+  %70 = extractvalue { i64, i64 } %67, 1
+  %71 = extractvalue { i64, i64 } %67, 0
+  %72 = add i64 %71, %70
+  ret i64 %72
 }
 
 ; Function Attrs: null_pointer_is_valid

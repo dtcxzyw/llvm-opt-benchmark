@@ -52,7 +52,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %sa.addr, align 8
-  call void @utrie2_enum_75(ptr noundef getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), ptr noundef null, ptr noundef @_ZL24_enumPropertyStartsRangePKviij, ptr noundef %2)
+  %3 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  call void @utrie2_enum_75(ptr noundef %3, ptr noundef null, ptr noundef @_ZL24_enumPropertyStartsRangePKviij, ptr noundef %2)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -114,7 +115,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define ptr @ucase_getTrie_75() #1 {
 entry:
-  ret ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4)
+  %0 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -127,86 +129,91 @@ entry:
   %excWord = alloca i16, align 2
   %delta = alloca i32, align 4
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 919552
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 919552
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -225,28 +232,28 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %and44 = and i32 %conv43, 8
   %tobool = icmp ne i32 %and44, 0
   br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end39
-  %23 = load i16, ptr %props, align 2
-  %conv45 = zext i16 %23 to i32
+  %28 = load i16, ptr %props, align 2
+  %conv45 = zext i16 %28 to i32
   %and46 = and i32 %conv45, 2
   %tobool47 = icmp ne i32 %and46, 0
   br i1 %tobool47, label %if.then48, label %if.end
 
 if.then48:                                        ; preds = %if.then
-  %24 = load i16, ptr %props, align 2
-  %conv49 = sext i16 %24 to i32
+  %29 = load i16, ptr %props, align 2
+  %conv49 = sext i16 %29 to i32
   %shr50 = ashr i32 %conv49, 7
-  %25 = load i32, ptr %c.addr, align 4
-  %add51 = add nsw i32 %25, %shr50
+  %30 = load i32, ptr %c.addr, align 4
+  %add51 = add nsw i32 %30, %shr50
   store i32 %add51, ptr %c.addr, align 4
   br label %if.end
 
@@ -254,27 +261,28 @@ if.end:                                           ; preds = %if.then48, %if.then
   br label %if.end129
 
 if.else:                                          ; preds = %cond.end39
-  %26 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2), align 8
-  %27 = load i16, ptr %props, align 2
-  %conv52 = zext i16 %27 to i32
+  %31 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i16, ptr %props, align 2
+  %conv52 = zext i16 %33 to i32
   %shr53 = ashr i32 %conv52, 4
   %idx.ext = sext i32 %shr53 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %26, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %32, i64 %idx.ext
   store ptr %add.ptr, ptr %pe, align 8
-  %28 = load ptr, ptr %pe, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %28, i32 1
+  %34 = load ptr, ptr %pe, align 8
+  %incdec.ptr = getelementptr inbounds i16, ptr %34, i32 1
   store ptr %incdec.ptr, ptr %pe, align 8
-  %29 = load i16, ptr %28, align 2
-  store i16 %29, ptr %excWord, align 2
-  %30 = load i16, ptr %excWord, align 2
-  %conv54 = zext i16 %30 to i32
+  %35 = load i16, ptr %34, align 2
+  store i16 %35, ptr %excWord, align 2
+  %36 = load i16, ptr %excWord, align 2
+  %conv54 = zext i16 %36 to i32
   %and55 = and i32 %conv54, 16
   %tobool56 = icmp ne i32 %and55, 0
   br i1 %tobool56, label %land.lhs.true, label %if.end94
 
 land.lhs.true:                                    ; preds = %if.else
-  %31 = load i16, ptr %props, align 2
-  %conv57 = zext i16 %31 to i32
+  %37 = load i16, ptr %props, align 2
+  %conv57 = zext i16 %37 to i32
   %and58 = and i32 %conv57, 2
   %tobool59 = icmp ne i32 %and58, 0
   br i1 %tobool59, label %if.then60, label %if.end94
@@ -283,54 +291,54 @@ if.then60:                                        ; preds = %land.lhs.true
   br label %do.body
 
 do.body:                                          ; preds = %if.then60
-  %32 = load i16, ptr %excWord, align 2
-  %conv61 = zext i16 %32 to i32
+  %38 = load i16, ptr %excWord, align 2
+  %conv61 = zext i16 %38 to i32
   %and62 = and i32 %conv61, 256
   %cmp63 = icmp eq i32 %and62, 0
   br i1 %cmp63, label %if.then64, label %if.else73
 
 if.then64:                                        ; preds = %do.body
-  %33 = load i16, ptr %excWord, align 2
-  %conv65 = zext i16 %33 to i32
+  %39 = load i16, ptr %excWord, align 2
+  %conv65 = zext i16 %39 to i32
   %and66 = and i32 %conv65, 15
   %idxprom67 = sext i32 %and66 to i64
   %arrayidx68 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom67
-  %34 = load i8, ptr %arrayidx68, align 1
-  %conv69 = zext i8 %34 to i32
-  %35 = load ptr, ptr %pe, align 8
+  %40 = load i8, ptr %arrayidx68, align 1
+  %conv69 = zext i8 %40 to i32
+  %41 = load ptr, ptr %pe, align 8
   %idx.ext70 = sext i32 %conv69 to i64
-  %add.ptr71 = getelementptr inbounds i16, ptr %35, i64 %idx.ext70
+  %add.ptr71 = getelementptr inbounds i16, ptr %41, i64 %idx.ext70
   store ptr %add.ptr71, ptr %pe, align 8
-  %36 = load ptr, ptr %pe, align 8
-  %37 = load i16, ptr %36, align 2
-  %conv72 = zext i16 %37 to i32
+  %42 = load ptr, ptr %pe, align 8
+  %43 = load i16, ptr %42, align 2
+  %conv72 = zext i16 %43 to i32
   store i32 %conv72, ptr %delta, align 4
   br label %if.end85
 
 if.else73:                                        ; preds = %do.body
-  %38 = load i16, ptr %excWord, align 2
-  %conv74 = zext i16 %38 to i32
+  %44 = load i16, ptr %excWord, align 2
+  %conv74 = zext i16 %44 to i32
   %and75 = and i32 %conv74, 15
   %idxprom76 = sext i32 %and75 to i64
   %arrayidx77 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom76
-  %39 = load i8, ptr %arrayidx77, align 1
-  %conv78 = zext i8 %39 to i32
+  %45 = load i8, ptr %arrayidx77, align 1
+  %conv78 = zext i8 %45 to i32
   %mul = mul nsw i32 2, %conv78
-  %40 = load ptr, ptr %pe, align 8
+  %46 = load ptr, ptr %pe, align 8
   %idx.ext79 = sext i32 %mul to i64
-  %add.ptr80 = getelementptr inbounds i16, ptr %40, i64 %idx.ext79
+  %add.ptr80 = getelementptr inbounds i16, ptr %46, i64 %idx.ext79
   store ptr %add.ptr80, ptr %pe, align 8
-  %41 = load ptr, ptr %pe, align 8
-  %incdec.ptr81 = getelementptr inbounds i16, ptr %41, i32 1
+  %47 = load ptr, ptr %pe, align 8
+  %incdec.ptr81 = getelementptr inbounds i16, ptr %47, i32 1
   store ptr %incdec.ptr81, ptr %pe, align 8
-  %42 = load i16, ptr %41, align 2
-  %conv82 = zext i16 %42 to i32
+  %48 = load i16, ptr %47, align 2
+  %conv82 = zext i16 %48 to i32
   store i32 %conv82, ptr %delta, align 4
-  %43 = load i32, ptr %delta, align 4
-  %shl83 = shl i32 %43, 16
-  %44 = load ptr, ptr %pe, align 8
-  %45 = load i16, ptr %44, align 2
-  %conv84 = zext i16 %45 to i32
+  %49 = load i32, ptr %delta, align 4
+  %shl83 = shl i32 %49, 16
+  %50 = load ptr, ptr %pe, align 8
+  %51 = load i16, ptr %50, align 2
+  %conv84 = zext i16 %51 to i32
   %or = or i32 %shl83, %conv84
   store i32 %or, ptr %delta, align 4
   br label %if.end85
@@ -339,22 +347,22 @@ if.end85:                                         ; preds = %if.else73, %if.then
   br label %do.end
 
 do.end:                                           ; preds = %if.end85
-  %46 = load i16, ptr %excWord, align 2
-  %conv86 = zext i16 %46 to i32
+  %52 = load i16, ptr %excWord, align 2
+  %conv86 = zext i16 %52 to i32
   %and87 = and i32 %conv86, 1024
   %cmp88 = icmp eq i32 %and87, 0
   br i1 %cmp88, label %cond.true89, label %cond.false91
 
 cond.true89:                                      ; preds = %do.end
-  %47 = load i32, ptr %c.addr, align 4
-  %48 = load i32, ptr %delta, align 4
-  %add90 = add nsw i32 %47, %48
+  %53 = load i32, ptr %c.addr, align 4
+  %54 = load i32, ptr %delta, align 4
+  %add90 = add nsw i32 %53, %54
   br label %cond.end92
 
 cond.false91:                                     ; preds = %do.end
-  %49 = load i32, ptr %c.addr, align 4
-  %50 = load i32, ptr %delta, align 4
-  %sub = sub nsw i32 %49, %50
+  %55 = load i32, ptr %c.addr, align 4
+  %56 = load i32, ptr %delta, align 4
+  %sub = sub nsw i32 %55, %56
   br label %cond.end92
 
 cond.end92:                                       ; preds = %cond.false91, %cond.true89
@@ -363,8 +371,8 @@ cond.end92:                                       ; preds = %cond.false91, %cond
   br label %return
 
 if.end94:                                         ; preds = %land.lhs.true, %if.else
-  %51 = load i16, ptr %excWord, align 2
-  %conv95 = zext i16 %51 to i32
+  %57 = load i16, ptr %excWord, align 2
+  %conv95 = zext i16 %57 to i32
   %and96 = and i32 %conv95, 1
   %tobool97 = icmp ne i32 %and96, 0
   br i1 %tobool97, label %if.then98, label %if.end128
@@ -373,54 +381,54 @@ if.then98:                                        ; preds = %if.end94
   br label %do.body99
 
 do.body99:                                        ; preds = %if.then98
-  %52 = load i16, ptr %excWord, align 2
-  %conv100 = zext i16 %52 to i32
+  %58 = load i16, ptr %excWord, align 2
+  %conv100 = zext i16 %58 to i32
   %and101 = and i32 %conv100, 256
   %cmp102 = icmp eq i32 %and101, 0
   br i1 %cmp102, label %if.then103, label %if.else112
 
 if.then103:                                       ; preds = %do.body99
-  %53 = load i16, ptr %excWord, align 2
-  %conv104 = zext i16 %53 to i32
+  %59 = load i16, ptr %excWord, align 2
+  %conv104 = zext i16 %59 to i32
   %and105 = and i32 %conv104, 0
   %idxprom106 = sext i32 %and105 to i64
   %arrayidx107 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom106
-  %54 = load i8, ptr %arrayidx107, align 1
-  %conv108 = zext i8 %54 to i32
-  %55 = load ptr, ptr %pe, align 8
+  %60 = load i8, ptr %arrayidx107, align 1
+  %conv108 = zext i8 %60 to i32
+  %61 = load ptr, ptr %pe, align 8
   %idx.ext109 = sext i32 %conv108 to i64
-  %add.ptr110 = getelementptr inbounds i16, ptr %55, i64 %idx.ext109
+  %add.ptr110 = getelementptr inbounds i16, ptr %61, i64 %idx.ext109
   store ptr %add.ptr110, ptr %pe, align 8
-  %56 = load ptr, ptr %pe, align 8
-  %57 = load i16, ptr %56, align 2
-  %conv111 = zext i16 %57 to i32
+  %62 = load ptr, ptr %pe, align 8
+  %63 = load i16, ptr %62, align 2
+  %conv111 = zext i16 %63 to i32
   store i32 %conv111, ptr %c.addr, align 4
   br label %if.end126
 
 if.else112:                                       ; preds = %do.body99
-  %58 = load i16, ptr %excWord, align 2
-  %conv113 = zext i16 %58 to i32
+  %64 = load i16, ptr %excWord, align 2
+  %conv113 = zext i16 %64 to i32
   %and114 = and i32 %conv113, 0
   %idxprom115 = sext i32 %and114 to i64
   %arrayidx116 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom115
-  %59 = load i8, ptr %arrayidx116, align 1
-  %conv117 = zext i8 %59 to i32
+  %65 = load i8, ptr %arrayidx116, align 1
+  %conv117 = zext i8 %65 to i32
   %mul118 = mul nsw i32 2, %conv117
-  %60 = load ptr, ptr %pe, align 8
+  %66 = load ptr, ptr %pe, align 8
   %idx.ext119 = sext i32 %mul118 to i64
-  %add.ptr120 = getelementptr inbounds i16, ptr %60, i64 %idx.ext119
+  %add.ptr120 = getelementptr inbounds i16, ptr %66, i64 %idx.ext119
   store ptr %add.ptr120, ptr %pe, align 8
-  %61 = load ptr, ptr %pe, align 8
-  %incdec.ptr121 = getelementptr inbounds i16, ptr %61, i32 1
+  %67 = load ptr, ptr %pe, align 8
+  %incdec.ptr121 = getelementptr inbounds i16, ptr %67, i32 1
   store ptr %incdec.ptr121, ptr %pe, align 8
-  %62 = load i16, ptr %61, align 2
-  %conv122 = zext i16 %62 to i32
+  %68 = load i16, ptr %67, align 2
+  %conv122 = zext i16 %68 to i32
   store i32 %conv122, ptr %c.addr, align 4
-  %63 = load i32, ptr %c.addr, align 4
-  %shl123 = shl i32 %63, 16
-  %64 = load ptr, ptr %pe, align 8
-  %65 = load i16, ptr %64, align 2
-  %conv124 = zext i16 %65 to i32
+  %69 = load i32, ptr %c.addr, align 4
+  %shl123 = shl i32 %69, 16
+  %70 = load ptr, ptr %pe, align 8
+  %71 = load i16, ptr %70, align 2
+  %conv124 = zext i16 %71 to i32
   %or125 = or i32 %shl123, %conv124
   store i32 %or125, ptr %c.addr, align 4
   br label %if.end126
@@ -435,13 +443,13 @@ if.end128:                                        ; preds = %do.end127, %if.end9
   br label %if.end129
 
 if.end129:                                        ; preds = %if.end128, %if.end
-  %66 = load i32, ptr %c.addr, align 4
-  store i32 %66, ptr %retval, align 4
+  %72 = load i32, ptr %c.addr, align 4
+  store i32 %72, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end129, %cond.end92
-  %67 = load i32, ptr %retval, align 4
-  ret i32 %67
+  %73 = load i32, ptr %retval, align 4
+  ret i32 %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -454,86 +462,91 @@ entry:
   %excWord = alloca i16, align 2
   %delta = alloca i32, align 4
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 919552
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 919552
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -552,28 +565,28 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %and44 = and i32 %conv43, 8
   %tobool = icmp ne i32 %and44, 0
   br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end39
-  %23 = load i16, ptr %props, align 2
-  %conv45 = zext i16 %23 to i32
+  %28 = load i16, ptr %props, align 2
+  %conv45 = zext i16 %28 to i32
   %and46 = and i32 %conv45, 3
   %cmp47 = icmp eq i32 %and46, 1
   br i1 %cmp47, label %if.then48, label %if.end
 
 if.then48:                                        ; preds = %if.then
-  %24 = load i16, ptr %props, align 2
-  %conv49 = sext i16 %24 to i32
+  %29 = load i16, ptr %props, align 2
+  %conv49 = sext i16 %29 to i32
   %shr50 = ashr i32 %conv49, 7
-  %25 = load i32, ptr %c.addr, align 4
-  %add51 = add nsw i32 %25, %shr50
+  %30 = load i32, ptr %c.addr, align 4
+  %add51 = add nsw i32 %30, %shr50
   store i32 %add51, ptr %c.addr, align 4
   br label %if.end
 
@@ -581,27 +594,28 @@ if.end:                                           ; preds = %if.then48, %if.then
   br label %if.end129
 
 if.else:                                          ; preds = %cond.end39
-  %26 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2), align 8
-  %27 = load i16, ptr %props, align 2
-  %conv52 = zext i16 %27 to i32
+  %31 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i16, ptr %props, align 2
+  %conv52 = zext i16 %33 to i32
   %shr53 = ashr i32 %conv52, 4
   %idx.ext = sext i32 %shr53 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %26, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %32, i64 %idx.ext
   store ptr %add.ptr, ptr %pe, align 8
-  %28 = load ptr, ptr %pe, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %28, i32 1
+  %34 = load ptr, ptr %pe, align 8
+  %incdec.ptr = getelementptr inbounds i16, ptr %34, i32 1
   store ptr %incdec.ptr, ptr %pe, align 8
-  %29 = load i16, ptr %28, align 2
-  store i16 %29, ptr %excWord, align 2
-  %30 = load i16, ptr %excWord, align 2
-  %conv54 = zext i16 %30 to i32
+  %35 = load i16, ptr %34, align 2
+  store i16 %35, ptr %excWord, align 2
+  %36 = load i16, ptr %excWord, align 2
+  %conv54 = zext i16 %36 to i32
   %and55 = and i32 %conv54, 16
   %tobool56 = icmp ne i32 %and55, 0
   br i1 %tobool56, label %land.lhs.true, label %if.end94
 
 land.lhs.true:                                    ; preds = %if.else
-  %31 = load i16, ptr %props, align 2
-  %conv57 = zext i16 %31 to i32
+  %37 = load i16, ptr %props, align 2
+  %conv57 = zext i16 %37 to i32
   %and58 = and i32 %conv57, 3
   %cmp59 = icmp eq i32 %and58, 1
   br i1 %cmp59, label %if.then60, label %if.end94
@@ -610,54 +624,54 @@ if.then60:                                        ; preds = %land.lhs.true
   br label %do.body
 
 do.body:                                          ; preds = %if.then60
-  %32 = load i16, ptr %excWord, align 2
-  %conv61 = zext i16 %32 to i32
+  %38 = load i16, ptr %excWord, align 2
+  %conv61 = zext i16 %38 to i32
   %and62 = and i32 %conv61, 256
   %cmp63 = icmp eq i32 %and62, 0
   br i1 %cmp63, label %if.then64, label %if.else73
 
 if.then64:                                        ; preds = %do.body
-  %33 = load i16, ptr %excWord, align 2
-  %conv65 = zext i16 %33 to i32
+  %39 = load i16, ptr %excWord, align 2
+  %conv65 = zext i16 %39 to i32
   %and66 = and i32 %conv65, 15
   %idxprom67 = sext i32 %and66 to i64
   %arrayidx68 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom67
-  %34 = load i8, ptr %arrayidx68, align 1
-  %conv69 = zext i8 %34 to i32
-  %35 = load ptr, ptr %pe, align 8
+  %40 = load i8, ptr %arrayidx68, align 1
+  %conv69 = zext i8 %40 to i32
+  %41 = load ptr, ptr %pe, align 8
   %idx.ext70 = sext i32 %conv69 to i64
-  %add.ptr71 = getelementptr inbounds i16, ptr %35, i64 %idx.ext70
+  %add.ptr71 = getelementptr inbounds i16, ptr %41, i64 %idx.ext70
   store ptr %add.ptr71, ptr %pe, align 8
-  %36 = load ptr, ptr %pe, align 8
-  %37 = load i16, ptr %36, align 2
-  %conv72 = zext i16 %37 to i32
+  %42 = load ptr, ptr %pe, align 8
+  %43 = load i16, ptr %42, align 2
+  %conv72 = zext i16 %43 to i32
   store i32 %conv72, ptr %delta, align 4
   br label %if.end85
 
 if.else73:                                        ; preds = %do.body
-  %38 = load i16, ptr %excWord, align 2
-  %conv74 = zext i16 %38 to i32
+  %44 = load i16, ptr %excWord, align 2
+  %conv74 = zext i16 %44 to i32
   %and75 = and i32 %conv74, 15
   %idxprom76 = sext i32 %and75 to i64
   %arrayidx77 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom76
-  %39 = load i8, ptr %arrayidx77, align 1
-  %conv78 = zext i8 %39 to i32
+  %45 = load i8, ptr %arrayidx77, align 1
+  %conv78 = zext i8 %45 to i32
   %mul = mul nsw i32 2, %conv78
-  %40 = load ptr, ptr %pe, align 8
+  %46 = load ptr, ptr %pe, align 8
   %idx.ext79 = sext i32 %mul to i64
-  %add.ptr80 = getelementptr inbounds i16, ptr %40, i64 %idx.ext79
+  %add.ptr80 = getelementptr inbounds i16, ptr %46, i64 %idx.ext79
   store ptr %add.ptr80, ptr %pe, align 8
-  %41 = load ptr, ptr %pe, align 8
-  %incdec.ptr81 = getelementptr inbounds i16, ptr %41, i32 1
+  %47 = load ptr, ptr %pe, align 8
+  %incdec.ptr81 = getelementptr inbounds i16, ptr %47, i32 1
   store ptr %incdec.ptr81, ptr %pe, align 8
-  %42 = load i16, ptr %41, align 2
-  %conv82 = zext i16 %42 to i32
+  %48 = load i16, ptr %47, align 2
+  %conv82 = zext i16 %48 to i32
   store i32 %conv82, ptr %delta, align 4
-  %43 = load i32, ptr %delta, align 4
-  %shl83 = shl i32 %43, 16
-  %44 = load ptr, ptr %pe, align 8
-  %45 = load i16, ptr %44, align 2
-  %conv84 = zext i16 %45 to i32
+  %49 = load i32, ptr %delta, align 4
+  %shl83 = shl i32 %49, 16
+  %50 = load ptr, ptr %pe, align 8
+  %51 = load i16, ptr %50, align 2
+  %conv84 = zext i16 %51 to i32
   %or = or i32 %shl83, %conv84
   store i32 %or, ptr %delta, align 4
   br label %if.end85
@@ -666,22 +680,22 @@ if.end85:                                         ; preds = %if.else73, %if.then
   br label %do.end
 
 do.end:                                           ; preds = %if.end85
-  %46 = load i16, ptr %excWord, align 2
-  %conv86 = zext i16 %46 to i32
+  %52 = load i16, ptr %excWord, align 2
+  %conv86 = zext i16 %52 to i32
   %and87 = and i32 %conv86, 1024
   %cmp88 = icmp eq i32 %and87, 0
   br i1 %cmp88, label %cond.true89, label %cond.false91
 
 cond.true89:                                      ; preds = %do.end
-  %47 = load i32, ptr %c.addr, align 4
-  %48 = load i32, ptr %delta, align 4
-  %add90 = add nsw i32 %47, %48
+  %53 = load i32, ptr %c.addr, align 4
+  %54 = load i32, ptr %delta, align 4
+  %add90 = add nsw i32 %53, %54
   br label %cond.end92
 
 cond.false91:                                     ; preds = %do.end
-  %49 = load i32, ptr %c.addr, align 4
-  %50 = load i32, ptr %delta, align 4
-  %sub = sub nsw i32 %49, %50
+  %55 = load i32, ptr %c.addr, align 4
+  %56 = load i32, ptr %delta, align 4
+  %sub = sub nsw i32 %55, %56
   br label %cond.end92
 
 cond.end92:                                       ; preds = %cond.false91, %cond.true89
@@ -690,8 +704,8 @@ cond.end92:                                       ; preds = %cond.false91, %cond
   br label %return
 
 if.end94:                                         ; preds = %land.lhs.true, %if.else
-  %51 = load i16, ptr %excWord, align 2
-  %conv95 = zext i16 %51 to i32
+  %57 = load i16, ptr %excWord, align 2
+  %conv95 = zext i16 %57 to i32
   %and96 = and i32 %conv95, 4
   %tobool97 = icmp ne i32 %and96, 0
   br i1 %tobool97, label %if.then98, label %if.end128
@@ -700,54 +714,54 @@ if.then98:                                        ; preds = %if.end94
   br label %do.body99
 
 do.body99:                                        ; preds = %if.then98
-  %52 = load i16, ptr %excWord, align 2
-  %conv100 = zext i16 %52 to i32
+  %58 = load i16, ptr %excWord, align 2
+  %conv100 = zext i16 %58 to i32
   %and101 = and i32 %conv100, 256
   %cmp102 = icmp eq i32 %and101, 0
   br i1 %cmp102, label %if.then103, label %if.else112
 
 if.then103:                                       ; preds = %do.body99
-  %53 = load i16, ptr %excWord, align 2
-  %conv104 = zext i16 %53 to i32
+  %59 = load i16, ptr %excWord, align 2
+  %conv104 = zext i16 %59 to i32
   %and105 = and i32 %conv104, 3
   %idxprom106 = sext i32 %and105 to i64
   %arrayidx107 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom106
-  %54 = load i8, ptr %arrayidx107, align 1
-  %conv108 = zext i8 %54 to i32
-  %55 = load ptr, ptr %pe, align 8
+  %60 = load i8, ptr %arrayidx107, align 1
+  %conv108 = zext i8 %60 to i32
+  %61 = load ptr, ptr %pe, align 8
   %idx.ext109 = sext i32 %conv108 to i64
-  %add.ptr110 = getelementptr inbounds i16, ptr %55, i64 %idx.ext109
+  %add.ptr110 = getelementptr inbounds i16, ptr %61, i64 %idx.ext109
   store ptr %add.ptr110, ptr %pe, align 8
-  %56 = load ptr, ptr %pe, align 8
-  %57 = load i16, ptr %56, align 2
-  %conv111 = zext i16 %57 to i32
+  %62 = load ptr, ptr %pe, align 8
+  %63 = load i16, ptr %62, align 2
+  %conv111 = zext i16 %63 to i32
   store i32 %conv111, ptr %c.addr, align 4
   br label %if.end126
 
 if.else112:                                       ; preds = %do.body99
-  %58 = load i16, ptr %excWord, align 2
-  %conv113 = zext i16 %58 to i32
+  %64 = load i16, ptr %excWord, align 2
+  %conv113 = zext i16 %64 to i32
   %and114 = and i32 %conv113, 3
   %idxprom115 = sext i32 %and114 to i64
   %arrayidx116 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom115
-  %59 = load i8, ptr %arrayidx116, align 1
-  %conv117 = zext i8 %59 to i32
+  %65 = load i8, ptr %arrayidx116, align 1
+  %conv117 = zext i8 %65 to i32
   %mul118 = mul nsw i32 2, %conv117
-  %60 = load ptr, ptr %pe, align 8
+  %66 = load ptr, ptr %pe, align 8
   %idx.ext119 = sext i32 %mul118 to i64
-  %add.ptr120 = getelementptr inbounds i16, ptr %60, i64 %idx.ext119
+  %add.ptr120 = getelementptr inbounds i16, ptr %66, i64 %idx.ext119
   store ptr %add.ptr120, ptr %pe, align 8
-  %61 = load ptr, ptr %pe, align 8
-  %incdec.ptr121 = getelementptr inbounds i16, ptr %61, i32 1
+  %67 = load ptr, ptr %pe, align 8
+  %incdec.ptr121 = getelementptr inbounds i16, ptr %67, i32 1
   store ptr %incdec.ptr121, ptr %pe, align 8
-  %62 = load i16, ptr %61, align 2
-  %conv122 = zext i16 %62 to i32
+  %68 = load i16, ptr %67, align 2
+  %conv122 = zext i16 %68 to i32
   store i32 %conv122, ptr %c.addr, align 4
-  %63 = load i32, ptr %c.addr, align 4
-  %shl123 = shl i32 %63, 16
-  %64 = load ptr, ptr %pe, align 8
-  %65 = load i16, ptr %64, align 2
-  %conv124 = zext i16 %65 to i32
+  %69 = load i32, ptr %c.addr, align 4
+  %shl123 = shl i32 %69, 16
+  %70 = load ptr, ptr %pe, align 8
+  %71 = load i16, ptr %70, align 2
+  %conv124 = zext i16 %71 to i32
   %or125 = or i32 %shl123, %conv124
   store i32 %or125, ptr %c.addr, align 4
   br label %if.end126
@@ -762,13 +776,13 @@ if.end128:                                        ; preds = %do.end127, %if.end9
   br label %if.end129
 
 if.end129:                                        ; preds = %if.end128, %if.end
-  %66 = load i32, ptr %c.addr, align 4
-  store i32 %66, ptr %retval, align 4
+  %72 = load i32, ptr %c.addr, align 4
+  store i32 %72, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end129, %cond.end92
-  %67 = load i32, ptr %retval, align 4
-  ret i32 %67
+  %73 = load i32, ptr %retval, align 4
+  ret i32 %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -782,86 +796,91 @@ entry:
   %delta = alloca i32, align 4
   %idx = alloca i32, align 4
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 919552
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 919552
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -880,28 +899,28 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %and44 = and i32 %conv43, 8
   %tobool = icmp ne i32 %and44, 0
   br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end39
-  %23 = load i16, ptr %props, align 2
-  %conv45 = zext i16 %23 to i32
+  %28 = load i16, ptr %props, align 2
+  %conv45 = zext i16 %28 to i32
   %and46 = and i32 %conv45, 3
   %cmp47 = icmp eq i32 %and46, 1
   br i1 %cmp47, label %if.then48, label %if.end
 
 if.then48:                                        ; preds = %if.then
-  %24 = load i16, ptr %props, align 2
-  %conv49 = sext i16 %24 to i32
+  %29 = load i16, ptr %props, align 2
+  %conv49 = sext i16 %29 to i32
   %shr50 = ashr i32 %conv49, 7
-  %25 = load i32, ptr %c.addr, align 4
-  %add51 = add nsw i32 %25, %shr50
+  %30 = load i32, ptr %c.addr, align 4
+  %add51 = add nsw i32 %30, %shr50
   store i32 %add51, ptr %c.addr, align 4
   br label %if.end
 
@@ -909,27 +928,28 @@ if.end:                                           ; preds = %if.then48, %if.then
   br label %if.end140
 
 if.else:                                          ; preds = %cond.end39
-  %26 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2), align 8
-  %27 = load i16, ptr %props, align 2
-  %conv52 = zext i16 %27 to i32
+  %31 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i16, ptr %props, align 2
+  %conv52 = zext i16 %33 to i32
   %shr53 = ashr i32 %conv52, 4
   %idx.ext = sext i32 %shr53 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %26, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %32, i64 %idx.ext
   store ptr %add.ptr, ptr %pe, align 8
-  %28 = load ptr, ptr %pe, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %28, i32 1
+  %34 = load ptr, ptr %pe, align 8
+  %incdec.ptr = getelementptr inbounds i16, ptr %34, i32 1
   store ptr %incdec.ptr, ptr %pe, align 8
-  %29 = load i16, ptr %28, align 2
-  store i16 %29, ptr %excWord, align 2
-  %30 = load i16, ptr %excWord, align 2
-  %conv54 = zext i16 %30 to i32
+  %35 = load i16, ptr %34, align 2
+  store i16 %35, ptr %excWord, align 2
+  %36 = load i16, ptr %excWord, align 2
+  %conv54 = zext i16 %36 to i32
   %and55 = and i32 %conv54, 16
   %tobool56 = icmp ne i32 %and55, 0
   br i1 %tobool56, label %land.lhs.true, label %if.end94
 
 land.lhs.true:                                    ; preds = %if.else
-  %31 = load i16, ptr %props, align 2
-  %conv57 = zext i16 %31 to i32
+  %37 = load i16, ptr %props, align 2
+  %conv57 = zext i16 %37 to i32
   %and58 = and i32 %conv57, 3
   %cmp59 = icmp eq i32 %and58, 1
   br i1 %cmp59, label %if.then60, label %if.end94
@@ -938,54 +958,54 @@ if.then60:                                        ; preds = %land.lhs.true
   br label %do.body
 
 do.body:                                          ; preds = %if.then60
-  %32 = load i16, ptr %excWord, align 2
-  %conv61 = zext i16 %32 to i32
+  %38 = load i16, ptr %excWord, align 2
+  %conv61 = zext i16 %38 to i32
   %and62 = and i32 %conv61, 256
   %cmp63 = icmp eq i32 %and62, 0
   br i1 %cmp63, label %if.then64, label %if.else73
 
 if.then64:                                        ; preds = %do.body
-  %33 = load i16, ptr %excWord, align 2
-  %conv65 = zext i16 %33 to i32
+  %39 = load i16, ptr %excWord, align 2
+  %conv65 = zext i16 %39 to i32
   %and66 = and i32 %conv65, 15
   %idxprom67 = sext i32 %and66 to i64
   %arrayidx68 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom67
-  %34 = load i8, ptr %arrayidx68, align 1
-  %conv69 = zext i8 %34 to i32
-  %35 = load ptr, ptr %pe, align 8
+  %40 = load i8, ptr %arrayidx68, align 1
+  %conv69 = zext i8 %40 to i32
+  %41 = load ptr, ptr %pe, align 8
   %idx.ext70 = sext i32 %conv69 to i64
-  %add.ptr71 = getelementptr inbounds i16, ptr %35, i64 %idx.ext70
+  %add.ptr71 = getelementptr inbounds i16, ptr %41, i64 %idx.ext70
   store ptr %add.ptr71, ptr %pe, align 8
-  %36 = load ptr, ptr %pe, align 8
-  %37 = load i16, ptr %36, align 2
-  %conv72 = zext i16 %37 to i32
+  %42 = load ptr, ptr %pe, align 8
+  %43 = load i16, ptr %42, align 2
+  %conv72 = zext i16 %43 to i32
   store i32 %conv72, ptr %delta, align 4
   br label %if.end85
 
 if.else73:                                        ; preds = %do.body
-  %38 = load i16, ptr %excWord, align 2
-  %conv74 = zext i16 %38 to i32
+  %44 = load i16, ptr %excWord, align 2
+  %conv74 = zext i16 %44 to i32
   %and75 = and i32 %conv74, 15
   %idxprom76 = sext i32 %and75 to i64
   %arrayidx77 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom76
-  %39 = load i8, ptr %arrayidx77, align 1
-  %conv78 = zext i8 %39 to i32
+  %45 = load i8, ptr %arrayidx77, align 1
+  %conv78 = zext i8 %45 to i32
   %mul = mul nsw i32 2, %conv78
-  %40 = load ptr, ptr %pe, align 8
+  %46 = load ptr, ptr %pe, align 8
   %idx.ext79 = sext i32 %mul to i64
-  %add.ptr80 = getelementptr inbounds i16, ptr %40, i64 %idx.ext79
+  %add.ptr80 = getelementptr inbounds i16, ptr %46, i64 %idx.ext79
   store ptr %add.ptr80, ptr %pe, align 8
-  %41 = load ptr, ptr %pe, align 8
-  %incdec.ptr81 = getelementptr inbounds i16, ptr %41, i32 1
+  %47 = load ptr, ptr %pe, align 8
+  %incdec.ptr81 = getelementptr inbounds i16, ptr %47, i32 1
   store ptr %incdec.ptr81, ptr %pe, align 8
-  %42 = load i16, ptr %41, align 2
-  %conv82 = zext i16 %42 to i32
+  %48 = load i16, ptr %47, align 2
+  %conv82 = zext i16 %48 to i32
   store i32 %conv82, ptr %delta, align 4
-  %43 = load i32, ptr %delta, align 4
-  %shl83 = shl i32 %43, 16
-  %44 = load ptr, ptr %pe, align 8
-  %45 = load i16, ptr %44, align 2
-  %conv84 = zext i16 %45 to i32
+  %49 = load i32, ptr %delta, align 4
+  %shl83 = shl i32 %49, 16
+  %50 = load ptr, ptr %pe, align 8
+  %51 = load i16, ptr %50, align 2
+  %conv84 = zext i16 %51 to i32
   %or = or i32 %shl83, %conv84
   store i32 %or, ptr %delta, align 4
   br label %if.end85
@@ -994,22 +1014,22 @@ if.end85:                                         ; preds = %if.else73, %if.then
   br label %do.end
 
 do.end:                                           ; preds = %if.end85
-  %46 = load i16, ptr %excWord, align 2
-  %conv86 = zext i16 %46 to i32
+  %52 = load i16, ptr %excWord, align 2
+  %conv86 = zext i16 %52 to i32
   %and87 = and i32 %conv86, 1024
   %cmp88 = icmp eq i32 %and87, 0
   br i1 %cmp88, label %cond.true89, label %cond.false91
 
 cond.true89:                                      ; preds = %do.end
-  %47 = load i32, ptr %c.addr, align 4
-  %48 = load i32, ptr %delta, align 4
-  %add90 = add nsw i32 %47, %48
+  %53 = load i32, ptr %c.addr, align 4
+  %54 = load i32, ptr %delta, align 4
+  %add90 = add nsw i32 %53, %54
   br label %cond.end92
 
 cond.false91:                                     ; preds = %do.end
-  %49 = load i32, ptr %c.addr, align 4
-  %50 = load i32, ptr %delta, align 4
-  %sub = sub nsw i32 %49, %50
+  %55 = load i32, ptr %c.addr, align 4
+  %56 = load i32, ptr %delta, align 4
+  %sub = sub nsw i32 %55, %56
   br label %cond.end92
 
 cond.end92:                                       ; preds = %cond.false91, %cond.true89
@@ -1018,8 +1038,8 @@ cond.end92:                                       ; preds = %cond.false91, %cond
   br label %return
 
 if.end94:                                         ; preds = %land.lhs.true, %if.else
-  %51 = load i16, ptr %excWord, align 2
-  %conv95 = zext i16 %51 to i32
+  %57 = load i16, ptr %excWord, align 2
+  %conv95 = zext i16 %57 to i32
   %and96 = and i32 %conv95, 8
   %tobool97 = icmp ne i32 %and96, 0
   br i1 %tobool97, label %if.then98, label %if.else99
@@ -1029,8 +1049,8 @@ if.then98:                                        ; preds = %if.end94
   br label %if.end106
 
 if.else99:                                        ; preds = %if.end94
-  %52 = load i16, ptr %excWord, align 2
-  %conv100 = zext i16 %52 to i32
+  %58 = load i16, ptr %excWord, align 2
+  %conv100 = zext i16 %58 to i32
   %and101 = and i32 %conv100, 4
   %tobool102 = icmp ne i32 %and101, 0
   br i1 %tobool102, label %if.then103, label %if.else104
@@ -1040,8 +1060,8 @@ if.then103:                                       ; preds = %if.else99
   br label %if.end105
 
 if.else104:                                       ; preds = %if.else99
-  %53 = load i32, ptr %c.addr, align 4
-  store i32 %53, ptr %retval, align 4
+  %59 = load i32, ptr %c.addr, align 4
+  store i32 %59, ptr %retval, align 4
   br label %return
 
 if.end105:                                        ; preds = %if.then103
@@ -1051,60 +1071,60 @@ if.end106:                                        ; preds = %if.end105, %if.then
   br label %do.body107
 
 do.body107:                                       ; preds = %if.end106
-  %54 = load i16, ptr %excWord, align 2
-  %conv108 = zext i16 %54 to i32
+  %60 = load i16, ptr %excWord, align 2
+  %conv108 = zext i16 %60 to i32
   %and109 = and i32 %conv108, 256
   %cmp110 = icmp eq i32 %and109, 0
   br i1 %cmp110, label %if.then111, label %if.else122
 
 if.then111:                                       ; preds = %do.body107
-  %55 = load i16, ptr %excWord, align 2
-  %conv112 = zext i16 %55 to i32
-  %56 = load i32, ptr %idx, align 4
-  %shl113 = shl i32 1, %56
+  %61 = load i16, ptr %excWord, align 2
+  %conv112 = zext i16 %61 to i32
+  %62 = load i32, ptr %idx, align 4
+  %shl113 = shl i32 1, %62
   %sub114 = sub nsw i32 %shl113, 1
   %and115 = and i32 %conv112, %sub114
   %idxprom116 = sext i32 %and115 to i64
   %arrayidx117 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom116
-  %57 = load i8, ptr %arrayidx117, align 1
-  %conv118 = zext i8 %57 to i32
-  %58 = load ptr, ptr %pe, align 8
+  %63 = load i8, ptr %arrayidx117, align 1
+  %conv118 = zext i8 %63 to i32
+  %64 = load ptr, ptr %pe, align 8
   %idx.ext119 = sext i32 %conv118 to i64
-  %add.ptr120 = getelementptr inbounds i16, ptr %58, i64 %idx.ext119
+  %add.ptr120 = getelementptr inbounds i16, ptr %64, i64 %idx.ext119
   store ptr %add.ptr120, ptr %pe, align 8
-  %59 = load ptr, ptr %pe, align 8
-  %60 = load i16, ptr %59, align 2
-  %conv121 = zext i16 %60 to i32
+  %65 = load ptr, ptr %pe, align 8
+  %66 = load i16, ptr %65, align 2
+  %conv121 = zext i16 %66 to i32
   store i32 %conv121, ptr %c.addr, align 4
   br label %if.end138
 
 if.else122:                                       ; preds = %do.body107
-  %61 = load i16, ptr %excWord, align 2
-  %conv123 = zext i16 %61 to i32
-  %62 = load i32, ptr %idx, align 4
-  %shl124 = shl i32 1, %62
+  %67 = load i16, ptr %excWord, align 2
+  %conv123 = zext i16 %67 to i32
+  %68 = load i32, ptr %idx, align 4
+  %shl124 = shl i32 1, %68
   %sub125 = sub nsw i32 %shl124, 1
   %and126 = and i32 %conv123, %sub125
   %idxprom127 = sext i32 %and126 to i64
   %arrayidx128 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom127
-  %63 = load i8, ptr %arrayidx128, align 1
-  %conv129 = zext i8 %63 to i32
+  %69 = load i8, ptr %arrayidx128, align 1
+  %conv129 = zext i8 %69 to i32
   %mul130 = mul nsw i32 2, %conv129
-  %64 = load ptr, ptr %pe, align 8
+  %70 = load ptr, ptr %pe, align 8
   %idx.ext131 = sext i32 %mul130 to i64
-  %add.ptr132 = getelementptr inbounds i16, ptr %64, i64 %idx.ext131
+  %add.ptr132 = getelementptr inbounds i16, ptr %70, i64 %idx.ext131
   store ptr %add.ptr132, ptr %pe, align 8
-  %65 = load ptr, ptr %pe, align 8
-  %incdec.ptr133 = getelementptr inbounds i16, ptr %65, i32 1
+  %71 = load ptr, ptr %pe, align 8
+  %incdec.ptr133 = getelementptr inbounds i16, ptr %71, i32 1
   store ptr %incdec.ptr133, ptr %pe, align 8
-  %66 = load i16, ptr %65, align 2
-  %conv134 = zext i16 %66 to i32
+  %72 = load i16, ptr %71, align 2
+  %conv134 = zext i16 %72 to i32
   store i32 %conv134, ptr %c.addr, align 4
-  %67 = load i32, ptr %c.addr, align 4
-  %shl135 = shl i32 %67, 16
-  %68 = load ptr, ptr %pe, align 8
-  %69 = load i16, ptr %68, align 2
-  %conv136 = zext i16 %69 to i32
+  %73 = load i32, ptr %c.addr, align 4
+  %shl135 = shl i32 %73, 16
+  %74 = load ptr, ptr %pe, align 8
+  %75 = load i16, ptr %74, align 2
+  %conv136 = zext i16 %75 to i32
   %or137 = or i32 %shl135, %conv136
   store i32 %or137, ptr %c.addr, align 4
   br label %if.end138
@@ -1116,13 +1136,13 @@ do.end139:                                        ; preds = %if.end138
   br label %if.end140
 
 if.end140:                                        ; preds = %do.end139, %if.end
-  %70 = load i32, ptr %c.addr, align 4
-  store i32 %70, ptr %retval, align 4
+  %76 = load i32, ptr %c.addr, align 4
+  store i32 %76, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end140, %if.else104, %cond.end92
-  %71 = load i32, ptr %retval, align 4
-  ret i32 %71
+  %77 = load i32, ptr %retval, align 4
+  ret i32 %77
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1146,86 +1166,91 @@ entry:
   %mapping262 = alloca i32, align 4
   store i32 %c, ptr %c.addr, align 4
   store ptr %sa, ptr %sa.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 919552
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 919552
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -1244,42 +1269,42 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %and44 = and i32 %conv43, 8
   %tobool = icmp ne i32 %and44, 0
   br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end39
-  %23 = load i16, ptr %props, align 2
-  %conv45 = zext i16 %23 to i32
+  %28 = load i16, ptr %props, align 2
+  %conv45 = zext i16 %28 to i32
   %and46 = and i32 %conv45, 3
   %cmp47 = icmp ne i32 %and46, 0
   br i1 %cmp47, label %if.then48, label %if.end55
 
 if.then48:                                        ; preds = %if.then
-  %24 = load i16, ptr %props, align 2
-  %conv49 = sext i16 %24 to i32
+  %29 = load i16, ptr %props, align 2
+  %conv49 = sext i16 %29 to i32
   %shr50 = ashr i32 %conv49, 7
   store i32 %shr50, ptr %delta, align 4
-  %25 = load i32, ptr %delta, align 4
-  %cmp51 = icmp ne i32 %25, 0
+  %30 = load i32, ptr %delta, align 4
+  %cmp51 = icmp ne i32 %30, 0
   br i1 %cmp51, label %if.then52, label %if.end
 
 if.then52:                                        ; preds = %if.then48
-  %26 = load ptr, ptr %sa.addr, align 8
-  %add53 = getelementptr inbounds %struct.USetAdder, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %add53, align 8
-  %28 = load ptr, ptr %sa.addr, align 8
-  %set = getelementptr inbounds %struct.USetAdder, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %set, align 8
-  %30 = load i32, ptr %c.addr, align 4
-  %31 = load i32, ptr %delta, align 4
-  %add54 = add nsw i32 %30, %31
-  call void %27(ptr noundef %29, i32 noundef %add54)
+  %31 = load ptr, ptr %sa.addr, align 8
+  %add53 = getelementptr inbounds %struct.USetAdder, ptr %31, i32 0, i32 1
+  %32 = load ptr, ptr %add53, align 8
+  %33 = load ptr, ptr %sa.addr, align 8
+  %set = getelementptr inbounds %struct.USetAdder, ptr %33, i32 0, i32 0
+  %34 = load ptr, ptr %set, align 8
+  %35 = load i32, ptr %c.addr, align 4
+  %36 = load i32, ptr %delta, align 4
+  %add54 = add nsw i32 %35, %36
+  call void %32(ptr noundef %34, i32 noundef %add54)
   br label %if.end
 
 if.end:                                           ; preds = %if.then52, %if.then48
@@ -1289,54 +1314,55 @@ if.end55:                                         ; preds = %if.end, %if.then
   br label %if.end283
 
 if.else:                                          ; preds = %cond.end39
-  %32 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2), align 8
-  %33 = load i16, ptr %props, align 2
-  %conv56 = zext i16 %33 to i32
+  %37 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i16, ptr %props, align 2
+  %conv56 = zext i16 %39 to i32
   %shr57 = ashr i32 %conv56, 4
   %idx.ext = sext i32 %shr57 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %32, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %38, i64 %idx.ext
   store ptr %add.ptr, ptr %pe, align 8
-  %34 = load ptr, ptr %pe, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %34, i32 1
+  %40 = load ptr, ptr %pe, align 8
+  %incdec.ptr = getelementptr inbounds i16, ptr %40, i32 1
   store ptr %incdec.ptr, ptr %pe, align 8
-  %35 = load i16, ptr %34, align 2
-  store i16 %35, ptr %excWord, align 2
-  %36 = load ptr, ptr %pe, align 8
-  store ptr %36, ptr %pe0, align 8
-  %37 = load i16, ptr %excWord, align 2
-  %conv58 = zext i16 %37 to i32
+  %41 = load i16, ptr %40, align 2
+  store i16 %41, ptr %excWord, align 2
+  %42 = load ptr, ptr %pe, align 8
+  store ptr %42, ptr %pe0, align 8
+  %43 = load i16, ptr %excWord, align 2
+  %conv58 = zext i16 %43 to i32
   %and59 = and i32 %conv58, 32768
   %tobool60 = icmp ne i32 %and59, 0
   br i1 %tobool60, label %if.then61, label %if.else72
 
 if.then61:                                        ; preds = %if.else
-  %38 = load i32, ptr %c.addr, align 4
-  %cmp62 = icmp eq i32 %38, 73
+  %44 = load i32, ptr %c.addr, align 4
+  %cmp62 = icmp eq i32 %44, 73
   br i1 %cmp62, label %if.then63, label %if.else66
 
 if.then63:                                        ; preds = %if.then61
-  %39 = load ptr, ptr %sa.addr, align 8
-  %add64 = getelementptr inbounds %struct.USetAdder, ptr %39, i32 0, i32 1
-  %40 = load ptr, ptr %add64, align 8
-  %41 = load ptr, ptr %sa.addr, align 8
-  %set65 = getelementptr inbounds %struct.USetAdder, ptr %41, i32 0, i32 0
-  %42 = load ptr, ptr %set65, align 8
-  call void %40(ptr noundef %42, i32 noundef 105)
+  %45 = load ptr, ptr %sa.addr, align 8
+  %add64 = getelementptr inbounds %struct.USetAdder, ptr %45, i32 0, i32 1
+  %46 = load ptr, ptr %add64, align 8
+  %47 = load ptr, ptr %sa.addr, align 8
+  %set65 = getelementptr inbounds %struct.USetAdder, ptr %47, i32 0, i32 0
+  %48 = load ptr, ptr %set65, align 8
+  call void %46(ptr noundef %48, i32 noundef 105)
   br label %if.end283
 
 if.else66:                                        ; preds = %if.then61
-  %43 = load i32, ptr %c.addr, align 4
-  %cmp67 = icmp eq i32 %43, 304
+  %49 = load i32, ptr %c.addr, align 4
+  %cmp67 = icmp eq i32 %49, 304
   br i1 %cmp67, label %if.then68, label %if.end70
 
 if.then68:                                        ; preds = %if.else66
-  %44 = load ptr, ptr %sa.addr, align 8
-  %addString = getelementptr inbounds %struct.USetAdder, ptr %44, i32 0, i32 3
-  %45 = load ptr, ptr %addString, align 8
-  %46 = load ptr, ptr %sa.addr, align 8
-  %set69 = getelementptr inbounds %struct.USetAdder, ptr %46, i32 0, i32 0
-  %47 = load ptr, ptr %set69, align 8
-  call void %45(ptr noundef %47, ptr noundef @_ZL4iDot, i32 noundef 2)
+  %50 = load ptr, ptr %sa.addr, align 8
+  %addString = getelementptr inbounds %struct.USetAdder, ptr %50, i32 0, i32 3
+  %51 = load ptr, ptr %addString, align 8
+  %52 = load ptr, ptr %sa.addr, align 8
+  %set69 = getelementptr inbounds %struct.USetAdder, ptr %52, i32 0, i32 0
+  %53 = load ptr, ptr %set69, align 8
+  call void %51(ptr noundef %53, ptr noundef @_ZL4iDot, i32 noundef 2)
   br label %if.end283
 
 if.end70:                                         ; preds = %if.else66
@@ -1346,23 +1372,23 @@ if.end71:                                         ; preds = %if.end70
   br label %if.end82
 
 if.else72:                                        ; preds = %if.else
-  %48 = load i32, ptr %c.addr, align 4
-  %cmp73 = icmp eq i32 %48, 105
+  %54 = load i32, ptr %c.addr, align 4
+  %cmp73 = icmp eq i32 %54, 105
   br i1 %cmp73, label %if.then74, label %if.else77
 
 if.then74:                                        ; preds = %if.else72
-  %49 = load ptr, ptr %sa.addr, align 8
-  %add75 = getelementptr inbounds %struct.USetAdder, ptr %49, i32 0, i32 1
-  %50 = load ptr, ptr %add75, align 8
-  %51 = load ptr, ptr %sa.addr, align 8
-  %set76 = getelementptr inbounds %struct.USetAdder, ptr %51, i32 0, i32 0
-  %52 = load ptr, ptr %set76, align 8
-  call void %50(ptr noundef %52, i32 noundef 73)
+  %55 = load ptr, ptr %sa.addr, align 8
+  %add75 = getelementptr inbounds %struct.USetAdder, ptr %55, i32 0, i32 1
+  %56 = load ptr, ptr %add75, align 8
+  %57 = load ptr, ptr %sa.addr, align 8
+  %set76 = getelementptr inbounds %struct.USetAdder, ptr %57, i32 0, i32 0
+  %58 = load ptr, ptr %set76, align 8
+  call void %56(ptr noundef %58, i32 noundef 73)
   br label %if.end283
 
 if.else77:                                        ; preds = %if.else72
-  %53 = load i32, ptr %c.addr, align 4
-  %cmp78 = icmp eq i32 %53, 305
+  %59 = load i32, ptr %c.addr, align 4
+  %cmp78 = icmp eq i32 %59, 305
   br i1 %cmp78, label %if.then79, label %if.end80
 
 if.then79:                                        ; preds = %if.else77
@@ -1379,79 +1405,79 @@ if.end82:                                         ; preds = %if.end81, %if.end71
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end82
-  %54 = load i32, ptr %idx, align 4
-  %cmp83 = icmp sle i32 %54, 3
+  %60 = load i32, ptr %idx, align 4
+  %cmp83 = icmp sle i32 %60, 3
   br i1 %cmp83, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %55 = load i16, ptr %excWord, align 2
-  %conv84 = zext i16 %55 to i32
-  %56 = load i32, ptr %idx, align 4
-  %shl85 = shl i32 1, %56
+  %61 = load i16, ptr %excWord, align 2
+  %conv84 = zext i16 %61 to i32
+  %62 = load i32, ptr %idx, align 4
+  %shl85 = shl i32 1, %62
   %and86 = and i32 %conv84, %shl85
   %tobool87 = icmp ne i32 %and86, 0
   br i1 %tobool87, label %if.then88, label %if.end119
 
 if.then88:                                        ; preds = %for.body
-  %57 = load ptr, ptr %pe0, align 8
-  store ptr %57, ptr %pe, align 8
+  %63 = load ptr, ptr %pe0, align 8
+  store ptr %63, ptr %pe, align 8
   br label %do.body
 
 do.body:                                          ; preds = %if.then88
-  %58 = load i16, ptr %excWord, align 2
-  %conv89 = zext i16 %58 to i32
+  %64 = load i16, ptr %excWord, align 2
+  %conv89 = zext i16 %64 to i32
   %and90 = and i32 %conv89, 256
   %cmp91 = icmp eq i32 %and90, 0
   br i1 %cmp91, label %if.then92, label %if.else102
 
 if.then92:                                        ; preds = %do.body
-  %59 = load i16, ptr %excWord, align 2
-  %conv93 = zext i16 %59 to i32
-  %60 = load i32, ptr %idx, align 4
-  %shl94 = shl i32 1, %60
+  %65 = load i16, ptr %excWord, align 2
+  %conv93 = zext i16 %65 to i32
+  %66 = load i32, ptr %idx, align 4
+  %shl94 = shl i32 1, %66
   %sub = sub nsw i32 %shl94, 1
   %and95 = and i32 %conv93, %sub
   %idxprom96 = sext i32 %and95 to i64
   %arrayidx97 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom96
-  %61 = load i8, ptr %arrayidx97, align 1
-  %conv98 = zext i8 %61 to i32
-  %62 = load ptr, ptr %pe, align 8
+  %67 = load i8, ptr %arrayidx97, align 1
+  %conv98 = zext i8 %67 to i32
+  %68 = load ptr, ptr %pe, align 8
   %idx.ext99 = sext i32 %conv98 to i64
-  %add.ptr100 = getelementptr inbounds i16, ptr %62, i64 %idx.ext99
+  %add.ptr100 = getelementptr inbounds i16, ptr %68, i64 %idx.ext99
   store ptr %add.ptr100, ptr %pe, align 8
-  %63 = load ptr, ptr %pe, align 8
-  %64 = load i16, ptr %63, align 2
-  %conv101 = zext i16 %64 to i32
+  %69 = load ptr, ptr %pe, align 8
+  %70 = load i16, ptr %69, align 2
+  %conv101 = zext i16 %70 to i32
   store i32 %conv101, ptr %mapping, align 4
   br label %if.end116
 
 if.else102:                                       ; preds = %do.body
-  %65 = load i16, ptr %excWord, align 2
-  %conv103 = zext i16 %65 to i32
-  %66 = load i32, ptr %idx, align 4
-  %shl104 = shl i32 1, %66
+  %71 = load i16, ptr %excWord, align 2
+  %conv103 = zext i16 %71 to i32
+  %72 = load i32, ptr %idx, align 4
+  %shl104 = shl i32 1, %72
   %sub105 = sub nsw i32 %shl104, 1
   %and106 = and i32 %conv103, %sub105
   %idxprom107 = sext i32 %and106 to i64
   %arrayidx108 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom107
-  %67 = load i8, ptr %arrayidx108, align 1
-  %conv109 = zext i8 %67 to i32
+  %73 = load i8, ptr %arrayidx108, align 1
+  %conv109 = zext i8 %73 to i32
   %mul = mul nsw i32 2, %conv109
-  %68 = load ptr, ptr %pe, align 8
+  %74 = load ptr, ptr %pe, align 8
   %idx.ext110 = sext i32 %mul to i64
-  %add.ptr111 = getelementptr inbounds i16, ptr %68, i64 %idx.ext110
+  %add.ptr111 = getelementptr inbounds i16, ptr %74, i64 %idx.ext110
   store ptr %add.ptr111, ptr %pe, align 8
-  %69 = load ptr, ptr %pe, align 8
-  %incdec.ptr112 = getelementptr inbounds i16, ptr %69, i32 1
+  %75 = load ptr, ptr %pe, align 8
+  %incdec.ptr112 = getelementptr inbounds i16, ptr %75, i32 1
   store ptr %incdec.ptr112, ptr %pe, align 8
-  %70 = load i16, ptr %69, align 2
-  %conv113 = zext i16 %70 to i32
+  %76 = load i16, ptr %75, align 2
+  %conv113 = zext i16 %76 to i32
   store i32 %conv113, ptr %mapping, align 4
-  %71 = load i32, ptr %mapping, align 4
-  %shl114 = shl i32 %71, 16
-  %72 = load ptr, ptr %pe, align 8
-  %73 = load i16, ptr %72, align 2
-  %conv115 = zext i16 %73 to i32
+  %77 = load i32, ptr %mapping, align 4
+  %shl114 = shl i32 %77, 16
+  %78 = load ptr, ptr %pe, align 8
+  %79 = load i16, ptr %78, align 2
+  %conv115 = zext i16 %79 to i32
   %or = or i32 %shl114, %conv115
   store i32 %or, ptr %mapping, align 4
   br label %if.end116
@@ -1460,86 +1486,86 @@ if.end116:                                        ; preds = %if.else102, %if.the
   br label %do.end
 
 do.end:                                           ; preds = %if.end116
-  %74 = load ptr, ptr %sa.addr, align 8
-  %add117 = getelementptr inbounds %struct.USetAdder, ptr %74, i32 0, i32 1
-  %75 = load ptr, ptr %add117, align 8
-  %76 = load ptr, ptr %sa.addr, align 8
-  %set118 = getelementptr inbounds %struct.USetAdder, ptr %76, i32 0, i32 0
-  %77 = load ptr, ptr %set118, align 8
-  %78 = load i32, ptr %mapping, align 4
-  call void %75(ptr noundef %77, i32 noundef %78)
+  %80 = load ptr, ptr %sa.addr, align 8
+  %add117 = getelementptr inbounds %struct.USetAdder, ptr %80, i32 0, i32 1
+  %81 = load ptr, ptr %add117, align 8
+  %82 = load ptr, ptr %sa.addr, align 8
+  %set118 = getelementptr inbounds %struct.USetAdder, ptr %82, i32 0, i32 0
+  %83 = load ptr, ptr %set118, align 8
+  %84 = load i32, ptr %mapping, align 4
+  call void %81(ptr noundef %83, i32 noundef %84)
   br label %if.end119
 
 if.end119:                                        ; preds = %do.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end119
-  %79 = load i32, ptr %idx, align 4
-  %inc = add nsw i32 %79, 1
+  %85 = load i32, ptr %idx, align 4
+  %inc = add nsw i32 %85, 1
   store i32 %inc, ptr %idx, align 4
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
-  %80 = load i16, ptr %excWord, align 2
-  %conv120 = zext i16 %80 to i32
+  %86 = load i16, ptr %excWord, align 2
+  %conv120 = zext i16 %86 to i32
   %and121 = and i32 %conv120, 16
   %tobool122 = icmp ne i32 %and121, 0
   br i1 %tobool122, label %if.then123, label %if.end165
 
 if.then123:                                       ; preds = %for.end
-  %81 = load ptr, ptr %pe0, align 8
-  store ptr %81, ptr %pe, align 8
+  %87 = load ptr, ptr %pe0, align 8
+  store ptr %87, ptr %pe, align 8
   br label %do.body125
 
 do.body125:                                       ; preds = %if.then123
-  %82 = load i16, ptr %excWord, align 2
-  %conv126 = zext i16 %82 to i32
+  %88 = load i16, ptr %excWord, align 2
+  %conv126 = zext i16 %88 to i32
   %and127 = and i32 %conv126, 256
   %cmp128 = icmp eq i32 %and127, 0
   br i1 %cmp128, label %if.then129, label %if.else138
 
 if.then129:                                       ; preds = %do.body125
-  %83 = load i16, ptr %excWord, align 2
-  %conv130 = zext i16 %83 to i32
+  %89 = load i16, ptr %excWord, align 2
+  %conv130 = zext i16 %89 to i32
   %and131 = and i32 %conv130, 15
   %idxprom132 = sext i32 %and131 to i64
   %arrayidx133 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom132
-  %84 = load i8, ptr %arrayidx133, align 1
-  %conv134 = zext i8 %84 to i32
-  %85 = load ptr, ptr %pe, align 8
+  %90 = load i8, ptr %arrayidx133, align 1
+  %conv134 = zext i8 %90 to i32
+  %91 = load ptr, ptr %pe, align 8
   %idx.ext135 = sext i32 %conv134 to i64
-  %add.ptr136 = getelementptr inbounds i16, ptr %85, i64 %idx.ext135
+  %add.ptr136 = getelementptr inbounds i16, ptr %91, i64 %idx.ext135
   store ptr %add.ptr136, ptr %pe, align 8
-  %86 = load ptr, ptr %pe, align 8
-  %87 = load i16, ptr %86, align 2
-  %conv137 = zext i16 %87 to i32
+  %92 = load ptr, ptr %pe, align 8
+  %93 = load i16, ptr %92, align 2
+  %conv137 = zext i16 %93 to i32
   store i32 %conv137, ptr %delta124, align 4
   br label %if.end152
 
 if.else138:                                       ; preds = %do.body125
-  %88 = load i16, ptr %excWord, align 2
-  %conv139 = zext i16 %88 to i32
+  %94 = load i16, ptr %excWord, align 2
+  %conv139 = zext i16 %94 to i32
   %and140 = and i32 %conv139, 15
   %idxprom141 = sext i32 %and140 to i64
   %arrayidx142 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom141
-  %89 = load i8, ptr %arrayidx142, align 1
-  %conv143 = zext i8 %89 to i32
+  %95 = load i8, ptr %arrayidx142, align 1
+  %conv143 = zext i8 %95 to i32
   %mul144 = mul nsw i32 2, %conv143
-  %90 = load ptr, ptr %pe, align 8
+  %96 = load ptr, ptr %pe, align 8
   %idx.ext145 = sext i32 %mul144 to i64
-  %add.ptr146 = getelementptr inbounds i16, ptr %90, i64 %idx.ext145
+  %add.ptr146 = getelementptr inbounds i16, ptr %96, i64 %idx.ext145
   store ptr %add.ptr146, ptr %pe, align 8
-  %91 = load ptr, ptr %pe, align 8
-  %incdec.ptr147 = getelementptr inbounds i16, ptr %91, i32 1
+  %97 = load ptr, ptr %pe, align 8
+  %incdec.ptr147 = getelementptr inbounds i16, ptr %97, i32 1
   store ptr %incdec.ptr147, ptr %pe, align 8
-  %92 = load i16, ptr %91, align 2
-  %conv148 = zext i16 %92 to i32
+  %98 = load i16, ptr %97, align 2
+  %conv148 = zext i16 %98 to i32
   store i32 %conv148, ptr %delta124, align 4
-  %93 = load i32, ptr %delta124, align 4
-  %shl149 = shl i32 %93, 16
-  %94 = load ptr, ptr %pe, align 8
-  %95 = load i16, ptr %94, align 2
-  %conv150 = zext i16 %95 to i32
+  %99 = load i32, ptr %delta124, align 4
+  %shl149 = shl i32 %99, 16
+  %100 = load ptr, ptr %pe, align 8
+  %101 = load i16, ptr %100, align 2
+  %conv150 = zext i16 %101 to i32
   %or151 = or i32 %shl149, %conv150
   store i32 %or151, ptr %delta124, align 4
   br label %if.end152
@@ -1548,96 +1574,96 @@ if.end152:                                        ; preds = %if.else138, %if.the
   br label %do.end153
 
 do.end153:                                        ; preds = %if.end152
-  %96 = load ptr, ptr %sa.addr, align 8
-  %add154 = getelementptr inbounds %struct.USetAdder, ptr %96, i32 0, i32 1
-  %97 = load ptr, ptr %add154, align 8
-  %98 = load ptr, ptr %sa.addr, align 8
-  %set155 = getelementptr inbounds %struct.USetAdder, ptr %98, i32 0, i32 0
-  %99 = load ptr, ptr %set155, align 8
-  %100 = load i16, ptr %excWord, align 2
-  %conv156 = zext i16 %100 to i32
+  %102 = load ptr, ptr %sa.addr, align 8
+  %add154 = getelementptr inbounds %struct.USetAdder, ptr %102, i32 0, i32 1
+  %103 = load ptr, ptr %add154, align 8
+  %104 = load ptr, ptr %sa.addr, align 8
+  %set155 = getelementptr inbounds %struct.USetAdder, ptr %104, i32 0, i32 0
+  %105 = load ptr, ptr %set155, align 8
+  %106 = load i16, ptr %excWord, align 2
+  %conv156 = zext i16 %106 to i32
   %and157 = and i32 %conv156, 1024
   %cmp158 = icmp eq i32 %and157, 0
   br i1 %cmp158, label %cond.true159, label %cond.false161
 
 cond.true159:                                     ; preds = %do.end153
-  %101 = load i32, ptr %c.addr, align 4
-  %102 = load i32, ptr %delta124, align 4
-  %add160 = add nsw i32 %101, %102
+  %107 = load i32, ptr %c.addr, align 4
+  %108 = load i32, ptr %delta124, align 4
+  %add160 = add nsw i32 %107, %108
   br label %cond.end163
 
 cond.false161:                                    ; preds = %do.end153
-  %103 = load i32, ptr %c.addr, align 4
-  %104 = load i32, ptr %delta124, align 4
-  %sub162 = sub nsw i32 %103, %104
+  %109 = load i32, ptr %c.addr, align 4
+  %110 = load i32, ptr %delta124, align 4
+  %sub162 = sub nsw i32 %109, %110
   br label %cond.end163
 
 cond.end163:                                      ; preds = %cond.false161, %cond.true159
   %cond164 = phi i32 [ %add160, %cond.true159 ], [ %sub162, %cond.false161 ]
-  call void %97(ptr noundef %99, i32 noundef %cond164)
+  call void %103(ptr noundef %105, i32 noundef %cond164)
   br label %if.end165
 
 if.end165:                                        ; preds = %cond.end163, %for.end
-  %105 = load i16, ptr %excWord, align 2
-  %conv166 = zext i16 %105 to i32
+  %111 = load i16, ptr %excWord, align 2
+  %conv166 = zext i16 %111 to i32
   %and167 = and i32 %conv166, 64
   %tobool168 = icmp ne i32 %and167, 0
   br i1 %tobool168, label %if.then169, label %if.else201
 
 if.then169:                                       ; preds = %if.end165
-  %106 = load ptr, ptr %pe0, align 8
-  store ptr %106, ptr %pe, align 8
+  %112 = load ptr, ptr %pe0, align 8
+  store ptr %112, ptr %pe, align 8
   br label %do.body170
 
 do.body170:                                       ; preds = %if.then169
-  %107 = load i16, ptr %excWord, align 2
-  %conv171 = zext i16 %107 to i32
+  %113 = load i16, ptr %excWord, align 2
+  %conv171 = zext i16 %113 to i32
   %and172 = and i32 %conv171, 256
   %cmp173 = icmp eq i32 %and172, 0
   br i1 %cmp173, label %if.then174, label %if.else183
 
 if.then174:                                       ; preds = %do.body170
-  %108 = load i16, ptr %excWord, align 2
-  %conv175 = zext i16 %108 to i32
+  %114 = load i16, ptr %excWord, align 2
+  %conv175 = zext i16 %114 to i32
   %and176 = and i32 %conv175, 63
   %idxprom177 = sext i32 %and176 to i64
   %arrayidx178 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom177
-  %109 = load i8, ptr %arrayidx178, align 1
-  %conv179 = zext i8 %109 to i32
-  %110 = load ptr, ptr %pe, align 8
+  %115 = load i8, ptr %arrayidx178, align 1
+  %conv179 = zext i8 %115 to i32
+  %116 = load ptr, ptr %pe, align 8
   %idx.ext180 = sext i32 %conv179 to i64
-  %add.ptr181 = getelementptr inbounds i16, ptr %110, i64 %idx.ext180
+  %add.ptr181 = getelementptr inbounds i16, ptr %116, i64 %idx.ext180
   store ptr %add.ptr181, ptr %pe, align 8
-  %111 = load ptr, ptr %pe, align 8
-  %112 = load i16, ptr %111, align 2
-  %conv182 = zext i16 %112 to i32
+  %117 = load ptr, ptr %pe, align 8
+  %118 = load i16, ptr %117, align 2
+  %conv182 = zext i16 %118 to i32
   store i32 %conv182, ptr %closureLength, align 4
   br label %if.end197
 
 if.else183:                                       ; preds = %do.body170
-  %113 = load i16, ptr %excWord, align 2
-  %conv184 = zext i16 %113 to i32
+  %119 = load i16, ptr %excWord, align 2
+  %conv184 = zext i16 %119 to i32
   %and185 = and i32 %conv184, 63
   %idxprom186 = sext i32 %and185 to i64
   %arrayidx187 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom186
-  %114 = load i8, ptr %arrayidx187, align 1
-  %conv188 = zext i8 %114 to i32
+  %120 = load i8, ptr %arrayidx187, align 1
+  %conv188 = zext i8 %120 to i32
   %mul189 = mul nsw i32 2, %conv188
-  %115 = load ptr, ptr %pe, align 8
+  %121 = load ptr, ptr %pe, align 8
   %idx.ext190 = sext i32 %mul189 to i64
-  %add.ptr191 = getelementptr inbounds i16, ptr %115, i64 %idx.ext190
+  %add.ptr191 = getelementptr inbounds i16, ptr %121, i64 %idx.ext190
   store ptr %add.ptr191, ptr %pe, align 8
-  %116 = load ptr, ptr %pe, align 8
-  %incdec.ptr192 = getelementptr inbounds i16, ptr %116, i32 1
+  %122 = load ptr, ptr %pe, align 8
+  %incdec.ptr192 = getelementptr inbounds i16, ptr %122, i32 1
   store ptr %incdec.ptr192, ptr %pe, align 8
-  %117 = load i16, ptr %116, align 2
-  %conv193 = zext i16 %117 to i32
+  %123 = load i16, ptr %122, align 2
+  %conv193 = zext i16 %123 to i32
   store i32 %conv193, ptr %closureLength, align 4
-  %118 = load i32, ptr %closureLength, align 4
-  %shl194 = shl i32 %118, 16
-  %119 = load ptr, ptr %pe, align 8
-  %120 = load i16, ptr %119, align 2
-  %conv195 = zext i16 %120 to i32
+  %124 = load i32, ptr %closureLength, align 4
+  %shl194 = shl i32 %124, 16
+  %125 = load ptr, ptr %pe, align 8
+  %126 = load i16, ptr %125, align 2
+  %conv195 = zext i16 %126 to i32
   %or196 = or i32 %shl194, %conv195
   store i32 %or196, ptr %closureLength, align 4
   br label %if.end197
@@ -1646,11 +1672,11 @@ if.end197:                                        ; preds = %if.else183, %if.the
   br label %do.end198
 
 do.end198:                                        ; preds = %if.end197
-  %121 = load i32, ptr %closureLength, align 4
-  %and199 = and i32 %121, 15
+  %127 = load i32, ptr %closureLength, align 4
+  %and199 = and i32 %127, 15
   store i32 %and199, ptr %closureLength, align 4
-  %122 = load ptr, ptr %pe, align 8
-  %add.ptr200 = getelementptr inbounds i16, ptr %122, i64 1
+  %128 = load ptr, ptr %pe, align 8
+  %add.ptr200 = getelementptr inbounds i16, ptr %128, i64 1
   store ptr %add.ptr200, ptr %closure, align 8
   br label %if.end202
 
@@ -1660,66 +1686,66 @@ if.else201:                                       ; preds = %if.end165
   br label %if.end202
 
 if.end202:                                        ; preds = %if.else201, %do.end198
-  %123 = load i16, ptr %excWord, align 2
-  %conv203 = zext i16 %123 to i32
+  %129 = load i16, ptr %excWord, align 2
+  %conv203 = zext i16 %129 to i32
   %and204 = and i32 %conv203, 128
   %tobool205 = icmp ne i32 %and204, 0
   br i1 %tobool205, label %if.then206, label %if.end257
 
 if.then206:                                       ; preds = %if.end202
-  %124 = load ptr, ptr %pe0, align 8
-  store ptr %124, ptr %pe, align 8
+  %130 = load ptr, ptr %pe0, align 8
+  store ptr %130, ptr %pe, align 8
   br label %do.body207
 
 do.body207:                                       ; preds = %if.then206
-  %125 = load i16, ptr %excWord, align 2
-  %conv208 = zext i16 %125 to i32
+  %131 = load i16, ptr %excWord, align 2
+  %conv208 = zext i16 %131 to i32
   %and209 = and i32 %conv208, 256
   %cmp210 = icmp eq i32 %and209, 0
   br i1 %cmp210, label %if.then211, label %if.else220
 
 if.then211:                                       ; preds = %do.body207
-  %126 = load i16, ptr %excWord, align 2
-  %conv212 = zext i16 %126 to i32
+  %132 = load i16, ptr %excWord, align 2
+  %conv212 = zext i16 %132 to i32
   %and213 = and i32 %conv212, 127
   %idxprom214 = sext i32 %and213 to i64
   %arrayidx215 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom214
-  %127 = load i8, ptr %arrayidx215, align 1
-  %conv216 = zext i8 %127 to i32
-  %128 = load ptr, ptr %pe, align 8
+  %133 = load i8, ptr %arrayidx215, align 1
+  %conv216 = zext i8 %133 to i32
+  %134 = load ptr, ptr %pe, align 8
   %idx.ext217 = sext i32 %conv216 to i64
-  %add.ptr218 = getelementptr inbounds i16, ptr %128, i64 %idx.ext217
+  %add.ptr218 = getelementptr inbounds i16, ptr %134, i64 %idx.ext217
   store ptr %add.ptr218, ptr %pe, align 8
-  %129 = load ptr, ptr %pe, align 8
-  %130 = load i16, ptr %129, align 2
-  %conv219 = zext i16 %130 to i32
+  %135 = load ptr, ptr %pe, align 8
+  %136 = load i16, ptr %135, align 2
+  %conv219 = zext i16 %136 to i32
   store i32 %conv219, ptr %fullLength, align 4
   br label %if.end234
 
 if.else220:                                       ; preds = %do.body207
-  %131 = load i16, ptr %excWord, align 2
-  %conv221 = zext i16 %131 to i32
+  %137 = load i16, ptr %excWord, align 2
+  %conv221 = zext i16 %137 to i32
   %and222 = and i32 %conv221, 127
   %idxprom223 = sext i32 %and222 to i64
   %arrayidx224 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom223
-  %132 = load i8, ptr %arrayidx224, align 1
-  %conv225 = zext i8 %132 to i32
+  %138 = load i8, ptr %arrayidx224, align 1
+  %conv225 = zext i8 %138 to i32
   %mul226 = mul nsw i32 2, %conv225
-  %133 = load ptr, ptr %pe, align 8
+  %139 = load ptr, ptr %pe, align 8
   %idx.ext227 = sext i32 %mul226 to i64
-  %add.ptr228 = getelementptr inbounds i16, ptr %133, i64 %idx.ext227
+  %add.ptr228 = getelementptr inbounds i16, ptr %139, i64 %idx.ext227
   store ptr %add.ptr228, ptr %pe, align 8
-  %134 = load ptr, ptr %pe, align 8
-  %incdec.ptr229 = getelementptr inbounds i16, ptr %134, i32 1
+  %140 = load ptr, ptr %pe, align 8
+  %incdec.ptr229 = getelementptr inbounds i16, ptr %140, i32 1
   store ptr %incdec.ptr229, ptr %pe, align 8
-  %135 = load i16, ptr %134, align 2
-  %conv230 = zext i16 %135 to i32
+  %141 = load i16, ptr %140, align 2
+  %conv230 = zext i16 %141 to i32
   store i32 %conv230, ptr %fullLength, align 4
-  %136 = load i32, ptr %fullLength, align 4
-  %shl231 = shl i32 %136, 16
-  %137 = load ptr, ptr %pe, align 8
-  %138 = load i16, ptr %137, align 2
-  %conv232 = zext i16 %138 to i32
+  %142 = load i32, ptr %fullLength, align 4
+  %shl231 = shl i32 %142, 16
+  %143 = load ptr, ptr %pe, align 8
+  %144 = load i16, ptr %143, align 2
+  %conv232 = zext i16 %144 to i32
   %or233 = or i32 %shl231, %conv232
   store i32 %or233, ptr %fullLength, align 4
   br label %if.end234
@@ -1728,65 +1754,65 @@ if.end234:                                        ; preds = %if.else220, %if.the
   br label %do.end235
 
 do.end235:                                        ; preds = %if.end234
-  %139 = load ptr, ptr %pe, align 8
-  %incdec.ptr236 = getelementptr inbounds i16, ptr %139, i32 1
+  %145 = load ptr, ptr %pe, align 8
+  %incdec.ptr236 = getelementptr inbounds i16, ptr %145, i32 1
   store ptr %incdec.ptr236, ptr %pe, align 8
-  %140 = load i32, ptr %fullLength, align 4
-  %and237 = and i32 %140, 65535
+  %146 = load i32, ptr %fullLength, align 4
+  %and237 = and i32 %146, 65535
   store i32 %and237, ptr %fullLength, align 4
-  %141 = load i32, ptr %fullLength, align 4
-  %and238 = and i32 %141, 15
-  %142 = load ptr, ptr %pe, align 8
+  %147 = load i32, ptr %fullLength, align 4
+  %and238 = and i32 %147, 15
+  %148 = load ptr, ptr %pe, align 8
   %idx.ext239 = sext i32 %and238 to i64
-  %add.ptr240 = getelementptr inbounds i16, ptr %142, i64 %idx.ext239
+  %add.ptr240 = getelementptr inbounds i16, ptr %148, i64 %idx.ext239
   store ptr %add.ptr240, ptr %pe, align 8
-  %143 = load i32, ptr %fullLength, align 4
-  %shr241 = ashr i32 %143, 4
+  %149 = load i32, ptr %fullLength, align 4
+  %shr241 = ashr i32 %149, 4
   store i32 %shr241, ptr %fullLength, align 4
-  %144 = load i32, ptr %fullLength, align 4
-  %and242 = and i32 %144, 15
+  %150 = load i32, ptr %fullLength, align 4
+  %and242 = and i32 %150, 15
   store i32 %and242, ptr %length, align 4
-  %145 = load i32, ptr %length, align 4
-  %cmp243 = icmp ne i32 %145, 0
+  %151 = load i32, ptr %length, align 4
+  %cmp243 = icmp ne i32 %151, 0
   br i1 %cmp243, label %if.then244, label %if.end249
 
 if.then244:                                       ; preds = %do.end235
-  %146 = load ptr, ptr %sa.addr, align 8
-  %addString245 = getelementptr inbounds %struct.USetAdder, ptr %146, i32 0, i32 3
-  %147 = load ptr, ptr %addString245, align 8
-  %148 = load ptr, ptr %sa.addr, align 8
-  %set246 = getelementptr inbounds %struct.USetAdder, ptr %148, i32 0, i32 0
-  %149 = load ptr, ptr %set246, align 8
-  %150 = load ptr, ptr %pe, align 8
-  %151 = load i32, ptr %length, align 4
-  call void %147(ptr noundef %149, ptr noundef %150, i32 noundef %151)
-  %152 = load i32, ptr %length, align 4
-  %153 = load ptr, ptr %pe, align 8
-  %idx.ext247 = sext i32 %152 to i64
-  %add.ptr248 = getelementptr inbounds i16, ptr %153, i64 %idx.ext247
+  %152 = load ptr, ptr %sa.addr, align 8
+  %addString245 = getelementptr inbounds %struct.USetAdder, ptr %152, i32 0, i32 3
+  %153 = load ptr, ptr %addString245, align 8
+  %154 = load ptr, ptr %sa.addr, align 8
+  %set246 = getelementptr inbounds %struct.USetAdder, ptr %154, i32 0, i32 0
+  %155 = load ptr, ptr %set246, align 8
+  %156 = load ptr, ptr %pe, align 8
+  %157 = load i32, ptr %length, align 4
+  call void %153(ptr noundef %155, ptr noundef %156, i32 noundef %157)
+  %158 = load i32, ptr %length, align 4
+  %159 = load ptr, ptr %pe, align 8
+  %idx.ext247 = sext i32 %158 to i64
+  %add.ptr248 = getelementptr inbounds i16, ptr %159, i64 %idx.ext247
   store ptr %add.ptr248, ptr %pe, align 8
   br label %if.end249
 
 if.end249:                                        ; preds = %if.then244, %do.end235
-  %154 = load i32, ptr %fullLength, align 4
-  %shr250 = ashr i32 %154, 4
+  %160 = load i32, ptr %fullLength, align 4
+  %shr250 = ashr i32 %160, 4
   store i32 %shr250, ptr %fullLength, align 4
-  %155 = load i32, ptr %fullLength, align 4
-  %and251 = and i32 %155, 15
-  %156 = load ptr, ptr %pe, align 8
+  %161 = load i32, ptr %fullLength, align 4
+  %and251 = and i32 %161, 15
+  %162 = load ptr, ptr %pe, align 8
   %idx.ext252 = sext i32 %and251 to i64
-  %add.ptr253 = getelementptr inbounds i16, ptr %156, i64 %idx.ext252
+  %add.ptr253 = getelementptr inbounds i16, ptr %162, i64 %idx.ext252
   store ptr %add.ptr253, ptr %pe, align 8
-  %157 = load i32, ptr %fullLength, align 4
-  %shr254 = ashr i32 %157, 4
+  %163 = load i32, ptr %fullLength, align 4
+  %shr254 = ashr i32 %163, 4
   store i32 %shr254, ptr %fullLength, align 4
-  %158 = load i32, ptr %fullLength, align 4
-  %159 = load ptr, ptr %pe, align 8
-  %idx.ext255 = sext i32 %158 to i64
-  %add.ptr256 = getelementptr inbounds i16, ptr %159, i64 %idx.ext255
+  %164 = load i32, ptr %fullLength, align 4
+  %165 = load ptr, ptr %pe, align 8
+  %idx.ext255 = sext i32 %164 to i64
+  %add.ptr256 = getelementptr inbounds i16, ptr %165, i64 %idx.ext255
   store ptr %add.ptr256, ptr %pe, align 8
-  %160 = load ptr, ptr %pe, align 8
-  store ptr %160, ptr %closure, align 8
+  %166 = load ptr, ptr %pe, align 8
+  store ptr %166, ptr %closure, align 8
   br label %if.end257
 
 if.end257:                                        ; preds = %if.end249, %if.end202
@@ -1794,40 +1820,40 @@ if.end257:                                        ; preds = %if.end249, %if.end2
   br label %for.cond259
 
 for.cond259:                                      ; preds = %do.end279, %if.end257
-  %161 = load i32, ptr %idx258, align 4
-  %162 = load i32, ptr %closureLength, align 4
-  %cmp260 = icmp slt i32 %161, %162
+  %167 = load i32, ptr %idx258, align 4
+  %168 = load i32, ptr %closureLength, align 4
+  %cmp260 = icmp slt i32 %167, %168
   br i1 %cmp260, label %for.body261, label %for.end282
 
 for.body261:                                      ; preds = %for.cond259
   br label %do.body263
 
 do.body263:                                       ; preds = %for.body261
-  %163 = load ptr, ptr %closure, align 8
-  %164 = load i32, ptr %idx258, align 4
-  %inc264 = add nsw i32 %164, 1
+  %169 = load ptr, ptr %closure, align 8
+  %170 = load i32, ptr %idx258, align 4
+  %inc264 = add nsw i32 %170, 1
   store i32 %inc264, ptr %idx258, align 4
-  %idxprom265 = sext i32 %164 to i64
-  %arrayidx266 = getelementptr inbounds i16, ptr %163, i64 %idxprom265
-  %165 = load i16, ptr %arrayidx266, align 2
-  %conv267 = zext i16 %165 to i32
+  %idxprom265 = sext i32 %170 to i64
+  %arrayidx266 = getelementptr inbounds i16, ptr %169, i64 %idxprom265
+  %171 = load i16, ptr %arrayidx266, align 2
+  %conv267 = zext i16 %171 to i32
   store i32 %conv267, ptr %mapping262, align 4
-  %166 = load i32, ptr %mapping262, align 4
-  %and268 = and i32 %166, -1024
+  %172 = load i32, ptr %mapping262, align 4
+  %and268 = and i32 %172, -1024
   %cmp269 = icmp eq i32 %and268, 55296
   br i1 %cmp269, label %if.then270, label %if.end278
 
 if.then270:                                       ; preds = %do.body263
-  %167 = load i32, ptr %mapping262, align 4
-  %shl271 = shl i32 %167, 10
-  %168 = load ptr, ptr %closure, align 8
-  %169 = load i32, ptr %idx258, align 4
-  %inc272 = add nsw i32 %169, 1
+  %173 = load i32, ptr %mapping262, align 4
+  %shl271 = shl i32 %173, 10
+  %174 = load ptr, ptr %closure, align 8
+  %175 = load i32, ptr %idx258, align 4
+  %inc272 = add nsw i32 %175, 1
   store i32 %inc272, ptr %idx258, align 4
-  %idxprom273 = sext i32 %169 to i64
-  %arrayidx274 = getelementptr inbounds i16, ptr %168, i64 %idxprom273
-  %170 = load i16, ptr %arrayidx274, align 2
-  %conv275 = zext i16 %170 to i32
+  %idxprom273 = sext i32 %175 to i64
+  %arrayidx274 = getelementptr inbounds i16, ptr %174, i64 %idxprom273
+  %176 = load i16, ptr %arrayidx274, align 2
+  %conv275 = zext i16 %176 to i32
   %add276 = add nsw i32 %shl271, %conv275
   %sub277 = sub nsw i32 %add276, 56613888
   store i32 %sub277, ptr %mapping262, align 4
@@ -1837,14 +1863,14 @@ if.end278:                                        ; preds = %if.then270, %do.bod
   br label %do.end279
 
 do.end279:                                        ; preds = %if.end278
-  %171 = load ptr, ptr %sa.addr, align 8
-  %add280 = getelementptr inbounds %struct.USetAdder, ptr %171, i32 0, i32 1
-  %172 = load ptr, ptr %add280, align 8
-  %173 = load ptr, ptr %sa.addr, align 8
-  %set281 = getelementptr inbounds %struct.USetAdder, ptr %173, i32 0, i32 0
-  %174 = load ptr, ptr %set281, align 8
-  %175 = load i32, ptr %mapping262, align 4
-  call void %172(ptr noundef %174, i32 noundef %175)
+  %177 = load ptr, ptr %sa.addr, align 8
+  %add280 = getelementptr inbounds %struct.USetAdder, ptr %177, i32 0, i32 1
+  %178 = load ptr, ptr %add280, align 8
+  %179 = load ptr, ptr %sa.addr, align 8
+  %set281 = getelementptr inbounds %struct.USetAdder, ptr %179, i32 0, i32 0
+  %180 = load ptr, ptr %set281, align 8
+  %181 = load i32, ptr %mapping262, align 4
+  call void %178(ptr noundef %180, i32 noundef %181)
   br label %for.cond259, !llvm.loop !6
 
 for.end282:                                       ; preds = %for.cond259
@@ -1875,86 +1901,91 @@ entry:
   %mapping258 = alloca i32, align 4
   store i32 %c, ptr %c.addr, align 4
   store ptr %sa, ptr %sa.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 919552
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 919552
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -1973,42 +2004,42 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %and44 = and i32 %conv43, 8
   %tobool = icmp ne i32 %and44, 0
   br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end39
-  %23 = load i16, ptr %props, align 2
-  %conv45 = zext i16 %23 to i32
+  %28 = load i16, ptr %props, align 2
+  %conv45 = zext i16 %28 to i32
   %and46 = and i32 %conv45, 3
   %cmp47 = icmp ne i32 %and46, 0
   br i1 %cmp47, label %if.then48, label %if.end55
 
 if.then48:                                        ; preds = %if.then
-  %24 = load i16, ptr %props, align 2
-  %conv49 = sext i16 %24 to i32
+  %29 = load i16, ptr %props, align 2
+  %conv49 = sext i16 %29 to i32
   %shr50 = ashr i32 %conv49, 7
   store i32 %shr50, ptr %delta, align 4
-  %25 = load i32, ptr %delta, align 4
-  %cmp51 = icmp ne i32 %25, 0
+  %30 = load i32, ptr %delta, align 4
+  %cmp51 = icmp ne i32 %30, 0
   br i1 %cmp51, label %if.then52, label %if.end
 
 if.then52:                                        ; preds = %if.then48
-  %26 = load ptr, ptr %sa.addr, align 8
-  %add53 = getelementptr inbounds %struct.USetAdder, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %add53, align 8
-  %28 = load ptr, ptr %sa.addr, align 8
-  %set = getelementptr inbounds %struct.USetAdder, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %set, align 8
-  %30 = load i32, ptr %c.addr, align 4
-  %31 = load i32, ptr %delta, align 4
-  %add54 = add nsw i32 %30, %31
-  call void %27(ptr noundef %29, i32 noundef %add54)
+  %31 = load ptr, ptr %sa.addr, align 8
+  %add53 = getelementptr inbounds %struct.USetAdder, ptr %31, i32 0, i32 1
+  %32 = load ptr, ptr %add53, align 8
+  %33 = load ptr, ptr %sa.addr, align 8
+  %set = getelementptr inbounds %struct.USetAdder, ptr %33, i32 0, i32 0
+  %34 = load ptr, ptr %set, align 8
+  %35 = load i32, ptr %c.addr, align 4
+  %36 = load i32, ptr %delta, align 4
+  %add54 = add nsw i32 %35, %36
+  call void %32(ptr noundef %34, i32 noundef %add54)
   br label %if.end
 
 if.end:                                           ; preds = %if.then52, %if.then48
@@ -2018,44 +2049,45 @@ if.end55:                                         ; preds = %if.end, %if.then
   br label %if.end279
 
 if.else:                                          ; preds = %cond.end39
-  %32 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2), align 8
-  %33 = load i16, ptr %props, align 2
-  %conv56 = zext i16 %33 to i32
+  %37 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i16, ptr %props, align 2
+  %conv56 = zext i16 %39 to i32
   %shr57 = ashr i32 %conv56, 4
   %idx.ext = sext i32 %shr57 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %32, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %38, i64 %idx.ext
   store ptr %add.ptr, ptr %pe, align 8
-  %34 = load ptr, ptr %pe, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %34, i32 1
+  %40 = load ptr, ptr %pe, align 8
+  %incdec.ptr = getelementptr inbounds i16, ptr %40, i32 1
   store ptr %incdec.ptr, ptr %pe, align 8
-  %35 = load i16, ptr %34, align 2
-  store i16 %35, ptr %excWord, align 2
-  %36 = load ptr, ptr %pe, align 8
-  store ptr %36, ptr %pe0, align 8
-  %37 = load i16, ptr %excWord, align 2
-  %conv58 = zext i16 %37 to i32
+  %41 = load i16, ptr %40, align 2
+  store i16 %41, ptr %excWord, align 2
+  %42 = load ptr, ptr %pe, align 8
+  store ptr %42, ptr %pe0, align 8
+  %43 = load i16, ptr %excWord, align 2
+  %conv58 = zext i16 %43 to i32
   %and59 = and i32 %conv58, 32768
   %tobool60 = icmp ne i32 %and59, 0
   br i1 %tobool60, label %if.then61, label %if.else71
 
 if.then61:                                        ; preds = %if.else
-  %38 = load i32, ptr %c.addr, align 4
-  %cmp62 = icmp eq i32 %38, 73
+  %44 = load i32, ptr %c.addr, align 4
+  %cmp62 = icmp eq i32 %44, 73
   br i1 %cmp62, label %if.then63, label %if.else66
 
 if.then63:                                        ; preds = %if.then61
-  %39 = load ptr, ptr %sa.addr, align 8
-  %add64 = getelementptr inbounds %struct.USetAdder, ptr %39, i32 0, i32 1
-  %40 = load ptr, ptr %add64, align 8
-  %41 = load ptr, ptr %sa.addr, align 8
-  %set65 = getelementptr inbounds %struct.USetAdder, ptr %41, i32 0, i32 0
-  %42 = load ptr, ptr %set65, align 8
-  call void %40(ptr noundef %42, i32 noundef 105)
+  %45 = load ptr, ptr %sa.addr, align 8
+  %add64 = getelementptr inbounds %struct.USetAdder, ptr %45, i32 0, i32 1
+  %46 = load ptr, ptr %add64, align 8
+  %47 = load ptr, ptr %sa.addr, align 8
+  %set65 = getelementptr inbounds %struct.USetAdder, ptr %47, i32 0, i32 0
+  %48 = load ptr, ptr %set65, align 8
+  call void %46(ptr noundef %48, i32 noundef 105)
   br label %if.end279
 
 if.else66:                                        ; preds = %if.then61
-  %43 = load i32, ptr %c.addr, align 4
-  %cmp67 = icmp eq i32 %43, 304
+  %49 = load i32, ptr %c.addr, align 4
+  %cmp67 = icmp eq i32 %49, 304
   br i1 %cmp67, label %if.then68, label %if.end69
 
 if.then68:                                        ; preds = %if.else66
@@ -2068,23 +2100,23 @@ if.end70:                                         ; preds = %if.end69
   br label %if.end81
 
 if.else71:                                        ; preds = %if.else
-  %44 = load i32, ptr %c.addr, align 4
-  %cmp72 = icmp eq i32 %44, 105
+  %50 = load i32, ptr %c.addr, align 4
+  %cmp72 = icmp eq i32 %50, 105
   br i1 %cmp72, label %if.then73, label %if.else76
 
 if.then73:                                        ; preds = %if.else71
-  %45 = load ptr, ptr %sa.addr, align 8
-  %add74 = getelementptr inbounds %struct.USetAdder, ptr %45, i32 0, i32 1
-  %46 = load ptr, ptr %add74, align 8
-  %47 = load ptr, ptr %sa.addr, align 8
-  %set75 = getelementptr inbounds %struct.USetAdder, ptr %47, i32 0, i32 0
-  %48 = load ptr, ptr %set75, align 8
-  call void %46(ptr noundef %48, i32 noundef 73)
+  %51 = load ptr, ptr %sa.addr, align 8
+  %add74 = getelementptr inbounds %struct.USetAdder, ptr %51, i32 0, i32 1
+  %52 = load ptr, ptr %add74, align 8
+  %53 = load ptr, ptr %sa.addr, align 8
+  %set75 = getelementptr inbounds %struct.USetAdder, ptr %53, i32 0, i32 0
+  %54 = load ptr, ptr %set75, align 8
+  call void %52(ptr noundef %54, i32 noundef 73)
   br label %if.end279
 
 if.else76:                                        ; preds = %if.else71
-  %49 = load i32, ptr %c.addr, align 4
-  %cmp77 = icmp eq i32 %49, 305
+  %55 = load i32, ptr %c.addr, align 4
+  %cmp77 = icmp eq i32 %55, 305
   br i1 %cmp77, label %if.then78, label %if.end79
 
 if.then78:                                        ; preds = %if.else76
@@ -2101,79 +2133,79 @@ if.end81:                                         ; preds = %if.end80, %if.end70
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end81
-  %50 = load i32, ptr %idx, align 4
-  %cmp82 = icmp sle i32 %50, 3
+  %56 = load i32, ptr %idx, align 4
+  %cmp82 = icmp sle i32 %56, 3
   br i1 %cmp82, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %51 = load i16, ptr %excWord, align 2
-  %conv83 = zext i16 %51 to i32
-  %52 = load i32, ptr %idx, align 4
-  %shl84 = shl i32 1, %52
+  %57 = load i16, ptr %excWord, align 2
+  %conv83 = zext i16 %57 to i32
+  %58 = load i32, ptr %idx, align 4
+  %shl84 = shl i32 1, %58
   %and85 = and i32 %conv83, %shl84
   %tobool86 = icmp ne i32 %and85, 0
   br i1 %tobool86, label %if.then87, label %if.end118
 
 if.then87:                                        ; preds = %for.body
-  %53 = load ptr, ptr %pe0, align 8
-  store ptr %53, ptr %pe, align 8
+  %59 = load ptr, ptr %pe0, align 8
+  store ptr %59, ptr %pe, align 8
   br label %do.body
 
 do.body:                                          ; preds = %if.then87
-  %54 = load i16, ptr %excWord, align 2
-  %conv88 = zext i16 %54 to i32
+  %60 = load i16, ptr %excWord, align 2
+  %conv88 = zext i16 %60 to i32
   %and89 = and i32 %conv88, 256
   %cmp90 = icmp eq i32 %and89, 0
   br i1 %cmp90, label %if.then91, label %if.else101
 
 if.then91:                                        ; preds = %do.body
-  %55 = load i16, ptr %excWord, align 2
-  %conv92 = zext i16 %55 to i32
-  %56 = load i32, ptr %idx, align 4
-  %shl93 = shl i32 1, %56
+  %61 = load i16, ptr %excWord, align 2
+  %conv92 = zext i16 %61 to i32
+  %62 = load i32, ptr %idx, align 4
+  %shl93 = shl i32 1, %62
   %sub = sub nsw i32 %shl93, 1
   %and94 = and i32 %conv92, %sub
   %idxprom95 = sext i32 %and94 to i64
   %arrayidx96 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom95
-  %57 = load i8, ptr %arrayidx96, align 1
-  %conv97 = zext i8 %57 to i32
-  %58 = load ptr, ptr %pe, align 8
+  %63 = load i8, ptr %arrayidx96, align 1
+  %conv97 = zext i8 %63 to i32
+  %64 = load ptr, ptr %pe, align 8
   %idx.ext98 = sext i32 %conv97 to i64
-  %add.ptr99 = getelementptr inbounds i16, ptr %58, i64 %idx.ext98
+  %add.ptr99 = getelementptr inbounds i16, ptr %64, i64 %idx.ext98
   store ptr %add.ptr99, ptr %pe, align 8
-  %59 = load ptr, ptr %pe, align 8
-  %60 = load i16, ptr %59, align 2
-  %conv100 = zext i16 %60 to i32
+  %65 = load ptr, ptr %pe, align 8
+  %66 = load i16, ptr %65, align 2
+  %conv100 = zext i16 %66 to i32
   store i32 %conv100, ptr %mapping, align 4
   br label %if.end115
 
 if.else101:                                       ; preds = %do.body
-  %61 = load i16, ptr %excWord, align 2
-  %conv102 = zext i16 %61 to i32
-  %62 = load i32, ptr %idx, align 4
-  %shl103 = shl i32 1, %62
+  %67 = load i16, ptr %excWord, align 2
+  %conv102 = zext i16 %67 to i32
+  %68 = load i32, ptr %idx, align 4
+  %shl103 = shl i32 1, %68
   %sub104 = sub nsw i32 %shl103, 1
   %and105 = and i32 %conv102, %sub104
   %idxprom106 = sext i32 %and105 to i64
   %arrayidx107 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom106
-  %63 = load i8, ptr %arrayidx107, align 1
-  %conv108 = zext i8 %63 to i32
+  %69 = load i8, ptr %arrayidx107, align 1
+  %conv108 = zext i8 %69 to i32
   %mul = mul nsw i32 2, %conv108
-  %64 = load ptr, ptr %pe, align 8
+  %70 = load ptr, ptr %pe, align 8
   %idx.ext109 = sext i32 %mul to i64
-  %add.ptr110 = getelementptr inbounds i16, ptr %64, i64 %idx.ext109
+  %add.ptr110 = getelementptr inbounds i16, ptr %70, i64 %idx.ext109
   store ptr %add.ptr110, ptr %pe, align 8
-  %65 = load ptr, ptr %pe, align 8
-  %incdec.ptr111 = getelementptr inbounds i16, ptr %65, i32 1
+  %71 = load ptr, ptr %pe, align 8
+  %incdec.ptr111 = getelementptr inbounds i16, ptr %71, i32 1
   store ptr %incdec.ptr111, ptr %pe, align 8
-  %66 = load i16, ptr %65, align 2
-  %conv112 = zext i16 %66 to i32
+  %72 = load i16, ptr %71, align 2
+  %conv112 = zext i16 %72 to i32
   store i32 %conv112, ptr %mapping, align 4
-  %67 = load i32, ptr %mapping, align 4
-  %shl113 = shl i32 %67, 16
-  %68 = load ptr, ptr %pe, align 8
-  %69 = load i16, ptr %68, align 2
-  %conv114 = zext i16 %69 to i32
+  %73 = load i32, ptr %mapping, align 4
+  %shl113 = shl i32 %73, 16
+  %74 = load ptr, ptr %pe, align 8
+  %75 = load i16, ptr %74, align 2
+  %conv114 = zext i16 %75 to i32
   %or = or i32 %shl113, %conv114
   store i32 %or, ptr %mapping, align 4
   br label %if.end115
@@ -2182,86 +2214,86 @@ if.end115:                                        ; preds = %if.else101, %if.the
   br label %do.end
 
 do.end:                                           ; preds = %if.end115
-  %70 = load ptr, ptr %sa.addr, align 8
-  %add116 = getelementptr inbounds %struct.USetAdder, ptr %70, i32 0, i32 1
-  %71 = load ptr, ptr %add116, align 8
-  %72 = load ptr, ptr %sa.addr, align 8
-  %set117 = getelementptr inbounds %struct.USetAdder, ptr %72, i32 0, i32 0
-  %73 = load ptr, ptr %set117, align 8
-  %74 = load i32, ptr %mapping, align 4
-  call void %71(ptr noundef %73, i32 noundef %74)
+  %76 = load ptr, ptr %sa.addr, align 8
+  %add116 = getelementptr inbounds %struct.USetAdder, ptr %76, i32 0, i32 1
+  %77 = load ptr, ptr %add116, align 8
+  %78 = load ptr, ptr %sa.addr, align 8
+  %set117 = getelementptr inbounds %struct.USetAdder, ptr %78, i32 0, i32 0
+  %79 = load ptr, ptr %set117, align 8
+  %80 = load i32, ptr %mapping, align 4
+  call void %77(ptr noundef %79, i32 noundef %80)
   br label %if.end118
 
 if.end118:                                        ; preds = %do.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end118
-  %75 = load i32, ptr %idx, align 4
-  %inc = add nsw i32 %75, 1
+  %81 = load i32, ptr %idx, align 4
+  %inc = add nsw i32 %81, 1
   store i32 %inc, ptr %idx, align 4
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %for.cond
-  %76 = load i16, ptr %excWord, align 2
-  %conv119 = zext i16 %76 to i32
+  %82 = load i16, ptr %excWord, align 2
+  %conv119 = zext i16 %82 to i32
   %and120 = and i32 %conv119, 16
   %tobool121 = icmp ne i32 %and120, 0
   br i1 %tobool121, label %if.then122, label %if.end165
 
 if.then122:                                       ; preds = %for.end
-  %77 = load ptr, ptr %pe0, align 8
-  store ptr %77, ptr %pe, align 8
+  %83 = load ptr, ptr %pe0, align 8
+  store ptr %83, ptr %pe, align 8
   br label %do.body124
 
 do.body124:                                       ; preds = %if.then122
-  %78 = load i16, ptr %excWord, align 2
-  %conv125 = zext i16 %78 to i32
+  %84 = load i16, ptr %excWord, align 2
+  %conv125 = zext i16 %84 to i32
   %and126 = and i32 %conv125, 256
   %cmp127 = icmp eq i32 %and126, 0
   br i1 %cmp127, label %if.then128, label %if.else137
 
 if.then128:                                       ; preds = %do.body124
-  %79 = load i16, ptr %excWord, align 2
-  %conv129 = zext i16 %79 to i32
+  %85 = load i16, ptr %excWord, align 2
+  %conv129 = zext i16 %85 to i32
   %and130 = and i32 %conv129, 15
   %idxprom131 = sext i32 %and130 to i64
   %arrayidx132 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom131
-  %80 = load i8, ptr %arrayidx132, align 1
-  %conv133 = zext i8 %80 to i32
-  %81 = load ptr, ptr %pe, align 8
+  %86 = load i8, ptr %arrayidx132, align 1
+  %conv133 = zext i8 %86 to i32
+  %87 = load ptr, ptr %pe, align 8
   %idx.ext134 = sext i32 %conv133 to i64
-  %add.ptr135 = getelementptr inbounds i16, ptr %81, i64 %idx.ext134
+  %add.ptr135 = getelementptr inbounds i16, ptr %87, i64 %idx.ext134
   store ptr %add.ptr135, ptr %pe, align 8
-  %82 = load ptr, ptr %pe, align 8
-  %83 = load i16, ptr %82, align 2
-  %conv136 = zext i16 %83 to i32
+  %88 = load ptr, ptr %pe, align 8
+  %89 = load i16, ptr %88, align 2
+  %conv136 = zext i16 %89 to i32
   store i32 %conv136, ptr %delta123, align 4
   br label %if.end151
 
 if.else137:                                       ; preds = %do.body124
-  %84 = load i16, ptr %excWord, align 2
-  %conv138 = zext i16 %84 to i32
+  %90 = load i16, ptr %excWord, align 2
+  %conv138 = zext i16 %90 to i32
   %and139 = and i32 %conv138, 15
   %idxprom140 = sext i32 %and139 to i64
   %arrayidx141 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom140
-  %85 = load i8, ptr %arrayidx141, align 1
-  %conv142 = zext i8 %85 to i32
+  %91 = load i8, ptr %arrayidx141, align 1
+  %conv142 = zext i8 %91 to i32
   %mul143 = mul nsw i32 2, %conv142
-  %86 = load ptr, ptr %pe, align 8
+  %92 = load ptr, ptr %pe, align 8
   %idx.ext144 = sext i32 %mul143 to i64
-  %add.ptr145 = getelementptr inbounds i16, ptr %86, i64 %idx.ext144
+  %add.ptr145 = getelementptr inbounds i16, ptr %92, i64 %idx.ext144
   store ptr %add.ptr145, ptr %pe, align 8
-  %87 = load ptr, ptr %pe, align 8
-  %incdec.ptr146 = getelementptr inbounds i16, ptr %87, i32 1
+  %93 = load ptr, ptr %pe, align 8
+  %incdec.ptr146 = getelementptr inbounds i16, ptr %93, i32 1
   store ptr %incdec.ptr146, ptr %pe, align 8
-  %88 = load i16, ptr %87, align 2
-  %conv147 = zext i16 %88 to i32
+  %94 = load i16, ptr %93, align 2
+  %conv147 = zext i16 %94 to i32
   store i32 %conv147, ptr %delta123, align 4
-  %89 = load i32, ptr %delta123, align 4
-  %shl148 = shl i32 %89, 16
-  %90 = load ptr, ptr %pe, align 8
-  %91 = load i16, ptr %90, align 2
-  %conv149 = zext i16 %91 to i32
+  %95 = load i32, ptr %delta123, align 4
+  %shl148 = shl i32 %95, 16
+  %96 = load ptr, ptr %pe, align 8
+  %97 = load i16, ptr %96, align 2
+  %conv149 = zext i16 %97 to i32
   %or150 = or i32 %shl148, %conv149
   store i32 %or150, ptr %delta123, align 4
   br label %if.end151
@@ -2270,98 +2302,98 @@ if.end151:                                        ; preds = %if.else137, %if.the
   br label %do.end152
 
 do.end152:                                        ; preds = %if.end151
-  %92 = load i16, ptr %excWord, align 2
-  %conv154 = zext i16 %92 to i32
+  %98 = load i16, ptr %excWord, align 2
+  %conv154 = zext i16 %98 to i32
   %and155 = and i32 %conv154, 1024
   %cmp156 = icmp eq i32 %and155, 0
   br i1 %cmp156, label %cond.true157, label %cond.false159
 
 cond.true157:                                     ; preds = %do.end152
-  %93 = load i32, ptr %c.addr, align 4
-  %94 = load i32, ptr %delta123, align 4
-  %add158 = add nsw i32 %93, %94
+  %99 = load i32, ptr %c.addr, align 4
+  %100 = load i32, ptr %delta123, align 4
+  %add158 = add nsw i32 %99, %100
   br label %cond.end161
 
 cond.false159:                                    ; preds = %do.end152
-  %95 = load i32, ptr %c.addr, align 4
-  %96 = load i32, ptr %delta123, align 4
-  %sub160 = sub nsw i32 %95, %96
+  %101 = load i32, ptr %c.addr, align 4
+  %102 = load i32, ptr %delta123, align 4
+  %sub160 = sub nsw i32 %101, %102
   br label %cond.end161
 
 cond.end161:                                      ; preds = %cond.false159, %cond.true157
   %cond162 = phi i32 [ %add158, %cond.true157 ], [ %sub160, %cond.false159 ]
   store i32 %cond162, ptr %mapping153, align 4
-  %97 = load ptr, ptr %sa.addr, align 8
-  %add163 = getelementptr inbounds %struct.USetAdder, ptr %97, i32 0, i32 1
-  %98 = load ptr, ptr %add163, align 8
-  %99 = load ptr, ptr %sa.addr, align 8
-  %set164 = getelementptr inbounds %struct.USetAdder, ptr %99, i32 0, i32 0
-  %100 = load ptr, ptr %set164, align 8
-  %101 = load i32, ptr %mapping153, align 4
-  call void %98(ptr noundef %100, i32 noundef %101)
+  %103 = load ptr, ptr %sa.addr, align 8
+  %add163 = getelementptr inbounds %struct.USetAdder, ptr %103, i32 0, i32 1
+  %104 = load ptr, ptr %add163, align 8
+  %105 = load ptr, ptr %sa.addr, align 8
+  %set164 = getelementptr inbounds %struct.USetAdder, ptr %105, i32 0, i32 0
+  %106 = load ptr, ptr %set164, align 8
+  %107 = load i32, ptr %mapping153, align 4
+  call void %104(ptr noundef %106, i32 noundef %107)
   br label %if.end165
 
 if.end165:                                        ; preds = %cond.end161, %for.end
-  %102 = load i16, ptr %excWord, align 2
-  %conv166 = zext i16 %102 to i32
+  %108 = load i16, ptr %excWord, align 2
+  %conv166 = zext i16 %108 to i32
   %and167 = and i32 %conv166, 64
   %tobool168 = icmp ne i32 %and167, 0
   br i1 %tobool168, label %if.then169, label %if.else201
 
 if.then169:                                       ; preds = %if.end165
-  %103 = load ptr, ptr %pe0, align 8
-  store ptr %103, ptr %pe, align 8
+  %109 = load ptr, ptr %pe0, align 8
+  store ptr %109, ptr %pe, align 8
   br label %do.body170
 
 do.body170:                                       ; preds = %if.then169
-  %104 = load i16, ptr %excWord, align 2
-  %conv171 = zext i16 %104 to i32
+  %110 = load i16, ptr %excWord, align 2
+  %conv171 = zext i16 %110 to i32
   %and172 = and i32 %conv171, 256
   %cmp173 = icmp eq i32 %and172, 0
   br i1 %cmp173, label %if.then174, label %if.else183
 
 if.then174:                                       ; preds = %do.body170
-  %105 = load i16, ptr %excWord, align 2
-  %conv175 = zext i16 %105 to i32
+  %111 = load i16, ptr %excWord, align 2
+  %conv175 = zext i16 %111 to i32
   %and176 = and i32 %conv175, 63
   %idxprom177 = sext i32 %and176 to i64
   %arrayidx178 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom177
-  %106 = load i8, ptr %arrayidx178, align 1
-  %conv179 = zext i8 %106 to i32
-  %107 = load ptr, ptr %pe, align 8
+  %112 = load i8, ptr %arrayidx178, align 1
+  %conv179 = zext i8 %112 to i32
+  %113 = load ptr, ptr %pe, align 8
   %idx.ext180 = sext i32 %conv179 to i64
-  %add.ptr181 = getelementptr inbounds i16, ptr %107, i64 %idx.ext180
+  %add.ptr181 = getelementptr inbounds i16, ptr %113, i64 %idx.ext180
   store ptr %add.ptr181, ptr %pe, align 8
-  %108 = load ptr, ptr %pe, align 8
-  %109 = load i16, ptr %108, align 2
-  %conv182 = zext i16 %109 to i32
+  %114 = load ptr, ptr %pe, align 8
+  %115 = load i16, ptr %114, align 2
+  %conv182 = zext i16 %115 to i32
   store i32 %conv182, ptr %closureLength, align 4
   br label %if.end197
 
 if.else183:                                       ; preds = %do.body170
-  %110 = load i16, ptr %excWord, align 2
-  %conv184 = zext i16 %110 to i32
+  %116 = load i16, ptr %excWord, align 2
+  %conv184 = zext i16 %116 to i32
   %and185 = and i32 %conv184, 63
   %idxprom186 = sext i32 %and185 to i64
   %arrayidx187 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom186
-  %111 = load i8, ptr %arrayidx187, align 1
-  %conv188 = zext i8 %111 to i32
+  %117 = load i8, ptr %arrayidx187, align 1
+  %conv188 = zext i8 %117 to i32
   %mul189 = mul nsw i32 2, %conv188
-  %112 = load ptr, ptr %pe, align 8
+  %118 = load ptr, ptr %pe, align 8
   %idx.ext190 = sext i32 %mul189 to i64
-  %add.ptr191 = getelementptr inbounds i16, ptr %112, i64 %idx.ext190
+  %add.ptr191 = getelementptr inbounds i16, ptr %118, i64 %idx.ext190
   store ptr %add.ptr191, ptr %pe, align 8
-  %113 = load ptr, ptr %pe, align 8
-  %incdec.ptr192 = getelementptr inbounds i16, ptr %113, i32 1
+  %119 = load ptr, ptr %pe, align 8
+  %incdec.ptr192 = getelementptr inbounds i16, ptr %119, i32 1
   store ptr %incdec.ptr192, ptr %pe, align 8
-  %114 = load i16, ptr %113, align 2
-  %conv193 = zext i16 %114 to i32
+  %120 = load i16, ptr %119, align 2
+  %conv193 = zext i16 %120 to i32
   store i32 %conv193, ptr %closureLength, align 4
-  %115 = load i32, ptr %closureLength, align 4
-  %shl194 = shl i32 %115, 16
-  %116 = load ptr, ptr %pe, align 8
-  %117 = load i16, ptr %116, align 2
-  %conv195 = zext i16 %117 to i32
+  %121 = load i32, ptr %closureLength, align 4
+  %shl194 = shl i32 %121, 16
+  %122 = load ptr, ptr %pe, align 8
+  %123 = load i16, ptr %122, align 2
+  %conv195 = zext i16 %123 to i32
   %or196 = or i32 %shl194, %conv195
   store i32 %or196, ptr %closureLength, align 4
   br label %if.end197
@@ -2370,11 +2402,11 @@ if.end197:                                        ; preds = %if.else183, %if.the
   br label %do.end198
 
 do.end198:                                        ; preds = %if.end197
-  %118 = load i32, ptr %closureLength, align 4
-  %and199 = and i32 %118, 15
+  %124 = load i32, ptr %closureLength, align 4
+  %and199 = and i32 %124, 15
   store i32 %and199, ptr %closureLength, align 4
-  %119 = load ptr, ptr %pe, align 8
-  %add.ptr200 = getelementptr inbounds i16, ptr %119, i64 1
+  %125 = load ptr, ptr %pe, align 8
+  %add.ptr200 = getelementptr inbounds i16, ptr %125, i64 1
   store ptr %add.ptr200, ptr %closure, align 8
   br label %if.end202
 
@@ -2384,71 +2416,71 @@ if.else201:                                       ; preds = %if.end165
   br label %if.end202
 
 if.end202:                                        ; preds = %if.else201, %do.end198
-  %120 = load i32, ptr %closureLength, align 4
-  %cmp203 = icmp sgt i32 %120, 0
+  %126 = load i32, ptr %closureLength, align 4
+  %cmp203 = icmp sgt i32 %126, 0
   br i1 %cmp203, label %land.lhs.true, label %if.end253
 
 land.lhs.true:                                    ; preds = %if.end202
-  %121 = load i16, ptr %excWord, align 2
-  %conv204 = zext i16 %121 to i32
+  %127 = load i16, ptr %excWord, align 2
+  %conv204 = zext i16 %127 to i32
   %and205 = and i32 %conv204, 128
   %tobool206 = icmp ne i32 %and205, 0
   br i1 %tobool206, label %if.then207, label %if.end253
 
 if.then207:                                       ; preds = %land.lhs.true
-  %122 = load ptr, ptr %pe0, align 8
-  store ptr %122, ptr %pe, align 8
+  %128 = load ptr, ptr %pe0, align 8
+  store ptr %128, ptr %pe, align 8
   br label %do.body208
 
 do.body208:                                       ; preds = %if.then207
-  %123 = load i16, ptr %excWord, align 2
-  %conv209 = zext i16 %123 to i32
+  %129 = load i16, ptr %excWord, align 2
+  %conv209 = zext i16 %129 to i32
   %and210 = and i32 %conv209, 256
   %cmp211 = icmp eq i32 %and210, 0
   br i1 %cmp211, label %if.then212, label %if.else221
 
 if.then212:                                       ; preds = %do.body208
-  %124 = load i16, ptr %excWord, align 2
-  %conv213 = zext i16 %124 to i32
+  %130 = load i16, ptr %excWord, align 2
+  %conv213 = zext i16 %130 to i32
   %and214 = and i32 %conv213, 127
   %idxprom215 = sext i32 %and214 to i64
   %arrayidx216 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom215
-  %125 = load i8, ptr %arrayidx216, align 1
-  %conv217 = zext i8 %125 to i32
-  %126 = load ptr, ptr %pe, align 8
+  %131 = load i8, ptr %arrayidx216, align 1
+  %conv217 = zext i8 %131 to i32
+  %132 = load ptr, ptr %pe, align 8
   %idx.ext218 = sext i32 %conv217 to i64
-  %add.ptr219 = getelementptr inbounds i16, ptr %126, i64 %idx.ext218
+  %add.ptr219 = getelementptr inbounds i16, ptr %132, i64 %idx.ext218
   store ptr %add.ptr219, ptr %pe, align 8
-  %127 = load ptr, ptr %pe, align 8
-  %128 = load i16, ptr %127, align 2
-  %conv220 = zext i16 %128 to i32
+  %133 = load ptr, ptr %pe, align 8
+  %134 = load i16, ptr %133, align 2
+  %conv220 = zext i16 %134 to i32
   store i32 %conv220, ptr %fullLength, align 4
   br label %if.end235
 
 if.else221:                                       ; preds = %do.body208
-  %129 = load i16, ptr %excWord, align 2
-  %conv222 = zext i16 %129 to i32
+  %135 = load i16, ptr %excWord, align 2
+  %conv222 = zext i16 %135 to i32
   %and223 = and i32 %conv222, 127
   %idxprom224 = sext i32 %and223 to i64
   %arrayidx225 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom224
-  %130 = load i8, ptr %arrayidx225, align 1
-  %conv226 = zext i8 %130 to i32
+  %136 = load i8, ptr %arrayidx225, align 1
+  %conv226 = zext i8 %136 to i32
   %mul227 = mul nsw i32 2, %conv226
-  %131 = load ptr, ptr %pe, align 8
+  %137 = load ptr, ptr %pe, align 8
   %idx.ext228 = sext i32 %mul227 to i64
-  %add.ptr229 = getelementptr inbounds i16, ptr %131, i64 %idx.ext228
+  %add.ptr229 = getelementptr inbounds i16, ptr %137, i64 %idx.ext228
   store ptr %add.ptr229, ptr %pe, align 8
-  %132 = load ptr, ptr %pe, align 8
-  %incdec.ptr230 = getelementptr inbounds i16, ptr %132, i32 1
+  %138 = load ptr, ptr %pe, align 8
+  %incdec.ptr230 = getelementptr inbounds i16, ptr %138, i32 1
   store ptr %incdec.ptr230, ptr %pe, align 8
-  %133 = load i16, ptr %132, align 2
-  %conv231 = zext i16 %133 to i32
+  %139 = load i16, ptr %138, align 2
+  %conv231 = zext i16 %139 to i32
   store i32 %conv231, ptr %fullLength, align 4
-  %134 = load i32, ptr %fullLength, align 4
-  %shl232 = shl i32 %134, 16
-  %135 = load ptr, ptr %pe, align 8
-  %136 = load i16, ptr %135, align 2
-  %conv233 = zext i16 %136 to i32
+  %140 = load i32, ptr %fullLength, align 4
+  %shl232 = shl i32 %140, 16
+  %141 = load ptr, ptr %pe, align 8
+  %142 = load i16, ptr %141, align 2
+  %conv233 = zext i16 %142 to i32
   %or234 = or i32 %shl232, %conv233
   store i32 %or234, ptr %fullLength, align 4
   br label %if.end235
@@ -2457,46 +2489,46 @@ if.end235:                                        ; preds = %if.else221, %if.the
   br label %do.end236
 
 do.end236:                                        ; preds = %if.end235
-  %137 = load ptr, ptr %pe, align 8
-  %incdec.ptr237 = getelementptr inbounds i16, ptr %137, i32 1
-  store ptr %incdec.ptr237, ptr %pe, align 8
-  %138 = load i32, ptr %fullLength, align 4
-  %and238 = and i32 %138, 65535
-  store i32 %and238, ptr %fullLength, align 4
-  %139 = load i32, ptr %fullLength, align 4
-  %and239 = and i32 %139, 15
-  %140 = load ptr, ptr %pe, align 8
-  %idx.ext240 = sext i32 %and239 to i64
-  %add.ptr241 = getelementptr inbounds i16, ptr %140, i64 %idx.ext240
-  store ptr %add.ptr241, ptr %pe, align 8
-  %141 = load i32, ptr %fullLength, align 4
-  %shr242 = ashr i32 %141, 4
-  store i32 %shr242, ptr %fullLength, align 4
-  %142 = load i32, ptr %fullLength, align 4
-  %and243 = and i32 %142, 15
   %143 = load ptr, ptr %pe, align 8
-  %idx.ext244 = sext i32 %and243 to i64
-  %add.ptr245 = getelementptr inbounds i16, ptr %143, i64 %idx.ext244
-  store ptr %add.ptr245, ptr %pe, align 8
+  %incdec.ptr237 = getelementptr inbounds i16, ptr %143, i32 1
+  store ptr %incdec.ptr237, ptr %pe, align 8
   %144 = load i32, ptr %fullLength, align 4
-  %shr246 = ashr i32 %144, 4
-  store i32 %shr246, ptr %fullLength, align 4
+  %and238 = and i32 %144, 65535
+  store i32 %and238, ptr %fullLength, align 4
   %145 = load i32, ptr %fullLength, align 4
-  %and247 = and i32 %145, 15
+  %and239 = and i32 %145, 15
   %146 = load ptr, ptr %pe, align 8
-  %idx.ext248 = sext i32 %and247 to i64
-  %add.ptr249 = getelementptr inbounds i16, ptr %146, i64 %idx.ext248
-  store ptr %add.ptr249, ptr %pe, align 8
+  %idx.ext240 = sext i32 %and239 to i64
+  %add.ptr241 = getelementptr inbounds i16, ptr %146, i64 %idx.ext240
+  store ptr %add.ptr241, ptr %pe, align 8
   %147 = load i32, ptr %fullLength, align 4
-  %shr250 = ashr i32 %147, 4
-  store i32 %shr250, ptr %fullLength, align 4
+  %shr242 = ashr i32 %147, 4
+  store i32 %shr242, ptr %fullLength, align 4
   %148 = load i32, ptr %fullLength, align 4
+  %and243 = and i32 %148, 15
   %149 = load ptr, ptr %pe, align 8
-  %idx.ext251 = sext i32 %148 to i64
-  %add.ptr252 = getelementptr inbounds i16, ptr %149, i64 %idx.ext251
+  %idx.ext244 = sext i32 %and243 to i64
+  %add.ptr245 = getelementptr inbounds i16, ptr %149, i64 %idx.ext244
+  store ptr %add.ptr245, ptr %pe, align 8
+  %150 = load i32, ptr %fullLength, align 4
+  %shr246 = ashr i32 %150, 4
+  store i32 %shr246, ptr %fullLength, align 4
+  %151 = load i32, ptr %fullLength, align 4
+  %and247 = and i32 %151, 15
+  %152 = load ptr, ptr %pe, align 8
+  %idx.ext248 = sext i32 %and247 to i64
+  %add.ptr249 = getelementptr inbounds i16, ptr %152, i64 %idx.ext248
+  store ptr %add.ptr249, ptr %pe, align 8
+  %153 = load i32, ptr %fullLength, align 4
+  %shr250 = ashr i32 %153, 4
+  store i32 %shr250, ptr %fullLength, align 4
+  %154 = load i32, ptr %fullLength, align 4
+  %155 = load ptr, ptr %pe, align 8
+  %idx.ext251 = sext i32 %154 to i64
+  %add.ptr252 = getelementptr inbounds i16, ptr %155, i64 %idx.ext251
   store ptr %add.ptr252, ptr %pe, align 8
-  %150 = load ptr, ptr %pe, align 8
-  store ptr %150, ptr %closure, align 8
+  %156 = load ptr, ptr %pe, align 8
+  store ptr %156, ptr %closure, align 8
   br label %if.end253
 
 if.end253:                                        ; preds = %do.end236, %land.lhs.true, %if.end202
@@ -2504,40 +2536,40 @@ if.end253:                                        ; preds = %do.end236, %land.lh
   br label %for.cond255
 
 for.cond255:                                      ; preds = %do.end275, %if.end253
-  %151 = load i32, ptr %idx254, align 4
-  %152 = load i32, ptr %closureLength, align 4
-  %cmp256 = icmp slt i32 %151, %152
+  %157 = load i32, ptr %idx254, align 4
+  %158 = load i32, ptr %closureLength, align 4
+  %cmp256 = icmp slt i32 %157, %158
   br i1 %cmp256, label %for.body257, label %for.end278
 
 for.body257:                                      ; preds = %for.cond255
   br label %do.body259
 
 do.body259:                                       ; preds = %for.body257
-  %153 = load ptr, ptr %closure, align 8
-  %154 = load i32, ptr %idx254, align 4
-  %inc260 = add nsw i32 %154, 1
+  %159 = load ptr, ptr %closure, align 8
+  %160 = load i32, ptr %idx254, align 4
+  %inc260 = add nsw i32 %160, 1
   store i32 %inc260, ptr %idx254, align 4
-  %idxprom261 = sext i32 %154 to i64
-  %arrayidx262 = getelementptr inbounds i16, ptr %153, i64 %idxprom261
-  %155 = load i16, ptr %arrayidx262, align 2
-  %conv263 = zext i16 %155 to i32
+  %idxprom261 = sext i32 %160 to i64
+  %arrayidx262 = getelementptr inbounds i16, ptr %159, i64 %idxprom261
+  %161 = load i16, ptr %arrayidx262, align 2
+  %conv263 = zext i16 %161 to i32
   store i32 %conv263, ptr %mapping258, align 4
-  %156 = load i32, ptr %mapping258, align 4
-  %and264 = and i32 %156, -1024
+  %162 = load i32, ptr %mapping258, align 4
+  %and264 = and i32 %162, -1024
   %cmp265 = icmp eq i32 %and264, 55296
   br i1 %cmp265, label %if.then266, label %if.end274
 
 if.then266:                                       ; preds = %do.body259
-  %157 = load i32, ptr %mapping258, align 4
-  %shl267 = shl i32 %157, 10
-  %158 = load ptr, ptr %closure, align 8
-  %159 = load i32, ptr %idx254, align 4
-  %inc268 = add nsw i32 %159, 1
+  %163 = load i32, ptr %mapping258, align 4
+  %shl267 = shl i32 %163, 10
+  %164 = load ptr, ptr %closure, align 8
+  %165 = load i32, ptr %idx254, align 4
+  %inc268 = add nsw i32 %165, 1
   store i32 %inc268, ptr %idx254, align 4
-  %idxprom269 = sext i32 %159 to i64
-  %arrayidx270 = getelementptr inbounds i16, ptr %158, i64 %idxprom269
-  %160 = load i16, ptr %arrayidx270, align 2
-  %conv271 = zext i16 %160 to i32
+  %idxprom269 = sext i32 %165 to i64
+  %arrayidx270 = getelementptr inbounds i16, ptr %164, i64 %idxprom269
+  %166 = load i16, ptr %arrayidx270, align 2
+  %conv271 = zext i16 %166 to i32
   %add272 = add nsw i32 %shl267, %conv271
   %sub273 = sub nsw i32 %add272, 56613888
   store i32 %sub273, ptr %mapping258, align 4
@@ -2547,14 +2579,14 @@ if.end274:                                        ; preds = %if.then266, %do.bod
   br label %do.end275
 
 do.end275:                                        ; preds = %if.end274
-  %161 = load ptr, ptr %sa.addr, align 8
-  %add276 = getelementptr inbounds %struct.USetAdder, ptr %161, i32 0, i32 1
-  %162 = load ptr, ptr %add276, align 8
-  %163 = load ptr, ptr %sa.addr, align 8
-  %set277 = getelementptr inbounds %struct.USetAdder, ptr %163, i32 0, i32 0
-  %164 = load ptr, ptr %set277, align 8
-  %165 = load i32, ptr %mapping258, align 4
-  call void %162(ptr noundef %164, i32 noundef %165)
+  %167 = load ptr, ptr %sa.addr, align 8
+  %add276 = getelementptr inbounds %struct.USetAdder, ptr %167, i32 0, i32 1
+  %168 = load ptr, ptr %add276, align 8
+  %169 = load ptr, ptr %sa.addr, align 8
+  %set277 = getelementptr inbounds %struct.USetAdder, ptr %169, i32 0, i32 0
+  %170 = load ptr, ptr %set277, align 8
+  %171 = load i32, ptr %mapping258, align 4
+  call void %168(ptr noundef %170, i32 noundef %171)
   br label %for.cond255, !llvm.loop !8
 
 for.end278:                                       ; preds = %for.cond255
@@ -2602,31 +2634,32 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 3), align 8
-  store ptr %2, ptr %unfold, align 8
-  %3 = load ptr, ptr %unfold, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %3, i64 0
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %2 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 3
+  %3 = load ptr, ptr %2, align 8
+  store ptr %3, ptr %unfold, align 8
+  %4 = load ptr, ptr %unfold, align 8
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 0
+  %5 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %5 to i32
   store i32 %conv, ptr %unfoldRows, align 4
-  %5 = load ptr, ptr %unfold, align 8
-  %arrayidx4 = getelementptr inbounds i16, ptr %5, i64 1
-  %6 = load i16, ptr %arrayidx4, align 2
-  %conv5 = zext i16 %6 to i32
+  %6 = load ptr, ptr %unfold, align 8
+  %arrayidx4 = getelementptr inbounds i16, ptr %6, i64 1
+  %7 = load i16, ptr %arrayidx4, align 2
+  %conv5 = zext i16 %7 to i32
   store i32 %conv5, ptr %unfoldRowWidth, align 4
-  %7 = load ptr, ptr %unfold, align 8
-  %arrayidx6 = getelementptr inbounds i16, ptr %7, i64 2
-  %8 = load i16, ptr %arrayidx6, align 2
-  %conv7 = zext i16 %8 to i32
+  %8 = load ptr, ptr %unfold, align 8
+  %arrayidx6 = getelementptr inbounds i16, ptr %8, i64 2
+  %9 = load i16, ptr %arrayidx6, align 2
+  %conv7 = zext i16 %9 to i32
   store i32 %conv7, ptr %unfoldStringWidth, align 4
-  %9 = load i32, ptr %unfoldRowWidth, align 4
-  %10 = load ptr, ptr %unfold, align 8
-  %idx.ext = sext i32 %9 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %10, i64 %idx.ext
+  %10 = load i32, ptr %unfoldRowWidth, align 4
+  %11 = load ptr, ptr %unfold, align 8
+  %idx.ext = sext i32 %10 to i64
+  %add.ptr = getelementptr inbounds i16, ptr %11, i64 %idx.ext
   store ptr %add.ptr, ptr %unfold, align 8
-  %11 = load i32, ptr %length.addr, align 4
-  %12 = load i32, ptr %unfoldStringWidth, align 4
-  %cmp8 = icmp sgt i32 %11, %12
+  %12 = load i32, ptr %length.addr, align 4
+  %13 = load i32, ptr %unfoldStringWidth, align 4
+  %cmp8 = icmp sgt i32 %12, %13
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end3
@@ -2635,93 +2668,93 @@ if.then9:                                         ; preds = %if.end3
 
 if.end10:                                         ; preds = %if.end3
   store i32 0, ptr %start, align 4
-  %13 = load i32, ptr %unfoldRows, align 4
-  store i32 %13, ptr %limit, align 4
+  %14 = load i32, ptr %unfoldRows, align 4
+  store i32 %14, ptr %limit, align 4
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end37, %if.end10
-  %14 = load i32, ptr %start, align 4
-  %15 = load i32, ptr %limit, align 4
-  %cmp11 = icmp slt i32 %14, %15
+  %15 = load i32, ptr %start, align 4
+  %16 = load i32, ptr %limit, align 4
+  %cmp11 = icmp slt i32 %15, %16
   br i1 %cmp11, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %16 = load i32, ptr %start, align 4
-  %17 = load i32, ptr %limit, align 4
-  %add = add nsw i32 %16, %17
+  %17 = load i32, ptr %start, align 4
+  %18 = load i32, ptr %limit, align 4
+  %add = add nsw i32 %17, %18
   %div = sdiv i32 %add, 2
   store i32 %div, ptr %i, align 4
-  %18 = load ptr, ptr %unfold, align 8
-  %19 = load i32, ptr %i, align 4
-  %20 = load i32, ptr %unfoldRowWidth, align 4
-  %mul = mul nsw i32 %19, %20
+  %19 = load ptr, ptr %unfold, align 8
+  %20 = load i32, ptr %i, align 4
+  %21 = load i32, ptr %unfoldRowWidth, align 4
+  %mul = mul nsw i32 %20, %21
   %idx.ext12 = sext i32 %mul to i64
-  %add.ptr13 = getelementptr inbounds i16, ptr %18, i64 %idx.ext12
+  %add.ptr13 = getelementptr inbounds i16, ptr %19, i64 %idx.ext12
   store ptr %add.ptr13, ptr %p, align 8
-  %21 = load ptr, ptr %s.addr, align 8
-  %22 = load i32, ptr %length.addr, align 4
-  %23 = load ptr, ptr %p, align 8
-  %24 = load i32, ptr %unfoldStringWidth, align 4
-  %call = call noundef i32 @_ZL9strcmpMaxPKDsiS0_i(ptr noundef %21, i32 noundef %22, ptr noundef %23, i32 noundef %24)
+  %22 = load ptr, ptr %s.addr, align 8
+  %23 = load i32, ptr %length.addr, align 4
+  %24 = load ptr, ptr %p, align 8
+  %25 = load i32, ptr %unfoldStringWidth, align 4
+  %call = call noundef i32 @_ZL9strcmpMaxPKDsiS0_i(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef %25)
   store i32 %call, ptr %result, align 4
-  %25 = load i32, ptr %result, align 4
-  %cmp14 = icmp eq i32 %25, 0
+  %26 = load i32, ptr %result, align 4
+  %cmp14 = icmp eq i32 %26, 0
   br i1 %cmp14, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %while.body
-  %26 = load i32, ptr %unfoldStringWidth, align 4
-  store i32 %26, ptr %i, align 4
+  %27 = load i32, ptr %unfoldStringWidth, align 4
+  store i32 %27, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %do.end, %if.then15
-  %27 = load i32, ptr %i, align 4
-  %28 = load i32, ptr %unfoldRowWidth, align 4
-  %cmp16 = icmp slt i32 %27, %28
+  %28 = load i32, ptr %i, align 4
+  %29 = load i32, ptr %unfoldRowWidth, align 4
+  %cmp16 = icmp slt i32 %28, %29
   br i1 %cmp16, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.cond
-  %29 = load ptr, ptr %p, align 8
-  %30 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %30 to i64
-  %arrayidx17 = getelementptr inbounds i16, ptr %29, i64 %idxprom
-  %31 = load i16, ptr %arrayidx17, align 2
-  %conv18 = zext i16 %31 to i32
+  %30 = load ptr, ptr %p, align 8
+  %31 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %31 to i64
+  %arrayidx17 = getelementptr inbounds i16, ptr %30, i64 %idxprom
+  %32 = load i16, ptr %arrayidx17, align 2
+  %conv18 = zext i16 %32 to i32
   %cmp19 = icmp ne i32 %conv18, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.cond
-  %32 = phi i1 [ false, %for.cond ], [ %cmp19, %land.rhs ]
-  br i1 %32, label %for.body, label %for.end
+  %33 = phi i1 [ false, %for.cond ], [ %cmp19, %land.rhs ]
+  br i1 %33, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.end
   br label %do.body
 
 do.body:                                          ; preds = %for.body
-  %33 = load ptr, ptr %p, align 8
-  %34 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %34, 1
+  %34 = load ptr, ptr %p, align 8
+  %35 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %35, 1
   store i32 %inc, ptr %i, align 4
-  %idxprom20 = sext i32 %34 to i64
-  %arrayidx21 = getelementptr inbounds i16, ptr %33, i64 %idxprom20
-  %35 = load i16, ptr %arrayidx21, align 2
-  %conv22 = zext i16 %35 to i32
+  %idxprom20 = sext i32 %35 to i64
+  %arrayidx21 = getelementptr inbounds i16, ptr %34, i64 %idxprom20
+  %36 = load i16, ptr %arrayidx21, align 2
+  %conv22 = zext i16 %36 to i32
   store i32 %conv22, ptr %c, align 4
-  %36 = load i32, ptr %c, align 4
-  %and = and i32 %36, -1024
+  %37 = load i32, ptr %c, align 4
+  %and = and i32 %37, -1024
   %cmp23 = icmp eq i32 %and, 55296
   br i1 %cmp23, label %if.then24, label %if.end30
 
 if.then24:                                        ; preds = %do.body
-  %37 = load i32, ptr %c, align 4
-  %shl = shl i32 %37, 10
-  %38 = load ptr, ptr %p, align 8
-  %39 = load i32, ptr %i, align 4
-  %inc25 = add nsw i32 %39, 1
+  %38 = load i32, ptr %c, align 4
+  %shl = shl i32 %38, 10
+  %39 = load ptr, ptr %p, align 8
+  %40 = load i32, ptr %i, align 4
+  %inc25 = add nsw i32 %40, 1
   store i32 %inc25, ptr %i, align 4
-  %idxprom26 = sext i32 %39 to i64
-  %arrayidx27 = getelementptr inbounds i16, ptr %38, i64 %idxprom26
-  %40 = load i16, ptr %arrayidx27, align 2
-  %conv28 = zext i16 %40 to i32
+  %idxprom26 = sext i32 %40 to i64
+  %arrayidx27 = getelementptr inbounds i16, ptr %39, i64 %idxprom26
+  %41 = load i16, ptr %arrayidx27, align 2
+  %conv28 = zext i16 %41 to i32
   %add29 = add nsw i32 %shl, %conv28
   %sub = sub nsw i32 %add29, 56613888
   store i32 %sub, ptr %c, align 4
@@ -2731,17 +2764,17 @@ if.end30:                                         ; preds = %if.then24, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end30
-  %41 = load ptr, ptr %sa.addr, align 8
-  %add31 = getelementptr inbounds %struct.USetAdder, ptr %41, i32 0, i32 1
-  %42 = load ptr, ptr %add31, align 8
-  %43 = load ptr, ptr %sa.addr, align 8
-  %set = getelementptr inbounds %struct.USetAdder, ptr %43, i32 0, i32 0
-  %44 = load ptr, ptr %set, align 8
-  %45 = load i32, ptr %c, align 4
-  call void %42(ptr noundef %44, i32 noundef %45)
+  %42 = load ptr, ptr %sa.addr, align 8
+  %add31 = getelementptr inbounds %struct.USetAdder, ptr %42, i32 0, i32 1
+  %43 = load ptr, ptr %add31, align 8
+  %44 = load ptr, ptr %sa.addr, align 8
+  %set = getelementptr inbounds %struct.USetAdder, ptr %44, i32 0, i32 0
+  %45 = load ptr, ptr %set, align 8
   %46 = load i32, ptr %c, align 4
-  %47 = load ptr, ptr %sa.addr, align 8
-  call void @ucase_addCaseClosure_75(i32 noundef %46, ptr noundef %47)
+  call void %43(ptr noundef %45, i32 noundef %46)
+  %47 = load i32, ptr %c, align 4
+  %48 = load ptr, ptr %sa.addr, align 8
+  call void @ucase_addCaseClosure_75(i32 noundef %47, ptr noundef %48)
   br label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %land.end
@@ -2749,18 +2782,18 @@ for.end:                                          ; preds = %land.end
   br label %return
 
 if.else:                                          ; preds = %while.body
-  %48 = load i32, ptr %result, align 4
-  %cmp32 = icmp slt i32 %48, 0
+  %49 = load i32, ptr %result, align 4
+  %cmp32 = icmp slt i32 %49, 0
   br i1 %cmp32, label %if.then33, label %if.else34
 
 if.then33:                                        ; preds = %if.else
-  %49 = load i32, ptr %i, align 4
-  store i32 %49, ptr %limit, align 4
+  %50 = load i32, ptr %i, align 4
+  store i32 %50, ptr %limit, align 4
   br label %if.end36
 
 if.else34:                                        ; preds = %if.else
-  %50 = load i32, ptr %i, align 4
-  %add35 = add nsw i32 %50, 1
+  %51 = load i32, ptr %i, align 4
+  %add35 = add nsw i32 %51, 1
   store i32 %add35, ptr %start, align 4
   br label %if.end36
 
@@ -2775,8 +2808,8 @@ while.end:                                        ; preds = %while.cond
   br label %return
 
 return:                                           ; preds = %while.end, %for.end, %if.then9, %if.then2, %if.then
-  %51 = load i8, ptr %retval, align 1
-  ret i8 %51
+  %52 = load i8, ptr %retval, align 1
+  ret i8 %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2878,41 +2911,42 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %unfold = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 3), align 8
-  store ptr %0, ptr %unfold, align 8
+  %0 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 3
+  %1 = load ptr, ptr %0, align 8
+  store ptr %1, ptr %unfold, align 8
   %unfoldRows = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this1, i32 0, i32 1
   %unfold2 = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %unfold2, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %1, i64 0
-  %2 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %2 to i32
+  %2 = load ptr, ptr %unfold2, align 8
+  %arrayidx = getelementptr inbounds i16, ptr %2, i64 0
+  %3 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %3 to i32
   store i32 %conv, ptr %unfoldRows, align 8
   %unfoldRowWidth = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this1, i32 0, i32 2
   %unfold3 = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this1, i32 0, i32 0
-  %3 = load ptr, ptr %unfold3, align 8
-  %arrayidx4 = getelementptr inbounds i16, ptr %3, i64 1
-  %4 = load i16, ptr %arrayidx4, align 2
-  %conv5 = zext i16 %4 to i32
+  %4 = load ptr, ptr %unfold3, align 8
+  %arrayidx4 = getelementptr inbounds i16, ptr %4, i64 1
+  %5 = load i16, ptr %arrayidx4, align 2
+  %conv5 = zext i16 %5 to i32
   store i32 %conv5, ptr %unfoldRowWidth, align 4
   %unfoldStringWidth = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this1, i32 0, i32 3
   %unfold6 = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this1, i32 0, i32 0
-  %5 = load ptr, ptr %unfold6, align 8
-  %arrayidx7 = getelementptr inbounds i16, ptr %5, i64 2
-  %6 = load i16, ptr %arrayidx7, align 2
-  %conv8 = zext i16 %6 to i32
+  %6 = load ptr, ptr %unfold6, align 8
+  %arrayidx7 = getelementptr inbounds i16, ptr %6, i64 2
+  %7 = load i16, ptr %arrayidx7, align 2
+  %conv8 = zext i16 %7 to i32
   store i32 %conv8, ptr %unfoldStringWidth, align 8
   %currentRow = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this1, i32 0, i32 4
   store i32 0, ptr %currentRow, align 4
   %rowCpIndex = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this1, i32 0, i32 5
   %unfoldStringWidth9 = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this1, i32 0, i32 3
-  %7 = load i32, ptr %unfoldStringWidth9, align 8
-  store i32 %7, ptr %rowCpIndex, align 8
+  %8 = load i32, ptr %unfoldStringWidth9, align 8
+  store i32 %8, ptr %rowCpIndex, align 8
   %unfoldRowWidth10 = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this1, i32 0, i32 2
-  %8 = load i32, ptr %unfoldRowWidth10, align 4
+  %9 = load i32, ptr %unfoldRowWidth10, align 4
   %unfold11 = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this1, i32 0, i32 0
-  %9 = load ptr, ptr %unfold11, align 8
-  %idx.ext = sext i32 %8 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %9, i64 %idx.ext
+  %10 = load ptr, ptr %unfold11, align 8
+  %idx.ext = sext i32 %9 to i64
+  %add.ptr = getelementptr inbounds i16, ptr %10, i64 %idx.ext
   store ptr %add.ptr, ptr %unfold11, align 8
   ret void
 }
@@ -3132,86 +3166,91 @@ entry:
   %c.addr = alloca i32, align 4
   %props = alloca i16, align 2
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 919552
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 919552
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -3230,11 +3269,11 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %and44 = and i32 %conv43, 3
   ret i32 %and44
 }
@@ -3245,86 +3284,91 @@ entry:
   %c.addr = alloca i32, align 4
   %props = alloca i16, align 2
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 919552
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 919552
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -3343,11 +3387,11 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %and44 = and i32 %conv43, 7
   ret i32 %and44
 }
@@ -3372,86 +3416,91 @@ entry:
   %props = alloca i16, align 2
   %pe = alloca ptr, align 8
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 919552
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 919552
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -3470,41 +3519,42 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %and44 = and i32 %conv43, 8
   %tobool = icmp ne i32 %and44, 0
   br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end39
-  %23 = load i16, ptr %props, align 2
-  %conv45 = zext i16 %23 to i32
+  %28 = load i16, ptr %props, align 2
+  %conv45 = zext i16 %28 to i32
   %and46 = and i32 %conv45, 96
   store i32 %and46, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %cond.end39
-  %24 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2), align 8
-  %25 = load i16, ptr %props, align 2
-  %conv47 = zext i16 %25 to i32
+  %29 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i16, ptr %props, align 2
+  %conv47 = zext i16 %31 to i32
   %shr48 = ashr i32 %conv47, 4
   %idx.ext = sext i32 %shr48 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %24, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %30, i64 %idx.ext
   store ptr %add.ptr, ptr %pe, align 8
-  %26 = load ptr, ptr %pe, align 8
-  %27 = load i16, ptr %26, align 2
-  %conv49 = zext i16 %27 to i32
+  %32 = load ptr, ptr %pe, align 8
+  %33 = load i16, ptr %32, align 2
+  %conv49 = zext i16 %33 to i32
   %shr50 = ashr i32 %conv49, 7
   %and51 = and i32 %shr50, 96
   store i32 %and51, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %28 = load i32, ptr %retval, align 4
-  ret i32 %28
+  %34 = load i32, ptr %retval, align 4
+  ret i32 %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3515,86 +3565,91 @@ entry:
   %props = alloca i16, align 2
   %pe = alloca ptr, align 8
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 919552
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 919552
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -3613,18 +3668,18 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %and44 = and i32 %conv43, 8
   %tobool = icmp ne i32 %and44, 0
   br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end39
-  %23 = load i16, ptr %props, align 2
-  %conv45 = zext i16 %23 to i32
+  %28 = load i16, ptr %props, align 2
+  %conv45 = zext i16 %28 to i32
   %and46 = and i32 %conv45, 16
   %cmp47 = icmp ne i32 %and46, 0
   %conv48 = zext i1 %cmp47 to i8
@@ -3632,16 +3687,17 @@ if.then:                                          ; preds = %cond.end39
   br label %return
 
 if.else:                                          ; preds = %cond.end39
-  %24 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2), align 8
-  %25 = load i16, ptr %props, align 2
-  %conv49 = zext i16 %25 to i32
+  %29 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i16, ptr %props, align 2
+  %conv49 = zext i16 %31 to i32
   %shr50 = ashr i32 %conv49, 4
   %idx.ext = sext i32 %shr50 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %24, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %30, i64 %idx.ext
   store ptr %add.ptr, ptr %pe, align 8
-  %26 = load ptr, ptr %pe, align 8
-  %27 = load i16, ptr %26, align 2
-  %conv51 = zext i16 %27 to i32
+  %32 = load ptr, ptr %pe, align 8
+  %33 = load i16, ptr %32, align 2
+  %conv51 = zext i16 %33 to i32
   %and52 = and i32 %conv51, 2048
   %cmp53 = icmp ne i32 %and52, 0
   %conv54 = zext i1 %cmp53 to i8
@@ -3649,8 +3705,8 @@ if.else:                                          ; preds = %cond.end39
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %28 = load i8, ptr %retval, align 1
-  ret i8 %28
+  %34 = load i8, ptr %retval, align 1
+  ret i8 %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4641,86 +4697,91 @@ entry:
   store i32 %0, ptr %result, align 4
   %1 = load ptr, ptr %pString.addr, align 8
   store ptr null, ptr %1, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %3, 55296
+  %2 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %4, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %4 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %5 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %5, 5
+  %5 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %7, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
-  %6 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %6 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %6, i64 %idxprom
+  %8 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %8 to i32
   %shl = shl i32 %conv, 2
-  %7 = load i32, ptr %c.addr, align 4
-  %and = and i32 %7, 31
+  %9 = load i32, ptr %c.addr, align 4
+  %and = and i32 %9, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %8, 65535
+  %10 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %10, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %9 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %10 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %10, 56319
+  %11 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %13, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %11 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %11, 5
+  %14 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %14, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %9, i64 %idxprom7
-  %12 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %12 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %12, i64 %idxprom7
+  %15 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %15 to i32
   %shl10 = shl i32 %conv9, 2
-  %13 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %13, 31
+  %16 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %16, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %14 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %14, 1114111
+  %17 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %17, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %15 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %15, 919552
+  %18 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %18, 919552
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %16 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %18 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %18, 11
+  %19 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %23, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %17, i64 %idxprom22
-  %19 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %19 to i32
-  %20 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %20, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %22, i64 %idxprom22
+  %24 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %24 to i32
+  %25 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %25, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %16, i64 %idxprom28
-  %21 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %21 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %20, i64 %idxprom28
+  %26 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %26 to i32
   %shl31 = shl i32 %conv30, 2
-  %22 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %22, 31
+  %27 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %27, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -4739,28 +4800,28 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %2, i64 %idxprom41
-  %23 = load i16, ptr %arrayidx42, align 2
-  store i16 %23, ptr %props, align 2
-  %24 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %24 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %3, i64 %idxprom41
+  %28 = load i16, ptr %arrayidx42, align 2
+  store i16 %28, ptr %props, align 2
+  %29 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %29 to i32
   %and44 = and i32 %conv43, 8
   %tobool = icmp ne i32 %and44, 0
   br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end39
-  %25 = load i16, ptr %props, align 2
-  %conv45 = zext i16 %25 to i32
+  %30 = load i16, ptr %props, align 2
+  %conv45 = zext i16 %30 to i32
   %and46 = and i32 %conv45, 2
   %tobool47 = icmp ne i32 %and46, 0
   br i1 %tobool47, label %if.then48, label %if.end
 
 if.then48:                                        ; preds = %if.then
-  %26 = load i32, ptr %c.addr, align 4
-  %27 = load i16, ptr %props, align 2
-  %conv49 = sext i16 %27 to i32
+  %31 = load i32, ptr %c.addr, align 4
+  %32 = load i16, ptr %props, align 2
+  %conv49 = sext i16 %32 to i32
   %shr50 = ashr i32 %conv49, 7
-  %add51 = add nsw i32 %26, %shr50
+  %add51 = add nsw i32 %31, %shr50
   store i32 %add51, ptr %result, align 4
   br label %if.end
 
@@ -4768,71 +4829,72 @@ if.end:                                           ; preds = %if.then48, %if.then
   br label %if.end234
 
 if.else:                                          ; preds = %cond.end39
-  %28 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2), align 8
-  %29 = load i16, ptr %props, align 2
-  %conv52 = zext i16 %29 to i32
+  %33 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i16, ptr %props, align 2
+  %conv52 = zext i16 %35 to i32
   %shr53 = ashr i32 %conv52, 4
   %idx.ext = sext i32 %shr53 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %28, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %34, i64 %idx.ext
   store ptr %add.ptr, ptr %pe, align 8
-  %30 = load ptr, ptr %pe, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %30, i32 1
+  %36 = load ptr, ptr %pe, align 8
+  %incdec.ptr = getelementptr inbounds i16, ptr %36, i32 1
   store ptr %incdec.ptr, ptr %pe, align 8
-  %31 = load i16, ptr %30, align 2
-  store i16 %31, ptr %excWord, align 2
-  %32 = load ptr, ptr %pe, align 8
-  store ptr %32, ptr %pe2, align 8
-  %33 = load i16, ptr %excWord, align 2
-  %conv54 = zext i16 %33 to i32
+  %37 = load i16, ptr %36, align 2
+  store i16 %37, ptr %excWord, align 2
+  %38 = load ptr, ptr %pe, align 8
+  store ptr %38, ptr %pe2, align 8
+  %39 = load i16, ptr %excWord, align 2
+  %conv54 = zext i16 %39 to i32
   %and55 = and i32 %conv54, 16384
   %tobool56 = icmp ne i32 %and55, 0
   br i1 %tobool56, label %if.then57, label %if.else117
 
 if.then57:                                        ; preds = %if.else
-  %34 = load i32, ptr %loc.addr, align 4
-  %cmp58 = icmp eq i32 %34, 3
+  %40 = load i32, ptr %loc.addr, align 4
+  %cmp58 = icmp eq i32 %40, 3
   br i1 %cmp58, label %land.lhs.true, label %if.else77
 
 land.lhs.true:                                    ; preds = %if.then57
-  %35 = load i32, ptr %c.addr, align 4
-  %cmp59 = icmp eq i32 %35, 73
+  %41 = load i32, ptr %c.addr, align 4
+  %cmp59 = icmp eq i32 %41, 73
   br i1 %cmp59, label %land.lhs.true63, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %36 = load i32, ptr %c.addr, align 4
-  %cmp60 = icmp eq i32 %36, 74
+  %42 = load i32, ptr %c.addr, align 4
+  %cmp60 = icmp eq i32 %42, 74
   br i1 %cmp60, label %land.lhs.true63, label %lor.lhs.false61
 
 lor.lhs.false61:                                  ; preds = %lor.lhs.false
-  %37 = load i32, ptr %c.addr, align 4
-  %cmp62 = icmp eq i32 %37, 302
+  %43 = load i32, ptr %c.addr, align 4
+  %cmp62 = icmp eq i32 %43, 302
   br i1 %cmp62, label %land.lhs.true63, label %lor.lhs.false65
 
 land.lhs.true63:                                  ; preds = %lor.lhs.false61, %lor.lhs.false, %land.lhs.true
-  %38 = load ptr, ptr %iter.addr, align 8
-  %39 = load ptr, ptr %context.addr, align 8
-  %call = call noundef signext i8 @_ZL21isFollowedByMoreAbovePFiPvaES_(ptr noundef %38, ptr noundef %39)
+  %44 = load ptr, ptr %iter.addr, align 8
+  %45 = load ptr, ptr %context.addr, align 8
+  %call = call noundef signext i8 @_ZL21isFollowedByMoreAbovePFiPvaES_(ptr noundef %44, ptr noundef %45)
   %tobool64 = icmp ne i8 %call, 0
   br i1 %tobool64, label %if.then71, label %lor.lhs.false65
 
 lor.lhs.false65:                                  ; preds = %land.lhs.true63, %lor.lhs.false61
-  %40 = load i32, ptr %c.addr, align 4
-  %cmp66 = icmp eq i32 %40, 204
+  %46 = load i32, ptr %c.addr, align 4
+  %cmp66 = icmp eq i32 %46, 204
   br i1 %cmp66, label %if.then71, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %lor.lhs.false65
-  %41 = load i32, ptr %c.addr, align 4
-  %cmp68 = icmp eq i32 %41, 205
+  %47 = load i32, ptr %c.addr, align 4
+  %cmp68 = icmp eq i32 %47, 205
   br i1 %cmp68, label %if.then71, label %lor.lhs.false69
 
 lor.lhs.false69:                                  ; preds = %lor.lhs.false67
-  %42 = load i32, ptr %c.addr, align 4
-  %cmp70 = icmp eq i32 %42, 296
+  %48 = load i32, ptr %c.addr, align 4
+  %cmp70 = icmp eq i32 %48, 296
   br i1 %cmp70, label %if.then71, label %if.else77
 
 if.then71:                                        ; preds = %lor.lhs.false69, %lor.lhs.false67, %lor.lhs.false65, %land.lhs.true63
-  %43 = load i32, ptr %c.addr, align 4
-  switch i32 %43, label %sw.default [
+  %49 = load i32, ptr %c.addr, align 4
+  switch i32 %49, label %sw.default [
     i32 73, label %sw.bb
     i32 74, label %sw.bb72
     i32 302, label %sw.bb73
@@ -4842,38 +4904,38 @@ if.then71:                                        ; preds = %lor.lhs.false69, %l
   ]
 
 sw.bb:                                            ; preds = %if.then71
-  %44 = load ptr, ptr %pString.addr, align 8
-  store ptr @_ZL4iDot, ptr %44, align 8
+  %50 = load ptr, ptr %pString.addr, align 8
+  store ptr @_ZL4iDot, ptr %50, align 8
   store i32 2, ptr %retval, align 4
   br label %return
 
 sw.bb72:                                          ; preds = %if.then71
-  %45 = load ptr, ptr %pString.addr, align 8
-  store ptr @_ZL4jDot, ptr %45, align 8
+  %51 = load ptr, ptr %pString.addr, align 8
+  store ptr @_ZL4jDot, ptr %51, align 8
   store i32 2, ptr %retval, align 4
   br label %return
 
 sw.bb73:                                          ; preds = %if.then71
-  %46 = load ptr, ptr %pString.addr, align 8
-  store ptr @_ZL10iOgonekDot, ptr %46, align 8
+  %52 = load ptr, ptr %pString.addr, align 8
+  store ptr @_ZL10iOgonekDot, ptr %52, align 8
   store i32 2, ptr %retval, align 4
   br label %return
 
 sw.bb74:                                          ; preds = %if.then71
-  %47 = load ptr, ptr %pString.addr, align 8
-  store ptr @_ZL9iDotGrave, ptr %47, align 8
+  %53 = load ptr, ptr %pString.addr, align 8
+  store ptr @_ZL9iDotGrave, ptr %53, align 8
   store i32 3, ptr %retval, align 4
   br label %return
 
 sw.bb75:                                          ; preds = %if.then71
-  %48 = load ptr, ptr %pString.addr, align 8
-  store ptr @_ZL9iDotAcute, ptr %48, align 8
+  %54 = load ptr, ptr %pString.addr, align 8
+  store ptr @_ZL9iDotAcute, ptr %54, align 8
   store i32 3, ptr %retval, align 4
   br label %return
 
 sw.bb76:                                          ; preds = %if.then71
-  %49 = load ptr, ptr %pString.addr, align 8
-  store ptr @_ZL9iDotTilde, ptr %49, align 8
+  %55 = load ptr, ptr %pString.addr, align 8
+  store ptr @_ZL9iDotTilde, ptr %55, align 8
   store i32 3, ptr %retval, align 4
   br label %return
 
@@ -4882,13 +4944,13 @@ sw.default:                                       ; preds = %if.then71
   br label %return
 
 if.else77:                                        ; preds = %lor.lhs.false69, %if.then57
-  %50 = load i32, ptr %loc.addr, align 4
-  %cmp78 = icmp eq i32 %50, 2
+  %56 = load i32, ptr %loc.addr, align 4
+  %cmp78 = icmp eq i32 %56, 2
   br i1 %cmp78, label %land.lhs.true79, label %if.else82
 
 land.lhs.true79:                                  ; preds = %if.else77
-  %51 = load i32, ptr %c.addr, align 4
-  %cmp80 = icmp eq i32 %51, 304
+  %57 = load i32, ptr %c.addr, align 4
+  %cmp80 = icmp eq i32 %57, 304
   br i1 %cmp80, label %if.then81, label %if.else82
 
 if.then81:                                        ; preds = %land.lhs.true79
@@ -4896,19 +4958,19 @@ if.then81:                                        ; preds = %land.lhs.true79
   br label %return
 
 if.else82:                                        ; preds = %land.lhs.true79, %if.else77
-  %52 = load i32, ptr %loc.addr, align 4
-  %cmp83 = icmp eq i32 %52, 2
+  %58 = load i32, ptr %loc.addr, align 4
+  %cmp83 = icmp eq i32 %58, 2
   br i1 %cmp83, label %land.lhs.true84, label %if.else90
 
 land.lhs.true84:                                  ; preds = %if.else82
-  %53 = load i32, ptr %c.addr, align 4
-  %cmp85 = icmp eq i32 %53, 775
+  %59 = load i32, ptr %c.addr, align 4
+  %cmp85 = icmp eq i32 %59, 775
   br i1 %cmp85, label %land.lhs.true86, label %if.else90
 
 land.lhs.true86:                                  ; preds = %land.lhs.true84
-  %54 = load ptr, ptr %iter.addr, align 8
-  %55 = load ptr, ptr %context.addr, align 8
-  %call87 = call noundef signext i8 @_ZL14isPrecededBy_IPFiPvaES_(ptr noundef %54, ptr noundef %55)
+  %60 = load ptr, ptr %iter.addr, align 8
+  %61 = load ptr, ptr %context.addr, align 8
+  %call87 = call noundef signext i8 @_ZL14isPrecededBy_IPFiPvaES_(ptr noundef %60, ptr noundef %61)
   %tobool88 = icmp ne i8 %call87, 0
   br i1 %tobool88, label %if.then89, label %if.else90
 
@@ -4917,19 +4979,19 @@ if.then89:                                        ; preds = %land.lhs.true86
   br label %return
 
 if.else90:                                        ; preds = %land.lhs.true86, %land.lhs.true84, %if.else82
-  %56 = load i32, ptr %loc.addr, align 4
-  %cmp91 = icmp eq i32 %56, 2
+  %62 = load i32, ptr %loc.addr, align 4
+  %cmp91 = icmp eq i32 %62, 2
   br i1 %cmp91, label %land.lhs.true92, label %if.else98
 
 land.lhs.true92:                                  ; preds = %if.else90
-  %57 = load i32, ptr %c.addr, align 4
-  %cmp93 = icmp eq i32 %57, 73
+  %63 = load i32, ptr %c.addr, align 4
+  %cmp93 = icmp eq i32 %63, 73
   br i1 %cmp93, label %land.lhs.true94, label %if.else98
 
 land.lhs.true94:                                  ; preds = %land.lhs.true92
-  %58 = load ptr, ptr %iter.addr, align 8
-  %59 = load ptr, ptr %context.addr, align 8
-  %call95 = call noundef signext i8 @_ZL20isFollowedByDotAbovePFiPvaES_(ptr noundef %58, ptr noundef %59)
+  %64 = load ptr, ptr %iter.addr, align 8
+  %65 = load ptr, ptr %context.addr, align 8
+  %call95 = call noundef signext i8 @_ZL20isFollowedByDotAbovePFiPvaES_(ptr noundef %64, ptr noundef %65)
   %tobool96 = icmp ne i8 %call95, 0
   br i1 %tobool96, label %if.else98, label %if.then97
 
@@ -4938,32 +5000,32 @@ if.then97:                                        ; preds = %land.lhs.true94
   br label %return
 
 if.else98:                                        ; preds = %land.lhs.true94, %land.lhs.true92, %if.else90
-  %60 = load i32, ptr %c.addr, align 4
-  %cmp99 = icmp eq i32 %60, 304
+  %66 = load i32, ptr %c.addr, align 4
+  %cmp99 = icmp eq i32 %66, 304
   br i1 %cmp99, label %if.then100, label %if.else101
 
 if.then100:                                       ; preds = %if.else98
-  %61 = load ptr, ptr %pString.addr, align 8
-  store ptr @_ZL4iDot, ptr %61, align 8
+  %67 = load ptr, ptr %pString.addr, align 8
+  store ptr @_ZL4iDot, ptr %67, align 8
   store i32 2, ptr %retval, align 4
   br label %return
 
 if.else101:                                       ; preds = %if.else98
-  %62 = load i32, ptr %c.addr, align 4
-  %cmp102 = icmp eq i32 %62, 931
+  %68 = load i32, ptr %c.addr, align 4
+  %cmp102 = icmp eq i32 %68, 931
   br i1 %cmp102, label %land.lhs.true103, label %if.else110
 
 land.lhs.true103:                                 ; preds = %if.else101
-  %63 = load ptr, ptr %iter.addr, align 8
-  %64 = load ptr, ptr %context.addr, align 8
-  %call104 = call noundef signext i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef %63, ptr noundef %64, i8 noundef signext 1)
+  %69 = load ptr, ptr %iter.addr, align 8
+  %70 = load ptr, ptr %context.addr, align 8
+  %call104 = call noundef signext i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef %69, ptr noundef %70, i8 noundef signext 1)
   %tobool105 = icmp ne i8 %call104, 0
   br i1 %tobool105, label %if.else110, label %land.lhs.true106
 
 land.lhs.true106:                                 ; preds = %land.lhs.true103
-  %65 = load ptr, ptr %iter.addr, align 8
-  %66 = load ptr, ptr %context.addr, align 8
-  %call107 = call noundef signext i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef %65, ptr noundef %66, i8 noundef signext -1)
+  %71 = load ptr, ptr %iter.addr, align 8
+  %72 = load ptr, ptr %context.addr, align 8
+  %call107 = call noundef signext i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef %71, ptr noundef %72, i8 noundef signext -1)
   %tobool108 = icmp ne i8 %call107, 0
   br i1 %tobool108, label %if.then109, label %if.else110
 
@@ -4993,8 +5055,8 @@ if.end116:                                        ; preds = %if.end115
   br label %if.end153
 
 if.else117:                                       ; preds = %if.else
-  %67 = load i16, ptr %excWord, align 2
-  %conv118 = zext i16 %67 to i32
+  %73 = load i16, ptr %excWord, align 2
+  %conv118 = zext i16 %73 to i32
   %and119 = and i32 %conv118, 128
   %tobool120 = icmp ne i32 %and119, 0
   br i1 %tobool120, label %if.then121, label %if.end152
@@ -5003,54 +5065,54 @@ if.then121:                                       ; preds = %if.else117
   br label %do.body
 
 do.body:                                          ; preds = %if.then121
-  %68 = load i16, ptr %excWord, align 2
-  %conv122 = zext i16 %68 to i32
+  %74 = load i16, ptr %excWord, align 2
+  %conv122 = zext i16 %74 to i32
   %and123 = and i32 %conv122, 256
   %cmp124 = icmp eq i32 %and123, 0
   br i1 %cmp124, label %if.then125, label %if.else134
 
 if.then125:                                       ; preds = %do.body
-  %69 = load i16, ptr %excWord, align 2
-  %conv126 = zext i16 %69 to i32
+  %75 = load i16, ptr %excWord, align 2
+  %conv126 = zext i16 %75 to i32
   %and127 = and i32 %conv126, 127
   %idxprom128 = sext i32 %and127 to i64
   %arrayidx129 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom128
-  %70 = load i8, ptr %arrayidx129, align 1
-  %conv130 = zext i8 %70 to i32
-  %71 = load ptr, ptr %pe, align 8
+  %76 = load i8, ptr %arrayidx129, align 1
+  %conv130 = zext i8 %76 to i32
+  %77 = load ptr, ptr %pe, align 8
   %idx.ext131 = sext i32 %conv130 to i64
-  %add.ptr132 = getelementptr inbounds i16, ptr %71, i64 %idx.ext131
+  %add.ptr132 = getelementptr inbounds i16, ptr %77, i64 %idx.ext131
   store ptr %add.ptr132, ptr %pe, align 8
-  %72 = load ptr, ptr %pe, align 8
-  %73 = load i16, ptr %72, align 2
-  %conv133 = zext i16 %73 to i32
+  %78 = load ptr, ptr %pe, align 8
+  %79 = load i16, ptr %78, align 2
+  %conv133 = zext i16 %79 to i32
   store i32 %conv133, ptr %full, align 4
   br label %if.end146
 
 if.else134:                                       ; preds = %do.body
-  %74 = load i16, ptr %excWord, align 2
-  %conv135 = zext i16 %74 to i32
+  %80 = load i16, ptr %excWord, align 2
+  %conv135 = zext i16 %80 to i32
   %and136 = and i32 %conv135, 127
   %idxprom137 = sext i32 %and136 to i64
   %arrayidx138 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom137
-  %75 = load i8, ptr %arrayidx138, align 1
-  %conv139 = zext i8 %75 to i32
+  %81 = load i8, ptr %arrayidx138, align 1
+  %conv139 = zext i8 %81 to i32
   %mul = mul nsw i32 2, %conv139
-  %76 = load ptr, ptr %pe, align 8
+  %82 = load ptr, ptr %pe, align 8
   %idx.ext140 = sext i32 %mul to i64
-  %add.ptr141 = getelementptr inbounds i16, ptr %76, i64 %idx.ext140
+  %add.ptr141 = getelementptr inbounds i16, ptr %82, i64 %idx.ext140
   store ptr %add.ptr141, ptr %pe, align 8
-  %77 = load ptr, ptr %pe, align 8
-  %incdec.ptr142 = getelementptr inbounds i16, ptr %77, i32 1
+  %83 = load ptr, ptr %pe, align 8
+  %incdec.ptr142 = getelementptr inbounds i16, ptr %83, i32 1
   store ptr %incdec.ptr142, ptr %pe, align 8
-  %78 = load i16, ptr %77, align 2
-  %conv143 = zext i16 %78 to i32
+  %84 = load i16, ptr %83, align 2
+  %conv143 = zext i16 %84 to i32
   store i32 %conv143, ptr %full, align 4
-  %79 = load i32, ptr %full, align 4
-  %shl144 = shl i32 %79, 16
-  %80 = load ptr, ptr %pe, align 8
-  %81 = load i16, ptr %80, align 2
-  %conv145 = zext i16 %81 to i32
+  %85 = load i32, ptr %full, align 4
+  %shl144 = shl i32 %85, 16
+  %86 = load ptr, ptr %pe, align 8
+  %87 = load i16, ptr %86, align 2
+  %conv145 = zext i16 %87 to i32
   %or = or i32 %shl144, %conv145
   store i32 %or, ptr %full, align 4
   br label %if.end146
@@ -5059,20 +5121,20 @@ if.end146:                                        ; preds = %if.else134, %if.the
   br label %do.end
 
 do.end:                                           ; preds = %if.end146
-  %82 = load i32, ptr %full, align 4
-  %and147 = and i32 %82, 15
+  %88 = load i32, ptr %full, align 4
+  %and147 = and i32 %88, 15
   store i32 %and147, ptr %full, align 4
-  %83 = load i32, ptr %full, align 4
-  %cmp148 = icmp ne i32 %83, 0
+  %89 = load i32, ptr %full, align 4
+  %cmp148 = icmp ne i32 %89, 0
   br i1 %cmp148, label %if.then149, label %if.end151
 
 if.then149:                                       ; preds = %do.end
-  %84 = load ptr, ptr %pe, align 8
-  %add.ptr150 = getelementptr inbounds i16, ptr %84, i64 1
-  %85 = load ptr, ptr %pString.addr, align 8
-  store ptr %add.ptr150, ptr %85, align 8
-  %86 = load i32, ptr %full, align 4
-  store i32 %86, ptr %retval, align 4
+  %90 = load ptr, ptr %pe, align 8
+  %add.ptr150 = getelementptr inbounds i16, ptr %90, i64 1
+  %91 = load ptr, ptr %pString.addr, align 8
+  store ptr %add.ptr150, ptr %91, align 8
+  %92 = load i32, ptr %full, align 4
+  store i32 %92, ptr %retval, align 4
   br label %return
 
 if.end151:                                        ; preds = %do.end
@@ -5082,15 +5144,15 @@ if.end152:                                        ; preds = %if.end151, %if.else
   br label %if.end153
 
 if.end153:                                        ; preds = %if.end152, %if.end116
-  %87 = load i16, ptr %excWord, align 2
-  %conv154 = zext i16 %87 to i32
+  %93 = load i16, ptr %excWord, align 2
+  %conv154 = zext i16 %93 to i32
   %and155 = and i32 %conv154, 16
   %tobool156 = icmp ne i32 %and155, 0
   br i1 %tobool156, label %land.lhs.true157, label %if.end199
 
 land.lhs.true157:                                 ; preds = %if.end153
-  %88 = load i16, ptr %props, align 2
-  %conv158 = zext i16 %88 to i32
+  %94 = load i16, ptr %props, align 2
+  %conv158 = zext i16 %94 to i32
   %and159 = and i32 %conv158, 2
   %tobool160 = icmp ne i32 %and159, 0
   br i1 %tobool160, label %if.then161, label %if.end199
@@ -5099,54 +5161,54 @@ if.then161:                                       ; preds = %land.lhs.true157
   br label %do.body162
 
 do.body162:                                       ; preds = %if.then161
-  %89 = load i16, ptr %excWord, align 2
-  %conv163 = zext i16 %89 to i32
+  %95 = load i16, ptr %excWord, align 2
+  %conv163 = zext i16 %95 to i32
   %and164 = and i32 %conv163, 256
   %cmp165 = icmp eq i32 %and164, 0
   br i1 %cmp165, label %if.then166, label %if.else175
 
 if.then166:                                       ; preds = %do.body162
-  %90 = load i16, ptr %excWord, align 2
-  %conv167 = zext i16 %90 to i32
+  %96 = load i16, ptr %excWord, align 2
+  %conv167 = zext i16 %96 to i32
   %and168 = and i32 %conv167, 15
   %idxprom169 = sext i32 %and168 to i64
   %arrayidx170 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom169
-  %91 = load i8, ptr %arrayidx170, align 1
-  %conv171 = zext i8 %91 to i32
-  %92 = load ptr, ptr %pe2, align 8
+  %97 = load i8, ptr %arrayidx170, align 1
+  %conv171 = zext i8 %97 to i32
+  %98 = load ptr, ptr %pe2, align 8
   %idx.ext172 = sext i32 %conv171 to i64
-  %add.ptr173 = getelementptr inbounds i16, ptr %92, i64 %idx.ext172
+  %add.ptr173 = getelementptr inbounds i16, ptr %98, i64 %idx.ext172
   store ptr %add.ptr173, ptr %pe2, align 8
-  %93 = load ptr, ptr %pe2, align 8
-  %94 = load i16, ptr %93, align 2
-  %conv174 = zext i16 %94 to i32
+  %99 = load ptr, ptr %pe2, align 8
+  %100 = load i16, ptr %99, align 2
+  %conv174 = zext i16 %100 to i32
   store i32 %conv174, ptr %delta, align 4
   br label %if.end189
 
 if.else175:                                       ; preds = %do.body162
-  %95 = load i16, ptr %excWord, align 2
-  %conv176 = zext i16 %95 to i32
+  %101 = load i16, ptr %excWord, align 2
+  %conv176 = zext i16 %101 to i32
   %and177 = and i32 %conv176, 15
   %idxprom178 = sext i32 %and177 to i64
   %arrayidx179 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom178
-  %96 = load i8, ptr %arrayidx179, align 1
-  %conv180 = zext i8 %96 to i32
+  %102 = load i8, ptr %arrayidx179, align 1
+  %conv180 = zext i8 %102 to i32
   %mul181 = mul nsw i32 2, %conv180
-  %97 = load ptr, ptr %pe2, align 8
+  %103 = load ptr, ptr %pe2, align 8
   %idx.ext182 = sext i32 %mul181 to i64
-  %add.ptr183 = getelementptr inbounds i16, ptr %97, i64 %idx.ext182
+  %add.ptr183 = getelementptr inbounds i16, ptr %103, i64 %idx.ext182
   store ptr %add.ptr183, ptr %pe2, align 8
-  %98 = load ptr, ptr %pe2, align 8
-  %incdec.ptr184 = getelementptr inbounds i16, ptr %98, i32 1
+  %104 = load ptr, ptr %pe2, align 8
+  %incdec.ptr184 = getelementptr inbounds i16, ptr %104, i32 1
   store ptr %incdec.ptr184, ptr %pe2, align 8
-  %99 = load i16, ptr %98, align 2
-  %conv185 = zext i16 %99 to i32
+  %105 = load i16, ptr %104, align 2
+  %conv185 = zext i16 %105 to i32
   store i32 %conv185, ptr %delta, align 4
-  %100 = load i32, ptr %delta, align 4
-  %shl186 = shl i32 %100, 16
-  %101 = load ptr, ptr %pe2, align 8
-  %102 = load i16, ptr %101, align 2
-  %conv187 = zext i16 %102 to i32
+  %106 = load i32, ptr %delta, align 4
+  %shl186 = shl i32 %106, 16
+  %107 = load ptr, ptr %pe2, align 8
+  %108 = load i16, ptr %107, align 2
+  %conv187 = zext i16 %108 to i32
   %or188 = or i32 %shl186, %conv187
   store i32 %or188, ptr %delta, align 4
   br label %if.end189
@@ -5155,22 +5217,22 @@ if.end189:                                        ; preds = %if.else175, %if.the
   br label %do.end190
 
 do.end190:                                        ; preds = %if.end189
-  %103 = load i16, ptr %excWord, align 2
-  %conv191 = zext i16 %103 to i32
+  %109 = load i16, ptr %excWord, align 2
+  %conv191 = zext i16 %109 to i32
   %and192 = and i32 %conv191, 1024
   %cmp193 = icmp eq i32 %and192, 0
   br i1 %cmp193, label %cond.true194, label %cond.false196
 
 cond.true194:                                     ; preds = %do.end190
-  %104 = load i32, ptr %c.addr, align 4
-  %105 = load i32, ptr %delta, align 4
-  %add195 = add nsw i32 %104, %105
+  %110 = load i32, ptr %c.addr, align 4
+  %111 = load i32, ptr %delta, align 4
+  %add195 = add nsw i32 %110, %111
   br label %cond.end197
 
 cond.false196:                                    ; preds = %do.end190
-  %106 = load i32, ptr %c.addr, align 4
-  %107 = load i32, ptr %delta, align 4
-  %sub = sub nsw i32 %106, %107
+  %112 = load i32, ptr %c.addr, align 4
+  %113 = load i32, ptr %delta, align 4
+  %sub = sub nsw i32 %112, %113
   br label %cond.end197
 
 cond.end197:                                      ; preds = %cond.false196, %cond.true194
@@ -5179,8 +5241,8 @@ cond.end197:                                      ; preds = %cond.false196, %con
   br label %return
 
 if.end199:                                        ; preds = %land.lhs.true157, %if.end153
-  %108 = load i16, ptr %excWord, align 2
-  %conv200 = zext i16 %108 to i32
+  %114 = load i16, ptr %excWord, align 2
+  %conv200 = zext i16 %114 to i32
   %and201 = and i32 %conv200, 1
   %tobool202 = icmp ne i32 %and201, 0
   br i1 %tobool202, label %if.then203, label %if.end233
@@ -5189,54 +5251,54 @@ if.then203:                                       ; preds = %if.end199
   br label %do.body204
 
 do.body204:                                       ; preds = %if.then203
-  %109 = load i16, ptr %excWord, align 2
-  %conv205 = zext i16 %109 to i32
+  %115 = load i16, ptr %excWord, align 2
+  %conv205 = zext i16 %115 to i32
   %and206 = and i32 %conv205, 256
   %cmp207 = icmp eq i32 %and206, 0
   br i1 %cmp207, label %if.then208, label %if.else217
 
 if.then208:                                       ; preds = %do.body204
-  %110 = load i16, ptr %excWord, align 2
-  %conv209 = zext i16 %110 to i32
+  %116 = load i16, ptr %excWord, align 2
+  %conv209 = zext i16 %116 to i32
   %and210 = and i32 %conv209, 0
   %idxprom211 = sext i32 %and210 to i64
   %arrayidx212 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom211
-  %111 = load i8, ptr %arrayidx212, align 1
-  %conv213 = zext i8 %111 to i32
-  %112 = load ptr, ptr %pe2, align 8
+  %117 = load i8, ptr %arrayidx212, align 1
+  %conv213 = zext i8 %117 to i32
+  %118 = load ptr, ptr %pe2, align 8
   %idx.ext214 = sext i32 %conv213 to i64
-  %add.ptr215 = getelementptr inbounds i16, ptr %112, i64 %idx.ext214
+  %add.ptr215 = getelementptr inbounds i16, ptr %118, i64 %idx.ext214
   store ptr %add.ptr215, ptr %pe2, align 8
-  %113 = load ptr, ptr %pe2, align 8
-  %114 = load i16, ptr %113, align 2
-  %conv216 = zext i16 %114 to i32
+  %119 = load ptr, ptr %pe2, align 8
+  %120 = load i16, ptr %119, align 2
+  %conv216 = zext i16 %120 to i32
   store i32 %conv216, ptr %result, align 4
   br label %if.end231
 
 if.else217:                                       ; preds = %do.body204
-  %115 = load i16, ptr %excWord, align 2
-  %conv218 = zext i16 %115 to i32
+  %121 = load i16, ptr %excWord, align 2
+  %conv218 = zext i16 %121 to i32
   %and219 = and i32 %conv218, 0
   %idxprom220 = sext i32 %and219 to i64
   %arrayidx221 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom220
-  %116 = load i8, ptr %arrayidx221, align 1
-  %conv222 = zext i8 %116 to i32
+  %122 = load i8, ptr %arrayidx221, align 1
+  %conv222 = zext i8 %122 to i32
   %mul223 = mul nsw i32 2, %conv222
-  %117 = load ptr, ptr %pe2, align 8
+  %123 = load ptr, ptr %pe2, align 8
   %idx.ext224 = sext i32 %mul223 to i64
-  %add.ptr225 = getelementptr inbounds i16, ptr %117, i64 %idx.ext224
+  %add.ptr225 = getelementptr inbounds i16, ptr %123, i64 %idx.ext224
   store ptr %add.ptr225, ptr %pe2, align 8
-  %118 = load ptr, ptr %pe2, align 8
-  %incdec.ptr226 = getelementptr inbounds i16, ptr %118, i32 1
+  %124 = load ptr, ptr %pe2, align 8
+  %incdec.ptr226 = getelementptr inbounds i16, ptr %124, i32 1
   store ptr %incdec.ptr226, ptr %pe2, align 8
-  %119 = load i16, ptr %118, align 2
-  %conv227 = zext i16 %119 to i32
+  %125 = load i16, ptr %124, align 2
+  %conv227 = zext i16 %125 to i32
   store i32 %conv227, ptr %result, align 4
-  %120 = load i32, ptr %result, align 4
-  %shl228 = shl i32 %120, 16
-  %121 = load ptr, ptr %pe2, align 8
-  %122 = load i16, ptr %121, align 2
-  %conv229 = zext i16 %122 to i32
+  %126 = load i32, ptr %result, align 4
+  %shl228 = shl i32 %126, 16
+  %127 = load ptr, ptr %pe2, align 8
+  %128 = load i16, ptr %127, align 2
+  %conv229 = zext i16 %128 to i32
   %or230 = or i32 %shl228, %conv229
   store i32 %or230, ptr %result, align 4
   br label %if.end231
@@ -5251,28 +5313,28 @@ if.end233:                                        ; preds = %do.end232, %if.end1
   br label %if.end234
 
 if.end234:                                        ; preds = %if.end233, %if.end
-  %123 = load i32, ptr %result, align 4
-  %124 = load i32, ptr %c.addr, align 4
-  %cmp235 = icmp eq i32 %123, %124
+  %129 = load i32, ptr %result, align 4
+  %130 = load i32, ptr %c.addr, align 4
+  %cmp235 = icmp eq i32 %129, %130
   br i1 %cmp235, label %cond.true236, label %cond.false237
 
 cond.true236:                                     ; preds = %if.end234
-  %125 = load i32, ptr %result, align 4
-  %not = xor i32 %125, -1
+  %131 = load i32, ptr %result, align 4
+  %not = xor i32 %131, -1
   br label %cond.end238
 
 cond.false237:                                    ; preds = %if.end234
-  %126 = load i32, ptr %result, align 4
+  %132 = load i32, ptr %result, align 4
   br label %cond.end238
 
 cond.end238:                                      ; preds = %cond.false237, %cond.true236
-  %cond239 = phi i32 [ %not, %cond.true236 ], [ %126, %cond.false237 ]
+  %cond239 = phi i32 [ %not, %cond.true236 ], [ %132, %cond.false237 ]
   store i32 %cond239, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %cond.end238, %cond.end197, %if.then149, %if.then109, %if.then100, %if.then97, %if.then89, %if.then81, %sw.default, %sw.bb76, %sw.bb75, %sw.bb74, %sw.bb73, %sw.bb72, %sw.bb
-  %127 = load i32, ptr %retval, align 4
-  ret i32 %127
+  %133 = load i32, ptr %retval, align 4
+  ret i32 %133
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5608,86 +5670,91 @@ entry:
   store i32 %0, ptr %result, align 4
   %1 = load ptr, ptr %pString.addr, align 8
   store ptr null, ptr %1, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %3, 55296
+  %2 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %4, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %4 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %5 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %5, 5
+  %5 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %7, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
-  %6 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %6 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %6, i64 %idxprom
+  %8 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %8 to i32
   %shl = shl i32 %conv, 2
-  %7 = load i32, ptr %c.addr, align 4
-  %and = and i32 %7, 31
+  %9 = load i32, ptr %c.addr, align 4
+  %and = and i32 %9, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %8, 65535
+  %10 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %10, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %9 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %10 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %10, 56319
+  %11 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %13, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %11 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %11, 5
+  %14 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %14, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %9, i64 %idxprom7
-  %12 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %12 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %12, i64 %idxprom7
+  %15 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %15 to i32
   %shl10 = shl i32 %conv9, 2
-  %13 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %13, 31
+  %16 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %16, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %14 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %14, 1114111
+  %17 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %17, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %15 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %15, 919552
+  %18 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %18, 919552
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %16 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %18 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %18, 11
+  %19 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %23, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %17, i64 %idxprom22
-  %19 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %19 to i32
-  %20 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %20, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %22, i64 %idxprom22
+  %24 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %24 to i32
+  %25 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %25, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %16, i64 %idxprom28
-  %21 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %21 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %20, i64 %idxprom28
+  %26 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %26 to i32
   %shl31 = shl i32 %conv30, 2
-  %22 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %22, 31
+  %27 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %27, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -5706,28 +5773,28 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %2, i64 %idxprom41
-  %23 = load i16, ptr %arrayidx42, align 2
-  store i16 %23, ptr %props, align 2
-  %24 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %24 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %3, i64 %idxprom41
+  %28 = load i16, ptr %arrayidx42, align 2
+  store i16 %28, ptr %props, align 2
+  %29 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %29 to i32
   %and44 = and i32 %conv43, 8
   %tobool = icmp ne i32 %and44, 0
   br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end39
-  %25 = load i16, ptr %props, align 2
-  %conv45 = zext i16 %25 to i32
+  %30 = load i16, ptr %props, align 2
+  %conv45 = zext i16 %30 to i32
   %and46 = and i32 %conv45, 3
   %cmp47 = icmp eq i32 %and46, 1
   br i1 %cmp47, label %if.then48, label %if.end
 
 if.then48:                                        ; preds = %if.then
-  %26 = load i32, ptr %c.addr, align 4
-  %27 = load i16, ptr %props, align 2
-  %conv49 = sext i16 %27 to i32
+  %31 = load i32, ptr %c.addr, align 4
+  %32 = load i16, ptr %props, align 2
+  %conv49 = sext i16 %32 to i32
   %shr50 = ashr i32 %conv49, 7
-  %add51 = add nsw i32 %26, %shr50
+  %add51 = add nsw i32 %31, %shr50
   store i32 %add51, ptr %result, align 4
   br label %if.end
 
@@ -5735,34 +5802,35 @@ if.end:                                           ; preds = %if.then48, %if.then
   br label %if.end236
 
 if.else:                                          ; preds = %cond.end39
-  %28 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2), align 8
-  %29 = load i16, ptr %props, align 2
-  %conv52 = zext i16 %29 to i32
+  %33 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i16, ptr %props, align 2
+  %conv52 = zext i16 %35 to i32
   %shr53 = ashr i32 %conv52, 4
   %idx.ext = sext i32 %shr53 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %28, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %34, i64 %idx.ext
   store ptr %add.ptr, ptr %pe, align 8
-  %30 = load ptr, ptr %pe, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %30, i32 1
+  %36 = load ptr, ptr %pe, align 8
+  %incdec.ptr = getelementptr inbounds i16, ptr %36, i32 1
   store ptr %incdec.ptr, ptr %pe, align 8
-  %31 = load i16, ptr %30, align 2
-  store i16 %31, ptr %excWord, align 2
-  %32 = load ptr, ptr %pe, align 8
-  store ptr %32, ptr %pe2, align 8
-  %33 = load i16, ptr %excWord, align 2
-  %conv54 = zext i16 %33 to i32
+  %37 = load i16, ptr %36, align 2
+  store i16 %37, ptr %excWord, align 2
+  %38 = load ptr, ptr %pe, align 8
+  store ptr %38, ptr %pe2, align 8
+  %39 = load i16, ptr %excWord, align 2
+  %conv54 = zext i16 %39 to i32
   %and55 = and i32 %conv54, 16384
   %tobool56 = icmp ne i32 %and55, 0
   br i1 %tobool56, label %if.then57, label %if.else89
 
 if.then57:                                        ; preds = %if.else
-  %34 = load i32, ptr %loc.addr, align 4
-  %cmp58 = icmp eq i32 %34, 2
+  %40 = load i32, ptr %loc.addr, align 4
+  %cmp58 = icmp eq i32 %40, 2
   br i1 %cmp58, label %land.lhs.true, label %if.else61
 
 land.lhs.true:                                    ; preds = %if.then57
-  %35 = load i32, ptr %c.addr, align 4
-  %cmp59 = icmp eq i32 %35, 105
+  %41 = load i32, ptr %c.addr, align 4
+  %cmp59 = icmp eq i32 %41, 105
   br i1 %cmp59, label %if.then60, label %if.else61
 
 if.then60:                                        ; preds = %land.lhs.true
@@ -5770,19 +5838,19 @@ if.then60:                                        ; preds = %land.lhs.true
   br label %return
 
 if.else61:                                        ; preds = %land.lhs.true, %if.then57
-  %36 = load i32, ptr %loc.addr, align 4
-  %cmp62 = icmp eq i32 %36, 3
+  %42 = load i32, ptr %loc.addr, align 4
+  %cmp62 = icmp eq i32 %42, 3
   br i1 %cmp62, label %land.lhs.true63, label %if.else68
 
 land.lhs.true63:                                  ; preds = %if.else61
-  %37 = load i32, ptr %c.addr, align 4
-  %cmp64 = icmp eq i32 %37, 775
+  %43 = load i32, ptr %c.addr, align 4
+  %cmp64 = icmp eq i32 %43, 775
   br i1 %cmp64, label %land.lhs.true65, label %if.else68
 
 land.lhs.true65:                                  ; preds = %land.lhs.true63
-  %38 = load ptr, ptr %iter.addr, align 8
-  %39 = load ptr, ptr %context.addr, align 8
-  %call = call noundef signext i8 @_ZL22isPrecededBySoftDottedPFiPvaES_(ptr noundef %38, ptr noundef %39)
+  %44 = load ptr, ptr %iter.addr, align 8
+  %45 = load ptr, ptr %context.addr, align 8
+  %call = call noundef signext i8 @_ZL22isPrecededBySoftDottedPFiPvaES_(ptr noundef %44, ptr noundef %45)
   %tobool66 = icmp ne i8 %call, 0
   br i1 %tobool66, label %if.then67, label %if.else68
 
@@ -5791,18 +5859,18 @@ if.then67:                                        ; preds = %land.lhs.true65
   br label %return
 
 if.else68:                                        ; preds = %land.lhs.true65, %land.lhs.true63, %if.else61
-  %40 = load i32, ptr %c.addr, align 4
-  %cmp69 = icmp eq i32 %40, 1415
+  %46 = load i32, ptr %c.addr, align 4
+  %cmp69 = icmp eq i32 %46, 1415
   br i1 %cmp69, label %if.then70, label %if.else85
 
 if.then70:                                        ; preds = %if.else68
-  %41 = load i32, ptr %loc.addr, align 4
-  %cmp71 = icmp eq i32 %41, 6
+  %47 = load i32, ptr %loc.addr, align 4
+  %cmp71 = icmp eq i32 %47, 6
   br i1 %cmp71, label %if.then72, label %if.else77
 
 if.then72:                                        ; preds = %if.then70
-  %42 = load i8, ptr %upperNotTitle.addr, align 1
-  %tobool73 = icmp ne i8 %42, 0
+  %48 = load i8, ptr %upperNotTitle.addr, align 1
+  %tobool73 = icmp ne i8 %48, 0
   br i1 %tobool73, label %cond.true74, label %cond.false75
 
 cond.true74:                                      ; preds = %if.then72
@@ -5814,13 +5882,13 @@ cond.false75:                                     ; preds = %if.then72
 cond.end76:                                       ; preds = %cond.false75, %cond.true74
   %cond-lvalue = phi ptr [ @.str, %cond.true74 ], [ @.str.2, %cond.false75 ]
   %arraydecay = getelementptr inbounds [3 x i16], ptr %cond-lvalue, i64 0, i64 0
-  %43 = load ptr, ptr %pString.addr, align 8
-  store ptr %arraydecay, ptr %43, align 8
+  %49 = load ptr, ptr %pString.addr, align 8
+  store ptr %arraydecay, ptr %49, align 8
   br label %if.end84
 
 if.else77:                                        ; preds = %if.then70
-  %44 = load i8, ptr %upperNotTitle.addr, align 1
-  %tobool78 = icmp ne i8 %44, 0
+  %50 = load i8, ptr %upperNotTitle.addr, align 1
+  %tobool78 = icmp ne i8 %50, 0
   br i1 %tobool78, label %cond.true79, label %cond.false80
 
 cond.true79:                                      ; preds = %if.else77
@@ -5832,8 +5900,8 @@ cond.false80:                                     ; preds = %if.else77
 cond.end81:                                       ; preds = %cond.false80, %cond.true79
   %cond-lvalue82 = phi ptr [ @.str.3, %cond.true79 ], [ @.str.4, %cond.false80 ]
   %arraydecay83 = getelementptr inbounds [3 x i16], ptr %cond-lvalue82, i64 0, i64 0
-  %45 = load ptr, ptr %pString.addr, align 8
-  store ptr %arraydecay83, ptr %45, align 8
+  %51 = load ptr, ptr %pString.addr, align 8
+  store ptr %arraydecay83, ptr %51, align 8
   br label %if.end84
 
 if.end84:                                         ; preds = %cond.end81, %cond.end76
@@ -5853,8 +5921,8 @@ if.end88:                                         ; preds = %if.end87
   br label %if.end142
 
 if.else89:                                        ; preds = %if.else
-  %46 = load i16, ptr %excWord, align 2
-  %conv90 = zext i16 %46 to i32
+  %52 = load i16, ptr %excWord, align 2
+  %conv90 = zext i16 %52 to i32
   %and91 = and i32 %conv90, 128
   %tobool92 = icmp ne i32 %and91, 0
   br i1 %tobool92, label %if.then93, label %if.end141
@@ -5863,54 +5931,54 @@ if.then93:                                        ; preds = %if.else89
   br label %do.body
 
 do.body:                                          ; preds = %if.then93
-  %47 = load i16, ptr %excWord, align 2
-  %conv94 = zext i16 %47 to i32
+  %53 = load i16, ptr %excWord, align 2
+  %conv94 = zext i16 %53 to i32
   %and95 = and i32 %conv94, 256
   %cmp96 = icmp eq i32 %and95, 0
   br i1 %cmp96, label %if.then97, label %if.else106
 
 if.then97:                                        ; preds = %do.body
-  %48 = load i16, ptr %excWord, align 2
-  %conv98 = zext i16 %48 to i32
+  %54 = load i16, ptr %excWord, align 2
+  %conv98 = zext i16 %54 to i32
   %and99 = and i32 %conv98, 127
   %idxprom100 = sext i32 %and99 to i64
   %arrayidx101 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom100
-  %49 = load i8, ptr %arrayidx101, align 1
-  %conv102 = zext i8 %49 to i32
-  %50 = load ptr, ptr %pe, align 8
+  %55 = load i8, ptr %arrayidx101, align 1
+  %conv102 = zext i8 %55 to i32
+  %56 = load ptr, ptr %pe, align 8
   %idx.ext103 = sext i32 %conv102 to i64
-  %add.ptr104 = getelementptr inbounds i16, ptr %50, i64 %idx.ext103
+  %add.ptr104 = getelementptr inbounds i16, ptr %56, i64 %idx.ext103
   store ptr %add.ptr104, ptr %pe, align 8
-  %51 = load ptr, ptr %pe, align 8
-  %52 = load i16, ptr %51, align 2
-  %conv105 = zext i16 %52 to i32
+  %57 = load ptr, ptr %pe, align 8
+  %58 = load i16, ptr %57, align 2
+  %conv105 = zext i16 %58 to i32
   store i32 %conv105, ptr %full, align 4
   br label %if.end118
 
 if.else106:                                       ; preds = %do.body
-  %53 = load i16, ptr %excWord, align 2
-  %conv107 = zext i16 %53 to i32
+  %59 = load i16, ptr %excWord, align 2
+  %conv107 = zext i16 %59 to i32
   %and108 = and i32 %conv107, 127
   %idxprom109 = sext i32 %and108 to i64
   %arrayidx110 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom109
-  %54 = load i8, ptr %arrayidx110, align 1
-  %conv111 = zext i8 %54 to i32
+  %60 = load i8, ptr %arrayidx110, align 1
+  %conv111 = zext i8 %60 to i32
   %mul = mul nsw i32 2, %conv111
-  %55 = load ptr, ptr %pe, align 8
+  %61 = load ptr, ptr %pe, align 8
   %idx.ext112 = sext i32 %mul to i64
-  %add.ptr113 = getelementptr inbounds i16, ptr %55, i64 %idx.ext112
+  %add.ptr113 = getelementptr inbounds i16, ptr %61, i64 %idx.ext112
   store ptr %add.ptr113, ptr %pe, align 8
-  %56 = load ptr, ptr %pe, align 8
-  %incdec.ptr114 = getelementptr inbounds i16, ptr %56, i32 1
+  %62 = load ptr, ptr %pe, align 8
+  %incdec.ptr114 = getelementptr inbounds i16, ptr %62, i32 1
   store ptr %incdec.ptr114, ptr %pe, align 8
-  %57 = load i16, ptr %56, align 2
-  %conv115 = zext i16 %57 to i32
+  %63 = load i16, ptr %62, align 2
+  %conv115 = zext i16 %63 to i32
   store i32 %conv115, ptr %full, align 4
-  %58 = load i32, ptr %full, align 4
-  %shl116 = shl i32 %58, 16
-  %59 = load ptr, ptr %pe, align 8
-  %60 = load i16, ptr %59, align 2
-  %conv117 = zext i16 %60 to i32
+  %64 = load i32, ptr %full, align 4
+  %shl116 = shl i32 %64, 16
+  %65 = load ptr, ptr %pe, align 8
+  %66 = load i16, ptr %65, align 2
+  %conv117 = zext i16 %66 to i32
   %or = or i32 %shl116, %conv117
   store i32 %or, ptr %full, align 4
   br label %if.end118
@@ -5919,61 +5987,61 @@ if.end118:                                        ; preds = %if.else106, %if.the
   br label %do.end
 
 do.end:                                           ; preds = %if.end118
-  %61 = load ptr, ptr %pe, align 8
-  %incdec.ptr119 = getelementptr inbounds i16, ptr %61, i32 1
+  %67 = load ptr, ptr %pe, align 8
+  %incdec.ptr119 = getelementptr inbounds i16, ptr %67, i32 1
   store ptr %incdec.ptr119, ptr %pe, align 8
-  %62 = load i32, ptr %full, align 4
-  %and120 = and i32 %62, 15
-  %63 = load ptr, ptr %pe, align 8
+  %68 = load i32, ptr %full, align 4
+  %and120 = and i32 %68, 15
+  %69 = load ptr, ptr %pe, align 8
   %idx.ext121 = sext i32 %and120 to i64
-  %add.ptr122 = getelementptr inbounds i16, ptr %63, i64 %idx.ext121
+  %add.ptr122 = getelementptr inbounds i16, ptr %69, i64 %idx.ext121
   store ptr %add.ptr122, ptr %pe, align 8
-  %64 = load i32, ptr %full, align 4
-  %shr123 = ashr i32 %64, 4
+  %70 = load i32, ptr %full, align 4
+  %shr123 = ashr i32 %70, 4
   store i32 %shr123, ptr %full, align 4
-  %65 = load i32, ptr %full, align 4
-  %and124 = and i32 %65, 15
-  %66 = load ptr, ptr %pe, align 8
+  %71 = load i32, ptr %full, align 4
+  %and124 = and i32 %71, 15
+  %72 = load ptr, ptr %pe, align 8
   %idx.ext125 = sext i32 %and124 to i64
-  %add.ptr126 = getelementptr inbounds i16, ptr %66, i64 %idx.ext125
+  %add.ptr126 = getelementptr inbounds i16, ptr %72, i64 %idx.ext125
   store ptr %add.ptr126, ptr %pe, align 8
-  %67 = load i32, ptr %full, align 4
-  %shr127 = ashr i32 %67, 4
+  %73 = load i32, ptr %full, align 4
+  %shr127 = ashr i32 %73, 4
   store i32 %shr127, ptr %full, align 4
-  %68 = load i8, ptr %upperNotTitle.addr, align 1
-  %tobool128 = icmp ne i8 %68, 0
+  %74 = load i8, ptr %upperNotTitle.addr, align 1
+  %tobool128 = icmp ne i8 %74, 0
   br i1 %tobool128, label %if.then129, label %if.else131
 
 if.then129:                                       ; preds = %do.end
-  %69 = load i32, ptr %full, align 4
-  %and130 = and i32 %69, 15
+  %75 = load i32, ptr %full, align 4
+  %and130 = and i32 %75, 15
   store i32 %and130, ptr %full, align 4
   br label %if.end137
 
 if.else131:                                       ; preds = %do.end
-  %70 = load i32, ptr %full, align 4
-  %and132 = and i32 %70, 15
-  %71 = load ptr, ptr %pe, align 8
+  %76 = load i32, ptr %full, align 4
+  %and132 = and i32 %76, 15
+  %77 = load ptr, ptr %pe, align 8
   %idx.ext133 = sext i32 %and132 to i64
-  %add.ptr134 = getelementptr inbounds i16, ptr %71, i64 %idx.ext133
+  %add.ptr134 = getelementptr inbounds i16, ptr %77, i64 %idx.ext133
   store ptr %add.ptr134, ptr %pe, align 8
-  %72 = load i32, ptr %full, align 4
-  %shr135 = ashr i32 %72, 4
+  %78 = load i32, ptr %full, align 4
+  %shr135 = ashr i32 %78, 4
   %and136 = and i32 %shr135, 15
   store i32 %and136, ptr %full, align 4
   br label %if.end137
 
 if.end137:                                        ; preds = %if.else131, %if.then129
-  %73 = load i32, ptr %full, align 4
-  %cmp138 = icmp ne i32 %73, 0
+  %79 = load i32, ptr %full, align 4
+  %cmp138 = icmp ne i32 %79, 0
   br i1 %cmp138, label %if.then139, label %if.end140
 
 if.then139:                                       ; preds = %if.end137
-  %74 = load ptr, ptr %pe, align 8
-  %75 = load ptr, ptr %pString.addr, align 8
-  store ptr %74, ptr %75, align 8
-  %76 = load i32, ptr %full, align 4
-  store i32 %76, ptr %retval, align 4
+  %80 = load ptr, ptr %pe, align 8
+  %81 = load ptr, ptr %pString.addr, align 8
+  store ptr %80, ptr %81, align 8
+  %82 = load i32, ptr %full, align 4
+  store i32 %82, ptr %retval, align 4
   br label %return
 
 if.end140:                                        ; preds = %if.end137
@@ -5983,15 +6051,15 @@ if.end141:                                        ; preds = %if.end140, %if.else
   br label %if.end142
 
 if.end142:                                        ; preds = %if.end141, %if.end88
-  %77 = load i16, ptr %excWord, align 2
-  %conv143 = zext i16 %77 to i32
+  %83 = load i16, ptr %excWord, align 2
+  %conv143 = zext i16 %83 to i32
   %and144 = and i32 %conv143, 16
   %tobool145 = icmp ne i32 %and144, 0
   br i1 %tobool145, label %land.lhs.true146, label %if.end188
 
 land.lhs.true146:                                 ; preds = %if.end142
-  %78 = load i16, ptr %props, align 2
-  %conv147 = zext i16 %78 to i32
+  %84 = load i16, ptr %props, align 2
+  %conv147 = zext i16 %84 to i32
   %and148 = and i32 %conv147, 3
   %cmp149 = icmp eq i32 %and148, 1
   br i1 %cmp149, label %if.then150, label %if.end188
@@ -6000,54 +6068,54 @@ if.then150:                                       ; preds = %land.lhs.true146
   br label %do.body151
 
 do.body151:                                       ; preds = %if.then150
-  %79 = load i16, ptr %excWord, align 2
-  %conv152 = zext i16 %79 to i32
+  %85 = load i16, ptr %excWord, align 2
+  %conv152 = zext i16 %85 to i32
   %and153 = and i32 %conv152, 256
   %cmp154 = icmp eq i32 %and153, 0
   br i1 %cmp154, label %if.then155, label %if.else164
 
 if.then155:                                       ; preds = %do.body151
-  %80 = load i16, ptr %excWord, align 2
-  %conv156 = zext i16 %80 to i32
+  %86 = load i16, ptr %excWord, align 2
+  %conv156 = zext i16 %86 to i32
   %and157 = and i32 %conv156, 15
   %idxprom158 = sext i32 %and157 to i64
   %arrayidx159 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom158
-  %81 = load i8, ptr %arrayidx159, align 1
-  %conv160 = zext i8 %81 to i32
-  %82 = load ptr, ptr %pe2, align 8
+  %87 = load i8, ptr %arrayidx159, align 1
+  %conv160 = zext i8 %87 to i32
+  %88 = load ptr, ptr %pe2, align 8
   %idx.ext161 = sext i32 %conv160 to i64
-  %add.ptr162 = getelementptr inbounds i16, ptr %82, i64 %idx.ext161
+  %add.ptr162 = getelementptr inbounds i16, ptr %88, i64 %idx.ext161
   store ptr %add.ptr162, ptr %pe2, align 8
-  %83 = load ptr, ptr %pe2, align 8
-  %84 = load i16, ptr %83, align 2
-  %conv163 = zext i16 %84 to i32
+  %89 = load ptr, ptr %pe2, align 8
+  %90 = load i16, ptr %89, align 2
+  %conv163 = zext i16 %90 to i32
   store i32 %conv163, ptr %delta, align 4
   br label %if.end178
 
 if.else164:                                       ; preds = %do.body151
-  %85 = load i16, ptr %excWord, align 2
-  %conv165 = zext i16 %85 to i32
+  %91 = load i16, ptr %excWord, align 2
+  %conv165 = zext i16 %91 to i32
   %and166 = and i32 %conv165, 15
   %idxprom167 = sext i32 %and166 to i64
   %arrayidx168 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom167
-  %86 = load i8, ptr %arrayidx168, align 1
-  %conv169 = zext i8 %86 to i32
+  %92 = load i8, ptr %arrayidx168, align 1
+  %conv169 = zext i8 %92 to i32
   %mul170 = mul nsw i32 2, %conv169
-  %87 = load ptr, ptr %pe2, align 8
+  %93 = load ptr, ptr %pe2, align 8
   %idx.ext171 = sext i32 %mul170 to i64
-  %add.ptr172 = getelementptr inbounds i16, ptr %87, i64 %idx.ext171
+  %add.ptr172 = getelementptr inbounds i16, ptr %93, i64 %idx.ext171
   store ptr %add.ptr172, ptr %pe2, align 8
-  %88 = load ptr, ptr %pe2, align 8
-  %incdec.ptr173 = getelementptr inbounds i16, ptr %88, i32 1
+  %94 = load ptr, ptr %pe2, align 8
+  %incdec.ptr173 = getelementptr inbounds i16, ptr %94, i32 1
   store ptr %incdec.ptr173, ptr %pe2, align 8
-  %89 = load i16, ptr %88, align 2
-  %conv174 = zext i16 %89 to i32
+  %95 = load i16, ptr %94, align 2
+  %conv174 = zext i16 %95 to i32
   store i32 %conv174, ptr %delta, align 4
-  %90 = load i32, ptr %delta, align 4
-  %shl175 = shl i32 %90, 16
-  %91 = load ptr, ptr %pe2, align 8
-  %92 = load i16, ptr %91, align 2
-  %conv176 = zext i16 %92 to i32
+  %96 = load i32, ptr %delta, align 4
+  %shl175 = shl i32 %96, 16
+  %97 = load ptr, ptr %pe2, align 8
+  %98 = load i16, ptr %97, align 2
+  %conv176 = zext i16 %98 to i32
   %or177 = or i32 %shl175, %conv176
   store i32 %or177, ptr %delta, align 4
   br label %if.end178
@@ -6056,22 +6124,22 @@ if.end178:                                        ; preds = %if.else164, %if.the
   br label %do.end179
 
 do.end179:                                        ; preds = %if.end178
-  %93 = load i16, ptr %excWord, align 2
-  %conv180 = zext i16 %93 to i32
+  %99 = load i16, ptr %excWord, align 2
+  %conv180 = zext i16 %99 to i32
   %and181 = and i32 %conv180, 1024
   %cmp182 = icmp eq i32 %and181, 0
   br i1 %cmp182, label %cond.true183, label %cond.false185
 
 cond.true183:                                     ; preds = %do.end179
-  %94 = load i32, ptr %c.addr, align 4
-  %95 = load i32, ptr %delta, align 4
-  %add184 = add nsw i32 %94, %95
+  %100 = load i32, ptr %c.addr, align 4
+  %101 = load i32, ptr %delta, align 4
+  %add184 = add nsw i32 %100, %101
   br label %cond.end186
 
 cond.false185:                                    ; preds = %do.end179
-  %96 = load i32, ptr %c.addr, align 4
-  %97 = load i32, ptr %delta, align 4
-  %sub = sub nsw i32 %96, %97
+  %102 = load i32, ptr %c.addr, align 4
+  %103 = load i32, ptr %delta, align 4
+  %sub = sub nsw i32 %102, %103
   br label %cond.end186
 
 cond.end186:                                      ; preds = %cond.false185, %cond.true183
@@ -6080,13 +6148,13 @@ cond.end186:                                      ; preds = %cond.false185, %con
   br label %return
 
 if.end188:                                        ; preds = %land.lhs.true146, %if.end142
-  %98 = load i8, ptr %upperNotTitle.addr, align 1
-  %tobool189 = icmp ne i8 %98, 0
+  %104 = load i8, ptr %upperNotTitle.addr, align 1
+  %tobool189 = icmp ne i8 %104, 0
   br i1 %tobool189, label %if.else195, label %land.lhs.true190
 
 land.lhs.true190:                                 ; preds = %if.end188
-  %99 = load i16, ptr %excWord, align 2
-  %conv191 = zext i16 %99 to i32
+  %105 = load i16, ptr %excWord, align 2
+  %conv191 = zext i16 %105 to i32
   %and192 = and i32 %conv191, 8
   %tobool193 = icmp ne i32 %and192, 0
   br i1 %tobool193, label %if.then194, label %if.else195
@@ -6096,8 +6164,8 @@ if.then194:                                       ; preds = %land.lhs.true190
   br label %if.end202
 
 if.else195:                                       ; preds = %land.lhs.true190, %if.end188
-  %100 = load i16, ptr %excWord, align 2
-  %conv196 = zext i16 %100 to i32
+  %106 = load i16, ptr %excWord, align 2
+  %conv196 = zext i16 %106 to i32
   %and197 = and i32 %conv196, 4
   %tobool198 = icmp ne i32 %and197, 0
   br i1 %tobool198, label %if.then199, label %if.else200
@@ -6107,8 +6175,8 @@ if.then199:                                       ; preds = %if.else195
   br label %if.end201
 
 if.else200:                                       ; preds = %if.else195
-  %101 = load i32, ptr %c.addr, align 4
-  %not = xor i32 %101, -1
+  %107 = load i32, ptr %c.addr, align 4
+  %not = xor i32 %107, -1
   store i32 %not, ptr %retval, align 4
   br label %return
 
@@ -6119,60 +6187,60 @@ if.end202:                                        ; preds = %if.end201, %if.then
   br label %do.body203
 
 do.body203:                                       ; preds = %if.end202
-  %102 = load i16, ptr %excWord, align 2
-  %conv204 = zext i16 %102 to i32
+  %108 = load i16, ptr %excWord, align 2
+  %conv204 = zext i16 %108 to i32
   %and205 = and i32 %conv204, 256
   %cmp206 = icmp eq i32 %and205, 0
   br i1 %cmp206, label %if.then207, label %if.else218
 
 if.then207:                                       ; preds = %do.body203
-  %103 = load i16, ptr %excWord, align 2
-  %conv208 = zext i16 %103 to i32
-  %104 = load i32, ptr %idx, align 4
-  %shl209 = shl i32 1, %104
+  %109 = load i16, ptr %excWord, align 2
+  %conv208 = zext i16 %109 to i32
+  %110 = load i32, ptr %idx, align 4
+  %shl209 = shl i32 1, %110
   %sub210 = sub nsw i32 %shl209, 1
   %and211 = and i32 %conv208, %sub210
   %idxprom212 = sext i32 %and211 to i64
   %arrayidx213 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom212
-  %105 = load i8, ptr %arrayidx213, align 1
-  %conv214 = zext i8 %105 to i32
-  %106 = load ptr, ptr %pe2, align 8
+  %111 = load i8, ptr %arrayidx213, align 1
+  %conv214 = zext i8 %111 to i32
+  %112 = load ptr, ptr %pe2, align 8
   %idx.ext215 = sext i32 %conv214 to i64
-  %add.ptr216 = getelementptr inbounds i16, ptr %106, i64 %idx.ext215
+  %add.ptr216 = getelementptr inbounds i16, ptr %112, i64 %idx.ext215
   store ptr %add.ptr216, ptr %pe2, align 8
-  %107 = load ptr, ptr %pe2, align 8
-  %108 = load i16, ptr %107, align 2
-  %conv217 = zext i16 %108 to i32
+  %113 = load ptr, ptr %pe2, align 8
+  %114 = load i16, ptr %113, align 2
+  %conv217 = zext i16 %114 to i32
   store i32 %conv217, ptr %result, align 4
   br label %if.end234
 
 if.else218:                                       ; preds = %do.body203
-  %109 = load i16, ptr %excWord, align 2
-  %conv219 = zext i16 %109 to i32
-  %110 = load i32, ptr %idx, align 4
-  %shl220 = shl i32 1, %110
+  %115 = load i16, ptr %excWord, align 2
+  %conv219 = zext i16 %115 to i32
+  %116 = load i32, ptr %idx, align 4
+  %shl220 = shl i32 1, %116
   %sub221 = sub nsw i32 %shl220, 1
   %and222 = and i32 %conv219, %sub221
   %idxprom223 = sext i32 %and222 to i64
   %arrayidx224 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom223
-  %111 = load i8, ptr %arrayidx224, align 1
-  %conv225 = zext i8 %111 to i32
+  %117 = load i8, ptr %arrayidx224, align 1
+  %conv225 = zext i8 %117 to i32
   %mul226 = mul nsw i32 2, %conv225
-  %112 = load ptr, ptr %pe2, align 8
+  %118 = load ptr, ptr %pe2, align 8
   %idx.ext227 = sext i32 %mul226 to i64
-  %add.ptr228 = getelementptr inbounds i16, ptr %112, i64 %idx.ext227
+  %add.ptr228 = getelementptr inbounds i16, ptr %118, i64 %idx.ext227
   store ptr %add.ptr228, ptr %pe2, align 8
-  %113 = load ptr, ptr %pe2, align 8
-  %incdec.ptr229 = getelementptr inbounds i16, ptr %113, i32 1
+  %119 = load ptr, ptr %pe2, align 8
+  %incdec.ptr229 = getelementptr inbounds i16, ptr %119, i32 1
   store ptr %incdec.ptr229, ptr %pe2, align 8
-  %114 = load i16, ptr %113, align 2
-  %conv230 = zext i16 %114 to i32
+  %120 = load i16, ptr %119, align 2
+  %conv230 = zext i16 %120 to i32
   store i32 %conv230, ptr %result, align 4
-  %115 = load i32, ptr %result, align 4
-  %shl231 = shl i32 %115, 16
-  %116 = load ptr, ptr %pe2, align 8
-  %117 = load i16, ptr %116, align 2
-  %conv232 = zext i16 %117 to i32
+  %121 = load i32, ptr %result, align 4
+  %shl231 = shl i32 %121, 16
+  %122 = load ptr, ptr %pe2, align 8
+  %123 = load i16, ptr %122, align 2
+  %conv232 = zext i16 %123 to i32
   %or233 = or i32 %shl231, %conv232
   store i32 %or233, ptr %result, align 4
   br label %if.end234
@@ -6184,28 +6252,28 @@ do.end235:                                        ; preds = %if.end234
   br label %if.end236
 
 if.end236:                                        ; preds = %do.end235, %if.end
-  %118 = load i32, ptr %result, align 4
-  %119 = load i32, ptr %c.addr, align 4
-  %cmp237 = icmp eq i32 %118, %119
+  %124 = load i32, ptr %result, align 4
+  %125 = load i32, ptr %c.addr, align 4
+  %cmp237 = icmp eq i32 %124, %125
   br i1 %cmp237, label %cond.true238, label %cond.false240
 
 cond.true238:                                     ; preds = %if.end236
-  %120 = load i32, ptr %result, align 4
-  %not239 = xor i32 %120, -1
+  %126 = load i32, ptr %result, align 4
+  %not239 = xor i32 %126, -1
   br label %cond.end241
 
 cond.false240:                                    ; preds = %if.end236
-  %121 = load i32, ptr %result, align 4
+  %127 = load i32, ptr %result, align 4
   br label %cond.end241
 
 cond.end241:                                      ; preds = %cond.false240, %cond.true238
-  %cond242 = phi i32 [ %not239, %cond.true238 ], [ %121, %cond.false240 ]
+  %cond242 = phi i32 [ %not239, %cond.true238 ], [ %127, %cond.false240 ]
   store i32 %cond242, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %cond.end241, %if.else200, %cond.end186, %if.then139, %if.end84, %if.then67, %if.then60
-  %122 = load i32, ptr %retval, align 4
-  ret i32 %122
+  %128 = load i32, ptr %retval, align 4
+  ret i32 %128
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6243,86 +6311,91 @@ entry:
   %delta = alloca i32, align 4
   store i32 %c, ptr %c.addr, align 4
   store i32 %options, ptr %options.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 919552
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 919552
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -6341,28 +6414,28 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %and44 = and i32 %conv43, 8
   %tobool = icmp ne i32 %and44, 0
   br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end39
-  %23 = load i16, ptr %props, align 2
-  %conv45 = zext i16 %23 to i32
+  %28 = load i16, ptr %props, align 2
+  %conv45 = zext i16 %28 to i32
   %and46 = and i32 %conv45, 2
   %tobool47 = icmp ne i32 %and46, 0
   br i1 %tobool47, label %if.then48, label %if.end
 
 if.then48:                                        ; preds = %if.then
-  %24 = load i16, ptr %props, align 2
-  %conv49 = sext i16 %24 to i32
+  %29 = load i16, ptr %props, align 2
+  %conv49 = sext i16 %29 to i32
   %shr50 = ashr i32 %conv49, 7
-  %25 = load i32, ptr %c.addr, align 4
-  %add51 = add nsw i32 %25, %shr50
+  %30 = load i32, ptr %c.addr, align 4
+  %add51 = add nsw i32 %30, %shr50
   store i32 %add51, ptr %c.addr, align 4
   br label %if.end
 
@@ -6370,33 +6443,34 @@ if.end:                                           ; preds = %if.then48, %if.then
   br label %if.end169
 
 if.else:                                          ; preds = %cond.end39
-  %26 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2), align 8
-  %27 = load i16, ptr %props, align 2
-  %conv52 = zext i16 %27 to i32
+  %31 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i16, ptr %props, align 2
+  %conv52 = zext i16 %33 to i32
   %shr53 = ashr i32 %conv52, 4
   %idx.ext = sext i32 %shr53 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %26, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %32, i64 %idx.ext
   store ptr %add.ptr, ptr %pe, align 8
-  %28 = load ptr, ptr %pe, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %28, i32 1
+  %34 = load ptr, ptr %pe, align 8
+  %incdec.ptr = getelementptr inbounds i16, ptr %34, i32 1
   store ptr %incdec.ptr, ptr %pe, align 8
-  %29 = load i16, ptr %28, align 2
-  store i16 %29, ptr %excWord, align 2
-  %30 = load i16, ptr %excWord, align 2
-  %conv54 = zext i16 %30 to i32
+  %35 = load i16, ptr %34, align 2
+  store i16 %35, ptr %excWord, align 2
+  %36 = load i16, ptr %excWord, align 2
+  %conv54 = zext i16 %36 to i32
   %and55 = and i32 %conv54, 32768
   %tobool56 = icmp ne i32 %and55, 0
   br i1 %tobool56, label %if.then57, label %if.end77
 
 if.then57:                                        ; preds = %if.else
-  %31 = load i32, ptr %options.addr, align 4
-  %and58 = and i32 %31, 7
+  %37 = load i32, ptr %options.addr, align 4
+  %and58 = and i32 %37, 7
   %cmp59 = icmp eq i32 %and58, 0
   br i1 %cmp59, label %if.then60, label %if.else68
 
 if.then60:                                        ; preds = %if.then57
-  %32 = load i32, ptr %c.addr, align 4
-  %cmp61 = icmp eq i32 %32, 73
+  %38 = load i32, ptr %c.addr, align 4
+  %cmp61 = icmp eq i32 %38, 73
   br i1 %cmp61, label %if.then62, label %if.else63
 
 if.then62:                                        ; preds = %if.then60
@@ -6404,13 +6478,13 @@ if.then62:                                        ; preds = %if.then60
   br label %return
 
 if.else63:                                        ; preds = %if.then60
-  %33 = load i32, ptr %c.addr, align 4
-  %cmp64 = icmp eq i32 %33, 304
+  %39 = load i32, ptr %c.addr, align 4
+  %cmp64 = icmp eq i32 %39, 304
   br i1 %cmp64, label %if.then65, label %if.end66
 
 if.then65:                                        ; preds = %if.else63
-  %34 = load i32, ptr %c.addr, align 4
-  store i32 %34, ptr %retval, align 4
+  %40 = load i32, ptr %c.addr, align 4
+  store i32 %40, ptr %retval, align 4
   br label %return
 
 if.end66:                                         ; preds = %if.else63
@@ -6420,8 +6494,8 @@ if.end67:                                         ; preds = %if.end66
   br label %if.end76
 
 if.else68:                                        ; preds = %if.then57
-  %35 = load i32, ptr %c.addr, align 4
-  %cmp69 = icmp eq i32 %35, 73
+  %41 = load i32, ptr %c.addr, align 4
+  %cmp69 = icmp eq i32 %41, 73
   br i1 %cmp69, label %if.then70, label %if.else71
 
 if.then70:                                        ; preds = %if.else68
@@ -6429,8 +6503,8 @@ if.then70:                                        ; preds = %if.else68
   br label %return
 
 if.else71:                                        ; preds = %if.else68
-  %36 = load i32, ptr %c.addr, align 4
-  %cmp72 = icmp eq i32 %36, 304
+  %42 = load i32, ptr %c.addr, align 4
+  %cmp72 = icmp eq i32 %42, 304
   br i1 %cmp72, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %if.else71
@@ -6447,27 +6521,27 @@ if.end76:                                         ; preds = %if.end75, %if.end67
   br label %if.end77
 
 if.end77:                                         ; preds = %if.end76, %if.else
-  %37 = load i16, ptr %excWord, align 2
-  %conv78 = zext i16 %37 to i32
+  %43 = load i16, ptr %excWord, align 2
+  %conv78 = zext i16 %43 to i32
   %and79 = and i32 %conv78, 512
   %cmp80 = icmp ne i32 %and79, 0
   br i1 %cmp80, label %if.then81, label %if.end82
 
 if.then81:                                        ; preds = %if.end77
-  %38 = load i32, ptr %c.addr, align 4
-  store i32 %38, ptr %retval, align 4
+  %44 = load i32, ptr %c.addr, align 4
+  store i32 %44, ptr %retval, align 4
   br label %return
 
 if.end82:                                         ; preds = %if.end77
-  %39 = load i16, ptr %excWord, align 2
-  %conv83 = zext i16 %39 to i32
+  %45 = load i16, ptr %excWord, align 2
+  %conv83 = zext i16 %45 to i32
   %and84 = and i32 %conv83, 16
   %tobool85 = icmp ne i32 %and84, 0
   br i1 %tobool85, label %land.lhs.true, label %if.end123
 
 land.lhs.true:                                    ; preds = %if.end82
-  %40 = load i16, ptr %props, align 2
-  %conv86 = zext i16 %40 to i32
+  %46 = load i16, ptr %props, align 2
+  %conv86 = zext i16 %46 to i32
   %and87 = and i32 %conv86, 2
   %tobool88 = icmp ne i32 %and87, 0
   br i1 %tobool88, label %if.then89, label %if.end123
@@ -6476,54 +6550,54 @@ if.then89:                                        ; preds = %land.lhs.true
   br label %do.body
 
 do.body:                                          ; preds = %if.then89
-  %41 = load i16, ptr %excWord, align 2
-  %conv90 = zext i16 %41 to i32
+  %47 = load i16, ptr %excWord, align 2
+  %conv90 = zext i16 %47 to i32
   %and91 = and i32 %conv90, 256
   %cmp92 = icmp eq i32 %and91, 0
   br i1 %cmp92, label %if.then93, label %if.else102
 
 if.then93:                                        ; preds = %do.body
-  %42 = load i16, ptr %excWord, align 2
-  %conv94 = zext i16 %42 to i32
+  %48 = load i16, ptr %excWord, align 2
+  %conv94 = zext i16 %48 to i32
   %and95 = and i32 %conv94, 15
   %idxprom96 = sext i32 %and95 to i64
   %arrayidx97 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom96
-  %43 = load i8, ptr %arrayidx97, align 1
-  %conv98 = zext i8 %43 to i32
-  %44 = load ptr, ptr %pe, align 8
+  %49 = load i8, ptr %arrayidx97, align 1
+  %conv98 = zext i8 %49 to i32
+  %50 = load ptr, ptr %pe, align 8
   %idx.ext99 = sext i32 %conv98 to i64
-  %add.ptr100 = getelementptr inbounds i16, ptr %44, i64 %idx.ext99
+  %add.ptr100 = getelementptr inbounds i16, ptr %50, i64 %idx.ext99
   store ptr %add.ptr100, ptr %pe, align 8
-  %45 = load ptr, ptr %pe, align 8
-  %46 = load i16, ptr %45, align 2
-  %conv101 = zext i16 %46 to i32
+  %51 = load ptr, ptr %pe, align 8
+  %52 = load i16, ptr %51, align 2
+  %conv101 = zext i16 %52 to i32
   store i32 %conv101, ptr %delta, align 4
   br label %if.end114
 
 if.else102:                                       ; preds = %do.body
-  %47 = load i16, ptr %excWord, align 2
-  %conv103 = zext i16 %47 to i32
+  %53 = load i16, ptr %excWord, align 2
+  %conv103 = zext i16 %53 to i32
   %and104 = and i32 %conv103, 15
   %idxprom105 = sext i32 %and104 to i64
   %arrayidx106 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom105
-  %48 = load i8, ptr %arrayidx106, align 1
-  %conv107 = zext i8 %48 to i32
+  %54 = load i8, ptr %arrayidx106, align 1
+  %conv107 = zext i8 %54 to i32
   %mul = mul nsw i32 2, %conv107
-  %49 = load ptr, ptr %pe, align 8
+  %55 = load ptr, ptr %pe, align 8
   %idx.ext108 = sext i32 %mul to i64
-  %add.ptr109 = getelementptr inbounds i16, ptr %49, i64 %idx.ext108
+  %add.ptr109 = getelementptr inbounds i16, ptr %55, i64 %idx.ext108
   store ptr %add.ptr109, ptr %pe, align 8
-  %50 = load ptr, ptr %pe, align 8
-  %incdec.ptr110 = getelementptr inbounds i16, ptr %50, i32 1
+  %56 = load ptr, ptr %pe, align 8
+  %incdec.ptr110 = getelementptr inbounds i16, ptr %56, i32 1
   store ptr %incdec.ptr110, ptr %pe, align 8
-  %51 = load i16, ptr %50, align 2
-  %conv111 = zext i16 %51 to i32
+  %57 = load i16, ptr %56, align 2
+  %conv111 = zext i16 %57 to i32
   store i32 %conv111, ptr %delta, align 4
-  %52 = load i32, ptr %delta, align 4
-  %shl112 = shl i32 %52, 16
-  %53 = load ptr, ptr %pe, align 8
-  %54 = load i16, ptr %53, align 2
-  %conv113 = zext i16 %54 to i32
+  %58 = load i32, ptr %delta, align 4
+  %shl112 = shl i32 %58, 16
+  %59 = load ptr, ptr %pe, align 8
+  %60 = load i16, ptr %59, align 2
+  %conv113 = zext i16 %60 to i32
   %or = or i32 %shl112, %conv113
   store i32 %or, ptr %delta, align 4
   br label %if.end114
@@ -6532,22 +6606,22 @@ if.end114:                                        ; preds = %if.else102, %if.the
   br label %do.end
 
 do.end:                                           ; preds = %if.end114
-  %55 = load i16, ptr %excWord, align 2
-  %conv115 = zext i16 %55 to i32
+  %61 = load i16, ptr %excWord, align 2
+  %conv115 = zext i16 %61 to i32
   %and116 = and i32 %conv115, 1024
   %cmp117 = icmp eq i32 %and116, 0
   br i1 %cmp117, label %cond.true118, label %cond.false120
 
 cond.true118:                                     ; preds = %do.end
-  %56 = load i32, ptr %c.addr, align 4
-  %57 = load i32, ptr %delta, align 4
-  %add119 = add nsw i32 %56, %57
+  %62 = load i32, ptr %c.addr, align 4
+  %63 = load i32, ptr %delta, align 4
+  %add119 = add nsw i32 %62, %63
   br label %cond.end121
 
 cond.false120:                                    ; preds = %do.end
-  %58 = load i32, ptr %c.addr, align 4
-  %59 = load i32, ptr %delta, align 4
-  %sub = sub nsw i32 %58, %59
+  %64 = load i32, ptr %c.addr, align 4
+  %65 = load i32, ptr %delta, align 4
+  %sub = sub nsw i32 %64, %65
   br label %cond.end121
 
 cond.end121:                                      ; preds = %cond.false120, %cond.true118
@@ -6556,8 +6630,8 @@ cond.end121:                                      ; preds = %cond.false120, %con
   br label %return
 
 if.end123:                                        ; preds = %land.lhs.true, %if.end82
-  %60 = load i16, ptr %excWord, align 2
-  %conv124 = zext i16 %60 to i32
+  %66 = load i16, ptr %excWord, align 2
+  %conv124 = zext i16 %66 to i32
   %and125 = and i32 %conv124, 2
   %tobool126 = icmp ne i32 %and125, 0
   br i1 %tobool126, label %if.then127, label %if.else128
@@ -6567,8 +6641,8 @@ if.then127:                                       ; preds = %if.end123
   br label %if.end135
 
 if.else128:                                       ; preds = %if.end123
-  %61 = load i16, ptr %excWord, align 2
-  %conv129 = zext i16 %61 to i32
+  %67 = load i16, ptr %excWord, align 2
+  %conv129 = zext i16 %67 to i32
   %and130 = and i32 %conv129, 1
   %tobool131 = icmp ne i32 %and130, 0
   br i1 %tobool131, label %if.then132, label %if.else133
@@ -6578,8 +6652,8 @@ if.then132:                                       ; preds = %if.else128
   br label %if.end134
 
 if.else133:                                       ; preds = %if.else128
-  %62 = load i32, ptr %c.addr, align 4
-  store i32 %62, ptr %retval, align 4
+  %68 = load i32, ptr %c.addr, align 4
+  store i32 %68, ptr %retval, align 4
   br label %return
 
 if.end134:                                        ; preds = %if.then132
@@ -6589,60 +6663,60 @@ if.end135:                                        ; preds = %if.end134, %if.then
   br label %do.body136
 
 do.body136:                                       ; preds = %if.end135
-  %63 = load i16, ptr %excWord, align 2
-  %conv137 = zext i16 %63 to i32
+  %69 = load i16, ptr %excWord, align 2
+  %conv137 = zext i16 %69 to i32
   %and138 = and i32 %conv137, 256
   %cmp139 = icmp eq i32 %and138, 0
   br i1 %cmp139, label %if.then140, label %if.else151
 
 if.then140:                                       ; preds = %do.body136
-  %64 = load i16, ptr %excWord, align 2
-  %conv141 = zext i16 %64 to i32
-  %65 = load i32, ptr %idx, align 4
-  %shl142 = shl i32 1, %65
+  %70 = load i16, ptr %excWord, align 2
+  %conv141 = zext i16 %70 to i32
+  %71 = load i32, ptr %idx, align 4
+  %shl142 = shl i32 1, %71
   %sub143 = sub nsw i32 %shl142, 1
   %and144 = and i32 %conv141, %sub143
   %idxprom145 = sext i32 %and144 to i64
   %arrayidx146 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom145
-  %66 = load i8, ptr %arrayidx146, align 1
-  %conv147 = zext i8 %66 to i32
-  %67 = load ptr, ptr %pe, align 8
+  %72 = load i8, ptr %arrayidx146, align 1
+  %conv147 = zext i8 %72 to i32
+  %73 = load ptr, ptr %pe, align 8
   %idx.ext148 = sext i32 %conv147 to i64
-  %add.ptr149 = getelementptr inbounds i16, ptr %67, i64 %idx.ext148
+  %add.ptr149 = getelementptr inbounds i16, ptr %73, i64 %idx.ext148
   store ptr %add.ptr149, ptr %pe, align 8
-  %68 = load ptr, ptr %pe, align 8
-  %69 = load i16, ptr %68, align 2
-  %conv150 = zext i16 %69 to i32
+  %74 = load ptr, ptr %pe, align 8
+  %75 = load i16, ptr %74, align 2
+  %conv150 = zext i16 %75 to i32
   store i32 %conv150, ptr %c.addr, align 4
   br label %if.end167
 
 if.else151:                                       ; preds = %do.body136
-  %70 = load i16, ptr %excWord, align 2
-  %conv152 = zext i16 %70 to i32
-  %71 = load i32, ptr %idx, align 4
-  %shl153 = shl i32 1, %71
+  %76 = load i16, ptr %excWord, align 2
+  %conv152 = zext i16 %76 to i32
+  %77 = load i32, ptr %idx, align 4
+  %shl153 = shl i32 1, %77
   %sub154 = sub nsw i32 %shl153, 1
   %and155 = and i32 %conv152, %sub154
   %idxprom156 = sext i32 %and155 to i64
   %arrayidx157 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom156
-  %72 = load i8, ptr %arrayidx157, align 1
-  %conv158 = zext i8 %72 to i32
+  %78 = load i8, ptr %arrayidx157, align 1
+  %conv158 = zext i8 %78 to i32
   %mul159 = mul nsw i32 2, %conv158
-  %73 = load ptr, ptr %pe, align 8
+  %79 = load ptr, ptr %pe, align 8
   %idx.ext160 = sext i32 %mul159 to i64
-  %add.ptr161 = getelementptr inbounds i16, ptr %73, i64 %idx.ext160
+  %add.ptr161 = getelementptr inbounds i16, ptr %79, i64 %idx.ext160
   store ptr %add.ptr161, ptr %pe, align 8
-  %74 = load ptr, ptr %pe, align 8
-  %incdec.ptr162 = getelementptr inbounds i16, ptr %74, i32 1
+  %80 = load ptr, ptr %pe, align 8
+  %incdec.ptr162 = getelementptr inbounds i16, ptr %80, i32 1
   store ptr %incdec.ptr162, ptr %pe, align 8
-  %75 = load i16, ptr %74, align 2
-  %conv163 = zext i16 %75 to i32
+  %81 = load i16, ptr %80, align 2
+  %conv163 = zext i16 %81 to i32
   store i32 %conv163, ptr %c.addr, align 4
-  %76 = load i32, ptr %c.addr, align 4
-  %shl164 = shl i32 %76, 16
-  %77 = load ptr, ptr %pe, align 8
-  %78 = load i16, ptr %77, align 2
-  %conv165 = zext i16 %78 to i32
+  %82 = load i32, ptr %c.addr, align 4
+  %shl164 = shl i32 %82, 16
+  %83 = load ptr, ptr %pe, align 8
+  %84 = load i16, ptr %83, align 2
+  %conv165 = zext i16 %84 to i32
   %or166 = or i32 %shl164, %conv165
   store i32 %or166, ptr %c.addr, align 4
   br label %if.end167
@@ -6654,13 +6728,13 @@ do.end168:                                        ; preds = %if.end167
   br label %if.end169
 
 if.end169:                                        ; preds = %do.end168, %if.end
-  %79 = load i32, ptr %c.addr, align 4
-  store i32 %79, ptr %retval, align 4
+  %85 = load i32, ptr %c.addr, align 4
+  store i32 %85, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end169, %if.else133, %cond.end121, %if.then81, %if.then73, %if.then70, %if.then65, %if.then62
-  %80 = load i32, ptr %retval, align 4
-  ret i32 %80
+  %86 = load i32, ptr %retval, align 4
+  ret i32 %86
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6685,86 +6759,91 @@ entry:
   store i32 %0, ptr %result, align 4
   %1 = load ptr, ptr %pString.addr, align 8
   store ptr null, ptr %1, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %3, 55296
+  %2 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %4, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %4 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %5 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %5, 5
+  %5 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %7, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
-  %6 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %6 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %6, i64 %idxprom
+  %8 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %8 to i32
   %shl = shl i32 %conv, 2
-  %7 = load i32, ptr %c.addr, align 4
-  %and = and i32 %7, 31
+  %9 = load i32, ptr %c.addr, align 4
+  %and = and i32 %9, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %8, 65535
+  %10 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %10, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %9 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %10 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %10, 56319
+  %11 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %13, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %11 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %11, 5
+  %14 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %14, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %9, i64 %idxprom7
-  %12 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %12 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %12, i64 %idxprom7
+  %15 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %15 to i32
   %shl10 = shl i32 %conv9, 2
-  %13 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %13, 31
+  %16 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %16, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %14 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %14, 1114111
+  %17 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %17, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %15 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %15, 919552
+  %18 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %18, 919552
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %16 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4), align 8
-  %18 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %18, 11
+  %19 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %23, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %17, i64 %idxprom22
-  %19 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %19 to i32
-  %20 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %20, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %22, i64 %idxprom22
+  %24 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %24 to i32
+  %25 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %25, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %16, i64 %idxprom28
-  %21 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %21 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %20, i64 %idxprom28
+  %26 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %26 to i32
   %shl31 = shl i32 %conv30, 2
-  %22 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %22, 31
+  %27 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %27, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -6783,28 +6862,28 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %2, i64 %idxprom41
-  %23 = load i16, ptr %arrayidx42, align 2
-  store i16 %23, ptr %props, align 2
-  %24 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %24 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %3, i64 %idxprom41
+  %28 = load i16, ptr %arrayidx42, align 2
+  store i16 %28, ptr %props, align 2
+  %29 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %29 to i32
   %and44 = and i32 %conv43, 8
   %tobool = icmp ne i32 %and44, 0
   br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end39
-  %25 = load i16, ptr %props, align 2
-  %conv45 = zext i16 %25 to i32
+  %30 = load i16, ptr %props, align 2
+  %conv45 = zext i16 %30 to i32
   %and46 = and i32 %conv45, 2
   %tobool47 = icmp ne i32 %and46, 0
   br i1 %tobool47, label %if.then48, label %if.end
 
 if.then48:                                        ; preds = %if.then
-  %26 = load i32, ptr %c.addr, align 4
-  %27 = load i16, ptr %props, align 2
-  %conv49 = sext i16 %27 to i32
+  %31 = load i32, ptr %c.addr, align 4
+  %32 = load i16, ptr %props, align 2
+  %conv49 = sext i16 %32 to i32
   %shr50 = ashr i32 %conv49, 7
-  %add51 = add nsw i32 %26, %shr50
+  %add51 = add nsw i32 %31, %shr50
   store i32 %add51, ptr %result, align 4
   br label %if.end
 
@@ -6812,35 +6891,36 @@ if.end:                                           ; preds = %if.then48, %if.then
   br label %if.end214
 
 if.else:                                          ; preds = %cond.end39
-  %28 = load ptr, ptr getelementptr inbounds (%struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2), align 8
-  %29 = load i16, ptr %props, align 2
-  %conv52 = zext i16 %29 to i32
+  %33 = getelementptr inbounds %struct.UCaseProps, ptr @_ZL21ucase_props_singleton, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i16, ptr %props, align 2
+  %conv52 = zext i16 %35 to i32
   %shr53 = ashr i32 %conv52, 4
   %idx.ext = sext i32 %shr53 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %28, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %34, i64 %idx.ext
   store ptr %add.ptr, ptr %pe, align 8
-  %30 = load ptr, ptr %pe, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %30, i32 1
+  %36 = load ptr, ptr %pe, align 8
+  %incdec.ptr = getelementptr inbounds i16, ptr %36, i32 1
   store ptr %incdec.ptr, ptr %pe, align 8
-  %31 = load i16, ptr %30, align 2
-  store i16 %31, ptr %excWord, align 2
-  %32 = load ptr, ptr %pe, align 8
-  store ptr %32, ptr %pe2, align 8
-  %33 = load i16, ptr %excWord, align 2
-  %conv54 = zext i16 %33 to i32
+  %37 = load i16, ptr %36, align 2
+  store i16 %37, ptr %excWord, align 2
+  %38 = load ptr, ptr %pe, align 8
+  store ptr %38, ptr %pe2, align 8
+  %39 = load i16, ptr %excWord, align 2
+  %conv54 = zext i16 %39 to i32
   %and55 = and i32 %conv54, 32768
   %tobool56 = icmp ne i32 %and55, 0
   br i1 %tobool56, label %if.then57, label %if.else77
 
 if.then57:                                        ; preds = %if.else
-  %34 = load i32, ptr %options.addr, align 4
-  %and58 = and i32 %34, 7
+  %40 = load i32, ptr %options.addr, align 4
+  %and58 = and i32 %40, 7
   %cmp59 = icmp eq i32 %and58, 0
   br i1 %cmp59, label %if.then60, label %if.else68
 
 if.then60:                                        ; preds = %if.then57
-  %35 = load i32, ptr %c.addr, align 4
-  %cmp61 = icmp eq i32 %35, 73
+  %41 = load i32, ptr %c.addr, align 4
+  %cmp61 = icmp eq i32 %41, 73
   br i1 %cmp61, label %if.then62, label %if.else63
 
 if.then62:                                        ; preds = %if.then60
@@ -6848,13 +6928,13 @@ if.then62:                                        ; preds = %if.then60
   br label %return
 
 if.else63:                                        ; preds = %if.then60
-  %36 = load i32, ptr %c.addr, align 4
-  %cmp64 = icmp eq i32 %36, 304
+  %42 = load i32, ptr %c.addr, align 4
+  %cmp64 = icmp eq i32 %42, 304
   br i1 %cmp64, label %if.then65, label %if.end66
 
 if.then65:                                        ; preds = %if.else63
-  %37 = load ptr, ptr %pString.addr, align 8
-  store ptr @_ZL4iDot, ptr %37, align 8
+  %43 = load ptr, ptr %pString.addr, align 8
+  store ptr @_ZL4iDot, ptr %43, align 8
   store i32 2, ptr %retval, align 4
   br label %return
 
@@ -6865,8 +6945,8 @@ if.end67:                                         ; preds = %if.end66
   br label %if.end76
 
 if.else68:                                        ; preds = %if.then57
-  %38 = load i32, ptr %c.addr, align 4
-  %cmp69 = icmp eq i32 %38, 73
+  %44 = load i32, ptr %c.addr, align 4
+  %cmp69 = icmp eq i32 %44, 73
   br i1 %cmp69, label %if.then70, label %if.else71
 
 if.then70:                                        ; preds = %if.else68
@@ -6874,8 +6954,8 @@ if.then70:                                        ; preds = %if.else68
   br label %return
 
 if.else71:                                        ; preds = %if.else68
-  %39 = load i32, ptr %c.addr, align 4
-  %cmp72 = icmp eq i32 %39, 304
+  %45 = load i32, ptr %c.addr, align 4
+  %cmp72 = icmp eq i32 %45, 304
   br i1 %cmp72, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %if.else71
@@ -6892,8 +6972,8 @@ if.end76:                                         ; preds = %if.end75, %if.end67
   br label %if.end117
 
 if.else77:                                        ; preds = %if.else
-  %40 = load i16, ptr %excWord, align 2
-  %conv78 = zext i16 %40 to i32
+  %46 = load i16, ptr %excWord, align 2
+  %conv78 = zext i16 %46 to i32
   %and79 = and i32 %conv78, 128
   %tobool80 = icmp ne i32 %and79, 0
   br i1 %tobool80, label %if.then81, label %if.end116
@@ -6902,54 +6982,54 @@ if.then81:                                        ; preds = %if.else77
   br label %do.body
 
 do.body:                                          ; preds = %if.then81
-  %41 = load i16, ptr %excWord, align 2
-  %conv82 = zext i16 %41 to i32
+  %47 = load i16, ptr %excWord, align 2
+  %conv82 = zext i16 %47 to i32
   %and83 = and i32 %conv82, 256
   %cmp84 = icmp eq i32 %and83, 0
   br i1 %cmp84, label %if.then85, label %if.else94
 
 if.then85:                                        ; preds = %do.body
-  %42 = load i16, ptr %excWord, align 2
-  %conv86 = zext i16 %42 to i32
+  %48 = load i16, ptr %excWord, align 2
+  %conv86 = zext i16 %48 to i32
   %and87 = and i32 %conv86, 127
   %idxprom88 = sext i32 %and87 to i64
   %arrayidx89 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom88
-  %43 = load i8, ptr %arrayidx89, align 1
-  %conv90 = zext i8 %43 to i32
-  %44 = load ptr, ptr %pe, align 8
+  %49 = load i8, ptr %arrayidx89, align 1
+  %conv90 = zext i8 %49 to i32
+  %50 = load ptr, ptr %pe, align 8
   %idx.ext91 = sext i32 %conv90 to i64
-  %add.ptr92 = getelementptr inbounds i16, ptr %44, i64 %idx.ext91
+  %add.ptr92 = getelementptr inbounds i16, ptr %50, i64 %idx.ext91
   store ptr %add.ptr92, ptr %pe, align 8
-  %45 = load ptr, ptr %pe, align 8
-  %46 = load i16, ptr %45, align 2
-  %conv93 = zext i16 %46 to i32
+  %51 = load ptr, ptr %pe, align 8
+  %52 = load i16, ptr %51, align 2
+  %conv93 = zext i16 %52 to i32
   store i32 %conv93, ptr %full, align 4
   br label %if.end106
 
 if.else94:                                        ; preds = %do.body
-  %47 = load i16, ptr %excWord, align 2
-  %conv95 = zext i16 %47 to i32
+  %53 = load i16, ptr %excWord, align 2
+  %conv95 = zext i16 %53 to i32
   %and96 = and i32 %conv95, 127
   %idxprom97 = sext i32 %and96 to i64
   %arrayidx98 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom97
-  %48 = load i8, ptr %arrayidx98, align 1
-  %conv99 = zext i8 %48 to i32
+  %54 = load i8, ptr %arrayidx98, align 1
+  %conv99 = zext i8 %54 to i32
   %mul = mul nsw i32 2, %conv99
-  %49 = load ptr, ptr %pe, align 8
+  %55 = load ptr, ptr %pe, align 8
   %idx.ext100 = sext i32 %mul to i64
-  %add.ptr101 = getelementptr inbounds i16, ptr %49, i64 %idx.ext100
+  %add.ptr101 = getelementptr inbounds i16, ptr %55, i64 %idx.ext100
   store ptr %add.ptr101, ptr %pe, align 8
-  %50 = load ptr, ptr %pe, align 8
-  %incdec.ptr102 = getelementptr inbounds i16, ptr %50, i32 1
+  %56 = load ptr, ptr %pe, align 8
+  %incdec.ptr102 = getelementptr inbounds i16, ptr %56, i32 1
   store ptr %incdec.ptr102, ptr %pe, align 8
-  %51 = load i16, ptr %50, align 2
-  %conv103 = zext i16 %51 to i32
+  %57 = load i16, ptr %56, align 2
+  %conv103 = zext i16 %57 to i32
   store i32 %conv103, ptr %full, align 4
-  %52 = load i32, ptr %full, align 4
-  %shl104 = shl i32 %52, 16
-  %53 = load ptr, ptr %pe, align 8
-  %54 = load i16, ptr %53, align 2
-  %conv105 = zext i16 %54 to i32
+  %58 = load i32, ptr %full, align 4
+  %shl104 = shl i32 %58, 16
+  %59 = load ptr, ptr %pe, align 8
+  %60 = load i16, ptr %59, align 2
+  %conv105 = zext i16 %60 to i32
   %or = or i32 %shl104, %conv105
   store i32 %or, ptr %full, align 4
   br label %if.end106
@@ -6958,29 +7038,29 @@ if.end106:                                        ; preds = %if.else94, %if.then
   br label %do.end
 
 do.end:                                           ; preds = %if.end106
-  %55 = load ptr, ptr %pe, align 8
-  %incdec.ptr107 = getelementptr inbounds i16, ptr %55, i32 1
+  %61 = load ptr, ptr %pe, align 8
+  %incdec.ptr107 = getelementptr inbounds i16, ptr %61, i32 1
   store ptr %incdec.ptr107, ptr %pe, align 8
-  %56 = load i32, ptr %full, align 4
-  %and108 = and i32 %56, 15
-  %57 = load ptr, ptr %pe, align 8
+  %62 = load i32, ptr %full, align 4
+  %and108 = and i32 %62, 15
+  %63 = load ptr, ptr %pe, align 8
   %idx.ext109 = sext i32 %and108 to i64
-  %add.ptr110 = getelementptr inbounds i16, ptr %57, i64 %idx.ext109
+  %add.ptr110 = getelementptr inbounds i16, ptr %63, i64 %idx.ext109
   store ptr %add.ptr110, ptr %pe, align 8
-  %58 = load i32, ptr %full, align 4
-  %shr111 = ashr i32 %58, 4
+  %64 = load i32, ptr %full, align 4
+  %shr111 = ashr i32 %64, 4
   %and112 = and i32 %shr111, 15
   store i32 %and112, ptr %full, align 4
-  %59 = load i32, ptr %full, align 4
-  %cmp113 = icmp ne i32 %59, 0
+  %65 = load i32, ptr %full, align 4
+  %cmp113 = icmp ne i32 %65, 0
   br i1 %cmp113, label %if.then114, label %if.end115
 
 if.then114:                                       ; preds = %do.end
-  %60 = load ptr, ptr %pe, align 8
-  %61 = load ptr, ptr %pString.addr, align 8
-  store ptr %60, ptr %61, align 8
-  %62 = load i32, ptr %full, align 4
-  store i32 %62, ptr %retval, align 4
+  %66 = load ptr, ptr %pe, align 8
+  %67 = load ptr, ptr %pString.addr, align 8
+  store ptr %66, ptr %67, align 8
+  %68 = load i32, ptr %full, align 4
+  store i32 %68, ptr %retval, align 4
   br label %return
 
 if.end115:                                        ; preds = %do.end
@@ -6990,28 +7070,28 @@ if.end116:                                        ; preds = %if.end115, %if.else
   br label %if.end117
 
 if.end117:                                        ; preds = %if.end116, %if.end76
-  %63 = load i16, ptr %excWord, align 2
-  %conv118 = zext i16 %63 to i32
+  %69 = load i16, ptr %excWord, align 2
+  %conv118 = zext i16 %69 to i32
   %and119 = and i32 %conv118, 512
   %cmp120 = icmp ne i32 %and119, 0
   br i1 %cmp120, label %if.then121, label %if.end122
 
 if.then121:                                       ; preds = %if.end117
-  %64 = load i32, ptr %c.addr, align 4
-  %not = xor i32 %64, -1
+  %70 = load i32, ptr %c.addr, align 4
+  %not = xor i32 %70, -1
   store i32 %not, ptr %retval, align 4
   br label %return
 
 if.end122:                                        ; preds = %if.end117
-  %65 = load i16, ptr %excWord, align 2
-  %conv123 = zext i16 %65 to i32
+  %71 = load i16, ptr %excWord, align 2
+  %conv123 = zext i16 %71 to i32
   %and124 = and i32 %conv123, 16
   %tobool125 = icmp ne i32 %and124, 0
   br i1 %tobool125, label %land.lhs.true, label %if.end167
 
 land.lhs.true:                                    ; preds = %if.end122
-  %66 = load i16, ptr %props, align 2
-  %conv126 = zext i16 %66 to i32
+  %72 = load i16, ptr %props, align 2
+  %conv126 = zext i16 %72 to i32
   %and127 = and i32 %conv126, 2
   %tobool128 = icmp ne i32 %and127, 0
   br i1 %tobool128, label %if.then129, label %if.end167
@@ -7020,54 +7100,54 @@ if.then129:                                       ; preds = %land.lhs.true
   br label %do.body130
 
 do.body130:                                       ; preds = %if.then129
-  %67 = load i16, ptr %excWord, align 2
-  %conv131 = zext i16 %67 to i32
+  %73 = load i16, ptr %excWord, align 2
+  %conv131 = zext i16 %73 to i32
   %and132 = and i32 %conv131, 256
   %cmp133 = icmp eq i32 %and132, 0
   br i1 %cmp133, label %if.then134, label %if.else143
 
 if.then134:                                       ; preds = %do.body130
-  %68 = load i16, ptr %excWord, align 2
-  %conv135 = zext i16 %68 to i32
+  %74 = load i16, ptr %excWord, align 2
+  %conv135 = zext i16 %74 to i32
   %and136 = and i32 %conv135, 15
   %idxprom137 = sext i32 %and136 to i64
   %arrayidx138 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom137
-  %69 = load i8, ptr %arrayidx138, align 1
-  %conv139 = zext i8 %69 to i32
-  %70 = load ptr, ptr %pe2, align 8
+  %75 = load i8, ptr %arrayidx138, align 1
+  %conv139 = zext i8 %75 to i32
+  %76 = load ptr, ptr %pe2, align 8
   %idx.ext140 = sext i32 %conv139 to i64
-  %add.ptr141 = getelementptr inbounds i16, ptr %70, i64 %idx.ext140
+  %add.ptr141 = getelementptr inbounds i16, ptr %76, i64 %idx.ext140
   store ptr %add.ptr141, ptr %pe2, align 8
-  %71 = load ptr, ptr %pe2, align 8
-  %72 = load i16, ptr %71, align 2
-  %conv142 = zext i16 %72 to i32
+  %77 = load ptr, ptr %pe2, align 8
+  %78 = load i16, ptr %77, align 2
+  %conv142 = zext i16 %78 to i32
   store i32 %conv142, ptr %delta, align 4
   br label %if.end157
 
 if.else143:                                       ; preds = %do.body130
-  %73 = load i16, ptr %excWord, align 2
-  %conv144 = zext i16 %73 to i32
+  %79 = load i16, ptr %excWord, align 2
+  %conv144 = zext i16 %79 to i32
   %and145 = and i32 %conv144, 15
   %idxprom146 = sext i32 %and145 to i64
   %arrayidx147 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom146
-  %74 = load i8, ptr %arrayidx147, align 1
-  %conv148 = zext i8 %74 to i32
+  %80 = load i8, ptr %arrayidx147, align 1
+  %conv148 = zext i8 %80 to i32
   %mul149 = mul nsw i32 2, %conv148
-  %75 = load ptr, ptr %pe2, align 8
+  %81 = load ptr, ptr %pe2, align 8
   %idx.ext150 = sext i32 %mul149 to i64
-  %add.ptr151 = getelementptr inbounds i16, ptr %75, i64 %idx.ext150
+  %add.ptr151 = getelementptr inbounds i16, ptr %81, i64 %idx.ext150
   store ptr %add.ptr151, ptr %pe2, align 8
-  %76 = load ptr, ptr %pe2, align 8
-  %incdec.ptr152 = getelementptr inbounds i16, ptr %76, i32 1
+  %82 = load ptr, ptr %pe2, align 8
+  %incdec.ptr152 = getelementptr inbounds i16, ptr %82, i32 1
   store ptr %incdec.ptr152, ptr %pe2, align 8
-  %77 = load i16, ptr %76, align 2
-  %conv153 = zext i16 %77 to i32
+  %83 = load i16, ptr %82, align 2
+  %conv153 = zext i16 %83 to i32
   store i32 %conv153, ptr %delta, align 4
-  %78 = load i32, ptr %delta, align 4
-  %shl154 = shl i32 %78, 16
-  %79 = load ptr, ptr %pe2, align 8
-  %80 = load i16, ptr %79, align 2
-  %conv155 = zext i16 %80 to i32
+  %84 = load i32, ptr %delta, align 4
+  %shl154 = shl i32 %84, 16
+  %85 = load ptr, ptr %pe2, align 8
+  %86 = load i16, ptr %85, align 2
+  %conv155 = zext i16 %86 to i32
   %or156 = or i32 %shl154, %conv155
   store i32 %or156, ptr %delta, align 4
   br label %if.end157
@@ -7076,22 +7156,22 @@ if.end157:                                        ; preds = %if.else143, %if.the
   br label %do.end158
 
 do.end158:                                        ; preds = %if.end157
-  %81 = load i16, ptr %excWord, align 2
-  %conv159 = zext i16 %81 to i32
+  %87 = load i16, ptr %excWord, align 2
+  %conv159 = zext i16 %87 to i32
   %and160 = and i32 %conv159, 1024
   %cmp161 = icmp eq i32 %and160, 0
   br i1 %cmp161, label %cond.true162, label %cond.false164
 
 cond.true162:                                     ; preds = %do.end158
-  %82 = load i32, ptr %c.addr, align 4
-  %83 = load i32, ptr %delta, align 4
-  %add163 = add nsw i32 %82, %83
+  %88 = load i32, ptr %c.addr, align 4
+  %89 = load i32, ptr %delta, align 4
+  %add163 = add nsw i32 %88, %89
   br label %cond.end165
 
 cond.false164:                                    ; preds = %do.end158
-  %84 = load i32, ptr %c.addr, align 4
-  %85 = load i32, ptr %delta, align 4
-  %sub = sub nsw i32 %84, %85
+  %90 = load i32, ptr %c.addr, align 4
+  %91 = load i32, ptr %delta, align 4
+  %sub = sub nsw i32 %90, %91
   br label %cond.end165
 
 cond.end165:                                      ; preds = %cond.false164, %cond.true162
@@ -7100,8 +7180,8 @@ cond.end165:                                      ; preds = %cond.false164, %con
   br label %return
 
 if.end167:                                        ; preds = %land.lhs.true, %if.end122
-  %86 = load i16, ptr %excWord, align 2
-  %conv168 = zext i16 %86 to i32
+  %92 = load i16, ptr %excWord, align 2
+  %conv168 = zext i16 %92 to i32
   %and169 = and i32 %conv168, 2
   %tobool170 = icmp ne i32 %and169, 0
   br i1 %tobool170, label %if.then171, label %if.else172
@@ -7111,8 +7191,8 @@ if.then171:                                       ; preds = %if.end167
   br label %if.end180
 
 if.else172:                                       ; preds = %if.end167
-  %87 = load i16, ptr %excWord, align 2
-  %conv173 = zext i16 %87 to i32
+  %93 = load i16, ptr %excWord, align 2
+  %conv173 = zext i16 %93 to i32
   %and174 = and i32 %conv173, 1
   %tobool175 = icmp ne i32 %and174, 0
   br i1 %tobool175, label %if.then176, label %if.else177
@@ -7122,8 +7202,8 @@ if.then176:                                       ; preds = %if.else172
   br label %if.end179
 
 if.else177:                                       ; preds = %if.else172
-  %88 = load i32, ptr %c.addr, align 4
-  %not178 = xor i32 %88, -1
+  %94 = load i32, ptr %c.addr, align 4
+  %not178 = xor i32 %94, -1
   store i32 %not178, ptr %retval, align 4
   br label %return
 
@@ -7134,60 +7214,60 @@ if.end180:                                        ; preds = %if.end179, %if.then
   br label %do.body181
 
 do.body181:                                       ; preds = %if.end180
-  %89 = load i16, ptr %excWord, align 2
-  %conv182 = zext i16 %89 to i32
+  %95 = load i16, ptr %excWord, align 2
+  %conv182 = zext i16 %95 to i32
   %and183 = and i32 %conv182, 256
   %cmp184 = icmp eq i32 %and183, 0
   br i1 %cmp184, label %if.then185, label %if.else196
 
 if.then185:                                       ; preds = %do.body181
-  %90 = load i16, ptr %excWord, align 2
-  %conv186 = zext i16 %90 to i32
-  %91 = load i32, ptr %idx, align 4
-  %shl187 = shl i32 1, %91
+  %96 = load i16, ptr %excWord, align 2
+  %conv186 = zext i16 %96 to i32
+  %97 = load i32, ptr %idx, align 4
+  %shl187 = shl i32 1, %97
   %sub188 = sub nsw i32 %shl187, 1
   %and189 = and i32 %conv186, %sub188
   %idxprom190 = sext i32 %and189 to i64
   %arrayidx191 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom190
-  %92 = load i8, ptr %arrayidx191, align 1
-  %conv192 = zext i8 %92 to i32
-  %93 = load ptr, ptr %pe2, align 8
+  %98 = load i8, ptr %arrayidx191, align 1
+  %conv192 = zext i8 %98 to i32
+  %99 = load ptr, ptr %pe2, align 8
   %idx.ext193 = sext i32 %conv192 to i64
-  %add.ptr194 = getelementptr inbounds i16, ptr %93, i64 %idx.ext193
+  %add.ptr194 = getelementptr inbounds i16, ptr %99, i64 %idx.ext193
   store ptr %add.ptr194, ptr %pe2, align 8
-  %94 = load ptr, ptr %pe2, align 8
-  %95 = load i16, ptr %94, align 2
-  %conv195 = zext i16 %95 to i32
+  %100 = load ptr, ptr %pe2, align 8
+  %101 = load i16, ptr %100, align 2
+  %conv195 = zext i16 %101 to i32
   store i32 %conv195, ptr %result, align 4
   br label %if.end212
 
 if.else196:                                       ; preds = %do.body181
-  %96 = load i16, ptr %excWord, align 2
-  %conv197 = zext i16 %96 to i32
-  %97 = load i32, ptr %idx, align 4
-  %shl198 = shl i32 1, %97
+  %102 = load i16, ptr %excWord, align 2
+  %conv197 = zext i16 %102 to i32
+  %103 = load i32, ptr %idx, align 4
+  %shl198 = shl i32 1, %103
   %sub199 = sub nsw i32 %shl198, 1
   %and200 = and i32 %conv197, %sub199
   %idxprom201 = sext i32 %and200 to i64
   %arrayidx202 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom201
-  %98 = load i8, ptr %arrayidx202, align 1
-  %conv203 = zext i8 %98 to i32
+  %104 = load i8, ptr %arrayidx202, align 1
+  %conv203 = zext i8 %104 to i32
   %mul204 = mul nsw i32 2, %conv203
-  %99 = load ptr, ptr %pe2, align 8
+  %105 = load ptr, ptr %pe2, align 8
   %idx.ext205 = sext i32 %mul204 to i64
-  %add.ptr206 = getelementptr inbounds i16, ptr %99, i64 %idx.ext205
+  %add.ptr206 = getelementptr inbounds i16, ptr %105, i64 %idx.ext205
   store ptr %add.ptr206, ptr %pe2, align 8
-  %100 = load ptr, ptr %pe2, align 8
-  %incdec.ptr207 = getelementptr inbounds i16, ptr %100, i32 1
+  %106 = load ptr, ptr %pe2, align 8
+  %incdec.ptr207 = getelementptr inbounds i16, ptr %106, i32 1
   store ptr %incdec.ptr207, ptr %pe2, align 8
-  %101 = load i16, ptr %100, align 2
-  %conv208 = zext i16 %101 to i32
+  %107 = load i16, ptr %106, align 2
+  %conv208 = zext i16 %107 to i32
   store i32 %conv208, ptr %result, align 4
-  %102 = load i32, ptr %result, align 4
-  %shl209 = shl i32 %102, 16
-  %103 = load ptr, ptr %pe2, align 8
-  %104 = load i16, ptr %103, align 2
-  %conv210 = zext i16 %104 to i32
+  %108 = load i32, ptr %result, align 4
+  %shl209 = shl i32 %108, 16
+  %109 = load ptr, ptr %pe2, align 8
+  %110 = load i16, ptr %109, align 2
+  %conv210 = zext i16 %110 to i32
   %or211 = or i32 %shl209, %conv210
   store i32 %or211, ptr %result, align 4
   br label %if.end212
@@ -7199,28 +7279,28 @@ do.end213:                                        ; preds = %if.end212
   br label %if.end214
 
 if.end214:                                        ; preds = %do.end213, %if.end
-  %105 = load i32, ptr %result, align 4
-  %106 = load i32, ptr %c.addr, align 4
-  %cmp215 = icmp eq i32 %105, %106
+  %111 = load i32, ptr %result, align 4
+  %112 = load i32, ptr %c.addr, align 4
+  %cmp215 = icmp eq i32 %111, %112
   br i1 %cmp215, label %cond.true216, label %cond.false218
 
 cond.true216:                                     ; preds = %if.end214
-  %107 = load i32, ptr %result, align 4
-  %not217 = xor i32 %107, -1
+  %113 = load i32, ptr %result, align 4
+  %not217 = xor i32 %113, -1
   br label %cond.end219
 
 cond.false218:                                    ; preds = %if.end214
-  %108 = load i32, ptr %result, align 4
+  %114 = load i32, ptr %result, align 4
   br label %cond.end219
 
 cond.end219:                                      ; preds = %cond.false218, %cond.true216
-  %cond220 = phi i32 [ %not217, %cond.true216 ], [ %108, %cond.false218 ]
+  %cond220 = phi i32 [ %not217, %cond.true216 ], [ %114, %cond.false218 ]
   store i32 %cond220, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %cond.end219, %if.else177, %cond.end165, %if.then121, %if.then114, %if.then73, %if.then70, %if.then65, %if.then62
-  %109 = load i32, ptr %retval, align 4
-  ret i32 %109
+  %115 = load i32, ptr %retval, align 4
+  ret i32 %115
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

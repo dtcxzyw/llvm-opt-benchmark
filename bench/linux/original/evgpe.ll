@@ -778,7 +778,7 @@ define internal void @acpi_ev_asynch_execute_gpe_method(ptr noundef %0) #0 align
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 7
-  switch i8 %5, label %39 [
+  switch i8 %5, label %40 [
     i8 3, label %6
     i8 1, label %18
   ]
@@ -786,7 +786,7 @@ define internal void @acpi_ev_asynch_execute_gpe_method(ptr noundef %0) #0 align
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %36, label %9
+  br i1 %8, label %37, label %9
 
 9:                                                ; preds = %9, %6
   %10 = phi ptr [ %14, %9 ], [ %7, %6 ]
@@ -797,7 +797,7 @@ define internal void @acpi_ev_asynch_execute_gpe_method(ptr noundef %0) #0 align
   %15 = icmp eq i32 %12, 0
   %16 = icmp ne ptr %14, null
   %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %9, label %36, !llvm.loop !13
+  br i1 %17, label %9, label %37, !llvm.loop !13
 
 18:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
@@ -808,61 +808,62 @@ define internal void @acpi_ev_asynch_execute_gpe_method(ptr noundef %0) #0 align
   %20 = and i64 %19, 512
   %21 = icmp eq i64 %20, 0
   %22 = select i1 %21, i32 2336, i32 3520
-  %23 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %24 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %23, i32 noundef %22, i64 noundef 88) #6
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %30, label %26
+  %23 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %24, i32 noundef %22, i64 noundef 88) #6
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %31, label %27
 
-26:                                               ; preds = %18
-  %27 = load ptr, ptr %0, align 8
-  store ptr %27, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 86
-  store i8 1, ptr %28, align 2
-  %29 = call i32 @acpi_ns_evaluate(ptr noundef nonnull %24) #5
-  call void @kfree(ptr noundef nonnull %24) #5
-  br label %30
+27:                                               ; preds = %18
+  %28 = load ptr, ptr %0, align 8
+  store ptr %28, ptr %25, align 8
+  %29 = getelementptr inbounds i8, ptr %25, i64 86
+  store i8 1, ptr %29, align 2
+  %30 = call i32 @acpi_ns_evaluate(ptr noundef nonnull %25) #5
+  call void @kfree(ptr noundef nonnull %25) #5
+  br label %31
 
-30:                                               ; preds = %26, %18
-  %31 = phi i32 [ %29, %26 ], [ 4, %18 ]
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %36, label %33
+31:                                               ; preds = %27, %18
+  %32 = phi i32 [ %30, %27 ], [ 4, %18 ]
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %37, label %34
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %0, align 8
-  %35 = call ptr @acpi_ut_get_node_name(ptr noundef %34) #5
-  call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 511, i32 noundef %31, ptr noundef nonnull @.str.4, ptr noundef %35) #5
-  br label %36
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %0, align 8
+  %36 = call ptr @acpi_ut_get_node_name(ptr noundef %35) #5
+  call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 511, i32 noundef %32, ptr noundef nonnull @.str.4, ptr noundef %36) #5
+  br label %37
 
-36:                                               ; preds = %33, %30, %9, %6
-  %37 = call i32 @acpi_os_execute(i32 noundef 1, ptr noundef nonnull @acpi_ev_asynch_enable_gpe, ptr noundef %0) #5
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %53, label %39
+37:                                               ; preds = %34, %31, %9, %6
+  %38 = call i32 @acpi_os_execute(i32 noundef 1, ptr noundef nonnull @acpi_ev_asynch_enable_gpe, ptr noundef %0) #5
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %54, label %40
 
-39:                                               ; preds = %36, %1
-  %40 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  %41 = call i64 @acpi_os_acquire_lock(ptr noundef %40) #5
-  %42 = load i8, ptr %3, align 8
-  %43 = and i8 %42, 8
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %48, label %45
+40:                                               ; preds = %37, %1
+  %41 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  %42 = call i64 @acpi_os_acquire_lock(ptr noundef %41) #5
+  %43 = load i8, ptr %3, align 8
+  %44 = and i8 %43, 8
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %49, label %46
 
-45:                                               ; preds = %39
-  %46 = call i32 @acpi_hw_clear_gpe(ptr noundef %0) #5
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %51
+46:                                               ; preds = %40
+  %47 = call i32 @acpi_hw_clear_gpe(ptr noundef %0) #5
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %52
 
-48:                                               ; preds = %45, %39
-  %49 = call i32 @acpi_hw_low_set_gpe(ptr noundef %0, i32 noundef 2) #5
-  %50 = getelementptr inbounds i8, ptr %0, i64 19
-  store i8 0, ptr %50, align 1
-  br label %51
+49:                                               ; preds = %46, %40
+  %50 = call i32 @acpi_hw_low_set_gpe(ptr noundef %0, i32 noundef 2) #5
+  %51 = getelementptr inbounds i8, ptr %0, i64 19
+  store i8 0, ptr %51, align 1
+  br label %52
 
-51:                                               ; preds = %48, %45
-  %52 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  call void @acpi_os_release_lock(ptr noundef %52, i64 noundef %41) #5
-  br label %53
+52:                                               ; preds = %49, %46
+  %53 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  call void @acpi_os_release_lock(ptr noundef %53, i64 noundef %42) #5
+  br label %54
 
-53:                                               ; preds = %51, %36
+54:                                               ; preds = %52, %37
   ret void
 }
 

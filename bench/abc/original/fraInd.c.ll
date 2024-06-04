@@ -2253,7 +2253,7 @@ define ptr @Fra_FraigInduction(ptr noundef %0, ptr noundef %1) #0 {
   %52 = load ptr, ptr %4, align 8
   %53 = call ptr @Aig_ManDupOrdered(ptr noundef %52)
   store ptr %53, ptr %3, align 8
-  br label %837
+  br label %838
 
 54:                                               ; preds = %40
   %55 = load ptr, ptr %5, align 8
@@ -2312,7 +2312,7 @@ define ptr @Fra_FraigInduction(ptr noundef %0, ptr noundef %1) #0 {
   %93 = load ptr, ptr %5, align 8
   %94 = call ptr @Fra_FraigInductionPart(ptr noundef %92, ptr noundef %93)
   store ptr %94, ptr %3, align 8
-  br label %837
+  br label %838
 
 95:                                               ; preds = %85, %80
   %96 = load ptr, ptr %4, align 8
@@ -2572,7 +2572,7 @@ define ptr @Fra_FraigInduction(ptr noundef %0, ptr noundef %1) #0 {
   br label %292
 
 292:                                              ; preds = %290, %285
-  br label %831
+  br label %832
 
 293:                                              ; preds = %281, %275
   %294 = load ptr, ptr %8, align 8
@@ -2607,14 +2607,14 @@ define ptr @Fra_FraigInduction(ptr noundef %0, ptr noundef %1) #0 {
   store i32 0, ptr %16, align 4
   br label %318
 
-318:                                              ; preds = %748, %293
+318:                                              ; preds = %749, %293
   %319 = load ptr, ptr %8, align 8
   %320 = getelementptr inbounds %struct.Fra_Man_t_, ptr %319, i32 0, i32 6
   %321 = load ptr, ptr %320, align 8
   %322 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %321, i32 0, i32 10
   %323 = load i32, ptr %322, align 4
   %324 = icmp ne i32 %323, 0
-  br i1 %324, label %325, label %751
+  br i1 %324, label %325, label %752
 
 325:                                              ; preds = %318
   %326 = load ptr, ptr %8, align 8
@@ -2692,7 +2692,7 @@ define ptr @Fra_FraigInduction(ptr noundef %0, ptr noundef %1) #0 {
   br label %376
 
 376:                                              ; preds = %374, %369
-  br label %831
+  br label %832
 
 377:                                              ; preds = %365, %357
   %378 = load ptr, ptr %8, align 8
@@ -2886,7 +2886,7 @@ define ptr @Fra_FraigInduction(ptr noundef %0, ptr noundef %1) #0 {
   store i32 0, ptr %17, align 4
   br label %509
 
-509:                                              ; preds = %557, %498
+509:                                              ; preds = %558, %498
   %510 = load i32, ptr %17, align 4
   %511 = load ptr, ptr %8, align 8
   %512 = getelementptr inbounds %struct.Fra_Man_t_, ptr %511, i32 0, i32 2
@@ -2910,7 +2910,7 @@ define ptr @Fra_FraigInduction(ptr noundef %0, ptr noundef %1) #0 {
 
 526:                                              ; preds = %518, %509
   %527 = phi i1 [ false, %509 ], [ true, %518 ]
-  br i1 %527, label %528, label %560
+  br i1 %527, label %528, label %561
 
 528:                                              ; preds = %526
   %529 = load ptr, ptr %11, align 8
@@ -2918,7 +2918,7 @@ define ptr @Fra_FraigInduction(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %530, label %531, label %532
 
 531:                                              ; preds = %528
-  br label %556
+  br label %557
 
 532:                                              ; preds = %528
   %533 = load ptr, ptr %12, align 8
@@ -2934,7 +2934,7 @@ define ptr @Fra_FraigInduction(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %542, label %543, label %544
 
 543:                                              ; preds = %532
-  br label %557
+  br label %558
 
 544:                                              ; preds = %532
   %545 = load ptr, ptr %11, align 8
@@ -2949,398 +2949,399 @@ define ptr @Fra_FraigInduction(ptr noundef %0, ptr noundef %1) #0 {
   %554 = load i32, ptr %553, align 4
   call void @Fra_ObjSetSatNum(ptr noundef %545, i32 noundef %554)
   %555 = load ptr, ptr %11, align 8
-  call void @Fra_ObjSetFaninVec(ptr noundef %555, ptr noundef inttoptr (i64 1 to ptr))
-  br label %556
-
-556:                                              ; preds = %544, %531
+  %556 = inttoptr i64 1 to ptr
+  call void @Fra_ObjSetFaninVec(ptr noundef %555, ptr noundef %556)
   br label %557
 
-557:                                              ; preds = %556, %543
-  %558 = load i32, ptr %17, align 4
-  %559 = add nsw i32 %558, 1
-  store i32 %559, ptr %17, align 4
+557:                                              ; preds = %544, %531
+  br label %558
+
+558:                                              ; preds = %557, %543
+  %559 = load i32, ptr %17, align 4
+  %560 = add nsw i32 %559, 1
+  store i32 %560, ptr %17, align 4
   br label %509, !llvm.loop !27
 
-560:                                              ; preds = %526
-  %561 = load ptr, ptr %12, align 8
-  call void @Cnf_DataFree(ptr noundef %561)
-  %562 = load ptr, ptr %8, align 8
-  %563 = getelementptr inbounds %struct.Fra_Man_t_, ptr %562, i32 0, i32 0
-  %564 = load ptr, ptr %563, align 8
-  %565 = getelementptr inbounds %struct.Fra_Par_t_, ptr %564, i32 0, i32 22
-  %566 = load i32, ptr %565, align 8
-  %567 = icmp ne i32 %566, 0
-  br i1 %567, label %568, label %573
+561:                                              ; preds = %526
+  %562 = load ptr, ptr %12, align 8
+  call void @Cnf_DataFree(ptr noundef %562)
+  %563 = load ptr, ptr %8, align 8
+  %564 = getelementptr inbounds %struct.Fra_Man_t_, ptr %563, i32 0, i32 0
+  %565 = load ptr, ptr %564, align 8
+  %566 = getelementptr inbounds %struct.Fra_Par_t_, ptr %565, i32 0, i32 22
+  %567 = load i32, ptr %566, align 8
+  %568 = icmp ne i32 %567, 0
+  br i1 %568, label %569, label %574
 
-568:                                              ; preds = %560
-  %569 = load ptr, ptr %8, align 8
+569:                                              ; preds = %561
   %570 = load ptr, ptr %8, align 8
-  %571 = getelementptr inbounds %struct.Fra_Man_t_, ptr %570, i32 0, i32 12
-  %572 = load ptr, ptr %571, align 8
-  call void @Fra_OneHotAssume(ptr noundef %569, ptr noundef %572)
-  br label %573
+  %571 = load ptr, ptr %8, align 8
+  %572 = getelementptr inbounds %struct.Fra_Man_t_, ptr %571, i32 0, i32 12
+  %573 = load ptr, ptr %572, align 8
+  call void @Fra_OneHotAssume(ptr noundef %570, ptr noundef %573)
+  br label %574
 
-573:                                              ; preds = %568, %560
-  %574 = load ptr, ptr %10, align 8
-  %575 = getelementptr inbounds %struct.Fra_Par_t_, ptr %574, i32 0, i32 9
-  %576 = load i32, ptr %575, align 4
-  %577 = icmp ne i32 %576, 0
-  br i1 %577, label %578, label %636
+574:                                              ; preds = %569, %561
+  %575 = load ptr, ptr %10, align 8
+  %576 = getelementptr inbounds %struct.Fra_Par_t_, ptr %575, i32 0, i32 9
+  %577 = load i32, ptr %576, align 4
+  %578 = icmp ne i32 %577, 0
+  br i1 %578, label %579, label %637
 
-578:                                              ; preds = %573
-  %579 = load i32, ptr %16, align 4
-  %580 = load ptr, ptr %8, align 8
-  %581 = getelementptr inbounds %struct.Fra_Man_t_, ptr %580, i32 0, i32 6
-  %582 = load ptr, ptr %581, align 8
-  %583 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %582, i32 0, i32 3
-  %584 = load ptr, ptr %583, align 8
-  %585 = call i32 @Vec_PtrSize(ptr noundef %584)
-  %586 = load ptr, ptr %8, align 8
-  %587 = getelementptr inbounds %struct.Fra_Man_t_, ptr %586, i32 0, i32 6
-  %588 = load ptr, ptr %587, align 8
-  %589 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %588, i32 0, i32 2
-  %590 = load ptr, ptr %589, align 8
-  %591 = call i32 @Vec_PtrSize(ptr noundef %590)
-  %592 = load ptr, ptr %8, align 8
-  %593 = getelementptr inbounds %struct.Fra_Man_t_, ptr %592, i32 0, i32 6
-  %594 = load ptr, ptr %593, align 8
-  %595 = call i32 @Fra_ClassesCountLits(ptr noundef %594)
-  %596 = load ptr, ptr %8, align 8
-  %597 = getelementptr inbounds %struct.Fra_Man_t_, ptr %596, i32 0, i32 2
-  %598 = load ptr, ptr %597, align 8
-  %599 = getelementptr inbounds %struct.Aig_Man_t_, ptr %598, i32 0, i32 11
-  %600 = load i32, ptr %599, align 4
-  %601 = call i32 (ptr, ...) @printf(ptr noundef @.str.14, i32 noundef %579, i32 noundef %585, i32 noundef %591, i32 noundef %595, i32 noundef %600)
-  %602 = load ptr, ptr %8, align 8
-  %603 = getelementptr inbounds %struct.Fra_Man_t_, ptr %602, i32 0, i32 6
-  %604 = load ptr, ptr %603, align 8
-  %605 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %604, i32 0, i32 11
-  %606 = load ptr, ptr %605, align 8
-  %607 = icmp ne ptr %606, null
-  br i1 %607, label %608, label %616
+579:                                              ; preds = %574
+  %580 = load i32, ptr %16, align 4
+  %581 = load ptr, ptr %8, align 8
+  %582 = getelementptr inbounds %struct.Fra_Man_t_, ptr %581, i32 0, i32 6
+  %583 = load ptr, ptr %582, align 8
+  %584 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %583, i32 0, i32 3
+  %585 = load ptr, ptr %584, align 8
+  %586 = call i32 @Vec_PtrSize(ptr noundef %585)
+  %587 = load ptr, ptr %8, align 8
+  %588 = getelementptr inbounds %struct.Fra_Man_t_, ptr %587, i32 0, i32 6
+  %589 = load ptr, ptr %588, align 8
+  %590 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %589, i32 0, i32 2
+  %591 = load ptr, ptr %590, align 8
+  %592 = call i32 @Vec_PtrSize(ptr noundef %591)
+  %593 = load ptr, ptr %8, align 8
+  %594 = getelementptr inbounds %struct.Fra_Man_t_, ptr %593, i32 0, i32 6
+  %595 = load ptr, ptr %594, align 8
+  %596 = call i32 @Fra_ClassesCountLits(ptr noundef %595)
+  %597 = load ptr, ptr %8, align 8
+  %598 = getelementptr inbounds %struct.Fra_Man_t_, ptr %597, i32 0, i32 2
+  %599 = load ptr, ptr %598, align 8
+  %600 = getelementptr inbounds %struct.Aig_Man_t_, ptr %599, i32 0, i32 11
+  %601 = load i32, ptr %600, align 4
+  %602 = call i32 (ptr, ...) @printf(ptr noundef @.str.14, i32 noundef %580, i32 noundef %586, i32 noundef %592, i32 noundef %596, i32 noundef %601)
+  %603 = load ptr, ptr %8, align 8
+  %604 = getelementptr inbounds %struct.Fra_Man_t_, ptr %603, i32 0, i32 6
+  %605 = load ptr, ptr %604, align 8
+  %606 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %605, i32 0, i32 11
+  %607 = load ptr, ptr %606, align 8
+  %608 = icmp ne ptr %607, null
+  br i1 %608, label %609, label %617
 
-608:                                              ; preds = %578
-  %609 = load ptr, ptr %8, align 8
-  %610 = getelementptr inbounds %struct.Fra_Man_t_, ptr %609, i32 0, i32 6
-  %611 = load ptr, ptr %610, align 8
-  %612 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %611, i32 0, i32 11
-  %613 = load ptr, ptr %612, align 8
-  %614 = call i32 @Vec_IntSize(ptr noundef %613)
-  %615 = call i32 (ptr, ...) @printf(ptr noundef @.str.15, i32 noundef %614)
-  br label %616
+609:                                              ; preds = %579
+  %610 = load ptr, ptr %8, align 8
+  %611 = getelementptr inbounds %struct.Fra_Man_t_, ptr %610, i32 0, i32 6
+  %612 = load ptr, ptr %611, align 8
+  %613 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %612, i32 0, i32 11
+  %614 = load ptr, ptr %613, align 8
+  %615 = call i32 @Vec_IntSize(ptr noundef %614)
+  %616 = call i32 (ptr, ...) @printf(ptr noundef @.str.15, i32 noundef %615)
+  br label %617
 
-616:                                              ; preds = %608, %578
-  %617 = load ptr, ptr %8, align 8
-  %618 = getelementptr inbounds %struct.Fra_Man_t_, ptr %617, i32 0, i32 0
-  %619 = load ptr, ptr %618, align 8
-  %620 = getelementptr inbounds %struct.Fra_Par_t_, ptr %619, i32 0, i32 22
-  %621 = load i32, ptr %620, align 8
-  %622 = icmp ne i32 %621, 0
-  br i1 %622, label %623, label %630
+617:                                              ; preds = %609, %579
+  %618 = load ptr, ptr %8, align 8
+  %619 = getelementptr inbounds %struct.Fra_Man_t_, ptr %618, i32 0, i32 0
+  %620 = load ptr, ptr %619, align 8
+  %621 = getelementptr inbounds %struct.Fra_Par_t_, ptr %620, i32 0, i32 22
+  %622 = load i32, ptr %621, align 8
+  %623 = icmp ne i32 %622, 0
+  br i1 %623, label %624, label %631
 
-623:                                              ; preds = %616
-  %624 = load ptr, ptr %8, align 8
+624:                                              ; preds = %617
   %625 = load ptr, ptr %8, align 8
-  %626 = getelementptr inbounds %struct.Fra_Man_t_, ptr %625, i32 0, i32 12
-  %627 = load ptr, ptr %626, align 8
-  %628 = call i32 @Fra_OneHotCount(ptr noundef %624, ptr noundef %627)
-  %629 = call i32 (ptr, ...) @printf(ptr noundef @.str.16, i32 noundef %628)
-  br label %630
+  %626 = load ptr, ptr %8, align 8
+  %627 = getelementptr inbounds %struct.Fra_Man_t_, ptr %626, i32 0, i32 12
+  %628 = load ptr, ptr %627, align 8
+  %629 = call i32 @Fra_OneHotCount(ptr noundef %625, ptr noundef %628)
+  %630 = call i32 (ptr, ...) @printf(ptr noundef @.str.16, i32 noundef %629)
+  br label %631
 
-630:                                              ; preds = %623, %616
-  %631 = load ptr, ptr %8, align 8
-  %632 = getelementptr inbounds %struct.Fra_Man_t_, ptr %631, i32 0, i32 2
-  %633 = load ptr, ptr %632, align 8
-  %634 = call i32 @Aig_ManNodeNum(ptr noundef %633)
-  %635 = call i32 (ptr, ...) @printf(ptr noundef @.str.17, i32 noundef %634)
-  br label %636
+631:                                              ; preds = %624, %617
+  %632 = load ptr, ptr %8, align 8
+  %633 = getelementptr inbounds %struct.Fra_Man_t_, ptr %632, i32 0, i32 2
+  %634 = load ptr, ptr %633, align 8
+  %635 = call i32 @Aig_ManNodeNum(ptr noundef %634)
+  %636 = call i32 (ptr, ...) @printf(ptr noundef @.str.17, i32 noundef %635)
+  br label %637
 
-636:                                              ; preds = %630, %573
-  %637 = load ptr, ptr %8, align 8
-  %638 = getelementptr inbounds %struct.Fra_Man_t_, ptr %637, i32 0, i32 39
-  store i32 0, ptr %638, align 4
-  %639 = load ptr, ptr %8, align 8
-  %640 = getelementptr inbounds %struct.Fra_Man_t_, ptr %639, i32 0, i32 40
-  store i32 0, ptr %640, align 8
-  %641 = call i64 @Abc_Clock()
-  store i64 %641, ptr %19, align 8
-  %642 = load ptr, ptr %8, align 8
-  %643 = getelementptr inbounds %struct.Fra_Man_t_, ptr %642, i32 0, i32 0
-  %644 = load ptr, ptr %643, align 8
-  %645 = getelementptr inbounds %struct.Fra_Par_t_, ptr %644, i32 0, i32 22
-  %646 = load i32, ptr %645, align 8
-  %647 = icmp ne i32 %646, 0
-  br i1 %647, label %648, label %653
+637:                                              ; preds = %631, %574
+  %638 = load ptr, ptr %8, align 8
+  %639 = getelementptr inbounds %struct.Fra_Man_t_, ptr %638, i32 0, i32 39
+  store i32 0, ptr %639, align 4
+  %640 = load ptr, ptr %8, align 8
+  %641 = getelementptr inbounds %struct.Fra_Man_t_, ptr %640, i32 0, i32 40
+  store i32 0, ptr %641, align 8
+  %642 = call i64 @Abc_Clock()
+  store i64 %642, ptr %19, align 8
+  %643 = load ptr, ptr %8, align 8
+  %644 = getelementptr inbounds %struct.Fra_Man_t_, ptr %643, i32 0, i32 0
+  %645 = load ptr, ptr %644, align 8
+  %646 = getelementptr inbounds %struct.Fra_Par_t_, ptr %645, i32 0, i32 22
+  %647 = load i32, ptr %646, align 8
+  %648 = icmp ne i32 %647, 0
+  br i1 %648, label %649, label %654
 
-648:                                              ; preds = %636
-  %649 = load ptr, ptr %8, align 8
+649:                                              ; preds = %637
   %650 = load ptr, ptr %8, align 8
-  %651 = getelementptr inbounds %struct.Fra_Man_t_, ptr %650, i32 0, i32 12
-  %652 = load ptr, ptr %651, align 8
-  call void @Fra_OneHotCheck(ptr noundef %649, ptr noundef %652)
-  br label %653
+  %651 = load ptr, ptr %8, align 8
+  %652 = getelementptr inbounds %struct.Fra_Man_t_, ptr %651, i32 0, i32 12
+  %653 = load ptr, ptr %652, align 8
+  call void @Fra_OneHotCheck(ptr noundef %650, ptr noundef %653)
+  br label %654
 
-653:                                              ; preds = %648, %636
-  %654 = load ptr, ptr %8, align 8
-  call void @Fra_FraigSweep(ptr noundef %654)
-  %655 = load ptr, ptr %10, align 8
-  %656 = getelementptr inbounds %struct.Fra_Par_t_, ptr %655, i32 0, i32 9
-  %657 = load i32, ptr %656, align 4
-  %658 = icmp ne i32 %657, 0
-  br i1 %658, label %659, label %666
+654:                                              ; preds = %649, %637
+  %655 = load ptr, ptr %8, align 8
+  call void @Fra_FraigSweep(ptr noundef %655)
+  %656 = load ptr, ptr %10, align 8
+  %657 = getelementptr inbounds %struct.Fra_Par_t_, ptr %656, i32 0, i32 9
+  %658 = load i32, ptr %657, align 4
+  %659 = icmp ne i32 %658, 0
+  br i1 %659, label %660, label %667
 
-659:                                              ; preds = %653
+660:                                              ; preds = %654
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.4, ptr noundef @.str.18)
-  %660 = call i64 @Abc_Clock()
-  %661 = load i64, ptr %24, align 8
-  %662 = sub nsw i64 %660, %661
-  %663 = sitofp i64 %662 to double
-  %664 = fmul double 1.000000e+00, %663
-  %665 = fdiv double %664, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.6, double noundef %665)
-  br label %666
+  %661 = call i64 @Abc_Clock()
+  %662 = load i64, ptr %24, align 8
+  %663 = sub nsw i64 %661, %662
+  %664 = sitofp i64 %663 to double
+  %665 = fmul double 1.000000e+00, %664
+  %666 = fdiv double %665, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.6, double noundef %666)
+  br label %667
 
-666:                                              ; preds = %659, %653
-  %667 = load ptr, ptr %8, align 8
-  %668 = getelementptr inbounds %struct.Fra_Man_t_, ptr %667, i32 0, i32 2
-  %669 = load ptr, ptr %668, align 8
-  call void @Aig_ManStop(ptr noundef %669)
-  %670 = load ptr, ptr %8, align 8
-  %671 = getelementptr inbounds %struct.Fra_Man_t_, ptr %670, i32 0, i32 2
-  store ptr null, ptr %671, align 8
-  %672 = load ptr, ptr %8, align 8
-  %673 = getelementptr inbounds %struct.Fra_Man_t_, ptr %672, i32 0, i32 13
-  %674 = load ptr, ptr %673, align 8
-  call void @sat_solver_delete(ptr noundef %674)
-  %675 = load ptr, ptr %8, align 8
-  %676 = getelementptr inbounds %struct.Fra_Man_t_, ptr %675, i32 0, i32 13
-  store ptr null, ptr %676, align 8
-  %677 = load ptr, ptr %8, align 8
-  %678 = getelementptr inbounds %struct.Fra_Man_t_, ptr %677, i32 0, i32 4
-  %679 = load ptr, ptr %678, align 8
-  %680 = load ptr, ptr %8, align 8
-  %681 = getelementptr inbounds %struct.Fra_Man_t_, ptr %680, i32 0, i32 5
-  %682 = load i32, ptr %681, align 8
-  %683 = sext i32 %682 to i64
-  %684 = mul i64 8, %683
-  %685 = load ptr, ptr %8, align 8
-  %686 = getelementptr inbounds %struct.Fra_Man_t_, ptr %685, i32 0, i32 3
-  %687 = load i32, ptr %686, align 8
-  %688 = sext i32 %687 to i64
-  %689 = mul i64 %684, %688
-  call void @llvm.memset.p0.i64(ptr align 8 %679, i8 0, i64 %689, i1 false)
-  %690 = load ptr, ptr %8, align 8
-  %691 = getelementptr inbounds %struct.Fra_Man_t_, ptr %690, i32 0, i32 21
-  %692 = load ptr, ptr %691, align 8
-  %693 = icmp ne ptr %692, null
-  br i1 %693, label %694, label %696
+667:                                              ; preds = %660, %654
+  %668 = load ptr, ptr %8, align 8
+  %669 = getelementptr inbounds %struct.Fra_Man_t_, ptr %668, i32 0, i32 2
+  %670 = load ptr, ptr %669, align 8
+  call void @Aig_ManStop(ptr noundef %670)
+  %671 = load ptr, ptr %8, align 8
+  %672 = getelementptr inbounds %struct.Fra_Man_t_, ptr %671, i32 0, i32 2
+  store ptr null, ptr %672, align 8
+  %673 = load ptr, ptr %8, align 8
+  %674 = getelementptr inbounds %struct.Fra_Man_t_, ptr %673, i32 0, i32 13
+  %675 = load ptr, ptr %674, align 8
+  call void @sat_solver_delete(ptr noundef %675)
+  %676 = load ptr, ptr %8, align 8
+  %677 = getelementptr inbounds %struct.Fra_Man_t_, ptr %676, i32 0, i32 13
+  store ptr null, ptr %677, align 8
+  %678 = load ptr, ptr %8, align 8
+  %679 = getelementptr inbounds %struct.Fra_Man_t_, ptr %678, i32 0, i32 4
+  %680 = load ptr, ptr %679, align 8
+  %681 = load ptr, ptr %8, align 8
+  %682 = getelementptr inbounds %struct.Fra_Man_t_, ptr %681, i32 0, i32 5
+  %683 = load i32, ptr %682, align 8
+  %684 = sext i32 %683 to i64
+  %685 = mul i64 8, %684
+  %686 = load ptr, ptr %8, align 8
+  %687 = getelementptr inbounds %struct.Fra_Man_t_, ptr %686, i32 0, i32 3
+  %688 = load i32, ptr %687, align 8
+  %689 = sext i32 %688 to i64
+  %690 = mul i64 %685, %689
+  call void @llvm.memset.p0.i64(ptr align 8 %680, i8 0, i64 %690, i1 false)
+  %691 = load ptr, ptr %8, align 8
+  %692 = getelementptr inbounds %struct.Fra_Man_t_, ptr %691, i32 0, i32 21
+  %693 = load ptr, ptr %692, align 8
+  %694 = icmp ne ptr %693, null
+  br i1 %694, label %695, label %697
 
-694:                                              ; preds = %666
-  %695 = call i32 (ptr, ...) @printf(ptr noundef @.str.19)
-  br label %696
+695:                                              ; preds = %667
+  %696 = call i32 (ptr, ...) @printf(ptr noundef @.str.19)
+  br label %697
 
-696:                                              ; preds = %694, %666
-  %697 = load ptr, ptr %8, align 8
-  %698 = getelementptr inbounds %struct.Fra_Man_t_, ptr %697, i32 0, i32 6
-  %699 = load ptr, ptr %698, align 8
-  %700 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %699, i32 0, i32 10
-  %701 = load i32, ptr %700, align 4
-  %702 = icmp ne i32 %701, 0
-  br i1 %702, label %703, label %747
+697:                                              ; preds = %695, %667
+  %698 = load ptr, ptr %8, align 8
+  %699 = getelementptr inbounds %struct.Fra_Man_t_, ptr %698, i32 0, i32 6
+  %700 = load ptr, ptr %699, align 8
+  %701 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %700, i32 0, i32 10
+  %702 = load i32, ptr %701, align 4
+  %703 = icmp ne i32 %702, 0
+  br i1 %703, label %704, label %748
 
-703:                                              ; preds = %696
-  %704 = load i32, ptr %21, align 4
-  %705 = load ptr, ptr %8, align 8
-  %706 = getelementptr inbounds %struct.Fra_Man_t_, ptr %705, i32 0, i32 6
-  %707 = load ptr, ptr %706, align 8
-  %708 = call i32 @Fra_ClassesCountLits(ptr noundef %707)
-  %709 = icmp eq i32 %704, %708
-  br i1 %709, label %710, label %747
+704:                                              ; preds = %697
+  %705 = load i32, ptr %21, align 4
+  %706 = load ptr, ptr %8, align 8
+  %707 = getelementptr inbounds %struct.Fra_Man_t_, ptr %706, i32 0, i32 6
+  %708 = load ptr, ptr %707, align 8
+  %709 = call i32 @Fra_ClassesCountLits(ptr noundef %708)
+  %710 = icmp eq i32 %705, %709
+  br i1 %710, label %711, label %748
 
-710:                                              ; preds = %703
-  %711 = load i32, ptr %22, align 4
-  %712 = load ptr, ptr %8, align 8
-  %713 = getelementptr inbounds %struct.Fra_Man_t_, ptr %712, i32 0, i32 6
-  %714 = load ptr, ptr %713, align 8
-  %715 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %714, i32 0, i32 11
-  %716 = load ptr, ptr %715, align 8
-  %717 = icmp ne ptr %716, null
-  br i1 %717, label %718, label %725
+711:                                              ; preds = %704
+  %712 = load i32, ptr %22, align 4
+  %713 = load ptr, ptr %8, align 8
+  %714 = getelementptr inbounds %struct.Fra_Man_t_, ptr %713, i32 0, i32 6
+  %715 = load ptr, ptr %714, align 8
+  %716 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %715, i32 0, i32 11
+  %717 = load ptr, ptr %716, align 8
+  %718 = icmp ne ptr %717, null
+  br i1 %718, label %719, label %726
 
-718:                                              ; preds = %710
-  %719 = load ptr, ptr %8, align 8
-  %720 = getelementptr inbounds %struct.Fra_Man_t_, ptr %719, i32 0, i32 6
-  %721 = load ptr, ptr %720, align 8
-  %722 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %721, i32 0, i32 11
-  %723 = load ptr, ptr %722, align 8
-  %724 = call i32 @Vec_IntSize(ptr noundef %723)
-  br label %726
+719:                                              ; preds = %711
+  %720 = load ptr, ptr %8, align 8
+  %721 = getelementptr inbounds %struct.Fra_Man_t_, ptr %720, i32 0, i32 6
+  %722 = load ptr, ptr %721, align 8
+  %723 = getelementptr inbounds %struct.Fra_Cla_t_, ptr %722, i32 0, i32 11
+  %724 = load ptr, ptr %723, align 8
+  %725 = call i32 @Vec_IntSize(ptr noundef %724)
+  br label %727
 
-725:                                              ; preds = %710
-  br label %726
+726:                                              ; preds = %711
+  br label %727
 
-726:                                              ; preds = %725, %718
-  %727 = phi i32 [ %724, %718 ], [ 0, %725 ]
-  %728 = icmp eq i32 %711, %727
-  br i1 %728, label %729, label %747
+727:                                              ; preds = %726, %719
+  %728 = phi i32 [ %725, %719 ], [ 0, %726 ]
+  %729 = icmp eq i32 %712, %728
+  br i1 %729, label %730, label %748
 
-729:                                              ; preds = %726
-  %730 = load i32, ptr %23, align 4
-  %731 = load ptr, ptr %8, align 8
-  %732 = getelementptr inbounds %struct.Fra_Man_t_, ptr %731, i32 0, i32 12
-  %733 = load ptr, ptr %732, align 8
-  %734 = icmp ne ptr %733, null
-  br i1 %734, label %735, label %741
+730:                                              ; preds = %727
+  %731 = load i32, ptr %23, align 4
+  %732 = load ptr, ptr %8, align 8
+  %733 = getelementptr inbounds %struct.Fra_Man_t_, ptr %732, i32 0, i32 12
+  %734 = load ptr, ptr %733, align 8
+  %735 = icmp ne ptr %734, null
+  br i1 %735, label %736, label %742
 
-735:                                              ; preds = %729
-  %736 = load ptr, ptr %8, align 8
+736:                                              ; preds = %730
   %737 = load ptr, ptr %8, align 8
-  %738 = getelementptr inbounds %struct.Fra_Man_t_, ptr %737, i32 0, i32 12
-  %739 = load ptr, ptr %738, align 8
-  %740 = call i32 @Fra_OneHotCount(ptr noundef %736, ptr noundef %739)
-  br label %742
+  %738 = load ptr, ptr %8, align 8
+  %739 = getelementptr inbounds %struct.Fra_Man_t_, ptr %738, i32 0, i32 12
+  %740 = load ptr, ptr %739, align 8
+  %741 = call i32 @Fra_OneHotCount(ptr noundef %737, ptr noundef %740)
+  br label %743
 
-741:                                              ; preds = %729
-  br label %742
+742:                                              ; preds = %730
+  br label %743
 
-742:                                              ; preds = %741, %735
-  %743 = phi i32 [ %740, %735 ], [ 0, %741 ]
-  %744 = icmp eq i32 %730, %743
-  br i1 %744, label %745, label %747
+743:                                              ; preds = %742, %736
+  %744 = phi i32 [ %741, %736 ], [ 0, %742 ]
+  %745 = icmp eq i32 %731, %744
+  br i1 %745, label %746, label %748
 
-745:                                              ; preds = %742
-  %746 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
-  br label %751
+746:                                              ; preds = %743
+  %747 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
+  br label %752
 
-747:                                              ; preds = %742, %726, %703, %696
-  br label %748
+748:                                              ; preds = %743, %727, %704, %697
+  br label %749
 
-748:                                              ; preds = %747
-  %749 = load i32, ptr %16, align 4
-  %750 = add nsw i32 %749, 1
-  store i32 %750, ptr %16, align 4
+749:                                              ; preds = %748
+  %750 = load i32, ptr %16, align 4
+  %751 = add nsw i32 %750, 1
+  store i32 %751, ptr %16, align 4
   br label %318, !llvm.loop !28
 
-751:                                              ; preds = %745, %318
-  %752 = call i64 @Abc_Clock()
-  store i64 %752, ptr %19, align 8
-  %753 = load ptr, ptr %8, align 8
-  %754 = getelementptr inbounds %struct.Fra_Man_t_, ptr %753, i32 0, i32 0
-  %755 = load ptr, ptr %754, align 8
-  %756 = getelementptr inbounds %struct.Fra_Par_t_, ptr %755, i32 0, i32 23
-  %757 = load i32, ptr %756, align 4
-  %758 = icmp ne i32 %757, 0
-  br i1 %758, label %759, label %790
+752:                                              ; preds = %746, %318
+  %753 = call i64 @Abc_Clock()
+  store i64 %753, ptr %19, align 8
+  %754 = load ptr, ptr %8, align 8
+  %755 = getelementptr inbounds %struct.Fra_Man_t_, ptr %754, i32 0, i32 0
+  %756 = load ptr, ptr %755, align 8
+  %757 = getelementptr inbounds %struct.Fra_Par_t_, ptr %756, i32 0, i32 23
+  %758 = load i32, ptr %757, align 4
+  %759 = icmp ne i32 %758, 0
+  br i1 %759, label %760, label %791
 
-759:                                              ; preds = %751
-  %760 = load ptr, ptr %8, align 8
-  %761 = getelementptr inbounds %struct.Fra_Man_t_, ptr %760, i32 0, i32 12
-  %762 = load ptr, ptr %761, align 8
-  %763 = icmp ne ptr %762, null
-  br i1 %763, label %764, label %790
+760:                                              ; preds = %752
+  %761 = load ptr, ptr %8, align 8
+  %762 = getelementptr inbounds %struct.Fra_Man_t_, ptr %761, i32 0, i32 12
+  %763 = load ptr, ptr %762, align 8
+  %764 = icmp ne ptr %763, null
+  br i1 %764, label %765, label %791
 
-764:                                              ; preds = %759
-  %765 = load ptr, ptr %8, align 8
+765:                                              ; preds = %760
   %766 = load ptr, ptr %8, align 8
-  %767 = getelementptr inbounds %struct.Fra_Man_t_, ptr %766, i32 0, i32 12
-  %768 = load ptr, ptr %767, align 8
-  %769 = call i32 @Fra_OneHotCount(ptr noundef %765, ptr noundef %768)
-  %770 = icmp ne i32 %769, 0
-  br i1 %770, label %771, label %790
+  %767 = load ptr, ptr %8, align 8
+  %768 = getelementptr inbounds %struct.Fra_Man_t_, ptr %767, i32 0, i32 12
+  %769 = load ptr, ptr %768, align 8
+  %770 = call i32 @Fra_OneHotCount(ptr noundef %766, ptr noundef %769)
+  %771 = icmp ne i32 %770, 0
+  br i1 %771, label %772, label %791
 
-771:                                              ; preds = %764
-  %772 = load ptr, ptr %8, align 8
-  %773 = getelementptr inbounds %struct.Fra_Man_t_, ptr %772, i32 0, i32 1
-  %774 = load ptr, ptr %773, align 8
-  %775 = getelementptr inbounds %struct.Aig_Man_t_, ptr %774, i32 0, i32 0
-  %776 = load ptr, ptr %775, align 8
-  %777 = call ptr @Ioa_FileNameGenericAppend(ptr noundef %776, ptr noundef @.str.21)
-  store ptr %777, ptr %26, align 8
-  %778 = load ptr, ptr %26, align 8
-  %779 = call i32 (ptr, ...) @printf(ptr noundef @.str.22, ptr noundef %778)
-  %780 = load ptr, ptr %4, align 8
-  %781 = call ptr @Aig_ManDupOrdered(ptr noundef %780)
-  store ptr %781, ptr %13, align 8
-  %782 = load ptr, ptr %8, align 8
+772:                                              ; preds = %765
+  %773 = load ptr, ptr %8, align 8
+  %774 = getelementptr inbounds %struct.Fra_Man_t_, ptr %773, i32 0, i32 1
+  %775 = load ptr, ptr %774, align 8
+  %776 = getelementptr inbounds %struct.Aig_Man_t_, ptr %775, i32 0, i32 0
+  %777 = load ptr, ptr %776, align 8
+  %778 = call ptr @Ioa_FileNameGenericAppend(ptr noundef %777, ptr noundef @.str.21)
+  store ptr %778, ptr %26, align 8
+  %779 = load ptr, ptr %26, align 8
+  %780 = call i32 (ptr, ...) @printf(ptr noundef @.str.22, ptr noundef %779)
+  %781 = load ptr, ptr %4, align 8
+  %782 = call ptr @Aig_ManDupOrdered(ptr noundef %781)
+  store ptr %782, ptr %13, align 8
   %783 = load ptr, ptr %8, align 8
-  %784 = getelementptr inbounds %struct.Fra_Man_t_, ptr %783, i32 0, i32 12
-  %785 = load ptr, ptr %784, align 8
-  %786 = call ptr @Fra_OneHotCreateExdc(ptr noundef %782, ptr noundef %785)
-  store ptr %786, ptr %25, align 8
-  %787 = load ptr, ptr %25, align 8
-  %788 = load ptr, ptr %26, align 8
-  call void @Ioa_WriteAiger(ptr noundef %787, ptr noundef %788, i32 noundef 0, i32 noundef 1)
-  %789 = load ptr, ptr %25, align 8
-  call void @Aig_ManStop(ptr noundef %789)
-  br label %802
+  %784 = load ptr, ptr %8, align 8
+  %785 = getelementptr inbounds %struct.Fra_Man_t_, ptr %784, i32 0, i32 12
+  %786 = load ptr, ptr %785, align 8
+  %787 = call ptr @Fra_OneHotCreateExdc(ptr noundef %783, ptr noundef %786)
+  store ptr %787, ptr %25, align 8
+  %788 = load ptr, ptr %25, align 8
+  %789 = load ptr, ptr %26, align 8
+  call void @Ioa_WriteAiger(ptr noundef %788, ptr noundef %789, i32 noundef 0, i32 noundef 1)
+  %790 = load ptr, ptr %25, align 8
+  call void @Aig_ManStop(ptr noundef %790)
+  br label %803
 
-790:                                              ; preds = %764, %759, %751
-  %791 = load ptr, ptr %8, align 8
-  %792 = getelementptr inbounds %struct.Fra_Man_t_, ptr %791, i32 0, i32 6
-  %793 = load ptr, ptr %792, align 8
-  call void @Fra_ClassesSelectRepr(ptr noundef %793)
-  %794 = load ptr, ptr %8, align 8
-  %795 = getelementptr inbounds %struct.Fra_Man_t_, ptr %794, i32 0, i32 6
-  %796 = load ptr, ptr %795, align 8
-  %797 = load ptr, ptr %8, align 8
-  %798 = getelementptr inbounds %struct.Fra_Man_t_, ptr %797, i32 0, i32 21
-  %799 = load ptr, ptr %798, align 8
-  call void @Fra_ClassesCopyReprs(ptr noundef %796, ptr noundef %799)
-  %800 = load ptr, ptr %4, align 8
-  %801 = call ptr @Aig_ManDupRepr(ptr noundef %800, i32 noundef 0)
-  store ptr %801, ptr %13, align 8
-  br label %802
+791:                                              ; preds = %765, %760, %752
+  %792 = load ptr, ptr %8, align 8
+  %793 = getelementptr inbounds %struct.Fra_Man_t_, ptr %792, i32 0, i32 6
+  %794 = load ptr, ptr %793, align 8
+  call void @Fra_ClassesSelectRepr(ptr noundef %794)
+  %795 = load ptr, ptr %8, align 8
+  %796 = getelementptr inbounds %struct.Fra_Man_t_, ptr %795, i32 0, i32 6
+  %797 = load ptr, ptr %796, align 8
+  %798 = load ptr, ptr %8, align 8
+  %799 = getelementptr inbounds %struct.Fra_Man_t_, ptr %798, i32 0, i32 21
+  %800 = load ptr, ptr %799, align 8
+  call void @Fra_ClassesCopyReprs(ptr noundef %797, ptr noundef %800)
+  %801 = load ptr, ptr %4, align 8
+  %802 = call ptr @Aig_ManDupRepr(ptr noundef %801, i32 noundef 0)
+  store ptr %802, ptr %13, align 8
+  br label %803
 
-802:                                              ; preds = %790, %771
-  %803 = load ptr, ptr %13, align 8
-  %804 = call i32 @Aig_ManSeqCleanup(ptr noundef %803)
-  %805 = call i64 @Abc_Clock()
-  %806 = load i64, ptr %19, align 8
-  %807 = sub nsw i64 %805, %806
-  %808 = load ptr, ptr %8, align 8
-  %809 = getelementptr inbounds %struct.Fra_Man_t_, ptr %808, i32 0, i32 42
-  %810 = load i64, ptr %809, align 8
-  %811 = add nsw i64 %810, %807
-  store i64 %811, ptr %809, align 8
-  %812 = call i64 @Abc_Clock()
-  %813 = load i64, ptr %18, align 8
-  %814 = sub nsw i64 %812, %813
-  %815 = load ptr, ptr %8, align 8
-  %816 = getelementptr inbounds %struct.Fra_Man_t_, ptr %815, i32 0, i32 49
-  store i64 %814, ptr %816, align 8
-  %817 = load ptr, ptr %8, align 8
-  %818 = getelementptr inbounds %struct.Fra_Man_t_, ptr %817, i32 0, i32 6
-  %819 = load ptr, ptr %818, align 8
-  %820 = call i32 @Fra_ClassesCountLits(ptr noundef %819)
-  %821 = load ptr, ptr %8, align 8
-  %822 = getelementptr inbounds %struct.Fra_Man_t_, ptr %821, i32 0, i32 25
-  store i32 %820, ptr %822, align 4
-  %823 = load ptr, ptr %13, align 8
-  %824 = call i32 @Aig_ManNodeNum(ptr noundef %823)
-  %825 = load ptr, ptr %8, align 8
-  %826 = getelementptr inbounds %struct.Fra_Man_t_, ptr %825, i32 0, i32 27
-  store i32 %824, ptr %826, align 4
-  %827 = load ptr, ptr %13, align 8
-  %828 = call i32 @Aig_ManRegNum(ptr noundef %827)
-  %829 = load ptr, ptr %8, align 8
-  %830 = getelementptr inbounds %struct.Fra_Man_t_, ptr %829, i32 0, i32 29
-  store i32 %828, ptr %830, align 4
-  br label %831
+803:                                              ; preds = %791, %772
+  %804 = load ptr, ptr %13, align 8
+  %805 = call i32 @Aig_ManSeqCleanup(ptr noundef %804)
+  %806 = call i64 @Abc_Clock()
+  %807 = load i64, ptr %19, align 8
+  %808 = sub nsw i64 %806, %807
+  %809 = load ptr, ptr %8, align 8
+  %810 = getelementptr inbounds %struct.Fra_Man_t_, ptr %809, i32 0, i32 42
+  %811 = load i64, ptr %810, align 8
+  %812 = add nsw i64 %811, %808
+  store i64 %812, ptr %810, align 8
+  %813 = call i64 @Abc_Clock()
+  %814 = load i64, ptr %18, align 8
+  %815 = sub nsw i64 %813, %814
+  %816 = load ptr, ptr %8, align 8
+  %817 = getelementptr inbounds %struct.Fra_Man_t_, ptr %816, i32 0, i32 49
+  store i64 %815, ptr %817, align 8
+  %818 = load ptr, ptr %8, align 8
+  %819 = getelementptr inbounds %struct.Fra_Man_t_, ptr %818, i32 0, i32 6
+  %820 = load ptr, ptr %819, align 8
+  %821 = call i32 @Fra_ClassesCountLits(ptr noundef %820)
+  %822 = load ptr, ptr %8, align 8
+  %823 = getelementptr inbounds %struct.Fra_Man_t_, ptr %822, i32 0, i32 25
+  store i32 %821, ptr %823, align 4
+  %824 = load ptr, ptr %13, align 8
+  %825 = call i32 @Aig_ManNodeNum(ptr noundef %824)
+  %826 = load ptr, ptr %8, align 8
+  %827 = getelementptr inbounds %struct.Fra_Man_t_, ptr %826, i32 0, i32 27
+  store i32 %825, ptr %827, align 4
+  %828 = load ptr, ptr %13, align 8
+  %829 = call i32 @Aig_ManRegNum(ptr noundef %828)
+  %830 = load ptr, ptr %8, align 8
+  %831 = getelementptr inbounds %struct.Fra_Man_t_, ptr %830, i32 0, i32 29
+  store i32 %829, ptr %831, align 4
+  br label %832
 
-831:                                              ; preds = %802, %376, %292
-  %832 = load ptr, ptr %8, align 8
-  call void @Fra_ManStop(ptr noundef %832)
-  %833 = load i32, ptr %16, align 4
-  %834 = load ptr, ptr %5, align 8
-  %835 = getelementptr inbounds %struct.Fra_Ssw_t_, ptr %834, i32 0, i32 15
-  store i32 %833, ptr %835, align 4
-  %836 = load ptr, ptr %13, align 8
-  store ptr %836, ptr %3, align 8
-  br label %837
+832:                                              ; preds = %803, %376, %292
+  %833 = load ptr, ptr %8, align 8
+  call void @Fra_ManStop(ptr noundef %833)
+  %834 = load i32, ptr %16, align 4
+  %835 = load ptr, ptr %5, align 8
+  %836 = getelementptr inbounds %struct.Fra_Ssw_t_, ptr %835, i32 0, i32 15
+  store i32 %834, ptr %836, align 4
+  %837 = load ptr, ptr %13, align 8
+  store ptr %837, ptr %3, align 8
+  br label %838
 
-837:                                              ; preds = %831, %91, %46
-  %838 = load ptr, ptr %3, align 8
-  ret ptr %838
+838:                                              ; preds = %832, %91, %46
+  %839 = load ptr, ptr %3, align 8
+  ret ptr %839
 }
 
 declare i32 @Aig_TransferMappedClasses(ptr noundef, ptr noundef, ptr noundef) #1
@@ -3473,7 +3474,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -3501,7 +3502,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -4106,16 +4107,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

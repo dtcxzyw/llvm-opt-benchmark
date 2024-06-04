@@ -20,13 +20,17 @@ define hidden i32 @cf_retap_packets(ptr noundef %0) #0 {
 define hidden void @voip_stat_init_tapinfo() #0 {
   call void @llvm.memset.p0.i64(ptr align 8 @tapinfo_, i8 0, i64 248, i1 false)
   %1 = call ptr @g_queue_new()
-  store ptr %1, ptr getelementptr inbounds (%struct._voip_calls_tapinfo, ptr @tapinfo_, i32 0, i32 5), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._voip_calls_tapinfo, ptr @tapinfo_, i32 0, i32 39), align 4
-  %2 = call ptr @sequence_analysis_info_new()
-  store ptr %2, ptr getelementptr inbounds (%struct._voip_calls_tapinfo, ptr @tapinfo_, i32 0, i32 12), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._voip_calls_tapinfo, ptr @tapinfo_, i32 0, i32 12), align 8
-  %4 = getelementptr inbounds %struct._seq_analysis_info, ptr %3, i32 0, i32 0
-  store ptr @.str, ptr %4, align 8
+  %2 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr @tapinfo_, i32 0, i32 5
+  store ptr %1, ptr %2, align 8
+  %3 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr @tapinfo_, i32 0, i32 39
+  store i32 1, ptr %3, align 4
+  %4 = call ptr @sequence_analysis_info_new()
+  %5 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr @tapinfo_, i32 0, i32 12
+  store ptr %4, ptr %5, align 8
+  %6 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr @tapinfo_, i32 0, i32 12
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds %struct._seq_analysis_info, ptr %7, i32 0, i32 0
+  store ptr @.str, ptr %8, align 8
   ret void
 }
 

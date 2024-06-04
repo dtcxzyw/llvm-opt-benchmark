@@ -537,86 +537,87 @@ define hidden void @fileset_add_dir(ptr noundef %0, ptr noundef %1) #0 {
   %17 = getelementptr inbounds %struct._GString, ptr %16, i32 0, i32 0
   %18 = load ptr, ptr %17, align 8
   %19 = call noalias ptr @g_strdup(ptr noundef %18)
-  store ptr %19, ptr getelementptr inbounds (%struct._fileset, ptr @set, i32 0, i32 1), align 8
-  %20 = load ptr, ptr %8, align 8
-  %21 = call ptr @g_string_append_c_inline(ptr noundef %20, i8 noundef signext 47)
-  store ptr %21, ptr %8, align 8
-  %22 = load ptr, ptr %3, align 8
-  %23 = call i32 @fileset_filename_match_pattern(ptr noundef %22, ptr noundef null, ptr noundef null, ptr noundef null)
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %59
+  %20 = getelementptr inbounds %struct._fileset, ptr @set, i32 0, i32 1
+  store ptr %19, ptr %20, align 8
+  %21 = load ptr, ptr %8, align 8
+  %22 = call ptr @g_string_append_c_inline(ptr noundef %21, i8 noundef signext 47)
+  store ptr %22, ptr %8, align 8
+  %23 = load ptr, ptr %3, align 8
+  %24 = call i32 @fileset_filename_match_pattern(ptr noundef %23, ptr noundef null, ptr noundef null, ptr noundef null)
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %60
 
-25:                                               ; preds = %2
-  %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds %struct._GString, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = call ptr @g_dir_open(ptr noundef %28, i32 noundef 0, ptr noundef null)
-  store ptr %29, ptr %5, align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %58
+26:                                               ; preds = %2
+  %27 = load ptr, ptr %8, align 8
+  %28 = getelementptr inbounds %struct._GString, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = call ptr @g_dir_open(ptr noundef %29, i32 noundef 0, ptr noundef null)
+  store ptr %30, ptr %5, align 8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %59
 
-31:                                               ; preds = %25
-  br label %32
+32:                                               ; preds = %26
+  br label %33
 
-32:                                               ; preds = %55, %31
-  %33 = load ptr, ptr %5, align 8
-  %34 = call ptr @g_dir_read_name(ptr noundef %33)
-  store ptr %34, ptr %6, align 8
-  %35 = icmp ne ptr %34, null
-  br i1 %35, label %36, label %56
+33:                                               ; preds = %56, %32
+  %34 = load ptr, ptr %5, align 8
+  %35 = call ptr @g_dir_read_name(ptr noundef %34)
+  store ptr %35, ptr %6, align 8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %57
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %6, align 8
-  store ptr %37, ptr %7, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = load ptr, ptr %3, align 8
-  %40 = call ptr @get_basename(ptr noundef %39)
-  %41 = call i32 @fileset_is_file_in_set(ptr noundef %38, ptr noundef %40)
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %55
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %6, align 8
+  store ptr %38, ptr %7, align 8
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %3, align 8
+  %41 = call ptr @get_basename(ptr noundef %40)
+  %42 = call i32 @fileset_is_file_in_set(ptr noundef %39, ptr noundef %41)
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %56
 
-43:                                               ; preds = %36
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds %struct._GString, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %7, align 8
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds %struct._GString, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = call ptr @get_basename(ptr noundef %49)
-  %51 = call i32 @strcmp(ptr noundef %48, ptr noundef %50) #5
-  %52 = icmp eq i32 %51, 0
-  %53 = zext i1 %52 to i32
-  %54 = call ptr @fileset_add_file(ptr noundef %46, ptr noundef %47, i32 noundef %53)
-  br label %55
+  %49 = load ptr, ptr %7, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = call ptr @get_basename(ptr noundef %50)
+  %52 = call i32 @strcmp(ptr noundef %49, ptr noundef %51) #5
+  %53 = icmp eq i32 %52, 0
+  %54 = zext i1 %53 to i32
+  %55 = call ptr @fileset_add_file(ptr noundef %47, ptr noundef %48, i32 noundef %54)
+  br label %56
 
-55:                                               ; preds = %43, %36
-  br label %32, !llvm.loop !7
+56:                                               ; preds = %44, %37
+  br label %33, !llvm.loop !7
 
-56:                                               ; preds = %32
-  %57 = load ptr, ptr %5, align 8
-  call void @g_dir_close(ptr noundef %57)
-  br label %58
+57:                                               ; preds = %33
+  %58 = load ptr, ptr %5, align 8
+  call void @g_dir_close(ptr noundef %58)
+  br label %59
 
-58:                                               ; preds = %56, %25
-  br label %66
+59:                                               ; preds = %57, %26
+  br label %67
 
-59:                                               ; preds = %2
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds %struct._GString, ptr %60, i32 0, i32 0
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %3, align 8
-  %64 = call ptr @get_basename(ptr noundef %63)
-  %65 = call ptr @fileset_add_file(ptr noundef %62, ptr noundef %64, i32 noundef 1)
-  br label %66
+60:                                               ; preds = %2
+  %61 = load ptr, ptr %8, align 8
+  %62 = getelementptr inbounds %struct._GString, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %3, align 8
+  %65 = call ptr @get_basename(ptr noundef %64)
+  %66 = call ptr @fileset_add_file(ptr noundef %63, ptr noundef %65, i32 noundef 1)
+  br label %67
 
-66:                                               ; preds = %59, %58
-  %67 = load ptr, ptr %8, align 8
-  %68 = call ptr @g_string_free(ptr noundef %67, i32 noundef 1)
-  %69 = load ptr, ptr @set, align 8
-  %70 = call ptr @g_list_sort(ptr noundef %69, ptr noundef @fileset_sort_compare)
-  store ptr %70, ptr @set, align 8
-  %71 = load ptr, ptr %4, align 8
-  call void @fileset_update_dlg(ptr noundef %71)
+67:                                               ; preds = %60, %59
+  %68 = load ptr, ptr %8, align 8
+  %69 = call ptr @g_string_free(ptr noundef %68, i32 noundef 1)
+  %70 = load ptr, ptr @set, align 8
+  %71 = call ptr @g_list_sort(ptr noundef %70, ptr noundef @fileset_sort_compare)
+  store ptr %71, ptr @set, align 8
+  %72 = load ptr, ptr %4, align 8
+  call void @fileset_update_dlg(ptr noundef %72)
   ret void
 }
 
@@ -871,8 +872,9 @@ define internal i32 @fileset_sort_compare(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @fileset_get_dirname() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._fileset, ptr @set, i32 0, i32 1), align 8
-  ret ptr %1
+  %1 = getelementptr inbounds %struct._fileset, ptr @set, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1051,17 +1053,20 @@ define hidden void @fileset_delete() #0 {
   br label %6
 
 6:                                                ; preds = %3, %0
-  %7 = load ptr, ptr getelementptr inbounds (%struct._fileset, ptr @set, i32 0, i32 1), align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %11
+  %7 = getelementptr inbounds %struct._fileset, ptr @set, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
 
-9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (%struct._fileset, ptr @set, i32 0, i32 1), align 8
-  call void @g_free(ptr noundef %10)
-  store ptr null, ptr getelementptr inbounds (%struct._fileset, ptr @set, i32 0, i32 1), align 8
-  br label %11
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds %struct._fileset, ptr @set, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  call void @g_free(ptr noundef %12)
+  %13 = getelementptr inbounds %struct._fileset, ptr @set, i32 0, i32 1
+  store ptr null, ptr %13, align 8
+  br label %14
 
-11:                                               ; preds = %9, %6
+14:                                               ; preds = %10, %6
   ret void
 }
 

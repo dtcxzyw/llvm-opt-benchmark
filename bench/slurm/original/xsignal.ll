@@ -258,31 +258,32 @@ define ptr @xsignal_default(i32 noundef %0) #0 {
   %9 = load i32, ptr %3, align 4
   %10 = call i32 (ptr, ...) @error(ptr noundef @.str.2, i32 noundef %9)
   store ptr null, ptr %2, align 8
-  br label %23
+  br label %24
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds %struct.sigaction, ptr %4, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp ne ptr %13, inttoptr (i64 1 to ptr)
-  br i1 %14, label %15, label %18
+  %14 = inttoptr i64 1 to ptr
+  %15 = icmp ne ptr %13, %14
+  br i1 %15, label %16, label %19
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds %struct.sigaction, ptr %4, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %2, align 8
-  br label %23
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds %struct.sigaction, ptr %4, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %2, align 8
+  br label %24
 
-18:                                               ; preds = %11
-  %19 = load i32, ptr %3, align 4
-  %20 = call ptr @xsignal(i32 noundef %19, ptr noundef null)
-  %21 = getelementptr inbounds %struct.sigaction, ptr %4, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %2, align 8
-  br label %23
+19:                                               ; preds = %11
+  %20 = load i32, ptr %3, align 4
+  %21 = call ptr @xsignal(i32 noundef %20, ptr noundef null)
+  %22 = getelementptr inbounds %struct.sigaction, ptr %4, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %2, align 8
+  br label %24
 
-23:                                               ; preds = %18, %15, %8
-  %24 = load ptr, ptr %2, align 8
-  ret ptr %24
+24:                                               ; preds = %19, %16, %8
+  %25 = load ptr, ptr %2, align 8
+  ret ptr %25
 }
 
 ; Function Attrs: nounwind uwtable

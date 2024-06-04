@@ -1649,23 +1649,26 @@ do.body15:                                        ; preds = %for.end14
   %16 = load ptr, ptr %bs, align 8
   %bs_list = getelementptr inbounds %struct.BlockDriverState, ptr %16, i32 0, i32 24
   store ptr null, ptr %bs_list, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @all_bdrv_states, i32 0, i32 1), align 8
-  %18 = load ptr, ptr %bs, align 8
-  %bs_list16 = getelementptr inbounds %struct.BlockDriverState, ptr %18, i32 0, i32 24
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %bs_list16, i32 0, i32 1
-  store ptr %17, ptr %tql_prev, align 8
+  %17 = getelementptr inbounds %struct.QTailQLink, ptr @all_bdrv_states, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %bs, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @all_bdrv_states, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %20, i32 0, i32 0
-  store ptr %19, ptr %tql_next, align 8
-  %21 = load ptr, ptr %bs, align 8
-  %bs_list17 = getelementptr inbounds %struct.BlockDriverState, ptr %21, i32 0, i32 24
-  store ptr %bs_list17, ptr getelementptr inbounds (%struct.QTailQLink, ptr @all_bdrv_states, i32 0, i32 1), align 8
+  %bs_list16 = getelementptr inbounds %struct.BlockDriverState, ptr %19, i32 0, i32 24
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %bs_list16, i32 0, i32 1
+  store ptr %18, ptr %tql_prev, align 8
+  %20 = load ptr, ptr %bs, align 8
+  %21 = getelementptr inbounds %struct.QTailQLink, ptr @all_bdrv_states, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %22, i32 0, i32 0
+  store ptr %20, ptr %tql_next, align 8
+  %23 = load ptr, ptr %bs, align 8
+  %bs_list17 = getelementptr inbounds %struct.BlockDriverState, ptr %23, i32 0, i32 24
+  %24 = getelementptr inbounds %struct.QTailQLink, ptr @all_bdrv_states, i32 0, i32 1
+  store ptr %bs_list17, ptr %24, align 8
   br label %do.end18
 
 do.end18:                                         ; preds = %do.body15
-  %22 = load ptr, ptr %bs, align 8
-  ret ptr %22
+  %25 = load ptr, ptr %bs, align 8
+  ret ptr %25
 }
 
 ; Function Attrs: allocsize(0,1)
@@ -19852,29 +19855,30 @@ if.else18:                                        ; preds = %do.body10
   %node_list19 = getelementptr inbounds %struct.BlockDriverState, ptr %11, i32 0, i32 23
   %tql_prev20 = getelementptr inbounds %struct.QTailQLink, ptr %node_list19, i32 0, i32 1
   %12 = load ptr, ptr %tql_prev20, align 8
-  store ptr %12, ptr getelementptr inbounds (%struct.QTailQLink, ptr @graph_bdrv_states, i32 0, i32 1), align 8
+  %13 = getelementptr inbounds %struct.QTailQLink, ptr @graph_bdrv_states, i32 0, i32 1
+  store ptr %12, ptr %13, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else18, %if.then13
-  %13 = load ptr, ptr %bs.addr, align 8
-  %node_list22 = getelementptr inbounds %struct.BlockDriverState, ptr %13, i32 0, i32 23
-  %14 = load ptr, ptr %node_list22, align 8
-  %15 = load ptr, ptr %bs.addr, align 8
-  %node_list23 = getelementptr inbounds %struct.BlockDriverState, ptr %15, i32 0, i32 23
+  %14 = load ptr, ptr %bs.addr, align 8
+  %node_list22 = getelementptr inbounds %struct.BlockDriverState, ptr %14, i32 0, i32 23
+  %15 = load ptr, ptr %node_list22, align 8
+  %16 = load ptr, ptr %bs.addr, align 8
+  %node_list23 = getelementptr inbounds %struct.BlockDriverState, ptr %16, i32 0, i32 23
   %tql_prev24 = getelementptr inbounds %struct.QTailQLink, ptr %node_list23, i32 0, i32 1
-  %16 = load ptr, ptr %tql_prev24, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %16, i32 0, i32 0
-  store ptr %14, ptr %tql_next, align 8
-  %17 = load ptr, ptr %bs.addr, align 8
-  %node_list25 = getelementptr inbounds %struct.BlockDriverState, ptr %17, i32 0, i32 23
+  %17 = load ptr, ptr %tql_prev24, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %17, i32 0, i32 0
+  store ptr %15, ptr %tql_next, align 8
+  %18 = load ptr, ptr %bs.addr, align 8
+  %node_list25 = getelementptr inbounds %struct.BlockDriverState, ptr %18, i32 0, i32 23
   %tql_prev26 = getelementptr inbounds %struct.QTailQLink, ptr %node_list25, i32 0, i32 1
   store ptr null, ptr %tql_prev26, align 8
-  %18 = load ptr, ptr %bs.addr, align 8
-  %node_list27 = getelementptr inbounds %struct.BlockDriverState, ptr %18, i32 0, i32 23
+  %19 = load ptr, ptr %bs.addr, align 8
+  %node_list27 = getelementptr inbounds %struct.BlockDriverState, ptr %19, i32 0, i32 23
   %tql_next28 = getelementptr inbounds %struct.QTailQLink, ptr %node_list27, i32 0, i32 0
   store ptr null, ptr %tql_next28, align 8
-  %19 = load ptr, ptr %bs.addr, align 8
-  %node_list29 = getelementptr inbounds %struct.BlockDriverState, ptr %19, i32 0, i32 23
+  %20 = load ptr, ptr %bs.addr, align 8
+  %node_list29 = getelementptr inbounds %struct.BlockDriverState, ptr %20, i32 0, i32 23
   store ptr null, ptr %node_list29, align 8
   br label %do.end30
 
@@ -19885,64 +19889,65 @@ if.end31:                                         ; preds = %do.end30, %do.end
   br label %do.body32
 
 do.body32:                                        ; preds = %if.end31
-  %20 = load ptr, ptr %bs.addr, align 8
-  %bs_list = getelementptr inbounds %struct.BlockDriverState, ptr %20, i32 0, i32 24
-  %21 = load ptr, ptr %bs_list, align 8
-  %cmp33 = icmp ne ptr %21, null
+  %21 = load ptr, ptr %bs.addr, align 8
+  %bs_list = getelementptr inbounds %struct.BlockDriverState, ptr %21, i32 0, i32 24
+  %22 = load ptr, ptr %bs_list, align 8
+  %cmp33 = icmp ne ptr %22, null
   br i1 %cmp33, label %if.then35, label %if.else41
 
 if.then35:                                        ; preds = %do.body32
-  %22 = load ptr, ptr %bs.addr, align 8
-  %bs_list36 = getelementptr inbounds %struct.BlockDriverState, ptr %22, i32 0, i32 24
+  %23 = load ptr, ptr %bs.addr, align 8
+  %bs_list36 = getelementptr inbounds %struct.BlockDriverState, ptr %23, i32 0, i32 24
   %tql_prev37 = getelementptr inbounds %struct.QTailQLink, ptr %bs_list36, i32 0, i32 1
-  %23 = load ptr, ptr %tql_prev37, align 8
-  %24 = load ptr, ptr %bs.addr, align 8
-  %bs_list38 = getelementptr inbounds %struct.BlockDriverState, ptr %24, i32 0, i32 24
-  %25 = load ptr, ptr %bs_list38, align 8
-  %bs_list39 = getelementptr inbounds %struct.BlockDriverState, ptr %25, i32 0, i32 24
+  %24 = load ptr, ptr %tql_prev37, align 8
+  %25 = load ptr, ptr %bs.addr, align 8
+  %bs_list38 = getelementptr inbounds %struct.BlockDriverState, ptr %25, i32 0, i32 24
+  %26 = load ptr, ptr %bs_list38, align 8
+  %bs_list39 = getelementptr inbounds %struct.BlockDriverState, ptr %26, i32 0, i32 24
   %tql_prev40 = getelementptr inbounds %struct.QTailQLink, ptr %bs_list39, i32 0, i32 1
-  store ptr %23, ptr %tql_prev40, align 8
+  store ptr %24, ptr %tql_prev40, align 8
   br label %if.end44
 
 if.else41:                                        ; preds = %do.body32
-  %26 = load ptr, ptr %bs.addr, align 8
-  %bs_list42 = getelementptr inbounds %struct.BlockDriverState, ptr %26, i32 0, i32 24
+  %27 = load ptr, ptr %bs.addr, align 8
+  %bs_list42 = getelementptr inbounds %struct.BlockDriverState, ptr %27, i32 0, i32 24
   %tql_prev43 = getelementptr inbounds %struct.QTailQLink, ptr %bs_list42, i32 0, i32 1
-  %27 = load ptr, ptr %tql_prev43, align 8
-  store ptr %27, ptr getelementptr inbounds (%struct.QTailQLink, ptr @all_bdrv_states, i32 0, i32 1), align 8
+  %28 = load ptr, ptr %tql_prev43, align 8
+  %29 = getelementptr inbounds %struct.QTailQLink, ptr @all_bdrv_states, i32 0, i32 1
+  store ptr %28, ptr %29, align 8
   br label %if.end44
 
 if.end44:                                         ; preds = %if.else41, %if.then35
-  %28 = load ptr, ptr %bs.addr, align 8
-  %bs_list45 = getelementptr inbounds %struct.BlockDriverState, ptr %28, i32 0, i32 24
-  %29 = load ptr, ptr %bs_list45, align 8
   %30 = load ptr, ptr %bs.addr, align 8
-  %bs_list46 = getelementptr inbounds %struct.BlockDriverState, ptr %30, i32 0, i32 24
-  %tql_prev47 = getelementptr inbounds %struct.QTailQLink, ptr %bs_list46, i32 0, i32 1
-  %31 = load ptr, ptr %tql_prev47, align 8
-  %tql_next48 = getelementptr inbounds %struct.QTailQLink, ptr %31, i32 0, i32 0
-  store ptr %29, ptr %tql_next48, align 8
+  %bs_list45 = getelementptr inbounds %struct.BlockDriverState, ptr %30, i32 0, i32 24
+  %31 = load ptr, ptr %bs_list45, align 8
   %32 = load ptr, ptr %bs.addr, align 8
-  %bs_list49 = getelementptr inbounds %struct.BlockDriverState, ptr %32, i32 0, i32 24
+  %bs_list46 = getelementptr inbounds %struct.BlockDriverState, ptr %32, i32 0, i32 24
+  %tql_prev47 = getelementptr inbounds %struct.QTailQLink, ptr %bs_list46, i32 0, i32 1
+  %33 = load ptr, ptr %tql_prev47, align 8
+  %tql_next48 = getelementptr inbounds %struct.QTailQLink, ptr %33, i32 0, i32 0
+  store ptr %31, ptr %tql_next48, align 8
+  %34 = load ptr, ptr %bs.addr, align 8
+  %bs_list49 = getelementptr inbounds %struct.BlockDriverState, ptr %34, i32 0, i32 24
   %tql_prev50 = getelementptr inbounds %struct.QTailQLink, ptr %bs_list49, i32 0, i32 1
   store ptr null, ptr %tql_prev50, align 8
-  %33 = load ptr, ptr %bs.addr, align 8
-  %bs_list51 = getelementptr inbounds %struct.BlockDriverState, ptr %33, i32 0, i32 24
+  %35 = load ptr, ptr %bs.addr, align 8
+  %bs_list51 = getelementptr inbounds %struct.BlockDriverState, ptr %35, i32 0, i32 24
   %tql_next52 = getelementptr inbounds %struct.QTailQLink, ptr %bs_list51, i32 0, i32 0
   store ptr null, ptr %tql_next52, align 8
-  %34 = load ptr, ptr %bs.addr, align 8
-  %bs_list53 = getelementptr inbounds %struct.BlockDriverState, ptr %34, i32 0, i32 24
+  %36 = load ptr, ptr %bs.addr, align 8
+  %bs_list53 = getelementptr inbounds %struct.BlockDriverState, ptr %36, i32 0, i32 24
   store ptr null, ptr %bs_list53, align 8
   br label %do.end54
 
 do.end54:                                         ; preds = %if.end44
-  %35 = load ptr, ptr %bs.addr, align 8
-  call void @bdrv_close(ptr noundef %35)
-  %36 = load ptr, ptr %bs.addr, align 8
-  %reqs_lock = getelementptr inbounds %struct.BlockDriverState, ptr %36, i32 0, i32 48
-  call void @qemu_mutex_destroy(ptr noundef %reqs_lock)
   %37 = load ptr, ptr %bs.addr, align 8
-  call void @g_free(ptr noundef %37)
+  call void @bdrv_close(ptr noundef %37)
+  %38 = load ptr, ptr %bs.addr, align 8
+  %reqs_lock = getelementptr inbounds %struct.BlockDriverState, ptr %38, i32 0, i32 48
+  call void @qemu_mutex_destroy(ptr noundef %reqs_lock)
+  %39 = load ptr, ptr %bs.addr, align 8
+  call void @g_free(ptr noundef %39)
   ret void
 }
 
@@ -22946,7 +22951,8 @@ do.end:                                           ; preds = %do.body
 define internal ptr @rcu_read_auto_lock() #0 {
 entry:
   call void @rcu_read_lock()
-  ret ptr inttoptr (i64 1 to ptr)
+  %0 = inttoptr i64 1 to ptr
+  ret ptr %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -23722,26 +23728,29 @@ do.body20:                                        ; preds = %if.end18
   %14 = load ptr, ptr %bs.addr, align 8
   %node_list = getelementptr inbounds %struct.BlockDriverState, ptr %14, i32 0, i32 23
   store ptr null, ptr %node_list, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @graph_bdrv_states, i32 0, i32 1), align 8
-  %16 = load ptr, ptr %bs.addr, align 8
-  %node_list21 = getelementptr inbounds %struct.BlockDriverState, ptr %16, i32 0, i32 23
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %node_list21, i32 0, i32 1
-  store ptr %15, ptr %tql_prev, align 8
+  %15 = getelementptr inbounds %struct.QTailQLink, ptr @graph_bdrv_states, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %bs.addr, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @graph_bdrv_states, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %18, i32 0, i32 0
-  store ptr %17, ptr %tql_next, align 8
-  %19 = load ptr, ptr %bs.addr, align 8
-  %node_list22 = getelementptr inbounds %struct.BlockDriverState, ptr %19, i32 0, i32 23
-  store ptr %node_list22, ptr getelementptr inbounds (%struct.QTailQLink, ptr @graph_bdrv_states, i32 0, i32 1), align 8
+  %node_list21 = getelementptr inbounds %struct.BlockDriverState, ptr %17, i32 0, i32 23
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %node_list21, i32 0, i32 1
+  store ptr %16, ptr %tql_prev, align 8
+  %18 = load ptr, ptr %bs.addr, align 8
+  %19 = getelementptr inbounds %struct.QTailQLink, ptr @graph_bdrv_states, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %20, i32 0, i32 0
+  store ptr %18, ptr %tql_next, align 8
+  %21 = load ptr, ptr %bs.addr, align 8
+  %node_list22 = getelementptr inbounds %struct.BlockDriverState, ptr %21, i32 0, i32 23
+  %22 = getelementptr inbounds %struct.QTailQLink, ptr @graph_bdrv_states, i32 0, i32 1
+  store ptr %node_list22, ptr %22, align 8
   br label %do.end23
 
 do.end23:                                         ; preds = %do.body20
   br label %out
 
 out:                                              ; preds = %do.end23, %if.then17, %if.then14, %if.then10
-  %20 = load ptr, ptr %gen_node_name, align 8
-  call void @g_free(ptr noundef %20)
+  %23 = load ptr, ptr %gen_node_name, align 8
+  call void @g_free(ptr noundef %23)
   br label %return
 
 return:                                           ; preds = %out, %if.then5
@@ -26228,62 +26237,63 @@ if.then6:                                         ; preds = %if.end4
   br label %out
 
 if.end7:                                          ; preds = %if.end4
-  %9 = load ptr, ptr getelementptr inbounds (%struct.BlockDriver, ptr @bdrv_qcow2, i32 0, i32 9), align 8
-  %call8 = call ptr @qemu_opts_create(ptr noundef %9, ptr noundef null, i32 noundef 0, ptr noundef @error_abort)
+  %9 = getelementptr inbounds %struct.BlockDriver, ptr @bdrv_qcow2, i32 0, i32 9
+  %10 = load ptr, ptr %9, align 8
+  %call8 = call ptr @qemu_opts_create(ptr noundef %10, ptr noundef null, i32 noundef 0, ptr noundef @error_abort)
   store ptr %call8, ptr %opts, align 8
-  %10 = load ptr, ptr %opts, align 8
-  %11 = load i64, ptr %total_size, align 8
-  %call9 = call zeroext i1 @qemu_opt_set_number(ptr noundef %10, ptr noundef @.str.17, i64 noundef %11, ptr noundef @error_abort)
-  %12 = load ptr, ptr %tmp_filename, align 8
-  %13 = load ptr, ptr %opts, align 8
-  %14 = load ptr, ptr %errp.addr, align 8
-  %call10 = call i32 @bdrv_create(ptr noundef @bdrv_qcow2, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  %11 = load ptr, ptr %opts, align 8
+  %12 = load i64, ptr %total_size, align 8
+  %call9 = call zeroext i1 @qemu_opt_set_number(ptr noundef %11, ptr noundef @.str.17, i64 noundef %12, ptr noundef @error_abort)
+  %13 = load ptr, ptr %tmp_filename, align 8
+  %14 = load ptr, ptr %opts, align 8
+  %15 = load ptr, ptr %errp.addr, align 8
+  %call10 = call i32 @bdrv_create(ptr noundef @bdrv_qcow2, ptr noundef %13, ptr noundef %14, ptr noundef %15)
   store i32 %call10, ptr %ret, align 4
-  %15 = load ptr, ptr %opts, align 8
-  call void @qemu_opts_del(ptr noundef %15)
-  %16 = load i32, ptr %ret, align 4
-  %cmp11 = icmp slt i32 %16, 0
+  %16 = load ptr, ptr %opts, align 8
+  call void @qemu_opts_del(ptr noundef %16)
+  %17 = load i32, ptr %ret, align 4
+  %cmp11 = icmp slt i32 %17, 0
   br i1 %cmp11, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end7
-  %17 = load ptr, ptr %errp.addr, align 8
-  %18 = load ptr, ptr %tmp_filename, align 8
-  call void (ptr, ptr, ...) @error_prepend(ptr noundef %17, ptr noundef @.str.253, ptr noundef %18)
+  %18 = load ptr, ptr %errp.addr, align 8
+  %19 = load ptr, ptr %tmp_filename, align 8
+  call void (ptr, ptr, ...) @error_prepend(ptr noundef %18, ptr noundef @.str.253, ptr noundef %19)
   br label %out
 
 if.end14:                                         ; preds = %if.end7
-  %19 = load ptr, ptr %snapshot_options.addr, align 8
-  call void @qdict_put_str(ptr noundef %19, ptr noundef @.str.254, ptr noundef @.str.214)
   %20 = load ptr, ptr %snapshot_options.addr, align 8
-  %21 = load ptr, ptr %tmp_filename, align 8
-  call void @qdict_put_str(ptr noundef %20, ptr noundef @.str.77, ptr noundef %21)
-  %22 = load ptr, ptr %snapshot_options.addr, align 8
-  call void @qdict_put_str(ptr noundef %22, ptr noundef @.str.20, ptr noundef @.str.255)
+  call void @qdict_put_str(ptr noundef %20, ptr noundef @.str.254, ptr noundef @.str.214)
+  %21 = load ptr, ptr %snapshot_options.addr, align 8
+  %22 = load ptr, ptr %tmp_filename, align 8
+  call void @qdict_put_str(ptr noundef %21, ptr noundef @.str.77, ptr noundef %22)
   %23 = load ptr, ptr %snapshot_options.addr, align 8
-  %24 = load i32, ptr %flags.addr, align 4
-  %25 = load ptr, ptr %errp.addr, align 8
-  %call15 = call ptr @bdrv_open(ptr noundef null, ptr noundef null, ptr noundef %23, i32 noundef %24, ptr noundef %25)
+  call void @qdict_put_str(ptr noundef %23, ptr noundef @.str.20, ptr noundef @.str.255)
+  %24 = load ptr, ptr %snapshot_options.addr, align 8
+  %25 = load i32, ptr %flags.addr, align 4
+  %26 = load ptr, ptr %errp.addr, align 8
+  %call15 = call ptr @bdrv_open(ptr noundef null, ptr noundef null, ptr noundef %24, i32 noundef %25, ptr noundef %26)
   store ptr %call15, ptr %bs_snapshot, align 8
   store ptr null, ptr %snapshot_options.addr, align 8
-  %26 = load ptr, ptr %bs_snapshot, align 8
-  %tobool16 = icmp ne ptr %26, null
+  %27 = load ptr, ptr %bs_snapshot, align 8
+  %tobool16 = icmp ne ptr %27, null
   br i1 %tobool16, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end14
   br label %out
 
 if.end18:                                         ; preds = %if.end14
-  %27 = load ptr, ptr %ctx, align 8
-  call void @aio_context_acquire(ptr noundef %27)
-  %28 = load ptr, ptr %bs_snapshot, align 8
-  %29 = load ptr, ptr %bs.addr, align 8
-  %30 = load ptr, ptr %errp.addr, align 8
-  %call19 = call i32 @bdrv_append(ptr noundef %28, ptr noundef %29, ptr noundef %30)
+  %28 = load ptr, ptr %ctx, align 8
+  call void @aio_context_acquire(ptr noundef %28)
+  %29 = load ptr, ptr %bs_snapshot, align 8
+  %30 = load ptr, ptr %bs.addr, align 8
+  %31 = load ptr, ptr %errp.addr, align 8
+  %call19 = call i32 @bdrv_append(ptr noundef %29, ptr noundef %30, ptr noundef %31)
   store i32 %call19, ptr %ret, align 4
-  %31 = load ptr, ptr %ctx, align 8
-  call void @aio_context_release(ptr noundef %31)
-  %32 = load i32, ptr %ret, align 4
-  %cmp20 = icmp slt i32 %32, 0
+  %32 = load ptr, ptr %ctx, align 8
+  call void @aio_context_release(ptr noundef %32)
+  %33 = load i32, ptr %ret, align 4
+  %cmp20 = icmp slt i32 %33, 0
   br i1 %cmp20, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.end18
@@ -26294,33 +26304,33 @@ if.end23:                                         ; preds = %if.end18
   br label %out
 
 out:                                              ; preds = %if.end23, %if.then22, %if.then17, %if.then13, %if.then6, %if.then3
-  %33 = load ptr, ptr %snapshot_options.addr, align 8
-  store ptr %33, ptr %_obj26, align 8
-  %34 = load ptr, ptr %_obj26, align 8
-  %tobool24 = icmp ne ptr %34, null
+  %34 = load ptr, ptr %snapshot_options.addr, align 8
+  store ptr %34, ptr %_obj26, align 8
+  %35 = load ptr, ptr %_obj26, align 8
+  %tobool24 = icmp ne ptr %35, null
   br i1 %tobool24, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %out
-  %35 = load ptr, ptr %_obj26, align 8
-  %base = getelementptr inbounds %struct.QDict, ptr %35, i32 0, i32 0
+  %36 = load ptr, ptr %_obj26, align 8
+  %base = getelementptr inbounds %struct.QDict, ptr %36, i32 0, i32 0
   store ptr %base, ptr %__mptr, align 8
-  %36 = load ptr, ptr %__mptr, align 8
-  %add.ptr = getelementptr i8, ptr %36, i64 0
+  %37 = load ptr, ptr %__mptr, align 8
+  %add.ptr = getelementptr i8, ptr %37, i64 0
   store ptr %add.ptr, ptr %tmp25, align 8
-  %37 = load ptr, ptr %tmp25, align 8
+  %38 = load ptr, ptr %tmp25, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %out
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %37, %cond.true ], [ null, %cond.false ]
+  %cond = phi ptr [ %38, %cond.true ], [ null, %cond.false ]
   store ptr %cond, ptr %tmp, align 8
-  %38 = load ptr, ptr %tmp, align 8
-  call void @qobject_unref_impl(ptr noundef %38)
-  %39 = load ptr, ptr %bs_snapshot, align 8
+  %39 = load ptr, ptr %tmp, align 8
+  call void @qobject_unref_impl(ptr noundef %39)
+  %40 = load ptr, ptr %bs_snapshot, align 8
   call void @g_autoptr_cleanup_generic_gfree(ptr noundef %tmp_filename)
-  ret ptr %39
+  ret ptr %40
 }
 
 declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) #2
@@ -28613,51 +28623,52 @@ if.end:                                           ; preds = %entry
   %incdec.ptr = getelementptr ptr, ptr %1, i32 1
   store ptr %incdec.ptr, ptr %curopt.addr, align 8
   %2 = load ptr, ptr %curopt.addr, align 8
-  %cmp = icmp eq ptr %2, getelementptr inbounds ([3 x ptr], ptr @strong_options.global_options, i64 0, i64 2)
+  %3 = getelementptr inbounds [3 x ptr], ptr @strong_options.global_options, i64 0, i64 2
+  %cmp = icmp eq ptr %2, %3
   br i1 %cmp, label %land.lhs.true, label %if.end4
 
 land.lhs.true:                                    ; preds = %if.end
-  %3 = load ptr, ptr %bs.addr, align 8
-  %drv = getelementptr inbounds %struct.BlockDriverState, ptr %3, i32 0, i32 6
-  %4 = load ptr, ptr %drv, align 8
-  %tobool1 = icmp ne ptr %4, null
+  %4 = load ptr, ptr %bs.addr, align 8
+  %drv = getelementptr inbounds %struct.BlockDriverState, ptr %4, i32 0, i32 6
+  %5 = load ptr, ptr %drv, align 8
+  %tobool1 = icmp ne ptr %5, null
   br i1 %tobool1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %land.lhs.true
-  %5 = load ptr, ptr %bs.addr, align 8
-  %drv3 = getelementptr inbounds %struct.BlockDriverState, ptr %5, i32 0, i32 6
-  %6 = load ptr, ptr %drv3, align 8
-  %strong_runtime_opts = getelementptr inbounds %struct.BlockDriver, ptr %6, i32 0, i32 12
-  %7 = load ptr, ptr %strong_runtime_opts, align 8
-  store ptr %7, ptr %curopt.addr, align 8
+  %6 = load ptr, ptr %bs.addr, align 8
+  %drv3 = getelementptr inbounds %struct.BlockDriverState, ptr %6, i32 0, i32 6
+  %7 = load ptr, ptr %drv3, align 8
+  %strong_runtime_opts = getelementptr inbounds %struct.BlockDriver, ptr %7, i32 0, i32 12
+  %8 = load ptr, ptr %strong_runtime_opts, align 8
+  store ptr %8, ptr %curopt.addr, align 8
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %land.lhs.true, %if.end
-  %8 = load ptr, ptr %curopt.addr, align 8
-  %tobool5 = icmp ne ptr %8, null
+  %9 = load ptr, ptr %curopt.addr, align 8
+  %tobool5 = icmp ne ptr %9, null
   br i1 %tobool5, label %land.lhs.true6, label %cond.false
 
 land.lhs.true6:                                   ; preds = %if.end4
-  %9 = load ptr, ptr %curopt.addr, align 8
-  %10 = load ptr, ptr %9, align 8
-  %tobool7 = icmp ne ptr %10, null
+  %10 = load ptr, ptr %curopt.addr, align 8
+  %11 = load ptr, ptr %10, align 8
+  %tobool7 = icmp ne ptr %11, null
   br i1 %tobool7, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %land.lhs.true6
-  %11 = load ptr, ptr %curopt.addr, align 8
+  %12 = load ptr, ptr %curopt.addr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %land.lhs.true6, %if.end4
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %11, %cond.true ], [ null, %cond.false ]
+  %cond = phi ptr [ %12, %cond.true ], [ null, %cond.false ]
   store ptr %cond, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %cond.end, %if.then
-  %12 = load ptr, ptr %retval, align 8
-  ret ptr %12
+  %13 = load ptr, ptr %retval, align 8
+  ret ptr %13
 }
 
 declare ptr @qdict_entry_key(ptr noundef) #2

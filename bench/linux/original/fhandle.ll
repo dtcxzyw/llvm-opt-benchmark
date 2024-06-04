@@ -306,25 +306,25 @@ define internal fastcc i64 @do_handle_open(i32 noundef %0, ptr noundef %1, i32 n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   store i64 0, ptr %4, align 8, !annotation !7
   %6 = tail call zeroext i1 @capable(i32 noundef 2) #8
-  br i1 %6, label %7, label %72
+  br i1 %6, label %7, label %75
 
 7:                                                ; preds = %3
   %8 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 8) #8
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %72
+  br i1 %9, label %10, label %75
 
 10:                                               ; preds = %7
   %11 = load i32, ptr %4, align 8
   %12 = add i32 %11, -129
   %13 = icmp ult i32 %12, -128
-  br i1 %13, label %72, label %14
+  br i1 %13, label %75, label %14
 
 14:                                               ; preds = %10
   %15 = add nuw nsw i32 %11, 8
   %16 = zext nneg i32 %15 to i64
   %17 = call noalias align 8 ptr @__kmalloc(i64 noundef %16, i32 noundef 3264) #9
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %72, label %19
+  br i1 %18, label %75, label %19
 
 19:                                               ; preds = %14
   %20 = load i64, ptr %4, align 8
@@ -338,14 +338,14 @@ define internal fastcc i64 @do_handle_open(i32 noundef %0, ptr noundef %1, i32 n
   call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #8, !srcloc !10
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 249, i32 2307, i64 12) #8, !srcloc !11
   call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #8, !srcloc !12
-  br label %70
+  br label %73
 
 25:                                               ; preds = %19
   %26 = zext nneg i32 %22 to i64
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   %28 = call i64 @_copy_from_user(ptr noundef %21, ptr noundef %27, i64 noundef %26) #8
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %70
+  br i1 %29, label %30, label %73
 
 30:                                               ; preds = %25
   %31 = icmp eq i32 %0, -100
@@ -362,104 +362,108 @@ define internal fastcc i64 @do_handle_open(i32 noundef %0, ptr noundef %1, i32 n
   %39 = load ptr, ptr %38, align 8
   %40 = call ptr @mntget(ptr noundef %39) #8
   call void @_raw_spin_unlock(ptr noundef %37) #8
-  br label %53
+  br label %54
 
 41:                                               ; preds = %30
   %42 = call i64 @__fdget(i32 noundef %0) #8
   %43 = and i64 %42, -4
   %44 = inttoptr i64 %43 to ptr
   %45 = icmp eq i64 %43, 0
-  br i1 %45, label %53, label %46
+  %46 = inttoptr i64 -9 to ptr
+  br i1 %45, label %54, label %47
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %44, i64 152
-  %48 = load ptr, ptr %47, align 8
-  %49 = call ptr @mntget(ptr noundef %48) #8
-  %50 = and i64 %42, 1
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %53, label %52
+47:                                               ; preds = %41
+  %48 = getelementptr inbounds i8, ptr %44, i64 152
+  %49 = load ptr, ptr %48, align 8
+  %50 = call ptr @mntget(ptr noundef %49) #8
+  %51 = and i64 %42, 1
+  %52 = icmp eq i64 %51, 0
+  br i1 %52, label %54, label %53
 
-52:                                               ; preds = %46
+53:                                               ; preds = %47
   call void @fput(ptr noundef nonnull %44) #8
-  br label %53
+  br label %54
 
-53:                                               ; preds = %52, %46, %41, %32
-  %54 = phi ptr [ %40, %32 ], [ inttoptr (i64 -9 to ptr), %41 ], [ %49, %46 ], [ %49, %52 ]
-  store ptr %54, ptr %5, align 8
-  %55 = icmp ugt ptr %54, inttoptr (i64 -4096 to ptr)
-  br i1 %55, label %66, label %56
+54:                                               ; preds = %53, %47, %41, %32
+  %55 = phi ptr [ %40, %32 ], [ %46, %41 ], [ %50, %47 ], [ %50, %53 ]
+  store ptr %55, ptr %5, align 8
+  %56 = inttoptr i64 -4096 to ptr
+  %57 = icmp ugt ptr %55, %56
+  br i1 %57, label %69, label %58
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr %17, align 8
-  %58 = lshr i32 %57, 2
-  %59 = getelementptr inbounds i8, ptr %17, i64 4
-  %60 = load i32, ptr %59, align 4
-  %61 = call ptr @exportfs_decode_fh(ptr noundef %54, ptr noundef %21, i32 noundef %58, i32 noundef %60, ptr noundef nonnull @vfs_dentry_acceptable, ptr noundef null) #8
-  %62 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %61, ptr %62, align 8
-  %63 = icmp ugt ptr %61, inttoptr (i64 -4096 to ptr)
-  br i1 %63, label %64, label %70
+58:                                               ; preds = %54
+  %59 = load i32, ptr %17, align 8
+  %60 = lshr i32 %59, 2
+  %61 = getelementptr inbounds i8, ptr %17, i64 4
+  %62 = load i32, ptr %61, align 4
+  %63 = call ptr @exportfs_decode_fh(ptr noundef %55, ptr noundef %21, i32 noundef %60, i32 noundef %62, ptr noundef nonnull @vfs_dentry_acceptable, ptr noundef null) #8
+  %64 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %63, ptr %64, align 8
+  %65 = inttoptr i64 -4096 to ptr
+  %66 = icmp ugt ptr %63, %65
+  br i1 %66, label %67, label %73
 
-64:                                               ; preds = %56
-  %65 = load ptr, ptr %5, align 8
-  call void @mntput(ptr noundef %65) #8
-  br label %66
+67:                                               ; preds = %58
+  %68 = load ptr, ptr %5, align 8
+  call void @mntput(ptr noundef %68) #8
+  br label %69
 
-66:                                               ; preds = %64, %53
-  %67 = phi ptr [ %61, %64 ], [ %54, %53 ]
-  %68 = ptrtoint ptr %67 to i64
-  %69 = trunc i64 %68 to i32
-  br label %70
+69:                                               ; preds = %67, %54
+  %70 = phi ptr [ %63, %67 ], [ %55, %54 ]
+  %71 = ptrtoint ptr %70 to i64
+  %72 = trunc i64 %71 to i32
+  br label %73
 
-70:                                               ; preds = %66, %56, %25, %24
-  %71 = phi i32 [ -14, %25 ], [ %69, %66 ], [ 0, %56 ], [ -14, %24 ]
+73:                                               ; preds = %69, %58, %25, %24
+  %74 = phi i32 [ -14, %25 ], [ %72, %69 ], [ 0, %58 ], [ -14, %24 ]
   call void @kfree(ptr noundef nonnull %17) #8
-  br label %72
+  br label %75
 
-72:                                               ; preds = %70, %14, %10, %7, %3
-  %73 = phi i32 [ %71, %70 ], [ -1, %3 ], [ -14, %7 ], [ -22, %10 ], [ -12, %14 ]
+75:                                               ; preds = %73, %14, %10, %7, %3
+  %76 = phi i32 [ %74, %73 ], [ -1, %3 ], [ -14, %7 ], [ -22, %10 ], [ -12, %14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %77, label %75
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %80, label %78
 
-75:                                               ; preds = %72
-  %76 = sext i32 %73 to i64
-  br label %91
+78:                                               ; preds = %75
+  %79 = sext i32 %76 to i64
+  br label %95
 
-77:                                               ; preds = %72
-  %78 = call i32 @get_unused_fd_flags(i32 noundef %2) #8
-  %79 = icmp slt i32 %78, 0
-  br i1 %79, label %80, label %82
+80:                                               ; preds = %75
+  %81 = call i32 @get_unused_fd_flags(i32 noundef %2) #8
+  %82 = icmp slt i32 %81, 0
+  br i1 %82, label %83, label %85
 
-80:                                               ; preds = %77
+83:                                               ; preds = %80
   call void @path_put(ptr noundef nonnull %5) #8
-  %81 = sext i32 %78 to i64
-  br label %91
+  %84 = sext i32 %81 to i64
+  br label %95
 
-82:                                               ; preds = %77
-  %83 = call ptr @file_open_root(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, i32 noundef %2, i16 noundef zeroext 0) #8
-  %84 = icmp ugt ptr %83, inttoptr (i64 -4096 to ptr)
-  br i1 %84, label %85, label %87
+85:                                               ; preds = %80
+  %86 = call ptr @file_open_root(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, i32 noundef %2, i16 noundef zeroext 0) #8
+  %87 = inttoptr i64 -4096 to ptr
+  %88 = icmp ugt ptr %86, %87
+  br i1 %88, label %89, label %91
 
-85:                                               ; preds = %82
-  call void @put_unused_fd(i32 noundef %78) #8
-  %86 = ptrtoint ptr %83 to i64
-  br label %89
+89:                                               ; preds = %85
+  call void @put_unused_fd(i32 noundef %81) #8
+  %90 = ptrtoint ptr %86 to i64
+  br label %93
 
-87:                                               ; preds = %82
-  %88 = zext nneg i32 %78 to i64
-  call void @fd_install(i32 noundef %78, ptr noundef %83) #8
-  br label %89
+91:                                               ; preds = %85
+  %92 = zext nneg i32 %81 to i64
+  call void @fd_install(i32 noundef %81, ptr noundef %86) #8
+  br label %93
 
-89:                                               ; preds = %87, %85
-  %90 = phi i64 [ %86, %85 ], [ %88, %87 ]
+93:                                               ; preds = %91, %89
+  %94 = phi i64 [ %90, %89 ], [ %92, %91 ]
   call void @path_put(ptr noundef nonnull %5) #8
-  br label %91
+  br label %95
 
-91:                                               ; preds = %89, %80, %75
-  %92 = phi i64 [ %76, %75 ], [ %81, %80 ], [ %90, %89 ]
+95:                                               ; preds = %93, %83, %78
+  %96 = phi i64 [ %79, %78 ], [ %84, %83 ], [ %94, %93 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
-  ret i64 %92
+  ret i64 %96
 }
 
 ; Function Attrs: null_pointer_is_valid

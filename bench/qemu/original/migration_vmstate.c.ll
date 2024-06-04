@@ -333,73 +333,74 @@ if.else48:                                        ; preds = %if.then43
   unreachable
 
 if.end49:                                         ; preds = %if.then47
-  %72 = call ptr @llvm.ptr.annotation.p0.p0(ptr getelementptr inbounds (%struct.VMStateInfo, ptr @vmstate_info_nullptr, i32 0, i32 1), ptr @.str.7, ptr @.str.8, i32 44, ptr null)
-  %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %f.addr, align 8
-  %75 = load ptr, ptr %curr_elem, align 8
-  %76 = load i32, ptr %size, align 4
-  %conv = sext i32 %76 to i64
-  %call50 = call i32 %73(ptr noundef %74, ptr noundef %75, i64 noundef %conv, ptr noundef null)
+  %72 = getelementptr inbounds %struct.VMStateInfo, ptr @vmstate_info_nullptr, i32 0, i32 1
+  %73 = call ptr @llvm.ptr.annotation.p0.p0(ptr %72, ptr @.str.7, ptr @.str.8, i32 44, ptr null)
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %f.addr, align 8
+  %76 = load ptr, ptr %curr_elem, align 8
+  %77 = load i32, ptr %size, align 4
+  %conv = sext i32 %77 to i64
+  %call50 = call i32 %74(ptr noundef %75, ptr noundef %76, i64 noundef %conv, ptr noundef null)
   store i32 %call50, ptr %ret, align 4
   br label %if.end72
 
 if.else51:                                        ; preds = %land.lhs.true, %if.end40
-  %77 = load ptr, ptr %field, align 8
-  %flags52 = getelementptr inbounds %struct.VMStateField, ptr %77, i32 0, i32 9
-  %78 = load i32, ptr %flags52, align 8
-  %and53 = and i32 %78, 8
+  %78 = load ptr, ptr %field, align 8
+  %flags52 = getelementptr inbounds %struct.VMStateField, ptr %78, i32 0, i32 9
+  %79 = load i32, ptr %flags52, align 8
+  %and53 = and i32 %79, 8
   %tobool54 = icmp ne i32 %and53, 0
   br i1 %tobool54, label %if.then55, label %if.else60
 
 if.then55:                                        ; preds = %if.else51
-  %79 = load ptr, ptr %f.addr, align 8
-  %80 = load ptr, ptr %field, align 8
-  %vmsd56 = getelementptr inbounds %struct.VMStateField, ptr %80, i32 0, i32 10
-  %81 = load ptr, ptr %vmsd56, align 8
-  %82 = load ptr, ptr %curr_elem, align 8
-  %83 = load ptr, ptr %field, align 8
-  %vmsd57 = getelementptr inbounds %struct.VMStateField, ptr %83, i32 0, i32 10
-  %84 = load ptr, ptr %vmsd57, align 8
-  %version_id58 = getelementptr inbounds %struct.VMStateDescription, ptr %84, i32 0, i32 3
-  %85 = load i32, ptr %version_id58, align 4
-  %call59 = call i32 @vmstate_load_state(ptr noundef %79, ptr noundef %81, ptr noundef %82, i32 noundef %85)
+  %80 = load ptr, ptr %f.addr, align 8
+  %81 = load ptr, ptr %field, align 8
+  %vmsd56 = getelementptr inbounds %struct.VMStateField, ptr %81, i32 0, i32 10
+  %82 = load ptr, ptr %vmsd56, align 8
+  %83 = load ptr, ptr %curr_elem, align 8
+  %84 = load ptr, ptr %field, align 8
+  %vmsd57 = getelementptr inbounds %struct.VMStateField, ptr %84, i32 0, i32 10
+  %85 = load ptr, ptr %vmsd57, align 8
+  %version_id58 = getelementptr inbounds %struct.VMStateDescription, ptr %85, i32 0, i32 3
+  %86 = load i32, ptr %version_id58, align 4
+  %call59 = call i32 @vmstate_load_state(ptr noundef %80, ptr noundef %82, ptr noundef %83, i32 noundef %86)
   store i32 %call59, ptr %ret, align 4
   br label %if.end71
 
 if.else60:                                        ; preds = %if.else51
-  %86 = load ptr, ptr %field, align 8
-  %flags61 = getelementptr inbounds %struct.VMStateField, ptr %86, i32 0, i32 9
-  %87 = load i32, ptr %flags61, align 8
-  %and62 = and i32 %87, 32768
+  %87 = load ptr, ptr %field, align 8
+  %flags61 = getelementptr inbounds %struct.VMStateField, ptr %87, i32 0, i32 9
+  %88 = load i32, ptr %flags61, align 8
+  %and62 = and i32 %88, 32768
   %tobool63 = icmp ne i32 %and62, 0
   br i1 %tobool63, label %if.then64, label %if.else67
 
 if.then64:                                        ; preds = %if.else60
-  %88 = load ptr, ptr %f.addr, align 8
-  %89 = load ptr, ptr %field, align 8
-  %vmsd65 = getelementptr inbounds %struct.VMStateField, ptr %89, i32 0, i32 10
-  %90 = load ptr, ptr %vmsd65, align 8
-  %91 = load ptr, ptr %curr_elem, align 8
-  %92 = load ptr, ptr %field, align 8
-  %struct_version_id = getelementptr inbounds %struct.VMStateField, ptr %92, i32 0, i32 12
-  %93 = load i32, ptr %struct_version_id, align 4
-  %call66 = call i32 @vmstate_load_state(ptr noundef %88, ptr noundef %90, ptr noundef %91, i32 noundef %93)
+  %89 = load ptr, ptr %f.addr, align 8
+  %90 = load ptr, ptr %field, align 8
+  %vmsd65 = getelementptr inbounds %struct.VMStateField, ptr %90, i32 0, i32 10
+  %91 = load ptr, ptr %vmsd65, align 8
+  %92 = load ptr, ptr %curr_elem, align 8
+  %93 = load ptr, ptr %field, align 8
+  %struct_version_id = getelementptr inbounds %struct.VMStateField, ptr %93, i32 0, i32 12
+  %94 = load i32, ptr %struct_version_id, align 4
+  %call66 = call i32 @vmstate_load_state(ptr noundef %89, ptr noundef %91, ptr noundef %92, i32 noundef %94)
   store i32 %call66, ptr %ret, align 4
   br label %if.end70
 
 if.else67:                                        ; preds = %if.else60
-  %94 = load ptr, ptr %field, align 8
-  %info = getelementptr inbounds %struct.VMStateField, ptr %94, i32 0, i32 8
-  %95 = load ptr, ptr %info, align 8
-  %get = getelementptr inbounds %struct.VMStateInfo, ptr %95, i32 0, i32 1
-  %96 = call ptr @llvm.ptr.annotation.p0.p0(ptr %get, ptr @.str.7, ptr @.str.8, i32 44, ptr null)
-  %97 = load ptr, ptr %96, align 8
-  %98 = load ptr, ptr %f.addr, align 8
-  %99 = load ptr, ptr %curr_elem, align 8
-  %100 = load i32, ptr %size, align 4
-  %conv68 = sext i32 %100 to i64
-  %101 = load ptr, ptr %field, align 8
-  %call69 = call i32 %97(ptr noundef %98, ptr noundef %99, i64 noundef %conv68, ptr noundef %101)
+  %95 = load ptr, ptr %field, align 8
+  %info = getelementptr inbounds %struct.VMStateField, ptr %95, i32 0, i32 8
+  %96 = load ptr, ptr %info, align 8
+  %get = getelementptr inbounds %struct.VMStateInfo, ptr %96, i32 0, i32 1
+  %97 = call ptr @llvm.ptr.annotation.p0.p0(ptr %get, ptr @.str.7, ptr @.str.8, i32 44, ptr null)
+  %98 = load ptr, ptr %97, align 8
+  %99 = load ptr, ptr %f.addr, align 8
+  %100 = load ptr, ptr %curr_elem, align 8
+  %101 = load i32, ptr %size, align 4
+  %conv68 = sext i32 %101 to i64
+  %102 = load ptr, ptr %field, align 8
+  %call69 = call i32 %98(ptr noundef %99, ptr noundef %100, i64 noundef %conv68, ptr noundef %102)
   store i32 %call69, ptr %ret, align 4
   br label %if.end70
 
@@ -410,47 +411,47 @@ if.end71:                                         ; preds = %if.end70, %if.then5
   br label %if.end72
 
 if.end72:                                         ; preds = %if.end71, %if.end49
-  %102 = load i32, ptr %ret, align 4
-  %cmp73 = icmp sge i32 %102, 0
+  %103 = load i32, ptr %ret, align 4
+  %cmp73 = icmp sge i32 %103, 0
   br i1 %cmp73, label %if.then75, label %if.end77
 
 if.then75:                                        ; preds = %if.end72
-  %103 = load ptr, ptr %f.addr, align 8
-  %call76 = call i32 @qemu_file_get_error(ptr noundef %103)
+  %104 = load ptr, ptr %f.addr, align 8
+  %call76 = call i32 @qemu_file_get_error(ptr noundef %104)
   store i32 %call76, ptr %ret, align 4
   br label %if.end77
 
 if.end77:                                         ; preds = %if.then75, %if.end72
-  %104 = load i32, ptr %ret, align 4
-  %cmp78 = icmp slt i32 %104, 0
+  %105 = load i32, ptr %ret, align 4
+  %cmp78 = icmp slt i32 %105, 0
   br i1 %cmp78, label %if.then80, label %if.end84
 
 if.then80:                                        ; preds = %if.end77
-  %105 = load ptr, ptr %f.addr, align 8
-  %106 = load i32, ptr %ret, align 4
-  call void @qemu_file_set_error(ptr noundef %105, i32 noundef %106)
-  %107 = load ptr, ptr %vmsd.addr, align 8
-  %name81 = getelementptr inbounds %struct.VMStateDescription, ptr %107, i32 0, i32 0
-  %108 = load ptr, ptr %name81, align 8
-  %109 = load ptr, ptr %field, align 8
-  %name82 = getelementptr inbounds %struct.VMStateField, ptr %109, i32 0, i32 0
-  %110 = load ptr, ptr %name82, align 8
-  call void (ptr, ...) @error_report(ptr noundef @.str.9, ptr noundef %108, ptr noundef %110)
-  %111 = load ptr, ptr %field, align 8
-  %name83 = getelementptr inbounds %struct.VMStateField, ptr %111, i32 0, i32 0
-  %112 = load ptr, ptr %name83, align 8
-  %113 = load i32, ptr %ret, align 4
-  call void @trace_vmstate_load_field_error(ptr noundef %112, i32 noundef %113)
+  %106 = load ptr, ptr %f.addr, align 8
+  %107 = load i32, ptr %ret, align 4
+  call void @qemu_file_set_error(ptr noundef %106, i32 noundef %107)
+  %108 = load ptr, ptr %vmsd.addr, align 8
+  %name81 = getelementptr inbounds %struct.VMStateDescription, ptr %108, i32 0, i32 0
+  %109 = load ptr, ptr %name81, align 8
+  %110 = load ptr, ptr %field, align 8
+  %name82 = getelementptr inbounds %struct.VMStateField, ptr %110, i32 0, i32 0
+  %111 = load ptr, ptr %name82, align 8
+  call void (ptr, ...) @error_report(ptr noundef @.str.9, ptr noundef %109, ptr noundef %111)
+  %112 = load ptr, ptr %field, align 8
+  %name83 = getelementptr inbounds %struct.VMStateField, ptr %112, i32 0, i32 0
+  %113 = load ptr, ptr %name83, align 8
   %114 = load i32, ptr %ret, align 4
-  store i32 %114, ptr %retval, align 4
+  call void @trace_vmstate_load_field_error(ptr noundef %113, i32 noundef %114)
+  %115 = load i32, ptr %ret, align 4
+  store i32 %115, ptr %retval, align 4
   br label %return
 
 if.end84:                                         ; preds = %if.end77
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end84
-  %115 = load i32, ptr %i, align 4
-  %inc = add i32 %115, 1
+  %116 = load i32, ptr %i, align 4
+  %inc = add i32 %116, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !5
 
@@ -458,21 +459,21 @@ for.end:                                          ; preds = %for.cond
   br label %if.end93
 
 if.else85:                                        ; preds = %while.body
-  %116 = load ptr, ptr %field, align 8
-  %flags86 = getelementptr inbounds %struct.VMStateField, ptr %116, i32 0, i32 9
-  %117 = load i32, ptr %flags86, align 8
-  %and87 = and i32 %117, 4096
+  %117 = load ptr, ptr %field, align 8
+  %flags86 = getelementptr inbounds %struct.VMStateField, ptr %117, i32 0, i32 9
+  %118 = load i32, ptr %flags86, align 8
+  %and87 = and i32 %118, 4096
   %tobool88 = icmp ne i32 %and87, 0
   br i1 %tobool88, label %if.then89, label %if.end92
 
 if.then89:                                        ; preds = %if.else85
-  %118 = load ptr, ptr %vmsd.addr, align 8
-  %name90 = getelementptr inbounds %struct.VMStateDescription, ptr %118, i32 0, i32 0
-  %119 = load ptr, ptr %name90, align 8
-  %120 = load ptr, ptr %field, align 8
-  %name91 = getelementptr inbounds %struct.VMStateField, ptr %120, i32 0, i32 0
-  %121 = load ptr, ptr %name91, align 8
-  call void (ptr, ...) @error_report(ptr noundef @.str.10, ptr noundef %119, ptr noundef %121)
+  %119 = load ptr, ptr %vmsd.addr, align 8
+  %name90 = getelementptr inbounds %struct.VMStateDescription, ptr %119, i32 0, i32 0
+  %120 = load ptr, ptr %name90, align 8
+  %121 = load ptr, ptr %field, align 8
+  %name91 = getelementptr inbounds %struct.VMStateField, ptr %121, i32 0, i32 0
+  %122 = load ptr, ptr %name91, align 8
+  call void (ptr, ...) @error_report(ptr noundef @.str.10, ptr noundef %120, ptr noundef %122)
   store i32 -1, ptr %retval, align 4
   br label %return
 
@@ -480,16 +481,16 @@ if.end92:                                         ; preds = %if.else85
   br label %if.end93
 
 if.end93:                                         ; preds = %if.end92, %for.end
-  %122 = load ptr, ptr %field, align 8
-  %incdec.ptr = getelementptr %struct.VMStateField, ptr %122, i32 1
+  %123 = load ptr, ptr %field, align 8
+  %incdec.ptr = getelementptr %struct.VMStateField, ptr %123, i32 1
   store ptr %incdec.ptr, ptr %field, align 8
   br label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
-  %123 = load ptr, ptr %field, align 8
-  %flags94 = getelementptr inbounds %struct.VMStateField, ptr %123, i32 0, i32 9
-  %124 = load i32, ptr %flags94, align 8
-  %cmp95 = icmp eq i32 %124, 65536
+  %124 = load ptr, ptr %field, align 8
+  %flags94 = getelementptr inbounds %struct.VMStateField, ptr %124, i32 0, i32 9
+  %125 = load i32, ptr %flags94, align 8
+  %cmp95 = icmp eq i32 %125, 65536
   br i1 %cmp95, label %if.then97, label %if.else98
 
 if.then97:                                        ; preds = %while.end
@@ -500,53 +501,53 @@ if.else98:                                        ; preds = %while.end
   unreachable
 
 if.end99:                                         ; preds = %if.then97
-  %125 = load ptr, ptr %f.addr, align 8
-  %126 = load ptr, ptr %vmsd.addr, align 8
-  %127 = load ptr, ptr %opaque.addr, align 8
-  %call100 = call i32 @vmstate_subsection_load(ptr noundef %125, ptr noundef %126, ptr noundef %127)
+  %126 = load ptr, ptr %f.addr, align 8
+  %127 = load ptr, ptr %vmsd.addr, align 8
+  %128 = load ptr, ptr %opaque.addr, align 8
+  %call100 = call i32 @vmstate_subsection_load(ptr noundef %126, ptr noundef %127, ptr noundef %128)
   store i32 %call100, ptr %ret, align 4
-  %128 = load i32, ptr %ret, align 4
-  %cmp101 = icmp ne i32 %128, 0
+  %129 = load i32, ptr %ret, align 4
+  %cmp101 = icmp ne i32 %129, 0
   br i1 %cmp101, label %if.then103, label %if.end104
 
 if.then103:                                       ; preds = %if.end99
-  %129 = load ptr, ptr %f.addr, align 8
-  %130 = load i32, ptr %ret, align 4
-  call void @qemu_file_set_error(ptr noundef %129, i32 noundef %130)
+  %130 = load ptr, ptr %f.addr, align 8
   %131 = load i32, ptr %ret, align 4
-  store i32 %131, ptr %retval, align 4
+  call void @qemu_file_set_error(ptr noundef %130, i32 noundef %131)
+  %132 = load i32, ptr %ret, align 4
+  store i32 %132, ptr %retval, align 4
   br label %return
 
 if.end104:                                        ; preds = %if.end99
-  %132 = load ptr, ptr %vmsd.addr, align 8
-  %post_load = getelementptr inbounds %struct.VMStateDescription, ptr %132, i32 0, i32 7
-  %133 = load ptr, ptr %post_load, align 8
-  %tobool105 = icmp ne ptr %133, null
+  %133 = load ptr, ptr %vmsd.addr, align 8
+  %post_load = getelementptr inbounds %struct.VMStateDescription, ptr %133, i32 0, i32 7
+  %134 = load ptr, ptr %post_load, align 8
+  %tobool105 = icmp ne ptr %134, null
   br i1 %tobool105, label %if.then106, label %if.end109
 
 if.then106:                                       ; preds = %if.end104
-  %134 = load ptr, ptr %vmsd.addr, align 8
-  %post_load107 = getelementptr inbounds %struct.VMStateDescription, ptr %134, i32 0, i32 7
-  %135 = load ptr, ptr %post_load107, align 8
-  %136 = load ptr, ptr %opaque.addr, align 8
-  %137 = load i32, ptr %version_id.addr, align 4
-  %call108 = call i32 %135(ptr noundef %136, i32 noundef %137)
+  %135 = load ptr, ptr %vmsd.addr, align 8
+  %post_load107 = getelementptr inbounds %struct.VMStateDescription, ptr %135, i32 0, i32 7
+  %136 = load ptr, ptr %post_load107, align 8
+  %137 = load ptr, ptr %opaque.addr, align 8
+  %138 = load i32, ptr %version_id.addr, align 4
+  %call108 = call i32 %136(ptr noundef %137, i32 noundef %138)
   store i32 %call108, ptr %ret, align 4
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then106, %if.end104
-  %138 = load ptr, ptr %vmsd.addr, align 8
-  %name110 = getelementptr inbounds %struct.VMStateDescription, ptr %138, i32 0, i32 0
-  %139 = load ptr, ptr %name110, align 8
-  %140 = load i32, ptr %ret, align 4
-  call void @trace_vmstate_load_state_end(ptr noundef %139, ptr noundef @.str.12, i32 noundef %140)
+  %139 = load ptr, ptr %vmsd.addr, align 8
+  %name110 = getelementptr inbounds %struct.VMStateDescription, ptr %139, i32 0, i32 0
+  %140 = load ptr, ptr %name110, align 8
   %141 = load i32, ptr %ret, align 4
-  store i32 %141, ptr %retval, align 4
+  call void @trace_vmstate_load_state_end(ptr noundef %140, ptr noundef @.str.12, i32 noundef %141)
+  %142 = load i32, ptr %ret, align 4
+  store i32 %142, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end109, %if.then103, %if.then89, %if.then80, %if.then14, %if.then6, %if.then
-  %142 = load i32, ptr %retval, align 4
-  ret i32 %142
+  %143 = load i32, ptr %retval, align 4
+  ret i32 %143
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1399,72 +1400,73 @@ if.else47:                                        ; preds = %if.then42
   unreachable
 
 if.end48:                                         ; preds = %if.then46
-  %70 = call ptr @llvm.ptr.annotation.p0.p0(ptr getelementptr inbounds (%struct.VMStateInfo, ptr @vmstate_info_nullptr, i32 0, i32 2), ptr @.str.7, ptr @.str.8, i32 46, ptr null)
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %f.addr, align 8
-  %73 = load ptr, ptr %curr_elem, align 8
-  %74 = load i32, ptr %size, align 4
-  %conv49 = sext i32 %74 to i64
-  %call50 = call i32 %71(ptr noundef %72, ptr noundef %73, i64 noundef %conv49, ptr noundef null, ptr noundef null)
+  %70 = getelementptr inbounds %struct.VMStateInfo, ptr @vmstate_info_nullptr, i32 0, i32 2
+  %71 = call ptr @llvm.ptr.annotation.p0.p0(ptr %70, ptr @.str.7, ptr @.str.8, i32 46, ptr null)
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %f.addr, align 8
+  %74 = load ptr, ptr %curr_elem, align 8
+  %75 = load i32, ptr %size, align 4
+  %conv49 = sext i32 %75 to i64
+  %call50 = call i32 %72(ptr noundef %73, ptr noundef %74, i64 noundef %conv49, ptr noundef null, ptr noundef null)
   store i32 %call50, ptr %ret, align 4
   br label %if.end70
 
 if.else51:                                        ; preds = %land.lhs.true, %if.end39
-  %75 = load ptr, ptr %field, align 8
-  %flags52 = getelementptr inbounds %struct.VMStateField, ptr %75, i32 0, i32 9
-  %76 = load i32, ptr %flags52, align 8
-  %and53 = and i32 %76, 8
+  %76 = load ptr, ptr %field, align 8
+  %flags52 = getelementptr inbounds %struct.VMStateField, ptr %76, i32 0, i32 9
+  %77 = load i32, ptr %flags52, align 8
+  %and53 = and i32 %77, 8
   %tobool54 = icmp ne i32 %and53, 0
   br i1 %tobool54, label %if.then55, label %if.else58
 
 if.then55:                                        ; preds = %if.else51
-  %77 = load ptr, ptr %f.addr, align 8
-  %78 = load ptr, ptr %field, align 8
-  %vmsd56 = getelementptr inbounds %struct.VMStateField, ptr %78, i32 0, i32 10
-  %79 = load ptr, ptr %vmsd56, align 8
-  %80 = load ptr, ptr %curr_elem, align 8
-  %81 = load ptr, ptr %vmdesc_loop, align 8
-  %call57 = call i32 @vmstate_save_state(ptr noundef %77, ptr noundef %79, ptr noundef %80, ptr noundef %81)
+  %78 = load ptr, ptr %f.addr, align 8
+  %79 = load ptr, ptr %field, align 8
+  %vmsd56 = getelementptr inbounds %struct.VMStateField, ptr %79, i32 0, i32 10
+  %80 = load ptr, ptr %vmsd56, align 8
+  %81 = load ptr, ptr %curr_elem, align 8
+  %82 = load ptr, ptr %vmdesc_loop, align 8
+  %call57 = call i32 @vmstate_save_state(ptr noundef %78, ptr noundef %80, ptr noundef %81, ptr noundef %82)
   store i32 %call57, ptr %ret, align 4
   br label %if.end69
 
 if.else58:                                        ; preds = %if.else51
-  %82 = load ptr, ptr %field, align 8
-  %flags59 = getelementptr inbounds %struct.VMStateField, ptr %82, i32 0, i32 9
-  %83 = load i32, ptr %flags59, align 8
-  %and60 = and i32 %83, 32768
+  %83 = load ptr, ptr %field, align 8
+  %flags59 = getelementptr inbounds %struct.VMStateField, ptr %83, i32 0, i32 9
+  %84 = load i32, ptr %flags59, align 8
+  %and60 = and i32 %84, 32768
   %tobool61 = icmp ne i32 %and60, 0
   br i1 %tobool61, label %if.then62, label %if.else65
 
 if.then62:                                        ; preds = %if.else58
-  %84 = load ptr, ptr %f.addr, align 8
-  %85 = load ptr, ptr %field, align 8
-  %vmsd63 = getelementptr inbounds %struct.VMStateField, ptr %85, i32 0, i32 10
-  %86 = load ptr, ptr %vmsd63, align 8
-  %87 = load ptr, ptr %curr_elem, align 8
-  %88 = load ptr, ptr %vmdesc_loop, align 8
-  %89 = load ptr, ptr %field, align 8
-  %struct_version_id = getelementptr inbounds %struct.VMStateField, ptr %89, i32 0, i32 12
-  %90 = load i32, ptr %struct_version_id, align 4
-  %91 = load ptr, ptr %errp.addr, align 8
-  %call64 = call i32 @vmstate_save_state_v(ptr noundef %84, ptr noundef %86, ptr noundef %87, ptr noundef %88, i32 noundef %90, ptr noundef %91)
+  %85 = load ptr, ptr %f.addr, align 8
+  %86 = load ptr, ptr %field, align 8
+  %vmsd63 = getelementptr inbounds %struct.VMStateField, ptr %86, i32 0, i32 10
+  %87 = load ptr, ptr %vmsd63, align 8
+  %88 = load ptr, ptr %curr_elem, align 8
+  %89 = load ptr, ptr %vmdesc_loop, align 8
+  %90 = load ptr, ptr %field, align 8
+  %struct_version_id = getelementptr inbounds %struct.VMStateField, ptr %90, i32 0, i32 12
+  %91 = load i32, ptr %struct_version_id, align 4
+  %92 = load ptr, ptr %errp.addr, align 8
+  %call64 = call i32 @vmstate_save_state_v(ptr noundef %85, ptr noundef %87, ptr noundef %88, ptr noundef %89, i32 noundef %91, ptr noundef %92)
   store i32 %call64, ptr %ret, align 4
   br label %if.end68
 
 if.else65:                                        ; preds = %if.else58
-  %92 = load ptr, ptr %field, align 8
-  %info = getelementptr inbounds %struct.VMStateField, ptr %92, i32 0, i32 8
-  %93 = load ptr, ptr %info, align 8
-  %put = getelementptr inbounds %struct.VMStateInfo, ptr %93, i32 0, i32 2
-  %94 = call ptr @llvm.ptr.annotation.p0.p0(ptr %put, ptr @.str.7, ptr @.str.8, i32 46, ptr null)
-  %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %f.addr, align 8
-  %97 = load ptr, ptr %curr_elem, align 8
-  %98 = load i32, ptr %size, align 4
-  %conv66 = sext i32 %98 to i64
-  %99 = load ptr, ptr %field, align 8
-  %100 = load ptr, ptr %vmdesc_loop, align 8
-  %call67 = call i32 %95(ptr noundef %96, ptr noundef %97, i64 noundef %conv66, ptr noundef %99, ptr noundef %100)
+  %93 = load ptr, ptr %field, align 8
+  %info = getelementptr inbounds %struct.VMStateField, ptr %93, i32 0, i32 8
+  %94 = load ptr, ptr %info, align 8
+  %put = getelementptr inbounds %struct.VMStateInfo, ptr %94, i32 0, i32 2
+  %95 = call ptr @llvm.ptr.annotation.p0.p0(ptr %put, ptr @.str.7, ptr @.str.8, i32 46, ptr null)
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %f.addr, align 8
+  %98 = load ptr, ptr %curr_elem, align 8
+  %99 = load i32, ptr %size, align 4
+  %conv66 = sext i32 %99 to i64
+  %100 = load ptr, ptr %field, align 8
+  %101 = load ptr, ptr %vmdesc_loop, align 8
+  %call67 = call i32 %96(ptr noundef %97, ptr noundef %98, i64 noundef %conv66, ptr noundef %100, ptr noundef %101)
   store i32 %call67, ptr %ret, align 4
   br label %if.end68
 
@@ -1475,57 +1477,57 @@ if.end69:                                         ; preds = %if.end68, %if.then5
   br label %if.end70
 
 if.end70:                                         ; preds = %if.end69, %if.end48
-  %101 = load i32, ptr %ret, align 4
-  %tobool71 = icmp ne i32 %101, 0
+  %102 = load i32, ptr %ret, align 4
+  %tobool71 = icmp ne i32 %102, 0
   br i1 %tobool71, label %if.then72, label %if.end80
 
 if.then72:                                        ; preds = %if.end70
-  %102 = load ptr, ptr %errp.addr, align 8
-  %103 = load ptr, ptr %vmsd.addr, align 8
-  %name73 = getelementptr inbounds %struct.VMStateDescription, ptr %103, i32 0, i32 0
-  %104 = load ptr, ptr %name73, align 8
-  %105 = load ptr, ptr %field, align 8
-  %name74 = getelementptr inbounds %struct.VMStateField, ptr %105, i32 0, i32 0
-  %106 = load ptr, ptr %name74, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %102, ptr noundef @.str.5, i32 noundef 413, ptr noundef @__func__.vmstate_save_state_v, ptr noundef @.str.18, ptr noundef %104, ptr noundef %106)
-  %107 = load ptr, ptr %vmsd.addr, align 8
-  %post_save = getelementptr inbounds %struct.VMStateDescription, ptr %107, i32 0, i32 9
-  %108 = load ptr, ptr %post_save, align 8
-  %tobool75 = icmp ne ptr %108, null
+  %103 = load ptr, ptr %errp.addr, align 8
+  %104 = load ptr, ptr %vmsd.addr, align 8
+  %name73 = getelementptr inbounds %struct.VMStateDescription, ptr %104, i32 0, i32 0
+  %105 = load ptr, ptr %name73, align 8
+  %106 = load ptr, ptr %field, align 8
+  %name74 = getelementptr inbounds %struct.VMStateField, ptr %106, i32 0, i32 0
+  %107 = load ptr, ptr %name74, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %103, ptr noundef @.str.5, i32 noundef 413, ptr noundef @__func__.vmstate_save_state_v, ptr noundef @.str.18, ptr noundef %105, ptr noundef %107)
+  %108 = load ptr, ptr %vmsd.addr, align 8
+  %post_save = getelementptr inbounds %struct.VMStateDescription, ptr %108, i32 0, i32 9
+  %109 = load ptr, ptr %post_save, align 8
+  %tobool75 = icmp ne ptr %109, null
   br i1 %tobool75, label %if.then76, label %if.end79
 
 if.then76:                                        ; preds = %if.then72
-  %109 = load ptr, ptr %vmsd.addr, align 8
-  %post_save77 = getelementptr inbounds %struct.VMStateDescription, ptr %109, i32 0, i32 9
-  %110 = load ptr, ptr %post_save77, align 8
-  %111 = load ptr, ptr %opaque.addr, align 8
-  %call78 = call i32 %110(ptr noundef %111)
+  %110 = load ptr, ptr %vmsd.addr, align 8
+  %post_save77 = getelementptr inbounds %struct.VMStateDescription, ptr %110, i32 0, i32 9
+  %111 = load ptr, ptr %post_save77, align 8
+  %112 = load ptr, ptr %opaque.addr, align 8
+  %call78 = call i32 %111(ptr noundef %112)
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then76, %if.then72
-  %112 = load i32, ptr %ret, align 4
-  store i32 %112, ptr %retval, align 4
+  %113 = load i32, ptr %ret, align 4
+  store i32 %113, ptr %retval, align 4
   br label %return
 
 if.end80:                                         ; preds = %if.end70
-  %113 = load ptr, ptr %f.addr, align 8
-  %call81 = call i64 @qemu_file_transferred(ptr noundef %113)
-  %114 = load i64, ptr %old_offset, align 8
-  %sub = sub i64 %call81, %114
+  %114 = load ptr, ptr %f.addr, align 8
+  %call81 = call i64 @qemu_file_transferred(ptr noundef %114)
+  %115 = load i64, ptr %old_offset, align 8
+  %sub = sub i64 %call81, %115
   store i64 %sub, ptr %written_bytes, align 8
-  %115 = load ptr, ptr %vmsd.addr, align 8
-  %116 = load ptr, ptr %vmdesc_loop, align 8
-  %117 = load ptr, ptr %field, align 8
-  %118 = load i64, ptr %written_bytes, align 8
-  %119 = load i32, ptr %i, align 4
-  call void @vmsd_desc_field_end(ptr noundef %115, ptr noundef %116, ptr noundef %117, i64 noundef %118, i32 noundef %119)
-  %120 = load ptr, ptr %vmdesc_loop, align 8
-  %tobool82 = icmp ne ptr %120, null
+  %116 = load ptr, ptr %vmsd.addr, align 8
+  %117 = load ptr, ptr %vmdesc_loop, align 8
+  %118 = load ptr, ptr %field, align 8
+  %119 = load i64, ptr %written_bytes, align 8
+  %120 = load i32, ptr %i, align 4
+  call void @vmsd_desc_field_end(ptr noundef %116, ptr noundef %117, ptr noundef %118, i64 noundef %119, i32 noundef %120)
+  %121 = load ptr, ptr %vmdesc_loop, align 8
+  %tobool82 = icmp ne ptr %121, null
   br i1 %tobool82, label %land.lhs.true83, label %if.end87
 
 land.lhs.true83:                                  ; preds = %if.end80
-  %121 = load ptr, ptr %field, align 8
-  %call84 = call zeroext i1 @vmsd_can_compress(ptr noundef %121)
+  %122 = load ptr, ptr %field, align 8
+  %call84 = call zeroext i1 @vmsd_can_compress(ptr noundef %122)
   br i1 %call84, label %if.then86, label %if.end87
 
 if.then86:                                        ; preds = %land.lhs.true83
@@ -1536,8 +1538,8 @@ if.end87:                                         ; preds = %if.then86, %land.lh
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end87
-  %122 = load i32, ptr %i, align 4
-  %inc = add i32 %122, 1
+  %123 = load i32, ptr %i, align 4
+  %inc = add i32 %123, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !9
 
@@ -1545,25 +1547,25 @@ for.end:                                          ; preds = %for.cond
   br label %if.end102
 
 if.else88:                                        ; preds = %while.body
-  %123 = load ptr, ptr %field, align 8
-  %flags89 = getelementptr inbounds %struct.VMStateField, ptr %123, i32 0, i32 9
-  %124 = load i32, ptr %flags89, align 8
-  %and90 = and i32 %124, 4096
+  %124 = load ptr, ptr %field, align 8
+  %flags89 = getelementptr inbounds %struct.VMStateField, ptr %124, i32 0, i32 9
+  %125 = load i32, ptr %flags89, align 8
+  %and90 = and i32 %125, 4096
   %tobool91 = icmp ne i32 %and90, 0
   br i1 %tobool91, label %if.then92, label %if.end101
 
 if.then92:                                        ; preds = %if.else88
-  %125 = load ptr, ptr %vmsd.addr, align 8
-  %name93 = getelementptr inbounds %struct.VMStateDescription, ptr %125, i32 0, i32 0
-  %126 = load ptr, ptr %name93, align 8
-  %127 = load ptr, ptr %field, align 8
-  %name94 = getelementptr inbounds %struct.VMStateField, ptr %127, i32 0, i32 0
-  %128 = load ptr, ptr %name94, align 8
-  call void (ptr, ...) @error_report(ptr noundef @.str.19, ptr noundef %126, ptr noundef %128)
-  %129 = load ptr, ptr %field, align 8
-  %flags95 = getelementptr inbounds %struct.VMStateField, ptr %129, i32 0, i32 9
-  %130 = load i32, ptr %flags95, align 8
-  %and96 = and i32 %130, 4096
+  %126 = load ptr, ptr %vmsd.addr, align 8
+  %name93 = getelementptr inbounds %struct.VMStateDescription, ptr %126, i32 0, i32 0
+  %127 = load ptr, ptr %name93, align 8
+  %128 = load ptr, ptr %field, align 8
+  %name94 = getelementptr inbounds %struct.VMStateField, ptr %128, i32 0, i32 0
+  %129 = load ptr, ptr %name94, align 8
+  call void (ptr, ...) @error_report(ptr noundef @.str.19, ptr noundef %127, ptr noundef %129)
+  %130 = load ptr, ptr %field, align 8
+  %flags95 = getelementptr inbounds %struct.VMStateField, ptr %130, i32 0, i32 9
+  %131 = load i32, ptr %flags95, align 8
+  %and96 = and i32 %131, 4096
   %tobool97 = icmp ne i32 %and96, 0
   br i1 %tobool97, label %if.else99, label %if.then98
 
@@ -1581,16 +1583,16 @@ if.end101:                                        ; preds = %if.end100, %if.else
   br label %if.end102
 
 if.end102:                                        ; preds = %if.end101, %for.end
-  %131 = load ptr, ptr %field, align 8
-  %incdec.ptr = getelementptr %struct.VMStateField, ptr %131, i32 1
+  %132 = load ptr, ptr %field, align 8
+  %incdec.ptr = getelementptr %struct.VMStateField, ptr %132, i32 1
   store ptr %incdec.ptr, ptr %field, align 8
   br label %while.cond, !llvm.loop !10
 
 while.end:                                        ; preds = %while.cond
-  %132 = load ptr, ptr %field, align 8
-  %flags103 = getelementptr inbounds %struct.VMStateField, ptr %132, i32 0, i32 9
-  %133 = load i32, ptr %flags103, align 8
-  %cmp104 = icmp eq i32 %133, 65536
+  %133 = load ptr, ptr %field, align 8
+  %flags103 = getelementptr inbounds %struct.VMStateField, ptr %133, i32 0, i32 9
+  %134 = load i32, ptr %flags103, align 8
+  %cmp104 = icmp eq i32 %134, 65536
   br i1 %cmp104, label %if.then106, label %if.else107
 
 if.then106:                                       ; preds = %while.end
@@ -1601,55 +1603,55 @@ if.else107:                                       ; preds = %while.end
   unreachable
 
 if.end108:                                        ; preds = %if.then106
-  %134 = load ptr, ptr %vmdesc.addr, align 8
-  %tobool109 = icmp ne ptr %134, null
+  %135 = load ptr, ptr %vmdesc.addr, align 8
+  %tobool109 = icmp ne ptr %135, null
   br i1 %tobool109, label %if.then110, label %if.end111
 
 if.then110:                                       ; preds = %if.end108
-  %135 = load ptr, ptr %vmdesc.addr, align 8
-  call void @json_writer_end_array(ptr noundef %135)
+  %136 = load ptr, ptr %vmdesc.addr, align 8
+  call void @json_writer_end_array(ptr noundef %136)
   br label %if.end111
 
 if.end111:                                        ; preds = %if.then110, %if.end108
-  %136 = load ptr, ptr %f.addr, align 8
-  %137 = load ptr, ptr %vmsd.addr, align 8
-  %138 = load ptr, ptr %opaque.addr, align 8
-  %139 = load ptr, ptr %vmdesc.addr, align 8
-  %call112 = call i32 @vmstate_subsection_save(ptr noundef %136, ptr noundef %137, ptr noundef %138, ptr noundef %139)
+  %137 = load ptr, ptr %f.addr, align 8
+  %138 = load ptr, ptr %vmsd.addr, align 8
+  %139 = load ptr, ptr %opaque.addr, align 8
+  %140 = load ptr, ptr %vmdesc.addr, align 8
+  %call112 = call i32 @vmstate_subsection_save(ptr noundef %137, ptr noundef %138, ptr noundef %139, ptr noundef %140)
   store i32 %call112, ptr %ret, align 4
-  %140 = load ptr, ptr %vmsd.addr, align 8
-  %post_save113 = getelementptr inbounds %struct.VMStateDescription, ptr %140, i32 0, i32 9
-  %141 = load ptr, ptr %post_save113, align 8
-  %tobool114 = icmp ne ptr %141, null
+  %141 = load ptr, ptr %vmsd.addr, align 8
+  %post_save113 = getelementptr inbounds %struct.VMStateDescription, ptr %141, i32 0, i32 9
+  %142 = load ptr, ptr %post_save113, align 8
+  %tobool114 = icmp ne ptr %142, null
   br i1 %tobool114, label %if.then115, label %if.end121
 
 if.then115:                                       ; preds = %if.end111
-  %142 = load ptr, ptr %vmsd.addr, align 8
-  %post_save116 = getelementptr inbounds %struct.VMStateDescription, ptr %142, i32 0, i32 9
-  %143 = load ptr, ptr %post_save116, align 8
-  %144 = load ptr, ptr %opaque.addr, align 8
-  %call117 = call i32 %143(ptr noundef %144)
+  %143 = load ptr, ptr %vmsd.addr, align 8
+  %post_save116 = getelementptr inbounds %struct.VMStateDescription, ptr %143, i32 0, i32 9
+  %144 = load ptr, ptr %post_save116, align 8
+  %145 = load ptr, ptr %opaque.addr, align 8
+  %call117 = call i32 %144(ptr noundef %145)
   store i32 %call117, ptr %ps_ret, align 4
-  %145 = load i32, ptr %ret, align 4
-  %tobool118 = icmp ne i32 %145, 0
+  %146 = load i32, ptr %ret, align 4
+  %tobool118 = icmp ne i32 %146, 0
   br i1 %tobool118, label %if.end120, label %if.then119
 
 if.then119:                                       ; preds = %if.then115
-  %146 = load i32, ptr %ps_ret, align 4
-  store i32 %146, ptr %ret, align 4
+  %147 = load i32, ptr %ps_ret, align 4
+  store i32 %147, ptr %ret, align 4
   br label %if.end120
 
 if.end120:                                        ; preds = %if.then119, %if.then115
   br label %if.end121
 
 if.end121:                                        ; preds = %if.end120, %if.end111
-  %147 = load i32, ptr %ret, align 4
-  store i32 %147, ptr %retval, align 4
+  %148 = load i32, ptr %ret, align 4
+  store i32 %148, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end121, %if.end79, %if.then4
-  %148 = load i32, ptr %retval, align 4
-  ret i32 %148
+  %149 = load i32, ptr %retval, align 4
+  ret i32 %149
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

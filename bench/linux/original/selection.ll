@@ -35,31 +35,38 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_paste_select
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @clear_selection() #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  tail call void @complement_pos(ptr noundef %1, i32 noundef -1) #9
-  %2 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %3 = icmp eq i32 %2, -1
-  br i1 %3, label %10, label %4
+  %1 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  tail call void @complement_pos(ptr noundef %2, i32 noundef -1) #9
+  %3 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %4 = load volatile i32, ptr %3, align 4
+  %5 = icmp eq i32 %4, -1
+  br i1 %5, label %16, label %6
 
-4:                                                ; preds = %0
-  %5 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 5), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  %8 = sub i32 %6, %5
-  %9 = add i32 %8, 2
-  tail call void @invert_screen(ptr noundef %7, i32 noundef %5, i32 noundef %9, i1 noundef zeroext true) #9
-  store volatile i32 -1, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  br label %10
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %8 = load volatile i32, ptr %7, align 4
+  %9 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 5
+  %10 = load i32, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  %13 = sub i32 %10, %8
+  %14 = add i32 %13, 2
+  tail call void @invert_screen(ptr noundef %12, i32 noundef %8, i32 noundef %14, i1 noundef zeroext true) #9
+  %15 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  store volatile i32 -1, ptr %15, align 4
+  br label %16
 
-10:                                               ; preds = %4, %0
+16:                                               ; preds = %6, %0
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local zeroext i1 @vc_is_sel(ptr noundef readnone %0) local_unnamed_addr #1 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  %3 = icmp eq ptr %2, %0
-  ret i1 %3
+  %2 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, %0
+  ret i1 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -125,731 +132,785 @@ define dso_local noundef i32 @set_selection_kernel(ptr nocapture noundef %0, ptr
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i16, ptr %7, align 2
   %9 = icmp eq i16 %8, 4
-  br i1 %9, label %10, label %20
+  br i1 %9, label %10, label %26
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  tail call void @complement_pos(ptr noundef %11, i32 noundef -1) #9
-  %12 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %13 = icmp eq i32 %12, -1
-  br i1 %13, label %469, label %14
+  %11 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  tail call void @complement_pos(ptr noundef %12, i32 noundef -1) #9
+  %13 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %14 = load volatile i32, ptr %13, align 4
+  %15 = icmp eq i32 %14, -1
+  br i1 %15, label %523, label %16
 
-14:                                               ; preds = %10
-  %15 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 5), align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  %18 = sub i32 %16, %15
-  %19 = add i32 %18, 2
-  tail call void @invert_screen(ptr noundef %17, i32 noundef %15, i32 noundef %19, i1 noundef zeroext true) #9
-  store volatile i32 -1, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  br label %469
+16:                                               ; preds = %10
+  %17 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %18 = load volatile i32, ptr %17, align 4
+  %19 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 5
+  %20 = load i32, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %23 = sub i32 %20, %18
+  %24 = add i32 %23, 2
+  tail call void @invert_screen(ptr noundef %22, i32 noundef %18, i32 noundef %24, i1 noundef zeroext true) #9
+  %25 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  store volatile i32 -1, ptr %25, align 4
+  br label %523
 
-20:                                               ; preds = %2
-  %21 = load i16, ptr %0, align 2
-  %22 = add i16 %21, -1
-  %23 = getelementptr inbounds i8, ptr %6, i64 420
-  %24 = load i32, ptr %23, align 4
-  %25 = add i32 %24, 65535
-  %26 = zext i16 %22 to i32
-  %27 = and i32 %25, 65535
-  %28 = tail call i32 @llvm.umin.i32(i32 %27, i32 %26)
-  %29 = trunc i32 %28 to i16
-  store i16 %29, ptr %0, align 2
-  %30 = getelementptr inbounds i8, ptr %0, i64 2
-  %31 = load i16, ptr %30, align 2
-  %32 = add i16 %31, -1
-  %33 = getelementptr inbounds i8, ptr %6, i64 424
-  %34 = load i32, ptr %33, align 8
-  %35 = add i32 %34, 65535
-  %36 = zext i16 %32 to i32
-  %37 = and i32 %35, 65535
-  %38 = tail call i32 @llvm.umin.i32(i32 %37, i32 %36)
-  %39 = trunc i32 %38 to i16
-  store i16 %39, ptr %30, align 2
-  %40 = getelementptr inbounds i8, ptr %0, i64 4
-  %41 = load i16, ptr %40, align 2
-  %42 = add i16 %41, -1
-  %43 = load i32, ptr %23, align 4
-  %44 = add i32 %43, 65535
-  %45 = zext i16 %42 to i32
-  %46 = and i32 %44, 65535
-  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 %45)
-  %48 = trunc i32 %47 to i16
-  store i16 %48, ptr %40, align 2
-  %49 = getelementptr inbounds i8, ptr %0, i64 6
-  %50 = load i16, ptr %49, align 2
-  %51 = add i16 %50, -1
-  %52 = load i32, ptr %33, align 8
-  %53 = add i32 %52, 65535
-  %54 = zext i16 %51 to i32
-  %55 = and i32 %53, 65535
-  %56 = tail call i32 @llvm.umin.i32(i32 %55, i32 %54)
-  %57 = trunc i32 %56 to i16
-  store i16 %57, ptr %49, align 2
-  %58 = tail call i32 @mouse_reporting() #9
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %71, label %60
+26:                                               ; preds = %2
+  %27 = load i16, ptr %0, align 2
+  %28 = add i16 %27, -1
+  %29 = getelementptr inbounds i8, ptr %6, i64 420
+  %30 = load i32, ptr %29, align 4
+  %31 = add i32 %30, 65535
+  %32 = zext i16 %28 to i32
+  %33 = and i32 %31, 65535
+  %34 = tail call i32 @llvm.umin.i32(i32 %33, i32 %32)
+  %35 = trunc i32 %34 to i16
+  store i16 %35, ptr %0, align 2
+  %36 = getelementptr inbounds i8, ptr %0, i64 2
+  %37 = load i16, ptr %36, align 2
+  %38 = add i16 %37, -1
+  %39 = getelementptr inbounds i8, ptr %6, i64 424
+  %40 = load i32, ptr %39, align 8
+  %41 = add i32 %40, 65535
+  %42 = zext i16 %38 to i32
+  %43 = and i32 %41, 65535
+  %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 %42)
+  %45 = trunc i32 %44 to i16
+  store i16 %45, ptr %36, align 2
+  %46 = getelementptr inbounds i8, ptr %0, i64 4
+  %47 = load i16, ptr %46, align 2
+  %48 = add i16 %47, -1
+  %49 = load i32, ptr %29, align 4
+  %50 = add i32 %49, 65535
+  %51 = zext i16 %48 to i32
+  %52 = and i32 %50, 65535
+  %53 = tail call i32 @llvm.umin.i32(i32 %52, i32 %51)
+  %54 = trunc i32 %53 to i16
+  store i16 %54, ptr %46, align 2
+  %55 = getelementptr inbounds i8, ptr %0, i64 6
+  %56 = load i16, ptr %55, align 2
+  %57 = add i16 %56, -1
+  %58 = load i32, ptr %39, align 8
+  %59 = add i32 %58, 65535
+  %60 = zext i16 %57 to i32
+  %61 = and i32 %59, 65535
+  %62 = tail call i32 @llvm.umin.i32(i32 %61, i32 %60)
+  %63 = trunc i32 %62 to i16
+  store i16 %63, ptr %55, align 2
+  %64 = tail call i32 @mouse_reporting() #9
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %77, label %66
 
-60:                                               ; preds = %20
-  %61 = load i16, ptr %7, align 2
-  %62 = zext i16 %61 to i32
-  %63 = and i32 %62, 16
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %71, label %65
-
-65:                                               ; preds = %60
-  %66 = and i32 %62, 15
-  %67 = load i16, ptr %0, align 2
+66:                                               ; preds = %26
+  %67 = load i16, ptr %7, align 2
   %68 = zext i16 %67 to i32
-  %69 = load i16, ptr %30, align 2
-  %70 = zext i16 %69 to i32
-  tail call void @mouse_report(ptr noundef %1, i32 noundef %66, i32 noundef %68, i32 noundef %70) #9
-  br label %469
+  %69 = and i32 %68, 16
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %77, label %71
 
-71:                                               ; preds = %60, %20
-  %72 = load i16, ptr %30, align 2
-  %73 = zext i16 %72 to i32
-  %74 = getelementptr inbounds i8, ptr %6, i64 428
-  %75 = load i32, ptr %74, align 4
-  %76 = mul i32 %75, %73
-  %77 = load i16, ptr %0, align 2
-  %78 = zext i16 %77 to i32
-  %79 = shl nuw nsw i32 %78, 1
-  %80 = add i32 %79, %76
-  %81 = load i16, ptr %49, align 2
-  %82 = zext i16 %81 to i32
-  %83 = mul i32 %75, %82
-  %84 = load i16, ptr %40, align 2
-  %85 = zext i16 %84 to i32
-  %86 = shl nuw nsw i32 %85, 1
-  %87 = add i32 %86, %83
-  %88 = tail call i32 @llvm.smax.i32(i32 %80, i32 %87)
-  %89 = tail call i32 @llvm.smin.i32(i32 %80, i32 %87)
-  %90 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  %91 = icmp eq ptr %90, %6
-  br i1 %91, label %102, label %92
+71:                                               ; preds = %66
+  %72 = and i32 %68, 15
+  %73 = load i16, ptr %0, align 2
+  %74 = zext i16 %73 to i32
+  %75 = load i16, ptr %36, align 2
+  %76 = zext i16 %75 to i32
+  tail call void @mouse_report(ptr noundef %1, i32 noundef %72, i32 noundef %74, i32 noundef %76) #9
+  br label %523
 
-92:                                               ; preds = %71
-  tail call void @complement_pos(ptr noundef %90, i32 noundef -1) #9
-  %93 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %94 = icmp eq i32 %93, -1
-  br i1 %94, label %101, label %95
+77:                                               ; preds = %66, %26
+  %78 = load i16, ptr %36, align 2
+  %79 = zext i16 %78 to i32
+  %80 = getelementptr inbounds i8, ptr %6, i64 428
+  %81 = load i32, ptr %80, align 4
+  %82 = mul i32 %81, %79
+  %83 = load i16, ptr %0, align 2
+  %84 = zext i16 %83 to i32
+  %85 = shl nuw nsw i32 %84, 1
+  %86 = add i32 %85, %82
+  %87 = load i16, ptr %55, align 2
+  %88 = zext i16 %87 to i32
+  %89 = mul i32 %81, %88
+  %90 = load i16, ptr %46, align 2
+  %91 = zext i16 %90 to i32
+  %92 = shl nuw nsw i32 %91, 1
+  %93 = add i32 %92, %89
+  %94 = tail call i32 @llvm.smax.i32(i32 %86, i32 %93)
+  %95 = tail call i32 @llvm.smin.i32(i32 %86, i32 %93)
+  %96 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %97 = load ptr, ptr %96, align 8
+  %98 = icmp eq ptr %97, %6
+  br i1 %98, label %115, label %99
 
-95:                                               ; preds = %92
-  %96 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %97 = load i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 5), align 8
-  %98 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  %99 = sub i32 %97, %96
-  %100 = add i32 %99, 2
-  tail call void @invert_screen(ptr noundef %98, i32 noundef %96, i32 noundef %100, i1 noundef zeroext true) #9
-  store volatile i32 -1, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  br label %101
+99:                                               ; preds = %77
+  tail call void @complement_pos(ptr noundef %97, i32 noundef -1) #9
+  %100 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %101 = load volatile i32, ptr %100, align 4
+  %102 = icmp eq i32 %101, -1
+  br i1 %102, label %113, label %103
 
-101:                                              ; preds = %95, %92
-  store ptr %6, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  br label %102
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %105 = load volatile i32, ptr %104, align 4
+  %106 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 5
+  %107 = load i32, ptr %106, align 8
+  %108 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %109 = load ptr, ptr %108, align 8
+  %110 = sub i32 %107, %105
+  %111 = add i32 %110, 2
+  tail call void @invert_screen(ptr noundef %109, i32 noundef %105, i32 noundef %111, i1 noundef zeroext true) #9
+  %112 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  store volatile i32 -1, ptr %112, align 4
+  br label %113
 
-102:                                              ; preds = %101, %71
-  %103 = load i16, ptr %7, align 2
-  %104 = load i32, ptr @fg_console, align 4
-  %105 = tail call i32 @vt_do_kdgkbmode(i32 noundef %104) #9
-  %106 = icmp eq i32 %105, 3
-  switch i16 %103, label %469 [
-    i16 0, label %227
-    i16 1, label %107
-    i16 2, label %217
-    i16 3, label %225
+113:                                              ; preds = %103, %99
+  %114 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  store ptr %6, ptr %114, align 8
+  br label %115
+
+115:                                              ; preds = %113, %77
+  %116 = load i16, ptr %7, align 2
+  %117 = load i32, ptr @fg_console, align 4
+  %118 = tail call i32 @vt_do_kdgkbmode(i32 noundef %117) #9
+  %119 = icmp eq i32 %118, 3
+  switch i16 %116, label %523 [
+    i16 0, label %245
+    i16 1, label %120
+    i16 2, label %234
+    i16 3, label %242
   ]
 
-107:                                              ; preds = %102
-  %108 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  br i1 %106, label %109, label %112
-
-109:                                              ; preds = %107
-  %110 = sdiv i32 %89, 2
-  %111 = tail call i32 @screen_glyph_unicode(ptr noundef %108, i32 noundef %110) #9
-  br label %116
-
-112:                                              ; preds = %107
-  %113 = tail call zeroext i16 @screen_glyph(ptr noundef %108, i32 noundef %89) #9
-  %114 = tail call zeroext i16 @inverse_translate(ptr noundef %108, i16 noundef zeroext %113, i1 noundef zeroext false) #9
-  %115 = zext i16 %114 to i32
-  br label %116
-
-116:                                              ; preds = %112, %109
-  %117 = phi i32 [ %111, %109 ], [ %115, %112 ]
-  %118 = icmp eq i32 %117, 32
-  br label %119
-
-119:                                              ; preds = %160, %116
-  %120 = phi i32 [ %89, %116 ], [ %121, %160 ]
-  %121 = phi i32 [ %89, %116 ], [ %161, %160 ]
-  %122 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  br i1 %118, label %123, label %134
-
-123:                                              ; preds = %119
-  br i1 %106, label %124, label %127
-
-124:                                              ; preds = %123
-  %125 = sdiv i32 %121, 2
-  %126 = tail call i32 @screen_glyph_unicode(ptr noundef %122, i32 noundef %125) #9
-  br label %131
-
-127:                                              ; preds = %123
-  %128 = tail call zeroext i16 @screen_glyph(ptr noundef %122, i32 noundef %121) #9
-  %129 = tail call zeroext i16 @inverse_translate(ptr noundef %122, i16 noundef zeroext %128, i1 noundef zeroext false) #9
-  %130 = zext i16 %129 to i32
-  br label %131
-
-131:                                              ; preds = %127, %124
-  %132 = phi i32 [ %126, %124 ], [ %130, %127 ]
-  %133 = icmp eq i32 %132, 32
-  br i1 %133, label %156, label %162
-
-134:                                              ; preds = %119
-  br i1 %106, label %135, label %138
-
-135:                                              ; preds = %134
-  %136 = sdiv i32 %121, 2
-  %137 = tail call i32 @screen_glyph_unicode(ptr noundef %122, i32 noundef %136) #9
-  br label %142
-
-138:                                              ; preds = %134
-  %139 = tail call zeroext i16 @screen_glyph(ptr noundef %122, i32 noundef %121) #9
-  %140 = tail call zeroext i16 @inverse_translate(ptr noundef %122, i16 noundef zeroext %139, i1 noundef zeroext false) #9
-  %141 = zext i16 %140 to i32
-  br label %142
-
-142:                                              ; preds = %138, %135
-  %143 = phi i32 [ %137, %135 ], [ %141, %138 ]
-  %144 = icmp ugt i32 %143, 127
-  br i1 %144, label %153, label %145
-
-145:                                              ; preds = %142
-  %146 = lshr i32 %143, 5
-  %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr [4 x i32], ptr @inwordLut, i64 0, i64 %147
-  %149 = load i32, ptr %148, align 4
-  %150 = and i32 %143, 31
-  %151 = lshr i32 %149, %150
-  %152 = and i32 %151, 1
-  br label %153
-
-153:                                              ; preds = %145, %142
-  %154 = phi i32 [ 1, %142 ], [ %152, %145 ]
-  %155 = icmp eq i32 %154, 0
-  br i1 %155, label %162, label %156
-
-156:                                              ; preds = %153, %131
-  %157 = load i32, ptr %74, align 4
-  %158 = urem i32 %121, %157
-  %159 = icmp eq i32 %158, 0
-  br i1 %159, label %162, label %160
-
-160:                                              ; preds = %156
-  %161 = add i32 %121, -2
-  br label %119, !llvm.loop !7
-
-162:                                              ; preds = %156, %153, %131
-  %163 = phi i32 [ %121, %156 ], [ %120, %153 ], [ %120, %131 ]
-  %164 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  br i1 %106, label %165, label %168
-
-165:                                              ; preds = %162
-  %166 = sdiv i32 %88, 2
-  %167 = tail call i32 @screen_glyph_unicode(ptr noundef %164, i32 noundef %166) #9
-  br label %172
-
-168:                                              ; preds = %162
-  %169 = tail call zeroext i16 @screen_glyph(ptr noundef %164, i32 noundef %88) #9
-  %170 = tail call zeroext i16 @inverse_translate(ptr noundef %164, i16 noundef zeroext %169, i1 noundef zeroext false) #9
-  %171 = zext i16 %170 to i32
-  br label %172
-
-172:                                              ; preds = %168, %165
-  %173 = phi i32 [ %167, %165 ], [ %171, %168 ]
-  %174 = icmp eq i32 %173, 32
-  br label %175
-
-175:                                              ; preds = %212, %172
-  %176 = phi i32 [ %88, %172 ], [ %177, %212 ]
-  %177 = phi i32 [ %88, %172 ], [ %213, %212 ]
-  %178 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  br i1 %174, label %179, label %190
-
-179:                                              ; preds = %175
-  br i1 %106, label %180, label %183
-
-180:                                              ; preds = %179
-  %181 = sdiv i32 %177, 2
-  %182 = tail call i32 @screen_glyph_unicode(ptr noundef %178, i32 noundef %181) #9
-  br label %187
-
-183:                                              ; preds = %179
-  %184 = tail call zeroext i16 @screen_glyph(ptr noundef %178, i32 noundef %177) #9
-  %185 = tail call zeroext i16 @inverse_translate(ptr noundef %178, i16 noundef zeroext %184, i1 noundef zeroext false) #9
-  %186 = zext i16 %185 to i32
-  br label %187
-
-187:                                              ; preds = %183, %180
-  %188 = phi i32 [ %182, %180 ], [ %186, %183 ]
-  %189 = icmp eq i32 %188, 32
-  br i1 %189, label %212, label %227
-
-190:                                              ; preds = %175
-  br i1 %106, label %191, label %194
-
-191:                                              ; preds = %190
-  %192 = sdiv i32 %177, 2
-  %193 = tail call i32 @screen_glyph_unicode(ptr noundef %178, i32 noundef %192) #9
-  br label %198
-
-194:                                              ; preds = %190
-  %195 = tail call zeroext i16 @screen_glyph(ptr noundef %178, i32 noundef %177) #9
-  %196 = tail call zeroext i16 @inverse_translate(ptr noundef %178, i16 noundef zeroext %195, i1 noundef zeroext false) #9
-  %197 = zext i16 %196 to i32
-  br label %198
-
-198:                                              ; preds = %194, %191
-  %199 = phi i32 [ %193, %191 ], [ %197, %194 ]
-  %200 = icmp ugt i32 %199, 127
-  br i1 %200, label %209, label %201
-
-201:                                              ; preds = %198
-  %202 = lshr i32 %199, 5
-  %203 = zext nneg i32 %202 to i64
-  %204 = getelementptr [4 x i32], ptr @inwordLut, i64 0, i64 %203
-  %205 = load i32, ptr %204, align 4
-  %206 = and i32 %199, 31
-  %207 = lshr i32 %205, %206
-  %208 = and i32 %207, 1
-  br label %209
-
-209:                                              ; preds = %201, %198
-  %210 = phi i32 [ 1, %198 ], [ %208, %201 ]
-  %211 = icmp eq i32 %210, 0
-  br i1 %211, label %227, label %212
-
-212:                                              ; preds = %209, %187
-  %213 = add i32 %177, 2
-  %214 = load i32, ptr %74, align 4
-  %215 = urem i32 %213, %214
-  %216 = icmp eq i32 %215, 0
-  br i1 %216, label %227, label %175, !llvm.loop !9
-
-217:                                              ; preds = %102
-  %218 = load i32, ptr %74, align 4
-  %219 = urem i32 %89, %218
-  %220 = sub nuw i32 %89, %219
-  %221 = urem i32 %88, %218
-  %222 = add i32 %88, -2
-  %223 = add i32 %222, %218
-  %224 = sub i32 %223, %221
-  br label %227
-
-225:                                              ; preds = %102
-  %226 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  tail call void @complement_pos(ptr noundef %226, i32 noundef %88) #9
-  br label %469
-
-227:                                              ; preds = %217, %212, %209, %187, %102
-  %228 = phi i32 [ %224, %217 ], [ %88, %102 ], [ %177, %212 ], [ %176, %209 ], [ %176, %187 ]
-  %229 = phi i32 [ %220, %217 ], [ %89, %102 ], [ %163, %187 ], [ %163, %209 ], [ %163, %212 ]
-  %230 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  tail call void @complement_pos(ptr noundef %230, i32 noundef -1) #9
-  %231 = icmp sgt i32 %228, %229
-  br i1 %231, label %232, label %295
-
-232:                                              ; preds = %227
-  %233 = load i32, ptr %74, align 4
-  %234 = srem i32 %228, %233
-  %235 = icmp eq i32 %234, 0
-  br i1 %235, label %241, label %236
-
-236:                                              ; preds = %232
-  %237 = add i32 %228, 2
-  %238 = srem i32 %237, %233
-  %239 = icmp eq i32 %238, 0
-  %240 = zext i1 %239 to i32
-  br label %241
-
-241:                                              ; preds = %236, %232
-  %242 = phi i32 [ 1, %232 ], [ %240, %236 ]
-  %243 = icmp eq i32 %242, 0
-  br i1 %243, label %244, label %295
-
-244:                                              ; preds = %241
-  %245 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  br i1 %106, label %246, label %249
-
-246:                                              ; preds = %244
-  %247 = sdiv i32 %228, 2
-  %248 = tail call i32 @screen_glyph_unicode(ptr noundef %245, i32 noundef %247) #9
-  br label %253
-
-249:                                              ; preds = %244
-  %250 = tail call zeroext i16 @screen_glyph(ptr noundef %245, i32 noundef %228) #9
-  %251 = tail call zeroext i16 @inverse_translate(ptr noundef %245, i16 noundef zeroext %250, i1 noundef zeroext false) #9
-  %252 = zext i16 %251 to i32
-  br label %253
-
-253:                                              ; preds = %249, %246
-  %254 = phi i32 [ %248, %246 ], [ %252, %249 ]
-  %255 = icmp eq i32 %254, 32
-  br i1 %255, label %256, label %295
-
-256:                                              ; preds = %279, %253
-  %257 = phi i32 [ %258, %279 ], [ %228, %253 ]
-  %258 = add i32 %257, 2
-  %259 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  br i1 %106, label %260, label %263
-
-260:                                              ; preds = %256
-  %261 = sdiv i32 %258, 2
-  %262 = tail call i32 @screen_glyph_unicode(ptr noundef %259, i32 noundef %261) #9
-  br label %267
-
-263:                                              ; preds = %256
-  %264 = tail call zeroext i16 @screen_glyph(ptr noundef %259, i32 noundef %258) #9
-  %265 = tail call zeroext i16 @inverse_translate(ptr noundef %259, i16 noundef zeroext %264, i1 noundef zeroext false) #9
-  %266 = zext i16 %265 to i32
-  br label %267
-
-267:                                              ; preds = %263, %260
-  %268 = phi i32 [ %262, %260 ], [ %266, %263 ]
-  %269 = icmp eq i32 %268, 32
-  br i1 %269, label %270, label %282
-
-270:                                              ; preds = %267
-  %271 = load i32, ptr %74, align 4
-  %272 = srem i32 %258, %271
-  %273 = icmp eq i32 %272, 0
-  br i1 %273, label %279, label %274
-
-274:                                              ; preds = %270
-  %275 = add i32 %257, 4
-  %276 = srem i32 %275, %271
-  %277 = icmp eq i32 %276, 0
-  %278 = zext i1 %277 to i32
-  br label %279
-
-279:                                              ; preds = %274, %270
-  %280 = phi i32 [ 1, %270 ], [ %278, %274 ]
-  %281 = icmp eq i32 %280, 0
-  br i1 %281, label %256, label %282, !llvm.loop !10
-
-282:                                              ; preds = %279, %267
-  %283 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  br i1 %106, label %284, label %287
-
-284:                                              ; preds = %282
-  %285 = sdiv i32 %258, 2
-  %286 = tail call i32 @screen_glyph_unicode(ptr noundef %283, i32 noundef %285) #9
-  br label %291
-
-287:                                              ; preds = %282
-  %288 = tail call zeroext i16 @screen_glyph(ptr noundef %283, i32 noundef %258) #9
-  %289 = tail call zeroext i16 @inverse_translate(ptr noundef %283, i16 noundef zeroext %288, i1 noundef zeroext false) #9
-  %290 = zext i16 %289 to i32
-  br label %291
-
-291:                                              ; preds = %287, %284
-  %292 = phi i32 [ %286, %284 ], [ %290, %287 ]
-  %293 = icmp eq i32 %292, 32
-  %294 = select i1 %293, i32 %258, i32 %228
-  br label %295
-
-295:                                              ; preds = %291, %253, %241, %227
-  %296 = phi i32 [ %228, %241 ], [ %228, %253 ], [ %228, %227 ], [ %294, %291 ]
-  %297 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %298 = icmp eq i32 %297, -1
-  br i1 %298, label %299, label %303
-
-299:                                              ; preds = %295
-  %300 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  %301 = sub i32 %296, %229
-  %302 = add i32 %301, 2
-  tail call void @invert_screen(ptr noundef %300, i32 noundef %229, i32 noundef %302, i1 noundef zeroext true) #9
-  br label %342
-
-303:                                              ; preds = %295
-  %304 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %305 = icmp eq i32 %229, %304
-  %306 = load i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 5), align 8
-  %307 = icmp eq i32 %296, %306
-  br i1 %305, label %308, label %318
-
-308:                                              ; preds = %303
-  br i1 %307, label %469, label %309
-
-309:                                              ; preds = %308
-  %310 = icmp sgt i32 %296, %306
-  %311 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  br i1 %310, label %312, label %315
-
-312:                                              ; preds = %309
-  %313 = add i32 %306, 2
-  %314 = sub i32 %296, %306
-  tail call void @invert_screen(ptr noundef %311, i32 noundef %313, i32 noundef %314, i1 noundef zeroext true) #9
-  br label %342
-
-315:                                              ; preds = %309
-  %316 = add i32 %296, 2
-  %317 = sub i32 %306, %296
-  tail call void @invert_screen(ptr noundef %311, i32 noundef %316, i32 noundef %317, i1 noundef zeroext true) #9
-  br label %342
-
-318:                                              ; preds = %303
-  br i1 %307, label %319, label %328
-
-319:                                              ; preds = %318
-  %320 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %321 = icmp slt i32 %229, %320
-  %322 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %323 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  br i1 %321, label %324, label %326
-
-324:                                              ; preds = %319
-  %325 = sub i32 %322, %229
-  tail call void @invert_screen(ptr noundef %323, i32 noundef %229, i32 noundef %325, i1 noundef zeroext true) #9
-  br label %342
-
-326:                                              ; preds = %319
-  %327 = sub i32 %229, %322
-  tail call void @invert_screen(ptr noundef %323, i32 noundef %322, i32 noundef %327, i1 noundef zeroext true) #9
-  br label %342
-
-328:                                              ; preds = %318
-  %329 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  tail call void @complement_pos(ptr noundef %329, i32 noundef -1) #9
-  %330 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %331 = icmp eq i32 %330, -1
-  br i1 %331, label %338, label %332
-
-332:                                              ; preds = %328
-  %333 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %334 = load i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 5), align 8
-  %335 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  %336 = sub i32 %334, %333
-  %337 = add i32 %336, 2
-  tail call void @invert_screen(ptr noundef %335, i32 noundef %333, i32 noundef %337, i1 noundef zeroext true) #9
-  store volatile i32 -1, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  br label %338
-
-338:                                              ; preds = %332, %328
-  %339 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  %340 = sub i32 %296, %229
-  %341 = add i32 %340, 2
-  tail call void @invert_screen(ptr noundef %339, i32 noundef %229, i32 noundef %341, i1 noundef zeroext true) #9
-  br label %342
-
-342:                                              ; preds = %338, %326, %324, %315, %312, %299
-  store volatile i32 %229, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  store i32 %296, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 5), align 8
-  %343 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %344 = sub i32 %296, %343
-  %345 = sdiv i32 %344, 2
-  %346 = add nsw i32 %345, 1
-  %347 = sext i32 %346 to i64
-  %348 = select i1 %106, i64 4, i64 1
-  %349 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %347, i64 %348)
-  %350 = extractvalue { i64, i1 } %349, 1
-  br i1 %350, label %354, label %351, !prof !11
-
-351:                                              ; preds = %342
-  %352 = extractvalue { i64, i1 } %349, 0
-  %353 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %352, i32 noundef 11456) #10
-  br label %354
-
-354:                                              ; preds = %351, %342
-  %355 = phi ptr [ %353, %351 ], [ null, %342 ]
-  %356 = icmp eq ptr %355, null
-  br i1 %356, label %357, label %368
-
-357:                                              ; preds = %354
-  %358 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #11
-  %359 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  tail call void @complement_pos(ptr noundef %359, i32 noundef -1) #9
-  %360 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %361 = icmp eq i32 %360, -1
-  br i1 %361, label %469, label %362
-
-362:                                              ; preds = %357
-  %363 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %364 = load i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 5), align 8
-  %365 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  %366 = sub i32 %364, %363
-  %367 = add i32 %366, 2
-  tail call void @invert_screen(ptr noundef %365, i32 noundef %363, i32 noundef %367, i1 noundef zeroext true) #9
-  store volatile i32 -1, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  br label %469
-
-368:                                              ; preds = %354
-  %369 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 2), align 8
-  tail call void @kfree(ptr noundef %369) #9
-  store ptr %355, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 2), align 8
-  %370 = load volatile i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 4), align 4
-  %371 = load i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 5), align 8
-  %372 = icmp ugt i32 %370, %371
-  br i1 %372, label %462, label %373
-
-373:                                              ; preds = %457, %368
-  %374 = phi i32 [ %449, %457 ], [ %370, %368 ]
-  %375 = phi ptr [ %459, %457 ], [ %355, %368 ]
-  %376 = phi ptr [ %458, %457 ], [ %355, %368 ]
-  %377 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 1), align 8
-  br i1 %106, label %378, label %381
-
-378:                                              ; preds = %373
-  %379 = sdiv i32 %374, 2
-  %380 = tail call i32 @screen_glyph_unicode(ptr noundef %377, i32 noundef %379) #9
-  br label %385
-
-381:                                              ; preds = %373
-  %382 = tail call zeroext i16 @screen_glyph(ptr noundef %377, i32 noundef %374) #9
-  %383 = tail call zeroext i16 @inverse_translate(ptr noundef %377, i16 noundef zeroext %382, i1 noundef zeroext false) #9
-  %384 = zext i16 %383 to i32
-  br label %385
-
-385:                                              ; preds = %381, %378
-  %386 = phi i32 [ %380, %378 ], [ %384, %381 ]
-  br i1 %106, label %387, label %442
-
-387:                                              ; preds = %385
-  %388 = icmp ult i32 %386, 128
-  br i1 %388, label %389, label %391
-
-389:                                              ; preds = %387
-  %390 = trunc i32 %386 to i8
-  store i8 %390, ptr %376, align 1
-  br label %439
-
-391:                                              ; preds = %387
-  %392 = icmp ult i32 %386, 2048
-  br i1 %392, label %393, label %401
-
-393:                                              ; preds = %391
-  %394 = lshr i32 %386, 6
-  %395 = trunc i32 %394 to i8
-  %396 = or disjoint i8 %395, -64
-  store i8 %396, ptr %376, align 1
-  %397 = trunc i32 %386 to i8
-  %398 = and i8 %397, 63
-  %399 = or disjoint i8 %398, -128
-  %400 = getelementptr i8, ptr %376, i64 1
-  store i8 %399, ptr %400, align 1
-  br label %439
-
-401:                                              ; preds = %391
-  %402 = icmp ult i32 %386, 65536
-  br i1 %402, label %403, label %416
-
-403:                                              ; preds = %401
-  %404 = lshr i32 %386, 12
-  %405 = trunc i32 %404 to i8
-  %406 = or disjoint i8 %405, -32
-  store i8 %406, ptr %376, align 1
-  %407 = lshr i32 %386, 6
-  %408 = trunc i32 %407 to i8
-  %409 = and i8 %408, 63
-  %410 = or disjoint i8 %409, -128
-  %411 = getelementptr i8, ptr %376, i64 1
-  store i8 %410, ptr %411, align 1
-  %412 = trunc i32 %386 to i8
-  %413 = and i8 %412, 63
-  %414 = or disjoint i8 %413, -128
-  %415 = getelementptr i8, ptr %376, i64 2
-  store i8 %414, ptr %415, align 1
-  br label %439
-
-416:                                              ; preds = %401
-  %417 = icmp ult i32 %386, 1114112
-  br i1 %417, label %418, label %436
-
-418:                                              ; preds = %416
-  %419 = lshr i32 %386, 18
-  %420 = trunc i32 %419 to i8
-  %421 = or disjoint i8 %420, -16
-  store i8 %421, ptr %376, align 1
-  %422 = lshr i32 %386, 12
-  %423 = trunc i32 %422 to i8
-  %424 = and i8 %423, 63
-  %425 = or disjoint i8 %424, -128
-  %426 = getelementptr i8, ptr %376, i64 1
-  store i8 %425, ptr %426, align 1
-  %427 = lshr i32 %386, 6
-  %428 = trunc i32 %427 to i8
-  %429 = and i8 %428, 63
-  %430 = or disjoint i8 %429, -128
-  %431 = getelementptr i8, ptr %376, i64 2
-  store i8 %430, ptr %431, align 1
-  %432 = trunc i32 %386 to i8
-  %433 = and i8 %432, 63
-  %434 = or disjoint i8 %433, -128
-  %435 = getelementptr i8, ptr %376, i64 3
-  store i8 %434, ptr %435, align 1
-  br label %439
-
-436:                                              ; preds = %416
-  store i8 -17, ptr %376, align 1
-  %437 = getelementptr i8, ptr %376, i64 1
-  store i8 -65, ptr %437, align 1
-  %438 = getelementptr i8, ptr %376, i64 2
-  store i8 -67, ptr %438, align 1
-  br label %439
-
-439:                                              ; preds = %436, %418, %403, %393, %389
-  %440 = phi i64 [ 1, %389 ], [ 2, %393 ], [ 3, %403 ], [ 4, %418 ], [ 3, %436 ]
-  %441 = getelementptr i8, ptr %376, i64 %440
-  br label %445
-
-442:                                              ; preds = %385
-  %443 = trunc i32 %386 to i8
-  %444 = getelementptr i8, ptr %376, i64 1
-  store i8 %443, ptr %376, align 1
-  br label %445
-
-445:                                              ; preds = %442, %439
-  %446 = phi ptr [ %441, %439 ], [ %444, %442 ]
-  %447 = icmp eq i32 %386, 32
-  %448 = select i1 %447, ptr %375, ptr %446
-  %449 = add i32 %374, 2
-  %450 = load i32, ptr %74, align 4
-  %451 = urem i32 %449, %450
-  %452 = icmp eq i32 %451, 0
-  br i1 %452, label %453, label %457
-
-453:                                              ; preds = %445
-  %454 = icmp eq ptr %448, %446
-  br i1 %454, label %457, label %455
-
-455:                                              ; preds = %453
-  %456 = getelementptr i8, ptr %448, i64 1
-  store i8 13, ptr %448, align 1
-  br label %457
-
-457:                                              ; preds = %455, %453, %445
-  %458 = phi ptr [ %446, %445 ], [ %456, %455 ], [ %446, %453 ]
-  %459 = phi ptr [ %448, %445 ], [ %456, %455 ], [ %446, %453 ]
-  %460 = load i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 5), align 8
-  %461 = icmp ugt i32 %449, %460
-  br i1 %461, label %462, label %373, !llvm.loop !12
-
-462:                                              ; preds = %457, %368
-  %463 = phi ptr [ %355, %368 ], [ %458, %457 ]
-  %464 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 2), align 8
-  %465 = ptrtoint ptr %463 to i64
-  %466 = ptrtoint ptr %464 to i64
-  %467 = sub i64 %465, %466
-  %468 = trunc i64 %467 to i32
-  store i32 %468, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 3), align 8
-  br label %469
-
-469:                                              ; preds = %462, %362, %357, %308, %225, %102, %65, %14, %10
-  %470 = phi i32 [ 0, %65 ], [ 0, %10 ], [ 0, %14 ], [ 0, %225 ], [ -22, %102 ], [ 0, %308 ], [ 0, %462 ], [ -12, %357 ], [ -12, %362 ]
+120:                                              ; preds = %115
+  %121 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %122 = load ptr, ptr %121, align 8
+  br i1 %119, label %123, label %126
+
+123:                                              ; preds = %120
+  %124 = sdiv i32 %95, 2
+  %125 = tail call i32 @screen_glyph_unicode(ptr noundef %122, i32 noundef %124) #9
+  br label %130
+
+126:                                              ; preds = %120
+  %127 = tail call zeroext i16 @screen_glyph(ptr noundef %122, i32 noundef %95) #9
+  %128 = tail call zeroext i16 @inverse_translate(ptr noundef %122, i16 noundef zeroext %127, i1 noundef zeroext false) #9
+  %129 = zext i16 %128 to i32
+  br label %130
+
+130:                                              ; preds = %126, %123
+  %131 = phi i32 [ %125, %123 ], [ %129, %126 ]
+  %132 = icmp eq i32 %131, 32
+  br label %133
+
+133:                                              ; preds = %175, %130
+  %134 = phi i32 [ %95, %130 ], [ %135, %175 ]
+  %135 = phi i32 [ %95, %130 ], [ %176, %175 ]
+  %136 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %137 = load ptr, ptr %136, align 8
+  br i1 %132, label %138, label %149
+
+138:                                              ; preds = %133
+  br i1 %119, label %139, label %142
+
+139:                                              ; preds = %138
+  %140 = sdiv i32 %135, 2
+  %141 = tail call i32 @screen_glyph_unicode(ptr noundef %137, i32 noundef %140) #9
+  br label %146
+
+142:                                              ; preds = %138
+  %143 = tail call zeroext i16 @screen_glyph(ptr noundef %137, i32 noundef %135) #9
+  %144 = tail call zeroext i16 @inverse_translate(ptr noundef %137, i16 noundef zeroext %143, i1 noundef zeroext false) #9
+  %145 = zext i16 %144 to i32
+  br label %146
+
+146:                                              ; preds = %142, %139
+  %147 = phi i32 [ %141, %139 ], [ %145, %142 ]
+  %148 = icmp eq i32 %147, 32
+  br i1 %148, label %171, label %177
+
+149:                                              ; preds = %133
+  br i1 %119, label %150, label %153
+
+150:                                              ; preds = %149
+  %151 = sdiv i32 %135, 2
+  %152 = tail call i32 @screen_glyph_unicode(ptr noundef %137, i32 noundef %151) #9
+  br label %157
+
+153:                                              ; preds = %149
+  %154 = tail call zeroext i16 @screen_glyph(ptr noundef %137, i32 noundef %135) #9
+  %155 = tail call zeroext i16 @inverse_translate(ptr noundef %137, i16 noundef zeroext %154, i1 noundef zeroext false) #9
+  %156 = zext i16 %155 to i32
+  br label %157
+
+157:                                              ; preds = %153, %150
+  %158 = phi i32 [ %152, %150 ], [ %156, %153 ]
+  %159 = icmp ugt i32 %158, 127
+  br i1 %159, label %168, label %160
+
+160:                                              ; preds = %157
+  %161 = lshr i32 %158, 5
+  %162 = zext nneg i32 %161 to i64
+  %163 = getelementptr [4 x i32], ptr @inwordLut, i64 0, i64 %162
+  %164 = load i32, ptr %163, align 4
+  %165 = and i32 %158, 31
+  %166 = lshr i32 %164, %165
+  %167 = and i32 %166, 1
+  br label %168
+
+168:                                              ; preds = %160, %157
+  %169 = phi i32 [ 1, %157 ], [ %167, %160 ]
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %177, label %171
+
+171:                                              ; preds = %168, %146
+  %172 = load i32, ptr %80, align 4
+  %173 = urem i32 %135, %172
+  %174 = icmp eq i32 %173, 0
+  br i1 %174, label %177, label %175
+
+175:                                              ; preds = %171
+  %176 = add i32 %135, -2
+  br label %133, !llvm.loop !7
+
+177:                                              ; preds = %171, %168, %146
+  %178 = phi i32 [ %135, %171 ], [ %134, %168 ], [ %134, %146 ]
+  %179 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %180 = load ptr, ptr %179, align 8
+  br i1 %119, label %181, label %184
+
+181:                                              ; preds = %177
+  %182 = sdiv i32 %94, 2
+  %183 = tail call i32 @screen_glyph_unicode(ptr noundef %180, i32 noundef %182) #9
+  br label %188
+
+184:                                              ; preds = %177
+  %185 = tail call zeroext i16 @screen_glyph(ptr noundef %180, i32 noundef %94) #9
+  %186 = tail call zeroext i16 @inverse_translate(ptr noundef %180, i16 noundef zeroext %185, i1 noundef zeroext false) #9
+  %187 = zext i16 %186 to i32
+  br label %188
+
+188:                                              ; preds = %184, %181
+  %189 = phi i32 [ %183, %181 ], [ %187, %184 ]
+  %190 = icmp eq i32 %189, 32
+  br label %191
+
+191:                                              ; preds = %229, %188
+  %192 = phi i32 [ %94, %188 ], [ %193, %229 ]
+  %193 = phi i32 [ %94, %188 ], [ %230, %229 ]
+  %194 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %195 = load ptr, ptr %194, align 8
+  br i1 %190, label %196, label %207
+
+196:                                              ; preds = %191
+  br i1 %119, label %197, label %200
+
+197:                                              ; preds = %196
+  %198 = sdiv i32 %193, 2
+  %199 = tail call i32 @screen_glyph_unicode(ptr noundef %195, i32 noundef %198) #9
+  br label %204
+
+200:                                              ; preds = %196
+  %201 = tail call zeroext i16 @screen_glyph(ptr noundef %195, i32 noundef %193) #9
+  %202 = tail call zeroext i16 @inverse_translate(ptr noundef %195, i16 noundef zeroext %201, i1 noundef zeroext false) #9
+  %203 = zext i16 %202 to i32
+  br label %204
+
+204:                                              ; preds = %200, %197
+  %205 = phi i32 [ %199, %197 ], [ %203, %200 ]
+  %206 = icmp eq i32 %205, 32
+  br i1 %206, label %229, label %245
+
+207:                                              ; preds = %191
+  br i1 %119, label %208, label %211
+
+208:                                              ; preds = %207
+  %209 = sdiv i32 %193, 2
+  %210 = tail call i32 @screen_glyph_unicode(ptr noundef %195, i32 noundef %209) #9
+  br label %215
+
+211:                                              ; preds = %207
+  %212 = tail call zeroext i16 @screen_glyph(ptr noundef %195, i32 noundef %193) #9
+  %213 = tail call zeroext i16 @inverse_translate(ptr noundef %195, i16 noundef zeroext %212, i1 noundef zeroext false) #9
+  %214 = zext i16 %213 to i32
+  br label %215
+
+215:                                              ; preds = %211, %208
+  %216 = phi i32 [ %210, %208 ], [ %214, %211 ]
+  %217 = icmp ugt i32 %216, 127
+  br i1 %217, label %226, label %218
+
+218:                                              ; preds = %215
+  %219 = lshr i32 %216, 5
+  %220 = zext nneg i32 %219 to i64
+  %221 = getelementptr [4 x i32], ptr @inwordLut, i64 0, i64 %220
+  %222 = load i32, ptr %221, align 4
+  %223 = and i32 %216, 31
+  %224 = lshr i32 %222, %223
+  %225 = and i32 %224, 1
+  br label %226
+
+226:                                              ; preds = %218, %215
+  %227 = phi i32 [ 1, %215 ], [ %225, %218 ]
+  %228 = icmp eq i32 %227, 0
+  br i1 %228, label %245, label %229
+
+229:                                              ; preds = %226, %204
+  %230 = add i32 %193, 2
+  %231 = load i32, ptr %80, align 4
+  %232 = urem i32 %230, %231
+  %233 = icmp eq i32 %232, 0
+  br i1 %233, label %245, label %191, !llvm.loop !9
+
+234:                                              ; preds = %115
+  %235 = load i32, ptr %80, align 4
+  %236 = urem i32 %95, %235
+  %237 = sub nuw i32 %95, %236
+  %238 = urem i32 %94, %235
+  %239 = add i32 %94, -2
+  %240 = add i32 %239, %235
+  %241 = sub i32 %240, %238
+  br label %245
+
+242:                                              ; preds = %115
+  %243 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %244 = load ptr, ptr %243, align 8
+  tail call void @complement_pos(ptr noundef %244, i32 noundef %94) #9
+  br label %523
+
+245:                                              ; preds = %234, %229, %226, %204, %115
+  %246 = phi i32 [ %241, %234 ], [ %94, %115 ], [ %193, %229 ], [ %192, %226 ], [ %192, %204 ]
+  %247 = phi i32 [ %237, %234 ], [ %95, %115 ], [ %178, %204 ], [ %178, %226 ], [ %178, %229 ]
+  %248 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %249 = load ptr, ptr %248, align 8
+  tail call void @complement_pos(ptr noundef %249, i32 noundef -1) #9
+  %250 = icmp sgt i32 %246, %247
+  br i1 %250, label %251, label %317
+
+251:                                              ; preds = %245
+  %252 = load i32, ptr %80, align 4
+  %253 = srem i32 %246, %252
+  %254 = icmp eq i32 %253, 0
+  br i1 %254, label %260, label %255
+
+255:                                              ; preds = %251
+  %256 = add i32 %246, 2
+  %257 = srem i32 %256, %252
+  %258 = icmp eq i32 %257, 0
+  %259 = zext i1 %258 to i32
+  br label %260
+
+260:                                              ; preds = %255, %251
+  %261 = phi i32 [ 1, %251 ], [ %259, %255 ]
+  %262 = icmp eq i32 %261, 0
+  br i1 %262, label %263, label %317
+
+263:                                              ; preds = %260
+  %264 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %265 = load ptr, ptr %264, align 8
+  br i1 %119, label %266, label %269
+
+266:                                              ; preds = %263
+  %267 = sdiv i32 %246, 2
+  %268 = tail call i32 @screen_glyph_unicode(ptr noundef %265, i32 noundef %267) #9
+  br label %273
+
+269:                                              ; preds = %263
+  %270 = tail call zeroext i16 @screen_glyph(ptr noundef %265, i32 noundef %246) #9
+  %271 = tail call zeroext i16 @inverse_translate(ptr noundef %265, i16 noundef zeroext %270, i1 noundef zeroext false) #9
+  %272 = zext i16 %271 to i32
+  br label %273
+
+273:                                              ; preds = %269, %266
+  %274 = phi i32 [ %268, %266 ], [ %272, %269 ]
+  %275 = icmp eq i32 %274, 32
+  br i1 %275, label %276, label %317
+
+276:                                              ; preds = %300, %273
+  %277 = phi i32 [ %278, %300 ], [ %246, %273 ]
+  %278 = add i32 %277, 2
+  %279 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %280 = load ptr, ptr %279, align 8
+  br i1 %119, label %281, label %284
+
+281:                                              ; preds = %276
+  %282 = sdiv i32 %278, 2
+  %283 = tail call i32 @screen_glyph_unicode(ptr noundef %280, i32 noundef %282) #9
+  br label %288
+
+284:                                              ; preds = %276
+  %285 = tail call zeroext i16 @screen_glyph(ptr noundef %280, i32 noundef %278) #9
+  %286 = tail call zeroext i16 @inverse_translate(ptr noundef %280, i16 noundef zeroext %285, i1 noundef zeroext false) #9
+  %287 = zext i16 %286 to i32
+  br label %288
+
+288:                                              ; preds = %284, %281
+  %289 = phi i32 [ %283, %281 ], [ %287, %284 ]
+  %290 = icmp eq i32 %289, 32
+  br i1 %290, label %291, label %303
+
+291:                                              ; preds = %288
+  %292 = load i32, ptr %80, align 4
+  %293 = srem i32 %278, %292
+  %294 = icmp eq i32 %293, 0
+  br i1 %294, label %300, label %295
+
+295:                                              ; preds = %291
+  %296 = add i32 %277, 4
+  %297 = srem i32 %296, %292
+  %298 = icmp eq i32 %297, 0
+  %299 = zext i1 %298 to i32
+  br label %300
+
+300:                                              ; preds = %295, %291
+  %301 = phi i32 [ 1, %291 ], [ %299, %295 ]
+  %302 = icmp eq i32 %301, 0
+  br i1 %302, label %276, label %303, !llvm.loop !10
+
+303:                                              ; preds = %300, %288
+  %304 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %305 = load ptr, ptr %304, align 8
+  br i1 %119, label %306, label %309
+
+306:                                              ; preds = %303
+  %307 = sdiv i32 %278, 2
+  %308 = tail call i32 @screen_glyph_unicode(ptr noundef %305, i32 noundef %307) #9
+  br label %313
+
+309:                                              ; preds = %303
+  %310 = tail call zeroext i16 @screen_glyph(ptr noundef %305, i32 noundef %278) #9
+  %311 = tail call zeroext i16 @inverse_translate(ptr noundef %305, i16 noundef zeroext %310, i1 noundef zeroext false) #9
+  %312 = zext i16 %311 to i32
+  br label %313
+
+313:                                              ; preds = %309, %306
+  %314 = phi i32 [ %308, %306 ], [ %312, %309 ]
+  %315 = icmp eq i32 %314, 32
+  %316 = select i1 %315, i32 %278, i32 %246
+  br label %317
+
+317:                                              ; preds = %313, %273, %260, %245
+  %318 = phi i32 [ %246, %260 ], [ %246, %273 ], [ %246, %245 ], [ %316, %313 ]
+  %319 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %320 = load volatile i32, ptr %319, align 4
+  %321 = icmp eq i32 %320, -1
+  br i1 %321, label %322, label %327
+
+322:                                              ; preds = %317
+  %323 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %324 = load ptr, ptr %323, align 8
+  %325 = sub i32 %318, %247
+  %326 = add i32 %325, 2
+  tail call void @invert_screen(ptr noundef %324, i32 noundef %247, i32 noundef %326, i1 noundef zeroext true) #9
+  br label %379
+
+327:                                              ; preds = %317
+  %328 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %329 = load volatile i32, ptr %328, align 4
+  %330 = icmp eq i32 %247, %329
+  %331 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 5
+  %332 = load i32, ptr %331, align 8
+  %333 = icmp eq i32 %318, %332
+  br i1 %330, label %334, label %345
+
+334:                                              ; preds = %327
+  br i1 %333, label %523, label %335
+
+335:                                              ; preds = %334
+  %336 = icmp sgt i32 %318, %332
+  %337 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %338 = load ptr, ptr %337, align 8
+  br i1 %336, label %339, label %342
+
+339:                                              ; preds = %335
+  %340 = add i32 %332, 2
+  %341 = sub i32 %318, %332
+  tail call void @invert_screen(ptr noundef %338, i32 noundef %340, i32 noundef %341, i1 noundef zeroext true) #9
+  br label %379
+
+342:                                              ; preds = %335
+  %343 = add i32 %318, 2
+  %344 = sub i32 %332, %318
+  tail call void @invert_screen(ptr noundef %338, i32 noundef %343, i32 noundef %344, i1 noundef zeroext true) #9
+  br label %379
+
+345:                                              ; preds = %327
+  br i1 %333, label %346, label %358
+
+346:                                              ; preds = %345
+  %347 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %348 = load volatile i32, ptr %347, align 4
+  %349 = icmp slt i32 %247, %348
+  %350 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %351 = load volatile i32, ptr %350, align 4
+  %352 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %353 = load ptr, ptr %352, align 8
+  br i1 %349, label %354, label %356
+
+354:                                              ; preds = %346
+  %355 = sub i32 %351, %247
+  tail call void @invert_screen(ptr noundef %353, i32 noundef %247, i32 noundef %355, i1 noundef zeroext true) #9
+  br label %379
+
+356:                                              ; preds = %346
+  %357 = sub i32 %247, %351
+  tail call void @invert_screen(ptr noundef %353, i32 noundef %351, i32 noundef %357, i1 noundef zeroext true) #9
+  br label %379
+
+358:                                              ; preds = %345
+  %359 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %360 = load ptr, ptr %359, align 8
+  tail call void @complement_pos(ptr noundef %360, i32 noundef -1) #9
+  %361 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %362 = load volatile i32, ptr %361, align 4
+  %363 = icmp eq i32 %362, -1
+  br i1 %363, label %374, label %364
+
+364:                                              ; preds = %358
+  %365 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %366 = load volatile i32, ptr %365, align 4
+  %367 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 5
+  %368 = load i32, ptr %367, align 8
+  %369 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %370 = load ptr, ptr %369, align 8
+  %371 = sub i32 %368, %366
+  %372 = add i32 %371, 2
+  tail call void @invert_screen(ptr noundef %370, i32 noundef %366, i32 noundef %372, i1 noundef zeroext true) #9
+  %373 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  store volatile i32 -1, ptr %373, align 4
+  br label %374
+
+374:                                              ; preds = %364, %358
+  %375 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %376 = load ptr, ptr %375, align 8
+  %377 = sub i32 %318, %247
+  %378 = add i32 %377, 2
+  tail call void @invert_screen(ptr noundef %376, i32 noundef %247, i32 noundef %378, i1 noundef zeroext true) #9
+  br label %379
+
+379:                                              ; preds = %374, %356, %354, %342, %339, %322
+  %380 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  store volatile i32 %247, ptr %380, align 4
+  %381 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 5
+  store i32 %318, ptr %381, align 8
+  %382 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %383 = load volatile i32, ptr %382, align 4
+  %384 = sub i32 %318, %383
+  %385 = sdiv i32 %384, 2
+  %386 = add nsw i32 %385, 1
+  %387 = sext i32 %386 to i64
+  %388 = select i1 %119, i64 4, i64 1
+  %389 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %387, i64 %388)
+  %390 = extractvalue { i64, i1 } %389, 1
+  br i1 %390, label %394, label %391, !prof !11
+
+391:                                              ; preds = %379
+  %392 = extractvalue { i64, i1 } %389, 0
+  %393 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %392, i32 noundef 11456) #10
+  br label %394
+
+394:                                              ; preds = %391, %379
+  %395 = phi ptr [ %393, %391 ], [ null, %379 ]
+  %396 = icmp eq ptr %395, null
+  br i1 %396, label %397, label %414
+
+397:                                              ; preds = %394
+  %398 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #11
+  %399 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %400 = load ptr, ptr %399, align 8
+  tail call void @complement_pos(ptr noundef %400, i32 noundef -1) #9
+  %401 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %402 = load volatile i32, ptr %401, align 4
+  %403 = icmp eq i32 %402, -1
+  br i1 %403, label %523, label %404
+
+404:                                              ; preds = %397
+  %405 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %406 = load volatile i32, ptr %405, align 4
+  %407 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 5
+  %408 = load i32, ptr %407, align 8
+  %409 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %410 = load ptr, ptr %409, align 8
+  %411 = sub i32 %408, %406
+  %412 = add i32 %411, 2
+  tail call void @invert_screen(ptr noundef %410, i32 noundef %406, i32 noundef %412, i1 noundef zeroext true) #9
+  %413 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  store volatile i32 -1, ptr %413, align 4
+  br label %523
+
+414:                                              ; preds = %394
+  %415 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 2
+  %416 = load ptr, ptr %415, align 8
+  tail call void @kfree(ptr noundef %416) #9
+  %417 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 2
+  store ptr %395, ptr %417, align 8
+  %418 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 4
+  %419 = load volatile i32, ptr %418, align 4
+  %420 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 5
+  %421 = load i32, ptr %420, align 8
+  %422 = icmp ugt i32 %419, %421
+  br i1 %422, label %514, label %423
+
+423:                                              ; preds = %508, %414
+  %424 = phi i32 [ %500, %508 ], [ %419, %414 ]
+  %425 = phi ptr [ %510, %508 ], [ %395, %414 ]
+  %426 = phi ptr [ %509, %508 ], [ %395, %414 ]
+  %427 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 1
+  %428 = load ptr, ptr %427, align 8
+  br i1 %119, label %429, label %432
+
+429:                                              ; preds = %423
+  %430 = sdiv i32 %424, 2
+  %431 = tail call i32 @screen_glyph_unicode(ptr noundef %428, i32 noundef %430) #9
+  br label %436
+
+432:                                              ; preds = %423
+  %433 = tail call zeroext i16 @screen_glyph(ptr noundef %428, i32 noundef %424) #9
+  %434 = tail call zeroext i16 @inverse_translate(ptr noundef %428, i16 noundef zeroext %433, i1 noundef zeroext false) #9
+  %435 = zext i16 %434 to i32
+  br label %436
+
+436:                                              ; preds = %432, %429
+  %437 = phi i32 [ %431, %429 ], [ %435, %432 ]
+  br i1 %119, label %438, label %493
+
+438:                                              ; preds = %436
+  %439 = icmp ult i32 %437, 128
+  br i1 %439, label %440, label %442
+
+440:                                              ; preds = %438
+  %441 = trunc i32 %437 to i8
+  store i8 %441, ptr %426, align 1
+  br label %490
+
+442:                                              ; preds = %438
+  %443 = icmp ult i32 %437, 2048
+  br i1 %443, label %444, label %452
+
+444:                                              ; preds = %442
+  %445 = lshr i32 %437, 6
+  %446 = trunc i32 %445 to i8
+  %447 = or disjoint i8 %446, -64
+  store i8 %447, ptr %426, align 1
+  %448 = trunc i32 %437 to i8
+  %449 = and i8 %448, 63
+  %450 = or disjoint i8 %449, -128
+  %451 = getelementptr i8, ptr %426, i64 1
+  store i8 %450, ptr %451, align 1
+  br label %490
+
+452:                                              ; preds = %442
+  %453 = icmp ult i32 %437, 65536
+  br i1 %453, label %454, label %467
+
+454:                                              ; preds = %452
+  %455 = lshr i32 %437, 12
+  %456 = trunc i32 %455 to i8
+  %457 = or disjoint i8 %456, -32
+  store i8 %457, ptr %426, align 1
+  %458 = lshr i32 %437, 6
+  %459 = trunc i32 %458 to i8
+  %460 = and i8 %459, 63
+  %461 = or disjoint i8 %460, -128
+  %462 = getelementptr i8, ptr %426, i64 1
+  store i8 %461, ptr %462, align 1
+  %463 = trunc i32 %437 to i8
+  %464 = and i8 %463, 63
+  %465 = or disjoint i8 %464, -128
+  %466 = getelementptr i8, ptr %426, i64 2
+  store i8 %465, ptr %466, align 1
+  br label %490
+
+467:                                              ; preds = %452
+  %468 = icmp ult i32 %437, 1114112
+  br i1 %468, label %469, label %487
+
+469:                                              ; preds = %467
+  %470 = lshr i32 %437, 18
+  %471 = trunc i32 %470 to i8
+  %472 = or disjoint i8 %471, -16
+  store i8 %472, ptr %426, align 1
+  %473 = lshr i32 %437, 12
+  %474 = trunc i32 %473 to i8
+  %475 = and i8 %474, 63
+  %476 = or disjoint i8 %475, -128
+  %477 = getelementptr i8, ptr %426, i64 1
+  store i8 %476, ptr %477, align 1
+  %478 = lshr i32 %437, 6
+  %479 = trunc i32 %478 to i8
+  %480 = and i8 %479, 63
+  %481 = or disjoint i8 %480, -128
+  %482 = getelementptr i8, ptr %426, i64 2
+  store i8 %481, ptr %482, align 1
+  %483 = trunc i32 %437 to i8
+  %484 = and i8 %483, 63
+  %485 = or disjoint i8 %484, -128
+  %486 = getelementptr i8, ptr %426, i64 3
+  store i8 %485, ptr %486, align 1
+  br label %490
+
+487:                                              ; preds = %467
+  store i8 -17, ptr %426, align 1
+  %488 = getelementptr i8, ptr %426, i64 1
+  store i8 -65, ptr %488, align 1
+  %489 = getelementptr i8, ptr %426, i64 2
+  store i8 -67, ptr %489, align 1
+  br label %490
+
+490:                                              ; preds = %487, %469, %454, %444, %440
+  %491 = phi i64 [ 1, %440 ], [ 2, %444 ], [ 3, %454 ], [ 4, %469 ], [ 3, %487 ]
+  %492 = getelementptr i8, ptr %426, i64 %491
+  br label %496
+
+493:                                              ; preds = %436
+  %494 = trunc i32 %437 to i8
+  %495 = getelementptr i8, ptr %426, i64 1
+  store i8 %494, ptr %426, align 1
+  br label %496
+
+496:                                              ; preds = %493, %490
+  %497 = phi ptr [ %492, %490 ], [ %495, %493 ]
+  %498 = icmp eq i32 %437, 32
+  %499 = select i1 %498, ptr %425, ptr %497
+  %500 = add i32 %424, 2
+  %501 = load i32, ptr %80, align 4
+  %502 = urem i32 %500, %501
+  %503 = icmp eq i32 %502, 0
+  br i1 %503, label %504, label %508
+
+504:                                              ; preds = %496
+  %505 = icmp eq ptr %499, %497
+  br i1 %505, label %508, label %506
+
+506:                                              ; preds = %504
+  %507 = getelementptr i8, ptr %499, i64 1
+  store i8 13, ptr %499, align 1
+  br label %508
+
+508:                                              ; preds = %506, %504, %496
+  %509 = phi ptr [ %497, %496 ], [ %507, %506 ], [ %497, %504 ]
+  %510 = phi ptr [ %499, %496 ], [ %507, %506 ], [ %497, %504 ]
+  %511 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 5
+  %512 = load i32, ptr %511, align 8
+  %513 = icmp ugt i32 %500, %512
+  br i1 %513, label %514, label %423, !llvm.loop !12
+
+514:                                              ; preds = %508, %414
+  %515 = phi ptr [ %395, %414 ], [ %509, %508 ]
+  %516 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 2
+  %517 = load ptr, ptr %516, align 8
+  %518 = ptrtoint ptr %515 to i64
+  %519 = ptrtoint ptr %517 to i64
+  %520 = sub i64 %518, %519
+  %521 = trunc i64 %520 to i32
+  %522 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 3
+  store i32 %521, ptr %522, align 8
+  br label %523
+
+523:                                              ; preds = %514, %404, %397, %334, %242, %115, %71, %16, %10
+  %524 = phi i32 [ 0, %71 ], [ 0, %10 ], [ 0, %16 ], [ 0, %242 ], [ -22, %115 ], [ 0, %334 ], [ 0, %514 ], [ -12, %397 ], [ -12, %404 ]
   tail call void @console_unlock() #9
   tail call void @mutex_unlock(ptr noundef nonnull @vc_sel) #9
-  ret i32 %470
+  ret i32 %524
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -884,93 +945,99 @@ define dso_local noundef i32 @paste_selection(ptr noundef %0) #0 align 16 {
   tail call void @console_unlock() #9
   %10 = tail call ptr @tty_ldisc_ref_wait(ptr noundef %0) #9
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %61, label %12
+  br i1 %11, label %67, label %12
 
 12:                                               ; preds = %1
   tail call void @tty_buffer_lock_exclusive(ptr noundef %4) #9
   %13 = getelementptr inbounds i8, ptr %4, i64 656
   call void @add_wait_queue(ptr noundef %13, ptr noundef nonnull %2) #9
   call void @mutex_lock(ptr noundef nonnull @vc_sel) #9
-  %14 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 2), align 8
-  %15 = icmp ne ptr %14, null
-  %16 = load i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 3), align 8
-  %17 = icmp ne i32 %16, 0
-  %18 = select i1 %15, i1 %17, i1 false
-  br i1 %18, label %19, label %58
+  %14 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp ne ptr %15, null
+  %17 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 3
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp ne i32 %18, 0
+  %20 = select i1 %16, i1 %19, i1 false
+  br i1 %20, label %21, label %64
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %7, i64 24
-  %21 = getelementptr inbounds i8, ptr %0, i64 416
-  br label %22
+21:                                               ; preds = %12
+  %22 = getelementptr inbounds i8, ptr %7, i64 24
+  %23 = getelementptr inbounds i8, ptr %0, i64 416
+  br label %24
 
-22:                                               ; preds = %41, %19
-  %23 = phi i32 [ 0, %19 ], [ %42, %41 ]
-  %24 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, i32 1, ptr elementtype(i32) %20) #9, !srcloc !15
-  %25 = load volatile i64, ptr %7, align 8
-  %26 = and i64 %25, 131072
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %33, !prof !16
+24:                                               ; preds = %43, %21
+  %25 = phi i32 [ 0, %21 ], [ %44, %43 ]
+  %26 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22, i32 1, ptr elementtype(i32) %22) #9, !srcloc !15
+  %27 = load volatile i64, ptr %7, align 8
+  %28 = and i64 %27, 131072
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %30, label %35, !prof !16
 
-28:                                               ; preds = %22
-  %29 = load volatile i64, ptr %7, align 8
-  %30 = trunc i64 %29 to i32
-  %31 = lshr i32 %30, 2
-  %32 = and i32 %31, 1
-  br label %33
+30:                                               ; preds = %24
+  %31 = load volatile i64, ptr %7, align 8
+  %32 = trunc i64 %31 to i32
+  %33 = lshr i32 %32, 2
+  %34 = and i32 %33, 1
+  br label %35
 
-33:                                               ; preds = %28, %22
-  %34 = phi i32 [ %32, %28 ], [ 1, %22 ]
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %58
+35:                                               ; preds = %30, %24
+  %36 = phi i32 [ %34, %30 ], [ 1, %24 ]
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %64
 
-36:                                               ; preds = %33
-  %37 = load volatile i64, ptr %21, align 8
-  %38 = and i64 %37, 1
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %48, label %40
+38:                                               ; preds = %35
+  %39 = load volatile i64, ptr %23, align 8
+  %40 = and i64 %39, 1
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %52, label %42
 
-40:                                               ; preds = %36
+42:                                               ; preds = %38
   call void @mutex_unlock(ptr noundef nonnull @vc_sel) #9
   call void @schedule() #9
   call void @mutex_lock(ptr noundef nonnull @vc_sel) #9
-  br label %41
+  br label %43
 
-41:                                               ; preds = %48, %40
-  %42 = phi i32 [ %23, %40 ], [ %57, %48 ]
-  %43 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 2), align 8
-  %44 = icmp ne ptr %43, null
-  %45 = load i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 3), align 8
-  %46 = icmp ugt i32 %45, %42
-  %47 = select i1 %44, i1 %46, i1 false
-  br i1 %47, label %22, label %58, !llvm.loop !17
+43:                                               ; preds = %52, %42
+  %44 = phi i32 [ %25, %42 ], [ %63, %52 ]
+  %45 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 2
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr %46, null
+  %48 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 3
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp ugt i32 %49, %44
+  %51 = select i1 %47, i1 %50, i1 false
+  br i1 %51, label %24, label %64, !llvm.loop !17
 
-48:                                               ; preds = %36
-  store volatile i32 0, ptr %20, align 8
-  %49 = load i32, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 3), align 8
-  %50 = sub i32 %49, %23
-  %51 = zext i32 %50 to i64
-  %52 = load ptr, ptr getelementptr inbounds (%struct.vc_selection, ptr @vc_sel, i64 0, i32 2), align 8
-  %53 = sext i32 %23 to i64
-  %54 = getelementptr i8, ptr %52, i64 %53
-  %55 = call i64 @tty_ldisc_receive_buf(ptr noundef nonnull %10, ptr noundef %54, ptr noundef null, i64 noundef %51) #9
-  %56 = trunc i64 %55 to i32
-  %57 = add i32 %23, %56
-  br label %41
+52:                                               ; preds = %38
+  store volatile i32 0, ptr %22, align 8
+  %53 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 3
+  %54 = load i32, ptr %53, align 8
+  %55 = sub i32 %54, %25
+  %56 = zext i32 %55 to i64
+  %57 = getelementptr inbounds %struct.vc_selection, ptr @vc_sel, i64 0, i32 2
+  %58 = load ptr, ptr %57, align 8
+  %59 = sext i32 %25 to i64
+  %60 = getelementptr i8, ptr %58, i64 %59
+  %61 = call i64 @tty_ldisc_receive_buf(ptr noundef nonnull %10, ptr noundef %60, ptr noundef null, i64 noundef %56) #9
+  %62 = trunc i64 %61 to i32
+  %63 = add i32 %25, %62
+  br label %43
 
-58:                                               ; preds = %41, %33, %12
-  %59 = phi i32 [ 0, %12 ], [ 0, %41 ], [ -4, %33 ]
+64:                                               ; preds = %43, %35, %12
+  %65 = phi i32 [ 0, %12 ], [ 0, %43 ], [ -4, %35 ]
   call void @mutex_unlock(ptr noundef nonnull @vc_sel) #9
   call void @remove_wait_queue(ptr noundef %13, ptr noundef nonnull %2) #9
-  %60 = getelementptr inbounds i8, ptr %7, i64 24
-  store volatile i32 0, ptr %60, align 8
+  %66 = getelementptr inbounds i8, ptr %7, i64 24
+  store volatile i32 0, ptr %66, align 8
   call void @tty_buffer_unlock_exclusive(ptr noundef %4) #9
   call void @tty_ldisc_deref(ptr noundef nonnull %10) #9
-  br label %61
+  br label %67
 
-61:                                               ; preds = %58, %1
-  %62 = phi i32 [ %59, %58 ], [ -5, %1 ]
+67:                                               ; preds = %64, %1
+  %68 = phi i32 [ %65, %64 ], [ -5, %1 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #9
-  ret i32 %62
+  ret i32 %68
 }
 
 ; Function Attrs: null_pointer_is_valid

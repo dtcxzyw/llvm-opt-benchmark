@@ -185,30 +185,31 @@ define void @_ZN22MLThreadSafeMemoryInfoC2El(ptr noundef nonnull align 8 derefer
   %7 = load ptr, ptr %3, align 8
   %8 = load i64, ptr %4, align 8
   call void @_ZN3vcg23NotThreadSafeMemoryInfoC2El(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %8)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22MLThreadSafeMemoryInfo, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %class.MLThreadSafeMemoryInfo, ptr %7, i32 0, i32 1
-  invoke void @_ZN14QReadWriteLockC1ENS_13RecursionModeE(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 1)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV22MLThreadSafeMemoryInfo, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %class.MLThreadSafeMemoryInfo, ptr %7, i32 0, i32 1
+  invoke void @_ZN14QReadWriteLockC1ENS_13RecursionModeE(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZN3vcg23NotThreadSafeMemoryInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #7
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN3vcg23NotThreadSafeMemoryInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #7
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -220,7 +221,8 @@ define linkonce_odr void @_ZN3vcg23NotThreadSafeMemoryInfoC2El(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   call void @_ZN3vcg10MemoryInfoC2El(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %6)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN3vcg23NotThreadSafeMemoryInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3vcg23NotThreadSafeMemoryInfoE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -235,14 +237,15 @@ define linkonce_odr void @_ZN3vcg10MemoryInfoC2El(ptr noundef nonnull align 8 de
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN3vcg10MemoryInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.vcg::MemoryInfo", ptr %5, i32 0, i32 1
-  %7 = load i64, ptr %4, align 8
-  store i64 %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.vcg::MemoryInfo", ptr %5, i32 0, i32 2
-  %9 = getelementptr inbounds %"class.vcg::MemoryInfo", ptr %5, i32 0, i32 1
-  %10 = load i64, ptr %9, align 8
-  store i64 %10, ptr %8, align 8
+  %6 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3vcg10MemoryInfoE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.vcg::MemoryInfo", ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %4, align 8
+  store i64 %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.vcg::MemoryInfo", ptr %5, i32 0, i32 2
+  %10 = getelementptr inbounds %"class.vcg::MemoryInfo", ptr %5, i32 0, i32 1
+  %11 = load i64, ptr %10, align 8
+  store i64 %11, ptr %9, align 8
   ret void
 }
 
@@ -360,9 +363,10 @@ define void @_ZN22MLThreadSafeMemoryInfoD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22MLThreadSafeMemoryInfo, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.MLThreadSafeMemoryInfo, ptr %3, i32 0, i32 1
-  call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #7
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV22MLThreadSafeMemoryInfo, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.MLThreadSafeMemoryInfo, ptr %3, i32 0, i32 1
+  call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
   call void @_ZN3vcg23NotThreadSafeMemoryInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #7
   ret void
 }

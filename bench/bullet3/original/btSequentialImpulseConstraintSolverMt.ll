@@ -833,7 +833,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN35btSequentialImpulseConstraintSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV37btSequentialImpulseConstraintSolverMt, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV37btSequentialImpulseConstraintSolverMt, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_batchedContactConstraints = getelementptr inbounds %class.btSequentialImpulseConstraintSolverMt, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btBatchedConstraintsC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %m_batchedContactConstraints)
           to label %invoke.cont unwind label %lpad
@@ -878,48 +879,48 @@ invoke.cont11:                                    ; preds = %invoke.cont10
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup14
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad4:                                            ; preds = %invoke.cont3
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup12
 
 lpad6:                                            ; preds = %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont10, %invoke.cont9, %invoke.cont7
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rollingFrictionIndexTable) #12
   br label %ehcleanup
 
@@ -1157,7 +1158,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV37btSequentialImpulseConstraintSolverMt, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV37btSequentialImpulseConstraintSolverMt, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_scratchMemory = getelementptr inbounds %class.btSequentialImpulseConstraintSolverMt, ptr %this1, i32 0, i32 12
   call void @_ZN20btAlignedObjectArrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_scratchMemory) #12
   %m_rollingFrictionIndexTable = getelementptr inbounds %class.btSequentialImpulseConstraintSolverMt, ptr %this1, i32 0, i32 8
@@ -2710,16 +2712,17 @@ entry:
   store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV27SetupContactConstraintsLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %solver.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV27SetupContactConstraintsLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.SetupContactConstraintsLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_solver, align 8
-  %1 = load ptr, ptr %bc.addr, align 8
+  store ptr %1, ptr %m_solver, align 8
+  %2 = load ptr, ptr %bc.addr, align 8
   %m_bc = getelementptr inbounds %struct.SetupContactConstraintsLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_bc, align 8
-  %2 = load ptr, ptr %infoGlobal.addr, align 8
+  store ptr %2, ptr %m_bc, align 8
+  %3 = load ptr, ptr %infoGlobal.addr, align 8
   %m_infoGlobal = getelementptr inbounds %struct.SetupContactConstraintsLoop, ptr %this1, i32 0, i32 3
-  store ptr %2, ptr %m_infoGlobal, align 8
+  store ptr %3, ptr %m_infoGlobal, align 8
   ret void
 }
 
@@ -4193,19 +4196,20 @@ entry:
   store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV36CollectContactManifoldCachedInfoLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %solver.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV36CollectContactManifoldCachedInfoLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.CollectContactManifoldCachedInfoLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_solver, align 8
-  %1 = load ptr, ptr %cachedInfoArray.addr, align 8
+  store ptr %1, ptr %m_solver, align 8
+  %2 = load ptr, ptr %cachedInfoArray.addr, align 8
   %m_cachedInfoArray = getelementptr inbounds %struct.CollectContactManifoldCachedInfoLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_cachedInfoArray, align 8
-  %2 = load ptr, ptr %manifoldPtr.addr, align 8
+  store ptr %2, ptr %m_cachedInfoArray, align 8
+  %3 = load ptr, ptr %manifoldPtr.addr, align 8
   %m_manifoldPtr = getelementptr inbounds %struct.CollectContactManifoldCachedInfoLoop, ptr %this1, i32 0, i32 3
-  store ptr %2, ptr %m_manifoldPtr, align 8
-  %3 = load ptr, ptr %infoGlobal.addr, align 8
+  store ptr %3, ptr %m_manifoldPtr, align 8
+  %4 = load ptr, ptr %infoGlobal.addr, align 8
   %m_infoGlobal = getelementptr inbounds %struct.CollectContactManifoldCachedInfoLoop, ptr %this1, i32 0, i32 4
-  store ptr %3, ptr %m_infoGlobal, align 8
+  store ptr %4, ptr %m_infoGlobal, align 8
   ret void
 }
 
@@ -4367,13 +4371,14 @@ entry:
   store ptr %cachedInfoArray, ptr %cachedInfoArray.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV27AllocContactConstraintsLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %solver.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV27AllocContactConstraintsLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.AllocContactConstraintsLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_solver, align 8
-  %1 = load ptr, ptr %cachedInfoArray.addr, align 8
+  store ptr %1, ptr %m_solver, align 8
+  %2 = load ptr, ptr %cachedInfoArray.addr, align 8
   %m_cachedInfoArray = getelementptr inbounds %struct.AllocContactConstraintsLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_cachedInfoArray, align 8
+  store ptr %2, ptr %m_cachedInfoArray, align 8
   ret void
 }
 
@@ -5201,13 +5206,14 @@ entry:
   store ptr %constraints, ptr %constraints.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV14InitJointsLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %solver.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV14InitJointsLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.InitJointsLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_solver, align 8
-  %1 = load ptr, ptr %constraints.addr, align 8
+  store ptr %1, ptr %m_solver, align 8
+  %2 = load ptr, ptr %constraints.addr, align 8
   %m_constraints = getelementptr inbounds %struct.InitJointsLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_constraints, align 8
+  store ptr %2, ptr %m_constraints, align 8
   ret void
 }
 
@@ -5313,19 +5319,20 @@ entry:
   store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17ConvertJointsLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17ConvertJointsLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_jointParamsArray = getelementptr inbounds %struct.ConvertJointsLoop, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %jointParamsArray.addr, align 8
-  store ptr %0, ptr %m_jointParamsArray, align 8
+  %1 = load ptr, ptr %jointParamsArray.addr, align 8
+  store ptr %1, ptr %m_jointParamsArray, align 8
   %m_infoGlobal = getelementptr inbounds %struct.ConvertJointsLoop, ptr %this1, i32 0, i32 4
-  %1 = load ptr, ptr %infoGlobal.addr, align 8
-  store ptr %1, ptr %m_infoGlobal, align 8
-  %2 = load ptr, ptr %solver.addr, align 8
+  %2 = load ptr, ptr %infoGlobal.addr, align 8
+  store ptr %2, ptr %m_infoGlobal, align 8
+  %3 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.ConvertJointsLoop, ptr %this1, i32 0, i32 1
-  store ptr %2, ptr %m_solver, align 8
-  %3 = load ptr, ptr %srcConstraints.addr, align 8
+  store ptr %3, ptr %m_solver, align 8
+  %4 = load ptr, ptr %srcConstraints.addr, align 8
   %m_srcConstraints = getelementptr inbounds %struct.ConvertJointsLoop, ptr %this1, i32 0, i32 3
-  store ptr %3, ptr %m_srcConstraints, align 8
+  store ptr %4, ptr %m_srcConstraints, align 8
   ret void
 }
 
@@ -5960,19 +5967,20 @@ entry:
   store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17ConvertBodiesLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17ConvertBodiesLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_infoGlobal = getelementptr inbounds %struct.ConvertBodiesLoop, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %infoGlobal.addr, align 8
-  store ptr %0, ptr %m_infoGlobal, align 8
-  %1 = load ptr, ptr %solver.addr, align 8
+  %1 = load ptr, ptr %infoGlobal.addr, align 8
+  store ptr %1, ptr %m_infoGlobal, align 8
+  %2 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.ConvertBodiesLoop, ptr %this1, i32 0, i32 1
-  store ptr %1, ptr %m_solver, align 8
-  %2 = load ptr, ptr %bodies.addr, align 8
+  store ptr %2, ptr %m_solver, align 8
+  %3 = load ptr, ptr %bodies.addr, align 8
   %m_bodies = getelementptr inbounds %struct.ConvertBodiesLoop, ptr %this1, i32 0, i32 2
-  store ptr %2, ptr %m_bodies, align 8
-  %3 = load i32, ptr %numBodies.addr, align 4
+  store ptr %3, ptr %m_bodies, align 8
+  %4 = load i32, ptr %numBodies.addr, align 4
   %m_numBodies = getelementptr inbounds %struct.ConvertBodiesLoop, ptr %this1, i32 0, i32 3
-  store i32 %3, ptr %m_numBodies, align 8
+  store i32 %4, ptr %m_numBodies, align 8
   ret void
 }
 
@@ -6390,13 +6398,14 @@ entry:
   store ptr %bc, ptr %bc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelSumBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV40ContactSplitPenetrationImpulseSolverLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %solver.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV40ContactSplitPenetrationImpulseSolverLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.ContactSplitPenetrationImpulseSolverLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_solver, align 8
-  %1 = load ptr, ptr %bc.addr, align 8
+  store ptr %1, ptr %m_solver, align 8
+  %2 = load ptr, ptr %bc.addr, align 8
   %m_bc = getelementptr inbounds %struct.ContactSplitPenetrationImpulseSolverLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_bc, align 8
+  store ptr %2, ptr %m_bc, align 8
   ret void
 }
 
@@ -7810,16 +7819,17 @@ entry:
   store i32 %iteration, ptr %iteration.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelSumBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JointSolverLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %solver.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JointSolverLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.JointSolverLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_solver, align 8
-  %1 = load ptr, ptr %bc.addr, align 8
+  store ptr %1, ptr %m_solver, align 8
+  %2 = load ptr, ptr %bc.addr, align 8
   %m_bc = getelementptr inbounds %struct.JointSolverLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_bc, align 8
-  %2 = load i32, ptr %iteration.addr, align 4
+  store ptr %2, ptr %m_bc, align 8
+  %3 = load i32, ptr %iteration.addr, align 4
   %m_iteration = getelementptr inbounds %struct.JointSolverLoop, ptr %this1, i32 0, i32 3
-  store i32 %2, ptr %m_iteration, align 8
+  store i32 %3, ptr %m_iteration, align 8
   ret void
 }
 
@@ -7970,13 +7980,14 @@ entry:
   store ptr %bc, ptr %bc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelSumBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17ContactSolverLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %solver.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17ContactSolverLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.ContactSolverLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_solver, align 8
-  %1 = load ptr, ptr %bc.addr, align 8
+  store ptr %1, ptr %m_solver, align 8
+  %2 = load ptr, ptr %bc.addr, align 8
   %m_bc = getelementptr inbounds %struct.ContactSolverLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_bc, align 8
+  store ptr %2, ptr %m_bc, align 8
   ret void
 }
 
@@ -8127,13 +8138,14 @@ entry:
   store ptr %bc, ptr %bc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelSumBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25ContactFrictionSolverLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %solver.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV25ContactFrictionSolverLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.ContactFrictionSolverLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_solver, align 8
-  %1 = load ptr, ptr %bc.addr, align 8
+  store ptr %1, ptr %m_solver, align 8
+  %2 = load ptr, ptr %bc.addr, align 8
   %m_bc = getelementptr inbounds %struct.ContactFrictionSolverLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_bc, align 8
+  store ptr %2, ptr %m_bc, align 8
   ret void
 }
 
@@ -8275,13 +8287,14 @@ entry:
   store ptr %bc, ptr %bc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelSumBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV28InterleavedContactSolverLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %solver.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV28InterleavedContactSolverLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.InterleavedContactSolverLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_solver, align 8
-  %1 = load ptr, ptr %bc.addr, align 8
+  store ptr %1, ptr %m_solver, align 8
+  %2 = load ptr, ptr %bc.addr, align 8
   %m_bc = getelementptr inbounds %struct.InterleavedContactSolverLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_bc, align 8
+  store ptr %2, ptr %m_bc, align 8
   ret void
 }
 
@@ -8565,13 +8578,14 @@ entry:
   store ptr %bc, ptr %bc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelSumBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV32ContactRollingFrictionSolverLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %solver.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV32ContactRollingFrictionSolverLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.ContactRollingFrictionSolverLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_solver, align 8
-  %1 = load ptr, ptr %bc.addr, align 8
+  store ptr %1, ptr %m_solver, align 8
+  %2 = load ptr, ptr %bc.addr, align 8
   %m_bc = getelementptr inbounds %struct.ContactRollingFrictionSolverLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_bc, align 8
+  store ptr %2, ptr %m_bc, align 8
   ret void
 }
 
@@ -8897,13 +8911,14 @@ entry:
   store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22WriteContactPointsLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %solver.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV22WriteContactPointsLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.WriteContactPointsLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_solver, align 8
-  %1 = load ptr, ptr %infoGlobal.addr, align 8
+  store ptr %1, ptr %m_solver, align 8
+  %2 = load ptr, ptr %infoGlobal.addr, align 8
   %m_infoGlobal = getelementptr inbounds %struct.WriteContactPointsLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_infoGlobal, align 8
+  store ptr %2, ptr %m_infoGlobal, align 8
   ret void
 }
 
@@ -8928,13 +8943,14 @@ entry:
   store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15WriteJointsLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %solver.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15WriteJointsLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.WriteJointsLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_solver, align 8
-  %1 = load ptr, ptr %infoGlobal.addr, align 8
+  store ptr %1, ptr %m_solver, align 8
+  %2 = load ptr, ptr %infoGlobal.addr, align 8
   %m_infoGlobal = getelementptr inbounds %struct.WriteJointsLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_infoGlobal, align 8
+  store ptr %2, ptr %m_infoGlobal, align 8
   ret void
 }
 
@@ -8959,13 +8975,14 @@ entry:
   store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15WriteBodiesLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %solver.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15WriteBodiesLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
   %m_solver = getelementptr inbounds %struct.WriteBodiesLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_solver, align 8
-  %1 = load ptr, ptr %infoGlobal.addr, align 8
+  store ptr %1, ptr %m_solver, align 8
+  %2 = load ptr, ptr %infoGlobal.addr, align 8
   %m_infoGlobal = getelementptr inbounds %struct.WriteBodiesLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_infoGlobal, align 8
+  store ptr %2, ptr %m_infoGlobal, align 8
   ret void
 }
 
@@ -8985,7 +9002,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9345,7 +9363,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9860,7 +9879,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btIParallelSumBody, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV18btIParallelSumBody, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

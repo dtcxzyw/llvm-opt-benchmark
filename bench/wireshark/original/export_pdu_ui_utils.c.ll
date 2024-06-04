@@ -57,7 +57,7 @@ define hidden void @do_export_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %24 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef @.str, ptr noundef %23)
   %25 = load ptr, ptr %8, align 8
   call void @g_free(ptr noundef %25)
-  br label %81
+  br label %82
 
 26:                                               ; preds = %3
   store ptr null, ptr %16, align 8
@@ -77,92 +77,93 @@ define hidden void @do_export_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @g_error_free(ptr noundef %35)
   %36 = load ptr, ptr %11, align 8
   call void @g_free(ptr noundef %36)
-  br label %81
+  br label %82
 
 37:                                               ; preds = %26
   %38 = call i32 @wtap_pcapng_file_type_subtype()
   store i32 %38, ptr %10, align 4
-  %39 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 2), align 8
-  %40 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.3, ptr noundef %39)
-  store ptr %40, ptr %12, align 8
-  %41 = load ptr, ptr %11, align 8
-  %42 = load i32, ptr %10, align 4
-  %43 = load i32, ptr %9, align 4
-  %44 = load ptr, ptr %12, align 8
-  %45 = call i32 @exp_pdu_open(ptr noundef %7, ptr noundef %41, i32 noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %14, ptr noundef %15)
-  store i32 %45, ptr %13, align 4
-  %46 = load ptr, ptr %12, align 8
-  call void @g_free(ptr noundef %46)
-  %47 = load i32, ptr %13, align 4
-  %48 = icmp ne i32 %47, 0
-  br i1 %48, label %61, label %49
+  %39 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8
+  %41 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.3, ptr noundef %40)
+  store ptr %41, ptr %12, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load i32, ptr %10, align 4
+  %44 = load i32, ptr %9, align 4
+  %45 = load ptr, ptr %12, align 8
+  %46 = call i32 @exp_pdu_open(ptr noundef %7, ptr noundef %42, i32 noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %14, ptr noundef %15)
+  store i32 %46, ptr %13, align 4
+  %47 = load ptr, ptr %12, align 8
+  call void @g_free(ptr noundef %47)
+  %48 = load i32, ptr %13, align 4
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %62, label %50
 
-49:                                               ; preds = %37
-  %50 = load ptr, ptr %11, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %54
+50:                                               ; preds = %37
+  %51 = load ptr, ptr %11, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %55
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %11, align 8
-  br label %55
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %11, align 8
+  br label %56
 
-54:                                               ; preds = %49
-  br label %55
+55:                                               ; preds = %50
+  br label %56
 
-55:                                               ; preds = %54, %52
-  %56 = phi ptr [ %53, %52 ], [ @.str.4, %54 ]
-  %57 = load i32, ptr %14, align 4
-  %58 = load ptr, ptr %15, align 8
-  %59 = load i32, ptr %10, align 4
-  call void @cfile_dump_open_failure_alert_box(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59)
-  %60 = load ptr, ptr %11, align 8
-  call void @g_free(ptr noundef %60)
-  br label %81
+56:                                               ; preds = %55, %53
+  %57 = phi ptr [ %54, %53 ], [ @.str.4, %55 ]
+  %58 = load i32, ptr %14, align 4
+  %59 = load ptr, ptr %15, align 8
+  %60 = load i32, ptr %10, align 4
+  call void @cfile_dump_open_failure_alert_box(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60)
+  %61 = load ptr, ptr %11, align 8
+  call void @g_free(ptr noundef %61)
+  br label %82
 
-61:                                               ; preds = %37
-  %62 = call i32 @cf_retap_packets(ptr noundef @cfile)
-  %63 = call i32 @exp_pdu_close(ptr noundef %7, ptr noundef %14, ptr noundef %15)
-  %64 = icmp ne i32 %63, 0
-  br i1 %64, label %69, label %65
+62:                                               ; preds = %37
+  %63 = call i32 @cf_retap_packets(ptr noundef @cfile)
+  %64 = call i32 @exp_pdu_close(ptr noundef %7, ptr noundef %14, ptr noundef %15)
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %70, label %66
 
-65:                                               ; preds = %61
-  %66 = load ptr, ptr %11, align 8
-  %67 = load i32, ptr %14, align 4
-  %68 = load ptr, ptr %15, align 8
-  call void @cfile_close_failure_alert_box(ptr noundef %66, i32 noundef %67, ptr noundef %68)
-  br label %69
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %11, align 8
+  %68 = load i32, ptr %14, align 4
+  %69 = load ptr, ptr %15, align 8
+  call void @cfile_close_failure_alert_box(ptr noundef %67, i32 noundef %68, ptr noundef %69)
+  br label %70
 
-69:                                               ; preds = %65, %61
-  %70 = load ptr, ptr %11, align 8
-  %71 = call i32 @cf_open(ptr noundef @cfile, ptr noundef %70, i32 noundef 0, i32 noundef 1, ptr noundef %14)
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %75
+70:                                               ; preds = %66, %62
+  %71 = load ptr, ptr %11, align 8
+  %72 = call i32 @cf_open(ptr noundef @cfile, ptr noundef %71, i32 noundef 0, i32 noundef 1, ptr noundef %14)
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %76
 
-73:                                               ; preds = %69
-  %74 = load ptr, ptr %11, align 8
-  call void @g_free(ptr noundef %74)
-  br label %81
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %11, align 8
+  call void @g_free(ptr noundef %75)
+  br label %82
 
-75:                                               ; preds = %69
-  %76 = call i32 @cf_read(ptr noundef @cfile, i32 noundef 0)
-  switch i32 %76, label %79 [
-    i32 0, label %77
-    i32 1, label %77
-    i32 2, label %78
+76:                                               ; preds = %70
+  %77 = call i32 @cf_read(ptr noundef @cfile, i32 noundef 0)
+  switch i32 %77, label %80 [
+    i32 0, label %78
+    i32 1, label %78
+    i32 2, label %79
   ]
 
-77:                                               ; preds = %75, %75
-  br label %79
+78:                                               ; preds = %76, %76
+  br label %80
 
-78:                                               ; preds = %75
-  br label %79
+79:                                               ; preds = %76
+  br label %80
 
-79:                                               ; preds = %78, %77, %75
-  %80 = load ptr, ptr %11, align 8
-  call void @g_free(ptr noundef %80)
-  br label %81
+80:                                               ; preds = %79, %78, %76
+  %81 = load ptr, ptr %11, align 8
+  call void @g_free(ptr noundef %81)
+  br label %82
 
-81:                                               ; preds = %79, %73, %55, %31, %22
+82:                                               ; preds = %80, %74, %56, %31, %22
   ret void
 }
 

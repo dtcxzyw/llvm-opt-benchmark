@@ -1149,49 +1149,50 @@ define noundef ptr @_ZN12FilterCreate11qt_metacastEPKc(ptr noundef nonnull align
 
 9:                                                ; preds = %2
   store ptr null, ptr %3, align 8
-  br label %30
+  br label %31
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %5, align 8
-  %12 = call i32 @strcmp(ptr noundef %11, ptr noundef getelementptr inbounds (%struct.qt_meta_stringdata_FilterCreate_t, ptr @_ZL31qt_meta_stringdata_FilterCreate, i32 0, i32 1)) #15
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %10
-  store ptr %6, ptr %3, align 8
-  br label %30
+  %12 = getelementptr inbounds %struct.qt_meta_stringdata_FilterCreate_t, ptr @_ZL31qt_meta_stringdata_FilterCreate, i32 0, i32 1
+  %13 = call i32 @strcmp(ptr noundef %11, ptr noundef %12) #15
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr %5, align 8
-  %17 = call i32 @strcmp(ptr noundef %16, ptr noundef @.str.8) #15
-  %18 = icmp ne i32 %17, 0
-  br i1 %18, label %21, label %19
+  store ptr %6, ptr %3, align 8
+  br label %31
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %20, ptr %3, align 8
-  br label %30
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %5, align 8
+  %18 = call i32 @strcmp(ptr noundef %17, ptr noundef @.str.8) #15
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %22, label %20
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %5, align 8
-  %23 = call i32 @strcmp(ptr noundef %22, ptr noundef @.str.9) #15
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %27, label %25
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %21, ptr %3, align 8
+  br label %31
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %26, ptr %3, align 8
-  br label %30
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %5, align 8
+  %24 = call i32 @strcmp(ptr noundef %23, ptr noundef @.str.9) #15
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %28, label %26
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %5, align 8
-  %29 = call noundef ptr @_ZN7QObject11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %28)
-  store ptr %29, ptr %3, align 8
-  br label %30
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %27, ptr %3, align 8
+  br label %31
 
-30:                                               ; preds = %27, %25, %19, %14, %9
-  %31 = load ptr, ptr %3, align 8
-  ret ptr %31
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %5, align 8
+  %30 = call noundef ptr @_ZN7QObject11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %29)
+  store ptr %30, ptr %3, align 8
+  br label %31
+
+31:                                               ; preds = %28, %26, %20, %15, %9
+  %32 = load ptr, ptr %3, align 8
+  ret ptr %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8536,9 +8537,10 @@ define linkonce_odr void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.MeshLabPlugin, ptr %3, i32 0, i32 2
-  call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #6
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.MeshLabPlugin, ptr %3, i32 0, i32 2
+  call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
   ret void
 }
 

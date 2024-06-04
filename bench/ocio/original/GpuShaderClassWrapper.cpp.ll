@@ -1034,7 +1034,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev21GpuShaderClassWrapperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_className = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_className) #12
   %m_functionName = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this1, i32 0, i32 2
@@ -1140,7 +1141,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev21GpuShaderClassWrapperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_functionName = getelementptr inbounds %"class.OpenColorIO_v2_4dev::OSLShaderClassWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName) #12
   ret void
@@ -1242,7 +1244,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev21GpuShaderClassWrapperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev25NullGpuShaderClassWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev25NullGpuShaderClassWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6387,7 +6390,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_functionParameters = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_functionParameters) #12
   %m_functionName = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this1, i32 0, i32 2
@@ -6433,7 +6437,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_functionName = getelementptr inbounds %"class.OpenColorIO_v2_4dev::OSLShaderClassWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName) #12
   call void @_ZN19OpenColorIO_v2_4dev21GpuShaderClassWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
@@ -6520,7 +6525,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GpuShaderClassWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GpuShaderClassWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

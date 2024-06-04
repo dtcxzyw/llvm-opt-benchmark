@@ -11596,14 +11596,15 @@ if.then:                                          ; preds = %lor.lhs.false, %whi
   store ptr %call, ptr %item, align 8
   %7 = load ptr, ptr %item, align 8
   %util = getelementptr inbounds %struct.string_list_item, ptr %7, i32 0, i32 1
-  store ptr inttoptr (i64 -2 to ptr), ptr %util, align 8
+  %8 = inttoptr i64 -2 to ptr
+  store ptr %8, ptr %util, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
-  %8 = load ptr, ptr %patch.addr, align 8
-  %next = getelementptr inbounds %struct.patch, ptr %8, i32 0, i32 19
-  %9 = load ptr, ptr %next, align 8
-  store ptr %9, ptr %patch.addr, align 8
+  %9 = load ptr, ptr %patch.addr, align 8
+  %next = getelementptr inbounds %struct.patch, ptr %9, i32 0, i32 19
+  %10 = load ptr, ptr %next, align 8
+  store ptr %10, ptr %patch.addr, align 8
   br label %while.cond, !llvm.loop !41
 
 while.end:                                        ; preds = %while.cond
@@ -12429,7 +12430,8 @@ entry:
   %patch.addr = alloca ptr, align 8
   store ptr %patch, ptr %patch.addr, align 8
   %0 = load ptr, ptr %patch.addr, align 8
-  %cmp = icmp eq ptr %0, inttoptr (i64 -1 to ptr)
+  %1 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %0, %1
   %conv = zext i1 %cmp to i32
   ret i32 %conv
 }
@@ -12440,7 +12442,8 @@ entry:
   %patch.addr = alloca ptr, align 8
   store ptr %patch, ptr %patch.addr, align 8
   %0 = load ptr, ptr %patch.addr, align 8
-  %cmp = icmp eq ptr %0, inttoptr (i64 -2 to ptr)
+  %1 = inttoptr i64 -2 to ptr
+  %cmp = icmp eq ptr %0, %1
   %conv = zext i1 %cmp to i32
   ret i32 %conv
 }
@@ -14137,7 +14140,8 @@ if.then4:                                         ; preds = %lor.lhs.false, %if.
   store ptr %call6, ptr %item, align 8
   %13 = load ptr, ptr %item, align 8
   %util7 = getelementptr inbounds %struct.string_list_item, ptr %13, i32 0, i32 1
-  store ptr inttoptr (i64 -1 to ptr), ptr %util7, align 8
+  %14 = inttoptr i64 -1 to ptr
+  store ptr %14, ptr %util7, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then4, %lor.lhs.false
@@ -15353,7 +15357,8 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @hash_algos to i64)
+  %1 = ptrtoint ptr @hash_algos to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 104
   %conv = trunc i64 %sub.ptr.div to i32
   ret i32 %conv
@@ -21199,9 +21204,10 @@ entry:
   store ptr %call, ptr %it, align 8
   %2 = load i32, ptr %exclude.addr, align 4
   %tobool = icmp ne i32 %2, 0
-  %cond = select i1 %tobool, ptr null, ptr inttoptr (i64 1 to ptr)
-  %3 = load ptr, ptr %it, align 8
-  %util = getelementptr inbounds %struct.string_list_item, ptr %3, i32 0, i32 1
+  %3 = inttoptr i64 1 to ptr
+  %cond = select i1 %tobool, ptr null, ptr %3
+  %4 = load ptr, ptr %it, align 8
+  %util = getelementptr inbounds %struct.string_list_item, ptr %4, i32 0, i32 1
   store ptr %cond, ptr %util, align 8
   ret void
 }

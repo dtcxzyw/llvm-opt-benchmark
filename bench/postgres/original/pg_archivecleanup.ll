@@ -478,14 +478,14 @@ define internal void @CleanupPriorWALFiles() #0 {
 14:                                               ; preds = %13, %0
   br label %15
 
-15:                                               ; preds = %91, %69, %45, %39, %14
+15:                                               ; preds = %92, %70, %46, %39, %14
   %16 = call ptr @__errno_location() #9
   store i32 0, ptr %16, align 4
   %17 = load ptr, ptr %2, align 8
   %18 = call ptr @readdir(ptr noundef %17)
   store ptr %18, ptr %3, align 8
   %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %92
+  br i1 %19, label %20, label %93
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
@@ -521,131 +521,132 @@ define internal void @CleanupPriorWALFiles() #0 {
 40:                                               ; preds = %36, %30, %20
   %41 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
   %42 = getelementptr i8, ptr %41, i64 8
-  %43 = call i32 @strcmp(ptr noundef %42, ptr noundef getelementptr (i8, ptr @exclusiveCleanupFileName, i64 8)) #6
-  %44 = icmp sge i32 %43, 0
-  br i1 %44, label %45, label %46
-
-45:                                               ; preds = %40
-  br label %15, !llvm.loop !7
+  %43 = getelementptr i8, ptr @exclusiveCleanupFileName, i64 8
+  %44 = call i32 @strcmp(ptr noundef %42, ptr noundef %43) #6
+  %45 = icmp sge i32 %44, 0
+  br i1 %45, label %46, label %47
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 0
-  %48 = load ptr, ptr @archiveLocation, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.dirent, ptr %49, i32 0, i32 4
-  %51 = getelementptr inbounds [256 x i8], ptr %50, i64 0, i64 0
-  %52 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %47, i64 noundef 2048, ptr noundef @.str.42, ptr noundef %48, ptr noundef %51)
-  %53 = load i8, ptr @dryrun, align 1
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %55, label %70
+  br label %15, !llvm.loop !7
 
-55:                                               ; preds = %46
-  %56 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 0
-  %57 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.43, ptr noundef %56)
-  br label %58
+47:                                               ; preds = %40
+  %48 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 0
+  %49 = load ptr, ptr @archiveLocation, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds %struct.dirent, ptr %50, i32 0, i32 4
+  %52 = getelementptr inbounds [256 x i8], ptr %51, i64 0, i64 0
+  %53 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %48, i64 noundef 2048, ptr noundef @.str.42, ptr noundef %49, ptr noundef %52)
+  %54 = load i8, ptr @dryrun, align 1
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %71
 
-58:                                               ; preds = %55
-  %59 = load i32, ptr @__pg_log_level, align 4
-  %60 = icmp ule i32 %59, 1
-  %61 = zext i1 %60 to i32
-  %62 = icmp ne i32 %61, 0
-  %63 = zext i1 %62 to i32
-  %64 = sext i32 %63 to i64
-  %65 = icmp ne i64 %64, 0
-  br i1 %65, label %66, label %68
+56:                                               ; preds = %47
+  %57 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 0
+  %58 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.43, ptr noundef %57)
+  br label %59
 
-66:                                               ; preds = %58
-  %67 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 0
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef @.str.44, ptr noundef %67)
-  br label %68
+59:                                               ; preds = %56
+  %60 = load i32, ptr @__pg_log_level, align 4
+  %61 = icmp ule i32 %60, 1
+  %62 = zext i1 %61 to i32
+  %63 = icmp ne i32 %62, 0
+  %64 = zext i1 %63 to i32
+  %65 = sext i32 %64 to i64
+  %66 = icmp ne i64 %65, 0
+  br i1 %66, label %67, label %69
 
-68:                                               ; preds = %66, %58
+67:                                               ; preds = %59
+  %68 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 0
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef @.str.44, ptr noundef %68)
   br label %69
 
-69:                                               ; preds = %68
+69:                                               ; preds = %67, %59
+  br label %70
+
+70:                                               ; preds = %69
   br label %15, !llvm.loop !7
 
-70:                                               ; preds = %46
-  br label %71
+71:                                               ; preds = %47
+  br label %72
 
-71:                                               ; preds = %70
-  %72 = load i32, ptr @__pg_log_level, align 4
-  %73 = icmp ule i32 %72, 1
-  %74 = zext i1 %73 to i32
-  %75 = icmp ne i32 %74, 0
-  %76 = zext i1 %75 to i32
-  %77 = sext i32 %76 to i64
-  %78 = icmp ne i64 %77, 0
-  br i1 %78, label %79, label %81
+72:                                               ; preds = %71
+  %73 = load i32, ptr @__pg_log_level, align 4
+  %74 = icmp ule i32 %73, 1
+  %75 = zext i1 %74 to i32
+  %76 = icmp ne i32 %75, 0
+  %77 = zext i1 %76 to i32
+  %78 = sext i32 %77 to i64
+  %79 = icmp ne i64 %78, 0
+  br i1 %79, label %80, label %82
 
-79:                                               ; preds = %71
-  %80 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 0
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef @.str.45, ptr noundef %80)
-  br label %81
-
-81:                                               ; preds = %79, %71
+80:                                               ; preds = %72
+  %81 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 0
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef @.str.45, ptr noundef %81)
   br label %82
 
-82:                                               ; preds = %81
-  %83 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 0
-  %84 = call i32 @unlink(ptr noundef %83) #8
-  store i32 %84, ptr %1, align 4
-  %85 = load i32, ptr %1, align 4
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %91
+82:                                               ; preds = %80, %72
+  br label %83
 
-87:                                               ; preds = %82
-  br label %88
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 0
+  %85 = call i32 @unlink(ptr noundef %84) #8
+  store i32 %85, ptr %1, align 4
+  %86 = load i32, ptr %1, align 4
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %88, label %92
 
-88:                                               ; preds = %87
-  %89 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 0
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.46, ptr noundef %89)
+88:                                               ; preds = %83
+  br label %89
+
+89:                                               ; preds = %88
+  %90 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 0
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.46, ptr noundef %90)
   call void @exit(i32 noundef 1) #7
   unreachable
 
-90:                                               ; No predecessors!
-  br label %91
+91:                                               ; No predecessors!
+  br label %92
 
-91:                                               ; preds = %90, %82
+92:                                               ; preds = %91, %83
   br label %15, !llvm.loop !7
 
-92:                                               ; preds = %15
-  %93 = call ptr @__errno_location() #9
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %100
+93:                                               ; preds = %15
+  %94 = call ptr @__errno_location() #9
+  %95 = load i32, ptr %94, align 4
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %101
 
-96:                                               ; preds = %92
-  br label %97
+97:                                               ; preds = %93
+  br label %98
 
-97:                                               ; preds = %96
-  %98 = load ptr, ptr @archiveLocation, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.47, ptr noundef %98)
+98:                                               ; preds = %97
+  %99 = load ptr, ptr @archiveLocation, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.47, ptr noundef %99)
   call void @exit(i32 noundef 1) #7
   unreachable
 
-99:                                               ; No predecessors!
-  br label %100
+100:                                              ; No predecessors!
+  br label %101
 
-100:                                              ; preds = %99, %92
-  %101 = load ptr, ptr %2, align 8
-  %102 = call i32 @closedir(ptr noundef %101)
-  %103 = icmp ne i32 %102, 0
-  br i1 %103, label %104, label %108
+101:                                              ; preds = %100, %93
+  %102 = load ptr, ptr %2, align 8
+  %103 = call i32 @closedir(ptr noundef %102)
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %105, label %109
 
-104:                                              ; preds = %100
-  br label %105
+105:                                              ; preds = %101
+  br label %106
 
-105:                                              ; preds = %104
-  %106 = load ptr, ptr @archiveLocation, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.48, ptr noundef %106)
+106:                                              ; preds = %105
+  %107 = load ptr, ptr @archiveLocation, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.48, ptr noundef %107)
   call void @exit(i32 noundef 1) #7
   unreachable
 
-107:                                              ; No predecessors!
-  br label %108
+108:                                              ; No predecessors!
+  br label %109
 
-108:                                              ; preds = %107, %100
+109:                                              ; preds = %108, %101
   ret void
 }
 

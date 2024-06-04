@@ -623,11 +623,11 @@ define internal i32 @_register_mime_types(ptr noundef %0, i64 noundef %1, ptr no
   store ptr %2, ptr %6, align 8
   br label %8
 
-8:                                                ; preds = %47, %3
+8:                                                ; preds = %48, %3
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %50
+  br i1 %11, label %12, label %51
 
 12:                                               ; preds = %8
   %13 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.1, i32 noundef 196, ptr noundef @__func__._register_mime_types)
@@ -651,48 +651,49 @@ define internal i32 @_register_mime_types(ptr noundef %0, i64 noundef %1, ptr no
   br label %26
 
 26:                                               ; preds = %12
-  %27 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %28 = and i64 %27, 256
-  %29 = icmp ne i64 %28, 0
-  br i1 %29, label %30, label %46
+  %27 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %28 = load i64, ptr %27, align 8
+  %29 = and i64 %28, 256
+  %30 = icmp ne i64 %29, 0
+  br i1 %30, label %31, label %47
 
-30:                                               ; preds = %26
-  br label %31
+31:                                               ; preds = %26
+  br label %32
 
-31:                                               ; preds = %30
-  %32 = call i32 @get_log_level()
-  %33 = icmp sge i32 %32, 4
-  br i1 %33, label %34, label %44
+32:                                               ; preds = %31
+  %33 = call i32 @get_log_level()
+  %34 = icmp sge i32 %33, 4
+  br i1 %34, label %35, label %45
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr @plugins, align 8
-  %36 = getelementptr inbounds %struct.plugins_t, ptr %35, i32 0, i32 3
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i64, ptr %5, align 8
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct.plugin_mime_type_t, ptr %41, i32 0, i32 1
-  %43 = load ptr, ptr %42, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.11, ptr noundef %40, ptr noundef %43)
-  br label %44
-
-44:                                               ; preds = %34, %31
+35:                                               ; preds = %32
+  %36 = load ptr, ptr @plugins, align 8
+  %37 = getelementptr inbounds %struct.plugins_t, ptr %36, i32 0, i32 3
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i64, ptr %5, align 8
+  %40 = getelementptr inbounds ptr, ptr %38, i64 %39
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds %struct.plugin_mime_type_t, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.11, ptr noundef %41, ptr noundef %44)
   br label %45
 
-45:                                               ; preds = %44
+45:                                               ; preds = %35, %32
   br label %46
 
-46:                                               ; preds = %45, %26
+46:                                               ; preds = %45
   br label %47
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i32 1
-  store ptr %49, ptr %6, align 8
+47:                                               ; preds = %46, %26
+  br label %48
+
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %6, align 8
+  %50 = getelementptr inbounds ptr, ptr %49, i32 1
+  store ptr %50, ptr %6, align 8
   br label %8, !llvm.loop !8
 
-50:                                               ; preds = %8
+51:                                               ; preds = %8
   ret i32 0
 }
 

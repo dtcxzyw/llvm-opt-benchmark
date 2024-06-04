@@ -45625,7 +45625,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %x, ptr %x.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LargePOD, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV8LargePOD, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mLargeObject12 = getelementptr inbounds %struct.LargePOD, ptr %this1, i32 0, i32 1
   %mData = getelementptr inbounds %struct.LargeObject, ptr %mLargeObject12, i32 0, i32 0
   %arraydecay = getelementptr inbounds [2048 x i32], ptr %mData, i64 0, i64 0
@@ -45634,11 +45635,11 @@ entry:
   %mData4 = getelementptr inbounds %struct.LargeObject, ptr %mLargeObject23, i32 0, i32 0
   %arraydecay5 = getelementptr inbounds [2048 x i32], ptr %mData4, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %arraydecay5, i8 0, i64 8192, i1 false)
-  %0 = load i32, ptr %x.addr, align 4
+  %1 = load i32, ptr %x.addr, align 4
   %mLargeObject16 = getelementptr inbounds %struct.LargePOD, ptr %this1, i32 0, i32 1
   %mData7 = getelementptr inbounds %struct.LargeObject, ptr %mLargeObject16, i32 0, i32 0
   %arrayidx = getelementptr inbounds [2048 x i32], ptr %mData7, i64 0, i64 0
-  store i32 %0, ptr %arrayidx, align 8
+  store i32 %1, ptr %arrayidx, align 8
   %mpName1 = getelementptr inbounds %struct.LargePOD, ptr %this1, i32 0, i32 3
   store ptr @.str.61, ptr %mpName1, align 8
   %mpName2 = getelementptr inbounds %struct.LargePOD, ptr %this1, i32 0, i32 4

@@ -705,11 +705,14 @@ define dso_local void @ProcessSyncRequests() #0 {
 
 185:                                              ; preds = %44
   %186 = load i32, ptr %4, align 4
-  store i32 %186, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i32 0, i32 9), align 8
-  %187 = load i64, ptr %9, align 8
-  store i64 %187, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i32 0, i32 10), align 8
-  %188 = load i64, ptr %10, align 8
-  store i64 %188, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i32 0, i32 11), align 8
+  %187 = getelementptr inbounds %struct.CheckpointStatsData, ptr @CheckpointStats, i32 0, i32 9
+  store i32 %186, ptr %187, align 8
+  %188 = load i64, ptr %9, align 8
+  %189 = getelementptr inbounds %struct.CheckpointStatsData, ptr @CheckpointStats, i32 0, i32 10
+  store i64 %188, ptr %189, align 8
+  %190 = load i64, ptr %10, align 8
+  %191 = getelementptr inbounds %struct.CheckpointStatsData, ptr @CheckpointStats, i32 0, i32 11
+  store i64 %190, ptr %191, align 8
   store i8 0, ptr @ProcessSyncRequests.sync_in_progress, align 1
   ret void
 }

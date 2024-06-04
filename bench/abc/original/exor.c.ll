@@ -519,223 +519,221 @@ define i32 @ReduceEsopCover() #0 {
   store i32 0, ptr %2, align 4
   br label %5
 
-5:                                                ; preds = %117, %0
-  %6 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13), align 4
-  %7 = icmp eq i32 %6, 2
-  br i1 %7, label %8, label %12
+5:                                                ; preds = %120, %0
+  %6 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp eq i32 %7, 2
+  br i1 %8, label %9, label %13
 
-8:                                                ; preds = %5
-  %9 = load i32, ptr %2, align 4
-  %10 = add nsw i32 %9, 1
-  store i32 %10, ptr %2, align 4
-  %11 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef %10)
-  br label %18
+9:                                                ; preds = %5
+  %10 = load i32, ptr %2, align 4
+  %11 = add nsw i32 %10, 1
+  store i32 %11, ptr %2, align 4
+  %12 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef %11)
+  br label %20
 
-12:                                               ; preds = %5
-  %13 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13), align 4
-  %14 = icmp eq i32 %13, 1
-  br i1 %14, label %15, label %17
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp eq i32 %15, 1
+  br i1 %16, label %17, label %19
 
-15:                                               ; preds = %12
-  %16 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
-  br label %17
+17:                                               ; preds = %13
+  %18 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
+  br label %19
 
-17:                                               ; preds = %15, %12
-  br label %18
+19:                                               ; preds = %17, %13
+  br label %20
 
-18:                                               ; preds = %17, %8
+20:                                               ; preds = %19, %9
   store i32 0, ptr %3, align 4
-  %19 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
-  %20 = load i32, ptr %3, align 4
-  %21 = add nsw i32 %20, %19
-  store i32 %21, ptr %3, align 4
-  %22 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
-  %23 = load i32, ptr %3, align 4
-  %24 = add nsw i32 %23, %22
-  store i32 %24, ptr %3, align 4
-  %25 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
-  %26 = load i32, ptr %3, align 4
-  %27 = add nsw i32 %26, %25
-  store i32 %27, ptr %3, align 4
-  %28 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
-  %29 = load i32, ptr %3, align 4
-  %30 = add nsw i32 %29, %28
-  store i32 %30, ptr %3, align 4
-  %31 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
-  %32 = load i32, ptr %3, align 4
-  %33 = add nsw i32 %32, %31
-  store i32 %33, ptr %3, align 4
-  %34 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
-  %35 = load i32, ptr %3, align 4
-  %36 = add nsw i32 %35, %34
-  store i32 %36, ptr %3, align 4
-  %37 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
-  %38 = load i32, ptr %3, align 4
-  %39 = add nsw i32 %38, %37
-  store i32 %39, ptr %3, align 4
-  %40 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
-  %41 = load i32, ptr %3, align 4
-  %42 = add nsw i32 %41, %40
-  store i32 %42, ptr %3, align 4
-  %43 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
-  %44 = load i32, ptr %3, align 4
-  %45 = add nsw i32 %44, %43
-  store i32 %45, ptr %3, align 4
-  %46 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
-  %47 = load i32, ptr %3, align 4
-  %48 = add nsw i32 %47, %46
-  store i32 %48, ptr %3, align 4
-  %49 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
-  %50 = load i32, ptr %3, align 4
-  %51 = add nsw i32 %50, %49
-  store i32 %51, ptr %3, align 4
-  %52 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
-  %53 = load i32, ptr %3, align 4
-  %54 = add nsw i32 %53, %52
-  store i32 %54, ptr %3, align 4
-  %55 = load i32, ptr %1, align 4
-  %56 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 14), align 8
-  %57 = icmp sgt i32 %56, 0
-  %58 = zext i1 %57 to i32
-  %59 = icmp sgt i32 %55, %58
-  br i1 %59, label %60, label %109
+  %21 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
+  %22 = load i32, ptr %3, align 4
+  %23 = add nsw i32 %22, %21
+  store i32 %23, ptr %3, align 4
+  %24 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
+  %25 = load i32, ptr %3, align 4
+  %26 = add nsw i32 %25, %24
+  store i32 %26, ptr %3, align 4
+  %27 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
+  %28 = load i32, ptr %3, align 4
+  %29 = add nsw i32 %28, %27
+  store i32 %29, ptr %3, align 4
+  %30 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
+  %31 = load i32, ptr %3, align 4
+  %32 = add nsw i32 %31, %30
+  store i32 %32, ptr %3, align 4
+  %33 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
+  %34 = load i32, ptr %3, align 4
+  %35 = add nsw i32 %34, %33
+  store i32 %35, ptr %3, align 4
+  %36 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
+  %37 = load i32, ptr %3, align 4
+  %38 = add nsw i32 %37, %36
+  store i32 %38, ptr %3, align 4
+  %39 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
+  %40 = load i32, ptr %3, align 4
+  %41 = add nsw i32 %40, %39
+  store i32 %41, ptr %3, align 4
+  %42 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
+  %43 = load i32, ptr %3, align 4
+  %44 = add nsw i32 %43, %42
+  store i32 %44, ptr %3, align 4
+  %45 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
+  %46 = load i32, ptr %3, align 4
+  %47 = add nsw i32 %46, %45
+  store i32 %47, ptr %3, align 4
+  %48 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
+  %49 = load i32, ptr %3, align 4
+  %50 = add nsw i32 %49, %48
+  store i32 %50, ptr %3, align 4
+  %51 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
+  %52 = load i32, ptr %3, align 4
+  %53 = add nsw i32 %52, %51
+  store i32 %53, ptr %3, align 4
+  %54 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
+  %55 = load i32, ptr %3, align 4
+  %56 = add nsw i32 %55, %54
+  store i32 %56, ptr %3, align 4
+  %57 = load i32, ptr %1, align 4
+  %58 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 14
+  %59 = load i32, ptr %58, align 8
+  %60 = icmp sgt i32 %59, 0
+  %61 = zext i1 %60 to i32
+  %62 = icmp sgt i32 %57, %61
+  br i1 %62, label %63, label %112
 
-60:                                               ; preds = %18
-  %61 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
-  %62 = load i32, ptr %3, align 4
-  %63 = add nsw i32 %62, %61
-  store i32 %63, ptr %3, align 4
-  %64 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
+63:                                               ; preds = %20
+  %64 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
   %65 = load i32, ptr %3, align 4
   %66 = add nsw i32 %65, %64
   store i32 %66, ptr %3, align 4
-  %67 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 7)
+  %67 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
   %68 = load i32, ptr %3, align 4
   %69 = add nsw i32 %68, %67
   store i32 %69, ptr %3, align 4
-  %70 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 7)
+  %70 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 7)
   %71 = load i32, ptr %3, align 4
   %72 = add nsw i32 %71, %70
   store i32 %72, ptr %3, align 4
-  %73 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 7)
+  %73 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 7)
   %74 = load i32, ptr %3, align 4
   %75 = add nsw i32 %74, %73
   store i32 %75, ptr %3, align 4
-  %76 = call i32 @IterativelyApplyExorLink4(i8 noundef signext 7)
+  %76 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 7)
   %77 = load i32, ptr %3, align 4
   %78 = add nsw i32 %77, %76
   store i32 %78, ptr %3, align 4
-  %79 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 7)
+  %79 = call i32 @IterativelyApplyExorLink4(i8 noundef signext 7)
   %80 = load i32, ptr %3, align 4
   %81 = add nsw i32 %80, %79
   store i32 %81, ptr %3, align 4
-  %82 = call i32 @IterativelyApplyExorLink4(i8 noundef signext 3)
+  %82 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 7)
   %83 = load i32, ptr %3, align 4
   %84 = add nsw i32 %83, %82
   store i32 %84, ptr %3, align 4
-  %85 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
+  %85 = call i32 @IterativelyApplyExorLink4(i8 noundef signext 3)
   %86 = load i32, ptr %3, align 4
   %87 = add nsw i32 %86, %85
   store i32 %87, ptr %3, align 4
-  %88 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
+  %88 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
   %89 = load i32, ptr %3, align 4
   %90 = add nsw i32 %89, %88
   store i32 %90, ptr %3, align 4
-  %91 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 7)
+  %91 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
   %92 = load i32, ptr %3, align 4
   %93 = add nsw i32 %92, %91
   store i32 %93, ptr %3, align 4
-  %94 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 7)
+  %94 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 7)
   %95 = load i32, ptr %3, align 4
   %96 = add nsw i32 %95, %94
   store i32 %96, ptr %3, align 4
-  %97 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 7)
+  %97 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 7)
   %98 = load i32, ptr %3, align 4
   %99 = add nsw i32 %98, %97
   store i32 %99, ptr %3, align 4
-  %100 = call i32 @IterativelyApplyExorLink4(i8 noundef signext 7)
+  %100 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 7)
   %101 = load i32, ptr %3, align 4
   %102 = add nsw i32 %101, %100
   store i32 %102, ptr %3, align 4
-  %103 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 7)
+  %103 = call i32 @IterativelyApplyExorLink4(i8 noundef signext 7)
   %104 = load i32, ptr %3, align 4
   %105 = add nsw i32 %104, %103
   store i32 %105, ptr %3, align 4
-  %106 = call i32 @IterativelyApplyExorLink4(i8 noundef signext 3)
+  %106 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 7)
   %107 = load i32, ptr %3, align 4
   %108 = add nsw i32 %107, %106
   store i32 %108, ptr %3, align 4
-  br label %109
-
-109:                                              ; preds = %60, %18
+  %109 = call i32 @IterativelyApplyExorLink4(i8 noundef signext 3)
   %110 = load i32, ptr %3, align 4
-  %111 = icmp ne i32 %110, 0
-  br i1 %111, label %112, label %113
+  %111 = add nsw i32 %110, %109
+  store i32 %111, ptr %3, align 4
+  br label %112
 
-112:                                              ; preds = %109
+112:                                              ; preds = %63, %20
+  %113 = load i32, ptr %3, align 4
+  %114 = icmp ne i32 %113, 0
+  br i1 %114, label %115, label %116
+
+115:                                              ; preds = %112
   store i32 0, ptr %1, align 4
-  br label %116
+  br label %119
 
-113:                                              ; preds = %109
-  %114 = load i32, ptr %1, align 4
-  %115 = add nsw i32 %114, 1
-  store i32 %115, ptr %1, align 4
-  br label %116
+116:                                              ; preds = %112
+  %117 = load i32, ptr %1, align 4
+  %118 = add nsw i32 %117, 1
+  store i32 %118, ptr %1, align 4
+  br label %119
 
-116:                                              ; preds = %113, %112
-  br label %117
+119:                                              ; preds = %116, %115
+  br label %120
 
-117:                                              ; preds = %116
-  %118 = load i32, ptr %1, align 4
-  %119 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 14), align 8
-  %120 = add nsw i32 1, %119
-  %121 = icmp slt i32 %118, %120
-  br i1 %121, label %5, label %122, !llvm.loop !10
+120:                                              ; preds = %119
+  %121 = load i32, ptr %1, align 4
+  %122 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 14
+  %123 = load i32, ptr %122, align 8
+  %124 = add nsw i32 1, %123
+  %125 = icmp slt i32 %121, %124
+  br i1 %125, label %5, label %126, !llvm.loop !10
 
-122:                                              ; preds = %117
+126:                                              ; preds = %120
   store i32 1, ptr @s_fDecreaseLiterals, align 4
   store i32 0, ptr %4, align 4
-  br label %123
+  br label %127
 
-123:                                              ; preds = %170, %122
-  %124 = load i32, ptr %4, align 4
-  %125 = icmp slt i32 %124, 1
-  br i1 %125, label %126, label %173
+127:                                              ; preds = %176, %126
+  %128 = load i32, ptr %4, align 4
+  %129 = icmp slt i32 %128, 1
+  br i1 %129, label %130, label %179
 
-126:                                              ; preds = %123
-  %127 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13), align 4
-  %128 = icmp eq i32 %127, 2
-  br i1 %128, label %129, label %133
+130:                                              ; preds = %127
+  %131 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13
+  %132 = load i32, ptr %131, align 4
+  %133 = icmp eq i32 %132, 2
+  br i1 %133, label %134, label %138
 
-129:                                              ; preds = %126
-  %130 = load i32, ptr %2, align 4
-  %131 = add nsw i32 %130, 1
-  store i32 %131, ptr %2, align 4
-  %132 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef %131)
-  br label %139
+134:                                              ; preds = %130
+  %135 = load i32, ptr %2, align 4
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %2, align 4
+  %137 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef %136)
+  br label %145
 
-133:                                              ; preds = %126
-  %134 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13), align 4
-  %135 = icmp eq i32 %134, 1
-  br i1 %135, label %136, label %138
+138:                                              ; preds = %130
+  %139 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13
+  %140 = load i32, ptr %139, align 4
+  %141 = icmp eq i32 %140, 1
+  br i1 %141, label %142, label %144
 
-136:                                              ; preds = %133
-  %137 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
-  br label %138
+142:                                              ; preds = %138
+  %143 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
+  br label %144
 
-138:                                              ; preds = %136, %133
-  br label %139
+144:                                              ; preds = %142, %138
+  br label %145
 
-139:                                              ; preds = %138, %129
+145:                                              ; preds = %144, %134
   store i32 0, ptr %3, align 4
-  %140 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
-  %141 = load i32, ptr %3, align 4
-  %142 = add nsw i32 %141, %140
-  store i32 %142, ptr %3, align 4
-  %143 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
-  %144 = load i32, ptr %3, align 4
-  %145 = add nsw i32 %144, %143
-  store i32 %145, ptr %3, align 4
   %146 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
   %147 = load i32, ptr %3, align 4
   %148 = add nsw i32 %147, %146
@@ -768,15 +766,23 @@ define i32 @ReduceEsopCover() #0 {
   %168 = load i32, ptr %3, align 4
   %169 = add nsw i32 %168, %167
   store i32 %169, ptr %3, align 4
-  br label %170
+  %170 = call i32 @IterativelyApplyExorLink2(i8 noundef signext 3)
+  %171 = load i32, ptr %3, align 4
+  %172 = add nsw i32 %171, %170
+  store i32 %172, ptr %3, align 4
+  %173 = call i32 @IterativelyApplyExorLink3(i8 noundef signext 3)
+  %174 = load i32, ptr %3, align 4
+  %175 = add nsw i32 %174, %173
+  store i32 %175, ptr %3, align 4
+  br label %176
 
-170:                                              ; preds = %139
-  %171 = load i32, ptr %4, align 4
-  %172 = add nsw i32 %171, 1
-  store i32 %172, ptr %4, align 4
-  br label %123, !llvm.loop !11
+176:                                              ; preds = %145
+  %177 = load i32, ptr %4, align 4
+  %178 = add nsw i32 %177, 1
+  store i32 %178, ptr %4, align 4
+  br label %127, !llvm.loop !11
 
-173:                                              ; preds = %123
+179:                                              ; preds = %127
   ret i32 0
 }
 
@@ -834,266 +840,278 @@ define void @AddCubesToStartingCover(ptr noundef %0) #0 {
   br label %20, !llvm.loop !12
 
 33:                                               ; preds = %20
-  store i32 0, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 8), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 10), align 8
+  %34 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 8
+  store i32 0, ptr %34, align 8
+  %35 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 10
+  store i32 0, ptr %35, align 8
   store i32 0, ptr %7, align 4
-  br label %34
+  br label %36
 
-34:                                               ; preds = %170, %33
-  %35 = load i32, ptr %7, align 4
-  %36 = load ptr, ptr %2, align 8
-  %37 = call i32 @Vec_WecSize(ptr noundef %36)
-  %38 = icmp slt i32 %35, %37
-  br i1 %38, label %39, label %43
+36:                                               ; preds = %182, %33
+  %37 = load i32, ptr %7, align 4
+  %38 = load ptr, ptr %2, align 8
+  %39 = call i32 @Vec_WecSize(ptr noundef %38)
+  %40 = icmp slt i32 %37, %39
+  br i1 %40, label %41, label %45
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %2, align 8
-  %41 = load i32, ptr %7, align 4
-  %42 = call ptr @Vec_WecEntry(ptr noundef %40, i32 noundef %41)
-  store ptr %42, ptr %3, align 8
-  br label %43
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %2, align 8
+  %43 = load i32, ptr %7, align 4
+  %44 = call ptr @Vec_WecEntry(ptr noundef %42, i32 noundef %43)
+  store ptr %44, ptr %3, align 8
+  br label %45
 
-43:                                               ; preds = %39, %34
-  %44 = phi i1 [ false, %34 ], [ true, %39 ]
-  br i1 %44, label %45, label %173
+45:                                               ; preds = %41, %36
+  %46 = phi i1 [ false, %36 ], [ true, %41 ]
+  br i1 %46, label %47, label %185
 
-45:                                               ; preds = %43
-  %46 = load ptr, ptr %3, align 8
-  %47 = call i32 @Vec_IntPop(ptr noundef %46)
-  %48 = sub nsw i32 0, %47
-  %49 = sub nsw i32 %48, 1
-  store i32 %49, ptr %11, align 4
+47:                                               ; preds = %45
+  %48 = load ptr, ptr %3, align 8
+  %49 = call i32 @Vec_IntPop(ptr noundef %48)
+  %50 = sub nsw i32 0, %49
+  %51 = sub nsw i32 %50, 1
+  store i32 %51, ptr %11, align 4
   store i32 0, ptr %8, align 4
-  br label %50
+  br label %52
 
-50:                                               ; preds = %59, %45
-  %51 = load i32, ptr %8, align 4
-  %52 = load i32, ptr @g_CoverInfo, align 8
-  %53 = icmp slt i32 %51, %52
-  br i1 %53, label %54, label %62
+52:                                               ; preds = %61, %47
+  %53 = load i32, ptr %8, align 4
+  %54 = load i32, ptr @g_CoverInfo, align 8
+  %55 = icmp slt i32 %53, %54
+  br i1 %55, label %56, label %64
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %6, align 8
-  %56 = load i32, ptr %8, align 4
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i32, ptr %55, i64 %57
-  store i32 3, ptr %58, align 4
-  br label %59
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %6, align 8
+  %58 = load i32, ptr %8, align 4
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds i32, ptr %57, i64 %59
+  store i32 3, ptr %60, align 4
+  br label %61
 
-59:                                               ; preds = %54
-  %60 = load i32, ptr %8, align 4
-  %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %8, align 4
-  br label %50, !llvm.loop !13
+61:                                               ; preds = %56
+  %62 = load i32, ptr %8, align 4
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %8, align 4
+  br label %52, !llvm.loop !13
 
-62:                                               ; preds = %50
+64:                                               ; preds = %52
   store i32 0, ptr %9, align 4
-  br label %63
+  br label %65
 
-63:                                               ; preds = %91, %62
-  %64 = load i32, ptr %9, align 4
-  %65 = load ptr, ptr %3, align 8
-  %66 = call i32 @Vec_IntSize(ptr noundef %65)
-  %67 = icmp slt i32 %64, %66
-  br i1 %67, label %68, label %72
+65:                                               ; preds = %93, %64
+  %66 = load i32, ptr %9, align 4
+  %67 = load ptr, ptr %3, align 8
+  %68 = call i32 @Vec_IntSize(ptr noundef %67)
+  %69 = icmp slt i32 %66, %68
+  br i1 %69, label %70, label %74
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr %3, align 8
-  %70 = load i32, ptr %9, align 4
-  %71 = call i32 @Vec_IntEntry(ptr noundef %69, i32 noundef %70)
-  store i32 %71, ptr %10, align 4
-  br label %72
+70:                                               ; preds = %65
+  %71 = load ptr, ptr %3, align 8
+  %72 = load i32, ptr %9, align 4
+  %73 = call i32 @Vec_IntEntry(ptr noundef %71, i32 noundef %72)
+  store i32 %73, ptr %10, align 4
+  br label %74
 
-72:                                               ; preds = %68, %63
-  %73 = phi i1 [ false, %63 ], [ true, %68 ]
-  br i1 %73, label %74, label %94
+74:                                               ; preds = %70, %65
+  %75 = phi i1 [ false, %65 ], [ true, %70 ]
+  br i1 %75, label %76, label %96
 
-74:                                               ; preds = %72
-  %75 = load i32, ptr %10, align 4
-  %76 = call i32 @Abc_LitIsCompl(i32 noundef %75)
-  %77 = icmp ne i32 %76, 0
-  br i1 %77, label %78, label %84
+76:                                               ; preds = %74
+  %77 = load i32, ptr %10, align 4
+  %78 = call i32 @Abc_LitIsCompl(i32 noundef %77)
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %86
 
-78:                                               ; preds = %74
-  %79 = load ptr, ptr %6, align 8
-  %80 = load i32, ptr %10, align 4
-  %81 = call i32 @Abc_Lit2Var(i32 noundef %80)
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i32, ptr %79, i64 %82
-  store i32 1, ptr %83, align 4
-  br label %90
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %6, align 8
+  %82 = load i32, ptr %10, align 4
+  %83 = call i32 @Abc_Lit2Var(i32 noundef %82)
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds i32, ptr %81, i64 %84
+  store i32 1, ptr %85, align 4
+  br label %92
 
-84:                                               ; preds = %74
-  %85 = load ptr, ptr %6, align 8
-  %86 = load i32, ptr %10, align 4
-  %87 = call i32 @Abc_Lit2Var(i32 noundef %86)
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %85, i64 %88
-  store i32 2, ptr %89, align 4
-  br label %90
+86:                                               ; preds = %76
+  %87 = load ptr, ptr %6, align 8
+  %88 = load i32, ptr %10, align 4
+  %89 = call i32 @Abc_Lit2Var(i32 noundef %88)
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i32, ptr %87, i64 %90
+  store i32 2, ptr %91, align 4
+  br label %92
 
-90:                                               ; preds = %84, %78
-  br label %91
+92:                                               ; preds = %86, %80
+  br label %93
 
-91:                                               ; preds = %90
-  %92 = load i32, ptr %9, align 4
-  %93 = add nsw i32 %92, 1
-  store i32 %93, ptr %9, align 4
-  br label %63, !llvm.loop !14
+93:                                               ; preds = %92
+  %94 = load i32, ptr %9, align 4
+  %95 = add nsw i32 %94, 1
+  store i32 %95, ptr %9, align 4
+  br label %65, !llvm.loop !14
 
-94:                                               ; preds = %72
-  %95 = call ptr (...) @GetFreeCube()
-  store ptr %95, ptr %4, align 8
-  %96 = load ptr, ptr %4, align 8
-  %97 = getelementptr inbounds %struct.cube, ptr %96, i32 0, i32 5
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i32, ptr %98, i64 0
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp ne i32 %100, 0
-  br i1 %101, label %102, label %133
+96:                                               ; preds = %74
+  %97 = call ptr (...) @GetFreeCube()
+  store ptr %97, ptr %4, align 8
+  %98 = load ptr, ptr %4, align 8
+  %99 = getelementptr inbounds %struct.cube, ptr %98, i32 0, i32 5
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds i32, ptr %100, i64 0
+  %102 = load i32, ptr %101, align 4
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %104, label %137
 
-102:                                              ; preds = %94
+104:                                              ; preds = %96
   store i32 0, ptr %8, align 4
-  br label %103
+  br label %105
 
-103:                                              ; preds = %114, %102
-  %104 = load i32, ptr %8, align 4
-  %105 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 2), align 8
-  %106 = icmp slt i32 %104, %105
-  br i1 %106, label %107, label %117
+105:                                              ; preds = %117, %104
+  %106 = load i32, ptr %8, align 4
+  %107 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 2
+  %108 = load i32, ptr %107, align 8
+  %109 = icmp slt i32 %106, %108
+  br i1 %109, label %110, label %120
 
-107:                                              ; preds = %103
-  %108 = load ptr, ptr %4, align 8
-  %109 = getelementptr inbounds %struct.cube, ptr %108, i32 0, i32 5
-  %110 = load ptr, ptr %109, align 8
-  %111 = load i32, ptr %8, align 4
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds i32, ptr %110, i64 %112
-  store i32 0, ptr %113, align 4
-  br label %114
+110:                                              ; preds = %105
+  %111 = load ptr, ptr %4, align 8
+  %112 = getelementptr inbounds %struct.cube, ptr %111, i32 0, i32 5
+  %113 = load ptr, ptr %112, align 8
+  %114 = load i32, ptr %8, align 4
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds i32, ptr %113, i64 %115
+  store i32 0, ptr %116, align 4
+  br label %117
 
-114:                                              ; preds = %107
-  %115 = load i32, ptr %8, align 4
-  %116 = add nsw i32 %115, 1
-  store i32 %116, ptr %8, align 4
-  br label %103, !llvm.loop !15
+117:                                              ; preds = %110
+  %118 = load i32, ptr %8, align 4
+  %119 = add nsw i32 %118, 1
+  store i32 %119, ptr %8, align 4
+  br label %105, !llvm.loop !15
 
-117:                                              ; preds = %103
+120:                                              ; preds = %105
   store i32 0, ptr %8, align 4
-  br label %118
+  br label %121
 
-118:                                              ; preds = %129, %117
-  %119 = load i32, ptr %8, align 4
-  %120 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3), align 4
-  %121 = icmp slt i32 %119, %120
-  br i1 %121, label %122, label %132
+121:                                              ; preds = %133, %120
+  %122 = load i32, ptr %8, align 4
+  %123 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3
+  %124 = load i32, ptr %123, align 4
+  %125 = icmp slt i32 %122, %124
+  br i1 %125, label %126, label %136
 
-122:                                              ; preds = %118
-  %123 = load ptr, ptr %4, align 8
-  %124 = getelementptr inbounds %struct.cube, ptr %123, i32 0, i32 6
-  %125 = load ptr, ptr %124, align 8
-  %126 = load i32, ptr %8, align 4
-  %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds i32, ptr %125, i64 %127
-  store i32 0, ptr %128, align 4
-  br label %129
-
-129:                                              ; preds = %122
+126:                                              ; preds = %121
+  %127 = load ptr, ptr %4, align 8
+  %128 = getelementptr inbounds %struct.cube, ptr %127, i32 0, i32 6
+  %129 = load ptr, ptr %128, align 8
   %130 = load i32, ptr %8, align 4
-  %131 = add nsw i32 %130, 1
-  store i32 %131, ptr %8, align 4
-  br label %118, !llvm.loop !16
-
-132:                                              ; preds = %118
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds i32, ptr %129, i64 %131
+  store i32 0, ptr %132, align 4
   br label %133
 
-133:                                              ; preds = %132, %94
-  %134 = load ptr, ptr %4, align 8
-  %135 = load ptr, ptr %5, align 8
-  %136 = load i32, ptr @g_CoverInfo, align 8
-  %137 = load ptr, ptr %6, align 8
-  %138 = load i32, ptr %11, align 4
-  call void @InsertVarsWithoutClearing(ptr noundef %134, ptr noundef %135, i32 noundef %136, ptr noundef %137, i32 noundef %138)
-  %139 = load ptr, ptr %3, align 8
-  %140 = call i32 @Vec_IntSize(ptr noundef %139)
-  %141 = trunc i32 %140 to i16
-  %142 = load ptr, ptr %4, align 8
-  %143 = getelementptr inbounds %struct.cube, ptr %142, i32 0, i32 2
-  store i16 %141, ptr %143, align 2
-  %144 = load ptr, ptr %4, align 8
-  %145 = getelementptr inbounds %struct.cube, ptr %144, i32 0, i32 3
-  store i16 1, ptr %145, align 4
-  %146 = load ptr, ptr %3, align 8
-  %147 = call i32 @ComputeQCost(ptr noundef %146)
-  %148 = trunc i32 %147 to i16
-  %149 = load ptr, ptr %4, align 8
-  %150 = getelementptr inbounds %struct.cube, ptr %149, i32 0, i32 4
-  store i16 %148, ptr %150, align 2
-  %151 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12), align 8
-  %152 = add nsw i32 %151, 1
-  store i32 %152, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12), align 8
-  %153 = trunc i32 %151 to i8
-  %154 = load ptr, ptr %4, align 8
-  %155 = getelementptr inbounds %struct.cube, ptr %154, i32 0, i32 1
-  store i8 %153, ptr %155, align 1
-  %156 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12), align 8
-  %157 = icmp eq i32 %156, 256
-  br i1 %157, label %158, label %159
+133:                                              ; preds = %126
+  %134 = load i32, ptr %8, align 4
+  %135 = add nsw i32 %134, 1
+  store i32 %135, ptr %8, align 4
+  br label %121, !llvm.loop !16
 
-158:                                              ; preds = %133
-  store i32 1, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12), align 8
-  br label %159
+136:                                              ; preds = %121
+  br label %137
 
-159:                                              ; preds = %158, %133
+137:                                              ; preds = %136, %96
+  %138 = load ptr, ptr %4, align 8
+  %139 = load ptr, ptr %5, align 8
+  %140 = load i32, ptr @g_CoverInfo, align 8
+  %141 = load ptr, ptr %6, align 8
+  %142 = load i32, ptr %11, align 4
+  call void @InsertVarsWithoutClearing(ptr noundef %138, ptr noundef %139, i32 noundef %140, ptr noundef %141, i32 noundef %142)
+  %143 = load ptr, ptr %3, align 8
+  %144 = call i32 @Vec_IntSize(ptr noundef %143)
+  %145 = trunc i32 %144 to i16
+  %146 = load ptr, ptr %4, align 8
+  %147 = getelementptr inbounds %struct.cube, ptr %146, i32 0, i32 2
+  store i16 %145, ptr %147, align 2
+  %148 = load ptr, ptr %4, align 8
+  %149 = getelementptr inbounds %struct.cube, ptr %148, i32 0, i32 3
+  store i16 1, ptr %149, align 4
+  %150 = load ptr, ptr %3, align 8
+  %151 = call i32 @ComputeQCost(ptr noundef %150)
+  %152 = trunc i32 %151 to i16
+  %153 = load ptr, ptr %4, align 8
+  %154 = getelementptr inbounds %struct.cube, ptr %153, i32 0, i32 4
+  store i16 %152, ptr %154, align 2
+  %155 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12
+  %156 = load i32, ptr %155, align 8
+  %157 = add nsw i32 %156, 1
+  %158 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12
+  store i32 %157, ptr %158, align 8
+  %159 = trunc i32 %156 to i8
   %160 = load ptr, ptr %4, align 8
-  %161 = call i32 @CheckForCloseCubes(ptr noundef %160, i32 noundef 1)
-  %162 = load ptr, ptr %3, align 8
-  %163 = call i32 @Vec_IntSize(ptr noundef %162)
-  %164 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 8), align 8
-  %165 = add nsw i32 %164, %163
-  store i32 %165, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 8), align 8
-  %166 = load ptr, ptr %3, align 8
-  %167 = call i32 @ComputeQCost(ptr noundef %166)
-  %168 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 10), align 8
-  %169 = add nsw i32 %168, %167
-  store i32 %169, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 10), align 8
-  br label %170
+  %161 = getelementptr inbounds %struct.cube, ptr %160, i32 0, i32 1
+  store i8 %159, ptr %161, align 1
+  %162 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12
+  %163 = load i32, ptr %162, align 8
+  %164 = icmp eq i32 %163, 256
+  br i1 %164, label %165, label %167
 
-170:                                              ; preds = %159
-  %171 = load i32, ptr %7, align 4
-  %172 = add nsw i32 %171, 1
-  store i32 %172, ptr %7, align 4
-  br label %34, !llvm.loop !17
+165:                                              ; preds = %137
+  %166 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12
+  store i32 1, ptr %166, align 8
+  br label %167
 
-173:                                              ; preds = %43
-  %174 = load ptr, ptr %5, align 8
-  %175 = icmp ne ptr %174, null
-  br i1 %175, label %176, label %178
+167:                                              ; preds = %165, %137
+  %168 = load ptr, ptr %4, align 8
+  %169 = call i32 @CheckForCloseCubes(ptr noundef %168, i32 noundef 1)
+  %170 = load ptr, ptr %3, align 8
+  %171 = call i32 @Vec_IntSize(ptr noundef %170)
+  %172 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 8
+  %173 = load i32, ptr %172, align 8
+  %174 = add nsw i32 %173, %171
+  %175 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 8
+  store i32 %174, ptr %175, align 8
+  %176 = load ptr, ptr %3, align 8
+  %177 = call i32 @ComputeQCost(ptr noundef %176)
+  %178 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 10
+  %179 = load i32, ptr %178, align 8
+  %180 = add nsw i32 %179, %177
+  %181 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 10
+  store i32 %180, ptr %181, align 8
+  br label %182
 
-176:                                              ; preds = %173
-  %177 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %177) #8
+182:                                              ; preds = %167
+  %183 = load i32, ptr %7, align 4
+  %184 = add nsw i32 %183, 1
+  store i32 %184, ptr %7, align 4
+  br label %36, !llvm.loop !17
+
+185:                                              ; preds = %45
+  %186 = load ptr, ptr %5, align 8
+  %187 = icmp ne ptr %186, null
+  br i1 %187, label %188, label %190
+
+188:                                              ; preds = %185
+  %189 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %189) #8
   store ptr null, ptr %5, align 8
-  br label %179
+  br label %191
 
-178:                                              ; preds = %173
-  br label %179
+190:                                              ; preds = %185
+  br label %191
 
-179:                                              ; preds = %178, %176
-  %180 = load ptr, ptr %6, align 8
-  %181 = icmp ne ptr %180, null
-  br i1 %181, label %182, label %184
+191:                                              ; preds = %190, %188
+  %192 = load ptr, ptr %6, align 8
+  %193 = icmp ne ptr %192, null
+  br i1 %193, label %194, label %196
 
-182:                                              ; preds = %179
-  %183 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %183) #8
+194:                                              ; preds = %191
+  %195 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %195) #8
   store ptr null, ptr %6, align 8
-  br label %185
+  br label %197
 
-184:                                              ; preds = %179
-  br label %185
+196:                                              ; preds = %191
+  br label %197
 
-185:                                              ; preds = %184, %182
+197:                                              ; preds = %196, %194
   ret void
 }
 
@@ -1198,224 +1216,252 @@ define i32 @Exorcism(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef
   %31 = load i32, ptr %7, align 4
   store i32 %31, ptr @g_CoverInfo, align 8
   %32 = load i32, ptr %12, align 4
-  store i32 %32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 2), align 8
-  %33 = load i32, ptr %8, align 4
-  %34 = sext i32 %33 to i64
-  %35 = urem i64 %34, 32
-  %36 = trunc i64 %35 to i32
-  store i32 %36, ptr %11, align 4
-  %37 = load i32, ptr %8, align 4
-  %38 = sext i32 %37 to i64
-  %39 = udiv i64 %38, 32
-  %40 = load i32, ptr %11, align 4
-  %41 = icmp sgt i32 %40, 0
-  %42 = zext i1 %41 to i32
-  %43 = sext i32 %42 to i64
-  %44 = add i64 %39, %43
-  %45 = trunc i64 %44 to i32
-  store i32 %45, ptr %12, align 4
-  %46 = load i32, ptr %8, align 4
-  store i32 %46, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 1), align 4
-  %47 = load i32, ptr %12, align 4
-  store i32 %47, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12), align 8
-  %48 = call i64 @Abc_Clock()
-  store i64 %48, ptr %10, align 8
-  %49 = load ptr, ptr %6, align 8
-  %50 = call i32 @Vec_WecSize(ptr noundef %49)
-  store i32 %50, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 5), align 4
-  %51 = call i64 @Abc_Clock()
-  %52 = load i64, ptr %10, align 8
-  %53 = sub nsw i64 %51, %52
-  store i64 %53, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 18), align 8
-  %54 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13), align 4
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %56, label %64
+  %33 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 2
+  store i32 %32, ptr %33, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = sext i32 %34 to i64
+  %36 = urem i64 %35, 32
+  %37 = trunc i64 %36 to i32
+  store i32 %37, ptr %11, align 4
+  %38 = load i32, ptr %8, align 4
+  %39 = sext i32 %38 to i64
+  %40 = udiv i64 %39, 32
+  %41 = load i32, ptr %11, align 4
+  %42 = icmp sgt i32 %41, 0
+  %43 = zext i1 %42 to i32
+  %44 = sext i32 %43 to i64
+  %45 = add i64 %40, %44
+  %46 = trunc i64 %45 to i32
+  store i32 %46, ptr %12, align 4
+  %47 = load i32, ptr %8, align 4
+  %48 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 1
+  store i32 %47, ptr %48, align 4
+  %49 = load i32, ptr %12, align 4
+  %50 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3
+  store i32 %49, ptr %50, align 4
+  %51 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12
+  store i32 1, ptr %51, align 8
+  %52 = call i64 @Abc_Clock()
+  store i64 %52, ptr %10, align 8
+  %53 = load ptr, ptr %6, align 8
+  %54 = call i32 @Vec_WecSize(ptr noundef %53)
+  %55 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 5
+  store i32 %54, ptr %55, align 4
+  %56 = call i64 @Abc_Clock()
+  %57 = load i64, ptr %10, align 8
+  %58 = sub nsw i64 %56, %57
+  %59 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 18
+  store i64 %58, ptr %59, align 8
+  %60 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %73
 
-56:                                               ; preds = %4
-  %57 = load i64, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 18), align 8
-  %58 = sitofp i64 %57 to float
-  %59 = fdiv float %58, 1.000000e+06
-  %60 = fpext float %59 to double
-  %61 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, double noundef %60)
-  %62 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 5), align 4
-  %63 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, i32 noundef %62)
-  br label %64
+63:                                               ; preds = %4
+  %64 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 18
+  %65 = load i64, ptr %64, align 8
+  %66 = sitofp i64 %65 to float
+  %67 = fdiv float %66, 1.000000e+06
+  %68 = fpext float %67 to double
+  %69 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, double noundef %68)
+  %70 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 5
+  %71 = load i32, ptr %70, align 4
+  %72 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, i32 noundef %71)
+  br label %73
 
-64:                                               ; preds = %56, %4
-  %65 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 5), align 4
-  %66 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 15), align 4
-  %67 = icmp sgt i32 %65, %66
-  br i1 %67, label %68, label %71
+73:                                               ; preds = %63, %4
+  %74 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 5
+  %75 = load i32, ptr %74, align 4
+  %76 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 15
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp sgt i32 %75, %77
+  br i1 %78, label %79, label %83
 
-68:                                               ; preds = %64
-  %69 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 15), align 4
-  %70 = call i32 (ptr, ...) @printf(ptr noundef @.str.6, i32 noundef %69)
+79:                                               ; preds = %73
+  %80 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 15
+  %81 = load i32, ptr %80, align 4
+  %82 = call i32 (ptr, ...) @printf(ptr noundef @.str.6, i32 noundef %81)
   store i32 0, ptr %5, align 4
-  br label %165
+  br label %193
 
-71:                                               ; preds = %64
-  %72 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 5), align 4
-  %73 = add nsw i32 %72, 33
-  store i32 %73, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 4), align 8
+83:                                               ; preds = %73
+  %84 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 5
+  %85 = load i32, ptr %84, align 4
+  %86 = add nsw i32 %85, 33
+  %87 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 4
+  store i32 %86, ptr %87, align 8
   store i32 0, ptr %14, align 4
-  %74 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 4), align 8
-  %75 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 2), align 8
-  %76 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3), align 4
-  %77 = call i32 @AllocateCover(i32 noundef %74, i32 noundef %75, i32 noundef %76)
-  store i32 %77, ptr %13, align 4
-  %78 = load i32, ptr %13, align 4
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %82
-
-80:                                               ; preds = %71
-  %81 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
-  store i32 0, ptr %5, align 4
-  br label %165
-
-82:                                               ; preds = %71
-  %83 = load i32, ptr %13, align 4
-  %84 = load i32, ptr %14, align 4
-  %85 = add nsw i32 %84, %83
-  store i32 %85, ptr %14, align 4
-  br label %86
-
-86:                                               ; preds = %82
-  %87 = load i32, ptr @g_CoverInfo, align 8
-  %88 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 1), align 4
-  %89 = call i32 @AllocateCubeSets(i32 noundef %87, i32 noundef %88)
-  store i32 %89, ptr %13, align 4
-  %90 = load i32, ptr %13, align 4
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %94
-
-92:                                               ; preds = %86
-  %93 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
-  store i32 0, ptr %5, align 4
-  br label %165
-
-94:                                               ; preds = %86
+  %88 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 4
+  %89 = load i32, ptr %88, align 8
+  %90 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 2
+  %91 = load i32, ptr %90, align 8
+  %92 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3
+  %93 = load i32, ptr %92, align 4
+  %94 = call i32 @AllocateCover(i32 noundef %89, i32 noundef %91, i32 noundef %93)
+  store i32 %94, ptr %13, align 4
   %95 = load i32, ptr %13, align 4
-  %96 = load i32, ptr %14, align 4
-  %97 = add nsw i32 %96, %95
-  store i32 %97, ptr %14, align 4
-  br label %98
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %97, label %99
 
-98:                                               ; preds = %94
-  %99 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 4), align 8
-  %100 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 4), align 8
-  %101 = mul nsw i32 %99, %100
-  %102 = sdiv i32 %101, 20
-  %103 = call i32 @AllocateQueques(i32 noundef %102)
-  store i32 %103, ptr %13, align 4
-  %104 = load i32, ptr %13, align 4
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %108
-
-106:                                              ; preds = %98
-  %107 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
+97:                                               ; preds = %83
+  %98 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
   store i32 0, ptr %5, align 4
-  br label %165
+  br label %193
 
-108:                                              ; preds = %98
-  %109 = load i32, ptr %13, align 4
-  %110 = load i32, ptr %14, align 4
-  %111 = add nsw i32 %110, %109
-  store i32 %111, ptr %14, align 4
-  br label %112
+99:                                               ; preds = %83
+  %100 = load i32, ptr %13, align 4
+  %101 = load i32, ptr %14, align 4
+  %102 = add nsw i32 %101, %100
+  store i32 %102, ptr %14, align 4
+  br label %103
 
-112:                                              ; preds = %108
-  %113 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13), align 4
-  %114 = icmp ne i32 %113, 0
-  br i1 %114, label %115, label %119
+103:                                              ; preds = %99
+  %104 = load i32, ptr @g_CoverInfo, align 8
+  %105 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 1
+  %106 = load i32, ptr %105, align 4
+  %107 = call i32 @AllocateCubeSets(i32 noundef %104, i32 noundef %106)
+  store i32 %107, ptr %13, align 4
+  %108 = load i32, ptr %13, align 4
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %112
 
-115:                                              ; preds = %112
-  %116 = load i32, ptr %14, align 4
-  %117 = sdiv i32 %116, 1000
-  %118 = call i32 (ptr, ...) @printf(ptr noundef @.str.8, i32 noundef %117)
-  br label %119
+110:                                              ; preds = %103
+  %111 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
+  store i32 0, ptr %5, align 4
+  br label %193
 
-119:                                              ; preds = %115, %112
-  %120 = call i64 @Abc_Clock()
-  store i64 %120, ptr %10, align 8
-  %121 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13), align 4
-  %122 = icmp ne i32 %121, 0
-  br i1 %122, label %123, label %125
+112:                                              ; preds = %103
+  %113 = load i32, ptr %13, align 4
+  %114 = load i32, ptr %14, align 4
+  %115 = add nsw i32 %114, %113
+  store i32 %115, ptr %14, align 4
+  br label %116
 
-123:                                              ; preds = %119
-  %124 = call i32 (ptr, ...) @printf(ptr noundef @.str.9)
-  br label %125
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 4
+  %118 = load i32, ptr %117, align 8
+  %119 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 4
+  %120 = load i32, ptr %119, align 8
+  %121 = mul nsw i32 %118, %120
+  %122 = sdiv i32 %121, 20
+  %123 = call i32 @AllocateQueques(i32 noundef %122)
+  store i32 %123, ptr %13, align 4
+  %124 = load i32, ptr %13, align 4
+  %125 = icmp eq i32 %124, 0
+  br i1 %125, label %126, label %128
 
-125:                                              ; preds = %123, %119
-  %126 = load ptr, ptr %6, align 8
-  call void @AddCubesToStartingCover(ptr noundef %126)
-  %127 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13), align 4
-  %128 = icmp ne i32 %127, 0
-  br i1 %128, label %129, label %131
+126:                                              ; preds = %116
+  %127 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
+  store i32 0, ptr %5, align 4
+  br label %193
 
-129:                                              ; preds = %125
-  %130 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
-  br label %131
+128:                                              ; preds = %116
+  %129 = load i32, ptr %13, align 4
+  %130 = load i32, ptr %14, align 4
+  %131 = add nsw i32 %130, %129
+  store i32 %131, ptr %14, align 4
+  br label %132
 
-131:                                              ; preds = %129, %125
-  %132 = call i64 @Abc_Clock()
-  store i64 %132, ptr %10, align 8
-  %133 = call i32 @ReduceEsopCover()
-  %134 = call i64 @Abc_Clock()
-  %135 = load i64, ptr %10, align 8
-  %136 = sub nsw i64 %134, %135
-  store i64 %136, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 19), align 8
-  %137 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13), align 4
-  %138 = icmp ne i32 %137, 0
-  br i1 %138, label %139, label %147
+132:                                              ; preds = %128
+  %133 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13
+  %134 = load i32, ptr %133, align 4
+  %135 = icmp ne i32 %134, 0
+  br i1 %135, label %136, label %140
 
-139:                                              ; preds = %131
-  %140 = load i64, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 19), align 8
-  %141 = sitofp i64 %140 to float
-  %142 = fdiv float %141, 1.000000e+06
-  %143 = fpext float %142 to double
-  %144 = call i32 (ptr, ...) @printf(ptr noundef @.str.11, double noundef %143)
-  %145 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 6), align 8
-  %146 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, i32 noundef %145)
+136:                                              ; preds = %132
+  %137 = load i32, ptr %14, align 4
+  %138 = sdiv i32 %137, 1000
+  %139 = call i32 (ptr, ...) @printf(ptr noundef @.str.8, i32 noundef %138)
+  br label %140
+
+140:                                              ; preds = %136, %132
+  %141 = call i64 @Abc_Clock()
+  store i64 %141, ptr %10, align 8
+  %142 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13
+  %143 = load i32, ptr %142, align 4
+  %144 = icmp ne i32 %143, 0
+  br i1 %144, label %145, label %147
+
+145:                                              ; preds = %140
+  %146 = call i32 (ptr, ...) @printf(ptr noundef @.str.9)
   br label %147
 
-147:                                              ; preds = %139, %131
-  %148 = getelementptr inbounds [1000 x i8], ptr %15, i64 0, i64 0
-  %149 = load ptr, ptr %9, align 8
-  %150 = icmp ne ptr %149, null
-  br i1 %150, label %151, label %153
+147:                                              ; preds = %145, %140
+  %148 = load ptr, ptr %6, align 8
+  call void @AddCubesToStartingCover(ptr noundef %148)
+  %149 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ne i32 %150, 0
+  br i1 %151, label %152, label %154
 
-151:                                              ; preds = %147
-  %152 = load ptr, ptr %9, align 8
+152:                                              ; preds = %147
+  %153 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
   br label %154
 
-153:                                              ; preds = %147
-  br label %154
+154:                                              ; preds = %152, %147
+  %155 = call i64 @Abc_Clock()
+  store i64 %155, ptr %10, align 8
+  %156 = call i32 @ReduceEsopCover()
+  %157 = call i64 @Abc_Clock()
+  %158 = load i64, ptr %10, align 8
+  %159 = sub nsw i64 %157, %158
+  %160 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 19
+  store i64 %159, ptr %160, align 8
+  %161 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13
+  %162 = load i32, ptr %161, align 4
+  %163 = icmp ne i32 %162, 0
+  br i1 %163, label %164, label %174
 
-154:                                              ; preds = %153, %151
-  %155 = phi ptr [ %152, %151 ], [ @.str.14, %153 ]
-  %156 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %148, ptr noundef @.str.13, ptr noundef %155) #8
-  %157 = getelementptr inbounds [1000 x i8], ptr %15, i64 0, i64 0
-  %158 = call i32 @WriteResultIntoFile(ptr noundef %157)
-  %159 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13), align 4
-  %160 = icmp ne i32 %159, 0
-  br i1 %160, label %161, label %164
+164:                                              ; preds = %154
+  %165 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 19
+  %166 = load i64, ptr %165, align 8
+  %167 = sitofp i64 %166 to float
+  %168 = fdiv float %167, 1.000000e+06
+  %169 = fpext float %168 to double
+  %170 = call i32 (ptr, ...) @printf(ptr noundef @.str.11, double noundef %169)
+  %171 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 6
+  %172 = load i32, ptr %171, align 8
+  %173 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, i32 noundef %172)
+  br label %174
 
-161:                                              ; preds = %154
-  %162 = getelementptr inbounds [1000 x i8], ptr %15, i64 0, i64 0
-  %163 = call i32 (ptr, ...) @printf(ptr noundef @.str.15, ptr noundef %162)
-  br label %164
+174:                                              ; preds = %164, %154
+  %175 = getelementptr inbounds [1000 x i8], ptr %15, i64 0, i64 0
+  %176 = load ptr, ptr %9, align 8
+  %177 = icmp ne ptr %176, null
+  br i1 %177, label %178, label %180
 
-164:                                              ; preds = %161, %154
+178:                                              ; preds = %174
+  %179 = load ptr, ptr %9, align 8
+  br label %181
+
+180:                                              ; preds = %174
+  br label %181
+
+181:                                              ; preds = %180, %178
+  %182 = phi ptr [ %179, %178 ], [ @.str.14, %180 ]
+  %183 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %175, ptr noundef @.str.13, ptr noundef %182) #8
+  %184 = getelementptr inbounds [1000 x i8], ptr %15, i64 0, i64 0
+  %185 = call i32 @WriteResultIntoFile(ptr noundef %184)
+  %186 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13
+  %187 = load i32, ptr %186, align 4
+  %188 = icmp ne i32 %187, 0
+  br i1 %188, label %189, label %192
+
+189:                                              ; preds = %181
+  %190 = getelementptr inbounds [1000 x i8], ptr %15, i64 0, i64 0
+  %191 = call i32 (ptr, ...) @printf(ptr noundef @.str.15, ptr noundef %190)
+  br label %192
+
+192:                                              ; preds = %189, %181
   call void (...) @DelocateCubeSets()
   call void (...) @DelocateCover()
   call void (...) @DelocateQueques()
   store i32 1, ptr %5, align 4
-  br label %165
+  br label %193
 
-165:                                              ; preds = %164, %106, %92, %80, %68
-  %166 = load i32, ptr %5, align 4
-  ret i32 %166
+193:                                              ; preds = %192, %126, %110, %97, %79
+  %194 = load i32, ptr %5, align 4
+  ret i32 %194
 }
 
 declare i32 @AllocateCover(i32 noundef, i32 noundef, i32 noundef) #1
@@ -1456,58 +1502,63 @@ define i32 @Abc_ExorcismMain(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   store i32 %7, ptr %17, align 4
   call void @llvm.memset.p0.i64(ptr align 8 @g_CoverInfo, i8 0, i64 96, i1 false)
   %18 = load i32, ptr %14, align 4
-  store i32 %18, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 14), align 8
-  %19 = load i32, ptr %15, align 4
-  store i32 %19, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13), align 4
-  %20 = load i32, ptr %16, align 4
-  store i32 %20, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 15), align 4
-  %21 = load i32, ptr %17, align 4
-  store i32 %21, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 16), align 8
-  %22 = load i32, ptr %17, align 4
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %25
-
-24:                                               ; preds = %8
-  store i32 1, ptr @s_fDecreaseLiterals, align 4
-  br label %25
-
-25:                                               ; preds = %24, %8
-  %26 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13), align 4
+  %19 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 14
+  store i32 %18, ptr %19, align 8
+  %20 = load i32, ptr %15, align 4
+  %21 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13
+  store i32 %20, ptr %21, align 4
+  %22 = load i32, ptr %16, align 4
+  %23 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 15
+  store i32 %22, ptr %23, align 4
+  %24 = load i32, ptr %17, align 4
+  %25 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 16
+  store i32 %24, ptr %25, align 8
+  %26 = load i32, ptr %17, align 4
   %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %36
+  br i1 %27, label %28, label %29
 
-28:                                               ; preds = %25
-  %29 = call i32 (ptr, ...) @printf(ptr noundef @.str.16)
-  %30 = call i32 (ptr, ...) @printf(ptr noundef @.str.17)
-  %31 = load i32, ptr %11, align 4
-  %32 = load i32, ptr %12, align 4
-  %33 = load ptr, ptr %10, align 8
-  %34 = call i32 @Vec_WecSize(ptr noundef %33)
-  %35 = call i32 (ptr, ...) @printf(ptr noundef @.str.18, i32 noundef %31, i32 noundef %32, i32 noundef %34)
-  br label %36
+28:                                               ; preds = %8
+  store i32 1, ptr @s_fDecreaseLiterals, align 4
+  br label %29
 
-36:                                               ; preds = %28, %25
+29:                                               ; preds = %28, %8
+  %30 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %41
+
+33:                                               ; preds = %29
+  %34 = call i32 (ptr, ...) @printf(ptr noundef @.str.16)
+  %35 = call i32 (ptr, ...) @printf(ptr noundef @.str.17)
+  %36 = load i32, ptr %11, align 4
+  %37 = load i32, ptr %12, align 4
+  %38 = load ptr, ptr %10, align 8
+  %39 = call i32 @Vec_WecSize(ptr noundef %38)
+  %40 = call i32 (ptr, ...) @printf(ptr noundef @.str.18, i32 noundef %36, i32 noundef %37, i32 noundef %39)
+  br label %41
+
+41:                                               ; preds = %33, %29
   call void (...) @PrepareBitSetModule()
-  %37 = load ptr, ptr %10, align 8
-  %38 = load i32, ptr %11, align 4
-  %39 = load i32, ptr %12, align 4
-  %40 = load ptr, ptr %13, align 8
-  %41 = call i32 @Exorcism(ptr noundef %37, i32 noundef %38, i32 noundef %39, ptr noundef %40)
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %45
+  %42 = load ptr, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  %44 = load i32, ptr %12, align 4
+  %45 = load ptr, ptr %13, align 8
+  %46 = call i32 @Exorcism(ptr noundef %42, i32 noundef %43, i32 noundef %44, ptr noundef %45)
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %50
 
-43:                                               ; preds = %36
-  %44 = call i32 (ptr, ...) @printf(ptr noundef @.str.19)
+48:                                               ; preds = %41
+  %49 = call i32 (ptr, ...) @printf(ptr noundef @.str.19)
   store i32 0, ptr %9, align 4
-  br label %46
+  br label %51
 
-45:                                               ; preds = %36
+50:                                               ; preds = %41
   store i32 1, ptr %9, align 4
-  br label %46
+  br label %51
 
-46:                                               ; preds = %45, %43
-  %47 = load i32, ptr %9, align 4
-  ret i32 %47
+51:                                               ; preds = %50, %48
+  %52 = load i32, ptr %9, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

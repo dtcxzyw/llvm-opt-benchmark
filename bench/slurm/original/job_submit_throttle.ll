@@ -316,42 +316,43 @@ define i32 @job_submit(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @_get_config() #0 {
   %1 = alloca ptr, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 159), align 8
-  %3 = call ptr @slurm_xstrcasestr(ptr noundef %2, ptr noundef @.str.4)
-  store ptr %3, ptr %1, align 8
-  %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %9
+  %2 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 159
+  %3 = load ptr, ptr %2, align 8
+  %4 = call ptr @slurm_xstrcasestr(ptr noundef %3, ptr noundef @.str.4)
+  store ptr %4, ptr %1, align 8
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %6, label %10
 
-5:                                                ; preds = %0
-  %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 23
-  %8 = call i32 @atoi(ptr noundef %7) #9
-  store i32 %8, ptr @jobs_per_user_per_hour, align 4
-  br label %9
-
-9:                                                ; preds = %5, %0
+6:                                                ; preds = %0
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 23
+  %9 = call i32 @atoi(ptr noundef %8) #9
+  store i32 %9, ptr @jobs_per_user_per_hour, align 4
   br label %10
 
-10:                                               ; preds = %9
+10:                                               ; preds = %6, %0
   br label %11
 
 11:                                               ; preds = %10
-  %12 = call i32 @slurm_get_log_level()
-  %13 = icmp sge i32 %12, 3
-  br i1 %13, label %14, label %16
+  br label %12
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr @jobs_per_user_per_hour, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef @.str.5, ptr noundef @plugin_type, ptr noundef @__func__._get_config, ptr noundef @plugin_type, i32 noundef %15)
-  br label %16
+12:                                               ; preds = %11
+  %13 = call i32 @slurm_get_log_level()
+  %14 = icmp sge i32 %13, 3
+  br i1 %14, label %15, label %17
 
-16:                                               ; preds = %14, %11
+15:                                               ; preds = %12
+  %16 = load i32, ptr @jobs_per_user_per_hour, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef @.str.5, ptr noundef @plugin_type, ptr noundef @__func__._get_config, ptr noundef @plugin_type, i32 noundef %16)
   br label %17
 
-17:                                               ; preds = %16
+17:                                               ; preds = %15, %12
   br label %18
 
 18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
   ret void
 }
 

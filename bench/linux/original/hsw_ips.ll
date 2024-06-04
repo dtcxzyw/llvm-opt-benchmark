@@ -462,25 +462,25 @@ define dso_local i32 @hsw_ips_compute_config(ptr noundef %0, ptr nocapture nound
   %20 = and i32 %16, 8388608
   %21 = or disjoint i32 %19, %20
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %77, label %23
+  br i1 %22, label %78, label %23
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds i8, ptr %13, i64 1648
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %77
+  br i1 %26, label %27, label %78
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %14, i64 6776
   %29 = load i8, ptr %28, align 8, !range !5, !noundef !6
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %77, label %31
+  br i1 %30, label %78, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %11, i64 1364
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, 24
-  br i1 %34, label %77, label %35
+  br i1 %34, label %78, label %35
 
 35:                                               ; preds = %31
   %36 = icmp eq i32 %20, 0
@@ -494,60 +494,61 @@ define dso_local i32 @hsw_ips_compute_config(ptr noundef %0, ptr nocapture nound
   %42 = mul i32 %41, 95
   %43 = udiv i32 %42, 100
   %44 = icmp ugt i32 %39, %43
-  br i1 %44, label %77, label %45
+  br i1 %44, label %78, label %45
 
 45:                                               ; preds = %37, %35
   %46 = getelementptr inbounds i8, ptr %11, i64 1517
   %47 = load i8, ptr %46, align 1, !range !5, !noundef !6
   %48 = icmp eq i8 %47, 0
-  br i1 %48, label %49, label %77
+  br i1 %48, label %49, label %78
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds i8, ptr %11, i64 4329
   %51 = load i8, ptr %50, align 1
   %52 = and i8 %51, 127
   %53 = icmp eq i8 %52, 0
-  br i1 %53, label %77, label %54
+  br i1 %53, label %78, label %54
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds i8, ptr %4, i64 7184
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 8388608
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %76, label %59
+  br i1 %58, label %77, label %59
 
 59:                                               ; preds = %54
   %60 = tail call ptr @intel_atomic_get_cdclk_state(ptr noundef %0) #5
-  %61 = icmp ugt ptr %60, inttoptr (i64 -4096 to ptr)
-  br i1 %61, label %62, label %65
+  %61 = inttoptr i64 -4096 to ptr
+  %62 = icmp ugt ptr %60, %61
+  br i1 %62, label %63, label %66
 
-62:                                               ; preds = %59
-  %63 = ptrtoint ptr %60 to i64
-  %64 = trunc i64 %63 to i32
-  br label %73
+63:                                               ; preds = %59
+  %64 = ptrtoint ptr %60 to i64
+  %65 = trunc i64 %64 to i32
+  br label %74
 
-65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %11, i64 856
-  %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %60, i64 24
-  %69 = load i32, ptr %68, align 8
-  %70 = mul i32 %69, 95
-  %71 = udiv i32 %70, 100
-  %72 = icmp ule i32 %67, %71
-  br label %73
+66:                                               ; preds = %59
+  %67 = getelementptr inbounds i8, ptr %11, i64 856
+  %68 = load i32, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %60, i64 24
+  %70 = load i32, ptr %69, align 8
+  %71 = mul i32 %70, 95
+  %72 = udiv i32 %71, 100
+  %73 = icmp ule i32 %68, %72
+  br label %74
 
-73:                                               ; preds = %65, %62
-  %74 = phi i32 [ %64, %62 ], [ 0, %65 ]
-  %75 = phi i1 [ false, %62 ], [ %72, %65 ]
-  br i1 %75, label %76, label %77
+74:                                               ; preds = %66, %63
+  %75 = phi i32 [ %65, %63 ], [ 0, %66 ]
+  %76 = phi i1 [ false, %63 ], [ %73, %66 ]
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %73, %54
+77:                                               ; preds = %74, %54
   store i8 1, ptr %12, align 4
-  br label %77
+  br label %78
 
-77:                                               ; preds = %76, %73, %49, %45, %37, %31, %27, %23, %2
-  %78 = phi i32 [ 0, %76 ], [ %74, %73 ], [ 0, %45 ], [ 0, %49 ], [ 0, %2 ], [ 0, %23 ], [ 0, %27 ], [ 0, %31 ], [ 0, %37 ]
-  ret i32 %78
+78:                                               ; preds = %77, %74, %49, %45, %37, %31, %27, %23, %2
+  %79 = phi i32 [ 0, %77 ], [ %75, %74 ], [ 0, %45 ], [ 0, %49 ], [ 0, %2 ], [ 0, %23 ], [ 0, %27 ], [ 0, %31 ], [ 0, %37 ]
+  ret i32 %79
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -323,80 +323,96 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %do.body
 
 do.body:                                          ; preds = %if.end
-  %3 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  %add = add i64 %3, 1
-  %4 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 3), align 8
-  %cmp1 = icmp ugt i64 %add, %4
+  %3 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %4 = load i64, ptr %3, align 8
+  %add = add i64 %4, 1
+  %5 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 3
+  %6 = load i64, ptr %5, align 8
+  %cmp1 = icmp ugt i64 %add, %6
   br i1 %cmp1, label %if.then2, label %if.end14
 
 if.then2:                                         ; preds = %do.body
-  %5 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 3), align 8
-  %add3 = add i64 %5, 16
+  %7 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 3
+  %8 = load i64, ptr %7, align 8
+  %add3 = add i64 %8, 16
   %mul = mul i64 %add3, 3
   %div = udiv i64 %mul, 2
-  %6 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  %add4 = add i64 %6, 1
+  %9 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %10 = load i64, ptr %9, align 8
+  %add4 = add i64 %10, 1
   %cmp5 = icmp ult i64 %div, %add4
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then2
-  %7 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  %add7 = add i64 %7, 1
-  store i64 %add7, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 3), align 8
+  %11 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %12 = load i64, ptr %11, align 8
+  %add7 = add i64 %12, 1
+  %13 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 3
+  store i64 %add7, ptr %13, align 8
   br label %if.end11
 
 if.else:                                          ; preds = %if.then2
-  %8 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 3), align 8
-  %add8 = add i64 %8, 16
+  %14 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 3
+  %15 = load i64, ptr %14, align 8
+  %add8 = add i64 %15, 16
   %mul9 = mul i64 %add8, 3
   %div10 = udiv i64 %mul9, 2
-  store i64 %div10, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 3), align 8
+  %16 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 3
+  store i64 %div10, ptr %16, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.then6
-  %9 = load ptr, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1), align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 3), align 8
-  %call12 = call i64 @st_mult(i64 noundef 208, i64 noundef %10)
-  %call13 = call ptr @xrealloc(ptr noundef %9, i64 noundef %call12)
-  store ptr %call13, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1), align 8
+  %17 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 3
+  %20 = load i64, ptr %19, align 8
+  %call12 = call i64 @st_mult(i64 noundef 208, i64 noundef %20)
+  %call13 = call ptr @xrealloc(ptr noundef %18, i64 noundef %call12)
+  %21 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1
+  store ptr %call13, ptr %21, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end11, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end14
-  %11 = load ptr, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1), align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  %arrayidx = getelementptr inbounds %struct.parallel_checkout_item, ptr %11, i64 %12
+  %22 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %25 = load i64, ptr %24, align 8
+  %arrayidx = getelementptr inbounds %struct.parallel_checkout_item, ptr %23, i64 %25
   store ptr %arrayidx, ptr %pc_item, align 8
-  %13 = load ptr, ptr %ce.addr, align 8
-  %14 = load ptr, ptr %pc_item, align 8
-  %ce15 = getelementptr inbounds %struct.parallel_checkout_item, ptr %14, i32 0, i32 0
-  store ptr %13, ptr %ce15, align 8
-  %15 = load ptr, ptr %pc_item, align 8
-  %ca16 = getelementptr inbounds %struct.parallel_checkout_item, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %ca.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ca16, ptr align 8 %16, i64 32, i1 false)
-  %17 = load ptr, ptr %pc_item, align 8
-  %status = getelementptr inbounds %struct.parallel_checkout_item, ptr %17, i32 0, i32 4
+  %26 = load ptr, ptr %ce.addr, align 8
+  %27 = load ptr, ptr %pc_item, align 8
+  %ce15 = getelementptr inbounds %struct.parallel_checkout_item, ptr %27, i32 0, i32 0
+  store ptr %26, ptr %ce15, align 8
+  %28 = load ptr, ptr %pc_item, align 8
+  %ca16 = getelementptr inbounds %struct.parallel_checkout_item, ptr %28, i32 0, i32 1
+  %29 = load ptr, ptr %ca.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ca16, ptr align 8 %29, i64 32, i1 false)
+  %30 = load ptr, ptr %pc_item, align 8
+  %status = getelementptr inbounds %struct.parallel_checkout_item, ptr %30, i32 0, i32 4
   store i32 0, ptr %status, align 8
-  %18 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  %19 = load ptr, ptr %pc_item, align 8
-  %id = getelementptr inbounds %struct.parallel_checkout_item, ptr %19, i32 0, i32 2
-  store i64 %18, ptr %id, align 8
-  %20 = load ptr, ptr %checkout_counter.addr, align 8
-  %21 = load ptr, ptr %pc_item, align 8
-  %checkout_counter17 = getelementptr inbounds %struct.parallel_checkout_item, ptr %21, i32 0, i32 3
-  store ptr %20, ptr %checkout_counter17, align 8
-  %22 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  %inc = add i64 %22, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
+  %31 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %32 = load i64, ptr %31, align 8
+  %33 = load ptr, ptr %pc_item, align 8
+  %id = getelementptr inbounds %struct.parallel_checkout_item, ptr %33, i32 0, i32 2
+  store i64 %32, ptr %id, align 8
+  %34 = load ptr, ptr %checkout_counter.addr, align 8
+  %35 = load ptr, ptr %pc_item, align 8
+  %checkout_counter17 = getelementptr inbounds %struct.parallel_checkout_item, ptr %35, i32 0, i32 3
+  store ptr %34, ptr %checkout_counter17, align 8
+  %36 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %37 = load i64, ptr %36, align 8
+  %inc = add i64 %37, 1
+  %38 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  store i64 %inc, ptr %38, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %do.end, %if.then
-  %23 = load i32, ptr %retval, align 4
-  ret i32 %23
+  %39 = load i32, ptr %retval, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: nounwind uwtable
@@ -531,8 +547,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pc_queue_size() #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  ret i64 %0
+  %0 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %1 = load i64, ptr %0, align 8
+  ret i64 %1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -974,58 +991,63 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store i32 2, ptr @parallel_checkout, align 8
   %1 = load ptr, ptr %progress.addr, align 8
-  store ptr %1, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 4), align 8
-  %2 = load ptr, ptr %progress_cnt.addr, align 8
-  store ptr %2, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 5), align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  %4 = load i32, ptr %num_workers.addr, align 4
-  %conv = sext i32 %4 to i64
-  %cmp1 = icmp ult i64 %3, %conv
+  %2 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 4
+  store ptr %1, ptr %2, align 8
+  %3 = load ptr, ptr %progress_cnt.addr, align 8
+  %4 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 5
+  store ptr %3, ptr %4, align 8
+  %5 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %6 = load i64, ptr %5, align 8
+  %7 = load i32, ptr %num_workers.addr, align 4
+  %conv = sext i32 %7 to i64
+  %cmp1 = icmp ult i64 %6, %conv
   br i1 %cmp1, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %5 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  %conv4 = trunc i64 %5 to i32
+  %8 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %9 = load i64, ptr %8, align 8
+  %conv4 = trunc i64 %9 to i32
   store i32 %conv4, ptr %num_workers.addr, align 4
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %6 = load i32, ptr %num_workers.addr, align 4
-  %cmp6 = icmp sle i32 %6, 1
+  %10 = load i32, ptr %num_workers.addr, align 4
+  %cmp6 = icmp sle i32 %10, 1
   br i1 %cmp6, label %if.then11, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end5
-  %7 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  %8 = load i32, ptr %threshold.addr, align 4
-  %conv8 = sext i32 %8 to i64
-  %cmp9 = icmp ult i64 %7, %conv8
+  %11 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %12 = load i64, ptr %11, align 8
+  %13 = load i32, ptr %threshold.addr, align 4
+  %conv8 = sext i32 %13 to i64
+  %cmp9 = icmp ult i64 %12, %conv8
   br i1 %cmp9, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %lor.lhs.false, %if.end5
-  %9 = load ptr, ptr %state.addr, align 8
-  call void @write_items_sequentially(ptr noundef %9)
+  %14 = load ptr, ptr %state.addr, align 8
+  call void @write_items_sequentially(ptr noundef %14)
   br label %if.end12
 
 if.else:                                          ; preds = %lor.lhs.false
-  %10 = load ptr, ptr %state.addr, align 8
-  %11 = load i32, ptr %num_workers.addr, align 4
-  %call = call ptr @setup_workers(ptr noundef %10, i32 noundef %11)
+  %15 = load ptr, ptr %state.addr, align 8
+  %16 = load i32, ptr %num_workers.addr, align 4
+  %call = call ptr @setup_workers(ptr noundef %15, i32 noundef %16)
   store ptr %call, ptr %workers, align 8
-  %12 = load ptr, ptr %workers, align 8
-  %13 = load i32, ptr %num_workers.addr, align 4
-  call void @gather_results_from_workers(ptr noundef %12, i32 noundef %13)
-  %14 = load ptr, ptr %workers, align 8
-  %15 = load i32, ptr %num_workers.addr, align 4
-  call void @finish_workers(ptr noundef %14, i32 noundef %15)
+  %17 = load ptr, ptr %workers, align 8
+  %18 = load i32, ptr %num_workers.addr, align 4
+  call void @gather_results_from_workers(ptr noundef %17, i32 noundef %18)
+  %19 = load ptr, ptr %workers, align 8
+  %20 = load i32, ptr %num_workers.addr, align 4
+  call void @finish_workers(ptr noundef %19, i32 noundef %20)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %if.then11
-  %16 = load ptr, ptr %state.addr, align 8
-  %call13 = call i32 @handle_results(ptr noundef %16)
+  %21 = load ptr, ptr %state.addr, align 8
+  %call13 = call i32 @handle_results(ptr noundef %21)
   store i32 %call13, ptr %ret, align 4
   call void @finish_parallel_checkout()
-  %17 = load i32, ptr %ret, align 4
-  ret i32 %17
+  %22 = load i32, ptr %ret, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1040,22 +1062,24 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load i64, ptr %i, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  %cmp = icmp ult i64 %0, %1
+  %1 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %2 = load i64, ptr %1, align 8
+  %cmp = icmp ult i64 %0, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1), align 8
-  %3 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds %struct.parallel_checkout_item, ptr %2, i64 %3
+  %3 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds %struct.parallel_checkout_item, ptr %4, i64 %5
   store ptr %arrayidx, ptr %pc_item, align 8
-  %4 = load ptr, ptr %pc_item, align 8
-  %5 = load ptr, ptr %state.addr, align 8
-  call void @write_pc_item(ptr noundef %4, ptr noundef %5)
   %6 = load ptr, ptr %pc_item, align 8
-  %status = getelementptr inbounds %struct.parallel_checkout_item, ptr %6, i32 0, i32 4
-  %7 = load i32, ptr %status, align 8
-  %cmp1 = icmp ne i32 %7, 2
+  %7 = load ptr, ptr %state.addr, align 8
+  call void @write_pc_item(ptr noundef %6, ptr noundef %7)
+  %8 = load ptr, ptr %pc_item, align 8
+  %status = getelementptr inbounds %struct.parallel_checkout_item, ptr %8, i32 0, i32 4
+  %9 = load i32, ptr %status, align 8
+  %cmp1 = icmp ne i32 %9, 2
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
@@ -1066,8 +1090,8 @@ if.end:                                           ; preds = %if.then, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %8 = load i64, ptr %i, align 8
-  %inc = add i64 %8, 1
+  %10 = load i64, ptr %i, align 8
+  %inc = add i64 %10, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !5
 
@@ -1170,76 +1194,78 @@ for.inc:                                          ; preds = %if.end13
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %for.cond
-  %18 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  %19 = load i32, ptr %num_workers.addr, align 4
-  %conv14 = sext i32 %19 to i64
-  %div = udiv i64 %18, %conv14
+  %18 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %19 = load i64, ptr %18, align 8
+  %20 = load i32, ptr %num_workers.addr, align 4
+  %conv14 = sext i32 %20 to i64
+  %div = udiv i64 %19, %conv14
   store i64 %div, ptr %base_batch_size, align 8
-  %20 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  %21 = load i32, ptr %num_workers.addr, align 4
-  %conv15 = sext i32 %21 to i64
-  %rem = urem i64 %20, %conv15
+  %21 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %22 = load i64, ptr %21, align 8
+  %23 = load i32, ptr %num_workers.addr, align 4
+  %conv15 = sext i32 %23 to i64
+  %rem = urem i64 %22, %conv15
   %conv16 = trunc i64 %rem to i32
   store i32 %conv16, ptr %workers_with_one_extra_item, align 4
   store i32 0, ptr %i, align 4
   br label %for.cond17
 
 for.cond17:                                       ; preds = %for.inc30, %for.end
-  %22 = load i32, ptr %i, align 4
-  %23 = load i32, ptr %num_workers.addr, align 4
-  %cmp18 = icmp slt i32 %22, %23
+  %24 = load i32, ptr %i, align 4
+  %25 = load i32, ptr %num_workers.addr, align 4
+  %cmp18 = icmp slt i32 %24, %25
   br i1 %cmp18, label %for.body20, label %for.end32
 
 for.body20:                                       ; preds = %for.cond17
-  %24 = load ptr, ptr %workers, align 8
-  %25 = load i32, ptr %i, align 4
-  %idxprom21 = sext i32 %25 to i64
-  %arrayidx22 = getelementptr inbounds %struct.pc_worker, ptr %24, i64 %idxprom21
-  store ptr %arrayidx22, ptr %worker, align 8
-  %26 = load i64, ptr %base_batch_size, align 8
-  store i64 %26, ptr %batch_size, align 8
+  %26 = load ptr, ptr %workers, align 8
   %27 = load i32, ptr %i, align 4
-  %28 = load i32, ptr %workers_with_one_extra_item, align 4
-  %cmp23 = icmp slt i32 %27, %28
+  %idxprom21 = sext i32 %27 to i64
+  %arrayidx22 = getelementptr inbounds %struct.pc_worker, ptr %26, i64 %idxprom21
+  store ptr %arrayidx22, ptr %worker, align 8
+  %28 = load i64, ptr %base_batch_size, align 8
+  store i64 %28, ptr %batch_size, align 8
+  %29 = load i32, ptr %i, align 4
+  %30 = load i32, ptr %workers_with_one_extra_item, align 4
+  %cmp23 = icmp slt i32 %29, %30
   br i1 %cmp23, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %for.body20
-  %29 = load i64, ptr %batch_size, align 8
-  %inc26 = add i64 %29, 1
+  %31 = load i64, ptr %batch_size, align 8
+  %inc26 = add i64 %31, 1
   store i64 %inc26, ptr %batch_size, align 8
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then25, %for.body20
-  %30 = load ptr, ptr %worker, align 8
-  %cp28 = getelementptr inbounds %struct.pc_worker, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %worker, align 8
+  %cp28 = getelementptr inbounds %struct.pc_worker, ptr %32, i32 0, i32 0
   %in29 = getelementptr inbounds %struct.child_process, ptr %cp28, i32 0, i32 7
-  %31 = load i32, ptr %in29, align 8
-  %32 = load i64, ptr %batch_beginning, align 8
-  %33 = load i64, ptr %batch_size, align 8
-  call void @send_batch(i32 noundef %31, i64 noundef %32, i64 noundef %33)
+  %33 = load i32, ptr %in29, align 8
   %34 = load i64, ptr %batch_beginning, align 8
-  %35 = load ptr, ptr %worker, align 8
-  %next_item_to_complete = getelementptr inbounds %struct.pc_worker, ptr %35, i32 0, i32 1
-  store i64 %34, ptr %next_item_to_complete, align 8
-  %36 = load i64, ptr %batch_size, align 8
+  %35 = load i64, ptr %batch_size, align 8
+  call void @send_batch(i32 noundef %33, i64 noundef %34, i64 noundef %35)
+  %36 = load i64, ptr %batch_beginning, align 8
   %37 = load ptr, ptr %worker, align 8
-  %nr_items_to_complete = getelementptr inbounds %struct.pc_worker, ptr %37, i32 0, i32 2
-  store i64 %36, ptr %nr_items_to_complete, align 8
+  %next_item_to_complete = getelementptr inbounds %struct.pc_worker, ptr %37, i32 0, i32 1
+  store i64 %36, ptr %next_item_to_complete, align 8
   %38 = load i64, ptr %batch_size, align 8
-  %39 = load i64, ptr %batch_beginning, align 8
-  %add = add i64 %39, %38
+  %39 = load ptr, ptr %worker, align 8
+  %nr_items_to_complete = getelementptr inbounds %struct.pc_worker, ptr %39, i32 0, i32 2
+  store i64 %38, ptr %nr_items_to_complete, align 8
+  %40 = load i64, ptr %batch_size, align 8
+  %41 = load i64, ptr %batch_beginning, align 8
+  %add = add i64 %41, %40
   store i64 %add, ptr %batch_beginning, align 8
   br label %for.inc30
 
 for.inc30:                                        ; preds = %if.end27
-  %40 = load i32, ptr %i, align 4
-  %inc31 = add nsw i32 %40, 1
+  %42 = load i32, ptr %i, align 4
+  %inc31 = add nsw i32 %42, 1
   store i32 %inc31, ptr %i, align 4
   br label %for.cond17, !llvm.loop !8
 
 for.end32:                                        ; preds = %for.cond17
-  %41 = load ptr, ptr %workers, align 8
-  ret ptr %41
+  %43 = load ptr, ptr %workers, align 8
+  ret ptr %43
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1600,37 +1626,39 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load i64, ptr %i, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  %cmp = icmp ult i64 %0, %1
+  %1 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %2 = load i64, ptr %1, align 8
+  %cmp = icmp ult i64 %0, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1), align 8
-  %3 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds %struct.parallel_checkout_item, ptr %2, i64 %3
+  %3 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds %struct.parallel_checkout_item, ptr %4, i64 %5
   store ptr %arrayidx, ptr %pc_item, align 8
-  %4 = load ptr, ptr %pc_item, align 8
-  %status = getelementptr inbounds %struct.parallel_checkout_item, ptr %4, i32 0, i32 4
-  %5 = load i32, ptr %status, align 8
-  %cmp1 = icmp eq i32 %5, 1
+  %6 = load ptr, ptr %pc_item, align 8
+  %status = getelementptr inbounds %struct.parallel_checkout_item, ptr %6, i32 0, i32 4
+  %7 = load i32, ptr %status, align 8
+  %cmp1 = icmp eq i32 %7, 1
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %6 = load ptr, ptr %state.addr, align 8
-  %7 = load ptr, ptr %pc_item, align 8
-  %ce = getelementptr inbounds %struct.parallel_checkout_item, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %ce, align 8
+  %8 = load ptr, ptr %state.addr, align 8
   %9 = load ptr, ptr %pc_item, align 8
-  %st = getelementptr inbounds %struct.parallel_checkout_item, ptr %9, i32 0, i32 5
-  call void @update_ce_after_write(ptr noundef %6, ptr noundef %8, ptr noundef %st)
+  %ce = getelementptr inbounds %struct.parallel_checkout_item, ptr %9, i32 0, i32 0
+  %10 = load ptr, ptr %ce, align 8
+  %11 = load ptr, ptr %pc_item, align 8
+  %st = getelementptr inbounds %struct.parallel_checkout_item, ptr %11, i32 0, i32 5
+  call void @update_ce_after_write(ptr noundef %8, ptr noundef %10, ptr noundef %st)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %10 = load i64, ptr %i, align 8
-  %inc = add i64 %10, 1
+  %12 = load i64, ptr %i, align 8
+  %inc = add i64 %12, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !14
 
@@ -1639,20 +1667,22 @@ for.end:                                          ; preds = %for.cond
   br label %for.cond2
 
 for.cond2:                                        ; preds = %for.inc17, %for.end
-  %11 = load i64, ptr %i, align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2), align 8
-  %cmp3 = icmp ult i64 %11, %12
+  %13 = load i64, ptr %i, align 8
+  %14 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 2
+  %15 = load i64, ptr %14, align 8
+  %cmp3 = icmp ult i64 %13, %15
   br i1 %cmp3, label %for.body4, label %for.end19
 
 for.body4:                                        ; preds = %for.cond2
-  %13 = load ptr, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1), align 8
-  %14 = load i64, ptr %i, align 8
-  %arrayidx6 = getelementptr inbounds %struct.parallel_checkout_item, ptr %13, i64 %14
+  %16 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i64, ptr %i, align 8
+  %arrayidx6 = getelementptr inbounds %struct.parallel_checkout_item, ptr %17, i64 %18
   store ptr %arrayidx6, ptr %pc_item5, align 8
-  %15 = load ptr, ptr %pc_item5, align 8
-  %status7 = getelementptr inbounds %struct.parallel_checkout_item, ptr %15, i32 0, i32 4
-  %16 = load i32, ptr %status7, align 8
-  switch i32 %16, label %sw.default [
+  %19 = load ptr, ptr %pc_item5, align 8
+  %status7 = getelementptr inbounds %struct.parallel_checkout_item, ptr %19, i32 0, i32 4
+  %20 = load i32, ptr %status7, align 8
+  switch i32 %20, label %sw.default [
     i32 1, label %sw.bb
     i32 2, label %sw.bb12
     i32 0, label %sw.bb15
@@ -1660,37 +1690,37 @@ for.body4:                                        ; preds = %for.cond2
   ]
 
 sw.bb:                                            ; preds = %for.body4
-  %17 = load ptr, ptr %pc_item5, align 8
-  %checkout_counter = getelementptr inbounds %struct.parallel_checkout_item, ptr %17, i32 0, i32 3
-  %18 = load ptr, ptr %checkout_counter, align 8
-  %tobool = icmp ne ptr %18, null
+  %21 = load ptr, ptr %pc_item5, align 8
+  %checkout_counter = getelementptr inbounds %struct.parallel_checkout_item, ptr %21, i32 0, i32 3
+  %22 = load ptr, ptr %checkout_counter, align 8
+  %tobool = icmp ne ptr %22, null
   br i1 %tobool, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %sw.bb
-  %19 = load ptr, ptr %pc_item5, align 8
-  %checkout_counter9 = getelementptr inbounds %struct.parallel_checkout_item, ptr %19, i32 0, i32 3
-  %20 = load ptr, ptr %checkout_counter9, align 8
-  %21 = load i32, ptr %20, align 4
-  %inc10 = add nsw i32 %21, 1
-  store i32 %inc10, ptr %20, align 4
+  %23 = load ptr, ptr %pc_item5, align 8
+  %checkout_counter9 = getelementptr inbounds %struct.parallel_checkout_item, ptr %23, i32 0, i32 3
+  %24 = load ptr, ptr %checkout_counter9, align 8
+  %25 = load i32, ptr %24, align 4
+  %inc10 = add nsw i32 %25, 1
+  store i32 %inc10, ptr %24, align 4
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %sw.bb
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %for.body4
-  %22 = load ptr, ptr %pc_item5, align 8
-  %ce13 = getelementptr inbounds %struct.parallel_checkout_item, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %ce13, align 8
-  %24 = load ptr, ptr %pc_item5, align 8
-  %ca = getelementptr inbounds %struct.parallel_checkout_item, ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %state.addr, align 8
   %26 = load ptr, ptr %pc_item5, align 8
-  %checkout_counter14 = getelementptr inbounds %struct.parallel_checkout_item, ptr %26, i32 0, i32 3
-  %27 = load ptr, ptr %checkout_counter14, align 8
-  %call = call i32 @checkout_entry_ca(ptr noundef %23, ptr noundef %ca, ptr noundef %25, ptr noundef null, ptr noundef %27)
-  %28 = load i32, ptr %ret, align 4
-  %or = or i32 %28, %call
+  %ce13 = getelementptr inbounds %struct.parallel_checkout_item, ptr %26, i32 0, i32 0
+  %27 = load ptr, ptr %ce13, align 8
+  %28 = load ptr, ptr %pc_item5, align 8
+  %ca = getelementptr inbounds %struct.parallel_checkout_item, ptr %28, i32 0, i32 1
+  %29 = load ptr, ptr %state.addr, align 8
+  %30 = load ptr, ptr %pc_item5, align 8
+  %checkout_counter14 = getelementptr inbounds %struct.parallel_checkout_item, ptr %30, i32 0, i32 3
+  %31 = load ptr, ptr %checkout_counter14, align 8
+  %call = call i32 @checkout_entry_ca(ptr noundef %27, ptr noundef %ca, ptr noundef %29, ptr noundef null, ptr noundef %31)
+  %32 = load i32, ptr %ret, align 4
+  %or = or i32 %32, %call
   store i32 %or, ptr %ret, align 4
   call void @advance_progress_meter()
   br label %sw.epilog
@@ -1711,14 +1741,14 @@ sw.epilog:                                        ; preds = %sw.bb16, %sw.bb12, 
   br label %for.inc17
 
 for.inc17:                                        ; preds = %sw.epilog
-  %29 = load i64, ptr %i, align 8
-  %inc18 = add i64 %29, 1
+  %33 = load i64, ptr %i, align 8
+  %inc18 = add i64 %33, 1
   store i64 %inc18, ptr %i, align 8
   br label %for.cond2, !llvm.loop !15
 
 for.end19:                                        ; preds = %for.cond2
-  %30 = load i32, ptr %have_pending, align 4
-  %tobool20 = icmp ne i32 %30, 0
+  %34 = load i32, ptr %have_pending, align 4
+  %tobool20 = icmp ne i32 %34, 0
   br i1 %tobool20, label %if.then21, label %if.end24
 
 if.then21:                                        ; preds = %for.end19
@@ -1727,8 +1757,8 @@ if.then21:                                        ; preds = %for.end19
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then21, %for.end19
-  %31 = load i32, ptr %ret, align 4
-  ret i32 %31
+  %35 = load i32, ptr %ret, align 4
+  ret i32 %35
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1743,8 +1773,9 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1), align 8
-  call void @free(ptr noundef %1) #8
+  %1 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  call void @free(ptr noundef %2) #8
   call void @llvm.memset.p0.i64(ptr align 8 @parallel_checkout, i8 0, i64 48, i1 false)
   ret void
 }
@@ -1835,20 +1866,24 @@ declare i32 @close(i32 noundef) #3
 ; Function Attrs: nounwind uwtable
 define internal void @advance_progress_meter() #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 4), align 8
-  %tobool = icmp ne ptr %0, null
+  %0 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 5), align 8
-  %2 = load i32, ptr %1, align 4
-  %inc = add i32 %2, 1
-  store i32 %inc, ptr %1, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 4), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 5), align 8
-  %5 = load i32, ptr %4, align 4
-  %conv = zext i32 %5 to i64
-  call void @display_progress(ptr noundef %3, i64 noundef %conv)
+  %2 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 5
+  %3 = load ptr, ptr %2, align 8
+  %4 = load i32, ptr %3, align 4
+  %inc = add i32 %4, 1
+  store i32 %inc, ptr %3, align 4
+  %5 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 5
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i32, ptr %8, align 4
+  %conv = zext i32 %9 to i64
+  call void @display_progress(ptr noundef %6, i64 noundef %conv)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1877,35 +1912,37 @@ entry:
   store i32 %fd, ptr %fd.addr, align 4
   store i64 %start, ptr %start.addr, align 8
   store i64 %nr, ptr %nr.addr, align 8
-  %call = call i32 @sigchain_push(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
+  %0 = inttoptr i64 1 to ptr
+  %call = call i32 @sigchain_push(i32 noundef 13, ptr noundef %0)
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = load i64, ptr %nr.addr, align 8
-  %cmp = icmp ult i64 %0, %1
+  %1 = load i64, ptr %i, align 8
+  %2 = load i64, ptr %nr.addr, align 8
+  %cmp = icmp ult i64 %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %fd.addr, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1), align 8
-  %4 = load i64, ptr %start.addr, align 8
-  %5 = load i64, ptr %i, align 8
-  %add = add i64 %4, %5
-  %arrayidx = getelementptr inbounds %struct.parallel_checkout_item, ptr %3, i64 %add
-  call void @send_one_item(i32 noundef %2, ptr noundef %arrayidx)
+  %3 = load i32, ptr %fd.addr, align 4
+  %4 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = load i64, ptr %start.addr, align 8
+  %7 = load i64, ptr %i, align 8
+  %add = add i64 %6, %7
+  %arrayidx = getelementptr inbounds %struct.parallel_checkout_item, ptr %5, i64 %add
+  call void @send_one_item(i32 noundef %3, ptr noundef %arrayidx)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %6 = load i64, ptr %i, align 8
-  %inc = add i64 %6, 1
+  %8 = load i64, ptr %i, align 8
+  %inc = add i64 %8, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !16
 
 for.end:                                          ; preds = %for.cond
-  %7 = load i32, ptr %fd.addr, align 4
-  call void @packet_flush(i32 noundef %7)
+  %9 = load i32, ptr %fd.addr, align 4
+  call void @packet_flush(i32 noundef %9)
   %call1 = call i32 @sigchain_pop(i32 noundef 13)
   ret void
 }
@@ -2207,34 +2244,35 @@ if.end14:                                         ; preds = %if.end8
   %21 = load i64, ptr %nr_items_to_complete16, align 8
   %dec = add i64 %21, -1
   store i64 %dec, ptr %nr_items_to_complete16, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1), align 8
-  %23 = load ptr, ptr %res, align 8
-  %id17 = getelementptr inbounds %struct.pc_item_result, ptr %23, i32 0, i32 0
-  %24 = load i64, ptr %id17, align 8
-  %arrayidx = getelementptr inbounds %struct.parallel_checkout_item, ptr %22, i64 %24
+  %22 = getelementptr inbounds %struct.parallel_checkout, ptr @parallel_checkout, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %res, align 8
+  %id17 = getelementptr inbounds %struct.pc_item_result, ptr %24, i32 0, i32 0
+  %25 = load i64, ptr %id17, align 8
+  %arrayidx = getelementptr inbounds %struct.parallel_checkout_item, ptr %23, i64 %25
   store ptr %arrayidx, ptr %pc_item, align 8
-  %25 = load ptr, ptr %res, align 8
-  %status18 = getelementptr inbounds %struct.pc_item_result, ptr %25, i32 0, i32 1
-  %26 = load i32, ptr %status18, align 8
-  %27 = load ptr, ptr %pc_item, align 8
-  %status19 = getelementptr inbounds %struct.parallel_checkout_item, ptr %27, i32 0, i32 4
-  store i32 %26, ptr %status19, align 8
-  %28 = load ptr, ptr %st, align 8
-  %tobool20 = icmp ne ptr %28, null
+  %26 = load ptr, ptr %res, align 8
+  %status18 = getelementptr inbounds %struct.pc_item_result, ptr %26, i32 0, i32 1
+  %27 = load i32, ptr %status18, align 8
+  %28 = load ptr, ptr %pc_item, align 8
+  %status19 = getelementptr inbounds %struct.parallel_checkout_item, ptr %28, i32 0, i32 4
+  store i32 %27, ptr %status19, align 8
+  %29 = load ptr, ptr %st, align 8
+  %tobool20 = icmp ne ptr %29, null
   br i1 %tobool20, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %if.end14
-  %29 = load ptr, ptr %pc_item, align 8
-  %st22 = getelementptr inbounds %struct.parallel_checkout_item, ptr %29, i32 0, i32 5
-  %30 = load ptr, ptr %st, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %st22, ptr align 8 %30, i64 144, i1 false)
+  %30 = load ptr, ptr %pc_item, align 8
+  %st22 = getelementptr inbounds %struct.parallel_checkout_item, ptr %30, i32 0, i32 5
+  %31 = load ptr, ptr %st, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %st22, ptr align 8 %31, i64 144, i1 false)
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then21, %if.end14
-  %31 = load ptr, ptr %res, align 8
-  %status24 = getelementptr inbounds %struct.pc_item_result, ptr %31, i32 0, i32 1
-  %32 = load i32, ptr %status24, align 8
-  %cmp25 = icmp ne i32 %32, 2
+  %32 = load ptr, ptr %res, align 8
+  %status24 = getelementptr inbounds %struct.pc_item_result, ptr %32, i32 0, i32 1
+  %33 = load i32, ptr %status24, align 8
+  %cmp25 = icmp ne i32 %33, 2
   br i1 %cmp25, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %if.end23

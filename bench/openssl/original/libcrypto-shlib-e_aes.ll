@@ -120,8 +120,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_128_cbc() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_128_cbc, ptr @aes_128_cbc
   ret ptr %cond
@@ -130,8 +131,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_128_ecb() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_128_ecb, ptr @aes_128_ecb
   ret ptr %cond
@@ -140,8 +142,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_128_ofb() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_128_ofb, ptr @aes_128_ofb
   ret ptr %cond
@@ -150,8 +153,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_128_cfb128() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_128_cfb, ptr @aes_128_cfb
   ret ptr %cond
@@ -160,8 +164,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_128_cfb1() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_128_cfb1, ptr @aes_128_cfb1
   ret ptr %cond
@@ -170,8 +175,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_128_cfb8() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_128_cfb8, ptr @aes_128_cfb8
   ret ptr %cond
@@ -180,8 +186,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_128_ctr() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_128_ctr, ptr @aes_128_ctr
   ret ptr %cond
@@ -190,8 +197,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_192_cbc() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_192_cbc, ptr @aes_192_cbc
   ret ptr %cond
@@ -200,8 +208,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_192_ecb() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_192_ecb, ptr @aes_192_ecb
   ret ptr %cond
@@ -210,8 +219,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_192_ofb() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_192_ofb, ptr @aes_192_ofb
   ret ptr %cond
@@ -220,8 +230,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_192_cfb128() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_192_cfb, ptr @aes_192_cfb
   ret ptr %cond
@@ -230,8 +241,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_192_cfb1() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_192_cfb1, ptr @aes_192_cfb1
   ret ptr %cond
@@ -240,8 +252,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_192_cfb8() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_192_cfb8, ptr @aes_192_cfb8
   ret ptr %cond
@@ -250,8 +263,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_192_ctr() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_192_ctr, ptr @aes_192_ctr
   ret ptr %cond
@@ -260,8 +274,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_256_cbc() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_256_cbc, ptr @aes_256_cbc
   ret ptr %cond
@@ -270,8 +285,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_256_ecb() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_256_ecb, ptr @aes_256_ecb
   ret ptr %cond
@@ -280,8 +296,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_256_ofb() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_256_ofb, ptr @aes_256_ofb
   ret ptr %cond
@@ -290,8 +307,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_256_cfb128() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_256_cfb, ptr @aes_256_cfb
   ret ptr %cond
@@ -300,8 +318,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_256_cfb1() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_256_cfb1, ptr @aes_256_cfb1
   ret ptr %cond
@@ -310,8 +329,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_256_cfb8() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_256_cfb8, ptr @aes_256_cfb8
   ret ptr %cond
@@ -320,8 +340,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_256_ctr() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_256_ctr, ptr @aes_256_ctr
   ret ptr %cond
@@ -330,8 +351,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_128_gcm() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_128_gcm, ptr @aes_128_gcm
   ret ptr %cond
@@ -340,8 +362,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_192_gcm() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_192_gcm, ptr @aes_192_gcm
   ret ptr %cond
@@ -350,8 +373,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_256_gcm() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_256_gcm, ptr @aes_256_gcm
   ret ptr %cond
@@ -360,8 +384,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_128_xts() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_128_xts, ptr @aes_128_xts
   ret ptr %cond
@@ -370,8 +395,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_256_xts() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_256_xts, ptr @aes_256_xts
   ret ptr %cond
@@ -380,8 +406,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_128_ccm() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_128_ccm, ptr @aes_128_ccm
   ret ptr %cond
@@ -390,8 +417,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_192_ccm() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_192_ccm, ptr @aes_192_ccm
   ret ptr %cond
@@ -400,8 +428,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_256_ccm() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_256_ccm, ptr @aes_256_ccm
   ret ptr %cond
@@ -446,8 +475,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_128_ocb() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_128_ocb, ptr @aes_128_ocb
   ret ptr %cond
@@ -456,8 +486,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_192_ocb() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_192_ocb, ptr @aes_192_ocb
   ret ptr %cond
@@ -466,8 +497,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_256_ocb() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_256_ocb, ptr @aes_256_ocb
   ret ptr %cond
@@ -716,70 +748,72 @@ land.lhs.true:                                    ; preds = %lor.lhs.false, %if.
   br i1 %tobool, label %if.else29, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
-  %7 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %7, 512
+  %7 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %8 = load i32, ptr %7, align 4
+  %and = and i32 %8, 512
   %tobool7 = icmp ne i32 %and, 0
   br i1 %tobool7, label %land.lhs.true8, label %if.else
 
 land.lhs.true8:                                   ; preds = %if.then6
-  %8 = load i32, ptr %mode, align 4
-  %cmp9 = icmp eq i32 %8, 2
+  %9 = load i32, ptr %mode, align 4
+  %cmp9 = icmp eq i32 %9, 2
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %land.lhs.true8
-  %9 = load ptr, ptr %key.addr, align 8
-  %10 = load i32, ptr %keylen, align 4
-  %11 = load ptr, ptr %dat, align 8
-  %ks = getelementptr inbounds %struct.EVP_AES_KEY, ptr %11, i32 0, i32 0
-  %call11 = call i32 @AES_set_decrypt_key(ptr noundef %9, i32 noundef %10, ptr noundef %ks)
-  store i32 %call11, ptr %ret, align 4
+  %10 = load ptr, ptr %key.addr, align 8
+  %11 = load i32, ptr %keylen, align 4
   %12 = load ptr, ptr %dat, align 8
-  %block = getelementptr inbounds %struct.EVP_AES_KEY, ptr %12, i32 0, i32 1
-  store ptr @AES_decrypt, ptr %block, align 8
+  %ks = getelementptr inbounds %struct.EVP_AES_KEY, ptr %12, i32 0, i32 0
+  %call11 = call i32 @AES_set_decrypt_key(ptr noundef %10, i32 noundef %11, ptr noundef %ks)
+  store i32 %call11, ptr %ret, align 4
   %13 = load ptr, ptr %dat, align 8
-  %stream = getelementptr inbounds %struct.EVP_AES_KEY, ptr %13, i32 0, i32 2
+  %block = getelementptr inbounds %struct.EVP_AES_KEY, ptr %13, i32 0, i32 1
+  store ptr @AES_decrypt, ptr %block, align 8
+  %14 = load ptr, ptr %dat, align 8
+  %stream = getelementptr inbounds %struct.EVP_AES_KEY, ptr %14, i32 0, i32 2
   store ptr @ossl_bsaes_cbc_encrypt, ptr %stream, align 8
   br label %if.end28
 
 if.else:                                          ; preds = %land.lhs.true8, %if.then6
-  %14 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and12 = and i32 %14, 512
+  %15 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %16 = load i32, ptr %15, align 4
+  %and12 = and i32 %16, 512
   %tobool13 = icmp ne i32 %and12, 0
   br i1 %tobool13, label %if.then14, label %if.else20
 
 if.then14:                                        ; preds = %if.else
-  %15 = load ptr, ptr %key.addr, align 8
-  %16 = load i32, ptr %keylen, align 4
-  %17 = load ptr, ptr %dat, align 8
-  %ks15 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %17, i32 0, i32 0
-  %call16 = call i32 @vpaes_set_decrypt_key(ptr noundef %15, i32 noundef %16, ptr noundef %ks15)
+  %17 = load ptr, ptr %key.addr, align 8
+  %18 = load i32, ptr %keylen, align 4
+  %19 = load ptr, ptr %dat, align 8
+  %ks15 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %19, i32 0, i32 0
+  %call16 = call i32 @vpaes_set_decrypt_key(ptr noundef %17, i32 noundef %18, ptr noundef %ks15)
   store i32 %call16, ptr %ret, align 4
-  %18 = load ptr, ptr %dat, align 8
-  %block17 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %18, i32 0, i32 1
-  store ptr @vpaes_decrypt, ptr %block17, align 8
-  %19 = load i32, ptr %mode, align 4
-  %cmp18 = icmp eq i32 %19, 2
-  %cond = select i1 %cmp18, ptr @vpaes_cbc_encrypt, ptr null
   %20 = load ptr, ptr %dat, align 8
-  %stream19 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %20, i32 0, i32 2
+  %block17 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %20, i32 0, i32 1
+  store ptr @vpaes_decrypt, ptr %block17, align 8
+  %21 = load i32, ptr %mode, align 4
+  %cmp18 = icmp eq i32 %21, 2
+  %cond = select i1 %cmp18, ptr @vpaes_cbc_encrypt, ptr null
+  %22 = load ptr, ptr %dat, align 8
+  %stream19 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %22, i32 0, i32 2
   store ptr %cond, ptr %stream19, align 8
   br label %if.end27
 
 if.else20:                                        ; preds = %if.else
-  %21 = load ptr, ptr %key.addr, align 8
-  %22 = load i32, ptr %keylen, align 4
-  %23 = load ptr, ptr %dat, align 8
-  %ks21 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %23, i32 0, i32 0
-  %call22 = call i32 @AES_set_decrypt_key(ptr noundef %21, i32 noundef %22, ptr noundef %ks21)
+  %23 = load ptr, ptr %key.addr, align 8
+  %24 = load i32, ptr %keylen, align 4
+  %25 = load ptr, ptr %dat, align 8
+  %ks21 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %25, i32 0, i32 0
+  %call22 = call i32 @AES_set_decrypt_key(ptr noundef %23, i32 noundef %24, ptr noundef %ks21)
   store i32 %call22, ptr %ret, align 4
-  %24 = load ptr, ptr %dat, align 8
-  %block23 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %24, i32 0, i32 1
-  store ptr @AES_decrypt, ptr %block23, align 8
-  %25 = load i32, ptr %mode, align 4
-  %cmp24 = icmp eq i32 %25, 2
-  %cond25 = select i1 %cmp24, ptr @AES_cbc_encrypt, ptr null
   %26 = load ptr, ptr %dat, align 8
-  %stream26 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %26, i32 0, i32 2
+  %block23 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %26, i32 0, i32 1
+  store ptr @AES_decrypt, ptr %block23, align 8
+  %27 = load i32, ptr %mode, align 4
+  %cmp24 = icmp eq i32 %27, 2
+  %cond25 = select i1 %cmp24, ptr @AES_cbc_encrypt, ptr null
+  %28 = load ptr, ptr %dat, align 8
+  %stream26 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %28, i32 0, i32 2
   store ptr %cond25, ptr %stream26, align 8
   br label %if.end27
 
@@ -790,70 +824,72 @@ if.end28:                                         ; preds = %if.end27, %if.then1
   br label %if.end58
 
 if.else29:                                        ; preds = %land.lhs.true, %lor.lhs.false
-  %27 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and30 = and i32 %27, 512
+  %29 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %30 = load i32, ptr %29, align 4
+  %and30 = and i32 %30, 512
   %tobool31 = icmp ne i32 %and30, 0
   br i1 %tobool31, label %land.lhs.true32, label %if.else39
 
 land.lhs.true32:                                  ; preds = %if.else29
-  %28 = load i32, ptr %mode, align 4
-  %cmp33 = icmp eq i32 %28, 5
+  %31 = load i32, ptr %mode, align 4
+  %cmp33 = icmp eq i32 %31, 5
   br i1 %cmp33, label %if.then34, label %if.else39
 
 if.then34:                                        ; preds = %land.lhs.true32
-  %29 = load ptr, ptr %key.addr, align 8
-  %30 = load i32, ptr %keylen, align 4
-  %31 = load ptr, ptr %dat, align 8
-  %ks35 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %31, i32 0, i32 0
-  %call36 = call i32 @AES_set_encrypt_key(ptr noundef %29, i32 noundef %30, ptr noundef %ks35)
+  %32 = load ptr, ptr %key.addr, align 8
+  %33 = load i32, ptr %keylen, align 4
+  %34 = load ptr, ptr %dat, align 8
+  %ks35 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %34, i32 0, i32 0
+  %call36 = call i32 @AES_set_encrypt_key(ptr noundef %32, i32 noundef %33, ptr noundef %ks35)
   store i32 %call36, ptr %ret, align 4
-  %32 = load ptr, ptr %dat, align 8
-  %block37 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %32, i32 0, i32 1
+  %35 = load ptr, ptr %dat, align 8
+  %block37 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %35, i32 0, i32 1
   store ptr @AES_encrypt, ptr %block37, align 8
-  %33 = load ptr, ptr %dat, align 8
-  %stream38 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %33, i32 0, i32 2
+  %36 = load ptr, ptr %dat, align 8
+  %stream38 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %36, i32 0, i32 2
   store ptr @ossl_bsaes_ctr32_encrypt_blocks, ptr %stream38, align 8
   br label %if.end57
 
 if.else39:                                        ; preds = %land.lhs.true32, %if.else29
-  %34 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and40 = and i32 %34, 512
+  %37 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %38 = load i32, ptr %37, align 4
+  %and40 = and i32 %38, 512
   %tobool41 = icmp ne i32 %and40, 0
   br i1 %tobool41, label %if.then42, label %if.else49
 
 if.then42:                                        ; preds = %if.else39
-  %35 = load ptr, ptr %key.addr, align 8
-  %36 = load i32, ptr %keylen, align 4
-  %37 = load ptr, ptr %dat, align 8
-  %ks43 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %37, i32 0, i32 0
-  %call44 = call i32 @vpaes_set_encrypt_key(ptr noundef %35, i32 noundef %36, ptr noundef %ks43)
+  %39 = load ptr, ptr %key.addr, align 8
+  %40 = load i32, ptr %keylen, align 4
+  %41 = load ptr, ptr %dat, align 8
+  %ks43 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %41, i32 0, i32 0
+  %call44 = call i32 @vpaes_set_encrypt_key(ptr noundef %39, i32 noundef %40, ptr noundef %ks43)
   store i32 %call44, ptr %ret, align 4
-  %38 = load ptr, ptr %dat, align 8
-  %block45 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %38, i32 0, i32 1
+  %42 = load ptr, ptr %dat, align 8
+  %block45 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %42, i32 0, i32 1
   store ptr @vpaes_encrypt, ptr %block45, align 8
-  %39 = load i32, ptr %mode, align 4
-  %cmp46 = icmp eq i32 %39, 2
+  %43 = load i32, ptr %mode, align 4
+  %cmp46 = icmp eq i32 %43, 2
   %cond47 = select i1 %cmp46, ptr @vpaes_cbc_encrypt, ptr null
-  %40 = load ptr, ptr %dat, align 8
-  %stream48 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %40, i32 0, i32 2
+  %44 = load ptr, ptr %dat, align 8
+  %stream48 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %44, i32 0, i32 2
   store ptr %cond47, ptr %stream48, align 8
   br label %if.end56
 
 if.else49:                                        ; preds = %if.else39
-  %41 = load ptr, ptr %key.addr, align 8
-  %42 = load i32, ptr %keylen, align 4
-  %43 = load ptr, ptr %dat, align 8
-  %ks50 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %43, i32 0, i32 0
-  %call51 = call i32 @AES_set_encrypt_key(ptr noundef %41, i32 noundef %42, ptr noundef %ks50)
+  %45 = load ptr, ptr %key.addr, align 8
+  %46 = load i32, ptr %keylen, align 4
+  %47 = load ptr, ptr %dat, align 8
+  %ks50 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %47, i32 0, i32 0
+  %call51 = call i32 @AES_set_encrypt_key(ptr noundef %45, i32 noundef %46, ptr noundef %ks50)
   store i32 %call51, ptr %ret, align 4
-  %44 = load ptr, ptr %dat, align 8
-  %block52 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %44, i32 0, i32 1
+  %48 = load ptr, ptr %dat, align 8
+  %block52 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %48, i32 0, i32 1
   store ptr @AES_encrypt, ptr %block52, align 8
-  %45 = load i32, ptr %mode, align 4
-  %cmp53 = icmp eq i32 %45, 2
+  %49 = load i32, ptr %mode, align 4
+  %cmp53 = icmp eq i32 %49, 2
   %cond54 = select i1 %cmp53, ptr @AES_cbc_encrypt, ptr null
-  %46 = load ptr, ptr %dat, align 8
-  %stream55 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %46, i32 0, i32 2
+  %50 = load ptr, ptr %dat, align 8
+  %stream55 = getelementptr inbounds %struct.EVP_AES_KEY, ptr %50, i32 0, i32 2
   store ptr %cond54, ptr %stream55, align 8
   br label %if.end56
 
@@ -864,8 +900,8 @@ if.end57:                                         ; preds = %if.end56, %if.then3
   br label %if.end58
 
 if.end58:                                         ; preds = %if.end57, %if.end28
-  %47 = load i32, ptr %ret, align 4
-  %cmp59 = icmp slt i32 %47, 0
+  %51 = load i32, ptr %ret, align 4
+  %cmp59 = icmp slt i32 %51, 0
   br i1 %cmp59, label %if.then60, label %if.end61
 
 if.then60:                                        ; preds = %if.end58
@@ -880,8 +916,8 @@ if.end61:                                         ; preds = %if.end58
   br label %return
 
 return:                                           ; preds = %if.end61, %if.then60, %if.then
-  %48 = load i32, ptr %retval, align 4
-  ret i32 %48
+  %52 = load i32, ptr %retval, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3287,46 +3323,48 @@ if.end7:                                          ; preds = %if.then3
   br label %do.body
 
 do.body:                                          ; preds = %if.end7
-  %6 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %6, 512
+  %6 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %7 = load i32, ptr %6, align 4
+  %and = and i32 %7, 512
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %do.body
-  %7 = load ptr, ptr %key.addr, align 8
-  %8 = load i32, ptr %keylen, align 4
-  %9 = load ptr, ptr %gctx, align 8
-  %ks = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %9, i32 0, i32 0
-  %call9 = call i32 @AES_set_encrypt_key(ptr noundef %7, i32 noundef %8, ptr noundef %ks)
+  %8 = load ptr, ptr %key.addr, align 8
+  %9 = load i32, ptr %keylen, align 4
   %10 = load ptr, ptr %gctx, align 8
-  %gcm = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %10, i32 0, i32 3
+  %ks = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %10, i32 0, i32 0
+  %call9 = call i32 @AES_set_encrypt_key(ptr noundef %8, i32 noundef %9, ptr noundef %ks)
   %11 = load ptr, ptr %gctx, align 8
-  %ks10 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %11, i32 0, i32 0
-  call void @CRYPTO_gcm128_init(ptr noundef %gcm, ptr noundef %ks10, ptr noundef @AES_encrypt)
+  %gcm = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %11, i32 0, i32 3
   %12 = load ptr, ptr %gctx, align 8
-  %ctr = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %12, i32 0, i32 11
+  %ks10 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %12, i32 0, i32 0
+  call void @CRYPTO_gcm128_init(ptr noundef %gcm, ptr noundef %ks10, ptr noundef @AES_encrypt)
+  %13 = load ptr, ptr %gctx, align 8
+  %ctr = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %13, i32 0, i32 11
   store ptr @ossl_bsaes_ctr32_encrypt_blocks, ptr %ctr, align 8
   br label %do.end
 
 if.else:                                          ; preds = %do.body
-  %13 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and11 = and i32 %13, 512
+  %14 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %15 = load i32, ptr %14, align 4
+  %and11 = and i32 %15, 512
   %tobool12 = icmp ne i32 %and11, 0
   br i1 %tobool12, label %if.then13, label %if.else19
 
 if.then13:                                        ; preds = %if.else
-  %14 = load ptr, ptr %key.addr, align 8
-  %15 = load i32, ptr %keylen, align 4
-  %16 = load ptr, ptr %gctx, align 8
-  %ks14 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %16, i32 0, i32 0
-  %call15 = call i32 @vpaes_set_encrypt_key(ptr noundef %14, i32 noundef %15, ptr noundef %ks14)
-  %17 = load ptr, ptr %gctx, align 8
-  %gcm16 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %17, i32 0, i32 3
+  %16 = load ptr, ptr %key.addr, align 8
+  %17 = load i32, ptr %keylen, align 4
   %18 = load ptr, ptr %gctx, align 8
-  %ks17 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %18, i32 0, i32 0
-  call void @CRYPTO_gcm128_init(ptr noundef %gcm16, ptr noundef %ks17, ptr noundef @vpaes_encrypt)
+  %ks14 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %18, i32 0, i32 0
+  %call15 = call i32 @vpaes_set_encrypt_key(ptr noundef %16, i32 noundef %17, ptr noundef %ks14)
   %19 = load ptr, ptr %gctx, align 8
-  %ctr18 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %19, i32 0, i32 11
+  %gcm16 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %19, i32 0, i32 3
+  %20 = load ptr, ptr %gctx, align 8
+  %ks17 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %20, i32 0, i32 0
+  call void @CRYPTO_gcm128_init(ptr noundef %gcm16, ptr noundef %ks17, ptr noundef @vpaes_encrypt)
+  %21 = load ptr, ptr %gctx, align 8
+  %ctr18 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %21, i32 0, i32 11
   store ptr null, ptr %ctr18, align 8
   br label %do.end
 
@@ -3337,101 +3375,101 @@ if.end20:                                         ; preds = %if.else19
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end20
-  %20 = load ptr, ptr %key.addr, align 8
-  %21 = load i32, ptr %keylen, align 4
-  %22 = load ptr, ptr %gctx, align 8
-  %ks22 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %22, i32 0, i32 0
-  %call23 = call i32 @AES_set_encrypt_key(ptr noundef %20, i32 noundef %21, ptr noundef %ks22)
-  %23 = load ptr, ptr %gctx, align 8
-  %gcm24 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %23, i32 0, i32 3
+  %22 = load ptr, ptr %key.addr, align 8
+  %23 = load i32, ptr %keylen, align 4
   %24 = load ptr, ptr %gctx, align 8
-  %ks25 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %24, i32 0, i32 0
-  call void @CRYPTO_gcm128_init(ptr noundef %gcm24, ptr noundef %ks25, ptr noundef @AES_encrypt)
+  %ks22 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %24, i32 0, i32 0
+  %call23 = call i32 @AES_set_encrypt_key(ptr noundef %22, i32 noundef %23, ptr noundef %ks22)
   %25 = load ptr, ptr %gctx, align 8
-  %ctr26 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %25, i32 0, i32 11
+  %gcm24 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %25, i32 0, i32 3
+  %26 = load ptr, ptr %gctx, align 8
+  %ks25 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %26, i32 0, i32 0
+  call void @CRYPTO_gcm128_init(ptr noundef %gcm24, ptr noundef %ks25, ptr noundef @AES_encrypt)
+  %27 = load ptr, ptr %gctx, align 8
+  %ctr26 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %27, i32 0, i32 11
   store ptr null, ptr %ctr26, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end21, %if.then13, %if.then8
-  %26 = load ptr, ptr %iv.addr, align 8
-  %cmp27 = icmp eq ptr %26, null
+  %28 = load ptr, ptr %iv.addr, align 8
+  %cmp27 = icmp eq ptr %28, null
   br i1 %cmp27, label %land.lhs.true28, label %if.end32
 
 land.lhs.true28:                                  ; preds = %do.end
-  %27 = load ptr, ptr %gctx, align 8
-  %iv_set = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %27, i32 0, i32 2
-  %28 = load i32, ptr %iv_set, align 4
-  %tobool29 = icmp ne i32 %28, 0
+  %29 = load ptr, ptr %gctx, align 8
+  %iv_set = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %29, i32 0, i32 2
+  %30 = load i32, ptr %iv_set, align 4
+  %tobool29 = icmp ne i32 %30, 0
   br i1 %tobool29, label %if.then30, label %if.end32
 
 if.then30:                                        ; preds = %land.lhs.true28
-  %29 = load ptr, ptr %gctx, align 8
-  %iv31 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %29, i32 0, i32 4
-  %30 = load ptr, ptr %iv31, align 8
-  store ptr %30, ptr %iv.addr, align 8
+  %31 = load ptr, ptr %gctx, align 8
+  %iv31 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %31, i32 0, i32 4
+  %32 = load ptr, ptr %iv31, align 8
+  store ptr %32, ptr %iv.addr, align 8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then30, %land.lhs.true28, %do.end
-  %31 = load ptr, ptr %iv.addr, align 8
-  %tobool33 = icmp ne ptr %31, null
+  %33 = load ptr, ptr %iv.addr, align 8
+  %tobool33 = icmp ne ptr %33, null
   br i1 %tobool33, label %if.then34, label %if.end37
 
 if.then34:                                        ; preds = %if.end32
-  %32 = load ptr, ptr %gctx, align 8
-  %gcm35 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %32, i32 0, i32 3
-  %33 = load ptr, ptr %iv.addr, align 8
   %34 = load ptr, ptr %gctx, align 8
-  %ivlen = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %34, i32 0, i32 5
-  %35 = load i32, ptr %ivlen, align 8
-  %conv = sext i32 %35 to i64
-  call void @CRYPTO_gcm128_setiv(ptr noundef %gcm35, ptr noundef %33, i64 noundef %conv)
+  %gcm35 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %34, i32 0, i32 3
+  %35 = load ptr, ptr %iv.addr, align 8
   %36 = load ptr, ptr %gctx, align 8
-  %iv_set36 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %36, i32 0, i32 2
+  %ivlen = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %36, i32 0, i32 5
+  %37 = load i32, ptr %ivlen, align 8
+  %conv = sext i32 %37 to i64
+  call void @CRYPTO_gcm128_setiv(ptr noundef %gcm35, ptr noundef %35, i64 noundef %conv)
+  %38 = load ptr, ptr %gctx, align 8
+  %iv_set36 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %38, i32 0, i32 2
   store i32 1, ptr %iv_set36, align 4
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then34, %if.end32
-  %37 = load ptr, ptr %gctx, align 8
-  %key_set = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %gctx, align 8
+  %key_set = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %39, i32 0, i32 1
   store i32 1, ptr %key_set, align 8
   br label %if.end51
 
 if.else38:                                        ; preds = %if.end
-  %38 = load ptr, ptr %gctx, align 8
-  %key_set39 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %38, i32 0, i32 1
-  %39 = load i32, ptr %key_set39, align 8
-  %tobool40 = icmp ne i32 %39, 0
+  %40 = load ptr, ptr %gctx, align 8
+  %key_set39 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %40, i32 0, i32 1
+  %41 = load i32, ptr %key_set39, align 8
+  %tobool40 = icmp ne i32 %41, 0
   br i1 %tobool40, label %if.then41, label %if.else45
 
 if.then41:                                        ; preds = %if.else38
-  %40 = load ptr, ptr %gctx, align 8
-  %gcm42 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %40, i32 0, i32 3
-  %41 = load ptr, ptr %iv.addr, align 8
   %42 = load ptr, ptr %gctx, align 8
-  %ivlen43 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %42, i32 0, i32 5
-  %43 = load i32, ptr %ivlen43, align 8
-  %conv44 = sext i32 %43 to i64
-  call void @CRYPTO_gcm128_setiv(ptr noundef %gcm42, ptr noundef %41, i64 noundef %conv44)
+  %gcm42 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %42, i32 0, i32 3
+  %43 = load ptr, ptr %iv.addr, align 8
+  %44 = load ptr, ptr %gctx, align 8
+  %ivlen43 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %44, i32 0, i32 5
+  %45 = load i32, ptr %ivlen43, align 8
+  %conv44 = sext i32 %45 to i64
+  call void @CRYPTO_gcm128_setiv(ptr noundef %gcm42, ptr noundef %43, i64 noundef %conv44)
   br label %if.end49
 
 if.else45:                                        ; preds = %if.else38
-  %44 = load ptr, ptr %gctx, align 8
-  %iv46 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %44, i32 0, i32 4
-  %45 = load ptr, ptr %iv46, align 8
-  %46 = load ptr, ptr %iv.addr, align 8
-  %47 = load ptr, ptr %gctx, align 8
-  %ivlen47 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %47, i32 0, i32 5
-  %48 = load i32, ptr %ivlen47, align 8
-  %conv48 = sext i32 %48 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 1 %46, i64 %conv48, i1 false)
+  %46 = load ptr, ptr %gctx, align 8
+  %iv46 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %46, i32 0, i32 4
+  %47 = load ptr, ptr %iv46, align 8
+  %48 = load ptr, ptr %iv.addr, align 8
+  %49 = load ptr, ptr %gctx, align 8
+  %ivlen47 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %49, i32 0, i32 5
+  %50 = load i32, ptr %ivlen47, align 8
+  %conv48 = sext i32 %50 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %48, i64 %conv48, i1 false)
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else45, %if.then41
-  %49 = load ptr, ptr %gctx, align 8
-  %iv_set50 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %gctx, align 8
+  %iv_set50 = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %51, i32 0, i32 2
   store i32 1, ptr %iv_set50, align 4
-  %50 = load ptr, ptr %gctx, align 8
-  %iv_gen = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %50, i32 0, i32 7
+  %52 = load ptr, ptr %gctx, align 8
+  %iv_gen = getelementptr inbounds %struct.EVP_AES_GCM_CTX, ptr %52, i32 0, i32 7
   store i32 0, ptr %iv_gen, align 8
   br label %if.end51
 
@@ -3440,8 +3478,8 @@ if.end51:                                         ; preds = %if.end49, %if.end37
   br label %return
 
 return:                                           ; preds = %if.end51, %if.then6, %if.then
-  %51 = load i32, ptr %retval, align 4
-  ret i32 %51
+  %53 = load i32, ptr %retval, align 4
+  ret i32 %53
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3948,72 +3986,74 @@ if.end13:                                         ; preds = %land.lhs.true8, %if
   %13 = load ptr, ptr %xctx, align 8
   %stream = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %13, i32 0, i32 3
   store ptr null, ptr %stream, align 8
-  %14 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %14, 512
+  %14 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %15 = load i32, ptr %14, align 4
+  %and = and i32 %15, 512
   %tobool14 = icmp ne i32 %and, 0
   br i1 %tobool14, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.end13
-  %15 = load i32, ptr %enc.addr, align 4
-  %tobool16 = icmp ne i32 %15, 0
+  %16 = load i32, ptr %enc.addr, align 4
+  %tobool16 = icmp ne i32 %16, 0
   %cond = select i1 %tobool16, ptr @ossl_bsaes_xts_encrypt, ptr @ossl_bsaes_xts_decrypt
-  %16 = load ptr, ptr %xctx, align 8
-  %stream17 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %16, i32 0, i32 3
+  %17 = load ptr, ptr %xctx, align 8
+  %stream17 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %17, i32 0, i32 3
   store ptr %cond, ptr %stream17, align 8
   br label %if.end38
 
 if.else:                                          ; preds = %if.end13
-  %17 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and18 = and i32 %17, 512
+  %18 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %19 = load i32, ptr %18, align 4
+  %and18 = and i32 %19, 512
   %tobool19 = icmp ne i32 %and18, 0
   br i1 %tobool19, label %if.then20, label %if.else36
 
 if.then20:                                        ; preds = %if.else
-  %18 = load i32, ptr %enc.addr, align 4
-  %tobool21 = icmp ne i32 %18, 0
+  %20 = load i32, ptr %enc.addr, align 4
+  %tobool21 = icmp ne i32 %20, 0
   br i1 %tobool21, label %if.then22, label %if.else24
 
 if.then22:                                        ; preds = %if.then20
-  %19 = load ptr, ptr %key.addr, align 8
-  %20 = load i32, ptr %bits, align 4
-  %21 = load ptr, ptr %xctx, align 8
-  %ks1 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %21, i32 0, i32 0
-  %call23 = call i32 @vpaes_set_encrypt_key(ptr noundef %19, i32 noundef %20, ptr noundef %ks1)
-  %22 = load ptr, ptr %xctx, align 8
-  %xts = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %22, i32 0, i32 2
+  %21 = load ptr, ptr %key.addr, align 8
+  %22 = load i32, ptr %bits, align 4
+  %23 = load ptr, ptr %xctx, align 8
+  %ks1 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %23, i32 0, i32 0
+  %call23 = call i32 @vpaes_set_encrypt_key(ptr noundef %21, i32 noundef %22, ptr noundef %ks1)
+  %24 = load ptr, ptr %xctx, align 8
+  %xts = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %24, i32 0, i32 2
   %block1 = getelementptr inbounds %struct.xts128_context, ptr %xts, i32 0, i32 2
   store ptr @vpaes_encrypt, ptr %block1, align 8
   br label %if.end29
 
 if.else24:                                        ; preds = %if.then20
-  %23 = load ptr, ptr %key.addr, align 8
-  %24 = load i32, ptr %bits, align 4
-  %25 = load ptr, ptr %xctx, align 8
-  %ks125 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %25, i32 0, i32 0
-  %call26 = call i32 @vpaes_set_decrypt_key(ptr noundef %23, i32 noundef %24, ptr noundef %ks125)
-  %26 = load ptr, ptr %xctx, align 8
-  %xts27 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %26, i32 0, i32 2
+  %25 = load ptr, ptr %key.addr, align 8
+  %26 = load i32, ptr %bits, align 4
+  %27 = load ptr, ptr %xctx, align 8
+  %ks125 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %27, i32 0, i32 0
+  %call26 = call i32 @vpaes_set_decrypt_key(ptr noundef %25, i32 noundef %26, ptr noundef %ks125)
+  %28 = load ptr, ptr %xctx, align 8
+  %xts27 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %28, i32 0, i32 2
   %block128 = getelementptr inbounds %struct.xts128_context, ptr %xts27, i32 0, i32 2
   store ptr @vpaes_decrypt, ptr %block128, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else24, %if.then22
-  %27 = load ptr, ptr %key.addr, align 8
-  %28 = load i32, ptr %bytes, align 4
-  %idx.ext30 = sext i32 %28 to i64
-  %add.ptr31 = getelementptr inbounds i8, ptr %27, i64 %idx.ext30
-  %29 = load i32, ptr %bits, align 4
-  %30 = load ptr, ptr %xctx, align 8
-  %ks2 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %30, i32 0, i32 1
-  %call32 = call i32 @vpaes_set_encrypt_key(ptr noundef %add.ptr31, i32 noundef %29, ptr noundef %ks2)
-  %31 = load ptr, ptr %xctx, align 8
-  %xts33 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %31, i32 0, i32 2
+  %29 = load ptr, ptr %key.addr, align 8
+  %30 = load i32, ptr %bytes, align 4
+  %idx.ext30 = sext i32 %30 to i64
+  %add.ptr31 = getelementptr inbounds i8, ptr %29, i64 %idx.ext30
+  %31 = load i32, ptr %bits, align 4
+  %32 = load ptr, ptr %xctx, align 8
+  %ks2 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %32, i32 0, i32 1
+  %call32 = call i32 @vpaes_set_encrypt_key(ptr noundef %add.ptr31, i32 noundef %31, ptr noundef %ks2)
+  %33 = load ptr, ptr %xctx, align 8
+  %xts33 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %33, i32 0, i32 2
   %block2 = getelementptr inbounds %struct.xts128_context, ptr %xts33, i32 0, i32 3
   store ptr @vpaes_encrypt, ptr %block2, align 8
-  %32 = load ptr, ptr %xctx, align 8
-  %ks134 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %32, i32 0, i32 0
-  %33 = load ptr, ptr %xctx, align 8
-  %xts35 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %33, i32 0, i32 2
+  %34 = load ptr, ptr %xctx, align 8
+  %ks134 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %34, i32 0, i32 0
+  %35 = load ptr, ptr %xctx, align 8
+  %xts35 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %35, i32 0, i32 2
   %key1 = getelementptr inbounds %struct.xts128_context, ptr %xts35, i32 0, i32 0
   store ptr %ks134, ptr %key1, align 8
   br label %do.end
@@ -4025,51 +4065,51 @@ if.end37:                                         ; preds = %if.else36
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end37, %if.then15
-  %34 = load i32, ptr %enc.addr, align 4
-  %tobool39 = icmp ne i32 %34, 0
+  %36 = load i32, ptr %enc.addr, align 4
+  %tobool39 = icmp ne i32 %36, 0
   br i1 %tobool39, label %if.then40, label %if.else45
 
 if.then40:                                        ; preds = %if.end38
-  %35 = load ptr, ptr %key.addr, align 8
-  %36 = load i32, ptr %bits, align 4
-  %37 = load ptr, ptr %xctx, align 8
-  %ks141 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %37, i32 0, i32 0
-  %call42 = call i32 @AES_set_encrypt_key(ptr noundef %35, i32 noundef %36, ptr noundef %ks141)
-  %38 = load ptr, ptr %xctx, align 8
-  %xts43 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %38, i32 0, i32 2
+  %37 = load ptr, ptr %key.addr, align 8
+  %38 = load i32, ptr %bits, align 4
+  %39 = load ptr, ptr %xctx, align 8
+  %ks141 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %39, i32 0, i32 0
+  %call42 = call i32 @AES_set_encrypt_key(ptr noundef %37, i32 noundef %38, ptr noundef %ks141)
+  %40 = load ptr, ptr %xctx, align 8
+  %xts43 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %40, i32 0, i32 2
   %block144 = getelementptr inbounds %struct.xts128_context, ptr %xts43, i32 0, i32 2
   store ptr @AES_encrypt, ptr %block144, align 8
   br label %if.end50
 
 if.else45:                                        ; preds = %if.end38
-  %39 = load ptr, ptr %key.addr, align 8
-  %40 = load i32, ptr %bits, align 4
-  %41 = load ptr, ptr %xctx, align 8
-  %ks146 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %41, i32 0, i32 0
-  %call47 = call i32 @AES_set_decrypt_key(ptr noundef %39, i32 noundef %40, ptr noundef %ks146)
-  %42 = load ptr, ptr %xctx, align 8
-  %xts48 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %42, i32 0, i32 2
+  %41 = load ptr, ptr %key.addr, align 8
+  %42 = load i32, ptr %bits, align 4
+  %43 = load ptr, ptr %xctx, align 8
+  %ks146 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %43, i32 0, i32 0
+  %call47 = call i32 @AES_set_decrypt_key(ptr noundef %41, i32 noundef %42, ptr noundef %ks146)
+  %44 = load ptr, ptr %xctx, align 8
+  %xts48 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %44, i32 0, i32 2
   %block149 = getelementptr inbounds %struct.xts128_context, ptr %xts48, i32 0, i32 2
   store ptr @AES_decrypt, ptr %block149, align 8
   br label %if.end50
 
 if.end50:                                         ; preds = %if.else45, %if.then40
-  %43 = load ptr, ptr %key.addr, align 8
-  %44 = load i32, ptr %bytes, align 4
-  %idx.ext51 = sext i32 %44 to i64
-  %add.ptr52 = getelementptr inbounds i8, ptr %43, i64 %idx.ext51
-  %45 = load i32, ptr %bits, align 4
-  %46 = load ptr, ptr %xctx, align 8
-  %ks253 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %46, i32 0, i32 1
-  %call54 = call i32 @AES_set_encrypt_key(ptr noundef %add.ptr52, i32 noundef %45, ptr noundef %ks253)
-  %47 = load ptr, ptr %xctx, align 8
-  %xts55 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %47, i32 0, i32 2
+  %45 = load ptr, ptr %key.addr, align 8
+  %46 = load i32, ptr %bytes, align 4
+  %idx.ext51 = sext i32 %46 to i64
+  %add.ptr52 = getelementptr inbounds i8, ptr %45, i64 %idx.ext51
+  %47 = load i32, ptr %bits, align 4
+  %48 = load ptr, ptr %xctx, align 8
+  %ks253 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %48, i32 0, i32 1
+  %call54 = call i32 @AES_set_encrypt_key(ptr noundef %add.ptr52, i32 noundef %47, ptr noundef %ks253)
+  %49 = load ptr, ptr %xctx, align 8
+  %xts55 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %49, i32 0, i32 2
   %block256 = getelementptr inbounds %struct.xts128_context, ptr %xts55, i32 0, i32 3
   store ptr @AES_encrypt, ptr %block256, align 8
-  %48 = load ptr, ptr %xctx, align 8
-  %ks157 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %48, i32 0, i32 0
-  %49 = load ptr, ptr %xctx, align 8
-  %xts58 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %49, i32 0, i32 2
+  %50 = load ptr, ptr %xctx, align 8
+  %ks157 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %50, i32 0, i32 0
+  %51 = load ptr, ptr %xctx, align 8
+  %xts58 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %51, i32 0, i32 2
   %key159 = getelementptr inbounds %struct.xts128_context, ptr %xts58, i32 0, i32 0
   store ptr %ks157, ptr %key159, align 8
   br label %do.end
@@ -4078,22 +4118,22 @@ do.end:                                           ; preds = %if.end50, %if.end29
   br label %if.end60
 
 if.end60:                                         ; preds = %do.end, %if.end
-  %50 = load ptr, ptr %iv.addr, align 8
-  %tobool61 = icmp ne ptr %50, null
+  %52 = load ptr, ptr %iv.addr, align 8
+  %tobool61 = icmp ne ptr %52, null
   br i1 %tobool61, label %if.then62, label %if.end66
 
 if.then62:                                        ; preds = %if.end60
-  %51 = load ptr, ptr %xctx, align 8
-  %ks263 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %51, i32 0, i32 1
-  %52 = load ptr, ptr %xctx, align 8
-  %xts64 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %52, i32 0, i32 2
+  %53 = load ptr, ptr %xctx, align 8
+  %ks263 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %53, i32 0, i32 1
+  %54 = load ptr, ptr %xctx, align 8
+  %xts64 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %54, i32 0, i32 2
   %key2 = getelementptr inbounds %struct.xts128_context, ptr %xts64, i32 0, i32 1
   store ptr %ks263, ptr %key2, align 8
-  %53 = load ptr, ptr %ctx.addr, align 8
-  %iv65 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %53, i32 0, i32 5
+  %55 = load ptr, ptr %ctx.addr, align 8
+  %iv65 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %55, i32 0, i32 5
   %arraydecay = getelementptr inbounds [16 x i8], ptr %iv65, i64 0, i64 0
-  %54 = load ptr, ptr %iv.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay, ptr align 1 %54, i64 16, i1 false)
+  %56 = load ptr, ptr %iv.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay, ptr align 1 %56, i64 16, i1 false)
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then62, %if.end60
@@ -4101,8 +4141,8 @@ if.end66:                                         ; preds = %if.then62, %if.end6
   br label %return
 
 return:                                           ; preds = %if.end66, %if.then12, %if.then6, %if.then
-  %55 = load i32, ptr %retval, align 4
-  ret i32 %55
+  %57 = load i32, ptr %retval, align 4
+  ret i32 %57
 }
 
 declare void @ossl_bsaes_xts_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #1
@@ -5244,58 +5284,59 @@ if.end7:                                          ; preds = %if.then3
   br label %do.body
 
 do.body:                                          ; preds = %if.end7
-  %6 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %6, 512
+  %6 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %7 = load i32, ptr %6, align 4
+  %and = and i32 %7, 512
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %do.body
-  %7 = load ptr, ptr %key.addr, align 8
-  %8 = load i32, ptr %keylen, align 4
-  %9 = load ptr, ptr %cctx, align 8
-  %ks = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %9, i32 0, i32 0
-  %call9 = call i32 @vpaes_set_encrypt_key(ptr noundef %7, i32 noundef %8, ptr noundef %ks)
+  %8 = load ptr, ptr %key.addr, align 8
+  %9 = load i32, ptr %keylen, align 4
   %10 = load ptr, ptr %cctx, align 8
-  %ccm = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %10, i32 0, i32 8
+  %ks = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %10, i32 0, i32 0
+  %call9 = call i32 @vpaes_set_encrypt_key(ptr noundef %8, i32 noundef %9, ptr noundef %ks)
   %11 = load ptr, ptr %cctx, align 8
-  %M = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %11, i32 0, i32 6
-  %12 = load i32, ptr %M, align 4
-  %13 = load ptr, ptr %cctx, align 8
-  %L = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %13, i32 0, i32 5
-  %14 = load i32, ptr %L, align 8
-  %15 = load ptr, ptr %cctx, align 8
-  %ks10 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %15, i32 0, i32 0
-  call void @CRYPTO_ccm128_init(ptr noundef %ccm, i32 noundef %12, i32 noundef %14, ptr noundef %ks10, ptr noundef @vpaes_encrypt)
+  %ccm = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %11, i32 0, i32 8
+  %12 = load ptr, ptr %cctx, align 8
+  %M = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %12, i32 0, i32 6
+  %13 = load i32, ptr %M, align 4
+  %14 = load ptr, ptr %cctx, align 8
+  %L = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %14, i32 0, i32 5
+  %15 = load i32, ptr %L, align 8
   %16 = load ptr, ptr %cctx, align 8
-  %str = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %16, i32 0, i32 9
-  store ptr null, ptr %str, align 8
+  %ks10 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %16, i32 0, i32 0
+  call void @CRYPTO_ccm128_init(ptr noundef %ccm, i32 noundef %13, i32 noundef %15, ptr noundef %ks10, ptr noundef @vpaes_encrypt)
   %17 = load ptr, ptr %cctx, align 8
-  %key_set = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %17, i32 0, i32 1
+  %str = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %17, i32 0, i32 9
+  store ptr null, ptr %str, align 8
+  %18 = load ptr, ptr %cctx, align 8
+  %key_set = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %18, i32 0, i32 1
   store i32 1, ptr %key_set, align 8
   br label %do.end
 
 if.end11:                                         ; preds = %do.body
-  %18 = load ptr, ptr %key.addr, align 8
-  %19 = load i32, ptr %keylen, align 4
-  %20 = load ptr, ptr %cctx, align 8
-  %ks12 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %20, i32 0, i32 0
-  %call13 = call i32 @AES_set_encrypt_key(ptr noundef %18, i32 noundef %19, ptr noundef %ks12)
+  %19 = load ptr, ptr %key.addr, align 8
+  %20 = load i32, ptr %keylen, align 4
   %21 = load ptr, ptr %cctx, align 8
-  %ccm14 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %21, i32 0, i32 8
+  %ks12 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %21, i32 0, i32 0
+  %call13 = call i32 @AES_set_encrypt_key(ptr noundef %19, i32 noundef %20, ptr noundef %ks12)
   %22 = load ptr, ptr %cctx, align 8
-  %M15 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %22, i32 0, i32 6
-  %23 = load i32, ptr %M15, align 4
-  %24 = load ptr, ptr %cctx, align 8
-  %L16 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %24, i32 0, i32 5
-  %25 = load i32, ptr %L16, align 8
-  %26 = load ptr, ptr %cctx, align 8
-  %ks17 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %26, i32 0, i32 0
-  call void @CRYPTO_ccm128_init(ptr noundef %ccm14, i32 noundef %23, i32 noundef %25, ptr noundef %ks17, ptr noundef @AES_encrypt)
+  %ccm14 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %22, i32 0, i32 8
+  %23 = load ptr, ptr %cctx, align 8
+  %M15 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %23, i32 0, i32 6
+  %24 = load i32, ptr %M15, align 4
+  %25 = load ptr, ptr %cctx, align 8
+  %L16 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %25, i32 0, i32 5
+  %26 = load i32, ptr %L16, align 8
   %27 = load ptr, ptr %cctx, align 8
-  %str18 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %27, i32 0, i32 9
-  store ptr null, ptr %str18, align 8
+  %ks17 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %27, i32 0, i32 0
+  call void @CRYPTO_ccm128_init(ptr noundef %ccm14, i32 noundef %24, i32 noundef %26, ptr noundef %ks17, ptr noundef @AES_encrypt)
   %28 = load ptr, ptr %cctx, align 8
-  %key_set19 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %28, i32 0, i32 1
+  %str18 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %28, i32 0, i32 9
+  store ptr null, ptr %str18, align 8
+  %29 = load ptr, ptr %cctx, align 8
+  %key_set19 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %29, i32 0, i32 1
   store i32 1, ptr %key_set19, align 8
   br label %do.end
 
@@ -5303,23 +5344,23 @@ do.end:                                           ; preds = %if.end11, %if.then8
   br label %if.end20
 
 if.end20:                                         ; preds = %do.end, %if.end
-  %29 = load ptr, ptr %iv.addr, align 8
-  %cmp21 = icmp ne ptr %29, null
+  %30 = load ptr, ptr %iv.addr, align 8
+  %cmp21 = icmp ne ptr %30, null
   br i1 %cmp21, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %if.end20
-  %30 = load ptr, ptr %ctx.addr, align 8
-  %iv23 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %30, i32 0, i32 5
+  %31 = load ptr, ptr %ctx.addr, align 8
+  %iv23 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %31, i32 0, i32 5
   %arraydecay = getelementptr inbounds [16 x i8], ptr %iv23, i64 0, i64 0
-  %31 = load ptr, ptr %iv.addr, align 8
-  %32 = load ptr, ptr %cctx, align 8
-  %L24 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %32, i32 0, i32 5
-  %33 = load i32, ptr %L24, align 8
-  %sub = sub nsw i32 15, %33
+  %32 = load ptr, ptr %iv.addr, align 8
+  %33 = load ptr, ptr %cctx, align 8
+  %L24 = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %33, i32 0, i32 5
+  %34 = load i32, ptr %L24, align 8
+  %sub = sub nsw i32 15, %34
   %conv = sext i32 %sub to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay, ptr align 1 %31, i64 %conv, i1 false)
-  %34 = load ptr, ptr %cctx, align 8
-  %iv_set = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %34, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay, ptr align 1 %32, i64 %conv, i1 false)
+  %35 = load ptr, ptr %cctx, align 8
+  %iv_set = getelementptr inbounds %struct.EVP_AES_CCM_CTX, ptr %35, i32 0, i32 2
   store i32 1, ptr %iv_set, align 4
   br label %if.end25
 
@@ -5328,8 +5369,8 @@ if.end25:                                         ; preds = %if.then22, %if.end2
   br label %return
 
 return:                                           ; preds = %if.end25, %if.then6, %if.then
-  %35 = load i32, ptr %retval, align 4
-  ret i32 %35
+  %36 = load i32, ptr %retval, align 4
+  ret i32 %36
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6697,28 +6738,29 @@ if.end7:                                          ; preds = %if.then3
   br label %do.body
 
 do.body:                                          ; preds = %if.end7
-  %6 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %6, 512
+  %6 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %7 = load i32, ptr %6, align 4
+  %and = and i32 %7, 512
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then8, label %if.end17
 
 if.then8:                                         ; preds = %do.body
-  %7 = load ptr, ptr %key.addr, align 8
-  %8 = load i32, ptr %keylen, align 4
-  %9 = load ptr, ptr %octx, align 8
-  %ksenc = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %9, i32 0, i32 0
-  %call9 = call i32 @vpaes_set_encrypt_key(ptr noundef %7, i32 noundef %8, ptr noundef %ksenc)
-  %10 = load ptr, ptr %key.addr, align 8
-  %11 = load i32, ptr %keylen, align 4
-  %12 = load ptr, ptr %octx, align 8
-  %ksdec = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %12, i32 0, i32 1
-  %call10 = call i32 @vpaes_set_decrypt_key(ptr noundef %10, i32 noundef %11, ptr noundef %ksdec)
+  %8 = load ptr, ptr %key.addr, align 8
+  %9 = load i32, ptr %keylen, align 4
+  %10 = load ptr, ptr %octx, align 8
+  %ksenc = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %10, i32 0, i32 0
+  %call9 = call i32 @vpaes_set_encrypt_key(ptr noundef %8, i32 noundef %9, ptr noundef %ksenc)
+  %11 = load ptr, ptr %key.addr, align 8
+  %12 = load i32, ptr %keylen, align 4
   %13 = load ptr, ptr %octx, align 8
-  %ocb = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %13, i32 0, i32 4
+  %ksdec = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %13, i32 0, i32 1
+  %call10 = call i32 @vpaes_set_decrypt_key(ptr noundef %11, i32 noundef %12, ptr noundef %ksdec)
   %14 = load ptr, ptr %octx, align 8
-  %ksenc11 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %14, i32 0, i32 0
+  %ocb = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %14, i32 0, i32 4
   %15 = load ptr, ptr %octx, align 8
-  %ksdec12 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %15, i32 0, i32 1
+  %ksenc11 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %15, i32 0, i32 0
+  %16 = load ptr, ptr %octx, align 8
+  %ksdec12 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %16, i32 0, i32 1
   %call13 = call i32 @CRYPTO_ocb128_init(ptr noundef %ocb, ptr noundef %ksenc11, ptr noundef %ksdec12, ptr noundef @vpaes_encrypt, ptr noundef @vpaes_decrypt, ptr noundef null)
   %tobool14 = icmp ne i32 %call13, 0
   br i1 %tobool14, label %if.end16, label %if.then15
@@ -6731,22 +6773,22 @@ if.end16:                                         ; preds = %if.then8
   br label %do.end
 
 if.end17:                                         ; preds = %do.body
-  %16 = load ptr, ptr %key.addr, align 8
-  %17 = load i32, ptr %keylen, align 4
-  %18 = load ptr, ptr %octx, align 8
-  %ksenc18 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %18, i32 0, i32 0
-  %call19 = call i32 @AES_set_encrypt_key(ptr noundef %16, i32 noundef %17, ptr noundef %ksenc18)
-  %19 = load ptr, ptr %key.addr, align 8
-  %20 = load i32, ptr %keylen, align 4
-  %21 = load ptr, ptr %octx, align 8
-  %ksdec20 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %21, i32 0, i32 1
-  %call21 = call i32 @AES_set_decrypt_key(ptr noundef %19, i32 noundef %20, ptr noundef %ksdec20)
+  %17 = load ptr, ptr %key.addr, align 8
+  %18 = load i32, ptr %keylen, align 4
+  %19 = load ptr, ptr %octx, align 8
+  %ksenc18 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %19, i32 0, i32 0
+  %call19 = call i32 @AES_set_encrypt_key(ptr noundef %17, i32 noundef %18, ptr noundef %ksenc18)
+  %20 = load ptr, ptr %key.addr, align 8
+  %21 = load i32, ptr %keylen, align 4
   %22 = load ptr, ptr %octx, align 8
-  %ocb22 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %22, i32 0, i32 4
+  %ksdec20 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %22, i32 0, i32 1
+  %call21 = call i32 @AES_set_decrypt_key(ptr noundef %20, i32 noundef %21, ptr noundef %ksdec20)
   %23 = load ptr, ptr %octx, align 8
-  %ksenc23 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %23, i32 0, i32 0
+  %ocb22 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %23, i32 0, i32 4
   %24 = load ptr, ptr %octx, align 8
-  %ksdec24 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %24, i32 0, i32 1
+  %ksenc23 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %24, i32 0, i32 0
+  %25 = load ptr, ptr %octx, align 8
+  %ksdec24 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %25, i32 0, i32 1
   %call25 = call i32 @CRYPTO_ocb128_init(ptr noundef %ocb22, ptr noundef %ksenc23, ptr noundef %ksdec24, ptr noundef @AES_encrypt, ptr noundef @AES_decrypt, ptr noundef null)
   %tobool26 = icmp ne i32 %call25, 0
   br i1 %tobool26, label %if.end28, label %if.then27
@@ -6759,42 +6801,42 @@ if.end28:                                         ; preds = %if.end17
   br label %do.end
 
 do.end:                                           ; preds = %if.end28, %if.end16
-  %25 = load ptr, ptr %iv.addr, align 8
-  %cmp29 = icmp eq ptr %25, null
+  %26 = load ptr, ptr %iv.addr, align 8
+  %cmp29 = icmp eq ptr %26, null
   br i1 %cmp29, label %land.lhs.true30, label %if.end34
 
 land.lhs.true30:                                  ; preds = %do.end
-  %26 = load ptr, ptr %octx, align 8
-  %iv_set = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %26, i32 0, i32 3
-  %27 = load i32, ptr %iv_set, align 4
-  %tobool31 = icmp ne i32 %27, 0
+  %27 = load ptr, ptr %octx, align 8
+  %iv_set = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %27, i32 0, i32 3
+  %28 = load i32, ptr %iv_set, align 4
+  %tobool31 = icmp ne i32 %28, 0
   br i1 %tobool31, label %if.then32, label %if.end34
 
 if.then32:                                        ; preds = %land.lhs.true30
-  %28 = load ptr, ptr %octx, align 8
-  %iv33 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %28, i32 0, i32 5
-  %29 = load ptr, ptr %iv33, align 8
-  store ptr %29, ptr %iv.addr, align 8
+  %29 = load ptr, ptr %octx, align 8
+  %iv33 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %29, i32 0, i32 5
+  %30 = load ptr, ptr %iv33, align 8
+  store ptr %30, ptr %iv.addr, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then32, %land.lhs.true30, %do.end
-  %30 = load ptr, ptr %iv.addr, align 8
-  %tobool35 = icmp ne ptr %30, null
+  %31 = load ptr, ptr %iv.addr, align 8
+  %tobool35 = icmp ne ptr %31, null
   br i1 %tobool35, label %if.then36, label %if.end45
 
 if.then36:                                        ; preds = %if.end34
-  %31 = load ptr, ptr %octx, align 8
-  %ocb37 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %31, i32 0, i32 4
-  %32 = load ptr, ptr %iv.addr, align 8
-  %33 = load ptr, ptr %octx, align 8
-  %ivlen = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %33, i32 0, i32 11
-  %34 = load i32, ptr %ivlen, align 8
-  %conv = sext i32 %34 to i64
-  %35 = load ptr, ptr %octx, align 8
-  %taglen = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %35, i32 0, i32 12
-  %36 = load i32, ptr %taglen, align 4
-  %conv38 = sext i32 %36 to i64
-  %call39 = call i32 @CRYPTO_ocb128_setiv(ptr noundef %ocb37, ptr noundef %32, i64 noundef %conv, i64 noundef %conv38)
+  %32 = load ptr, ptr %octx, align 8
+  %ocb37 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %32, i32 0, i32 4
+  %33 = load ptr, ptr %iv.addr, align 8
+  %34 = load ptr, ptr %octx, align 8
+  %ivlen = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %34, i32 0, i32 11
+  %35 = load i32, ptr %ivlen, align 8
+  %conv = sext i32 %35 to i64
+  %36 = load ptr, ptr %octx, align 8
+  %taglen = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %36, i32 0, i32 12
+  %37 = load i32, ptr %taglen, align 4
+  %conv38 = sext i32 %37 to i64
+  %call39 = call i32 @CRYPTO_ocb128_setiv(ptr noundef %ocb37, ptr noundef %33, i64 noundef %conv, i64 noundef %conv38)
   %cmp40 = icmp ne i32 %call39, 1
   br i1 %cmp40, label %if.then42, label %if.end43
 
@@ -6803,54 +6845,54 @@ if.then42:                                        ; preds = %if.then36
   br label %return
 
 if.end43:                                         ; preds = %if.then36
-  %37 = load ptr, ptr %octx, align 8
-  %iv_set44 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %37, i32 0, i32 3
+  %38 = load ptr, ptr %octx, align 8
+  %iv_set44 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %38, i32 0, i32 3
   store i32 1, ptr %iv_set44, align 4
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end43, %if.end34
-  %38 = load ptr, ptr %octx, align 8
-  %key_set = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %38, i32 0, i32 2
+  %39 = load ptr, ptr %octx, align 8
+  %key_set = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %39, i32 0, i32 2
   store i32 1, ptr %key_set, align 8
   br label %if.end61
 
 if.else:                                          ; preds = %if.end
-  %39 = load ptr, ptr %octx, align 8
-  %key_set46 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %39, i32 0, i32 2
-  %40 = load i32, ptr %key_set46, align 8
-  %tobool47 = icmp ne i32 %40, 0
+  %40 = load ptr, ptr %octx, align 8
+  %key_set46 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %40, i32 0, i32 2
+  %41 = load i32, ptr %key_set46, align 8
+  %tobool47 = icmp ne i32 %41, 0
   br i1 %tobool47, label %if.then48, label %if.else55
 
 if.then48:                                        ; preds = %if.else
-  %41 = load ptr, ptr %octx, align 8
-  %ocb49 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %41, i32 0, i32 4
-  %42 = load ptr, ptr %iv.addr, align 8
-  %43 = load ptr, ptr %octx, align 8
-  %ivlen50 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %43, i32 0, i32 11
-  %44 = load i32, ptr %ivlen50, align 8
-  %conv51 = sext i32 %44 to i64
-  %45 = load ptr, ptr %octx, align 8
-  %taglen52 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %45, i32 0, i32 12
-  %46 = load i32, ptr %taglen52, align 4
-  %conv53 = sext i32 %46 to i64
-  %call54 = call i32 @CRYPTO_ocb128_setiv(ptr noundef %ocb49, ptr noundef %42, i64 noundef %conv51, i64 noundef %conv53)
+  %42 = load ptr, ptr %octx, align 8
+  %ocb49 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %42, i32 0, i32 4
+  %43 = load ptr, ptr %iv.addr, align 8
+  %44 = load ptr, ptr %octx, align 8
+  %ivlen50 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %44, i32 0, i32 11
+  %45 = load i32, ptr %ivlen50, align 8
+  %conv51 = sext i32 %45 to i64
+  %46 = load ptr, ptr %octx, align 8
+  %taglen52 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %46, i32 0, i32 12
+  %47 = load i32, ptr %taglen52, align 4
+  %conv53 = sext i32 %47 to i64
+  %call54 = call i32 @CRYPTO_ocb128_setiv(ptr noundef %ocb49, ptr noundef %43, i64 noundef %conv51, i64 noundef %conv53)
   br label %if.end59
 
 if.else55:                                        ; preds = %if.else
-  %47 = load ptr, ptr %octx, align 8
-  %iv56 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %47, i32 0, i32 5
-  %48 = load ptr, ptr %iv56, align 8
-  %49 = load ptr, ptr %iv.addr, align 8
-  %50 = load ptr, ptr %octx, align 8
-  %ivlen57 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %50, i32 0, i32 11
-  %51 = load i32, ptr %ivlen57, align 8
-  %conv58 = sext i32 %51 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 1 %49, i64 %conv58, i1 false)
+  %48 = load ptr, ptr %octx, align 8
+  %iv56 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %48, i32 0, i32 5
+  %49 = load ptr, ptr %iv56, align 8
+  %50 = load ptr, ptr %iv.addr, align 8
+  %51 = load ptr, ptr %octx, align 8
+  %ivlen57 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %51, i32 0, i32 11
+  %52 = load i32, ptr %ivlen57, align 8
+  %conv58 = sext i32 %52 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %49, ptr align 1 %50, i64 %conv58, i1 false)
   br label %if.end59
 
 if.end59:                                         ; preds = %if.else55, %if.then48
-  %52 = load ptr, ptr %octx, align 8
-  %iv_set60 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %52, i32 0, i32 3
+  %53 = load ptr, ptr %octx, align 8
+  %iv_set60 = getelementptr inbounds %struct.EVP_AES_OCB_CTX, ptr %53, i32 0, i32 3
   store i32 1, ptr %iv_set60, align 4
   br label %if.end61
 
@@ -6859,8 +6901,8 @@ if.end61:                                         ; preds = %if.end59, %if.end45
   br label %return
 
 return:                                           ; preds = %if.end61, %if.then42, %if.then27, %if.then15, %if.then6, %if.then
-  %53 = load i32, ptr %retval, align 4
-  ret i32 %53
+  %54 = load i32, ptr %retval, align 4
+  ret i32 %54
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -834,7 +834,8 @@ lor.lhs.false14:                                  ; preds = %lor.lhs.false7
   %8 = load ptr, ptr %fixture, align 8
   %cmp_ctx15 = getelementptr inbounds %struct.test_fixture, ptr %8, i32 0, i32 1
   %9 = load ptr, ptr %cmp_ctx15, align 8
-  %call16 = call i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef %9, ptr noundef getelementptr inbounds (i8, ptr @rand_data, i64 8), i32 noundef 8)
+  %10 = getelementptr inbounds i8, ptr @rand_data, i64 8
+  %call16 = call i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef %9, ptr noundef %10, i32 noundef 8)
   %cmp17 = icmp ne i32 %call16, 0
   %conv18 = zext i1 %cmp17 to i32
   %call19 = call i32 @test_true(ptr noundef @.str.14, i32 noundef 229, ptr noundef @.str.78, i32 noundef %conv18)
@@ -842,32 +843,32 @@ lor.lhs.false14:                                  ; preds = %lor.lhs.false7
   br i1 %tobool20, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %lor.lhs.false14, %lor.lhs.false7, %lor.lhs.false, %if.end
-  %10 = load ptr, ptr %fixture, align 8
-  call void @tear_down(ptr noundef %10)
+  %11 = load ptr, ptr %fixture, align 8
+  call void @tear_down(ptr noundef %11)
   store ptr null, ptr %fixture, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then21, %lor.lhs.false14
-  %11 = load ptr, ptr %fixture, align 8
-  %cmp23 = icmp ne ptr %11, null
+  %12 = load ptr, ptr %fixture, align 8
+  %cmp23 = icmp ne ptr %12, null
   br i1 %cmp23, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %if.end22
-  %12 = load ptr, ptr %fixture, align 8
-  %call26 = call i32 @execute_MSG_protect_test(ptr noundef %12)
-  store i32 %call26, ptr %result, align 4
   %13 = load ptr, ptr %fixture, align 8
-  call void @tear_down(ptr noundef %13)
+  %call26 = call i32 @execute_MSG_protect_test(ptr noundef %13)
+  store i32 %call26, ptr %result, align 4
+  %14 = load ptr, ptr %fixture, align 8
+  call void @tear_down(ptr noundef %14)
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then25, %if.end22
-  %14 = load i32, ptr %result, align 4
-  store i32 %14, ptr %retval, align 4
+  %15 = load i32, ptr %result, align 4
+  store i32 %15, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end27, %if.then
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
+  %16 = load i32, ptr %retval, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable

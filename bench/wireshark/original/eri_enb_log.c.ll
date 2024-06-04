@@ -239,7 +239,7 @@ define internal i32 @eri_enb_log_get_packet(ptr noundef %0, ptr noundef %1, ptr 
   %18 = load ptr, ptr %7, align 8
   %19 = call ptr @file_gets(ptr noundef @eri_enb_log_get_packet.line, i32 noundef 131072, ptr noundef %18)
   %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %122
+  br i1 %20, label %21, label %123
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %7, align 8
@@ -300,94 +300,95 @@ define internal i32 @eri_enb_log_get_packet(ptr noundef %0, ptr noundef %1, ptr 
   br label %62
 
 62:                                               ; preds = %55, %47, %44
-  %63 = call ptr @iso8601_to_nstime(ptr noundef %13, ptr noundef getelementptr (i8, ptr @eri_enb_log_get_packet.line, i64 1), i32 noundef 0)
-  %64 = icmp ne ptr null, %63
-  br i1 %64, label %65, label %80
+  %63 = getelementptr i8, ptr @eri_enb_log_get_packet.line, i64 1
+  %64 = call ptr @iso8601_to_nstime(ptr noundef %13, ptr noundef %63, i32 noundef 0)
+  %65 = icmp ne ptr null, %64
+  br i1 %65, label %66, label %81
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds %struct.nstime_t, ptr %13, i32 0, i32 0
-  %67 = load i64, ptr %66, align 8
-  %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds %struct.wtap_rec, ptr %68, i32 0, i32 3
-  %70 = getelementptr inbounds %struct.nstime_t, ptr %69, i32 0, i32 0
-  store i64 %67, ptr %70, align 8
-  %71 = getelementptr inbounds %struct.nstime_t, ptr %13, i32 0, i32 1
-  %72 = load i32, ptr %71, align 8
-  %73 = load ptr, ptr %8, align 8
-  %74 = getelementptr inbounds %struct.wtap_rec, ptr %73, i32 0, i32 3
-  %75 = getelementptr inbounds %struct.nstime_t, ptr %74, i32 0, i32 1
-  store i32 %72, ptr %75, align 8
-  %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds %struct.wtap_rec, ptr %76, i32 0, i32 1
-  %78 = load i32, ptr %77, align 4
-  %79 = or i32 %78, 1
-  store i32 %79, ptr %77, align 4
-  br label %89
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds %struct.nstime_t, ptr %13, i32 0, i32 0
+  %68 = load i64, ptr %67, align 8
+  %69 = load ptr, ptr %8, align 8
+  %70 = getelementptr inbounds %struct.wtap_rec, ptr %69, i32 0, i32 3
+  %71 = getelementptr inbounds %struct.nstime_t, ptr %70, i32 0, i32 0
+  store i64 %68, ptr %71, align 8
+  %72 = getelementptr inbounds %struct.nstime_t, ptr %13, i32 0, i32 1
+  %73 = load i32, ptr %72, align 8
+  %74 = load ptr, ptr %8, align 8
+  %75 = getelementptr inbounds %struct.wtap_rec, ptr %74, i32 0, i32 3
+  %76 = getelementptr inbounds %struct.nstime_t, ptr %75, i32 0, i32 1
+  store i32 %73, ptr %76, align 8
+  %77 = load ptr, ptr %8, align 8
+  %78 = getelementptr inbounds %struct.wtap_rec, ptr %77, i32 0, i32 1
+  %79 = load i32, ptr %78, align 4
+  %80 = or i32 %79, 1
+  store i32 %80, ptr %78, align 4
+  br label %90
 
-80:                                               ; preds = %62
-  %81 = load ptr, ptr %8, align 8
-  %82 = getelementptr inbounds %struct.wtap_rec, ptr %81, i32 0, i32 3
-  %83 = getelementptr inbounds %struct.nstime_t, ptr %82, i32 0, i32 0
-  store i64 0, ptr %83, align 8
-  %84 = load ptr, ptr %8, align 8
-  %85 = getelementptr inbounds %struct.wtap_rec, ptr %84, i32 0, i32 3
-  %86 = getelementptr inbounds %struct.nstime_t, ptr %85, i32 0, i32 1
-  store i32 0, ptr %86, align 8
-  %87 = load ptr, ptr %8, align 8
-  %88 = getelementptr inbounds %struct.wtap_rec, ptr %87, i32 0, i32 1
-  store i32 0, ptr %88, align 4
-  br label %89
+81:                                               ; preds = %62
+  %82 = load ptr, ptr %8, align 8
+  %83 = getelementptr inbounds %struct.wtap_rec, ptr %82, i32 0, i32 3
+  %84 = getelementptr inbounds %struct.nstime_t, ptr %83, i32 0, i32 0
+  store i64 0, ptr %84, align 8
+  %85 = load ptr, ptr %8, align 8
+  %86 = getelementptr inbounds %struct.wtap_rec, ptr %85, i32 0, i32 3
+  %87 = getelementptr inbounds %struct.nstime_t, ptr %86, i32 0, i32 1
+  store i32 0, ptr %87, align 8
+  %88 = load ptr, ptr %8, align 8
+  %89 = getelementptr inbounds %struct.wtap_rec, ptr %88, i32 0, i32 1
+  store i32 0, ptr %89, align 4
+  br label %90
 
-89:                                               ; preds = %80, %65
-  %90 = load ptr, ptr %8, align 8
-  %91 = getelementptr inbounds %struct.wtap_rec, ptr %90, i32 0, i32 0
-  store i32 0, ptr %91, align 8
-  %92 = call ptr @wtap_block_create(i32 noundef 5)
-  %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds %struct.wtap_rec, ptr %93, i32 0, i32 8
-  store ptr %92, ptr %94, align 8
-  %95 = load i32, ptr %14, align 4
-  %96 = load ptr, ptr %8, align 8
-  %97 = getelementptr inbounds %struct.wtap_rec, ptr %96, i32 0, i32 7
-  %98 = getelementptr inbounds %struct.wtap_packet_header, ptr %97, i32 0, i32 0
-  store i32 %95, ptr %98, align 8
-  %99 = load i32, ptr %14, align 4
-  %100 = load ptr, ptr %8, align 8
-  %101 = getelementptr inbounds %struct.wtap_rec, ptr %100, i32 0, i32 7
-  %102 = getelementptr inbounds %struct.wtap_packet_header, ptr %101, i32 0, i32 1
-  store i32 %99, ptr %102, align 4
-  %103 = load ptr, ptr %10, align 8
-  store i32 0, ptr %103, align 4
-  %104 = load ptr, ptr %9, align 8
-  %105 = load ptr, ptr %8, align 8
-  %106 = getelementptr inbounds %struct.wtap_rec, ptr %105, i32 0, i32 7
-  %107 = getelementptr inbounds %struct.wtap_packet_header, ptr %106, i32 0, i32 0
-  %108 = load i32, ptr %107, align 8
-  %109 = zext i32 %108 to i64
-  call void @ws_buffer_assure_space(ptr noundef %104, i64 noundef %109)
-  %110 = load ptr, ptr %9, align 8
-  %111 = getelementptr inbounds %struct.Buffer, ptr %110, i32 0, i32 0
-  %112 = load ptr, ptr %111, align 8
-  %113 = load ptr, ptr %9, align 8
-  %114 = getelementptr inbounds %struct.Buffer, ptr %113, i32 0, i32 2
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr i8, ptr %112, i64 %115
-  %117 = load ptr, ptr %8, align 8
-  %118 = getelementptr inbounds %struct.wtap_rec, ptr %117, i32 0, i32 7
-  %119 = getelementptr inbounds %struct.wtap_packet_header, ptr %118, i32 0, i32 0
-  %120 = load i32, ptr %119, align 8
-  %121 = zext i32 %120 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr align 16 @eri_enb_log_get_packet.line, i64 %121, i1 false)
+90:                                               ; preds = %81, %66
+  %91 = load ptr, ptr %8, align 8
+  %92 = getelementptr inbounds %struct.wtap_rec, ptr %91, i32 0, i32 0
+  store i32 0, ptr %92, align 8
+  %93 = call ptr @wtap_block_create(i32 noundef 5)
+  %94 = load ptr, ptr %8, align 8
+  %95 = getelementptr inbounds %struct.wtap_rec, ptr %94, i32 0, i32 8
+  store ptr %93, ptr %95, align 8
+  %96 = load i32, ptr %14, align 4
+  %97 = load ptr, ptr %8, align 8
+  %98 = getelementptr inbounds %struct.wtap_rec, ptr %97, i32 0, i32 7
+  %99 = getelementptr inbounds %struct.wtap_packet_header, ptr %98, i32 0, i32 0
+  store i32 %96, ptr %99, align 8
+  %100 = load i32, ptr %14, align 4
+  %101 = load ptr, ptr %8, align 8
+  %102 = getelementptr inbounds %struct.wtap_rec, ptr %101, i32 0, i32 7
+  %103 = getelementptr inbounds %struct.wtap_packet_header, ptr %102, i32 0, i32 1
+  store i32 %100, ptr %103, align 4
+  %104 = load ptr, ptr %10, align 8
+  store i32 0, ptr %104, align 4
+  %105 = load ptr, ptr %9, align 8
+  %106 = load ptr, ptr %8, align 8
+  %107 = getelementptr inbounds %struct.wtap_rec, ptr %106, i32 0, i32 7
+  %108 = getelementptr inbounds %struct.wtap_packet_header, ptr %107, i32 0, i32 0
+  %109 = load i32, ptr %108, align 8
+  %110 = zext i32 %109 to i64
+  call void @ws_buffer_assure_space(ptr noundef %105, i64 noundef %110)
+  %111 = load ptr, ptr %9, align 8
+  %112 = getelementptr inbounds %struct.Buffer, ptr %111, i32 0, i32 0
+  %113 = load ptr, ptr %112, align 8
+  %114 = load ptr, ptr %9, align 8
+  %115 = getelementptr inbounds %struct.Buffer, ptr %114, i32 0, i32 2
+  %116 = load i64, ptr %115, align 8
+  %117 = getelementptr i8, ptr %113, i64 %116
+  %118 = load ptr, ptr %8, align 8
+  %119 = getelementptr inbounds %struct.wtap_rec, ptr %118, i32 0, i32 7
+  %120 = getelementptr inbounds %struct.wtap_packet_header, ptr %119, i32 0, i32 0
+  %121 = load i32, ptr %120, align 8
+  %122 = zext i32 %121 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %117, ptr align 16 @eri_enb_log_get_packet.line, i64 %122, i1 false)
   store i32 1, ptr %6, align 4
-  br label %123
+  br label %124
 
-122:                                              ; preds = %17
+123:                                              ; preds = %17
   store i32 0, ptr %6, align 4
-  br label %123
+  br label %124
 
-123:                                              ; preds = %122, %89
-  %124 = load i32, ptr %6, align 4
-  ret i32 %124
+124:                                              ; preds = %123, %90
+  %125 = load i32, ptr %6, align 4
+  ret i32 %125
 }
 
 declare ptr @iso8601_to_nstime(ptr noundef, ptr noundef, i32 noundef) #1

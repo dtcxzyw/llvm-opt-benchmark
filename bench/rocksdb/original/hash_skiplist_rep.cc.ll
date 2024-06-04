@@ -1531,19 +1531,20 @@ entry:
   store i32 %skiplist_branching_factor, ptr %skiplist_branching_factor.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb18MemTableRepFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_122HashSkipListRepFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load i64, ptr %bucket_count.addr, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_122HashSkipListRepFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load i64, ptr %bucket_count.addr, align 8
   %options_2 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRepFactory", ptr %this1, i32 0, i32 1
   %bucket_count3 = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::HashSkipListRepOptions", ptr %options_2, i32 0, i32 0
-  store i64 %0, ptr %bucket_count3, align 8
-  %1 = load i32, ptr %skiplist_height.addr, align 4
+  store i64 %1, ptr %bucket_count3, align 8
+  %2 = load i32, ptr %skiplist_height.addr, align 4
   %options_4 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRepFactory", ptr %this1, i32 0, i32 1
   %skiplist_height5 = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::HashSkipListRepOptions", ptr %options_4, i32 0, i32 1
-  store i32 %1, ptr %skiplist_height5, align 8
-  %2 = load i32, ptr %skiplist_branching_factor.addr, align 4
+  store i32 %2, ptr %skiplist_height5, align 8
+  %3 = load i32, ptr %skiplist_branching_factor.addr, align 4
   %options_6 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRepFactory", ptr %this1, i32 0, i32 1
   %skiplist_branching_factor7 = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::HashSkipListRepOptions", ptr %options_6, i32 0, i32 2
-  store i32 %2, ptr %skiplist_branching_factor7, align 4
+  store i32 %3, ptr %skiplist_branching_factor7, align 4
   %options_8 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRepFactory", ptr %this1, i32 0, i32 1
   invoke void @_ZN7rocksdb12Configurable15RegisterOptionsINS_12_GLOBAL__N_122HashSkipListRepOptionsEEEvPT_PKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14OptionTypeInfoESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %options_8, ptr noundef @_ZN7rocksdb12_GLOBAL__N_118hash_skiplist_infoB5cxx11E)
           to label %invoke.cont unwind label %lpad
@@ -1552,12 +1553,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb18MemTableRepFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
   br label %eh.resume
 
@@ -1595,28 +1596,30 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb10perf_levelE() #7 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb10perf_levelE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
+  ret ptr %4
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb12perf_contextE() #7 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb12perf_contextE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2860,7 +2863,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb12CustomizableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb18MemTableRepFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN7rocksdb18MemTableRepFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3295,7 +3299,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb12ConfigurableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN7rocksdb12CustomizableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN7rocksdb12CustomizableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3334,7 +3339,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::Configurable", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb12Configurable17RegisteredOptionsESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_) #3
   ret void
@@ -3432,7 +3438,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::Configurable", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb12Configurable17RegisteredOptionsESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_) #3
   ret void
@@ -3731,70 +3738,71 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %allocator.addr, align 8
   call void @_ZN7rocksdb11MemTableRepC2EPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashSkipListRepE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashSkipListRepE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %bucket_size_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %bucket_size.addr, align 8
-  store i64 %1, ptr %bucket_size_, align 8
+  %2 = load i64, ptr %bucket_size.addr, align 8
+  store i64 %2, ptr %bucket_size_, align 8
   %skiplist_height_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep", ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %skiplist_height.addr, align 4
-  store i32 %2, ptr %skiplist_height_, align 8
+  %3 = load i32, ptr %skiplist_height.addr, align 4
+  store i32 %3, ptr %skiplist_height_, align 8
   %skiplist_branching_factor_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %skiplist_branching_factor.addr, align 4
-  store i32 %3, ptr %skiplist_branching_factor_, align 4
+  %4 = load i32, ptr %skiplist_branching_factor.addr, align 4
+  store i32 %4, ptr %skiplist_branching_factor_, align 4
   %transform_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep", ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %transform.addr, align 8
-  store ptr %4, ptr %transform_, align 8
+  %5 = load ptr, ptr %transform.addr, align 8
+  store ptr %5, ptr %transform_, align 8
   %compare_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep", ptr %this1, i32 0, i32 6
-  %5 = load ptr, ptr %compare.addr, align 8
-  store ptr %5, ptr %compare_, align 8
+  %6 = load ptr, ptr %compare.addr, align 8
+  store ptr %6, ptr %compare_, align 8
   %allocator_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep", ptr %this1, i32 0, i32 7
-  %6 = load ptr, ptr %allocator.addr, align 8
-  store ptr %6, ptr %allocator_, align 8
   %7 = load ptr, ptr %allocator.addr, align 8
-  %8 = load i64, ptr %bucket_size.addr, align 8
-  %mul = mul i64 8, %8
-  %vtable = load ptr, ptr %7, align 8
+  store ptr %7, ptr %allocator_, align 8
+  %8 = load ptr, ptr %allocator.addr, align 8
+  %9 = load i64, ptr %bucket_size.addr, align 8
+  %mul = mul i64 8, %9
+  %vtable = load ptr, ptr %8, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %9 = load ptr, ptr %vfn, align 8
-  %call = invoke noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %mul, i64 noundef 0, ptr noundef null)
+  %10 = load ptr, ptr %vfn, align 8
+  %call = invoke noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %mul, i64 noundef 0, ptr noundef null)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %mem, align 8
-  %10 = load ptr, ptr %mem, align 8
+  %11 = load ptr, ptr %mem, align 8
   %buckets_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep", ptr %this1, i32 0, i32 4
-  store ptr %10, ptr %buckets_, align 8
+  store ptr %11, ptr %buckets_, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont
-  %11 = load i64, ptr %i, align 8
+  %12 = load i64, ptr %i, align 8
   %bucket_size_2 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep", ptr %this1, i32 0, i32 1
-  %12 = load i64, ptr %bucket_size_2, align 8
-  %cmp = icmp ult i64 %11, %12
+  %13 = load i64, ptr %bucket_size_2, align 8
+  %cmp = icmp ult i64 %12, %13
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %buckets_3 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep", ptr %this1, i32 0, i32 4
-  %13 = load ptr, ptr %buckets_3, align 8
-  %14 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds %"struct.std::atomic", ptr %13, i64 %14
+  %14 = load ptr, ptr %buckets_3, align 8
+  %15 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds %"struct.std::atomic", ptr %14, i64 %15
   call void @_ZNSt6atomicIPN7rocksdb8SkipListIPKcRKNS0_11MemTableRep13KeyComparatorEEEE5storeES9_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx, ptr noundef null, i32 noundef 0) #3
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %15 = load i64, ptr %i, align 8
-  %inc = add i64 %15, 1
+  %16 = load i64, ptr %i, align 8
+  %inc = add i64 %16, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !7
 
 lpad:                                             ; preds = %entry
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb11MemTableRepD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -3817,10 +3825,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %allocator, ptr %allocator.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb11MemTableRepE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN7rocksdb11MemTableRepE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %allocator_ = getelementptr inbounds %"class.rocksdb::MemTableRep", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %allocator.addr, align 8
-  store ptr %0, ptr %allocator_, align 8
+  %1 = load ptr, ptr %allocator.addr, align 8
+  store ptr %1, ptr %allocator_, align 8
   ret void
 }
 
@@ -5785,35 +5794,36 @@ entry:
   store ptr %arena, ptr %arena.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb11MemTableRep8IteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashSkipListRep8IteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashSkipListRep8IteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %list_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep::Iterator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %list.addr, align 8
-  store ptr %0, ptr %list_, align 8
-  %iter_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep::Iterator", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %list.addr, align 8
-  invoke void @_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8IteratorC2EPKS7_(ptr noundef nonnull align 8 dereferenceable(16) %iter_, ptr noundef %1)
+  store ptr %1, ptr %list_, align 8
+  %iter_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep::Iterator", ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %list.addr, align 8
+  invoke void @_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8IteratorC2EPKS7_(ptr noundef nonnull align 8 dereferenceable(16) %iter_, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %own_list_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep::Iterator", ptr %this1, i32 0, i32 3
-  %2 = load i8, ptr %own_list.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %own_list.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %own_list_, align 8
   %arena_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep::Iterator", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %arena.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb5ArenaESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %arena_, ptr noundef %3) #3
+  %4 = load ptr, ptr %arena.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb5ArenaESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %arena_, ptr noundef %4) #3
   %tmp_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep::Iterator", ptr %this1, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmp_) #3
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb11MemTableRep8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -5831,7 +5841,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb11MemTableRep8IteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN7rocksdb11MemTableRep8IteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5868,20 +5879,21 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashSkipListRep8IteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashSkipListRep8IteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %own_list_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep::Iterator", ptr %this1, i32 0, i32 3
-  %0 = load i8, ptr %own_list_, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %own_list_, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %list_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep::Iterator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %list_, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %list_, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  call void @_ZdlPv(ptr noundef %1) #18
+  call void @_ZdlPv(ptr noundef %2) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -6467,10 +6479,11 @@ entry:
   store ptr %memtable_rep, ptr %memtable_rep.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep8IteratorC2EPNS_8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEEEbPNS_5ArenaE(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashSkipListRep15DynamicIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashSkipListRep15DynamicIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %memtable_rep_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::HashSkipListRep::DynamicIterator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %memtable_rep.addr, align 8
-  store ptr %0, ptr %memtable_rep_, align 8
+  %1 = load ptr, ptr %memtable_rep.addr, align 8
+  store ptr %1, ptr %memtable_rep_, align 8
   ret void
 }
 

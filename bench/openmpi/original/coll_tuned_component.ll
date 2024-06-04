@@ -56,51 +56,56 @@ define internal i32 @tuned_open() #0 {
   %1 = alloca i32, align 4
   %2 = load i8, ptr @ompi_coll_tuned_use_dynamic_rules, align 1
   %3 = trunc i8 %2 to i1
-  br i1 %3, label %4, label %16
+  br i1 %3, label %4, label %18
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @ompi_coll_tuned_dynamic_rules_filename, align 8
   %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %17
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @ompi_coll_tuned_dynamic_rules_filename, align 8
-  %9 = call i32 @ompi_coll_tuned_read_rules_config_file(ptr noundef %8, ptr noundef getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), i32 noundef 22)
-  store i32 %9, ptr %1, align 4
-  %10 = load i32, ptr %1, align 4
-  %11 = icmp sge i32 %10, 0
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %7
-  br label %14
+  %9 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %10 = call i32 @ompi_coll_tuned_read_rules_config_file(ptr noundef %8, ptr noundef %9, i32 noundef 22)
+  store i32 %10, ptr %1, align 4
+  %11 = load i32, ptr %1, align 4
+  %12 = icmp sge i32 %11, 0
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %7
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  br label %14
-
-14:                                               ; preds = %13, %12
-  br label %15
-
-15:                                               ; preds = %14, %4
   br label %16
 
-16:                                               ; preds = %15, %0
+14:                                               ; preds = %7
+  %15 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  store ptr null, ptr %15, align 8
+  br label %16
+
+16:                                               ; preds = %14, %13
+  br label %17
+
+17:                                               ; preds = %16, %4
+  br label %18
+
+18:                                               ; preds = %17, %0
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @tuned_close() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %2 = icmp ne ptr null, %1
-  br i1 %2, label %3, label %6
+  %1 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp ne ptr null, %2
+  br i1 %3, label %4, label %9
 
-3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %5 = call i32 @ompi_coll_tuned_free_all_rules(ptr noundef %4, i32 noundef 22)
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  br label %6
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = call i32 @ompi_coll_tuned_free_all_rules(ptr noundef %6, i32 noundef 22)
+  %8 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  store ptr null, ptr %8, align 8
+  br label %9
 
-6:                                                ; preds = %3, %0
+9:                                                ; preds = %4, %0
   ret i32 0
 }
 
@@ -119,20 +124,33 @@ define internal i32 @tuned_register() #0 {
   %6 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_tuned_component, ptr noundef @.str.12, ptr noundef @.str.13, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef @ompi_coll_tuned_use_dynamic_rules)
   store ptr null, ptr @ompi_coll_tuned_dynamic_rules_filename, align 8
   %7 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_tuned_component, ptr noundef @.str.14, ptr noundef @.str.15, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef @ompi_coll_tuned_dynamic_rules_filename)
-  %8 = call i32 @ompi_coll_tuned_allreduce_intra_check_forced_init(ptr noundef getelementptr inbounds ([22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 2))
-  %9 = call i32 @ompi_coll_tuned_alltoall_intra_check_forced_init(ptr noundef getelementptr inbounds ([22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 3))
-  %10 = call i32 @ompi_coll_tuned_allgather_intra_check_forced_init(ptr noundef @ompi_coll_tuned_forced_params)
-  %11 = call i32 @ompi_coll_tuned_allgatherv_intra_check_forced_init(ptr noundef getelementptr inbounds ([22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 1))
-  %12 = call i32 @ompi_coll_tuned_alltoallv_intra_check_forced_init(ptr noundef getelementptr inbounds ([22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 4))
-  %13 = call i32 @ompi_coll_tuned_barrier_intra_check_forced_init(ptr noundef getelementptr inbounds ([22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 6))
-  %14 = call i32 @ompi_coll_tuned_bcast_intra_check_forced_init(ptr noundef getelementptr inbounds ([22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 7))
-  %15 = call i32 @ompi_coll_tuned_reduce_intra_check_forced_init(ptr noundef getelementptr inbounds ([22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 11))
-  %16 = call i32 @ompi_coll_tuned_reduce_scatter_intra_check_forced_init(ptr noundef getelementptr inbounds ([22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 12))
-  %17 = call i32 @ompi_coll_tuned_reduce_scatter_block_intra_check_forced_init(ptr noundef getelementptr inbounds ([22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 13))
-  %18 = call i32 @ompi_coll_tuned_gather_intra_check_forced_init(ptr noundef getelementptr inbounds ([22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 9))
-  %19 = call i32 @ompi_coll_tuned_scatter_intra_check_forced_init(ptr noundef getelementptr inbounds ([22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 15))
-  %20 = call i32 @ompi_coll_tuned_exscan_intra_check_forced_init(ptr noundef getelementptr inbounds ([22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 8))
-  %21 = call i32 @ompi_coll_tuned_scan_intra_check_forced_init(ptr noundef getelementptr inbounds ([22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 14))
+  %8 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 2
+  %9 = call i32 @ompi_coll_tuned_allreduce_intra_check_forced_init(ptr noundef %8)
+  %10 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 3
+  %11 = call i32 @ompi_coll_tuned_alltoall_intra_check_forced_init(ptr noundef %10)
+  %12 = call i32 @ompi_coll_tuned_allgather_intra_check_forced_init(ptr noundef @ompi_coll_tuned_forced_params)
+  %13 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 1
+  %14 = call i32 @ompi_coll_tuned_allgatherv_intra_check_forced_init(ptr noundef %13)
+  %15 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 4
+  %16 = call i32 @ompi_coll_tuned_alltoallv_intra_check_forced_init(ptr noundef %15)
+  %17 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 6
+  %18 = call i32 @ompi_coll_tuned_barrier_intra_check_forced_init(ptr noundef %17)
+  %19 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 7
+  %20 = call i32 @ompi_coll_tuned_bcast_intra_check_forced_init(ptr noundef %19)
+  %21 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 11
+  %22 = call i32 @ompi_coll_tuned_reduce_intra_check_forced_init(ptr noundef %21)
+  %23 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 12
+  %24 = call i32 @ompi_coll_tuned_reduce_scatter_intra_check_forced_init(ptr noundef %23)
+  %25 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 13
+  %26 = call i32 @ompi_coll_tuned_reduce_scatter_block_intra_check_forced_init(ptr noundef %25)
+  %27 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 9
+  %28 = call i32 @ompi_coll_tuned_gather_intra_check_forced_init(ptr noundef %27)
+  %29 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 15
+  %30 = call i32 @ompi_coll_tuned_scatter_intra_check_forced_init(ptr noundef %29)
+  %31 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 8
+  %32 = call i32 @ompi_coll_tuned_exscan_intra_check_forced_init(ptr noundef %31)
+  %33 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 14
+  %34 = call i32 @ompi_coll_tuned_scan_intra_check_forced_init(ptr noundef %33)
   ret i32 0
 }
 

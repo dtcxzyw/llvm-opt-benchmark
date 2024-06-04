@@ -891,79 +891,87 @@ entry:
   store ptr %name, ptr %name.addr, align 8
   store i32 %allow_bare, ptr %allow_bare.addr, align 4
   store i32 0, ptr %status, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @buf, i32 0, i32 2), align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @buf, i32 0, i32 1), align 8
-  %conv = trunc i64 %1 to i32
-  %call = call i32 @is_from_line(ptr noundef %0, i32 noundef %conv)
+  %0 = getelementptr inbounds %struct.strbuf, ptr @buf, i32 0, i32 2
+  %1 = load ptr, ptr %0, align 8
+  %2 = getelementptr inbounds %struct.strbuf, ptr @buf, i32 0, i32 1
+  %3 = load i64, ptr %2, align 8
+  %conv = trunc i64 %3 to i32
+  %call = call i32 @is_from_line(ptr noundef %1, i32 noundef %conv)
   %tobool = icmp ne i32 %call, 0
   %lnot = xor i1 %tobool, true
   %lnot.ext = zext i1 %lnot to i32
   store i32 %lnot.ext, ptr %is_bare, align 4
-  %2 = load i32, ptr %is_bare, align 4
-  %tobool1 = icmp ne i32 %2, 0
+  %4 = load i32, ptr %is_bare, align 4
+  %tobool1 = icmp ne i32 %4, 0
   br i1 %tobool1, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %3 = load i32, ptr %allow_bare.addr, align 4
-  %tobool2 = icmp ne i32 %3, 0
+  %5 = load i32, ptr %allow_bare.addr, align 4
+  %tobool2 = icmp ne i32 %5, 0
   br i1 %tobool2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %4 = load ptr, ptr @stderr, align 8
-  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.17)
+  %6 = load ptr, ptr @stderr, align 8
+  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.17)
   %call4 = call i32 @common_exit(ptr noundef @.str.1, i32 noundef 76, i32 noundef 1)
   call void @exit(i32 noundef %call4) #12
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %5 = load ptr, ptr %name.addr, align 8
-  %call5 = call i32 (ptr, i32, ...) @xopen(ptr noundef %5, i32 noundef 193, i32 noundef 438)
+  %7 = load ptr, ptr %name.addr, align 8
+  %call5 = call i32 (ptr, i32, ...) @xopen(ptr noundef %7, i32 noundef 193, i32 noundef 438)
   store i32 %call5, ptr %fd, align 4
-  %6 = load i32, ptr %fd, align 4
-  %call6 = call ptr @xfdopen(i32 noundef %6, ptr noundef @.str.18)
+  %8 = load i32, ptr %fd, align 4
+  %call6 = call ptr @xfdopen(i32 noundef %8, ptr noundef @.str.18)
   store ptr %call6, ptr %output, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end48, %if.end
-  %7 = load i32, ptr @keep_cr, align 4
-  %tobool7 = icmp ne i32 %7, 0
+  %9 = load i32, ptr @keep_cr, align 4
+  %tobool7 = icmp ne i32 %9, 0
   br i1 %tobool7, label %if.end22, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %for.cond
-  %8 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @buf, i32 0, i32 1), align 8
-  %cmp = icmp ugt i64 %8, 1
+  %10 = getelementptr inbounds %struct.strbuf, ptr @buf, i32 0, i32 1
+  %11 = load i64, ptr %10, align 8
+  %cmp = icmp ugt i64 %11, 1
   br i1 %cmp, label %land.lhs.true10, label %if.end22
 
 land.lhs.true10:                                  ; preds = %land.lhs.true8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @buf, i32 0, i32 2), align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @buf, i32 0, i32 1), align 8
-  %sub = sub i64 %10, 1
-  %arrayidx = getelementptr inbounds i8, ptr %9, i64 %sub
-  %11 = load i8, ptr %arrayidx, align 1
-  %conv11 = sext i8 %11 to i32
+  %12 = getelementptr inbounds %struct.strbuf, ptr @buf, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds %struct.strbuf, ptr @buf, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8
+  %sub = sub i64 %15, 1
+  %arrayidx = getelementptr inbounds i8, ptr %13, i64 %sub
+  %16 = load i8, ptr %arrayidx, align 1
+  %conv11 = sext i8 %16 to i32
   %cmp12 = icmp eq i32 %conv11, 10
   br i1 %cmp12, label %land.lhs.true14, label %if.end22
 
 land.lhs.true14:                                  ; preds = %land.lhs.true10
-  %12 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @buf, i32 0, i32 2), align 8
-  %13 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @buf, i32 0, i32 1), align 8
-  %sub15 = sub i64 %13, 2
-  %arrayidx16 = getelementptr inbounds i8, ptr %12, i64 %sub15
-  %14 = load i8, ptr %arrayidx16, align 1
-  %conv17 = sext i8 %14 to i32
+  %17 = getelementptr inbounds %struct.strbuf, ptr @buf, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.strbuf, ptr @buf, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8
+  %sub15 = sub i64 %20, 2
+  %arrayidx16 = getelementptr inbounds i8, ptr %18, i64 %sub15
+  %21 = load i8, ptr %arrayidx16, align 1
+  %conv17 = sext i8 %21 to i32
   %cmp18 = icmp eq i32 %conv17, 13
   br i1 %cmp18, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %land.lhs.true14
-  %15 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @buf, i32 0, i32 1), align 8
-  %sub21 = sub i64 %15, 2
+  %22 = getelementptr inbounds %struct.strbuf, ptr @buf, i32 0, i32 1
+  %23 = load i64, ptr %22, align 8
+  %sub21 = sub i64 %23, 2
   call void @strbuf_setlen(ptr noundef @buf, i64 noundef %sub21)
   call void @strbuf_addch(ptr noundef @buf, i32 noundef 10)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %land.lhs.true14, %land.lhs.true10, %land.lhs.true8, %for.cond
-  %16 = load i32, ptr @mboxrd, align 4
-  %tobool23 = icmp ne i32 %16, 0
+  %24 = load i32, ptr @mboxrd, align 4
+  %tobool23 = icmp ne i32 %24, 0
   br i1 %tobool23, label %land.lhs.true24, label %if.end28
 
 land.lhs.true24:                                  ; preds = %if.end22
@@ -976,12 +984,15 @@ if.then27:                                        ; preds = %land.lhs.true24
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then27, %land.lhs.true24, %if.end22
-  %17 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @buf, i32 0, i32 2), align 8
-  %18 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @buf, i32 0, i32 1), align 8
-  %19 = load ptr, ptr %output, align 8
-  %call29 = call i64 @fwrite(ptr noundef %17, i64 noundef 1, i64 noundef %18, ptr noundef %19)
-  %20 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @buf, i32 0, i32 1), align 8
-  %cmp30 = icmp ne i64 %call29, %20
+  %25 = getelementptr inbounds %struct.strbuf, ptr @buf, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.strbuf, ptr @buf, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8
+  %29 = load ptr, ptr %output, align 8
+  %call29 = call i64 @fwrite(ptr noundef %26, i64 noundef 1, i64 noundef %28, ptr noundef %29)
+  %30 = getelementptr inbounds %struct.strbuf, ptr @buf, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %cmp30 = icmp ne i64 %call29, %31
   br i1 %cmp30, label %if.then32, label %if.end33
 
 if.then32:                                        ; preds = %if.end28
@@ -989,14 +1000,14 @@ if.then32:                                        ; preds = %if.end28
   unreachable
 
 if.end33:                                         ; preds = %if.end28
-  %21 = load ptr, ptr %mbox.addr, align 8
-  %call34 = call i32 @strbuf_getwholeline(ptr noundef @buf, ptr noundef %21, i32 noundef 10)
+  %32 = load ptr, ptr %mbox.addr, align 8
+  %call34 = call i32 @strbuf_getwholeline(ptr noundef @buf, ptr noundef %32, i32 noundef 10)
   %tobool35 = icmp ne i32 %call34, 0
   br i1 %tobool35, label %if.then36, label %if.end41
 
 if.then36:                                        ; preds = %if.end33
-  %22 = load ptr, ptr %mbox.addr, align 8
-  %call37 = call i32 @feof(ptr noundef %22) #10
+  %33 = load ptr, ptr %mbox.addr, align 8
+  %call37 = call i32 @feof(ptr noundef %33) #10
   %tobool38 = icmp ne i32 %call37, 0
   br i1 %tobool38, label %if.then39, label %if.end40
 
@@ -1009,15 +1020,17 @@ if.end40:                                         ; preds = %if.then36
   unreachable
 
 if.end41:                                         ; preds = %if.end33
-  %23 = load i32, ptr %is_bare, align 4
-  %tobool42 = icmp ne i32 %23, 0
+  %34 = load i32, ptr %is_bare, align 4
+  %tobool42 = icmp ne i32 %34, 0
   br i1 %tobool42, label %if.end48, label %land.lhs.true43
 
 land.lhs.true43:                                  ; preds = %if.end41
-  %24 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @buf, i32 0, i32 2), align 8
-  %25 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @buf, i32 0, i32 1), align 8
-  %conv44 = trunc i64 %25 to i32
-  %call45 = call i32 @is_from_line(ptr noundef %24, i32 noundef %conv44)
+  %35 = getelementptr inbounds %struct.strbuf, ptr @buf, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %struct.strbuf, ptr @buf, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8
+  %conv44 = trunc i64 %38 to i32
+  %call45 = call i32 @is_from_line(ptr noundef %36, i32 noundef %conv44)
   %tobool46 = icmp ne i32 %call45, 0
   br i1 %tobool46, label %if.then47, label %if.end48
 
@@ -1028,10 +1041,10 @@ if.end48:                                         ; preds = %land.lhs.true43, %i
   br label %for.cond
 
 for.end:                                          ; preds = %if.then47, %if.then39
-  %26 = load ptr, ptr %output, align 8
-  %call49 = call i32 @fclose(ptr noundef %26)
-  %27 = load i32, ptr %status, align 4
-  ret i32 %27
+  %39 = load ptr, ptr %output, align 8
+  %call49 = call i32 @fclose(ptr noundef %39)
+  %40 = load i32, ptr %status, align 4
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind

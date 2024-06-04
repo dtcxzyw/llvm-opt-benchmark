@@ -401,744 +401,745 @@ define ptr @slurm_sprint_node_table(ptr noundef %0, i32 noundef %1) #0 {
   %131 = getelementptr inbounds %struct.node_info, ptr %130, i32 0, i32 35
   %132 = load i16, ptr %131, align 8
   %133 = zext i16 %132 to i32
-  %134 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 188), align 8
-  %135 = icmp ne i32 %133, %134
-  br i1 %135, label %136, label %141
+  %134 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 188
+  %135 = load i32, ptr %134, align 8
+  %136 = icmp ne i32 %133, %135
+  br i1 %136, label %137, label %142
 
-136:                                              ; preds = %129
-  %137 = load ptr, ptr %3, align 8
-  %138 = getelementptr inbounds %struct.node_info, ptr %137, i32 0, i32 35
-  %139 = load i16, ptr %138, align 8
-  %140 = zext i16 %139 to i32
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.21, i32 noundef %140)
+137:                                              ; preds = %129
+  %138 = load ptr, ptr %3, align 8
+  %139 = getelementptr inbounds %struct.node_info, ptr %138, i32 0, i32 35
+  %140 = load i16, ptr %139, align 8
+  %141 = zext i16 %140 to i32
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.21, i32 noundef %141)
   store i8 1, ptr %14, align 1
-  br label %141
+  br label %142
 
-141:                                              ; preds = %136, %129
-  %142 = load ptr, ptr %3, align 8
-  %143 = getelementptr inbounds %struct.node_info, ptr %142, i32 0, i32 50
-  %144 = load ptr, ptr %143, align 8
-  %145 = icmp ne ptr %144, null
-  br i1 %145, label %146, label %150
+142:                                              ; preds = %137, %129
+  %143 = load ptr, ptr %3, align 8
+  %144 = getelementptr inbounds %struct.node_info, ptr %143, i32 0, i32 50
+  %145 = load ptr, ptr %144, align 8
+  %146 = icmp ne ptr %145, null
+  br i1 %146, label %147, label %151
 
-146:                                              ; preds = %141
-  %147 = load ptr, ptr %3, align 8
-  %148 = getelementptr inbounds %struct.node_info, ptr %147, i32 0, i32 50
-  %149 = load ptr, ptr %148, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.22, ptr noundef %149)
+147:                                              ; preds = %142
+  %148 = load ptr, ptr %3, align 8
+  %149 = getelementptr inbounds %struct.node_info, ptr %148, i32 0, i32 50
+  %150 = load ptr, ptr %149, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.22, ptr noundef %150)
   store i8 1, ptr %14, align 1
-  br label %150
+  br label %151
 
-150:                                              ; preds = %146, %141
-  %151 = load i8, ptr %14, align 1
-  %152 = trunc i8 %151 to i1
-  br i1 %152, label %153, label %155
+151:                                              ; preds = %147, %142
+  %152 = load i8, ptr %14, align 1
+  %153 = trunc i8 %152 to i1
+  br i1 %153, label %154, label %156
 
-153:                                              ; preds = %150
-  %154 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %154)
-  br label %155
+154:                                              ; preds = %151
+  %155 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %155)
+  br label %156
 
-155:                                              ; preds = %153, %150
-  %156 = load ptr, ptr %3, align 8
-  %157 = getelementptr inbounds %struct.node_info, ptr %156, i32 0, i32 32
-  %158 = load ptr, ptr %157, align 8
-  %159 = icmp ne ptr %158, null
-  br i1 %159, label %160, label %165
+156:                                              ; preds = %154, %151
+  %157 = load ptr, ptr %3, align 8
+  %158 = getelementptr inbounds %struct.node_info, ptr %157, i32 0, i32 32
+  %159 = load ptr, ptr %158, align 8
+  %160 = icmp ne ptr %159, null
+  br i1 %160, label %161, label %166
 
-160:                                              ; preds = %155
-  %161 = load ptr, ptr %3, align 8
-  %162 = getelementptr inbounds %struct.node_info, ptr %161, i32 0, i32 32
-  %163 = load ptr, ptr %162, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.23, ptr noundef %163)
-  %164 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %164)
-  br label %165
+161:                                              ; preds = %156
+  %162 = load ptr, ptr %3, align 8
+  %163 = getelementptr inbounds %struct.node_info, ptr %162, i32 0, i32 32
+  %164 = load ptr, ptr %163, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.23, ptr noundef %164)
+  %165 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %165)
+  br label %166
 
-165:                                              ; preds = %160, %155
-  %166 = load ptr, ptr %3, align 8
-  %167 = getelementptr inbounds %struct.node_info, ptr %166, i32 0, i32 43
-  %168 = load ptr, ptr %167, align 8
-  %169 = call i32 @slurm_get_select_nodeinfo(ptr noundef %168, i32 noundef 8, i32 noundef 3, ptr noundef %10)
-  %170 = load ptr, ptr %3, align 8
-  %171 = getelementptr inbounds %struct.node_info, ptr %170, i32 0, i32 36
-  %172 = load i64, ptr %171, align 8
-  %173 = load i64, ptr %10, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.24, i64 noundef %172, i64 noundef %173)
-  %174 = load ptr, ptr %3, align 8
-  %175 = getelementptr inbounds %struct.node_info, ptr %174, i32 0, i32 9
-  %176 = load i64, ptr %175, align 8
-  %177 = icmp eq i64 %176, -2
-  br i1 %177, label %178, label %179
+166:                                              ; preds = %161, %156
+  %167 = load ptr, ptr %3, align 8
+  %168 = getelementptr inbounds %struct.node_info, ptr %167, i32 0, i32 43
+  %169 = load ptr, ptr %168, align 8
+  %170 = call i32 @slurm_get_select_nodeinfo(ptr noundef %169, i32 noundef 8, i32 noundef 3, ptr noundef %10)
+  %171 = load ptr, ptr %3, align 8
+  %172 = getelementptr inbounds %struct.node_info, ptr %171, i32 0, i32 36
+  %173 = load i64, ptr %172, align 8
+  %174 = load i64, ptr %10, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.24, i64 noundef %173, i64 noundef %174)
+  %175 = load ptr, ptr %3, align 8
+  %176 = getelementptr inbounds %struct.node_info, ptr %175, i32 0, i32 9
+  %177 = load i64, ptr %176, align 8
+  %178 = icmp eq i64 %177, -2
+  br i1 %178, label %179, label %180
 
-178:                                              ; preds = %165
+179:                                              ; preds = %166
   call void @_xstrcat(ptr noundef %6, ptr noundef @.str.25)
-  br label %183
+  br label %184
 
-179:                                              ; preds = %165
-  %180 = load ptr, ptr %3, align 8
-  %181 = getelementptr inbounds %struct.node_info, ptr %180, i32 0, i32 9
-  %182 = load i64, ptr %181, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.26, i64 noundef %182)
-  br label %183
+180:                                              ; preds = %166
+  %181 = load ptr, ptr %3, align 8
+  %182 = getelementptr inbounds %struct.node_info, ptr %181, i32 0, i32 9
+  %183 = load i64, ptr %182, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.26, i64 noundef %183)
+  br label %184
 
-183:                                              ; preds = %179, %178
-  %184 = load ptr, ptr %3, align 8
-  %185 = getelementptr inbounds %struct.node_info, ptr %184, i32 0, i32 45
-  %186 = load i16, ptr %185, align 8
-  %187 = zext i16 %186 to i32
-  %188 = load ptr, ptr %3, align 8
-  %189 = getelementptr inbounds %struct.node_info, ptr %188, i32 0, i32 2
-  %190 = load i16, ptr %189, align 8
-  %191 = zext i16 %190 to i32
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.27, i32 noundef %187, i32 noundef %191)
-  %192 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %192)
-  %193 = load ptr, ptr %3, align 8
-  %194 = getelementptr inbounds %struct.node_info, ptr %193, i32 0, i32 6
-  %195 = load i16, ptr %194, align 2
-  %196 = zext i16 %195 to i32
-  %197 = icmp ne i32 %196, 0
-  br i1 %197, label %208, label %198
+184:                                              ; preds = %180, %179
+  %185 = load ptr, ptr %3, align 8
+  %186 = getelementptr inbounds %struct.node_info, ptr %185, i32 0, i32 45
+  %187 = load i16, ptr %186, align 8
+  %188 = zext i16 %187 to i32
+  %189 = load ptr, ptr %3, align 8
+  %190 = getelementptr inbounds %struct.node_info, ptr %189, i32 0, i32 2
+  %191 = load i16, ptr %190, align 8
+  %192 = zext i16 %191 to i32
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.27, i32 noundef %188, i32 noundef %192)
+  %193 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %193)
+  %194 = load ptr, ptr %3, align 8
+  %195 = getelementptr inbounds %struct.node_info, ptr %194, i32 0, i32 6
+  %196 = load i16, ptr %195, align 2
+  %197 = zext i16 %196 to i32
+  %198 = icmp ne i32 %197, 0
+  br i1 %198, label %209, label %199
 
-198:                                              ; preds = %183
-  %199 = load ptr, ptr %3, align 8
-  %200 = getelementptr inbounds %struct.node_info, ptr %199, i32 0, i32 12
-  %201 = load ptr, ptr %200, align 8
-  %202 = icmp ne ptr %201, null
-  br i1 %202, label %208, label %203
+199:                                              ; preds = %184
+  %200 = load ptr, ptr %3, align 8
+  %201 = getelementptr inbounds %struct.node_info, ptr %200, i32 0, i32 12
+  %202 = load ptr, ptr %201, align 8
+  %203 = icmp ne ptr %202, null
+  br i1 %203, label %209, label %204
 
-203:                                              ; preds = %198
-  %204 = load ptr, ptr %3, align 8
-  %205 = getelementptr inbounds %struct.node_info, ptr %204, i32 0, i32 26
-  %206 = load i64, ptr %205, align 8
-  %207 = icmp ne i64 %206, 0
-  br i1 %207, label %208, label %238
+204:                                              ; preds = %199
+  %205 = load ptr, ptr %3, align 8
+  %206 = getelementptr inbounds %struct.node_info, ptr %205, i32 0, i32 26
+  %207 = load i64, ptr %206, align 8
+  %208 = icmp ne i64 %207, 0
+  br i1 %208, label %209, label %239
 
-208:                                              ; preds = %203, %198, %183
-  %209 = load ptr, ptr %3, align 8
-  %210 = getelementptr inbounds %struct.node_info, ptr %209, i32 0, i32 6
-  %211 = load i16, ptr %210, align 2
-  %212 = icmp ne i16 %211, 0
-  br i1 %212, label %213, label %218
+209:                                              ; preds = %204, %199, %184
+  %210 = load ptr, ptr %3, align 8
+  %211 = getelementptr inbounds %struct.node_info, ptr %210, i32 0, i32 6
+  %212 = load i16, ptr %211, align 2
+  %213 = icmp ne i16 %212, 0
+  br i1 %213, label %214, label %219
 
-213:                                              ; preds = %208
-  %214 = load ptr, ptr %3, align 8
-  %215 = getelementptr inbounds %struct.node_info, ptr %214, i32 0, i32 6
-  %216 = load i16, ptr %215, align 2
-  %217 = zext i16 %216 to i32
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.28, i32 noundef %217)
-  br label %218
+214:                                              ; preds = %209
+  %215 = load ptr, ptr %3, align 8
+  %216 = getelementptr inbounds %struct.node_info, ptr %215, i32 0, i32 6
+  %217 = load i16, ptr %216, align 2
+  %218 = zext i16 %217 to i32
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.28, i32 noundef %218)
+  br label %219
 
-218:                                              ; preds = %213, %208
-  %219 = load ptr, ptr %3, align 8
-  %220 = getelementptr inbounds %struct.node_info, ptr %219, i32 0, i32 12
-  %221 = load ptr, ptr %220, align 8
-  %222 = icmp ne ptr %221, null
-  br i1 %222, label %223, label %227
+219:                                              ; preds = %214, %209
+  %220 = load ptr, ptr %3, align 8
+  %221 = getelementptr inbounds %struct.node_info, ptr %220, i32 0, i32 12
+  %222 = load ptr, ptr %221, align 8
+  %223 = icmp ne ptr %222, null
+  br i1 %223, label %224, label %228
 
-223:                                              ; preds = %218
-  %224 = load ptr, ptr %3, align 8
-  %225 = getelementptr inbounds %struct.node_info, ptr %224, i32 0, i32 12
-  %226 = load ptr, ptr %225, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.29, ptr noundef %226)
-  br label %227
+224:                                              ; preds = %219
+  %225 = load ptr, ptr %3, align 8
+  %226 = getelementptr inbounds %struct.node_info, ptr %225, i32 0, i32 12
+  %227 = load ptr, ptr %226, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.29, ptr noundef %227)
+  br label %228
 
-227:                                              ; preds = %223, %218
-  %228 = load ptr, ptr %3, align 8
-  %229 = getelementptr inbounds %struct.node_info, ptr %228, i32 0, i32 26
-  %230 = load i64, ptr %229, align 8
-  %231 = icmp ne i64 %230, 0
-  br i1 %231, label %232, label %236
+228:                                              ; preds = %224, %219
+  %229 = load ptr, ptr %3, align 8
+  %230 = getelementptr inbounds %struct.node_info, ptr %229, i32 0, i32 26
+  %231 = load i64, ptr %230, align 8
+  %232 = icmp ne i64 %231, 0
+  br i1 %232, label %233, label %237
 
-232:                                              ; preds = %227
-  %233 = load ptr, ptr %3, align 8
-  %234 = getelementptr inbounds %struct.node_info, ptr %233, i32 0, i32 26
-  %235 = load i64, ptr %234, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.30, i64 noundef %235)
-  br label %236
+233:                                              ; preds = %228
+  %234 = load ptr, ptr %3, align 8
+  %235 = getelementptr inbounds %struct.node_info, ptr %234, i32 0, i32 26
+  %236 = load i64, ptr %235, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.30, i64 noundef %236)
+  br label %237
 
-236:                                              ; preds = %232, %227
-  %237 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %237)
-  br label %238
+237:                                              ; preds = %233, %228
+  %238 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %238)
+  br label %239
 
-238:                                              ; preds = %236, %203
-  %239 = load ptr, ptr %3, align 8
-  %240 = getelementptr inbounds %struct.node_info, ptr %239, i32 0, i32 31
-  %241 = load i32, ptr %240, align 8
-  %242 = call ptr @node_state_string_complete(i32 noundef %241)
-  store ptr %242, ptr %8, align 8
-  %243 = load ptr, ptr %8, align 8
-  %244 = load ptr, ptr %3, align 8
-  %245 = getelementptr inbounds %struct.node_info, ptr %244, i32 0, i32 46
-  %246 = load i16, ptr %245, align 2
-  %247 = zext i16 %246 to i32
-  %248 = load ptr, ptr %3, align 8
-  %249 = getelementptr inbounds %struct.node_info, ptr %248, i32 0, i32 47
-  %250 = load i32, ptr %249, align 4
-  %251 = load ptr, ptr %3, align 8
-  %252 = getelementptr inbounds %struct.node_info, ptr %251, i32 0, i32 48
-  %253 = load i32, ptr %252, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.31, ptr noundef %243, i32 noundef %247, i32 noundef %250, i32 noundef %253)
+239:                                              ; preds = %237, %204
+  %240 = load ptr, ptr %3, align 8
+  %241 = getelementptr inbounds %struct.node_info, ptr %240, i32 0, i32 31
+  %242 = load i32, ptr %241, align 8
+  %243 = call ptr @node_state_string_complete(i32 noundef %242)
+  store ptr %243, ptr %8, align 8
+  %244 = load ptr, ptr %8, align 8
+  %245 = load ptr, ptr %3, align 8
+  %246 = getelementptr inbounds %struct.node_info, ptr %245, i32 0, i32 46
+  %247 = load i16, ptr %246, align 2
+  %248 = zext i16 %247 to i32
+  %249 = load ptr, ptr %3, align 8
+  %250 = getelementptr inbounds %struct.node_info, ptr %249, i32 0, i32 47
+  %251 = load i32, ptr %250, align 4
+  %252 = load ptr, ptr %3, align 8
+  %253 = getelementptr inbounds %struct.node_info, ptr %252, i32 0, i32 48
+  %254 = load i32, ptr %253, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.31, ptr noundef %244, i32 noundef %248, i32 noundef %251, i32 noundef %254)
   call void @slurm_xfree(ptr noundef %8)
-  %254 = load ptr, ptr %3, align 8
-  %255 = getelementptr inbounds %struct.node_info, ptr %254, i32 0, i32 33
-  %256 = load i32, ptr %255, align 8
-  %257 = icmp eq i32 %256, -2
-  br i1 %257, label %258, label %259
+  %255 = load ptr, ptr %3, align 8
+  %256 = getelementptr inbounds %struct.node_info, ptr %255, i32 0, i32 33
+  %257 = load i32, ptr %256, align 8
+  %258 = icmp eq i32 %257, -2
+  br i1 %258, label %259, label %260
 
-258:                                              ; preds = %238
+259:                                              ; preds = %239
   call void @_xstrcat(ptr noundef %6, ptr noundef @.str.32)
-  br label %268
+  br label %269
 
-259:                                              ; preds = %238
-  %260 = load ptr, ptr %3, align 8
-  %261 = getelementptr inbounds %struct.node_info, ptr %260, i32 0, i32 33
-  %262 = load i32, ptr %261, align 8
-  %263 = call ptr @uid_to_string(i32 noundef %262)
-  store ptr %263, ptr %15, align 8
-  %264 = load ptr, ptr %15, align 8
-  %265 = load ptr, ptr %3, align 8
-  %266 = getelementptr inbounds %struct.node_info, ptr %265, i32 0, i32 33
-  %267 = load i32, ptr %266, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.33, ptr noundef %264, i32 noundef %267)
+260:                                              ; preds = %239
+  %261 = load ptr, ptr %3, align 8
+  %262 = getelementptr inbounds %struct.node_info, ptr %261, i32 0, i32 33
+  %263 = load i32, ptr %262, align 8
+  %264 = call ptr @uid_to_string(i32 noundef %263)
+  store ptr %264, ptr %15, align 8
+  %265 = load ptr, ptr %15, align 8
+  %266 = load ptr, ptr %3, align 8
+  %267 = getelementptr inbounds %struct.node_info, ptr %266, i32 0, i32 33
+  %268 = load i32, ptr %267, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.33, ptr noundef %265, i32 noundef %268)
   call void @slurm_xfree(ptr noundef %15)
-  br label %268
+  br label %269
 
-268:                                              ; preds = %259, %258
-  %269 = load ptr, ptr %3, align 8
-  %270 = getelementptr inbounds %struct.node_info, ptr %269, i32 0, i32 25
-  %271 = load ptr, ptr %270, align 8
-  %272 = icmp eq ptr %271, null
-  br i1 %272, label %273, label %274
+269:                                              ; preds = %260, %259
+  %270 = load ptr, ptr %3, align 8
+  %271 = getelementptr inbounds %struct.node_info, ptr %270, i32 0, i32 25
+  %272 = load ptr, ptr %271, align 8
+  %273 = icmp eq ptr %272, null
+  br i1 %273, label %274, label %275
 
-273:                                              ; preds = %268
-  br label %278
+274:                                              ; preds = %269
+  br label %279
 
-274:                                              ; preds = %268
-  %275 = load ptr, ptr %3, align 8
-  %276 = getelementptr inbounds %struct.node_info, ptr %275, i32 0, i32 25
-  %277 = load ptr, ptr %276, align 8
-  br label %278
+275:                                              ; preds = %269
+  %276 = load ptr, ptr %3, align 8
+  %277 = getelementptr inbounds %struct.node_info, ptr %276, i32 0, i32 25
+  %278 = load ptr, ptr %277, align 8
+  br label %279
 
-278:                                              ; preds = %274, %273
-  %279 = phi ptr [ @.str.35, %273 ], [ %277, %274 ]
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.34, ptr noundef %279)
-  %280 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %280)
-  %281 = load ptr, ptr %3, align 8
-  %282 = getelementptr inbounds %struct.node_info, ptr %281, i32 0, i32 28
-  %283 = load i32, ptr %282, align 8
-  %284 = icmp ne i32 %283, -2
-  br i1 %284, label %285, label %305
+279:                                              ; preds = %275, %274
+  %280 = phi ptr [ @.str.35, %274 ], [ %278, %275 ]
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.34, ptr noundef %280)
+  %281 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %281)
+  %282 = load ptr, ptr %3, align 8
+  %283 = getelementptr inbounds %struct.node_info, ptr %282, i32 0, i32 28
+  %284 = load i32, ptr %283, align 8
+  %285 = icmp ne i32 %284, -2
+  br i1 %285, label %286, label %306
 
-285:                                              ; preds = %278
-  %286 = load ptr, ptr %3, align 8
-  %287 = getelementptr inbounds %struct.node_info, ptr %286, i32 0, i32 31
-  %288 = load i32, ptr %287, align 8
-  %289 = zext i32 %288 to i64
-  %290 = and i64 %289, 65536
-  %291 = icmp ne i64 %290, 0
-  br i1 %291, label %299, label %292
+286:                                              ; preds = %279
+  %287 = load ptr, ptr %3, align 8
+  %288 = getelementptr inbounds %struct.node_info, ptr %287, i32 0, i32 31
+  %289 = load i32, ptr %288, align 8
+  %290 = zext i32 %289 to i64
+  %291 = and i64 %290, 65536
+  %292 = icmp ne i64 %291, 0
+  br i1 %292, label %300, label %293
 
-292:                                              ; preds = %285
-  %293 = load ptr, ptr %3, align 8
-  %294 = getelementptr inbounds %struct.node_info, ptr %293, i32 0, i32 31
-  %295 = load i32, ptr %294, align 8
-  %296 = zext i32 %295 to i64
-  %297 = and i64 %296, 1048576
-  %298 = icmp ne i64 %297, 0
-  br i1 %298, label %299, label %305
+293:                                              ; preds = %286
+  %294 = load ptr, ptr %3, align 8
+  %295 = getelementptr inbounds %struct.node_info, ptr %294, i32 0, i32 31
+  %296 = load i32, ptr %295, align 8
+  %297 = zext i32 %296 to i64
+  %298 = and i64 %297, 1048576
+  %299 = icmp ne i64 %298, 0
+  br i1 %299, label %300, label %306
 
-299:                                              ; preds = %292, %285
-  %300 = load ptr, ptr %3, align 8
-  %301 = getelementptr inbounds %struct.node_info, ptr %300, i32 0, i32 28
-  %302 = load i32, ptr %301, align 8
-  %303 = call ptr @node_state_string(i32 noundef %302)
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.36, ptr noundef %303)
-  %304 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %304)
-  br label %305
+300:                                              ; preds = %293, %286
+  %301 = load ptr, ptr %3, align 8
+  %302 = getelementptr inbounds %struct.node_info, ptr %301, i32 0, i32 28
+  %303 = load i32, ptr %302, align 8
+  %304 = call ptr @node_state_string(i32 noundef %303)
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.36, ptr noundef %304)
+  %305 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %305)
+  br label %306
 
-305:                                              ; preds = %299, %292, %278
-  %306 = load ptr, ptr %3, align 8
-  %307 = getelementptr inbounds %struct.node_info, ptr %306, i32 0, i32 34
-  %308 = load ptr, ptr %307, align 8
-  %309 = icmp ne ptr %308, null
-  br i1 %309, label %310, label %315
+306:                                              ; preds = %300, %293, %279
+  %307 = load ptr, ptr %3, align 8
+  %308 = getelementptr inbounds %struct.node_info, ptr %307, i32 0, i32 34
+  %309 = load ptr, ptr %308, align 8
+  %310 = icmp ne ptr %309, null
+  br i1 %310, label %311, label %316
 
-310:                                              ; preds = %305
-  %311 = load ptr, ptr %3, align 8
-  %312 = getelementptr inbounds %struct.node_info, ptr %311, i32 0, i32 34
-  %313 = load ptr, ptr %312, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.37, ptr noundef %313)
-  %314 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %314)
-  br label %315
+311:                                              ; preds = %306
+  %312 = load ptr, ptr %3, align 8
+  %313 = getelementptr inbounds %struct.node_info, ptr %312, i32 0, i32 34
+  %314 = load ptr, ptr %313, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.37, ptr noundef %314)
+  %315 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %315)
+  br label %316
 
-315:                                              ; preds = %310, %305
-  %316 = load ptr, ptr %3, align 8
-  %317 = getelementptr inbounds %struct.node_info, ptr %316, i32 0, i32 3
-  %318 = load i64, ptr %317, align 8
-  %319 = icmp ne i64 %318, 0
-  br i1 %319, label %320, label %325
+316:                                              ; preds = %311, %306
+  %317 = load ptr, ptr %3, align 8
+  %318 = getelementptr inbounds %struct.node_info, ptr %317, i32 0, i32 3
+  %319 = load i64, ptr %318, align 8
+  %320 = icmp ne i64 %319, 0
+  br i1 %320, label %321, label %326
 
-320:                                              ; preds = %315
-  %321 = load ptr, ptr %3, align 8
-  %322 = getelementptr inbounds %struct.node_info, ptr %321, i32 0, i32 3
-  %323 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  call void @slurm_make_time_str(ptr noundef %322, ptr noundef %323, i32 noundef 256)
+321:                                              ; preds = %316
+  %322 = load ptr, ptr %3, align 8
+  %323 = getelementptr inbounds %struct.node_info, ptr %322, i32 0, i32 3
   %324 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.38, ptr noundef %324)
-  br label %326
+  call void @slurm_make_time_str(ptr noundef %323, ptr noundef %324, i32 noundef 256)
+  %325 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.38, ptr noundef %325)
+  br label %327
 
-325:                                              ; preds = %315
+326:                                              ; preds = %316
   call void @_xstrcat(ptr noundef %6, ptr noundef @.str.39)
-  br label %326
+  br label %327
 
-326:                                              ; preds = %325, %320
-  %327 = load ptr, ptr %3, align 8
-  %328 = getelementptr inbounds %struct.node_info, ptr %327, i32 0, i32 44
-  %329 = load i64, ptr %328, align 8
-  %330 = icmp ne i64 %329, 0
-  br i1 %330, label %331, label %336
+327:                                              ; preds = %326, %321
+  %328 = load ptr, ptr %3, align 8
+  %329 = getelementptr inbounds %struct.node_info, ptr %328, i32 0, i32 44
+  %330 = load i64, ptr %329, align 8
+  %331 = icmp ne i64 %330, 0
+  br i1 %331, label %332, label %337
 
-331:                                              ; preds = %326
-  %332 = load ptr, ptr %3, align 8
-  %333 = getelementptr inbounds %struct.node_info, ptr %332, i32 0, i32 44
-  %334 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  call void @slurm_make_time_str(ptr noundef %333, ptr noundef %334, i32 noundef 256)
+332:                                              ; preds = %327
+  %333 = load ptr, ptr %3, align 8
+  %334 = getelementptr inbounds %struct.node_info, ptr %333, i32 0, i32 44
   %335 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.40, ptr noundef %335)
-  br label %337
+  call void @slurm_make_time_str(ptr noundef %334, ptr noundef %335, i32 noundef 256)
+  %336 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.40, ptr noundef %336)
+  br label %338
 
-336:                                              ; preds = %326
+337:                                              ; preds = %327
   call void @_xstrcat(ptr noundef %6, ptr noundef @.str.41)
-  br label %337
+  br label %338
 
-337:                                              ; preds = %336, %331
-  %338 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %338)
-  %339 = load ptr, ptr %3, align 8
-  %340 = getelementptr inbounds %struct.node_info, ptr %339, i32 0, i32 24
-  %341 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  call void @slurm_make_time_str(ptr noundef %340, ptr noundef %341, i32 noundef 256)
+338:                                              ; preds = %337, %332
+  %339 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %339)
+  %340 = load ptr, ptr %3, align 8
+  %341 = getelementptr inbounds %struct.node_info, ptr %340, i32 0, i32 24
   %342 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.42, ptr noundef %342)
-  %343 = load ptr, ptr %3, align 8
-  %344 = getelementptr inbounds %struct.node_info, ptr %343, i32 0, i32 41
-  %345 = load i64, ptr %344, align 8
-  %346 = icmp ne i64 %345, 0
-  br i1 %346, label %347, label %352
+  call void @slurm_make_time_str(ptr noundef %341, ptr noundef %342, i32 noundef 256)
+  %343 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.42, ptr noundef %343)
+  %344 = load ptr, ptr %3, align 8
+  %345 = getelementptr inbounds %struct.node_info, ptr %344, i32 0, i32 41
+  %346 = load i64, ptr %345, align 8
+  %347 = icmp ne i64 %346, 0
+  br i1 %347, label %348, label %353
 
-347:                                              ; preds = %337
-  %348 = load ptr, ptr %3, align 8
-  %349 = getelementptr inbounds %struct.node_info, ptr %348, i32 0, i32 41
-  %350 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  call void @slurm_make_time_str(ptr noundef %349, ptr noundef %350, i32 noundef 256)
+348:                                              ; preds = %338
+  %349 = load ptr, ptr %3, align 8
+  %350 = getelementptr inbounds %struct.node_info, ptr %349, i32 0, i32 41
   %351 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.43, ptr noundef %351)
-  br label %353
+  call void @slurm_make_time_str(ptr noundef %350, ptr noundef %351, i32 noundef 256)
+  %352 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.43, ptr noundef %352)
+  br label %354
 
-352:                                              ; preds = %337
+353:                                              ; preds = %338
   call void @_xstrcat(ptr noundef %6, ptr noundef @.str.44)
-  br label %353
+  br label %354
 
-353:                                              ; preds = %352, %347
-  %354 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %354)
-  %355 = load ptr, ptr %3, align 8
-  %356 = getelementptr inbounds %struct.node_info, ptr %355, i32 0, i32 43
-  %357 = load ptr, ptr %356, align 8
-  %358 = call i32 @select_g_select_nodeinfo_get(ptr noundef %357, i32 noundef 9, i32 noundef 3, ptr noundef %11)
-  %359 = load ptr, ptr %3, align 8
-  %360 = getelementptr inbounds %struct.node_info, ptr %359, i32 0, i32 49
-  %361 = load ptr, ptr %360, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.45, ptr noundef %361)
-  %362 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %362)
-  %363 = load ptr, ptr %11, align 8
-  %364 = icmp ne ptr %363, null
-  br i1 %364, label %365, label %367
+354:                                              ; preds = %353, %348
+  %355 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %355)
+  %356 = load ptr, ptr %3, align 8
+  %357 = getelementptr inbounds %struct.node_info, ptr %356, i32 0, i32 43
+  %358 = load ptr, ptr %357, align 8
+  %359 = call i32 @select_g_select_nodeinfo_get(ptr noundef %358, i32 noundef 9, i32 noundef 3, ptr noundef %11)
+  %360 = load ptr, ptr %3, align 8
+  %361 = getelementptr inbounds %struct.node_info, ptr %360, i32 0, i32 49
+  %362 = load ptr, ptr %361, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.45, ptr noundef %362)
+  %363 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %363)
+  %364 = load ptr, ptr %11, align 8
+  %365 = icmp ne ptr %364, null
+  br i1 %365, label %366, label %368
 
-365:                                              ; preds = %353
-  %366 = load ptr, ptr %11, align 8
-  br label %368
+366:                                              ; preds = %354
+  %367 = load ptr, ptr %11, align 8
+  br label %369
 
-367:                                              ; preds = %353
-  br label %368
+368:                                              ; preds = %354
+  br label %369
 
-368:                                              ; preds = %367, %365
-  %369 = phi ptr [ %366, %365 ], [ @.str.2, %367 ]
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.46, ptr noundef %369)
+369:                                              ; preds = %368, %366
+  %370 = phi ptr [ %367, %366 ], [ @.str.2, %368 ]
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.46, ptr noundef %370)
   call void @slurm_xfree(ptr noundef %11)
-  %370 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %370)
-  %371 = load ptr, ptr %3, align 8
-  %372 = getelementptr inbounds %struct.node_info, ptr %371, i32 0, i32 16
-  %373 = load ptr, ptr %372, align 8
-  %374 = icmp ne ptr %373, null
-  br i1 %374, label %375, label %382
+  %371 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %371)
+  %372 = load ptr, ptr %3, align 8
+  %373 = getelementptr inbounds %struct.node_info, ptr %372, i32 0, i32 16
+  %374 = load ptr, ptr %373, align 8
+  %375 = icmp ne ptr %374, null
+  br i1 %375, label %376, label %383
 
-375:                                              ; preds = %368
-  %376 = load ptr, ptr %3, align 8
-  %377 = getelementptr inbounds %struct.node_info, ptr %376, i32 0, i32 16
-  %378 = load ptr, ptr %377, align 8
-  %379 = getelementptr inbounds %struct.power_mgmt_data, ptr %378, i32 0, i32 0
-  %380 = load i32, ptr %379, align 8
-  %381 = icmp eq i32 %380, -2
-  br i1 %381, label %382, label %383
+376:                                              ; preds = %369
+  %377 = load ptr, ptr %3, align 8
+  %378 = getelementptr inbounds %struct.node_info, ptr %377, i32 0, i32 16
+  %379 = load ptr, ptr %378, align 8
+  %380 = getelementptr inbounds %struct.power_mgmt_data, ptr %379, i32 0, i32 0
+  %381 = load i32, ptr %380, align 8
+  %382 = icmp eq i32 %381, -2
+  br i1 %382, label %383, label %384
 
-382:                                              ; preds = %375, %368
+383:                                              ; preds = %376, %369
   call void @_xstrcat(ptr noundef %6, ptr noundef @.str.47)
-  br label %389
+  br label %390
 
-383:                                              ; preds = %375
-  %384 = load ptr, ptr %3, align 8
-  %385 = getelementptr inbounds %struct.node_info, ptr %384, i32 0, i32 16
-  %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds %struct.power_mgmt_data, ptr %386, i32 0, i32 0
-  %388 = load i32, ptr %387, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.48, i32 noundef %388)
-  br label %389
+384:                                              ; preds = %376
+  %385 = load ptr, ptr %3, align 8
+  %386 = getelementptr inbounds %struct.node_info, ptr %385, i32 0, i32 16
+  %387 = load ptr, ptr %386, align 8
+  %388 = getelementptr inbounds %struct.power_mgmt_data, ptr %387, i32 0, i32 0
+  %389 = load i32, ptr %388, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.48, i32 noundef %389)
+  br label %390
 
-389:                                              ; preds = %383, %382
-  %390 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %390)
-  %391 = load ptr, ptr %3, align 8
-  %392 = getelementptr inbounds %struct.node_info, ptr %391, i32 0, i32 13
-  %393 = load ptr, ptr %392, align 8
-  %394 = icmp ne ptr %393, null
-  br i1 %394, label %395, label %402
+390:                                              ; preds = %384, %383
+  %391 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %391)
+  %392 = load ptr, ptr %3, align 8
+  %393 = getelementptr inbounds %struct.node_info, ptr %392, i32 0, i32 13
+  %394 = load ptr, ptr %393, align 8
+  %395 = icmp ne ptr %394, null
+  br i1 %395, label %396, label %403
 
-395:                                              ; preds = %389
-  %396 = load ptr, ptr %3, align 8
-  %397 = getelementptr inbounds %struct.node_info, ptr %396, i32 0, i32 13
-  %398 = load ptr, ptr %397, align 8
-  %399 = getelementptr inbounds %struct.acct_gather_energy, ptr %398, i32 0, i32 3
-  %400 = load i32, ptr %399, align 8
-  %401 = icmp eq i32 %400, -2
-  br i1 %401, label %402, label %403
+396:                                              ; preds = %390
+  %397 = load ptr, ptr %3, align 8
+  %398 = getelementptr inbounds %struct.node_info, ptr %397, i32 0, i32 13
+  %399 = load ptr, ptr %398, align 8
+  %400 = getelementptr inbounds %struct.acct_gather_energy, ptr %399, i32 0, i32 3
+  %401 = load i32, ptr %400, align 8
+  %402 = icmp eq i32 %401, -2
+  br i1 %402, label %403, label %404
 
-402:                                              ; preds = %395, %389
+403:                                              ; preds = %396, %390
   call void @_xstrcat(ptr noundef %6, ptr noundef @.str.49)
-  br label %414
+  br label %415
 
-403:                                              ; preds = %395
-  %404 = load ptr, ptr %3, align 8
-  %405 = getelementptr inbounds %struct.node_info, ptr %404, i32 0, i32 13
-  %406 = load ptr, ptr %405, align 8
-  %407 = getelementptr inbounds %struct.acct_gather_energy, ptr %406, i32 0, i32 3
-  %408 = load i32, ptr %407, align 8
-  %409 = load ptr, ptr %3, align 8
-  %410 = getelementptr inbounds %struct.node_info, ptr %409, i32 0, i32 13
-  %411 = load ptr, ptr %410, align 8
-  %412 = getelementptr inbounds %struct.acct_gather_energy, ptr %411, i32 0, i32 0
-  %413 = load i32, ptr %412, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.50, i32 noundef %408, i32 noundef %413)
-  br label %414
+404:                                              ; preds = %396
+  %405 = load ptr, ptr %3, align 8
+  %406 = getelementptr inbounds %struct.node_info, ptr %405, i32 0, i32 13
+  %407 = load ptr, ptr %406, align 8
+  %408 = getelementptr inbounds %struct.acct_gather_energy, ptr %407, i32 0, i32 3
+  %409 = load i32, ptr %408, align 8
+  %410 = load ptr, ptr %3, align 8
+  %411 = getelementptr inbounds %struct.node_info, ptr %410, i32 0, i32 13
+  %412 = load ptr, ptr %411, align 8
+  %413 = getelementptr inbounds %struct.acct_gather_energy, ptr %412, i32 0, i32 0
+  %414 = load i32, ptr %413, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.50, i32 noundef %409, i32 noundef %414)
+  br label %415
 
-414:                                              ; preds = %403, %402
-  %415 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %415)
-  %416 = load ptr, ptr %3, align 8
-  %417 = getelementptr inbounds %struct.node_info, ptr %416, i32 0, i32 14
-  %418 = load ptr, ptr %417, align 8
-  %419 = icmp ne ptr %418, null
-  br i1 %419, label %420, label %427
+415:                                              ; preds = %404, %403
+  %416 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %416)
+  %417 = load ptr, ptr %3, align 8
+  %418 = getelementptr inbounds %struct.node_info, ptr %417, i32 0, i32 14
+  %419 = load ptr, ptr %418, align 8
+  %420 = icmp ne ptr %419, null
+  br i1 %420, label %421, label %428
 
-420:                                              ; preds = %414
-  %421 = load ptr, ptr %3, align 8
-  %422 = getelementptr inbounds %struct.node_info, ptr %421, i32 0, i32 14
-  %423 = load ptr, ptr %422, align 8
-  %424 = getelementptr inbounds %struct.ext_sensors_data, ptr %423, i32 0, i32 0
-  %425 = load i64, ptr %424, align 8
-  %426 = icmp eq i64 %425, -2
-  br i1 %426, label %427, label %428
+421:                                              ; preds = %415
+  %422 = load ptr, ptr %3, align 8
+  %423 = getelementptr inbounds %struct.node_info, ptr %422, i32 0, i32 14
+  %424 = load ptr, ptr %423, align 8
+  %425 = getelementptr inbounds %struct.ext_sensors_data, ptr %424, i32 0, i32 0
+  %426 = load i64, ptr %425, align 8
+  %427 = icmp eq i64 %426, -2
+  br i1 %427, label %428, label %429
 
-427:                                              ; preds = %420, %414
+428:                                              ; preds = %421, %415
   call void @_xstrcat(ptr noundef %6, ptr noundef @.str.51)
-  br label %434
+  br label %435
 
-428:                                              ; preds = %420
-  %429 = load ptr, ptr %3, align 8
-  %430 = getelementptr inbounds %struct.node_info, ptr %429, i32 0, i32 14
-  %431 = load ptr, ptr %430, align 8
-  %432 = getelementptr inbounds %struct.ext_sensors_data, ptr %431, i32 0, i32 0
-  %433 = load i64, ptr %432, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.52, i64 noundef %433)
-  br label %434
+429:                                              ; preds = %421
+  %430 = load ptr, ptr %3, align 8
+  %431 = getelementptr inbounds %struct.node_info, ptr %430, i32 0, i32 14
+  %432 = load ptr, ptr %431, align 8
+  %433 = getelementptr inbounds %struct.ext_sensors_data, ptr %432, i32 0, i32 0
+  %434 = load i64, ptr %433, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.52, i64 noundef %434)
+  br label %435
 
-434:                                              ; preds = %428, %427
-  %435 = load ptr, ptr %3, align 8
-  %436 = getelementptr inbounds %struct.node_info, ptr %435, i32 0, i32 14
-  %437 = load ptr, ptr %436, align 8
-  %438 = icmp ne ptr %437, null
-  br i1 %438, label %439, label %446
+435:                                              ; preds = %429, %428
+  %436 = load ptr, ptr %3, align 8
+  %437 = getelementptr inbounds %struct.node_info, ptr %436, i32 0, i32 14
+  %438 = load ptr, ptr %437, align 8
+  %439 = icmp ne ptr %438, null
+  br i1 %439, label %440, label %447
 
-439:                                              ; preds = %434
-  %440 = load ptr, ptr %3, align 8
-  %441 = getelementptr inbounds %struct.node_info, ptr %440, i32 0, i32 14
-  %442 = load ptr, ptr %441, align 8
-  %443 = getelementptr inbounds %struct.ext_sensors_data, ptr %442, i32 0, i32 3
-  %444 = load i32, ptr %443, align 8
-  %445 = icmp eq i32 %444, -2
-  br i1 %445, label %446, label %447
+440:                                              ; preds = %435
+  %441 = load ptr, ptr %3, align 8
+  %442 = getelementptr inbounds %struct.node_info, ptr %441, i32 0, i32 14
+  %443 = load ptr, ptr %442, align 8
+  %444 = getelementptr inbounds %struct.ext_sensors_data, ptr %443, i32 0, i32 3
+  %445 = load i32, ptr %444, align 8
+  %446 = icmp eq i32 %445, -2
+  br i1 %446, label %447, label %448
 
-446:                                              ; preds = %439, %434
+447:                                              ; preds = %440, %435
   call void @_xstrcat(ptr noundef %6, ptr noundef @.str.53)
-  br label %453
+  br label %454
 
-447:                                              ; preds = %439
-  %448 = load ptr, ptr %3, align 8
-  %449 = getelementptr inbounds %struct.node_info, ptr %448, i32 0, i32 14
-  %450 = load ptr, ptr %449, align 8
-  %451 = getelementptr inbounds %struct.ext_sensors_data, ptr %450, i32 0, i32 3
-  %452 = load i32, ptr %451, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.54, i32 noundef %452)
-  br label %453
+448:                                              ; preds = %440
+  %449 = load ptr, ptr %3, align 8
+  %450 = getelementptr inbounds %struct.node_info, ptr %449, i32 0, i32 14
+  %451 = load ptr, ptr %450, align 8
+  %452 = getelementptr inbounds %struct.ext_sensors_data, ptr %451, i32 0, i32 3
+  %453 = load i32, ptr %452, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.54, i32 noundef %453)
+  br label %454
 
-453:                                              ; preds = %447, %446
-  %454 = load ptr, ptr %3, align 8
-  %455 = getelementptr inbounds %struct.node_info, ptr %454, i32 0, i32 14
-  %456 = load ptr, ptr %455, align 8
-  %457 = icmp ne ptr %456, null
-  br i1 %457, label %458, label %465
+454:                                              ; preds = %448, %447
+  %455 = load ptr, ptr %3, align 8
+  %456 = getelementptr inbounds %struct.node_info, ptr %455, i32 0, i32 14
+  %457 = load ptr, ptr %456, align 8
+  %458 = icmp ne ptr %457, null
+  br i1 %458, label %459, label %466
 
-458:                                              ; preds = %453
-  %459 = load ptr, ptr %3, align 8
-  %460 = getelementptr inbounds %struct.node_info, ptr %459, i32 0, i32 14
-  %461 = load ptr, ptr %460, align 8
-  %462 = getelementptr inbounds %struct.ext_sensors_data, ptr %461, i32 0, i32 1
-  %463 = load i32, ptr %462, align 8
-  %464 = icmp eq i32 %463, -2
-  br i1 %464, label %465, label %466
+459:                                              ; preds = %454
+  %460 = load ptr, ptr %3, align 8
+  %461 = getelementptr inbounds %struct.node_info, ptr %460, i32 0, i32 14
+  %462 = load ptr, ptr %461, align 8
+  %463 = getelementptr inbounds %struct.ext_sensors_data, ptr %462, i32 0, i32 1
+  %464 = load i32, ptr %463, align 8
+  %465 = icmp eq i32 %464, -2
+  br i1 %465, label %466, label %467
 
-465:                                              ; preds = %458, %453
+466:                                              ; preds = %459, %454
   call void @_xstrcat(ptr noundef %6, ptr noundef @.str.55)
-  br label %472
+  br label %473
 
-466:                                              ; preds = %458
-  %467 = load ptr, ptr %3, align 8
-  %468 = getelementptr inbounds %struct.node_info, ptr %467, i32 0, i32 14
-  %469 = load ptr, ptr %468, align 8
-  %470 = getelementptr inbounds %struct.ext_sensors_data, ptr %469, i32 0, i32 1
-  %471 = load i32, ptr %470, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.56, i32 noundef %471)
-  br label %472
+467:                                              ; preds = %459
+  %468 = load ptr, ptr %3, align 8
+  %469 = getelementptr inbounds %struct.node_info, ptr %468, i32 0, i32 14
+  %470 = load ptr, ptr %469, align 8
+  %471 = getelementptr inbounds %struct.ext_sensors_data, ptr %470, i32 0, i32 1
+  %472 = load i32, ptr %471, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.56, i32 noundef %472)
+  br label %473
 
-472:                                              ; preds = %466, %465
-  %473 = load ptr, ptr %3, align 8
-  %474 = getelementptr inbounds %struct.node_info, ptr %473, i32 0, i32 38
-  %475 = load ptr, ptr %474, align 8
-  %476 = icmp ne ptr %475, null
-  br i1 %476, label %477, label %489
+473:                                              ; preds = %467, %466
+  %474 = load ptr, ptr %3, align 8
+  %475 = getelementptr inbounds %struct.node_info, ptr %474, i32 0, i32 38
+  %476 = load ptr, ptr %475, align 8
+  %477 = icmp ne ptr %476, null
+  br i1 %477, label %478, label %490
 
-477:                                              ; preds = %472
-  %478 = load ptr, ptr %3, align 8
-  %479 = getelementptr inbounds %struct.node_info, ptr %478, i32 0, i32 38
-  %480 = load ptr, ptr %479, align 8
-  %481 = getelementptr inbounds i8, ptr %480, i64 0
-  %482 = load i8, ptr %481, align 1
-  %483 = sext i8 %482 to i32
-  %484 = icmp ne i32 %483, 0
-  br i1 %484, label %485, label %489
+478:                                              ; preds = %473
+  %479 = load ptr, ptr %3, align 8
+  %480 = getelementptr inbounds %struct.node_info, ptr %479, i32 0, i32 38
+  %481 = load ptr, ptr %480, align 8
+  %482 = getelementptr inbounds i8, ptr %481, i64 0
+  %483 = load i8, ptr %482, align 1
+  %484 = sext i8 %483 to i32
+  %485 = icmp ne i32 %484, 0
+  br i1 %485, label %486, label %490
 
-485:                                              ; preds = %477
-  %486 = load ptr, ptr %3, align 8
-  %487 = getelementptr inbounds %struct.node_info, ptr %486, i32 0, i32 38
-  %488 = load ptr, ptr %487, align 8
-  call void @_xstrcat(ptr noundef %7, ptr noundef %488)
-  br label %489
+486:                                              ; preds = %478
+  %487 = load ptr, ptr %3, align 8
+  %488 = getelementptr inbounds %struct.node_info, ptr %487, i32 0, i32 38
+  %489 = load ptr, ptr %488, align 8
+  call void @_xstrcat(ptr noundef %7, ptr noundef %489)
+  br label %490
 
-489:                                              ; preds = %485, %477, %472
-  %490 = load ptr, ptr %7, align 8
-  %491 = icmp ne ptr %490, null
-  br i1 %491, label %492, label %528
+490:                                              ; preds = %486, %478, %473
+  %491 = load ptr, ptr %7, align 8
+  %492 = icmp ne ptr %491, null
+  br i1 %492, label %493, label %529
 
-492:                                              ; preds = %489
+493:                                              ; preds = %490
   store i32 1, ptr %16, align 4
   store ptr null, ptr %17, align 8
-  %493 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %493)
-  %494 = load ptr, ptr %7, align 8
-  %495 = call ptr @strtok_r(ptr noundef %494, ptr noundef @.str.57, ptr noundef %17) #7
-  store ptr %495, ptr %18, align 8
-  br label %496
+  %494 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %494)
+  %495 = load ptr, ptr %7, align 8
+  %496 = call ptr @strtok_r(ptr noundef %495, ptr noundef @.str.57, ptr noundef %17) #7
+  store ptr %496, ptr %18, align 8
+  br label %497
 
-496:                                              ; preds = %525, %492
-  %497 = load ptr, ptr %18, align 8
-  %498 = icmp ne ptr %497, null
-  br i1 %498, label %499, label %527
+497:                                              ; preds = %526, %493
+  %498 = load ptr, ptr %18, align 8
+  %499 = icmp ne ptr %498, null
+  br i1 %499, label %500, label %528
 
-499:                                              ; preds = %496
-  %500 = load i32, ptr %16, align 4
-  %501 = icmp eq i32 %500, 1
-  br i1 %501, label %502, label %503
+500:                                              ; preds = %497
+  %501 = load i32, ptr %16, align 4
+  %502 = icmp eq i32 %501, 1
+  br i1 %502, label %503, label %504
 
-502:                                              ; preds = %499
+503:                                              ; preds = %500
   call void @_xstrcat(ptr noundef %6, ptr noundef @.str.58)
-  br label %505
+  br label %506
 
-503:                                              ; preds = %499
-  %504 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %504)
+504:                                              ; preds = %500
+  %505 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %505)
   call void @_xstrcat(ptr noundef %6, ptr noundef @.str.59)
-  br label %505
+  br label %506
 
-505:                                              ; preds = %503, %502
-  %506 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.1, ptr noundef %506)
-  %507 = load i32, ptr %16, align 4
-  %508 = add nsw i32 %507, 1
-  store i32 %508, ptr %16, align 4
-  %509 = icmp eq i32 %507, 1
-  br i1 %509, label %510, label %525
+506:                                              ; preds = %504, %503
+  %507 = load ptr, ptr %18, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.1, ptr noundef %507)
+  %508 = load i32, ptr %16, align 4
+  %509 = add nsw i32 %508, 1
+  store i32 %509, ptr %16, align 4
+  %510 = icmp eq i32 %508, 1
+  br i1 %510, label %511, label %526
 
-510:                                              ; preds = %505
-  %511 = load ptr, ptr %3, align 8
-  %512 = getelementptr inbounds %struct.node_info, ptr %511, i32 0, i32 39
-  %513 = load i64, ptr %512, align 8
-  %514 = icmp ne i64 %513, 0
-  br i1 %514, label %515, label %525
+511:                                              ; preds = %506
+  %512 = load ptr, ptr %3, align 8
+  %513 = getelementptr inbounds %struct.node_info, ptr %512, i32 0, i32 39
+  %514 = load i64, ptr %513, align 8
+  %515 = icmp ne i64 %514, 0
+  br i1 %515, label %516, label %526
 
-515:                                              ; preds = %510
-  %516 = load ptr, ptr %3, align 8
-  %517 = getelementptr inbounds %struct.node_info, ptr %516, i32 0, i32 40
-  %518 = load i32, ptr %517, align 8
-  %519 = call ptr @uid_to_string(i32 noundef %518)
-  store ptr %519, ptr %19, align 8
-  %520 = load ptr, ptr %3, align 8
-  %521 = getelementptr inbounds %struct.node_info, ptr %520, i32 0, i32 39
-  %522 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  call void @slurm_make_time_str(ptr noundef %521, ptr noundef %522, i32 noundef 256)
-  %523 = load ptr, ptr %19, align 8
-  %524 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.60, ptr noundef %523, ptr noundef %524)
+516:                                              ; preds = %511
+  %517 = load ptr, ptr %3, align 8
+  %518 = getelementptr inbounds %struct.node_info, ptr %517, i32 0, i32 40
+  %519 = load i32, ptr %518, align 8
+  %520 = call ptr @uid_to_string(i32 noundef %519)
+  store ptr %520, ptr %19, align 8
+  %521 = load ptr, ptr %3, align 8
+  %522 = getelementptr inbounds %struct.node_info, ptr %521, i32 0, i32 39
+  %523 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
+  call void @slurm_make_time_str(ptr noundef %522, ptr noundef %523, i32 noundef 256)
+  %524 = load ptr, ptr %19, align 8
+  %525 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.60, ptr noundef %524, ptr noundef %525)
   call void @slurm_xfree(ptr noundef %19)
-  br label %525
+  br label %526
 
-525:                                              ; preds = %515, %510, %505
-  %526 = call ptr @strtok_r(ptr noundef null, ptr noundef @.str.57, ptr noundef %17) #7
-  store ptr %526, ptr %18, align 8
-  br label %496, !llvm.loop !8
+526:                                              ; preds = %516, %511, %506
+  %527 = call ptr @strtok_r(ptr noundef null, ptr noundef @.str.57, ptr noundef %17) #7
+  store ptr %527, ptr %18, align 8
+  br label %497, !llvm.loop !8
 
-527:                                              ; preds = %496
+528:                                              ; preds = %497
   call void @slurm_xfree(ptr noundef %7)
-  br label %528
+  br label %529
 
-528:                                              ; preds = %527, %489
-  %529 = load ptr, ptr %3, align 8
-  %530 = getelementptr inbounds %struct.node_info, ptr %529, i32 0, i32 37
-  %531 = load ptr, ptr %530, align 8
-  %532 = icmp ne ptr %531, null
-  br i1 %532, label %533, label %538
+529:                                              ; preds = %528, %490
+  %530 = load ptr, ptr %3, align 8
+  %531 = getelementptr inbounds %struct.node_info, ptr %530, i32 0, i32 37
+  %532 = load ptr, ptr %531, align 8
+  %533 = icmp ne ptr %532, null
+  br i1 %533, label %534, label %539
 
-533:                                              ; preds = %528
-  %534 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %534)
-  %535 = load ptr, ptr %3, align 8
-  %536 = getelementptr inbounds %struct.node_info, ptr %535, i32 0, i32 37
-  %537 = load ptr, ptr %536, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.61, ptr noundef %537)
-  br label %538
+534:                                              ; preds = %529
+  %535 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %535)
+  %536 = load ptr, ptr %3, align 8
+  %537 = getelementptr inbounds %struct.node_info, ptr %536, i32 0, i32 37
+  %538 = load ptr, ptr %537, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.61, ptr noundef %538)
+  br label %539
 
-538:                                              ; preds = %533, %528
-  %539 = load ptr, ptr %3, align 8
-  %540 = getelementptr inbounds %struct.node_info, ptr %539, i32 0, i32 15
-  %541 = load ptr, ptr %540, align 8
-  %542 = icmp ne ptr %541, null
-  br i1 %542, label %543, label %548
+539:                                              ; preds = %534, %529
+  %540 = load ptr, ptr %3, align 8
+  %541 = getelementptr inbounds %struct.node_info, ptr %540, i32 0, i32 15
+  %542 = load ptr, ptr %541, align 8
+  %543 = icmp ne ptr %542, null
+  br i1 %543, label %544, label %549
 
-543:                                              ; preds = %538
-  %544 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %544)
-  %545 = load ptr, ptr %3, align 8
-  %546 = getelementptr inbounds %struct.node_info, ptr %545, i32 0, i32 15
-  %547 = load ptr, ptr %546, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.62, ptr noundef %547)
-  br label %548
+544:                                              ; preds = %539
+  %545 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %545)
+  %546 = load ptr, ptr %3, align 8
+  %547 = getelementptr inbounds %struct.node_info, ptr %546, i32 0, i32 15
+  %548 = load ptr, ptr %547, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.62, ptr noundef %548)
+  br label %549
 
-548:                                              ; preds = %543, %538
-  %549 = load ptr, ptr %3, align 8
-  %550 = getelementptr inbounds %struct.node_info, ptr %549, i32 0, i32 22
-  %551 = load ptr, ptr %550, align 8
-  %552 = icmp ne ptr %551, null
-  br i1 %552, label %558, label %553
+549:                                              ; preds = %544, %539
+  %550 = load ptr, ptr %3, align 8
+  %551 = getelementptr inbounds %struct.node_info, ptr %550, i32 0, i32 22
+  %552 = load ptr, ptr %551, align 8
+  %553 = icmp ne ptr %552, null
+  br i1 %553, label %559, label %554
 
-553:                                              ; preds = %548
-  %554 = load ptr, ptr %3, align 8
-  %555 = getelementptr inbounds %struct.node_info, ptr %554, i32 0, i32 23
-  %556 = load ptr, ptr %555, align 8
-  %557 = icmp ne ptr %556, null
-  br i1 %557, label %558, label %578
+554:                                              ; preds = %549
+  %555 = load ptr, ptr %3, align 8
+  %556 = getelementptr inbounds %struct.node_info, ptr %555, i32 0, i32 23
+  %557 = load ptr, ptr %556, align 8
+  %558 = icmp ne ptr %557, null
+  br i1 %558, label %559, label %579
 
-558:                                              ; preds = %553, %548
-  %559 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %559)
-  %560 = load ptr, ptr %3, align 8
-  %561 = getelementptr inbounds %struct.node_info, ptr %560, i32 0, i32 22
-  %562 = load ptr, ptr %561, align 8
-  %563 = icmp ne ptr %562, null
-  br i1 %563, label %564, label %568
+559:                                              ; preds = %554, %549
+  %560 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %560)
+  %561 = load ptr, ptr %3, align 8
+  %562 = getelementptr inbounds %struct.node_info, ptr %561, i32 0, i32 22
+  %563 = load ptr, ptr %562, align 8
+  %564 = icmp ne ptr %563, null
+  br i1 %564, label %565, label %569
 
-564:                                              ; preds = %558
-  %565 = load ptr, ptr %3, align 8
-  %566 = getelementptr inbounds %struct.node_info, ptr %565, i32 0, i32 22
-  %567 = load ptr, ptr %566, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.63, ptr noundef %567)
-  br label %568
+565:                                              ; preds = %559
+  %566 = load ptr, ptr %3, align 8
+  %567 = getelementptr inbounds %struct.node_info, ptr %566, i32 0, i32 22
+  %568 = load ptr, ptr %567, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.63, ptr noundef %568)
+  br label %569
 
-568:                                              ; preds = %564, %558
-  %569 = load ptr, ptr %3, align 8
-  %570 = getelementptr inbounds %struct.node_info, ptr %569, i32 0, i32 23
-  %571 = load ptr, ptr %570, align 8
-  %572 = icmp ne ptr %571, null
-  br i1 %572, label %573, label %577
+569:                                              ; preds = %565, %559
+  %570 = load ptr, ptr %3, align 8
+  %571 = getelementptr inbounds %struct.node_info, ptr %570, i32 0, i32 23
+  %572 = load ptr, ptr %571, align 8
+  %573 = icmp ne ptr %572, null
+  br i1 %573, label %574, label %578
 
-573:                                              ; preds = %568
-  %574 = load ptr, ptr %3, align 8
-  %575 = getelementptr inbounds %struct.node_info, ptr %574, i32 0, i32 23
-  %576 = load ptr, ptr %575, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.64, ptr noundef %576)
-  br label %577
-
-577:                                              ; preds = %573, %568
+574:                                              ; preds = %569
+  %575 = load ptr, ptr %3, align 8
+  %576 = getelementptr inbounds %struct.node_info, ptr %575, i32 0, i32 23
+  %577 = load ptr, ptr %576, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.64, ptr noundef %577)
   br label %578
 
-578:                                              ; preds = %577, %553
-  %579 = load ptr, ptr %3, align 8
-  %580 = getelementptr inbounds %struct.node_info, ptr %579, i32 0, i32 42
-  %581 = load ptr, ptr %580, align 8
-  %582 = icmp ne ptr %581, null
-  br i1 %582, label %583, label %588
+578:                                              ; preds = %574, %569
+  br label %579
 
-583:                                              ; preds = %578
-  %584 = load ptr, ptr %12, align 8
-  call void @_xstrcat(ptr noundef %6, ptr noundef %584)
-  %585 = load ptr, ptr %3, align 8
-  %586 = getelementptr inbounds %struct.node_info, ptr %585, i32 0, i32 42
-  %587 = load ptr, ptr %586, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.65, ptr noundef %587)
-  br label %588
+579:                                              ; preds = %578, %554
+  %580 = load ptr, ptr %3, align 8
+  %581 = getelementptr inbounds %struct.node_info, ptr %580, i32 0, i32 42
+  %582 = load ptr, ptr %581, align 8
+  %583 = icmp ne ptr %582, null
+  br i1 %583, label %584, label %589
 
-588:                                              ; preds = %583, %578
-  %589 = load i32, ptr %4, align 4
-  %590 = icmp ne i32 %589, 0
-  br i1 %590, label %591, label %592
+584:                                              ; preds = %579
+  %585 = load ptr, ptr %12, align 8
+  call void @_xstrcat(ptr noundef %6, ptr noundef %585)
+  %586 = load ptr, ptr %3, align 8
+  %587 = getelementptr inbounds %struct.node_info, ptr %586, i32 0, i32 42
+  %588 = load ptr, ptr %587, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %6, ptr noundef @.str.65, ptr noundef %588)
+  br label %589
 
-591:                                              ; preds = %588
+589:                                              ; preds = %584, %579
+  %590 = load i32, ptr %4, align 4
+  %591 = icmp ne i32 %590, 0
+  br i1 %591, label %592, label %593
+
+592:                                              ; preds = %589
   call void @_xstrcat(ptr noundef %6, ptr noundef @.str.57)
-  br label %593
+  br label %594
 
-592:                                              ; preds = %588
+593:                                              ; preds = %589
   call void @_xstrcat(ptr noundef %6, ptr noundef @.str.66)
-  br label %593
+  br label %594
 
-593:                                              ; preds = %592, %591
-  %594 = load ptr, ptr %6, align 8
-  ret ptr %594
+594:                                              ; preds = %593, %592
+  %595 = load ptr, ptr %6, align 8
+  ret ptr %595
 }
 
 declare void @slurm_xfree(ptr noundef) #1
@@ -1391,116 +1392,117 @@ define i32 @slurm_load_node(i64 noundef %0, ptr noundef %1, i16 noundef zeroext 
   %17 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %16, i32 0, i32 11
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %9, align 8
-  br label %21
+  br label %22
 
 19:                                               ; preds = %3
-  %20 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  store ptr %20, ptr %9, align 8
-  br label %21
+  %20 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %9, align 8
+  br label %22
 
-21:                                               ; preds = %19, %15
-  %22 = load i16, ptr %6, align 2
-  %23 = zext i16 %22 to i32
-  %24 = and i32 %23, 64
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %43
+22:                                               ; preds = %19, %15
+  %23 = load i16, ptr %6, align 2
+  %24 = zext i16 %23 to i32
+  %25 = and i32 %24, 64
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %44
 
-26:                                               ; preds = %21
-  %27 = load i16, ptr %6, align 2
-  %28 = zext i16 %27 to i32
-  %29 = and i32 %28, 16
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %43, label %31
+27:                                               ; preds = %22
+  %28 = load i16, ptr %6, align 2
+  %29 = zext i16 %28 to i32
+  %30 = and i32 %29, 16
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %44, label %32
 
-31:                                               ; preds = %26
-  %32 = call i32 @slurm_load_federation(ptr noundef %10)
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %43
+32:                                               ; preds = %27
+  %33 = call i32 @slurm_load_federation(ptr noundef %10)
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %44
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %10, align 8
-  %36 = load ptr, ptr %9, align 8
-  %37 = call zeroext i1 @cluster_in_federation(ptr noundef %35, ptr noundef %36)
-  br i1 %37, label %38, label %43
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %10, align 8
+  %37 = load ptr, ptr %9, align 8
+  %38 = call zeroext i1 @cluster_in_federation(ptr noundef %36, ptr noundef %37)
+  br i1 %38, label %39, label %44
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   store i64 0, ptr %4, align 8
-  %39 = load i16, ptr %6, align 2
-  %40 = zext i16 %39 to i32
-  %41 = and i32 %40, -17
-  %42 = trunc i32 %41 to i16
-  store i16 %42, ptr %6, align 2
-  br label %52
+  %40 = load i16, ptr %6, align 2
+  %41 = zext i16 %40 to i32
+  %42 = and i32 %41, -17
+  %43 = trunc i32 %42 to i16
+  store i16 %43, ptr %6, align 2
+  br label %53
 
-43:                                               ; preds = %34, %31, %26, %21
-  %44 = load i16, ptr %6, align 2
-  %45 = zext i16 %44 to i32
-  %46 = or i32 %45, 16
-  %47 = trunc i32 %46 to i16
-  store i16 %47, ptr %6, align 2
-  %48 = load i16, ptr %6, align 2
-  %49 = zext i16 %48 to i32
-  %50 = and i32 %49, -65
-  %51 = trunc i32 %50 to i16
-  store i16 %51, ptr %6, align 2
-  br label %52
+44:                                               ; preds = %35, %32, %27, %22
+  %45 = load i16, ptr %6, align 2
+  %46 = zext i16 %45 to i32
+  %47 = or i32 %46, 16
+  %48 = trunc i32 %47 to i16
+  store i16 %48, ptr %6, align 2
+  %49 = load i16, ptr %6, align 2
+  %50 = zext i16 %49 to i32
+  %51 = and i32 %50, -65
+  %52 = trunc i32 %51 to i16
+  store i16 %52, ptr %6, align 2
+  br label %53
 
-52:                                               ; preds = %43, %38
+53:                                               ; preds = %44, %39
   call void @slurm_msg_t_init(ptr noundef %7)
   call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 16, i1 false)
-  %53 = load i64, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.node_info_request_msg, ptr %8, i32 0, i32 0
-  store i64 %53, ptr %54, align 8
-  %55 = load i16, ptr %6, align 2
-  %56 = getelementptr inbounds %struct.node_info_request_msg, ptr %8, i32 0, i32 1
-  store i16 %55, ptr %56, align 8
-  %57 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 15
-  store i16 2007, ptr %57, align 4
-  %58 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 12
-  store ptr %8, ptr %58, align 8
-  %59 = load i16, ptr %6, align 2
-  %60 = zext i16 %59 to i32
-  %61 = and i32 %60, 64
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %63, label %73
+  %54 = load i64, ptr %4, align 8
+  %55 = getelementptr inbounds %struct.node_info_request_msg, ptr %8, i32 0, i32 0
+  store i64 %54, ptr %55, align 8
+  %56 = load i16, ptr %6, align 2
+  %57 = getelementptr inbounds %struct.node_info_request_msg, ptr %8, i32 0, i32 1
+  store i16 %56, ptr %57, align 8
+  %58 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 15
+  store i16 2007, ptr %58, align 4
+  %59 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 12
+  store ptr %8, ptr %59, align 8
+  %60 = load i16, ptr %6, align 2
+  %61 = zext i16 %60 to i32
+  %62 = and i32 %61, 64
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %74
 
-63:                                               ; preds = %52
-  %64 = load ptr, ptr %10, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %66, label %73
+64:                                               ; preds = %53
+  %65 = load ptr, ptr %10, align 8
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %74
 
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %10, align 8
-  store ptr %67, ptr %11, align 8
-  %68 = load ptr, ptr %5, align 8
-  %69 = load i16, ptr %6, align 2
-  %70 = load ptr, ptr %9, align 8
-  %71 = load ptr, ptr %11, align 8
-  %72 = call i32 @_load_fed_nodes(ptr noundef %7, ptr noundef %68, i16 noundef zeroext %69, ptr noundef %70, ptr noundef %71)
-  store i32 %72, ptr %12, align 4
-  br label %78
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %10, align 8
+  store ptr %68, ptr %11, align 8
+  %69 = load ptr, ptr %5, align 8
+  %70 = load i16, ptr %6, align 2
+  %71 = load ptr, ptr %9, align 8
+  %72 = load ptr, ptr %11, align 8
+  %73 = call i32 @_load_fed_nodes(ptr noundef %7, ptr noundef %69, i16 noundef zeroext %70, ptr noundef %71, ptr noundef %72)
+  store i32 %73, ptr %12, align 4
+  br label %79
 
-73:                                               ; preds = %63, %52
-  %74 = load ptr, ptr %5, align 8
-  %75 = load ptr, ptr @working_cluster_rec, align 8
-  %76 = load i16, ptr %6, align 2
-  %77 = call i32 @_load_cluster_nodes(ptr noundef %7, ptr noundef %74, ptr noundef %75, i16 noundef zeroext %76)
-  store i32 %77, ptr %12, align 4
-  br label %78
+74:                                               ; preds = %64, %53
+  %75 = load ptr, ptr %5, align 8
+  %76 = load ptr, ptr @working_cluster_rec, align 8
+  %77 = load i16, ptr %6, align 2
+  %78 = call i32 @_load_cluster_nodes(ptr noundef %7, ptr noundef %75, ptr noundef %76, i16 noundef zeroext %77)
+  store i32 %78, ptr %12, align 4
+  br label %79
 
-78:                                               ; preds = %73, %66
-  %79 = load ptr, ptr %10, align 8
-  %80 = icmp ne ptr %79, null
-  br i1 %80, label %81, label %83
+79:                                               ; preds = %74, %67
+  %80 = load ptr, ptr %10, align 8
+  %81 = icmp ne ptr %80, null
+  br i1 %81, label %82, label %84
 
-81:                                               ; preds = %78
-  %82 = load ptr, ptr %10, align 8
-  call void @slurm_destroy_federation_rec(ptr noundef %82)
-  br label %83
+82:                                               ; preds = %79
+  %83 = load ptr, ptr %10, align 8
+  call void @slurm_destroy_federation_rec(ptr noundef %83)
+  br label %84
 
-83:                                               ; preds = %81, %78
-  %84 = load i32, ptr %12, align 4
-  ret i32 %84
+84:                                               ; preds = %82, %79
+  %85 = load i32, ptr %12, align 4
+  ret i32 %85
 }
 
 declare i32 @slurm_load_federation(ptr noundef) #1
@@ -2188,14 +2190,14 @@ define i32 @slurm_get_node_energy(ptr noundef %0, i16 noundef zeroext %1, i16 no
   %27 = getelementptr inbounds %struct.slurm_msg, ptr %13, i32 0, i32 13
   %28 = load i16, ptr %27, align 8
   %29 = call i32 @slurm_conf_get_addr(ptr noundef %25, ptr noundef %26, i16 noundef zeroext %28)
-  br label %65
+  br label %67
 
 30:                                               ; preds = %5
   %31 = load i32, ptr %16, align 4
   %32 = zext i32 %31 to i64
   %33 = and i64 %32, 128
   %34 = icmp ne i64 %33, 0
-  br i1 %34, label %35, label %50
+  br i1 %34, label %35, label %51
 
 35:                                               ; preds = %30
   %36 = call ptr @getenv(ptr noundef @.str.67) #7
@@ -2209,175 +2211,177 @@ define i32 @slurm_get_node_energy(ptr noundef %0, i16 noundef zeroext %1, i16 no
   %41 = getelementptr inbounds %struct.slurm_msg, ptr %13, i32 0, i32 13
   %42 = load i16, ptr %41, align 8
   %43 = call i32 @slurm_conf_get_addr(ptr noundef %39, ptr noundef %40, i16 noundef zeroext %42)
-  br label %49
+  br label %50
 
 44:                                               ; preds = %35
   store ptr @.str.68, ptr %17, align 8
   %45 = getelementptr inbounds %struct.slurm_msg, ptr %13, i32 0, i32 0
-  %46 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 188), align 8
-  %47 = trunc i32 %46 to i16
-  %48 = load ptr, ptr %17, align 8
-  call void @slurm_set_addr(ptr noundef %45, i16 noundef zeroext %47, ptr noundef %48)
-  br label %49
+  %46 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 188
+  %47 = load i32, ptr %46, align 8
+  %48 = trunc i32 %47 to i16
+  %49 = load ptr, ptr %17, align 8
+  call void @slurm_set_addr(ptr noundef %45, i16 noundef zeroext %48, ptr noundef %49)
+  br label %50
 
-49:                                               ; preds = %44, %38
-  br label %64
+50:                                               ; preds = %44, %38
+  br label %66
 
-50:                                               ; preds = %30
-  %51 = getelementptr inbounds [256 x i8], ptr %18, i64 0, i64 0
-  %52 = call i32 @gethostname_short(ptr noundef %51, i64 noundef 256)
-  %53 = getelementptr inbounds [256 x i8], ptr %18, i64 0, i64 0
-  %54 = call ptr @slurm_conf_get_nodeaddr(ptr noundef %53)
-  store ptr %54, ptr %17, align 8
-  %55 = load ptr, ptr %17, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %59
+51:                                               ; preds = %30
+  %52 = getelementptr inbounds [256 x i8], ptr %18, i64 0, i64 0
+  %53 = call i32 @gethostname_short(ptr noundef %52, i64 noundef 256)
+  %54 = getelementptr inbounds [256 x i8], ptr %18, i64 0, i64 0
+  %55 = call ptr @slurm_conf_get_nodeaddr(ptr noundef %54)
+  store ptr %55, ptr %17, align 8
+  %56 = load ptr, ptr %17, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %60
 
-57:                                               ; preds = %50
-  %58 = call ptr @xstrdup(ptr noundef @.str.68)
-  store ptr %58, ptr %17, align 8
-  br label %59
+58:                                               ; preds = %51
+  %59 = call ptr @xstrdup(ptr noundef @.str.68)
+  store ptr %59, ptr %17, align 8
+  br label %60
 
-59:                                               ; preds = %57, %50
-  %60 = getelementptr inbounds %struct.slurm_msg, ptr %13, i32 0, i32 0
-  %61 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 188), align 8
-  %62 = trunc i32 %61 to i16
-  %63 = load ptr, ptr %17, align 8
-  call void @slurm_set_addr(ptr noundef %60, i16 noundef zeroext %62, ptr noundef %63)
+60:                                               ; preds = %58, %51
+  %61 = getelementptr inbounds %struct.slurm_msg, ptr %13, i32 0, i32 0
+  %62 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 188
+  %63 = load i32, ptr %62, align 8
+  %64 = trunc i32 %63 to i16
+  %65 = load ptr, ptr %17, align 8
+  call void @slurm_set_addr(ptr noundef %61, i16 noundef zeroext %64, ptr noundef %65)
   call void @slurm_xfree(ptr noundef %17)
-  br label %64
+  br label %66
 
-64:                                               ; preds = %59, %49
-  br label %65
+66:                                               ; preds = %60, %50
+  br label %67
 
-65:                                               ; preds = %64, %24
+67:                                               ; preds = %66, %24
   call void @llvm.memset.p0.i64(ptr align 2 %15, i8 0, i64 4, i1 false)
-  %66 = load i16, ptr %8, align 2
-  %67 = getelementptr inbounds %struct.acct_gather_energy_req_msg, ptr %15, i32 0, i32 0
-  store i16 %66, ptr %67, align 2
-  %68 = load i16, ptr %9, align 2
-  %69 = getelementptr inbounds %struct.acct_gather_energy_req_msg, ptr %15, i32 0, i32 1
+  %68 = load i16, ptr %8, align 2
+  %69 = getelementptr inbounds %struct.acct_gather_energy_req_msg, ptr %15, i32 0, i32 0
   store i16 %68, ptr %69, align 2
-  %70 = getelementptr inbounds %struct.slurm_msg, ptr %13, i32 0, i32 15
-  store i16 1019, ptr %70, align 4
-  %71 = getelementptr inbounds %struct.slurm_msg, ptr %13, i32 0, i32 12
-  store ptr %15, ptr %71, align 8
+  %70 = load i16, ptr %9, align 2
+  %71 = getelementptr inbounds %struct.acct_gather_energy_req_msg, ptr %15, i32 0, i32 1
+  store i16 %70, ptr %71, align 2
+  %72 = getelementptr inbounds %struct.slurm_msg, ptr %13, i32 0, i32 15
+  store i16 1019, ptr %72, align 4
+  %73 = getelementptr inbounds %struct.slurm_msg, ptr %13, i32 0, i32 12
+  store ptr %15, ptr %73, align 8
   call void @slurm_msg_set_r_uid(ptr noundef %13, i32 noundef -1)
-  %72 = call i32 @slurm_send_recv_node_msg(ptr noundef %13, ptr noundef %14, i32 noundef 0)
-  store i32 %72, ptr %12, align 4
-  %73 = load i32, ptr %12, align 4
-  %74 = icmp ne i32 %73, 0
-  br i1 %74, label %75, label %84
+  %74 = call i32 @slurm_send_recv_node_msg(ptr noundef %13, ptr noundef %14, i32 noundef 0)
+  store i32 %74, ptr %12, align 4
+  %75 = load i32, ptr %12, align 4
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %77, label %86
 
-75:                                               ; preds = %65
-  %76 = call i32 (ptr, ...) @error(ptr noundef @.str.69)
-  %77 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 1
-  %78 = load ptr, ptr %77, align 8
-  %79 = icmp ne ptr %78, null
-  br i1 %79, label %80, label %83
+77:                                               ; preds = %67
+  %78 = call i32 (ptr, ...) @error(ptr noundef @.str.69)
+  %79 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp ne ptr %80, null
+  br i1 %81, label %82, label %85
 
-80:                                               ; preds = %75
-  %81 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 1
-  %82 = load ptr, ptr %81, align 8
-  call void @auth_g_destroy(ptr noundef %82)
-  br label %83
+82:                                               ; preds = %77
+  %83 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8
+  call void @auth_g_destroy(ptr noundef %84)
+  br label %85
 
-83:                                               ; preds = %80, %75
+85:                                               ; preds = %82, %77
   store i32 -1, ptr %6, align 4
-  br label %132
+  br label %134
 
-84:                                               ; preds = %65
-  %85 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 1
-  %86 = load ptr, ptr %85, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %88, label %91
+86:                                               ; preds = %67
+  %87 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 1
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %93
 
-88:                                               ; preds = %84
-  %89 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 1
-  %90 = load ptr, ptr %89, align 8
-  call void @auth_g_destroy(ptr noundef %90)
-  br label %91
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8
+  call void @auth_g_destroy(ptr noundef %92)
+  br label %93
 
-91:                                               ; preds = %88, %84
-  %92 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 15
-  %93 = load i16, ptr %92, align 4
-  %94 = zext i16 %93 to i32
-  switch i32 %94, label %128 [
-    i32 1020, label %95
-    i32 8001, label %111
+93:                                               ; preds = %90, %86
+  %94 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 15
+  %95 = load i16, ptr %94, align 4
+  %96 = zext i16 %95 to i32
+  switch i32 %96, label %130 [
+    i32 1020, label %97
+    i32 8001, label %113
   ]
 
-95:                                               ; preds = %91
-  %96 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 12
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds %struct.acct_gather_node_resp_msg, ptr %97, i32 0, i32 2
-  %99 = load i16, ptr %98, align 8
-  %100 = load ptr, ptr %10, align 8
-  store i16 %99, ptr %100, align 2
-  %101 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 12
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds %struct.acct_gather_node_resp_msg, ptr %102, i32 0, i32 0
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 12
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds %struct.acct_gather_node_resp_msg, ptr %99, i32 0, i32 2
+  %101 = load i16, ptr %100, align 8
+  %102 = load ptr, ptr %10, align 8
+  store i16 %101, ptr %102, align 2
+  %103 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 12
   %104 = load ptr, ptr %103, align 8
-  %105 = load ptr, ptr %11, align 8
-  store ptr %104, ptr %105, align 8
-  %106 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 12
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds %struct.acct_gather_node_resp_msg, ptr %107, i32 0, i32 0
-  store ptr null, ptr %108, align 8
-  %109 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 12
-  %110 = load ptr, ptr %109, align 8
-  call void @slurm_free_acct_gather_node_resp_msg(ptr noundef %110)
-  br label %131
+  %105 = getelementptr inbounds %struct.acct_gather_node_resp_msg, ptr %104, i32 0, i32 0
+  %106 = load ptr, ptr %105, align 8
+  %107 = load ptr, ptr %11, align 8
+  store ptr %106, ptr %107, align 8
+  %108 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 12
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds %struct.acct_gather_node_resp_msg, ptr %109, i32 0, i32 0
+  store ptr null, ptr %110, align 8
+  %111 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 12
+  %112 = load ptr, ptr %111, align 8
+  call void @slurm_free_acct_gather_node_resp_msg(ptr noundef %112)
+  br label %133
 
-111:                                              ; preds = %91
-  %112 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 12
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds %struct.return_code_msg, ptr %113, i32 0, i32 0
-  %115 = load i32, ptr %114, align 4
-  store i32 %115, ptr %12, align 4
-  %116 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 12
-  %117 = load ptr, ptr %116, align 8
-  call void @slurm_free_return_code_msg(ptr noundef %117)
-  %118 = load i32, ptr %12, align 4
-  %119 = icmp ne i32 %118, 0
-  br i1 %119, label %120, label %127
+113:                                              ; preds = %93
+  %114 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 12
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds %struct.return_code_msg, ptr %115, i32 0, i32 0
+  %117 = load i32, ptr %116, align 4
+  store i32 %117, ptr %12, align 4
+  %118 = getelementptr inbounds %struct.slurm_msg, ptr %14, i32 0, i32 12
+  %119 = load ptr, ptr %118, align 8
+  call void @slurm_free_return_code_msg(ptr noundef %119)
+  %120 = load i32, ptr %12, align 4
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %122, label %129
 
-120:                                              ; preds = %111
-  br label %121
+122:                                              ; preds = %113
+  br label %123
 
-121:                                              ; preds = %120
-  %122 = load i32, ptr %12, align 4
-  call void @slurm_seterrno(i32 noundef %122)
-  %123 = load i32, ptr %12, align 4
-  %124 = icmp ne i32 %123, 0
-  %125 = select i1 %124, i32 -1, i32 0
-  store i32 %125, ptr %6, align 4
-  br label %132
+123:                                              ; preds = %122
+  %124 = load i32, ptr %12, align 4
+  call void @slurm_seterrno(i32 noundef %124)
+  %125 = load i32, ptr %12, align 4
+  %126 = icmp ne i32 %125, 0
+  %127 = select i1 %126, i32 -1, i32 0
+  store i32 %127, ptr %6, align 4
+  br label %134
 
-126:                                              ; No predecessors!
-  br label %127
-
-127:                                              ; preds = %126, %111
-  br label %131
-
-128:                                              ; preds = %91
+128:                                              ; No predecessors!
   br label %129
 
-129:                                              ; preds = %128
-  call void @slurm_seterrno(i32 noundef 1000)
-  store i32 -1, ptr %6, align 4
-  br label %132
+129:                                              ; preds = %128, %113
+  br label %133
 
-130:                                              ; No predecessors!
+130:                                              ; preds = %93
   br label %131
 
-131:                                              ; preds = %130, %127, %95
-  store i32 0, ptr %6, align 4
-  br label %132
+131:                                              ; preds = %130
+  call void @slurm_seterrno(i32 noundef 1000)
+  store i32 -1, ptr %6, align 4
+  br label %134
 
-132:                                              ; preds = %131, %129, %121, %83
-  %133 = load i32, ptr %6, align 4
-  ret i32 %133
+132:                                              ; No predecessors!
+  br label %133
+
+133:                                              ; preds = %132, %129, %97
+  store i32 0, ptr %6, align 4
+  br label %134
+
+134:                                              ; preds = %133, %131, %123, %85
+  %135 = load i32, ptr %6, align 4
+  ret i32 %135
 }
 
 declare i32 @slurmdb_setup_cluster_flags() #1

@@ -46,21 +46,22 @@ declare dso_local void @cpufreq_unregister_governor(ptr noundef) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @cpufreq_userspace_policy_init(ptr nocapture noundef writeonly %0) #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %3 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 40) #8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %8, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %3 = load ptr, ptr %2, align 16
+  %4 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 40) #8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %9, label %6
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @__mutex_init(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull @cpufreq_userspace_policy_init.__key) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %3, ptr %7, align 8
-  br label %8
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  tail call void @__mutex_init(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef nonnull @cpufreq_userspace_policy_init.__key) #7
+  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %4, ptr %8, align 8
+  br label %9
 
-8:                                                ; preds = %5, %1
-  %9 = phi i32 [ 0, %5 ], [ -12, %1 ]
-  ret i32 %9
+9:                                                ; preds = %6, %1
+  %10 = phi i32 [ 0, %6 ], [ -12, %1 ]
+  ret i32 %10
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

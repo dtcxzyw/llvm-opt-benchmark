@@ -2509,27 +2509,35 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 1), ptr %arrayinit.endOfInit, align 8
+  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 1
+  store ptr %0, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 1), ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 2), ptr %arrayinit.endOfInit, align 8
+  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 2
+  store ptr %2, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont3
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 3), ptr %arrayinit.endOfInit, align 8
+  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 3
+  store ptr %4, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 3), ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
+  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont6
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 4), ptr %arrayinit.endOfInit, align 8
+  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 4
+  store ptr %6, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 4), ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10)
+  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 4
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont9
@@ -2539,52 +2547,52 @@ invoke.cont12:                                    ; preds = %invoke.cont9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  %0 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #3
+  %8 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #3
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup15
 
 lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup14
 
 lpad5:                                            ; preds = %invoke.cont3
-  %7 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad8:                                            ; preds = %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont9
-  %13 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #3
   br label %ehcleanup
 
@@ -2606,12 +2614,12 @@ ehcleanup15:                                      ; preds = %ehcleanup14, %lpad
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %ehcleanup15
-  %16 = load ptr, ptr %arrayinit.endOfInit, align 8
-  %arraydestroy.isempty = icmp eq ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, %16
+  %24 = load ptr, ptr %arrayinit.endOfInit, align 8
+  %arraydestroy.isempty = icmp eq ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, %24
   br i1 %arraydestroy.isempty, label %arraydestroy.done17, label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %cleanup.action
-  %arraydestroy.elementPast = phi ptr [ %16, %cleanup.action ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %24, %cleanup.action ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZN7rocksdbL18opt_section_titlesB5cxx11E
@@ -2710,10 +2718,11 @@ define internal void @__cxx_global_array_dtor(ptr noundef %0) #0 section ".text.
 entry:
   %.addr = alloca ptr, align 8
   store ptr %0, ptr %.addr, align 8
+  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 5
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 5), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZN7rocksdbL18opt_section_titlesB5cxx11E
@@ -3613,7 +3622,8 @@ invoke.cont110:                                   ; preds = %if.end109
 
 if.then112:                                       ; preds = %invoke.cont110
   %call114 = call noundef ptr @_ZNKSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %writable) #3
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp117, ptr noundef @.str.15, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([5 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 0, i64 1))
+  %73 = getelementptr inbounds [5 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 0, i64 1
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp117, ptr noundef @.str.15, ptr noundef nonnull align 8 dereferenceable(32) %73)
           to label %invoke.cont118 unwind label %lpad42
 
 invoke.cont118:                                   ; preds = %if.then112
@@ -3636,21 +3646,21 @@ invoke.cont123:                                   ; preds = %invoke.cont122
   br label %if.end127
 
 lpad119:                                          ; preds = %invoke.cont118
-  %73 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %exn.slot, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %ehselector.slot, align 4
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %exn.slot, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %ehselector.slot, align 4
   br label %ehcleanup126
 
 lpad121:                                          ; preds = %invoke.cont122, %invoke.cont120
-  %76 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %exn.slot, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %ehselector.slot, align 4
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %exn.slot, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116) #3
   br label %ehcleanup126
 
@@ -3666,8 +3676,8 @@ invoke.cont128:                                   ; preds = %if.end127
   br i1 %call129, label %if.then130, label %if.end134
 
 if.then130:                                       ; preds = %invoke.cont128
-  %79 = load ptr, ptr %db_opt.addr, align 8
-  invoke void @_ZN7rocksdb22GetStringFromDBOptionsERKNS_13ConfigOptionsERKNS_9DBOptionsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.rocksdb::Status") align 8 %ref.tmp131, ptr noundef nonnull align 8 dereferenceable(80) %config_options, ptr noundef nonnull align 8 dereferenceable(688) %79, ptr noundef %options_file_content)
+  %80 = load ptr, ptr %db_opt.addr, align 8
+  invoke void @_ZN7rocksdb22GetStringFromDBOptionsERKNS_13ConfigOptionsERKNS_9DBOptionsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.rocksdb::Status") align 8 %ref.tmp131, ptr noundef nonnull align 8 dereferenceable(80) %config_options, ptr noundef nonnull align 8 dereferenceable(688) %80, ptr noundef %options_file_content)
           to label %invoke.cont132 unwind label %lpad42
 
 invoke.cont132:                                   ; preds = %if.then130
@@ -3702,12 +3712,12 @@ invoke.cont145:                                   ; preds = %invoke.cont144
   br label %if.end148
 
 lpad143:                                          ; preds = %invoke.cont144, %invoke.cont142
-  %80 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %exn.slot, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %ehselector.slot, align 4
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %exn.slot, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141) #3
   br label %ehcleanup288
 
@@ -3723,19 +3733,20 @@ invoke.cont149:                                   ; preds = %for.cond
   br i1 %call150, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %invoke.cont149
-  %83 = load i64, ptr %i, align 8
-  %84 = load ptr, ptr %cf_opts.addr, align 8
-  %call151 = call noundef i64 @_ZNKSt6vectorIN7rocksdb19ColumnFamilyOptionsESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %84) #3
-  %cmp152 = icmp ult i64 %83, %call151
+  %84 = load i64, ptr %i, align 8
+  %85 = load ptr, ptr %cf_opts.addr, align 8
+  %call151 = call noundef i64 @_ZNKSt6vectorIN7rocksdb19ColumnFamilyOptionsESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %85) #3
+  %cmp152 = icmp ult i64 %84, %call151
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %invoke.cont149
-  %85 = phi i1 [ false, %invoke.cont149 ], [ %cmp152, %land.rhs ]
-  br i1 %85, label %for.body, label %for.end
+  %86 = phi i1 [ false, %invoke.cont149 ], [ %cmp152, %land.rhs ]
+  br i1 %86, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.end
   %call154 = call noundef ptr @_ZNKSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %writable) #3
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp159, ptr noundef @.str.15, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([5 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 0, i64 2))
+  %87 = getelementptr inbounds [5 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 0, i64 2
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp159, ptr noundef @.str.15, ptr noundef nonnull align 8 dereferenceable(32) %87)
           to label %invoke.cont160 unwind label %lpad42
 
 invoke.cont160:                                   ; preds = %for.body
@@ -3743,9 +3754,9 @@ invoke.cont160:                                   ; preds = %for.body
           to label %invoke.cont162 unwind label %lpad161
 
 invoke.cont162:                                   ; preds = %invoke.cont160
-  %86 = load ptr, ptr %cf_names.addr, align 8
-  %87 = load i64, ptr %i, align 8
-  %call164 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %86, i64 noundef %87) #3
+  %88 = load ptr, ptr %cf_names.addr, align 8
+  %89 = load i64, ptr %i, align 8
+  %call164 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %89) #3
   invoke void @_ZN7rocksdb18EscapeOptionStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(32) %call164)
           to label %invoke.cont166 unwind label %lpad165
 
@@ -3780,9 +3791,9 @@ invoke.cont180:                                   ; preds = %invoke.cont173
   br i1 %call181, label %if.then182, label %if.end187
 
 if.then182:                                       ; preds = %invoke.cont180
-  %88 = load ptr, ptr %cf_opts.addr, align 8
-  %89 = load i64, ptr %i, align 8
-  %call184 = call noundef nonnull align 8 dereferenceable(820) ptr @_ZNKSt6vectorIN7rocksdb19ColumnFamilyOptionsESaIS1_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %89) #3
+  %90 = load ptr, ptr %cf_opts.addr, align 8
+  %91 = load i64, ptr %i, align 8
+  %call184 = call noundef nonnull align 8 dereferenceable(820) ptr @_ZNKSt6vectorIN7rocksdb19ColumnFamilyOptionsESaIS1_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %90, i64 noundef %91) #3
   invoke void @_ZN7rocksdb32GetStringFromColumnFamilyOptionsERKNS_13ConfigOptionsERKNS_19ColumnFamilyOptionsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.rocksdb::Status") align 8 %ref.tmp183, ptr noundef nonnull align 8 dereferenceable(80) %config_options, ptr noundef nonnull align 8 dereferenceable(820) %call184, ptr noundef %options_file_content)
           to label %invoke.cont185 unwind label %lpad42
 
@@ -3792,48 +3803,48 @@ invoke.cont185:                                   ; preds = %if.then182
   br label %if.end187
 
 lpad161:                                          ; preds = %invoke.cont160
-  %90 = landingpad { ptr, i32 }
+  %92 = landingpad { ptr, i32 }
           cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %exn.slot, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %ehselector.slot, align 4
+  %93 = extractvalue { ptr, i32 } %92, 0
+  store ptr %93, ptr %exn.slot, align 8
+  %94 = extractvalue { ptr, i32 } %92, 1
+  store i32 %94, ptr %ehselector.slot, align 4
   br label %ehcleanup179
 
 lpad165:                                          ; preds = %invoke.cont162
-  %93 = landingpad { ptr, i32 }
+  %95 = landingpad { ptr, i32 }
           cleanup
-  %94 = extractvalue { ptr, i32 } %93, 0
-  store ptr %94, ptr %exn.slot, align 8
-  %95 = extractvalue { ptr, i32 } %93, 1
-  store i32 %95, ptr %ehselector.slot, align 4
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %exn.slot, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %ehselector.slot, align 4
   br label %ehcleanup178
 
 lpad167:                                          ; preds = %invoke.cont166
-  %96 = landingpad { ptr, i32 }
+  %98 = landingpad { ptr, i32 }
           cleanup
-  %97 = extractvalue { ptr, i32 } %96, 0
-  store ptr %97, ptr %exn.slot, align 8
-  %98 = extractvalue { ptr, i32 } %96, 1
-  store i32 %98, ptr %ehselector.slot, align 4
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %exn.slot, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %ehselector.slot, align 4
   br label %ehcleanup177
 
 lpad169:                                          ; preds = %invoke.cont168
-  %99 = landingpad { ptr, i32 }
+  %101 = landingpad { ptr, i32 }
           cleanup
-  %100 = extractvalue { ptr, i32 } %99, 0
-  store ptr %100, ptr %exn.slot, align 8
-  %101 = extractvalue { ptr, i32 } %99, 1
-  store i32 %101, ptr %ehselector.slot, align 4
+  %102 = extractvalue { ptr, i32 } %101, 0
+  store ptr %102, ptr %exn.slot, align 8
+  %103 = extractvalue { ptr, i32 } %101, 1
+  store i32 %103, ptr %ehselector.slot, align 4
   br label %ehcleanup176
 
 lpad171:                                          ; preds = %invoke.cont172, %invoke.cont170
-  %102 = landingpad { ptr, i32 }
+  %104 = landingpad { ptr, i32 }
           cleanup
-  %103 = extractvalue { ptr, i32 } %102, 0
-  store ptr %103, ptr %exn.slot, align 8
-  %104 = extractvalue { ptr, i32 } %102, 1
-  store i32 %104, ptr %ehselector.slot, align 4
+  %105 = extractvalue { ptr, i32 } %104, 0
+  store ptr %105, ptr %exn.slot, align 8
+  %106 = extractvalue { ptr, i32 } %104, 1
+  store i32 %106, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp156) #3
   br label %ehcleanup176
 
@@ -3880,24 +3891,24 @@ invoke.cont198:                                   ; preds = %invoke.cont197
   br label %if.end201
 
 lpad196:                                          ; preds = %invoke.cont197, %invoke.cont195
-  %105 = landingpad { ptr, i32 }
+  %107 = landingpad { ptr, i32 }
           cleanup
-  %106 = extractvalue { ptr, i32 } %105, 0
-  store ptr %106, ptr %exn.slot, align 8
-  %107 = extractvalue { ptr, i32 } %105, 1
-  store i32 %107, ptr %ehselector.slot, align 4
+  %108 = extractvalue { ptr, i32 } %107, 0
+  store ptr %108, ptr %exn.slot, align 8
+  %109 = extractvalue { ptr, i32 } %107, 1
+  store i32 %109, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194) #3
   br label %ehcleanup288
 
 if.end201:                                        ; preds = %invoke.cont198, %invoke.cont188
-  %108 = load ptr, ptr %cf_opts.addr, align 8
-  %109 = load i64, ptr %i, align 8
-  %call202 = call noundef nonnull align 8 dereferenceable(820) ptr @_ZNKSt6vectorIN7rocksdb19ColumnFamilyOptionsESaIS1_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %108, i64 noundef %109) #3
+  %110 = load ptr, ptr %cf_opts.addr, align 8
+  %111 = load i64, ptr %i, align 8
+  %call202 = call noundef nonnull align 8 dereferenceable(820) ptr @_ZNKSt6vectorIN7rocksdb19ColumnFamilyOptionsESaIS1_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %110, i64 noundef %111) #3
   %table_factory = getelementptr inbounds %"struct.rocksdb::ColumnFamilyOptions", ptr %call202, i32 0, i32 18
   %call203 = call noundef ptr @_ZNKSt12__shared_ptrIN7rocksdb12TableFactoryELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %table_factory) #3
   store ptr %call203, ptr %tf, align 8
-  %110 = load ptr, ptr %tf, align 8
-  %cmp204 = icmp ne ptr %110, null
+  %112 = load ptr, ptr %tf, align 8
+  %cmp204 = icmp ne ptr %112, null
   br i1 %cmp204, label %if.then205, label %if.end266
 
 if.then205:                                       ; preds = %if.end201
@@ -3909,15 +3920,16 @@ invoke.cont206:                                   ; preds = %if.then205
 
 if.then208:                                       ; preds = %invoke.cont206
   %call210 = call noundef ptr @_ZNKSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %writable) #3
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp216, ptr noundef @.str.10, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([5 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 0, i64 3))
+  %113 = getelementptr inbounds [5 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 0, i64 3
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp216, ptr noundef @.str.10, ptr noundef nonnull align 8 dereferenceable(32) %113)
           to label %invoke.cont217 unwind label %lpad42
 
 invoke.cont217:                                   ; preds = %if.then208
-  %111 = load ptr, ptr %tf, align 8
-  %vtable218 = load ptr, ptr %111, align 8
+  %114 = load ptr, ptr %tf, align 8
+  %vtable218 = load ptr, ptr %114, align 8
   %vfn219 = getelementptr inbounds ptr, ptr %vtable218, i64 14
-  %112 = load ptr, ptr %vfn219, align 8
-  %call222 = invoke noundef ptr %112(ptr noundef nonnull align 8 dereferenceable(32) %111)
+  %115 = load ptr, ptr %vfn219, align 8
+  %call222 = invoke noundef ptr %115(ptr noundef nonnull align 8 dereferenceable(32) %114)
           to label %invoke.cont221 unwind label %lpad220
 
 invoke.cont221:                                   ; preds = %invoke.cont217
@@ -3929,9 +3941,9 @@ invoke.cont223:                                   ; preds = %invoke.cont221
           to label %invoke.cont225 unwind label %lpad224
 
 invoke.cont225:                                   ; preds = %invoke.cont223
-  %113 = load ptr, ptr %cf_names.addr, align 8
-  %114 = load i64, ptr %i, align 8
-  %call227 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %113, i64 noundef %114) #3
+  %116 = load ptr, ptr %cf_names.addr, align 8
+  %117 = load i64, ptr %i, align 8
+  %call227 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %116, i64 noundef %117) #3
   invoke void @_ZN7rocksdb18EscapeOptionStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp226, ptr noundef nonnull align 8 dereferenceable(32) %call227)
           to label %invoke.cont229 unwind label %lpad228
 
@@ -3963,57 +3975,57 @@ invoke.cont236:                                   ; preds = %invoke.cont235
   br label %if.end244
 
 lpad220:                                          ; preds = %invoke.cont221, %invoke.cont217
-  %115 = landingpad { ptr, i32 }
-          cleanup
-  %116 = extractvalue { ptr, i32 } %115, 0
-  store ptr %116, ptr %exn.slot, align 8
-  %117 = extractvalue { ptr, i32 } %115, 1
-  store i32 %117, ptr %ehselector.slot, align 4
-  br label %ehcleanup243
-
-lpad224:                                          ; preds = %invoke.cont223
   %118 = landingpad { ptr, i32 }
           cleanup
   %119 = extractvalue { ptr, i32 } %118, 0
   store ptr %119, ptr %exn.slot, align 8
   %120 = extractvalue { ptr, i32 } %118, 1
   store i32 %120, ptr %ehselector.slot, align 4
-  br label %ehcleanup242
+  br label %ehcleanup243
 
-lpad228:                                          ; preds = %invoke.cont225
+lpad224:                                          ; preds = %invoke.cont223
   %121 = landingpad { ptr, i32 }
           cleanup
   %122 = extractvalue { ptr, i32 } %121, 0
   store ptr %122, ptr %exn.slot, align 8
   %123 = extractvalue { ptr, i32 } %121, 1
   store i32 %123, ptr %ehselector.slot, align 4
-  br label %ehcleanup241
+  br label %ehcleanup242
 
-lpad230:                                          ; preds = %invoke.cont229
+lpad228:                                          ; preds = %invoke.cont225
   %124 = landingpad { ptr, i32 }
           cleanup
   %125 = extractvalue { ptr, i32 } %124, 0
   store ptr %125, ptr %exn.slot, align 8
   %126 = extractvalue { ptr, i32 } %124, 1
   store i32 %126, ptr %ehselector.slot, align 4
-  br label %ehcleanup240
+  br label %ehcleanup241
 
-lpad232:                                          ; preds = %invoke.cont231
+lpad230:                                          ; preds = %invoke.cont229
   %127 = landingpad { ptr, i32 }
           cleanup
   %128 = extractvalue { ptr, i32 } %127, 0
   store ptr %128, ptr %exn.slot, align 8
   %129 = extractvalue { ptr, i32 } %127, 1
   store i32 %129, ptr %ehselector.slot, align 4
-  br label %ehcleanup239
+  br label %ehcleanup240
 
-lpad234:                                          ; preds = %invoke.cont235, %invoke.cont233
+lpad232:                                          ; preds = %invoke.cont231
   %130 = landingpad { ptr, i32 }
           cleanup
   %131 = extractvalue { ptr, i32 } %130, 0
   store ptr %131, ptr %exn.slot, align 8
   %132 = extractvalue { ptr, i32 } %130, 1
   store i32 %132, ptr %ehselector.slot, align 4
+  br label %ehcleanup239
+
+lpad234:                                          ; preds = %invoke.cont235, %invoke.cont233
+  %133 = landingpad { ptr, i32 }
+          cleanup
+  %134 = extractvalue { ptr, i32 } %133, 0
+  store ptr %134, ptr %exn.slot, align 8
+  %135 = extractvalue { ptr, i32 } %133, 1
+  store i32 %135, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp212) #3
   br label %ehcleanup239
 
@@ -4046,8 +4058,8 @@ invoke.cont245:                                   ; preds = %if.end244
 
 if.then247:                                       ; preds = %invoke.cont245
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %options_file_content) #3
-  %133 = load ptr, ptr %tf, align 8
-  invoke void @_ZNK7rocksdb12Configurable15GetOptionStringERKNS_13ConfigOptionsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.rocksdb::Status") align 8 %ref.tmp248, ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(80) %config_options, ptr noundef %options_file_content)
+  %136 = load ptr, ptr %tf, align 8
+  invoke void @_ZNK7rocksdb12Configurable15GetOptionStringERKNS_13ConfigOptionsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.rocksdb::Status") align 8 %ref.tmp248, ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull align 8 dereferenceable(80) %config_options, ptr noundef %options_file_content)
           to label %invoke.cont249 unwind label %lpad42
 
 invoke.cont249:                                   ; preds = %if.then247
@@ -4082,12 +4094,12 @@ invoke.cont262:                                   ; preds = %invoke.cont261
   br label %if.end265
 
 lpad260:                                          ; preds = %invoke.cont261, %invoke.cont259
-  %134 = landingpad { ptr, i32 }
+  %137 = landingpad { ptr, i32 }
           cleanup
-  %135 = extractvalue { ptr, i32 } %134, 0
-  store ptr %135, ptr %exn.slot, align 8
-  %136 = extractvalue { ptr, i32 } %134, 1
-  store i32 %136, ptr %ehselector.slot, align 4
+  %138 = extractvalue { ptr, i32 } %137, 0
+  store ptr %138, ptr %exn.slot, align 8
+  %139 = extractvalue { ptr, i32 } %137, 1
+  store i32 %139, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp258) #3
   br label %ehcleanup288
 
@@ -4098,8 +4110,8 @@ if.end266:                                        ; preds = %if.end265, %if.end2
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end266
-  %137 = load i64, ptr %i, align 8
-  %inc = add i64 %137, 1
+  %140 = load i64, ptr %i, align 8
+  %inc = add i64 %140, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !4
 
@@ -4145,12 +4157,12 @@ invoke.cont283:                                   ; preds = %if.end282
   br i1 %call284, label %if.then285, label %if.end287
 
 if.then285:                                       ; preds = %invoke.cont283
-  %138 = load ptr, ptr %db_opt.addr, align 8
-  %139 = load ptr, ptr %cf_names.addr, align 8
-  %140 = load ptr, ptr %cf_opts.addr, align 8
-  %141 = load ptr, ptr %file_name.addr, align 8
-  %142 = load ptr, ptr %fs.addr, align 8
-  invoke void @_ZN7rocksdb20RocksDBOptionsParser28VerifyRocksDBOptionsFromFileERKNS_13ConfigOptionsERKNS_9DBOptionsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EERKS7_INS_19ColumnFamilyOptionsESaISI_EERKSD_PNS_10FileSystemE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %config_options, ptr noundef nonnull align 8 dereferenceable(688) %138, ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %140, ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef %142)
+  %141 = load ptr, ptr %db_opt.addr, align 8
+  %142 = load ptr, ptr %cf_names.addr, align 8
+  %143 = load ptr, ptr %cf_opts.addr, align 8
+  %144 = load ptr, ptr %file_name.addr, align 8
+  %145 = load ptr, ptr %fs.addr, align 8
+  invoke void @_ZN7rocksdb20RocksDBOptionsParser28VerifyRocksDBOptionsFromFileERKNS_13ConfigOptionsERKNS_9DBOptionsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EERKS7_INS_19ColumnFamilyOptionsESaISI_EERKSD_PNS_10FileSystemE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %config_options, ptr noundef nonnull align 8 dereferenceable(688) %141, ptr noundef nonnull align 8 dereferenceable(24) %142, ptr noundef nonnull align 8 dereferenceable(24) %143, ptr noundef nonnull align 8 dereferenceable(32) %144, ptr noundef %145)
           to label %invoke.cont286 unwind label %lpad42
 
 invoke.cont286:                                   ; preds = %if.then285
@@ -8293,13 +8305,14 @@ if.end44:                                         ; preds = %invoke.cont35
   call void @_ZNSt12__shared_ptrIN7rocksdb12TableFactoryELN9__gnu_cxx12_Lock_policyE2EE5resetEv(ptr noundef nonnull align 8 dereferenceable(16) %table_factory) #3
   %23 = load ptr, ptr %config_options.addr, align 8
   %24 = load ptr, ptr %section_title.addr, align 8
-  %call47 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([5 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 0, i64 3)) #3
+  %25 = getelementptr inbounds [5 x %"class.std::__cxx11::basic_string"], ptr @_ZN7rocksdbL18opt_section_titlesB5cxx11E, i64 0, i64 3
+  %call47 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #3
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef %call47, i64 noundef -1)
           to label %invoke.cont48 unwind label %lpad
 
 invoke.cont48:                                    ; preds = %if.end44
-  %25 = load ptr, ptr %cf_opt, align 8
-  %table_factory49 = getelementptr inbounds %"struct.rocksdb::ColumnFamilyOptions", ptr %25, i32 0, i32 18
+  %26 = load ptr, ptr %cf_opt, align 8
+  %table_factory49 = getelementptr inbounds %"struct.rocksdb::ColumnFamilyOptions", ptr %26, i32 0, i32 18
   invoke void @_ZN7rocksdb12TableFactory16CreateFromStringERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS0_E(ptr sret(%"class.rocksdb::Status") align 8 %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(80) %23, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, ptr noundef %table_factory49)
           to label %invoke.cont51 unwind label %lpad50
 
@@ -8314,18 +8327,18 @@ invoke.cont53:                                    ; preds = %invoke.cont51
   br i1 %call54, label %land.lhs.true, label %if.else76
 
 land.lhs.true:                                    ; preds = %invoke.cont53
-  %26 = load ptr, ptr %cf_opt, align 8
-  %table_factory55 = getelementptr inbounds %"struct.rocksdb::ColumnFamilyOptions", ptr %26, i32 0, i32 18
+  %27 = load ptr, ptr %cf_opt, align 8
+  %table_factory55 = getelementptr inbounds %"struct.rocksdb::ColumnFamilyOptions", ptr %27, i32 0, i32 18
   %call56 = call noundef zeroext i1 @_ZStneIN7rocksdb12TableFactoryEEbRKSt10shared_ptrIT_EDn(ptr noundef nonnull align 8 dereferenceable(16) %table_factory55, ptr null) #3
   br i1 %call56, label %if.then57, label %if.else76
 
 if.then57:                                        ; preds = %land.lhs.true
-  %27 = load ptr, ptr %cf_opt, align 8
-  %table_factory59 = getelementptr inbounds %"struct.rocksdb::ColumnFamilyOptions", ptr %27, i32 0, i32 18
+  %28 = load ptr, ptr %cf_opt, align 8
+  %table_factory59 = getelementptr inbounds %"struct.rocksdb::ColumnFamilyOptions", ptr %28, i32 0, i32 18
   %call60 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN7rocksdb12TableFactoryELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %table_factory59) #3
-  %28 = load ptr, ptr %config_options.addr, align 8
-  %29 = load ptr, ptr %opt_map.addr, align 8
-  invoke void @_ZN7rocksdb12Configurable16ConfigureFromMapERKNS_13ConfigOptionsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEE(ptr sret(%"class.rocksdb::Status") align 8 %ref.tmp58, ptr noundef nonnull align 8 dereferenceable(32) %call60, ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef nonnull align 8 dereferenceable(56) %29)
+  %29 = load ptr, ptr %config_options.addr, align 8
+  %30 = load ptr, ptr %opt_map.addr, align 8
+  invoke void @_ZN7rocksdb12Configurable16ConfigureFromMapERKNS_13ConfigOptionsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEE(ptr sret(%"class.rocksdb::Status") align 8 %ref.tmp58, ptr noundef nonnull align 8 dereferenceable(32) %call60, ptr noundef nonnull align 8 dereferenceable(80) %29, ptr noundef nonnull align 8 dereferenceable(56) %30)
           to label %invoke.cont61 unwind label %lpad
 
 invoke.cont61:                                    ; preds = %if.then57
@@ -8350,12 +8363,12 @@ if.then67:                                        ; preds = %invoke.cont65, %inv
   br label %cleanup
 
 lpad50:                                           ; preds = %invoke.cont48
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %exn.slot, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46) #3
   br label %ehcleanup
 
@@ -8380,8 +8393,8 @@ invoke.cont75:                                    ; preds = %invoke.cont74
   br label %cleanup
 
 if.else76:                                        ; preds = %land.lhs.true, %invoke.cont53
-  %33 = load ptr, ptr %cf_opt, align 8
-  %table_factory77 = getelementptr inbounds %"struct.rocksdb::ColumnFamilyOptions", ptr %33, i32 0, i32 18
+  %34 = load ptr, ptr %cf_opt, align 8
+  %table_factory77 = getelementptr inbounds %"struct.rocksdb::ColumnFamilyOptions", ptr %34, i32 0, i32 18
   call void @_ZNSt12__shared_ptrIN7rocksdb12TableFactoryELN9__gnu_cxx12_Lock_policyE2EE5resetEv(ptr noundef nonnull align 8 dereferenceable(16) %table_factory77) #3
   invoke void @_ZN7rocksdb6Status2OKEv(ptr sret(%"class.rocksdb::Status") align 8 %agg.result)
           to label %invoke.cont78 unwind label %lpad
@@ -8391,21 +8404,21 @@ invoke.cont78:                                    ; preds = %if.else76
   br label %cleanup
 
 if.else79:                                        ; preds = %if.else31
-  %34 = load i8, ptr %section.addr, align 1
-  %conv80 = sext i8 %34 to i32
+  %35 = load i8, ptr %section.addr, align 1
+  %conv80 = sext i8 %35 to i32
   %cmp81 = icmp eq i32 %conv80, 0
   br i1 %cmp81, label %if.then82, label %if.end128
 
 if.then82:                                        ; preds = %if.else79
-  %35 = load ptr, ptr %opt_map.addr, align 8
-  store ptr %35, ptr %__range5, align 8
-  %36 = load ptr, ptr %__range5, align 8
-  %call83 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %36) #3
+  %36 = load ptr, ptr %opt_map.addr, align 8
+  store ptr %36, ptr %__range5, align 8
+  %37 = load ptr, ptr %__range5, align 8
+  %call83 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %37) #3
   %coerce.dive = getelementptr inbounds %"struct.std::__detail::_Node_const_iterator", ptr %__begin5, i32 0, i32 0
   %coerce.dive84 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base", ptr %coerce.dive, i32 0, i32 0
   store ptr %call83, ptr %coerce.dive84, align 8
-  %37 = load ptr, ptr %__range5, align 8
-  %call85 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %37) #3
+  %38 = load ptr, ptr %__range5, align 8
+  %call85 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %38) #3
   %coerce.dive86 = getelementptr inbounds %"struct.std::__detail::_Node_const_iterator", ptr %__end5, i32 0, i32 0
   %coerce.dive87 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base", ptr %coerce.dive86, i32 0, i32 0
   store ptr %call85, ptr %coerce.dive87, align 8
@@ -8418,8 +8431,8 @@ for.cond:                                         ; preds = %for.inc, %if.then82
 for.body:                                         ; preds = %for.cond
   %call89 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ELb0ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin5) #3
   store ptr %call89, ptr %pair, align 8
-  %38 = load ptr, ptr %pair, align 8
-  %first = getelementptr inbounds %"struct.std::pair.158", ptr %38, i32 0, i32 0
+  %39 = load ptr, ptr %pair, align 8
+  %first = getelementptr inbounds %"struct.std::pair.158", ptr %39, i32 0, i32 0
   %call91 = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %first, ptr noundef @.str.37)
           to label %invoke.cont90 unwind label %lpad
 
@@ -8427,10 +8440,10 @@ invoke.cont90:                                    ; preds = %for.body
   br i1 %call91, label %if.then92, label %if.else101
 
 if.then92:                                        ; preds = %invoke.cont90
-  %39 = load ptr, ptr %pair, align 8
-  %first94 = getelementptr inbounds %"struct.std::pair.158", ptr %39, i32 0, i32 0
   %40 = load ptr, ptr %pair, align 8
-  %second = getelementptr inbounds %"struct.std::pair.158", ptr %40, i32 0, i32 1
+  %first94 = getelementptr inbounds %"struct.std::pair.158", ptr %40, i32 0, i32 0
+  %41 = load ptr, ptr %pair, align 8
+  %second = getelementptr inbounds %"struct.std::pair.158", ptr %41, i32 0, i32 1
   %db_version = getelementptr inbounds %"class.rocksdb::RocksDBOptionsParser", ptr %this1, i32 0, i32 9
   %arraydecay = getelementptr inbounds [3 x i32], ptr %db_version, i64 0, i64 0
   invoke void @_ZN7rocksdb20RocksDBOptionsParser18ParseVersionNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iPi(ptr sret(%"class.rocksdb::Status") align 8 %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(844) %this1, ptr noundef nonnull align 8 dereferenceable(32) %first94, ptr noundef nonnull align 8 dereferenceable(32) %second, i32 noundef 3, ptr noundef %arraydecay)
@@ -8454,8 +8467,8 @@ if.end100:                                        ; preds = %invoke.cont97
   br label %if.end126
 
 if.else101:                                       ; preds = %invoke.cont90
-  %41 = load ptr, ptr %pair, align 8
-  %first102 = getelementptr inbounds %"struct.std::pair.158", ptr %41, i32 0, i32 0
+  %42 = load ptr, ptr %pair, align 8
+  %first102 = getelementptr inbounds %"struct.std::pair.158", ptr %42, i32 0, i32 0
   %call104 = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %first102, ptr noundef @.str.38)
           to label %invoke.cont103 unwind label %lpad
 
@@ -8463,10 +8476,10 @@ invoke.cont103:                                   ; preds = %if.else101
   br i1 %call104, label %if.then105, label %if.end125
 
 if.then105:                                       ; preds = %invoke.cont103
-  %42 = load ptr, ptr %pair, align 8
-  %first107 = getelementptr inbounds %"struct.std::pair.158", ptr %42, i32 0, i32 0
   %43 = load ptr, ptr %pair, align 8
-  %second108 = getelementptr inbounds %"struct.std::pair.158", ptr %43, i32 0, i32 1
+  %first107 = getelementptr inbounds %"struct.std::pair.158", ptr %43, i32 0, i32 0
+  %44 = load ptr, ptr %pair, align 8
+  %second108 = getelementptr inbounds %"struct.std::pair.158", ptr %44, i32 0, i32 1
   %opt_file_version = getelementptr inbounds %"class.rocksdb::RocksDBOptionsParser", ptr %this1, i32 0, i32 10
   %arraydecay109 = getelementptr inbounds [3 x i32], ptr %opt_file_version, i64 0, i64 0
   invoke void @_ZN7rocksdb20RocksDBOptionsParser18ParseVersionNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iPi(ptr sret(%"class.rocksdb::Status") align 8 %ref.tmp106, ptr noundef nonnull align 8 dereferenceable(844) %this1, ptr noundef nonnull align 8 dereferenceable(32) %first107, ptr noundef nonnull align 8 dereferenceable(32) %second108, i32 noundef 2, ptr noundef %arraydecay109)
@@ -8489,8 +8502,8 @@ if.then114:                                       ; preds = %invoke.cont112
 if.end115:                                        ; preds = %invoke.cont112
   %opt_file_version116 = getelementptr inbounds %"class.rocksdb::RocksDBOptionsParser", ptr %this1, i32 0, i32 10
   %arrayidx = getelementptr inbounds [3 x i32], ptr %opt_file_version116, i64 0, i64 0
-  %44 = load i32, ptr %arrayidx, align 8
-  %cmp117 = icmp slt i32 %44, 1
+  %45 = load i32, ptr %arrayidx, align 8
+  %cmp117 = icmp slt i32 %45, 1
   br i1 %cmp117, label %if.then118, label %if.end124
 
 if.then118:                                       ; preds = %if.end115
@@ -10708,28 +10721,30 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb10perf_levelE() #10 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb10perf_levelE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
+  ret ptr %4
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb12perf_contextE() #10 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb12perf_contextE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
+  ret ptr %4
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -12391,7 +12406,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %t.addr, align 8
   call void @_ZN7rocksdb26FSWritableFileOwnerWrapperC2EOSt10unique_ptrINS_14FSWritableFileESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb28FSWritableFileTracingWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTVN7rocksdb28FSWritableFileTracingWrapperE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %io_tracer_ = getelementptr inbounds %"class.rocksdb::FSWritableFileTracingWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %io_tracer_, ptr noundef nonnull align 8 dereferenceable(16) %io_tracer) #3
   %clock_ = getelementptr inbounds %"class.rocksdb::FSWritableFileTracingWrapper", ptr %this1, i32 0, i32 2
@@ -12402,20 +12418,20 @@ invoke.cont:                                      ; preds = %entry
   %call2 = call noundef ptr @_ZNKSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %call) #3
   store ptr %call2, ptr %clock_, align 8
   %file_name_ = getelementptr inbounds %"class.rocksdb::FSWritableFileTracingWrapper", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %file_name.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_name_, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %2 = load ptr, ptr %file_name.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_name_, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN7rocksdb8IOTracerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %io_tracer_) #3
   call void @_ZN7rocksdb26FSWritableFileOwnerWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
   br label %eh.resume
@@ -12730,10 +12746,11 @@ entry:
   %0 = load ptr, ptr %t.addr, align 8
   %call = call noundef ptr @_ZNKSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
   call void @_ZN7rocksdb21FSWritableFileWrapperC2EPNS_14FSWritableFileE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %call)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb26FSWritableFileOwnerWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTVN7rocksdb26FSWritableFileOwnerWrapperE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %guard_ = getelementptr inbounds %"class.rocksdb::FSWritableFileOwnerWrapper", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %t.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %guard_, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  %2 = load ptr, ptr %t.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %guard_, ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   ret void
 }
 
@@ -12770,10 +12787,11 @@ entry:
   store ptr %t, ptr %t.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb14FSWritableFileC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb21FSWritableFileWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTVN7rocksdb21FSWritableFileWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::FSWritableFileWrapper", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %t.addr, align 8
-  store ptr %0, ptr %target_, align 8
+  %1 = load ptr, ptr %t.addr, align 8
+  store ptr %1, ptr %target_, align 8
   ret void
 }
 
@@ -12798,7 +12816,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb26FSWritableFileOwnerWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTVN7rocksdb26FSWritableFileOwnerWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %guard_ = getelementptr inbounds %"class.rocksdb::FSWritableFileOwnerWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %guard_) #3
   call void @_ZN7rocksdb21FSWritableFileWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
@@ -13400,7 +13419,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb14FSWritableFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTVN7rocksdb14FSWritableFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %last_preallocated_block_ = getelementptr inbounds %"class.rocksdb::FSWritableFile", ptr %this1, i32 0, i32 1
   store i64 0, ptr %last_preallocated_block_, align 8
   %preallocation_block_size_ = getelementptr inbounds %"class.rocksdb::FSWritableFile", ptr %this1, i32 0, i32 2
@@ -18965,7 +18985,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb30FSSequentialFileTracingWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb30FSSequentialFileTracingWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %file_name_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileTracingWrapper", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_name_) #3
   %io_tracer_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileTracingWrapper", ptr %this1, i32 0, i32 1
@@ -18980,7 +19001,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %guard_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileOwnerWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %guard_) #3
   call void @_ZN7rocksdb23FSSequentialFileWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -23493,7 +23515,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %t.addr, align 8
   call void @_ZN7rocksdb28FSSequentialFileOwnerWrapperC2EOSt10unique_ptrINS_16FSSequentialFileESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb30FSSequentialFileTracingWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb30FSSequentialFileTracingWrapperE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %io_tracer_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileTracingWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %io_tracer_, ptr noundef nonnull align 8 dereferenceable(16) %io_tracer) #3
   %clock_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileTracingWrapper", ptr %this1, i32 0, i32 2
@@ -23504,20 +23527,20 @@ invoke.cont:                                      ; preds = %entry
   %call2 = call noundef ptr @_ZNKSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %call) #3
   store ptr %call2, ptr %clock_, align 8
   %file_name_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileTracingWrapper", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %file_name.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_name_, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %2 = load ptr, ptr %file_name.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_name_, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN7rocksdb8IOTracerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %io_tracer_) #3
   call void @_ZN7rocksdb28FSSequentialFileOwnerWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
   br label %eh.resume
@@ -23541,10 +23564,11 @@ entry:
   %0 = load ptr, ptr %t.addr, align 8
   %call = call noundef ptr @_ZNKSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
   call void @_ZN7rocksdb23FSSequentialFileWrapperC2EPNS_16FSSequentialFileE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %call)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %guard_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileOwnerWrapper", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %t.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %guard_, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  %2 = load ptr, ptr %t.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %guard_, ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   ret void
 }
 
@@ -23568,10 +23592,11 @@ entry:
   store ptr %t, ptr %t.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb16FSSequentialFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb23FSSequentialFileWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb23FSSequentialFileWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileWrapper", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %t.addr, align 8
-  store ptr %0, ptr %target_, align 8
+  %1 = load ptr, ptr %t.addr, align 8
+  store ptr %1, ptr %target_, align 8
   ret void
 }
 
@@ -23648,7 +23673,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb16FSSequentialFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb16FSSequentialFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

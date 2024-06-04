@@ -136,7 +136,8 @@ define dso_local void @led_classdev_resume(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local noundef nonnull ptr @of_led_get(ptr nocapture readnone %0, i32 %1) #2 align 16 {
-  ret ptr inttoptr (i64 -2 to ptr)
+  %3 = inttoptr i64 -2 to ptr
+  ret ptr %3
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -170,8 +171,10 @@ declare dso_local void @module_put(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local noundef nonnull ptr @devm_of_led_get(ptr noundef readnone %0, i32 %1) #2 align 16 {
   %3 = icmp eq ptr %0, null
-  %4 = select i1 %3, ptr inttoptr (i64 -22 to ptr), ptr inttoptr (i64 -2 to ptr)
-  ret ptr %4
+  %4 = inttoptr i64 -22 to ptr
+  %5 = inttoptr i64 -2 to ptr
+  %6 = select i1 %3, ptr %4, ptr %5
+  ret ptr %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -225,36 +228,39 @@ define dso_local ptr @led_get(ptr nocapture noundef readonly %0, ptr nocapture n
   %32 = phi ptr [ %27, %24 ], [ null, %2 ], [ null, %28 ]
   tail call void @mutex_unlock(ptr noundef nonnull @leds_lookup_lock) #10
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %51, label %34
+  %34 = inttoptr i64 -2 to ptr
+  br i1 %33, label %54, label %35
 
-34:                                               ; preds = %31
-  %35 = tail call ptr @class_find_device(ptr noundef nonnull @leds_class, ptr noundef null, ptr noundef nonnull %32, ptr noundef nonnull @device_match_name) #10
+35:                                               ; preds = %31
+  %36 = tail call ptr @class_find_device(ptr noundef nonnull @leds_class, ptr noundef null, ptr noundef nonnull %32, ptr noundef nonnull @device_match_name) #10
   tail call void @kfree_const(ptr noundef nonnull %32) #10
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %51, label %37
+  %37 = icmp eq ptr %36, null
+  %38 = inttoptr i64 -517 to ptr
+  br i1 %37, label %54, label %39
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %35, i64 120
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 80
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds i8, ptr %36, i64 120
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 64
+  %42 = getelementptr inbounds i8, ptr %41, i64 80
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 104
+  %44 = getelementptr inbounds i8, ptr %43, i64 64
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds i8, ptr %45, i64 104
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call zeroext i1 @try_module_get(ptr noundef %47) #10
-  br i1 %48, label %51, label %49
+  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call zeroext i1 @try_module_get(ptr noundef %49) #10
+  br i1 %50, label %54, label %51
 
-49:                                               ; preds = %37
-  %50 = load ptr, ptr %40, align 8
-  tail call void @put_device(ptr noundef %50) #10
-  br label %51
+51:                                               ; preds = %39
+  %52 = load ptr, ptr %42, align 8
+  tail call void @put_device(ptr noundef %52) #10
+  %53 = inttoptr i64 -19 to ptr
+  br label %54
 
-51:                                               ; preds = %49, %37, %34, %31
-  %52 = phi ptr [ inttoptr (i64 -2 to ptr), %31 ], [ inttoptr (i64 -19 to ptr), %49 ], [ %39, %37 ], [ inttoptr (i64 -517 to ptr), %34 ]
-  ret ptr %52
+54:                                               ; preds = %51, %39, %35, %31
+  %55 = phi ptr [ %34, %31 ], [ %53, %51 ], [ %41, %39 ], [ %38, %35 ]
+  ret ptr %55
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -275,47 +281,51 @@ declare dso_local void @kfree_const(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @devm_led_get(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = tail call ptr @led_get(ptr noundef %0, ptr noundef %1)
-  %4 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
-  br i1 %4, label %19, label %5
+  %4 = inttoptr i64 -4096 to ptr
+  %5 = icmp ugt ptr %3, %4
+  br i1 %5, label %21, label %6
 
-5:                                                ; preds = %2
-  %6 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_led_release, i64 noundef 8, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str.18) #10
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %18
+6:                                                ; preds = %2
+  %7 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_led_release, i64 noundef 8, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str.18) #10
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %20
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 80
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 104
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8
-  tail call void @module_put(ptr noundef %16) #10
-  %17 = load ptr, ptr %9, align 8
-  tail call void @put_device(ptr noundef %17) #10
-  br label %19
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds i8, ptr %3, i64 80
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 104
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8
+  tail call void @module_put(ptr noundef %17) #10
+  %18 = load ptr, ptr %10, align 8
+  tail call void @put_device(ptr noundef %18) #10
+  %19 = inttoptr i64 -12 to ptr
+  br label %21
 
-18:                                               ; preds = %5
-  store ptr %3, ptr %6, align 8
-  tail call void @devres_add(ptr noundef %0, ptr noundef nonnull %6) #10
-  br label %19
+20:                                               ; preds = %6
+  store ptr %3, ptr %7, align 8
+  tail call void @devres_add(ptr noundef %0, ptr noundef nonnull %7) #10
+  br label %21
 
-19:                                               ; preds = %18, %8, %2
-  %20 = phi ptr [ %3, %2 ], [ %3, %18 ], [ inttoptr (i64 -12 to ptr), %8 ]
-  ret ptr %20
+21:                                               ; preds = %20, %9, %2
+  %22 = phi ptr [ %3, %2 ], [ %3, %20 ], [ %19, %9 ]
+  ret ptr %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @led_add_lookup(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @leds_lookup_lock) #10
-  %2 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @leds_lookup_list, i64 0, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @leds_lookup_list, i64 0, i32 1), align 8
+  %2 = getelementptr inbounds %struct.list_head, ptr @leds_lookup_list, i64 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %struct.list_head, ptr @leds_lookup_list, i64 0, i32 1
+  store ptr %0, ptr %4, align 8
   store ptr @leds_lookup_list, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %2, ptr %3, align 8
-  store volatile ptr %0, ptr %2, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %3, ptr %5, align 8
+  store volatile ptr %0, ptr %3, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @leds_lookup_lock) #10
   ret void
 }
@@ -329,8 +339,10 @@ define dso_local void @led_remove_lookup(ptr nocapture noundef %0) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
   store volatile ptr %4, ptr %3, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %2, align 8
+  %6 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %6, ptr %0, align 8
+  %7 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %7, ptr %2, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @leds_lookup_lock) #10
   ret void
 }
@@ -338,8 +350,9 @@ define dso_local void @led_remove_lookup(ptr nocapture noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local noundef ptr @devm_of_led_get_optional(ptr noundef readnone %0, i32 %1) #2 align 16 {
   %3 = icmp eq ptr %0, null
-  %4 = select i1 %3, ptr inttoptr (i64 -22 to ptr), ptr null
-  ret ptr %4
+  %4 = inttoptr i64 -22 to ptr
+  %5 = select i1 %3, ptr %4, ptr null
+  ret ptr %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -367,12 +380,12 @@ define dso_local i32 @led_classdev_register_ext(ptr noundef %0, ptr noundef %1, 
 
 15:                                               ; preds = %11
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.1) #11
-  br label %104
+  br label %107
 
 16:                                               ; preds = %11, %7
   %17 = call i32 @led_compose_name(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %4) #10
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %104, label %19
+  br i1 %18, label %107, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %2, align 8
@@ -435,7 +448,7 @@ define dso_local i32 @led_classdev_register_ext(ptr noundef %0, ptr noundef %1, 
 57:                                               ; preds = %51, %48, %43
   %58 = phi i32 [ 0, %43 ], [ -12, %51 ], [ %54, %48 ]
   %59 = icmp slt i32 %58, 0
-  br i1 %59, label %104, label %60
+  br i1 %59, label %107, label %60
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds i8, ptr %1, i64 16
@@ -456,83 +469,86 @@ define dso_local i32 @led_classdev_register_ext(ptr noundef %0, ptr noundef %1, 
   %69 = call ptr (ptr, ptr, i32, ptr, ptr, ptr, ...) @device_create_with_groups(ptr noundef nonnull @leds_class, ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %68, ptr noundef nonnull @.str.8, ptr noundef nonnull %5) #10
   %70 = getelementptr inbounds i8, ptr %1, i64 80
   store ptr %69, ptr %70, align 8
-  %71 = icmp ugt ptr %69, inttoptr (i64 -4096 to ptr)
-  br i1 %71, label %72, label %76
+  %71 = inttoptr i64 -4096 to ptr
+  %72 = icmp ugt ptr %69, %71
+  br i1 %72, label %73, label %77
 
-72:                                               ; preds = %65
+73:                                               ; preds = %65
   call void @mutex_unlock(ptr noundef %66) #10
-  %73 = load ptr, ptr %70, align 8
-  %74 = ptrtoint ptr %73 to i64
-  %75 = trunc i64 %74 to i32
-  br label %104
+  %74 = load ptr, ptr %70, align 8
+  %75 = ptrtoint ptr %74 to i64
+  %76 = trunc i64 %75 to i32
+  br label %107
 
-76:                                               ; preds = %65
-  br i1 %6, label %81, label %77
+77:                                               ; preds = %65
+  br i1 %6, label %82, label %78
 
-77:                                               ; preds = %76
-  %78 = load ptr, ptr %2, align 8
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %81, label %80
+78:                                               ; preds = %77
+  %79 = load ptr, ptr %2, align 8
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %82, label %81
 
-80:                                               ; preds = %77
-  call void @device_set_node(ptr noundef %69, ptr noundef nonnull %78) #10
-  br label %81
+81:                                               ; preds = %78
+  call void @device_set_node(ptr noundef %69, ptr noundef nonnull %79) #10
+  br label %82
 
-81:                                               ; preds = %80, %77, %76
-  %82 = icmp eq i32 %58, 0
-  br i1 %82, label %92, label %83
+82:                                               ; preds = %81, %78, %77
+  %83 = icmp eq i32 %58, 0
+  br i1 %83, label %93, label %84
 
-83:                                               ; preds = %81
-  %84 = load ptr, ptr %70, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 80
-  %86 = load ptr, ptr %85, align 8
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %88, label %90
+84:                                               ; preds = %82
+  %85 = load ptr, ptr %70, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 80
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %89, label %91
 
-88:                                               ; preds = %83
-  %89 = load ptr, ptr %84, align 8
-  br label %90
+89:                                               ; preds = %84
+  %90 = load ptr, ptr %85, align 8
+  br label %91
 
-90:                                               ; preds = %88, %83
-  %91 = phi ptr [ %89, %88 ], [ %86, %83 ]
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef %44, ptr noundef %91) #11
-  br label %92
+91:                                               ; preds = %89, %84
+  %92 = phi ptr [ %90, %89 ], [ %87, %84 ]
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef %44, ptr noundef %92) #11
+  br label %93
 
-92:                                               ; preds = %90, %81
-  %93 = getelementptr inbounds i8, ptr %1, i64 24
-  store i64 0, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %1, i64 248
-  call void @__init_rwsem(ptr noundef %94, ptr noundef nonnull @.str.11, ptr noundef nonnull @led_classdev_register_ext.__key.10) #10
+93:                                               ; preds = %91, %82
+  %94 = getelementptr inbounds i8, ptr %1, i64 24
+  store i64 0, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %1, i64 248
+  call void @__init_rwsem(ptr noundef %95, ptr noundef nonnull @.str.11, ptr noundef nonnull @led_classdev_register_ext.__key.10) #10
   call void @down_write(ptr noundef nonnull @leds_list_lock) #10
-  %95 = getelementptr inbounds i8, ptr %1, i64 96
-  %96 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @leds_list, i64 0, i32 1), align 8
-  store ptr %95, ptr getelementptr inbounds (%struct.list_head, ptr @leds_list, i64 0, i32 1), align 8
-  store ptr @leds_list, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 104
-  store ptr %96, ptr %97, align 8
-  store volatile ptr %95, ptr %96, align 8
+  %96 = getelementptr inbounds i8, ptr %1, i64 96
+  %97 = getelementptr inbounds %struct.list_head, ptr @leds_list, i64 0, i32 1
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds %struct.list_head, ptr @leds_list, i64 0, i32 1
+  store ptr %96, ptr %99, align 8
+  store ptr @leds_list, ptr %96, align 8
+  %100 = getelementptr inbounds i8, ptr %1, i64 104
+  store ptr %98, ptr %100, align 8
+  store volatile ptr %96, ptr %98, align 8
   call void @up_write(ptr noundef nonnull @leds_list_lock) #10
-  %98 = getelementptr inbounds i8, ptr %1, i64 12
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %102
+  %101 = getelementptr inbounds i8, ptr %1, i64 12
+  %102 = load i32, ptr %101, align 4
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %104, label %105
 
-101:                                              ; preds = %92
-  store i32 255, ptr %98, align 4
-  br label %102
+104:                                              ; preds = %93
+  store i32 255, ptr %101, align 4
+  br label %105
 
-102:                                              ; preds = %101, %92
-  %103 = call i32 @led_update_brightness(ptr noundef %1) #10
+105:                                              ; preds = %104, %93
+  %106 = call i32 @led_update_brightness(ptr noundef %1) #10
   call void @led_init_core(ptr noundef %1) #10
   call void @led_trigger_set_default(ptr noundef %1) #10
   call void @mutex_unlock(ptr noundef %66) #10
-  br label %104
+  br label %107
 
-104:                                              ; preds = %102, %72, %57, %16, %15
-  %105 = phi i32 [ %75, %72 ], [ 0, %102 ], [ -22, %15 ], [ %17, %16 ], [ %58, %57 ]
+107:                                              ; preds = %105, %73, %57, %16, %15
+  %108 = phi i32 [ %76, %73 ], [ 0, %105 ], [ -22, %15 ], [ %17, %16 ], [ %58, %57 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
-  ret i32 %105
+  ret i32 %108
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -588,57 +604,60 @@ define dso_local void @led_classdev_unregister(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  %5 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
-  %6 = or i1 %4, %5
-  br i1 %6, label %31, label %7
+  %5 = inttoptr i64 -4096 to ptr
+  %6 = icmp ugt ptr %3, %5
+  %7 = or i1 %4, %6
+  br i1 %7, label %34, label %8
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 248
-  tail call void @down_write(ptr noundef %8) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 288
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %14, label %12
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds i8, ptr %0, i64 248
+  tail call void @down_write(ptr noundef %9) #10
+  %10 = getelementptr inbounds i8, ptr %0, i64 288
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %15, label %13
 
-12:                                               ; preds = %7
-  %13 = tail call i32 @led_trigger_set(ptr noundef %0, ptr noundef null) #10
-  br label %14
+13:                                               ; preds = %8
+  %14 = tail call i32 @led_trigger_set(ptr noundef %0, ptr noundef null) #10
+  br label %15
 
-14:                                               ; preds = %12, %7
-  tail call void @up_write(ptr noundef %8) #10
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
-  %16 = load i32, ptr %15, align 4
-  %17 = or i32 %16, 2
-  store i32 %17, ptr %15, align 4
+15:                                               ; preds = %13, %8
+  tail call void @up_write(ptr noundef %9) #10
+  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = load i32, ptr %16, align 4
+  %18 = or i32 %17, 2
+  store i32 %18, ptr %16, align 4
   tail call void @led_stop_software_blink(ptr noundef %0) #10
-  %18 = load i32, ptr %15, align 4
-  %19 = and i32 %18, 4194304
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %22
+  %19 = load i32, ptr %16, align 4
+  %20 = and i32 %19, 4194304
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %14
+22:                                               ; preds = %15
   tail call void @led_set_brightness(ptr noundef %0, i32 noundef 0) #10
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %14
-  %23 = getelementptr inbounds i8, ptr %0, i64 192
-  %24 = tail call zeroext i1 @flush_work(ptr noundef %23) #10
-  %25 = load ptr, ptr %2, align 8
-  tail call void @device_unregister(ptr noundef %25) #10
+23:                                               ; preds = %22, %15
+  %24 = getelementptr inbounds i8, ptr %0, i64 192
+  %25 = tail call zeroext i1 @flush_work(ptr noundef %24) #10
+  %26 = load ptr, ptr %2, align 8
+  tail call void @device_unregister(ptr noundef %26) #10
   tail call void @down_write(ptr noundef nonnull @leds_list_lock) #10
-  %26 = getelementptr inbounds i8, ptr %0, i64 96
-  %27 = getelementptr inbounds i8, ptr %0, i64 104
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr %28, ptr %30, align 8
-  store volatile ptr %29, ptr %28, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %26, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %27, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds i8, ptr %0, i64 104
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %27, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr %29, ptr %31, align 8
+  store volatile ptr %30, ptr %29, align 8
+  %32 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %32, ptr %27, align 8
+  %33 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %33, ptr %28, align 8
   tail call void @up_write(ptr noundef nonnull @leds_list_lock) #10
-  br label %31
+  br label %34
 
-31:                                               ; preds = %22, %1
+34:                                               ; preds = %23, %1
   ret void
 }
 

@@ -1583,7 +1583,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %Log2InitSize.addr, align 4
   call void @_ZN4llvh14FoldingSetImplIN6hermes6parser10JSONStringEEC2Ej(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh10FoldingSetIN6hermes6parser10JSONStringEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4llvh10FoldingSetIN6hermes6parser10JSONStringEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -1597,7 +1598,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %Log2InitSize.addr, align 4
   call void @_ZN4llvh14FoldingSetImplIN6hermes6parser10JSONNumberEEC2Ej(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh10FoldingSetIN6hermes6parser10JSONNumberEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4llvh10FoldingSetIN6hermes6parser10JSONNumberEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4227,16 +4229,17 @@ entry:
   %length.addr.i = alloca i64, align 8
   %retval = alloca %"class.llvh::StringRef", align 8
   store ptr %retval, ptr %this.addr.i, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %data.addr.i, align 8
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %data.addr.i, align 8
   store i64 0, ptr %length.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load ptr, ptr %data.addr.i, align 8
-  store ptr %0, ptr %this1.i, align 8
+  %1 = load ptr, ptr %data.addr.i, align 8
+  store ptr %1, ptr %this1.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %1 = load i64, ptr %length.addr.i, align 8
-  store i64 %1, ptr %Length.i, align 8
-  %2 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %2
+  %2 = load i64, ptr %length.addr.i, align 8
+  store i64 %2, ptr %Length.i, align 8
+  %3 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5282,16 +5285,17 @@ entry:
   %length.addr.i = alloca i64, align 8
   %retval = alloca %"class.llvh::StringRef", align 8
   store ptr %retval, ptr %this.addr.i, align 8
-  store ptr inttoptr (i64 -2 to ptr), ptr %data.addr.i, align 8
+  %0 = inttoptr i64 -2 to ptr
+  store ptr %0, ptr %data.addr.i, align 8
   store i64 0, ptr %length.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load ptr, ptr %data.addr.i, align 8
-  store ptr %0, ptr %this1.i, align 8
+  %1 = load ptr, ptr %data.addr.i, align 8
+  store ptr %1, ptr %this1.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %1 = load i64, ptr %length.addr.i, align 8
-  store i64 %1, ptr %Length.i, align 8
-  %2 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %2
+  %2 = load i64, ptr %length.addr.i, align 8
+  store i64 %2, ptr %Length.i, align 8
+  %3 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7357,7 +7361,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %Log2InitSize.addr, align 4
   call void @_ZN4llvh14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetImplIN6hermes6parser10JSONStringEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetImplIN6hermes6parser10JSONStringEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7540,7 +7545,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %Log2InitSize.addr, align 4
   call void @_ZN4llvh14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetImplIN6hermes6parser10JSONNumberEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetImplIN6hermes6parser10JSONNumberEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 

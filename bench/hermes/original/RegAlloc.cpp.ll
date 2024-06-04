@@ -9046,10 +9046,11 @@ entry:
   %2 = load i8, ptr %escape.addr, align 1
   %tobool = trunc i8 %2 to i1
   call void @_ZN6hermes9IRPrinterC2ERNS_7ContextERN4llvh11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(208) %this1, ptr noundef nonnull align 8 dereferenceable(656) %call, ptr noundef nonnull align 8 dereferenceable(36) %1, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV25LivenessRegAllocIRPrinter, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV25LivenessRegAllocIRPrinter, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %allocator = getelementptr inbounds %struct.LivenessRegAllocIRPrinter, ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %RA.addr, align 8
-  store ptr %3, ptr %allocator, align 8
+  %4 = load ptr, ptr %RA.addr, align 8
+  store ptr %4, ptr %allocator, align 8
   ret void
 }
 
@@ -12362,19 +12363,20 @@ entry:
   %frombool = zext i1 %escape to i8
   store i8 %frombool, ptr %escape.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Indent = getelementptr inbounds %"struct.hermes::IRPrinter", ptr %this1, i32 0, i32 1
   store i32 0, ptr %Indent, align 8
   %sm_ = getelementptr inbounds %"struct.hermes::IRPrinter", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(464) ptr @_ZN6hermes7Context21getSourceErrorManagerEv(ptr noundef nonnull align 8 dereferenceable(656) %0)
+  %1 = load ptr, ptr %ctx.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(464) ptr @_ZN6hermes7Context21getSourceErrorManagerEv(ptr noundef nonnull align 8 dereferenceable(656) %1)
   store ptr %call, ptr %sm_, align 8
   %os = getelementptr inbounds %"struct.hermes::IRPrinter", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %ost.addr, align 8
-  store ptr %1, ptr %os, align 8
+  %2 = load ptr, ptr %ost.addr, align 8
+  store ptr %2, ptr %os, align 8
   %needEscape = getelementptr inbounds %"struct.hermes::IRPrinter", ptr %this1, i32 0, i32 4
-  %2 = load i8, ptr %escape.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %escape.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %needEscape, align 8
   %InstNamer = getelementptr inbounds %"struct.hermes::IRPrinter", ptr %this1, i32 0, i32 6
@@ -13087,16 +13089,17 @@ entry:
   %length.addr.i = alloca i64, align 8
   %retval = alloca %"class.llvh::StringRef", align 8
   store ptr %retval, ptr %this.addr.i, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %data.addr.i, align 8
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %data.addr.i, align 8
   store i64 0, ptr %length.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load ptr, ptr %data.addr.i, align 8
-  store ptr %0, ptr %this1.i, align 8
+  %1 = load ptr, ptr %data.addr.i, align 8
+  store ptr %1, ptr %this1.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %1 = load i64, ptr %length.addr.i, align 8
-  store i64 %1, ptr %Length.i, align 8
-  %2 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %2
+  %2 = load i64, ptr %length.addr.i, align 8
+  store i64 %2, ptr %Length.i, align 8
+  %3 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13542,16 +13545,17 @@ entry:
   %length.addr.i = alloca i64, align 8
   %retval = alloca %"class.llvh::StringRef", align 8
   store ptr %retval, ptr %this.addr.i, align 8
-  store ptr inttoptr (i64 -2 to ptr), ptr %data.addr.i, align 8
+  %0 = inttoptr i64 -2 to ptr
+  store ptr %0, ptr %data.addr.i, align 8
   store i64 0, ptr %length.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load ptr, ptr %data.addr.i, align 8
-  store ptr %0, ptr %this1.i, align 8
+  %1 = load ptr, ptr %data.addr.i, align 8
+  store ptr %1, ptr %this1.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %1 = load i64, ptr %length.addr.i, align 8
-  store i64 %1, ptr %Length.i, align 8
-  %2 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %2
+  %2 = load i64, ptr %length.addr.i, align 8
+  store i64 %2, ptr %Length.i, align 8
+  %3 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
@@ -13662,7 +13666,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ScopeNamer = getelementptr inbounds %"struct.hermes::IRPrinter", ptr %this1, i32 0, i32 8
   call void @_ZN6hermes16InstructionNamerD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer) #12
   %BBNamer = getelementptr inbounds %"struct.hermes::IRPrinter", ptr %this1, i32 0, i32 7

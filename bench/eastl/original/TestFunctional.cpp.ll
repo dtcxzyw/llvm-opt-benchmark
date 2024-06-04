@@ -16607,9 +16607,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -18798,9 +18799,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20846,9 +20848,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -267,15 +267,16 @@ declare void @_ZN19TerminalChatConsole20stopAndWaitforThreadEv(ptr noundef nonnu
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTW11errorstream() local_unnamed_addr #4 comdat {
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTH11errorstream, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   tail call void @_ZTH11errorstream()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @errorstream)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @errorstream)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -1313,33 +1313,34 @@ define internal fastcc void @pnpacpi_parse_allocated_vendor(ptr noundef %0, ptr 
   %7 = add nsw i32 %6, -17
   %8 = load i8, ptr @hp_ccsr_uuid, align 1
   %9 = icmp eq i8 %4, %8
-  br i1 %9, label %10, label %25
+  br i1 %9, label %10, label %26
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 3
-  %12 = tail call i32 @bcmp(ptr noundef dereferenceable(16) %11, ptr noundef nonnull dereferenceable(16) getelementptr inbounds (%struct.acpi_vendor_uuid, ptr @hp_ccsr_uuid, i64 0, i32 1), i64 16)
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %25
+  %12 = getelementptr inbounds %struct.acpi_vendor_uuid, ptr @hp_ccsr_uuid, i64 0, i32 1
+  %13 = tail call i32 @bcmp(ptr noundef dereferenceable(16) %11, ptr noundef nonnull dereferenceable(16) %12, i64 16)
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %26
 
-14:                                               ; preds = %10
-  %15 = icmp eq i32 %7, 16
-  br i1 %15, label %17, label %16
+15:                                               ; preds = %10
+  %16 = icmp eq i32 %7, 16
+  br i1 %16, label %18, label %17
 
-16:                                               ; preds = %14
+17:                                               ; preds = %15
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 16, i32 noundef %7) #10
-  br label %25
+  br label %26
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 19
-  %19 = load i64, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %1, i64 27
-  %21 = load i64, ptr %20, align 1
-  %22 = add i64 %19, -1
-  %23 = add i64 %22, %21
-  %24 = tail call ptr @pnp_add_mem_resource(ptr noundef %0, i64 noundef %19, i64 noundef %23, i32 noundef 0) #11
-  br label %25
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds i8, ptr %1, i64 19
+  %20 = load i64, ptr %19, align 1
+  %21 = getelementptr inbounds i8, ptr %1, i64 27
+  %22 = load i64, ptr %21, align 1
+  %23 = add i64 %20, -1
+  %24 = add i64 %23, %22
+  %25 = tail call ptr @pnp_add_mem_resource(ptr noundef %0, i64 noundef %20, i64 noundef %24, i32 noundef 0) #11
+  br label %26
 
-25:                                               ; preds = %17, %16, %10, %2
+26:                                               ; preds = %18, %17, %10, %2
   ret void
 }
 

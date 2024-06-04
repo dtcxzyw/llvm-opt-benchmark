@@ -88,16 +88,17 @@ entry:
   %0 = load ptr, ptr %text.addr, align 8
   %1 = load ptr, ptr %breakiter.addr, align 8
   call void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_pattern_ = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %pattern.addr, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %2)
+  %3 = load ptr, ptr %pattern.addr, align 8
+  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load ptr, ptr %status.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %4)
+  %4 = load ptr, ptr %status.addr, align 8
+  %5 = load i32, ptr %4, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %5)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -110,21 +111,21 @@ if.then:                                          ; preds = %invoke.cont3
   br label %if.end28
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont20, %invoke.cont17, %invoke.cont15, %invoke.cont13, %invoke.cont10, %invoke.cont8, %invoke.cont5, %if.end, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #6
   br label %ehcleanup
 
@@ -149,30 +150,30 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %invoke.cont13 unwind label %lpad2
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  %11 = load ptr, ptr %locale.addr, align 8
-  %call16 = invoke noundef ptr @_ZNK6icu_756Locale7getNameEv(ptr noundef nonnull align 8 dereferenceable(217) %11)
+  %12 = load ptr, ptr %locale.addr, align 8
+  %call16 = invoke noundef ptr @_ZNK6icu_756Locale7getNameEv(ptr noundef nonnull align 8 dereferenceable(217) %12)
           to label %invoke.cont15 unwind label %lpad2
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  %12 = load ptr, ptr %breakiter.addr, align 8
-  %13 = load ptr, ptr %status.addr, align 8
-  %call18 = invoke ptr @usearch_open_75(ptr noundef %call6, i32 noundef %call9, ptr noundef %call11, i32 noundef %call14, ptr noundef %call16, ptr noundef %12, ptr noundef %13)
+  %13 = load ptr, ptr %breakiter.addr, align 8
+  %14 = load ptr, ptr %status.addr, align 8
+  %call18 = invoke ptr @usearch_open_75(ptr noundef %call6, i32 noundef %call9, ptr noundef %call11, i32 noundef %call14, ptr noundef %call16, ptr noundef %13, ptr noundef %14)
           to label %invoke.cont17 unwind label %lpad2
 
 invoke.cont17:                                    ; preds = %invoke.cont15
   %m_strsrch_19 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 2
   store ptr %call18, ptr %m_strsrch_19, align 8
   %m_search_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %14 = load ptr, ptr %m_search_, align 8
-  invoke void @uprv_free_75(ptr noundef %14)
+  %15 = load ptr, ptr %m_search_, align 8
+  invoke void @uprv_free_75(ptr noundef %15)
           to label %invoke.cont20 unwind label %lpad2
 
 invoke.cont20:                                    ; preds = %invoke.cont17
   %m_search_21 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_search_21, align 8
-  %15 = load ptr, ptr %status.addr, align 8
-  %16 = load i32, ptr %15, align 4
-  %call23 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %16)
+  %16 = load ptr, ptr %status.addr, align 8
+  %17 = load i32, ptr %16, align 4
+  %call23 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %17)
           to label %invoke.cont22 unwind label %lpad2
 
 invoke.cont22:                                    ; preds = %invoke.cont20
@@ -181,11 +182,11 @@ invoke.cont22:                                    ; preds = %invoke.cont20
 
 if.then25:                                        ; preds = %invoke.cont22
   %m_strsrch_26 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 2
-  %17 = load ptr, ptr %m_strsrch_26, align 8
-  %search = getelementptr inbounds %struct.UStringSearch, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %search, align 8
+  %18 = load ptr, ptr %m_strsrch_26, align 8
+  %search = getelementptr inbounds %struct.UStringSearch, ptr %18, i32 0, i32 0
+  %19 = load ptr, ptr %search, align 8
   %m_search_27 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  store ptr %18, ptr %m_search_27, align 8
+  store ptr %19, ptr %m_search_27, align 8
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then25, %invoke.cont22, %if.then
@@ -345,16 +346,17 @@ entry:
   %0 = load ptr, ptr %text.addr, align 8
   %1 = load ptr, ptr %breakiter.addr, align 8
   call void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_pattern_ = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %pattern.addr, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %2)
+  %3 = load ptr, ptr %pattern.addr, align 8
+  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load ptr, ptr %status.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %4)
+  %4 = load ptr, ptr %status.addr, align 8
+  %5 = load i32, ptr %4, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %5)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -367,32 +369,32 @@ if.then:                                          ; preds = %invoke.cont3
   br label %if.end31
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont23, %invoke.cont20, %invoke.cont18, %invoke.cont16, %invoke.cont13, %invoke.cont11, %invoke.cont8, %if.end6, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #6
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont3
-  %11 = load ptr, ptr %coll.addr, align 8
-  %cmp = icmp eq ptr %11, null
+  %12 = load ptr, ptr %coll.addr, align 8
+  %cmp = icmp eq ptr %12, null
   br i1 %cmp, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  %12 = load ptr, ptr %status.addr, align 8
-  store i32 1, ptr %12, align 4
+  %13 = load ptr, ptr %status.addr, align 8
+  store i32 1, ptr %13, align 4
   %m_strsrch_5 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 2
   store ptr null, ptr %m_strsrch_5, align 8
   br label %if.end31
@@ -418,30 +420,30 @@ invoke.cont13:                                    ; preds = %invoke.cont11
           to label %invoke.cont16 unwind label %lpad2
 
 invoke.cont16:                                    ; preds = %invoke.cont13
-  %13 = load ptr, ptr %coll.addr, align 8
-  %call19 = invoke noundef ptr @_ZN6icu_758Collator11toUCollatorEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %14 = load ptr, ptr %coll.addr, align 8
+  %call19 = invoke noundef ptr @_ZN6icu_758Collator11toUCollatorEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %invoke.cont18 unwind label %lpad2
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  %14 = load ptr, ptr %breakiter.addr, align 8
-  %15 = load ptr, ptr %status.addr, align 8
-  %call21 = invoke ptr @usearch_openFromCollator_75(ptr noundef %call9, i32 noundef %call12, ptr noundef %call14, i32 noundef %call17, ptr noundef %call19, ptr noundef %14, ptr noundef %15)
+  %15 = load ptr, ptr %breakiter.addr, align 8
+  %16 = load ptr, ptr %status.addr, align 8
+  %call21 = invoke ptr @usearch_openFromCollator_75(ptr noundef %call9, i32 noundef %call12, ptr noundef %call14, i32 noundef %call17, ptr noundef %call19, ptr noundef %15, ptr noundef %16)
           to label %invoke.cont20 unwind label %lpad2
 
 invoke.cont20:                                    ; preds = %invoke.cont18
   %m_strsrch_22 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 2
   store ptr %call21, ptr %m_strsrch_22, align 8
   %m_search_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %16 = load ptr, ptr %m_search_, align 8
-  invoke void @uprv_free_75(ptr noundef %16)
+  %17 = load ptr, ptr %m_search_, align 8
+  invoke void @uprv_free_75(ptr noundef %17)
           to label %invoke.cont23 unwind label %lpad2
 
 invoke.cont23:                                    ; preds = %invoke.cont20
   %m_search_24 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_search_24, align 8
-  %17 = load ptr, ptr %status.addr, align 8
-  %18 = load i32, ptr %17, align 4
-  %call26 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %18)
+  %18 = load ptr, ptr %status.addr, align 8
+  %19 = load i32, ptr %18, align 4
+  %call26 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %19)
           to label %invoke.cont25 unwind label %lpad2
 
 invoke.cont25:                                    ; preds = %invoke.cont23
@@ -450,11 +452,11 @@ invoke.cont25:                                    ; preds = %invoke.cont23
 
 if.then28:                                        ; preds = %invoke.cont25
   %m_strsrch_29 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 2
-  %19 = load ptr, ptr %m_strsrch_29, align 8
-  %search = getelementptr inbounds %struct.UStringSearch, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %search, align 8
+  %20 = load ptr, ptr %m_strsrch_29, align 8
+  %search = getelementptr inbounds %struct.UStringSearch, ptr %20, i32 0, i32 0
+  %21 = load ptr, ptr %search, align 8
   %m_search_30 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  store ptr %20, ptr %m_search_30, align 8
+  store ptr %21, ptr %m_search_30, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then28, %invoke.cont25, %if.then4, %if.then
@@ -504,16 +506,17 @@ entry:
   %0 = load ptr, ptr %text.addr, align 8
   %1 = load ptr, ptr %breakiter.addr, align 8
   call void @_ZN6icu_7514SearchIteratorC2ERNS_17CharacterIteratorEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_pattern_ = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %pattern.addr, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %2)
+  %3 = load ptr, ptr %pattern.addr, align 8
+  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load ptr, ptr %status.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %4)
+  %4 = load ptr, ptr %status.addr, align 8
+  %5 = load i32, ptr %4, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %5)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -526,21 +529,21 @@ if.then:                                          ; preds = %invoke.cont3
   br label %if.end28
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont20, %invoke.cont17, %invoke.cont15, %invoke.cont13, %invoke.cont10, %invoke.cont8, %invoke.cont5, %if.end, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #6
   br label %ehcleanup
 
@@ -565,30 +568,30 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %invoke.cont13 unwind label %lpad2
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  %11 = load ptr, ptr %locale.addr, align 8
-  %call16 = invoke noundef ptr @_ZNK6icu_756Locale7getNameEv(ptr noundef nonnull align 8 dereferenceable(217) %11)
+  %12 = load ptr, ptr %locale.addr, align 8
+  %call16 = invoke noundef ptr @_ZNK6icu_756Locale7getNameEv(ptr noundef nonnull align 8 dereferenceable(217) %12)
           to label %invoke.cont15 unwind label %lpad2
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  %12 = load ptr, ptr %breakiter.addr, align 8
-  %13 = load ptr, ptr %status.addr, align 8
-  %call18 = invoke ptr @usearch_open_75(ptr noundef %call6, i32 noundef %call9, ptr noundef %call11, i32 noundef %call14, ptr noundef %call16, ptr noundef %12, ptr noundef %13)
+  %13 = load ptr, ptr %breakiter.addr, align 8
+  %14 = load ptr, ptr %status.addr, align 8
+  %call18 = invoke ptr @usearch_open_75(ptr noundef %call6, i32 noundef %call9, ptr noundef %call11, i32 noundef %call14, ptr noundef %call16, ptr noundef %13, ptr noundef %14)
           to label %invoke.cont17 unwind label %lpad2
 
 invoke.cont17:                                    ; preds = %invoke.cont15
   %m_strsrch_19 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 2
   store ptr %call18, ptr %m_strsrch_19, align 8
   %m_search_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %14 = load ptr, ptr %m_search_, align 8
-  invoke void @uprv_free_75(ptr noundef %14)
+  %15 = load ptr, ptr %m_search_, align 8
+  invoke void @uprv_free_75(ptr noundef %15)
           to label %invoke.cont20 unwind label %lpad2
 
 invoke.cont20:                                    ; preds = %invoke.cont17
   %m_search_21 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_search_21, align 8
-  %15 = load ptr, ptr %status.addr, align 8
-  %16 = load i32, ptr %15, align 4
-  %call23 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %16)
+  %16 = load ptr, ptr %status.addr, align 8
+  %17 = load i32, ptr %16, align 4
+  %call23 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %17)
           to label %invoke.cont22 unwind label %lpad2
 
 invoke.cont22:                                    ; preds = %invoke.cont20
@@ -597,11 +600,11 @@ invoke.cont22:                                    ; preds = %invoke.cont20
 
 if.then25:                                        ; preds = %invoke.cont22
   %m_strsrch_26 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 2
-  %17 = load ptr, ptr %m_strsrch_26, align 8
-  %search = getelementptr inbounds %struct.UStringSearch, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %search, align 8
+  %18 = load ptr, ptr %m_strsrch_26, align 8
+  %search = getelementptr inbounds %struct.UStringSearch, ptr %18, i32 0, i32 0
+  %19 = load ptr, ptr %search, align 8
   %m_search_27 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  store ptr %18, ptr %m_search_27, align 8
+  store ptr %19, ptr %m_search_27, align 8
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then25, %invoke.cont22, %if.then
@@ -642,16 +645,17 @@ entry:
   %0 = load ptr, ptr %text.addr, align 8
   %1 = load ptr, ptr %breakiter.addr, align 8
   call void @_ZN6icu_7514SearchIteratorC2ERNS_17CharacterIteratorEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_pattern_ = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %pattern.addr, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %2)
+  %3 = load ptr, ptr %pattern.addr, align 8
+  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load ptr, ptr %status.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %4)
+  %4 = load ptr, ptr %status.addr, align 8
+  %5 = load i32, ptr %4, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %5)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -664,32 +668,32 @@ if.then:                                          ; preds = %invoke.cont3
   br label %if.end31
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont23, %invoke.cont20, %invoke.cont18, %invoke.cont16, %invoke.cont13, %invoke.cont11, %invoke.cont8, %if.end6, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #6
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont3
-  %11 = load ptr, ptr %coll.addr, align 8
-  %cmp = icmp eq ptr %11, null
+  %12 = load ptr, ptr %coll.addr, align 8
+  %cmp = icmp eq ptr %12, null
   br i1 %cmp, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  %12 = load ptr, ptr %status.addr, align 8
-  store i32 1, ptr %12, align 4
+  %13 = load ptr, ptr %status.addr, align 8
+  store i32 1, ptr %13, align 4
   %m_strsrch_5 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 2
   store ptr null, ptr %m_strsrch_5, align 8
   br label %if.end31
@@ -715,30 +719,30 @@ invoke.cont13:                                    ; preds = %invoke.cont11
           to label %invoke.cont16 unwind label %lpad2
 
 invoke.cont16:                                    ; preds = %invoke.cont13
-  %13 = load ptr, ptr %coll.addr, align 8
-  %call19 = invoke noundef ptr @_ZN6icu_758Collator11toUCollatorEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %14 = load ptr, ptr %coll.addr, align 8
+  %call19 = invoke noundef ptr @_ZN6icu_758Collator11toUCollatorEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %invoke.cont18 unwind label %lpad2
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  %14 = load ptr, ptr %breakiter.addr, align 8
-  %15 = load ptr, ptr %status.addr, align 8
-  %call21 = invoke ptr @usearch_openFromCollator_75(ptr noundef %call9, i32 noundef %call12, ptr noundef %call14, i32 noundef %call17, ptr noundef %call19, ptr noundef %14, ptr noundef %15)
+  %15 = load ptr, ptr %breakiter.addr, align 8
+  %16 = load ptr, ptr %status.addr, align 8
+  %call21 = invoke ptr @usearch_openFromCollator_75(ptr noundef %call9, i32 noundef %call12, ptr noundef %call14, i32 noundef %call17, ptr noundef %call19, ptr noundef %15, ptr noundef %16)
           to label %invoke.cont20 unwind label %lpad2
 
 invoke.cont20:                                    ; preds = %invoke.cont18
   %m_strsrch_22 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 2
   store ptr %call21, ptr %m_strsrch_22, align 8
   %m_search_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %16 = load ptr, ptr %m_search_, align 8
-  invoke void @uprv_free_75(ptr noundef %16)
+  %17 = load ptr, ptr %m_search_, align 8
+  invoke void @uprv_free_75(ptr noundef %17)
           to label %invoke.cont23 unwind label %lpad2
 
 invoke.cont23:                                    ; preds = %invoke.cont20
   %m_search_24 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_search_24, align 8
-  %17 = load ptr, ptr %status.addr, align 8
-  %18 = load i32, ptr %17, align 4
-  %call26 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %18)
+  %18 = load ptr, ptr %status.addr, align 8
+  %19 = load i32, ptr %18, align 4
+  %call26 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %19)
           to label %invoke.cont25 unwind label %lpad2
 
 invoke.cont25:                                    ; preds = %invoke.cont23
@@ -747,11 +751,11 @@ invoke.cont25:                                    ; preds = %invoke.cont23
 
 if.then28:                                        ; preds = %invoke.cont25
   %m_strsrch_29 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 2
-  %19 = load ptr, ptr %m_strsrch_29, align 8
-  %search = getelementptr inbounds %struct.UStringSearch, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %search, align 8
+  %20 = load ptr, ptr %m_strsrch_29, align 8
+  %search = getelementptr inbounds %struct.UStringSearch, ptr %20, i32 0, i32 0
+  %21 = load ptr, ptr %search, align 8
   %m_search_30 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  store ptr %20, ptr %m_search_30, align 8
+  store ptr %21, ptr %m_search_30, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then28, %invoke.cont25, %if.then4, %if.then
@@ -786,27 +790,28 @@ entry:
   %m_breakiterator_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %1, i32 0, i32 2
   %2 = load ptr, ptr %m_breakiterator_, align 8
   call void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(64) %m_text_, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %m_pattern_ = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %that.addr, align 8
-  %m_pattern_2 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %that.addr, align 8
+  %m_pattern_2 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %4, i32 0, i32 1
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store i32 0, ptr %status, align 4
   %m_search_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %m_search_, align 8
-  invoke void @uprv_free_75(ptr noundef %4)
+  %5 = load ptr, ptr %m_search_, align 8
+  invoke void @uprv_free_75(ptr noundef %5)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %m_search_5 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_search_5, align 8
-  %5 = load ptr, ptr %that.addr, align 8
-  %m_strsrch_ = getelementptr inbounds %"class.icu_75::StringSearch", ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %m_strsrch_, align 8
-  %cmp = icmp eq ptr %6, null
+  %6 = load ptr, ptr %that.addr, align 8
+  %m_strsrch_ = getelementptr inbounds %"class.icu_75::StringSearch", ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %m_strsrch_, align 8
+  %cmp = icmp eq ptr %7, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont4
@@ -815,21 +820,21 @@ if.then:                                          ; preds = %invoke.cont4
   br label %if.end28
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont20, %invoke.cont16, %invoke.cont13, %invoke.cont10, %invoke.cont8, %if.else, %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #6
   br label %ehcleanup
 
@@ -854,22 +859,22 @@ invoke.cont13:                                    ; preds = %invoke.cont10
           to label %invoke.cont16 unwind label %lpad3
 
 invoke.cont16:                                    ; preds = %invoke.cont13
-  %13 = load ptr, ptr %that.addr, align 8
-  %m_strsrch_18 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %m_strsrch_18, align 8
-  %collator = getelementptr inbounds %struct.UStringSearch, ptr %14, i32 0, i32 2
-  %15 = load ptr, ptr %collator, align 8
-  %16 = load ptr, ptr %that.addr, align 8
-  %m_breakiterator_19 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %m_breakiterator_19, align 8
-  %call21 = invoke ptr @usearch_openFromCollator_75(ptr noundef %call, i32 noundef %call11, ptr noundef %call14, i32 noundef %call17, ptr noundef %15, ptr noundef %17, ptr noundef %status)
+  %14 = load ptr, ptr %that.addr, align 8
+  %m_strsrch_18 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %14, i32 0, i32 2
+  %15 = load ptr, ptr %m_strsrch_18, align 8
+  %collator = getelementptr inbounds %struct.UStringSearch, ptr %15, i32 0, i32 2
+  %16 = load ptr, ptr %collator, align 8
+  %17 = load ptr, ptr %that.addr, align 8
+  %m_breakiterator_19 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %17, i32 0, i32 2
+  %18 = load ptr, ptr %m_breakiterator_19, align 8
+  %call21 = invoke ptr @usearch_openFromCollator_75(ptr noundef %call, i32 noundef %call11, ptr noundef %call14, i32 noundef %call17, ptr noundef %16, ptr noundef %18, ptr noundef %status)
           to label %invoke.cont20 unwind label %lpad3
 
 invoke.cont20:                                    ; preds = %invoke.cont16
   %m_strsrch_22 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 2
   store ptr %call21, ptr %m_strsrch_22, align 8
-  %18 = load i32, ptr %status, align 4
-  %call24 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %18)
+  %19 = load i32, ptr %status, align 4
+  %call24 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %19)
           to label %invoke.cont23 unwind label %lpad3
 
 invoke.cont23:                                    ; preds = %invoke.cont20
@@ -878,11 +883,11 @@ invoke.cont23:                                    ; preds = %invoke.cont20
 
 if.then25:                                        ; preds = %invoke.cont23
   %m_strsrch_26 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 2
-  %19 = load ptr, ptr %m_strsrch_26, align 8
-  %search = getelementptr inbounds %struct.UStringSearch, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %search, align 8
+  %20 = load ptr, ptr %m_strsrch_26, align 8
+  %search = getelementptr inbounds %struct.UStringSearch, ptr %20, i32 0, i32 0
+  %21 = load ptr, ptr %search, align 8
   %m_search_27 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  store ptr %20, ptr %m_search_27, align 8
+  store ptr %21, ptr %m_search_27, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then25, %invoke.cont23

@@ -940,14 +940,17 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %this1, i64 1464
   call void @_ZN3zmq13i_pipe_eventsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
-  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq14session_base_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq14session_base_tE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 1448
-  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq14session_base_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %6 = getelementptr inbounds { [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq14session_base_tE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 1464
-  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq14session_base_tE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %7 = getelementptr inbounds { [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq14session_base_tE, i32 0, i32 2, i32 2
+  store ptr %7, ptr %add.ptr2, align 8
   %_active = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 3
-  %5 = load i8, ptr %active_.addr, align 1
-  %tobool = trunc i8 %5 to i1
+  %8 = load i8, ptr %active_.addr, align 1
+  %tobool = trunc i8 %8 to i1
   %frombool3 = zext i1 %tobool to i8
   store i8 %frombool3, ptr %_active, align 8
   %_pipe = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 4
@@ -963,19 +966,19 @@ invoke.cont:                                      ; preds = %entry
   %_engine = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 9
   store ptr null, ptr %_engine, align 8
   %_socket = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 10
-  %6 = load ptr, ptr %socket_.addr, align 8
-  store ptr %6, ptr %_socket, align 8
+  %9 = load ptr, ptr %socket_.addr, align 8
+  store ptr %9, ptr %_socket, align 8
   %_io_thread = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 11
-  %7 = load ptr, ptr %io_thread_.addr, align 8
-  store ptr %7, ptr %_io_thread, align 8
+  %10 = load ptr, ptr %io_thread_.addr, align 8
+  store ptr %10, ptr %_io_thread, align 8
   %_has_linger_timer = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 12
   store i8 0, ptr %_has_linger_timer, align 8
   %_addr = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 13
-  %8 = load ptr, ptr %addr_.addr, align 8
-  store ptr %8, ptr %_addr, align 8
+  %11 = load ptr, ptr %addr_.addr, align 8
+  store ptr %11, ptr %_addr, align 8
   %_wss_hostname = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 14
-  %9 = load ptr, ptr %options_.addr, align 8
-  %wss_hostname = getelementptr inbounds %"struct.zmq::options_t", ptr %9, i32 0, i32 76
+  %12 = load ptr, ptr %options_.addr, align 8
+  %wss_hostname = getelementptr inbounds %"struct.zmq::options_t", ptr %12, i32 0, i32 76
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_wss_hostname, ptr noundef nonnull align 8 dereferenceable(32) %wss_hostname)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -983,26 +986,26 @@ invoke.cont5:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
-          cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad4:                                            ; preds = %invoke.cont
   %13 = landingpad { ptr, i32 }
           cleanup
   %14 = extractvalue { ptr, i32 } %13, 0
   store ptr %14, ptr %exn.slot, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad4:                                            ; preds = %invoke.cont
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %_terminating_pipes) #18
-  %16 = getelementptr inbounds i8, ptr %this1, i64 1464
-  call void @_ZN3zmq13i_pipe_eventsD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #18
-  %17 = getelementptr inbounds i8, ptr %this1, i64 1448
-  call void @_ZN3zmq11io_object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
+  %19 = getelementptr inbounds i8, ptr %this1, i64 1464
+  call void @_ZN3zmq13i_pipe_eventsD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #18
+  %20 = getelementptr inbounds i8, ptr %this1, i64 1448
+  call void @_ZN3zmq11io_object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad4, %lpad
@@ -1027,7 +1030,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3zmq13i_pipe_eventsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3zmq13i_pipe_eventsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1082,29 +1086,32 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq14session_base_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq14session_base_tE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 1448
-  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq14session_base_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq14session_base_tE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 1464
-  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq14session_base_tE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %2 = getelementptr inbounds { [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq14session_base_tE, i32 0, i32 2, i32 2
+  store ptr %2, ptr %add.ptr2, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
   %_pipe = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %_pipe, align 8
-  %tobool = icmp ne ptr %0, null
+  %3 = load ptr, ptr %_pipe, align 8
+  %tobool = icmp ne ptr %3, null
   %lnot = xor i1 %tobool, true
   %lnot3 = xor i1 %lnot, true
   br i1 %lnot3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %1 = load ptr, ptr @stderr, align 8
-  %call = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.1, i32 noundef 119)
+  %4 = load ptr, ptr @stderr, align 8
+  %call = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.1, i32 noundef 119)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %2 = load ptr, ptr @stderr, align 8
-  %call5 = invoke i32 @fflush(ptr noundef %2)
+  %5 = load ptr, ptr @stderr, align 8
+  %call5 = invoke i32 @fflush(ptr noundef %5)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -1125,20 +1132,20 @@ do.end:                                           ; preds = %do.cond
 
 do.body7:                                         ; preds = %do.end
   %_zap_pipe = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %_zap_pipe, align 8
-  %tobool8 = icmp ne ptr %3, null
+  %6 = load ptr, ptr %_zap_pipe, align 8
+  %tobool8 = icmp ne ptr %6, null
   %lnot9 = xor i1 %tobool8, true
   %lnot10 = xor i1 %lnot9, true
   br i1 %lnot10, label %if.then11, label %if.end17
 
 if.then11:                                        ; preds = %do.body7
-  %4 = load ptr, ptr @stderr, align 8
-  %call13 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.3, ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 120)
+  %7 = load ptr, ptr @stderr, align 8
+  %call13 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.3, ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 120)
           to label %invoke.cont12 unwind label %terminate.lpad
 
 invoke.cont12:                                    ; preds = %if.then11
-  %5 = load ptr, ptr @stderr, align 8
-  %call15 = invoke i32 @fflush(ptr noundef %5)
+  %8 = load ptr, ptr @stderr, align 8
+  %call15 = invoke i32 @fflush(ptr noundef %8)
           to label %invoke.cont14 unwind label %terminate.lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont12
@@ -1156,8 +1163,8 @@ do.cond18:                                        ; preds = %if.end17
 
 do.end19:                                         ; preds = %do.cond18
   %_has_linger_timer = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 12
-  %6 = load i8, ptr %_has_linger_timer, align 8
-  %tobool20 = trunc i8 %6 to i1
+  %9 = load i8, ptr %_has_linger_timer, align 8
+  %tobool20 = trunc i8 %9 to i1
   br i1 %tobool20, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %do.end19
@@ -1172,17 +1179,17 @@ invoke.cont23:                                    ; preds = %if.then21
 
 if.end25:                                         ; preds = %invoke.cont23, %do.end19
   %_engine = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 9
-  %7 = load ptr, ptr %_engine, align 8
-  %tobool26 = icmp ne ptr %7, null
+  %10 = load ptr, ptr %_engine, align 8
+  %tobool26 = icmp ne ptr %10, null
   br i1 %tobool26, label %if.then27, label %if.end30
 
 if.then27:                                        ; preds = %if.end25
   %_engine28 = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 9
-  %8 = load ptr, ptr %_engine28, align 8
-  %vtable = load ptr, ptr %8, align 8
+  %11 = load ptr, ptr %_engine28, align 8
+  %vtable = load ptr, ptr %11, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %9 = load ptr, ptr %vfn, align 8
-  invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %12 = load ptr, ptr %vfn, align 8
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %invoke.cont29 unwind label %terminate.lpad
 
 invoke.cont29:                                    ; preds = %if.then27
@@ -1190,13 +1197,13 @@ invoke.cont29:                                    ; preds = %if.then27
 
 if.end30:                                         ; preds = %invoke.cont29, %if.end25
   %_addr = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 13
-  %10 = load ptr, ptr %_addr, align 8
-  %isnull = icmp eq ptr %10, null
+  %13 = load ptr, ptr %_addr, align 8
+  %isnull = icmp eq ptr %13, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end30
-  call void @_ZN3zmq9address_tD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #18
-  call void @_ZdlPv(ptr noundef %10) #17
+  call void @_ZN3zmq9address_tD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %13) #18
+  call void @_ZdlPv(ptr noundef %13) #17
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end30
@@ -1206,18 +1213,18 @@ delete.end:                                       ; preds = %delete.notnull, %if
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_wss_hostname) #18
   %_terminating_pipes = getelementptr inbounds %"class.zmq::session_base_t", ptr %this1, i32 0, i32 6
   call void @_ZNSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %_terminating_pipes) #18
-  %11 = getelementptr inbounds i8, ptr %this1, i64 1464
-  call void @_ZN3zmq13i_pipe_eventsD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #18
-  %12 = getelementptr inbounds i8, ptr %this1, i64 1448
-  call void @_ZN3zmq11io_object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
+  %14 = getelementptr inbounds i8, ptr %this1, i64 1464
+  call void @_ZN3zmq13i_pipe_eventsD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #18
+  %15 = getelementptr inbounds i8, ptr %this1, i64 1448
+  call void @_ZN3zmq11io_object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #18
   call void @_ZN3zmq5own_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1444) %this1) #18
   ret void
 
 terminate.lpad:                                   ; preds = %if.then27, %if.then21, %invoke.cont14, %invoke.cont12, %if.then11, %invoke.cont4, %invoke.cont, %if.then
-  %13 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #20
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #20
   unreachable
 }
 
@@ -4668,11 +4675,14 @@ entry:
   %3 = load ptr, ptr %options_.addr, align 8
   %4 = load ptr, ptr %addr_.addr, align 8
   call void @_ZN3zmq14session_base_tC2EPNS_11io_thread_tEbPNS_13socket_base_tERKNS_9options_tEPNS_9address_tE(ptr noundef nonnull align 8 dereferenceable(1624) %this1, ptr noundef %0, i1 noundef zeroext %tobool, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(1336) %3, ptr noundef %4)
-  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq19hello_msg_session_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq19hello_msg_session_tE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 1448
-  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq19hello_msg_session_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %6 = getelementptr inbounds { [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq19hello_msg_session_tE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 1464
-  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq19hello_msg_session_tE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %7 = getelementptr inbounds { [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq19hello_msg_session_tE, i32 0, i32 2, i32 2
+  store ptr %7, ptr %add.ptr2, align 8
   %_new_pipe = getelementptr inbounds %"class.zmq::hello_msg_session_t", ptr %this1, i32 0, i32 1
   store i8 1, ptr %_new_pipe, align 8
   ret void

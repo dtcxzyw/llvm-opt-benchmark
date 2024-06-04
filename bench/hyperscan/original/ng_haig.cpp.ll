@@ -7204,7 +7204,7 @@ lpad1:                                            ; preds = %invoke.cont
 
 catch.dispatch:                                   ; preds = %lpad1
   %sel = load i32, ptr %ehselector.slot, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3ue212_GLOBAL__N_113haig_too_wideE) #2
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3ue212_GLOBAL__N_113haig_too_wideE) #2
   %matches = icmp eq i32 %sel, %13
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -7526,7 +7526,7 @@ lpad1:                                            ; preds = %invoke.cont
 
 catch.dispatch:                                   ; preds = %lpad1
   %sel = load i32, ptr %ehselector.slot, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3ue212_GLOBAL__N_113haig_too_wideE) #2
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3ue212_GLOBAL__N_113haig_too_wideE) #2
   %matches = icmp eq i32 %sel, %13
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -25878,22 +25878,23 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %k.addr, align 4
   call void @_ZN3ue27raw_dfaC2ENS_8nfa_kindE(ptr noundef nonnull align 8 dereferenceable(560) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue211raw_som_dfaE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3ue211raw_som_dfaE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %state_som = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN3ue210dstate_somESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %state_som) #2
   %stream_som_loc_width = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %stream_som_loc_width_in.addr, align 4
-  store i32 %1, ptr %stream_som_loc_width, align 8
+  %2 = load i32, ptr %stream_som_loc_width_in.addr, align 4
+  store i32 %2, ptr %stream_som_loc_width, align 8
   %unordered_som_triggers = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %this1, i32 0, i32 3
-  %2 = load i8, ptr %unordered_som_triggers_in.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %unordered_som_triggers_in.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %unordered_som_triggers, align 4
   %new_som_nfa_states = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %this1, i32 0, i32 5
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %new_som_nfa_states) #2
   %trigger_nfa_state = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %this1, i32 0, i32 6
-  %3 = load i32, ptr %trigger.addr, align 4
-  store i32 %3, ptr %trigger_nfa_state, align 8
+  %4 = load i32, ptr %trigger.addr, align 4
+  store i32 %4, ptr %trigger_nfa_state, align 8
   ret void
 }
 
@@ -25929,10 +25930,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %k, ptr %k.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %kind = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %k.addr, align 4
-  store i32 %0, ptr %kind, align 8
+  %1 = load i32, ptr %k.addr, align 4
+  store i32 %1, ptr %kind, align 8
   %states = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN3ue26dstateESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %states) #2
   %start_anchored = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 3
@@ -27064,9 +27066,6 @@ eh.resume:                                        ; preds = %ehcleanup227
   %lpad.val228 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
   resume { ptr, i32 } %lpad.val228
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorIN3ue28bitfieldILm256EEESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #1 comdat align 2 {
@@ -87412,6 +87411,9 @@ entry:
   call void @__cxx_global_var_init.3()
   ret void
 }
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -843,39 +843,40 @@ define dso_local i32 @intel_display_driver_suspend(ptr noundef %0) local_unnamed
   %2 = getelementptr inbounds i8, ptr %0, i64 2638
   %3 = load i8, ptr %2, align 2
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %21, label %5
+  br i1 %4, label %22, label %5
 
 5:                                                ; preds = %1
   %6 = tail call ptr @drm_atomic_helper_suspend(ptr noundef %0) #8
-  %7 = icmp ugt ptr %6, inttoptr (i64 -4096 to ptr)
-  %8 = ptrtoint ptr %6 to i64
-  %9 = trunc i64 %8 to i32
-  %10 = select i1 %7, i32 %9, i32 0
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %19, label %12
+  %7 = inttoptr i64 -4096 to ptr
+  %8 = icmp ugt ptr %6, %7
+  %9 = ptrtoint ptr %6 to i64
+  %10 = trunc i64 %9 to i32
+  %11 = select i1 %8, i32 %10, i32 0
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %20, label %13
 
-12:                                               ; preds = %5
-  %13 = icmp eq ptr %0, null
-  br i1 %13, label %17, label %14
+13:                                               ; preds = %5
+  %14 = icmp eq ptr %0, null
+  br i1 %14, label %18, label %15
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8
-  br label %17
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = load ptr, ptr %16, align 8
+  br label %18
 
-17:                                               ; preds = %14, %12
-  %18 = phi ptr [ %16, %14 ], [ null, %12 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %18, ptr noundef nonnull @.str.17, i32 noundef %10) #10
-  br label %21
+18:                                               ; preds = %15, %13
+  %19 = phi ptr [ %17, %15 ], [ null, %13 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %19, ptr noundef nonnull @.str.17, i32 noundef %11) #10
+  br label %22
 
-19:                                               ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %0, i64 3344
-  store ptr %6, ptr %20, align 8
-  br label %21
+20:                                               ; preds = %5
+  %21 = getelementptr inbounds i8, ptr %0, i64 3344
+  store ptr %6, ptr %21, align 8
+  br label %22
 
-21:                                               ; preds = %19, %17, %1
-  %22 = phi i32 [ 0, %1 ], [ %10, %19 ], [ %10, %17 ]
-  ret i32 %22
+22:                                               ; preds = %20, %18, %1
+  %23 = phi i32 [ 0, %1 ], [ %11, %20 ], [ %11, %18 ]
+  ret i32 %23
 }
 
 ; Function Attrs: null_pointer_is_valid

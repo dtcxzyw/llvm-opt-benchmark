@@ -905,28 +905,28 @@ define internal void @steamdiscover_dissect_body_status(ptr noundef %0, ptr noun
   call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 24, i1 false)
   br label %31
 
-31:                                               ; preds = %464, %5
+31:                                               ; preds = %465, %5
   %32 = call i32 @protobuf_iter_next(ptr noundef %14, ptr noundef %16)
   %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %466
+  br i1 %33, label %34, label %467
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds %struct.protobuf_tag_t, ptr %16, i32 0, i32 1
   %36 = load i64, ptr %35, align 8
-  switch i64 %36, label %460 [
+  switch i64 %36, label %461 [
     i64 1, label %37
     i64 2, label %61
     i64 3, label %85
     i64 4, label %109
-    i64 6, label %163
-    i64 7, label %187
-    i64 8, label %211
-    i64 9, label %236
-    i64 11, label %333
-    i64 12, label %357
-    i64 13, label %381
-    i64 14, label %406
-    i64 15, label %431
+    i64 6, label %164
+    i64 7, label %188
+    i64 8, label %212
+    i64 9, label %237
+    i64 11, label %334
+    i64 12, label %358
+    i64 13, label %382
+    i64 14, label %407
+    i64 15, label %432
   ]
 
 37:                                               ; preds = %34
@@ -938,7 +938,7 @@ define internal void @steamdiscover_dissect_body_status(ptr noundef %0, ptr noun
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %37
-  br label %464
+  br label %465
 
 43:                                               ; preds = %37
   %44 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
@@ -959,7 +959,7 @@ define internal void @steamdiscover_dissect_body_status(ptr noundef %0, ptr noun
   %58 = load i64, ptr %11, align 8
   %59 = trunc i64 %58 to i32
   %60 = call ptr @proto_tree_add_int(ptr noundef %51, i32 noundef %52, ptr noundef %54, i32 noundef %56, i32 noundef %57, i32 noundef %59)
-  br label %464
+  br label %465
 
 61:                                               ; preds = %34
   %62 = load ptr, ptr %7, align 8
@@ -970,7 +970,7 @@ define internal void @steamdiscover_dissect_body_status(ptr noundef %0, ptr noun
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %61
-  br label %464
+  br label %465
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
@@ -991,7 +991,7 @@ define internal void @steamdiscover_dissect_body_status(ptr noundef %0, ptr noun
   %82 = load i64, ptr %11, align 8
   %83 = trunc i64 %82 to i32
   %84 = call ptr @proto_tree_add_int(ptr noundef %75, i32 noundef %76, ptr noundef %78, i32 noundef %80, i32 noundef %81, i32 noundef %83)
-  br label %464
+  br label %465
 
 85:                                               ; preds = %34
   %86 = load ptr, ptr %7, align 8
@@ -1002,7 +1002,7 @@ define internal void @steamdiscover_dissect_body_status(ptr noundef %0, ptr noun
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %85
-  br label %464
+  br label %465
 
 91:                                               ; preds = %85
   %92 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
@@ -1023,7 +1023,7 @@ define internal void @steamdiscover_dissect_body_status(ptr noundef %0, ptr noun
   %106 = load i64, ptr %11, align 8
   %107 = trunc i64 %106 to i32
   %108 = call ptr @proto_tree_add_uint(ptr noundef %99, i32 noundef %100, ptr noundef %102, i32 noundef %104, i32 noundef %105, i32 noundef %107)
-  br label %464
+  br label %465
 
 109:                                              ; preds = %34
   %110 = load ptr, ptr %7, align 8
@@ -1034,7 +1034,7 @@ define internal void @steamdiscover_dissect_body_status(ptr noundef %0, ptr noun
   br i1 %113, label %114, label %115
 
 114:                                              ; preds = %109
-  br label %464
+  br label %465
 
 115:                                              ; preds = %109
   %116 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
@@ -1071,453 +1071,454 @@ define internal void @steamdiscover_dissect_body_status(ptr noundef %0, ptr noun
   store ptr %145, ptr %17, align 8
   %146 = load ptr, ptr %17, align 8
   %147 = icmp ne ptr %146, null
-  br i1 %147, label %148, label %158
+  br i1 %147, label %148, label %159
 
 148:                                              ; preds = %115
   %149 = load ptr, ptr %17, align 8
   %150 = call i64 @strlen(ptr noundef %149) #4
   %151 = icmp ne i64 %150, 0
-  br i1 %151, label %152, label %158
+  br i1 %151, label %152, label %159
 
 152:                                              ; preds = %148
   %153 = load ptr, ptr %7, align 8
   %154 = getelementptr inbounds %struct._packet_info, ptr %153, i32 0, i32 1
   %155 = load ptr, ptr %154, align 8
-  %156 = load ptr, ptr getelementptr inbounds ([12 x %struct._val64_string], ptr @hf_steam_ihs_discovery_header_msgtype_strings, i64 0, i64 1, i32 1), align 8
-  %157 = load ptr, ptr %17, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %155, i32 noundef 25, ptr noundef @.str.145, ptr noundef %156, ptr noundef %157)
-  br label %158
+  %156 = getelementptr inbounds [12 x %struct._val64_string], ptr @hf_steam_ihs_discovery_header_msgtype_strings, i64 0, i64 1, i32 1
+  %157 = load ptr, ptr %156, align 8
+  %158 = load ptr, ptr %17, align 8
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %155, i32 noundef 25, ptr noundef @.str.145, ptr noundef %157, ptr noundef %158)
+  br label %159
 
-158:                                              ; preds = %152, %148, %115
-  %159 = load i64, ptr %11, align 8
-  %160 = trunc i64 %159 to i32
-  %161 = load i32, ptr %12, align 4
-  %162 = add i32 %161, %160
-  store i32 %162, ptr %12, align 4
-  br label %464
+159:                                              ; preds = %152, %148, %115
+  %160 = load i64, ptr %11, align 8
+  %161 = trunc i64 %160 to i32
+  %162 = load i32, ptr %12, align 4
+  %163 = add i32 %162, %161
+  store i32 %163, ptr %12, align 4
+  br label %465
 
-163:                                              ; preds = %34
-  %164 = load ptr, ptr %7, align 8
-  %165 = load ptr, ptr %8, align 8
-  %166 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %164, ptr noundef %165, i8 noundef zeroext 0)
-  store i32 %166, ptr %12, align 4
-  %167 = icmp ne i32 %166, 0
-  br i1 %167, label %168, label %169
+164:                                              ; preds = %34
+  %165 = load ptr, ptr %7, align 8
+  %166 = load ptr, ptr %8, align 8
+  %167 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %165, ptr noundef %166, i8 noundef zeroext 0)
+  store i32 %167, ptr %12, align 4
+  %168 = icmp ne i32 %167, 0
+  br i1 %168, label %169, label %170
 
-168:                                              ; preds = %163
-  br label %464
+169:                                              ; preds = %164
+  br label %465
 
-169:                                              ; preds = %163
-  %170 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %173 = load i32, ptr %172, align 8
-  %174 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
-  %175 = load i32, ptr %174, align 4
-  %176 = call i64 @get_varint64(ptr noundef %171, i32 noundef %173, i32 noundef %175, ptr noundef %12)
-  store i64 %176, ptr %11, align 8
-  %177 = load ptr, ptr %8, align 8
-  %178 = load i32, ptr @hf_steam_ihs_discovery_body_status_enabledservices, align 4
-  %179 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %182 = load i32, ptr %181, align 8
-  %183 = load i32, ptr %12, align 4
-  %184 = load i64, ptr %11, align 8
-  %185 = trunc i64 %184 to i32
-  %186 = call ptr @proto_tree_add_uint(ptr noundef %177, i32 noundef %178, ptr noundef %180, i32 noundef %182, i32 noundef %183, i32 noundef %185)
-  br label %464
+170:                                              ; preds = %164
+  %171 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %174 = load i32, ptr %173, align 8
+  %175 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
+  %176 = load i32, ptr %175, align 4
+  %177 = call i64 @get_varint64(ptr noundef %172, i32 noundef %174, i32 noundef %176, ptr noundef %12)
+  store i64 %177, ptr %11, align 8
+  %178 = load ptr, ptr %8, align 8
+  %179 = load i32, ptr @hf_steam_ihs_discovery_body_status_enabledservices, align 4
+  %180 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %183 = load i32, ptr %182, align 8
+  %184 = load i32, ptr %12, align 4
+  %185 = load i64, ptr %11, align 8
+  %186 = trunc i64 %185 to i32
+  %187 = call ptr @proto_tree_add_uint(ptr noundef %178, i32 noundef %179, ptr noundef %181, i32 noundef %183, i32 noundef %184, i32 noundef %186)
+  br label %465
 
-187:                                              ; preds = %34
-  %188 = load ptr, ptr %7, align 8
-  %189 = load ptr, ptr %8, align 8
-  %190 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %188, ptr noundef %189, i8 noundef zeroext 0)
-  store i32 %190, ptr %12, align 4
-  %191 = icmp ne i32 %190, 0
-  br i1 %191, label %192, label %193
+188:                                              ; preds = %34
+  %189 = load ptr, ptr %7, align 8
+  %190 = load ptr, ptr %8, align 8
+  %191 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %189, ptr noundef %190, i8 noundef zeroext 0)
+  store i32 %191, ptr %12, align 4
+  %192 = icmp ne i32 %191, 0
+  br i1 %192, label %193, label %194
 
-192:                                              ; preds = %187
-  br label %464
+193:                                              ; preds = %188
+  br label %465
 
-193:                                              ; preds = %187
-  %194 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %197 = load i32, ptr %196, align 8
-  %198 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
-  %199 = load i32, ptr %198, align 4
-  %200 = call i64 @get_varint64(ptr noundef %195, i32 noundef %197, i32 noundef %199, ptr noundef %12)
-  store i64 %200, ptr %11, align 8
-  %201 = load ptr, ptr %8, align 8
-  %202 = load i32, ptr @hf_steam_ihs_discovery_body_status_ostype, align 4
-  %203 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %206 = load i32, ptr %205, align 8
-  %207 = load i32, ptr %12, align 4
-  %208 = load i64, ptr %11, align 8
-  %209 = trunc i64 %208 to i32
-  %210 = call ptr @proto_tree_add_int(ptr noundef %201, i32 noundef %202, ptr noundef %204, i32 noundef %206, i32 noundef %207, i32 noundef %209)
-  br label %464
+194:                                              ; preds = %188
+  %195 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %198 = load i32, ptr %197, align 8
+  %199 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
+  %200 = load i32, ptr %199, align 4
+  %201 = call i64 @get_varint64(ptr noundef %196, i32 noundef %198, i32 noundef %200, ptr noundef %12)
+  store i64 %201, ptr %11, align 8
+  %202 = load ptr, ptr %8, align 8
+  %203 = load i32, ptr @hf_steam_ihs_discovery_body_status_ostype, align 4
+  %204 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %205 = load ptr, ptr %204, align 8
+  %206 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %207 = load i32, ptr %206, align 8
+  %208 = load i32, ptr %12, align 4
+  %209 = load i64, ptr %11, align 8
+  %210 = trunc i64 %209 to i32
+  %211 = call ptr @proto_tree_add_int(ptr noundef %202, i32 noundef %203, ptr noundef %205, i32 noundef %207, i32 noundef %208, i32 noundef %210)
+  br label %465
 
-211:                                              ; preds = %34
-  %212 = load ptr, ptr %7, align 8
-  %213 = load ptr, ptr %8, align 8
-  %214 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %212, ptr noundef %213, i8 noundef zeroext 0)
-  store i32 %214, ptr %12, align 4
-  %215 = icmp ne i32 %214, 0
-  br i1 %215, label %216, label %217
+212:                                              ; preds = %34
+  %213 = load ptr, ptr %7, align 8
+  %214 = load ptr, ptr %8, align 8
+  %215 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %213, ptr noundef %214, i8 noundef zeroext 0)
+  store i32 %215, ptr %12, align 4
+  %216 = icmp ne i32 %215, 0
+  br i1 %216, label %217, label %218
 
-216:                                              ; preds = %211
-  br label %464
+217:                                              ; preds = %212
+  br label %465
 
-217:                                              ; preds = %211
-  %218 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %221 = load i32, ptr %220, align 8
-  %222 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
-  %223 = load i32, ptr %222, align 4
-  %224 = call i64 @get_varint64(ptr noundef %219, i32 noundef %221, i32 noundef %223, ptr noundef %12)
-  store i64 %224, ptr %11, align 8
-  %225 = load ptr, ptr %8, align 8
-  %226 = load i32, ptr @hf_steam_ihs_discovery_body_status_is64bit, align 4
-  %227 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %230 = load i32, ptr %229, align 8
-  %231 = load i32, ptr %12, align 4
-  %232 = load i64, ptr %11, align 8
-  %233 = trunc i64 %232 to i32
-  %234 = sext i32 %233 to i64
-  %235 = call ptr @proto_tree_add_boolean(ptr noundef %225, i32 noundef %226, ptr noundef %228, i32 noundef %230, i32 noundef %231, i64 noundef %234)
-  br label %464
+218:                                              ; preds = %212
+  %219 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %222 = load i32, ptr %221, align 8
+  %223 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
+  %224 = load i32, ptr %223, align 4
+  %225 = call i64 @get_varint64(ptr noundef %220, i32 noundef %222, i32 noundef %224, ptr noundef %12)
+  store i64 %225, ptr %11, align 8
+  %226 = load ptr, ptr %8, align 8
+  %227 = load i32, ptr @hf_steam_ihs_discovery_body_status_is64bit, align 4
+  %228 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %229 = load ptr, ptr %228, align 8
+  %230 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %231 = load i32, ptr %230, align 8
+  %232 = load i32, ptr %12, align 4
+  %233 = load i64, ptr %11, align 8
+  %234 = trunc i64 %233 to i32
+  %235 = sext i32 %234 to i64
+  %236 = call ptr @proto_tree_add_boolean(ptr noundef %226, i32 noundef %227, ptr noundef %229, i32 noundef %231, i32 noundef %232, i64 noundef %235)
+  br label %465
 
-236:                                              ; preds = %34
-  %237 = load ptr, ptr %7, align 8
-  %238 = load ptr, ptr %8, align 8
-  %239 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %237, ptr noundef %238, i8 noundef zeroext 2)
-  store i32 %239, ptr %12, align 4
-  %240 = icmp ne i32 %239, 0
-  br i1 %240, label %241, label %242
+237:                                              ; preds = %34
+  %238 = load ptr, ptr %7, align 8
+  %239 = load ptr, ptr %8, align 8
+  %240 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %238, ptr noundef %239, i8 noundef zeroext 2)
+  store i32 %240, ptr %12, align 4
+  %241 = icmp ne i32 %240, 0
+  br i1 %241, label %242, label %243
 
-241:                                              ; preds = %236
-  br label %464
+242:                                              ; preds = %237
+  br label %465
 
-242:                                              ; preds = %236
-  %243 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %244 = load ptr, ptr %243, align 8
-  %245 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %246 = load i32, ptr %245, align 8
-  %247 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
-  %248 = load i32, ptr %247, align 4
-  %249 = call i64 @get_varint64(ptr noundef %244, i32 noundef %246, i32 noundef %248, ptr noundef %12)
-  store i64 %249, ptr %11, align 8
-  %250 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %251 = load i32, ptr %250, align 8
-  %252 = load i32, ptr %12, align 4
-  %253 = add i32 %251, %252
-  %254 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 1
-  store i32 %253, ptr %254, align 8
-  %255 = load i64, ptr %11, align 8
-  %256 = trunc i64 %255 to i32
-  %257 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 2
-  store i32 %256, ptr %257, align 4
-  %258 = load i64, ptr %11, align 8
-  %259 = trunc i64 %258 to i32
-  %260 = load i32, ptr %12, align 4
-  %261 = add i32 %260, %259
-  store i32 %261, ptr %12, align 4
-  %262 = load ptr, ptr %8, align 8
-  %263 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %264 = load ptr, ptr %263, align 8
-  %265 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %266 = load i32, ptr %265, align 8
-  %267 = load i32, ptr %12, align 4
-  %268 = load i32, ptr @ett_steam_ihs_discovery_body_status_user, align 4
-  %269 = call ptr @proto_tree_add_subtree(ptr noundef %262, ptr noundef %264, i32 noundef %266, i32 noundef %267, i32 noundef %268, ptr noundef %20, ptr noundef @.str.146)
-  store ptr %269, ptr %19, align 8
-  br label %270
+243:                                              ; preds = %237
+  %244 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %245 = load ptr, ptr %244, align 8
+  %246 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %247 = load i32, ptr %246, align 8
+  %248 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
+  %249 = load i32, ptr %248, align 4
+  %250 = call i64 @get_varint64(ptr noundef %245, i32 noundef %247, i32 noundef %249, ptr noundef %12)
+  store i64 %250, ptr %11, align 8
+  %251 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %252 = load i32, ptr %251, align 8
+  %253 = load i32, ptr %12, align 4
+  %254 = add i32 %252, %253
+  %255 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 1
+  store i32 %254, ptr %255, align 8
+  %256 = load i64, ptr %11, align 8
+  %257 = trunc i64 %256 to i32
+  %258 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 2
+  store i32 %257, ptr %258, align 4
+  %259 = load i64, ptr %11, align 8
+  %260 = trunc i64 %259 to i32
+  %261 = load i32, ptr %12, align 4
+  %262 = add i32 %261, %260
+  store i32 %262, ptr %12, align 4
+  %263 = load ptr, ptr %8, align 8
+  %264 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %265 = load ptr, ptr %264, align 8
+  %266 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %267 = load i32, ptr %266, align 8
+  %268 = load i32, ptr %12, align 4
+  %269 = load i32, ptr @ett_steam_ihs_discovery_body_status_user, align 4
+  %270 = call ptr @proto_tree_add_subtree(ptr noundef %263, ptr noundef %265, i32 noundef %267, i32 noundef %268, i32 noundef %269, ptr noundef %20, ptr noundef @.str.146)
+  store ptr %270, ptr %19, align 8
+  br label %271
 
-270:                                              ; preds = %330, %242
-  %271 = call i32 @protobuf_iter_next(ptr noundef %15, ptr noundef %16)
-  %272 = icmp ne i32 %271, 0
-  br i1 %272, label %273, label %332
+271:                                              ; preds = %331, %243
+  %272 = call i32 @protobuf_iter_next(ptr noundef %15, ptr noundef %16)
+  %273 = icmp ne i32 %272, 0
+  br i1 %273, label %274, label %333
 
-273:                                              ; preds = %270
-  %274 = getelementptr inbounds %struct.protobuf_tag_t, ptr %16, i32 0, i32 1
-  %275 = load i64, ptr %274, align 8
-  switch i64 %275, label %326 [
-    i64 1, label %276
-    i64 2, label %299
+274:                                              ; preds = %271
+  %275 = getelementptr inbounds %struct.protobuf_tag_t, ptr %16, i32 0, i32 1
+  %276 = load i64, ptr %275, align 8
+  switch i64 %276, label %327 [
+    i64 1, label %277
+    i64 2, label %300
   ]
 
-276:                                              ; preds = %273
-  %277 = load ptr, ptr %7, align 8
-  %278 = load ptr, ptr %19, align 8
-  %279 = call i32 @protobuf_verify_wiretype(ptr noundef %15, ptr noundef %16, ptr noundef %277, ptr noundef %278, i8 noundef zeroext 1)
-  store i32 %279, ptr %13, align 4
-  %280 = icmp ne i32 %279, 0
-  br i1 %280, label %281, label %282
+277:                                              ; preds = %274
+  %278 = load ptr, ptr %7, align 8
+  %279 = load ptr, ptr %19, align 8
+  %280 = call i32 @protobuf_verify_wiretype(ptr noundef %15, ptr noundef %16, ptr noundef %278, ptr noundef %279, i8 noundef zeroext 1)
+  store i32 %280, ptr %13, align 4
+  %281 = icmp ne i32 %280, 0
+  br i1 %281, label %282, label %283
 
-281:                                              ; preds = %276
-  br label %330
+282:                                              ; preds = %277
+  br label %331
 
-282:                                              ; preds = %276
+283:                                              ; preds = %277
   store i32 8, ptr %13, align 4
-  %283 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 0
-  %284 = load ptr, ptr %283, align 8
-  %285 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 1
-  %286 = load i32, ptr %285, align 8
-  %287 = call i64 @tvb_get_letoh64(ptr noundef %284, i32 noundef %286)
-  store i64 %287, ptr %11, align 8
-  %288 = load ptr, ptr %19, align 8
-  %289 = load i32, ptr @hf_steam_ihs_discovery_body_status_user_steamid, align 4
-  %290 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 0
-  %291 = load ptr, ptr %290, align 8
-  %292 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 1
-  %293 = load i32, ptr %292, align 8
-  %294 = load i32, ptr %13, align 4
-  %295 = load i64, ptr %11, align 8
-  %296 = call ptr @proto_tree_add_uint64(ptr noundef %288, i32 noundef %289, ptr noundef %291, i32 noundef %293, i32 noundef %294, i64 noundef %295)
-  %297 = load ptr, ptr %20, align 8
-  %298 = load i64, ptr %11, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %297, ptr noundef @.str.147, i64 noundef %298)
-  br label %330
+  %284 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 0
+  %285 = load ptr, ptr %284, align 8
+  %286 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 1
+  %287 = load i32, ptr %286, align 8
+  %288 = call i64 @tvb_get_letoh64(ptr noundef %285, i32 noundef %287)
+  store i64 %288, ptr %11, align 8
+  %289 = load ptr, ptr %19, align 8
+  %290 = load i32, ptr @hf_steam_ihs_discovery_body_status_user_steamid, align 4
+  %291 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 0
+  %292 = load ptr, ptr %291, align 8
+  %293 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 1
+  %294 = load i32, ptr %293, align 8
+  %295 = load i32, ptr %13, align 4
+  %296 = load i64, ptr %11, align 8
+  %297 = call ptr @proto_tree_add_uint64(ptr noundef %289, i32 noundef %290, ptr noundef %292, i32 noundef %294, i32 noundef %295, i64 noundef %296)
+  %298 = load ptr, ptr %20, align 8
+  %299 = load i64, ptr %11, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %298, ptr noundef @.str.147, i64 noundef %299)
+  br label %331
 
-299:                                              ; preds = %273
-  %300 = load ptr, ptr %7, align 8
-  %301 = load ptr, ptr %19, align 8
-  %302 = call i32 @protobuf_verify_wiretype(ptr noundef %15, ptr noundef %16, ptr noundef %300, ptr noundef %301, i8 noundef zeroext 0)
-  store i32 %302, ptr %13, align 4
-  %303 = icmp ne i32 %302, 0
-  br i1 %303, label %304, label %305
+300:                                              ; preds = %274
+  %301 = load ptr, ptr %7, align 8
+  %302 = load ptr, ptr %19, align 8
+  %303 = call i32 @protobuf_verify_wiretype(ptr noundef %15, ptr noundef %16, ptr noundef %301, ptr noundef %302, i8 noundef zeroext 0)
+  store i32 %303, ptr %13, align 4
+  %304 = icmp ne i32 %303, 0
+  br i1 %304, label %305, label %306
 
-304:                                              ; preds = %299
-  br label %330
+305:                                              ; preds = %300
+  br label %331
 
-305:                                              ; preds = %299
-  %306 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 0
-  %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 1
-  %309 = load i32, ptr %308, align 8
-  %310 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 2
-  %311 = load i32, ptr %310, align 4
-  %312 = call i64 @get_varint64(ptr noundef %307, i32 noundef %309, i32 noundef %311, ptr noundef %13)
-  store i64 %312, ptr %11, align 8
-  %313 = load ptr, ptr %19, align 8
-  %314 = load i32, ptr @hf_steam_ihs_discovery_body_status_user_authkeyid, align 4
-  %315 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 0
-  %316 = load ptr, ptr %315, align 8
-  %317 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 1
-  %318 = load i32, ptr %317, align 8
-  %319 = load i32, ptr %13, align 4
-  %320 = load i64, ptr %11, align 8
-  %321 = trunc i64 %320 to i32
-  %322 = call ptr @proto_tree_add_uint(ptr noundef %313, i32 noundef %314, ptr noundef %316, i32 noundef %318, i32 noundef %319, i32 noundef %321)
-  %323 = load ptr, ptr %20, align 8
-  %324 = load i64, ptr %11, align 8
-  %325 = trunc i64 %324 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %323, ptr noundef @.str.148, i32 noundef %325)
-  br label %330
+306:                                              ; preds = %300
+  %307 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 0
+  %308 = load ptr, ptr %307, align 8
+  %309 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 1
+  %310 = load i32, ptr %309, align 8
+  %311 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 2
+  %312 = load i32, ptr %311, align 4
+  %313 = call i64 @get_varint64(ptr noundef %308, i32 noundef %310, i32 noundef %312, ptr noundef %13)
+  store i64 %313, ptr %11, align 8
+  %314 = load ptr, ptr %19, align 8
+  %315 = load i32, ptr @hf_steam_ihs_discovery_body_status_user_authkeyid, align 4
+  %316 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 0
+  %317 = load ptr, ptr %316, align 8
+  %318 = getelementptr inbounds %struct.protobuf_desc_t, ptr %15, i32 0, i32 1
+  %319 = load i32, ptr %318, align 8
+  %320 = load i32, ptr %13, align 4
+  %321 = load i64, ptr %11, align 8
+  %322 = trunc i64 %321 to i32
+  %323 = call ptr @proto_tree_add_uint(ptr noundef %314, i32 noundef %315, ptr noundef %317, i32 noundef %319, i32 noundef %320, i32 noundef %322)
+  %324 = load ptr, ptr %20, align 8
+  %325 = load i64, ptr %11, align 8
+  %326 = trunc i64 %325 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %324, ptr noundef @.str.148, i32 noundef %326)
+  br label %331
 
-326:                                              ; preds = %273
-  %327 = load ptr, ptr %7, align 8
-  %328 = load ptr, ptr %8, align 8
-  %329 = call i32 @protobuf_dissect_unknown_field(ptr noundef %15, ptr noundef %16, ptr noundef %327, ptr noundef %328, ptr noundef null)
-  store i32 %329, ptr %13, align 4
-  br label %330
+327:                                              ; preds = %274
+  %328 = load ptr, ptr %7, align 8
+  %329 = load ptr, ptr %8, align 8
+  %330 = call i32 @protobuf_dissect_unknown_field(ptr noundef %15, ptr noundef %16, ptr noundef %328, ptr noundef %329, ptr noundef null)
+  store i32 %330, ptr %13, align 4
+  br label %331
 
-330:                                              ; preds = %326, %305, %304, %282, %281
-  %331 = load i32, ptr %13, align 4
-  call void @protobuf_seek_forward(ptr noundef %15, i32 noundef %331)
-  br label %270, !llvm.loop !7
+331:                                              ; preds = %327, %306, %305, %283, %282
+  %332 = load i32, ptr %13, align 4
+  call void @protobuf_seek_forward(ptr noundef %15, i32 noundef %332)
+  br label %271, !llvm.loop !7
 
-332:                                              ; preds = %270
-  br label %464
+333:                                              ; preds = %271
+  br label %465
 
-333:                                              ; preds = %34
-  %334 = load ptr, ptr %7, align 8
-  %335 = load ptr, ptr %8, align 8
-  %336 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %334, ptr noundef %335, i8 noundef zeroext 0)
-  store i32 %336, ptr %12, align 4
-  %337 = icmp ne i32 %336, 0
-  br i1 %337, label %338, label %339
+334:                                              ; preds = %34
+  %335 = load ptr, ptr %7, align 8
+  %336 = load ptr, ptr %8, align 8
+  %337 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %335, ptr noundef %336, i8 noundef zeroext 0)
+  store i32 %337, ptr %12, align 4
+  %338 = icmp ne i32 %337, 0
+  br i1 %338, label %339, label %340
 
-338:                                              ; preds = %333
-  br label %464
+339:                                              ; preds = %334
+  br label %465
 
-339:                                              ; preds = %333
-  %340 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %341 = load ptr, ptr %340, align 8
-  %342 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %343 = load i32, ptr %342, align 8
-  %344 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
-  %345 = load i32, ptr %344, align 4
-  %346 = call i64 @get_varint64(ptr noundef %341, i32 noundef %343, i32 noundef %345, ptr noundef %12)
-  store i64 %346, ptr %11, align 8
-  %347 = load ptr, ptr %8, align 8
-  %348 = load i32, ptr @hf_steam_ihs_discovery_body_status_euniverse, align 4
-  %349 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %352 = load i32, ptr %351, align 8
-  %353 = load i32, ptr %12, align 4
-  %354 = load i64, ptr %11, align 8
-  %355 = trunc i64 %354 to i32
-  %356 = call ptr @proto_tree_add_int(ptr noundef %347, i32 noundef %348, ptr noundef %350, i32 noundef %352, i32 noundef %353, i32 noundef %355)
-  br label %464
+340:                                              ; preds = %334
+  %341 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %342 = load ptr, ptr %341, align 8
+  %343 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %344 = load i32, ptr %343, align 8
+  %345 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
+  %346 = load i32, ptr %345, align 4
+  %347 = call i64 @get_varint64(ptr noundef %342, i32 noundef %344, i32 noundef %346, ptr noundef %12)
+  store i64 %347, ptr %11, align 8
+  %348 = load ptr, ptr %8, align 8
+  %349 = load i32, ptr @hf_steam_ihs_discovery_body_status_euniverse, align 4
+  %350 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %351 = load ptr, ptr %350, align 8
+  %352 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %353 = load i32, ptr %352, align 8
+  %354 = load i32, ptr %12, align 4
+  %355 = load i64, ptr %11, align 8
+  %356 = trunc i64 %355 to i32
+  %357 = call ptr @proto_tree_add_int(ptr noundef %348, i32 noundef %349, ptr noundef %351, i32 noundef %353, i32 noundef %354, i32 noundef %356)
+  br label %465
 
-357:                                              ; preds = %34
-  %358 = load ptr, ptr %7, align 8
-  %359 = load ptr, ptr %8, align 8
-  %360 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %358, ptr noundef %359, i8 noundef zeroext 0)
-  store i32 %360, ptr %12, align 4
-  %361 = icmp ne i32 %360, 0
-  br i1 %361, label %362, label %363
+358:                                              ; preds = %34
+  %359 = load ptr, ptr %7, align 8
+  %360 = load ptr, ptr %8, align 8
+  %361 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %359, ptr noundef %360, i8 noundef zeroext 0)
+  store i32 %361, ptr %12, align 4
+  %362 = icmp ne i32 %361, 0
+  br i1 %362, label %363, label %364
 
-362:                                              ; preds = %357
-  br label %464
+363:                                              ; preds = %358
+  br label %465
 
-363:                                              ; preds = %357
-  %364 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %365 = load ptr, ptr %364, align 8
-  %366 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %367 = load i32, ptr %366, align 8
-  %368 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
-  %369 = load i32, ptr %368, align 4
-  %370 = call i64 @get_varint64(ptr noundef %365, i32 noundef %367, i32 noundef %369, ptr noundef %12)
-  %371 = getelementptr inbounds %struct.nstime_t, ptr %18, i32 0, i32 0
-  store i64 %370, ptr %371, align 8
-  %372 = getelementptr inbounds %struct.nstime_t, ptr %18, i32 0, i32 1
-  store i32 0, ptr %372, align 8
-  %373 = load ptr, ptr %8, align 8
-  %374 = load i32, ptr @hf_steam_ihs_discovery_body_status_timestamp, align 4
-  %375 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %376 = load ptr, ptr %375, align 8
-  %377 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %378 = load i32, ptr %377, align 8
-  %379 = load i32, ptr %12, align 4
-  %380 = call ptr @proto_tree_add_time(ptr noundef %373, i32 noundef %374, ptr noundef %376, i32 noundef %378, i32 noundef %379, ptr noundef %18)
-  br label %464
+364:                                              ; preds = %358
+  %365 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %366 = load ptr, ptr %365, align 8
+  %367 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %368 = load i32, ptr %367, align 8
+  %369 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
+  %370 = load i32, ptr %369, align 4
+  %371 = call i64 @get_varint64(ptr noundef %366, i32 noundef %368, i32 noundef %370, ptr noundef %12)
+  %372 = getelementptr inbounds %struct.nstime_t, ptr %18, i32 0, i32 0
+  store i64 %371, ptr %372, align 8
+  %373 = getelementptr inbounds %struct.nstime_t, ptr %18, i32 0, i32 1
+  store i32 0, ptr %373, align 8
+  %374 = load ptr, ptr %8, align 8
+  %375 = load i32, ptr @hf_steam_ihs_discovery_body_status_timestamp, align 4
+  %376 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %377 = load ptr, ptr %376, align 8
+  %378 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %379 = load i32, ptr %378, align 8
+  %380 = load i32, ptr %12, align 4
+  %381 = call ptr @proto_tree_add_time(ptr noundef %374, i32 noundef %375, ptr noundef %377, i32 noundef %379, i32 noundef %380, ptr noundef %18)
+  br label %465
 
-381:                                              ; preds = %34
-  %382 = load ptr, ptr %7, align 8
-  %383 = load ptr, ptr %8, align 8
-  %384 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %382, ptr noundef %383, i8 noundef zeroext 0)
-  store i32 %384, ptr %12, align 4
-  %385 = icmp ne i32 %384, 0
-  br i1 %385, label %386, label %387
+382:                                              ; preds = %34
+  %383 = load ptr, ptr %7, align 8
+  %384 = load ptr, ptr %8, align 8
+  %385 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %383, ptr noundef %384, i8 noundef zeroext 0)
+  store i32 %385, ptr %12, align 4
+  %386 = icmp ne i32 %385, 0
+  br i1 %386, label %387, label %388
 
-386:                                              ; preds = %381
-  br label %464
+387:                                              ; preds = %382
+  br label %465
 
-387:                                              ; preds = %381
-  %388 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %389 = load ptr, ptr %388, align 8
-  %390 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %391 = load i32, ptr %390, align 8
-  %392 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
-  %393 = load i32, ptr %392, align 4
-  %394 = call i64 @get_varint64(ptr noundef %389, i32 noundef %391, i32 noundef %393, ptr noundef %12)
-  store i64 %394, ptr %11, align 8
-  %395 = load ptr, ptr %8, align 8
-  %396 = load i32, ptr @hf_steam_ihs_discovery_body_status_screenlocked, align 4
-  %397 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %398 = load ptr, ptr %397, align 8
-  %399 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %400 = load i32, ptr %399, align 8
-  %401 = load i32, ptr %12, align 4
-  %402 = load i64, ptr %11, align 8
-  %403 = trunc i64 %402 to i32
-  %404 = sext i32 %403 to i64
-  %405 = call ptr @proto_tree_add_boolean(ptr noundef %395, i32 noundef %396, ptr noundef %398, i32 noundef %400, i32 noundef %401, i64 noundef %404)
-  br label %464
+388:                                              ; preds = %382
+  %389 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %390 = load ptr, ptr %389, align 8
+  %391 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %392 = load i32, ptr %391, align 8
+  %393 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
+  %394 = load i32, ptr %393, align 4
+  %395 = call i64 @get_varint64(ptr noundef %390, i32 noundef %392, i32 noundef %394, ptr noundef %12)
+  store i64 %395, ptr %11, align 8
+  %396 = load ptr, ptr %8, align 8
+  %397 = load i32, ptr @hf_steam_ihs_discovery_body_status_screenlocked, align 4
+  %398 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %399 = load ptr, ptr %398, align 8
+  %400 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %401 = load i32, ptr %400, align 8
+  %402 = load i32, ptr %12, align 4
+  %403 = load i64, ptr %11, align 8
+  %404 = trunc i64 %403 to i32
+  %405 = sext i32 %404 to i64
+  %406 = call ptr @proto_tree_add_boolean(ptr noundef %396, i32 noundef %397, ptr noundef %399, i32 noundef %401, i32 noundef %402, i64 noundef %405)
+  br label %465
 
-406:                                              ; preds = %34
-  %407 = load ptr, ptr %7, align 8
-  %408 = load ptr, ptr %8, align 8
-  %409 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %407, ptr noundef %408, i8 noundef zeroext 0)
-  store i32 %409, ptr %12, align 4
-  %410 = icmp ne i32 %409, 0
-  br i1 %410, label %411, label %412
+407:                                              ; preds = %34
+  %408 = load ptr, ptr %7, align 8
+  %409 = load ptr, ptr %8, align 8
+  %410 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %408, ptr noundef %409, i8 noundef zeroext 0)
+  store i32 %410, ptr %12, align 4
+  %411 = icmp ne i32 %410, 0
+  br i1 %411, label %412, label %413
 
-411:                                              ; preds = %406
-  br label %464
+412:                                              ; preds = %407
+  br label %465
 
-412:                                              ; preds = %406
-  %413 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %414 = load ptr, ptr %413, align 8
-  %415 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %416 = load i32, ptr %415, align 8
-  %417 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
-  %418 = load i32, ptr %417, align 4
-  %419 = call i64 @get_varint64(ptr noundef %414, i32 noundef %416, i32 noundef %418, ptr noundef %12)
-  store i64 %419, ptr %11, align 8
-  %420 = load ptr, ptr %8, align 8
-  %421 = load i32, ptr @hf_steam_ihs_discovery_body_status_gamesrunning, align 4
-  %422 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %423 = load ptr, ptr %422, align 8
-  %424 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %425 = load i32, ptr %424, align 8
-  %426 = load i32, ptr %12, align 4
-  %427 = load i64, ptr %11, align 8
-  %428 = trunc i64 %427 to i32
-  %429 = sext i32 %428 to i64
-  %430 = call ptr @proto_tree_add_boolean(ptr noundef %420, i32 noundef %421, ptr noundef %423, i32 noundef %425, i32 noundef %426, i64 noundef %429)
-  br label %464
+413:                                              ; preds = %407
+  %414 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %415 = load ptr, ptr %414, align 8
+  %416 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %417 = load i32, ptr %416, align 8
+  %418 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
+  %419 = load i32, ptr %418, align 4
+  %420 = call i64 @get_varint64(ptr noundef %415, i32 noundef %417, i32 noundef %419, ptr noundef %12)
+  store i64 %420, ptr %11, align 8
+  %421 = load ptr, ptr %8, align 8
+  %422 = load i32, ptr @hf_steam_ihs_discovery_body_status_gamesrunning, align 4
+  %423 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %424 = load ptr, ptr %423, align 8
+  %425 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %426 = load i32, ptr %425, align 8
+  %427 = load i32, ptr %12, align 4
+  %428 = load i64, ptr %11, align 8
+  %429 = trunc i64 %428 to i32
+  %430 = sext i32 %429 to i64
+  %431 = call ptr @proto_tree_add_boolean(ptr noundef %421, i32 noundef %422, ptr noundef %424, i32 noundef %426, i32 noundef %427, i64 noundef %430)
+  br label %465
 
-431:                                              ; preds = %34
-  %432 = load ptr, ptr %7, align 8
-  %433 = load ptr, ptr %8, align 8
-  %434 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %432, ptr noundef %433, i8 noundef zeroext 2)
-  store i32 %434, ptr %12, align 4
-  %435 = icmp ne i32 %434, 0
-  br i1 %435, label %436, label %437
+432:                                              ; preds = %34
+  %433 = load ptr, ptr %7, align 8
+  %434 = load ptr, ptr %8, align 8
+  %435 = call i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %16, ptr noundef %433, ptr noundef %434, i8 noundef zeroext 2)
+  store i32 %435, ptr %12, align 4
+  %436 = icmp ne i32 %435, 0
+  br i1 %436, label %437, label %438
 
-436:                                              ; preds = %431
-  br label %464
+437:                                              ; preds = %432
+  br label %465
 
-437:                                              ; preds = %431
-  %438 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %439 = load ptr, ptr %438, align 8
-  %440 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %441 = load i32, ptr %440, align 8
-  %442 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
-  %443 = load i32, ptr %442, align 4
-  %444 = call i64 @get_varint64(ptr noundef %439, i32 noundef %441, i32 noundef %443, ptr noundef %12)
-  store i64 %444, ptr %11, align 8
-  %445 = load ptr, ptr %8, align 8
-  %446 = load i32, ptr @hf_steam_ihs_discovery_body_status_macaddresses, align 4
-  %447 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
-  %448 = load ptr, ptr %447, align 8
-  %449 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
-  %450 = load i32, ptr %449, align 8
-  %451 = load i32, ptr %12, align 4
-  %452 = add i32 %450, %451
-  %453 = load i64, ptr %11, align 8
-  %454 = trunc i64 %453 to i32
-  %455 = call ptr @proto_tree_add_item(ptr noundef %445, i32 noundef %446, ptr noundef %448, i32 noundef %452, i32 noundef %454, i32 noundef 2)
-  %456 = load i64, ptr %11, align 8
-  %457 = trunc i64 %456 to i32
-  %458 = load i32, ptr %12, align 4
-  %459 = add i32 %458, %457
-  store i32 %459, ptr %12, align 4
-  br label %464
+438:                                              ; preds = %432
+  %439 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %440 = load ptr, ptr %439, align 8
+  %441 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %442 = load i32, ptr %441, align 8
+  %443 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 2
+  %444 = load i32, ptr %443, align 4
+  %445 = call i64 @get_varint64(ptr noundef %440, i32 noundef %442, i32 noundef %444, ptr noundef %12)
+  store i64 %445, ptr %11, align 8
+  %446 = load ptr, ptr %8, align 8
+  %447 = load i32, ptr @hf_steam_ihs_discovery_body_status_macaddresses, align 4
+  %448 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 0
+  %449 = load ptr, ptr %448, align 8
+  %450 = getelementptr inbounds %struct.protobuf_desc_t, ptr %14, i32 0, i32 1
+  %451 = load i32, ptr %450, align 8
+  %452 = load i32, ptr %12, align 4
+  %453 = add i32 %451, %452
+  %454 = load i64, ptr %11, align 8
+  %455 = trunc i64 %454 to i32
+  %456 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %447, ptr noundef %449, i32 noundef %453, i32 noundef %455, i32 noundef 2)
+  %457 = load i64, ptr %11, align 8
+  %458 = trunc i64 %457 to i32
+  %459 = load i32, ptr %12, align 4
+  %460 = add i32 %459, %458
+  store i32 %460, ptr %12, align 4
+  br label %465
 
-460:                                              ; preds = %34
-  %461 = load ptr, ptr %7, align 8
-  %462 = load ptr, ptr %8, align 8
-  %463 = call i32 @protobuf_dissect_unknown_field(ptr noundef %14, ptr noundef %16, ptr noundef %461, ptr noundef %462, ptr noundef null)
-  store i32 %463, ptr %12, align 4
-  br label %464
+461:                                              ; preds = %34
+  %462 = load ptr, ptr %7, align 8
+  %463 = load ptr, ptr %8, align 8
+  %464 = call i32 @protobuf_dissect_unknown_field(ptr noundef %14, ptr noundef %16, ptr noundef %462, ptr noundef %463, ptr noundef null)
+  store i32 %464, ptr %12, align 4
+  br label %465
 
-464:                                              ; preds = %460, %437, %436, %412, %411, %387, %386, %363, %362, %339, %338, %332, %241, %217, %216, %193, %192, %169, %168, %158, %114, %91, %90, %67, %66, %43, %42
-  %465 = load i32, ptr %12, align 4
-  call void @protobuf_seek_forward(ptr noundef %14, i32 noundef %465)
+465:                                              ; preds = %461, %438, %437, %413, %412, %388, %387, %364, %363, %340, %339, %333, %242, %218, %217, %194, %193, %170, %169, %159, %114, %91, %90, %67, %66, %43, %42
+  %466 = load i32, ptr %12, align 4
+  call void @protobuf_seek_forward(ptr noundef %14, i32 noundef %466)
   br label %31, !llvm.loop !8
 
-466:                                              ; preds = %31
+467:                                              ; preds = %31
   ret void
 }
 
@@ -1754,15 +1755,15 @@ define internal void @steamdiscover_dissect_body_authresponse(ptr noundef %0, pt
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 24, i1 false)
   br label %21
 
-21:                                               ; preds = %61, %5
+21:                                               ; preds = %62, %5
   %22 = call i32 @protobuf_iter_next(ptr noundef %13, ptr noundef %14)
   %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %63
+  br i1 %23, label %24, label %64
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds %struct.protobuf_tag_t, ptr %14, i32 0, i32 1
   %26 = load i64, ptr %25, align 8
-  switch i64 %26, label %57 [
+  switch i64 %26, label %58 [
     i64 1, label %27
   ]
 
@@ -1775,7 +1776,7 @@ define internal void @steamdiscover_dissect_body_authresponse(ptr noundef %0, pt
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %27
-  br label %61
+  br label %62
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
@@ -1798,26 +1799,27 @@ define internal void @steamdiscover_dissect_body_authresponse(ptr noundef %0, pt
   %50 = load ptr, ptr %7, align 8
   %51 = getelementptr inbounds %struct._packet_info, ptr %50, i32 0, i32 1
   %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr getelementptr inbounds ([12 x %struct._val64_string], ptr @hf_steam_ihs_discovery_header_msgtype_strings, i64 0, i64 4, i32 1), align 8
-  %54 = load i64, ptr %12, align 8
+  %53 = getelementptr inbounds [12 x %struct._val64_string], ptr @hf_steam_ihs_discovery_header_msgtype_strings, i64 0, i64 4, i32 1
+  %54 = load ptr, ptr %53, align 8
   %55 = load i64, ptr %12, align 8
-  %56 = call ptr @val64_to_str_const(i64 noundef %55, ptr noundef @hf_steam_ihs_discovery_body_authresponse_authresult_strings, ptr noundef @.str.151)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %52, i32 noundef 25, ptr noundef @.str.150, ptr noundef %53, i64 noundef %54, ptr noundef %56)
-  br label %61
+  %56 = load i64, ptr %12, align 8
+  %57 = call ptr @val64_to_str_const(i64 noundef %56, ptr noundef @hf_steam_ihs_discovery_body_authresponse_authresult_strings, ptr noundef @.str.151)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %52, i32 noundef 25, ptr noundef @.str.150, ptr noundef %54, i64 noundef %55, ptr noundef %57)
+  br label %62
 
-57:                                               ; preds = %24
-  %58 = load ptr, ptr %7, align 8
-  %59 = load ptr, ptr %8, align 8
-  %60 = call i32 @protobuf_dissect_unknown_field(ptr noundef %13, ptr noundef %14, ptr noundef %58, ptr noundef %59, ptr noundef null)
-  store i32 %60, ptr %11, align 4
-  br label %61
+58:                                               ; preds = %24
+  %59 = load ptr, ptr %7, align 8
+  %60 = load ptr, ptr %8, align 8
+  %61 = call i32 @protobuf_dissect_unknown_field(ptr noundef %13, ptr noundef %14, ptr noundef %59, ptr noundef %60, ptr noundef null)
+  store i32 %61, ptr %11, align 4
+  br label %62
 
-61:                                               ; preds = %57, %33, %32
-  %62 = load i32, ptr %11, align 4
-  call void @protobuf_seek_forward(ptr noundef %13, i32 noundef %62)
+62:                                               ; preds = %58, %33, %32
+  %63 = load i32, ptr %11, align 4
+  call void @protobuf_seek_forward(ptr noundef %13, i32 noundef %63)
   br label %21, !llvm.loop !10
 
-63:                                               ; preds = %21
+64:                                               ; preds = %21
   ret void
 }
 
@@ -1849,26 +1851,26 @@ define internal void @steamdiscover_dissect_body_streamingrequest(ptr noundef %0
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 24, i1 false)
   br label %21
 
-21:                                               ; preds = %320, %5
+21:                                               ; preds = %321, %5
   %22 = call i32 @protobuf_iter_next(ptr noundef %13, ptr noundef %14)
   %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %322
+  br i1 %23, label %24, label %323
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds %struct.protobuf_tag_t, ptr %14, i32 0, i32 1
   %26 = load i64, ptr %25, align 8
-  switch i64 %26, label %316 [
+  switch i64 %26, label %317 [
     i64 1, label %27
-    i64 2, label %57
-    i64 3, label %81
-    i64 4, label %105
-    i64 5, label %129
-    i64 6, label %158
-    i64 7, label %183
-    i64 8, label %212
-    i64 9, label %241
-    i64 10, label %266
-    i64 11, label %291
+    i64 2, label %58
+    i64 3, label %82
+    i64 4, label %106
+    i64 5, label %130
+    i64 6, label %159
+    i64 7, label %184
+    i64 8, label %213
+    i64 9, label %242
+    i64 10, label %267
+    i64 11, label %292
   ]
 
 27:                                               ; preds = %24
@@ -1880,7 +1882,7 @@ define internal void @steamdiscover_dissect_body_streamingrequest(ptr noundef %0
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %27
-  br label %320
+  br label %321
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
@@ -1904,367 +1906,368 @@ define internal void @steamdiscover_dissect_body_streamingrequest(ptr noundef %0
   %51 = load ptr, ptr %7, align 8
   %52 = getelementptr inbounds %struct._packet_info, ptr %51, i32 0, i32 1
   %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr getelementptr inbounds ([12 x %struct._val64_string], ptr @hf_steam_ihs_discovery_header_msgtype_strings, i64 0, i64 5, i32 1), align 8
-  %55 = load i64, ptr %12, align 8
-  %56 = trunc i64 %55 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %53, i32 noundef 25, ptr noundef @.str.152, ptr noundef %54, i32 noundef %56)
-  br label %320
+  %54 = getelementptr inbounds [12 x %struct._val64_string], ptr @hf_steam_ihs_discovery_header_msgtype_strings, i64 0, i64 5, i32 1
+  %55 = load ptr, ptr %54, align 8
+  %56 = load i64, ptr %12, align 8
+  %57 = trunc i64 %56 to i32
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %53, i32 noundef 25, ptr noundef @.str.152, ptr noundef %55, i32 noundef %57)
+  br label %321
 
-57:                                               ; preds = %24
-  %58 = load ptr, ptr %7, align 8
-  %59 = load ptr, ptr %8, align 8
-  %60 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %58, ptr noundef %59, i8 noundef zeroext 0)
-  store i32 %60, ptr %11, align 4
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %62, label %63
+58:                                               ; preds = %24
+  %59 = load ptr, ptr %7, align 8
+  %60 = load ptr, ptr %8, align 8
+  %61 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %59, ptr noundef %60, i8 noundef zeroext 0)
+  store i32 %61, ptr %11, align 4
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %64
 
-62:                                               ; preds = %57
-  br label %320
+63:                                               ; preds = %58
+  br label %321
 
-63:                                               ; preds = %57
-  %64 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
-  %69 = load i32, ptr %68, align 4
-  %70 = call i64 @get_varint64(ptr noundef %65, i32 noundef %67, i32 noundef %69, ptr noundef %11)
-  store i64 %70, ptr %12, align 8
-  %71 = load ptr, ptr %8, align 8
-  %72 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_maximumresolutionx, align 4
-  %73 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %76 = load i32, ptr %75, align 8
-  %77 = load i32, ptr %11, align 4
-  %78 = load i64, ptr %12, align 8
-  %79 = trunc i64 %78 to i32
-  %80 = call ptr @proto_tree_add_int(ptr noundef %71, i32 noundef %72, ptr noundef %74, i32 noundef %76, i32 noundef %77, i32 noundef %79)
-  br label %320
+64:                                               ; preds = %58
+  %65 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %68 = load i32, ptr %67, align 8
+  %69 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
+  %70 = load i32, ptr %69, align 4
+  %71 = call i64 @get_varint64(ptr noundef %66, i32 noundef %68, i32 noundef %70, ptr noundef %11)
+  store i64 %71, ptr %12, align 8
+  %72 = load ptr, ptr %8, align 8
+  %73 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_maximumresolutionx, align 4
+  %74 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %77 = load i32, ptr %76, align 8
+  %78 = load i32, ptr %11, align 4
+  %79 = load i64, ptr %12, align 8
+  %80 = trunc i64 %79 to i32
+  %81 = call ptr @proto_tree_add_int(ptr noundef %72, i32 noundef %73, ptr noundef %75, i32 noundef %77, i32 noundef %78, i32 noundef %80)
+  br label %321
 
-81:                                               ; preds = %24
-  %82 = load ptr, ptr %7, align 8
-  %83 = load ptr, ptr %8, align 8
-  %84 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %82, ptr noundef %83, i8 noundef zeroext 0)
-  store i32 %84, ptr %11, align 4
-  %85 = icmp ne i32 %84, 0
-  br i1 %85, label %86, label %87
+82:                                               ; preds = %24
+  %83 = load ptr, ptr %7, align 8
+  %84 = load ptr, ptr %8, align 8
+  %85 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %83, ptr noundef %84, i8 noundef zeroext 0)
+  store i32 %85, ptr %11, align 4
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %88
 
-86:                                               ; preds = %81
-  br label %320
+87:                                               ; preds = %82
+  br label %321
 
-87:                                               ; preds = %81
-  %88 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %91 = load i32, ptr %90, align 8
-  %92 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
-  %93 = load i32, ptr %92, align 4
-  %94 = call i64 @get_varint64(ptr noundef %89, i32 noundef %91, i32 noundef %93, ptr noundef %11)
-  store i64 %94, ptr %12, align 8
-  %95 = load ptr, ptr %8, align 8
-  %96 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_maximumresolutiony, align 4
-  %97 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %100 = load i32, ptr %99, align 8
-  %101 = load i32, ptr %11, align 4
-  %102 = load i64, ptr %12, align 8
-  %103 = trunc i64 %102 to i32
-  %104 = call ptr @proto_tree_add_int(ptr noundef %95, i32 noundef %96, ptr noundef %98, i32 noundef %100, i32 noundef %101, i32 noundef %103)
-  br label %320
+88:                                               ; preds = %82
+  %89 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %92 = load i32, ptr %91, align 8
+  %93 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
+  %94 = load i32, ptr %93, align 4
+  %95 = call i64 @get_varint64(ptr noundef %90, i32 noundef %92, i32 noundef %94, ptr noundef %11)
+  store i64 %95, ptr %12, align 8
+  %96 = load ptr, ptr %8, align 8
+  %97 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_maximumresolutiony, align 4
+  %98 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %101 = load i32, ptr %100, align 8
+  %102 = load i32, ptr %11, align 4
+  %103 = load i64, ptr %12, align 8
+  %104 = trunc i64 %103 to i32
+  %105 = call ptr @proto_tree_add_int(ptr noundef %96, i32 noundef %97, ptr noundef %99, i32 noundef %101, i32 noundef %102, i32 noundef %104)
+  br label %321
 
-105:                                              ; preds = %24
-  %106 = load ptr, ptr %7, align 8
-  %107 = load ptr, ptr %8, align 8
-  %108 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %106, ptr noundef %107, i8 noundef zeroext 0)
-  store i32 %108, ptr %11, align 4
-  %109 = icmp ne i32 %108, 0
-  br i1 %109, label %110, label %111
+106:                                              ; preds = %24
+  %107 = load ptr, ptr %7, align 8
+  %108 = load ptr, ptr %8, align 8
+  %109 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %107, ptr noundef %108, i8 noundef zeroext 0)
+  store i32 %109, ptr %11, align 4
+  %110 = icmp ne i32 %109, 0
+  br i1 %110, label %111, label %112
 
-110:                                              ; preds = %105
-  br label %320
+111:                                              ; preds = %106
+  br label %321
 
-111:                                              ; preds = %105
-  %112 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %115 = load i32, ptr %114, align 8
-  %116 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
-  %117 = load i32, ptr %116, align 4
-  %118 = call i64 @get_varint64(ptr noundef %113, i32 noundef %115, i32 noundef %117, ptr noundef %11)
-  store i64 %118, ptr %12, align 8
-  %119 = load ptr, ptr %8, align 8
-  %120 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_audiochannelcount, align 4
-  %121 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %124 = load i32, ptr %123, align 8
-  %125 = load i32, ptr %11, align 4
-  %126 = load i64, ptr %12, align 8
-  %127 = trunc i64 %126 to i32
-  %128 = call ptr @proto_tree_add_int(ptr noundef %119, i32 noundef %120, ptr noundef %122, i32 noundef %124, i32 noundef %125, i32 noundef %127)
-  br label %320
+112:                                              ; preds = %106
+  %113 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %116 = load i32, ptr %115, align 8
+  %117 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
+  %118 = load i32, ptr %117, align 4
+  %119 = call i64 @get_varint64(ptr noundef %114, i32 noundef %116, i32 noundef %118, ptr noundef %11)
+  store i64 %119, ptr %12, align 8
+  %120 = load ptr, ptr %8, align 8
+  %121 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_audiochannelcount, align 4
+  %122 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %125 = load i32, ptr %124, align 8
+  %126 = load i32, ptr %11, align 4
+  %127 = load i64, ptr %12, align 8
+  %128 = trunc i64 %127 to i32
+  %129 = call ptr @proto_tree_add_int(ptr noundef %120, i32 noundef %121, ptr noundef %123, i32 noundef %125, i32 noundef %126, i32 noundef %128)
+  br label %321
 
-129:                                              ; preds = %24
-  %130 = load ptr, ptr %7, align 8
-  %131 = load ptr, ptr %8, align 8
-  %132 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %130, ptr noundef %131, i8 noundef zeroext 2)
-  store i32 %132, ptr %11, align 4
-  %133 = icmp ne i32 %132, 0
-  br i1 %133, label %134, label %135
+130:                                              ; preds = %24
+  %131 = load ptr, ptr %7, align 8
+  %132 = load ptr, ptr %8, align 8
+  %133 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %131, ptr noundef %132, i8 noundef zeroext 2)
+  store i32 %133, ptr %11, align 4
+  %134 = icmp ne i32 %133, 0
+  br i1 %134, label %135, label %136
 
-134:                                              ; preds = %129
-  br label %320
+135:                                              ; preds = %130
+  br label %321
 
-135:                                              ; preds = %129
-  %136 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %139 = load i32, ptr %138, align 8
-  %140 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
-  %141 = load i32, ptr %140, align 4
-  %142 = call i64 @get_varint64(ptr noundef %137, i32 noundef %139, i32 noundef %141, ptr noundef %11)
-  store i64 %142, ptr %12, align 8
-  %143 = load ptr, ptr %8, align 8
-  %144 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_deviceversion, align 4
-  %145 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %148 = load i32, ptr %147, align 8
-  %149 = load i32, ptr %11, align 4
-  %150 = add i32 %148, %149
-  %151 = load i64, ptr %12, align 8
-  %152 = trunc i64 %151 to i32
-  %153 = call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %144, ptr noundef %146, i32 noundef %150, i32 noundef %152, i32 noundef 2)
-  %154 = load i64, ptr %12, align 8
-  %155 = trunc i64 %154 to i32
-  %156 = load i32, ptr %11, align 4
-  %157 = add i32 %156, %155
-  store i32 %157, ptr %11, align 4
-  br label %320
+136:                                              ; preds = %130
+  %137 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %140 = load i32, ptr %139, align 8
+  %141 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
+  %142 = load i32, ptr %141, align 4
+  %143 = call i64 @get_varint64(ptr noundef %138, i32 noundef %140, i32 noundef %142, ptr noundef %11)
+  store i64 %143, ptr %12, align 8
+  %144 = load ptr, ptr %8, align 8
+  %145 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_deviceversion, align 4
+  %146 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %149 = load i32, ptr %148, align 8
+  %150 = load i32, ptr %11, align 4
+  %151 = add i32 %149, %150
+  %152 = load i64, ptr %12, align 8
+  %153 = trunc i64 %152 to i32
+  %154 = call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %145, ptr noundef %147, i32 noundef %151, i32 noundef %153, i32 noundef 2)
+  %155 = load i64, ptr %12, align 8
+  %156 = trunc i64 %155 to i32
+  %157 = load i32, ptr %11, align 4
+  %158 = add i32 %157, %156
+  store i32 %158, ptr %11, align 4
+  br label %321
 
-158:                                              ; preds = %24
-  %159 = load ptr, ptr %7, align 8
-  %160 = load ptr, ptr %8, align 8
-  %161 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %159, ptr noundef %160, i8 noundef zeroext 0)
-  store i32 %161, ptr %11, align 4
-  %162 = icmp ne i32 %161, 0
-  br i1 %162, label %163, label %164
+159:                                              ; preds = %24
+  %160 = load ptr, ptr %7, align 8
+  %161 = load ptr, ptr %8, align 8
+  %162 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %160, ptr noundef %161, i8 noundef zeroext 0)
+  store i32 %162, ptr %11, align 4
+  %163 = icmp ne i32 %162, 0
+  br i1 %163, label %164, label %165
 
-163:                                              ; preds = %158
-  br label %320
+164:                                              ; preds = %159
+  br label %321
 
-164:                                              ; preds = %158
-  %165 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %168 = load i32, ptr %167, align 8
-  %169 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
-  %170 = load i32, ptr %169, align 4
-  %171 = call i64 @get_varint64(ptr noundef %166, i32 noundef %168, i32 noundef %170, ptr noundef %11)
-  store i64 %171, ptr %12, align 8
-  %172 = load ptr, ptr %8, align 8
-  %173 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_streamdesktop, align 4
-  %174 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %177 = load i32, ptr %176, align 8
-  %178 = load i32, ptr %11, align 4
-  %179 = load i64, ptr %12, align 8
-  %180 = trunc i64 %179 to i32
-  %181 = sext i32 %180 to i64
-  %182 = call ptr @proto_tree_add_boolean(ptr noundef %172, i32 noundef %173, ptr noundef %175, i32 noundef %177, i32 noundef %178, i64 noundef %181)
-  br label %320
+165:                                              ; preds = %159
+  %166 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %169 = load i32, ptr %168, align 8
+  %170 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
+  %171 = load i32, ptr %170, align 4
+  %172 = call i64 @get_varint64(ptr noundef %167, i32 noundef %169, i32 noundef %171, ptr noundef %11)
+  store i64 %172, ptr %12, align 8
+  %173 = load ptr, ptr %8, align 8
+  %174 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_streamdesktop, align 4
+  %175 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %178 = load i32, ptr %177, align 8
+  %179 = load i32, ptr %11, align 4
+  %180 = load i64, ptr %12, align 8
+  %181 = trunc i64 %180 to i32
+  %182 = sext i32 %181 to i64
+  %183 = call ptr @proto_tree_add_boolean(ptr noundef %173, i32 noundef %174, ptr noundef %176, i32 noundef %178, i32 noundef %179, i64 noundef %182)
+  br label %321
 
-183:                                              ; preds = %24
-  %184 = load ptr, ptr %7, align 8
-  %185 = load ptr, ptr %8, align 8
-  %186 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %184, ptr noundef %185, i8 noundef zeroext 2)
-  store i32 %186, ptr %11, align 4
-  %187 = icmp ne i32 %186, 0
-  br i1 %187, label %188, label %189
+184:                                              ; preds = %24
+  %185 = load ptr, ptr %7, align 8
+  %186 = load ptr, ptr %8, align 8
+  %187 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %185, ptr noundef %186, i8 noundef zeroext 2)
+  store i32 %187, ptr %11, align 4
+  %188 = icmp ne i32 %187, 0
+  br i1 %188, label %189, label %190
 
-188:                                              ; preds = %183
-  br label %320
+189:                                              ; preds = %184
+  br label %321
 
-189:                                              ; preds = %183
-  %190 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %193 = load i32, ptr %192, align 8
-  %194 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
-  %195 = load i32, ptr %194, align 4
-  %196 = call i64 @get_varint64(ptr noundef %191, i32 noundef %193, i32 noundef %195, ptr noundef %11)
-  store i64 %196, ptr %12, align 8
-  %197 = load ptr, ptr %8, align 8
-  %198 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_devicetoken, align 4
-  %199 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %202 = load i32, ptr %201, align 8
-  %203 = load i32, ptr %11, align 4
-  %204 = add i32 %202, %203
-  %205 = load i64, ptr %12, align 8
-  %206 = trunc i64 %205 to i32
-  %207 = call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %198, ptr noundef %200, i32 noundef %204, i32 noundef %206, i32 noundef 0)
-  %208 = load i64, ptr %12, align 8
-  %209 = trunc i64 %208 to i32
-  %210 = load i32, ptr %11, align 4
-  %211 = add i32 %210, %209
-  store i32 %211, ptr %11, align 4
-  br label %320
+190:                                              ; preds = %184
+  %191 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %192 = load ptr, ptr %191, align 8
+  %193 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %194 = load i32, ptr %193, align 8
+  %195 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
+  %196 = load i32, ptr %195, align 4
+  %197 = call i64 @get_varint64(ptr noundef %192, i32 noundef %194, i32 noundef %196, ptr noundef %11)
+  store i64 %197, ptr %12, align 8
+  %198 = load ptr, ptr %8, align 8
+  %199 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_devicetoken, align 4
+  %200 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %201 = load ptr, ptr %200, align 8
+  %202 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %203 = load i32, ptr %202, align 8
+  %204 = load i32, ptr %11, align 4
+  %205 = add i32 %203, %204
+  %206 = load i64, ptr %12, align 8
+  %207 = trunc i64 %206 to i32
+  %208 = call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %199, ptr noundef %201, i32 noundef %205, i32 noundef %207, i32 noundef 0)
+  %209 = load i64, ptr %12, align 8
+  %210 = trunc i64 %209 to i32
+  %211 = load i32, ptr %11, align 4
+  %212 = add i32 %211, %210
+  store i32 %212, ptr %11, align 4
+  br label %321
 
-212:                                              ; preds = %24
-  %213 = load ptr, ptr %7, align 8
-  %214 = load ptr, ptr %8, align 8
-  %215 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %213, ptr noundef %214, i8 noundef zeroext 2)
-  store i32 %215, ptr %11, align 4
-  %216 = icmp ne i32 %215, 0
-  br i1 %216, label %217, label %218
+213:                                              ; preds = %24
+  %214 = load ptr, ptr %7, align 8
+  %215 = load ptr, ptr %8, align 8
+  %216 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %214, ptr noundef %215, i8 noundef zeroext 2)
+  store i32 %216, ptr %11, align 4
+  %217 = icmp ne i32 %216, 0
+  br i1 %217, label %218, label %219
 
-217:                                              ; preds = %212
-  br label %320
+218:                                              ; preds = %213
+  br label %321
 
-218:                                              ; preds = %212
-  %219 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %222 = load i32, ptr %221, align 8
-  %223 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
-  %224 = load i32, ptr %223, align 4
-  %225 = call i64 @get_varint64(ptr noundef %220, i32 noundef %222, i32 noundef %224, ptr noundef %11)
-  store i64 %225, ptr %12, align 8
-  %226 = load ptr, ptr %8, align 8
-  %227 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_pin, align 4
-  %228 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %231 = load i32, ptr %230, align 8
-  %232 = load i32, ptr %11, align 4
-  %233 = add i32 %231, %232
-  %234 = load i64, ptr %12, align 8
-  %235 = trunc i64 %234 to i32
-  %236 = call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %227, ptr noundef %229, i32 noundef %233, i32 noundef %235, i32 noundef 0)
-  %237 = load i64, ptr %12, align 8
-  %238 = trunc i64 %237 to i32
-  %239 = load i32, ptr %11, align 4
-  %240 = add i32 %239, %238
-  store i32 %240, ptr %11, align 4
-  br label %320
+219:                                              ; preds = %213
+  %220 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %223 = load i32, ptr %222, align 8
+  %224 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
+  %225 = load i32, ptr %224, align 4
+  %226 = call i64 @get_varint64(ptr noundef %221, i32 noundef %223, i32 noundef %225, ptr noundef %11)
+  store i64 %226, ptr %12, align 8
+  %227 = load ptr, ptr %8, align 8
+  %228 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_pin, align 4
+  %229 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %230 = load ptr, ptr %229, align 8
+  %231 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %232 = load i32, ptr %231, align 8
+  %233 = load i32, ptr %11, align 4
+  %234 = add i32 %232, %233
+  %235 = load i64, ptr %12, align 8
+  %236 = trunc i64 %235 to i32
+  %237 = call ptr @proto_tree_add_item(ptr noundef %227, i32 noundef %228, ptr noundef %230, i32 noundef %234, i32 noundef %236, i32 noundef 0)
+  %238 = load i64, ptr %12, align 8
+  %239 = trunc i64 %238 to i32
+  %240 = load i32, ptr %11, align 4
+  %241 = add i32 %240, %239
+  store i32 %241, ptr %11, align 4
+  br label %321
 
-241:                                              ; preds = %24
-  %242 = load ptr, ptr %7, align 8
-  %243 = load ptr, ptr %8, align 8
-  %244 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %242, ptr noundef %243, i8 noundef zeroext 0)
-  store i32 %244, ptr %11, align 4
-  %245 = icmp ne i32 %244, 0
-  br i1 %245, label %246, label %247
+242:                                              ; preds = %24
+  %243 = load ptr, ptr %7, align 8
+  %244 = load ptr, ptr %8, align 8
+  %245 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %243, ptr noundef %244, i8 noundef zeroext 0)
+  store i32 %245, ptr %11, align 4
+  %246 = icmp ne i32 %245, 0
+  br i1 %246, label %247, label %248
 
-246:                                              ; preds = %241
-  br label %320
+247:                                              ; preds = %242
+  br label %321
 
-247:                                              ; preds = %241
-  %248 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %251 = load i32, ptr %250, align 8
-  %252 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
-  %253 = load i32, ptr %252, align 4
-  %254 = call i64 @get_varint64(ptr noundef %249, i32 noundef %251, i32 noundef %253, ptr noundef %11)
-  store i64 %254, ptr %12, align 8
-  %255 = load ptr, ptr %8, align 8
-  %256 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_enablevideostreaming, align 4
-  %257 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %260 = load i32, ptr %259, align 8
-  %261 = load i32, ptr %11, align 4
-  %262 = load i64, ptr %12, align 8
-  %263 = trunc i64 %262 to i32
-  %264 = sext i32 %263 to i64
-  %265 = call ptr @proto_tree_add_boolean(ptr noundef %255, i32 noundef %256, ptr noundef %258, i32 noundef %260, i32 noundef %261, i64 noundef %264)
-  br label %320
+248:                                              ; preds = %242
+  %249 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %250 = load ptr, ptr %249, align 8
+  %251 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %252 = load i32, ptr %251, align 8
+  %253 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
+  %254 = load i32, ptr %253, align 4
+  %255 = call i64 @get_varint64(ptr noundef %250, i32 noundef %252, i32 noundef %254, ptr noundef %11)
+  store i64 %255, ptr %12, align 8
+  %256 = load ptr, ptr %8, align 8
+  %257 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_enablevideostreaming, align 4
+  %258 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %259 = load ptr, ptr %258, align 8
+  %260 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %261 = load i32, ptr %260, align 8
+  %262 = load i32, ptr %11, align 4
+  %263 = load i64, ptr %12, align 8
+  %264 = trunc i64 %263 to i32
+  %265 = sext i32 %264 to i64
+  %266 = call ptr @proto_tree_add_boolean(ptr noundef %256, i32 noundef %257, ptr noundef %259, i32 noundef %261, i32 noundef %262, i64 noundef %265)
+  br label %321
 
-266:                                              ; preds = %24
-  %267 = load ptr, ptr %7, align 8
-  %268 = load ptr, ptr %8, align 8
-  %269 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %267, ptr noundef %268, i8 noundef zeroext 0)
-  store i32 %269, ptr %11, align 4
-  %270 = icmp ne i32 %269, 0
-  br i1 %270, label %271, label %272
+267:                                              ; preds = %24
+  %268 = load ptr, ptr %7, align 8
+  %269 = load ptr, ptr %8, align 8
+  %270 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %268, ptr noundef %269, i8 noundef zeroext 0)
+  store i32 %270, ptr %11, align 4
+  %271 = icmp ne i32 %270, 0
+  br i1 %271, label %272, label %273
 
-271:                                              ; preds = %266
-  br label %320
+272:                                              ; preds = %267
+  br label %321
 
-272:                                              ; preds = %266
-  %273 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %276 = load i32, ptr %275, align 8
-  %277 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
-  %278 = load i32, ptr %277, align 4
-  %279 = call i64 @get_varint64(ptr noundef %274, i32 noundef %276, i32 noundef %278, ptr noundef %11)
-  store i64 %279, ptr %12, align 8
-  %280 = load ptr, ptr %8, align 8
-  %281 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_enableaudiostreaming, align 4
-  %282 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %285 = load i32, ptr %284, align 8
-  %286 = load i32, ptr %11, align 4
-  %287 = load i64, ptr %12, align 8
-  %288 = trunc i64 %287 to i32
-  %289 = sext i32 %288 to i64
-  %290 = call ptr @proto_tree_add_boolean(ptr noundef %280, i32 noundef %281, ptr noundef %283, i32 noundef %285, i32 noundef %286, i64 noundef %289)
-  br label %320
+273:                                              ; preds = %267
+  %274 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %275 = load ptr, ptr %274, align 8
+  %276 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %277 = load i32, ptr %276, align 8
+  %278 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
+  %279 = load i32, ptr %278, align 4
+  %280 = call i64 @get_varint64(ptr noundef %275, i32 noundef %277, i32 noundef %279, ptr noundef %11)
+  store i64 %280, ptr %12, align 8
+  %281 = load ptr, ptr %8, align 8
+  %282 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_enableaudiostreaming, align 4
+  %283 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %284 = load ptr, ptr %283, align 8
+  %285 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %286 = load i32, ptr %285, align 8
+  %287 = load i32, ptr %11, align 4
+  %288 = load i64, ptr %12, align 8
+  %289 = trunc i64 %288 to i32
+  %290 = sext i32 %289 to i64
+  %291 = call ptr @proto_tree_add_boolean(ptr noundef %281, i32 noundef %282, ptr noundef %284, i32 noundef %286, i32 noundef %287, i64 noundef %290)
+  br label %321
 
-291:                                              ; preds = %24
-  %292 = load ptr, ptr %7, align 8
-  %293 = load ptr, ptr %8, align 8
-  %294 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %292, ptr noundef %293, i8 noundef zeroext 0)
-  store i32 %294, ptr %11, align 4
-  %295 = icmp ne i32 %294, 0
-  br i1 %295, label %296, label %297
+292:                                              ; preds = %24
+  %293 = load ptr, ptr %7, align 8
+  %294 = load ptr, ptr %8, align 8
+  %295 = call i32 @protobuf_verify_wiretype(ptr noundef %13, ptr noundef %14, ptr noundef %293, ptr noundef %294, i8 noundef zeroext 0)
+  store i32 %295, ptr %11, align 4
+  %296 = icmp ne i32 %295, 0
+  br i1 %296, label %297, label %298
 
-296:                                              ; preds = %291
-  br label %320
+297:                                              ; preds = %292
+  br label %321
 
-297:                                              ; preds = %291
-  %298 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %301 = load i32, ptr %300, align 8
-  %302 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
-  %303 = load i32, ptr %302, align 4
-  %304 = call i64 @get_varint64(ptr noundef %299, i32 noundef %301, i32 noundef %303, ptr noundef %11)
-  store i64 %304, ptr %12, align 8
-  %305 = load ptr, ptr %8, align 8
-  %306 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_enableinputstreaming, align 4
-  %307 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
-  %308 = load ptr, ptr %307, align 8
-  %309 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
-  %310 = load i32, ptr %309, align 8
-  %311 = load i32, ptr %11, align 4
-  %312 = load i64, ptr %12, align 8
-  %313 = trunc i64 %312 to i32
-  %314 = sext i32 %313 to i64
-  %315 = call ptr @proto_tree_add_boolean(ptr noundef %305, i32 noundef %306, ptr noundef %308, i32 noundef %310, i32 noundef %311, i64 noundef %314)
-  br label %320
+298:                                              ; preds = %292
+  %299 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %300 = load ptr, ptr %299, align 8
+  %301 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %302 = load i32, ptr %301, align 8
+  %303 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 2
+  %304 = load i32, ptr %303, align 4
+  %305 = call i64 @get_varint64(ptr noundef %300, i32 noundef %302, i32 noundef %304, ptr noundef %11)
+  store i64 %305, ptr %12, align 8
+  %306 = load ptr, ptr %8, align 8
+  %307 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_enableinputstreaming, align 4
+  %308 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
+  %309 = load ptr, ptr %308, align 8
+  %310 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 1
+  %311 = load i32, ptr %310, align 8
+  %312 = load i32, ptr %11, align 4
+  %313 = load i64, ptr %12, align 8
+  %314 = trunc i64 %313 to i32
+  %315 = sext i32 %314 to i64
+  %316 = call ptr @proto_tree_add_boolean(ptr noundef %306, i32 noundef %307, ptr noundef %309, i32 noundef %311, i32 noundef %312, i64 noundef %315)
+  br label %321
 
-316:                                              ; preds = %24
-  %317 = load ptr, ptr %7, align 8
-  %318 = load ptr, ptr %8, align 8
-  %319 = call i32 @protobuf_dissect_unknown_field(ptr noundef %13, ptr noundef %14, ptr noundef %317, ptr noundef %318, ptr noundef null)
-  store i32 %319, ptr %11, align 4
-  br label %320
+317:                                              ; preds = %24
+  %318 = load ptr, ptr %7, align 8
+  %319 = load ptr, ptr %8, align 8
+  %320 = call i32 @protobuf_dissect_unknown_field(ptr noundef %13, ptr noundef %14, ptr noundef %318, ptr noundef %319, ptr noundef null)
+  store i32 %320, ptr %11, align 4
+  br label %321
 
-320:                                              ; preds = %316, %297, %296, %272, %271, %247, %246, %218, %217, %189, %188, %164, %163, %135, %134, %111, %110, %87, %86, %63, %62, %33, %32
-  %321 = load i32, ptr %11, align 4
-  call void @protobuf_seek_forward(ptr noundef %13, i32 noundef %321)
+321:                                              ; preds = %317, %298, %297, %273, %272, %248, %247, %219, %218, %190, %189, %165, %164, %136, %135, %112, %111, %88, %87, %64, %63, %33, %32
+  %322 = load i32, ptr %11, align 4
+  call void @protobuf_seek_forward(ptr noundef %13, i32 noundef %322)
   br label %21, !llvm.loop !11
 
-322:                                              ; preds = %21
+323:                                              ; preds = %21
   ret void
 }
 
@@ -2296,15 +2299,15 @@ define internal void @steamdiscover_dissect_body_streamingcancelrequest(ptr noun
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 24, i1 false)
   br label %21
 
-21:                                               ; preds = %61, %5
+21:                                               ; preds = %62, %5
   %22 = call i32 @protobuf_iter_next(ptr noundef %13, ptr noundef %14)
   %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %63
+  br i1 %23, label %24, label %64
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds %struct.protobuf_tag_t, ptr %14, i32 0, i32 1
   %26 = load i64, ptr %25, align 8
-  switch i64 %26, label %57 [
+  switch i64 %26, label %58 [
     i64 1, label %27
   ]
 
@@ -2317,7 +2320,7 @@ define internal void @steamdiscover_dissect_body_streamingcancelrequest(ptr noun
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %27
-  br label %61
+  br label %62
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds %struct.protobuf_desc_t, ptr %13, i32 0, i32 0
@@ -2341,25 +2344,26 @@ define internal void @steamdiscover_dissect_body_streamingcancelrequest(ptr noun
   %51 = load ptr, ptr %7, align 8
   %52 = getelementptr inbounds %struct._packet_info, ptr %51, i32 0, i32 1
   %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr getelementptr inbounds ([12 x %struct._val64_string], ptr @hf_steam_ihs_discovery_header_msgtype_strings, i64 0, i64 10, i32 1), align 8
-  %55 = load i64, ptr %12, align 8
-  %56 = trunc i64 %55 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %53, i32 noundef 25, ptr noundef @.str.153, ptr noundef %54, i32 noundef %56)
-  br label %61
+  %54 = getelementptr inbounds [12 x %struct._val64_string], ptr @hf_steam_ihs_discovery_header_msgtype_strings, i64 0, i64 10, i32 1
+  %55 = load ptr, ptr %54, align 8
+  %56 = load i64, ptr %12, align 8
+  %57 = trunc i64 %56 to i32
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %53, i32 noundef 25, ptr noundef @.str.153, ptr noundef %55, i32 noundef %57)
+  br label %62
 
-57:                                               ; preds = %24
-  %58 = load ptr, ptr %7, align 8
-  %59 = load ptr, ptr %8, align 8
-  %60 = call i32 @protobuf_dissect_unknown_field(ptr noundef %13, ptr noundef %14, ptr noundef %58, ptr noundef %59, ptr noundef null)
-  store i32 %60, ptr %11, align 4
-  br label %61
+58:                                               ; preds = %24
+  %59 = load ptr, ptr %7, align 8
+  %60 = load ptr, ptr %8, align 8
+  %61 = call i32 @protobuf_dissect_unknown_field(ptr noundef %13, ptr noundef %14, ptr noundef %59, ptr noundef %60, ptr noundef null)
+  store i32 %61, ptr %11, align 4
+  br label %62
 
-61:                                               ; preds = %57, %33, %32
-  %62 = load i32, ptr %11, align 4
-  call void @protobuf_seek_forward(ptr noundef %13, i32 noundef %62)
+62:                                               ; preds = %58, %33, %32
+  %63 = load i32, ptr %11, align 4
+  call void @protobuf_seek_forward(ptr noundef %13, i32 noundef %63)
   br label %21, !llvm.loop !12
 
-63:                                               ; preds = %21
+64:                                               ; preds = %21
   ret void
 }
 

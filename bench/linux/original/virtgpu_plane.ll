@@ -66,21 +66,22 @@ define dso_local ptr @virtio_gpu_plane_init(ptr nocapture noundef readonly %0, i
   %6 = select i1 %5, ptr @virtio_gpu_cursor_formats, ptr @virtio_gpu_formats
   %7 = shl nuw i32 1, %2
   %8 = tail call ptr (ptr, i64, i64, i32, ptr, ptr, i32, ptr, i32, ptr, ...) @__drmm_universal_plane_alloc(ptr noundef %4, i64 noundef 1320, i64 noundef 0, i32 noundef %7, ptr noundef nonnull @virtio_gpu_plane_funcs, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, i32 noundef %1, ptr noundef null) #4
-  %9 = icmp ugt ptr %8, inttoptr (i64 -4096 to ptr)
-  br i1 %9, label %15, label %10
+  %9 = inttoptr i64 -4096 to ptr
+  %10 = icmp ugt ptr %8, %9
+  br i1 %10, label %16, label %11
 
-10:                                               ; preds = %3
-  %11 = select i1 %5, ptr @virtio_gpu_cursor_helper_funcs, ptr @virtio_gpu_primary_helper_funcs
-  %12 = getelementptr inbounds i8, ptr %8, i64 1232
-  store ptr %11, ptr %12, align 8
-  %13 = icmp eq i32 %1, 1
-  br i1 %13, label %14, label %15
+11:                                               ; preds = %3
+  %12 = select i1 %5, ptr @virtio_gpu_cursor_helper_funcs, ptr @virtio_gpu_primary_helper_funcs
+  %13 = getelementptr inbounds i8, ptr %8, i64 1232
+  store ptr %12, ptr %13, align 8
+  %14 = icmp eq i32 %1, 1
+  br i1 %14, label %15, label %16
 
-14:                                               ; preds = %10
+15:                                               ; preds = %11
   tail call void @drm_plane_enable_fb_damage_clips(ptr noundef %8) #4
-  br label %15
+  br label %16
 
-15:                                               ; preds = %14, %10, %3
+16:                                               ; preds = %15, %11, %3
   ret ptr %8
 }
 
@@ -212,7 +213,7 @@ define internal i32 @virtio_gpu_plane_atomic_check(ptr nocapture noundef readonl
   %15 = getelementptr inbounds i8, ptr %9, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %38, label %18
+  br i1 %17, label %39, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds i8, ptr %9, i64 8
@@ -224,7 +225,7 @@ define internal i32 @virtio_gpu_plane_atomic_check(ptr nocapture noundef readonl
   tail call void asm sideeffect "403: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 403b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 403) #4, !srcloc !14
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 88, i32 2305, i64 12) #4, !srcloc !15
   tail call void asm sideeffect "404: nop\0A\09.pushsection .discard.instr_end\0A\09.long 404b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 404) #4, !srcloc !16
-  br label %38
+  br label %39
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %11, i64 16
@@ -240,21 +241,22 @@ define internal i32 @virtio_gpu_plane_atomic_check(ptr nocapture noundef readonl
 29:                                               ; preds = %27, %23
   %30 = load ptr, ptr %19, align 8
   %31 = tail call ptr @drm_atomic_get_crtc_state(ptr noundef %1, ptr noundef %30) #4
-  %32 = icmp ugt ptr %31, inttoptr (i64 -4096 to ptr)
-  br i1 %32, label %33, label %36
+  %32 = inttoptr i64 -4096 to ptr
+  %33 = icmp ugt ptr %31, %32
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %29
-  %34 = ptrtoint ptr %31 to i64
-  %35 = trunc i64 %34 to i32
-  br label %38
+34:                                               ; preds = %29
+  %35 = ptrtoint ptr %31 to i64
+  %36 = trunc i64 %35 to i32
+  br label %39
 
-36:                                               ; preds = %29
-  %37 = tail call i32 @drm_atomic_helper_check_plane_state(ptr noundef %9, ptr noundef %31, i32 noundef 65536, i32 noundef 65536, i1 noundef zeroext %14, i1 noundef zeroext true) #4
-  br label %38
+37:                                               ; preds = %29
+  %38 = tail call i32 @drm_atomic_helper_check_plane_state(ptr noundef %9, ptr noundef %31, i32 noundef 65536, i32 noundef 65536, i1 noundef zeroext %14, i1 noundef zeroext true) #4
+  br label %39
 
-38:                                               ; preds = %36, %33, %22, %2
-  %39 = phi i32 [ %35, %33 ], [ %37, %36 ], [ 0, %22 ], [ 0, %2 ]
-  ret i32 %39
+39:                                               ; preds = %37, %34, %22, %2
+  %40 = phi i32 [ %36, %34 ], [ %38, %37 ], [ 0, %22 ], [ 0, %2 ]
+  ret i32 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

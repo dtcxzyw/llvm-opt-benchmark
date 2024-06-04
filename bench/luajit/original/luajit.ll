@@ -102,35 +102,37 @@ if.then7:                                         ; preds = %if.end6
 
 if.end8:                                          ; preds = %if.end6
   %8 = load i32, ptr %argc.addr, align 4
-  store i32 %8, ptr getelementptr inbounds (%struct.Smain, ptr @smain, i32 0, i32 1), align 8
-  %9 = load ptr, ptr %argv.addr, align 8
-  store ptr %9, ptr @smain, align 8
-  %10 = load ptr, ptr %L, align 8
-  %call9 = call i32 @lua_cpcall(ptr noundef %10, ptr noundef @pmain, ptr noundef null)
-  store i32 %call9, ptr %status, align 4
+  %9 = getelementptr inbounds %struct.Smain, ptr @smain, i32 0, i32 1
+  store i32 %8, ptr %9, align 8
+  %10 = load ptr, ptr %argv.addr, align 8
+  store ptr %10, ptr @smain, align 8
   %11 = load ptr, ptr %L, align 8
-  %12 = load i32, ptr %status, align 4
-  %call10 = call i32 @report(ptr noundef %11, i32 noundef %12)
-  %13 = load ptr, ptr %L, align 8
-  call void @lua_close(ptr noundef %13)
-  %14 = load i32, ptr %status, align 4
-  %tobool11 = icmp ne i32 %14, 0
+  %call9 = call i32 @lua_cpcall(ptr noundef %11, ptr noundef @pmain, ptr noundef null)
+  store i32 %call9, ptr %status, align 4
+  %12 = load ptr, ptr %L, align 8
+  %13 = load i32, ptr %status, align 4
+  %call10 = call i32 @report(ptr noundef %12, i32 noundef %13)
+  %14 = load ptr, ptr %L, align 8
+  call void @lua_close(ptr noundef %14)
+  %15 = load i32, ptr %status, align 4
+  %tobool11 = icmp ne i32 %15, 0
   br i1 %tobool11, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end8
-  %15 = load i32, ptr getelementptr inbounds (%struct.Smain, ptr @smain, i32 0, i32 2), align 4
-  %cmp12 = icmp sgt i32 %15, 0
+  %16 = getelementptr inbounds %struct.Smain, ptr @smain, i32 0, i32 2
+  %17 = load i32, ptr %16, align 4
+  %cmp12 = icmp sgt i32 %17, 0
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.end8
-  %16 = phi i1 [ true, %if.end8 ], [ %cmp12, %lor.rhs ]
-  %cond = select i1 %16, i32 1, i32 0
+  %18 = phi i1 [ true, %if.end8 ], [ %cmp12, %lor.rhs ]
+  %cond = select i1 %18, i32 1, i32 0
   store i32 %cond, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %lor.end, %if.then7
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+  %19 = load i32, ptr %retval, align 4
+  ret i32 %19
 }
 
 declare ptr @luaL_newstate() #1

@@ -725,27 +725,28 @@ define noundef ptr @_ZN12CFrmSettings11qt_metacastEPKc(ptr noundef nonnull align
 
 9:                                                ; preds = %2
   store ptr null, ptr %3, align 8
-  br label %18
+  br label %19
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %5, align 8
-  %12 = call i32 @strcmp(ptr noundef %11, ptr noundef getelementptr inbounds (%struct.qt_meta_stringdata_CFrmSettings_t, ptr @_ZL31qt_meta_stringdata_CFrmSettings, i32 0, i32 1)) #11
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %10
-  store ptr %6, ptr %3, align 8
-  br label %18
+  %12 = getelementptr inbounds %struct.qt_meta_stringdata_CFrmSettings_t, ptr @_ZL31qt_meta_stringdata_CFrmSettings, i32 0, i32 1
+  %13 = call i32 @strcmp(ptr noundef %11, ptr noundef %12) #11
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr %5, align 8
-  %17 = call noundef ptr @_ZN7QDialog11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %16)
-  store ptr %17, ptr %3, align 8
-  br label %18
+  store ptr %6, ptr %3, align 8
+  br label %19
 
-18:                                               ; preds = %15, %14, %9
-  %19 = load ptr, ptr %3, align 8
-  ret ptr %19
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %5, align 8
+  %18 = call noundef ptr @_ZN7QDialog11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %17)
+  store ptr %18, ptr %3, align 8
+  br label %19
+
+19:                                               ; preds = %16, %15, %9
+  %20 = load ptr, ptr %3, align 8
+  ret ptr %20
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
@@ -1061,27 +1062,28 @@ define noundef ptr @_ZN11ImageViewer11qt_metacastEPKc(ptr noundef nonnull align 
 
 9:                                                ; preds = %2
   store ptr null, ptr %3, align 8
-  br label %18
+  br label %19
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %5, align 8
-  %12 = call i32 @strcmp(ptr noundef %11, ptr noundef getelementptr inbounds (%struct.qt_meta_stringdata_ImageViewer_t, ptr @_ZL30qt_meta_stringdata_ImageViewer, i32 0, i32 1)) #11
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %10
-  store ptr %6, ptr %3, align 8
-  br label %18
+  %12 = getelementptr inbounds %struct.qt_meta_stringdata_ImageViewer_t, ptr @_ZL30qt_meta_stringdata_ImageViewer, i32 0, i32 1
+  %13 = call i32 @strcmp(ptr noundef %11, ptr noundef %12) #11
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr %5, align 8
-  %17 = call noundef ptr @_ZN11QMainWindow11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %16)
-  store ptr %17, ptr %3, align 8
-  br label %18
+  store ptr %6, ptr %3, align 8
+  br label %19
 
-18:                                               ; preds = %15, %14, %9
-  %19 = load ptr, ptr %3, align 8
-  ret ptr %19
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %5, align 8
+  %18 = call noundef ptr @_ZN11QMainWindow11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %17)
+  store ptr %18, ptr %3, align 8
+  br label %19
+
+19:                                               ; preds = %16, %15, %9
+  %20 = load ptr, ptr %3, align 8
+  ret ptr %20
 }
 
 declare noundef ptr @_ZN11QMainWindow11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
@@ -1469,27 +1471,28 @@ define noundef ptr @_ZN11CMainWindow11qt_metacastEPKc(ptr noundef nonnull align 
 
 9:                                                ; preds = %2
   store ptr null, ptr %3, align 8
-  br label %18
+  br label %19
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %5, align 8
-  %12 = call i32 @strcmp(ptr noundef %11, ptr noundef getelementptr inbounds (%struct.qt_meta_stringdata_CMainWindow_t, ptr @_ZL30qt_meta_stringdata_CMainWindow, i32 0, i32 1)) #11
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %10
-  store ptr %6, ptr %3, align 8
-  br label %18
+  %12 = getelementptr inbounds %struct.qt_meta_stringdata_CMainWindow_t, ptr @_ZL30qt_meta_stringdata_CMainWindow, i32 0, i32 1
+  %13 = call i32 @strcmp(ptr noundef %11, ptr noundef %12) #11
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr %5, align 8
-  %17 = call noundef ptr @_ZN11QMainWindow11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %16)
-  store ptr %17, ptr %3, align 8
-  br label %18
+  store ptr %6, ptr %3, align 8
+  br label %19
 
-18:                                               ; preds = %15, %14, %9
-  %19 = load ptr, ptr %3, align 8
-  ret ptr %19
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %5, align 8
+  %18 = call noundef ptr @_ZN11QMainWindow11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %17)
+  store ptr %18, ptr %3, align 8
+  br label %19
+
+19:                                               ; preds = %16, %15, %9
+  %20 = load ptr, ptr %3, align 8
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1657,27 +1660,28 @@ define noundef ptr @_ZN8MdiChild11qt_metacastEPKc(ptr noundef nonnull align 8 de
 
 9:                                                ; preds = %2
   store ptr null, ptr %3, align 8
-  br label %18
+  br label %19
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %5, align 8
-  %12 = call i32 @strcmp(ptr noundef %11, ptr noundef getelementptr inbounds (%struct.qt_meta_stringdata_MdiChild_t, ptr @_ZL27qt_meta_stringdata_MdiChild, i32 0, i32 1)) #11
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %10
-  store ptr %6, ptr %3, align 8
-  br label %18
+  %12 = getelementptr inbounds %struct.qt_meta_stringdata_MdiChild_t, ptr @_ZL27qt_meta_stringdata_MdiChild, i32 0, i32 1
+  %13 = call i32 @strcmp(ptr noundef %11, ptr noundef %12) #11
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr %5, align 8
-  %17 = call noundef ptr @_ZN9QTextEdit11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %16)
-  store ptr %17, ptr %3, align 8
-  br label %18
+  store ptr %6, ptr %3, align 8
+  br label %19
 
-18:                                               ; preds = %15, %14, %9
-  %19 = load ptr, ptr %3, align 8
-  ret ptr %19
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %5, align 8
+  %18 = call noundef ptr @_ZN9QTextEdit11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %17)
+  store ptr %18, ptr %3, align 8
+  br label %19
+
+19:                                               ; preds = %16, %15, %9
+  %20 = load ptr, ptr %3, align 8
+  ret ptr %20
 }
 
 declare noundef ptr @_ZN9QTextEdit11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
@@ -1777,11 +1781,13 @@ define linkonce_odr void @_ZN12CFrmSettingsD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV12CFrmSettings, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV12CFrmSettings, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.CFrmSettings, ptr %3, i32 0, i32 1
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
+  %4 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV12CFrmSettings, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV12CFrmSettings, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.CFrmSettings, ptr %3, i32 0, i32 1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
   call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #10
   ret void
 }
@@ -2039,17 +2045,19 @@ define linkonce_odr void @_ZN8MdiChildD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV8MdiChild, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV8MdiChild, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.MdiChild, ptr %3, i32 0, i32 12
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
-  %6 = getelementptr inbounds %class.MdiChild, ptr %3, i32 0, i32 8
-  call void @_ZNSt10unique_ptrI11ImageViewerSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
-  %7 = getelementptr inbounds %class.MdiChild, ptr %3, i32 0, i32 7
+  %4 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV8MdiChild, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV8MdiChild, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.MdiChild, ptr %3, i32 0, i32 12
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
-  %8 = getelementptr inbounds %class.MdiChild, ptr %3, i32 0, i32 3
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #10
+  %8 = getelementptr inbounds %class.MdiChild, ptr %3, i32 0, i32 8
+  call void @_ZNSt10unique_ptrI11ImageViewerSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #10
+  %9 = getelementptr inbounds %class.MdiChild, ptr %3, i32 0, i32 7
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #10
+  %10 = getelementptr inbounds %class.MdiChild, ptr %3, i32 0, i32 3
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #10
   call void @_ZN9QTextEditD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #10
   ret void
 }

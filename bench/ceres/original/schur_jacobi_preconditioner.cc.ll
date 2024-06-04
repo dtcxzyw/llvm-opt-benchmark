@@ -662,377 +662,378 @@ define hidden void @_ZN5ceres8internal25SchurJacobiPreconditionerC2ERKNS0_27Comp
   store ptr %2, ptr %6, align 8
   %27 = load ptr, ptr %4, align 8
   call void @_ZN5ceres8internal19TypedPreconditionerINS0_17BlockSparseMatrixEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #13
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5ceres8internal25SchurJacobiPreconditionerE, i32 0, i32 0, i32 2), ptr %27, align 8
-  %28 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
-  call void @_ZN5ceres8internal14Preconditioner7OptionsC2EOS2_(ptr noundef nonnull align 8 dereferenceable(72) %28, ptr noundef nonnull align 8 dereferenceable(72) %2) #13
-  %29 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %29) #13
-  %30 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %30) #13
-  br label %31
+  %28 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5ceres8internal25SchurJacobiPreconditionerE, i32 0, i32 0, i32 2
+  store ptr %28, ptr %27, align 8
+  %29 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
+  call void @_ZN5ceres8internal14Preconditioner7OptionsC2EOS2_(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(72) %2) #13
+  %30 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %30) #13
+  %31 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %31) #13
+  br label %32
 
-31:                                               ; preds = %3
-  %32 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
-  %33 = getelementptr inbounds %"struct.ceres::internal::Preconditioner::Options", ptr %32, i32 0, i32 6
-  %34 = call noundef i64 @_ZNKSt6vectorIiSaIiEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %33) #13
-  %35 = invoke noundef i64 @_ZN6google21GetReferenceableValueEm(i64 noundef %34)
-          to label %36 unwind label %48
+32:                                               ; preds = %3
+  %33 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
+  %34 = getelementptr inbounds %"struct.ceres::internal::Preconditioner::Options", ptr %33, i32 0, i32 6
+  %35 = call noundef i64 @_ZNKSt6vectorIiSaIiEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
+  %36 = invoke noundef i64 @_ZN6google21GetReferenceableValueEm(i64 noundef %35)
+          to label %37 unwind label %49
 
-36:                                               ; preds = %31
-  store i64 %35, ptr %8, align 8
-  %37 = invoke noundef i32 @_ZN6google21GetReferenceableValueEi(i32 noundef 1)
-          to label %38 unwind label %48
+37:                                               ; preds = %32
+  store i64 %36, ptr %8, align 8
+  %38 = invoke noundef i32 @_ZN6google21GetReferenceableValueEi(i32 noundef 1)
+          to label %39 unwind label %49
 
-38:                                               ; preds = %36
-  store i32 %37, ptr %11, align 4
-  %39 = invoke noundef ptr @_ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef @.str)
-          to label %40 unwind label %48
+39:                                               ; preds = %37
+  store i32 %38, ptr %11, align 4
+  %40 = invoke noundef ptr @_ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef @.str)
+          to label %41 unwind label %49
 
-40:                                               ; preds = %38
-  invoke void @_ZN6google13CheckOpStringC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %39)
-          to label %41 unwind label %48
+41:                                               ; preds = %39
+  invoke void @_ZN6google13CheckOpStringC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %40)
+          to label %42 unwind label %49
 
-41:                                               ; preds = %40
-  %42 = invoke noundef zeroext i1 @_ZNK6google13CheckOpStringcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %43 unwind label %48
+42:                                               ; preds = %41
+  %43 = invoke noundef zeroext i1 @_ZNK6google13CheckOpStringcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %44 unwind label %49
 
-43:                                               ; preds = %41
-  br i1 %42, label %44, label %57
-
-44:                                               ; preds = %43
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef @.str.3, i32 noundef 48, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %45 unwind label %48
+44:                                               ; preds = %42
+  br i1 %43, label %45, label %58
 
 45:                                               ; preds = %44
-  %46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %12)
-          to label %47 unwind label %52
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef @.str.3, i32 noundef 48, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %46 unwind label %49
 
-47:                                               ; preds = %45
+46:                                               ; preds = %45
+  %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %12)
+          to label %48 unwind label %53
+
+48:                                               ; preds = %46
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #14
   unreachable
 
-48:                                               ; preds = %124, %123, %103, %100, %99, %97, %95, %92, %72, %69, %68, %66, %64, %58, %44, %41, %40, %38, %36, %31
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %125, %124, %104, %101, %100, %98, %96, %93, %73, %70, %69, %67, %65, %59, %45, %42, %41, %39, %37, %32
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %9, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %10, align 4
-  br label %196
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %9, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %10, align 4
+  br label %197
 
-52:                                               ; preds = %45
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %46
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %9, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %10, align 4
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %9, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %10, align 4
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #14
   unreachable
 
-56:                                               ; No predecessors!
-  br label %196
+57:                                               ; No predecessors!
+  br label %197
 
-57:                                               ; preds = %43
-  br label %58
+58:                                               ; preds = %44
+  br label %59
 
-58:                                               ; preds = %57
-  %59 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
-  %60 = getelementptr inbounds %"struct.ceres::internal::Preconditioner::Options", ptr %59, i32 0, i32 6
-  %61 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %60, i64 noundef 0) #13
-  %62 = load i32, ptr %61, align 4
-  %63 = invoke noundef i32 @_ZN6google21GetReferenceableValueEi(i32 noundef %62)
-          to label %64 unwind label %48
+59:                                               ; preds = %58
+  %60 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
+  %61 = getelementptr inbounds %"struct.ceres::internal::Preconditioner::Options", ptr %60, i32 0, i32 6
+  %62 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %61, i64 noundef 0) #13
+  %63 = load i32, ptr %62, align 4
+  %64 = invoke noundef i32 @_ZN6google21GetReferenceableValueEi(i32 noundef %63)
+          to label %65 unwind label %49
 
-64:                                               ; preds = %58
-  %65 = invoke noundef i32 @_ZN6google21GetReferenceableValueEi(i32 noundef 0)
-          to label %66 unwind label %48
+65:                                               ; preds = %59
+  %66 = invoke noundef i32 @_ZN6google21GetReferenceableValueEi(i32 noundef 0)
+          to label %67 unwind label %49
 
-66:                                               ; preds = %64
-  %67 = invoke noundef ptr @_ZN6google12Check_GTImplB5cxx11EiiPKc(i32 noundef %63, i32 noundef %65, ptr noundef @.str.4)
-          to label %68 unwind label %48
+67:                                               ; preds = %65
+  %68 = invoke noundef ptr @_ZN6google12Check_GTImplB5cxx11EiiPKc(i32 noundef %64, i32 noundef %66, ptr noundef @.str.4)
+          to label %69 unwind label %49
 
-68:                                               ; preds = %66
-  invoke void @_ZN6google13CheckOpStringC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %67)
-          to label %69 unwind label %48
+69:                                               ; preds = %67
+  invoke void @_ZN6google13CheckOpStringC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %68)
+          to label %70 unwind label %49
 
-69:                                               ; preds = %68
-  %70 = invoke noundef zeroext i1 @_ZNK6google13CheckOpStringcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %71 unwind label %48
+70:                                               ; preds = %69
+  %71 = invoke noundef zeroext i1 @_ZNK6google13CheckOpStringcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %72 unwind label %49
 
-71:                                               ; preds = %69
-  br i1 %70, label %72, label %81
-
-72:                                               ; preds = %71
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef @.str.3, i32 noundef 49, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %73 unwind label %48
+72:                                               ; preds = %70
+  br i1 %71, label %73, label %82
 
 73:                                               ; preds = %72
-  %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %14)
-          to label %75 unwind label %76
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef @.str.3, i32 noundef 49, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %74 unwind label %49
 
-75:                                               ; preds = %73
+74:                                               ; preds = %73
+  %75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %14)
+          to label %76 unwind label %77
+
+76:                                               ; preds = %74
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #14
   unreachable
 
-76:                                               ; preds = %73
-  %77 = landingpad { ptr, i32 }
+77:                                               ; preds = %74
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %9, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %10, align 4
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %9, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %10, align 4
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #14
   unreachable
 
-80:                                               ; No predecessors!
-  br label %196
+81:                                               ; No predecessors!
+  br label %197
 
-81:                                               ; preds = %71
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %82, i32 0, i32 0
-  %84 = call noundef i64 @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %83) #13
-  %85 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
-  %86 = getelementptr inbounds %"struct.ceres::internal::Preconditioner::Options", ptr %85, i32 0, i32 6
-  %87 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %86, i64 noundef 0) #13
-  %88 = load i32, ptr %87, align 4
-  %89 = sext i32 %88 to i64
-  %90 = sub i64 %84, %89
-  %91 = trunc i64 %90 to i32
-  store i32 %91, ptr %15, align 4
-  br label %92
+82:                                               ; preds = %72
+  %83 = load ptr, ptr %5, align 8
+  %84 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %83, i32 0, i32 0
+  %85 = call noundef i64 @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %84) #13
+  %86 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
+  %87 = getelementptr inbounds %"struct.ceres::internal::Preconditioner::Options", ptr %86, i32 0, i32 6
+  %88 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %87, i64 noundef 0) #13
+  %89 = load i32, ptr %88, align 4
+  %90 = sext i32 %89 to i64
+  %91 = sub i64 %85, %90
+  %92 = trunc i64 %91 to i32
+  store i32 %92, ptr %15, align 4
+  br label %93
 
-92:                                               ; preds = %81
-  %93 = load i32, ptr %15, align 4
-  %94 = invoke noundef i32 @_ZN6google21GetReferenceableValueEi(i32 noundef %93)
-          to label %95 unwind label %48
+93:                                               ; preds = %82
+  %94 = load i32, ptr %15, align 4
+  %95 = invoke noundef i32 @_ZN6google21GetReferenceableValueEi(i32 noundef %94)
+          to label %96 unwind label %49
 
-95:                                               ; preds = %92
-  %96 = invoke noundef i32 @_ZN6google21GetReferenceableValueEi(i32 noundef 0)
-          to label %97 unwind label %48
+96:                                               ; preds = %93
+  %97 = invoke noundef i32 @_ZN6google21GetReferenceableValueEi(i32 noundef 0)
+          to label %98 unwind label %49
 
-97:                                               ; preds = %95
-  %98 = invoke noundef ptr @_ZN6google12Check_GTImplB5cxx11EiiPKc(i32 noundef %94, i32 noundef %96, ptr noundef @.str.5)
-          to label %99 unwind label %48
+98:                                               ; preds = %96
+  %99 = invoke noundef ptr @_ZN6google12Check_GTImplB5cxx11EiiPKc(i32 noundef %95, i32 noundef %97, ptr noundef @.str.5)
+          to label %100 unwind label %49
 
-99:                                               ; preds = %97
-  invoke void @_ZN6google13CheckOpStringC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %98)
-          to label %100 unwind label %48
+100:                                              ; preds = %98
+  invoke void @_ZN6google13CheckOpStringC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %99)
+          to label %101 unwind label %49
 
-100:                                              ; preds = %99
-  %101 = invoke noundef zeroext i1 @_ZNK6google13CheckOpStringcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %102 unwind label %48
+101:                                              ; preds = %100
+  %102 = invoke noundef zeroext i1 @_ZNK6google13CheckOpStringcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %103 unwind label %49
 
-102:                                              ; preds = %100
-  br i1 %101, label %103, label %116
-
-103:                                              ; preds = %102
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef @.str.3, i32 noundef 51, ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %104 unwind label %48
+103:                                              ; preds = %101
+  br i1 %102, label %104, label %117
 
 104:                                              ; preds = %103
-  %105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %17)
-          to label %106 unwind label %111
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef @.str.3, i32 noundef 51, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %105 unwind label %49
 
-106:                                              ; preds = %104
-  %107 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef @.str.6)
-          to label %108 unwind label %111
+105:                                              ; preds = %104
+  %106 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %17)
+          to label %107 unwind label %112
 
-108:                                              ; preds = %106
-  %109 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef @.str.7)
-          to label %110 unwind label %111
+107:                                              ; preds = %105
+  %108 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef @.str.6)
+          to label %109 unwind label %112
 
-110:                                              ; preds = %108
+109:                                              ; preds = %107
+  %110 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef @.str.7)
+          to label %111 unwind label %112
+
+111:                                              ; preds = %109
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #14
   unreachable
 
-111:                                              ; preds = %108, %106, %104
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %109, %107, %105
+  %113 = landingpad { ptr, i32 }
           cleanup
-  %113 = extractvalue { ptr, i32 } %112, 0
-  store ptr %113, ptr %9, align 8
-  %114 = extractvalue { ptr, i32 } %112, 1
-  store i32 %114, ptr %10, align 4
+  %114 = extractvalue { ptr, i32 } %113, 0
+  store ptr %114, ptr %9, align 8
+  %115 = extractvalue { ptr, i32 } %113, 1
+  store i32 %115, ptr %10, align 4
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #14
   unreachable
 
-115:                                              ; No predecessors!
-  br label %196
+116:                                              ; No predecessors!
+  br label %197
 
-116:                                              ; preds = %102
-  %117 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
-  %118 = getelementptr inbounds %"struct.ceres::internal::Preconditioner::Options", ptr %117, i32 0, i32 10
-  %119 = load ptr, ptr %118, align 8
-  %120 = icmp ne ptr %119, null
-  %121 = xor i1 %120, true
+117:                                              ; preds = %103
+  %118 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
+  %119 = getelementptr inbounds %"struct.ceres::internal::Preconditioner::Options", ptr %118, i32 0, i32 10
+  %120 = load ptr, ptr %119, align 8
+  %121 = icmp ne ptr %120, null
+  %122 = xor i1 %121, true
   store i1 false, ptr %20, align 1
-  br i1 %121, label %123, label %122
+  br i1 %122, label %124, label %123
 
-122:                                              ; preds = %116
-  br label %131
+123:                                              ; preds = %117
+  br label %132
 
-123:                                              ; preds = %116
+124:                                              ; preds = %117
   invoke void @_ZN6google17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %18)
-          to label %124 unwind label %48
-
-124:                                              ; preds = %123
-  invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef @.str.3, i32 noundef 53)
-          to label %125 unwind label %48
+          to label %125 unwind label %49
 
 125:                                              ; preds = %124
+  invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef @.str.3, i32 noundef 53)
+          to label %126 unwind label %49
+
+126:                                              ; preds = %125
   store i1 true, ptr %20, align 1
-  %126 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
-          to label %127 unwind label %134
+  %127 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
+          to label %128 unwind label %135
 
-127:                                              ; preds = %125
-  %128 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %126, ptr noundef @.str.8)
-          to label %129 unwind label %134
+128:                                              ; preds = %126
+  %129 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef @.str.8)
+          to label %130 unwind label %135
 
-129:                                              ; preds = %127
-  invoke void @_ZN6google17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %128)
-          to label %130 unwind label %134
+130:                                              ; preds = %128
+  invoke void @_ZN6google17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %129)
+          to label %131 unwind label %135
 
-130:                                              ; preds = %129
-  br label %131
+131:                                              ; preds = %130
+  br label %132
 
-131:                                              ; preds = %130, %122
-  %132 = load i1, ptr %20, align 1
-  br i1 %132, label %133, label %140
+132:                                              ; preds = %131, %123
+  %133 = load i1, ptr %20, align 1
+  br i1 %133, label %134, label %141
 
-133:                                              ; preds = %131
+134:                                              ; preds = %132
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #14
   unreachable
 
-134:                                              ; preds = %129, %127, %125
-  %135 = landingpad { ptr, i32 }
+135:                                              ; preds = %130, %128, %126
+  %136 = landingpad { ptr, i32 }
           cleanup
-  %136 = extractvalue { ptr, i32 } %135, 0
-  store ptr %136, ptr %9, align 8
-  %137 = extractvalue { ptr, i32 } %135, 1
-  store i32 %137, ptr %10, align 4
-  %138 = load i1, ptr %20, align 1
-  br i1 %138, label %175, label %177
+  %137 = extractvalue { ptr, i32 } %136, 0
+  store ptr %137, ptr %9, align 8
+  %138 = extractvalue { ptr, i32 } %136, 1
+  store i32 %138, ptr %10, align 4
+  %139 = load i1, ptr %20, align 1
+  br i1 %139, label %176, label %178
 
-139:                                              ; No predecessors!
-  br label %140
+140:                                              ; No predecessors!
+  br label %141
 
-140:                                              ; preds = %139, %131
-  %141 = load i32, ptr %15, align 4
-  %142 = sext i32 %141 to i64
+141:                                              ; preds = %140, %132
+  %142 = load i32, ptr %15, align 4
+  %143 = sext i32 %142 to i64
   call void @_ZNSaIN5ceres8internal5BlockEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #13
-  invoke void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %142, ptr noundef nonnull align 1 dereferenceable(1) %22)
-          to label %143 unwind label %178
+  invoke void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %143, ptr noundef nonnull align 1 dereferenceable(1) %22)
+          to label %144 unwind label %179
 
-143:                                              ; preds = %140
+144:                                              ; preds = %141
   call void @_ZNSaIN5ceres8internal5BlockEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #13
   store i32 0, ptr %23, align 4
   store i32 0, ptr %24, align 4
-  br label %144
+  br label %145
 
-144:                                              ; preds = %172, %143
-  %145 = load i32, ptr %24, align 4
-  %146 = load i32, ptr %15, align 4
-  %147 = icmp slt i32 %145, %146
-  br i1 %147, label %148, label %182
+145:                                              ; preds = %173, %144
+  %146 = load i32, ptr %24, align 4
+  %147 = load i32, ptr %15, align 4
+  %148 = icmp slt i32 %146, %147
+  br i1 %148, label %149, label %183
 
-148:                                              ; preds = %144
-  %149 = load ptr, ptr %5, align 8
-  %150 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %149, i32 0, i32 0
-  %151 = load i32, ptr %24, align 4
-  %152 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
-  %153 = getelementptr inbounds %"struct.ceres::internal::Preconditioner::Options", ptr %152, i32 0, i32 6
-  %154 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %153, i64 noundef 0) #13
-  %155 = load i32, ptr %154, align 4
-  %156 = add nsw i32 %151, %155
-  %157 = sext i32 %156 to i64
-  %158 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %150, i64 noundef %157) #13
-  %159 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %158, i32 0, i32 0
-  %160 = load i32, ptr %159, align 4
-  %161 = load i32, ptr %23, align 4
-  call void @_ZN5ceres8internal5BlockC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %25, i32 noundef %160, i32 noundef %161) #13
-  %162 = load i32, ptr %24, align 4
-  %163 = sext i32 %162 to i64
-  %164 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %163) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %164, ptr align 4 %25, i64 8, i1 false)
-  %165 = load i32, ptr %24, align 4
-  %166 = sext i32 %165 to i64
-  %167 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %166) #13
-  %168 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %167, i32 0, i32 0
-  %169 = load i32, ptr %168, align 4
-  %170 = load i32, ptr %23, align 4
-  %171 = add nsw i32 %170, %169
-  store i32 %171, ptr %23, align 4
-  br label %172
+149:                                              ; preds = %145
+  %150 = load ptr, ptr %5, align 8
+  %151 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %150, i32 0, i32 0
+  %152 = load i32, ptr %24, align 4
+  %153 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
+  %154 = getelementptr inbounds %"struct.ceres::internal::Preconditioner::Options", ptr %153, i32 0, i32 6
+  %155 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %154, i64 noundef 0) #13
+  %156 = load i32, ptr %155, align 4
+  %157 = add nsw i32 %152, %156
+  %158 = sext i32 %157 to i64
+  %159 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %151, i64 noundef %158) #13
+  %160 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %159, i32 0, i32 0
+  %161 = load i32, ptr %160, align 4
+  %162 = load i32, ptr %23, align 4
+  call void @_ZN5ceres8internal5BlockC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %25, i32 noundef %161, i32 noundef %162) #13
+  %163 = load i32, ptr %24, align 4
+  %164 = sext i32 %163 to i64
+  %165 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %164) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %165, ptr align 4 %25, i64 8, i1 false)
+  %166 = load i32, ptr %24, align 4
+  %167 = sext i32 %166 to i64
+  %168 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %167) #13
+  %169 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %168, i32 0, i32 0
+  %170 = load i32, ptr %169, align 4
+  %171 = load i32, ptr %23, align 4
+  %172 = add nsw i32 %171, %170
+  store i32 %172, ptr %23, align 4
+  br label %173
 
-172:                                              ; preds = %148
-  %173 = load i32, ptr %24, align 4
-  %174 = add nsw i32 %173, 1
-  store i32 %174, ptr %24, align 4
-  br label %144, !llvm.loop !4
+173:                                              ; preds = %149
+  %174 = load i32, ptr %24, align 4
+  %175 = add nsw i32 %174, 1
+  store i32 %175, ptr %24, align 4
+  br label %145, !llvm.loop !4
 
-175:                                              ; preds = %134
+176:                                              ; preds = %135
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #14
   unreachable
 
-176:                                              ; No predecessors!
-  br label %177
+177:                                              ; No predecessors!
+  br label %178
 
-177:                                              ; preds = %176, %134
-  br label %196
+178:                                              ; preds = %177, %135
+  br label %197
 
-178:                                              ; preds = %140
-  %179 = landingpad { ptr, i32 }
+179:                                              ; preds = %141
+  %180 = landingpad { ptr, i32 }
           cleanup
-  %180 = extractvalue { ptr, i32 } %179, 0
-  store ptr %180, ptr %9, align 8
-  %181 = extractvalue { ptr, i32 } %179, 1
-  store i32 %181, ptr %10, align 4
+  %181 = extractvalue { ptr, i32 } %180, 0
+  store ptr %181, ptr %9, align 8
+  %182 = extractvalue { ptr, i32 } %180, 1
+  store i32 %182, ptr %10, align 4
   call void @_ZNSaIN5ceres8internal5BlockEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #13
-  br label %196
+  br label %197
 
-182:                                              ; preds = %144
-  %183 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
-  %184 = getelementptr inbounds %"struct.ceres::internal::Preconditioner::Options", ptr %183, i32 0, i32 10
-  %185 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
-  %186 = getelementptr inbounds %"struct.ceres::internal::Preconditioner::Options", ptr %185, i32 0, i32 5
-  invoke void @_ZSt11make_uniqueIN5ceres8internal31BlockRandomAccessDiagonalMatrixEJRSt6vectorINS1_5BlockESaIS4_EERPNS1_11ContextImplERiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.3") align 8 %26, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(8) %184, ptr noundef nonnull align 4 dereferenceable(4) %186)
-          to label %187 unwind label %192
+183:                                              ; preds = %145
+  %184 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
+  %185 = getelementptr inbounds %"struct.ceres::internal::Preconditioner::Options", ptr %184, i32 0, i32 10
+  %186 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
+  %187 = getelementptr inbounds %"struct.ceres::internal::Preconditioner::Options", ptr %186, i32 0, i32 5
+  invoke void @_ZSt11make_uniqueIN5ceres8internal31BlockRandomAccessDiagonalMatrixEJRSt6vectorINS1_5BlockESaIS4_EERPNS1_11ContextImplERiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.3") align 8 %26, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(8) %185, ptr noundef nonnull align 4 dereferenceable(4) %187)
+          to label %188 unwind label %193
 
-187:                                              ; preds = %182
-  %188 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 3
-  %189 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef nonnull align 8 dereferenceable(8) %26) #13
+188:                                              ; preds = %183
+  %189 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 3
+  %190 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %189, ptr noundef nonnull align 8 dereferenceable(8) %26) #13
   call void @_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #13
-  %190 = load ptr, ptr %5, align 8
-  invoke void @_ZN5ceres8internal25SchurJacobiPreconditioner14InitEliminatorERKNS0_27CompressedRowBlockStructureE(ptr noundef nonnull align 8 dereferenceable(96) %27, ptr noundef nonnull align 8 dereferenceable(48) %190)
-          to label %191 unwind label %192
+  %191 = load ptr, ptr %5, align 8
+  invoke void @_ZN5ceres8internal25SchurJacobiPreconditioner14InitEliminatorERKNS0_27CompressedRowBlockStructureE(ptr noundef nonnull align 8 dereferenceable(96) %27, ptr noundef nonnull align 8 dereferenceable(48) %191)
+          to label %192 unwind label %193
 
-191:                                              ; preds = %187
+192:                                              ; preds = %188
   call void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
   ret void
 
-192:                                              ; preds = %187, %182
-  %193 = landingpad { ptr, i32 }
+193:                                              ; preds = %188, %183
+  %194 = landingpad { ptr, i32 }
           cleanup
-  %194 = extractvalue { ptr, i32 } %193, 0
-  store ptr %194, ptr %9, align 8
-  %195 = extractvalue { ptr, i32 } %193, 1
-  store i32 %195, ptr %10, align 4
+  %195 = extractvalue { ptr, i32 } %194, 0
+  store ptr %195, ptr %9, align 8
+  %196 = extractvalue { ptr, i32 } %194, 1
+  store i32 %196, ptr %10, align 4
   call void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
-  br label %196
-
-196:                                              ; preds = %192, %178, %177, %115, %80, %56, %48
-  call void @_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #13
-  call void @_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #13
-  call void @_ZN5ceres8internal14Preconditioner7OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %28) #13
-  call void @_ZN5ceres8internal19TypedPreconditionerINS0_17BlockSparseMatrixEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #13
   br label %197
 
-197:                                              ; preds = %196
-  %198 = load ptr, ptr %9, align 8
-  %199 = load i32, ptr %10, align 4
-  %200 = insertvalue { ptr, i32 } poison, ptr %198, 0
-  %201 = insertvalue { ptr, i32 } %200, i32 %199, 1
-  resume { ptr, i32 } %201
+197:                                              ; preds = %193, %179, %178, %116, %81, %57, %49
+  call void @_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #13
+  call void @_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #13
+  call void @_ZN5ceres8internal14Preconditioner7OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %29) #13
+  call void @_ZN5ceres8internal19TypedPreconditionerINS0_17BlockSparseMatrixEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #13
+  br label %198
+
+198:                                              ; preds = %197
+  %199 = load ptr, ptr %9, align 8
+  %200 = load i32, ptr %10, align 4
+  %201 = insertvalue { ptr, i32 } poison, ptr %199, 0
+  %202 = insertvalue { ptr, i32 } %201, i32 %200, 1
+  resume { ptr, i32 } %202
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1041,7 +1042,8 @@ define linkonce_odr hidden void @_ZN5ceres8internal19TypedPreconditionerINS0_17B
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal14PreconditionerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5ceres8internal19TypedPreconditionerINS0_17BlockSparseMatrixEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5ceres8internal19TypedPreconditionerINS0_17BlockSparseMatrixEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1608,13 +1610,14 @@ define hidden void @_ZN5ceres8internal25SchurJacobiPreconditionerD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5ceres8internal25SchurJacobiPreconditionerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
-  %5 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  %6 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %3, i32 0, i32 1
-  call void @_ZN5ceres8internal14Preconditioner7OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #13
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5ceres8internal25SchurJacobiPreconditionerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  %6 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  %7 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %3, i32 0, i32 1
+  call void @_ZN5ceres8internal14Preconditioner7OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #13
   call void @_ZN5ceres8internal19TypedPreconditionerINS0_17BlockSparseMatrixEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -2211,7 +2214,8 @@ define linkonce_odr hidden void @_ZN5ceres8internal14PreconditionerC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal14LinearOperatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5ceres8internal14PreconditionerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN5ceres8internal14PreconditionerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2239,7 +2243,8 @@ define linkonce_odr hidden void @_ZN5ceres8internal14LinearOperatorC2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5ceres8internal14LinearOperatorE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5ceres8internal14LinearOperatorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

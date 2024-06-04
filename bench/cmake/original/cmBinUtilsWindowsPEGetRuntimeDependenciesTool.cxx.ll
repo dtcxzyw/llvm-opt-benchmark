@@ -25,10 +25,11 @@ define dso_local void @_ZN45cmBinUtilsWindowsPEGetRuntimeDependenciesToolC2EP26c
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV45cmBinUtilsWindowsPEGetRuntimeDependenciesTool, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.cmBinUtilsWindowsPEGetRuntimeDependenciesTool, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV45cmBinUtilsWindowsPEGetRuntimeDependenciesTool, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.cmBinUtilsWindowsPEGetRuntimeDependenciesTool, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 

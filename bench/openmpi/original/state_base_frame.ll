@@ -65,22 +65,38 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @prte_state_base_register(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  store i8 0, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 2), align 1
-  %3 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef @.str.7, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 2))
-  store i8 0, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 3), align 2
-  %4 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 3))
-  store i32 0, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 4), align 4
-  %5 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.10, ptr noundef @.str.11, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 4))
-  store i8 0, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 5), align 4
-  %6 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.12, ptr noundef @.str.13, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 5))
-  store i8 1, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 6), align 1
-  %7 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.14, ptr noundef @.str.15, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 6))
-  store i8 0, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 7), align 2
-  %8 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 7))
-  store i8 0, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 8), align 1
-  %9 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.18, ptr noundef @.str.19, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 8))
-  store i8 0, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 9), align 4
-  %10 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.20, ptr noundef @.str.21, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 9))
+  %3 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 2
+  store i8 0, ptr %3, align 1
+  %4 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 2
+  %5 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef @.str.7, i32 noundef 7, ptr noundef %4)
+  %6 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 3
+  store i8 0, ptr %6, align 2
+  %7 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 3
+  %8 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 7, ptr noundef %7)
+  %9 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 4
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 4
+  %11 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.10, ptr noundef @.str.11, i32 noundef 0, ptr noundef %10)
+  %12 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 5
+  store i8 0, ptr %12, align 4
+  %13 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 5
+  %14 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.12, ptr noundef @.str.13, i32 noundef 7, ptr noundef %13)
+  %15 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 6
+  store i8 1, ptr %15, align 1
+  %16 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 6
+  %17 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.14, ptr noundef @.str.15, i32 noundef 7, ptr noundef %16)
+  %18 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 7
+  store i8 0, ptr %18, align 2
+  %19 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 7
+  %20 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef 7, ptr noundef %19)
+  %21 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 8
+  store i8 0, ptr %21, align 1
+  %22 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 8
+  %23 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.18, ptr noundef @.str.19, i32 noundef 7, ptr noundef %22)
+  %24 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 9
+  store i8 0, ptr %24, align 4
+  %25 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 9
+  %26 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.20, ptr noundef @.str.21, i32 noundef 7, ptr noundef %25)
   ret i32 0
 }
 
@@ -95,18 +111,20 @@ define internal i32 @prte_state_base_open(i32 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prte_state_base_close() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.prte_state_base_module_1_0_0_t, ptr @prte_state, i32 0, i32 1), align 8
-  %2 = icmp ne ptr null, %1
-  br i1 %2, label %3, label %6
+  %1 = getelementptr inbounds %struct.prte_state_base_module_1_0_0_t, ptr @prte_state, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp ne ptr null, %2
+  br i1 %3, label %4, label %8
 
-3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.prte_state_base_module_1_0_0_t, ptr @prte_state, i32 0, i32 1), align 8
-  %5 = call i32 %4()
-  br label %6
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.prte_state_base_module_1_0_0_t, ptr @prte_state, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = call i32 %6()
+  br label %8
 
-6:                                                ; preds = %3, %0
-  %7 = call i32 @pmix_mca_base_framework_components_close(ptr noundef @prte_state_base_framework, ptr noundef null)
-  ret i32 %7
+8:                                                ; preds = %4, %0
+  %9 = call i32 @pmix_mca_base_framework_components_close(ptr noundef @prte_state_base_framework, ptr noundef null)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable

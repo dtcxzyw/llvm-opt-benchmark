@@ -1381,35 +1381,37 @@ if.then2:                                         ; preds = %if.then
   %call3 = call ptr @mmap(ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef 0) #4
   store ptr %call3, ptr %p, align 8
   %9 = load ptr, ptr %p, align 8
-  %cmp4 = icmp eq ptr %9, inttoptr (i64 -1 to ptr)
+  %10 = inttoptr i64 -1 to ptr
+  %cmp4 = icmp eq ptr %9, %10
   br i1 %cmp4, label %if.then6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then2
-  %10 = load ptr, ptr %p, align 8
-  %11 = load i64, ptr %try_alignment.addr, align 8
-  %call5 = call zeroext i1 @_mi_is_aligned(ptr noundef %10, i64 noundef %11) #5
+  %11 = load ptr, ptr %p, align 8
+  %12 = load i64, ptr %try_alignment.addr, align 8
+  %call5 = call zeroext i1 @_mi_is_aligned(ptr noundef %11, i64 noundef %12) #5
   br i1 %call5, label %if.end, label %if.then6
 
 if.then6:                                         ; preds = %lor.lhs.false, %if.then2
   %call7 = call ptr @__errno_location() #6
-  %12 = load i32, ptr %call7, align 4
-  store i32 %12, ptr %err, align 4
-  %13 = load i32, ptr %err, align 4
+  %13 = load i32, ptr %call7, align 4
+  store i32 %13, ptr %err, align 4
   %14 = load i32, ptr %err, align 4
-  %15 = load i64, ptr %size.addr, align 8
-  %16 = load i64, ptr %try_alignment.addr, align 8
-  %17 = load ptr, ptr %hint, align 8
-  call void (ptr, ...) @_mi_warning_message(ptr noundef @.str.5, i32 noundef %13, i32 noundef %14, i64 noundef %15, i64 noundef %16, ptr noundef %17) #5
+  %15 = load i32, ptr %err, align 4
+  %16 = load i64, ptr %size.addr, align 8
+  %17 = load i64, ptr %try_alignment.addr, align 8
+  %18 = load ptr, ptr %hint, align 8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef @.str.5, i32 noundef %14, i32 noundef %15, i64 noundef %16, i64 noundef %17, ptr noundef %18) #5
   br label %if.end
 
 if.end:                                           ; preds = %if.then6, %lor.lhs.false
-  %18 = load ptr, ptr %p, align 8
-  %cmp8 = icmp ne ptr %18, inttoptr (i64 -1 to ptr)
+  %19 = load ptr, ptr %p, align 8
+  %20 = inttoptr i64 -1 to ptr
+  %cmp8 = icmp ne ptr %19, %20
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end
-  %19 = load ptr, ptr %p, align 8
-  store ptr %19, ptr %retval, align 8
+  %21 = load ptr, ptr %p, align 8
+  store ptr %21, ptr %retval, align 8
   br label %return
 
 if.end10:                                         ; preds = %if.end
@@ -1419,20 +1421,21 @@ if.end11:                                         ; preds = %if.end10, %if.then
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end11, %entry
-  %20 = load ptr, ptr %addr.addr, align 8
-  %21 = load i64, ptr %size.addr, align 8
-  %22 = load i32, ptr %protect_flags.addr, align 4
-  %23 = load i32, ptr %flags.addr, align 4
-  %24 = load i32, ptr %fd.addr, align 4
-  %call13 = call ptr @mmap(ptr noundef %20, i64 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %24, i64 noundef 0) #4
+  %22 = load ptr, ptr %addr.addr, align 8
+  %23 = load i64, ptr %size.addr, align 8
+  %24 = load i32, ptr %protect_flags.addr, align 4
+  %25 = load i32, ptr %flags.addr, align 4
+  %26 = load i32, ptr %fd.addr, align 4
+  %call13 = call ptr @mmap(ptr noundef %22, i64 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, i64 noundef 0) #4
   store ptr %call13, ptr %p, align 8
-  %25 = load ptr, ptr %p, align 8
-  %cmp14 = icmp ne ptr %25, inttoptr (i64 -1 to ptr)
+  %27 = load ptr, ptr %p, align 8
+  %28 = inttoptr i64 -1 to ptr
+  %cmp14 = icmp ne ptr %27, %28
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end12
-  %26 = load ptr, ptr %p, align 8
-  store ptr %26, ptr %retval, align 8
+  %29 = load ptr, ptr %p, align 8
+  store ptr %29, ptr %retval, align 8
   br label %return
 
 if.end16:                                         ; preds = %if.end12
@@ -1440,8 +1443,8 @@ if.end16:                                         ; preds = %if.end12
   br label %return
 
 return:                                           ; preds = %if.end16, %if.then15, %if.then9
-  %27 = load ptr, ptr %retval, align 8
-  ret ptr %27
+  %30 = load ptr, ptr %retval, align 8
+  ret ptr %30
 }
 
 declare ptr @_mi_os_get_aligned_hint(i64 noundef, i64 noundef) #3

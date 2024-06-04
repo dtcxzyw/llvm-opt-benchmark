@@ -246,10 +246,11 @@ entry:
   store ptr %builder, ptr %builder.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4YAML12EventHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_builder = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %builder.addr, align 8
-  store ptr %0, ptr %m_builder, align 8
+  %1 = load ptr, ptr %builder.addr, align 8
+  store ptr %1, ptr %m_builder, align 8
   %m_containers = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
   invoke void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %m_containers)
           to label %invoke.cont unwind label %lpad
@@ -267,21 +268,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_containers) #9
   br label %ehcleanup
 
@@ -318,7 +319,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_anchors = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 3
   call void @_ZN4YAML10AnchorDictIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_anchors) #9
   %m_containers = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
@@ -333,7 +335,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML12EventHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4YAML12EventHandlerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

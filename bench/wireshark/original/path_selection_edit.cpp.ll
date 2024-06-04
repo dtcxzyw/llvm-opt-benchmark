@@ -210,213 +210,215 @@ define void @_ZN17PathSelectionEditC2E7QStringS0_bP7QWidget(ptr noundef nonnull 
   %27 = getelementptr inbounds %class.QFlags, ptr %11, i32 0, i32 0
   %28 = load i32, ptr %27, align 4
   call void @_ZN7QWidgetC2EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef %26, i32 %28)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV17PathSelectionEdit, i32 0, i32 0, i32 2), ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV17PathSelectionEdit, i32 0, i32 1, i32 2), ptr %29, align 8
-  %30 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 1
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #7
-  %31 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 2
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #7
+  %29 = getelementptr inbounds { [54 x ptr], [10 x ptr] }, ptr @_ZTV17PathSelectionEdit, i32 0, i32 0, i32 2
+  store ptr %29, ptr %25, align 8
+  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %31 = getelementptr inbounds { [54 x ptr], [10 x ptr] }, ptr @_ZTV17PathSelectionEdit, i32 0, i32 1, i32 2
+  store ptr %31, ptr %30, align 8
   %32 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 1
-  %33 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %1) #7
-  %34 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 2
-  %35 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %2) #7
-  %36 = load i8, ptr %9, align 1
-  %37 = trunc i8 %36 to i1
-  %38 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 3
-  %39 = zext i1 %37 to i8
-  store i8 %39, ptr %38, align 8
-  %40 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #8
-          to label %41 unwind label %100
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #7
+  %33 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 2
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #7
+  %34 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 1
+  %35 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %1) #7
+  %36 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 2
+  %37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %2) #7
+  %38 = load i8, ptr %9, align 1
+  %39 = trunc i8 %38 to i1
+  %40 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 3
+  %41 = zext i1 %39 to i8
+  store i8 %41, ptr %40, align 8
+  %42 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #8
+          to label %43 unwind label %102
 
-41:                                               ; preds = %5
-  invoke void @_ZN9QLineEditC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef %25)
-          to label %42 unwind label %104
+43:                                               ; preds = %5
+  invoke void @_ZN9QLineEditC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef %25)
+          to label %44 unwind label %106
 
-42:                                               ; preds = %41
-  %43 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 4
-  store ptr %40, ptr %43, align 8
-  %44 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 4
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 2
-  invoke void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(24) %46)
-          to label %47 unwind label %100
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 4
+  store ptr %42, ptr %45, align 8
+  %46 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 4
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 2
+  invoke void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(24) %48)
+          to label %49 unwind label %102
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 4
-  %49 = load ptr, ptr %48, align 8
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 4
+  %51 = load ptr, ptr %50, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN9QLineEdit11textChangedERK7QString to i64), i64 0 }, ptr %15, align 8
-  %50 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 0
-  %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 1
+  %52 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 0
   %53 = load i64, ptr %52, align 8
+  %54 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 1
+  %55 = load i64, ptr %54, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN17PathSelectionEdit7setPathE7QString to i64), i64 0 }, ptr %16, align 8
-  invoke void @_ZN7QObject7connectIM9QLineEditFvRK7QStringEM17PathSelectionEditFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %14, ptr noundef %49, i64 %51, i64 %53, ptr noundef %25, ptr noundef byval({ i64, i64 }) align 8 %16, i32 noundef 0)
-          to label %54 unwind label %100
+  invoke void @_ZN7QObject7connectIM9QLineEditFvRK7QStringEM17PathSelectionEditFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %14, ptr noundef %51, i64 %53, i64 %55, ptr noundef %25, ptr noundef byval({ i64, i64 }) align 8 %16, i32 noundef 0)
+          to label %56 unwind label %102
 
-54:                                               ; preds = %47
+56:                                               ; preds = %49
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #7
-  %55 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #8
-          to label %56 unwind label %100
+  %57 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #8
+          to label %58 unwind label %102
 
-56:                                               ; preds = %54
-  invoke void @_ZN11QToolButtonC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef %25)
-          to label %57 unwind label %108
+58:                                               ; preds = %56
+  invoke void @_ZN11QToolButtonC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef %25)
+          to label %59 unwind label %110
 
-57:                                               ; preds = %56
-  %58 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 5
-  store ptr %55, ptr %58, align 8
-  %59 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 5
-  %60 = load ptr, ptr %59, align 8
+59:                                               ; preds = %58
+  %60 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 5
+  store ptr %57, ptr %60, align 8
+  %61 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 5
+  %62 = load ptr, ptr %61, align 8
   invoke void @_ZN17PathSelectionEdit2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %17, ptr noundef @.str, ptr noundef null, i32 noundef -1)
-          to label %61 unwind label %100
+          to label %63 unwind label %102
 
-61:                                               ; preds = %57
-  invoke void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %62 unwind label %112
+63:                                               ; preds = %59
+  invoke void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(24) %17)
+          to label %64 unwind label %114
 
-62:                                               ; preds = %61
+64:                                               ; preds = %63
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #7
-  %63 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 5
-  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 5
+  %66 = load ptr, ptr %65, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %19, align 8
-  %65 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 0
-  %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 1
+  %67 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 0
   %68 = load i64, ptr %67, align 8
+  %69 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 1
+  %70 = load i64, ptr %69, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN17PathSelectionEdit13browseForPathEv to i64), i64 0 }, ptr %20, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM17PathSelectionEditFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %18, ptr noundef %64, i64 %66, i64 %68, ptr noundef %25, ptr noundef byval({ i64, i64 }) align 8 %20, i32 noundef 0)
-          to label %69 unwind label %100
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM17PathSelectionEditFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %18, ptr noundef %66, i64 %68, i64 %70, ptr noundef %25, ptr noundef byval({ i64, i64 }) align 8 %20, i32 noundef 0)
+          to label %71 unwind label %102
 
-69:                                               ; preds = %62
+71:                                               ; preds = %64
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #7
   invoke void @_ZN7QWidget18setContentsMarginsEiiii(ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-          to label %70 unwind label %100
+          to label %72 unwind label %102
 
-70:                                               ; preds = %69
-  %71 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #8
-          to label %72 unwind label %100
+72:                                               ; preds = %71
+  %73 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #8
+          to label %74 unwind label %102
 
-72:                                               ; preds = %70
-  invoke void @_ZN11QHBoxLayoutC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %71, ptr noundef %25)
-          to label %73 unwind label %116
+74:                                               ; preds = %72
+  invoke void @_ZN11QHBoxLayoutC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %73, ptr noundef %25)
+          to label %75 unwind label %118
 
-73:                                               ; preds = %72
-  store ptr %71, ptr %21, align 8
-  %74 = load ptr, ptr %21, align 8
-  invoke void @_ZN7QLayout18setContentsMarginsEiiii(ptr noundef nonnull align 8 dereferenceable(28) %74, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-          to label %75 unwind label %100
-
-75:                                               ; preds = %73
+75:                                               ; preds = %74
+  store ptr %73, ptr %21, align 8
   %76 = load ptr, ptr %21, align 8
-  %77 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 4
-  %78 = load ptr, ptr %77, align 8
+  invoke void @_ZN7QLayout18setContentsMarginsEiiii(ptr noundef nonnull align 8 dereferenceable(28) %76, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+          to label %77 unwind label %102
+
+77:                                               ; preds = %75
+  %78 = load ptr, ptr %21, align 8
+  %79 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 4
+  %80 = load ptr, ptr %79, align 8
   call void @_ZN6QFlagsIN2Qt13AlignmentFlagEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %22) #7
-  %79 = getelementptr inbounds %class.QFlags.0, ptr %22, i32 0, i32 0
-  %80 = load i32, ptr %79, align 4
-  invoke void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %76, ptr noundef %78, i32 noundef 0, i32 %80)
-          to label %81 unwind label %100
+  %81 = getelementptr inbounds %class.QFlags.0, ptr %22, i32 0, i32 0
+  %82 = load i32, ptr %81, align 4
+  invoke void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %78, ptr noundef %80, i32 noundef 0, i32 %82)
+          to label %83 unwind label %102
 
-81:                                               ; preds = %75
-  %82 = load ptr, ptr %21, align 8
-  %83 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 5
-  %84 = load ptr, ptr %83, align 8
+83:                                               ; preds = %77
+  %84 = load ptr, ptr %21, align 8
+  %85 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 5
+  %86 = load ptr, ptr %85, align 8
   call void @_ZN6QFlagsIN2Qt13AlignmentFlagEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %23) #7
-  %85 = getelementptr inbounds %class.QFlags.0, ptr %23, i32 0, i32 0
-  %86 = load i32, ptr %85, align 4
-  invoke void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %82, ptr noundef %84, i32 noundef 0, i32 %86)
-          to label %87 unwind label %100
+  %87 = getelementptr inbounds %class.QFlags.0, ptr %23, i32 0, i32 0
+  %88 = load i32, ptr %87, align 4
+  invoke void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %84, ptr noundef %86, i32 noundef 0, i32 %88)
+          to label %89 unwind label %102
 
-87:                                               ; preds = %81
-  %88 = load ptr, ptr %21, align 8
-  invoke void @_ZN7QLayout17setSizeConstraintENS_14SizeConstraintE(ptr noundef nonnull align 8 dereferenceable(28) %88, i32 noundef 2)
-          to label %89 unwind label %100
-
-89:                                               ; preds = %87
+89:                                               ; preds = %83
   %90 = load ptr, ptr %21, align 8
-  invoke void @_ZN7QWidget9setLayoutEP7QLayout(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef %90)
-          to label %91 unwind label %100
+  invoke void @_ZN7QLayout17setSizeConstraintENS_14SizeConstraintE(ptr noundef nonnull align 8 dereferenceable(28) %90, i32 noundef 2)
+          to label %91 unwind label %102
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 4
-  %93 = load ptr, ptr %92, align 8
-  invoke void @_ZN7QWidget13setFocusProxyEPS_(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef %93)
-          to label %94 unwind label %100
+  %92 = load ptr, ptr %21, align 8
+  invoke void @_ZN7QWidget9setLayoutEP7QLayout(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef %92)
+          to label %93 unwind label %102
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 4
-  %96 = load ptr, ptr %95, align 8
-  %97 = invoke noundef i32 @_ZNK7QWidget11focusPolicyEv(ptr noundef nonnull align 8 dereferenceable(40) %96)
-          to label %98 unwind label %100
+93:                                               ; preds = %91
+  %94 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 4
+  %95 = load ptr, ptr %94, align 8
+  invoke void @_ZN7QWidget13setFocusProxyEPS_(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef %95)
+          to label %96 unwind label %102
 
-98:                                               ; preds = %94
-  invoke void @_ZN7QWidget14setFocusPolicyEN2Qt11FocusPolicyE(ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef %97)
-          to label %99 unwind label %100
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 4
+  %98 = load ptr, ptr %97, align 8
+  %99 = invoke noundef i32 @_ZNK7QWidget11focusPolicyEv(ptr noundef nonnull align 8 dereferenceable(40) %98)
+          to label %100 unwind label %102
 
-99:                                               ; preds = %98
+100:                                              ; preds = %96
+  invoke void @_ZN7QWidget14setFocusPolicyEN2Qt11FocusPolicyE(ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef %99)
+          to label %101 unwind label %102
+
+101:                                              ; preds = %100
   ret void
 
-100:                                              ; preds = %98, %94, %91, %89, %87, %81, %75, %73, %70, %69, %62, %57, %54, %47, %42, %5
-  %101 = landingpad { ptr, i32 }
+102:                                              ; preds = %100, %96, %93, %91, %89, %83, %77, %75, %72, %71, %64, %59, %56, %49, %44, %5
+  %103 = landingpad { ptr, i32 }
           cleanup
-  %102 = extractvalue { ptr, i32 } %101, 0
-  store ptr %102, ptr %12, align 8
-  %103 = extractvalue { ptr, i32 } %101, 1
-  store i32 %103, ptr %13, align 4
-  br label %120
+  %104 = extractvalue { ptr, i32 } %103, 0
+  store ptr %104, ptr %12, align 8
+  %105 = extractvalue { ptr, i32 } %103, 1
+  store i32 %105, ptr %13, align 4
+  br label %122
 
-104:                                              ; preds = %41
-  %105 = landingpad { ptr, i32 }
+106:                                              ; preds = %43
+  %107 = landingpad { ptr, i32 }
           cleanup
-  %106 = extractvalue { ptr, i32 } %105, 0
-  store ptr %106, ptr %12, align 8
-  %107 = extractvalue { ptr, i32 } %105, 1
-  store i32 %107, ptr %13, align 4
-  call void @_ZdlPv(ptr noundef %40) #9
-  br label %120
+  %108 = extractvalue { ptr, i32 } %107, 0
+  store ptr %108, ptr %12, align 8
+  %109 = extractvalue { ptr, i32 } %107, 1
+  store i32 %109, ptr %13, align 4
+  call void @_ZdlPv(ptr noundef %42) #9
+  br label %122
 
-108:                                              ; preds = %56
-  %109 = landingpad { ptr, i32 }
+110:                                              ; preds = %58
+  %111 = landingpad { ptr, i32 }
           cleanup
-  %110 = extractvalue { ptr, i32 } %109, 0
-  store ptr %110, ptr %12, align 8
-  %111 = extractvalue { ptr, i32 } %109, 1
-  store i32 %111, ptr %13, align 4
-  call void @_ZdlPv(ptr noundef %55) #9
-  br label %120
+  %112 = extractvalue { ptr, i32 } %111, 0
+  store ptr %112, ptr %12, align 8
+  %113 = extractvalue { ptr, i32 } %111, 1
+  store i32 %113, ptr %13, align 4
+  call void @_ZdlPv(ptr noundef %57) #9
+  br label %122
 
-112:                                              ; preds = %61
-  %113 = landingpad { ptr, i32 }
+114:                                              ; preds = %63
+  %115 = landingpad { ptr, i32 }
           cleanup
-  %114 = extractvalue { ptr, i32 } %113, 0
-  store ptr %114, ptr %12, align 8
-  %115 = extractvalue { ptr, i32 } %113, 1
-  store i32 %115, ptr %13, align 4
+  %116 = extractvalue { ptr, i32 } %115, 0
+  store ptr %116, ptr %12, align 8
+  %117 = extractvalue { ptr, i32 } %115, 1
+  store i32 %117, ptr %13, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #7
-  br label %120
+  br label %122
 
-116:                                              ; preds = %72
-  %117 = landingpad { ptr, i32 }
+118:                                              ; preds = %74
+  %119 = landingpad { ptr, i32 }
           cleanup
-  %118 = extractvalue { ptr, i32 } %117, 0
-  store ptr %118, ptr %12, align 8
-  %119 = extractvalue { ptr, i32 } %117, 1
-  store i32 %119, ptr %13, align 4
-  call void @_ZdlPv(ptr noundef %71) #9
-  br label %120
+  %120 = extractvalue { ptr, i32 } %119, 0
+  store ptr %120, ptr %12, align 8
+  %121 = extractvalue { ptr, i32 } %119, 1
+  store i32 %121, ptr %13, align 4
+  call void @_ZdlPv(ptr noundef %73) #9
+  br label %122
 
-120:                                              ; preds = %116, %112, %108, %104, %100
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #7
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #7
+122:                                              ; preds = %118, %114, %110, %106, %102
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #7
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #7
   call void @_ZN7QWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #7
-  br label %121
+  br label %123
 
-121:                                              ; preds = %120
-  %122 = load ptr, ptr %12, align 8
-  %123 = load i32, ptr %13, align 4
-  %124 = insertvalue { ptr, i32 } poison, ptr %122, 0
-  %125 = insertvalue { ptr, i32 } %124, i32 %123, 1
-  resume { ptr, i32 } %125
+123:                                              ; preds = %122
+  %124 = load ptr, ptr %12, align 8
+  %125 = load i32, ptr %13, align 4
+  %126 = insertvalue { ptr, i32 } poison, ptr %124, 0
+  %127 = insertvalue { ptr, i32 } %126, i32 %125, 1
+  resume { ptr, i32 } %127
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -725,148 +727,151 @@ define void @_ZN17PathSelectionEdit13browseForPathEv(ptr noundef nonnull align 8
   %15 = getelementptr inbounds %class.PathSelectionEdit, ptr %14, i32 0, i32 2
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %15) #7
   %16 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %17 unwind label %26
+          to label %17 unwind label %27
 
 17:                                               ; preds = %1
-  br i1 %16, label %18, label %39
+  br i1 %16, label %18, label %42
 
 18:                                               ; preds = %17
-  %19 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 29), align 4
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %30
+  %19 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 29
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %31
 
-21:                                               ; preds = %18
-  %22 = invoke ptr @get_open_dialog_initial_dir()
-          to label %23 unwind label %26
+22:                                               ; preds = %18
+  %23 = invoke ptr @get_open_dialog_initial_dir()
+          to label %24 unwind label %27
 
-23:                                               ; preds = %21
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %22)
-          to label %24 unwind label %26
+24:                                               ; preds = %22
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %23)
+          to label %25 unwind label %27
 
-24:                                               ; preds = %23
-  %25 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %6) #7
+25:                                               ; preds = %24
+  %26 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %6) #7
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #7
-  br label %38
+  br label %41
 
-26:                                               ; preds = %33, %23, %21, %1
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %35, %24, %22, %1
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %4, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %5, align 4
-  br label %72
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %75
 
-30:                                               ; preds = %18
-  %31 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 29), align 4
-  %32 = icmp eq i32 %31, 1
-  br i1 %32, label %33, label %37
+31:                                               ; preds = %18
+  %32 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 29
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %33, 1
+  br i1 %34, label %35, label %40
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 30), align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %34)
-          to label %35 unwind label %26
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 30
+  %37 = load ptr, ptr %36, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %37)
+          to label %38 unwind label %27
 
-35:                                               ; preds = %33
-  %36 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %7) #7
+38:                                               ; preds = %35
+  %39 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %7) #7
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #7
-  br label %37
+  br label %40
 
-37:                                               ; preds = %35, %30
-  br label %38
+40:                                               ; preds = %38, %31
+  br label %41
 
-38:                                               ; preds = %37, %24
-  br label %39
+41:                                               ; preds = %40, %25
+  br label %42
 
-39:                                               ; preds = %38, %17
+42:                                               ; preds = %41, %17
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #7
-  %40 = getelementptr inbounds %class.PathSelectionEdit, ptr %14, i32 0, i32 3
-  %41 = load i8, ptr %40, align 8
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %53
+  %43 = getelementptr inbounds %class.PathSelectionEdit, ptr %14, i32 0, i32 3
+  %44 = load i8, ptr %43, align 8
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %56
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds %class.PathSelectionEdit, ptr %14, i32 0, i32 1
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %class.PathSelectionEdit, ptr %14, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   call void @_ZN6QFlagsIN11QFileDialog6OptionEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #7
-  %45 = getelementptr inbounds %class.QFlags.1, ptr %11, i32 0, i32 0
-  %46 = load i32, ptr %45, align 4
-  invoke void @_ZN19WiresharkFileDialog15getOpenFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef null, i32 %46)
-          to label %47 unwind label %49
+  %48 = getelementptr inbounds %class.QFlags.1, ptr %11, i32 0, i32 0
+  %49 = load i32, ptr %48, align 4
+  invoke void @_ZN19WiresharkFileDialog15getOpenFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef null, i32 %49)
+          to label %50 unwind label %52
 
-47:                                               ; preds = %43
-  %48 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #7
+50:                                               ; preds = %46
+  %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #7
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #7
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
-  br label %63
+  br label %66
 
-49:                                               ; preds = %43
-  %50 = landingpad { ptr, i32 }
+52:                                               ; preds = %46
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %4, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %5, align 4
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %4, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %5, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
-  br label %71
+  br label %74
 
-53:                                               ; preds = %39
-  %54 = getelementptr inbounds %class.PathSelectionEdit, ptr %14, i32 0, i32 1
+56:                                               ; preds = %42
+  %57 = getelementptr inbounds %class.PathSelectionEdit, ptr %14, i32 0, i32 1
   call void @_ZN6QFlagsIN11QFileDialog6OptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %13, i32 noundef 1) #7
-  %55 = getelementptr inbounds %class.QFlags.1, ptr %13, i32 0, i32 0
-  %56 = load i32, ptr %55, align 4
-  invoke void @_ZN19WiresharkFileDialog20getExistingDirectoryEP7QWidgetRK7QStringS4_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 %56)
-          to label %57 unwind label %59
+  %58 = getelementptr inbounds %class.QFlags.1, ptr %13, i32 0, i32 0
+  %59 = load i32, ptr %58, align 4
+  invoke void @_ZN19WiresharkFileDialog20getExistingDirectoryEP7QWidgetRK7QStringS4_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 %59)
+          to label %60 unwind label %62
 
-57:                                               ; preds = %53
-  %58 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %12) #7
+60:                                               ; preds = %56
+  %61 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %12) #7
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #7
-  br label %63
+  br label %66
 
-59:                                               ; preds = %66, %63, %53
-  %60 = landingpad { ptr, i32 }
+62:                                               ; preds = %69, %66, %56
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %4, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %5, align 4
-  br label %71
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %4, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %5, align 4
+  br label %74
 
-63:                                               ; preds = %57, %47
-  %64 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %65 unwind label %59
+66:                                               ; preds = %60, %50
+  %67 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %68 unwind label %62
 
-65:                                               ; preds = %63
-  br i1 %64, label %70, label %66
+68:                                               ; preds = %66
+  br i1 %67, label %73, label %69
 
-66:                                               ; preds = %65
-  %67 = getelementptr inbounds %class.PathSelectionEdit, ptr %14, i32 0, i32 4
-  %68 = load ptr, ptr %67, align 8
-  invoke void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %68, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %69 unwind label %59
+69:                                               ; preds = %68
+  %70 = getelementptr inbounds %class.PathSelectionEdit, ptr %14, i32 0, i32 4
+  %71 = load ptr, ptr %70, align 8
+  invoke void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %72 unwind label %62
 
-69:                                               ; preds = %66
-  br label %70
+72:                                               ; preds = %69
+  br label %73
 
-70:                                               ; preds = %69, %65
+73:                                               ; preds = %72, %68
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #7
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #7
   ret void
 
-71:                                               ; preds = %59, %49
+74:                                               ; preds = %62, %52
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #7
-  br label %72
+  br label %75
 
-72:                                               ; preds = %71, %26
+75:                                               ; preds = %74, %27
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #7
-  br label %73
+  br label %76
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %4, align 8
-  %75 = load i32, ptr %5, align 4
-  %76 = insertvalue { ptr, i32 } poison, ptr %74, 0
-  %77 = insertvalue { ptr, i32 } %76, i32 %75, 1
-  resume { ptr, i32 } %77
+76:                                               ; preds = %75
+  %77 = load ptr, ptr %4, align 8
+  %78 = load i32, ptr %5, align 4
+  %79 = insertvalue { ptr, i32 } poison, ptr %77, 0
+  %80 = insertvalue { ptr, i32 } %79, i32 %78, 1
+  resume { ptr, i32 } %80
 }
 
 declare void @_ZN7QWidget18setContentsMarginsEiiii(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i32 noundef, i32 noundef, i32 noundef) #2

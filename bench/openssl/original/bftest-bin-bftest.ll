@@ -788,12 +788,13 @@ entry:
   %sub = sub i32 %0, 13
   %conv5 = zext i32 %sub to i64
   %arraydecay6 = getelementptr inbounds [8 x i8], ptr %iv, i64 0, i64 0
-  call void @BF_cfb64_encrypt(ptr noundef getelementptr inbounds ([40 x i8], ptr @cbc_data, i64 0, i64 13), ptr noundef %arrayidx, i64 noundef %conv5, ptr noundef %key, ptr noundef %arraydecay6, ptr noundef %n, i32 noundef 1)
+  %1 = getelementptr inbounds [40 x i8], ptr @cbc_data, i64 0, i64 13
+  call void @BF_cfb64_encrypt(ptr noundef %1, ptr noundef %arrayidx, i64 noundef %conv5, ptr noundef %key, ptr noundef %arraydecay6, ptr noundef %n, i32 noundef 1)
   %arraydecay7 = getelementptr inbounds [40 x i8], ptr %cbc_out, i64 0, i64 0
-  %1 = load i32, ptr %len, align 4
-  %conv8 = sext i32 %1 to i64
   %2 = load i32, ptr %len, align 4
-  %conv9 = sext i32 %2 to i64
+  %conv8 = sext i32 %2 to i64
+  %3 = load i32, ptr %len, align 4
+  %conv9 = sext i32 %3 to i64
   %call10 = call i32 @test_mem_eq(ptr noundef @.str.40, i32 noundef 392, ptr noundef @.str.48, ptr noundef @.str.52, ptr noundef %arraydecay7, i64 noundef %conv8, ptr noundef @cfb64_ok, i64 noundef %conv9)
   %tobool = icmp ne i32 %call10, 0
   br i1 %tobool, label %if.end, label %if.then
@@ -812,16 +813,16 @@ if.end:                                           ; preds = %if.then, %entry
   call void @BF_cfb64_encrypt(ptr noundef %arraydecay12, ptr noundef %arraydecay13, i64 noundef 17, ptr noundef %key, ptr noundef %arraydecay14, ptr noundef %n, i32 noundef 0)
   %arrayidx15 = getelementptr inbounds [40 x i8], ptr %cbc_out, i64 0, i64 17
   %arrayidx16 = getelementptr inbounds [40 x i8], ptr %cbc_in, i64 0, i64 17
-  %3 = load i32, ptr %len, align 4
-  %sub17 = sub i32 %3, 17
+  %4 = load i32, ptr %len, align 4
+  %sub17 = sub i32 %4, 17
   %conv18 = zext i32 %sub17 to i64
   %arraydecay19 = getelementptr inbounds [8 x i8], ptr %iv, i64 0, i64 0
   call void @BF_cfb64_encrypt(ptr noundef %arrayidx15, ptr noundef %arrayidx16, i64 noundef %conv18, ptr noundef %key, ptr noundef %arraydecay19, ptr noundef %n, i32 noundef 0)
   %arraydecay20 = getelementptr inbounds [40 x i8], ptr %cbc_in, i64 0, i64 0
-  %4 = load i32, ptr %len, align 4
-  %conv21 = sext i32 %4 to i64
   %5 = load i32, ptr %len, align 4
-  %conv22 = sext i32 %5 to i64
+  %conv21 = sext i32 %5 to i64
+  %6 = load i32, ptr %len, align 4
+  %conv22 = sext i32 %6 to i64
   %call23 = call i32 @test_mem_eq(ptr noundef @.str.40, i32 noundef 400, ptr noundef @.str.50, ptr noundef @.str.51, ptr noundef %arraydecay20, i64 noundef %conv21, ptr noundef @cbc_data, i64 noundef %conv22)
   %tobool24 = icmp ne i32 %call23, 0
   br i1 %tobool24, label %if.end26, label %if.then25
@@ -831,8 +832,8 @@ if.then25:                                        ; preds = %if.end
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then25, %if.end
-  %6 = load i32, ptr %ret, align 4
-  ret i32 %6
+  %7 = load i32, ptr %ret, align 4
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -866,12 +867,13 @@ entry:
   %sub = sub i32 %0, 13
   %conv5 = zext i32 %sub to i64
   %arraydecay6 = getelementptr inbounds [8 x i8], ptr %iv, i64 0, i64 0
-  call void @BF_ofb64_encrypt(ptr noundef getelementptr inbounds ([40 x i8], ptr @cbc_data, i64 0, i64 13), ptr noundef %arrayidx, i64 noundef %conv5, ptr noundef %key, ptr noundef %arraydecay6, ptr noundef %n)
+  %1 = getelementptr inbounds [40 x i8], ptr @cbc_data, i64 0, i64 13
+  call void @BF_ofb64_encrypt(ptr noundef %1, ptr noundef %arrayidx, i64 noundef %conv5, ptr noundef %key, ptr noundef %arraydecay6, ptr noundef %n)
   %arraydecay7 = getelementptr inbounds [40 x i8], ptr %cbc_out, i64 0, i64 0
-  %1 = load i32, ptr %len, align 4
-  %conv8 = sext i32 %1 to i64
   %2 = load i32, ptr %len, align 4
-  %conv9 = sext i32 %2 to i64
+  %conv8 = sext i32 %2 to i64
+  %3 = load i32, ptr %len, align 4
+  %conv9 = sext i32 %3 to i64
   %call10 = call i32 @test_mem_eq(ptr noundef @.str.40, i32 noundef 424, ptr noundef @.str.48, ptr noundef @.str.53, ptr noundef %arraydecay7, i64 noundef %conv8, ptr noundef @ofb64_ok, i64 noundef %conv9)
   %tobool = icmp ne i32 %call10, 0
   br i1 %tobool, label %if.end, label %if.then
@@ -890,16 +892,16 @@ if.end:                                           ; preds = %if.then, %entry
   call void @BF_ofb64_encrypt(ptr noundef %arraydecay12, ptr noundef %arraydecay13, i64 noundef 17, ptr noundef %key, ptr noundef %arraydecay14, ptr noundef %n)
   %arrayidx15 = getelementptr inbounds [40 x i8], ptr %cbc_out, i64 0, i64 17
   %arrayidx16 = getelementptr inbounds [40 x i8], ptr %cbc_in, i64 0, i64 17
-  %3 = load i32, ptr %len, align 4
-  %sub17 = sub i32 %3, 17
+  %4 = load i32, ptr %len, align 4
+  %sub17 = sub i32 %4, 17
   %conv18 = zext i32 %sub17 to i64
   %arraydecay19 = getelementptr inbounds [8 x i8], ptr %iv, i64 0, i64 0
   call void @BF_ofb64_encrypt(ptr noundef %arrayidx15, ptr noundef %arrayidx16, i64 noundef %conv18, ptr noundef %key, ptr noundef %arraydecay19, ptr noundef %n)
   %arraydecay20 = getelementptr inbounds [40 x i8], ptr %cbc_in, i64 0, i64 0
-  %4 = load i32, ptr %len, align 4
-  %conv21 = sext i32 %4 to i64
   %5 = load i32, ptr %len, align 4
-  %conv22 = sext i32 %5 to i64
+  %conv21 = sext i32 %5 to i64
+  %6 = load i32, ptr %len, align 4
+  %conv22 = sext i32 %6 to i64
   %call23 = call i32 @test_mem_eq(ptr noundef @.str.40, i32 noundef 431, ptr noundef @.str.50, ptr noundef @.str.51, ptr noundef %arraydecay20, i64 noundef %conv21, ptr noundef @cbc_data, i64 noundef %conv22)
   %tobool24 = icmp ne i32 %call23, 0
   br i1 %tobool24, label %if.end26, label %if.then25
@@ -909,8 +911,8 @@ if.then25:                                        ; preds = %if.end
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then25, %if.end
-  %6 = load i32, ptr %ret, align 4
-  ret i32 %6
+  %7 = load i32, ptr %ret, align 4
+  ret i32 %7
 }
 
 declare i32 @printf(ptr noundef, ...) #1

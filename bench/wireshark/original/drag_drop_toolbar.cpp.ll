@@ -526,33 +526,35 @@ define void @_ZN15DragDropToolBarC2ERK7QStringP7QWidget(ptr noundef nonnull alig
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN8QToolBarC2ERK7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %class.DragDropToolBar, ptr %9, i32 0, i32 1
-  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %13) #12
+  %12 = getelementptr inbounds { [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds { [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.DragDropToolBar, ptr %9, i32 0, i32 1
+  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %15) #12
   invoke void @_ZN15DragDropToolBar12setupToolbarEv(ptr noundef nonnull align 8 dereferenceable(52) %9)
-          to label %14 unwind label %15
+          to label %16 unwind label %17
 
-14:                                               ; preds = %3
+16:                                               ; preds = %3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %7, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %8, align 4
   call void @_ZN8QToolBarD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #12
-  br label %19
+  br label %21
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 declare void @_ZN8QToolBarC2ERK7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #1
@@ -672,33 +674,35 @@ define void @_ZN15DragDropToolBarC2EP7QWidget(ptr noundef nonnull align 8 derefe
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN8QToolBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, i32 1, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %class.DragDropToolBar, ptr %7, i32 0, i32 1
-  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %10) #12
+  %9 = getelementptr inbounds { [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds { [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, i32 1, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %class.DragDropToolBar, ptr %7, i32 0, i32 1
+  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %12) #12
   invoke void @_ZN15DragDropToolBar12setupToolbarEv(ptr noundef nonnull align 8 dereferenceable(52) %7)
-          to label %11 unwind label %12
+          to label %13 unwind label %14
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %5, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %6, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
   call void @_ZN8QToolBarD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #12
-  br label %16
+  br label %18
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i32, ptr %6, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 declare void @_ZN8QToolBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1

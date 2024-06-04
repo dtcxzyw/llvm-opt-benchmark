@@ -1616,37 +1616,38 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp3, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %if.end
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_dummy_method, i32 0, i32 1), align 8
-  %8 = load ptr, ptr %h.addr, align 8
-  %ccdata5 = getelementptr inbounds %struct.helper, ptr %8, i32 0, i32 3
-  %9 = load ptr, ptr %ccdata5, align 8
-  call void %7(ptr noundef %9)
-  %10 = load ptr, ptr %h.addr, align 8
-  %ccdata6 = getelementptr inbounds %struct.helper, ptr %10, i32 0, i32 3
+  %7 = getelementptr inbounds %struct.ossl_cc_method_st, ptr @ossl_cc_dummy_method, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %h.addr, align 8
+  %ccdata5 = getelementptr inbounds %struct.helper, ptr %9, i32 0, i32 3
+  %10 = load ptr, ptr %ccdata5, align 8
+  call void %8(ptr noundef %10)
+  %11 = load ptr, ptr %h.addr, align 8
+  %ccdata6 = getelementptr inbounds %struct.helper, ptr %11, i32 0, i32 3
   store ptr null, ptr %ccdata6, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then4, %if.end
-  %11 = load ptr, ptr %h.addr, align 8
-  %have_statm = getelementptr inbounds %struct.helper, ptr %11, i32 0, i32 5
-  %12 = load i32, ptr %have_statm, align 8
-  %tobool = icmp ne i32 %12, 0
+  %12 = load ptr, ptr %h.addr, align 8
+  %have_statm = getelementptr inbounds %struct.helper, ptr %12, i32 0, i32 5
+  %13 = load i32, ptr %have_statm, align 8
+  %tobool = icmp ne i32 %13, 0
   br i1 %tobool, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end7
-  %13 = load ptr, ptr %h.addr, align 8
-  %statm = getelementptr inbounds %struct.helper, ptr %13, i32 0, i32 4
-  call void @ossl_statm_destroy(ptr noundef %statm)
   %14 = load ptr, ptr %h.addr, align 8
-  %have_statm9 = getelementptr inbounds %struct.helper, ptr %14, i32 0, i32 5
+  %statm = getelementptr inbounds %struct.helper, ptr %14, i32 0, i32 4
+  call void @ossl_statm_destroy(ptr noundef %statm)
+  %15 = load ptr, ptr %h.addr, align 8
+  %have_statm9 = getelementptr inbounds %struct.helper, ptr %15, i32 0, i32 5
   store i32 0, ptr %have_statm9, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then8, %if.end7
-  %15 = load ptr, ptr %h.addr, align 8
-  %pkts = getelementptr inbounds %struct.helper, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %pkts, align 8
-  %cmp11 = icmp ne ptr %16, null
+  %16 = load ptr, ptr %h.addr, align 8
+  %pkts = getelementptr inbounds %struct.helper, ptr %16, i32 0, i32 1
+  %17 = load ptr, ptr %pkts, align 8
+  %cmp11 = icmp ne ptr %17, null
   br i1 %cmp11, label %if.then12, label %if.end20
 
 if.then12:                                        ; preds = %if.end10
@@ -1654,44 +1655,44 @@ if.then12:                                        ; preds = %if.end10
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then12
-  %17 = load i64, ptr %i, align 8
-  %18 = load ptr, ptr %h.addr, align 8
-  %num_pkts = getelementptr inbounds %struct.helper, ptr %18, i32 0, i32 2
-  %19 = load i64, ptr %num_pkts, align 8
-  %cmp13 = icmp ult i64 %17, %19
+  %18 = load i64, ptr %i, align 8
+  %19 = load ptr, ptr %h.addr, align 8
+  %num_pkts = getelementptr inbounds %struct.helper, ptr %19, i32 0, i32 2
+  %20 = load i64, ptr %num_pkts, align 8
+  %cmp13 = icmp ult i64 %18, %20
   br i1 %cmp13, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %20 = load ptr, ptr %h.addr, align 8
-  %pkts14 = getelementptr inbounds %struct.helper, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %pkts14, align 8
-  %22 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds %struct.pkt_info, ptr %21, i64 %22
+  %21 = load ptr, ptr %h.addr, align 8
+  %pkts14 = getelementptr inbounds %struct.helper, ptr %21, i32 0, i32 1
+  %22 = load ptr, ptr %pkts14, align 8
+  %23 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds %struct.pkt_info, ptr %22, i64 %23
   %pkt = getelementptr inbounds %struct.pkt_info, ptr %arrayidx, i32 0, i32 0
-  %23 = load ptr, ptr %pkt, align 8
-  call void @CRYPTO_free(ptr noundef %23, ptr noundef @.str.3, i32 noundef 77)
-  %24 = load ptr, ptr %h.addr, align 8
-  %pkts15 = getelementptr inbounds %struct.helper, ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %pkts15, align 8
-  %26 = load i64, ptr %i, align 8
-  %arrayidx16 = getelementptr inbounds %struct.pkt_info, ptr %25, i64 %26
+  %24 = load ptr, ptr %pkt, align 8
+  call void @CRYPTO_free(ptr noundef %24, ptr noundef @.str.3, i32 noundef 77)
+  %25 = load ptr, ptr %h.addr, align 8
+  %pkts15 = getelementptr inbounds %struct.helper, ptr %25, i32 0, i32 1
+  %26 = load ptr, ptr %pkts15, align 8
+  %27 = load i64, ptr %i, align 8
+  %arrayidx16 = getelementptr inbounds %struct.pkt_info, ptr %26, i64 %27
   %pkt17 = getelementptr inbounds %struct.pkt_info, ptr %arrayidx16, i32 0, i32 0
   store ptr null, ptr %pkt17, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %27 = load i64, ptr %i, align 8
-  %inc = add i64 %27, 1
+  %28 = load i64, ptr %i, align 8
+  %inc = add i64 %28, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !15
 
 for.end:                                          ; preds = %for.cond
-  %28 = load ptr, ptr %h.addr, align 8
-  %pkts18 = getelementptr inbounds %struct.helper, ptr %28, i32 0, i32 1
-  %29 = load ptr, ptr %pkts18, align 8
-  call void @CRYPTO_free(ptr noundef %29, ptr noundef @.str.3, i32 noundef 81)
-  %30 = load ptr, ptr %h.addr, align 8
-  %pkts19 = getelementptr inbounds %struct.helper, ptr %30, i32 0, i32 1
+  %29 = load ptr, ptr %h.addr, align 8
+  %pkts18 = getelementptr inbounds %struct.helper, ptr %29, i32 0, i32 1
+  %30 = load ptr, ptr %pkts18, align 8
+  call void @CRYPTO_free(ptr noundef %30, ptr noundef @.str.3, i32 noundef 81)
+  %31 = load ptr, ptr %h.addr, align 8
+  %pkts19 = getelementptr inbounds %struct.helper, ptr %31, i32 0, i32 1
   store ptr null, ptr %pkts19, align 8
   br label %if.end20
 

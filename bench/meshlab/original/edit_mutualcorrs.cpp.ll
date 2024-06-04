@@ -7056,169 +7056,171 @@ define void @_ZN21EditMutualCorrsPluginC2Ev(ptr noundef nonnull align 8 derefere
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef null)
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   invoke void @_ZN8EditToolC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %8 unwind label %42
+          to label %8 unwind label %44
 
 8:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV21EditMutualCorrsPlugin, i32 0, i32 0, i32 2), ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV21EditMutualCorrsPlugin, i32 0, i32 1, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 2
-  invoke void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %10)
-          to label %11 unwind label %46
+  %9 = getelementptr inbounds { [21 x ptr], [20 x ptr] }, ptr @_ZTV21EditMutualCorrsPlugin, i32 0, i32 0, i32 2
+  store ptr %9, ptr %6, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds { [21 x ptr], [20 x ptr] }, ptr @_ZTV21EditMutualCorrsPlugin, i32 0, i32 1, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 2
+  invoke void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %12)
+          to label %13 unwind label %48
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 3
-  invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %12)
-          to label %13 unwind label %46
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 3
+  invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %14)
+          to label %15 unwind label %48
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 6
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #3
-  %15 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 7
-  call void @_ZNSt6vectorI7QStringSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
-  %16 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 8
-  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  %17 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 9
-  call void @_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
-  %18 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 10
-  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  %19 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 12
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
-  %20 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 13
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
-  %21 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 14
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 6
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #3
+  %17 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 7
+  call void @_ZNSt6vectorI7QStringSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %18 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 8
+  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  %19 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 9
+  call void @_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  %20 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 10
+  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
+  %21 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 12
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
-  %22 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 15
+  %22 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 13
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
-  %23 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 16
-  invoke void @_ZN8AlignSetC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %23)
-          to label %24 unwind label %50
+  %23 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 14
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #3
+  %24 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 15
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
+  %25 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 16
+  invoke void @_ZN8AlignSetC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %25)
+          to label %26 unwind label %52
 
-24:                                               ; preds = %13
-  %25 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 3
+26:                                               ; preds = %15
+  %27 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 3
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.6)
-          to label %26 unwind label %54
+          to label %28 unwind label %56
 
-26:                                               ; preds = %24
-  invoke void @_ZN5QFont9setFamilyERK7QString(ptr noundef nonnull align 8 dereferenceable(12) %25, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %27 unwind label %58
+28:                                               ; preds = %26
+  invoke void @_ZN5QFont9setFamilyERK7QString(ptr noundef nonnull align 8 dereferenceable(12) %27, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %29 unwind label %60
 
-27:                                               ; preds = %26
+29:                                               ; preds = %28
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %28 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 3
-  invoke void @_ZN5QFont12setPixelSizeEi(ptr noundef nonnull align 8 dereferenceable(12) %28, i32 noundef 12)
-          to label %29 unwind label %54
+  %30 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 3
+  invoke void @_ZN5QFont12setPixelSizeEi(ptr noundef nonnull align 8 dereferenceable(12) %30, i32 noundef 12)
+          to label %31 unwind label %56
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 4
-  store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 6
-  invoke void @_ZNSt6vectorIbSaIbEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(40) %31, i64 noundef 128)
-          to label %32 unwind label %54
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 4
+  store ptr null, ptr %32, align 8
+  %33 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 6
+  invoke void @_ZNSt6vectorIbSaIbEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(40) %33, i64 noundef 128)
+          to label %34 unwind label %56
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 7
-  invoke void @_ZNSt6vectorI7QStringSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef 128)
-          to label %34 unwind label %54
-
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 8
-  invoke void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef 128)
-          to label %36 unwind label %54
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 7
+  invoke void @_ZNSt6vectorI7QStringSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef 128)
+          to label %36 unwind label %56
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 9
-  invoke void @_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef 128)
-          to label %38 unwind label %54
+  %37 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 8
+  invoke void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef 128)
+          to label %38 unwind label %56
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 10
-  invoke void @_ZNSt6vectorIdSaIdEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef 128)
-          to label %40 unwind label %54
+  %39 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 9
+  invoke void @_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef 128)
+          to label %40 unwind label %56
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 11
-  store i32 0, ptr %41, align 8
+  %41 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 10
+  invoke void @_ZNSt6vectorIdSaIdEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef 128)
+          to label %42 unwind label %56
+
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds %class.EditMutualCorrsPlugin, ptr %6, i32 0, i32 11
+  store i32 0, ptr %43, align 8
   ret void
 
-42:                                               ; preds = %1
-  %43 = landingpad { ptr, i32 }
+44:                                               ; preds = %1
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %3, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %4, align 4
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %3, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %4, align 4
+  br label %68
+
+48:                                               ; preds = %13, %8
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %3, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %4, align 4
   br label %66
 
-46:                                               ; preds = %11, %8
-  %47 = landingpad { ptr, i32 }
+52:                                               ; preds = %15
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %3, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %4, align 4
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %3, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %4, align 4
+  br label %65
+
+56:                                               ; preds = %40, %38, %36, %34, %31, %29, %26
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %3, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %4, align 4
   br label %64
 
-50:                                               ; preds = %13
-  %51 = landingpad { ptr, i32 }
+60:                                               ; preds = %28
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %3, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %4, align 4
-  br label %63
-
-54:                                               ; preds = %38, %36, %34, %32, %29, %27, %24
-  %55 = landingpad { ptr, i32 }
-          cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %3, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %4, align 4
-  br label %62
-
-58:                                               ; preds = %26
-  %59 = landingpad { ptr, i32 }
-          cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %3, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %4, align 4
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %3, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %4, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  br label %62
+  br label %64
 
-62:                                               ; preds = %58, %54
-  call void @_ZN8AlignSetD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %23) #3
-  br label %63
+64:                                               ; preds = %60, %56
+  call void @_ZN8AlignSetD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %25) #3
+  br label %65
 
-63:                                               ; preds = %62, %50
+65:                                               ; preds = %64, %52
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  call void @_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
-  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  call void @_ZNSt6vectorI7QStringSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #3
-  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #3
-  br label %64
-
-64:                                               ; preds = %63, %46
-  %65 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN8EditToolD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %65) #3
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
+  call void @_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  call void @_ZNSt6vectorI7QStringSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #3
+  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %14) #3
   br label %66
 
-66:                                               ; preds = %64, %42
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  br label %67
+66:                                               ; preds = %65, %48
+  %67 = getelementptr inbounds i8, ptr %6, i64 16
+  call void @_ZN8EditToolD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %67) #3
+  br label %68
 
-67:                                               ; preds = %66
-  %68 = load ptr, ptr %3, align 8
-  %69 = load i32, ptr %4, align 4
-  %70 = insertvalue { ptr, i32 } poison, ptr %68, 0
-  %71 = insertvalue { ptr, i32 } %70, i32 %69, 1
-  resume { ptr, i32 } %71
+68:                                               ; preds = %66, %44
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  br label %69
+
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %3, align 8
+  %71 = load i32, ptr %4, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -7229,7 +7231,8 @@ define linkonce_odr void @_ZN8EditToolC2Ev(ptr noundef nonnull align 8 dereferen
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN19MeshLabPluginLoggerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV8EditTool, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV8EditTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

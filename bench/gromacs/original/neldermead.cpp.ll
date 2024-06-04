@@ -4238,74 +4238,76 @@ define void @_ZNK3gmx17NelderMeadSimplex22evaluateExpansionPointERKSt8functionIF
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %13 = load ptr, ptr %5, align 8
-  %14 = load float, ptr getelementptr inbounds (%"struct.gmx::(anonymous namespace)::NelderMeadParameters", ptr @_ZN3gmx12_GLOBAL__N_127defaultNelderMeadParametersE.const, i32 0, i32 1), align 4
-  %15 = fsub float 1.000000e+00, %14
-  %16 = getelementptr inbounds %"class.gmx::NelderMeadSimplex", ptr %13, i32 0, i32 1
-  call void @_ZN3gmx8ArrayRefIKfEC2IRKSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %16)
-  %17 = load float, ptr getelementptr inbounds (%"struct.gmx::(anonymous namespace)::NelderMeadParameters", ptr @_ZN3gmx12_GLOBAL__N_127defaultNelderMeadParametersE.const, i32 0, i32 1), align 4
-  %18 = getelementptr inbounds %"class.gmx::NelderMeadSimplex", ptr %13, i32 0, i32 2
-  call void @_ZN3gmx8ArrayRefIKfEC2IRKSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(24) %18)
-  %19 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %14 = getelementptr inbounds %"struct.gmx::(anonymous namespace)::NelderMeadParameters", ptr @_ZN3gmx12_GLOBAL__N_127defaultNelderMeadParametersE.const, i32 0, i32 1
+  %15 = load float, ptr %14, align 4
+  %16 = fsub float 1.000000e+00, %15
+  %17 = getelementptr inbounds %"class.gmx::NelderMeadSimplex", ptr %13, i32 0, i32 1
+  call void @_ZN3gmx8ArrayRefIKfEC2IRKSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %18 = getelementptr inbounds %"struct.gmx::(anonymous namespace)::NelderMeadParameters", ptr @_ZN3gmx12_GLOBAL__N_127defaultNelderMeadParametersE.const, i32 0, i32 1
+  %19 = load float, ptr %18, align 4
+  %20 = getelementptr inbounds %"class.gmx::NelderMeadSimplex", ptr %13, i32 0, i32 2
+  call void @_ZN3gmx8ArrayRefIKfEC2IRKSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(24) %20)
+  %21 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
+  %23 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %25 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
   %26 = load ptr, ptr %25, align 8
-  call void @_ZN3gmx12_GLOBAL__N_117linearCombinationEfNS_8ArrayRefIKfEEfS3_(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %7, float noundef %15, ptr %20, ptr %22, float noundef %17, ptr %24, ptr %26)
-  %27 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %0, i32 0, i32 0
-  invoke void @_ZNSt6vectorIfSaIfEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %28 unwind label %38
+  %27 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  call void @_ZN3gmx12_GLOBAL__N_117linearCombinationEfNS_8ArrayRefIKfEEfS3_(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %7, float noundef %16, ptr %22, ptr %24, float noundef %19, ptr %26, ptr %28)
+  %29 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %0, i32 0, i32 0
+  invoke void @_ZNSt6vectorIfSaIfEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %30 unwind label %40
 
-28:                                               ; preds = %3
-  %29 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %0, i32 0, i32 1
-  %30 = load ptr, ptr %6, align 8
+30:                                               ; preds = %3
+  %31 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %0, i32 0, i32 1
+  %32 = load ptr, ptr %6, align 8
   invoke void @_ZN3gmx8ArrayRefIKfEC2IRKSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %31 unwind label %42
+          to label %33 unwind label %44
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
   %35 = load ptr, ptr %34, align 8
-  %36 = invoke noundef float @_ZNKSt8functionIFfN3gmx8ArrayRefIKfEEEEclES3_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr %33, ptr %35)
-          to label %37 unwind label %42
+  %36 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8
+  %38 = invoke noundef float @_ZNKSt8functionIFfN3gmx8ArrayRefIKfEEEEclES3_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr %35, ptr %37)
+          to label %39 unwind label %44
 
-37:                                               ; preds = %31
-  store float %36, ptr %29, align 8
+39:                                               ; preds = %33
+  store float %38, ptr %31, align 8
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
   ret void
 
-38:                                               ; preds = %3
-  %39 = landingpad { ptr, i32 }
+40:                                               ; preds = %3
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %10, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %11, align 4
-  br label %46
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %10, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %11, align 4
+  br label %48
 
-42:                                               ; preds = %31, %28
-  %43 = landingpad { ptr, i32 }
+44:                                               ; preds = %33, %30
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %10, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %11, align 4
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #12
-  br label %46
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %10, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %11, align 4
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #12
+  br label %48
 
-46:                                               ; preds = %42, %38
+48:                                               ; preds = %44, %40
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
-  br label %47
+  br label %49
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %10, align 8
-  %49 = load i32, ptr %11, align 4
-  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
-  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
-  resume { ptr, i32 } %51
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %10, align 8
+  %51 = load i32, ptr %11, align 4
+  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4885,75 +4887,77 @@ define void @_ZNK3gmx17NelderMeadSimplex24evaluateContractionPointERKSt8function
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %13 = load ptr, ptr %5, align 8
-  %14 = load float, ptr getelementptr inbounds (%"struct.gmx::(anonymous namespace)::NelderMeadParameters", ptr @_ZN3gmx12_GLOBAL__N_127defaultNelderMeadParametersE.const, i32 0, i32 2), align 4
-  %15 = fsub float 1.000000e+00, %14
-  %16 = getelementptr inbounds %"class.gmx::NelderMeadSimplex", ptr %13, i32 0, i32 1
-  call void @_ZN3gmx8ArrayRefIKfEC2IRKSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %16)
-  %17 = load float, ptr getelementptr inbounds (%"struct.gmx::(anonymous namespace)::NelderMeadParameters", ptr @_ZN3gmx12_GLOBAL__N_127defaultNelderMeadParametersE.const, i32 0, i32 2), align 4
-  %18 = call noundef nonnull align 8 dereferenceable(28) ptr @_ZNK3gmx17NelderMeadSimplex11worstVertexEv(ptr noundef nonnull align 8 dereferenceable(72) %13)
-  %19 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %18, i32 0, i32 0
-  call void @_ZN3gmx8ArrayRefIKfEC2IRKSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(24) %19)
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %14 = getelementptr inbounds %"struct.gmx::(anonymous namespace)::NelderMeadParameters", ptr @_ZN3gmx12_GLOBAL__N_127defaultNelderMeadParametersE.const, i32 0, i32 2
+  %15 = load float, ptr %14, align 4
+  %16 = fsub float 1.000000e+00, %15
+  %17 = getelementptr inbounds %"class.gmx::NelderMeadSimplex", ptr %13, i32 0, i32 1
+  call void @_ZN3gmx8ArrayRefIKfEC2IRKSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %18 = getelementptr inbounds %"struct.gmx::(anonymous namespace)::NelderMeadParameters", ptr @_ZN3gmx12_GLOBAL__N_127defaultNelderMeadParametersE.const, i32 0, i32 2
+  %19 = load float, ptr %18, align 4
+  %20 = call noundef nonnull align 8 dereferenceable(28) ptr @_ZNK3gmx17NelderMeadSimplex11worstVertexEv(ptr noundef nonnull align 8 dereferenceable(72) %13)
+  %21 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %20, i32 0, i32 0
+  call void @_ZN3gmx8ArrayRefIKfEC2IRKSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  %22 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
+  %24 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %26 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
-  call void @_ZN3gmx12_GLOBAL__N_117linearCombinationEfNS_8ArrayRefIKfEEfS3_(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %7, float noundef %15, ptr %21, ptr %23, float noundef %17, ptr %25, ptr %27)
-  %28 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %0, i32 0, i32 0
-  invoke void @_ZNSt6vectorIfSaIfEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %29 unwind label %39
+  %28 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  call void @_ZN3gmx12_GLOBAL__N_117linearCombinationEfNS_8ArrayRefIKfEEfS3_(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %7, float noundef %16, ptr %23, ptr %25, float noundef %19, ptr %27, ptr %29)
+  %30 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %0, i32 0, i32 0
+  invoke void @_ZNSt6vectorIfSaIfEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %31 unwind label %41
 
-29:                                               ; preds = %3
-  %30 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %0, i32 0, i32 1
-  %31 = load ptr, ptr %6, align 8
+31:                                               ; preds = %3
+  %32 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %0, i32 0, i32 1
+  %33 = load ptr, ptr %6, align 8
   invoke void @_ZN3gmx8ArrayRefIKfEC2IRSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %32 unwind label %43
+          to label %34 unwind label %45
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
   %36 = load ptr, ptr %35, align 8
-  %37 = invoke noundef float @_ZNKSt8functionIFfN3gmx8ArrayRefIKfEEEEclES3_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr %34, ptr %36)
-          to label %38 unwind label %43
+  %37 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8
+  %39 = invoke noundef float @_ZNKSt8functionIFfN3gmx8ArrayRefIKfEEEEclES3_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr %36, ptr %38)
+          to label %40 unwind label %45
 
-38:                                               ; preds = %32
-  store float %37, ptr %30, align 8
+40:                                               ; preds = %34
+  store float %39, ptr %32, align 8
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
   ret void
 
-39:                                               ; preds = %3
-  %40 = landingpad { ptr, i32 }
+41:                                               ; preds = %3
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %10, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %11, align 4
-  br label %47
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %10, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %11, align 4
+  br label %49
 
-43:                                               ; preds = %32, %29
-  %44 = landingpad { ptr, i32 }
+45:                                               ; preds = %34, %31
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %10, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %11, align 4
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #12
-  br label %47
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %10, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %11, align 4
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #12
+  br label %49
 
-47:                                               ; preds = %43, %39
+49:                                               ; preds = %45, %41
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
-  br label %48
+  br label %50
 
-48:                                               ; preds = %47
-  %49 = load ptr, ptr %10, align 8
-  %50 = load i32, ptr %11, align 4
-  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
-  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
-  resume { ptr, i32 } %52
+50:                                               ; preds = %49
+  %51 = load ptr, ptr %10, align 8
+  %52 = load i32, ptr %11, align 4
+  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
+  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
+  resume { ptr, i32 } %54
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6191,75 +6195,77 @@ define internal void @"_ZZN3gmx17NelderMeadSimplex29shrinkSimplexPointsExceptBes
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %13 = load ptr, ptr %5, align 8
-  %14 = load float, ptr getelementptr inbounds (%"struct.gmx::(anonymous namespace)::NelderMeadParameters", ptr @_ZN3gmx12_GLOBAL__N_127defaultNelderMeadParametersE.const, i32 0, i32 3), align 4
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %15, i32 0, i32 0
-  call void @_ZN3gmx8ArrayRefIKfEC2IRKSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %16)
-  %17 = load float, ptr getelementptr inbounds (%"struct.gmx::(anonymous namespace)::NelderMeadParameters", ptr @_ZN3gmx12_GLOBAL__N_127defaultNelderMeadParametersE.const, i32 0, i32 3), align 4
-  %18 = fsub float 1.000000e+00, %17
-  %19 = getelementptr inbounds %class.anon.7, ptr %13, i32 0, i32 0
-  call void @_ZN3gmx8ArrayRefIKfEC2IRKSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(24) %19)
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %14 = getelementptr inbounds %"struct.gmx::(anonymous namespace)::NelderMeadParameters", ptr @_ZN3gmx12_GLOBAL__N_127defaultNelderMeadParametersE.const, i32 0, i32 3
+  %15 = load float, ptr %14, align 4
+  %16 = load ptr, ptr %6, align 8
+  %17 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %16, i32 0, i32 0
+  call void @_ZN3gmx8ArrayRefIKfEC2IRKSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %18 = getelementptr inbounds %"struct.gmx::(anonymous namespace)::NelderMeadParameters", ptr @_ZN3gmx12_GLOBAL__N_127defaultNelderMeadParametersE.const, i32 0, i32 3
+  %19 = load float, ptr %18, align 4
+  %20 = fsub float 1.000000e+00, %19
+  %21 = getelementptr inbounds %class.anon.7, ptr %13, i32 0, i32 0
+  call void @_ZN3gmx8ArrayRefIKfEC2IRKSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  %22 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
+  %24 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %26 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
-  call void @_ZN3gmx12_GLOBAL__N_117linearCombinationEfNS_8ArrayRefIKfEEfS3_(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %7, float noundef %14, ptr %21, ptr %23, float noundef %18, ptr %25, ptr %27)
-  %28 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %0, i32 0, i32 0
-  invoke void @_ZNSt6vectorIfSaIfEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %29 unwind label %39
+  %28 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  call void @_ZN3gmx12_GLOBAL__N_117linearCombinationEfNS_8ArrayRefIKfEEfS3_(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %7, float noundef %15, ptr %23, ptr %25, float noundef %20, ptr %27, ptr %29)
+  %30 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %0, i32 0, i32 0
+  invoke void @_ZNSt6vectorIfSaIfEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %31 unwind label %41
 
-29:                                               ; preds = %3
-  %30 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %0, i32 0, i32 1
-  %31 = getelementptr inbounds %class.anon.7, ptr %13, i32 0, i32 1
+31:                                               ; preds = %3
+  %32 = getelementptr inbounds %"struct.gmx::RealFunctionvalueAtCoordinate", ptr %0, i32 0, i32 1
+  %33 = getelementptr inbounds %class.anon.7, ptr %13, i32 0, i32 1
   invoke void @_ZN3gmx8ArrayRefIKfEC2IRKSt6vectorIfSaIfEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %32 unwind label %43
+          to label %34 unwind label %45
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
   %36 = load ptr, ptr %35, align 8
-  %37 = invoke noundef float @_ZNKSt8functionIFfN3gmx8ArrayRefIKfEEEEclES3_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr %34, ptr %36)
-          to label %38 unwind label %43
+  %37 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8
+  %39 = invoke noundef float @_ZNKSt8functionIFfN3gmx8ArrayRefIKfEEEEclES3_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr %36, ptr %38)
+          to label %40 unwind label %45
 
-38:                                               ; preds = %32
-  store float %37, ptr %30, align 8
+40:                                               ; preds = %34
+  store float %39, ptr %32, align 8
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
   ret void
 
-39:                                               ; preds = %3
-  %40 = landingpad { ptr, i32 }
+41:                                               ; preds = %3
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %10, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %11, align 4
-  br label %47
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %10, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %11, align 4
+  br label %49
 
-43:                                               ; preds = %32, %29
-  %44 = landingpad { ptr, i32 }
+45:                                               ; preds = %34, %31
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %10, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %11, align 4
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #12
-  br label %47
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %10, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %11, align 4
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #12
+  br label %49
 
-47:                                               ; preds = %43, %39
+49:                                               ; preds = %45, %41
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
-  br label %48
+  br label %50
 
-48:                                               ; preds = %47
-  %49 = load ptr, ptr %10, align 8
-  %50 = load i32, ptr %11, align 4
-  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
-  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
-  resume { ptr, i32 } %52
+50:                                               ; preds = %49
+  %51 = load ptr, ptr %10, align 8
+  %52 = load i32, ptr %11, align 4
+  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
+  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
+  resume { ptr, i32 } %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

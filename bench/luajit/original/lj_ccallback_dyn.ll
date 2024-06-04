@@ -1781,36 +1781,37 @@ entry:
   %call = call ptr @mmap64(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #6
   store ptr %call, ptr %p, align 8
   %1 = load ptr, ptr %p, align 8
-  %cmp = icmp eq ptr %1, inttoptr (i64 -1 to ptr)
+  %2 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %1, %2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %cts.addr, align 8
-  %L = getelementptr inbounds %struct.CTState, ptr %2, i32 0, i32 3
-  %3 = load ptr, ptr %L, align 8
-  call void @lj_err_caller(ptr noundef %3, i32 noundef 3661) #8
+  %3 = load ptr, ptr %cts.addr, align 8
+  %L = getelementptr inbounds %struct.CTState, ptr %3, i32 0, i32 3
+  %4 = load ptr, ptr %L, align 8
+  call void @lj_err_caller(ptr noundef %4, i32 noundef 3661) #8
   unreachable
 
 if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %p, align 8
-  %5 = load ptr, ptr %cts.addr, align 8
-  %cb = getelementptr inbounds %struct.CTState, ptr %5, i32 0, i32 7
-  %mcode = getelementptr inbounds %struct.CCallback, ptr %cb, i32 0, i32 3
-  store ptr %4, ptr %mcode, align 8
+  %5 = load ptr, ptr %p, align 8
   %6 = load ptr, ptr %cts.addr, align 8
-  %g = getelementptr inbounds %struct.CTState, ptr %6, i32 0, i32 4
-  %7 = load ptr, ptr %g, align 8
-  %8 = load ptr, ptr %p, align 8
-  %call1 = call ptr @callback_mcode_init(ptr noundef %7, ptr noundef %8)
-  store ptr %call1, ptr %pe, align 8
+  %cb = getelementptr inbounds %struct.CTState, ptr %6, i32 0, i32 7
+  %mcode = getelementptr inbounds %struct.CCallback, ptr %cb, i32 0, i32 3
+  store ptr %5, ptr %mcode, align 8
+  %7 = load ptr, ptr %cts.addr, align 8
+  %g = getelementptr inbounds %struct.CTState, ptr %7, i32 0, i32 4
+  %8 = load ptr, ptr %g, align 8
   %9 = load ptr, ptr %p, align 8
+  %call1 = call ptr @callback_mcode_init(ptr noundef %8, ptr noundef %9)
+  store ptr %call1, ptr %pe, align 8
   %10 = load ptr, ptr %p, align 8
-  %11 = load i64, ptr %sz, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %10, i64 %11
-  call void @lj_mcode_sync(ptr noundef %9, ptr noundef %add.ptr)
-  %12 = load ptr, ptr %p, align 8
-  %13 = load i64, ptr %sz, align 8
-  %call2 = call i32 @mprotect(ptr noundef %12, i64 noundef %13, i32 noundef 5) #6
+  %11 = load ptr, ptr %p, align 8
+  %12 = load i64, ptr %sz, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %11, i64 %12
+  call void @lj_mcode_sync(ptr noundef %10, ptr noundef %add.ptr)
+  %13 = load ptr, ptr %p, align 8
+  %14 = load i64, ptr %sz, align 8
+  %call2 = call i32 @mprotect(ptr noundef %13, i64 noundef %14, i32 noundef 5) #6
   ret void
 }
 

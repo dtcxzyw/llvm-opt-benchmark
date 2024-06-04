@@ -75,49 +75,51 @@ define dso_local ptr @i915_gem_object_create_lmem_from_data(ptr nocapture nounde
   %7 = getelementptr i8, ptr %0, i64 8512
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @i915_gem_object_create_region(ptr noundef %8, i64 noundef %6, i64 noundef 0, i32 noundef 1) #4
-  %10 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
-  br i1 %10, label %26, label %11
+  %10 = inttoptr i64 -4096 to ptr
+  %11 = icmp ugt ptr %9, %10
+  br i1 %11, label %28, label %12
 
-11:                                               ; preds = %3
-  %12 = tail call ptr @i915_gem_object_pin_map_unlocked(ptr noundef %9, i32 noundef 1) #4
-  %13 = icmp ugt ptr %12, inttoptr (i64 -4096 to ptr)
-  br i1 %13, label %14, label %23
+12:                                               ; preds = %3
+  %13 = tail call ptr @i915_gem_object_pin_map_unlocked(ptr noundef %9, i32 noundef 1) #4
+  %14 = inttoptr i64 -4096 to ptr
+  %15 = icmp ugt ptr %13, %14
+  br i1 %15, label %16, label %25
 
-14:                                               ; preds = %11
-  %15 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 -1, ptr elementtype(i32) %9) #4, !srcloc !5
-  %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %18
+16:                                               ; preds = %12
+  %17 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 -1, ptr elementtype(i32) %9) #4, !srcloc !5
+  %18 = icmp eq i32 %17, 1
+  br i1 %18, label %19, label %20
 
-17:                                               ; preds = %14
+19:                                               ; preds = %16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
-  br label %21
+  br label %23
 
-18:                                               ; preds = %14
-  %19 = icmp sgt i32 %15, 0
-  br i1 %19, label %21, label %20, !prof !7
+20:                                               ; preds = %16
+  %21 = icmp sgt i32 %17, 0
+  br i1 %21, label %23, label %22, !prof !7
 
-20:                                               ; preds = %18
+22:                                               ; preds = %20
   tail call void @refcount_warn_saturate(ptr noundef %9, i32 noundef 3) #4
-  br label %21
+  br label %23
 
-21:                                               ; preds = %20, %18, %17
-  br i1 %16, label %22, label %26
+23:                                               ; preds = %22, %20, %19
+  br i1 %18, label %24, label %28
 
-22:                                               ; preds = %21
+24:                                               ; preds = %23
   tail call void @drm_gem_object_free(ptr noundef %9) #4
-  br label %26
+  br label %28
 
-23:                                               ; preds = %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %1, i64 %2, i1 false)
-  %24 = getelementptr inbounds i8, ptr %9, i64 216
-  %25 = load i64, ptr %24, align 8
-  tail call void @__i915_gem_object_flush_map(ptr noundef %9, i64 noundef 0, i64 noundef %25) #4
+25:                                               ; preds = %12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %1, i64 %2, i1 false)
+  %26 = getelementptr inbounds i8, ptr %9, i64 216
+  %27 = load i64, ptr %26, align 8
+  tail call void @__i915_gem_object_flush_map(ptr noundef %9, i64 noundef 0, i64 noundef %27) #4
   tail call void @__i915_gem_object_release_map(ptr noundef %9) #4
-  br label %26
+  br label %28
 
-26:                                               ; preds = %23, %22, %21, %3
-  %27 = phi ptr [ %9, %23 ], [ %9, %3 ], [ %12, %21 ], [ %12, %22 ]
-  ret ptr %27
+28:                                               ; preds = %25, %24, %23, %3
+  %29 = phi ptr [ %9, %25 ], [ %9, %3 ], [ %13, %23 ], [ %13, %24 ]
+  ret ptr %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

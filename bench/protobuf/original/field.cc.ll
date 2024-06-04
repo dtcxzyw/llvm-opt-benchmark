@@ -5186,13 +5186,14 @@ entry:
   store ptr %options, ptr %options.addr, align 8
   store ptr %scc, ptr %scc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp18FieldGeneratorBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp18FieldGeneratorBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %descriptor_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %descriptor.addr, align 8
-  store ptr %0, ptr %descriptor_, align 8
+  %1 = load ptr, ptr %descriptor.addr, align 8
+  store ptr %1, ptr %descriptor_, align 8
   %options_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %options.addr, align 8
-  store ptr %1, ptr %options_, align 8
+  %2 = load ptr, ptr %options.addr, align 8
+  store ptr %2, ptr %options_, align 8
   %variables_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 4
   call void @_ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS4_SaIcEEENS0_18container_internal10StringHashENSA_8StringEqESaISt4pairIKS5_S9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %variables_)
   %should_split_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 5
@@ -5225,24 +5226,24 @@ entry:
   store i32 0, ptr %string_type_, align 8
   %has_default_constexpr_constructor_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 20
   store i8 0, ptr %has_default_constexpr_constructor_, align 4
-  %2 = load ptr, ptr %descriptor.addr, align 8
-  %call = invoke noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor11is_repeatedEv(ptr noundef nonnull align 8 dereferenceable(88) %2)
+  %3 = load ptr, ptr %descriptor.addr, align 8
+  %call = invoke noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor11is_repeatedEv(ptr noundef nonnull align 8 dereferenceable(88) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %is_repeated_or_map, align 1
-  %3 = load ptr, ptr %descriptor.addr, align 8
-  %4 = load ptr, ptr %options.addr, align 8
-  %call3 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp11ShouldSplitEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(206) %4)
+  %4 = load ptr, ptr %descriptor.addr, align 8
+  %5 = load ptr, ptr %options.addr, align 8
+  %call3 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp11ShouldSplitEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(206) %5)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %should_split_4 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 5
   %frombool5 = zext i1 %call3 to i8
   store i8 %frombool5, ptr %should_split_4, align 8
-  %5 = load ptr, ptr %descriptor.addr, align 8
-  %call7 = invoke noundef ptr @_ZNK6google8protobuf15FieldDescriptor21real_containing_oneofEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
+  %6 = load ptr, ptr %descriptor.addr, align 8
+  %call7 = invoke noundef ptr @_ZNK6google8protobuf15FieldDescriptor21real_containing_oneofEv(ptr noundef nonnull align 8 dereferenceable(88) %6)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont2
@@ -5250,8 +5251,8 @@ invoke.cont6:                                     ; preds = %invoke.cont2
   %is_oneof_8 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 17
   %frombool9 = zext i1 %cmp to i8
   store i8 %frombool9, ptr %is_oneof_8, align 4
-  %6 = load ptr, ptr %descriptor.addr, align 8
-  %call11 = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %6)
+  %7 = load ptr, ptr %descriptor.addr, align 8
+  %call11 = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %7)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont6
@@ -5269,18 +5270,18 @@ invoke.cont10:                                    ; preds = %invoke.cont6
   ]
 
 lpad:                                             ; preds = %sw.epilog, %invoke.cont49, %invoke.cont45, %invoke.cont40, %sw.bb38, %invoke.cont26, %invoke.cont23, %invoke.cont21, %sw.bb19, %invoke.cont6, %invoke.cont2, %invoke.cont, %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS4_SaIcEEENS0_18container_internal10StringHashENSA_8StringEqESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %variables_) #3
   br label %eh.resume
 
 sw.bb:                                            ; preds = %invoke.cont10, %invoke.cont10, %invoke.cont10, %invoke.cont10, %invoke.cont10, %invoke.cont10, %invoke.cont10, %invoke.cont10
-  %10 = load i8, ptr %is_repeated_or_map, align 1
-  %tobool = trunc i8 %10 to i1
+  %11 = load i8, ptr %is_repeated_or_map, align 1
+  %tobool = trunc i8 %11 to i1
   %lnot = xor i1 %tobool, true
   %has_trivial_value_12 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 7
   %frombool13 = zext i1 %lnot to i8
@@ -5288,8 +5289,8 @@ sw.bb:                                            ; preds = %invoke.cont10, %inv
   %is_trivial_14 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 6
   %frombool15 = zext i1 %lnot to i8
   store i8 %frombool15, ptr %is_trivial_14, align 1
-  %11 = load i8, ptr %is_repeated_or_map, align 1
-  %tobool16 = trunc i8 %11 to i1
+  %12 = load i8, ptr %is_repeated_or_map, align 1
+  %tobool16 = trunc i8 %12 to i1
   %has_default_constexpr_constructor_17 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 20
   %frombool18 = zext i1 %tobool16 to i8
   store i8 %frombool18, ptr %has_default_constexpr_constructor_17, align 4
@@ -5298,8 +5299,8 @@ sw.bb:                                            ; preds = %invoke.cont10, %inv
 sw.bb19:                                          ; preds = %invoke.cont10
   %is_string_20 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 11
   store i8 1, ptr %is_string_20, align 2
-  %12 = load ptr, ptr %descriptor.addr, align 8
-  %call22 = invoke noundef nonnull align 8 dereferenceable(144) ptr @_ZNK6google8protobuf15FieldDescriptor7optionsEv(ptr noundef nonnull align 8 dereferenceable(88) %12)
+  %13 = load ptr, ptr %descriptor.addr, align 8
+  %call22 = invoke noundef nonnull align 8 dereferenceable(144) ptr @_ZNK6google8protobuf15FieldDescriptor7optionsEv(ptr noundef nonnull align 8 dereferenceable(88) %13)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %sw.bb19
@@ -5309,17 +5310,17 @@ invoke.cont21:                                    ; preds = %sw.bb19
 invoke.cont23:                                    ; preds = %invoke.cont21
   %string_type_25 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 19
   store i32 %call24, ptr %string_type_25, align 8
-  %13 = load ptr, ptr %descriptor.addr, align 8
-  %14 = load ptr, ptr %options.addr, align 8
-  %call27 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp15IsStringInlinedEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(206) %14)
+  %14 = load ptr, ptr %descriptor.addr, align 8
+  %15 = load ptr, ptr %options.addr, align 8
+  %call27 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp15IsStringInlinedEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(206) %15)
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %invoke.cont23
   %is_inlined_28 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 13
   %frombool29 = zext i1 %call27 to i8
   store i8 %frombool29, ptr %is_inlined_28, align 8
-  %15 = load ptr, ptr %descriptor.addr, align 8
-  %call31 = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor4typeEv(ptr noundef nonnull align 8 dereferenceable(88) %15)
+  %16 = load ptr, ptr %descriptor.addr, align 8
+  %call31 = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor4typeEv(ptr noundef nonnull align 8 dereferenceable(88) %16)
           to label %invoke.cont30 unwind label %lpad
 
 invoke.cont30:                                    ; preds = %invoke.cont26
@@ -5327,8 +5328,8 @@ invoke.cont30:                                    ; preds = %invoke.cont26
   %is_bytes_33 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 12
   %frombool34 = zext i1 %cmp32 to i8
   store i8 %frombool34, ptr %is_bytes_33, align 1
-  %16 = load i8, ptr %is_repeated_or_map, align 1
-  %tobool35 = trunc i8 %16 to i1
+  %17 = load i8, ptr %is_repeated_or_map, align 1
+  %tobool35 = trunc i8 %17 to i1
   %has_default_constexpr_constructor_36 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 20
   %frombool37 = zext i1 %tobool35 to i8
   store i8 %frombool37, ptr %has_default_constexpr_constructor_36, align 4
@@ -5337,8 +5338,8 @@ invoke.cont30:                                    ; preds = %invoke.cont26
 sw.bb38:                                          ; preds = %invoke.cont10
   %is_message_39 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 9
   store i8 1, ptr %is_message_39, align 4
-  %17 = load ptr, ptr %descriptor.addr, align 8
-  %call41 = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor4typeEv(ptr noundef nonnull align 8 dereferenceable(88) %17)
+  %18 = load ptr, ptr %descriptor.addr, align 8
+  %call41 = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor4typeEv(ptr noundef nonnull align 8 dereferenceable(88) %18)
           to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %sw.bb38
@@ -5346,72 +5347,72 @@ invoke.cont40:                                    ; preds = %sw.bb38
   %is_group_43 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 10
   %frombool44 = zext i1 %cmp42 to i8
   store i8 %frombool44, ptr %is_group_43, align 1
-  %18 = load ptr, ptr %descriptor.addr, align 8
-  %call46 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp18IsCrossFileMessageEPKNS0_15FieldDescriptorE(ptr noundef %18)
+  %19 = load ptr, ptr %descriptor.addr, align 8
+  %call46 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp18IsCrossFileMessageEPKNS0_15FieldDescriptorE(ptr noundef %19)
           to label %invoke.cont45 unwind label %lpad
 
 invoke.cont45:                                    ; preds = %invoke.cont40
   %is_foreign_47 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 14
   %frombool48 = zext i1 %call46 to i8
   store i8 %frombool48, ptr %is_foreign_47, align 1
-  %19 = load ptr, ptr %descriptor.addr, align 8
-  %20 = load ptr, ptr %options.addr, align 8
-  %21 = load ptr, ptr %scc.addr, align 8
-  %call50 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp19IsImplicitWeakFieldEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(206) %20, ptr noundef %21)
+  %20 = load ptr, ptr %descriptor.addr, align 8
+  %21 = load ptr, ptr %options.addr, align 8
+  %22 = load ptr, ptr %scc.addr, align 8
+  %call50 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp19IsImplicitWeakFieldEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(206) %21, ptr noundef %22)
           to label %invoke.cont49 unwind label %lpad
 
 invoke.cont49:                                    ; preds = %invoke.cont45
   %is_weak_51 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 16
   %frombool52 = zext i1 %call50 to i8
   store i8 %frombool52, ptr %is_weak_51, align 1
-  %22 = load ptr, ptr %descriptor.addr, align 8
-  %23 = load ptr, ptr %options.addr, align 8
-  %24 = load ptr, ptr %scc.addr, align 8
-  %call54 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp6IsLazyEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(206) %23, ptr noundef %24)
+  %23 = load ptr, ptr %descriptor.addr, align 8
+  %24 = load ptr, ptr %options.addr, align 8
+  %25 = load ptr, ptr %scc.addr, align 8
+  %call54 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp6IsLazyEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(206) %24, ptr noundef %25)
           to label %invoke.cont53 unwind label %lpad
 
 invoke.cont53:                                    ; preds = %invoke.cont49
   %is_lazy_55 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 15
   %frombool56 = zext i1 %call54 to i8
   store i8 %frombool56, ptr %is_lazy_55, align 2
-  %25 = load i8, ptr %is_repeated_or_map, align 1
-  %tobool57 = trunc i8 %25 to i1
+  %26 = load i8, ptr %is_repeated_or_map, align 1
+  %tobool57 = trunc i8 %26 to i1
   br i1 %tobool57, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %invoke.cont53
   %is_lazy_58 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 15
-  %26 = load i8, ptr %is_lazy_58, align 2
-  %tobool59 = trunc i8 %26 to i1
+  %27 = load i8, ptr %is_lazy_58, align 2
+  %tobool59 = trunc i8 %27 to i1
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %invoke.cont53
-  %27 = phi i1 [ true, %invoke.cont53 ], [ %tobool59, %lor.rhs ]
-  %lnot60 = xor i1 %27, true
+  %28 = phi i1 [ true, %invoke.cont53 ], [ %tobool59, %lor.rhs ]
+  %lnot60 = xor i1 %28, true
   %has_trivial_value_61 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 7
   %frombool62 = zext i1 %lnot60 to i8
   store i8 %frombool62, ptr %has_trivial_value_61, align 2
-  %28 = load i8, ptr %is_repeated_or_map, align 1
-  %tobool63 = trunc i8 %28 to i1
+  %29 = load i8, ptr %is_repeated_or_map, align 1
+  %tobool63 = trunc i8 %29 to i1
   br i1 %tobool63, label %lor.end67, label %lor.rhs64
 
 lor.rhs64:                                        ; preds = %lor.end
   %is_lazy_65 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 15
-  %29 = load i8, ptr %is_lazy_65, align 2
-  %tobool66 = trunc i8 %29 to i1
+  %30 = load i8, ptr %is_lazy_65, align 2
+  %tobool66 = trunc i8 %30 to i1
   br label %lor.end67
 
 lor.end67:                                        ; preds = %lor.rhs64, %lor.end
-  %30 = phi i1 [ true, %lor.end ], [ %tobool66, %lor.rhs64 ]
+  %31 = phi i1 [ true, %lor.end ], [ %tobool66, %lor.rhs64 ]
   %has_default_constexpr_constructor_68 = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 20
-  %frombool69 = zext i1 %30 to i8
+  %frombool69 = zext i1 %31 to i8
   store i8 %frombool69, ptr %has_default_constexpr_constructor_68, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %lor.end67, %invoke.cont30, %sw.bb, %invoke.cont10
-  %31 = load ptr, ptr %descriptor.addr, align 8
-  %32 = load ptr, ptr %options.addr, align 8
-  %33 = load ptr, ptr %scc.addr, align 8
-  %call71 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp22CanInitializeByZeroingEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(206) %32, ptr noundef %33)
+  %32 = load ptr, ptr %descriptor.addr, align 8
+  %33 = load ptr, ptr %options.addr, align 8
+  %34 = load ptr, ptr %scc.addr, align 8
+  %call71 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp22CanInitializeByZeroingEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(206) %33, ptr noundef %34)
           to label %invoke.cont70 unwind label %lpad
 
 invoke.cont70:                                    ; preds = %sw.epilog
@@ -10962,7 +10963,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #5 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15224,7 +15226,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 

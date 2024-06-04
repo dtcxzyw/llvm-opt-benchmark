@@ -81,28 +81,31 @@ define internal i32 @pmix_prm_close() #0 {
 
 4:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %12
+  br label %15
 
 5:                                                ; preds = %0
   store i8 0, ptr @pmix_prm_base, align 1
-  store i8 0, ptr getelementptr inbounds (%struct.pmix_prm_globals_t, ptr @pmix_prm_base, i32 0, i32 1), align 1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pmix_prm_module_t, ptr @pmix_prm, i32 0, i32 2), align 8
-  %7 = icmp ne ptr null, %6
-  br i1 %7, label %8, label %10
+  %6 = getelementptr inbounds %struct.pmix_prm_globals_t, ptr @pmix_prm_base, i32 0, i32 1
+  store i8 0, ptr %6, align 1
+  %7 = getelementptr inbounds %struct.pmix_prm_module_t, ptr @pmix_prm, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr null, %8
+  br i1 %9, label %10, label %13
 
-8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.pmix_prm_module_t, ptr @pmix_prm, i32 0, i32 2), align 8
-  call void %9()
-  br label %10
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds %struct.pmix_prm_module_t, ptr @pmix_prm, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  call void %12()
+  br label %13
 
-10:                                               ; preds = %8, %5
-  %11 = call i32 @pmix_mca_base_framework_components_close(ptr noundef @pmix_prm_base_framework, ptr noundef null)
-  store i32 %11, ptr %1, align 4
-  br label %12
+13:                                               ; preds = %10, %5
+  %14 = call i32 @pmix_mca_base_framework_components_close(ptr noundef @pmix_prm_base_framework, ptr noundef null)
+  store i32 %14, ptr %1, align 4
+  br label %15
 
-12:                                               ; preds = %10, %4
-  %13 = load i32, ptr %1, align 4
-  ret i32 %13
+15:                                               ; preds = %13, %4
+  %16 = load i32, ptr %1, align 4
+  ret i32 %16
 }
 
 declare i32 @pmix_mca_base_framework_components_open(ptr noundef, i32 noundef) #1

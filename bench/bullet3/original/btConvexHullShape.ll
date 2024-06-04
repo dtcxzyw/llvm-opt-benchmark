@@ -246,7 +246,8 @@ entry:
   store i32 %stride, ptr %stride.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV17btConvexHullShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTV17btConvexHullShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_unscaledPoints = getelementptr inbounds %class.btConvexHullShape, ptr %this1, i32 0, i32 2
   invoke void @_ZN20btAlignedObjectArrayI9btVector3EC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_unscaledPoints)
           to label %invoke.cont unwind label %lpad
@@ -255,75 +256,75 @@ invoke.cont:                                      ; preds = %entry
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 4, ptr %m_shapeType, align 8
   %m_unscaledPoints2 = getelementptr inbounds %class.btConvexHullShape, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %numPoints.addr, align 4
+  %1 = load i32, ptr %numPoints.addr, align 4
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  invoke void @_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %m_unscaledPoints2, i32 noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
+  invoke void @_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %m_unscaledPoints2, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  %1 = load ptr, ptr %points.addr, align 8
-  store ptr %1, ptr %pointsAddress, align 8
+  %2 = load ptr, ptr %points.addr, align 8
+  store ptr %2, ptr %pointsAddress, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont5
-  %2 = load i32, ptr %i, align 4
-  %3 = load i32, ptr %numPoints.addr, align 4
-  %cmp = icmp slt i32 %2, %3
+  %3 = load i32, ptr %i, align 4
+  %4 = load i32, ptr %numPoints.addr, align 4
+  %cmp = icmp slt i32 %3, %4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %pointsAddress, align 8
-  store ptr %4, ptr %point, align 8
-  %5 = load ptr, ptr %point, align 8
-  %arrayidx = getelementptr inbounds float, ptr %5, i64 0
+  %5 = load ptr, ptr %pointsAddress, align 8
+  store ptr %5, ptr %point, align 8
   %6 = load ptr, ptr %point, align 8
-  %arrayidx7 = getelementptr inbounds float, ptr %6, i64 1
+  %arrayidx = getelementptr inbounds float, ptr %6, i64 0
   %7 = load ptr, ptr %point, align 8
-  %arrayidx8 = getelementptr inbounds float, ptr %7, i64 2
+  %arrayidx7 = getelementptr inbounds float, ptr %7, i64 1
+  %8 = load ptr, ptr %point, align 8
+  %arrayidx8 = getelementptr inbounds float, ptr %8, i64 2
   invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx7, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx8)
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %for.body
   %m_unscaledPoints10 = getelementptr inbounds %class.btConvexHullShape, ptr %this1, i32 0, i32 2
-  %8 = load i32, ptr %i, align 4
-  %call = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZN20btAlignedObjectArrayI9btVector3EixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_unscaledPoints10, i32 noundef %8)
+  %9 = load i32, ptr %i, align 4
+  %call = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZN20btAlignedObjectArrayI9btVector3EixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_unscaledPoints10, i32 noundef %9)
           to label %invoke.cont11 unwind label %lpad3
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call, ptr align 4 %ref.tmp6, i64 16, i1 false)
-  %9 = load i32, ptr %stride.addr, align 4
-  %10 = load ptr, ptr %pointsAddress, align 8
-  %idx.ext = sext i32 %9 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %10, i64 %idx.ext
+  %10 = load i32, ptr %stride.addr, align 4
+  %11 = load ptr, ptr %pointsAddress, align 8
+  %idx.ext = sext i32 %10 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %11, i64 %idx.ext
   store ptr %add.ptr, ptr %pointsAddress, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont11
-  %11 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %11, 1
+  %12 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %12, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !5
 
 lpad:                                             ; preds = %entry
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %for.end, %invoke.cont9, %for.body, %invoke.cont4, %invoke.cont
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_unscaledPoints) #10
   br label %ehcleanup
 
@@ -1967,7 +1968,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV17btConvexHullShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTV17btConvexHullShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_unscaledPoints = getelementptr inbounds %class.btConvexHullShape, ptr %this1, i32 0, i32 2
   call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_unscaledPoints) #10
   call void @_ZN34btPolyhedralConvexAabbCachingShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1) #10

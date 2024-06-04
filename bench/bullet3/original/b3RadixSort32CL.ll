@@ -232,281 +232,282 @@ entry:
   store ptr %queue, ptr %queue.addr, align 8
   store i32 %initialCapacity, ptr %initialCapacity.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15b3RadixSort32CL, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV15b3RadixSort32CL, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_commandQueue = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 7
-  %0 = load ptr, ptr %queue.addr, align 8
-  store ptr %0, ptr %m_commandQueue, align 8
-  %1 = load ptr, ptr %device.addr, align 8
-  call void @_ZN13b3OpenCLUtils13getDeviceInfoEP13_cl_device_idP18b3OpenCLDeviceInfo(ptr noundef %1, ptr noundef %info)
+  %1 = load ptr, ptr %queue.addr, align 8
+  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %device.addr, align 8
+  call void @_ZN13b3OpenCLUtils13getDeviceInfoEP13_cl_device_idP18b3OpenCLDeviceInfo(ptr noundef %2, ptr noundef %info)
   %m_deviceType = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i32 0, i32 4
-  %2 = load i64, ptr %m_deviceType, align 8
-  %and = and i64 %2, 2
+  %3 = load i64, ptr %m_deviceType, align 8
+  %and = and i64 %3, 2
   %cmp = icmp ne i64 %and, 0
   %m_deviceCPU = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 13
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %m_deviceCPU, align 8
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #9
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %4 = load ptr, ptr %queue.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call, ptr noundef %3, ptr noundef %4, i64 noundef 0, i1 noundef zeroext true)
+  %4 = load ptr, ptr %ctx.addr, align 8
+  %5 = load ptr, ptr %queue.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call, ptr noundef %4, ptr noundef %5, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_workBuffer1 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 1
   store ptr %call, ptr %m_workBuffer1, align 8
   %call2 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #9
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %6 = load ptr, ptr %queue.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call2, ptr noundef %5, ptr noundef %6, i64 noundef 0, i1 noundef zeroext true)
+  %6 = load ptr, ptr %ctx.addr, align 8
+  %7 = load ptr, ptr %queue.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call2, ptr noundef %6, ptr noundef %7, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %m_workBuffer2 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 2
   store ptr %call2, ptr %m_workBuffer2, align 8
   %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #9
-  %7 = load ptr, ptr %ctx.addr, align 8
-  %8 = load ptr, ptr %queue.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call5, ptr noundef %7, ptr noundef %8, i64 noundef 0, i1 noundef zeroext true)
+  %8 = load ptr, ptr %ctx.addr, align 8
+  %9 = load ptr, ptr %queue.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call5, ptr noundef %8, ptr noundef %9, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont4
   %m_workBuffer3 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 3
   store ptr %call5, ptr %m_workBuffer3, align 8
   %call8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #9
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %10 = load ptr, ptr %queue.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call8, ptr noundef %9, ptr noundef %10, i64 noundef 0, i1 noundef zeroext true)
+  %10 = load ptr, ptr %ctx.addr, align 8
+  %11 = load ptr, ptr %queue.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call8, ptr noundef %10, ptr noundef %11, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont7
   %m_workBuffer3a = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 5
   store ptr %call8, ptr %m_workBuffer3a, align 8
   %call11 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #9
-  %11 = load ptr, ptr %ctx.addr, align 8
-  %12 = load ptr, ptr %queue.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call11, ptr noundef %11, ptr noundef %12, i64 noundef 0, i1 noundef zeroext true)
+  %12 = load ptr, ptr %ctx.addr, align 8
+  %13 = load ptr, ptr %queue.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call11, ptr noundef %12, ptr noundef %13, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
   %m_workBuffer4 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 4
   store ptr %call11, ptr %m_workBuffer4, align 8
   %call14 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #9
-  %13 = load ptr, ptr %ctx.addr, align 8
-  %14 = load ptr, ptr %queue.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call14, ptr noundef %13, ptr noundef %14, i64 noundef 0, i1 noundef zeroext true)
+  %14 = load ptr, ptr %ctx.addr, align 8
+  %15 = load ptr, ptr %queue.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call14, ptr noundef %14, ptr noundef %15, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
   %m_workBuffer4a = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 6
   store ptr %call14, ptr %m_workBuffer4a, align 8
-  %15 = load i32, ptr %initialCapacity.addr, align 4
-  %cmp17 = icmp sgt i32 %15, 0
+  %16 = load i32, ptr %initialCapacity.addr, align 4
+  %cmp17 = icmp sgt i32 %16, 0
   br i1 %cmp17, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont16
   %m_workBuffer118 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 1
-  %16 = load ptr, ptr %m_workBuffer118, align 8
-  %17 = load i32, ptr %initialCapacity.addr, align 4
-  %conv = sext i32 %17 to i64
-  %call19 = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %16, i64 noundef %conv, i1 noundef zeroext true)
+  %17 = load ptr, ptr %m_workBuffer118, align 8
+  %18 = load i32, ptr %initialCapacity.addr, align 4
+  %conv = sext i32 %18 to i64
+  %call19 = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %17, i64 noundef %conv, i1 noundef zeroext true)
   %m_workBuffer320 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 3
-  %18 = load ptr, ptr %m_workBuffer320, align 8
-  %19 = load i32, ptr %initialCapacity.addr, align 4
-  %conv21 = sext i32 %19 to i64
-  %call22 = call noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDataE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %18, i64 noundef %conv21, i1 noundef zeroext true)
+  %19 = load ptr, ptr %m_workBuffer320, align 8
+  %20 = load i32, ptr %initialCapacity.addr, align 4
+  %conv21 = sext i32 %20 to i64
+  %call22 = call noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDataE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %19, i64 noundef %conv21, i1 noundef zeroext true)
   %m_workBuffer3a23 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 5
-  %20 = load ptr, ptr %m_workBuffer3a23, align 8
-  %21 = load i32, ptr %initialCapacity.addr, align 4
-  %conv24 = sext i32 %21 to i64
-  %call25 = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %20, i64 noundef %conv24, i1 noundef zeroext true)
+  %21 = load ptr, ptr %m_workBuffer3a23, align 8
+  %22 = load i32, ptr %initialCapacity.addr, align 4
+  %conv24 = sext i32 %22 to i64
+  %call25 = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %21, i64 noundef %conv24, i1 noundef zeroext true)
   %m_workBuffer426 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 4
-  %22 = load ptr, ptr %m_workBuffer426, align 8
-  %23 = load i32, ptr %initialCapacity.addr, align 4
-  %conv27 = sext i32 %23 to i64
-  %call28 = call noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDataE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %22, i64 noundef %conv27, i1 noundef zeroext true)
+  %23 = load ptr, ptr %m_workBuffer426, align 8
+  %24 = load i32, ptr %initialCapacity.addr, align 4
+  %conv27 = sext i32 %24 to i64
+  %call28 = call noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDataE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %23, i64 noundef %conv27, i1 noundef zeroext true)
   %m_workBuffer4a29 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 6
-  %24 = load ptr, ptr %m_workBuffer4a29, align 8
-  %25 = load i32, ptr %initialCapacity.addr, align 4
-  %conv30 = sext i32 %25 to i64
-  %call31 = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %24, i64 noundef %conv30, i1 noundef zeroext true)
+  %25 = load ptr, ptr %m_workBuffer4a29, align 8
+  %26 = load i32, ptr %initialCapacity.addr, align 4
+  %conv30 = sext i32 %26 to i64
+  %call31 = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %25, i64 noundef %conv30, i1 noundef zeroext true)
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #10
   br label %eh.resume
 
 lpad3:                                            ; preds = %invoke.cont
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %exn.slot, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %ehselector.slot, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %exn.slot, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call2) #10
   br label %eh.resume
 
 lpad6:                                            ; preds = %invoke.cont4
-  %32 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %exn.slot, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %ehselector.slot, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %exn.slot, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call5) #10
   br label %eh.resume
 
 lpad9:                                            ; preds = %invoke.cont7
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %exn.slot, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %ehselector.slot, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %exn.slot, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call8) #10
   br label %eh.resume
 
 lpad12:                                           ; preds = %invoke.cont10
-  %38 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %exn.slot, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %ehselector.slot, align 4
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %exn.slot, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call11) #10
   br label %eh.resume
 
 lpad15:                                           ; preds = %invoke.cont13
-  %41 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %exn.slot, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %ehselector.slot, align 4
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %exn.slot, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call14) #10
   br label %eh.resume
 
 if.end:                                           ; preds = %if.then, %invoke.cont16
   %call32 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #9
-  %44 = load ptr, ptr %ctx.addr, align 8
-  %45 = load ptr, ptr %device.addr, align 8
-  %46 = load ptr, ptr %queue.addr, align 8
-  invoke void @_ZN14b3PrefixScanCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(48) %call32, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef 0)
+  %45 = load ptr, ptr %ctx.addr, align 8
+  %46 = load ptr, ptr %device.addr, align 8
+  %47 = load ptr, ptr %queue.addr, align 8
+  invoke void @_ZN14b3PrefixScanCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(48) %call32, ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef 0)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %if.end
   %m_scan = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 14
   store ptr %call32, ptr %m_scan, align 8
   %call35 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #9
-  %47 = load ptr, ptr %ctx.addr, align 8
-  %48 = load ptr, ptr %device.addr, align 8
-  %49 = load ptr, ptr %queue.addr, align 8
-  invoke void @_ZN8b3FillCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(48) %call35, ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  %48 = load ptr, ptr %ctx.addr, align 8
+  %49 = load ptr, ptr %device.addr, align 8
+  %50 = load ptr, ptr %queue.addr, align 8
+  invoke void @_ZN8b3FillCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(48) %call35, ptr noundef %48, ptr noundef %49, ptr noundef %50)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont34
   %m_fill = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 15
   store ptr %call35, ptr %m_fill, align 8
   store ptr @.str, ptr %additionalMacros, align 8
-  %50 = load ptr, ptr @_ZL20radixSort32KernelsCL, align 8
-  store ptr %50, ptr %kernelSource, align 8
-  %51 = load ptr, ptr %ctx.addr, align 8
-  %52 = load ptr, ptr %device.addr, align 8
-  %53 = load ptr, ptr %kernelSource, align 8
-  %54 = load ptr, ptr %additionalMacros, align 8
-  %call38 = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %pErrNum, ptr noundef %54, ptr noundef @.str.1, i1 noundef zeroext false)
+  %51 = load ptr, ptr @_ZL20radixSort32KernelsCL, align 8
+  store ptr %51, ptr %kernelSource, align 8
+  %52 = load ptr, ptr %ctx.addr, align 8
+  %53 = load ptr, ptr %device.addr, align 8
+  %54 = load ptr, ptr %kernelSource, align 8
+  %55 = load ptr, ptr %additionalMacros, align 8
+  %call38 = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %pErrNum, ptr noundef %55, ptr noundef @.str.1, i1 noundef zeroext false)
   store ptr %call38, ptr %sortProg, align 8
-  %55 = load ptr, ptr %ctx.addr, align 8
-  %56 = load ptr, ptr %device.addr, align 8
-  %57 = load ptr, ptr %kernelSource, align 8
-  %58 = load ptr, ptr %sortProg, align 8
-  %59 = load ptr, ptr %additionalMacros, align 8
-  %call39 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef @.str.2, ptr noundef %pErrNum, ptr noundef %58, ptr noundef %59)
+  %56 = load ptr, ptr %ctx.addr, align 8
+  %57 = load ptr, ptr %device.addr, align 8
+  %58 = load ptr, ptr %kernelSource, align 8
+  %59 = load ptr, ptr %sortProg, align 8
+  %60 = load ptr, ptr %additionalMacros, align 8
+  %call39 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef @.str.2, ptr noundef %pErrNum, ptr noundef %59, ptr noundef %60)
   %m_streamCountSortDataKernel = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 8
   store ptr %call39, ptr %m_streamCountSortDataKernel, align 8
-  %60 = load ptr, ptr %ctx.addr, align 8
-  %61 = load ptr, ptr %device.addr, align 8
-  %62 = load ptr, ptr %kernelSource, align 8
-  %63 = load ptr, ptr %sortProg, align 8
-  %64 = load ptr, ptr %additionalMacros, align 8
-  %call40 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef @.str.3, ptr noundef %pErrNum, ptr noundef %63, ptr noundef %64)
+  %61 = load ptr, ptr %ctx.addr, align 8
+  %62 = load ptr, ptr %device.addr, align 8
+  %63 = load ptr, ptr %kernelSource, align 8
+  %64 = load ptr, ptr %sortProg, align 8
+  %65 = load ptr, ptr %additionalMacros, align 8
+  %call40 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef @.str.3, ptr noundef %pErrNum, ptr noundef %64, ptr noundef %65)
   %m_streamCountKernel = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 9
   store ptr %call40, ptr %m_streamCountKernel, align 8
   %m_deviceCPU41 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 13
-  %65 = load i8, ptr %m_deviceCPU41, align 8
-  %tobool = trunc i8 %65 to i1
+  %66 = load i8, ptr %m_deviceCPU41, align 8
+  %tobool = trunc i8 %66 to i1
   br i1 %tobool, label %if.then42, label %if.else
 
 if.then42:                                        ; preds = %invoke.cont37
-  %66 = load ptr, ptr %ctx.addr, align 8
-  %67 = load ptr, ptr %device.addr, align 8
-  %68 = load ptr, ptr %kernelSource, align 8
-  %69 = load ptr, ptr %sortProg, align 8
-  %70 = load ptr, ptr %additionalMacros, align 8
-  %call43 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef @.str.4, ptr noundef %pErrNum, ptr noundef %69, ptr noundef %70)
+  %67 = load ptr, ptr %ctx.addr, align 8
+  %68 = load ptr, ptr %device.addr, align 8
+  %69 = load ptr, ptr %kernelSource, align 8
+  %70 = load ptr, ptr %sortProg, align 8
+  %71 = load ptr, ptr %additionalMacros, align 8
+  %call43 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef @.str.4, ptr noundef %pErrNum, ptr noundef %70, ptr noundef %71)
   %m_sortAndScatterSortDataKernel = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 11
   store ptr %call43, ptr %m_sortAndScatterSortDataKernel, align 8
-  %71 = load ptr, ptr %ctx.addr, align 8
-  %72 = load ptr, ptr %device.addr, align 8
-  %73 = load ptr, ptr %kernelSource, align 8
-  %74 = load ptr, ptr %sortProg, align 8
-  %75 = load ptr, ptr %additionalMacros, align 8
-  %call44 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef @.str.5, ptr noundef %pErrNum, ptr noundef %74, ptr noundef %75)
+  %72 = load ptr, ptr %ctx.addr, align 8
+  %73 = load ptr, ptr %device.addr, align 8
+  %74 = load ptr, ptr %kernelSource, align 8
+  %75 = load ptr, ptr %sortProg, align 8
+  %76 = load ptr, ptr %additionalMacros, align 8
+  %call44 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef @.str.5, ptr noundef %pErrNum, ptr noundef %75, ptr noundef %76)
   %m_sortAndScatterKernel = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 12
   store ptr %call44, ptr %m_sortAndScatterKernel, align 8
   br label %if.end49
 
 lpad33:                                           ; preds = %if.end
-  %76 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %exn.slot, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %ehselector.slot, align 4
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %exn.slot, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call32) #10
   br label %eh.resume
 
 lpad36:                                           ; preds = %invoke.cont34
-  %79 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %exn.slot, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %ehselector.slot, align 4
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %exn.slot, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call35) #10
   br label %eh.resume
 
 if.else:                                          ; preds = %invoke.cont37
-  %82 = load ptr, ptr %ctx.addr, align 8
-  %83 = load ptr, ptr %device.addr, align 8
-  %84 = load ptr, ptr %kernelSource, align 8
-  %85 = load ptr, ptr %sortProg, align 8
-  %86 = load ptr, ptr %additionalMacros, align 8
-  %call45 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef @.str.6, ptr noundef %pErrNum, ptr noundef %85, ptr noundef %86)
+  %83 = load ptr, ptr %ctx.addr, align 8
+  %84 = load ptr, ptr %device.addr, align 8
+  %85 = load ptr, ptr %kernelSource, align 8
+  %86 = load ptr, ptr %sortProg, align 8
+  %87 = load ptr, ptr %additionalMacros, align 8
+  %call45 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef @.str.6, ptr noundef %pErrNum, ptr noundef %86, ptr noundef %87)
   %m_sortAndScatterSortDataKernel46 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 11
   store ptr %call45, ptr %m_sortAndScatterSortDataKernel46, align 8
-  %87 = load ptr, ptr %ctx.addr, align 8
-  %88 = load ptr, ptr %device.addr, align 8
-  %89 = load ptr, ptr %kernelSource, align 8
-  %90 = load ptr, ptr %sortProg, align 8
-  %91 = load ptr, ptr %additionalMacros, align 8
-  %call47 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %87, ptr noundef %88, ptr noundef %89, ptr noundef @.str.7, ptr noundef %pErrNum, ptr noundef %90, ptr noundef %91)
+  %88 = load ptr, ptr %ctx.addr, align 8
+  %89 = load ptr, ptr %device.addr, align 8
+  %90 = load ptr, ptr %kernelSource, align 8
+  %91 = load ptr, ptr %sortProg, align 8
+  %92 = load ptr, ptr %additionalMacros, align 8
+  %call47 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %88, ptr noundef %89, ptr noundef %90, ptr noundef @.str.7, ptr noundef %pErrNum, ptr noundef %91, ptr noundef %92)
   %m_sortAndScatterKernel48 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 12
   store ptr %call47, ptr %m_sortAndScatterKernel48, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else, %if.then42
-  %92 = load ptr, ptr %ctx.addr, align 8
-  %93 = load ptr, ptr %device.addr, align 8
-  %94 = load ptr, ptr %kernelSource, align 8
-  %95 = load ptr, ptr %sortProg, align 8
-  %96 = load ptr, ptr %additionalMacros, align 8
-  %call50 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %92, ptr noundef %93, ptr noundef %94, ptr noundef @.str.8, ptr noundef %pErrNum, ptr noundef %95, ptr noundef %96)
+  %93 = load ptr, ptr %ctx.addr, align 8
+  %94 = load ptr, ptr %device.addr, align 8
+  %95 = load ptr, ptr %kernelSource, align 8
+  %96 = load ptr, ptr %sortProg, align 8
+  %97 = load ptr, ptr %additionalMacros, align 8
+  %call50 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %93, ptr noundef %94, ptr noundef %95, ptr noundef @.str.8, ptr noundef %pErrNum, ptr noundef %96, ptr noundef %97)
   %m_prefixScanKernel = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 10
   store ptr %call50, ptr %m_prefixScanKernel, align 8
   ret void
@@ -539,7 +540,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 2
@@ -547,27 +549,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -594,7 +596,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this1, i32 0, i32 2
@@ -602,27 +605,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -825,153 +828,154 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15b3RadixSort32CL, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV15b3RadixSort32CL, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_scan = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 14
-  %0 = load ptr, ptr %m_scan, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %m_scan, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(48) %0) #11
+  %2 = load ptr, ptr %vfn, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(48) %1) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   %m_fill = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 15
-  %2 = load ptr, ptr %m_fill, align 8
-  %isnull2 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %m_fill, align 8
+  %isnull2 = icmp eq ptr %3, null
   br i1 %isnull2, label %delete.end6, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  %vtable4 = load ptr, ptr %2, align 8
+  %vtable4 = load ptr, ptr %3, align 8
   %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 1
-  %3 = load ptr, ptr %vfn5, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(48) %2) #11
+  %4 = load ptr, ptr %vfn5, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(48) %3) #11
   br label %delete.end6
 
 delete.end6:                                      ; preds = %delete.notnull3, %delete.end
   %m_workBuffer1 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %m_workBuffer1, align 8
-  %isnull7 = icmp eq ptr %4, null
+  %5 = load ptr, ptr %m_workBuffer1, align 8
+  %isnull7 = icmp eq ptr %5, null
   br i1 %isnull7, label %delete.end11, label %delete.notnull8
 
 delete.notnull8:                                  ; preds = %delete.end6
-  %vtable9 = load ptr, ptr %4, align 8
+  %vtable9 = load ptr, ptr %5, align 8
   %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 1
-  %5 = load ptr, ptr %vfn10, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(50) %4) #11
+  %6 = load ptr, ptr %vfn10, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(50) %5) #11
   br label %delete.end11
 
 delete.end11:                                     ; preds = %delete.notnull8, %delete.end6
   %m_workBuffer2 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 2
-  %6 = load ptr, ptr %m_workBuffer2, align 8
-  %isnull12 = icmp eq ptr %6, null
+  %7 = load ptr, ptr %m_workBuffer2, align 8
+  %isnull12 = icmp eq ptr %7, null
   br i1 %isnull12, label %delete.end16, label %delete.notnull13
 
 delete.notnull13:                                 ; preds = %delete.end11
-  %vtable14 = load ptr, ptr %6, align 8
+  %vtable14 = load ptr, ptr %7, align 8
   %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 1
-  %7 = load ptr, ptr %vfn15, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(50) %6) #11
+  %8 = load ptr, ptr %vfn15, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(50) %7) #11
   br label %delete.end16
 
 delete.end16:                                     ; preds = %delete.notnull13, %delete.end11
   %m_workBuffer3 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 3
-  %8 = load ptr, ptr %m_workBuffer3, align 8
-  %isnull17 = icmp eq ptr %8, null
+  %9 = load ptr, ptr %m_workBuffer3, align 8
+  %isnull17 = icmp eq ptr %9, null
   br i1 %isnull17, label %delete.end21, label %delete.notnull18
 
 delete.notnull18:                                 ; preds = %delete.end16
-  %vtable19 = load ptr, ptr %8, align 8
+  %vtable19 = load ptr, ptr %9, align 8
   %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 1
-  %9 = load ptr, ptr %vfn20, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(50) %8) #11
+  %10 = load ptr, ptr %vfn20, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(50) %9) #11
   br label %delete.end21
 
 delete.end21:                                     ; preds = %delete.notnull18, %delete.end16
   %m_workBuffer3a = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 5
-  %10 = load ptr, ptr %m_workBuffer3a, align 8
-  %isnull22 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %m_workBuffer3a, align 8
+  %isnull22 = icmp eq ptr %11, null
   br i1 %isnull22, label %delete.end26, label %delete.notnull23
 
 delete.notnull23:                                 ; preds = %delete.end21
-  %vtable24 = load ptr, ptr %10, align 8
+  %vtable24 = load ptr, ptr %11, align 8
   %vfn25 = getelementptr inbounds ptr, ptr %vtable24, i64 1
-  %11 = load ptr, ptr %vfn25, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(50) %10) #11
+  %12 = load ptr, ptr %vfn25, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(50) %11) #11
   br label %delete.end26
 
 delete.end26:                                     ; preds = %delete.notnull23, %delete.end21
   %m_workBuffer4 = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 4
-  %12 = load ptr, ptr %m_workBuffer4, align 8
-  %isnull27 = icmp eq ptr %12, null
+  %13 = load ptr, ptr %m_workBuffer4, align 8
+  %isnull27 = icmp eq ptr %13, null
   br i1 %isnull27, label %delete.end31, label %delete.notnull28
 
 delete.notnull28:                                 ; preds = %delete.end26
-  %vtable29 = load ptr, ptr %12, align 8
+  %vtable29 = load ptr, ptr %13, align 8
   %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 1
-  %13 = load ptr, ptr %vfn30, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(50) %12) #11
+  %14 = load ptr, ptr %vfn30, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(50) %13) #11
   br label %delete.end31
 
 delete.end31:                                     ; preds = %delete.notnull28, %delete.end26
   %m_workBuffer4a = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 6
-  %14 = load ptr, ptr %m_workBuffer4a, align 8
-  %isnull32 = icmp eq ptr %14, null
+  %15 = load ptr, ptr %m_workBuffer4a, align 8
+  %isnull32 = icmp eq ptr %15, null
   br i1 %isnull32, label %delete.end36, label %delete.notnull33
 
 delete.notnull33:                                 ; preds = %delete.end31
-  %vtable34 = load ptr, ptr %14, align 8
+  %vtable34 = load ptr, ptr %15, align 8
   %vfn35 = getelementptr inbounds ptr, ptr %vtable34, i64 1
-  %15 = load ptr, ptr %vfn35, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(50) %14) #11
+  %16 = load ptr, ptr %vfn35, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(50) %15) #11
   br label %delete.end36
 
 delete.end36:                                     ; preds = %delete.notnull33, %delete.end31
-  %16 = load ptr, ptr @__clewReleaseKernel, align 8
+  %17 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_streamCountSortDataKernel = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 8
-  %17 = load ptr, ptr %m_streamCountSortDataKernel, align 8
-  %call = invoke i32 %16(ptr noundef %17)
+  %18 = load ptr, ptr %m_streamCountSortDataKernel, align 8
+  %call = invoke i32 %17(ptr noundef %18)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %delete.end36
-  %18 = load ptr, ptr @__clewReleaseKernel, align 8
+  %19 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_streamCountKernel = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 9
-  %19 = load ptr, ptr %m_streamCountKernel, align 8
-  %call38 = invoke i32 %18(ptr noundef %19)
+  %20 = load ptr, ptr %m_streamCountKernel, align 8
+  %call38 = invoke i32 %19(ptr noundef %20)
           to label %invoke.cont37 unwind label %terminate.lpad
 
 invoke.cont37:                                    ; preds = %invoke.cont
-  %20 = load ptr, ptr @__clewReleaseKernel, align 8
+  %21 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_sortAndScatterSortDataKernel = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 11
-  %21 = load ptr, ptr %m_sortAndScatterSortDataKernel, align 8
-  %call40 = invoke i32 %20(ptr noundef %21)
+  %22 = load ptr, ptr %m_sortAndScatterSortDataKernel, align 8
+  %call40 = invoke i32 %21(ptr noundef %22)
           to label %invoke.cont39 unwind label %terminate.lpad
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  %22 = load ptr, ptr @__clewReleaseKernel, align 8
+  %23 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_sortAndScatterKernel = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 12
-  %23 = load ptr, ptr %m_sortAndScatterKernel, align 8
-  %call42 = invoke i32 %22(ptr noundef %23)
+  %24 = load ptr, ptr %m_sortAndScatterKernel, align 8
+  %call42 = invoke i32 %23(ptr noundef %24)
           to label %invoke.cont41 unwind label %terminate.lpad
 
 invoke.cont41:                                    ; preds = %invoke.cont39
-  %24 = load ptr, ptr @__clewReleaseKernel, align 8
+  %25 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_prefixScanKernel = getelementptr inbounds %class.b3RadixSort32CL, ptr %this1, i32 0, i32 10
-  %25 = load ptr, ptr %m_prefixScanKernel, align 8
-  %call44 = invoke i32 %24(ptr noundef %25)
+  %26 = load ptr, ptr %m_prefixScanKernel, align 8
+  %call44 = invoke i32 %25(ptr noundef %26)
           to label %invoke.cont43 unwind label %terminate.lpad
 
 invoke.cont43:                                    ; preds = %invoke.cont41
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont41, %invoke.cont39, %invoke.cont37, %invoke.cont, %delete.end36
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #12
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #12
   unreachable
 }
 
@@ -2832,7 +2836,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayIjE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2844,10 +2849,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #12
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #12
   unreachable
 }
 
@@ -3060,7 +3065,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -3072,10 +3078,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #12
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #12
   unreachable
 }
 

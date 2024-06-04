@@ -123,14 +123,15 @@ define dso_local ptr @zend_fiber_stack_limit(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 79), align 8
-  store i64 %4, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct._zend_fiber_stack, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i64, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 %8
-  ret ptr %9
+  %4 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 79
+  %5 = load i64, ptr %4, align 8
+  store i64 %5, ptr %3, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds %struct._zend_fiber_stack, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i64, ptr %3, align 8
+  %10 = getelementptr inbounds i8, ptr %8, i64 %9
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -306,7 +307,7 @@ define internal ptr @zend_fiber_stack_allocate(i64 noundef %0) #0 {
   %22 = load i64, ptr %9, align 8
   %23 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef @.str.17, i64 noundef %22)
   store ptr null, ptr %5, align 8
-  br label %86
+  br label %87
 
 24:                                               ; preds = %1
   %25 = load i64, ptr %6, align 8
@@ -327,74 +328,75 @@ define internal ptr @zend_fiber_stack_allocate(i64 noundef %0) #0 {
   %38 = call ptr @mmap(ptr noundef null, i64 noundef %37, i32 noundef 3, i32 noundef 131106, i32 noundef -1, i64 noundef 0) #16
   store ptr %38, ptr %7, align 8
   %39 = load ptr, ptr %7, align 8
-  %40 = icmp eq ptr %39, inttoptr (i64 -1 to ptr)
-  br i1 %40, label %41, label %48
+  %40 = inttoptr i64 -1 to ptr
+  %41 = icmp eq ptr %39, %40
+  br i1 %41, label %42, label %49
 
-41:                                               ; preds = %24
-  %42 = call ptr @__errno_location() #17
-  %43 = load i32, ptr %42, align 4
-  %44 = call ptr @strerror(i32 noundef %43) #16
-  %45 = call ptr @__errno_location() #17
-  %46 = load i32, ptr %45, align 4
-  %47 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef @.str.18, ptr noundef %44, i32 noundef %46)
+42:                                               ; preds = %24
+  %43 = call ptr @__errno_location() #17
+  %44 = load i32, ptr %43, align 4
+  %45 = call ptr @strerror(i32 noundef %44) #16
+  %46 = call ptr @__errno_location() #17
+  %47 = load i32, ptr %46, align 4
+  %48 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef @.str.18, ptr noundef %45, i32 noundef %47)
   store ptr null, ptr %5, align 8
-  br label %86
+  br label %87
 
-48:                                               ; preds = %24
-  %49 = load ptr, ptr %7, align 8
-  %50 = load i64, ptr %11, align 8
-  store ptr %49, ptr %2, align 8
-  store i64 %50, ptr %3, align 8
+49:                                               ; preds = %24
+  %50 = load ptr, ptr %7, align 8
+  %51 = load i64, ptr %11, align 8
+  store ptr %50, ptr %2, align 8
+  store i64 %51, ptr %3, align 8
   store ptr @.str.19, ptr %4, align 8
-  %51 = load ptr, ptr %2, align 8
-  %52 = ptrtoint ptr %51 to i64
-  %53 = load i64, ptr %3, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = ptrtoint ptr %54 to i64
-  %56 = call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %52, i64 noundef %53, i64 noundef %55) #16
-  %57 = load ptr, ptr %7, align 8
-  %58 = load i64, ptr %8, align 8
-  %59 = mul i64 1, %58
-  %60 = call i32 @mprotect(ptr noundef %57, i64 noundef %59, i32 noundef 0) #16
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %62, label %72
+  %52 = load ptr, ptr %2, align 8
+  %53 = ptrtoint ptr %52 to i64
+  %54 = load i64, ptr %3, align 8
+  %55 = load ptr, ptr %4, align 8
+  %56 = ptrtoint ptr %55 to i64
+  %57 = call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %53, i64 noundef %54, i64 noundef %56) #16
+  %58 = load ptr, ptr %7, align 8
+  %59 = load i64, ptr %8, align 8
+  %60 = mul i64 1, %59
+  %61 = call i32 @mprotect(ptr noundef %58, i64 noundef %60, i32 noundef 0) #16
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %73
 
-62:                                               ; preds = %48
-  %63 = call ptr @__errno_location() #17
-  %64 = load i32, ptr %63, align 4
-  %65 = call ptr @strerror(i32 noundef %64) #16
-  %66 = call ptr @__errno_location() #17
-  %67 = load i32, ptr %66, align 4
-  %68 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef @.str.20, ptr noundef %65, i32 noundef %67)
-  %69 = load ptr, ptr %7, align 8
-  %70 = load i64, ptr %11, align 8
-  %71 = call i32 @munmap(ptr noundef %69, i64 noundef %70) #16
+63:                                               ; preds = %49
+  %64 = call ptr @__errno_location() #17
+  %65 = load i32, ptr %64, align 4
+  %66 = call ptr @strerror(i32 noundef %65) #16
+  %67 = call ptr @__errno_location() #17
+  %68 = load i32, ptr %67, align 4
+  %69 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef @.str.20, ptr noundef %66, i32 noundef %68)
+  %70 = load ptr, ptr %7, align 8
+  %71 = load i64, ptr %11, align 8
+  %72 = call i32 @munmap(ptr noundef %70, i64 noundef %71) #16
   store ptr null, ptr %5, align 8
-  br label %86
+  br label %87
 
-72:                                               ; preds = %48
-  %73 = call noalias ptr @_emalloc_16()
-  store ptr %73, ptr %12, align 8
-  %74 = load ptr, ptr %7, align 8
-  %75 = ptrtoint ptr %74 to i64
-  %76 = load i64, ptr %8, align 8
-  %77 = mul i64 1, %76
-  %78 = add i64 %75, %77
-  %79 = inttoptr i64 %78 to ptr
-  %80 = load ptr, ptr %12, align 8
-  %81 = getelementptr inbounds %struct._zend_fiber_stack, ptr %80, i32 0, i32 0
-  store ptr %79, ptr %81, align 8
-  %82 = load i64, ptr %10, align 8
-  %83 = load ptr, ptr %12, align 8
-  %84 = getelementptr inbounds %struct._zend_fiber_stack, ptr %83, i32 0, i32 1
-  store i64 %82, ptr %84, align 8
-  %85 = load ptr, ptr %12, align 8
-  store ptr %85, ptr %5, align 8
-  br label %86
+73:                                               ; preds = %49
+  %74 = call noalias ptr @_emalloc_16()
+  store ptr %74, ptr %12, align 8
+  %75 = load ptr, ptr %7, align 8
+  %76 = ptrtoint ptr %75 to i64
+  %77 = load i64, ptr %8, align 8
+  %78 = mul i64 1, %77
+  %79 = add i64 %76, %78
+  %80 = inttoptr i64 %79 to ptr
+  %81 = load ptr, ptr %12, align 8
+  %82 = getelementptr inbounds %struct._zend_fiber_stack, ptr %81, i32 0, i32 0
+  store ptr %80, ptr %82, align 8
+  %83 = load i64, ptr %10, align 8
+  %84 = load ptr, ptr %12, align 8
+  %85 = getelementptr inbounds %struct._zend_fiber_stack, ptr %84, i32 0, i32 1
+  store i64 %83, ptr %85, align 8
+  %86 = load ptr, ptr %12, align 8
+  store ptr %86, ptr %5, align 8
+  br label %87
 
-86:                                               ; preds = %72, %62, %41, %21
-  %87 = load ptr, ptr %5, align 8
-  ret ptr %87
+87:                                               ; preds = %73, %63, %42, %21
+  %88 = load ptr, ptr %5, align 8
+  ret ptr %88
 }
 
 declare ptr @make_fcontext(ptr noundef, i64 noundef, ptr noundef) #2
@@ -432,15 +434,16 @@ define internal void @zend_fiber_trampoline(ptr %0, ptr %1) #3 {
   br label %23
 
 23:                                               ; preds = %21, %2
-  %24 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69), align 8
-  store ptr %24, ptr %6, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct._zend_fiber_context, ptr %25, i32 0, i32 2
-  %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef %4)
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct._zend_fiber_context, ptr %28, i32 0, i32 5
-  store i32 3, ptr %29, align 8
+  %24 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %6, align 8
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds %struct._zend_fiber_context, ptr %26, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8
+  call void %28(ptr noundef %4)
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr inbounds %struct._zend_fiber_context, ptr %29, i32 0, i32 5
+  store i32 3, ptr %30, align 8
   call void @zend_fiber_switch_context(ptr noundef %4)
   call void @abort() #18
   unreachable
@@ -518,213 +521,238 @@ define dso_local void @zend_fiber_switch_context(ptr noundef %0) #0 {
   %7 = alloca %struct._zend_fiber_vm_state, align 8
   %8 = alloca %struct.boost_context_data, align 8
   store ptr %0, ptr %4, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69), align 8
-  store ptr %9, ptr %5, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %6, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %26
+  %9 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %5, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %6, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %27
 
-15:                                               ; preds = %1
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct._zend_fiber_context, ptr %16, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %26
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds %struct._zend_fiber_context, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %27
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct._zend_fiber_context, ptr %21, i32 0, i32 5
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp ne i32 %23, 3
-  br i1 %24, label %25, label %26
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds %struct._zend_fiber_context, ptr %22, i32 0, i32 5
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp ne i32 %24, 3
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %20
-  br label %26
+26:                                               ; preds = %21
+  br label %27
 
-26:                                               ; preds = %25, %20, %15, %1
-  %27 = phi i1 [ false, %20 ], [ false, %15 ], [ false, %1 ], [ true, %25 ]
-  call void @llvm.assume(i1 %27)
-  %28 = load ptr, ptr %5, align 8
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %31
+27:                                               ; preds = %26, %21, %16, %1
+  %28 = phi i1 [ false, %21 ], [ false, %16 ], [ false, %1 ], [ true, %26 ]
+  call void @llvm.assume(i1 %28)
+  %29 = load ptr, ptr %5, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %26
-  br label %31
+31:                                               ; preds = %27
+  br label %32
 
-31:                                               ; preds = %30, %26
-  %32 = phi i1 [ false, %26 ], [ true, %30 ]
-  call void @llvm.assume(i1 %32)
-  %33 = load ptr, ptr %6, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = icmp ne ptr %33, %34
-  br i1 %35, label %36, label %37
+32:                                               ; preds = %31, %27
+  %33 = phi i1 [ false, %27 ], [ true, %31 ]
+  call void @llvm.assume(i1 %33)
+  %34 = load ptr, ptr %6, align 8
+  %35 = load ptr, ptr %5, align 8
+  %36 = icmp ne ptr %34, %35
+  br i1 %36, label %37, label %38
 
-36:                                               ; preds = %31
-  br label %37
+37:                                               ; preds = %32
+  br label %38
 
-37:                                               ; preds = %36, %31
-  %38 = phi i1 [ false, %31 ], [ true, %36 ]
-  call void @llvm.assume(i1 %38)
-  %39 = load ptr, ptr %5, align 8
-  %40 = load ptr, ptr %6, align 8
-  call void @zend_observer_fiber_switch_notify(ptr noundef %39, ptr noundef %40)
+38:                                               ; preds = %37, %32
+  %39 = phi i1 [ false, %32 ], [ true, %37 ]
+  call void @llvm.assume(i1 %39)
+  %40 = load ptr, ptr %5, align 8
+  %41 = load ptr, ptr %6, align 8
+  call void @zend_observer_fiber_switch_notify(ptr noundef %40, ptr noundef %41)
   store ptr %7, ptr %3, align 8
-  %41 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15), align 8
-  %42 = load ptr, ptr %3, align 8
-  store ptr %41, ptr %42, align 8
-  %43 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 13), align 8
+  %42 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15
+  %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %44, i32 0, i32 1
-  store ptr %43, ptr %45, align 8
-  %46 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 14), align 8
+  store ptr %43, ptr %44, align 8
+  %45 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 13
+  %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %47, i32 0, i32 2
+  %48 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %47, i32 0, i32 1
   store ptr %46, ptr %48, align 8
-  %49 = load i64, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 16), align 8
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %50, i32 0, i32 3
-  store i64 %49, ptr %51, align 8
-  %52 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %53, i32 0, i32 4
-  store ptr %52, ptr %54, align 8
-  %55 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 8), align 8
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %56, i32 0, i32 5
-  store i32 %55, ptr %57, align 8
-  %58 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 19), align 8
+  %49 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 14
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %51, i32 0, i32 2
+  store ptr %50, ptr %52, align 8
+  %53 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 16
+  %54 = load i64, ptr %53, align 8
+  %55 = load ptr, ptr %3, align 8
+  %56 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %55, i32 0, i32 3
+  store i64 %54, ptr %56, align 8
+  %57 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
+  %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %59, i32 0, i32 6
-  store i32 %58, ptr %60, align 4
-  %61 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7), align 8
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %62, i32 0, i32 7
-  store ptr %61, ptr %63, align 8
-  %64 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8
-  %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %65, i32 0, i32 8
-  store ptr %64, ptr %66, align 8
-  %67 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 31), align 8
-  %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %68, i32 0, i32 9
-  store ptr %67, ptr %69, align 8
-  %70 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 32), align 8
+  %60 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %59, i32 0, i32 4
+  store ptr %58, ptr %60, align 8
+  %61 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 8
+  %62 = load i32, ptr %61, align 8
+  %63 = load ptr, ptr %3, align 8
+  %64 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %63, i32 0, i32 5
+  store i32 %62, ptr %64, align 8
+  %65 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 19
+  %66 = load i32, ptr %65, align 8
+  %67 = load ptr, ptr %3, align 8
+  %68 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %67, i32 0, i32 6
+  store i32 %66, ptr %68, align 4
+  %69 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7
+  %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %71, i32 0, i32 10
+  %72 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %71, i32 0, i32 7
   store ptr %70, ptr %72, align 8
-  %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr inbounds %struct._zend_fiber_context, ptr %73, i32 0, i32 5
-  store i32 1, ptr %74, align 8
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds %struct._zend_fiber_context, ptr %75, i32 0, i32 5
-  %77 = load i32, ptr %76, align 8
-  %78 = icmp eq i32 %77, 1
-  %79 = xor i1 %78, true
-  %80 = xor i1 %79, true
-  %81 = zext i1 %80 to i32
-  %82 = sext i32 %81 to i64
-  %83 = icmp ne i64 %82, 0
-  br i1 %83, label %84, label %87
-
-84:                                               ; preds = %37
-  %85 = load ptr, ptr %5, align 8
+  %73 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %75, i32 0, i32 8
+  store ptr %74, ptr %76, align 8
+  %77 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 31
+  %78 = load ptr, ptr %77, align 8
+  %79 = load ptr, ptr %3, align 8
+  %80 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %79, i32 0, i32 9
+  store ptr %78, ptr %80, align 8
+  %81 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 32
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr %3, align 8
+  %84 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %83, i32 0, i32 10
+  store ptr %82, ptr %84, align 8
+  %85 = load ptr, ptr %6, align 8
   %86 = getelementptr inbounds %struct._zend_fiber_context, ptr %85, i32 0, i32 5
-  store i32 2, ptr %86, align 8
-  br label %87
+  store i32 1, ptr %86, align 8
+  %87 = load ptr, ptr %5, align 8
+  %88 = getelementptr inbounds %struct._zend_fiber_context, ptr %87, i32 0, i32 5
+  %89 = load i32, ptr %88, align 8
+  %90 = icmp eq i32 %89, 1
+  %91 = xor i1 %90, true
+  %92 = xor i1 %91, true
+  %93 = zext i1 %92 to i32
+  %94 = sext i32 %93 to i64
+  %95 = icmp ne i64 %94, 0
+  br i1 %95, label %96, label %99
 
-87:                                               ; preds = %84, %37
-  %88 = load ptr, ptr %5, align 8
-  %89 = load ptr, ptr %4, align 8
-  %90 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %89, i32 0, i32 0
-  store ptr %88, ptr %90, align 8
-  %91 = load ptr, ptr %6, align 8
-  store ptr %91, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69), align 8
-  %92 = load ptr, ptr %6, align 8
-  %93 = getelementptr inbounds %struct._zend_fiber_context, ptr %92, i32 0, i32 0
-  %94 = load ptr, ptr %93, align 8
-  %95 = load ptr, ptr %4, align 8
-  %96 = call { ptr, ptr } @jump_fcontext(ptr noundef %94, ptr noundef %95)
-  %97 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
-  %98 = extractvalue { ptr, ptr } %96, 0
-  store ptr %98, ptr %97, align 8
-  %99 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
-  %100 = extractvalue { ptr, ptr } %96, 1
-  store ptr %100, ptr %99, align 8
+96:                                               ; preds = %38
+  %97 = load ptr, ptr %5, align 8
+  %98 = getelementptr inbounds %struct._zend_fiber_context, ptr %97, i32 0, i32 5
+  store i32 2, ptr %98, align 8
+  br label %99
+
+99:                                               ; preds = %96, %38
+  %100 = load ptr, ptr %5, align 8
   %101 = load ptr, ptr %4, align 8
-  %102 = getelementptr inbounds %struct.boost_context_data, ptr %8, i32 0, i32 1
-  %103 = load ptr, ptr %102, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %101, ptr align 8 %103, i64 32, i1 false)
-  %104 = load ptr, ptr %4, align 8
-  %105 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %104, i32 0, i32 0
-  %106 = load ptr, ptr %105, align 8
-  store ptr %106, ptr %6, align 8
-  %107 = getelementptr inbounds %struct.boost_context_data, ptr %8, i32 0, i32 0
-  %108 = load ptr, ptr %107, align 8
-  %109 = load ptr, ptr %6, align 8
-  %110 = getelementptr inbounds %struct._zend_fiber_context, ptr %109, i32 0, i32 0
-  store ptr %108, ptr %110, align 8
-  %111 = load ptr, ptr %5, align 8
-  store ptr %111, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69), align 8
-  store ptr %7, ptr %2, align 8
-  %112 = load ptr, ptr %2, align 8
-  %113 = load ptr, ptr %112, align 8
-  store ptr %113, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15), align 8
-  %114 = load ptr, ptr %2, align 8
-  %115 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %114, i32 0, i32 1
+  %102 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %101, i32 0, i32 0
+  store ptr %100, ptr %102, align 8
+  %103 = load ptr, ptr %6, align 8
+  %104 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69
+  store ptr %103, ptr %104, align 8
+  %105 = load ptr, ptr %6, align 8
+  %106 = getelementptr inbounds %struct._zend_fiber_context, ptr %105, i32 0, i32 0
+  %107 = load ptr, ptr %106, align 8
+  %108 = load ptr, ptr %4, align 8
+  %109 = call { ptr, ptr } @jump_fcontext(ptr noundef %107, ptr noundef %108)
+  %110 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
+  %111 = extractvalue { ptr, ptr } %109, 0
+  store ptr %111, ptr %110, align 8
+  %112 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %113 = extractvalue { ptr, ptr } %109, 1
+  store ptr %113, ptr %112, align 8
+  %114 = load ptr, ptr %4, align 8
+  %115 = getelementptr inbounds %struct.boost_context_data, ptr %8, i32 0, i32 1
   %116 = load ptr, ptr %115, align 8
-  store ptr %116, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 13), align 8
-  %117 = load ptr, ptr %2, align 8
-  %118 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %117, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %114, ptr align 8 %116, i64 32, i1 false)
+  %117 = load ptr, ptr %4, align 8
+  %118 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %117, i32 0, i32 0
   %119 = load ptr, ptr %118, align 8
-  store ptr %119, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 14), align 8
-  %120 = load ptr, ptr %2, align 8
-  %121 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %120, i32 0, i32 3
-  %122 = load i64, ptr %121, align 8
-  store i64 %122, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 16), align 8
-  %123 = load ptr, ptr %2, align 8
-  %124 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %123, i32 0, i32 4
-  %125 = load ptr, ptr %124, align 8
-  store ptr %125, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8
+  store ptr %119, ptr %6, align 8
+  %120 = getelementptr inbounds %struct.boost_context_data, ptr %8, i32 0, i32 0
+  %121 = load ptr, ptr %120, align 8
+  %122 = load ptr, ptr %6, align 8
+  %123 = getelementptr inbounds %struct._zend_fiber_context, ptr %122, i32 0, i32 0
+  store ptr %121, ptr %123, align 8
+  %124 = load ptr, ptr %5, align 8
+  %125 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69
+  store ptr %124, ptr %125, align 8
+  store ptr %7, ptr %2, align 8
   %126 = load ptr, ptr %2, align 8
-  %127 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %126, i32 0, i32 5
-  %128 = load i32, ptr %127, align 8
-  store i32 %128, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 8), align 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15
+  store ptr %127, ptr %128, align 8
   %129 = load ptr, ptr %2, align 8
-  %130 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %129, i32 0, i32 6
-  %131 = load i32, ptr %130, align 4
-  store i32 %131, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 19), align 8
-  %132 = load ptr, ptr %2, align 8
-  %133 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %132, i32 0, i32 7
-  %134 = load ptr, ptr %133, align 8
-  store ptr %134, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7), align 8
-  %135 = load ptr, ptr %2, align 8
-  %136 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %135, i32 0, i32 8
-  %137 = load ptr, ptr %136, align 8
-  store ptr %137, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8
-  %138 = load ptr, ptr %2, align 8
-  %139 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %138, i32 0, i32 9
-  %140 = load ptr, ptr %139, align 8
-  store ptr %140, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 31), align 8
+  %130 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %129, i32 0, i32 1
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 13
+  store ptr %131, ptr %132, align 8
+  %133 = load ptr, ptr %2, align 8
+  %134 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %133, i32 0, i32 2
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 14
+  store ptr %135, ptr %136, align 8
+  %137 = load ptr, ptr %2, align 8
+  %138 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %137, i32 0, i32 3
+  %139 = load i64, ptr %138, align 8
+  %140 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 16
+  store i64 %139, ptr %140, align 8
   %141 = load ptr, ptr %2, align 8
-  %142 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %141, i32 0, i32 10
+  %142 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %141, i32 0, i32 4
   %143 = load ptr, ptr %142, align 8
-  store ptr %143, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 32), align 8
-  %144 = load ptr, ptr %6, align 8
-  %145 = getelementptr inbounds %struct._zend_fiber_context, ptr %144, i32 0, i32 5
-  %146 = load i32, ptr %145, align 8
-  %147 = icmp eq i32 %146, 3
-  br i1 %147, label %148, label %150
+  %144 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
+  store ptr %143, ptr %144, align 8
+  %145 = load ptr, ptr %2, align 8
+  %146 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %145, i32 0, i32 5
+  %147 = load i32, ptr %146, align 8
+  %148 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 8
+  store i32 %147, ptr %148, align 8
+  %149 = load ptr, ptr %2, align 8
+  %150 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %149, i32 0, i32 6
+  %151 = load i32, ptr %150, align 4
+  %152 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 19
+  store i32 %151, ptr %152, align 8
+  %153 = load ptr, ptr %2, align 8
+  %154 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %153, i32 0, i32 7
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7
+  store ptr %155, ptr %156, align 8
+  %157 = load ptr, ptr %2, align 8
+  %158 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %157, i32 0, i32 8
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr %159, ptr %160, align 8
+  %161 = load ptr, ptr %2, align 8
+  %162 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %161, i32 0, i32 9
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 31
+  store ptr %163, ptr %164, align 8
+  %165 = load ptr, ptr %2, align 8
+  %166 = getelementptr inbounds %struct._zend_fiber_vm_state, ptr %165, i32 0, i32 10
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 32
+  store ptr %167, ptr %168, align 8
+  %169 = load ptr, ptr %6, align 8
+  %170 = getelementptr inbounds %struct._zend_fiber_context, ptr %169, i32 0, i32 5
+  %171 = load i32, ptr %170, align 8
+  %172 = icmp eq i32 %171, 3
+  br i1 %172, label %173, label %175
 
-148:                                              ; preds = %87
-  %149 = load ptr, ptr %6, align 8
-  call void @zend_fiber_destroy_context(ptr noundef %149)
-  br label %150
+173:                                              ; preds = %99
+  %174 = load ptr, ptr %6, align 8
+  call void @zend_fiber_destroy_context(ptr noundef %174)
+  br label %175
 
-150:                                              ; preds = %148, %87
+175:                                              ; preds = %173, %99
   ret void
 }
 
@@ -1000,7 +1028,7 @@ define hidden void @zim_Fiber___construct(ptr noundef %0, ptr noundef %1) #0 {
   %163 = load i32, ptr %25, align 4
   %164 = load ptr, ptr %24, align 8
   call void @zend_wrong_parameter_error(i32 noundef %160, i32 noundef %161, ptr noundef %162, i32 noundef %163, ptr noundef %164)
-  br label %228
+  br label %229
 
 165:                                              ; preds = %151
   br label %166
@@ -1037,7 +1065,7 @@ define hidden void @zim_Fiber___construct(ptr noundef %0, ptr noundef %1) #0 {
   %189 = zext i1 %188 to i32
   %190 = sext i32 %189 to i64
   %191 = icmp ne i64 %190, 0
-  br i1 %191, label %192, label %198
+  br i1 %191, label %192, label %199
 
 192:                                              ; preds = %185
   %193 = load ptr, ptr @zend_ce_fiber_error, align 8
@@ -1045,59 +1073,60 @@ define hidden void @zim_Fiber___construct(ptr noundef %0, ptr noundef %1) #0 {
   br label %194
 
 194:                                              ; preds = %192
-  %195 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %196 = icmp ne ptr %195, null
-  call void @llvm.assume(i1 %196)
+  %195 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %196 = load ptr, ptr %195, align 8
+  %197 = icmp ne ptr %196, null
+  call void @llvm.assume(i1 %197)
+  br label %229
+
+198:                                              ; No predecessors!
+  br label %199
+
+199:                                              ; preds = %198, %185
+  %200 = load ptr, ptr %30, align 8
+  %201 = getelementptr inbounds %struct._zend_fiber, ptr %200, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %201, ptr align 8 %16, i64 64, i1 false)
+  %202 = load ptr, ptr %30, align 8
+  %203 = getelementptr inbounds %struct._zend_fiber, ptr %202, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %203, ptr align 8 %17, i64 40, i1 false)
+  br label %204
+
+204:                                              ; preds = %199
+  %205 = load ptr, ptr %30, align 8
+  %206 = getelementptr inbounds %struct._zend_fiber, ptr %205, i32 0, i32 5
+  %207 = getelementptr inbounds %struct._zend_fcall_info, ptr %206, i32 0, i32 1
+  %208 = getelementptr inbounds %struct._zval_struct, ptr %207, i32 0, i32 1
+  %209 = getelementptr inbounds %struct.anon.0, ptr %208, i32 0, i32 1
+  %210 = load i8, ptr %209, align 1
+  %211 = zext i8 %210 to i32
+  %212 = icmp ne i32 %211, 0
+  br i1 %212, label %213, label %228
+
+213:                                              ; preds = %204
+  %214 = load ptr, ptr %30, align 8
+  %215 = getelementptr inbounds %struct._zend_fiber, ptr %214, i32 0, i32 5
+  %216 = getelementptr inbounds %struct._zend_fcall_info, ptr %215, i32 0, i32 1
+  store ptr %216, ptr %4, align 8
+  %217 = load ptr, ptr %4, align 8
+  %218 = getelementptr inbounds %struct._zval_struct, ptr %217, i32 0, i32 1
+  %219 = getelementptr inbounds %struct.anon.0, ptr %218, i32 0, i32 1
+  %220 = load i8, ptr %219, align 1
+  %221 = zext i8 %220 to i32
+  %222 = icmp ne i32 %221, 0
+  call void @llvm.assume(i1 %222)
+  %223 = load ptr, ptr %4, align 8
+  %224 = load ptr, ptr %223, align 8
+  store ptr %224, ptr %3, align 8
+  %225 = load ptr, ptr %3, align 8
+  %226 = load i32, ptr %225, align 4
+  %227 = add i32 %226, 1
+  store i32 %227, ptr %225, align 4
   br label %228
 
-197:                                              ; No predecessors!
-  br label %198
+228:                                              ; preds = %213, %204
+  br label %229
 
-198:                                              ; preds = %197, %185
-  %199 = load ptr, ptr %30, align 8
-  %200 = getelementptr inbounds %struct._zend_fiber, ptr %199, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %200, ptr align 8 %16, i64 64, i1 false)
-  %201 = load ptr, ptr %30, align 8
-  %202 = getelementptr inbounds %struct._zend_fiber, ptr %201, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %202, ptr align 8 %17, i64 40, i1 false)
-  br label %203
-
-203:                                              ; preds = %198
-  %204 = load ptr, ptr %30, align 8
-  %205 = getelementptr inbounds %struct._zend_fiber, ptr %204, i32 0, i32 5
-  %206 = getelementptr inbounds %struct._zend_fcall_info, ptr %205, i32 0, i32 1
-  %207 = getelementptr inbounds %struct._zval_struct, ptr %206, i32 0, i32 1
-  %208 = getelementptr inbounds %struct.anon.0, ptr %207, i32 0, i32 1
-  %209 = load i8, ptr %208, align 1
-  %210 = zext i8 %209 to i32
-  %211 = icmp ne i32 %210, 0
-  br i1 %211, label %212, label %227
-
-212:                                              ; preds = %203
-  %213 = load ptr, ptr %30, align 8
-  %214 = getelementptr inbounds %struct._zend_fiber, ptr %213, i32 0, i32 5
-  %215 = getelementptr inbounds %struct._zend_fcall_info, ptr %214, i32 0, i32 1
-  store ptr %215, ptr %4, align 8
-  %216 = load ptr, ptr %4, align 8
-  %217 = getelementptr inbounds %struct._zval_struct, ptr %216, i32 0, i32 1
-  %218 = getelementptr inbounds %struct.anon.0, ptr %217, i32 0, i32 1
-  %219 = load i8, ptr %218, align 1
-  %220 = zext i8 %219 to i32
-  %221 = icmp ne i32 %220, 0
-  call void @llvm.assume(i1 %221)
-  %222 = load ptr, ptr %4, align 8
-  %223 = load ptr, ptr %222, align 8
-  store ptr %223, ptr %3, align 8
-  %224 = load ptr, ptr %3, align 8
-  %225 = load i32, ptr %224, align 4
-  %226 = add i32 %225, 1
-  store i32 %226, ptr %224, align 4
-  br label %227
-
-227:                                              ; preds = %212, %203
-  br label %228
-
-228:                                              ; preds = %227, %194, %159
+229:                                              ; preds = %228, %194, %159
   ret void
 }
 
@@ -1308,7 +1337,7 @@ define hidden void @zim_Fiber_start(ptr noundef %0, ptr noundef %1) #0 {
   %140 = load i32, ptr %32, align 4
   %141 = load ptr, ptr %31, align 8
   call void @zend_wrong_parameter_error(i32 noundef %137, i32 noundef %138, ptr noundef %139, i32 noundef %140, ptr noundef %141)
-  br label %277
+  br label %288
 
 142:                                              ; preds = %128
   br label %143
@@ -1320,7 +1349,7 @@ define hidden void @zim_Fiber_start(ptr noundef %0, ptr noundef %1) #0 {
   %147 = zext i1 %146 to i32
   %148 = sext i32 %147 to i64
   %149 = icmp ne i64 %148, 0
-  br i1 %149, label %150, label %156
+  br i1 %149, label %150, label %157
 
 150:                                              ; preds = %143
   %151 = load ptr, ptr @zend_ce_fiber_error, align 8
@@ -1328,221 +1357,232 @@ define hidden void @zim_Fiber_start(ptr noundef %0, ptr noundef %1) #0 {
   br label %152
 
 152:                                              ; preds = %150
-  %153 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %154 = icmp ne ptr %153, null
-  call void @llvm.assume(i1 %154)
-  br label %277
+  %153 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %154 = load ptr, ptr %153, align 8
+  %155 = icmp ne ptr %154, null
+  call void @llvm.assume(i1 %155)
+  br label %288
 
-155:                                              ; No predecessors!
-  br label %156
+156:                                              ; No predecessors!
+  br label %157
 
-156:                                              ; preds = %155, %143
-  %157 = load ptr, ptr %24, align 8
-  %158 = getelementptr inbounds %struct._zend_fiber, ptr %157, i32 0, i32 2
-  %159 = getelementptr inbounds %struct._zend_fiber_context, ptr %158, i32 0, i32 5
-  %160 = load i32, ptr %159, align 8
-  %161 = icmp ne i32 %160, 0
-  br i1 %161, label %162, label %168
+157:                                              ; preds = %156, %143
+  %158 = load ptr, ptr %24, align 8
+  %159 = getelementptr inbounds %struct._zend_fiber, ptr %158, i32 0, i32 2
+  %160 = getelementptr inbounds %struct._zend_fiber_context, ptr %159, i32 0, i32 5
+  %161 = load i32, ptr %160, align 8
+  %162 = icmp ne i32 %161, 0
+  br i1 %162, label %163, label %170
 
-162:                                              ; preds = %156
-  %163 = load ptr, ptr @zend_ce_fiber_error, align 8
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %163, ptr noundef @.str.7)
-  br label %164
+163:                                              ; preds = %157
+  %164 = load ptr, ptr @zend_ce_fiber_error, align 8
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %164, ptr noundef @.str.7)
+  br label %165
 
-164:                                              ; preds = %162
-  %165 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %166 = icmp ne ptr %165, null
-  call void @llvm.assume(i1 %166)
-  br label %277
+165:                                              ; preds = %163
+  %166 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %167 = load ptr, ptr %166, align 8
+  %168 = icmp ne ptr %167, null
+  call void @llvm.assume(i1 %168)
+  br label %288
 
-167:                                              ; No predecessors!
-  br label %168
+169:                                              ; No predecessors!
+  br label %170
 
-168:                                              ; preds = %167, %156
-  %169 = load ptr, ptr %24, align 8
-  %170 = getelementptr inbounds %struct._zend_fiber, ptr %169, i32 0, i32 2
-  %171 = load ptr, ptr @zend_ce_fiber, align 8
-  %172 = load i64, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 71), align 8
-  %173 = call i32 @zend_fiber_init_context(ptr noundef %170, ptr noundef %171, ptr noundef @zend_fiber_execute, i64 noundef %172)
-  %174 = icmp eq i32 %173, -1
-  br i1 %174, label %175, label %180
+170:                                              ; preds = %169, %157
+  %171 = load ptr, ptr %24, align 8
+  %172 = getelementptr inbounds %struct._zend_fiber, ptr %171, i32 0, i32 2
+  %173 = load ptr, ptr @zend_ce_fiber, align 8
+  %174 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 71
+  %175 = load i64, ptr %174, align 8
+  %176 = call i32 @zend_fiber_init_context(ptr noundef %172, ptr noundef %173, ptr noundef @zend_fiber_execute, i64 noundef %175)
+  %177 = icmp eq i32 %176, -1
+  br i1 %177, label %178, label %184
 
-175:                                              ; preds = %168
-  br label %176
+178:                                              ; preds = %170
+  br label %179
 
-176:                                              ; preds = %175
-  %177 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %178 = icmp ne ptr %177, null
-  call void @llvm.assume(i1 %178)
-  br label %277
+179:                                              ; preds = %178
+  %180 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %181 = load ptr, ptr %180, align 8
+  %182 = icmp ne ptr %181, null
+  call void @llvm.assume(i1 %182)
+  br label %288
 
-179:                                              ; No predecessors!
-  br label %180
+183:                                              ; No predecessors!
+  br label %184
 
-180:                                              ; preds = %179, %168
-  %181 = load ptr, ptr %24, align 8
-  %182 = getelementptr inbounds %struct._zend_fiber, ptr %181, i32 0, i32 2
-  %183 = load ptr, ptr %24, align 8
-  %184 = getelementptr inbounds %struct._zend_fiber, ptr %183, i32 0, i32 4
-  store ptr %182, ptr %184, align 8
+184:                                              ; preds = %183, %170
   %185 = load ptr, ptr %24, align 8
+  %186 = getelementptr inbounds %struct._zend_fiber, ptr %185, i32 0, i32 2
+  %187 = load ptr, ptr %24, align 8
+  %188 = getelementptr inbounds %struct._zend_fiber, ptr %187, i32 0, i32 4
+  store ptr %186, ptr %188, align 8
+  %189 = load ptr, ptr %24, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  store ptr %185, ptr %18, align 8, !noalias !5
+  store ptr %189, ptr %18, align 8, !noalias !5
   store ptr null, ptr %19, align 8, !noalias !5
   store i8 0, ptr %20, align 1, !noalias !5
-  %186 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !5
-  store ptr %186, ptr %21, align 8, !noalias !5
-  %187 = load ptr, ptr %21, align 8, !noalias !5
-  %188 = icmp ne ptr %187, null
-  br i1 %188, label %189, label %193
+  %190 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  %191 = load ptr, ptr %190, align 8, !noalias !5
+  store ptr %191, ptr %21, align 8, !noalias !5
+  %192 = load ptr, ptr %21, align 8, !noalias !5
+  %193 = icmp ne ptr %192, null
+  br i1 %193, label %194, label %199
 
-189:                                              ; preds = %180
-  %190 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8, !noalias !5
-  %191 = load ptr, ptr %21, align 8, !noalias !5
-  %192 = getelementptr inbounds %struct._zend_fiber, ptr %191, i32 0, i32 7
-  store ptr %190, ptr %192, align 8, !noalias !5
-  br label %193
+194:                                              ; preds = %184
+  %195 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
+  %196 = load ptr, ptr %195, align 8, !noalias !5
+  %197 = load ptr, ptr %21, align 8, !noalias !5
+  %198 = getelementptr inbounds %struct._zend_fiber, ptr %197, i32 0, i32 7
+  store ptr %196, ptr %198, align 8, !noalias !5
+  br label %199
 
-193:                                              ; preds = %189, %180
-  %194 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69), align 8, !noalias !5
-  %195 = load ptr, ptr %18, align 8, !noalias !5
-  %196 = getelementptr inbounds %struct._zend_fiber, ptr %195, i32 0, i32 3
-  store ptr %194, ptr %196, align 8, !noalias !5
-  %197 = load ptr, ptr %18, align 8, !noalias !5
-  store ptr %197, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !5
-  %198 = load ptr, ptr %18, align 8, !noalias !5
-  %199 = getelementptr inbounds %struct._zend_fiber, ptr %198, i32 0, i32 4
-  %200 = load ptr, ptr %199, align 8, !noalias !5
-  %201 = load ptr, ptr %19, align 8, !noalias !5
-  %202 = load i8, ptr %20, align 1, !noalias !5
-  %203 = trunc i8 %202 to i1
+199:                                              ; preds = %194, %184
+  %200 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69
+  %201 = load ptr, ptr %200, align 8, !noalias !5
+  %202 = load ptr, ptr %18, align 8, !noalias !5
+  %203 = getelementptr inbounds %struct._zend_fiber, ptr %202, i32 0, i32 3
+  store ptr %201, ptr %203, align 8, !noalias !5
+  %204 = load ptr, ptr %18, align 8, !noalias !5
+  %205 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr %204, ptr %205, align 8, !noalias !5
+  %206 = load ptr, ptr %18, align 8, !noalias !5
+  %207 = getelementptr inbounds %struct._zend_fiber, ptr %206, i32 0, i32 4
+  %208 = load ptr, ptr %207, align 8, !noalias !5
+  %209 = load ptr, ptr %19, align 8, !noalias !5
+  %210 = load i8, ptr %20, align 1, !noalias !5
+  %211 = trunc i8 %210 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  store ptr %200, ptr %4, align 8, !noalias !8
-  store ptr %201, ptr %5, align 8, !noalias !8
-  %204 = zext i1 %203 to i8
-  store i8 %204, ptr %6, align 1, !noalias !8
-  %205 = load ptr, ptr %4, align 8, !noalias !8
-  store ptr %205, ptr %38, align 8, !alias.scope !8
-  %206 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %38, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr align 8 %206, i8 0, i64 16, i1 false), !alias.scope !8
-  %207 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %38, i32 0, i32 2
-  %208 = load i8, ptr %6, align 1, !noalias !8
-  %209 = trunc i8 %208 to i1
-  %210 = select i1 %209, i32 1, i32 0
-  %211 = trunc i32 %210 to i8
-  store i8 %211, ptr %207, align 8, !alias.scope !8
-  %212 = load ptr, ptr %5, align 8, !noalias !8
-  %213 = icmp ne ptr %212, null
-  br i1 %213, label %214, label %236
+  store ptr %208, ptr %4, align 8, !noalias !8
+  store ptr %209, ptr %5, align 8, !noalias !8
+  %212 = zext i1 %211 to i8
+  store i8 %212, ptr %6, align 1, !noalias !8
+  %213 = load ptr, ptr %4, align 8, !noalias !8
+  store ptr %213, ptr %38, align 8, !alias.scope !8
+  %214 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %38, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 8 %214, i8 0, i64 16, i1 false), !alias.scope !8
+  %215 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %38, i32 0, i32 2
+  %216 = load i8, ptr %6, align 1, !noalias !8
+  %217 = trunc i8 %216 to i1
+  %218 = select i1 %217, i32 1, i32 0
+  %219 = trunc i32 %218 to i8
+  store i8 %219, ptr %215, align 8, !alias.scope !8
+  %220 = load ptr, ptr %5, align 8, !noalias !8
+  %221 = icmp ne ptr %220, null
+  br i1 %221, label %222, label %244
 
-214:                                              ; preds = %193
-  %215 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %38, i32 0, i32 1
-  store ptr %215, ptr %7, align 8, !noalias !8
-  %216 = load ptr, ptr %5, align 8, !noalias !8
-  store ptr %216, ptr %8, align 8, !noalias !8
-  %217 = load ptr, ptr %8, align 8, !noalias !8
-  %218 = load ptr, ptr %217, align 8
-  store ptr %218, ptr %9, align 8, !noalias !8
-  %219 = load ptr, ptr %8, align 8, !noalias !8
-  %220 = getelementptr inbounds %struct._zval_struct, ptr %219, i32 0, i32 1
-  %221 = load i32, ptr %220, align 8
-  store i32 %221, ptr %10, align 4, !noalias !8
-  %222 = load ptr, ptr %9, align 8, !noalias !8
-  %223 = load ptr, ptr %7, align 8, !noalias !8
-  store ptr %222, ptr %223, align 8
-  %224 = load i32, ptr %10, align 4, !noalias !8
-  %225 = load ptr, ptr %7, align 8, !noalias !8
-  %226 = getelementptr inbounds %struct._zval_struct, ptr %225, i32 0, i32 1
-  store i32 %224, ptr %226, align 8
-  %227 = load i32, ptr %10, align 4, !noalias !8
-  %228 = and i32 %227, 65280
-  %229 = icmp ne i32 %228, 0
-  br i1 %229, label %230, label %235
+222:                                              ; preds = %199
+  %223 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %38, i32 0, i32 1
+  store ptr %223, ptr %7, align 8, !noalias !8
+  %224 = load ptr, ptr %5, align 8, !noalias !8
+  store ptr %224, ptr %8, align 8, !noalias !8
+  %225 = load ptr, ptr %8, align 8, !noalias !8
+  %226 = load ptr, ptr %225, align 8
+  store ptr %226, ptr %9, align 8, !noalias !8
+  %227 = load ptr, ptr %8, align 8, !noalias !8
+  %228 = getelementptr inbounds %struct._zval_struct, ptr %227, i32 0, i32 1
+  %229 = load i32, ptr %228, align 8
+  store i32 %229, ptr %10, align 4, !noalias !8
+  %230 = load ptr, ptr %9, align 8, !noalias !8
+  %231 = load ptr, ptr %7, align 8, !noalias !8
+  store ptr %230, ptr %231, align 8
+  %232 = load i32, ptr %10, align 4, !noalias !8
+  %233 = load ptr, ptr %7, align 8, !noalias !8
+  %234 = getelementptr inbounds %struct._zval_struct, ptr %233, i32 0, i32 1
+  store i32 %232, ptr %234, align 8
+  %235 = load i32, ptr %10, align 4, !noalias !8
+  %236 = and i32 %235, 65280
+  %237 = icmp ne i32 %236, 0
+  br i1 %237, label %238, label %243
 
-230:                                              ; preds = %214
-  %231 = load ptr, ptr %9, align 8, !noalias !8
-  store ptr %231, ptr %3, align 8, !noalias !8
-  %232 = load ptr, ptr %3, align 8, !noalias !8
-  %233 = load i32, ptr %232, align 4
-  %234 = add i32 %233, 1
-  store i32 %234, ptr %232, align 4
-  br label %235
+238:                                              ; preds = %222
+  %239 = load ptr, ptr %9, align 8, !noalias !8
+  store ptr %239, ptr %3, align 8, !noalias !8
+  %240 = load ptr, ptr %3, align 8, !noalias !8
+  %241 = load i32, ptr %240, align 4
+  %242 = add i32 %241, 1
+  store i32 %242, ptr %240, align 4
+  br label %243
 
-235:                                              ; preds = %230, %214
-  br label %239
+243:                                              ; preds = %238, %222
+  br label %247
 
-236:                                              ; preds = %193
-  %237 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %38, i32 0, i32 1
-  %238 = getelementptr inbounds %struct._zval_struct, ptr %237, i32 0, i32 1
-  store i32 1, ptr %238, align 8, !alias.scope !8
-  br label %239
+244:                                              ; preds = %199
+  %245 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %38, i32 0, i32 1
+  %246 = getelementptr inbounds %struct._zval_struct, ptr %245, i32 0, i32 1
+  store i32 1, ptr %246, align 8, !alias.scope !8
+  br label %247
 
-239:                                              ; preds = %236, %235
+247:                                              ; preds = %244, %243
   call void @zend_fiber_switch_context(ptr noundef %38)
-  %240 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %38, i32 0, i32 2
-  %241 = load i8, ptr %240, align 8, !alias.scope !8
-  %242 = zext i8 %241 to i32
-  %243 = and i32 %242, 2
-  %244 = icmp ne i32 %243, 0
-  br i1 %244, label %245, label %246
+  %248 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %38, i32 0, i32 2
+  %249 = load i8, ptr %248, align 8, !alias.scope !8
+  %250 = zext i8 %249 to i32
+  %251 = and i32 %250, 2
+  %252 = icmp ne i32 %251, 0
+  br i1 %252, label %253, label %255
 
-245:                                              ; preds = %239
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !8
+253:                                              ; preds = %247
+  %254 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr null, ptr %254, align 8, !noalias !8
   call void @_zend_bailout(ptr noundef @.str.25, i32 noundef 649) #18
   unreachable
 
-246:                                              ; preds = %239
-  %247 = load ptr, ptr %21, align 8, !noalias !5
-  store ptr %247, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !5
-  %248 = load ptr, ptr %22, align 8
-  %249 = load ptr, ptr %23, align 8
+255:                                              ; preds = %247
+  %256 = load ptr, ptr %21, align 8, !noalias !5
+  %257 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr %256, ptr %257, align 8, !noalias !5
+  %258 = load ptr, ptr %22, align 8
+  %259 = load ptr, ptr %23, align 8
   store ptr %38, ptr %11, align 8
-  store ptr %248, ptr %12, align 8
-  store ptr %249, ptr %13, align 8
-  %250 = load ptr, ptr %11, align 8
-  %251 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %250, i32 0, i32 2
-  %252 = load i8, ptr %251, align 8
-  %253 = zext i8 %252 to i32
-  %254 = and i32 %253, 1
-  %255 = icmp ne i32 %254, 0
-  br i1 %255, label %256, label %262
+  store ptr %258, ptr %12, align 8
+  store ptr %259, ptr %13, align 8
+  %260 = load ptr, ptr %11, align 8
+  %261 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %260, i32 0, i32 2
+  %262 = load i8, ptr %261, align 8
+  %263 = zext i8 %262 to i32
+  %264 = and i32 %263, 1
+  %265 = icmp ne i32 %264, 0
+  br i1 %265, label %266, label %273
 
-256:                                              ; preds = %246
-  %257 = load ptr, ptr %11, align 8
-  %258 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %257, i32 0, i32 1
-  %259 = load ptr, ptr %258, align 8
-  call void @zend_throw_exception_internal(ptr noundef %259) #16
-  %260 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %261 = icmp ne ptr %260, null
-  call void @llvm.assume(i1 %261)
-  br label %276
+266:                                              ; preds = %255
+  %267 = load ptr, ptr %11, align 8
+  %268 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %267, i32 0, i32 1
+  %269 = load ptr, ptr %268, align 8
+  call void @zend_throw_exception_internal(ptr noundef %269) #16
+  %270 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %271 = load ptr, ptr %270, align 8
+  %272 = icmp ne ptr %271, null
+  call void @llvm.assume(i1 %272)
+  br label %287
 
-262:                                              ; preds = %246
-  %263 = load ptr, ptr %13, align 8
-  store ptr %263, ptr %14, align 8
-  %264 = load ptr, ptr %11, align 8
-  %265 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %264, i32 0, i32 1
-  store ptr %265, ptr %15, align 8
-  %266 = load ptr, ptr %15, align 8
-  %267 = load ptr, ptr %266, align 8
-  store ptr %267, ptr %16, align 8
-  %268 = load ptr, ptr %15, align 8
-  %269 = getelementptr inbounds %struct._zval_struct, ptr %268, i32 0, i32 1
-  %270 = load i32, ptr %269, align 8
-  store i32 %270, ptr %17, align 4
-  %271 = load ptr, ptr %16, align 8
-  %272 = load ptr, ptr %14, align 8
-  store ptr %271, ptr %272, align 8
-  %273 = load i32, ptr %17, align 4
-  %274 = load ptr, ptr %14, align 8
-  %275 = getelementptr inbounds %struct._zval_struct, ptr %274, i32 0, i32 1
-  store i32 %273, ptr %275, align 8
-  br label %276
+273:                                              ; preds = %255
+  %274 = load ptr, ptr %13, align 8
+  store ptr %274, ptr %14, align 8
+  %275 = load ptr, ptr %11, align 8
+  %276 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %275, i32 0, i32 1
+  store ptr %276, ptr %15, align 8
+  %277 = load ptr, ptr %15, align 8
+  %278 = load ptr, ptr %277, align 8
+  store ptr %278, ptr %16, align 8
+  %279 = load ptr, ptr %15, align 8
+  %280 = getelementptr inbounds %struct._zval_struct, ptr %279, i32 0, i32 1
+  %281 = load i32, ptr %280, align 8
+  store i32 %281, ptr %17, align 4
+  %282 = load ptr, ptr %16, align 8
+  %283 = load ptr, ptr %14, align 8
+  store ptr %282, ptr %283, align 8
+  %284 = load i32, ptr %17, align 4
+  %285 = load ptr, ptr %14, align 8
+  %286 = getelementptr inbounds %struct._zval_struct, ptr %285, i32 0, i32 1
+  store i32 %284, ptr %286, align 8
+  br label %287
 
-276:                                              ; preds = %262, %256
-  br label %277
+287:                                              ; preds = %273, %266
+  br label %288
 
-277:                                              ; preds = %276, %176, %164, %152, %136
+288:                                              ; preds = %287, %179, %165, %152, %136
   ret void
 }
 
@@ -1573,659 +1613,681 @@ define internal void @zend_fiber_execute(ptr noundef %0) #5 {
 19:                                               ; preds = %18, %1
   %20 = phi i1 [ false, %1 ], [ true, %18 ]
   call void @llvm.assume(i1 %20)
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8
-  store ptr %21, ptr %7, align 8
-  %22 = call i64 @zend_ini_long(ptr noundef @.str.22, i64 noundef 15, i32 noundef 0)
-  store i64 %22, ptr %8, align 8
-  %23 = load i64, ptr %8, align 8
-  %24 = icmp ne i64 %23, 0
-  br i1 %24, label %29, label %25
+  %21 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %7, align 8
+  %23 = call i64 @zend_ini_long(ptr noundef @.str.22, i64 noundef 15, i32 noundef 0)
+  store i64 %23, ptr %8, align 8
+  %24 = load i64, ptr %8, align 8
+  %25 = icmp ne i64 %24, 0
+  br i1 %25, label %30, label %26
 
-25:                                               ; preds = %19
-  %26 = call ptr @zend_ini_string_ex(ptr noundef @.str.22, i64 noundef 15, i32 noundef 0, ptr noundef null)
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %29, label %28
+26:                                               ; preds = %19
+  %27 = call ptr @zend_ini_string_ex(ptr noundef @.str.22, i64 noundef 15, i32 noundef 0, ptr noundef null)
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %30, label %29
 
-28:                                               ; preds = %25
+29:                                               ; preds = %26
   store i64 32767, ptr %8, align 8
-  br label %29
+  br label %30
 
-29:                                               ; preds = %28, %25, %19
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7), align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7), align 8
-  store ptr %30, ptr %9, align 8
-  store ptr %10, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7), align 8
-  %31 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %10, i64 0, i64 0
-  %32 = call i32 @__sigsetjmp(ptr noundef %31, i32 noundef 0) #19
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %380
+30:                                               ; preds = %29, %26, %19
+  %31 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15
+  store ptr null, ptr %31, align 8
+  %32 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7
+  store ptr null, ptr %32, align 8
+  %33 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %9, align 8
+  %35 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7
+  store ptr %10, ptr %35, align 8
+  %36 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %10, i64 0, i64 0
+  %37 = call i32 @__sigsetjmp(ptr noundef %36, i32 noundef 0) #19
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %399
 
-34:                                               ; preds = %29
+39:                                               ; preds = %30
   store i64 16384, ptr %2, align 8
   store ptr null, ptr %3, align 8
-  %35 = load i64, ptr %2, align 8
-  %36 = call i1 @llvm.is.constant.i64(i64 %35)
-  br i1 %36, label %37, label %258
+  %40 = load i64, ptr %2, align 8
+  %41 = call i1 @llvm.is.constant.i64(i64 %40)
+  br i1 %41, label %42, label %263
 
-37:                                               ; preds = %34
-  %38 = load i64, ptr %2, align 8
-  %39 = icmp ule i64 %38, 8
-  br i1 %39, label %40, label %42
-
-40:                                               ; preds = %37
-  %41 = call noalias ptr @_emalloc_8() #16
-  br label %256
-
-42:                                               ; preds = %37
+42:                                               ; preds = %39
   %43 = load i64, ptr %2, align 8
-  %44 = icmp ule i64 %43, 16
+  %44 = icmp ule i64 %43, 8
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %42
-  %46 = call noalias ptr @_emalloc_16() #16
-  br label %254
+  %46 = call noalias ptr @_emalloc_8() #16
+  br label %261
 
 47:                                               ; preds = %42
   %48 = load i64, ptr %2, align 8
-  %49 = icmp ule i64 %48, 24
+  %49 = icmp ule i64 %48, 16
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %47
-  %51 = call noalias ptr @_emalloc_24() #16
-  br label %252
+  %51 = call noalias ptr @_emalloc_16() #16
+  br label %259
 
 52:                                               ; preds = %47
   %53 = load i64, ptr %2, align 8
-  %54 = icmp ule i64 %53, 32
+  %54 = icmp ule i64 %53, 24
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %52
-  %56 = call noalias ptr @_emalloc_32() #16
-  br label %250
+  %56 = call noalias ptr @_emalloc_24() #16
+  br label %257
 
 57:                                               ; preds = %52
   %58 = load i64, ptr %2, align 8
-  %59 = icmp ule i64 %58, 40
+  %59 = icmp ule i64 %58, 32
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %57
-  %61 = call noalias ptr @_emalloc_40() #16
-  br label %248
+  %61 = call noalias ptr @_emalloc_32() #16
+  br label %255
 
 62:                                               ; preds = %57
   %63 = load i64, ptr %2, align 8
-  %64 = icmp ule i64 %63, 48
+  %64 = icmp ule i64 %63, 40
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %62
-  %66 = call noalias ptr @_emalloc_48() #16
-  br label %246
+  %66 = call noalias ptr @_emalloc_40() #16
+  br label %253
 
 67:                                               ; preds = %62
   %68 = load i64, ptr %2, align 8
-  %69 = icmp ule i64 %68, 56
+  %69 = icmp ule i64 %68, 48
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %67
-  %71 = call noalias ptr @_emalloc_56() #16
-  br label %244
+  %71 = call noalias ptr @_emalloc_48() #16
+  br label %251
 
 72:                                               ; preds = %67
   %73 = load i64, ptr %2, align 8
-  %74 = icmp ule i64 %73, 64
+  %74 = icmp ule i64 %73, 56
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %72
-  %76 = call noalias ptr @_emalloc_64() #16
-  br label %242
+  %76 = call noalias ptr @_emalloc_56() #16
+  br label %249
 
 77:                                               ; preds = %72
   %78 = load i64, ptr %2, align 8
-  %79 = icmp ule i64 %78, 80
+  %79 = icmp ule i64 %78, 64
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %77
-  %81 = call noalias ptr @_emalloc_80() #16
-  br label %240
+  %81 = call noalias ptr @_emalloc_64() #16
+  br label %247
 
 82:                                               ; preds = %77
   %83 = load i64, ptr %2, align 8
-  %84 = icmp ule i64 %83, 96
+  %84 = icmp ule i64 %83, 80
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %82
-  %86 = call noalias ptr @_emalloc_96() #16
-  br label %238
+  %86 = call noalias ptr @_emalloc_80() #16
+  br label %245
 
 87:                                               ; preds = %82
   %88 = load i64, ptr %2, align 8
-  %89 = icmp ule i64 %88, 112
+  %89 = icmp ule i64 %88, 96
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %87
-  %91 = call noalias ptr @_emalloc_112() #16
-  br label %236
+  %91 = call noalias ptr @_emalloc_96() #16
+  br label %243
 
 92:                                               ; preds = %87
   %93 = load i64, ptr %2, align 8
-  %94 = icmp ule i64 %93, 128
+  %94 = icmp ule i64 %93, 112
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %92
-  %96 = call noalias ptr @_emalloc_128() #16
-  br label %234
+  %96 = call noalias ptr @_emalloc_112() #16
+  br label %241
 
 97:                                               ; preds = %92
   %98 = load i64, ptr %2, align 8
-  %99 = icmp ule i64 %98, 160
+  %99 = icmp ule i64 %98, 128
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %97
-  %101 = call noalias ptr @_emalloc_160() #16
-  br label %232
+  %101 = call noalias ptr @_emalloc_128() #16
+  br label %239
 
 102:                                              ; preds = %97
   %103 = load i64, ptr %2, align 8
-  %104 = icmp ule i64 %103, 192
+  %104 = icmp ule i64 %103, 160
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %102
-  %106 = call noalias ptr @_emalloc_192() #16
-  br label %230
+  %106 = call noalias ptr @_emalloc_160() #16
+  br label %237
 
 107:                                              ; preds = %102
   %108 = load i64, ptr %2, align 8
-  %109 = icmp ule i64 %108, 224
+  %109 = icmp ule i64 %108, 192
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %107
-  %111 = call noalias ptr @_emalloc_224() #16
-  br label %228
+  %111 = call noalias ptr @_emalloc_192() #16
+  br label %235
 
 112:                                              ; preds = %107
   %113 = load i64, ptr %2, align 8
-  %114 = icmp ule i64 %113, 256
+  %114 = icmp ule i64 %113, 224
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %112
-  %116 = call noalias ptr @_emalloc_256() #16
-  br label %226
+  %116 = call noalias ptr @_emalloc_224() #16
+  br label %233
 
 117:                                              ; preds = %112
   %118 = load i64, ptr %2, align 8
-  %119 = icmp ule i64 %118, 320
+  %119 = icmp ule i64 %118, 256
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %117
-  %121 = call noalias ptr @_emalloc_320() #16
-  br label %224
+  %121 = call noalias ptr @_emalloc_256() #16
+  br label %231
 
 122:                                              ; preds = %117
   %123 = load i64, ptr %2, align 8
-  %124 = icmp ule i64 %123, 384
+  %124 = icmp ule i64 %123, 320
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %122
-  %126 = call noalias ptr @_emalloc_384() #16
-  br label %222
+  %126 = call noalias ptr @_emalloc_320() #16
+  br label %229
 
 127:                                              ; preds = %122
   %128 = load i64, ptr %2, align 8
-  %129 = icmp ule i64 %128, 448
+  %129 = icmp ule i64 %128, 384
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %127
-  %131 = call noalias ptr @_emalloc_448() #16
-  br label %220
+  %131 = call noalias ptr @_emalloc_384() #16
+  br label %227
 
 132:                                              ; preds = %127
   %133 = load i64, ptr %2, align 8
-  %134 = icmp ule i64 %133, 512
+  %134 = icmp ule i64 %133, 448
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %132
-  %136 = call noalias ptr @_emalloc_512() #16
-  br label %218
+  %136 = call noalias ptr @_emalloc_448() #16
+  br label %225
 
 137:                                              ; preds = %132
   %138 = load i64, ptr %2, align 8
-  %139 = icmp ule i64 %138, 640
+  %139 = icmp ule i64 %138, 512
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %137
-  %141 = call noalias ptr @_emalloc_640() #16
-  br label %216
+  %141 = call noalias ptr @_emalloc_512() #16
+  br label %223
 
 142:                                              ; preds = %137
   %143 = load i64, ptr %2, align 8
-  %144 = icmp ule i64 %143, 768
+  %144 = icmp ule i64 %143, 640
   br i1 %144, label %145, label %147
 
 145:                                              ; preds = %142
-  %146 = call noalias ptr @_emalloc_768() #16
-  br label %214
+  %146 = call noalias ptr @_emalloc_640() #16
+  br label %221
 
 147:                                              ; preds = %142
   %148 = load i64, ptr %2, align 8
-  %149 = icmp ule i64 %148, 896
+  %149 = icmp ule i64 %148, 768
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %147
-  %151 = call noalias ptr @_emalloc_896() #16
-  br label %212
+  %151 = call noalias ptr @_emalloc_768() #16
+  br label %219
 
 152:                                              ; preds = %147
   %153 = load i64, ptr %2, align 8
-  %154 = icmp ule i64 %153, 1024
+  %154 = icmp ule i64 %153, 896
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %152
-  %156 = call noalias ptr @_emalloc_1024() #16
-  br label %210
+  %156 = call noalias ptr @_emalloc_896() #16
+  br label %217
 
 157:                                              ; preds = %152
   %158 = load i64, ptr %2, align 8
-  %159 = icmp ule i64 %158, 1280
+  %159 = icmp ule i64 %158, 1024
   br i1 %159, label %160, label %162
 
 160:                                              ; preds = %157
-  %161 = call noalias ptr @_emalloc_1280() #16
-  br label %208
+  %161 = call noalias ptr @_emalloc_1024() #16
+  br label %215
 
 162:                                              ; preds = %157
   %163 = load i64, ptr %2, align 8
-  %164 = icmp ule i64 %163, 1536
+  %164 = icmp ule i64 %163, 1280
   br i1 %164, label %165, label %167
 
 165:                                              ; preds = %162
-  %166 = call noalias ptr @_emalloc_1536() #16
-  br label %206
+  %166 = call noalias ptr @_emalloc_1280() #16
+  br label %213
 
 167:                                              ; preds = %162
   %168 = load i64, ptr %2, align 8
-  %169 = icmp ule i64 %168, 1792
+  %169 = icmp ule i64 %168, 1536
   br i1 %169, label %170, label %172
 
 170:                                              ; preds = %167
-  %171 = call noalias ptr @_emalloc_1792() #16
-  br label %204
+  %171 = call noalias ptr @_emalloc_1536() #16
+  br label %211
 
 172:                                              ; preds = %167
   %173 = load i64, ptr %2, align 8
-  %174 = icmp ule i64 %173, 2048
+  %174 = icmp ule i64 %173, 1792
   br i1 %174, label %175, label %177
 
 175:                                              ; preds = %172
-  %176 = call noalias ptr @_emalloc_2048() #16
-  br label %202
+  %176 = call noalias ptr @_emalloc_1792() #16
+  br label %209
 
 177:                                              ; preds = %172
   %178 = load i64, ptr %2, align 8
-  %179 = icmp ule i64 %178, 2560
+  %179 = icmp ule i64 %178, 2048
   br i1 %179, label %180, label %182
 
 180:                                              ; preds = %177
-  %181 = call noalias ptr @_emalloc_2560() #16
-  br label %200
+  %181 = call noalias ptr @_emalloc_2048() #16
+  br label %207
 
 182:                                              ; preds = %177
   %183 = load i64, ptr %2, align 8
-  %184 = icmp ule i64 %183, 3072
+  %184 = icmp ule i64 %183, 2560
   br i1 %184, label %185, label %187
 
 185:                                              ; preds = %182
-  %186 = call noalias ptr @_emalloc_3072() #16
-  br label %198
+  %186 = call noalias ptr @_emalloc_2560() #16
+  br label %205
 
 187:                                              ; preds = %182
   %188 = load i64, ptr %2, align 8
-  %189 = icmp ule i64 %188, 2093056
-  br i1 %189, label %190, label %193
+  %189 = icmp ule i64 %188, 3072
+  br i1 %189, label %190, label %192
 
 190:                                              ; preds = %187
-  %191 = load i64, ptr %2, align 8
-  %192 = call noalias ptr @_emalloc_large(i64 noundef %191) #20
-  br label %196
+  %191 = call noalias ptr @_emalloc_3072() #16
+  br label %203
 
-193:                                              ; preds = %187
-  %194 = load i64, ptr %2, align 8
-  %195 = call noalias ptr @_emalloc_huge(i64 noundef %194) #20
-  br label %196
+192:                                              ; preds = %187
+  %193 = load i64, ptr %2, align 8
+  %194 = icmp ule i64 %193, 2093056
+  br i1 %194, label %195, label %198
 
-196:                                              ; preds = %193, %190
-  %197 = phi ptr [ %192, %190 ], [ %195, %193 ]
-  br label %198
+195:                                              ; preds = %192
+  %196 = load i64, ptr %2, align 8
+  %197 = call noalias ptr @_emalloc_large(i64 noundef %196) #20
+  br label %201
 
-198:                                              ; preds = %196, %185
-  %199 = phi ptr [ %186, %185 ], [ %197, %196 ]
-  br label %200
+198:                                              ; preds = %192
+  %199 = load i64, ptr %2, align 8
+  %200 = call noalias ptr @_emalloc_huge(i64 noundef %199) #20
+  br label %201
 
-200:                                              ; preds = %198, %180
-  %201 = phi ptr [ %181, %180 ], [ %199, %198 ]
-  br label %202
+201:                                              ; preds = %198, %195
+  %202 = phi ptr [ %197, %195 ], [ %200, %198 ]
+  br label %203
 
-202:                                              ; preds = %200, %175
-  %203 = phi ptr [ %176, %175 ], [ %201, %200 ]
-  br label %204
+203:                                              ; preds = %201, %190
+  %204 = phi ptr [ %191, %190 ], [ %202, %201 ]
+  br label %205
 
-204:                                              ; preds = %202, %170
-  %205 = phi ptr [ %171, %170 ], [ %203, %202 ]
-  br label %206
+205:                                              ; preds = %203, %185
+  %206 = phi ptr [ %186, %185 ], [ %204, %203 ]
+  br label %207
 
-206:                                              ; preds = %204, %165
-  %207 = phi ptr [ %166, %165 ], [ %205, %204 ]
-  br label %208
+207:                                              ; preds = %205, %180
+  %208 = phi ptr [ %181, %180 ], [ %206, %205 ]
+  br label %209
 
-208:                                              ; preds = %206, %160
-  %209 = phi ptr [ %161, %160 ], [ %207, %206 ]
-  br label %210
+209:                                              ; preds = %207, %175
+  %210 = phi ptr [ %176, %175 ], [ %208, %207 ]
+  br label %211
 
-210:                                              ; preds = %208, %155
-  %211 = phi ptr [ %156, %155 ], [ %209, %208 ]
-  br label %212
+211:                                              ; preds = %209, %170
+  %212 = phi ptr [ %171, %170 ], [ %210, %209 ]
+  br label %213
 
-212:                                              ; preds = %210, %150
-  %213 = phi ptr [ %151, %150 ], [ %211, %210 ]
-  br label %214
+213:                                              ; preds = %211, %165
+  %214 = phi ptr [ %166, %165 ], [ %212, %211 ]
+  br label %215
 
-214:                                              ; preds = %212, %145
-  %215 = phi ptr [ %146, %145 ], [ %213, %212 ]
-  br label %216
+215:                                              ; preds = %213, %160
+  %216 = phi ptr [ %161, %160 ], [ %214, %213 ]
+  br label %217
 
-216:                                              ; preds = %214, %140
-  %217 = phi ptr [ %141, %140 ], [ %215, %214 ]
-  br label %218
+217:                                              ; preds = %215, %155
+  %218 = phi ptr [ %156, %155 ], [ %216, %215 ]
+  br label %219
 
-218:                                              ; preds = %216, %135
-  %219 = phi ptr [ %136, %135 ], [ %217, %216 ]
-  br label %220
+219:                                              ; preds = %217, %150
+  %220 = phi ptr [ %151, %150 ], [ %218, %217 ]
+  br label %221
 
-220:                                              ; preds = %218, %130
-  %221 = phi ptr [ %131, %130 ], [ %219, %218 ]
-  br label %222
+221:                                              ; preds = %219, %145
+  %222 = phi ptr [ %146, %145 ], [ %220, %219 ]
+  br label %223
 
-222:                                              ; preds = %220, %125
-  %223 = phi ptr [ %126, %125 ], [ %221, %220 ]
-  br label %224
+223:                                              ; preds = %221, %140
+  %224 = phi ptr [ %141, %140 ], [ %222, %221 ]
+  br label %225
 
-224:                                              ; preds = %222, %120
-  %225 = phi ptr [ %121, %120 ], [ %223, %222 ]
-  br label %226
+225:                                              ; preds = %223, %135
+  %226 = phi ptr [ %136, %135 ], [ %224, %223 ]
+  br label %227
 
-226:                                              ; preds = %224, %115
-  %227 = phi ptr [ %116, %115 ], [ %225, %224 ]
-  br label %228
+227:                                              ; preds = %225, %130
+  %228 = phi ptr [ %131, %130 ], [ %226, %225 ]
+  br label %229
 
-228:                                              ; preds = %226, %110
-  %229 = phi ptr [ %111, %110 ], [ %227, %226 ]
-  br label %230
+229:                                              ; preds = %227, %125
+  %230 = phi ptr [ %126, %125 ], [ %228, %227 ]
+  br label %231
 
-230:                                              ; preds = %228, %105
-  %231 = phi ptr [ %106, %105 ], [ %229, %228 ]
-  br label %232
+231:                                              ; preds = %229, %120
+  %232 = phi ptr [ %121, %120 ], [ %230, %229 ]
+  br label %233
 
-232:                                              ; preds = %230, %100
-  %233 = phi ptr [ %101, %100 ], [ %231, %230 ]
-  br label %234
+233:                                              ; preds = %231, %115
+  %234 = phi ptr [ %116, %115 ], [ %232, %231 ]
+  br label %235
 
-234:                                              ; preds = %232, %95
-  %235 = phi ptr [ %96, %95 ], [ %233, %232 ]
-  br label %236
+235:                                              ; preds = %233, %110
+  %236 = phi ptr [ %111, %110 ], [ %234, %233 ]
+  br label %237
 
-236:                                              ; preds = %234, %90
-  %237 = phi ptr [ %91, %90 ], [ %235, %234 ]
-  br label %238
+237:                                              ; preds = %235, %105
+  %238 = phi ptr [ %106, %105 ], [ %236, %235 ]
+  br label %239
 
-238:                                              ; preds = %236, %85
-  %239 = phi ptr [ %86, %85 ], [ %237, %236 ]
-  br label %240
+239:                                              ; preds = %237, %100
+  %240 = phi ptr [ %101, %100 ], [ %238, %237 ]
+  br label %241
 
-240:                                              ; preds = %238, %80
-  %241 = phi ptr [ %81, %80 ], [ %239, %238 ]
-  br label %242
+241:                                              ; preds = %239, %95
+  %242 = phi ptr [ %96, %95 ], [ %240, %239 ]
+  br label %243
 
-242:                                              ; preds = %240, %75
-  %243 = phi ptr [ %76, %75 ], [ %241, %240 ]
-  br label %244
+243:                                              ; preds = %241, %90
+  %244 = phi ptr [ %91, %90 ], [ %242, %241 ]
+  br label %245
 
-244:                                              ; preds = %242, %70
-  %245 = phi ptr [ %71, %70 ], [ %243, %242 ]
-  br label %246
+245:                                              ; preds = %243, %85
+  %246 = phi ptr [ %86, %85 ], [ %244, %243 ]
+  br label %247
 
-246:                                              ; preds = %244, %65
-  %247 = phi ptr [ %66, %65 ], [ %245, %244 ]
-  br label %248
+247:                                              ; preds = %245, %80
+  %248 = phi ptr [ %81, %80 ], [ %246, %245 ]
+  br label %249
 
-248:                                              ; preds = %246, %60
-  %249 = phi ptr [ %61, %60 ], [ %247, %246 ]
-  br label %250
+249:                                              ; preds = %247, %75
+  %250 = phi ptr [ %76, %75 ], [ %248, %247 ]
+  br label %251
 
-250:                                              ; preds = %248, %55
-  %251 = phi ptr [ %56, %55 ], [ %249, %248 ]
-  br label %252
+251:                                              ; preds = %249, %70
+  %252 = phi ptr [ %71, %70 ], [ %250, %249 ]
+  br label %253
 
-252:                                              ; preds = %250, %50
-  %253 = phi ptr [ %51, %50 ], [ %251, %250 ]
-  br label %254
+253:                                              ; preds = %251, %65
+  %254 = phi ptr [ %66, %65 ], [ %252, %251 ]
+  br label %255
 
-254:                                              ; preds = %252, %45
-  %255 = phi ptr [ %46, %45 ], [ %253, %252 ]
-  br label %256
+255:                                              ; preds = %253, %60
+  %256 = phi ptr [ %61, %60 ], [ %254, %253 ]
+  br label %257
 
-256:                                              ; preds = %254, %40
-  %257 = phi ptr [ %41, %40 ], [ %255, %254 ]
+257:                                              ; preds = %255, %55
+  %258 = phi ptr [ %56, %55 ], [ %256, %255 ]
+  br label %259
+
+259:                                              ; preds = %257, %50
+  %260 = phi ptr [ %51, %50 ], [ %258, %257 ]
   br label %261
 
-258:                                              ; preds = %34
-  %259 = load i64, ptr %2, align 8
-  %260 = call noalias ptr @_emalloc(i64 noundef %259) #20
-  br label %261
+261:                                              ; preds = %259, %45
+  %262 = phi ptr [ %46, %45 ], [ %260, %259 ]
+  br label %266
 
-261:                                              ; preds = %258, %256
-  %262 = phi ptr [ %257, %256 ], [ %260, %258 ]
-  store ptr %262, ptr %4, align 8
-  %263 = load ptr, ptr %4, align 8
-  %264 = getelementptr inbounds %struct._zval_struct, ptr %263, i64 2
-  %265 = load ptr, ptr %4, align 8
-  store ptr %264, ptr %265, align 8
-  %266 = load ptr, ptr %4, align 8
-  %267 = load i64, ptr %2, align 8
-  %268 = getelementptr inbounds i8, ptr %266, i64 %267
-  %269 = load ptr, ptr %4, align 8
-  %270 = getelementptr inbounds %struct._zend_vm_stack, ptr %269, i32 0, i32 1
-  store ptr %268, ptr %270, align 8
-  %271 = load ptr, ptr %3, align 8
-  %272 = load ptr, ptr %4, align 8
-  %273 = getelementptr inbounds %struct._zend_vm_stack, ptr %272, i32 0, i32 2
-  store ptr %271, ptr %273, align 8
+263:                                              ; preds = %39
+  %264 = load i64, ptr %2, align 8
+  %265 = call noalias ptr @_emalloc(i64 noundef %264) #20
+  br label %266
+
+266:                                              ; preds = %263, %261
+  %267 = phi ptr [ %262, %261 ], [ %265, %263 ]
+  store ptr %267, ptr %4, align 8
+  %268 = load ptr, ptr %4, align 8
+  %269 = getelementptr inbounds %struct._zval_struct, ptr %268, i64 2
+  %270 = load ptr, ptr %4, align 8
+  store ptr %269, ptr %270, align 8
+  %271 = load ptr, ptr %4, align 8
+  %272 = load i64, ptr %2, align 8
+  %273 = getelementptr inbounds i8, ptr %271, i64 %272
   %274 = load ptr, ptr %4, align 8
-  store ptr %274, ptr %11, align 8
-  %275 = load ptr, ptr %11, align 8
-  store ptr %275, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15), align 8
-  %276 = load ptr, ptr %11, align 8
-  %277 = getelementptr inbounds %struct._zend_vm_stack, ptr %276, i32 0, i32 0
-  %278 = load ptr, ptr %277, align 8
-  %279 = getelementptr inbounds %struct._zval_struct, ptr %278, i64 5
-  store ptr %279, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 13), align 8
+  %275 = getelementptr inbounds %struct._zend_vm_stack, ptr %274, i32 0, i32 1
+  store ptr %273, ptr %275, align 8
+  %276 = load ptr, ptr %3, align 8
+  %277 = load ptr, ptr %4, align 8
+  %278 = getelementptr inbounds %struct._zend_vm_stack, ptr %277, i32 0, i32 2
+  store ptr %276, ptr %278, align 8
+  %279 = load ptr, ptr %4, align 8
+  store ptr %279, ptr %11, align 8
   %280 = load ptr, ptr %11, align 8
-  %281 = getelementptr inbounds %struct._zend_vm_stack, ptr %280, i32 0, i32 1
-  %282 = load ptr, ptr %281, align 8
-  store ptr %282, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 14), align 8
-  store i64 16384, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 16), align 8
-  %283 = load ptr, ptr %11, align 8
-  %284 = getelementptr inbounds %struct._zend_vm_stack, ptr %283, i32 0, i32 0
-  %285 = load ptr, ptr %284, align 8
-  %286 = load ptr, ptr %7, align 8
-  %287 = getelementptr inbounds %struct._zend_fiber, ptr %286, i32 0, i32 7
-  store ptr %285, ptr %287, align 8
-  %288 = load ptr, ptr %7, align 8
-  %289 = getelementptr inbounds %struct._zend_fiber, ptr %288, i32 0, i32 7
-  %290 = load ptr, ptr %289, align 8
-  %291 = load ptr, ptr %7, align 8
-  %292 = getelementptr inbounds %struct._zend_fiber, ptr %291, i32 0, i32 8
-  store ptr %290, ptr %292, align 8
-  %293 = load ptr, ptr %7, align 8
-  %294 = getelementptr inbounds %struct._zend_fiber, ptr %293, i32 0, i32 7
-  %295 = load ptr, ptr %294, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %295, i8 0, i64 80, i1 false)
-  %296 = load ptr, ptr %7, align 8
-  %297 = getelementptr inbounds %struct._zend_fiber, ptr %296, i32 0, i32 7
-  %298 = load ptr, ptr %297, align 8
-  %299 = getelementptr inbounds %struct._zend_execute_data, ptr %298, i32 0, i32 3
-  store ptr @zend_fiber_function, ptr %299, align 8
-  %300 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8
-  %301 = load ptr, ptr %7, align 8
-  %302 = getelementptr inbounds %struct._zend_fiber, ptr %301, i32 0, i32 8
-  %303 = load ptr, ptr %302, align 8
-  %304 = getelementptr inbounds %struct._zend_execute_data, ptr %303, i32 0, i32 5
-  store ptr %300, ptr %304, align 8
+  %281 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15
+  store ptr %280, ptr %281, align 8
+  %282 = load ptr, ptr %11, align 8
+  %283 = getelementptr inbounds %struct._zend_vm_stack, ptr %282, i32 0, i32 0
+  %284 = load ptr, ptr %283, align 8
+  %285 = getelementptr inbounds %struct._zval_struct, ptr %284, i64 5
+  %286 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 13
+  store ptr %285, ptr %286, align 8
+  %287 = load ptr, ptr %11, align 8
+  %288 = getelementptr inbounds %struct._zend_vm_stack, ptr %287, i32 0, i32 1
+  %289 = load ptr, ptr %288, align 8
+  %290 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 14
+  store ptr %289, ptr %290, align 8
+  %291 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 16
+  store i64 16384, ptr %291, align 8
+  %292 = load ptr, ptr %11, align 8
+  %293 = getelementptr inbounds %struct._zend_vm_stack, ptr %292, i32 0, i32 0
+  %294 = load ptr, ptr %293, align 8
+  %295 = load ptr, ptr %7, align 8
+  %296 = getelementptr inbounds %struct._zend_fiber, ptr %295, i32 0, i32 7
+  store ptr %294, ptr %296, align 8
+  %297 = load ptr, ptr %7, align 8
+  %298 = getelementptr inbounds %struct._zend_fiber, ptr %297, i32 0, i32 7
+  %299 = load ptr, ptr %298, align 8
+  %300 = load ptr, ptr %7, align 8
+  %301 = getelementptr inbounds %struct._zend_fiber, ptr %300, i32 0, i32 8
+  store ptr %299, ptr %301, align 8
+  %302 = load ptr, ptr %7, align 8
+  %303 = getelementptr inbounds %struct._zend_fiber, ptr %302, i32 0, i32 7
+  %304 = load ptr, ptr %303, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %304, i8 0, i64 80, i1 false)
   %305 = load ptr, ptr %7, align 8
   %306 = getelementptr inbounds %struct._zend_fiber, ptr %305, i32 0, i32 7
   %307 = load ptr, ptr %306, align 8
-  store ptr %307, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 19), align 8
-  %308 = load i64, ptr %8, align 8
-  %309 = trunc i64 %308 to i32
-  store i32 %309, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 8), align 8
-  %310 = load ptr, ptr %7, align 8
-  %311 = getelementptr inbounds %struct._zend_fiber, ptr %310, i32 0, i32 2
-  %312 = getelementptr inbounds %struct._zend_fiber_context, ptr %311, i32 0, i32 4
+  %308 = getelementptr inbounds %struct._zend_execute_data, ptr %307, i32 0, i32 3
+  store ptr @zend_fiber_function, ptr %308, align 8
+  %309 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
+  %310 = load ptr, ptr %309, align 8
+  %311 = load ptr, ptr %7, align 8
+  %312 = getelementptr inbounds %struct._zend_fiber, ptr %311, i32 0, i32 8
   %313 = load ptr, ptr %312, align 8
-  %314 = call ptr @zend_fiber_stack_base(ptr noundef %313)
-  store ptr %314, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 31), align 8
+  %314 = getelementptr inbounds %struct._zend_execute_data, ptr %313, i32 0, i32 5
+  store ptr %310, ptr %314, align 8
   %315 = load ptr, ptr %7, align 8
-  %316 = getelementptr inbounds %struct._zend_fiber, ptr %315, i32 0, i32 2
-  %317 = getelementptr inbounds %struct._zend_fiber_context, ptr %316, i32 0, i32 4
-  %318 = load ptr, ptr %317, align 8
-  %319 = call ptr @zend_fiber_stack_limit(ptr noundef %318)
-  store ptr %319, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 32), align 8
-  %320 = load ptr, ptr %7, align 8
-  %321 = getelementptr inbounds %struct._zend_fiber, ptr %320, i32 0, i32 10
-  %322 = load ptr, ptr %7, align 8
-  %323 = getelementptr inbounds %struct._zend_fiber, ptr %322, i32 0, i32 5
-  %324 = getelementptr inbounds %struct._zend_fcall_info, ptr %323, i32 0, i32 2
-  store ptr %321, ptr %324, align 8
-  %325 = load ptr, ptr %7, align 8
-  %326 = getelementptr inbounds %struct._zend_fiber, ptr %325, i32 0, i32 5
-  %327 = load ptr, ptr %7, align 8
-  %328 = getelementptr inbounds %struct._zend_fiber, ptr %327, i32 0, i32 6
-  %329 = call i32 @zend_call_function(ptr noundef %326, ptr noundef %328)
-  %330 = load ptr, ptr %7, align 8
-  %331 = getelementptr inbounds %struct._zend_fiber, ptr %330, i32 0, i32 5
-  %332 = getelementptr inbounds %struct._zend_fcall_info, ptr %331, i32 0, i32 1
-  call void @zval_ptr_dtor(ptr noundef %332)
-  br label %333
-
-333:                                              ; preds = %261
-  %334 = load ptr, ptr %7, align 8
-  %335 = getelementptr inbounds %struct._zend_fiber, ptr %334, i32 0, i32 5
-  %336 = getelementptr inbounds %struct._zend_fcall_info, ptr %335, i32 0, i32 1
-  %337 = getelementptr inbounds %struct._zval_struct, ptr %336, i32 0, i32 1
-  store i32 0, ptr %337, align 8
-  br label %338
-
-338:                                              ; preds = %333
-  %339 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %340 = icmp ne ptr %339, null
-  br i1 %340, label %341, label %379
-
-341:                                              ; preds = %338
+  %316 = getelementptr inbounds %struct._zend_fiber, ptr %315, i32 0, i32 7
+  %317 = load ptr, ptr %316, align 8
+  %318 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
+  store ptr %317, ptr %318, align 8
+  %319 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 19
+  store i32 0, ptr %319, align 8
+  %320 = load i64, ptr %8, align 8
+  %321 = trunc i64 %320 to i32
+  %322 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 8
+  store i32 %321, ptr %322, align 8
+  %323 = load ptr, ptr %7, align 8
+  %324 = getelementptr inbounds %struct._zend_fiber, ptr %323, i32 0, i32 2
+  %325 = getelementptr inbounds %struct._zend_fiber_context, ptr %324, i32 0, i32 4
+  %326 = load ptr, ptr %325, align 8
+  %327 = call ptr @zend_fiber_stack_base(ptr noundef %326)
+  %328 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 31
+  store ptr %327, ptr %328, align 8
+  %329 = load ptr, ptr %7, align 8
+  %330 = getelementptr inbounds %struct._zend_fiber, ptr %329, i32 0, i32 2
+  %331 = getelementptr inbounds %struct._zend_fiber_context, ptr %330, i32 0, i32 4
+  %332 = load ptr, ptr %331, align 8
+  %333 = call ptr @zend_fiber_stack_limit(ptr noundef %332)
+  %334 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 32
+  store ptr %333, ptr %334, align 8
+  %335 = load ptr, ptr %7, align 8
+  %336 = getelementptr inbounds %struct._zend_fiber, ptr %335, i32 0, i32 10
+  %337 = load ptr, ptr %7, align 8
+  %338 = getelementptr inbounds %struct._zend_fiber, ptr %337, i32 0, i32 5
+  %339 = getelementptr inbounds %struct._zend_fcall_info, ptr %338, i32 0, i32 2
+  store ptr %336, ptr %339, align 8
+  %340 = load ptr, ptr %7, align 8
+  %341 = getelementptr inbounds %struct._zend_fiber, ptr %340, i32 0, i32 5
   %342 = load ptr, ptr %7, align 8
-  %343 = getelementptr inbounds %struct._zend_fiber, ptr %342, i32 0, i32 1
-  %344 = load i8, ptr %343, align 8
-  %345 = zext i8 %344 to i32
-  %346 = and i32 %345, 4
-  %347 = icmp ne i32 %346, 0
-  br i1 %347, label %348, label %354
+  %343 = getelementptr inbounds %struct._zend_fiber, ptr %342, i32 0, i32 6
+  %344 = call i32 @zend_call_function(ptr noundef %341, ptr noundef %343)
+  %345 = load ptr, ptr %7, align 8
+  %346 = getelementptr inbounds %struct._zend_fiber, ptr %345, i32 0, i32 5
+  %347 = getelementptr inbounds %struct._zend_fcall_info, ptr %346, i32 0, i32 1
+  call void @zval_ptr_dtor(ptr noundef %347)
+  br label %348
 
-348:                                              ; preds = %341
-  %349 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %350 = call zeroext i1 @zend_is_graceful_exit(ptr noundef %349)
-  br i1 %350, label %378, label %351
+348:                                              ; preds = %266
+  %349 = load ptr, ptr %7, align 8
+  %350 = getelementptr inbounds %struct._zend_fiber, ptr %349, i32 0, i32 5
+  %351 = getelementptr inbounds %struct._zend_fcall_info, ptr %350, i32 0, i32 1
+  %352 = getelementptr inbounds %struct._zval_struct, ptr %351, i32 0, i32 1
+  store i32 0, ptr %352, align 8
+  br label %353
 
-351:                                              ; preds = %348
-  %352 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %353 = call zeroext i1 @zend_is_unwind_exit(ptr noundef %352)
-  br i1 %353, label %378, label %354
+353:                                              ; preds = %348
+  %354 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %355 = load ptr, ptr %354, align 8
+  %356 = icmp ne ptr %355, null
+  br i1 %356, label %357, label %398
 
-354:                                              ; preds = %351, %341
-  %355 = load ptr, ptr %7, align 8
-  %356 = getelementptr inbounds %struct._zend_fiber, ptr %355, i32 0, i32 1
-  %357 = load i8, ptr %356, align 8
-  %358 = zext i8 %357 to i32
-  %359 = or i32 %358, 1
-  %360 = trunc i32 %359 to i8
-  store i8 %360, ptr %356, align 8
-  %361 = load ptr, ptr %6, align 8
-  %362 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %361, i32 0, i32 2
-  store i8 1, ptr %362, align 8
-  br label %363
+357:                                              ; preds = %353
+  %358 = load ptr, ptr %7, align 8
+  %359 = getelementptr inbounds %struct._zend_fiber, ptr %358, i32 0, i32 1
+  %360 = load i8, ptr %359, align 8
+  %361 = zext i8 %360 to i32
+  %362 = and i32 %361, 4
+  %363 = icmp ne i32 %362, 0
+  br i1 %363, label %364, label %372
 
-363:                                              ; preds = %354
-  %364 = load ptr, ptr %6, align 8
-  %365 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %364, i32 0, i32 1
-  store ptr %365, ptr %12, align 8
-  %366 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  store ptr %366, ptr %13, align 8
-  %367 = load ptr, ptr %13, align 8
-  %368 = getelementptr inbounds %struct._zend_object, ptr %367, i32 0, i32 0
-  store ptr %368, ptr %5, align 8
-  %369 = load ptr, ptr %5, align 8
-  %370 = load i32, ptr %369, align 4
-  %371 = add i32 %370, 1
-  store i32 %371, ptr %369, align 4
-  %372 = load ptr, ptr %13, align 8
-  %373 = load ptr, ptr %12, align 8
-  %374 = getelementptr inbounds %struct._zval_struct, ptr %373, i32 0, i32 0
-  store ptr %372, ptr %374, align 8
-  %375 = load ptr, ptr %12, align 8
-  %376 = getelementptr inbounds %struct._zval_struct, ptr %375, i32 0, i32 1
-  store i32 776, ptr %376, align 8
-  br label %377
+364:                                              ; preds = %357
+  %365 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %366 = load ptr, ptr %365, align 8
+  %367 = call zeroext i1 @zend_is_graceful_exit(ptr noundef %366)
+  br i1 %367, label %397, label %368
 
-377:                                              ; preds = %363
-  br label %378
+368:                                              ; preds = %364
+  %369 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %370 = load ptr, ptr %369, align 8
+  %371 = call zeroext i1 @zend_is_unwind_exit(ptr noundef %370)
+  br i1 %371, label %397, label %372
 
-378:                                              ; preds = %377, %351, %348
+372:                                              ; preds = %368, %357
+  %373 = load ptr, ptr %7, align 8
+  %374 = getelementptr inbounds %struct._zend_fiber, ptr %373, i32 0, i32 1
+  %375 = load i8, ptr %374, align 8
+  %376 = zext i8 %375 to i32
+  %377 = or i32 %376, 1
+  %378 = trunc i32 %377 to i8
+  store i8 %378, ptr %374, align 8
+  %379 = load ptr, ptr %6, align 8
+  %380 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %379, i32 0, i32 2
+  store i8 1, ptr %380, align 8
+  br label %381
+
+381:                                              ; preds = %372
+  %382 = load ptr, ptr %6, align 8
+  %383 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %382, i32 0, i32 1
+  store ptr %383, ptr %12, align 8
+  %384 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %385 = load ptr, ptr %384, align 8
+  store ptr %385, ptr %13, align 8
+  %386 = load ptr, ptr %13, align 8
+  %387 = getelementptr inbounds %struct._zend_object, ptr %386, i32 0, i32 0
+  store ptr %387, ptr %5, align 8
+  %388 = load ptr, ptr %5, align 8
+  %389 = load i32, ptr %388, align 4
+  %390 = add i32 %389, 1
+  store i32 %390, ptr %388, align 4
+  %391 = load ptr, ptr %13, align 8
+  %392 = load ptr, ptr %12, align 8
+  %393 = getelementptr inbounds %struct._zval_struct, ptr %392, i32 0, i32 0
+  store ptr %391, ptr %393, align 8
+  %394 = load ptr, ptr %12, align 8
+  %395 = getelementptr inbounds %struct._zval_struct, ptr %394, i32 0, i32 1
+  store i32 776, ptr %395, align 8
+  br label %396
+
+396:                                              ; preds = %381
+  br label %397
+
+397:                                              ; preds = %396, %368, %364
   call void @zend_clear_exception()
-  br label %379
+  br label %398
 
-379:                                              ; preds = %378, %338
-  br label %390
+398:                                              ; preds = %397, %353
+  br label %410
 
-380:                                              ; preds = %29
-  %381 = load ptr, ptr %9, align 8
-  store ptr %381, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7), align 8
-  %382 = load ptr, ptr %7, align 8
-  %383 = getelementptr inbounds %struct._zend_fiber, ptr %382, i32 0, i32 1
-  %384 = load i8, ptr %383, align 8
-  %385 = zext i8 %384 to i32
-  %386 = or i32 %385, 2
-  %387 = trunc i32 %386 to i8
-  store i8 %387, ptr %383, align 8
-  %388 = load ptr, ptr %6, align 8
-  %389 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %388, i32 0, i32 2
-  store i8 2, ptr %389, align 8
-  br label %390
+399:                                              ; preds = %30
+  %400 = load ptr, ptr %9, align 8
+  %401 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7
+  store ptr %400, ptr %401, align 8
+  %402 = load ptr, ptr %7, align 8
+  %403 = getelementptr inbounds %struct._zend_fiber, ptr %402, i32 0, i32 1
+  %404 = load i8, ptr %403, align 8
+  %405 = zext i8 %404 to i32
+  %406 = or i32 %405, 2
+  %407 = trunc i32 %406 to i8
+  store i8 %407, ptr %403, align 8
+  %408 = load ptr, ptr %6, align 8
+  %409 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %408, i32 0, i32 2
+  store i8 2, ptr %409, align 8
+  br label %410
 
-390:                                              ; preds = %380, %379
-  %391 = load ptr, ptr %9, align 8
-  store ptr %391, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7), align 8
-  %392 = load ptr, ptr %7, align 8
-  %393 = getelementptr inbounds %struct._zend_fiber, ptr %392, i32 0, i32 2
-  %394 = getelementptr inbounds %struct._zend_fiber_context, ptr %393, i32 0, i32 3
-  store ptr @zend_fiber_cleanup, ptr %394, align 8
-  %395 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15), align 8
-  %396 = load ptr, ptr %7, align 8
-  %397 = getelementptr inbounds %struct._zend_fiber, ptr %396, i32 0, i32 9
-  store ptr %395, ptr %397, align 8
-  %398 = load ptr, ptr %7, align 8
-  %399 = getelementptr inbounds %struct._zend_fiber, ptr %398, i32 0, i32 3
-  %400 = load ptr, ptr %399, align 8
-  %401 = load ptr, ptr %6, align 8
-  %402 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %401, i32 0, i32 0
-  store ptr %400, ptr %402, align 8
+410:                                              ; preds = %399, %398
+  %411 = load ptr, ptr %9, align 8
+  %412 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7
+  store ptr %411, ptr %412, align 8
+  %413 = load ptr, ptr %7, align 8
+  %414 = getelementptr inbounds %struct._zend_fiber, ptr %413, i32 0, i32 2
+  %415 = getelementptr inbounds %struct._zend_fiber_context, ptr %414, i32 0, i32 3
+  store ptr @zend_fiber_cleanup, ptr %415, align 8
+  %416 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15
+  %417 = load ptr, ptr %416, align 8
+  %418 = load ptr, ptr %7, align 8
+  %419 = getelementptr inbounds %struct._zend_fiber, ptr %418, i32 0, i32 9
+  store ptr %417, ptr %419, align 8
+  %420 = load ptr, ptr %7, align 8
+  %421 = getelementptr inbounds %struct._zend_fiber, ptr %420, i32 0, i32 3
+  %422 = load ptr, ptr %421, align 8
+  %423 = load ptr, ptr %6, align 8
+  %424 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %423, i32 0, i32 0
+  store ptr %422, ptr %424, align 8
   ret void
 }
 
@@ -2448,264 +2510,272 @@ define hidden void @zim_Fiber_suspend(ptr noundef %0, ptr noundef %1) #0 {
   %146 = load i32, ptr %35, align 4
   %147 = load ptr, ptr %34, align 8
   call void @zend_wrong_parameter_error(i32 noundef %143, i32 noundef %144, ptr noundef %145, i32 noundef %146, ptr noundef %147)
-  br label %304
+  br label %312
 
 148:                                              ; preds = %134
   br label %149
 
 149:                                              ; preds = %148
-  %150 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8
-  store ptr %150, ptr %40, align 8
-  %151 = load ptr, ptr %40, align 8
-  %152 = icmp ne ptr %151, null
-  %153 = xor i1 %152, true
+  %150 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  %151 = load ptr, ptr %150, align 8
+  store ptr %151, ptr %40, align 8
+  %152 = load ptr, ptr %40, align 8
+  %153 = icmp ne ptr %152, null
   %154 = xor i1 %153, true
   %155 = xor i1 %154, true
-  %156 = zext i1 %155 to i32
-  %157 = sext i32 %156 to i64
-  %158 = icmp ne i64 %157, 0
-  br i1 %158, label %159, label %165
+  %156 = xor i1 %155, true
+  %157 = zext i1 %156 to i32
+  %158 = sext i32 %157 to i64
+  %159 = icmp ne i64 %158, 0
+  br i1 %159, label %160, label %167
 
-159:                                              ; preds = %149
-  %160 = load ptr, ptr @zend_ce_fiber_error, align 8
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %160, ptr noundef @.str.8)
-  br label %161
+160:                                              ; preds = %149
+  %161 = load ptr, ptr @zend_ce_fiber_error, align 8
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %161, ptr noundef @.str.8)
+  br label %162
 
-161:                                              ; preds = %159
-  %162 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %163 = icmp ne ptr %162, null
-  call void @llvm.assume(i1 %163)
-  br label %304
+162:                                              ; preds = %160
+  %163 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %164 = load ptr, ptr %163, align 8
+  %165 = icmp ne ptr %164, null
+  call void @llvm.assume(i1 %165)
+  br label %312
 
-164:                                              ; No predecessors!
-  br label %165
+166:                                              ; No predecessors!
+  br label %167
 
-165:                                              ; preds = %164, %149
-  %166 = load ptr, ptr %40, align 8
-  %167 = getelementptr inbounds %struct._zend_fiber, ptr %166, i32 0, i32 1
-  %168 = load i8, ptr %167, align 8
-  %169 = zext i8 %168 to i32
-  %170 = and i32 %169, 4
-  %171 = icmp ne i32 %170, 0
-  %172 = xor i1 %171, true
-  %173 = xor i1 %172, true
-  %174 = zext i1 %173 to i32
-  %175 = sext i32 %174 to i64
-  %176 = icmp ne i64 %175, 0
-  br i1 %176, label %177, label %183
+167:                                              ; preds = %166, %149
+  %168 = load ptr, ptr %40, align 8
+  %169 = getelementptr inbounds %struct._zend_fiber, ptr %168, i32 0, i32 1
+  %170 = load i8, ptr %169, align 8
+  %171 = zext i8 %170 to i32
+  %172 = and i32 %171, 4
+  %173 = icmp ne i32 %172, 0
+  %174 = xor i1 %173, true
+  %175 = xor i1 %174, true
+  %176 = zext i1 %175 to i32
+  %177 = sext i32 %176 to i64
+  %178 = icmp ne i64 %177, 0
+  br i1 %178, label %179, label %186
 
-177:                                              ; preds = %165
-  %178 = load ptr, ptr @zend_ce_fiber_error, align 8
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %178, ptr noundef @.str.9)
-  br label %179
+179:                                              ; preds = %167
+  %180 = load ptr, ptr @zend_ce_fiber_error, align 8
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %180, ptr noundef @.str.9)
+  br label %181
 
-179:                                              ; preds = %177
-  %180 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %181 = icmp ne ptr %180, null
-  call void @llvm.assume(i1 %181)
-  br label %304
+181:                                              ; preds = %179
+  %182 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %183 = load ptr, ptr %182, align 8
+  %184 = icmp ne ptr %183, null
+  call void @llvm.assume(i1 %184)
+  br label %312
 
-182:                                              ; No predecessors!
-  br label %183
+185:                                              ; No predecessors!
+  br label %186
 
-183:                                              ; preds = %182, %165
-  %184 = call zeroext i1 @zend_fiber_switch_blocked()
-  %185 = xor i1 %184, true
-  %186 = xor i1 %185, true
-  %187 = zext i1 %186 to i32
-  %188 = sext i32 %187 to i64
-  %189 = icmp ne i64 %188, 0
-  br i1 %189, label %190, label %196
+186:                                              ; preds = %185, %167
+  %187 = call zeroext i1 @zend_fiber_switch_blocked()
+  %188 = xor i1 %187, true
+  %189 = xor i1 %188, true
+  %190 = zext i1 %189 to i32
+  %191 = sext i32 %190 to i64
+  %192 = icmp ne i64 %191, 0
+  br i1 %192, label %193, label %200
 
-190:                                              ; preds = %183
-  %191 = load ptr, ptr @zend_ce_fiber_error, align 8
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %191, ptr noundef @.str.6)
-  br label %192
+193:                                              ; preds = %186
+  %194 = load ptr, ptr @zend_ce_fiber_error, align 8
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %194, ptr noundef @.str.6)
+  br label %195
 
-192:                                              ; preds = %190
-  %193 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %194 = icmp ne ptr %193, null
-  call void @llvm.assume(i1 %194)
-  br label %304
+195:                                              ; preds = %193
+  %196 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %197 = load ptr, ptr %196, align 8
+  %198 = icmp ne ptr %197, null
+  call void @llvm.assume(i1 %198)
+  br label %312
 
-195:                                              ; No predecessors!
-  br label %196
+199:                                              ; No predecessors!
+  br label %200
 
-196:                                              ; preds = %195, %183
-  %197 = load ptr, ptr %40, align 8
-  %198 = getelementptr inbounds %struct._zend_fiber, ptr %197, i32 0, i32 2
-  %199 = getelementptr inbounds %struct._zend_fiber_context, ptr %198, i32 0, i32 5
-  %200 = load i32, ptr %199, align 8
-  %201 = icmp eq i32 %200, 1
-  br i1 %201, label %208, label %202
+200:                                              ; preds = %199, %186
+  %201 = load ptr, ptr %40, align 8
+  %202 = getelementptr inbounds %struct._zend_fiber, ptr %201, i32 0, i32 2
+  %203 = getelementptr inbounds %struct._zend_fiber_context, ptr %202, i32 0, i32 5
+  %204 = load i32, ptr %203, align 8
+  %205 = icmp eq i32 %204, 1
+  br i1 %205, label %212, label %206
 
-202:                                              ; preds = %196
-  %203 = load ptr, ptr %40, align 8
-  %204 = getelementptr inbounds %struct._zend_fiber, ptr %203, i32 0, i32 2
-  %205 = getelementptr inbounds %struct._zend_fiber_context, ptr %204, i32 0, i32 5
-  %206 = load i32, ptr %205, align 8
-  %207 = icmp eq i32 %206, 2
-  br label %208
+206:                                              ; preds = %200
+  %207 = load ptr, ptr %40, align 8
+  %208 = getelementptr inbounds %struct._zend_fiber, ptr %207, i32 0, i32 2
+  %209 = getelementptr inbounds %struct._zend_fiber_context, ptr %208, i32 0, i32 5
+  %210 = load i32, ptr %209, align 8
+  %211 = icmp eq i32 %210, 2
+  br label %212
 
-208:                                              ; preds = %202, %196
-  %209 = phi i1 [ true, %196 ], [ %207, %202 ]
-  call void @llvm.assume(i1 %209)
-  %210 = load ptr, ptr %40, align 8
-  %211 = getelementptr inbounds %struct._zend_fiber, ptr %210, i32 0, i32 8
-  %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds %struct._zend_execute_data, ptr %212, i32 0, i32 5
-  store ptr null, ptr %213, align 8
+212:                                              ; preds = %206, %200
+  %213 = phi i1 [ true, %200 ], [ %211, %206 ]
+  call void @llvm.assume(i1 %213)
   %214 = load ptr, ptr %40, align 8
-  %215 = load ptr, ptr %27, align 8
+  %215 = getelementptr inbounds %struct._zend_fiber, ptr %214, i32 0, i32 8
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds %struct._zend_execute_data, ptr %216, i32 0, i32 5
+  store ptr null, ptr %217, align 8
+  %218 = load ptr, ptr %40, align 8
+  %219 = load ptr, ptr %27, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  store ptr %214, ptr %11, align 8, !noalias !11
-  store ptr %215, ptr %12, align 8, !noalias !11
-  %216 = load ptr, ptr %11, align 8, !noalias !11
-  %217 = getelementptr inbounds %struct._zend_fiber, ptr %216, i32 0, i32 3
-  %218 = load ptr, ptr %217, align 8, !noalias !11
-  %219 = icmp ne ptr %218, null
-  call void @llvm.assume(i1 %219)
+  store ptr %218, ptr %11, align 8, !noalias !11
+  store ptr %219, ptr %12, align 8, !noalias !11
   %220 = load ptr, ptr %11, align 8, !noalias !11
   %221 = getelementptr inbounds %struct._zend_fiber, ptr %220, i32 0, i32 3
   %222 = load ptr, ptr %221, align 8, !noalias !11
-  store ptr %222, ptr %13, align 8, !noalias !11
-  %223 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69), align 8, !noalias !11
+  %223 = icmp ne ptr %222, null
+  call void @llvm.assume(i1 %223)
   %224 = load ptr, ptr %11, align 8, !noalias !11
-  %225 = getelementptr inbounds %struct._zend_fiber, ptr %224, i32 0, i32 4
-  store ptr %223, ptr %225, align 8, !noalias !11
-  %226 = load ptr, ptr %11, align 8, !noalias !11
-  %227 = getelementptr inbounds %struct._zend_fiber, ptr %226, i32 0, i32 3
-  store ptr null, ptr %227, align 8, !noalias !11
-  %228 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8, !noalias !11
+  %225 = getelementptr inbounds %struct._zend_fiber, ptr %224, i32 0, i32 3
+  %226 = load ptr, ptr %225, align 8, !noalias !11
+  store ptr %226, ptr %13, align 8, !noalias !11
+  %227 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69
+  %228 = load ptr, ptr %227, align 8, !noalias !11
   %229 = load ptr, ptr %11, align 8, !noalias !11
-  %230 = getelementptr inbounds %struct._zend_fiber, ptr %229, i32 0, i32 7
+  %230 = getelementptr inbounds %struct._zend_fiber, ptr %229, i32 0, i32 4
   store ptr %228, ptr %230, align 8, !noalias !11
-  %231 = load ptr, ptr %13, align 8, !noalias !11
-  %232 = load ptr, ptr %12, align 8, !noalias !11
+  %231 = load ptr, ptr %11, align 8, !noalias !11
+  %232 = getelementptr inbounds %struct._zend_fiber, ptr %231, i32 0, i32 3
+  store ptr null, ptr %232, align 8, !noalias !11
+  %233 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
+  %234 = load ptr, ptr %233, align 8, !noalias !11
+  %235 = load ptr, ptr %11, align 8, !noalias !11
+  %236 = getelementptr inbounds %struct._zend_fiber, ptr %235, i32 0, i32 7
+  store ptr %234, ptr %236, align 8, !noalias !11
+  %237 = load ptr, ptr %13, align 8, !noalias !11
+  %238 = load ptr, ptr %12, align 8, !noalias !11
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  store ptr %231, ptr %4, align 8, !noalias !14
-  store ptr %232, ptr %5, align 8, !noalias !14
+  store ptr %237, ptr %4, align 8, !noalias !14
+  store ptr %238, ptr %5, align 8, !noalias !14
   store i8 0, ptr %6, align 1, !noalias !14
-  %233 = load ptr, ptr %4, align 8, !noalias !14
-  store ptr %233, ptr %41, align 8, !alias.scope !14
-  %234 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %41, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr align 8 %234, i8 0, i64 16, i1 false), !alias.scope !14
-  %235 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %41, i32 0, i32 2
-  %236 = load i8, ptr %6, align 1, !noalias !14
-  %237 = trunc i8 %236 to i1
-  %238 = select i1 %237, i32 1, i32 0
-  %239 = trunc i32 %238 to i8
-  store i8 %239, ptr %235, align 8, !alias.scope !14
-  %240 = load ptr, ptr %5, align 8, !noalias !14
-  %241 = icmp ne ptr %240, null
-  br i1 %241, label %242, label %264
+  %239 = load ptr, ptr %4, align 8, !noalias !14
+  store ptr %239, ptr %41, align 8, !alias.scope !14
+  %240 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %41, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 8 %240, i8 0, i64 16, i1 false), !alias.scope !14
+  %241 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %41, i32 0, i32 2
+  %242 = load i8, ptr %6, align 1, !noalias !14
+  %243 = trunc i8 %242 to i1
+  %244 = select i1 %243, i32 1, i32 0
+  %245 = trunc i32 %244 to i8
+  store i8 %245, ptr %241, align 8, !alias.scope !14
+  %246 = load ptr, ptr %5, align 8, !noalias !14
+  %247 = icmp ne ptr %246, null
+  br i1 %247, label %248, label %270
 
-242:                                              ; preds = %208
-  %243 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %41, i32 0, i32 1
-  store ptr %243, ptr %7, align 8, !noalias !14
-  %244 = load ptr, ptr %5, align 8, !noalias !14
-  store ptr %244, ptr %8, align 8, !noalias !14
-  %245 = load ptr, ptr %8, align 8, !noalias !14
-  %246 = load ptr, ptr %245, align 8
-  store ptr %246, ptr %9, align 8, !noalias !14
-  %247 = load ptr, ptr %8, align 8, !noalias !14
-  %248 = getelementptr inbounds %struct._zval_struct, ptr %247, i32 0, i32 1
-  %249 = load i32, ptr %248, align 8
-  store i32 %249, ptr %10, align 4, !noalias !14
-  %250 = load ptr, ptr %9, align 8, !noalias !14
-  %251 = load ptr, ptr %7, align 8, !noalias !14
-  store ptr %250, ptr %251, align 8
-  %252 = load i32, ptr %10, align 4, !noalias !14
-  %253 = load ptr, ptr %7, align 8, !noalias !14
+248:                                              ; preds = %212
+  %249 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %41, i32 0, i32 1
+  store ptr %249, ptr %7, align 8, !noalias !14
+  %250 = load ptr, ptr %5, align 8, !noalias !14
+  store ptr %250, ptr %8, align 8, !noalias !14
+  %251 = load ptr, ptr %8, align 8, !noalias !14
+  %252 = load ptr, ptr %251, align 8
+  store ptr %252, ptr %9, align 8, !noalias !14
+  %253 = load ptr, ptr %8, align 8, !noalias !14
   %254 = getelementptr inbounds %struct._zval_struct, ptr %253, i32 0, i32 1
-  store i32 %252, ptr %254, align 8
-  %255 = load i32, ptr %10, align 4, !noalias !14
-  %256 = and i32 %255, 65280
-  %257 = icmp ne i32 %256, 0
-  br i1 %257, label %258, label %263
+  %255 = load i32, ptr %254, align 8
+  store i32 %255, ptr %10, align 4, !noalias !14
+  %256 = load ptr, ptr %9, align 8, !noalias !14
+  %257 = load ptr, ptr %7, align 8, !noalias !14
+  store ptr %256, ptr %257, align 8
+  %258 = load i32, ptr %10, align 4, !noalias !14
+  %259 = load ptr, ptr %7, align 8, !noalias !14
+  %260 = getelementptr inbounds %struct._zval_struct, ptr %259, i32 0, i32 1
+  store i32 %258, ptr %260, align 8
+  %261 = load i32, ptr %10, align 4, !noalias !14
+  %262 = and i32 %261, 65280
+  %263 = icmp ne i32 %262, 0
+  br i1 %263, label %264, label %269
 
-258:                                              ; preds = %242
-  %259 = load ptr, ptr %9, align 8, !noalias !14
-  store ptr %259, ptr %3, align 8, !noalias !14
-  %260 = load ptr, ptr %3, align 8, !noalias !14
-  %261 = load i32, ptr %260, align 4
-  %262 = add i32 %261, 1
-  store i32 %262, ptr %260, align 4
-  br label %263
+264:                                              ; preds = %248
+  %265 = load ptr, ptr %9, align 8, !noalias !14
+  store ptr %265, ptr %3, align 8, !noalias !14
+  %266 = load ptr, ptr %3, align 8, !noalias !14
+  %267 = load i32, ptr %266, align 4
+  %268 = add i32 %267, 1
+  store i32 %268, ptr %266, align 4
+  br label %269
 
-263:                                              ; preds = %258, %242
-  br label %267
+269:                                              ; preds = %264, %248
+  br label %273
 
-264:                                              ; preds = %208
-  %265 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %41, i32 0, i32 1
-  %266 = getelementptr inbounds %struct._zval_struct, ptr %265, i32 0, i32 1
-  store i32 1, ptr %266, align 8, !alias.scope !14
-  br label %267
+270:                                              ; preds = %212
+  %271 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %41, i32 0, i32 1
+  %272 = getelementptr inbounds %struct._zval_struct, ptr %271, i32 0, i32 1
+  store i32 1, ptr %272, align 8, !alias.scope !14
+  br label %273
 
-267:                                              ; preds = %264, %263
+273:                                              ; preds = %270, %269
   call void @zend_fiber_switch_context(ptr noundef %41)
-  %268 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %41, i32 0, i32 2
-  %269 = load i8, ptr %268, align 8, !alias.scope !14
-  %270 = zext i8 %269 to i32
-  %271 = and i32 %270, 2
-  %272 = icmp ne i32 %271, 0
-  br i1 %272, label %273, label %274
+  %274 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %41, i32 0, i32 2
+  %275 = load i8, ptr %274, align 8, !alias.scope !14
+  %276 = zext i8 %275 to i32
+  %277 = and i32 %276, 2
+  %278 = icmp ne i32 %277, 0
+  br i1 %278, label %279, label %281
 
-273:                                              ; preds = %267
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !14
+279:                                              ; preds = %273
+  %280 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr null, ptr %280, align 8, !noalias !14
   call void @_zend_bailout(ptr noundef @.str.25, i32 noundef 649) #18
   unreachable
 
-274:                                              ; preds = %267
-  %275 = load ptr, ptr %25, align 8
-  %276 = load ptr, ptr %26, align 8
+281:                                              ; preds = %273
+  %282 = load ptr, ptr %25, align 8
+  %283 = load ptr, ptr %26, align 8
   store ptr %41, ptr %18, align 8
-  store ptr %275, ptr %19, align 8
-  store ptr %276, ptr %20, align 8
-  %277 = load ptr, ptr %18, align 8
-  %278 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %277, i32 0, i32 2
-  %279 = load i8, ptr %278, align 8
-  %280 = zext i8 %279 to i32
-  %281 = and i32 %280, 1
-  %282 = icmp ne i32 %281, 0
-  br i1 %282, label %283, label %289
-
-283:                                              ; preds = %274
+  store ptr %282, ptr %19, align 8
+  store ptr %283, ptr %20, align 8
   %284 = load ptr, ptr %18, align 8
-  %285 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %284, i32 0, i32 1
-  %286 = load ptr, ptr %285, align 8
-  call void @zend_throw_exception_internal(ptr noundef %286) #16
-  %287 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %288 = icmp ne ptr %287, null
-  call void @llvm.assume(i1 %288)
-  br label %303
+  %285 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %284, i32 0, i32 2
+  %286 = load i8, ptr %285, align 8
+  %287 = zext i8 %286 to i32
+  %288 = and i32 %287, 1
+  %289 = icmp ne i32 %288, 0
+  br i1 %289, label %290, label %297
 
-289:                                              ; preds = %274
-  %290 = load ptr, ptr %20, align 8
-  store ptr %290, ptr %21, align 8
+290:                                              ; preds = %281
   %291 = load ptr, ptr %18, align 8
   %292 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %291, i32 0, i32 1
-  store ptr %292, ptr %22, align 8
-  %293 = load ptr, ptr %22, align 8
-  %294 = load ptr, ptr %293, align 8
-  store ptr %294, ptr %23, align 8
-  %295 = load ptr, ptr %22, align 8
-  %296 = getelementptr inbounds %struct._zval_struct, ptr %295, i32 0, i32 1
-  %297 = load i32, ptr %296, align 8
-  store i32 %297, ptr %24, align 4
-  %298 = load ptr, ptr %23, align 8
-  %299 = load ptr, ptr %21, align 8
-  store ptr %298, ptr %299, align 8
-  %300 = load i32, ptr %24, align 4
-  %301 = load ptr, ptr %21, align 8
-  %302 = getelementptr inbounds %struct._zval_struct, ptr %301, i32 0, i32 1
-  store i32 %300, ptr %302, align 8
-  br label %303
+  %293 = load ptr, ptr %292, align 8
+  call void @zend_throw_exception_internal(ptr noundef %293) #16
+  %294 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %295 = load ptr, ptr %294, align 8
+  %296 = icmp ne ptr %295, null
+  call void @llvm.assume(i1 %296)
+  br label %311
 
-303:                                              ; preds = %289, %283
-  br label %304
+297:                                              ; preds = %281
+  %298 = load ptr, ptr %20, align 8
+  store ptr %298, ptr %21, align 8
+  %299 = load ptr, ptr %18, align 8
+  %300 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %299, i32 0, i32 1
+  store ptr %300, ptr %22, align 8
+  %301 = load ptr, ptr %22, align 8
+  %302 = load ptr, ptr %301, align 8
+  store ptr %302, ptr %23, align 8
+  %303 = load ptr, ptr %22, align 8
+  %304 = getelementptr inbounds %struct._zval_struct, ptr %303, i32 0, i32 1
+  %305 = load i32, ptr %304, align 8
+  store i32 %305, ptr %24, align 4
+  %306 = load ptr, ptr %23, align 8
+  %307 = load ptr, ptr %21, align 8
+  store ptr %306, ptr %307, align 8
+  %308 = load i32, ptr %24, align 4
+  %309 = load ptr, ptr %21, align 8
+  %310 = getelementptr inbounds %struct._zval_struct, ptr %309, i32 0, i32 1
+  store i32 %308, ptr %310, align 8
+  br label %311
 
-304:                                              ; preds = %303, %192, %179, %161, %142
+311:                                              ; preds = %297, %290
+  br label %312
+
+312:                                              ; preds = %311, %195, %181, %162, %142
   ret void
 }
 
@@ -2929,7 +2999,7 @@ define hidden void @zim_Fiber_resume(ptr noundef %0, ptr noundef %1) #0 {
   %147 = load i32, ptr %37, align 4
   %148 = load ptr, ptr %36, align 8
   call void @zend_wrong_parameter_error(i32 noundef %144, i32 noundef %145, ptr noundef %146, i32 noundef %147, ptr noundef %148)
-  br label %290
+  br label %300
 
 149:                                              ; preds = %135
   br label %150
@@ -2941,7 +3011,7 @@ define hidden void @zim_Fiber_resume(ptr noundef %0, ptr noundef %1) #0 {
   %154 = zext i1 %153 to i32
   %155 = sext i32 %154 to i64
   %156 = icmp ne i64 %155, 0
-  br i1 %156, label %157, label %163
+  br i1 %156, label %157, label %164
 
 157:                                              ; preds = %150
   %158 = load ptr, ptr @zend_ce_fiber_error, align 8
@@ -2949,223 +3019,233 @@ define hidden void @zim_Fiber_resume(ptr noundef %0, ptr noundef %1) #0 {
   br label %159
 
 159:                                              ; preds = %157
-  %160 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %161 = icmp ne ptr %160, null
-  call void @llvm.assume(i1 %161)
-  br label %290
+  %160 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %161 = load ptr, ptr %160, align 8
+  %162 = icmp ne ptr %161, null
+  call void @llvm.assume(i1 %162)
+  br label %300
 
-162:                                              ; No predecessors!
-  br label %163
+163:                                              ; No predecessors!
+  br label %164
 
-163:                                              ; preds = %162, %150
-  %164 = load ptr, ptr %26, align 8
-  %165 = getelementptr inbounds %struct._zend_execute_data, ptr %164, i32 0, i32 4
-  %166 = getelementptr inbounds %struct._zval_struct, ptr %165, i32 0, i32 0
-  %167 = load ptr, ptr %166, align 8
-  store ptr %167, ptr %28, align 8
-  %168 = load ptr, ptr %28, align 8
-  %169 = getelementptr inbounds %struct._zend_fiber, ptr %168, i32 0, i32 2
-  %170 = getelementptr inbounds %struct._zend_fiber_context, ptr %169, i32 0, i32 5
-  %171 = load i32, ptr %170, align 8
-  %172 = icmp ne i32 %171, 2
-  br i1 %172, label %178, label %173
+164:                                              ; preds = %163, %150
+  %165 = load ptr, ptr %26, align 8
+  %166 = getelementptr inbounds %struct._zend_execute_data, ptr %165, i32 0, i32 4
+  %167 = getelementptr inbounds %struct._zval_struct, ptr %166, i32 0, i32 0
+  %168 = load ptr, ptr %167, align 8
+  store ptr %168, ptr %28, align 8
+  %169 = load ptr, ptr %28, align 8
+  %170 = getelementptr inbounds %struct._zend_fiber, ptr %169, i32 0, i32 2
+  %171 = getelementptr inbounds %struct._zend_fiber_context, ptr %170, i32 0, i32 5
+  %172 = load i32, ptr %171, align 8
+  %173 = icmp ne i32 %172, 2
+  br i1 %173, label %179, label %174
 
-173:                                              ; preds = %163
-  %174 = load ptr, ptr %28, align 8
-  %175 = getelementptr inbounds %struct._zend_fiber, ptr %174, i32 0, i32 3
-  %176 = load ptr, ptr %175, align 8
-  %177 = icmp ne ptr %176, null
-  br label %178
+174:                                              ; preds = %164
+  %175 = load ptr, ptr %28, align 8
+  %176 = getelementptr inbounds %struct._zend_fiber, ptr %175, i32 0, i32 3
+  %177 = load ptr, ptr %176, align 8
+  %178 = icmp ne ptr %177, null
+  br label %179
 
-178:                                              ; preds = %173, %163
-  %179 = phi i1 [ true, %163 ], [ %177, %173 ]
-  %180 = xor i1 %179, true
+179:                                              ; preds = %174, %164
+  %180 = phi i1 [ true, %164 ], [ %178, %174 ]
   %181 = xor i1 %180, true
-  %182 = zext i1 %181 to i32
-  %183 = sext i32 %182 to i64
-  %184 = icmp ne i64 %183, 0
-  br i1 %184, label %185, label %191
+  %182 = xor i1 %181, true
+  %183 = zext i1 %182 to i32
+  %184 = sext i32 %183 to i64
+  %185 = icmp ne i64 %184, 0
+  br i1 %185, label %186, label %193
 
-185:                                              ; preds = %178
-  %186 = load ptr, ptr @zend_ce_fiber_error, align 8
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %186, ptr noundef @.str.10)
-  br label %187
+186:                                              ; preds = %179
+  %187 = load ptr, ptr @zend_ce_fiber_error, align 8
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %187, ptr noundef @.str.10)
+  br label %188
 
-187:                                              ; preds = %185
-  %188 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %189 = icmp ne ptr %188, null
-  call void @llvm.assume(i1 %189)
-  br label %290
+188:                                              ; preds = %186
+  %189 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %190 = load ptr, ptr %189, align 8
+  %191 = icmp ne ptr %190, null
+  call void @llvm.assume(i1 %191)
+  br label %300
 
-190:                                              ; No predecessors!
-  br label %191
+192:                                              ; No predecessors!
+  br label %193
 
-191:                                              ; preds = %190, %178
-  %192 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8
-  %193 = load ptr, ptr %28, align 8
-  %194 = getelementptr inbounds %struct._zend_fiber, ptr %193, i32 0, i32 8
+193:                                              ; preds = %192, %179
+  %194 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds %struct._zend_execute_data, ptr %195, i32 0, i32 5
-  store ptr %192, ptr %196, align 8
-  %197 = load ptr, ptr %28, align 8
-  %198 = load ptr, ptr %29, align 8
+  %196 = load ptr, ptr %28, align 8
+  %197 = getelementptr inbounds %struct._zend_fiber, ptr %196, i32 0, i32 8
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds %struct._zend_execute_data, ptr %198, i32 0, i32 5
+  store ptr %195, ptr %199, align 8
+  %200 = load ptr, ptr %28, align 8
+  %201 = load ptr, ptr %29, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  store ptr %197, ptr %22, align 8, !noalias !17
-  store ptr %198, ptr %23, align 8, !noalias !17
+  store ptr %200, ptr %22, align 8, !noalias !17
+  store ptr %201, ptr %23, align 8, !noalias !17
   store i8 0, ptr %24, align 1, !noalias !17
-  %199 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !17
-  store ptr %199, ptr %25, align 8, !noalias !17
-  %200 = load ptr, ptr %25, align 8, !noalias !17
-  %201 = icmp ne ptr %200, null
-  br i1 %201, label %202, label %206
-
-202:                                              ; preds = %191
-  %203 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8, !noalias !17
+  %202 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  %203 = load ptr, ptr %202, align 8, !noalias !17
+  store ptr %203, ptr %25, align 8, !noalias !17
   %204 = load ptr, ptr %25, align 8, !noalias !17
-  %205 = getelementptr inbounds %struct._zend_fiber, ptr %204, i32 0, i32 7
-  store ptr %203, ptr %205, align 8, !noalias !17
-  br label %206
+  %205 = icmp ne ptr %204, null
+  br i1 %205, label %206, label %211
 
-206:                                              ; preds = %202, %191
-  %207 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69), align 8, !noalias !17
-  %208 = load ptr, ptr %22, align 8, !noalias !17
-  %209 = getelementptr inbounds %struct._zend_fiber, ptr %208, i32 0, i32 3
-  store ptr %207, ptr %209, align 8, !noalias !17
-  %210 = load ptr, ptr %22, align 8, !noalias !17
-  store ptr %210, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !17
-  %211 = load ptr, ptr %22, align 8, !noalias !17
-  %212 = getelementptr inbounds %struct._zend_fiber, ptr %211, i32 0, i32 4
+206:                                              ; preds = %193
+  %207 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
+  %208 = load ptr, ptr %207, align 8, !noalias !17
+  %209 = load ptr, ptr %25, align 8, !noalias !17
+  %210 = getelementptr inbounds %struct._zend_fiber, ptr %209, i32 0, i32 7
+  store ptr %208, ptr %210, align 8, !noalias !17
+  br label %211
+
+211:                                              ; preds = %206, %193
+  %212 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69
   %213 = load ptr, ptr %212, align 8, !noalias !17
-  %214 = load ptr, ptr %23, align 8, !noalias !17
-  %215 = load i8, ptr %24, align 1, !noalias !17
-  %216 = trunc i8 %215 to i1
+  %214 = load ptr, ptr %22, align 8, !noalias !17
+  %215 = getelementptr inbounds %struct._zend_fiber, ptr %214, i32 0, i32 3
+  store ptr %213, ptr %215, align 8, !noalias !17
+  %216 = load ptr, ptr %22, align 8, !noalias !17
+  %217 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr %216, ptr %217, align 8, !noalias !17
+  %218 = load ptr, ptr %22, align 8, !noalias !17
+  %219 = getelementptr inbounds %struct._zend_fiber, ptr %218, i32 0, i32 4
+  %220 = load ptr, ptr %219, align 8, !noalias !17
+  %221 = load ptr, ptr %23, align 8, !noalias !17
+  %222 = load i8, ptr %24, align 1, !noalias !17
+  %223 = trunc i8 %222 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  store ptr %213, ptr %4, align 8, !noalias !20
-  store ptr %214, ptr %5, align 8, !noalias !20
-  %217 = zext i1 %216 to i8
-  store i8 %217, ptr %6, align 1, !noalias !20
-  %218 = load ptr, ptr %4, align 8, !noalias !20
-  store ptr %218, ptr %42, align 8, !alias.scope !20
-  %219 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %42, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr align 8 %219, i8 0, i64 16, i1 false), !alias.scope !20
-  %220 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %42, i32 0, i32 2
-  %221 = load i8, ptr %6, align 1, !noalias !20
-  %222 = trunc i8 %221 to i1
-  %223 = select i1 %222, i32 1, i32 0
-  %224 = trunc i32 %223 to i8
-  store i8 %224, ptr %220, align 8, !alias.scope !20
-  %225 = load ptr, ptr %5, align 8, !noalias !20
-  %226 = icmp ne ptr %225, null
-  br i1 %226, label %227, label %249
+  store ptr %220, ptr %4, align 8, !noalias !20
+  store ptr %221, ptr %5, align 8, !noalias !20
+  %224 = zext i1 %223 to i8
+  store i8 %224, ptr %6, align 1, !noalias !20
+  %225 = load ptr, ptr %4, align 8, !noalias !20
+  store ptr %225, ptr %42, align 8, !alias.scope !20
+  %226 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %42, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 8 %226, i8 0, i64 16, i1 false), !alias.scope !20
+  %227 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %42, i32 0, i32 2
+  %228 = load i8, ptr %6, align 1, !noalias !20
+  %229 = trunc i8 %228 to i1
+  %230 = select i1 %229, i32 1, i32 0
+  %231 = trunc i32 %230 to i8
+  store i8 %231, ptr %227, align 8, !alias.scope !20
+  %232 = load ptr, ptr %5, align 8, !noalias !20
+  %233 = icmp ne ptr %232, null
+  br i1 %233, label %234, label %256
 
-227:                                              ; preds = %206
-  %228 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %42, i32 0, i32 1
-  store ptr %228, ptr %7, align 8, !noalias !20
-  %229 = load ptr, ptr %5, align 8, !noalias !20
-  store ptr %229, ptr %8, align 8, !noalias !20
-  %230 = load ptr, ptr %8, align 8, !noalias !20
-  %231 = load ptr, ptr %230, align 8
-  store ptr %231, ptr %9, align 8, !noalias !20
-  %232 = load ptr, ptr %8, align 8, !noalias !20
-  %233 = getelementptr inbounds %struct._zval_struct, ptr %232, i32 0, i32 1
-  %234 = load i32, ptr %233, align 8
-  store i32 %234, ptr %10, align 4, !noalias !20
-  %235 = load ptr, ptr %9, align 8, !noalias !20
-  %236 = load ptr, ptr %7, align 8, !noalias !20
-  store ptr %235, ptr %236, align 8
-  %237 = load i32, ptr %10, align 4, !noalias !20
-  %238 = load ptr, ptr %7, align 8, !noalias !20
-  %239 = getelementptr inbounds %struct._zval_struct, ptr %238, i32 0, i32 1
-  store i32 %237, ptr %239, align 8
-  %240 = load i32, ptr %10, align 4, !noalias !20
-  %241 = and i32 %240, 65280
-  %242 = icmp ne i32 %241, 0
-  br i1 %242, label %243, label %248
+234:                                              ; preds = %211
+  %235 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %42, i32 0, i32 1
+  store ptr %235, ptr %7, align 8, !noalias !20
+  %236 = load ptr, ptr %5, align 8, !noalias !20
+  store ptr %236, ptr %8, align 8, !noalias !20
+  %237 = load ptr, ptr %8, align 8, !noalias !20
+  %238 = load ptr, ptr %237, align 8
+  store ptr %238, ptr %9, align 8, !noalias !20
+  %239 = load ptr, ptr %8, align 8, !noalias !20
+  %240 = getelementptr inbounds %struct._zval_struct, ptr %239, i32 0, i32 1
+  %241 = load i32, ptr %240, align 8
+  store i32 %241, ptr %10, align 4, !noalias !20
+  %242 = load ptr, ptr %9, align 8, !noalias !20
+  %243 = load ptr, ptr %7, align 8, !noalias !20
+  store ptr %242, ptr %243, align 8
+  %244 = load i32, ptr %10, align 4, !noalias !20
+  %245 = load ptr, ptr %7, align 8, !noalias !20
+  %246 = getelementptr inbounds %struct._zval_struct, ptr %245, i32 0, i32 1
+  store i32 %244, ptr %246, align 8
+  %247 = load i32, ptr %10, align 4, !noalias !20
+  %248 = and i32 %247, 65280
+  %249 = icmp ne i32 %248, 0
+  br i1 %249, label %250, label %255
 
-243:                                              ; preds = %227
-  %244 = load ptr, ptr %9, align 8, !noalias !20
-  store ptr %244, ptr %3, align 8, !noalias !20
-  %245 = load ptr, ptr %3, align 8, !noalias !20
-  %246 = load i32, ptr %245, align 4
-  %247 = add i32 %246, 1
-  store i32 %247, ptr %245, align 4
-  br label %248
+250:                                              ; preds = %234
+  %251 = load ptr, ptr %9, align 8, !noalias !20
+  store ptr %251, ptr %3, align 8, !noalias !20
+  %252 = load ptr, ptr %3, align 8, !noalias !20
+  %253 = load i32, ptr %252, align 4
+  %254 = add i32 %253, 1
+  store i32 %254, ptr %252, align 4
+  br label %255
 
-248:                                              ; preds = %243, %227
-  br label %252
+255:                                              ; preds = %250, %234
+  br label %259
 
-249:                                              ; preds = %206
-  %250 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %42, i32 0, i32 1
-  %251 = getelementptr inbounds %struct._zval_struct, ptr %250, i32 0, i32 1
-  store i32 1, ptr %251, align 8, !alias.scope !20
-  br label %252
+256:                                              ; preds = %211
+  %257 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %42, i32 0, i32 1
+  %258 = getelementptr inbounds %struct._zval_struct, ptr %257, i32 0, i32 1
+  store i32 1, ptr %258, align 8, !alias.scope !20
+  br label %259
 
-252:                                              ; preds = %249, %248
+259:                                              ; preds = %256, %255
   call void @zend_fiber_switch_context(ptr noundef %42)
-  %253 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %42, i32 0, i32 2
-  %254 = load i8, ptr %253, align 8, !alias.scope !20
-  %255 = zext i8 %254 to i32
-  %256 = and i32 %255, 2
-  %257 = icmp ne i32 %256, 0
-  br i1 %257, label %258, label %259
+  %260 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %42, i32 0, i32 2
+  %261 = load i8, ptr %260, align 8, !alias.scope !20
+  %262 = zext i8 %261 to i32
+  %263 = and i32 %262, 2
+  %264 = icmp ne i32 %263, 0
+  br i1 %264, label %265, label %267
 
-258:                                              ; preds = %252
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !20
+265:                                              ; preds = %259
+  %266 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr null, ptr %266, align 8, !noalias !20
   call void @_zend_bailout(ptr noundef @.str.25, i32 noundef 649) #18
   unreachable
 
-259:                                              ; preds = %252
-  %260 = load ptr, ptr %25, align 8, !noalias !17
-  store ptr %260, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !17
-  %261 = load ptr, ptr %26, align 8
-  %262 = load ptr, ptr %27, align 8
+267:                                              ; preds = %259
+  %268 = load ptr, ptr %25, align 8, !noalias !17
+  %269 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr %268, ptr %269, align 8, !noalias !17
+  %270 = load ptr, ptr %26, align 8
+  %271 = load ptr, ptr %27, align 8
   store ptr %42, ptr %15, align 8
-  store ptr %261, ptr %16, align 8
-  store ptr %262, ptr %17, align 8
-  %263 = load ptr, ptr %15, align 8
-  %264 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %263, i32 0, i32 2
-  %265 = load i8, ptr %264, align 8
-  %266 = zext i8 %265 to i32
-  %267 = and i32 %266, 1
-  %268 = icmp ne i32 %267, 0
-  br i1 %268, label %269, label %275
+  store ptr %270, ptr %16, align 8
+  store ptr %271, ptr %17, align 8
+  %272 = load ptr, ptr %15, align 8
+  %273 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %272, i32 0, i32 2
+  %274 = load i8, ptr %273, align 8
+  %275 = zext i8 %274 to i32
+  %276 = and i32 %275, 1
+  %277 = icmp ne i32 %276, 0
+  br i1 %277, label %278, label %285
 
-269:                                              ; preds = %259
-  %270 = load ptr, ptr %15, align 8
-  %271 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %270, i32 0, i32 1
-  %272 = load ptr, ptr %271, align 8
-  call void @zend_throw_exception_internal(ptr noundef %272) #16
-  %273 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %274 = icmp ne ptr %273, null
-  call void @llvm.assume(i1 %274)
-  br label %289
+278:                                              ; preds = %267
+  %279 = load ptr, ptr %15, align 8
+  %280 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %279, i32 0, i32 1
+  %281 = load ptr, ptr %280, align 8
+  call void @zend_throw_exception_internal(ptr noundef %281) #16
+  %282 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %283 = load ptr, ptr %282, align 8
+  %284 = icmp ne ptr %283, null
+  call void @llvm.assume(i1 %284)
+  br label %299
 
-275:                                              ; preds = %259
-  %276 = load ptr, ptr %17, align 8
-  store ptr %276, ptr %18, align 8
-  %277 = load ptr, ptr %15, align 8
-  %278 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %277, i32 0, i32 1
-  store ptr %278, ptr %19, align 8
-  %279 = load ptr, ptr %19, align 8
-  %280 = load ptr, ptr %279, align 8
-  store ptr %280, ptr %20, align 8
-  %281 = load ptr, ptr %19, align 8
-  %282 = getelementptr inbounds %struct._zval_struct, ptr %281, i32 0, i32 1
-  %283 = load i32, ptr %282, align 8
-  store i32 %283, ptr %21, align 4
-  %284 = load ptr, ptr %20, align 8
-  %285 = load ptr, ptr %18, align 8
-  store ptr %284, ptr %285, align 8
-  %286 = load i32, ptr %21, align 4
-  %287 = load ptr, ptr %18, align 8
-  %288 = getelementptr inbounds %struct._zval_struct, ptr %287, i32 0, i32 1
-  store i32 %286, ptr %288, align 8
-  br label %289
+285:                                              ; preds = %267
+  %286 = load ptr, ptr %17, align 8
+  store ptr %286, ptr %18, align 8
+  %287 = load ptr, ptr %15, align 8
+  %288 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %287, i32 0, i32 1
+  store ptr %288, ptr %19, align 8
+  %289 = load ptr, ptr %19, align 8
+  %290 = load ptr, ptr %289, align 8
+  store ptr %290, ptr %20, align 8
+  %291 = load ptr, ptr %19, align 8
+  %292 = getelementptr inbounds %struct._zval_struct, ptr %291, i32 0, i32 1
+  %293 = load i32, ptr %292, align 8
+  store i32 %293, ptr %21, align 4
+  %294 = load ptr, ptr %20, align 8
+  %295 = load ptr, ptr %18, align 8
+  store ptr %294, ptr %295, align 8
+  %296 = load i32, ptr %21, align 4
+  %297 = load ptr, ptr %18, align 8
+  %298 = getelementptr inbounds %struct._zval_struct, ptr %297, i32 0, i32 1
+  store i32 %296, ptr %298, align 8
+  br label %299
 
-289:                                              ; preds = %275, %269
-  br label %290
+299:                                              ; preds = %285, %278
+  br label %300
 
-290:                                              ; preds = %289, %187, %159, %143
+300:                                              ; preds = %299, %188, %159, %143
   ret void
 }
 
@@ -3471,7 +3551,7 @@ define hidden void @zim_Fiber_throw(ptr noundef %0, ptr noundef %1) #0 {
   %198 = load i32, ptr %42, align 4
   %199 = load ptr, ptr %41, align 8
   call void @zend_wrong_parameter_error(i32 noundef %195, i32 noundef %196, ptr noundef %197, i32 noundef %198, ptr noundef %199)
-  br label %341
+  br label %351
 
 200:                                              ; preds = %186
   br label %201
@@ -3483,7 +3563,7 @@ define hidden void @zim_Fiber_throw(ptr noundef %0, ptr noundef %1) #0 {
   %205 = zext i1 %204 to i32
   %206 = sext i32 %205 to i64
   %207 = icmp ne i64 %206, 0
-  br i1 %207, label %208, label %214
+  br i1 %207, label %208, label %215
 
 208:                                              ; preds = %201
   %209 = load ptr, ptr @zend_ce_fiber_error, align 8
@@ -3491,223 +3571,233 @@ define hidden void @zim_Fiber_throw(ptr noundef %0, ptr noundef %1) #0 {
   br label %210
 
 210:                                              ; preds = %208
-  %211 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %212 = icmp ne ptr %211, null
-  call void @llvm.assume(i1 %212)
-  br label %341
+  %211 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %212 = load ptr, ptr %211, align 8
+  %213 = icmp ne ptr %212, null
+  call void @llvm.assume(i1 %213)
+  br label %351
 
-213:                                              ; No predecessors!
-  br label %214
+214:                                              ; No predecessors!
+  br label %215
 
-214:                                              ; preds = %213, %201
-  %215 = load ptr, ptr %31, align 8
-  %216 = getelementptr inbounds %struct._zend_execute_data, ptr %215, i32 0, i32 4
-  %217 = getelementptr inbounds %struct._zval_struct, ptr %216, i32 0, i32 0
-  %218 = load ptr, ptr %217, align 8
-  store ptr %218, ptr %33, align 8
-  %219 = load ptr, ptr %33, align 8
-  %220 = getelementptr inbounds %struct._zend_fiber, ptr %219, i32 0, i32 2
-  %221 = getelementptr inbounds %struct._zend_fiber_context, ptr %220, i32 0, i32 5
-  %222 = load i32, ptr %221, align 8
-  %223 = icmp ne i32 %222, 2
-  br i1 %223, label %229, label %224
+215:                                              ; preds = %214, %201
+  %216 = load ptr, ptr %31, align 8
+  %217 = getelementptr inbounds %struct._zend_execute_data, ptr %216, i32 0, i32 4
+  %218 = getelementptr inbounds %struct._zval_struct, ptr %217, i32 0, i32 0
+  %219 = load ptr, ptr %218, align 8
+  store ptr %219, ptr %33, align 8
+  %220 = load ptr, ptr %33, align 8
+  %221 = getelementptr inbounds %struct._zend_fiber, ptr %220, i32 0, i32 2
+  %222 = getelementptr inbounds %struct._zend_fiber_context, ptr %221, i32 0, i32 5
+  %223 = load i32, ptr %222, align 8
+  %224 = icmp ne i32 %223, 2
+  br i1 %224, label %230, label %225
 
-224:                                              ; preds = %214
-  %225 = load ptr, ptr %33, align 8
-  %226 = getelementptr inbounds %struct._zend_fiber, ptr %225, i32 0, i32 3
-  %227 = load ptr, ptr %226, align 8
-  %228 = icmp ne ptr %227, null
-  br label %229
+225:                                              ; preds = %215
+  %226 = load ptr, ptr %33, align 8
+  %227 = getelementptr inbounds %struct._zend_fiber, ptr %226, i32 0, i32 3
+  %228 = load ptr, ptr %227, align 8
+  %229 = icmp ne ptr %228, null
+  br label %230
 
-229:                                              ; preds = %224, %214
-  %230 = phi i1 [ true, %214 ], [ %228, %224 ]
-  %231 = xor i1 %230, true
+230:                                              ; preds = %225, %215
+  %231 = phi i1 [ true, %215 ], [ %229, %225 ]
   %232 = xor i1 %231, true
-  %233 = zext i1 %232 to i32
-  %234 = sext i32 %233 to i64
-  %235 = icmp ne i64 %234, 0
-  br i1 %235, label %236, label %242
+  %233 = xor i1 %232, true
+  %234 = zext i1 %233 to i32
+  %235 = sext i32 %234 to i64
+  %236 = icmp ne i64 %235, 0
+  br i1 %236, label %237, label %244
 
-236:                                              ; preds = %229
-  %237 = load ptr, ptr @zend_ce_fiber_error, align 8
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %237, ptr noundef @.str.10)
-  br label %238
+237:                                              ; preds = %230
+  %238 = load ptr, ptr @zend_ce_fiber_error, align 8
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %238, ptr noundef @.str.10)
+  br label %239
 
-238:                                              ; preds = %236
-  %239 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %240 = icmp ne ptr %239, null
-  call void @llvm.assume(i1 %240)
-  br label %341
+239:                                              ; preds = %237
+  %240 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %241 = load ptr, ptr %240, align 8
+  %242 = icmp ne ptr %241, null
+  call void @llvm.assume(i1 %242)
+  br label %351
 
-241:                                              ; No predecessors!
-  br label %242
+243:                                              ; No predecessors!
+  br label %244
 
-242:                                              ; preds = %241, %229
-  %243 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8
-  %244 = load ptr, ptr %33, align 8
-  %245 = getelementptr inbounds %struct._zend_fiber, ptr %244, i32 0, i32 8
+244:                                              ; preds = %243, %230
+  %245 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
   %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds %struct._zend_execute_data, ptr %246, i32 0, i32 5
-  store ptr %243, ptr %247, align 8
-  %248 = load ptr, ptr %33, align 8
-  %249 = load ptr, ptr %34, align 8
+  %247 = load ptr, ptr %33, align 8
+  %248 = getelementptr inbounds %struct._zend_fiber, ptr %247, i32 0, i32 8
+  %249 = load ptr, ptr %248, align 8
+  %250 = getelementptr inbounds %struct._zend_execute_data, ptr %249, i32 0, i32 5
+  store ptr %246, ptr %250, align 8
+  %251 = load ptr, ptr %33, align 8
+  %252 = load ptr, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  store ptr %248, ptr %27, align 8, !noalias !23
-  store ptr %249, ptr %28, align 8, !noalias !23
+  store ptr %251, ptr %27, align 8, !noalias !23
+  store ptr %252, ptr %28, align 8, !noalias !23
   store i8 1, ptr %29, align 1, !noalias !23
-  %250 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !23
-  store ptr %250, ptr %30, align 8, !noalias !23
-  %251 = load ptr, ptr %30, align 8, !noalias !23
-  %252 = icmp ne ptr %251, null
-  br i1 %252, label %253, label %257
-
-253:                                              ; preds = %242
-  %254 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8, !noalias !23
+  %253 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  %254 = load ptr, ptr %253, align 8, !noalias !23
+  store ptr %254, ptr %30, align 8, !noalias !23
   %255 = load ptr, ptr %30, align 8, !noalias !23
-  %256 = getelementptr inbounds %struct._zend_fiber, ptr %255, i32 0, i32 7
-  store ptr %254, ptr %256, align 8, !noalias !23
-  br label %257
+  %256 = icmp ne ptr %255, null
+  br i1 %256, label %257, label %262
 
-257:                                              ; preds = %253, %242
-  %258 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69), align 8, !noalias !23
-  %259 = load ptr, ptr %27, align 8, !noalias !23
-  %260 = getelementptr inbounds %struct._zend_fiber, ptr %259, i32 0, i32 3
-  store ptr %258, ptr %260, align 8, !noalias !23
-  %261 = load ptr, ptr %27, align 8, !noalias !23
-  store ptr %261, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !23
-  %262 = load ptr, ptr %27, align 8, !noalias !23
-  %263 = getelementptr inbounds %struct._zend_fiber, ptr %262, i32 0, i32 4
+257:                                              ; preds = %244
+  %258 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
+  %259 = load ptr, ptr %258, align 8, !noalias !23
+  %260 = load ptr, ptr %30, align 8, !noalias !23
+  %261 = getelementptr inbounds %struct._zend_fiber, ptr %260, i32 0, i32 7
+  store ptr %259, ptr %261, align 8, !noalias !23
+  br label %262
+
+262:                                              ; preds = %257, %244
+  %263 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69
   %264 = load ptr, ptr %263, align 8, !noalias !23
-  %265 = load ptr, ptr %28, align 8, !noalias !23
-  %266 = load i8, ptr %29, align 1, !noalias !23
-  %267 = trunc i8 %266 to i1
+  %265 = load ptr, ptr %27, align 8, !noalias !23
+  %266 = getelementptr inbounds %struct._zend_fiber, ptr %265, i32 0, i32 3
+  store ptr %264, ptr %266, align 8, !noalias !23
+  %267 = load ptr, ptr %27, align 8, !noalias !23
+  %268 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr %267, ptr %268, align 8, !noalias !23
+  %269 = load ptr, ptr %27, align 8, !noalias !23
+  %270 = getelementptr inbounds %struct._zend_fiber, ptr %269, i32 0, i32 4
+  %271 = load ptr, ptr %270, align 8, !noalias !23
+  %272 = load ptr, ptr %28, align 8, !noalias !23
+  %273 = load i8, ptr %29, align 1, !noalias !23
+  %274 = trunc i8 %273 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  store ptr %264, ptr %6, align 8, !noalias !26
-  store ptr %265, ptr %7, align 8, !noalias !26
-  %268 = zext i1 %267 to i8
-  store i8 %268, ptr %8, align 1, !noalias !26
-  %269 = load ptr, ptr %6, align 8, !noalias !26
-  store ptr %269, ptr %47, align 8, !alias.scope !26
-  %270 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %47, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr align 8 %270, i8 0, i64 16, i1 false), !alias.scope !26
-  %271 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %47, i32 0, i32 2
-  %272 = load i8, ptr %8, align 1, !noalias !26
-  %273 = trunc i8 %272 to i1
-  %274 = select i1 %273, i32 1, i32 0
-  %275 = trunc i32 %274 to i8
-  store i8 %275, ptr %271, align 8, !alias.scope !26
-  %276 = load ptr, ptr %7, align 8, !noalias !26
-  %277 = icmp ne ptr %276, null
-  br i1 %277, label %278, label %300
+  store ptr %271, ptr %6, align 8, !noalias !26
+  store ptr %272, ptr %7, align 8, !noalias !26
+  %275 = zext i1 %274 to i8
+  store i8 %275, ptr %8, align 1, !noalias !26
+  %276 = load ptr, ptr %6, align 8, !noalias !26
+  store ptr %276, ptr %47, align 8, !alias.scope !26
+  %277 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %47, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 8 %277, i8 0, i64 16, i1 false), !alias.scope !26
+  %278 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %47, i32 0, i32 2
+  %279 = load i8, ptr %8, align 1, !noalias !26
+  %280 = trunc i8 %279 to i1
+  %281 = select i1 %280, i32 1, i32 0
+  %282 = trunc i32 %281 to i8
+  store i8 %282, ptr %278, align 8, !alias.scope !26
+  %283 = load ptr, ptr %7, align 8, !noalias !26
+  %284 = icmp ne ptr %283, null
+  br i1 %284, label %285, label %307
 
-278:                                              ; preds = %257
-  %279 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %47, i32 0, i32 1
-  store ptr %279, ptr %9, align 8, !noalias !26
-  %280 = load ptr, ptr %7, align 8, !noalias !26
-  store ptr %280, ptr %10, align 8, !noalias !26
-  %281 = load ptr, ptr %10, align 8, !noalias !26
-  %282 = load ptr, ptr %281, align 8
-  store ptr %282, ptr %11, align 8, !noalias !26
-  %283 = load ptr, ptr %10, align 8, !noalias !26
-  %284 = getelementptr inbounds %struct._zval_struct, ptr %283, i32 0, i32 1
-  %285 = load i32, ptr %284, align 8
-  store i32 %285, ptr %12, align 4, !noalias !26
-  %286 = load ptr, ptr %11, align 8, !noalias !26
-  %287 = load ptr, ptr %9, align 8, !noalias !26
-  store ptr %286, ptr %287, align 8
-  %288 = load i32, ptr %12, align 4, !noalias !26
-  %289 = load ptr, ptr %9, align 8, !noalias !26
-  %290 = getelementptr inbounds %struct._zval_struct, ptr %289, i32 0, i32 1
-  store i32 %288, ptr %290, align 8
-  %291 = load i32, ptr %12, align 4, !noalias !26
-  %292 = and i32 %291, 65280
-  %293 = icmp ne i32 %292, 0
-  br i1 %293, label %294, label %299
+285:                                              ; preds = %262
+  %286 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %47, i32 0, i32 1
+  store ptr %286, ptr %9, align 8, !noalias !26
+  %287 = load ptr, ptr %7, align 8, !noalias !26
+  store ptr %287, ptr %10, align 8, !noalias !26
+  %288 = load ptr, ptr %10, align 8, !noalias !26
+  %289 = load ptr, ptr %288, align 8
+  store ptr %289, ptr %11, align 8, !noalias !26
+  %290 = load ptr, ptr %10, align 8, !noalias !26
+  %291 = getelementptr inbounds %struct._zval_struct, ptr %290, i32 0, i32 1
+  %292 = load i32, ptr %291, align 8
+  store i32 %292, ptr %12, align 4, !noalias !26
+  %293 = load ptr, ptr %11, align 8, !noalias !26
+  %294 = load ptr, ptr %9, align 8, !noalias !26
+  store ptr %293, ptr %294, align 8
+  %295 = load i32, ptr %12, align 4, !noalias !26
+  %296 = load ptr, ptr %9, align 8, !noalias !26
+  %297 = getelementptr inbounds %struct._zval_struct, ptr %296, i32 0, i32 1
+  store i32 %295, ptr %297, align 8
+  %298 = load i32, ptr %12, align 4, !noalias !26
+  %299 = and i32 %298, 65280
+  %300 = icmp ne i32 %299, 0
+  br i1 %300, label %301, label %306
 
-294:                                              ; preds = %278
-  %295 = load ptr, ptr %11, align 8, !noalias !26
-  store ptr %295, ptr %5, align 8, !noalias !26
-  %296 = load ptr, ptr %5, align 8, !noalias !26
-  %297 = load i32, ptr %296, align 4
-  %298 = add i32 %297, 1
-  store i32 %298, ptr %296, align 4
-  br label %299
+301:                                              ; preds = %285
+  %302 = load ptr, ptr %11, align 8, !noalias !26
+  store ptr %302, ptr %5, align 8, !noalias !26
+  %303 = load ptr, ptr %5, align 8, !noalias !26
+  %304 = load i32, ptr %303, align 4
+  %305 = add i32 %304, 1
+  store i32 %305, ptr %303, align 4
+  br label %306
 
-299:                                              ; preds = %294, %278
-  br label %303
+306:                                              ; preds = %301, %285
+  br label %310
 
-300:                                              ; preds = %257
-  %301 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %47, i32 0, i32 1
-  %302 = getelementptr inbounds %struct._zval_struct, ptr %301, i32 0, i32 1
-  store i32 1, ptr %302, align 8, !alias.scope !26
-  br label %303
+307:                                              ; preds = %262
+  %308 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %47, i32 0, i32 1
+  %309 = getelementptr inbounds %struct._zval_struct, ptr %308, i32 0, i32 1
+  store i32 1, ptr %309, align 8, !alias.scope !26
+  br label %310
 
-303:                                              ; preds = %300, %299
+310:                                              ; preds = %307, %306
   call void @zend_fiber_switch_context(ptr noundef %47)
-  %304 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %47, i32 0, i32 2
-  %305 = load i8, ptr %304, align 8, !alias.scope !26
-  %306 = zext i8 %305 to i32
-  %307 = and i32 %306, 2
-  %308 = icmp ne i32 %307, 0
-  br i1 %308, label %309, label %310
+  %311 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %47, i32 0, i32 2
+  %312 = load i8, ptr %311, align 8, !alias.scope !26
+  %313 = zext i8 %312 to i32
+  %314 = and i32 %313, 2
+  %315 = icmp ne i32 %314, 0
+  br i1 %315, label %316, label %318
 
-309:                                              ; preds = %303
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !26
+316:                                              ; preds = %310
+  %317 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr null, ptr %317, align 8, !noalias !26
   call void @_zend_bailout(ptr noundef @.str.25, i32 noundef 649) #18
   unreachable
 
-310:                                              ; preds = %303
-  %311 = load ptr, ptr %30, align 8, !noalias !23
-  store ptr %311, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !23
-  %312 = load ptr, ptr %31, align 8
-  %313 = load ptr, ptr %32, align 8
+318:                                              ; preds = %310
+  %319 = load ptr, ptr %30, align 8, !noalias !23
+  %320 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr %319, ptr %320, align 8, !noalias !23
+  %321 = load ptr, ptr %31, align 8
+  %322 = load ptr, ptr %32, align 8
   store ptr %47, ptr %20, align 8
-  store ptr %312, ptr %21, align 8
-  store ptr %313, ptr %22, align 8
-  %314 = load ptr, ptr %20, align 8
-  %315 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %314, i32 0, i32 2
-  %316 = load i8, ptr %315, align 8
-  %317 = zext i8 %316 to i32
-  %318 = and i32 %317, 1
-  %319 = icmp ne i32 %318, 0
-  br i1 %319, label %320, label %326
+  store ptr %321, ptr %21, align 8
+  store ptr %322, ptr %22, align 8
+  %323 = load ptr, ptr %20, align 8
+  %324 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %323, i32 0, i32 2
+  %325 = load i8, ptr %324, align 8
+  %326 = zext i8 %325 to i32
+  %327 = and i32 %326, 1
+  %328 = icmp ne i32 %327, 0
+  br i1 %328, label %329, label %336
 
-320:                                              ; preds = %310
-  %321 = load ptr, ptr %20, align 8
-  %322 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %321, i32 0, i32 1
-  %323 = load ptr, ptr %322, align 8
-  call void @zend_throw_exception_internal(ptr noundef %323) #16
-  %324 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %325 = icmp ne ptr %324, null
-  call void @llvm.assume(i1 %325)
-  br label %340
+329:                                              ; preds = %318
+  %330 = load ptr, ptr %20, align 8
+  %331 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %330, i32 0, i32 1
+  %332 = load ptr, ptr %331, align 8
+  call void @zend_throw_exception_internal(ptr noundef %332) #16
+  %333 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %334 = load ptr, ptr %333, align 8
+  %335 = icmp ne ptr %334, null
+  call void @llvm.assume(i1 %335)
+  br label %350
 
-326:                                              ; preds = %310
-  %327 = load ptr, ptr %22, align 8
-  store ptr %327, ptr %23, align 8
-  %328 = load ptr, ptr %20, align 8
-  %329 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %328, i32 0, i32 1
-  store ptr %329, ptr %24, align 8
-  %330 = load ptr, ptr %24, align 8
-  %331 = load ptr, ptr %330, align 8
-  store ptr %331, ptr %25, align 8
-  %332 = load ptr, ptr %24, align 8
-  %333 = getelementptr inbounds %struct._zval_struct, ptr %332, i32 0, i32 1
-  %334 = load i32, ptr %333, align 8
-  store i32 %334, ptr %26, align 4
-  %335 = load ptr, ptr %25, align 8
-  %336 = load ptr, ptr %23, align 8
-  store ptr %335, ptr %336, align 8
-  %337 = load i32, ptr %26, align 4
-  %338 = load ptr, ptr %23, align 8
-  %339 = getelementptr inbounds %struct._zval_struct, ptr %338, i32 0, i32 1
-  store i32 %337, ptr %339, align 8
-  br label %340
+336:                                              ; preds = %318
+  %337 = load ptr, ptr %22, align 8
+  store ptr %337, ptr %23, align 8
+  %338 = load ptr, ptr %20, align 8
+  %339 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %338, i32 0, i32 1
+  store ptr %339, ptr %24, align 8
+  %340 = load ptr, ptr %24, align 8
+  %341 = load ptr, ptr %340, align 8
+  store ptr %341, ptr %25, align 8
+  %342 = load ptr, ptr %24, align 8
+  %343 = getelementptr inbounds %struct._zval_struct, ptr %342, i32 0, i32 1
+  %344 = load i32, ptr %343, align 8
+  store i32 %344, ptr %26, align 4
+  %345 = load ptr, ptr %25, align 8
+  %346 = load ptr, ptr %23, align 8
+  store ptr %345, ptr %346, align 8
+  %347 = load i32, ptr %26, align 4
+  %348 = load ptr, ptr %23, align 8
+  %349 = getelementptr inbounds %struct._zval_struct, ptr %348, i32 0, i32 1
+  store i32 %347, ptr %349, align 8
+  br label %350
 
-340:                                              ; preds = %326, %320
-  br label %341
+350:                                              ; preds = %336, %329
+  br label %351
 
-341:                                              ; preds = %340, %238, %210, %194
+351:                                              ; preds = %350, %239, %210, %194
   ret void
 }
 
@@ -4005,7 +4095,7 @@ define hidden void @zim_Fiber_getReturn(ptr noundef %0, ptr noundef %1) #0 {
 
 27:                                               ; preds = %16
   call void @zend_wrong_parameters_none_error()
-  br label %152
+  br label %153
 
 28:                                               ; preds = %16
   br label %29
@@ -4172,7 +4262,7 @@ define hidden void @zim_Fiber_getReturn(ptr noundef %0, ptr noundef %1) #0 {
   br label %133
 
 133:                                              ; preds = %132
-  br label %152
+  br label %153
 
 134:                                              ; No predecessors!
   br label %135
@@ -4209,12 +4299,13 @@ define hidden void @zim_Fiber_getReturn(ptr noundef %0, ptr noundef %1) #0 {
   br label %149
 
 149:                                              ; preds = %146
-  %150 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %151 = icmp ne ptr %150, null
-  call void @llvm.assume(i1 %151)
-  br label %152
+  %150 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %151 = load ptr, ptr %150, align 8
+  %152 = icmp ne ptr %151, null
+  call void @llvm.assume(i1 %152)
+  br label %153
 
-152:                                              ; preds = %149, %133, %27
+153:                                              ; preds = %149, %133, %27
   ret void
 }
 
@@ -4245,68 +4336,69 @@ define hidden void @zim_Fiber_getCurrent(ptr noundef %0, ptr noundef %1) #0 {
 
 20:                                               ; preds = %9
   call void @zend_wrong_parameters_none_error()
-  br label %50
+  br label %51
 
 21:                                               ; preds = %9
   br label %22
 
 22:                                               ; preds = %21
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8
-  store ptr %23, ptr %6, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %33, label %26
+  %23 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %6, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %34, label %27
 
-26:                                               ; preds = %22
-  br label %27
-
-27:                                               ; preds = %26
+27:                                               ; preds = %22
   br label %28
 
 28:                                               ; preds = %27
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i32 0, i32 1
-  store i32 1, ptr %30, align 8
-  br label %31
+  br label %29
 
-31:                                               ; preds = %28
-  br label %50
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct._zval_struct, ptr %30, i32 0, i32 1
+  store i32 1, ptr %31, align 8
+  br label %32
 
-32:                                               ; No predecessors!
-  br label %33
+32:                                               ; preds = %29
+  br label %51
 
-33:                                               ; preds = %32, %22
+33:                                               ; No predecessors!
   br label %34
 
-34:                                               ; preds = %33
+34:                                               ; preds = %33, %22
   br label %35
 
 35:                                               ; preds = %34
-  %36 = load ptr, ptr %5, align 8
-  store ptr %36, ptr %7, align 8
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct._zend_fiber, ptr %37, i32 0, i32 0
-  store ptr %38, ptr %8, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct._zend_object, ptr %39, i32 0, i32 0
-  store ptr %40, ptr %3, align 8
-  %41 = load ptr, ptr %3, align 8
-  %42 = load i32, ptr %41, align 4
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %41, align 4
-  %44 = load ptr, ptr %8, align 8
-  %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds %struct._zval_struct, ptr %45, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct._zval_struct, ptr %47, i32 0, i32 1
-  store i32 776, ptr %48, align 8
-  br label %49
+  br label %36
 
-49:                                               ; preds = %35
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %5, align 8
+  store ptr %37, ptr %7, align 8
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds %struct._zend_fiber, ptr %38, i32 0, i32 0
+  store ptr %39, ptr %8, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds %struct._zend_object, ptr %40, i32 0, i32 0
+  store ptr %41, ptr %3, align 8
+  %42 = load ptr, ptr %3, align 8
+  %43 = load i32, ptr %42, align 4
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %42, align 4
+  %45 = load ptr, ptr %8, align 8
+  %46 = load ptr, ptr %7, align 8
+  %47 = getelementptr inbounds %struct._zval_struct, ptr %46, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds %struct._zval_struct, ptr %48, i32 0, i32 1
+  store i32 776, ptr %49, align 8
   br label %50
 
-50:                                               ; preds = %49, %31, %20
+50:                                               ; preds = %36
+  br label %51
+
+51:                                               ; preds = %50, %32, %20
   ret void
 }
 
@@ -4341,19 +4433,23 @@ define hidden void @zend_register_fiber_ce() #0 {
   %5 = getelementptr inbounds %struct._zend_class_entry, ptr %4, i32 0, i32 29
   store ptr @zend_fiber_handlers, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @zend_fiber_handlers, ptr align 8 @std_object_handlers, i64 200, i1 false)
-  store ptr @zend_fiber_object_destroy, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @zend_fiber_handlers, i32 0, i32 2), align 8
-  store ptr @zend_fiber_object_free, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @zend_fiber_handlers, i32 0, i32 1), align 8
-  store ptr @zend_fiber_object_gc, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @zend_fiber_handlers, i32 0, i32 21), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @zend_fiber_handlers, i32 0, i32 3), align 8
-  %6 = load ptr, ptr @zend_ce_error, align 8
-  %7 = call ptr @register_class_FiberError(ptr noundef %6)
-  store ptr %7, ptr @zend_ce_fiber_error, align 8
-  %8 = load ptr, ptr @zend_ce_error, align 8
-  %9 = getelementptr inbounds %struct._zend_class_entry, ptr %8, i32 0, i32 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr @zend_ce_fiber_error, align 8
-  %12 = getelementptr inbounds %struct._zend_class_entry, ptr %11, i32 0, i32 32
-  store ptr %10, ptr %12, align 8
+  %6 = getelementptr inbounds %struct._zend_object_handlers, ptr @zend_fiber_handlers, i32 0, i32 2
+  store ptr @zend_fiber_object_destroy, ptr %6, align 8
+  %7 = getelementptr inbounds %struct._zend_object_handlers, ptr @zend_fiber_handlers, i32 0, i32 1
+  store ptr @zend_fiber_object_free, ptr %7, align 8
+  %8 = getelementptr inbounds %struct._zend_object_handlers, ptr @zend_fiber_handlers, i32 0, i32 21
+  store ptr @zend_fiber_object_gc, ptr %8, align 8
+  %9 = getelementptr inbounds %struct._zend_object_handlers, ptr @zend_fiber_handlers, i32 0, i32 3
+  store ptr null, ptr %9, align 8
+  %10 = load ptr, ptr @zend_ce_error, align 8
+  %11 = call ptr @register_class_FiberError(ptr noundef %10)
+  store ptr %11, ptr @zend_ce_fiber_error, align 8
+  %12 = load ptr, ptr @zend_ce_error, align 8
+  %13 = getelementptr inbounds %struct._zend_class_entry, ptr %12, i32 0, i32 32
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr @zend_ce_fiber_error, align 8
+  %16 = getelementptr inbounds %struct._zend_class_entry, ptr %15, i32 0, i32 32
+  store ptr %14, ptr %16, align 8
   ret void
 }
 
@@ -4432,227 +4528,246 @@ define internal void @zend_fiber_object_destroy(ptr noundef %0) #0 {
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %1
-  br label %158
+  br label %177
 
 28:                                               ; preds = %1
-  %29 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  store ptr %29, ptr %17, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  br label %30
+  %29 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %17, align 8
+  %31 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  store ptr null, ptr %31, align 8
+  br label %32
 
-30:                                               ; preds = %28
+32:                                               ; preds = %28
   store ptr %18, ptr %19, align 8
-  %31 = call ptr @zend_create_graceful_exit()
-  %32 = load ptr, ptr %19, align 8
-  %33 = getelementptr inbounds %struct._zval_struct, ptr %32, i32 0, i32 0
-  store ptr %31, ptr %33, align 8
+  %33 = call ptr @zend_create_graceful_exit()
   %34 = load ptr, ptr %19, align 8
-  %35 = getelementptr inbounds %struct._zval_struct, ptr %34, i32 0, i32 1
-  store i32 776, ptr %35, align 8
-  br label %36
+  %35 = getelementptr inbounds %struct._zval_struct, ptr %34, i32 0, i32 0
+  store ptr %33, ptr %35, align 8
+  %36 = load ptr, ptr %19, align 8
+  %37 = getelementptr inbounds %struct._zval_struct, ptr %36, i32 0, i32 1
+  store i32 776, ptr %37, align 8
+  br label %38
 
-36:                                               ; preds = %30
-  %37 = load ptr, ptr %16, align 8
-  %38 = getelementptr inbounds %struct._zend_fiber, ptr %37, i32 0, i32 1
-  %39 = load i8, ptr %38, align 8
-  %40 = zext i8 %39 to i32
-  %41 = or i32 %40, 4
-  %42 = trunc i32 %41 to i8
-  store i8 %42, ptr %38, align 8
-  %43 = load ptr, ptr %16, align 8
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %16, align 8
+  %40 = getelementptr inbounds %struct._zend_fiber, ptr %39, i32 0, i32 1
+  %41 = load i8, ptr %40, align 8
+  %42 = zext i8 %41 to i32
+  %43 = or i32 %42, 4
+  %44 = trunc i32 %43 to i8
+  store i8 %44, ptr %40, align 8
+  %45 = load ptr, ptr %16, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  store ptr %43, ptr %11, align 8, !noalias !29
+  store ptr %45, ptr %11, align 8, !noalias !29
   store ptr %18, ptr %12, align 8, !noalias !29
   store i8 1, ptr %13, align 1, !noalias !29
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !29
-  store ptr %44, ptr %14, align 8, !noalias !29
-  %45 = load ptr, ptr %14, align 8, !noalias !29
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %47, label %51
+  %46 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  %47 = load ptr, ptr %46, align 8, !noalias !29
+  store ptr %47, ptr %14, align 8, !noalias !29
+  %48 = load ptr, ptr %14, align 8, !noalias !29
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %55
 
-47:                                               ; preds = %36
-  %48 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8, !noalias !29
-  %49 = load ptr, ptr %14, align 8, !noalias !29
-  %50 = getelementptr inbounds %struct._zend_fiber, ptr %49, i32 0, i32 7
-  store ptr %48, ptr %50, align 8, !noalias !29
-  br label %51
-
-51:                                               ; preds = %47, %36
-  %52 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69), align 8, !noalias !29
-  %53 = load ptr, ptr %11, align 8, !noalias !29
-  %54 = getelementptr inbounds %struct._zend_fiber, ptr %53, i32 0, i32 3
+50:                                               ; preds = %38
+  %51 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
+  %52 = load ptr, ptr %51, align 8, !noalias !29
+  %53 = load ptr, ptr %14, align 8, !noalias !29
+  %54 = getelementptr inbounds %struct._zend_fiber, ptr %53, i32 0, i32 7
   store ptr %52, ptr %54, align 8, !noalias !29
-  %55 = load ptr, ptr %11, align 8, !noalias !29
-  store ptr %55, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !29
-  %56 = load ptr, ptr %11, align 8, !noalias !29
-  %57 = getelementptr inbounds %struct._zend_fiber, ptr %56, i32 0, i32 4
-  %58 = load ptr, ptr %57, align 8, !noalias !29
-  %59 = load ptr, ptr %12, align 8, !noalias !29
-  %60 = load i8, ptr %13, align 1, !noalias !29
-  %61 = trunc i8 %60 to i1
-  call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  store ptr %58, ptr %4, align 8, !noalias !32
-  store ptr %59, ptr %5, align 8, !noalias !32
-  %62 = zext i1 %61 to i8
-  store i8 %62, ptr %6, align 1, !noalias !32
-  %63 = load ptr, ptr %4, align 8, !noalias !32
-  store ptr %63, ptr %20, align 8, !alias.scope !32
-  %64 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr align 8 %64, i8 0, i64 16, i1 false), !alias.scope !32
-  %65 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 2
-  %66 = load i8, ptr %6, align 1, !noalias !32
+  br label %55
+
+55:                                               ; preds = %50, %38
+  %56 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69
+  %57 = load ptr, ptr %56, align 8, !noalias !29
+  %58 = load ptr, ptr %11, align 8, !noalias !29
+  %59 = getelementptr inbounds %struct._zend_fiber, ptr %58, i32 0, i32 3
+  store ptr %57, ptr %59, align 8, !noalias !29
+  %60 = load ptr, ptr %11, align 8, !noalias !29
+  %61 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr %60, ptr %61, align 8, !noalias !29
+  %62 = load ptr, ptr %11, align 8, !noalias !29
+  %63 = getelementptr inbounds %struct._zend_fiber, ptr %62, i32 0, i32 4
+  %64 = load ptr, ptr %63, align 8, !noalias !29
+  %65 = load ptr, ptr %12, align 8, !noalias !29
+  %66 = load i8, ptr %13, align 1, !noalias !29
   %67 = trunc i8 %66 to i1
-  %68 = select i1 %67, i32 1, i32 0
-  %69 = trunc i32 %68 to i8
-  store i8 %69, ptr %65, align 8, !alias.scope !32
-  %70 = load ptr, ptr %5, align 8, !noalias !32
-  %71 = icmp ne ptr %70, null
-  br i1 %71, label %72, label %94
+  call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  store ptr %64, ptr %4, align 8, !noalias !32
+  store ptr %65, ptr %5, align 8, !noalias !32
+  %68 = zext i1 %67 to i8
+  store i8 %68, ptr %6, align 1, !noalias !32
+  %69 = load ptr, ptr %4, align 8, !noalias !32
+  store ptr %69, ptr %20, align 8, !alias.scope !32
+  %70 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 8 %70, i8 0, i64 16, i1 false), !alias.scope !32
+  %71 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 2
+  %72 = load i8, ptr %6, align 1, !noalias !32
+  %73 = trunc i8 %72 to i1
+  %74 = select i1 %73, i32 1, i32 0
+  %75 = trunc i32 %74 to i8
+  store i8 %75, ptr %71, align 8, !alias.scope !32
+  %76 = load ptr, ptr %5, align 8, !noalias !32
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %78, label %100
 
-72:                                               ; preds = %51
-  %73 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 1
-  store ptr %73, ptr %7, align 8, !noalias !32
-  %74 = load ptr, ptr %5, align 8, !noalias !32
-  store ptr %74, ptr %8, align 8, !noalias !32
-  %75 = load ptr, ptr %8, align 8, !noalias !32
-  %76 = load ptr, ptr %75, align 8
-  store ptr %76, ptr %9, align 8, !noalias !32
-  %77 = load ptr, ptr %8, align 8, !noalias !32
-  %78 = getelementptr inbounds %struct._zval_struct, ptr %77, i32 0, i32 1
-  %79 = load i32, ptr %78, align 8
-  store i32 %79, ptr %10, align 4, !noalias !32
-  %80 = load ptr, ptr %9, align 8, !noalias !32
-  %81 = load ptr, ptr %7, align 8, !noalias !32
-  store ptr %80, ptr %81, align 8
-  %82 = load i32, ptr %10, align 4, !noalias !32
-  %83 = load ptr, ptr %7, align 8, !noalias !32
+78:                                               ; preds = %55
+  %79 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 1
+  store ptr %79, ptr %7, align 8, !noalias !32
+  %80 = load ptr, ptr %5, align 8, !noalias !32
+  store ptr %80, ptr %8, align 8, !noalias !32
+  %81 = load ptr, ptr %8, align 8, !noalias !32
+  %82 = load ptr, ptr %81, align 8
+  store ptr %82, ptr %9, align 8, !noalias !32
+  %83 = load ptr, ptr %8, align 8, !noalias !32
   %84 = getelementptr inbounds %struct._zval_struct, ptr %83, i32 0, i32 1
-  store i32 %82, ptr %84, align 8
-  %85 = load i32, ptr %10, align 4, !noalias !32
-  %86 = and i32 %85, 65280
-  %87 = icmp ne i32 %86, 0
-  br i1 %87, label %88, label %93
+  %85 = load i32, ptr %84, align 8
+  store i32 %85, ptr %10, align 4, !noalias !32
+  %86 = load ptr, ptr %9, align 8, !noalias !32
+  %87 = load ptr, ptr %7, align 8, !noalias !32
+  store ptr %86, ptr %87, align 8
+  %88 = load i32, ptr %10, align 4, !noalias !32
+  %89 = load ptr, ptr %7, align 8, !noalias !32
+  %90 = getelementptr inbounds %struct._zval_struct, ptr %89, i32 0, i32 1
+  store i32 %88, ptr %90, align 8
+  %91 = load i32, ptr %10, align 4, !noalias !32
+  %92 = and i32 %91, 65280
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %94, label %99
 
-88:                                               ; preds = %72
-  %89 = load ptr, ptr %9, align 8, !noalias !32
-  store ptr %89, ptr %3, align 8, !noalias !32
-  %90 = load ptr, ptr %3, align 8, !noalias !32
-  %91 = load i32, ptr %90, align 4
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %90, align 4
-  br label %93
+94:                                               ; preds = %78
+  %95 = load ptr, ptr %9, align 8, !noalias !32
+  store ptr %95, ptr %3, align 8, !noalias !32
+  %96 = load ptr, ptr %3, align 8, !noalias !32
+  %97 = load i32, ptr %96, align 4
+  %98 = add i32 %97, 1
+  store i32 %98, ptr %96, align 4
+  br label %99
 
-93:                                               ; preds = %88, %72
-  br label %97
+99:                                               ; preds = %94, %78
+  br label %103
 
-94:                                               ; preds = %51
-  %95 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 1
-  %96 = getelementptr inbounds %struct._zval_struct, ptr %95, i32 0, i32 1
-  store i32 1, ptr %96, align 8, !alias.scope !32
-  br label %97
+100:                                              ; preds = %55
+  %101 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 1
+  %102 = getelementptr inbounds %struct._zval_struct, ptr %101, i32 0, i32 1
+  store i32 1, ptr %102, align 8, !alias.scope !32
+  br label %103
 
-97:                                               ; preds = %94, %93
+103:                                              ; preds = %100, %99
   call void @zend_fiber_switch_context(ptr noundef %20)
-  %98 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 2
-  %99 = load i8, ptr %98, align 8, !alias.scope !32
-  %100 = zext i8 %99 to i32
-  %101 = and i32 %100, 2
-  %102 = icmp ne i32 %101, 0
-  br i1 %102, label %103, label %104
+  %104 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 2
+  %105 = load i8, ptr %104, align 8, !alias.scope !32
+  %106 = zext i8 %105 to i32
+  %107 = and i32 %106, 2
+  %108 = icmp ne i32 %107, 0
+  br i1 %108, label %109, label %111
 
-103:                                              ; preds = %97
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !32
+109:                                              ; preds = %103
+  %110 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr null, ptr %110, align 8, !noalias !32
   call void @_zend_bailout(ptr noundef @.str.25, i32 noundef 649) #18
   unreachable
 
-104:                                              ; preds = %97
-  %105 = load ptr, ptr %14, align 8, !noalias !29
-  store ptr %105, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8, !noalias !29
+111:                                              ; preds = %103
+  %112 = load ptr, ptr %14, align 8, !noalias !29
+  %113 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr %112, ptr %113, align 8, !noalias !29
   call void @zval_ptr_dtor(ptr noundef %18)
-  %106 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 2
-  %107 = load i8, ptr %106, align 8
-  %108 = zext i8 %107 to i32
-  %109 = and i32 %108, 1
-  %110 = icmp ne i32 %109, 0
-  br i1 %110, label %111, label %155
+  %114 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 2
+  %115 = load i8, ptr %114, align 8
+  %116 = zext i8 %115 to i32
+  %117 = and i32 %116, 1
+  %118 = icmp ne i32 %117, 0
+  br i1 %118, label %119, label %173
 
-111:                                              ; preds = %104
-  %112 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 1
-  %113 = getelementptr inbounds %struct._zval_struct, ptr %112, i32 0, i32 0
-  %114 = load ptr, ptr %113, align 8
-  store ptr %114, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %115 = load ptr, ptr %17, align 8
-  %116 = icmp ne ptr %115, null
-  br i1 %116, label %146, label %117
+119:                                              ; preds = %111
+  %120 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 1
+  %121 = getelementptr inbounds %struct._zval_struct, ptr %120, i32 0, i32 0
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  store ptr %122, ptr %123, align 8
+  %124 = load ptr, ptr %17, align 8
+  %125 = icmp ne ptr %124, null
+  br i1 %125, label %161, label %126
 
-117:                                              ; preds = %111
-  %118 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8
-  %119 = icmp ne ptr %118, null
-  br i1 %119, label %120, label %146
-
-120:                                              ; preds = %117
-  %121 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8
-  %122 = getelementptr inbounds %struct._zend_execute_data, ptr %121, i32 0, i32 3
-  %123 = load ptr, ptr %122, align 8
-  %124 = icmp ne ptr %123, null
-  br i1 %124, label %125, label %146
-
-125:                                              ; preds = %120
-  %126 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8
-  %127 = getelementptr inbounds %struct._zend_execute_data, ptr %126, i32 0, i32 3
+126:                                              ; preds = %119
+  %127 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds %struct.anon.7, ptr %128, i32 0, i32 0
-  %130 = load i8, ptr %129, align 8
-  %131 = zext i8 %130 to i32
-  %132 = icmp ne i32 %131, 1
-  br i1 %132, label %133, label %146
+  %129 = icmp ne ptr %128, null
+  br i1 %129, label %130, label %161
 
-133:                                              ; preds = %125
-  %134 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8
-  store ptr %134, ptr %2, align 8
-  %135 = load ptr, ptr %2, align 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds %struct._zend_op, ptr %136, i32 0, i32 6
-  %138 = load i8, ptr %137, align 4
-  %139 = zext i8 %138 to i32
-  %140 = icmp ne i32 %139, 149
-  br i1 %140, label %141, label %145
+130:                                              ; preds = %126
+  %131 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds %struct._zend_execute_data, ptr %132, i32 0, i32 3
+  %134 = load ptr, ptr %133, align 8
+  %135 = icmp ne ptr %134, null
+  br i1 %135, label %136, label %161
 
-141:                                              ; preds = %133
-  %142 = load ptr, ptr %2, align 8
-  %143 = load ptr, ptr %142, align 8
-  store ptr %143, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 52), align 8
-  %144 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 53), ptr %144, align 8
-  br label %145
+136:                                              ; preds = %130
+  %137 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds %struct._zend_execute_data, ptr %138, i32 0, i32 3
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds %struct.anon.7, ptr %140, i32 0, i32 0
+  %142 = load i8, ptr %141, align 8
+  %143 = zext i8 %142 to i32
+  %144 = icmp ne i32 %143, 1
+  br i1 %144, label %145, label %161
 
-145:                                              ; preds = %141, %133
-  br label %146
+145:                                              ; preds = %136
+  %146 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
+  %147 = load ptr, ptr %146, align 8
+  store ptr %147, ptr %2, align 8
+  %148 = load ptr, ptr %2, align 8
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds %struct._zend_op, ptr %149, i32 0, i32 6
+  %151 = load i8, ptr %150, align 4
+  %152 = zext i8 %151 to i32
+  %153 = icmp ne i32 %152, 149
+  br i1 %153, label %154, label %160
 
-146:                                              ; preds = %145, %125, %120, %117, %111
-  %147 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %148 = load ptr, ptr %17, align 8
-  call void @zend_exception_set_previous(ptr noundef %147, ptr noundef %148)
-  %149 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8
-  %150 = icmp ne ptr %149, null
-  br i1 %150, label %154, label %151
+154:                                              ; preds = %145
+  %155 = load ptr, ptr %2, align 8
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 52
+  store ptr %156, ptr %157, align 8
+  %158 = load ptr, ptr %2, align 8
+  %159 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 53
+  store ptr %159, ptr %158, align 8
+  br label %160
 
-151:                                              ; preds = %146
-  %152 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %153 = call i32 @zend_exception_error(ptr noundef %152, i32 noundef 1)
-  br label %154
+160:                                              ; preds = %154, %145
+  br label %161
 
-154:                                              ; preds = %151, %146
-  br label %158
+161:                                              ; preds = %160, %136, %130, %126, %119
+  %162 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %163 = load ptr, ptr %162, align 8
+  %164 = load ptr, ptr %17, align 8
+  call void @zend_exception_set_previous(ptr noundef %163, ptr noundef %164)
+  %165 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
+  %166 = load ptr, ptr %165, align 8
+  %167 = icmp ne ptr %166, null
+  br i1 %167, label %172, label %168
 
-155:                                              ; preds = %104
-  %156 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 1
-  call void @zval_ptr_dtor(ptr noundef %156)
-  %157 = load ptr, ptr %17, align 8
-  store ptr %157, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  br label %158
+168:                                              ; preds = %161
+  %169 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %170 = load ptr, ptr %169, align 8
+  %171 = call i32 @zend_exception_error(ptr noundef %170, i32 noundef 1)
+  br label %172
 
-158:                                              ; preds = %155, %154, %27
+172:                                              ; preds = %168, %161
+  br label %177
+
+173:                                              ; preds = %111
+  %174 = getelementptr inbounds %struct._zend_fiber_transfer, ptr %20, i32 0, i32 1
+  call void @zval_ptr_dtor(ptr noundef %174)
+  %175 = load ptr, ptr %17, align 8
+  %176 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  store ptr %175, ptr %176, align 8
+  br label %177
+
+177:                                              ; preds = %173, %172, %27
   ret void
 }
 
@@ -5157,10 +5272,13 @@ define hidden void @zend_fiber_init() #0 {
   %4 = getelementptr inbounds %struct._zend_fiber_context, ptr %3, i32 0, i32 5
   store i32 1, ptr %4, align 8
   %5 = load ptr, ptr %1, align 8
-  store ptr %5, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 68), align 8
-  %6 = load ptr, ptr %1, align 8
-  store ptr %6, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70), align 8
+  %6 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 68
+  store ptr %5, ptr %6, align 8
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 69
+  store ptr %7, ptr %8, align 8
+  %9 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 70
+  store ptr null, ptr %9, align 8
   store i32 0, ptr @zend_fiber_switch_blocking, align 4
   ret void
 }
@@ -5170,8 +5288,9 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_fiber_shutdown() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 68), align 8
-  call void @_efree(ptr noundef %1)
+  %1 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 68
+  %2 = load ptr, ptr %1, align 8
+  call void @_efree(ptr noundef %2)
   call void @zend_fiber_switch_block()
   ret void
 }
@@ -5287,24 +5406,27 @@ define internal void @zend_fiber_cleanup(ptr noundef %0) #0 {
   %15 = load ptr, ptr %2, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 -64
   store ptr %16, ptr %4, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15), align 8
-  store ptr %17, ptr %5, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct._zend_fiber, ptr %18, i32 0, i32 9
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15), align 8
+  %17 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %5, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %struct._zend_fiber, ptr %19, i32 0, i32 9
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15
+  store ptr %21, ptr %22, align 8
   call void @zend_vm_stack_destroy()
-  %21 = load ptr, ptr %5, align 8
-  store ptr %21, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15), align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct._zend_fiber, ptr %22, i32 0, i32 7
-  store ptr null, ptr %23, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct._zend_fiber, ptr %24, i32 0, i32 8
-  store ptr null, ptr %25, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct._zend_fiber, ptr %26, i32 0, i32 3
-  store ptr null, ptr %27, align 8
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 15
+  store ptr %23, ptr %24, align 8
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %struct._zend_fiber, ptr %25, i32 0, i32 7
+  store ptr null, ptr %26, align 8
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %struct._zend_fiber, ptr %27, i32 0, i32 8
+  store ptr null, ptr %28, align 8
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds %struct._zend_fiber, ptr %29, i32 0, i32 3
+  store ptr null, ptr %30, align 8
   ret void
 }
 

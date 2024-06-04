@@ -188,29 +188,30 @@ entry:
   store ptr %boxHalfExtents, ptr %boxHalfExtents.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV10btBoxShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTV10btBoxShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_shapeType, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
-  %0 = load ptr, ptr %vfn, align 8
-  %call = invoke noundef float %0(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %1 = load ptr, ptr %vfn, align 8
+  %call = invoke noundef float %1(ptr noundef nonnull align 8 dereferenceable(72) %this1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store float %call, ptr %ref.tmp, align 4
   %vtable3 = load ptr, ptr %this1, align 8
   %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 12
-  %1 = load ptr, ptr %vfn4, align 8
-  %call6 = invoke noundef float %1(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %2 = load ptr, ptr %vfn4, align 8
+  %call6 = invoke noundef float %2(ptr noundef nonnull align 8 dereferenceable(72) %this1)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont
   store float %call6, ptr %ref.tmp2, align 4
   %vtable8 = load ptr, ptr %this1, align 8
   %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 12
-  %2 = load ptr, ptr %vfn9, align 8
-  %call11 = invoke noundef float %2(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %3 = load ptr, ptr %vfn9, align 8
+  %call11 = invoke noundef float %3(ptr noundef nonnull align 8 dereferenceable(72) %this1)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont5
@@ -219,46 +220,46 @@ invoke.cont10:                                    ; preds = %invoke.cont5
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  %3 = load ptr, ptr %boxHalfExtents.addr, align 8
+  %4 = load ptr, ptr %boxHalfExtents.addr, align 8
   %m_localScaling = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 1
-  %call16 = invoke { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %m_localScaling)
+  %call16 = invoke { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %m_localScaling)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont12
   %coerce.dive = getelementptr inbounds %class.btVector3, ptr %ref.tmp14, i32 0, i32 0
-  %4 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %5 = extractvalue { <2 x float>, <2 x float> } %call16, 0
-  store <2 x float> %5, ptr %4, align 4
-  %6 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %7 = extractvalue { <2 x float>, <2 x float> } %call16, 1
-  store <2 x float> %7, ptr %6, align 4
+  %5 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
+  %6 = extractvalue { <2 x float>, <2 x float> } %call16, 0
+  store <2 x float> %6, ptr %5, align 4
+  %7 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
+  %8 = extractvalue { <2 x float>, <2 x float> } %call16, 1
+  store <2 x float> %8, ptr %7, align 4
   %call18 = invoke { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp14, ptr noundef nonnull align 4 dereferenceable(16) %margin)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont15
   %coerce.dive19 = getelementptr inbounds %class.btVector3, ptr %ref.tmp13, i32 0, i32 0
-  %8 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive19, i32 0, i32 0
-  %9 = extractvalue { <2 x float>, <2 x float> } %call18, 0
-  store <2 x float> %9, ptr %8, align 4
-  %10 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive19, i32 0, i32 1
-  %11 = extractvalue { <2 x float>, <2 x float> } %call18, 1
-  store <2 x float> %11, ptr %10, align 4
+  %9 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive19, i32 0, i32 0
+  %10 = extractvalue { <2 x float>, <2 x float> } %call18, 0
+  store <2 x float> %10, ptr %9, align 4
+  %11 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive19, i32 0, i32 1
+  %12 = extractvalue { <2 x float>, <2 x float> } %call18, 1
+  store <2 x float> %12, ptr %11, align 4
   %m_implicitShapeDimensions = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_implicitShapeDimensions, ptr align 4 %ref.tmp13, i64 16, i1 false)
-  %12 = load ptr, ptr %boxHalfExtents.addr, align 8
-  invoke void @_ZN21btConvexInternalShape13setSafeMarginERK9btVector3f(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 4 dereferenceable(16) %12, float noundef 0x3FB99999A0000000)
+  %13 = load ptr, ptr %boxHalfExtents.addr, align 8
+  invoke void @_ZN21btConvexInternalShape13setSafeMarginERK9btVector3f(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 4 dereferenceable(16) %13, float noundef 0x3FB99999A0000000)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont17
   ret void
 
 lpad:                                             ; preds = %invoke.cont17, %invoke.cont15, %invoke.cont12, %invoke.cont10, %invoke.cont5, %invoke.cont, %entry
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #9
   br label %eh.resume
 

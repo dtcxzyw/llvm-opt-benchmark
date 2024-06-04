@@ -4396,31 +4396,32 @@ define dso_local void @_ZN29cmLocalUnixMakefileGenerator3C2EP17cmGlobalGenerator
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN22cmLocalCommonGeneratorC2EP17cmGlobalGeneratorP10cmMakefile(ptr noundef nonnull align 8 dereferenceable(848) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV29cmLocalUnixMakefileGenerator3, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_I23cmDependencyScannerKindS_IS5_S_IS5_St6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESB_SaISC_ISD_SG_EEESA_IS6_ESaISC_IKS6_SJ_EEESB_SaISC_ISD_SO_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #3
-  %11 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %12 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 3
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  %13 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #3
-  %14 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 5
+  %10 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV29cmLocalUnixMakefileGenerator3, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_I23cmDependencyScannerKindS_IS5_S_IS5_St6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESB_SaISC_ISD_SG_EEESA_IS6_ESaISC_IKS6_SJ_EEESB_SaISC_ISD_SO_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
+  %12 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  %13 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %14 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #3
-  %15 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 12
-  call void @_ZNSt3mapIPK17cmGeneratorTargetSt3setIPK12cmSourceFileSt4lessIS6_ESaIS6_EES7_IS2_ESaISt4pairIKS2_SA_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #3
-  %16 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 6
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 9
-  store i8 0, ptr %17, align 2
-  %18 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 10
-  store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 11
-  store i8 0, ptr %19, align 8
-  %20 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 7
-  store i8 0, ptr %20, align 4
-  %21 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 8
-  store i8 0, ptr %21, align 1
+  %15 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 5
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #3
+  %16 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 12
+  call void @_ZNSt3mapIPK17cmGeneratorTargetSt3setIPK12cmSourceFileSt4lessIS6_ESaIS6_EES7_IS2_ESaISt4pairIKS2_SA_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #3
+  %17 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 6
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 9
+  store i8 0, ptr %18, align 2
+  %19 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 10
+  store i8 0, ptr %19, align 1
+  %20 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 11
+  store i8 0, ptr %20, align 8
+  %21 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 7
+  store i8 0, ptr %21, align 4
+  %22 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 8
+  store i8 0, ptr %22, align 1
   ret void
 }
 
@@ -4470,19 +4471,20 @@ define dso_local void @_ZN29cmLocalUnixMakefileGenerator3D2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV29cmLocalUnixMakefileGenerator3, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %3, i32 0, i32 12
-  call void @_ZNSt3mapIPK17cmGeneratorTargetSt3setIPK12cmSourceFileSt4lessIS6_ESaIS6_EES7_IS2_ESaISt4pairIKS2_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %3, i32 0, i32 5
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
-  %6 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV29cmLocalUnixMakefileGenerator3, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %3, i32 0, i32 12
+  call void @_ZNSt3mapIPK17cmGeneratorTargetSt3setIPK12cmSourceFileSt4lessIS6_ESaIS6_EES7_IS2_ESaISt4pairIKS2_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %6 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %3, i32 0, i32 5
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  %9 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_I23cmDependencyScannerKindS_IS5_S_IS5_St6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESB_SaISC_ISD_SG_EEESA_IS6_ESaISC_IKS6_SJ_EEESB_SaISC_ISD_SO_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
+  %7 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %3, i32 0, i32 4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
+  %8 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  %10 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_I23cmDependencyScannerKindS_IS5_S_IS5_St6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESB_SaISC_ISD_SG_EEESA_IS6_ESaISC_IKS6_SJ_EEESB_SaISC_ISD_SO_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #3
   call void @_ZN22cmLocalCommonGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(848) %3) #3
   ret void
 }

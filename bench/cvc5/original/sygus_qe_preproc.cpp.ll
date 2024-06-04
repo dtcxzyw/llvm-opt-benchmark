@@ -1173,7 +1173,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 1 %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14SygusQePreprocE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14SygusQePreprocE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5435,7 +5436,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers25SingleInvocationPartitionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers25SingleInvocationPartitionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_input_func_sks = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SingleInvocationPartition", ptr %this1, i32 0, i32 13
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_input_func_sks) #3
   %d_all_funcs = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SingleInvocationPartition", ptr %this1, i32 0, i32 12
@@ -5444,11 +5446,11 @@ entry:
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_input_funcs) #3
   %d_conjuncts = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SingleInvocationPartition", ptr %this1, i32 0, i32 9
   %array.begin = getelementptr inbounds [4 x %"class.std::vector.78"], ptr %d_conjuncts, i32 0, i32 0
-  %0 = getelementptr inbounds %"class.std::vector.78", ptr %array.begin, i64 4
+  %1 = getelementptr inbounds %"class.std::vector.78", ptr %array.begin, i64 4
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::vector.78", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin

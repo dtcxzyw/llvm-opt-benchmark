@@ -601,7 +601,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb10WriteBatch7HandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb21ColumnFamilyCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN7rocksdb21ColumnFamilyCollectorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %column_family_ids_ = getelementptr inbounds %"class.rocksdb::ColumnFamilyCollector", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %column_family_ids_) #12
   ret void
@@ -773,7 +774,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb21ColumnFamilyCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN7rocksdb21ColumnFamilyCollectorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %column_family_ids_ = getelementptr inbounds %"class.rocksdb::ColumnFamilyCollector", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %column_family_ids_) #12
   call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
@@ -786,7 +788,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb10WriteBatch7HandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN7rocksdb10WriteBatch7HandlerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

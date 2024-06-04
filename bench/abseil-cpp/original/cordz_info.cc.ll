@@ -183,10 +183,11 @@ entry:
   %snapshot.addr = alloca ptr, align 8
   %head = alloca ptr, align 8
   store ptr %snapshot, ptr %snapshot.addr, align 8
-  %call = call noundef ptr @_ZNKSt6atomicIPN4absl13cord_internal9CordzInfoEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.absl::cord_internal::CordzInfo::List", ptr @_ZN4absl13cord_internal9CordzInfo12global_list_E, i32 0, i32 1), i32 noundef 2) #10
+  %0 = getelementptr inbounds %"struct.absl::cord_internal::CordzInfo::List", ptr @_ZN4absl13cord_internal9CordzInfo12global_list_E, i32 0, i32 1
+  %call = call noundef ptr @_ZNKSt6atomicIPN4absl13cord_internal9CordzInfoEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2) #10
   store ptr %call, ptr %head, align 8
-  %0 = load ptr, ptr %head, align 8
-  ret ptr %0
+  %1 = load ptr, ptr %head, align 8
+  ret ptr %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -771,7 +772,8 @@ entry:
   store i32 %method, ptr %method.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl13cord_internal11CordzHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %list_ = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 1
   store ptr @_ZN4absl13cord_internal9CordzInfo12global_list_E, ptr %list_, align 8
   %ci_prev_ = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 2
@@ -784,8 +786,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %rep_ = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %rep.addr, align 8
-  store ptr %0, ptr %rep_, align 8
+  %1 = load ptr, ptr %rep.addr, align 8
+  store ptr %1, ptr %rep_, align 8
   %stack_depth_ = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 8
   %stack_ = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 6
   %arraydecay = getelementptr inbounds [64 x ptr], ptr %stack_, i64 0, i64 0
@@ -796,17 +798,17 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %conv = sext i32 %call to i64
   store i64 %conv, ptr %stack_depth_, align 8
   %parent_stack_depth_ = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 9
-  %1 = load ptr, ptr %src.addr, align 8
+  %2 = load ptr, ptr %src.addr, align 8
   %parent_stack_ = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 7
   %arraydecay4 = getelementptr inbounds [64 x ptr], ptr %parent_stack_, i64 0, i64 0
-  %call5 = call noundef i64 @_ZN4absl13cord_internal9CordzInfo15FillParentStackEPKS1_PPv(ptr noundef %1, ptr noundef %arraydecay4)
+  %call5 = call noundef i64 @_ZN4absl13cord_internal9CordzInfo15FillParentStackEPKS1_PPv(ptr noundef %2, ptr noundef %arraydecay4)
   store i64 %call5, ptr %parent_stack_depth_, align 8
   %method_ = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 10
-  %2 = load i32, ptr %method.addr, align 4
-  store i32 %2, ptr %method_, align 8
+  %3 = load i32, ptr %method.addr, align 4
+  store i32 %3, ptr %method_, align 8
   %parent_method_ = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 11
-  %3 = load ptr, ptr %src.addr, align 8
-  %call6 = call noundef i32 @_ZN4absl13cord_internal9CordzInfo15GetParentMethodEPKS1_(ptr noundef %3)
+  %4 = load ptr, ptr %src.addr, align 8
+  %call6 = call noundef i32 @_ZN4absl13cord_internal9CordzInfo15GetParentMethodEPKS1_(ptr noundef %4)
   store i32 %call6, ptr %parent_method_, align 4
   %update_tracker_ = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 12
   call void @_ZN4absl13cord_internal18CordzUpdateTrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker_) #10
@@ -819,19 +821,19 @@ invoke.cont7:                                     ; preds = %invoke.cont3
   store { i64, i32 } %call8, ptr %tmp.coerce, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %coerce.dive, ptr align 8 %tmp.coerce, i64 12, i1 false)
   %update_tracker_9 = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 12
-  %4 = load i32, ptr %method.addr, align 4
-  invoke void @_ZN4absl13cord_internal18CordzUpdateTracker8LossyAddENS1_16MethodIdentifierEl(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker_9, i32 noundef %4, i64 noundef 1)
+  %5 = load i32, ptr %method.addr, align 4
+  invoke void @_ZN4absl13cord_internal18CordzUpdateTracker8LossyAddENS1_16MethodIdentifierEl(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker_9, i32 noundef %5, i64 noundef 1)
           to label %invoke.cont10 unwind label %lpad2
 
 invoke.cont10:                                    ; preds = %invoke.cont7
-  %5 = load ptr, ptr %src.addr, align 8
-  %tobool = icmp ne ptr %5, null
+  %6 = load ptr, ptr %src.addr, align 8
+  %tobool = icmp ne ptr %6, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont10
   %update_tracker_11 = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 12
-  %6 = load ptr, ptr %src.addr, align 8
-  %update_tracker_12 = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %6, i32 0, i32 12
+  %7 = load ptr, ptr %src.addr, align 8
+  %update_tracker_12 = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %7, i32 0, i32 12
   invoke void @_ZN4absl13cord_internal18CordzUpdateTracker8LossyAddERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %update_tracker_11, ptr noundef nonnull align 8 dereferenceable(200) %update_tracker_12)
           to label %invoke.cont13 unwind label %lpad2
 
@@ -839,31 +841,31 @@ invoke.cont13:                                    ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %if.then, %invoke.cont7, %invoke.cont3, %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   store ptr %mutex_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   store ptr %this1.i, ptr %this.addr.i15, align 8
   br label %_ZN4absl5MutexD2Ev.exit
 
 terminate.lpad.i:                                 ; No predecessors!
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #13
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #13
   unreachable
 
 _ZN4absl5MutexD2Ev.exit:                          ; preds = %lpad2
@@ -1108,16 +1110,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rep_ = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %rep_, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %rep_, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %rep_2 = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %rep_2, align 8
-  invoke void @_ZN4absl13cord_internal7CordRep5UnrefEPS1_(ptr noundef %1)
+  %2 = load ptr, ptr %rep_2, align 8
+  invoke void @_ZN4absl13cord_internal7CordRep5UnrefEPS1_(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -1131,10 +1134,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   br label %_ZN4absl5MutexD2Ev.exit
 
 terminate.lpad.i:                                 ; No predecessors!
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #13
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #13
   unreachable
 
 _ZN4absl5MutexD2Ev.exit:                          ; preds = %if.end
@@ -1142,10 +1145,10 @@ _ZN4absl5MutexD2Ev.exit:                          ; preds = %if.end
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #13
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #13
   unreachable
 }
 

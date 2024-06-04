@@ -868,7 +868,7 @@ define internal ptr @new_insn_body(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 17:                                               ; preds = %5
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
-  call void @llvm.va_start(ptr %18)
+  call void @llvm.va_start.p0(ptr %18)
   %19 = load ptr, ptr %6, align 8
   %20 = load i32, ptr %10, align 4
   %21 = sext i32 %20 to i64
@@ -925,7 +925,7 @@ define internal ptr @new_insn_body(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 52:                                               ; preds = %23
   %53 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
-  call void @llvm.va_end(ptr %53)
+  call void @llvm.va_end.p0(ptr %53)
   br label %54
 
 54:                                               ; preds = %52, %5
@@ -2756,7 +2756,7 @@ define internal void @append_compile_error(ptr noundef %0, i32 noundef %1, ptr n
   %23 = phi i64 [ 0, %19 ], [ %21, %20 ]
   store i64 %23, ptr %9, align 8
   %24 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_start(ptr %24)
+  call void @llvm.va_start.p0(ptr %24)
   %25 = load i64, ptr %9, align 8
   %26 = load i64, ptr %8, align 8
   %27 = load i32, ptr %5, align 4
@@ -2765,7 +2765,7 @@ define internal void @append_compile_error(ptr noundef %0, i32 noundef %1, ptr n
   %30 = call i64 @rb_syntax_error_append(i64 noundef %25, i64 noundef %26, i32 noundef %27, i32 noundef -1, ptr noundef null, ptr noundef %28, ptr noundef %29)
   store i64 %30, ptr %9, align 8
   %31 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %31)
+  call void @llvm.va_end.p0(ptr %31)
   %32 = load i64, ptr %7, align 8
   %33 = call zeroext i1 @RB_NIL_P(i64 noundef %32) #26
   br i1 %33, label %34, label %43
@@ -7096,65 +7096,66 @@ define hidden i64 @rb_iseq_ibf_dump(ptr noundef %0, i64 noundef %1) #0 {
   %62 = load i32, ptr @ruby_api_version, align 4
   %63 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 1
   store i32 %62, ptr %63, align 4
-  %64 = load i32, ptr getelementptr ([0 x i32], ptr @ruby_api_version, i64 0, i64 1), align 4
-  %65 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 2
-  store i32 %64, ptr %65, align 4
-  %66 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 9
-  store i8 108, ptr %66, align 4
-  %67 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 10
-  store i8 8, ptr %67, align 1
-  %68 = load ptr, ptr %5, align 8
-  call void @ibf_dump_iseq_list(ptr noundef %68, ptr noundef %6)
+  %64 = getelementptr [0 x i32], ptr @ruby_api_version, i64 0, i64 1
+  %65 = load i32, ptr %64, align 4
+  %66 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 2
+  store i32 %65, ptr %66, align 4
+  %67 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 9
+  store i8 108, ptr %67, align 4
+  %68 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 10
+  store i8 8, ptr %68, align 1
   %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 8
-  %71 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 6
-  call void @ibf_dump_object_list(ptr noundef %69, ptr noundef %70, ptr noundef %71)
-  %72 = load ptr, ptr %5, align 8
-  %73 = call i32 @ibf_dump_pos(ptr noundef %72)
-  %74 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 3
-  store i32 %73, ptr %74, align 4
-  %75 = load i64, ptr %4, align 8
-  %76 = call zeroext i1 @RB_TEST(i64 noundef %75) #26
-  br i1 %76, label %77, label %89
+  call void @ibf_dump_iseq_list(ptr noundef %69, ptr noundef %6)
+  %70 = load ptr, ptr %5, align 8
+  %71 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 8
+  %72 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 6
+  call void @ibf_dump_object_list(ptr noundef %70, ptr noundef %71, ptr noundef %72)
+  %73 = load ptr, ptr %5, align 8
+  %74 = call i32 @ibf_dump_pos(ptr noundef %73)
+  %75 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 3
+  store i32 %74, ptr %75, align 4
+  %76 = load i64, ptr %4, align 8
+  %77 = call zeroext i1 @RB_TEST(i64 noundef %76) #26
+  br i1 %77, label %78, label %90
 
-77:                                               ; preds = %41
-  %78 = load i64, ptr %4, align 8
-  store i64 %78, ptr %11, align 8
-  %79 = call ptr @rb_string_value_ptr(ptr noundef %11)
-  store ptr %79, ptr %12, align 8
-  %80 = load i64, ptr %11, align 8
-  %81 = call i32 @RSTRING_LENINT(i64 noundef %80)
-  %82 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 4
-  store i32 %81, ptr %82, align 4
-  %83 = load ptr, ptr %5, align 8
-  %84 = load ptr, ptr %12, align 8
-  %85 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 4
-  %86 = load i32, ptr %85, align 4
-  %87 = zext i32 %86 to i64
-  %88 = call i32 @ibf_dump_write(ptr noundef %83, ptr noundef %84, i64 noundef %87)
-  br label %91
+78:                                               ; preds = %41
+  %79 = load i64, ptr %4, align 8
+  store i64 %79, ptr %11, align 8
+  %80 = call ptr @rb_string_value_ptr(ptr noundef %11)
+  store ptr %80, ptr %12, align 8
+  %81 = load i64, ptr %11, align 8
+  %82 = call i32 @RSTRING_LENINT(i64 noundef %81)
+  %83 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 4
+  store i32 %82, ptr %83, align 4
+  %84 = load ptr, ptr %5, align 8
+  %85 = load ptr, ptr %12, align 8
+  %86 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 4
+  %87 = load i32, ptr %86, align 4
+  %88 = zext i32 %87 to i64
+  %89 = call i32 @ibf_dump_write(ptr noundef %84, ptr noundef %85, i64 noundef %88)
+  br label %92
 
-89:                                               ; preds = %41
-  %90 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 4
-  store i32 0, ptr %90, align 4
-  br label %91
+90:                                               ; preds = %41
+  %91 = getelementptr inbounds %struct.ibf_header, ptr %6, i32 0, i32 4
+  store i32 0, ptr %91, align 4
+  br label %92
 
-91:                                               ; preds = %89, %77
-  %92 = load ptr, ptr %5, align 8
-  call void @ibf_dump_overwrite(ptr noundef %92, ptr noundef %6, i32 noundef 40, i64 noundef 0)
+92:                                               ; preds = %90, %78
   %93 = load ptr, ptr %5, align 8
-  %94 = getelementptr inbounds %struct.ibf_dump, ptr %93, i32 0, i32 1
-  %95 = getelementptr inbounds %struct.ibf_dump_buffer, ptr %94, i32 0, i32 0
-  %96 = load i64, ptr %95, align 8
-  store i64 %96, ptr %8, align 8
+  call void @ibf_dump_overwrite(ptr noundef %93, ptr noundef %6, i32 noundef 40, i64 noundef 0)
+  %94 = load ptr, ptr %5, align 8
+  %95 = getelementptr inbounds %struct.ibf_dump, ptr %94, i32 0, i32 1
+  %96 = getelementptr inbounds %struct.ibf_dump_buffer, ptr %95, i32 0, i32 0
+  %97 = load i64, ptr %96, align 8
+  store i64 %97, ptr %8, align 8
   store ptr %7, ptr %13, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %13) #31, !srcloc !31
-  %97 = load ptr, ptr %13, align 8
-  store ptr %97, ptr %14, align 8
-  %98 = load ptr, ptr %14, align 8
-  %99 = load volatile i64, ptr %98, align 8
-  %100 = load i64, ptr %8, align 8
-  ret i64 %100
+  %98 = load ptr, ptr %13, align 8
+  store ptr %98, ptr %14, align 8
+  %99 = load ptr, ptr %14, align 8
+  %100 = load volatile i64, ptr %99, align 8
+  %101 = load i64, ptr %8, align 8
+  ret i64 %101
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
@@ -9229,100 +9230,102 @@ define internal void @ibf_load_setup_bytes(ptr noundef %0, i64 noundef %1, ptr n
   %84 = load i32, ptr %83, align 4
   %85 = load i32, ptr @ruby_api_version, align 4
   %86 = icmp ne i32 %84, %85
-  br i1 %86, label %93, label %87
+  br i1 %86, label %94, label %87
 
 87:                                               ; preds = %81
   %88 = load ptr, ptr %9, align 8
   %89 = getelementptr inbounds %struct.ibf_header, ptr %88, i32 0, i32 2
   %90 = load i32, ptr %89, align 4
-  %91 = load i32, ptr getelementptr ([0 x i32], ptr @ruby_api_version, i64 0, i64 1), align 4
-  %92 = icmp ne i32 %90, %91
-  br i1 %92, label %93, label %103
+  %91 = getelementptr [0 x i32], ptr @ruby_api_version, i64 0, i64 1
+  %92 = load i32, ptr %91, align 4
+  %93 = icmp ne i32 %90, %92
+  br i1 %93, label %94, label %105
 
-93:                                               ; preds = %87, %81
-  %94 = load i64, ptr @rb_eRuntimeError, align 8
-  %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr inbounds %struct.ibf_header, ptr %95, i32 0, i32 1
-  %97 = load i32, ptr %96, align 4
-  %98 = load ptr, ptr %9, align 8
-  %99 = getelementptr inbounds %struct.ibf_header, ptr %98, i32 0, i32 2
-  %100 = load i32, ptr %99, align 4
-  %101 = load i32, ptr @ruby_api_version, align 4
-  %102 = load i32, ptr getelementptr ([0 x i32], ptr @ruby_api_version, i64 0, i64 1), align 4
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %94, ptr noundef @.str.238, i32 noundef %97, i32 noundef %100, i32 noundef %101, i32 noundef %102) #27
+94:                                               ; preds = %87, %81
+  %95 = load i64, ptr @rb_eRuntimeError, align 8
+  %96 = load ptr, ptr %9, align 8
+  %97 = getelementptr inbounds %struct.ibf_header, ptr %96, i32 0, i32 1
+  %98 = load i32, ptr %97, align 4
+  %99 = load ptr, ptr %9, align 8
+  %100 = getelementptr inbounds %struct.ibf_header, ptr %99, i32 0, i32 2
+  %101 = load i32, ptr %100, align 4
+  %102 = load i32, ptr @ruby_api_version, align 4
+  %103 = getelementptr [0 x i32], ptr @ruby_api_version, i64 0, i64 1
+  %104 = load i32, ptr %103, align 4
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %95, ptr noundef @.str.238, i32 noundef %98, i32 noundef %101, i32 noundef %102, i32 noundef %104) #27
   unreachable
 
-103:                                              ; preds = %87
-  %104 = load ptr, ptr %9, align 8
-  %105 = getelementptr inbounds %struct.ibf_header, ptr %104, i32 0, i32 9
-  %106 = load i8, ptr %105, align 4
-  %107 = zext i8 %106 to i32
-  %108 = icmp ne i32 %107, 108
-  br i1 %108, label %109, label %115
+105:                                              ; preds = %87
+  %106 = load ptr, ptr %9, align 8
+  %107 = getelementptr inbounds %struct.ibf_header, ptr %106, i32 0, i32 9
+  %108 = load i8, ptr %107, align 4
+  %109 = zext i8 %108 to i32
+  %110 = icmp ne i32 %109, 108
+  br i1 %110, label %111, label %117
 
-109:                                              ; preds = %103
-  %110 = load i64, ptr @rb_eRuntimeError, align 8
-  %111 = load ptr, ptr %9, align 8
-  %112 = getelementptr inbounds %struct.ibf_header, ptr %111, i32 0, i32 9
-  %113 = load i8, ptr %112, align 4
-  %114 = zext i8 %113 to i32
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %110, ptr noundef @.str.239, i32 noundef %114) #27
+111:                                              ; preds = %105
+  %112 = load i64, ptr @rb_eRuntimeError, align 8
+  %113 = load ptr, ptr %9, align 8
+  %114 = getelementptr inbounds %struct.ibf_header, ptr %113, i32 0, i32 9
+  %115 = load i8, ptr %114, align 4
+  %116 = zext i8 %115 to i32
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %112, ptr noundef @.str.239, i32 noundef %116) #27
   unreachable
 
-115:                                              ; preds = %103
-  %116 = load ptr, ptr %9, align 8
-  %117 = getelementptr inbounds %struct.ibf_header, ptr %116, i32 0, i32 10
-  %118 = load i8, ptr %117, align 1
-  %119 = zext i8 %118 to i32
-  %120 = icmp ne i32 %119, 8
-  br i1 %120, label %121, label %127
+117:                                              ; preds = %105
+  %118 = load ptr, ptr %9, align 8
+  %119 = getelementptr inbounds %struct.ibf_header, ptr %118, i32 0, i32 10
+  %120 = load i8, ptr %119, align 1
+  %121 = zext i8 %120 to i32
+  %122 = icmp ne i32 %121, 8
+  br i1 %122, label %123, label %129
 
-121:                                              ; preds = %115
-  %122 = load i64, ptr @rb_eRuntimeError, align 8
-  %123 = load ptr, ptr %9, align 8
-  %124 = getelementptr inbounds %struct.ibf_header, ptr %123, i32 0, i32 10
-  %125 = load i8, ptr %124, align 1
-  %126 = zext i8 %125 to i32
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %122, ptr noundef @.str.240, i32 noundef %126) #27
+123:                                              ; preds = %117
+  %124 = load i64, ptr @rb_eRuntimeError, align 8
+  %125 = load ptr, ptr %9, align 8
+  %126 = getelementptr inbounds %struct.ibf_header, ptr %125, i32 0, i32 10
+  %127 = load i8, ptr %126, align 1
+  %128 = zext i8 %127 to i32
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %124, ptr noundef @.str.240, i32 noundef %128) #27
   unreachable
 
-127:                                              ; preds = %115
-  %128 = load ptr, ptr %9, align 8
-  %129 = getelementptr inbounds %struct.ibf_header, ptr %128, i32 0, i32 7
-  %130 = load i32, ptr %129, align 4
-  %131 = zext i32 %130 to i64
-  %132 = urem i64 %131, 4
-  %133 = icmp ne i64 %132, 0
-  br i1 %133, label %134, label %139
+129:                                              ; preds = %117
+  %130 = load ptr, ptr %9, align 8
+  %131 = getelementptr inbounds %struct.ibf_header, ptr %130, i32 0, i32 7
+  %132 = load i32, ptr %131, align 4
+  %133 = zext i32 %132 to i64
+  %134 = urem i64 %133, 4
+  %135 = icmp ne i64 %134, 0
+  br i1 %135, label %136, label %141
 
-134:                                              ; preds = %127
-  %135 = load i64, ptr @rb_eArgError, align 8
-  %136 = load ptr, ptr %9, align 8
-  %137 = getelementptr inbounds %struct.ibf_header, ptr %136, i32 0, i32 7
-  %138 = load i32, ptr %137, align 4
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %135, ptr noundef @.str.241, i32 noundef %138) #27
+136:                                              ; preds = %129
+  %137 = load i64, ptr @rb_eArgError, align 8
+  %138 = load ptr, ptr %9, align 8
+  %139 = getelementptr inbounds %struct.ibf_header, ptr %138, i32 0, i32 7
+  %140 = load i32, ptr %139, align 4
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %137, ptr noundef @.str.241, i32 noundef %140) #27
   unreachable
 
-139:                                              ; preds = %127
-  %140 = load ptr, ptr %5, align 8
-  %141 = getelementptr inbounds %struct.ibf_load, ptr %140, i32 0, i32 2
-  %142 = getelementptr inbounds %struct.ibf_load_buffer, ptr %141, i32 0, i32 4
-  %143 = load i32, ptr %142, align 4
-  %144 = zext i32 %143 to i64
-  %145 = urem i64 %144, 4
-  %146 = icmp ne i64 %145, 0
-  br i1 %146, label %147, label %153
+141:                                              ; preds = %129
+  %142 = load ptr, ptr %5, align 8
+  %143 = getelementptr inbounds %struct.ibf_load, ptr %142, i32 0, i32 2
+  %144 = getelementptr inbounds %struct.ibf_load_buffer, ptr %143, i32 0, i32 4
+  %145 = load i32, ptr %144, align 4
+  %146 = zext i32 %145 to i64
+  %147 = urem i64 %146, 4
+  %148 = icmp ne i64 %147, 0
+  br i1 %148, label %149, label %155
 
-147:                                              ; preds = %139
-  %148 = load i64, ptr @rb_eArgError, align 8
-  %149 = load ptr, ptr %5, align 8
-  %150 = getelementptr inbounds %struct.ibf_load, ptr %149, i32 0, i32 2
-  %151 = getelementptr inbounds %struct.ibf_load_buffer, ptr %150, i32 0, i32 4
-  %152 = load i32, ptr %151, align 4
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %148, ptr noundef @.str.242, i32 noundef %152) #27
+149:                                              ; preds = %141
+  %150 = load i64, ptr @rb_eArgError, align 8
+  %151 = load ptr, ptr %5, align 8
+  %152 = getelementptr inbounds %struct.ibf_load, ptr %151, i32 0, i32 2
+  %153 = getelementptr inbounds %struct.ibf_load_buffer, ptr %152, i32 0, i32 4
+  %154 = load i32, ptr %153, align 4
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %150, ptr noundef @.str.242, i32 noundef %154) #27
   unreachable
 
-153:                                              ; preds = %139
+155:                                              ; preds = %141
   ret void
 }
 
@@ -29223,13 +29226,7 @@ define internal void @RBASIC_SET_CLASS_RAW(i64 noundef %0, i64 noundef %1) #0 {
 
 declare i64 @rb_iseq_path(ptr noundef) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #13
-
 declare i64 @rb_syntax_error_append(i64 noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #13
 
 declare void @rb_set_errinfo(i64 noundef) #3
 
@@ -29259,7 +29256,7 @@ define internal { i8, i64 } @rbimpl_size_mul_overflow(i64 noundef %0, i64 nounde
 declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #14
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @compile_data_alloc_trace(ptr noundef %0) #0 {
@@ -34899,7 +34896,7 @@ define internal zeroext i1 @RB_FLONUM_P(i64 noundef %0) #4 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
+declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @find_destination(ptr noundef %0) #0 {
@@ -38379,7 +38376,7 @@ define internal i32 @add_adjust_info(ptr noundef %0, ptr noundef %1, i32 noundef
 }
 
 ; Function Attrs: allocsize(1,2)
-declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) #16
+declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) #15
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
 define internal i32 @comptime_insn_stack_increase(i32 noundef %0, i32 noundef %1, ptr noundef %2) #6 {
@@ -39407,7 +39404,7 @@ declare i64 @rb_str_cat(i64 noundef, ptr noundef, i64 noundef) #3
 declare i64 @rb_fix2uint(i64 noundef) #3
 
 ; Function Attrs: allocsize(0)
-declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) #17
+declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) #16
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @iseq_catch_table_bytes(i32 noundef %0) #0 {
@@ -40069,10 +40066,10 @@ define internal i32 @iseq_set_arguments_keywords(ptr noundef %0, ptr noundef %1,
   store ptr %60, ptr %9, align 8
   br label %61
 
-61:                                               ; preds = %126, %50
+61:                                               ; preds = %127, %50
   %62 = load ptr, ptr %9, align 8
   %63 = icmp ne ptr %62, null
-  br i1 %63, label %64, label %130
+  br i1 %63, label %64, label %131
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %9, align 8
@@ -40081,270 +40078,271 @@ define internal i32 @iseq_set_arguments_keywords(ptr noundef %0, ptr noundef %1,
   %68 = call ptr @get_nd_value(ptr noundef %67)
   store ptr %68, ptr %18, align 8
   %69 = load ptr, ptr %18, align 8
-  %70 = icmp eq ptr %69, inttoptr (i64 -1 to ptr)
-  br i1 %70, label %71, label %74
+  %70 = inttoptr i64 -1 to ptr
+  %71 = icmp eq ptr %69, %70
+  br i1 %71, label %72, label %75
 
-71:                                               ; preds = %64
-  %72 = load i32, ptr %15, align 4
-  %73 = add i32 %72, 1
-  store i32 %73, ptr %15, align 4
-  br label %126
+72:                                               ; preds = %64
+  %73 = load i32, ptr %15, align 4
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %15, align 4
+  br label %127
 
-74:                                               ; preds = %64
-  %75 = load ptr, ptr %18, align 8
-  %76 = getelementptr inbounds %struct.RNode, ptr %75, i32 0, i32 0
-  %77 = load i64, ptr %76, align 8
-  %78 = and i64 %77, 32512
-  %79 = lshr i64 %78, 8
-  %80 = trunc i64 %79 to i32
-  switch i32 %80, label %112 [
-    i32 59, label %81
-    i32 102, label %85
-    i32 69, label %88
-    i32 110, label %91
-    i32 60, label %94
-    i32 61, label %97
-    i32 62, label %100
-    i32 63, label %103
-    i32 112, label %106
-    i32 96, label %109
-    i32 97, label %110
-    i32 98, label %111
+75:                                               ; preds = %64
+  %76 = load ptr, ptr %18, align 8
+  %77 = getelementptr inbounds %struct.RNode, ptr %76, i32 0, i32 0
+  %78 = load i64, ptr %77, align 8
+  %79 = and i64 %78, 32512
+  %80 = lshr i64 %79, 8
+  %81 = trunc i64 %80 to i32
+  switch i32 %81, label %113 [
+    i32 59, label %82
+    i32 102, label %86
+    i32 69, label %89
+    i32 110, label %92
+    i32 60, label %95
+    i32 61, label %98
+    i32 62, label %101
+    i32 63, label %104
+    i32 112, label %107
+    i32 96, label %110
+    i32 97, label %111
+    i32 98, label %112
   ]
 
-81:                                               ; preds = %74
-  %82 = load ptr, ptr %18, align 8
-  %83 = getelementptr inbounds %struct.RNode_LIT, ptr %82, i32 0, i32 1
-  %84 = load i64, ptr %83, align 8
-  store i64 %84, ptr %19, align 8
-  br label %118
+82:                                               ; preds = %75
+  %83 = load ptr, ptr %18, align 8
+  %84 = getelementptr inbounds %struct.RNode_LIT, ptr %83, i32 0, i32 1
+  %85 = load i64, ptr %84, align 8
+  store i64 %85, ptr %19, align 8
+  br label %119
 
-85:                                               ; preds = %74
-  %86 = load ptr, ptr %18, align 8
-  %87 = call i64 @rb_node_sym_string_val(ptr noundef %86)
-  store i64 %87, ptr %19, align 8
-  br label %118
+86:                                               ; preds = %75
+  %87 = load ptr, ptr %18, align 8
+  %88 = call i64 @rb_node_sym_string_val(ptr noundef %87)
+  store i64 %88, ptr %19, align 8
+  br label %119
 
-88:                                               ; preds = %74
-  %89 = load ptr, ptr %18, align 8
-  %90 = call i64 @rb_node_regx_string_val(ptr noundef %89)
-  store i64 %90, ptr %19, align 8
-  br label %118
+89:                                               ; preds = %75
+  %90 = load ptr, ptr %18, align 8
+  %91 = call i64 @rb_node_regx_string_val(ptr noundef %90)
+  store i64 %91, ptr %19, align 8
+  br label %119
 
-91:                                               ; preds = %74
-  %92 = load ptr, ptr %18, align 8
-  %93 = call i64 @rb_node_line_lineno_val(ptr noundef %92)
-  store i64 %93, ptr %19, align 8
-  br label %118
+92:                                               ; preds = %75
+  %93 = load ptr, ptr %18, align 8
+  %94 = call i64 @rb_node_line_lineno_val(ptr noundef %93)
+  store i64 %94, ptr %19, align 8
+  br label %119
 
-94:                                               ; preds = %74
-  %95 = load ptr, ptr %18, align 8
-  %96 = call i64 @rb_node_integer_literal_val(ptr noundef %95)
-  store i64 %96, ptr %19, align 8
-  br label %118
+95:                                               ; preds = %75
+  %96 = load ptr, ptr %18, align 8
+  %97 = call i64 @rb_node_integer_literal_val(ptr noundef %96)
+  store i64 %97, ptr %19, align 8
+  br label %119
 
-97:                                               ; preds = %74
-  %98 = load ptr, ptr %18, align 8
-  %99 = call i64 @rb_node_float_literal_val(ptr noundef %98)
-  store i64 %99, ptr %19, align 8
-  br label %118
+98:                                               ; preds = %75
+  %99 = load ptr, ptr %18, align 8
+  %100 = call i64 @rb_node_float_literal_val(ptr noundef %99)
+  store i64 %100, ptr %19, align 8
+  br label %119
 
-100:                                              ; preds = %74
-  %101 = load ptr, ptr %18, align 8
-  %102 = call i64 @rb_node_rational_literal_val(ptr noundef %101)
-  store i64 %102, ptr %19, align 8
-  br label %118
+101:                                              ; preds = %75
+  %102 = load ptr, ptr %18, align 8
+  %103 = call i64 @rb_node_rational_literal_val(ptr noundef %102)
+  store i64 %103, ptr %19, align 8
+  br label %119
 
-103:                                              ; preds = %74
-  %104 = load ptr, ptr %18, align 8
-  %105 = call i64 @rb_node_imaginary_literal_val(ptr noundef %104)
-  store i64 %105, ptr %19, align 8
-  br label %118
+104:                                              ; preds = %75
+  %105 = load ptr, ptr %18, align 8
+  %106 = call i64 @rb_node_imaginary_literal_val(ptr noundef %105)
+  store i64 %106, ptr %19, align 8
+  br label %119
 
-106:                                              ; preds = %74
-  %107 = load ptr, ptr %18, align 8
-  %108 = call i64 @rb_node_encoding_val(ptr noundef %107)
-  store i64 %108, ptr %19, align 8
-  br label %118
+107:                                              ; preds = %75
+  %108 = load ptr, ptr %18, align 8
+  %109 = call i64 @rb_node_encoding_val(ptr noundef %108)
+  store i64 %109, ptr %19, align 8
+  br label %119
 
-109:                                              ; preds = %74
+110:                                              ; preds = %75
   store i64 4, ptr %19, align 8
-  br label %118
+  br label %119
 
-110:                                              ; preds = %74
+111:                                              ; preds = %75
   store i64 20, ptr %19, align 8
-  br label %118
+  br label %119
 
-111:                                              ; preds = %74
+112:                                              ; preds = %75
   store i64 0, ptr %19, align 8
-  br label %118
+  br label %119
 
-112:                                              ; preds = %74
-  %113 = load ptr, ptr %5, align 8
-  %114 = load ptr, ptr %6, align 8
-  %115 = load ptr, ptr %9, align 8
-  %116 = call i32 @iseq_compile_each(ptr noundef %113, ptr noundef %114, ptr noundef %115, i32 noundef 1)
-  %117 = load i64, ptr %13, align 8
-  store i64 %117, ptr %19, align 8
-  br label %118
+113:                                              ; preds = %75
+  %114 = load ptr, ptr %5, align 8
+  %115 = load ptr, ptr %6, align 8
+  %116 = load ptr, ptr %9, align 8
+  %117 = call i32 @iseq_compile_each(ptr noundef %114, ptr noundef %115, ptr noundef %116, i32 noundef 1)
+  %118 = load i64, ptr %13, align 8
+  store i64 %118, ptr %19, align 8
+  br label %119
 
-118:                                              ; preds = %112, %111, %110, %109, %106, %103, %100, %97, %94, %91, %88, %85, %81
-  %119 = load i32, ptr %16, align 4
-  %120 = add i32 %119, 1
-  store i32 %120, ptr %16, align 4
-  %121 = load ptr, ptr %11, align 8
-  %122 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %121, i32 0, i32 0
-  store i32 %120, ptr %122, align 8
-  %123 = load i64, ptr %12, align 8
-  %124 = load i64, ptr %19, align 8
-  %125 = call i64 @rb_ary_push(i64 noundef %123, i64 noundef %124)
-  br label %126
+119:                                              ; preds = %113, %112, %111, %110, %107, %104, %101, %98, %95, %92, %89, %86, %82
+  %120 = load i32, ptr %16, align 4
+  %121 = add i32 %120, 1
+  store i32 %121, ptr %16, align 4
+  %122 = load ptr, ptr %11, align 8
+  %123 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %122, i32 0, i32 0
+  store i32 %121, ptr %123, align 8
+  %124 = load i64, ptr %12, align 8
+  %125 = load i64, ptr %19, align 8
+  %126 = call i64 @rb_ary_push(i64 noundef %124, i64 noundef %125)
+  br label %127
 
-126:                                              ; preds = %118, %71
-  %127 = load ptr, ptr %9, align 8
-  %128 = getelementptr inbounds %struct.RNode_KW_ARG, ptr %127, i32 0, i32 2
-  %129 = load ptr, ptr %128, align 8
-  store ptr %129, ptr %9, align 8
+127:                                              ; preds = %119, %72
+  %128 = load ptr, ptr %9, align 8
+  %129 = getelementptr inbounds %struct.RNode_KW_ARG, ptr %128, i32 0, i32 2
+  %130 = load ptr, ptr %129, align 8
+  store ptr %130, ptr %9, align 8
   br label %61, !llvm.loop !125
 
-130:                                              ; preds = %61
-  %131 = load i32, ptr %14, align 4
-  %132 = load ptr, ptr %11, align 8
-  %133 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %132, i32 0, i32 0
-  store i32 %131, ptr %133, align 8
-  %134 = load ptr, ptr %7, align 8
-  %135 = getelementptr inbounds %struct.rb_args_info, ptr %134, i32 0, i32 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds %struct.RNode_DVAR, ptr %136, i32 0, i32 1
-  %138 = load i64, ptr %137, align 8
-  %139 = icmp ne i64 %138, 0
-  br i1 %139, label %140, label %170
+131:                                              ; preds = %61
+  %132 = load i32, ptr %14, align 4
+  %133 = load ptr, ptr %11, align 8
+  %134 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %133, i32 0, i32 0
+  store i32 %132, ptr %134, align 8
+  %135 = load ptr, ptr %7, align 8
+  %136 = getelementptr inbounds %struct.rb_args_info, ptr %135, i32 0, i32 8
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds %struct.RNode_DVAR, ptr %137, i32 0, i32 1
+  %139 = load i64, ptr %138, align 8
+  %140 = icmp ne i64 %139, 0
+  br i1 %140, label %141, label %171
 
-140:                                              ; preds = %130
-  %141 = load ptr, ptr %5, align 8
-  %142 = getelementptr inbounds %struct.rb_iseq_struct, ptr %141, i32 0, i32 2
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %143, i32 0, i32 6
-  %145 = load ptr, ptr %144, align 8
-  %146 = load i32, ptr %8, align 4
-  %147 = sext i32 %146 to i64
-  %148 = getelementptr i64, ptr %145, i64 %147
-  %149 = load i64, ptr %148, align 8
-  store i64 %149, ptr %20, align 8
-  %150 = load i32, ptr %8, align 4
-  %151 = add i32 %150, 1
-  store i32 %151, ptr %8, align 4
-  %152 = load ptr, ptr %11, align 8
-  %153 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %152, i32 0, i32 3
-  store i32 %150, ptr %153, align 4
-  %154 = load ptr, ptr %10, align 8
-  %155 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %154, i32 0, i32 3
-  %156 = getelementptr inbounds %struct.anon.15, ptr %155, i32 0, i32 0
-  %157 = load i16, ptr %156, align 8
-  %158 = and i16 %157, -33
-  %159 = or i16 %158, 32
-  store i16 %159, ptr %156, align 8
-  %160 = load i64, ptr %20, align 8
-  %161 = icmp eq i64 %160, 134
-  br i1 %161, label %162, label %169
+141:                                              ; preds = %131
+  %142 = load ptr, ptr %5, align 8
+  %143 = getelementptr inbounds %struct.rb_iseq_struct, ptr %142, i32 0, i32 2
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %144, i32 0, i32 6
+  %146 = load ptr, ptr %145, align 8
+  %147 = load i32, ptr %8, align 4
+  %148 = sext i32 %147 to i64
+  %149 = getelementptr i64, ptr %146, i64 %148
+  %150 = load i64, ptr %149, align 8
+  store i64 %150, ptr %20, align 8
+  %151 = load i32, ptr %8, align 4
+  %152 = add i32 %151, 1
+  store i32 %152, ptr %8, align 4
+  %153 = load ptr, ptr %11, align 8
+  %154 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %153, i32 0, i32 3
+  store i32 %151, ptr %154, align 4
+  %155 = load ptr, ptr %10, align 8
+  %156 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %155, i32 0, i32 3
+  %157 = getelementptr inbounds %struct.anon.15, ptr %156, i32 0, i32 0
+  %158 = load i16, ptr %157, align 8
+  %159 = and i16 %158, -33
+  %160 = or i16 %159, 32
+  store i16 %160, ptr %157, align 8
+  %161 = load i64, ptr %20, align 8
+  %162 = icmp eq i64 %161, 134
+  br i1 %162, label %163, label %170
 
-162:                                              ; preds = %140
-  %163 = load ptr, ptr %10, align 8
-  %164 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %163, i32 0, i32 3
-  %165 = getelementptr inbounds %struct.anon.15, ptr %164, i32 0, i32 0
-  %166 = load i16, ptr %165, align 8
-  %167 = and i16 %166, -2049
-  %168 = or i16 %167, 2048
-  store i16 %168, ptr %165, align 8
-  br label %169
-
-169:                                              ; preds = %162, %140
+163:                                              ; preds = %141
+  %164 = load ptr, ptr %10, align 8
+  %165 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %164, i32 0, i32 3
+  %166 = getelementptr inbounds %struct.anon.15, ptr %165, i32 0, i32 0
+  %167 = load i16, ptr %166, align 8
+  %168 = and i16 %167, -2049
+  %169 = or i16 %168, 2048
+  store i16 %169, ptr %166, align 8
   br label %170
 
-170:                                              ; preds = %169, %130
-  %171 = load i32, ptr %15, align 4
-  %172 = load ptr, ptr %11, align 8
-  %173 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %172, i32 0, i32 1
-  store i32 %171, ptr %173, align 4
-  %174 = load ptr, ptr %10, align 8
-  %175 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %174, i32 0, i32 6
-  %176 = load ptr, ptr %175, align 8
-  %177 = load ptr, ptr %11, align 8
-  %178 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %177, i32 0, i32 2
-  %179 = load i32, ptr %178, align 8
-  %180 = load ptr, ptr %11, align 8
-  %181 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %180, i32 0, i32 0
-  %182 = load i32, ptr %181, align 8
-  %183 = sub i32 %179, %182
-  %184 = sext i32 %183 to i64
-  %185 = getelementptr i64, ptr %176, i64 %184
-  %186 = load ptr, ptr %11, align 8
-  %187 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %186, i32 0, i32 4
-  store ptr %185, ptr %187, align 8
-  %188 = load i64, ptr %12, align 8
-  %189 = call i64 @rb_array_len(i64 noundef %188) #30
-  %190 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %189, i64 noundef 8) #28
-  store ptr %190, ptr %21, align 8
+170:                                              ; preds = %163, %141
+  br label %171
+
+171:                                              ; preds = %170, %131
+  %172 = load i32, ptr %15, align 4
+  %173 = load ptr, ptr %11, align 8
+  %174 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %173, i32 0, i32 1
+  store i32 %172, ptr %174, align 4
+  %175 = load ptr, ptr %10, align 8
+  %176 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %175, i32 0, i32 6
+  %177 = load ptr, ptr %176, align 8
+  %178 = load ptr, ptr %11, align 8
+  %179 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %178, i32 0, i32 2
+  %180 = load i32, ptr %179, align 8
+  %181 = load ptr, ptr %11, align 8
+  %182 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %181, i32 0, i32 0
+  %183 = load i32, ptr %182, align 8
+  %184 = sub i32 %180, %183
+  %185 = sext i32 %184 to i64
+  %186 = getelementptr i64, ptr %177, i64 %185
+  %187 = load ptr, ptr %11, align 8
+  %188 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %187, i32 0, i32 4
+  store ptr %186, ptr %188, align 8
+  %189 = load i64, ptr %12, align 8
+  %190 = call i64 @rb_array_len(i64 noundef %189) #30
+  %191 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %190, i64 noundef 8) #28
+  store ptr %191, ptr %21, align 8
   store i32 0, ptr %17, align 4
-  br label %191
+  br label %192
 
-191:                                              ; preds = %220, %170
-  %192 = load i32, ptr %17, align 4
-  %193 = sext i32 %192 to i64
-  %194 = load i64, ptr %12, align 8
-  %195 = call i64 @rb_array_len(i64 noundef %194) #30
-  %196 = icmp slt i64 %193, %195
-  br i1 %196, label %197, label %223
+192:                                              ; preds = %221, %171
+  %193 = load i32, ptr %17, align 4
+  %194 = sext i32 %193 to i64
+  %195 = load i64, ptr %12, align 8
+  %196 = call i64 @rb_array_len(i64 noundef %195) #30
+  %197 = icmp slt i64 %194, %196
+  br i1 %197, label %198, label %224
 
-197:                                              ; preds = %191
-  %198 = load i64, ptr %12, align 8
-  %199 = load i32, ptr %17, align 4
-  %200 = sext i32 %199 to i64
-  %201 = call i64 @RARRAY_AREF(i64 noundef %198, i64 noundef %200) #30
-  store i64 %201, ptr %22, align 8
-  %202 = load i64, ptr %22, align 8
-  %203 = load i64, ptr %13, align 8
-  %204 = icmp eq i64 %202, %203
-  br i1 %204, label %205, label %206
+198:                                              ; preds = %192
+  %199 = load i64, ptr %12, align 8
+  %200 = load i32, ptr %17, align 4
+  %201 = sext i32 %200 to i64
+  %202 = call i64 @RARRAY_AREF(i64 noundef %199, i64 noundef %201) #30
+  store i64 %202, ptr %22, align 8
+  %203 = load i64, ptr %22, align 8
+  %204 = load i64, ptr %13, align 8
+  %205 = icmp eq i64 %203, %204
+  br i1 %205, label %206, label %207
 
-205:                                              ; preds = %197
+206:                                              ; preds = %198
   store i64 36, ptr %22, align 8
-  br label %206
+  br label %207
 
-206:                                              ; preds = %205, %197
-  %207 = load i64, ptr %22, align 8
-  %208 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %207) #26
-  br i1 %208, label %214, label %209
+207:                                              ; preds = %206, %198
+  %208 = load i64, ptr %22, align 8
+  %209 = call zeroext i1 @RB_SPECIAL_CONST_P(i64 noundef %208) #26
+  br i1 %209, label %215, label %210
 
-209:                                              ; preds = %206
-  %210 = load ptr, ptr %5, align 8
-  %211 = ptrtoint ptr %210 to i64
-  %212 = load i64, ptr %22, align 8
-  %213 = call i64 @rb_obj_written(i64 noundef %211, i64 noundef 36, i64 noundef %212, ptr noundef @.str.1, i32 noundef 1995)
-  br label %214
+210:                                              ; preds = %207
+  %211 = load ptr, ptr %5, align 8
+  %212 = ptrtoint ptr %211 to i64
+  %213 = load i64, ptr %22, align 8
+  %214 = call i64 @rb_obj_written(i64 noundef %212, i64 noundef 36, i64 noundef %213, ptr noundef @.str.1, i32 noundef 1995)
+  br label %215
 
-214:                                              ; preds = %209, %206
-  %215 = load i64, ptr %22, align 8
-  %216 = load ptr, ptr %21, align 8
-  %217 = load i32, ptr %17, align 4
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr i64, ptr %216, i64 %218
-  store i64 %215, ptr %219, align 8
-  br label %220
+215:                                              ; preds = %210, %207
+  %216 = load i64, ptr %22, align 8
+  %217 = load ptr, ptr %21, align 8
+  %218 = load i32, ptr %17, align 4
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr i64, ptr %217, i64 %219
+  store i64 %216, ptr %220, align 8
+  br label %221
 
-220:                                              ; preds = %214
-  %221 = load i32, ptr %17, align 4
-  %222 = add i32 %221, 1
-  store i32 %222, ptr %17, align 4
-  br label %191, !llvm.loop !126
+221:                                              ; preds = %215
+  %222 = load i32, ptr %17, align 4
+  %223 = add i32 %222, 1
+  store i32 %223, ptr %17, align 4
+  br label %192, !llvm.loop !126
 
-223:                                              ; preds = %191
-  %224 = load ptr, ptr %21, align 8
-  %225 = load ptr, ptr %11, align 8
-  %226 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %225, i32 0, i32 5
-  store ptr %224, ptr %226, align 8
-  %227 = load i32, ptr %8, align 4
-  ret i32 %227
+224:                                              ; preds = %192
+  %225 = load ptr, ptr %21, align 8
+  %226 = load ptr, ptr %11, align 8
+  %227 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %226, i32 0, i32 5
+  store ptr %225, ptr %227, align 8
+  %228 = load i32, ptr %8, align 4
+  ret i32 %228
 }
 
 declare i64 @rb_str_tmp_new(i64 noundef) #3
@@ -40515,7 +40513,7 @@ define internal i64 @RUBY_BIT_ROTR(i64 noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshr.i64(i64, i64, i64) #14
+declare i64 @llvm.fshr.i64(i64, i64, i64) #13
 
 declare i64 @rb_num2long(i64 noundef) #3
 
@@ -59333,173 +59331,174 @@ define internal i32 @compile_kw_arg(ptr noundef %0, ptr noundef %1, ptr noundef 
   %29 = call ptr @get_nd_value(ptr noundef %28)
   store ptr %29, ptr %12, align 8
   %30 = load ptr, ptr %12, align 8
-  %31 = icmp eq ptr %30, inttoptr (i64 -1 to ptr)
-  br i1 %31, label %32, label %39
+  %31 = inttoptr i64 -1 to ptr
+  %32 = icmp eq ptr %30, %31
+  br i1 %32, label %33, label %40
 
-32:                                               ; preds = %4
-  %33 = load ptr, ptr %6, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.RNode, ptr %34, i32 0, i32 0
-  %36 = load i64, ptr %35, align 8
-  %37 = ashr i64 %36, 15
-  %38 = trunc i64 %37 to i32
-  call void (ptr, i32, ptr, ...) @append_compile_error(ptr noundef %33, i32 noundef %38, ptr noundef @.str.29)
+33:                                               ; preds = %4
+  %34 = load ptr, ptr %6, align 8
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds %struct.RNode, ptr %35, i32 0, i32 0
+  %37 = load i64, ptr %36, align 8
+  %38 = ashr i64 %37, 15
+  %39 = trunc i64 %38 to i32
+  call void (ptr, i32, ptr, ...) @append_compile_error(ptr noundef %34, i32 noundef %39, ptr noundef @.str.29)
   store i32 0, ptr %5, align 4
-  br label %145
+  br label %146
 
-39:                                               ; preds = %4
-  %40 = load ptr, ptr %12, align 8
-  %41 = call zeroext i1 @nd_type_p(ptr noundef %40, i32 noundef 59)
-  br i1 %41, label %72, label %42
+40:                                               ; preds = %4
+  %41 = load ptr, ptr %12, align 8
+  %42 = call zeroext i1 @nd_type_p(ptr noundef %41, i32 noundef 59)
+  br i1 %42, label %73, label %43
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %12, align 8
-  %44 = call zeroext i1 @nd_type_p(ptr noundef %43, i32 noundef 102)
-  br i1 %44, label %72, label %45
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %12, align 8
+  %45 = call zeroext i1 @nd_type_p(ptr noundef %44, i32 noundef 102)
+  br i1 %45, label %73, label %46
 
-45:                                               ; preds = %42
-  %46 = load ptr, ptr %12, align 8
-  %47 = call zeroext i1 @nd_type_p(ptr noundef %46, i32 noundef 69)
-  br i1 %47, label %72, label %48
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %12, align 8
+  %48 = call zeroext i1 @nd_type_p(ptr noundef %47, i32 noundef 69)
+  br i1 %48, label %73, label %49
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %12, align 8
-  %50 = call zeroext i1 @nd_type_p(ptr noundef %49, i32 noundef 110)
-  br i1 %50, label %72, label %51
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %12, align 8
+  %51 = call zeroext i1 @nd_type_p(ptr noundef %50, i32 noundef 110)
+  br i1 %51, label %73, label %52
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %12, align 8
-  %53 = call zeroext i1 @nd_type_p(ptr noundef %52, i32 noundef 60)
-  br i1 %53, label %72, label %54
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %12, align 8
+  %54 = call zeroext i1 @nd_type_p(ptr noundef %53, i32 noundef 60)
+  br i1 %54, label %73, label %55
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %12, align 8
-  %56 = call zeroext i1 @nd_type_p(ptr noundef %55, i32 noundef 61)
-  br i1 %56, label %72, label %57
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %12, align 8
+  %57 = call zeroext i1 @nd_type_p(ptr noundef %56, i32 noundef 61)
+  br i1 %57, label %73, label %58
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr %12, align 8
-  %59 = call zeroext i1 @nd_type_p(ptr noundef %58, i32 noundef 62)
-  br i1 %59, label %72, label %60
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %12, align 8
+  %60 = call zeroext i1 @nd_type_p(ptr noundef %59, i32 noundef 62)
+  br i1 %60, label %73, label %61
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %12, align 8
-  %62 = call zeroext i1 @nd_type_p(ptr noundef %61, i32 noundef 63)
-  br i1 %62, label %72, label %63
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %12, align 8
+  %63 = call zeroext i1 @nd_type_p(ptr noundef %62, i32 noundef 63)
+  br i1 %63, label %73, label %64
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr %12, align 8
-  %65 = call zeroext i1 @nd_type_p(ptr noundef %64, i32 noundef 96)
-  br i1 %65, label %72, label %66
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %12, align 8
+  %66 = call zeroext i1 @nd_type_p(ptr noundef %65, i32 noundef 96)
+  br i1 %66, label %73, label %67
 
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %12, align 8
-  %68 = call zeroext i1 @nd_type_p(ptr noundef %67, i32 noundef 97)
-  br i1 %68, label %72, label %69
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %12, align 8
+  %69 = call zeroext i1 @nd_type_p(ptr noundef %68, i32 noundef 97)
+  br i1 %69, label %73, label %70
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr %12, align 8
-  %71 = call zeroext i1 @nd_type_p(ptr noundef %70, i32 noundef 98)
-  br i1 %71, label %72, label %79
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %12, align 8
+  %72 = call zeroext i1 @nd_type_p(ptr noundef %71, i32 noundef 98)
+  br i1 %72, label %73, label %80
 
-72:                                               ; preds = %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39
-  %73 = load ptr, ptr %6, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds %struct.RNode, ptr %74, i32 0, i32 0
-  %76 = load i64, ptr %75, align 8
-  %77 = ashr i64 %76, 15
-  %78 = trunc i64 %77 to i32
-  call void (ptr, i32, ptr, ...) @append_compile_error(ptr noundef %73, i32 noundef %78, ptr noundef @.str.29)
+73:                                               ; preds = %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40
+  %74 = load ptr, ptr %6, align 8
+  %75 = load ptr, ptr %8, align 8
+  %76 = getelementptr inbounds %struct.RNode, ptr %75, i32 0, i32 0
+  %77 = load i64, ptr %76, align 8
+  %78 = ashr i64 %77, 15
+  %79 = trunc i64 %78 to i32
+  call void (ptr, i32, ptr, ...) @append_compile_error(ptr noundef %74, i32 noundef %79, ptr noundef @.str.29)
   store i32 0, ptr %5, align 4
-  br label %145
+  br label %146
 
-79:                                               ; preds = %69
-  %80 = load ptr, ptr %10, align 8
-  %81 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %80, i32 0, i32 13
-  %82 = load i32, ptr %81, align 8
-  %83 = load ptr, ptr %10, align 8
-  %84 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %83, i32 0, i32 3
-  %85 = getelementptr inbounds %struct.anon.15, ptr %84, i32 0, i32 9
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %86, i32 0, i32 2
-  %88 = load i32, ptr %87, align 8
-  %89 = sub i32 %82, %88
-  store i32 %89, ptr %13, align 4
-  %90 = load ptr, ptr %10, align 8
-  %91 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %90, i32 0, i32 3
-  %92 = getelementptr inbounds %struct.anon.15, ptr %91, i32 0, i32 9
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %93, i32 0, i32 0
-  %95 = load i32, ptr %94, align 8
-  store i32 %95, ptr %14, align 4
-  %96 = load ptr, ptr %7, align 8
-  %97 = load ptr, ptr %6, align 8
-  %98 = load ptr, ptr %8, align 8
-  %99 = getelementptr inbounds %struct.RNode, ptr %98, i32 0, i32 0
-  %100 = load i64, ptr %99, align 8
-  %101 = ashr i64 %100, 15
-  %102 = trunc i64 %101 to i32
-  %103 = load ptr, ptr %8, align 8
-  %104 = getelementptr inbounds %struct.RNode, ptr %103, i32 0, i32 2
-  %105 = load i32, ptr %104, align 8
-  %106 = load i32, ptr %13, align 4
-  %107 = add i32 %106, 3
-  %108 = sub i32 %107, 1
-  %109 = sext i32 %108 to i64
-  %110 = call i64 @RB_INT2FIX(i64 noundef %109) #26
-  %111 = load i32, ptr %14, align 4
-  %112 = sext i32 %111 to i64
-  %113 = call i64 @RB_INT2FIX(i64 noundef %112) #26
-  %114 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %97, i32 noundef %102, i32 noundef %105, i32 noundef 50, i32 noundef 2, i64 noundef %110, i64 noundef %113)
-  call void @ADD_ELEM(ptr noundef %96, ptr noundef %114)
-  %115 = load ptr, ptr %7, align 8
-  %116 = load ptr, ptr %6, align 8
-  %117 = load ptr, ptr %8, align 8
-  %118 = getelementptr inbounds %struct.RNode, ptr %117, i32 0, i32 0
-  %119 = load i64, ptr %118, align 8
-  %120 = ashr i64 %119, 15
-  %121 = trunc i64 %120 to i32
-  %122 = load ptr, ptr %8, align 8
-  %123 = getelementptr inbounds %struct.RNode, ptr %122, i32 0, i32 2
-  %124 = load i32, ptr %123, align 8
-  %125 = load ptr, ptr %11, align 8
-  %126 = ptrtoint ptr %125 to i64
-  %127 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %116, i32 noundef %121, i32 noundef %124, i32 noundef 67, i32 noundef 1, i64 noundef %126)
-  call void @ADD_ELEM(ptr noundef %115, ptr noundef %127)
-  %128 = load ptr, ptr %11, align 8
-  %129 = getelementptr inbounds %struct.iseq_label_data, ptr %128, i32 0, i32 5
-  %130 = load i32, ptr %129, align 8
-  %131 = add i32 %130, 1
-  store i32 %131, ptr %129, align 8
-  %132 = load ptr, ptr %6, align 8
-  %133 = load ptr, ptr %7, align 8
-  %134 = load ptr, ptr %8, align 8
-  %135 = getelementptr inbounds %struct.RNode_KW_ARG, ptr %134, i32 0, i32 1
-  %136 = load ptr, ptr %135, align 8
-  %137 = call i32 @iseq_compile_each(ptr noundef %132, ptr noundef %133, ptr noundef %136, i32 noundef 1)
-  %138 = icmp ne i32 %137, 0
-  br i1 %138, label %140, label %139
+80:                                               ; preds = %70
+  %81 = load ptr, ptr %10, align 8
+  %82 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %81, i32 0, i32 13
+  %83 = load i32, ptr %82, align 8
+  %84 = load ptr, ptr %10, align 8
+  %85 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %84, i32 0, i32 3
+  %86 = getelementptr inbounds %struct.anon.15, ptr %85, i32 0, i32 9
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %87, i32 0, i32 2
+  %89 = load i32, ptr %88, align 8
+  %90 = sub i32 %83, %89
+  store i32 %90, ptr %13, align 4
+  %91 = load ptr, ptr %10, align 8
+  %92 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %91, i32 0, i32 3
+  %93 = getelementptr inbounds %struct.anon.15, ptr %92, i32 0, i32 9
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr %94, i32 0, i32 0
+  %96 = load i32, ptr %95, align 8
+  store i32 %96, ptr %14, align 4
+  %97 = load ptr, ptr %7, align 8
+  %98 = load ptr, ptr %6, align 8
+  %99 = load ptr, ptr %8, align 8
+  %100 = getelementptr inbounds %struct.RNode, ptr %99, i32 0, i32 0
+  %101 = load i64, ptr %100, align 8
+  %102 = ashr i64 %101, 15
+  %103 = trunc i64 %102 to i32
+  %104 = load ptr, ptr %8, align 8
+  %105 = getelementptr inbounds %struct.RNode, ptr %104, i32 0, i32 2
+  %106 = load i32, ptr %105, align 8
+  %107 = load i32, ptr %13, align 4
+  %108 = add i32 %107, 3
+  %109 = sub i32 %108, 1
+  %110 = sext i32 %109 to i64
+  %111 = call i64 @RB_INT2FIX(i64 noundef %110) #26
+  %112 = load i32, ptr %14, align 4
+  %113 = sext i32 %112 to i64
+  %114 = call i64 @RB_INT2FIX(i64 noundef %113) #26
+  %115 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %98, i32 noundef %103, i32 noundef %106, i32 noundef 50, i32 noundef 2, i64 noundef %111, i64 noundef %114)
+  call void @ADD_ELEM(ptr noundef %97, ptr noundef %115)
+  %116 = load ptr, ptr %7, align 8
+  %117 = load ptr, ptr %6, align 8
+  %118 = load ptr, ptr %8, align 8
+  %119 = getelementptr inbounds %struct.RNode, ptr %118, i32 0, i32 0
+  %120 = load i64, ptr %119, align 8
+  %121 = ashr i64 %120, 15
+  %122 = trunc i64 %121 to i32
+  %123 = load ptr, ptr %8, align 8
+  %124 = getelementptr inbounds %struct.RNode, ptr %123, i32 0, i32 2
+  %125 = load i32, ptr %124, align 8
+  %126 = load ptr, ptr %11, align 8
+  %127 = ptrtoint ptr %126 to i64
+  %128 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %117, i32 noundef %122, i32 noundef %125, i32 noundef 67, i32 noundef 1, i64 noundef %127)
+  call void @ADD_ELEM(ptr noundef %116, ptr noundef %128)
+  %129 = load ptr, ptr %11, align 8
+  %130 = getelementptr inbounds %struct.iseq_label_data, ptr %129, i32 0, i32 5
+  %131 = load i32, ptr %130, align 8
+  %132 = add i32 %131, 1
+  store i32 %132, ptr %130, align 8
+  %133 = load ptr, ptr %6, align 8
+  %134 = load ptr, ptr %7, align 8
+  %135 = load ptr, ptr %8, align 8
+  %136 = getelementptr inbounds %struct.RNode_KW_ARG, ptr %135, i32 0, i32 1
+  %137 = load ptr, ptr %136, align 8
+  %138 = call i32 @iseq_compile_each(ptr noundef %133, ptr noundef %134, ptr noundef %137, i32 noundef 1)
+  %139 = icmp ne i32 %138, 0
+  br i1 %139, label %141, label %140
 
-139:                                              ; preds = %79
+140:                                              ; preds = %80
   store i32 0, ptr %5, align 4
-  br label %145
+  br label %146
 
-140:                                              ; preds = %79
-  %141 = load ptr, ptr %7, align 8
-  %142 = load ptr, ptr %11, align 8
-  call void @ADD_ELEM(ptr noundef %141, ptr noundef %142)
-  br label %143
-
-143:                                              ; preds = %140
+141:                                              ; preds = %80
+  %142 = load ptr, ptr %7, align 8
+  %143 = load ptr, ptr %11, align 8
+  call void @ADD_ELEM(ptr noundef %142, ptr noundef %143)
   br label %144
 
-144:                                              ; preds = %143
-  store i32 1, ptr %5, align 4
+144:                                              ; preds = %141
   br label %145
 
-145:                                              ; preds = %144, %139, %72, %32
-  %146 = load i32, ptr %5, align 4
-  ret i32 %146
+145:                                              ; preds = %144
+  store i32 1, ptr %5, align 4
+  br label %146
+
+146:                                              ; preds = %145, %140, %73, %33
+  %147 = load i32, ptr %5, align 4
+  ret i32 %147
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -61706,51 +61705,51 @@ define internal i32 @iseq_compile_pattern_each(ptr noundef %0, ptr noundef %1, p
   %88 = and i64 %87, 32512
   %89 = lshr i64 %88, 8
   %90 = trunc i64 %89 to i32
-  switch i32 %90, label %3219 [
+  switch i32 %90, label %3225 [
     i32 106, label %91
-    i32 108, label %845
-    i32 107, label %1737
-    i32 59, label %2570
-    i32 102, label %2570
-    i32 69, label %2570
-    i32 110, label %2570
-    i32 60, label %2570
-    i32 61, label %2570
-    i32 62, label %2570
-    i32 63, label %2570
-    i32 111, label %2570
-    i32 112, label %2570
-    i32 64, label %2570
-    i32 66, label %2570
-    i32 65, label %2570
-    i32 103, label %2570
-    i32 70, label %2570
-    i32 43, label %2570
-    i32 44, label %2570
-    i32 105, label %2570
-    i32 91, label %2570
-    i32 92, label %2570
-    i32 52, label %2570
-    i32 48, label %2570
-    i32 49, label %2570
-    i32 51, label %2570
-    i32 53, label %2570
-    i32 50, label %2570
-    i32 97, label %2570
-    i32 98, label %2570
-    i32 95, label %2570
-    i32 96, label %2570
-    i32 89, label %2570
-    i32 90, label %2570
-    i32 18, label %2570
-    i32 1, label %2570
-    i32 71, label %2570
-    i32 25, label %2651
-    i32 26, label %2720
-    i32 2, label %2791
-    i32 3, label %2791
-    i32 45, label %3012
-    i32 23, label %3123
+    i32 108, label %848
+    i32 107, label %1742
+    i32 59, label %2576
+    i32 102, label %2576
+    i32 69, label %2576
+    i32 110, label %2576
+    i32 60, label %2576
+    i32 61, label %2576
+    i32 62, label %2576
+    i32 63, label %2576
+    i32 111, label %2576
+    i32 112, label %2576
+    i32 64, label %2576
+    i32 66, label %2576
+    i32 65, label %2576
+    i32 103, label %2576
+    i32 70, label %2576
+    i32 43, label %2576
+    i32 44, label %2576
+    i32 105, label %2576
+    i32 91, label %2576
+    i32 92, label %2576
+    i32 52, label %2576
+    i32 48, label %2576
+    i32 49, label %2576
+    i32 51, label %2576
+    i32 53, label %2576
+    i32 50, label %2576
+    i32 97, label %2576
+    i32 98, label %2576
+    i32 95, label %2576
+    i32 96, label %2576
+    i32 89, label %2576
+    i32 90, label %2576
+    i32 18, label %2576
+    i32 1, label %2576
+    i32 71, label %2576
+    i32 25, label %2657
+    i32 26, label %2726
+    i32 2, label %2797
+    i32 3, label %2797
+    i32 45, label %3018
+    i32 23, label %3129
   ]
 
 91:                                               ; preds = %9
@@ -61808,3805 +61807,3811 @@ define internal i32 @iseq_compile_pattern_each(ptr noundef %0, ptr noundef %1, p
   %127 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %126, i32 0, i32 3
   %128 = load ptr, ptr %127, align 8
   %129 = icmp ne ptr %128, null
-  br i1 %129, label %130, label %147
+  br i1 %129, label %130, label %149
 
 130:                                              ; preds = %121
   %131 = load ptr, ptr %13, align 8
   %132 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %131, i32 0, i32 3
   %133 = load ptr, ptr %132, align 8
-  %134 = icmp ne ptr %133, inttoptr (i64 -1 to ptr)
-  br i1 %134, label %145, label %135
+  %134 = inttoptr i64 -1 to ptr
+  %135 = icmp ne ptr %133, %134
+  br i1 %135, label %147, label %136
 
-135:                                              ; preds = %130
-  %136 = load ptr, ptr %13, align 8
-  %137 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %136, i32 0, i32 3
-  %138 = load ptr, ptr %137, align 8
-  %139 = icmp ne ptr %138, inttoptr (i64 -1 to ptr)
-  br i1 %139, label %143, label %140
+136:                                              ; preds = %130
+  %137 = load ptr, ptr %13, align 8
+  %138 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %137, i32 0, i32 3
+  %139 = load ptr, ptr %138, align 8
+  %140 = inttoptr i64 -1 to ptr
+  %141 = icmp ne ptr %139, %140
+  br i1 %141, label %145, label %142
 
-140:                                              ; preds = %135
-  %141 = load i32, ptr %24, align 4
-  %142 = icmp sgt i32 %141, 0
-  br label %143
-
-143:                                              ; preds = %140, %135
-  %144 = phi i1 [ false, %135 ], [ %142, %140 ]
+142:                                              ; preds = %136
+  %143 = load i32, ptr %24, align 4
+  %144 = icmp sgt i32 %143, 0
   br label %145
 
-145:                                              ; preds = %143, %130
-  %146 = phi i1 [ true, %130 ], [ %144, %143 ]
+145:                                              ; preds = %142, %136
+  %146 = phi i1 [ false, %136 ], [ %144, %142 ]
   br label %147
 
-147:                                              ; preds = %145, %121
-  %148 = phi i1 [ false, %121 ], [ %146, %145 ]
-  %149 = zext i1 %148 to i32
-  store i32 %149, ptr %26, align 4
-  %150 = load ptr, ptr %11, align 8
-  %151 = load i32, ptr %20, align 4
-  %152 = sext i32 %151 to i64
-  %153 = call ptr @new_label_body(ptr noundef %150, i64 noundef %152)
-  store ptr %153, ptr %27, align 8
-  %154 = load ptr, ptr %11, align 8
-  %155 = load i32, ptr %20, align 4
-  %156 = sext i32 %155 to i64
-  %157 = call ptr @new_label_body(ptr noundef %154, i64 noundef %156)
-  store ptr %157, ptr %28, align 8
-  %158 = load ptr, ptr %11, align 8
-  %159 = load i32, ptr %20, align 4
-  %160 = sext i32 %159 to i64
-  %161 = call ptr @new_label_body(ptr noundef %158, i64 noundef %160)
-  store ptr %161, ptr %29, align 8
-  %162 = load ptr, ptr %11, align 8
-  %163 = load i32, ptr %20, align 4
-  %164 = sext i32 %163 to i64
-  %165 = call ptr @new_label_body(ptr noundef %162, i64 noundef %164)
-  store ptr %165, ptr %30, align 8
-  %166 = load i32, ptr %26, align 4
-  %167 = icmp ne i32 %166, 0
-  br i1 %167, label %168, label %197
+147:                                              ; preds = %145, %130
+  %148 = phi i1 [ true, %130 ], [ %146, %145 ]
+  br label %149
 
-168:                                              ; preds = %147
-  %169 = load ptr, ptr %12, align 8
-  %170 = load ptr, ptr %11, align 8
-  %171 = load ptr, ptr %21, align 8
-  %172 = getelementptr inbounds %struct.RNode, ptr %171, i32 0, i32 0
-  %173 = load i64, ptr %172, align 8
-  %174 = ashr i64 %173, 15
-  %175 = trunc i64 %174 to i32
-  %176 = load ptr, ptr %21, align 8
-  %177 = getelementptr inbounds %struct.RNode, ptr %176, i32 0, i32 2
-  %178 = load i32, ptr %177, align 8
-  %179 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %170, i32 noundef %175, i32 noundef %178, i32 noundef 19, i32 noundef 1, i64 noundef 1)
-  call void @ADD_ELEM(ptr noundef %169, ptr noundef %179)
-  %180 = load ptr, ptr %12, align 8
-  %181 = load ptr, ptr %11, align 8
-  %182 = load ptr, ptr %21, align 8
-  %183 = getelementptr inbounds %struct.RNode, ptr %182, i32 0, i32 0
-  %184 = load i64, ptr %183, align 8
-  %185 = ashr i64 %184, 15
-  %186 = trunc i64 %185 to i32
-  %187 = load ptr, ptr %21, align 8
-  %188 = getelementptr inbounds %struct.RNode, ptr %187, i32 0, i32 2
-  %189 = load i32, ptr %188, align 8
-  %190 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %181, i32 noundef %186, i32 noundef %189, i32 noundef 42, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %180, ptr noundef %190)
-  %191 = load i32, ptr %18, align 4
-  %192 = icmp ne i32 %191, 0
-  br i1 %192, label %193, label %196
+149:                                              ; preds = %147, %121
+  %150 = phi i1 [ false, %121 ], [ %148, %147 ]
+  %151 = zext i1 %150 to i32
+  store i32 %151, ptr %26, align 4
+  %152 = load ptr, ptr %11, align 8
+  %153 = load i32, ptr %20, align 4
+  %154 = sext i32 %153 to i64
+  %155 = call ptr @new_label_body(ptr noundef %152, i64 noundef %154)
+  store ptr %155, ptr %27, align 8
+  %156 = load ptr, ptr %11, align 8
+  %157 = load i32, ptr %20, align 4
+  %158 = sext i32 %157 to i64
+  %159 = call ptr @new_label_body(ptr noundef %156, i64 noundef %158)
+  store ptr %159, ptr %28, align 8
+  %160 = load ptr, ptr %11, align 8
+  %161 = load i32, ptr %20, align 4
+  %162 = sext i32 %161 to i64
+  %163 = call ptr @new_label_body(ptr noundef %160, i64 noundef %162)
+  store ptr %163, ptr %29, align 8
+  %164 = load ptr, ptr %11, align 8
+  %165 = load i32, ptr %20, align 4
+  %166 = sext i32 %165 to i64
+  %167 = call ptr @new_label_body(ptr noundef %164, i64 noundef %166)
+  store ptr %167, ptr %30, align 8
+  %168 = load i32, ptr %26, align 4
+  %169 = icmp ne i32 %168, 0
+  br i1 %169, label %170, label %199
 
-193:                                              ; preds = %168
-  %194 = load i32, ptr %18, align 4
-  %195 = add i32 %194, 1
-  store i32 %195, ptr %18, align 4
-  br label %196
+170:                                              ; preds = %149
+  %171 = load ptr, ptr %12, align 8
+  %172 = load ptr, ptr %11, align 8
+  %173 = load ptr, ptr %21, align 8
+  %174 = getelementptr inbounds %struct.RNode, ptr %173, i32 0, i32 0
+  %175 = load i64, ptr %174, align 8
+  %176 = ashr i64 %175, 15
+  %177 = trunc i64 %176 to i32
+  %178 = load ptr, ptr %21, align 8
+  %179 = getelementptr inbounds %struct.RNode, ptr %178, i32 0, i32 2
+  %180 = load i32, ptr %179, align 8
+  %181 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %172, i32 noundef %177, i32 noundef %180, i32 noundef 19, i32 noundef 1, i64 noundef 1)
+  call void @ADD_ELEM(ptr noundef %171, ptr noundef %181)
+  %182 = load ptr, ptr %12, align 8
+  %183 = load ptr, ptr %11, align 8
+  %184 = load ptr, ptr %21, align 8
+  %185 = getelementptr inbounds %struct.RNode, ptr %184, i32 0, i32 0
+  %186 = load i64, ptr %185, align 8
+  %187 = ashr i64 %186, 15
+  %188 = trunc i64 %187 to i32
+  %189 = load ptr, ptr %21, align 8
+  %190 = getelementptr inbounds %struct.RNode, ptr %189, i32 0, i32 2
+  %191 = load i32, ptr %190, align 8
+  %192 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %183, i32 noundef %188, i32 noundef %191, i32 noundef 42, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %182, ptr noundef %192)
+  %193 = load i32, ptr %18, align 4
+  %194 = icmp ne i32 %193, 0
+  br i1 %194, label %195, label %198
 
-196:                                              ; preds = %193, %168
-  br label %197
+195:                                              ; preds = %170
+  %196 = load i32, ptr %18, align 4
+  %197 = add i32 %196, 1
+  store i32 %197, ptr %18, align 4
+  br label %198
 
-197:                                              ; preds = %196, %147
-  %198 = load ptr, ptr %11, align 8
-  %199 = load ptr, ptr %12, align 8
-  %200 = load ptr, ptr %13, align 8
-  %201 = load ptr, ptr %27, align 8
-  %202 = load i8, ptr %16, align 1
-  %203 = trunc i8 %202 to i1
-  %204 = load i32, ptr %18, align 4
-  %205 = call i32 @iseq_compile_pattern_constant(ptr noundef %198, ptr noundef %199, ptr noundef %200, ptr noundef %201, i1 noundef zeroext %203, i32 noundef %204)
-  %206 = icmp ne i32 %205, 0
-  br i1 %206, label %208, label %207
+198:                                              ; preds = %195, %170
+  br label %199
 
-207:                                              ; preds = %197
+199:                                              ; preds = %198, %149
+  %200 = load ptr, ptr %11, align 8
+  %201 = load ptr, ptr %12, align 8
+  %202 = load ptr, ptr %13, align 8
+  %203 = load ptr, ptr %27, align 8
+  %204 = load i8, ptr %16, align 1
+  %205 = trunc i8 %204 to i1
+  %206 = load i32, ptr %18, align 4
+  %207 = call i32 @iseq_compile_pattern_constant(ptr noundef %200, ptr noundef %201, ptr noundef %202, ptr noundef %203, i1 noundef zeroext %205, i32 noundef %206)
+  %208 = icmp ne i32 %207, 0
+  br i1 %208, label %210, label %209
+
+209:                                              ; preds = %199
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-208:                                              ; preds = %197
-  %209 = load ptr, ptr %11, align 8
-  %210 = load ptr, ptr %12, align 8
-  %211 = load ptr, ptr %13, align 8
-  %212 = load ptr, ptr %29, align 8
-  %213 = load ptr, ptr %30, align 8
-  %214 = load ptr, ptr %27, align 8
-  %215 = load ptr, ptr %28, align 8
-  %216 = load i8, ptr %16, align 1
-  %217 = trunc i8 %216 to i1
-  %218 = load i32, ptr %18, align 4
-  %219 = load i8, ptr %19, align 1
-  %220 = trunc i8 %219 to i1
-  %221 = call i32 @iseq_compile_array_deconstruct(ptr noundef %209, ptr noundef %210, ptr noundef %211, ptr noundef %212, ptr noundef %213, ptr noundef %214, ptr noundef %215, i1 noundef zeroext %217, i32 noundef %218, i1 noundef zeroext %220)
-  %222 = icmp ne i32 %221, 0
-  br i1 %222, label %224, label %223
+210:                                              ; preds = %199
+  %211 = load ptr, ptr %11, align 8
+  %212 = load ptr, ptr %12, align 8
+  %213 = load ptr, ptr %13, align 8
+  %214 = load ptr, ptr %29, align 8
+  %215 = load ptr, ptr %30, align 8
+  %216 = load ptr, ptr %27, align 8
+  %217 = load ptr, ptr %28, align 8
+  %218 = load i8, ptr %16, align 1
+  %219 = trunc i8 %218 to i1
+  %220 = load i32, ptr %18, align 4
+  %221 = load i8, ptr %19, align 1
+  %222 = trunc i8 %221 to i1
+  %223 = call i32 @iseq_compile_array_deconstruct(ptr noundef %211, ptr noundef %212, ptr noundef %213, ptr noundef %214, ptr noundef %215, ptr noundef %216, ptr noundef %217, i1 noundef zeroext %219, i32 noundef %220, i1 noundef zeroext %222)
+  %224 = icmp ne i32 %223, 0
+  br i1 %224, label %226, label %225
 
-223:                                              ; preds = %208
+225:                                              ; preds = %210
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-224:                                              ; preds = %208
-  %225 = load ptr, ptr %12, align 8
-  %226 = load ptr, ptr %11, align 8
-  %227 = load ptr, ptr %21, align 8
-  %228 = getelementptr inbounds %struct.RNode, ptr %227, i32 0, i32 0
-  %229 = load i64, ptr %228, align 8
-  %230 = ashr i64 %229, 15
-  %231 = trunc i64 %230 to i32
-  %232 = load ptr, ptr %21, align 8
-  %233 = getelementptr inbounds %struct.RNode, ptr %232, i32 0, i32 2
-  %234 = load i32, ptr %233, align 8
-  %235 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %226, i32 noundef %231, i32 noundef %234, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %225, ptr noundef %235)
-  %236 = load ptr, ptr %12, align 8
-  %237 = load ptr, ptr %11, align 8
-  %238 = load ptr, ptr %21, align 8
-  %239 = getelementptr inbounds %struct.RNode, ptr %238, i32 0, i32 0
-  %240 = load i64, ptr %239, align 8
-  %241 = ashr i64 %240, 15
-  %242 = trunc i64 %241 to i32
-  %243 = load ptr, ptr %21, align 8
-  %244 = getelementptr inbounds %struct.RNode, ptr %243, i32 0, i32 2
-  %245 = load i32, ptr %244, align 8
-  %246 = call ptr @new_insn_send(ptr noundef %237, i32 noundef %242, i32 noundef %245, i64 noundef 2977, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %236, ptr noundef %246)
-  %247 = load ptr, ptr %12, align 8
-  %248 = load ptr, ptr %11, align 8
-  %249 = load ptr, ptr %21, align 8
-  %250 = getelementptr inbounds %struct.RNode, ptr %249, i32 0, i32 0
-  %251 = load i64, ptr %250, align 8
-  %252 = ashr i64 %251, 15
-  %253 = trunc i64 %252 to i32
-  %254 = load ptr, ptr %21, align 8
-  %255 = getelementptr inbounds %struct.RNode, ptr %254, i32 0, i32 2
-  %256 = load i32, ptr %255, align 8
-  %257 = load i32, ptr %25, align 4
-  %258 = sext i32 %257 to i64
-  %259 = call i64 @RB_INT2FIX(i64 noundef %258) #26
-  %260 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %248, i32 noundef %253, i32 noundef %256, i32 noundef 19, i32 noundef 1, i64 noundef %259)
-  call void @ADD_ELEM(ptr noundef %247, ptr noundef %260)
-  %261 = load ptr, ptr %12, align 8
-  %262 = load ptr, ptr %11, align 8
-  %263 = load ptr, ptr %21, align 8
-  %264 = getelementptr inbounds %struct.RNode, ptr %263, i32 0, i32 0
-  %265 = load i64, ptr %264, align 8
-  %266 = ashr i64 %265, 15
-  %267 = trunc i64 %266 to i32
-  %268 = load ptr, ptr %21, align 8
-  %269 = getelementptr inbounds %struct.RNode, ptr %268, i32 0, i32 2
-  %270 = load i32, ptr %269, align 8
-  %271 = load ptr, ptr %13, align 8
-  %272 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %271, i32 0, i32 3
-  %273 = load ptr, ptr %272, align 8
-  %274 = icmp ne ptr %273, null
-  %275 = select i1 %274, i32 139, i32 140
-  %276 = sext i32 %275 to i64
-  %277 = call ptr @new_insn_send(ptr noundef %262, i32 noundef %267, i32 noundef %270, i64 noundef %276, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %261, ptr noundef %277)
-  %278 = load i8, ptr %16, align 1
-  %279 = trunc i8 %278 to i1
-  br i1 %279, label %280, label %303
+226:                                              ; preds = %210
+  %227 = load ptr, ptr %12, align 8
+  %228 = load ptr, ptr %11, align 8
+  %229 = load ptr, ptr %21, align 8
+  %230 = getelementptr inbounds %struct.RNode, ptr %229, i32 0, i32 0
+  %231 = load i64, ptr %230, align 8
+  %232 = ashr i64 %231, 15
+  %233 = trunc i64 %232 to i32
+  %234 = load ptr, ptr %21, align 8
+  %235 = getelementptr inbounds %struct.RNode, ptr %234, i32 0, i32 2
+  %236 = load i32, ptr %235, align 8
+  %237 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %228, i32 noundef %233, i32 noundef %236, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %227, ptr noundef %237)
+  %238 = load ptr, ptr %12, align 8
+  %239 = load ptr, ptr %11, align 8
+  %240 = load ptr, ptr %21, align 8
+  %241 = getelementptr inbounds %struct.RNode, ptr %240, i32 0, i32 0
+  %242 = load i64, ptr %241, align 8
+  %243 = ashr i64 %242, 15
+  %244 = trunc i64 %243 to i32
+  %245 = load ptr, ptr %21, align 8
+  %246 = getelementptr inbounds %struct.RNode, ptr %245, i32 0, i32 2
+  %247 = load i32, ptr %246, align 8
+  %248 = call ptr @new_insn_send(ptr noundef %239, i32 noundef %244, i32 noundef %247, i64 noundef 2977, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %238, ptr noundef %248)
+  %249 = load ptr, ptr %12, align 8
+  %250 = load ptr, ptr %11, align 8
+  %251 = load ptr, ptr %21, align 8
+  %252 = getelementptr inbounds %struct.RNode, ptr %251, i32 0, i32 0
+  %253 = load i64, ptr %252, align 8
+  %254 = ashr i64 %253, 15
+  %255 = trunc i64 %254 to i32
+  %256 = load ptr, ptr %21, align 8
+  %257 = getelementptr inbounds %struct.RNode, ptr %256, i32 0, i32 2
+  %258 = load i32, ptr %257, align 8
+  %259 = load i32, ptr %25, align 4
+  %260 = sext i32 %259 to i64
+  %261 = call i64 @RB_INT2FIX(i64 noundef %260) #26
+  %262 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %250, i32 noundef %255, i32 noundef %258, i32 noundef 19, i32 noundef 1, i64 noundef %261)
+  call void @ADD_ELEM(ptr noundef %249, ptr noundef %262)
+  %263 = load ptr, ptr %12, align 8
+  %264 = load ptr, ptr %11, align 8
+  %265 = load ptr, ptr %21, align 8
+  %266 = getelementptr inbounds %struct.RNode, ptr %265, i32 0, i32 0
+  %267 = load i64, ptr %266, align 8
+  %268 = ashr i64 %267, 15
+  %269 = trunc i64 %268 to i32
+  %270 = load ptr, ptr %21, align 8
+  %271 = getelementptr inbounds %struct.RNode, ptr %270, i32 0, i32 2
+  %272 = load i32, ptr %271, align 8
+  %273 = load ptr, ptr %13, align 8
+  %274 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %273, i32 0, i32 3
+  %275 = load ptr, ptr %274, align 8
+  %276 = icmp ne ptr %275, null
+  %277 = select i1 %276, i32 139, i32 140
+  %278 = sext i32 %277 to i64
+  %279 = call ptr @new_insn_send(ptr noundef %264, i32 noundef %269, i32 noundef %272, i64 noundef %278, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %263, ptr noundef %279)
+  %280 = load i8, ptr %16, align 1
+  %281 = trunc i8 %280 to i1
+  br i1 %281, label %282, label %305
 
-280:                                              ; preds = %224
-  %281 = load ptr, ptr %11, align 8
-  %282 = load ptr, ptr %12, align 8
-  %283 = load ptr, ptr %13, align 8
-  %284 = load ptr, ptr %13, align 8
-  %285 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %284, i32 0, i32 3
-  %286 = load ptr, ptr %285, align 8
-  %287 = icmp ne ptr %286, null
-  br i1 %287, label %288, label %290
+282:                                              ; preds = %226
+  %283 = load ptr, ptr %11, align 8
+  %284 = load ptr, ptr %12, align 8
+  %285 = load ptr, ptr %13, align 8
+  %286 = load ptr, ptr %13, align 8
+  %287 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %286, i32 0, i32 3
+  %288 = load ptr, ptr %287, align 8
+  %289 = icmp ne ptr %288, null
+  br i1 %289, label %290, label %292
 
-288:                                              ; preds = %280
-  %289 = call i64 @rb_fstring_new(ptr noundef @.str.103, i64 noundef 43)
-  br label %292
+290:                                              ; preds = %282
+  %291 = call i64 @rb_fstring_new(ptr noundef @.str.103, i64 noundef 43)
+  br label %294
 
-290:                                              ; preds = %280
-  %291 = call i64 @rb_fstring_new(ptr noundef @.str.104, i64 noundef 42)
-  br label %292
+292:                                              ; preds = %282
+  %293 = call i64 @rb_fstring_new(ptr noundef @.str.104, i64 noundef 42)
+  br label %294
 
-292:                                              ; preds = %290, %288
-  %293 = phi i64 [ %289, %288 ], [ %291, %290 ]
-  %294 = load i32, ptr %25, align 4
-  %295 = sext i32 %294 to i64
-  %296 = call i64 @RB_INT2FIX(i64 noundef %295) #26
-  %297 = load i32, ptr %18, align 4
-  %298 = add i32 %297, 1
-  %299 = call i32 @iseq_compile_pattern_set_length_errmsg(ptr noundef %281, ptr noundef %282, ptr noundef %283, i64 noundef %293, i64 noundef %296, i32 noundef %298)
-  %300 = icmp ne i32 %299, 0
-  br i1 %300, label %302, label %301
+294:                                              ; preds = %292, %290
+  %295 = phi i64 [ %291, %290 ], [ %293, %292 ]
+  %296 = load i32, ptr %25, align 4
+  %297 = sext i32 %296 to i64
+  %298 = call i64 @RB_INT2FIX(i64 noundef %297) #26
+  %299 = load i32, ptr %18, align 4
+  %300 = add i32 %299, 1
+  %301 = call i32 @iseq_compile_pattern_set_length_errmsg(ptr noundef %283, ptr noundef %284, ptr noundef %285, i64 noundef %295, i64 noundef %298, i32 noundef %300)
+  %302 = icmp ne i32 %301, 0
+  br i1 %302, label %304, label %303
 
-301:                                              ; preds = %292
+303:                                              ; preds = %294
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-302:                                              ; preds = %292
-  br label %303
+304:                                              ; preds = %294
+  br label %305
 
-303:                                              ; preds = %302, %224
-  %304 = load ptr, ptr %12, align 8
-  %305 = load ptr, ptr %11, align 8
-  %306 = load ptr, ptr %21, align 8
-  %307 = getelementptr inbounds %struct.RNode, ptr %306, i32 0, i32 0
-  %308 = load i64, ptr %307, align 8
-  %309 = ashr i64 %308, 15
-  %310 = trunc i64 %309 to i32
-  %311 = load ptr, ptr %21, align 8
-  %312 = getelementptr inbounds %struct.RNode, ptr %311, i32 0, i32 2
-  %313 = load i32, ptr %312, align 8
-  %314 = load ptr, ptr %27, align 8
-  %315 = ptrtoint ptr %314 to i64
-  %316 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %305, i32 noundef %310, i32 noundef %313, i32 noundef 68, i32 noundef 1, i64 noundef %315)
-  call void @ADD_ELEM(ptr noundef %304, ptr noundef %316)
-  %317 = load ptr, ptr %27, align 8
-  %318 = getelementptr inbounds %struct.iseq_label_data, ptr %317, i32 0, i32 5
-  %319 = load i32, ptr %318, align 8
-  %320 = add i32 %319, 1
-  store i32 %320, ptr %318, align 8
+305:                                              ; preds = %304, %226
+  %306 = load ptr, ptr %12, align 8
+  %307 = load ptr, ptr %11, align 8
+  %308 = load ptr, ptr %21, align 8
+  %309 = getelementptr inbounds %struct.RNode, ptr %308, i32 0, i32 0
+  %310 = load i64, ptr %309, align 8
+  %311 = ashr i64 %310, 15
+  %312 = trunc i64 %311 to i32
+  %313 = load ptr, ptr %21, align 8
+  %314 = getelementptr inbounds %struct.RNode, ptr %313, i32 0, i32 2
+  %315 = load i32, ptr %314, align 8
+  %316 = load ptr, ptr %27, align 8
+  %317 = ptrtoint ptr %316 to i64
+  %318 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %307, i32 noundef %312, i32 noundef %315, i32 noundef 68, i32 noundef 1, i64 noundef %317)
+  call void @ADD_ELEM(ptr noundef %306, ptr noundef %318)
+  %319 = load ptr, ptr %27, align 8
+  %320 = getelementptr inbounds %struct.iseq_label_data, ptr %319, i32 0, i32 5
+  %321 = load i32, ptr %320, align 8
+  %322 = add i32 %321, 1
+  store i32 %322, ptr %320, align 8
   store i32 0, ptr %31, align 4
-  br label %321
+  br label %323
 
-321:                                              ; preds = %381, %303
-  %322 = load i32, ptr %31, align 4
-  %323 = load i32, ptr %23, align 4
-  %324 = icmp slt i32 %322, %323
-  br i1 %324, label %325, label %384
+323:                                              ; preds = %383, %305
+  %324 = load i32, ptr %31, align 4
+  %325 = load i32, ptr %23, align 4
+  %326 = icmp slt i32 %324, %325
+  br i1 %326, label %327, label %386
 
-325:                                              ; preds = %321
-  %326 = load ptr, ptr %12, align 8
-  %327 = load ptr, ptr %11, align 8
-  %328 = load ptr, ptr %21, align 8
-  %329 = getelementptr inbounds %struct.RNode, ptr %328, i32 0, i32 0
-  %330 = load i64, ptr %329, align 8
-  %331 = ashr i64 %330, 15
-  %332 = trunc i64 %331 to i32
-  %333 = load ptr, ptr %21, align 8
-  %334 = getelementptr inbounds %struct.RNode, ptr %333, i32 0, i32 2
-  %335 = load i32, ptr %334, align 8
-  %336 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %327, i32 noundef %332, i32 noundef %335, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %326, ptr noundef %336)
-  %337 = load ptr, ptr %12, align 8
-  %338 = load ptr, ptr %11, align 8
-  %339 = load ptr, ptr %21, align 8
-  %340 = getelementptr inbounds %struct.RNode, ptr %339, i32 0, i32 0
-  %341 = load i64, ptr %340, align 8
-  %342 = ashr i64 %341, 15
-  %343 = trunc i64 %342 to i32
-  %344 = load ptr, ptr %21, align 8
-  %345 = getelementptr inbounds %struct.RNode, ptr %344, i32 0, i32 2
-  %346 = load i32, ptr %345, align 8
-  %347 = load i32, ptr %31, align 4
-  %348 = sext i32 %347 to i64
-  %349 = call i64 @RB_INT2FIX(i64 noundef %348) #26
-  %350 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %338, i32 noundef %343, i32 noundef %346, i32 noundef 19, i32 noundef 1, i64 noundef %349)
-  call void @ADD_ELEM(ptr noundef %337, ptr noundef %350)
-  %351 = load ptr, ptr %12, align 8
-  %352 = load ptr, ptr %11, align 8
-  %353 = load ptr, ptr %21, align 8
-  %354 = getelementptr inbounds %struct.RNode, ptr %353, i32 0, i32 0
-  %355 = load i64, ptr %354, align 8
-  %356 = ashr i64 %355, 15
-  %357 = trunc i64 %356 to i32
-  %358 = load ptr, ptr %21, align 8
-  %359 = getelementptr inbounds %struct.RNode, ptr %358, i32 0, i32 2
-  %360 = load i32, ptr %359, align 8
-  %361 = call ptr @new_insn_send(ptr noundef %352, i32 noundef %357, i32 noundef %360, i64 noundef 145, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %351, ptr noundef %361)
-  %362 = load ptr, ptr %11, align 8
-  %363 = load ptr, ptr %12, align 8
-  %364 = load ptr, ptr %22, align 8
-  %365 = getelementptr inbounds %struct.RNode_LIST, ptr %364, i32 0, i32 1
-  %366 = load ptr, ptr %365, align 8
-  %367 = load ptr, ptr %27, align 8
-  %368 = load i8, ptr %16, align 1
-  %369 = trunc i8 %368 to i1
-  %370 = load i8, ptr %17, align 1
+327:                                              ; preds = %323
+  %328 = load ptr, ptr %12, align 8
+  %329 = load ptr, ptr %11, align 8
+  %330 = load ptr, ptr %21, align 8
+  %331 = getelementptr inbounds %struct.RNode, ptr %330, i32 0, i32 0
+  %332 = load i64, ptr %331, align 8
+  %333 = ashr i64 %332, 15
+  %334 = trunc i64 %333 to i32
+  %335 = load ptr, ptr %21, align 8
+  %336 = getelementptr inbounds %struct.RNode, ptr %335, i32 0, i32 2
+  %337 = load i32, ptr %336, align 8
+  %338 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %329, i32 noundef %334, i32 noundef %337, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %328, ptr noundef %338)
+  %339 = load ptr, ptr %12, align 8
+  %340 = load ptr, ptr %11, align 8
+  %341 = load ptr, ptr %21, align 8
+  %342 = getelementptr inbounds %struct.RNode, ptr %341, i32 0, i32 0
+  %343 = load i64, ptr %342, align 8
+  %344 = ashr i64 %343, 15
+  %345 = trunc i64 %344 to i32
+  %346 = load ptr, ptr %21, align 8
+  %347 = getelementptr inbounds %struct.RNode, ptr %346, i32 0, i32 2
+  %348 = load i32, ptr %347, align 8
+  %349 = load i32, ptr %31, align 4
+  %350 = sext i32 %349 to i64
+  %351 = call i64 @RB_INT2FIX(i64 noundef %350) #26
+  %352 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %340, i32 noundef %345, i32 noundef %348, i32 noundef 19, i32 noundef 1, i64 noundef %351)
+  call void @ADD_ELEM(ptr noundef %339, ptr noundef %352)
+  %353 = load ptr, ptr %12, align 8
+  %354 = load ptr, ptr %11, align 8
+  %355 = load ptr, ptr %21, align 8
+  %356 = getelementptr inbounds %struct.RNode, ptr %355, i32 0, i32 0
+  %357 = load i64, ptr %356, align 8
+  %358 = ashr i64 %357, 15
+  %359 = trunc i64 %358 to i32
+  %360 = load ptr, ptr %21, align 8
+  %361 = getelementptr inbounds %struct.RNode, ptr %360, i32 0, i32 2
+  %362 = load i32, ptr %361, align 8
+  %363 = call ptr @new_insn_send(ptr noundef %354, i32 noundef %359, i32 noundef %362, i64 noundef 145, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %353, ptr noundef %363)
+  %364 = load ptr, ptr %11, align 8
+  %365 = load ptr, ptr %12, align 8
+  %366 = load ptr, ptr %22, align 8
+  %367 = getelementptr inbounds %struct.RNode_LIST, ptr %366, i32 0, i32 1
+  %368 = load ptr, ptr %367, align 8
+  %369 = load ptr, ptr %27, align 8
+  %370 = load i8, ptr %16, align 1
   %371 = trunc i8 %370 to i1
-  %372 = load i32, ptr %18, align 4
-  %373 = add i32 %372, 1
-  %374 = call i32 @iseq_compile_pattern_match(ptr noundef %362, ptr noundef %363, ptr noundef %366, ptr noundef %367, i1 noundef zeroext %369, i1 noundef zeroext %371, i32 noundef %373, i1 noundef zeroext false)
-  %375 = icmp ne i32 %374, 0
-  br i1 %375, label %377, label %376
+  %372 = load i8, ptr %17, align 1
+  %373 = trunc i8 %372 to i1
+  %374 = load i32, ptr %18, align 4
+  %375 = add i32 %374, 1
+  %376 = call i32 @iseq_compile_pattern_match(ptr noundef %364, ptr noundef %365, ptr noundef %368, ptr noundef %369, i1 noundef zeroext %371, i1 noundef zeroext %373, i32 noundef %375, i1 noundef zeroext false)
+  %377 = icmp ne i32 %376, 0
+  br i1 %377, label %379, label %378
 
-376:                                              ; preds = %325
+378:                                              ; preds = %327
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-377:                                              ; preds = %325
-  %378 = load ptr, ptr %22, align 8
-  %379 = getelementptr inbounds %struct.RNode_LIST, ptr %378, i32 0, i32 3
-  %380 = load ptr, ptr %379, align 8
-  store ptr %380, ptr %22, align 8
-  br label %381
+379:                                              ; preds = %327
+  %380 = load ptr, ptr %22, align 8
+  %381 = getelementptr inbounds %struct.RNode_LIST, ptr %380, i32 0, i32 3
+  %382 = load ptr, ptr %381, align 8
+  store ptr %382, ptr %22, align 8
+  br label %383
 
-381:                                              ; preds = %377
-  %382 = load i32, ptr %31, align 4
-  %383 = add i32 %382, 1
-  store i32 %383, ptr %31, align 4
-  br label %321, !llvm.loop !165
+383:                                              ; preds = %379
+  %384 = load i32, ptr %31, align 4
+  %385 = add i32 %384, 1
+  store i32 %385, ptr %31, align 4
+  br label %323, !llvm.loop !165
 
-384:                                              ; preds = %321
-  %385 = load ptr, ptr %13, align 8
-  %386 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %385, i32 0, i32 3
-  %387 = load ptr, ptr %386, align 8
-  %388 = icmp ne ptr %387, null
-  br i1 %388, label %389, label %580
+386:                                              ; preds = %323
+  %387 = load ptr, ptr %13, align 8
+  %388 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %387, i32 0, i32 3
+  %389 = load ptr, ptr %388, align 8
+  %390 = icmp ne ptr %389, null
+  br i1 %390, label %391, label %583
 
-389:                                              ; preds = %384
-  %390 = load ptr, ptr %13, align 8
-  %391 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %390, i32 0, i32 3
-  %392 = load ptr, ptr %391, align 8
-  %393 = icmp ne ptr %392, inttoptr (i64 -1 to ptr)
-  br i1 %393, label %394, label %505
+391:                                              ; preds = %386
+  %392 = load ptr, ptr %13, align 8
+  %393 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %392, i32 0, i32 3
+  %394 = load ptr, ptr %393, align 8
+  %395 = inttoptr i64 -1 to ptr
+  %396 = icmp ne ptr %394, %395
+  br i1 %396, label %397, label %508
 
-394:                                              ; preds = %389
-  %395 = load ptr, ptr %12, align 8
-  %396 = load ptr, ptr %11, align 8
-  %397 = load ptr, ptr %21, align 8
-  %398 = getelementptr inbounds %struct.RNode, ptr %397, i32 0, i32 0
-  %399 = load i64, ptr %398, align 8
-  %400 = ashr i64 %399, 15
-  %401 = trunc i64 %400 to i32
-  %402 = load ptr, ptr %21, align 8
-  %403 = getelementptr inbounds %struct.RNode, ptr %402, i32 0, i32 2
-  %404 = load i32, ptr %403, align 8
-  %405 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %396, i32 noundef %401, i32 noundef %404, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %395, ptr noundef %405)
-  %406 = load ptr, ptr %12, align 8
-  %407 = load ptr, ptr %11, align 8
-  %408 = load ptr, ptr %21, align 8
-  %409 = getelementptr inbounds %struct.RNode, ptr %408, i32 0, i32 0
-  %410 = load i64, ptr %409, align 8
-  %411 = ashr i64 %410, 15
-  %412 = trunc i64 %411 to i32
-  %413 = load ptr, ptr %21, align 8
-  %414 = getelementptr inbounds %struct.RNode, ptr %413, i32 0, i32 2
-  %415 = load i32, ptr %414, align 8
-  %416 = load i32, ptr %23, align 4
-  %417 = sext i32 %416 to i64
-  %418 = call i64 @RB_INT2FIX(i64 noundef %417) #26
-  %419 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %407, i32 noundef %412, i32 noundef %415, i32 noundef 19, i32 noundef 1, i64 noundef %418)
-  call void @ADD_ELEM(ptr noundef %406, ptr noundef %419)
-  %420 = load ptr, ptr %12, align 8
-  %421 = load ptr, ptr %11, align 8
-  %422 = load ptr, ptr %21, align 8
-  %423 = getelementptr inbounds %struct.RNode, ptr %422, i32 0, i32 0
-  %424 = load i64, ptr %423, align 8
-  %425 = ashr i64 %424, 15
-  %426 = trunc i64 %425 to i32
-  %427 = load ptr, ptr %21, align 8
-  %428 = getelementptr inbounds %struct.RNode, ptr %427, i32 0, i32 2
-  %429 = load i32, ptr %428, align 8
-  %430 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %421, i32 noundef %426, i32 noundef %429, i32 noundef 44, i32 noundef 1, i64 noundef 3)
-  call void @ADD_ELEM(ptr noundef %420, ptr noundef %430)
-  %431 = load ptr, ptr %12, align 8
-  %432 = load ptr, ptr %11, align 8
-  %433 = load ptr, ptr %21, align 8
-  %434 = getelementptr inbounds %struct.RNode, ptr %433, i32 0, i32 0
-  %435 = load i64, ptr %434, align 8
-  %436 = ashr i64 %435, 15
-  %437 = trunc i64 %436 to i32
-  %438 = load ptr, ptr %21, align 8
-  %439 = getelementptr inbounds %struct.RNode, ptr %438, i32 0, i32 2
-  %440 = load i32, ptr %439, align 8
-  %441 = call ptr @new_insn_send(ptr noundef %432, i32 noundef %437, i32 noundef %440, i64 noundef 2977, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %431, ptr noundef %441)
-  %442 = load ptr, ptr %12, align 8
-  %443 = load ptr, ptr %11, align 8
-  %444 = load ptr, ptr %21, align 8
-  %445 = getelementptr inbounds %struct.RNode, ptr %444, i32 0, i32 0
-  %446 = load i64, ptr %445, align 8
-  %447 = ashr i64 %446, 15
-  %448 = trunc i64 %447 to i32
-  %449 = load ptr, ptr %21, align 8
-  %450 = getelementptr inbounds %struct.RNode, ptr %449, i32 0, i32 2
-  %451 = load i32, ptr %450, align 8
-  %452 = load i32, ptr %25, align 4
-  %453 = sext i32 %452 to i64
-  %454 = call i64 @RB_INT2FIX(i64 noundef %453) #26
-  %455 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %443, i32 noundef %448, i32 noundef %451, i32 noundef 19, i32 noundef 1, i64 noundef %454)
-  call void @ADD_ELEM(ptr noundef %442, ptr noundef %455)
-  %456 = load ptr, ptr %12, align 8
-  %457 = load ptr, ptr %11, align 8
-  %458 = load ptr, ptr %21, align 8
-  %459 = getelementptr inbounds %struct.RNode, ptr %458, i32 0, i32 0
-  %460 = load i64, ptr %459, align 8
-  %461 = ashr i64 %460, 15
-  %462 = trunc i64 %461 to i32
-  %463 = load ptr, ptr %21, align 8
-  %464 = getelementptr inbounds %struct.RNode, ptr %463, i32 0, i32 2
-  %465 = load i32, ptr %464, align 8
-  %466 = call ptr @new_insn_send(ptr noundef %457, i32 noundef %462, i32 noundef %465, i64 noundef 45, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %456, ptr noundef %466)
-  %467 = load ptr, ptr %12, align 8
-  %468 = load ptr, ptr %11, align 8
-  %469 = load ptr, ptr %21, align 8
-  %470 = getelementptr inbounds %struct.RNode, ptr %469, i32 0, i32 0
-  %471 = load i64, ptr %470, align 8
-  %472 = ashr i64 %471, 15
-  %473 = trunc i64 %472 to i32
-  %474 = load ptr, ptr %21, align 8
-  %475 = getelementptr inbounds %struct.RNode, ptr %474, i32 0, i32 2
-  %476 = load i32, ptr %475, align 8
-  %477 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %468, i32 noundef %473, i32 noundef %476, i32 noundef 45, i32 noundef 1, i64 noundef 9)
-  call void @ADD_ELEM(ptr noundef %467, ptr noundef %477)
-  %478 = load ptr, ptr %12, align 8
-  %479 = load ptr, ptr %11, align 8
-  %480 = load ptr, ptr %21, align 8
-  %481 = getelementptr inbounds %struct.RNode, ptr %480, i32 0, i32 0
-  %482 = load i64, ptr %481, align 8
-  %483 = ashr i64 %482, 15
-  %484 = trunc i64 %483 to i32
-  %485 = load ptr, ptr %21, align 8
-  %486 = getelementptr inbounds %struct.RNode, ptr %485, i32 0, i32 2
-  %487 = load i32, ptr %486, align 8
-  %488 = call ptr @new_insn_send(ptr noundef %479, i32 noundef %484, i32 noundef %487, i64 noundef 145, i64 noundef 5, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %478, ptr noundef %488)
-  %489 = load ptr, ptr %11, align 8
-  %490 = load ptr, ptr %12, align 8
-  %491 = load ptr, ptr %13, align 8
-  %492 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %491, i32 0, i32 3
-  %493 = load ptr, ptr %492, align 8
-  %494 = load ptr, ptr %27, align 8
-  %495 = load i8, ptr %16, align 1
-  %496 = trunc i8 %495 to i1
-  %497 = load i8, ptr %17, align 1
-  %498 = trunc i8 %497 to i1
-  %499 = load i32, ptr %18, align 4
-  %500 = add i32 %499, 1
-  %501 = call i32 @iseq_compile_pattern_match(ptr noundef %489, ptr noundef %490, ptr noundef %493, ptr noundef %494, i1 noundef zeroext %496, i1 noundef zeroext %498, i32 noundef %500, i1 noundef zeroext false)
-  %502 = icmp ne i32 %501, 0
-  br i1 %502, label %504, label %503
+397:                                              ; preds = %391
+  %398 = load ptr, ptr %12, align 8
+  %399 = load ptr, ptr %11, align 8
+  %400 = load ptr, ptr %21, align 8
+  %401 = getelementptr inbounds %struct.RNode, ptr %400, i32 0, i32 0
+  %402 = load i64, ptr %401, align 8
+  %403 = ashr i64 %402, 15
+  %404 = trunc i64 %403 to i32
+  %405 = load ptr, ptr %21, align 8
+  %406 = getelementptr inbounds %struct.RNode, ptr %405, i32 0, i32 2
+  %407 = load i32, ptr %406, align 8
+  %408 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %399, i32 noundef %404, i32 noundef %407, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %398, ptr noundef %408)
+  %409 = load ptr, ptr %12, align 8
+  %410 = load ptr, ptr %11, align 8
+  %411 = load ptr, ptr %21, align 8
+  %412 = getelementptr inbounds %struct.RNode, ptr %411, i32 0, i32 0
+  %413 = load i64, ptr %412, align 8
+  %414 = ashr i64 %413, 15
+  %415 = trunc i64 %414 to i32
+  %416 = load ptr, ptr %21, align 8
+  %417 = getelementptr inbounds %struct.RNode, ptr %416, i32 0, i32 2
+  %418 = load i32, ptr %417, align 8
+  %419 = load i32, ptr %23, align 4
+  %420 = sext i32 %419 to i64
+  %421 = call i64 @RB_INT2FIX(i64 noundef %420) #26
+  %422 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %410, i32 noundef %415, i32 noundef %418, i32 noundef 19, i32 noundef 1, i64 noundef %421)
+  call void @ADD_ELEM(ptr noundef %409, ptr noundef %422)
+  %423 = load ptr, ptr %12, align 8
+  %424 = load ptr, ptr %11, align 8
+  %425 = load ptr, ptr %21, align 8
+  %426 = getelementptr inbounds %struct.RNode, ptr %425, i32 0, i32 0
+  %427 = load i64, ptr %426, align 8
+  %428 = ashr i64 %427, 15
+  %429 = trunc i64 %428 to i32
+  %430 = load ptr, ptr %21, align 8
+  %431 = getelementptr inbounds %struct.RNode, ptr %430, i32 0, i32 2
+  %432 = load i32, ptr %431, align 8
+  %433 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %424, i32 noundef %429, i32 noundef %432, i32 noundef 44, i32 noundef 1, i64 noundef 3)
+  call void @ADD_ELEM(ptr noundef %423, ptr noundef %433)
+  %434 = load ptr, ptr %12, align 8
+  %435 = load ptr, ptr %11, align 8
+  %436 = load ptr, ptr %21, align 8
+  %437 = getelementptr inbounds %struct.RNode, ptr %436, i32 0, i32 0
+  %438 = load i64, ptr %437, align 8
+  %439 = ashr i64 %438, 15
+  %440 = trunc i64 %439 to i32
+  %441 = load ptr, ptr %21, align 8
+  %442 = getelementptr inbounds %struct.RNode, ptr %441, i32 0, i32 2
+  %443 = load i32, ptr %442, align 8
+  %444 = call ptr @new_insn_send(ptr noundef %435, i32 noundef %440, i32 noundef %443, i64 noundef 2977, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %434, ptr noundef %444)
+  %445 = load ptr, ptr %12, align 8
+  %446 = load ptr, ptr %11, align 8
+  %447 = load ptr, ptr %21, align 8
+  %448 = getelementptr inbounds %struct.RNode, ptr %447, i32 0, i32 0
+  %449 = load i64, ptr %448, align 8
+  %450 = ashr i64 %449, 15
+  %451 = trunc i64 %450 to i32
+  %452 = load ptr, ptr %21, align 8
+  %453 = getelementptr inbounds %struct.RNode, ptr %452, i32 0, i32 2
+  %454 = load i32, ptr %453, align 8
+  %455 = load i32, ptr %25, align 4
+  %456 = sext i32 %455 to i64
+  %457 = call i64 @RB_INT2FIX(i64 noundef %456) #26
+  %458 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %446, i32 noundef %451, i32 noundef %454, i32 noundef 19, i32 noundef 1, i64 noundef %457)
+  call void @ADD_ELEM(ptr noundef %445, ptr noundef %458)
+  %459 = load ptr, ptr %12, align 8
+  %460 = load ptr, ptr %11, align 8
+  %461 = load ptr, ptr %21, align 8
+  %462 = getelementptr inbounds %struct.RNode, ptr %461, i32 0, i32 0
+  %463 = load i64, ptr %462, align 8
+  %464 = ashr i64 %463, 15
+  %465 = trunc i64 %464 to i32
+  %466 = load ptr, ptr %21, align 8
+  %467 = getelementptr inbounds %struct.RNode, ptr %466, i32 0, i32 2
+  %468 = load i32, ptr %467, align 8
+  %469 = call ptr @new_insn_send(ptr noundef %460, i32 noundef %465, i32 noundef %468, i64 noundef 45, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %459, ptr noundef %469)
+  %470 = load ptr, ptr %12, align 8
+  %471 = load ptr, ptr %11, align 8
+  %472 = load ptr, ptr %21, align 8
+  %473 = getelementptr inbounds %struct.RNode, ptr %472, i32 0, i32 0
+  %474 = load i64, ptr %473, align 8
+  %475 = ashr i64 %474, 15
+  %476 = trunc i64 %475 to i32
+  %477 = load ptr, ptr %21, align 8
+  %478 = getelementptr inbounds %struct.RNode, ptr %477, i32 0, i32 2
+  %479 = load i32, ptr %478, align 8
+  %480 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %471, i32 noundef %476, i32 noundef %479, i32 noundef 45, i32 noundef 1, i64 noundef 9)
+  call void @ADD_ELEM(ptr noundef %470, ptr noundef %480)
+  %481 = load ptr, ptr %12, align 8
+  %482 = load ptr, ptr %11, align 8
+  %483 = load ptr, ptr %21, align 8
+  %484 = getelementptr inbounds %struct.RNode, ptr %483, i32 0, i32 0
+  %485 = load i64, ptr %484, align 8
+  %486 = ashr i64 %485, 15
+  %487 = trunc i64 %486 to i32
+  %488 = load ptr, ptr %21, align 8
+  %489 = getelementptr inbounds %struct.RNode, ptr %488, i32 0, i32 2
+  %490 = load i32, ptr %489, align 8
+  %491 = call ptr @new_insn_send(ptr noundef %482, i32 noundef %487, i32 noundef %490, i64 noundef 145, i64 noundef 5, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %481, ptr noundef %491)
+  %492 = load ptr, ptr %11, align 8
+  %493 = load ptr, ptr %12, align 8
+  %494 = load ptr, ptr %13, align 8
+  %495 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %494, i32 0, i32 3
+  %496 = load ptr, ptr %495, align 8
+  %497 = load ptr, ptr %27, align 8
+  %498 = load i8, ptr %16, align 1
+  %499 = trunc i8 %498 to i1
+  %500 = load i8, ptr %17, align 1
+  %501 = trunc i8 %500 to i1
+  %502 = load i32, ptr %18, align 4
+  %503 = add i32 %502, 1
+  %504 = call i32 @iseq_compile_pattern_match(ptr noundef %492, ptr noundef %493, ptr noundef %496, ptr noundef %497, i1 noundef zeroext %499, i1 noundef zeroext %501, i32 noundef %503, i1 noundef zeroext false)
+  %505 = icmp ne i32 %504, 0
+  br i1 %505, label %507, label %506
 
-503:                                              ; preds = %394
+506:                                              ; preds = %397
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-504:                                              ; preds = %394
-  br label %579
+507:                                              ; preds = %397
+  br label %582
 
-505:                                              ; preds = %389
-  %506 = load i32, ptr %24, align 4
-  %507 = icmp sgt i32 %506, 0
-  br i1 %507, label %508, label %578
+508:                                              ; preds = %391
+  %509 = load i32, ptr %24, align 4
+  %510 = icmp sgt i32 %509, 0
+  br i1 %510, label %511, label %581
 
-508:                                              ; preds = %505
-  %509 = load ptr, ptr %12, align 8
-  %510 = load ptr, ptr %11, align 8
-  %511 = load ptr, ptr %21, align 8
-  %512 = getelementptr inbounds %struct.RNode, ptr %511, i32 0, i32 0
-  %513 = load i64, ptr %512, align 8
-  %514 = ashr i64 %513, 15
-  %515 = trunc i64 %514 to i32
-  %516 = load ptr, ptr %21, align 8
-  %517 = getelementptr inbounds %struct.RNode, ptr %516, i32 0, i32 2
-  %518 = load i32, ptr %517, align 8
-  %519 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %510, i32 noundef %515, i32 noundef %518, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %509, ptr noundef %519)
-  %520 = load ptr, ptr %12, align 8
-  %521 = load ptr, ptr %11, align 8
-  %522 = load ptr, ptr %21, align 8
-  %523 = getelementptr inbounds %struct.RNode, ptr %522, i32 0, i32 0
-  %524 = load i64, ptr %523, align 8
-  %525 = ashr i64 %524, 15
-  %526 = trunc i64 %525 to i32
-  %527 = load ptr, ptr %21, align 8
-  %528 = getelementptr inbounds %struct.RNode, ptr %527, i32 0, i32 2
-  %529 = load i32, ptr %528, align 8
-  %530 = call ptr @new_insn_send(ptr noundef %521, i32 noundef %526, i32 noundef %529, i64 noundef 2977, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %520, ptr noundef %530)
-  %531 = load ptr, ptr %12, align 8
-  %532 = load ptr, ptr %11, align 8
-  %533 = load ptr, ptr %21, align 8
-  %534 = getelementptr inbounds %struct.RNode, ptr %533, i32 0, i32 0
-  %535 = load i64, ptr %534, align 8
-  %536 = ashr i64 %535, 15
-  %537 = trunc i64 %536 to i32
-  %538 = load ptr, ptr %21, align 8
-  %539 = getelementptr inbounds %struct.RNode, ptr %538, i32 0, i32 2
-  %540 = load i32, ptr %539, align 8
-  %541 = load i32, ptr %25, align 4
-  %542 = sext i32 %541 to i64
-  %543 = call i64 @RB_INT2FIX(i64 noundef %542) #26
-  %544 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %532, i32 noundef %537, i32 noundef %540, i32 noundef 19, i32 noundef 1, i64 noundef %543)
-  call void @ADD_ELEM(ptr noundef %531, ptr noundef %544)
-  %545 = load ptr, ptr %12, align 8
-  %546 = load ptr, ptr %11, align 8
-  %547 = load ptr, ptr %21, align 8
-  %548 = getelementptr inbounds %struct.RNode, ptr %547, i32 0, i32 0
-  %549 = load i64, ptr %548, align 8
-  %550 = ashr i64 %549, 15
-  %551 = trunc i64 %550 to i32
-  %552 = load ptr, ptr %21, align 8
-  %553 = getelementptr inbounds %struct.RNode, ptr %552, i32 0, i32 2
-  %554 = load i32, ptr %553, align 8
-  %555 = call ptr @new_insn_send(ptr noundef %546, i32 noundef %551, i32 noundef %554, i64 noundef 45, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %545, ptr noundef %555)
-  %556 = load ptr, ptr %12, align 8
-  %557 = load ptr, ptr %11, align 8
-  %558 = load ptr, ptr %21, align 8
-  %559 = getelementptr inbounds %struct.RNode, ptr %558, i32 0, i32 0
-  %560 = load i64, ptr %559, align 8
-  %561 = ashr i64 %560, 15
-  %562 = trunc i64 %561 to i32
-  %563 = load ptr, ptr %21, align 8
-  %564 = getelementptr inbounds %struct.RNode, ptr %563, i32 0, i32 2
-  %565 = load i32, ptr %564, align 8
-  %566 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %557, i32 noundef %562, i32 noundef %565, i32 noundef 45, i32 noundef 1, i64 noundef 5)
-  call void @ADD_ELEM(ptr noundef %556, ptr noundef %566)
-  %567 = load ptr, ptr %12, align 8
-  %568 = load ptr, ptr %11, align 8
-  %569 = load ptr, ptr %21, align 8
-  %570 = getelementptr inbounds %struct.RNode, ptr %569, i32 0, i32 0
-  %571 = load i64, ptr %570, align 8
-  %572 = ashr i64 %571, 15
-  %573 = trunc i64 %572 to i32
-  %574 = load ptr, ptr %21, align 8
-  %575 = getelementptr inbounds %struct.RNode, ptr %574, i32 0, i32 2
-  %576 = load i32, ptr %575, align 8
-  %577 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %568, i32 noundef %573, i32 noundef %576, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %567, ptr noundef %577)
-  br label %578
+511:                                              ; preds = %508
+  %512 = load ptr, ptr %12, align 8
+  %513 = load ptr, ptr %11, align 8
+  %514 = load ptr, ptr %21, align 8
+  %515 = getelementptr inbounds %struct.RNode, ptr %514, i32 0, i32 0
+  %516 = load i64, ptr %515, align 8
+  %517 = ashr i64 %516, 15
+  %518 = trunc i64 %517 to i32
+  %519 = load ptr, ptr %21, align 8
+  %520 = getelementptr inbounds %struct.RNode, ptr %519, i32 0, i32 2
+  %521 = load i32, ptr %520, align 8
+  %522 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %513, i32 noundef %518, i32 noundef %521, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %512, ptr noundef %522)
+  %523 = load ptr, ptr %12, align 8
+  %524 = load ptr, ptr %11, align 8
+  %525 = load ptr, ptr %21, align 8
+  %526 = getelementptr inbounds %struct.RNode, ptr %525, i32 0, i32 0
+  %527 = load i64, ptr %526, align 8
+  %528 = ashr i64 %527, 15
+  %529 = trunc i64 %528 to i32
+  %530 = load ptr, ptr %21, align 8
+  %531 = getelementptr inbounds %struct.RNode, ptr %530, i32 0, i32 2
+  %532 = load i32, ptr %531, align 8
+  %533 = call ptr @new_insn_send(ptr noundef %524, i32 noundef %529, i32 noundef %532, i64 noundef 2977, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %523, ptr noundef %533)
+  %534 = load ptr, ptr %12, align 8
+  %535 = load ptr, ptr %11, align 8
+  %536 = load ptr, ptr %21, align 8
+  %537 = getelementptr inbounds %struct.RNode, ptr %536, i32 0, i32 0
+  %538 = load i64, ptr %537, align 8
+  %539 = ashr i64 %538, 15
+  %540 = trunc i64 %539 to i32
+  %541 = load ptr, ptr %21, align 8
+  %542 = getelementptr inbounds %struct.RNode, ptr %541, i32 0, i32 2
+  %543 = load i32, ptr %542, align 8
+  %544 = load i32, ptr %25, align 4
+  %545 = sext i32 %544 to i64
+  %546 = call i64 @RB_INT2FIX(i64 noundef %545) #26
+  %547 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %535, i32 noundef %540, i32 noundef %543, i32 noundef 19, i32 noundef 1, i64 noundef %546)
+  call void @ADD_ELEM(ptr noundef %534, ptr noundef %547)
+  %548 = load ptr, ptr %12, align 8
+  %549 = load ptr, ptr %11, align 8
+  %550 = load ptr, ptr %21, align 8
+  %551 = getelementptr inbounds %struct.RNode, ptr %550, i32 0, i32 0
+  %552 = load i64, ptr %551, align 8
+  %553 = ashr i64 %552, 15
+  %554 = trunc i64 %553 to i32
+  %555 = load ptr, ptr %21, align 8
+  %556 = getelementptr inbounds %struct.RNode, ptr %555, i32 0, i32 2
+  %557 = load i32, ptr %556, align 8
+  %558 = call ptr @new_insn_send(ptr noundef %549, i32 noundef %554, i32 noundef %557, i64 noundef 45, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %548, ptr noundef %558)
+  %559 = load ptr, ptr %12, align 8
+  %560 = load ptr, ptr %11, align 8
+  %561 = load ptr, ptr %21, align 8
+  %562 = getelementptr inbounds %struct.RNode, ptr %561, i32 0, i32 0
+  %563 = load i64, ptr %562, align 8
+  %564 = ashr i64 %563, 15
+  %565 = trunc i64 %564 to i32
+  %566 = load ptr, ptr %21, align 8
+  %567 = getelementptr inbounds %struct.RNode, ptr %566, i32 0, i32 2
+  %568 = load i32, ptr %567, align 8
+  %569 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %560, i32 noundef %565, i32 noundef %568, i32 noundef 45, i32 noundef 1, i64 noundef 5)
+  call void @ADD_ELEM(ptr noundef %559, ptr noundef %569)
+  %570 = load ptr, ptr %12, align 8
+  %571 = load ptr, ptr %11, align 8
+  %572 = load ptr, ptr %21, align 8
+  %573 = getelementptr inbounds %struct.RNode, ptr %572, i32 0, i32 0
+  %574 = load i64, ptr %573, align 8
+  %575 = ashr i64 %574, 15
+  %576 = trunc i64 %575 to i32
+  %577 = load ptr, ptr %21, align 8
+  %578 = getelementptr inbounds %struct.RNode, ptr %577, i32 0, i32 2
+  %579 = load i32, ptr %578, align 8
+  %580 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %571, i32 noundef %576, i32 noundef %579, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %570, ptr noundef %580)
+  br label %581
 
-578:                                              ; preds = %508, %505
-  br label %579
+581:                                              ; preds = %511, %508
+  br label %582
 
-579:                                              ; preds = %578, %504
-  br label %580
+582:                                              ; preds = %581, %507
+  br label %583
 
-580:                                              ; preds = %579, %384
-  %581 = load ptr, ptr %13, align 8
-  %582 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %581, i32 0, i32 4
-  %583 = load ptr, ptr %582, align 8
-  store ptr %583, ptr %22, align 8
+583:                                              ; preds = %582, %386
+  %584 = load ptr, ptr %13, align 8
+  %585 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %584, i32 0, i32 4
+  %586 = load ptr, ptr %585, align 8
+  store ptr %586, ptr %22, align 8
   store i32 0, ptr %31, align 4
-  br label %584
+  br label %587
 
-584:                                              ; preds = %668, %580
-  %585 = load i32, ptr %31, align 4
-  %586 = load i32, ptr %24, align 4
-  %587 = icmp slt i32 %585, %586
-  br i1 %587, label %588, label %671
+587:                                              ; preds = %671, %583
+  %588 = load i32, ptr %31, align 4
+  %589 = load i32, ptr %24, align 4
+  %590 = icmp slt i32 %588, %589
+  br i1 %590, label %591, label %674
 
-588:                                              ; preds = %584
-  %589 = load ptr, ptr %12, align 8
-  %590 = load ptr, ptr %11, align 8
-  %591 = load ptr, ptr %21, align 8
-  %592 = getelementptr inbounds %struct.RNode, ptr %591, i32 0, i32 0
-  %593 = load i64, ptr %592, align 8
-  %594 = ashr i64 %593, 15
-  %595 = trunc i64 %594 to i32
-  %596 = load ptr, ptr %21, align 8
-  %597 = getelementptr inbounds %struct.RNode, ptr %596, i32 0, i32 2
-  %598 = load i32, ptr %597, align 8
-  %599 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %590, i32 noundef %595, i32 noundef %598, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %589, ptr noundef %599)
-  %600 = load ptr, ptr %12, align 8
-  %601 = load ptr, ptr %11, align 8
-  %602 = load ptr, ptr %21, align 8
-  %603 = getelementptr inbounds %struct.RNode, ptr %602, i32 0, i32 0
-  %604 = load i64, ptr %603, align 8
-  %605 = ashr i64 %604, 15
-  %606 = trunc i64 %605 to i32
-  %607 = load ptr, ptr %21, align 8
-  %608 = getelementptr inbounds %struct.RNode, ptr %607, i32 0, i32 2
-  %609 = load i32, ptr %608, align 8
-  %610 = load i32, ptr %23, align 4
-  %611 = load i32, ptr %31, align 4
-  %612 = add i32 %610, %611
-  %613 = sext i32 %612 to i64
-  %614 = call i64 @RB_INT2FIX(i64 noundef %613) #26
-  %615 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %601, i32 noundef %606, i32 noundef %609, i32 noundef 19, i32 noundef 1, i64 noundef %614)
-  call void @ADD_ELEM(ptr noundef %600, ptr noundef %615)
-  %616 = load ptr, ptr %12, align 8
-  %617 = load ptr, ptr %11, align 8
-  %618 = load ptr, ptr %21, align 8
-  %619 = getelementptr inbounds %struct.RNode, ptr %618, i32 0, i32 0
-  %620 = load i64, ptr %619, align 8
-  %621 = ashr i64 %620, 15
-  %622 = trunc i64 %621 to i32
-  %623 = load ptr, ptr %21, align 8
-  %624 = getelementptr inbounds %struct.RNode, ptr %623, i32 0, i32 2
-  %625 = load i32, ptr %624, align 8
-  %626 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %617, i32 noundef %622, i32 noundef %625, i32 noundef 44, i32 noundef 1, i64 noundef 7)
-  call void @ADD_ELEM(ptr noundef %616, ptr noundef %626)
-  %627 = load ptr, ptr %12, align 8
-  %628 = load ptr, ptr %11, align 8
-  %629 = load ptr, ptr %21, align 8
-  %630 = getelementptr inbounds %struct.RNode, ptr %629, i32 0, i32 0
-  %631 = load i64, ptr %630, align 8
-  %632 = ashr i64 %631, 15
-  %633 = trunc i64 %632 to i32
-  %634 = load ptr, ptr %21, align 8
-  %635 = getelementptr inbounds %struct.RNode, ptr %634, i32 0, i32 2
-  %636 = load i32, ptr %635, align 8
-  %637 = call ptr @new_insn_send(ptr noundef %628, i32 noundef %633, i32 noundef %636, i64 noundef 43, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %627, ptr noundef %637)
-  %638 = load ptr, ptr %12, align 8
-  %639 = load ptr, ptr %11, align 8
-  %640 = load ptr, ptr %21, align 8
-  %641 = getelementptr inbounds %struct.RNode, ptr %640, i32 0, i32 0
-  %642 = load i64, ptr %641, align 8
-  %643 = ashr i64 %642, 15
-  %644 = trunc i64 %643 to i32
-  %645 = load ptr, ptr %21, align 8
-  %646 = getelementptr inbounds %struct.RNode, ptr %645, i32 0, i32 2
-  %647 = load i32, ptr %646, align 8
-  %648 = call ptr @new_insn_send(ptr noundef %639, i32 noundef %644, i32 noundef %647, i64 noundef 145, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %638, ptr noundef %648)
-  %649 = load ptr, ptr %11, align 8
-  %650 = load ptr, ptr %12, align 8
-  %651 = load ptr, ptr %22, align 8
-  %652 = getelementptr inbounds %struct.RNode_LIST, ptr %651, i32 0, i32 1
-  %653 = load ptr, ptr %652, align 8
-  %654 = load ptr, ptr %27, align 8
-  %655 = load i8, ptr %16, align 1
-  %656 = trunc i8 %655 to i1
-  %657 = load i8, ptr %17, align 1
-  %658 = trunc i8 %657 to i1
-  %659 = load i32, ptr %18, align 4
-  %660 = add i32 %659, 1
-  %661 = call i32 @iseq_compile_pattern_match(ptr noundef %649, ptr noundef %650, ptr noundef %653, ptr noundef %654, i1 noundef zeroext %656, i1 noundef zeroext %658, i32 noundef %660, i1 noundef zeroext false)
-  %662 = icmp ne i32 %661, 0
-  br i1 %662, label %664, label %663
+591:                                              ; preds = %587
+  %592 = load ptr, ptr %12, align 8
+  %593 = load ptr, ptr %11, align 8
+  %594 = load ptr, ptr %21, align 8
+  %595 = getelementptr inbounds %struct.RNode, ptr %594, i32 0, i32 0
+  %596 = load i64, ptr %595, align 8
+  %597 = ashr i64 %596, 15
+  %598 = trunc i64 %597 to i32
+  %599 = load ptr, ptr %21, align 8
+  %600 = getelementptr inbounds %struct.RNode, ptr %599, i32 0, i32 2
+  %601 = load i32, ptr %600, align 8
+  %602 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %593, i32 noundef %598, i32 noundef %601, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %592, ptr noundef %602)
+  %603 = load ptr, ptr %12, align 8
+  %604 = load ptr, ptr %11, align 8
+  %605 = load ptr, ptr %21, align 8
+  %606 = getelementptr inbounds %struct.RNode, ptr %605, i32 0, i32 0
+  %607 = load i64, ptr %606, align 8
+  %608 = ashr i64 %607, 15
+  %609 = trunc i64 %608 to i32
+  %610 = load ptr, ptr %21, align 8
+  %611 = getelementptr inbounds %struct.RNode, ptr %610, i32 0, i32 2
+  %612 = load i32, ptr %611, align 8
+  %613 = load i32, ptr %23, align 4
+  %614 = load i32, ptr %31, align 4
+  %615 = add i32 %613, %614
+  %616 = sext i32 %615 to i64
+  %617 = call i64 @RB_INT2FIX(i64 noundef %616) #26
+  %618 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %604, i32 noundef %609, i32 noundef %612, i32 noundef 19, i32 noundef 1, i64 noundef %617)
+  call void @ADD_ELEM(ptr noundef %603, ptr noundef %618)
+  %619 = load ptr, ptr %12, align 8
+  %620 = load ptr, ptr %11, align 8
+  %621 = load ptr, ptr %21, align 8
+  %622 = getelementptr inbounds %struct.RNode, ptr %621, i32 0, i32 0
+  %623 = load i64, ptr %622, align 8
+  %624 = ashr i64 %623, 15
+  %625 = trunc i64 %624 to i32
+  %626 = load ptr, ptr %21, align 8
+  %627 = getelementptr inbounds %struct.RNode, ptr %626, i32 0, i32 2
+  %628 = load i32, ptr %627, align 8
+  %629 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %620, i32 noundef %625, i32 noundef %628, i32 noundef 44, i32 noundef 1, i64 noundef 7)
+  call void @ADD_ELEM(ptr noundef %619, ptr noundef %629)
+  %630 = load ptr, ptr %12, align 8
+  %631 = load ptr, ptr %11, align 8
+  %632 = load ptr, ptr %21, align 8
+  %633 = getelementptr inbounds %struct.RNode, ptr %632, i32 0, i32 0
+  %634 = load i64, ptr %633, align 8
+  %635 = ashr i64 %634, 15
+  %636 = trunc i64 %635 to i32
+  %637 = load ptr, ptr %21, align 8
+  %638 = getelementptr inbounds %struct.RNode, ptr %637, i32 0, i32 2
+  %639 = load i32, ptr %638, align 8
+  %640 = call ptr @new_insn_send(ptr noundef %631, i32 noundef %636, i32 noundef %639, i64 noundef 43, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %630, ptr noundef %640)
+  %641 = load ptr, ptr %12, align 8
+  %642 = load ptr, ptr %11, align 8
+  %643 = load ptr, ptr %21, align 8
+  %644 = getelementptr inbounds %struct.RNode, ptr %643, i32 0, i32 0
+  %645 = load i64, ptr %644, align 8
+  %646 = ashr i64 %645, 15
+  %647 = trunc i64 %646 to i32
+  %648 = load ptr, ptr %21, align 8
+  %649 = getelementptr inbounds %struct.RNode, ptr %648, i32 0, i32 2
+  %650 = load i32, ptr %649, align 8
+  %651 = call ptr @new_insn_send(ptr noundef %642, i32 noundef %647, i32 noundef %650, i64 noundef 145, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %641, ptr noundef %651)
+  %652 = load ptr, ptr %11, align 8
+  %653 = load ptr, ptr %12, align 8
+  %654 = load ptr, ptr %22, align 8
+  %655 = getelementptr inbounds %struct.RNode_LIST, ptr %654, i32 0, i32 1
+  %656 = load ptr, ptr %655, align 8
+  %657 = load ptr, ptr %27, align 8
+  %658 = load i8, ptr %16, align 1
+  %659 = trunc i8 %658 to i1
+  %660 = load i8, ptr %17, align 1
+  %661 = trunc i8 %660 to i1
+  %662 = load i32, ptr %18, align 4
+  %663 = add i32 %662, 1
+  %664 = call i32 @iseq_compile_pattern_match(ptr noundef %652, ptr noundef %653, ptr noundef %656, ptr noundef %657, i1 noundef zeroext %659, i1 noundef zeroext %661, i32 noundef %663, i1 noundef zeroext false)
+  %665 = icmp ne i32 %664, 0
+  br i1 %665, label %667, label %666
 
-663:                                              ; preds = %588
+666:                                              ; preds = %591
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-664:                                              ; preds = %588
-  %665 = load ptr, ptr %22, align 8
-  %666 = getelementptr inbounds %struct.RNode_LIST, ptr %665, i32 0, i32 3
-  %667 = load ptr, ptr %666, align 8
-  store ptr %667, ptr %22, align 8
-  br label %668
+667:                                              ; preds = %591
+  %668 = load ptr, ptr %22, align 8
+  %669 = getelementptr inbounds %struct.RNode_LIST, ptr %668, i32 0, i32 3
+  %670 = load ptr, ptr %669, align 8
+  store ptr %670, ptr %22, align 8
+  br label %671
 
-668:                                              ; preds = %664
-  %669 = load i32, ptr %31, align 4
-  %670 = add i32 %669, 1
-  store i32 %670, ptr %31, align 4
-  br label %584, !llvm.loop !166
+671:                                              ; preds = %667
+  %672 = load i32, ptr %31, align 4
+  %673 = add i32 %672, 1
+  store i32 %673, ptr %31, align 4
+  br label %587, !llvm.loop !166
 
-671:                                              ; preds = %584
-  %672 = load ptr, ptr %12, align 8
-  %673 = load ptr, ptr %11, align 8
-  %674 = load ptr, ptr %21, align 8
-  %675 = getelementptr inbounds %struct.RNode, ptr %674, i32 0, i32 0
-  %676 = load i64, ptr %675, align 8
-  %677 = ashr i64 %676, 15
-  %678 = trunc i64 %677 to i32
-  %679 = load ptr, ptr %21, align 8
-  %680 = getelementptr inbounds %struct.RNode, ptr %679, i32 0, i32 2
-  %681 = load i32, ptr %680, align 8
-  %682 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %673, i32 noundef %678, i32 noundef %681, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %672, ptr noundef %682)
-  %683 = load i32, ptr %26, align 4
-  %684 = icmp ne i32 %683, 0
-  br i1 %684, label %685, label %697
+674:                                              ; preds = %587
+  %675 = load ptr, ptr %12, align 8
+  %676 = load ptr, ptr %11, align 8
+  %677 = load ptr, ptr %21, align 8
+  %678 = getelementptr inbounds %struct.RNode, ptr %677, i32 0, i32 0
+  %679 = load i64, ptr %678, align 8
+  %680 = ashr i64 %679, 15
+  %681 = trunc i64 %680 to i32
+  %682 = load ptr, ptr %21, align 8
+  %683 = getelementptr inbounds %struct.RNode, ptr %682, i32 0, i32 2
+  %684 = load i32, ptr %683, align 8
+  %685 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %676, i32 noundef %681, i32 noundef %684, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %675, ptr noundef %685)
+  %686 = load i32, ptr %26, align 4
+  %687 = icmp ne i32 %686, 0
+  br i1 %687, label %688, label %700
 
-685:                                              ; preds = %671
-  %686 = load ptr, ptr %12, align 8
-  %687 = load ptr, ptr %11, align 8
-  %688 = load ptr, ptr %21, align 8
-  %689 = getelementptr inbounds %struct.RNode, ptr %688, i32 0, i32 0
-  %690 = load i64, ptr %689, align 8
-  %691 = ashr i64 %690, 15
-  %692 = trunc i64 %691 to i32
-  %693 = load ptr, ptr %21, align 8
-  %694 = getelementptr inbounds %struct.RNode, ptr %693, i32 0, i32 2
-  %695 = load i32, ptr %694, align 8
-  %696 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %687, i32 noundef %692, i32 noundef %695, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %686, ptr noundef %696)
-  br label %697
+688:                                              ; preds = %674
+  %689 = load ptr, ptr %12, align 8
+  %690 = load ptr, ptr %11, align 8
+  %691 = load ptr, ptr %21, align 8
+  %692 = getelementptr inbounds %struct.RNode, ptr %691, i32 0, i32 0
+  %693 = load i64, ptr %692, align 8
+  %694 = ashr i64 %693, 15
+  %695 = trunc i64 %694 to i32
+  %696 = load ptr, ptr %21, align 8
+  %697 = getelementptr inbounds %struct.RNode, ptr %696, i32 0, i32 2
+  %698 = load i32, ptr %697, align 8
+  %699 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %690, i32 noundef %695, i32 noundef %698, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %689, ptr noundef %699)
+  br label %700
 
-697:                                              ; preds = %685, %671
-  %698 = load ptr, ptr %12, align 8
-  %699 = load ptr, ptr %11, align 8
-  %700 = load ptr, ptr %21, align 8
-  %701 = getelementptr inbounds %struct.RNode, ptr %700, i32 0, i32 0
-  %702 = load i64, ptr %701, align 8
-  %703 = ashr i64 %702, 15
-  %704 = trunc i64 %703 to i32
-  %705 = load ptr, ptr %21, align 8
-  %706 = getelementptr inbounds %struct.RNode, ptr %705, i32 0, i32 2
-  %707 = load i32, ptr %706, align 8
-  %708 = load ptr, ptr %14, align 8
-  %709 = ptrtoint ptr %708 to i64
-  %710 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %699, i32 noundef %704, i32 noundef %707, i32 noundef 66, i32 noundef 1, i64 noundef %709)
-  call void @ADD_ELEM(ptr noundef %698, ptr noundef %710)
+700:                                              ; preds = %688, %674
+  %701 = load ptr, ptr %12, align 8
+  %702 = load ptr, ptr %11, align 8
+  %703 = load ptr, ptr %21, align 8
+  %704 = getelementptr inbounds %struct.RNode, ptr %703, i32 0, i32 0
+  %705 = load i64, ptr %704, align 8
+  %706 = ashr i64 %705, 15
+  %707 = trunc i64 %706 to i32
+  %708 = load ptr, ptr %21, align 8
+  %709 = getelementptr inbounds %struct.RNode, ptr %708, i32 0, i32 2
+  %710 = load i32, ptr %709, align 8
   %711 = load ptr, ptr %14, align 8
-  %712 = getelementptr inbounds %struct.iseq_label_data, ptr %711, i32 0, i32 5
-  %713 = load i32, ptr %712, align 8
-  %714 = add i32 %713, 1
-  store i32 %714, ptr %712, align 8
-  %715 = load ptr, ptr %12, align 8
-  %716 = load ptr, ptr %11, align 8
-  %717 = load ptr, ptr %21, align 8
-  %718 = getelementptr inbounds %struct.RNode, ptr %717, i32 0, i32 0
-  %719 = load i64, ptr %718, align 8
-  %720 = ashr i64 %719, 15
-  %721 = trunc i64 %720 to i32
-  %722 = load ptr, ptr %21, align 8
-  %723 = getelementptr inbounds %struct.RNode, ptr %722, i32 0, i32 2
-  %724 = load i32, ptr %723, align 8
-  %725 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %716, i32 noundef %721, i32 noundef %724, i32 noundef 17, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %715, ptr noundef %725)
-  %726 = load i32, ptr %26, align 4
-  %727 = icmp ne i32 %726, 0
-  br i1 %727, label %728, label %740
+  %712 = ptrtoint ptr %711 to i64
+  %713 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %702, i32 noundef %707, i32 noundef %710, i32 noundef 66, i32 noundef 1, i64 noundef %712)
+  call void @ADD_ELEM(ptr noundef %701, ptr noundef %713)
+  %714 = load ptr, ptr %14, align 8
+  %715 = getelementptr inbounds %struct.iseq_label_data, ptr %714, i32 0, i32 5
+  %716 = load i32, ptr %715, align 8
+  %717 = add i32 %716, 1
+  store i32 %717, ptr %715, align 8
+  %718 = load ptr, ptr %12, align 8
+  %719 = load ptr, ptr %11, align 8
+  %720 = load ptr, ptr %21, align 8
+  %721 = getelementptr inbounds %struct.RNode, ptr %720, i32 0, i32 0
+  %722 = load i64, ptr %721, align 8
+  %723 = ashr i64 %722, 15
+  %724 = trunc i64 %723 to i32
+  %725 = load ptr, ptr %21, align 8
+  %726 = getelementptr inbounds %struct.RNode, ptr %725, i32 0, i32 2
+  %727 = load i32, ptr %726, align 8
+  %728 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %719, i32 noundef %724, i32 noundef %727, i32 noundef 17, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %718, ptr noundef %728)
+  %729 = load i32, ptr %26, align 4
+  %730 = icmp ne i32 %729, 0
+  br i1 %730, label %731, label %743
 
-728:                                              ; preds = %697
-  %729 = load ptr, ptr %12, align 8
-  %730 = load ptr, ptr %11, align 8
-  %731 = load ptr, ptr %21, align 8
-  %732 = getelementptr inbounds %struct.RNode, ptr %731, i32 0, i32 0
-  %733 = load i64, ptr %732, align 8
-  %734 = ashr i64 %733, 15
-  %735 = trunc i64 %734 to i32
-  %736 = load ptr, ptr %21, align 8
-  %737 = getelementptr inbounds %struct.RNode, ptr %736, i32 0, i32 2
-  %738 = load i32, ptr %737, align 8
-  %739 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %730, i32 noundef %735, i32 noundef %738, i32 noundef 17, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %729, ptr noundef %739)
-  br label %740
+731:                                              ; preds = %700
+  %732 = load ptr, ptr %12, align 8
+  %733 = load ptr, ptr %11, align 8
+  %734 = load ptr, ptr %21, align 8
+  %735 = getelementptr inbounds %struct.RNode, ptr %734, i32 0, i32 0
+  %736 = load i64, ptr %735, align 8
+  %737 = ashr i64 %736, 15
+  %738 = trunc i64 %737 to i32
+  %739 = load ptr, ptr %21, align 8
+  %740 = getelementptr inbounds %struct.RNode, ptr %739, i32 0, i32 2
+  %741 = load i32, ptr %740, align 8
+  %742 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %733, i32 noundef %738, i32 noundef %741, i32 noundef 17, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %732, ptr noundef %742)
+  br label %743
 
-740:                                              ; preds = %728, %697
-  %741 = load ptr, ptr %12, align 8
-  %742 = load ptr, ptr %28, align 8
-  call void @ADD_ELEM(ptr noundef %741, ptr noundef %742)
-  %743 = load ptr, ptr %12, align 8
-  %744 = load ptr, ptr %11, align 8
-  %745 = load ptr, ptr %21, align 8
-  %746 = getelementptr inbounds %struct.RNode, ptr %745, i32 0, i32 0
-  %747 = load i64, ptr %746, align 8
-  %748 = ashr i64 %747, 15
-  %749 = trunc i64 %748 to i32
-  %750 = load ptr, ptr %21, align 8
-  %751 = getelementptr inbounds %struct.RNode, ptr %750, i32 0, i32 2
-  %752 = load i32, ptr %751, align 8
-  %753 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %744, i32 noundef %749, i32 noundef %752, i32 noundef 20, i32 noundef 1, i64 noundef 3)
-  call void @ADD_ELEM(ptr noundef %743, ptr noundef %753)
-  %754 = load ptr, ptr %12, align 8
-  %755 = load ptr, ptr %11, align 8
-  %756 = load ptr, ptr %21, align 8
-  %757 = getelementptr inbounds %struct.RNode, ptr %756, i32 0, i32 0
-  %758 = load i64, ptr %757, align 8
-  %759 = ashr i64 %758, 15
-  %760 = trunc i64 %759 to i32
-  %761 = load ptr, ptr %21, align 8
-  %762 = getelementptr inbounds %struct.RNode, ptr %761, i32 0, i32 2
-  %763 = load i32, ptr %762, align 8
-  %764 = load i64, ptr @rb_eTypeError, align 8
-  %765 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %755, i32 noundef %760, i32 noundef %763, i32 noundef 19, i32 noundef 1, i64 noundef %764)
-  call void @ADD_ELEM(ptr noundef %754, ptr noundef %765)
-  %766 = load ptr, ptr %12, align 8
-  %767 = load ptr, ptr %11, align 8
-  %768 = load ptr, ptr %21, align 8
-  %769 = getelementptr inbounds %struct.RNode, ptr %768, i32 0, i32 0
-  %770 = load i64, ptr %769, align 8
-  %771 = ashr i64 %770, 15
-  %772 = trunc i64 %771 to i32
-  %773 = load ptr, ptr %21, align 8
-  %774 = getelementptr inbounds %struct.RNode, ptr %773, i32 0, i32 2
-  %775 = load i32, ptr %774, align 8
-  %776 = call i64 @rb_fstring_new(ptr noundef @.str.105, i64 noundef 29)
-  %777 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %767, i32 noundef %772, i32 noundef %775, i32 noundef 19, i32 noundef 1, i64 noundef %776)
-  call void @ADD_ELEM(ptr noundef %766, ptr noundef %777)
-  %778 = load ptr, ptr %12, align 8
-  %779 = load ptr, ptr %11, align 8
-  %780 = load ptr, ptr %21, align 8
-  %781 = getelementptr inbounds %struct.RNode, ptr %780, i32 0, i32 0
-  %782 = load i64, ptr %781, align 8
-  %783 = ashr i64 %782, 15
-  %784 = trunc i64 %783 to i32
-  %785 = load ptr, ptr %21, align 8
-  %786 = getelementptr inbounds %struct.RNode, ptr %785, i32 0, i32 2
-  %787 = load i32, ptr %786, align 8
-  %788 = call ptr @new_insn_send(ptr noundef %779, i32 noundef %784, i32 noundef %787, i64 noundef 167, i64 noundef 5, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %778, ptr noundef %788)
-  %789 = load ptr, ptr %12, align 8
-  %790 = load ptr, ptr %11, align 8
-  %791 = load ptr, ptr %21, align 8
-  %792 = getelementptr inbounds %struct.RNode, ptr %791, i32 0, i32 0
-  %793 = load i64, ptr %792, align 8
-  %794 = ashr i64 %793, 15
-  %795 = trunc i64 %794 to i32
-  %796 = load ptr, ptr %21, align 8
-  %797 = getelementptr inbounds %struct.RNode, ptr %796, i32 0, i32 2
-  %798 = load i32, ptr %797, align 8
-  %799 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %790, i32 noundef %795, i32 noundef %798, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %789, ptr noundef %799)
-  %800 = load ptr, ptr %12, align 8
-  %801 = load ptr, ptr %27, align 8
-  call void @ADD_ELEM(ptr noundef %800, ptr noundef %801)
-  %802 = load ptr, ptr %12, align 8
-  %803 = load ptr, ptr %11, align 8
-  %804 = load ptr, ptr %21, align 8
-  %805 = getelementptr inbounds %struct.RNode, ptr %804, i32 0, i32 0
-  %806 = load i64, ptr %805, align 8
-  %807 = ashr i64 %806, 15
-  %808 = trunc i64 %807 to i32
-  %809 = load ptr, ptr %21, align 8
-  %810 = getelementptr inbounds %struct.RNode, ptr %809, i32 0, i32 2
-  %811 = load i32, ptr %810, align 8
-  %812 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %803, i32 noundef %808, i32 noundef %811, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %802, ptr noundef %812)
-  %813 = load i32, ptr %26, align 4
-  %814 = icmp ne i32 %813, 0
-  br i1 %814, label %815, label %827
+743:                                              ; preds = %731, %700
+  %744 = load ptr, ptr %12, align 8
+  %745 = load ptr, ptr %28, align 8
+  call void @ADD_ELEM(ptr noundef %744, ptr noundef %745)
+  %746 = load ptr, ptr %12, align 8
+  %747 = load ptr, ptr %11, align 8
+  %748 = load ptr, ptr %21, align 8
+  %749 = getelementptr inbounds %struct.RNode, ptr %748, i32 0, i32 0
+  %750 = load i64, ptr %749, align 8
+  %751 = ashr i64 %750, 15
+  %752 = trunc i64 %751 to i32
+  %753 = load ptr, ptr %21, align 8
+  %754 = getelementptr inbounds %struct.RNode, ptr %753, i32 0, i32 2
+  %755 = load i32, ptr %754, align 8
+  %756 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %747, i32 noundef %752, i32 noundef %755, i32 noundef 20, i32 noundef 1, i64 noundef 3)
+  call void @ADD_ELEM(ptr noundef %746, ptr noundef %756)
+  %757 = load ptr, ptr %12, align 8
+  %758 = load ptr, ptr %11, align 8
+  %759 = load ptr, ptr %21, align 8
+  %760 = getelementptr inbounds %struct.RNode, ptr %759, i32 0, i32 0
+  %761 = load i64, ptr %760, align 8
+  %762 = ashr i64 %761, 15
+  %763 = trunc i64 %762 to i32
+  %764 = load ptr, ptr %21, align 8
+  %765 = getelementptr inbounds %struct.RNode, ptr %764, i32 0, i32 2
+  %766 = load i32, ptr %765, align 8
+  %767 = load i64, ptr @rb_eTypeError, align 8
+  %768 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %758, i32 noundef %763, i32 noundef %766, i32 noundef 19, i32 noundef 1, i64 noundef %767)
+  call void @ADD_ELEM(ptr noundef %757, ptr noundef %768)
+  %769 = load ptr, ptr %12, align 8
+  %770 = load ptr, ptr %11, align 8
+  %771 = load ptr, ptr %21, align 8
+  %772 = getelementptr inbounds %struct.RNode, ptr %771, i32 0, i32 0
+  %773 = load i64, ptr %772, align 8
+  %774 = ashr i64 %773, 15
+  %775 = trunc i64 %774 to i32
+  %776 = load ptr, ptr %21, align 8
+  %777 = getelementptr inbounds %struct.RNode, ptr %776, i32 0, i32 2
+  %778 = load i32, ptr %777, align 8
+  %779 = call i64 @rb_fstring_new(ptr noundef @.str.105, i64 noundef 29)
+  %780 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %770, i32 noundef %775, i32 noundef %778, i32 noundef 19, i32 noundef 1, i64 noundef %779)
+  call void @ADD_ELEM(ptr noundef %769, ptr noundef %780)
+  %781 = load ptr, ptr %12, align 8
+  %782 = load ptr, ptr %11, align 8
+  %783 = load ptr, ptr %21, align 8
+  %784 = getelementptr inbounds %struct.RNode, ptr %783, i32 0, i32 0
+  %785 = load i64, ptr %784, align 8
+  %786 = ashr i64 %785, 15
+  %787 = trunc i64 %786 to i32
+  %788 = load ptr, ptr %21, align 8
+  %789 = getelementptr inbounds %struct.RNode, ptr %788, i32 0, i32 2
+  %790 = load i32, ptr %789, align 8
+  %791 = call ptr @new_insn_send(ptr noundef %782, i32 noundef %787, i32 noundef %790, i64 noundef 167, i64 noundef 5, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %781, ptr noundef %791)
+  %792 = load ptr, ptr %12, align 8
+  %793 = load ptr, ptr %11, align 8
+  %794 = load ptr, ptr %21, align 8
+  %795 = getelementptr inbounds %struct.RNode, ptr %794, i32 0, i32 0
+  %796 = load i64, ptr %795, align 8
+  %797 = ashr i64 %796, 15
+  %798 = trunc i64 %797 to i32
+  %799 = load ptr, ptr %21, align 8
+  %800 = getelementptr inbounds %struct.RNode, ptr %799, i32 0, i32 2
+  %801 = load i32, ptr %800, align 8
+  %802 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %793, i32 noundef %798, i32 noundef %801, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %792, ptr noundef %802)
+  %803 = load ptr, ptr %12, align 8
+  %804 = load ptr, ptr %27, align 8
+  call void @ADD_ELEM(ptr noundef %803, ptr noundef %804)
+  %805 = load ptr, ptr %12, align 8
+  %806 = load ptr, ptr %11, align 8
+  %807 = load ptr, ptr %21, align 8
+  %808 = getelementptr inbounds %struct.RNode, ptr %807, i32 0, i32 0
+  %809 = load i64, ptr %808, align 8
+  %810 = ashr i64 %809, 15
+  %811 = trunc i64 %810 to i32
+  %812 = load ptr, ptr %21, align 8
+  %813 = getelementptr inbounds %struct.RNode, ptr %812, i32 0, i32 2
+  %814 = load i32, ptr %813, align 8
+  %815 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %806, i32 noundef %811, i32 noundef %814, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %805, ptr noundef %815)
+  %816 = load i32, ptr %26, align 4
+  %817 = icmp ne i32 %816, 0
+  br i1 %817, label %818, label %830
 
-815:                                              ; preds = %740
-  %816 = load ptr, ptr %12, align 8
-  %817 = load ptr, ptr %11, align 8
-  %818 = load ptr, ptr %21, align 8
-  %819 = getelementptr inbounds %struct.RNode, ptr %818, i32 0, i32 0
-  %820 = load i64, ptr %819, align 8
-  %821 = ashr i64 %820, 15
-  %822 = trunc i64 %821 to i32
-  %823 = load ptr, ptr %21, align 8
-  %824 = getelementptr inbounds %struct.RNode, ptr %823, i32 0, i32 2
-  %825 = load i32, ptr %824, align 8
-  %826 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %817, i32 noundef %822, i32 noundef %825, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %816, ptr noundef %826)
-  br label %827
+818:                                              ; preds = %743
+  %819 = load ptr, ptr %12, align 8
+  %820 = load ptr, ptr %11, align 8
+  %821 = load ptr, ptr %21, align 8
+  %822 = getelementptr inbounds %struct.RNode, ptr %821, i32 0, i32 0
+  %823 = load i64, ptr %822, align 8
+  %824 = ashr i64 %823, 15
+  %825 = trunc i64 %824 to i32
+  %826 = load ptr, ptr %21, align 8
+  %827 = getelementptr inbounds %struct.RNode, ptr %826, i32 0, i32 2
+  %828 = load i32, ptr %827, align 8
+  %829 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %820, i32 noundef %825, i32 noundef %828, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %819, ptr noundef %829)
+  br label %830
 
-827:                                              ; preds = %815, %740
-  %828 = load ptr, ptr %12, align 8
-  %829 = load ptr, ptr %11, align 8
-  %830 = load ptr, ptr %21, align 8
-  %831 = getelementptr inbounds %struct.RNode, ptr %830, i32 0, i32 0
-  %832 = load i64, ptr %831, align 8
-  %833 = ashr i64 %832, 15
-  %834 = trunc i64 %833 to i32
-  %835 = load ptr, ptr %21, align 8
-  %836 = getelementptr inbounds %struct.RNode, ptr %835, i32 0, i32 2
-  %837 = load i32, ptr %836, align 8
-  %838 = load ptr, ptr %15, align 8
-  %839 = ptrtoint ptr %838 to i64
-  %840 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %829, i32 noundef %834, i32 noundef %837, i32 noundef 66, i32 noundef 1, i64 noundef %839)
-  call void @ADD_ELEM(ptr noundef %828, ptr noundef %840)
+830:                                              ; preds = %818, %743
+  %831 = load ptr, ptr %12, align 8
+  %832 = load ptr, ptr %11, align 8
+  %833 = load ptr, ptr %21, align 8
+  %834 = getelementptr inbounds %struct.RNode, ptr %833, i32 0, i32 0
+  %835 = load i64, ptr %834, align 8
+  %836 = ashr i64 %835, 15
+  %837 = trunc i64 %836 to i32
+  %838 = load ptr, ptr %21, align 8
+  %839 = getelementptr inbounds %struct.RNode, ptr %838, i32 0, i32 2
+  %840 = load i32, ptr %839, align 8
   %841 = load ptr, ptr %15, align 8
-  %842 = getelementptr inbounds %struct.iseq_label_data, ptr %841, i32 0, i32 5
-  %843 = load i32, ptr %842, align 8
-  %844 = add i32 %843, 1
-  store i32 %844, ptr %842, align 8
-  br label %3236
+  %842 = ptrtoint ptr %841 to i64
+  %843 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %832, i32 noundef %837, i32 noundef %840, i32 noundef 66, i32 noundef 1, i64 noundef %842)
+  call void @ADD_ELEM(ptr noundef %831, ptr noundef %843)
+  %844 = load ptr, ptr %15, align 8
+  %845 = getelementptr inbounds %struct.iseq_label_data, ptr %844, i32 0, i32 5
+  %846 = load i32, ptr %845, align 8
+  %847 = add i32 %846, 1
+  store i32 %847, ptr %845, align 8
+  br label %3242
 
-845:                                              ; preds = %9
-  %846 = load ptr, ptr %13, align 8
-  %847 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %846, i32 0, i32 3
-  %848 = load ptr, ptr %847, align 8
-  store ptr %848, ptr %32, align 8
+848:                                              ; preds = %9
   %849 = load ptr, ptr %13, align 8
   %850 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %849, i32 0, i32 3
   %851 = load ptr, ptr %850, align 8
-  %852 = icmp ne ptr %851, null
-  br i1 %852, label %853, label %860
+  store ptr %851, ptr %32, align 8
+  %852 = load ptr, ptr %13, align 8
+  %853 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %852, i32 0, i32 3
+  %854 = load ptr, ptr %853, align 8
+  %855 = icmp ne ptr %854, null
+  br i1 %855, label %856, label %863
 
-853:                                              ; preds = %845
-  %854 = load ptr, ptr %13, align 8
-  %855 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %854, i32 0, i32 3
-  %856 = load ptr, ptr %855, align 8
-  %857 = getelementptr inbounds %struct.RNode_LIST, ptr %856, i32 0, i32 2
-  %858 = load i64, ptr %857, align 8
-  %859 = call i32 @rb_long2int_inline(i64 noundef %858)
-  br label %861
+856:                                              ; preds = %848
+  %857 = load ptr, ptr %13, align 8
+  %858 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %857, i32 0, i32 3
+  %859 = load ptr, ptr %858, align 8
+  %860 = getelementptr inbounds %struct.RNode_LIST, ptr %859, i32 0, i32 2
+  %861 = load i64, ptr %860, align 8
+  %862 = call i32 @rb_long2int_inline(i64 noundef %861)
+  br label %864
 
-860:                                              ; preds = %845
-  br label %861
+863:                                              ; preds = %848
+  br label %864
 
-861:                                              ; preds = %860, %853
-  %862 = phi i32 [ %859, %853 ], [ 0, %860 ]
-  store i32 %862, ptr %33, align 4
-  %863 = load ptr, ptr %11, align 8
-  %864 = load i32, ptr %20, align 4
-  %865 = sext i32 %864 to i64
-  %866 = call ptr @new_label_body(ptr noundef %863, i64 noundef %865)
-  store ptr %866, ptr %34, align 8
-  %867 = load ptr, ptr %11, align 8
-  %868 = load i32, ptr %20, align 4
-  %869 = sext i32 %868 to i64
-  %870 = call ptr @new_label_body(ptr noundef %867, i64 noundef %869)
-  store ptr %870, ptr %35, align 8
-  %871 = load ptr, ptr %11, align 8
-  %872 = load i32, ptr %20, align 4
-  %873 = sext i32 %872 to i64
-  %874 = call ptr @new_label_body(ptr noundef %871, i64 noundef %873)
-  store ptr %874, ptr %36, align 8
-  %875 = load ptr, ptr %11, align 8
-  %876 = load i32, ptr %20, align 4
-  %877 = sext i32 %876 to i64
-  %878 = call ptr @new_label_body(ptr noundef %875, i64 noundef %877)
-  store ptr %878, ptr %37, align 8
-  %879 = load ptr, ptr %11, align 8
-  %880 = load ptr, ptr %12, align 8
-  %881 = load ptr, ptr %13, align 8
-  %882 = load ptr, ptr %34, align 8
-  %883 = load i8, ptr %16, align 1
-  %884 = trunc i8 %883 to i1
-  %885 = load i32, ptr %18, align 4
-  %886 = call i32 @iseq_compile_pattern_constant(ptr noundef %879, ptr noundef %880, ptr noundef %881, ptr noundef %882, i1 noundef zeroext %884, i32 noundef %885)
-  %887 = icmp ne i32 %886, 0
-  br i1 %887, label %889, label %888
+864:                                              ; preds = %863, %856
+  %865 = phi i32 [ %862, %856 ], [ 0, %863 ]
+  store i32 %865, ptr %33, align 4
+  %866 = load ptr, ptr %11, align 8
+  %867 = load i32, ptr %20, align 4
+  %868 = sext i32 %867 to i64
+  %869 = call ptr @new_label_body(ptr noundef %866, i64 noundef %868)
+  store ptr %869, ptr %34, align 8
+  %870 = load ptr, ptr %11, align 8
+  %871 = load i32, ptr %20, align 4
+  %872 = sext i32 %871 to i64
+  %873 = call ptr @new_label_body(ptr noundef %870, i64 noundef %872)
+  store ptr %873, ptr %35, align 8
+  %874 = load ptr, ptr %11, align 8
+  %875 = load i32, ptr %20, align 4
+  %876 = sext i32 %875 to i64
+  %877 = call ptr @new_label_body(ptr noundef %874, i64 noundef %876)
+  store ptr %877, ptr %36, align 8
+  %878 = load ptr, ptr %11, align 8
+  %879 = load i32, ptr %20, align 4
+  %880 = sext i32 %879 to i64
+  %881 = call ptr @new_label_body(ptr noundef %878, i64 noundef %880)
+  store ptr %881, ptr %37, align 8
+  %882 = load ptr, ptr %11, align 8
+  %883 = load ptr, ptr %12, align 8
+  %884 = load ptr, ptr %13, align 8
+  %885 = load ptr, ptr %34, align 8
+  %886 = load i8, ptr %16, align 1
+  %887 = trunc i8 %886 to i1
+  %888 = load i32, ptr %18, align 4
+  %889 = call i32 @iseq_compile_pattern_constant(ptr noundef %882, ptr noundef %883, ptr noundef %884, ptr noundef %885, i1 noundef zeroext %887, i32 noundef %888)
+  %890 = icmp ne i32 %889, 0
+  br i1 %890, label %892, label %891
 
-888:                                              ; preds = %861
+891:                                              ; preds = %864
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-889:                                              ; preds = %861
-  %890 = load ptr, ptr %11, align 8
-  %891 = load ptr, ptr %12, align 8
-  %892 = load ptr, ptr %13, align 8
-  %893 = load ptr, ptr %36, align 8
-  %894 = load ptr, ptr %37, align 8
-  %895 = load ptr, ptr %34, align 8
-  %896 = load ptr, ptr %35, align 8
-  %897 = load i8, ptr %16, align 1
-  %898 = trunc i8 %897 to i1
-  %899 = load i32, ptr %18, align 4
-  %900 = load i8, ptr %19, align 1
+892:                                              ; preds = %864
+  %893 = load ptr, ptr %11, align 8
+  %894 = load ptr, ptr %12, align 8
+  %895 = load ptr, ptr %13, align 8
+  %896 = load ptr, ptr %36, align 8
+  %897 = load ptr, ptr %37, align 8
+  %898 = load ptr, ptr %34, align 8
+  %899 = load ptr, ptr %35, align 8
+  %900 = load i8, ptr %16, align 1
   %901 = trunc i8 %900 to i1
-  %902 = call i32 @iseq_compile_array_deconstruct(ptr noundef %890, ptr noundef %891, ptr noundef %892, ptr noundef %893, ptr noundef %894, ptr noundef %895, ptr noundef %896, i1 noundef zeroext %898, i32 noundef %899, i1 noundef zeroext %901)
-  %903 = icmp ne i32 %902, 0
-  br i1 %903, label %905, label %904
+  %902 = load i32, ptr %18, align 4
+  %903 = load i8, ptr %19, align 1
+  %904 = trunc i8 %903 to i1
+  %905 = call i32 @iseq_compile_array_deconstruct(ptr noundef %893, ptr noundef %894, ptr noundef %895, ptr noundef %896, ptr noundef %897, ptr noundef %898, ptr noundef %899, i1 noundef zeroext %901, i32 noundef %902, i1 noundef zeroext %904)
+  %906 = icmp ne i32 %905, 0
+  br i1 %906, label %908, label %907
 
-904:                                              ; preds = %889
+907:                                              ; preds = %892
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-905:                                              ; preds = %889
-  %906 = load ptr, ptr %12, align 8
-  %907 = load ptr, ptr %11, align 8
-  %908 = load ptr, ptr %21, align 8
-  %909 = getelementptr inbounds %struct.RNode, ptr %908, i32 0, i32 0
-  %910 = load i64, ptr %909, align 8
-  %911 = ashr i64 %910, 15
-  %912 = trunc i64 %911 to i32
-  %913 = load ptr, ptr %21, align 8
-  %914 = getelementptr inbounds %struct.RNode, ptr %913, i32 0, i32 2
-  %915 = load i32, ptr %914, align 8
-  %916 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %907, i32 noundef %912, i32 noundef %915, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %906, ptr noundef %916)
-  %917 = load ptr, ptr %12, align 8
-  %918 = load ptr, ptr %11, align 8
-  %919 = load ptr, ptr %21, align 8
-  %920 = getelementptr inbounds %struct.RNode, ptr %919, i32 0, i32 0
-  %921 = load i64, ptr %920, align 8
-  %922 = ashr i64 %921, 15
-  %923 = trunc i64 %922 to i32
-  %924 = load ptr, ptr %21, align 8
-  %925 = getelementptr inbounds %struct.RNode, ptr %924, i32 0, i32 2
-  %926 = load i32, ptr %925, align 8
-  %927 = call ptr @new_insn_send(ptr noundef %918, i32 noundef %923, i32 noundef %926, i64 noundef 2977, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %917, ptr noundef %927)
-  %928 = load ptr, ptr %12, align 8
-  %929 = load ptr, ptr %11, align 8
-  %930 = load ptr, ptr %21, align 8
-  %931 = getelementptr inbounds %struct.RNode, ptr %930, i32 0, i32 0
-  %932 = load i64, ptr %931, align 8
-  %933 = ashr i64 %932, 15
-  %934 = trunc i64 %933 to i32
-  %935 = load ptr, ptr %21, align 8
-  %936 = getelementptr inbounds %struct.RNode, ptr %935, i32 0, i32 2
-  %937 = load i32, ptr %936, align 8
-  %938 = load i32, ptr %33, align 4
-  %939 = sext i32 %938 to i64
-  %940 = call i64 @RB_INT2FIX(i64 noundef %939) #26
-  %941 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %929, i32 noundef %934, i32 noundef %937, i32 noundef 19, i32 noundef 1, i64 noundef %940)
-  call void @ADD_ELEM(ptr noundef %928, ptr noundef %941)
-  %942 = load ptr, ptr %12, align 8
-  %943 = load ptr, ptr %11, align 8
-  %944 = load ptr, ptr %21, align 8
-  %945 = getelementptr inbounds %struct.RNode, ptr %944, i32 0, i32 0
-  %946 = load i64, ptr %945, align 8
-  %947 = ashr i64 %946, 15
-  %948 = trunc i64 %947 to i32
-  %949 = load ptr, ptr %21, align 8
-  %950 = getelementptr inbounds %struct.RNode, ptr %949, i32 0, i32 2
-  %951 = load i32, ptr %950, align 8
-  %952 = call ptr @new_insn_send(ptr noundef %943, i32 noundef %948, i32 noundef %951, i64 noundef 139, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %942, ptr noundef %952)
-  %953 = load i8, ptr %16, align 1
-  %954 = trunc i8 %953 to i1
-  br i1 %954, label %955, label %969
+908:                                              ; preds = %892
+  %909 = load ptr, ptr %12, align 8
+  %910 = load ptr, ptr %11, align 8
+  %911 = load ptr, ptr %21, align 8
+  %912 = getelementptr inbounds %struct.RNode, ptr %911, i32 0, i32 0
+  %913 = load i64, ptr %912, align 8
+  %914 = ashr i64 %913, 15
+  %915 = trunc i64 %914 to i32
+  %916 = load ptr, ptr %21, align 8
+  %917 = getelementptr inbounds %struct.RNode, ptr %916, i32 0, i32 2
+  %918 = load i32, ptr %917, align 8
+  %919 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %910, i32 noundef %915, i32 noundef %918, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %909, ptr noundef %919)
+  %920 = load ptr, ptr %12, align 8
+  %921 = load ptr, ptr %11, align 8
+  %922 = load ptr, ptr %21, align 8
+  %923 = getelementptr inbounds %struct.RNode, ptr %922, i32 0, i32 0
+  %924 = load i64, ptr %923, align 8
+  %925 = ashr i64 %924, 15
+  %926 = trunc i64 %925 to i32
+  %927 = load ptr, ptr %21, align 8
+  %928 = getelementptr inbounds %struct.RNode, ptr %927, i32 0, i32 2
+  %929 = load i32, ptr %928, align 8
+  %930 = call ptr @new_insn_send(ptr noundef %921, i32 noundef %926, i32 noundef %929, i64 noundef 2977, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %920, ptr noundef %930)
+  %931 = load ptr, ptr %12, align 8
+  %932 = load ptr, ptr %11, align 8
+  %933 = load ptr, ptr %21, align 8
+  %934 = getelementptr inbounds %struct.RNode, ptr %933, i32 0, i32 0
+  %935 = load i64, ptr %934, align 8
+  %936 = ashr i64 %935, 15
+  %937 = trunc i64 %936 to i32
+  %938 = load ptr, ptr %21, align 8
+  %939 = getelementptr inbounds %struct.RNode, ptr %938, i32 0, i32 2
+  %940 = load i32, ptr %939, align 8
+  %941 = load i32, ptr %33, align 4
+  %942 = sext i32 %941 to i64
+  %943 = call i64 @RB_INT2FIX(i64 noundef %942) #26
+  %944 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %932, i32 noundef %937, i32 noundef %940, i32 noundef 19, i32 noundef 1, i64 noundef %943)
+  call void @ADD_ELEM(ptr noundef %931, ptr noundef %944)
+  %945 = load ptr, ptr %12, align 8
+  %946 = load ptr, ptr %11, align 8
+  %947 = load ptr, ptr %21, align 8
+  %948 = getelementptr inbounds %struct.RNode, ptr %947, i32 0, i32 0
+  %949 = load i64, ptr %948, align 8
+  %950 = ashr i64 %949, 15
+  %951 = trunc i64 %950 to i32
+  %952 = load ptr, ptr %21, align 8
+  %953 = getelementptr inbounds %struct.RNode, ptr %952, i32 0, i32 2
+  %954 = load i32, ptr %953, align 8
+  %955 = call ptr @new_insn_send(ptr noundef %946, i32 noundef %951, i32 noundef %954, i64 noundef 139, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %945, ptr noundef %955)
+  %956 = load i8, ptr %16, align 1
+  %957 = trunc i8 %956 to i1
+  br i1 %957, label %958, label %972
 
-955:                                              ; preds = %905
-  %956 = load ptr, ptr %11, align 8
-  %957 = load ptr, ptr %12, align 8
-  %958 = load ptr, ptr %13, align 8
-  %959 = call i64 @rb_fstring_new(ptr noundef @.str.103, i64 noundef 43)
-  %960 = load i32, ptr %33, align 4
-  %961 = sext i32 %960 to i64
-  %962 = call i64 @RB_INT2FIX(i64 noundef %961) #26
-  %963 = load i32, ptr %18, align 4
-  %964 = add i32 %963, 1
-  %965 = call i32 @iseq_compile_pattern_set_length_errmsg(ptr noundef %956, ptr noundef %957, ptr noundef %958, i64 noundef %959, i64 noundef %962, i32 noundef %964)
-  %966 = icmp ne i32 %965, 0
-  br i1 %966, label %968, label %967
+958:                                              ; preds = %908
+  %959 = load ptr, ptr %11, align 8
+  %960 = load ptr, ptr %12, align 8
+  %961 = load ptr, ptr %13, align 8
+  %962 = call i64 @rb_fstring_new(ptr noundef @.str.103, i64 noundef 43)
+  %963 = load i32, ptr %33, align 4
+  %964 = sext i32 %963 to i64
+  %965 = call i64 @RB_INT2FIX(i64 noundef %964) #26
+  %966 = load i32, ptr %18, align 4
+  %967 = add i32 %966, 1
+  %968 = call i32 @iseq_compile_pattern_set_length_errmsg(ptr noundef %959, ptr noundef %960, ptr noundef %961, i64 noundef %962, i64 noundef %965, i32 noundef %967)
+  %969 = icmp ne i32 %968, 0
+  br i1 %969, label %971, label %970
 
-967:                                              ; preds = %955
+970:                                              ; preds = %958
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-968:                                              ; preds = %955
-  br label %969
+971:                                              ; preds = %958
+  br label %972
 
-969:                                              ; preds = %968, %905
-  %970 = load ptr, ptr %12, align 8
-  %971 = load ptr, ptr %11, align 8
-  %972 = load ptr, ptr %21, align 8
-  %973 = getelementptr inbounds %struct.RNode, ptr %972, i32 0, i32 0
-  %974 = load i64, ptr %973, align 8
-  %975 = ashr i64 %974, 15
-  %976 = trunc i64 %975 to i32
-  %977 = load ptr, ptr %21, align 8
-  %978 = getelementptr inbounds %struct.RNode, ptr %977, i32 0, i32 2
-  %979 = load i32, ptr %978, align 8
-  %980 = load ptr, ptr %34, align 8
-  %981 = ptrtoint ptr %980 to i64
-  %982 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %971, i32 noundef %976, i32 noundef %979, i32 noundef 68, i32 noundef 1, i64 noundef %981)
-  call void @ADD_ELEM(ptr noundef %970, ptr noundef %982)
+972:                                              ; preds = %971, %908
+  %973 = load ptr, ptr %12, align 8
+  %974 = load ptr, ptr %11, align 8
+  %975 = load ptr, ptr %21, align 8
+  %976 = getelementptr inbounds %struct.RNode, ptr %975, i32 0, i32 0
+  %977 = load i64, ptr %976, align 8
+  %978 = ashr i64 %977, 15
+  %979 = trunc i64 %978 to i32
+  %980 = load ptr, ptr %21, align 8
+  %981 = getelementptr inbounds %struct.RNode, ptr %980, i32 0, i32 2
+  %982 = load i32, ptr %981, align 8
   %983 = load ptr, ptr %34, align 8
-  %984 = getelementptr inbounds %struct.iseq_label_data, ptr %983, i32 0, i32 5
-  %985 = load i32, ptr %984, align 8
-  %986 = add i32 %985, 1
-  store i32 %986, ptr %984, align 8
-  %987 = load ptr, ptr %11, align 8
-  %988 = load ptr, ptr %13, align 8
-  %989 = getelementptr inbounds %struct.RNode, ptr %988, i32 0, i32 0
-  %990 = load i64, ptr %989, align 8
-  %991 = ashr i64 %990, 15
-  %992 = trunc i64 %991 to i32
-  %993 = sext i32 %992 to i64
-  %994 = call ptr @new_label_body(ptr noundef %987, i64 noundef %993)
-  store ptr %994, ptr %38, align 8
-  %995 = load ptr, ptr %11, align 8
-  %996 = load ptr, ptr %13, align 8
-  %997 = getelementptr inbounds %struct.RNode, ptr %996, i32 0, i32 0
-  %998 = load i64, ptr %997, align 8
-  %999 = ashr i64 %998, 15
-  %1000 = trunc i64 %999 to i32
-  %1001 = sext i32 %1000 to i64
-  %1002 = call ptr @new_label_body(ptr noundef %995, i64 noundef %1001)
-  store ptr %1002, ptr %39, align 8
-  %1003 = load ptr, ptr %11, align 8
-  %1004 = load i32, ptr %20, align 4
-  %1005 = sext i32 %1004 to i64
-  %1006 = call ptr @new_label_body(ptr noundef %1003, i64 noundef %1005)
-  store ptr %1006, ptr %40, align 8
-  %1007 = load ptr, ptr %11, align 8
-  %1008 = load ptr, ptr %13, align 8
-  %1009 = getelementptr inbounds %struct.RNode, ptr %1008, i32 0, i32 0
-  %1010 = load i64, ptr %1009, align 8
-  %1011 = ashr i64 %1010, 15
-  %1012 = trunc i64 %1011 to i32
-  %1013 = sext i32 %1012 to i64
-  %1014 = call ptr @new_label_body(ptr noundef %1007, i64 noundef %1013)
-  store ptr %1014, ptr %41, align 8
-  %1015 = load ptr, ptr %12, align 8
-  %1016 = load ptr, ptr %11, align 8
-  %1017 = load ptr, ptr %21, align 8
-  %1018 = getelementptr inbounds %struct.RNode, ptr %1017, i32 0, i32 0
-  %1019 = load i64, ptr %1018, align 8
-  %1020 = ashr i64 %1019, 15
-  %1021 = trunc i64 %1020 to i32
-  %1022 = load ptr, ptr %21, align 8
-  %1023 = getelementptr inbounds %struct.RNode, ptr %1022, i32 0, i32 2
-  %1024 = load i32, ptr %1023, align 8
-  %1025 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1016, i32 noundef %1021, i32 noundef %1024, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %1015, ptr noundef %1025)
-  %1026 = load ptr, ptr %12, align 8
-  %1027 = load ptr, ptr %11, align 8
-  %1028 = load ptr, ptr %21, align 8
-  %1029 = getelementptr inbounds %struct.RNode, ptr %1028, i32 0, i32 0
-  %1030 = load i64, ptr %1029, align 8
-  %1031 = ashr i64 %1030, 15
-  %1032 = trunc i64 %1031 to i32
-  %1033 = load ptr, ptr %21, align 8
-  %1034 = getelementptr inbounds %struct.RNode, ptr %1033, i32 0, i32 2
-  %1035 = load i32, ptr %1034, align 8
-  %1036 = call ptr @new_insn_send(ptr noundef %1027, i32 noundef %1032, i32 noundef %1035, i64 noundef 2977, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %1026, ptr noundef %1036)
-  %1037 = load ptr, ptr %12, align 8
-  %1038 = load ptr, ptr %11, align 8
-  %1039 = load ptr, ptr %21, align 8
-  %1040 = getelementptr inbounds %struct.RNode, ptr %1039, i32 0, i32 0
-  %1041 = load i64, ptr %1040, align 8
-  %1042 = ashr i64 %1041, 15
-  %1043 = trunc i64 %1042 to i32
-  %1044 = load ptr, ptr %21, align 8
-  %1045 = getelementptr inbounds %struct.RNode, ptr %1044, i32 0, i32 2
-  %1046 = load i32, ptr %1045, align 8
-  %1047 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1038, i32 noundef %1043, i32 noundef %1046, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %1037, ptr noundef %1047)
-  %1048 = load ptr, ptr %12, align 8
-  %1049 = load ptr, ptr %11, align 8
-  %1050 = load ptr, ptr %21, align 8
-  %1051 = getelementptr inbounds %struct.RNode, ptr %1050, i32 0, i32 0
-  %1052 = load i64, ptr %1051, align 8
-  %1053 = ashr i64 %1052, 15
-  %1054 = trunc i64 %1053 to i32
-  %1055 = load ptr, ptr %21, align 8
-  %1056 = getelementptr inbounds %struct.RNode, ptr %1055, i32 0, i32 2
-  %1057 = load i32, ptr %1056, align 8
-  %1058 = load i32, ptr %33, align 4
-  %1059 = sext i32 %1058 to i64
-  %1060 = call i64 @RB_INT2FIX(i64 noundef %1059) #26
-  %1061 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1049, i32 noundef %1054, i32 noundef %1057, i32 noundef 19, i32 noundef 1, i64 noundef %1060)
-  call void @ADD_ELEM(ptr noundef %1048, ptr noundef %1061)
-  %1062 = load ptr, ptr %12, align 8
-  %1063 = load ptr, ptr %11, align 8
-  %1064 = load ptr, ptr %21, align 8
-  %1065 = getelementptr inbounds %struct.RNode, ptr %1064, i32 0, i32 0
-  %1066 = load i64, ptr %1065, align 8
-  %1067 = ashr i64 %1066, 15
-  %1068 = trunc i64 %1067 to i32
-  %1069 = load ptr, ptr %21, align 8
-  %1070 = getelementptr inbounds %struct.RNode, ptr %1069, i32 0, i32 2
-  %1071 = load i32, ptr %1070, align 8
-  %1072 = call ptr @new_insn_send(ptr noundef %1063, i32 noundef %1068, i32 noundef %1071, i64 noundef 45, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %1062, ptr noundef %1072)
-  %1073 = load ptr, ptr %12, align 8
-  %1074 = load ptr, ptr %11, align 8
-  %1075 = load ptr, ptr %21, align 8
-  %1076 = getelementptr inbounds %struct.RNode, ptr %1075, i32 0, i32 0
-  %1077 = load i64, ptr %1076, align 8
-  %1078 = ashr i64 %1077, 15
-  %1079 = trunc i64 %1078 to i32
-  %1080 = load ptr, ptr %21, align 8
-  %1081 = getelementptr inbounds %struct.RNode, ptr %1080, i32 0, i32 2
-  %1082 = load i32, ptr %1081, align 8
-  %1083 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1074, i32 noundef %1079, i32 noundef %1082, i32 noundef 19, i32 noundef 1, i64 noundef 1)
-  call void @ADD_ELEM(ptr noundef %1073, ptr noundef %1083)
-  %1084 = load ptr, ptr %12, align 8
-  %1085 = load ptr, ptr %38, align 8
-  call void @ADD_ELEM(ptr noundef %1084, ptr noundef %1085)
-  %1086 = load ptr, ptr %12, align 8
-  %1087 = load ptr, ptr %11, align 8
-  %1088 = load ptr, ptr %21, align 8
-  %1089 = getelementptr inbounds %struct.RNode, ptr %1088, i32 0, i32 0
-  %1090 = load i64, ptr %1089, align 8
-  %1091 = ashr i64 %1090, 15
-  %1092 = trunc i64 %1091 to i32
-  %1093 = load ptr, ptr %21, align 8
-  %1094 = getelementptr inbounds %struct.RNode, ptr %1093, i32 0, i32 2
-  %1095 = load i32, ptr %1094, align 8
-  %1096 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1087, i32 noundef %1092, i32 noundef %1095, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %1086, ptr noundef %1096)
-  %1097 = load ptr, ptr %12, align 8
-  %1098 = load ptr, ptr %11, align 8
-  %1099 = load ptr, ptr %21, align 8
-  %1100 = getelementptr inbounds %struct.RNode, ptr %1099, i32 0, i32 0
-  %1101 = load i64, ptr %1100, align 8
-  %1102 = ashr i64 %1101, 15
-  %1103 = trunc i64 %1102 to i32
-  %1104 = load ptr, ptr %21, align 8
-  %1105 = getelementptr inbounds %struct.RNode, ptr %1104, i32 0, i32 2
-  %1106 = load i32, ptr %1105, align 8
-  %1107 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1098, i32 noundef %1103, i32 noundef %1106, i32 noundef 44, i32 noundef 1, i64 noundef 5)
-  call void @ADD_ELEM(ptr noundef %1097, ptr noundef %1107)
-  %1108 = load ptr, ptr %12, align 8
-  %1109 = load ptr, ptr %11, align 8
-  %1110 = load ptr, ptr %21, align 8
-  %1111 = getelementptr inbounds %struct.RNode, ptr %1110, i32 0, i32 0
-  %1112 = load i64, ptr %1111, align 8
-  %1113 = ashr i64 %1112, 15
-  %1114 = trunc i64 %1113 to i32
-  %1115 = load ptr, ptr %21, align 8
-  %1116 = getelementptr inbounds %struct.RNode, ptr %1115, i32 0, i32 2
-  %1117 = load i32, ptr %1116, align 8
-  %1118 = call ptr @new_insn_send(ptr noundef %1109, i32 noundef %1114, i32 noundef %1117, i64 noundef 138, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %1108, ptr noundef %1118)
-  %1119 = load ptr, ptr %12, align 8
-  %1120 = load ptr, ptr %11, align 8
-  %1121 = load ptr, ptr %21, align 8
-  %1122 = getelementptr inbounds %struct.RNode, ptr %1121, i32 0, i32 0
-  %1123 = load i64, ptr %1122, align 8
-  %1124 = ashr i64 %1123, 15
-  %1125 = trunc i64 %1124 to i32
-  %1126 = load ptr, ptr %21, align 8
-  %1127 = getelementptr inbounds %struct.RNode, ptr %1126, i32 0, i32 2
-  %1128 = load i32, ptr %1127, align 8
-  %1129 = load ptr, ptr %41, align 8
-  %1130 = ptrtoint ptr %1129 to i64
-  %1131 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1120, i32 noundef %1125, i32 noundef %1128, i32 noundef 68, i32 noundef 1, i64 noundef %1130)
-  call void @ADD_ELEM(ptr noundef %1119, ptr noundef %1131)
+  %984 = ptrtoint ptr %983 to i64
+  %985 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %974, i32 noundef %979, i32 noundef %982, i32 noundef 68, i32 noundef 1, i64 noundef %984)
+  call void @ADD_ELEM(ptr noundef %973, ptr noundef %985)
+  %986 = load ptr, ptr %34, align 8
+  %987 = getelementptr inbounds %struct.iseq_label_data, ptr %986, i32 0, i32 5
+  %988 = load i32, ptr %987, align 8
+  %989 = add i32 %988, 1
+  store i32 %989, ptr %987, align 8
+  %990 = load ptr, ptr %11, align 8
+  %991 = load ptr, ptr %13, align 8
+  %992 = getelementptr inbounds %struct.RNode, ptr %991, i32 0, i32 0
+  %993 = load i64, ptr %992, align 8
+  %994 = ashr i64 %993, 15
+  %995 = trunc i64 %994 to i32
+  %996 = sext i32 %995 to i64
+  %997 = call ptr @new_label_body(ptr noundef %990, i64 noundef %996)
+  store ptr %997, ptr %38, align 8
+  %998 = load ptr, ptr %11, align 8
+  %999 = load ptr, ptr %13, align 8
+  %1000 = getelementptr inbounds %struct.RNode, ptr %999, i32 0, i32 0
+  %1001 = load i64, ptr %1000, align 8
+  %1002 = ashr i64 %1001, 15
+  %1003 = trunc i64 %1002 to i32
+  %1004 = sext i32 %1003 to i64
+  %1005 = call ptr @new_label_body(ptr noundef %998, i64 noundef %1004)
+  store ptr %1005, ptr %39, align 8
+  %1006 = load ptr, ptr %11, align 8
+  %1007 = load i32, ptr %20, align 4
+  %1008 = sext i32 %1007 to i64
+  %1009 = call ptr @new_label_body(ptr noundef %1006, i64 noundef %1008)
+  store ptr %1009, ptr %40, align 8
+  %1010 = load ptr, ptr %11, align 8
+  %1011 = load ptr, ptr %13, align 8
+  %1012 = getelementptr inbounds %struct.RNode, ptr %1011, i32 0, i32 0
+  %1013 = load i64, ptr %1012, align 8
+  %1014 = ashr i64 %1013, 15
+  %1015 = trunc i64 %1014 to i32
+  %1016 = sext i32 %1015 to i64
+  %1017 = call ptr @new_label_body(ptr noundef %1010, i64 noundef %1016)
+  store ptr %1017, ptr %41, align 8
+  %1018 = load ptr, ptr %12, align 8
+  %1019 = load ptr, ptr %11, align 8
+  %1020 = load ptr, ptr %21, align 8
+  %1021 = getelementptr inbounds %struct.RNode, ptr %1020, i32 0, i32 0
+  %1022 = load i64, ptr %1021, align 8
+  %1023 = ashr i64 %1022, 15
+  %1024 = trunc i64 %1023 to i32
+  %1025 = load ptr, ptr %21, align 8
+  %1026 = getelementptr inbounds %struct.RNode, ptr %1025, i32 0, i32 2
+  %1027 = load i32, ptr %1026, align 8
+  %1028 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1019, i32 noundef %1024, i32 noundef %1027, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %1018, ptr noundef %1028)
+  %1029 = load ptr, ptr %12, align 8
+  %1030 = load ptr, ptr %11, align 8
+  %1031 = load ptr, ptr %21, align 8
+  %1032 = getelementptr inbounds %struct.RNode, ptr %1031, i32 0, i32 0
+  %1033 = load i64, ptr %1032, align 8
+  %1034 = ashr i64 %1033, 15
+  %1035 = trunc i64 %1034 to i32
+  %1036 = load ptr, ptr %21, align 8
+  %1037 = getelementptr inbounds %struct.RNode, ptr %1036, i32 0, i32 2
+  %1038 = load i32, ptr %1037, align 8
+  %1039 = call ptr @new_insn_send(ptr noundef %1030, i32 noundef %1035, i32 noundef %1038, i64 noundef 2977, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %1029, ptr noundef %1039)
+  %1040 = load ptr, ptr %12, align 8
+  %1041 = load ptr, ptr %11, align 8
+  %1042 = load ptr, ptr %21, align 8
+  %1043 = getelementptr inbounds %struct.RNode, ptr %1042, i32 0, i32 0
+  %1044 = load i64, ptr %1043, align 8
+  %1045 = ashr i64 %1044, 15
+  %1046 = trunc i64 %1045 to i32
+  %1047 = load ptr, ptr %21, align 8
+  %1048 = getelementptr inbounds %struct.RNode, ptr %1047, i32 0, i32 2
+  %1049 = load i32, ptr %1048, align 8
+  %1050 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1041, i32 noundef %1046, i32 noundef %1049, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %1040, ptr noundef %1050)
+  %1051 = load ptr, ptr %12, align 8
+  %1052 = load ptr, ptr %11, align 8
+  %1053 = load ptr, ptr %21, align 8
+  %1054 = getelementptr inbounds %struct.RNode, ptr %1053, i32 0, i32 0
+  %1055 = load i64, ptr %1054, align 8
+  %1056 = ashr i64 %1055, 15
+  %1057 = trunc i64 %1056 to i32
+  %1058 = load ptr, ptr %21, align 8
+  %1059 = getelementptr inbounds %struct.RNode, ptr %1058, i32 0, i32 2
+  %1060 = load i32, ptr %1059, align 8
+  %1061 = load i32, ptr %33, align 4
+  %1062 = sext i32 %1061 to i64
+  %1063 = call i64 @RB_INT2FIX(i64 noundef %1062) #26
+  %1064 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1052, i32 noundef %1057, i32 noundef %1060, i32 noundef 19, i32 noundef 1, i64 noundef %1063)
+  call void @ADD_ELEM(ptr noundef %1051, ptr noundef %1064)
+  %1065 = load ptr, ptr %12, align 8
+  %1066 = load ptr, ptr %11, align 8
+  %1067 = load ptr, ptr %21, align 8
+  %1068 = getelementptr inbounds %struct.RNode, ptr %1067, i32 0, i32 0
+  %1069 = load i64, ptr %1068, align 8
+  %1070 = ashr i64 %1069, 15
+  %1071 = trunc i64 %1070 to i32
+  %1072 = load ptr, ptr %21, align 8
+  %1073 = getelementptr inbounds %struct.RNode, ptr %1072, i32 0, i32 2
+  %1074 = load i32, ptr %1073, align 8
+  %1075 = call ptr @new_insn_send(ptr noundef %1066, i32 noundef %1071, i32 noundef %1074, i64 noundef 45, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %1065, ptr noundef %1075)
+  %1076 = load ptr, ptr %12, align 8
+  %1077 = load ptr, ptr %11, align 8
+  %1078 = load ptr, ptr %21, align 8
+  %1079 = getelementptr inbounds %struct.RNode, ptr %1078, i32 0, i32 0
+  %1080 = load i64, ptr %1079, align 8
+  %1081 = ashr i64 %1080, 15
+  %1082 = trunc i64 %1081 to i32
+  %1083 = load ptr, ptr %21, align 8
+  %1084 = getelementptr inbounds %struct.RNode, ptr %1083, i32 0, i32 2
+  %1085 = load i32, ptr %1084, align 8
+  %1086 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1077, i32 noundef %1082, i32 noundef %1085, i32 noundef 19, i32 noundef 1, i64 noundef 1)
+  call void @ADD_ELEM(ptr noundef %1076, ptr noundef %1086)
+  %1087 = load ptr, ptr %12, align 8
+  %1088 = load ptr, ptr %38, align 8
+  call void @ADD_ELEM(ptr noundef %1087, ptr noundef %1088)
+  %1089 = load ptr, ptr %12, align 8
+  %1090 = load ptr, ptr %11, align 8
+  %1091 = load ptr, ptr %21, align 8
+  %1092 = getelementptr inbounds %struct.RNode, ptr %1091, i32 0, i32 0
+  %1093 = load i64, ptr %1092, align 8
+  %1094 = ashr i64 %1093, 15
+  %1095 = trunc i64 %1094 to i32
+  %1096 = load ptr, ptr %21, align 8
+  %1097 = getelementptr inbounds %struct.RNode, ptr %1096, i32 0, i32 2
+  %1098 = load i32, ptr %1097, align 8
+  %1099 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1090, i32 noundef %1095, i32 noundef %1098, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %1089, ptr noundef %1099)
+  %1100 = load ptr, ptr %12, align 8
+  %1101 = load ptr, ptr %11, align 8
+  %1102 = load ptr, ptr %21, align 8
+  %1103 = getelementptr inbounds %struct.RNode, ptr %1102, i32 0, i32 0
+  %1104 = load i64, ptr %1103, align 8
+  %1105 = ashr i64 %1104, 15
+  %1106 = trunc i64 %1105 to i32
+  %1107 = load ptr, ptr %21, align 8
+  %1108 = getelementptr inbounds %struct.RNode, ptr %1107, i32 0, i32 2
+  %1109 = load i32, ptr %1108, align 8
+  %1110 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1101, i32 noundef %1106, i32 noundef %1109, i32 noundef 44, i32 noundef 1, i64 noundef 5)
+  call void @ADD_ELEM(ptr noundef %1100, ptr noundef %1110)
+  %1111 = load ptr, ptr %12, align 8
+  %1112 = load ptr, ptr %11, align 8
+  %1113 = load ptr, ptr %21, align 8
+  %1114 = getelementptr inbounds %struct.RNode, ptr %1113, i32 0, i32 0
+  %1115 = load i64, ptr %1114, align 8
+  %1116 = ashr i64 %1115, 15
+  %1117 = trunc i64 %1116 to i32
+  %1118 = load ptr, ptr %21, align 8
+  %1119 = getelementptr inbounds %struct.RNode, ptr %1118, i32 0, i32 2
+  %1120 = load i32, ptr %1119, align 8
+  %1121 = call ptr @new_insn_send(ptr noundef %1112, i32 noundef %1117, i32 noundef %1120, i64 noundef 138, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %1111, ptr noundef %1121)
+  %1122 = load ptr, ptr %12, align 8
+  %1123 = load ptr, ptr %11, align 8
+  %1124 = load ptr, ptr %21, align 8
+  %1125 = getelementptr inbounds %struct.RNode, ptr %1124, i32 0, i32 0
+  %1126 = load i64, ptr %1125, align 8
+  %1127 = ashr i64 %1126, 15
+  %1128 = trunc i64 %1127 to i32
+  %1129 = load ptr, ptr %21, align 8
+  %1130 = getelementptr inbounds %struct.RNode, ptr %1129, i32 0, i32 2
+  %1131 = load i32, ptr %1130, align 8
   %1132 = load ptr, ptr %41, align 8
-  %1133 = getelementptr inbounds %struct.iseq_label_data, ptr %1132, i32 0, i32 5
-  %1134 = load i32, ptr %1133, align 8
-  %1135 = add i32 %1134, 1
-  store i32 %1135, ptr %1133, align 8
+  %1133 = ptrtoint ptr %1132 to i64
+  %1134 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1123, i32 noundef %1128, i32 noundef %1131, i32 noundef 68, i32 noundef 1, i64 noundef %1133)
+  call void @ADD_ELEM(ptr noundef %1122, ptr noundef %1134)
+  %1135 = load ptr, ptr %41, align 8
+  %1136 = getelementptr inbounds %struct.iseq_label_data, ptr %1135, i32 0, i32 5
+  %1137 = load i32, ptr %1136, align 8
+  %1138 = add i32 %1137, 1
+  store i32 %1138, ptr %1136, align 8
   store i32 0, ptr %42, align 4
-  br label %1136
+  br label %1139
 
-1136:                                             ; preds = %1222, %969
-  %1137 = load i32, ptr %42, align 4
-  %1138 = load i32, ptr %33, align 4
-  %1139 = icmp slt i32 %1137, %1138
-  br i1 %1139, label %1140, label %1225
+1139:                                             ; preds = %1225, %972
+  %1140 = load i32, ptr %42, align 4
+  %1141 = load i32, ptr %33, align 4
+  %1142 = icmp slt i32 %1140, %1141
+  br i1 %1142, label %1143, label %1228
 
-1140:                                             ; preds = %1136
-  %1141 = load ptr, ptr %12, align 8
-  %1142 = load ptr, ptr %11, align 8
-  %1143 = load ptr, ptr %21, align 8
-  %1144 = getelementptr inbounds %struct.RNode, ptr %1143, i32 0, i32 0
-  %1145 = load i64, ptr %1144, align 8
-  %1146 = ashr i64 %1145, 15
-  %1147 = trunc i64 %1146 to i32
-  %1148 = load ptr, ptr %21, align 8
-  %1149 = getelementptr inbounds %struct.RNode, ptr %1148, i32 0, i32 2
-  %1150 = load i32, ptr %1149, align 8
-  %1151 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1142, i32 noundef %1147, i32 noundef %1150, i32 noundef 44, i32 noundef 1, i64 noundef 7)
-  call void @ADD_ELEM(ptr noundef %1141, ptr noundef %1151)
-  %1152 = load ptr, ptr %12, align 8
-  %1153 = load ptr, ptr %11, align 8
-  %1154 = load ptr, ptr %21, align 8
-  %1155 = getelementptr inbounds %struct.RNode, ptr %1154, i32 0, i32 0
-  %1156 = load i64, ptr %1155, align 8
-  %1157 = ashr i64 %1156, 15
-  %1158 = trunc i64 %1157 to i32
-  %1159 = load ptr, ptr %21, align 8
-  %1160 = getelementptr inbounds %struct.RNode, ptr %1159, i32 0, i32 2
-  %1161 = load i32, ptr %1160, align 8
-  %1162 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1153, i32 noundef %1158, i32 noundef %1161, i32 noundef 44, i32 noundef 1, i64 noundef 3)
-  call void @ADD_ELEM(ptr noundef %1152, ptr noundef %1162)
-  %1163 = load i32, ptr %42, align 4
-  %1164 = icmp ne i32 %1163, 0
-  br i1 %1164, label %1165, label %1191
+1143:                                             ; preds = %1139
+  %1144 = load ptr, ptr %12, align 8
+  %1145 = load ptr, ptr %11, align 8
+  %1146 = load ptr, ptr %21, align 8
+  %1147 = getelementptr inbounds %struct.RNode, ptr %1146, i32 0, i32 0
+  %1148 = load i64, ptr %1147, align 8
+  %1149 = ashr i64 %1148, 15
+  %1150 = trunc i64 %1149 to i32
+  %1151 = load ptr, ptr %21, align 8
+  %1152 = getelementptr inbounds %struct.RNode, ptr %1151, i32 0, i32 2
+  %1153 = load i32, ptr %1152, align 8
+  %1154 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1145, i32 noundef %1150, i32 noundef %1153, i32 noundef 44, i32 noundef 1, i64 noundef 7)
+  call void @ADD_ELEM(ptr noundef %1144, ptr noundef %1154)
+  %1155 = load ptr, ptr %12, align 8
+  %1156 = load ptr, ptr %11, align 8
+  %1157 = load ptr, ptr %21, align 8
+  %1158 = getelementptr inbounds %struct.RNode, ptr %1157, i32 0, i32 0
+  %1159 = load i64, ptr %1158, align 8
+  %1160 = ashr i64 %1159, 15
+  %1161 = trunc i64 %1160 to i32
+  %1162 = load ptr, ptr %21, align 8
+  %1163 = getelementptr inbounds %struct.RNode, ptr %1162, i32 0, i32 2
+  %1164 = load i32, ptr %1163, align 8
+  %1165 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1156, i32 noundef %1161, i32 noundef %1164, i32 noundef 44, i32 noundef 1, i64 noundef 3)
+  call void @ADD_ELEM(ptr noundef %1155, ptr noundef %1165)
+  %1166 = load i32, ptr %42, align 4
+  %1167 = icmp ne i32 %1166, 0
+  br i1 %1167, label %1168, label %1194
 
-1165:                                             ; preds = %1140
-  %1166 = load ptr, ptr %12, align 8
-  %1167 = load ptr, ptr %11, align 8
-  %1168 = load ptr, ptr %21, align 8
-  %1169 = getelementptr inbounds %struct.RNode, ptr %1168, i32 0, i32 0
-  %1170 = load i64, ptr %1169, align 8
-  %1171 = ashr i64 %1170, 15
-  %1172 = trunc i64 %1171 to i32
-  %1173 = load ptr, ptr %21, align 8
-  %1174 = getelementptr inbounds %struct.RNode, ptr %1173, i32 0, i32 2
-  %1175 = load i32, ptr %1174, align 8
-  %1176 = load i32, ptr %42, align 4
-  %1177 = sext i32 %1176 to i64
-  %1178 = call i64 @RB_INT2FIX(i64 noundef %1177) #26
-  %1179 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1167, i32 noundef %1172, i32 noundef %1175, i32 noundef 19, i32 noundef 1, i64 noundef %1178)
-  call void @ADD_ELEM(ptr noundef %1166, ptr noundef %1179)
-  %1180 = load ptr, ptr %12, align 8
-  %1181 = load ptr, ptr %11, align 8
-  %1182 = load ptr, ptr %21, align 8
-  %1183 = getelementptr inbounds %struct.RNode, ptr %1182, i32 0, i32 0
-  %1184 = load i64, ptr %1183, align 8
-  %1185 = ashr i64 %1184, 15
-  %1186 = trunc i64 %1185 to i32
-  %1187 = load ptr, ptr %21, align 8
-  %1188 = getelementptr inbounds %struct.RNode, ptr %1187, i32 0, i32 2
-  %1189 = load i32, ptr %1188, align 8
-  %1190 = call ptr @new_insn_send(ptr noundef %1181, i32 noundef %1186, i32 noundef %1189, i64 noundef 43, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %1180, ptr noundef %1190)
-  br label %1191
+1168:                                             ; preds = %1143
+  %1169 = load ptr, ptr %12, align 8
+  %1170 = load ptr, ptr %11, align 8
+  %1171 = load ptr, ptr %21, align 8
+  %1172 = getelementptr inbounds %struct.RNode, ptr %1171, i32 0, i32 0
+  %1173 = load i64, ptr %1172, align 8
+  %1174 = ashr i64 %1173, 15
+  %1175 = trunc i64 %1174 to i32
+  %1176 = load ptr, ptr %21, align 8
+  %1177 = getelementptr inbounds %struct.RNode, ptr %1176, i32 0, i32 2
+  %1178 = load i32, ptr %1177, align 8
+  %1179 = load i32, ptr %42, align 4
+  %1180 = sext i32 %1179 to i64
+  %1181 = call i64 @RB_INT2FIX(i64 noundef %1180) #26
+  %1182 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1170, i32 noundef %1175, i32 noundef %1178, i32 noundef 19, i32 noundef 1, i64 noundef %1181)
+  call void @ADD_ELEM(ptr noundef %1169, ptr noundef %1182)
+  %1183 = load ptr, ptr %12, align 8
+  %1184 = load ptr, ptr %11, align 8
+  %1185 = load ptr, ptr %21, align 8
+  %1186 = getelementptr inbounds %struct.RNode, ptr %1185, i32 0, i32 0
+  %1187 = load i64, ptr %1186, align 8
+  %1188 = ashr i64 %1187, 15
+  %1189 = trunc i64 %1188 to i32
+  %1190 = load ptr, ptr %21, align 8
+  %1191 = getelementptr inbounds %struct.RNode, ptr %1190, i32 0, i32 2
+  %1192 = load i32, ptr %1191, align 8
+  %1193 = call ptr @new_insn_send(ptr noundef %1184, i32 noundef %1189, i32 noundef %1192, i64 noundef 43, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %1183, ptr noundef %1193)
+  br label %1194
 
-1191:                                             ; preds = %1165, %1140
-  %1192 = load ptr, ptr %12, align 8
-  %1193 = load ptr, ptr %11, align 8
-  %1194 = load ptr, ptr %21, align 8
-  %1195 = getelementptr inbounds %struct.RNode, ptr %1194, i32 0, i32 0
-  %1196 = load i64, ptr %1195, align 8
-  %1197 = ashr i64 %1196, 15
-  %1198 = trunc i64 %1197 to i32
-  %1199 = load ptr, ptr %21, align 8
-  %1200 = getelementptr inbounds %struct.RNode, ptr %1199, i32 0, i32 2
-  %1201 = load i32, ptr %1200, align 8
-  %1202 = call ptr @new_insn_send(ptr noundef %1193, i32 noundef %1198, i32 noundef %1201, i64 noundef 145, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %1192, ptr noundef %1202)
-  %1203 = load ptr, ptr %11, align 8
-  %1204 = load ptr, ptr %12, align 8
-  %1205 = load ptr, ptr %32, align 8
-  %1206 = getelementptr inbounds %struct.RNode_LIST, ptr %1205, i32 0, i32 1
-  %1207 = load ptr, ptr %1206, align 8
-  %1208 = load ptr, ptr %39, align 8
-  %1209 = load i8, ptr %16, align 1
-  %1210 = trunc i8 %1209 to i1
-  %1211 = load i8, ptr %17, align 1
-  %1212 = trunc i8 %1211 to i1
-  %1213 = load i32, ptr %18, align 4
-  %1214 = add i32 %1213, 4
-  %1215 = call i32 @iseq_compile_pattern_match(ptr noundef %1203, ptr noundef %1204, ptr noundef %1207, ptr noundef %1208, i1 noundef zeroext %1210, i1 noundef zeroext %1212, i32 noundef %1214, i1 noundef zeroext false)
-  %1216 = icmp ne i32 %1215, 0
-  br i1 %1216, label %1218, label %1217
+1194:                                             ; preds = %1168, %1143
+  %1195 = load ptr, ptr %12, align 8
+  %1196 = load ptr, ptr %11, align 8
+  %1197 = load ptr, ptr %21, align 8
+  %1198 = getelementptr inbounds %struct.RNode, ptr %1197, i32 0, i32 0
+  %1199 = load i64, ptr %1198, align 8
+  %1200 = ashr i64 %1199, 15
+  %1201 = trunc i64 %1200 to i32
+  %1202 = load ptr, ptr %21, align 8
+  %1203 = getelementptr inbounds %struct.RNode, ptr %1202, i32 0, i32 2
+  %1204 = load i32, ptr %1203, align 8
+  %1205 = call ptr @new_insn_send(ptr noundef %1196, i32 noundef %1201, i32 noundef %1204, i64 noundef 145, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %1195, ptr noundef %1205)
+  %1206 = load ptr, ptr %11, align 8
+  %1207 = load ptr, ptr %12, align 8
+  %1208 = load ptr, ptr %32, align 8
+  %1209 = getelementptr inbounds %struct.RNode_LIST, ptr %1208, i32 0, i32 1
+  %1210 = load ptr, ptr %1209, align 8
+  %1211 = load ptr, ptr %39, align 8
+  %1212 = load i8, ptr %16, align 1
+  %1213 = trunc i8 %1212 to i1
+  %1214 = load i8, ptr %17, align 1
+  %1215 = trunc i8 %1214 to i1
+  %1216 = load i32, ptr %18, align 4
+  %1217 = add i32 %1216, 4
+  %1218 = call i32 @iseq_compile_pattern_match(ptr noundef %1206, ptr noundef %1207, ptr noundef %1210, ptr noundef %1211, i1 noundef zeroext %1213, i1 noundef zeroext %1215, i32 noundef %1217, i1 noundef zeroext false)
+  %1219 = icmp ne i32 %1218, 0
+  br i1 %1219, label %1221, label %1220
 
-1217:                                             ; preds = %1191
+1220:                                             ; preds = %1194
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-1218:                                             ; preds = %1191
-  %1219 = load ptr, ptr %32, align 8
-  %1220 = getelementptr inbounds %struct.RNode_LIST, ptr %1219, i32 0, i32 3
-  %1221 = load ptr, ptr %1220, align 8
-  store ptr %1221, ptr %32, align 8
-  br label %1222
+1221:                                             ; preds = %1194
+  %1222 = load ptr, ptr %32, align 8
+  %1223 = getelementptr inbounds %struct.RNode_LIST, ptr %1222, i32 0, i32 3
+  %1224 = load ptr, ptr %1223, align 8
+  store ptr %1224, ptr %32, align 8
+  br label %1225
 
-1222:                                             ; preds = %1218
-  %1223 = load i32, ptr %42, align 4
-  %1224 = add i32 %1223, 1
-  store i32 %1224, ptr %42, align 4
-  br label %1136, !llvm.loop !167
+1225:                                             ; preds = %1221
+  %1226 = load i32, ptr %42, align 4
+  %1227 = add i32 %1226, 1
+  store i32 %1227, ptr %42, align 4
+  br label %1139, !llvm.loop !167
 
-1225:                                             ; preds = %1136
-  %1226 = load ptr, ptr %13, align 8
-  %1227 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1226, i32 0, i32 2
-  %1228 = load ptr, ptr %1227, align 8
-  %1229 = icmp ne ptr %1228, inttoptr (i64 -1 to ptr)
-  br i1 %1229, label %1230, label %1291
+1228:                                             ; preds = %1139
+  %1229 = load ptr, ptr %13, align 8
+  %1230 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1229, i32 0, i32 2
+  %1231 = load ptr, ptr %1230, align 8
+  %1232 = inttoptr i64 -1 to ptr
+  %1233 = icmp ne ptr %1231, %1232
+  br i1 %1233, label %1234, label %1295
 
-1230:                                             ; preds = %1225
-  %1231 = load ptr, ptr %12, align 8
-  %1232 = load ptr, ptr %11, align 8
-  %1233 = load ptr, ptr %21, align 8
-  %1234 = getelementptr inbounds %struct.RNode, ptr %1233, i32 0, i32 0
-  %1235 = load i64, ptr %1234, align 8
-  %1236 = ashr i64 %1235, 15
-  %1237 = trunc i64 %1236 to i32
-  %1238 = load ptr, ptr %21, align 8
-  %1239 = getelementptr inbounds %struct.RNode, ptr %1238, i32 0, i32 2
-  %1240 = load i32, ptr %1239, align 8
-  %1241 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1232, i32 noundef %1237, i32 noundef %1240, i32 noundef 44, i32 noundef 1, i64 noundef 7)
-  call void @ADD_ELEM(ptr noundef %1231, ptr noundef %1241)
-  %1242 = load ptr, ptr %12, align 8
-  %1243 = load ptr, ptr %11, align 8
-  %1244 = load ptr, ptr %21, align 8
-  %1245 = getelementptr inbounds %struct.RNode, ptr %1244, i32 0, i32 0
-  %1246 = load i64, ptr %1245, align 8
-  %1247 = ashr i64 %1246, 15
-  %1248 = trunc i64 %1247 to i32
-  %1249 = load ptr, ptr %21, align 8
-  %1250 = getelementptr inbounds %struct.RNode, ptr %1249, i32 0, i32 2
-  %1251 = load i32, ptr %1250, align 8
-  %1252 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1243, i32 noundef %1248, i32 noundef %1251, i32 noundef 19, i32 noundef 1, i64 noundef 1)
-  call void @ADD_ELEM(ptr noundef %1242, ptr noundef %1252)
-  %1253 = load ptr, ptr %12, align 8
-  %1254 = load ptr, ptr %11, align 8
-  %1255 = load ptr, ptr %21, align 8
-  %1256 = getelementptr inbounds %struct.RNode, ptr %1255, i32 0, i32 0
-  %1257 = load i64, ptr %1256, align 8
-  %1258 = ashr i64 %1257, 15
-  %1259 = trunc i64 %1258 to i32
-  %1260 = load ptr, ptr %21, align 8
-  %1261 = getelementptr inbounds %struct.RNode, ptr %1260, i32 0, i32 2
-  %1262 = load i32, ptr %1261, align 8
-  %1263 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1254, i32 noundef %1259, i32 noundef %1262, i32 noundef 44, i32 noundef 1, i64 noundef 5)
-  call void @ADD_ELEM(ptr noundef %1253, ptr noundef %1263)
-  %1264 = load ptr, ptr %12, align 8
-  %1265 = load ptr, ptr %11, align 8
-  %1266 = load ptr, ptr %21, align 8
-  %1267 = getelementptr inbounds %struct.RNode, ptr %1266, i32 0, i32 0
-  %1268 = load i64, ptr %1267, align 8
-  %1269 = ashr i64 %1268, 15
-  %1270 = trunc i64 %1269 to i32
-  %1271 = load ptr, ptr %21, align 8
-  %1272 = getelementptr inbounds %struct.RNode, ptr %1271, i32 0, i32 2
-  %1273 = load i32, ptr %1272, align 8
-  %1274 = call ptr @new_insn_send(ptr noundef %1265, i32 noundef %1270, i32 noundef %1273, i64 noundef 145, i64 noundef 5, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %1264, ptr noundef %1274)
-  %1275 = load ptr, ptr %11, align 8
-  %1276 = load ptr, ptr %12, align 8
-  %1277 = load ptr, ptr %13, align 8
-  %1278 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1277, i32 0, i32 2
-  %1279 = load ptr, ptr %1278, align 8
-  %1280 = load ptr, ptr %41, align 8
-  %1281 = load i8, ptr %16, align 1
-  %1282 = trunc i8 %1281 to i1
-  %1283 = load i8, ptr %17, align 1
-  %1284 = trunc i8 %1283 to i1
-  %1285 = load i32, ptr %18, align 4
-  %1286 = add i32 %1285, 4
-  %1287 = call i32 @iseq_compile_pattern_match(ptr noundef %1275, ptr noundef %1276, ptr noundef %1279, ptr noundef %1280, i1 noundef zeroext %1282, i1 noundef zeroext %1284, i32 noundef %1286, i1 noundef zeroext false)
-  %1288 = icmp ne i32 %1287, 0
-  br i1 %1288, label %1290, label %1289
+1234:                                             ; preds = %1228
+  %1235 = load ptr, ptr %12, align 8
+  %1236 = load ptr, ptr %11, align 8
+  %1237 = load ptr, ptr %21, align 8
+  %1238 = getelementptr inbounds %struct.RNode, ptr %1237, i32 0, i32 0
+  %1239 = load i64, ptr %1238, align 8
+  %1240 = ashr i64 %1239, 15
+  %1241 = trunc i64 %1240 to i32
+  %1242 = load ptr, ptr %21, align 8
+  %1243 = getelementptr inbounds %struct.RNode, ptr %1242, i32 0, i32 2
+  %1244 = load i32, ptr %1243, align 8
+  %1245 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1236, i32 noundef %1241, i32 noundef %1244, i32 noundef 44, i32 noundef 1, i64 noundef 7)
+  call void @ADD_ELEM(ptr noundef %1235, ptr noundef %1245)
+  %1246 = load ptr, ptr %12, align 8
+  %1247 = load ptr, ptr %11, align 8
+  %1248 = load ptr, ptr %21, align 8
+  %1249 = getelementptr inbounds %struct.RNode, ptr %1248, i32 0, i32 0
+  %1250 = load i64, ptr %1249, align 8
+  %1251 = ashr i64 %1250, 15
+  %1252 = trunc i64 %1251 to i32
+  %1253 = load ptr, ptr %21, align 8
+  %1254 = getelementptr inbounds %struct.RNode, ptr %1253, i32 0, i32 2
+  %1255 = load i32, ptr %1254, align 8
+  %1256 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1247, i32 noundef %1252, i32 noundef %1255, i32 noundef 19, i32 noundef 1, i64 noundef 1)
+  call void @ADD_ELEM(ptr noundef %1246, ptr noundef %1256)
+  %1257 = load ptr, ptr %12, align 8
+  %1258 = load ptr, ptr %11, align 8
+  %1259 = load ptr, ptr %21, align 8
+  %1260 = getelementptr inbounds %struct.RNode, ptr %1259, i32 0, i32 0
+  %1261 = load i64, ptr %1260, align 8
+  %1262 = ashr i64 %1261, 15
+  %1263 = trunc i64 %1262 to i32
+  %1264 = load ptr, ptr %21, align 8
+  %1265 = getelementptr inbounds %struct.RNode, ptr %1264, i32 0, i32 2
+  %1266 = load i32, ptr %1265, align 8
+  %1267 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1258, i32 noundef %1263, i32 noundef %1266, i32 noundef 44, i32 noundef 1, i64 noundef 5)
+  call void @ADD_ELEM(ptr noundef %1257, ptr noundef %1267)
+  %1268 = load ptr, ptr %12, align 8
+  %1269 = load ptr, ptr %11, align 8
+  %1270 = load ptr, ptr %21, align 8
+  %1271 = getelementptr inbounds %struct.RNode, ptr %1270, i32 0, i32 0
+  %1272 = load i64, ptr %1271, align 8
+  %1273 = ashr i64 %1272, 15
+  %1274 = trunc i64 %1273 to i32
+  %1275 = load ptr, ptr %21, align 8
+  %1276 = getelementptr inbounds %struct.RNode, ptr %1275, i32 0, i32 2
+  %1277 = load i32, ptr %1276, align 8
+  %1278 = call ptr @new_insn_send(ptr noundef %1269, i32 noundef %1274, i32 noundef %1277, i64 noundef 145, i64 noundef 5, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %1268, ptr noundef %1278)
+  %1279 = load ptr, ptr %11, align 8
+  %1280 = load ptr, ptr %12, align 8
+  %1281 = load ptr, ptr %13, align 8
+  %1282 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1281, i32 0, i32 2
+  %1283 = load ptr, ptr %1282, align 8
+  %1284 = load ptr, ptr %41, align 8
+  %1285 = load i8, ptr %16, align 1
+  %1286 = trunc i8 %1285 to i1
+  %1287 = load i8, ptr %17, align 1
+  %1288 = trunc i8 %1287 to i1
+  %1289 = load i32, ptr %18, align 4
+  %1290 = add i32 %1289, 4
+  %1291 = call i32 @iseq_compile_pattern_match(ptr noundef %1279, ptr noundef %1280, ptr noundef %1283, ptr noundef %1284, i1 noundef zeroext %1286, i1 noundef zeroext %1288, i32 noundef %1290, i1 noundef zeroext false)
+  %1292 = icmp ne i32 %1291, 0
+  br i1 %1292, label %1294, label %1293
 
-1289:                                             ; preds = %1230
+1293:                                             ; preds = %1234
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-1290:                                             ; preds = %1230
-  br label %1291
+1294:                                             ; preds = %1234
+  br label %1295
 
-1291:                                             ; preds = %1290, %1225
-  %1292 = load ptr, ptr %13, align 8
-  %1293 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1292, i32 0, i32 4
-  %1294 = load ptr, ptr %1293, align 8
-  %1295 = icmp ne ptr %1294, inttoptr (i64 -1 to ptr)
-  br i1 %1295, label %1296, label %1382
+1295:                                             ; preds = %1294, %1228
+  %1296 = load ptr, ptr %13, align 8
+  %1297 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1296, i32 0, i32 4
+  %1298 = load ptr, ptr %1297, align 8
+  %1299 = inttoptr i64 -1 to ptr
+  %1300 = icmp ne ptr %1298, %1299
+  br i1 %1300, label %1301, label %1387
 
-1296:                                             ; preds = %1291
-  %1297 = load ptr, ptr %12, align 8
-  %1298 = load ptr, ptr %11, align 8
-  %1299 = load ptr, ptr %21, align 8
-  %1300 = getelementptr inbounds %struct.RNode, ptr %1299, i32 0, i32 0
-  %1301 = load i64, ptr %1300, align 8
-  %1302 = ashr i64 %1301, 15
-  %1303 = trunc i64 %1302 to i32
+1301:                                             ; preds = %1295
+  %1302 = load ptr, ptr %12, align 8
+  %1303 = load ptr, ptr %11, align 8
   %1304 = load ptr, ptr %21, align 8
-  %1305 = getelementptr inbounds %struct.RNode, ptr %1304, i32 0, i32 2
-  %1306 = load i32, ptr %1305, align 8
-  %1307 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1298, i32 noundef %1303, i32 noundef %1306, i32 noundef 44, i32 noundef 1, i64 noundef 7)
-  call void @ADD_ELEM(ptr noundef %1297, ptr noundef %1307)
-  %1308 = load ptr, ptr %12, align 8
-  %1309 = load ptr, ptr %11, align 8
-  %1310 = load ptr, ptr %21, align 8
-  %1311 = getelementptr inbounds %struct.RNode, ptr %1310, i32 0, i32 0
-  %1312 = load i64, ptr %1311, align 8
-  %1313 = ashr i64 %1312, 15
-  %1314 = trunc i64 %1313 to i32
+  %1305 = getelementptr inbounds %struct.RNode, ptr %1304, i32 0, i32 0
+  %1306 = load i64, ptr %1305, align 8
+  %1307 = ashr i64 %1306, 15
+  %1308 = trunc i64 %1307 to i32
+  %1309 = load ptr, ptr %21, align 8
+  %1310 = getelementptr inbounds %struct.RNode, ptr %1309, i32 0, i32 2
+  %1311 = load i32, ptr %1310, align 8
+  %1312 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1303, i32 noundef %1308, i32 noundef %1311, i32 noundef 44, i32 noundef 1, i64 noundef 7)
+  call void @ADD_ELEM(ptr noundef %1302, ptr noundef %1312)
+  %1313 = load ptr, ptr %12, align 8
+  %1314 = load ptr, ptr %11, align 8
   %1315 = load ptr, ptr %21, align 8
-  %1316 = getelementptr inbounds %struct.RNode, ptr %1315, i32 0, i32 2
-  %1317 = load i32, ptr %1316, align 8
-  %1318 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1309, i32 noundef %1314, i32 noundef %1317, i32 noundef 44, i32 noundef 1, i64 noundef 3)
-  call void @ADD_ELEM(ptr noundef %1308, ptr noundef %1318)
-  %1319 = load ptr, ptr %12, align 8
-  %1320 = load ptr, ptr %11, align 8
-  %1321 = load ptr, ptr %21, align 8
-  %1322 = getelementptr inbounds %struct.RNode, ptr %1321, i32 0, i32 0
-  %1323 = load i64, ptr %1322, align 8
-  %1324 = ashr i64 %1323, 15
-  %1325 = trunc i64 %1324 to i32
+  %1316 = getelementptr inbounds %struct.RNode, ptr %1315, i32 0, i32 0
+  %1317 = load i64, ptr %1316, align 8
+  %1318 = ashr i64 %1317, 15
+  %1319 = trunc i64 %1318 to i32
+  %1320 = load ptr, ptr %21, align 8
+  %1321 = getelementptr inbounds %struct.RNode, ptr %1320, i32 0, i32 2
+  %1322 = load i32, ptr %1321, align 8
+  %1323 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1314, i32 noundef %1319, i32 noundef %1322, i32 noundef 44, i32 noundef 1, i64 noundef 3)
+  call void @ADD_ELEM(ptr noundef %1313, ptr noundef %1323)
+  %1324 = load ptr, ptr %12, align 8
+  %1325 = load ptr, ptr %11, align 8
   %1326 = load ptr, ptr %21, align 8
-  %1327 = getelementptr inbounds %struct.RNode, ptr %1326, i32 0, i32 2
-  %1328 = load i32, ptr %1327, align 8
-  %1329 = load i32, ptr %33, align 4
-  %1330 = sext i32 %1329 to i64
-  %1331 = call i64 @RB_INT2FIX(i64 noundef %1330) #26
-  %1332 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1320, i32 noundef %1325, i32 noundef %1328, i32 noundef 19, i32 noundef 1, i64 noundef %1331)
-  call void @ADD_ELEM(ptr noundef %1319, ptr noundef %1332)
-  %1333 = load ptr, ptr %12, align 8
-  %1334 = load ptr, ptr %11, align 8
-  %1335 = load ptr, ptr %21, align 8
-  %1336 = getelementptr inbounds %struct.RNode, ptr %1335, i32 0, i32 0
-  %1337 = load i64, ptr %1336, align 8
-  %1338 = ashr i64 %1337, 15
-  %1339 = trunc i64 %1338 to i32
+  %1327 = getelementptr inbounds %struct.RNode, ptr %1326, i32 0, i32 0
+  %1328 = load i64, ptr %1327, align 8
+  %1329 = ashr i64 %1328, 15
+  %1330 = trunc i64 %1329 to i32
+  %1331 = load ptr, ptr %21, align 8
+  %1332 = getelementptr inbounds %struct.RNode, ptr %1331, i32 0, i32 2
+  %1333 = load i32, ptr %1332, align 8
+  %1334 = load i32, ptr %33, align 4
+  %1335 = sext i32 %1334 to i64
+  %1336 = call i64 @RB_INT2FIX(i64 noundef %1335) #26
+  %1337 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1325, i32 noundef %1330, i32 noundef %1333, i32 noundef 19, i32 noundef 1, i64 noundef %1336)
+  call void @ADD_ELEM(ptr noundef %1324, ptr noundef %1337)
+  %1338 = load ptr, ptr %12, align 8
+  %1339 = load ptr, ptr %11, align 8
   %1340 = load ptr, ptr %21, align 8
-  %1341 = getelementptr inbounds %struct.RNode, ptr %1340, i32 0, i32 2
-  %1342 = load i32, ptr %1341, align 8
-  %1343 = call ptr @new_insn_send(ptr noundef %1334, i32 noundef %1339, i32 noundef %1342, i64 noundef 43, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %1333, ptr noundef %1343)
-  %1344 = load ptr, ptr %12, align 8
-  %1345 = load ptr, ptr %11, align 8
-  %1346 = load ptr, ptr %21, align 8
-  %1347 = getelementptr inbounds %struct.RNode, ptr %1346, i32 0, i32 0
-  %1348 = load i64, ptr %1347, align 8
-  %1349 = ashr i64 %1348, 15
-  %1350 = trunc i64 %1349 to i32
+  %1341 = getelementptr inbounds %struct.RNode, ptr %1340, i32 0, i32 0
+  %1342 = load i64, ptr %1341, align 8
+  %1343 = ashr i64 %1342, 15
+  %1344 = trunc i64 %1343 to i32
+  %1345 = load ptr, ptr %21, align 8
+  %1346 = getelementptr inbounds %struct.RNode, ptr %1345, i32 0, i32 2
+  %1347 = load i32, ptr %1346, align 8
+  %1348 = call ptr @new_insn_send(ptr noundef %1339, i32 noundef %1344, i32 noundef %1347, i64 noundef 43, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %1338, ptr noundef %1348)
+  %1349 = load ptr, ptr %12, align 8
+  %1350 = load ptr, ptr %11, align 8
   %1351 = load ptr, ptr %21, align 8
-  %1352 = getelementptr inbounds %struct.RNode, ptr %1351, i32 0, i32 2
-  %1353 = load i32, ptr %1352, align 8
-  %1354 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1345, i32 noundef %1350, i32 noundef %1353, i32 noundef 44, i32 noundef 1, i64 noundef 7)
-  call void @ADD_ELEM(ptr noundef %1344, ptr noundef %1354)
-  %1355 = load ptr, ptr %12, align 8
-  %1356 = load ptr, ptr %11, align 8
-  %1357 = load ptr, ptr %21, align 8
-  %1358 = getelementptr inbounds %struct.RNode, ptr %1357, i32 0, i32 0
-  %1359 = load i64, ptr %1358, align 8
-  %1360 = ashr i64 %1359, 15
-  %1361 = trunc i64 %1360 to i32
+  %1352 = getelementptr inbounds %struct.RNode, ptr %1351, i32 0, i32 0
+  %1353 = load i64, ptr %1352, align 8
+  %1354 = ashr i64 %1353, 15
+  %1355 = trunc i64 %1354 to i32
+  %1356 = load ptr, ptr %21, align 8
+  %1357 = getelementptr inbounds %struct.RNode, ptr %1356, i32 0, i32 2
+  %1358 = load i32, ptr %1357, align 8
+  %1359 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1350, i32 noundef %1355, i32 noundef %1358, i32 noundef 44, i32 noundef 1, i64 noundef 7)
+  call void @ADD_ELEM(ptr noundef %1349, ptr noundef %1359)
+  %1360 = load ptr, ptr %12, align 8
+  %1361 = load ptr, ptr %11, align 8
   %1362 = load ptr, ptr %21, align 8
-  %1363 = getelementptr inbounds %struct.RNode, ptr %1362, i32 0, i32 2
-  %1364 = load i32, ptr %1363, align 8
-  %1365 = call ptr @new_insn_send(ptr noundef %1356, i32 noundef %1361, i32 noundef %1364, i64 noundef 145, i64 noundef 5, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %1355, ptr noundef %1365)
-  %1366 = load ptr, ptr %11, align 8
-  %1367 = load ptr, ptr %12, align 8
-  %1368 = load ptr, ptr %13, align 8
-  %1369 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1368, i32 0, i32 4
-  %1370 = load ptr, ptr %1369, align 8
-  %1371 = load ptr, ptr %41, align 8
-  %1372 = load i8, ptr %16, align 1
-  %1373 = trunc i8 %1372 to i1
-  %1374 = load i8, ptr %17, align 1
-  %1375 = trunc i8 %1374 to i1
-  %1376 = load i32, ptr %18, align 4
-  %1377 = add i32 %1376, 4
-  %1378 = call i32 @iseq_compile_pattern_match(ptr noundef %1366, ptr noundef %1367, ptr noundef %1370, ptr noundef %1371, i1 noundef zeroext %1373, i1 noundef zeroext %1375, i32 noundef %1377, i1 noundef zeroext false)
-  %1379 = icmp ne i32 %1378, 0
-  br i1 %1379, label %1381, label %1380
+  %1363 = getelementptr inbounds %struct.RNode, ptr %1362, i32 0, i32 0
+  %1364 = load i64, ptr %1363, align 8
+  %1365 = ashr i64 %1364, 15
+  %1366 = trunc i64 %1365 to i32
+  %1367 = load ptr, ptr %21, align 8
+  %1368 = getelementptr inbounds %struct.RNode, ptr %1367, i32 0, i32 2
+  %1369 = load i32, ptr %1368, align 8
+  %1370 = call ptr @new_insn_send(ptr noundef %1361, i32 noundef %1366, i32 noundef %1369, i64 noundef 145, i64 noundef 5, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %1360, ptr noundef %1370)
+  %1371 = load ptr, ptr %11, align 8
+  %1372 = load ptr, ptr %12, align 8
+  %1373 = load ptr, ptr %13, align 8
+  %1374 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1373, i32 0, i32 4
+  %1375 = load ptr, ptr %1374, align 8
+  %1376 = load ptr, ptr %41, align 8
+  %1377 = load i8, ptr %16, align 1
+  %1378 = trunc i8 %1377 to i1
+  %1379 = load i8, ptr %17, align 1
+  %1380 = trunc i8 %1379 to i1
+  %1381 = load i32, ptr %18, align 4
+  %1382 = add i32 %1381, 4
+  %1383 = call i32 @iseq_compile_pattern_match(ptr noundef %1371, ptr noundef %1372, ptr noundef %1375, ptr noundef %1376, i1 noundef zeroext %1378, i1 noundef zeroext %1380, i32 noundef %1382, i1 noundef zeroext false)
+  %1384 = icmp ne i32 %1383, 0
+  br i1 %1384, label %1386, label %1385
 
-1380:                                             ; preds = %1296
+1385:                                             ; preds = %1301
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-1381:                                             ; preds = %1296
-  br label %1382
+1386:                                             ; preds = %1301
+  br label %1387
 
-1382:                                             ; preds = %1381, %1291
-  %1383 = load ptr, ptr %12, align 8
-  %1384 = load ptr, ptr %11, align 8
-  %1385 = load ptr, ptr %21, align 8
-  %1386 = getelementptr inbounds %struct.RNode, ptr %1385, i32 0, i32 0
-  %1387 = load i64, ptr %1386, align 8
-  %1388 = ashr i64 %1387, 15
-  %1389 = trunc i64 %1388 to i32
+1387:                                             ; preds = %1386, %1295
+  %1388 = load ptr, ptr %12, align 8
+  %1389 = load ptr, ptr %11, align 8
   %1390 = load ptr, ptr %21, align 8
-  %1391 = getelementptr inbounds %struct.RNode, ptr %1390, i32 0, i32 2
-  %1392 = load i32, ptr %1391, align 8
-  %1393 = load ptr, ptr %40, align 8
-  %1394 = ptrtoint ptr %1393 to i64
-  %1395 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1384, i32 noundef %1389, i32 noundef %1392, i32 noundef 66, i32 noundef 1, i64 noundef %1394)
-  call void @ADD_ELEM(ptr noundef %1383, ptr noundef %1395)
-  %1396 = load ptr, ptr %40, align 8
-  %1397 = getelementptr inbounds %struct.iseq_label_data, ptr %1396, i32 0, i32 5
-  %1398 = load i32, ptr %1397, align 8
-  %1399 = add i32 %1398, 1
-  store i32 %1399, ptr %1397, align 8
-  %1400 = load ptr, ptr %12, align 8
-  %1401 = load ptr, ptr %39, align 8
-  call void @ADD_ELEM(ptr noundef %1400, ptr noundef %1401)
-  %1402 = load ptr, ptr %12, align 8
-  %1403 = load ptr, ptr %11, align 8
-  %1404 = load ptr, ptr %21, align 8
-  %1405 = getelementptr inbounds %struct.RNode, ptr %1404, i32 0, i32 0
-  %1406 = load i64, ptr %1405, align 8
-  %1407 = ashr i64 %1406, 15
-  %1408 = trunc i64 %1407 to i32
+  %1391 = getelementptr inbounds %struct.RNode, ptr %1390, i32 0, i32 0
+  %1392 = load i64, ptr %1391, align 8
+  %1393 = ashr i64 %1392, 15
+  %1394 = trunc i64 %1393 to i32
+  %1395 = load ptr, ptr %21, align 8
+  %1396 = getelementptr inbounds %struct.RNode, ptr %1395, i32 0, i32 2
+  %1397 = load i32, ptr %1396, align 8
+  %1398 = load ptr, ptr %40, align 8
+  %1399 = ptrtoint ptr %1398 to i64
+  %1400 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1389, i32 noundef %1394, i32 noundef %1397, i32 noundef 66, i32 noundef 1, i64 noundef %1399)
+  call void @ADD_ELEM(ptr noundef %1388, ptr noundef %1400)
+  %1401 = load ptr, ptr %40, align 8
+  %1402 = getelementptr inbounds %struct.iseq_label_data, ptr %1401, i32 0, i32 5
+  %1403 = load i32, ptr %1402, align 8
+  %1404 = add i32 %1403, 1
+  store i32 %1404, ptr %1402, align 8
+  %1405 = load ptr, ptr %12, align 8
+  %1406 = load ptr, ptr %39, align 8
+  call void @ADD_ELEM(ptr noundef %1405, ptr noundef %1406)
+  %1407 = load ptr, ptr %12, align 8
+  %1408 = load ptr, ptr %11, align 8
   %1409 = load ptr, ptr %21, align 8
-  %1410 = getelementptr inbounds %struct.RNode, ptr %1409, i32 0, i32 2
-  %1411 = load i32, ptr %1410, align 8
-  %1412 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1403, i32 noundef %1408, i32 noundef %1411, i32 noundef 19, i32 noundef 1, i64 noundef 3)
-  call void @ADD_ELEM(ptr noundef %1402, ptr noundef %1412)
-  %1413 = load ptr, ptr %12, align 8
-  %1414 = load ptr, ptr %11, align 8
-  %1415 = load ptr, ptr %21, align 8
-  %1416 = getelementptr inbounds %struct.RNode, ptr %1415, i32 0, i32 0
-  %1417 = load i64, ptr %1416, align 8
-  %1418 = ashr i64 %1417, 15
-  %1419 = trunc i64 %1418 to i32
+  %1410 = getelementptr inbounds %struct.RNode, ptr %1409, i32 0, i32 0
+  %1411 = load i64, ptr %1410, align 8
+  %1412 = ashr i64 %1411, 15
+  %1413 = trunc i64 %1412 to i32
+  %1414 = load ptr, ptr %21, align 8
+  %1415 = getelementptr inbounds %struct.RNode, ptr %1414, i32 0, i32 2
+  %1416 = load i32, ptr %1415, align 8
+  %1417 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1408, i32 noundef %1413, i32 noundef %1416, i32 noundef 19, i32 noundef 1, i64 noundef 3)
+  call void @ADD_ELEM(ptr noundef %1407, ptr noundef %1417)
+  %1418 = load ptr, ptr %12, align 8
+  %1419 = load ptr, ptr %11, align 8
   %1420 = load ptr, ptr %21, align 8
-  %1421 = getelementptr inbounds %struct.RNode, ptr %1420, i32 0, i32 2
-  %1422 = load i32, ptr %1421, align 8
-  %1423 = call ptr @new_insn_send(ptr noundef %1414, i32 noundef %1419, i32 noundef %1422, i64 noundef 43, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %1413, ptr noundef %1423)
-  %1424 = load ptr, ptr %12, align 8
-  %1425 = load ptr, ptr %11, align 8
-  %1426 = load ptr, ptr %21, align 8
-  %1427 = getelementptr inbounds %struct.RNode, ptr %1426, i32 0, i32 0
-  %1428 = load i64, ptr %1427, align 8
-  %1429 = ashr i64 %1428, 15
-  %1430 = trunc i64 %1429 to i32
+  %1421 = getelementptr inbounds %struct.RNode, ptr %1420, i32 0, i32 0
+  %1422 = load i64, ptr %1421, align 8
+  %1423 = ashr i64 %1422, 15
+  %1424 = trunc i64 %1423 to i32
+  %1425 = load ptr, ptr %21, align 8
+  %1426 = getelementptr inbounds %struct.RNode, ptr %1425, i32 0, i32 2
+  %1427 = load i32, ptr %1426, align 8
+  %1428 = call ptr @new_insn_send(ptr noundef %1419, i32 noundef %1424, i32 noundef %1427, i64 noundef 43, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %1418, ptr noundef %1428)
+  %1429 = load ptr, ptr %12, align 8
+  %1430 = load ptr, ptr %11, align 8
   %1431 = load ptr, ptr %21, align 8
-  %1432 = getelementptr inbounds %struct.RNode, ptr %1431, i32 0, i32 2
-  %1433 = load i32, ptr %1432, align 8
-  %1434 = load ptr, ptr %38, align 8
-  %1435 = ptrtoint ptr %1434 to i64
-  %1436 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1425, i32 noundef %1430, i32 noundef %1433, i32 noundef 66, i32 noundef 1, i64 noundef %1435)
-  call void @ADD_ELEM(ptr noundef %1424, ptr noundef %1436)
-  %1437 = load ptr, ptr %38, align 8
-  %1438 = getelementptr inbounds %struct.iseq_label_data, ptr %1437, i32 0, i32 5
-  %1439 = load i32, ptr %1438, align 8
-  %1440 = add i32 %1439, 1
-  store i32 %1440, ptr %1438, align 8
-  %1441 = load ptr, ptr %12, align 8
-  %1442 = load ptr, ptr %41, align 8
-  call void @ADD_ELEM(ptr noundef %1441, ptr noundef %1442)
-  %1443 = load ptr, ptr %12, align 8
-  %1444 = load ptr, ptr %11, align 8
-  %1445 = load ptr, ptr %21, align 8
-  %1446 = getelementptr inbounds %struct.RNode, ptr %1445, i32 0, i32 0
-  %1447 = load i64, ptr %1446, align 8
-  %1448 = ashr i64 %1447, 15
-  %1449 = trunc i64 %1448 to i32
+  %1432 = getelementptr inbounds %struct.RNode, ptr %1431, i32 0, i32 0
+  %1433 = load i64, ptr %1432, align 8
+  %1434 = ashr i64 %1433, 15
+  %1435 = trunc i64 %1434 to i32
+  %1436 = load ptr, ptr %21, align 8
+  %1437 = getelementptr inbounds %struct.RNode, ptr %1436, i32 0, i32 2
+  %1438 = load i32, ptr %1437, align 8
+  %1439 = load ptr, ptr %38, align 8
+  %1440 = ptrtoint ptr %1439 to i64
+  %1441 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1430, i32 noundef %1435, i32 noundef %1438, i32 noundef 66, i32 noundef 1, i64 noundef %1440)
+  call void @ADD_ELEM(ptr noundef %1429, ptr noundef %1441)
+  %1442 = load ptr, ptr %38, align 8
+  %1443 = getelementptr inbounds %struct.iseq_label_data, ptr %1442, i32 0, i32 5
+  %1444 = load i32, ptr %1443, align 8
+  %1445 = add i32 %1444, 1
+  store i32 %1445, ptr %1443, align 8
+  %1446 = load ptr, ptr %12, align 8
+  %1447 = load ptr, ptr %41, align 8
+  call void @ADD_ELEM(ptr noundef %1446, ptr noundef %1447)
+  %1448 = load ptr, ptr %12, align 8
+  %1449 = load ptr, ptr %11, align 8
   %1450 = load ptr, ptr %21, align 8
-  %1451 = getelementptr inbounds %struct.RNode, ptr %1450, i32 0, i32 2
-  %1452 = load i32, ptr %1451, align 8
-  %1453 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1444, i32 noundef %1449, i32 noundef %1452, i32 noundef 46, i32 noundef 1, i64 noundef 7)
-  call void @ADD_ELEM(ptr noundef %1443, ptr noundef %1453)
-  %1454 = load i8, ptr %16, align 1
-  %1455 = trunc i8 %1454 to i1
-  br i1 %1455, label %1456, label %1567
+  %1451 = getelementptr inbounds %struct.RNode, ptr %1450, i32 0, i32 0
+  %1452 = load i64, ptr %1451, align 8
+  %1453 = ashr i64 %1452, 15
+  %1454 = trunc i64 %1453 to i32
+  %1455 = load ptr, ptr %21, align 8
+  %1456 = getelementptr inbounds %struct.RNode, ptr %1455, i32 0, i32 2
+  %1457 = load i32, ptr %1456, align 8
+  %1458 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1449, i32 noundef %1454, i32 noundef %1457, i32 noundef 46, i32 noundef 1, i64 noundef 7)
+  call void @ADD_ELEM(ptr noundef %1448, ptr noundef %1458)
+  %1459 = load i8, ptr %16, align 1
+  %1460 = trunc i8 %1459 to i1
+  br i1 %1460, label %1461, label %1572
 
-1456:                                             ; preds = %1382
-  %1457 = load ptr, ptr %12, align 8
-  %1458 = load ptr, ptr %11, align 8
-  %1459 = load ptr, ptr %21, align 8
-  %1460 = getelementptr inbounds %struct.RNode, ptr %1459, i32 0, i32 0
-  %1461 = load i64, ptr %1460, align 8
-  %1462 = ashr i64 %1461, 15
-  %1463 = trunc i64 %1462 to i32
+1461:                                             ; preds = %1387
+  %1462 = load ptr, ptr %12, align 8
+  %1463 = load ptr, ptr %11, align 8
   %1464 = load ptr, ptr %21, align 8
-  %1465 = getelementptr inbounds %struct.RNode, ptr %1464, i32 0, i32 2
-  %1466 = load i32, ptr %1465, align 8
-  %1467 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1458, i32 noundef %1463, i32 noundef %1466, i32 noundef 20, i32 noundef 1, i64 noundef 3)
-  call void @ADD_ELEM(ptr noundef %1457, ptr noundef %1467)
-  %1468 = load ptr, ptr %12, align 8
-  %1469 = load ptr, ptr %11, align 8
-  %1470 = load ptr, ptr %21, align 8
-  %1471 = getelementptr inbounds %struct.RNode, ptr %1470, i32 0, i32 0
-  %1472 = load i64, ptr %1471, align 8
-  %1473 = ashr i64 %1472, 15
-  %1474 = trunc i64 %1473 to i32
+  %1465 = getelementptr inbounds %struct.RNode, ptr %1464, i32 0, i32 0
+  %1466 = load i64, ptr %1465, align 8
+  %1467 = ashr i64 %1466, 15
+  %1468 = trunc i64 %1467 to i32
+  %1469 = load ptr, ptr %21, align 8
+  %1470 = getelementptr inbounds %struct.RNode, ptr %1469, i32 0, i32 2
+  %1471 = load i32, ptr %1470, align 8
+  %1472 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1463, i32 noundef %1468, i32 noundef %1471, i32 noundef 20, i32 noundef 1, i64 noundef 3)
+  call void @ADD_ELEM(ptr noundef %1462, ptr noundef %1472)
+  %1473 = load ptr, ptr %12, align 8
+  %1474 = load ptr, ptr %11, align 8
   %1475 = load ptr, ptr %21, align 8
-  %1476 = getelementptr inbounds %struct.RNode, ptr %1475, i32 0, i32 2
-  %1477 = load i32, ptr %1476, align 8
-  %1478 = call i64 @rb_fstring_new(ptr noundef @.str.106, i64 noundef 33)
-  %1479 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1469, i32 noundef %1474, i32 noundef %1477, i32 noundef 19, i32 noundef 1, i64 noundef %1478)
-  call void @ADD_ELEM(ptr noundef %1468, ptr noundef %1479)
-  %1480 = load ptr, ptr %12, align 8
-  %1481 = load ptr, ptr %11, align 8
-  %1482 = load ptr, ptr %21, align 8
-  %1483 = getelementptr inbounds %struct.RNode, ptr %1482, i32 0, i32 0
-  %1484 = load i64, ptr %1483, align 8
-  %1485 = ashr i64 %1484, 15
-  %1486 = trunc i64 %1485 to i32
+  %1476 = getelementptr inbounds %struct.RNode, ptr %1475, i32 0, i32 0
+  %1477 = load i64, ptr %1476, align 8
+  %1478 = ashr i64 %1477, 15
+  %1479 = trunc i64 %1478 to i32
+  %1480 = load ptr, ptr %21, align 8
+  %1481 = getelementptr inbounds %struct.RNode, ptr %1480, i32 0, i32 2
+  %1482 = load i32, ptr %1481, align 8
+  %1483 = call i64 @rb_fstring_new(ptr noundef @.str.106, i64 noundef 33)
+  %1484 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1474, i32 noundef %1479, i32 noundef %1482, i32 noundef 19, i32 noundef 1, i64 noundef %1483)
+  call void @ADD_ELEM(ptr noundef %1473, ptr noundef %1484)
+  %1485 = load ptr, ptr %12, align 8
+  %1486 = load ptr, ptr %11, align 8
   %1487 = load ptr, ptr %21, align 8
-  %1488 = getelementptr inbounds %struct.RNode, ptr %1487, i32 0, i32 2
-  %1489 = load i32, ptr %1488, align 8
-  %1490 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1481, i32 noundef %1486, i32 noundef %1489, i32 noundef 44, i32 noundef 1, i64 noundef 5)
-  call void @ADD_ELEM(ptr noundef %1480, ptr noundef %1490)
-  %1491 = load ptr, ptr %12, align 8
-  %1492 = load ptr, ptr %11, align 8
-  %1493 = load ptr, ptr %21, align 8
-  %1494 = getelementptr inbounds %struct.RNode, ptr %1493, i32 0, i32 0
-  %1495 = load i64, ptr %1494, align 8
-  %1496 = ashr i64 %1495, 15
-  %1497 = trunc i64 %1496 to i32
+  %1488 = getelementptr inbounds %struct.RNode, ptr %1487, i32 0, i32 0
+  %1489 = load i64, ptr %1488, align 8
+  %1490 = ashr i64 %1489, 15
+  %1491 = trunc i64 %1490 to i32
+  %1492 = load ptr, ptr %21, align 8
+  %1493 = getelementptr inbounds %struct.RNode, ptr %1492, i32 0, i32 2
+  %1494 = load i32, ptr %1493, align 8
+  %1495 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1486, i32 noundef %1491, i32 noundef %1494, i32 noundef 44, i32 noundef 1, i64 noundef 5)
+  call void @ADD_ELEM(ptr noundef %1485, ptr noundef %1495)
+  %1496 = load ptr, ptr %12, align 8
+  %1497 = load ptr, ptr %11, align 8
   %1498 = load ptr, ptr %21, align 8
-  %1499 = getelementptr inbounds %struct.RNode, ptr %1498, i32 0, i32 2
-  %1500 = load i32, ptr %1499, align 8
-  %1501 = call ptr @new_insn_send(ptr noundef %1492, i32 noundef %1497, i32 noundef %1500, i64 noundef 168, i64 noundef 5, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %1491, ptr noundef %1501)
-  %1502 = load ptr, ptr %12, align 8
-  %1503 = load ptr, ptr %11, align 8
-  %1504 = load ptr, ptr %21, align 8
-  %1505 = getelementptr inbounds %struct.RNode, ptr %1504, i32 0, i32 0
-  %1506 = load i64, ptr %1505, align 8
-  %1507 = ashr i64 %1506, 15
-  %1508 = trunc i64 %1507 to i32
+  %1499 = getelementptr inbounds %struct.RNode, ptr %1498, i32 0, i32 0
+  %1500 = load i64, ptr %1499, align 8
+  %1501 = ashr i64 %1500, 15
+  %1502 = trunc i64 %1501 to i32
+  %1503 = load ptr, ptr %21, align 8
+  %1504 = getelementptr inbounds %struct.RNode, ptr %1503, i32 0, i32 2
+  %1505 = load i32, ptr %1504, align 8
+  %1506 = call ptr @new_insn_send(ptr noundef %1497, i32 noundef %1502, i32 noundef %1505, i64 noundef 168, i64 noundef 5, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %1496, ptr noundef %1506)
+  %1507 = load ptr, ptr %12, align 8
+  %1508 = load ptr, ptr %11, align 8
   %1509 = load ptr, ptr %21, align 8
-  %1510 = getelementptr inbounds %struct.RNode, ptr %1509, i32 0, i32 2
-  %1511 = load i32, ptr %1510, align 8
-  %1512 = load i32, ptr %18, align 4
-  %1513 = add i32 %1512, 1
-  %1514 = add i32 %1513, 1
-  %1515 = sext i32 %1514 to i64
-  %1516 = call i64 @RB_INT2FIX(i64 noundef %1515) #26
-  %1517 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1503, i32 noundef %1508, i32 noundef %1511, i32 noundef 45, i32 noundef 1, i64 noundef %1516)
-  call void @ADD_ELEM(ptr noundef %1502, ptr noundef %1517)
-  %1518 = load ptr, ptr %12, align 8
-  %1519 = load ptr, ptr %11, align 8
-  %1520 = load ptr, ptr %21, align 8
-  %1521 = getelementptr inbounds %struct.RNode, ptr %1520, i32 0, i32 0
-  %1522 = load i64, ptr %1521, align 8
-  %1523 = ashr i64 %1522, 15
-  %1524 = trunc i64 %1523 to i32
+  %1510 = getelementptr inbounds %struct.RNode, ptr %1509, i32 0, i32 0
+  %1511 = load i64, ptr %1510, align 8
+  %1512 = ashr i64 %1511, 15
+  %1513 = trunc i64 %1512 to i32
+  %1514 = load ptr, ptr %21, align 8
+  %1515 = getelementptr inbounds %struct.RNode, ptr %1514, i32 0, i32 2
+  %1516 = load i32, ptr %1515, align 8
+  %1517 = load i32, ptr %18, align 4
+  %1518 = add i32 %1517, 1
+  %1519 = add i32 %1518, 1
+  %1520 = sext i32 %1519 to i64
+  %1521 = call i64 @RB_INT2FIX(i64 noundef %1520) #26
+  %1522 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1508, i32 noundef %1513, i32 noundef %1516, i32 noundef 45, i32 noundef 1, i64 noundef %1521)
+  call void @ADD_ELEM(ptr noundef %1507, ptr noundef %1522)
+  %1523 = load ptr, ptr %12, align 8
+  %1524 = load ptr, ptr %11, align 8
   %1525 = load ptr, ptr %21, align 8
-  %1526 = getelementptr inbounds %struct.RNode, ptr %1525, i32 0, i32 2
-  %1527 = load i32, ptr %1526, align 8
-  %1528 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1519, i32 noundef %1524, i32 noundef %1527, i32 noundef 19, i32 noundef 1, i64 noundef 0)
-  call void @ADD_ELEM(ptr noundef %1518, ptr noundef %1528)
-  %1529 = load ptr, ptr %12, align 8
-  %1530 = load ptr, ptr %11, align 8
-  %1531 = load ptr, ptr %21, align 8
-  %1532 = getelementptr inbounds %struct.RNode, ptr %1531, i32 0, i32 0
-  %1533 = load i64, ptr %1532, align 8
-  %1534 = ashr i64 %1533, 15
-  %1535 = trunc i64 %1534 to i32
+  %1526 = getelementptr inbounds %struct.RNode, ptr %1525, i32 0, i32 0
+  %1527 = load i64, ptr %1526, align 8
+  %1528 = ashr i64 %1527, 15
+  %1529 = trunc i64 %1528 to i32
+  %1530 = load ptr, ptr %21, align 8
+  %1531 = getelementptr inbounds %struct.RNode, ptr %1530, i32 0, i32 2
+  %1532 = load i32, ptr %1531, align 8
+  %1533 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1524, i32 noundef %1529, i32 noundef %1532, i32 noundef 19, i32 noundef 1, i64 noundef 0)
+  call void @ADD_ELEM(ptr noundef %1523, ptr noundef %1533)
+  %1534 = load ptr, ptr %12, align 8
+  %1535 = load ptr, ptr %11, align 8
   %1536 = load ptr, ptr %21, align 8
-  %1537 = getelementptr inbounds %struct.RNode, ptr %1536, i32 0, i32 2
-  %1538 = load i32, ptr %1537, align 8
-  %1539 = load i32, ptr %18, align 4
-  %1540 = add i32 %1539, 2
-  %1541 = add i32 %1540, 2
-  %1542 = sext i32 %1541 to i64
-  %1543 = call i64 @RB_INT2FIX(i64 noundef %1542) #26
-  %1544 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1530, i32 noundef %1535, i32 noundef %1538, i32 noundef 45, i32 noundef 1, i64 noundef %1543)
-  call void @ADD_ELEM(ptr noundef %1529, ptr noundef %1544)
-  %1545 = load ptr, ptr %12, align 8
-  %1546 = load ptr, ptr %11, align 8
-  %1547 = load ptr, ptr %21, align 8
-  %1548 = getelementptr inbounds %struct.RNode, ptr %1547, i32 0, i32 0
-  %1549 = load i64, ptr %1548, align 8
-  %1550 = ashr i64 %1549, 15
-  %1551 = trunc i64 %1550 to i32
+  %1537 = getelementptr inbounds %struct.RNode, ptr %1536, i32 0, i32 0
+  %1538 = load i64, ptr %1537, align 8
+  %1539 = ashr i64 %1538, 15
+  %1540 = trunc i64 %1539 to i32
+  %1541 = load ptr, ptr %21, align 8
+  %1542 = getelementptr inbounds %struct.RNode, ptr %1541, i32 0, i32 2
+  %1543 = load i32, ptr %1542, align 8
+  %1544 = load i32, ptr %18, align 4
+  %1545 = add i32 %1544, 2
+  %1546 = add i32 %1545, 2
+  %1547 = sext i32 %1546 to i64
+  %1548 = call i64 @RB_INT2FIX(i64 noundef %1547) #26
+  %1549 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1535, i32 noundef %1540, i32 noundef %1543, i32 noundef 45, i32 noundef 1, i64 noundef %1548)
+  call void @ADD_ELEM(ptr noundef %1534, ptr noundef %1549)
+  %1550 = load ptr, ptr %12, align 8
+  %1551 = load ptr, ptr %11, align 8
   %1552 = load ptr, ptr %21, align 8
-  %1553 = getelementptr inbounds %struct.RNode, ptr %1552, i32 0, i32 2
-  %1554 = load i32, ptr %1553, align 8
-  %1555 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1546, i32 noundef %1551, i32 noundef %1554, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %1545, ptr noundef %1555)
-  %1556 = load ptr, ptr %12, align 8
-  %1557 = load ptr, ptr %11, align 8
-  %1558 = load ptr, ptr %21, align 8
-  %1559 = getelementptr inbounds %struct.RNode, ptr %1558, i32 0, i32 0
-  %1560 = load i64, ptr %1559, align 8
-  %1561 = ashr i64 %1560, 15
-  %1562 = trunc i64 %1561 to i32
+  %1553 = getelementptr inbounds %struct.RNode, ptr %1552, i32 0, i32 0
+  %1554 = load i64, ptr %1553, align 8
+  %1555 = ashr i64 %1554, 15
+  %1556 = trunc i64 %1555 to i32
+  %1557 = load ptr, ptr %21, align 8
+  %1558 = getelementptr inbounds %struct.RNode, ptr %1557, i32 0, i32 2
+  %1559 = load i32, ptr %1558, align 8
+  %1560 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1551, i32 noundef %1556, i32 noundef %1559, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %1550, ptr noundef %1560)
+  %1561 = load ptr, ptr %12, align 8
+  %1562 = load ptr, ptr %11, align 8
   %1563 = load ptr, ptr %21, align 8
-  %1564 = getelementptr inbounds %struct.RNode, ptr %1563, i32 0, i32 2
-  %1565 = load i32, ptr %1564, align 8
-  %1566 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1557, i32 noundef %1562, i32 noundef %1565, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %1556, ptr noundef %1566)
-  br label %1567
+  %1564 = getelementptr inbounds %struct.RNode, ptr %1563, i32 0, i32 0
+  %1565 = load i64, ptr %1564, align 8
+  %1566 = ashr i64 %1565, 15
+  %1567 = trunc i64 %1566 to i32
+  %1568 = load ptr, ptr %21, align 8
+  %1569 = getelementptr inbounds %struct.RNode, ptr %1568, i32 0, i32 2
+  %1570 = load i32, ptr %1569, align 8
+  %1571 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1562, i32 noundef %1567, i32 noundef %1570, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %1561, ptr noundef %1571)
+  br label %1572
 
-1567:                                             ; preds = %1456, %1382
-  %1568 = load ptr, ptr %12, align 8
-  %1569 = load ptr, ptr %11, align 8
-  %1570 = load ptr, ptr %21, align 8
-  %1571 = getelementptr inbounds %struct.RNode, ptr %1570, i32 0, i32 0
-  %1572 = load i64, ptr %1571, align 8
-  %1573 = ashr i64 %1572, 15
-  %1574 = trunc i64 %1573 to i32
+1572:                                             ; preds = %1461, %1387
+  %1573 = load ptr, ptr %12, align 8
+  %1574 = load ptr, ptr %11, align 8
   %1575 = load ptr, ptr %21, align 8
-  %1576 = getelementptr inbounds %struct.RNode, ptr %1575, i32 0, i32 2
-  %1577 = load i32, ptr %1576, align 8
-  %1578 = load ptr, ptr %34, align 8
-  %1579 = ptrtoint ptr %1578 to i64
-  %1580 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1569, i32 noundef %1574, i32 noundef %1577, i32 noundef 66, i32 noundef 1, i64 noundef %1579)
-  call void @ADD_ELEM(ptr noundef %1568, ptr noundef %1580)
-  %1581 = load ptr, ptr %34, align 8
-  %1582 = getelementptr inbounds %struct.iseq_label_data, ptr %1581, i32 0, i32 5
-  %1583 = load i32, ptr %1582, align 8
-  %1584 = add i32 %1583, 1
-  store i32 %1584, ptr %1582, align 8
-  %1585 = load ptr, ptr %12, align 8
-  %1586 = load ptr, ptr %11, align 8
-  %1587 = load ptr, ptr %21, align 8
-  %1588 = getelementptr inbounds %struct.RNode, ptr %1587, i32 0, i32 0
-  %1589 = load i64, ptr %1588, align 8
-  %1590 = ashr i64 %1589, 15
-  %1591 = trunc i64 %1590 to i32
+  %1576 = getelementptr inbounds %struct.RNode, ptr %1575, i32 0, i32 0
+  %1577 = load i64, ptr %1576, align 8
+  %1578 = ashr i64 %1577, 15
+  %1579 = trunc i64 %1578 to i32
+  %1580 = load ptr, ptr %21, align 8
+  %1581 = getelementptr inbounds %struct.RNode, ptr %1580, i32 0, i32 2
+  %1582 = load i32, ptr %1581, align 8
+  %1583 = load ptr, ptr %34, align 8
+  %1584 = ptrtoint ptr %1583 to i64
+  %1585 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1574, i32 noundef %1579, i32 noundef %1582, i32 noundef 66, i32 noundef 1, i64 noundef %1584)
+  call void @ADD_ELEM(ptr noundef %1573, ptr noundef %1585)
+  %1586 = load ptr, ptr %34, align 8
+  %1587 = getelementptr inbounds %struct.iseq_label_data, ptr %1586, i32 0, i32 5
+  %1588 = load i32, ptr %1587, align 8
+  %1589 = add i32 %1588, 1
+  store i32 %1589, ptr %1587, align 8
+  %1590 = load ptr, ptr %12, align 8
+  %1591 = load ptr, ptr %11, align 8
   %1592 = load ptr, ptr %21, align 8
-  %1593 = getelementptr inbounds %struct.RNode, ptr %1592, i32 0, i32 2
-  %1594 = load i32, ptr %1593, align 8
-  %1595 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1586, i32 noundef %1591, i32 noundef %1594, i32 noundef 41, i32 noundef 1, i64 noundef 7)
-  call void @ADD_ELEM(ptr noundef %1585, ptr noundef %1595)
-  %1596 = load ptr, ptr %12, align 8
-  %1597 = load ptr, ptr %40, align 8
-  call void @ADD_ELEM(ptr noundef %1596, ptr noundef %1597)
-  %1598 = load ptr, ptr %12, align 8
-  %1599 = load ptr, ptr %11, align 8
-  %1600 = load ptr, ptr %21, align 8
-  %1601 = getelementptr inbounds %struct.RNode, ptr %1600, i32 0, i32 0
-  %1602 = load i64, ptr %1601, align 8
-  %1603 = ashr i64 %1602, 15
-  %1604 = trunc i64 %1603 to i32
+  %1593 = getelementptr inbounds %struct.RNode, ptr %1592, i32 0, i32 0
+  %1594 = load i64, ptr %1593, align 8
+  %1595 = ashr i64 %1594, 15
+  %1596 = trunc i64 %1595 to i32
+  %1597 = load ptr, ptr %21, align 8
+  %1598 = getelementptr inbounds %struct.RNode, ptr %1597, i32 0, i32 2
+  %1599 = load i32, ptr %1598, align 8
+  %1600 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1591, i32 noundef %1596, i32 noundef %1599, i32 noundef 41, i32 noundef 1, i64 noundef 7)
+  call void @ADD_ELEM(ptr noundef %1590, ptr noundef %1600)
+  %1601 = load ptr, ptr %12, align 8
+  %1602 = load ptr, ptr %40, align 8
+  call void @ADD_ELEM(ptr noundef %1601, ptr noundef %1602)
+  %1603 = load ptr, ptr %12, align 8
+  %1604 = load ptr, ptr %11, align 8
   %1605 = load ptr, ptr %21, align 8
-  %1606 = getelementptr inbounds %struct.RNode, ptr %1605, i32 0, i32 2
-  %1607 = load i32, ptr %1606, align 8
-  %1608 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1599, i32 noundef %1604, i32 noundef %1607, i32 noundef 46, i32 noundef 1, i64 noundef 7)
-  call void @ADD_ELEM(ptr noundef %1598, ptr noundef %1608)
-  %1609 = load ptr, ptr %12, align 8
-  %1610 = load ptr, ptr %11, align 8
-  %1611 = load ptr, ptr %21, align 8
-  %1612 = getelementptr inbounds %struct.RNode, ptr %1611, i32 0, i32 0
-  %1613 = load i64, ptr %1612, align 8
-  %1614 = ashr i64 %1613, 15
-  %1615 = trunc i64 %1614 to i32
+  %1606 = getelementptr inbounds %struct.RNode, ptr %1605, i32 0, i32 0
+  %1607 = load i64, ptr %1606, align 8
+  %1608 = ashr i64 %1607, 15
+  %1609 = trunc i64 %1608 to i32
+  %1610 = load ptr, ptr %21, align 8
+  %1611 = getelementptr inbounds %struct.RNode, ptr %1610, i32 0, i32 2
+  %1612 = load i32, ptr %1611, align 8
+  %1613 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1604, i32 noundef %1609, i32 noundef %1612, i32 noundef 46, i32 noundef 1, i64 noundef 7)
+  call void @ADD_ELEM(ptr noundef %1603, ptr noundef %1613)
+  %1614 = load ptr, ptr %12, align 8
+  %1615 = load ptr, ptr %11, align 8
   %1616 = load ptr, ptr %21, align 8
-  %1617 = getelementptr inbounds %struct.RNode, ptr %1616, i32 0, i32 2
-  %1618 = load i32, ptr %1617, align 8
-  %1619 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1610, i32 noundef %1615, i32 noundef %1618, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %1609, ptr noundef %1619)
-  %1620 = load ptr, ptr %12, align 8
-  %1621 = load ptr, ptr %11, align 8
-  %1622 = load ptr, ptr %21, align 8
-  %1623 = getelementptr inbounds %struct.RNode, ptr %1622, i32 0, i32 0
-  %1624 = load i64, ptr %1623, align 8
-  %1625 = ashr i64 %1624, 15
-  %1626 = trunc i64 %1625 to i32
+  %1617 = getelementptr inbounds %struct.RNode, ptr %1616, i32 0, i32 0
+  %1618 = load i64, ptr %1617, align 8
+  %1619 = ashr i64 %1618, 15
+  %1620 = trunc i64 %1619 to i32
+  %1621 = load ptr, ptr %21, align 8
+  %1622 = getelementptr inbounds %struct.RNode, ptr %1621, i32 0, i32 2
+  %1623 = load i32, ptr %1622, align 8
+  %1624 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1615, i32 noundef %1620, i32 noundef %1623, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %1614, ptr noundef %1624)
+  %1625 = load ptr, ptr %12, align 8
+  %1626 = load ptr, ptr %11, align 8
   %1627 = load ptr, ptr %21, align 8
-  %1628 = getelementptr inbounds %struct.RNode, ptr %1627, i32 0, i32 2
-  %1629 = load i32, ptr %1628, align 8
-  %1630 = load ptr, ptr %14, align 8
-  %1631 = ptrtoint ptr %1630 to i64
-  %1632 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1621, i32 noundef %1626, i32 noundef %1629, i32 noundef 66, i32 noundef 1, i64 noundef %1631)
-  call void @ADD_ELEM(ptr noundef %1620, ptr noundef %1632)
-  %1633 = load ptr, ptr %14, align 8
-  %1634 = getelementptr inbounds %struct.iseq_label_data, ptr %1633, i32 0, i32 5
-  %1635 = load i32, ptr %1634, align 8
-  %1636 = add i32 %1635, 1
-  store i32 %1636, ptr %1634, align 8
-  %1637 = load ptr, ptr %12, align 8
-  %1638 = load ptr, ptr %11, align 8
-  %1639 = load ptr, ptr %21, align 8
-  %1640 = getelementptr inbounds %struct.RNode, ptr %1639, i32 0, i32 0
-  %1641 = load i64, ptr %1640, align 8
-  %1642 = ashr i64 %1641, 15
-  %1643 = trunc i64 %1642 to i32
+  %1628 = getelementptr inbounds %struct.RNode, ptr %1627, i32 0, i32 0
+  %1629 = load i64, ptr %1628, align 8
+  %1630 = ashr i64 %1629, 15
+  %1631 = trunc i64 %1630 to i32
+  %1632 = load ptr, ptr %21, align 8
+  %1633 = getelementptr inbounds %struct.RNode, ptr %1632, i32 0, i32 2
+  %1634 = load i32, ptr %1633, align 8
+  %1635 = load ptr, ptr %14, align 8
+  %1636 = ptrtoint ptr %1635 to i64
+  %1637 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1626, i32 noundef %1631, i32 noundef %1634, i32 noundef 66, i32 noundef 1, i64 noundef %1636)
+  call void @ADD_ELEM(ptr noundef %1625, ptr noundef %1637)
+  %1638 = load ptr, ptr %14, align 8
+  %1639 = getelementptr inbounds %struct.iseq_label_data, ptr %1638, i32 0, i32 5
+  %1640 = load i32, ptr %1639, align 8
+  %1641 = add i32 %1640, 1
+  store i32 %1641, ptr %1639, align 8
+  %1642 = load ptr, ptr %12, align 8
+  %1643 = load ptr, ptr %11, align 8
   %1644 = load ptr, ptr %21, align 8
-  %1645 = getelementptr inbounds %struct.RNode, ptr %1644, i32 0, i32 2
-  %1646 = load i32, ptr %1645, align 8
-  %1647 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1638, i32 noundef %1643, i32 noundef %1646, i32 noundef 17, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %1637, ptr noundef %1647)
-  %1648 = load ptr, ptr %12, align 8
-  %1649 = load ptr, ptr %35, align 8
-  call void @ADD_ELEM(ptr noundef %1648, ptr noundef %1649)
-  %1650 = load ptr, ptr %12, align 8
-  %1651 = load ptr, ptr %11, align 8
-  %1652 = load ptr, ptr %21, align 8
-  %1653 = getelementptr inbounds %struct.RNode, ptr %1652, i32 0, i32 0
-  %1654 = load i64, ptr %1653, align 8
-  %1655 = ashr i64 %1654, 15
-  %1656 = trunc i64 %1655 to i32
+  %1645 = getelementptr inbounds %struct.RNode, ptr %1644, i32 0, i32 0
+  %1646 = load i64, ptr %1645, align 8
+  %1647 = ashr i64 %1646, 15
+  %1648 = trunc i64 %1647 to i32
+  %1649 = load ptr, ptr %21, align 8
+  %1650 = getelementptr inbounds %struct.RNode, ptr %1649, i32 0, i32 2
+  %1651 = load i32, ptr %1650, align 8
+  %1652 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1643, i32 noundef %1648, i32 noundef %1651, i32 noundef 17, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %1642, ptr noundef %1652)
+  %1653 = load ptr, ptr %12, align 8
+  %1654 = load ptr, ptr %35, align 8
+  call void @ADD_ELEM(ptr noundef %1653, ptr noundef %1654)
+  %1655 = load ptr, ptr %12, align 8
+  %1656 = load ptr, ptr %11, align 8
   %1657 = load ptr, ptr %21, align 8
-  %1658 = getelementptr inbounds %struct.RNode, ptr %1657, i32 0, i32 2
-  %1659 = load i32, ptr %1658, align 8
-  %1660 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1651, i32 noundef %1656, i32 noundef %1659, i32 noundef 20, i32 noundef 1, i64 noundef 3)
-  call void @ADD_ELEM(ptr noundef %1650, ptr noundef %1660)
-  %1661 = load ptr, ptr %12, align 8
-  %1662 = load ptr, ptr %11, align 8
-  %1663 = load ptr, ptr %21, align 8
-  %1664 = getelementptr inbounds %struct.RNode, ptr %1663, i32 0, i32 0
-  %1665 = load i64, ptr %1664, align 8
-  %1666 = ashr i64 %1665, 15
-  %1667 = trunc i64 %1666 to i32
+  %1658 = getelementptr inbounds %struct.RNode, ptr %1657, i32 0, i32 0
+  %1659 = load i64, ptr %1658, align 8
+  %1660 = ashr i64 %1659, 15
+  %1661 = trunc i64 %1660 to i32
+  %1662 = load ptr, ptr %21, align 8
+  %1663 = getelementptr inbounds %struct.RNode, ptr %1662, i32 0, i32 2
+  %1664 = load i32, ptr %1663, align 8
+  %1665 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1656, i32 noundef %1661, i32 noundef %1664, i32 noundef 20, i32 noundef 1, i64 noundef 3)
+  call void @ADD_ELEM(ptr noundef %1655, ptr noundef %1665)
+  %1666 = load ptr, ptr %12, align 8
+  %1667 = load ptr, ptr %11, align 8
   %1668 = load ptr, ptr %21, align 8
-  %1669 = getelementptr inbounds %struct.RNode, ptr %1668, i32 0, i32 2
-  %1670 = load i32, ptr %1669, align 8
-  %1671 = load i64, ptr @rb_eTypeError, align 8
-  %1672 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1662, i32 noundef %1667, i32 noundef %1670, i32 noundef 19, i32 noundef 1, i64 noundef %1671)
-  call void @ADD_ELEM(ptr noundef %1661, ptr noundef %1672)
-  %1673 = load ptr, ptr %12, align 8
-  %1674 = load ptr, ptr %11, align 8
-  %1675 = load ptr, ptr %21, align 8
-  %1676 = getelementptr inbounds %struct.RNode, ptr %1675, i32 0, i32 0
-  %1677 = load i64, ptr %1676, align 8
-  %1678 = ashr i64 %1677, 15
-  %1679 = trunc i64 %1678 to i32
+  %1669 = getelementptr inbounds %struct.RNode, ptr %1668, i32 0, i32 0
+  %1670 = load i64, ptr %1669, align 8
+  %1671 = ashr i64 %1670, 15
+  %1672 = trunc i64 %1671 to i32
+  %1673 = load ptr, ptr %21, align 8
+  %1674 = getelementptr inbounds %struct.RNode, ptr %1673, i32 0, i32 2
+  %1675 = load i32, ptr %1674, align 8
+  %1676 = load i64, ptr @rb_eTypeError, align 8
+  %1677 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1667, i32 noundef %1672, i32 noundef %1675, i32 noundef 19, i32 noundef 1, i64 noundef %1676)
+  call void @ADD_ELEM(ptr noundef %1666, ptr noundef %1677)
+  %1678 = load ptr, ptr %12, align 8
+  %1679 = load ptr, ptr %11, align 8
   %1680 = load ptr, ptr %21, align 8
-  %1681 = getelementptr inbounds %struct.RNode, ptr %1680, i32 0, i32 2
-  %1682 = load i32, ptr %1681, align 8
-  %1683 = call i64 @rb_fstring_new(ptr noundef @.str.105, i64 noundef 29)
-  %1684 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1674, i32 noundef %1679, i32 noundef %1682, i32 noundef 19, i32 noundef 1, i64 noundef %1683)
-  call void @ADD_ELEM(ptr noundef %1673, ptr noundef %1684)
-  %1685 = load ptr, ptr %12, align 8
-  %1686 = load ptr, ptr %11, align 8
-  %1687 = load ptr, ptr %21, align 8
-  %1688 = getelementptr inbounds %struct.RNode, ptr %1687, i32 0, i32 0
-  %1689 = load i64, ptr %1688, align 8
-  %1690 = ashr i64 %1689, 15
-  %1691 = trunc i64 %1690 to i32
+  %1681 = getelementptr inbounds %struct.RNode, ptr %1680, i32 0, i32 0
+  %1682 = load i64, ptr %1681, align 8
+  %1683 = ashr i64 %1682, 15
+  %1684 = trunc i64 %1683 to i32
+  %1685 = load ptr, ptr %21, align 8
+  %1686 = getelementptr inbounds %struct.RNode, ptr %1685, i32 0, i32 2
+  %1687 = load i32, ptr %1686, align 8
+  %1688 = call i64 @rb_fstring_new(ptr noundef @.str.105, i64 noundef 29)
+  %1689 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1679, i32 noundef %1684, i32 noundef %1687, i32 noundef 19, i32 noundef 1, i64 noundef %1688)
+  call void @ADD_ELEM(ptr noundef %1678, ptr noundef %1689)
+  %1690 = load ptr, ptr %12, align 8
+  %1691 = load ptr, ptr %11, align 8
   %1692 = load ptr, ptr %21, align 8
-  %1693 = getelementptr inbounds %struct.RNode, ptr %1692, i32 0, i32 2
-  %1694 = load i32, ptr %1693, align 8
-  %1695 = call ptr @new_insn_send(ptr noundef %1686, i32 noundef %1691, i32 noundef %1694, i64 noundef 167, i64 noundef 5, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %1685, ptr noundef %1695)
-  %1696 = load ptr, ptr %12, align 8
-  %1697 = load ptr, ptr %11, align 8
-  %1698 = load ptr, ptr %21, align 8
-  %1699 = getelementptr inbounds %struct.RNode, ptr %1698, i32 0, i32 0
-  %1700 = load i64, ptr %1699, align 8
-  %1701 = ashr i64 %1700, 15
-  %1702 = trunc i64 %1701 to i32
+  %1693 = getelementptr inbounds %struct.RNode, ptr %1692, i32 0, i32 0
+  %1694 = load i64, ptr %1693, align 8
+  %1695 = ashr i64 %1694, 15
+  %1696 = trunc i64 %1695 to i32
+  %1697 = load ptr, ptr %21, align 8
+  %1698 = getelementptr inbounds %struct.RNode, ptr %1697, i32 0, i32 2
+  %1699 = load i32, ptr %1698, align 8
+  %1700 = call ptr @new_insn_send(ptr noundef %1691, i32 noundef %1696, i32 noundef %1699, i64 noundef 167, i64 noundef 5, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %1690, ptr noundef %1700)
+  %1701 = load ptr, ptr %12, align 8
+  %1702 = load ptr, ptr %11, align 8
   %1703 = load ptr, ptr %21, align 8
-  %1704 = getelementptr inbounds %struct.RNode, ptr %1703, i32 0, i32 2
-  %1705 = load i32, ptr %1704, align 8
-  %1706 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1697, i32 noundef %1702, i32 noundef %1705, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %1696, ptr noundef %1706)
-  %1707 = load ptr, ptr %12, align 8
-  %1708 = load ptr, ptr %34, align 8
-  call void @ADD_ELEM(ptr noundef %1707, ptr noundef %1708)
-  %1709 = load ptr, ptr %12, align 8
-  %1710 = load ptr, ptr %11, align 8
-  %1711 = load ptr, ptr %21, align 8
-  %1712 = getelementptr inbounds %struct.RNode, ptr %1711, i32 0, i32 0
-  %1713 = load i64, ptr %1712, align 8
-  %1714 = ashr i64 %1713, 15
-  %1715 = trunc i64 %1714 to i32
+  %1704 = getelementptr inbounds %struct.RNode, ptr %1703, i32 0, i32 0
+  %1705 = load i64, ptr %1704, align 8
+  %1706 = ashr i64 %1705, 15
+  %1707 = trunc i64 %1706 to i32
+  %1708 = load ptr, ptr %21, align 8
+  %1709 = getelementptr inbounds %struct.RNode, ptr %1708, i32 0, i32 2
+  %1710 = load i32, ptr %1709, align 8
+  %1711 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1702, i32 noundef %1707, i32 noundef %1710, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %1701, ptr noundef %1711)
+  %1712 = load ptr, ptr %12, align 8
+  %1713 = load ptr, ptr %34, align 8
+  call void @ADD_ELEM(ptr noundef %1712, ptr noundef %1713)
+  %1714 = load ptr, ptr %12, align 8
+  %1715 = load ptr, ptr %11, align 8
   %1716 = load ptr, ptr %21, align 8
-  %1717 = getelementptr inbounds %struct.RNode, ptr %1716, i32 0, i32 2
-  %1718 = load i32, ptr %1717, align 8
-  %1719 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1710, i32 noundef %1715, i32 noundef %1718, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %1709, ptr noundef %1719)
-  %1720 = load ptr, ptr %12, align 8
-  %1721 = load ptr, ptr %11, align 8
-  %1722 = load ptr, ptr %21, align 8
-  %1723 = getelementptr inbounds %struct.RNode, ptr %1722, i32 0, i32 0
-  %1724 = load i64, ptr %1723, align 8
-  %1725 = ashr i64 %1724, 15
-  %1726 = trunc i64 %1725 to i32
+  %1717 = getelementptr inbounds %struct.RNode, ptr %1716, i32 0, i32 0
+  %1718 = load i64, ptr %1717, align 8
+  %1719 = ashr i64 %1718, 15
+  %1720 = trunc i64 %1719 to i32
+  %1721 = load ptr, ptr %21, align 8
+  %1722 = getelementptr inbounds %struct.RNode, ptr %1721, i32 0, i32 2
+  %1723 = load i32, ptr %1722, align 8
+  %1724 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1715, i32 noundef %1720, i32 noundef %1723, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %1714, ptr noundef %1724)
+  %1725 = load ptr, ptr %12, align 8
+  %1726 = load ptr, ptr %11, align 8
   %1727 = load ptr, ptr %21, align 8
-  %1728 = getelementptr inbounds %struct.RNode, ptr %1727, i32 0, i32 2
-  %1729 = load i32, ptr %1728, align 8
-  %1730 = load ptr, ptr %15, align 8
-  %1731 = ptrtoint ptr %1730 to i64
-  %1732 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1721, i32 noundef %1726, i32 noundef %1729, i32 noundef 66, i32 noundef 1, i64 noundef %1731)
-  call void @ADD_ELEM(ptr noundef %1720, ptr noundef %1732)
-  %1733 = load ptr, ptr %15, align 8
-  %1734 = getelementptr inbounds %struct.iseq_label_data, ptr %1733, i32 0, i32 5
-  %1735 = load i32, ptr %1734, align 8
-  %1736 = add i32 %1735, 1
-  store i32 %1736, ptr %1734, align 8
-  br label %3236
+  %1728 = getelementptr inbounds %struct.RNode, ptr %1727, i32 0, i32 0
+  %1729 = load i64, ptr %1728, align 8
+  %1730 = ashr i64 %1729, 15
+  %1731 = trunc i64 %1730 to i32
+  %1732 = load ptr, ptr %21, align 8
+  %1733 = getelementptr inbounds %struct.RNode, ptr %1732, i32 0, i32 2
+  %1734 = load i32, ptr %1733, align 8
+  %1735 = load ptr, ptr %15, align 8
+  %1736 = ptrtoint ptr %1735 to i64
+  %1737 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1726, i32 noundef %1731, i32 noundef %1734, i32 noundef 66, i32 noundef 1, i64 noundef %1736)
+  call void @ADD_ELEM(ptr noundef %1725, ptr noundef %1737)
+  %1738 = load ptr, ptr %15, align 8
+  %1739 = getelementptr inbounds %struct.iseq_label_data, ptr %1738, i32 0, i32 5
+  %1740 = load i32, ptr %1739, align 8
+  %1741 = add i32 %1740, 1
+  store i32 %1741, ptr %1739, align 8
+  br label %3242
 
-1737:                                             ; preds = %9
+1742:                                             ; preds = %9
   store i64 4, ptr %45, align 8
-  %1738 = load ptr, ptr %11, align 8
-  %1739 = load i32, ptr %20, align 4
-  %1740 = sext i32 %1739 to i64
-  %1741 = call ptr @new_label_body(ptr noundef %1738, i64 noundef %1740)
-  store ptr %1741, ptr %43, align 8
-  %1742 = load ptr, ptr %11, align 8
-  %1743 = load i32, ptr %20, align 4
-  %1744 = sext i32 %1743 to i64
-  %1745 = call ptr @new_label_body(ptr noundef %1742, i64 noundef %1744)
-  store ptr %1745, ptr %44, align 8
-  %1746 = load ptr, ptr %13, align 8
-  %1747 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1746, i32 0, i32 2
-  %1748 = load ptr, ptr %1747, align 8
-  %1749 = icmp ne ptr %1748, null
-  br i1 %1749, label %1750, label %1789
-
-1750:                                             ; preds = %1737
+  %1743 = load ptr, ptr %11, align 8
+  %1744 = load i32, ptr %20, align 4
+  %1745 = sext i32 %1744 to i64
+  %1746 = call ptr @new_label_body(ptr noundef %1743, i64 noundef %1745)
+  store ptr %1746, ptr %43, align 8
+  %1747 = load ptr, ptr %11, align 8
+  %1748 = load i32, ptr %20, align 4
+  %1749 = sext i32 %1748 to i64
+  %1750 = call ptr @new_label_body(ptr noundef %1747, i64 noundef %1749)
+  store ptr %1750, ptr %44, align 8
   %1751 = load ptr, ptr %13, align 8
-  %1752 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1751, i32 0, i32 3
+  %1752 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1751, i32 0, i32 2
   %1753 = load ptr, ptr %1752, align 8
   %1754 = icmp ne ptr %1753, null
-  br i1 %1754, label %1789, label %1755
+  br i1 %1754, label %1755, label %1794
 
-1755:                                             ; preds = %1750
+1755:                                             ; preds = %1742
   %1756 = load ptr, ptr %13, align 8
-  %1757 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1756, i32 0, i32 2
+  %1757 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1756, i32 0, i32 3
   %1758 = load ptr, ptr %1757, align 8
-  %1759 = getelementptr inbounds %struct.RNode_HASH, ptr %1758, i32 0, i32 1
-  %1760 = load ptr, ptr %1759, align 8
-  store ptr %1760, ptr %46, align 8
-  %1761 = load ptr, ptr %46, align 8
-  %1762 = icmp ne ptr %1761, null
-  br i1 %1762, label %1763, label %1768
+  %1759 = icmp ne ptr %1758, null
+  br i1 %1759, label %1794, label %1760
 
-1763:                                             ; preds = %1755
-  %1764 = load ptr, ptr %46, align 8
-  %1765 = getelementptr inbounds %struct.RNode_LIST, ptr %1764, i32 0, i32 2
-  %1766 = load i64, ptr %1765, align 8
-  %1767 = sdiv i64 %1766, 2
-  br label %1769
+1760:                                             ; preds = %1755
+  %1761 = load ptr, ptr %13, align 8
+  %1762 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1761, i32 0, i32 2
+  %1763 = load ptr, ptr %1762, align 8
+  %1764 = getelementptr inbounds %struct.RNode_HASH, ptr %1763, i32 0, i32 1
+  %1765 = load ptr, ptr %1764, align 8
+  store ptr %1765, ptr %46, align 8
+  %1766 = load ptr, ptr %46, align 8
+  %1767 = icmp ne ptr %1766, null
+  br i1 %1767, label %1768, label %1773
 
-1768:                                             ; preds = %1755
-  br label %1769
+1768:                                             ; preds = %1760
+  %1769 = load ptr, ptr %46, align 8
+  %1770 = getelementptr inbounds %struct.RNode_LIST, ptr %1769, i32 0, i32 2
+  %1771 = load i64, ptr %1770, align 8
+  %1772 = sdiv i64 %1771, 2
+  br label %1774
 
-1769:                                             ; preds = %1768, %1763
-  %1770 = phi i64 [ %1767, %1763 ], [ 0, %1768 ]
-  %1771 = call i64 @rb_ary_new_capa(i64 noundef %1770)
-  store i64 %1771, ptr %45, align 8
-  br label %1772
+1773:                                             ; preds = %1760
+  br label %1774
 
-1772:                                             ; preds = %1775, %1769
-  %1773 = load ptr, ptr %46, align 8
-  %1774 = icmp ne ptr %1773, null
-  br i1 %1774, label %1775, label %1788
+1774:                                             ; preds = %1773, %1768
+  %1775 = phi i64 [ %1772, %1768 ], [ 0, %1773 ]
+  %1776 = call i64 @rb_ary_new_capa(i64 noundef %1775)
+  store i64 %1776, ptr %45, align 8
+  br label %1777
 
-1775:                                             ; preds = %1772
-  %1776 = load i64, ptr %45, align 8
-  %1777 = load ptr, ptr %11, align 8
+1777:                                             ; preds = %1780, %1774
   %1778 = load ptr, ptr %46, align 8
-  %1779 = getelementptr inbounds %struct.RNode_LIST, ptr %1778, i32 0, i32 1
-  %1780 = load ptr, ptr %1779, align 8
-  %1781 = call i64 @get_symbol_value(ptr noundef %1777, ptr noundef %1780)
-  %1782 = call i64 @rb_ary_push(i64 noundef %1776, i64 noundef %1781)
+  %1779 = icmp ne ptr %1778, null
+  br i1 %1779, label %1780, label %1793
+
+1780:                                             ; preds = %1777
+  %1781 = load i64, ptr %45, align 8
+  %1782 = load ptr, ptr %11, align 8
   %1783 = load ptr, ptr %46, align 8
-  %1784 = getelementptr inbounds %struct.RNode_LIST, ptr %1783, i32 0, i32 3
+  %1784 = getelementptr inbounds %struct.RNode_LIST, ptr %1783, i32 0, i32 1
   %1785 = load ptr, ptr %1784, align 8
-  %1786 = getelementptr inbounds %struct.RNode_LIST, ptr %1785, i32 0, i32 3
-  %1787 = load ptr, ptr %1786, align 8
-  store ptr %1787, ptr %46, align 8
-  br label %1772, !llvm.loop !168
+  %1786 = call i64 @get_symbol_value(ptr noundef %1782, ptr noundef %1785)
+  %1787 = call i64 @rb_ary_push(i64 noundef %1781, i64 noundef %1786)
+  %1788 = load ptr, ptr %46, align 8
+  %1789 = getelementptr inbounds %struct.RNode_LIST, ptr %1788, i32 0, i32 3
+  %1790 = load ptr, ptr %1789, align 8
+  %1791 = getelementptr inbounds %struct.RNode_LIST, ptr %1790, i32 0, i32 3
+  %1792 = load ptr, ptr %1791, align 8
+  store ptr %1792, ptr %46, align 8
+  br label %1777, !llvm.loop !168
 
-1788:                                             ; preds = %1772
-  br label %1789
+1793:                                             ; preds = %1777
+  br label %1794
 
-1789:                                             ; preds = %1788, %1750, %1737
-  %1790 = load ptr, ptr %11, align 8
-  %1791 = load ptr, ptr %12, align 8
-  %1792 = load ptr, ptr %13, align 8
-  %1793 = load ptr, ptr %43, align 8
-  %1794 = load i8, ptr %16, align 1
-  %1795 = trunc i8 %1794 to i1
-  %1796 = load i32, ptr %18, align 4
-  %1797 = call i32 @iseq_compile_pattern_constant(ptr noundef %1790, ptr noundef %1791, ptr noundef %1792, ptr noundef %1793, i1 noundef zeroext %1795, i32 noundef %1796)
-  %1798 = icmp ne i32 %1797, 0
-  br i1 %1798, label %1800, label %1799
+1794:                                             ; preds = %1793, %1755, %1742
+  %1795 = load ptr, ptr %11, align 8
+  %1796 = load ptr, ptr %12, align 8
+  %1797 = load ptr, ptr %13, align 8
+  %1798 = load ptr, ptr %43, align 8
+  %1799 = load i8, ptr %16, align 1
+  %1800 = trunc i8 %1799 to i1
+  %1801 = load i32, ptr %18, align 4
+  %1802 = call i32 @iseq_compile_pattern_constant(ptr noundef %1795, ptr noundef %1796, ptr noundef %1797, ptr noundef %1798, i1 noundef zeroext %1800, i32 noundef %1801)
+  %1803 = icmp ne i32 %1802, 0
+  br i1 %1803, label %1805, label %1804
 
-1799:                                             ; preds = %1789
+1804:                                             ; preds = %1794
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-1800:                                             ; preds = %1789
-  %1801 = load ptr, ptr %12, align 8
-  %1802 = load ptr, ptr %11, align 8
-  %1803 = load ptr, ptr %21, align 8
-  %1804 = getelementptr inbounds %struct.RNode, ptr %1803, i32 0, i32 0
-  %1805 = load i64, ptr %1804, align 8
-  %1806 = ashr i64 %1805, 15
-  %1807 = trunc i64 %1806 to i32
+1805:                                             ; preds = %1794
+  %1806 = load ptr, ptr %12, align 8
+  %1807 = load ptr, ptr %11, align 8
   %1808 = load ptr, ptr %21, align 8
-  %1809 = getelementptr inbounds %struct.RNode, ptr %1808, i32 0, i32 2
-  %1810 = load i32, ptr %1809, align 8
-  %1811 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1802, i32 noundef %1807, i32 noundef %1810, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %1801, ptr noundef %1811)
-  %1812 = load ptr, ptr %12, align 8
-  %1813 = load ptr, ptr %11, align 8
-  %1814 = load ptr, ptr %21, align 8
-  %1815 = getelementptr inbounds %struct.RNode, ptr %1814, i32 0, i32 0
-  %1816 = load i64, ptr %1815, align 8
-  %1817 = ashr i64 %1816, 15
-  %1818 = trunc i64 %1817 to i32
+  %1809 = getelementptr inbounds %struct.RNode, ptr %1808, i32 0, i32 0
+  %1810 = load i64, ptr %1809, align 8
+  %1811 = ashr i64 %1810, 15
+  %1812 = trunc i64 %1811 to i32
+  %1813 = load ptr, ptr %21, align 8
+  %1814 = getelementptr inbounds %struct.RNode, ptr %1813, i32 0, i32 2
+  %1815 = load i32, ptr %1814, align 8
+  %1816 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1807, i32 noundef %1812, i32 noundef %1815, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %1806, ptr noundef %1816)
+  %1817 = load ptr, ptr %12, align 8
+  %1818 = load ptr, ptr %11, align 8
   %1819 = load ptr, ptr %21, align 8
-  %1820 = getelementptr inbounds %struct.RNode, ptr %1819, i32 0, i32 2
-  %1821 = load i32, ptr %1820, align 8
-  %1822 = call i64 @rbimpl_intern_const(ptr noundef @iseq_compile_pattern_each.rbimpl_id, ptr noundef @.str.107) #29
-  store i64 %1822, ptr %47, align 8
-  %1823 = load i64, ptr %47, align 8
-  %1824 = call i64 @rb_id2sym(i64 noundef %1823)
-  %1825 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1813, i32 noundef %1818, i32 noundef %1821, i32 noundef 19, i32 noundef 1, i64 noundef %1824)
-  call void @ADD_ELEM(ptr noundef %1812, ptr noundef %1825)
-  %1826 = load ptr, ptr %12, align 8
-  %1827 = load ptr, ptr %11, align 8
-  %1828 = load ptr, ptr %21, align 8
-  %1829 = getelementptr inbounds %struct.RNode, ptr %1828, i32 0, i32 0
-  %1830 = load i64, ptr %1829, align 8
-  %1831 = ashr i64 %1830, 15
-  %1832 = trunc i64 %1831 to i32
+  %1820 = getelementptr inbounds %struct.RNode, ptr %1819, i32 0, i32 0
+  %1821 = load i64, ptr %1820, align 8
+  %1822 = ashr i64 %1821, 15
+  %1823 = trunc i64 %1822 to i32
+  %1824 = load ptr, ptr %21, align 8
+  %1825 = getelementptr inbounds %struct.RNode, ptr %1824, i32 0, i32 2
+  %1826 = load i32, ptr %1825, align 8
+  %1827 = call i64 @rbimpl_intern_const(ptr noundef @iseq_compile_pattern_each.rbimpl_id, ptr noundef @.str.107) #29
+  store i64 %1827, ptr %47, align 8
+  %1828 = load i64, ptr %47, align 8
+  %1829 = call i64 @rb_id2sym(i64 noundef %1828)
+  %1830 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1818, i32 noundef %1823, i32 noundef %1826, i32 noundef 19, i32 noundef 1, i64 noundef %1829)
+  call void @ADD_ELEM(ptr noundef %1817, ptr noundef %1830)
+  %1831 = load ptr, ptr %12, align 8
+  %1832 = load ptr, ptr %11, align 8
   %1833 = load ptr, ptr %21, align 8
-  %1834 = getelementptr inbounds %struct.RNode, ptr %1833, i32 0, i32 2
-  %1835 = load i32, ptr %1834, align 8
-  %1836 = call ptr @new_insn_send(ptr noundef %1827, i32 noundef %1832, i32 noundef %1835, i64 noundef 155, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %1826, ptr noundef %1836)
-  %1837 = load i8, ptr %16, align 1
-  %1838 = trunc i8 %1837 to i1
-  br i1 %1838, label %1839, label %1850
+  %1834 = getelementptr inbounds %struct.RNode, ptr %1833, i32 0, i32 0
+  %1835 = load i64, ptr %1834, align 8
+  %1836 = ashr i64 %1835, 15
+  %1837 = trunc i64 %1836 to i32
+  %1838 = load ptr, ptr %21, align 8
+  %1839 = getelementptr inbounds %struct.RNode, ptr %1838, i32 0, i32 2
+  %1840 = load i32, ptr %1839, align 8
+  %1841 = call ptr @new_insn_send(ptr noundef %1832, i32 noundef %1837, i32 noundef %1840, i64 noundef 155, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %1831, ptr noundef %1841)
+  %1842 = load i8, ptr %16, align 1
+  %1843 = trunc i8 %1842 to i1
+  br i1 %1843, label %1844, label %1855
 
-1839:                                             ; preds = %1800
-  %1840 = load ptr, ptr %11, align 8
-  %1841 = load ptr, ptr %12, align 8
-  %1842 = load ptr, ptr %13, align 8
-  %1843 = call i64 @rb_fstring_new(ptr noundef @.str.108, i64 noundef 40)
-  %1844 = load i32, ptr %18, align 4
-  %1845 = add i32 %1844, 1
-  %1846 = call i32 @iseq_compile_pattern_set_general_errmsg(ptr noundef %1840, ptr noundef %1841, ptr noundef %1842, i64 noundef %1843, i32 noundef %1845)
-  %1847 = icmp ne i32 %1846, 0
-  br i1 %1847, label %1849, label %1848
+1844:                                             ; preds = %1805
+  %1845 = load ptr, ptr %11, align 8
+  %1846 = load ptr, ptr %12, align 8
+  %1847 = load ptr, ptr %13, align 8
+  %1848 = call i64 @rb_fstring_new(ptr noundef @.str.108, i64 noundef 40)
+  %1849 = load i32, ptr %18, align 4
+  %1850 = add i32 %1849, 1
+  %1851 = call i32 @iseq_compile_pattern_set_general_errmsg(ptr noundef %1845, ptr noundef %1846, ptr noundef %1847, i64 noundef %1848, i32 noundef %1850)
+  %1852 = icmp ne i32 %1851, 0
+  br i1 %1852, label %1854, label %1853
 
-1848:                                             ; preds = %1839
+1853:                                             ; preds = %1844
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-1849:                                             ; preds = %1839
-  br label %1850
+1854:                                             ; preds = %1844
+  br label %1855
 
-1850:                                             ; preds = %1849, %1800
-  %1851 = load ptr, ptr %12, align 8
-  %1852 = load ptr, ptr %11, align 8
-  %1853 = load ptr, ptr %21, align 8
-  %1854 = getelementptr inbounds %struct.RNode, ptr %1853, i32 0, i32 0
-  %1855 = load i64, ptr %1854, align 8
-  %1856 = ashr i64 %1855, 15
-  %1857 = trunc i64 %1856 to i32
+1855:                                             ; preds = %1854, %1805
+  %1856 = load ptr, ptr %12, align 8
+  %1857 = load ptr, ptr %11, align 8
   %1858 = load ptr, ptr %21, align 8
-  %1859 = getelementptr inbounds %struct.RNode, ptr %1858, i32 0, i32 2
-  %1860 = load i32, ptr %1859, align 8
-  %1861 = load ptr, ptr %43, align 8
-  %1862 = ptrtoint ptr %1861 to i64
-  %1863 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1852, i32 noundef %1857, i32 noundef %1860, i32 noundef 68, i32 noundef 1, i64 noundef %1862)
-  call void @ADD_ELEM(ptr noundef %1851, ptr noundef %1863)
-  %1864 = load ptr, ptr %43, align 8
-  %1865 = getelementptr inbounds %struct.iseq_label_data, ptr %1864, i32 0, i32 5
-  %1866 = load i32, ptr %1865, align 8
-  %1867 = add i32 %1866, 1
-  store i32 %1867, ptr %1865, align 8
-  %1868 = load i64, ptr %45, align 8
-  %1869 = call zeroext i1 @RB_NIL_P(i64 noundef %1868) #26
-  br i1 %1869, label %1870, label %1882
+  %1859 = getelementptr inbounds %struct.RNode, ptr %1858, i32 0, i32 0
+  %1860 = load i64, ptr %1859, align 8
+  %1861 = ashr i64 %1860, 15
+  %1862 = trunc i64 %1861 to i32
+  %1863 = load ptr, ptr %21, align 8
+  %1864 = getelementptr inbounds %struct.RNode, ptr %1863, i32 0, i32 2
+  %1865 = load i32, ptr %1864, align 8
+  %1866 = load ptr, ptr %43, align 8
+  %1867 = ptrtoint ptr %1866 to i64
+  %1868 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1857, i32 noundef %1862, i32 noundef %1865, i32 noundef 68, i32 noundef 1, i64 noundef %1867)
+  call void @ADD_ELEM(ptr noundef %1856, ptr noundef %1868)
+  %1869 = load ptr, ptr %43, align 8
+  %1870 = getelementptr inbounds %struct.iseq_label_data, ptr %1869, i32 0, i32 5
+  %1871 = load i32, ptr %1870, align 8
+  %1872 = add i32 %1871, 1
+  store i32 %1872, ptr %1870, align 8
+  %1873 = load i64, ptr %45, align 8
+  %1874 = call zeroext i1 @RB_NIL_P(i64 noundef %1873) #26
+  br i1 %1874, label %1875, label %1887
 
-1870:                                             ; preds = %1850
-  %1871 = load ptr, ptr %12, align 8
-  %1872 = load ptr, ptr %11, align 8
-  %1873 = load ptr, ptr %21, align 8
-  %1874 = getelementptr inbounds %struct.RNode, ptr %1873, i32 0, i32 0
-  %1875 = load i64, ptr %1874, align 8
-  %1876 = ashr i64 %1875, 15
-  %1877 = trunc i64 %1876 to i32
+1875:                                             ; preds = %1855
+  %1876 = load ptr, ptr %12, align 8
+  %1877 = load ptr, ptr %11, align 8
   %1878 = load ptr, ptr %21, align 8
-  %1879 = getelementptr inbounds %struct.RNode, ptr %1878, i32 0, i32 2
-  %1880 = load i32, ptr %1879, align 8
-  %1881 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1872, i32 noundef %1877, i32 noundef %1880, i32 noundef 17, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %1871, ptr noundef %1881)
-  br label %1900
+  %1879 = getelementptr inbounds %struct.RNode, ptr %1878, i32 0, i32 0
+  %1880 = load i64, ptr %1879, align 8
+  %1881 = ashr i64 %1880, 15
+  %1882 = trunc i64 %1881 to i32
+  %1883 = load ptr, ptr %21, align 8
+  %1884 = getelementptr inbounds %struct.RNode, ptr %1883, i32 0, i32 2
+  %1885 = load i32, ptr %1884, align 8
+  %1886 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1877, i32 noundef %1882, i32 noundef %1885, i32 noundef 17, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %1876, ptr noundef %1886)
+  br label %1905
 
-1882:                                             ; preds = %1850
-  %1883 = load ptr, ptr %12, align 8
-  %1884 = load ptr, ptr %11, align 8
-  %1885 = load ptr, ptr %21, align 8
-  %1886 = getelementptr inbounds %struct.RNode, ptr %1885, i32 0, i32 0
-  %1887 = load i64, ptr %1886, align 8
-  %1888 = ashr i64 %1887, 15
-  %1889 = trunc i64 %1888 to i32
+1887:                                             ; preds = %1855
+  %1888 = load ptr, ptr %12, align 8
+  %1889 = load ptr, ptr %11, align 8
   %1890 = load ptr, ptr %21, align 8
-  %1891 = getelementptr inbounds %struct.RNode, ptr %1890, i32 0, i32 2
-  %1892 = load i32, ptr %1891, align 8
-  %1893 = load i64, ptr %45, align 8
-  %1894 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1884, i32 noundef %1889, i32 noundef %1892, i32 noundef 29, i32 noundef 1, i64 noundef %1893)
-  call void @ADD_ELEM(ptr noundef %1883, ptr noundef %1894)
-  %1895 = load ptr, ptr %11, align 8
-  %1896 = ptrtoint ptr %1895 to i64
-  %1897 = load i64, ptr %45, align 8
-  %1898 = call i64 @rb_obj_hide(i64 noundef %1897)
-  %1899 = call i64 @rb_obj_written(i64 noundef %1896, i64 noundef 36, i64 noundef %1898, ptr noundef @.str.1, i32 noundef 7128)
-  br label %1900
+  %1891 = getelementptr inbounds %struct.RNode, ptr %1890, i32 0, i32 0
+  %1892 = load i64, ptr %1891, align 8
+  %1893 = ashr i64 %1892, 15
+  %1894 = trunc i64 %1893 to i32
+  %1895 = load ptr, ptr %21, align 8
+  %1896 = getelementptr inbounds %struct.RNode, ptr %1895, i32 0, i32 2
+  %1897 = load i32, ptr %1896, align 8
+  %1898 = load i64, ptr %45, align 8
+  %1899 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1889, i32 noundef %1894, i32 noundef %1897, i32 noundef 29, i32 noundef 1, i64 noundef %1898)
+  call void @ADD_ELEM(ptr noundef %1888, ptr noundef %1899)
+  %1900 = load ptr, ptr %11, align 8
+  %1901 = ptrtoint ptr %1900 to i64
+  %1902 = load i64, ptr %45, align 8
+  %1903 = call i64 @rb_obj_hide(i64 noundef %1902)
+  %1904 = call i64 @rb_obj_written(i64 noundef %1901, i64 noundef 36, i64 noundef %1903, ptr noundef @.str.1, i32 noundef 7128)
+  br label %1905
 
-1900:                                             ; preds = %1882, %1870
-  %1901 = load ptr, ptr %12, align 8
-  %1902 = load ptr, ptr %11, align 8
-  %1903 = load ptr, ptr %21, align 8
-  %1904 = getelementptr inbounds %struct.RNode, ptr %1903, i32 0, i32 0
-  %1905 = load i64, ptr %1904, align 8
-  %1906 = ashr i64 %1905, 15
-  %1907 = trunc i64 %1906 to i32
+1905:                                             ; preds = %1887, %1875
+  %1906 = load ptr, ptr %12, align 8
+  %1907 = load ptr, ptr %11, align 8
   %1908 = load ptr, ptr %21, align 8
-  %1909 = getelementptr inbounds %struct.RNode, ptr %1908, i32 0, i32 2
-  %1910 = load i32, ptr %1909, align 8
-  %1911 = call i64 @rbimpl_intern_const(ptr noundef @iseq_compile_pattern_each.rbimpl_id.109, ptr noundef @.str.107) #29
-  store i64 %1911, ptr %48, align 8
-  %1912 = load i64, ptr %48, align 8
-  %1913 = call ptr @new_insn_send(ptr noundef %1902, i32 noundef %1907, i32 noundef %1910, i64 noundef %1912, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %1901, ptr noundef %1913)
-  %1914 = load ptr, ptr %12, align 8
-  %1915 = load ptr, ptr %11, align 8
-  %1916 = load ptr, ptr %21, align 8
-  %1917 = getelementptr inbounds %struct.RNode, ptr %1916, i32 0, i32 0
-  %1918 = load i64, ptr %1917, align 8
-  %1919 = ashr i64 %1918, 15
-  %1920 = trunc i64 %1919 to i32
+  %1909 = getelementptr inbounds %struct.RNode, ptr %1908, i32 0, i32 0
+  %1910 = load i64, ptr %1909, align 8
+  %1911 = ashr i64 %1910, 15
+  %1912 = trunc i64 %1911 to i32
+  %1913 = load ptr, ptr %21, align 8
+  %1914 = getelementptr inbounds %struct.RNode, ptr %1913, i32 0, i32 2
+  %1915 = load i32, ptr %1914, align 8
+  %1916 = call i64 @rbimpl_intern_const(ptr noundef @iseq_compile_pattern_each.rbimpl_id.109, ptr noundef @.str.107) #29
+  store i64 %1916, ptr %48, align 8
+  %1917 = load i64, ptr %48, align 8
+  %1918 = call ptr @new_insn_send(ptr noundef %1907, i32 noundef %1912, i32 noundef %1915, i64 noundef %1917, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %1906, ptr noundef %1918)
+  %1919 = load ptr, ptr %12, align 8
+  %1920 = load ptr, ptr %11, align 8
   %1921 = load ptr, ptr %21, align 8
-  %1922 = getelementptr inbounds %struct.RNode, ptr %1921, i32 0, i32 2
-  %1923 = load i32, ptr %1922, align 8
-  %1924 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1915, i32 noundef %1920, i32 noundef %1923, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %1914, ptr noundef %1924)
-  %1925 = load ptr, ptr %12, align 8
-  %1926 = load ptr, ptr %11, align 8
-  %1927 = load ptr, ptr %21, align 8
-  %1928 = getelementptr inbounds %struct.RNode, ptr %1927, i32 0, i32 0
-  %1929 = load i64, ptr %1928, align 8
-  %1930 = ashr i64 %1929, 15
-  %1931 = trunc i64 %1930 to i32
+  %1922 = getelementptr inbounds %struct.RNode, ptr %1921, i32 0, i32 0
+  %1923 = load i64, ptr %1922, align 8
+  %1924 = ashr i64 %1923, 15
+  %1925 = trunc i64 %1924 to i32
+  %1926 = load ptr, ptr %21, align 8
+  %1927 = getelementptr inbounds %struct.RNode, ptr %1926, i32 0, i32 2
+  %1928 = load i32, ptr %1927, align 8
+  %1929 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1920, i32 noundef %1925, i32 noundef %1928, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %1919, ptr noundef %1929)
+  %1930 = load ptr, ptr %12, align 8
+  %1931 = load ptr, ptr %11, align 8
   %1932 = load ptr, ptr %21, align 8
-  %1933 = getelementptr inbounds %struct.RNode, ptr %1932, i32 0, i32 2
-  %1934 = load i32, ptr %1933, align 8
-  %1935 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1926, i32 noundef %1931, i32 noundef %1934, i32 noundef 51, i32 noundef 1, i64 noundef 17)
-  call void @ADD_ELEM(ptr noundef %1925, ptr noundef %1935)
-  %1936 = load ptr, ptr %12, align 8
-  %1937 = load ptr, ptr %11, align 8
-  %1938 = load ptr, ptr %21, align 8
-  %1939 = getelementptr inbounds %struct.RNode, ptr %1938, i32 0, i32 0
-  %1940 = load i64, ptr %1939, align 8
-  %1941 = ashr i64 %1940, 15
-  %1942 = trunc i64 %1941 to i32
+  %1933 = getelementptr inbounds %struct.RNode, ptr %1932, i32 0, i32 0
+  %1934 = load i64, ptr %1933, align 8
+  %1935 = ashr i64 %1934, 15
+  %1936 = trunc i64 %1935 to i32
+  %1937 = load ptr, ptr %21, align 8
+  %1938 = getelementptr inbounds %struct.RNode, ptr %1937, i32 0, i32 2
+  %1939 = load i32, ptr %1938, align 8
+  %1940 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1931, i32 noundef %1936, i32 noundef %1939, i32 noundef 51, i32 noundef 1, i64 noundef 17)
+  call void @ADD_ELEM(ptr noundef %1930, ptr noundef %1940)
+  %1941 = load ptr, ptr %12, align 8
+  %1942 = load ptr, ptr %11, align 8
   %1943 = load ptr, ptr %21, align 8
-  %1944 = getelementptr inbounds %struct.RNode, ptr %1943, i32 0, i32 2
-  %1945 = load i32, ptr %1944, align 8
-  %1946 = load ptr, ptr %44, align 8
-  %1947 = ptrtoint ptr %1946 to i64
-  %1948 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1937, i32 noundef %1942, i32 noundef %1945, i32 noundef 68, i32 noundef 1, i64 noundef %1947)
-  call void @ADD_ELEM(ptr noundef %1936, ptr noundef %1948)
-  %1949 = load ptr, ptr %44, align 8
-  %1950 = getelementptr inbounds %struct.iseq_label_data, ptr %1949, i32 0, i32 5
-  %1951 = load i32, ptr %1950, align 8
-  %1952 = add i32 %1951, 1
-  store i32 %1952, ptr %1950, align 8
-  %1953 = load ptr, ptr %13, align 8
-  %1954 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1953, i32 0, i32 3
-  %1955 = load ptr, ptr %1954, align 8
-  %1956 = icmp ne ptr %1955, null
-  br i1 %1956, label %1957, label %1971
+  %1944 = getelementptr inbounds %struct.RNode, ptr %1943, i32 0, i32 0
+  %1945 = load i64, ptr %1944, align 8
+  %1946 = ashr i64 %1945, 15
+  %1947 = trunc i64 %1946 to i32
+  %1948 = load ptr, ptr %21, align 8
+  %1949 = getelementptr inbounds %struct.RNode, ptr %1948, i32 0, i32 2
+  %1950 = load i32, ptr %1949, align 8
+  %1951 = load ptr, ptr %44, align 8
+  %1952 = ptrtoint ptr %1951 to i64
+  %1953 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %1942, i32 noundef %1947, i32 noundef %1950, i32 noundef 68, i32 noundef 1, i64 noundef %1952)
+  call void @ADD_ELEM(ptr noundef %1941, ptr noundef %1953)
+  %1954 = load ptr, ptr %44, align 8
+  %1955 = getelementptr inbounds %struct.iseq_label_data, ptr %1954, i32 0, i32 5
+  %1956 = load i32, ptr %1955, align 8
+  %1957 = add i32 %1956, 1
+  store i32 %1957, ptr %1955, align 8
+  %1958 = load ptr, ptr %13, align 8
+  %1959 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1958, i32 0, i32 3
+  %1960 = load ptr, ptr %1959, align 8
+  %1961 = icmp ne ptr %1960, null
+  br i1 %1961, label %1962, label %1976
 
-1957:                                             ; preds = %1900
-  %1958 = load ptr, ptr %12, align 8
-  %1959 = load ptr, ptr %11, align 8
-  %1960 = load ptr, ptr %21, align 8
-  %1961 = getelementptr inbounds %struct.RNode, ptr %1960, i32 0, i32 0
-  %1962 = load i64, ptr %1961, align 8
-  %1963 = ashr i64 %1962, 15
-  %1964 = trunc i64 %1963 to i32
+1962:                                             ; preds = %1905
+  %1963 = load ptr, ptr %12, align 8
+  %1964 = load ptr, ptr %11, align 8
   %1965 = load ptr, ptr %21, align 8
-  %1966 = getelementptr inbounds %struct.RNode, ptr %1965, i32 0, i32 2
-  %1967 = load i32, ptr %1966, align 8
-  %1968 = call i64 @rbimpl_intern_const(ptr noundef @iseq_compile_pattern_each.rbimpl_id.110, ptr noundef @.str.111) #29
-  store i64 %1968, ptr %49, align 8
-  %1969 = load i64, ptr %49, align 8
-  %1970 = call ptr @new_insn_send(ptr noundef %1959, i32 noundef %1964, i32 noundef %1967, i64 noundef %1969, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %1958, ptr noundef %1970)
-  br label %1971
+  %1966 = getelementptr inbounds %struct.RNode, ptr %1965, i32 0, i32 0
+  %1967 = load i64, ptr %1966, align 8
+  %1968 = ashr i64 %1967, 15
+  %1969 = trunc i64 %1968 to i32
+  %1970 = load ptr, ptr %21, align 8
+  %1971 = getelementptr inbounds %struct.RNode, ptr %1970, i32 0, i32 2
+  %1972 = load i32, ptr %1971, align 8
+  %1973 = call i64 @rbimpl_intern_const(ptr noundef @iseq_compile_pattern_each.rbimpl_id.110, ptr noundef @.str.111) #29
+  store i64 %1973, ptr %49, align 8
+  %1974 = load i64, ptr %49, align 8
+  %1975 = call ptr @new_insn_send(ptr noundef %1964, i32 noundef %1969, i32 noundef %1972, i64 noundef %1974, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %1963, ptr noundef %1975)
+  br label %1976
 
-1971:                                             ; preds = %1957, %1900
-  %1972 = load ptr, ptr %13, align 8
-  %1973 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1972, i32 0, i32 2
-  %1974 = load ptr, ptr %1973, align 8
-  %1975 = icmp ne ptr %1974, null
-  br i1 %1975, label %1976, label %2294
-
-1976:                                             ; preds = %1971
+1976:                                             ; preds = %1962, %1905
   %1977 = load ptr, ptr %13, align 8
   %1978 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1977, i32 0, i32 2
   %1979 = load ptr, ptr %1978, align 8
-  %1980 = getelementptr inbounds %struct.RNode_HASH, ptr %1979, i32 0, i32 1
-  %1981 = load ptr, ptr %1980, align 8
-  store ptr %1981, ptr %52, align 8
-  %1982 = load ptr, ptr %52, align 8
-  %1983 = icmp ne ptr %1982, null
-  br i1 %1983, label %1984, label %2293
+  %1980 = icmp ne ptr %1979, null
+  br i1 %1980, label %1981, label %2299
 
-1984:                                             ; preds = %1976
+1981:                                             ; preds = %1976
+  %1982 = load ptr, ptr %13, align 8
+  %1983 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1982, i32 0, i32 2
+  %1984 = load ptr, ptr %1983, align 8
+  %1985 = getelementptr inbounds %struct.RNode_HASH, ptr %1984, i32 0, i32 1
+  %1986 = load ptr, ptr %1985, align 8
+  store ptr %1986, ptr %52, align 8
+  %1987 = load ptr, ptr %52, align 8
+  %1988 = icmp ne ptr %1987, null
+  br i1 %1988, label %1989, label %2298
+
+1989:                                             ; preds = %1981
   call void @llvm.memset.p0.i64(ptr align 16 %53, i8 0, i64 32, i1 false)
-  %1985 = getelementptr inbounds [1 x %struct.iseq_link_anchor], ptr %53, i64 0, i64 0
-  %1986 = getelementptr inbounds %struct.iseq_link_anchor, ptr %1985, i32 0, i32 0
-  %1987 = getelementptr inbounds [1 x %struct.iseq_link_anchor], ptr %53, i64 0, i64 0
-  %1988 = getelementptr inbounds %struct.iseq_link_anchor, ptr %1987, i32 0, i32 1
-  store ptr %1986, ptr %1988, align 8
-  %1989 = load ptr, ptr %52, align 8
-  %1990 = getelementptr inbounds %struct.RNode_LIST, ptr %1989, i32 0, i32 2
-  %1991 = load i64, ptr %1990, align 8
-  %1992 = call i32 @rb_long2int_inline(i64 noundef %1991)
-  %1993 = sdiv i32 %1992, 2
-  store i32 %1993, ptr %51, align 4
+  %1990 = getelementptr inbounds [1 x %struct.iseq_link_anchor], ptr %53, i64 0, i64 0
+  %1991 = getelementptr inbounds %struct.iseq_link_anchor, ptr %1990, i32 0, i32 0
+  %1992 = getelementptr inbounds [1 x %struct.iseq_link_anchor], ptr %53, i64 0, i64 0
+  %1993 = getelementptr inbounds %struct.iseq_link_anchor, ptr %1992, i32 0, i32 1
+  store ptr %1991, ptr %1993, align 8
+  %1994 = load ptr, ptr %52, align 8
+  %1995 = getelementptr inbounds %struct.RNode_LIST, ptr %1994, i32 0, i32 2
+  %1996 = load i64, ptr %1995, align 8
+  %1997 = call i32 @rb_long2int_inline(i64 noundef %1996)
+  %1998 = sdiv i32 %1997, 2
+  store i32 %1998, ptr %51, align 4
   store i32 0, ptr %50, align 4
-  br label %1994
+  br label %1999
 
-1994:                                             ; preds = %2287, %1984
-  %1995 = load i32, ptr %50, align 4
-  %1996 = load i32, ptr %51, align 4
-  %1997 = icmp slt i32 %1995, %1996
-  br i1 %1997, label %1998, label %2290
+1999:                                             ; preds = %2292, %1989
+  %2000 = load i32, ptr %50, align 4
+  %2001 = load i32, ptr %51, align 4
+  %2002 = icmp slt i32 %2000, %2001
+  br i1 %2002, label %2003, label %2295
 
-1998:                                             ; preds = %1994
-  %1999 = load ptr, ptr %52, align 8
-  %2000 = getelementptr inbounds %struct.RNode_LIST, ptr %1999, i32 0, i32 1
-  %2001 = load ptr, ptr %2000, align 8
-  store ptr %2001, ptr %54, align 8
-  %2002 = load ptr, ptr %52, align 8
-  %2003 = getelementptr inbounds %struct.RNode_LIST, ptr %2002, i32 0, i32 3
-  %2004 = load ptr, ptr %2003, align 8
+2003:                                             ; preds = %1999
+  %2004 = load ptr, ptr %52, align 8
   %2005 = getelementptr inbounds %struct.RNode_LIST, ptr %2004, i32 0, i32 1
   %2006 = load ptr, ptr %2005, align 8
-  store ptr %2006, ptr %55, align 8
-  %2007 = load ptr, ptr %11, align 8
-  %2008 = load ptr, ptr %54, align 8
-  %2009 = call i64 @get_symbol_value(ptr noundef %2007, ptr noundef %2008)
-  store i64 %2009, ptr %56, align 8
-  %2010 = load ptr, ptr %12, align 8
-  %2011 = load ptr, ptr %11, align 8
-  %2012 = load ptr, ptr %21, align 8
-  %2013 = getelementptr inbounds %struct.RNode, ptr %2012, i32 0, i32 0
-  %2014 = load i64, ptr %2013, align 8
-  %2015 = ashr i64 %2014, 15
-  %2016 = trunc i64 %2015 to i32
+  store ptr %2006, ptr %54, align 8
+  %2007 = load ptr, ptr %52, align 8
+  %2008 = getelementptr inbounds %struct.RNode_LIST, ptr %2007, i32 0, i32 3
+  %2009 = load ptr, ptr %2008, align 8
+  %2010 = getelementptr inbounds %struct.RNode_LIST, ptr %2009, i32 0, i32 1
+  %2011 = load ptr, ptr %2010, align 8
+  store ptr %2011, ptr %55, align 8
+  %2012 = load ptr, ptr %11, align 8
+  %2013 = load ptr, ptr %54, align 8
+  %2014 = call i64 @get_symbol_value(ptr noundef %2012, ptr noundef %2013)
+  store i64 %2014, ptr %56, align 8
+  %2015 = load ptr, ptr %12, align 8
+  %2016 = load ptr, ptr %11, align 8
   %2017 = load ptr, ptr %21, align 8
-  %2018 = getelementptr inbounds %struct.RNode, ptr %2017, i32 0, i32 2
-  %2019 = load i32, ptr %2018, align 8
-  %2020 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2011, i32 noundef %2016, i32 noundef %2019, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %2010, ptr noundef %2020)
-  %2021 = load ptr, ptr %12, align 8
-  %2022 = load ptr, ptr %11, align 8
-  %2023 = load ptr, ptr %21, align 8
-  %2024 = getelementptr inbounds %struct.RNode, ptr %2023, i32 0, i32 0
-  %2025 = load i64, ptr %2024, align 8
-  %2026 = ashr i64 %2025, 15
-  %2027 = trunc i64 %2026 to i32
+  %2018 = getelementptr inbounds %struct.RNode, ptr %2017, i32 0, i32 0
+  %2019 = load i64, ptr %2018, align 8
+  %2020 = ashr i64 %2019, 15
+  %2021 = trunc i64 %2020 to i32
+  %2022 = load ptr, ptr %21, align 8
+  %2023 = getelementptr inbounds %struct.RNode, ptr %2022, i32 0, i32 2
+  %2024 = load i32, ptr %2023, align 8
+  %2025 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2016, i32 noundef %2021, i32 noundef %2024, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %2015, ptr noundef %2025)
+  %2026 = load ptr, ptr %12, align 8
+  %2027 = load ptr, ptr %11, align 8
   %2028 = load ptr, ptr %21, align 8
-  %2029 = getelementptr inbounds %struct.RNode, ptr %2028, i32 0, i32 2
-  %2030 = load i32, ptr %2029, align 8
-  %2031 = load i64, ptr %56, align 8
-  %2032 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2022, i32 noundef %2027, i32 noundef %2030, i32 noundef 19, i32 noundef 1, i64 noundef %2031)
-  call void @ADD_ELEM(ptr noundef %2021, ptr noundef %2032)
-  %2033 = load ptr, ptr %12, align 8
-  %2034 = load ptr, ptr %11, align 8
-  %2035 = load ptr, ptr %21, align 8
-  %2036 = getelementptr inbounds %struct.RNode, ptr %2035, i32 0, i32 0
-  %2037 = load i64, ptr %2036, align 8
-  %2038 = ashr i64 %2037, 15
-  %2039 = trunc i64 %2038 to i32
+  %2029 = getelementptr inbounds %struct.RNode, ptr %2028, i32 0, i32 0
+  %2030 = load i64, ptr %2029, align 8
+  %2031 = ashr i64 %2030, 15
+  %2032 = trunc i64 %2031 to i32
+  %2033 = load ptr, ptr %21, align 8
+  %2034 = getelementptr inbounds %struct.RNode, ptr %2033, i32 0, i32 2
+  %2035 = load i32, ptr %2034, align 8
+  %2036 = load i64, ptr %56, align 8
+  %2037 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2027, i32 noundef %2032, i32 noundef %2035, i32 noundef 19, i32 noundef 1, i64 noundef %2036)
+  call void @ADD_ELEM(ptr noundef %2026, ptr noundef %2037)
+  %2038 = load ptr, ptr %12, align 8
+  %2039 = load ptr, ptr %11, align 8
   %2040 = load ptr, ptr %21, align 8
-  %2041 = getelementptr inbounds %struct.RNode, ptr %2040, i32 0, i32 2
-  %2042 = load i32, ptr %2041, align 8
-  %2043 = call i64 @rbimpl_intern_const(ptr noundef @iseq_compile_pattern_each.rbimpl_id.112, ptr noundef @.str.113) #29
-  store i64 %2043, ptr %57, align 8
-  %2044 = load i64, ptr %57, align 8
-  %2045 = call ptr @new_insn_send(ptr noundef %2034, i32 noundef %2039, i32 noundef %2042, i64 noundef %2044, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %2033, ptr noundef %2045)
-  %2046 = load i8, ptr %16, align 1
-  %2047 = trunc i8 %2046 to i1
-  br i1 %2047, label %2048, label %2206
+  %2041 = getelementptr inbounds %struct.RNode, ptr %2040, i32 0, i32 0
+  %2042 = load i64, ptr %2041, align 8
+  %2043 = ashr i64 %2042, 15
+  %2044 = trunc i64 %2043 to i32
+  %2045 = load ptr, ptr %21, align 8
+  %2046 = getelementptr inbounds %struct.RNode, ptr %2045, i32 0, i32 2
+  %2047 = load i32, ptr %2046, align 8
+  %2048 = call i64 @rbimpl_intern_const(ptr noundef @iseq_compile_pattern_each.rbimpl_id.112, ptr noundef @.str.113) #29
+  store i64 %2048, ptr %57, align 8
+  %2049 = load i64, ptr %57, align 8
+  %2050 = call ptr @new_insn_send(ptr noundef %2039, i32 noundef %2044, i32 noundef %2047, i64 noundef %2049, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %2038, ptr noundef %2050)
+  %2051 = load i8, ptr %16, align 1
+  %2052 = trunc i8 %2051 to i1
+  br i1 %2052, label %2053, label %2211
 
-2048:                                             ; preds = %1998
-  %2049 = load ptr, ptr %11, align 8
-  %2050 = load i32, ptr %20, align 4
-  %2051 = sext i32 %2050 to i64
-  %2052 = call ptr @new_label_body(ptr noundef %2049, i64 noundef %2051)
-  store ptr %2052, ptr %58, align 8
-  %2053 = load ptr, ptr %12, align 8
+2053:                                             ; preds = %2003
   %2054 = load ptr, ptr %11, align 8
-  %2055 = load ptr, ptr %21, align 8
-  %2056 = getelementptr inbounds %struct.RNode, ptr %2055, i32 0, i32 0
-  %2057 = load i64, ptr %2056, align 8
-  %2058 = ashr i64 %2057, 15
-  %2059 = trunc i64 %2058 to i32
+  %2055 = load i32, ptr %20, align 4
+  %2056 = sext i32 %2055 to i64
+  %2057 = call ptr @new_label_body(ptr noundef %2054, i64 noundef %2056)
+  store ptr %2057, ptr %58, align 8
+  %2058 = load ptr, ptr %12, align 8
+  %2059 = load ptr, ptr %11, align 8
   %2060 = load ptr, ptr %21, align 8
-  %2061 = getelementptr inbounds %struct.RNode, ptr %2060, i32 0, i32 2
-  %2062 = load i32, ptr %2061, align 8
-  %2063 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2054, i32 noundef %2059, i32 noundef %2062, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %2053, ptr noundef %2063)
-  %2064 = load ptr, ptr %12, align 8
-  %2065 = load ptr, ptr %11, align 8
-  %2066 = load ptr, ptr %21, align 8
-  %2067 = getelementptr inbounds %struct.RNode, ptr %2066, i32 0, i32 0
-  %2068 = load i64, ptr %2067, align 8
-  %2069 = ashr i64 %2068, 15
-  %2070 = trunc i64 %2069 to i32
+  %2061 = getelementptr inbounds %struct.RNode, ptr %2060, i32 0, i32 0
+  %2062 = load i64, ptr %2061, align 8
+  %2063 = ashr i64 %2062, 15
+  %2064 = trunc i64 %2063 to i32
+  %2065 = load ptr, ptr %21, align 8
+  %2066 = getelementptr inbounds %struct.RNode, ptr %2065, i32 0, i32 2
+  %2067 = load i32, ptr %2066, align 8
+  %2068 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2059, i32 noundef %2064, i32 noundef %2067, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %2058, ptr noundef %2068)
+  %2069 = load ptr, ptr %12, align 8
+  %2070 = load ptr, ptr %11, align 8
   %2071 = load ptr, ptr %21, align 8
-  %2072 = getelementptr inbounds %struct.RNode, ptr %2071, i32 0, i32 2
-  %2073 = load i32, ptr %2072, align 8
-  %2074 = load ptr, ptr %58, align 8
-  %2075 = ptrtoint ptr %2074 to i64
-  %2076 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2065, i32 noundef %2070, i32 noundef %2073, i32 noundef 67, i32 noundef 1, i64 noundef %2075)
-  call void @ADD_ELEM(ptr noundef %2064, ptr noundef %2076)
-  %2077 = load ptr, ptr %58, align 8
-  %2078 = getelementptr inbounds %struct.iseq_label_data, ptr %2077, i32 0, i32 5
-  %2079 = load i32, ptr %2078, align 8
-  %2080 = add i32 %2079, 1
-  store i32 %2080, ptr %2078, align 8
-  %2081 = load ptr, ptr %12, align 8
-  %2082 = load ptr, ptr %11, align 8
-  %2083 = load ptr, ptr %21, align 8
-  %2084 = getelementptr inbounds %struct.RNode, ptr %2083, i32 0, i32 0
-  %2085 = load i64, ptr %2084, align 8
-  %2086 = ashr i64 %2085, 15
-  %2087 = trunc i64 %2086 to i32
+  %2072 = getelementptr inbounds %struct.RNode, ptr %2071, i32 0, i32 0
+  %2073 = load i64, ptr %2072, align 8
+  %2074 = ashr i64 %2073, 15
+  %2075 = trunc i64 %2074 to i32
+  %2076 = load ptr, ptr %21, align 8
+  %2077 = getelementptr inbounds %struct.RNode, ptr %2076, i32 0, i32 2
+  %2078 = load i32, ptr %2077, align 8
+  %2079 = load ptr, ptr %58, align 8
+  %2080 = ptrtoint ptr %2079 to i64
+  %2081 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2070, i32 noundef %2075, i32 noundef %2078, i32 noundef 67, i32 noundef 1, i64 noundef %2080)
+  call void @ADD_ELEM(ptr noundef %2069, ptr noundef %2081)
+  %2082 = load ptr, ptr %58, align 8
+  %2083 = getelementptr inbounds %struct.iseq_label_data, ptr %2082, i32 0, i32 5
+  %2084 = load i32, ptr %2083, align 8
+  %2085 = add i32 %2084, 1
+  store i32 %2085, ptr %2083, align 8
+  %2086 = load ptr, ptr %12, align 8
+  %2087 = load ptr, ptr %11, align 8
   %2088 = load ptr, ptr %21, align 8
-  %2089 = getelementptr inbounds %struct.RNode, ptr %2088, i32 0, i32 2
-  %2090 = load i32, ptr %2089, align 8
-  %2091 = load i64, ptr %56, align 8
-  %2092 = call i64 (ptr, ...) @rb_sprintf(ptr noundef @.str.114, i64 noundef %2091)
-  %2093 = call i64 @rb_str_freeze(i64 noundef %2092)
-  %2094 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2082, i32 noundef %2087, i32 noundef %2090, i32 noundef 19, i32 noundef 1, i64 noundef %2093)
-  call void @ADD_ELEM(ptr noundef %2081, ptr noundef %2094)
-  %2095 = load ptr, ptr %12, align 8
-  %2096 = load ptr, ptr %11, align 8
-  %2097 = load ptr, ptr %21, align 8
-  %2098 = getelementptr inbounds %struct.RNode, ptr %2097, i32 0, i32 0
-  %2099 = load i64, ptr %2098, align 8
-  %2100 = ashr i64 %2099, 15
-  %2101 = trunc i64 %2100 to i32
+  %2089 = getelementptr inbounds %struct.RNode, ptr %2088, i32 0, i32 0
+  %2090 = load i64, ptr %2089, align 8
+  %2091 = ashr i64 %2090, 15
+  %2092 = trunc i64 %2091 to i32
+  %2093 = load ptr, ptr %21, align 8
+  %2094 = getelementptr inbounds %struct.RNode, ptr %2093, i32 0, i32 2
+  %2095 = load i32, ptr %2094, align 8
+  %2096 = load i64, ptr %56, align 8
+  %2097 = call i64 (ptr, ...) @rb_sprintf(ptr noundef @.str.114, i64 noundef %2096)
+  %2098 = call i64 @rb_str_freeze(i64 noundef %2097)
+  %2099 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2087, i32 noundef %2092, i32 noundef %2095, i32 noundef 19, i32 noundef 1, i64 noundef %2098)
+  call void @ADD_ELEM(ptr noundef %2086, ptr noundef %2099)
+  %2100 = load ptr, ptr %12, align 8
+  %2101 = load ptr, ptr %11, align 8
   %2102 = load ptr, ptr %21, align 8
-  %2103 = getelementptr inbounds %struct.RNode, ptr %2102, i32 0, i32 2
-  %2104 = load i32, ptr %2103, align 8
-  %2105 = load i32, ptr %18, align 4
-  %2106 = add i32 %2105, 1
-  %2107 = add i32 %2106, 2
-  %2108 = sext i32 %2107 to i64
-  %2109 = call i64 @RB_INT2FIX(i64 noundef %2108) #26
-  %2110 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2096, i32 noundef %2101, i32 noundef %2104, i32 noundef 45, i32 noundef 1, i64 noundef %2109)
-  call void @ADD_ELEM(ptr noundef %2095, ptr noundef %2110)
-  %2111 = load ptr, ptr %12, align 8
-  %2112 = load ptr, ptr %11, align 8
-  %2113 = load ptr, ptr %21, align 8
-  %2114 = getelementptr inbounds %struct.RNode, ptr %2113, i32 0, i32 0
-  %2115 = load i64, ptr %2114, align 8
-  %2116 = ashr i64 %2115, 15
-  %2117 = trunc i64 %2116 to i32
+  %2103 = getelementptr inbounds %struct.RNode, ptr %2102, i32 0, i32 0
+  %2104 = load i64, ptr %2103, align 8
+  %2105 = ashr i64 %2104, 15
+  %2106 = trunc i64 %2105 to i32
+  %2107 = load ptr, ptr %21, align 8
+  %2108 = getelementptr inbounds %struct.RNode, ptr %2107, i32 0, i32 2
+  %2109 = load i32, ptr %2108, align 8
+  %2110 = load i32, ptr %18, align 4
+  %2111 = add i32 %2110, 1
+  %2112 = add i32 %2111, 2
+  %2113 = sext i32 %2112 to i64
+  %2114 = call i64 @RB_INT2FIX(i64 noundef %2113) #26
+  %2115 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2101, i32 noundef %2106, i32 noundef %2109, i32 noundef 45, i32 noundef 1, i64 noundef %2114)
+  call void @ADD_ELEM(ptr noundef %2100, ptr noundef %2115)
+  %2116 = load ptr, ptr %12, align 8
+  %2117 = load ptr, ptr %11, align 8
   %2118 = load ptr, ptr %21, align 8
-  %2119 = getelementptr inbounds %struct.RNode, ptr %2118, i32 0, i32 2
-  %2120 = load i32, ptr %2119, align 8
-  %2121 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2112, i32 noundef %2117, i32 noundef %2120, i32 noundef 19, i32 noundef 1, i64 noundef 20)
-  call void @ADD_ELEM(ptr noundef %2111, ptr noundef %2121)
-  %2122 = load ptr, ptr %12, align 8
-  %2123 = load ptr, ptr %11, align 8
-  %2124 = load ptr, ptr %21, align 8
-  %2125 = getelementptr inbounds %struct.RNode, ptr %2124, i32 0, i32 0
-  %2126 = load i64, ptr %2125, align 8
-  %2127 = ashr i64 %2126, 15
-  %2128 = trunc i64 %2127 to i32
+  %2119 = getelementptr inbounds %struct.RNode, ptr %2118, i32 0, i32 0
+  %2120 = load i64, ptr %2119, align 8
+  %2121 = ashr i64 %2120, 15
+  %2122 = trunc i64 %2121 to i32
+  %2123 = load ptr, ptr %21, align 8
+  %2124 = getelementptr inbounds %struct.RNode, ptr %2123, i32 0, i32 2
+  %2125 = load i32, ptr %2124, align 8
+  %2126 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2117, i32 noundef %2122, i32 noundef %2125, i32 noundef 19, i32 noundef 1, i64 noundef 20)
+  call void @ADD_ELEM(ptr noundef %2116, ptr noundef %2126)
+  %2127 = load ptr, ptr %12, align 8
+  %2128 = load ptr, ptr %11, align 8
   %2129 = load ptr, ptr %21, align 8
-  %2130 = getelementptr inbounds %struct.RNode, ptr %2129, i32 0, i32 2
-  %2131 = load i32, ptr %2130, align 8
-  %2132 = load i32, ptr %18, align 4
-  %2133 = add i32 %2132, 2
-  %2134 = add i32 %2133, 3
-  %2135 = sext i32 %2134 to i64
-  %2136 = call i64 @RB_INT2FIX(i64 noundef %2135) #26
-  %2137 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2123, i32 noundef %2128, i32 noundef %2131, i32 noundef 45, i32 noundef 1, i64 noundef %2136)
-  call void @ADD_ELEM(ptr noundef %2122, ptr noundef %2137)
-  %2138 = load ptr, ptr %12, align 8
-  %2139 = load ptr, ptr %11, align 8
-  %2140 = load ptr, ptr %21, align 8
-  %2141 = getelementptr inbounds %struct.RNode, ptr %2140, i32 0, i32 0
-  %2142 = load i64, ptr %2141, align 8
-  %2143 = ashr i64 %2142, 15
-  %2144 = trunc i64 %2143 to i32
+  %2130 = getelementptr inbounds %struct.RNode, ptr %2129, i32 0, i32 0
+  %2131 = load i64, ptr %2130, align 8
+  %2132 = ashr i64 %2131, 15
+  %2133 = trunc i64 %2132 to i32
+  %2134 = load ptr, ptr %21, align 8
+  %2135 = getelementptr inbounds %struct.RNode, ptr %2134, i32 0, i32 2
+  %2136 = load i32, ptr %2135, align 8
+  %2137 = load i32, ptr %18, align 4
+  %2138 = add i32 %2137, 2
+  %2139 = add i32 %2138, 3
+  %2140 = sext i32 %2139 to i64
+  %2141 = call i64 @RB_INT2FIX(i64 noundef %2140) #26
+  %2142 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2128, i32 noundef %2133, i32 noundef %2136, i32 noundef 45, i32 noundef 1, i64 noundef %2141)
+  call void @ADD_ELEM(ptr noundef %2127, ptr noundef %2142)
+  %2143 = load ptr, ptr %12, align 8
+  %2144 = load ptr, ptr %11, align 8
   %2145 = load ptr, ptr %21, align 8
-  %2146 = getelementptr inbounds %struct.RNode, ptr %2145, i32 0, i32 2
-  %2147 = load i32, ptr %2146, align 8
-  %2148 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2139, i32 noundef %2144, i32 noundef %2147, i32 noundef 44, i32 noundef 1, i64 noundef 7)
-  call void @ADD_ELEM(ptr noundef %2138, ptr noundef %2148)
-  %2149 = load ptr, ptr %12, align 8
-  %2150 = load ptr, ptr %11, align 8
-  %2151 = load ptr, ptr %21, align 8
-  %2152 = getelementptr inbounds %struct.RNode, ptr %2151, i32 0, i32 0
-  %2153 = load i64, ptr %2152, align 8
-  %2154 = ashr i64 %2153, 15
-  %2155 = trunc i64 %2154 to i32
+  %2146 = getelementptr inbounds %struct.RNode, ptr %2145, i32 0, i32 0
+  %2147 = load i64, ptr %2146, align 8
+  %2148 = ashr i64 %2147, 15
+  %2149 = trunc i64 %2148 to i32
+  %2150 = load ptr, ptr %21, align 8
+  %2151 = getelementptr inbounds %struct.RNode, ptr %2150, i32 0, i32 2
+  %2152 = load i32, ptr %2151, align 8
+  %2153 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2144, i32 noundef %2149, i32 noundef %2152, i32 noundef 44, i32 noundef 1, i64 noundef 7)
+  call void @ADD_ELEM(ptr noundef %2143, ptr noundef %2153)
+  %2154 = load ptr, ptr %12, align 8
+  %2155 = load ptr, ptr %11, align 8
   %2156 = load ptr, ptr %21, align 8
-  %2157 = getelementptr inbounds %struct.RNode, ptr %2156, i32 0, i32 2
-  %2158 = load i32, ptr %2157, align 8
-  %2159 = load i32, ptr %18, align 4
-  %2160 = add i32 %2159, 3
-  %2161 = add i32 %2160, 4
-  %2162 = sext i32 %2161 to i64
-  %2163 = call i64 @RB_INT2FIX(i64 noundef %2162) #26
-  %2164 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2150, i32 noundef %2155, i32 noundef %2158, i32 noundef 45, i32 noundef 1, i64 noundef %2163)
-  call void @ADD_ELEM(ptr noundef %2149, ptr noundef %2164)
-  %2165 = load ptr, ptr %12, align 8
-  %2166 = load ptr, ptr %11, align 8
-  %2167 = load ptr, ptr %21, align 8
-  %2168 = getelementptr inbounds %struct.RNode, ptr %2167, i32 0, i32 0
-  %2169 = load i64, ptr %2168, align 8
-  %2170 = ashr i64 %2169, 15
-  %2171 = trunc i64 %2170 to i32
+  %2157 = getelementptr inbounds %struct.RNode, ptr %2156, i32 0, i32 0
+  %2158 = load i64, ptr %2157, align 8
+  %2159 = ashr i64 %2158, 15
+  %2160 = trunc i64 %2159 to i32
+  %2161 = load ptr, ptr %21, align 8
+  %2162 = getelementptr inbounds %struct.RNode, ptr %2161, i32 0, i32 2
+  %2163 = load i32, ptr %2162, align 8
+  %2164 = load i32, ptr %18, align 4
+  %2165 = add i32 %2164, 3
+  %2166 = add i32 %2165, 4
+  %2167 = sext i32 %2166 to i64
+  %2168 = call i64 @RB_INT2FIX(i64 noundef %2167) #26
+  %2169 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2155, i32 noundef %2160, i32 noundef %2163, i32 noundef 45, i32 noundef 1, i64 noundef %2168)
+  call void @ADD_ELEM(ptr noundef %2154, ptr noundef %2169)
+  %2170 = load ptr, ptr %12, align 8
+  %2171 = load ptr, ptr %11, align 8
   %2172 = load ptr, ptr %21, align 8
-  %2173 = getelementptr inbounds %struct.RNode, ptr %2172, i32 0, i32 2
-  %2174 = load i32, ptr %2173, align 8
-  %2175 = load i64, ptr %56, align 8
-  %2176 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2166, i32 noundef %2171, i32 noundef %2174, i32 noundef 19, i32 noundef 1, i64 noundef %2175)
-  call void @ADD_ELEM(ptr noundef %2165, ptr noundef %2176)
-  %2177 = load ptr, ptr %12, align 8
-  %2178 = load ptr, ptr %11, align 8
-  %2179 = load ptr, ptr %21, align 8
-  %2180 = getelementptr inbounds %struct.RNode, ptr %2179, i32 0, i32 0
-  %2181 = load i64, ptr %2180, align 8
-  %2182 = ashr i64 %2181, 15
-  %2183 = trunc i64 %2182 to i32
+  %2173 = getelementptr inbounds %struct.RNode, ptr %2172, i32 0, i32 0
+  %2174 = load i64, ptr %2173, align 8
+  %2175 = ashr i64 %2174, 15
+  %2176 = trunc i64 %2175 to i32
+  %2177 = load ptr, ptr %21, align 8
+  %2178 = getelementptr inbounds %struct.RNode, ptr %2177, i32 0, i32 2
+  %2179 = load i32, ptr %2178, align 8
+  %2180 = load i64, ptr %56, align 8
+  %2181 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2171, i32 noundef %2176, i32 noundef %2179, i32 noundef 19, i32 noundef 1, i64 noundef %2180)
+  call void @ADD_ELEM(ptr noundef %2170, ptr noundef %2181)
+  %2182 = load ptr, ptr %12, align 8
+  %2183 = load ptr, ptr %11, align 8
   %2184 = load ptr, ptr %21, align 8
-  %2185 = getelementptr inbounds %struct.RNode, ptr %2184, i32 0, i32 2
-  %2186 = load i32, ptr %2185, align 8
-  %2187 = load i32, ptr %18, align 4
-  %2188 = add i32 %2187, 4
-  %2189 = add i32 %2188, 5
-  %2190 = sext i32 %2189 to i64
-  %2191 = call i64 @RB_INT2FIX(i64 noundef %2190) #26
-  %2192 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2178, i32 noundef %2183, i32 noundef %2186, i32 noundef 45, i32 noundef 1, i64 noundef %2191)
-  call void @ADD_ELEM(ptr noundef %2177, ptr noundef %2192)
-  %2193 = load ptr, ptr %12, align 8
-  %2194 = load ptr, ptr %11, align 8
-  %2195 = load ptr, ptr %21, align 8
-  %2196 = getelementptr inbounds %struct.RNode, ptr %2195, i32 0, i32 0
-  %2197 = load i64, ptr %2196, align 8
-  %2198 = ashr i64 %2197, 15
-  %2199 = trunc i64 %2198 to i32
+  %2185 = getelementptr inbounds %struct.RNode, ptr %2184, i32 0, i32 0
+  %2186 = load i64, ptr %2185, align 8
+  %2187 = ashr i64 %2186, 15
+  %2188 = trunc i64 %2187 to i32
+  %2189 = load ptr, ptr %21, align 8
+  %2190 = getelementptr inbounds %struct.RNode, ptr %2189, i32 0, i32 2
+  %2191 = load i32, ptr %2190, align 8
+  %2192 = load i32, ptr %18, align 4
+  %2193 = add i32 %2192, 4
+  %2194 = add i32 %2193, 5
+  %2195 = sext i32 %2194 to i64
+  %2196 = call i64 @RB_INT2FIX(i64 noundef %2195) #26
+  %2197 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2183, i32 noundef %2188, i32 noundef %2191, i32 noundef 45, i32 noundef 1, i64 noundef %2196)
+  call void @ADD_ELEM(ptr noundef %2182, ptr noundef %2197)
+  %2198 = load ptr, ptr %12, align 8
+  %2199 = load ptr, ptr %11, align 8
   %2200 = load ptr, ptr %21, align 8
-  %2201 = getelementptr inbounds %struct.RNode, ptr %2200, i32 0, i32 2
-  %2202 = load i32, ptr %2201, align 8
-  %2203 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2194, i32 noundef %2199, i32 noundef %2202, i32 noundef 46, i32 noundef 1, i64 noundef 9)
-  call void @ADD_ELEM(ptr noundef %2193, ptr noundef %2203)
-  %2204 = load ptr, ptr %12, align 8
-  %2205 = load ptr, ptr %58, align 8
-  call void @ADD_ELEM(ptr noundef %2204, ptr noundef %2205)
-  br label %2206
+  %2201 = getelementptr inbounds %struct.RNode, ptr %2200, i32 0, i32 0
+  %2202 = load i64, ptr %2201, align 8
+  %2203 = ashr i64 %2202, 15
+  %2204 = trunc i64 %2203 to i32
+  %2205 = load ptr, ptr %21, align 8
+  %2206 = getelementptr inbounds %struct.RNode, ptr %2205, i32 0, i32 2
+  %2207 = load i32, ptr %2206, align 8
+  %2208 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2199, i32 noundef %2204, i32 noundef %2207, i32 noundef 46, i32 noundef 1, i64 noundef 9)
+  call void @ADD_ELEM(ptr noundef %2198, ptr noundef %2208)
+  %2209 = load ptr, ptr %12, align 8
+  %2210 = load ptr, ptr %58, align 8
+  call void @ADD_ELEM(ptr noundef %2209, ptr noundef %2210)
+  br label %2211
 
-2206:                                             ; preds = %2048, %1998
-  %2207 = load ptr, ptr %12, align 8
-  %2208 = load ptr, ptr %11, align 8
-  %2209 = load ptr, ptr %21, align 8
-  %2210 = getelementptr inbounds %struct.RNode, ptr %2209, i32 0, i32 0
-  %2211 = load i64, ptr %2210, align 8
-  %2212 = ashr i64 %2211, 15
-  %2213 = trunc i64 %2212 to i32
+2211:                                             ; preds = %2053, %2003
+  %2212 = load ptr, ptr %12, align 8
+  %2213 = load ptr, ptr %11, align 8
   %2214 = load ptr, ptr %21, align 8
-  %2215 = getelementptr inbounds %struct.RNode, ptr %2214, i32 0, i32 2
-  %2216 = load i32, ptr %2215, align 8
-  %2217 = load ptr, ptr %43, align 8
-  %2218 = ptrtoint ptr %2217 to i64
-  %2219 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2208, i32 noundef %2213, i32 noundef %2216, i32 noundef 68, i32 noundef 1, i64 noundef %2218)
-  call void @ADD_ELEM(ptr noundef %2207, ptr noundef %2219)
-  %2220 = load ptr, ptr %43, align 8
-  %2221 = getelementptr inbounds %struct.iseq_label_data, ptr %2220, i32 0, i32 5
-  %2222 = load i32, ptr %2221, align 8
-  %2223 = add i32 %2222, 1
-  store i32 %2223, ptr %2221, align 8
-  %2224 = getelementptr inbounds [1 x %struct.iseq_link_anchor], ptr %53, i64 0, i64 0
-  %2225 = load ptr, ptr %11, align 8
-  %2226 = load ptr, ptr %21, align 8
-  %2227 = getelementptr inbounds %struct.RNode, ptr %2226, i32 0, i32 0
-  %2228 = load i64, ptr %2227, align 8
-  %2229 = ashr i64 %2228, 15
-  %2230 = trunc i64 %2229 to i32
+  %2215 = getelementptr inbounds %struct.RNode, ptr %2214, i32 0, i32 0
+  %2216 = load i64, ptr %2215, align 8
+  %2217 = ashr i64 %2216, 15
+  %2218 = trunc i64 %2217 to i32
+  %2219 = load ptr, ptr %21, align 8
+  %2220 = getelementptr inbounds %struct.RNode, ptr %2219, i32 0, i32 2
+  %2221 = load i32, ptr %2220, align 8
+  %2222 = load ptr, ptr %43, align 8
+  %2223 = ptrtoint ptr %2222 to i64
+  %2224 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2213, i32 noundef %2218, i32 noundef %2221, i32 noundef 68, i32 noundef 1, i64 noundef %2223)
+  call void @ADD_ELEM(ptr noundef %2212, ptr noundef %2224)
+  %2225 = load ptr, ptr %43, align 8
+  %2226 = getelementptr inbounds %struct.iseq_label_data, ptr %2225, i32 0, i32 5
+  %2227 = load i32, ptr %2226, align 8
+  %2228 = add i32 %2227, 1
+  store i32 %2228, ptr %2226, align 8
+  %2229 = getelementptr inbounds [1 x %struct.iseq_link_anchor], ptr %53, i64 0, i64 0
+  %2230 = load ptr, ptr %11, align 8
   %2231 = load ptr, ptr %21, align 8
-  %2232 = getelementptr inbounds %struct.RNode, ptr %2231, i32 0, i32 2
-  %2233 = load i32, ptr %2232, align 8
-  %2234 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2225, i32 noundef %2230, i32 noundef %2233, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %2224, ptr noundef %2234)
-  %2235 = getelementptr inbounds [1 x %struct.iseq_link_anchor], ptr %53, i64 0, i64 0
-  %2236 = load ptr, ptr %11, align 8
-  %2237 = load ptr, ptr %21, align 8
-  %2238 = getelementptr inbounds %struct.RNode, ptr %2237, i32 0, i32 0
-  %2239 = load i64, ptr %2238, align 8
-  %2240 = ashr i64 %2239, 15
-  %2241 = trunc i64 %2240 to i32
+  %2232 = getelementptr inbounds %struct.RNode, ptr %2231, i32 0, i32 0
+  %2233 = load i64, ptr %2232, align 8
+  %2234 = ashr i64 %2233, 15
+  %2235 = trunc i64 %2234 to i32
+  %2236 = load ptr, ptr %21, align 8
+  %2237 = getelementptr inbounds %struct.RNode, ptr %2236, i32 0, i32 2
+  %2238 = load i32, ptr %2237, align 8
+  %2239 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2230, i32 noundef %2235, i32 noundef %2238, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %2229, ptr noundef %2239)
+  %2240 = getelementptr inbounds [1 x %struct.iseq_link_anchor], ptr %53, i64 0, i64 0
+  %2241 = load ptr, ptr %11, align 8
   %2242 = load ptr, ptr %21, align 8
-  %2243 = getelementptr inbounds %struct.RNode, ptr %2242, i32 0, i32 2
-  %2244 = load i32, ptr %2243, align 8
-  %2245 = load i64, ptr %56, align 8
-  %2246 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2236, i32 noundef %2241, i32 noundef %2244, i32 noundef 19, i32 noundef 1, i64 noundef %2245)
-  call void @ADD_ELEM(ptr noundef %2235, ptr noundef %2246)
-  %2247 = getelementptr inbounds [1 x %struct.iseq_link_anchor], ptr %53, i64 0, i64 0
-  %2248 = load ptr, ptr %11, align 8
-  %2249 = load ptr, ptr %21, align 8
-  %2250 = getelementptr inbounds %struct.RNode, ptr %2249, i32 0, i32 0
-  %2251 = load i64, ptr %2250, align 8
-  %2252 = ashr i64 %2251, 15
-  %2253 = trunc i64 %2252 to i32
+  %2243 = getelementptr inbounds %struct.RNode, ptr %2242, i32 0, i32 0
+  %2244 = load i64, ptr %2243, align 8
+  %2245 = ashr i64 %2244, 15
+  %2246 = trunc i64 %2245 to i32
+  %2247 = load ptr, ptr %21, align 8
+  %2248 = getelementptr inbounds %struct.RNode, ptr %2247, i32 0, i32 2
+  %2249 = load i32, ptr %2248, align 8
+  %2250 = load i64, ptr %56, align 8
+  %2251 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2241, i32 noundef %2246, i32 noundef %2249, i32 noundef 19, i32 noundef 1, i64 noundef %2250)
+  call void @ADD_ELEM(ptr noundef %2240, ptr noundef %2251)
+  %2252 = getelementptr inbounds [1 x %struct.iseq_link_anchor], ptr %53, i64 0, i64 0
+  %2253 = load ptr, ptr %11, align 8
   %2254 = load ptr, ptr %21, align 8
-  %2255 = getelementptr inbounds %struct.RNode, ptr %2254, i32 0, i32 2
-  %2256 = load i32, ptr %2255, align 8
-  %2257 = load ptr, ptr %13, align 8
-  %2258 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %2257, i32 0, i32 3
-  %2259 = load ptr, ptr %2258, align 8
-  %2260 = icmp ne ptr %2259, null
-  br i1 %2260, label %2261, label %2264
+  %2255 = getelementptr inbounds %struct.RNode, ptr %2254, i32 0, i32 0
+  %2256 = load i64, ptr %2255, align 8
+  %2257 = ashr i64 %2256, 15
+  %2258 = trunc i64 %2257 to i32
+  %2259 = load ptr, ptr %21, align 8
+  %2260 = getelementptr inbounds %struct.RNode, ptr %2259, i32 0, i32 2
+  %2261 = load i32, ptr %2260, align 8
+  %2262 = load ptr, ptr %13, align 8
+  %2263 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %2262, i32 0, i32 3
+  %2264 = load ptr, ptr %2263, align 8
+  %2265 = icmp ne ptr %2264, null
+  br i1 %2265, label %2266, label %2269
 
-2261:                                             ; preds = %2206
-  %2262 = call i64 @rbimpl_intern_const(ptr noundef @iseq_compile_pattern_each.rbimpl_id.115, ptr noundef @.str.116) #29
-  store i64 %2262, ptr %59, align 8
-  %2263 = load i64, ptr %59, align 8
-  br label %2265
+2266:                                             ; preds = %2211
+  %2267 = call i64 @rbimpl_intern_const(ptr noundef @iseq_compile_pattern_each.rbimpl_id.115, ptr noundef @.str.116) #29
+  store i64 %2267, ptr %59, align 8
+  %2268 = load i64, ptr %59, align 8
+  br label %2270
 
-2264:                                             ; preds = %2206
-  br label %2265
+2269:                                             ; preds = %2211
+  br label %2270
 
-2265:                                             ; preds = %2264, %2261
-  %2266 = phi i64 [ %2263, %2261 ], [ 145, %2264 ]
-  %2267 = call ptr @new_insn_send(ptr noundef %2248, i32 noundef %2253, i32 noundef %2256, i64 noundef %2266, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %2247, ptr noundef %2267)
-  %2268 = load ptr, ptr %11, align 8
-  %2269 = getelementptr inbounds [1 x %struct.iseq_link_anchor], ptr %53, i64 0, i64 0
-  %2270 = load ptr, ptr %55, align 8
-  %2271 = load ptr, ptr %43, align 8
-  %2272 = load i8, ptr %16, align 1
-  %2273 = trunc i8 %2272 to i1
-  %2274 = load i8, ptr %17, align 1
-  %2275 = trunc i8 %2274 to i1
-  %2276 = load i32, ptr %18, align 4
-  %2277 = add i32 %2276, 1
-  %2278 = call i32 @iseq_compile_pattern_match(ptr noundef %2268, ptr noundef %2269, ptr noundef %2270, ptr noundef %2271, i1 noundef zeroext %2273, i1 noundef zeroext %2275, i32 noundef %2277, i1 noundef zeroext false)
-  %2279 = icmp ne i32 %2278, 0
-  br i1 %2279, label %2281, label %2280
+2270:                                             ; preds = %2269, %2266
+  %2271 = phi i64 [ %2268, %2266 ], [ 145, %2269 ]
+  %2272 = call ptr @new_insn_send(ptr noundef %2253, i32 noundef %2258, i32 noundef %2261, i64 noundef %2271, i64 noundef 3, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %2252, ptr noundef %2272)
+  %2273 = load ptr, ptr %11, align 8
+  %2274 = getelementptr inbounds [1 x %struct.iseq_link_anchor], ptr %53, i64 0, i64 0
+  %2275 = load ptr, ptr %55, align 8
+  %2276 = load ptr, ptr %43, align 8
+  %2277 = load i8, ptr %16, align 1
+  %2278 = trunc i8 %2277 to i1
+  %2279 = load i8, ptr %17, align 1
+  %2280 = trunc i8 %2279 to i1
+  %2281 = load i32, ptr %18, align 4
+  %2282 = add i32 %2281, 1
+  %2283 = call i32 @iseq_compile_pattern_match(ptr noundef %2273, ptr noundef %2274, ptr noundef %2275, ptr noundef %2276, i1 noundef zeroext %2278, i1 noundef zeroext %2280, i32 noundef %2282, i1 noundef zeroext false)
+  %2284 = icmp ne i32 %2283, 0
+  br i1 %2284, label %2286, label %2285
 
-2280:                                             ; preds = %2265
+2285:                                             ; preds = %2270
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-2281:                                             ; preds = %2265
-  %2282 = load ptr, ptr %52, align 8
-  %2283 = getelementptr inbounds %struct.RNode_LIST, ptr %2282, i32 0, i32 3
-  %2284 = load ptr, ptr %2283, align 8
-  %2285 = getelementptr inbounds %struct.RNode_LIST, ptr %2284, i32 0, i32 3
-  %2286 = load ptr, ptr %2285, align 8
-  store ptr %2286, ptr %52, align 8
-  br label %2287
+2286:                                             ; preds = %2270
+  %2287 = load ptr, ptr %52, align 8
+  %2288 = getelementptr inbounds %struct.RNode_LIST, ptr %2287, i32 0, i32 3
+  %2289 = load ptr, ptr %2288, align 8
+  %2290 = getelementptr inbounds %struct.RNode_LIST, ptr %2289, i32 0, i32 3
+  %2291 = load ptr, ptr %2290, align 8
+  store ptr %2291, ptr %52, align 8
+  br label %2292
 
-2287:                                             ; preds = %2281
-  %2288 = load i32, ptr %50, align 4
-  %2289 = add i32 %2288, 1
-  store i32 %2289, ptr %50, align 4
-  br label %1994, !llvm.loop !169
+2292:                                             ; preds = %2286
+  %2293 = load i32, ptr %50, align 4
+  %2294 = add i32 %2293, 1
+  store i32 %2294, ptr %50, align 4
+  br label %1999, !llvm.loop !169
 
-2290:                                             ; preds = %1994
-  %2291 = load ptr, ptr %12, align 8
-  %2292 = getelementptr inbounds [1 x %struct.iseq_link_anchor], ptr %53, i64 0, i64 0
-  call void @APPEND_LIST(ptr noundef %2291, ptr noundef %2292)
-  br label %2293
+2295:                                             ; preds = %1999
+  %2296 = load ptr, ptr %12, align 8
+  %2297 = getelementptr inbounds [1 x %struct.iseq_link_anchor], ptr %53, i64 0, i64 0
+  call void @APPEND_LIST(ptr noundef %2296, ptr noundef %2297)
+  br label %2298
 
-2293:                                             ; preds = %2290, %1976
-  br label %2348
+2298:                                             ; preds = %2295, %1981
+  br label %2353
 
-2294:                                             ; preds = %1971
-  %2295 = load ptr, ptr %12, align 8
-  %2296 = load ptr, ptr %11, align 8
-  %2297 = load ptr, ptr %21, align 8
-  %2298 = getelementptr inbounds %struct.RNode, ptr %2297, i32 0, i32 0
-  %2299 = load i64, ptr %2298, align 8
-  %2300 = ashr i64 %2299, 15
-  %2301 = trunc i64 %2300 to i32
+2299:                                             ; preds = %1976
+  %2300 = load ptr, ptr %12, align 8
+  %2301 = load ptr, ptr %11, align 8
   %2302 = load ptr, ptr %21, align 8
-  %2303 = getelementptr inbounds %struct.RNode, ptr %2302, i32 0, i32 2
-  %2304 = load i32, ptr %2303, align 8
-  %2305 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2296, i32 noundef %2301, i32 noundef %2304, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %2295, ptr noundef %2305)
-  %2306 = load ptr, ptr %12, align 8
-  %2307 = load ptr, ptr %11, align 8
-  %2308 = load ptr, ptr %21, align 8
-  %2309 = getelementptr inbounds %struct.RNode, ptr %2308, i32 0, i32 0
-  %2310 = load i64, ptr %2309, align 8
-  %2311 = ashr i64 %2310, 15
-  %2312 = trunc i64 %2311 to i32
+  %2303 = getelementptr inbounds %struct.RNode, ptr %2302, i32 0, i32 0
+  %2304 = load i64, ptr %2303, align 8
+  %2305 = ashr i64 %2304, 15
+  %2306 = trunc i64 %2305 to i32
+  %2307 = load ptr, ptr %21, align 8
+  %2308 = getelementptr inbounds %struct.RNode, ptr %2307, i32 0, i32 2
+  %2309 = load i32, ptr %2308, align 8
+  %2310 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2301, i32 noundef %2306, i32 noundef %2309, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %2300, ptr noundef %2310)
+  %2311 = load ptr, ptr %12, align 8
+  %2312 = load ptr, ptr %11, align 8
   %2313 = load ptr, ptr %21, align 8
-  %2314 = getelementptr inbounds %struct.RNode, ptr %2313, i32 0, i32 2
-  %2315 = load i32, ptr %2314, align 8
-  %2316 = call ptr @new_insn_send(ptr noundef %2307, i32 noundef %2312, i32 noundef %2315, i64 noundef 153, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %2306, ptr noundef %2316)
-  %2317 = load i8, ptr %16, align 1
-  %2318 = trunc i8 %2317 to i1
-  br i1 %2318, label %2319, label %2330
+  %2314 = getelementptr inbounds %struct.RNode, ptr %2313, i32 0, i32 0
+  %2315 = load i64, ptr %2314, align 8
+  %2316 = ashr i64 %2315, 15
+  %2317 = trunc i64 %2316 to i32
+  %2318 = load ptr, ptr %21, align 8
+  %2319 = getelementptr inbounds %struct.RNode, ptr %2318, i32 0, i32 2
+  %2320 = load i32, ptr %2319, align 8
+  %2321 = call ptr @new_insn_send(ptr noundef %2312, i32 noundef %2317, i32 noundef %2320, i64 noundef 153, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %2311, ptr noundef %2321)
+  %2322 = load i8, ptr %16, align 1
+  %2323 = trunc i8 %2322 to i1
+  br i1 %2323, label %2324, label %2335
 
-2319:                                             ; preds = %2294
-  %2320 = load ptr, ptr %11, align 8
-  %2321 = load ptr, ptr %12, align 8
-  %2322 = load ptr, ptr %13, align 8
-  %2323 = call i64 @rb_fstring_new(ptr noundef @.str.117, i64 noundef 15)
-  %2324 = load i32, ptr %18, align 4
-  %2325 = add i32 %2324, 1
-  %2326 = call i32 @iseq_compile_pattern_set_general_errmsg(ptr noundef %2320, ptr noundef %2321, ptr noundef %2322, i64 noundef %2323, i32 noundef %2325)
-  %2327 = icmp ne i32 %2326, 0
-  br i1 %2327, label %2329, label %2328
+2324:                                             ; preds = %2299
+  %2325 = load ptr, ptr %11, align 8
+  %2326 = load ptr, ptr %12, align 8
+  %2327 = load ptr, ptr %13, align 8
+  %2328 = call i64 @rb_fstring_new(ptr noundef @.str.117, i64 noundef 15)
+  %2329 = load i32, ptr %18, align 4
+  %2330 = add i32 %2329, 1
+  %2331 = call i32 @iseq_compile_pattern_set_general_errmsg(ptr noundef %2325, ptr noundef %2326, ptr noundef %2327, i64 noundef %2328, i32 noundef %2330)
+  %2332 = icmp ne i32 %2331, 0
+  br i1 %2332, label %2334, label %2333
 
-2328:                                             ; preds = %2319
+2333:                                             ; preds = %2324
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-2329:                                             ; preds = %2319
-  br label %2330
+2334:                                             ; preds = %2324
+  br label %2335
 
-2330:                                             ; preds = %2329, %2294
-  %2331 = load ptr, ptr %12, align 8
-  %2332 = load ptr, ptr %11, align 8
-  %2333 = load ptr, ptr %21, align 8
-  %2334 = getelementptr inbounds %struct.RNode, ptr %2333, i32 0, i32 0
-  %2335 = load i64, ptr %2334, align 8
-  %2336 = ashr i64 %2335, 15
-  %2337 = trunc i64 %2336 to i32
+2335:                                             ; preds = %2334, %2299
+  %2336 = load ptr, ptr %12, align 8
+  %2337 = load ptr, ptr %11, align 8
   %2338 = load ptr, ptr %21, align 8
-  %2339 = getelementptr inbounds %struct.RNode, ptr %2338, i32 0, i32 2
-  %2340 = load i32, ptr %2339, align 8
-  %2341 = load ptr, ptr %43, align 8
-  %2342 = ptrtoint ptr %2341 to i64
-  %2343 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2332, i32 noundef %2337, i32 noundef %2340, i32 noundef 68, i32 noundef 1, i64 noundef %2342)
-  call void @ADD_ELEM(ptr noundef %2331, ptr noundef %2343)
-  %2344 = load ptr, ptr %43, align 8
-  %2345 = getelementptr inbounds %struct.iseq_label_data, ptr %2344, i32 0, i32 5
-  %2346 = load i32, ptr %2345, align 8
-  %2347 = add i32 %2346, 1
-  store i32 %2347, ptr %2345, align 8
-  br label %2348
+  %2339 = getelementptr inbounds %struct.RNode, ptr %2338, i32 0, i32 0
+  %2340 = load i64, ptr %2339, align 8
+  %2341 = ashr i64 %2340, 15
+  %2342 = trunc i64 %2341 to i32
+  %2343 = load ptr, ptr %21, align 8
+  %2344 = getelementptr inbounds %struct.RNode, ptr %2343, i32 0, i32 2
+  %2345 = load i32, ptr %2344, align 8
+  %2346 = load ptr, ptr %43, align 8
+  %2347 = ptrtoint ptr %2346 to i64
+  %2348 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2337, i32 noundef %2342, i32 noundef %2345, i32 noundef 68, i32 noundef 1, i64 noundef %2347)
+  call void @ADD_ELEM(ptr noundef %2336, ptr noundef %2348)
+  %2349 = load ptr, ptr %43, align 8
+  %2350 = getelementptr inbounds %struct.iseq_label_data, ptr %2349, i32 0, i32 5
+  %2351 = load i32, ptr %2350, align 8
+  %2352 = add i32 %2351, 1
+  store i32 %2352, ptr %2350, align 8
+  br label %2353
 
-2348:                                             ; preds = %2330, %2293
-  %2349 = load ptr, ptr %13, align 8
-  %2350 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %2349, i32 0, i32 3
-  %2351 = load ptr, ptr %2350, align 8
-  %2352 = icmp ne ptr %2351, null
-  br i1 %2352, label %2353, label %2441
-
-2353:                                             ; preds = %2348
+2353:                                             ; preds = %2335, %2298
   %2354 = load ptr, ptr %13, align 8
   %2355 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %2354, i32 0, i32 3
   %2356 = load ptr, ptr %2355, align 8
-  %2357 = icmp eq ptr %2356, inttoptr (i64 -1 to ptr)
-  br i1 %2357, label %2358, label %2412
+  %2357 = icmp ne ptr %2356, null
+  br i1 %2357, label %2358, label %2447
 
 2358:                                             ; preds = %2353
-  %2359 = load ptr, ptr %12, align 8
-  %2360 = load ptr, ptr %11, align 8
-  %2361 = load ptr, ptr %21, align 8
-  %2362 = getelementptr inbounds %struct.RNode, ptr %2361, i32 0, i32 0
-  %2363 = load i64, ptr %2362, align 8
-  %2364 = ashr i64 %2363, 15
-  %2365 = trunc i64 %2364 to i32
-  %2366 = load ptr, ptr %21, align 8
-  %2367 = getelementptr inbounds %struct.RNode, ptr %2366, i32 0, i32 2
-  %2368 = load i32, ptr %2367, align 8
-  %2369 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2360, i32 noundef %2365, i32 noundef %2368, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %2359, ptr noundef %2369)
-  %2370 = load ptr, ptr %12, align 8
-  %2371 = load ptr, ptr %11, align 8
+  %2359 = load ptr, ptr %13, align 8
+  %2360 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %2359, i32 0, i32 3
+  %2361 = load ptr, ptr %2360, align 8
+  %2362 = inttoptr i64 -1 to ptr
+  %2363 = icmp eq ptr %2361, %2362
+  br i1 %2363, label %2364, label %2418
+
+2364:                                             ; preds = %2358
+  %2365 = load ptr, ptr %12, align 8
+  %2366 = load ptr, ptr %11, align 8
+  %2367 = load ptr, ptr %21, align 8
+  %2368 = getelementptr inbounds %struct.RNode, ptr %2367, i32 0, i32 0
+  %2369 = load i64, ptr %2368, align 8
+  %2370 = ashr i64 %2369, 15
+  %2371 = trunc i64 %2370 to i32
   %2372 = load ptr, ptr %21, align 8
-  %2373 = getelementptr inbounds %struct.RNode, ptr %2372, i32 0, i32 0
-  %2374 = load i64, ptr %2373, align 8
-  %2375 = ashr i64 %2374, 15
-  %2376 = trunc i64 %2375 to i32
-  %2377 = load ptr, ptr %21, align 8
-  %2378 = getelementptr inbounds %struct.RNode, ptr %2377, i32 0, i32 2
-  %2379 = load i32, ptr %2378, align 8
-  %2380 = call ptr @new_insn_send(ptr noundef %2371, i32 noundef %2376, i32 noundef %2379, i64 noundef 153, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %2370, ptr noundef %2380)
-  %2381 = load i8, ptr %16, align 1
-  %2382 = trunc i8 %2381 to i1
-  br i1 %2382, label %2383, label %2394
+  %2373 = getelementptr inbounds %struct.RNode, ptr %2372, i32 0, i32 2
+  %2374 = load i32, ptr %2373, align 8
+  %2375 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2366, i32 noundef %2371, i32 noundef %2374, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %2365, ptr noundef %2375)
+  %2376 = load ptr, ptr %12, align 8
+  %2377 = load ptr, ptr %11, align 8
+  %2378 = load ptr, ptr %21, align 8
+  %2379 = getelementptr inbounds %struct.RNode, ptr %2378, i32 0, i32 0
+  %2380 = load i64, ptr %2379, align 8
+  %2381 = ashr i64 %2380, 15
+  %2382 = trunc i64 %2381 to i32
+  %2383 = load ptr, ptr %21, align 8
+  %2384 = getelementptr inbounds %struct.RNode, ptr %2383, i32 0, i32 2
+  %2385 = load i32, ptr %2384, align 8
+  %2386 = call ptr @new_insn_send(ptr noundef %2377, i32 noundef %2382, i32 noundef %2385, i64 noundef 153, i64 noundef 1, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %2376, ptr noundef %2386)
+  %2387 = load i8, ptr %16, align 1
+  %2388 = trunc i8 %2387 to i1
+  br i1 %2388, label %2389, label %2400
 
-2383:                                             ; preds = %2358
-  %2384 = load ptr, ptr %11, align 8
-  %2385 = load ptr, ptr %12, align 8
-  %2386 = load ptr, ptr %13, align 8
-  %2387 = call i64 @rb_fstring_new(ptr noundef @.str.118, i64 noundef 23)
-  %2388 = load i32, ptr %18, align 4
-  %2389 = add i32 %2388, 1
-  %2390 = call i32 @iseq_compile_pattern_set_general_errmsg(ptr noundef %2384, ptr noundef %2385, ptr noundef %2386, i64 noundef %2387, i32 noundef %2389)
-  %2391 = icmp ne i32 %2390, 0
-  br i1 %2391, label %2393, label %2392
+2389:                                             ; preds = %2364
+  %2390 = load ptr, ptr %11, align 8
+  %2391 = load ptr, ptr %12, align 8
+  %2392 = load ptr, ptr %13, align 8
+  %2393 = call i64 @rb_fstring_new(ptr noundef @.str.118, i64 noundef 23)
+  %2394 = load i32, ptr %18, align 4
+  %2395 = add i32 %2394, 1
+  %2396 = call i32 @iseq_compile_pattern_set_general_errmsg(ptr noundef %2390, ptr noundef %2391, ptr noundef %2392, i64 noundef %2393, i32 noundef %2395)
+  %2397 = icmp ne i32 %2396, 0
+  br i1 %2397, label %2399, label %2398
 
-2392:                                             ; preds = %2383
+2398:                                             ; preds = %2389
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-2393:                                             ; preds = %2383
-  br label %2394
+2399:                                             ; preds = %2389
+  br label %2400
 
-2394:                                             ; preds = %2393, %2358
-  %2395 = load ptr, ptr %12, align 8
-  %2396 = load ptr, ptr %11, align 8
-  %2397 = load ptr, ptr %21, align 8
-  %2398 = getelementptr inbounds %struct.RNode, ptr %2397, i32 0, i32 0
-  %2399 = load i64, ptr %2398, align 8
-  %2400 = ashr i64 %2399, 15
-  %2401 = trunc i64 %2400 to i32
-  %2402 = load ptr, ptr %21, align 8
-  %2403 = getelementptr inbounds %struct.RNode, ptr %2402, i32 0, i32 2
-  %2404 = load i32, ptr %2403, align 8
-  %2405 = load ptr, ptr %43, align 8
-  %2406 = ptrtoint ptr %2405 to i64
-  %2407 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2396, i32 noundef %2401, i32 noundef %2404, i32 noundef 68, i32 noundef 1, i64 noundef %2406)
-  call void @ADD_ELEM(ptr noundef %2395, ptr noundef %2407)
-  %2408 = load ptr, ptr %43, align 8
-  %2409 = getelementptr inbounds %struct.iseq_label_data, ptr %2408, i32 0, i32 5
+2400:                                             ; preds = %2399, %2364
+  %2401 = load ptr, ptr %12, align 8
+  %2402 = load ptr, ptr %11, align 8
+  %2403 = load ptr, ptr %21, align 8
+  %2404 = getelementptr inbounds %struct.RNode, ptr %2403, i32 0, i32 0
+  %2405 = load i64, ptr %2404, align 8
+  %2406 = ashr i64 %2405, 15
+  %2407 = trunc i64 %2406 to i32
+  %2408 = load ptr, ptr %21, align 8
+  %2409 = getelementptr inbounds %struct.RNode, ptr %2408, i32 0, i32 2
   %2410 = load i32, ptr %2409, align 8
-  %2411 = add i32 %2410, 1
-  store i32 %2411, ptr %2409, align 8
-  br label %2440
+  %2411 = load ptr, ptr %43, align 8
+  %2412 = ptrtoint ptr %2411 to i64
+  %2413 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2402, i32 noundef %2407, i32 noundef %2410, i32 noundef 68, i32 noundef 1, i64 noundef %2412)
+  call void @ADD_ELEM(ptr noundef %2401, ptr noundef %2413)
+  %2414 = load ptr, ptr %43, align 8
+  %2415 = getelementptr inbounds %struct.iseq_label_data, ptr %2414, i32 0, i32 5
+  %2416 = load i32, ptr %2415, align 8
+  %2417 = add i32 %2416, 1
+  store i32 %2417, ptr %2415, align 8
+  br label %2446
 
-2412:                                             ; preds = %2353
-  %2413 = load ptr, ptr %12, align 8
-  %2414 = load ptr, ptr %11, align 8
-  %2415 = load ptr, ptr %21, align 8
-  %2416 = getelementptr inbounds %struct.RNode, ptr %2415, i32 0, i32 0
-  %2417 = load i64, ptr %2416, align 8
-  %2418 = ashr i64 %2417, 15
-  %2419 = trunc i64 %2418 to i32
-  %2420 = load ptr, ptr %21, align 8
-  %2421 = getelementptr inbounds %struct.RNode, ptr %2420, i32 0, i32 2
-  %2422 = load i32, ptr %2421, align 8
-  %2423 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2414, i32 noundef %2419, i32 noundef %2422, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %2413, ptr noundef %2423)
-  %2424 = load ptr, ptr %11, align 8
-  %2425 = load ptr, ptr %12, align 8
-  %2426 = load ptr, ptr %13, align 8
-  %2427 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %2426, i32 0, i32 3
-  %2428 = load ptr, ptr %2427, align 8
-  %2429 = load ptr, ptr %43, align 8
-  %2430 = load i8, ptr %16, align 1
-  %2431 = trunc i8 %2430 to i1
-  %2432 = load i8, ptr %17, align 1
-  %2433 = trunc i8 %2432 to i1
-  %2434 = load i32, ptr %18, align 4
-  %2435 = add i32 %2434, 1
-  %2436 = call i32 @iseq_compile_pattern_match(ptr noundef %2424, ptr noundef %2425, ptr noundef %2428, ptr noundef %2429, i1 noundef zeroext %2431, i1 noundef zeroext %2433, i32 noundef %2435, i1 noundef zeroext false)
-  %2437 = icmp ne i32 %2436, 0
-  br i1 %2437, label %2439, label %2438
+2418:                                             ; preds = %2358
+  %2419 = load ptr, ptr %12, align 8
+  %2420 = load ptr, ptr %11, align 8
+  %2421 = load ptr, ptr %21, align 8
+  %2422 = getelementptr inbounds %struct.RNode, ptr %2421, i32 0, i32 0
+  %2423 = load i64, ptr %2422, align 8
+  %2424 = ashr i64 %2423, 15
+  %2425 = trunc i64 %2424 to i32
+  %2426 = load ptr, ptr %21, align 8
+  %2427 = getelementptr inbounds %struct.RNode, ptr %2426, i32 0, i32 2
+  %2428 = load i32, ptr %2427, align 8
+  %2429 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2420, i32 noundef %2425, i32 noundef %2428, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %2419, ptr noundef %2429)
+  %2430 = load ptr, ptr %11, align 8
+  %2431 = load ptr, ptr %12, align 8
+  %2432 = load ptr, ptr %13, align 8
+  %2433 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %2432, i32 0, i32 3
+  %2434 = load ptr, ptr %2433, align 8
+  %2435 = load ptr, ptr %43, align 8
+  %2436 = load i8, ptr %16, align 1
+  %2437 = trunc i8 %2436 to i1
+  %2438 = load i8, ptr %17, align 1
+  %2439 = trunc i8 %2438 to i1
+  %2440 = load i32, ptr %18, align 4
+  %2441 = add i32 %2440, 1
+  %2442 = call i32 @iseq_compile_pattern_match(ptr noundef %2430, ptr noundef %2431, ptr noundef %2434, ptr noundef %2435, i1 noundef zeroext %2437, i1 noundef zeroext %2439, i32 noundef %2441, i1 noundef zeroext false)
+  %2443 = icmp ne i32 %2442, 0
+  br i1 %2443, label %2445, label %2444
 
-2438:                                             ; preds = %2412
+2444:                                             ; preds = %2418
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-2439:                                             ; preds = %2412
-  br label %2440
+2445:                                             ; preds = %2418
+  br label %2446
 
-2440:                                             ; preds = %2439, %2394
-  br label %2441
+2446:                                             ; preds = %2445, %2400
+  br label %2447
 
-2441:                                             ; preds = %2440, %2348
-  %2442 = load ptr, ptr %12, align 8
-  %2443 = load ptr, ptr %11, align 8
-  %2444 = load ptr, ptr %21, align 8
-  %2445 = getelementptr inbounds %struct.RNode, ptr %2444, i32 0, i32 0
-  %2446 = load i64, ptr %2445, align 8
-  %2447 = ashr i64 %2446, 15
-  %2448 = trunc i64 %2447 to i32
-  %2449 = load ptr, ptr %21, align 8
-  %2450 = getelementptr inbounds %struct.RNode, ptr %2449, i32 0, i32 2
-  %2451 = load i32, ptr %2450, align 8
-  %2452 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2443, i32 noundef %2448, i32 noundef %2451, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %2442, ptr noundef %2452)
-  %2453 = load ptr, ptr %12, align 8
-  %2454 = load ptr, ptr %11, align 8
+2447:                                             ; preds = %2446, %2353
+  %2448 = load ptr, ptr %12, align 8
+  %2449 = load ptr, ptr %11, align 8
+  %2450 = load ptr, ptr %21, align 8
+  %2451 = getelementptr inbounds %struct.RNode, ptr %2450, i32 0, i32 0
+  %2452 = load i64, ptr %2451, align 8
+  %2453 = ashr i64 %2452, 15
+  %2454 = trunc i64 %2453 to i32
   %2455 = load ptr, ptr %21, align 8
-  %2456 = getelementptr inbounds %struct.RNode, ptr %2455, i32 0, i32 0
-  %2457 = load i64, ptr %2456, align 8
-  %2458 = ashr i64 %2457, 15
-  %2459 = trunc i64 %2458 to i32
-  %2460 = load ptr, ptr %21, align 8
-  %2461 = getelementptr inbounds %struct.RNode, ptr %2460, i32 0, i32 2
-  %2462 = load i32, ptr %2461, align 8
-  %2463 = load ptr, ptr %14, align 8
-  %2464 = ptrtoint ptr %2463 to i64
-  %2465 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2454, i32 noundef %2459, i32 noundef %2462, i32 noundef 66, i32 noundef 1, i64 noundef %2464)
-  call void @ADD_ELEM(ptr noundef %2453, ptr noundef %2465)
-  %2466 = load ptr, ptr %14, align 8
-  %2467 = getelementptr inbounds %struct.iseq_label_data, ptr %2466, i32 0, i32 5
+  %2456 = getelementptr inbounds %struct.RNode, ptr %2455, i32 0, i32 2
+  %2457 = load i32, ptr %2456, align 8
+  %2458 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2449, i32 noundef %2454, i32 noundef %2457, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %2448, ptr noundef %2458)
+  %2459 = load ptr, ptr %12, align 8
+  %2460 = load ptr, ptr %11, align 8
+  %2461 = load ptr, ptr %21, align 8
+  %2462 = getelementptr inbounds %struct.RNode, ptr %2461, i32 0, i32 0
+  %2463 = load i64, ptr %2462, align 8
+  %2464 = ashr i64 %2463, 15
+  %2465 = trunc i64 %2464 to i32
+  %2466 = load ptr, ptr %21, align 8
+  %2467 = getelementptr inbounds %struct.RNode, ptr %2466, i32 0, i32 2
   %2468 = load i32, ptr %2467, align 8
-  %2469 = add i32 %2468, 1
-  store i32 %2469, ptr %2467, align 8
-  %2470 = load ptr, ptr %12, align 8
-  %2471 = load ptr, ptr %11, align 8
-  %2472 = load ptr, ptr %21, align 8
-  %2473 = getelementptr inbounds %struct.RNode, ptr %2472, i32 0, i32 0
-  %2474 = load i64, ptr %2473, align 8
-  %2475 = ashr i64 %2474, 15
-  %2476 = trunc i64 %2475 to i32
-  %2477 = load ptr, ptr %21, align 8
-  %2478 = getelementptr inbounds %struct.RNode, ptr %2477, i32 0, i32 2
-  %2479 = load i32, ptr %2478, align 8
-  %2480 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2471, i32 noundef %2476, i32 noundef %2479, i32 noundef 17, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %2470, ptr noundef %2480)
-  %2481 = load ptr, ptr %12, align 8
-  %2482 = load ptr, ptr %44, align 8
-  call void @ADD_ELEM(ptr noundef %2481, ptr noundef %2482)
-  %2483 = load ptr, ptr %12, align 8
-  %2484 = load ptr, ptr %11, align 8
-  %2485 = load ptr, ptr %21, align 8
-  %2486 = getelementptr inbounds %struct.RNode, ptr %2485, i32 0, i32 0
-  %2487 = load i64, ptr %2486, align 8
-  %2488 = ashr i64 %2487, 15
-  %2489 = trunc i64 %2488 to i32
-  %2490 = load ptr, ptr %21, align 8
-  %2491 = getelementptr inbounds %struct.RNode, ptr %2490, i32 0, i32 2
-  %2492 = load i32, ptr %2491, align 8
-  %2493 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2484, i32 noundef %2489, i32 noundef %2492, i32 noundef 20, i32 noundef 1, i64 noundef 3)
-  call void @ADD_ELEM(ptr noundef %2483, ptr noundef %2493)
-  %2494 = load ptr, ptr %12, align 8
-  %2495 = load ptr, ptr %11, align 8
+  %2469 = load ptr, ptr %14, align 8
+  %2470 = ptrtoint ptr %2469 to i64
+  %2471 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2460, i32 noundef %2465, i32 noundef %2468, i32 noundef 66, i32 noundef 1, i64 noundef %2470)
+  call void @ADD_ELEM(ptr noundef %2459, ptr noundef %2471)
+  %2472 = load ptr, ptr %14, align 8
+  %2473 = getelementptr inbounds %struct.iseq_label_data, ptr %2472, i32 0, i32 5
+  %2474 = load i32, ptr %2473, align 8
+  %2475 = add i32 %2474, 1
+  store i32 %2475, ptr %2473, align 8
+  %2476 = load ptr, ptr %12, align 8
+  %2477 = load ptr, ptr %11, align 8
+  %2478 = load ptr, ptr %21, align 8
+  %2479 = getelementptr inbounds %struct.RNode, ptr %2478, i32 0, i32 0
+  %2480 = load i64, ptr %2479, align 8
+  %2481 = ashr i64 %2480, 15
+  %2482 = trunc i64 %2481 to i32
+  %2483 = load ptr, ptr %21, align 8
+  %2484 = getelementptr inbounds %struct.RNode, ptr %2483, i32 0, i32 2
+  %2485 = load i32, ptr %2484, align 8
+  %2486 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2477, i32 noundef %2482, i32 noundef %2485, i32 noundef 17, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %2476, ptr noundef %2486)
+  %2487 = load ptr, ptr %12, align 8
+  %2488 = load ptr, ptr %44, align 8
+  call void @ADD_ELEM(ptr noundef %2487, ptr noundef %2488)
+  %2489 = load ptr, ptr %12, align 8
+  %2490 = load ptr, ptr %11, align 8
+  %2491 = load ptr, ptr %21, align 8
+  %2492 = getelementptr inbounds %struct.RNode, ptr %2491, i32 0, i32 0
+  %2493 = load i64, ptr %2492, align 8
+  %2494 = ashr i64 %2493, 15
+  %2495 = trunc i64 %2494 to i32
   %2496 = load ptr, ptr %21, align 8
-  %2497 = getelementptr inbounds %struct.RNode, ptr %2496, i32 0, i32 0
-  %2498 = load i64, ptr %2497, align 8
-  %2499 = ashr i64 %2498, 15
-  %2500 = trunc i64 %2499 to i32
-  %2501 = load ptr, ptr %21, align 8
-  %2502 = getelementptr inbounds %struct.RNode, ptr %2501, i32 0, i32 2
-  %2503 = load i32, ptr %2502, align 8
-  %2504 = load i64, ptr @rb_eTypeError, align 8
-  %2505 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2495, i32 noundef %2500, i32 noundef %2503, i32 noundef 19, i32 noundef 1, i64 noundef %2504)
-  call void @ADD_ELEM(ptr noundef %2494, ptr noundef %2505)
-  %2506 = load ptr, ptr %12, align 8
-  %2507 = load ptr, ptr %11, align 8
-  %2508 = load ptr, ptr %21, align 8
-  %2509 = getelementptr inbounds %struct.RNode, ptr %2508, i32 0, i32 0
-  %2510 = load i64, ptr %2509, align 8
-  %2511 = ashr i64 %2510, 15
-  %2512 = trunc i64 %2511 to i32
-  %2513 = load ptr, ptr %21, align 8
-  %2514 = getelementptr inbounds %struct.RNode, ptr %2513, i32 0, i32 2
-  %2515 = load i32, ptr %2514, align 8
-  %2516 = call i64 @rb_fstring_new(ptr noundef @.str.119, i64 noundef 33)
-  %2517 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2507, i32 noundef %2512, i32 noundef %2515, i32 noundef 19, i32 noundef 1, i64 noundef %2516)
-  call void @ADD_ELEM(ptr noundef %2506, ptr noundef %2517)
-  %2518 = load ptr, ptr %12, align 8
-  %2519 = load ptr, ptr %11, align 8
-  %2520 = load ptr, ptr %21, align 8
-  %2521 = getelementptr inbounds %struct.RNode, ptr %2520, i32 0, i32 0
-  %2522 = load i64, ptr %2521, align 8
-  %2523 = ashr i64 %2522, 15
-  %2524 = trunc i64 %2523 to i32
-  %2525 = load ptr, ptr %21, align 8
-  %2526 = getelementptr inbounds %struct.RNode, ptr %2525, i32 0, i32 2
-  %2527 = load i32, ptr %2526, align 8
-  %2528 = call ptr @new_insn_send(ptr noundef %2519, i32 noundef %2524, i32 noundef %2527, i64 noundef 167, i64 noundef 5, ptr noundef null, i64 noundef 1, ptr noundef null)
-  call void @ADD_ELEM(ptr noundef %2518, ptr noundef %2528)
-  %2529 = load ptr, ptr %12, align 8
-  %2530 = load ptr, ptr %11, align 8
+  %2497 = getelementptr inbounds %struct.RNode, ptr %2496, i32 0, i32 2
+  %2498 = load i32, ptr %2497, align 8
+  %2499 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2490, i32 noundef %2495, i32 noundef %2498, i32 noundef 20, i32 noundef 1, i64 noundef 3)
+  call void @ADD_ELEM(ptr noundef %2489, ptr noundef %2499)
+  %2500 = load ptr, ptr %12, align 8
+  %2501 = load ptr, ptr %11, align 8
+  %2502 = load ptr, ptr %21, align 8
+  %2503 = getelementptr inbounds %struct.RNode, ptr %2502, i32 0, i32 0
+  %2504 = load i64, ptr %2503, align 8
+  %2505 = ashr i64 %2504, 15
+  %2506 = trunc i64 %2505 to i32
+  %2507 = load ptr, ptr %21, align 8
+  %2508 = getelementptr inbounds %struct.RNode, ptr %2507, i32 0, i32 2
+  %2509 = load i32, ptr %2508, align 8
+  %2510 = load i64, ptr @rb_eTypeError, align 8
+  %2511 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2501, i32 noundef %2506, i32 noundef %2509, i32 noundef 19, i32 noundef 1, i64 noundef %2510)
+  call void @ADD_ELEM(ptr noundef %2500, ptr noundef %2511)
+  %2512 = load ptr, ptr %12, align 8
+  %2513 = load ptr, ptr %11, align 8
+  %2514 = load ptr, ptr %21, align 8
+  %2515 = getelementptr inbounds %struct.RNode, ptr %2514, i32 0, i32 0
+  %2516 = load i64, ptr %2515, align 8
+  %2517 = ashr i64 %2516, 15
+  %2518 = trunc i64 %2517 to i32
+  %2519 = load ptr, ptr %21, align 8
+  %2520 = getelementptr inbounds %struct.RNode, ptr %2519, i32 0, i32 2
+  %2521 = load i32, ptr %2520, align 8
+  %2522 = call i64 @rb_fstring_new(ptr noundef @.str.119, i64 noundef 33)
+  %2523 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2513, i32 noundef %2518, i32 noundef %2521, i32 noundef 19, i32 noundef 1, i64 noundef %2522)
+  call void @ADD_ELEM(ptr noundef %2512, ptr noundef %2523)
+  %2524 = load ptr, ptr %12, align 8
+  %2525 = load ptr, ptr %11, align 8
+  %2526 = load ptr, ptr %21, align 8
+  %2527 = getelementptr inbounds %struct.RNode, ptr %2526, i32 0, i32 0
+  %2528 = load i64, ptr %2527, align 8
+  %2529 = ashr i64 %2528, 15
+  %2530 = trunc i64 %2529 to i32
   %2531 = load ptr, ptr %21, align 8
-  %2532 = getelementptr inbounds %struct.RNode, ptr %2531, i32 0, i32 0
-  %2533 = load i64, ptr %2532, align 8
-  %2534 = ashr i64 %2533, 15
-  %2535 = trunc i64 %2534 to i32
-  %2536 = load ptr, ptr %21, align 8
-  %2537 = getelementptr inbounds %struct.RNode, ptr %2536, i32 0, i32 2
-  %2538 = load i32, ptr %2537, align 8
-  %2539 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2530, i32 noundef %2535, i32 noundef %2538, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %2529, ptr noundef %2539)
-  %2540 = load ptr, ptr %12, align 8
-  %2541 = load ptr, ptr %43, align 8
-  call void @ADD_ELEM(ptr noundef %2540, ptr noundef %2541)
-  %2542 = load ptr, ptr %12, align 8
-  %2543 = load ptr, ptr %11, align 8
-  %2544 = load ptr, ptr %21, align 8
-  %2545 = getelementptr inbounds %struct.RNode, ptr %2544, i32 0, i32 0
-  %2546 = load i64, ptr %2545, align 8
-  %2547 = ashr i64 %2546, 15
-  %2548 = trunc i64 %2547 to i32
-  %2549 = load ptr, ptr %21, align 8
-  %2550 = getelementptr inbounds %struct.RNode, ptr %2549, i32 0, i32 2
-  %2551 = load i32, ptr %2550, align 8
-  %2552 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2543, i32 noundef %2548, i32 noundef %2551, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %2542, ptr noundef %2552)
-  %2553 = load ptr, ptr %12, align 8
-  %2554 = load ptr, ptr %11, align 8
+  %2532 = getelementptr inbounds %struct.RNode, ptr %2531, i32 0, i32 2
+  %2533 = load i32, ptr %2532, align 8
+  %2534 = call ptr @new_insn_send(ptr noundef %2525, i32 noundef %2530, i32 noundef %2533, i64 noundef 167, i64 noundef 5, ptr noundef null, i64 noundef 1, ptr noundef null)
+  call void @ADD_ELEM(ptr noundef %2524, ptr noundef %2534)
+  %2535 = load ptr, ptr %12, align 8
+  %2536 = load ptr, ptr %11, align 8
+  %2537 = load ptr, ptr %21, align 8
+  %2538 = getelementptr inbounds %struct.RNode, ptr %2537, i32 0, i32 0
+  %2539 = load i64, ptr %2538, align 8
+  %2540 = ashr i64 %2539, 15
+  %2541 = trunc i64 %2540 to i32
+  %2542 = load ptr, ptr %21, align 8
+  %2543 = getelementptr inbounds %struct.RNode, ptr %2542, i32 0, i32 2
+  %2544 = load i32, ptr %2543, align 8
+  %2545 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2536, i32 noundef %2541, i32 noundef %2544, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %2535, ptr noundef %2545)
+  %2546 = load ptr, ptr %12, align 8
+  %2547 = load ptr, ptr %43, align 8
+  call void @ADD_ELEM(ptr noundef %2546, ptr noundef %2547)
+  %2548 = load ptr, ptr %12, align 8
+  %2549 = load ptr, ptr %11, align 8
+  %2550 = load ptr, ptr %21, align 8
+  %2551 = getelementptr inbounds %struct.RNode, ptr %2550, i32 0, i32 0
+  %2552 = load i64, ptr %2551, align 8
+  %2553 = ashr i64 %2552, 15
+  %2554 = trunc i64 %2553 to i32
   %2555 = load ptr, ptr %21, align 8
-  %2556 = getelementptr inbounds %struct.RNode, ptr %2555, i32 0, i32 0
-  %2557 = load i64, ptr %2556, align 8
-  %2558 = ashr i64 %2557, 15
-  %2559 = trunc i64 %2558 to i32
-  %2560 = load ptr, ptr %21, align 8
-  %2561 = getelementptr inbounds %struct.RNode, ptr %2560, i32 0, i32 2
-  %2562 = load i32, ptr %2561, align 8
-  %2563 = load ptr, ptr %15, align 8
-  %2564 = ptrtoint ptr %2563 to i64
-  %2565 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2554, i32 noundef %2559, i32 noundef %2562, i32 noundef 66, i32 noundef 1, i64 noundef %2564)
-  call void @ADD_ELEM(ptr noundef %2553, ptr noundef %2565)
-  %2566 = load ptr, ptr %15, align 8
-  %2567 = getelementptr inbounds %struct.iseq_label_data, ptr %2566, i32 0, i32 5
+  %2556 = getelementptr inbounds %struct.RNode, ptr %2555, i32 0, i32 2
+  %2557 = load i32, ptr %2556, align 8
+  %2558 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2549, i32 noundef %2554, i32 noundef %2557, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %2548, ptr noundef %2558)
+  %2559 = load ptr, ptr %12, align 8
+  %2560 = load ptr, ptr %11, align 8
+  %2561 = load ptr, ptr %21, align 8
+  %2562 = getelementptr inbounds %struct.RNode, ptr %2561, i32 0, i32 0
+  %2563 = load i64, ptr %2562, align 8
+  %2564 = ashr i64 %2563, 15
+  %2565 = trunc i64 %2564 to i32
+  %2566 = load ptr, ptr %21, align 8
+  %2567 = getelementptr inbounds %struct.RNode, ptr %2566, i32 0, i32 2
   %2568 = load i32, ptr %2567, align 8
-  %2569 = add i32 %2568, 1
-  store i32 %2569, ptr %2567, align 8
-  br label %3236
+  %2569 = load ptr, ptr %15, align 8
+  %2570 = ptrtoint ptr %2569 to i64
+  %2571 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2560, i32 noundef %2565, i32 noundef %2568, i32 noundef 66, i32 noundef 1, i64 noundef %2570)
+  call void @ADD_ELEM(ptr noundef %2559, ptr noundef %2571)
+  %2572 = load ptr, ptr %15, align 8
+  %2573 = getelementptr inbounds %struct.iseq_label_data, ptr %2572, i32 0, i32 5
+  %2574 = load i32, ptr %2573, align 8
+  %2575 = add i32 %2574, 1
+  store i32 %2575, ptr %2573, align 8
+  br label %3242
 
-2570:                                             ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
-  %2571 = load ptr, ptr %11, align 8
-  %2572 = load ptr, ptr %12, align 8
-  %2573 = load ptr, ptr %13, align 8
-  %2574 = call i32 @iseq_compile_each(ptr noundef %2571, ptr noundef %2572, ptr noundef %2573, i32 noundef 0)
-  %2575 = icmp ne i32 %2574, 0
-  br i1 %2575, label %2577, label %2576
+2576:                                             ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
+  %2577 = load ptr, ptr %11, align 8
+  %2578 = load ptr, ptr %12, align 8
+  %2579 = load ptr, ptr %13, align 8
+  %2580 = call i32 @iseq_compile_each(ptr noundef %2577, ptr noundef %2578, ptr noundef %2579, i32 noundef 0)
+  %2581 = icmp ne i32 %2580, 0
+  br i1 %2581, label %2583, label %2582
 
-2576:                                             ; preds = %2570
+2582:                                             ; preds = %2576
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-2577:                                             ; preds = %2570
-  %2578 = load i8, ptr %16, align 1
-  %2579 = trunc i8 %2578 to i1
-  br i1 %2579, label %2580, label %2592
+2583:                                             ; preds = %2576
+  %2584 = load i8, ptr %16, align 1
+  %2585 = trunc i8 %2584 to i1
+  br i1 %2585, label %2586, label %2598
 
-2580:                                             ; preds = %2577
-  %2581 = load ptr, ptr %12, align 8
-  %2582 = load ptr, ptr %11, align 8
-  %2583 = load ptr, ptr %21, align 8
-  %2584 = getelementptr inbounds %struct.RNode, ptr %2583, i32 0, i32 0
-  %2585 = load i64, ptr %2584, align 8
-  %2586 = ashr i64 %2585, 15
-  %2587 = trunc i64 %2586 to i32
-  %2588 = load ptr, ptr %21, align 8
-  %2589 = getelementptr inbounds %struct.RNode, ptr %2588, i32 0, i32 2
-  %2590 = load i32, ptr %2589, align 8
-  %2591 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2582, i32 noundef %2587, i32 noundef %2590, i32 noundef 41, i32 noundef 1, i64 noundef 5)
-  call void @ADD_ELEM(ptr noundef %2581, ptr noundef %2591)
-  br label %2592
+2586:                                             ; preds = %2583
+  %2587 = load ptr, ptr %12, align 8
+  %2588 = load ptr, ptr %11, align 8
+  %2589 = load ptr, ptr %21, align 8
+  %2590 = getelementptr inbounds %struct.RNode, ptr %2589, i32 0, i32 0
+  %2591 = load i64, ptr %2590, align 8
+  %2592 = ashr i64 %2591, 15
+  %2593 = trunc i64 %2592 to i32
+  %2594 = load ptr, ptr %21, align 8
+  %2595 = getelementptr inbounds %struct.RNode, ptr %2594, i32 0, i32 2
+  %2596 = load i32, ptr %2595, align 8
+  %2597 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2588, i32 noundef %2593, i32 noundef %2596, i32 noundef 41, i32 noundef 1, i64 noundef 5)
+  call void @ADD_ELEM(ptr noundef %2587, ptr noundef %2597)
+  br label %2598
 
-2592:                                             ; preds = %2580, %2577
-  %2593 = load ptr, ptr %12, align 8
-  %2594 = load ptr, ptr %11, align 8
-  %2595 = load ptr, ptr %21, align 8
-  %2596 = getelementptr inbounds %struct.RNode, ptr %2595, i32 0, i32 0
-  %2597 = load i64, ptr %2596, align 8
-  %2598 = ashr i64 %2597, 15
-  %2599 = trunc i64 %2598 to i32
-  %2600 = load ptr, ptr %21, align 8
-  %2601 = getelementptr inbounds %struct.RNode, ptr %2600, i32 0, i32 2
-  %2602 = load i32, ptr %2601, align 8
-  %2603 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2594, i32 noundef %2599, i32 noundef %2602, i32 noundef 49, i32 noundef 1, i64 noundef 5)
-  call void @ADD_ELEM(ptr noundef %2593, ptr noundef %2603)
-  %2604 = load i8, ptr %16, align 1
-  %2605 = trunc i8 %2604 to i1
-  br i1 %2605, label %2606, label %2616
+2598:                                             ; preds = %2586, %2583
+  %2599 = load ptr, ptr %12, align 8
+  %2600 = load ptr, ptr %11, align 8
+  %2601 = load ptr, ptr %21, align 8
+  %2602 = getelementptr inbounds %struct.RNode, ptr %2601, i32 0, i32 0
+  %2603 = load i64, ptr %2602, align 8
+  %2604 = ashr i64 %2603, 15
+  %2605 = trunc i64 %2604 to i32
+  %2606 = load ptr, ptr %21, align 8
+  %2607 = getelementptr inbounds %struct.RNode, ptr %2606, i32 0, i32 2
+  %2608 = load i32, ptr %2607, align 8
+  %2609 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2600, i32 noundef %2605, i32 noundef %2608, i32 noundef 49, i32 noundef 1, i64 noundef 5)
+  call void @ADD_ELEM(ptr noundef %2599, ptr noundef %2609)
+  %2610 = load i8, ptr %16, align 1
+  %2611 = trunc i8 %2610 to i1
+  br i1 %2611, label %2612, label %2622
 
-2606:                                             ; preds = %2592
-  %2607 = load ptr, ptr %11, align 8
-  %2608 = load ptr, ptr %12, align 8
-  %2609 = load ptr, ptr %13, align 8
-  %2610 = load i32, ptr %18, align 4
-  %2611 = add i32 %2610, 2
-  %2612 = call i32 @iseq_compile_pattern_set_eqq_errmsg(ptr noundef %2607, ptr noundef %2608, ptr noundef %2609, i32 noundef %2611)
-  %2613 = icmp ne i32 %2612, 0
-  br i1 %2613, label %2615, label %2614
+2612:                                             ; preds = %2598
+  %2613 = load ptr, ptr %11, align 8
+  %2614 = load ptr, ptr %12, align 8
+  %2615 = load ptr, ptr %13, align 8
+  %2616 = load i32, ptr %18, align 4
+  %2617 = add i32 %2616, 2
+  %2618 = call i32 @iseq_compile_pattern_set_eqq_errmsg(ptr noundef %2613, ptr noundef %2614, ptr noundef %2615, i32 noundef %2617)
+  %2619 = icmp ne i32 %2618, 0
+  br i1 %2619, label %2621, label %2620
 
-2614:                                             ; preds = %2606
+2620:                                             ; preds = %2612
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-2615:                                             ; preds = %2606
-  br label %2616
+2621:                                             ; preds = %2612
+  br label %2622
 
-2616:                                             ; preds = %2615, %2592
-  %2617 = load ptr, ptr %12, align 8
-  %2618 = load ptr, ptr %11, align 8
-  %2619 = load ptr, ptr %21, align 8
-  %2620 = getelementptr inbounds %struct.RNode, ptr %2619, i32 0, i32 0
-  %2621 = load i64, ptr %2620, align 8
-  %2622 = ashr i64 %2621, 15
-  %2623 = trunc i64 %2622 to i32
-  %2624 = load ptr, ptr %21, align 8
-  %2625 = getelementptr inbounds %struct.RNode, ptr %2624, i32 0, i32 2
-  %2626 = load i32, ptr %2625, align 8
-  %2627 = load ptr, ptr %14, align 8
-  %2628 = ptrtoint ptr %2627 to i64
-  %2629 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2618, i32 noundef %2623, i32 noundef %2626, i32 noundef 67, i32 noundef 1, i64 noundef %2628)
-  call void @ADD_ELEM(ptr noundef %2617, ptr noundef %2629)
-  %2630 = load ptr, ptr %14, align 8
-  %2631 = getelementptr inbounds %struct.iseq_label_data, ptr %2630, i32 0, i32 5
+2622:                                             ; preds = %2621, %2598
+  %2623 = load ptr, ptr %12, align 8
+  %2624 = load ptr, ptr %11, align 8
+  %2625 = load ptr, ptr %21, align 8
+  %2626 = getelementptr inbounds %struct.RNode, ptr %2625, i32 0, i32 0
+  %2627 = load i64, ptr %2626, align 8
+  %2628 = ashr i64 %2627, 15
+  %2629 = trunc i64 %2628 to i32
+  %2630 = load ptr, ptr %21, align 8
+  %2631 = getelementptr inbounds %struct.RNode, ptr %2630, i32 0, i32 2
   %2632 = load i32, ptr %2631, align 8
-  %2633 = add i32 %2632, 1
-  store i32 %2633, ptr %2631, align 8
-  %2634 = load ptr, ptr %12, align 8
-  %2635 = load ptr, ptr %11, align 8
-  %2636 = load ptr, ptr %21, align 8
-  %2637 = getelementptr inbounds %struct.RNode, ptr %2636, i32 0, i32 0
-  %2638 = load i64, ptr %2637, align 8
-  %2639 = ashr i64 %2638, 15
-  %2640 = trunc i64 %2639 to i32
-  %2641 = load ptr, ptr %21, align 8
-  %2642 = getelementptr inbounds %struct.RNode, ptr %2641, i32 0, i32 2
-  %2643 = load i32, ptr %2642, align 8
-  %2644 = load ptr, ptr %15, align 8
-  %2645 = ptrtoint ptr %2644 to i64
-  %2646 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2635, i32 noundef %2640, i32 noundef %2643, i32 noundef 66, i32 noundef 1, i64 noundef %2645)
-  call void @ADD_ELEM(ptr noundef %2634, ptr noundef %2646)
-  %2647 = load ptr, ptr %15, align 8
-  %2648 = getelementptr inbounds %struct.iseq_label_data, ptr %2647, i32 0, i32 5
+  %2633 = load ptr, ptr %14, align 8
+  %2634 = ptrtoint ptr %2633 to i64
+  %2635 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2624, i32 noundef %2629, i32 noundef %2632, i32 noundef 67, i32 noundef 1, i64 noundef %2634)
+  call void @ADD_ELEM(ptr noundef %2623, ptr noundef %2635)
+  %2636 = load ptr, ptr %14, align 8
+  %2637 = getelementptr inbounds %struct.iseq_label_data, ptr %2636, i32 0, i32 5
+  %2638 = load i32, ptr %2637, align 8
+  %2639 = add i32 %2638, 1
+  store i32 %2639, ptr %2637, align 8
+  %2640 = load ptr, ptr %12, align 8
+  %2641 = load ptr, ptr %11, align 8
+  %2642 = load ptr, ptr %21, align 8
+  %2643 = getelementptr inbounds %struct.RNode, ptr %2642, i32 0, i32 0
+  %2644 = load i64, ptr %2643, align 8
+  %2645 = ashr i64 %2644, 15
+  %2646 = trunc i64 %2645 to i32
+  %2647 = load ptr, ptr %21, align 8
+  %2648 = getelementptr inbounds %struct.RNode, ptr %2647, i32 0, i32 2
   %2649 = load i32, ptr %2648, align 8
-  %2650 = add i32 %2649, 1
-  store i32 %2650, ptr %2648, align 8
-  br label %3236
+  %2650 = load ptr, ptr %15, align 8
+  %2651 = ptrtoint ptr %2650 to i64
+  %2652 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2641, i32 noundef %2646, i32 noundef %2649, i32 noundef 66, i32 noundef 1, i64 noundef %2651)
+  call void @ADD_ELEM(ptr noundef %2640, ptr noundef %2652)
+  %2653 = load ptr, ptr %15, align 8
+  %2654 = getelementptr inbounds %struct.iseq_label_data, ptr %2653, i32 0, i32 5
+  %2655 = load i32, ptr %2654, align 8
+  %2656 = add i32 %2655, 1
+  store i32 %2656, ptr %2654, align 8
+  br label %3242
 
-2651:                                             ; preds = %9
-  %2652 = load ptr, ptr %11, align 8
-  %2653 = getelementptr inbounds %struct.rb_iseq_struct, ptr %2652, i32 0, i32 2
-  %2654 = load ptr, ptr %2653, align 8
-  store ptr %2654, ptr %60, align 8
-  %2655 = load ptr, ptr %13, align 8
-  %2656 = getelementptr inbounds %struct.RNode_LASGN, ptr %2655, i32 0, i32 1
-  %2657 = load i64, ptr %2656, align 8
-  store i64 %2657, ptr %61, align 8
-  %2658 = load ptr, ptr %60, align 8
-  %2659 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %2658, i32 0, i32 9
+2657:                                             ; preds = %9
+  %2658 = load ptr, ptr %11, align 8
+  %2659 = getelementptr inbounds %struct.rb_iseq_struct, ptr %2658, i32 0, i32 2
   %2660 = load ptr, ptr %2659, align 8
-  %2661 = getelementptr inbounds %struct.rb_iseq_struct, ptr %2660, i32 0, i32 2
-  %2662 = load ptr, ptr %2661, align 8
-  %2663 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %2662, i32 0, i32 13
-  %2664 = load i32, ptr %2663, align 8
-  %2665 = load ptr, ptr %11, align 8
-  %2666 = load i64, ptr %61, align 8
-  %2667 = call i32 @get_local_var_idx(ptr noundef %2665, i64 noundef %2666)
-  %2668 = sub i32 %2664, %2667
-  store i32 %2668, ptr %62, align 4
-  %2669 = load i8, ptr %17, align 1
-  %2670 = trunc i8 %2669 to i1
-  br i1 %2670, label %2671, label %2696
-
-2671:                                             ; preds = %2651
+  store ptr %2660, ptr %60, align 8
+  %2661 = load ptr, ptr %13, align 8
+  %2662 = getelementptr inbounds %struct.RNode_LASGN, ptr %2661, i32 0, i32 1
+  %2663 = load i64, ptr %2662, align 8
+  store i64 %2663, ptr %61, align 8
+  %2664 = load ptr, ptr %60, align 8
+  %2665 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %2664, i32 0, i32 9
+  %2666 = load ptr, ptr %2665, align 8
+  %2667 = getelementptr inbounds %struct.rb_iseq_struct, ptr %2666, i32 0, i32 2
+  %2668 = load ptr, ptr %2667, align 8
+  %2669 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr %2668, i32 0, i32 13
+  %2670 = load i32, ptr %2669, align 8
+  %2671 = load ptr, ptr %11, align 8
   %2672 = load i64, ptr %61, align 8
-  %2673 = call ptr @rb_id2name(i64 noundef %2672)
-  store ptr %2673, ptr %63, align 8
-  %2674 = load ptr, ptr %63, align 8
-  %2675 = icmp ne ptr %2674, null
-  br i1 %2675, label %2676, label %2695
+  %2673 = call i32 @get_local_var_idx(ptr noundef %2671, i64 noundef %2672)
+  %2674 = sub i32 %2670, %2673
+  store i32 %2674, ptr %62, align 4
+  %2675 = load i8, ptr %17, align 1
+  %2676 = trunc i8 %2675 to i1
+  br i1 %2676, label %2677, label %2702
 
-2676:                                             ; preds = %2671
-  %2677 = load ptr, ptr %63, align 8
-  %2678 = call i64 @strlen(ptr noundef %2677) #30
-  %2679 = icmp ugt i64 %2678, 0
-  br i1 %2679, label %2680, label %2695
+2677:                                             ; preds = %2657
+  %2678 = load i64, ptr %61, align 8
+  %2679 = call ptr @rb_id2name(i64 noundef %2678)
+  store ptr %2679, ptr %63, align 8
+  %2680 = load ptr, ptr %63, align 8
+  %2681 = icmp ne ptr %2680, null
+  br i1 %2681, label %2682, label %2701
 
-2680:                                             ; preds = %2676
-  %2681 = load ptr, ptr %63, align 8
-  %2682 = getelementptr i8, ptr %2681, i64 0
-  %2683 = load i8, ptr %2682, align 1
-  %2684 = sext i8 %2683 to i32
-  %2685 = icmp ne i32 %2684, 95
-  br i1 %2685, label %2686, label %2695
+2682:                                             ; preds = %2677
+  %2683 = load ptr, ptr %63, align 8
+  %2684 = call i64 @strlen(ptr noundef %2683) #30
+  %2685 = icmp ugt i64 %2684, 0
+  br i1 %2685, label %2686, label %2701
 
-2686:                                             ; preds = %2680
-  %2687 = load ptr, ptr %11, align 8
-  %2688 = load ptr, ptr %13, align 8
-  %2689 = getelementptr inbounds %struct.RNode, ptr %2688, i32 0, i32 0
-  %2690 = load i64, ptr %2689, align 8
-  %2691 = ashr i64 %2690, 15
-  %2692 = trunc i64 %2691 to i32
-  %2693 = load i64, ptr %61, align 8
-  %2694 = call i64 @rb_id2str(i64 noundef %2693)
-  call void (ptr, i32, ptr, ...) @append_compile_error(ptr noundef %2687, i32 noundef %2692, ptr noundef @.str.120, i64 noundef %2694)
+2686:                                             ; preds = %2682
+  %2687 = load ptr, ptr %63, align 8
+  %2688 = getelementptr i8, ptr %2687, i64 0
+  %2689 = load i8, ptr %2688, align 1
+  %2690 = sext i8 %2689 to i32
+  %2691 = icmp ne i32 %2690, 95
+  br i1 %2691, label %2692, label %2701
+
+2692:                                             ; preds = %2686
+  %2693 = load ptr, ptr %11, align 8
+  %2694 = load ptr, ptr %13, align 8
+  %2695 = getelementptr inbounds %struct.RNode, ptr %2694, i32 0, i32 0
+  %2696 = load i64, ptr %2695, align 8
+  %2697 = ashr i64 %2696, 15
+  %2698 = trunc i64 %2697 to i32
+  %2699 = load i64, ptr %61, align 8
+  %2700 = call i64 @rb_id2str(i64 noundef %2699)
+  call void (ptr, i32, ptr, ...) @append_compile_error(ptr noundef %2693, i32 noundef %2698, ptr noundef @.str.120, i64 noundef %2700)
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-2695:                                             ; preds = %2680, %2676, %2671
-  br label %2696
+2701:                                             ; preds = %2686, %2682, %2677
+  br label %2702
 
-2696:                                             ; preds = %2695, %2651
-  %2697 = load ptr, ptr %11, align 8
-  %2698 = load ptr, ptr %12, align 8
-  %2699 = load ptr, ptr %21, align 8
-  %2700 = load i32, ptr %62, align 4
-  %2701 = load ptr, ptr %11, align 8
-  %2702 = call i32 @get_lvar_level(ptr noundef %2701)
-  call void @iseq_add_setlocal(ptr noundef %2697, ptr noundef %2698, ptr noundef %2699, i32 noundef %2700, i32 noundef %2702)
-  %2703 = load ptr, ptr %12, align 8
-  %2704 = load ptr, ptr %11, align 8
+2702:                                             ; preds = %2701, %2657
+  %2703 = load ptr, ptr %11, align 8
+  %2704 = load ptr, ptr %12, align 8
   %2705 = load ptr, ptr %21, align 8
-  %2706 = getelementptr inbounds %struct.RNode, ptr %2705, i32 0, i32 0
-  %2707 = load i64, ptr %2706, align 8
-  %2708 = ashr i64 %2707, 15
-  %2709 = trunc i64 %2708 to i32
-  %2710 = load ptr, ptr %21, align 8
-  %2711 = getelementptr inbounds %struct.RNode, ptr %2710, i32 0, i32 2
-  %2712 = load i32, ptr %2711, align 8
-  %2713 = load ptr, ptr %14, align 8
-  %2714 = ptrtoint ptr %2713 to i64
-  %2715 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2704, i32 noundef %2709, i32 noundef %2712, i32 noundef 66, i32 noundef 1, i64 noundef %2714)
-  call void @ADD_ELEM(ptr noundef %2703, ptr noundef %2715)
-  %2716 = load ptr, ptr %14, align 8
-  %2717 = getelementptr inbounds %struct.iseq_label_data, ptr %2716, i32 0, i32 5
+  %2706 = load i32, ptr %62, align 4
+  %2707 = load ptr, ptr %11, align 8
+  %2708 = call i32 @get_lvar_level(ptr noundef %2707)
+  call void @iseq_add_setlocal(ptr noundef %2703, ptr noundef %2704, ptr noundef %2705, i32 noundef %2706, i32 noundef %2708)
+  %2709 = load ptr, ptr %12, align 8
+  %2710 = load ptr, ptr %11, align 8
+  %2711 = load ptr, ptr %21, align 8
+  %2712 = getelementptr inbounds %struct.RNode, ptr %2711, i32 0, i32 0
+  %2713 = load i64, ptr %2712, align 8
+  %2714 = ashr i64 %2713, 15
+  %2715 = trunc i64 %2714 to i32
+  %2716 = load ptr, ptr %21, align 8
+  %2717 = getelementptr inbounds %struct.RNode, ptr %2716, i32 0, i32 2
   %2718 = load i32, ptr %2717, align 8
-  %2719 = add i32 %2718, 1
-  store i32 %2719, ptr %2717, align 8
-  br label %3236
+  %2719 = load ptr, ptr %14, align 8
+  %2720 = ptrtoint ptr %2719 to i64
+  %2721 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2710, i32 noundef %2715, i32 noundef %2718, i32 noundef 66, i32 noundef 1, i64 noundef %2720)
+  call void @ADD_ELEM(ptr noundef %2709, ptr noundef %2721)
+  %2722 = load ptr, ptr %14, align 8
+  %2723 = getelementptr inbounds %struct.iseq_label_data, ptr %2722, i32 0, i32 5
+  %2724 = load i32, ptr %2723, align 8
+  %2725 = add i32 %2724, 1
+  store i32 %2725, ptr %2723, align 8
+  br label %3242
 
-2720:                                             ; preds = %9
-  %2721 = load ptr, ptr %13, align 8
-  %2722 = getelementptr inbounds %struct.RNode_DASGN, ptr %2721, i32 0, i32 1
-  %2723 = load i64, ptr %2722, align 8
-  store i64 %2723, ptr %67, align 8
-  %2724 = load ptr, ptr %11, align 8
-  %2725 = load i64, ptr %67, align 8
-  %2726 = call i32 @get_dyna_var_idx(ptr noundef %2724, i64 noundef %2725, ptr noundef %65, ptr noundef %66)
-  store i32 %2726, ptr %64, align 4
-  %2727 = load i8, ptr %17, align 1
-  %2728 = trunc i8 %2727 to i1
-  br i1 %2728, label %2729, label %2754
+2726:                                             ; preds = %9
+  %2727 = load ptr, ptr %13, align 8
+  %2728 = getelementptr inbounds %struct.RNode_DASGN, ptr %2727, i32 0, i32 1
+  %2729 = load i64, ptr %2728, align 8
+  store i64 %2729, ptr %67, align 8
+  %2730 = load ptr, ptr %11, align 8
+  %2731 = load i64, ptr %67, align 8
+  %2732 = call i32 @get_dyna_var_idx(ptr noundef %2730, i64 noundef %2731, ptr noundef %65, ptr noundef %66)
+  store i32 %2732, ptr %64, align 4
+  %2733 = load i8, ptr %17, align 1
+  %2734 = trunc i8 %2733 to i1
+  br i1 %2734, label %2735, label %2760
 
-2729:                                             ; preds = %2720
-  %2730 = load i64, ptr %67, align 8
-  %2731 = call ptr @rb_id2name(i64 noundef %2730)
-  store ptr %2731, ptr %68, align 8
-  %2732 = load ptr, ptr %68, align 8
-  %2733 = icmp ne ptr %2732, null
-  br i1 %2733, label %2734, label %2753
+2735:                                             ; preds = %2726
+  %2736 = load i64, ptr %67, align 8
+  %2737 = call ptr @rb_id2name(i64 noundef %2736)
+  store ptr %2737, ptr %68, align 8
+  %2738 = load ptr, ptr %68, align 8
+  %2739 = icmp ne ptr %2738, null
+  br i1 %2739, label %2740, label %2759
 
-2734:                                             ; preds = %2729
-  %2735 = load ptr, ptr %68, align 8
-  %2736 = call i64 @strlen(ptr noundef %2735) #30
-  %2737 = icmp ugt i64 %2736, 0
-  br i1 %2737, label %2738, label %2753
+2740:                                             ; preds = %2735
+  %2741 = load ptr, ptr %68, align 8
+  %2742 = call i64 @strlen(ptr noundef %2741) #30
+  %2743 = icmp ugt i64 %2742, 0
+  br i1 %2743, label %2744, label %2759
 
-2738:                                             ; preds = %2734
-  %2739 = load ptr, ptr %68, align 8
-  %2740 = getelementptr i8, ptr %2739, i64 0
-  %2741 = load i8, ptr %2740, align 1
-  %2742 = sext i8 %2741 to i32
-  %2743 = icmp ne i32 %2742, 95
-  br i1 %2743, label %2744, label %2753
+2744:                                             ; preds = %2740
+  %2745 = load ptr, ptr %68, align 8
+  %2746 = getelementptr i8, ptr %2745, i64 0
+  %2747 = load i8, ptr %2746, align 1
+  %2748 = sext i8 %2747 to i32
+  %2749 = icmp ne i32 %2748, 95
+  br i1 %2749, label %2750, label %2759
 
-2744:                                             ; preds = %2738
-  %2745 = load ptr, ptr %11, align 8
-  %2746 = load ptr, ptr %13, align 8
-  %2747 = getelementptr inbounds %struct.RNode, ptr %2746, i32 0, i32 0
-  %2748 = load i64, ptr %2747, align 8
-  %2749 = ashr i64 %2748, 15
-  %2750 = trunc i64 %2749 to i32
-  %2751 = load i64, ptr %67, align 8
-  %2752 = call i64 @rb_id2str(i64 noundef %2751)
-  call void (ptr, i32, ptr, ...) @append_compile_error(ptr noundef %2745, i32 noundef %2750, ptr noundef @.str.120, i64 noundef %2752)
+2750:                                             ; preds = %2744
+  %2751 = load ptr, ptr %11, align 8
+  %2752 = load ptr, ptr %13, align 8
+  %2753 = getelementptr inbounds %struct.RNode, ptr %2752, i32 0, i32 0
+  %2754 = load i64, ptr %2753, align 8
+  %2755 = ashr i64 %2754, 15
+  %2756 = trunc i64 %2755 to i32
+  %2757 = load i64, ptr %67, align 8
+  %2758 = call i64 @rb_id2str(i64 noundef %2757)
+  call void (ptr, i32, ptr, ...) @append_compile_error(ptr noundef %2751, i32 noundef %2756, ptr noundef @.str.120, i64 noundef %2758)
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-2753:                                             ; preds = %2738, %2734, %2729
-  br label %2754
+2759:                                             ; preds = %2744, %2740, %2735
+  br label %2760
 
-2754:                                             ; preds = %2753, %2720
-  %2755 = load i32, ptr %64, align 4
-  %2756 = icmp slt i32 %2755, 0
-  br i1 %2756, label %2757, label %2766
+2760:                                             ; preds = %2759, %2726
+  %2761 = load i32, ptr %64, align 4
+  %2762 = icmp slt i32 %2761, 0
+  br i1 %2762, label %2763, label %2772
 
-2757:                                             ; preds = %2754
-  %2758 = load ptr, ptr %11, align 8
-  %2759 = load ptr, ptr %13, align 8
-  %2760 = getelementptr inbounds %struct.RNode, ptr %2759, i32 0, i32 0
-  %2761 = load i64, ptr %2760, align 8
-  %2762 = ashr i64 %2761, 15
-  %2763 = trunc i64 %2762 to i32
-  %2764 = load i64, ptr %67, align 8
-  %2765 = call i64 @rb_id2str(i64 noundef %2764)
-  call void (ptr, i32, ptr, ...) @append_compile_error(ptr noundef %2758, i32 noundef %2763, ptr noundef @.str.75, i64 noundef %2765)
+2763:                                             ; preds = %2760
+  %2764 = load ptr, ptr %11, align 8
+  %2765 = load ptr, ptr %13, align 8
+  %2766 = getelementptr inbounds %struct.RNode, ptr %2765, i32 0, i32 0
+  %2767 = load i64, ptr %2766, align 8
+  %2768 = ashr i64 %2767, 15
+  %2769 = trunc i64 %2768 to i32
+  %2770 = load i64, ptr %67, align 8
+  %2771 = call i64 @rb_id2str(i64 noundef %2770)
+  call void (ptr, i32, ptr, ...) @append_compile_error(ptr noundef %2764, i32 noundef %2769, ptr noundef @.str.75, i64 noundef %2771)
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-2766:                                             ; preds = %2754
-  %2767 = load ptr, ptr %11, align 8
-  %2768 = load ptr, ptr %12, align 8
-  %2769 = load ptr, ptr %21, align 8
-  %2770 = load i32, ptr %66, align 4
-  %2771 = load i32, ptr %64, align 4
-  %2772 = sub i32 %2770, %2771
-  %2773 = load i32, ptr %65, align 4
-  call void @iseq_add_setlocal(ptr noundef %2767, ptr noundef %2768, ptr noundef %2769, i32 noundef %2772, i32 noundef %2773)
+2772:                                             ; preds = %2760
+  %2773 = load ptr, ptr %11, align 8
   %2774 = load ptr, ptr %12, align 8
-  %2775 = load ptr, ptr %11, align 8
-  %2776 = load ptr, ptr %21, align 8
-  %2777 = getelementptr inbounds %struct.RNode, ptr %2776, i32 0, i32 0
-  %2778 = load i64, ptr %2777, align 8
-  %2779 = ashr i64 %2778, 15
-  %2780 = trunc i64 %2779 to i32
-  %2781 = load ptr, ptr %21, align 8
-  %2782 = getelementptr inbounds %struct.RNode, ptr %2781, i32 0, i32 2
-  %2783 = load i32, ptr %2782, align 8
-  %2784 = load ptr, ptr %14, align 8
-  %2785 = ptrtoint ptr %2784 to i64
-  %2786 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2775, i32 noundef %2780, i32 noundef %2783, i32 noundef 66, i32 noundef 1, i64 noundef %2785)
-  call void @ADD_ELEM(ptr noundef %2774, ptr noundef %2786)
-  %2787 = load ptr, ptr %14, align 8
-  %2788 = getelementptr inbounds %struct.iseq_label_data, ptr %2787, i32 0, i32 5
+  %2775 = load ptr, ptr %21, align 8
+  %2776 = load i32, ptr %66, align 4
+  %2777 = load i32, ptr %64, align 4
+  %2778 = sub i32 %2776, %2777
+  %2779 = load i32, ptr %65, align 4
+  call void @iseq_add_setlocal(ptr noundef %2773, ptr noundef %2774, ptr noundef %2775, i32 noundef %2778, i32 noundef %2779)
+  %2780 = load ptr, ptr %12, align 8
+  %2781 = load ptr, ptr %11, align 8
+  %2782 = load ptr, ptr %21, align 8
+  %2783 = getelementptr inbounds %struct.RNode, ptr %2782, i32 0, i32 0
+  %2784 = load i64, ptr %2783, align 8
+  %2785 = ashr i64 %2784, 15
+  %2786 = trunc i64 %2785 to i32
+  %2787 = load ptr, ptr %21, align 8
+  %2788 = getelementptr inbounds %struct.RNode, ptr %2787, i32 0, i32 2
   %2789 = load i32, ptr %2788, align 8
-  %2790 = add i32 %2789, 1
-  store i32 %2790, ptr %2788, align 8
-  br label %3236
+  %2790 = load ptr, ptr %14, align 8
+  %2791 = ptrtoint ptr %2790 to i64
+  %2792 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2781, i32 noundef %2786, i32 noundef %2789, i32 noundef 66, i32 noundef 1, i64 noundef %2791)
+  call void @ADD_ELEM(ptr noundef %2780, ptr noundef %2792)
+  %2793 = load ptr, ptr %14, align 8
+  %2794 = getelementptr inbounds %struct.iseq_label_data, ptr %2793, i32 0, i32 5
+  %2795 = load i32, ptr %2794, align 8
+  %2796 = add i32 %2795, 1
+  store i32 %2796, ptr %2794, align 8
+  br label %3242
 
-2791:                                             ; preds = %9, %9
-  %2792 = load ptr, ptr %15, align 8
-  store ptr %2792, ptr %69, align 8
-  %2793 = load ptr, ptr %11, align 8
-  %2794 = load ptr, ptr %12, align 8
-  %2795 = load ptr, ptr %13, align 8
-  %2796 = getelementptr inbounds %struct.RNode_IF, ptr %2795, i32 0, i32 2
-  %2797 = load ptr, ptr %2796, align 8
+2797:                                             ; preds = %9, %9
   %2798 = load ptr, ptr %15, align 8
-  %2799 = load i8, ptr %16, align 1
-  %2800 = trunc i8 %2799 to i1
-  %2801 = load i8, ptr %17, align 1
-  %2802 = trunc i8 %2801 to i1
-  %2803 = load i32, ptr %18, align 4
-  %2804 = load i8, ptr %19, align 1
-  %2805 = trunc i8 %2804 to i1
-  %2806 = call i32 @iseq_compile_pattern_match(ptr noundef %2793, ptr noundef %2794, ptr noundef %2797, ptr noundef %2798, i1 noundef zeroext %2800, i1 noundef zeroext %2802, i32 noundef %2803, i1 noundef zeroext %2805)
-  %2807 = icmp ne i32 %2806, 0
-  br i1 %2807, label %2809, label %2808
+  store ptr %2798, ptr %69, align 8
+  %2799 = load ptr, ptr %11, align 8
+  %2800 = load ptr, ptr %12, align 8
+  %2801 = load ptr, ptr %13, align 8
+  %2802 = getelementptr inbounds %struct.RNode_IF, ptr %2801, i32 0, i32 2
+  %2803 = load ptr, ptr %2802, align 8
+  %2804 = load ptr, ptr %15, align 8
+  %2805 = load i8, ptr %16, align 1
+  %2806 = trunc i8 %2805 to i1
+  %2807 = load i8, ptr %17, align 1
+  %2808 = trunc i8 %2807 to i1
+  %2809 = load i32, ptr %18, align 4
+  %2810 = load i8, ptr %19, align 1
+  %2811 = trunc i8 %2810 to i1
+  %2812 = call i32 @iseq_compile_pattern_match(ptr noundef %2799, ptr noundef %2800, ptr noundef %2803, ptr noundef %2804, i1 noundef zeroext %2806, i1 noundef zeroext %2808, i32 noundef %2809, i1 noundef zeroext %2811)
+  %2813 = icmp ne i32 %2812, 0
+  br i1 %2813, label %2815, label %2814
 
-2808:                                             ; preds = %2791
+2814:                                             ; preds = %2797
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-2809:                                             ; preds = %2791
-  %2810 = load ptr, ptr %11, align 8
-  %2811 = load ptr, ptr %12, align 8
-  %2812 = load ptr, ptr %13, align 8
-  %2813 = getelementptr inbounds %struct.RNode_IF, ptr %2812, i32 0, i32 1
-  %2814 = load ptr, ptr %2813, align 8
-  %2815 = call i32 @iseq_compile_each(ptr noundef %2810, ptr noundef %2811, ptr noundef %2814, i32 noundef 0)
-  %2816 = icmp ne i32 %2815, 0
-  br i1 %2816, label %2818, label %2817
+2815:                                             ; preds = %2797
+  %2816 = load ptr, ptr %11, align 8
+  %2817 = load ptr, ptr %12, align 8
+  %2818 = load ptr, ptr %13, align 8
+  %2819 = getelementptr inbounds %struct.RNode_IF, ptr %2818, i32 0, i32 1
+  %2820 = load ptr, ptr %2819, align 8
+  %2821 = call i32 @iseq_compile_each(ptr noundef %2816, ptr noundef %2817, ptr noundef %2820, i32 noundef 0)
+  %2822 = icmp ne i32 %2821, 0
+  br i1 %2822, label %2824, label %2823
 
-2817:                                             ; preds = %2809
+2823:                                             ; preds = %2815
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-2818:                                             ; preds = %2809
-  %2819 = load i8, ptr %16, align 1
-  %2820 = trunc i8 %2819 to i1
-  br i1 %2820, label %2821, label %2955
+2824:                                             ; preds = %2815
+  %2825 = load i8, ptr %16, align 1
+  %2826 = trunc i8 %2825 to i1
+  br i1 %2826, label %2827, label %2961
 
-2821:                                             ; preds = %2818
-  %2822 = load ptr, ptr %11, align 8
-  %2823 = load i32, ptr %20, align 4
-  %2824 = sext i32 %2823 to i64
-  %2825 = call ptr @new_label_body(ptr noundef %2822, i64 noundef %2824)
-  store ptr %2825, ptr %70, align 8
-  %2826 = load ptr, ptr %12, align 8
-  %2827 = load ptr, ptr %11, align 8
-  %2828 = load ptr, ptr %21, align 8
-  %2829 = getelementptr inbounds %struct.RNode, ptr %2828, i32 0, i32 0
-  %2830 = load i64, ptr %2829, align 8
-  %2831 = ashr i64 %2830, 15
-  %2832 = trunc i64 %2831 to i32
-  %2833 = load ptr, ptr %21, align 8
-  %2834 = getelementptr inbounds %struct.RNode, ptr %2833, i32 0, i32 2
-  %2835 = load i32, ptr %2834, align 8
-  %2836 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2827, i32 noundef %2832, i32 noundef %2835, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %2826, ptr noundef %2836)
-  %2837 = load ptr, ptr %13, align 8
-  %2838 = call zeroext i1 @nd_type_p(ptr noundef %2837, i32 noundef 2)
-  br i1 %2838, label %2839, label %2857
+2827:                                             ; preds = %2824
+  %2828 = load ptr, ptr %11, align 8
+  %2829 = load i32, ptr %20, align 4
+  %2830 = sext i32 %2829 to i64
+  %2831 = call ptr @new_label_body(ptr noundef %2828, i64 noundef %2830)
+  store ptr %2831, ptr %70, align 8
+  %2832 = load ptr, ptr %12, align 8
+  %2833 = load ptr, ptr %11, align 8
+  %2834 = load ptr, ptr %21, align 8
+  %2835 = getelementptr inbounds %struct.RNode, ptr %2834, i32 0, i32 0
+  %2836 = load i64, ptr %2835, align 8
+  %2837 = ashr i64 %2836, 15
+  %2838 = trunc i64 %2837 to i32
+  %2839 = load ptr, ptr %21, align 8
+  %2840 = getelementptr inbounds %struct.RNode, ptr %2839, i32 0, i32 2
+  %2841 = load i32, ptr %2840, align 8
+  %2842 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2833, i32 noundef %2838, i32 noundef %2841, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %2832, ptr noundef %2842)
+  %2843 = load ptr, ptr %13, align 8
+  %2844 = call zeroext i1 @nd_type_p(ptr noundef %2843, i32 noundef 2)
+  br i1 %2844, label %2845, label %2863
 
-2839:                                             ; preds = %2821
-  %2840 = load ptr, ptr %12, align 8
-  %2841 = load ptr, ptr %11, align 8
-  %2842 = load ptr, ptr %21, align 8
-  %2843 = getelementptr inbounds %struct.RNode, ptr %2842, i32 0, i32 0
-  %2844 = load i64, ptr %2843, align 8
-  %2845 = ashr i64 %2844, 15
-  %2846 = trunc i64 %2845 to i32
-  %2847 = load ptr, ptr %21, align 8
-  %2848 = getelementptr inbounds %struct.RNode, ptr %2847, i32 0, i32 2
-  %2849 = load i32, ptr %2848, align 8
-  %2850 = load ptr, ptr %70, align 8
-  %2851 = ptrtoint ptr %2850 to i64
-  %2852 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2841, i32 noundef %2846, i32 noundef %2849, i32 noundef 67, i32 noundef 1, i64 noundef %2851)
-  call void @ADD_ELEM(ptr noundef %2840, ptr noundef %2852)
-  %2853 = load ptr, ptr %70, align 8
-  %2854 = getelementptr inbounds %struct.iseq_label_data, ptr %2853, i32 0, i32 5
+2845:                                             ; preds = %2827
+  %2846 = load ptr, ptr %12, align 8
+  %2847 = load ptr, ptr %11, align 8
+  %2848 = load ptr, ptr %21, align 8
+  %2849 = getelementptr inbounds %struct.RNode, ptr %2848, i32 0, i32 0
+  %2850 = load i64, ptr %2849, align 8
+  %2851 = ashr i64 %2850, 15
+  %2852 = trunc i64 %2851 to i32
+  %2853 = load ptr, ptr %21, align 8
+  %2854 = getelementptr inbounds %struct.RNode, ptr %2853, i32 0, i32 2
   %2855 = load i32, ptr %2854, align 8
-  %2856 = add i32 %2855, 1
-  store i32 %2856, ptr %2854, align 8
-  br label %2875
+  %2856 = load ptr, ptr %70, align 8
+  %2857 = ptrtoint ptr %2856 to i64
+  %2858 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2847, i32 noundef %2852, i32 noundef %2855, i32 noundef 67, i32 noundef 1, i64 noundef %2857)
+  call void @ADD_ELEM(ptr noundef %2846, ptr noundef %2858)
+  %2859 = load ptr, ptr %70, align 8
+  %2860 = getelementptr inbounds %struct.iseq_label_data, ptr %2859, i32 0, i32 5
+  %2861 = load i32, ptr %2860, align 8
+  %2862 = add i32 %2861, 1
+  store i32 %2862, ptr %2860, align 8
+  br label %2881
 
-2857:                                             ; preds = %2821
-  %2858 = load ptr, ptr %12, align 8
-  %2859 = load ptr, ptr %11, align 8
-  %2860 = load ptr, ptr %21, align 8
-  %2861 = getelementptr inbounds %struct.RNode, ptr %2860, i32 0, i32 0
-  %2862 = load i64, ptr %2861, align 8
-  %2863 = ashr i64 %2862, 15
-  %2864 = trunc i64 %2863 to i32
-  %2865 = load ptr, ptr %21, align 8
-  %2866 = getelementptr inbounds %struct.RNode, ptr %2865, i32 0, i32 2
-  %2867 = load i32, ptr %2866, align 8
-  %2868 = load ptr, ptr %70, align 8
-  %2869 = ptrtoint ptr %2868 to i64
-  %2870 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2859, i32 noundef %2864, i32 noundef %2867, i32 noundef 68, i32 noundef 1, i64 noundef %2869)
-  call void @ADD_ELEM(ptr noundef %2858, ptr noundef %2870)
-  %2871 = load ptr, ptr %70, align 8
-  %2872 = getelementptr inbounds %struct.iseq_label_data, ptr %2871, i32 0, i32 5
+2863:                                             ; preds = %2827
+  %2864 = load ptr, ptr %12, align 8
+  %2865 = load ptr, ptr %11, align 8
+  %2866 = load ptr, ptr %21, align 8
+  %2867 = getelementptr inbounds %struct.RNode, ptr %2866, i32 0, i32 0
+  %2868 = load i64, ptr %2867, align 8
+  %2869 = ashr i64 %2868, 15
+  %2870 = trunc i64 %2869 to i32
+  %2871 = load ptr, ptr %21, align 8
+  %2872 = getelementptr inbounds %struct.RNode, ptr %2871, i32 0, i32 2
   %2873 = load i32, ptr %2872, align 8
-  %2874 = add i32 %2873, 1
-  store i32 %2874, ptr %2872, align 8
-  br label %2875
+  %2874 = load ptr, ptr %70, align 8
+  %2875 = ptrtoint ptr %2874 to i64
+  %2876 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2865, i32 noundef %2870, i32 noundef %2873, i32 noundef 68, i32 noundef 1, i64 noundef %2875)
+  call void @ADD_ELEM(ptr noundef %2864, ptr noundef %2876)
+  %2877 = load ptr, ptr %70, align 8
+  %2878 = getelementptr inbounds %struct.iseq_label_data, ptr %2877, i32 0, i32 5
+  %2879 = load i32, ptr %2878, align 8
+  %2880 = add i32 %2879, 1
+  store i32 %2880, ptr %2878, align 8
+  br label %2881
 
-2875:                                             ; preds = %2857, %2839
-  %2876 = load ptr, ptr %12, align 8
-  %2877 = load ptr, ptr %11, align 8
-  %2878 = load ptr, ptr %21, align 8
-  %2879 = getelementptr inbounds %struct.RNode, ptr %2878, i32 0, i32 0
-  %2880 = load i64, ptr %2879, align 8
-  %2881 = ashr i64 %2880, 15
-  %2882 = trunc i64 %2881 to i32
-  %2883 = load ptr, ptr %21, align 8
-  %2884 = getelementptr inbounds %struct.RNode, ptr %2883, i32 0, i32 2
-  %2885 = load i32, ptr %2884, align 8
-  %2886 = call i64 @rb_fstring_new(ptr noundef @.str.121, i64 noundef 33)
-  %2887 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2877, i32 noundef %2882, i32 noundef %2885, i32 noundef 19, i32 noundef 1, i64 noundef %2886)
-  call void @ADD_ELEM(ptr noundef %2876, ptr noundef %2887)
-  %2888 = load ptr, ptr %12, align 8
-  %2889 = load ptr, ptr %11, align 8
-  %2890 = load ptr, ptr %21, align 8
-  %2891 = getelementptr inbounds %struct.RNode, ptr %2890, i32 0, i32 0
-  %2892 = load i64, ptr %2891, align 8
-  %2893 = ashr i64 %2892, 15
-  %2894 = trunc i64 %2893 to i32
-  %2895 = load ptr, ptr %21, align 8
-  %2896 = getelementptr inbounds %struct.RNode, ptr %2895, i32 0, i32 2
-  %2897 = load i32, ptr %2896, align 8
-  %2898 = load i32, ptr %18, align 4
-  %2899 = add i32 %2898, 1
-  %2900 = add i32 %2899, 1
-  %2901 = sext i32 %2900 to i64
-  %2902 = call i64 @RB_INT2FIX(i64 noundef %2901) #26
-  %2903 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2889, i32 noundef %2894, i32 noundef %2897, i32 noundef 45, i32 noundef 1, i64 noundef %2902)
-  call void @ADD_ELEM(ptr noundef %2888, ptr noundef %2903)
-  %2904 = load ptr, ptr %12, align 8
-  %2905 = load ptr, ptr %11, align 8
-  %2906 = load ptr, ptr %21, align 8
-  %2907 = getelementptr inbounds %struct.RNode, ptr %2906, i32 0, i32 0
-  %2908 = load i64, ptr %2907, align 8
-  %2909 = ashr i64 %2908, 15
-  %2910 = trunc i64 %2909 to i32
-  %2911 = load ptr, ptr %21, align 8
-  %2912 = getelementptr inbounds %struct.RNode, ptr %2911, i32 0, i32 2
-  %2913 = load i32, ptr %2912, align 8
-  %2914 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2905, i32 noundef %2910, i32 noundef %2913, i32 noundef 19, i32 noundef 1, i64 noundef 0)
-  call void @ADD_ELEM(ptr noundef %2904, ptr noundef %2914)
-  %2915 = load ptr, ptr %12, align 8
-  %2916 = load ptr, ptr %11, align 8
+2881:                                             ; preds = %2863, %2845
+  %2882 = load ptr, ptr %12, align 8
+  %2883 = load ptr, ptr %11, align 8
+  %2884 = load ptr, ptr %21, align 8
+  %2885 = getelementptr inbounds %struct.RNode, ptr %2884, i32 0, i32 0
+  %2886 = load i64, ptr %2885, align 8
+  %2887 = ashr i64 %2886, 15
+  %2888 = trunc i64 %2887 to i32
+  %2889 = load ptr, ptr %21, align 8
+  %2890 = getelementptr inbounds %struct.RNode, ptr %2889, i32 0, i32 2
+  %2891 = load i32, ptr %2890, align 8
+  %2892 = call i64 @rb_fstring_new(ptr noundef @.str.121, i64 noundef 33)
+  %2893 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2883, i32 noundef %2888, i32 noundef %2891, i32 noundef 19, i32 noundef 1, i64 noundef %2892)
+  call void @ADD_ELEM(ptr noundef %2882, ptr noundef %2893)
+  %2894 = load ptr, ptr %12, align 8
+  %2895 = load ptr, ptr %11, align 8
+  %2896 = load ptr, ptr %21, align 8
+  %2897 = getelementptr inbounds %struct.RNode, ptr %2896, i32 0, i32 0
+  %2898 = load i64, ptr %2897, align 8
+  %2899 = ashr i64 %2898, 15
+  %2900 = trunc i64 %2899 to i32
+  %2901 = load ptr, ptr %21, align 8
+  %2902 = getelementptr inbounds %struct.RNode, ptr %2901, i32 0, i32 2
+  %2903 = load i32, ptr %2902, align 8
+  %2904 = load i32, ptr %18, align 4
+  %2905 = add i32 %2904, 1
+  %2906 = add i32 %2905, 1
+  %2907 = sext i32 %2906 to i64
+  %2908 = call i64 @RB_INT2FIX(i64 noundef %2907) #26
+  %2909 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2895, i32 noundef %2900, i32 noundef %2903, i32 noundef 45, i32 noundef 1, i64 noundef %2908)
+  call void @ADD_ELEM(ptr noundef %2894, ptr noundef %2909)
+  %2910 = load ptr, ptr %12, align 8
+  %2911 = load ptr, ptr %11, align 8
+  %2912 = load ptr, ptr %21, align 8
+  %2913 = getelementptr inbounds %struct.RNode, ptr %2912, i32 0, i32 0
+  %2914 = load i64, ptr %2913, align 8
+  %2915 = ashr i64 %2914, 15
+  %2916 = trunc i64 %2915 to i32
   %2917 = load ptr, ptr %21, align 8
-  %2918 = getelementptr inbounds %struct.RNode, ptr %2917, i32 0, i32 0
-  %2919 = load i64, ptr %2918, align 8
-  %2920 = ashr i64 %2919, 15
-  %2921 = trunc i64 %2920 to i32
-  %2922 = load ptr, ptr %21, align 8
-  %2923 = getelementptr inbounds %struct.RNode, ptr %2922, i32 0, i32 2
-  %2924 = load i32, ptr %2923, align 8
-  %2925 = load i32, ptr %18, align 4
-  %2926 = add i32 %2925, 2
-  %2927 = add i32 %2926, 2
-  %2928 = sext i32 %2927 to i64
-  %2929 = call i64 @RB_INT2FIX(i64 noundef %2928) #26
-  %2930 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2916, i32 noundef %2921, i32 noundef %2924, i32 noundef 45, i32 noundef 1, i64 noundef %2929)
-  call void @ADD_ELEM(ptr noundef %2915, ptr noundef %2930)
-  %2931 = load ptr, ptr %12, align 8
-  %2932 = load ptr, ptr %11, align 8
-  %2933 = load ptr, ptr %21, align 8
-  %2934 = getelementptr inbounds %struct.RNode, ptr %2933, i32 0, i32 0
-  %2935 = load i64, ptr %2934, align 8
-  %2936 = ashr i64 %2935, 15
-  %2937 = trunc i64 %2936 to i32
-  %2938 = load ptr, ptr %21, align 8
-  %2939 = getelementptr inbounds %struct.RNode, ptr %2938, i32 0, i32 2
-  %2940 = load i32, ptr %2939, align 8
-  %2941 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2932, i32 noundef %2937, i32 noundef %2940, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %2931, ptr noundef %2941)
-  %2942 = load ptr, ptr %12, align 8
-  %2943 = load ptr, ptr %11, align 8
+  %2918 = getelementptr inbounds %struct.RNode, ptr %2917, i32 0, i32 2
+  %2919 = load i32, ptr %2918, align 8
+  %2920 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2911, i32 noundef %2916, i32 noundef %2919, i32 noundef 19, i32 noundef 1, i64 noundef 0)
+  call void @ADD_ELEM(ptr noundef %2910, ptr noundef %2920)
+  %2921 = load ptr, ptr %12, align 8
+  %2922 = load ptr, ptr %11, align 8
+  %2923 = load ptr, ptr %21, align 8
+  %2924 = getelementptr inbounds %struct.RNode, ptr %2923, i32 0, i32 0
+  %2925 = load i64, ptr %2924, align 8
+  %2926 = ashr i64 %2925, 15
+  %2927 = trunc i64 %2926 to i32
+  %2928 = load ptr, ptr %21, align 8
+  %2929 = getelementptr inbounds %struct.RNode, ptr %2928, i32 0, i32 2
+  %2930 = load i32, ptr %2929, align 8
+  %2931 = load i32, ptr %18, align 4
+  %2932 = add i32 %2931, 2
+  %2933 = add i32 %2932, 2
+  %2934 = sext i32 %2933 to i64
+  %2935 = call i64 @RB_INT2FIX(i64 noundef %2934) #26
+  %2936 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2922, i32 noundef %2927, i32 noundef %2930, i32 noundef 45, i32 noundef 1, i64 noundef %2935)
+  call void @ADD_ELEM(ptr noundef %2921, ptr noundef %2936)
+  %2937 = load ptr, ptr %12, align 8
+  %2938 = load ptr, ptr %11, align 8
+  %2939 = load ptr, ptr %21, align 8
+  %2940 = getelementptr inbounds %struct.RNode, ptr %2939, i32 0, i32 0
+  %2941 = load i64, ptr %2940, align 8
+  %2942 = ashr i64 %2941, 15
+  %2943 = trunc i64 %2942 to i32
   %2944 = load ptr, ptr %21, align 8
-  %2945 = getelementptr inbounds %struct.RNode, ptr %2944, i32 0, i32 0
-  %2946 = load i64, ptr %2945, align 8
-  %2947 = ashr i64 %2946, 15
-  %2948 = trunc i64 %2947 to i32
-  %2949 = load ptr, ptr %21, align 8
-  %2950 = getelementptr inbounds %struct.RNode, ptr %2949, i32 0, i32 2
-  %2951 = load i32, ptr %2950, align 8
-  %2952 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2943, i32 noundef %2948, i32 noundef %2951, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %2942, ptr noundef %2952)
-  %2953 = load ptr, ptr %12, align 8
-  %2954 = load ptr, ptr %70, align 8
-  call void @ADD_ELEM(ptr noundef %2953, ptr noundef %2954)
-  br label %2955
-
-2955:                                             ; preds = %2875, %2818
-  %2956 = load ptr, ptr %13, align 8
-  %2957 = call zeroext i1 @nd_type_p(ptr noundef %2956, i32 noundef 2)
-  br i1 %2957, label %2958, label %2976
-
-2958:                                             ; preds = %2955
+  %2945 = getelementptr inbounds %struct.RNode, ptr %2944, i32 0, i32 2
+  %2946 = load i32, ptr %2945, align 8
+  %2947 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2938, i32 noundef %2943, i32 noundef %2946, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %2937, ptr noundef %2947)
+  %2948 = load ptr, ptr %12, align 8
+  %2949 = load ptr, ptr %11, align 8
+  %2950 = load ptr, ptr %21, align 8
+  %2951 = getelementptr inbounds %struct.RNode, ptr %2950, i32 0, i32 0
+  %2952 = load i64, ptr %2951, align 8
+  %2953 = ashr i64 %2952, 15
+  %2954 = trunc i64 %2953 to i32
+  %2955 = load ptr, ptr %21, align 8
+  %2956 = getelementptr inbounds %struct.RNode, ptr %2955, i32 0, i32 2
+  %2957 = load i32, ptr %2956, align 8
+  %2958 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2949, i32 noundef %2954, i32 noundef %2957, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %2948, ptr noundef %2958)
   %2959 = load ptr, ptr %12, align 8
-  %2960 = load ptr, ptr %11, align 8
-  %2961 = load ptr, ptr %21, align 8
-  %2962 = getelementptr inbounds %struct.RNode, ptr %2961, i32 0, i32 0
-  %2963 = load i64, ptr %2962, align 8
-  %2964 = ashr i64 %2963, 15
-  %2965 = trunc i64 %2964 to i32
-  %2966 = load ptr, ptr %21, align 8
-  %2967 = getelementptr inbounds %struct.RNode, ptr %2966, i32 0, i32 2
-  %2968 = load i32, ptr %2967, align 8
-  %2969 = load ptr, ptr %69, align 8
-  %2970 = ptrtoint ptr %2969 to i64
-  %2971 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2960, i32 noundef %2965, i32 noundef %2968, i32 noundef 68, i32 noundef 1, i64 noundef %2970)
-  call void @ADD_ELEM(ptr noundef %2959, ptr noundef %2971)
-  %2972 = load ptr, ptr %69, align 8
-  %2973 = getelementptr inbounds %struct.iseq_label_data, ptr %2972, i32 0, i32 5
+  %2960 = load ptr, ptr %70, align 8
+  call void @ADD_ELEM(ptr noundef %2959, ptr noundef %2960)
+  br label %2961
+
+2961:                                             ; preds = %2881, %2824
+  %2962 = load ptr, ptr %13, align 8
+  %2963 = call zeroext i1 @nd_type_p(ptr noundef %2962, i32 noundef 2)
+  br i1 %2963, label %2964, label %2982
+
+2964:                                             ; preds = %2961
+  %2965 = load ptr, ptr %12, align 8
+  %2966 = load ptr, ptr %11, align 8
+  %2967 = load ptr, ptr %21, align 8
+  %2968 = getelementptr inbounds %struct.RNode, ptr %2967, i32 0, i32 0
+  %2969 = load i64, ptr %2968, align 8
+  %2970 = ashr i64 %2969, 15
+  %2971 = trunc i64 %2970 to i32
+  %2972 = load ptr, ptr %21, align 8
+  %2973 = getelementptr inbounds %struct.RNode, ptr %2972, i32 0, i32 2
   %2974 = load i32, ptr %2973, align 8
-  %2975 = add i32 %2974, 1
-  store i32 %2975, ptr %2973, align 8
-  br label %2994
+  %2975 = load ptr, ptr %69, align 8
+  %2976 = ptrtoint ptr %2975 to i64
+  %2977 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2966, i32 noundef %2971, i32 noundef %2974, i32 noundef 68, i32 noundef 1, i64 noundef %2976)
+  call void @ADD_ELEM(ptr noundef %2965, ptr noundef %2977)
+  %2978 = load ptr, ptr %69, align 8
+  %2979 = getelementptr inbounds %struct.iseq_label_data, ptr %2978, i32 0, i32 5
+  %2980 = load i32, ptr %2979, align 8
+  %2981 = add i32 %2980, 1
+  store i32 %2981, ptr %2979, align 8
+  br label %3000
 
-2976:                                             ; preds = %2955
-  %2977 = load ptr, ptr %12, align 8
-  %2978 = load ptr, ptr %11, align 8
-  %2979 = load ptr, ptr %21, align 8
-  %2980 = getelementptr inbounds %struct.RNode, ptr %2979, i32 0, i32 0
-  %2981 = load i64, ptr %2980, align 8
-  %2982 = ashr i64 %2981, 15
-  %2983 = trunc i64 %2982 to i32
-  %2984 = load ptr, ptr %21, align 8
-  %2985 = getelementptr inbounds %struct.RNode, ptr %2984, i32 0, i32 2
-  %2986 = load i32, ptr %2985, align 8
-  %2987 = load ptr, ptr %69, align 8
-  %2988 = ptrtoint ptr %2987 to i64
-  %2989 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2978, i32 noundef %2983, i32 noundef %2986, i32 noundef 67, i32 noundef 1, i64 noundef %2988)
-  call void @ADD_ELEM(ptr noundef %2977, ptr noundef %2989)
-  %2990 = load ptr, ptr %69, align 8
-  %2991 = getelementptr inbounds %struct.iseq_label_data, ptr %2990, i32 0, i32 5
+2982:                                             ; preds = %2961
+  %2983 = load ptr, ptr %12, align 8
+  %2984 = load ptr, ptr %11, align 8
+  %2985 = load ptr, ptr %21, align 8
+  %2986 = getelementptr inbounds %struct.RNode, ptr %2985, i32 0, i32 0
+  %2987 = load i64, ptr %2986, align 8
+  %2988 = ashr i64 %2987, 15
+  %2989 = trunc i64 %2988 to i32
+  %2990 = load ptr, ptr %21, align 8
+  %2991 = getelementptr inbounds %struct.RNode, ptr %2990, i32 0, i32 2
   %2992 = load i32, ptr %2991, align 8
-  %2993 = add i32 %2992, 1
-  store i32 %2993, ptr %2991, align 8
-  br label %2994
+  %2993 = load ptr, ptr %69, align 8
+  %2994 = ptrtoint ptr %2993 to i64
+  %2995 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2984, i32 noundef %2989, i32 noundef %2992, i32 noundef 67, i32 noundef 1, i64 noundef %2994)
+  call void @ADD_ELEM(ptr noundef %2983, ptr noundef %2995)
+  %2996 = load ptr, ptr %69, align 8
+  %2997 = getelementptr inbounds %struct.iseq_label_data, ptr %2996, i32 0, i32 5
+  %2998 = load i32, ptr %2997, align 8
+  %2999 = add i32 %2998, 1
+  store i32 %2999, ptr %2997, align 8
+  br label %3000
 
-2994:                                             ; preds = %2976, %2958
-  %2995 = load ptr, ptr %12, align 8
-  %2996 = load ptr, ptr %11, align 8
-  %2997 = load ptr, ptr %21, align 8
-  %2998 = getelementptr inbounds %struct.RNode, ptr %2997, i32 0, i32 0
-  %2999 = load i64, ptr %2998, align 8
-  %3000 = ashr i64 %2999, 15
-  %3001 = trunc i64 %3000 to i32
-  %3002 = load ptr, ptr %21, align 8
-  %3003 = getelementptr inbounds %struct.RNode, ptr %3002, i32 0, i32 2
-  %3004 = load i32, ptr %3003, align 8
-  %3005 = load ptr, ptr %14, align 8
-  %3006 = ptrtoint ptr %3005 to i64
-  %3007 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %2996, i32 noundef %3001, i32 noundef %3004, i32 noundef 66, i32 noundef 1, i64 noundef %3006)
-  call void @ADD_ELEM(ptr noundef %2995, ptr noundef %3007)
-  %3008 = load ptr, ptr %14, align 8
-  %3009 = getelementptr inbounds %struct.iseq_label_data, ptr %3008, i32 0, i32 5
+3000:                                             ; preds = %2982, %2964
+  %3001 = load ptr, ptr %12, align 8
+  %3002 = load ptr, ptr %11, align 8
+  %3003 = load ptr, ptr %21, align 8
+  %3004 = getelementptr inbounds %struct.RNode, ptr %3003, i32 0, i32 0
+  %3005 = load i64, ptr %3004, align 8
+  %3006 = ashr i64 %3005, 15
+  %3007 = trunc i64 %3006 to i32
+  %3008 = load ptr, ptr %21, align 8
+  %3009 = getelementptr inbounds %struct.RNode, ptr %3008, i32 0, i32 2
   %3010 = load i32, ptr %3009, align 8
-  %3011 = add i32 %3010, 1
-  store i32 %3011, ptr %3009, align 8
-  br label %3236
+  %3011 = load ptr, ptr %14, align 8
+  %3012 = ptrtoint ptr %3011 to i64
+  %3013 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3002, i32 noundef %3007, i32 noundef %3010, i32 noundef 66, i32 noundef 1, i64 noundef %3012)
+  call void @ADD_ELEM(ptr noundef %3001, ptr noundef %3013)
+  %3014 = load ptr, ptr %14, align 8
+  %3015 = getelementptr inbounds %struct.iseq_label_data, ptr %3014, i32 0, i32 5
+  %3016 = load i32, ptr %3015, align 8
+  %3017 = add i32 %3016, 1
+  store i32 %3017, ptr %3015, align 8
+  br label %3242
 
-3012:                                             ; preds = %9
-  %3013 = load ptr, ptr %11, align 8
-  %3014 = load i32, ptr %20, align 4
-  %3015 = sext i32 %3014 to i64
-  %3016 = call ptr @new_label_body(ptr noundef %3013, i64 noundef %3015)
-  store ptr %3016, ptr %72, align 8
-  %3017 = load ptr, ptr %13, align 8
-  %3018 = getelementptr inbounds %struct.RNode_HASH, ptr %3017, i32 0, i32 1
-  %3019 = load ptr, ptr %3018, align 8
-  store ptr %3019, ptr %71, align 8
-  %3020 = load ptr, ptr %71, align 8
-  %3021 = call zeroext i1 @nd_type_p(ptr noundef %3020, i32 noundef 43)
-  br i1 %3021, label %3022, label %3027
+3018:                                             ; preds = %9
+  %3019 = load ptr, ptr %11, align 8
+  %3020 = load i32, ptr %20, align 4
+  %3021 = sext i32 %3020 to i64
+  %3022 = call ptr @new_label_body(ptr noundef %3019, i64 noundef %3021)
+  store ptr %3022, ptr %72, align 8
+  %3023 = load ptr, ptr %13, align 8
+  %3024 = getelementptr inbounds %struct.RNode_HASH, ptr %3023, i32 0, i32 1
+  %3025 = load ptr, ptr %3024, align 8
+  store ptr %3025, ptr %71, align 8
+  %3026 = load ptr, ptr %71, align 8
+  %3027 = call zeroext i1 @nd_type_p(ptr noundef %3026, i32 noundef 43)
+  br i1 %3027, label %3028, label %3033
 
-3022:                                             ; preds = %3012
-  %3023 = load ptr, ptr %71, align 8
-  %3024 = getelementptr inbounds %struct.RNode_LIST, ptr %3023, i32 0, i32 2
-  %3025 = load i64, ptr %3024, align 8
-  %3026 = icmp eq i64 %3025, 2
-  br i1 %3026, label %3034, label %3027
-
-3027:                                             ; preds = %3022, %3012
-  %3028 = load ptr, ptr %11, align 8
-  %3029 = load ptr, ptr %13, align 8
-  %3030 = getelementptr inbounds %struct.RNode, ptr %3029, i32 0, i32 0
+3028:                                             ; preds = %3018
+  %3029 = load ptr, ptr %71, align 8
+  %3030 = getelementptr inbounds %struct.RNode_LIST, ptr %3029, i32 0, i32 2
   %3031 = load i64, ptr %3030, align 8
-  %3032 = ashr i64 %3031, 15
-  %3033 = trunc i64 %3032 to i32
-  call void (ptr, i32, ptr, ...) @append_compile_error(ptr noundef %3028, i32 noundef %3033, ptr noundef @.str.96)
-  store i32 0, ptr %10, align 4
-  br label %3237
+  %3032 = icmp eq i64 %3031, 2
+  br i1 %3032, label %3040, label %3033
 
-3034:                                             ; preds = %3022
-  %3035 = load ptr, ptr %12, align 8
-  %3036 = load ptr, ptr %11, align 8
-  %3037 = load ptr, ptr %21, align 8
-  %3038 = getelementptr inbounds %struct.RNode, ptr %3037, i32 0, i32 0
-  %3039 = load i64, ptr %3038, align 8
-  %3040 = ashr i64 %3039, 15
-  %3041 = trunc i64 %3040 to i32
-  %3042 = load ptr, ptr %21, align 8
-  %3043 = getelementptr inbounds %struct.RNode, ptr %3042, i32 0, i32 2
-  %3044 = load i32, ptr %3043, align 8
-  %3045 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3036, i32 noundef %3041, i32 noundef %3044, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %3035, ptr noundef %3045)
-  %3046 = load ptr, ptr %11, align 8
-  %3047 = load ptr, ptr %12, align 8
-  %3048 = load ptr, ptr %71, align 8
-  %3049 = getelementptr inbounds %struct.RNode_LIST, ptr %3048, i32 0, i32 1
-  %3050 = load ptr, ptr %3049, align 8
-  %3051 = load ptr, ptr %72, align 8
-  %3052 = load i8, ptr %16, align 1
-  %3053 = trunc i8 %3052 to i1
-  %3054 = load i8, ptr %17, align 1
-  %3055 = trunc i8 %3054 to i1
-  %3056 = load i32, ptr %18, align 4
-  %3057 = add i32 %3056, 1
-  %3058 = load i8, ptr %19, align 1
+3033:                                             ; preds = %3028, %3018
+  %3034 = load ptr, ptr %11, align 8
+  %3035 = load ptr, ptr %13, align 8
+  %3036 = getelementptr inbounds %struct.RNode, ptr %3035, i32 0, i32 0
+  %3037 = load i64, ptr %3036, align 8
+  %3038 = ashr i64 %3037, 15
+  %3039 = trunc i64 %3038 to i32
+  call void (ptr, i32, ptr, ...) @append_compile_error(ptr noundef %3034, i32 noundef %3039, ptr noundef @.str.96)
+  store i32 0, ptr %10, align 4
+  br label %3243
+
+3040:                                             ; preds = %3028
+  %3041 = load ptr, ptr %12, align 8
+  %3042 = load ptr, ptr %11, align 8
+  %3043 = load ptr, ptr %21, align 8
+  %3044 = getelementptr inbounds %struct.RNode, ptr %3043, i32 0, i32 0
+  %3045 = load i64, ptr %3044, align 8
+  %3046 = ashr i64 %3045, 15
+  %3047 = trunc i64 %3046 to i32
+  %3048 = load ptr, ptr %21, align 8
+  %3049 = getelementptr inbounds %struct.RNode, ptr %3048, i32 0, i32 2
+  %3050 = load i32, ptr %3049, align 8
+  %3051 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3042, i32 noundef %3047, i32 noundef %3050, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %3041, ptr noundef %3051)
+  %3052 = load ptr, ptr %11, align 8
+  %3053 = load ptr, ptr %12, align 8
+  %3054 = load ptr, ptr %71, align 8
+  %3055 = getelementptr inbounds %struct.RNode_LIST, ptr %3054, i32 0, i32 1
+  %3056 = load ptr, ptr %3055, align 8
+  %3057 = load ptr, ptr %72, align 8
+  %3058 = load i8, ptr %16, align 1
   %3059 = trunc i8 %3058 to i1
-  %3060 = call i32 @iseq_compile_pattern_match(ptr noundef %3046, ptr noundef %3047, ptr noundef %3050, ptr noundef %3051, i1 noundef zeroext %3053, i1 noundef zeroext %3055, i32 noundef %3057, i1 noundef zeroext %3059)
-  %3061 = icmp ne i32 %3060, 0
-  br i1 %3061, label %3063, label %3062
+  %3060 = load i8, ptr %17, align 1
+  %3061 = trunc i8 %3060 to i1
+  %3062 = load i32, ptr %18, align 4
+  %3063 = add i32 %3062, 1
+  %3064 = load i8, ptr %19, align 1
+  %3065 = trunc i8 %3064 to i1
+  %3066 = call i32 @iseq_compile_pattern_match(ptr noundef %3052, ptr noundef %3053, ptr noundef %3056, ptr noundef %3057, i1 noundef zeroext %3059, i1 noundef zeroext %3061, i32 noundef %3063, i1 noundef zeroext %3065)
+  %3067 = icmp ne i32 %3066, 0
+  br i1 %3067, label %3069, label %3068
 
-3062:                                             ; preds = %3034
+3068:                                             ; preds = %3040
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-3063:                                             ; preds = %3034
-  %3064 = load ptr, ptr %11, align 8
-  %3065 = load ptr, ptr %12, align 8
-  %3066 = load ptr, ptr %71, align 8
-  %3067 = getelementptr inbounds %struct.RNode_LIST, ptr %3066, i32 0, i32 3
-  %3068 = load ptr, ptr %3067, align 8
-  %3069 = getelementptr inbounds %struct.RNode_LIST, ptr %3068, i32 0, i32 1
-  %3070 = load ptr, ptr %3069, align 8
-  %3071 = load ptr, ptr %14, align 8
-  %3072 = load ptr, ptr %72, align 8
-  %3073 = load i8, ptr %16, align 1
-  %3074 = trunc i8 %3073 to i1
-  %3075 = load i8, ptr %17, align 1
-  %3076 = trunc i8 %3075 to i1
-  %3077 = load i32, ptr %18, align 4
-  %3078 = call i32 @iseq_compile_pattern_each(ptr noundef %3064, ptr noundef %3065, ptr noundef %3070, ptr noundef %3071, ptr noundef %3072, i1 noundef zeroext %3074, i1 noundef zeroext %3076, i32 noundef %3077, i1 noundef zeroext false)
-  %3079 = icmp ne i32 %3078, 0
-  br i1 %3079, label %3081, label %3080
+3069:                                             ; preds = %3040
+  %3070 = load ptr, ptr %11, align 8
+  %3071 = load ptr, ptr %12, align 8
+  %3072 = load ptr, ptr %71, align 8
+  %3073 = getelementptr inbounds %struct.RNode_LIST, ptr %3072, i32 0, i32 3
+  %3074 = load ptr, ptr %3073, align 8
+  %3075 = getelementptr inbounds %struct.RNode_LIST, ptr %3074, i32 0, i32 1
+  %3076 = load ptr, ptr %3075, align 8
+  %3077 = load ptr, ptr %14, align 8
+  %3078 = load ptr, ptr %72, align 8
+  %3079 = load i8, ptr %16, align 1
+  %3080 = trunc i8 %3079 to i1
+  %3081 = load i8, ptr %17, align 1
+  %3082 = trunc i8 %3081 to i1
+  %3083 = load i32, ptr %18, align 4
+  %3084 = call i32 @iseq_compile_pattern_each(ptr noundef %3070, ptr noundef %3071, ptr noundef %3076, ptr noundef %3077, ptr noundef %3078, i1 noundef zeroext %3080, i1 noundef zeroext %3082, i32 noundef %3083, i1 noundef zeroext false)
+  %3085 = icmp ne i32 %3084, 0
+  br i1 %3085, label %3087, label %3086
 
-3080:                                             ; preds = %3063
+3086:                                             ; preds = %3069
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-3081:                                             ; preds = %3063
-  %3082 = load ptr, ptr %12, align 8
-  %3083 = load ptr, ptr %11, align 8
-  %3084 = load ptr, ptr %21, align 8
-  %3085 = getelementptr inbounds %struct.RNode, ptr %3084, i32 0, i32 0
-  %3086 = load i64, ptr %3085, align 8
-  %3087 = ashr i64 %3086, 15
-  %3088 = trunc i64 %3087 to i32
-  %3089 = load ptr, ptr %21, align 8
-  %3090 = getelementptr inbounds %struct.RNode, ptr %3089, i32 0, i32 2
-  %3091 = load i32, ptr %3090, align 8
-  %3092 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3083, i32 noundef %3088, i32 noundef %3091, i32 noundef 17, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %3082, ptr noundef %3092)
-  %3093 = load ptr, ptr %12, align 8
-  %3094 = load ptr, ptr %72, align 8
-  call void @ADD_ELEM(ptr noundef %3093, ptr noundef %3094)
-  %3095 = load ptr, ptr %12, align 8
-  %3096 = load ptr, ptr %11, align 8
-  %3097 = load ptr, ptr %21, align 8
-  %3098 = getelementptr inbounds %struct.RNode, ptr %3097, i32 0, i32 0
-  %3099 = load i64, ptr %3098, align 8
-  %3100 = ashr i64 %3099, 15
-  %3101 = trunc i64 %3100 to i32
-  %3102 = load ptr, ptr %21, align 8
-  %3103 = getelementptr inbounds %struct.RNode, ptr %3102, i32 0, i32 2
-  %3104 = load i32, ptr %3103, align 8
-  %3105 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3096, i32 noundef %3101, i32 noundef %3104, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %3095, ptr noundef %3105)
-  %3106 = load ptr, ptr %12, align 8
-  %3107 = load ptr, ptr %11, align 8
+3087:                                             ; preds = %3069
+  %3088 = load ptr, ptr %12, align 8
+  %3089 = load ptr, ptr %11, align 8
+  %3090 = load ptr, ptr %21, align 8
+  %3091 = getelementptr inbounds %struct.RNode, ptr %3090, i32 0, i32 0
+  %3092 = load i64, ptr %3091, align 8
+  %3093 = ashr i64 %3092, 15
+  %3094 = trunc i64 %3093 to i32
+  %3095 = load ptr, ptr %21, align 8
+  %3096 = getelementptr inbounds %struct.RNode, ptr %3095, i32 0, i32 2
+  %3097 = load i32, ptr %3096, align 8
+  %3098 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3089, i32 noundef %3094, i32 noundef %3097, i32 noundef 17, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %3088, ptr noundef %3098)
+  %3099 = load ptr, ptr %12, align 8
+  %3100 = load ptr, ptr %72, align 8
+  call void @ADD_ELEM(ptr noundef %3099, ptr noundef %3100)
+  %3101 = load ptr, ptr %12, align 8
+  %3102 = load ptr, ptr %11, align 8
+  %3103 = load ptr, ptr %21, align 8
+  %3104 = getelementptr inbounds %struct.RNode, ptr %3103, i32 0, i32 0
+  %3105 = load i64, ptr %3104, align 8
+  %3106 = ashr i64 %3105, 15
+  %3107 = trunc i64 %3106 to i32
   %3108 = load ptr, ptr %21, align 8
-  %3109 = getelementptr inbounds %struct.RNode, ptr %3108, i32 0, i32 0
-  %3110 = load i64, ptr %3109, align 8
-  %3111 = ashr i64 %3110, 15
-  %3112 = trunc i64 %3111 to i32
-  %3113 = load ptr, ptr %21, align 8
-  %3114 = getelementptr inbounds %struct.RNode, ptr %3113, i32 0, i32 2
-  %3115 = load i32, ptr %3114, align 8
-  %3116 = load ptr, ptr %15, align 8
-  %3117 = ptrtoint ptr %3116 to i64
-  %3118 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3107, i32 noundef %3112, i32 noundef %3115, i32 noundef 66, i32 noundef 1, i64 noundef %3117)
-  call void @ADD_ELEM(ptr noundef %3106, ptr noundef %3118)
-  %3119 = load ptr, ptr %15, align 8
-  %3120 = getelementptr inbounds %struct.iseq_label_data, ptr %3119, i32 0, i32 5
+  %3109 = getelementptr inbounds %struct.RNode, ptr %3108, i32 0, i32 2
+  %3110 = load i32, ptr %3109, align 8
+  %3111 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3102, i32 noundef %3107, i32 noundef %3110, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %3101, ptr noundef %3111)
+  %3112 = load ptr, ptr %12, align 8
+  %3113 = load ptr, ptr %11, align 8
+  %3114 = load ptr, ptr %21, align 8
+  %3115 = getelementptr inbounds %struct.RNode, ptr %3114, i32 0, i32 0
+  %3116 = load i64, ptr %3115, align 8
+  %3117 = ashr i64 %3116, 15
+  %3118 = trunc i64 %3117 to i32
+  %3119 = load ptr, ptr %21, align 8
+  %3120 = getelementptr inbounds %struct.RNode, ptr %3119, i32 0, i32 2
   %3121 = load i32, ptr %3120, align 8
-  %3122 = add i32 %3121, 1
-  store i32 %3122, ptr %3120, align 8
-  br label %3236
+  %3122 = load ptr, ptr %15, align 8
+  %3123 = ptrtoint ptr %3122 to i64
+  %3124 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3113, i32 noundef %3118, i32 noundef %3121, i32 noundef 66, i32 noundef 1, i64 noundef %3123)
+  call void @ADD_ELEM(ptr noundef %3112, ptr noundef %3124)
+  %3125 = load ptr, ptr %15, align 8
+  %3126 = getelementptr inbounds %struct.iseq_label_data, ptr %3125, i32 0, i32 5
+  %3127 = load i32, ptr %3126, align 8
+  %3128 = add i32 %3127, 1
+  store i32 %3128, ptr %3126, align 8
+  br label %3242
 
-3123:                                             ; preds = %9
-  %3124 = load ptr, ptr %11, align 8
-  %3125 = load i32, ptr %20, align 4
-  %3126 = sext i32 %3125 to i64
-  %3127 = call ptr @new_label_body(ptr noundef %3124, i64 noundef %3126)
-  store ptr %3127, ptr %73, align 8
-  %3128 = load ptr, ptr %11, align 8
-  %3129 = load i32, ptr %20, align 4
-  %3130 = sext i32 %3129 to i64
-  %3131 = call ptr @new_label_body(ptr noundef %3128, i64 noundef %3130)
-  store ptr %3131, ptr %74, align 8
-  %3132 = load ptr, ptr %12, align 8
-  %3133 = load ptr, ptr %11, align 8
-  %3134 = load ptr, ptr %21, align 8
-  %3135 = getelementptr inbounds %struct.RNode, ptr %3134, i32 0, i32 0
-  %3136 = load i64, ptr %3135, align 8
-  %3137 = ashr i64 %3136, 15
-  %3138 = trunc i64 %3137 to i32
-  %3139 = load ptr, ptr %21, align 8
-  %3140 = getelementptr inbounds %struct.RNode, ptr %3139, i32 0, i32 2
-  %3141 = load i32, ptr %3140, align 8
-  %3142 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3133, i32 noundef %3138, i32 noundef %3141, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %3132, ptr noundef %3142)
-  %3143 = load ptr, ptr %11, align 8
-  %3144 = load ptr, ptr %12, align 8
-  %3145 = load ptr, ptr %13, align 8
-  %3146 = getelementptr inbounds %struct.RNode_OR, ptr %3145, i32 0, i32 1
-  %3147 = load ptr, ptr %3146, align 8
-  %3148 = load ptr, ptr %73, align 8
-  %3149 = load ptr, ptr %74, align 8
-  %3150 = load i8, ptr %16, align 1
-  %3151 = trunc i8 %3150 to i1
-  %3152 = load i32, ptr %18, align 4
-  %3153 = add i32 %3152, 1
-  %3154 = load i8, ptr %19, align 1
-  %3155 = trunc i8 %3154 to i1
-  %3156 = call i32 @iseq_compile_pattern_each(ptr noundef %3143, ptr noundef %3144, ptr noundef %3147, ptr noundef %3148, ptr noundef %3149, i1 noundef zeroext %3151, i1 noundef zeroext true, i32 noundef %3153, i1 noundef zeroext %3155)
-  %3157 = icmp ne i32 %3156, 0
-  br i1 %3157, label %3159, label %3158
+3129:                                             ; preds = %9
+  %3130 = load ptr, ptr %11, align 8
+  %3131 = load i32, ptr %20, align 4
+  %3132 = sext i32 %3131 to i64
+  %3133 = call ptr @new_label_body(ptr noundef %3130, i64 noundef %3132)
+  store ptr %3133, ptr %73, align 8
+  %3134 = load ptr, ptr %11, align 8
+  %3135 = load i32, ptr %20, align 4
+  %3136 = sext i32 %3135 to i64
+  %3137 = call ptr @new_label_body(ptr noundef %3134, i64 noundef %3136)
+  store ptr %3137, ptr %74, align 8
+  %3138 = load ptr, ptr %12, align 8
+  %3139 = load ptr, ptr %11, align 8
+  %3140 = load ptr, ptr %21, align 8
+  %3141 = getelementptr inbounds %struct.RNode, ptr %3140, i32 0, i32 0
+  %3142 = load i64, ptr %3141, align 8
+  %3143 = ashr i64 %3142, 15
+  %3144 = trunc i64 %3143 to i32
+  %3145 = load ptr, ptr %21, align 8
+  %3146 = getelementptr inbounds %struct.RNode, ptr %3145, i32 0, i32 2
+  %3147 = load i32, ptr %3146, align 8
+  %3148 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3139, i32 noundef %3144, i32 noundef %3147, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %3138, ptr noundef %3148)
+  %3149 = load ptr, ptr %11, align 8
+  %3150 = load ptr, ptr %12, align 8
+  %3151 = load ptr, ptr %13, align 8
+  %3152 = getelementptr inbounds %struct.RNode_OR, ptr %3151, i32 0, i32 1
+  %3153 = load ptr, ptr %3152, align 8
+  %3154 = load ptr, ptr %73, align 8
+  %3155 = load ptr, ptr %74, align 8
+  %3156 = load i8, ptr %16, align 1
+  %3157 = trunc i8 %3156 to i1
+  %3158 = load i32, ptr %18, align 4
+  %3159 = add i32 %3158, 1
+  %3160 = load i8, ptr %19, align 1
+  %3161 = trunc i8 %3160 to i1
+  %3162 = call i32 @iseq_compile_pattern_each(ptr noundef %3149, ptr noundef %3150, ptr noundef %3153, ptr noundef %3154, ptr noundef %3155, i1 noundef zeroext %3157, i1 noundef zeroext true, i32 noundef %3159, i1 noundef zeroext %3161)
+  %3163 = icmp ne i32 %3162, 0
+  br i1 %3163, label %3165, label %3164
 
-3158:                                             ; preds = %3123
+3164:                                             ; preds = %3129
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-3159:                                             ; preds = %3123
-  %3160 = load ptr, ptr %12, align 8
-  %3161 = load ptr, ptr %73, align 8
-  call void @ADD_ELEM(ptr noundef %3160, ptr noundef %3161)
-  %3162 = load ptr, ptr %12, align 8
-  %3163 = load ptr, ptr %11, align 8
-  %3164 = load ptr, ptr %21, align 8
-  %3165 = getelementptr inbounds %struct.RNode, ptr %3164, i32 0, i32 0
-  %3166 = load i64, ptr %3165, align 8
-  %3167 = ashr i64 %3166, 15
-  %3168 = trunc i64 %3167 to i32
-  %3169 = load ptr, ptr %21, align 8
-  %3170 = getelementptr inbounds %struct.RNode, ptr %3169, i32 0, i32 2
-  %3171 = load i32, ptr %3170, align 8
-  %3172 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3163, i32 noundef %3168, i32 noundef %3171, i32 noundef 39, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %3162, ptr noundef %3172)
-  %3173 = load ptr, ptr %12, align 8
-  %3174 = load ptr, ptr %11, align 8
+3165:                                             ; preds = %3129
+  %3166 = load ptr, ptr %12, align 8
+  %3167 = load ptr, ptr %73, align 8
+  call void @ADD_ELEM(ptr noundef %3166, ptr noundef %3167)
+  %3168 = load ptr, ptr %12, align 8
+  %3169 = load ptr, ptr %11, align 8
+  %3170 = load ptr, ptr %21, align 8
+  %3171 = getelementptr inbounds %struct.RNode, ptr %3170, i32 0, i32 0
+  %3172 = load i64, ptr %3171, align 8
+  %3173 = ashr i64 %3172, 15
+  %3174 = trunc i64 %3173 to i32
   %3175 = load ptr, ptr %21, align 8
-  %3176 = getelementptr inbounds %struct.RNode, ptr %3175, i32 0, i32 0
-  %3177 = load i64, ptr %3176, align 8
-  %3178 = ashr i64 %3177, 15
-  %3179 = trunc i64 %3178 to i32
-  %3180 = load ptr, ptr %21, align 8
-  %3181 = getelementptr inbounds %struct.RNode, ptr %3180, i32 0, i32 2
-  %3182 = load i32, ptr %3181, align 8
-  %3183 = load ptr, ptr %14, align 8
-  %3184 = ptrtoint ptr %3183 to i64
-  %3185 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3174, i32 noundef %3179, i32 noundef %3182, i32 noundef 66, i32 noundef 1, i64 noundef %3184)
-  call void @ADD_ELEM(ptr noundef %3173, ptr noundef %3185)
-  %3186 = load ptr, ptr %14, align 8
-  %3187 = getelementptr inbounds %struct.iseq_label_data, ptr %3186, i32 0, i32 5
+  %3176 = getelementptr inbounds %struct.RNode, ptr %3175, i32 0, i32 2
+  %3177 = load i32, ptr %3176, align 8
+  %3178 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3169, i32 noundef %3174, i32 noundef %3177, i32 noundef 39, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %3168, ptr noundef %3178)
+  %3179 = load ptr, ptr %12, align 8
+  %3180 = load ptr, ptr %11, align 8
+  %3181 = load ptr, ptr %21, align 8
+  %3182 = getelementptr inbounds %struct.RNode, ptr %3181, i32 0, i32 0
+  %3183 = load i64, ptr %3182, align 8
+  %3184 = ashr i64 %3183, 15
+  %3185 = trunc i64 %3184 to i32
+  %3186 = load ptr, ptr %21, align 8
+  %3187 = getelementptr inbounds %struct.RNode, ptr %3186, i32 0, i32 2
   %3188 = load i32, ptr %3187, align 8
-  %3189 = add i32 %3188, 1
-  store i32 %3189, ptr %3187, align 8
-  %3190 = load ptr, ptr %12, align 8
-  %3191 = load ptr, ptr %11, align 8
-  %3192 = load ptr, ptr %21, align 8
-  %3193 = getelementptr inbounds %struct.RNode, ptr %3192, i32 0, i32 0
-  %3194 = load i64, ptr %3193, align 8
-  %3195 = ashr i64 %3194, 15
-  %3196 = trunc i64 %3195 to i32
-  %3197 = load ptr, ptr %21, align 8
-  %3198 = getelementptr inbounds %struct.RNode, ptr %3197, i32 0, i32 2
-  %3199 = load i32, ptr %3198, align 8
-  %3200 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3191, i32 noundef %3196, i32 noundef %3199, i32 noundef 17, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %3190, ptr noundef %3200)
-  %3201 = load ptr, ptr %12, align 8
-  %3202 = load ptr, ptr %74, align 8
-  call void @ADD_ELEM(ptr noundef %3201, ptr noundef %3202)
-  %3203 = load ptr, ptr %11, align 8
-  %3204 = load ptr, ptr %12, align 8
-  %3205 = load ptr, ptr %13, align 8
-  %3206 = getelementptr inbounds %struct.RNode_OR, ptr %3205, i32 0, i32 2
-  %3207 = load ptr, ptr %3206, align 8
-  %3208 = load ptr, ptr %14, align 8
-  %3209 = load ptr, ptr %15, align 8
-  %3210 = load i8, ptr %16, align 1
-  %3211 = trunc i8 %3210 to i1
-  %3212 = load i32, ptr %18, align 4
-  %3213 = load i8, ptr %19, align 1
-  %3214 = trunc i8 %3213 to i1
-  %3215 = call i32 @iseq_compile_pattern_each(ptr noundef %3203, ptr noundef %3204, ptr noundef %3207, ptr noundef %3208, ptr noundef %3209, i1 noundef zeroext %3211, i1 noundef zeroext true, i32 noundef %3212, i1 noundef zeroext %3214)
-  %3216 = icmp ne i32 %3215, 0
-  br i1 %3216, label %3218, label %3217
+  %3189 = load ptr, ptr %14, align 8
+  %3190 = ptrtoint ptr %3189 to i64
+  %3191 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3180, i32 noundef %3185, i32 noundef %3188, i32 noundef 66, i32 noundef 1, i64 noundef %3190)
+  call void @ADD_ELEM(ptr noundef %3179, ptr noundef %3191)
+  %3192 = load ptr, ptr %14, align 8
+  %3193 = getelementptr inbounds %struct.iseq_label_data, ptr %3192, i32 0, i32 5
+  %3194 = load i32, ptr %3193, align 8
+  %3195 = add i32 %3194, 1
+  store i32 %3195, ptr %3193, align 8
+  %3196 = load ptr, ptr %12, align 8
+  %3197 = load ptr, ptr %11, align 8
+  %3198 = load ptr, ptr %21, align 8
+  %3199 = getelementptr inbounds %struct.RNode, ptr %3198, i32 0, i32 0
+  %3200 = load i64, ptr %3199, align 8
+  %3201 = ashr i64 %3200, 15
+  %3202 = trunc i64 %3201 to i32
+  %3203 = load ptr, ptr %21, align 8
+  %3204 = getelementptr inbounds %struct.RNode, ptr %3203, i32 0, i32 2
+  %3205 = load i32, ptr %3204, align 8
+  %3206 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %3197, i32 noundef %3202, i32 noundef %3205, i32 noundef 17, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %3196, ptr noundef %3206)
+  %3207 = load ptr, ptr %12, align 8
+  %3208 = load ptr, ptr %74, align 8
+  call void @ADD_ELEM(ptr noundef %3207, ptr noundef %3208)
+  %3209 = load ptr, ptr %11, align 8
+  %3210 = load ptr, ptr %12, align 8
+  %3211 = load ptr, ptr %13, align 8
+  %3212 = getelementptr inbounds %struct.RNode_OR, ptr %3211, i32 0, i32 2
+  %3213 = load ptr, ptr %3212, align 8
+  %3214 = load ptr, ptr %14, align 8
+  %3215 = load ptr, ptr %15, align 8
+  %3216 = load i8, ptr %16, align 1
+  %3217 = trunc i8 %3216 to i1
+  %3218 = load i32, ptr %18, align 4
+  %3219 = load i8, ptr %19, align 1
+  %3220 = trunc i8 %3219 to i1
+  %3221 = call i32 @iseq_compile_pattern_each(ptr noundef %3209, ptr noundef %3210, ptr noundef %3213, ptr noundef %3214, ptr noundef %3215, i1 noundef zeroext %3217, i1 noundef zeroext true, i32 noundef %3218, i1 noundef zeroext %3220)
+  %3222 = icmp ne i32 %3221, 0
+  br i1 %3222, label %3224, label %3223
 
-3217:                                             ; preds = %3159
+3223:                                             ; preds = %3165
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-3218:                                             ; preds = %3159
-  br label %3236
+3224:                                             ; preds = %3165
+  br label %3242
 
-3219:                                             ; preds = %9
-  br label %3220
+3225:                                             ; preds = %9
+  br label %3226
 
-3220:                                             ; preds = %3219
-  %3221 = load ptr, ptr %13, align 8
-  store ptr %3221, ptr %75, align 8
-  %3222 = load ptr, ptr %11, align 8
-  %3223 = load ptr, ptr %75, align 8
-  %3224 = getelementptr inbounds %struct.RNode, ptr %3223, i32 0, i32 0
-  %3225 = load i64, ptr %3224, align 8
-  %3226 = ashr i64 %3225, 15
-  %3227 = trunc i64 %3226 to i32
-  %3228 = load ptr, ptr %75, align 8
-  %3229 = getelementptr inbounds %struct.RNode, ptr %3228, i32 0, i32 0
-  %3230 = load i64, ptr %3229, align 8
-  %3231 = and i64 %3230, 32512
-  %3232 = lshr i64 %3231, 8
+3226:                                             ; preds = %3225
+  %3227 = load ptr, ptr %13, align 8
+  store ptr %3227, ptr %75, align 8
+  %3228 = load ptr, ptr %11, align 8
+  %3229 = load ptr, ptr %75, align 8
+  %3230 = getelementptr inbounds %struct.RNode, ptr %3229, i32 0, i32 0
+  %3231 = load i64, ptr %3230, align 8
+  %3232 = ashr i64 %3231, 15
   %3233 = trunc i64 %3232 to i32
-  %3234 = call ptr @ruby_node_name(i32 noundef %3233)
-  call void (ptr, i32, ptr, ...) @append_compile_error(ptr noundef %3222, i32 noundef %3227, ptr noundef @.str.122, ptr noundef %3234)
+  %3234 = load ptr, ptr %75, align 8
+  %3235 = getelementptr inbounds %struct.RNode, ptr %3234, i32 0, i32 0
+  %3236 = load i64, ptr %3235, align 8
+  %3237 = and i64 %3236, 32512
+  %3238 = lshr i64 %3237, 8
+  %3239 = trunc i64 %3238 to i32
+  %3240 = call ptr @ruby_node_name(i32 noundef %3239)
+  call void (ptr, i32, ptr, ...) @append_compile_error(ptr noundef %3228, i32 noundef %3233, ptr noundef @.str.122, ptr noundef %3240)
   store i32 0, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-3235:                                             ; No predecessors!
-  br label %3236
+3241:                                             ; No predecessors!
+  br label %3242
 
-3236:                                             ; preds = %3235, %3218, %3081, %2994, %2766, %2696, %2616, %2441, %1567, %827
+3242:                                             ; preds = %3241, %3224, %3087, %3000, %2772, %2702, %2622, %2447, %1572, %830
   store i32 1, ptr %10, align 4
-  br label %3237
+  br label %3243
 
-3237:                                             ; preds = %3236, %3220, %3217, %3158, %3080, %3062, %3027, %2817, %2808, %2757, %2744, %2686, %2614, %2576, %2438, %2392, %2328, %2280, %1848, %1799, %1380, %1289, %1217, %967, %904, %888, %663, %503, %376, %301, %223, %207
-  %3238 = load i32, ptr %10, align 4
-  ret i32 %3238
+3243:                                             ; preds = %3242, %3226, %3223, %3164, %3086, %3068, %3033, %2823, %2814, %2763, %2750, %2692, %2620, %2582, %2444, %2398, %2333, %2285, %1853, %1804, %1385, %1293, %1220, %970, %907, %891, %666, %506, %378, %303, %225, %209
+  %3244 = load i32, ptr %10, align 4
+  ret i32 %3244
 }
 
 declare noalias ptr @rb_xmalloc_mul_add(i64 noundef, i64 noundef, i64 noundef) #3
@@ -67545,289 +67550,292 @@ define internal i32 @compile_massign0(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %39, ptr %21, align 8
   %40 = load ptr, ptr %19, align 8
   %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %45
+  br i1 %41, label %42, label %46
 
 42:                                               ; preds = %8
   %43 = load ptr, ptr %19, align 8
-  %44 = icmp ne ptr %43, inttoptr (i64 -1 to ptr)
-  br label %45
+  %44 = inttoptr i64 -1 to ptr
+  %45 = icmp ne ptr %43, %44
+  br label %46
 
-45:                                               ; preds = %42, %8
-  %46 = phi i1 [ false, %8 ], [ %44, %42 ]
-  %47 = select i1 %46, i32 1, i32 0
-  store i32 %47, ptr %22, align 4
+46:                                               ; preds = %42, %8
+  %47 = phi i1 [ false, %8 ], [ %45, %42 ]
+  %48 = select i1 %47, i32 1, i32 0
+  store i32 %48, ptr %22, align 4
   store i32 0, ptr %23, align 4
   store i32 0, ptr %24, align 4
-  br label %48
+  br label %49
 
-48:                                               ; preds = %51, %45
-  %49 = load ptr, ptr %21, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %57
+49:                                               ; preds = %52, %46
+  %50 = load ptr, ptr %21, align 8
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %58
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr %23, align 4
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %23, align 4
-  %54 = load ptr, ptr %21, align 8
-  %55 = getelementptr inbounds %struct.RNode_LIST, ptr %54, i32 0, i32 3
-  %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %21, align 8
-  br label %48, !llvm.loop !177
+52:                                               ; preds = %49
+  %53 = load i32, ptr %23, align 4
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %23, align 4
+  %55 = load ptr, ptr %21, align 8
+  %56 = getelementptr inbounds %struct.RNode_LIST, ptr %55, i32 0, i32 3
+  %57 = load ptr, ptr %56, align 8
+  store ptr %57, ptr %21, align 8
+  br label %49, !llvm.loop !177
 
-57:                                               ; preds = %48
-  br label %58
+58:                                               ; preds = %49
+  br label %59
 
-58:                                               ; preds = %83, %57
-  %59 = load ptr, ptr %20, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %61, label %89
+59:                                               ; preds = %84, %58
+  %60 = load ptr, ptr %20, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %90
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %10, align 8
-  %63 = load ptr, ptr %11, align 8
-  %64 = load ptr, ptr %12, align 8
-  %65 = load ptr, ptr %13, align 8
-  %66 = load ptr, ptr %14, align 8
-  %67 = load ptr, ptr %20, align 8
-  %68 = getelementptr inbounds %struct.RNode_LIST, ptr %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %16, align 8
-  %71 = load i32, ptr %23, align 4
-  %72 = load i32, ptr %24, align 4
-  %73 = sub i32 %71, %72
-  %74 = load i32, ptr %22, align 4
-  %75 = add i32 %73, %74
-  %76 = load ptr, ptr %16, align 8
-  %77 = getelementptr inbounds %struct.masgn_state, ptr %76, i32 0, i32 2
-  %78 = load i32, ptr %77, align 8
-  %79 = add i32 %75, %78
-  %80 = call i32 @compile_massign_lhs(ptr noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %69, ptr noundef %70, i32 noundef %79)
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %83, label %82
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %10, align 8
+  %64 = load ptr, ptr %11, align 8
+  %65 = load ptr, ptr %12, align 8
+  %66 = load ptr, ptr %13, align 8
+  %67 = load ptr, ptr %14, align 8
+  %68 = load ptr, ptr %20, align 8
+  %69 = getelementptr inbounds %struct.RNode_LIST, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8
+  %71 = load ptr, ptr %16, align 8
+  %72 = load i32, ptr %23, align 4
+  %73 = load i32, ptr %24, align 4
+  %74 = sub i32 %72, %73
+  %75 = load i32, ptr %22, align 4
+  %76 = add i32 %74, %75
+  %77 = load ptr, ptr %16, align 8
+  %78 = getelementptr inbounds %struct.masgn_state, ptr %77, i32 0, i32 2
+  %79 = load i32, ptr %78, align 8
+  %80 = add i32 %76, %79
+  %81 = call i32 @compile_massign_lhs(ptr noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %70, ptr noundef %71, i32 noundef %80)
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %84, label %83
 
-82:                                               ; preds = %61
+83:                                               ; preds = %62
   store i32 0, ptr %9, align 4
-  br label %238
+  br label %241
 
-83:                                               ; preds = %61
-  %84 = load i32, ptr %24, align 4
-  %85 = add i32 %84, 1
-  store i32 %85, ptr %24, align 4
-  %86 = load ptr, ptr %20, align 8
-  %87 = getelementptr inbounds %struct.RNode_LIST, ptr %86, i32 0, i32 3
-  %88 = load ptr, ptr %87, align 8
-  store ptr %88, ptr %20, align 8
-  br label %58, !llvm.loop !178
+84:                                               ; preds = %62
+  %85 = load i32, ptr %24, align 4
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %24, align 4
+  %87 = load ptr, ptr %20, align 8
+  %88 = getelementptr inbounds %struct.RNode_LIST, ptr %87, i32 0, i32 3
+  %89 = load ptr, ptr %88, align 8
+  store ptr %89, ptr %20, align 8
+  br label %59, !llvm.loop !178
 
-89:                                               ; preds = %58
-  %90 = load i32, ptr %22, align 4
-  %91 = icmp ne i32 %90, 0
-  br i1 %91, label %92, label %195
+90:                                               ; preds = %59
+  %91 = load i32, ptr %22, align 4
+  %92 = icmp ne i32 %91, 0
+  br i1 %92, label %93, label %198
 
-92:                                               ; preds = %89
-  %93 = load ptr, ptr %19, align 8
-  %94 = call zeroext i1 @nd_type_p(ptr noundef %93, i32 noundef 76)
-  br i1 %94, label %95, label %178
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %19, align 8
+  %95 = call zeroext i1 @nd_type_p(ptr noundef %94, i32 noundef 76)
+  br i1 %95, label %96, label %181
 
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %19, align 8
-  %97 = getelementptr inbounds %struct.RNode_POSTARG, ptr %96, i32 0, i32 2
-  %98 = load ptr, ptr %97, align 8
-  store ptr %98, ptr %25, align 8
-  %99 = load ptr, ptr %19, align 8
-  %100 = getelementptr inbounds %struct.RNode_POSTARG, ptr %99, i32 0, i32 1
-  %101 = load ptr, ptr %100, align 8
-  store ptr %101, ptr %26, align 8
-  %102 = load ptr, ptr %25, align 8
-  %103 = getelementptr inbounds %struct.RNode_LIST, ptr %102, i32 0, i32 2
-  %104 = load i64, ptr %103, align 8
-  %105 = trunc i64 %104 to i32
-  store i32 %105, ptr %27, align 4
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %19, align 8
+  %98 = getelementptr inbounds %struct.RNode_POSTARG, ptr %97, i32 0, i32 2
+  %99 = load ptr, ptr %98, align 8
+  store ptr %99, ptr %25, align 8
+  %100 = load ptr, ptr %19, align 8
+  %101 = getelementptr inbounds %struct.RNode_POSTARG, ptr %100, i32 0, i32 1
+  %102 = load ptr, ptr %101, align 8
+  store ptr %102, ptr %26, align 8
+  %103 = load ptr, ptr %25, align 8
+  %104 = getelementptr inbounds %struct.RNode_LIST, ptr %103, i32 0, i32 2
+  %105 = load i64, ptr %104, align 8
+  %106 = trunc i64 %105 to i32
+  store i32 %106, ptr %27, align 4
   store i32 0, ptr %28, align 4
-  %106 = load ptr, ptr %26, align 8
-  %107 = icmp ne ptr %106, inttoptr (i64 -1 to ptr)
-  %108 = select i1 %107, i32 1, i32 0
-  %109 = or i32 2, %108
-  store i32 %109, ptr %29, align 4
-  %110 = load ptr, ptr %13, align 8
-  %111 = load ptr, ptr %10, align 8
-  %112 = load ptr, ptr %19, align 8
-  %113 = getelementptr inbounds %struct.RNode, ptr %112, i32 0, i32 0
-  %114 = load i64, ptr %113, align 8
-  %115 = ashr i64 %114, 15
-  %116 = trunc i64 %115 to i32
-  %117 = load ptr, ptr %19, align 8
-  %118 = getelementptr inbounds %struct.RNode, ptr %117, i32 0, i32 2
-  %119 = load i32, ptr %118, align 8
-  %120 = load i32, ptr %27, align 4
-  %121 = sext i32 %120 to i64
-  %122 = call i64 @RB_INT2FIX(i64 noundef %121) #26
-  %123 = load i32, ptr %29, align 4
-  %124 = sext i32 %123 to i64
-  %125 = call i64 @RB_INT2FIX(i64 noundef %124) #26
-  %126 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %111, i32 noundef %116, i32 noundef %119, i32 noundef 31, i32 noundef 2, i64 noundef %122, i64 noundef %125)
-  call void @ADD_ELEM(ptr noundef %110, ptr noundef %126)
-  %127 = load ptr, ptr %26, align 8
-  %128 = icmp ne ptr %127, inttoptr (i64 -1 to ptr)
-  br i1 %128, label %129, label %147
+  %107 = load ptr, ptr %26, align 8
+  %108 = inttoptr i64 -1 to ptr
+  %109 = icmp ne ptr %107, %108
+  %110 = select i1 %109, i32 1, i32 0
+  %111 = or i32 2, %110
+  store i32 %111, ptr %29, align 4
+  %112 = load ptr, ptr %13, align 8
+  %113 = load ptr, ptr %10, align 8
+  %114 = load ptr, ptr %19, align 8
+  %115 = getelementptr inbounds %struct.RNode, ptr %114, i32 0, i32 0
+  %116 = load i64, ptr %115, align 8
+  %117 = ashr i64 %116, 15
+  %118 = trunc i64 %117 to i32
+  %119 = load ptr, ptr %19, align 8
+  %120 = getelementptr inbounds %struct.RNode, ptr %119, i32 0, i32 2
+  %121 = load i32, ptr %120, align 8
+  %122 = load i32, ptr %27, align 4
+  %123 = sext i32 %122 to i64
+  %124 = call i64 @RB_INT2FIX(i64 noundef %123) #26
+  %125 = load i32, ptr %29, align 4
+  %126 = sext i32 %125 to i64
+  %127 = call i64 @RB_INT2FIX(i64 noundef %126) #26
+  %128 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %113, i32 noundef %118, i32 noundef %121, i32 noundef 31, i32 noundef 2, i64 noundef %124, i64 noundef %127)
+  call void @ADD_ELEM(ptr noundef %112, ptr noundef %128)
+  %129 = load ptr, ptr %26, align 8
+  %130 = inttoptr i64 -1 to ptr
+  %131 = icmp ne ptr %129, %130
+  br i1 %131, label %132, label %150
 
-129:                                              ; preds = %95
-  %130 = load ptr, ptr %10, align 8
-  %131 = load ptr, ptr %11, align 8
-  %132 = load ptr, ptr %12, align 8
-  %133 = load ptr, ptr %13, align 8
-  %134 = load ptr, ptr %14, align 8
-  %135 = load ptr, ptr %26, align 8
-  %136 = load ptr, ptr %16, align 8
-  %137 = load i32, ptr %27, align 4
-  %138 = add i32 1, %137
+132:                                              ; preds = %96
+  %133 = load ptr, ptr %10, align 8
+  %134 = load ptr, ptr %11, align 8
+  %135 = load ptr, ptr %12, align 8
+  %136 = load ptr, ptr %13, align 8
+  %137 = load ptr, ptr %14, align 8
+  %138 = load ptr, ptr %26, align 8
   %139 = load ptr, ptr %16, align 8
-  %140 = getelementptr inbounds %struct.masgn_state, ptr %139, i32 0, i32 2
-  %141 = load i32, ptr %140, align 8
-  %142 = add i32 %138, %141
-  %143 = call i32 @compile_massign_lhs(ptr noundef %130, ptr noundef %131, ptr noundef %132, ptr noundef %133, ptr noundef %134, ptr noundef %135, ptr noundef %136, i32 noundef %142)
-  %144 = icmp ne i32 %143, 0
-  br i1 %144, label %146, label %145
+  %140 = load i32, ptr %27, align 4
+  %141 = add i32 1, %140
+  %142 = load ptr, ptr %16, align 8
+  %143 = getelementptr inbounds %struct.masgn_state, ptr %142, i32 0, i32 2
+  %144 = load i32, ptr %143, align 8
+  %145 = add i32 %141, %144
+  %146 = call i32 @compile_massign_lhs(ptr noundef %133, ptr noundef %134, ptr noundef %135, ptr noundef %136, ptr noundef %137, ptr noundef %138, ptr noundef %139, i32 noundef %145)
+  %147 = icmp ne i32 %146, 0
+  br i1 %147, label %149, label %148
 
-145:                                              ; preds = %129
+148:                                              ; preds = %132
   store i32 0, ptr %9, align 4
-  br label %238
+  br label %241
 
-146:                                              ; preds = %129
-  br label %147
+149:                                              ; preds = %132
+  br label %150
 
-147:                                              ; preds = %146, %95
-  br label %148
+150:                                              ; preds = %149, %96
+  br label %151
 
-148:                                              ; preds = %171, %147
-  %149 = load ptr, ptr %25, align 8
-  %150 = icmp ne ptr %149, null
-  br i1 %150, label %151, label %177
+151:                                              ; preds = %174, %150
+  %152 = load ptr, ptr %25, align 8
+  %153 = icmp ne ptr %152, null
+  br i1 %153, label %154, label %180
 
-151:                                              ; preds = %148
-  %152 = load ptr, ptr %10, align 8
-  %153 = load ptr, ptr %11, align 8
-  %154 = load ptr, ptr %12, align 8
-  %155 = load ptr, ptr %13, align 8
-  %156 = load ptr, ptr %14, align 8
-  %157 = load ptr, ptr %25, align 8
-  %158 = getelementptr inbounds %struct.RNode_LIST, ptr %157, i32 0, i32 1
-  %159 = load ptr, ptr %158, align 8
-  %160 = load ptr, ptr %16, align 8
-  %161 = load i32, ptr %27, align 4
-  %162 = load i32, ptr %28, align 4
-  %163 = sub i32 %161, %162
-  %164 = load ptr, ptr %16, align 8
-  %165 = getelementptr inbounds %struct.masgn_state, ptr %164, i32 0, i32 2
-  %166 = load i32, ptr %165, align 8
-  %167 = add i32 %163, %166
-  %168 = call i32 @compile_massign_lhs(ptr noundef %152, ptr noundef %153, ptr noundef %154, ptr noundef %155, ptr noundef %156, ptr noundef %159, ptr noundef %160, i32 noundef %167)
-  %169 = icmp ne i32 %168, 0
-  br i1 %169, label %171, label %170
+154:                                              ; preds = %151
+  %155 = load ptr, ptr %10, align 8
+  %156 = load ptr, ptr %11, align 8
+  %157 = load ptr, ptr %12, align 8
+  %158 = load ptr, ptr %13, align 8
+  %159 = load ptr, ptr %14, align 8
+  %160 = load ptr, ptr %25, align 8
+  %161 = getelementptr inbounds %struct.RNode_LIST, ptr %160, i32 0, i32 1
+  %162 = load ptr, ptr %161, align 8
+  %163 = load ptr, ptr %16, align 8
+  %164 = load i32, ptr %27, align 4
+  %165 = load i32, ptr %28, align 4
+  %166 = sub i32 %164, %165
+  %167 = load ptr, ptr %16, align 8
+  %168 = getelementptr inbounds %struct.masgn_state, ptr %167, i32 0, i32 2
+  %169 = load i32, ptr %168, align 8
+  %170 = add i32 %166, %169
+  %171 = call i32 @compile_massign_lhs(ptr noundef %155, ptr noundef %156, ptr noundef %157, ptr noundef %158, ptr noundef %159, ptr noundef %162, ptr noundef %163, i32 noundef %170)
+  %172 = icmp ne i32 %171, 0
+  br i1 %172, label %174, label %173
 
-170:                                              ; preds = %151
+173:                                              ; preds = %154
   store i32 0, ptr %9, align 4
-  br label %238
+  br label %241
 
-171:                                              ; preds = %151
-  %172 = load i32, ptr %28, align 4
-  %173 = add i32 %172, 1
-  store i32 %173, ptr %28, align 4
-  %174 = load ptr, ptr %25, align 8
-  %175 = getelementptr inbounds %struct.RNode_LIST, ptr %174, i32 0, i32 3
-  %176 = load ptr, ptr %175, align 8
-  store ptr %176, ptr %25, align 8
-  br label %148, !llvm.loop !179
+174:                                              ; preds = %154
+  %175 = load i32, ptr %28, align 4
+  %176 = add i32 %175, 1
+  store i32 %176, ptr %28, align 4
+  %177 = load ptr, ptr %25, align 8
+  %178 = getelementptr inbounds %struct.RNode_LIST, ptr %177, i32 0, i32 3
+  %179 = load ptr, ptr %178, align 8
+  store ptr %179, ptr %25, align 8
+  br label %151, !llvm.loop !179
 
-177:                                              ; preds = %148
-  br label %194
+180:                                              ; preds = %151
+  br label %197
 
-178:                                              ; preds = %92
-  %179 = load ptr, ptr %10, align 8
-  %180 = load ptr, ptr %11, align 8
-  %181 = load ptr, ptr %12, align 8
-  %182 = load ptr, ptr %13, align 8
-  %183 = load ptr, ptr %14, align 8
-  %184 = load ptr, ptr %19, align 8
-  %185 = load ptr, ptr %16, align 8
-  %186 = load ptr, ptr %16, align 8
-  %187 = getelementptr inbounds %struct.masgn_state, ptr %186, i32 0, i32 2
-  %188 = load i32, ptr %187, align 8
-  %189 = add i32 1, %188
-  %190 = call i32 @compile_massign_lhs(ptr noundef %179, ptr noundef %180, ptr noundef %181, ptr noundef %182, ptr noundef %183, ptr noundef %184, ptr noundef %185, i32 noundef %189)
-  %191 = icmp ne i32 %190, 0
-  br i1 %191, label %193, label %192
+181:                                              ; preds = %93
+  %182 = load ptr, ptr %10, align 8
+  %183 = load ptr, ptr %11, align 8
+  %184 = load ptr, ptr %12, align 8
+  %185 = load ptr, ptr %13, align 8
+  %186 = load ptr, ptr %14, align 8
+  %187 = load ptr, ptr %19, align 8
+  %188 = load ptr, ptr %16, align 8
+  %189 = load ptr, ptr %16, align 8
+  %190 = getelementptr inbounds %struct.masgn_state, ptr %189, i32 0, i32 2
+  %191 = load i32, ptr %190, align 8
+  %192 = add i32 1, %191
+  %193 = call i32 @compile_massign_lhs(ptr noundef %182, ptr noundef %183, ptr noundef %184, ptr noundef %185, ptr noundef %186, ptr noundef %187, ptr noundef %188, i32 noundef %192)
+  %194 = icmp ne i32 %193, 0
+  br i1 %194, label %196, label %195
 
-192:                                              ; preds = %178
+195:                                              ; preds = %181
   store i32 0, ptr %9, align 4
-  br label %238
+  br label %241
 
-193:                                              ; preds = %178
-  br label %194
+196:                                              ; preds = %181
+  br label %197
 
-194:                                              ; preds = %193, %177
-  br label %195
+197:                                              ; preds = %196, %180
+  br label %198
 
-195:                                              ; preds = %194, %89
-  %196 = load ptr, ptr %16, align 8
-  %197 = getelementptr inbounds %struct.masgn_state, ptr %196, i32 0, i32 4
-  %198 = load i8, ptr %197, align 8
-  %199 = trunc i8 %198 to i1
-  br i1 %199, label %205, label %200
+198:                                              ; preds = %197, %90
+  %199 = load ptr, ptr %16, align 8
+  %200 = getelementptr inbounds %struct.masgn_state, ptr %199, i32 0, i32 4
+  %201 = load i8, ptr %200, align 8
+  %202 = trunc i8 %201 to i1
+  br i1 %202, label %208, label %203
 
-200:                                              ; preds = %195
-  %201 = load ptr, ptr %10, align 8
-  %202 = load ptr, ptr %12, align 8
-  %203 = load ptr, ptr %18, align 8
-  %204 = call i32 @iseq_compile_each(ptr noundef %201, ptr noundef %202, ptr noundef %203, i32 noundef 0)
-  br label %205
+203:                                              ; preds = %198
+  %204 = load ptr, ptr %10, align 8
+  %205 = load ptr, ptr %12, align 8
+  %206 = load ptr, ptr %18, align 8
+  %207 = call i32 @iseq_compile_each(ptr noundef %204, ptr noundef %205, ptr noundef %206, i32 noundef 0)
+  br label %208
 
-205:                                              ; preds = %200, %195
-  %206 = load i32, ptr %17, align 4
-  %207 = icmp ne i32 %206, 0
-  br i1 %207, label %220, label %208
+208:                                              ; preds = %203, %198
+  %209 = load i32, ptr %17, align 4
+  %210 = icmp ne i32 %209, 0
+  br i1 %210, label %223, label %211
 
-208:                                              ; preds = %205
-  %209 = load ptr, ptr %12, align 8
-  %210 = load ptr, ptr %10, align 8
-  %211 = load ptr, ptr %15, align 8
-  %212 = getelementptr inbounds %struct.RNode, ptr %211, i32 0, i32 0
-  %213 = load i64, ptr %212, align 8
-  %214 = ashr i64 %213, 15
-  %215 = trunc i64 %214 to i32
-  %216 = load ptr, ptr %15, align 8
-  %217 = getelementptr inbounds %struct.RNode, ptr %216, i32 0, i32 2
-  %218 = load i32, ptr %217, align 8
-  %219 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %210, i32 noundef %215, i32 noundef %218, i32 noundef 40, i32 noundef 0)
-  call void @ADD_ELEM(ptr noundef %209, ptr noundef %219)
-  br label %220
+211:                                              ; preds = %208
+  %212 = load ptr, ptr %12, align 8
+  %213 = load ptr, ptr %10, align 8
+  %214 = load ptr, ptr %15, align 8
+  %215 = getelementptr inbounds %struct.RNode, ptr %214, i32 0, i32 0
+  %216 = load i64, ptr %215, align 8
+  %217 = ashr i64 %216, 15
+  %218 = trunc i64 %217 to i32
+  %219 = load ptr, ptr %15, align 8
+  %220 = getelementptr inbounds %struct.RNode, ptr %219, i32 0, i32 2
+  %221 = load i32, ptr %220, align 8
+  %222 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %213, i32 noundef %218, i32 noundef %221, i32 noundef 40, i32 noundef 0)
+  call void @ADD_ELEM(ptr noundef %212, ptr noundef %222)
+  br label %223
 
-220:                                              ; preds = %208, %205
-  %221 = load ptr, ptr %12, align 8
-  %222 = load ptr, ptr %10, align 8
-  %223 = load ptr, ptr %15, align 8
-  %224 = getelementptr inbounds %struct.RNode, ptr %223, i32 0, i32 0
-  %225 = load i64, ptr %224, align 8
-  %226 = ashr i64 %225, 15
-  %227 = trunc i64 %226 to i32
-  %228 = load ptr, ptr %15, align 8
-  %229 = getelementptr inbounds %struct.RNode, ptr %228, i32 0, i32 2
-  %230 = load i32, ptr %229, align 8
-  %231 = load i32, ptr %23, align 4
-  %232 = sext i32 %231 to i64
-  %233 = call i64 @RB_INT2FIX(i64 noundef %232) #26
-  %234 = load i32, ptr %22, align 4
+223:                                              ; preds = %211, %208
+  %224 = load ptr, ptr %12, align 8
+  %225 = load ptr, ptr %10, align 8
+  %226 = load ptr, ptr %15, align 8
+  %227 = getelementptr inbounds %struct.RNode, ptr %226, i32 0, i32 0
+  %228 = load i64, ptr %227, align 8
+  %229 = ashr i64 %228, 15
+  %230 = trunc i64 %229 to i32
+  %231 = load ptr, ptr %15, align 8
+  %232 = getelementptr inbounds %struct.RNode, ptr %231, i32 0, i32 2
+  %233 = load i32, ptr %232, align 8
+  %234 = load i32, ptr %23, align 4
   %235 = sext i32 %234 to i64
   %236 = call i64 @RB_INT2FIX(i64 noundef %235) #26
-  %237 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %222, i32 noundef %227, i32 noundef %230, i32 noundef 31, i32 noundef 2, i64 noundef %233, i64 noundef %236)
-  call void @ADD_ELEM(ptr noundef %221, ptr noundef %237)
+  %237 = load i32, ptr %22, align 4
+  %238 = sext i32 %237 to i64
+  %239 = call i64 @RB_INT2FIX(i64 noundef %238) #26
+  %240 = call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %225, i32 noundef %230, i32 noundef %233, i32 noundef 31, i32 noundef 2, i64 noundef %236, i64 noundef %239)
+  call void @ADD_ELEM(ptr noundef %224, ptr noundef %240)
   store i32 1, ptr %9, align 4
-  br label %238
+  br label %241
 
-238:                                              ; preds = %220, %192, %170, %145, %82
-  %239 = load i32, ptr %9, align 4
-  ret i32 %239
+241:                                              ; preds = %223, %195, %173, %148, %83
+  %242 = load i32, ptr %9, align 4
+  ret i32 %242
 }
 
 ; Function Attrs: nounwind
@@ -68584,7 +68592,7 @@ define internal i32 @add_masgn_lhs_node(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #18
+declare noalias ptr @malloc(i64 noundef) #17
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @get_dyna_var_idx_at_raw(ptr noundef %0, i64 noundef %1) #0 {
@@ -71063,7 +71071,7 @@ define internal void @APPEND_ELEM(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare i32 @rb_is_const_id(i64 noundef) #19
+declare i32 @rb_is_const_id(i64 noundef) #18
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @get_nd_args(ptr noundef %0) #0 {
@@ -72734,7 +72742,7 @@ declare ptr @rb_builtin_class_name(i64 noundef) #3
 declare void @rb_node_init(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: allocsize(1)
-declare noalias nonnull ptr @rb_alloc_tmp_buffer(ptr noundef, i64 noundef) #20
+declare noalias nonnull ptr @rb_alloc_tmp_buffer(ptr noundef, i64 noundef) #19
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @mandatory_node(ptr noundef %0, ptr noundef %1) #0 {
@@ -72829,7 +72837,7 @@ declare i64 @rb_hash_new_with_size(i64 noundef) #3
 declare void @rb_hash_bulk_insert(i64 noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: cold
-declare void @rb_warn(ptr noundef, ...) #21
+declare void @rb_warn(ptr noundef, ...) #20
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @compile_named_capture_assign(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -74013,7 +74021,7 @@ declare i64 @rb_imemo_new(i32 noundef, i64 noundef) #3
 declare ptr @rb_iseq_new_with_callback(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare i32 @rb_is_attrset_id(i64 noundef) #19
+declare i32 @rb_is_attrset_id(i64 noundef) #18
 
 declare void @rb_gc_mark(i64 noundef) #3
 
@@ -77309,7 +77317,7 @@ define internal i64 @RB_FL_TEST(i64 noundef %0, i64 noundef %1) #6 {
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal void @ibf_dump_object_unsupported(ptr noundef %0, i64 noundef %1) #22 {
+define internal void @ibf_dump_object_unsupported(ptr noundef %0, i64 noundef %1) #21 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca [256 x i8], align 16
@@ -79645,7 +79653,7 @@ define internal i32 @ntz_int32(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @pinned_list_fetch(i64 noundef %0, i64 noundef %1) #0 {
@@ -79864,7 +79872,7 @@ define internal zeroext i8 @ibf_load_byte(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal i64 @ibf_load_object_unsupported(ptr noundef %0, ptr noundef %1, i32 noundef %2) #22 {
+define internal i64 @ibf_load_object_unsupported(ptr noundef %0, ptr noundef %1, i32 noundef %2) #21 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -80802,7 +80810,7 @@ define internal i64 @RUBY_BIT_ROTL(i64 noundef %0, i32 noundef %1) #0 {
 declare i64 @rb_float_new_in_heap(double noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #14
+declare i64 @llvm.fshl.i64(i64, i64, i64) #13
 
 declare i32 @rb_enc_find_index(ptr noundef) #3
 
@@ -80828,7 +80836,7 @@ declare i64 @rb_rational_new(i64 noundef, i64 noundef) #3
 declare i64 @rb_intern3(ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #14
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #13
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ibf_load_id(ptr noundef %0, i64 noundef %1) #0 {
@@ -83366,7 +83374,7 @@ declare ptr @rb_enc_get_from_index(i32 noundef) #3
 declare nonnull ptr @rb_utf8_encoding() #3
 
 ; Function Attrs: nounwind memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare i32 @rb_char_to_option_kcode(i32 noundef, ptr noundef, ptr noundef) #23
+declare i32 @rb_char_to_option_kcode(i32 noundef, ptr noundef, ptr noundef) #22
 
 declare ptr @pm_string_source(ptr noundef) #3
 
@@ -96642,7 +96650,7 @@ define internal void @pm_compile_destructured_param_write(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read, argmem: readwrite) uwtable
-define internal void @rbimpl_rstring_getmem(ptr dead_on_unwind noalias writable sret(%struct.RString) align 8 %0, i64 noundef %1) #24 {
+define internal void @rbimpl_rstring_getmem(ptr dead_on_unwind noalias writable sret(%struct.RString) align 8 %0, i64 noundef %1) #23 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = load i64, ptr %3, align 8
@@ -96845,7 +96853,7 @@ declare void @rb_compile_warning(ptr noundef, i32 noundef, ptr noundef, ...) #3
 declare void @rb_compile_warn(ptr noundef, i32 noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #25
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #24
 
 declare i64 @rb_exc_new(i64 noundef, ptr noundef, i64 noundef) #3
 
@@ -96987,6 +96995,12 @@ declare void @pm_buffer_free(ptr noundef) #3
 
 declare i64 @pm_encoding_utf_8_char_width(ptr noundef, i64 noundef) #3
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #25
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #25
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -97000,19 +97014,19 @@ attributes #9 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true"
 attributes #10 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind willreturn }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { allocsize(1,2) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nounwind sspstrong willreturn memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { allocsize(1,2) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nounwind sspstrong willreturn memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nocallback nofree nosync nounwind willreturn }
 attributes #26 = { nounwind willreturn memory(none) }
 attributes #27 = { noreturn }
 attributes #28 = { allocsize(0,1) }

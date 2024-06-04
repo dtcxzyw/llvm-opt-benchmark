@@ -240,121 +240,123 @@ define internal i32 @segment_attach(ptr noundef %0, i64 noundef %1, i8 noundef z
   store i64 %1, ptr %5, align 8
   store i8 %2, ptr %6, align 1
   store i32 0, ptr %7, align 4
-  store ptr inttoptr (i64 -1 to ptr), ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.pmix_shmem_t, ptr %10, i32 0, i32 5
-  %12 = getelementptr inbounds [4097 x i8], ptr %11, i64 0, i64 0
-  %13 = call i32 (ptr, i32, ...) @open(ptr noundef %12, i32 noundef 2)
-  store i32 %13, ptr %9, align 4
-  %14 = load i32, ptr %9, align 4
-  %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %3
-  store i32 -67, ptr %7, align 4
-  br label %44
+  %10 = inttoptr i64 -1 to ptr
+  store ptr %10, ptr %8, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %struct.pmix_shmem_t, ptr %11, i32 0, i32 5
+  %13 = getelementptr inbounds [4097 x i8], ptr %12, i64 0, i64 0
+  %14 = call i32 (ptr, i32, ...) @open(ptr noundef %13, i32 noundef 2)
+  store i32 %14, ptr %9, align 4
+  %15 = load i32, ptr %9, align 4
+  %16 = icmp eq i32 %15, -1
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %3
-  %18 = load i64, ptr %5, align 8
-  %19 = inttoptr i64 %18 to ptr
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.pmix_shmem_t, ptr %20, i32 0, i32 2
-  %22 = load i64, ptr %21, align 8
-  %23 = load i32, ptr %9, align 4
-  %24 = call ptr @mmap(ptr noundef %19, i64 noundef %22, i32 noundef 3, i32 noundef 1, i32 noundef %23, i64 noundef 0) #5
-  store ptr %24, ptr %8, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = icmp eq ptr inttoptr (i64 -1 to ptr), %25
-  br i1 %26, label %27, label %28
+  store i32 -67, ptr %7, align 4
+  br label %46
 
-27:                                               ; preds = %17
+18:                                               ; preds = %3
+  %19 = load i64, ptr %5, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %struct.pmix_shmem_t, ptr %21, i32 0, i32 2
+  %23 = load i64, ptr %22, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = call ptr @mmap(ptr noundef %20, i64 noundef %23, i32 noundef 3, i32 noundef 1, i32 noundef %24, i64 noundef 0) #5
+  store ptr %25, ptr %8, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = inttoptr i64 -1 to ptr
+  %28 = icmp eq ptr %27, %26
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %18
   store i32 -32, ptr %7, align 4
-  br label %44
+  br label %46
 
-28:                                               ; preds = %17
-  %29 = load i8, ptr %6, align 1
-  %30 = zext i8 %29 to i32
-  %31 = and i32 %30, 1
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %43
+30:                                               ; preds = %18
+  %31 = load i8, ptr %6, align 1
+  %32 = zext i8 %31 to i32
+  %33 = and i32 %32, 1
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %45
 
-33:                                               ; preds = %28
-  %34 = load i64, ptr %5, align 8
-  %35 = icmp ne i64 %34, 0
-  br i1 %35, label %36, label %43
+35:                                               ; preds = %30
+  %36 = load i64, ptr %5, align 8
+  %37 = icmp ne i64 %36, 0
+  br i1 %37, label %38, label %45
 
-36:                                               ; preds = %33
-  %37 = load i64, ptr %5, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = ptrtoint ptr %38 to i64
-  %40 = icmp ne i64 %37, %39
-  br i1 %40, label %41, label %42
+38:                                               ; preds = %35
+  %39 = load i64, ptr %5, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = ptrtoint ptr %40 to i64
+  %42 = icmp ne i64 %39, %41
+  br i1 %42, label %43, label %44
 
-41:                                               ; preds = %36
+43:                                               ; preds = %38
   store i32 -64, ptr %7, align 4
-  br label %44
+  br label %46
 
-42:                                               ; preds = %36
-  br label %43
+44:                                               ; preds = %38
+  br label %45
 
-43:                                               ; preds = %42, %33, %28
-  br label %44
+45:                                               ; preds = %44, %35, %30
+  br label %46
 
-44:                                               ; preds = %43, %41, %27, %16
-  %45 = load i32, ptr %9, align 4
-  %46 = icmp ne i32 -1, %45
-  br i1 %46, label %47, label %50
+46:                                               ; preds = %45, %43, %29, %17
+  %47 = load i32, ptr %9, align 4
+  %48 = icmp ne i32 -1, %47
+  br i1 %48, label %49, label %52
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr %9, align 4
-  %49 = call i32 @close(i32 noundef %48)
-  br label %50
+49:                                               ; preds = %46
+  %50 = load i32, ptr %9, align 4
+  %51 = call i32 @close(i32 noundef %50)
+  br label %52
 
-50:                                               ; preds = %47, %44
-  %51 = load i32, ptr %7, align 4
-  %52 = icmp ne i32 0, %51
-  br i1 %52, label %53, label %64
+52:                                               ; preds = %49, %46
+  %53 = load i32, ptr %7, align 4
+  %54 = icmp ne i32 0, %53
+  br i1 %54, label %55, label %66
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %4, align 8
-  %55 = call i32 @pmix_shmem_segment_detach(ptr noundef %54)
-  br label %56
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %4, align 8
+  %57 = call i32 @pmix_shmem_segment_detach(ptr noundef %56)
+  br label %58
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr %7, align 4
-  %58 = icmp ne i32 -2, %57
-  br i1 %58, label %59, label %62
+58:                                               ; preds = %55
+  %59 = load i32, ptr %7, align 4
+  %60 = icmp ne i32 -2, %59
+  br i1 %60, label %61, label %64
 
-59:                                               ; preds = %56
-  %60 = load i32, ptr %7, align 4
-  %61 = call ptr @PMIx_Error_string(i32 noundef %60)
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str, ptr noundef %61, ptr noundef @.str.1, i32 noundef 91)
-  br label %62
+61:                                               ; preds = %58
+  %62 = load i32, ptr %7, align 4
+  %63 = call ptr @PMIx_Error_string(i32 noundef %62)
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str, ptr noundef %63, ptr noundef @.str.1, i32 noundef 91)
+  br label %64
 
-62:                                               ; preds = %59, %56
-  br label %63
+64:                                               ; preds = %61, %58
+  br label %65
 
-63:                                               ; preds = %62
-  br label %67
+65:                                               ; preds = %64
+  br label %69
 
-64:                                               ; preds = %50
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct.pmix_shmem_t, ptr %65, i32 0, i32 1
-  store volatile i8 1, ptr %66, align 8
-  br label %67
+66:                                               ; preds = %52
+  %67 = load ptr, ptr %4, align 8
+  %68 = getelementptr inbounds %struct.pmix_shmem_t, ptr %67, i32 0, i32 1
+  store volatile i8 1, ptr %68, align 8
+  br label %69
 
-67:                                               ; preds = %64, %63
-  %68 = load ptr, ptr %8, align 8
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct.pmix_shmem_t, ptr %69, i32 0, i32 3
-  store ptr %68, ptr %70, align 8
-  %71 = load ptr, ptr %8, align 8
-  %72 = call ptr @data_addr_from_base(ptr noundef %71)
-  %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds %struct.pmix_shmem_t, ptr %73, i32 0, i32 4
-  store ptr %72, ptr %74, align 8
-  %75 = load i32, ptr %7, align 4
-  ret i32 %75
+69:                                               ; preds = %66, %65
+  %70 = load ptr, ptr %8, align 8
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds %struct.pmix_shmem_t, ptr %71, i32 0, i32 3
+  store ptr %70, ptr %72, align 8
+  %73 = load ptr, ptr %8, align 8
+  %74 = call ptr @data_addr_from_base(ptr noundef %73)
+  %75 = load ptr, ptr %4, align 8
+  %76 = getelementptr inbounds %struct.pmix_shmem_t, ptr %75, i32 0, i32 4
+  store ptr %74, ptr %76, align 8
+  %77 = load i32, ptr %7, align 4
+  ret i32 %77
 }
 
 ; Function Attrs: nounwind uwtable

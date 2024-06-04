@@ -2181,15 +2181,16 @@ define dso_local void @_ZN22FunctionInvocationUserC2EP8FunctionbPK11SafeOpFlags(
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %8, align 8
   call void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %10, i32 noundef 2, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22FunctionInvocationUser, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = getelementptr inbounds %class.FunctionInvocationUser, ptr %10, i32 0, i32 1
-  %13 = load ptr, ptr %6, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %class.FunctionInvocationUser, ptr %10, i32 0, i32 2
-  %15 = load i8, ptr %7, align 1
-  %16 = trunc i8 %15 to i1
-  %17 = zext i1 %16 to i8
-  store i8 %17, ptr %14, align 8
+  %12 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV22FunctionInvocationUser, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds %class.FunctionInvocationUser, ptr %10, i32 0, i32 1
+  %14 = load ptr, ptr %6, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.FunctionInvocationUser, ptr %10, i32 0, i32 2
+  %16 = load i8, ptr %7, align 1
+  %17 = trunc i8 %16 to i1
+  %18 = zext i1 %17 to i8
+  store i8 %18, ptr %15, align 8
   ret void
 }
 
@@ -2204,19 +2205,20 @@ define dso_local void @_ZN22FunctionInvocationUserC2ERKS_(ptr noundef nonnull al
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22FunctionInvocationUser, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.FunctionInvocationUser, ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %class.FunctionInvocationUser, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds %class.FunctionInvocationUser, ptr %5, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %class.FunctionInvocationUser, ptr %12, i32 0, i32 2
-  %14 = load i8, ptr %13, align 8
-  %15 = trunc i8 %14 to i1
-  %16 = zext i1 %15 to i8
-  store i8 %16, ptr %11, align 8
+  %7 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV22FunctionInvocationUser, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.FunctionInvocationUser, ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %class.FunctionInvocationUser, ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %8, align 8
+  %12 = getelementptr inbounds %class.FunctionInvocationUser, ptr %5, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %class.FunctionInvocationUser, ptr %13, i32 0, i32 2
+  %15 = load i8, ptr %14, align 8
+  %16 = trunc i8 %15 to i1
+  %17 = zext i1 %16 to i8
+  store i8 %17, ptr %12, align 8
   ret void
 }
 

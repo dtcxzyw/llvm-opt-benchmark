@@ -15,49 +15,50 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @regcache_rbtree_init(ptr noundef %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %3 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 16) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 568
-  store ptr %3, ptr %4, align 8
-  %5 = icmp eq ptr %3, null
-  br i1 %5, label %28, label %6
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %3 = load ptr, ptr %2, align 16
+  %4 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 16) #9
+  %5 = getelementptr inbounds i8, ptr %0, i64 568
+  store ptr %4, ptr %5, align 8
+  %6 = icmp eq ptr %4, null
+  br i1 %6, label %29, label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 540
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %8 = load i32, ptr %7, align 4
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %28, label %10
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %0, i64 540
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %29, label %11
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 552
-  br label %16
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds i8, ptr %0, i64 552
+  br label %17
 
-12:                                               ; preds = %16
-  %13 = add nuw i32 %17, 1
-  %14 = load i32, ptr %7, align 4
-  %15 = icmp ult i32 %13, %14
-  br i1 %15, label %16, label %28, !llvm.loop !5
+13:                                               ; preds = %17
+  %14 = add nuw i32 %18, 1
+  %15 = load i32, ptr %8, align 4
+  %16 = icmp ult i32 %14, %15
+  br i1 %16, label %17, label %29, !llvm.loop !5
 
-16:                                               ; preds = %12, %10
-  %17 = phi i32 [ 0, %10 ], [ %13, %12 ]
-  %18 = load ptr, ptr %11, align 8
-  %19 = sext i32 %17 to i64
-  %20 = getelementptr %struct.reg_default, ptr %18, i64 %19
-  %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %20, i64 4
-  %23 = load i32, ptr %22, align 4
-  %24 = tail call i32 @regcache_rbtree_write(ptr noundef %0, i32 noundef %21, i32 noundef %23)
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %12, label %26
+17:                                               ; preds = %13, %11
+  %18 = phi i32 [ 0, %11 ], [ %14, %13 ]
+  %19 = load ptr, ptr %12, align 8
+  %20 = sext i32 %18 to i64
+  %21 = getelementptr %struct.reg_default, ptr %19, i64 %20
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %21, i64 4
+  %24 = load i32, ptr %23, align 4
+  %25 = tail call i32 @regcache_rbtree_write(ptr noundef %0, i32 noundef %22, i32 noundef %24)
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %13, label %27
 
-26:                                               ; preds = %16
-  %27 = tail call i32 @regcache_rbtree_exit(ptr noundef %0)
-  br label %28
+27:                                               ; preds = %17
+  %28 = tail call i32 @regcache_rbtree_exit(ptr noundef %0)
+  br label %29
 
-28:                                               ; preds = %26, %12, %6, %1
-  %29 = phi i32 [ %24, %26 ], [ -12, %1 ], [ 0, %6 ], [ 0, %12 ]
-  ret i32 %29
+29:                                               ; preds = %27, %13, %7, %1
+  %30 = phi i32 [ %25, %27 ], [ -12, %1 ], [ 0, %7 ], [ 0, %13 ]
+  ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

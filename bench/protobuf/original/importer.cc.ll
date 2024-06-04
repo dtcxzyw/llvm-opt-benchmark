@@ -697,99 +697,13 @@ entry:
   store ptr %source_tree, ptr %source_tree.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf18DescriptorDatabaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %source_tree_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %source_tree.addr, align 8
-  store ptr %0, ptr %source_tree_, align 8
+  %1 = load ptr, ptr %source_tree.addr, align 8
+  store ptr %1, ptr %source_tree_, align 8
   %fallback_database_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 2
   store ptr null, ptr %fallback_database_, align 8
-  %error_collector_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 3
-  store ptr null, ptr %error_collector_, align 8
-  %using_validation_error_collector_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 4
-  store i8 0, ptr %using_validation_error_collector_, align 8
-  %source_locations_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 5
-  invoke void @_ZN6google8protobuf8compiler19SourceLocationTableC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %source_locations_)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %validation_error_collector_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 6
-  invoke void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollectorC1EPS2_(ptr noundef nonnull align 8 dereferenceable(16) %validation_error_collector_, ptr noundef %this1)
-          to label %invoke.cont3 unwind label %lpad2
-
-invoke.cont3:                                     ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
-          cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  call void @_ZN6google8protobuf8compiler19SourceLocationTableD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %source_locations_) #3
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad2, %lpad
-  call void @_ZN6google8protobuf18DescriptorDatabaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val4
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf18DescriptorDatabaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf18DescriptorDatabaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  ret void
-}
-
-declare void @_ZN6google8protobuf8compiler19SourceLocationTableC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
-
-declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: nounwind
-declare void @_ZN6google8protobuf8compiler19SourceLocationTableD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
-
-; Function Attrs: nounwind
-declare void @_ZN6google8protobuf18DescriptorDatabaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabaseC2EPNS1_10SourceTreeEPNS0_18DescriptorDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %source_tree, ptr noundef %fallback_database) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %source_tree.addr = alloca ptr, align 8
-  %fallback_database.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %source_tree, ptr %source_tree.addr, align 8
-  store ptr %fallback_database, ptr %fallback_database.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6google8protobuf18DescriptorDatabaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %source_tree_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %source_tree.addr, align 8
-  store ptr %0, ptr %source_tree_, align 8
-  %fallback_database_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %fallback_database.addr, align 8
-  store ptr %1, ptr %fallback_database_, align 8
   %error_collector_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 3
   store ptr null, ptr %error_collector_, align 8
   %using_validation_error_collector_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 4
@@ -838,12 +752,102 @@ eh.resume:                                        ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf18DescriptorDatabaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6google8protobuf18DescriptorDatabaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  ret void
+}
+
+declare void @_ZN6google8protobuf8compiler19SourceLocationTableC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: nounwind
+declare void @_ZN6google8protobuf8compiler19SourceLocationTableD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare void @_ZN6google8protobuf18DescriptorDatabaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabaseC2EPNS1_10SourceTreeEPNS0_18DescriptorDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %source_tree, ptr noundef %fallback_database) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %source_tree.addr = alloca ptr, align 8
+  %fallback_database.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %source_tree, ptr %source_tree.addr, align 8
+  store ptr %fallback_database, ptr %fallback_database.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN6google8protobuf18DescriptorDatabaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %source_tree_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %source_tree.addr, align 8
+  store ptr %1, ptr %source_tree_, align 8
+  %fallback_database_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %fallback_database.addr, align 8
+  store ptr %2, ptr %fallback_database_, align 8
+  %error_collector_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 3
+  store ptr null, ptr %error_collector_, align 8
+  %using_validation_error_collector_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 4
+  store i8 0, ptr %using_validation_error_collector_, align 8
+  %source_locations_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 5
+  invoke void @_ZN6google8protobuf8compiler19SourceLocationTableC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %source_locations_)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  %validation_error_collector_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 6
+  invoke void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollectorC1EPS2_(ptr noundef nonnull align 8 dereferenceable(16) %validation_error_collector_, ptr noundef %this1)
+          to label %invoke.cont3 unwind label %lpad2
+
+invoke.cont3:                                     ; preds = %invoke.cont
+  ret void
+
+lpad:                                             ; preds = %entry
+  %3 = landingpad { ptr, i32 }
+          cleanup
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad2:                                            ; preds = %invoke.cont
+  %6 = landingpad { ptr, i32 }
+          cleanup
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
+  call void @_ZN6google8protobuf8compiler19SourceLocationTableD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %source_locations_) #3
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad2, %lpad
+  call void @_ZN6google8protobuf18DescriptorDatabaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %validation_error_collector_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 6
   call void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %validation_error_collector_) #3
   %source_locations_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase", ptr %this1, i32 0, i32 5
@@ -1216,27 +1220,28 @@ entry:
   store ptr %multi_file_error_collector, ptr %multi_file_error_collector.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io14ErrorCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %filename_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase::SingleFileErrorCollector", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %filename.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %filename.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %multi_file_error_collector_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase::SingleFileErrorCollector", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %multi_file_error_collector.addr, align 8
-  store ptr %1, ptr %multi_file_error_collector_, align 8
+  %2 = load ptr, ptr %multi_file_error_collector.addr, align 8
+  store ptr %2, ptr %multi_file_error_collector_, align 8
   %had_errors_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase::SingleFileErrorCollector", ptr %this1, i32 0, i32 3
   store i8 0, ptr %had_errors_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -1317,7 +1322,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %filename_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase::SingleFileErrorCollector", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_) #3
   call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -1397,10 +1403,11 @@ entry:
   store ptr %owner, ptr %owner.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf14DescriptorPool14ErrorCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollectorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %owner_ = getelementptr inbounds %"class.google::protobuf::compiler::SourceTreeDescriptorDatabase::ValidationErrorCollector", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %owner.addr, align 8
-  store ptr %0, ptr %owner_, align 8
+  %1 = load ptr, ptr %owner.addr, align 8
+  store ptr %1, ptr %owner_, align 8
   ret void
 }
 
@@ -1410,7 +1417,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf14DescriptorPool14ErrorCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf14DescriptorPool14ErrorCollectorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1946,7 +1954,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf8compiler10SourceTreeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler14DiskSourceTreeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler14DiskSourceTreeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mappings_ = getelementptr inbounds %"class.google::protobuf::compiler::DiskSourceTree", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN6google8protobuf8compiler14DiskSourceTree7MappingESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mappings_) #3
   %last_error_message_ = getelementptr inbounds %"class.google::protobuf::compiler::DiskSourceTree", ptr %this1, i32 0, i32 2
@@ -1960,7 +1969,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler10SourceTreeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler10SourceTreeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1983,7 +1993,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler14DiskSourceTreeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler14DiskSourceTreeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %last_error_message_ = getelementptr inbounds %"class.google::protobuf::compiler::DiskSourceTree", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %last_error_message_) #3
   %mappings_ = getelementptr inbounds %"class.google::protobuf::compiler::DiskSourceTree", ptr %this1, i32 0, i32 1
@@ -3883,7 +3894,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf2io14ErrorCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf2io14ErrorCollectorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

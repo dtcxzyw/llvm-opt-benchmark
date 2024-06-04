@@ -108,27 +108,28 @@ define dso_local void @agp_backend_release(ptr noundef %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @agp_alloc_bridge() #1 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
-  %2 = tail call noalias noundef align 8 dereferenceable_or_null(208) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3520, i64 noundef 208) #10
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %1 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8
+  %2 = load ptr, ptr %1, align 16
+  %3 = tail call noalias noundef align 8 dereferenceable_or_null(208) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 208) #10
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %2, i64 132
-  store volatile i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 128
-  store volatile i32 0, ptr %6, align 8
-  %7 = load volatile ptr, ptr @agp_bridges, align 8
-  %8 = icmp eq ptr %7, @agp_bridges
-  br i1 %8, label %9, label %10
+5:                                                ; preds = %0
+  %6 = getelementptr inbounds i8, ptr %3, i64 132
+  store volatile i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %3, i64 128
+  store volatile i32 0, ptr %7, align 8
+  %8 = load volatile ptr, ptr @agp_bridges, align 8
+  %9 = icmp eq ptr %8, @agp_bridges
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %4
-  store ptr %2, ptr @agp_bridge, align 8
-  br label %10
+10:                                               ; preds = %5
+  store ptr %3, ptr @agp_bridge, align 8
+  br label %11
 
-10:                                               ; preds = %9, %4, %0
-  %11 = phi ptr [ null, %0 ], [ %2, %9 ], [ %2, %4 ]
-  ret ptr %11
+11:                                               ; preds = %10, %5, %0
+  %12 = phi ptr [ null, %0 ], [ %3, %10 ], [ %3, %5 ]
+  ret ptr %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -470,11 +471,13 @@ define dso_local void @agp_remove_bridge(ptr noundef %0) #1 align 16 {
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %35, ptr %37, align 8
   store volatile ptr %36, ptr %35, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %33, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %34, align 8
-  %38 = load ptr, ptr %2, align 8
-  %39 = load ptr, ptr %38, align 8
-  tail call void @module_put(ptr noundef %39) #9
+  %38 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %38, ptr %33, align 8
+  %39 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %39, ptr %34, align 8
+  %40 = load ptr, ptr %2, align 8
+  %41 = load ptr, ptr %40, align 8
+  tail call void @module_put(ptr noundef %41) #9
   ret void
 }
 

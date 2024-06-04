@@ -39038,13 +39038,14 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %this3) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEEJRKSt6localeRNSt15regex_constants18syntax_option_typeEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEEJRKSt6localeRNSt15regex_constants18syntax_option_typeEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   ret void
 }
 
@@ -39200,7 +39201,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -49148,45 +49150,46 @@ for.inc:                                          ; preds = %for.body
 for.end:                                          ; preds = %for.cond
   store ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, ptr %__range2, align 8
   store ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, ptr %__begin0, align 8
-  store ptr getelementptr inbounds (%"struct.std::pair.366", ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 15), ptr %__end0, align 8
+  %7 = getelementptr inbounds %"struct.std::pair.366", ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 15
+  store ptr %7, ptr %__end0, align 8
   br label %for.cond5
 
 for.cond5:                                        ; preds = %for.inc15, %for.end
-  %7 = load ptr, ptr %__begin0, align 8
-  %8 = load ptr, ptr %__end0, align 8
-  %cmp6 = icmp ne ptr %7, %8
+  %8 = load ptr, ptr %__begin0, align 8
+  %9 = load ptr, ptr %__end0, align 8
+  %cmp6 = icmp ne ptr %8, %9
   br i1 %cmp6, label %for.body7, label %for.end17
 
 for.body7:                                        ; preds = %for.cond5
-  %9 = load ptr, ptr %__begin0, align 8
-  store ptr %9, ptr %__it, align 8
-  %10 = load ptr, ptr %__it, align 8
-  %first = getelementptr inbounds %"struct.std::pair.366", ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %first, align 8
-  %call8 = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %__s, ptr noundef %11)
+  %10 = load ptr, ptr %__begin0, align 8
+  store ptr %10, ptr %__it, align 8
+  %11 = load ptr, ptr %__it, align 8
+  %first = getelementptr inbounds %"struct.std::pair.366", ptr %11, i32 0, i32 0
+  %12 = load ptr, ptr %first, align 8
+  %call8 = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %__s, ptr noundef %12)
   br i1 %call8, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %for.body7
-  %12 = load i8, ptr %__icase.addr, align 1
-  %tobool = trunc i8 %12 to i1
+  %13 = load i8, ptr %__icase.addr, align 1
+  %tobool = trunc i8 %13 to i1
   br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.then
-  %13 = load ptr, ptr %__it, align 8
-  %second = getelementptr inbounds %"struct.std::pair.366", ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %__it, align 8
+  %second = getelementptr inbounds %"struct.std::pair.366", ptr %14, i32 0, i32 1
   call void @_ZNSt7__cxx1112regex_traitsIcE10_RegexMaskC2Eth(ptr noundef nonnull align 2 dereferenceable(3) %agg.tmp, i16 noundef zeroext 768, i8 noundef zeroext 0)
-  %14 = load i32, ptr %agg.tmp, align 2
-  %call9 = call i32 @_ZNKSt7__cxx1112regex_traitsIcE10_RegexMaskanES2_(ptr noundef nonnull align 2 dereferenceable(3) %second, i32 %14)
+  %15 = load i32, ptr %agg.tmp, align 2
+  %call9 = call i32 @_ZNKSt7__cxx1112regex_traitsIcE10_RegexMaskanES2_(ptr noundef nonnull align 2 dereferenceable(3) %second, i32 %15)
   store i32 %call9, ptr %ref.tmp, align 2
   call void @_ZNSt7__cxx1112regex_traitsIcE10_RegexMaskC2Eth(ptr noundef nonnull align 2 dereferenceable(3) %agg.tmp10, i16 noundef zeroext 0, i8 noundef zeroext 0)
-  %15 = load i32, ptr %agg.tmp10, align 2
-  %call11 = call noundef zeroext i1 @_ZNKSt7__cxx1112regex_traitsIcE10_RegexMaskeqES2_(ptr noundef nonnull align 2 dereferenceable(3) %ref.tmp, i32 %15)
+  %16 = load i32, ptr %agg.tmp10, align 2
+  %call11 = call noundef zeroext i1 @_ZNKSt7__cxx1112regex_traitsIcE10_RegexMaskeqES2_(ptr noundef nonnull align 2 dereferenceable(3) %ref.tmp, i32 %16)
   %lnot = xor i1 %call11, true
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.then
-  %16 = phi i1 [ false, %if.then ], [ %lnot, %land.rhs ]
-  br i1 %16, label %if.then12, label %if.end
+  %17 = phi i1 [ false, %if.then ], [ %lnot, %land.rhs ]
+  br i1 %17, label %if.then12, label %if.end
 
 if.then12:                                        ; preds = %land.end
   call void @_ZNSt7__cxx1112regex_traitsIcE10_RegexMaskC2Eth(ptr noundef nonnull align 2 dereferenceable(3) %retval, i16 noundef zeroext 1024, i8 noundef zeroext 0)
@@ -49194,8 +49197,8 @@ if.then12:                                        ; preds = %land.end
   br label %cleanup
 
 if.end:                                           ; preds = %land.end
-  %17 = load ptr, ptr %__it, align 8
-  %second13 = getelementptr inbounds %"struct.std::pair.366", ptr %17, i32 0, i32 1
+  %18 = load ptr, ptr %__it, align 8
+  %second13 = getelementptr inbounds %"struct.std::pair.366", ptr %18, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %retval, ptr align 8 %second13, i64 4, i1 false)
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
@@ -49204,8 +49207,8 @@ if.end14:                                         ; preds = %for.body7
   br label %for.inc15
 
 for.inc15:                                        ; preds = %if.end14
-  %18 = load ptr, ptr %__begin0, align 8
-  %incdec.ptr16 = getelementptr inbounds %"struct.std::pair.366", ptr %18, i32 1
+  %19 = load ptr, ptr %__begin0, align 8
+  %incdec.ptr16 = getelementptr inbounds %"struct.std::pair.366", ptr %19, i32 1
   store ptr %incdec.ptr16, ptr %__begin0, align 8
   br label %for.cond5
 
@@ -49216,8 +49219,8 @@ for.end17:                                        ; preds = %for.cond5
 
 cleanup:                                          ; preds = %for.end17, %if.end, %if.then12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__s) #3
-  %19 = load i32, ptr %retval, align 2
-  ret i32 %19
+  %20 = load i32, ptr %retval, align 2
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nounwind
@@ -61451,31 +61454,33 @@ for.inc:                                          ; preds = %for.body
 for.end:                                          ; preds = %for.cond
   store ptr @_ZZNKSt7__cxx1112regex_traitsIcE18lookup_collatenameIPKcEENS_12basic_stringIcSt11char_traitsIcESaIcEEET_SA_E14__collatenames, ptr %__range2, align 8
   store ptr @_ZZNKSt7__cxx1112regex_traitsIcE18lookup_collatenameIPKcEENS_12basic_stringIcSt11char_traitsIcESaIcEEET_SA_E14__collatenames, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (ptr, ptr @_ZZNKSt7__cxx1112regex_traitsIcE18lookup_collatenameIPKcEENS_12basic_stringIcSt11char_traitsIcESaIcEEET_SA_E14__collatenames, i64 128), ptr %__end2, align 8
+  %6 = getelementptr inbounds ptr, ptr @_ZZNKSt7__cxx1112regex_traitsIcE18lookup_collatenameIPKcEENS_12basic_stringIcSt11char_traitsIcESaIcEEET_SA_E14__collatenames, i64 128
+  store ptr %6, ptr %__end2, align 8
   br label %for.cond4
 
 for.cond4:                                        ; preds = %for.inc9, %for.end
-  %6 = load ptr, ptr %__begin2, align 8
-  %7 = load ptr, ptr %__end2, align 8
-  %cmp5 = icmp ne ptr %6, %7
+  %7 = load ptr, ptr %__begin2, align 8
+  %8 = load ptr, ptr %__end2, align 8
+  %cmp5 = icmp ne ptr %7, %8
   br i1 %cmp5, label %for.body6, label %for.end11
 
 for.body6:                                        ; preds = %for.cond4
-  %8 = load ptr, ptr %__begin2, align 8
-  store ptr %8, ptr %__it, align 8
-  %9 = load ptr, ptr %__it, align 8
-  %10 = load ptr, ptr %9, align 8
-  %call7 = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %__s, ptr noundef %10)
+  %9 = load ptr, ptr %__begin2, align 8
+  store ptr %9, ptr %__it, align 8
+  %10 = load ptr, ptr %__it, align 8
+  %11 = load ptr, ptr %10, align 8
+  %call7 = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %__s, ptr noundef %11)
   br i1 %call7, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body6
-  %11 = load ptr, ptr %__fctyp, align 8
-  %12 = load ptr, ptr %__it, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %12 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @_ZZNKSt7__cxx1112regex_traitsIcE18lookup_collatenameIPKcEENS_12basic_stringIcSt11char_traitsIcESaIcEEET_SA_E14__collatenames to i64)
+  %12 = load ptr, ptr %__fctyp, align 8
+  %13 = load ptr, ptr %__it, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
+  %14 = ptrtoint ptr @_ZZNKSt7__cxx1112regex_traitsIcE18lookup_collatenameIPKcEENS_12basic_stringIcSt11char_traitsIcESaIcEEET_SA_E14__collatenames to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %14
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
   %conv = trunc i64 %sub.ptr.div to i8
-  %call8 = call noundef signext i8 @_ZNKSt5ctypeIcE5widenEc(ptr noundef nonnull align 8 dereferenceable(570) %11, i8 noundef signext %conv)
+  %call8 = call noundef signext i8 @_ZNKSt5ctypeIcE5widenEc(ptr noundef nonnull align 8 dereferenceable(570) %12, i8 noundef signext %conv)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef 1, i8 noundef signext %call8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
@@ -61486,8 +61491,8 @@ if.end:                                           ; preds = %for.body6
   br label %for.inc9
 
 for.inc9:                                         ; preds = %if.end
-  %13 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr10 = getelementptr inbounds ptr, ptr %13, i32 1
+  %15 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr10 = getelementptr inbounds ptr, ptr %15, i32 1
   store ptr %incdec.ptr10, ptr %__begin2, align 8
   br label %for.cond4
 
@@ -76336,10 +76341,11 @@ entry:
   %_M_automaton3 = getelementptr inbounds %"class.std::__cxx11::basic_regex", ptr %2, i32 0, i32 2
   %call4 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %_M_automaton3) #3
   %_M_traits5 = getelementptr inbounds %"struct.std::__detail::_NFA", ptr %call4, i32 0, i32 2
-  %call6 = call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits5, ptr noundef @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, ptr noundef getelementptr inbounds (i8, ptr @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, i64 1), i1 noundef zeroext false)
+  %3 = getelementptr inbounds i8, ptr @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, i64 1
+  %call6 = call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits5, ptr noundef @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, ptr noundef %3, i1 noundef zeroext false)
   store i32 %call6, ptr %agg.tmp, align 2
-  %3 = load i32, ptr %agg.tmp, align 2
-  %call7 = call noundef zeroext i1 @_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits, i8 noundef signext %1, i32 %3)
+  %4 = load i32, ptr %agg.tmp, align 2
+  %call7 = call noundef zeroext i1 @_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits, i8 noundef signext %1, i32 %4)
   ret i1 %call7
 }
 
@@ -79324,10 +79330,11 @@ entry:
   %_M_automaton3 = getelementptr inbounds %"class.std::__cxx11::basic_regex", ptr %2, i32 0, i32 2
   %call4 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %_M_automaton3) #3
   %_M_traits5 = getelementptr inbounds %"struct.std::__detail::_NFA", ptr %call4, i32 0, i32 2
-  %call6 = call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits5, ptr noundef @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, ptr noundef getelementptr inbounds (i8, ptr @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, i64 1), i1 noundef zeroext false)
+  %3 = getelementptr inbounds i8, ptr @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, i64 1
+  %call6 = call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits5, ptr noundef @_ZZNKSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, ptr noundef %3, i1 noundef zeroext false)
   store i32 %call6, ptr %agg.tmp, align 2
-  %3 = load i32, ptr %agg.tmp, align 2
-  %call7 = call noundef zeroext i1 @_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits, i8 noundef signext %1, i32 %3)
+  %4 = load i32, ptr %agg.tmp, align 2
+  %call7 = call noundef zeroext i1 @_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE(ptr noundef nonnull align 8 dereferenceable(8) %_M_traits, i8 noundef signext %1, i32 %4)
   ret i1 %call7
 }
 
@@ -79974,12 +79981,13 @@ if.then37:                                        ; preds = %if.end31
   %24 = load ptr, ptr %mf, align 8
   %data41 = getelementptr inbounds %"class.mold::MappedFile", ptr %24, i32 0, i32 1
   %25 = load ptr, ptr %data41, align 8
-  %cmp42 = icmp eq ptr %25, inttoptr (i64 -1 to ptr)
+  %26 = inttoptr i64 -1 to ptr
+  %cmp42 = icmp eq ptr %25, %26
   br i1 %cmp42, label %if.then43, label %if.end49
 
 if.then43:                                        ; preds = %if.then37
-  %26 = load ptr, ptr %ctx.addr, align 8
-  call void @_ZN4mold5FatalINS_3elf7ContextINS1_5S390XEEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(4568) %26)
+  %27 = load ptr, ptr %ctx.addr, align 8
+  call void @_ZN4mold5FatalINS_3elf7ContextINS1_5S390XEEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(4568) %27)
   %call45 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_5S390XEEEElsIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(32) %path)
   %call46 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_5S390XEEEElsIRA16_KcEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %call45, ptr noundef nonnull align 1 dereferenceable(16) @.str.598)
   call void @_ZN4mold12errno_stringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp47)
@@ -79992,16 +80000,16 @@ if.end49:                                         ; preds = %if.then37
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end49, %if.end31
-  %27 = load i64, ptr %fd, align 8
-  %conv51 = trunc i64 %27 to i32
+  %28 = load i64, ptr %fd, align 8
+  %conv51 = trunc i64 %28 to i32
   %call52 = call i32 @close(i32 noundef %conv51)
-  %28 = load ptr, ptr %mf, align 8
-  store ptr %28, ptr %retval, align 8
+  %29 = load ptr, ptr %mf, align 8
+  store ptr %29, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end50, %if.end20
-  %29 = load ptr, ptr %retval, align 8
-  ret ptr %29
+  %30 = load ptr, ptr %retval, align 8
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress nounwind

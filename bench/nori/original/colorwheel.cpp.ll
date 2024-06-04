@@ -137,35 +137,36 @@ define hidden void @_ZN7nanogui10ColorWheelC2EPNS_6WidgetERKNS_5ColorE(ptr nound
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui10ColorWheelE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.nanogui::ColorWheel", ptr %9, i32 0, i32 4
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.nanogui::ColorWheel", ptr %9, i32 0, i32 5
-  call void @_ZNSt8functionIFvRKN7nanogui5ColorEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #11
-  %13 = load ptr, ptr %6, align 8
-  invoke void @_ZN7nanogui10ColorWheel9set_colorERKNS_5ColorE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull align 4 dereferenceable(16) %13)
-          to label %14 unwind label %15
-
-14:                                               ; preds = %3
-  ret void
+  %11 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7nanogui10ColorWheelE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.nanogui::ColorWheel", ptr %9, i32 0, i32 4
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.nanogui::ColorWheel", ptr %9, i32 0, i32 5
+  call void @_ZNSt8functionIFvRKN7nanogui5ColorEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #11
+  %14 = load ptr, ptr %6, align 8
+  invoke void @_ZN7nanogui10ColorWheel9set_colorERKNS_5ColorE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull align 4 dereferenceable(16) %14)
+          to label %15 unwind label %16
 
 15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
-  call void @_ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #11
-  call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %9) #11
-  br label %19
+  ret void
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
+  call void @_ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #11
+  call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %9) #11
+  br label %20
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 declare void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) unnamed_addr #1
@@ -2288,9 +2289,10 @@ define linkonce_odr hidden void @_ZN7nanogui10ColorWheelD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui10ColorWheelE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::ColorWheel", ptr %3, i32 0, i32 5
-  call void @_ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
+  %4 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7nanogui10ColorWheelE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::ColorWheel", ptr %3, i32 0, i32 5
+  call void @_ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %3) #11
   ret void
 }

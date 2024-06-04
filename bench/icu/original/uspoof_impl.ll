@@ -169,26 +169,27 @@ entry:
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_7513IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_759SpoofImpl9constructER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_759SpoofImpl9constructER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %data.addr, align 8
+  %3 = load ptr, ptr %data.addr, align 8
   %fSpoofData = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this1, i32 0, i32 3
-  store ptr %2, ptr %fSpoofData, align 8
+  store ptr %3, ptr %fSpoofData, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  %6 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN6icu_7513IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #11
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
+  %7 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN6icu_7513IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #11
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -206,7 +207,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -356,14 +358,15 @@ entry:
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_7513IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_759SpoofImpl9constructER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_759SpoofImpl9constructER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %status.addr, align 8
-  %call = invoke noundef ptr @_ZN6icu_759SpoofData10getDefaultER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %3 = load ptr, ptr %status.addr, align 8
+  %call = invoke noundef ptr @_ZN6icu_759SpoofData10getDefaultER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -372,14 +375,14 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  %6 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN6icu_7513IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #11
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
+  %7 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN6icu_7513IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #11
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -433,7 +436,8 @@ entry:
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_7513IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   store i32 0, ptr %status, align 4
   invoke void @_ZN6icu_759SpoofImpl9constructER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
@@ -448,14 +452,14 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  %4 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN6icu_7513IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
+  %5 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN6icu_7513IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #11
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -505,7 +509,8 @@ entry:
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_7513IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fChecks = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this1, i32 0, i32 2
   store i32 65535, ptr %fChecks, align 4
   %fSpoofData = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this1, i32 0, i32 3
@@ -514,9 +519,9 @@ entry:
   store ptr null, ptr %fAllowedCharsSet, align 8
   %fAllowedLocales = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this1, i32 0, i32 5
   store ptr null, ptr %fAllowedLocales, align 8
-  %1 = load ptr, ptr %status.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %2)
+  %2 = load ptr, ptr %status.addr, align 8
+  %3 = load i32, ptr %2, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -527,34 +532,34 @@ if.then:                                          ; preds = %invoke.cont
   br label %return
 
 lpad:                                             ; preds = %invoke.cont12, %if.end10, %if.then5, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  %6 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN6icu_7513IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #11
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
+  %7 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN6icu_7513IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #11
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont
-  %7 = load ptr, ptr %src.addr, align 8
-  %fChecks2 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %7, i32 0, i32 2
-  %8 = load i32, ptr %fChecks2, align 4
+  %8 = load ptr, ptr %src.addr, align 8
+  %fChecks2 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %8, i32 0, i32 2
+  %9 = load i32, ptr %fChecks2, align 4
   %fChecks3 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this1, i32 0, i32 2
-  store i32 %8, ptr %fChecks3, align 4
-  %9 = load ptr, ptr %src.addr, align 8
-  %fSpoofData4 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %9, i32 0, i32 3
-  %10 = load ptr, ptr %fSpoofData4, align 8
-  %cmp = icmp ne ptr %10, null
+  store i32 %9, ptr %fChecks3, align 4
+  %10 = load ptr, ptr %src.addr, align 8
+  %fSpoofData4 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %10, i32 0, i32 3
+  %11 = load ptr, ptr %fSpoofData4, align 8
+  %cmp = icmp ne ptr %11, null
   br i1 %cmp, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.end
-  %11 = load ptr, ptr %src.addr, align 8
-  %fSpoofData6 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %11, i32 0, i32 3
-  %12 = load ptr, ptr %fSpoofData6, align 8
-  %call8 = invoke noundef ptr @_ZN6icu_759SpoofData12addReferenceEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
+  %12 = load ptr, ptr %src.addr, align 8
+  %fSpoofData6 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %12, i32 0, i32 3
+  %13 = load ptr, ptr %fSpoofData6, align 8
+  %call8 = invoke noundef ptr @_ZN6icu_759SpoofData12addReferenceEv(ptr noundef nonnull align 8 dereferenceable(56) %13)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %if.then5
@@ -563,46 +568,46 @@ invoke.cont7:                                     ; preds = %if.then5
   br label %if.end10
 
 if.end10:                                         ; preds = %invoke.cont7, %if.end
-  %13 = load ptr, ptr %src.addr, align 8
-  %fAllowedCharsSet11 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %13, i32 0, i32 4
-  %14 = load ptr, ptr %fAllowedCharsSet11, align 8
-  %call13 = invoke noundef ptr @_ZNK6icu_7510UnicodeSet5cloneEv(ptr noundef nonnull align 8 dereferenceable(200) %14)
+  %14 = load ptr, ptr %src.addr, align 8
+  %fAllowedCharsSet11 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %14, i32 0, i32 4
+  %15 = load ptr, ptr %fAllowedCharsSet11, align 8
+  %call13 = invoke noundef ptr @_ZNK6icu_7510UnicodeSet5cloneEv(ptr noundef nonnull align 8 dereferenceable(200) %15)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %if.end10
   %fAllowedCharsSet14 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this1, i32 0, i32 4
   store ptr %call13, ptr %fAllowedCharsSet14, align 8
-  %15 = load ptr, ptr %src.addr, align 8
-  %fAllowedLocales15 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %15, i32 0, i32 5
-  %16 = load ptr, ptr %fAllowedLocales15, align 8
-  %call17 = invoke ptr @uprv_strdup_75(ptr noundef %16)
+  %16 = load ptr, ptr %src.addr, align 8
+  %fAllowedLocales15 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %16, i32 0, i32 5
+  %17 = load ptr, ptr %fAllowedLocales15, align 8
+  %call17 = invoke ptr @uprv_strdup_75(ptr noundef %17)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont12
   %fAllowedLocales18 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this1, i32 0, i32 5
   store ptr %call17, ptr %fAllowedLocales18, align 8
   %fAllowedCharsSet19 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this1, i32 0, i32 4
-  %17 = load ptr, ptr %fAllowedCharsSet19, align 8
-  %cmp20 = icmp eq ptr %17, null
+  %18 = load ptr, ptr %fAllowedCharsSet19, align 8
+  %cmp20 = icmp eq ptr %18, null
   br i1 %cmp20, label %if.then23, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont16
   %fAllowedLocales21 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this1, i32 0, i32 5
-  %18 = load ptr, ptr %fAllowedLocales21, align 8
-  %cmp22 = icmp eq ptr %18, null
+  %19 = load ptr, ptr %fAllowedLocales21, align 8
+  %cmp22 = icmp eq ptr %19, null
   br i1 %cmp22, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %lor.lhs.false, %invoke.cont16
-  %19 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %19, align 4
+  %20 = load ptr, ptr %status.addr, align 8
+  store i32 7, ptr %20, align 4
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %lor.lhs.false
-  %20 = load ptr, ptr %src.addr, align 8
-  %fRestrictionLevel = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %20, i32 0, i32 6
-  %21 = load i32, ptr %fRestrictionLevel, align 8
+  %21 = load ptr, ptr %src.addr, align 8
+  %fRestrictionLevel = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %21, i32 0, i32 6
+  %22 = load i32, ptr %fRestrictionLevel, align 8
   %fRestrictionLevel25 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this1, i32 0, i32 6
-  store i32 %21, ptr %fRestrictionLevel25, align 8
+  store i32 %22, ptr %fRestrictionLevel25, align 8
   br label %return
 
 return:                                           ; preds = %if.end24, %if.then
@@ -635,16 +640,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fSpoofData = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fSpoofData, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %fSpoofData, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %fSpoofData2 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %fSpoofData2, align 8
-  invoke void @_ZN6icu_759SpoofData15removeReferenceEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
+  %2 = load ptr, ptr %fSpoofData2, align 8
+  invoke void @_ZN6icu_759SpoofData15removeReferenceEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -652,32 +658,32 @@ invoke.cont:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont, %entry
   %fAllowedCharsSet = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %fAllowedCharsSet, align 8
-  %isnull = icmp eq ptr %2, null
+  %3 = load ptr, ptr %fAllowedCharsSet, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end
-  call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %2) #11
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %2) #11
+  call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %3) #11
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %3) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end
   %fAllowedLocales = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %fAllowedLocales, align 8
-  invoke void @uprv_free_75(ptr noundef %3)
+  %4 = load ptr, ptr %fAllowedLocales, align 8
+  invoke void @uprv_free_75(ptr noundef %4)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %delete.end
-  %4 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN6icu_7513IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #11
+  %5 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN6icu_7513IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #11
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   ret void
 
 terminate.lpad:                                   ; preds = %delete.end, %if.then
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #12
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #12
   unreachable
 }
 
@@ -2383,7 +2389,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -2614,7 +2621,8 @@ entry:
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_7513IcuCApiHelperI17USpoofCheckResultNS_11CheckResultELi657779934EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7511CheckResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7511CheckResultE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fNumerics = getelementptr inbounds %"class.icu_75::CheckResult", ptr %this1, i32 0, i32 3
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fNumerics)
           to label %invoke.cont unwind label %lpad
@@ -2627,27 +2635,27 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fNumerics) #11
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %7 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN6icu_7513IcuCApiHelperI17USpoofCheckResultNS_11CheckResultELi657779934EED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #11
+  %8 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN6icu_7513IcuCApiHelperI17USpoofCheckResultNS_11CheckResultELi657779934EED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %8) #11
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -2872,11 +2880,12 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7511CheckResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7511CheckResultE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fNumerics = getelementptr inbounds %"class.icu_75::CheckResult", ptr %this1, i32 0, i32 3
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fNumerics) #11
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN6icu_7513IcuCApiHelperI17USpoofCheckResultNS_11CheckResultELi657779934EED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) #11
+  %1 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN6icu_7513IcuCApiHelperI17USpoofCheckResultNS_11CheckResultELi657779934EED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %1) #11
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   ret void
 }
@@ -4504,7 +4513,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

@@ -2962,64 +2962,65 @@ define linkonce_odr hidden void @_ZN3tbb4flow11interface105graphD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb4flow11interface105graphE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3tbb4flow11interface105graphE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN3tbb4flow11interface105graph12wait_for_allEv(ptr noundef nonnull align 8 dereferenceable(88) %3)
-          to label %4 unwind label %27
+          to label %5 unwind label %28
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %"class.tbb::flow::interface10::graph", ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  invoke void @_ZN3tbb4task13set_ref_countEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 0)
-          to label %7 unwind label %27
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %"class.tbb::flow::interface10::graph", ptr %3, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  invoke void @_ZN3tbb4task13set_ref_countEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 0)
+          to label %8 unwind label %28
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds %"class.tbb::flow::interface10::graph", ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  invoke void @_ZN3tbb10interface58internal9task_base7destroyERNS_4taskE(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %10 unwind label %27
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds %"class.tbb::flow::interface10::graph", ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  invoke void @_ZN3tbb10interface58internal9task_base7destroyERNS_4taskE(ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %11 unwind label %28
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds %"class.tbb::flow::interface10::graph", ptr %3, i32 0, i32 3
-  %12 = load i8, ptr %11, align 8
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %20
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds %"class.tbb::flow::interface10::graph", ptr %3, i32 0, i32 3
+  %13 = load i8, ptr %12, align 8
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %21
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds %"class.tbb::flow::interface10::graph", ptr %3, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %19, label %18
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds %"class.tbb::flow::interface10::graph", ptr %3, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %20, label %19
 
-18:                                               ; preds = %14
-  call void @_ZN3tbb18task_group_contextD1Ev(ptr noundef nonnull align 8 dereferenceable(256) %16) #3
-  call void @_ZdlPv(ptr noundef %16) #17
-  br label %19
-
-19:                                               ; preds = %18, %14
+19:                                               ; preds = %15
+  call void @_ZN3tbb18task_group_contextD1Ev(ptr noundef nonnull align 8 dereferenceable(256) %17) #3
+  call void @_ZdlPv(ptr noundef %17) #17
   br label %20
 
-20:                                               ; preds = %19, %10
-  %21 = getelementptr inbounds %"class.tbb::flow::interface10::graph", ptr %3, i32 0, i32 11
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %25, label %24
+20:                                               ; preds = %19, %15
+  br label %21
 
-24:                                               ; preds = %20
-  call void @_ZN3tbb10interface710task_arenaD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %22) #3
-  call void @_ZdlPv(ptr noundef %22) #17
-  br label %25
+21:                                               ; preds = %20, %11
+  %22 = getelementptr inbounds %"class.tbb::flow::interface10::graph", ptr %3, i32 0, i32 11
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %26, label %25
 
-25:                                               ; preds = %24, %20
-  %26 = getelementptr inbounds %"class.tbb::flow::interface10::graph", ptr %3, i32 0, i32 7
-  call void @_ZNSt7__cxx114listIPN3tbb4taskESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #3
+25:                                               ; preds = %21
+  call void @_ZN3tbb10interface710task_arenaD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %23) #3
+  call void @_ZdlPv(ptr noundef %23) #17
+  br label %26
+
+26:                                               ; preds = %25, %21
+  %27 = getelementptr inbounds %"class.tbb::flow::interface10::graph", ptr %3, i32 0, i32 7
+  call void @_ZNSt7__cxx114listIPN3tbb4taskESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
   call void @_ZN3tbb4flow11interface1111graph_proxyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 
-27:                                               ; preds = %7, %4, %1
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %8, %5, %1
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #16
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #16
   unreachable
 }
 
@@ -4004,29 +4005,30 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr nou
   %9 = load ptr, ptr %4, align 8
   call void @_ZN10tinyformat6formatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %9)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %10 unwind label %11
+          to label %10 unwind label %12
 
 10:                                               ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2), ptr %8, align 8
+  %11 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %8, align 8
   ret void
 
-11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %6, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %7, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %6, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %7, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  br label %15
+  br label %16
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %6, align 8
-  %17 = load i32, ptr %7, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %7, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 declare void @__cxa_free_exception(ptr)
@@ -6092,20 +6094,21 @@ define linkonce_odr hidden void @_ZN3tbb4flow11interface1110graph_nodeD2Ev(ptr n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tbb4flow11interface1110graph_nodeE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.tbb::flow::interface11::graph_node", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  invoke void @_ZN3tbb4flow11interface105graph11remove_nodeEPNS0_11interface1110graph_nodeE(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef %3)
-          to label %6 unwind label %7
-
-6:                                                ; preds = %1
-  ret void
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3tbb4flow11interface1110graph_nodeE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.tbb::flow::interface11::graph_node", ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  invoke void @_ZN3tbb4flow11interface105graph11remove_nodeEPNS0_11interface1110graph_nodeE(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef %3)
+          to label %7 unwind label %8
 
 7:                                                ; preds = %1
-  %8 = landingpad { ptr, i32 }
+  ret void
+
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #16
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #16
   unreachable
 }
 
@@ -6224,10 +6227,11 @@ define linkonce_odr hidden void @_ZN3tbb10interface78internal18delegated_functio
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3tbb10interface78internal13delegate_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tbb10interface78internal18delegated_functionIKNS_4flow11interface105graph12wait_functorEvEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.tbb::interface7::internal::delegated_function", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3tbb10interface78internal18delegated_functionIKNS_4flow11interface105graph12wait_functorEvEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.tbb::interface7::internal::delegated_function", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -6266,7 +6270,8 @@ define linkonce_odr hidden void @_ZN3tbb10interface78internal13delegate_baseC2Ev
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tbb10interface78internal13delegate_baseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3tbb10interface78internal13delegate_baseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7197,7 +7202,8 @@ define linkonce_odr dso_local void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7209,7 +7215,8 @@ define linkonce_odr dso_local void @_ZNSt9exceptionC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

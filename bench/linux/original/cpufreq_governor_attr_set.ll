@@ -108,23 +108,25 @@ define dso_local i32 @gov_attr_set_put(ptr noundef %0, ptr nocapture noundef %1)
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %7, align 8
   store volatile ptr %6, ptr %5, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %1, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
-  %9 = load i32, ptr %8, align 8
-  %10 = add i32 %9, -1
-  store i32 %10, ptr %8, align 8
+  %8 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %8, ptr %1, align 8
+  %9 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %9, ptr %4, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = load i32, ptr %10, align 8
+  %12 = add i32 %11, -1
+  store i32 %12, ptr %10, align 8
   tail call void @mutex_unlock(ptr noundef %3) #2
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %13
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %15
 
-12:                                               ; preds = %2
+14:                                               ; preds = %2
   tail call void @kobject_put(ptr noundef %0) #2
-  br label %13
+  br label %15
 
-13:                                               ; preds = %12, %2
-  %14 = phi i32 [ 0, %12 ], [ %10, %2 ]
-  ret i32 %14
+15:                                               ; preds = %14, %2
+  %16 = phi i32 [ 0, %14 ], [ %12, %2 ]
+  ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid

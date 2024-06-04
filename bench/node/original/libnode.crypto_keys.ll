@@ -2246,10 +2246,11 @@ entry:
   store ptr %pkey, ptr %pkey.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pkey_ = getelementptr inbounds %"class.node::crypto::ManagedEVPPKey", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pkey.addr, align 8
-  call void @_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %pkey_, ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  %1 = load ptr, ptr %pkey.addr, align 8
+  call void @_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %pkey_, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
   %mutex_ = getelementptr inbounds %"class.node::crypto::ManagedEVPPKey", ptr %this1, i32 0, i32 2
   call void @_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_(ptr sret(%"class.std::shared_ptr") align 8 %mutex_)
   ret void
@@ -2261,7 +2262,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2304,13 +2306,14 @@ entry:
   store ptr %that, ptr %that.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pkey_ = getelementptr inbounds %"class.node::crypto::ManagedEVPPKey", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %pkey_) #3
   %mutex_ = getelementptr inbounds %"class.node::crypto::ManagedEVPPKey", ptr %this1, i32 0, i32 2
   call void @_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %mutex_) #3
-  %0 = load ptr, ptr %that.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %that.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
@@ -4163,12 +4166,13 @@ do.cond27:                                        ; preds = %if.end26
   br label %do.end28
 
 do.end28:                                         ; preds = %do.cond27
-  store ptr inttoptr (i64 -1 to ptr), ptr %pass, align 8
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %pass, align 8
   br label %do.body29
 
 do.body29:                                        ; preds = %do.end28
-  %5 = load ptr, ptr %pass, align 8
-  %cmp30 = icmp ne ptr %5, null
+  %6 = load ptr, ptr %pass, align 8
+  %cmp30 = icmp ne ptr %6, null
   %lnot31 = xor i1 %cmp30, true
   %lnot32 = xor i1 %lnot31, true
   %lnot33 = xor i1 %lnot32, true
@@ -4202,16 +4206,16 @@ if.end41:                                         ; preds = %do.end40, %if.then9
 
 if.end42:                                         ; preds = %if.end41, %do.end7
   call void @_ZN4node6crypto20MarkPopErrorOnReturnC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %mark_pop_error_on_return)
-  %6 = load ptr, ptr %config.addr, align 8
-  %type_ = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %config.addr, align 8
+  %type_ = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %7, i32 0, i32 2
   store ptr %type_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   store ptr %this1.i, ptr %this.addr.i230, align 8
   %this1.i231 = load ptr, ptr %this.addr.i230, align 8
   store ptr %this1.i231, ptr %this.addr.i233, align 8
   %this1.i234 = load ptr, ptr %this.addr.i233, align 8
-  %7 = load i8, ptr %this1.i234, align 4
-  %tobool.i = trunc i8 %7 to i1
+  %8 = load i8, ptr %this1.i234, align 4
+  %tobool.i = trunc i8 %8 to i1
   %lnot3.i = xor i1 %tobool.i, true
   br i1 %lnot3.i, label %if.then.i, label %_ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit
 
@@ -4221,18 +4225,18 @@ if.then.i:                                        ; preds = %if.end42
 
 _ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit: ; preds = %if.then.i, %if.end42
   %value_.i = getelementptr inbounds %"class.v8::Maybe.12", ptr %this1.i231, i32 0, i32 1
-  %8 = load i32, ptr %value_.i, align 4
-  store i32 %8, ptr %encoding_type, align 4
-  %9 = load i32, ptr %encoding_type, align 4
-  %cmp44 = icmp eq i32 %9, 0
+  %9 = load i32, ptr %value_.i, align 4
+  store i32 %9, ptr %encoding_type, align 4
+  %10 = load i32, ptr %encoding_type, align 4
+  %cmp44 = icmp eq i32 %10, 0
   br i1 %cmp44, label %if.then45, label %if.else100
 
 if.then45:                                        ; preds = %_ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit
   br label %do.body46
 
 do.body46:                                        ; preds = %if.then45
-  %10 = load ptr, ptr %pkey.addr, align 8
-  %call47 = call i32 @EVP_PKEY_get_id(ptr noundef %10)
+  %11 = load ptr, ptr %pkey.addr, align 8
+  %call47 = call i32 @EVP_PKEY_get_id(ptr noundef %11)
   %cmp48 = icmp eq i32 %call47, 6
   %lnot49 = xor i1 %cmp48, true
   %lnot50 = xor i1 %lnot49, true
@@ -4260,25 +4264,25 @@ do.cond57:                                        ; preds = %if.end56
   br label %do.end58
 
 do.end58:                                         ; preds = %do.cond57
-  %11 = load ptr, ptr %pkey.addr, align 8
-  %call59 = call ptr @EVP_PKEY_get1_RSA(ptr noundef %11)
+  %12 = load ptr, ptr %pkey.addr, align 8
+  %call59 = call ptr @EVP_PKEY_get1_RSA(ptr noundef %12)
   call void @_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEEC2IS3_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %rsa, ptr noundef %call59) #3
-  %12 = load ptr, ptr %config.addr, align 8
-  %format_ = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %12, i32 0, i32 1
-  %13 = load i32, ptr %format_, align 4
-  %cmp60 = icmp eq i32 %13, 1
+  %13 = load ptr, ptr %config.addr, align 8
+  %format_ = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %13, i32 0, i32 1
+  %14 = load i32, ptr %format_, align 4
+  %cmp60 = icmp eq i32 %14, 1
   br i1 %cmp60, label %if.then61, label %if.else
 
 if.then61:                                        ; preds = %do.end58
   %call62 = call noundef ptr @_ZNKSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %bio) #3
   %call63 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #3
-  %14 = load ptr, ptr %config.addr, align 8
-  %cipher_ = getelementptr inbounds %"struct.node::crypto::PrivateKeyEncodingConfig", ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %cipher_, align 8
-  %16 = load ptr, ptr %pass, align 8
-  %17 = load i64, ptr %pass_len, align 8
-  %conv = trunc i64 %17 to i32
-  %call64 = call i32 @PEM_write_bio_RSAPrivateKey(ptr noundef %call62, ptr noundef %call63, ptr noundef %15, ptr noundef %16, i32 noundef %conv, ptr noundef null, ptr noundef null)
+  %15 = load ptr, ptr %config.addr, align 8
+  %cipher_ = getelementptr inbounds %"struct.node::crypto::PrivateKeyEncodingConfig", ptr %15, i32 0, i32 1
+  %16 = load ptr, ptr %cipher_, align 8
+  %17 = load ptr, ptr %pass, align 8
+  %18 = load i64, ptr %pass_len, align 8
+  %conv = trunc i64 %18 to i32
+  %call64 = call i32 @PEM_write_bio_RSAPrivateKey(ptr noundef %call62, ptr noundef %call63, ptr noundef %16, ptr noundef %17, i32 noundef %conv, ptr noundef null, ptr noundef null)
   %cmp65 = icmp ne i32 %call64, 1
   %frombool = zext i1 %cmp65 to i8
   store i8 %frombool, ptr %err, align 1
@@ -4288,10 +4292,10 @@ if.else:                                          ; preds = %do.end58
   br label %do.body66
 
 do.body66:                                        ; preds = %if.else
-  %18 = load ptr, ptr %config.addr, align 8
-  %format_67 = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %18, i32 0, i32 1
-  %19 = load i32, ptr %format_67, align 4
-  %cmp68 = icmp eq i32 %19, 0
+  %19 = load ptr, ptr %config.addr, align 8
+  %format_67 = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %19, i32 0, i32 1
+  %20 = load i32, ptr %format_67, align 4
+  %cmp68 = icmp eq i32 %20, 0
   %lnot69 = xor i1 %cmp68, true
   %lnot70 = xor i1 %lnot69, true
   %lnot71 = xor i1 %lnot70, true
@@ -4321,10 +4325,10 @@ do.end79:                                         ; preds = %do.cond78
   br label %do.body80
 
 do.body80:                                        ; preds = %do.end79
-  %20 = load ptr, ptr %config.addr, align 8
-  %cipher_81 = getelementptr inbounds %"struct.node::crypto::PrivateKeyEncodingConfig", ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %cipher_81, align 8
-  %cmp82 = icmp eq ptr %21, null
+  %21 = load ptr, ptr %config.addr, align 8
+  %cipher_81 = getelementptr inbounds %"struct.node::crypto::PrivateKeyEncodingConfig", ptr %21, i32 0, i32 1
+  %22 = load ptr, ptr %cipher_81, align 8
+  %cmp82 = icmp eq ptr %22, null
   %lnot83 = xor i1 %cmp82, true
   %lnot84 = xor i1 %lnot83, true
   %lnot85 = xor i1 %lnot84, true
@@ -4364,27 +4368,27 @@ if.end99:                                         ; preds = %do.end93, %if.then6
   br label %if.end209
 
 if.else100:                                       ; preds = %_ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit
-  %22 = load i32, ptr %encoding_type, align 4
-  %cmp101 = icmp eq i32 %22, 1
+  %23 = load i32, ptr %encoding_type, align 4
+  %cmp101 = icmp eq i32 %23, 1
   br i1 %cmp101, label %if.then102, label %if.else134
 
 if.then102:                                       ; preds = %if.else100
-  %23 = load ptr, ptr %config.addr, align 8
-  %format_103 = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %23, i32 0, i32 1
-  %24 = load i32, ptr %format_103, align 4
-  %cmp104 = icmp eq i32 %24, 1
+  %24 = load ptr, ptr %config.addr, align 8
+  %format_103 = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %24, i32 0, i32 1
+  %25 = load i32, ptr %format_103, align 4
+  %cmp104 = icmp eq i32 %25, 1
   br i1 %cmp104, label %if.then105, label %if.else112
 
 if.then105:                                       ; preds = %if.then102
   %call106 = call noundef ptr @_ZNKSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %bio) #3
-  %25 = load ptr, ptr %pkey.addr, align 8
-  %26 = load ptr, ptr %config.addr, align 8
-  %cipher_107 = getelementptr inbounds %"struct.node::crypto::PrivateKeyEncodingConfig", ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %cipher_107, align 8
-  %28 = load ptr, ptr %pass, align 8
-  %29 = load i64, ptr %pass_len, align 8
-  %conv108 = trunc i64 %29 to i32
-  %call109 = call i32 @PEM_write_bio_PKCS8PrivateKey(ptr noundef %call106, ptr noundef %25, ptr noundef %27, ptr noundef %28, i32 noundef %conv108, ptr noundef null, ptr noundef null)
+  %26 = load ptr, ptr %pkey.addr, align 8
+  %27 = load ptr, ptr %config.addr, align 8
+  %cipher_107 = getelementptr inbounds %"struct.node::crypto::PrivateKeyEncodingConfig", ptr %27, i32 0, i32 1
+  %28 = load ptr, ptr %cipher_107, align 8
+  %29 = load ptr, ptr %pass, align 8
+  %30 = load i64, ptr %pass_len, align 8
+  %conv108 = trunc i64 %30 to i32
+  %call109 = call i32 @PEM_write_bio_PKCS8PrivateKey(ptr noundef %call106, ptr noundef %26, ptr noundef %28, ptr noundef %29, i32 noundef %conv108, ptr noundef null, ptr noundef null)
   %cmp110 = icmp ne i32 %call109, 1
   %frombool111 = zext i1 %cmp110 to i8
   store i8 %frombool111, ptr %err, align 1
@@ -4394,10 +4398,10 @@ if.else112:                                       ; preds = %if.then102
   br label %do.body113
 
 do.body113:                                       ; preds = %if.else112
-  %30 = load ptr, ptr %config.addr, align 8
-  %format_114 = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %30, i32 0, i32 1
-  %31 = load i32, ptr %format_114, align 4
-  %cmp115 = icmp eq i32 %31, 0
+  %31 = load ptr, ptr %config.addr, align 8
+  %format_114 = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %31, i32 0, i32 1
+  %32 = load i32, ptr %format_114, align 4
+  %cmp115 = icmp eq i32 %32, 0
   %lnot116 = xor i1 %cmp115, true
   %lnot117 = xor i1 %lnot116, true
   %lnot118 = xor i1 %lnot117, true
@@ -4425,14 +4429,14 @@ do.cond125:                                       ; preds = %if.end124
 
 do.end126:                                        ; preds = %do.cond125
   %call127 = call noundef ptr @_ZNKSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %bio) #3
-  %32 = load ptr, ptr %pkey.addr, align 8
-  %33 = load ptr, ptr %config.addr, align 8
-  %cipher_128 = getelementptr inbounds %"struct.node::crypto::PrivateKeyEncodingConfig", ptr %33, i32 0, i32 1
-  %34 = load ptr, ptr %cipher_128, align 8
-  %35 = load ptr, ptr %pass, align 8
-  %36 = load i64, ptr %pass_len, align 8
-  %conv129 = trunc i64 %36 to i32
-  %call130 = call i32 @i2d_PKCS8PrivateKey_bio(ptr noundef %call127, ptr noundef %32, ptr noundef %34, ptr noundef %35, i32 noundef %conv129, ptr noundef null, ptr noundef null)
+  %33 = load ptr, ptr %pkey.addr, align 8
+  %34 = load ptr, ptr %config.addr, align 8
+  %cipher_128 = getelementptr inbounds %"struct.node::crypto::PrivateKeyEncodingConfig", ptr %34, i32 0, i32 1
+  %35 = load ptr, ptr %cipher_128, align 8
+  %36 = load ptr, ptr %pass, align 8
+  %37 = load i64, ptr %pass_len, align 8
+  %conv129 = trunc i64 %37 to i32
+  %call130 = call i32 @i2d_PKCS8PrivateKey_bio(ptr noundef %call127, ptr noundef %33, ptr noundef %35, ptr noundef %36, i32 noundef %conv129, ptr noundef null, ptr noundef null)
   %cmp131 = icmp ne i32 %call130, 1
   %frombool132 = zext i1 %cmp131 to i8
   store i8 %frombool132, ptr %err, align 1
@@ -4445,8 +4449,8 @@ if.else134:                                       ; preds = %if.else100
   br label %do.body135
 
 do.body135:                                       ; preds = %if.else134
-  %37 = load i32, ptr %encoding_type, align 4
-  %cmp136 = icmp eq i32 %37, 3
+  %38 = load i32, ptr %encoding_type, align 4
+  %cmp136 = icmp eq i32 %38, 3
   %lnot137 = xor i1 %cmp136, true
   %lnot138 = xor i1 %lnot137, true
   %lnot139 = xor i1 %lnot138, true
@@ -4476,8 +4480,8 @@ do.end147:                                        ; preds = %do.cond146
   br label %do.body148
 
 do.body148:                                       ; preds = %do.end147
-  %38 = load ptr, ptr %pkey.addr, align 8
-  %call149 = call i32 @EVP_PKEY_get_id(ptr noundef %38)
+  %39 = load ptr, ptr %pkey.addr, align 8
+  %call149 = call i32 @EVP_PKEY_get_id(ptr noundef %39)
   %cmp150 = icmp eq i32 %call149, 408
   %lnot151 = xor i1 %cmp150, true
   %lnot152 = xor i1 %lnot151, true
@@ -4505,25 +4509,25 @@ do.cond160:                                       ; preds = %if.end159
   br label %do.end161
 
 do.end161:                                        ; preds = %do.cond160
-  %39 = load ptr, ptr %pkey.addr, align 8
-  %call162 = call ptr @EVP_PKEY_get1_EC_KEY(ptr noundef %39)
+  %40 = load ptr, ptr %pkey.addr, align 8
+  %call162 = call ptr @EVP_PKEY_get1_EC_KEY(ptr noundef %40)
   call void @_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEEC2IS3_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %ec_key, ptr noundef %call162) #3
-  %40 = load ptr, ptr %config.addr, align 8
-  %format_163 = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %40, i32 0, i32 1
-  %41 = load i32, ptr %format_163, align 4
-  %cmp164 = icmp eq i32 %41, 1
+  %41 = load ptr, ptr %config.addr, align 8
+  %format_163 = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %41, i32 0, i32 1
+  %42 = load i32, ptr %format_163, align 4
+  %cmp164 = icmp eq i32 %42, 1
   br i1 %cmp164, label %if.then165, label %if.else173
 
 if.then165:                                       ; preds = %do.end161
   %call166 = call noundef ptr @_ZNKSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %bio) #3
   %call167 = call noundef ptr @_ZNKSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %ec_key) #3
-  %42 = load ptr, ptr %config.addr, align 8
-  %cipher_168 = getelementptr inbounds %"struct.node::crypto::PrivateKeyEncodingConfig", ptr %42, i32 0, i32 1
-  %43 = load ptr, ptr %cipher_168, align 8
-  %44 = load ptr, ptr %pass, align 8
-  %45 = load i64, ptr %pass_len, align 8
-  %conv169 = trunc i64 %45 to i32
-  %call170 = call i32 @PEM_write_bio_ECPrivateKey(ptr noundef %call166, ptr noundef %call167, ptr noundef %43, ptr noundef %44, i32 noundef %conv169, ptr noundef null, ptr noundef null)
+  %43 = load ptr, ptr %config.addr, align 8
+  %cipher_168 = getelementptr inbounds %"struct.node::crypto::PrivateKeyEncodingConfig", ptr %43, i32 0, i32 1
+  %44 = load ptr, ptr %cipher_168, align 8
+  %45 = load ptr, ptr %pass, align 8
+  %46 = load i64, ptr %pass_len, align 8
+  %conv169 = trunc i64 %46 to i32
+  %call170 = call i32 @PEM_write_bio_ECPrivateKey(ptr noundef %call166, ptr noundef %call167, ptr noundef %44, ptr noundef %45, i32 noundef %conv169, ptr noundef null, ptr noundef null)
   %cmp171 = icmp ne i32 %call170, 1
   %frombool172 = zext i1 %cmp171 to i8
   store i8 %frombool172, ptr %err, align 1
@@ -4533,10 +4537,10 @@ if.else173:                                       ; preds = %do.end161
   br label %do.body174
 
 do.body174:                                       ; preds = %if.else173
-  %46 = load ptr, ptr %config.addr, align 8
-  %format_175 = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %46, i32 0, i32 1
-  %47 = load i32, ptr %format_175, align 4
-  %cmp176 = icmp eq i32 %47, 0
+  %47 = load ptr, ptr %config.addr, align 8
+  %format_175 = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %47, i32 0, i32 1
+  %48 = load i32, ptr %format_175, align 4
+  %cmp176 = icmp eq i32 %48, 0
   %lnot177 = xor i1 %cmp176, true
   %lnot178 = xor i1 %lnot177, true
   %lnot179 = xor i1 %lnot178, true
@@ -4566,10 +4570,10 @@ do.end187:                                        ; preds = %do.cond186
   br label %do.body188
 
 do.body188:                                       ; preds = %do.end187
-  %48 = load ptr, ptr %config.addr, align 8
-  %cipher_189 = getelementptr inbounds %"struct.node::crypto::PrivateKeyEncodingConfig", ptr %48, i32 0, i32 1
-  %49 = load ptr, ptr %cipher_189, align 8
-  %cmp190 = icmp eq ptr %49, null
+  %49 = load ptr, ptr %config.addr, align 8
+  %cipher_189 = getelementptr inbounds %"struct.node::crypto::PrivateKeyEncodingConfig", ptr %49, i32 0, i32 1
+  %50 = load ptr, ptr %cipher_189, align 8
+  %cmp190 = icmp eq ptr %50, null
   %lnot191 = xor i1 %cmp190, true
   %lnot192 = xor i1 %lnot191, true
   %lnot193 = xor i1 %lnot192, true
@@ -4612,14 +4616,14 @@ if.end208:                                        ; preds = %if.end207, %if.end1
   br label %if.end209
 
 if.end209:                                        ; preds = %if.end208, %if.end99
-  %50 = load i8, ptr %err, align 1
-  %tobool = trunc i8 %50 to i1
+  %51 = load i8, ptr %err, align 1
+  %tobool = trunc i8 %51 to i1
   br i1 %tobool, label %if.then210, label %if.end212
 
 if.then210:                                       ; preds = %if.end209
-  %51 = load ptr, ptr %env.addr, align 8
+  %52 = load ptr, ptr %env.addr, align 8
   %call211 = call i64 @ERR_get_error()
-  call void @_ZN4node6crypto16ThrowCryptoErrorEPNS_11EnvironmentEmPKc(ptr noundef %51, i64 noundef %call211, ptr noundef @.str.197)
+  call void @_ZN4node6crypto16ThrowCryptoErrorEPNS_11EnvironmentEmPKc(ptr noundef %52, i64 noundef %call211, ptr noundef @.str.197)
   store ptr %retval, ptr %this.addr.i224, align 8
   %this1.i225 = load ptr, ptr %this.addr.i224, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %this1.i225, i8 0, i64 8, i1 false)
@@ -4634,12 +4638,12 @@ if.then210:                                       ; preds = %if.end209
   br label %cleanup
 
 if.end212:                                        ; preds = %if.end209
-  %52 = load ptr, ptr %env.addr, align 8
+  %53 = load ptr, ptr %env.addr, align 8
   %call213 = call noundef ptr @_ZNKSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %bio) #3
-  %53 = load ptr, ptr %config.addr, align 8
-  %format_214 = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %53, i32 0, i32 1
-  %54 = load i32, ptr %format_214, align 4
-  %call215 = call ptr @_ZN4node6crypto12_GLOBAL__N_119BIOToStringOrBufferEPNS_11EnvironmentEP6bio_stNS0_12PKFormatTypeE(ptr noundef %52, ptr noundef %call213, i32 noundef %54)
+  %54 = load ptr, ptr %config.addr, align 8
+  %format_214 = getelementptr inbounds %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr %54, i32 0, i32 1
+  %55 = load i32, ptr %format_214, align 4
+  %call215 = call ptr @_ZN4node6crypto12_GLOBAL__N_119BIOToStringOrBufferEPNS_11EnvironmentEP6bio_stNS0_12PKFormatTypeE(ptr noundef %53, ptr noundef %call213, i32 noundef %55)
   %coerce.dive = getelementptr inbounds %"class.v8::MaybeLocal.291", ptr %retval, i32 0, i32 0
   %coerce.dive216 = getelementptr inbounds %"class.v8::Local", ptr %coerce.dive, i32 0, i32 0
   %coerce.dive217 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive216, i32 0, i32 0
@@ -4655,8 +4659,8 @@ cleanup:                                          ; preds = %if.end212, %if.then
   %coerce.dive221 = getelementptr inbounds %"class.v8::Local", ptr %coerce.dive220, i32 0, i32 0
   %coerce.dive222 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive221, i32 0, i32 0
   %coerce.dive223 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive222, i32 0, i32 0
-  %55 = load ptr, ptr %coerce.dive223, align 8
-  ret ptr %55
+  %56 = load ptr, ptr %coerce.dive223, align 8
+  ret ptr %56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9780,7 +9784,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pkey_ = getelementptr inbounds %"class.node::crypto::ManagedEVPPKey", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %pkey_) #3
   %mutex_ = getelementptr inbounds %"class.node::crypto::ManagedEVPPKey", ptr %this1, i32 0, i32 2
@@ -11943,7 +11948,8 @@ entry:
   store ptr %symmetric_key, ptr %symmetric_key.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto13KeyObjectDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node6crypto13KeyObjectDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %key_type_ = getelementptr inbounds %"class.node::crypto::KeyObjectData", ptr %this1, i32 0, i32 1
   store i32 0, ptr %key_type_, align 8
   %symmetric_key_ = getelementptr inbounds %"class.node::crypto::KeyObjectData", ptr %this1, i32 0, i32 2
@@ -11967,16 +11973,17 @@ entry:
   store ptr %pkey, ptr %pkey.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto13KeyObjectDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node6crypto13KeyObjectDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %key_type_ = getelementptr inbounds %"class.node::crypto::KeyObjectData", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %type.addr, align 4
-  store i32 %0, ptr %key_type_, align 8
+  %1 = load i32, ptr %type.addr, align 4
+  store i32 %1, ptr %key_type_, align 8
   %symmetric_key_ = getelementptr inbounds %"class.node::crypto::KeyObjectData", ptr %this1, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr align 8 %symmetric_key_, i8 0, i64 24, i1 false)
   call void @_ZN4node6crypto10ByteSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_) #3
   %asymmetric_key_ = getelementptr inbounds %"class.node::crypto::KeyObjectData", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %pkey.addr, align 8
-  call void @_ZN4node6crypto14ManagedEVPPKeyC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %2 = load ptr, ptr %pkey.addr, align 8
+  call void @_ZN4node6crypto14ManagedEVPPKeyC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_, ptr noundef nonnull align 8 dereferenceable(32) %2)
   ret void
 }
 
@@ -20475,7 +20482,8 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node10BaseObjectC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node6crypto15KeyObjectHandleE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node6crypto15KeyObjectHandleE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %data_ = getelementptr inbounds %"class.node::crypto::KeyObjectHandle", ptr %this3, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data_) #3
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
@@ -20590,7 +20598,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mutex_ = getelementptr inbounds %"class.node::crypto::ManagedEVPPKey", ptr %this1, i32 0, i32 2
   call void @_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %mutex_) #3
   %pkey_ = getelementptr inbounds %"class.node::crypto::ManagedEVPPKey", ptr %this1, i32 0, i32 1
@@ -24219,10 +24228,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node10BaseObjectC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node6crypto15NativeKeyObjectE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node6crypto15NativeKeyObjectE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %handle_data_ = getelementptr inbounds %"class.node::crypto::NativeKeyObject", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %handle_data.addr, align 8
-  call void @_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %handle_data_, ptr noundef nonnull align 8 dereferenceable(16) %2) #3
+  %3 = load ptr, ptr %handle_data.addr, align 8
+  call void @_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %handle_data_, ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
   ret void
 }
@@ -28833,7 +28843,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node6crypto15NativeKeyObject21KeyObjectTransferDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node6crypto15NativeKeyObject21KeyObjectTransferDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.node::crypto::NativeKeyObject::KeyObjectTransferData", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data_) #3
   call void @_ZN4node6worker12TransferDataD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -28885,7 +28896,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node6crypto15NativeKeyObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node6crypto15NativeKeyObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %handle_data_ = getelementptr inbounds %"class.node::crypto::NativeKeyObject", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %handle_data_) #3
   call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -28988,7 +29000,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto13KeyObjectDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node6crypto13KeyObjectDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %asymmetric_key_ = getelementptr inbounds %"class.node::crypto::KeyObjectData", ptr %this1, i32 0, i32 3
   call void @_ZN4node6crypto14ManagedEVPPKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_) #3
   %symmetric_key_ = getelementptr inbounds %"class.node::crypto::KeyObjectData", ptr %this1, i32 0, i32 2
@@ -29030,7 +29043,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node6crypto15KeyObjectHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node6crypto15KeyObjectHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.node::crypto::KeyObjectHandle", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data_) #3
   call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -29726,7 +29740,8 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -29737,14 +29752,14 @@ entry:
   store i64 0, ptr %size_, align 8
   %detachedness_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 0, ptr %detachedness_, align 8
-  %0 = load ptr, ptr %name.addr, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
-  store ptr %0, ptr %name_, align 8
-  %1 = load i64, ptr %size.addr, align 8
+  store ptr %1, ptr %name_, align 8
+  %2 = load i64, ptr %size.addr, align 8
   %size_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
-  store i64 %1, ptr %size_2, align 8
-  %2 = load i8, ptr %is_root_node.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  store i64 %2, ptr %size_2, align 8
+  %3 = load i8, ptr %is_root_node.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %is_root_node_3 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %is_root_node_3, align 8
@@ -29826,7 +29841,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -38512,7 +38528,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
@@ -38676,7 +38693,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -40990,10 +41008,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node6crypto13KeyObjectDataELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node6crypto13KeyObjectDataELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -41778,10 +41797,11 @@ entry:
   store ptr %data, ptr %data.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node6worker12TransferDataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node6crypto15NativeKeyObject21KeyObjectTransferDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node6crypto15NativeKeyObject21KeyObjectTransferDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.node::crypto::NativeKeyObject::KeyObjectTransferData", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %data.addr, align 8
-  call void @_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %data_, ptr noundef nonnull align 8 dereferenceable(16) %0) #3
+  %1 = load ptr, ptr %data.addr, align 8
+  call void @_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %data_, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
   ret void
 }
 
@@ -41806,7 +41826,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node6worker12TransferDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node6worker12TransferDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

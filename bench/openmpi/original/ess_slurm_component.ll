@@ -28,41 +28,43 @@ define i32 @prte_mca_ess_slurm_component_query(ptr noundef %0, ptr noundef %1) #
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %6 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 10), align 4
-  %7 = zext i8 %6 to i32
-  %8 = and i32 2, %7
-  %9 = icmp ne i32 %8, 0
-  br i1 %9, label %10, label %19
+  %6 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 10
+  %7 = load i8, ptr %6, align 4
+  %8 = zext i8 %7 to i32
+  %9 = and i32 2, %8
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %21
 
-10:                                               ; preds = %2
-  %11 = call ptr @getenv(ptr noundef @.str) #2
-  %12 = icmp ne ptr null, %11
-  br i1 %12, label %13, label %19
+11:                                               ; preds = %2
+  %12 = call ptr @getenv(ptr noundef @.str) #2
+  %13 = icmp ne ptr null, %12
+  br i1 %13, label %14, label %21
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 2), align 8
-  %15 = icmp ne ptr null, %14
-  br i1 %15, label %16, label %19
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr null, %16
+  br i1 %17, label %18, label %21
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %5, align 8
-  store i32 50, ptr %17, align 4
-  %18 = load ptr, ptr %4, align 8
-  store ptr @prte_ess_slurm_module, ptr %18, align 8
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  store i32 50, ptr %19, align 4
+  %20 = load ptr, ptr %4, align 8
+  store ptr @prte_ess_slurm_module, ptr %20, align 8
   store i32 0, ptr %3, align 4
-  br label %22
+  br label %24
 
-19:                                               ; preds = %13, %10, %2
-  %20 = load ptr, ptr %5, align 8
-  store i32 -1, ptr %20, align 4
-  %21 = load ptr, ptr %4, align 8
-  store ptr null, ptr %21, align 8
+21:                                               ; preds = %14, %11, %2
+  %22 = load ptr, ptr %5, align 8
+  store i32 -1, ptr %22, align 4
+  %23 = load ptr, ptr %4, align 8
+  store ptr null, ptr %23, align 8
   store i32 -1, ptr %3, align 4
-  br label %22
+  br label %24
 
-22:                                               ; preds = %19, %16
-  %23 = load i32, ptr %3, align 4
-  ret i32 %23
+24:                                               ; preds = %21, %18
+  %25 = load i32, ptr %3, align 4
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind

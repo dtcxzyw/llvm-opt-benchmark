@@ -55,7 +55,7 @@ define internal i32 @mca_smsc_cma_component_query() #0 {
   store i32 %7, ptr %4, align 4
   %8 = load i32, ptr %4, align 4
   %9 = icmp sle i32 0, %8
-  br i1 %9, label %10, label %27
+  br i1 %9, label %10, label %29
 
 10:                                               ; preds = %0
   %11 = load i32, ptr %4, align 4
@@ -64,110 +64,116 @@ define internal i32 @mca_smsc_cma_component_query() #0 {
   store i32 %13, ptr %5, align 4
   %14 = load i32, ptr %5, align 4
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %24
+  br i1 %15, label %16, label %26
 
 16:                                               ; preds = %10
   br label %17
 
 17:                                               ; preds = %16
-  %18 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i32 0, i32 11), align 4
-  %19 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %18)
-  br i1 %19, label %20, label %22
+  %18 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i32 0, i32 11
+  %19 = load i32, ptr %18, align 4
+  %20 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %19)
+  br i1 %20, label %21, label %24
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %21, ptr noundef @.str.2)
-  br label %22
-
-22:                                               ; preds = %20, %17
-  br label %23
-
-23:                                               ; preds = %22
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i32 0, i32 11
+  %23 = load i32, ptr %22, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %23, ptr noundef @.str.2)
   br label %24
 
-24:                                               ; preds = %23, %10
-  %25 = load i32, ptr %4, align 4
-  %26 = call i32 @close(i32 noundef %25)
-  br label %27
+24:                                               ; preds = %21, %17
+  br label %25
 
-27:                                               ; preds = %24, %0
-  %28 = load i8, ptr %2, align 1
-  %29 = sext i8 %28 to i32
-  %30 = icmp ne i32 48, %29
-  br i1 %30, label %31, label %37
+25:                                               ; preds = %24
+  br label %26
 
-31:                                               ; preds = %27
-  %32 = call i32 (i32, ...) @prctl(i32 noundef 1499557217, i64 noundef -1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #3
-  store i32 %32, ptr %6, align 4
-  %33 = load i32, ptr %6, align 4
-  %34 = icmp eq i32 0, %33
-  br i1 %34, label %35, label %36
+26:                                               ; preds = %25, %10
+  %27 = load i32, ptr %4, align 4
+  %28 = call i32 @close(i32 noundef %27)
+  br label %29
 
-35:                                               ; preds = %31
+29:                                               ; preds = %26, %0
+  %30 = load i8, ptr %2, align 1
+  %31 = sext i8 %30 to i32
+  %32 = icmp ne i32 48, %31
+  br i1 %32, label %33, label %39
+
+33:                                               ; preds = %29
+  %34 = call i32 (i32, ...) @prctl(i32 noundef 1499557217, i64 noundef -1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #3
+  store i32 %34, ptr %6, align 4
+  %35 = load i32, ptr %6, align 4
+  %36 = icmp eq i32 0, %35
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %33
   store i8 1, ptr %3, align 1
-  br label %36
-
-36:                                               ; preds = %35, %31
   br label %38
 
-37:                                               ; preds = %27
+38:                                               ; preds = %37, %33
+  br label %40
+
+39:                                               ; preds = %29
   store i8 1, ptr %3, align 1
-  br label %38
+  br label %40
 
-38:                                               ; preds = %37, %36
-  %39 = load i8, ptr %3, align 1
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %49, label %41
+40:                                               ; preds = %39, %38
+  %41 = load i8, ptr %3, align 1
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %54, label %43
 
-41:                                               ; preds = %38
-  br label %42
+43:                                               ; preds = %40
+  br label %44
 
-42:                                               ; preds = %41
-  %43 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i32 0, i32 11), align 4
-  %44 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %43)
-  br i1 %44, label %45, label %47
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i32 0, i32 11
+  %46 = load i32, ptr %45, align 4
+  %47 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %46)
+  br i1 %47, label %48, label %51
 
-45:                                               ; preds = %42
-  %46 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %46, ptr noundef @.str.3)
-  br label %47
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_smsc_base_framework, i32 0, i32 11
+  %50 = load i32, ptr %49, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %50, ptr noundef @.str.3)
+  br label %51
 
-47:                                               ; preds = %45, %42
-  br label %48
+51:                                               ; preds = %48, %44
+  br label %52
 
-48:                                               ; preds = %47
-  store i32 -1, ptr getelementptr inbounds (%struct.mca_smsc_component_1_0_0_t, ptr @mca_smsc_cma_component, i32 0, i32 2), align 4
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds %struct.mca_smsc_component_1_0_0_t, ptr @mca_smsc_cma_component, i32 0, i32 2
+  store i32 -1, ptr %53, align 4
   store i32 -16, ptr %1, align 4
-  br label %51
+  br label %56
 
-49:                                               ; preds = %38
-  %50 = call i32 @mca_smsc_cma_send_modex()
+54:                                               ; preds = %40
+  %55 = call i32 @mca_smsc_cma_send_modex()
   store i32 0, ptr %1, align 4
-  br label %51
+  br label %56
 
-51:                                               ; preds = %49, %48
-  %52 = load i32, ptr %1, align 4
-  ret i32 %52
+56:                                               ; preds = %54, %52
+  %57 = load i32, ptr %1, align 4
+  ret i32 %57
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @mca_smsc_cma_component_enable() #0 {
   %1 = alloca ptr, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.mca_smsc_component_1_0_0_t, ptr @mca_smsc_cma_component, i32 0, i32 2), align 4
-  %3 = icmp sgt i32 0, %2
-  br i1 %3, label %4, label %5
-
-4:                                                ; preds = %0
-  store ptr null, ptr %1, align 8
-  br label %6
+  %2 = getelementptr inbounds %struct.mca_smsc_component_1_0_0_t, ptr @mca_smsc_cma_component, i32 0, i32 2
+  %3 = load i32, ptr %2, align 4
+  %4 = icmp sgt i32 0, %3
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %0
-  store ptr @mca_smsc_cma_module, ptr %1, align 8
-  br label %6
+  store ptr null, ptr %1, align 8
+  br label %7
 
-6:                                                ; preds = %5, %4
-  %7 = load ptr, ptr %1, align 8
-  ret ptr %7
+6:                                                ; preds = %0
+  store ptr @mca_smsc_cma_module, ptr %1, align 8
+  br label %7
+
+7:                                                ; preds = %6, %5
+  %8 = load ptr, ptr %1, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable

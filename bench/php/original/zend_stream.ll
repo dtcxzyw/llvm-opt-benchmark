@@ -2586,25 +2586,26 @@ define void @zend_destroy_file_handle(ptr noundef %0) #0 {
   %4 = getelementptr inbounds %struct._zend_file_handle, ptr %3, i32 0, i32 5
   %5 = load i8, ptr %4, align 2
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %13
+  br i1 %6, label %7, label %14
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
-  call void @zend_llist_del_element(ptr noundef getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 13), ptr noundef %8, ptr noundef @zend_compare_file_handles)
-  %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct._zend_file_handle, ptr %9, i32 0, i32 2
-  store ptr null, ptr %10, align 8
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct._zend_file_handle, ptr %11, i32 0, i32 1
-  store ptr null, ptr %12, align 8
-  br label %15
+  %9 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 13
+  call void @zend_llist_del_element(ptr noundef %9, ptr noundef %8, ptr noundef @zend_compare_file_handles)
+  %10 = load ptr, ptr %2, align 8
+  %11 = getelementptr inbounds %struct._zend_file_handle, ptr %10, i32 0, i32 2
+  store ptr null, ptr %11, align 8
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds %struct._zend_file_handle, ptr %12, i32 0, i32 1
+  store ptr null, ptr %13, align 8
+  br label %16
 
-13:                                               ; preds = %1
-  %14 = load ptr, ptr %2, align 8
-  call void @zend_file_handle_dtor(ptr noundef %14)
-  br label %15
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %2, align 8
+  call void @zend_file_handle_dtor(ptr noundef %15)
+  br label %16
 
-15:                                               ; preds = %13, %7
+16:                                               ; preds = %14, %7
   ret void
 }
 
@@ -2962,7 +2963,8 @@ define internal void @zend_file_handle_dtor(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_stream_init() #0 {
-  call void @zend_llist_init(ptr noundef getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 13), i64 noundef 80, ptr noundef @zend_file_handle_dtor, i8 noundef zeroext 0)
+  %1 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 13
+  call void @zend_llist_init(ptr noundef %1, i64 noundef 80, ptr noundef @zend_file_handle_dtor, i8 noundef zeroext 0)
   ret void
 }
 
@@ -2970,7 +2972,8 @@ declare void @zend_llist_init(ptr noundef, i64 noundef, ptr noundef, i8 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_stream_shutdown() #0 {
-  call void @zend_llist_destroy(ptr noundef getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 13))
+  %1 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 13
+  call void @zend_llist_destroy(ptr noundef %1)
   ret void
 }
 

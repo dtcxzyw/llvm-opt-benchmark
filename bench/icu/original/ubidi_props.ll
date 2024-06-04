@@ -38,57 +38,63 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %sa.addr, align 8
-  call void @utrie2_enum_75(ptr noundef getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), ptr noundef null, ptr noundef @_ZL24_enumPropertyStartsRangePKviij, ptr noundef %2)
-  %3 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1), align 8
-  %arrayidx = getelementptr inbounds i32, ptr %3, i64 3
-  %4 = load i32, ptr %arrayidx, align 4
-  store i32 %4, ptr %length, align 4
+  %3 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  call void @utrie2_enum_75(ptr noundef %3, ptr noundef null, ptr noundef @_ZL24_enumPropertyStartsRangePKviij, ptr noundef %2)
+  %4 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %arrayidx = getelementptr inbounds i32, ptr %5, i64 3
+  %6 = load i32, ptr %arrayidx, align 4
+  store i32 %6, ptr %length, align 4
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %5 = load i32, ptr %i, align 4
-  %6 = load i32, ptr %length, align 4
-  %cmp = icmp slt i32 %5, %6
+  %7 = load i32, ptr %i, align 4
+  %8 = load i32, ptr %length, align 4
+  %cmp = icmp slt i32 %7, %8
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 2), align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %8 to i64
-  %arrayidx1 = getelementptr inbounds i32, ptr %7, i64 %idxprom
-  %9 = load i32, ptr %arrayidx1, align 4
-  %and = and i32 %9, 2097151
+  %9 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %11 to i64
+  %arrayidx1 = getelementptr inbounds i32, ptr %10, i64 %idxprom
+  %12 = load i32, ptr %arrayidx1, align 4
+  %and = and i32 %12, 2097151
   store i32 %and, ptr %c, align 4
-  %10 = load ptr, ptr %sa.addr, align 8
-  %addRange = getelementptr inbounds %struct.USetAdder, ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %addRange, align 8
-  %12 = load ptr, ptr %sa.addr, align 8
-  %set = getelementptr inbounds %struct.USetAdder, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %set, align 8
-  %14 = load i32, ptr %c, align 4
-  %15 = load i32, ptr %c, align 4
-  %add = add nsw i32 %15, 1
-  call void %11(ptr noundef %13, i32 noundef %14, i32 noundef %add)
+  %13 = load ptr, ptr %sa.addr, align 8
+  %addRange = getelementptr inbounds %struct.USetAdder, ptr %13, i32 0, i32 2
+  %14 = load ptr, ptr %addRange, align 8
+  %15 = load ptr, ptr %sa.addr, align 8
+  %set = getelementptr inbounds %struct.USetAdder, ptr %15, i32 0, i32 0
+  %16 = load ptr, ptr %set, align 8
+  %17 = load i32, ptr %c, align 4
+  %18 = load i32, ptr %c, align 4
+  %add = add nsw i32 %18, 1
+  call void %14(ptr noundef %16, i32 noundef %17, i32 noundef %add)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %16 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %16, 1
+  %19 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %19, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
-  %17 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1), align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %17, i64 4
-  %18 = load i32, ptr %arrayidx2, align 4
-  store i32 %18, ptr %start, align 4
-  %19 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1), align 8
-  %arrayidx3 = getelementptr inbounds i32, ptr %19, i64 5
-  %20 = load i32, ptr %arrayidx3, align 4
-  store i32 %20, ptr %limit, align 4
-  %21 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 3), align 8
-  store ptr %21, ptr %jgArray, align 8
+  %20 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %arrayidx2 = getelementptr inbounds i32, ptr %21, i64 4
+  %22 = load i32, ptr %arrayidx2, align 4
+  store i32 %22, ptr %start, align 4
+  %23 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %arrayidx3 = getelementptr inbounds i32, ptr %24, i64 5
+  %25 = load i32, ptr %arrayidx3, align 4
+  store i32 %25, ptr %limit, align 4
+  %26 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 3
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %jgArray, align 8
   br label %for.cond4
 
 for.cond4:                                        ; preds = %if.end24, %for.end
@@ -96,79 +102,83 @@ for.cond4:                                        ; preds = %if.end24, %for.end
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end11, %for.cond4
-  %22 = load i32, ptr %start, align 4
-  %23 = load i32, ptr %limit, align 4
-  %cmp5 = icmp slt i32 %22, %23
+  %28 = load i32, ptr %start, align 4
+  %29 = load i32, ptr %limit, align 4
+  %cmp5 = icmp slt i32 %28, %29
   br i1 %cmp5, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %24 = load ptr, ptr %jgArray, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %24, i32 1
+  %30 = load ptr, ptr %jgArray, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %30, i32 1
   store ptr %incdec.ptr, ptr %jgArray, align 8
-  %25 = load i8, ptr %24, align 1
-  store i8 %25, ptr %jg, align 1
-  %26 = load i8, ptr %jg, align 1
-  %conv = zext i8 %26 to i32
-  %27 = load i8, ptr %prev, align 1
-  %conv6 = zext i8 %27 to i32
+  %31 = load i8, ptr %30, align 1
+  store i8 %31, ptr %jg, align 1
+  %32 = load i8, ptr %jg, align 1
+  %conv = zext i8 %32 to i32
+  %33 = load i8, ptr %prev, align 1
+  %conv6 = zext i8 %33 to i32
   %cmp7 = icmp ne i32 %conv, %conv6
   br i1 %cmp7, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %while.body
-  %28 = load ptr, ptr %sa.addr, align 8
-  %add9 = getelementptr inbounds %struct.USetAdder, ptr %28, i32 0, i32 1
-  %29 = load ptr, ptr %add9, align 8
-  %30 = load ptr, ptr %sa.addr, align 8
-  %set10 = getelementptr inbounds %struct.USetAdder, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %set10, align 8
-  %32 = load i32, ptr %start, align 4
-  call void %29(ptr noundef %31, i32 noundef %32)
-  %33 = load i8, ptr %jg, align 1
-  store i8 %33, ptr %prev, align 1
+  %34 = load ptr, ptr %sa.addr, align 8
+  %add9 = getelementptr inbounds %struct.USetAdder, ptr %34, i32 0, i32 1
+  %35 = load ptr, ptr %add9, align 8
+  %36 = load ptr, ptr %sa.addr, align 8
+  %set10 = getelementptr inbounds %struct.USetAdder, ptr %36, i32 0, i32 0
+  %37 = load ptr, ptr %set10, align 8
+  %38 = load i32, ptr %start, align 4
+  call void %35(ptr noundef %37, i32 noundef %38)
+  %39 = load i8, ptr %jg, align 1
+  store i8 %39, ptr %prev, align 1
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %while.body
-  %34 = load i32, ptr %start, align 4
-  %inc12 = add nsw i32 %34, 1
+  %40 = load i32, ptr %start, align 4
+  %inc12 = add nsw i32 %40, 1
   store i32 %inc12, ptr %start, align 4
   br label %while.cond, !llvm.loop !6
 
 while.end:                                        ; preds = %while.cond
-  %35 = load i8, ptr %prev, align 1
-  %conv13 = zext i8 %35 to i32
+  %41 = load i8, ptr %prev, align 1
+  %conv13 = zext i8 %41 to i32
   %cmp14 = icmp ne i32 %conv13, 0
   br i1 %cmp14, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %while.end
-  %36 = load ptr, ptr %sa.addr, align 8
-  %add16 = getelementptr inbounds %struct.USetAdder, ptr %36, i32 0, i32 1
-  %37 = load ptr, ptr %add16, align 8
-  %38 = load ptr, ptr %sa.addr, align 8
-  %set17 = getelementptr inbounds %struct.USetAdder, ptr %38, i32 0, i32 0
-  %39 = load ptr, ptr %set17, align 8
-  %40 = load i32, ptr %limit, align 4
-  call void %37(ptr noundef %39, i32 noundef %40)
+  %42 = load ptr, ptr %sa.addr, align 8
+  %add16 = getelementptr inbounds %struct.USetAdder, ptr %42, i32 0, i32 1
+  %43 = load ptr, ptr %add16, align 8
+  %44 = load ptr, ptr %sa.addr, align 8
+  %set17 = getelementptr inbounds %struct.USetAdder, ptr %44, i32 0, i32 0
+  %45 = load ptr, ptr %set17, align 8
+  %46 = load i32, ptr %limit, align 4
+  call void %43(ptr noundef %45, i32 noundef %46)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %while.end
-  %41 = load i32, ptr %limit, align 4
-  %42 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1), align 8
-  %arrayidx19 = getelementptr inbounds i32, ptr %42, i64 5
-  %43 = load i32, ptr %arrayidx19, align 4
-  %cmp20 = icmp eq i32 %41, %43
+  %47 = load i32, ptr %limit, align 4
+  %48 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8
+  %arrayidx19 = getelementptr inbounds i32, ptr %49, i64 5
+  %50 = load i32, ptr %arrayidx19, align 4
+  %cmp20 = icmp eq i32 %47, %50
   br i1 %cmp20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.end18
-  %44 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1), align 8
-  %arrayidx22 = getelementptr inbounds i32, ptr %44, i64 6
-  %45 = load i32, ptr %arrayidx22, align 4
-  store i32 %45, ptr %start, align 4
-  %46 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1), align 8
-  %arrayidx23 = getelementptr inbounds i32, ptr %46, i64 7
-  %47 = load i32, ptr %arrayidx23, align 4
-  store i32 %47, ptr %limit, align 4
-  %48 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 4), align 8
-  store ptr %48, ptr %jgArray, align 8
+  %51 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8
+  %arrayidx22 = getelementptr inbounds i32, ptr %52, i64 6
+  %53 = load i32, ptr %arrayidx22, align 4
+  store i32 %53, ptr %start, align 4
+  %54 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8
+  %arrayidx23 = getelementptr inbounds i32, ptr %55, i64 7
+  %56 = load i32, ptr %arrayidx23, align 4
+  store i32 %56, ptr %limit, align 4
+  %57 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 4
+  %58 = load ptr, ptr %57, align 8
+  store ptr %58, ptr %jgArray, align 8
   br label %if.end24
 
 if.else:                                          ; preds = %if.end18
@@ -226,12 +236,13 @@ entry:
   %which.addr = alloca i32, align 4
   %max = alloca i32, align 4
   store i32 %which, ptr %which.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1), align 8
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 15
-  %1 = load i32, ptr %arrayidx, align 4
-  store i32 %1, ptr %max, align 4
-  %2 = load i32, ptr %which.addr, align 4
-  switch i32 %2, label %sw.default [
+  %0 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr inbounds i32, ptr %1, i64 15
+  %2 = load i32, ptr %arrayidx, align 4
+  store i32 %2, ptr %max, align 4
+  %3 = load i32, ptr %which.addr, align 4
+  switch i32 %3, label %sw.default [
     i32 4096, label %sw.bb
     i32 4102, label %sw.bb1
     i32 4103, label %sw.bb3
@@ -239,28 +250,28 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %3 = load i32, ptr %max, align 4
-  %and = and i32 %3, 31
+  %4 = load i32, ptr %max, align 4
+  %and = and i32 %4, 31
   store i32 %and, ptr %retval, align 4
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %4 = load i32, ptr %max, align 4
-  %and2 = and i32 %4, 16711680
+  %5 = load i32, ptr %max, align 4
+  %and2 = and i32 %5, 16711680
   %shr = ashr i32 %and2, 16
   store i32 %shr, ptr %retval, align 4
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %5 = load i32, ptr %max, align 4
-  %and4 = and i32 %5, 224
+  %6 = load i32, ptr %max, align 4
+  %and4 = and i32 %6, 224
   %shr5 = ashr i32 %and4, 5
   store i32 %shr5, ptr %retval, align 4
   br label %return
 
 sw.bb6:                                           ; preds = %entry
-  %6 = load i32, ptr %max, align 4
-  %and7 = and i32 %6, 768
+  %7 = load i32, ptr %max, align 4
+  %and7 = and i32 %7, 768
   %shr8 = ashr i32 %and7, 8
   store i32 %shr8, ptr %retval, align 4
   br label %return
@@ -270,8 +281,8 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb6, %sw.bb3, %sw.bb1, %sw.bb
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
+  %8 = load i32, ptr %retval, align 4
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -280,86 +291,91 @@ entry:
   %c.addr = alloca i32, align 4
   %props = alloca i16, align 2
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 1114112
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 1114112
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -378,11 +394,11 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %and44 = and i32 %conv43, 31
   ret i32 %and44
 }
@@ -393,86 +409,91 @@ entry:
   %c.addr = alloca i32, align 4
   %props = alloca i16, align 2
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 1114112
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 1114112
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -491,11 +512,11 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %shr44 = ashr i32 %conv43, 12
   %and45 = and i32 %shr44, 1
   %conv46 = trunc i32 %and45 to i8
@@ -508,86 +529,91 @@ entry:
   %c.addr = alloca i32, align 4
   %props = alloca i16, align 2
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 1114112
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 1114112
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -606,12 +632,12 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i32, ptr %c.addr, align 4
-  %23 = load i16, ptr %props, align 2
-  %call = call noundef i32 @_ZL9getMirrorit(i32 noundef %22, i16 noundef zeroext %23)
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i32, ptr %c.addr, align 4
+  %28 = load i16, ptr %props, align 2
+  %call = call noundef i32 @_ZL9getMirrorit(i32 noundef %27, i16 noundef zeroext %28)
   ret i32 %call
 }
 
@@ -645,51 +671,53 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %4 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 2), align 8
-  store ptr %4, ptr %mirrors, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1), align 8
-  %arrayidx = getelementptr inbounds i32, ptr %5, i64 3
-  %6 = load i32, ptr %arrayidx, align 4
-  store i32 %6, ptr %length, align 4
+  %4 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  store ptr %5, ptr %mirrors, align 8
+  %6 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %arrayidx = getelementptr inbounds i32, ptr %7, i64 3
+  %8 = load i32, ptr %arrayidx, align 4
+  store i32 %8, ptr %length, align 4
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.else
-  %7 = load i32, ptr %i, align 4
-  %8 = load i32, ptr %length, align 4
-  %cmp1 = icmp slt i32 %7, %8
+  %9 = load i32, ptr %i, align 4
+  %10 = load i32, ptr %length, align 4
+  %cmp1 = icmp slt i32 %9, %10
   br i1 %cmp1, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %9 = load ptr, ptr %mirrors, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %10 to i64
-  %arrayidx2 = getelementptr inbounds i32, ptr %9, i64 %idxprom
-  %11 = load i32, ptr %arrayidx2, align 4
-  store i32 %11, ptr %m, align 4
-  %12 = load i32, ptr %m, align 4
-  %and = and i32 %12, 2097151
+  %11 = load ptr, ptr %mirrors, align 8
+  %12 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %12 to i64
+  %arrayidx2 = getelementptr inbounds i32, ptr %11, i64 %idxprom
+  %13 = load i32, ptr %arrayidx2, align 4
+  store i32 %13, ptr %m, align 4
+  %14 = load i32, ptr %m, align 4
+  %and = and i32 %14, 2097151
   store i32 %and, ptr %c2, align 4
-  %13 = load i32, ptr %c.addr, align 4
-  %14 = load i32, ptr %c2, align 4
-  %cmp3 = icmp eq i32 %13, %14
+  %15 = load i32, ptr %c.addr, align 4
+  %16 = load i32, ptr %c2, align 4
+  %cmp3 = icmp eq i32 %15, %16
   br i1 %cmp3, label %if.then4, label %if.else9
 
 if.then4:                                         ; preds = %for.body
-  %15 = load ptr, ptr %mirrors, align 8
-  %16 = load i32, ptr %m, align 4
-  %shr5 = lshr i32 %16, 21
+  %17 = load ptr, ptr %mirrors, align 8
+  %18 = load i32, ptr %m, align 4
+  %shr5 = lshr i32 %18, 21
   %idxprom6 = zext i32 %shr5 to i64
-  %arrayidx7 = getelementptr inbounds i32, ptr %15, i64 %idxprom6
-  %17 = load i32, ptr %arrayidx7, align 4
-  %and8 = and i32 %17, 2097151
+  %arrayidx7 = getelementptr inbounds i32, ptr %17, i64 %idxprom6
+  %19 = load i32, ptr %arrayidx7, align 4
+  %and8 = and i32 %19, 2097151
   store i32 %and8, ptr %retval, align 4
   br label %return
 
 if.else9:                                         ; preds = %for.body
-  %18 = load i32, ptr %c.addr, align 4
-  %19 = load i32, ptr %c2, align 4
-  %cmp10 = icmp slt i32 %18, %19
+  %20 = load i32, ptr %c.addr, align 4
+  %21 = load i32, ptr %c2, align 4
+  %cmp10 = icmp slt i32 %20, %21
   br i1 %cmp10, label %if.then11, label %if.end
 
 if.then11:                                        ; preds = %if.else9
@@ -702,19 +730,19 @@ if.end12:                                         ; preds = %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end12
-  %20 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %20, 1
+  %22 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %22, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !8
 
 for.end:                                          ; preds = %if.then11, %for.cond
-  %21 = load i32, ptr %c.addr, align 4
-  store i32 %21, ptr %retval, align 4
+  %23 = load i32, ptr %c.addr, align 4
+  store i32 %23, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %for.end, %if.then4, %if.then
-  %22 = load i32, ptr %retval, align 4
-  ret i32 %22
+  %24 = load i32, ptr %retval, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -723,86 +751,91 @@ entry:
   %c.addr = alloca i32, align 4
   %props = alloca i16, align 2
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 1114112
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 1114112
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -821,11 +854,11 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %shr44 = ashr i32 %conv43, 11
   %and45 = and i32 %shr44, 1
   %conv46 = trunc i32 %and45 to i8
@@ -838,86 +871,91 @@ entry:
   %c.addr = alloca i32, align 4
   %props = alloca i16, align 2
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 1114112
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 1114112
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -936,11 +974,11 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %shr44 = ashr i32 %conv43, 10
   %and45 = and i32 %shr44, 1
   %conv46 = trunc i32 %and45 to i8
@@ -953,86 +991,91 @@ entry:
   %c.addr = alloca i32, align 4
   %props = alloca i16, align 2
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 1114112
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 1114112
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -1051,11 +1094,11 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %and44 = and i32 %conv43, 224
   %shr45 = ashr i32 %and44, 5
   ret i32 %shr45
@@ -1069,66 +1112,72 @@ entry:
   %start = alloca i32, align 4
   %limit = alloca i32, align 4
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1), align 8
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 4
-  %1 = load i32, ptr %arrayidx, align 4
-  store i32 %1, ptr %start, align 4
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1), align 8
-  %arrayidx1 = getelementptr inbounds i32, ptr %2, i64 5
-  %3 = load i32, ptr %arrayidx1, align 4
-  store i32 %3, ptr %limit, align 4
-  %4 = load i32, ptr %start, align 4
-  %5 = load i32, ptr %c.addr, align 4
-  %cmp = icmp sle i32 %4, %5
+  %0 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr inbounds i32, ptr %1, i64 4
+  %2 = load i32, ptr %arrayidx, align 4
+  store i32 %2, ptr %start, align 4
+  %3 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1
+  %4 = load ptr, ptr %3, align 8
+  %arrayidx1 = getelementptr inbounds i32, ptr %4, i64 5
+  %5 = load i32, ptr %arrayidx1, align 4
+  store i32 %5, ptr %limit, align 4
+  %6 = load i32, ptr %start, align 4
+  %7 = load i32, ptr %c.addr, align 4
+  %cmp = icmp sle i32 %6, %7
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %7 = load i32, ptr %limit, align 4
-  %cmp2 = icmp slt i32 %6, %7
+  %8 = load i32, ptr %c.addr, align 4
+  %9 = load i32, ptr %limit, align 4
+  %cmp2 = icmp slt i32 %8, %9
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %8 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 3), align 8
-  %9 = load i32, ptr %c.addr, align 4
-  %10 = load i32, ptr %start, align 4
-  %sub = sub nsw i32 %9, %10
+  %10 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 3
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i32, ptr %c.addr, align 4
+  %13 = load i32, ptr %start, align 4
+  %sub = sub nsw i32 %12, %13
   %idxprom = sext i32 %sub to i64
-  %arrayidx3 = getelementptr inbounds i8, ptr %8, i64 %idxprom
-  %11 = load i8, ptr %arrayidx3, align 1
-  %conv = zext i8 %11 to i32
+  %arrayidx3 = getelementptr inbounds i8, ptr %11, i64 %idxprom
+  %14 = load i8, ptr %arrayidx3, align 1
+  %conv = zext i8 %14 to i32
   store i32 %conv, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %12 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1), align 8
-  %arrayidx4 = getelementptr inbounds i32, ptr %12, i64 6
-  %13 = load i32, ptr %arrayidx4, align 4
-  store i32 %13, ptr %start, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1), align 8
-  %arrayidx5 = getelementptr inbounds i32, ptr %14, i64 7
-  %15 = load i32, ptr %arrayidx5, align 4
-  store i32 %15, ptr %limit, align 4
-  %16 = load i32, ptr %start, align 4
-  %17 = load i32, ptr %c.addr, align 4
-  %cmp6 = icmp sle i32 %16, %17
+  %15 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  %arrayidx4 = getelementptr inbounds i32, ptr %16, i64 6
+  %17 = load i32, ptr %arrayidx4, align 4
+  store i32 %17, ptr %start, align 4
+  %18 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
+  %arrayidx5 = getelementptr inbounds i32, ptr %19, i64 7
+  %20 = load i32, ptr %arrayidx5, align 4
+  store i32 %20, ptr %limit, align 4
+  %21 = load i32, ptr %start, align 4
+  %22 = load i32, ptr %c.addr, align 4
+  %cmp6 = icmp sle i32 %21, %22
   br i1 %cmp6, label %land.lhs.true7, label %if.end14
 
 land.lhs.true7:                                   ; preds = %if.end
-  %18 = load i32, ptr %c.addr, align 4
-  %19 = load i32, ptr %limit, align 4
-  %cmp8 = icmp slt i32 %18, %19
+  %23 = load i32, ptr %c.addr, align 4
+  %24 = load i32, ptr %limit, align 4
+  %cmp8 = icmp slt i32 %23, %24
   br i1 %cmp8, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %land.lhs.true7
-  %20 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 4), align 8
-  %21 = load i32, ptr %c.addr, align 4
-  %22 = load i32, ptr %start, align 4
-  %sub10 = sub nsw i32 %21, %22
+  %25 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 4
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i32, ptr %c.addr, align 4
+  %28 = load i32, ptr %start, align 4
+  %sub10 = sub nsw i32 %27, %28
   %idxprom11 = sext i32 %sub10 to i64
-  %arrayidx12 = getelementptr inbounds i8, ptr %20, i64 %idxprom11
-  %23 = load i8, ptr %arrayidx12, align 1
-  %conv13 = zext i8 %23 to i32
+  %arrayidx12 = getelementptr inbounds i8, ptr %26, i64 %idxprom11
+  %29 = load i8, ptr %arrayidx12, align 1
+  %conv13 = zext i8 %29 to i32
   store i32 %conv13, ptr %retval, align 4
   br label %return
 
@@ -1137,8 +1186,8 @@ if.end14:                                         ; preds = %land.lhs.true7, %if
   br label %return
 
 return:                                           ; preds = %if.end14, %if.then9, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+  %30 = load i32, ptr %retval, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1147,86 +1196,91 @@ entry:
   %c.addr = alloca i32, align 4
   %props = alloca i16, align 2
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 1114112
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 1114112
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -1245,11 +1299,11 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %and44 = and i32 %conv43, 768
   %shr45 = ashr i32 %and44, 8
   ret i32 %shr45
@@ -1262,86 +1316,91 @@ entry:
   %c.addr = alloca i32, align 4
   %props = alloca i16, align 2
   store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ult i32 %1, 55296
+  %0 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %c.addr, align 4
+  %cmp = icmp ult i32 %2, 55296
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %3 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %3, 5
+  %3 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %c.addr, align 4
+  %shr = ashr i32 %5, 5
   %add = add nsw i32 0, %shr
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
   %shl = shl i32 %conv, 2
-  %5 = load i32, ptr %c.addr, align 4
-  %and = and i32 %5, 31
+  %7 = load i32, ptr %c.addr, align 4
+  %and = and i32 %7, 31
   %add1 = add nsw i32 %shl, %and
   br label %cond.end39
 
 cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %c.addr, align 4
-  %cmp2 = icmp ule i32 %6, 65535
+  %8 = load i32, ptr %c.addr, align 4
+  %cmp2 = icmp ule i32 %8, 65535
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp4 = icmp sle i32 %8, 56319
+  %9 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %c.addr, align 4
+  %cmp4 = icmp sle i32 %11, 56319
   %cond = select i1 %cmp4, i32 320, i32 0
-  %9 = load i32, ptr %c.addr, align 4
-  %shr5 = ashr i32 %9, 5
+  %12 = load i32, ptr %c.addr, align 4
+  %shr5 = ashr i32 %12, 5
   %add6 = add nsw i32 %cond, %shr5
   %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %7, i64 %idxprom7
-  %10 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %10 to i32
+  %arrayidx8 = getelementptr inbounds i16, ptr %10, i64 %idxprom7
+  %13 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %13 to i32
   %shl10 = shl i32 %conv9, 2
-  %11 = load i32, ptr %c.addr, align 4
-  %and11 = and i32 %11, 31
+  %14 = load i32, ptr %c.addr, align 4
+  %and11 = and i32 %14, 31
   %add12 = add nsw i32 %shl10, %and11
   br label %cond.end37
 
 cond.false13:                                     ; preds = %cond.false
-  %12 = load i32, ptr %c.addr, align 4
-  %cmp14 = icmp ugt i32 %12, 1114111
+  %15 = load i32, ptr %c.addr, align 4
+  %cmp14 = icmp ugt i32 %15, 1114111
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.false13
   br label %cond.end35
 
 cond.false16:                                     ; preds = %cond.false13
-  %13 = load i32, ptr %c.addr, align 4
-  %cmp17 = icmp sge i32 %13, 1114112
+  %16 = load i32, ptr %c.addr, align 4
+  %cmp17 = icmp sge i32 %16, 1114112
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %cond.false16
   br label %cond.end
 
 cond.false19:                                     ; preds = %cond.false16
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5), align 8
-  %16 = load i32, ptr %c.addr, align 4
-  %shr20 = ashr i32 %16, 11
+  %17 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %c.addr, align 4
+  %shr20 = ashr i32 %21, 11
   %add21 = add nsw i32 2080, %shr20
   %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %15, i64 %idxprom22
-  %17 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %17 to i32
-  %18 = load i32, ptr %c.addr, align 4
-  %shr25 = ashr i32 %18, 5
+  %arrayidx23 = getelementptr inbounds i16, ptr %20, i64 %idxprom22
+  %22 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %22 to i32
+  %23 = load i32, ptr %c.addr, align 4
+  %shr25 = ashr i32 %23, 5
   %and26 = and i32 %shr25, 63
   %add27 = add nsw i32 %conv24, %and26
   %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %14, i64 %idxprom28
-  %19 = load i16, ptr %arrayidx29, align 2
-  %conv30 = zext i16 %19 to i32
+  %arrayidx29 = getelementptr inbounds i16, ptr %18, i64 %idxprom28
+  %24 = load i16, ptr %arrayidx29, align 2
+  %conv30 = zext i16 %24 to i32
   %shl31 = shl i32 %conv30, 2
-  %20 = load i32, ptr %c.addr, align 4
-  %and32 = and i32 %20, 31
+  %25 = load i32, ptr %c.addr, align 4
+  %and32 = and i32 %25, 31
   %add33 = add nsw i32 %shl31, %and32
   br label %cond.end
 
@@ -1360,30 +1419,30 @@ cond.end37:                                       ; preds = %cond.end35, %cond.t
 cond.end39:                                       ; preds = %cond.end37, %cond.true
   %cond40 = phi i32 [ %add1, %cond.true ], [ %cond38, %cond.end37 ]
   %idxprom41 = sext i32 %cond40 to i64
-  %arrayidx42 = getelementptr inbounds i16, ptr %0, i64 %idxprom41
-  %21 = load i16, ptr %arrayidx42, align 2
-  store i16 %21, ptr %props, align 2
-  %22 = load i16, ptr %props, align 2
-  %conv43 = zext i16 %22 to i32
+  %arrayidx42 = getelementptr inbounds i16, ptr %1, i64 %idxprom41
+  %26 = load i16, ptr %arrayidx42, align 2
+  store i16 %26, ptr %props, align 2
+  %27 = load i16, ptr %props, align 2
+  %conv43 = zext i16 %27 to i32
   %and44 = and i32 %conv43, 768
   %cmp45 = icmp eq i32 %and44, 0
   br i1 %cmp45, label %if.then, label %if.else
 
 if.then:                                          ; preds = %cond.end39
-  %23 = load i32, ptr %c.addr, align 4
-  store i32 %23, ptr %retval, align 4
+  %28 = load i32, ptr %c.addr, align 4
+  store i32 %28, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %cond.end39
-  %24 = load i32, ptr %c.addr, align 4
-  %25 = load i16, ptr %props, align 2
-  %call = call noundef i32 @_ZL9getMirrorit(i32 noundef %24, i16 noundef zeroext %25)
+  %29 = load i32, ptr %c.addr, align 4
+  %30 = load i16, ptr %props, align 2
+  %call = call noundef i32 @_ZL9getMirrorit(i32 noundef %29, i16 noundef zeroext %30)
   store i32 %call, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %26 = load i32, ptr %retval, align 4
-  ret i32 %26
+  %31 = load i32, ptr %retval, align 4
+  ret i32 %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

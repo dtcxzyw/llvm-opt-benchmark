@@ -382,215 +382,217 @@ define void @_ZN21DissectorTablesDialogC2EP7QWidget(ptr noundef nonnull align 8 
   %13 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN19GeometryStateDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef %12, i32 %14)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV21DissectorTablesDialog, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV21DissectorTablesDialog, i32 0, i32 1, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 1
-  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #14
-          to label %18 unwind label %36
-
-18:                                               ; preds = %2
+  %15 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV21DissectorTablesDialog, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %17 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV21DissectorTablesDialog, i32 0, i32 1, i32 2
   store ptr %17, ptr %16, align 8
-  %19 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  invoke void @_ZN24Ui_DissectorTablesDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef %11)
-          to label %21 unwind label %36
+  %18 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 1
+  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #14
+          to label %20 unwind label %38
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %4, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %44
+20:                                               ; preds = %2
+  store ptr %19, ptr %18, align 8
+  %21 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  invoke void @_ZN24Ui_DissectorTablesDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef %11)
+          to label %23 unwind label %38
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %4, align 8
-  %26 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %25)
-          to label %27 unwind label %36
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %4, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %46
 
-27:                                               ; preds = %24
-  %28 = mul i32 %26, 3
-  %29 = sdiv i32 %28, 4
-  %30 = load ptr, ptr %4, align 8
-  %31 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %30)
-          to label %32 unwind label %36
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %4, align 8
+  %28 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %27)
+          to label %29 unwind label %38
 
-32:                                               ; preds = %27
-  %33 = mul i32 %31, 3
-  %34 = sdiv i32 %33, 4
+29:                                               ; preds = %26
+  %30 = mul i32 %28, 3
+  %31 = sdiv i32 %30, 4
+  %32 = load ptr, ptr %4, align 8
+  %33 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %32)
+          to label %34 unwind label %38
+
+34:                                               ; preds = %29
+  %35 = mul i32 %33, 3
+  %36 = sdiv i32 %35, 4
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %29, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %35 unwind label %40
+  invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %31, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %37 unwind label %42
 
-35:                                               ; preds = %32
+37:                                               ; preds = %34
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  br label %44
+  br label %46
 
-36:                                               ; preds = %88, %83, %78, %68, %62, %58, %52, %49, %45, %44, %27, %24, %18, %2
-  %37 = landingpad { ptr, i32 }
+38:                                               ; preds = %90, %85, %80, %70, %64, %60, %54, %51, %47, %46, %29, %26, %20, %2
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %6, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %7, align 4
-  br label %111
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %6, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %7, align 4
+  br label %113
 
-40:                                               ; preds = %32
-  %41 = landingpad { ptr, i32 }
+42:                                               ; preds = %34
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %6, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %7, align 4
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %6, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %7, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  br label %111
+  br label %113
 
-44:                                               ; preds = %35, %21
+46:                                               ; preds = %37, %23
   invoke void @_ZN7QWidget12setAttributeEN2Qt15WidgetAttributeEb(ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 55, i1 noundef zeroext true)
-          to label %45 unwind label %36
+          to label %47 unwind label %38
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr @mainApp, align 8
+47:                                               ; preds = %46
+  %48 = load ptr, ptr @mainApp, align 8
   invoke void @_ZN21DissectorTablesDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef @.str, ptr noundef null, i32 noundef -1)
-          to label %47 unwind label %36
+          to label %49 unwind label %38
 
-47:                                               ; preds = %45
-  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef nonnull align 8 dereferenceable(216) %46, ptr noundef %10)
-          to label %48 unwind label %94
+49:                                               ; preds = %47
+  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef nonnull align 8 dereferenceable(216) %48, ptr noundef %10)
+          to label %50 unwind label %96
 
-48:                                               ; preds = %47
+50:                                               ; preds = %49
   invoke void @_ZN7QWidget14setWindowTitleERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %49 unwind label %98
+          to label %51 unwind label %100
 
-49:                                               ; preds = %48
+51:                                               ; preds = %50
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  %50 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
-          to label %51 unwind label %36
+  %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
+          to label %53 unwind label %38
 
-51:                                               ; preds = %49
-  invoke void @_ZN25DissectorTablesProxyModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(88) %50, ptr noundef %11)
-          to label %52 unwind label %103
+53:                                               ; preds = %51
+  invoke void @_ZN25DissectorTablesProxyModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(88) %52, ptr noundef %11)
+          to label %54 unwind label %105
 
-52:                                               ; preds = %51
-  %53 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 2
-  store ptr %50, ptr %53, align 8
-  %54 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8
-  %56 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
-          to label %57 unwind label %36
+54:                                               ; preds = %53
+  %55 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 2
+  store ptr %52, ptr %55, align 8
+  %56 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 2
+  %57 = load ptr, ptr %56, align 8
+  %58 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+          to label %59 unwind label %38
 
-57:                                               ; preds = %52
-  invoke void @_ZN20DissectorTablesModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef %11)
-          to label %58 unwind label %107
+59:                                               ; preds = %54
+  invoke void @_ZN20DissectorTablesModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef %11)
+          to label %60 unwind label %109
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %55, align 8
-  %60 = getelementptr inbounds ptr, ptr %59, i64 49
-  %61 = load ptr, ptr %60, align 8
-  invoke void %61(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef %56)
-          to label %62 unwind label %36
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %57, align 8
+  %62 = getelementptr inbounds ptr, ptr %61, i64 49
+  %63 = load ptr, ptr %62, align 8
+  invoke void %63(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef %58)
+          to label %64 unwind label %38
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 2
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds ptr, ptr %65, i64 40
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 2
+  %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %66, align 8
-  invoke void %67(ptr noundef nonnull align 8 dereferenceable(16) %64, i32 noundef 0, i32 noundef 0)
-          to label %68 unwind label %36
+  %68 = getelementptr inbounds ptr, ptr %67, i64 40
+  %69 = load ptr, ptr %68, align 8
+  invoke void %69(ptr noundef nonnull align 8 dereferenceable(16) %66, i32 noundef 0, i32 noundef 0)
+          to label %70 unwind label %38
 
-68:                                               ; preds = %62
-  %69 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 1
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds %class.Ui_DissectorTablesDialog, ptr %70, i32 0, i32 4
+70:                                               ; preds = %64
+  %71 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 1
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 2
+  %73 = getelementptr inbounds %class.Ui_DissectorTablesDialog, ptr %72, i32 0, i32 4
   %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %72, align 8
-  %76 = getelementptr inbounds ptr, ptr %75, i64 57
-  %77 = load ptr, ptr %76, align 8
-  invoke void %77(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef %74)
-          to label %78 unwind label %36
+  %75 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 2
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %74, align 8
+  %78 = getelementptr inbounds ptr, ptr %77, i64 57
+  %79 = load ptr, ptr %78, align 8
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable(40) %74, ptr noundef %76)
+          to label %80 unwind label %38
 
-78:                                               ; preds = %68
-  %79 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 1
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds %class.Ui_DissectorTablesDialog, ptr %80, i32 0, i32 4
+80:                                               ; preds = %70
+  %81 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 1
   %82 = load ptr, ptr %81, align 8
-  invoke void @_ZN9QTreeView13expandToDepthEi(ptr noundef nonnull align 8 dereferenceable(40) %82, i32 noundef 0)
-          to label %83 unwind label %36
+  %83 = getelementptr inbounds %class.Ui_DissectorTablesDialog, ptr %82, i32 0, i32 4
+  %84 = load ptr, ptr %83, align 8
+  invoke void @_ZN9QTreeView13expandToDepthEi(ptr noundef nonnull align 8 dereferenceable(40) %84, i32 noundef 0)
+          to label %85 unwind label %38
 
-83:                                               ; preds = %78
-  %84 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 1
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %class.Ui_DissectorTablesDialog, ptr %85, i32 0, i32 4
+85:                                               ; preds = %80
+  %86 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 1
   %87 = load ptr, ptr %86, align 8
-  invoke void @_ZN9QTreeView22resizeColumnToContentsEi(ptr noundef nonnull align 8 dereferenceable(40) %87, i32 noundef 0)
-          to label %88 unwind label %36
+  %88 = getelementptr inbounds %class.Ui_DissectorTablesDialog, ptr %87, i32 0, i32 4
+  %89 = load ptr, ptr %88, align 8
+  invoke void @_ZN9QTreeView22resizeColumnToContentsEi(ptr noundef nonnull align 8 dereferenceable(40) %89, i32 noundef 0)
+          to label %90 unwind label %38
 
-88:                                               ; preds = %83
-  %89 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 1
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds %class.Ui_DissectorTablesDialog, ptr %90, i32 0, i32 3
+90:                                               ; preds = %85
+  %91 = getelementptr inbounds %class.DissectorTablesDialog, ptr %11, i32 0, i32 1
   %92 = load ptr, ptr %91, align 8
-  invoke void @_ZN7QWidget8setFocusEv(ptr noundef nonnull align 8 dereferenceable(40) %92)
-          to label %93 unwind label %36
+  %93 = getelementptr inbounds %class.Ui_DissectorTablesDialog, ptr %92, i32 0, i32 3
+  %94 = load ptr, ptr %93, align 8
+  invoke void @_ZN7QWidget8setFocusEv(ptr noundef nonnull align 8 dereferenceable(40) %94)
+          to label %95 unwind label %38
 
-93:                                               ; preds = %88
+95:                                               ; preds = %90
   ret void
 
-94:                                               ; preds = %47
-  %95 = landingpad { ptr, i32 }
+96:                                               ; preds = %49
+  %97 = landingpad { ptr, i32 }
           cleanup
-  %96 = extractvalue { ptr, i32 } %95, 0
-  store ptr %96, ptr %6, align 8
-  %97 = extractvalue { ptr, i32 } %95, 1
-  store i32 %97, ptr %7, align 4
-  br label %102
+  %98 = extractvalue { ptr, i32 } %97, 0
+  store ptr %98, ptr %6, align 8
+  %99 = extractvalue { ptr, i32 } %97, 1
+  store i32 %99, ptr %7, align 4
+  br label %104
 
-98:                                               ; preds = %48
-  %99 = landingpad { ptr, i32 }
+100:                                              ; preds = %50
+  %101 = landingpad { ptr, i32 }
           cleanup
-  %100 = extractvalue { ptr, i32 } %99, 0
-  store ptr %100, ptr %6, align 8
-  %101 = extractvalue { ptr, i32 } %99, 1
-  store i32 %101, ptr %7, align 4
+  %102 = extractvalue { ptr, i32 } %101, 0
+  store ptr %102, ptr %6, align 8
+  %103 = extractvalue { ptr, i32 } %101, 1
+  store i32 %103, ptr %7, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  br label %102
+  br label %104
 
-102:                                              ; preds = %98, %94
+104:                                              ; preds = %100, %96
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  br label %111
+  br label %113
 
-103:                                              ; preds = %51
-  %104 = landingpad { ptr, i32 }
+105:                                              ; preds = %53
+  %106 = landingpad { ptr, i32 }
           cleanup
-  %105 = extractvalue { ptr, i32 } %104, 0
-  store ptr %105, ptr %6, align 8
-  %106 = extractvalue { ptr, i32 } %104, 1
-  store i32 %106, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %50) #15
-  br label %111
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %6, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %7, align 4
+  call void @_ZdlPv(ptr noundef %52) #15
+  br label %113
 
-107:                                              ; preds = %57
-  %108 = landingpad { ptr, i32 }
+109:                                              ; preds = %59
+  %110 = landingpad { ptr, i32 }
           cleanup
-  %109 = extractvalue { ptr, i32 } %108, 0
-  store ptr %109, ptr %6, align 8
-  %110 = extractvalue { ptr, i32 } %108, 1
-  store i32 %110, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %56) #15
-  br label %111
+  %111 = extractvalue { ptr, i32 } %110, 0
+  store ptr %111, ptr %6, align 8
+  %112 = extractvalue { ptr, i32 } %110, 1
+  store i32 %112, ptr %7, align 4
+  call void @_ZdlPv(ptr noundef %58) #15
+  br label %113
 
-111:                                              ; preds = %107, %103, %102, %40, %36
+113:                                              ; preds = %109, %105, %104, %42, %38
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #13
-  br label %112
+  br label %114
 
-112:                                              ; preds = %111
-  %113 = load ptr, ptr %6, align 8
-  %114 = load i32, ptr %7, align 4
-  %115 = insertvalue { ptr, i32 } poison, ptr %113, 0
-  %116 = insertvalue { ptr, i32 } %115, i32 %114, 1
-  resume { ptr, i32 } %116
+114:                                              ; preds = %113
+  %115 = load ptr, ptr %6, align 8
+  %116 = load i32, ptr %7, align 4
+  %117 = insertvalue { ptr, i32 } poison, ptr %115, 0
+  %118 = insertvalue { ptr, i32 } %117, i32 %116, 1
+  resume { ptr, i32 } %118
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -618,11 +620,13 @@ define linkonce_odr void @_ZN19GeometryStateDialogC2EP7QWidget6QFlagsIN2Qt10Wind
   %10 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %11 = load i32, ptr %10, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef null, i32 %11)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %class.GeometryStateDialog, ptr %9, i32 0, i32 1
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
+  %12 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.GeometryStateDialog, ptr %9, i32 0, i32 1
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   ret void
 }
 
@@ -1215,19 +1219,21 @@ define void @_ZN21DissectorTablesDialogD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV21DissectorTablesDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV21DissectorTablesDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.DissectorTablesDialog, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV21DissectorTablesDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV21DissectorTablesDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.DissectorTablesDialog, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #15
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #15
+  br label %11
 
-9:                                                ; preds = %8, %1
+11:                                               ; preds = %10, %1
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #13
   ret void
 }

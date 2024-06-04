@@ -192,16 +192,18 @@ entry:
   %call1 = call ptr @mmap_reserve(i64 noundef %3, i32 noundef %4)
   store ptr %call1, ptr %guardptr, align 8
   %5 = load ptr, ptr %guardptr, align 8
-  %cmp = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
+  %6 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %5, %6
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store ptr inttoptr (i64 -1 to ptr), ptr %retval, align 8
+  %7 = inttoptr i64 -1 to ptr
+  store ptr %7, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %6 = load i64, ptr %align.addr, align 8
-  %call2 = call zeroext i1 @is_power_of_2(i64 noundef %6)
+  %8 = load i64, ptr %align.addr, align 8
+  %call2 = call zeroext i1 @is_power_of_2(i64 noundef %8)
   br i1 %call2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
@@ -212,9 +214,9 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.then3
-  %7 = load i64, ptr %align.addr, align 8
-  %8 = load i64, ptr %guard_pagesize, align 8
-  %cmp5 = icmp uge i64 %7, %8
+  %9 = load i64, ptr %align.addr, align 8
+  %10 = load i64, ptr %guard_pagesize, align 8
+  %cmp5 = icmp uge i64 %9, %10
   br i1 %cmp5, label %if.then6, label %if.else7
 
 if.then6:                                         ; preds = %if.end4
@@ -225,84 +227,86 @@ if.else7:                                         ; preds = %if.end4
   unreachable
 
 if.end8:                                          ; preds = %if.then6
-  %9 = load ptr, ptr %guardptr, align 8
-  %10 = ptrtoint ptr %9 to i64
-  %11 = load i64, ptr %align.addr, align 8
-  %add9 = add i64 %10, %11
-  %sub = sub i64 %add9, 1
-  %12 = load i64, ptr %align.addr, align 8
-  %div = udiv i64 %sub, %12
+  %11 = load ptr, ptr %guardptr, align 8
+  %12 = ptrtoint ptr %11 to i64
   %13 = load i64, ptr %align.addr, align 8
-  %mul = mul i64 %div, %13
-  %14 = load ptr, ptr %guardptr, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %sub10 = sub i64 %mul, %15
-  store i64 %sub10, ptr %offset, align 8
+  %add9 = add i64 %12, %13
+  %sub = sub i64 %add9, 1
+  %14 = load i64, ptr %align.addr, align 8
+  %div = udiv i64 %sub, %14
+  %15 = load i64, ptr %align.addr, align 8
+  %mul = mul i64 %div, %15
   %16 = load ptr, ptr %guardptr, align 8
-  %17 = load i64, ptr %offset, align 8
-  %add.ptr = getelementptr i8, ptr %16, i64 %17
-  %18 = load i64, ptr %size.addr, align 8
-  %19 = load i32, ptr %fd.addr, align 4
-  %20 = load i32, ptr %qemu_map_flags.addr, align 4
-  %21 = load i64, ptr %map_offset.addr, align 8
-  %call11 = call ptr @mmap_activate(ptr noundef %add.ptr, i64 noundef %18, i32 noundef %19, i32 noundef %20, i64 noundef %21)
+  %17 = ptrtoint ptr %16 to i64
+  %sub10 = sub i64 %mul, %17
+  store i64 %sub10, ptr %offset, align 8
+  %18 = load ptr, ptr %guardptr, align 8
+  %19 = load i64, ptr %offset, align 8
+  %add.ptr = getelementptr i8, ptr %18, i64 %19
+  %20 = load i64, ptr %size.addr, align 8
+  %21 = load i32, ptr %fd.addr, align 4
+  %22 = load i32, ptr %qemu_map_flags.addr, align 4
+  %23 = load i64, ptr %map_offset.addr, align 8
+  %call11 = call ptr @mmap_activate(ptr noundef %add.ptr, i64 noundef %20, i32 noundef %21, i32 noundef %22, i64 noundef %23)
   store ptr %call11, ptr %ptr, align 8
-  %22 = load ptr, ptr %ptr, align 8
-  %cmp12 = icmp eq ptr %22, inttoptr (i64 -1 to ptr)
+  %24 = load ptr, ptr %ptr, align 8
+  %25 = inttoptr i64 -1 to ptr
+  %cmp12 = icmp eq ptr %24, %25
   br i1 %cmp12, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.end8
-  %23 = load ptr, ptr %guardptr, align 8
-  %24 = load i64, ptr %total, align 8
-  %call14 = call i32 @munmap(ptr noundef %23, i64 noundef %24) #6
-  store ptr inttoptr (i64 -1 to ptr), ptr %retval, align 8
+  %26 = load ptr, ptr %guardptr, align 8
+  %27 = load i64, ptr %total, align 8
+  %call14 = call i32 @munmap(ptr noundef %26, i64 noundef %27) #6
+  %28 = inttoptr i64 -1 to ptr
+  store ptr %28, ptr %retval, align 8
   br label %return
 
 if.end15:                                         ; preds = %if.end8
-  %25 = load i64, ptr %offset, align 8
-  %cmp16 = icmp ugt i64 %25, 0
+  %29 = load i64, ptr %offset, align 8
+  %cmp16 = icmp ugt i64 %29, 0
   br i1 %cmp16, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %if.end15
-  %26 = load ptr, ptr %guardptr, align 8
-  %27 = load i64, ptr %offset, align 8
-  %call18 = call i32 @munmap(ptr noundef %26, i64 noundef %27) #6
+  %30 = load ptr, ptr %guardptr, align 8
+  %31 = load i64, ptr %offset, align 8
+  %call18 = call i32 @munmap(ptr noundef %30, i64 noundef %31) #6
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then17, %if.end15
-  %28 = load i64, ptr %offset, align 8
-  %29 = load i64, ptr %total, align 8
-  %sub20 = sub i64 %29, %28
+  %32 = load i64, ptr %offset, align 8
+  %33 = load i64, ptr %total, align 8
+  %sub20 = sub i64 %33, %32
   store i64 %sub20, ptr %total, align 8
-  %30 = load i64, ptr %total, align 8
-  %31 = load i64, ptr %size.addr, align 8
-  %32 = load i64, ptr %guard_pagesize, align 8
-  %add21 = add i64 %31, %32
-  %cmp22 = icmp ugt i64 %30, %add21
+  %34 = load i64, ptr %total, align 8
+  %35 = load i64, ptr %size.addr, align 8
+  %36 = load i64, ptr %guard_pagesize, align 8
+  %add21 = add i64 %35, %36
+  %cmp22 = icmp ugt i64 %34, %add21
   br i1 %cmp22, label %if.then23, label %if.end29
 
 if.then23:                                        ; preds = %if.end19
-  %33 = load ptr, ptr %ptr, align 8
-  %34 = load i64, ptr %size.addr, align 8
-  %add.ptr24 = getelementptr i8, ptr %33, i64 %34
-  %35 = load i64, ptr %guard_pagesize, align 8
-  %add.ptr25 = getelementptr i8, ptr %add.ptr24, i64 %35
-  %36 = load i64, ptr %total, align 8
-  %37 = load i64, ptr %size.addr, align 8
-  %sub26 = sub i64 %36, %37
-  %38 = load i64, ptr %guard_pagesize, align 8
-  %sub27 = sub i64 %sub26, %38
+  %37 = load ptr, ptr %ptr, align 8
+  %38 = load i64, ptr %size.addr, align 8
+  %add.ptr24 = getelementptr i8, ptr %37, i64 %38
+  %39 = load i64, ptr %guard_pagesize, align 8
+  %add.ptr25 = getelementptr i8, ptr %add.ptr24, i64 %39
+  %40 = load i64, ptr %total, align 8
+  %41 = load i64, ptr %size.addr, align 8
+  %sub26 = sub i64 %40, %41
+  %42 = load i64, ptr %guard_pagesize, align 8
+  %sub27 = sub i64 %sub26, %42
   %call28 = call i32 @munmap(ptr noundef %add.ptr25, i64 noundef %sub27) #6
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then23, %if.end19
-  %39 = load ptr, ptr %ptr, align 8
-  store ptr %39, ptr %retval, align 8
+  %43 = load ptr, ptr %ptr, align 8
+  store ptr %43, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end29, %if.then13, %if.then
-  %40 = load ptr, ptr %retval, align 8
-  ret ptr %40
+  %44 = load ptr, ptr %retval, align 8
+  ret ptr %44
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -429,35 +433,36 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  store ptr inttoptr (i64 -1 to ptr), ptr %retval, align 8
+  %8 = inttoptr i64 -1 to ptr
+  store ptr %8, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %8 = load i32, ptr %fd.addr, align 4
-  %cmp = icmp eq i32 %8, -1
+  %9 = load i32, ptr %fd.addr, align 4
+  %cmp = icmp eq i32 %9, -1
   %cond12 = select i1 %cmp, i32 32, i32 0
-  %9 = load i32, ptr %flags, align 4
-  %or13 = or i32 %9, %cond12
+  %10 = load i32, ptr %flags, align 4
+  %or13 = or i32 %10, %cond12
   store i32 %or13, ptr %flags, align 4
-  %10 = load i8, ptr %shared, align 1
-  %tobool14 = trunc i8 %10 to i1
+  %11 = load i8, ptr %shared, align 1
+  %tobool14 = trunc i8 %11 to i1
   %cond15 = select i1 %tobool14, i32 1, i32 2
-  %11 = load i32, ptr %flags, align 4
-  %or16 = or i32 %11, %cond15
+  %12 = load i32, ptr %flags, align 4
+  %or16 = or i32 %12, %cond15
   store i32 %or16, ptr %flags, align 4
-  %12 = load i8, ptr %noreserve, align 1
-  %tobool17 = trunc i8 %12 to i1
+  %13 = load i8, ptr %noreserve, align 1
+  %tobool17 = trunc i8 %13 to i1
   %cond18 = select i1 %tobool17, i32 16384, i32 0
-  %13 = load i32, ptr %flags, align 4
-  %or19 = or i32 %13, %cond18
+  %14 = load i32, ptr %flags, align 4
+  %or19 = or i32 %14, %cond18
   store i32 %or19, ptr %flags, align 4
-  %14 = load i8, ptr %shared, align 1
-  %tobool20 = trunc i8 %14 to i1
+  %15 = load i8, ptr %shared, align 1
+  %tobool20 = trunc i8 %15 to i1
   br i1 %tobool20, label %land.lhs.true21, label %if.end24
 
 land.lhs.true21:                                  ; preds = %if.end
-  %15 = load i8, ptr %sync, align 1
-  %tobool22 = trunc i8 %15 to i1
+  %16 = load i8, ptr %sync, align 1
+  %tobool22 = trunc i8 %16 to i1
   br i1 %tobool22, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %land.lhs.true21
@@ -465,44 +470,45 @@ if.then23:                                        ; preds = %land.lhs.true21
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %land.lhs.true21, %if.end
-  %16 = load ptr, ptr %ptr.addr, align 8
-  %17 = load i64, ptr %size.addr, align 8
-  %18 = load i32, ptr %prot, align 4
-  %19 = load i32, ptr %flags, align 4
-  %20 = load i32, ptr %map_sync_flags, align 4
-  %or25 = or i32 %19, %20
-  %21 = load i32, ptr %fd.addr, align 4
-  %22 = load i64, ptr %map_offset.addr, align 8
-  %call26 = call ptr @mmap64(ptr noundef %16, i64 noundef %17, i32 noundef %18, i32 noundef %or25, i32 noundef %21, i64 noundef %22) #6
+  %17 = load ptr, ptr %ptr.addr, align 8
+  %18 = load i64, ptr %size.addr, align 8
+  %19 = load i32, ptr %prot, align 4
+  %20 = load i32, ptr %flags, align 4
+  %21 = load i32, ptr %map_sync_flags, align 4
+  %or25 = or i32 %20, %21
+  %22 = load i32, ptr %fd.addr, align 4
+  %23 = load i64, ptr %map_offset.addr, align 8
+  %call26 = call ptr @mmap64(ptr noundef %17, i64 noundef %18, i32 noundef %19, i32 noundef %or25, i32 noundef %22, i64 noundef %23) #6
   store ptr %call26, ptr %activated_ptr, align 8
-  %23 = load ptr, ptr %activated_ptr, align 8
-  %cmp27 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
+  %24 = load ptr, ptr %activated_ptr, align 8
+  %25 = inttoptr i64 -1 to ptr
+  %cmp27 = icmp eq ptr %24, %25
   br i1 %cmp27, label %land.lhs.true28, label %if.end44
 
 land.lhs.true28:                                  ; preds = %if.end24
-  %24 = load i32, ptr %map_sync_flags, align 4
-  %tobool29 = icmp ne i32 %24, 0
+  %26 = load i32, ptr %map_sync_flags, align 4
+  %tobool29 = icmp ne i32 %26, 0
   br i1 %tobool29, label %if.then30, label %if.end44
 
 if.then30:                                        ; preds = %land.lhs.true28
   %call31 = call ptr @__errno_location() #7
-  %25 = load i32, ptr %call31, align 4
-  %cmp32 = icmp eq i32 %25, 95
+  %27 = load i32, ptr %call31, align 4
+  %cmp32 = icmp eq i32 %27, 95
   br i1 %cmp32, label %if.then33, label %if.end42
 
 if.then33:                                        ; preds = %if.then30
-  %26 = load i32, ptr %fd.addr, align 4
-  %call34 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.3, i32 noundef %26)
+  %28 = load i32, ptr %fd.addr, align 4
+  %call34 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.3, i32 noundef %28)
   store ptr %call34, ptr %proc_link, align 8
   %call35 = call noalias ptr @g_malloc0(i64 noundef 4096) #9
   store ptr %call35, ptr %file_name, align 8
-  %27 = load ptr, ptr %proc_link, align 8
-  %28 = load ptr, ptr %file_name, align 8
-  %call36 = call i64 @readlink(ptr noundef %27, ptr noundef %28, i64 noundef 4095) #6
+  %29 = load ptr, ptr %proc_link, align 8
+  %30 = load ptr, ptr %file_name, align 8
+  %call36 = call i64 @readlink(ptr noundef %29, ptr noundef %30, i64 noundef 4095) #6
   %conv = trunc i64 %call36 to i32
   store i32 %conv, ptr %len, align 4
-  %29 = load i32, ptr %len, align 4
-  %cmp37 = icmp slt i32 %29, 0
+  %31 = load i32, ptr %len, align 4
+  %cmp37 = icmp slt i32 %31, 0
   br i1 %cmp37, label %if.then39, label %if.end40
 
 if.then39:                                        ; preds = %if.then33
@@ -510,40 +516,40 @@ if.then39:                                        ; preds = %if.then33
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then39, %if.then33
-  %30 = load ptr, ptr %file_name, align 8
-  %31 = load i32, ptr %len, align 4
-  %idxprom = sext i32 %31 to i64
-  %arrayidx = getelementptr i8, ptr %30, i64 %idxprom
+  %32 = load ptr, ptr %file_name, align 8
+  %33 = load i32, ptr %len, align 4
+  %idxprom = sext i32 %33 to i64
+  %arrayidx = getelementptr i8, ptr %32, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
-  %32 = load ptr, ptr @stderr, align 8
-  %33 = load ptr, ptr %file_name, align 8
-  %call41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef @.str.4, ptr noundef %33)
-  %34 = load ptr, ptr %proc_link, align 8
-  call void @g_free(ptr noundef %34)
+  %34 = load ptr, ptr @stderr, align 8
   %35 = load ptr, ptr %file_name, align 8
-  call void @g_free(ptr noundef %35)
+  %call41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.4, ptr noundef %35)
+  %36 = load ptr, ptr %proc_link, align 8
+  call void @g_free(ptr noundef %36)
+  %37 = load ptr, ptr %file_name, align 8
+  call void @g_free(ptr noundef %37)
   call void (ptr, ...) @warn_report(ptr noundef @.str.5)
   br label %if.end42
 
 if.end42:                                         ; preds = %if.end40, %if.then30
-  %36 = load ptr, ptr %ptr.addr, align 8
-  %37 = load i64, ptr %size.addr, align 8
-  %38 = load i32, ptr %prot, align 4
-  %39 = load i32, ptr %flags, align 4
-  %40 = load i32, ptr %fd.addr, align 4
-  %41 = load i64, ptr %map_offset.addr, align 8
-  %call43 = call ptr @mmap64(ptr noundef %36, i64 noundef %37, i32 noundef %38, i32 noundef %39, i32 noundef %40, i64 noundef %41) #6
+  %38 = load ptr, ptr %ptr.addr, align 8
+  %39 = load i64, ptr %size.addr, align 8
+  %40 = load i32, ptr %prot, align 4
+  %41 = load i32, ptr %flags, align 4
+  %42 = load i32, ptr %fd.addr, align 4
+  %43 = load i64, ptr %map_offset.addr, align 8
+  %call43 = call ptr @mmap64(ptr noundef %38, i64 noundef %39, i32 noundef %40, i32 noundef %41, i32 noundef %42, i64 noundef %43) #6
   store ptr %call43, ptr %activated_ptr, align 8
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end42, %land.lhs.true28, %if.end24
-  %42 = load ptr, ptr %activated_ptr, align 8
-  store ptr %42, ptr %retval, align 8
+  %44 = load ptr, ptr %activated_ptr, align 8
+  store ptr %44, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end44, %if.then
-  %43 = load ptr, ptr %retval, align 8
-  ret ptr %43
+  %45 = load ptr, ptr %retval, align 8
+  ret ptr %45
 }
 
 ; Function Attrs: nounwind

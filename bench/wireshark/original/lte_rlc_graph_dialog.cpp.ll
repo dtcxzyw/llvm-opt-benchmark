@@ -1311,457 +1311,459 @@ define void @_ZN17LteRlcGraphDialogC2ER7QWidgetR11CaptureFileb(ptr noundef nonnu
   %18 = load ptr, ptr %6, align 8
   %19 = load ptr, ptr %7, align 8
   call void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133) %17, ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(48) %19)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV17LteRlcGraphDialog, i32 0, i32 0, i32 2), ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV17LteRlcGraphDialog, i32 0, i32 1, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 256) #16
-          to label %23 unwind label %247
-
-23:                                               ; preds = %4
+  %20 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV17LteRlcGraphDialog, i32 0, i32 0, i32 2
+  store ptr %20, ptr %17, align 8
+  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV17LteRlcGraphDialog, i32 0, i32 1, i32 2
   store ptr %22, ptr %21, align 8
-  %24 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 3
-  store i8 1, ptr %24, align 8
-  %25 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 5
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 6
-  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %26) #17
-  %27 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 9
-  call void @_ZN9QMultiMapIdP11rlc_segmentEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #17
-  %28 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 10
-  call void @_ZN4QMapIdP11rlc_segmentEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #17
-  %29 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 11
-  store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 12
-  store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 13
+  %23 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 256) #16
+          to label %25 unwind label %249
+
+25:                                               ; preds = %4
+  store ptr %24, ptr %23, align 8
+  %26 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 3
+  store i8 1, ptr %26, align 8
+  %27 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 5
+  store ptr null, ptr %27, align 8
+  %28 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 6
+  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %28) #17
+  %29 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 9
+  call void @_ZN9QMultiMapIdP11rlc_segmentEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #17
+  %30 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 10
+  call void @_ZN4QMapIdP11rlc_segmentEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #17
+  %31 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 11
   store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 14
+  %32 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 12
   store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 15
+  %33 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 13
   store ptr null, ptr %33, align 8
-  %34 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 16
-  store i32 0, ptr %34, align 8
-  %35 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
-  %36 = load ptr, ptr %35, align 8
-  invoke void @_ZN20Ui_LteRlcGraphDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(256) %36, ptr noundef %17)
-          to label %37 unwind label %251
+  %34 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 14
+  store ptr null, ptr %34, align 8
+  %35 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 15
+  store ptr null, ptr %35, align 8
+  %36 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 16
+  store i32 0, ptr %36, align 8
+  %37 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8
+  invoke void @_ZN20Ui_LteRlcGraphDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(256) %38, ptr noundef %17)
+          to label %39 unwind label %253
 
-37:                                               ; preds = %23
-  %38 = load ptr, ptr %6, align 8
-  %39 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %38)
-          to label %40 unwind label %251
+39:                                               ; preds = %25
+  %40 = load ptr, ptr %6, align 8
+  %41 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %40)
+          to label %42 unwind label %253
 
-40:                                               ; preds = %37
-  %41 = mul i32 %39, 4
-  %42 = sdiv i32 %41, 5
-  %43 = load ptr, ptr %6, align 8
-  %44 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %43)
-          to label %45 unwind label %251
+42:                                               ; preds = %39
+  %43 = mul i32 %41, 4
+  %44 = sdiv i32 %43, 5
+  %45 = load ptr, ptr %6, align 8
+  %46 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %45)
+          to label %47 unwind label %253
 
-45:                                               ; preds = %40
-  %46 = mul i32 %44, 3
-  %47 = sdiv i32 %46, 4
+47:                                               ; preds = %42
+  %48 = mul i32 %46, 3
+  %49 = sdiv i32 %48, 4
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef %42, i32 noundef %47, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %48 unwind label %255
+  invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef %44, i32 noundef %49, ptr noundef nonnull align 8 dereferenceable(24) %11)
+          to label %50 unwind label %257
 
-48:                                               ; preds = %45
+50:                                               ; preds = %47
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  %49 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %50, i32 0, i32 22
+  %51 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %12, align 8
-  %53 = load ptr, ptr %12, align 8
-  %54 = getelementptr inbounds %class.QCustomPlot, ptr %53, i32 0, i32 1
-  %55 = load ptr, ptr %54, align 8
+  %53 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %52, i32 0, i32 22
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %12, align 8
+  %55 = load ptr, ptr %12, align 8
+  %56 = getelementptr inbounds %class.QCustomPlot, ptr %55, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8
   invoke void @_ZN17LteRlcGraphDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %13, ptr noundef @.str, ptr noundef null, i32 noundef -1)
-          to label %56 unwind label %251
+          to label %58 unwind label %253
 
-56:                                               ; preds = %48
-  invoke void @_ZN7QCPAxis8setLabelERK7QString(ptr noundef nonnull align 8 dereferenceable(472) %55, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %57 unwind label %259
+58:                                               ; preds = %50
+  invoke void @_ZN7QCPAxis8setLabelERK7QString(ptr noundef nonnull align 8 dereferenceable(472) %57, ptr noundef nonnull align 8 dereferenceable(24) %13)
+          to label %59 unwind label %261
 
-57:                                               ; preds = %56
+59:                                               ; preds = %58
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  %58 = load ptr, ptr %12, align 8
-  %59 = getelementptr inbounds %class.QCustomPlot, ptr %58, i32 0, i32 2
-  %60 = load ptr, ptr %59, align 8
+  %60 = load ptr, ptr %12, align 8
+  %61 = getelementptr inbounds %class.QCustomPlot, ptr %60, i32 0, i32 2
+  %62 = load ptr, ptr %61, align 8
   invoke void @_ZN17LteRlcGraphDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef @.str.1, ptr noundef null, i32 noundef -1)
-          to label %61 unwind label %251
+          to label %63 unwind label %253
 
-61:                                               ; preds = %57
-  invoke void @_ZN7QCPAxis8setLabelERK7QString(ptr noundef nonnull align 8 dereferenceable(472) %60, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %62 unwind label %263
+63:                                               ; preds = %59
+  invoke void @_ZN7QCPAxis8setLabelERK7QString(ptr noundef nonnull align 8 dereferenceable(472) %62, ptr noundef nonnull align 8 dereferenceable(24) %14)
+          to label %64 unwind label %265
 
-62:                                               ; preds = %61
+64:                                               ; preds = %63
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  %63 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %64, i32 0, i32 26
+  %65 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 3
-  %68 = load i8, ptr %67, align 8
-  %69 = trunc i8 %68 to i1
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %66, i1 noundef zeroext %69)
-          to label %70 unwind label %251
+  %67 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %66, i32 0, i32 26
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 3
+  %70 = load i8, ptr %69, align 8
+  %71 = trunc i8 %70 to i1
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %68, i1 noundef zeroext %71)
+          to label %72 unwind label %253
 
-70:                                               ; preds = %62
-  %71 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #16
-          to label %72 unwind label %251
+72:                                               ; preds = %64
+  %73 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #16
+          to label %74 unwind label %253
 
-72:                                               ; preds = %70
-  invoke void @_ZN5QMenuC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef %17)
-          to label %73 unwind label %267
+74:                                               ; preds = %72
+  invoke void @_ZN5QMenuC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %73, ptr noundef %17)
+          to label %75 unwind label %269
 
-73:                                               ; preds = %72
-  %74 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  store ptr %71, ptr %74, align 8
-  %75 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
+  store ptr %73, ptr %76, align 8
+  %77 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %78, i32 0, i32 1
+  %79 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %80 = load ptr, ptr %79, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %76, ptr noundef %80)
-          to label %81 unwind label %251
+  %81 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %80, i32 0, i32 1
+  %82 = load ptr, ptr %81, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %78, ptr noundef %82)
+          to label %83 unwind label %253
 
-81:                                               ; preds = %73
-  %82 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+83:                                               ; preds = %75
+  %84 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %85, i32 0, i32 16
+  %86 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %87 = load ptr, ptr %86, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %83, ptr noundef %87)
-          to label %88 unwind label %251
+  %88 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %87, i32 0, i32 16
+  %89 = load ptr, ptr %88, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %85, ptr noundef %89)
+          to label %90 unwind label %253
 
-88:                                               ; preds = %81
-  %89 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+90:                                               ; preds = %83
+  %91 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %92, i32 0, i32 18
+  %93 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %94 = load ptr, ptr %93, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %90, ptr noundef %94)
-          to label %95 unwind label %251
+  %95 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %94, i32 0, i32 18
+  %96 = load ptr, ptr %95, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %92, ptr noundef %96)
+          to label %97 unwind label %253
 
-95:                                               ; preds = %88
-  %96 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+97:                                               ; preds = %90
+  %98 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %99, i32 0, i32 2
+  %100 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %101 = load ptr, ptr %100, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %97, ptr noundef %101)
-          to label %102 unwind label %251
+  %102 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %101, i32 0, i32 2
+  %103 = load ptr, ptr %102, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %99, ptr noundef %103)
+          to label %104 unwind label %253
 
-102:                                              ; preds = %95
-  %103 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+104:                                              ; preds = %97
+  %105 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %106, i32 0, i32 19
+  %107 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %108 = load ptr, ptr %107, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef %108)
-          to label %109 unwind label %251
+  %109 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %108, i32 0, i32 19
+  %110 = load ptr, ptr %109, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %106, ptr noundef %110)
+          to label %111 unwind label %253
 
-109:                                              ; preds = %102
-  %110 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+111:                                              ; preds = %104
+  %112 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %113, i32 0, i32 17
+  %114 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %115 = load ptr, ptr %114, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %111, ptr noundef %115)
-          to label %116 unwind label %251
+  %116 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %115, i32 0, i32 17
+  %117 = load ptr, ptr %116, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %113, ptr noundef %117)
+          to label %118 unwind label %253
 
-116:                                              ; preds = %109
-  %117 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+118:                                              ; preds = %111
+  %119 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %120, i32 0, i32 0
+  %121 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %122 = load ptr, ptr %121, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %118, ptr noundef %122)
-          to label %123 unwind label %251
+  %123 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %122, i32 0, i32 0
+  %124 = load ptr, ptr %123, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %120, ptr noundef %124)
+          to label %125 unwind label %253
 
-123:                                              ; preds = %116
-  %124 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %125 = load ptr, ptr %124, align 8
-  %126 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %125)
-          to label %127 unwind label %251
+125:                                              ; preds = %118
+  %126 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
+  %127 = load ptr, ptr %126, align 8
+  %128 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %127)
+          to label %129 unwind label %253
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+129:                                              ; preds = %125
+  %130 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %131, i32 0, i32 5
+  %132 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %133 = load ptr, ptr %132, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %129, ptr noundef %133)
-          to label %134 unwind label %251
+  %134 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %133, i32 0, i32 5
+  %135 = load ptr, ptr %134, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %131, ptr noundef %135)
+          to label %136 unwind label %253
 
-134:                                              ; preds = %127
-  %135 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+136:                                              ; preds = %129
+  %137 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %138, i32 0, i32 4
+  %139 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %140 = load ptr, ptr %139, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %136, ptr noundef %140)
-          to label %141 unwind label %251
+  %141 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %140, i32 0, i32 4
+  %142 = load ptr, ptr %141, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %138, ptr noundef %142)
+          to label %143 unwind label %253
 
-141:                                              ; preds = %134
-  %142 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+143:                                              ; preds = %136
+  %144 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %145, i32 0, i32 3
+  %146 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %147 = load ptr, ptr %146, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %143, ptr noundef %147)
-          to label %148 unwind label %251
+  %148 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %147, i32 0, i32 3
+  %149 = load ptr, ptr %148, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %145, ptr noundef %149)
+          to label %150 unwind label %253
 
-148:                                              ; preds = %141
-  %149 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+150:                                              ; preds = %143
+  %151 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %152, i32 0, i32 13
+  %153 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %154 = load ptr, ptr %153, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %150, ptr noundef %154)
-          to label %155 unwind label %251
+  %155 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %154, i32 0, i32 13
+  %156 = load ptr, ptr %155, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef %156)
+          to label %157 unwind label %253
 
-155:                                              ; preds = %148
-  %156 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+157:                                              ; preds = %150
+  %158 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %159, i32 0, i32 6
+  %160 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %161 = load ptr, ptr %160, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %157, ptr noundef %161)
-          to label %162 unwind label %251
+  %162 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %161, i32 0, i32 6
+  %163 = load ptr, ptr %162, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %159, ptr noundef %163)
+          to label %164 unwind label %253
 
-162:                                              ; preds = %155
-  %163 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+164:                                              ; preds = %157
+  %165 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %166, i32 0, i32 14
+  %167 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %168 = load ptr, ptr %167, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %164, ptr noundef %168)
-          to label %169 unwind label %251
+  %169 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %168, i32 0, i32 14
+  %170 = load ptr, ptr %169, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %166, ptr noundef %170)
+          to label %171 unwind label %253
 
-169:                                              ; preds = %162
-  %170 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+171:                                              ; preds = %164
+  %172 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %173, i32 0, i32 9
+  %174 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %175 = load ptr, ptr %174, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %171, ptr noundef %175)
-          to label %176 unwind label %251
+  %176 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %175, i32 0, i32 9
+  %177 = load ptr, ptr %176, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %173, ptr noundef %177)
+          to label %178 unwind label %253
 
-176:                                              ; preds = %169
-  %177 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+178:                                              ; preds = %171
+  %179 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %180, i32 0, i32 8
+  %181 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %182 = load ptr, ptr %181, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %178, ptr noundef %182)
-          to label %183 unwind label %251
+  %183 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %182, i32 0, i32 8
+  %184 = load ptr, ptr %183, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %180, ptr noundef %184)
+          to label %185 unwind label %253
 
-183:                                              ; preds = %176
-  %184 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+185:                                              ; preds = %178
+  %186 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %187, i32 0, i32 7
+  %188 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %189 = load ptr, ptr %188, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %185, ptr noundef %189)
-          to label %190 unwind label %251
+  %190 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %189, i32 0, i32 7
+  %191 = load ptr, ptr %190, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %187, ptr noundef %191)
+          to label %192 unwind label %253
 
-190:                                              ; preds = %183
-  %191 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+192:                                              ; preds = %185
+  %193 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %194, i32 0, i32 10
+  %195 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %196 = load ptr, ptr %195, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %192, ptr noundef %196)
-          to label %197 unwind label %251
+  %197 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %196, i32 0, i32 10
+  %198 = load ptr, ptr %197, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %194, ptr noundef %198)
+          to label %199 unwind label %253
 
-197:                                              ; preds = %190
-  %198 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %199 = load ptr, ptr %198, align 8
-  %200 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %199)
-          to label %201 unwind label %251
+199:                                              ; preds = %192
+  %200 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
+  %201 = load ptr, ptr %200, align 8
+  %202 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %201)
+          to label %203 unwind label %253
 
-201:                                              ; preds = %197
-  %202 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+203:                                              ; preds = %199
+  %204 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %205, i32 0, i32 15
+  %206 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %207 = load ptr, ptr %206, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %203, ptr noundef %207)
-          to label %208 unwind label %251
+  %208 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %207, i32 0, i32 15
+  %209 = load ptr, ptr %208, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %205, ptr noundef %209)
+          to label %210 unwind label %253
 
-208:                                              ; preds = %201
-  %209 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %210 = load ptr, ptr %209, align 8
-  %211 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %210)
-          to label %212 unwind label %251
+210:                                              ; preds = %203
+  %211 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
+  %212 = load ptr, ptr %211, align 8
+  %213 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %212)
+          to label %214 unwind label %253
 
-212:                                              ; preds = %208
-  %213 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+214:                                              ; preds = %210
+  %215 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %216, i32 0, i32 11
+  %217 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %218 = load ptr, ptr %217, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %214, ptr noundef %218)
-          to label %219 unwind label %251
+  %219 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %218, i32 0, i32 11
+  %220 = load ptr, ptr %219, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %216, ptr noundef %220)
+          to label %221 unwind label %253
 
-219:                                              ; preds = %212
-  %220 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+221:                                              ; preds = %214
+  %222 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %223, i32 0, i32 12
+  %224 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %225 = load ptr, ptr %224, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %221, ptr noundef %225)
-          to label %226 unwind label %251
+  %226 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %225, i32 0, i32 12
+  %227 = load ptr, ptr %226, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %223, ptr noundef %227)
+          to label %228 unwind label %253
 
-226:                                              ; preds = %219
-  %227 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %228 = load ptr, ptr %227, align 8
-  %229 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %228)
-          to label %230 unwind label %251
+228:                                              ; preds = %221
+  %229 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
+  %230 = load ptr, ptr %229, align 8
+  %231 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %230)
+          to label %232 unwind label %253
 
-230:                                              ; preds = %226
-  %231 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
+232:                                              ; preds = %228
+  %233 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
   %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %234, i32 0, i32 20
+  %235 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 2
   %236 = load ptr, ptr %235, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %232, ptr noundef %236)
-          to label %237 unwind label %251
+  %237 = getelementptr inbounds %class.Ui_LteRlcGraphDialog, ptr %236, i32 0, i32 20
+  %238 = load ptr, ptr %237, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %234, ptr noundef %238)
+          to label %239 unwind label %253
 
-237:                                              ; preds = %230
-  %238 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
-  %239 = load ptr, ptr %238, align 8
-  invoke void @_ZNK7QWidget7actionsEv(ptr dead_on_unwind writable sret(%class.QList.40) align 8 %15, ptr noundef nonnull align 8 dereferenceable(40) %239)
-          to label %240 unwind label %251
+239:                                              ; preds = %232
+  %240 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 7
+  %241 = load ptr, ptr %240, align 8
+  invoke void @_ZNK7QWidget7actionsEv(ptr dead_on_unwind writable sret(%class.QList.40) align 8 %15, ptr noundef nonnull align 8 dereferenceable(40) %241)
+          to label %242 unwind label %253
 
-240:                                              ; preds = %237
+242:                                              ; preds = %239
   invoke void @_Z44set_action_shortcuts_visible_in_context_menu5QListIP7QActionE(ptr noundef %15)
-          to label %241 unwind label %271
+          to label %243 unwind label %273
 
-241:                                              ; preds = %240
+243:                                              ; preds = %242
   call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  %242 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 8
-  call void @llvm.memset.p0.i64(ptr align 8 %242, i8 0, i64 32, i1 false)
-  %243 = load i8, ptr %8, align 1
-  %244 = trunc i8 %243 to i1
-  br i1 %244, label %275, label %245
+  %244 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %17, i32 0, i32 8
+  call void @llvm.memset.p0.i64(ptr align 8 %244, i8 0, i64 32, i1 false)
+  %245 = load i8, ptr %8, align 1
+  %246 = trunc i8 %245 to i1
+  br i1 %246, label %277, label %247
 
-245:                                              ; preds = %241
+247:                                              ; preds = %243
   invoke void @_ZN17LteRlcGraphDialog13completeGraphEb(ptr noundef nonnull align 8 dereferenceable(268) %17, i1 noundef zeroext false)
-          to label %246 unwind label %251
+          to label %248 unwind label %253
 
-246:                                              ; preds = %245
-  br label %275
-
-247:                                              ; preds = %4
-  %248 = landingpad { ptr, i32 }
-          cleanup
-  %249 = extractvalue { ptr, i32 } %248, 0
-  store ptr %249, ptr %9, align 8
-  %250 = extractvalue { ptr, i32 } %248, 1
-  store i32 %250, ptr %10, align 4
+248:                                              ; preds = %247
   br label %277
 
-251:                                              ; preds = %245, %237, %230, %226, %219, %212, %208, %201, %197, %190, %183, %176, %169, %162, %155, %148, %141, %134, %127, %123, %116, %109, %102, %95, %88, %81, %73, %70, %62, %57, %48, %40, %37, %23
-  %252 = landingpad { ptr, i32 }
+249:                                              ; preds = %4
+  %250 = landingpad { ptr, i32 }
           cleanup
-  %253 = extractvalue { ptr, i32 } %252, 0
-  store ptr %253, ptr %9, align 8
-  %254 = extractvalue { ptr, i32 } %252, 1
-  store i32 %254, ptr %10, align 4
-  br label %276
+  %251 = extractvalue { ptr, i32 } %250, 0
+  store ptr %251, ptr %9, align 8
+  %252 = extractvalue { ptr, i32 } %250, 1
+  store i32 %252, ptr %10, align 4
+  br label %279
 
-255:                                              ; preds = %45
-  %256 = landingpad { ptr, i32 }
+253:                                              ; preds = %247, %239, %232, %228, %221, %214, %210, %203, %199, %192, %185, %178, %171, %164, %157, %150, %143, %136, %129, %125, %118, %111, %104, %97, %90, %83, %75, %72, %64, %59, %50, %42, %39, %25
+  %254 = landingpad { ptr, i32 }
           cleanup
-  %257 = extractvalue { ptr, i32 } %256, 0
-  store ptr %257, ptr %9, align 8
-  %258 = extractvalue { ptr, i32 } %256, 1
-  store i32 %258, ptr %10, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  br label %276
-
-259:                                              ; preds = %56
-  %260 = landingpad { ptr, i32 }
-          cleanup
-  %261 = extractvalue { ptr, i32 } %260, 0
-  store ptr %261, ptr %9, align 8
-  %262 = extractvalue { ptr, i32 } %260, 1
-  store i32 %262, ptr %10, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  br label %276
-
-263:                                              ; preds = %61
-  %264 = landingpad { ptr, i32 }
-          cleanup
-  %265 = extractvalue { ptr, i32 } %264, 0
-  store ptr %265, ptr %9, align 8
-  %266 = extractvalue { ptr, i32 } %264, 1
-  store i32 %266, ptr %10, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  br label %276
-
-267:                                              ; preds = %72
-  %268 = landingpad { ptr, i32 }
-          cleanup
-  %269 = extractvalue { ptr, i32 } %268, 0
-  store ptr %269, ptr %9, align 8
-  %270 = extractvalue { ptr, i32 } %268, 1
-  store i32 %270, ptr %10, align 4
-  call void @_ZdlPv(ptr noundef %71) #18
-  br label %276
-
-271:                                              ; preds = %240
-  %272 = landingpad { ptr, i32 }
-          cleanup
-  %273 = extractvalue { ptr, i32 } %272, 0
-  store ptr %273, ptr %9, align 8
-  %274 = extractvalue { ptr, i32 } %272, 1
-  store i32 %274, ptr %10, align 4
-  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  br label %276
-
-275:                                              ; preds = %246, %241
-  ret void
-
-276:                                              ; preds = %271, %267, %263, %259, %255, %251
-  call void @_ZN4QMapIdP11rlc_segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #17
-  call void @_ZN9QMultiMapIdP11rlc_segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #17
-  br label %277
-
-277:                                              ; preds = %276, %247
-  call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %17) #17
+  %255 = extractvalue { ptr, i32 } %254, 0
+  store ptr %255, ptr %9, align 8
+  %256 = extractvalue { ptr, i32 } %254, 1
+  store i32 %256, ptr %10, align 4
   br label %278
 
-278:                                              ; preds = %277
-  %279 = load ptr, ptr %9, align 8
-  %280 = load i32, ptr %10, align 4
-  %281 = insertvalue { ptr, i32 } poison, ptr %279, 0
-  %282 = insertvalue { ptr, i32 } %281, i32 %280, 1
-  resume { ptr, i32 } %282
+257:                                              ; preds = %47
+  %258 = landingpad { ptr, i32 }
+          cleanup
+  %259 = extractvalue { ptr, i32 } %258, 0
+  store ptr %259, ptr %9, align 8
+  %260 = extractvalue { ptr, i32 } %258, 1
+  store i32 %260, ptr %10, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
+  br label %278
+
+261:                                              ; preds = %58
+  %262 = landingpad { ptr, i32 }
+          cleanup
+  %263 = extractvalue { ptr, i32 } %262, 0
+  store ptr %263, ptr %9, align 8
+  %264 = extractvalue { ptr, i32 } %262, 1
+  store i32 %264, ptr %10, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
+  br label %278
+
+265:                                              ; preds = %63
+  %266 = landingpad { ptr, i32 }
+          cleanup
+  %267 = extractvalue { ptr, i32 } %266, 0
+  store ptr %267, ptr %9, align 8
+  %268 = extractvalue { ptr, i32 } %266, 1
+  store i32 %268, ptr %10, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
+  br label %278
+
+269:                                              ; preds = %74
+  %270 = landingpad { ptr, i32 }
+          cleanup
+  %271 = extractvalue { ptr, i32 } %270, 0
+  store ptr %271, ptr %9, align 8
+  %272 = extractvalue { ptr, i32 } %270, 1
+  store i32 %272, ptr %10, align 4
+  call void @_ZdlPv(ptr noundef %73) #18
+  br label %278
+
+273:                                              ; preds = %242
+  %274 = landingpad { ptr, i32 }
+          cleanup
+  %275 = extractvalue { ptr, i32 } %274, 0
+  store ptr %275, ptr %9, align 8
+  %276 = extractvalue { ptr, i32 } %274, 1
+  store i32 %276, ptr %10, align 4
+  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
+  br label %278
+
+277:                                              ; preds = %248, %243
+  ret void
+
+278:                                              ; preds = %273, %269, %265, %261, %257, %253
+  call void @_ZN4QMapIdP11rlc_segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #17
+  call void @_ZN9QMultiMapIdP11rlc_segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #17
+  br label %279
+
+279:                                              ; preds = %278, %249
+  call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %17) #17
+  br label %280
+
+280:                                              ; preds = %279
+  %281 = load ptr, ptr %9, align 8
+  %282 = load i32, ptr %10, align 4
+  %283 = insertvalue { ptr, i32 } poison, ptr %281, 0
+  %284 = insertvalue { ptr, i32 } %283, i32 %282, 1
+  resume { ptr, i32 } %284
 }
 
 declare void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
@@ -4103,13 +4105,15 @@ define linkonce_odr void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
-  call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  %6 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
+  %4 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
+  call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  %8 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #17
   ret void
 }
@@ -4119,23 +4123,25 @@ define void @_ZN17LteRlcGraphDialogD2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV17LteRlcGraphDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV17LteRlcGraphDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %3, i32 0, i32 2
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV17LteRlcGraphDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV17LteRlcGraphDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %3, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #18
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #18
+  br label %11
 
-9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %3, i32 0, i32 10
-  call void @_ZN4QMapIdP11rlc_segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
-  %11 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %3, i32 0, i32 9
-  call void @_ZN9QMultiMapIdP11rlc_segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #17
+11:                                               ; preds = %10, %1
+  %12 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %3, i32 0, i32 10
+  call void @_ZN4QMapIdP11rlc_segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
+  %13 = getelementptr inbounds %class.LteRlcGraphDialog, ptr %3, i32 0, i32 9
+  call void @_ZN9QMultiMapIdP11rlc_segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #17
   call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %3) #17
   ret void
 }
@@ -9482,19 +9488,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.88, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #17
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #17
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #17
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #17
   ret void
 }
 
@@ -11780,9 +11787,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 

@@ -129,44 +129,56 @@ eh.resume:                                        ; preds = %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZL11HasJemallocv() #1 {
 entry:
-  br i1 icmp ne (ptr @mallocx, ptr null), label %land.lhs.true, label %land.end
+  %0 = icmp ne ptr @mallocx, null
+  br i1 %0, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  br i1 icmp ne (ptr @rallocx, ptr null), label %land.lhs.true1, label %land.end
+  %1 = icmp ne ptr @rallocx, null
+  br i1 %1, label %land.lhs.true1, label %land.end
 
 land.lhs.true1:                                   ; preds = %land.lhs.true
-  br i1 icmp ne (ptr @xallocx, ptr null), label %land.lhs.true2, label %land.end
+  %2 = icmp ne ptr @xallocx, null
+  br i1 %2, label %land.lhs.true2, label %land.end
 
 land.lhs.true2:                                   ; preds = %land.lhs.true1
-  br i1 icmp ne (ptr @sallocx, ptr null), label %land.lhs.true3, label %land.end
+  %3 = icmp ne ptr @sallocx, null
+  br i1 %3, label %land.lhs.true3, label %land.end
 
 land.lhs.true3:                                   ; preds = %land.lhs.true2
-  br i1 icmp ne (ptr @dallocx, ptr null), label %land.lhs.true4, label %land.end
+  %4 = icmp ne ptr @dallocx, null
+  br i1 %4, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true3
-  br i1 icmp ne (ptr @sdallocx, ptr null), label %land.lhs.true5, label %land.end
+  %5 = icmp ne ptr @sdallocx, null
+  br i1 %5, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true4
-  br i1 icmp ne (ptr @nallocx, ptr null), label %land.lhs.true6, label %land.end
+  %6 = icmp ne ptr @nallocx, null
+  br i1 %6, label %land.lhs.true6, label %land.end
 
 land.lhs.true6:                                   ; preds = %land.lhs.true5
-  br i1 icmp ne (ptr @mallctl, ptr null), label %land.lhs.true7, label %land.end
+  %7 = icmp ne ptr @mallctl, null
+  br i1 %7, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %land.lhs.true6
-  br i1 icmp ne (ptr @mallctlnametomib, ptr null), label %land.lhs.true8, label %land.end
+  %8 = icmp ne ptr @mallctlnametomib, null
+  br i1 %8, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true7
-  br i1 icmp ne (ptr @mallctlbymib, ptr null), label %land.lhs.true9, label %land.end
+  %9 = icmp ne ptr @mallctlbymib, null
+  br i1 %9, label %land.lhs.true9, label %land.end
 
 land.lhs.true9:                                   ; preds = %land.lhs.true8
-  br i1 icmp ne (ptr @malloc_stats_print, ptr null), label %land.rhs, label %land.end
+  %10 = icmp ne ptr @malloc_stats_print, null
+  br i1 %10, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true9
+  %11 = icmp ne ptr @malloc_usable_size, null
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true9, %land.lhs.true8, %land.lhs.true7, %land.lhs.true6, %land.lhs.true5, %land.lhs.true4, %land.lhs.true3, %land.lhs.true2, %land.lhs.true1, %land.lhs.true, %entry
-  %0 = phi i1 [ false, %land.lhs.true9 ], [ false, %land.lhs.true8 ], [ false, %land.lhs.true7 ], [ false, %land.lhs.true6 ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true4 ], [ false, %land.lhs.true3 ], [ false, %land.lhs.true2 ], [ false, %land.lhs.true1 ], [ false, %land.lhs.true ], [ false, %entry ], [ icmp ne (ptr @malloc_usable_size, ptr null), %land.rhs ]
-  ret i1 %0
+  %12 = phi i1 [ false, %land.lhs.true9 ], [ false, %land.lhs.true8 ], [ false, %land.lhs.true7 ], [ false, %land.lhs.true6 ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true4 ], [ false, %land.lhs.true3 ], [ false, %land.lhs.true2 ], [ false, %land.lhs.true1 ], [ false, %land.lhs.true ], [ false, %entry ], [ %11, %land.rhs ]
+  ret i1 %12
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

@@ -45,51 +45,53 @@ define void @_ZN9DragLabelC2E7QStringP7QWidget(ptr noundef nonnull align 8 deref
   %12 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %13 = load i32, ptr %12, align 4
   call void @_ZN6QLabelC2ERK7QStringP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %11, i32 %13)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV9DragLabel, i32 0, i32 0, i32 2), ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV9DragLabel, i32 0, i32 1, i32 2), ptr %14, align 8
+  %14 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV9DragLabel, i32 0, i32 0, i32 2
+  store ptr %14, ptr %10, align 8
+  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %16 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV9DragLabel, i32 0, i32 1, i32 2
+  store ptr %16, ptr %15, align 8
   invoke void @_ZN7QWidget21setAutoFillBackgroundEb(ptr noundef nonnull align 8 dereferenceable(40) %10, i1 noundef zeroext true)
-          to label %15 unwind label %21
+          to label %17 unwind label %23
 
-15:                                               ; preds = %3
+17:                                               ; preds = %3
   invoke void @_ZN6QFrame13setFrameShapeENS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 2)
-          to label %16 unwind label %21
-
-16:                                               ; preds = %15
-  invoke void @_ZN6QFrame14setFrameShadowENS_6ShadowE(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 32)
-          to label %17 unwind label %21
-
-17:                                               ; preds = %16
-  invoke void @_ZN7QWidget12setAttributeEN2Qt15WidgetAttributeEb(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 55, i1 noundef zeroext true)
-          to label %18 unwind label %21
+          to label %18 unwind label %23
 
 18:                                               ; preds = %17
-  invoke void @_ZN7QWidget13setSizePolicyEN11QSizePolicy6PolicyES1_(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 3, i32 noundef 3)
-          to label %19 unwind label %21
+  invoke void @_ZN6QFrame14setFrameShadowENS_6ShadowE(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 32)
+          to label %19 unwind label %23
 
 19:                                               ; preds = %18
-  invoke void @_ZN7QWidget10adjustSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
-          to label %20 unwind label %21
+  invoke void @_ZN7QWidget12setAttributeEN2Qt15WidgetAttributeEb(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 55, i1 noundef zeroext true)
+          to label %20 unwind label %23
 
 20:                                               ; preds = %19
+  invoke void @_ZN7QWidget13setSizePolicyEN11QSizePolicy6PolicyES1_(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 3, i32 noundef 3)
+          to label %21 unwind label %23
+
+21:                                               ; preds = %20
+  invoke void @_ZN7QWidget10adjustSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
+          to label %22 unwind label %23
+
+22:                                               ; preds = %21
   ret void
 
-21:                                               ; preds = %19, %18, %17, %16, %15, %3
-  %22 = landingpad { ptr, i32 }
+23:                                               ; preds = %21, %20, %19, %18, %17, %3
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %8, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %9, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %8, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %9, align 4
   call void @_ZN6QLabelD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #7
-  br label %25
+  br label %27
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i32, ptr %9, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %8, align 8
+  %29 = load i32, ptr %9, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

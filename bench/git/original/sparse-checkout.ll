@@ -521,13 +521,15 @@ entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = call i32 @repo_read_index(ptr noundef %0)
   store i32 -1, ptr @init_opts, align 4
-  store i32 -1, ptr getelementptr inbounds (%struct.sparse_checkout_init_opts, ptr @init_opts, i32 0, i32 1), align 4
-  %1 = load i32, ptr %argc.addr, align 4
-  %2 = load ptr, ptr %argv.addr, align 8
-  %3 = load ptr, ptr %prefix.addr, align 8
-  %call1 = call i32 @parse_options(i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef @sparse_checkout_init.builtin_sparse_checkout_init_options, ptr noundef @builtin_sparse_checkout_init_usage, i32 noundef 0)
+  %1 = getelementptr inbounds %struct.sparse_checkout_init_opts, ptr @init_opts, i32 0, i32 1
+  store i32 -1, ptr %1, align 4
+  %2 = load i32, ptr %argc.addr, align 4
+  %3 = load ptr, ptr %argv.addr, align 8
+  %4 = load ptr, ptr %prefix.addr, align 8
+  %call1 = call i32 @parse_options(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef @sparse_checkout_init.builtin_sparse_checkout_init_options, ptr noundef @builtin_sparse_checkout_init_usage, i32 noundef 0)
   store i32 %call1, ptr %argc.addr, align 4
-  %call2 = call i32 @update_modes(ptr noundef @init_opts, ptr noundef getelementptr inbounds (%struct.sparse_checkout_init_opts, ptr @init_opts, i32 0, i32 1))
+  %5 = getelementptr inbounds %struct.sparse_checkout_init_opts, ptr @init_opts, i32 0, i32 1
+  %call2 = call i32 @update_modes(ptr noundef @init_opts, ptr noundef %5)
   %tobool = icmp ne i32 %call2, 0
   br i1 %tobool, label %if.then, label %if.end
 
@@ -539,81 +541,81 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr align 8 %pl, i8 0, i64 136, i1 false)
   %call3 = call ptr @get_sparse_checkout_filename()
   store ptr %call3, ptr %sparse_filename, align 8
-  %4 = load ptr, ptr %sparse_filename, align 8
-  %call4 = call i32 @add_patterns_from_file_to_list(ptr noundef %4, ptr noundef @.str.8, i32 noundef 0, ptr noundef %pl, ptr noundef null, i32 noundef 0)
+  %6 = load ptr, ptr %sparse_filename, align 8
+  %call4 = call i32 @add_patterns_from_file_to_list(ptr noundef %6, ptr noundef @.str.8, i32 noundef 0, ptr noundef %pl, ptr noundef null, i32 noundef 0)
   store i32 %call4, ptr %res, align 4
-  %5 = load i32, ptr %res, align 4
-  %cmp = icmp sge i32 %5, 0
+  %7 = load i32, ptr %res, align 4
+  %cmp = icmp sge i32 %7, 0
   br i1 %cmp, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  %6 = load ptr, ptr %sparse_filename, align 8
-  call void @free(ptr noundef %6) #8
+  %8 = load ptr, ptr %sparse_filename, align 8
+  call void @free(ptr noundef %8) #8
   %call6 = call i32 @update_working_directory(ptr noundef null)
   store i32 %call6, ptr %retval, align 4
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %7 = load ptr, ptr @the_repository, align 8
-  %call8 = call i32 @repo_get_oid(ptr noundef %7, ptr noundef @.str.19, ptr noundef %oid)
+  %9 = load ptr, ptr @the_repository, align 8
+  %call8 = call i32 @repo_get_oid(ptr noundef %9, ptr noundef @.str.19, ptr noundef %oid)
   %tobool9 = icmp ne i32 %call8, 0
   br i1 %tobool9, label %if.then10, label %if.end23
 
 if.then10:                                        ; preds = %if.end7
-  %8 = load ptr, ptr %sparse_filename, align 8
-  %call11 = call i32 @safe_create_leading_directories(ptr noundef %8)
+  %10 = load ptr, ptr %sparse_filename, align 8
+  %call11 = call i32 @safe_create_leading_directories(ptr noundef %10)
   %tobool12 = icmp ne i32 %call11, 0
   br i1 %tobool12, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.then10
   %call14 = call ptr @_(ptr noundef @.str.20)
-  %9 = load ptr, ptr %sparse_filename, align 8
-  call void (ptr, ...) @die(ptr noundef %call14, ptr noundef %9) #7
+  %11 = load ptr, ptr %sparse_filename, align 8
+  call void (ptr, ...) @die(ptr noundef %call14, ptr noundef %11) #7
   unreachable
 
 if.end15:                                         ; preds = %if.then10
-  %10 = load ptr, ptr %sparse_filename, align 8
-  %call16 = call ptr @xfopen(ptr noundef %10, ptr noundef @.str.21)
+  %12 = load ptr, ptr %sparse_filename, align 8
+  %call16 = call ptr @xfopen(ptr noundef %12, ptr noundef @.str.21)
   store ptr %call16, ptr %fp, align 8
-  %11 = load ptr, ptr %fp, align 8
-  %tobool17 = icmp ne ptr %11, null
+  %13 = load ptr, ptr %fp, align 8
+  %tobool17 = icmp ne ptr %13, null
   br i1 %tobool17, label %if.end20, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
   %call19 = call ptr @_(ptr noundef @.str.22)
-  %12 = load ptr, ptr %sparse_filename, align 8
-  call void (ptr, ...) @die(ptr noundef %call19, ptr noundef %12) #7
+  %14 = load ptr, ptr %sparse_filename, align 8
+  call void (ptr, ...) @die(ptr noundef %call19, ptr noundef %14) #7
   unreachable
 
 if.end20:                                         ; preds = %if.end15
-  %13 = load ptr, ptr %sparse_filename, align 8
-  call void @free(ptr noundef %13) #8
-  %14 = load ptr, ptr %fp, align 8
-  %call21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.23)
-  %15 = load ptr, ptr %fp, align 8
-  %call22 = call i32 @fclose(ptr noundef %15)
+  %15 = load ptr, ptr %sparse_filename, align 8
+  call void @free(ptr noundef %15) #8
+  %16 = load ptr, ptr %fp, align 8
+  %call21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.23)
+  %17 = load ptr, ptr %fp, align 8
+  %call22 = call i32 @fclose(ptr noundef %17)
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end23:                                         ; preds = %if.end7
   call void @strbuf_addstr(ptr noundef %pattern, ptr noundef @.str.24)
   %call24 = call ptr @strbuf_detach(ptr noundef %pattern, ptr noundef null)
-  %16 = load ptr, ptr @empty_base, align 8
-  call void @add_pattern(ptr noundef %call24, ptr noundef %16, i32 noundef 0, ptr noundef %pl, i32 noundef 0)
+  %18 = load ptr, ptr @empty_base, align 8
+  call void @add_pattern(ptr noundef %call24, ptr noundef %18, i32 noundef 0, ptr noundef %pl, i32 noundef 0)
   call void @strbuf_addstr(ptr noundef %pattern, ptr noundef @.str.25)
   %call25 = call ptr @strbuf_detach(ptr noundef %pattern, ptr noundef null)
-  %17 = load ptr, ptr @empty_base, align 8
-  call void @add_pattern(ptr noundef %call25, ptr noundef %17, i32 noundef 0, ptr noundef %pl, i32 noundef 0)
-  %18 = load i32, ptr @init_opts, align 4
+  %19 = load ptr, ptr @empty_base, align 8
+  call void @add_pattern(ptr noundef %call25, ptr noundef %19, i32 noundef 0, ptr noundef %pl, i32 noundef 0)
+  %20 = load i32, ptr @init_opts, align 4
   %use_cone_patterns = getelementptr inbounds %struct.pattern_list, ptr %pl, i32 0, i32 5
-  store i32 %18, ptr %use_cone_patterns, align 8
+  store i32 %20, ptr %use_cone_patterns, align 8
   %call26 = call i32 @write_patterns_and_update(ptr noundef %pl)
   store i32 %call26, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end23, %if.end20, %if.then5, %if.then
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
+  %21 = load i32, ptr %retval, align 4
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -634,13 +636,15 @@ entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = call i32 @repo_read_index(ptr noundef %0)
   store i32 -1, ptr @set_opts, align 4
-  store i32 -1, ptr getelementptr inbounds (%struct.sparse_checkout_set_opts, ptr @set_opts, i32 0, i32 1), align 4
-  %1 = load i32, ptr %argc.addr, align 4
-  %2 = load ptr, ptr %argv.addr, align 8
-  %3 = load ptr, ptr %prefix.addr, align 8
-  %call1 = call i32 @parse_options(i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef @sparse_checkout_set.builtin_sparse_checkout_set_options, ptr noundef @builtin_sparse_checkout_set_usage, i32 noundef 0)
+  %1 = getelementptr inbounds %struct.sparse_checkout_set_opts, ptr @set_opts, i32 0, i32 1
+  store i32 -1, ptr %1, align 4
+  %2 = load i32, ptr %argc.addr, align 4
+  %3 = load ptr, ptr %argv.addr, align 8
+  %4 = load ptr, ptr %prefix.addr, align 8
+  %call1 = call i32 @parse_options(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef @sparse_checkout_set.builtin_sparse_checkout_set_options, ptr noundef @builtin_sparse_checkout_set_usage, i32 noundef 0)
   store i32 %call1, ptr %argc.addr, align 4
-  %call2 = call i32 @update_modes(ptr noundef @set_opts, ptr noundef getelementptr inbounds (%struct.sparse_checkout_set_opts, ptr @set_opts, i32 0, i32 1))
+  %5 = getelementptr inbounds %struct.sparse_checkout_set_opts, ptr @set_opts, i32 0, i32 1
+  %call2 = call i32 @update_modes(ptr noundef @set_opts, ptr noundef %5)
   %tobool = icmp ne i32 %call2, 0
   br i1 %tobool, label %if.then, label %if.end
 
@@ -649,46 +653,49 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %4 = load i32, ptr @core_sparse_checkout_cone, align 4
-  %tobool3 = icmp ne i32 %4, 0
+  %6 = load i32, ptr @core_sparse_checkout_cone, align 4
+  %tobool3 = icmp ne i32 %6, 0
   br i1 %tobool3, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %5 = load i32, ptr getelementptr inbounds (%struct.sparse_checkout_set_opts, ptr @set_opts, i32 0, i32 3), align 4
-  %tobool4 = icmp ne i32 %5, 0
+  %7 = getelementptr inbounds %struct.sparse_checkout_set_opts, ptr @set_opts, i32 0, i32 3
+  %8 = load i32, ptr %7, align 4
+  %tobool4 = icmp ne i32 %8, 0
   br i1 %tobool4, label %if.else, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %6 = load i32, ptr %argc.addr, align 4
-  %cmp = icmp eq i32 %6, 0
+  %9 = load i32, ptr %argc.addr, align 4
+  %cmp = icmp eq i32 %9, 0
   br i1 %cmp, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %land.lhs.true5
   %arraydecay = getelementptr inbounds [3 x ptr], ptr %default_patterns, i64 0, i64 0
   store ptr %arraydecay, ptr %argv.addr, align 8
-  %7 = load i32, ptr %default_patterns_nr, align 4
-  store i32 %7, ptr %argc.addr, align 4
+  %10 = load i32, ptr %default_patterns_nr, align 4
+  store i32 %10, ptr %argc.addr, align 4
   br label %if.end7
 
 if.else:                                          ; preds = %land.lhs.true5, %land.lhs.true, %if.end
-  %8 = load i32, ptr %argc.addr, align 4
-  %9 = load ptr, ptr %argv.addr, align 8
-  %10 = load ptr, ptr %prefix.addr, align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct.sparse_checkout_set_opts, ptr @set_opts, i32 0, i32 2), align 4
-  call void @sanitize_paths(i32 noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11)
+  %11 = load i32, ptr %argc.addr, align 4
+  %12 = load ptr, ptr %argv.addr, align 8
+  %13 = load ptr, ptr %prefix.addr, align 8
+  %14 = getelementptr inbounds %struct.sparse_checkout_set_opts, ptr @set_opts, i32 0, i32 2
+  %15 = load i32, ptr %14, align 4
+  call void @sanitize_paths(i32 noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %15)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.else, %if.then6
-  %12 = load i32, ptr %argc.addr, align 4
-  %13 = load ptr, ptr %argv.addr, align 8
-  %14 = load i32, ptr getelementptr inbounds (%struct.sparse_checkout_set_opts, ptr @set_opts, i32 0, i32 3), align 4
-  %call8 = call i32 @modify_pattern_list(i32 noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 0)
+  %16 = load i32, ptr %argc.addr, align 4
+  %17 = load ptr, ptr %argv.addr, align 8
+  %18 = getelementptr inbounds %struct.sparse_checkout_set_opts, ptr @set_opts, i32 0, i32 3
+  %19 = load i32, ptr %18, align 4
+  %call8 = call i32 @modify_pattern_list(i32 noundef %16, ptr noundef %17, i32 noundef %19, i32 noundef 0)
   store i32 %call8, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end7, %if.then
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
+  %20 = load i32, ptr %retval, align 4
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -725,8 +732,9 @@ if.end:                                           ; preds = %entry
   call void @sanitize_paths(i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
   %9 = load i32, ptr %argc.addr, align 4
   %10 = load ptr, ptr %argv.addr, align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct.sparse_checkout_add_opts, ptr @add_opts, i32 0, i32 1), align 4
-  %call3 = call i32 @modify_pattern_list(i32 noundef %9, ptr noundef %10, i32 noundef %11, i32 noundef 1)
+  %11 = getelementptr inbounds %struct.sparse_checkout_add_opts, ptr @add_opts, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4
+  %call3 = call i32 @modify_pattern_list(i32 noundef %9, ptr noundef %10, i32 noundef %12, i32 noundef 1)
   ret i32 %call3
 }
 
@@ -752,15 +760,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 -1, ptr @reapply_opts, align 4
-  store i32 -1, ptr getelementptr inbounds (%struct.sparse_checkout_reapply_opts, ptr @reapply_opts, i32 0, i32 1), align 4
-  %1 = load i32, ptr %argc.addr, align 4
-  %2 = load ptr, ptr %argv.addr, align 8
-  %3 = load ptr, ptr %prefix.addr, align 8
-  %call1 = call i32 @parse_options(i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef @sparse_checkout_reapply.builtin_sparse_checkout_reapply_options, ptr noundef @builtin_sparse_checkout_reapply_usage, i32 noundef 0)
+  %1 = getelementptr inbounds %struct.sparse_checkout_reapply_opts, ptr @reapply_opts, i32 0, i32 1
+  store i32 -1, ptr %1, align 4
+  %2 = load i32, ptr %argc.addr, align 4
+  %3 = load ptr, ptr %argv.addr, align 8
+  %4 = load ptr, ptr %prefix.addr, align 8
+  %call1 = call i32 @parse_options(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef @sparse_checkout_reapply.builtin_sparse_checkout_reapply_options, ptr noundef @builtin_sparse_checkout_reapply_usage, i32 noundef 0)
   store i32 %call1, ptr %argc.addr, align 4
-  %4 = load ptr, ptr @the_repository, align 8
-  %call2 = call i32 @repo_read_index(ptr noundef %4)
-  %call3 = call i32 @update_modes(ptr noundef @reapply_opts, ptr noundef getelementptr inbounds (%struct.sparse_checkout_reapply_opts, ptr @reapply_opts, i32 0, i32 1))
+  %5 = load ptr, ptr @the_repository, align 8
+  %call2 = call i32 @repo_read_index(ptr noundef %5)
+  %6 = getelementptr inbounds %struct.sparse_checkout_reapply_opts, ptr @reapply_opts, i32 0, i32 1
+  %call3 = call i32 @update_modes(ptr noundef @reapply_opts, ptr noundef %6)
   %tobool4 = icmp ne i32 %call3, 0
   br i1 %tobool4, label %if.then5, label %if.end6
 
@@ -774,8 +784,8 @@ if.end6:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then5
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+  %7 = load i32, ptr %retval, align 4
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -851,13 +861,14 @@ entry:
   %2 = load ptr, ptr %prefix.addr, align 8
   %call = call i32 @parse_options(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef @sparse_checkout_check_rules.builtin_sparse_checkout_check_rules_options, ptr noundef @builtin_sparse_checkout_check_rules_usage, i32 noundef 0)
   store i32 %call, ptr %argc.addr, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sparse_checkout_check_rules_opts, ptr @check_rules_opts, i32 0, i32 2), align 8
-  %tobool = icmp ne ptr %3, null
+  %3 = getelementptr inbounds %struct.sparse_checkout_check_rules_opts, ptr @check_rules_opts, i32 0, i32 2
+  %4 = load ptr, ptr %3, align 8
+  %tobool = icmp ne ptr %4, null
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %4 = load i32, ptr @check_rules_opts, align 8
-  %cmp = icmp slt i32 %4, 0
+  %5 = load i32, ptr @check_rules_opts, align 8
+  %cmp = icmp slt i32 %5, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
@@ -866,30 +877,32 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %call1 = call i32 @update_cone_mode(ptr noundef @check_rules_opts)
-  %5 = load i32, ptr @core_sparse_checkout_cone, align 4
+  %6 = load i32, ptr @core_sparse_checkout_cone, align 4
   %use_cone_patterns = getelementptr inbounds %struct.pattern_list, ptr %pl, i32 0, i32 5
-  store i32 %5, ptr %use_cone_patterns, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.sparse_checkout_check_rules_opts, ptr @check_rules_opts, i32 0, i32 2), align 8
-  %tobool2 = icmp ne ptr %6, null
+  store i32 %6, ptr %use_cone_patterns, align 8
+  %7 = getelementptr inbounds %struct.sparse_checkout_check_rules_opts, ptr @check_rules_opts, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  %tobool2 = icmp ne ptr %8, null
   br i1 %tobool2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %7 = load ptr, ptr getelementptr inbounds (%struct.sparse_checkout_check_rules_opts, ptr @check_rules_opts, i32 0, i32 2), align 8
-  %call4 = call ptr @xfopen(ptr noundef %7, ptr noundef @.str.69)
+  %9 = getelementptr inbounds %struct.sparse_checkout_check_rules_opts, ptr @check_rules_opts, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %call4 = call ptr @xfopen(ptr noundef %10, ptr noundef @.str.69)
   store ptr %call4, ptr %fp, align 8
-  %8 = load i32, ptr %argc.addr, align 4
-  %9 = load ptr, ptr %argv.addr, align 8
-  %10 = load ptr, ptr %fp, align 8
-  call void @add_patterns_from_input(ptr noundef %pl, i32 noundef %8, ptr noundef %9, ptr noundef %10)
-  %11 = load ptr, ptr %fp, align 8
-  %call5 = call i32 @fclose(ptr noundef %11)
+  %11 = load i32, ptr %argc.addr, align 4
+  %12 = load ptr, ptr %argv.addr, align 8
+  %13 = load ptr, ptr %fp, align 8
+  call void @add_patterns_from_input(ptr noundef %pl, i32 noundef %11, ptr noundef %12, ptr noundef %13)
+  %14 = load ptr, ptr %fp, align 8
+  %call5 = call i32 @fclose(ptr noundef %14)
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
   %call6 = call ptr @get_sparse_checkout_filename()
   store ptr %call6, ptr %sparse_filename, align 8
-  %12 = load ptr, ptr %sparse_filename, align 8
-  %call7 = call i32 @add_patterns_from_file_to_list(ptr noundef %12, ptr noundef @.str.8, i32 noundef 0, ptr noundef %pl, ptr noundef null, i32 noundef 0)
+  %15 = load ptr, ptr %sparse_filename, align 8
+  %call7 = call i32 @add_patterns_from_file_to_list(ptr noundef %15, ptr noundef @.str.8, i32 noundef 0, ptr noundef %pl, ptr noundef null, i32 noundef 0)
   %tobool8 = icmp ne i32 %call7, 0
   br i1 %tobool8, label %if.then9, label %if.end11
 
@@ -899,17 +912,18 @@ if.then9:                                         ; preds = %if.else
   unreachable
 
 if.end11:                                         ; preds = %if.else
-  %13 = load ptr, ptr %sparse_filename, align 8
-  call void @free(ptr noundef %13) #8
+  %16 = load ptr, ptr %sparse_filename, align 8
+  call void @free(ptr noundef %16) #8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end11, %if.then3
-  %14 = load i32, ptr getelementptr inbounds (%struct.sparse_checkout_check_rules_opts, ptr @check_rules_opts, i32 0, i32 1), align 4
-  %call13 = call i32 @check_rules(ptr noundef %pl, i32 noundef %14)
+  %17 = getelementptr inbounds %struct.sparse_checkout_check_rules_opts, ptr @check_rules_opts, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4
+  %call13 = call i32 @check_rules(ptr noundef %pl, i32 noundef %18)
   store i32 %call13, ptr %ret, align 4
   call void @clear_pattern_list(ptr noundef %pl)
-  %15 = load i32, ptr %ret, align 4
-  ret i32 %15
+  %19 = load i32, ptr %ret, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

@@ -22,36 +22,37 @@ define hidden i64 @"_ZN4core3num23_$LT$impl$u20$usize$GT$14saturating_mul17h28c9
   %14 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %7, ptr %14, align 8
   store i64 1, ptr %4, align 8
-  br label %19
+  br label %20
 
 15:                                               ; preds = %2
   %16 = load i64, ptr @anon.a1ad37347cd0da37f47e28ae55975c8c.0, align 8, !range !5, !noundef !4
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @anon.a1ad37347cd0da37f47e28ae55975c8c.0, i64 8), align 8
+  %17 = getelementptr inbounds i8, ptr @anon.a1ad37347cd0da37f47e28ae55975c8c.0, i64 8
+  %18 = load i64, ptr %17, align 8
   store i64 %16, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %17, ptr %18, align 8
-  br label %19
+  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %18, ptr %19, align 8
+  br label %20
 
-19:                                               ; preds = %15, %13
-  %20 = load i64, ptr %4, align 8, !range !5, !noundef !4
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %22, label %23
+20:                                               ; preds = %15, %13
+  %21 = load i64, ptr %4, align 8, !range !5, !noundef !4
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %19
+23:                                               ; preds = %20
   store i64 -1, ptr %5, align 8
-  br label %26
+  br label %27
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = load i64, ptr %24, align 8, !noundef !4
-  store i64 %25, ptr %5, align 8
-  br label %26
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = load i64, ptr %25, align 8, !noundef !4
+  store i64 %26, ptr %5, align 8
+  br label %27
 
-26:                                               ; preds = %23, %22
-  %27 = load i64, ptr %5, align 8, !noundef !4
-  ret i64 %27
+27:                                               ; preds = %24, %23
+  %28 = load i64, ptr %5, align 8, !noundef !4
+  ret i64 %28
 
-28:                                               ; No predecessors!
+29:                                               ; No predecessors!
   unreachable
 }
 

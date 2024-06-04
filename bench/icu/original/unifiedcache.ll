@@ -413,7 +413,8 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7516UnifiedCacheBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512UnifiedCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7512UnifiedCacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fHashtable = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fHashtable, align 8
   %fEvictPos = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this1, i32 0, i32 2
@@ -430,9 +431,9 @@ entry:
   store i64 0, ptr %fAutoEvictedCount, align 8
   %fNoValue = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this1, i32 0, i32 8
   store ptr null, ptr %fNoValue, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
+  %1 = load ptr, ptr %status.addr, align 8
+  %2 = load i32, ptr %1, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -443,12 +444,12 @@ if.then:                                          ; preds = %invoke.cont
   br label %invoke.cont22
 
 lpad:                                             ; preds = %if.end20, %invoke.cont13, %if.end8, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont
@@ -467,32 +468,32 @@ invoke.cont4:                                     ; preds = %new.notnull
   br label %new.cont
 
 new.cont:                                         ; preds = %invoke.cont4, %if.end
-  %5 = phi ptr [ %call2, %invoke.cont4 ], [ null, %if.end ]
+  %6 = phi ptr [ %call2, %invoke.cont4 ], [ null, %if.end ]
   %fNoValue5 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this1, i32 0, i32 8
-  store ptr %5, ptr %fNoValue5, align 8
+  store ptr %6, ptr %fNoValue5, align 8
   %fNoValue6 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this1, i32 0, i32 8
-  %6 = load ptr, ptr %fNoValue6, align 8
-  %cmp = icmp eq ptr %6, null
+  %7 = load ptr, ptr %fNoValue6, align 8
+  %cmp = icmp eq ptr %7, null
   br i1 %cmp, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %new.cont
-  %7 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %7, align 4
+  %8 = load ptr, ptr %status.addr, align 8
+  store i32 7, ptr %8, align 4
   br label %invoke.cont22
 
 lpad3:                                            ; preds = %new.notnull
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad3
-  %11 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %11) #8
+  %12 = load ptr, ptr %saved-rvalue, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %12) #8
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad3
@@ -500,27 +501,27 @@ cleanup.done:                                     ; preds = %cleanup.action, %lp
 
 if.end8:                                          ; preds = %new.cont
   %fNoValue9 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this1, i32 0, i32 8
-  %12 = load ptr, ptr %fNoValue9, align 8
-  %softRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %12, i32 0, i32 1
+  %13 = load ptr, ptr %fNoValue9, align 8
+  %softRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %13, i32 0, i32 1
   store i32 1, ptr %softRefCount, align 8
   %fNoValue10 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this1, i32 0, i32 8
-  %13 = load ptr, ptr %fNoValue10, align 8
-  %hardRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %13, i32 0, i32 2
+  %14 = load ptr, ptr %fNoValue10, align 8
+  %hardRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %14, i32 0, i32 2
   %call11 = call noundef i32 @_ZNSt13__atomic_baseIiEaSEi(ptr noundef nonnull align 4 dereferenceable(4) %hardRefCount, i32 noundef 1) #8
   %fNoValue12 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this1, i32 0, i32 8
-  %14 = load ptr, ptr %fNoValue12, align 8
-  %cachePtr = getelementptr inbounds %"class.icu_75::SharedObject", ptr %14, i32 0, i32 3
+  %15 = load ptr, ptr %fNoValue12, align 8
+  %cachePtr = getelementptr inbounds %"class.icu_75::SharedObject", ptr %15, i32 0, i32 3
   store ptr %this1, ptr %cachePtr, align 8
-  %15 = load ptr, ptr %status.addr, align 8
-  %call14 = invoke ptr @uhash_open_75(ptr noundef @_ZN6icu_7515ucache_hashKeysE8UElement, ptr noundef @_ZN6icu_7518ucache_compareKeysE8UElementS0_, ptr noundef null, ptr noundef %15)
+  %16 = load ptr, ptr %status.addr, align 8
+  %call14 = invoke ptr @uhash_open_75(ptr noundef @_ZN6icu_7515ucache_hashKeysE8UElement, ptr noundef @_ZN6icu_7518ucache_compareKeysE8UElementS0_, ptr noundef null, ptr noundef %16)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.end8
   %fHashtable15 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this1, i32 0, i32 1
   store ptr %call14, ptr %fHashtable15, align 8
-  %16 = load ptr, ptr %status.addr, align 8
-  %17 = load i32, ptr %16, align 4
-  %call17 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %17)
+  %17 = load ptr, ptr %status.addr, align 8
+  %18 = load i32, ptr %17, align 4
+  %call17 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %18)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont13
@@ -532,8 +533,8 @@ if.then19:                                        ; preds = %invoke.cont16
 
 if.end20:                                         ; preds = %invoke.cont16
   %fHashtable21 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this1, i32 0, i32 1
-  %18 = load ptr, ptr %fHashtable21, align 8
-  %call23 = invoke ptr @uhash_setKeyDeleter_75(ptr noundef %18, ptr noundef @_ZN6icu_7516ucache_deleteKeyEPv)
+  %19 = load ptr, ptr %fHashtable21, align 8
+  %call23 = invoke ptr @uhash_setKeyDeleter_75(ptr noundef %19, ptr noundef @_ZN6icu_7516ucache_deleteKeyEPv)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %if.end20, %if.then19, %if.then7, %if.then
@@ -558,7 +559,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7516UnifiedCacheBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7516UnifiedCacheBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -574,7 +576,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %softRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %this1, i32 0, i32 1
   store i32 0, ptr %softRefCount, align 8
   %hardRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %this1, i32 0, i32 2
@@ -1084,13 +1087,14 @@ entry:
   %lock = alloca %"class.std::lock_guard", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512UnifiedCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7512UnifiedCacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZNK6icu_7512UnifiedCache5flushEv(ptr noundef nonnull align 8 dereferenceable(56) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  invoke void @_ZNSt10lock_guardISt5mutexEC2ERS0_(ptr noundef nonnull align 8 dereferenceable(8) %lock, ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %1 = load ptr, ptr @_ZL11gCacheMutex, align 8
+  invoke void @_ZNSt10lock_guardISt5mutexEC2ERS0_(ptr noundef nonnull align 8 dereferenceable(8) %lock, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -1100,23 +1104,23 @@ invoke.cont2:                                     ; preds = %invoke.cont
 invoke.cont3:                                     ; preds = %invoke.cont2
   call void @_ZNSt10lock_guardISt5mutexED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lock) #8
   %fHashtable = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %fHashtable, align 8
-  invoke void @uhash_close_75(ptr noundef %1)
+  %2 = load ptr, ptr %fHashtable, align 8
+  invoke void @uhash_close_75(ptr noundef %2)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
   %fHashtable5 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fHashtable5, align 8
   %fNoValue = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this1, i32 0, i32 8
-  %2 = load ptr, ptr %fNoValue, align 8
-  %isnull = icmp eq ptr %2, null
+  %3 = load ptr, ptr %fNoValue, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont4
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(24) %2) #8
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(24) %3) #8
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont4
@@ -1126,10 +1130,10 @@ delete.end:                                       ; preds = %delete.notnull, %in
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #9
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #9
   unreachable
 }
 
@@ -2494,7 +2498,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

@@ -29,106 +29,104 @@ define dso_local i32 @pam_setup(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 @__const.pam_setup.conv, i64 16, i1 false)
   store i32 0, ptr %7, align 4
-  %8 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 31), align 4
-  %9 = zext i32 %8 to i64
-  %10 = and i64 %9, 16
-  %11 = icmp ne i64 %10, 0
-  br i1 %11, label %13, label %12
-
-12:                                               ; preds = %2
-  store i32 0, ptr %3, align 4
-  br label %83
+  %8 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 31
+  %9 = load i32, ptr %8, align 4
+  %10 = zext i32 %9 to i64
+  %11 = and i64 %10, 16
+  %12 = icmp ne i64 %11, 0
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
-  %15 = call i32 @pam_start(ptr noundef @.str, ptr noundef %14, ptr noundef %6, ptr noundef @pam_h)
-  store i32 %15, ptr %7, align 4
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %21
+  store i32 0, ptr %3, align 4
+  br label %84
 
-17:                                               ; preds = %13
-  %18 = load i32, ptr %7, align 4
-  %19 = call ptr @pam_strerror(ptr noundef null, i32 noundef %18)
-  %20 = call i32 (ptr, ...) @error(ptr noundef @.str.1, ptr noundef %19)
-  br label %82
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8
+  %16 = call i32 @pam_start(ptr noundef @.str, ptr noundef %15, ptr noundef %6, ptr noundef @pam_h)
+  store i32 %16, ptr %7, align 4
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %22
 
-21:                                               ; preds = %13
-  %22 = load ptr, ptr @pam_h, align 8
-  %23 = load ptr, ptr %4, align 8
-  %24 = call i32 @pam_set_item(ptr noundef %22, i32 noundef 2, ptr noundef %23)
-  store i32 %24, ptr %7, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %31
+18:                                               ; preds = %14
+  %19 = load i32, ptr %7, align 4
+  %20 = call ptr @pam_strerror(ptr noundef null, i32 noundef %19)
+  %21 = call i32 (ptr, ...) @error(ptr noundef @.str.1, ptr noundef %20)
+  br label %83
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr @pam_h, align 8
-  %28 = load i32, ptr %7, align 4
-  %29 = call ptr @pam_strerror(ptr noundef %27, i32 noundef %28)
-  %30 = call i32 (ptr, ...) @error(ptr noundef @.str.2, ptr noundef %29)
-  br label %78
+22:                                               ; preds = %14
+  %23 = load ptr, ptr @pam_h, align 8
+  %24 = load ptr, ptr %4, align 8
+  %25 = call i32 @pam_set_item(ptr noundef %23, i32 noundef 2, ptr noundef %24)
+  store i32 %25, ptr %7, align 4
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %32
 
-31:                                               ; preds = %21
-  %32 = load ptr, ptr @pam_h, align 8
-  %33 = load ptr, ptr %4, align 8
-  %34 = call i32 @pam_set_item(ptr noundef %32, i32 noundef 8, ptr noundef %33)
-  store i32 %34, ptr %7, align 4
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %41
+27:                                               ; preds = %22
+  %28 = load ptr, ptr @pam_h, align 8
+  %29 = load i32, ptr %7, align 4
+  %30 = call ptr @pam_strerror(ptr noundef %28, i32 noundef %29)
+  %31 = call i32 (ptr, ...) @error(ptr noundef @.str.2, ptr noundef %30)
+  br label %79
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr @pam_h, align 8
-  %38 = load i32, ptr %7, align 4
-  %39 = call ptr @pam_strerror(ptr noundef %37, i32 noundef %38)
-  %40 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %39)
-  br label %78
+32:                                               ; preds = %22
+  %33 = load ptr, ptr @pam_h, align 8
+  %34 = load ptr, ptr %4, align 8
+  %35 = call i32 @pam_set_item(ptr noundef %33, i32 noundef 8, ptr noundef %34)
+  store i32 %35, ptr %7, align 4
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %42
 
-41:                                               ; preds = %31
-  %42 = load ptr, ptr @pam_h, align 8
-  %43 = load ptr, ptr %5, align 8
-  %44 = call i32 @pam_set_item(ptr noundef %42, i32 noundef 4, ptr noundef %43)
-  store i32 %44, ptr %7, align 4
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %51
+37:                                               ; preds = %32
+  %38 = load ptr, ptr @pam_h, align 8
+  %39 = load i32, ptr %7, align 4
+  %40 = call ptr @pam_strerror(ptr noundef %38, i32 noundef %39)
+  %41 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %40)
+  br label %79
 
-46:                                               ; preds = %41
-  %47 = load ptr, ptr @pam_h, align 8
-  %48 = load i32, ptr %7, align 4
-  %49 = call ptr @pam_strerror(ptr noundef %47, i32 noundef %48)
-  %50 = call i32 (ptr, ...) @error(ptr noundef @.str.4, ptr noundef %49)
-  br label %78
+42:                                               ; preds = %32
+  %43 = load ptr, ptr @pam_h, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = call i32 @pam_set_item(ptr noundef %43, i32 noundef 4, ptr noundef %44)
+  store i32 %45, ptr %7, align 4
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %52
 
-51:                                               ; preds = %41
-  %52 = load ptr, ptr @pam_h, align 8
-  %53 = call i32 @pam_setcred(ptr noundef %52, i32 noundef 2)
-  store i32 %53, ptr %7, align 4
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %55, label %60
+47:                                               ; preds = %42
+  %48 = load ptr, ptr @pam_h, align 8
+  %49 = load i32, ptr %7, align 4
+  %50 = call ptr @pam_strerror(ptr noundef %48, i32 noundef %49)
+  %51 = call i32 (ptr, ...) @error(ptr noundef @.str.4, ptr noundef %50)
+  br label %79
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr @pam_h, align 8
-  %57 = load i32, ptr %7, align 4
-  %58 = call ptr @pam_strerror(ptr noundef %56, i32 noundef %57)
-  %59 = call i32 (ptr, ...) @error(ptr noundef @.str.5, ptr noundef %58)
-  br label %78
+52:                                               ; preds = %42
+  %53 = load ptr, ptr @pam_h, align 8
+  %54 = call i32 @pam_setcred(ptr noundef %53, i32 noundef 2)
+  store i32 %54, ptr %7, align 4
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %61
 
-60:                                               ; preds = %51
-  %61 = load ptr, ptr @pam_h, align 8
-  %62 = call i32 @pam_open_session(ptr noundef %61, i32 noundef 0)
-  store i32 %62, ptr %7, align 4
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %64, label %69
+56:                                               ; preds = %52
+  %57 = load ptr, ptr @pam_h, align 8
+  %58 = load i32, ptr %7, align 4
+  %59 = call ptr @pam_strerror(ptr noundef %57, i32 noundef %58)
+  %60 = call i32 (ptr, ...) @error(ptr noundef @.str.5, ptr noundef %59)
+  br label %79
 
-64:                                               ; preds = %60
-  %65 = load ptr, ptr @pam_h, align 8
-  %66 = load i32, ptr %7, align 4
-  %67 = call ptr @pam_strerror(ptr noundef %65, i32 noundef %66)
-  %68 = call i32 (ptr, ...) @error(ptr noundef @.str.6, ptr noundef %67)
-  br label %75
+61:                                               ; preds = %52
+  %62 = load ptr, ptr @pam_h, align 8
+  %63 = call i32 @pam_open_session(ptr noundef %62, i32 noundef 0)
+  store i32 %63, ptr %7, align 4
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %70
 
-69:                                               ; preds = %60
-  br label %70
+65:                                               ; preds = %61
+  %66 = load ptr, ptr @pam_h, align 8
+  %67 = load i32, ptr %7, align 4
+  %68 = call ptr @pam_strerror(ptr noundef %66, i32 noundef %67)
+  %69 = call i32 (ptr, ...) @error(ptr noundef @.str.6, ptr noundef %68)
+  br label %76
 
-70:                                               ; preds = %69
+70:                                               ; preds = %61
   br label %71
 
 71:                                               ; preds = %70
@@ -141,28 +139,31 @@ define dso_local i32 @pam_setup(ptr noundef %0, ptr noundef %1) #0 {
   br label %74
 
 74:                                               ; preds = %73
+  br label %75
+
+75:                                               ; preds = %74
   store i32 0, ptr %3, align 4
+  br label %84
+
+76:                                               ; preds = %65
+  %77 = load ptr, ptr @pam_h, align 8
+  %78 = call i32 @pam_setcred(ptr noundef %77, i32 noundef 4)
+  br label %79
+
+79:                                               ; preds = %76, %56, %47, %37, %27
+  %80 = load ptr, ptr @pam_h, align 8
+  %81 = load i32, ptr %7, align 4
+  %82 = call i32 @pam_end(ptr noundef %80, i32 noundef %81)
   br label %83
 
-75:                                               ; preds = %64
-  %76 = load ptr, ptr @pam_h, align 8
-  %77 = call i32 @pam_setcred(ptr noundef %76, i32 noundef 4)
-  br label %78
-
-78:                                               ; preds = %75, %55, %46, %36, %26
-  %79 = load ptr, ptr @pam_h, align 8
-  %80 = load i32, ptr %7, align 4
-  %81 = call i32 @pam_end(ptr noundef %79, i32 noundef %80)
-  br label %82
-
-82:                                               ; preds = %78, %17
+83:                                               ; preds = %79, %18
   store ptr null, ptr @pam_h, align 8
   store i32 -1, ptr %3, align 4
-  br label %83
+  br label %84
 
-83:                                               ; preds = %82, %74, %12
-  %84 = load i32, ptr %3, align 4
-  ret i32 %84
+84:                                               ; preds = %83, %75, %13
+  %85 = load i32, ptr %3, align 4
+  ret i32 %85
 }
 
 declare i32 @misc_conv(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
@@ -188,67 +189,68 @@ declare i32 @pam_end(ptr noundef, i32 noundef) #1
 define dso_local void @pam_finish() #0 {
   %1 = alloca i32, align 4
   store i32 0, ptr %1, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 31), align 4
-  %3 = zext i32 %2 to i64
-  %4 = and i64 %3, 16
-  %5 = icmp ne i64 %4, 0
-  br i1 %5, label %7, label %6
-
-6:                                                ; preds = %0
-  br label %38
+  %2 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 31
+  %3 = load i32, ptr %2, align 4
+  %4 = zext i32 %3 to i64
+  %5 = and i64 %4, 16
+  %6 = icmp ne i64 %5, 0
+  br i1 %6, label %8, label %7
 
 7:                                                ; preds = %0
-  %8 = load ptr, ptr @pam_h, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %38
+  br label %39
 
-10:                                               ; preds = %7
-  %11 = load ptr, ptr @pam_h, align 8
-  %12 = call i32 @pam_close_session(ptr noundef %11, i32 noundef 0)
-  store i32 %12, ptr %1, align 4
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %14, label %19
+8:                                                ; preds = %0
+  %9 = load ptr, ptr @pam_h, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %39
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr @pam_h, align 8
-  %16 = load i32, ptr %1, align 4
-  %17 = call ptr @pam_strerror(ptr noundef %15, i32 noundef %16)
-  %18 = call i32 (ptr, ...) @error(ptr noundef @.str.7, ptr noundef %17)
-  br label %19
+11:                                               ; preds = %8
+  %12 = load ptr, ptr @pam_h, align 8
+  %13 = call i32 @pam_close_session(ptr noundef %12, i32 noundef 0)
+  store i32 %13, ptr %1, align 4
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %20
 
-19:                                               ; preds = %14, %10
-  %20 = load ptr, ptr @pam_h, align 8
-  %21 = call i32 @pam_setcred(ptr noundef %20, i32 noundef 4)
-  store i32 %21, ptr %1, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %28
+15:                                               ; preds = %11
+  %16 = load ptr, ptr @pam_h, align 8
+  %17 = load i32, ptr %1, align 4
+  %18 = call ptr @pam_strerror(ptr noundef %16, i32 noundef %17)
+  %19 = call i32 (ptr, ...) @error(ptr noundef @.str.7, ptr noundef %18)
+  br label %20
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr @pam_h, align 8
-  %25 = load i32, ptr %1, align 4
-  %26 = call ptr @pam_strerror(ptr noundef %24, i32 noundef %25)
-  %27 = call i32 (ptr, ...) @error(ptr noundef @.str.8, ptr noundef %26)
-  br label %28
+20:                                               ; preds = %15, %11
+  %21 = load ptr, ptr @pam_h, align 8
+  %22 = call i32 @pam_setcred(ptr noundef %21, i32 noundef 4)
+  store i32 %22, ptr %1, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %29
 
-28:                                               ; preds = %23, %19
-  %29 = load ptr, ptr @pam_h, align 8
-  %30 = load i32, ptr %1, align 4
-  %31 = call i32 @pam_end(ptr noundef %29, i32 noundef %30)
-  store i32 %31, ptr %1, align 4
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %37
+24:                                               ; preds = %20
+  %25 = load ptr, ptr @pam_h, align 8
+  %26 = load i32, ptr %1, align 4
+  %27 = call ptr @pam_strerror(ptr noundef %25, i32 noundef %26)
+  %28 = call i32 (ptr, ...) @error(ptr noundef @.str.8, ptr noundef %27)
+  br label %29
 
-33:                                               ; preds = %28
-  %34 = load i32, ptr %1, align 4
-  %35 = call ptr @pam_strerror(ptr noundef null, i32 noundef %34)
-  %36 = call i32 (ptr, ...) @error(ptr noundef @.str.9, ptr noundef %35)
-  br label %37
+29:                                               ; preds = %24, %20
+  %30 = load ptr, ptr @pam_h, align 8
+  %31 = load i32, ptr %1, align 4
+  %32 = call i32 @pam_end(ptr noundef %30, i32 noundef %31)
+  store i32 %32, ptr %1, align 4
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %38
 
-37:                                               ; preds = %33, %28
-  store ptr null, ptr @pam_h, align 8
+34:                                               ; preds = %29
+  %35 = load i32, ptr %1, align 4
+  %36 = call ptr @pam_strerror(ptr noundef null, i32 noundef %35)
+  %37 = call i32 (ptr, ...) @error(ptr noundef @.str.9, ptr noundef %36)
   br label %38
 
-38:                                               ; preds = %37, %7, %6
+38:                                               ; preds = %34, %29
+  store ptr null, ptr @pam_h, align 8
+  br label %39
+
+39:                                               ; preds = %38, %8, %7
   ret void
 }
 

@@ -16,54 +16,55 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ttm_range_ma
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @ttm_range_man_init_nocheck(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i64 noundef %3) #0 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
-  %6 = tail call noalias align 8 dereferenceable_or_null(368) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 368) #4
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %28, label %8
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call noalias align 8 dereferenceable_or_null(368) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 368) #4
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %29, label %9
 
-8:                                                ; preds = %4
-  %9 = zext i1 %2 to i8
-  %10 = getelementptr inbounds i8, ptr %6, i64 1
-  store i8 %9, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr @ttm_range_manager_func, ptr %11, align 8
-  tail call void @ttm_resource_manager_init(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %3) #5
-  %12 = getelementptr inbounds i8, ptr %6, i64 120
-  tail call void @drm_mm_init(ptr noundef %12, i64 noundef 0, i64 noundef %3) #5
-  %13 = getelementptr inbounds i8, ptr %6, i64 360
-  store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 144
-  %15 = sext i32 %1 to i64
-  %16 = getelementptr [8 x ptr], ptr %14, i64 0, i64 %15
-  store ptr %6, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 48
-  br label %18
+9:                                                ; preds = %4
+  %10 = zext i1 %2 to i8
+  %11 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 %10, ptr %11, align 1
+  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr @ttm_range_manager_func, ptr %12, align 8
+  tail call void @ttm_resource_manager_init(ptr noundef nonnull %7, ptr noundef %0, i64 noundef %3) #5
+  %13 = getelementptr inbounds i8, ptr %7, i64 120
+  tail call void @drm_mm_init(ptr noundef %13, i64 noundef 0, i64 noundef %3) #5
+  %14 = getelementptr inbounds i8, ptr %7, i64 360
+  store i32 0, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr [8 x ptr], ptr %15, i64 0, i64 %16
+  store ptr %7, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 48
+  br label %19
 
-18:                                               ; preds = %24, %8
-  %19 = phi i64 [ 0, %8 ], [ %25, %24 ]
-  %20 = getelementptr [4 x %struct.list_head], ptr %17, i64 0, i64 %19
-  %21 = load volatile ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, %20
-  br i1 %22, label %24, label %23, !prof !5
+19:                                               ; preds = %25, %9
+  %20 = phi i64 [ 0, %9 ], [ %26, %25 ]
+  %21 = getelementptr [4 x %struct.list_head], ptr %18, i64 0, i64 %20
+  %22 = load volatile ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, %21
+  br i1 %23, label %25, label %24, !prof !5
 
-23:                                               ; preds = %18
+24:                                               ; preds = %19
   tail call void asm sideeffect "327: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 327b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 327) #5, !srcloc !6
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 313, i32 2305, i64 12) #5, !srcloc !7
   tail call void asm sideeffect "328: nop\0A\09.pushsection .discard.instr_end\0A\09.long 328b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 328) #5, !srcloc !8
-  br label %24
+  br label %25
 
-24:                                               ; preds = %23, %18
-  %25 = add nuw nsw i64 %19, 1
-  %26 = icmp eq i64 %25, 4
-  br i1 %26, label %27, label %18, !llvm.loop !9
+25:                                               ; preds = %24, %19
+  %26 = add nuw nsw i64 %20, 1
+  %27 = icmp eq i64 %26, 4
+  br i1 %27, label %28, label %19, !llvm.loop !9
 
-27:                                               ; preds = %24
-  store i8 1, ptr %6, align 8
-  br label %28
+28:                                               ; preds = %25
+  store i8 1, ptr %7, align 8
+  br label %29
 
-28:                                               ; preds = %27, %4
-  %29 = phi i32 [ 0, %27 ], [ -12, %4 ]
-  ret i32 %29
+29:                                               ; preds = %28, %4
+  %30 = phi i32 [ 0, %28 ], [ -12, %4 ]
+  ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -184,48 +185,49 @@ define internal i32 @ttm_range_man_alloc(ptr noundef %0, ptr noundef %1, ptr nou
 
 13:                                               ; preds = %10, %4
   %14 = phi i64 [ %8, %4 ], [ %12, %10 ]
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
-  %16 = tail call noalias align 8 dereferenceable_or_null(240) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 240) #4
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %39, label %18
+  %15 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8
+  %16 = load ptr, ptr %15, align 16
+  %17 = tail call noalias align 8 dereferenceable_or_null(240) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3520, i64 noundef 240) #4
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %40, label %19
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %2, i64 12
-  %20 = load i32, ptr %19, align 4
-  %21 = and i32 %20, 2
-  tail call void @ttm_resource_init(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %16) #5
-  %22 = getelementptr inbounds i8, ptr %0, i64 360
-  tail call void @_raw_spin_lock(ptr noundef %22) #5
-  %23 = getelementptr inbounds i8, ptr %16, i64 72
-  %24 = getelementptr inbounds i8, ptr %16, i64 8
-  %25 = load i64, ptr %24, align 8
-  %26 = add i64 %25, 4095
-  %27 = lshr i64 %26, 12
-  %28 = getelementptr inbounds i8, ptr %1, i64 364
-  %29 = load i32, ptr %28, align 4
-  %30 = zext i32 %29 to i64
-  %31 = load i32, ptr %2, align 4
-  %32 = zext i32 %31 to i64
-  %33 = tail call i32 @drm_mm_insert_node_in_range(ptr noundef %5, ptr noundef %23, i64 noundef %27, i64 noundef %30, i64 noundef 0, i64 noundef %32, i64 noundef %14, i32 noundef %21) #5
-  tail call void @_raw_spin_unlock(ptr noundef %22) #5
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %36, label %35, !prof !5
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %2, i64 12
+  %21 = load i32, ptr %20, align 4
+  %22 = and i32 %21, 2
+  tail call void @ttm_resource_init(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %17) #5
+  %23 = getelementptr inbounds i8, ptr %0, i64 360
+  tail call void @_raw_spin_lock(ptr noundef %23) #5
+  %24 = getelementptr inbounds i8, ptr %17, i64 72
+  %25 = getelementptr inbounds i8, ptr %17, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, 4095
+  %28 = lshr i64 %27, 12
+  %29 = getelementptr inbounds i8, ptr %1, i64 364
+  %30 = load i32, ptr %29, align 4
+  %31 = zext i32 %30 to i64
+  %32 = load i32, ptr %2, align 4
+  %33 = zext i32 %32 to i64
+  %34 = tail call i32 @drm_mm_insert_node_in_range(ptr noundef %5, ptr noundef %24, i64 noundef %28, i64 noundef %31, i64 noundef 0, i64 noundef %33, i64 noundef %14, i32 noundef %22) #5
+  tail call void @_raw_spin_unlock(ptr noundef %23) #5
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %37, label %36, !prof !5
 
-35:                                               ; preds = %18
-  tail call void @ttm_resource_fini(ptr noundef %0, ptr noundef nonnull %16) #5
-  tail call void @kfree(ptr noundef nonnull %16) #5
-  br label %39
+36:                                               ; preds = %19
+  tail call void @ttm_resource_fini(ptr noundef %0, ptr noundef nonnull %17) #5
+  tail call void @kfree(ptr noundef nonnull %17) #5
+  br label %40
 
-36:                                               ; preds = %18
-  %37 = getelementptr inbounds i8, ptr %16, i64 80
-  %38 = load i64, ptr %37, align 8
-  store i64 %38, ptr %16, align 8
-  store ptr %16, ptr %3, align 8
-  br label %39
+37:                                               ; preds = %19
+  %38 = getelementptr inbounds i8, ptr %17, i64 80
+  %39 = load i64, ptr %38, align 8
+  store i64 %39, ptr %17, align 8
+  store ptr %17, ptr %3, align 8
+  br label %40
 
-39:                                               ; preds = %36, %35, %13
-  %40 = phi i32 [ %33, %35 ], [ 0, %36 ], [ -12, %13 ]
-  ret i32 %40
+40:                                               ; preds = %37, %36, %13
+  %41 = phi i32 [ %34, %36 ], [ 0, %37 ], [ -12, %13 ]
+  ret i32 %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

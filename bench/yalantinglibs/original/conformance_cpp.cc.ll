@@ -5156,11 +5156,12 @@ define linkonce_odr dso_local { ptr, ptr } @_ZN22protobuf_test_messages6proto318
 entry:
   %retval = alloca %"struct.google::protobuf::Metadata", align 8
   call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto, i1 noundef zeroext false)
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto, i32 0, i32 13), align 8
-  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 20
+  %0 = getelementptr inbounds %"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto, i32 0, i32 13
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %1, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %arrayidx, i64 16, i1 false)
-  %1 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %1
+  %2 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %2
 }
 
 declare void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef, i1 noundef zeroext) #1

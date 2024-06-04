@@ -98,28 +98,31 @@ define i32 @pmix_util_keyval_parse_init() #0 {
 
 3:                                                ; preds = %2
   %4 = load i32, ptr @pmix_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i32 0, i32 4), align 8
-  %6 = icmp ne i32 %4, %5
-  br i1 %6, label %7, label %8
+  %5 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_mutex_t_class, i32 0, i32 4
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp ne i32 %4, %6
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   call void @pmix_class_initialize(ptr noundef @pmix_mutex_t_class)
-  br label %8
-
-8:                                                ; preds = %7, %3
-  store ptr @pmix_mutex_t_class, ptr getelementptr inbounds (%struct.pmix_object_t, ptr @keyval_mutex, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pmix_object_t, ptr @keyval_mutex, i32 0, i32 2), align 8
-  call void @pmix_obj_construct_tma(ptr noundef @keyval_mutex, ptr noundef null)
-  call void @pmix_obj_run_constructors(ptr noundef @keyval_mutex)
   br label %9
 
-9:                                                ; preds = %8
-  br label %10
+9:                                                ; preds = %8, %3
+  %10 = getelementptr inbounds %struct.pmix_object_t, ptr @keyval_mutex, i32 0, i32 1
+  store ptr @pmix_mutex_t_class, ptr %10, align 8
+  %11 = getelementptr inbounds %struct.pmix_object_t, ptr @keyval_mutex, i32 0, i32 2
+  store i32 1, ptr %11, align 8
+  call void @pmix_obj_construct_tma(ptr noundef @keyval_mutex, ptr noundef null)
+  call void @pmix_obj_run_constructors(ptr noundef @keyval_mutex)
+  br label %12
 
-10:                                               ; preds = %9
-  br label %11
+12:                                               ; preds = %9
+  br label %13
 
-11:                                               ; preds = %10
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
   ret i32 0
 }
 

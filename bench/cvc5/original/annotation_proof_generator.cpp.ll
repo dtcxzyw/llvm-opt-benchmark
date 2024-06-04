@@ -883,10 +883,11 @@ entry:
   store ptr %name, ptr %name.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal14ProofGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal24AnnotationProofGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal24AnnotationProofGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_pnm = getelementptr inbounds %"class.cvc5::internal::AnnotationProofGenerator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pnm.addr, align 8
-  store ptr %0, ptr %d_pnm, align 8
+  %1 = load ptr, ptr %pnm.addr, align 8
+  store ptr %1, ptr %d_pnm, align 8
   %d_name = getelementptr inbounds %"class.cvc5::internal::AnnotationProofGenerator", ptr %this1, i32 0, i32 2
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_name, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %invoke.cont unwind label %lpad
@@ -898,8 +899,8 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %d_exps = getelementptr inbounds %"class.cvc5::internal::AnnotationProofGenerator", ptr %this1, i32 0, i32 4
-  %1 = load ptr, ptr %c.addr, align 8
-  %cmp = icmp eq ptr %1, null
+  %2 = load ptr, ptr %c.addr, align 8
+  %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont3
@@ -907,18 +908,18 @@ cond.true:                                        ; preds = %invoke.cont3
   br label %cond.end
 
 cond.false:                                       ; preds = %invoke.cont3
-  %2 = load ptr, ptr %c.addr, align 8
+  %3 = load ptr, ptr %c.addr, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %d_context4, %cond.true ], [ %2, %cond.false ]
+  %cond = phi ptr [ %d_context4, %cond.true ], [ %3, %cond.false ]
   invoke void @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt4pairIPNS2_14ProofGeneratorEPNS2_9AnnotatorEESt4hashIS4_EEC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(112) %d_exps, ptr noundef %cond)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %cond.end
   %d_proofs = getelementptr inbounds %"class.cvc5::internal::AnnotationProofGenerator", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %c.addr, align 8
-  %cmp7 = icmp eq ptr %3, null
+  %4 = load ptr, ptr %c.addr, align 8
+  %cmp7 = icmp eq ptr %4, null
   br i1 %cmp7, label %cond.true8, label %cond.false10
 
 cond.true8:                                       ; preds = %invoke.cont6
@@ -926,11 +927,11 @@ cond.true8:                                       ; preds = %invoke.cont6
   br label %cond.end11
 
 cond.false10:                                     ; preds = %invoke.cont6
-  %4 = load ptr, ptr %c.addr, align 8
+  %5 = load ptr, ptr %c.addr, align 8
   br label %cond.end11
 
 cond.end11:                                       ; preds = %cond.false10, %cond.true8
-  %cond12 = phi ptr [ %d_context9, %cond.true8 ], [ %4, %cond.false10 ]
+  %cond12 = phi ptr [ %d_context9, %cond.true8 ], [ %5, %cond.false10 ]
   invoke void @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EEC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(112) %d_proofs, ptr noundef %cond12)
           to label %invoke.cont14 unwind label %lpad13
 
@@ -938,39 +939,39 @@ invoke.cont14:                                    ; preds = %cond.end11
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup16
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup15
 
 lpad5:                                            ; preds = %cond.end
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad13:                                           ; preds = %cond.end11
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt4pairIPNS2_14ProofGeneratorEPNS2_9AnnotatorEESt4hashIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %d_exps) #3
   br label %ehcleanup
 
@@ -1012,15 +1013,16 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %context.addr, align 8
   call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt4pairIPNS2_14ProofGeneratorEPNS2_9AnnotatorEESt4hashIS4_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt4pairIPNS2_14ProofGeneratorEPNS2_9AnnotatorEESt4hashIS4_EEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_map = getelementptr inbounds %"class.cvc5::context::CDHashMap", ptr %this1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %d_map, i8 0, i64 56, i1 false)
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEEPNS0_7context11CDOhash_mapIS3_St4pairIPNS1_14ProofGeneratorEPNS1_9AnnotatorEESt4hashIS3_EEESD_St8equal_toIS3_ESaIS6_IKS3_SF_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_map) #3
   %d_first = getelementptr inbounds %"class.cvc5::context::CDHashMap", ptr %this1, i32 0, i32 2
   store ptr null, ptr %d_first, align 8
   %d_context = getelementptr inbounds %"class.cvc5::context::CDHashMap", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %context.addr, align 8
-  store ptr %1, ptr %d_context, align 8
+  %2 = load ptr, ptr %context.addr, align 8
+  store ptr %2, ptr %d_context, align 8
   ret void
 }
 
@@ -1034,15 +1036,16 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %context.addr, align 8
   call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_map = getelementptr inbounds %"class.cvc5::context::CDHashMap.8", ptr %this1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %d_map, i8 0, i64 56, i1 false)
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEEPNS0_7context11CDOhash_mapIS3_St10shared_ptrINS1_9ProofNodeEESt4hashIS3_EEESA_St8equal_toIS3_ESaISt4pairIKS3_SC_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_map) #3
   %d_first = getelementptr inbounds %"class.cvc5::context::CDHashMap.8", ptr %this1, i32 0, i32 2
   store ptr null, ptr %d_first, align 8
   %d_context = getelementptr inbounds %"class.cvc5::context::CDHashMap.8", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %context.addr, align 8
-  store ptr %1, ptr %d_context, align 8
+  %2 = load ptr, ptr %context.addr, align 8
+  store ptr %2, ptr %d_context, align 8
   ret void
 }
 
@@ -1052,7 +1055,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt4pairIPNS2_14ProofGeneratorEPNS2_9AnnotatorEESt4hashIS4_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt4pairIPNS2_14ProofGeneratorEPNS2_9AnnotatorEESt4hashIS4_EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1067,10 +1071,10 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -1910,7 +1914,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal24AnnotationProofGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal24AnnotationProofGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_proofs = getelementptr inbounds %"class.cvc5::internal::AnnotationProofGenerator", ptr %this1, i32 0, i32 5
   call void @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %d_proofs) #3
   %d_exps = getelementptr inbounds %"class.cvc5::internal::AnnotationProofGenerator", ptr %this1, i32 0, i32 4
@@ -2318,7 +2323,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2333,10 +2339,10 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -4384,31 +4390,32 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %context.addr, align 8
   call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt4pairIPNS2_14ProofGeneratorEPNS2_9AnnotatorEESt4hashIS4_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt4pairIPNS2_14ProofGeneratorEPNS2_9AnnotatorEESt4hashIS4_EEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_value = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %key.addr, align 8
-  %2 = load ptr, ptr %data.addr, align 8
-  invoke void @_ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEEKS_IPNS1_14ProofGeneratorEPNS1_9AnnotatorEEEC2IS4_SA_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISE_SF_EEEbE4typeELb1EEERS4_RSA_(ptr noundef nonnull align 8 dereferenceable(24) %d_value, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %2 = load ptr, ptr %key.addr, align 8
+  %3 = load ptr, ptr %data.addr, align 8
+  invoke void @_ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEEKS_IPNS1_14ProofGeneratorEPNS1_9AnnotatorEEEC2IS4_SA_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISE_SF_EEEbE4typeELb1EEERS4_RSA_(ptr noundef nonnull align 8 dereferenceable(24) %d_value, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %d_map = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %this1, i32 0, i32 2
   store ptr null, ptr %d_map, align 8
-  %3 = load ptr, ptr %data.addr, align 8
-  invoke void @_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt4pairIPNS2_14ProofGeneratorEPNS2_9AnnotatorEESt4hashIS4_EE3setERKSA_(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %4 = load ptr, ptr %data.addr, align 8
+  invoke void @_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt4pairIPNS2_14ProofGeneratorEPNS2_9AnnotatorEESt4hashIS4_EE3setERKSA_(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %4 = load ptr, ptr %map.addr, align 8
+  %5 = load ptr, ptr %map.addr, align 8
   %d_map4 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %this1, i32 0, i32 2
-  store ptr %4, ptr %d_map4, align 8
+  store ptr %5, ptr %d_map4, align 8
   %d_map5 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %d_map5, align 8
-  %d_first = getelementptr inbounds %"class.cvc5::context::CDHashMap", ptr %5, i32 0, i32 2
+  %6 = load ptr, ptr %d_map5, align 8
+  %d_first = getelementptr inbounds %"class.cvc5::context::CDHashMap", ptr %6, i32 0, i32 2
   store ptr %d_first, ptr %first, align 8
-  %6 = load ptr, ptr %first, align 8
-  %7 = load ptr, ptr %6, align 8
-  %cmp = icmp eq ptr %7, null
+  %7 = load ptr, ptr %first, align 8
+  %8 = load ptr, ptr %7, align 8
+  %cmp = icmp eq ptr %8, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont3
@@ -4416,47 +4423,47 @@ if.then:                                          ; preds = %invoke.cont3
   store ptr %this1, ptr %d_prev, align 8
   %d_next = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %this1, i32 0, i32 4
   store ptr %this1, ptr %d_next, align 8
-  %8 = load ptr, ptr %first, align 8
-  store ptr %this1, ptr %8, align 8
+  %9 = load ptr, ptr %first, align 8
+  store ptr %this1, ptr %9, align 8
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEEKS_IPNS1_14ProofGeneratorEPNS1_9AnnotatorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_value) #3
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont3
-  %15 = load ptr, ptr %first, align 8
-  %16 = load ptr, ptr %15, align 8
-  %d_prev6 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %16, i32 0, i32 3
-  %17 = load ptr, ptr %d_prev6, align 8
+  %16 = load ptr, ptr %first, align 8
+  %17 = load ptr, ptr %16, align 8
+  %d_prev6 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %17, i32 0, i32 3
+  %18 = load ptr, ptr %d_prev6, align 8
   %d_prev7 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %this1, i32 0, i32 3
-  store ptr %17, ptr %d_prev7, align 8
-  %18 = load ptr, ptr %first, align 8
-  %19 = load ptr, ptr %18, align 8
+  store ptr %18, ptr %d_prev7, align 8
+  %19 = load ptr, ptr %first, align 8
+  %20 = load ptr, ptr %19, align 8
   %d_next8 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %this1, i32 0, i32 4
-  store ptr %19, ptr %d_next8, align 8
+  store ptr %20, ptr %d_next8, align 8
   %d_prev9 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %this1, i32 0, i32 3
-  %20 = load ptr, ptr %d_prev9, align 8
-  %d_next10 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %20, i32 0, i32 4
+  %21 = load ptr, ptr %d_prev9, align 8
+  %d_next10 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %21, i32 0, i32 4
   store ptr %this1, ptr %d_next10, align 8
-  %21 = load ptr, ptr %first, align 8
-  %22 = load ptr, ptr %21, align 8
-  %d_prev11 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %22, i32 0, i32 3
+  %22 = load ptr, ptr %first, align 8
+  %23 = load ptr, ptr %22, align 8
+  %d_prev11 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %23, i32 0, i32 3
   store ptr %this1, ptr %d_prev11, align 8
   br label %if.end
 
@@ -6215,7 +6222,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt4pairIPNS2_14ProofGeneratorEPNS2_9AnnotatorEESt4hashIS4_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt4pairIPNS2_14ProofGeneratorEPNS2_9AnnotatorEESt4hashIS4_EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -6226,10 +6234,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -6429,14 +6437,15 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN4cvc57context10ContextObjC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt4pairIPNS2_14ProofGeneratorEPNS2_9AnnotatorEESt4hashIS4_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt4pairIPNS2_14ProofGeneratorEPNS2_9AnnotatorEESt4hashIS4_EEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_value = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %other.addr, align 8
-  %d_value2 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %other.addr, align 8
+  %d_value2 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %2, i32 0, i32 1
   %second = getelementptr inbounds %"struct.std::pair.23", ptr %d_value2, i32 0, i32 1
   invoke void @_ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEEKS_IPNS1_14ProofGeneratorEPNS1_9AnnotatorEEEC2IS3_RSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(24) %d_value, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %second)
           to label %invoke.cont4 unwind label %lpad3
@@ -6444,10 +6453,10 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   %d_map = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %d_map5 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %d_map5, align 8
-  store ptr %3, ptr %d_map, align 8
+  %3 = load ptr, ptr %other.addr, align 8
+  %d_map5 = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %d_map5, align 8
+  store ptr %4, ptr %d_map, align 8
   %d_prev = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %this1, i32 0, i32 3
   store ptr null, ptr %d_prev, align 8
   %d_next = getelementptr inbounds %"class.cvc5::context::CDOhash_map", ptr %this1, i32 0, i32 4
@@ -6455,21 +6464,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   br label %ehcleanup
 
@@ -6505,10 +6514,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_pScope = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %d_pScope2 = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %.addr, align 8
+  %d_pScope2 = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %2, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %d_pScope, ptr align 8 %d_pScope2, i64 32, i1 false)
   ret void
 }
@@ -7996,31 +8006,32 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %context.addr, align 8
   call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_value = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %key.addr, align 8
-  %2 = load ptr, ptr %data.addr, align 8
-  invoke void @_ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEEKSt10shared_ptrINS1_9ProofNodeEEEC2IS4_S8_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISC_SD_EEEbE4typeELb1EEERS4_RS8_(ptr noundef nonnull align 8 dereferenceable(24) %d_value, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %2 = load ptr, ptr %key.addr, align 8
+  %3 = load ptr, ptr %data.addr, align 8
+  invoke void @_ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEEKSt10shared_ptrINS1_9ProofNodeEEEC2IS4_S8_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISC_SD_EEEbE4typeELb1EEERS4_RS8_(ptr noundef nonnull align 8 dereferenceable(24) %d_value, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %d_map = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %this1, i32 0, i32 2
   store ptr null, ptr %d_map, align 8
-  %3 = load ptr, ptr %data.addr, align 8
-  invoke void @_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EE3setERKS7_(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %4 = load ptr, ptr %data.addr, align 8
+  invoke void @_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EE3setERKS7_(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %4 = load ptr, ptr %map.addr, align 8
+  %5 = load ptr, ptr %map.addr, align 8
   %d_map4 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %this1, i32 0, i32 2
-  store ptr %4, ptr %d_map4, align 8
+  store ptr %5, ptr %d_map4, align 8
   %d_map5 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %d_map5, align 8
-  %d_first = getelementptr inbounds %"class.cvc5::context::CDHashMap.8", ptr %5, i32 0, i32 2
+  %6 = load ptr, ptr %d_map5, align 8
+  %d_first = getelementptr inbounds %"class.cvc5::context::CDHashMap.8", ptr %6, i32 0, i32 2
   store ptr %d_first, ptr %first, align 8
-  %6 = load ptr, ptr %first, align 8
-  %7 = load ptr, ptr %6, align 8
-  %cmp = icmp eq ptr %7, null
+  %7 = load ptr, ptr %first, align 8
+  %8 = load ptr, ptr %7, align 8
+  %cmp = icmp eq ptr %8, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont3
@@ -8028,47 +8039,47 @@ if.then:                                          ; preds = %invoke.cont3
   store ptr %this1, ptr %d_prev, align 8
   %d_next = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %this1, i32 0, i32 4
   store ptr %this1, ptr %d_next, align 8
-  %8 = load ptr, ptr %first, align 8
-  store ptr %this1, ptr %8, align 8
+  %9 = load ptr, ptr %first, align 8
+  store ptr %this1, ptr %9, align 8
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEEKSt10shared_ptrINS1_9ProofNodeEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_value) #3
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont3
-  %15 = load ptr, ptr %first, align 8
-  %16 = load ptr, ptr %15, align 8
-  %d_prev6 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %16, i32 0, i32 3
-  %17 = load ptr, ptr %d_prev6, align 8
+  %16 = load ptr, ptr %first, align 8
+  %17 = load ptr, ptr %16, align 8
+  %d_prev6 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %17, i32 0, i32 3
+  %18 = load ptr, ptr %d_prev6, align 8
   %d_prev7 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %this1, i32 0, i32 3
-  store ptr %17, ptr %d_prev7, align 8
-  %18 = load ptr, ptr %first, align 8
-  %19 = load ptr, ptr %18, align 8
+  store ptr %18, ptr %d_prev7, align 8
+  %19 = load ptr, ptr %first, align 8
+  %20 = load ptr, ptr %19, align 8
   %d_next8 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %this1, i32 0, i32 4
-  store ptr %19, ptr %d_next8, align 8
+  store ptr %20, ptr %d_next8, align 8
   %d_prev9 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %this1, i32 0, i32 3
-  %20 = load ptr, ptr %d_prev9, align 8
-  %d_next10 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %20, i32 0, i32 4
+  %21 = load ptr, ptr %d_prev9, align 8
+  %d_next10 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %21, i32 0, i32 4
   store ptr %this1, ptr %d_next10, align 8
-  %21 = load ptr, ptr %first, align 8
-  %22 = load ptr, ptr %21, align 8
-  %d_prev11 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %22, i32 0, i32 3
+  %22 = load ptr, ptr %first, align 8
+  %23 = load ptr, ptr %22, align 8
+  %d_prev11 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %23, i32 0, i32 3
   store ptr %this1, ptr %d_prev11, align 8
   br label %if.end
 
@@ -9258,7 +9269,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -9269,10 +9281,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -9405,14 +9417,15 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN4cvc57context10ContextObjC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_value = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %other.addr, align 8
-  %d_value2 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %other.addr, align 8
+  %d_value2 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %2, i32 0, i32 1
   %second = getelementptr inbounds %"struct.std::pair.25", ptr %d_value2, i32 0, i32 1
   invoke void @_ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEEKSt10shared_ptrINS1_9ProofNodeEEEC2IS3_RS8_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISD_SE_EEEbE4typeELb1EEEOSD_OSE_(ptr noundef nonnull align 8 dereferenceable(24) %d_value, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %second)
           to label %invoke.cont4 unwind label %lpad3
@@ -9420,10 +9433,10 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   %d_map = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %d_map5 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %d_map5, align 8
-  store ptr %3, ptr %d_map, align 8
+  %3 = load ptr, ptr %other.addr, align 8
+  %d_map5 = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %d_map5, align 8
+  store ptr %4, ptr %d_map, align 8
   %d_prev = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %this1, i32 0, i32 3
   store ptr null, ptr %d_prev, align 8
   %d_next = getelementptr inbounds %"class.cvc5::context::CDOhash_map.27", ptr %this1, i32 0, i32 4
@@ -9431,21 +9444,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   br label %ehcleanup
 

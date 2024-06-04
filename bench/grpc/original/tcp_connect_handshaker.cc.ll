@@ -754,7 +754,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -764,7 +765,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -780,7 +782,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core17HandshakerFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_127TCPConnectHandshakerFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_127TCPConnectHandshakerFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -814,7 +817,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core17HandshakerFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core17HandshakerFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1045,7 +1049,8 @@ entry:
   store ptr %pollset_set, ptr %pollset_set.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10HandshakerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mu_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this1, i32 0, i32 1
   invoke void @_ZN4absl12lts_202308025MutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %invoke.cont unwind label %lpad
@@ -1066,52 +1071,52 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %call, ptr %interested_parties_, align 8
   %pollent_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this1, i32 0, i32 7
-  %0 = load ptr, ptr %pollset_set.addr, align 8
-  %call5 = invoke { ptr, i32 } @_Z43grpc_polling_entity_create_from_pollset_setP16grpc_pollset_set(ptr noundef %0)
+  %1 = load ptr, ptr %pollset_set.addr, align 8
+  %call5 = invoke { ptr, i32 } @_Z43grpc_polling_entity_create_from_pollset_setP16grpc_pollset_set(ptr noundef %1)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  %1 = getelementptr inbounds { ptr, i32 }, ptr %pollent_, i32 0, i32 0
-  %2 = extractvalue { ptr, i32 } %call5, 0
-  store ptr %2, ptr %1, align 8
-  %3 = getelementptr inbounds { ptr, i32 }, ptr %pollent_, i32 0, i32 1
-  %4 = extractvalue { ptr, i32 } %call5, 1
-  store i32 %4, ptr %3, align 8
+  %2 = getelementptr inbounds { ptr, i32 }, ptr %pollent_, i32 0, i32 0
+  %3 = extractvalue { ptr, i32 } %call5, 0
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i32 }, ptr %pollent_, i32 0, i32 1
+  %5 = extractvalue { ptr, i32 } %call5, 1
+  store i32 %5, ptr %4, align 8
   %args_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this1, i32 0, i32 8
   store ptr null, ptr %args_, align 8
   %bind_endpoint_to_pollset_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this1, i32 0, i32 9
   store i8 0, ptr %bind_endpoint_to_pollset_, align 8
   %interested_parties_6 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this1, i32 0, i32 6
-  %5 = load ptr, ptr %interested_parties_6, align 8
-  %cmp = icmp ne ptr %5, null
+  %6 = load ptr, ptr %interested_parties_6, align 8
+  %cmp = icmp ne ptr %6, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont4
   %pollent_7 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this1, i32 0, i32 7
   %interested_parties_8 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this1, i32 0, i32 6
-  %6 = load ptr, ptr %interested_parties_8, align 8
-  invoke void @_Z38grpc_polling_entity_add_to_pollset_setP19grpc_polling_entityP16grpc_pollset_set(ptr noundef %pollent_7, ptr noundef %6)
+  %7 = load ptr, ptr %interested_parties_8, align 8
+  invoke void @_Z38grpc_polling_entity_add_to_pollset_setP19grpc_polling_entityP16grpc_pollset_set(ptr noundef %pollent_7, ptr noundef %7)
           to label %invoke.cont9 unwind label %lpad2
 
 invoke.cont9:                                     ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %if.end, %if.then, %invoke.cont3, %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #3
   br label %ehcleanup
 
@@ -1159,7 +1164,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10RefCountedINS_10HandshakerENS_19PolymorphicRefCountENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core10HandshakerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core10HandshakerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1572,16 +1578,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %endpoint_to_destroy_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %endpoint_to_destroy_, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %endpoint_to_destroy_, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %endpoint_to_destroy_2 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %endpoint_to_destroy_2, align 8
-  invoke void @_Z21grpc_endpoint_destroyP13grpc_endpoint(ptr noundef %1)
+  %2 = load ptr, ptr %endpoint_to_destroy_2, align 8
+  invoke void @_Z21grpc_endpoint_destroyP13grpc_endpoint(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -1589,20 +1596,20 @@ invoke.cont:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont, %entry
   %read_buffer_to_destroy_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %read_buffer_to_destroy_, align 8
-  %cmp3 = icmp ne ptr %2, null
+  %3 = load ptr, ptr %read_buffer_to_destroy_, align 8
+  %cmp3 = icmp ne ptr %3, null
   br i1 %cmp3, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %if.end
   %read_buffer_to_destroy_5 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %read_buffer_to_destroy_5, align 8
-  invoke void @grpc_slice_buffer_destroy(ptr noundef %3)
+  %4 = load ptr, ptr %read_buffer_to_destroy_5, align 8
+  invoke void @grpc_slice_buffer_destroy(ptr noundef %4)
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %if.then4
   %read_buffer_to_destroy_7 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %read_buffer_to_destroy_7, align 8
-  invoke void @gpr_free(ptr noundef %4)
+  %5 = load ptr, ptr %read_buffer_to_destroy_7, align 8
+  invoke void @gpr_free(ptr noundef %5)
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -1610,8 +1617,8 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 
 if.end9:                                          ; preds = %invoke.cont8, %if.end
   %interested_parties_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this1, i32 0, i32 6
-  %5 = load ptr, ptr %interested_parties_, align 8
-  invoke void @_Z24grpc_pollset_set_destroyP16grpc_pollset_set(ptr noundef %5)
+  %6 = load ptr, ptr %interested_parties_, align 8
+  invoke void @_Z24grpc_pollset_set_destroyP16grpc_pollset_set(ptr noundef %6)
           to label %invoke.cont10 unwind label %terminate.lpad
 
 invoke.cont10:                                    ; preds = %if.end9
@@ -1621,10 +1628,10 @@ invoke.cont10:                                    ; preds = %if.end9
   ret void
 
 terminate.lpad:                                   ; preds = %if.end9, %invoke.cont6, %if.then4, %if.then
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #15
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #15
   unreachable
 }
 
@@ -2078,23 +2085,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_10HandshakerENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_10HandshakerENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted.59", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -2131,7 +2139,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3102,22 +3111,23 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN17grpc_event_engine12experimental14EndpointConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental25ChannelArgsEndpointConfigE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental25ChannelArgsEndpointConfigE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %args_ = getelementptr inbounds %"class.grpc_event_engine::experimental::ChannelArgsEndpointConfig", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %args.addr, align 8
-  invoke void @_ZN9grpc_core11ChannelArgsC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %args_, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %args.addr, align 8
+  invoke void @_ZN9grpc_core11ChannelArgsC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %args_, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN17grpc_event_engine12experimental14EndpointConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -3135,7 +3145,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental25ChannelArgsEndpointConfigE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental25ChannelArgsEndpointConfigE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %args_ = getelementptr inbounds %"class.grpc_event_engine::experimental::ChannelArgsEndpointConfig", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %args_) #3
   call void @_ZN17grpc_event_engine12experimental14EndpointConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -3214,7 +3225,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3236,7 +3248,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3473,7 +3486,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental14EndpointConfigE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental14EndpointConfigE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

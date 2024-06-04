@@ -96,11 +96,12 @@ define hidden void @_ZN4LIEF5MachO22ChainedBindingInfoListC2EOS1_(ptr noundef no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO18ChainedBindingInfoC2EOS1_(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %6)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF5MachO22ChainedBindingInfoListE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfoList", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfoList", ptr %8, i32 0, i32 1
-  call void @_ZNSt6vectorIPN4LIEF5MachO18ChainedBindingInfoESaIS3_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %9) #6
+  %7 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF5MachO22ChainedBindingInfoListE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfoList", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfoList", ptr %9, i32 0, i32 1
+  call void @_ZNSt6vectorIPN4LIEF5MachO18ChainedBindingInfoESaIS3_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10) #6
   ret void
 }
 
@@ -123,9 +124,10 @@ define hidden void @_ZN4LIEF5MachO22ChainedBindingInfoListD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF5MachO22ChainedBindingInfoListE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfoList", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIPN4LIEF5MachO18ChainedBindingInfoESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #6
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF5MachO22ChainedBindingInfoListE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfoList", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIPN4LIEF5MachO18ChainedBindingInfoESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #6
   call void @_ZN4LIEF5MachO18ChainedBindingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #6
   ret void
 }
@@ -187,9 +189,10 @@ define hidden void @_ZN4LIEF5MachO22ChainedBindingInfoListC2ENS0_19DYLD_CHAINED_
   %10 = load i8, ptr %6, align 1
   %11 = trunc i8 %10 to i1
   call void @_ZN4LIEF5MachO18ChainedBindingInfoC2ENS0_19DYLD_CHAINED_FORMATEb(ptr noundef nonnull align 8 dereferenceable(88) %8, i32 noundef %9, i1 noundef zeroext %11)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF5MachO22ChainedBindingInfoListE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %12 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfoList", ptr %8, i32 0, i32 1
-  call void @_ZNSt6vectorIPN4LIEF5MachO18ChainedBindingInfoESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #6
+  %12 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF5MachO22ChainedBindingInfoListE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %8, align 8
+  %13 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfoList", ptr %8, i32 0, i32 1
+  call void @_ZNSt6vectorIPN4LIEF5MachO18ChainedBindingInfoESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #6
   ret void
 }
 

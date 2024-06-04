@@ -3389,24 +3389,25 @@ define dso_local void @_ZN5BlockC2EPS_i(ptr noundef nonnull align 8 dereferencea
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 1, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV5Block, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorIP9StatementSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %10 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 2
+  %9 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV5Block, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorIP9StatementSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 3
-  call void @_ZNSt6vectorIP8VariableSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %12 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11eSimpleTypeSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
-  %13 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 7
-  store i8 0, ptr %13, align 2
-  %14 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 8
-  call void @_ZNSt6vectorIPK9StatementSaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
-  %15 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 9
-  store i8 0, ptr %15, align 8
-  %16 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 10
-  %17 = load i32, ptr %6, align 4
-  store i32 %17, ptr %16, align 4
+  %11 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 2
+  call void @_ZNSt6vectorIP9StatementSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 3
+  call void @_ZNSt6vectorIP8VariableSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %13 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11eSimpleTypeSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #3
+  %14 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 7
+  store i8 0, ptr %14, align 2
+  %15 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 8
+  call void @_ZNSt6vectorIPK9StatementSaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
+  %16 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 9
+  store i8 0, ptr %16, align 8
+  %17 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 10
+  %18 = load i32, ptr %6, align 4
+  store i32 %18, ptr %17, align 4
   ret void
 }
 
@@ -3460,99 +3461,100 @@ define dso_local void @_ZN5BlockD2Ev(ptr noundef nonnull align 8 dereferenceable
   %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   store ptr %0, ptr %2, align 8
   %9 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV5Block, i32 0, i32 0, i32 2), ptr %9, align 8
+  %10 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV5Block, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
   call void @_ZN9__gnu_cxx17__normal_iteratorIPP9StatementSt6vectorIS2_SaIS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %10 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 1
-  %11 = call ptr @_ZNSt6vectorIP9StatementSaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
-  store ptr %11, ptr %12, align 8
+  %11 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 1
+  %12 = call ptr @_ZNSt6vectorIP9StatementSaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %12, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 8, i1 false)
-  br label %13
+  br label %14
 
-13:                                               ; preds = %27, %1
-  %14 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 1
-  %15 = call ptr @_ZNSt6vectorIP9StatementSaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  store ptr %15, ptr %16, align 8
-  %17 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPP9StatementSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  br i1 %17, label %18, label %29
+14:                                               ; preds = %28, %1
+  %15 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 1
+  %16 = call ptr @_ZNSt6vectorIP9StatementSaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
+  %17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %16, ptr %17, align 8
+  %18 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPP9StatementSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br i1 %18, label %19, label %30
 
-18:                                               ; preds = %13
-  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPP9StatementSt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %26, label %22
+19:                                               ; preds = %14
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPP9StatementSt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %27, label %23
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 1
-  %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  br label %26
-
-26:                                               ; preds = %22, %18
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %21, align 8
+  %25 = getelementptr inbounds ptr, ptr %24, i64 1
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
   br label %27
 
-27:                                               ; preds = %26
-  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPP9StatementSt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  br label %13, !llvm.loop !13
+27:                                               ; preds = %23, %19
+  br label %28
 
-29:                                               ; preds = %13
-  %30 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 1
-  call void @_ZNSt6vectorIP9StatementSaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
+28:                                               ; preds = %27
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPP9StatementSt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  br label %14, !llvm.loop !13
+
+30:                                               ; preds = %14
+  %31 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 1
+  call void @_ZNSt6vectorIP9StatementSaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #3
   call void @_ZN9__gnu_cxx17__normal_iteratorIPP9StatementSt6vectorIS2_SaIS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %31 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 2
-  %32 = call ptr @_ZNSt6vectorIP9StatementSaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #3
-  %33 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
-  store ptr %32, ptr %33, align 8
+  %32 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 2
+  %33 = call ptr @_ZNSt6vectorIP9StatementSaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #3
+  %34 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  store ptr %33, ptr %34, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
-  br label %34
+  br label %35
 
-34:                                               ; preds = %48, %29
-  %35 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 2
-  %36 = call ptr @_ZNSt6vectorIP9StatementSaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %35) #3
-  %37 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
-  store ptr %36, ptr %37, align 8
-  %38 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPP9StatementSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  br i1 %38, label %39, label %50
+35:                                               ; preds = %49, %30
+  %36 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 2
+  %37 = call ptr @_ZNSt6vectorIP9StatementSaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #3
+  %38 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
+  store ptr %37, ptr %38, align 8
+  %39 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPP9StatementSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br i1 %39, label %40, label %51
 
-39:                                               ; preds = %34
-  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPP9StatementSt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %47, label %43
+40:                                               ; preds = %35
+  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPP9StatementSt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %48, label %44
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %41, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 1
-  %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(32) %41) #3
-  br label %47
-
-47:                                               ; preds = %43, %39
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %42, align 8
+  %46 = getelementptr inbounds ptr, ptr %45, i64 1
+  %47 = load ptr, ptr %46, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(32) %42) #3
   br label %48
 
-48:                                               ; preds = %47
-  %49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPP9StatementSt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  br label %34, !llvm.loop !14
+48:                                               ; preds = %44, %40
+  br label %49
 
-50:                                               ; preds = %34
-  %51 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 2
-  call void @_ZNSt6vectorIP9StatementSaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %51) #3
-  %52 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 3
-  call void @_ZNSt6vectorIP8VariableSaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %52) #3
-  %53 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11eSimpleTypeSt4lessIS5_ESaISt4pairIKS5_S6_EEE5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %53) #3
-  %54 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 8
-  call void @_ZNSt6vectorIPK9StatementSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #3
-  %55 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11eSimpleTypeSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %55) #3
-  %56 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 3
-  call void @_ZNSt6vectorIP8VariableSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %56) #3
-  %57 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 2
-  call void @_ZNSt6vectorIP9StatementSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #3
-  %58 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 1
+49:                                               ; preds = %48
+  %50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPP9StatementSt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  br label %35, !llvm.loop !14
+
+51:                                               ; preds = %35
+  %52 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 2
+  call void @_ZNSt6vectorIP9StatementSaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %52) #3
+  %53 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 3
+  call void @_ZNSt6vectorIP8VariableSaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %53) #3
+  %54 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11eSimpleTypeSt4lessIS5_ESaISt4pairIKS5_S6_EEE5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %54) #3
+  %55 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 8
+  call void @_ZNSt6vectorIPK9StatementSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #3
+  %56 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11eSimpleTypeSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %56) #3
+  %57 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 3
+  call void @_ZNSt6vectorIP8VariableSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #3
+  %58 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 2
   call void @_ZNSt6vectorIP9StatementSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %58) #3
+  %59 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 1
+  call void @_ZNSt6vectorIP9StatementSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %59) #3
   call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   ret void
 }

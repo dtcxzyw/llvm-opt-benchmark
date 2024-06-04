@@ -149,7 +149,7 @@ define internal i32 @v2_read_file_info(ptr noundef %0, i32 noundef %1) #2 align 
 19:                                               ; preds = %15, %2
   %20 = phi i32 [ 0, %2 ], [ %18, %15 ]
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %103, label %22
+  br i1 %21, label %104, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %4, i64 4
@@ -159,13 +159,13 @@ define internal i32 @v2_read_file_info(ptr noundef %0, i32 noundef %1) #2 align 
   %27 = icmp eq i32 %26, 2
   %28 = icmp ne i32 %24, 0
   %29 = select i1 %27, i1 %28, i1 false
-  br i1 %29, label %103, label %30
+  br i1 %29, label %104, label %30
 
 30:                                               ; preds = %22
   %31 = icmp eq i32 %26, 4
   %32 = icmp ne i32 %24, 1
   %33 = select i1 %31, i1 %32, i1 false
-  br i1 %33, label %103, label %34
+  br i1 %33, label %104, label %34
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %9, align 16
@@ -180,112 +180,113 @@ define internal i32 @v2_read_file_info(ptr noundef %0, i32 noundef %1) #2 align 
   %41 = icmp slt i64 %38, 0
   %42 = trunc i64 %38 to i32
   %43 = select i1 %41, i32 %42, i32 -5
-  br label %103
+  br label %104
 
 44:                                               ; preds = %34
-  %45 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %46 = call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %45, i32 noundef 3136, i64 noundef 48) #9
-  %47 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr %46, ptr %47, align 8
-  %48 = icmp eq ptr %46, null
-  br i1 %48, label %103, label %49
+  %45 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %46 = load ptr, ptr %45, align 16
+  %47 = call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %46, i32 noundef 3136, i64 noundef 48) #9
+  %48 = getelementptr inbounds i8, ptr %7, i64 64
+  store ptr %47, ptr %48, align 8
+  %49 = icmp eq ptr %47, null
+  br i1 %49, label %104, label %50
 
-49:                                               ; preds = %44
-  %50 = icmp eq i32 %24, 0
-  %51 = getelementptr inbounds i8, ptr %7, i64 48
-  %52 = getelementptr inbounds i8, ptr %7, i64 56
-  %53 = select i1 %50, i64 4398046510080, i64 9223372036854775807
-  %54 = select i1 %50, i64 4294967295, i64 9223372036854775807
-  store i64 %53, ptr %51, align 8
+50:                                               ; preds = %44
+  %51 = icmp eq i32 %24, 0
+  %52 = getelementptr inbounds i8, ptr %7, i64 48
+  %53 = getelementptr inbounds i8, ptr %7, i64 56
+  %54 = select i1 %51, i64 4398046510080, i64 9223372036854775807
+  %55 = select i1 %51, i64 4294967295, i64 9223372036854775807
   store i64 %54, ptr %52, align 8
-  %55 = load i32, ptr %3, align 4
-  %56 = getelementptr inbounds i8, ptr %7, i64 40
-  store i32 %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %3, i64 4
-  %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %7, i64 44
-  store i32 %58, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %7, i64 32
-  store i64 0, ptr %60, align 8
-  store ptr %0, ptr %46, align 8
-  %61 = getelementptr inbounds i8, ptr %46, i64 8
-  store i32 %1, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %3, i64 12
-  %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %46, i64 12
-  store i32 %63, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %3, i64 16
-  %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %46, i64 16
-  store i32 %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %3, i64 20
-  %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %46, i64 20
-  store i32 %69, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %46, i64 24
-  store i32 10, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %46, i64 32
-  store i32 1024, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %46, i64 36
-  store i32 4, ptr %73, align 4
-  %74 = select i1 %50, i32 48, i32 72
-  %75 = select i1 %50, ptr @v2r0_qtree_ops, ptr @v2r1_qtree_ops
-  %76 = getelementptr inbounds i8, ptr %46, i64 28
-  store i32 %74, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %46, i64 40
-  store ptr %75, ptr %77, align 8
-  %78 = load i32, ptr %64, align 4
-  %79 = zext i32 %78 to i64
-  %80 = load i32, ptr %71, align 8
-  %81 = zext nneg i32 %80 to i64
-  %82 = shl i64 %79, %81
-  %83 = getelementptr inbounds i8, ptr %0, i64 304
-  %84 = getelementptr [3 x ptr], ptr %83, i64 0, i64 %6
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 80
-  %87 = load i64, ptr %86, align 8
-  %88 = icmp sgt i64 %82, %87
-  br i1 %88, label %89, label %90
+  store i64 %55, ptr %53, align 8
+  %56 = load i32, ptr %3, align 4
+  %57 = getelementptr inbounds i8, ptr %7, i64 40
+  store i32 %56, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %3, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = getelementptr inbounds i8, ptr %7, i64 44
+  store i32 %59, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %7, i64 32
+  store i64 0, ptr %61, align 8
+  store ptr %0, ptr %47, align 8
+  %62 = getelementptr inbounds i8, ptr %47, i64 8
+  store i32 %1, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %3, i64 12
+  %64 = load i32, ptr %63, align 4
+  %65 = getelementptr inbounds i8, ptr %47, i64 12
+  store i32 %64, ptr %65, align 4
+  %66 = getelementptr inbounds i8, ptr %3, i64 16
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds i8, ptr %47, i64 16
+  store i32 %67, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %3, i64 20
+  %70 = load i32, ptr %69, align 4
+  %71 = getelementptr inbounds i8, ptr %47, i64 20
+  store i32 %70, ptr %71, align 4
+  %72 = getelementptr inbounds i8, ptr %47, i64 24
+  store i32 10, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %47, i64 32
+  store i32 1024, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %47, i64 36
+  store i32 4, ptr %74, align 4
+  %75 = select i1 %51, i32 48, i32 72
+  %76 = select i1 %51, ptr @v2r0_qtree_ops, ptr @v2r1_qtree_ops
+  %77 = getelementptr inbounds i8, ptr %47, i64 28
+  store i32 %75, ptr %77, align 4
+  %78 = getelementptr inbounds i8, ptr %47, i64 40
+  store ptr %76, ptr %78, align 8
+  %79 = load i32, ptr %65, align 4
+  %80 = zext i32 %79 to i64
+  %81 = load i32, ptr %72, align 8
+  %82 = zext nneg i32 %81 to i64
+  %83 = shl i64 %80, %82
+  %84 = getelementptr inbounds i8, ptr %0, i64 304
+  %85 = getelementptr [3 x ptr], ptr %84, i64 0, i64 %6
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 80
+  %88 = load i64, ptr %87, align 8
+  %89 = icmp sgt i64 %83, %88
+  br i1 %89, label %90, label %91
 
-89:                                               ; preds = %49
-  call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %0, ptr noundef nonnull @__func__.v2_read_file_info, ptr noundef nonnull @.str.2, i64 noundef %82, i64 noundef %87) #8
-  br label %98
+90:                                               ; preds = %50
+  call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %0, ptr noundef nonnull @__func__.v2_read_file_info, ptr noundef nonnull @.str.2, i64 noundef %83, i64 noundef %88) #8
+  br label %99
 
-90:                                               ; preds = %49
-  %91 = load i32, ptr %67, align 8
-  %92 = icmp ult i32 %91, %78
-  br i1 %92, label %94, label %93
+91:                                               ; preds = %50
+  %92 = load i32, ptr %68, align 8
+  %93 = icmp ult i32 %92, %79
+  br i1 %93, label %95, label %94
 
-93:                                               ; preds = %90
-  call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %0, ptr noundef nonnull @__func__.v2_read_file_info, ptr noundef nonnull @.str.3, i32 noundef %91, i32 noundef %78) #8
-  br label %98
+94:                                               ; preds = %91
+  call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %0, ptr noundef nonnull @__func__.v2_read_file_info, ptr noundef nonnull @.str.3, i32 noundef %92, i32 noundef %79) #8
+  br label %99
 
-94:                                               ; preds = %90
-  %95 = load i32, ptr %70, align 4
-  %96 = icmp ult i32 %95, %78
-  br i1 %96, label %98, label %97
+95:                                               ; preds = %91
+  %96 = load i32, ptr %71, align 4
+  %97 = icmp ult i32 %96, %79
+  br i1 %97, label %99, label %98
 
-97:                                               ; preds = %94
-  call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %0, ptr noundef nonnull @__func__.v2_read_file_info, ptr noundef nonnull @.str.4, i32 noundef %95, i32 noundef %78) #8
-  br label %98
+98:                                               ; preds = %95
+  call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %0, ptr noundef nonnull @__func__.v2_read_file_info, ptr noundef nonnull @.str.4, i32 noundef %96, i32 noundef %79) #8
+  br label %99
 
-98:                                               ; preds = %97, %94, %93, %89
-  %99 = phi i1 [ false, %89 ], [ false, %93 ], [ false, %97 ], [ true, %94 ]
-  %100 = phi i32 [ -117, %89 ], [ -117, %93 ], [ -117, %97 ], [ 0, %94 ]
-  br i1 %99, label %103, label %101
+99:                                               ; preds = %98, %95, %94, %90
+  %100 = phi i1 [ false, %90 ], [ false, %94 ], [ false, %98 ], [ true, %95 ]
+  %101 = phi i32 [ -117, %90 ], [ -117, %94 ], [ -117, %98 ], [ 0, %95 ]
+  br i1 %100, label %104, label %102
 
-101:                                              ; preds = %98
-  %102 = load ptr, ptr %47, align 8
-  call void @kfree(ptr noundef %102) #8
-  store ptr null, ptr %47, align 8
-  br label %103
+102:                                              ; preds = %99
+  %103 = load ptr, ptr %48, align 8
+  call void @kfree(ptr noundef %103) #8
+  store ptr null, ptr %48, align 8
+  br label %104
 
-103:                                              ; preds = %101, %98, %44, %40, %30, %22, %19
-  %104 = phi i32 [ %20, %19 ], [ %100, %101 ], [ 0, %98 ], [ -22, %30 ], [ -22, %22 ], [ -12, %44 ], [ %43, %40 ]
+104:                                              ; preds = %102, %99, %44, %40, %30, %22, %19
+  %105 = phi i32 [ %20, %19 ], [ %101, %102 ], [ 0, %99 ], [ -22, %30 ], [ -22, %22 ], [ -12, %44 ], [ %43, %40 ]
   call void @up_read(ptr noundef %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
-  ret i32 %104
+  ret i32 %105
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

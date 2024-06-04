@@ -198,8 +198,10 @@ define internal void @mcpe_init_message_names() #0 {
   br label %2, !llvm.loop !4
 
 30:                                               ; preds = %2
-  store i32 0, ptr getelementptr inbounds ([4 x %struct._value_string], ptr @mcpe_packet_names, i64 0, i64 3), align 16
-  store ptr null, ptr getelementptr inbounds ([4 x %struct._value_string], ptr @mcpe_packet_names, i64 0, i64 3, i32 1), align 8
+  %31 = getelementptr inbounds [4 x %struct._value_string], ptr @mcpe_packet_names, i64 0, i64 3
+  store i32 0, ptr %31, align 16
+  %32 = getelementptr inbounds [4 x %struct._value_string], ptr @mcpe_packet_names, i64 0, i64 3, i32 1
+  store ptr null, ptr %32, align 8
   ret void
 }
 

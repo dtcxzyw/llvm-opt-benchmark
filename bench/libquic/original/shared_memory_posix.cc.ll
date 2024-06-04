@@ -3329,27 +3329,28 @@ if.end6:                                          ; preds = %if.end4
   store ptr %call9, ptr %memory_10, align 8
   %memory_11 = getelementptr inbounds %"class.base::SharedMemory", ptr %this1, i32 0, i32 3
   %7 = load ptr, ptr %memory_11, align 8
-  %cmp12 = icmp ne ptr %7, inttoptr (i64 -1 to ptr)
+  %8 = inttoptr i64 -1 to ptr
+  %cmp12 = icmp ne ptr %7, %8
   br i1 %cmp12, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end6
   %memory_13 = getelementptr inbounds %"class.base::SharedMemory", ptr %this1, i32 0, i32 3
-  %8 = load ptr, ptr %memory_13, align 8
-  %cmp14 = icmp ne ptr %8, null
+  %9 = load ptr, ptr %memory_13, align 8
+  %cmp14 = icmp ne ptr %9, null
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end6
-  %9 = phi i1 [ false, %if.end6 ], [ %cmp14, %land.rhs ]
-  %frombool = zext i1 %9 to i8
+  %10 = phi i1 [ false, %if.end6 ], [ %cmp14, %land.rhs ]
+  %frombool = zext i1 %10 to i8
   store i8 %frombool, ptr %mmap_succeeded, align 1
-  %10 = load i8, ptr %mmap_succeeded, align 1
-  %tobool15 = trunc i8 %10 to i1
+  %11 = load i8, ptr %mmap_succeeded, align 1
+  %tobool15 = trunc i8 %11 to i1
   br i1 %tobool15, label %if.then16, label %if.else22
 
 if.then16:                                        ; preds = %land.end
-  %11 = load i64, ptr %bytes.addr, align 8
+  %12 = load i64, ptr %bytes.addr, align 8
   %mapped_size_ = getelementptr inbounds %"class.base::SharedMemory", ptr %this1, i32 0, i32 2
-  store i64 %11, ptr %mapped_size_, align 8
+  store i64 %12, ptr %mapped_size_, align 8
   call void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %true_if_passed, ptr noundef null)
   %call17 = call noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %true_if_passed)
   br i1 %call17, label %if.then18, label %if.else
@@ -3368,12 +3369,12 @@ invoke.cont:                                      ; preds = %if.else
   br label %if.end21
 
 lpad:                                             ; preds = %if.else
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp) #11
   br label %eh.resume
 
@@ -3386,14 +3387,14 @@ if.else22:                                        ; preds = %land.end
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else22, %if.end21
-  %15 = load i8, ptr %mmap_succeeded, align 1
-  %tobool25 = trunc i8 %15 to i1
+  %16 = load i8, ptr %mmap_succeeded, align 1
+  %tobool25 = trunc i8 %16 to i1
   store i1 %tobool25, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end24, %if.then5, %if.then3, %if.then
-  %16 = load i1, ptr %retval, align 1
-  ret i1 %16
+  %17 = load i1, ptr %retval, align 1
+  ret i1 %17
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8

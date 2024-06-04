@@ -364,15 +364,16 @@ define dso_local void @SUBTRANSShmemInit() #0 {
   br label %14
 
 14:                                               ; preds = %13, %0
-  store ptr @SubTransPagePrecedes, ptr getelementptr inbounds (%struct.SlruCtlData, ptr @SubTransCtlData, i32 0, i32 4), align 8
-  %15 = call i32 @SUBTRANSShmemBuffers()
-  call void @SimpleLruInit(ptr noundef @SubTransCtlData, ptr noundef @.str.4, i32 noundef %15, i32 noundef 0, ptr noundef @.str.5, i32 noundef 55, i32 noundef 89, i32 noundef 5, i1 noundef zeroext false)
-  br label %16
-
-16:                                               ; preds = %14
+  %15 = getelementptr inbounds %struct.SlruCtlData, ptr @SubTransCtlData, i32 0, i32 4
+  store ptr @SubTransPagePrecedes, ptr %15, align 8
+  %16 = call i32 @SUBTRANSShmemBuffers()
+  call void @SimpleLruInit(ptr noundef @SubTransCtlData, ptr noundef @.str.4, i32 noundef %16, i32 noundef 0, ptr noundef @.str.5, i32 noundef 55, i32 noundef 89, i32 noundef 5, i1 noundef zeroext false)
   br label %17
 
-17:                                               ; preds = %16
+17:                                               ; preds = %14
+  br label %18
+
+18:                                               ; preds = %17
   ret void
 }
 

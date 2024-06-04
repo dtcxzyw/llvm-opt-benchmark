@@ -319,43 +319,44 @@ define internal void @AutoVacLauncherMain(i32 noundef %0, ptr noundef %1) #3 {
   %33 = call ptr @pqsignal(i32 noundef 2, ptr noundef @StatementCancelHandler)
   %34 = call ptr @pqsignal(i32 noundef 15, ptr noundef @SignalHandlerForShutdownRequest)
   call void @InitializeTimeouts()
-  %35 = call ptr @pqsignal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %36 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
-  %37 = call ptr @pqsignal(i32 noundef 12, ptr noundef @avl_sigusr2_handler)
-  %38 = call ptr @pqsignal(i32 noundef 8, ptr noundef @FloatExceptionHandler)
-  %39 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
+  %35 = inttoptr i64 1 to ptr
+  %36 = call ptr @pqsignal(i32 noundef 13, ptr noundef %35)
+  %37 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
+  %38 = call ptr @pqsignal(i32 noundef 12, ptr noundef @avl_sigusr2_handler)
+  %39 = call ptr @pqsignal(i32 noundef 8, ptr noundef @FloatExceptionHandler)
+  %40 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
   call void @InitProcess()
   call void @BaseInit()
   call void @InitPostgres(ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
-  br label %40
-
-40:                                               ; preds = %31
-  store i32 2, ptr @Mode, align 4
   br label %41
 
-41:                                               ; preds = %40
+41:                                               ; preds = %31
+  store i32 2, ptr @Mode, align 4
   br label %42
 
 42:                                               ; preds = %41
   br label %43
 
 43:                                               ; preds = %42
-  store i32 1, ptr %6, align 4
-  %44 = load ptr, ptr @TopMemoryContext, align 8
-  %45 = call ptr @AllocSetContextCreateInternal(ptr noundef %44, ptr noundef @.str.11, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
-  store ptr %45, ptr @AutovacMemCxt, align 8
-  %46 = load ptr, ptr @AutovacMemCxt, align 8
-  %47 = call ptr @MemoryContextSwitchTo(ptr noundef %46)
-  %48 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %5, i64 0, i64 0
-  %49 = call i32 @__sigsetjmp(ptr noundef %48, i32 noundef 1) #13
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %51, label %69
+  br label %44
 
-51:                                               ; preds = %43
+44:                                               ; preds = %43
+  store i32 1, ptr %6, align 4
+  %45 = load ptr, ptr @TopMemoryContext, align 8
+  %46 = call ptr @AllocSetContextCreateInternal(ptr noundef %45, ptr noundef @.str.11, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
+  store ptr %46, ptr @AutovacMemCxt, align 8
+  %47 = load ptr, ptr @AutovacMemCxt, align 8
+  %48 = call ptr @MemoryContextSwitchTo(ptr noundef %47)
+  %49 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %5, i64 0, i64 0
+  %50 = call i32 @__sigsetjmp(ptr noundef %49, i32 noundef 1) #13
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %70
+
+52:                                               ; preds = %44
   store ptr null, ptr @error_context_stack, align 8
-  %52 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %53 = add i32 %52, 1
-  store volatile i32 %53, ptr @InterruptHoldoffCount, align 4
+  %53 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %54 = add i32 %53, 1
+  store volatile i32 %54, ptr @InterruptHoldoffCount, align 4
   call void @disable_all_timeouts(i1 noundef zeroext false)
   store volatile i32 0, ptr @QueryCancelPending, align 4
   call void @EmitErrorReport()
@@ -363,50 +364,50 @@ define internal void @AutoVacLauncherMain(i32 noundef %0, ptr noundef %1) #3 {
   call void @LWLockReleaseAll()
   call void @pgstat_report_wait_end()
   call void @UnlockBuffers()
-  %54 = load ptr, ptr @AuxProcessResourceOwner, align 8
-  %55 = icmp ne ptr %54, null
-  br i1 %55, label %56, label %57
+  %55 = load ptr, ptr @AuxProcessResourceOwner, align 8
+  %56 = icmp ne ptr %55, null
+  br i1 %56, label %57, label %58
 
-56:                                               ; preds = %51
+57:                                               ; preds = %52
   call void @ReleaseAuxProcessResources(i1 noundef zeroext false)
-  br label %57
+  br label %58
 
-57:                                               ; preds = %56, %51
+58:                                               ; preds = %57, %52
   call void @AtEOXact_Buffers(i1 noundef zeroext false)
   call void @AtEOXact_SMgr()
   call void @AtEOXact_Files(i1 noundef zeroext false)
   call void @AtEOXact_HashTables(i1 noundef zeroext false)
-  %58 = load ptr, ptr @AutovacMemCxt, align 8
-  %59 = call ptr @MemoryContextSwitchTo(ptr noundef %58)
+  %59 = load ptr, ptr @AutovacMemCxt, align 8
+  %60 = call ptr @MemoryContextSwitchTo(ptr noundef %59)
   call void @FlushErrorState()
-  %60 = load ptr, ptr @AutovacMemCxt, align 8
-  call void @MemoryContextReset(ptr noundef %60)
+  %61 = load ptr, ptr @AutovacMemCxt, align 8
+  call void @MemoryContextReset(ptr noundef %61)
   store ptr null, ptr @DatabaseListCxt, align 8
   call void @dlist_init(ptr noundef @DatabaseList)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %57
-  %62 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %63 = add i32 %62, -1
-  store volatile i32 %63, ptr @InterruptHoldoffCount, align 4
-  br label %64
+62:                                               ; preds = %58
+  %63 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %64 = add i32 %63, -1
+  store volatile i32 %64, ptr @InterruptHoldoffCount, align 4
+  br label %65
 
-64:                                               ; preds = %61
-  %65 = load volatile i32, ptr @ShutdownRequestPending, align 4
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %67, label %68
+65:                                               ; preds = %62
+  %66 = load volatile i32, ptr @ShutdownRequestPending, align 4
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %69
 
-67:                                               ; preds = %64
+68:                                               ; preds = %65
   call void @AutoVacLauncherShutdown() #12
   unreachable
 
-68:                                               ; preds = %64
+69:                                               ; preds = %65
   call void @pg_usleep(i64 noundef 1000000)
-  br label %69
+  br label %70
 
-69:                                               ; preds = %68, %43
+70:                                               ; preds = %69, %44
   store ptr %5, ptr @PG_exception_stack, align 8
-  %70 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #14
+  %71 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #14
   call void @SetConfigOption(ptr noundef @.str.12, ptr noundef @.str.13, i32 noundef 5, i32 noundef 10)
   call void @SetConfigOption(ptr noundef @.str.14, ptr noundef @.str.15, i32 noundef 5, i32 noundef 10)
   call void @SetConfigOption(ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef 5, i32 noundef 10)
@@ -415,272 +416,272 @@ define internal void @AutoVacLauncherMain(i32 noundef %0, ptr noundef %1) #3 {
   call void @SetConfigOption(ptr noundef @.str.20, ptr noundef @.str.17, i32 noundef 5, i32 noundef 10)
   call void @SetConfigOption(ptr noundef @.str.21, ptr noundef @.str.22, i32 noundef 5, i32 noundef 10)
   call void @SetConfigOption(ptr noundef @.str.23, ptr noundef @.str.24, i32 noundef 5, i32 noundef 10)
-  %71 = call zeroext i1 @AutoVacuumingActive()
-  br i1 %71, label %78, label %72
+  %72 = call zeroext i1 @AutoVacuumingActive()
+  br i1 %72, label %79, label %73
 
-72:                                               ; preds = %69
-  %73 = load volatile i32, ptr @ShutdownRequestPending, align 4
-  %74 = icmp ne i32 %73, 0
-  br i1 %74, label %77, label %75
+73:                                               ; preds = %70
+  %74 = load volatile i32, ptr @ShutdownRequestPending, align 4
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %78, label %76
 
-75:                                               ; preds = %72
-  %76 = call i32 @do_start_worker()
-  br label %77
+76:                                               ; preds = %73
+  %77 = call i32 @do_start_worker()
+  br label %78
 
-77:                                               ; preds = %75, %72
+78:                                               ; preds = %76, %73
   call void @proc_exit(i32 noundef 0) #12
   unreachable
 
-78:                                               ; preds = %69
-  %79 = load i32, ptr @MyProcPid, align 4
-  %80 = load ptr, ptr @AutoVacuumShmem, align 8
-  %81 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %80, i32 0, i32 1
-  store i32 %79, ptr %81, align 8
+79:                                               ; preds = %70
+  %80 = load i32, ptr @MyProcPid, align 4
+  %81 = load ptr, ptr @AutoVacuumShmem, align 8
+  %82 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %81, i32 0, i32 1
+  store i32 %80, ptr %82, align 8
   call void @rebuild_database_list(i32 noundef 0)
-  br label %82
+  br label %83
 
-82:                                               ; preds = %225, %208, %124, %78
-  %83 = load volatile i32, ptr @ShutdownRequestPending, align 4
-  %84 = icmp ne i32 %83, 0
-  %85 = xor i1 %84, true
-  br i1 %85, label %86, label %226
+83:                                               ; preds = %226, %209, %125, %79
+  %84 = load volatile i32, ptr @ShutdownRequestPending, align 4
+  %85 = icmp ne i32 %84, 0
+  %86 = xor i1 %85, true
+  br i1 %86, label %87, label %227
 
-86:                                               ; preds = %82
+87:                                               ; preds = %83
   store i64 0, ptr %8, align 8
-  %87 = load ptr, ptr @AutoVacuumShmem, align 8
-  %88 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %87, i32 0, i32 2
-  %89 = call zeroext i1 @dlist_is_empty(ptr noundef %88)
-  %90 = xor i1 %89, true
-  call void @launcher_determine_sleep(i1 noundef zeroext %90, i1 noundef zeroext false, ptr noundef %7)
-  %91 = load ptr, ptr @MyLatch, align 8
-  %92 = getelementptr inbounds %struct.timeval, ptr %7, i32 0, i32 0
-  %93 = load i64, ptr %92, align 8
-  %94 = mul i64 %93, 1000
-  %95 = getelementptr inbounds %struct.timeval, ptr %7, i32 0, i32 1
-  %96 = load i64, ptr %95, align 8
-  %97 = sdiv i64 %96, 1000
-  %98 = add i64 %94, %97
-  %99 = call i32 @WaitLatch(ptr noundef %91, i32 noundef 41, i64 noundef %98, i32 noundef 83886081)
-  %100 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %100)
+  %88 = load ptr, ptr @AutoVacuumShmem, align 8
+  %89 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %88, i32 0, i32 2
+  %90 = call zeroext i1 @dlist_is_empty(ptr noundef %89)
+  %91 = xor i1 %90, true
+  call void @launcher_determine_sleep(i1 noundef zeroext %91, i1 noundef zeroext false, ptr noundef %7)
+  %92 = load ptr, ptr @MyLatch, align 8
+  %93 = getelementptr inbounds %struct.timeval, ptr %7, i32 0, i32 0
+  %94 = load i64, ptr %93, align 8
+  %95 = mul i64 %94, 1000
+  %96 = getelementptr inbounds %struct.timeval, ptr %7, i32 0, i32 1
+  %97 = load i64, ptr %96, align 8
+  %98 = sdiv i64 %97, 1000
+  %99 = add i64 %95, %98
+  %100 = call i32 @WaitLatch(ptr noundef %92, i32 noundef 41, i64 noundef %99, i32 noundef 83886081)
+  %101 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %101)
   call void @HandleAutoVacLauncherInterrupts()
-  %101 = load volatile i32, ptr @got_SIGUSR2, align 4
-  %102 = icmp ne i32 %101, 0
-  br i1 %102, label %103, label %129
+  %102 = load volatile i32, ptr @got_SIGUSR2, align 4
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %104, label %130
 
-103:                                              ; preds = %86
+104:                                              ; preds = %87
   store volatile i32 0, ptr @got_SIGUSR2, align 4
-  %104 = load ptr, ptr @AutoVacuumShmem, align 8
-  %105 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %104, i32 0, i32 0
-  %106 = getelementptr [2 x i32], ptr %105, i64 0, i64 1
-  %107 = load i32, ptr %106, align 4
-  %108 = icmp ne i32 %107, 0
-  br i1 %108, label %109, label %118
+  %105 = load ptr, ptr @AutoVacuumShmem, align 8
+  %106 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %105, i32 0, i32 0
+  %107 = getelementptr [2 x i32], ptr %106, i64 0, i64 1
+  %108 = load i32, ptr %107, align 4
+  %109 = icmp ne i32 %108, 0
+  br i1 %109, label %110, label %119
 
-109:                                              ; preds = %103
-  %110 = load ptr, ptr @MainLWLockArray, align 8
-  %111 = getelementptr %union.LWLockPadded, ptr %110, i64 22
-  %112 = call zeroext i1 @LWLockAcquire(ptr noundef %111, i32 noundef 0)
-  %113 = load ptr, ptr @AutoVacuumShmem, align 8
-  %114 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %113, i32 0, i32 0
-  %115 = getelementptr [2 x i32], ptr %114, i64 0, i64 1
-  store i32 0, ptr %115, align 4
+110:                                              ; preds = %104
+  %111 = load ptr, ptr @MainLWLockArray, align 8
+  %112 = getelementptr %union.LWLockPadded, ptr %111, i64 22
+  %113 = call zeroext i1 @LWLockAcquire(ptr noundef %112, i32 noundef 0)
+  %114 = load ptr, ptr @AutoVacuumShmem, align 8
+  %115 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %114, i32 0, i32 0
+  %116 = getelementptr [2 x i32], ptr %115, i64 0, i64 1
+  store i32 0, ptr %116, align 4
   call void @autovac_recalculate_workers_for_balance()
-  %116 = load ptr, ptr @MainLWLockArray, align 8
-  %117 = getelementptr %union.LWLockPadded, ptr %116, i64 22
-  call void @LWLockRelease(ptr noundef %117)
-  br label %118
+  %117 = load ptr, ptr @MainLWLockArray, align 8
+  %118 = getelementptr %union.LWLockPadded, ptr %117, i64 22
+  call void @LWLockRelease(ptr noundef %118)
+  br label %119
 
-118:                                              ; preds = %109, %103
-  %119 = load ptr, ptr @AutoVacuumShmem, align 8
-  %120 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %119, i32 0, i32 0
-  %121 = getelementptr [2 x i32], ptr %120, i64 0, i64 0
-  %122 = load i32, ptr %121, align 8
-  %123 = icmp ne i32 %122, 0
-  br i1 %123, label %124, label %128
+119:                                              ; preds = %110, %104
+  %120 = load ptr, ptr @AutoVacuumShmem, align 8
+  %121 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %120, i32 0, i32 0
+  %122 = getelementptr [2 x i32], ptr %121, i64 0, i64 0
+  %123 = load i32, ptr %122, align 8
+  %124 = icmp ne i32 %123, 0
+  br i1 %124, label %125, label %129
 
-124:                                              ; preds = %118
-  %125 = load ptr, ptr @AutoVacuumShmem, align 8
-  %126 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %125, i32 0, i32 0
-  %127 = getelementptr [2 x i32], ptr %126, i64 0, i64 0
-  store i32 0, ptr %127, align 8
+125:                                              ; preds = %119
+  %126 = load ptr, ptr @AutoVacuumShmem, align 8
+  %127 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %126, i32 0, i32 0
+  %128 = getelementptr [2 x i32], ptr %127, i64 0, i64 0
+  store i32 0, ptr %128, align 8
   call void @pg_usleep(i64 noundef 1000000)
   call void @SendPostmasterSignal(i32 noundef 4)
-  br label %82, !llvm.loop !5
+  br label %83, !llvm.loop !5
 
-128:                                              ; preds = %118
-  br label %129
+129:                                              ; preds = %119
+  br label %130
 
-129:                                              ; preds = %128, %86
-  %130 = call i64 @GetCurrentTimestamp()
-  store i64 %130, ptr %8, align 8
-  %131 = load ptr, ptr @MainLWLockArray, align 8
-  %132 = getelementptr %union.LWLockPadded, ptr %131, i64 22
-  %133 = call zeroext i1 @LWLockAcquire(ptr noundef %132, i32 noundef 1)
-  %134 = load ptr, ptr @AutoVacuumShmem, align 8
-  %135 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %134, i32 0, i32 2
-  %136 = call zeroext i1 @dlist_is_empty(ptr noundef %135)
-  %137 = xor i1 %136, true
-  %138 = zext i1 %137 to i8
-  store i8 %138, ptr %9, align 1
-  %139 = load ptr, ptr @AutoVacuumShmem, align 8
-  %140 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %139, i32 0, i32 4
-  %141 = load ptr, ptr %140, align 8
-  %142 = icmp ne ptr %141, null
-  br i1 %142, label %143, label %203
+130:                                              ; preds = %129, %87
+  %131 = call i64 @GetCurrentTimestamp()
+  store i64 %131, ptr %8, align 8
+  %132 = load ptr, ptr @MainLWLockArray, align 8
+  %133 = getelementptr %union.LWLockPadded, ptr %132, i64 22
+  %134 = call zeroext i1 @LWLockAcquire(ptr noundef %133, i32 noundef 1)
+  %135 = load ptr, ptr @AutoVacuumShmem, align 8
+  %136 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %135, i32 0, i32 2
+  %137 = call zeroext i1 @dlist_is_empty(ptr noundef %136)
+  %138 = xor i1 %137, true
+  %139 = zext i1 %138 to i8
+  store i8 %139, ptr %9, align 1
+  %140 = load ptr, ptr @AutoVacuumShmem, align 8
+  %141 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %140, i32 0, i32 4
+  %142 = load ptr, ptr %141, align 8
+  %143 = icmp ne ptr %142, null
+  br i1 %143, label %144, label %204
 
-143:                                              ; preds = %129
-  %144 = load ptr, ptr @AutoVacuumShmem, align 8
-  %145 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %144, i32 0, i32 4
-  %146 = load ptr, ptr %145, align 8
-  store ptr %146, ptr %11, align 8
-  %147 = load i32, ptr @autovacuum_naptime, align 4
-  %148 = icmp slt i32 %147, 60
-  br i1 %148, label %149, label %151
+144:                                              ; preds = %130
+  %145 = load ptr, ptr @AutoVacuumShmem, align 8
+  %146 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %145, i32 0, i32 4
+  %147 = load ptr, ptr %146, align 8
+  store ptr %147, ptr %11, align 8
+  %148 = load i32, ptr @autovacuum_naptime, align 4
+  %149 = icmp slt i32 %148, 60
+  br i1 %149, label %150, label %152
 
-149:                                              ; preds = %143
-  %150 = load i32, ptr @autovacuum_naptime, align 4
-  br label %152
+150:                                              ; preds = %144
+  %151 = load i32, ptr @autovacuum_naptime, align 4
+  br label %153
 
-151:                                              ; preds = %143
-  br label %152
+152:                                              ; preds = %144
+  br label %153
 
-152:                                              ; preds = %151, %149
-  %153 = phi i32 [ %150, %149 ], [ 60, %151 ]
-  %154 = mul i32 %153, 1000
-  store i32 %154, ptr %10, align 4
-  %155 = load ptr, ptr %11, align 8
-  %156 = getelementptr inbounds %struct.WorkerInfoData, ptr %155, i32 0, i32 4
-  %157 = load i64, ptr %156, align 8
-  %158 = load i64, ptr %8, align 8
-  %159 = load i32, ptr %10, align 4
-  %160 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %157, i64 noundef %158, i32 noundef %159)
-  br i1 %160, label %161, label %201
+153:                                              ; preds = %152, %150
+  %154 = phi i32 [ %151, %150 ], [ 60, %152 ]
+  %155 = mul i32 %154, 1000
+  store i32 %155, ptr %10, align 4
+  %156 = load ptr, ptr %11, align 8
+  %157 = getelementptr inbounds %struct.WorkerInfoData, ptr %156, i32 0, i32 4
+  %158 = load i64, ptr %157, align 8
+  %159 = load i64, ptr %8, align 8
+  %160 = load i32, ptr %10, align 4
+  %161 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %158, i64 noundef %159, i32 noundef %160)
+  br i1 %161, label %162, label %202
 
-161:                                              ; preds = %152
-  %162 = load ptr, ptr @MainLWLockArray, align 8
-  %163 = getelementptr %union.LWLockPadded, ptr %162, i64 22
-  call void @LWLockRelease(ptr noundef %163)
-  %164 = load ptr, ptr @MainLWLockArray, align 8
-  %165 = getelementptr %union.LWLockPadded, ptr %164, i64 22
-  %166 = call zeroext i1 @LWLockAcquire(ptr noundef %165, i32 noundef 0)
-  %167 = load ptr, ptr @AutoVacuumShmem, align 8
-  %168 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %167, i32 0, i32 4
-  %169 = load ptr, ptr %168, align 8
-  %170 = icmp ne ptr %169, null
-  br i1 %170, label %171, label %200
+162:                                              ; preds = %153
+  %163 = load ptr, ptr @MainLWLockArray, align 8
+  %164 = getelementptr %union.LWLockPadded, ptr %163, i64 22
+  call void @LWLockRelease(ptr noundef %164)
+  %165 = load ptr, ptr @MainLWLockArray, align 8
+  %166 = getelementptr %union.LWLockPadded, ptr %165, i64 22
+  %167 = call zeroext i1 @LWLockAcquire(ptr noundef %166, i32 noundef 0)
+  %168 = load ptr, ptr @AutoVacuumShmem, align 8
+  %169 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %168, i32 0, i32 4
+  %170 = load ptr, ptr %169, align 8
+  %171 = icmp ne ptr %170, null
+  br i1 %171, label %172, label %201
 
-171:                                              ; preds = %161
-  %172 = load ptr, ptr @AutoVacuumShmem, align 8
-  %173 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %172, i32 0, i32 4
-  %174 = load ptr, ptr %173, align 8
-  store ptr %174, ptr %11, align 8
-  %175 = load ptr, ptr %11, align 8
-  %176 = getelementptr inbounds %struct.WorkerInfoData, ptr %175, i32 0, i32 1
-  store i32 0, ptr %176, align 8
-  %177 = load ptr, ptr %11, align 8
-  %178 = getelementptr inbounds %struct.WorkerInfoData, ptr %177, i32 0, i32 2
-  store i32 0, ptr %178, align 4
-  %179 = load ptr, ptr %11, align 8
-  %180 = getelementptr inbounds %struct.WorkerInfoData, ptr %179, i32 0, i32 6
-  store i8 0, ptr %180, align 1
-  %181 = load ptr, ptr %11, align 8
-  %182 = getelementptr inbounds %struct.WorkerInfoData, ptr %181, i32 0, i32 3
-  store ptr null, ptr %182, align 8
-  %183 = load ptr, ptr %11, align 8
-  %184 = getelementptr inbounds %struct.WorkerInfoData, ptr %183, i32 0, i32 4
-  store i64 0, ptr %184, align 8
-  %185 = load ptr, ptr @AutoVacuumShmem, align 8
-  %186 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %185, i32 0, i32 2
-  %187 = load ptr, ptr %11, align 8
-  %188 = getelementptr inbounds %struct.WorkerInfoData, ptr %187, i32 0, i32 0
-  call void @dlist_push_head(ptr noundef %186, ptr noundef %188)
-  %189 = load ptr, ptr @AutoVacuumShmem, align 8
-  %190 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %189, i32 0, i32 4
-  store ptr null, ptr %190, align 8
-  br label %191
+172:                                              ; preds = %162
+  %173 = load ptr, ptr @AutoVacuumShmem, align 8
+  %174 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %173, i32 0, i32 4
+  %175 = load ptr, ptr %174, align 8
+  store ptr %175, ptr %11, align 8
+  %176 = load ptr, ptr %11, align 8
+  %177 = getelementptr inbounds %struct.WorkerInfoData, ptr %176, i32 0, i32 1
+  store i32 0, ptr %177, align 8
+  %178 = load ptr, ptr %11, align 8
+  %179 = getelementptr inbounds %struct.WorkerInfoData, ptr %178, i32 0, i32 2
+  store i32 0, ptr %179, align 4
+  %180 = load ptr, ptr %11, align 8
+  %181 = getelementptr inbounds %struct.WorkerInfoData, ptr %180, i32 0, i32 6
+  store i8 0, ptr %181, align 1
+  %182 = load ptr, ptr %11, align 8
+  %183 = getelementptr inbounds %struct.WorkerInfoData, ptr %182, i32 0, i32 3
+  store ptr null, ptr %183, align 8
+  %184 = load ptr, ptr %11, align 8
+  %185 = getelementptr inbounds %struct.WorkerInfoData, ptr %184, i32 0, i32 4
+  store i64 0, ptr %185, align 8
+  %186 = load ptr, ptr @AutoVacuumShmem, align 8
+  %187 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %186, i32 0, i32 2
+  %188 = load ptr, ptr %11, align 8
+  %189 = getelementptr inbounds %struct.WorkerInfoData, ptr %188, i32 0, i32 0
+  call void @dlist_push_head(ptr noundef %187, ptr noundef %189)
+  %190 = load ptr, ptr @AutoVacuumShmem, align 8
+  %191 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %190, i32 0, i32 4
+  store ptr null, ptr %191, align 8
+  br label %192
 
-191:                                              ; preds = %171
-  br i1 false, label %192, label %194
+192:                                              ; preds = %172
+  br i1 false, label %193, label %195
 
-192:                                              ; preds = %191
-  %193 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #11
-  br i1 %193, label %196, label %198
+193:                                              ; preds = %192
+  %194 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #11
+  br i1 %194, label %197, label %199
 
-194:                                              ; preds = %191
-  %195 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
-  br i1 %195, label %196, label %198
+195:                                              ; preds = %192
+  %196 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
+  br i1 %196, label %197, label %199
 
-196:                                              ; preds = %194, %192
-  %197 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.25)
+197:                                              ; preds = %195, %193
+  %198 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.25)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 753, ptr noundef @__func__.AutoVacLauncherMain)
-  br label %198
-
-198:                                              ; preds = %196, %194, %192
   br label %199
 
-199:                                              ; preds = %198
+199:                                              ; preds = %197, %195, %193
   br label %200
 
-200:                                              ; preds = %199, %161
-  br label %202
+200:                                              ; preds = %199
+  br label %201
 
-201:                                              ; preds = %152
-  store i8 0, ptr %9, align 1
-  br label %202
-
-202:                                              ; preds = %201, %200
+201:                                              ; preds = %200, %162
   br label %203
 
-203:                                              ; preds = %202, %129
-  %204 = load ptr, ptr @MainLWLockArray, align 8
-  %205 = getelementptr %union.LWLockPadded, ptr %204, i64 22
-  call void @LWLockRelease(ptr noundef %205)
-  %206 = load i8, ptr %9, align 1
-  %207 = trunc i8 %206 to i1
-  br i1 %207, label %209, label %208
+202:                                              ; preds = %153
+  store i8 0, ptr %9, align 1
+  br label %203
 
-208:                                              ; preds = %203
-  br label %82, !llvm.loop !5
+203:                                              ; preds = %202, %201
+  br label %204
 
-209:                                              ; preds = %203
-  %210 = call zeroext i1 @dlist_is_empty(ptr noundef @DatabaseList)
-  br i1 %210, label %211, label %213
+204:                                              ; preds = %203, %130
+  %205 = load ptr, ptr @MainLWLockArray, align 8
+  %206 = getelementptr %union.LWLockPadded, ptr %205, i64 22
+  call void @LWLockRelease(ptr noundef %206)
+  %207 = load i8, ptr %9, align 1
+  %208 = trunc i8 %207 to i1
+  br i1 %208, label %210, label %209
 
-211:                                              ; preds = %209
-  %212 = load i64, ptr %8, align 8
-  call void @launch_worker(i64 noundef %212)
-  br label %225
+209:                                              ; preds = %204
+  br label %83, !llvm.loop !5
 
-213:                                              ; preds = %209
-  br label %214
+210:                                              ; preds = %204
+  %211 = call zeroext i1 @dlist_is_empty(ptr noundef @DatabaseList)
+  br i1 %211, label %212, label %214
 
-214:                                              ; preds = %213
+212:                                              ; preds = %210
+  %213 = load i64, ptr %8, align 8
+  call void @launch_worker(i64 noundef %213)
+  br label %226
+
+214:                                              ; preds = %210
   br label %215
 
 215:                                              ; preds = %214
+  br label %216
+
+216:                                              ; preds = %215
   store i32 1, ptr %13, align 4
-  %216 = call ptr @dlist_tail_element_off(ptr noundef @DatabaseList, i64 noundef 24)
-  store ptr %216, ptr %12, align 8
-  %217 = load ptr, ptr %12, align 8
-  %218 = getelementptr inbounds %struct.avl_dbase, ptr %217, i32 0, i32 1
-  %219 = load i64, ptr %218, align 8
-  %220 = load i64, ptr %8, align 8
-  %221 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %219, i64 noundef %220, i32 noundef 0)
-  br i1 %221, label %222, label %224
+  %217 = call ptr @dlist_tail_element_off(ptr noundef @DatabaseList, i64 noundef 24)
+  store ptr %217, ptr %12, align 8
+  %218 = load ptr, ptr %12, align 8
+  %219 = getelementptr inbounds %struct.avl_dbase, ptr %218, i32 0, i32 1
+  %220 = load i64, ptr %219, align 8
+  %221 = load i64, ptr %8, align 8
+  %222 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %220, i64 noundef %221, i32 noundef 0)
+  br i1 %222, label %223, label %225
 
-222:                                              ; preds = %215
-  %223 = load i64, ptr %8, align 8
-  call void @launch_worker(i64 noundef %223)
-  br label %224
-
-224:                                              ; preds = %222, %215
+223:                                              ; preds = %216
+  %224 = load i64, ptr %8, align 8
+  call void @launch_worker(i64 noundef %224)
   br label %225
 
-225:                                              ; preds = %224, %211
-  br label %82, !llvm.loop !5
+225:                                              ; preds = %223, %216
+  br label %226
 
-226:                                              ; preds = %82
+226:                                              ; preds = %225, %212
+  br label %83, !llvm.loop !5
+
+227:                                              ; preds = %83
   call void @AutoVacLauncherShutdown() #12
   unreachable
 }
@@ -770,30 +771,32 @@ define internal void @AutoVacWorkerMain(i32 noundef %0, ptr noundef %1) #3 {
   %11 = call ptr @pqsignal(i32 noundef 2, ptr noundef @StatementCancelHandler)
   %12 = call ptr @pqsignal(i32 noundef 15, ptr noundef @die)
   call void @InitializeTimeouts()
-  %13 = call ptr @pqsignal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %14 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
-  %15 = call ptr @pqsignal(i32 noundef 12, ptr noundef inttoptr (i64 1 to ptr))
-  %16 = call ptr @pqsignal(i32 noundef 8, ptr noundef @FloatExceptionHandler)
-  %17 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
+  %13 = inttoptr i64 1 to ptr
+  %14 = call ptr @pqsignal(i32 noundef 13, ptr noundef %13)
+  %15 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
+  %16 = inttoptr i64 1 to ptr
+  %17 = call ptr @pqsignal(i32 noundef 12, ptr noundef %16)
+  %18 = call ptr @pqsignal(i32 noundef 8, ptr noundef @FloatExceptionHandler)
+  %19 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
   call void @InitProcess()
   call void @BaseInit()
-  %18 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %5, i64 0, i64 0
-  %19 = call i32 @__sigsetjmp(ptr noundef %18, i32 noundef 1) #13
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %21, label %24
+  %20 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %5, i64 0, i64 0
+  %21 = call i32 @__sigsetjmp(ptr noundef %20, i32 noundef 1) #13
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %26
 
-21:                                               ; preds = %9
+23:                                               ; preds = %9
   store ptr null, ptr @error_context_stack, align 8
-  %22 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %23 = add i32 %22, 1
-  store volatile i32 %23, ptr @InterruptHoldoffCount, align 4
+  %24 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %25 = add i32 %24, 1
+  store volatile i32 %25, ptr @InterruptHoldoffCount, align 4
   call void @EmitErrorReport()
   call void @proc_exit(i32 noundef 0) #12
   unreachable
 
-24:                                               ; preds = %9
+26:                                               ; preds = %9
   store ptr %5, ptr @PG_exception_stack, align 8
-  %25 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #14
+  %27 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #14
   call void @SetConfigOption(ptr noundef @.str.12, ptr noundef @.str.13, i32 noundef 5, i32 noundef 10)
   call void @SetConfigOption(ptr noundef @.str.14, ptr noundef @.str.15, i32 noundef 5, i32 noundef 10)
   call void @SetConfigOption(ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef 5, i32 noundef 10)
@@ -801,158 +804,158 @@ define internal void @AutoVacWorkerMain(i32 noundef %0, ptr noundef %1) #3 {
   call void @SetConfigOption(ptr noundef @.str.19, ptr noundef @.str.17, i32 noundef 5, i32 noundef 10)
   call void @SetConfigOption(ptr noundef @.str.20, ptr noundef @.str.17, i32 noundef 5, i32 noundef 10)
   call void @SetConfigOption(ptr noundef @.str.21, ptr noundef @.str.22, i32 noundef 5, i32 noundef 10)
-  %26 = load i32, ptr @synchronous_commit, align 4
-  %27 = icmp sgt i32 %26, 1
-  br i1 %27, label %28, label %29
+  %28 = load i32, ptr @synchronous_commit, align 4
+  %29 = icmp sgt i32 %28, 1
+  br i1 %29, label %30, label %31
 
-28:                                               ; preds = %24
+30:                                               ; preds = %26
   call void @SetConfigOption(ptr noundef @.str.32, ptr noundef @.str.33, i32 noundef 5, i32 noundef 10)
-  br label %29
+  br label %31
 
-29:                                               ; preds = %28, %24
+31:                                               ; preds = %30, %26
   call void @SetConfigOption(ptr noundef @.str.23, ptr noundef @.str.24, i32 noundef 5, i32 noundef 10)
-  %30 = load ptr, ptr @MainLWLockArray, align 8
-  %31 = getelementptr %union.LWLockPadded, ptr %30, i64 22
-  %32 = call zeroext i1 @LWLockAcquire(ptr noundef %31, i32 noundef 0)
-  %33 = load ptr, ptr @AutoVacuumShmem, align 8
-  %34 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %33, i32 0, i32 4
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %65
+  %32 = load ptr, ptr @MainLWLockArray, align 8
+  %33 = getelementptr %union.LWLockPadded, ptr %32, i64 22
+  %34 = call zeroext i1 @LWLockAcquire(ptr noundef %33, i32 noundef 0)
+  %35 = load ptr, ptr @AutoVacuumShmem, align 8
+  %36 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %35, i32 0, i32 4
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %67
 
-37:                                               ; preds = %29
-  %38 = load ptr, ptr @AutoVacuumShmem, align 8
-  %39 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %38, i32 0, i32 4
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr @MyWorkerInfo, align 8
-  %41 = load ptr, ptr @MyWorkerInfo, align 8
-  %42 = getelementptr inbounds %struct.WorkerInfoData, ptr %41, i32 0, i32 1
-  %43 = load i32, ptr %42, align 8
-  store i32 %43, ptr %6, align 4
-  %44 = load ptr, ptr @MyProc, align 8
-  %45 = load ptr, ptr @MyWorkerInfo, align 8
-  %46 = getelementptr inbounds %struct.WorkerInfoData, ptr %45, i32 0, i32 3
-  store ptr %44, ptr %46, align 8
-  %47 = load ptr, ptr @AutoVacuumShmem, align 8
-  %48 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %47, i32 0, i32 3
-  %49 = load ptr, ptr @MyWorkerInfo, align 8
-  %50 = getelementptr inbounds %struct.WorkerInfoData, ptr %49, i32 0, i32 0
-  call void @dlist_push_head(ptr noundef %48, ptr noundef %50)
-  %51 = load ptr, ptr @AutoVacuumShmem, align 8
-  %52 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %51, i32 0, i32 4
-  store ptr null, ptr %52, align 8
-  %53 = load ptr, ptr @MainLWLockArray, align 8
-  %54 = getelementptr %union.LWLockPadded, ptr %53, i64 22
-  call void @LWLockRelease(ptr noundef %54)
+39:                                               ; preds = %31
+  %40 = load ptr, ptr @AutoVacuumShmem, align 8
+  %41 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %40, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr @MyWorkerInfo, align 8
+  %43 = load ptr, ptr @MyWorkerInfo, align 8
+  %44 = getelementptr inbounds %struct.WorkerInfoData, ptr %43, i32 0, i32 1
+  %45 = load i32, ptr %44, align 8
+  store i32 %45, ptr %6, align 4
+  %46 = load ptr, ptr @MyProc, align 8
+  %47 = load ptr, ptr @MyWorkerInfo, align 8
+  %48 = getelementptr inbounds %struct.WorkerInfoData, ptr %47, i32 0, i32 3
+  store ptr %46, ptr %48, align 8
+  %49 = load ptr, ptr @AutoVacuumShmem, align 8
+  %50 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %49, i32 0, i32 3
+  %51 = load ptr, ptr @MyWorkerInfo, align 8
+  %52 = getelementptr inbounds %struct.WorkerInfoData, ptr %51, i32 0, i32 0
+  call void @dlist_push_head(ptr noundef %50, ptr noundef %52)
+  %53 = load ptr, ptr @AutoVacuumShmem, align 8
+  %54 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %53, i32 0, i32 4
+  store ptr null, ptr %54, align 8
+  %55 = load ptr, ptr @MainLWLockArray, align 8
+  %56 = getelementptr %union.LWLockPadded, ptr %55, i64 22
+  call void @LWLockRelease(ptr noundef %56)
   call void @on_shmem_exit(ptr noundef @FreeWorkerInfo, i64 noundef 0)
-  %55 = load ptr, ptr @AutoVacuumShmem, align 8
-  %56 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %55, i32 0, i32 1
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp ne i32 %57, 0
-  br i1 %58, label %59, label %64
+  %57 = load ptr, ptr @AutoVacuumShmem, align 8
+  %58 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %57, i32 0, i32 1
+  %59 = load i32, ptr %58, align 8
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %61, label %66
 
-59:                                               ; preds = %37
-  %60 = load ptr, ptr @AutoVacuumShmem, align 8
-  %61 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %60, i32 0, i32 1
-  %62 = load i32, ptr %61, align 8
-  %63 = call i32 @kill(i32 noundef %62, i32 noundef 12) #14
-  br label %64
-
-64:                                               ; preds = %59, %37
-  br label %77
-
-65:                                               ; preds = %29
+61:                                               ; preds = %39
+  %62 = load ptr, ptr @AutoVacuumShmem, align 8
+  %63 = getelementptr inbounds %struct.AutoVacuumShmemStruct, ptr %62, i32 0, i32 1
+  %64 = load i32, ptr %63, align 8
+  %65 = call i32 @kill(i32 noundef %64, i32 noundef 12) #14
   br label %66
 
-66:                                               ; preds = %65
-  br i1 false, label %67, label %69
+66:                                               ; preds = %61, %39
+  br label %79
 
-67:                                               ; preds = %66
-  %68 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #11
-  br i1 %68, label %71, label %73
+67:                                               ; preds = %31
+  br label %68
 
-69:                                               ; preds = %66
-  %70 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
-  br i1 %70, label %71, label %73
+68:                                               ; preds = %67
+  br i1 false, label %69, label %71
 
-71:                                               ; preds = %69, %67
-  %72 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.34)
+69:                                               ; preds = %68
+  %70 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #11
+  br i1 %70, label %73, label %75
+
+71:                                               ; preds = %68
+  %72 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
+  br i1 %72, label %73, label %75
+
+73:                                               ; preds = %71, %69
+  %74 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.34)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 1655, ptr noundef @__func__.AutoVacWorkerMain)
-  br label %73
+  br label %75
 
-73:                                               ; preds = %71, %69, %67
-  br label %74
+75:                                               ; preds = %73, %71, %69
+  br label %76
 
-74:                                               ; preds = %73
+76:                                               ; preds = %75
   store i32 0, ptr %6, align 4
-  %75 = load ptr, ptr @MainLWLockArray, align 8
-  %76 = getelementptr %union.LWLockPadded, ptr %75, i64 22
-  call void @LWLockRelease(ptr noundef %76)
-  br label %77
+  %77 = load ptr, ptr @MainLWLockArray, align 8
+  %78 = getelementptr %union.LWLockPadded, ptr %77, i64 22
+  call void @LWLockRelease(ptr noundef %78)
+  br label %79
 
-77:                                               ; preds = %74, %64
-  %78 = load i32, ptr %6, align 4
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %106
+79:                                               ; preds = %76, %66
+  %80 = load i32, ptr %6, align 4
+  %81 = icmp ne i32 %80, 0
+  br i1 %81, label %82, label %108
 
-80:                                               ; preds = %77
-  %81 = load i32, ptr %6, align 4
-  call void @pgstat_report_autovac(i32 noundef %81)
-  %82 = load i32, ptr %6, align 4
-  %83 = getelementptr inbounds [64 x i8], ptr %7, i64 0, i64 0
-  call void @InitPostgres(ptr noundef null, i32 noundef %82, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %83)
-  br label %84
+82:                                               ; preds = %79
+  %83 = load i32, ptr %6, align 4
+  call void @pgstat_report_autovac(i32 noundef %83)
+  %84 = load i32, ptr %6, align 4
+  %85 = getelementptr inbounds [64 x i8], ptr %7, i64 0, i64 0
+  call void @InitPostgres(ptr noundef null, i32 noundef %84, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %85)
+  br label %86
 
-84:                                               ; preds = %80
+86:                                               ; preds = %82
   store i32 2, ptr @Mode, align 4
-  br label %85
-
-85:                                               ; preds = %84
-  %86 = getelementptr inbounds [64 x i8], ptr %7, i64 0, i64 0
-  call void @set_ps_display(ptr noundef %86)
   br label %87
 
-87:                                               ; preds = %85
-  br i1 false, label %88, label %90
+87:                                               ; preds = %86
+  %88 = getelementptr inbounds [64 x i8], ptr %7, i64 0, i64 0
+  call void @set_ps_display(ptr noundef %88)
+  br label %89
 
-88:                                               ; preds = %87
-  %89 = call zeroext i1 @errstart_cold(i32 noundef 14, ptr noundef null) #11
-  br i1 %89, label %92, label %95
+89:                                               ; preds = %87
+  br i1 false, label %90, label %92
 
-90:                                               ; preds = %87
-  %91 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null)
-  br i1 %91, label %92, label %95
+90:                                               ; preds = %89
+  %91 = call zeroext i1 @errstart_cold(i32 noundef 14, ptr noundef null) #11
+  br i1 %91, label %94, label %97
 
-92:                                               ; preds = %90, %88
-  %93 = getelementptr inbounds [64 x i8], ptr %7, i64 0, i64 0
-  %94 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.35, ptr noundef %93)
+92:                                               ; preds = %89
+  %93 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null)
+  br i1 %93, label %94, label %97
+
+94:                                               ; preds = %92, %90
+  %95 = getelementptr inbounds [64 x i8], ptr %7, i64 0, i64 0
+  %96 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.35, ptr noundef %95)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 1684, ptr noundef @__func__.AutoVacWorkerMain)
-  br label %95
+  br label %97
 
-95:                                               ; preds = %92, %90, %88
-  br label %96
+97:                                               ; preds = %94, %92, %90
+  br label %98
 
-96:                                               ; preds = %95
-  %97 = load i32, ptr @PostAuthDelay, align 4
-  %98 = icmp ne i32 %97, 0
-  br i1 %98, label %99, label %103
+98:                                               ; preds = %97
+  %99 = load i32, ptr @PostAuthDelay, align 4
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %105
 
-99:                                               ; preds = %96
-  %100 = load i32, ptr @PostAuthDelay, align 4
-  %101 = sext i32 %100 to i64
-  %102 = mul i64 %101, 1000000
-  call void @pg_usleep(i64 noundef %102)
-  br label %103
+101:                                              ; preds = %98
+  %102 = load i32, ptr @PostAuthDelay, align 4
+  %103 = sext i32 %102 to i64
+  %104 = mul i64 %103, 1000000
+  call void @pg_usleep(i64 noundef %104)
+  br label %105
 
-103:                                              ; preds = %99, %96
-  %104 = call i32 @ReadNextTransactionId()
-  store i32 %104, ptr @recentXid, align 4
-  %105 = call i32 @ReadNextMultiXactId()
-  store i32 %105, ptr @recentMulti, align 4
+105:                                              ; preds = %101, %98
+  %106 = call i32 @ReadNextTransactionId()
+  store i32 %106, ptr @recentXid, align 4
+  %107 = call i32 @ReadNextMultiXactId()
+  store i32 %107, ptr @recentMulti, align 4
   call void @do_autovacuum()
-  br label %106
+  br label %108
 
-106:                                              ; preds = %103, %77
+108:                                              ; preds = %105, %79
   call void @proc_exit(i32 noundef 0) #12
   unreachable
 }

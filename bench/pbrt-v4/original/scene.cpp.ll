@@ -8184,10 +8184,11 @@ entry:
   store ptr %scene, ptr %scene.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt12ParserTargetC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1) #5
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN4pbrt17BasicSceneBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %0 = getelementptr inbounds { [43 x ptr] }, ptr @_ZTVN4pbrt17BasicSceneBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 64
   %scene2 = getelementptr inbounds %"class.pbrt::BasicSceneBuilder", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %scene.addr, align 8
-  store ptr %0, ptr %scene2, align 16
+  %1 = load ptr, ptr %scene.addr, align 8
+  store ptr %1, ptr %scene2, align 16
   %currentBlock = getelementptr inbounds %"class.pbrt::BasicSceneBuilder", ptr %this1, i32 0, i32 2
   store i32 0, ptr %currentBlock, align 8
   %graphicsState = getelementptr inbounds %"class.pbrt::BasicSceneBuilder", ptr %this1, i32 0, i32 4
@@ -8205,8 +8206,8 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %transformCache = getelementptr inbounds %"class.pbrt::BasicSceneBuilder", ptr %this1, i32 0, i32 8
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #5
   %coerce.dive = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator", ptr %agg.tmp, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive, align 8
-  invoke void @_ZN4pbrt11InternCacheINS_9TransformESt4hashIS1_EEC2EN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 64 dereferenceable(168) %transformCache, ptr %1)
+  %2 = load ptr, ptr %coerce.dive, align 8
+  invoke void @_ZN4pbrt11InternCacheINS_9TransformESt4hashIS1_EEC2EN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 64 dereferenceable(168) %transformCache, ptr %2)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -8377,8 +8378,8 @@ invoke.cont86:                                    ; preds = %invoke.cont84
           to label %invoke.cont95 unwind label %lpad94
 
 invoke.cont95:                                    ; preds = %invoke.cont86
-  %2 = load ptr, ptr @_ZN4pbrt13RGBColorSpace4sRGBE, align 8
-  invoke void @_ZN4pbrt19ParameterDictionaryC1ENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS3_EEEEPKNS_13RGBColorSpaceE(ptr noundef nonnull align 8 dereferenceable(108) %ref.tmp91, ptr noundef %agg.tmp92, ptr noundef %2)
+  %3 = load ptr, ptr @_ZN4pbrt13RGBColorSpace4sRGBE, align 8
+  invoke void @_ZN4pbrt19ParameterDictionaryC1ENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS3_EEEEPKNS_13RGBColorSpaceE(ptr noundef nonnull align 8 dereferenceable(108) %ref.tmp91, ptr noundef %agg.tmp92, ptr noundef %3)
           to label %invoke.cont97 unwind label %lpad96
 
 invoke.cont97:                                    ; preds = %invoke.cont95
@@ -8395,13 +8396,13 @@ invoke.cont100:                                   ; preds = %invoke.cont97
           to label %invoke.cont106 unwind label %lpad94
 
 invoke.cont106:                                   ; preds = %invoke.cont100
-  %3 = load ptr, ptr @_ZN4pbrt13RGBColorSpace4sRGBE, align 8
-  invoke void @_ZN4pbrt19ParameterDictionaryC1ENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS3_EEEEPKNS_13RGBColorSpaceE(ptr noundef nonnull align 8 dereferenceable(108) %dict, ptr noundef %agg.tmp104, ptr noundef %3)
+  %4 = load ptr, ptr @_ZN4pbrt13RGBColorSpace4sRGBE, align 8
+  invoke void @_ZN4pbrt19ParameterDictionaryC1ENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS3_EEEEPKNS_13RGBColorSpaceE(ptr noundef nonnull align 8 dereferenceable(108) %dict, ptr noundef %agg.tmp104, ptr noundef %4)
           to label %invoke.cont108 unwind label %lpad107
 
 invoke.cont108:                                   ; preds = %invoke.cont106
   call void @_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %agg.tmp104) #5
-  %4 = load ptr, ptr %scene.addr, align 8
+  %5 = load ptr, ptr %scene.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp112) #5
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp111, ptr noundef @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp112)
           to label %invoke.cont114 unwind label %lpad113
@@ -8417,7 +8418,7 @@ invoke.cont117:                                   ; preds = %invoke.cont114
           to label %invoke.cont120 unwind label %lpad119
 
 invoke.cont120:                                   ; preds = %invoke.cont117
-  %call123 = invoke noundef i32 @_ZN4pbrt10BasicScene11AddMaterialENS_11SceneEntityE(ptr noundef nonnull align 8 dereferenceable(1520) %4, ptr noundef %agg.tmp110)
+  %call123 = invoke noundef i32 @_ZN4pbrt10BasicScene11AddMaterialENS_11SceneEntityE(ptr noundef nonnull align 8 dereferenceable(1520) %5, ptr noundef %agg.tmp110)
           to label %invoke.cont122 unwind label %lpad121
 
 invoke.cont122:                                   ; preds = %invoke.cont120
@@ -8431,93 +8432,93 @@ invoke.cont122:                                   ; preds = %invoke.cont120
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup148
 
 lpad3:                                            ; preds = %invoke.cont4, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup146
 
 lpad6:                                            ; preds = %invoke.cont5
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup136
 
 lpad8:                                            ; preds = %invoke.cont7
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup135
 
 lpad10:                                           ; preds = %invoke.cont9
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   br label %ehcleanup134
 
 lpad12:                                           ; preds = %invoke.cont11
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   br label %ehcleanup133
 
 lpad14:                                           ; preds = %invoke.cont13
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   br label %ehcleanup132
 
 lpad16:                                           ; preds = %invoke.cont15
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   br label %ehcleanup131
 
 lpad20:                                           ; preds = %invoke.cont17
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %exn.slot, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %ehselector.slot, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %exn.slot, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad22:                                           ; preds = %invoke.cont23, %invoke.cont21
-  %32 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %exn.slot, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %ehselector.slot, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %exn.slot, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #5
   br label %ehcleanup
 
@@ -8526,21 +8527,21 @@ ehcleanup:                                        ; preds = %lpad22, %lpad20
   br label %ehcleanup130
 
 lpad29:                                           ; preds = %invoke.cont24
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %exn.slot, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %ehselector.slot, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %exn.slot, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %ehselector.slot, align 4
   br label %ehcleanup38
 
 lpad31:                                           ; preds = %invoke.cont32, %invoke.cont30
-  %38 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %exn.slot, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %ehselector.slot, align 4
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %exn.slot, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #5
   br label %ehcleanup38
 
@@ -8549,21 +8550,21 @@ ehcleanup38:                                      ; preds = %lpad31, %lpad29
   br label %ehcleanup130
 
 lpad42:                                           ; preds = %invoke.cont34
-  %41 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %exn.slot, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %ehselector.slot, align 4
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %exn.slot, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %ehselector.slot, align 4
   br label %ehcleanup51
 
 lpad44:                                           ; preds = %invoke.cont45, %invoke.cont43
-  %44 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %exn.slot, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %ehselector.slot, align 4
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %exn.slot, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #5
   br label %ehcleanup51
 
@@ -8572,21 +8573,21 @@ ehcleanup51:                                      ; preds = %lpad44, %lpad42
   br label %ehcleanup130
 
 lpad55:                                           ; preds = %invoke.cont47
-  %47 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %exn.slot, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %ehselector.slot, align 4
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %exn.slot, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %ehselector.slot, align 4
   br label %ehcleanup64
 
 lpad57:                                           ; preds = %invoke.cont58, %invoke.cont56
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %exn.slot, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %ehselector.slot, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %exn.slot, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53) #5
   br label %ehcleanup64
 
@@ -8595,21 +8596,21 @@ ehcleanup64:                                      ; preds = %lpad57, %lpad55
   br label %ehcleanup130
 
 lpad68:                                           ; preds = %invoke.cont60
-  %53 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %exn.slot, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %ehselector.slot, align 4
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %exn.slot, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %ehselector.slot, align 4
   br label %ehcleanup77
 
 lpad70:                                           ; preds = %invoke.cont71, %invoke.cont69
-  %56 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %exn.slot, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %ehselector.slot, align 4
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %exn.slot, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66) #5
   br label %ehcleanup77
 
@@ -8618,21 +8619,21 @@ ehcleanup77:                                      ; preds = %lpad70, %lpad68
   br label %ehcleanup130
 
 lpad81:                                           ; preds = %invoke.cont73
-  %59 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %exn.slot, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %ehselector.slot, align 4
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %exn.slot, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %ehselector.slot, align 4
   br label %ehcleanup90
 
 lpad83:                                           ; preds = %invoke.cont84, %invoke.cont82
-  %62 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %exn.slot, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %ehselector.slot, align 4
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %exn.slot, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79) #5
   br label %ehcleanup90
 
@@ -8641,30 +8642,30 @@ ehcleanup90:                                      ; preds = %lpad83, %lpad81
   br label %ehcleanup130
 
 lpad94:                                           ; preds = %invoke.cont100, %invoke.cont86
-  %65 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %exn.slot, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %ehselector.slot, align 4
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %exn.slot, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %ehselector.slot, align 4
   br label %ehcleanup130
 
 lpad96:                                           ; preds = %invoke.cont95
-  %68 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %exn.slot, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %ehselector.slot, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %exn.slot, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %ehselector.slot, align 4
   br label %ehcleanup103
 
 lpad99:                                           ; preds = %invoke.cont97
-  %71 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
-  %72 = extractvalue { ptr, i32 } %71, 0
-  store ptr %72, ptr %exn.slot, align 8
-  %73 = extractvalue { ptr, i32 } %71, 1
-  store i32 %73, ptr %ehselector.slot, align 4
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %exn.slot, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %ehselector.slot, align 4
   call void @_ZN4pbrt19ParameterDictionaryD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %ref.tmp91) #5
   br label %ehcleanup103
 
@@ -8673,49 +8674,49 @@ ehcleanup103:                                     ; preds = %lpad99, %lpad96
   br label %ehcleanup130
 
 lpad107:                                          ; preds = %invoke.cont106
-  %74 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %exn.slot, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %ehselector.slot, align 4
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %exn.slot, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %ehselector.slot, align 4
   call void @_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %agg.tmp104) #5
   br label %ehcleanup130
 
 lpad113:                                          ; preds = %invoke.cont108
-  %77 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %exn.slot, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %ehselector.slot, align 4
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %exn.slot, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %ehselector.slot, align 4
   br label %ehcleanup128
 
 lpad116:                                          ; preds = %invoke.cont114
-  %80 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %exn.slot, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %ehselector.slot, align 4
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %exn.slot, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %ehselector.slot, align 4
   br label %ehcleanup127
 
 lpad119:                                          ; preds = %invoke.cont117
-  %83 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %exn.slot, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %ehselector.slot, align 4
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %exn.slot, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %ehselector.slot, align 4
   br label %ehcleanup126
 
 lpad121:                                          ; preds = %invoke.cont120
-  %86 = landingpad { ptr, i32 }
+  %87 = landingpad { ptr, i32 }
           cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %exn.slot, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %ehselector.slot, align 4
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %exn.slot, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %ehselector.slot, align 4
   call void @_ZN4pbrt11SceneEntityD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %agg.tmp110) #5
   br label %ehcleanup126
 
@@ -8792,7 +8793,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN4pbrt12ParserTargetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [43 x ptr] }, ptr @_ZTVN4pbrt12ParserTargetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %errorExit = getelementptr inbounds %"class.pbrt::ParserTarget", ptr %this1, i32 0, i32 1
   store i8 0, ptr %errorExit, align 8
   ret void
@@ -30055,7 +30057,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN4pbrt17BasicSceneBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %0 = getelementptr inbounds { [43 x ptr] }, ptr @_ZTVN4pbrt17BasicSceneBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 64
   %camera = getelementptr inbounds %"class.pbrt::BasicSceneBuilder", ptr %this1, i32 0, i32 26
   call void @_ZN4pbrt17CameraSceneEntityD2Ev(ptr noundef nonnull align 8 dereferenceable(1000) %camera) #5
   %accelerator = getelementptr inbounds %"class.pbrt::BasicSceneBuilder", ptr %this1, i32 0, i32 25
@@ -30231,7 +30234,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 64
   invoke void @_ZN4pstd3pmr25monotonic_buffer_resource7releaseEv(ptr noundef nonnull align 64 dereferenceable(48) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -30240,10 +30244,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #19
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #19
   unreachable
 }
 
@@ -43066,7 +43070,8 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_7SamplerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_7SamplerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob.301", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFN4pbrt7SamplerEvEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob.301", ptr %this1, i32 0, i32 2
@@ -44020,7 +44025,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %activeWorkers = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this1, i32 0, i32 1
   store i32 0, ptr %activeWorkers, align 8
   %prev = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this1, i32 0, i32 3
@@ -44094,7 +44100,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_7SamplerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_7SamplerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob.301", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob.301", ptr %this1, i32 0, i32 4
@@ -44198,7 +44205,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
@@ -45450,7 +45458,8 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6CameraEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6CameraEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob.322", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFN4pbrt6CameraEvEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob.322", ptr %this1, i32 0, i32 2
@@ -46141,7 +46150,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6CameraEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6CameraEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob.322", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob.322", ptr %this1, i32 0, i32 4
@@ -46460,7 +46470,8 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6MediumEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6MediumEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFN4pbrt6MediumEvEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob", ptr %this1, i32 0, i32 2
@@ -47178,7 +47189,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6MediumEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6MediumEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob", ptr %this1, i32 0, i32 4
@@ -49596,7 +49608,8 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIPNS_5ImageEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIPNS_5ImageEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob.182", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFPN4pbrt5ImageEvEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob.182", ptr %this1, i32 0, i32 2
@@ -54127,7 +54140,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIPNS_5ImageEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIPNS_5ImageEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob.182", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob.182", ptr %this1, i32 0, i32 4
@@ -54521,7 +54535,8 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_12FloatTextureEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_12FloatTextureEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob.214", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFN4pbrt12FloatTextureEvEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob.214", ptr %this1, i32 0, i32 2
@@ -55319,7 +55334,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_12FloatTextureEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_12FloatTextureEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob.214", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob.214", ptr %this1, i32 0, i32 4
@@ -55713,7 +55729,8 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_15SpectrumTextureEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_15SpectrumTextureEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob.223", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFN4pbrt15SpectrumTextureEvEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob.223", ptr %this1, i32 0, i32 2
@@ -56337,7 +56354,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_15SpectrumTextureEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_15SpectrumTextureEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob.223", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob.223", ptr %this1, i32 0, i32 4
@@ -56687,7 +56705,8 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_5LightEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_5LightEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob.252", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFN4pbrt5LightEvEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob.252", ptr %this1, i32 0, i32 2
@@ -57815,7 +57834,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_5LightEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_5LightEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob.252", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob.252", ptr %this1, i32 0, i32 4
@@ -70160,10 +70180,11 @@ entry:
   store ptr %upstream, ptr %upstream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pstd3pmr15memory_resourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 64
   %upstream2 = getelementptr inbounds %"class.pstd::pmr::monotonic_buffer_resource", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %upstream.addr, align 8
-  store ptr %0, ptr %upstream2, align 8
+  %1 = load ptr, ptr %upstream.addr, align 8
+  store ptr %1, ptr %upstream2, align 8
   %block_size = getelementptr inbounds %"class.pstd::pmr::monotonic_buffer_resource", ptr %this1, i32 0, i32 2
   store i64 262144, ptr %block_size, align 16
   %current = getelementptr inbounds %"class.pstd::pmr::monotonic_buffer_resource", ptr %this1, i32 0, i32 3
@@ -70221,7 +70242,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr15memory_resourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pstd3pmr15memory_resourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -94296,13 +94318,14 @@ entry:
   store ptr %upstream, ptr %upstream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pstd3pmr15memory_resourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 64
   %upstream2 = getelementptr inbounds %"class.pstd::pmr::monotonic_buffer_resource", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %upstream.addr, align 8
-  store ptr %0, ptr %upstream2, align 8
+  %1 = load ptr, ptr %upstream.addr, align 8
+  store ptr %1, ptr %upstream2, align 8
   %block_size3 = getelementptr inbounds %"class.pstd::pmr::monotonic_buffer_resource", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %block_size.addr, align 8
-  store i64 %1, ptr %block_size3, align 16
+  %2 = load i64, ptr %block_size.addr, align 8
+  store i64 %2, ptr %block_size3, align 16
   %current = getelementptr inbounds %"class.pstd::pmr::monotonic_buffer_resource", ptr %this1, i32 0, i32 3
   store ptr null, ptr %current, align 8
   %current_pos = getelementptr inbounds %"class.pstd::pmr::monotonic_buffer_resource", ptr %this1, i32 0, i32 4

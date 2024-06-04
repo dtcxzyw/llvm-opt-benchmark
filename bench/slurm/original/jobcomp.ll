@@ -160,72 +160,75 @@ define i32 @jobcomp_g_init() #0 {
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  br label %32
+  br label %35
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 73), align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %21, label %20
-
-20:                                               ; preds = %17
-  store i32 1, ptr @plugin_inited, align 4
-  br label %32
+  %18 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 73
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %22, label %21
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr %2, align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 73), align 8
-  %24 = call ptr @plugin_context_create(ptr noundef %22, ptr noundef %23, ptr noundef @ops, ptr noundef @syms, i64 noundef 24)
-  store ptr %24, ptr @g_context, align 8
-  %25 = load ptr, ptr @g_context, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %31, label %27
+  store i32 1, ptr @plugin_inited, align 4
+  br label %35
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %2, align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 73), align 8
-  %30 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %28, ptr noundef %29)
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 73
+  %25 = load ptr, ptr %24, align 8
+  %26 = call ptr @plugin_context_create(ptr noundef %23, ptr noundef %25, ptr noundef @ops, ptr noundef @syms, i64 noundef 24)
+  store ptr %26, ptr @g_context, align 8
+  %27 = load ptr, ptr @g_context, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %34, label %29
+
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 73
+  %32 = load ptr, ptr %31, align 8
+  %33 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %30, ptr noundef %32)
   store i32 -1, ptr %1, align 4
   store i32 0, ptr @plugin_inited, align 4
-  br label %32
+  br label %35
 
-31:                                               ; preds = %21
+34:                                               ; preds = %22
   store i32 2, ptr @plugin_inited, align 4
-  br label %32
+  br label %35
 
-32:                                               ; preds = %31, %27, %20, %16
-  %33 = load ptr, ptr @g_context, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %38
+35:                                               ; preds = %34, %29, %21, %16
+  %36 = load ptr, ptr @g_context, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %41
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr @ops, align 8
-  %37 = call i32 %36()
-  store i32 %37, ptr %1, align 4
-  br label %38
+38:                                               ; preds = %35
+  %39 = load ptr, ptr @ops, align 8
+  %40 = call i32 %39()
+  store i32 %40, ptr %1, align 4
+  br label %41
 
-38:                                               ; preds = %35, %32
-  br label %39
+41:                                               ; preds = %38, %35
+  br label %42
 
-39:                                               ; preds = %38
-  %40 = call i32 @pthread_mutex_unlock(ptr noundef @context_lock) #5
-  store i32 %40, ptr %4, align 4
-  %41 = load i32, ptr %4, align 4
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %46
-
-43:                                               ; preds = %39
+42:                                               ; preds = %41
+  %43 = call i32 @pthread_mutex_unlock(ptr noundef @context_lock) #5
+  store i32 %43, ptr %4, align 4
   %44 = load i32, ptr %4, align 4
-  %45 = call ptr @__errno_location() #6
-  store i32 %44, ptr %45, align 4
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %49
+
+46:                                               ; preds = %42
+  %47 = load i32, ptr %4, align 4
+  %48 = call ptr @__errno_location() #6
+  store i32 %47, ptr %48, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 140, ptr noundef @__func__.jobcomp_g_init) #7
   unreachable
 
-46:                                               ; preds = %39
-  br label %47
+49:                                               ; preds = %42
+  br label %50
 
-47:                                               ; preds = %46
-  %48 = load i32, ptr %1, align 4
-  ret i32 %48
+50:                                               ; preds = %49
+  %51 = load i32, ptr %1, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind
@@ -323,7 +326,7 @@ define i32 @jobcomp_g_write(ptr noundef %0) #0 {
 
 9:                                                ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %33
+  br label %34
 
 10:                                               ; preds = %1
   br label %11
@@ -346,37 +349,38 @@ define i32 @jobcomp_g_write(ptr noundef %0) #0 {
   br label %19
 
 19:                                               ; preds = %18
-  %20 = load ptr, ptr getelementptr inbounds (%struct.slurm_jobcomp_ops, ptr @ops, i32 0, i32 1), align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = call i32 %20(ptr noundef %21)
-  store i32 %22, ptr %4, align 4
-  br label %23
+  %20 = getelementptr inbounds %struct.slurm_jobcomp_ops, ptr @ops, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = call i32 %21(ptr noundef %22)
+  store i32 %23, ptr %4, align 4
+  br label %24
 
-23:                                               ; preds = %19
-  %24 = call i32 @pthread_mutex_unlock(ptr noundef @context_lock) #5
-  store i32 %24, ptr %6, align 4
-  %25 = load i32, ptr %6, align 4
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %30
+24:                                               ; preds = %19
+  %25 = call i32 @pthread_mutex_unlock(ptr noundef @context_lock) #5
+  store i32 %25, ptr %6, align 4
+  %26 = load i32, ptr %6, align 4
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %23
-  %28 = load i32, ptr %6, align 4
-  %29 = call ptr @__errno_location() #6
-  store i32 %28, ptr %29, align 4
+28:                                               ; preds = %24
+  %29 = load i32, ptr %6, align 4
+  %30 = call ptr @__errno_location() #6
+  store i32 %29, ptr %30, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 174, ptr noundef @__func__.jobcomp_g_write) #7
   unreachable
 
-30:                                               ; preds = %23
-  br label %31
+31:                                               ; preds = %24
+  br label %32
 
-31:                                               ; preds = %30
-  %32 = load i32, ptr %4, align 4
-  store i32 %32, ptr %2, align 4
-  br label %33
+32:                                               ; preds = %31
+  %33 = load i32, ptr %4, align 4
+  store i32 %33, ptr %2, align 4
+  br label %34
 
-33:                                               ; preds = %31, %9
-  %34 = load i32, ptr %2, align 4
-  ret i32 %34
+34:                                               ; preds = %32, %9
+  %35 = load i32, ptr %2, align 4
+  ret i32 %35
 }
 
 ; Function Attrs: nounwind uwtable
@@ -394,7 +398,7 @@ define ptr @jobcomp_g_get_jobs(ptr noundef %0) #0 {
 
 9:                                                ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %33
+  br label %34
 
 10:                                               ; preds = %1
   br label %11
@@ -417,37 +421,38 @@ define ptr @jobcomp_g_get_jobs(ptr noundef %0) #0 {
   br label %19
 
 19:                                               ; preds = %18
-  %20 = load ptr, ptr getelementptr inbounds (%struct.slurm_jobcomp_ops, ptr @ops, i32 0, i32 2), align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = call ptr %20(ptr noundef %21)
-  store ptr %22, ptr %4, align 8
-  br label %23
+  %20 = getelementptr inbounds %struct.slurm_jobcomp_ops, ptr @ops, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = call ptr %21(ptr noundef %22)
+  store ptr %23, ptr %4, align 8
+  br label %24
 
-23:                                               ; preds = %19
-  %24 = call i32 @pthread_mutex_unlock(ptr noundef @context_lock) #5
-  store i32 %24, ptr %6, align 4
-  %25 = load i32, ptr %6, align 4
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %30
+24:                                               ; preds = %19
+  %25 = call i32 @pthread_mutex_unlock(ptr noundef @context_lock) #5
+  store i32 %25, ptr %6, align 4
+  %26 = load i32, ptr %6, align 4
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %23
-  %28 = load i32, ptr %6, align 4
-  %29 = call ptr @__errno_location() #6
-  store i32 %28, ptr %29, align 4
+28:                                               ; preds = %24
+  %29 = load i32, ptr %6, align 4
+  %30 = call ptr @__errno_location() #6
+  store i32 %29, ptr %30, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 190, ptr noundef @__func__.jobcomp_g_get_jobs) #7
   unreachable
 
-30:                                               ; preds = %23
-  br label %31
+31:                                               ; preds = %24
+  br label %32
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %4, align 8
-  store ptr %32, ptr %2, align 8
-  br label %33
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %4, align 8
+  store ptr %33, ptr %2, align 8
+  br label %34
 
-33:                                               ; preds = %31, %9
-  %34 = load ptr, ptr %2, align 8
-  ret ptr %34
+34:                                               ; preds = %32, %9
+  %35 = load ptr, ptr %2, align 8
+  ret ptr %35
 }
 
 ; Function Attrs: nounwind uwtable

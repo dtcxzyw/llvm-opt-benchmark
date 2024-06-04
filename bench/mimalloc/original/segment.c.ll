@@ -3007,9 +3007,10 @@ if.then7:                                         ; preds = %if.then4
   %12 = load i64, ptr %full_size, align 8
   %call9 = call i64 @_mi_commit_mask_committed_size(ptr noundef %cmask, i64 noundef 33554432) #6
   %sub = sub i64 %12, %call9
-  call void @_mi_stat_increase(ptr noundef getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3), i64 noundef %sub) #6
-  %13 = load ptr, ptr %segment.addr, align 8
-  %commit_mask10 = getelementptr inbounds %struct.mi_segment_s, ptr %13, i32 0, i32 6
+  %13 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3
+  call void @_mi_stat_increase(ptr noundef %13, i64 noundef %sub) #6
+  %14 = load ptr, ptr %segment.addr, align 8
+  %commit_mask10 = getelementptr inbounds %struct.mi_segment_s, ptr %14, i32 0, i32 6
   call void @mi_commit_mask_clear(ptr noundef %commit_mask10, ptr noundef %mask) #6
   br label %if.end11
 
@@ -3017,15 +3018,15 @@ if.end11:                                         ; preds = %if.then7, %if.then4
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end11, %if.end2
-  %14 = load ptr, ptr %segment.addr, align 8
-  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %14, i32 0, i32 5
+  %15 = load ptr, ptr %segment.addr, align 8
+  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %15, i32 0, i32 5
   call void @mi_commit_mask_clear(ptr noundef %purge_mask, ptr noundef %mask) #6
   store i1 true, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then1, %if.then
-  %15 = load i1, ptr %retval, align 1
-  ret i1 %15
+  %16 = load i1, ptr %retval, align 1
+  ret i1 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4609,8 +4610,9 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %1 = ptrtoint ptr %0 to i64
-  %2 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6), align 8
-  %xor = xor i64 %1, %2
+  %2 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6
+  %3 = load i64, ptr %2, align 8
+  %xor = xor i64 %1, %3
   ret i64 %xor
 }
 
@@ -4992,11 +4994,12 @@ if.then2:                                         ; preds = %if.end
   %commit_mask3 = getelementptr inbounds %struct.mi_segment_s, ptr %5, i32 0, i32 6
   call void @mi_commit_mask_create_intersect(ptr noundef %commit_mask3, ptr noundef %mask, ptr noundef %cmask) #6
   %call4 = call i64 @_mi_commit_mask_committed_size(ptr noundef %cmask, i64 noundef 33554432) #6
-  call void @_mi_stat_decrease(ptr noundef getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3), i64 noundef %call4) #6
-  %6 = load ptr, ptr %start, align 8
-  %7 = load i64, ptr %full_size, align 8
-  %8 = load ptr, ptr %stats.addr, align 8
-  %call5 = call zeroext i1 @_mi_os_commit(ptr noundef %6, i64 noundef %7, ptr noundef %is_zero, ptr noundef %8) #6
+  %6 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3
+  call void @_mi_stat_decrease(ptr noundef %6, i64 noundef %call4) #6
+  %7 = load ptr, ptr %start, align 8
+  %8 = load i64, ptr %full_size, align 8
+  %9 = load ptr, ptr %stats.addr, align 8
+  %call5 = call zeroext i1 @_mi_os_commit(ptr noundef %7, i64 noundef %8, ptr noundef %is_zero, ptr noundef %9) #6
   br i1 %call5, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.then2
@@ -5004,14 +5007,14 @@ if.then6:                                         ; preds = %if.then2
   br label %return
 
 if.end7:                                          ; preds = %if.then2
-  %9 = load ptr, ptr %segment.addr, align 8
-  %commit_mask8 = getelementptr inbounds %struct.mi_segment_s, ptr %9, i32 0, i32 6
+  %10 = load ptr, ptr %segment.addr, align 8
+  %commit_mask8 = getelementptr inbounds %struct.mi_segment_s, ptr %10, i32 0, i32 6
   call void @mi_commit_mask_set(ptr noundef %commit_mask8, ptr noundef %mask) #6
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end7, %if.end
-  %10 = load ptr, ptr %segment.addr, align 8
-  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %10, i32 0, i32 5
+  %11 = load ptr, ptr %segment.addr, align 8
+  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %11, i32 0, i32 5
   %call10 = call zeroext i1 @mi_commit_mask_any_set(ptr noundef %purge_mask, ptr noundef %mask) #6
   br i1 %call10, label %if.then11, label %if.end14
 
@@ -5019,21 +5022,21 @@ if.then11:                                        ; preds = %if.end9
   %call12 = call i64 @_mi_clock_now() #6
   %call13 = call i64 @mi_option_get(i32 noundef 15) #6
   %add = add nsw i64 %call12, %call13
-  %11 = load ptr, ptr %segment.addr, align 8
-  %purge_expire = getelementptr inbounds %struct.mi_segment_s, ptr %11, i32 0, i32 4
+  %12 = load ptr, ptr %segment.addr, align 8
+  %purge_expire = getelementptr inbounds %struct.mi_segment_s, ptr %12, i32 0, i32 4
   store i64 %add, ptr %purge_expire, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %if.end9
-  %12 = load ptr, ptr %segment.addr, align 8
-  %purge_mask15 = getelementptr inbounds %struct.mi_segment_s, ptr %12, i32 0, i32 5
+  %13 = load ptr, ptr %segment.addr, align 8
+  %purge_mask15 = getelementptr inbounds %struct.mi_segment_s, ptr %13, i32 0, i32 5
   call void @mi_commit_mask_clear(ptr noundef %purge_mask15, ptr noundef %mask) #6
   store i1 true, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end14, %if.then6, %if.then
-  %13 = load i1, ptr %retval, align 1
-  ret i1 %13
+  %14 = load i1, ptr %retval, align 1
+  ret i1 %14
 }
 
 ; Function Attrs: nounwind uwtable

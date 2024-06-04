@@ -24,9 +24,11 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store i64 0, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly16exception_tracer6detail10getMetaMapEvE4meta, i64 0, i32 0, i32 0, i32 0, i64 24), align 8
+  %2 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly16exception_tracer6detail10getMetaMapEvE4meta, i64 0, i32 0, i32 0, i32 0, i64 24
+  store i64 0, ptr %2, align 8
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr @_ZZN5folly16exception_tracer6detail10getMetaMapEvE4meta, align 8, !tbaa !8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly16exception_tracer6detail10getMetaMapEvE4meta, i64 0, i32 0, i32 0, i32 0, i64 8), i8 0, i64 20, i1 false)
+  %3 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly16exception_tracer6detail10getMetaMapEvE4meta, i64 0, i32 0, i32 0, i32 0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly16exception_tracer6detail10getMetaMapEvE4meta) #4
   br label %init.end
 

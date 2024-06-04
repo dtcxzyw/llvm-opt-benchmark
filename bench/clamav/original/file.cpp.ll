@@ -47,38 +47,39 @@ define void @_ZN4FileC2Ev(ptr noundef nonnull align 8 dereferenceable(8256) %0) 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV4File, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 1
-  store i64 -1, ptr %4, align 8
-  %5 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 14
-  %6 = getelementptr inbounds [2048 x i32], ptr %5, i64 0, i64 0
-  store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 7
-  store i8 0, ptr %7, align 8
-  %8 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV4File, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 1
+  store i64 -1, ptr %5, align 8
+  %6 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 14
+  %7 = getelementptr inbounds [2048 x i32], ptr %6, i64 0, i64 0
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 7
   store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 3
-  store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 4
-  store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 5
-  store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 15
-  store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 13
-  store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 8
-  store i8 1, ptr %14, align 1
-  %15 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 9
-  store i8 1, ptr %15, align 2
-  %16 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 10
-  store i8 0, ptr %16, align 1
-  %17 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 6
-  store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 11
-  store i8 0, ptr %18, align 4
-  %19 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 12
-  store i64 0, ptr %19, align 8
+  %9 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 2
+  store i8 0, ptr %9, align 8
+  %10 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 3
+  store i32 0, ptr %10, align 4
+  %11 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 4
+  store i8 0, ptr %11, align 8
+  %12 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 5
+  store i8 0, ptr %12, align 1
+  %13 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 15
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 13
+  store i8 0, ptr %14, align 8
+  %15 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 8
+  store i8 1, ptr %15, align 1
+  %16 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 9
+  store i8 1, ptr %16, align 2
+  %17 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 10
+  store i8 0, ptr %17, align 1
+  %18 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 6
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 11
+  store i8 0, ptr %19, align 4
+  %20 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 12
+  store i64 0, ptr %20, align 8
   ret void
 }
 
@@ -87,52 +88,53 @@ define void @_ZN4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(8256) %0) 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV4File, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  %6 = icmp ne i64 %5, -1
-  br i1 %6, label %7, label %25
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV4File, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 1
+  %6 = load i64, ptr %5, align 8
+  %7 = icmp ne i64 %6, -1
+  br i1 %7, label %8, label %26
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 5
-  %9 = load i8, ptr %8, align 1
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %25, label %11
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 5
+  %10 = load i8, ptr %9, align 1
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %26, label %12
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 7
-  %13 = load i8, ptr %12, align 8
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %18
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds %class.File, ptr %3, i32 0, i32 7
+  %14 = load i8, ptr %13, align 8
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %19
 
-15:                                               ; preds = %11
-  %16 = invoke noundef zeroext i1 @_ZN4File6DeleteEv(ptr noundef nonnull align 8 dereferenceable(8256) %3)
-          to label %17 unwind label %26
+16:                                               ; preds = %12
+  %17 = invoke noundef zeroext i1 @_ZN4File6DeleteEv(ptr noundef nonnull align 8 dereferenceable(8256) %3)
+          to label %18 unwind label %27
 
-17:                                               ; preds = %15
-  br label %24
-
-18:                                               ; preds = %11
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 3
-  %21 = load ptr, ptr %20, align 8
-  %22 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(8256) %3)
-          to label %23 unwind label %26
-
-23:                                               ; preds = %18
-  br label %24
-
-24:                                               ; preds = %23, %17
+18:                                               ; preds = %16
   br label %25
 
-25:                                               ; preds = %24, %7, %1
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds ptr, ptr %20, i64 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8256) %3)
+          to label %24 unwind label %27
+
+24:                                               ; preds = %19
+  br label %25
+
+25:                                               ; preds = %24, %18
+  br label %26
+
+26:                                               ; preds = %25, %8, %1
   ret void
 
-26:                                               ; preds = %18, %15
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %19, %16
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #9
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #9
   unreachable
 }
 

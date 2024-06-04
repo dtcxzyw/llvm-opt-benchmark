@@ -201,7 +201,7 @@ define dso_local i32 @svc_auth_flavor(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @auth_domain_put(ptr noundef %0) #0 align 16 {
   %2 = tail call zeroext i1 @refcount_dec_and_lock(ptr noundef %0, ptr noundef nonnull @auth_domain_lock) #9
-  br i1 %2, label %3, label %16
+  br i1 %2, label %3, label %17
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -218,16 +218,17 @@ define dso_local void @auth_domain_put(ptr noundef %0) #0 align 16 {
   br label %11
 
 11:                                               ; preds = %9, %3
-  store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
-  %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef %0) #9
+  %12 = inttoptr i64 -2401263026318606046 to ptr
+  store volatile ptr %12, ptr %6, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = load ptr, ptr %15, align 8
+  tail call void %16(ptr noundef %0) #9
   tail call void @_raw_spin_unlock(ptr noundef nonnull @auth_domain_lock) #9
-  br label %16
+  br label %17
 
-16:                                               ; preds = %11, %1
+17:                                               ; preds = %11, %1
   ret void
 }
 

@@ -37554,12 +37554,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %pName.addr, align 8
   call void @_ZN5eastl9allocatorC2EPKc(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
-  %inc = add i64 %1, 1
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17CountingAllocator, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
+  %inc = add i64 %2, 1
   store i64 %inc, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
-  %2 = load i64, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
-  %inc2 = add i64 %2, 1
+  %3 = load i64, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
+  %inc2 = add i64 %3, 1
   store i64 %inc2, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
   ret void
 }
@@ -94488,12 +94489,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %x.addr, align 8
   call void @_ZN5eastl9allocatorC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
-  %inc = add i64 %1, 1
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17CountingAllocator, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
+  %inc = add i64 %2, 1
   store i64 %inc, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
-  %2 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
-  %inc2 = add i64 %2, 1
+  %3 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
+  %inc2 = add i64 %3, 1
   store i64 %inc2, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
   ret void
 }

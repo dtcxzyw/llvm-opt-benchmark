@@ -846,340 +846,341 @@ define void @_ZN14debug_module_tC2EP7simif_tRK21debug_module_config_t(ptr nounde
   store ptr %2, ptr %6, align 8
   %13 = load ptr, ptr %4, align 8
   call void @_ZN17abstract_device_tC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV14debug_module_t, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 4 %15, i64 24, i1 false)
-  %16 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 2
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.debug_module_config_t, ptr %17, i32 0, i32 9
-  %19 = load i8, ptr %18, align 4
-  %20 = trunc i8 %19 to i1
-  %21 = select i1 %20, i32 4, i32 0
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.debug_module_config_t, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 4
-  %25 = mul i32 4, %24
-  %26 = add i32 %21, %25
-  store i32 %26, ptr %16, align 8
-  %27 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 3
-  %28 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 2
-  %29 = load i32, ptr %28, align 8
-  %30 = sub i32 896, %29
-  store i32 %30, ptr %27, align 4
-  %31 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 4
-  %32 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 3
-  %33 = load i32, ptr %32, align 4
-  %34 = sub i32 %33, 48
-  store i32 %34, ptr %31, align 8
-  %35 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 5
-  store i32 0, ptr %35, align 4
-  %36 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 6
-  %37 = load ptr, ptr %5, align 8
-  store ptr %37, ptr %36, align 8
-  %38 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 12
-  %39 = load ptr, ptr %5, align 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 6
-  %42 = load ptr, ptr %41, align 8
-  %43 = invoke noundef nonnull align 8 dereferenceable(152) ptr %42(ptr noundef nonnull align 8 dereferenceable(16) %39)
-          to label %44 unwind label %97
+  %14 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV14debug_module_t, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 4 %16, i64 24, i1 false)
+  %17 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 2
+  %18 = load ptr, ptr %6, align 8
+  %19 = getelementptr inbounds %struct.debug_module_config_t, ptr %18, i32 0, i32 9
+  %20 = load i8, ptr %19, align 4
+  %21 = trunc i8 %20 to i1
+  %22 = select i1 %21, i32 4, i32 0
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds %struct.debug_module_config_t, ptr %23, i32 0, i32 0
+  %25 = load i32, ptr %24, align 4
+  %26 = mul i32 4, %25
+  %27 = add i32 %22, %26
+  store i32 %27, ptr %17, align 8
+  %28 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 3
+  %29 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 2
+  %30 = load i32, ptr %29, align 8
+  %31 = sub i32 896, %30
+  store i32 %31, ptr %28, align 4
+  %32 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 4
+  %33 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 3
+  %34 = load i32, ptr %33, align 4
+  %35 = sub i32 %34, 48
+  store i32 %35, ptr %32, align 8
+  %36 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 5
+  store i32 0, ptr %36, align 4
+  %37 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 6
+  %38 = load ptr, ptr %5, align 8
+  store ptr %38, ptr %37, align 8
+  %39 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 12
+  %40 = load ptr, ptr %5, align 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds ptr, ptr %41, i64 6
+  %43 = load ptr, ptr %42, align 8
+  %44 = invoke noundef nonnull align 8 dereferenceable(152) ptr %43(ptr noundef nonnull align 8 dereferenceable(16) %40)
+          to label %45 unwind label %98
 
-44:                                               ; preds = %3
-  %45 = invoke noundef i64 @_ZNK5cfg_t10max_hartidEv(ptr noundef nonnull align 8 dereferenceable(152) %43)
-          to label %46 unwind label %97
+45:                                               ; preds = %3
+  %46 = invoke noundef i64 @_ZNK5cfg_t10max_hartidEv(ptr noundef nonnull align 8 dereferenceable(152) %44)
+          to label %47 unwind label %98
 
-46:                                               ; preds = %44
-  %47 = add i64 %45, 1
-  %48 = trunc i64 %47 to i32
-  %49 = invoke noundef i32 @_ZL11field_widthj(i32 noundef %48)
-          to label %50 unwind label %97
+47:                                               ; preds = %45
+  %48 = add i64 %46, 1
+  %49 = trunc i64 %48 to i32
+  %50 = invoke noundef i32 @_ZL11field_widthj(i32 noundef %49)
+          to label %51 unwind label %98
 
-50:                                               ; preds = %46
-  %51 = shl i32 1, %49
-  %52 = sext i32 %51 to i64
+51:                                               ; preds = %47
+  %52 = shl i32 1, %50
+  %53 = sext i32 %52 to i64
   call void @_ZNSaI18hart_debug_state_tEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  invoke void @_ZNSt6vectorI18hart_debug_state_tSaIS0_EEC2EmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %52, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %53 unwind label %101
+  invoke void @_ZNSt6vectorI18hart_debug_state_tSaIS0_EEC2EmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %53, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %54 unwind label %102
 
-53:                                               ; preds = %50
+54:                                               ; preds = %51
   call void @_ZNSaI18hart_debug_state_tED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  %54 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 21
-  %55 = load ptr, ptr %5, align 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 6
-  %58 = load ptr, ptr %57, align 8
-  %59 = invoke noundef nonnull align 8 dereferenceable(152) ptr %58(ptr noundef nonnull align 8 dereferenceable(16) %55)
-          to label %60 unwind label %105
+  %55 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 21
+  %56 = load ptr, ptr %5, align 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds ptr, ptr %57, i64 6
+  %59 = load ptr, ptr %58, align 8
+  %60 = invoke noundef nonnull align 8 dereferenceable(152) ptr %59(ptr noundef nonnull align 8 dereferenceable(16) %56)
+          to label %61 unwind label %106
 
-60:                                               ; preds = %53
-  %61 = invoke noundef i64 @_ZNK5cfg_t10max_hartidEv(ptr noundef nonnull align 8 dereferenceable(152) %59)
-          to label %62 unwind label %105
+61:                                               ; preds = %54
+  %62 = invoke noundef i64 @_ZNK5cfg_t10max_hartidEv(ptr noundef nonnull align 8 dereferenceable(152) %60)
+          to label %63 unwind label %106
 
-62:                                               ; preds = %60
-  %63 = add i64 %61, 1
+63:                                               ; preds = %61
+  %64 = add i64 %62, 1
   call void @_ZNSaIbEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  invoke void @_ZNSt6vectorIbSaIbEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(40) %54, i64 noundef %63, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %64 unwind label %109
+  invoke void @_ZNSt6vectorIbSaIbEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(40) %55, i64 noundef %64, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %65 unwind label %110
 
-64:                                               ; preds = %62
+65:                                               ; preds = %63
   call void @_ZNSaIbED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  %65 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 26
-  store i32 1, ptr %65, align 4
-  %66 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 29
-  store i32 0, ptr %66, align 4
-  %67 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 32
+  %66 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 26
+  store i32 1, ptr %66, align 4
+  %67 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 29
   store i32 0, ptr %67, align 4
-  %68 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 33
-  store i32 0, ptr %68, align 8
+  %68 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 32
+  store i32 0, ptr %68, align 4
+  %69 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 33
+  store i32 0, ptr %69, align 8
   store i32 1024, ptr %11, align 4
-  %69 = load ptr, ptr %5, align 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds ptr, ptr %70, i64 6
-  %72 = load ptr, ptr %71, align 8
-  %73 = invoke noundef nonnull align 8 dereferenceable(152) ptr %72(ptr noundef nonnull align 8 dereferenceable(16) %69)
-          to label %74 unwind label %113
+  %70 = load ptr, ptr %5, align 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds ptr, ptr %71, i64 6
+  %73 = load ptr, ptr %72, align 8
+  %74 = invoke noundef nonnull align 8 dereferenceable(152) ptr %73(ptr noundef nonnull align 8 dereferenceable(16) %70)
+          to label %75 unwind label %114
 
-74:                                               ; preds = %64
-  %75 = invoke noundef i64 @_ZNK5cfg_t10max_hartidEv(ptr noundef nonnull align 8 dereferenceable(152) %73)
-          to label %76 unwind label %113
+75:                                               ; preds = %65
+  %76 = invoke noundef i64 @_ZNK5cfg_t10max_hartidEv(ptr noundef nonnull align 8 dereferenceable(152) %74)
+          to label %77 unwind label %114
 
-76:                                               ; preds = %74
-  %77 = icmp uge i64 %75, 1024
-  br i1 %77, label %78, label %117
+77:                                               ; preds = %75
+  %78 = icmp uge i64 %76, 1024
+  br i1 %78, label %79, label %118
 
-78:                                               ; preds = %76
-  %79 = load ptr, ptr @stderr, align 8
-  %80 = load ptr, ptr %5, align 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds ptr, ptr %81, i64 6
-  %83 = load ptr, ptr %82, align 8
-  %84 = invoke noundef nonnull align 8 dereferenceable(152) ptr %83(ptr noundef nonnull align 8 dereferenceable(16) %80)
-          to label %85 unwind label %113
+79:                                               ; preds = %77
+  %80 = load ptr, ptr @stderr, align 8
+  %81 = load ptr, ptr %5, align 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds ptr, ptr %82, i64 6
+  %84 = load ptr, ptr %83, align 8
+  %85 = invoke noundef nonnull align 8 dereferenceable(152) ptr %84(ptr noundef nonnull align 8 dereferenceable(16) %81)
+          to label %86 unwind label %114
 
-85:                                               ; preds = %78
-  %86 = invoke noundef i64 @_ZNK5cfg_t6nprocsEv(ptr noundef nonnull align 8 dereferenceable(152) %84)
-          to label %87 unwind label %113
+86:                                               ; preds = %79
+  %87 = invoke noundef i64 @_ZNK5cfg_t6nprocsEv(ptr noundef nonnull align 8 dereferenceable(152) %85)
+          to label %88 unwind label %114
 
-87:                                               ; preds = %85
-  %88 = load ptr, ptr %5, align 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds ptr, ptr %89, i64 6
-  %91 = load ptr, ptr %90, align 8
-  %92 = invoke noundef nonnull align 8 dereferenceable(152) ptr %91(ptr noundef nonnull align 8 dereferenceable(16) %88)
-          to label %93 unwind label %113
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %5, align 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds ptr, ptr %90, i64 6
+  %92 = load ptr, ptr %91, align 8
+  %93 = invoke noundef nonnull align 8 dereferenceable(152) ptr %92(ptr noundef nonnull align 8 dereferenceable(16) %89)
+          to label %94 unwind label %114
 
-93:                                               ; preds = %87
-  %94 = invoke noundef i64 @_ZNK5cfg_t10max_hartidEv(ptr noundef nonnull align 8 dereferenceable(152) %92)
-          to label %95 unwind label %113
+94:                                               ; preds = %88
+  %95 = invoke noundef i64 @_ZNK5cfg_t10max_hartidEv(ptr noundef nonnull align 8 dereferenceable(152) %93)
+          to label %96 unwind label %114
 
-95:                                               ; preds = %93
-  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef @.str, i32 noundef 1023, i64 noundef %86, i64 noundef %94) #3
+96:                                               ; preds = %94
+  %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef @.str, i32 noundef 1023, i64 noundef %87, i64 noundef %95) #3
   call void @exit(i32 noundef 1) #16
   unreachable
 
-97:                                               ; preds = %46, %44, %3
-  %98 = landingpad { ptr, i32 }
+98:                                               ; preds = %47, %45, %3
+  %99 = landingpad { ptr, i32 }
           cleanup
-  %99 = extractvalue { ptr, i32 } %98, 0
-  store ptr %99, ptr %7, align 8
-  %100 = extractvalue { ptr, i32 } %98, 1
-  store i32 %100, ptr %8, align 4
-  br label %214
-
-101:                                              ; preds = %50
-  %102 = landingpad { ptr, i32 }
-          cleanup
-  %103 = extractvalue { ptr, i32 } %102, 0
-  store ptr %103, ptr %7, align 8
-  %104 = extractvalue { ptr, i32 } %102, 1
-  store i32 %104, ptr %8, align 4
-  call void @_ZNSaI18hart_debug_state_tED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  br label %214
-
-105:                                              ; preds = %60, %53
-  %106 = landingpad { ptr, i32 }
-          cleanup
-  %107 = extractvalue { ptr, i32 } %106, 0
-  store ptr %107, ptr %7, align 8
-  %108 = extractvalue { ptr, i32 } %106, 1
-  store i32 %108, ptr %8, align 4
-  br label %213
-
-109:                                              ; preds = %62
-  %110 = landingpad { ptr, i32 }
-          cleanup
-  %111 = extractvalue { ptr, i32 } %110, 0
-  store ptr %111, ptr %7, align 8
-  %112 = extractvalue { ptr, i32 } %110, 1
-  store i32 %112, ptr %8, align 4
-  call void @_ZNSaIbED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  br label %213
-
-113:                                              ; preds = %211, %195, %188, %163, %150, %139, %137, %117, %93, %87, %85, %78, %74, %64
-  %114 = landingpad { ptr, i32 }
-          cleanup
-  %115 = extractvalue { ptr, i32 } %114, 0
-  store ptr %115, ptr %7, align 8
-  %116 = extractvalue { ptr, i32 } %114, 1
-  store i32 %116, ptr %8, align 4
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %54) #3
-  br label %213
-
-117:                                              ; preds = %76
-  %118 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 2
-  %119 = load i32, ptr %118, align 8
-  %120 = zext i32 %119 to i64
-  %121 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %120) #17
-          to label %122 unwind label %113
-
-122:                                              ; preds = %117
-  %123 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 10
-  store ptr %121, ptr %123, align 8
-  %124 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 13
-  %125 = getelementptr inbounds [1024 x i8], ptr %124, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 8 %125, i8 0, i64 1024, i1 false)
-  %126 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 10
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 2
-  %129 = load i32, ptr %128, align 8
-  %130 = zext i32 %129 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %127, i8 0, i64 %130, i1 false)
-  %131 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 11
-  %132 = getelementptr inbounds [8 x i8], ptr %131, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 8 %132, i8 0, i64 8, i1 false)
-  %133 = load ptr, ptr %6, align 8
-  %134 = getelementptr inbounds %struct.debug_module_config_t, ptr %133, i32 0, i32 9
-  %135 = load i8, ptr %134, align 4
-  %136 = trunc i8 %135 to i1
-  br i1 %136, label %137, label %188
-
-137:                                              ; preds = %122
-  %138 = invoke noundef i32 @_ZL6ebreakv()
-          to label %139 unwind label %113
-
-139:                                              ; preds = %137
-  %140 = trunc i32 %138 to i8
-  %141 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 10
-  %142 = load ptr, ptr %141, align 8
-  %143 = load ptr, ptr %6, align 8
-  %144 = getelementptr inbounds %struct.debug_module_config_t, ptr %143, i32 0, i32 0
-  %145 = load i32, ptr %144, align 4
-  %146 = mul i32 4, %145
-  %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds i8, ptr %142, i64 %147
-  store i8 %140, ptr %148, align 1
-  %149 = invoke noundef i32 @_ZL6ebreakv()
-          to label %150 unwind label %113
-
-150:                                              ; preds = %139
-  %151 = lshr i32 %149, 8
-  %152 = trunc i32 %151 to i8
-  %153 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 10
-  %154 = load ptr, ptr %153, align 8
-  %155 = load ptr, ptr %6, align 8
-  %156 = getelementptr inbounds %struct.debug_module_config_t, ptr %155, i32 0, i32 0
-  %157 = load i32, ptr %156, align 4
-  %158 = mul i32 4, %157
-  %159 = add i32 %158, 1
-  %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds i8, ptr %154, i64 %160
-  store i8 %152, ptr %161, align 1
-  %162 = invoke noundef i32 @_ZL6ebreakv()
-          to label %163 unwind label %113
-
-163:                                              ; preds = %150
-  %164 = lshr i32 %162, 16
-  %165 = trunc i32 %164 to i8
-  %166 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 10
-  %167 = load ptr, ptr %166, align 8
-  %168 = load ptr, ptr %6, align 8
-  %169 = getelementptr inbounds %struct.debug_module_config_t, ptr %168, i32 0, i32 0
-  %170 = load i32, ptr %169, align 4
-  %171 = mul i32 4, %170
-  %172 = add i32 %171, 2
-  %173 = zext i32 %172 to i64
-  %174 = getelementptr inbounds i8, ptr %167, i64 %173
-  store i8 %165, ptr %174, align 1
-  %175 = invoke noundef i32 @_ZL6ebreakv()
-          to label %176 unwind label %113
-
-176:                                              ; preds = %163
-  %177 = lshr i32 %175, 24
-  %178 = trunc i32 %177 to i8
-  %179 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 10
-  %180 = load ptr, ptr %179, align 8
-  %181 = load ptr, ptr %6, align 8
-  %182 = getelementptr inbounds %struct.debug_module_config_t, ptr %181, i32 0, i32 0
-  %183 = load i32, ptr %182, align 4
-  %184 = mul i32 4, %183
-  %185 = add i32 %184, 3
-  %186 = zext i32 %185 to i64
-  %187 = getelementptr inbounds i8, ptr %180, i64 %186
-  store i8 %178, ptr %187, align 1
-  br label %188
-
-188:                                              ; preds = %176, %122
-  %189 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 7
-  %190 = getelementptr inbounds [4 x i8], ptr %189, i64 0, i64 0
-  %191 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 4
-  %192 = load i32, ptr %191, align 8
-  %193 = sub i32 %192, 768
-  %194 = invoke noundef i32 @_ZL3jaljj(i32 noundef 0, i32 noundef %193)
-          to label %195 unwind label %113
-
-195:                                              ; preds = %188
-  invoke void @_ZN14debug_module_t7write32EPhjj(ptr noundef nonnull align 8 dereferenceable(1372) %13, ptr noundef %190, i32 noundef 0, i32 noundef %194)
-          to label %196 unwind label %113
-
-196:                                              ; preds = %195
-  %197 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 8
-  %198 = getelementptr inbounds [48 x i8], ptr %197, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 4 %198, i8 0, i64 48, i1 false)
-  store i32 0, ptr %12, align 4
-  br label %199
-
-199:                                              ; preds = %208, %196
-  %200 = load i32, ptr %12, align 4
-  %201 = zext i32 %200 to i64
-  %202 = icmp ult i64 %201, 2
-  br i1 %202, label %203, label %211
-
-203:                                              ; preds = %199
-  %204 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 30
-  %205 = load i32, ptr %12, align 4
-  %206 = zext i32 %205 to i64
-  %207 = getelementptr inbounds [2 x i8], ptr %204, i64 0, i64 %206
-  store i8 1, ptr %207, align 1
-  br label %208
-
-208:                                              ; preds = %203
-  %209 = load i32, ptr %12, align 4
-  %210 = add i32 %209, 1
-  store i32 %210, ptr %12, align 4
-  br label %199, !llvm.loop !4
-
-211:                                              ; preds = %199
-  invoke void @_ZN14debug_module_t5resetEv(ptr noundef nonnull align 8 dereferenceable(1372) %13)
-          to label %212 unwind label %113
-
-212:                                              ; preds = %211
-  ret void
-
-213:                                              ; preds = %113, %109, %105
-  call void @_ZNSt6vectorI18hart_debug_state_tSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #3
-  br label %214
-
-214:                                              ; preds = %213, %101, %97
-  call void @_ZN17abstract_device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %100 = extractvalue { ptr, i32 } %99, 0
+  store ptr %100, ptr %7, align 8
+  %101 = extractvalue { ptr, i32 } %99, 1
+  store i32 %101, ptr %8, align 4
   br label %215
 
-215:                                              ; preds = %214
-  %216 = load ptr, ptr %7, align 8
-  %217 = load i32, ptr %8, align 4
-  %218 = insertvalue { ptr, i32 } poison, ptr %216, 0
-  %219 = insertvalue { ptr, i32 } %218, i32 %217, 1
-  resume { ptr, i32 } %219
+102:                                              ; preds = %51
+  %103 = landingpad { ptr, i32 }
+          cleanup
+  %104 = extractvalue { ptr, i32 } %103, 0
+  store ptr %104, ptr %7, align 8
+  %105 = extractvalue { ptr, i32 } %103, 1
+  store i32 %105, ptr %8, align 4
+  call void @_ZNSaI18hart_debug_state_tED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
+  br label %215
+
+106:                                              ; preds = %61, %54
+  %107 = landingpad { ptr, i32 }
+          cleanup
+  %108 = extractvalue { ptr, i32 } %107, 0
+  store ptr %108, ptr %7, align 8
+  %109 = extractvalue { ptr, i32 } %107, 1
+  store i32 %109, ptr %8, align 4
+  br label %214
+
+110:                                              ; preds = %63
+  %111 = landingpad { ptr, i32 }
+          cleanup
+  %112 = extractvalue { ptr, i32 } %111, 0
+  store ptr %112, ptr %7, align 8
+  %113 = extractvalue { ptr, i32 } %111, 1
+  store i32 %113, ptr %8, align 4
+  call void @_ZNSaIbED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  br label %214
+
+114:                                              ; preds = %212, %196, %189, %164, %151, %140, %138, %118, %94, %88, %86, %79, %75, %65
+  %115 = landingpad { ptr, i32 }
+          cleanup
+  %116 = extractvalue { ptr, i32 } %115, 0
+  store ptr %116, ptr %7, align 8
+  %117 = extractvalue { ptr, i32 } %115, 1
+  store i32 %117, ptr %8, align 4
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %55) #3
+  br label %214
+
+118:                                              ; preds = %77
+  %119 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 2
+  %120 = load i32, ptr %119, align 8
+  %121 = zext i32 %120 to i64
+  %122 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %121) #17
+          to label %123 unwind label %114
+
+123:                                              ; preds = %118
+  %124 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 10
+  store ptr %122, ptr %124, align 8
+  %125 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 13
+  %126 = getelementptr inbounds [1024 x i8], ptr %125, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %126, i8 0, i64 1024, i1 false)
+  %127 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 10
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 2
+  %130 = load i32, ptr %129, align 8
+  %131 = zext i32 %130 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %128, i8 0, i64 %131, i1 false)
+  %132 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 11
+  %133 = getelementptr inbounds [8 x i8], ptr %132, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %133, i8 0, i64 8, i1 false)
+  %134 = load ptr, ptr %6, align 8
+  %135 = getelementptr inbounds %struct.debug_module_config_t, ptr %134, i32 0, i32 9
+  %136 = load i8, ptr %135, align 4
+  %137 = trunc i8 %136 to i1
+  br i1 %137, label %138, label %189
+
+138:                                              ; preds = %123
+  %139 = invoke noundef i32 @_ZL6ebreakv()
+          to label %140 unwind label %114
+
+140:                                              ; preds = %138
+  %141 = trunc i32 %139 to i8
+  %142 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 10
+  %143 = load ptr, ptr %142, align 8
+  %144 = load ptr, ptr %6, align 8
+  %145 = getelementptr inbounds %struct.debug_module_config_t, ptr %144, i32 0, i32 0
+  %146 = load i32, ptr %145, align 4
+  %147 = mul i32 4, %146
+  %148 = zext i32 %147 to i64
+  %149 = getelementptr inbounds i8, ptr %143, i64 %148
+  store i8 %141, ptr %149, align 1
+  %150 = invoke noundef i32 @_ZL6ebreakv()
+          to label %151 unwind label %114
+
+151:                                              ; preds = %140
+  %152 = lshr i32 %150, 8
+  %153 = trunc i32 %152 to i8
+  %154 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 10
+  %155 = load ptr, ptr %154, align 8
+  %156 = load ptr, ptr %6, align 8
+  %157 = getelementptr inbounds %struct.debug_module_config_t, ptr %156, i32 0, i32 0
+  %158 = load i32, ptr %157, align 4
+  %159 = mul i32 4, %158
+  %160 = add i32 %159, 1
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds i8, ptr %155, i64 %161
+  store i8 %153, ptr %162, align 1
+  %163 = invoke noundef i32 @_ZL6ebreakv()
+          to label %164 unwind label %114
+
+164:                                              ; preds = %151
+  %165 = lshr i32 %163, 16
+  %166 = trunc i32 %165 to i8
+  %167 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 10
+  %168 = load ptr, ptr %167, align 8
+  %169 = load ptr, ptr %6, align 8
+  %170 = getelementptr inbounds %struct.debug_module_config_t, ptr %169, i32 0, i32 0
+  %171 = load i32, ptr %170, align 4
+  %172 = mul i32 4, %171
+  %173 = add i32 %172, 2
+  %174 = zext i32 %173 to i64
+  %175 = getelementptr inbounds i8, ptr %168, i64 %174
+  store i8 %166, ptr %175, align 1
+  %176 = invoke noundef i32 @_ZL6ebreakv()
+          to label %177 unwind label %114
+
+177:                                              ; preds = %164
+  %178 = lshr i32 %176, 24
+  %179 = trunc i32 %178 to i8
+  %180 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 10
+  %181 = load ptr, ptr %180, align 8
+  %182 = load ptr, ptr %6, align 8
+  %183 = getelementptr inbounds %struct.debug_module_config_t, ptr %182, i32 0, i32 0
+  %184 = load i32, ptr %183, align 4
+  %185 = mul i32 4, %184
+  %186 = add i32 %185, 3
+  %187 = zext i32 %186 to i64
+  %188 = getelementptr inbounds i8, ptr %181, i64 %187
+  store i8 %179, ptr %188, align 1
+  br label %189
+
+189:                                              ; preds = %177, %123
+  %190 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 7
+  %191 = getelementptr inbounds [4 x i8], ptr %190, i64 0, i64 0
+  %192 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 4
+  %193 = load i32, ptr %192, align 8
+  %194 = sub i32 %193, 768
+  %195 = invoke noundef i32 @_ZL3jaljj(i32 noundef 0, i32 noundef %194)
+          to label %196 unwind label %114
+
+196:                                              ; preds = %189
+  invoke void @_ZN14debug_module_t7write32EPhjj(ptr noundef nonnull align 8 dereferenceable(1372) %13, ptr noundef %191, i32 noundef 0, i32 noundef %195)
+          to label %197 unwind label %114
+
+197:                                              ; preds = %196
+  %198 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 8
+  %199 = getelementptr inbounds [48 x i8], ptr %198, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 4 %199, i8 0, i64 48, i1 false)
+  store i32 0, ptr %12, align 4
+  br label %200
+
+200:                                              ; preds = %209, %197
+  %201 = load i32, ptr %12, align 4
+  %202 = zext i32 %201 to i64
+  %203 = icmp ult i64 %202, 2
+  br i1 %203, label %204, label %212
+
+204:                                              ; preds = %200
+  %205 = getelementptr inbounds %class.debug_module_t, ptr %13, i32 0, i32 30
+  %206 = load i32, ptr %12, align 4
+  %207 = zext i32 %206 to i64
+  %208 = getelementptr inbounds [2 x i8], ptr %205, i64 0, i64 %207
+  store i8 1, ptr %208, align 1
+  br label %209
+
+209:                                              ; preds = %204
+  %210 = load i32, ptr %12, align 4
+  %211 = add i32 %210, 1
+  store i32 %211, ptr %12, align 4
+  br label %200, !llvm.loop !4
+
+212:                                              ; preds = %200
+  invoke void @_ZN14debug_module_t5resetEv(ptr noundef nonnull align 8 dereferenceable(1372) %13)
+          to label %213 unwind label %114
+
+213:                                              ; preds = %212
+  ret void
+
+214:                                              ; preds = %114, %110, %106
+  call void @_ZNSt6vectorI18hart_debug_state_tSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #3
+  br label %215
+
+215:                                              ; preds = %214, %102, %98
+  call void @_ZN17abstract_device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  br label %216
+
+216:                                              ; preds = %215
+  %217 = load ptr, ptr %7, align 8
+  %218 = load i32, ptr %8, align 4
+  %219 = insertvalue { ptr, i32 } poison, ptr %217, 0
+  %220 = insertvalue { ptr, i32 } %219, i32 %218, 1
+  resume { ptr, i32 } %220
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1187,7 +1188,8 @@ define linkonce_odr void @_ZN17abstract_device_tC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV17abstract_device_t, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV17abstract_device_t, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1637,21 +1639,22 @@ define void @_ZN14debug_module_tD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV14debug_module_t, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.debug_module_t, ptr %3, i32 0, i32 10
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV14debug_module_t, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.debug_module_t, ptr %3, i32 0, i32 10
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZdaPv(ptr noundef %5) #18
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZdaPv(ptr noundef %6) #18
+  br label %9
 
-8:                                                ; preds = %7, %1
-  %9 = getelementptr inbounds %class.debug_module_t, ptr %3, i32 0, i32 21
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #3
-  %10 = getelementptr inbounds %class.debug_module_t, ptr %3, i32 0, i32 12
-  call void @_ZNSt6vectorI18hart_debug_state_tSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+9:                                                ; preds = %8, %1
+  %10 = getelementptr inbounds %class.debug_module_t, ptr %3, i32 0, i32 21
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #3
+  %11 = getelementptr inbounds %class.debug_module_t, ptr %3, i32 0, i32 12
+  call void @_ZNSt6vectorI18hart_debug_state_tSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
   call void @_ZN17abstract_device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -2838,7 +2841,7 @@ define void @_ZN14debug_module_t7sb_readEv(ptr noundef nonnull align 8 dereferen
 
 162:                                              ; preds = %158
   %163 = load i32, ptr %58, align 4
-  %164 = call i32 @llvm.eh.typeid.for(ptr @_ZTI10mem_trap_t) #3
+  %164 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI10mem_trap_t) #3
   %165 = icmp eq i32 %163, %164
   br i1 %165, label %166, label %448
 
@@ -3320,9 +3323,6 @@ define void @_ZN14debug_module_t7sb_readEv(ptr noundef nonnull align 8 dereferen
   resume { ptr, i32 } %452
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #11
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare void @__cxa_end_catch()
@@ -3595,7 +3595,7 @@ define void @_ZN14debug_module_t8sb_writeEv(ptr noundef nonnull align 8 derefere
 
 164:                                              ; preds = %160
   %165 = load i32, ptr %58, align 4
-  %166 = call i32 @llvm.eh.typeid.for(ptr @_ZTI10mem_trap_t) #3
+  %166 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI10mem_trap_t) #3
   %167 = icmp eq i32 %165, %166
   br i1 %167, label %168, label %459
 
@@ -7573,7 +7573,7 @@ define linkonce_odr void @_ZN17abstract_device_tD0Ev(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #12
+declare void @llvm.trap() #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorImSaImEE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
@@ -7812,7 +7812,7 @@ define linkonce_odr void @_ZNSaI18hart_debug_state_tEC2ERKS0_(ptr noundef nonnul
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaI18hart_debug_state_tEE8max_sizeERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
@@ -7822,7 +7822,7 @@ define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaI18hart_debug_state_t
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #14 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #13 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #16
   unreachable
@@ -7989,10 +7989,10 @@ define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorI18hart_debug_state_tE11
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #13
+declare void @_ZSt28__throw_bad_array_new_lengthv() #12
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #13
+declare void @_ZSt17__throw_bad_allocv() #12
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) #8
@@ -9246,7 +9246,7 @@ define linkonce_odr void @_ZNKSt6vectorImSaImEE14_M_range_checkEm(ptr noundef no
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #13
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK13xlate_flags_t17is_special_accessEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
@@ -11146,7 +11146,7 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1s
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #15
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt13_Rb_tree_nodeISt4pairIKmP11processor_tEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #5 comdat align 2 {
@@ -11999,7 +11999,7 @@ define linkonce_odr noundef zeroext i1 @_ZNKSt4lessImEclERKmS2_(ptr noundef nonn
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) #13
+declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE11lower_boundERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
@@ -12152,6 +12152,9 @@ define internal void @_GLOBAL__sub_I_debug_module.cc() #0 section ".text.startup
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -12163,11 +12166,11 @@ attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind memory(none) }
-attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind memory(none) }
 attributes #16 = { noreturn nounwind }
 attributes #17 = { builtin allocsize(0) }
 attributes #18 = { builtin nounwind }

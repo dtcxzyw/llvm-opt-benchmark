@@ -675,86 +675,106 @@ if.then248:                                       ; preds = %if.end
 if.end250:                                        ; preds = %if.end
   %9 = load i32, ptr %verbose, align 4
   %10 = trunc i32 %9 to i16
-  %bf.load = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %11 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load = load i16, ptr %11, align 8
   %bf.value = and i16 %10, 1
   %bf.clear = and i16 %bf.load, -2
   %bf.set = or i16 %bf.clear, %bf.value
-  store i16 %bf.set, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %11 = load i32, ptr %dry_run, align 4
-  %12 = trunc i32 %11 to i16
-  %bf.load251 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %bf.value252 = and i16 %12, 1
+  %12 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  store i16 %bf.set, ptr %12, align 8
+  %13 = load i32, ptr %dry_run, align 4
+  %14 = trunc i32 %13 to i16
+  %15 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load251 = load i16, ptr %15, align 8
+  %bf.value252 = and i16 %14, 1
   %bf.shl = shl i16 %bf.value252, 8
   %bf.clear253 = and i16 %bf.load251, -257
   %bf.set254 = or i16 %bf.clear253, %bf.shl
-  store i16 %bf.set254, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %13 = load i32, ptr %send_mirror, align 4
-  %14 = trunc i32 %13 to i16
-  %bf.load256 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %bf.value257 = and i16 %14, 1
+  %16 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  store i16 %bf.set254, ptr %16, align 8
+  %17 = load i32, ptr %send_mirror, align 4
+  %18 = trunc i32 %17 to i16
+  %19 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load256 = load i16, ptr %19, align 8
+  %bf.value257 = and i16 %18, 1
   %bf.shl258 = shl i16 %bf.value257, 4
   %bf.clear259 = and i16 %bf.load256, -17
   %bf.set260 = or i16 %bf.clear259, %bf.shl258
-  store i16 %bf.set260, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %15 = load i32, ptr %force_update, align 4
-  %16 = trunc i32 %15 to i16
-  %bf.load262 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %bf.value263 = and i16 %16, 1
+  %20 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  store i16 %bf.set260, ptr %20, align 8
+  %21 = load i32, ptr %force_update, align 4
+  %22 = trunc i32 %21 to i16
+  %23 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load262 = load i16, ptr %23, align 8
+  %bf.value263 = and i16 %22, 1
   %bf.shl264 = shl i16 %bf.value263, 5
   %bf.clear265 = and i16 %bf.load262, -33
   %bf.set266 = or i16 %bf.clear265, %bf.shl264
-  store i16 %bf.set266, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %17 = load i32, ptr %quiet, align 4
-  %18 = trunc i32 %17 to i16
-  %bf.load268 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %bf.value269 = and i16 %18, 1
+  %24 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  store i16 %bf.set266, ptr %24, align 8
+  %25 = load i32, ptr %quiet, align 4
+  %26 = trunc i32 %25 to i16
+  %27 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load268 = load i16, ptr %27, align 8
+  %bf.value269 = and i16 %26, 1
   %bf.shl270 = shl i16 %bf.value269, 1
   %bf.clear271 = and i16 %bf.load268, -3
   %bf.set272 = or i16 %bf.clear271, %bf.shl270
-  store i16 %bf.set272, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %19 = load i32, ptr %push_cert, align 4
-  %20 = trunc i32 %19 to i16
-  %bf.load274 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %bf.value275 = and i16 %20, 3
+  %28 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  store i16 %bf.set272, ptr %28, align 8
+  %29 = load i32, ptr %push_cert, align 4
+  %30 = trunc i32 %29 to i16
+  %31 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load274 = load i16, ptr %31, align 8
+  %bf.value275 = and i16 %30, 3
   %bf.shl276 = shl i16 %bf.value275, 9
   %bf.clear277 = and i16 %bf.load274, -1537
   %bf.set278 = or i16 %bf.clear277, %bf.shl276
-  store i16 %bf.set278, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %21 = load i32, ptr %progress, align 4
-  %22 = trunc i32 %21 to i16
-  %bf.load280 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %bf.value281 = and i16 %22, 1
+  %32 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  store i16 %bf.set278, ptr %32, align 8
+  %33 = load i32, ptr %progress, align 4
+  %34 = trunc i32 %33 to i16
+  %35 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load280 = load i16, ptr %35, align 8
+  %bf.value281 = and i16 %34, 1
   %bf.shl282 = shl i16 %bf.value281, 3
   %bf.clear283 = and i16 %bf.load280, -9
   %bf.set284 = or i16 %bf.clear283, %bf.shl282
-  store i16 %bf.set284, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %23 = load i32, ptr %use_thin_pack, align 4
-  %24 = trunc i32 %23 to i16
-  %bf.load286 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %bf.value287 = and i16 %24, 1
+  %36 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  store i16 %bf.set284, ptr %36, align 8
+  %37 = load i32, ptr %use_thin_pack, align 4
+  %38 = trunc i32 %37 to i16
+  %39 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load286 = load i16, ptr %39, align 8
+  %bf.value287 = and i16 %38, 1
   %bf.shl288 = shl i16 %bf.value287, 6
   %bf.clear289 = and i16 %bf.load286, -65
   %bf.set290 = or i16 %bf.clear289, %bf.shl288
-  store i16 %bf.set290, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %25 = load i32, ptr %atomic, align 4
-  %26 = trunc i32 %25 to i16
-  %bf.load292 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %bf.value293 = and i16 %26, 1
+  %40 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  store i16 %bf.set290, ptr %40, align 8
+  %41 = load i32, ptr %atomic, align 4
+  %42 = trunc i32 %41 to i16
+  %43 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load292 = load i16, ptr %43, align 8
+  %bf.value293 = and i16 %42, 1
   %bf.shl294 = shl i16 %bf.value293, 12
   %bf.clear295 = and i16 %bf.load292, -4097
   %bf.set296 = or i16 %bf.clear295, %bf.shl294
-  store i16 %bf.set296, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %27 = load i32, ptr %stateless_rpc, align 4
-  %28 = trunc i32 %27 to i16
-  %bf.load298 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %bf.value299 = and i16 %28, 1
+  %44 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  store i16 %bf.set296, ptr %44, align 8
+  %45 = load i32, ptr %stateless_rpc, align 4
+  %46 = trunc i32 %45 to i16
+  %47 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load298 = load i16, ptr %47, align 8
+  %bf.value299 = and i16 %46, 1
   %bf.shl300 = shl i16 %bf.value299, 11
   %bf.clear301 = and i16 %bf.load298, -2049
   %bf.set302 = or i16 %bf.clear301, %bf.shl300
-  store i16 %bf.set302, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %48 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  store i16 %bf.set302, ptr %48, align 8
   %nr = getelementptr inbounds %struct.string_list, ptr %push_options, i32 0, i32 1
-  %29 = load i64, ptr %nr, align 8
-  %tobool304 = icmp ne i64 %29, 0
+  %49 = load i64, ptr %nr, align 8
+  %tobool304 = icmp ne i64 %49, 0
   br i1 %tobool304, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end250
@@ -765,15 +785,17 @@ cond.false:                                       ; preds = %if.end250
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %push_options, %cond.true ], [ null, %cond.false ]
-  store ptr %cond, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 2), align 8
-  %30 = load ptr, ptr %dest, align 8
-  store ptr %30, ptr @args, align 8
-  %31 = load i32, ptr %from_stdin, align 4
-  %tobool305 = icmp ne i32 %31, 0
+  %50 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 2
+  store ptr %cond, ptr %50, align 8
+  %51 = load ptr, ptr %dest, align 8
+  store ptr %51, ptr @args, align 8
+  %52 = load i32, ptr %from_stdin, align 4
+  %tobool305 = icmp ne i32 %52, 0
   br i1 %tobool305, label %if.then306, label %if.end320
 
 if.then306:                                       ; preds = %cond.end
-  %bf.load307 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %53 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load307 = load i16, ptr %53, align 8
   %bf.lshr = lshr i16 %bf.load307, 11
   %bf.clear308 = and i16 %bf.lshr, 1
   %bf.cast = zext i16 %bf.clear308 to i32
@@ -790,8 +812,8 @@ while.cond:                                       ; preds = %while.body, %if.the
   br i1 %tobool312, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %32 = load ptr, ptr %buf, align 8
-  call void @refspec_append(ptr noundef %rs, ptr noundef %32)
+  %54 = load ptr, ptr %buf, align 8
+  call void @refspec_append(ptr noundef %rs, ptr noundef %54)
   br label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %while.cond
@@ -802,15 +824,15 @@ if.else:                                          ; preds = %if.then306
   br label %while.cond313
 
 while.cond313:                                    ; preds = %while.body316, %if.else
-  %33 = load ptr, ptr @stdin, align 8
-  %call314 = call i32 @strbuf_getline(ptr noundef %line, ptr noundef %33)
+  %55 = load ptr, ptr @stdin, align 8
+  %call314 = call i32 @strbuf_getline(ptr noundef %line, ptr noundef %55)
   %cmp315 = icmp ne i32 %call314, -1
   br i1 %cmp315, label %while.body316, label %while.end318
 
 while.body316:                                    ; preds = %while.cond313
   %buf317 = getelementptr inbounds %struct.strbuf, ptr %line, i32 0, i32 2
-  %34 = load ptr, ptr %buf317, align 8
-  call void @refspec_append(ptr noundef %rs, ptr noundef %34)
+  %56 = load ptr, ptr %buf317, align 8
+  call void @refspec_append(ptr noundef %rs, ptr noundef %56)
   br label %while.cond313, !llvm.loop !7
 
 while.end318:                                     ; preds = %while.cond313
@@ -822,17 +844,18 @@ if.end319:                                        ; preds = %while.end318, %whil
 
 if.end320:                                        ; preds = %if.end319, %cond.end
   %nr321 = getelementptr inbounds %struct.refspec, ptr %rs, i32 0, i32 2
-  %35 = load i32, ptr %nr321, align 4
-  %cmp322 = icmp sgt i32 %35, 0
+  %57 = load i32, ptr %nr321, align 4
+  %cmp322 = icmp sgt i32 %57, 0
   br i1 %cmp322, label %land.lhs.true, label %lor.lhs.false329
 
 land.lhs.true:                                    ; preds = %if.end320
-  %36 = load i32, ptr %send_all, align 4
-  %tobool323 = icmp ne i32 %36, 0
+  %58 = load i32, ptr %send_all, align 4
+  %tobool323 = icmp ne i32 %58, 0
   br i1 %tobool323, label %if.then337, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %bf.load324 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %59 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load324 = load i16, ptr %59, align 8
   %bf.lshr325 = lshr i16 %bf.load324, 4
   %bf.clear326 = and i16 %bf.lshr325, 1
   %bf.cast327 = zext i16 %bf.clear326 to i32
@@ -840,12 +863,13 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   br i1 %tobool328, label %if.then337, label %lor.lhs.false329
 
 lor.lhs.false329:                                 ; preds = %lor.lhs.false, %if.end320
-  %37 = load i32, ptr %send_all, align 4
-  %tobool330 = icmp ne i32 %37, 0
+  %60 = load i32, ptr %send_all, align 4
+  %tobool330 = icmp ne i32 %60, 0
   br i1 %tobool330, label %land.lhs.true331, label %if.end339
 
 land.lhs.true331:                                 ; preds = %lor.lhs.false329
-  %bf.load332 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %61 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load332 = load i16, ptr %61, align 8
   %bf.lshr333 = lshr i16 %bf.load332, 4
   %bf.clear334 = and i16 %bf.lshr333, 1
   %bf.cast335 = zext i16 %bf.clear334 to i32
@@ -858,36 +882,37 @@ if.then337:                                       ; preds = %land.lhs.true331, %
   unreachable
 
 if.end339:                                        ; preds = %land.lhs.true331, %lor.lhs.false329
-  %38 = load ptr, ptr %remote_name, align 8
-  %tobool340 = icmp ne ptr %38, null
+  %62 = load ptr, ptr %remote_name, align 8
+  %tobool340 = icmp ne ptr %62, null
   br i1 %tobool340, label %if.then341, label %if.end347
 
 if.then341:                                       ; preds = %if.end339
-  %39 = load ptr, ptr %remote_name, align 8
-  %call342 = call ptr @remote_get(ptr noundef %39)
+  %63 = load ptr, ptr %remote_name, align 8
+  %call342 = call ptr @remote_get(ptr noundef %63)
   store ptr %call342, ptr %remote, align 8
-  %40 = load ptr, ptr %remote, align 8
-  %41 = load ptr, ptr %dest, align 8
-  %call343 = call i32 @remote_has_url(ptr noundef %40, ptr noundef %41)
+  %64 = load ptr, ptr %remote, align 8
+  %65 = load ptr, ptr %dest, align 8
+  %call343 = call i32 @remote_has_url(ptr noundef %64, ptr noundef %65)
   %tobool344 = icmp ne i32 %call343, 0
   br i1 %tobool344, label %if.end346, label %if.then345
 
 if.then345:                                       ; preds = %if.then341
-  %42 = load ptr, ptr %dest, align 8
-  %43 = load ptr, ptr %remote_name, align 8
-  call void (ptr, ...) @die(ptr noundef @.str.41, ptr noundef %42, ptr noundef %43) #7
+  %66 = load ptr, ptr %dest, align 8
+  %67 = load ptr, ptr %remote_name, align 8
+  call void (ptr, ...) @die(ptr noundef @.str.41, ptr noundef %66, ptr noundef %67) #7
   unreachable
 
 if.end346:                                        ; preds = %if.then341
   br label %if.end347
 
 if.end347:                                        ; preds = %if.end346, %if.end339
-  %44 = load i32, ptr %progress, align 4
-  %cmp348 = icmp eq i32 %44, -1
+  %68 = load i32, ptr %progress, align 4
+  %cmp348 = icmp eq i32 %68, -1
   br i1 %cmp348, label %if.then349, label %if.end357
 
 if.then349:                                       ; preds = %if.end347
-  %bf.load350 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %69 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load350 = load i16, ptr %69, align 8
   %bf.lshr351 = lshr i16 %bf.load350, 1
   %bf.clear352 = and i16 %bf.lshr351, 1
   %bf.cast353 = zext i16 %bf.clear352 to i32
@@ -900,21 +925,24 @@ land.rhs:                                         ; preds = %if.then349
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.then349
-  %45 = phi i1 [ false, %if.then349 ], [ %tobool356, %land.rhs ]
-  %land.ext = zext i1 %45 to i32
+  %70 = phi i1 [ false, %if.then349 ], [ %tobool356, %land.rhs ]
+  %land.ext = zext i1 %70 to i32
   store i32 %land.ext, ptr %progress, align 4
   br label %if.end357
 
 if.end357:                                        ; preds = %land.end, %if.end347
-  %46 = load i32, ptr %progress, align 4
-  %47 = trunc i32 %46 to i16
-  %bf.load358 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %bf.value359 = and i16 %47, 1
+  %71 = load i32, ptr %progress, align 4
+  %72 = trunc i32 %71 to i16
+  %73 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load358 = load i16, ptr %73, align 8
+  %bf.value359 = and i16 %72, 1
   %bf.shl360 = shl i16 %bf.value359, 3
   %bf.clear361 = and i16 %bf.load358, -9
   %bf.set362 = or i16 %bf.clear361, %bf.shl360
-  store i16 %bf.set362, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
-  %bf.load364 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %74 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  store i16 %bf.set362, ptr %74, align 8
+  %75 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load364 = load i16, ptr %75, align 8
   %bf.lshr365 = lshr i16 %bf.load364, 11
   %bf.clear366 = and i16 %bf.lshr365, 1
   %bf.cast367 = zext i16 %bf.clear366 to i32
@@ -931,21 +959,22 @@ if.then369:                                       ; preds = %if.end357
 
 if.else372:                                       ; preds = %if.end357
   %arraydecay373 = getelementptr inbounds [2 x i32], ptr %fd, i64 0, i64 0
-  %48 = load ptr, ptr %dest, align 8
-  %49 = load ptr, ptr %receivepack, align 8
-  %bf.load374 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %76 = load ptr, ptr %dest, align 8
+  %77 = load ptr, ptr %receivepack, align 8
+  %78 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load374 = load i16, ptr %78, align 8
   %bf.clear375 = and i16 %bf.load374, 1
   %bf.cast376 = zext i16 %bf.clear375 to i32
   %tobool377 = icmp ne i32 %bf.cast376, 0
   %cond378 = select i1 %tobool377, i32 1, i32 0
-  %call379 = call ptr @git_connect(ptr noundef %arraydecay373, ptr noundef %48, ptr noundef @.str, ptr noundef %49, i32 noundef %cond378)
+  %call379 = call ptr @git_connect(ptr noundef %arraydecay373, ptr noundef %76, ptr noundef @.str, ptr noundef %77, i32 noundef %cond378)
   store ptr %call379, ptr %conn, align 8
   br label %if.end380
 
 if.end380:                                        ; preds = %if.else372, %if.then369
   %arrayidx381 = getelementptr inbounds [2 x i32], ptr %fd, i64 0, i64 0
-  %50 = load i32, ptr %arrayidx381, align 4
-  call void @packet_reader_init(ptr noundef %reader, i32 noundef %50, ptr noundef null, i64 noundef 0, i32 noundef 7)
+  %79 = load i32, ptr %arrayidx381, align 4
+  call void @packet_reader_init(ptr noundef %reader, i32 noundef %79, ptr noundef null, i64 noundef 0, i32 noundef 7)
   %call382 = call i32 @discover_version(ptr noundef %reader)
   switch i32 %call382, label %sw.epilog [
     i32 2, label %sw.bb
@@ -970,18 +999,19 @@ sw.epilog:                                        ; preds = %sw.bb383, %if.end38
   %call386 = call ptr @get_local_heads()
   store ptr %call386, ptr %local_refs, align 8
   store i32 0, ptr %flags, align 4
-  %51 = load i32, ptr %send_all, align 4
-  %tobool387 = icmp ne i32 %51, 0
+  %80 = load i32, ptr %send_all, align 4
+  %tobool387 = icmp ne i32 %80, 0
   br i1 %tobool387, label %if.then388, label %if.end389
 
 if.then388:                                       ; preds = %sw.epilog
-  %52 = load i32, ptr %flags, align 4
-  %or = or i32 %52, 1
+  %81 = load i32, ptr %flags, align 4
+  %or = or i32 %81, 1
   store i32 %or, ptr %flags, align 4
   br label %if.end389
 
 if.end389:                                        ; preds = %if.then388, %sw.epilog
-  %bf.load390 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %82 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load390 = load i16, ptr %82, align 8
   %bf.lshr391 = lshr i16 %bf.load390, 4
   %bf.clear392 = and i16 %bf.lshr391, 1
   %bf.cast393 = zext i16 %bf.clear392 to i32
@@ -989,15 +1019,15 @@ if.end389:                                        ; preds = %if.then388, %sw.epi
   br i1 %tobool394, label %if.then395, label %if.end397
 
 if.then395:                                       ; preds = %if.end389
-  %53 = load i32, ptr %flags, align 4
-  %or396 = or i32 %53, 2
+  %83 = load i32, ptr %flags, align 4
+  %or396 = or i32 %83, 2
   store i32 %or396, ptr %flags, align 4
   br label %if.end397
 
 if.end397:                                        ; preds = %if.then395, %if.end389
-  %54 = load ptr, ptr %local_refs, align 8
-  %55 = load i32, ptr %flags, align 4
-  %call398 = call i32 @match_push_refs(ptr noundef %54, ptr noundef %remote_refs, ptr noundef %rs, i32 noundef %55)
+  %84 = load ptr, ptr %local_refs, align 8
+  %85 = load i32, ptr %flags, align 4
+  %call398 = call i32 @match_push_refs(ptr noundef %84, ptr noundef %remote_refs, ptr noundef %rs, i32 noundef %85)
   %tobool399 = icmp ne i32 %call398, 0
   br i1 %tobool399, label %if.then400, label %if.end401
 
@@ -1011,9 +1041,9 @@ if.end401:                                        ; preds = %if.end397
   br i1 %tobool403, label %if.end405, label %if.then404
 
 if.then404:                                       ; preds = %if.end401
-  %56 = load ptr, ptr %remote, align 8
-  %57 = load ptr, ptr %remote_refs, align 8
-  call void @apply_push_cas(ptr noundef %cas, ptr noundef %56, ptr noundef %57)
+  %86 = load ptr, ptr %remote, align 8
+  %87 = load ptr, ptr %remote_refs, align 8
+  call void @apply_push_cas(ptr noundef %cas, ptr noundef %86, ptr noundef %87)
   br label %if.end405
 
 if.end405:                                        ; preds = %if.then404, %if.end401
@@ -1022,8 +1052,8 @@ if.end405:                                        ; preds = %if.then404, %if.end
   br i1 %tobool407, label %if.end414, label %land.lhs.true408
 
 land.lhs.true408:                                 ; preds = %if.end405
-  %58 = load i32, ptr %force_if_includes, align 4
-  %tobool409 = icmp ne i32 %58, 0
+  %88 = load i32, ptr %force_if_includes, align 4
+  %tobool409 = icmp ne i32 %88, 0
   br i1 %tobool409, label %if.then410, label %if.end414
 
 if.then410:                                       ; preds = %land.lhs.true408
@@ -1034,57 +1064,61 @@ if.then410:                                       ; preds = %land.lhs.true408
   br label %if.end414
 
 if.end414:                                        ; preds = %if.then410, %land.lhs.true408, %if.end405
-  %59 = load ptr, ptr %remote_refs, align 8
-  %bf.load415 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %89 = load ptr, ptr %remote_refs, align 8
+  %90 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load415 = load i16, ptr %90, align 8
   %bf.lshr416 = lshr i16 %bf.load415, 4
   %bf.clear417 = and i16 %bf.lshr416, 1
   %bf.cast418 = zext i16 %bf.clear417 to i32
-  %bf.load419 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %91 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load419 = load i16, ptr %91, align 8
   %bf.lshr420 = lshr i16 %bf.load419, 5
   %bf.clear421 = and i16 %bf.lshr420, 1
   %bf.cast422 = zext i16 %bf.clear421 to i32
-  call void @set_ref_status_for_push(ptr noundef %59, i32 noundef %bf.cast418, i32 noundef %bf.cast422)
+  call void @set_ref_status_for_push(ptr noundef %89, i32 noundef %bf.cast418, i32 noundef %bf.cast422)
   %arraydecay423 = getelementptr inbounds [2 x i32], ptr %fd, i64 0, i64 0
-  %60 = load ptr, ptr %conn, align 8
-  %61 = load ptr, ptr %remote_refs, align 8
-  %call424 = call i32 @send_pack(ptr noundef @args, ptr noundef %arraydecay423, ptr noundef %60, ptr noundef %61, ptr noundef %extra_have)
+  %92 = load ptr, ptr %conn, align 8
+  %93 = load ptr, ptr %remote_refs, align 8
+  %call424 = call i32 @send_pack(ptr noundef @args, ptr noundef %arraydecay423, ptr noundef %92, ptr noundef %93, ptr noundef %extra_have)
   store i32 %call424, ptr %ret, align 4
-  %62 = load i32, ptr %helper_status, align 4
-  %tobool425 = icmp ne i32 %62, 0
+  %94 = load i32, ptr %helper_status, align 4
+  %tobool425 = icmp ne i32 %94, 0
   br i1 %tobool425, label %if.then426, label %if.end427
 
 if.then426:                                       ; preds = %if.end414
-  %63 = load ptr, ptr %remote_refs, align 8
-  call void @print_helper_status(ptr noundef %63)
+  %95 = load ptr, ptr %remote_refs, align 8
+  call void @print_helper_status(ptr noundef %95)
   br label %if.end427
 
 if.end427:                                        ; preds = %if.then426, %if.end414
   %arrayidx428 = getelementptr inbounds [2 x i32], ptr %fd, i64 0, i64 1
-  %64 = load i32, ptr %arrayidx428, align 4
-  %call429 = call i32 @close(i32 noundef %64)
+  %96 = load i32, ptr %arrayidx428, align 4
+  %call429 = call i32 @close(i32 noundef %96)
   %arrayidx430 = getelementptr inbounds [2 x i32], ptr %fd, i64 0, i64 0
-  %65 = load i32, ptr %arrayidx430, align 4
-  %call431 = call i32 @close(i32 noundef %65)
-  %66 = load ptr, ptr %conn, align 8
-  %call432 = call i32 @finish_connect(ptr noundef %66)
-  %67 = load i32, ptr %ret, align 4
-  %or433 = or i32 %67, %call432
+  %97 = load i32, ptr %arrayidx430, align 4
+  %call431 = call i32 @close(i32 noundef %97)
+  %98 = load ptr, ptr %conn, align 8
+  %call432 = call i32 @finish_connect(ptr noundef %98)
+  %99 = load i32, ptr %ret, align 4
+  %or433 = or i32 %99, %call432
   store i32 %or433, ptr %ret, align 4
-  %68 = load i32, ptr %helper_status, align 4
-  %tobool434 = icmp ne i32 %68, 0
+  %100 = load i32, ptr %helper_status, align 4
+  %tobool434 = icmp ne i32 %100, 0
   br i1 %tobool434, label %if.end439, label %if.then435
 
 if.then435:                                       ; preds = %if.end427
-  %69 = load ptr, ptr %dest, align 8
-  %70 = load ptr, ptr %remote_refs, align 8
-  %bf.load436 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %101 = load ptr, ptr %dest, align 8
+  %102 = load ptr, ptr %remote_refs, align 8
+  %103 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load436 = load i16, ptr %103, align 8
   %bf.clear437 = and i16 %bf.load436, 1
   %bf.cast438 = zext i16 %bf.clear437 to i32
-  call void @transport_print_push_status(ptr noundef %69, ptr noundef %70, i32 noundef %bf.cast438, i32 noundef 0, ptr noundef %reject_reasons)
+  call void @transport_print_push_status(ptr noundef %101, ptr noundef %102, i32 noundef %bf.cast438, i32 noundef 0, ptr noundef %reject_reasons)
   br label %if.end439
 
 if.end439:                                        ; preds = %if.then435, %if.end427
-  %bf.load440 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %104 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load440 = load i16, ptr %104, align 8
   %bf.lshr441 = lshr i16 %bf.load440, 8
   %bf.clear442 = and i16 %bf.lshr441, 1
   %bf.cast443 = zext i16 %bf.clear442 to i32
@@ -1092,63 +1126,64 @@ if.end439:                                        ; preds = %if.then435, %if.end
   br i1 %tobool444, label %if.end452, label %land.lhs.true445
 
 land.lhs.true445:                                 ; preds = %if.end439
-  %71 = load ptr, ptr %remote, align 8
-  %tobool446 = icmp ne ptr %71, null
+  %105 = load ptr, ptr %remote, align 8
+  %tobool446 = icmp ne ptr %105, null
   br i1 %tobool446, label %if.then447, label %if.end452
 
 if.then447:                                       ; preds = %land.lhs.true445
-  %72 = load ptr, ptr %remote_refs, align 8
-  store ptr %72, ptr %ref, align 8
+  %106 = load ptr, ptr %remote_refs, align 8
+  store ptr %106, ptr %ref, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then447
-  %73 = load ptr, ptr %ref, align 8
-  %tobool448 = icmp ne ptr %73, null
+  %107 = load ptr, ptr %ref, align 8
+  %tobool448 = icmp ne ptr %107, null
   br i1 %tobool448, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %74 = load ptr, ptr %remote, align 8
-  %75 = load ptr, ptr %ref, align 8
-  %bf.load449 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %108 = load ptr, ptr %remote, align 8
+  %109 = load ptr, ptr %ref, align 8
+  %110 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load449 = load i16, ptr %110, align 8
   %bf.clear450 = and i16 %bf.load449, 1
   %bf.cast451 = zext i16 %bf.clear450 to i32
-  call void @transport_update_tracking_ref(ptr noundef %74, ptr noundef %75, i32 noundef %bf.cast451)
+  call void @transport_update_tracking_ref(ptr noundef %108, ptr noundef %109, i32 noundef %bf.cast451)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %76 = load ptr, ptr %ref, align 8
-  %next = getelementptr inbounds %struct.ref, ptr %76, i32 0, i32 0
-  %77 = load ptr, ptr %next, align 8
-  store ptr %77, ptr %ref, align 8
+  %111 = load ptr, ptr %ref, align 8
+  %next = getelementptr inbounds %struct.ref, ptr %111, i32 0, i32 0
+  %112 = load ptr, ptr %next, align 8
+  store ptr %112, ptr %ref, align 8
   br label %for.cond, !llvm.loop !8
 
 for.end:                                          ; preds = %for.cond
   br label %if.end452
 
 if.end452:                                        ; preds = %for.end, %land.lhs.true445, %if.end439
-  %78 = load i32, ptr %ret, align 4
-  %tobool453 = icmp ne i32 %78, 0
+  %113 = load i32, ptr %ret, align 4
+  %tobool453 = icmp ne i32 %113, 0
   br i1 %tobool453, label %if.end459, label %land.lhs.true454
 
 land.lhs.true454:                                 ; preds = %if.end452
-  %79 = load ptr, ptr %remote_refs, align 8
-  %call455 = call i32 @transport_refs_pushed(ptr noundef %79)
+  %114 = load ptr, ptr %remote_refs, align 8
+  %call455 = call i32 @transport_refs_pushed(ptr noundef %114)
   %tobool456 = icmp ne i32 %call455, 0
   br i1 %tobool456, label %if.end459, label %if.then457
 
 if.then457:                                       ; preds = %land.lhs.true454
-  %80 = load ptr, ptr @stderr, align 8
-  %call458 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef @.str.45)
+  %115 = load ptr, ptr @stderr, align 8
+  %call458 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef @.str.45)
   br label %if.end459
 
 if.end459:                                        ; preds = %if.then457, %land.lhs.true454, %if.end452
-  %81 = load i32, ptr %ret, align 4
-  store i32 %81, ptr %retval, align 4
+  %116 = load i32, ptr %ret, align 4
+  store i32 %116, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end459, %if.then400
-  %82 = load i32, ptr %retval, align 4
-  ret i32 %82
+  %117 = load i32, ptr %retval, align 4
+  ret i32 %117
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1190,36 +1225,42 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.then
-  %bf.load = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %2 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load = load i16, ptr %2, align 8
   %bf.clear = and i16 %bf.load, -1537
   %bf.set = or i16 %bf.clear, 0
-  store i16 %bf.set, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %3 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  store i16 %bf.set, ptr %3, align 8
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %if.then
-  %bf.load3 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load3 = load i16, ptr %4, align 8
   %bf.clear4 = and i16 %bf.load3, -1537
   %bf.set5 = or i16 %bf.clear4, 1024
-  store i16 %bf.set5, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %5 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  store i16 %bf.set5, ptr %5, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.then
-  %2 = load ptr, ptr %v.addr, align 8
-  %call6 = call i32 @strcasecmp(ptr noundef %2, ptr noundef @.str.47) #9
+  %6 = load ptr, ptr %v.addr, align 8
+  %call6 = call i32 @strcasecmp(ptr noundef %6, ptr noundef @.str.47) #9
   %tobool7 = icmp ne i32 %call6, 0
   br i1 %tobool7, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %sw.default
-  %bf.load9 = load i16, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %7 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  %bf.load9 = load i16, ptr %7, align 8
   %bf.clear10 = and i16 %bf.load9, -1537
   %bf.set11 = or i16 %bf.clear10, 512
-  store i16 %bf.set11, ptr getelementptr inbounds (%struct.send_pack_args, ptr @args, i32 0, i32 1), align 8
+  %8 = getelementptr inbounds %struct.send_pack_args, ptr @args, i32 0, i32 1
+  store i16 %bf.set11, ptr %8, align 8
   br label %if.end
 
 if.else:                                          ; preds = %sw.default
   %call12 = call ptr @_(ptr noundef @.str.48)
-  %3 = load ptr, ptr %k.addr, align 8
-  %call13 = call i32 (ptr, ...) @error(ptr noundef %call12, ptr noundef %3)
+  %9 = load ptr, ptr %k.addr, align 8
+  %call13 = call i32 (ptr, ...) @error(ptr noundef %call12, ptr noundef %9)
   %call14 = call i32 @const_error()
   store i32 %call14, ptr %retval, align 4
   br label %return
@@ -1231,17 +1272,17 @@ sw.epilog:                                        ; preds = %if.end, %sw.bb2, %s
   br label %if.end15
 
 if.end15:                                         ; preds = %sw.epilog, %entry
-  %4 = load ptr, ptr %k.addr, align 8
-  %5 = load ptr, ptr %v.addr, align 8
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %7 = load ptr, ptr %cb.addr, align 8
-  %call16 = call i32 @git_default_config(ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %10 = load ptr, ptr %k.addr, align 8
+  %11 = load ptr, ptr %v.addr, align 8
+  %12 = load ptr, ptr %ctx.addr, align 8
+  %13 = load ptr, ptr %cb.addr, align 8
+  %call16 = call i32 @git_default_config(ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
   store i32 %call16, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end15, %if.else
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+  %14 = load i32, ptr %retval, align 4
+  ret i32 %14
 }
 
 declare i32 @parse_options(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2

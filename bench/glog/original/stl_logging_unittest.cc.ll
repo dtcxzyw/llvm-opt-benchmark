@@ -1363,35 +1363,36 @@ define linkonce_odr hidden void @_ZN6google12base_logging12LogStreamBufC2EPci(pt
   store i32 %2, ptr %6, align 4
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6google12base_logging12LogStreamBufE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6google12base_logging12LogStreamBufE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = load i32, ptr %6, align 4
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 -2
-  invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef %10, ptr noundef %15)
-          to label %16 unwind label %17
-
-16:                                               ; preds = %3
-  ret void
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i32, ptr %6, align 4
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds i8, ptr %12, i64 %14
+  %16 = getelementptr inbounds i8, ptr %15, i64 -2
+  invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef %11, ptr noundef %16)
+          to label %17 unwind label %18
 
 17:                                               ; preds = %3
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %7, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %8, align 4
-  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
-  br label %21
+  ret void
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i32, ptr %8, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
+  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -1425,79 +1426,83 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamC1EPcil(ptr nou
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 88
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %12)
-  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN6google10LogMessage9LogStreamE, i64 0, i64 1), ptr noundef null)
-          to label %13 unwind label %29
+  %13 = getelementptr inbounds [4 x ptr], ptr @_ZTTN6google10LogMessage9LogStreamE, i64 0, i64 1
+  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %13, ptr noundef null)
+          to label %14 unwind label %32
 
-13:                                               ; preds = %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6google10LogMessage9LogStreamE, i32 0, i32 0, i32 3), ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 88
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6google10LogMessage9LogStreamE, i32 0, i32 1, i32 3), ptr %14, align 8
-  %15 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 1
-  %16 = load ptr, ptr %6, align 8
-  %17 = load i32, ptr %7, align 4
-  invoke void @_ZN6google12base_logging12LogStreamBufC2EPci(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %16, i32 noundef %17)
-          to label %18 unwind label %33
+14:                                               ; preds = %4
+  %15 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN6google10LogMessage9LogStreamE, i32 0, i32 0, i32 3
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds i8, ptr %11, i64 88
+  %17 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN6google10LogMessage9LogStreamE, i32 0, i32 1, i32 3
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 1
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  invoke void @_ZN6google12base_logging12LogStreamBufC2EPci(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef %19, i32 noundef %20)
+          to label %21 unwind label %36
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 2
-  %20 = load i64, ptr %8, align 8
-  store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 3
-  store ptr %11, ptr %21, align 8
-  %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr i8, ptr %22, i64 -24
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %11, i64 %24
-  %26 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 1
-  %27 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %25, ptr noundef %26)
-          to label %28 unwind label %37
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 2
+  %23 = load i64, ptr %8, align 8
+  store i64 %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 3
+  store ptr %11, ptr %24, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr i8, ptr %25, i64 -24
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %11, i64 %27
+  %29 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 1
+  %30 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %28, ptr noundef %29)
+          to label %31 unwind label %40
 
-28:                                               ; preds = %18
+31:                                               ; preds = %21
   ret void
 
-29:                                               ; preds = %4
-  %30 = landingpad { ptr, i32 }
+32:                                               ; preds = %4
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %9, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %10, align 4
-  br label %42
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %9, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %10, align 4
+  br label %46
 
-33:                                               ; preds = %13
-  %34 = landingpad { ptr, i32 }
+36:                                               ; preds = %14
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %9, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %10, align 4
-  br label %41
-
-37:                                               ; preds = %18
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %9, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %10, align 4
-  call void @_ZN6google12base_logging12LogStreamBufD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %15) #3
-  br label %41
-
-41:                                               ; preds = %37, %33
-  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN6google10LogMessage9LogStreamE, i64 0, i64 1)) #3
-  br label %42
-
-42:                                               ; preds = %41, %29
-  %43 = getelementptr inbounds i8, ptr %11, i64 88
-  call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %43) #3
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %9, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %10, align 4
   br label %44
 
-44:                                               ; preds = %42
-  %45 = load ptr, ptr %9, align 8
-  %46 = load i32, ptr %10, align 4
-  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
-  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
-  resume { ptr, i32 } %48
+40:                                               ; preds = %21
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %9, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %10, align 4
+  call void @_ZN6google12base_logging12LogStreamBufD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %18) #3
+  br label %44
+
+44:                                               ; preds = %40, %36
+  %45 = getelementptr inbounds [4 x ptr], ptr @_ZTTN6google10LogMessage9LogStreamE, i64 0, i64 1
+  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %45) #3
+  br label %46
+
+46:                                               ; preds = %44, %32
+  %47 = getelementptr inbounds i8, ptr %11, i64 88
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %47) #3
+  br label %48
+
+48:                                               ; preds = %46
+  %49 = load ptr, ptr %9, align 8
+  %50 = load i32, ptr %10, align 4
+  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
+  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
+  resume { ptr, i32 } %52
 }
 
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264)) unnamed_addr #1
@@ -1604,8 +1609,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define internal void @__cxx_global_var_init.2() #0 section ".text.startup" {
   %1 = load ptr, ptr @_ZN3fLSL19FLAGS_notest_tmpdirB5cxx11E, align 8
   %2 = load ptr, ptr @_ZN3fLSL19FLAGS_notest_tmpdirB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL13s_test_tmpdirE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %2)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL13o_test_tmpdirE, ptr noundef @.str, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef %1, ptr noundef getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL13s_test_tmpdirE, i64 0, i64 1))
+  %3 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL13s_test_tmpdirE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %4 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL13s_test_tmpdirE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL13o_test_tmpdirE, ptr noundef @.str, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef %1, ptr noundef %4)
   ret void
 }
 
@@ -1615,8 +1622,9 @@ declare void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_t
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.5() #0 section ".text.startup" {
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL13d_test_tmpdirE, ptr noundef @_ZN3fLSL13s_test_tmpdirE, ptr noundef getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL13s_test_tmpdirE, i64 0, i64 1))
-  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL13d_test_tmpdirE, ptr @__dso_handle) #3
+  %1 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL13s_test_tmpdirE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL13d_test_tmpdirE, ptr noundef @_ZN3fLSL13s_test_tmpdirE, ptr noundef %1)
+  %2 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL13d_test_tmpdirE, ptr @__dso_handle) #3
   ret void
 }
 
@@ -1707,15 +1715,18 @@ define linkonce_odr hidden noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx1
 define internal void @__cxx_global_var_init.9() #0 section ".text.startup" {
   %1 = load ptr, ptr @_ZN3fLSL19FLAGS_notest_srcdirB5cxx11E, align 8
   %2 = load ptr, ptr @_ZN3fLSL19FLAGS_notest_srcdirB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.1], ptr @_ZN3fLSL13s_test_srcdirE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %2)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL13o_test_srcdirE, ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef @.str.4, ptr noundef %1, ptr noundef getelementptr inbounds ([2 x %union.anon.1], ptr @_ZN3fLSL13s_test_srcdirE, i64 0, i64 1))
+  %3 = getelementptr inbounds [2 x %union.anon.1], ptr @_ZN3fLSL13s_test_srcdirE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %4 = getelementptr inbounds [2 x %union.anon.1], ptr @_ZN3fLSL13s_test_srcdirE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL13o_test_srcdirE, ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef @.str.4, ptr noundef %1, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.12() #0 section ".text.startup" {
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL13d_test_srcdirE, ptr noundef @_ZN3fLSL13s_test_srcdirE, ptr noundef getelementptr inbounds ([2 x %union.anon.1], ptr @_ZN3fLSL13s_test_srcdirE, i64 0, i64 1))
-  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL13d_test_srcdirE, ptr @__dso_handle) #3
+  %1 = getelementptr inbounds [2 x %union.anon.1], ptr @_ZN3fLSL13s_test_srcdirE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL13d_test_srcdirE, ptr noundef @_ZN3fLSL13s_test_srcdirE, ptr noundef %1)
+  %2 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL13d_test_srcdirE, ptr @__dso_handle) #3
   ret void
 }
 
@@ -1872,7 +1883,8 @@ define linkonce_odr hidden void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4724,7 +4736,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

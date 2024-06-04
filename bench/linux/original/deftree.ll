@@ -658,288 +658,292 @@ define dso_local void @zlib_tr_align(ptr noundef %0) local_unnamed_addr #1 align
 34:                                               ; preds = %32, %10
   %35 = phi i32 [ %33, %32 ], [ %31, %10 ]
   store i32 %35, ptr %2, align 4
-  %36 = load i16, ptr getelementptr inbounds ([288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 256, i32 1), align 2
-  %37 = zext i16 %36 to i32
-  %38 = sub nsw i32 16, %37
-  %39 = icmp sgt i32 %35, %38
-  %40 = load i16, ptr getelementptr inbounds ([288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 256), align 16
-  %41 = zext i16 %40 to i32
-  %42 = shl i32 %41, %35
-  %43 = getelementptr inbounds i8, ptr %0, i64 5920
-  %44 = load i16, ptr %43, align 8
-  %45 = trunc i32 %42 to i16
-  %46 = or i16 %44, %45
-  store i16 %46, ptr %43, align 8
-  br i1 %39, label %47, label %70
+  %36 = getelementptr inbounds [288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 256, i32 1
+  %37 = load i16, ptr %36, align 2
+  %38 = zext i16 %37 to i32
+  %39 = sub nsw i32 16, %38
+  %40 = icmp sgt i32 %35, %39
+  %41 = getelementptr inbounds [288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 256
+  %42 = load i16, ptr %41, align 16
+  %43 = zext i16 %42 to i32
+  %44 = shl i32 %43, %35
+  %45 = getelementptr inbounds i8, ptr %0, i64 5920
+  %46 = load i16, ptr %45, align 8
+  %47 = trunc i32 %44 to i16
+  %48 = or i16 %46, %47
+  store i16 %48, ptr %45, align 8
+  br i1 %40, label %49, label %72
 
-47:                                               ; preds = %34
-  %48 = trunc i16 %46 to i8
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 40
-  %52 = load i32, ptr %51, align 8
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %51, align 8
-  %54 = sext i32 %52 to i64
-  %55 = getelementptr i8, ptr %50, i64 %54
-  store i8 %48, ptr %55, align 1
-  %56 = load i16, ptr %43, align 8
-  %57 = lshr i16 %56, 8
-  %58 = trunc i16 %57 to i8
-  %59 = load ptr, ptr %49, align 8
-  %60 = load i32, ptr %51, align 8
-  %61 = add i32 %60, 1
-  store i32 %61, ptr %51, align 8
-  %62 = sext i32 %60 to i64
-  %63 = getelementptr i8, ptr %59, i64 %62
-  store i8 %58, ptr %63, align 1
-  %64 = load i32, ptr %2, align 4
-  %65 = sub i32 16, %64
-  %66 = lshr i32 %41, %65
-  %67 = trunc i32 %66 to i16
-  store i16 %67, ptr %43, align 8
-  %68 = add nsw i32 %37, -16
-  %69 = add i32 %68, %64
-  br label %72
+49:                                               ; preds = %34
+  %50 = trunc i16 %48 to i8
+  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %54 = load i32, ptr %53, align 8
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %53, align 8
+  %56 = sext i32 %54 to i64
+  %57 = getelementptr i8, ptr %52, i64 %56
+  store i8 %50, ptr %57, align 1
+  %58 = load i16, ptr %45, align 8
+  %59 = lshr i16 %58, 8
+  %60 = trunc i16 %59 to i8
+  %61 = load ptr, ptr %51, align 8
+  %62 = load i32, ptr %53, align 8
+  %63 = add i32 %62, 1
+  store i32 %63, ptr %53, align 8
+  %64 = sext i32 %62 to i64
+  %65 = getelementptr i8, ptr %61, i64 %64
+  store i8 %60, ptr %65, align 1
+  %66 = load i32, ptr %2, align 4
+  %67 = sub i32 16, %66
+  %68 = lshr i32 %43, %67
+  %69 = trunc i32 %68 to i16
+  store i16 %69, ptr %45, align 8
+  %70 = add nsw i32 %38, -16
+  %71 = add i32 %70, %66
+  br label %74
 
-70:                                               ; preds = %34
-  %71 = add i32 %35, %37
-  br label %72
+72:                                               ; preds = %34
+  %73 = add i32 %35, %38
+  br label %74
 
-72:                                               ; preds = %70, %47
-  %73 = phi i32 [ %71, %70 ], [ %69, %47 ]
-  store i32 %73, ptr %2, align 4
-  %74 = getelementptr inbounds i8, ptr %0, i64 5904
-  %75 = load i64, ptr %74, align 8
-  %76 = add i64 %75, 10
-  store i64 %76, ptr %74, align 8
-  %77 = icmp eq i32 %73, 16
-  br i1 %77, label %78, label %97
+74:                                               ; preds = %72, %49
+  %75 = phi i32 [ %73, %72 ], [ %71, %49 ]
+  store i32 %75, ptr %2, align 4
+  %76 = getelementptr inbounds i8, ptr %0, i64 5904
+  %77 = load i64, ptr %76, align 8
+  %78 = add i64 %77, 10
+  store i64 %78, ptr %76, align 8
+  %79 = icmp eq i32 %75, 16
+  br i1 %79, label %80, label %99
 
-78:                                               ; preds = %72
-  %79 = getelementptr inbounds i8, ptr %0, i64 5920
-  %80 = load i16, ptr %79, align 8
-  %81 = trunc i16 %80 to i8
-  %82 = getelementptr inbounds i8, ptr %0, i64 16
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 40
-  %85 = load i32, ptr %84, align 8
-  %86 = add i32 %85, 1
-  store i32 %86, ptr %84, align 8
-  %87 = sext i32 %85 to i64
-  %88 = getelementptr i8, ptr %83, i64 %87
-  store i8 %81, ptr %88, align 1
-  %89 = load i16, ptr %79, align 8
-  %90 = lshr i16 %89, 8
-  %91 = trunc i16 %90 to i8
-  %92 = load ptr, ptr %82, align 8
-  %93 = load i32, ptr %84, align 8
-  %94 = add i32 %93, 1
-  store i32 %94, ptr %84, align 8
-  %95 = sext i32 %93 to i64
-  %96 = getelementptr i8, ptr %92, i64 %95
-  store i8 %91, ptr %96, align 1
-  store i16 0, ptr %79, align 8
-  br label %114
-
-97:                                               ; preds = %72
-  %98 = icmp sgt i32 %73, 7
-  br i1 %98, label %99, label %116
-
-99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %0, i64 5920
-  %101 = load i16, ptr %100, align 8
-  %102 = trunc i16 %101 to i8
-  %103 = getelementptr inbounds i8, ptr %0, i64 16
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 40
-  %106 = load i32, ptr %105, align 8
-  %107 = add i32 %106, 1
-  store i32 %107, ptr %105, align 8
-  %108 = sext i32 %106 to i64
-  %109 = getelementptr i8, ptr %104, i64 %108
-  store i8 %102, ptr %109, align 1
-  %110 = load i16, ptr %100, align 8
-  %111 = lshr i16 %110, 8
-  store i16 %111, ptr %100, align 8
-  %112 = load i32, ptr %2, align 4
-  %113 = add i32 %112, -8
-  br label %114
-
-114:                                              ; preds = %99, %78
-  %115 = phi i32 [ 0, %78 ], [ %113, %99 ]
-  store i32 %115, ptr %2, align 4
+80:                                               ; preds = %74
+  %81 = getelementptr inbounds i8, ptr %0, i64 5920
+  %82 = load i16, ptr %81, align 8
+  %83 = trunc i16 %82 to i8
+  %84 = getelementptr inbounds i8, ptr %0, i64 16
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %0, i64 40
+  %87 = load i32, ptr %86, align 8
+  %88 = add i32 %87, 1
+  store i32 %88, ptr %86, align 8
+  %89 = sext i32 %87 to i64
+  %90 = getelementptr i8, ptr %85, i64 %89
+  store i8 %83, ptr %90, align 1
+  %91 = load i16, ptr %81, align 8
+  %92 = lshr i16 %91, 8
+  %93 = trunc i16 %92 to i8
+  %94 = load ptr, ptr %84, align 8
+  %95 = load i32, ptr %86, align 8
+  %96 = add i32 %95, 1
+  store i32 %96, ptr %86, align 8
+  %97 = sext i32 %95 to i64
+  %98 = getelementptr i8, ptr %94, i64 %97
+  store i8 %93, ptr %98, align 1
+  store i16 0, ptr %81, align 8
   br label %116
 
-116:                                              ; preds = %114, %97
-  %117 = getelementptr inbounds i8, ptr %0, i64 5916
-  %118 = load i32, ptr %117, align 4
-  %119 = add i32 %118, 11
-  %120 = load i32, ptr %2, align 4
-  %121 = sub i32 %119, %120
-  %122 = icmp slt i32 %121, 9
-  br i1 %122, label %123, label %235
+99:                                               ; preds = %74
+  %100 = icmp sgt i32 %75, 7
+  br i1 %100, label %101, label %118
 
-123:                                              ; preds = %116
-  %124 = icmp sgt i32 %120, 13
-  %125 = shl i32 2, %120
-  %126 = getelementptr inbounds i8, ptr %0, i64 5920
-  %127 = load i16, ptr %126, align 8
-  %128 = trunc i32 %125 to i16
-  %129 = or i16 %127, %128
-  store i16 %129, ptr %126, align 8
-  br i1 %124, label %130, label %152
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds i8, ptr %0, i64 5920
+  %103 = load i16, ptr %102, align 8
+  %104 = trunc i16 %103 to i8
+  %105 = getelementptr inbounds i8, ptr %0, i64 16
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %0, i64 40
+  %108 = load i32, ptr %107, align 8
+  %109 = add i32 %108, 1
+  store i32 %109, ptr %107, align 8
+  %110 = sext i32 %108 to i64
+  %111 = getelementptr i8, ptr %106, i64 %110
+  store i8 %104, ptr %111, align 1
+  %112 = load i16, ptr %102, align 8
+  %113 = lshr i16 %112, 8
+  store i16 %113, ptr %102, align 8
+  %114 = load i32, ptr %2, align 4
+  %115 = add i32 %114, -8
+  br label %116
 
-130:                                              ; preds = %123
-  %131 = trunc i16 %129 to i8
-  %132 = getelementptr inbounds i8, ptr %0, i64 16
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 40
-  %135 = load i32, ptr %134, align 8
-  %136 = add i32 %135, 1
-  store i32 %136, ptr %134, align 8
-  %137 = sext i32 %135 to i64
-  %138 = getelementptr i8, ptr %133, i64 %137
-  store i8 %131, ptr %138, align 1
-  %139 = load i16, ptr %126, align 8
-  %140 = lshr i16 %139, 8
-  %141 = trunc i16 %140 to i8
-  %142 = load ptr, ptr %132, align 8
-  %143 = load i32, ptr %134, align 8
-  %144 = add i32 %143, 1
-  store i32 %144, ptr %134, align 8
-  %145 = sext i32 %143 to i64
-  %146 = getelementptr i8, ptr %142, i64 %145
-  store i8 %141, ptr %146, align 1
-  %147 = load i32, ptr %2, align 4
-  %148 = sub i32 16, %147
-  %149 = lshr i32 2, %148
-  %150 = trunc i32 %149 to i16
-  store i16 %150, ptr %126, align 8
-  %151 = add i32 %147, -13
-  br label %154
+116:                                              ; preds = %101, %80
+  %117 = phi i32 [ 0, %80 ], [ %115, %101 ]
+  store i32 %117, ptr %2, align 4
+  br label %118
 
-152:                                              ; preds = %123
-  %153 = add i32 %120, 3
-  br label %154
+118:                                              ; preds = %116, %99
+  %119 = getelementptr inbounds i8, ptr %0, i64 5916
+  %120 = load i32, ptr %119, align 4
+  %121 = add i32 %120, 11
+  %122 = load i32, ptr %2, align 4
+  %123 = sub i32 %121, %122
+  %124 = icmp slt i32 %123, 9
+  br i1 %124, label %125, label %239
 
-154:                                              ; preds = %152, %130
-  %155 = phi i32 [ %153, %152 ], [ %151, %130 ]
-  store i32 %155, ptr %2, align 4
-  %156 = load i16, ptr getelementptr inbounds ([288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 256, i32 1), align 2
-  %157 = zext i16 %156 to i32
-  %158 = sub nsw i32 16, %157
-  %159 = icmp sgt i32 %155, %158
-  %160 = load i16, ptr getelementptr inbounds ([288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 256), align 16
-  %161 = zext i16 %160 to i32
-  %162 = shl i32 %161, %155
-  %163 = getelementptr inbounds i8, ptr %0, i64 5920
-  %164 = load i16, ptr %163, align 8
-  %165 = trunc i32 %162 to i16
-  %166 = or i16 %164, %165
-  store i16 %166, ptr %163, align 8
-  br i1 %159, label %167, label %190
+125:                                              ; preds = %118
+  %126 = icmp sgt i32 %122, 13
+  %127 = shl i32 2, %122
+  %128 = getelementptr inbounds i8, ptr %0, i64 5920
+  %129 = load i16, ptr %128, align 8
+  %130 = trunc i32 %127 to i16
+  %131 = or i16 %129, %130
+  store i16 %131, ptr %128, align 8
+  br i1 %126, label %132, label %154
 
-167:                                              ; preds = %154
-  %168 = trunc i16 %166 to i8
-  %169 = getelementptr inbounds i8, ptr %0, i64 16
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %0, i64 40
-  %172 = load i32, ptr %171, align 8
-  %173 = add i32 %172, 1
-  store i32 %173, ptr %171, align 8
-  %174 = sext i32 %172 to i64
-  %175 = getelementptr i8, ptr %170, i64 %174
-  store i8 %168, ptr %175, align 1
-  %176 = load i16, ptr %163, align 8
-  %177 = lshr i16 %176, 8
-  %178 = trunc i16 %177 to i8
-  %179 = load ptr, ptr %169, align 8
-  %180 = load i32, ptr %171, align 8
-  %181 = add i32 %180, 1
-  store i32 %181, ptr %171, align 8
-  %182 = sext i32 %180 to i64
-  %183 = getelementptr i8, ptr %179, i64 %182
-  store i8 %178, ptr %183, align 1
-  %184 = load i32, ptr %2, align 4
-  %185 = sub i32 16, %184
-  %186 = lshr i32 %161, %185
-  %187 = trunc i32 %186 to i16
-  store i16 %187, ptr %163, align 8
-  %188 = add nsw i32 %157, -16
-  %189 = add i32 %188, %184
-  br label %192
+132:                                              ; preds = %125
+  %133 = trunc i16 %131 to i8
+  %134 = getelementptr inbounds i8, ptr %0, i64 16
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds i8, ptr %0, i64 40
+  %137 = load i32, ptr %136, align 8
+  %138 = add i32 %137, 1
+  store i32 %138, ptr %136, align 8
+  %139 = sext i32 %137 to i64
+  %140 = getelementptr i8, ptr %135, i64 %139
+  store i8 %133, ptr %140, align 1
+  %141 = load i16, ptr %128, align 8
+  %142 = lshr i16 %141, 8
+  %143 = trunc i16 %142 to i8
+  %144 = load ptr, ptr %134, align 8
+  %145 = load i32, ptr %136, align 8
+  %146 = add i32 %145, 1
+  store i32 %146, ptr %136, align 8
+  %147 = sext i32 %145 to i64
+  %148 = getelementptr i8, ptr %144, i64 %147
+  store i8 %143, ptr %148, align 1
+  %149 = load i32, ptr %2, align 4
+  %150 = sub i32 16, %149
+  %151 = lshr i32 2, %150
+  %152 = trunc i32 %151 to i16
+  store i16 %152, ptr %128, align 8
+  %153 = add i32 %149, -13
+  br label %156
 
-190:                                              ; preds = %154
-  %191 = add i32 %155, %157
-  br label %192
+154:                                              ; preds = %125
+  %155 = add i32 %122, 3
+  br label %156
 
-192:                                              ; preds = %190, %167
-  %193 = phi i32 [ %191, %190 ], [ %189, %167 ]
-  store i32 %193, ptr %2, align 4
-  %194 = load i64, ptr %74, align 8
-  %195 = add i64 %194, 10
-  store i64 %195, ptr %74, align 8
-  %196 = icmp eq i32 %193, 16
-  br i1 %196, label %197, label %216
+156:                                              ; preds = %154, %132
+  %157 = phi i32 [ %155, %154 ], [ %153, %132 ]
+  store i32 %157, ptr %2, align 4
+  %158 = getelementptr inbounds [288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 256, i32 1
+  %159 = load i16, ptr %158, align 2
+  %160 = zext i16 %159 to i32
+  %161 = sub nsw i32 16, %160
+  %162 = icmp sgt i32 %157, %161
+  %163 = getelementptr inbounds [288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 256
+  %164 = load i16, ptr %163, align 16
+  %165 = zext i16 %164 to i32
+  %166 = shl i32 %165, %157
+  %167 = getelementptr inbounds i8, ptr %0, i64 5920
+  %168 = load i16, ptr %167, align 8
+  %169 = trunc i32 %166 to i16
+  %170 = or i16 %168, %169
+  store i16 %170, ptr %167, align 8
+  br i1 %162, label %171, label %194
 
-197:                                              ; preds = %192
-  %198 = getelementptr inbounds i8, ptr %0, i64 5920
-  %199 = load i16, ptr %198, align 8
-  %200 = trunc i16 %199 to i8
-  %201 = getelementptr inbounds i8, ptr %0, i64 16
-  %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %0, i64 40
-  %204 = load i32, ptr %203, align 8
-  %205 = add i32 %204, 1
-  store i32 %205, ptr %203, align 8
-  %206 = sext i32 %204 to i64
-  %207 = getelementptr i8, ptr %202, i64 %206
-  store i8 %200, ptr %207, align 1
-  %208 = load i16, ptr %198, align 8
-  %209 = lshr i16 %208, 8
-  %210 = trunc i16 %209 to i8
-  %211 = load ptr, ptr %201, align 8
-  %212 = load i32, ptr %203, align 8
-  %213 = add i32 %212, 1
-  store i32 %213, ptr %203, align 8
-  %214 = sext i32 %212 to i64
-  %215 = getelementptr i8, ptr %211, i64 %214
-  store i8 %210, ptr %215, align 1
-  store i16 0, ptr %198, align 8
-  br label %233
+171:                                              ; preds = %156
+  %172 = trunc i16 %170 to i8
+  %173 = getelementptr inbounds i8, ptr %0, i64 16
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr inbounds i8, ptr %0, i64 40
+  %176 = load i32, ptr %175, align 8
+  %177 = add i32 %176, 1
+  store i32 %177, ptr %175, align 8
+  %178 = sext i32 %176 to i64
+  %179 = getelementptr i8, ptr %174, i64 %178
+  store i8 %172, ptr %179, align 1
+  %180 = load i16, ptr %167, align 8
+  %181 = lshr i16 %180, 8
+  %182 = trunc i16 %181 to i8
+  %183 = load ptr, ptr %173, align 8
+  %184 = load i32, ptr %175, align 8
+  %185 = add i32 %184, 1
+  store i32 %185, ptr %175, align 8
+  %186 = sext i32 %184 to i64
+  %187 = getelementptr i8, ptr %183, i64 %186
+  store i8 %182, ptr %187, align 1
+  %188 = load i32, ptr %2, align 4
+  %189 = sub i32 16, %188
+  %190 = lshr i32 %165, %189
+  %191 = trunc i32 %190 to i16
+  store i16 %191, ptr %167, align 8
+  %192 = add nsw i32 %160, -16
+  %193 = add i32 %192, %188
+  br label %196
 
-216:                                              ; preds = %192
-  %217 = icmp sgt i32 %193, 7
-  br i1 %217, label %218, label %235
+194:                                              ; preds = %156
+  %195 = add i32 %157, %160
+  br label %196
 
-218:                                              ; preds = %216
-  %219 = getelementptr inbounds i8, ptr %0, i64 5920
-  %220 = load i16, ptr %219, align 8
-  %221 = trunc i16 %220 to i8
-  %222 = getelementptr inbounds i8, ptr %0, i64 16
-  %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %0, i64 40
-  %225 = load i32, ptr %224, align 8
-  %226 = add i32 %225, 1
-  store i32 %226, ptr %224, align 8
-  %227 = sext i32 %225 to i64
-  %228 = getelementptr i8, ptr %223, i64 %227
-  store i8 %221, ptr %228, align 1
-  %229 = load i16, ptr %219, align 8
-  %230 = lshr i16 %229, 8
-  store i16 %230, ptr %219, align 8
-  %231 = load i32, ptr %2, align 4
-  %232 = add i32 %231, -8
-  br label %233
+196:                                              ; preds = %194, %171
+  %197 = phi i32 [ %195, %194 ], [ %193, %171 ]
+  store i32 %197, ptr %2, align 4
+  %198 = load i64, ptr %76, align 8
+  %199 = add i64 %198, 10
+  store i64 %199, ptr %76, align 8
+  %200 = icmp eq i32 %197, 16
+  br i1 %200, label %201, label %220
 
-233:                                              ; preds = %218, %197
-  %234 = phi i32 [ %232, %218 ], [ 0, %197 ]
-  store i32 %234, ptr %2, align 4
-  br label %235
+201:                                              ; preds = %196
+  %202 = getelementptr inbounds i8, ptr %0, i64 5920
+  %203 = load i16, ptr %202, align 8
+  %204 = trunc i16 %203 to i8
+  %205 = getelementptr inbounds i8, ptr %0, i64 16
+  %206 = load ptr, ptr %205, align 8
+  %207 = getelementptr inbounds i8, ptr %0, i64 40
+  %208 = load i32, ptr %207, align 8
+  %209 = add i32 %208, 1
+  store i32 %209, ptr %207, align 8
+  %210 = sext i32 %208 to i64
+  %211 = getelementptr i8, ptr %206, i64 %210
+  store i8 %204, ptr %211, align 1
+  %212 = load i16, ptr %202, align 8
+  %213 = lshr i16 %212, 8
+  %214 = trunc i16 %213 to i8
+  %215 = load ptr, ptr %205, align 8
+  %216 = load i32, ptr %207, align 8
+  %217 = add i32 %216, 1
+  store i32 %217, ptr %207, align 8
+  %218 = sext i32 %216 to i64
+  %219 = getelementptr i8, ptr %215, i64 %218
+  store i8 %214, ptr %219, align 1
+  store i16 0, ptr %202, align 8
+  br label %237
 
-235:                                              ; preds = %233, %216, %116
-  store i32 7, ptr %117, align 4
+220:                                              ; preds = %196
+  %221 = icmp sgt i32 %197, 7
+  br i1 %221, label %222, label %239
+
+222:                                              ; preds = %220
+  %223 = getelementptr inbounds i8, ptr %0, i64 5920
+  %224 = load i16, ptr %223, align 8
+  %225 = trunc i16 %224 to i8
+  %226 = getelementptr inbounds i8, ptr %0, i64 16
+  %227 = load ptr, ptr %226, align 8
+  %228 = getelementptr inbounds i8, ptr %0, i64 40
+  %229 = load i32, ptr %228, align 8
+  %230 = add i32 %229, 1
+  store i32 %230, ptr %228, align 8
+  %231 = sext i32 %229 to i64
+  %232 = getelementptr i8, ptr %227, i64 %231
+  store i8 %225, ptr %232, align 1
+  %233 = load i16, ptr %223, align 8
+  %234 = lshr i16 %233, 8
+  store i16 %234, ptr %223, align 8
+  %235 = load i32, ptr %2, align 4
+  %236 = add i32 %235, -8
+  br label %237
+
+237:                                              ; preds = %222, %201
+  %238 = phi i32 [ %236, %222 ], [ 0, %201 ]
+  store i32 %238, ptr %2, align 4
+  br label %239
+
+239:                                              ; preds = %237, %220, %118
+  store i32 7, ptr %119, align 4
   ret void
 }
 

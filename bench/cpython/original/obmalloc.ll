@@ -3460,13 +3460,13 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %fname.addr, align 8
   %2 = load ptr, ptr %resolved_name.addr, align 8
-  %call = call ptr @realpath(ptr noundef %1, ptr noundef %2) #15
+  %call = call ptr @realpath(ptr noundef %1, ptr noundef %2) #14
   store ptr %call, ptr %retval, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
   %3 = load ptr, ptr %fname.addr, align 8
-  %call1 = call ptr @realpath(ptr noundef %3, ptr noundef null) #15
+  %call1 = call ptr @realpath(ptr noundef %3, ptr noundef null) #14
   store ptr %call1, ptr %rname, align 8
   %4 = load ptr, ptr %rname, align 8
   %cmp2 = icmp eq ptr %4, null
@@ -3482,7 +3482,7 @@ if.end:                                           ; preds = %if.else
   %call4 = call noalias ptr @mi_heap_strdup(ptr noundef %5, ptr noundef %6)
   store ptr %call4, ptr %result, align 8
   %7 = load ptr, ptr %rname, align 8
-  call void @free(ptr noundef %7) #15
+  call void @free(ptr noundef %7) #14
   %8 = load ptr, ptr %result, align 8
   store ptr %8, ptr %retval, align 8
   br label %return
@@ -5366,7 +5366,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.then3, %if.end
   %4 = load ptr, ptr %name.addr, align 8
-  %call = call ptr @getenv(ptr noundef %4) #15
+  %call = call ptr @getenv(ptr noundef %4) #14
   store ptr %call, ptr %p, align 8
   %5 = load ptr, ptr %p, align 8
   %cmp5 = icmp eq ptr %5, null
@@ -6994,12 +6994,12 @@ entry:
   store i32 %err, ptr %err.addr, align 4
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @mi_show_error_message(ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %1 = load volatile ptr, ptr @mi_error_handler, align 8
   %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.else
@@ -8141,12 +8141,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @mi_vfprintf(ptr noundef null, ptr noundef null, ptr noundef @.str.22, ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -8681,37 +8681,39 @@ if.end20:                                         ; preds = %if.end14
   %24 = load i64, ptr %page, align 8
   %inc = add i64 %24, 1
   store i64 %inc, ptr %page, align 8
-  call void @_mi_stat_increase(ptr noundef getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3), i64 noundef 1073741824)
-  call void @_mi_stat_increase(ptr noundef getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 2), i64 noundef 1073741824)
-  %25 = load i64, ptr %max_msecs.addr, align 8
-  %cmp21 = icmp sgt i64 %25, 0
+  %25 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3
+  call void @_mi_stat_increase(ptr noundef %25, i64 noundef 1073741824)
+  %26 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 2
+  call void @_mi_stat_increase(ptr noundef %26, i64 noundef 1073741824)
+  %27 = load i64, ptr %max_msecs.addr, align 8
+  %cmp21 = icmp sgt i64 %27, 0
   br i1 %cmp21, label %if.then22, label %if.end36
 
 if.then22:                                        ; preds = %if.end20
-  %26 = load i64, ptr %start_t, align 8
-  %call23 = call i64 @_mi_clock_end(i64 noundef %26)
+  %28 = load i64, ptr %start_t, align 8
+  %call23 = call i64 @_mi_clock_end(i64 noundef %28)
   store i64 %call23, ptr %elapsed, align 8
-  %27 = load i64, ptr %page, align 8
-  %cmp24 = icmp uge i64 %27, 1
+  %29 = load i64, ptr %page, align 8
+  %cmp24 = icmp uge i64 %29, 1
   br i1 %cmp24, label %if.then25, label %if.end32
 
 if.then25:                                        ; preds = %if.then22
-  %28 = load i64, ptr %elapsed, align 8
-  %29 = load i64, ptr %page, align 8
-  %add = add i64 %29, 1
-  %div = udiv i64 %28, %add
-  %30 = load i64, ptr %pages.addr, align 8
-  %mul26 = mul i64 %div, %30
+  %30 = load i64, ptr %elapsed, align 8
+  %31 = load i64, ptr %page, align 8
+  %add = add i64 %31, 1
+  %div = udiv i64 %30, %add
+  %32 = load i64, ptr %pages.addr, align 8
+  %mul26 = mul i64 %div, %32
   store i64 %mul26, ptr %estimate, align 8
-  %31 = load i64, ptr %estimate, align 8
-  %32 = load i64, ptr %max_msecs.addr, align 8
-  %mul27 = mul i64 2, %32
-  %cmp28 = icmp sgt i64 %31, %mul27
+  %33 = load i64, ptr %estimate, align 8
+  %34 = load i64, ptr %max_msecs.addr, align 8
+  %mul27 = mul i64 2, %34
+  %cmp28 = icmp sgt i64 %33, %mul27
   br i1 %cmp28, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %if.then25
-  %33 = load i64, ptr %max_msecs.addr, align 8
-  %add30 = add i64 %33, 1
+  %35 = load i64, ptr %max_msecs.addr, align 8
+  %add30 = add i64 %35, 1
   store i64 %add30, ptr %elapsed, align 8
   br label %if.end31
 
@@ -8719,14 +8721,14 @@ if.end31:                                         ; preds = %if.then29, %if.then
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end31, %if.then22
-  %34 = load i64, ptr %elapsed, align 8
-  %35 = load i64, ptr %max_msecs.addr, align 8
-  %cmp33 = icmp sgt i64 %34, %35
+  %36 = load i64, ptr %elapsed, align 8
+  %37 = load i64, ptr %max_msecs.addr, align 8
+  %cmp33 = icmp sgt i64 %36, %37
   br i1 %cmp33, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.end32
-  %36 = load i64, ptr %page, align 8
-  call void (ptr, ...) @_mi_warning_message(ptr noundef @.str.28, i64 noundef %36)
+  %38 = load i64, ptr %page, align 8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef @.str.28, i64 noundef %38)
   br label %while.end
 
 if.end35:                                         ; preds = %if.end32
@@ -8736,64 +8738,64 @@ if.end36:                                         ; preds = %if.end35, %if.end20
   br label %while.cond, !llvm.loop !24
 
 while.end:                                        ; preds = %if.then34, %if.end19, %if.then13, %while.cond
-  %37 = load ptr, ptr %pages_reserved.addr, align 8
-  %cmp37 = icmp ne ptr %37, null
+  %39 = load ptr, ptr %pages_reserved.addr, align 8
+  %cmp37 = icmp ne ptr %39, null
   br i1 %cmp37, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %while.end
-  %38 = load i64, ptr %page, align 8
-  %39 = load ptr, ptr %pages_reserved.addr, align 8
-  store i64 %38, ptr %39, align 8
+  %40 = load i64, ptr %page, align 8
+  %41 = load ptr, ptr %pages_reserved.addr, align 8
+  store i64 %40, ptr %41, align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then38, %while.end
-  %40 = load ptr, ptr %psize.addr, align 8
-  %cmp40 = icmp ne ptr %40, null
+  %42 = load ptr, ptr %psize.addr, align 8
+  %cmp40 = icmp ne ptr %42, null
   br i1 %cmp40, label %if.then41, label %if.end43
 
 if.then41:                                        ; preds = %if.end39
-  %41 = load i64, ptr %page, align 8
-  %mul42 = mul i64 %41, 1073741824
-  %42 = load ptr, ptr %psize.addr, align 8
-  store i64 %mul42, ptr %42, align 8
+  %43 = load i64, ptr %page, align 8
+  %mul42 = mul i64 %43, 1073741824
+  %44 = load ptr, ptr %psize.addr, align 8
+  store i64 %mul42, ptr %44, align 8
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then41, %if.end39
-  %43 = load i64, ptr %page, align 8
-  %cmp44 = icmp ne i64 %43, 0
+  %45 = load i64, ptr %page, align 8
+  %cmp44 = icmp ne i64 %45, 0
   br i1 %cmp44, label %if.then45, label %if.end48
 
 if.then45:                                        ; preds = %if.end43
-  %44 = load ptr, ptr %memid.addr, align 8
-  %45 = load i8, ptr %all_zero, align 1
-  %tobool47 = trunc i8 %45 to i1
-  call void @_mi_memid_create_os(ptr sret(%struct.mi_memid_s) align 8 %tmp46, i1 noundef zeroext true, i1 noundef zeroext %tobool47, i1 noundef zeroext true)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %tmp46, i64 24, i1 false)
   %46 = load ptr, ptr %memid.addr, align 8
-  %memkind = getelementptr inbounds %struct.mi_memid_s, ptr %46, i32 0, i32 4
+  %47 = load i8, ptr %all_zero, align 1
+  %tobool47 = trunc i8 %47 to i1
+  call void @_mi_memid_create_os(ptr sret(%struct.mi_memid_s) align 8 %tmp46, i1 noundef zeroext true, i1 noundef zeroext %tobool47, i1 noundef zeroext true)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %tmp46, i64 24, i1 false)
+  %48 = load ptr, ptr %memid.addr, align 8
+  %memkind = getelementptr inbounds %struct.mi_memid_s, ptr %48, i32 0, i32 4
   store i32 4, ptr %memkind, align 4
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then45, %if.end43
-  %47 = load i64, ptr %page, align 8
-  %cmp49 = icmp eq i64 %47, 0
+  %49 = load i64, ptr %page, align 8
+  %cmp49 = icmp eq i64 %49, 0
   br i1 %cmp49, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end48
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end48
-  %48 = load ptr, ptr %start, align 8
+  %50 = load ptr, ptr %start, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ null, %cond.true ], [ %48, %cond.false ]
+  %cond = phi ptr [ null, %cond.true ], [ %50, %cond.false ]
   store ptr %cond, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %cond.end, %if.then5
-  %49 = load ptr, ptr %retval, align 8
-  ret ptr %49
+  %51 = load ptr, ptr %retval, align 8
+  ret ptr %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8837,12 +8839,12 @@ if.end5:                                          ; preds = %land.lhs.true, %if.
 
 if.end6:                                          ; preds = %if.end5, %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %5 = load ptr, ptr %fmt.addr, align 8
   %arraydecay7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @mi_vfprintf_thread(ptr noundef null, ptr noundef null, ptr noundef @.str.23, ptr noundef %5, ptr noundef %arraydecay7)
   %arraydecay8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay8)
+  call void @llvm.va_end.p0(ptr %arraydecay8)
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then4, %if.then2
@@ -10986,11 +10988,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  call void @_mi_stat_increase(ptr noundef getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 9), i64 noundef 1)
+  %0 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 9
+  call void @_mi_stat_increase(ptr noundef %0, i64 noundef 1)
   store i64 1, ptr %.atomictmp, align 8
-  %0 = load i64, ptr %.atomictmp, align 8
-  %1 = atomicrmw add ptr @thread_count, i64 %0 monotonic, align 8
-  store i64 %1, ptr %atomic-temp, align 8
+  %1 = load i64, ptr %.atomictmp, align 8
+  %2 = atomicrmw add ptr @thread_count, i64 %1 monotonic, align 8
+  store i64 %2, ptr %atomic-temp, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -11370,12 +11373,13 @@ entry:
   call void @llvm.memset.p0.i64(ptr align 8 %pages_free_direct, i8 0, i64 1032, i1 false)
   %1 = load ptr, ptr %heap.addr, align 8
   %pages = getelementptr inbounds %struct.mi_heap_s, ptr %1, i32 0, i32 2
-  call void @_mi_memcpy_aligned(ptr noundef %pages, ptr noundef getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i32 0, i32 2), i64 noundef 1800)
-  %2 = load ptr, ptr %heap.addr, align 8
-  %thread_delayed_free = getelementptr inbounds %struct.mi_heap_s, ptr %2, i32 0, i32 3
-  store atomic i64 0, ptr %thread_delayed_free seq_cst, align 8
+  %2 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_empty, i32 0, i32 2
+  call void @_mi_memcpy_aligned(ptr noundef %pages, ptr noundef %2, i64 noundef 1800)
   %3 = load ptr, ptr %heap.addr, align 8
-  %page_count = getelementptr inbounds %struct.mi_heap_s, ptr %3, i32 0, i32 9
+  %thread_delayed_free = getelementptr inbounds %struct.mi_heap_s, ptr %3, i32 0, i32 3
+  store atomic i64 0, ptr %thread_delayed_free seq_cst, align 8
+  %4 = load ptr, ptr %heap.addr, align 8
+  %page_count = getelementptr inbounds %struct.mi_heap_s, ptr %4, i32 0, i32 9
   store i64 0, ptr %page_count, align 8
   ret void
 }
@@ -12128,21 +12132,28 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @mi_heap_main_init() #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6), align 8
-  %cmp = icmp eq i64 %0, 0
+  %0 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6
+  %1 = load i64, ptr %0, align 8
+  %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = call i64 @_mi_thread_id()
-  store i64 %call, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4), align 8
-  store i64 1, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6), align 8
-  call void @_mi_random_init(ptr noundef getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 8))
+  %2 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4
+  store i64 %call, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6
+  store i64 1, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 8
+  call void @_mi_random_init(ptr noundef %4)
   %call1 = call i64 @_mi_heap_random_next(ptr noundef @_mi_heap_main)
-  store i64 %call1, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6), align 8
+  %5 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6
+  store i64 %call1, ptr %5, align 8
   %call2 = call i64 @_mi_heap_random_next(ptr noundef @_mi_heap_main)
-  store i64 %call2, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 7), align 8
+  %6 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 7
+  store i64 %call2, ptr %6, align 8
   %call3 = call i64 @_mi_heap_random_next(ptr noundef @_mi_heap_main)
-  store i64 %call3, ptr getelementptr (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 7, i64 1), align 8
+  %7 = getelementptr %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 7, i64 1
+  store i64 %call3, ptr %7, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -12217,19 +12228,21 @@ for.end:                                          ; preds = %for.cond
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @_mi_is_main_thread() #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4), align 8
-  %cmp = icmp eq i64 %0, 0
+  %0 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4
+  %1 = load i64, ptr %0, align 8
+  %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %1 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4), align 8
+  %2 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4
+  %3 = load i64, ptr %2, align 8
   %call = call i64 @_mi_thread_id()
-  %cmp1 = icmp eq i64 %1, %call
+  %cmp1 = icmp eq i64 %3, %call
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
-  %2 = phi i1 [ true, %entry ], [ %cmp1, %lor.rhs ]
-  ret i1 %2
+  %4 = phi i1 [ true, %entry ], [ %cmp1, %lor.rhs ]
+  ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12493,20 +12506,21 @@ if.end6:                                          ; preds = %if.end3
   %3 = load i64, ptr %.atomictmp, align 8
   %4 = atomicrmw sub ptr @thread_count, i64 %3 monotonic, align 8
   store i64 %4, ptr %atomic-temp, align 8
-  call void @_mi_stat_decrease(ptr noundef getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 9), i64 noundef 1)
-  %5 = load ptr, ptr %heap.addr, align 8
-  %thread_id = getelementptr inbounds %struct.mi_heap_s, ptr %5, i32 0, i32 4
-  %6 = load i64, ptr %thread_id, align 8
+  %5 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 9
+  call void @_mi_stat_decrease(ptr noundef %5, i64 noundef 1)
+  %6 = load ptr, ptr %heap.addr, align 8
+  %thread_id = getelementptr inbounds %struct.mi_heap_s, ptr %6, i32 0, i32 4
+  %7 = load i64, ptr %thread_id, align 8
   %call7 = call i64 @_mi_thread_id()
-  %cmp8 = icmp ne i64 %6, %call7
+  %cmp8 = icmp ne i64 %7, %call7
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end6
   br label %if.end13
 
 if.end10:                                         ; preds = %if.end6
-  %7 = load ptr, ptr %heap.addr, align 8
-  %call11 = call zeroext i1 @_mi_heap_done(ptr noundef %7)
+  %8 = load ptr, ptr %heap.addr, align 8
+  %call11 = call zeroext i1 @_mi_heap_done(ptr noundef %8)
   br i1 %call11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end10
@@ -12636,7 +12650,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load i32, ptr @_mi_heap_default_key, align 4
   %2 = load ptr, ptr %heap.addr, align 8
-  %call = call i32 @pthread_setspecific(i32 noundef %1, ptr noundef %2) #15
+  %call = call i32 @pthread_setspecific(i32 noundef %1, ptr noundef %2) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -12882,7 +12896,7 @@ entry:
   %msg = alloca ptr, align 8
   call void @mi_heap_main_init()
   store i8 0, ptr @os_preloading, align 1
-  %call = call i32 @atexit(ptr noundef @mi_process_done) #15
+  %call = call i32 @atexit(ptr noundef @mi_process_done) #14
   call void @_mi_options_init()
   call void @mi_process_setup_auto_thread_done()
   call void @mi_process_init()
@@ -12915,7 +12929,8 @@ if.then4:                                         ; preds = %lor.lhs.false, %lan
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %lor.lhs.false, %if.end
-  call void @_mi_random_reinit_if_weak(ptr noundef getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 8))
+  %3 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 8
+  call void @_mi_random_reinit_if_weak(ptr noundef %3)
   ret void
 }
 
@@ -13125,7 +13140,7 @@ if.else39:                                        ; preds = %if.else
   %arraydecay40 = getelementptr inbounds [65 x i8], ptr %buf, i64 0, i64 0
   store ptr %arraydecay40, ptr %end, align 8
   %arraydecay42 = getelementptr inbounds [65 x i8], ptr %buf, i64 0, i64 0
-  %call43 = call i64 @strtol(ptr noundef %arraydecay42, ptr noundef %end, i32 noundef 10) #15
+  %call43 = call i64 @strtol(ptr noundef %arraydecay42, ptr noundef %end, i32 noundef 10) #14
   store i64 %call43, ptr %value41, align 8
   %25 = load ptr, ptr %desc.addr, align 8
   %option = getelementptr inbounds %struct.mi_option_desc_s, ptr %25, i32 0, i32 2
@@ -13752,19 +13767,16 @@ entry:
   store ptr %arg, ptr %arg.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %out.addr, align 8
   %1 = load ptr, ptr %arg.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @mi_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
 
 ; Function Attrs: nounwind uwtable
 define internal void @mi_vfprintf(ptr noundef %out, ptr noundef %arg, ptr noundef %prefix, ptr noundef %fmt, ptr noundef %args) #0 {
@@ -13798,7 +13810,7 @@ if.end2:                                          ; preds = %if.end
   %arraydecay = getelementptr inbounds [512 x i8], ptr %buf, i64 0, i64 0
   %1 = load ptr, ptr %fmt.addr, align 8
   %2 = load ptr, ptr %args.addr, align 8
-  %call3 = call i32 @vsnprintf(ptr noundef %arraydecay, i64 noundef 511, ptr noundef %1, ptr noundef %2) #15
+  %call3 = call i32 @vsnprintf(ptr noundef %arraydecay, i64 noundef 511, ptr noundef %1, ptr noundef %2) #14
   call void @mi_recurse_exit()
   %3 = load ptr, ptr %out.addr, align 8
   %4 = load ptr, ptr %arg.addr, align 8
@@ -13810,9 +13822,6 @@ if.end2:                                          ; preds = %if.end
 return:                                           ; preds = %if.end2, %if.then1, %if.then
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_trace_message(ptr noundef %fmt, ...) #0 {
@@ -13829,12 +13838,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @mi_vfprintf_thread(ptr noundef null, ptr noundef null, ptr noundef @.str.22, ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -13873,7 +13882,7 @@ if.then:                                          ; preds = %land.lhs.true2
   %arraydecay = getelementptr inbounds [64 x i8], ptr %tprefix, i64 0, i64 0
   %2 = load ptr, ptr %prefix.addr, align 8
   %call4 = call i64 @_mi_thread_id()
-  %call5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 64, ptr noundef @.str.82, ptr noundef %2, i64 noundef %call4) #15
+  %call5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 64, ptr noundef @.str.82, ptr noundef %2, i64 noundef %call4) #14
   %3 = load ptr, ptr %out.addr, align 8
   %4 = load ptr, ptr %arg.addr, align 8
   %arraydecay6 = getelementptr inbounds [64 x i8], ptr %tprefix, i64 0, i64 0
@@ -14300,28 +14309,32 @@ return:                                           ; preds = %while.end, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @_mi_os_has_overcommit() #0 {
 entry:
-  %0 = load i8, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 3), align 8
-  %tobool = trunc i8 %0 to i1
+  %0 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 3
+  %1 = load i8, ptr %0, align 8
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @_mi_os_has_virtual_reserve() #0 {
 entry:
-  %0 = load i8, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 5), align 2
-  %tobool = trunc i8 %0 to i1
+  %0 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 5
+  %1 = load i8, ptr %0, align 2
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @_mi_os_large_page_size() #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1), align 8
-  %cmp = icmp ne i64 %0, 0
+  %0 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1
+  %1 = load i64, ptr %0, align 8
+  %cmp = icmp ne i64 %1, 0
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %1 = load i64, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1), align 8
+  %2 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1
+  %3 = load i64, ptr %2, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -14329,7 +14342,7 @@ cond.false:                                       ; preds = %entry
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %1, %cond.true ], [ %call, %cond.false ]
+  %cond = phi i64 [ %3, %cond.true ], [ %call, %cond.false ]
   ret i64 %cond
 }
 
@@ -14341,8 +14354,9 @@ entry:
   %alignment.addr = alloca i64, align 8
   store i64 %size, ptr %size.addr, align 8
   store i64 %alignment, ptr %alignment.addr, align 8
-  %0 = load i64, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1), align 8
-  %cmp = icmp eq i64 %0, 0
+  %0 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1
+  %1 = load i64, ptr %0, align 8
+  %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -14354,27 +14368,29 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1), align 8
-  %rem = urem i64 %1, %2
+  %2 = load i64, ptr %size.addr, align 8
+  %3 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %rem = urem i64 %2, %4
   %cmp1 = icmp eq i64 %rem, 0
   br i1 %cmp1, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end
-  %3 = load i64, ptr %alignment.addr, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1), align 8
-  %rem2 = urem i64 %3, %4
+  %5 = load i64, ptr %alignment.addr, align 8
+  %6 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  %rem2 = urem i64 %5, %7
   %cmp3 = icmp eq i64 %rem2, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end
-  %5 = phi i1 [ false, %if.end ], [ %cmp3, %land.rhs ]
-  store i1 %5, ptr %retval, align 1
+  %8 = phi i1 [ false, %if.end ], [ %cmp3, %land.rhs ]
+  store i1 %8, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %land.end, %if.then
-  %6 = load i1, ptr %retval, align 1
-  ret i1 %6
+  %9 = load i1, ptr %retval, align 1
+  ret i1 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14468,7 +14484,7 @@ entry:
   %config.addr = alloca ptr, align 8
   %psize = alloca i64, align 8
   store ptr %config, ptr %config.addr, align 8
-  %call = call i64 @sysconf(i32 noundef 30) #15
+  %call = call i64 @sysconf(i32 noundef 30) #14
   store i64 %call, ptr %psize, align 8
   %0 = load i64, ptr %psize, align 8
   %cmp = icmp sgt i64 %0, 0
@@ -15063,19 +15079,20 @@ if.end19:                                         ; preds = %if.else
   %25 = load i64, ptr %alignment.addr, align 8
   %add = add i64 %24, %25
   store i64 %add, ptr %over_size, align 8
-  %26 = load i8, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 4), align 1
-  %tobool20 = trunc i8 %26 to i1
+  %26 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 4
+  %27 = load i8, ptr %26, align 1
+  %tobool20 = trunc i8 %27 to i1
   br i1 %tobool20, label %if.then21, label %if.else31
 
 if.then21:                                        ; preds = %if.end19
-  %27 = load i64, ptr %over_size, align 8
-  %28 = load ptr, ptr %is_large.addr, align 8
-  %29 = load ptr, ptr %is_zero.addr, align 8
-  %30 = load ptr, ptr %stats.addr, align 8
-  %call22 = call ptr @mi_os_prim_alloc(i64 noundef %27, i64 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %28, ptr noundef %29, ptr noundef %30)
+  %28 = load i64, ptr %over_size, align 8
+  %29 = load ptr, ptr %is_large.addr, align 8
+  %30 = load ptr, ptr %is_zero.addr, align 8
+  %31 = load ptr, ptr %stats.addr, align 8
+  %call22 = call ptr @mi_os_prim_alloc(i64 noundef %28, i64 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %29, ptr noundef %30, ptr noundef %31)
   store ptr %call22, ptr %p, align 8
-  %31 = load ptr, ptr %p, align 8
-  %cmp23 = icmp eq ptr %31, null
+  %32 = load ptr, ptr %p, align 8
+  %cmp23 = icmp eq ptr %32, null
   br i1 %cmp23, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %if.then21
@@ -15083,38 +15100,38 @@ if.then24:                                        ; preds = %if.then21
   br label %return
 
 if.end25:                                         ; preds = %if.then21
-  %32 = load ptr, ptr %p, align 8
-  %33 = load ptr, ptr %base.addr, align 8
-  store ptr %32, ptr %33, align 8
-  %34 = load ptr, ptr %p, align 8
-  %35 = load i64, ptr %alignment.addr, align 8
-  %call26 = call ptr @mi_align_up_ptr(ptr noundef %34, i64 noundef %35)
+  %33 = load ptr, ptr %p, align 8
+  %34 = load ptr, ptr %base.addr, align 8
+  store ptr %33, ptr %34, align 8
+  %35 = load ptr, ptr %p, align 8
+  %36 = load i64, ptr %alignment.addr, align 8
+  %call26 = call ptr @mi_align_up_ptr(ptr noundef %35, i64 noundef %36)
   store ptr %call26, ptr %p, align 8
-  %36 = load i8, ptr %commit.addr, align 1
-  %tobool27 = trunc i8 %36 to i1
+  %37 = load i8, ptr %commit.addr, align 1
+  %tobool27 = trunc i8 %37 to i1
   br i1 %tobool27, label %if.then28, label %if.end30
 
 if.then28:                                        ; preds = %if.end25
-  %37 = load ptr, ptr %p, align 8
-  %38 = load i64, ptr %size.addr, align 8
-  %39 = load ptr, ptr %stats.addr, align 8
-  %call29 = call zeroext i1 @_mi_os_commit(ptr noundef %37, i64 noundef %38, ptr noundef null, ptr noundef %39)
+  %38 = load ptr, ptr %p, align 8
+  %39 = load i64, ptr %size.addr, align 8
+  %40 = load ptr, ptr %stats.addr, align 8
+  %call29 = call zeroext i1 @_mi_os_commit(ptr noundef %38, i64 noundef %39, ptr noundef null, ptr noundef %40)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then28, %if.end25
   br label %if.end50
 
 if.else31:                                        ; preds = %if.end19
-  %40 = load i64, ptr %over_size, align 8
-  %41 = load i8, ptr %commit.addr, align 1
-  %tobool32 = trunc i8 %41 to i1
-  %42 = load ptr, ptr %is_large.addr, align 8
-  %43 = load ptr, ptr %is_zero.addr, align 8
-  %44 = load ptr, ptr %stats.addr, align 8
-  %call33 = call ptr @mi_os_prim_alloc(i64 noundef %40, i64 noundef 1, i1 noundef zeroext %tobool32, i1 noundef zeroext false, ptr noundef %42, ptr noundef %43, ptr noundef %44)
+  %41 = load i64, ptr %over_size, align 8
+  %42 = load i8, ptr %commit.addr, align 1
+  %tobool32 = trunc i8 %42 to i1
+  %43 = load ptr, ptr %is_large.addr, align 8
+  %44 = load ptr, ptr %is_zero.addr, align 8
+  %45 = load ptr, ptr %stats.addr, align 8
+  %call33 = call ptr @mi_os_prim_alloc(i64 noundef %41, i64 noundef 1, i1 noundef zeroext %tobool32, i1 noundef zeroext false, ptr noundef %43, ptr noundef %44, ptr noundef %45)
   store ptr %call33, ptr %p, align 8
-  %45 = load ptr, ptr %p, align 8
-  %cmp34 = icmp eq ptr %45, null
+  %46 = load ptr, ptr %p, align 8
+  %cmp34 = icmp eq ptr %46, null
   br i1 %cmp34, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %if.else31
@@ -15122,74 +15139,74 @@ if.then35:                                        ; preds = %if.else31
   br label %return
 
 if.end36:                                         ; preds = %if.else31
-  %46 = load ptr, ptr %p, align 8
-  %47 = load i64, ptr %alignment.addr, align 8
-  %call37 = call ptr @mi_align_up_ptr(ptr noundef %46, i64 noundef %47)
+  %47 = load ptr, ptr %p, align 8
+  %48 = load i64, ptr %alignment.addr, align 8
+  %call37 = call ptr @mi_align_up_ptr(ptr noundef %47, i64 noundef %48)
   store ptr %call37, ptr %aligned_p, align 8
-  %48 = load ptr, ptr %aligned_p, align 8
-  %49 = load ptr, ptr %p, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %48 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %49 to i64
+  %49 = load ptr, ptr %aligned_p, align 8
+  %50 = load ptr, ptr %p, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %49 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %50 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %pre_size, align 8
-  %50 = load i64, ptr %size.addr, align 8
+  %51 = load i64, ptr %size.addr, align 8
   %call38 = call i64 @_mi_os_page_size()
-  %call39 = call i64 @_mi_align_up(i64 noundef %50, i64 noundef %call38)
+  %call39 = call i64 @_mi_align_up(i64 noundef %51, i64 noundef %call38)
   store i64 %call39, ptr %mid_size, align 8
-  %51 = load i64, ptr %over_size, align 8
-  %52 = load i64, ptr %pre_size, align 8
-  %sub40 = sub i64 %51, %52
-  %53 = load i64, ptr %mid_size, align 8
-  %sub41 = sub i64 %sub40, %53
+  %52 = load i64, ptr %over_size, align 8
+  %53 = load i64, ptr %pre_size, align 8
+  %sub40 = sub i64 %52, %53
+  %54 = load i64, ptr %mid_size, align 8
+  %sub41 = sub i64 %sub40, %54
   store i64 %sub41, ptr %post_size, align 8
-  %54 = load i64, ptr %pre_size, align 8
-  %cmp42 = icmp ugt i64 %54, 0
+  %55 = load i64, ptr %pre_size, align 8
+  %cmp42 = icmp ugt i64 %55, 0
   br i1 %cmp42, label %if.then43, label %if.end45
 
 if.then43:                                        ; preds = %if.end36
-  %55 = load ptr, ptr %p, align 8
-  %56 = load i64, ptr %pre_size, align 8
-  %57 = load i8, ptr %commit.addr, align 1
-  %tobool44 = trunc i8 %57 to i1
-  %58 = load ptr, ptr %stats.addr, align 8
-  call void @mi_os_prim_free(ptr noundef %55, i64 noundef %56, i1 noundef zeroext %tobool44, ptr noundef %58)
+  %56 = load ptr, ptr %p, align 8
+  %57 = load i64, ptr %pre_size, align 8
+  %58 = load i8, ptr %commit.addr, align 1
+  %tobool44 = trunc i8 %58 to i1
+  %59 = load ptr, ptr %stats.addr, align 8
+  call void @mi_os_prim_free(ptr noundef %56, i64 noundef %57, i1 noundef zeroext %tobool44, ptr noundef %59)
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then43, %if.end36
-  %59 = load i64, ptr %post_size, align 8
-  %cmp46 = icmp ugt i64 %59, 0
+  %60 = load i64, ptr %post_size, align 8
+  %cmp46 = icmp ugt i64 %60, 0
   br i1 %cmp46, label %if.then47, label %if.end49
 
 if.then47:                                        ; preds = %if.end45
-  %60 = load ptr, ptr %aligned_p, align 8
-  %61 = load i64, ptr %mid_size, align 8
-  %add.ptr = getelementptr i8, ptr %60, i64 %61
-  %62 = load i64, ptr %post_size, align 8
-  %63 = load i8, ptr %commit.addr, align 1
-  %tobool48 = trunc i8 %63 to i1
-  %64 = load ptr, ptr %stats.addr, align 8
-  call void @mi_os_prim_free(ptr noundef %add.ptr, i64 noundef %62, i1 noundef zeroext %tobool48, ptr noundef %64)
+  %61 = load ptr, ptr %aligned_p, align 8
+  %62 = load i64, ptr %mid_size, align 8
+  %add.ptr = getelementptr i8, ptr %61, i64 %62
+  %63 = load i64, ptr %post_size, align 8
+  %64 = load i8, ptr %commit.addr, align 1
+  %tobool48 = trunc i8 %64 to i1
+  %65 = load ptr, ptr %stats.addr, align 8
+  call void @mi_os_prim_free(ptr noundef %add.ptr, i64 noundef %63, i1 noundef zeroext %tobool48, ptr noundef %65)
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then47, %if.end45
-  %65 = load ptr, ptr %aligned_p, align 8
-  store ptr %65, ptr %p, align 8
   %66 = load ptr, ptr %aligned_p, align 8
-  %67 = load ptr, ptr %base.addr, align 8
-  store ptr %66, ptr %67, align 8
+  store ptr %66, ptr %p, align 8
+  %67 = load ptr, ptr %aligned_p, align 8
+  %68 = load ptr, ptr %base.addr, align 8
+  store ptr %67, ptr %68, align 8
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end49, %if.end30
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end50, %if.then14
-  %68 = load ptr, ptr %p, align 8
-  store ptr %68, ptr %retval, align 8
+  %69 = load ptr, ptr %p, align 8
+  store ptr %69, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end51, %if.then35, %if.then24, %if.then18, %if.then11, %if.then3
-  %69 = load ptr, ptr %retval, align 8
-  ret ptr %69
+  %70 = load ptr, ptr %retval, align 8
+  ret ptr %70
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15469,7 +15486,7 @@ entry:
   store i8 0, ptr %0, align 1
   %1 = load ptr, ptr %start.addr, align 8
   %2 = load i64, ptr %size.addr, align 8
-  %call = call i32 @mprotect(ptr noundef %1, i64 noundef %2, i32 noundef 3) #15
+  %call = call i32 @mprotect(ptr noundef %1, i64 noundef %2, i32 noundef 3) #14
   store i32 %call, ptr %err, align 4
   %3 = load i32, ptr %err, align 4
   %cmp = icmp ne i32 %3, 0
@@ -16173,7 +16190,7 @@ for.body:                                         ; preds = %for.cond
   %arraydecay = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 0
   %1 = load i32, ptr %node, align 4
   %add = add i32 %1, 1
-  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 127, ptr noundef @.str.32, i32 noundef %add) #15
+  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 127, ptr noundef @.str.32, i32 noundef %add) #14
   %arraydecay1 = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 0
   %call2 = call i32 @mi_prim_access(ptr noundef %arraydecay1, i32 noundef 4)
   %cmp3 = icmp ne i32 %call2, 0
@@ -16251,7 +16268,7 @@ entry:
   %err = alloca i64, align 8
   store i64 0, ptr %node, align 8
   store i64 0, ptr %ncpu, align 8
-  %call = call i64 (i64, ...) @syscall(i64 noundef 309, ptr noundef %ncpu, ptr noundef %node, ptr noundef null) #15
+  %call = call i64 (i64, ...) @syscall(i64 noundef 309, ptr noundef %ncpu, ptr noundef %node, ptr noundef null) #14
   store i64 %call, ptr %err, align 8
   %0 = load i64, ptr %err, align 8
   %cmp = icmp ne i64 %0, 0
@@ -16366,10 +16383,11 @@ entry:
   store i8 %bin, ptr %bin.addr, align 1
   %0 = load i8, ptr %bin.addr, align 1
   %idxprom = zext i8 %0 to i64
-  %arrayidx = getelementptr [75 x %struct.mi_page_queue_s], ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i32 0, i32 2), i64 0, i64 %idxprom
+  %1 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_empty, i32 0, i32 2
+  %arrayidx = getelementptr [75 x %struct.mi_page_queue_s], ptr %1, i64 0, i64 %idxprom
   %block_size = getelementptr inbounds %struct.mi_page_queue_s, ptr %arrayidx, i32 0, i32 2
-  %1 = load i64, ptr %block_size, align 8
-  ret i64 %1
+  %2 = load i64, ptr %block_size, align 8
+  ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -18188,16 +18206,17 @@ entry:
   %i = alloca i64, align 8
   store i64 %extra_seed, ptr %extra_seed.addr, align 8
   %0 = load i64, ptr %extra_seed.addr, align 8
-  %xor = xor i64 ptrtoint (ptr @_mi_os_random_weak to i64), %0
+  %1 = ptrtoint ptr @_mi_os_random_weak to i64
+  %xor = xor i64 %1, %0
   store i64 %xor, ptr %x, align 8
   %call = call i64 @_mi_prim_clock_now()
-  %1 = load i64, ptr %x, align 8
-  %xor1 = xor i64 %1, %call
-  store i64 %xor1, ptr %x, align 8
   %2 = load i64, ptr %x, align 8
+  %xor1 = xor i64 %2, %call
+  store i64 %xor1, ptr %x, align 8
   %3 = load i64, ptr %x, align 8
-  %shr = lshr i64 %3, 17
-  %xor2 = xor i64 %2, %shr
+  %4 = load i64, ptr %x, align 8
+  %shr = lshr i64 %4, 17
+  %xor2 = xor i64 %3, %shr
   %and = and i64 %xor2, 15
   %add = add i64 %and, 1
   store i64 %add, ptr %max, align 8
@@ -18205,33 +18224,33 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %4 = load i64, ptr %i, align 8
-  %5 = load i64, ptr %max, align 8
-  %cmp = icmp ult i64 %4, %5
+  %5 = load i64, ptr %i, align 8
+  %6 = load i64, ptr %max, align 8
+  %cmp = icmp ult i64 %5, %6
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %6 = load i64, ptr %x, align 8
-  %call3 = call i64 @_mi_random_shuffle(i64 noundef %6)
+  %7 = load i64, ptr %x, align 8
+  %call3 = call i64 @_mi_random_shuffle(i64 noundef %7)
   store i64 %call3, ptr %x, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %7 = load i64, ptr %i, align 8
-  %inc = add i64 %7, 1
+  %8 = load i64, ptr %i, align 8
+  %inc = add i64 %8, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !67
 
 for.end:                                          ; preds = %for.cond
-  %8 = load i64, ptr %x, align 8
-  ret i64 %8
+  %9 = load i64, ptr %x, align 8
+  ret i64 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @_mi_prim_clock_now() #0 {
 entry:
   %t = alloca %struct.timespec, align 8
-  %call = call i32 @clock_gettime(i32 noundef 1, ptr noundef %t) #15
+  %call = call i32 @clock_gettime(i32 noundef 1, ptr noundef %t) #14
   %tv_sec = getelementptr inbounds %struct.timespec, ptr %t, i32 0, i32 0
   %0 = load i64, ptr %tv_sec, align 8
   %mul = mul i64 %0, 1000
@@ -20526,12 +20545,13 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %1 = load ptr, ptr %stat.addr, align 8
-  %cmp1 = icmp ult ptr %1, getelementptr (i8, ptr @_mi_stats_main, i64 640)
+  %2 = getelementptr i8, ptr @_mi_stats_main, i64 640
+  %cmp1 = icmp ult ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp1, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp1, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -20677,7 +20697,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mi_stats_merge() #0 {
@@ -20970,24 +20990,26 @@ entry:
   %call = call i64 @_mi_clock_end(i64 noundef %0)
   %elapsed = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 0
   store i64 %call, ptr %elapsed, align 8
-  %1 = load atomic i64, ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3, i32 3) monotonic, align 8
-  store i64 %1, ptr %atomic-temp, align 8
-  %2 = load i64, ptr %atomic-temp, align 8
+  %1 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3, i32 3
+  %2 = load atomic i64, ptr %1 monotonic, align 8
+  store i64 %2, ptr %atomic-temp, align 8
+  %3 = load i64, ptr %atomic-temp, align 8
   %current_commit1 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 5
-  store i64 %2, ptr %current_commit1, align 8
-  %3 = load atomic i64, ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3, i32 2) monotonic, align 16
-  store i64 %3, ptr %atomic-temp2, align 8
-  %4 = load i64, ptr %atomic-temp2, align 8
+  store i64 %3, ptr %current_commit1, align 8
+  %4 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3, i32 2
+  %5 = load atomic i64, ptr %4 monotonic, align 16
+  store i64 %5, ptr %atomic-temp2, align 8
+  %6 = load i64, ptr %atomic-temp2, align 8
   %peak_commit3 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 6
-  store i64 %4, ptr %peak_commit3, align 8
+  store i64 %6, ptr %peak_commit3, align 8
   %current_commit4 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 5
-  %5 = load i64, ptr %current_commit4, align 8
+  %7 = load i64, ptr %current_commit4, align 8
   %current_rss5 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 3
-  store i64 %5, ptr %current_rss5, align 8
+  store i64 %7, ptr %current_rss5, align 8
   %peak_commit6 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 6
-  %6 = load i64, ptr %peak_commit6, align 8
+  %8 = load i64, ptr %peak_commit6, align 8
   %peak_rss7 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 4
-  store i64 %6, ptr %peak_rss7, align 8
+  store i64 %8, ptr %peak_rss7, align 8
   %utime = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 1
   store i64 0, ptr %utime, align 8
   %stime = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 2
@@ -20995,14 +21017,14 @@ entry:
   %page_faults8 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 7
   store i64 0, ptr %page_faults8, align 8
   call void @_mi_prim_process_info(ptr noundef %pinfo)
-  %7 = load ptr, ptr %elapsed_msecs.addr, align 8
-  %cmp = icmp ne ptr %7, null
+  %9 = load ptr, ptr %elapsed_msecs.addr, align 8
+  %cmp = icmp ne ptr %9, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %elapsed9 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 0
-  %8 = load i64, ptr %elapsed9, align 8
-  %cmp10 = icmp slt i64 %8, 0
+  %10 = load i64, ptr %elapsed9, align 8
+  %cmp10 = icmp slt i64 %10, 0
   br i1 %cmp10, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then
@@ -21010,37 +21032,37 @@ cond.true:                                        ; preds = %if.then
 
 cond.false:                                       ; preds = %if.then
   %elapsed11 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 0
-  %9 = load i64, ptr %elapsed11, align 8
-  %cmp12 = icmp slt i64 %9, 9223372036854775807
+  %11 = load i64, ptr %elapsed11, align 8
+  %cmp12 = icmp slt i64 %11, 9223372036854775807
   br i1 %cmp12, label %cond.true13, label %cond.false15
 
 cond.true13:                                      ; preds = %cond.false
   %elapsed14 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 0
-  %10 = load i64, ptr %elapsed14, align 8
+  %12 = load i64, ptr %elapsed14, align 8
   br label %cond.end
 
 cond.false15:                                     ; preds = %cond.false
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false15, %cond.true13
-  %cond = phi i64 [ %10, %cond.true13 ], [ 9223372036854775807, %cond.false15 ]
+  %cond = phi i64 [ %12, %cond.true13 ], [ 9223372036854775807, %cond.false15 ]
   br label %cond.end16
 
 cond.end16:                                       ; preds = %cond.end, %cond.true
   %cond17 = phi i64 [ 0, %cond.true ], [ %cond, %cond.end ]
-  %11 = load ptr, ptr %elapsed_msecs.addr, align 8
-  store i64 %cond17, ptr %11, align 8
+  %13 = load ptr, ptr %elapsed_msecs.addr, align 8
+  store i64 %cond17, ptr %13, align 8
   br label %if.end
 
 if.end:                                           ; preds = %cond.end16, %entry
-  %12 = load ptr, ptr %user_msecs.addr, align 8
-  %cmp18 = icmp ne ptr %12, null
+  %14 = load ptr, ptr %user_msecs.addr, align 8
+  %cmp18 = icmp ne ptr %14, null
   br i1 %cmp18, label %if.then19, label %if.end33
 
 if.then19:                                        ; preds = %if.end
   %utime20 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 1
-  %13 = load i64, ptr %utime20, align 8
-  %cmp21 = icmp slt i64 %13, 0
+  %15 = load i64, ptr %utime20, align 8
+  %cmp21 = icmp slt i64 %15, 0
   br i1 %cmp21, label %cond.true22, label %cond.false23
 
 cond.true22:                                      ; preds = %if.then19
@@ -21048,37 +21070,37 @@ cond.true22:                                      ; preds = %if.then19
 
 cond.false23:                                     ; preds = %if.then19
   %utime24 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 1
-  %14 = load i64, ptr %utime24, align 8
-  %cmp25 = icmp slt i64 %14, 9223372036854775807
+  %16 = load i64, ptr %utime24, align 8
+  %cmp25 = icmp slt i64 %16, 9223372036854775807
   br i1 %cmp25, label %cond.true26, label %cond.false28
 
 cond.true26:                                      ; preds = %cond.false23
   %utime27 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 1
-  %15 = load i64, ptr %utime27, align 8
+  %17 = load i64, ptr %utime27, align 8
   br label %cond.end29
 
 cond.false28:                                     ; preds = %cond.false23
   br label %cond.end29
 
 cond.end29:                                       ; preds = %cond.false28, %cond.true26
-  %cond30 = phi i64 [ %15, %cond.true26 ], [ 9223372036854775807, %cond.false28 ]
+  %cond30 = phi i64 [ %17, %cond.true26 ], [ 9223372036854775807, %cond.false28 ]
   br label %cond.end31
 
 cond.end31:                                       ; preds = %cond.end29, %cond.true22
   %cond32 = phi i64 [ 0, %cond.true22 ], [ %cond30, %cond.end29 ]
-  %16 = load ptr, ptr %user_msecs.addr, align 8
-  store i64 %cond32, ptr %16, align 8
+  %18 = load ptr, ptr %user_msecs.addr, align 8
+  store i64 %cond32, ptr %18, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %cond.end31, %if.end
-  %17 = load ptr, ptr %system_msecs.addr, align 8
-  %cmp34 = icmp ne ptr %17, null
+  %19 = load ptr, ptr %system_msecs.addr, align 8
+  %cmp34 = icmp ne ptr %19, null
   br i1 %cmp34, label %if.then35, label %if.end49
 
 if.then35:                                        ; preds = %if.end33
   %stime36 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 2
-  %18 = load i64, ptr %stime36, align 8
-  %cmp37 = icmp slt i64 %18, 0
+  %20 = load i64, ptr %stime36, align 8
+  %cmp37 = icmp slt i64 %20, 0
   br i1 %cmp37, label %cond.true38, label %cond.false39
 
 cond.true38:                                      ; preds = %if.then35
@@ -21086,86 +21108,86 @@ cond.true38:                                      ; preds = %if.then35
 
 cond.false39:                                     ; preds = %if.then35
   %stime40 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 2
-  %19 = load i64, ptr %stime40, align 8
-  %cmp41 = icmp slt i64 %19, 9223372036854775807
+  %21 = load i64, ptr %stime40, align 8
+  %cmp41 = icmp slt i64 %21, 9223372036854775807
   br i1 %cmp41, label %cond.true42, label %cond.false44
 
 cond.true42:                                      ; preds = %cond.false39
   %stime43 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 2
-  %20 = load i64, ptr %stime43, align 8
+  %22 = load i64, ptr %stime43, align 8
   br label %cond.end45
 
 cond.false44:                                     ; preds = %cond.false39
   br label %cond.end45
 
 cond.end45:                                       ; preds = %cond.false44, %cond.true42
-  %cond46 = phi i64 [ %20, %cond.true42 ], [ 9223372036854775807, %cond.false44 ]
+  %cond46 = phi i64 [ %22, %cond.true42 ], [ 9223372036854775807, %cond.false44 ]
   br label %cond.end47
 
 cond.end47:                                       ; preds = %cond.end45, %cond.true38
   %cond48 = phi i64 [ 0, %cond.true38 ], [ %cond46, %cond.end45 ]
-  %21 = load ptr, ptr %system_msecs.addr, align 8
-  store i64 %cond48, ptr %21, align 8
+  %23 = load ptr, ptr %system_msecs.addr, align 8
+  store i64 %cond48, ptr %23, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %cond.end47, %if.end33
-  %22 = load ptr, ptr %current_rss.addr, align 8
-  %cmp50 = icmp ne ptr %22, null
+  %24 = load ptr, ptr %current_rss.addr, align 8
+  %cmp50 = icmp ne ptr %24, null
   br i1 %cmp50, label %if.then51, label %if.end53
 
 if.then51:                                        ; preds = %if.end49
   %current_rss52 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 3
-  %23 = load i64, ptr %current_rss52, align 8
-  %24 = load ptr, ptr %current_rss.addr, align 8
-  store i64 %23, ptr %24, align 8
+  %25 = load i64, ptr %current_rss52, align 8
+  %26 = load ptr, ptr %current_rss.addr, align 8
+  store i64 %25, ptr %26, align 8
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then51, %if.end49
-  %25 = load ptr, ptr %peak_rss.addr, align 8
-  %cmp54 = icmp ne ptr %25, null
+  %27 = load ptr, ptr %peak_rss.addr, align 8
+  %cmp54 = icmp ne ptr %27, null
   br i1 %cmp54, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %if.end53
   %peak_rss56 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 4
-  %26 = load i64, ptr %peak_rss56, align 8
-  %27 = load ptr, ptr %peak_rss.addr, align 8
-  store i64 %26, ptr %27, align 8
+  %28 = load i64, ptr %peak_rss56, align 8
+  %29 = load ptr, ptr %peak_rss.addr, align 8
+  store i64 %28, ptr %29, align 8
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then55, %if.end53
-  %28 = load ptr, ptr %current_commit.addr, align 8
-  %cmp58 = icmp ne ptr %28, null
+  %30 = load ptr, ptr %current_commit.addr, align 8
+  %cmp58 = icmp ne ptr %30, null
   br i1 %cmp58, label %if.then59, label %if.end61
 
 if.then59:                                        ; preds = %if.end57
   %current_commit60 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 5
-  %29 = load i64, ptr %current_commit60, align 8
-  %30 = load ptr, ptr %current_commit.addr, align 8
-  store i64 %29, ptr %30, align 8
+  %31 = load i64, ptr %current_commit60, align 8
+  %32 = load ptr, ptr %current_commit.addr, align 8
+  store i64 %31, ptr %32, align 8
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then59, %if.end57
-  %31 = load ptr, ptr %peak_commit.addr, align 8
-  %cmp62 = icmp ne ptr %31, null
+  %33 = load ptr, ptr %peak_commit.addr, align 8
+  %cmp62 = icmp ne ptr %33, null
   br i1 %cmp62, label %if.then63, label %if.end65
 
 if.then63:                                        ; preds = %if.end61
   %peak_commit64 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 6
-  %32 = load i64, ptr %peak_commit64, align 8
-  %33 = load ptr, ptr %peak_commit.addr, align 8
-  store i64 %32, ptr %33, align 8
+  %34 = load i64, ptr %peak_commit64, align 8
+  %35 = load ptr, ptr %peak_commit.addr, align 8
+  store i64 %34, ptr %35, align 8
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then63, %if.end61
-  %34 = load ptr, ptr %page_faults.addr, align 8
-  %cmp66 = icmp ne ptr %34, null
+  %36 = load ptr, ptr %page_faults.addr, align 8
+  %cmp66 = icmp ne ptr %36, null
   br i1 %cmp66, label %if.then67, label %if.end69
 
 if.then67:                                        ; preds = %if.end65
   %page_faults68 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 7
-  %35 = load i64, ptr %page_faults68, align 8
-  %36 = load ptr, ptr %page_faults.addr, align 8
-  store i64 %35, ptr %36, align 8
+  %37 = load i64, ptr %page_faults68, align 8
+  %38 = load ptr, ptr %page_faults.addr, align 8
+  store i64 %37, ptr %38, align 8
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then67, %if.end65
@@ -21178,7 +21200,7 @@ entry:
   %pinfo.addr = alloca ptr, align 8
   %rusage = alloca %struct.rusage, align 8
   store ptr %pinfo, ptr %pinfo.addr, align 8
-  %call = call i32 @getrusage(i32 noundef 0, ptr noundef %rusage) #15
+  %call = call i32 @getrusage(i32 noundef 0, ptr noundef %rusage) #14
   %ru_utime = getelementptr inbounds %struct.rusage, ptr %rusage, i32 0, i32 0
   %call1 = call i64 @timeval_secs(ptr noundef %ru_utime)
   %0 = load ptr, ptr %pinfo.addr, align 8
@@ -21270,7 +21292,7 @@ entry:
   store i64 %size, ptr %size.addr, align 8
   %0 = load ptr, ptr %addr.addr, align 8
   %1 = load i64, ptr %size.addr, align 8
-  %call = call i32 @munmap(ptr noundef %0, i64 noundef %1) #15
+  %call = call i32 @munmap(ptr noundef %0, i64 noundef %1) #14
   %cmp = icmp eq i32 %call, -1
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %err, align 1
@@ -21658,7 +21680,7 @@ entry:
   %0 = load ptr, ptr %addr.addr, align 8
   %1 = load i64, ptr %size.addr, align 8
   %2 = load i32, ptr %advice.addr, align 4
-  %call = call i32 @madvise(ptr noundef %0, i64 noundef %1, i32 noundef %2) #15
+  %call = call i32 @madvise(ptr noundef %0, i64 noundef %1, i32 noundef %2) #14
   ret i32 %call
 }
 
@@ -21678,7 +21700,7 @@ entry:
   %2 = load i8, ptr %protect.addr, align 1
   %tobool = trunc i8 %2 to i1
   %cond = select i1 %tobool, i32 0, i32 3
-  %call = call i32 @mprotect(ptr noundef %0, i64 noundef %1, i32 noundef %cond) #15
+  %call = call i32 @mprotect(ptr noundef %0, i64 noundef %1, i32 noundef %cond) #14
   store i32 %call, ptr %err, align 4
   %3 = load i32, ptr %err, align 4
   %cmp = icmp ne i32 %3, 0
@@ -21718,7 +21740,7 @@ entry:
   %3 = load ptr, ptr %nmask.addr, align 8
   %4 = load i64, ptr %maxnode.addr, align 8
   %5 = load i32, ptr %flags.addr, align 4
-  %call = call i64 (i64, ...) @syscall(i64 noundef 237, ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #15
+  %call = call i64 (i64, ...) @syscall(i64 noundef 237, ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #14
   ret i64 %call
 }
 
@@ -21737,7 +21759,7 @@ entry:
   store i32 %mode, ptr %mode.addr, align 4
   %0 = load ptr, ptr %fpath.addr, align 8
   %1 = load i32, ptr %mode.addr, align 4
-  %call = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef %0, i32 noundef %1) #15
+  %call = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef %0, i32 noundef %1) #14
   %conv = trunc i64 %call to i32
   ret i32 %conv
 }
@@ -21776,7 +21798,7 @@ entry:
   ret void
 }
 
-declare i32 @fputs(ptr noundef, ptr noundef) #8
+declare i32 @fputs(ptr noundef, ptr noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @_mi_prim_getenv(ptr noundef %name, ptr noundef %result, i64 noundef %result_size) #0 {
@@ -21928,7 +21950,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %buf.addr, align 8
   %3 = load i64, ptr %buf_len.addr, align 8
-  %call = call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef %2, i64 noundef %3, i32 noundef 1) #15
+  %call = call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef %2, i64 noundef %3, i32 noundef 1) #14
   store i64 %call, ptr %ret, align 8
   %4 = load i64, ptr %ret, align 8
   %cmp1 = icmp sge i64 %4, 0
@@ -22048,7 +22070,7 @@ entry:
   store i32 %open_flags, ptr %open_flags.addr, align 4
   %0 = load ptr, ptr %fpath.addr, align 8
   %1 = load i32, ptr %open_flags.addr, align 4
-  %call = call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef %0, i32 noundef %1, i32 noundef 0) #15
+  %call = call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef %0, i32 noundef %1, i32 noundef 0) #14
   %conv = trunc i64 %call to i32
   ret i32 %conv
 }
@@ -22065,7 +22087,7 @@ entry:
   %0 = load i32, ptr %fd.addr, align 4
   %1 = load ptr, ptr %buf.addr, align 8
   %2 = load i64, ptr %bufsize.addr, align 8
-  %call = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %0, ptr noundef %1, i64 noundef %2) #15
+  %call = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %0, ptr noundef %1, i64 noundef %2) #14
   ret i64 %call
 }
 
@@ -22075,7 +22097,7 @@ entry:
   %fd.addr = alloca i32, align 4
   store i32 %fd, ptr %fd.addr, align 4
   %0 = load i32, ptr %fd.addr, align 4
-  %call = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %0) #15
+  %call = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %0) #14
   %conv = trunc i64 %call to i32
   ret i32 %conv
 }
@@ -22083,7 +22105,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_prim_thread_init_auto_done() #0 {
 entry:
-  %call = call i32 @pthread_key_create(ptr noundef @_mi_heap_default_key, ptr noundef @mi_pthread_done) #15
+  %call = call i32 @pthread_key_create(ptr noundef @_mi_heap_default_key, ptr noundef @mi_pthread_done) #14
   ret void
 }
 
@@ -22139,7 +22161,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #9
+declare noalias ptr @malloc(i64 noundef) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyMem_RawCalloc(ptr noundef %_unused_ctx, i64 noundef %nelem, i64 noundef %elsize) #0 {
@@ -22172,7 +22194,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #10
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #9
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyMem_RawRealloc(ptr noundef %_unused_ctx, ptr noundef %ptr, i64 noundef %size) #0 {
@@ -22199,7 +22221,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #11
+declare ptr @realloc(ptr noundef, i64 noundef) #10
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyMem_RawFree(ptr noundef %_unused_ctx, ptr noundef %ptr) #0 {
@@ -22209,7 +22231,7 @@ entry:
   store ptr %_unused_ctx, ptr %_unused_ctx.addr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
   %0 = load ptr, ptr %ptr.addr, align 8
-  call void @free(ptr noundef %0) #15
+  call void @free(ptr noundef %0) #14
   ret void
 }
 
@@ -22331,10 +22353,11 @@ entry:
   store ptr %_unused_ctx, ptr %_unused_ctx.addr, align 8
   store i64 %size, ptr %size.addr, align 8
   %0 = load i64, ptr %size.addr, align 8
-  %call = call ptr @mmap64(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #15
+  %call = call ptr @mmap64(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #14
   store ptr %call, ptr %ptr, align 8
   %1 = load ptr, ptr %ptr, align 8
-  %cmp = icmp eq ptr %1, inttoptr (i64 -1 to ptr)
+  %2 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %1, %2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -22342,13 +22365,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %ptr, align 8
-  store ptr %2, ptr %retval, align 8
+  %3 = load ptr, ptr %ptr, align 8
+  store ptr %3, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %3 = load ptr, ptr %retval, align 8
-  ret ptr %3
+  %4 = load ptr, ptr %retval, align 8
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind
@@ -22365,7 +22388,7 @@ entry:
   store i64 %size, ptr %size.addr, align 8
   %0 = load ptr, ptr %ptr.addr, align 8
   %1 = load i64, ptr %size.addr, align 8
-  %call = call i32 @munmap(ptr noundef %0, i64 noundef %1) #15
+  %call = call i32 @munmap(ptr noundef %0, i64 noundef %1) #14
   ret void
 }
 
@@ -22377,14 +22400,16 @@ entry:
   %res = alloca i32, align 4
   store i32 %domain, ptr %domain.addr, align 4
   store ptr %old_alloc, ptr %old_alloc.addr, align 8
-  call void @PyMutex_Lock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
-  %0 = load i32, ptr %domain.addr, align 4
-  %1 = load ptr, ptr %old_alloc.addr, align 8
-  %call = call i32 @set_default_allocator_unlocked(i32 noundef %0, i32 noundef 0, ptr noundef %1)
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Lock(ptr noundef %0)
+  %1 = load i32, ptr %domain.addr, align 4
+  %2 = load ptr, ptr %old_alloc.addr, align 8
+  %call = call i32 @set_default_allocator_unlocked(i32 noundef %1, i32 noundef 0, ptr noundef %2)
   store i32 %call, ptr %res, align 4
-  call void @PyMutex_Unlock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
-  %2 = load i32, ptr %res, align 4
-  ret i32 %2
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Unlock(ptr noundef %3)
+  %4 = load i32, ptr %res, align 4
+  ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -22688,13 +22713,15 @@ entry:
   %allocator.addr = alloca i32, align 4
   %res = alloca i32, align 4
   store i32 %allocator, ptr %allocator.addr, align 4
-  call void @PyMutex_Lock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
-  %0 = load i32, ptr %allocator.addr, align 4
-  %call = call i32 @set_up_allocators_unlocked(i32 noundef %0)
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Lock(ptr noundef %0)
+  %1 = load i32, ptr %allocator.addr, align 4
+  %call = call i32 @set_up_allocators_unlocked(i32 noundef %1)
   store i32 %call, ptr %res, align 4
-  call void @PyMutex_Unlock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
-  %1 = load i32, ptr %res, align 4
-  ret i32 %1
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Unlock(ptr noundef %2)
+  %3 = load i32, ptr %res, align 4
+  ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -22805,12 +22832,14 @@ return:                                           ; preds = %sw.epilog, %sw.defa
 define dso_local ptr @_PyMem_GetCurrentAllocatorName() #0 {
 entry:
   %name = alloca ptr, align 8
-  call void @PyMutex_Lock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Lock(ptr noundef %0)
   %call = call ptr @get_current_allocator_name_unlocked()
   store ptr %call, ptr %name, align 8
-  call void @PyMutex_Unlock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
-  %0 = load ptr, ptr %name, align 8
-  ret ptr %0
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Unlock(ptr noundef %1)
+  %2 = load ptr, ptr %name, align 8
+  ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -22828,17 +22857,20 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %pymalloc, ptr align 8 @__const.get_current_allocator_name_unlocked.pymalloc, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %mimalloc, ptr align 8 @__const.get_current_allocator_name_unlocked.mimalloc, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %mimalloc_obj, ptr align 8 @__const.get_current_allocator_name_unlocked.mimalloc_obj, i64 40, i1 false)
-  %call = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), ptr noundef %malloc_alloc)
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  %call = call i32 @pymemallocator_eq(ptr noundef %0, ptr noundef %malloc_alloc)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1), ptr noundef %malloc_alloc)
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1
+  %call1 = call i32 @pymemallocator_eq(ptr noundef %1, ptr noundef %malloc_alloc)
   %tobool2 = icmp ne i32 %call1, 0
   br i1 %tobool2, label %land.lhs.true3, label %if.end
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %call4 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2), ptr noundef %malloc_alloc)
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2
+  %call4 = call i32 @pymemallocator_eq(ptr noundef %2, ptr noundef %malloc_alloc)
   %tobool5 = icmp ne i32 %call4, 0
   br i1 %tobool5, label %if.then, label %if.end
 
@@ -22847,17 +22879,20 @@ if.then:                                          ; preds = %land.lhs.true3
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true3, %land.lhs.true, %entry
-  %call6 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), ptr noundef %malloc_alloc)
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  %call6 = call i32 @pymemallocator_eq(ptr noundef %3, ptr noundef %malloc_alloc)
   %tobool7 = icmp ne i32 %call6, 0
   br i1 %tobool7, label %land.lhs.true8, label %if.end15
 
 land.lhs.true8:                                   ; preds = %if.end
-  %call9 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1), ptr noundef %pymalloc)
+  %4 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1
+  %call9 = call i32 @pymemallocator_eq(ptr noundef %4, ptr noundef %pymalloc)
   %tobool10 = icmp ne i32 %call9, 0
   br i1 %tobool10, label %land.lhs.true11, label %if.end15
 
 land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %call12 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2), ptr noundef %pymalloc)
+  %5 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2
+  %call12 = call i32 @pymemallocator_eq(ptr noundef %5, ptr noundef %pymalloc)
   %tobool13 = icmp ne i32 %call12, 0
   br i1 %tobool13, label %if.then14, label %if.end15
 
@@ -22866,17 +22901,20 @@ if.then14:                                        ; preds = %land.lhs.true11
   br label %return
 
 if.end15:                                         ; preds = %land.lhs.true11, %land.lhs.true8, %if.end
-  %call16 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), ptr noundef %malloc_alloc)
+  %6 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  %call16 = call i32 @pymemallocator_eq(ptr noundef %6, ptr noundef %malloc_alloc)
   %tobool17 = icmp ne i32 %call16, 0
   br i1 %tobool17, label %land.lhs.true18, label %if.end25
 
 land.lhs.true18:                                  ; preds = %if.end15
-  %call19 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1), ptr noundef %mimalloc)
+  %7 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1
+  %call19 = call i32 @pymemallocator_eq(ptr noundef %7, ptr noundef %mimalloc)
   %tobool20 = icmp ne i32 %call19, 0
   br i1 %tobool20, label %land.lhs.true21, label %if.end25
 
 land.lhs.true21:                                  ; preds = %land.lhs.true18
-  %call22 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2), ptr noundef %mimalloc_obj)
+  %8 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2
+  %call22 = call i32 @pymemallocator_eq(ptr noundef %8, ptr noundef %mimalloc_obj)
   %tobool23 = icmp ne i32 %call22, 0
   br i1 %tobool23, label %if.then24, label %if.end25
 
@@ -22888,32 +22926,39 @@ if.end25:                                         ; preds = %land.lhs.true21, %l
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dbg_raw, ptr align 8 @__const.get_current_allocator_name_unlocked.dbg_raw, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dbg_mem, ptr align 8 @__const.get_current_allocator_name_unlocked.dbg_mem, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dbg_obj, ptr align 8 @__const.get_current_allocator_name_unlocked.dbg_obj, i64 40, i1 false)
-  %call26 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), ptr noundef %dbg_raw)
+  %9 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  %call26 = call i32 @pymemallocator_eq(ptr noundef %9, ptr noundef %dbg_raw)
   %tobool27 = icmp ne i32 %call26, 0
   br i1 %tobool27, label %land.lhs.true28, label %if.end65
 
 land.lhs.true28:                                  ; preds = %if.end25
-  %call29 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1), ptr noundef %dbg_mem)
+  %10 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1
+  %call29 = call i32 @pymemallocator_eq(ptr noundef %10, ptr noundef %dbg_mem)
   %tobool30 = icmp ne i32 %call29, 0
   br i1 %tobool30, label %land.lhs.true31, label %if.end65
 
 land.lhs.true31:                                  ; preds = %land.lhs.true28
-  %call32 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2), ptr noundef %dbg_obj)
+  %11 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2
+  %call32 = call i32 @pymemallocator_eq(ptr noundef %11, ptr noundef %dbg_obj)
   %tobool33 = icmp ne i32 %call32, 0
   br i1 %tobool33, label %if.then34, label %if.end65
 
 if.then34:                                        ; preds = %land.lhs.true31
-  %call35 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.debug_alloc_api_t, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2), i32 0, i32 1), ptr noundef %malloc_alloc)
+  %12 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2
+  %13 = getelementptr inbounds %struct.debug_alloc_api_t, ptr %12, i32 0, i32 1
+  %call35 = call i32 @pymemallocator_eq(ptr noundef %13, ptr noundef %malloc_alloc)
   %tobool36 = icmp ne i32 %call35, 0
   br i1 %tobool36, label %land.lhs.true37, label %if.end44
 
 land.lhs.true37:                                  ; preds = %if.then34
-  %call38 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 1, i32 1), ptr noundef %malloc_alloc)
+  %14 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 1, i32 1
+  %call38 = call i32 @pymemallocator_eq(ptr noundef %14, ptr noundef %malloc_alloc)
   %tobool39 = icmp ne i32 %call38, 0
   br i1 %tobool39, label %land.lhs.true40, label %if.end44
 
 land.lhs.true40:                                  ; preds = %land.lhs.true37
-  %call41 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 2, i32 1), ptr noundef %malloc_alloc)
+  %15 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 2, i32 1
+  %call41 = call i32 @pymemallocator_eq(ptr noundef %15, ptr noundef %malloc_alloc)
   %tobool42 = icmp ne i32 %call41, 0
   br i1 %tobool42, label %if.then43, label %if.end44
 
@@ -22922,17 +22967,21 @@ if.then43:                                        ; preds = %land.lhs.true40
   br label %return
 
 if.end44:                                         ; preds = %land.lhs.true40, %land.lhs.true37, %if.then34
-  %call45 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.debug_alloc_api_t, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2), i32 0, i32 1), ptr noundef %malloc_alloc)
+  %16 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2
+  %17 = getelementptr inbounds %struct.debug_alloc_api_t, ptr %16, i32 0, i32 1
+  %call45 = call i32 @pymemallocator_eq(ptr noundef %17, ptr noundef %malloc_alloc)
   %tobool46 = icmp ne i32 %call45, 0
   br i1 %tobool46, label %land.lhs.true47, label %if.end54
 
 land.lhs.true47:                                  ; preds = %if.end44
-  %call48 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 1, i32 1), ptr noundef %pymalloc)
+  %18 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 1, i32 1
+  %call48 = call i32 @pymemallocator_eq(ptr noundef %18, ptr noundef %pymalloc)
   %tobool49 = icmp ne i32 %call48, 0
   br i1 %tobool49, label %land.lhs.true50, label %if.end54
 
 land.lhs.true50:                                  ; preds = %land.lhs.true47
-  %call51 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 2, i32 1), ptr noundef %pymalloc)
+  %19 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 2, i32 1
+  %call51 = call i32 @pymemallocator_eq(ptr noundef %19, ptr noundef %pymalloc)
   %tobool52 = icmp ne i32 %call51, 0
   br i1 %tobool52, label %if.then53, label %if.end54
 
@@ -22941,17 +22990,21 @@ if.then53:                                        ; preds = %land.lhs.true50
   br label %return
 
 if.end54:                                         ; preds = %land.lhs.true50, %land.lhs.true47, %if.end44
-  %call55 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.debug_alloc_api_t, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2), i32 0, i32 1), ptr noundef %malloc_alloc)
+  %20 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2
+  %21 = getelementptr inbounds %struct.debug_alloc_api_t, ptr %20, i32 0, i32 1
+  %call55 = call i32 @pymemallocator_eq(ptr noundef %21, ptr noundef %malloc_alloc)
   %tobool56 = icmp ne i32 %call55, 0
   br i1 %tobool56, label %land.lhs.true57, label %if.end64
 
 land.lhs.true57:                                  ; preds = %if.end54
-  %call58 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 1, i32 1), ptr noundef %mimalloc)
+  %22 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 1, i32 1
+  %call58 = call i32 @pymemallocator_eq(ptr noundef %22, ptr noundef %mimalloc)
   %tobool59 = icmp ne i32 %call58, 0
   br i1 %tobool59, label %land.lhs.true60, label %if.end64
 
 land.lhs.true60:                                  ; preds = %land.lhs.true57
-  %call61 = call i32 @pymemallocator_eq(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 2, i32 1), ptr noundef %mimalloc_obj)
+  %23 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 2, i32 1
+  %call61 = call i32 @pymemallocator_eq(ptr noundef %23, ptr noundef %mimalloc_obj)
   %tobool62 = icmp ne i32 %call61, 0
   br i1 %tobool62, label %if.then63, label %if.end64
 
@@ -22967,16 +23020,18 @@ if.end65:                                         ; preds = %if.end64, %land.lhs
   br label %return
 
 return:                                           ; preds = %if.end65, %if.then63, %if.then53, %if.then43, %if.then24, %if.then14, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
+  %24 = load ptr, ptr %retval, align 8
+  ret ptr %24
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyMem_SetupDebugHooks() #0 {
 entry:
-  call void @PyMutex_Lock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Lock(ptr noundef %0)
   call void @set_up_debug_hooks_unlocked()
-  call void @PyMutex_Unlock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Unlock(ptr noundef %1)
   ret void
 }
 
@@ -22996,11 +23051,13 @@ entry:
   %allocator.addr = alloca ptr, align 8
   store i32 %domain, ptr %domain.addr, align 4
   store ptr %allocator, ptr %allocator.addr, align 8
-  call void @PyMutex_Lock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
-  %0 = load i32, ptr %domain.addr, align 4
-  %1 = load ptr, ptr %allocator.addr, align 8
-  call void @get_allocator_unlocked(i32 noundef %0, ptr noundef %1)
-  call void @PyMutex_Unlock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Lock(ptr noundef %0)
+  %1 = load i32, ptr %domain.addr, align 4
+  %2 = load ptr, ptr %allocator.addr, align 8
+  call void @get_allocator_unlocked(i32 noundef %1, ptr noundef %2)
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Unlock(ptr noundef %3)
   ret void
 }
 
@@ -23020,34 +23077,37 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %1 = load ptr, ptr %allocator.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), i64 40, i1 false)
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 %2, i64 40, i1 false)
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %2 = load ptr, ptr %allocator.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1), i64 40, i1 false)
+  %3 = load ptr, ptr %allocator.addr, align 8
+  %4 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 40, i1 false)
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %3 = load ptr, ptr %allocator.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2), i64 40, i1 false)
+  %5 = load ptr, ptr %allocator.addr, align 8
+  %6 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 40, i1 false)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %4 = load ptr, ptr %allocator.addr, align 8
-  %ctx = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %4, i32 0, i32 0
-  store ptr null, ptr %ctx, align 8
-  %5 = load ptr, ptr %allocator.addr, align 8
-  %malloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %5, i32 0, i32 1
-  store ptr null, ptr %malloc, align 8
-  %6 = load ptr, ptr %allocator.addr, align 8
-  %calloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %6, i32 0, i32 2
-  store ptr null, ptr %calloc, align 8
   %7 = load ptr, ptr %allocator.addr, align 8
-  %realloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %7, i32 0, i32 3
-  store ptr null, ptr %realloc, align 8
+  %ctx = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %7, i32 0, i32 0
+  store ptr null, ptr %ctx, align 8
   %8 = load ptr, ptr %allocator.addr, align 8
-  %free = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %8, i32 0, i32 4
+  %malloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %8, i32 0, i32 1
+  store ptr null, ptr %malloc, align 8
+  %9 = load ptr, ptr %allocator.addr, align 8
+  %calloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %9, i32 0, i32 2
+  store ptr null, ptr %calloc, align 8
+  %10 = load ptr, ptr %allocator.addr, align 8
+  %realloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %10, i32 0, i32 3
+  store ptr null, ptr %realloc, align 8
+  %11 = load ptr, ptr %allocator.addr, align 8
+  %free = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %11, i32 0, i32 4
   store ptr null, ptr %free, align 8
   br label %sw.epilog
 
@@ -23062,11 +23122,13 @@ entry:
   %allocator.addr = alloca ptr, align 8
   store i32 %domain, ptr %domain.addr, align 4
   store ptr %allocator, ptr %allocator.addr, align 8
-  call void @PyMutex_Lock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
-  %0 = load i32, ptr %domain.addr, align 4
-  %1 = load ptr, ptr %allocator.addr, align 8
-  call void @set_allocator_unlocked(i32 noundef %0, ptr noundef %1)
-  call void @PyMutex_Unlock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Lock(ptr noundef %0)
+  %1 = load i32, ptr %domain.addr, align 4
+  %2 = load ptr, ptr %allocator.addr, align 8
+  call void @set_allocator_unlocked(i32 noundef %1, ptr noundef %2)
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Unlock(ptr noundef %3)
   ret void
 }
 
@@ -23086,17 +23148,20 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %1 = load ptr, ptr %allocator.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), ptr align 8 %1, i64 40, i1 false)
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %1, i64 40, i1 false)
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %2 = load ptr, ptr %allocator.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1), ptr align 8 %2, i64 40, i1 false)
+  %3 = load ptr, ptr %allocator.addr, align 8
+  %4 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %3, i64 40, i1 false)
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %3 = load ptr, ptr %allocator.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2), ptr align 8 %3, i64 40, i1 false)
+  %5 = load ptr, ptr %allocator.addr, align 8
+  %6 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %5, i64 40, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb2, %sw.bb1, %sw.bb, %entry
@@ -23108,10 +23173,13 @@ define dso_local void @PyObject_GetArenaAllocator(ptr noundef %allocator) #0 {
 entry:
   %allocator.addr = alloca ptr, align 8
   store ptr %allocator, ptr %allocator.addr, align 8
-  call void @PyMutex_Lock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
-  %0 = load ptr, ptr %allocator.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3), i64 24, i1 false)
-  call void @PyMutex_Unlock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Lock(ptr noundef %0)
+  %1 = load ptr, ptr %allocator.addr, align 8
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 %2, i64 24, i1 false)
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Unlock(ptr noundef %3)
   ret void
 }
 
@@ -23120,10 +23188,13 @@ define dso_local void @PyObject_SetArenaAllocator(ptr noundef %allocator) #0 {
 entry:
   %allocator.addr = alloca ptr, align 8
   store ptr %allocator, ptr %allocator.addr, align 8
-  call void @PyMutex_Lock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
-  %0 = load ptr, ptr %allocator.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3), ptr align 8 %0, i64 24, i1 false)
-  call void @PyMutex_Unlock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11))
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Lock(ptr noundef %0)
+  %1 = load ptr, ptr %allocator.addr, align 8
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %1, i64 24, i1 false)
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11
+  call void @PyMutex_Unlock(ptr noundef %3)
   ret void
 }
 
@@ -23132,10 +23203,12 @@ define hidden ptr @_PyObject_VirtualAlloc(i64 noundef %size) #0 {
 entry:
   %size.addr = alloca i64, align 8
   store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3, i32 1), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3), align 8
-  %2 = load i64, ptr %size.addr, align 8
-  %call = call ptr %0(ptr noundef %1, i64 noundef %2)
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3
+  %3 = load ptr, ptr %2, align 8
+  %4 = load i64, ptr %size.addr, align 8
+  %call = call ptr %1(ptr noundef %3, i64 noundef %4)
   ret ptr %call
 }
 
@@ -23146,11 +23219,13 @@ entry:
   %size.addr = alloca i64, align 8
   store ptr %obj, ptr %obj.addr, align 8
   store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3, i32 2), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3), align 8
-  %2 = load ptr, ptr %obj.addr, align 8
-  %3 = load i64, ptr %size.addr, align 8
-  call void %0(ptr noundef %1, ptr noundef %2, i64 noundef %3)
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3, i32 2
+  %1 = load ptr, ptr %0, align 8
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %obj.addr, align 8
+  %5 = load i64, ptr %size.addr, align 8
+  call void %1(ptr noundef %3, ptr noundef %4, i64 noundef %5)
   ret void
 }
 
@@ -23169,16 +23244,19 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.PyMemAllocatorEx, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), i32 0, i32 1), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), align 8
-  %3 = load i64, ptr %size.addr, align 8
-  %call = call ptr %1(ptr noundef %2, i64 noundef %3)
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  %2 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %1, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = load i64, ptr %size.addr, align 8
+  %call = call ptr %3(ptr noundef %5, i64 noundef %6)
   store ptr %call, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %4 = load ptr, ptr %retval, align 8
-  ret ptr %4
+  %7 = load ptr, ptr %retval, align 8
+  ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -23205,17 +23283,20 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %3 = load ptr, ptr getelementptr inbounds (%struct.PyMemAllocatorEx, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), i32 0, i32 2), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), align 8
-  %5 = load i64, ptr %nelem.addr, align 8
-  %6 = load i64, ptr %elsize.addr, align 8
-  %call = call ptr %3(ptr noundef %4, i64 noundef %5, i64 noundef %6)
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  %4 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = load i64, ptr %nelem.addr, align 8
+  %9 = load i64, ptr %elsize.addr, align 8
+  %call = call ptr %5(ptr noundef %7, i64 noundef %8, i64 noundef %9)
   store ptr %call, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
+  %10 = load ptr, ptr %retval, align 8
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -23235,17 +23316,20 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.PyMemAllocatorEx, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), i32 0, i32 3), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), align 8
-  %3 = load ptr, ptr %ptr.addr, align 8
-  %4 = load i64, ptr %new_size.addr, align 8
-  %call = call ptr %1(ptr noundef %2, ptr noundef %3, i64 noundef %4)
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  %2 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %1, i32 0, i32 3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %ptr.addr, align 8
+  %7 = load i64, ptr %new_size.addr, align 8
+  %call = call ptr %3(ptr noundef %5, ptr noundef %6, i64 noundef %7)
   store ptr %call, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+  %8 = load ptr, ptr %retval, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -23253,10 +23337,13 @@ define dso_local void @PyMem_RawFree(ptr noundef %ptr) #0 {
 entry:
   %ptr.addr = alloca ptr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.PyMemAllocatorEx, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), i32 0, i32 4), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), align 8
-  %2 = load ptr, ptr %ptr.addr, align 8
-  call void %0(ptr noundef %1, ptr noundef %2)
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  %1 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %0, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %ptr.addr, align 8
+  call void %2(ptr noundef %4, ptr noundef %5)
   ret void
 }
 
@@ -23275,16 +23362,18 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1, i32 1), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1), align 8
-  %3 = load i64, ptr %size.addr, align 8
-  %call = call ptr %1(ptr noundef %2, i64 noundef %3)
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i64, ptr %size.addr, align 8
+  %call = call ptr %2(ptr noundef %4, i64 noundef %5)
   store ptr %call, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %4 = load ptr, ptr %retval, align 8
-  ret ptr %4
+  %6 = load ptr, ptr %retval, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -23311,17 +23400,19 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1, i32 2), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1), align 8
-  %5 = load i64, ptr %nelem.addr, align 8
-  %6 = load i64, ptr %elsize.addr, align 8
-  %call = call ptr %3(ptr noundef %4, i64 noundef %5, i64 noundef %6)
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1, i32 2
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i64, ptr %nelem.addr, align 8
+  %8 = load i64, ptr %elsize.addr, align 8
+  %call = call ptr %4(ptr noundef %6, i64 noundef %7, i64 noundef %8)
   store ptr %call, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
+  %9 = load ptr, ptr %retval, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -23341,17 +23432,19 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1, i32 3), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1), align 8
-  %3 = load ptr, ptr %ptr.addr, align 8
-  %4 = load i64, ptr %new_size.addr, align 8
-  %call = call ptr %1(ptr noundef %2, ptr noundef %3, i64 noundef %4)
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1, i32 3
+  %2 = load ptr, ptr %1, align 8
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %ptr.addr, align 8
+  %6 = load i64, ptr %new_size.addr, align 8
+  %call = call ptr %2(ptr noundef %4, ptr noundef %5, i64 noundef %6)
   store ptr %call, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+  %7 = load ptr, ptr %retval, align 8
+  ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -23359,10 +23452,12 @@ define dso_local void @PyMem_Free(ptr noundef %ptr) #0 {
 entry:
   %ptr.addr = alloca ptr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1, i32 4), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1), align 8
-  %2 = load ptr, ptr %ptr.addr, align 8
-  call void %0(ptr noundef %1, ptr noundef %2)
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %ptr.addr, align 8
+  call void %1(ptr noundef %3, ptr noundef %4)
   ret void
 }
 
@@ -23508,16 +23603,18 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 1), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2), align 8
-  %3 = load i64, ptr %size.addr, align 8
-  %call = call ptr %1(ptr noundef %2, i64 noundef %3)
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i64, ptr %size.addr, align 8
+  %call = call ptr %2(ptr noundef %4, i64 noundef %5)
   store ptr %call, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %4 = load ptr, ptr %retval, align 8
-  ret ptr %4
+  %6 = load ptr, ptr %retval, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -23544,17 +23641,19 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 2), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2), align 8
-  %5 = load i64, ptr %nelem.addr, align 8
-  %6 = load i64, ptr %elsize.addr, align 8
-  %call = call ptr %3(ptr noundef %4, i64 noundef %5, i64 noundef %6)
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 2
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i64, ptr %nelem.addr, align 8
+  %8 = load i64, ptr %elsize.addr, align 8
+  %call = call ptr %4(ptr noundef %6, i64 noundef %7, i64 noundef %8)
   store ptr %call, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
+  %9 = load ptr, ptr %retval, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -23574,17 +23673,19 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 3), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2), align 8
-  %3 = load ptr, ptr %ptr.addr, align 8
-  %4 = load i64, ptr %new_size.addr, align 8
-  %call = call ptr %1(ptr noundef %2, ptr noundef %3, i64 noundef %4)
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 3
+  %2 = load ptr, ptr %1, align 8
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %ptr.addr, align 8
+  %6 = load i64, ptr %new_size.addr, align 8
+  %call = call ptr %2(ptr noundef %4, ptr noundef %5, i64 noundef %6)
   store ptr %call, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+  %7 = load ptr, ptr %retval, align 8
+  ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -23592,10 +23693,12 @@ define dso_local void @PyObject_Free(ptr noundef %ptr) #0 {
 entry:
   %ptr.addr = alloca ptr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 4), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2), align 8
-  %2 = load ptr, ptr %ptr.addr, align 8
-  call void %0(ptr noundef %1, ptr noundef %2)
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %ptr.addr, align 8
+  call void %1(ptr noundef %3, ptr noundef %4)
   ret void
 }
 
@@ -23752,22 +23855,24 @@ entry:
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 2, i32 1, i32 1), align 8
-  %cmp = icmp eq ptr %0, @_PyObject_MiMalloc
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 2, i32 1, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %cmp = icmp eq ptr %1, @_PyObject_MiMalloc
   %conv = zext i1 %cmp to i32
   store i32 %conv, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 1), align 8
-  %cmp1 = icmp eq ptr %1, @_PyObject_MiMalloc
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %cmp1 = icmp eq ptr %3, @_PyObject_MiMalloc
   %conv2 = zext i1 %cmp1 to i32
   store i32 %conv2, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %2 = load i32, ptr %retval, align 4
-  ret i32 %2
+  %4 = load i32, ptr %retval, align 4
+  ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -23824,7 +23929,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: noreturn
-declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) #12
+declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) #11
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyInterpreterState_FinalizeAllocatedBlocks(ptr noundef %interp) #0 {
@@ -25288,7 +25393,7 @@ entry:
   ret void
 }
 
-declare i32 @PyOS_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #8
+declare i32 @PyOS_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #7
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @printone(ptr noundef %out, ptr noundef %msg, i64 noundef %value) #0 {
@@ -25527,22 +25632,24 @@ entry:
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 2, i32 1, i32 1), align 8
-  %cmp = icmp eq ptr %0, @_PyObject_Malloc
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 2, i32 1, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %cmp = icmp eq ptr %1, @_PyObject_Malloc
   %conv = zext i1 %cmp to i32
   store i32 %conv, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 1), align 8
-  %cmp1 = icmp eq ptr %1, @_PyObject_Malloc
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %cmp1 = icmp eq ptr %3, @_PyObject_Malloc
   %conv2 = zext i1 %cmp1 to i32
   store i32 %conv2, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %2 = load i32, ptr %retval, align 4
-  ret i32 %2
+  %4 = load i32, ptr %retval, align 4
+  ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -25984,7 +26091,7 @@ for.end89:                                        ; preds = %for.cond59
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_mi_heap_get_free_small_page(ptr noundef %heap, i64 noundef %size) #0 {
@@ -26407,7 +26514,7 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #14
+declare void @abort() #13
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @mi_heap_malloc_zero_aligned_at_fallback(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext %zero) #0 {
@@ -27850,8 +27957,9 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %1 = ptrtoint ptr %0 to i64
-  %2 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6), align 8
-  %xor = xor i64 %1, %2
+  %2 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6
+  %3 = load i64, ptr %2, align 8
+  %xor = xor i64 %1, %3
   ret i64 %xor
 }
 
@@ -28428,8 +28536,9 @@ if.then9:                                         ; preds = %lor.lhs.false, %if.
 
 if.end10:                                         ; preds = %if.then9, %lor.lhs.false
   call void @mi_allocator_done()
-  %3 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4), align 8
-  call void (ptr, ...) @_mi_verbose_message(ptr noundef @.str.49, i64 noundef %3)
+  %3 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4
+  %4 = load i64, ptr %3, align 8
+  call void (ptr, ...) @_mi_verbose_message(ptr noundef @.str.49, i64 noundef %4)
   store i8 1, ptr @os_preloading, align 1
   br label %return
 
@@ -28734,7 +28843,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: nounwind
-declare void @llvm.x86.sse2.pause() #15
+declare void @llvm.x86.sse2.pause() #14
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @mi_page_queue_is_full(ptr noundef %pq) #0 {
@@ -30930,9 +31039,10 @@ if.then7:                                         ; preds = %if.then4
   %12 = load i64, ptr %full_size, align 8
   %call9 = call i64 @_mi_commit_mask_committed_size(ptr noundef %cmask, i64 noundef 33554432)
   %sub = sub i64 %12, %call9
-  call void @_mi_stat_increase(ptr noundef getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3), i64 noundef %sub)
-  %13 = load ptr, ptr %segment.addr, align 8
-  %commit_mask10 = getelementptr inbounds %struct.mi_segment_s, ptr %13, i32 0, i32 6
+  %13 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3
+  call void @_mi_stat_increase(ptr noundef %13, i64 noundef %sub)
+  %14 = load ptr, ptr %segment.addr, align 8
+  %commit_mask10 = getelementptr inbounds %struct.mi_segment_s, ptr %14, i32 0, i32 6
   call void @mi_commit_mask_clear(ptr noundef %commit_mask10, ptr noundef %mask)
   br label %if.end11
 
@@ -30940,15 +31050,15 @@ if.end11:                                         ; preds = %if.then7, %if.then4
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end11, %if.end2
-  %14 = load ptr, ptr %segment.addr, align 8
-  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %14, i32 0, i32 5
+  %15 = load ptr, ptr %segment.addr, align 8
+  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %15, i32 0, i32 5
   call void @mi_commit_mask_clear(ptr noundef %purge_mask, ptr noundef %mask)
   store i1 true, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then1, %if.then
-  %15 = load i1, ptr %retval, align 1
-  ret i1 %15
+  %16 = load i1, ptr %retval, align 1
+  ret i1 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -32701,11 +32811,12 @@ if.then2:                                         ; preds = %if.end
   %commit_mask3 = getelementptr inbounds %struct.mi_segment_s, ptr %5, i32 0, i32 6
   call void @mi_commit_mask_create_intersect(ptr noundef %commit_mask3, ptr noundef %mask, ptr noundef %cmask)
   %call4 = call i64 @_mi_commit_mask_committed_size(ptr noundef %cmask, i64 noundef 33554432)
-  call void @_mi_stat_decrease(ptr noundef getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3), i64 noundef %call4)
-  %6 = load ptr, ptr %start, align 8
-  %7 = load i64, ptr %full_size, align 8
-  %8 = load ptr, ptr %stats.addr, align 8
-  %call5 = call zeroext i1 @_mi_os_commit(ptr noundef %6, i64 noundef %7, ptr noundef %is_zero, ptr noundef %8)
+  %6 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3
+  call void @_mi_stat_decrease(ptr noundef %6, i64 noundef %call4)
+  %7 = load ptr, ptr %start, align 8
+  %8 = load i64, ptr %full_size, align 8
+  %9 = load ptr, ptr %stats.addr, align 8
+  %call5 = call zeroext i1 @_mi_os_commit(ptr noundef %7, i64 noundef %8, ptr noundef %is_zero, ptr noundef %9)
   br i1 %call5, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.then2
@@ -32713,14 +32824,14 @@ if.then6:                                         ; preds = %if.then2
   br label %return
 
 if.end7:                                          ; preds = %if.then2
-  %9 = load ptr, ptr %segment.addr, align 8
-  %commit_mask8 = getelementptr inbounds %struct.mi_segment_s, ptr %9, i32 0, i32 6
+  %10 = load ptr, ptr %segment.addr, align 8
+  %commit_mask8 = getelementptr inbounds %struct.mi_segment_s, ptr %10, i32 0, i32 6
   call void @mi_commit_mask_set(ptr noundef %commit_mask8, ptr noundef %mask)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end7, %if.end
-  %10 = load ptr, ptr %segment.addr, align 8
-  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %10, i32 0, i32 5
+  %11 = load ptr, ptr %segment.addr, align 8
+  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %11, i32 0, i32 5
   %call10 = call zeroext i1 @mi_commit_mask_any_set(ptr noundef %purge_mask, ptr noundef %mask)
   br i1 %call10, label %if.then11, label %if.end14
 
@@ -32728,21 +32839,21 @@ if.then11:                                        ; preds = %if.end9
   %call12 = call i64 @_mi_clock_now()
   %call13 = call i64 @mi_option_get(i32 noundef 15)
   %add = add i64 %call12, %call13
-  %11 = load ptr, ptr %segment.addr, align 8
-  %purge_expire = getelementptr inbounds %struct.mi_segment_s, ptr %11, i32 0, i32 4
+  %12 = load ptr, ptr %segment.addr, align 8
+  %purge_expire = getelementptr inbounds %struct.mi_segment_s, ptr %12, i32 0, i32 4
   store i64 %add, ptr %purge_expire, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %if.end9
-  %12 = load ptr, ptr %segment.addr, align 8
-  %purge_mask15 = getelementptr inbounds %struct.mi_segment_s, ptr %12, i32 0, i32 5
+  %13 = load ptr, ptr %segment.addr, align 8
+  %purge_mask15 = getelementptr inbounds %struct.mi_segment_s, ptr %13, i32 0, i32 5
   call void @mi_commit_mask_clear(ptr noundef %purge_mask15, ptr noundef %mask)
   store i1 true, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end14, %if.then6, %if.then
-  %13 = load i1, ptr %retval, align 1
-  ret i1 %13
+  %14 = load i1, ptr %retval, align 1
+  ret i1 %14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -34286,7 +34397,7 @@ cond.false23:                                     ; preds = %if.then17
 
 cond.end24:                                       ; preds = %cond.false23, %cond.true22
   %cond25 = phi ptr [ @.str.10, %cond.true22 ], [ %16, %cond.false23 ]
-  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef %conv18, ptr noundef @.str.144, i32 noundef %conv19, ptr noundef %cond25) #15
+  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef %conv18, ptr noundef @.str.144, i32 noundef %conv19, ptr noundef %cond25) #14
   br label %if.end26
 
 if.end26:                                         ; preds = %cond.end24, %lor.lhs.false
@@ -34345,7 +34456,7 @@ if.end38:                                         ; preds = %if.then36, %if.end3
   %cmp42 = icmp eq i64 %33, 1024
   %cond44 = select i1 %cmp42, ptr @.str.149, ptr @.str.10
   %34 = load ptr, ptr %suffix, align 8
-  %call45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay41, i64 noundef 8, ptr noundef @.str.148, ptr noundef %32, ptr noundef %cond44, ptr noundef %34) #15
+  %call45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay41, i64 noundef 8, ptr noundef @.str.148, ptr noundef %32, ptr noundef %cond44, ptr noundef %34) #14
   %arraydecay46 = getelementptr inbounds [32 x i8], ptr %buf, i64 0, i64 0
   %35 = load i32, ptr %len, align 4
   %conv47 = sext i32 %35 to i64
@@ -34366,7 +34477,7 @@ cond.false52:                                     ; preds = %if.end38
 cond.end53:                                       ; preds = %cond.false52, %cond.true50
   %cond54 = phi i64 [ %sub51, %cond.true50 ], [ %39, %cond.false52 ]
   %arraydecay55 = getelementptr inbounds [8 x i8], ptr %unitdesc, i64 0, i64 0
-  %call56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay46, i64 noundef %conv47, ptr noundef @.str.150, i64 noundef %36, i64 noundef %cond54, ptr noundef %arraydecay55) #15
+  %call56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay46, i64 noundef %conv47, ptr noundef @.str.150, i64 noundef %36, i64 noundef %cond54, ptr noundef %arraydecay55) #14
   br label %if.end57
 
 if.end57:                                         ; preds = %cond.end53, %if.end26
@@ -34515,38 +34626,40 @@ if.then2:                                         ; preds = %if.then
   %6 = load i32, ptr %protect_flags.addr, align 4
   %7 = load i32, ptr %flags.addr, align 4
   %8 = load i32, ptr %fd.addr, align 4
-  %call3 = call ptr @mmap64(ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef 0) #15
+  %call3 = call ptr @mmap64(ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef 0) #14
   store ptr %call3, ptr %p, align 8
   %9 = load ptr, ptr %p, align 8
-  %cmp4 = icmp eq ptr %9, inttoptr (i64 -1 to ptr)
+  %10 = inttoptr i64 -1 to ptr
+  %cmp4 = icmp eq ptr %9, %10
   br i1 %cmp4, label %if.then6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then2
-  %10 = load ptr, ptr %p, align 8
-  %11 = load i64, ptr %try_alignment.addr, align 8
-  %call5 = call zeroext i1 @_mi_is_aligned(ptr noundef %10, i64 noundef %11)
+  %11 = load ptr, ptr %p, align 8
+  %12 = load i64, ptr %try_alignment.addr, align 8
+  %call5 = call zeroext i1 @_mi_is_aligned(ptr noundef %11, i64 noundef %12)
   br i1 %call5, label %if.end, label %if.then6
 
 if.then6:                                         ; preds = %lor.lhs.false, %if.then2
   %call7 = call ptr @__errno_location() #18
-  %12 = load i32, ptr %call7, align 4
-  store i32 %12, ptr %err, align 4
-  %13 = load i32, ptr %err, align 4
+  %13 = load i32, ptr %call7, align 4
+  store i32 %13, ptr %err, align 4
   %14 = load i32, ptr %err, align 4
-  %15 = load i64, ptr %size.addr, align 8
-  %16 = load i64, ptr %try_alignment.addr, align 8
-  %17 = load ptr, ptr %hint, align 8
-  call void (ptr, ...) @_mi_warning_message(ptr noundef @.str.153, i32 noundef %13, i32 noundef %14, i64 noundef %15, i64 noundef %16, ptr noundef %17)
+  %15 = load i32, ptr %err, align 4
+  %16 = load i64, ptr %size.addr, align 8
+  %17 = load i64, ptr %try_alignment.addr, align 8
+  %18 = load ptr, ptr %hint, align 8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef @.str.153, i32 noundef %14, i32 noundef %15, i64 noundef %16, i64 noundef %17, ptr noundef %18)
   br label %if.end
 
 if.end:                                           ; preds = %if.then6, %lor.lhs.false
-  %18 = load ptr, ptr %p, align 8
-  %cmp8 = icmp ne ptr %18, inttoptr (i64 -1 to ptr)
+  %19 = load ptr, ptr %p, align 8
+  %20 = inttoptr i64 -1 to ptr
+  %cmp8 = icmp ne ptr %19, %20
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end
-  %19 = load ptr, ptr %p, align 8
-  store ptr %19, ptr %retval, align 8
+  %21 = load ptr, ptr %p, align 8
+  store ptr %21, ptr %retval, align 8
   br label %return
 
 if.end10:                                         ; preds = %if.end
@@ -34556,20 +34669,21 @@ if.end11:                                         ; preds = %if.end10, %if.then
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end11, %entry
-  %20 = load ptr, ptr %addr.addr, align 8
-  %21 = load i64, ptr %size.addr, align 8
-  %22 = load i32, ptr %protect_flags.addr, align 4
-  %23 = load i32, ptr %flags.addr, align 4
-  %24 = load i32, ptr %fd.addr, align 4
-  %call13 = call ptr @mmap64(ptr noundef %20, i64 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %24, i64 noundef 0) #15
+  %22 = load ptr, ptr %addr.addr, align 8
+  %23 = load i64, ptr %size.addr, align 8
+  %24 = load i32, ptr %protect_flags.addr, align 4
+  %25 = load i32, ptr %flags.addr, align 4
+  %26 = load i32, ptr %fd.addr, align 4
+  %call13 = call ptr @mmap64(ptr noundef %22, i64 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, i64 noundef 0) #14
   store ptr %call13, ptr %p, align 8
-  %25 = load ptr, ptr %p, align 8
-  %cmp14 = icmp ne ptr %25, inttoptr (i64 -1 to ptr)
+  %27 = load ptr, ptr %p, align 8
+  %28 = inttoptr i64 -1 to ptr
+  %cmp14 = icmp ne ptr %27, %28
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end12
-  %26 = load ptr, ptr %p, align 8
-  store ptr %26, ptr %retval, align 8
+  %29 = load ptr, ptr %p, align 8
+  store ptr %29, ptr %retval, align 8
   br label %return
 
 if.end16:                                         ; preds = %if.end12
@@ -34577,8 +34691,8 @@ if.end16:                                         ; preds = %if.end12
   br label %return
 
 return:                                           ; preds = %if.end16, %if.then15, %if.then9
-  %27 = load ptr, ptr %retval, align 8
-  ret ptr %27
+  %30 = load ptr, ptr %retval, align 8
+  ret ptr %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -34634,7 +34748,7 @@ cmpxchg.continue:                                 ; preds = %cmpxchg.store_expec
   ret i32 %conv
 }
 
-declare void @_PyMutex_LockSlow(ptr noundef) #8
+declare void @_PyMutex_LockSlow(ptr noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define internal void @set_up_debug_hooks_domain_unlocked(i32 noundef %domain) #0 {
@@ -34647,18 +34761,23 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.PyMemAllocatorEx, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1), i32 0, i32 1), align 8
-  %cmp1 = icmp eq ptr %1, @_PyMem_DebugRawMalloc
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1
+  %2 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %1, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %cmp1 = icmp eq ptr %3, @_PyMem_DebugRawMalloc
   br i1 %cmp1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
   br label %if.end26
 
 if.end:                                           ; preds = %if.then
-  %2 = load i32, ptr %domain.addr, align 4
-  call void @get_allocator_unlocked(i32 noundef %2, ptr noundef getelementptr inbounds (%struct.debug_alloc_api_t, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2), i32 0, i32 1))
+  %4 = load i32, ptr %domain.addr, align 4
+  %5 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2
+  %6 = getelementptr inbounds %struct.debug_alloc_api_t, ptr %5, i32 0, i32 1
+  call void @get_allocator_unlocked(i32 noundef %4, ptr noundef %6)
   %ctx = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2), ptr %ctx, align 8
+  %7 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2
+  store ptr %7, ptr %ctx, align 8
   %malloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 1
   store ptr @_PyMem_DebugRawMalloc, ptr %malloc, align 8
   %calloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 2
@@ -34667,28 +34786,31 @@ if.end:                                           ; preds = %if.then
   store ptr @_PyMem_DebugRawRealloc, ptr %realloc, align 8
   %free = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 4
   store ptr @_PyMem_DebugRawFree, ptr %free, align 8
-  %3 = load i32, ptr %domain.addr, align 4
-  call void @set_allocator_unlocked(i32 noundef %3, ptr noundef %alloc)
+  %8 = load i32, ptr %domain.addr, align 4
+  call void @set_allocator_unlocked(i32 noundef %8, ptr noundef %alloc)
   br label %if.end26
 
 if.else:                                          ; preds = %entry
-  %4 = load i32, ptr %domain.addr, align 4
-  %cmp3 = icmp eq i32 %4, 1
+  %9 = load i32, ptr %domain.addr, align 4
+  %cmp3 = icmp eq i32 %9, 1
   br i1 %cmp3, label %if.then4, label %if.else13
 
 if.then4:                                         ; preds = %if.else
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1, i32 1), align 8
-  %cmp5 = icmp eq ptr %5, @_PyMem_DebugMalloc
+  %10 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 1, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %cmp5 = icmp eq ptr %11, @_PyMem_DebugMalloc
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.then4
   br label %if.end26
 
 if.end7:                                          ; preds = %if.then4
-  %6 = load i32, ptr %domain.addr, align 4
-  call void @get_allocator_unlocked(i32 noundef %6, ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 1, i32 1))
+  %12 = load i32, ptr %domain.addr, align 4
+  %13 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 1, i32 1
+  call void @get_allocator_unlocked(i32 noundef %12, ptr noundef %13)
   %ctx8 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 1), ptr %ctx8, align 8
+  %14 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 1
+  store ptr %14, ptr %ctx8, align 8
   %malloc9 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 1
   store ptr @_PyMem_DebugMalloc, ptr %malloc9, align 8
   %calloc10 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 2
@@ -34697,28 +34819,31 @@ if.end7:                                          ; preds = %if.then4
   store ptr @_PyMem_DebugRealloc, ptr %realloc11, align 8
   %free12 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 4
   store ptr @_PyMem_DebugFree, ptr %free12, align 8
-  %7 = load i32, ptr %domain.addr, align 4
-  call void @set_allocator_unlocked(i32 noundef %7, ptr noundef %alloc)
+  %15 = load i32, ptr %domain.addr, align 4
+  call void @set_allocator_unlocked(i32 noundef %15, ptr noundef %alloc)
   br label %if.end25
 
 if.else13:                                        ; preds = %if.else
-  %8 = load i32, ptr %domain.addr, align 4
-  %cmp14 = icmp eq i32 %8, 2
+  %16 = load i32, ptr %domain.addr, align 4
+  %cmp14 = icmp eq i32 %16, 2
   br i1 %cmp14, label %if.then15, label %if.end24
 
 if.then15:                                        ; preds = %if.else13
-  %9 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 1), align 8
-  %cmp16 = icmp eq ptr %9, @_PyMem_DebugMalloc
+  %17 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %cmp16 = icmp eq ptr %18, @_PyMem_DebugMalloc
   br i1 %cmp16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.then15
   br label %if.end26
 
 if.end18:                                         ; preds = %if.then15
-  %10 = load i32, ptr %domain.addr, align 4
-  call void @get_allocator_unlocked(i32 noundef %10, ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 2, i32 1))
+  %19 = load i32, ptr %domain.addr, align 4
+  %20 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 2, i32 1
+  call void @get_allocator_unlocked(i32 noundef %19, ptr noundef %20)
   %ctx19 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 2), ptr %ctx19, align 8
+  %21 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 2, i32 2
+  store ptr %21, ptr %ctx19, align 8
   %malloc20 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 1
   store ptr @_PyMem_DebugMalloc, ptr %malloc20, align 8
   %calloc21 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 2
@@ -34727,8 +34852,8 @@ if.end18:                                         ; preds = %if.then15
   store ptr @_PyMem_DebugRealloc, ptr %realloc22, align 8
   %free23 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 4
   store ptr @_PyMem_DebugFree, ptr %free23, align 8
-  %11 = load i32, ptr %domain.addr, align 4
-  call void @set_allocator_unlocked(i32 noundef %11, ptr noundef %alloc)
+  %22 = load i32, ptr %domain.addr, align 4
+  call void @set_allocator_unlocked(i32 noundef %22, ptr noundef %alloc)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end18, %if.else13
@@ -34741,7 +34866,7 @@ if.end26:                                         ; preds = %if.end25, %if.then1
   ret void
 }
 
-declare void @_PyMutex_UnlockSlow(ptr noundef) #8
+declare void @_PyMutex_UnlockSlow(ptr noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pymemallocator_eq(ptr noundef %a, ptr noundef %b) #0 {
@@ -34764,8 +34889,9 @@ declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @_PyMem_DebugEnabled() #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 1), align 8
-  %cmp = icmp eq ptr %0, @_PyMem_DebugMalloc
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 1, i32 2, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %cmp = icmp eq ptr %1, @_PyMem_DebugMalloc
   %conv = zext i1 %cmp to i32
   ret i32 %conv
 }
@@ -34793,20 +34919,22 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %0 = load ptr, ptr %interp.addr, align 8
-  %cmp1 = icmp eq ptr %0, getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 38)
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 38
+  %cmp1 = icmp eq ptr %0, %1
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %1 = phi i1 [ false, %entry ], [ %cmp1, %land.rhs ]
-  %land.ext = zext i1 %1 to i32
+  %2 = phi i1 [ false, %entry ], [ %cmp1, %land.rhs ]
+  %land.ext = zext i1 %2 to i32
   ret i32 %land.ext
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_PyInterpreterState_Main() #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 8, i32 2), align 8
-  ret ptr %0
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 8, i32 2
+  %1 = load ptr, ptr %0, align 8
+  ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -34858,11 +34986,11 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
-declare ptr @PyInterpreterState_Head() #8
+declare ptr @PyInterpreterState_Head() #7
 
-declare ptr @PyInterpreterState_Next(ptr noundef) #8
+declare ptr @PyInterpreterState_Next(ptr noundef) #7
 
-declare i32 @_PyMutex_LockTimed(ptr noundef, i64 noundef, i32 noundef) #8
+declare i32 @_PyMutex_LockTimed(ptr noundef, i64 noundef, i32 noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_PyInterpreterState_GET() #0 {
@@ -35350,66 +35478,68 @@ entry:
   %numarenas = alloca i32, align 4
   %nbytes = alloca i64, align 8
   store ptr %state, ptr %state.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 12), align 8
-  store i32 %0, ptr %debug_stats, align 4
-  %1 = load i32, ptr %debug_stats, align 4
-  %cmp = icmp eq i32 %1, -1
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 12
+  %1 = load i32, ptr %0, align 8
+  store i32 %1, ptr %debug_stats, align 4
+  %2 = load i32, ptr %debug_stats, align 4
+  %cmp = icmp eq i32 %2, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = call ptr @Py_GETENV(ptr noundef @.str.157)
   store ptr %call, ptr %opt, align 8
-  %2 = load ptr, ptr %opt, align 8
-  %cmp1 = icmp ne ptr %2, null
+  %3 = load ptr, ptr %opt, align 8
+  %cmp1 = icmp ne ptr %3, null
   br i1 %cmp1, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.then
-  %3 = load ptr, ptr %opt, align 8
-  %4 = load i8, ptr %3, align 1
-  %conv = sext i8 %4 to i32
+  %4 = load ptr, ptr %opt, align 8
+  %5 = load i8, ptr %4, align 1
+  %conv = sext i8 %5 to i32
   %cmp2 = icmp ne i32 %conv, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.then
-  %5 = phi i1 [ false, %if.then ], [ %cmp2, %land.rhs ]
-  %land.ext = zext i1 %5 to i32
+  %6 = phi i1 [ false, %if.then ], [ %cmp2, %land.rhs ]
+  %land.ext = zext i1 %6 to i32
   store i32 %land.ext, ptr %debug_stats, align 4
-  %6 = load i32, ptr %debug_stats, align 4
-  store i32 %6, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 12), align 8
+  %7 = load i32, ptr %debug_stats, align 4
+  %8 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 12
+  store i32 %7, ptr %8, align 8
   br label %if.end
 
 if.end:                                           ; preds = %land.end, %entry
-  %7 = load i32, ptr %debug_stats, align 4
-  %tobool = icmp ne i32 %7, 0
+  %9 = load i32, ptr %debug_stats, align 4
+  %tobool = icmp ne i32 %9, 0
   br i1 %tobool, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  %8 = load ptr, ptr @stderr, align 8
-  %call5 = call i32 @_PyObject_DebugMallocStats(ptr noundef %8)
+  %10 = load ptr, ptr @stderr, align 8
+  %call5 = call i32 @_PyObject_DebugMallocStats(ptr noundef %10)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then4, %if.end
-  %9 = load ptr, ptr %state.addr, align 8
-  %mgmt = getelementptr inbounds %struct._obmalloc_state, ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %state.addr, align 8
+  %mgmt = getelementptr inbounds %struct._obmalloc_state, ptr %11, i32 0, i32 1
   %unused_arena_objects = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt, i32 0, i32 2
-  %10 = load ptr, ptr %unused_arena_objects, align 8
-  %cmp7 = icmp eq ptr %10, null
+  %12 = load ptr, ptr %unused_arena_objects, align 8
+  %cmp7 = icmp eq ptr %12, null
   br i1 %cmp7, label %if.then9, label %if.end60
 
 if.then9:                                         ; preds = %if.end6
-  %11 = load ptr, ptr %state.addr, align 8
-  %mgmt10 = getelementptr inbounds %struct._obmalloc_state, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %state.addr, align 8
+  %mgmt10 = getelementptr inbounds %struct._obmalloc_state, ptr %13, i32 0, i32 1
   %maxarenas = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt10, i32 0, i32 1
-  %12 = load i32, ptr %maxarenas, align 8
-  %tobool11 = icmp ne i32 %12, 0
+  %14 = load i32, ptr %maxarenas, align 8
+  %tobool11 = icmp ne i32 %14, 0
   br i1 %tobool11, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then9
-  %13 = load ptr, ptr %state.addr, align 8
-  %mgmt12 = getelementptr inbounds %struct._obmalloc_state, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %state.addr, align 8
+  %mgmt12 = getelementptr inbounds %struct._obmalloc_state, ptr %15, i32 0, i32 1
   %maxarenas13 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt12, i32 0, i32 1
-  %14 = load i32, ptr %maxarenas13, align 8
-  %shl = shl i32 %14, 1
+  %16 = load i32, ptr %maxarenas13, align 8
+  %shl = shl i32 %16, 1
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then9
@@ -35418,12 +35548,12 @@ cond.false:                                       ; preds = %if.then9
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i32 [ %shl, %cond.true ], [ 16, %cond.false ]
   store i32 %cond, ptr %numarenas, align 4
-  %15 = load i32, ptr %numarenas, align 4
-  %16 = load ptr, ptr %state.addr, align 8
-  %mgmt14 = getelementptr inbounds %struct._obmalloc_state, ptr %16, i32 0, i32 1
+  %17 = load i32, ptr %numarenas, align 4
+  %18 = load ptr, ptr %state.addr, align 8
+  %mgmt14 = getelementptr inbounds %struct._obmalloc_state, ptr %18, i32 0, i32 1
   %maxarenas15 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt14, i32 0, i32 1
-  %17 = load i32, ptr %maxarenas15, align 8
-  %cmp16 = icmp ule i32 %15, %17
+  %19 = load i32, ptr %maxarenas15, align 8
+  %cmp16 = icmp ule i32 %17, %19
   br i1 %cmp16, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %cond.end
@@ -35431,19 +35561,19 @@ if.then18:                                        ; preds = %cond.end
   br label %return
 
 if.end19:                                         ; preds = %cond.end
-  %18 = load i32, ptr %numarenas, align 4
-  %conv20 = zext i32 %18 to i64
+  %20 = load i32, ptr %numarenas, align 4
+  %conv20 = zext i32 %20 to i64
   %mul = mul i64 %conv20, 48
   store i64 %mul, ptr %nbytes, align 8
-  %19 = load ptr, ptr %state.addr, align 8
-  %mgmt21 = getelementptr inbounds %struct._obmalloc_state, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %state.addr, align 8
+  %mgmt21 = getelementptr inbounds %struct._obmalloc_state, ptr %21, i32 0, i32 1
   %arenas = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt21, i32 0, i32 0
-  %20 = load ptr, ptr %arenas, align 8
-  %21 = load i64, ptr %nbytes, align 8
-  %call22 = call ptr @PyMem_RawRealloc(ptr noundef %20, i64 noundef %21)
+  %22 = load ptr, ptr %arenas, align 8
+  %23 = load i64, ptr %nbytes, align 8
+  %call22 = call ptr @PyMem_RawRealloc(ptr noundef %22, i64 noundef %23)
   store ptr %call22, ptr %arenaobj, align 8
-  %22 = load ptr, ptr %arenaobj, align 8
-  %cmp23 = icmp eq ptr %22, null
+  %24 = load ptr, ptr %arenaobj, align 8
+  %cmp23 = icmp eq ptr %24, null
   br i1 %cmp23, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %if.end19
@@ -35451,49 +35581,49 @@ if.then25:                                        ; preds = %if.end19
   br label %return
 
 if.end26:                                         ; preds = %if.end19
-  %23 = load ptr, ptr %arenaobj, align 8
-  %24 = load ptr, ptr %state.addr, align 8
-  %mgmt27 = getelementptr inbounds %struct._obmalloc_state, ptr %24, i32 0, i32 1
+  %25 = load ptr, ptr %arenaobj, align 8
+  %26 = load ptr, ptr %state.addr, align 8
+  %mgmt27 = getelementptr inbounds %struct._obmalloc_state, ptr %26, i32 0, i32 1
   %arenas28 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt27, i32 0, i32 0
-  store ptr %23, ptr %arenas28, align 8
-  %25 = load ptr, ptr %state.addr, align 8
-  %mgmt29 = getelementptr inbounds %struct._obmalloc_state, ptr %25, i32 0, i32 1
+  store ptr %25, ptr %arenas28, align 8
+  %27 = load ptr, ptr %state.addr, align 8
+  %mgmt29 = getelementptr inbounds %struct._obmalloc_state, ptr %27, i32 0, i32 1
   %maxarenas30 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt29, i32 0, i32 1
-  %26 = load i32, ptr %maxarenas30, align 8
-  store i32 %26, ptr %i, align 4
+  %28 = load i32, ptr %maxarenas30, align 8
+  store i32 %28, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end26
-  %27 = load i32, ptr %i, align 4
-  %28 = load i32, ptr %numarenas, align 4
-  %cmp31 = icmp ult i32 %27, %28
+  %29 = load i32, ptr %i, align 4
+  %30 = load i32, ptr %numarenas, align 4
+  %cmp31 = icmp ult i32 %29, %30
   br i1 %cmp31, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %29 = load ptr, ptr %state.addr, align 8
-  %mgmt33 = getelementptr inbounds %struct._obmalloc_state, ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %state.addr, align 8
+  %mgmt33 = getelementptr inbounds %struct._obmalloc_state, ptr %31, i32 0, i32 1
   %arenas34 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt33, i32 0, i32 0
-  %30 = load ptr, ptr %arenas34, align 8
-  %31 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %31 to i64
-  %arrayidx = getelementptr %struct.arena_object, ptr %30, i64 %idxprom
+  %32 = load ptr, ptr %arenas34, align 8
+  %33 = load i32, ptr %i, align 4
+  %idxprom = zext i32 %33 to i64
+  %arrayidx = getelementptr %struct.arena_object, ptr %32, i64 %idxprom
   %address35 = getelementptr inbounds %struct.arena_object, ptr %arrayidx, i32 0, i32 0
   store i64 0, ptr %address35, align 8
-  %32 = load i32, ptr %i, align 4
-  %33 = load i32, ptr %numarenas, align 4
-  %sub = sub i32 %33, 1
-  %cmp36 = icmp ult i32 %32, %sub
+  %34 = load i32, ptr %i, align 4
+  %35 = load i32, ptr %numarenas, align 4
+  %sub = sub i32 %35, 1
+  %cmp36 = icmp ult i32 %34, %sub
   br i1 %cmp36, label %cond.true38, label %cond.false43
 
 cond.true38:                                      ; preds = %for.body
-  %34 = load ptr, ptr %state.addr, align 8
-  %mgmt39 = getelementptr inbounds %struct._obmalloc_state, ptr %34, i32 0, i32 1
+  %36 = load ptr, ptr %state.addr, align 8
+  %mgmt39 = getelementptr inbounds %struct._obmalloc_state, ptr %36, i32 0, i32 1
   %arenas40 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt39, i32 0, i32 0
-  %35 = load ptr, ptr %arenas40, align 8
-  %36 = load i32, ptr %i, align 4
-  %add = add i32 %36, 1
+  %37 = load ptr, ptr %arenas40, align 8
+  %38 = load i32, ptr %i, align 4
+  %add = add i32 %38, 1
   %idxprom41 = zext i32 %add to i64
-  %arrayidx42 = getelementptr %struct.arena_object, ptr %35, i64 %idxprom41
+  %arrayidx42 = getelementptr %struct.arena_object, ptr %37, i64 %idxprom41
   br label %cond.end44
 
 cond.false43:                                     ; preds = %for.body
@@ -35501,79 +35631,83 @@ cond.false43:                                     ; preds = %for.body
 
 cond.end44:                                       ; preds = %cond.false43, %cond.true38
   %cond45 = phi ptr [ %arrayidx42, %cond.true38 ], [ null, %cond.false43 ]
-  %37 = load ptr, ptr %state.addr, align 8
-  %mgmt46 = getelementptr inbounds %struct._obmalloc_state, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %state.addr, align 8
+  %mgmt46 = getelementptr inbounds %struct._obmalloc_state, ptr %39, i32 0, i32 1
   %arenas47 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt46, i32 0, i32 0
-  %38 = load ptr, ptr %arenas47, align 8
-  %39 = load i32, ptr %i, align 4
-  %idxprom48 = zext i32 %39 to i64
-  %arrayidx49 = getelementptr %struct.arena_object, ptr %38, i64 %idxprom48
+  %40 = load ptr, ptr %arenas47, align 8
+  %41 = load i32, ptr %i, align 4
+  %idxprom48 = zext i32 %41 to i64
+  %arrayidx49 = getelementptr %struct.arena_object, ptr %40, i64 %idxprom48
   %nextarena = getelementptr inbounds %struct.arena_object, ptr %arrayidx49, i32 0, i32 5
   store ptr %cond45, ptr %nextarena, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %cond.end44
-  %40 = load i32, ptr %i, align 4
-  %inc = add i32 %40, 1
+  %42 = load i32, ptr %i, align 4
+  %inc = add i32 %42, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !148
 
 for.end:                                          ; preds = %for.cond
-  %41 = load ptr, ptr %state.addr, align 8
-  %mgmt50 = getelementptr inbounds %struct._obmalloc_state, ptr %41, i32 0, i32 1
-  %arenas51 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt50, i32 0, i32 0
-  %42 = load ptr, ptr %arenas51, align 8
   %43 = load ptr, ptr %state.addr, align 8
-  %mgmt52 = getelementptr inbounds %struct._obmalloc_state, ptr %43, i32 0, i32 1
-  %maxarenas53 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt52, i32 0, i32 1
-  %44 = load i32, ptr %maxarenas53, align 8
-  %idxprom54 = zext i32 %44 to i64
-  %arrayidx55 = getelementptr %struct.arena_object, ptr %42, i64 %idxprom54
+  %mgmt50 = getelementptr inbounds %struct._obmalloc_state, ptr %43, i32 0, i32 1
+  %arenas51 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt50, i32 0, i32 0
+  %44 = load ptr, ptr %arenas51, align 8
   %45 = load ptr, ptr %state.addr, align 8
-  %mgmt56 = getelementptr inbounds %struct._obmalloc_state, ptr %45, i32 0, i32 1
+  %mgmt52 = getelementptr inbounds %struct._obmalloc_state, ptr %45, i32 0, i32 1
+  %maxarenas53 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt52, i32 0, i32 1
+  %46 = load i32, ptr %maxarenas53, align 8
+  %idxprom54 = zext i32 %46 to i64
+  %arrayidx55 = getelementptr %struct.arena_object, ptr %44, i64 %idxprom54
+  %47 = load ptr, ptr %state.addr, align 8
+  %mgmt56 = getelementptr inbounds %struct._obmalloc_state, ptr %47, i32 0, i32 1
   %unused_arena_objects57 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt56, i32 0, i32 2
   store ptr %arrayidx55, ptr %unused_arena_objects57, align 8
-  %46 = load i32, ptr %numarenas, align 4
-  %47 = load ptr, ptr %state.addr, align 8
-  %mgmt58 = getelementptr inbounds %struct._obmalloc_state, ptr %47, i32 0, i32 1
+  %48 = load i32, ptr %numarenas, align 4
+  %49 = load ptr, ptr %state.addr, align 8
+  %mgmt58 = getelementptr inbounds %struct._obmalloc_state, ptr %49, i32 0, i32 1
   %maxarenas59 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt58, i32 0, i32 1
-  store i32 %46, ptr %maxarenas59, align 8
+  store i32 %48, ptr %maxarenas59, align 8
   br label %if.end60
 
 if.end60:                                         ; preds = %for.end, %if.end6
-  %48 = load ptr, ptr %state.addr, align 8
-  %mgmt61 = getelementptr inbounds %struct._obmalloc_state, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %state.addr, align 8
+  %mgmt61 = getelementptr inbounds %struct._obmalloc_state, ptr %50, i32 0, i32 1
   %unused_arena_objects62 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt61, i32 0, i32 2
-  %49 = load ptr, ptr %unused_arena_objects62, align 8
-  store ptr %49, ptr %arenaobj, align 8
-  %50 = load ptr, ptr %arenaobj, align 8
-  %nextarena63 = getelementptr inbounds %struct.arena_object, ptr %50, i32 0, i32 5
-  %51 = load ptr, ptr %nextarena63, align 8
-  %52 = load ptr, ptr %state.addr, align 8
-  %mgmt64 = getelementptr inbounds %struct._obmalloc_state, ptr %52, i32 0, i32 1
+  %51 = load ptr, ptr %unused_arena_objects62, align 8
+  store ptr %51, ptr %arenaobj, align 8
+  %52 = load ptr, ptr %arenaobj, align 8
+  %nextarena63 = getelementptr inbounds %struct.arena_object, ptr %52, i32 0, i32 5
+  %53 = load ptr, ptr %nextarena63, align 8
+  %54 = load ptr, ptr %state.addr, align 8
+  %mgmt64 = getelementptr inbounds %struct._obmalloc_state, ptr %54, i32 0, i32 1
   %unused_arena_objects65 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt64, i32 0, i32 2
-  store ptr %51, ptr %unused_arena_objects65, align 8
-  %53 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3, i32 1), align 8
-  %54 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3), align 8
-  %call66 = call ptr %53(ptr noundef %54, i64 noundef 1048576)
+  store ptr %53, ptr %unused_arena_objects65, align 8
+  %55 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3, i32 1
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3
+  %58 = load ptr, ptr %57, align 8
+  %call66 = call ptr %56(ptr noundef %58, i64 noundef 1048576)
   store ptr %call66, ptr %address, align 8
-  %55 = load ptr, ptr %address, align 8
-  %cmp67 = icmp ne ptr %55, null
+  %59 = load ptr, ptr %address, align 8
+  %cmp67 = icmp ne ptr %59, null
   br i1 %cmp67, label %if.then69, label %if.end74
 
 if.then69:                                        ; preds = %if.end60
-  %56 = load ptr, ptr %state.addr, align 8
-  %57 = load ptr, ptr %address, align 8
-  %58 = ptrtoint ptr %57 to i64
-  %call70 = call i32 @arena_map_mark_used(ptr noundef %56, i64 noundef %58, i32 noundef 1)
+  %60 = load ptr, ptr %state.addr, align 8
+  %61 = load ptr, ptr %address, align 8
+  %62 = ptrtoint ptr %61 to i64
+  %call70 = call i32 @arena_map_mark_used(ptr noundef %60, i64 noundef %62, i32 noundef 1)
   %tobool71 = icmp ne i32 %call70, 0
   br i1 %tobool71, label %if.end73, label %if.then72
 
 if.then72:                                        ; preds = %if.then69
-  %59 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3, i32 2), align 8
-  %60 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3), align 8
-  %61 = load ptr, ptr %address, align 8
-  call void %59(ptr noundef %60, ptr noundef %61, i64 noundef 1048576)
+  %63 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3, i32 2
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %address, align 8
+  call void %64(ptr noundef %66, ptr noundef %67, i64 noundef 1048576)
   store ptr null, ptr %address, align 8
   br label %if.end73
 
@@ -35581,123 +35715,123 @@ if.end73:                                         ; preds = %if.then72, %if.then
   br label %if.end74
 
 if.end74:                                         ; preds = %if.end73, %if.end60
-  %62 = load ptr, ptr %address, align 8
-  %cmp75 = icmp eq ptr %62, null
+  %68 = load ptr, ptr %address, align 8
+  %cmp75 = icmp eq ptr %68, null
   br i1 %cmp75, label %if.then77, label %if.end83
 
 if.then77:                                        ; preds = %if.end74
-  %63 = load ptr, ptr %state.addr, align 8
-  %mgmt78 = getelementptr inbounds %struct._obmalloc_state, ptr %63, i32 0, i32 1
+  %69 = load ptr, ptr %state.addr, align 8
+  %mgmt78 = getelementptr inbounds %struct._obmalloc_state, ptr %69, i32 0, i32 1
   %unused_arena_objects79 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt78, i32 0, i32 2
-  %64 = load ptr, ptr %unused_arena_objects79, align 8
-  %65 = load ptr, ptr %arenaobj, align 8
-  %nextarena80 = getelementptr inbounds %struct.arena_object, ptr %65, i32 0, i32 5
-  store ptr %64, ptr %nextarena80, align 8
-  %66 = load ptr, ptr %arenaobj, align 8
-  %67 = load ptr, ptr %state.addr, align 8
-  %mgmt81 = getelementptr inbounds %struct._obmalloc_state, ptr %67, i32 0, i32 1
+  %70 = load ptr, ptr %unused_arena_objects79, align 8
+  %71 = load ptr, ptr %arenaobj, align 8
+  %nextarena80 = getelementptr inbounds %struct.arena_object, ptr %71, i32 0, i32 5
+  store ptr %70, ptr %nextarena80, align 8
+  %72 = load ptr, ptr %arenaobj, align 8
+  %73 = load ptr, ptr %state.addr, align 8
+  %mgmt81 = getelementptr inbounds %struct._obmalloc_state, ptr %73, i32 0, i32 1
   %unused_arena_objects82 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt81, i32 0, i32 2
-  store ptr %66, ptr %unused_arena_objects82, align 8
+  store ptr %72, ptr %unused_arena_objects82, align 8
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end83:                                         ; preds = %if.end74
-  %68 = load ptr, ptr %address, align 8
-  %69 = ptrtoint ptr %68 to i64
-  %70 = load ptr, ptr %arenaobj, align 8
-  %address84 = getelementptr inbounds %struct.arena_object, ptr %70, i32 0, i32 0
-  store i64 %69, ptr %address84, align 8
-  %71 = load ptr, ptr %state.addr, align 8
-  %mgmt85 = getelementptr inbounds %struct._obmalloc_state, ptr %71, i32 0, i32 1
-  %narenas_currently_allocated = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt85, i32 0, i32 5
-  %72 = load i64, ptr %narenas_currently_allocated, align 8
-  %inc86 = add i64 %72, 1
-  store i64 %inc86, ptr %narenas_currently_allocated, align 8
-  %73 = load ptr, ptr %state.addr, align 8
-  %mgmt87 = getelementptr inbounds %struct._obmalloc_state, ptr %73, i32 0, i32 1
-  %ntimes_arena_allocated = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt87, i32 0, i32 6
-  %74 = load i64, ptr %ntimes_arena_allocated, align 8
-  %inc88 = add i64 %74, 1
-  store i64 %inc88, ptr %ntimes_arena_allocated, align 8
-  %75 = load ptr, ptr %state.addr, align 8
-  %mgmt89 = getelementptr inbounds %struct._obmalloc_state, ptr %75, i32 0, i32 1
-  %narenas_currently_allocated90 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt89, i32 0, i32 5
-  %76 = load i64, ptr %narenas_currently_allocated90, align 8
+  %74 = load ptr, ptr %address, align 8
+  %75 = ptrtoint ptr %74 to i64
+  %76 = load ptr, ptr %arenaobj, align 8
+  %address84 = getelementptr inbounds %struct.arena_object, ptr %76, i32 0, i32 0
+  store i64 %75, ptr %address84, align 8
   %77 = load ptr, ptr %state.addr, align 8
-  %mgmt91 = getelementptr inbounds %struct._obmalloc_state, ptr %77, i32 0, i32 1
+  %mgmt85 = getelementptr inbounds %struct._obmalloc_state, ptr %77, i32 0, i32 1
+  %narenas_currently_allocated = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt85, i32 0, i32 5
+  %78 = load i64, ptr %narenas_currently_allocated, align 8
+  %inc86 = add i64 %78, 1
+  store i64 %inc86, ptr %narenas_currently_allocated, align 8
+  %79 = load ptr, ptr %state.addr, align 8
+  %mgmt87 = getelementptr inbounds %struct._obmalloc_state, ptr %79, i32 0, i32 1
+  %ntimes_arena_allocated = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt87, i32 0, i32 6
+  %80 = load i64, ptr %ntimes_arena_allocated, align 8
+  %inc88 = add i64 %80, 1
+  store i64 %inc88, ptr %ntimes_arena_allocated, align 8
+  %81 = load ptr, ptr %state.addr, align 8
+  %mgmt89 = getelementptr inbounds %struct._obmalloc_state, ptr %81, i32 0, i32 1
+  %narenas_currently_allocated90 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt89, i32 0, i32 5
+  %82 = load i64, ptr %narenas_currently_allocated90, align 8
+  %83 = load ptr, ptr %state.addr, align 8
+  %mgmt91 = getelementptr inbounds %struct._obmalloc_state, ptr %83, i32 0, i32 1
   %narenas_highwater = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt91, i32 0, i32 7
-  %78 = load i64, ptr %narenas_highwater, align 8
-  %cmp92 = icmp ugt i64 %76, %78
+  %84 = load i64, ptr %narenas_highwater, align 8
+  %cmp92 = icmp ugt i64 %82, %84
   br i1 %cmp92, label %if.then94, label %if.end99
 
 if.then94:                                        ; preds = %if.end83
-  %79 = load ptr, ptr %state.addr, align 8
-  %mgmt95 = getelementptr inbounds %struct._obmalloc_state, ptr %79, i32 0, i32 1
+  %85 = load ptr, ptr %state.addr, align 8
+  %mgmt95 = getelementptr inbounds %struct._obmalloc_state, ptr %85, i32 0, i32 1
   %narenas_currently_allocated96 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt95, i32 0, i32 5
-  %80 = load i64, ptr %narenas_currently_allocated96, align 8
-  %81 = load ptr, ptr %state.addr, align 8
-  %mgmt97 = getelementptr inbounds %struct._obmalloc_state, ptr %81, i32 0, i32 1
+  %86 = load i64, ptr %narenas_currently_allocated96, align 8
+  %87 = load ptr, ptr %state.addr, align 8
+  %mgmt97 = getelementptr inbounds %struct._obmalloc_state, ptr %87, i32 0, i32 1
   %narenas_highwater98 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt97, i32 0, i32 7
-  store i64 %80, ptr %narenas_highwater98, align 8
+  store i64 %86, ptr %narenas_highwater98, align 8
   br label %if.end99
 
 if.end99:                                         ; preds = %if.then94, %if.end83
-  %82 = load ptr, ptr %arenaobj, align 8
-  %freepools = getelementptr inbounds %struct.arena_object, ptr %82, i32 0, i32 4
-  store ptr null, ptr %freepools, align 8
-  %83 = load ptr, ptr %arenaobj, align 8
-  %address100 = getelementptr inbounds %struct.arena_object, ptr %83, i32 0, i32 0
-  %84 = load i64, ptr %address100, align 8
-  %85 = inttoptr i64 %84 to ptr
-  %86 = load ptr, ptr %arenaobj, align 8
-  %pool_address = getelementptr inbounds %struct.arena_object, ptr %86, i32 0, i32 1
-  store ptr %85, ptr %pool_address, align 8
-  %87 = load ptr, ptr %arenaobj, align 8
-  %nfreepools = getelementptr inbounds %struct.arena_object, ptr %87, i32 0, i32 2
-  store i32 64, ptr %nfreepools, align 8
   %88 = load ptr, ptr %arenaobj, align 8
-  %address101 = getelementptr inbounds %struct.arena_object, ptr %88, i32 0, i32 0
-  %89 = load i64, ptr %address101, align 8
-  %and = and i64 %89, 16383
+  %freepools = getelementptr inbounds %struct.arena_object, ptr %88, i32 0, i32 4
+  store ptr null, ptr %freepools, align 8
+  %89 = load ptr, ptr %arenaobj, align 8
+  %address100 = getelementptr inbounds %struct.arena_object, ptr %89, i32 0, i32 0
+  %90 = load i64, ptr %address100, align 8
+  %91 = inttoptr i64 %90 to ptr
+  %92 = load ptr, ptr %arenaobj, align 8
+  %pool_address = getelementptr inbounds %struct.arena_object, ptr %92, i32 0, i32 1
+  store ptr %91, ptr %pool_address, align 8
+  %93 = load ptr, ptr %arenaobj, align 8
+  %nfreepools = getelementptr inbounds %struct.arena_object, ptr %93, i32 0, i32 2
+  store i32 64, ptr %nfreepools, align 8
+  %94 = load ptr, ptr %arenaobj, align 8
+  %address101 = getelementptr inbounds %struct.arena_object, ptr %94, i32 0, i32 0
+  %95 = load i64, ptr %address101, align 8
+  %and = and i64 %95, 16383
   %conv102 = trunc i64 %and to i32
   store i32 %conv102, ptr %excess, align 4
-  %90 = load i32, ptr %excess, align 4
-  %cmp103 = icmp ne i32 %90, 0
+  %96 = load i32, ptr %excess, align 4
+  %cmp103 = icmp ne i32 %96, 0
   br i1 %cmp103, label %if.then105, label %if.end109
 
 if.then105:                                       ; preds = %if.end99
-  %91 = load ptr, ptr %arenaobj, align 8
-  %nfreepools106 = getelementptr inbounds %struct.arena_object, ptr %91, i32 0, i32 2
-  %92 = load i32, ptr %nfreepools106, align 8
-  %dec = add i32 %92, -1
+  %97 = load ptr, ptr %arenaobj, align 8
+  %nfreepools106 = getelementptr inbounds %struct.arena_object, ptr %97, i32 0, i32 2
+  %98 = load i32, ptr %nfreepools106, align 8
+  %dec = add i32 %98, -1
   store i32 %dec, ptr %nfreepools106, align 8
-  %93 = load i32, ptr %excess, align 4
-  %sub107 = sub i32 16384, %93
-  %94 = load ptr, ptr %arenaobj, align 8
-  %pool_address108 = getelementptr inbounds %struct.arena_object, ptr %94, i32 0, i32 1
-  %95 = load ptr, ptr %pool_address108, align 8
+  %99 = load i32, ptr %excess, align 4
+  %sub107 = sub i32 16384, %99
+  %100 = load ptr, ptr %arenaobj, align 8
+  %pool_address108 = getelementptr inbounds %struct.arena_object, ptr %100, i32 0, i32 1
+  %101 = load ptr, ptr %pool_address108, align 8
   %idx.ext = zext i32 %sub107 to i64
-  %add.ptr = getelementptr i8, ptr %95, i64 %idx.ext
+  %add.ptr = getelementptr i8, ptr %101, i64 %idx.ext
   store ptr %add.ptr, ptr %pool_address108, align 8
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then105, %if.end99
-  %96 = load ptr, ptr %arenaobj, align 8
-  %nfreepools110 = getelementptr inbounds %struct.arena_object, ptr %96, i32 0, i32 2
-  %97 = load i32, ptr %nfreepools110, align 8
-  %98 = load ptr, ptr %arenaobj, align 8
-  %ntotalpools = getelementptr inbounds %struct.arena_object, ptr %98, i32 0, i32 3
-  store i32 %97, ptr %ntotalpools, align 4
-  %99 = load ptr, ptr %arenaobj, align 8
-  store ptr %99, ptr %retval, align 8
+  %102 = load ptr, ptr %arenaobj, align 8
+  %nfreepools110 = getelementptr inbounds %struct.arena_object, ptr %102, i32 0, i32 2
+  %103 = load i32, ptr %nfreepools110, align 8
+  %104 = load ptr, ptr %arenaobj, align 8
+  %ntotalpools = getelementptr inbounds %struct.arena_object, ptr %104, i32 0, i32 3
+  store i32 %103, ptr %ntotalpools, align 4
+  %105 = load ptr, ptr %arenaobj, align 8
+  store ptr %105, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end109, %if.then77, %if.then25, %if.then18
-  %100 = load ptr, ptr %retval, align 8
-  ret ptr %100
+  %106 = load ptr, ptr %retval, align 8
+  ret ptr %106
 }
 
-declare ptr @Py_GETENV(ptr noundef) #8
+declare ptr @Py_GETENV(ptr noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @arena_map_mark_used(ptr noundef %state, i64 noundef %arena_base, i32 noundef %is_used) #0 {
@@ -36361,181 +36495,183 @@ if.end35:                                         ; preds = %if.then31, %if.end2
   %address = getelementptr inbounds %struct.arena_object, ptr %61, i32 0, i32 0
   %62 = load i64, ptr %address, align 8
   %call = call i32 @arena_map_mark_used(ptr noundef %60, i64 noundef %62, i32 noundef 0)
-  %63 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3, i32 2), align 8
-  %64 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3), align 8
-  %65 = load ptr, ptr %ao, align 8
-  %address40 = getelementptr inbounds %struct.arena_object, ptr %65, i32 0, i32 0
-  %66 = load i64, ptr %address40, align 8
-  %67 = inttoptr i64 %66 to ptr
-  call void %63(ptr noundef %64, ptr noundef %67, i64 noundef 1048576)
-  %68 = load ptr, ptr %ao, align 8
-  %address41 = getelementptr inbounds %struct.arena_object, ptr %68, i32 0, i32 0
+  %63 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3, i32 2
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 11, i32 3
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %ao, align 8
+  %address40 = getelementptr inbounds %struct.arena_object, ptr %67, i32 0, i32 0
+  %68 = load i64, ptr %address40, align 8
+  %69 = inttoptr i64 %68 to ptr
+  call void %64(ptr noundef %66, ptr noundef %69, i64 noundef 1048576)
+  %70 = load ptr, ptr %ao, align 8
+  %address41 = getelementptr inbounds %struct.arena_object, ptr %70, i32 0, i32 0
   store i64 0, ptr %address41, align 8
-  %69 = load ptr, ptr %state.addr, align 8
-  %mgmt42 = getelementptr inbounds %struct._obmalloc_state, ptr %69, i32 0, i32 1
+  %71 = load ptr, ptr %state.addr, align 8
+  %mgmt42 = getelementptr inbounds %struct._obmalloc_state, ptr %71, i32 0, i32 1
   %narenas_currently_allocated = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt42, i32 0, i32 5
-  %70 = load i64, ptr %narenas_currently_allocated, align 8
-  %dec = add i64 %70, -1
+  %72 = load i64, ptr %narenas_currently_allocated, align 8
+  %dec = add i64 %72, -1
   store i64 %dec, ptr %narenas_currently_allocated, align 8
   br label %return
 
 if.end43:                                         ; preds = %land.lhs.true17, %if.end
-  %71 = load i32, ptr %nf, align 4
-  %cmp44 = icmp eq i32 %71, 1
+  %73 = load i32, ptr %nf, align 4
+  %cmp44 = icmp eq i32 %73, 1
   br i1 %cmp44, label %if.then45, label %if.end68
 
 if.then45:                                        ; preds = %if.end43
-  %72 = load ptr, ptr %state.addr, align 8
-  %mgmt46 = getelementptr inbounds %struct._obmalloc_state, ptr %72, i32 0, i32 1
+  %74 = load ptr, ptr %state.addr, align 8
+  %mgmt46 = getelementptr inbounds %struct._obmalloc_state, ptr %74, i32 0, i32 1
   %usable_arenas47 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt46, i32 0, i32 3
-  %73 = load ptr, ptr %usable_arenas47, align 8
-  %74 = load ptr, ptr %ao, align 8
-  %nextarena48 = getelementptr inbounds %struct.arena_object, ptr %74, i32 0, i32 5
-  store ptr %73, ptr %nextarena48, align 8
-  %75 = load ptr, ptr %ao, align 8
-  %prevarena49 = getelementptr inbounds %struct.arena_object, ptr %75, i32 0, i32 6
+  %75 = load ptr, ptr %usable_arenas47, align 8
+  %76 = load ptr, ptr %ao, align 8
+  %nextarena48 = getelementptr inbounds %struct.arena_object, ptr %76, i32 0, i32 5
+  store ptr %75, ptr %nextarena48, align 8
+  %77 = load ptr, ptr %ao, align 8
+  %prevarena49 = getelementptr inbounds %struct.arena_object, ptr %77, i32 0, i32 6
   store ptr null, ptr %prevarena49, align 8
-  %76 = load ptr, ptr %state.addr, align 8
-  %mgmt50 = getelementptr inbounds %struct._obmalloc_state, ptr %76, i32 0, i32 1
+  %78 = load ptr, ptr %state.addr, align 8
+  %mgmt50 = getelementptr inbounds %struct._obmalloc_state, ptr %78, i32 0, i32 1
   %usable_arenas51 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt50, i32 0, i32 3
-  %77 = load ptr, ptr %usable_arenas51, align 8
-  %tobool = icmp ne ptr %77, null
+  %79 = load ptr, ptr %usable_arenas51, align 8
+  %tobool = icmp ne ptr %79, null
   br i1 %tobool, label %if.then52, label %if.end56
 
 if.then52:                                        ; preds = %if.then45
-  %78 = load ptr, ptr %ao, align 8
-  %79 = load ptr, ptr %state.addr, align 8
-  %mgmt53 = getelementptr inbounds %struct._obmalloc_state, ptr %79, i32 0, i32 1
+  %80 = load ptr, ptr %ao, align 8
+  %81 = load ptr, ptr %state.addr, align 8
+  %mgmt53 = getelementptr inbounds %struct._obmalloc_state, ptr %81, i32 0, i32 1
   %usable_arenas54 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt53, i32 0, i32 3
-  %80 = load ptr, ptr %usable_arenas54, align 8
-  %prevarena55 = getelementptr inbounds %struct.arena_object, ptr %80, i32 0, i32 6
-  store ptr %78, ptr %prevarena55, align 8
+  %82 = load ptr, ptr %usable_arenas54, align 8
+  %prevarena55 = getelementptr inbounds %struct.arena_object, ptr %82, i32 0, i32 6
+  store ptr %80, ptr %prevarena55, align 8
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then52, %if.then45
-  %81 = load ptr, ptr %ao, align 8
-  %82 = load ptr, ptr %state.addr, align 8
-  %mgmt57 = getelementptr inbounds %struct._obmalloc_state, ptr %82, i32 0, i32 1
+  %83 = load ptr, ptr %ao, align 8
+  %84 = load ptr, ptr %state.addr, align 8
+  %mgmt57 = getelementptr inbounds %struct._obmalloc_state, ptr %84, i32 0, i32 1
   %usable_arenas58 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt57, i32 0, i32 3
-  store ptr %81, ptr %usable_arenas58, align 8
-  %83 = load ptr, ptr %state.addr, align 8
-  %mgmt59 = getelementptr inbounds %struct._obmalloc_state, ptr %83, i32 0, i32 1
+  store ptr %83, ptr %usable_arenas58, align 8
+  %85 = load ptr, ptr %state.addr, align 8
+  %mgmt59 = getelementptr inbounds %struct._obmalloc_state, ptr %85, i32 0, i32 1
   %nfp2lasta60 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt59, i32 0, i32 4
   %arrayidx61 = getelementptr [65 x ptr], ptr %nfp2lasta60, i64 0, i64 1
-  %84 = load ptr, ptr %arrayidx61, align 8
-  %cmp62 = icmp eq ptr %84, null
+  %86 = load ptr, ptr %arrayidx61, align 8
+  %cmp62 = icmp eq ptr %86, null
   br i1 %cmp62, label %if.then63, label %if.end67
 
 if.then63:                                        ; preds = %if.end56
-  %85 = load ptr, ptr %ao, align 8
-  %86 = load ptr, ptr %state.addr, align 8
-  %mgmt64 = getelementptr inbounds %struct._obmalloc_state, ptr %86, i32 0, i32 1
+  %87 = load ptr, ptr %ao, align 8
+  %88 = load ptr, ptr %state.addr, align 8
+  %mgmt64 = getelementptr inbounds %struct._obmalloc_state, ptr %88, i32 0, i32 1
   %nfp2lasta65 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt64, i32 0, i32 4
   %arrayidx66 = getelementptr [65 x ptr], ptr %nfp2lasta65, i64 0, i64 1
-  store ptr %85, ptr %arrayidx66, align 8
+  store ptr %87, ptr %arrayidx66, align 8
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then63, %if.end56
   br label %return
 
 if.end68:                                         ; preds = %if.end43
-  %87 = load ptr, ptr %state.addr, align 8
-  %mgmt69 = getelementptr inbounds %struct._obmalloc_state, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %state.addr, align 8
+  %mgmt69 = getelementptr inbounds %struct._obmalloc_state, ptr %89, i32 0, i32 1
   %nfp2lasta70 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt69, i32 0, i32 4
-  %88 = load i32, ptr %nf, align 4
-  %idxprom71 = zext i32 %88 to i64
+  %90 = load i32, ptr %nf, align 4
+  %idxprom71 = zext i32 %90 to i64
   %arrayidx72 = getelementptr [65 x ptr], ptr %nfp2lasta70, i64 0, i64 %idxprom71
-  %89 = load ptr, ptr %arrayidx72, align 8
-  %cmp73 = icmp eq ptr %89, null
+  %91 = load ptr, ptr %arrayidx72, align 8
+  %cmp73 = icmp eq ptr %91, null
   br i1 %cmp73, label %if.then74, label %if.end79
 
 if.then74:                                        ; preds = %if.end68
-  %90 = load ptr, ptr %ao, align 8
-  %91 = load ptr, ptr %state.addr, align 8
-  %mgmt75 = getelementptr inbounds %struct._obmalloc_state, ptr %91, i32 0, i32 1
+  %92 = load ptr, ptr %ao, align 8
+  %93 = load ptr, ptr %state.addr, align 8
+  %mgmt75 = getelementptr inbounds %struct._obmalloc_state, ptr %93, i32 0, i32 1
   %nfp2lasta76 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt75, i32 0, i32 4
-  %92 = load i32, ptr %nf, align 4
-  %idxprom77 = zext i32 %92 to i64
+  %94 = load i32, ptr %nf, align 4
+  %idxprom77 = zext i32 %94 to i64
   %arrayidx78 = getelementptr [65 x ptr], ptr %nfp2lasta76, i64 0, i64 %idxprom77
-  store ptr %90, ptr %arrayidx78, align 8
+  store ptr %92, ptr %arrayidx78, align 8
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then74, %if.end68
-  %93 = load ptr, ptr %ao, align 8
-  %94 = load ptr, ptr %lastnf, align 8
-  %cmp80 = icmp eq ptr %93, %94
+  %95 = load ptr, ptr %ao, align 8
+  %96 = load ptr, ptr %lastnf, align 8
+  %cmp80 = icmp eq ptr %95, %96
   br i1 %cmp80, label %if.then81, label %if.end82
 
 if.then81:                                        ; preds = %if.end79
   br label %return
 
 if.end82:                                         ; preds = %if.end79
-  %95 = load ptr, ptr %ao, align 8
-  %prevarena83 = getelementptr inbounds %struct.arena_object, ptr %95, i32 0, i32 6
-  %96 = load ptr, ptr %prevarena83, align 8
-  %cmp84 = icmp ne ptr %96, null
+  %97 = load ptr, ptr %ao, align 8
+  %prevarena83 = getelementptr inbounds %struct.arena_object, ptr %97, i32 0, i32 6
+  %98 = load ptr, ptr %prevarena83, align 8
+  %cmp84 = icmp ne ptr %98, null
   br i1 %cmp84, label %if.then85, label %if.else89
 
 if.then85:                                        ; preds = %if.end82
-  %97 = load ptr, ptr %ao, align 8
-  %nextarena86 = getelementptr inbounds %struct.arena_object, ptr %97, i32 0, i32 5
-  %98 = load ptr, ptr %nextarena86, align 8
   %99 = load ptr, ptr %ao, align 8
-  %prevarena87 = getelementptr inbounds %struct.arena_object, ptr %99, i32 0, i32 6
-  %100 = load ptr, ptr %prevarena87, align 8
-  %nextarena88 = getelementptr inbounds %struct.arena_object, ptr %100, i32 0, i32 5
-  store ptr %98, ptr %nextarena88, align 8
+  %nextarena86 = getelementptr inbounds %struct.arena_object, ptr %99, i32 0, i32 5
+  %100 = load ptr, ptr %nextarena86, align 8
+  %101 = load ptr, ptr %ao, align 8
+  %prevarena87 = getelementptr inbounds %struct.arena_object, ptr %101, i32 0, i32 6
+  %102 = load ptr, ptr %prevarena87, align 8
+  %nextarena88 = getelementptr inbounds %struct.arena_object, ptr %102, i32 0, i32 5
+  store ptr %100, ptr %nextarena88, align 8
   br label %if.end93
 
 if.else89:                                        ; preds = %if.end82
-  %101 = load ptr, ptr %ao, align 8
-  %nextarena90 = getelementptr inbounds %struct.arena_object, ptr %101, i32 0, i32 5
-  %102 = load ptr, ptr %nextarena90, align 8
-  %103 = load ptr, ptr %state.addr, align 8
-  %mgmt91 = getelementptr inbounds %struct._obmalloc_state, ptr %103, i32 0, i32 1
+  %103 = load ptr, ptr %ao, align 8
+  %nextarena90 = getelementptr inbounds %struct.arena_object, ptr %103, i32 0, i32 5
+  %104 = load ptr, ptr %nextarena90, align 8
+  %105 = load ptr, ptr %state.addr, align 8
+  %mgmt91 = getelementptr inbounds %struct._obmalloc_state, ptr %105, i32 0, i32 1
   %usable_arenas92 = getelementptr inbounds %struct._obmalloc_mgmt, ptr %mgmt91, i32 0, i32 3
-  store ptr %102, ptr %usable_arenas92, align 8
+  store ptr %104, ptr %usable_arenas92, align 8
   br label %if.end93
 
 if.end93:                                         ; preds = %if.else89, %if.then85
-  %104 = load ptr, ptr %ao, align 8
-  %prevarena94 = getelementptr inbounds %struct.arena_object, ptr %104, i32 0, i32 6
-  %105 = load ptr, ptr %prevarena94, align 8
   %106 = load ptr, ptr %ao, align 8
-  %nextarena95 = getelementptr inbounds %struct.arena_object, ptr %106, i32 0, i32 5
-  %107 = load ptr, ptr %nextarena95, align 8
-  %prevarena96 = getelementptr inbounds %struct.arena_object, ptr %107, i32 0, i32 6
-  store ptr %105, ptr %prevarena96, align 8
-  %108 = load ptr, ptr %lastnf, align 8
-  %109 = load ptr, ptr %ao, align 8
-  %prevarena97 = getelementptr inbounds %struct.arena_object, ptr %109, i32 0, i32 6
-  store ptr %108, ptr %prevarena97, align 8
+  %prevarena94 = getelementptr inbounds %struct.arena_object, ptr %106, i32 0, i32 6
+  %107 = load ptr, ptr %prevarena94, align 8
+  %108 = load ptr, ptr %ao, align 8
+  %nextarena95 = getelementptr inbounds %struct.arena_object, ptr %108, i32 0, i32 5
+  %109 = load ptr, ptr %nextarena95, align 8
+  %prevarena96 = getelementptr inbounds %struct.arena_object, ptr %109, i32 0, i32 6
+  store ptr %107, ptr %prevarena96, align 8
   %110 = load ptr, ptr %lastnf, align 8
-  %nextarena98 = getelementptr inbounds %struct.arena_object, ptr %110, i32 0, i32 5
-  %111 = load ptr, ptr %nextarena98, align 8
-  %112 = load ptr, ptr %ao, align 8
-  %nextarena99 = getelementptr inbounds %struct.arena_object, ptr %112, i32 0, i32 5
-  store ptr %111, ptr %nextarena99, align 8
-  %113 = load ptr, ptr %ao, align 8
-  %nextarena100 = getelementptr inbounds %struct.arena_object, ptr %113, i32 0, i32 5
-  %114 = load ptr, ptr %nextarena100, align 8
-  %cmp101 = icmp ne ptr %114, null
+  %111 = load ptr, ptr %ao, align 8
+  %prevarena97 = getelementptr inbounds %struct.arena_object, ptr %111, i32 0, i32 6
+  store ptr %110, ptr %prevarena97, align 8
+  %112 = load ptr, ptr %lastnf, align 8
+  %nextarena98 = getelementptr inbounds %struct.arena_object, ptr %112, i32 0, i32 5
+  %113 = load ptr, ptr %nextarena98, align 8
+  %114 = load ptr, ptr %ao, align 8
+  %nextarena99 = getelementptr inbounds %struct.arena_object, ptr %114, i32 0, i32 5
+  store ptr %113, ptr %nextarena99, align 8
+  %115 = load ptr, ptr %ao, align 8
+  %nextarena100 = getelementptr inbounds %struct.arena_object, ptr %115, i32 0, i32 5
+  %116 = load ptr, ptr %nextarena100, align 8
+  %cmp101 = icmp ne ptr %116, null
   br i1 %cmp101, label %if.then102, label %if.end105
 
 if.then102:                                       ; preds = %if.end93
-  %115 = load ptr, ptr %ao, align 8
-  %116 = load ptr, ptr %ao, align 8
-  %nextarena103 = getelementptr inbounds %struct.arena_object, ptr %116, i32 0, i32 5
-  %117 = load ptr, ptr %nextarena103, align 8
-  %prevarena104 = getelementptr inbounds %struct.arena_object, ptr %117, i32 0, i32 6
-  store ptr %115, ptr %prevarena104, align 8
+  %117 = load ptr, ptr %ao, align 8
+  %118 = load ptr, ptr %ao, align 8
+  %nextarena103 = getelementptr inbounds %struct.arena_object, ptr %118, i32 0, i32 5
+  %119 = load ptr, ptr %nextarena103, align 8
+  %prevarena104 = getelementptr inbounds %struct.arena_object, ptr %119, i32 0, i32 6
+  store ptr %117, ptr %prevarena104, align 8
   br label %if.end105
 
 if.end105:                                        ; preds = %if.then102, %if.end93
-  %118 = load ptr, ptr %ao, align 8
-  %119 = load ptr, ptr %lastnf, align 8
-  %nextarena106 = getelementptr inbounds %struct.arena_object, ptr %119, i32 0, i32 5
-  store ptr %118, ptr %nextarena106, align 8
+  %120 = load ptr, ptr %ao, align 8
+  %121 = load ptr, ptr %lastnf, align 8
+  %nextarena106 = getelementptr inbounds %struct.arena_object, ptr %121, i32 0, i32 5
+  store ptr %120, ptr %nextarena106, align 8
   br label %return
 
 return:                                           ; preds = %if.end105, %if.then81, %if.end67, %if.end35
@@ -36762,7 +36898,7 @@ return:                                           ; preds = %lor.end, %if.then
   ret i32 %54
 }
 
-declare i32 @PyGILState_Check() #8
+declare i32 @PyGILState_Check() #7
 
 ; Function Attrs: nounwind uwtable
 define internal void @_PyObject_DebugDumpAddress(ptr noundef %p) #0 {
@@ -37096,7 +37232,7 @@ if.end107:                                        ; preds = %if.end105, %if.end7
   %81 = load ptr, ptr @stderr, align 8
   %call109 = call i32 @fflush(ptr noundef %81)
   %82 = load ptr, ptr @stderr, align 8
-  %call110 = call i32 @fileno(ptr noundef %82) #15
+  %call110 = call i32 @fileno(ptr noundef %82) #14
   %83 = load ptr, ptr %p.addr, align 8
   call void @_PyMem_DumpTraceback(i32 noundef %call110, ptr noundef %83)
   br label %return
@@ -37106,15 +37242,15 @@ return:                                           ; preds = %if.end107, %if.then
 }
 
 ; Function Attrs: noreturn
-declare void @_Py_FatalErrorFormat(ptr noundef, ptr noundef, ...) #12
+declare void @_Py_FatalErrorFormat(ptr noundef, ptr noundef, ...) #11
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #8
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #7
 
-declare i32 @fputc(i32 noundef, ptr noundef) #8
+declare i32 @fputc(i32 noundef, ptr noundef) #7
 
-declare i32 @fflush(ptr noundef) #8
+declare i32 @fflush(ptr noundef) #7
 
-declare void @_PyMem_DumpTraceback(i32 noundef, ptr noundef) #8
+declare void @_PyMem_DumpTraceback(i32 noundef, ptr noundef) #7
 
 ; Function Attrs: nounwind
 declare i32 @fileno(ptr noundef) #2
@@ -37186,22 +37322,28 @@ entry:
   ret i1 true
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind }
+attributes #15 = { nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nounwind willreturn memory(read) }
 attributes #17 = { noreturn nounwind }
 attributes #18 = { nounwind willreturn memory(none) }

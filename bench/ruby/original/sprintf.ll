@@ -5247,14 +5247,14 @@ define dso_local i64 @rb_enc_sprintf(ptr noundef %0, ptr noundef nonnull %1, ...
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %11 = call i64 @rb_enc_vsprintf(ptr noundef %8, ptr noundef %9, ptr noundef %10)
   store i64 %11, ptr %5, align 8
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   %13 = load i64, ptr %5, align 8
   ret i64 %13
 }
@@ -6013,14 +6013,14 @@ define dso_local i64 @rb_str_catf(i64 noundef %0, ptr noundef nonnull %1, ...) #
   store i64 %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = load i64, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %10 = call i64 @rb_str_vcatf(i64 noundef %7, ptr noundef %8, ptr noundef %9)
   store i64 %10, ptr %3, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %11)
+  call void @llvm.va_end.p0(ptr %11)
   %12 = load i64, ptr %3, align 8
   ret i64 %12
 }
@@ -6222,7 +6222,7 @@ define dso_local i32 @ruby_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 16:                                               ; preds = %12, %3
   %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_start(ptr %17)
+  call void @llvm.va_start.p0(ptr %17)
   %18 = load ptr, ptr %5, align 8
   %19 = load i64, ptr %6, align 8
   %20 = load ptr, ptr %7, align 8
@@ -6230,7 +6230,7 @@ define dso_local i32 @ruby_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef 
   %22 = call i32 @ruby_do_vsnprintf(ptr noundef %18, i64 noundef %19, ptr noundef %20, ptr noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_end(ptr %23)
+  call void @llvm.va_end.p0(ptr %23)
   %24 = load i32, ptr %8, align 4
   store i32 %24, ptr %4, align 4
   br label %25
@@ -6239,12 +6239,6 @@ define dso_local i32 @ruby_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef 
   %26 = load i32, ptr %4, align 4
   ret i32 %26
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_enc_vsprintf(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #0 {
@@ -6448,13 +6442,13 @@ define dso_local i64 @rb_sprintf(ptr noundef nonnull %0, ...) #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %0, ptr %2, align 8
   %5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
-  call void @llvm.va_start(ptr %5)
+  call void @llvm.va_start.p0(ptr %5)
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
   %8 = call i64 @rb_vsprintf(ptr noundef %6, ptr noundef %7)
   store i64 %8, ptr %3, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
-  call void @llvm.va_end(ptr %9)
+  call void @llvm.va_end.p0(ptr %9)
   %10 = load i64, ptr %3, align 8
   ret i64 %10
 }
@@ -6555,7 +6549,7 @@ define internal i64 @RB_FL_TEST_RAW(i64 noundef %0, i64 noundef %1) #3 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @rb_enc_isdigit(i32 noundef %0, ptr noundef %1) #0 {
@@ -6646,7 +6640,7 @@ define internal zeroext i1 @RB_FLONUM_P(i64 noundef %0) #7 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #16
+declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
 define internal zeroext i1 @RB_IMMEDIATE_P(i64 noundef %0) #7 {
@@ -6782,7 +6776,7 @@ define internal zeroext i1 @BIGNUM_SIGN(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: cold noreturn
-declare void @rb_out_of_int(i64 noundef) #17
+declare void @rb_out_of_int(i64 noundef) #16
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
 define internal zeroext i1 @RB_SYMBOL_P(i64 noundef %0) #3 {
@@ -7297,7 +7291,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %59 = call i32 @BSD__sbprintf(ptr noundef %56, ptr noundef %57, ptr noundef %58)
   %60 = sext i32 %59 to i64
   store i64 %60, ptr %4, align 8
-  br label %2554
+  br label %2555
 
 61:                                               ; preds = %49, %3
   %62 = load ptr, ptr %6, align 8
@@ -7314,7 +7308,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr null, ptr %32, align 8
   br label %67
 
-67:                                               ; preds = %2527, %716, %61
+67:                                               ; preds = %2528, %716, %61
   %68 = load ptr, ptr %9, align 8
   store ptr %68, ptr %12, align 8
   br label %69
@@ -7386,7 +7380,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %110, label %111, label %112
 
 111:                                              ; preds = %107
-  br label %2542
+  br label %2543
 
 112:                                              ; preds = %107
   %113 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
@@ -7406,7 +7400,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %120, label %121, label %122
 
 121:                                              ; preds = %118
-  br label %2530
+  br label %2531
 
 122:                                              ; preds = %118
   %123 = load ptr, ptr %9, align 8
@@ -7430,7 +7424,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 130:                                              ; preds = %237, %217, %125
   %131 = load i32, ptr %10, align 4
-  switch i32 %131, label %1034 [
+  switch i32 %131, label %1035 [
     i32 32, label %132
     i32 35, label %137
     i32 42, label %140
@@ -7471,7 +7465,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
     i32 85, label %858
     i32 117, label %861
     i32 88, label %927
-    i32 120, label %928
+    i32 120, label %929
   ]
 
 132:                                              ; preds = %130
@@ -7720,7 +7714,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i8 %266, ptr %267, align 16
   store i32 1, ptr %31, align 4
   store i8 0, ptr %18, align 1
-  br label %1043
+  br label %1044
 
 268:                                              ; preds = %130
   %269 = load ptr, ptr %5, align 8
@@ -7760,7 +7754,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %293, label %294, label %295
 
 294:                                              ; preds = %290
-  br label %2542
+  br label %2543
 
 295:                                              ; preds = %290, %284
   %296 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
@@ -7806,7 +7800,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %322, label %324, label %323
 
 323:                                              ; preds = %311
-  br label %2542
+  br label %2543
 
 324:                                              ; preds = %311
   %325 = load i32, ptr %17, align 4
@@ -7814,7 +7808,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %326, label %327, label %328
 
 327:                                              ; preds = %324
-  br label %1046
+  br label %1047
 
 328:                                              ; preds = %324
   %329 = load i64, ptr %29, align 8
@@ -7835,7 +7829,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
 338:                                              ; preds = %336, %333
   %339 = phi i32 [ %335, %333 ], [ %337, %336 ]
   store i32 %339, ptr %31, align 4
-  br label %1043
+  br label %1044
 
 340:                                              ; preds = %277, %273, %268
   br label %345
@@ -7965,7 +7959,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 416:                                              ; preds = %413, %409
   store i32 10, ptr %27, align 4
-  br label %1006
+  br label %1007
 
 417:                                              ; preds = %130, %130
   %418 = load i32, ptr %17, align 4
@@ -8095,7 +8089,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
 485:                                              ; preds = %484, %481
   store ptr @.str.30, ptr %12, align 8
   store i32 3, ptr %31, align 4
-  br label %1043
+  br label %1044
 
 486:                                              ; preds = %470
   %487 = load double, ptr %20, align 8
@@ -8105,7 +8099,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
 489:                                              ; preds = %486
   store ptr @.str.29, ptr %12, align 8
   store i32 3, ptr %31, align 4
-  br label %1043
+  br label %1044
 
 490:                                              ; preds = %486
   %491 = load i32, ptr %14, align 4
@@ -8388,7 +8382,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %650
 
 650:                                              ; preds = %649, %646
-  br label %1043
+  br label %1044
 
 651:                                              ; preds = %130
   %652 = load i32, ptr %14, align 4
@@ -8607,7 +8601,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %785 = phi i64 [ %740, %738 ], [ %783, %782 ]
   store i64 %785, ptr %26, align 8
   store i32 8, ptr %27, align 4
-  br label %1005
+  br label %1006
 
 786:                                              ; preds = %130
   store i32 16, ptr %17, align 4
@@ -8643,7 +8637,7 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 16, ptr %27, align 4
   store ptr @ruby_hexdigits, ptr %32, align 8
   store i32 120, ptr %10, align 4
-  br label %1005
+  br label %1006
 
 806:                                              ; preds = %130
   %807 = load ptr, ptr %7, align 8
@@ -8726,11 +8720,11 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %855 = load ptr, ptr %12, align 8
   %856 = call i64 @strlen(ptr noundef %855) #20
   store i64 %856, ptr %29, align 8
-  br label %1046
+  br label %1047
 
 857:                                              ; preds = %853
   store i8 0, ptr %18, align 1
-  br label %1043
+  br label %1044
 
 858:                                              ; preds = %130
   %859 = load i32, ptr %14, align 4
@@ -8842,2734 +8836,2735 @@ define internal i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %926 = phi i64 [ %881, %879 ], [ %924, %923 ]
   store i64 %926, ptr %26, align 8
   store i32 10, ptr %27, align 4
-  br label %1005
-
-927:                                              ; preds = %130
-  store ptr getelementptr (i8, ptr @ruby_hexdigits, i64 16), ptr %32, align 8
-  br label %929
-
-928:                                              ; preds = %130
-  store ptr @ruby_hexdigits, ptr %32, align 8
-  br label %929
-
-929:                                              ; preds = %928, %927
-  %930 = load i32, ptr %14, align 4
-  %931 = and i32 %930, 16
-  %932 = icmp ne i32 %931, 0
-  br i1 %932, label %933, label %950
-
-933:                                              ; preds = %929
-  %934 = load ptr, ptr %7, align 8
-  %935 = getelementptr inbounds %struct.__va_list_tag, ptr %934, i32 0, i32 0
-  %936 = load i32, ptr %935, align 8
-  %937 = icmp ule i32 %936, 40
-  br i1 %937, label %938, label %943
-
-938:                                              ; preds = %933
-  %939 = getelementptr inbounds %struct.__va_list_tag, ptr %934, i32 0, i32 3
-  %940 = load ptr, ptr %939, align 8
-  %941 = getelementptr i8, ptr %940, i32 %936
-  %942 = add i32 %936, 8
-  store i32 %942, ptr %935, align 8
-  br label %947
-
-943:                                              ; preds = %933
-  %944 = getelementptr inbounds %struct.__va_list_tag, ptr %934, i32 0, i32 2
-  %945 = load ptr, ptr %944, align 8
-  %946 = getelementptr i8, ptr %945, i32 8
-  store ptr %946, ptr %944, align 8
-  br label %947
-
-947:                                              ; preds = %943, %938
-  %948 = phi ptr [ %941, %938 ], [ %945, %943 ]
-  %949 = load i64, ptr %948, align 8
-  br label %993
-
-950:                                              ; preds = %929
-  %951 = load i32, ptr %14, align 4
-  %952 = and i32 %951, 64
-  %953 = icmp ne i32 %952, 0
-  br i1 %953, label %954, label %973
-
-954:                                              ; preds = %950
-  %955 = load ptr, ptr %7, align 8
-  %956 = getelementptr inbounds %struct.__va_list_tag, ptr %955, i32 0, i32 0
-  %957 = load i32, ptr %956, align 8
-  %958 = icmp ule i32 %957, 40
-  br i1 %958, label %959, label %964
-
-959:                                              ; preds = %954
-  %960 = getelementptr inbounds %struct.__va_list_tag, ptr %955, i32 0, i32 3
-  %961 = load ptr, ptr %960, align 8
-  %962 = getelementptr i8, ptr %961, i32 %957
-  %963 = add i32 %957, 8
-  store i32 %963, ptr %956, align 8
-  br label %968
-
-964:                                              ; preds = %954
-  %965 = getelementptr inbounds %struct.__va_list_tag, ptr %955, i32 0, i32 2
-  %966 = load ptr, ptr %965, align 8
-  %967 = getelementptr i8, ptr %966, i32 8
-  store ptr %967, ptr %965, align 8
-  br label %968
-
-968:                                              ; preds = %964, %959
-  %969 = phi ptr [ %962, %959 ], [ %966, %964 ]
-  %970 = load i32, ptr %969, align 4
-  %971 = trunc i32 %970 to i16
-  %972 = zext i16 %971 to i64
-  br label %991
-
-973:                                              ; preds = %950
-  %974 = load ptr, ptr %7, align 8
-  %975 = getelementptr inbounds %struct.__va_list_tag, ptr %974, i32 0, i32 0
-  %976 = load i32, ptr %975, align 8
-  %977 = icmp ule i32 %976, 40
-  br i1 %977, label %978, label %983
-
-978:                                              ; preds = %973
-  %979 = getelementptr inbounds %struct.__va_list_tag, ptr %974, i32 0, i32 3
-  %980 = load ptr, ptr %979, align 8
-  %981 = getelementptr i8, ptr %980, i32 %976
-  %982 = add i32 %976, 8
-  store i32 %982, ptr %975, align 8
-  br label %987
-
-983:                                              ; preds = %973
-  %984 = getelementptr inbounds %struct.__va_list_tag, ptr %974, i32 0, i32 2
-  %985 = load ptr, ptr %984, align 8
-  %986 = getelementptr i8, ptr %985, i32 8
-  store ptr %986, ptr %984, align 8
-  br label %987
-
-987:                                              ; preds = %983, %978
-  %988 = phi ptr [ %981, %978 ], [ %985, %983 ]
-  %989 = load i32, ptr %988, align 4
-  %990 = zext i32 %989 to i64
-  br label %991
-
-991:                                              ; preds = %987, %968
-  %992 = phi i64 [ %972, %968 ], [ %990, %987 ]
-  br label %993
-
-993:                                              ; preds = %991, %947
-  %994 = phi i64 [ %949, %947 ], [ %992, %991 ]
-  store i64 %994, ptr %26, align 8
-  store i32 16, ptr %27, align 4
-  %995 = load i32, ptr %14, align 4
-  %996 = and i32 %995, 1
-  %997 = icmp ne i32 %996, 0
-  br i1 %997, label %998, label %1004
-
-998:                                              ; preds = %993
-  %999 = load i64, ptr %26, align 8
-  %1000 = icmp ne i64 %999, 0
-  br i1 %1000, label %1001, label %1004
-
-1001:                                             ; preds = %998
-  %1002 = load i32, ptr %14, align 4
-  %1003 = or i32 %1002, 2
-  store i32 %1003, ptr %14, align 4
-  br label %1004
-
-1004:                                             ; preds = %1001, %998, %993
-  br label %1005
-
-1005:                                             ; preds = %1004, %925, %800, %784
-  store i8 0, ptr %18, align 1
   br label %1006
 
-1006:                                             ; preds = %1005, %416
-  %1007 = load i32, ptr %17, align 4
-  store i32 %1007, ptr %28, align 4
-  %1008 = icmp sge i32 %1007, 0
-  br i1 %1008, label %1009, label %1012
+927:                                              ; preds = %130
+  %928 = getelementptr i8, ptr @ruby_hexdigits, i64 16
+  store ptr %928, ptr %32, align 8
+  br label %930
 
-1009:                                             ; preds = %1006
-  %1010 = load i32, ptr %14, align 4
-  %1011 = and i32 %1010, -129
-  store i32 %1011, ptr %14, align 4
-  br label %1012
+929:                                              ; preds = %130
+  store ptr @ruby_hexdigits, ptr %32, align 8
+  br label %930
 
-1012:                                             ; preds = %1009, %1006
-  %1013 = load ptr, ptr %37, align 8
-  store ptr %1013, ptr %12, align 8
-  %1014 = load i64, ptr %26, align 8
-  %1015 = icmp ne i64 %1014, 0
-  br i1 %1015, label %1019, label %1016
+930:                                              ; preds = %929, %927
+  %931 = load i32, ptr %14, align 4
+  %932 = and i32 %931, 16
+  %933 = icmp ne i32 %932, 0
+  br i1 %933, label %934, label %951
 
-1016:                                             ; preds = %1012
-  %1017 = load i32, ptr %17, align 4
-  %1018 = icmp ne i32 %1017, 0
-  br i1 %1018, label %1019, label %1027
+934:                                              ; preds = %930
+  %935 = load ptr, ptr %7, align 8
+  %936 = getelementptr inbounds %struct.__va_list_tag, ptr %935, i32 0, i32 0
+  %937 = load i32, ptr %936, align 8
+  %938 = icmp ule i32 %937, 40
+  br i1 %938, label %939, label %944
 
-1019:                                             ; preds = %1016, %1012
-  %1020 = load i64, ptr %26, align 8
-  %1021 = load ptr, ptr %37, align 8
-  %1022 = load i32, ptr %27, align 4
-  %1023 = load i32, ptr %14, align 4
-  %1024 = and i32 %1023, 1
-  %1025 = load ptr, ptr %32, align 8
-  %1026 = call ptr @BSD__ultoa(i64 noundef %1020, ptr noundef %1021, i32 noundef %1022, i32 noundef %1024, ptr noundef %1025)
-  store ptr %1026, ptr %12, align 8
-  br label %1027
+939:                                              ; preds = %934
+  %940 = getelementptr inbounds %struct.__va_list_tag, ptr %935, i32 0, i32 3
+  %941 = load ptr, ptr %940, align 8
+  %942 = getelementptr i8, ptr %941, i32 %937
+  %943 = add i32 %937, 8
+  store i32 %943, ptr %936, align 8
+  br label %948
 
-1027:                                             ; preds = %1019, %1016
-  %1028 = load ptr, ptr %37, align 8
-  %1029 = load ptr, ptr %12, align 8
-  %1030 = ptrtoint ptr %1028 to i64
+944:                                              ; preds = %934
+  %945 = getelementptr inbounds %struct.__va_list_tag, ptr %935, i32 0, i32 2
+  %946 = load ptr, ptr %945, align 8
+  %947 = getelementptr i8, ptr %946, i32 8
+  store ptr %947, ptr %945, align 8
+  br label %948
+
+948:                                              ; preds = %944, %939
+  %949 = phi ptr [ %942, %939 ], [ %946, %944 ]
+  %950 = load i64, ptr %949, align 8
+  br label %994
+
+951:                                              ; preds = %930
+  %952 = load i32, ptr %14, align 4
+  %953 = and i32 %952, 64
+  %954 = icmp ne i32 %953, 0
+  br i1 %954, label %955, label %974
+
+955:                                              ; preds = %951
+  %956 = load ptr, ptr %7, align 8
+  %957 = getelementptr inbounds %struct.__va_list_tag, ptr %956, i32 0, i32 0
+  %958 = load i32, ptr %957, align 8
+  %959 = icmp ule i32 %958, 40
+  br i1 %959, label %960, label %965
+
+960:                                              ; preds = %955
+  %961 = getelementptr inbounds %struct.__va_list_tag, ptr %956, i32 0, i32 3
+  %962 = load ptr, ptr %961, align 8
+  %963 = getelementptr i8, ptr %962, i32 %958
+  %964 = add i32 %958, 8
+  store i32 %964, ptr %957, align 8
+  br label %969
+
+965:                                              ; preds = %955
+  %966 = getelementptr inbounds %struct.__va_list_tag, ptr %956, i32 0, i32 2
+  %967 = load ptr, ptr %966, align 8
+  %968 = getelementptr i8, ptr %967, i32 8
+  store ptr %968, ptr %966, align 8
+  br label %969
+
+969:                                              ; preds = %965, %960
+  %970 = phi ptr [ %963, %960 ], [ %967, %965 ]
+  %971 = load i32, ptr %970, align 4
+  %972 = trunc i32 %971 to i16
+  %973 = zext i16 %972 to i64
+  br label %992
+
+974:                                              ; preds = %951
+  %975 = load ptr, ptr %7, align 8
+  %976 = getelementptr inbounds %struct.__va_list_tag, ptr %975, i32 0, i32 0
+  %977 = load i32, ptr %976, align 8
+  %978 = icmp ule i32 %977, 40
+  br i1 %978, label %979, label %984
+
+979:                                              ; preds = %974
+  %980 = getelementptr inbounds %struct.__va_list_tag, ptr %975, i32 0, i32 3
+  %981 = load ptr, ptr %980, align 8
+  %982 = getelementptr i8, ptr %981, i32 %977
+  %983 = add i32 %977, 8
+  store i32 %983, ptr %976, align 8
+  br label %988
+
+984:                                              ; preds = %974
+  %985 = getelementptr inbounds %struct.__va_list_tag, ptr %975, i32 0, i32 2
+  %986 = load ptr, ptr %985, align 8
+  %987 = getelementptr i8, ptr %986, i32 8
+  store ptr %987, ptr %985, align 8
+  br label %988
+
+988:                                              ; preds = %984, %979
+  %989 = phi ptr [ %982, %979 ], [ %986, %984 ]
+  %990 = load i32, ptr %989, align 4
+  %991 = zext i32 %990 to i64
+  br label %992
+
+992:                                              ; preds = %988, %969
+  %993 = phi i64 [ %973, %969 ], [ %991, %988 ]
+  br label %994
+
+994:                                              ; preds = %992, %948
+  %995 = phi i64 [ %950, %948 ], [ %993, %992 ]
+  store i64 %995, ptr %26, align 8
+  store i32 16, ptr %27, align 4
+  %996 = load i32, ptr %14, align 4
+  %997 = and i32 %996, 1
+  %998 = icmp ne i32 %997, 0
+  br i1 %998, label %999, label %1005
+
+999:                                              ; preds = %994
+  %1000 = load i64, ptr %26, align 8
+  %1001 = icmp ne i64 %1000, 0
+  br i1 %1001, label %1002, label %1005
+
+1002:                                             ; preds = %999
+  %1003 = load i32, ptr %14, align 4
+  %1004 = or i32 %1003, 2
+  store i32 %1004, ptr %14, align 4
+  br label %1005
+
+1005:                                             ; preds = %1002, %999, %994
+  br label %1006
+
+1006:                                             ; preds = %1005, %925, %800, %784
+  store i8 0, ptr %18, align 1
+  br label %1007
+
+1007:                                             ; preds = %1006, %416
+  %1008 = load i32, ptr %17, align 4
+  store i32 %1008, ptr %28, align 4
+  %1009 = icmp sge i32 %1008, 0
+  br i1 %1009, label %1010, label %1013
+
+1010:                                             ; preds = %1007
+  %1011 = load i32, ptr %14, align 4
+  %1012 = and i32 %1011, -129
+  store i32 %1012, ptr %14, align 4
+  br label %1013
+
+1013:                                             ; preds = %1010, %1007
+  %1014 = load ptr, ptr %37, align 8
+  store ptr %1014, ptr %12, align 8
+  %1015 = load i64, ptr %26, align 8
+  %1016 = icmp ne i64 %1015, 0
+  br i1 %1016, label %1020, label %1017
+
+1017:                                             ; preds = %1013
+  %1018 = load i32, ptr %17, align 4
+  %1019 = icmp ne i32 %1018, 0
+  br i1 %1019, label %1020, label %1028
+
+1020:                                             ; preds = %1017, %1013
+  %1021 = load i64, ptr %26, align 8
+  %1022 = load ptr, ptr %37, align 8
+  %1023 = load i32, ptr %27, align 4
+  %1024 = load i32, ptr %14, align 4
+  %1025 = and i32 %1024, 1
+  %1026 = load ptr, ptr %32, align 8
+  %1027 = call ptr @BSD__ultoa(i64 noundef %1021, ptr noundef %1022, i32 noundef %1023, i32 noundef %1025, ptr noundef %1026)
+  store ptr %1027, ptr %12, align 8
+  br label %1028
+
+1028:                                             ; preds = %1020, %1017
+  %1029 = load ptr, ptr %37, align 8
+  %1030 = load ptr, ptr %12, align 8
   %1031 = ptrtoint ptr %1029 to i64
-  %1032 = sub i64 %1030, %1031
-  %1033 = trunc i64 %1032 to i32
-  store i32 %1033, ptr %31, align 4
-  br label %1043
+  %1032 = ptrtoint ptr %1030 to i64
+  %1033 = sub i64 %1031, %1032
+  %1034 = trunc i64 %1033 to i32
+  store i32 %1034, ptr %31, align 4
+  br label %1044
 
-1034:                                             ; preds = %130
-  %1035 = load i32, ptr %10, align 4
-  %1036 = icmp eq i32 %1035, 0
-  br i1 %1036, label %1037, label %1038
+1035:                                             ; preds = %130
+  %1036 = load i32, ptr %10, align 4
+  %1037 = icmp eq i32 %1036, 0
+  br i1 %1037, label %1038, label %1039
 
-1037:                                             ; preds = %1034
-  br label %2530
+1038:                                             ; preds = %1035
+  br label %2531
 
-1038:                                             ; preds = %1034
-  %1039 = getelementptr inbounds [1335 x i8], ptr %35, i64 0, i64 0
-  store ptr %1039, ptr %12, align 8
-  %1040 = load i32, ptr %10, align 4
-  %1041 = trunc i32 %1040 to i8
-  %1042 = getelementptr inbounds [1335 x i8], ptr %35, i64 0, i64 0
-  store i8 %1041, ptr %1042, align 16
+1039:                                             ; preds = %1035
+  %1040 = getelementptr inbounds [1335 x i8], ptr %35, i64 0, i64 0
+  store ptr %1040, ptr %12, align 8
+  %1041 = load i32, ptr %10, align 4
+  %1042 = trunc i32 %1041 to i8
+  %1043 = getelementptr inbounds [1335 x i8], ptr %35, i64 0, i64 0
+  store i8 %1042, ptr %1043, align 16
   store i32 1, ptr %31, align 4
   store i8 0, ptr %18, align 1
-  br label %1043
+  br label %1044
 
-1043:                                             ; preds = %1038, %1027, %857, %650, %489, %485, %338, %263
-  %1044 = load i32, ptr %31, align 4
-  %1045 = sext i32 %1044 to i64
-  store i64 %1045, ptr %29, align 8
-  br label %1046
+1044:                                             ; preds = %1039, %1028, %857, %650, %489, %485, %338, %263
+  %1045 = load i32, ptr %31, align 4
+  %1046 = sext i32 %1045 to i64
+  store i64 %1046, ptr %29, align 8
+  br label %1047
 
-1046:                                             ; preds = %1043, %854, %327
-  %1047 = load i32, ptr %28, align 4
-  %1048 = sext i32 %1047 to i64
-  %1049 = load i64, ptr %29, align 8
-  %1050 = icmp sgt i64 %1048, %1049
-  br i1 %1050, label %1051, label %1054
+1047:                                             ; preds = %1044, %854, %327
+  %1048 = load i32, ptr %28, align 4
+  %1049 = sext i32 %1048 to i64
+  %1050 = load i64, ptr %29, align 8
+  %1051 = icmp sgt i64 %1049, %1050
+  br i1 %1051, label %1052, label %1055
 
-1051:                                             ; preds = %1046
-  %1052 = load i32, ptr %28, align 4
-  %1053 = sext i32 %1052 to i64
-  br label %1056
+1052:                                             ; preds = %1047
+  %1053 = load i32, ptr %28, align 4
+  %1054 = sext i32 %1053 to i64
+  br label %1057
 
-1054:                                             ; preds = %1046
-  %1055 = load i64, ptr %29, align 8
-  br label %1056
+1055:                                             ; preds = %1047
+  %1056 = load i64, ptr %29, align 8
+  br label %1057
 
-1056:                                             ; preds = %1054, %1051
-  %1057 = phi i64 [ %1053, %1051 ], [ %1055, %1054 ]
-  store i64 %1057, ptr %30, align 8
-  %1058 = load i8, ptr %18, align 1
-  %1059 = icmp ne i8 %1058, 0
-  br i1 %1059, label %1060, label %1063
+1057:                                             ; preds = %1055, %1052
+  %1058 = phi i64 [ %1054, %1052 ], [ %1056, %1055 ]
+  store i64 %1058, ptr %30, align 8
+  %1059 = load i8, ptr %18, align 1
+  %1060 = icmp ne i8 %1059, 0
+  br i1 %1060, label %1061, label %1064
 
-1060:                                             ; preds = %1056
-  %1061 = load i64, ptr %30, align 8
-  %1062 = add i64 %1061, 1
-  store i64 %1062, ptr %30, align 8
-  br label %1063
+1061:                                             ; preds = %1057
+  %1062 = load i64, ptr %30, align 8
+  %1063 = add i64 %1062, 1
+  store i64 %1063, ptr %30, align 8
+  br label %1064
 
-1063:                                             ; preds = %1060, %1056
-  %1064 = load i32, ptr %14, align 4
-  %1065 = and i32 %1064, 2
-  %1066 = icmp ne i32 %1065, 0
-  br i1 %1066, label %1067, label %1070
+1064:                                             ; preds = %1061, %1057
+  %1065 = load i32, ptr %14, align 4
+  %1066 = and i32 %1065, 2
+  %1067 = icmp ne i32 %1066, 0
+  br i1 %1067, label %1068, label %1071
 
-1067:                                             ; preds = %1063
-  %1068 = load i64, ptr %30, align 8
-  %1069 = add i64 %1068, 2
-  store i64 %1069, ptr %30, align 8
-  br label %1070
+1068:                                             ; preds = %1064
+  %1069 = load i64, ptr %30, align 8
+  %1070 = add i64 %1069, 2
+  store i64 %1070, ptr %30, align 8
+  br label %1071
 
-1070:                                             ; preds = %1067, %1063
-  %1071 = load i32, ptr %14, align 4
-  %1072 = and i32 %1071, 132
-  %1073 = icmp eq i32 %1072, 0
-  br i1 %1073, label %1074, label %1149
+1071:                                             ; preds = %1068, %1064
+  %1072 = load i32, ptr %14, align 4
+  %1073 = and i32 %1072, 132
+  %1074 = icmp eq i32 %1073, 0
+  br i1 %1074, label %1075, label %1150
 
-1074:                                             ; preds = %1070
-  %1075 = load i32, ptr %16, align 4
-  %1076 = sext i32 %1075 to i64
-  %1077 = load i64, ptr %30, align 8
-  %1078 = sub i64 %1076, %1077
-  store i64 %1078, ptr %38, align 8
-  %1079 = load i64, ptr %38, align 8
-  %1080 = trunc i64 %1079 to i32
-  %1081 = sext i32 %1080 to i64
-  %1082 = load i64, ptr %38, align 8
-  %1083 = icmp ne i64 %1081, %1082
-  br i1 %1083, label %1084, label %1086
+1075:                                             ; preds = %1071
+  %1076 = load i32, ptr %16, align 4
+  %1077 = sext i32 %1076 to i64
+  %1078 = load i64, ptr %30, align 8
+  %1079 = sub i64 %1077, %1078
+  store i64 %1079, ptr %38, align 8
+  %1080 = load i64, ptr %38, align 8
+  %1081 = trunc i64 %1080 to i32
+  %1082 = sext i32 %1081 to i64
+  %1083 = load i64, ptr %38, align 8
+  %1084 = icmp ne i64 %1082, %1083
+  br i1 %1084, label %1085, label %1087
 
-1084:                                             ; preds = %1074
-  %1085 = call ptr @rb_errno_ptr()
-  store i32 12, ptr %1085, align 4
-  br label %2542
+1085:                                             ; preds = %1075
+  %1086 = call ptr @rb_errno_ptr()
+  store i32 12, ptr %1086, align 4
+  br label %2543
 
-1086:                                             ; preds = %1074
-  %1087 = load i64, ptr %38, align 8
-  %1088 = icmp sgt i64 %1087, 0
-  br i1 %1088, label %1089, label %1148
+1087:                                             ; preds = %1075
+  %1088 = load i64, ptr %38, align 8
+  %1089 = icmp sgt i64 %1088, 0
+  br i1 %1089, label %1090, label %1149
 
-1089:                                             ; preds = %1086
-  %1090 = load i64, ptr %38, align 8
-  %1091 = trunc i64 %1090 to i32
-  store i32 %1091, ptr %11, align 4
-  %1092 = icmp sgt i32 %1091, 0
-  br i1 %1092, label %1093, label %1147
+1090:                                             ; preds = %1087
+  %1091 = load i64, ptr %38, align 8
+  %1092 = trunc i64 %1091 to i32
+  store i32 %1092, ptr %11, align 4
+  %1093 = icmp sgt i32 %1092, 0
+  br i1 %1093, label %1094, label %1148
 
-1093:                                             ; preds = %1089
-  br label %1094
+1094:                                             ; preds = %1090
+  br label %1095
 
-1094:                                             ; preds = %1118, %1093
-  %1095 = load i32, ptr %11, align 4
-  %1096 = icmp sgt i32 %1095, 16
-  br i1 %1096, label %1097, label %1121
+1095:                                             ; preds = %1119, %1094
+  %1096 = load i32, ptr %11, align 4
+  %1097 = icmp sgt i32 %1096, 16
+  br i1 %1097, label %1098, label %1122
 
-1097:                                             ; preds = %1094
-  %1098 = load ptr, ptr %13, align 8
-  %1099 = getelementptr inbounds %struct.__siov, ptr %1098, i32 0, i32 0
-  store ptr @BSD_vfprintf.blanks, ptr %1099, align 8
-  %1100 = load ptr, ptr %13, align 8
-  %1101 = getelementptr inbounds %struct.__siov, ptr %1100, i32 0, i32 1
-  store i64 16, ptr %1101, align 8
-  %1102 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1103 = load i64, ptr %1102, align 8
-  %1104 = add i64 %1103, 16
-  store i64 %1104, ptr %1102, align 8
-  %1105 = load ptr, ptr %13, align 8
-  %1106 = getelementptr %struct.__siov, ptr %1105, i32 1
-  store ptr %1106, ptr %13, align 8
-  %1107 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1108 = load i32, ptr %1107, align 8
-  %1109 = add i32 %1108, 1
-  store i32 %1109, ptr %1107, align 8
-  %1110 = icmp sge i32 %1109, 8
-  br i1 %1110, label %1111, label %1118
+1098:                                             ; preds = %1095
+  %1099 = load ptr, ptr %13, align 8
+  %1100 = getelementptr inbounds %struct.__siov, ptr %1099, i32 0, i32 0
+  store ptr @BSD_vfprintf.blanks, ptr %1100, align 8
+  %1101 = load ptr, ptr %13, align 8
+  %1102 = getelementptr inbounds %struct.__siov, ptr %1101, i32 0, i32 1
+  store i64 16, ptr %1102, align 8
+  %1103 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1104 = load i64, ptr %1103, align 8
+  %1105 = add i64 %1104, 16
+  store i64 %1105, ptr %1103, align 8
+  %1106 = load ptr, ptr %13, align 8
+  %1107 = getelementptr %struct.__siov, ptr %1106, i32 1
+  store ptr %1107, ptr %13, align 8
+  %1108 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1109 = load i32, ptr %1108, align 8
+  %1110 = add i32 %1109, 1
+  store i32 %1110, ptr %1108, align 8
+  %1111 = icmp sge i32 %1110, 8
+  br i1 %1111, label %1112, label %1119
 
-1111:                                             ; preds = %1097
-  %1112 = load ptr, ptr %5, align 8
-  %1113 = call i32 @BSD__sprint(ptr noundef %1112, ptr noundef %33)
-  %1114 = icmp ne i32 %1113, 0
-  br i1 %1114, label %1115, label %1116
+1112:                                             ; preds = %1098
+  %1113 = load ptr, ptr %5, align 8
+  %1114 = call i32 @BSD__sprint(ptr noundef %1113, ptr noundef %33)
+  %1115 = icmp ne i32 %1114, 0
+  br i1 %1115, label %1116, label %1117
 
-1115:                                             ; preds = %1111
-  br label %2542
+1116:                                             ; preds = %1112
+  br label %2543
 
-1116:                                             ; preds = %1111
-  %1117 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1117, ptr %13, align 8
-  br label %1118
+1117:                                             ; preds = %1112
+  %1118 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1118, ptr %13, align 8
+  br label %1119
 
-1118:                                             ; preds = %1116, %1097
-  %1119 = load i32, ptr %11, align 4
-  %1120 = sub i32 %1119, 16
-  store i32 %1120, ptr %11, align 4
-  br label %1094, !llvm.loop !43
+1119:                                             ; preds = %1117, %1098
+  %1120 = load i32, ptr %11, align 4
+  %1121 = sub i32 %1120, 16
+  store i32 %1121, ptr %11, align 4
+  br label %1095, !llvm.loop !43
 
-1121:                                             ; preds = %1094
-  %1122 = load ptr, ptr %13, align 8
-  %1123 = getelementptr inbounds %struct.__siov, ptr %1122, i32 0, i32 0
-  store ptr @BSD_vfprintf.blanks, ptr %1123, align 8
-  %1124 = load i32, ptr %11, align 4
-  %1125 = sext i32 %1124 to i64
-  %1126 = load ptr, ptr %13, align 8
-  %1127 = getelementptr inbounds %struct.__siov, ptr %1126, i32 0, i32 1
-  store i64 %1125, ptr %1127, align 8
-  %1128 = load i32, ptr %11, align 4
-  %1129 = sext i32 %1128 to i64
-  %1130 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1131 = load i64, ptr %1130, align 8
-  %1132 = add i64 %1131, %1129
-  store i64 %1132, ptr %1130, align 8
-  %1133 = load ptr, ptr %13, align 8
-  %1134 = getelementptr %struct.__siov, ptr %1133, i32 1
-  store ptr %1134, ptr %13, align 8
-  %1135 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1136 = load i32, ptr %1135, align 8
-  %1137 = add i32 %1136, 1
-  store i32 %1137, ptr %1135, align 8
-  %1138 = icmp sge i32 %1137, 8
-  br i1 %1138, label %1139, label %1146
+1122:                                             ; preds = %1095
+  %1123 = load ptr, ptr %13, align 8
+  %1124 = getelementptr inbounds %struct.__siov, ptr %1123, i32 0, i32 0
+  store ptr @BSD_vfprintf.blanks, ptr %1124, align 8
+  %1125 = load i32, ptr %11, align 4
+  %1126 = sext i32 %1125 to i64
+  %1127 = load ptr, ptr %13, align 8
+  %1128 = getelementptr inbounds %struct.__siov, ptr %1127, i32 0, i32 1
+  store i64 %1126, ptr %1128, align 8
+  %1129 = load i32, ptr %11, align 4
+  %1130 = sext i32 %1129 to i64
+  %1131 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1132 = load i64, ptr %1131, align 8
+  %1133 = add i64 %1132, %1130
+  store i64 %1133, ptr %1131, align 8
+  %1134 = load ptr, ptr %13, align 8
+  %1135 = getelementptr %struct.__siov, ptr %1134, i32 1
+  store ptr %1135, ptr %13, align 8
+  %1136 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1137 = load i32, ptr %1136, align 8
+  %1138 = add i32 %1137, 1
+  store i32 %1138, ptr %1136, align 8
+  %1139 = icmp sge i32 %1138, 8
+  br i1 %1139, label %1140, label %1147
 
-1139:                                             ; preds = %1121
-  %1140 = load ptr, ptr %5, align 8
-  %1141 = call i32 @BSD__sprint(ptr noundef %1140, ptr noundef %33)
-  %1142 = icmp ne i32 %1141, 0
-  br i1 %1142, label %1143, label %1144
+1140:                                             ; preds = %1122
+  %1141 = load ptr, ptr %5, align 8
+  %1142 = call i32 @BSD__sprint(ptr noundef %1141, ptr noundef %33)
+  %1143 = icmp ne i32 %1142, 0
+  br i1 %1143, label %1144, label %1145
 
-1143:                                             ; preds = %1139
-  br label %2542
+1144:                                             ; preds = %1140
+  br label %2543
 
-1144:                                             ; preds = %1139
-  %1145 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1145, ptr %13, align 8
-  br label %1146
-
-1146:                                             ; preds = %1144, %1121
+1145:                                             ; preds = %1140
+  %1146 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1146, ptr %13, align 8
   br label %1147
 
-1147:                                             ; preds = %1146, %1089
+1147:                                             ; preds = %1145, %1122
   br label %1148
 
-1148:                                             ; preds = %1147, %1086
+1148:                                             ; preds = %1147, %1090
   br label %1149
 
-1149:                                             ; preds = %1148, %1070
-  %1150 = load i8, ptr %18, align 1
-  %1151 = icmp ne i8 %1150, 0
-  br i1 %1151, label %1152, label %1174
+1149:                                             ; preds = %1148, %1087
+  br label %1150
 
-1152:                                             ; preds = %1149
-  %1153 = load ptr, ptr %13, align 8
-  %1154 = getelementptr inbounds %struct.__siov, ptr %1153, i32 0, i32 0
-  store ptr %18, ptr %1154, align 8
-  %1155 = load ptr, ptr %13, align 8
-  %1156 = getelementptr inbounds %struct.__siov, ptr %1155, i32 0, i32 1
-  store i64 1, ptr %1156, align 8
-  %1157 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1158 = load i64, ptr %1157, align 8
-  %1159 = add i64 %1158, 1
-  store i64 %1159, ptr %1157, align 8
-  %1160 = load ptr, ptr %13, align 8
-  %1161 = getelementptr %struct.__siov, ptr %1160, i32 1
-  store ptr %1161, ptr %13, align 8
-  %1162 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1163 = load i32, ptr %1162, align 8
-  %1164 = add i32 %1163, 1
-  store i32 %1164, ptr %1162, align 8
-  %1165 = icmp sge i32 %1164, 8
-  br i1 %1165, label %1166, label %1173
+1150:                                             ; preds = %1149, %1071
+  %1151 = load i8, ptr %18, align 1
+  %1152 = icmp ne i8 %1151, 0
+  br i1 %1152, label %1153, label %1175
 
-1166:                                             ; preds = %1152
-  %1167 = load ptr, ptr %5, align 8
-  %1168 = call i32 @BSD__sprint(ptr noundef %1167, ptr noundef %33)
-  %1169 = icmp ne i32 %1168, 0
-  br i1 %1169, label %1170, label %1171
+1153:                                             ; preds = %1150
+  %1154 = load ptr, ptr %13, align 8
+  %1155 = getelementptr inbounds %struct.__siov, ptr %1154, i32 0, i32 0
+  store ptr %18, ptr %1155, align 8
+  %1156 = load ptr, ptr %13, align 8
+  %1157 = getelementptr inbounds %struct.__siov, ptr %1156, i32 0, i32 1
+  store i64 1, ptr %1157, align 8
+  %1158 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1159 = load i64, ptr %1158, align 8
+  %1160 = add i64 %1159, 1
+  store i64 %1160, ptr %1158, align 8
+  %1161 = load ptr, ptr %13, align 8
+  %1162 = getelementptr %struct.__siov, ptr %1161, i32 1
+  store ptr %1162, ptr %13, align 8
+  %1163 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1164 = load i32, ptr %1163, align 8
+  %1165 = add i32 %1164, 1
+  store i32 %1165, ptr %1163, align 8
+  %1166 = icmp sge i32 %1165, 8
+  br i1 %1166, label %1167, label %1174
 
-1170:                                             ; preds = %1166
-  br label %2542
+1167:                                             ; preds = %1153
+  %1168 = load ptr, ptr %5, align 8
+  %1169 = call i32 @BSD__sprint(ptr noundef %1168, ptr noundef %33)
+  %1170 = icmp ne i32 %1169, 0
+  br i1 %1170, label %1171, label %1172
 
-1171:                                             ; preds = %1166
-  %1172 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1172, ptr %13, align 8
-  br label %1173
+1171:                                             ; preds = %1167
+  br label %2543
 
-1173:                                             ; preds = %1171, %1152
+1172:                                             ; preds = %1167
+  %1173 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1173, ptr %13, align 8
   br label %1174
 
-1174:                                             ; preds = %1173, %1149
-  %1175 = load i32, ptr %14, align 4
-  %1176 = and i32 %1175, 2
-  %1177 = icmp ne i32 %1176, 0
-  br i1 %1177, label %1178, label %1205
+1174:                                             ; preds = %1172, %1153
+  br label %1175
 
-1178:                                             ; preds = %1174
-  %1179 = getelementptr [4 x i8], ptr %36, i64 0, i64 0
-  store i8 48, ptr %1179, align 1
-  %1180 = load i32, ptr %10, align 4
-  %1181 = trunc i32 %1180 to i8
-  %1182 = getelementptr [4 x i8], ptr %36, i64 0, i64 1
-  store i8 %1181, ptr %1182, align 1
-  %1183 = getelementptr inbounds [4 x i8], ptr %36, i64 0, i64 0
-  %1184 = load ptr, ptr %13, align 8
-  %1185 = getelementptr inbounds %struct.__siov, ptr %1184, i32 0, i32 0
-  store ptr %1183, ptr %1185, align 8
-  %1186 = load ptr, ptr %13, align 8
-  %1187 = getelementptr inbounds %struct.__siov, ptr %1186, i32 0, i32 1
-  store i64 2, ptr %1187, align 8
-  %1188 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1189 = load i64, ptr %1188, align 8
-  %1190 = add i64 %1189, 2
-  store i64 %1190, ptr %1188, align 8
-  %1191 = load ptr, ptr %13, align 8
-  %1192 = getelementptr %struct.__siov, ptr %1191, i32 1
-  store ptr %1192, ptr %13, align 8
-  %1193 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1194 = load i32, ptr %1193, align 8
-  %1195 = add i32 %1194, 1
-  store i32 %1195, ptr %1193, align 8
-  %1196 = icmp sge i32 %1195, 8
-  br i1 %1196, label %1197, label %1204
+1175:                                             ; preds = %1174, %1150
+  %1176 = load i32, ptr %14, align 4
+  %1177 = and i32 %1176, 2
+  %1178 = icmp ne i32 %1177, 0
+  br i1 %1178, label %1179, label %1206
 
-1197:                                             ; preds = %1178
-  %1198 = load ptr, ptr %5, align 8
-  %1199 = call i32 @BSD__sprint(ptr noundef %1198, ptr noundef %33)
-  %1200 = icmp ne i32 %1199, 0
-  br i1 %1200, label %1201, label %1202
+1179:                                             ; preds = %1175
+  %1180 = getelementptr [4 x i8], ptr %36, i64 0, i64 0
+  store i8 48, ptr %1180, align 1
+  %1181 = load i32, ptr %10, align 4
+  %1182 = trunc i32 %1181 to i8
+  %1183 = getelementptr [4 x i8], ptr %36, i64 0, i64 1
+  store i8 %1182, ptr %1183, align 1
+  %1184 = getelementptr inbounds [4 x i8], ptr %36, i64 0, i64 0
+  %1185 = load ptr, ptr %13, align 8
+  %1186 = getelementptr inbounds %struct.__siov, ptr %1185, i32 0, i32 0
+  store ptr %1184, ptr %1186, align 8
+  %1187 = load ptr, ptr %13, align 8
+  %1188 = getelementptr inbounds %struct.__siov, ptr %1187, i32 0, i32 1
+  store i64 2, ptr %1188, align 8
+  %1189 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1190 = load i64, ptr %1189, align 8
+  %1191 = add i64 %1190, 2
+  store i64 %1191, ptr %1189, align 8
+  %1192 = load ptr, ptr %13, align 8
+  %1193 = getelementptr %struct.__siov, ptr %1192, i32 1
+  store ptr %1193, ptr %13, align 8
+  %1194 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1195 = load i32, ptr %1194, align 8
+  %1196 = add i32 %1195, 1
+  store i32 %1196, ptr %1194, align 8
+  %1197 = icmp sge i32 %1196, 8
+  br i1 %1197, label %1198, label %1205
 
-1201:                                             ; preds = %1197
-  br label %2542
+1198:                                             ; preds = %1179
+  %1199 = load ptr, ptr %5, align 8
+  %1200 = call i32 @BSD__sprint(ptr noundef %1199, ptr noundef %33)
+  %1201 = icmp ne i32 %1200, 0
+  br i1 %1201, label %1202, label %1203
 
-1202:                                             ; preds = %1197
-  %1203 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1203, ptr %13, align 8
-  br label %1204
+1202:                                             ; preds = %1198
+  br label %2543
 
-1204:                                             ; preds = %1202, %1178
+1203:                                             ; preds = %1198
+  %1204 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1204, ptr %13, align 8
   br label %1205
 
-1205:                                             ; preds = %1204, %1174
-  %1206 = load i32, ptr %14, align 4
-  %1207 = and i32 %1206, 132
-  %1208 = icmp eq i32 %1207, 128
-  br i1 %1208, label %1209, label %1284
+1205:                                             ; preds = %1203, %1179
+  br label %1206
 
-1209:                                             ; preds = %1205
-  %1210 = load i32, ptr %16, align 4
-  %1211 = sext i32 %1210 to i64
-  %1212 = load i64, ptr %30, align 8
-  %1213 = sub i64 %1211, %1212
-  store i64 %1213, ptr %38, align 8
-  %1214 = load i64, ptr %38, align 8
-  %1215 = trunc i64 %1214 to i32
-  %1216 = sext i32 %1215 to i64
-  %1217 = load i64, ptr %38, align 8
-  %1218 = icmp ne i64 %1216, %1217
-  br i1 %1218, label %1219, label %1221
+1206:                                             ; preds = %1205, %1175
+  %1207 = load i32, ptr %14, align 4
+  %1208 = and i32 %1207, 132
+  %1209 = icmp eq i32 %1208, 128
+  br i1 %1209, label %1210, label %1285
 
-1219:                                             ; preds = %1209
-  %1220 = call ptr @rb_errno_ptr()
-  store i32 12, ptr %1220, align 4
-  br label %2542
+1210:                                             ; preds = %1206
+  %1211 = load i32, ptr %16, align 4
+  %1212 = sext i32 %1211 to i64
+  %1213 = load i64, ptr %30, align 8
+  %1214 = sub i64 %1212, %1213
+  store i64 %1214, ptr %38, align 8
+  %1215 = load i64, ptr %38, align 8
+  %1216 = trunc i64 %1215 to i32
+  %1217 = sext i32 %1216 to i64
+  %1218 = load i64, ptr %38, align 8
+  %1219 = icmp ne i64 %1217, %1218
+  br i1 %1219, label %1220, label %1222
 
-1221:                                             ; preds = %1209
-  %1222 = load i64, ptr %38, align 8
-  %1223 = icmp sgt i64 %1222, 0
-  br i1 %1223, label %1224, label %1283
+1220:                                             ; preds = %1210
+  %1221 = call ptr @rb_errno_ptr()
+  store i32 12, ptr %1221, align 4
+  br label %2543
 
-1224:                                             ; preds = %1221
-  %1225 = load i64, ptr %38, align 8
-  %1226 = trunc i64 %1225 to i32
-  store i32 %1226, ptr %11, align 4
-  %1227 = icmp sgt i32 %1226, 0
-  br i1 %1227, label %1228, label %1282
+1222:                                             ; preds = %1210
+  %1223 = load i64, ptr %38, align 8
+  %1224 = icmp sgt i64 %1223, 0
+  br i1 %1224, label %1225, label %1284
 
-1228:                                             ; preds = %1224
-  br label %1229
+1225:                                             ; preds = %1222
+  %1226 = load i64, ptr %38, align 8
+  %1227 = trunc i64 %1226 to i32
+  store i32 %1227, ptr %11, align 4
+  %1228 = icmp sgt i32 %1227, 0
+  br i1 %1228, label %1229, label %1283
 
-1229:                                             ; preds = %1253, %1228
-  %1230 = load i32, ptr %11, align 4
-  %1231 = icmp sgt i32 %1230, 16
-  br i1 %1231, label %1232, label %1256
+1229:                                             ; preds = %1225
+  br label %1230
 
-1232:                                             ; preds = %1229
-  %1233 = load ptr, ptr %13, align 8
-  %1234 = getelementptr inbounds %struct.__siov, ptr %1233, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %1234, align 8
-  %1235 = load ptr, ptr %13, align 8
-  %1236 = getelementptr inbounds %struct.__siov, ptr %1235, i32 0, i32 1
-  store i64 16, ptr %1236, align 8
-  %1237 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1238 = load i64, ptr %1237, align 8
-  %1239 = add i64 %1238, 16
-  store i64 %1239, ptr %1237, align 8
-  %1240 = load ptr, ptr %13, align 8
-  %1241 = getelementptr %struct.__siov, ptr %1240, i32 1
-  store ptr %1241, ptr %13, align 8
-  %1242 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1243 = load i32, ptr %1242, align 8
-  %1244 = add i32 %1243, 1
-  store i32 %1244, ptr %1242, align 8
-  %1245 = icmp sge i32 %1244, 8
-  br i1 %1245, label %1246, label %1253
+1230:                                             ; preds = %1254, %1229
+  %1231 = load i32, ptr %11, align 4
+  %1232 = icmp sgt i32 %1231, 16
+  br i1 %1232, label %1233, label %1257
 
-1246:                                             ; preds = %1232
-  %1247 = load ptr, ptr %5, align 8
-  %1248 = call i32 @BSD__sprint(ptr noundef %1247, ptr noundef %33)
-  %1249 = icmp ne i32 %1248, 0
-  br i1 %1249, label %1250, label %1251
+1233:                                             ; preds = %1230
+  %1234 = load ptr, ptr %13, align 8
+  %1235 = getelementptr inbounds %struct.__siov, ptr %1234, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %1235, align 8
+  %1236 = load ptr, ptr %13, align 8
+  %1237 = getelementptr inbounds %struct.__siov, ptr %1236, i32 0, i32 1
+  store i64 16, ptr %1237, align 8
+  %1238 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1239 = load i64, ptr %1238, align 8
+  %1240 = add i64 %1239, 16
+  store i64 %1240, ptr %1238, align 8
+  %1241 = load ptr, ptr %13, align 8
+  %1242 = getelementptr %struct.__siov, ptr %1241, i32 1
+  store ptr %1242, ptr %13, align 8
+  %1243 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1244 = load i32, ptr %1243, align 8
+  %1245 = add i32 %1244, 1
+  store i32 %1245, ptr %1243, align 8
+  %1246 = icmp sge i32 %1245, 8
+  br i1 %1246, label %1247, label %1254
 
-1250:                                             ; preds = %1246
-  br label %2542
+1247:                                             ; preds = %1233
+  %1248 = load ptr, ptr %5, align 8
+  %1249 = call i32 @BSD__sprint(ptr noundef %1248, ptr noundef %33)
+  %1250 = icmp ne i32 %1249, 0
+  br i1 %1250, label %1251, label %1252
 
-1251:                                             ; preds = %1246
-  %1252 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1252, ptr %13, align 8
-  br label %1253
+1251:                                             ; preds = %1247
+  br label %2543
 
-1253:                                             ; preds = %1251, %1232
-  %1254 = load i32, ptr %11, align 4
-  %1255 = sub i32 %1254, 16
-  store i32 %1255, ptr %11, align 4
-  br label %1229, !llvm.loop !44
+1252:                                             ; preds = %1247
+  %1253 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1253, ptr %13, align 8
+  br label %1254
 
-1256:                                             ; preds = %1229
-  %1257 = load ptr, ptr %13, align 8
-  %1258 = getelementptr inbounds %struct.__siov, ptr %1257, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %1258, align 8
-  %1259 = load i32, ptr %11, align 4
-  %1260 = sext i32 %1259 to i64
-  %1261 = load ptr, ptr %13, align 8
-  %1262 = getelementptr inbounds %struct.__siov, ptr %1261, i32 0, i32 1
-  store i64 %1260, ptr %1262, align 8
-  %1263 = load i32, ptr %11, align 4
-  %1264 = sext i32 %1263 to i64
-  %1265 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1266 = load i64, ptr %1265, align 8
-  %1267 = add i64 %1266, %1264
-  store i64 %1267, ptr %1265, align 8
-  %1268 = load ptr, ptr %13, align 8
-  %1269 = getelementptr %struct.__siov, ptr %1268, i32 1
-  store ptr %1269, ptr %13, align 8
-  %1270 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1271 = load i32, ptr %1270, align 8
-  %1272 = add i32 %1271, 1
-  store i32 %1272, ptr %1270, align 8
-  %1273 = icmp sge i32 %1272, 8
-  br i1 %1273, label %1274, label %1281
+1254:                                             ; preds = %1252, %1233
+  %1255 = load i32, ptr %11, align 4
+  %1256 = sub i32 %1255, 16
+  store i32 %1256, ptr %11, align 4
+  br label %1230, !llvm.loop !44
 
-1274:                                             ; preds = %1256
-  %1275 = load ptr, ptr %5, align 8
-  %1276 = call i32 @BSD__sprint(ptr noundef %1275, ptr noundef %33)
-  %1277 = icmp ne i32 %1276, 0
-  br i1 %1277, label %1278, label %1279
+1257:                                             ; preds = %1230
+  %1258 = load ptr, ptr %13, align 8
+  %1259 = getelementptr inbounds %struct.__siov, ptr %1258, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %1259, align 8
+  %1260 = load i32, ptr %11, align 4
+  %1261 = sext i32 %1260 to i64
+  %1262 = load ptr, ptr %13, align 8
+  %1263 = getelementptr inbounds %struct.__siov, ptr %1262, i32 0, i32 1
+  store i64 %1261, ptr %1263, align 8
+  %1264 = load i32, ptr %11, align 4
+  %1265 = sext i32 %1264 to i64
+  %1266 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1267 = load i64, ptr %1266, align 8
+  %1268 = add i64 %1267, %1265
+  store i64 %1268, ptr %1266, align 8
+  %1269 = load ptr, ptr %13, align 8
+  %1270 = getelementptr %struct.__siov, ptr %1269, i32 1
+  store ptr %1270, ptr %13, align 8
+  %1271 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1272 = load i32, ptr %1271, align 8
+  %1273 = add i32 %1272, 1
+  store i32 %1273, ptr %1271, align 8
+  %1274 = icmp sge i32 %1273, 8
+  br i1 %1274, label %1275, label %1282
 
-1278:                                             ; preds = %1274
-  br label %2542
+1275:                                             ; preds = %1257
+  %1276 = load ptr, ptr %5, align 8
+  %1277 = call i32 @BSD__sprint(ptr noundef %1276, ptr noundef %33)
+  %1278 = icmp ne i32 %1277, 0
+  br i1 %1278, label %1279, label %1280
 
-1279:                                             ; preds = %1274
-  %1280 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1280, ptr %13, align 8
-  br label %1281
+1279:                                             ; preds = %1275
+  br label %2543
 
-1281:                                             ; preds = %1279, %1256
+1280:                                             ; preds = %1275
+  %1281 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1281, ptr %13, align 8
   br label %1282
 
-1282:                                             ; preds = %1281, %1224
+1282:                                             ; preds = %1280, %1257
   br label %1283
 
-1283:                                             ; preds = %1282, %1221
+1283:                                             ; preds = %1282, %1225
   br label %1284
 
-1284:                                             ; preds = %1283, %1205
-  %1285 = load i32, ptr %28, align 4
-  %1286 = sext i32 %1285 to i64
-  %1287 = load i64, ptr %29, align 8
-  %1288 = sub i64 %1286, %1287
-  store i64 %1288, ptr %38, align 8
-  %1289 = load i64, ptr %38, align 8
-  %1290 = trunc i64 %1289 to i32
-  %1291 = sext i32 %1290 to i64
-  %1292 = load i64, ptr %38, align 8
-  %1293 = icmp ne i64 %1291, %1292
-  br i1 %1293, label %1294, label %1296
+1284:                                             ; preds = %1283, %1222
+  br label %1285
 
-1294:                                             ; preds = %1284
-  %1295 = call ptr @rb_errno_ptr()
-  store i32 12, ptr %1295, align 4
-  br label %2542
+1285:                                             ; preds = %1284, %1206
+  %1286 = load i32, ptr %28, align 4
+  %1287 = sext i32 %1286 to i64
+  %1288 = load i64, ptr %29, align 8
+  %1289 = sub i64 %1287, %1288
+  store i64 %1289, ptr %38, align 8
+  %1290 = load i64, ptr %38, align 8
+  %1291 = trunc i64 %1290 to i32
+  %1292 = sext i32 %1291 to i64
+  %1293 = load i64, ptr %38, align 8
+  %1294 = icmp ne i64 %1292, %1293
+  br i1 %1294, label %1295, label %1297
 
-1296:                                             ; preds = %1284
-  %1297 = load i64, ptr %38, align 8
-  %1298 = icmp sgt i64 %1297, 0
-  br i1 %1298, label %1299, label %1358
+1295:                                             ; preds = %1285
+  %1296 = call ptr @rb_errno_ptr()
+  store i32 12, ptr %1296, align 4
+  br label %2543
 
-1299:                                             ; preds = %1296
-  %1300 = load i64, ptr %38, align 8
-  %1301 = trunc i64 %1300 to i32
-  store i32 %1301, ptr %11, align 4
-  %1302 = icmp sgt i32 %1301, 0
-  br i1 %1302, label %1303, label %1357
+1297:                                             ; preds = %1285
+  %1298 = load i64, ptr %38, align 8
+  %1299 = icmp sgt i64 %1298, 0
+  br i1 %1299, label %1300, label %1359
 
-1303:                                             ; preds = %1299
-  br label %1304
+1300:                                             ; preds = %1297
+  %1301 = load i64, ptr %38, align 8
+  %1302 = trunc i64 %1301 to i32
+  store i32 %1302, ptr %11, align 4
+  %1303 = icmp sgt i32 %1302, 0
+  br i1 %1303, label %1304, label %1358
 
-1304:                                             ; preds = %1328, %1303
-  %1305 = load i32, ptr %11, align 4
-  %1306 = icmp sgt i32 %1305, 16
-  br i1 %1306, label %1307, label %1331
+1304:                                             ; preds = %1300
+  br label %1305
 
-1307:                                             ; preds = %1304
-  %1308 = load ptr, ptr %13, align 8
-  %1309 = getelementptr inbounds %struct.__siov, ptr %1308, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %1309, align 8
-  %1310 = load ptr, ptr %13, align 8
-  %1311 = getelementptr inbounds %struct.__siov, ptr %1310, i32 0, i32 1
-  store i64 16, ptr %1311, align 8
-  %1312 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1313 = load i64, ptr %1312, align 8
-  %1314 = add i64 %1313, 16
-  store i64 %1314, ptr %1312, align 8
-  %1315 = load ptr, ptr %13, align 8
-  %1316 = getelementptr %struct.__siov, ptr %1315, i32 1
-  store ptr %1316, ptr %13, align 8
-  %1317 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1318 = load i32, ptr %1317, align 8
-  %1319 = add i32 %1318, 1
-  store i32 %1319, ptr %1317, align 8
-  %1320 = icmp sge i32 %1319, 8
-  br i1 %1320, label %1321, label %1328
+1305:                                             ; preds = %1329, %1304
+  %1306 = load i32, ptr %11, align 4
+  %1307 = icmp sgt i32 %1306, 16
+  br i1 %1307, label %1308, label %1332
 
-1321:                                             ; preds = %1307
-  %1322 = load ptr, ptr %5, align 8
-  %1323 = call i32 @BSD__sprint(ptr noundef %1322, ptr noundef %33)
-  %1324 = icmp ne i32 %1323, 0
-  br i1 %1324, label %1325, label %1326
+1308:                                             ; preds = %1305
+  %1309 = load ptr, ptr %13, align 8
+  %1310 = getelementptr inbounds %struct.__siov, ptr %1309, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %1310, align 8
+  %1311 = load ptr, ptr %13, align 8
+  %1312 = getelementptr inbounds %struct.__siov, ptr %1311, i32 0, i32 1
+  store i64 16, ptr %1312, align 8
+  %1313 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1314 = load i64, ptr %1313, align 8
+  %1315 = add i64 %1314, 16
+  store i64 %1315, ptr %1313, align 8
+  %1316 = load ptr, ptr %13, align 8
+  %1317 = getelementptr %struct.__siov, ptr %1316, i32 1
+  store ptr %1317, ptr %13, align 8
+  %1318 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1319 = load i32, ptr %1318, align 8
+  %1320 = add i32 %1319, 1
+  store i32 %1320, ptr %1318, align 8
+  %1321 = icmp sge i32 %1320, 8
+  br i1 %1321, label %1322, label %1329
 
-1325:                                             ; preds = %1321
-  br label %2542
+1322:                                             ; preds = %1308
+  %1323 = load ptr, ptr %5, align 8
+  %1324 = call i32 @BSD__sprint(ptr noundef %1323, ptr noundef %33)
+  %1325 = icmp ne i32 %1324, 0
+  br i1 %1325, label %1326, label %1327
 
-1326:                                             ; preds = %1321
-  %1327 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1327, ptr %13, align 8
-  br label %1328
+1326:                                             ; preds = %1322
+  br label %2543
 
-1328:                                             ; preds = %1326, %1307
-  %1329 = load i32, ptr %11, align 4
-  %1330 = sub i32 %1329, 16
-  store i32 %1330, ptr %11, align 4
-  br label %1304, !llvm.loop !45
+1327:                                             ; preds = %1322
+  %1328 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1328, ptr %13, align 8
+  br label %1329
 
-1331:                                             ; preds = %1304
-  %1332 = load ptr, ptr %13, align 8
-  %1333 = getelementptr inbounds %struct.__siov, ptr %1332, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %1333, align 8
-  %1334 = load i32, ptr %11, align 4
-  %1335 = sext i32 %1334 to i64
-  %1336 = load ptr, ptr %13, align 8
-  %1337 = getelementptr inbounds %struct.__siov, ptr %1336, i32 0, i32 1
-  store i64 %1335, ptr %1337, align 8
-  %1338 = load i32, ptr %11, align 4
-  %1339 = sext i32 %1338 to i64
-  %1340 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1341 = load i64, ptr %1340, align 8
-  %1342 = add i64 %1341, %1339
-  store i64 %1342, ptr %1340, align 8
-  %1343 = load ptr, ptr %13, align 8
-  %1344 = getelementptr %struct.__siov, ptr %1343, i32 1
-  store ptr %1344, ptr %13, align 8
-  %1345 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1346 = load i32, ptr %1345, align 8
-  %1347 = add i32 %1346, 1
-  store i32 %1347, ptr %1345, align 8
-  %1348 = icmp sge i32 %1347, 8
-  br i1 %1348, label %1349, label %1356
+1329:                                             ; preds = %1327, %1308
+  %1330 = load i32, ptr %11, align 4
+  %1331 = sub i32 %1330, 16
+  store i32 %1331, ptr %11, align 4
+  br label %1305, !llvm.loop !45
 
-1349:                                             ; preds = %1331
-  %1350 = load ptr, ptr %5, align 8
-  %1351 = call i32 @BSD__sprint(ptr noundef %1350, ptr noundef %33)
-  %1352 = icmp ne i32 %1351, 0
-  br i1 %1352, label %1353, label %1354
+1332:                                             ; preds = %1305
+  %1333 = load ptr, ptr %13, align 8
+  %1334 = getelementptr inbounds %struct.__siov, ptr %1333, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %1334, align 8
+  %1335 = load i32, ptr %11, align 4
+  %1336 = sext i32 %1335 to i64
+  %1337 = load ptr, ptr %13, align 8
+  %1338 = getelementptr inbounds %struct.__siov, ptr %1337, i32 0, i32 1
+  store i64 %1336, ptr %1338, align 8
+  %1339 = load i32, ptr %11, align 4
+  %1340 = sext i32 %1339 to i64
+  %1341 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1342 = load i64, ptr %1341, align 8
+  %1343 = add i64 %1342, %1340
+  store i64 %1343, ptr %1341, align 8
+  %1344 = load ptr, ptr %13, align 8
+  %1345 = getelementptr %struct.__siov, ptr %1344, i32 1
+  store ptr %1345, ptr %13, align 8
+  %1346 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1347 = load i32, ptr %1346, align 8
+  %1348 = add i32 %1347, 1
+  store i32 %1348, ptr %1346, align 8
+  %1349 = icmp sge i32 %1348, 8
+  br i1 %1349, label %1350, label %1357
 
-1353:                                             ; preds = %1349
-  br label %2542
+1350:                                             ; preds = %1332
+  %1351 = load ptr, ptr %5, align 8
+  %1352 = call i32 @BSD__sprint(ptr noundef %1351, ptr noundef %33)
+  %1353 = icmp ne i32 %1352, 0
+  br i1 %1353, label %1354, label %1355
 
-1354:                                             ; preds = %1349
-  %1355 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1355, ptr %13, align 8
-  br label %1356
+1354:                                             ; preds = %1350
+  br label %2543
 
-1356:                                             ; preds = %1354, %1331
+1355:                                             ; preds = %1350
+  %1356 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1356, ptr %13, align 8
   br label %1357
 
-1357:                                             ; preds = %1356, %1299
+1357:                                             ; preds = %1355, %1332
   br label %1358
 
-1358:                                             ; preds = %1357, %1296
-  %1359 = load i32, ptr %14, align 4
-  %1360 = and i32 %1359, 256
-  %1361 = icmp eq i32 %1360, 0
-  br i1 %1361, label %1362, label %1387
+1358:                                             ; preds = %1357, %1300
+  br label %1359
 
-1362:                                             ; preds = %1358
-  %1363 = load ptr, ptr %12, align 8
-  %1364 = load ptr, ptr %13, align 8
-  %1365 = getelementptr inbounds %struct.__siov, ptr %1364, i32 0, i32 0
-  store ptr %1363, ptr %1365, align 8
-  %1366 = load i64, ptr %29, align 8
-  %1367 = load ptr, ptr %13, align 8
-  %1368 = getelementptr inbounds %struct.__siov, ptr %1367, i32 0, i32 1
-  store i64 %1366, ptr %1368, align 8
-  %1369 = load i64, ptr %29, align 8
-  %1370 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1371 = load i64, ptr %1370, align 8
-  %1372 = add i64 %1371, %1369
-  store i64 %1372, ptr %1370, align 8
-  %1373 = load ptr, ptr %13, align 8
-  %1374 = getelementptr %struct.__siov, ptr %1373, i32 1
-  store ptr %1374, ptr %13, align 8
-  %1375 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1376 = load i32, ptr %1375, align 8
-  %1377 = add i32 %1376, 1
-  store i32 %1377, ptr %1375, align 8
-  %1378 = icmp sge i32 %1377, 8
-  br i1 %1378, label %1379, label %1386
+1359:                                             ; preds = %1358, %1297
+  %1360 = load i32, ptr %14, align 4
+  %1361 = and i32 %1360, 256
+  %1362 = icmp eq i32 %1361, 0
+  br i1 %1362, label %1363, label %1388
 
-1379:                                             ; preds = %1362
-  %1380 = load ptr, ptr %5, align 8
-  %1381 = call i32 @BSD__sprint(ptr noundef %1380, ptr noundef %33)
-  %1382 = icmp ne i32 %1381, 0
-  br i1 %1382, label %1383, label %1384
+1363:                                             ; preds = %1359
+  %1364 = load ptr, ptr %12, align 8
+  %1365 = load ptr, ptr %13, align 8
+  %1366 = getelementptr inbounds %struct.__siov, ptr %1365, i32 0, i32 0
+  store ptr %1364, ptr %1366, align 8
+  %1367 = load i64, ptr %29, align 8
+  %1368 = load ptr, ptr %13, align 8
+  %1369 = getelementptr inbounds %struct.__siov, ptr %1368, i32 0, i32 1
+  store i64 %1367, ptr %1369, align 8
+  %1370 = load i64, ptr %29, align 8
+  %1371 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1372 = load i64, ptr %1371, align 8
+  %1373 = add i64 %1372, %1370
+  store i64 %1373, ptr %1371, align 8
+  %1374 = load ptr, ptr %13, align 8
+  %1375 = getelementptr %struct.__siov, ptr %1374, i32 1
+  store ptr %1375, ptr %13, align 8
+  %1376 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1377 = load i32, ptr %1376, align 8
+  %1378 = add i32 %1377, 1
+  store i32 %1378, ptr %1376, align 8
+  %1379 = icmp sge i32 %1378, 8
+  br i1 %1379, label %1380, label %1387
 
-1383:                                             ; preds = %1379
-  br label %2542
+1380:                                             ; preds = %1363
+  %1381 = load ptr, ptr %5, align 8
+  %1382 = call i32 @BSD__sprint(ptr noundef %1381, ptr noundef %33)
+  %1383 = icmp ne i32 %1382, 0
+  br i1 %1383, label %1384, label %1385
 
-1384:                                             ; preds = %1379
-  %1385 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1385, ptr %13, align 8
-  br label %1386
+1384:                                             ; preds = %1380
+  br label %2543
 
-1386:                                             ; preds = %1384, %1362
-  br label %2426
+1385:                                             ; preds = %1380
+  %1386 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1386, ptr %13, align 8
+  br label %1387
 
-1387:                                             ; preds = %1358
-  %1388 = load i32, ptr %14, align 4
-  %1389 = and i32 %1388, 2
-  %1390 = icmp ne i32 %1389, 0
-  br i1 %1390, label %1391, label %1568
+1387:                                             ; preds = %1385, %1363
+  br label %2427
 
-1391:                                             ; preds = %1387
-  %1392 = load i32, ptr %23, align 4
-  %1393 = icmp sgt i32 %1392, 1
-  br i1 %1393, label %1398, label %1394
+1388:                                             ; preds = %1359
+  %1389 = load i32, ptr %14, align 4
+  %1390 = and i32 %1389, 2
+  %1391 = icmp ne i32 %1390, 0
+  br i1 %1391, label %1392, label %1569
 
-1394:                                             ; preds = %1391
-  %1395 = load i32, ptr %14, align 4
-  %1396 = and i32 %1395, 1
-  %1397 = icmp ne i32 %1396, 0
-  br i1 %1397, label %1398, label %1459
+1392:                                             ; preds = %1388
+  %1393 = load i32, ptr %23, align 4
+  %1394 = icmp sgt i32 %1393, 1
+  br i1 %1394, label %1399, label %1395
 
-1398:                                             ; preds = %1394, %1391
-  %1399 = load ptr, ptr %12, align 8
-  %1400 = getelementptr i8, ptr %1399, i32 1
-  store ptr %1400, ptr %12, align 8
-  %1401 = load i8, ptr %1399, align 1
-  %1402 = getelementptr [4 x i8], ptr %36, i64 0, i64 2
-  store i8 %1401, ptr %1402, align 1
-  %1403 = getelementptr [4 x i8], ptr %36, i64 0, i64 3
-  store i8 46, ptr %1403, align 1
-  %1404 = getelementptr inbounds [4 x i8], ptr %36, i64 0, i64 0
-  %1405 = getelementptr i8, ptr %1404, i64 2
-  %1406 = load ptr, ptr %13, align 8
-  %1407 = getelementptr inbounds %struct.__siov, ptr %1406, i32 0, i32 0
-  store ptr %1405, ptr %1407, align 8
-  %1408 = load ptr, ptr %13, align 8
-  %1409 = getelementptr inbounds %struct.__siov, ptr %1408, i32 0, i32 1
-  store i64 2, ptr %1409, align 8
-  %1410 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1411 = load i64, ptr %1410, align 8
-  %1412 = add i64 %1411, 2
-  store i64 %1412, ptr %1410, align 8
-  %1413 = load ptr, ptr %13, align 8
-  %1414 = getelementptr %struct.__siov, ptr %1413, i32 1
-  store ptr %1414, ptr %13, align 8
-  %1415 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1416 = load i32, ptr %1415, align 8
-  %1417 = add i32 %1416, 1
-  store i32 %1417, ptr %1415, align 8
-  %1418 = icmp sge i32 %1417, 8
-  br i1 %1418, label %1419, label %1426
+1395:                                             ; preds = %1392
+  %1396 = load i32, ptr %14, align 4
+  %1397 = and i32 %1396, 1
+  %1398 = icmp ne i32 %1397, 0
+  br i1 %1398, label %1399, label %1460
 
-1419:                                             ; preds = %1398
-  %1420 = load ptr, ptr %5, align 8
-  %1421 = call i32 @BSD__sprint(ptr noundef %1420, ptr noundef %33)
-  %1422 = icmp ne i32 %1421, 0
-  br i1 %1422, label %1423, label %1424
+1399:                                             ; preds = %1395, %1392
+  %1400 = load ptr, ptr %12, align 8
+  %1401 = getelementptr i8, ptr %1400, i32 1
+  store ptr %1401, ptr %12, align 8
+  %1402 = load i8, ptr %1400, align 1
+  %1403 = getelementptr [4 x i8], ptr %36, i64 0, i64 2
+  store i8 %1402, ptr %1403, align 1
+  %1404 = getelementptr [4 x i8], ptr %36, i64 0, i64 3
+  store i8 46, ptr %1404, align 1
+  %1405 = getelementptr inbounds [4 x i8], ptr %36, i64 0, i64 0
+  %1406 = getelementptr i8, ptr %1405, i64 2
+  %1407 = load ptr, ptr %13, align 8
+  %1408 = getelementptr inbounds %struct.__siov, ptr %1407, i32 0, i32 0
+  store ptr %1406, ptr %1408, align 8
+  %1409 = load ptr, ptr %13, align 8
+  %1410 = getelementptr inbounds %struct.__siov, ptr %1409, i32 0, i32 1
+  store i64 2, ptr %1410, align 8
+  %1411 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1412 = load i64, ptr %1411, align 8
+  %1413 = add i64 %1412, 2
+  store i64 %1413, ptr %1411, align 8
+  %1414 = load ptr, ptr %13, align 8
+  %1415 = getelementptr %struct.__siov, ptr %1414, i32 1
+  store ptr %1415, ptr %13, align 8
+  %1416 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1417 = load i32, ptr %1416, align 8
+  %1418 = add i32 %1417, 1
+  store i32 %1418, ptr %1416, align 8
+  %1419 = icmp sge i32 %1418, 8
+  br i1 %1419, label %1420, label %1427
 
-1423:                                             ; preds = %1419
-  br label %2542
+1420:                                             ; preds = %1399
+  %1421 = load ptr, ptr %5, align 8
+  %1422 = call i32 @BSD__sprint(ptr noundef %1421, ptr noundef %33)
+  %1423 = icmp ne i32 %1422, 0
+  br i1 %1423, label %1424, label %1425
 
-1424:                                             ; preds = %1419
-  %1425 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1425, ptr %13, align 8
-  br label %1426
+1424:                                             ; preds = %1420
+  br label %2543
 
-1426:                                             ; preds = %1424, %1398
-  %1427 = load i32, ptr %23, align 4
-  %1428 = icmp sgt i32 %1427, 0
-  br i1 %1428, label %1429, label %1458
+1425:                                             ; preds = %1420
+  %1426 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1426, ptr %13, align 8
+  br label %1427
 
-1429:                                             ; preds = %1426
-  %1430 = load ptr, ptr %12, align 8
-  %1431 = load ptr, ptr %13, align 8
-  %1432 = getelementptr inbounds %struct.__siov, ptr %1431, i32 0, i32 0
-  store ptr %1430, ptr %1432, align 8
-  %1433 = load i32, ptr %23, align 4
-  %1434 = sub i32 %1433, 1
-  %1435 = sext i32 %1434 to i64
-  %1436 = load ptr, ptr %13, align 8
-  %1437 = getelementptr inbounds %struct.__siov, ptr %1436, i32 0, i32 1
-  store i64 %1435, ptr %1437, align 8
-  %1438 = load i32, ptr %23, align 4
-  %1439 = sub i32 %1438, 1
-  %1440 = sext i32 %1439 to i64
-  %1441 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1442 = load i64, ptr %1441, align 8
-  %1443 = add i64 %1442, %1440
-  store i64 %1443, ptr %1441, align 8
-  %1444 = load ptr, ptr %13, align 8
-  %1445 = getelementptr %struct.__siov, ptr %1444, i32 1
-  store ptr %1445, ptr %13, align 8
-  %1446 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1447 = load i32, ptr %1446, align 8
-  %1448 = add i32 %1447, 1
-  store i32 %1448, ptr %1446, align 8
-  %1449 = icmp sge i32 %1448, 8
-  br i1 %1449, label %1450, label %1457
+1427:                                             ; preds = %1425, %1399
+  %1428 = load i32, ptr %23, align 4
+  %1429 = icmp sgt i32 %1428, 0
+  br i1 %1429, label %1430, label %1459
 
-1450:                                             ; preds = %1429
-  %1451 = load ptr, ptr %5, align 8
-  %1452 = call i32 @BSD__sprint(ptr noundef %1451, ptr noundef %33)
-  %1453 = icmp ne i32 %1452, 0
-  br i1 %1453, label %1454, label %1455
+1430:                                             ; preds = %1427
+  %1431 = load ptr, ptr %12, align 8
+  %1432 = load ptr, ptr %13, align 8
+  %1433 = getelementptr inbounds %struct.__siov, ptr %1432, i32 0, i32 0
+  store ptr %1431, ptr %1433, align 8
+  %1434 = load i32, ptr %23, align 4
+  %1435 = sub i32 %1434, 1
+  %1436 = sext i32 %1435 to i64
+  %1437 = load ptr, ptr %13, align 8
+  %1438 = getelementptr inbounds %struct.__siov, ptr %1437, i32 0, i32 1
+  store i64 %1436, ptr %1438, align 8
+  %1439 = load i32, ptr %23, align 4
+  %1440 = sub i32 %1439, 1
+  %1441 = sext i32 %1440 to i64
+  %1442 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1443 = load i64, ptr %1442, align 8
+  %1444 = add i64 %1443, %1441
+  store i64 %1444, ptr %1442, align 8
+  %1445 = load ptr, ptr %13, align 8
+  %1446 = getelementptr %struct.__siov, ptr %1445, i32 1
+  store ptr %1446, ptr %13, align 8
+  %1447 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1448 = load i32, ptr %1447, align 8
+  %1449 = add i32 %1448, 1
+  store i32 %1449, ptr %1447, align 8
+  %1450 = icmp sge i32 %1449, 8
+  br i1 %1450, label %1451, label %1458
 
-1454:                                             ; preds = %1450
-  br label %2542
+1451:                                             ; preds = %1430
+  %1452 = load ptr, ptr %5, align 8
+  %1453 = call i32 @BSD__sprint(ptr noundef %1452, ptr noundef %33)
+  %1454 = icmp ne i32 %1453, 0
+  br i1 %1454, label %1455, label %1456
 
-1455:                                             ; preds = %1450
-  %1456 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1456, ptr %13, align 8
-  br label %1457
+1455:                                             ; preds = %1451
+  br label %2543
 
-1457:                                             ; preds = %1455, %1429
+1456:                                             ; preds = %1451
+  %1457 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1457, ptr %13, align 8
   br label %1458
 
-1458:                                             ; preds = %1457, %1426
+1458:                                             ; preds = %1456, %1430
+  br label %1459
+
+1459:                                             ; preds = %1458, %1427
+  br label %1483
+
+1460:                                             ; preds = %1395
+  %1461 = load ptr, ptr %12, align 8
+  %1462 = load ptr, ptr %13, align 8
+  %1463 = getelementptr inbounds %struct.__siov, ptr %1462, i32 0, i32 0
+  store ptr %1461, ptr %1463, align 8
+  %1464 = load ptr, ptr %13, align 8
+  %1465 = getelementptr inbounds %struct.__siov, ptr %1464, i32 0, i32 1
+  store i64 1, ptr %1465, align 8
+  %1466 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1467 = load i64, ptr %1466, align 8
+  %1468 = add i64 %1467, 1
+  store i64 %1468, ptr %1466, align 8
+  %1469 = load ptr, ptr %13, align 8
+  %1470 = getelementptr %struct.__siov, ptr %1469, i32 1
+  store ptr %1470, ptr %13, align 8
+  %1471 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1472 = load i32, ptr %1471, align 8
+  %1473 = add i32 %1472, 1
+  store i32 %1473, ptr %1471, align 8
+  %1474 = icmp sge i32 %1473, 8
+  br i1 %1474, label %1475, label %1482
+
+1475:                                             ; preds = %1460
+  %1476 = load ptr, ptr %5, align 8
+  %1477 = call i32 @BSD__sprint(ptr noundef %1476, ptr noundef %33)
+  %1478 = icmp ne i32 %1477, 0
+  br i1 %1478, label %1479, label %1480
+
+1479:                                             ; preds = %1475
+  br label %2543
+
+1480:                                             ; preds = %1475
+  %1481 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1481, ptr %13, align 8
   br label %1482
 
-1459:                                             ; preds = %1394
-  %1460 = load ptr, ptr %12, align 8
-  %1461 = load ptr, ptr %13, align 8
-  %1462 = getelementptr inbounds %struct.__siov, ptr %1461, i32 0, i32 0
-  store ptr %1460, ptr %1462, align 8
-  %1463 = load ptr, ptr %13, align 8
-  %1464 = getelementptr inbounds %struct.__siov, ptr %1463, i32 0, i32 1
-  store i64 1, ptr %1464, align 8
-  %1465 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1466 = load i64, ptr %1465, align 8
-  %1467 = add i64 %1466, 1
-  store i64 %1467, ptr %1465, align 8
-  %1468 = load ptr, ptr %13, align 8
-  %1469 = getelementptr %struct.__siov, ptr %1468, i32 1
-  store ptr %1469, ptr %13, align 8
-  %1470 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1471 = load i32, ptr %1470, align 8
-  %1472 = add i32 %1471, 1
-  store i32 %1472, ptr %1470, align 8
-  %1473 = icmp sge i32 %1472, 8
-  br i1 %1473, label %1474, label %1481
+1482:                                             ; preds = %1480, %1460
+  br label %1483
 
-1474:                                             ; preds = %1459
-  %1475 = load ptr, ptr %5, align 8
-  %1476 = call i32 @BSD__sprint(ptr noundef %1475, ptr noundef %33)
-  %1477 = icmp ne i32 %1476, 0
-  br i1 %1477, label %1478, label %1479
+1483:                                             ; preds = %1482, %1459
+  %1484 = load i32, ptr %24, align 4
+  %1485 = load i32, ptr %23, align 4
+  %1486 = sub i32 %1484, %1485
+  store i32 %1486, ptr %11, align 4
+  %1487 = icmp sgt i32 %1486, 0
+  br i1 %1487, label %1488, label %1542
 
-1478:                                             ; preds = %1474
-  br label %2542
+1488:                                             ; preds = %1483
+  br label %1489
 
-1479:                                             ; preds = %1474
-  %1480 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1480, ptr %13, align 8
-  br label %1481
+1489:                                             ; preds = %1513, %1488
+  %1490 = load i32, ptr %11, align 4
+  %1491 = icmp sgt i32 %1490, 16
+  br i1 %1491, label %1492, label %1516
 
-1481:                                             ; preds = %1479, %1459
-  br label %1482
+1492:                                             ; preds = %1489
+  %1493 = load ptr, ptr %13, align 8
+  %1494 = getelementptr inbounds %struct.__siov, ptr %1493, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %1494, align 8
+  %1495 = load ptr, ptr %13, align 8
+  %1496 = getelementptr inbounds %struct.__siov, ptr %1495, i32 0, i32 1
+  store i64 16, ptr %1496, align 8
+  %1497 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1498 = load i64, ptr %1497, align 8
+  %1499 = add i64 %1498, 16
+  store i64 %1499, ptr %1497, align 8
+  %1500 = load ptr, ptr %13, align 8
+  %1501 = getelementptr %struct.__siov, ptr %1500, i32 1
+  store ptr %1501, ptr %13, align 8
+  %1502 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1503 = load i32, ptr %1502, align 8
+  %1504 = add i32 %1503, 1
+  store i32 %1504, ptr %1502, align 8
+  %1505 = icmp sge i32 %1504, 8
+  br i1 %1505, label %1506, label %1513
 
-1482:                                             ; preds = %1481, %1458
-  %1483 = load i32, ptr %24, align 4
-  %1484 = load i32, ptr %23, align 4
-  %1485 = sub i32 %1483, %1484
-  store i32 %1485, ptr %11, align 4
-  %1486 = icmp sgt i32 %1485, 0
-  br i1 %1486, label %1487, label %1541
+1506:                                             ; preds = %1492
+  %1507 = load ptr, ptr %5, align 8
+  %1508 = call i32 @BSD__sprint(ptr noundef %1507, ptr noundef %33)
+  %1509 = icmp ne i32 %1508, 0
+  br i1 %1509, label %1510, label %1511
 
-1487:                                             ; preds = %1482
-  br label %1488
+1510:                                             ; preds = %1506
+  br label %2543
 
-1488:                                             ; preds = %1512, %1487
-  %1489 = load i32, ptr %11, align 4
-  %1490 = icmp sgt i32 %1489, 16
-  br i1 %1490, label %1491, label %1515
+1511:                                             ; preds = %1506
+  %1512 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1512, ptr %13, align 8
+  br label %1513
 
-1491:                                             ; preds = %1488
-  %1492 = load ptr, ptr %13, align 8
-  %1493 = getelementptr inbounds %struct.__siov, ptr %1492, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %1493, align 8
-  %1494 = load ptr, ptr %13, align 8
-  %1495 = getelementptr inbounds %struct.__siov, ptr %1494, i32 0, i32 1
-  store i64 16, ptr %1495, align 8
-  %1496 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1497 = load i64, ptr %1496, align 8
-  %1498 = add i64 %1497, 16
-  store i64 %1498, ptr %1496, align 8
-  %1499 = load ptr, ptr %13, align 8
-  %1500 = getelementptr %struct.__siov, ptr %1499, i32 1
-  store ptr %1500, ptr %13, align 8
-  %1501 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1502 = load i32, ptr %1501, align 8
-  %1503 = add i32 %1502, 1
-  store i32 %1503, ptr %1501, align 8
-  %1504 = icmp sge i32 %1503, 8
-  br i1 %1504, label %1505, label %1512
+1513:                                             ; preds = %1511, %1492
+  %1514 = load i32, ptr %11, align 4
+  %1515 = sub i32 %1514, 16
+  store i32 %1515, ptr %11, align 4
+  br label %1489, !llvm.loop !46
 
-1505:                                             ; preds = %1491
-  %1506 = load ptr, ptr %5, align 8
-  %1507 = call i32 @BSD__sprint(ptr noundef %1506, ptr noundef %33)
-  %1508 = icmp ne i32 %1507, 0
-  br i1 %1508, label %1509, label %1510
+1516:                                             ; preds = %1489
+  %1517 = load ptr, ptr %13, align 8
+  %1518 = getelementptr inbounds %struct.__siov, ptr %1517, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %1518, align 8
+  %1519 = load i32, ptr %11, align 4
+  %1520 = sext i32 %1519 to i64
+  %1521 = load ptr, ptr %13, align 8
+  %1522 = getelementptr inbounds %struct.__siov, ptr %1521, i32 0, i32 1
+  store i64 %1520, ptr %1522, align 8
+  %1523 = load i32, ptr %11, align 4
+  %1524 = sext i32 %1523 to i64
+  %1525 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1526 = load i64, ptr %1525, align 8
+  %1527 = add i64 %1526, %1524
+  store i64 %1527, ptr %1525, align 8
+  %1528 = load ptr, ptr %13, align 8
+  %1529 = getelementptr %struct.__siov, ptr %1528, i32 1
+  store ptr %1529, ptr %13, align 8
+  %1530 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1531 = load i32, ptr %1530, align 8
+  %1532 = add i32 %1531, 1
+  store i32 %1532, ptr %1530, align 8
+  %1533 = icmp sge i32 %1532, 8
+  br i1 %1533, label %1534, label %1541
 
-1509:                                             ; preds = %1505
-  br label %2542
+1534:                                             ; preds = %1516
+  %1535 = load ptr, ptr %5, align 8
+  %1536 = call i32 @BSD__sprint(ptr noundef %1535, ptr noundef %33)
+  %1537 = icmp ne i32 %1536, 0
+  br i1 %1537, label %1538, label %1539
 
-1510:                                             ; preds = %1505
-  %1511 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1511, ptr %13, align 8
-  br label %1512
+1538:                                             ; preds = %1534
+  br label %2543
 
-1512:                                             ; preds = %1510, %1491
-  %1513 = load i32, ptr %11, align 4
-  %1514 = sub i32 %1513, 16
-  store i32 %1514, ptr %11, align 4
-  br label %1488, !llvm.loop !46
-
-1515:                                             ; preds = %1488
-  %1516 = load ptr, ptr %13, align 8
-  %1517 = getelementptr inbounds %struct.__siov, ptr %1516, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %1517, align 8
-  %1518 = load i32, ptr %11, align 4
-  %1519 = sext i32 %1518 to i64
-  %1520 = load ptr, ptr %13, align 8
-  %1521 = getelementptr inbounds %struct.__siov, ptr %1520, i32 0, i32 1
-  store i64 %1519, ptr %1521, align 8
-  %1522 = load i32, ptr %11, align 4
-  %1523 = sext i32 %1522 to i64
-  %1524 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1525 = load i64, ptr %1524, align 8
-  %1526 = add i64 %1525, %1523
-  store i64 %1526, ptr %1524, align 8
-  %1527 = load ptr, ptr %13, align 8
-  %1528 = getelementptr %struct.__siov, ptr %1527, i32 1
-  store ptr %1528, ptr %13, align 8
-  %1529 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1530 = load i32, ptr %1529, align 8
-  %1531 = add i32 %1530, 1
-  store i32 %1531, ptr %1529, align 8
-  %1532 = icmp sge i32 %1531, 8
-  br i1 %1532, label %1533, label %1540
-
-1533:                                             ; preds = %1515
-  %1534 = load ptr, ptr %5, align 8
-  %1535 = call i32 @BSD__sprint(ptr noundef %1534, ptr noundef %33)
-  %1536 = icmp ne i32 %1535, 0
-  br i1 %1536, label %1537, label %1538
-
-1537:                                             ; preds = %1533
-  br label %2542
-
-1538:                                             ; preds = %1533
-  %1539 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1539, ptr %13, align 8
-  br label %1540
-
-1540:                                             ; preds = %1538, %1515
+1539:                                             ; preds = %1534
+  %1540 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1540, ptr %13, align 8
   br label %1541
 
-1541:                                             ; preds = %1540, %1482
-  %1542 = getelementptr inbounds [7 x i8], ptr %25, i64 0, i64 0
-  %1543 = load ptr, ptr %13, align 8
-  %1544 = getelementptr inbounds %struct.__siov, ptr %1543, i32 0, i32 0
-  store ptr %1542, ptr %1544, align 8
-  %1545 = load i32, ptr %22, align 4
-  %1546 = sext i32 %1545 to i64
-  %1547 = load ptr, ptr %13, align 8
-  %1548 = getelementptr inbounds %struct.__siov, ptr %1547, i32 0, i32 1
-  store i64 %1546, ptr %1548, align 8
-  %1549 = load i32, ptr %22, align 4
-  %1550 = sext i32 %1549 to i64
-  %1551 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1552 = load i64, ptr %1551, align 8
-  %1553 = add i64 %1552, %1550
-  store i64 %1553, ptr %1551, align 8
-  %1554 = load ptr, ptr %13, align 8
-  %1555 = getelementptr %struct.__siov, ptr %1554, i32 1
-  store ptr %1555, ptr %13, align 8
-  %1556 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1557 = load i32, ptr %1556, align 8
-  %1558 = add i32 %1557, 1
-  store i32 %1558, ptr %1556, align 8
-  %1559 = icmp sge i32 %1558, 8
-  br i1 %1559, label %1560, label %1567
-
-1560:                                             ; preds = %1541
-  %1561 = load ptr, ptr %5, align 8
-  %1562 = call i32 @BSD__sprint(ptr noundef %1561, ptr noundef %33)
-  %1563 = icmp ne i32 %1562, 0
-  br i1 %1563, label %1564, label %1565
-
-1564:                                             ; preds = %1560
-  br label %2542
-
-1565:                                             ; preds = %1560
-  %1566 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1566, ptr %13, align 8
-  br label %1567
-
-1567:                                             ; preds = %1565, %1541
-  br label %2425
-
-1568:                                             ; preds = %1387
-  %1569 = load i32, ptr %10, align 4
-  %1570 = icmp sge i32 %1569, 102
-  br i1 %1570, label %1571, label %2183
-
-1571:                                             ; preds = %1568
-  %1572 = load double, ptr %20, align 8
-  %1573 = fcmp oeq double %1572, 0.000000e+00
-  br i1 %1573, label %1574, label %1696
-
-1574:                                             ; preds = %1571
-  %1575 = load i32, ptr %23, align 4
-  %1576 = icmp sle i32 %1575, 1
-  br i1 %1576, label %1577, label %1603
-
-1577:                                             ; preds = %1574
-  %1578 = load i32, ptr %14, align 4
-  %1579 = and i32 %1578, 1
-  %1580 = icmp eq i32 %1579, 0
-  br i1 %1580, label %1581, label %1603
-
-1581:                                             ; preds = %1577
-  %1582 = load ptr, ptr %13, align 8
-  %1583 = getelementptr inbounds %struct.__siov, ptr %1582, i32 0, i32 0
-  store ptr @.str.22, ptr %1583, align 8
-  %1584 = load ptr, ptr %13, align 8
-  %1585 = getelementptr inbounds %struct.__siov, ptr %1584, i32 0, i32 1
-  store i64 1, ptr %1585, align 8
-  %1586 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1587 = load i64, ptr %1586, align 8
-  %1588 = add i64 %1587, 1
-  store i64 %1588, ptr %1586, align 8
-  %1589 = load ptr, ptr %13, align 8
-  %1590 = getelementptr %struct.__siov, ptr %1589, i32 1
-  store ptr %1590, ptr %13, align 8
-  %1591 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1592 = load i32, ptr %1591, align 8
-  %1593 = add i32 %1592, 1
-  store i32 %1593, ptr %1591, align 8
-  %1594 = icmp sge i32 %1593, 8
-  br i1 %1594, label %1595, label %1602
-
-1595:                                             ; preds = %1581
-  %1596 = load ptr, ptr %5, align 8
-  %1597 = call i32 @BSD__sprint(ptr noundef %1596, ptr noundef %33)
-  %1598 = icmp ne i32 %1597, 0
-  br i1 %1598, label %1599, label %1600
-
-1599:                                             ; preds = %1595
-  br label %2542
-
-1600:                                             ; preds = %1595
-  %1601 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1601, ptr %13, align 8
-  br label %1602
-
-1602:                                             ; preds = %1600, %1581
-  br label %1695
-
-1603:                                             ; preds = %1577, %1574
-  %1604 = load ptr, ptr %13, align 8
-  %1605 = getelementptr inbounds %struct.__siov, ptr %1604, i32 0, i32 0
-  store ptr @.str.45, ptr %1605, align 8
-  %1606 = load ptr, ptr %13, align 8
-  %1607 = getelementptr inbounds %struct.__siov, ptr %1606, i32 0, i32 1
-  store i64 2, ptr %1607, align 8
-  %1608 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1609 = load i64, ptr %1608, align 8
-  %1610 = add i64 %1609, 2
-  store i64 %1610, ptr %1608, align 8
-  %1611 = load ptr, ptr %13, align 8
-  %1612 = getelementptr %struct.__siov, ptr %1611, i32 1
-  store ptr %1612, ptr %13, align 8
-  %1613 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1614 = load i32, ptr %1613, align 8
-  %1615 = add i32 %1614, 1
-  store i32 %1615, ptr %1613, align 8
-  %1616 = icmp sge i32 %1615, 8
-  br i1 %1616, label %1617, label %1624
-
-1617:                                             ; preds = %1603
-  %1618 = load ptr, ptr %5, align 8
-  %1619 = call i32 @BSD__sprint(ptr noundef %1618, ptr noundef %33)
-  %1620 = icmp ne i32 %1619, 0
-  br i1 %1620, label %1621, label %1622
-
-1621:                                             ; preds = %1617
-  br label %2542
-
-1622:                                             ; preds = %1617
-  %1623 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1623, ptr %13, align 8
-  br label %1624
-
-1624:                                             ; preds = %1622, %1603
-  %1625 = load i32, ptr %23, align 4
-  %1626 = load i32, ptr %24, align 4
-  %1627 = icmp sge i32 %1625, %1626
-  br i1 %1627, label %1628, label %1631
-
-1628:                                             ; preds = %1624
-  %1629 = load i32, ptr %23, align 4
-  %1630 = sub i32 %1629, 1
-  br label %1637
-
-1631:                                             ; preds = %1624
-  %1632 = load i32, ptr %24, align 4
-  %1633 = load i32, ptr %10, align 4
-  %1634 = icmp ne i32 %1633, 102
-  %1635 = zext i1 %1634 to i32
-  %1636 = sub i32 %1632, %1635
-  br label %1637
-
-1637:                                             ; preds = %1631, %1628
-  %1638 = phi i32 [ %1630, %1628 ], [ %1636, %1631 ]
-  store i32 %1638, ptr %11, align 4
-  %1639 = icmp sgt i32 %1638, 0
-  br i1 %1639, label %1640, label %1694
-
-1640:                                             ; preds = %1637
-  br label %1641
-
-1641:                                             ; preds = %1665, %1640
-  %1642 = load i32, ptr %11, align 4
-  %1643 = icmp sgt i32 %1642, 16
-  br i1 %1643, label %1644, label %1668
-
-1644:                                             ; preds = %1641
-  %1645 = load ptr, ptr %13, align 8
-  %1646 = getelementptr inbounds %struct.__siov, ptr %1645, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %1646, align 8
-  %1647 = load ptr, ptr %13, align 8
-  %1648 = getelementptr inbounds %struct.__siov, ptr %1647, i32 0, i32 1
-  store i64 16, ptr %1648, align 8
-  %1649 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1650 = load i64, ptr %1649, align 8
-  %1651 = add i64 %1650, 16
-  store i64 %1651, ptr %1649, align 8
-  %1652 = load ptr, ptr %13, align 8
-  %1653 = getelementptr %struct.__siov, ptr %1652, i32 1
-  store ptr %1653, ptr %13, align 8
-  %1654 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1655 = load i32, ptr %1654, align 8
-  %1656 = add i32 %1655, 1
-  store i32 %1656, ptr %1654, align 8
-  %1657 = icmp sge i32 %1656, 8
-  br i1 %1657, label %1658, label %1665
-
-1658:                                             ; preds = %1644
-  %1659 = load ptr, ptr %5, align 8
-  %1660 = call i32 @BSD__sprint(ptr noundef %1659, ptr noundef %33)
-  %1661 = icmp ne i32 %1660, 0
-  br i1 %1661, label %1662, label %1663
-
-1662:                                             ; preds = %1658
-  br label %2542
-
-1663:                                             ; preds = %1658
-  %1664 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1664, ptr %13, align 8
-  br label %1665
-
-1665:                                             ; preds = %1663, %1644
-  %1666 = load i32, ptr %11, align 4
-  %1667 = sub i32 %1666, 16
-  store i32 %1667, ptr %11, align 4
-  br label %1641, !llvm.loop !47
-
-1668:                                             ; preds = %1641
-  %1669 = load ptr, ptr %13, align 8
-  %1670 = getelementptr inbounds %struct.__siov, ptr %1669, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %1670, align 8
-  %1671 = load i32, ptr %11, align 4
-  %1672 = sext i32 %1671 to i64
-  %1673 = load ptr, ptr %13, align 8
-  %1674 = getelementptr inbounds %struct.__siov, ptr %1673, i32 0, i32 1
-  store i64 %1672, ptr %1674, align 8
-  %1675 = load i32, ptr %11, align 4
-  %1676 = sext i32 %1675 to i64
-  %1677 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1678 = load i64, ptr %1677, align 8
-  %1679 = add i64 %1678, %1676
-  store i64 %1679, ptr %1677, align 8
-  %1680 = load ptr, ptr %13, align 8
-  %1681 = getelementptr %struct.__siov, ptr %1680, i32 1
-  store ptr %1681, ptr %13, align 8
-  %1682 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1683 = load i32, ptr %1682, align 8
-  %1684 = add i32 %1683, 1
-  store i32 %1684, ptr %1682, align 8
-  %1685 = icmp sge i32 %1684, 8
-  br i1 %1685, label %1686, label %1693
-
-1686:                                             ; preds = %1668
-  %1687 = load ptr, ptr %5, align 8
-  %1688 = call i32 @BSD__sprint(ptr noundef %1687, ptr noundef %33)
-  %1689 = icmp ne i32 %1688, 0
-  br i1 %1689, label %1690, label %1691
-
-1690:                                             ; preds = %1686
-  br label %2542
-
-1691:                                             ; preds = %1686
-  %1692 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1692, ptr %13, align 8
-  br label %1693
-
-1693:                                             ; preds = %1691, %1668
-  br label %1694
-
-1694:                                             ; preds = %1693, %1637
-  br label %1695
-
-1695:                                             ; preds = %1694, %1602
-  br label %2182
-
-1696:                                             ; preds = %1571
-  %1697 = load i32, ptr %21, align 4
-  %1698 = icmp eq i32 %1697, 0
-  br i1 %1698, label %1699, label %1728
-
-1699:                                             ; preds = %1696
-  %1700 = load i32, ptr %23, align 4
-  %1701 = icmp eq i32 %1700, 0
-  br i1 %1701, label %1702, label %1728
-
-1702:                                             ; preds = %1699
-  %1703 = load i32, ptr %14, align 4
-  %1704 = and i32 %1703, 1
-  %1705 = icmp eq i32 %1704, 0
-  br i1 %1705, label %1706, label %1728
-
-1706:                                             ; preds = %1702
-  %1707 = load ptr, ptr %13, align 8
-  %1708 = getelementptr inbounds %struct.__siov, ptr %1707, i32 0, i32 0
-  store ptr @.str.22, ptr %1708, align 8
-  %1709 = load ptr, ptr %13, align 8
-  %1710 = getelementptr inbounds %struct.__siov, ptr %1709, i32 0, i32 1
-  store i64 1, ptr %1710, align 8
-  %1711 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1712 = load i64, ptr %1711, align 8
-  %1713 = add i64 %1712, 1
-  store i64 %1713, ptr %1711, align 8
-  %1714 = load ptr, ptr %13, align 8
-  %1715 = getelementptr %struct.__siov, ptr %1714, i32 1
-  store ptr %1715, ptr %13, align 8
-  %1716 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1717 = load i32, ptr %1716, align 8
-  %1718 = add i32 %1717, 1
-  store i32 %1718, ptr %1716, align 8
-  %1719 = icmp sge i32 %1718, 8
-  br i1 %1719, label %1720, label %1727
-
-1720:                                             ; preds = %1706
-  %1721 = load ptr, ptr %5, align 8
-  %1722 = call i32 @BSD__sprint(ptr noundef %1721, ptr noundef %33)
-  %1723 = icmp ne i32 %1722, 0
-  br i1 %1723, label %1724, label %1725
-
-1724:                                             ; preds = %1720
-  br label %2542
-
-1725:                                             ; preds = %1720
-  %1726 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1726, ptr %13, align 8
-  br label %1727
-
-1727:                                             ; preds = %1725, %1706
-  br label %2181
-
-1728:                                             ; preds = %1702, %1699, %1696
-  %1729 = load i32, ptr %21, align 4
-  %1730 = icmp sle i32 %1729, 0
-  br i1 %1730, label %1731, label %1909
-
-1731:                                             ; preds = %1728
-  %1732 = load ptr, ptr %13, align 8
-  %1733 = getelementptr inbounds %struct.__siov, ptr %1732, i32 0, i32 0
-  store ptr @.str.45, ptr %1733, align 8
-  %1734 = load ptr, ptr %13, align 8
-  %1735 = getelementptr inbounds %struct.__siov, ptr %1734, i32 0, i32 1
-  store i64 2, ptr %1735, align 8
-  %1736 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1737 = load i64, ptr %1736, align 8
-  %1738 = add i64 %1737, 2
-  store i64 %1738, ptr %1736, align 8
-  %1739 = load ptr, ptr %13, align 8
-  %1740 = getelementptr %struct.__siov, ptr %1739, i32 1
-  store ptr %1740, ptr %13, align 8
-  %1741 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1742 = load i32, ptr %1741, align 8
-  %1743 = add i32 %1742, 1
-  store i32 %1743, ptr %1741, align 8
-  %1744 = icmp sge i32 %1743, 8
-  br i1 %1744, label %1745, label %1752
-
-1745:                                             ; preds = %1731
-  %1746 = load ptr, ptr %5, align 8
-  %1747 = call i32 @BSD__sprint(ptr noundef %1746, ptr noundef %33)
-  %1748 = icmp ne i32 %1747, 0
-  br i1 %1748, label %1749, label %1750
-
-1749:                                             ; preds = %1745
-  br label %2542
-
-1750:                                             ; preds = %1745
-  %1751 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1751, ptr %13, align 8
-  br label %1752
-
-1752:                                             ; preds = %1750, %1731
-  %1753 = load i32, ptr %21, align 4
-  %1754 = sub i32 0, %1753
-  store i32 %1754, ptr %11, align 4
-  %1755 = icmp sgt i32 %1754, 0
-  br i1 %1755, label %1756, label %1810
-
-1756:                                             ; preds = %1752
-  br label %1757
-
-1757:                                             ; preds = %1781, %1756
-  %1758 = load i32, ptr %11, align 4
-  %1759 = icmp sgt i32 %1758, 16
-  br i1 %1759, label %1760, label %1784
-
-1760:                                             ; preds = %1757
-  %1761 = load ptr, ptr %13, align 8
-  %1762 = getelementptr inbounds %struct.__siov, ptr %1761, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %1762, align 8
-  %1763 = load ptr, ptr %13, align 8
-  %1764 = getelementptr inbounds %struct.__siov, ptr %1763, i32 0, i32 1
-  store i64 16, ptr %1764, align 8
-  %1765 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1766 = load i64, ptr %1765, align 8
-  %1767 = add i64 %1766, 16
-  store i64 %1767, ptr %1765, align 8
-  %1768 = load ptr, ptr %13, align 8
-  %1769 = getelementptr %struct.__siov, ptr %1768, i32 1
-  store ptr %1769, ptr %13, align 8
-  %1770 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1771 = load i32, ptr %1770, align 8
-  %1772 = add i32 %1771, 1
-  store i32 %1772, ptr %1770, align 8
-  %1773 = icmp sge i32 %1772, 8
-  br i1 %1773, label %1774, label %1781
-
-1774:                                             ; preds = %1760
-  %1775 = load ptr, ptr %5, align 8
-  %1776 = call i32 @BSD__sprint(ptr noundef %1775, ptr noundef %33)
-  %1777 = icmp ne i32 %1776, 0
-  br i1 %1777, label %1778, label %1779
-
-1778:                                             ; preds = %1774
-  br label %2542
-
-1779:                                             ; preds = %1774
-  %1780 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1780, ptr %13, align 8
-  br label %1781
-
-1781:                                             ; preds = %1779, %1760
-  %1782 = load i32, ptr %11, align 4
-  %1783 = sub i32 %1782, 16
-  store i32 %1783, ptr %11, align 4
-  br label %1757, !llvm.loop !48
-
-1784:                                             ; preds = %1757
-  %1785 = load ptr, ptr %13, align 8
-  %1786 = getelementptr inbounds %struct.__siov, ptr %1785, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %1786, align 8
-  %1787 = load i32, ptr %11, align 4
-  %1788 = sext i32 %1787 to i64
-  %1789 = load ptr, ptr %13, align 8
-  %1790 = getelementptr inbounds %struct.__siov, ptr %1789, i32 0, i32 1
-  store i64 %1788, ptr %1790, align 8
-  %1791 = load i32, ptr %11, align 4
-  %1792 = sext i32 %1791 to i64
-  %1793 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1794 = load i64, ptr %1793, align 8
-  %1795 = add i64 %1794, %1792
-  store i64 %1795, ptr %1793, align 8
-  %1796 = load ptr, ptr %13, align 8
-  %1797 = getelementptr %struct.__siov, ptr %1796, i32 1
-  store ptr %1797, ptr %13, align 8
-  %1798 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1799 = load i32, ptr %1798, align 8
-  %1800 = add i32 %1799, 1
-  store i32 %1800, ptr %1798, align 8
-  %1801 = icmp sge i32 %1800, 8
-  br i1 %1801, label %1802, label %1809
-
-1802:                                             ; preds = %1784
-  %1803 = load ptr, ptr %5, align 8
-  %1804 = call i32 @BSD__sprint(ptr noundef %1803, ptr noundef %33)
-  %1805 = icmp ne i32 %1804, 0
-  br i1 %1805, label %1806, label %1807
-
-1806:                                             ; preds = %1802
-  br label %2542
-
-1807:                                             ; preds = %1802
-  %1808 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1808, ptr %13, align 8
-  br label %1809
-
-1809:                                             ; preds = %1807, %1784
-  br label %1810
-
-1810:                                             ; preds = %1809, %1752
-  %1811 = load ptr, ptr %12, align 8
-  %1812 = load ptr, ptr %13, align 8
-  %1813 = getelementptr inbounds %struct.__siov, ptr %1812, i32 0, i32 0
-  store ptr %1811, ptr %1813, align 8
-  %1814 = load i32, ptr %23, align 4
-  %1815 = sext i32 %1814 to i64
-  %1816 = load ptr, ptr %13, align 8
-  %1817 = getelementptr inbounds %struct.__siov, ptr %1816, i32 0, i32 1
-  store i64 %1815, ptr %1817, align 8
-  %1818 = load i32, ptr %23, align 4
-  %1819 = sext i32 %1818 to i64
-  %1820 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1821 = load i64, ptr %1820, align 8
-  %1822 = add i64 %1821, %1819
-  store i64 %1822, ptr %1820, align 8
-  %1823 = load ptr, ptr %13, align 8
-  %1824 = getelementptr %struct.__siov, ptr %1823, i32 1
-  store ptr %1824, ptr %13, align 8
-  %1825 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1826 = load i32, ptr %1825, align 8
-  %1827 = add i32 %1826, 1
-  store i32 %1827, ptr %1825, align 8
-  %1828 = icmp sge i32 %1827, 8
-  br i1 %1828, label %1829, label %1836
-
-1829:                                             ; preds = %1810
-  %1830 = load ptr, ptr %5, align 8
-  %1831 = call i32 @BSD__sprint(ptr noundef %1830, ptr noundef %33)
-  %1832 = icmp ne i32 %1831, 0
-  br i1 %1832, label %1833, label %1834
-
-1833:                                             ; preds = %1829
-  br label %2542
-
-1834:                                             ; preds = %1829
-  %1835 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1835, ptr %13, align 8
-  br label %1836
-
-1836:                                             ; preds = %1834, %1810
-  %1837 = load i32, ptr %14, align 4
-  %1838 = and i32 %1837, 1
-  %1839 = icmp ne i32 %1838, 0
-  br i1 %1839, label %1840, label %1908
-
-1840:                                             ; preds = %1836
-  %1841 = load i32, ptr %24, align 4
-  %1842 = load i32, ptr %23, align 4
-  %1843 = sub i32 %1841, %1842
-  %1844 = load i32, ptr %10, align 4
-  %1845 = icmp eq i32 %1844, 102
-  br i1 %1845, label %1846, label %1848
-
-1846:                                             ; preds = %1840
-  %1847 = load i32, ptr %21, align 4
-  br label %1849
-
-1848:                                             ; preds = %1840
-  br label %1849
-
-1849:                                             ; preds = %1848, %1846
-  %1850 = phi i32 [ %1847, %1846 ], [ 0, %1848 ]
-  %1851 = add i32 %1843, %1850
-  store i32 %1851, ptr %11, align 4
-  %1852 = icmp sgt i32 %1851, 0
-  br i1 %1852, label %1853, label %1907
-
-1853:                                             ; preds = %1849
-  br label %1854
-
-1854:                                             ; preds = %1878, %1853
-  %1855 = load i32, ptr %11, align 4
-  %1856 = icmp sgt i32 %1855, 16
-  br i1 %1856, label %1857, label %1881
-
-1857:                                             ; preds = %1854
-  %1858 = load ptr, ptr %13, align 8
-  %1859 = getelementptr inbounds %struct.__siov, ptr %1858, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %1859, align 8
-  %1860 = load ptr, ptr %13, align 8
-  %1861 = getelementptr inbounds %struct.__siov, ptr %1860, i32 0, i32 1
-  store i64 16, ptr %1861, align 8
-  %1862 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1863 = load i64, ptr %1862, align 8
-  %1864 = add i64 %1863, 16
-  store i64 %1864, ptr %1862, align 8
-  %1865 = load ptr, ptr %13, align 8
-  %1866 = getelementptr %struct.__siov, ptr %1865, i32 1
-  store ptr %1866, ptr %13, align 8
-  %1867 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1868 = load i32, ptr %1867, align 8
-  %1869 = add i32 %1868, 1
-  store i32 %1869, ptr %1867, align 8
-  %1870 = icmp sge i32 %1869, 8
-  br i1 %1870, label %1871, label %1878
-
-1871:                                             ; preds = %1857
-  %1872 = load ptr, ptr %5, align 8
-  %1873 = call i32 @BSD__sprint(ptr noundef %1872, ptr noundef %33)
-  %1874 = icmp ne i32 %1873, 0
-  br i1 %1874, label %1875, label %1876
-
-1875:                                             ; preds = %1871
-  br label %2542
-
-1876:                                             ; preds = %1871
-  %1877 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1877, ptr %13, align 8
-  br label %1878
-
-1878:                                             ; preds = %1876, %1857
-  %1879 = load i32, ptr %11, align 4
-  %1880 = sub i32 %1879, 16
-  store i32 %1880, ptr %11, align 4
-  br label %1854, !llvm.loop !49
-
-1881:                                             ; preds = %1854
-  %1882 = load ptr, ptr %13, align 8
-  %1883 = getelementptr inbounds %struct.__siov, ptr %1882, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %1883, align 8
-  %1884 = load i32, ptr %11, align 4
-  %1885 = sext i32 %1884 to i64
-  %1886 = load ptr, ptr %13, align 8
-  %1887 = getelementptr inbounds %struct.__siov, ptr %1886, i32 0, i32 1
-  store i64 %1885, ptr %1887, align 8
-  %1888 = load i32, ptr %11, align 4
-  %1889 = sext i32 %1888 to i64
-  %1890 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1891 = load i64, ptr %1890, align 8
-  %1892 = add i64 %1891, %1889
-  store i64 %1892, ptr %1890, align 8
-  %1893 = load ptr, ptr %13, align 8
-  %1894 = getelementptr %struct.__siov, ptr %1893, i32 1
-  store ptr %1894, ptr %13, align 8
-  %1895 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1896 = load i32, ptr %1895, align 8
-  %1897 = add i32 %1896, 1
-  store i32 %1897, ptr %1895, align 8
-  %1898 = icmp sge i32 %1897, 8
-  br i1 %1898, label %1899, label %1906
-
-1899:                                             ; preds = %1881
-  %1900 = load ptr, ptr %5, align 8
-  %1901 = call i32 @BSD__sprint(ptr noundef %1900, ptr noundef %33)
-  %1902 = icmp ne i32 %1901, 0
-  br i1 %1902, label %1903, label %1904
-
-1903:                                             ; preds = %1899
-  br label %2542
-
-1904:                                             ; preds = %1899
-  %1905 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1905, ptr %13, align 8
-  br label %1906
-
-1906:                                             ; preds = %1904, %1881
-  br label %1907
-
-1907:                                             ; preds = %1906, %1849
-  br label %1908
-
-1908:                                             ; preds = %1907, %1836
-  br label %2180
-
-1909:                                             ; preds = %1728
-  %1910 = load i32, ptr %21, align 4
-  %1911 = load i32, ptr %23, align 4
-  %1912 = icmp sge i32 %1910, %1911
-  br i1 %1912, label %1913, label %2025
-
-1913:                                             ; preds = %1909
-  %1914 = load ptr, ptr %12, align 8
-  %1915 = load ptr, ptr %13, align 8
-  %1916 = getelementptr inbounds %struct.__siov, ptr %1915, i32 0, i32 0
-  store ptr %1914, ptr %1916, align 8
-  %1917 = load i32, ptr %23, align 4
-  %1918 = sext i32 %1917 to i64
-  %1919 = load ptr, ptr %13, align 8
-  %1920 = getelementptr inbounds %struct.__siov, ptr %1919, i32 0, i32 1
-  store i64 %1918, ptr %1920, align 8
-  %1921 = load i32, ptr %23, align 4
-  %1922 = sext i32 %1921 to i64
-  %1923 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1924 = load i64, ptr %1923, align 8
-  %1925 = add i64 %1924, %1922
-  store i64 %1925, ptr %1923, align 8
-  %1926 = load ptr, ptr %13, align 8
-  %1927 = getelementptr %struct.__siov, ptr %1926, i32 1
-  store ptr %1927, ptr %13, align 8
-  %1928 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1929 = load i32, ptr %1928, align 8
-  %1930 = add i32 %1929, 1
-  store i32 %1930, ptr %1928, align 8
-  %1931 = icmp sge i32 %1930, 8
-  br i1 %1931, label %1932, label %1939
-
-1932:                                             ; preds = %1913
-  %1933 = load ptr, ptr %5, align 8
-  %1934 = call i32 @BSD__sprint(ptr noundef %1933, ptr noundef %33)
-  %1935 = icmp ne i32 %1934, 0
-  br i1 %1935, label %1936, label %1937
-
-1936:                                             ; preds = %1932
-  br label %2542
-
-1937:                                             ; preds = %1932
-  %1938 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1938, ptr %13, align 8
-  br label %1939
-
-1939:                                             ; preds = %1937, %1913
-  %1940 = load i32, ptr %21, align 4
-  %1941 = load i32, ptr %23, align 4
-  %1942 = sub i32 %1940, %1941
-  store i32 %1942, ptr %11, align 4
-  %1943 = icmp sgt i32 %1942, 0
-  br i1 %1943, label %1944, label %1998
-
-1944:                                             ; preds = %1939
-  br label %1945
-
-1945:                                             ; preds = %1969, %1944
-  %1946 = load i32, ptr %11, align 4
-  %1947 = icmp sgt i32 %1946, 16
-  br i1 %1947, label %1948, label %1972
-
-1948:                                             ; preds = %1945
-  %1949 = load ptr, ptr %13, align 8
-  %1950 = getelementptr inbounds %struct.__siov, ptr %1949, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %1950, align 8
-  %1951 = load ptr, ptr %13, align 8
-  %1952 = getelementptr inbounds %struct.__siov, ptr %1951, i32 0, i32 1
-  store i64 16, ptr %1952, align 8
-  %1953 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1954 = load i64, ptr %1953, align 8
-  %1955 = add i64 %1954, 16
-  store i64 %1955, ptr %1953, align 8
-  %1956 = load ptr, ptr %13, align 8
-  %1957 = getelementptr %struct.__siov, ptr %1956, i32 1
-  store ptr %1957, ptr %13, align 8
-  %1958 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1959 = load i32, ptr %1958, align 8
-  %1960 = add i32 %1959, 1
-  store i32 %1960, ptr %1958, align 8
-  %1961 = icmp sge i32 %1960, 8
-  br i1 %1961, label %1962, label %1969
-
-1962:                                             ; preds = %1948
-  %1963 = load ptr, ptr %5, align 8
-  %1964 = call i32 @BSD__sprint(ptr noundef %1963, ptr noundef %33)
-  %1965 = icmp ne i32 %1964, 0
-  br i1 %1965, label %1966, label %1967
-
-1966:                                             ; preds = %1962
-  br label %2542
-
-1967:                                             ; preds = %1962
-  %1968 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1968, ptr %13, align 8
-  br label %1969
-
-1969:                                             ; preds = %1967, %1948
-  %1970 = load i32, ptr %11, align 4
-  %1971 = sub i32 %1970, 16
-  store i32 %1971, ptr %11, align 4
-  br label %1945, !llvm.loop !50
-
-1972:                                             ; preds = %1945
-  %1973 = load ptr, ptr %13, align 8
-  %1974 = getelementptr inbounds %struct.__siov, ptr %1973, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %1974, align 8
-  %1975 = load i32, ptr %11, align 4
-  %1976 = sext i32 %1975 to i64
-  %1977 = load ptr, ptr %13, align 8
-  %1978 = getelementptr inbounds %struct.__siov, ptr %1977, i32 0, i32 1
-  store i64 %1976, ptr %1978, align 8
-  %1979 = load i32, ptr %11, align 4
-  %1980 = sext i32 %1979 to i64
-  %1981 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %1982 = load i64, ptr %1981, align 8
-  %1983 = add i64 %1982, %1980
-  store i64 %1983, ptr %1981, align 8
-  %1984 = load ptr, ptr %13, align 8
-  %1985 = getelementptr %struct.__siov, ptr %1984, i32 1
-  store ptr %1985, ptr %13, align 8
-  %1986 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %1987 = load i32, ptr %1986, align 8
-  %1988 = add i32 %1987, 1
-  store i32 %1988, ptr %1986, align 8
-  %1989 = icmp sge i32 %1988, 8
-  br i1 %1989, label %1990, label %1997
-
-1990:                                             ; preds = %1972
-  %1991 = load ptr, ptr %5, align 8
-  %1992 = call i32 @BSD__sprint(ptr noundef %1991, ptr noundef %33)
-  %1993 = icmp ne i32 %1992, 0
-  br i1 %1993, label %1994, label %1995
-
-1994:                                             ; preds = %1990
-  br label %2542
-
-1995:                                             ; preds = %1990
-  %1996 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %1996, ptr %13, align 8
-  br label %1997
-
-1997:                                             ; preds = %1995, %1972
-  br label %1998
-
-1998:                                             ; preds = %1997, %1939
-  %1999 = load i32, ptr %14, align 4
-  %2000 = and i32 %1999, 1
-  %2001 = icmp ne i32 %2000, 0
-  br i1 %2001, label %2002, label %2024
-
-2002:                                             ; preds = %1998
-  %2003 = load ptr, ptr %13, align 8
-  %2004 = getelementptr inbounds %struct.__siov, ptr %2003, i32 0, i32 0
-  store ptr @.str.46, ptr %2004, align 8
-  %2005 = load ptr, ptr %13, align 8
-  %2006 = getelementptr inbounds %struct.__siov, ptr %2005, i32 0, i32 1
-  store i64 1, ptr %2006, align 8
-  %2007 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2008 = load i64, ptr %2007, align 8
-  %2009 = add i64 %2008, 1
-  store i64 %2009, ptr %2007, align 8
-  %2010 = load ptr, ptr %13, align 8
-  %2011 = getelementptr %struct.__siov, ptr %2010, i32 1
-  store ptr %2011, ptr %13, align 8
-  %2012 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2013 = load i32, ptr %2012, align 8
-  %2014 = add i32 %2013, 1
-  store i32 %2014, ptr %2012, align 8
-  %2015 = icmp sge i32 %2014, 8
-  br i1 %2015, label %2016, label %2023
-
-2016:                                             ; preds = %2002
-  %2017 = load ptr, ptr %5, align 8
-  %2018 = call i32 @BSD__sprint(ptr noundef %2017, ptr noundef %33)
-  %2019 = icmp ne i32 %2018, 0
-  br i1 %2019, label %2020, label %2021
-
-2020:                                             ; preds = %2016
-  br label %2542
-
-2021:                                             ; preds = %2016
-  %2022 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2022, ptr %13, align 8
-  br label %2023
-
-2023:                                             ; preds = %2021, %2002
-  br label %2024
-
-2024:                                             ; preds = %2023, %1998
-  br label %2179
-
-2025:                                             ; preds = %1909
-  %2026 = load ptr, ptr %12, align 8
-  %2027 = load ptr, ptr %13, align 8
-  %2028 = getelementptr inbounds %struct.__siov, ptr %2027, i32 0, i32 0
-  store ptr %2026, ptr %2028, align 8
-  %2029 = load i32, ptr %21, align 4
-  %2030 = sext i32 %2029 to i64
-  %2031 = load ptr, ptr %13, align 8
-  %2032 = getelementptr inbounds %struct.__siov, ptr %2031, i32 0, i32 1
-  store i64 %2030, ptr %2032, align 8
-  %2033 = load i32, ptr %21, align 4
-  %2034 = sext i32 %2033 to i64
-  %2035 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2036 = load i64, ptr %2035, align 8
-  %2037 = add i64 %2036, %2034
-  store i64 %2037, ptr %2035, align 8
-  %2038 = load ptr, ptr %13, align 8
-  %2039 = getelementptr %struct.__siov, ptr %2038, i32 1
-  store ptr %2039, ptr %13, align 8
-  %2040 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2041 = load i32, ptr %2040, align 8
-  %2042 = add i32 %2041, 1
-  store i32 %2042, ptr %2040, align 8
-  %2043 = icmp sge i32 %2042, 8
-  br i1 %2043, label %2044, label %2051
-
-2044:                                             ; preds = %2025
-  %2045 = load ptr, ptr %5, align 8
-  %2046 = call i32 @BSD__sprint(ptr noundef %2045, ptr noundef %33)
-  %2047 = icmp ne i32 %2046, 0
-  br i1 %2047, label %2048, label %2049
-
-2048:                                             ; preds = %2044
-  br label %2542
-
-2049:                                             ; preds = %2044
-  %2050 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2050, ptr %13, align 8
-  br label %2051
-
-2051:                                             ; preds = %2049, %2025
-  %2052 = load i32, ptr %21, align 4
-  %2053 = load ptr, ptr %12, align 8
-  %2054 = sext i32 %2052 to i64
-  %2055 = getelementptr i8, ptr %2053, i64 %2054
-  store ptr %2055, ptr %12, align 8
-  %2056 = load ptr, ptr %13, align 8
-  %2057 = getelementptr inbounds %struct.__siov, ptr %2056, i32 0, i32 0
-  store ptr @.str.46, ptr %2057, align 8
-  %2058 = load ptr, ptr %13, align 8
-  %2059 = getelementptr inbounds %struct.__siov, ptr %2058, i32 0, i32 1
-  store i64 1, ptr %2059, align 8
-  %2060 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2061 = load i64, ptr %2060, align 8
-  %2062 = add i64 %2061, 1
-  store i64 %2062, ptr %2060, align 8
-  %2063 = load ptr, ptr %13, align 8
-  %2064 = getelementptr %struct.__siov, ptr %2063, i32 1
-  store ptr %2064, ptr %13, align 8
-  %2065 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2066 = load i32, ptr %2065, align 8
-  %2067 = add i32 %2066, 1
-  store i32 %2067, ptr %2065, align 8
-  %2068 = icmp sge i32 %2067, 8
-  br i1 %2068, label %2069, label %2076
-
-2069:                                             ; preds = %2051
-  %2070 = load ptr, ptr %5, align 8
-  %2071 = call i32 @BSD__sprint(ptr noundef %2070, ptr noundef %33)
-  %2072 = icmp ne i32 %2071, 0
-  br i1 %2072, label %2073, label %2074
-
-2073:                                             ; preds = %2069
-  br label %2542
-
-2074:                                             ; preds = %2069
-  %2075 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2075, ptr %13, align 8
-  br label %2076
-
-2076:                                             ; preds = %2074, %2051
-  %2077 = load ptr, ptr %12, align 8
-  %2078 = load ptr, ptr %13, align 8
-  %2079 = getelementptr inbounds %struct.__siov, ptr %2078, i32 0, i32 0
-  store ptr %2077, ptr %2079, align 8
-  %2080 = load i32, ptr %23, align 4
-  %2081 = load i32, ptr %21, align 4
-  %2082 = sub i32 %2080, %2081
-  %2083 = sext i32 %2082 to i64
-  %2084 = load ptr, ptr %13, align 8
-  %2085 = getelementptr inbounds %struct.__siov, ptr %2084, i32 0, i32 1
-  store i64 %2083, ptr %2085, align 8
-  %2086 = load i32, ptr %23, align 4
-  %2087 = load i32, ptr %21, align 4
-  %2088 = sub i32 %2086, %2087
-  %2089 = sext i32 %2088 to i64
-  %2090 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2091 = load i64, ptr %2090, align 8
-  %2092 = add i64 %2091, %2089
-  store i64 %2092, ptr %2090, align 8
-  %2093 = load ptr, ptr %13, align 8
-  %2094 = getelementptr %struct.__siov, ptr %2093, i32 1
-  store ptr %2094, ptr %13, align 8
-  %2095 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2096 = load i32, ptr %2095, align 8
-  %2097 = add i32 %2096, 1
-  store i32 %2097, ptr %2095, align 8
-  %2098 = icmp sge i32 %2097, 8
-  br i1 %2098, label %2099, label %2106
-
-2099:                                             ; preds = %2076
-  %2100 = load ptr, ptr %5, align 8
-  %2101 = call i32 @BSD__sprint(ptr noundef %2100, ptr noundef %33)
-  %2102 = icmp ne i32 %2101, 0
-  br i1 %2102, label %2103, label %2104
-
-2103:                                             ; preds = %2099
-  br label %2542
-
-2104:                                             ; preds = %2099
-  %2105 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2105, ptr %13, align 8
-  br label %2106
-
-2106:                                             ; preds = %2104, %2076
-  %2107 = load i32, ptr %14, align 4
-  %2108 = and i32 %2107, 1
-  %2109 = icmp ne i32 %2108, 0
-  br i1 %2109, label %2110, label %2178
-
-2110:                                             ; preds = %2106
-  %2111 = load i32, ptr %24, align 4
-  %2112 = load i32, ptr %23, align 4
-  %2113 = sub i32 %2111, %2112
-  %2114 = load i32, ptr %10, align 4
-  %2115 = icmp eq i32 %2114, 102
-  br i1 %2115, label %2116, label %2118
-
-2116:                                             ; preds = %2110
-  %2117 = load i32, ptr %21, align 4
-  br label %2119
-
-2118:                                             ; preds = %2110
-  br label %2119
-
-2119:                                             ; preds = %2118, %2116
-  %2120 = phi i32 [ %2117, %2116 ], [ 0, %2118 ]
-  %2121 = add i32 %2113, %2120
-  store i32 %2121, ptr %11, align 4
-  %2122 = icmp sgt i32 %2121, 0
-  br i1 %2122, label %2123, label %2177
-
-2123:                                             ; preds = %2119
-  br label %2124
-
-2124:                                             ; preds = %2148, %2123
-  %2125 = load i32, ptr %11, align 4
-  %2126 = icmp sgt i32 %2125, 16
-  br i1 %2126, label %2127, label %2151
-
-2127:                                             ; preds = %2124
-  %2128 = load ptr, ptr %13, align 8
-  %2129 = getelementptr inbounds %struct.__siov, ptr %2128, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %2129, align 8
-  %2130 = load ptr, ptr %13, align 8
-  %2131 = getelementptr inbounds %struct.__siov, ptr %2130, i32 0, i32 1
-  store i64 16, ptr %2131, align 8
-  %2132 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2133 = load i64, ptr %2132, align 8
-  %2134 = add i64 %2133, 16
-  store i64 %2134, ptr %2132, align 8
-  %2135 = load ptr, ptr %13, align 8
-  %2136 = getelementptr %struct.__siov, ptr %2135, i32 1
-  store ptr %2136, ptr %13, align 8
-  %2137 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2138 = load i32, ptr %2137, align 8
-  %2139 = add i32 %2138, 1
-  store i32 %2139, ptr %2137, align 8
-  %2140 = icmp sge i32 %2139, 8
-  br i1 %2140, label %2141, label %2148
-
-2141:                                             ; preds = %2127
-  %2142 = load ptr, ptr %5, align 8
-  %2143 = call i32 @BSD__sprint(ptr noundef %2142, ptr noundef %33)
-  %2144 = icmp ne i32 %2143, 0
-  br i1 %2144, label %2145, label %2146
-
-2145:                                             ; preds = %2141
-  br label %2542
-
-2146:                                             ; preds = %2141
-  %2147 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2147, ptr %13, align 8
-  br label %2148
-
-2148:                                             ; preds = %2146, %2127
-  %2149 = load i32, ptr %11, align 4
-  %2150 = sub i32 %2149, 16
-  store i32 %2150, ptr %11, align 4
-  br label %2124, !llvm.loop !51
-
-2151:                                             ; preds = %2124
-  %2152 = load ptr, ptr %13, align 8
-  %2153 = getelementptr inbounds %struct.__siov, ptr %2152, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %2153, align 8
-  %2154 = load i32, ptr %11, align 4
-  %2155 = sext i32 %2154 to i64
-  %2156 = load ptr, ptr %13, align 8
-  %2157 = getelementptr inbounds %struct.__siov, ptr %2156, i32 0, i32 1
-  store i64 %2155, ptr %2157, align 8
-  %2158 = load i32, ptr %11, align 4
-  %2159 = sext i32 %2158 to i64
-  %2160 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2161 = load i64, ptr %2160, align 8
-  %2162 = add i64 %2161, %2159
-  store i64 %2162, ptr %2160, align 8
-  %2163 = load ptr, ptr %13, align 8
-  %2164 = getelementptr %struct.__siov, ptr %2163, i32 1
-  store ptr %2164, ptr %13, align 8
-  %2165 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2166 = load i32, ptr %2165, align 8
-  %2167 = add i32 %2166, 1
-  store i32 %2167, ptr %2165, align 8
-  %2168 = icmp sge i32 %2167, 8
-  br i1 %2168, label %2169, label %2176
-
-2169:                                             ; preds = %2151
-  %2170 = load ptr, ptr %5, align 8
-  %2171 = call i32 @BSD__sprint(ptr noundef %2170, ptr noundef %33)
-  %2172 = icmp ne i32 %2171, 0
-  br i1 %2172, label %2173, label %2174
-
-2173:                                             ; preds = %2169
-  br label %2542
-
-2174:                                             ; preds = %2169
-  %2175 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2175, ptr %13, align 8
-  br label %2176
-
-2176:                                             ; preds = %2174, %2151
-  br label %2177
-
-2177:                                             ; preds = %2176, %2119
-  br label %2178
-
-2178:                                             ; preds = %2177, %2106
-  br label %2179
-
-2179:                                             ; preds = %2178, %2024
-  br label %2180
-
-2180:                                             ; preds = %2179, %1908
-  br label %2181
-
-2181:                                             ; preds = %2180, %1727
-  br label %2182
-
-2182:                                             ; preds = %2181, %1695
-  br label %2424
-
-2183:                                             ; preds = %1568
-  %2184 = load i32, ptr %23, align 4
-  %2185 = icmp sgt i32 %2184, 1
-  br i1 %2185, label %2190, label %2186
-
-2186:                                             ; preds = %2183
-  %2187 = load i32, ptr %14, align 4
-  %2188 = and i32 %2187, 1
-  %2189 = icmp ne i32 %2188, 0
-  br i1 %2189, label %2190, label %2374
-
-2190:                                             ; preds = %2186, %2183
-  %2191 = load ptr, ptr %12, align 8
-  %2192 = getelementptr i8, ptr %2191, i32 1
-  store ptr %2192, ptr %12, align 8
-  %2193 = load i8, ptr %2191, align 1
-  %2194 = getelementptr [4 x i8], ptr %36, i64 0, i64 0
-  store i8 %2193, ptr %2194, align 1
-  %2195 = getelementptr [4 x i8], ptr %36, i64 0, i64 1
-  store i8 46, ptr %2195, align 1
-  %2196 = getelementptr inbounds [4 x i8], ptr %36, i64 0, i64 0
-  %2197 = load ptr, ptr %13, align 8
-  %2198 = getelementptr inbounds %struct.__siov, ptr %2197, i32 0, i32 0
-  store ptr %2196, ptr %2198, align 8
-  %2199 = load ptr, ptr %13, align 8
-  %2200 = getelementptr inbounds %struct.__siov, ptr %2199, i32 0, i32 1
-  store i64 2, ptr %2200, align 8
-  %2201 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2202 = load i64, ptr %2201, align 8
-  %2203 = add i64 %2202, 2
-  store i64 %2203, ptr %2201, align 8
-  %2204 = load ptr, ptr %13, align 8
-  %2205 = getelementptr %struct.__siov, ptr %2204, i32 1
-  store ptr %2205, ptr %13, align 8
-  %2206 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2207 = load i32, ptr %2206, align 8
-  %2208 = add i32 %2207, 1
-  store i32 %2208, ptr %2206, align 8
-  %2209 = icmp sge i32 %2208, 8
-  br i1 %2209, label %2210, label %2217
-
-2210:                                             ; preds = %2190
-  %2211 = load ptr, ptr %5, align 8
-  %2212 = call i32 @BSD__sprint(ptr noundef %2211, ptr noundef %33)
-  %2213 = icmp ne i32 %2212, 0
-  br i1 %2213, label %2214, label %2215
-
-2214:                                             ; preds = %2210
-  br label %2542
-
-2215:                                             ; preds = %2210
-  %2216 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2216, ptr %13, align 8
-  br label %2217
-
-2217:                                             ; preds = %2215, %2190
-  %2218 = load double, ptr %20, align 8
-  %2219 = fcmp une double %2218, 0.000000e+00
-  br i1 %2219, label %2220, label %2249
-
-2220:                                             ; preds = %2217
-  %2221 = load ptr, ptr %12, align 8
-  %2222 = load ptr, ptr %13, align 8
-  %2223 = getelementptr inbounds %struct.__siov, ptr %2222, i32 0, i32 0
-  store ptr %2221, ptr %2223, align 8
-  %2224 = load i32, ptr %23, align 4
-  %2225 = sub i32 %2224, 1
-  %2226 = sext i32 %2225 to i64
-  %2227 = load ptr, ptr %13, align 8
-  %2228 = getelementptr inbounds %struct.__siov, ptr %2227, i32 0, i32 1
-  store i64 %2226, ptr %2228, align 8
-  %2229 = load i32, ptr %23, align 4
-  %2230 = sub i32 %2229, 1
-  %2231 = sext i32 %2230 to i64
-  %2232 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2233 = load i64, ptr %2232, align 8
-  %2234 = add i64 %2233, %2231
-  store i64 %2234, ptr %2232, align 8
-  %2235 = load ptr, ptr %13, align 8
-  %2236 = getelementptr %struct.__siov, ptr %2235, i32 1
-  store ptr %2236, ptr %13, align 8
-  %2237 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2238 = load i32, ptr %2237, align 8
-  %2239 = add i32 %2238, 1
-  store i32 %2239, ptr %2237, align 8
-  %2240 = icmp sge i32 %2239, 8
-  br i1 %2240, label %2241, label %2248
-
-2241:                                             ; preds = %2220
-  %2242 = load ptr, ptr %5, align 8
-  %2243 = call i32 @BSD__sprint(ptr noundef %2242, ptr noundef %33)
-  %2244 = icmp ne i32 %2243, 0
-  br i1 %2244, label %2245, label %2246
-
-2245:                                             ; preds = %2241
-  br label %2542
-
-2246:                                             ; preds = %2241
-  %2247 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2247, ptr %13, align 8
-  br label %2248
-
-2248:                                             ; preds = %2246, %2220
-  br label %2308
-
-2249:                                             ; preds = %2217
-  %2250 = load i32, ptr %23, align 4
-  %2251 = sub i32 %2250, 1
-  store i32 %2251, ptr %11, align 4
-  %2252 = icmp sgt i32 %2251, 0
-  br i1 %2252, label %2253, label %2307
-
-2253:                                             ; preds = %2249
-  br label %2254
-
-2254:                                             ; preds = %2278, %2253
-  %2255 = load i32, ptr %11, align 4
-  %2256 = icmp sgt i32 %2255, 16
-  br i1 %2256, label %2257, label %2281
-
-2257:                                             ; preds = %2254
-  %2258 = load ptr, ptr %13, align 8
-  %2259 = getelementptr inbounds %struct.__siov, ptr %2258, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %2259, align 8
-  %2260 = load ptr, ptr %13, align 8
-  %2261 = getelementptr inbounds %struct.__siov, ptr %2260, i32 0, i32 1
-  store i64 16, ptr %2261, align 8
-  %2262 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2263 = load i64, ptr %2262, align 8
-  %2264 = add i64 %2263, 16
-  store i64 %2264, ptr %2262, align 8
-  %2265 = load ptr, ptr %13, align 8
-  %2266 = getelementptr %struct.__siov, ptr %2265, i32 1
-  store ptr %2266, ptr %13, align 8
-  %2267 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2268 = load i32, ptr %2267, align 8
-  %2269 = add i32 %2268, 1
-  store i32 %2269, ptr %2267, align 8
-  %2270 = icmp sge i32 %2269, 8
-  br i1 %2270, label %2271, label %2278
-
-2271:                                             ; preds = %2257
-  %2272 = load ptr, ptr %5, align 8
-  %2273 = call i32 @BSD__sprint(ptr noundef %2272, ptr noundef %33)
-  %2274 = icmp ne i32 %2273, 0
-  br i1 %2274, label %2275, label %2276
-
-2275:                                             ; preds = %2271
-  br label %2542
-
-2276:                                             ; preds = %2271
-  %2277 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2277, ptr %13, align 8
-  br label %2278
-
-2278:                                             ; preds = %2276, %2257
-  %2279 = load i32, ptr %11, align 4
-  %2280 = sub i32 %2279, 16
-  store i32 %2280, ptr %11, align 4
-  br label %2254, !llvm.loop !52
-
-2281:                                             ; preds = %2254
-  %2282 = load ptr, ptr %13, align 8
-  %2283 = getelementptr inbounds %struct.__siov, ptr %2282, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %2283, align 8
-  %2284 = load i32, ptr %11, align 4
-  %2285 = sext i32 %2284 to i64
-  %2286 = load ptr, ptr %13, align 8
-  %2287 = getelementptr inbounds %struct.__siov, ptr %2286, i32 0, i32 1
-  store i64 %2285, ptr %2287, align 8
-  %2288 = load i32, ptr %11, align 4
-  %2289 = sext i32 %2288 to i64
-  %2290 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2291 = load i64, ptr %2290, align 8
-  %2292 = add i64 %2291, %2289
-  store i64 %2292, ptr %2290, align 8
-  %2293 = load ptr, ptr %13, align 8
-  %2294 = getelementptr %struct.__siov, ptr %2293, i32 1
-  store ptr %2294, ptr %13, align 8
-  %2295 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2296 = load i32, ptr %2295, align 8
-  %2297 = add i32 %2296, 1
-  store i32 %2297, ptr %2295, align 8
-  %2298 = icmp sge i32 %2297, 8
-  br i1 %2298, label %2299, label %2306
-
-2299:                                             ; preds = %2281
-  %2300 = load ptr, ptr %5, align 8
-  %2301 = call i32 @BSD__sprint(ptr noundef %2300, ptr noundef %33)
-  %2302 = icmp ne i32 %2301, 0
-  br i1 %2302, label %2303, label %2304
-
-2303:                                             ; preds = %2299
-  br label %2542
-
-2304:                                             ; preds = %2299
-  %2305 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2305, ptr %13, align 8
-  br label %2306
-
-2306:                                             ; preds = %2304, %2281
-  br label %2307
-
-2307:                                             ; preds = %2306, %2249
-  br label %2308
-
-2308:                                             ; preds = %2307, %2248
-  %2309 = load i32, ptr %14, align 4
-  %2310 = and i32 %2309, 1
-  %2311 = icmp ne i32 %2310, 0
-  br i1 %2311, label %2312, label %2373
-
-2312:                                             ; preds = %2308
-  %2313 = load i32, ptr %24, align 4
-  %2314 = load i32, ptr %23, align 4
-  %2315 = sub i32 %2313, %2314
-  %2316 = sub i32 %2315, 1
-  store i32 %2316, ptr %11, align 4
-  %2317 = icmp sgt i32 %2316, 0
-  br i1 %2317, label %2318, label %2372
-
-2318:                                             ; preds = %2312
-  br label %2319
-
-2319:                                             ; preds = %2343, %2318
-  %2320 = load i32, ptr %11, align 4
-  %2321 = icmp sgt i32 %2320, 16
-  br i1 %2321, label %2322, label %2346
-
-2322:                                             ; preds = %2319
-  %2323 = load ptr, ptr %13, align 8
-  %2324 = getelementptr inbounds %struct.__siov, ptr %2323, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %2324, align 8
-  %2325 = load ptr, ptr %13, align 8
-  %2326 = getelementptr inbounds %struct.__siov, ptr %2325, i32 0, i32 1
-  store i64 16, ptr %2326, align 8
-  %2327 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2328 = load i64, ptr %2327, align 8
-  %2329 = add i64 %2328, 16
-  store i64 %2329, ptr %2327, align 8
-  %2330 = load ptr, ptr %13, align 8
-  %2331 = getelementptr %struct.__siov, ptr %2330, i32 1
-  store ptr %2331, ptr %13, align 8
-  %2332 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2333 = load i32, ptr %2332, align 8
-  %2334 = add i32 %2333, 1
-  store i32 %2334, ptr %2332, align 8
-  %2335 = icmp sge i32 %2334, 8
-  br i1 %2335, label %2336, label %2343
-
-2336:                                             ; preds = %2322
-  %2337 = load ptr, ptr %5, align 8
-  %2338 = call i32 @BSD__sprint(ptr noundef %2337, ptr noundef %33)
-  %2339 = icmp ne i32 %2338, 0
-  br i1 %2339, label %2340, label %2341
-
-2340:                                             ; preds = %2336
-  br label %2542
-
-2341:                                             ; preds = %2336
-  %2342 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2342, ptr %13, align 8
-  br label %2343
-
-2343:                                             ; preds = %2341, %2322
-  %2344 = load i32, ptr %11, align 4
-  %2345 = sub i32 %2344, 16
-  store i32 %2345, ptr %11, align 4
-  br label %2319, !llvm.loop !53
-
-2346:                                             ; preds = %2319
-  %2347 = load ptr, ptr %13, align 8
-  %2348 = getelementptr inbounds %struct.__siov, ptr %2347, i32 0, i32 0
-  store ptr @BSD_vfprintf.zeroes, ptr %2348, align 8
-  %2349 = load i32, ptr %11, align 4
-  %2350 = sext i32 %2349 to i64
-  %2351 = load ptr, ptr %13, align 8
-  %2352 = getelementptr inbounds %struct.__siov, ptr %2351, i32 0, i32 1
-  store i64 %2350, ptr %2352, align 8
-  %2353 = load i32, ptr %11, align 4
-  %2354 = sext i32 %2353 to i64
-  %2355 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2356 = load i64, ptr %2355, align 8
-  %2357 = add i64 %2356, %2354
-  store i64 %2357, ptr %2355, align 8
-  %2358 = load ptr, ptr %13, align 8
-  %2359 = getelementptr %struct.__siov, ptr %2358, i32 1
-  store ptr %2359, ptr %13, align 8
-  %2360 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2361 = load i32, ptr %2360, align 8
-  %2362 = add i32 %2361, 1
-  store i32 %2362, ptr %2360, align 8
-  %2363 = icmp sge i32 %2362, 8
-  br i1 %2363, label %2364, label %2371
-
-2364:                                             ; preds = %2346
-  %2365 = load ptr, ptr %5, align 8
-  %2366 = call i32 @BSD__sprint(ptr noundef %2365, ptr noundef %33)
-  %2367 = icmp ne i32 %2366, 0
-  br i1 %2367, label %2368, label %2369
-
-2368:                                             ; preds = %2364
-  br label %2542
-
-2369:                                             ; preds = %2364
-  %2370 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2370, ptr %13, align 8
-  br label %2371
-
-2371:                                             ; preds = %2369, %2346
-  br label %2372
-
-2372:                                             ; preds = %2371, %2312
-  br label %2373
-
-2373:                                             ; preds = %2372, %2308
-  br label %2397
-
-2374:                                             ; preds = %2186
-  %2375 = load ptr, ptr %12, align 8
-  %2376 = load ptr, ptr %13, align 8
-  %2377 = getelementptr inbounds %struct.__siov, ptr %2376, i32 0, i32 0
-  store ptr %2375, ptr %2377, align 8
-  %2378 = load ptr, ptr %13, align 8
-  %2379 = getelementptr inbounds %struct.__siov, ptr %2378, i32 0, i32 1
-  store i64 1, ptr %2379, align 8
-  %2380 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2381 = load i64, ptr %2380, align 8
-  %2382 = add i64 %2381, 1
-  store i64 %2382, ptr %2380, align 8
-  %2383 = load ptr, ptr %13, align 8
-  %2384 = getelementptr %struct.__siov, ptr %2383, i32 1
-  store ptr %2384, ptr %13, align 8
-  %2385 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2386 = load i32, ptr %2385, align 8
-  %2387 = add i32 %2386, 1
-  store i32 %2387, ptr %2385, align 8
-  %2388 = icmp sge i32 %2387, 8
-  br i1 %2388, label %2389, label %2396
-
-2389:                                             ; preds = %2374
-  %2390 = load ptr, ptr %5, align 8
-  %2391 = call i32 @BSD__sprint(ptr noundef %2390, ptr noundef %33)
-  %2392 = icmp ne i32 %2391, 0
-  br i1 %2392, label %2393, label %2394
-
-2393:                                             ; preds = %2389
-  br label %2542
-
-2394:                                             ; preds = %2389
-  %2395 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2395, ptr %13, align 8
-  br label %2396
-
-2396:                                             ; preds = %2394, %2374
-  br label %2397
-
-2397:                                             ; preds = %2396, %2373
-  %2398 = getelementptr inbounds [7 x i8], ptr %25, i64 0, i64 0
-  %2399 = load ptr, ptr %13, align 8
-  %2400 = getelementptr inbounds %struct.__siov, ptr %2399, i32 0, i32 0
-  store ptr %2398, ptr %2400, align 8
-  %2401 = load i32, ptr %22, align 4
-  %2402 = sext i32 %2401 to i64
-  %2403 = load ptr, ptr %13, align 8
-  %2404 = getelementptr inbounds %struct.__siov, ptr %2403, i32 0, i32 1
-  store i64 %2402, ptr %2404, align 8
-  %2405 = load i32, ptr %22, align 4
-  %2406 = sext i32 %2405 to i64
-  %2407 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2408 = load i64, ptr %2407, align 8
-  %2409 = add i64 %2408, %2406
-  store i64 %2409, ptr %2407, align 8
-  %2410 = load ptr, ptr %13, align 8
-  %2411 = getelementptr %struct.__siov, ptr %2410, i32 1
-  store ptr %2411, ptr %13, align 8
-  %2412 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2413 = load i32, ptr %2412, align 8
-  %2414 = add i32 %2413, 1
-  store i32 %2414, ptr %2412, align 8
-  %2415 = icmp sge i32 %2414, 8
-  br i1 %2415, label %2416, label %2423
-
-2416:                                             ; preds = %2397
-  %2417 = load ptr, ptr %5, align 8
-  %2418 = call i32 @BSD__sprint(ptr noundef %2417, ptr noundef %33)
-  %2419 = icmp ne i32 %2418, 0
-  br i1 %2419, label %2420, label %2421
-
-2420:                                             ; preds = %2416
-  br label %2542
-
-2421:                                             ; preds = %2416
-  %2422 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2422, ptr %13, align 8
-  br label %2423
-
-2423:                                             ; preds = %2421, %2397
-  br label %2424
-
-2424:                                             ; preds = %2423, %2182
-  br label %2425
-
-2425:                                             ; preds = %2424, %1567
+1541:                                             ; preds = %1539, %1516
+  br label %1542
+
+1542:                                             ; preds = %1541, %1483
+  %1543 = getelementptr inbounds [7 x i8], ptr %25, i64 0, i64 0
+  %1544 = load ptr, ptr %13, align 8
+  %1545 = getelementptr inbounds %struct.__siov, ptr %1544, i32 0, i32 0
+  store ptr %1543, ptr %1545, align 8
+  %1546 = load i32, ptr %22, align 4
+  %1547 = sext i32 %1546 to i64
+  %1548 = load ptr, ptr %13, align 8
+  %1549 = getelementptr inbounds %struct.__siov, ptr %1548, i32 0, i32 1
+  store i64 %1547, ptr %1549, align 8
+  %1550 = load i32, ptr %22, align 4
+  %1551 = sext i32 %1550 to i64
+  %1552 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1553 = load i64, ptr %1552, align 8
+  %1554 = add i64 %1553, %1551
+  store i64 %1554, ptr %1552, align 8
+  %1555 = load ptr, ptr %13, align 8
+  %1556 = getelementptr %struct.__siov, ptr %1555, i32 1
+  store ptr %1556, ptr %13, align 8
+  %1557 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1558 = load i32, ptr %1557, align 8
+  %1559 = add i32 %1558, 1
+  store i32 %1559, ptr %1557, align 8
+  %1560 = icmp sge i32 %1559, 8
+  br i1 %1560, label %1561, label %1568
+
+1561:                                             ; preds = %1542
+  %1562 = load ptr, ptr %5, align 8
+  %1563 = call i32 @BSD__sprint(ptr noundef %1562, ptr noundef %33)
+  %1564 = icmp ne i32 %1563, 0
+  br i1 %1564, label %1565, label %1566
+
+1565:                                             ; preds = %1561
+  br label %2543
+
+1566:                                             ; preds = %1561
+  %1567 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1567, ptr %13, align 8
+  br label %1568
+
+1568:                                             ; preds = %1566, %1542
   br label %2426
 
-2426:                                             ; preds = %2425, %1386
-  %2427 = load i32, ptr %14, align 4
-  %2428 = and i32 %2427, 4
-  %2429 = icmp ne i32 %2428, 0
-  br i1 %2429, label %2430, label %2505
+1569:                                             ; preds = %1388
+  %1570 = load i32, ptr %10, align 4
+  %1571 = icmp sge i32 %1570, 102
+  br i1 %1571, label %1572, label %2184
 
-2430:                                             ; preds = %2426
-  %2431 = load i32, ptr %16, align 4
-  %2432 = sext i32 %2431 to i64
-  %2433 = load i64, ptr %30, align 8
-  %2434 = sub i64 %2432, %2433
-  store i64 %2434, ptr %38, align 8
-  %2435 = load i64, ptr %38, align 8
-  %2436 = trunc i64 %2435 to i32
-  %2437 = sext i32 %2436 to i64
-  %2438 = load i64, ptr %38, align 8
-  %2439 = icmp ne i64 %2437, %2438
-  br i1 %2439, label %2440, label %2442
+1572:                                             ; preds = %1569
+  %1573 = load double, ptr %20, align 8
+  %1574 = fcmp oeq double %1573, 0.000000e+00
+  br i1 %1574, label %1575, label %1697
 
-2440:                                             ; preds = %2430
-  %2441 = call ptr @rb_errno_ptr()
-  store i32 12, ptr %2441, align 4
-  br label %2542
+1575:                                             ; preds = %1572
+  %1576 = load i32, ptr %23, align 4
+  %1577 = icmp sle i32 %1576, 1
+  br i1 %1577, label %1578, label %1604
 
-2442:                                             ; preds = %2430
-  %2443 = load i64, ptr %38, align 8
-  %2444 = icmp sgt i64 %2443, 0
-  br i1 %2444, label %2445, label %2504
+1578:                                             ; preds = %1575
+  %1579 = load i32, ptr %14, align 4
+  %1580 = and i32 %1579, 1
+  %1581 = icmp eq i32 %1580, 0
+  br i1 %1581, label %1582, label %1604
 
-2445:                                             ; preds = %2442
-  %2446 = load i64, ptr %38, align 8
-  %2447 = trunc i64 %2446 to i32
-  store i32 %2447, ptr %11, align 4
-  %2448 = icmp sgt i32 %2447, 0
-  br i1 %2448, label %2449, label %2503
+1582:                                             ; preds = %1578
+  %1583 = load ptr, ptr %13, align 8
+  %1584 = getelementptr inbounds %struct.__siov, ptr %1583, i32 0, i32 0
+  store ptr @.str.22, ptr %1584, align 8
+  %1585 = load ptr, ptr %13, align 8
+  %1586 = getelementptr inbounds %struct.__siov, ptr %1585, i32 0, i32 1
+  store i64 1, ptr %1586, align 8
+  %1587 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1588 = load i64, ptr %1587, align 8
+  %1589 = add i64 %1588, 1
+  store i64 %1589, ptr %1587, align 8
+  %1590 = load ptr, ptr %13, align 8
+  %1591 = getelementptr %struct.__siov, ptr %1590, i32 1
+  store ptr %1591, ptr %13, align 8
+  %1592 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1593 = load i32, ptr %1592, align 8
+  %1594 = add i32 %1593, 1
+  store i32 %1594, ptr %1592, align 8
+  %1595 = icmp sge i32 %1594, 8
+  br i1 %1595, label %1596, label %1603
 
-2449:                                             ; preds = %2445
-  br label %2450
+1596:                                             ; preds = %1582
+  %1597 = load ptr, ptr %5, align 8
+  %1598 = call i32 @BSD__sprint(ptr noundef %1597, ptr noundef %33)
+  %1599 = icmp ne i32 %1598, 0
+  br i1 %1599, label %1600, label %1601
 
-2450:                                             ; preds = %2474, %2449
-  %2451 = load i32, ptr %11, align 4
-  %2452 = icmp sgt i32 %2451, 16
-  br i1 %2452, label %2453, label %2477
+1600:                                             ; preds = %1596
+  br label %2543
 
-2453:                                             ; preds = %2450
-  %2454 = load ptr, ptr %13, align 8
-  %2455 = getelementptr inbounds %struct.__siov, ptr %2454, i32 0, i32 0
-  store ptr @BSD_vfprintf.blanks, ptr %2455, align 8
-  %2456 = load ptr, ptr %13, align 8
-  %2457 = getelementptr inbounds %struct.__siov, ptr %2456, i32 0, i32 1
-  store i64 16, ptr %2457, align 8
-  %2458 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2459 = load i64, ptr %2458, align 8
-  %2460 = add i64 %2459, 16
-  store i64 %2460, ptr %2458, align 8
-  %2461 = load ptr, ptr %13, align 8
-  %2462 = getelementptr %struct.__siov, ptr %2461, i32 1
-  store ptr %2462, ptr %13, align 8
-  %2463 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2464 = load i32, ptr %2463, align 8
-  %2465 = add i32 %2464, 1
-  store i32 %2465, ptr %2463, align 8
-  %2466 = icmp sge i32 %2465, 8
-  br i1 %2466, label %2467, label %2474
+1601:                                             ; preds = %1596
+  %1602 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1602, ptr %13, align 8
+  br label %1603
 
-2467:                                             ; preds = %2453
-  %2468 = load ptr, ptr %5, align 8
-  %2469 = call i32 @BSD__sprint(ptr noundef %2468, ptr noundef %33)
-  %2470 = icmp ne i32 %2469, 0
-  br i1 %2470, label %2471, label %2472
+1603:                                             ; preds = %1601, %1582
+  br label %1696
 
-2471:                                             ; preds = %2467
-  br label %2542
+1604:                                             ; preds = %1578, %1575
+  %1605 = load ptr, ptr %13, align 8
+  %1606 = getelementptr inbounds %struct.__siov, ptr %1605, i32 0, i32 0
+  store ptr @.str.45, ptr %1606, align 8
+  %1607 = load ptr, ptr %13, align 8
+  %1608 = getelementptr inbounds %struct.__siov, ptr %1607, i32 0, i32 1
+  store i64 2, ptr %1608, align 8
+  %1609 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1610 = load i64, ptr %1609, align 8
+  %1611 = add i64 %1610, 2
+  store i64 %1611, ptr %1609, align 8
+  %1612 = load ptr, ptr %13, align 8
+  %1613 = getelementptr %struct.__siov, ptr %1612, i32 1
+  store ptr %1613, ptr %13, align 8
+  %1614 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1615 = load i32, ptr %1614, align 8
+  %1616 = add i32 %1615, 1
+  store i32 %1616, ptr %1614, align 8
+  %1617 = icmp sge i32 %1616, 8
+  br i1 %1617, label %1618, label %1625
 
-2472:                                             ; preds = %2467
-  %2473 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2473, ptr %13, align 8
-  br label %2474
+1618:                                             ; preds = %1604
+  %1619 = load ptr, ptr %5, align 8
+  %1620 = call i32 @BSD__sprint(ptr noundef %1619, ptr noundef %33)
+  %1621 = icmp ne i32 %1620, 0
+  br i1 %1621, label %1622, label %1623
 
-2474:                                             ; preds = %2472, %2453
-  %2475 = load i32, ptr %11, align 4
-  %2476 = sub i32 %2475, 16
-  store i32 %2476, ptr %11, align 4
-  br label %2450, !llvm.loop !54
+1622:                                             ; preds = %1618
+  br label %2543
 
-2477:                                             ; preds = %2450
-  %2478 = load ptr, ptr %13, align 8
-  %2479 = getelementptr inbounds %struct.__siov, ptr %2478, i32 0, i32 0
-  store ptr @BSD_vfprintf.blanks, ptr %2479, align 8
-  %2480 = load i32, ptr %11, align 4
-  %2481 = sext i32 %2480 to i64
-  %2482 = load ptr, ptr %13, align 8
-  %2483 = getelementptr inbounds %struct.__siov, ptr %2482, i32 0, i32 1
-  store i64 %2481, ptr %2483, align 8
-  %2484 = load i32, ptr %11, align 4
-  %2485 = sext i32 %2484 to i64
-  %2486 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2487 = load i64, ptr %2486, align 8
-  %2488 = add i64 %2487, %2485
-  store i64 %2488, ptr %2486, align 8
-  %2489 = load ptr, ptr %13, align 8
-  %2490 = getelementptr %struct.__siov, ptr %2489, i32 1
-  store ptr %2490, ptr %13, align 8
-  %2491 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  %2492 = load i32, ptr %2491, align 8
-  %2493 = add i32 %2492, 1
-  store i32 %2493, ptr %2491, align 8
-  %2494 = icmp sge i32 %2493, 8
-  br i1 %2494, label %2495, label %2502
+1623:                                             ; preds = %1618
+  %1624 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1624, ptr %13, align 8
+  br label %1625
 
-2495:                                             ; preds = %2477
-  %2496 = load ptr, ptr %5, align 8
-  %2497 = call i32 @BSD__sprint(ptr noundef %2496, ptr noundef %33)
-  %2498 = icmp ne i32 %2497, 0
-  br i1 %2498, label %2499, label %2500
+1625:                                             ; preds = %1623, %1604
+  %1626 = load i32, ptr %23, align 4
+  %1627 = load i32, ptr %24, align 4
+  %1628 = icmp sge i32 %1626, %1627
+  br i1 %1628, label %1629, label %1632
 
-2499:                                             ; preds = %2495
-  br label %2542
+1629:                                             ; preds = %1625
+  %1630 = load i32, ptr %23, align 4
+  %1631 = sub i32 %1630, 1
+  br label %1638
 
-2500:                                             ; preds = %2495
-  %2501 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2501, ptr %13, align 8
-  br label %2502
+1632:                                             ; preds = %1625
+  %1633 = load i32, ptr %24, align 4
+  %1634 = load i32, ptr %10, align 4
+  %1635 = icmp ne i32 %1634, 102
+  %1636 = zext i1 %1635 to i32
+  %1637 = sub i32 %1633, %1636
+  br label %1638
 
-2502:                                             ; preds = %2500, %2477
+1638:                                             ; preds = %1632, %1629
+  %1639 = phi i32 [ %1631, %1629 ], [ %1637, %1632 ]
+  store i32 %1639, ptr %11, align 4
+  %1640 = icmp sgt i32 %1639, 0
+  br i1 %1640, label %1641, label %1695
+
+1641:                                             ; preds = %1638
+  br label %1642
+
+1642:                                             ; preds = %1666, %1641
+  %1643 = load i32, ptr %11, align 4
+  %1644 = icmp sgt i32 %1643, 16
+  br i1 %1644, label %1645, label %1669
+
+1645:                                             ; preds = %1642
+  %1646 = load ptr, ptr %13, align 8
+  %1647 = getelementptr inbounds %struct.__siov, ptr %1646, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %1647, align 8
+  %1648 = load ptr, ptr %13, align 8
+  %1649 = getelementptr inbounds %struct.__siov, ptr %1648, i32 0, i32 1
+  store i64 16, ptr %1649, align 8
+  %1650 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1651 = load i64, ptr %1650, align 8
+  %1652 = add i64 %1651, 16
+  store i64 %1652, ptr %1650, align 8
+  %1653 = load ptr, ptr %13, align 8
+  %1654 = getelementptr %struct.__siov, ptr %1653, i32 1
+  store ptr %1654, ptr %13, align 8
+  %1655 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1656 = load i32, ptr %1655, align 8
+  %1657 = add i32 %1656, 1
+  store i32 %1657, ptr %1655, align 8
+  %1658 = icmp sge i32 %1657, 8
+  br i1 %1658, label %1659, label %1666
+
+1659:                                             ; preds = %1645
+  %1660 = load ptr, ptr %5, align 8
+  %1661 = call i32 @BSD__sprint(ptr noundef %1660, ptr noundef %33)
+  %1662 = icmp ne i32 %1661, 0
+  br i1 %1662, label %1663, label %1664
+
+1663:                                             ; preds = %1659
+  br label %2543
+
+1664:                                             ; preds = %1659
+  %1665 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1665, ptr %13, align 8
+  br label %1666
+
+1666:                                             ; preds = %1664, %1645
+  %1667 = load i32, ptr %11, align 4
+  %1668 = sub i32 %1667, 16
+  store i32 %1668, ptr %11, align 4
+  br label %1642, !llvm.loop !47
+
+1669:                                             ; preds = %1642
+  %1670 = load ptr, ptr %13, align 8
+  %1671 = getelementptr inbounds %struct.__siov, ptr %1670, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %1671, align 8
+  %1672 = load i32, ptr %11, align 4
+  %1673 = sext i32 %1672 to i64
+  %1674 = load ptr, ptr %13, align 8
+  %1675 = getelementptr inbounds %struct.__siov, ptr %1674, i32 0, i32 1
+  store i64 %1673, ptr %1675, align 8
+  %1676 = load i32, ptr %11, align 4
+  %1677 = sext i32 %1676 to i64
+  %1678 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1679 = load i64, ptr %1678, align 8
+  %1680 = add i64 %1679, %1677
+  store i64 %1680, ptr %1678, align 8
+  %1681 = load ptr, ptr %13, align 8
+  %1682 = getelementptr %struct.__siov, ptr %1681, i32 1
+  store ptr %1682, ptr %13, align 8
+  %1683 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1684 = load i32, ptr %1683, align 8
+  %1685 = add i32 %1684, 1
+  store i32 %1685, ptr %1683, align 8
+  %1686 = icmp sge i32 %1685, 8
+  br i1 %1686, label %1687, label %1694
+
+1687:                                             ; preds = %1669
+  %1688 = load ptr, ptr %5, align 8
+  %1689 = call i32 @BSD__sprint(ptr noundef %1688, ptr noundef %33)
+  %1690 = icmp ne i32 %1689, 0
+  br i1 %1690, label %1691, label %1692
+
+1691:                                             ; preds = %1687
+  br label %2543
+
+1692:                                             ; preds = %1687
+  %1693 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1693, ptr %13, align 8
+  br label %1694
+
+1694:                                             ; preds = %1692, %1669
+  br label %1695
+
+1695:                                             ; preds = %1694, %1638
+  br label %1696
+
+1696:                                             ; preds = %1695, %1603
+  br label %2183
+
+1697:                                             ; preds = %1572
+  %1698 = load i32, ptr %21, align 4
+  %1699 = icmp eq i32 %1698, 0
+  br i1 %1699, label %1700, label %1729
+
+1700:                                             ; preds = %1697
+  %1701 = load i32, ptr %23, align 4
+  %1702 = icmp eq i32 %1701, 0
+  br i1 %1702, label %1703, label %1729
+
+1703:                                             ; preds = %1700
+  %1704 = load i32, ptr %14, align 4
+  %1705 = and i32 %1704, 1
+  %1706 = icmp eq i32 %1705, 0
+  br i1 %1706, label %1707, label %1729
+
+1707:                                             ; preds = %1703
+  %1708 = load ptr, ptr %13, align 8
+  %1709 = getelementptr inbounds %struct.__siov, ptr %1708, i32 0, i32 0
+  store ptr @.str.22, ptr %1709, align 8
+  %1710 = load ptr, ptr %13, align 8
+  %1711 = getelementptr inbounds %struct.__siov, ptr %1710, i32 0, i32 1
+  store i64 1, ptr %1711, align 8
+  %1712 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1713 = load i64, ptr %1712, align 8
+  %1714 = add i64 %1713, 1
+  store i64 %1714, ptr %1712, align 8
+  %1715 = load ptr, ptr %13, align 8
+  %1716 = getelementptr %struct.__siov, ptr %1715, i32 1
+  store ptr %1716, ptr %13, align 8
+  %1717 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1718 = load i32, ptr %1717, align 8
+  %1719 = add i32 %1718, 1
+  store i32 %1719, ptr %1717, align 8
+  %1720 = icmp sge i32 %1719, 8
+  br i1 %1720, label %1721, label %1728
+
+1721:                                             ; preds = %1707
+  %1722 = load ptr, ptr %5, align 8
+  %1723 = call i32 @BSD__sprint(ptr noundef %1722, ptr noundef %33)
+  %1724 = icmp ne i32 %1723, 0
+  br i1 %1724, label %1725, label %1726
+
+1725:                                             ; preds = %1721
+  br label %2543
+
+1726:                                             ; preds = %1721
+  %1727 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1727, ptr %13, align 8
+  br label %1728
+
+1728:                                             ; preds = %1726, %1707
+  br label %2182
+
+1729:                                             ; preds = %1703, %1700, %1697
+  %1730 = load i32, ptr %21, align 4
+  %1731 = icmp sle i32 %1730, 0
+  br i1 %1731, label %1732, label %1910
+
+1732:                                             ; preds = %1729
+  %1733 = load ptr, ptr %13, align 8
+  %1734 = getelementptr inbounds %struct.__siov, ptr %1733, i32 0, i32 0
+  store ptr @.str.45, ptr %1734, align 8
+  %1735 = load ptr, ptr %13, align 8
+  %1736 = getelementptr inbounds %struct.__siov, ptr %1735, i32 0, i32 1
+  store i64 2, ptr %1736, align 8
+  %1737 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1738 = load i64, ptr %1737, align 8
+  %1739 = add i64 %1738, 2
+  store i64 %1739, ptr %1737, align 8
+  %1740 = load ptr, ptr %13, align 8
+  %1741 = getelementptr %struct.__siov, ptr %1740, i32 1
+  store ptr %1741, ptr %13, align 8
+  %1742 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1743 = load i32, ptr %1742, align 8
+  %1744 = add i32 %1743, 1
+  store i32 %1744, ptr %1742, align 8
+  %1745 = icmp sge i32 %1744, 8
+  br i1 %1745, label %1746, label %1753
+
+1746:                                             ; preds = %1732
+  %1747 = load ptr, ptr %5, align 8
+  %1748 = call i32 @BSD__sprint(ptr noundef %1747, ptr noundef %33)
+  %1749 = icmp ne i32 %1748, 0
+  br i1 %1749, label %1750, label %1751
+
+1750:                                             ; preds = %1746
+  br label %2543
+
+1751:                                             ; preds = %1746
+  %1752 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1752, ptr %13, align 8
+  br label %1753
+
+1753:                                             ; preds = %1751, %1732
+  %1754 = load i32, ptr %21, align 4
+  %1755 = sub i32 0, %1754
+  store i32 %1755, ptr %11, align 4
+  %1756 = icmp sgt i32 %1755, 0
+  br i1 %1756, label %1757, label %1811
+
+1757:                                             ; preds = %1753
+  br label %1758
+
+1758:                                             ; preds = %1782, %1757
+  %1759 = load i32, ptr %11, align 4
+  %1760 = icmp sgt i32 %1759, 16
+  br i1 %1760, label %1761, label %1785
+
+1761:                                             ; preds = %1758
+  %1762 = load ptr, ptr %13, align 8
+  %1763 = getelementptr inbounds %struct.__siov, ptr %1762, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %1763, align 8
+  %1764 = load ptr, ptr %13, align 8
+  %1765 = getelementptr inbounds %struct.__siov, ptr %1764, i32 0, i32 1
+  store i64 16, ptr %1765, align 8
+  %1766 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1767 = load i64, ptr %1766, align 8
+  %1768 = add i64 %1767, 16
+  store i64 %1768, ptr %1766, align 8
+  %1769 = load ptr, ptr %13, align 8
+  %1770 = getelementptr %struct.__siov, ptr %1769, i32 1
+  store ptr %1770, ptr %13, align 8
+  %1771 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1772 = load i32, ptr %1771, align 8
+  %1773 = add i32 %1772, 1
+  store i32 %1773, ptr %1771, align 8
+  %1774 = icmp sge i32 %1773, 8
+  br i1 %1774, label %1775, label %1782
+
+1775:                                             ; preds = %1761
+  %1776 = load ptr, ptr %5, align 8
+  %1777 = call i32 @BSD__sprint(ptr noundef %1776, ptr noundef %33)
+  %1778 = icmp ne i32 %1777, 0
+  br i1 %1778, label %1779, label %1780
+
+1779:                                             ; preds = %1775
+  br label %2543
+
+1780:                                             ; preds = %1775
+  %1781 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1781, ptr %13, align 8
+  br label %1782
+
+1782:                                             ; preds = %1780, %1761
+  %1783 = load i32, ptr %11, align 4
+  %1784 = sub i32 %1783, 16
+  store i32 %1784, ptr %11, align 4
+  br label %1758, !llvm.loop !48
+
+1785:                                             ; preds = %1758
+  %1786 = load ptr, ptr %13, align 8
+  %1787 = getelementptr inbounds %struct.__siov, ptr %1786, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %1787, align 8
+  %1788 = load i32, ptr %11, align 4
+  %1789 = sext i32 %1788 to i64
+  %1790 = load ptr, ptr %13, align 8
+  %1791 = getelementptr inbounds %struct.__siov, ptr %1790, i32 0, i32 1
+  store i64 %1789, ptr %1791, align 8
+  %1792 = load i32, ptr %11, align 4
+  %1793 = sext i32 %1792 to i64
+  %1794 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1795 = load i64, ptr %1794, align 8
+  %1796 = add i64 %1795, %1793
+  store i64 %1796, ptr %1794, align 8
+  %1797 = load ptr, ptr %13, align 8
+  %1798 = getelementptr %struct.__siov, ptr %1797, i32 1
+  store ptr %1798, ptr %13, align 8
+  %1799 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1800 = load i32, ptr %1799, align 8
+  %1801 = add i32 %1800, 1
+  store i32 %1801, ptr %1799, align 8
+  %1802 = icmp sge i32 %1801, 8
+  br i1 %1802, label %1803, label %1810
+
+1803:                                             ; preds = %1785
+  %1804 = load ptr, ptr %5, align 8
+  %1805 = call i32 @BSD__sprint(ptr noundef %1804, ptr noundef %33)
+  %1806 = icmp ne i32 %1805, 0
+  br i1 %1806, label %1807, label %1808
+
+1807:                                             ; preds = %1803
+  br label %2543
+
+1808:                                             ; preds = %1803
+  %1809 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1809, ptr %13, align 8
+  br label %1810
+
+1810:                                             ; preds = %1808, %1785
+  br label %1811
+
+1811:                                             ; preds = %1810, %1753
+  %1812 = load ptr, ptr %12, align 8
+  %1813 = load ptr, ptr %13, align 8
+  %1814 = getelementptr inbounds %struct.__siov, ptr %1813, i32 0, i32 0
+  store ptr %1812, ptr %1814, align 8
+  %1815 = load i32, ptr %23, align 4
+  %1816 = sext i32 %1815 to i64
+  %1817 = load ptr, ptr %13, align 8
+  %1818 = getelementptr inbounds %struct.__siov, ptr %1817, i32 0, i32 1
+  store i64 %1816, ptr %1818, align 8
+  %1819 = load i32, ptr %23, align 4
+  %1820 = sext i32 %1819 to i64
+  %1821 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1822 = load i64, ptr %1821, align 8
+  %1823 = add i64 %1822, %1820
+  store i64 %1823, ptr %1821, align 8
+  %1824 = load ptr, ptr %13, align 8
+  %1825 = getelementptr %struct.__siov, ptr %1824, i32 1
+  store ptr %1825, ptr %13, align 8
+  %1826 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1827 = load i32, ptr %1826, align 8
+  %1828 = add i32 %1827, 1
+  store i32 %1828, ptr %1826, align 8
+  %1829 = icmp sge i32 %1828, 8
+  br i1 %1829, label %1830, label %1837
+
+1830:                                             ; preds = %1811
+  %1831 = load ptr, ptr %5, align 8
+  %1832 = call i32 @BSD__sprint(ptr noundef %1831, ptr noundef %33)
+  %1833 = icmp ne i32 %1832, 0
+  br i1 %1833, label %1834, label %1835
+
+1834:                                             ; preds = %1830
+  br label %2543
+
+1835:                                             ; preds = %1830
+  %1836 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1836, ptr %13, align 8
+  br label %1837
+
+1837:                                             ; preds = %1835, %1811
+  %1838 = load i32, ptr %14, align 4
+  %1839 = and i32 %1838, 1
+  %1840 = icmp ne i32 %1839, 0
+  br i1 %1840, label %1841, label %1909
+
+1841:                                             ; preds = %1837
+  %1842 = load i32, ptr %24, align 4
+  %1843 = load i32, ptr %23, align 4
+  %1844 = sub i32 %1842, %1843
+  %1845 = load i32, ptr %10, align 4
+  %1846 = icmp eq i32 %1845, 102
+  br i1 %1846, label %1847, label %1849
+
+1847:                                             ; preds = %1841
+  %1848 = load i32, ptr %21, align 4
+  br label %1850
+
+1849:                                             ; preds = %1841
+  br label %1850
+
+1850:                                             ; preds = %1849, %1847
+  %1851 = phi i32 [ %1848, %1847 ], [ 0, %1849 ]
+  %1852 = add i32 %1844, %1851
+  store i32 %1852, ptr %11, align 4
+  %1853 = icmp sgt i32 %1852, 0
+  br i1 %1853, label %1854, label %1908
+
+1854:                                             ; preds = %1850
+  br label %1855
+
+1855:                                             ; preds = %1879, %1854
+  %1856 = load i32, ptr %11, align 4
+  %1857 = icmp sgt i32 %1856, 16
+  br i1 %1857, label %1858, label %1882
+
+1858:                                             ; preds = %1855
+  %1859 = load ptr, ptr %13, align 8
+  %1860 = getelementptr inbounds %struct.__siov, ptr %1859, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %1860, align 8
+  %1861 = load ptr, ptr %13, align 8
+  %1862 = getelementptr inbounds %struct.__siov, ptr %1861, i32 0, i32 1
+  store i64 16, ptr %1862, align 8
+  %1863 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1864 = load i64, ptr %1863, align 8
+  %1865 = add i64 %1864, 16
+  store i64 %1865, ptr %1863, align 8
+  %1866 = load ptr, ptr %13, align 8
+  %1867 = getelementptr %struct.__siov, ptr %1866, i32 1
+  store ptr %1867, ptr %13, align 8
+  %1868 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1869 = load i32, ptr %1868, align 8
+  %1870 = add i32 %1869, 1
+  store i32 %1870, ptr %1868, align 8
+  %1871 = icmp sge i32 %1870, 8
+  br i1 %1871, label %1872, label %1879
+
+1872:                                             ; preds = %1858
+  %1873 = load ptr, ptr %5, align 8
+  %1874 = call i32 @BSD__sprint(ptr noundef %1873, ptr noundef %33)
+  %1875 = icmp ne i32 %1874, 0
+  br i1 %1875, label %1876, label %1877
+
+1876:                                             ; preds = %1872
+  br label %2543
+
+1877:                                             ; preds = %1872
+  %1878 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1878, ptr %13, align 8
+  br label %1879
+
+1879:                                             ; preds = %1877, %1858
+  %1880 = load i32, ptr %11, align 4
+  %1881 = sub i32 %1880, 16
+  store i32 %1881, ptr %11, align 4
+  br label %1855, !llvm.loop !49
+
+1882:                                             ; preds = %1855
+  %1883 = load ptr, ptr %13, align 8
+  %1884 = getelementptr inbounds %struct.__siov, ptr %1883, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %1884, align 8
+  %1885 = load i32, ptr %11, align 4
+  %1886 = sext i32 %1885 to i64
+  %1887 = load ptr, ptr %13, align 8
+  %1888 = getelementptr inbounds %struct.__siov, ptr %1887, i32 0, i32 1
+  store i64 %1886, ptr %1888, align 8
+  %1889 = load i32, ptr %11, align 4
+  %1890 = sext i32 %1889 to i64
+  %1891 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1892 = load i64, ptr %1891, align 8
+  %1893 = add i64 %1892, %1890
+  store i64 %1893, ptr %1891, align 8
+  %1894 = load ptr, ptr %13, align 8
+  %1895 = getelementptr %struct.__siov, ptr %1894, i32 1
+  store ptr %1895, ptr %13, align 8
+  %1896 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1897 = load i32, ptr %1896, align 8
+  %1898 = add i32 %1897, 1
+  store i32 %1898, ptr %1896, align 8
+  %1899 = icmp sge i32 %1898, 8
+  br i1 %1899, label %1900, label %1907
+
+1900:                                             ; preds = %1882
+  %1901 = load ptr, ptr %5, align 8
+  %1902 = call i32 @BSD__sprint(ptr noundef %1901, ptr noundef %33)
+  %1903 = icmp ne i32 %1902, 0
+  br i1 %1903, label %1904, label %1905
+
+1904:                                             ; preds = %1900
+  br label %2543
+
+1905:                                             ; preds = %1900
+  %1906 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1906, ptr %13, align 8
+  br label %1907
+
+1907:                                             ; preds = %1905, %1882
+  br label %1908
+
+1908:                                             ; preds = %1907, %1850
+  br label %1909
+
+1909:                                             ; preds = %1908, %1837
+  br label %2181
+
+1910:                                             ; preds = %1729
+  %1911 = load i32, ptr %21, align 4
+  %1912 = load i32, ptr %23, align 4
+  %1913 = icmp sge i32 %1911, %1912
+  br i1 %1913, label %1914, label %2026
+
+1914:                                             ; preds = %1910
+  %1915 = load ptr, ptr %12, align 8
+  %1916 = load ptr, ptr %13, align 8
+  %1917 = getelementptr inbounds %struct.__siov, ptr %1916, i32 0, i32 0
+  store ptr %1915, ptr %1917, align 8
+  %1918 = load i32, ptr %23, align 4
+  %1919 = sext i32 %1918 to i64
+  %1920 = load ptr, ptr %13, align 8
+  %1921 = getelementptr inbounds %struct.__siov, ptr %1920, i32 0, i32 1
+  store i64 %1919, ptr %1921, align 8
+  %1922 = load i32, ptr %23, align 4
+  %1923 = sext i32 %1922 to i64
+  %1924 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1925 = load i64, ptr %1924, align 8
+  %1926 = add i64 %1925, %1923
+  store i64 %1926, ptr %1924, align 8
+  %1927 = load ptr, ptr %13, align 8
+  %1928 = getelementptr %struct.__siov, ptr %1927, i32 1
+  store ptr %1928, ptr %13, align 8
+  %1929 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1930 = load i32, ptr %1929, align 8
+  %1931 = add i32 %1930, 1
+  store i32 %1931, ptr %1929, align 8
+  %1932 = icmp sge i32 %1931, 8
+  br i1 %1932, label %1933, label %1940
+
+1933:                                             ; preds = %1914
+  %1934 = load ptr, ptr %5, align 8
+  %1935 = call i32 @BSD__sprint(ptr noundef %1934, ptr noundef %33)
+  %1936 = icmp ne i32 %1935, 0
+  br i1 %1936, label %1937, label %1938
+
+1937:                                             ; preds = %1933
+  br label %2543
+
+1938:                                             ; preds = %1933
+  %1939 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1939, ptr %13, align 8
+  br label %1940
+
+1940:                                             ; preds = %1938, %1914
+  %1941 = load i32, ptr %21, align 4
+  %1942 = load i32, ptr %23, align 4
+  %1943 = sub i32 %1941, %1942
+  store i32 %1943, ptr %11, align 4
+  %1944 = icmp sgt i32 %1943, 0
+  br i1 %1944, label %1945, label %1999
+
+1945:                                             ; preds = %1940
+  br label %1946
+
+1946:                                             ; preds = %1970, %1945
+  %1947 = load i32, ptr %11, align 4
+  %1948 = icmp sgt i32 %1947, 16
+  br i1 %1948, label %1949, label %1973
+
+1949:                                             ; preds = %1946
+  %1950 = load ptr, ptr %13, align 8
+  %1951 = getelementptr inbounds %struct.__siov, ptr %1950, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %1951, align 8
+  %1952 = load ptr, ptr %13, align 8
+  %1953 = getelementptr inbounds %struct.__siov, ptr %1952, i32 0, i32 1
+  store i64 16, ptr %1953, align 8
+  %1954 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1955 = load i64, ptr %1954, align 8
+  %1956 = add i64 %1955, 16
+  store i64 %1956, ptr %1954, align 8
+  %1957 = load ptr, ptr %13, align 8
+  %1958 = getelementptr %struct.__siov, ptr %1957, i32 1
+  store ptr %1958, ptr %13, align 8
+  %1959 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1960 = load i32, ptr %1959, align 8
+  %1961 = add i32 %1960, 1
+  store i32 %1961, ptr %1959, align 8
+  %1962 = icmp sge i32 %1961, 8
+  br i1 %1962, label %1963, label %1970
+
+1963:                                             ; preds = %1949
+  %1964 = load ptr, ptr %5, align 8
+  %1965 = call i32 @BSD__sprint(ptr noundef %1964, ptr noundef %33)
+  %1966 = icmp ne i32 %1965, 0
+  br i1 %1966, label %1967, label %1968
+
+1967:                                             ; preds = %1963
+  br label %2543
+
+1968:                                             ; preds = %1963
+  %1969 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1969, ptr %13, align 8
+  br label %1970
+
+1970:                                             ; preds = %1968, %1949
+  %1971 = load i32, ptr %11, align 4
+  %1972 = sub i32 %1971, 16
+  store i32 %1972, ptr %11, align 4
+  br label %1946, !llvm.loop !50
+
+1973:                                             ; preds = %1946
+  %1974 = load ptr, ptr %13, align 8
+  %1975 = getelementptr inbounds %struct.__siov, ptr %1974, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %1975, align 8
+  %1976 = load i32, ptr %11, align 4
+  %1977 = sext i32 %1976 to i64
+  %1978 = load ptr, ptr %13, align 8
+  %1979 = getelementptr inbounds %struct.__siov, ptr %1978, i32 0, i32 1
+  store i64 %1977, ptr %1979, align 8
+  %1980 = load i32, ptr %11, align 4
+  %1981 = sext i32 %1980 to i64
+  %1982 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %1983 = load i64, ptr %1982, align 8
+  %1984 = add i64 %1983, %1981
+  store i64 %1984, ptr %1982, align 8
+  %1985 = load ptr, ptr %13, align 8
+  %1986 = getelementptr %struct.__siov, ptr %1985, i32 1
+  store ptr %1986, ptr %13, align 8
+  %1987 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %1988 = load i32, ptr %1987, align 8
+  %1989 = add i32 %1988, 1
+  store i32 %1989, ptr %1987, align 8
+  %1990 = icmp sge i32 %1989, 8
+  br i1 %1990, label %1991, label %1998
+
+1991:                                             ; preds = %1973
+  %1992 = load ptr, ptr %5, align 8
+  %1993 = call i32 @BSD__sprint(ptr noundef %1992, ptr noundef %33)
+  %1994 = icmp ne i32 %1993, 0
+  br i1 %1994, label %1995, label %1996
+
+1995:                                             ; preds = %1991
+  br label %2543
+
+1996:                                             ; preds = %1991
+  %1997 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %1997, ptr %13, align 8
+  br label %1998
+
+1998:                                             ; preds = %1996, %1973
+  br label %1999
+
+1999:                                             ; preds = %1998, %1940
+  %2000 = load i32, ptr %14, align 4
+  %2001 = and i32 %2000, 1
+  %2002 = icmp ne i32 %2001, 0
+  br i1 %2002, label %2003, label %2025
+
+2003:                                             ; preds = %1999
+  %2004 = load ptr, ptr %13, align 8
+  %2005 = getelementptr inbounds %struct.__siov, ptr %2004, i32 0, i32 0
+  store ptr @.str.46, ptr %2005, align 8
+  %2006 = load ptr, ptr %13, align 8
+  %2007 = getelementptr inbounds %struct.__siov, ptr %2006, i32 0, i32 1
+  store i64 1, ptr %2007, align 8
+  %2008 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2009 = load i64, ptr %2008, align 8
+  %2010 = add i64 %2009, 1
+  store i64 %2010, ptr %2008, align 8
+  %2011 = load ptr, ptr %13, align 8
+  %2012 = getelementptr %struct.__siov, ptr %2011, i32 1
+  store ptr %2012, ptr %13, align 8
+  %2013 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2014 = load i32, ptr %2013, align 8
+  %2015 = add i32 %2014, 1
+  store i32 %2015, ptr %2013, align 8
+  %2016 = icmp sge i32 %2015, 8
+  br i1 %2016, label %2017, label %2024
+
+2017:                                             ; preds = %2003
+  %2018 = load ptr, ptr %5, align 8
+  %2019 = call i32 @BSD__sprint(ptr noundef %2018, ptr noundef %33)
+  %2020 = icmp ne i32 %2019, 0
+  br i1 %2020, label %2021, label %2022
+
+2021:                                             ; preds = %2017
+  br label %2543
+
+2022:                                             ; preds = %2017
+  %2023 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2023, ptr %13, align 8
+  br label %2024
+
+2024:                                             ; preds = %2022, %2003
+  br label %2025
+
+2025:                                             ; preds = %2024, %1999
+  br label %2180
+
+2026:                                             ; preds = %1910
+  %2027 = load ptr, ptr %12, align 8
+  %2028 = load ptr, ptr %13, align 8
+  %2029 = getelementptr inbounds %struct.__siov, ptr %2028, i32 0, i32 0
+  store ptr %2027, ptr %2029, align 8
+  %2030 = load i32, ptr %21, align 4
+  %2031 = sext i32 %2030 to i64
+  %2032 = load ptr, ptr %13, align 8
+  %2033 = getelementptr inbounds %struct.__siov, ptr %2032, i32 0, i32 1
+  store i64 %2031, ptr %2033, align 8
+  %2034 = load i32, ptr %21, align 4
+  %2035 = sext i32 %2034 to i64
+  %2036 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2037 = load i64, ptr %2036, align 8
+  %2038 = add i64 %2037, %2035
+  store i64 %2038, ptr %2036, align 8
+  %2039 = load ptr, ptr %13, align 8
+  %2040 = getelementptr %struct.__siov, ptr %2039, i32 1
+  store ptr %2040, ptr %13, align 8
+  %2041 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2042 = load i32, ptr %2041, align 8
+  %2043 = add i32 %2042, 1
+  store i32 %2043, ptr %2041, align 8
+  %2044 = icmp sge i32 %2043, 8
+  br i1 %2044, label %2045, label %2052
+
+2045:                                             ; preds = %2026
+  %2046 = load ptr, ptr %5, align 8
+  %2047 = call i32 @BSD__sprint(ptr noundef %2046, ptr noundef %33)
+  %2048 = icmp ne i32 %2047, 0
+  br i1 %2048, label %2049, label %2050
+
+2049:                                             ; preds = %2045
+  br label %2543
+
+2050:                                             ; preds = %2045
+  %2051 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2051, ptr %13, align 8
+  br label %2052
+
+2052:                                             ; preds = %2050, %2026
+  %2053 = load i32, ptr %21, align 4
+  %2054 = load ptr, ptr %12, align 8
+  %2055 = sext i32 %2053 to i64
+  %2056 = getelementptr i8, ptr %2054, i64 %2055
+  store ptr %2056, ptr %12, align 8
+  %2057 = load ptr, ptr %13, align 8
+  %2058 = getelementptr inbounds %struct.__siov, ptr %2057, i32 0, i32 0
+  store ptr @.str.46, ptr %2058, align 8
+  %2059 = load ptr, ptr %13, align 8
+  %2060 = getelementptr inbounds %struct.__siov, ptr %2059, i32 0, i32 1
+  store i64 1, ptr %2060, align 8
+  %2061 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2062 = load i64, ptr %2061, align 8
+  %2063 = add i64 %2062, 1
+  store i64 %2063, ptr %2061, align 8
+  %2064 = load ptr, ptr %13, align 8
+  %2065 = getelementptr %struct.__siov, ptr %2064, i32 1
+  store ptr %2065, ptr %13, align 8
+  %2066 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2067 = load i32, ptr %2066, align 8
+  %2068 = add i32 %2067, 1
+  store i32 %2068, ptr %2066, align 8
+  %2069 = icmp sge i32 %2068, 8
+  br i1 %2069, label %2070, label %2077
+
+2070:                                             ; preds = %2052
+  %2071 = load ptr, ptr %5, align 8
+  %2072 = call i32 @BSD__sprint(ptr noundef %2071, ptr noundef %33)
+  %2073 = icmp ne i32 %2072, 0
+  br i1 %2073, label %2074, label %2075
+
+2074:                                             ; preds = %2070
+  br label %2543
+
+2075:                                             ; preds = %2070
+  %2076 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2076, ptr %13, align 8
+  br label %2077
+
+2077:                                             ; preds = %2075, %2052
+  %2078 = load ptr, ptr %12, align 8
+  %2079 = load ptr, ptr %13, align 8
+  %2080 = getelementptr inbounds %struct.__siov, ptr %2079, i32 0, i32 0
+  store ptr %2078, ptr %2080, align 8
+  %2081 = load i32, ptr %23, align 4
+  %2082 = load i32, ptr %21, align 4
+  %2083 = sub i32 %2081, %2082
+  %2084 = sext i32 %2083 to i64
+  %2085 = load ptr, ptr %13, align 8
+  %2086 = getelementptr inbounds %struct.__siov, ptr %2085, i32 0, i32 1
+  store i64 %2084, ptr %2086, align 8
+  %2087 = load i32, ptr %23, align 4
+  %2088 = load i32, ptr %21, align 4
+  %2089 = sub i32 %2087, %2088
+  %2090 = sext i32 %2089 to i64
+  %2091 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2092 = load i64, ptr %2091, align 8
+  %2093 = add i64 %2092, %2090
+  store i64 %2093, ptr %2091, align 8
+  %2094 = load ptr, ptr %13, align 8
+  %2095 = getelementptr %struct.__siov, ptr %2094, i32 1
+  store ptr %2095, ptr %13, align 8
+  %2096 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2097 = load i32, ptr %2096, align 8
+  %2098 = add i32 %2097, 1
+  store i32 %2098, ptr %2096, align 8
+  %2099 = icmp sge i32 %2098, 8
+  br i1 %2099, label %2100, label %2107
+
+2100:                                             ; preds = %2077
+  %2101 = load ptr, ptr %5, align 8
+  %2102 = call i32 @BSD__sprint(ptr noundef %2101, ptr noundef %33)
+  %2103 = icmp ne i32 %2102, 0
+  br i1 %2103, label %2104, label %2105
+
+2104:                                             ; preds = %2100
+  br label %2543
+
+2105:                                             ; preds = %2100
+  %2106 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2106, ptr %13, align 8
+  br label %2107
+
+2107:                                             ; preds = %2105, %2077
+  %2108 = load i32, ptr %14, align 4
+  %2109 = and i32 %2108, 1
+  %2110 = icmp ne i32 %2109, 0
+  br i1 %2110, label %2111, label %2179
+
+2111:                                             ; preds = %2107
+  %2112 = load i32, ptr %24, align 4
+  %2113 = load i32, ptr %23, align 4
+  %2114 = sub i32 %2112, %2113
+  %2115 = load i32, ptr %10, align 4
+  %2116 = icmp eq i32 %2115, 102
+  br i1 %2116, label %2117, label %2119
+
+2117:                                             ; preds = %2111
+  %2118 = load i32, ptr %21, align 4
+  br label %2120
+
+2119:                                             ; preds = %2111
+  br label %2120
+
+2120:                                             ; preds = %2119, %2117
+  %2121 = phi i32 [ %2118, %2117 ], [ 0, %2119 ]
+  %2122 = add i32 %2114, %2121
+  store i32 %2122, ptr %11, align 4
+  %2123 = icmp sgt i32 %2122, 0
+  br i1 %2123, label %2124, label %2178
+
+2124:                                             ; preds = %2120
+  br label %2125
+
+2125:                                             ; preds = %2149, %2124
+  %2126 = load i32, ptr %11, align 4
+  %2127 = icmp sgt i32 %2126, 16
+  br i1 %2127, label %2128, label %2152
+
+2128:                                             ; preds = %2125
+  %2129 = load ptr, ptr %13, align 8
+  %2130 = getelementptr inbounds %struct.__siov, ptr %2129, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %2130, align 8
+  %2131 = load ptr, ptr %13, align 8
+  %2132 = getelementptr inbounds %struct.__siov, ptr %2131, i32 0, i32 1
+  store i64 16, ptr %2132, align 8
+  %2133 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2134 = load i64, ptr %2133, align 8
+  %2135 = add i64 %2134, 16
+  store i64 %2135, ptr %2133, align 8
+  %2136 = load ptr, ptr %13, align 8
+  %2137 = getelementptr %struct.__siov, ptr %2136, i32 1
+  store ptr %2137, ptr %13, align 8
+  %2138 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2139 = load i32, ptr %2138, align 8
+  %2140 = add i32 %2139, 1
+  store i32 %2140, ptr %2138, align 8
+  %2141 = icmp sge i32 %2140, 8
+  br i1 %2141, label %2142, label %2149
+
+2142:                                             ; preds = %2128
+  %2143 = load ptr, ptr %5, align 8
+  %2144 = call i32 @BSD__sprint(ptr noundef %2143, ptr noundef %33)
+  %2145 = icmp ne i32 %2144, 0
+  br i1 %2145, label %2146, label %2147
+
+2146:                                             ; preds = %2142
+  br label %2543
+
+2147:                                             ; preds = %2142
+  %2148 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2148, ptr %13, align 8
+  br label %2149
+
+2149:                                             ; preds = %2147, %2128
+  %2150 = load i32, ptr %11, align 4
+  %2151 = sub i32 %2150, 16
+  store i32 %2151, ptr %11, align 4
+  br label %2125, !llvm.loop !51
+
+2152:                                             ; preds = %2125
+  %2153 = load ptr, ptr %13, align 8
+  %2154 = getelementptr inbounds %struct.__siov, ptr %2153, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %2154, align 8
+  %2155 = load i32, ptr %11, align 4
+  %2156 = sext i32 %2155 to i64
+  %2157 = load ptr, ptr %13, align 8
+  %2158 = getelementptr inbounds %struct.__siov, ptr %2157, i32 0, i32 1
+  store i64 %2156, ptr %2158, align 8
+  %2159 = load i32, ptr %11, align 4
+  %2160 = sext i32 %2159 to i64
+  %2161 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2162 = load i64, ptr %2161, align 8
+  %2163 = add i64 %2162, %2160
+  store i64 %2163, ptr %2161, align 8
+  %2164 = load ptr, ptr %13, align 8
+  %2165 = getelementptr %struct.__siov, ptr %2164, i32 1
+  store ptr %2165, ptr %13, align 8
+  %2166 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2167 = load i32, ptr %2166, align 8
+  %2168 = add i32 %2167, 1
+  store i32 %2168, ptr %2166, align 8
+  %2169 = icmp sge i32 %2168, 8
+  br i1 %2169, label %2170, label %2177
+
+2170:                                             ; preds = %2152
+  %2171 = load ptr, ptr %5, align 8
+  %2172 = call i32 @BSD__sprint(ptr noundef %2171, ptr noundef %33)
+  %2173 = icmp ne i32 %2172, 0
+  br i1 %2173, label %2174, label %2175
+
+2174:                                             ; preds = %2170
+  br label %2543
+
+2175:                                             ; preds = %2170
+  %2176 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2176, ptr %13, align 8
+  br label %2177
+
+2177:                                             ; preds = %2175, %2152
+  br label %2178
+
+2178:                                             ; preds = %2177, %2120
+  br label %2179
+
+2179:                                             ; preds = %2178, %2107
+  br label %2180
+
+2180:                                             ; preds = %2179, %2025
+  br label %2181
+
+2181:                                             ; preds = %2180, %1909
+  br label %2182
+
+2182:                                             ; preds = %2181, %1728
+  br label %2183
+
+2183:                                             ; preds = %2182, %1696
+  br label %2425
+
+2184:                                             ; preds = %1569
+  %2185 = load i32, ptr %23, align 4
+  %2186 = icmp sgt i32 %2185, 1
+  br i1 %2186, label %2191, label %2187
+
+2187:                                             ; preds = %2184
+  %2188 = load i32, ptr %14, align 4
+  %2189 = and i32 %2188, 1
+  %2190 = icmp ne i32 %2189, 0
+  br i1 %2190, label %2191, label %2375
+
+2191:                                             ; preds = %2187, %2184
+  %2192 = load ptr, ptr %12, align 8
+  %2193 = getelementptr i8, ptr %2192, i32 1
+  store ptr %2193, ptr %12, align 8
+  %2194 = load i8, ptr %2192, align 1
+  %2195 = getelementptr [4 x i8], ptr %36, i64 0, i64 0
+  store i8 %2194, ptr %2195, align 1
+  %2196 = getelementptr [4 x i8], ptr %36, i64 0, i64 1
+  store i8 46, ptr %2196, align 1
+  %2197 = getelementptr inbounds [4 x i8], ptr %36, i64 0, i64 0
+  %2198 = load ptr, ptr %13, align 8
+  %2199 = getelementptr inbounds %struct.__siov, ptr %2198, i32 0, i32 0
+  store ptr %2197, ptr %2199, align 8
+  %2200 = load ptr, ptr %13, align 8
+  %2201 = getelementptr inbounds %struct.__siov, ptr %2200, i32 0, i32 1
+  store i64 2, ptr %2201, align 8
+  %2202 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2203 = load i64, ptr %2202, align 8
+  %2204 = add i64 %2203, 2
+  store i64 %2204, ptr %2202, align 8
+  %2205 = load ptr, ptr %13, align 8
+  %2206 = getelementptr %struct.__siov, ptr %2205, i32 1
+  store ptr %2206, ptr %13, align 8
+  %2207 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2208 = load i32, ptr %2207, align 8
+  %2209 = add i32 %2208, 1
+  store i32 %2209, ptr %2207, align 8
+  %2210 = icmp sge i32 %2209, 8
+  br i1 %2210, label %2211, label %2218
+
+2211:                                             ; preds = %2191
+  %2212 = load ptr, ptr %5, align 8
+  %2213 = call i32 @BSD__sprint(ptr noundef %2212, ptr noundef %33)
+  %2214 = icmp ne i32 %2213, 0
+  br i1 %2214, label %2215, label %2216
+
+2215:                                             ; preds = %2211
+  br label %2543
+
+2216:                                             ; preds = %2211
+  %2217 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2217, ptr %13, align 8
+  br label %2218
+
+2218:                                             ; preds = %2216, %2191
+  %2219 = load double, ptr %20, align 8
+  %2220 = fcmp une double %2219, 0.000000e+00
+  br i1 %2220, label %2221, label %2250
+
+2221:                                             ; preds = %2218
+  %2222 = load ptr, ptr %12, align 8
+  %2223 = load ptr, ptr %13, align 8
+  %2224 = getelementptr inbounds %struct.__siov, ptr %2223, i32 0, i32 0
+  store ptr %2222, ptr %2224, align 8
+  %2225 = load i32, ptr %23, align 4
+  %2226 = sub i32 %2225, 1
+  %2227 = sext i32 %2226 to i64
+  %2228 = load ptr, ptr %13, align 8
+  %2229 = getelementptr inbounds %struct.__siov, ptr %2228, i32 0, i32 1
+  store i64 %2227, ptr %2229, align 8
+  %2230 = load i32, ptr %23, align 4
+  %2231 = sub i32 %2230, 1
+  %2232 = sext i32 %2231 to i64
+  %2233 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2234 = load i64, ptr %2233, align 8
+  %2235 = add i64 %2234, %2232
+  store i64 %2235, ptr %2233, align 8
+  %2236 = load ptr, ptr %13, align 8
+  %2237 = getelementptr %struct.__siov, ptr %2236, i32 1
+  store ptr %2237, ptr %13, align 8
+  %2238 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2239 = load i32, ptr %2238, align 8
+  %2240 = add i32 %2239, 1
+  store i32 %2240, ptr %2238, align 8
+  %2241 = icmp sge i32 %2240, 8
+  br i1 %2241, label %2242, label %2249
+
+2242:                                             ; preds = %2221
+  %2243 = load ptr, ptr %5, align 8
+  %2244 = call i32 @BSD__sprint(ptr noundef %2243, ptr noundef %33)
+  %2245 = icmp ne i32 %2244, 0
+  br i1 %2245, label %2246, label %2247
+
+2246:                                             ; preds = %2242
+  br label %2543
+
+2247:                                             ; preds = %2242
+  %2248 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2248, ptr %13, align 8
+  br label %2249
+
+2249:                                             ; preds = %2247, %2221
+  br label %2309
+
+2250:                                             ; preds = %2218
+  %2251 = load i32, ptr %23, align 4
+  %2252 = sub i32 %2251, 1
+  store i32 %2252, ptr %11, align 4
+  %2253 = icmp sgt i32 %2252, 0
+  br i1 %2253, label %2254, label %2308
+
+2254:                                             ; preds = %2250
+  br label %2255
+
+2255:                                             ; preds = %2279, %2254
+  %2256 = load i32, ptr %11, align 4
+  %2257 = icmp sgt i32 %2256, 16
+  br i1 %2257, label %2258, label %2282
+
+2258:                                             ; preds = %2255
+  %2259 = load ptr, ptr %13, align 8
+  %2260 = getelementptr inbounds %struct.__siov, ptr %2259, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %2260, align 8
+  %2261 = load ptr, ptr %13, align 8
+  %2262 = getelementptr inbounds %struct.__siov, ptr %2261, i32 0, i32 1
+  store i64 16, ptr %2262, align 8
+  %2263 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2264 = load i64, ptr %2263, align 8
+  %2265 = add i64 %2264, 16
+  store i64 %2265, ptr %2263, align 8
+  %2266 = load ptr, ptr %13, align 8
+  %2267 = getelementptr %struct.__siov, ptr %2266, i32 1
+  store ptr %2267, ptr %13, align 8
+  %2268 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2269 = load i32, ptr %2268, align 8
+  %2270 = add i32 %2269, 1
+  store i32 %2270, ptr %2268, align 8
+  %2271 = icmp sge i32 %2270, 8
+  br i1 %2271, label %2272, label %2279
+
+2272:                                             ; preds = %2258
+  %2273 = load ptr, ptr %5, align 8
+  %2274 = call i32 @BSD__sprint(ptr noundef %2273, ptr noundef %33)
+  %2275 = icmp ne i32 %2274, 0
+  br i1 %2275, label %2276, label %2277
+
+2276:                                             ; preds = %2272
+  br label %2543
+
+2277:                                             ; preds = %2272
+  %2278 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2278, ptr %13, align 8
+  br label %2279
+
+2279:                                             ; preds = %2277, %2258
+  %2280 = load i32, ptr %11, align 4
+  %2281 = sub i32 %2280, 16
+  store i32 %2281, ptr %11, align 4
+  br label %2255, !llvm.loop !52
+
+2282:                                             ; preds = %2255
+  %2283 = load ptr, ptr %13, align 8
+  %2284 = getelementptr inbounds %struct.__siov, ptr %2283, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %2284, align 8
+  %2285 = load i32, ptr %11, align 4
+  %2286 = sext i32 %2285 to i64
+  %2287 = load ptr, ptr %13, align 8
+  %2288 = getelementptr inbounds %struct.__siov, ptr %2287, i32 0, i32 1
+  store i64 %2286, ptr %2288, align 8
+  %2289 = load i32, ptr %11, align 4
+  %2290 = sext i32 %2289 to i64
+  %2291 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2292 = load i64, ptr %2291, align 8
+  %2293 = add i64 %2292, %2290
+  store i64 %2293, ptr %2291, align 8
+  %2294 = load ptr, ptr %13, align 8
+  %2295 = getelementptr %struct.__siov, ptr %2294, i32 1
+  store ptr %2295, ptr %13, align 8
+  %2296 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2297 = load i32, ptr %2296, align 8
+  %2298 = add i32 %2297, 1
+  store i32 %2298, ptr %2296, align 8
+  %2299 = icmp sge i32 %2298, 8
+  br i1 %2299, label %2300, label %2307
+
+2300:                                             ; preds = %2282
+  %2301 = load ptr, ptr %5, align 8
+  %2302 = call i32 @BSD__sprint(ptr noundef %2301, ptr noundef %33)
+  %2303 = icmp ne i32 %2302, 0
+  br i1 %2303, label %2304, label %2305
+
+2304:                                             ; preds = %2300
+  br label %2543
+
+2305:                                             ; preds = %2300
+  %2306 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2306, ptr %13, align 8
+  br label %2307
+
+2307:                                             ; preds = %2305, %2282
+  br label %2308
+
+2308:                                             ; preds = %2307, %2250
+  br label %2309
+
+2309:                                             ; preds = %2308, %2249
+  %2310 = load i32, ptr %14, align 4
+  %2311 = and i32 %2310, 1
+  %2312 = icmp ne i32 %2311, 0
+  br i1 %2312, label %2313, label %2374
+
+2313:                                             ; preds = %2309
+  %2314 = load i32, ptr %24, align 4
+  %2315 = load i32, ptr %23, align 4
+  %2316 = sub i32 %2314, %2315
+  %2317 = sub i32 %2316, 1
+  store i32 %2317, ptr %11, align 4
+  %2318 = icmp sgt i32 %2317, 0
+  br i1 %2318, label %2319, label %2373
+
+2319:                                             ; preds = %2313
+  br label %2320
+
+2320:                                             ; preds = %2344, %2319
+  %2321 = load i32, ptr %11, align 4
+  %2322 = icmp sgt i32 %2321, 16
+  br i1 %2322, label %2323, label %2347
+
+2323:                                             ; preds = %2320
+  %2324 = load ptr, ptr %13, align 8
+  %2325 = getelementptr inbounds %struct.__siov, ptr %2324, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %2325, align 8
+  %2326 = load ptr, ptr %13, align 8
+  %2327 = getelementptr inbounds %struct.__siov, ptr %2326, i32 0, i32 1
+  store i64 16, ptr %2327, align 8
+  %2328 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2329 = load i64, ptr %2328, align 8
+  %2330 = add i64 %2329, 16
+  store i64 %2330, ptr %2328, align 8
+  %2331 = load ptr, ptr %13, align 8
+  %2332 = getelementptr %struct.__siov, ptr %2331, i32 1
+  store ptr %2332, ptr %13, align 8
+  %2333 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2334 = load i32, ptr %2333, align 8
+  %2335 = add i32 %2334, 1
+  store i32 %2335, ptr %2333, align 8
+  %2336 = icmp sge i32 %2335, 8
+  br i1 %2336, label %2337, label %2344
+
+2337:                                             ; preds = %2323
+  %2338 = load ptr, ptr %5, align 8
+  %2339 = call i32 @BSD__sprint(ptr noundef %2338, ptr noundef %33)
+  %2340 = icmp ne i32 %2339, 0
+  br i1 %2340, label %2341, label %2342
+
+2341:                                             ; preds = %2337
+  br label %2543
+
+2342:                                             ; preds = %2337
+  %2343 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2343, ptr %13, align 8
+  br label %2344
+
+2344:                                             ; preds = %2342, %2323
+  %2345 = load i32, ptr %11, align 4
+  %2346 = sub i32 %2345, 16
+  store i32 %2346, ptr %11, align 4
+  br label %2320, !llvm.loop !53
+
+2347:                                             ; preds = %2320
+  %2348 = load ptr, ptr %13, align 8
+  %2349 = getelementptr inbounds %struct.__siov, ptr %2348, i32 0, i32 0
+  store ptr @BSD_vfprintf.zeroes, ptr %2349, align 8
+  %2350 = load i32, ptr %11, align 4
+  %2351 = sext i32 %2350 to i64
+  %2352 = load ptr, ptr %13, align 8
+  %2353 = getelementptr inbounds %struct.__siov, ptr %2352, i32 0, i32 1
+  store i64 %2351, ptr %2353, align 8
+  %2354 = load i32, ptr %11, align 4
+  %2355 = sext i32 %2354 to i64
+  %2356 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2357 = load i64, ptr %2356, align 8
+  %2358 = add i64 %2357, %2355
+  store i64 %2358, ptr %2356, align 8
+  %2359 = load ptr, ptr %13, align 8
+  %2360 = getelementptr %struct.__siov, ptr %2359, i32 1
+  store ptr %2360, ptr %13, align 8
+  %2361 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2362 = load i32, ptr %2361, align 8
+  %2363 = add i32 %2362, 1
+  store i32 %2363, ptr %2361, align 8
+  %2364 = icmp sge i32 %2363, 8
+  br i1 %2364, label %2365, label %2372
+
+2365:                                             ; preds = %2347
+  %2366 = load ptr, ptr %5, align 8
+  %2367 = call i32 @BSD__sprint(ptr noundef %2366, ptr noundef %33)
+  %2368 = icmp ne i32 %2367, 0
+  br i1 %2368, label %2369, label %2370
+
+2369:                                             ; preds = %2365
+  br label %2543
+
+2370:                                             ; preds = %2365
+  %2371 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2371, ptr %13, align 8
+  br label %2372
+
+2372:                                             ; preds = %2370, %2347
+  br label %2373
+
+2373:                                             ; preds = %2372, %2313
+  br label %2374
+
+2374:                                             ; preds = %2373, %2309
+  br label %2398
+
+2375:                                             ; preds = %2187
+  %2376 = load ptr, ptr %12, align 8
+  %2377 = load ptr, ptr %13, align 8
+  %2378 = getelementptr inbounds %struct.__siov, ptr %2377, i32 0, i32 0
+  store ptr %2376, ptr %2378, align 8
+  %2379 = load ptr, ptr %13, align 8
+  %2380 = getelementptr inbounds %struct.__siov, ptr %2379, i32 0, i32 1
+  store i64 1, ptr %2380, align 8
+  %2381 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2382 = load i64, ptr %2381, align 8
+  %2383 = add i64 %2382, 1
+  store i64 %2383, ptr %2381, align 8
+  %2384 = load ptr, ptr %13, align 8
+  %2385 = getelementptr %struct.__siov, ptr %2384, i32 1
+  store ptr %2385, ptr %13, align 8
+  %2386 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2387 = load i32, ptr %2386, align 8
+  %2388 = add i32 %2387, 1
+  store i32 %2388, ptr %2386, align 8
+  %2389 = icmp sge i32 %2388, 8
+  br i1 %2389, label %2390, label %2397
+
+2390:                                             ; preds = %2375
+  %2391 = load ptr, ptr %5, align 8
+  %2392 = call i32 @BSD__sprint(ptr noundef %2391, ptr noundef %33)
+  %2393 = icmp ne i32 %2392, 0
+  br i1 %2393, label %2394, label %2395
+
+2394:                                             ; preds = %2390
+  br label %2543
+
+2395:                                             ; preds = %2390
+  %2396 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2396, ptr %13, align 8
+  br label %2397
+
+2397:                                             ; preds = %2395, %2375
+  br label %2398
+
+2398:                                             ; preds = %2397, %2374
+  %2399 = getelementptr inbounds [7 x i8], ptr %25, i64 0, i64 0
+  %2400 = load ptr, ptr %13, align 8
+  %2401 = getelementptr inbounds %struct.__siov, ptr %2400, i32 0, i32 0
+  store ptr %2399, ptr %2401, align 8
+  %2402 = load i32, ptr %22, align 4
+  %2403 = sext i32 %2402 to i64
+  %2404 = load ptr, ptr %13, align 8
+  %2405 = getelementptr inbounds %struct.__siov, ptr %2404, i32 0, i32 1
+  store i64 %2403, ptr %2405, align 8
+  %2406 = load i32, ptr %22, align 4
+  %2407 = sext i32 %2406 to i64
+  %2408 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2409 = load i64, ptr %2408, align 8
+  %2410 = add i64 %2409, %2407
+  store i64 %2410, ptr %2408, align 8
+  %2411 = load ptr, ptr %13, align 8
+  %2412 = getelementptr %struct.__siov, ptr %2411, i32 1
+  store ptr %2412, ptr %13, align 8
+  %2413 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2414 = load i32, ptr %2413, align 8
+  %2415 = add i32 %2414, 1
+  store i32 %2415, ptr %2413, align 8
+  %2416 = icmp sge i32 %2415, 8
+  br i1 %2416, label %2417, label %2424
+
+2417:                                             ; preds = %2398
+  %2418 = load ptr, ptr %5, align 8
+  %2419 = call i32 @BSD__sprint(ptr noundef %2418, ptr noundef %33)
+  %2420 = icmp ne i32 %2419, 0
+  br i1 %2420, label %2421, label %2422
+
+2421:                                             ; preds = %2417
+  br label %2543
+
+2422:                                             ; preds = %2417
+  %2423 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2423, ptr %13, align 8
+  br label %2424
+
+2424:                                             ; preds = %2422, %2398
+  br label %2425
+
+2425:                                             ; preds = %2424, %2183
+  br label %2426
+
+2426:                                             ; preds = %2425, %1568
+  br label %2427
+
+2427:                                             ; preds = %2426, %1387
+  %2428 = load i32, ptr %14, align 4
+  %2429 = and i32 %2428, 4
+  %2430 = icmp ne i32 %2429, 0
+  br i1 %2430, label %2431, label %2506
+
+2431:                                             ; preds = %2427
+  %2432 = load i32, ptr %16, align 4
+  %2433 = sext i32 %2432 to i64
+  %2434 = load i64, ptr %30, align 8
+  %2435 = sub i64 %2433, %2434
+  store i64 %2435, ptr %38, align 8
+  %2436 = load i64, ptr %38, align 8
+  %2437 = trunc i64 %2436 to i32
+  %2438 = sext i32 %2437 to i64
+  %2439 = load i64, ptr %38, align 8
+  %2440 = icmp ne i64 %2438, %2439
+  br i1 %2440, label %2441, label %2443
+
+2441:                                             ; preds = %2431
+  %2442 = call ptr @rb_errno_ptr()
+  store i32 12, ptr %2442, align 4
+  br label %2543
+
+2443:                                             ; preds = %2431
+  %2444 = load i64, ptr %38, align 8
+  %2445 = icmp sgt i64 %2444, 0
+  br i1 %2445, label %2446, label %2505
+
+2446:                                             ; preds = %2443
+  %2447 = load i64, ptr %38, align 8
+  %2448 = trunc i64 %2447 to i32
+  store i32 %2448, ptr %11, align 4
+  %2449 = icmp sgt i32 %2448, 0
+  br i1 %2449, label %2450, label %2504
+
+2450:                                             ; preds = %2446
+  br label %2451
+
+2451:                                             ; preds = %2475, %2450
+  %2452 = load i32, ptr %11, align 4
+  %2453 = icmp sgt i32 %2452, 16
+  br i1 %2453, label %2454, label %2478
+
+2454:                                             ; preds = %2451
+  %2455 = load ptr, ptr %13, align 8
+  %2456 = getelementptr inbounds %struct.__siov, ptr %2455, i32 0, i32 0
+  store ptr @BSD_vfprintf.blanks, ptr %2456, align 8
+  %2457 = load ptr, ptr %13, align 8
+  %2458 = getelementptr inbounds %struct.__siov, ptr %2457, i32 0, i32 1
+  store i64 16, ptr %2458, align 8
+  %2459 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2460 = load i64, ptr %2459, align 8
+  %2461 = add i64 %2460, 16
+  store i64 %2461, ptr %2459, align 8
+  %2462 = load ptr, ptr %13, align 8
+  %2463 = getelementptr %struct.__siov, ptr %2462, i32 1
+  store ptr %2463, ptr %13, align 8
+  %2464 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2465 = load i32, ptr %2464, align 8
+  %2466 = add i32 %2465, 1
+  store i32 %2466, ptr %2464, align 8
+  %2467 = icmp sge i32 %2466, 8
+  br i1 %2467, label %2468, label %2475
+
+2468:                                             ; preds = %2454
+  %2469 = load ptr, ptr %5, align 8
+  %2470 = call i32 @BSD__sprint(ptr noundef %2469, ptr noundef %33)
+  %2471 = icmp ne i32 %2470, 0
+  br i1 %2471, label %2472, label %2473
+
+2472:                                             ; preds = %2468
+  br label %2543
+
+2473:                                             ; preds = %2468
+  %2474 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2474, ptr %13, align 8
+  br label %2475
+
+2475:                                             ; preds = %2473, %2454
+  %2476 = load i32, ptr %11, align 4
+  %2477 = sub i32 %2476, 16
+  store i32 %2477, ptr %11, align 4
+  br label %2451, !llvm.loop !54
+
+2478:                                             ; preds = %2451
+  %2479 = load ptr, ptr %13, align 8
+  %2480 = getelementptr inbounds %struct.__siov, ptr %2479, i32 0, i32 0
+  store ptr @BSD_vfprintf.blanks, ptr %2480, align 8
+  %2481 = load i32, ptr %11, align 4
+  %2482 = sext i32 %2481 to i64
+  %2483 = load ptr, ptr %13, align 8
+  %2484 = getelementptr inbounds %struct.__siov, ptr %2483, i32 0, i32 1
+  store i64 %2482, ptr %2484, align 8
+  %2485 = load i32, ptr %11, align 4
+  %2486 = sext i32 %2485 to i64
+  %2487 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2488 = load i64, ptr %2487, align 8
+  %2489 = add i64 %2488, %2486
+  store i64 %2489, ptr %2487, align 8
+  %2490 = load ptr, ptr %13, align 8
+  %2491 = getelementptr %struct.__siov, ptr %2490, i32 1
+  store ptr %2491, ptr %13, align 8
+  %2492 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  %2493 = load i32, ptr %2492, align 8
+  %2494 = add i32 %2493, 1
+  store i32 %2494, ptr %2492, align 8
+  %2495 = icmp sge i32 %2494, 8
+  br i1 %2495, label %2496, label %2503
+
+2496:                                             ; preds = %2478
+  %2497 = load ptr, ptr %5, align 8
+  %2498 = call i32 @BSD__sprint(ptr noundef %2497, ptr noundef %33)
+  %2499 = icmp ne i32 %2498, 0
+  br i1 %2499, label %2500, label %2501
+
+2500:                                             ; preds = %2496
+  br label %2543
+
+2501:                                             ; preds = %2496
+  %2502 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2502, ptr %13, align 8
   br label %2503
 
-2503:                                             ; preds = %2502, %2445
+2503:                                             ; preds = %2501, %2478
   br label %2504
 
-2504:                                             ; preds = %2503, %2442
+2504:                                             ; preds = %2503, %2446
   br label %2505
 
-2505:                                             ; preds = %2504, %2426
-  %2506 = load i32, ptr %16, align 4
-  %2507 = sext i32 %2506 to i64
-  %2508 = load i64, ptr %30, align 8
-  %2509 = icmp sgt i64 %2507, %2508
-  br i1 %2509, label %2510, label %2513
+2505:                                             ; preds = %2504, %2443
+  br label %2506
 
-2510:                                             ; preds = %2505
-  %2511 = load i32, ptr %16, align 4
-  %2512 = sext i32 %2511 to i64
-  br label %2515
+2506:                                             ; preds = %2505, %2427
+  %2507 = load i32, ptr %16, align 4
+  %2508 = sext i32 %2507 to i64
+  %2509 = load i64, ptr %30, align 8
+  %2510 = icmp sgt i64 %2508, %2509
+  br i1 %2510, label %2511, label %2514
 
-2513:                                             ; preds = %2505
-  %2514 = load i64, ptr %30, align 8
-  br label %2515
+2511:                                             ; preds = %2506
+  %2512 = load i32, ptr %16, align 4
+  %2513 = sext i32 %2512 to i64
+  br label %2516
 
-2515:                                             ; preds = %2513, %2510
-  %2516 = phi i64 [ %2512, %2510 ], [ %2514, %2513 ]
-  %2517 = load i64, ptr %15, align 8
-  %2518 = add i64 %2517, %2516
-  store i64 %2518, ptr %15, align 8
-  %2519 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2520 = load i64, ptr %2519, align 8
-  %2521 = icmp ne i64 %2520, 0
-  br i1 %2521, label %2522, label %2527
+2514:                                             ; preds = %2506
+  %2515 = load i64, ptr %30, align 8
+  br label %2516
 
-2522:                                             ; preds = %2515
-  %2523 = load ptr, ptr %5, align 8
-  %2524 = call i32 @BSD__sprint(ptr noundef %2523, ptr noundef %33)
-  %2525 = icmp ne i32 %2524, 0
-  br i1 %2525, label %2526, label %2527
+2516:                                             ; preds = %2514, %2511
+  %2517 = phi i64 [ %2513, %2511 ], [ %2515, %2514 ]
+  %2518 = load i64, ptr %15, align 8
+  %2519 = add i64 %2518, %2517
+  store i64 %2519, ptr %15, align 8
+  %2520 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2521 = load i64, ptr %2520, align 8
+  %2522 = icmp ne i64 %2521, 0
+  br i1 %2522, label %2523, label %2528
 
-2526:                                             ; preds = %2522
-  br label %2542
+2523:                                             ; preds = %2516
+  %2524 = load ptr, ptr %5, align 8
+  %2525 = call i32 @BSD__sprint(ptr noundef %2524, ptr noundef %33)
+  %2526 = icmp ne i32 %2525, 0
+  br i1 %2526, label %2527, label %2528
 
-2527:                                             ; preds = %2522, %2515
-  %2528 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  store i32 0, ptr %2528, align 8
-  %2529 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2529, ptr %13, align 8
+2527:                                             ; preds = %2523
+  br label %2543
+
+2528:                                             ; preds = %2523, %2516
+  %2529 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  store i32 0, ptr %2529, align 8
+  %2530 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2530, ptr %13, align 8
   br label %67
 
-2530:                                             ; preds = %1037, %121
-  %2531 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
-  %2532 = load i64, ptr %2531, align 8
-  %2533 = icmp ne i64 %2532, 0
-  br i1 %2533, label %2534, label %2539
+2531:                                             ; preds = %1038, %121
+  %2532 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 2
+  %2533 = load i64, ptr %2532, align 8
+  %2534 = icmp ne i64 %2533, 0
+  br i1 %2534, label %2535, label %2540
 
-2534:                                             ; preds = %2530
-  %2535 = load ptr, ptr %5, align 8
-  %2536 = call i32 @BSD__sprint(ptr noundef %2535, ptr noundef %33)
-  %2537 = icmp ne i32 %2536, 0
-  br i1 %2537, label %2538, label %2539
+2535:                                             ; preds = %2531
+  %2536 = load ptr, ptr %5, align 8
+  %2537 = call i32 @BSD__sprint(ptr noundef %2536, ptr noundef %33)
+  %2538 = icmp ne i32 %2537, 0
+  br i1 %2538, label %2539, label %2540
 
-2538:                                             ; preds = %2534
-  br label %2542
+2539:                                             ; preds = %2535
+  br label %2543
 
-2539:                                             ; preds = %2534, %2530
-  %2540 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
-  store i32 0, ptr %2540, align 8
-  %2541 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
-  store ptr %2541, ptr %13, align 8
-  br label %2542
+2540:                                             ; preds = %2535, %2531
+  %2541 = getelementptr inbounds %struct.__suio, ptr %33, i32 0, i32 1
+  store i32 0, ptr %2541, align 8
+  %2542 = getelementptr inbounds [8 x %struct.__siov], ptr %34, i64 0, i64 0
+  store ptr %2542, ptr %13, align 8
+  br label %2543
 
-2542:                                             ; preds = %2539, %2538, %2526, %2499, %2471, %2440, %2420, %2393, %2368, %2340, %2303, %2275, %2245, %2214, %2173, %2145, %2103, %2073, %2048, %2020, %1994, %1966, %1936, %1903, %1875, %1833, %1806, %1778, %1749, %1724, %1690, %1662, %1621, %1599, %1564, %1537, %1509, %1478, %1454, %1423, %1383, %1353, %1325, %1294, %1278, %1250, %1219, %1201, %1170, %1143, %1115, %1084, %323, %294, %111
-  %2543 = load ptr, ptr %5, align 8
-  %2544 = getelementptr inbounds %struct.rb_printf_sfile, ptr %2543, i32 0, i32 2
-  %2545 = load i16, ptr %2544, align 8
-  %2546 = sext i16 %2545 to i32
-  %2547 = and i32 %2546, 64
-  %2548 = icmp ne i32 %2547, 0
-  br i1 %2548, label %2549, label %2550
+2543:                                             ; preds = %2540, %2539, %2527, %2500, %2472, %2441, %2421, %2394, %2369, %2341, %2304, %2276, %2246, %2215, %2174, %2146, %2104, %2074, %2049, %2021, %1995, %1967, %1937, %1904, %1876, %1834, %1807, %1779, %1750, %1725, %1691, %1663, %1622, %1600, %1565, %1538, %1510, %1479, %1455, %1424, %1384, %1354, %1326, %1295, %1279, %1251, %1220, %1202, %1171, %1144, %1116, %1085, %323, %294, %111
+  %2544 = load ptr, ptr %5, align 8
+  %2545 = getelementptr inbounds %struct.rb_printf_sfile, ptr %2544, i32 0, i32 2
+  %2546 = load i16, ptr %2545, align 8
+  %2547 = sext i16 %2546 to i32
+  %2548 = and i32 %2547, 64
+  %2549 = icmp ne i32 %2548, 0
+  br i1 %2549, label %2550, label %2551
 
-2549:                                             ; preds = %2542
-  br label %2552
+2550:                                             ; preds = %2543
+  br label %2553
 
-2550:                                             ; preds = %2542
-  %2551 = load i64, ptr %15, align 8
-  br label %2552
+2551:                                             ; preds = %2543
+  %2552 = load i64, ptr %15, align 8
+  br label %2553
 
-2552:                                             ; preds = %2550, %2549
-  %2553 = phi i64 [ -1, %2549 ], [ %2551, %2550 ]
-  store i64 %2553, ptr %4, align 8
-  br label %2554
+2553:                                             ; preds = %2551, %2550
+  %2554 = phi i64 [ -1, %2550 ], [ %2552, %2551 ]
+  store i64 %2554, ptr %4, align 8
+  br label %2555
 
-2554:                                             ; preds = %2552, %55
-  %2555 = load i64, ptr %4, align 8
-  ret i64 %2555
+2555:                                             ; preds = %2553, %55
+  %2556 = load i64, ptr %4, align 8
+  ret i64 %2556
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -11710,126 +11705,127 @@ define internal ptr @cvt(double noundef %0, i32 noundef %1, i32 noundef %2, ptr 
 48:                                               ; preds = %45
   %49 = load i32, ptr %14, align 4
   %50 = icmp eq i32 %49, 65
-  br i1 %50, label %51, label %59
+  br i1 %50, label %51, label %60
 
 51:                                               ; preds = %48, %45
   %52 = load double, ptr %9, align 8
   %53 = load i32, ptr %14, align 4
   %54 = icmp eq i32 %53, 97
-  %55 = select i1 %54, ptr @ruby_hexdigits, ptr getelementptr (i8, ptr @ruby_hexdigits, i64 16)
-  %56 = load i32, ptr %10, align 4
-  %57 = load ptr, ptr %13, align 8
-  %58 = call ptr @ruby_hdtoa(double noundef %52, ptr noundef %55, i32 noundef %56, ptr noundef %57, ptr noundef %18, ptr noundef %21)
-  store ptr %58, ptr %19, align 8
-  br label %65
+  %55 = getelementptr i8, ptr @ruby_hexdigits, i64 16
+  %56 = select i1 %54, ptr @ruby_hexdigits, ptr %55
+  %57 = load i32, ptr %10, align 4
+  %58 = load ptr, ptr %13, align 8
+  %59 = call ptr @ruby_hdtoa(double noundef %52, ptr noundef %56, i32 noundef %57, ptr noundef %58, ptr noundef %18, ptr noundef %21)
+  store ptr %59, ptr %19, align 8
+  br label %66
 
-59:                                               ; preds = %48
-  %60 = load double, ptr %9, align 8
-  %61 = load i32, ptr %17, align 4
-  %62 = load i32, ptr %10, align 4
-  %63 = load ptr, ptr %13, align 8
-  %64 = call ptr @ruby_dtoa(double noundef %60, i32 noundef %61, i32 noundef %62, ptr noundef %63, ptr noundef %18, ptr noundef %21)
-  store ptr %64, ptr %19, align 8
-  br label %65
+60:                                               ; preds = %48
+  %61 = load double, ptr %9, align 8
+  %62 = load i32, ptr %17, align 4
+  %63 = load i32, ptr %10, align 4
+  %64 = load ptr, ptr %13, align 8
+  %65 = call ptr @ruby_dtoa(double noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef %64, ptr noundef %18, ptr noundef %21)
+  store ptr %65, ptr %19, align 8
+  br label %66
 
-65:                                               ; preds = %59, %51
-  %66 = load ptr, ptr %16, align 8
-  %67 = getelementptr i8, ptr %66, i64 0
-  store i8 0, ptr %67, align 1
-  %68 = load ptr, ptr %16, align 8
-  %69 = load ptr, ptr %19, align 8
-  %70 = load ptr, ptr %21, align 8
-  %71 = load ptr, ptr %19, align 8
-  %72 = ptrtoint ptr %70 to i64
+66:                                               ; preds = %60, %51
+  %67 = load ptr, ptr %16, align 8
+  %68 = getelementptr i8, ptr %67, i64 0
+  store i8 0, ptr %68, align 1
+  %69 = load ptr, ptr %16, align 8
+  %70 = load ptr, ptr %19, align 8
+  %71 = load ptr, ptr %21, align 8
+  %72 = load ptr, ptr %19, align 8
   %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %72, %73
-  %75 = call nonnull ptr @ruby_nonempty_memcpy(ptr noundef %68, ptr noundef %69, i64 noundef %74) #21
-  %76 = load ptr, ptr %16, align 8
-  %77 = load ptr, ptr %21, align 8
-  %78 = load ptr, ptr %19, align 8
-  %79 = ptrtoint ptr %77 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = call nonnull ptr @ruby_nonempty_memcpy(ptr noundef %69, ptr noundef %70, i64 noundef %75) #21
+  %77 = load ptr, ptr %16, align 8
+  %78 = load ptr, ptr %21, align 8
+  %79 = load ptr, ptr %19, align 8
   %80 = ptrtoint ptr %78 to i64
-  %81 = sub i64 %79, %80
-  %82 = getelementptr i8, ptr %76, i64 %81
-  store ptr %82, ptr %21, align 8
-  %83 = load ptr, ptr %19, align 8
-  call void @free(ptr noundef %83) #23
-  %84 = load ptr, ptr %16, align 8
-  store ptr %84, ptr %19, align 8
-  %85 = load i32, ptr %11, align 4
-  %86 = and i32 %85, 1
-  %87 = icmp ne i32 %86, 0
-  br i1 %87, label %88, label %123
+  %81 = ptrtoint ptr %79 to i64
+  %82 = sub i64 %80, %81
+  %83 = getelementptr i8, ptr %77, i64 %82
+  store ptr %83, ptr %21, align 8
+  %84 = load ptr, ptr %19, align 8
+  call void @free(ptr noundef %84) #23
+  %85 = load ptr, ptr %16, align 8
+  store ptr %85, ptr %19, align 8
+  %86 = load i32, ptr %11, align 4
+  %87 = and i32 %86, 1
+  %88 = icmp ne i32 %87, 0
+  br i1 %88, label %89, label %124
 
-88:                                               ; preds = %65
-  %89 = load ptr, ptr %19, align 8
-  %90 = load i32, ptr %10, align 4
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr i8, ptr %89, i64 %91
-  store ptr %92, ptr %20, align 8
-  %93 = load i32, ptr %14, align 4
-  %94 = icmp eq i32 %93, 102
-  br i1 %94, label %95, label %114
+89:                                               ; preds = %66
+  %90 = load ptr, ptr %19, align 8
+  %91 = load i32, ptr %10, align 4
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr i8, ptr %90, i64 %92
+  store ptr %93, ptr %20, align 8
+  %94 = load i32, ptr %14, align 4
+  %95 = icmp eq i32 %94, 102
+  br i1 %95, label %96, label %115
 
-95:                                               ; preds = %88
-  %96 = load ptr, ptr %19, align 8
-  %97 = load i8, ptr %96, align 1
-  %98 = sext i8 %97 to i32
-  %99 = icmp eq i32 %98, 48
-  br i1 %99, label %100, label %108
+96:                                               ; preds = %89
+  %97 = load ptr, ptr %19, align 8
+  %98 = load i8, ptr %97, align 1
+  %99 = sext i8 %98 to i32
+  %100 = icmp eq i32 %99, 48
+  br i1 %100, label %101, label %109
 
-100:                                              ; preds = %95
-  %101 = load double, ptr %9, align 8
-  %102 = fcmp une double %101, 0.000000e+00
-  br i1 %102, label %103, label %108
+101:                                              ; preds = %96
+  %102 = load double, ptr %9, align 8
+  %103 = fcmp une double %102, 0.000000e+00
+  br i1 %103, label %104, label %109
 
-103:                                              ; preds = %100
-  %104 = load i32, ptr %10, align 4
-  %105 = sub i32 0, %104
-  %106 = add i32 %105, 1
-  %107 = load ptr, ptr %13, align 8
-  store i32 %106, ptr %107, align 4
-  br label %108
+104:                                              ; preds = %101
+  %105 = load i32, ptr %10, align 4
+  %106 = sub i32 0, %105
+  %107 = add i32 %106, 1
+  %108 = load ptr, ptr %13, align 8
+  store i32 %107, ptr %108, align 4
+  br label %109
 
-108:                                              ; preds = %103, %100, %95
-  %109 = load ptr, ptr %13, align 8
-  %110 = load i32, ptr %109, align 4
-  %111 = load ptr, ptr %20, align 8
-  %112 = sext i32 %110 to i64
-  %113 = getelementptr i8, ptr %111, i64 %112
-  store ptr %113, ptr %20, align 8
-  br label %114
-
-114:                                              ; preds = %108, %88
+109:                                              ; preds = %104, %101, %96
+  %110 = load ptr, ptr %13, align 8
+  %111 = load i32, ptr %110, align 4
+  %112 = load ptr, ptr %20, align 8
+  %113 = sext i32 %111 to i64
+  %114 = getelementptr i8, ptr %112, i64 %113
+  store ptr %114, ptr %20, align 8
   br label %115
 
-115:                                              ; preds = %119, %114
-  %116 = load ptr, ptr %21, align 8
-  %117 = load ptr, ptr %20, align 8
-  %118 = icmp ult ptr %116, %117
-  br i1 %118, label %119, label %122
+115:                                              ; preds = %109, %89
+  br label %116
 
-119:                                              ; preds = %115
-  %120 = load ptr, ptr %21, align 8
-  %121 = getelementptr i8, ptr %120, i32 1
-  store ptr %121, ptr %21, align 8
-  store i8 48, ptr %120, align 1
-  br label %115, !llvm.loop !55
+116:                                              ; preds = %120, %115
+  %117 = load ptr, ptr %21, align 8
+  %118 = load ptr, ptr %20, align 8
+  %119 = icmp ult ptr %117, %118
+  br i1 %119, label %120, label %123
 
-122:                                              ; preds = %115
-  br label %123
+120:                                              ; preds = %116
+  %121 = load ptr, ptr %21, align 8
+  %122 = getelementptr i8, ptr %121, i32 1
+  store ptr %122, ptr %21, align 8
+  store i8 48, ptr %121, align 1
+  br label %116, !llvm.loop !55
 
-123:                                              ; preds = %122, %65
-  %124 = load ptr, ptr %21, align 8
-  %125 = load ptr, ptr %19, align 8
-  %126 = ptrtoint ptr %124 to i64
+123:                                              ; preds = %116
+  br label %124
+
+124:                                              ; preds = %123, %66
+  %125 = load ptr, ptr %21, align 8
+  %126 = load ptr, ptr %19, align 8
   %127 = ptrtoint ptr %125 to i64
-  %128 = sub i64 %126, %127
-  %129 = trunc i64 %128 to i32
-  %130 = load ptr, ptr %15, align 8
-  store i32 %129, ptr %130, align 4
-  %131 = load ptr, ptr %19, align 8
-  ret ptr %131
+  %128 = ptrtoint ptr %126 to i64
+  %129 = sub i64 %127, %128
+  %130 = trunc i64 %129 to i32
+  %131 = load ptr, ptr %15, align 8
+  store i32 %130, ptr %131, align 4
+  %132 = load ptr, ptr %19, align 8
+  ret ptr %132
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -11978,7 +11974,7 @@ declare ptr @ruby_hdtoa(double noundef, ptr noundef, i32 noundef, ptr noundef, p
 declare ptr @ruby_dtoa(double noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #18
+declare void @free(ptr noundef) #17
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @RBASIC_CLEAR_CLASS(i64 noundef %0) #0 {
@@ -12472,6 +12468,12 @@ declare ptr @rb_string_value_cstr(ptr noundef) #2
 
 declare i64 @rb_str_quote_unprintable(i64 noundef) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #18
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #18
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -12486,11 +12488,11 @@ attributes #10 = { convergent nocallback nofree nosync nounwind willreturn memor
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind sspstrong willreturn memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind willreturn }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #17 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #16 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nocallback nofree nosync nounwind willreturn }
 attributes #19 = { noreturn }
 attributes #20 = { nounwind willreturn memory(read) }
 attributes #21 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) }

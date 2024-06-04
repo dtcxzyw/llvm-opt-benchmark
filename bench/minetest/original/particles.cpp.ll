@@ -213,17 +213,21 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN18ParticleParamTypes15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEEC2ES6_S6_(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef %_min, ptr noundef %_max) unnamed_addr #3 comdat($_ZN18ParticleParamTypes15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEEC5ES6_S6_) align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !4
   %val.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %val2.i.i = getelementptr inbounds i8, ptr %_min, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i, i64 12, i1 false), !tbaa.struct !7
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %1, ptr %this, align 8, !tbaa !4
   %max = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %max, align 8, !tbaa !4
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %max, align 8, !tbaa !4
   %val.i.i2 = getelementptr inbounds i8, ptr %this, i64 32
   %val2.i.i3 = getelementptr inbounds i8, ptr %_max, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i2, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i3, i64 12, i1 false), !tbaa.struct !7
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %max, align 8, !tbaa !4
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %3, ptr %max, align 8, !tbaa !4
   %bias = getelementptr inbounds i8, ptr %this, i64 48
   store float 0.000000e+00, ptr %bias, align 8, !tbaa !11
   ret void
@@ -440,11 +444,13 @@ define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_15V
 entry:
   %val.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %Z.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %agg.result, align 8, !tbaa !4
   %max.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %val.i.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %Z.i.i.i4.i = getelementptr inbounds i8, ptr %agg.result, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %max.i, align 8, !tbaa !4
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %1, ptr %max.i, align 8, !tbaa !4
   %bias.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %val.i = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %val.i, align 8, !tbaa.struct !7
@@ -456,21 +462,21 @@ entry:
   %agg.tmp2.sroa.2.0.copyload.i = load float, ptr %agg.tmp2.sroa.2.0.val3.sroa_idx.i, align 8, !tbaa !8
   %conv.i.i = fpext float %fac to double
   %sub.i.i.i = fsub nsz double 1.000000e+00, %conv.i.i
-  %0 = fpext <2 x float> %agg.tmp.sroa.0.0.copyload.i to <2 x double>
-  %1 = fpext <2 x float> %agg.tmp2.sroa.0.0.copyload.i to <2 x double>
-  %2 = insertelement <2 x double> poison, double %conv.i.i, i64 0
-  %3 = shufflevector <2 x double> %2, <2 x double> poison, <2 x i32> zeroinitializer
-  %4 = fmul nsz <2 x double> %3, %1
-  %5 = insertelement <2 x double> poison, double %sub.i.i.i, i64 0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
-  %7 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %0, <2 x double> %6, <2 x double> %4)
-  %8 = fptrunc <2 x double> %7 to <2 x float>
+  %2 = fpext <2 x float> %agg.tmp.sroa.0.0.copyload.i to <2 x double>
+  %3 = fpext <2 x float> %agg.tmp2.sroa.0.0.copyload.i to <2 x double>
+  %4 = insertelement <2 x double> poison, double %conv.i.i, i64 0
+  %5 = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> zeroinitializer
+  %6 = fmul nsz <2 x double> %5, %3
+  %7 = insertelement <2 x double> poison, double %sub.i.i.i, i64 0
+  %8 = shufflevector <2 x double> %7, <2 x double> poison, <2 x i32> zeroinitializer
+  %9 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2, <2 x double> %8, <2 x double> %6)
+  %10 = fptrunc <2 x double> %9 to <2 x float>
   %conv11.i.i.i = fpext float %agg.tmp.sroa.2.0.copyload.i to double
   %conv13.i.i.i = fpext float %agg.tmp2.sroa.2.0.copyload.i to double
   %mul14.i.i.i = fmul nsz double %conv.i.i, %conv13.i.i.i
-  %9 = tail call nsz double @llvm.fmuladd.f64(double %conv11.i.i.i, double %sub.i.i.i, double %mul14.i.i.i)
-  %conv15.i.i.i = fptrunc double %9 to float
-  store <2 x float> %8, ptr %val.i.i.i, align 8, !tbaa.struct !7
+  %11 = tail call nsz double @llvm.fmuladd.f64(double %conv11.i.i.i, double %sub.i.i.i, double %mul14.i.i.i)
+  %conv15.i.i.i = fptrunc double %11 to float
+  store <2 x float> %10, ptr %val.i.i.i, align 8, !tbaa.struct !7
   store float %conv15.i.i.i, ptr %Z.i.i.i.i, align 8, !tbaa !8
   %val.i15 = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload.i16 = load <2 x float>, ptr %val.i15, align 8, !tbaa.struct !7
@@ -480,21 +486,21 @@ entry:
   %agg.tmp2.sroa.0.0.copyload.i20 = load <2 x float>, ptr %val3.i19, align 8, !tbaa.struct !7
   %agg.tmp2.sroa.2.0.val3.sroa_idx.i21 = getelementptr inbounds i8, ptr %against, i64 40
   %agg.tmp2.sroa.2.0.copyload.i22 = load float, ptr %agg.tmp2.sroa.2.0.val3.sroa_idx.i21, align 8, !tbaa !8
-  %10 = fpext <2 x float> %agg.tmp.sroa.0.0.copyload.i16 to <2 x double>
-  %11 = fpext <2 x float> %agg.tmp2.sroa.0.0.copyload.i20 to <2 x double>
-  %12 = fmul nsz <2 x double> %3, %11
-  %13 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %10, <2 x double> %6, <2 x double> %12)
-  %14 = fptrunc <2 x double> %13 to <2 x float>
+  %12 = fpext <2 x float> %agg.tmp.sroa.0.0.copyload.i16 to <2 x double>
+  %13 = fpext <2 x float> %agg.tmp2.sroa.0.0.copyload.i20 to <2 x double>
+  %14 = fmul nsz <2 x double> %5, %13
+  %15 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %12, <2 x double> %8, <2 x double> %14)
+  %16 = fptrunc <2 x double> %15 to <2 x float>
   %conv11.i.i.i37 = fpext float %agg.tmp.sroa.2.0.copyload.i18 to double
   %conv13.i.i.i38 = fpext float %agg.tmp2.sroa.2.0.copyload.i22 to double
   %mul14.i.i.i39 = fmul nsz double %conv.i.i, %conv13.i.i.i38
-  %15 = tail call nsz double @llvm.fmuladd.f64(double %conv11.i.i.i37, double %sub.i.i.i, double %mul14.i.i.i39)
-  %conv15.i.i.i40 = fptrunc double %15 to float
-  store <2 x float> %14, ptr %val.i.i2.i, align 8, !tbaa.struct !7
+  %17 = tail call nsz double @llvm.fmuladd.f64(double %conv11.i.i.i37, double %sub.i.i.i, double %mul14.i.i.i39)
+  %conv15.i.i.i40 = fptrunc double %17 to float
+  store <2 x float> %16, ptr %val.i.i2.i, align 8, !tbaa.struct !7
   store float %conv15.i.i.i40, ptr %Z.i.i.i4.i, align 8, !tbaa !8
   %bias = getelementptr inbounds i8, ptr %this, i64 48
-  %16 = load float, ptr %bias, align 8, !tbaa !11
-  store float %16, ptr %bias.i, align 8, !tbaa !11
+  %18 = load float, ptr %bias, align 8, !tbaa !11
+  store float %18, ptr %bias.i, align 8, !tbaa !11
   ret void
 }
 
@@ -583,7 +589,8 @@ entry:
   store <2 x float> %16, ptr %val.i.i, align 8, !tbaa.struct !7
   %args.sroa.2.0.val.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store float %17, ptr %args.sroa.2.0.val.sroa_idx.i.i, align 8, !tbaa !8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !4
+  %18 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %18, ptr %agg.result, align 8, !tbaa !4
   ret void
 }
 
@@ -592,17 +599,19 @@ declare noundef float @_Z12myrand_floatv() local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEEC2ES2_S2_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %_min, ptr noundef %_max) unnamed_addr #3 comdat($_ZN18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEEC5ES2_S2_) align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !4
   %val.i = getelementptr inbounds i8, ptr %this, i64 8
   %val2.i = getelementptr inbounds i8, ptr %_min, i64 8
-  %0 = load float, ptr %val2.i, align 8, !tbaa !16
-  store float %0, ptr %val.i, align 8, !tbaa !16
+  %1 = load float, ptr %val2.i, align 8, !tbaa !16
+  store float %1, ptr %val.i, align 8, !tbaa !16
   %max = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %max, align 8, !tbaa !4
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %max, align 8, !tbaa !4
   %val.i2 = getelementptr inbounds i8, ptr %this, i64 24
   %val2.i3 = getelementptr inbounds i8, ptr %_max, i64 8
-  %1 = load float, ptr %val2.i3, align 8, !tbaa !16
-  store float %1, ptr %val.i2, align 8, !tbaa !16
+  %3 = load float, ptr %val2.i3, align 8, !tbaa !16
+  store float %3, ptr %val.i2, align 8, !tbaa !16
   %bias = getelementptr inbounds i8, ptr %this, i64 32
   store float 0.000000e+00, ptr %bias, align 8, !tbaa !18
   ret void
@@ -737,29 +746,31 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE11interpolateEfS3_(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::RangedParameter.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %this, float noundef %fac, ptr noundef %against) local_unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %agg.result, align 8, !tbaa !4
   %val.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %max.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %max.i, align 8, !tbaa !4
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2
+  store ptr %1, ptr %max.i, align 8, !tbaa !4
   %val.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %bias.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %val.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load float, ptr %val.i, align 8, !tbaa !16
+  %2 = load float, ptr %val.i, align 8, !tbaa !16
   %val2.i = getelementptr inbounds i8, ptr %against, i64 8
-  %1 = load float, ptr %val2.i, align 8, !tbaa !16
-  %sub.i.i.i = fsub nsz float %1, %0
-  %2 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i, float %fac, float %0)
-  store float %2, ptr %val.i.i, align 8, !tbaa !16
+  %3 = load float, ptr %val2.i, align 8, !tbaa !16
+  %sub.i.i.i = fsub nsz float %3, %2
+  %4 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i, float %fac, float %2)
+  store float %4, ptr %val.i.i, align 8, !tbaa !16
   %val.i12 = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load float, ptr %val.i12, align 8, !tbaa !16
+  %5 = load float, ptr %val.i12, align 8, !tbaa !16
   %val2.i13 = getelementptr inbounds i8, ptr %against, i64 24
-  %4 = load float, ptr %val2.i13, align 8, !tbaa !16
-  %sub.i.i.i14 = fsub nsz float %4, %3
-  %5 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i14, float %fac, float %3)
-  store float %5, ptr %val.i2.i, align 8, !tbaa !16
+  %6 = load float, ptr %val2.i13, align 8, !tbaa !16
+  %sub.i.i.i14 = fsub nsz float %6, %5
+  %7 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i14, float %fac, float %5)
+  store float %7, ptr %val.i2.i, align 8, !tbaa !16
   %bias = getelementptr inbounds i8, ptr %this, i64 32
-  %6 = load float, ptr %bias, align 8, !tbaa !18
-  store float %6, ptr %bias.i, align 8, !tbaa !18
+  %8 = load float, ptr %bias, align 8, !tbaa !18
+  store float %8, ptr %bias.i, align 8, !tbaa !18
   ret void
 }
 
@@ -794,7 +805,8 @@ entry:
   %3 = load float, ptr %val1.i, align 8, !tbaa !16
   %sub.i.i.i = fsub nsz float %3, %2
   %4 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i, float %storemerge, float %2)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !4
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2
+  store ptr %5, ptr %agg.result, align 8, !tbaa !4
   %val.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store float %4, ptr %val.i14, align 8, !tbaa !16
   ret void
@@ -809,19 +821,23 @@ entry:
   %beginning = getelementptr inbounds i8, ptr %this, i64 4
   store float 0.000000e+00, ptr %beginning, align 4, !tbaa !28
   %start = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %start, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %start, align 8, !tbaa !4
   %val.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %val2.i.i = getelementptr inbounds i8, ptr %_start, i64 8
-  %0 = load i64, ptr %val2.i.i, align 8, !tbaa.struct !29
-  store i64 %0, ptr %val.i.i, align 8, !tbaa.struct !29
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %start, align 8, !tbaa !4
+  %1 = load i64, ptr %val2.i.i, align 8, !tbaa.struct !29
+  store i64 %1, ptr %val.i.i, align 8, !tbaa.struct !29
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %start, align 8, !tbaa !4
   %end = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %end, align 8, !tbaa !4
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2
+  store ptr %3, ptr %end, align 8, !tbaa !4
   %val.i.i2 = getelementptr inbounds i8, ptr %this, i64 32
   %val2.i.i3 = getelementptr inbounds i8, ptr %_end, i64 8
-  %1 = load i64, ptr %val2.i.i3, align 8, !tbaa.struct !29
-  store i64 %1, ptr %val.i.i2, align 8, !tbaa.struct !29
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %end, align 8, !tbaa !4
+  %4 = load i64, ptr %val2.i.i3, align 8, !tbaa.struct !29
+  store i64 %4, ptr %val.i.i2, align 8, !tbaa.struct !29
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2
+  store ptr %5, ptr %end, align 8, !tbaa !4
   ret void
 }
 
@@ -908,7 +924,8 @@ if.end35:                                         ; preds = %if.else32, %if.then
   %13 = fptrunc <2 x double> %12 to <2 x float>
   %val.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store <2 x float> %13, ptr %val.i.i, align 8, !tbaa.struct !29
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !4
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2
+  store ptr %14, ptr %agg.result, align 8, !tbaa !4
   ret void
 }
 
@@ -1087,17 +1104,21 @@ entry:
   %beginning = getelementptr inbounds i8, ptr %this, i64 4
   store float 0.000000e+00, ptr %beginning, align 4, !tbaa !34
   %start = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %start, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %start, align 8, !tbaa !4
   %val.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %val2.i.i = getelementptr inbounds i8, ptr %_start, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i, i64 12, i1 false), !tbaa.struct !7
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %start, align 8, !tbaa !4
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %1, ptr %start, align 8, !tbaa !4
   %end = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %end, align 8, !tbaa !4
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %end, align 8, !tbaa !4
   %val.i.i2 = getelementptr inbounds i8, ptr %this, i64 40
   %val2.i.i3 = getelementptr inbounds i8, ptr %_end, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i2, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i3, i64 12, i1 false), !tbaa.struct !7
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %end, align 8, !tbaa !4
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %3, ptr %end, align 8, !tbaa !4
   ret void
 }
 
@@ -1195,7 +1216,8 @@ if.end35:                                         ; preds = %if.else32, %if.then
   store <2 x float> %13, ptr %val.i.i, align 8, !tbaa.struct !7
   %args.sroa.2.0.val.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store float %conv15.i.i.i, ptr %args.sroa.2.0.val.sroa_idx.i.i, align 8, !tbaa !8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !4
+  %15 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %15, ptr %agg.result, align 8, !tbaa !4
   ret void
 }
 
@@ -1329,17 +1351,19 @@ entry:
   %beginning = getelementptr inbounds i8, ptr %this, i64 4
   store float 0.000000e+00, ptr %beginning, align 4, !tbaa !38
   %start = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %start, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %start, align 8, !tbaa !4
   %val.i = getelementptr inbounds i8, ptr %this, i64 16
   %val2.i = getelementptr inbounds i8, ptr %_start, i64 8
-  %0 = load float, ptr %val2.i, align 8, !tbaa !16
-  store float %0, ptr %val.i, align 8, !tbaa !16
+  %1 = load float, ptr %val2.i, align 8, !tbaa !16
+  store float %1, ptr %val.i, align 8, !tbaa !16
   %end = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %end, align 8, !tbaa !4
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %end, align 8, !tbaa !4
   %val.i2 = getelementptr inbounds i8, ptr %this, i64 32
   %val2.i3 = getelementptr inbounds i8, ptr %_end, i64 8
-  %1 = load float, ptr %val2.i3, align 8, !tbaa !16
-  store float %1, ptr %val.i2, align 8, !tbaa !16
+  %3 = load float, ptr %val2.i3, align 8, !tbaa !16
+  store float %3, ptr %val.i2, align 8, !tbaa !16
   ret void
 }
 
@@ -1415,7 +1439,8 @@ if.end35:                                         ; preds = %if.else32, %if.then
   %6 = load float, ptr %val2.i, align 8, !tbaa !16
   %sub.i.i.i = fsub nsz float %6, %5
   %7 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i, float %fac.addr.4, float %5)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !4
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2
+  store ptr %8, ptr %agg.result, align 8, !tbaa !4
   %val.i51 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store float %7, ptr %val.i51, align 8, !tbaa !16
   ret void
@@ -1519,37 +1544,45 @@ entry:
   %beginning = getelementptr inbounds i8, ptr %this, i64 4
   store float 0.000000e+00, ptr %beginning, align 4, !tbaa !42
   %start = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %start, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %start, align 8, !tbaa !4
   %val.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %val2.i.i.i = getelementptr inbounds i8, ptr %_start, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i.i, i64 12, i1 false), !tbaa.struct !7
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %start, align 8, !tbaa !4
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %1, ptr %start, align 8, !tbaa !4
   %max.i = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %max.i, align 8, !tbaa !4
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %max.i, align 8, !tbaa !4
   %val.i.i7.i = getelementptr inbounds i8, ptr %this, i64 40
   %val2.i.i8.i = getelementptr inbounds i8, ptr %_start, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i7.i, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i8.i, i64 12, i1 false), !tbaa.struct !7
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %max.i, align 8, !tbaa !4
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %3, ptr %max.i, align 8, !tbaa !4
   %bias.i = getelementptr inbounds i8, ptr %this, i64 56
   %bias4.i = getelementptr inbounds i8, ptr %_start, i64 48
-  %0 = load float, ptr %bias4.i, align 8, !tbaa !11
-  store float %0, ptr %bias.i, align 8, !tbaa !11
+  %4 = load float, ptr %bias4.i, align 8, !tbaa !11
+  store float %4, ptr %bias.i, align 8, !tbaa !11
   %end = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %end, align 8, !tbaa !4
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %5, ptr %end, align 8, !tbaa !4
   %val.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 72
   %val2.i.i.i3 = getelementptr inbounds i8, ptr %_end, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i.i2, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i.i3, i64 12, i1 false), !tbaa.struct !7
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %end, align 8, !tbaa !4
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %6, ptr %end, align 8, !tbaa !4
   %max.i4 = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %max.i4, align 8, !tbaa !4
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %7, ptr %max.i4, align 8, !tbaa !4
   %val.i.i7.i5 = getelementptr inbounds i8, ptr %this, i64 96
   %val2.i.i8.i6 = getelementptr inbounds i8, ptr %_end, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i7.i5, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i8.i6, i64 12, i1 false), !tbaa.struct !7
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %max.i4, align 8, !tbaa !4
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %8, ptr %max.i4, align 8, !tbaa !4
   %bias.i7 = getelementptr inbounds i8, ptr %this, i64 112
   %bias4.i8 = getelementptr inbounds i8, ptr %_end, i64 48
-  %1 = load float, ptr %bias4.i8, align 8, !tbaa !11
-  store float %1, ptr %bias.i7, align 8, !tbaa !11
+  %9 = load float, ptr %bias4.i8, align 8, !tbaa !11
+  store float %9, ptr %bias.i7, align 8, !tbaa !11
   ret void
 }
 
@@ -1630,11 +1663,13 @@ if.end35:                                         ; preds = %if.else32, %if.then
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   %val.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %Z.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !4, !alias.scope !43
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %5, ptr %agg.result, align 8, !tbaa !4, !alias.scope !43
   %max.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %val.i.i2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %Z.i.i.i4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %max.i.i, align 8, !tbaa !4, !alias.scope !43
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2
+  store ptr %6, ptr %max.i.i, align 8, !tbaa !4, !alias.scope !43
   %bias.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %val.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload.i.i = load <2 x float>, ptr %val.i.i, align 8, !tbaa.struct !7, !noalias !43
@@ -1642,41 +1677,41 @@ if.end35:                                         ; preds = %if.else32, %if.then
   %agg.tmp.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i.i, align 8, !tbaa !8, !noalias !43
   %conv.i.i.i = fpext float %fac.addr.4 to double
   %sub.i.i.i.i = fsub nsz double 1.000000e+00, %conv.i.i.i
-  %5 = fpext <2 x float> %agg.tmp.sroa.0.0.copyload.i.i to <2 x double>
-  %6 = fpext <2 x float> %agg.tmp.sroa.2.8.copyload to <2 x double>
-  %7 = insertelement <2 x double> poison, double %conv.i.i.i, i64 0
-  %8 = shufflevector <2 x double> %7, <2 x double> poison, <2 x i32> zeroinitializer
-  %9 = fmul nsz <2 x double> %8, %6
-  %10 = insertelement <2 x double> poison, double %sub.i.i.i.i, i64 0
-  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
-  %12 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %5, <2 x double> %11, <2 x double> %9)
-  %13 = fptrunc <2 x double> %12 to <2 x float>
+  %7 = fpext <2 x float> %agg.tmp.sroa.0.0.copyload.i.i to <2 x double>
+  %8 = fpext <2 x float> %agg.tmp.sroa.2.8.copyload to <2 x double>
+  %9 = insertelement <2 x double> poison, double %conv.i.i.i, i64 0
+  %10 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> zeroinitializer
+  %11 = fmul nsz <2 x double> %10, %8
+  %12 = insertelement <2 x double> poison, double %sub.i.i.i.i, i64 0
+  %13 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
+  %14 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %7, <2 x double> %13, <2 x double> %11)
+  %15 = fptrunc <2 x double> %14 to <2 x float>
   %conv11.i.i.i.i = fpext float %agg.tmp.sroa.2.0.copyload.i.i to double
   %conv13.i.i.i.i = fpext float %agg.tmp.sroa.4.8.copyload to double
   %mul14.i.i.i.i = fmul nsz double %conv.i.i.i, %conv13.i.i.i.i
-  %14 = tail call nsz double @llvm.fmuladd.f64(double %conv11.i.i.i.i, double %sub.i.i.i.i, double %mul14.i.i.i.i)
-  %conv15.i.i.i.i = fptrunc double %14 to float
-  store <2 x float> %13, ptr %val.i.i.i.i, align 8, !tbaa.struct !7, !alias.scope !43
+  %16 = tail call nsz double @llvm.fmuladd.f64(double %conv11.i.i.i.i, double %sub.i.i.i.i, double %mul14.i.i.i.i)
+  %conv15.i.i.i.i = fptrunc double %16 to float
+  store <2 x float> %15, ptr %val.i.i.i.i, align 8, !tbaa.struct !7, !alias.scope !43
   store float %conv15.i.i.i.i, ptr %Z.i.i.i.i.i, align 8, !tbaa !8, !alias.scope !43
   %val.i15.i = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp.sroa.0.0.copyload.i16.i = load <2 x float>, ptr %val.i15.i, align 8, !tbaa.struct !7, !noalias !43
   %agg.tmp.sroa.2.0.val.sroa_idx.i17.i = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp.sroa.2.0.copyload.i18.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i17.i, align 8, !tbaa !8, !noalias !43
-  %15 = fpext <2 x float> %agg.tmp.sroa.0.0.copyload.i16.i to <2 x double>
-  %16 = fpext <2 x float> %agg.tmp.sroa.7.32.copyload to <2 x double>
-  %17 = fmul nsz <2 x double> %8, %16
-  %18 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %11, <2 x double> %17)
-  %19 = fptrunc <2 x double> %18 to <2 x float>
+  %17 = fpext <2 x float> %agg.tmp.sroa.0.0.copyload.i16.i to <2 x double>
+  %18 = fpext <2 x float> %agg.tmp.sroa.7.32.copyload to <2 x double>
+  %19 = fmul nsz <2 x double> %10, %18
+  %20 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %17, <2 x double> %13, <2 x double> %19)
+  %21 = fptrunc <2 x double> %20 to <2 x float>
   %conv11.i.i.i37.i = fpext float %agg.tmp.sroa.2.0.copyload.i18.i to double
   %conv13.i.i.i38.i = fpext float %agg.tmp.sroa.9.32.copyload to double
   %mul14.i.i.i39.i = fmul nsz double %conv.i.i.i, %conv13.i.i.i38.i
-  %20 = tail call nsz double @llvm.fmuladd.f64(double %conv11.i.i.i37.i, double %sub.i.i.i.i, double %mul14.i.i.i39.i)
-  %conv15.i.i.i40.i = fptrunc double %20 to float
-  store <2 x float> %19, ptr %val.i.i2.i.i, align 8, !tbaa.struct !7, !alias.scope !43
+  %22 = tail call nsz double @llvm.fmuladd.f64(double %conv11.i.i.i37.i, double %sub.i.i.i.i, double %mul14.i.i.i39.i)
+  %conv15.i.i.i40.i = fptrunc double %22 to float
+  store <2 x float> %21, ptr %val.i.i2.i.i, align 8, !tbaa.struct !7, !alias.scope !43
   store float %conv15.i.i.i40.i, ptr %Z.i.i.i4.i.i, align 8, !tbaa !8, !alias.scope !43
   %bias.i50 = getelementptr inbounds i8, ptr %this, i64 56
-  %21 = load float, ptr %bias.i50, align 8, !tbaa !11, !noalias !43
-  store float %21, ptr %bias.i.i, align 8, !tbaa !11, !alias.scope !43
+  %23 = load float, ptr %bias.i50, align 8, !tbaa !11, !noalias !43
+  store float %23, ptr %bias.i.i, align 8, !tbaa !11, !alias.scope !43
   ret void
 }
 
@@ -1826,37 +1861,41 @@ entry:
   %beginning = getelementptr inbounds i8, ptr %this, i64 4
   store float 0.000000e+00, ptr %beginning, align 4, !tbaa !49
   %start = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %start, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %start, align 8, !tbaa !4
   %val.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %val2.i.i = getelementptr inbounds i8, ptr %_start, i64 8
-  %0 = load float, ptr %val2.i.i, align 8, !tbaa !16
-  store float %0, ptr %val.i.i, align 8, !tbaa !16
+  %1 = load float, ptr %val2.i.i, align 8, !tbaa !16
+  store float %1, ptr %val.i.i, align 8, !tbaa !16
   %max.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %max.i, align 8, !tbaa !4
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %max.i, align 8, !tbaa !4
   %val.i7.i = getelementptr inbounds i8, ptr %this, i64 32
   %val2.i8.i = getelementptr inbounds i8, ptr %_start, i64 24
-  %1 = load float, ptr %val2.i8.i, align 8, !tbaa !16
-  store float %1, ptr %val.i7.i, align 8, !tbaa !16
+  %3 = load float, ptr %val2.i8.i, align 8, !tbaa !16
+  store float %3, ptr %val.i7.i, align 8, !tbaa !16
   %bias.i = getelementptr inbounds i8, ptr %this, i64 40
   %bias4.i = getelementptr inbounds i8, ptr %_start, i64 32
-  %2 = load float, ptr %bias4.i, align 8, !tbaa !18
-  store float %2, ptr %bias.i, align 8, !tbaa !18
+  %4 = load float, ptr %bias4.i, align 8, !tbaa !18
+  store float %4, ptr %bias.i, align 8, !tbaa !18
   %end = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %end, align 8, !tbaa !4
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2
+  store ptr %5, ptr %end, align 8, !tbaa !4
   %val.i.i2 = getelementptr inbounds i8, ptr %this, i64 56
   %val2.i.i3 = getelementptr inbounds i8, ptr %_end, i64 8
-  %3 = load float, ptr %val2.i.i3, align 8, !tbaa !16
-  store float %3, ptr %val.i.i2, align 8, !tbaa !16
+  %6 = load float, ptr %val2.i.i3, align 8, !tbaa !16
+  store float %6, ptr %val.i.i2, align 8, !tbaa !16
   %max.i4 = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %max.i4, align 8, !tbaa !4
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2
+  store ptr %7, ptr %max.i4, align 8, !tbaa !4
   %val.i7.i5 = getelementptr inbounds i8, ptr %this, i64 72
   %val2.i8.i6 = getelementptr inbounds i8, ptr %_end, i64 24
-  %4 = load float, ptr %val2.i8.i6, align 8, !tbaa !16
-  store float %4, ptr %val.i7.i5, align 8, !tbaa !16
+  %8 = load float, ptr %val2.i8.i6, align 8, !tbaa !16
+  store float %8, ptr %val.i7.i5, align 8, !tbaa !16
   %bias.i7 = getelementptr inbounds i8, ptr %this, i64 80
   %bias4.i8 = getelementptr inbounds i8, ptr %_end, i64 32
-  %5 = load float, ptr %bias4.i8, align 8, !tbaa !18
-  store float %5, ptr %bias.i7, align 8, !tbaa !18
+  %9 = load float, ptr %bias4.i8, align 8, !tbaa !18
+  store float %9, ptr %bias.i7, align 8, !tbaa !18
   ret void
 }
 
@@ -1931,25 +1970,27 @@ if.end35:                                         ; preds = %if.else32, %if.then
   %val2.i8.i = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load float, ptr %val2.i8.i, align 8, !tbaa !16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !4, !alias.scope !50
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2
+  store ptr %7, ptr %agg.result, align 8, !tbaa !4, !alias.scope !50
   %val.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %max.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %max.i.i, align 8, !tbaa !4, !alias.scope !50
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2
+  store ptr %8, ptr %max.i.i, align 8, !tbaa !4, !alias.scope !50
   %val.i2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %bias.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %val.i.i50 = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load float, ptr %val.i.i50, align 8, !tbaa !16, !noalias !50
-  %sub.i.i.i.i = fsub nsz float %5, %7
-  %8 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i.i, float %fac.addr.4, float %7)
-  store float %8, ptr %val.i.i.i, align 8, !tbaa !16, !alias.scope !50
+  %9 = load float, ptr %val.i.i50, align 8, !tbaa !16, !noalias !50
+  %sub.i.i.i.i = fsub nsz float %5, %9
+  %10 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i.i, float %fac.addr.4, float %9)
+  store float %10, ptr %val.i.i.i, align 8, !tbaa !16, !alias.scope !50
   %val.i12.i = getelementptr inbounds i8, ptr %this, i64 32
-  %9 = load float, ptr %val.i12.i, align 8, !tbaa !16, !noalias !50
-  %sub.i.i.i14.i = fsub nsz float %6, %9
-  %10 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i14.i, float %fac.addr.4, float %9)
-  store float %10, ptr %val.i2.i.i, align 8, !tbaa !16, !alias.scope !50
+  %11 = load float, ptr %val.i12.i, align 8, !tbaa !16, !noalias !50
+  %sub.i.i.i14.i = fsub nsz float %6, %11
+  %12 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i14.i, float %fac.addr.4, float %11)
+  store float %12, ptr %val.i2.i.i, align 8, !tbaa !16, !alias.scope !50
   %bias.i52 = getelementptr inbounds i8, ptr %this, i64 40
-  %11 = load float, ptr %bias.i52, align 8, !tbaa !18, !noalias !50
-  store float %11, ptr %bias.i.i, align 8, !tbaa !18, !alias.scope !50
+  %13 = load float, ptr %bias.i52, align 8, !tbaa !18, !noalias !50
+  store float %13, ptr %bias.i.i, align 8, !tbaa !18, !alias.scope !50
   ret void
 }
 
@@ -3630,16 +3671,17 @@ invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if
 define linkonce_odr dso_local void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr %0, ptr %m_s.i, align 8, !tbaa !94
-  %1 = load ptr, ptr %s, align 8, !tbaa !65
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
+  store ptr %1, ptr %m_s.i, align 8, !tbaa !94
+  %2 = load ptr, ptr %s, align 8, !tbaa !65
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %s, i64 8
-  %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !70
+  %3 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !70
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #23
-  store i64 %2, ptr %__dnew.i.i.i, align 8, !tbaa !95
-  %cmp.i.i.i = icmp ugt i64 %2, 15
+  store i64 %3, ptr %__dnew.i.i.i, align 8, !tbaa !95
+  %cmp.i.i.i = icmp ugt i64 %3, 15
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -3648,64 +3690,66 @@ if.then.i.i.i:                                    ; preds = %entry
 
 call2.i12.i.noexc.i:                              ; preds = %if.then.i.i.i
   store ptr %call2.i12.i2.i, ptr %m_s.i, align 8, !tbaa !65
-  %3 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !95
-  store i64 %3, ptr %0, align 8, !tbaa !30
+  %4 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !95
+  store i64 %4, ptr %1, align 8, !tbaa !30
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %call2.i12.i.noexc.i, %entry
-  %4 = phi ptr [ %call2.i12.i2.i, %call2.i12.i.noexc.i ], [ %0, %entry ]
-  switch i64 %2, label %if.end.i.i.i.i.i.i [
+  %5 = phi ptr [ %call2.i12.i2.i, %call2.i12.i.noexc.i ], [ %1, %entry ]
+  switch i64 %3, label %if.end.i.i.i.i.i.i [
     i64 1, label %if.then.i.i.i.i.i
     i64 0, label %_ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   ]
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  %5 = load i8, ptr %1, align 1, !tbaa !30
-  store i8 %5, ptr %4, align 1, !tbaa !30
+  %6 = load i8, ptr %2, align 1, !tbaa !30
+  store i8 %6, ptr %5, align 1, !tbaa !30
   br label %_ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %1, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %2, i64 %3, i1 false)
   br label %_ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i.i.i
-  %8 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !95
+  %9 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !95
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store i64 %8, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !70
-  %9 = load ptr, ptr %m_s.i, align 8, !tbaa !65
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
+  store i64 %9, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !70
+  %10 = load ptr, ptr %m_s.i, align 8, !tbaa !65
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 %9
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #23
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV18SerializationError, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %11 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV18SerializationError, i64 0, i32 0, i64 2
+  store ptr %11, ptr %this, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !4
   %m_s = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %m_s, align 8, !tbaa !65
-  %1 = getelementptr inbounds i8, ptr %this, i64 24
-  %cmp.i.i.i = icmp eq ptr %0, %1
+  %1 = load ptr, ptr %m_s, align 8, !tbaa !65
+  %2 = getelementptr inbounds i8, ptr %this, i64 24
+  %cmp.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !70
-  %cmp3.i.i.i = icmp ult i64 %2, 16
+  %3 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !70
+  %cmp3.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #24
+  tail call void @_ZdlPv(ptr noundef %1) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -3742,22 +3786,23 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #17
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18SerializationErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %m_s.i, align 8, !tbaa !65
-  %1 = getelementptr inbounds i8, ptr %this, i64 24
-  %cmp.i.i.i.i = icmp eq ptr %0, %1
+  %1 = load ptr, ptr %m_s.i, align 8, !tbaa !65
+  %2 = getelementptr inbounds i8, ptr %this, i64 24
+  %cmp.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !70
-  %cmp3.i.i.i.i = icmp ult i64 %2, 16
+  %3 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !70
+  %cmp3.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN13BaseExceptionD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #24
+  tail call void @_ZdlPv(ptr noundef %1) #24
   br label %_ZN13BaseExceptionD2Ev.exit
 
 _ZN13BaseExceptionD2Ev.exit:                      ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
@@ -3777,22 +3822,23 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %m_s.i, align 8, !tbaa !65
-  %1 = getelementptr inbounds i8, ptr %this, i64 24
-  %cmp.i.i.i.i = icmp eq ptr %0, %1
+  %1 = load ptr, ptr %m_s.i, align 8, !tbaa !65
+  %2 = getelementptr inbounds i8, ptr %this, i64 24
+  %cmp.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !70
-  %cmp3.i.i.i.i = icmp ult i64 %2, 16
+  %3 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !70
+  %cmp3.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN13BaseExceptionD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #24
+  tail call void @_ZdlPv(ptr noundef %1) #24
   br label %_ZN13BaseExceptionD2Ev.exit
 
 _ZN13BaseExceptionD2Ev.exit:                      ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i

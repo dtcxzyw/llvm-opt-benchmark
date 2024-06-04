@@ -796,259 +796,261 @@ define void @_ZN13ProgressFrameC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %18 = getelementptr inbounds %class.QFlags.1, ptr %5, i32 0, i32 0
   %19 = load i32, ptr %18, align 4
   call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef %17, i32 %19)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, i32 0, i32 2), ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, i32 1, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #13
-          to label %23 unwind label %82
-
-23:                                               ; preds = %2
+  %20 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, i32 0, i32 2
+  store ptr %20, ptr %16, align 8
+  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %22 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, i32 1, i32 2
   store ptr %22, ptr %21, align 8
-  %24 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 3
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #11
-  %25 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 4
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #11
-  %26 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 5
-  store i8 0, ptr %26, align 8
-  %27 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 6
-  store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 7
-  store i32 -1, ptr %28, align 8
-  %29 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 8
+  %23 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
+  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #13
+          to label %25 unwind label %84
+
+25:                                               ; preds = %2
+  store ptr %24, ptr %23, align 8
+  %26 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 3
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #11
+  %27 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 4
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #11
+  %28 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 5
+  store i8 0, ptr %28, align 8
+  %29 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 6
   store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 9
-  store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  invoke void @_ZN16Ui_ProgressFrame7setupUiEP6QFrame(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef %16)
-          to label %33 unwind label %86
+  %30 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 7
+  store i32 -1, ptr %30, align 8
+  %31 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 8
+  store ptr null, ptr %31, align 8
+  %32 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 9
+  store ptr null, ptr %32, align 8
+  %33 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  invoke void @_ZN16Ui_ProgressFrame7setupUiEP6QFrame(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef %16)
+          to label %35 unwind label %88
 
-33:                                               ; preds = %23
-  %34 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 2
-  %35 = getelementptr inbounds %struct.progdlg, ptr %34, i32 0, i32 0
-  store ptr %16, ptr %35, align 8
-  %36 = invoke noundef ptr @_ZNK7QWidget6windowEv(ptr noundef nonnull align 8 dereferenceable(40) %16)
-          to label %37 unwind label %86
+35:                                               ; preds = %25
+  %36 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 2
+  %37 = getelementptr inbounds %struct.progdlg, ptr %36, i32 0, i32 0
+  store ptr %16, ptr %37, align 8
+  %38 = invoke noundef ptr @_ZNK7QWidget6windowEv(ptr noundef nonnull align 8 dereferenceable(40) %16)
+          to label %39 unwind label %88
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 2
-  %39 = getelementptr inbounds %struct.progdlg, ptr %38, i32 0, i32 1
-  store ptr %36, ptr %39, align 8
-  %40 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %class.Ui_ProgressFrame, ptr %41, i32 0, i32 1
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 2
+  %41 = getelementptr inbounds %struct.progdlg, ptr %40, i32 0, i32 1
+  store ptr %38, ptr %41, align 8
+  %42 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
   %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %class.Ui_ProgressFrame, ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef @.str.1)
-          to label %44 unwind label %86
+          to label %46 unwind label %88
 
-44:                                               ; preds = %37
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %45 unwind label %90
+46:                                               ; preds = %39
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %47 unwind label %92
 
-45:                                               ; preds = %44
+47:                                               ; preds = %46
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
-  %46 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %class.Ui_ProgressFrame, ptr %47, i32 0, i32 2
+  %48 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
   %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %class.Ui_ProgressFrame, ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef @.str.2)
-          to label %50 unwind label %86
+          to label %52 unwind label %88
 
-50:                                               ; preds = %45
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %51 unwind label %94
+52:                                               ; preds = %47
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(24) %9)
+          to label %53 unwind label %96
 
-51:                                               ; preds = %50
+53:                                               ; preds = %52
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  %52 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %class.Ui_ProgressFrame, ptr %53, i32 0, i32 3
+  %54 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
   %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds %class.Ui_ProgressFrame, ptr %55, i32 0, i32 3
+  %57 = load ptr, ptr %56, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef @.str.3)
-          to label %56 unwind label %86
+          to label %58 unwind label %88
 
-56:                                               ; preds = %51
-  invoke void @_ZN19StockIconToolButton12setStockIconE7QString(ptr noundef nonnull align 8 dereferenceable(72) %55, ptr noundef %10)
-          to label %57 unwind label %98
+58:                                               ; preds = %53
+  invoke void @_ZN19StockIconToolButton12setStockIconE7QString(ptr noundef nonnull align 8 dereferenceable(72) %57, ptr noundef %10)
+          to label %59 unwind label %100
 
-57:                                               ; preds = %56
+59:                                               ; preds = %58
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  %58 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %class.Ui_ProgressFrame, ptr %59, i32 0, i32 3
+  %60 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
   %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds %class.Ui_ProgressFrame, ptr %61, i32 0, i32 3
+  %63 = load ptr, ptr %62, align 8
   call void @_ZN5QSizeC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %11, i32 noundef 14, i32 noundef 14) #11
-  invoke void @_ZN15QAbstractButton11setIconSizeERK5QSize(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 4 dereferenceable(8) %11)
-          to label %62 unwind label %86
+  invoke void @_ZN15QAbstractButton11setIconSizeERK5QSize(ptr noundef nonnull align 8 dereferenceable(40) %63, ptr noundef nonnull align 4 dereferenceable(8) %11)
+          to label %64 unwind label %88
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds %class.Ui_ProgressFrame, ptr %64, i32 0, i32 3
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
   %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds %class.Ui_ProgressFrame, ptr %66, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef @.str.4)
-          to label %67 unwind label %86
+          to label %69 unwind label %88
 
-67:                                               ; preds = %62
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef nonnull align 8 dereferenceable(24) %12)
-          to label %68 unwind label %102
+69:                                               ; preds = %64
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %68, ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %70 unwind label %104
 
-68:                                               ; preds = %67
+70:                                               ; preds = %69
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
-  %69 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #13
-          to label %70 unwind label %86
+  %71 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #13
+          to label %72 unwind label %88
 
-70:                                               ; preds = %68
-  invoke void @_ZN22QGraphicsOpacityEffectC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef %16)
-          to label %71 unwind label %106
+72:                                               ; preds = %70
+  invoke void @_ZN22QGraphicsOpacityEffectC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef %16)
+          to label %73 unwind label %108
 
-71:                                               ; preds = %70
-  %72 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 8
-  store ptr %69, ptr %72, align 8
-  %73 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #13
-          to label %74 unwind label %86
+73:                                               ; preds = %72
+  %74 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 8
+  store ptr %71, ptr %74, align 8
+  %75 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #13
+          to label %76 unwind label %88
 
-74:                                               ; preds = %71
+76:                                               ; preds = %73
   store i1 true, ptr %14, align 1
-  %75 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 8
-  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 8
+  %78 = load ptr, ptr %77, align 8
   invoke void @_ZN10QByteArrayC1EPKcx(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef @.str.5, i64 noundef -1)
-          to label %77 unwind label %110
+          to label %79 unwind label %112
 
-77:                                               ; preds = %74
-  invoke void @_ZN18QPropertyAnimationC1EP7QObjectRK10QByteArrayS1_(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef %76, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %16)
-          to label %78 unwind label %114
+79:                                               ; preds = %76
+  invoke void @_ZN18QPropertyAnimationC1EP7QObjectRK10QByteArrayS1_(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef %78, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %16)
+          to label %80 unwind label %116
 
-78:                                               ; preds = %77
+80:                                               ; preds = %79
   store i1 false, ptr %14, align 1
-  %79 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 9
-  store ptr %73, ptr %79, align 8
+  %81 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 9
+  store ptr %75, ptr %81, align 8
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
   invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %15, ptr noundef %16, ptr noundef @.str.6, ptr noundef %16, ptr noundef @.str.7, i32 noundef 0)
-          to label %80 unwind label %86
+          to label %82 unwind label %88
 
-80:                                               ; preds = %78
+82:                                               ; preds = %80
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #11
   invoke void @_ZN13ProgressFrame4hideEv(ptr noundef nonnull align 8 dereferenceable(152) %16)
-          to label %81 unwind label %86
+          to label %83 unwind label %88
 
-81:                                               ; preds = %80
+83:                                               ; preds = %82
   ret void
 
-82:                                               ; preds = %2
-  %83 = landingpad { ptr, i32 }
+84:                                               ; preds = %2
+  %85 = landingpad { ptr, i32 }
           cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %6, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %7, align 4
-  br label %123
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %6, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %7, align 4
+  br label %125
 
-86:                                               ; preds = %80, %78, %71, %68, %62, %57, %51, %45, %37, %33, %23
-  %87 = landingpad { ptr, i32 }
+88:                                               ; preds = %82, %80, %73, %70, %64, %59, %53, %47, %39, %35, %25
+  %89 = landingpad { ptr, i32 }
           cleanup
-  %88 = extractvalue { ptr, i32 } %87, 0
-  store ptr %88, ptr %6, align 8
-  %89 = extractvalue { ptr, i32 } %87, 1
-  store i32 %89, ptr %7, align 4
-  br label %122
-
-90:                                               ; preds = %44
-  %91 = landingpad { ptr, i32 }
-          cleanup
-  %92 = extractvalue { ptr, i32 } %91, 0
-  store ptr %92, ptr %6, align 8
-  %93 = extractvalue { ptr, i32 } %91, 1
-  store i32 %93, ptr %7, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
-  br label %122
-
-94:                                               ; preds = %50
-  %95 = landingpad { ptr, i32 }
-          cleanup
-  %96 = extractvalue { ptr, i32 } %95, 0
-  store ptr %96, ptr %6, align 8
-  %97 = extractvalue { ptr, i32 } %95, 1
-  store i32 %97, ptr %7, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  br label %122
-
-98:                                               ; preds = %56
-  %99 = landingpad { ptr, i32 }
-          cleanup
-  %100 = extractvalue { ptr, i32 } %99, 0
-  store ptr %100, ptr %6, align 8
-  %101 = extractvalue { ptr, i32 } %99, 1
-  store i32 %101, ptr %7, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  br label %122
-
-102:                                              ; preds = %67
-  %103 = landingpad { ptr, i32 }
-          cleanup
-  %104 = extractvalue { ptr, i32 } %103, 0
-  store ptr %104, ptr %6, align 8
-  %105 = extractvalue { ptr, i32 } %103, 1
-  store i32 %105, ptr %7, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
-  br label %122
-
-106:                                              ; preds = %70
-  %107 = landingpad { ptr, i32 }
-          cleanup
-  %108 = extractvalue { ptr, i32 } %107, 0
-  store ptr %108, ptr %6, align 8
-  %109 = extractvalue { ptr, i32 } %107, 1
-  store i32 %109, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %69) #14
-  br label %122
-
-110:                                              ; preds = %74
-  %111 = landingpad { ptr, i32 }
-          cleanup
-  %112 = extractvalue { ptr, i32 } %111, 0
-  store ptr %112, ptr %6, align 8
-  %113 = extractvalue { ptr, i32 } %111, 1
-  store i32 %113, ptr %7, align 4
-  br label %118
-
-114:                                              ; preds = %77
-  %115 = landingpad { ptr, i32 }
-          cleanup
-  %116 = extractvalue { ptr, i32 } %115, 0
-  store ptr %116, ptr %6, align 8
-  %117 = extractvalue { ptr, i32 } %115, 1
-  store i32 %117, ptr %7, align 4
-  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
-  br label %118
-
-118:                                              ; preds = %114, %110
-  %119 = load i1, ptr %14, align 1
-  br i1 %119, label %120, label %121
-
-120:                                              ; preds = %118
-  call void @_ZdlPv(ptr noundef %73) #14
-  br label %121
-
-121:                                              ; preds = %120, %118
-  br label %122
-
-122:                                              ; preds = %121, %106, %102, %98, %94, %90, %86
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #11
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #11
-  br label %123
-
-123:                                              ; preds = %122, %82
-  call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #11
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %6, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %7, align 4
   br label %124
 
-124:                                              ; preds = %123
-  %125 = load ptr, ptr %6, align 8
-  %126 = load i32, ptr %7, align 4
-  %127 = insertvalue { ptr, i32 } poison, ptr %125, 0
-  %128 = insertvalue { ptr, i32 } %127, i32 %126, 1
-  resume { ptr, i32 } %128
+92:                                               ; preds = %46
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  %94 = extractvalue { ptr, i32 } %93, 0
+  store ptr %94, ptr %6, align 8
+  %95 = extractvalue { ptr, i32 } %93, 1
+  store i32 %95, ptr %7, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
+  br label %124
+
+96:                                               ; preds = %52
+  %97 = landingpad { ptr, i32 }
+          cleanup
+  %98 = extractvalue { ptr, i32 } %97, 0
+  store ptr %98, ptr %6, align 8
+  %99 = extractvalue { ptr, i32 } %97, 1
+  store i32 %99, ptr %7, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  br label %124
+
+100:                                              ; preds = %58
+  %101 = landingpad { ptr, i32 }
+          cleanup
+  %102 = extractvalue { ptr, i32 } %101, 0
+  store ptr %102, ptr %6, align 8
+  %103 = extractvalue { ptr, i32 } %101, 1
+  store i32 %103, ptr %7, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
+  br label %124
+
+104:                                              ; preds = %69
+  %105 = landingpad { ptr, i32 }
+          cleanup
+  %106 = extractvalue { ptr, i32 } %105, 0
+  store ptr %106, ptr %6, align 8
+  %107 = extractvalue { ptr, i32 } %105, 1
+  store i32 %107, ptr %7, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
+  br label %124
+
+108:                                              ; preds = %72
+  %109 = landingpad { ptr, i32 }
+          cleanup
+  %110 = extractvalue { ptr, i32 } %109, 0
+  store ptr %110, ptr %6, align 8
+  %111 = extractvalue { ptr, i32 } %109, 1
+  store i32 %111, ptr %7, align 4
+  call void @_ZdlPv(ptr noundef %71) #14
+  br label %124
+
+112:                                              ; preds = %76
+  %113 = landingpad { ptr, i32 }
+          cleanup
+  %114 = extractvalue { ptr, i32 } %113, 0
+  store ptr %114, ptr %6, align 8
+  %115 = extractvalue { ptr, i32 } %113, 1
+  store i32 %115, ptr %7, align 4
+  br label %120
+
+116:                                              ; preds = %79
+  %117 = landingpad { ptr, i32 }
+          cleanup
+  %118 = extractvalue { ptr, i32 } %117, 0
+  store ptr %118, ptr %6, align 8
+  %119 = extractvalue { ptr, i32 } %117, 1
+  store i32 %119, ptr %7, align 4
+  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
+  br label %120
+
+120:                                              ; preds = %116, %112
+  %121 = load i1, ptr %14, align 1
+  br i1 %121, label %122, label %123
+
+122:                                              ; preds = %120
+  call void @_ZdlPv(ptr noundef %75) #14
+  br label %123
+
+123:                                              ; preds = %122, %120
+  br label %124
+
+124:                                              ; preds = %123, %108, %104, %100, %96, %92, %88
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #11
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #11
+  br label %125
+
+125:                                              ; preds = %124, %84
+  call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #11
+  br label %126
+
+126:                                              ; preds = %125
+  %127 = load ptr, ptr %6, align 8
+  %128 = load i32, ptr %7, align 4
+  %129 = insertvalue { ptr, i32 } poison, ptr %127, 0
+  %130 = insertvalue { ptr, i32 } %129, i32 %128, 1
+  resume { ptr, i32 } %130
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1437,23 +1439,25 @@ define void @_ZN13ProgressFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.ProgressFrame, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.ProgressFrame, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #14
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #14
+  br label %11
 
-9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds %class.ProgressFrame, ptr %3, i32 0, i32 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  %11 = getelementptr inbounds %class.ProgressFrame, ptr %3, i32 0, i32 3
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
+11:                                               ; preds = %10, %1
+  %12 = getelementptr inbounds %class.ProgressFrame, ptr %3, i32 0, i32 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
+  %13 = getelementptr inbounds %class.ProgressFrame, ptr %3, i32 0, i32 3
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
   call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #11
   ret void
 }

@@ -227,50 +227,54 @@ if.then54:                                        ; preds = %if.end47
   br label %err
 
 if.end55:                                         ; preds = %if.end47
-  %26 = load ptr, ptr getelementptr inbounds (%struct.ossl_record_method_st, ptr @ossl_tls_record_method, i32 0, i32 1), align 8
-  %27 = load ptr, ptr %rrl, align 8
-  %call56 = call i32 %26(ptr noundef %27)
-  %28 = load ptr, ptr getelementptr inbounds (%struct.ossl_record_method_st, ptr @ossl_tls_record_method, i32 0, i32 1), align 8
-  %29 = load ptr, ptr %wrl, align 8
-  %call57 = call i32 %28(ptr noundef %29)
+  %26 = getelementptr inbounds %struct.ossl_record_method_st, ptr @ossl_tls_record_method, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %rrl, align 8
+  %call56 = call i32 %27(ptr noundef %28)
+  %29 = getelementptr inbounds %struct.ossl_record_method_st, ptr @ossl_tls_record_method, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %wrl, align 8
+  %call57 = call i32 %30(ptr noundef %31)
   store ptr null, ptr %wrl, align 8
   store ptr null, ptr %rrl, align 8
   %data58 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i32 0, i32 5
-  %30 = load ptr, ptr %data58, align 8
-  call void @CRYPTO_free(ptr noundef %30, ptr noundef @.str.1, i32 noundef 383)
-  %31 = load ptr, ptr %key, align 8
-  call void @CRYPTO_free(ptr noundef %31, ptr noundef @.str.1, i32 noundef 384)
+  %32 = load ptr, ptr %data58, align 8
+  call void @CRYPTO_free(ptr noundef %32, ptr noundef @.str.1, i32 noundef 383)
+  %33 = load ptr, ptr %key, align 8
+  call void @CRYPTO_free(ptr noundef %33, ptr noundef @.str.1, i32 noundef 384)
   %data59 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i32 0, i32 5
   store ptr null, ptr %data59, align 8
   store ptr null, ptr %key, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end55
-  %32 = load i64, ptr %ctr, align 8
-  %inc = add i64 %32, 1
+  %34 = load i64, ptr %ctr, align 8
+  %inc = add i64 %34, 1
   store i64 %inc, ptr %ctr, align 8
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond
-  %33 = load i64, ptr %ctr, align 8
-  call void (ptr, ...) @test_note(ptr noundef @.str.14, i64 noundef %33)
+  %35 = load i64, ptr %ctr, align 8
+  call void (ptr, ...) @test_note(ptr noundef @.str.14, i64 noundef %35)
   store i32 1, ptr %ret, align 4
   br label %err
 
 err:                                              ; preds = %for.end, %if.then54, %if.then46, %if.then36, %if.then27, %if.then19, %if.then11, %if.then
-  %34 = load ptr, ptr getelementptr inbounds (%struct.ossl_record_method_st, ptr @ossl_tls_record_method, i32 0, i32 1), align 8
-  %35 = load ptr, ptr %rrl, align 8
-  %call60 = call i32 %34(ptr noundef %35)
-  %36 = load ptr, ptr getelementptr inbounds (%struct.ossl_record_method_st, ptr @ossl_tls_record_method, i32 0, i32 1), align 8
-  %37 = load ptr, ptr %wrl, align 8
-  %call61 = call i32 %36(ptr noundef %37)
+  %36 = getelementptr inbounds %struct.ossl_record_method_st, ptr @ossl_tls_record_method, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %rrl, align 8
+  %call60 = call i32 %37(ptr noundef %38)
+  %39 = getelementptr inbounds %struct.ossl_record_method_st, ptr @ossl_tls_record_method, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %wrl, align 8
+  %call61 = call i32 %40(ptr noundef %41)
   %data62 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i32 0, i32 5
-  %38 = load ptr, ptr %data62, align 8
-  call void @CRYPTO_free(ptr noundef %38, ptr noundef @.str.1, i32 noundef 395)
-  %39 = load ptr, ptr %key, align 8
-  call void @CRYPTO_free(ptr noundef %39, ptr noundef @.str.1, i32 noundef 396)
-  %40 = load i32, ptr %ret, align 4
-  ret i32 %40
+  %42 = load ptr, ptr %data62, align 8
+  call void @CRYPTO_free(ptr noundef %42, ptr noundef @.str.1, i32 noundef 395)
+  %43 = load ptr, ptr %key, align 8
+  call void @CRYPTO_free(ptr noundef %43, ptr noundef @.str.1, i32 noundef 396)
+  %44 = load i32, ptr %ret, align 4
+  ret i32 %44
 }
 
 declare ptr @EVP_aes_128_gcm() #1

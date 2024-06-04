@@ -41,7 +41,7 @@ define dso_local noundef zeroext i1 @dev_add_physical_location(ptr nocapture nou
   %3 = getelementptr inbounds i8, ptr %0, i64 632
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %4) #4
-  br i1 %5, label %6, label %48
+  br i1 %5, label %6, label %49
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %3, align 8
@@ -60,54 +60,55 @@ define dso_local noundef zeroext i1 @dev_add_physical_location(ptr nocapture nou
   %16 = phi ptr [ %14, %12 ], [ null, %6 ]
   %17 = call i32 @acpi_get_physical_device_location(ptr noundef %16, ptr noundef nonnull %2) #4
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %48
+  br i1 %18, label %19, label %49
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %21 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 16) #5
-  %22 = getelementptr inbounds i8, ptr %0, i64 712
-  store ptr %21, ptr %22, align 8
-  %23 = icmp ne ptr %21, null
-  %24 = load ptr, ptr %2, align 8
-  br i1 %23, label %25, label %47
+  %20 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %21 = load ptr, ptr %20, align 16
+  %22 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3520, i64 noundef 16) #5
+  %23 = getelementptr inbounds i8, ptr %0, i64 712
+  store ptr %22, ptr %23, align 8
+  %24 = icmp ne ptr %22, null
+  %25 = load ptr, ptr %2, align 8
+  br i1 %24, label %26, label %48
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %24, i64 13
-  %27 = load i8, ptr %26, align 1
-  %28 = zext i8 %27 to i32
-  store i32 %28, ptr %21, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 14
-  %30 = load i8, ptr %29, align 2
-  %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds i8, ptr %21, i64 4
-  store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %24, i64 15
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %21, i64 8
-  store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %24, i64 11
-  %38 = load i8, ptr %37, align 1
-  %39 = icmp ne i8 %38, 0
-  %40 = getelementptr inbounds i8, ptr %21, i64 12
-  %41 = zext i1 %39 to i8
-  store i8 %41, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %24, i64 12
-  %43 = load i8, ptr %42, align 2
-  %44 = icmp ne i8 %43, 0
-  %45 = getelementptr inbounds i8, ptr %21, i64 13
-  %46 = zext i1 %44 to i8
-  store i8 %46, ptr %45, align 1
-  br label %47
-
-47:                                               ; preds = %25, %19
-  call void @kfree(ptr noundef %24) #4
+26:                                               ; preds = %19
+  %27 = getelementptr inbounds i8, ptr %25, i64 13
+  %28 = load i8, ptr %27, align 1
+  %29 = zext i8 %28 to i32
+  store i32 %29, ptr %22, align 8
+  %30 = getelementptr inbounds i8, ptr %25, i64 14
+  %31 = load i8, ptr %30, align 2
+  %32 = zext i8 %31 to i32
+  %33 = getelementptr inbounds i8, ptr %22, i64 4
+  store i32 %32, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %25, i64 15
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i32
+  %37 = getelementptr inbounds i8, ptr %22, i64 8
+  store i32 %36, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %25, i64 11
+  %39 = load i8, ptr %38, align 1
+  %40 = icmp ne i8 %39, 0
+  %41 = getelementptr inbounds i8, ptr %22, i64 12
+  %42 = zext i1 %40 to i8
+  store i8 %42, ptr %41, align 4
+  %43 = getelementptr inbounds i8, ptr %25, i64 12
+  %44 = load i8, ptr %43, align 2
+  %45 = icmp ne i8 %44, 0
+  %46 = getelementptr inbounds i8, ptr %22, i64 13
+  %47 = zext i1 %45 to i8
+  store i8 %47, ptr %46, align 1
   br label %48
 
-48:                                               ; preds = %47, %15, %1
-  %49 = phi i1 [ false, %1 ], [ false, %15 ], [ %23, %47 ]
+48:                                               ; preds = %26, %19
+  call void @kfree(ptr noundef %25) #4
+  br label %49
+
+49:                                               ; preds = %48, %15, %1
+  %50 = phi i1 [ false, %1 ], [ false, %15 ], [ %24, %48 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  ret i1 %49
+  ret i1 %50
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

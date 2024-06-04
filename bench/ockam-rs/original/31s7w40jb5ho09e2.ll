@@ -20198,7 +20198,7 @@ define void @_ZN10ockam_node7storage8database10migrations17migration_support8mig
 
 13:                                               ; preds = %14
   invoke void @"_ZN4core3ptr59drop_in_place$LT$sqlx_core..migrate..migrator..Migrator$GT$17h79b0ba2df5921646E"(ptr noalias noundef align 8 dereferenceable(32) %1) #20
-          to label %57 unwind label %55
+          to label %58 unwind label %56
 
 14:                                               ; preds = %20, %2
   %15 = landingpad { ptr, i32 }
@@ -20263,7 +20263,7 @@ define void @_ZN10ockam_node7storage8database10migrations17migration_support8mig
   %44 = select i1 %43, i64 0, i64 1
   switch i64 %44, label %35 [
     i64 0, label %45
-    i64 1, label %50
+    i64 1, label %51
   ]
 
 45:                                               ; preds = %40
@@ -20271,50 +20271,51 @@ define void @_ZN10ockam_node7storage8database10migrations17migration_support8mig
   call void @llvm.lifetime.start.p0(i64 56, ptr %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr %6)
   %46 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %46, align 8
-  %47 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 1
-  store i64 0, ptr %47, align 8
-  %48 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %6, i32 0, i32 1
+  %47 = inttoptr i64 8 to ptr
+  store ptr %47, ptr %46, align 8
+  %48 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 1
   store i64 0, ptr %48, align 8
+  %49 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %6, i32 0, i32 1
+  store i64 0, ptr %49, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr %5)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %1, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %6, i64 24, i1 false)
-  %49 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, [2 x i64] }, i8, i8, [6 x i8] } }, ptr %7, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr align 8 %5, i64 32, i1 false)
+  %50 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, [2 x i64] }, i8, i8, [6 x i8] } }, ptr %7, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr align 8 %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr %6)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %7, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr %7)
-  br label %54
+  br label %55
 
-50:                                               ; preds = %40
-  %51 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
-  store ptr %51, ptr %8, align 8
-  %52 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
-  store ptr %52, ptr %0, align 8
-  %53 = getelementptr inbounds { [49 x i8], i8, [6 x i8] }, ptr %0, i32 0, i32 1
-  store i8 2, ptr %53, align 1
+51:                                               ; preds = %40
+  %52 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
+  store ptr %52, ptr %8, align 8
+  %53 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
+  store ptr %53, ptr %0, align 8
+  %54 = getelementptr inbounds { [49 x i8], i8, [6 x i8] }, ptr %0, i32 0, i32 1
+  store i8 2, ptr %54, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr %10)
   call void @"_ZN4core3ptr59drop_in_place$LT$sqlx_core..migrate..migrator..Migrator$GT$17h79b0ba2df5921646E"(ptr noalias noundef align 8 dereferenceable(32) %1)
-  br label %54
+  br label %55
 
-54:                                               ; preds = %50, %45
+55:                                               ; preds = %51, %45
   ret void
 
-55:                                               ; preds = %13
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %13
+  %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #21
   unreachable
 
-57:                                               ; preds = %13
-  %58 = load ptr, ptr %3, align 8, !noundef !4
-  %59 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
-  %60 = load i32, ptr %59, align 8, !noundef !4
+58:                                               ; preds = %13
+  %59 = load ptr, ptr %3, align 8, !noundef !4
+  %60 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
+  %61 = load i32, ptr %60, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr %3)
-  %61 = insertvalue { ptr, i32 } poison, ptr %58, 0
-  %62 = insertvalue { ptr, i32 } %61, i32 %60, 1
-  resume { ptr, i32 } %62
+  %62 = insertvalue { ptr, i32 } poison, ptr %59, 0
+  %63 = insertvalue { ptr, i32 } %62, i32 %61, 1
+  resume { ptr, i32 } %63
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -21756,11 +21757,12 @@ define available_externally hidden void @"_ZN12futures_util6stream10try_stream11
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h5cc6b34ad2096899E.llvm.13813575593581205168"(ptr noalias nocapture noundef sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
-  store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  %3 = inttoptr i64 8 to ptr
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
   store i64 0, ptr %4, align 8
+  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  store i64 0, ptr %5, align 8
   ret void
 }
 
@@ -21828,11 +21830,12 @@ define available_externally hidden void @"_ZN12futures_util6stream10try_stream11
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17ha8b30b88514278c2E.llvm.13813575593581205168"(ptr noalias nocapture noundef sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
-  store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  %3 = inttoptr i64 8 to ptr
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
   store i64 0, ptr %4, align 8
+  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  store i64 0, ptr %5, align 8
   ret void
 }
 
@@ -21900,11 +21903,12 @@ define available_externally hidden void @"_ZN12futures_util6stream10try_stream11
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17hcc9fd5480d127e64E.llvm.13813575593581205168"(ptr noalias nocapture noundef sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
-  store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  %3 = inttoptr i64 8 to ptr
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
   store i64 0, ptr %4, align 8
+  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  store i64 0, ptr %5, align 8
   ret void
 }
 
@@ -21972,11 +21976,12 @@ define available_externally hidden void @"_ZN12futures_util6stream10try_stream11
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17ha61de18d70f0d5ffE.llvm.13813575593581205168"(ptr noalias nocapture noundef sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
-  store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  %3 = inttoptr i64 8 to ptr
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
   store i64 0, ptr %4, align 8
+  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  store i64 0, ptr %5, align 8
   ret void
 }
 
@@ -22044,11 +22049,12 @@ define available_externally hidden void @"_ZN12futures_util6stream10try_stream11
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h78139dbc4b4fa7a8E.llvm.13813575593581205168"(ptr noalias nocapture noundef sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
-  store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  %3 = inttoptr i64 8 to ptr
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
   store i64 0, ptr %4, align 8
+  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  store i64 0, ptr %5, align 8
   ret void
 }
 
@@ -22116,11 +22122,12 @@ define available_externally hidden void @"_ZN12futures_util6stream10try_stream11
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17hcd93e4dc26fc8b13E.llvm.13813575593581205168"(ptr noalias nocapture noundef sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
-  store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  %3 = inttoptr i64 8 to ptr
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
   store i64 0, ptr %4, align 8
+  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  store i64 0, ptr %5, align 8
   ret void
 }
 
@@ -22188,11 +22195,12 @@ define available_externally hidden void @"_ZN12futures_util6stream10try_stream11
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17he2131fab2a7a1e33E.llvm.13813575593581205168"(ptr noalias nocapture noundef sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
-  store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  %3 = inttoptr i64 8 to ptr
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
   store i64 0, ptr %4, align 8
+  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  store i64 0, ptr %5, align 8
   ret void
 }
 
@@ -22260,11 +22268,12 @@ define available_externally hidden void @"_ZN12futures_util6stream10try_stream11
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h193243546da3cdaaE.llvm.13813575593581205168"(ptr noalias nocapture noundef sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
-  store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  %3 = inttoptr i64 8 to ptr
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
   store i64 0, ptr %4, align 8
+  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  store i64 0, ptr %5, align 8
   ret void
 }
 
@@ -22332,11 +22341,12 @@ define available_externally hidden void @"_ZN12futures_util6stream10try_stream11
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h2e01eef17ab23423E.llvm.13813575593581205168"(ptr noalias nocapture noundef sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
-  store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  %3 = inttoptr i64 8 to ptr
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
   store i64 0, ptr %4, align 8
+  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  store i64 0, ptr %5, align 8
   ret void
 }
 
@@ -22821,32 +22831,33 @@ define available_externally void @_ZN10ockam_node6router6record13AddressRecord3n
   call void @llvm.lifetime.start.p0(i64 24, ptr %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr %8)
   %11 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %11, align 8
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 1
-  store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %8, i32 0, i32 1
+  %12 = inttoptr i64 8 to ptr
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 1
   store i64 0, ptr %13, align 8
+  %14 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %8, i32 0, i32 1
+  store i64 0, ptr %14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr %8)
-  %14 = getelementptr inbounds { ptr, { ptr, [2 x i64] }, { { ptr, i64 }, i64 }, ptr, ptr, i8, { i8, i8 }, [5 x i8] }, ptr %0, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %1, i64 24, i1 false)
-  %15 = load ptr, ptr %10, align 8, !noundef !4
-  store ptr %15, ptr %0, align 8
-  %16 = getelementptr inbounds { ptr, { ptr, [2 x i64] }, { { ptr, i64 }, i64 }, ptr, ptr, i8, { i8, i8 }, [5 x i8] }, ptr %0, i32 0, i32 3
-  store ptr %3, ptr %16, align 8
-  %17 = getelementptr inbounds { ptr, { ptr, [2 x i64] }, { { ptr, i64 }, i64 }, ptr, ptr, i8, { i8, i8 }, [5 x i8] }, ptr %0, i32 0, i32 5
-  store i8 0, ptr %17, align 8
-  %18 = getelementptr inbounds { ptr, { ptr, [2 x i64] }, { { ptr, i64 }, i64 }, ptr, ptr, i8, { i8, i8 }, [5 x i8] }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %9, i64 24, i1 false)
-  %19 = getelementptr inbounds { ptr, { ptr, [2 x i64] }, { { ptr, i64 }, i64 }, ptr, ptr, i8, { i8, i8 }, [5 x i8] }, ptr %0, i32 0, i32 6
-  %20 = getelementptr inbounds { i8, i8 }, ptr %19, i32 0, i32 0
-  %21 = zext i1 %5 to i8
-  store i8 %21, ptr %20, align 1
-  %22 = getelementptr inbounds { i8, i8 }, ptr %19, i32 0, i32 1
-  %23 = zext i1 %6 to i8
-  store i8 %23, ptr %22, align 1
-  %24 = getelementptr inbounds { ptr, { ptr, [2 x i64] }, { { ptr, i64 }, i64 }, ptr, ptr, i8, { i8, i8 }, [5 x i8] }, ptr %0, i32 0, i32 4
-  store ptr %4, ptr %24, align 8
+  %15 = getelementptr inbounds { ptr, { ptr, [2 x i64] }, { { ptr, i64 }, i64 }, ptr, ptr, i8, { i8, i8 }, [5 x i8] }, ptr %0, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %1, i64 24, i1 false)
+  %16 = load ptr, ptr %10, align 8, !noundef !4
+  store ptr %16, ptr %0, align 8
+  %17 = getelementptr inbounds { ptr, { ptr, [2 x i64] }, { { ptr, i64 }, i64 }, ptr, ptr, i8, { i8, i8 }, [5 x i8] }, ptr %0, i32 0, i32 3
+  store ptr %3, ptr %17, align 8
+  %18 = getelementptr inbounds { ptr, { ptr, [2 x i64] }, { { ptr, i64 }, i64 }, ptr, ptr, i8, { i8, i8 }, [5 x i8] }, ptr %0, i32 0, i32 5
+  store i8 0, ptr %18, align 8
+  %19 = getelementptr inbounds { ptr, { ptr, [2 x i64] }, { { ptr, i64 }, i64 }, ptr, ptr, i8, { i8, i8 }, [5 x i8] }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %9, i64 24, i1 false)
+  %20 = getelementptr inbounds { ptr, { ptr, [2 x i64] }, { { ptr, i64 }, i64 }, ptr, ptr, i8, { i8, i8 }, [5 x i8] }, ptr %0, i32 0, i32 6
+  %21 = getelementptr inbounds { i8, i8 }, ptr %20, i32 0, i32 0
+  %22 = zext i1 %5 to i8
+  store i8 %22, ptr %21, align 1
+  %23 = getelementptr inbounds { i8, i8 }, ptr %20, i32 0, i32 1
+  %24 = zext i1 %6 to i8
+  store i8 %24, ptr %23, align 1
+  %25 = getelementptr inbounds { ptr, { ptr, [2 x i64] }, { { ptr, i64 }, i64 }, ptr, ptr, i8, { i8, i8 }, [5 x i8] }, ptr %0, i32 0, i32 4
+  store ptr %4, ptr %25, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr %10)
   ret void

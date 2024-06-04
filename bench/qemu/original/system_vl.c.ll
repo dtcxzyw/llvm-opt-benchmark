@@ -1475,12 +1475,14 @@ do.body:                                          ; preds = %sw.bb35
   %sqe_next = getelementptr inbounds %struct.anon, ptr %entry41, i32 0, i32 0
   store ptr null, ptr %sqe_next, align 8
   %44 = load ptr, ptr %bdo, align 8
-  %45 = load ptr, ptr getelementptr inbounds (%struct.BlockdevOptionsQueue, ptr @bdo_queue, i32 0, i32 1), align 8
-  store ptr %44, ptr %45, align 8
-  %46 = load ptr, ptr %bdo, align 8
-  %entry42 = getelementptr inbounds %struct.BlockdevOptionsQueueEntry, ptr %46, i32 0, i32 2
+  %45 = getelementptr inbounds %struct.BlockdevOptionsQueue, ptr @bdo_queue, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8
+  store ptr %44, ptr %46, align 8
+  %47 = load ptr, ptr %bdo, align 8
+  %entry42 = getelementptr inbounds %struct.BlockdevOptionsQueueEntry, ptr %47, i32 0, i32 2
   %sqe_next43 = getelementptr inbounds %struct.anon, ptr %entry42, i32 0, i32 0
-  store ptr %sqe_next43, ptr getelementptr inbounds (%struct.BlockdevOptionsQueue, ptr @bdo_queue, i32 0, i32 1), align 8
+  %48 = getelementptr inbounds %struct.BlockdevOptionsQueue, ptr @bdo_queue, i32 0, i32 1
+  store ptr %sqe_next43, ptr %48, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -1488,11 +1490,11 @@ do.end:                                           ; preds = %do.body
 
 sw.bb44:                                          ; preds = %if.end29
   %call45 = call ptr @qemu_find_opts(ptr noundef @.str.8)
-  %47 = load ptr, ptr %optarg, align 8
-  %call46 = call ptr @qemu_opts_parse_noisily(ptr noundef %call45, ptr noundef %47, i1 noundef zeroext false)
+  %49 = load ptr, ptr %optarg, align 8
+  %call46 = call ptr @qemu_opts_parse_noisily(ptr noundef %call45, ptr noundef %49, i1 noundef zeroext false)
   store ptr %call46, ptr %opts, align 8
-  %48 = load ptr, ptr %opts, align 8
-  %cmp47 = icmp eq ptr %48, null
+  %50 = load ptr, ptr %opts, align 8
+  %cmp47 = icmp eq ptr %50, null
   br i1 %cmp47, label %if.then49, label %if.end50
 
 if.then49:                                        ; preds = %sw.bb44
@@ -1503,13 +1505,13 @@ if.end50:                                         ; preds = %sw.bb44
   br label %sw.epilog650
 
 sw.bb51:                                          ; preds = %if.end29
-  %49 = load ptr, ptr %optarg, align 8
-  call void @qemu_set_option(ptr noundef %49, ptr noundef @error_fatal)
+  %51 = load ptr, ptr %optarg, align 8
+  call void @qemu_set_option(ptr noundef %51, ptr noundef @error_fatal)
   br label %sw.epilog650
 
 sw.bb52:                                          ; preds = %if.end29
-  %50 = load ptr, ptr %optarg, align 8
-  %call53 = call i32 @qemu_global_option(ptr noundef %50)
+  %52 = load ptr, ptr %optarg, align 8
+  %call53 = call i32 @qemu_global_option(ptr noundef %52)
   %cmp54 = icmp ne i32 %call53, 0
   br i1 %cmp54, label %if.then56, label %if.end57
 
@@ -1521,18 +1523,18 @@ if.end57:                                         ; preds = %sw.bb52
   br label %sw.epilog650
 
 sw.bb58:                                          ; preds = %if.end29
-  %51 = load ptr, ptr %optarg, align 8
-  %call59 = call ptr @drive_add(i32 noundef 5, i32 noundef -1, ptr noundef %51, ptr noundef @.str.9)
+  %53 = load ptr, ptr %optarg, align 8
+  %call59 = call ptr @drive_add(i32 noundef 5, i32 noundef -1, ptr noundef %53, ptr noundef @.str.9)
   br label %sw.epilog650
 
 sw.bb60:                                          ; preds = %if.end29
-  %52 = load ptr, ptr %optarg, align 8
-  %call61 = call ptr @drive_add(i32 noundef 6, i32 noundef -1, ptr noundef %52, ptr noundef @.str.9)
+  %54 = load ptr, ptr %optarg, align 8
+  %call61 = call ptr @drive_add(i32 noundef 6, i32 noundef -1, ptr noundef %54, ptr noundef @.str.9)
   br label %sw.epilog650
 
 sw.bb62:                                          ; preds = %if.end29
-  %53 = load ptr, ptr %optarg, align 8
-  %call63 = call ptr @drive_add(i32 noundef 4, i32 noundef -1, ptr noundef %53, ptr noundef @.str.9)
+  %55 = load ptr, ptr %optarg, align 8
+  %call63 = call ptr @drive_add(i32 noundef 4, i32 noundef -1, ptr noundef %55, ptr noundef @.str.9)
   br label %sw.epilog650
 
 sw.bb64:                                          ; preds = %if.end29
@@ -1542,11 +1544,11 @@ sw.bb64:                                          ; preds = %if.end29
 
 sw.bb65:                                          ; preds = %if.end29
   %call66 = call ptr @qemu_find_opts(ptr noundef @.str.11)
-  %54 = load ptr, ptr %optarg, align 8
-  %call67 = call ptr @qemu_opts_parse_noisily(ptr noundef %call66, ptr noundef %54, i1 noundef zeroext true)
+  %56 = load ptr, ptr %optarg, align 8
+  %call67 = call ptr @qemu_opts_parse_noisily(ptr noundef %call66, ptr noundef %56, i1 noundef zeroext true)
   store ptr %call67, ptr %opts, align 8
-  %55 = load ptr, ptr %opts, align 8
-  %tobool68 = icmp ne ptr %55, null
+  %57 = load ptr, ptr %opts, align 8
+  %tobool68 = icmp ne ptr %57, null
   br i1 %tobool68, label %if.end70, label %if.then69
 
 if.then69:                                        ; preds = %sw.bb65
@@ -1557,13 +1559,13 @@ if.end70:                                         ; preds = %sw.bb65
   br label %sw.epilog650
 
 sw.bb71:                                          ; preds = %if.end29
-  %56 = load ptr, ptr %optarg, align 8
-  call void @parse_display(ptr noundef %56)
+  %58 = load ptr, ptr %optarg, align 8
+  call void @parse_display(ptr noundef %58)
   br label %sw.epilog650
 
 sw.bb72:                                          ; preds = %if.end29
-  %57 = load ptr, ptr @machine_opts_dict, align 8
-  call void @qdict_put_str(ptr noundef %57, ptr noundef @.str.12, ptr noundef @.str.13)
+  %59 = load ptr, ptr @machine_opts_dict, align 8
+  call void @qdict_put_str(ptr noundef %59, ptr noundef @.str.12, ptr noundef @.str.13)
   store i8 1, ptr @nographic, align 1
   store i32 1, ptr @dpy, align 8
   br label %sw.epilog650
@@ -1573,27 +1575,27 @@ sw.bb73:                                          ; preds = %if.end29
   br label %sw.epilog650
 
 sw.bb74:                                          ; preds = %if.end29
-  %58 = load ptr, ptr %optarg, align 8
-  %call75 = call i64 @strtol(ptr noundef %58, ptr noundef %optarg, i32 noundef 10) #15
+  %60 = load ptr, ptr %optarg, align 8
+  %call75 = call i64 @strtol(ptr noundef %60, ptr noundef %optarg, i32 noundef 10) #15
   %conv76 = trunc i64 %call75 to i32
   store i32 %conv76, ptr @graphic_rotate, align 4
-  %59 = load i32, ptr @graphic_rotate, align 4
-  %cmp77 = icmp ne i32 %59, 0
+  %61 = load i32, ptr @graphic_rotate, align 4
+  %cmp77 = icmp ne i32 %61, 0
   br i1 %cmp77, label %land.lhs.true, label %if.end88
 
 land.lhs.true:                                    ; preds = %sw.bb74
-  %60 = load i32, ptr @graphic_rotate, align 4
-  %cmp79 = icmp ne i32 %60, 90
+  %62 = load i32, ptr @graphic_rotate, align 4
+  %cmp79 = icmp ne i32 %62, 90
   br i1 %cmp79, label %land.lhs.true81, label %if.end88
 
 land.lhs.true81:                                  ; preds = %land.lhs.true
-  %61 = load i32, ptr @graphic_rotate, align 4
-  %cmp82 = icmp ne i32 %61, 180
+  %63 = load i32, ptr @graphic_rotate, align 4
+  %cmp82 = icmp ne i32 %63, 180
   br i1 %cmp82, label %land.lhs.true84, label %if.end88
 
 land.lhs.true84:                                  ; preds = %land.lhs.true81
-  %62 = load i32, ptr @graphic_rotate, align 4
-  %cmp85 = icmp ne i32 %62, 270
+  %64 = load i32, ptr @graphic_rotate, align 4
+  %cmp85 = icmp ne i32 %64, 270
   br i1 %cmp85, label %if.then87, label %if.end88
 
 if.then87:                                        ; preds = %land.lhs.true84
@@ -1605,47 +1607,47 @@ if.end88:                                         ; preds = %land.lhs.true84, %l
   br label %sw.epilog650
 
 sw.bb89:                                          ; preds = %if.end29
-  %63 = load ptr, ptr @machine_opts_dict, align 8
-  %64 = load ptr, ptr %optarg, align 8
-  call void @qdict_put_str(ptr noundef %63, ptr noundef @.str.15, ptr noundef %64)
+  %65 = load ptr, ptr @machine_opts_dict, align 8
+  %66 = load ptr, ptr %optarg, align 8
+  call void @qdict_put_str(ptr noundef %65, ptr noundef @.str.15, ptr noundef %66)
   br label %sw.epilog650
 
 sw.bb90:                                          ; preds = %if.end29
-  %65 = load ptr, ptr @machine_opts_dict, align 8
-  %66 = load ptr, ptr %optarg, align 8
-  call void @qdict_put_str(ptr noundef %65, ptr noundef @.str.16, ptr noundef %66)
+  %67 = load ptr, ptr @machine_opts_dict, align 8
+  %68 = load ptr, ptr %optarg, align 8
+  call void @qdict_put_str(ptr noundef %67, ptr noundef @.str.16, ptr noundef %68)
   br label %sw.epilog650
 
 sw.bb91:                                          ; preds = %if.end29
-  %67 = load ptr, ptr @machine_opts_dict, align 8
-  %68 = load ptr, ptr %optarg, align 8
-  call void @qdict_put_str(ptr noundef %67, ptr noundef @.str.17, ptr noundef %68)
+  %69 = load ptr, ptr @machine_opts_dict, align 8
+  %70 = load ptr, ptr %optarg, align 8
+  call void @qdict_put_str(ptr noundef %69, ptr noundef @.str.17, ptr noundef %70)
   br label %sw.epilog650
 
 sw.bb92:                                          ; preds = %if.end29
-  %69 = load ptr, ptr @machine_opts_dict, align 8
-  %70 = load ptr, ptr %optarg, align 8
-  call void @qdict_put_str(ptr noundef %69, ptr noundef @.str.18, ptr noundef %70)
+  %71 = load ptr, ptr @machine_opts_dict, align 8
+  %72 = load ptr, ptr %optarg, align 8
+  call void @qdict_put_str(ptr noundef %71, ptr noundef @.str.18, ptr noundef %72)
   br label %sw.epilog650
 
 sw.bb93:                                          ; preds = %if.end29
-  %71 = load ptr, ptr %optarg, align 8
-  %call94 = call ptr @drive_add(i32 noundef -1, i32 noundef 2, ptr noundef %71, ptr noundef @.str.19)
+  %73 = load ptr, ptr %optarg, align 8
+  %call94 = call ptr @drive_add(i32 noundef -1, i32 noundef 2, ptr noundef %73, ptr noundef @.str.19)
   br label %sw.epilog650
 
 sw.bb95:                                          ; preds = %if.end29
   %call96 = call ptr @qemu_find_opts(ptr noundef @.str.20)
-  %72 = load ptr, ptr %optarg, align 8
-  call void @machine_parse_property_opt(ptr noundef %call96, ptr noundef @.str.21, ptr noundef %72)
+  %74 = load ptr, ptr %optarg, align 8
+  call void @machine_parse_property_opt(ptr noundef %call96, ptr noundef @.str.21, ptr noundef %74)
   br label %sw.epilog650
 
 sw.bb97:                                          ; preds = %if.end29, %if.end29
-  %73 = load ptr, ptr %popt25, align 8
-  %index98 = getelementptr inbounds %struct.QEMUOption, ptr %73, i32 0, i32 2
-  %74 = load i32, ptr %index98, align 4
-  %sub99 = sub i32 %74, 21
-  %75 = load ptr, ptr %optarg, align 8
-  %call100 = call ptr @drive_add(i32 noundef 3, i32 noundef %sub99, ptr noundef %75, ptr noundef @.str.9)
+  %75 = load ptr, ptr %popt25, align 8
+  %index98 = getelementptr inbounds %struct.QEMUOption, ptr %75, i32 0, i32 2
+  %76 = load i32, ptr %index98, align 4
+  %sub99 = sub i32 %76, 21
+  %77 = load ptr, ptr %optarg, align 8
+  %call100 = call ptr @drive_add(i32 noundef 3, i32 noundef %sub99, ptr noundef %77, ptr noundef @.str.9)
   br label %sw.epilog650
 
 sw.bb101:                                         ; preds = %if.end29
@@ -1654,19 +1656,19 @@ sw.bb101:                                         ; preds = %if.end29
 
 sw.bb102:                                         ; preds = %if.end29
   store i32 0, ptr @default_net, align 4
-  %76 = load ptr, ptr %optarg, align 8
-  %call103 = call zeroext i1 @netdev_is_modern(ptr noundef %76)
+  %78 = load ptr, ptr %optarg, align 8
+  %call103 = call zeroext i1 @netdev_is_modern(ptr noundef %78)
   br i1 %call103, label %if.then104, label %if.else105
 
 if.then104:                                       ; preds = %sw.bb102
-  %77 = load ptr, ptr %optarg, align 8
-  call void @netdev_parse_modern(ptr noundef %77)
+  %79 = load ptr, ptr %optarg, align 8
+  call void @netdev_parse_modern(ptr noundef %79)
   br label %if.end107
 
 if.else105:                                       ; preds = %sw.bb102
   %call106 = call ptr @qemu_find_opts(ptr noundef @.str.22)
-  %78 = load ptr, ptr %optarg, align 8
-  call void @net_client_parse(ptr noundef %call106, ptr noundef %78)
+  %80 = load ptr, ptr %optarg, align 8
+  call void @net_client_parse(ptr noundef %call106, ptr noundef %80)
   br label %if.end107
 
 if.end107:                                        ; preds = %if.else105, %if.then104
@@ -1675,43 +1677,43 @@ if.end107:                                        ; preds = %if.else105, %if.the
 sw.bb108:                                         ; preds = %if.end29
   store i32 0, ptr @default_net, align 4
   %call109 = call ptr @qemu_find_opts(ptr noundef @.str.23)
-  %79 = load ptr, ptr %optarg, align 8
-  call void @net_client_parse(ptr noundef %call109, ptr noundef %79)
+  %81 = load ptr, ptr %optarg, align 8
+  call void @net_client_parse(ptr noundef %call109, ptr noundef %81)
   br label %sw.epilog650
 
 sw.bb110:                                         ; preds = %if.end29
   store i32 0, ptr @default_net, align 4
   %call111 = call ptr @qemu_find_opts(ptr noundef @.str.24)
-  %80 = load ptr, ptr %optarg, align 8
-  call void @net_client_parse(ptr noundef %call111, ptr noundef %80)
+  %82 = load ptr, ptr %optarg, align 8
+  call void @net_client_parse(ptr noundef %call111, ptr noundef %82)
   br label %sw.epilog650
 
 sw.bb112:                                         ; preds = %if.end29
   store i32 0, ptr @default_audio, align 4
-  %81 = load ptr, ptr %optarg, align 8
-  call void @audio_parse_option(ptr noundef %81)
+  %83 = load ptr, ptr %optarg, align 8
+  call void @audio_parse_option(ptr noundef %83)
   br label %sw.epilog650
 
 sw.bb113:                                         ; preds = %if.end29
   store ptr null, ptr %model, align 8
   store ptr null, ptr %dev, align 8
-  %82 = load ptr, ptr %optarg, align 8
-  %call115 = call ptr @keyval_parse(ptr noundef %82, ptr noundef @.str.7, ptr noundef %help, ptr noundef @error_fatal)
+  %84 = load ptr, ptr %optarg, align 8
+  %call115 = call ptr @keyval_parse(ptr noundef %84, ptr noundef @.str.7, ptr noundef %help, ptr noundef @error_fatal)
   store ptr %call115, ptr %dict, align 8
   store i32 0, ptr @default_audio, align 4
-  %83 = load i8, ptr %help, align 1
-  %tobool116 = trunc i8 %83 to i1
+  %85 = load i8, ptr %help, align 1
+  %tobool116 = trunc i8 %85 to i1
   br i1 %tobool116, label %if.then124, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb113
-  %84 = load ptr, ptr %dict, align 8
-  %call118 = call i32 @qdict_haskey(ptr noundef %84, ptr noundef @.str.7)
+  %86 = load ptr, ptr %dict, align 8
+  %call118 = call i32 @qdict_haskey(ptr noundef %86, ptr noundef @.str.7)
   %tobool119 = icmp ne i32 %call118, 0
   br i1 %tobool119, label %land.lhs.true120, label %if.end125
 
 land.lhs.true120:                                 ; preds = %lor.lhs.false
-  %85 = load ptr, ptr %dict, align 8
-  %call121 = call ptr @qdict_get_str(ptr noundef %85, ptr noundef @.str.7)
+  %87 = load ptr, ptr %dict, align 8
+  %call121 = call ptr @qdict_get_str(ptr noundef %87, ptr noundef @.str.7)
   %call122 = call zeroext i1 @is_help_option(ptr noundef %call121)
   br i1 %call122, label %if.then124, label %if.end125
 
@@ -1721,31 +1723,31 @@ if.then124:                                       ; preds = %land.lhs.true120, %
   unreachable
 
 if.end125:                                        ; preds = %land.lhs.true120, %lor.lhs.false
-  %86 = load ptr, ptr %dict, align 8
-  %call126 = call i32 @qdict_haskey(ptr noundef %86, ptr noundef @.str.25)
+  %88 = load ptr, ptr %dict, align 8
+  %call126 = call i32 @qdict_haskey(ptr noundef %88, ptr noundef @.str.25)
   %tobool127 = icmp ne i32 %call126, 0
   br i1 %tobool127, label %if.end129, label %if.then128
 
 if.then128:                                       ; preds = %if.end125
-  %87 = load ptr, ptr %dict, align 8
-  call void @qdict_put_str(ptr noundef %87, ptr noundef @.str.25, ptr noundef @.str.26)
+  %89 = load ptr, ptr %dict, align 8
+  call void @qdict_put_str(ptr noundef %89, ptr noundef @.str.25, ptr noundef @.str.26)
   br label %if.end129
 
 if.end129:                                        ; preds = %if.then128, %if.end125
-  %88 = load ptr, ptr %dict, align 8
-  %call130 = call i32 @qdict_haskey(ptr noundef %88, ptr noundef @.str.27)
+  %90 = load ptr, ptr %dict, align 8
+  %call130 = call i32 @qdict_haskey(ptr noundef %90, ptr noundef @.str.27)
   %tobool131 = icmp ne i32 %call130, 0
   br i1 %tobool131, label %if.then132, label %if.end138
 
 if.then132:                                       ; preds = %if.end129
-  %89 = load ptr, ptr %dict, align 8
-  %call133 = call ptr @qdict_get_str(ptr noundef %89, ptr noundef @.str.27)
+  %91 = load ptr, ptr %dict, align 8
+  %call133 = call ptr @qdict_get_str(ptr noundef %91, ptr noundef @.str.27)
   %call134 = call noalias ptr @g_strdup(ptr noundef %call133)
   store ptr %call134, ptr %model, align 8
-  %90 = load ptr, ptr %dict, align 8
-  call void @qdict_del(ptr noundef %90, ptr noundef @.str.27)
-  %91 = load ptr, ptr %model, align 8
-  %call135 = call zeroext i1 @is_help_option(ptr noundef %91)
+  %92 = load ptr, ptr %dict, align 8
+  call void @qdict_del(ptr noundef %92, ptr noundef @.str.27)
+  %93 = load ptr, ptr %model, align 8
+  %call135 = call zeroext i1 @is_help_option(ptr noundef %93)
   br i1 %call135, label %if.then136, label %if.end137
 
 if.then136:                                       ; preds = %if.then132
@@ -1757,78 +1759,78 @@ if.end137:                                        ; preds = %if.then132
   br label %if.end138
 
 if.end138:                                        ; preds = %if.end137, %if.end129
-  %92 = load ptr, ptr %dict, align 8
-  store ptr %92, ptr %_obj19, align 8
-  %93 = load ptr, ptr %_obj19, align 8
-  %tobool139 = icmp ne ptr %93, null
+  %94 = load ptr, ptr %dict, align 8
+  store ptr %94, ptr %_obj19, align 8
+  %95 = load ptr, ptr %_obj19, align 8
+  %tobool139 = icmp ne ptr %95, null
   br i1 %tobool139, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end138
-  %94 = load ptr, ptr %_obj19, align 8
-  %base = getelementptr inbounds %struct.QDict, ptr %94, i32 0, i32 0
+  %96 = load ptr, ptr %_obj19, align 8
+  %base = getelementptr inbounds %struct.QDict, ptr %96, i32 0, i32 0
   store ptr %base, ptr %__mptr, align 8
-  %95 = load ptr, ptr %__mptr, align 8
-  %add.ptr = getelementptr i8, ptr %95, i64 0
+  %97 = load ptr, ptr %__mptr, align 8
+  %add.ptr = getelementptr i8, ptr %97, i64 0
   store ptr %add.ptr, ptr %tmp140, align 8
-  %96 = load ptr, ptr %tmp140, align 8
+  %98 = load ptr, ptr %tmp140, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end138
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %96, %cond.true ], [ null, %cond.false ]
+  %cond = phi ptr [ %98, %cond.true ], [ null, %cond.false ]
   store ptr %cond, ptr %tmp, align 8
-  %97 = load ptr, ptr %tmp, align 8
-  %call141 = call ptr @qobject_input_visitor_new_keyval(ptr noundef %97)
+  %99 = load ptr, ptr %tmp, align 8
+  %call141 = call ptr @qobject_input_visitor_new_keyval(ptr noundef %99)
   store ptr %call141, ptr %v114, align 8
-  %98 = load ptr, ptr %dict, align 8
-  store ptr %98, ptr %_obj20, align 8
-  %99 = load ptr, ptr %_obj20, align 8
-  %tobool143 = icmp ne ptr %99, null
+  %100 = load ptr, ptr %dict, align 8
+  store ptr %100, ptr %_obj20, align 8
+  %101 = load ptr, ptr %_obj20, align 8
+  %tobool143 = icmp ne ptr %101, null
   br i1 %tobool143, label %cond.true144, label %cond.false149
 
 cond.true144:                                     ; preds = %cond.end
-  %100 = load ptr, ptr %_obj20, align 8
-  %base146 = getelementptr inbounds %struct.QDict, ptr %100, i32 0, i32 0
+  %102 = load ptr, ptr %_obj20, align 8
+  %base146 = getelementptr inbounds %struct.QDict, ptr %102, i32 0, i32 0
   store ptr %base146, ptr %__mptr145, align 8
-  %101 = load ptr, ptr %__mptr145, align 8
-  %add.ptr148 = getelementptr i8, ptr %101, i64 0
+  %103 = load ptr, ptr %__mptr145, align 8
+  %add.ptr148 = getelementptr i8, ptr %103, i64 0
   store ptr %add.ptr148, ptr %tmp147, align 8
-  %102 = load ptr, ptr %tmp147, align 8
+  %104 = load ptr, ptr %tmp147, align 8
   br label %cond.end150
 
 cond.false149:                                    ; preds = %cond.end
   br label %cond.end150
 
 cond.end150:                                      ; preds = %cond.false149, %cond.true144
-  %cond151 = phi ptr [ %102, %cond.true144 ], [ null, %cond.false149 ]
+  %cond151 = phi ptr [ %104, %cond.true144 ], [ null, %cond.false149 ]
   store ptr %cond151, ptr %tmp142, align 8
-  %103 = load ptr, ptr %tmp142, align 8
-  call void @qobject_unref_impl(ptr noundef %103)
-  %104 = load ptr, ptr %v114, align 8
-  %call152 = call zeroext i1 @visit_type_Audiodev(ptr noundef %104, ptr noundef null, ptr noundef %dev, ptr noundef @error_fatal)
-  %105 = load ptr, ptr %v114, align 8
-  call void @visit_free(ptr noundef %105)
-  %106 = load ptr, ptr %model, align 8
-  %tobool153 = icmp ne ptr %106, null
+  %105 = load ptr, ptr %tmp142, align 8
+  call void @qobject_unref_impl(ptr noundef %105)
+  %106 = load ptr, ptr %v114, align 8
+  %call152 = call zeroext i1 @visit_type_Audiodev(ptr noundef %106, ptr noundef null, ptr noundef %dev, ptr noundef @error_fatal)
+  %107 = load ptr, ptr %v114, align 8
+  call void @visit_free(ptr noundef %107)
+  %108 = load ptr, ptr %model, align 8
+  %tobool153 = icmp ne ptr %108, null
   br i1 %tobool153, label %if.then154, label %if.else155
 
 if.then154:                                       ; preds = %cond.end150
-  %107 = load ptr, ptr %dev, align 8
-  call void @audio_define(ptr noundef %107)
-  %108 = load ptr, ptr %model, align 8
   %109 = load ptr, ptr %dev, align 8
-  %id = getelementptr inbounds %struct.Audiodev, ptr %109, i32 0, i32 0
-  %110 = load ptr, ptr %id, align 8
-  call void @select_soundhw(ptr noundef %108, ptr noundef %110)
-  %111 = load ptr, ptr %model, align 8
-  call void @g_free(ptr noundef %111)
+  call void @audio_define(ptr noundef %109)
+  %110 = load ptr, ptr %model, align 8
+  %111 = load ptr, ptr %dev, align 8
+  %id = getelementptr inbounds %struct.Audiodev, ptr %111, i32 0, i32 0
+  %112 = load ptr, ptr %id, align 8
+  call void @select_soundhw(ptr noundef %110, ptr noundef %112)
+  %113 = load ptr, ptr %model, align 8
+  call void @g_free(ptr noundef %113)
   br label %if.end156
 
 if.else155:                                       ; preds = %cond.end150
-  %112 = load ptr, ptr %dev, align 8
-  call void @audio_define_default(ptr noundef %112, ptr noundef @error_fatal)
+  %114 = load ptr, ptr %dev, align 8
+  call void @audio_define_default(ptr noundef %114, ptr noundef @error_fatal)
   br label %if.end156
 
 if.end156:                                        ; preds = %if.else155, %if.then154
@@ -1845,11 +1847,11 @@ sw.bb158:                                         ; preds = %if.end29
 
 sw.bb159:                                         ; preds = %if.end29
   %call160 = call ptr @qemu_find_opts(ptr noundef @.str.28)
-  %113 = load ptr, ptr %optarg, align 8
-  %call161 = call ptr @qemu_opts_parse_noisily(ptr noundef %call160, ptr noundef %113, i1 noundef zeroext true)
+  %115 = load ptr, ptr %optarg, align 8
+  %call161 = call ptr @qemu_opts_parse_noisily(ptr noundef %call160, ptr noundef %115, i1 noundef zeroext true)
   store ptr %call161, ptr %opts, align 8
-  %114 = load ptr, ptr %opts, align 8
-  %cmp162 = icmp eq ptr %114, null
+  %116 = load ptr, ptr %opts, align 8
+  %cmp162 = icmp eq ptr %116, null
   br i1 %cmp162, label %if.then164, label %if.end165
 
 if.then164:                                       ; preds = %sw.bb159
@@ -1861,8 +1863,8 @@ if.end165:                                        ; preds = %sw.bb159
 
 sw.bb166:                                         ; preds = %if.end29
   %call167 = call ptr @qemu_find_opts(ptr noundef @.str.29)
-  %115 = load ptr, ptr %optarg, align 8
-  %call168 = call i32 @tpm_config_parse(ptr noundef %call167, ptr noundef %115)
+  %117 = load ptr, ptr %optarg, align 8
+  %call168 = call i32 @tpm_config_parse(ptr noundef %call167, ptr noundef %117)
   %cmp169 = icmp slt i32 %call168, 0
   br i1 %cmp169, label %if.then171, label %if.end172
 
@@ -1874,8 +1876,8 @@ if.end172:                                        ; preds = %sw.bb166
   br label %sw.epilog650
 
 sw.bb173:                                         ; preds = %if.end29
-  %116 = load ptr, ptr %optarg, align 8
-  store ptr %116, ptr @mem_path, align 8
+  %118 = load ptr, ptr %optarg, align 8
+  store ptr %118, ptr @mem_path, align 8
   br label %sw.epilog650
 
 sw.bb174:                                         ; preds = %if.end29
@@ -1883,18 +1885,18 @@ sw.bb174:                                         ; preds = %if.end29
   br label %sw.epilog650
 
 sw.bb175:                                         ; preds = %if.end29
-  %117 = load ptr, ptr %optarg, align 8
-  store ptr %117, ptr @log_mask, align 8
+  %119 = load ptr, ptr %optarg, align 8
+  store ptr %119, ptr @log_mask, align 8
   br label %sw.epilog650
 
 sw.bb176:                                         ; preds = %if.end29
-  %118 = load ptr, ptr %optarg, align 8
-  store ptr %118, ptr @log_file, align 8
+  %120 = load ptr, ptr %optarg, align 8
+  store ptr %120, ptr @log_file, align 8
   br label %sw.epilog650
 
 sw.bb177:                                         ; preds = %if.end29
-  %119 = load ptr, ptr %optarg, align 8
-  call void @qemu_set_dfilter_ranges(ptr noundef %119, ptr noundef @error_fatal)
+  %121 = load ptr, ptr %optarg, align 8
+  call void @qemu_set_dfilter_ranges(ptr noundef %121, ptr noundef @error_fatal)
   br label %sw.epilog650
 
 sw.bb178:                                         ; preds = %if.end29
@@ -1906,8 +1908,8 @@ sw.bb179:                                         ; preds = %if.end29
   br label %sw.epilog650
 
 sw.bb180:                                         ; preds = %if.end29
-  %120 = load ptr, ptr %optarg, align 8
-  %call181 = call i32 @qemu_guest_random_seed_main(ptr noundef %120, ptr noundef @error_fatal)
+  %122 = load ptr, ptr %optarg, align 8
+  %call181 = call i32 @qemu_guest_random_seed_main(ptr noundef %122, ptr noundef @error_fatal)
   br label %sw.epilog650
 
 sw.bb182:                                         ; preds = %if.end29
@@ -1915,13 +1917,13 @@ sw.bb182:                                         ; preds = %if.end29
   br label %sw.epilog650
 
 sw.bb183:                                         ; preds = %if.end29
-  %121 = load ptr, ptr %optarg, align 8
-  call void @add_device_config(i32 noundef 4, ptr noundef %121)
+  %123 = load ptr, ptr %optarg, align 8
+  call void @add_device_config(i32 noundef 4, ptr noundef %123)
   br label %sw.epilog650
 
 sw.bb184:                                         ; preds = %if.end29
-  %122 = load ptr, ptr %optarg, align 8
-  %call185 = call zeroext i1 @is_help_option(ptr noundef %122)
+  %124 = load ptr, ptr %optarg, align 8
+  %call185 = call zeroext i1 @is_help_option(ptr noundef %124)
   br i1 %call185, label %if.then186, label %if.else187
 
 if.then186:                                       ; preds = %sw.bb184
@@ -1929,8 +1931,8 @@ if.then186:                                       ; preds = %sw.bb184
   br label %if.end189
 
 if.else187:                                       ; preds = %sw.bb184
-  %123 = load ptr, ptr %optarg, align 8
-  %call188 = call noalias ptr @g_strdup(ptr noundef %123)
+  %125 = load ptr, ptr %optarg, align 8
+  %call188 = call noalias ptr @g_strdup(ptr noundef %125)
   call void @qemu_add_data_dir(ptr noundef %call188)
   br label %if.end189
 
@@ -1938,9 +1940,9 @@ if.end189:                                        ; preds = %if.else187, %if.the
   br label %sw.epilog650
 
 sw.bb190:                                         ; preds = %if.end29
-  %124 = load ptr, ptr @machine_opts_dict, align 8
-  %125 = load ptr, ptr %optarg, align 8
-  call void @qdict_put_str(ptr noundef %124, ptr noundef @.str.31, ptr noundef %125)
+  %126 = load ptr, ptr @machine_opts_dict, align 8
+  %127 = load ptr, ptr %optarg, align 8
+  call void @qdict_put_str(ptr noundef %126, ptr noundef @.str.31, ptr noundef %127)
   br label %sw.epilog650
 
 sw.bb191:                                         ; preds = %if.end29
@@ -1952,25 +1954,25 @@ sw.bb192:                                         ; preds = %if.end29
   br label %sw.epilog650
 
 sw.bb193:                                         ; preds = %if.end29
-  %126 = load ptr, ptr %optarg, align 8
-  store ptr %126, ptr @keyboard_layout, align 8
+  %128 = load ptr, ptr %optarg, align 8
+  store ptr %128, ptr @keyboard_layout, align 8
   br label %sw.epilog650
 
 sw.bb194:                                         ; preds = %if.end29
-  %127 = load ptr, ptr %optarg, align 8
-  store ptr %127, ptr @vga_model, align 8
+  %129 = load ptr, ptr %optarg, align 8
+  store ptr %129, ptr @vga_model, align 8
   store i32 0, ptr @default_vga, align 4
   br label %sw.epilog650
 
 sw.bb195:                                         ; preds = %if.end29
-  %128 = load ptr, ptr %optarg, align 8
-  store ptr %128, ptr %p, align 8
-  %129 = load ptr, ptr %p, align 8
-  %call196 = call i64 @strtol(ptr noundef %129, ptr noundef %p, i32 noundef 10) #15
+  %130 = load ptr, ptr %optarg, align 8
+  store ptr %130, ptr %p, align 8
+  %131 = load ptr, ptr %p, align 8
+  %call196 = call i64 @strtol(ptr noundef %131, ptr noundef %p, i32 noundef 10) #15
   %conv197 = trunc i64 %call196 to i32
   store i32 %conv197, ptr %w, align 4
-  %130 = load i32, ptr %w, align 4
-  %cmp198 = icmp sle i32 %130, 0
+  %132 = load i32, ptr %w, align 4
+  %cmp198 = icmp sle i32 %132, 0
   br i1 %cmp198, label %if.then200, label %if.end201
 
 if.then200:                                       ; preds = %sw.bb195
@@ -1982,9 +1984,9 @@ graphic_error:                                    ; preds = %if.else250, %if.the
   unreachable
 
 if.end201:                                        ; preds = %sw.bb195
-  %131 = load ptr, ptr %p, align 8
-  %132 = load i8, ptr %131, align 1
-  %conv202 = sext i8 %132 to i32
+  %133 = load ptr, ptr %p, align 8
+  %134 = load i8, ptr %133, align 1
+  %conv202 = sext i8 %134 to i32
   %cmp203 = icmp ne i32 %conv202, 120
   br i1 %cmp203, label %if.then205, label %if.end206
 
@@ -1992,72 +1994,72 @@ if.then205:                                       ; preds = %if.end201
   br label %graphic_error
 
 if.end206:                                        ; preds = %if.end201
-  %133 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr i8, ptr %133, i32 1
+  %135 = load ptr, ptr %p, align 8
+  %incdec.ptr = getelementptr i8, ptr %135, i32 1
   store ptr %incdec.ptr, ptr %p, align 8
-  %134 = load ptr, ptr %p, align 8
-  %call207 = call i64 @strtol(ptr noundef %134, ptr noundef %p, i32 noundef 10) #15
+  %136 = load ptr, ptr %p, align 8
+  %call207 = call i64 @strtol(ptr noundef %136, ptr noundef %p, i32 noundef 10) #15
   %conv208 = trunc i64 %call207 to i32
   store i32 %conv208, ptr %h, align 4
-  %135 = load i32, ptr %h, align 4
-  %cmp209 = icmp sle i32 %135, 0
+  %137 = load i32, ptr %h, align 4
+  %cmp209 = icmp sle i32 %137, 0
   br i1 %cmp209, label %if.then211, label %if.end212
 
 if.then211:                                       ; preds = %if.end206
   br label %graphic_error
 
 if.end212:                                        ; preds = %if.end206
-  %136 = load ptr, ptr %p, align 8
-  %137 = load i8, ptr %136, align 1
-  %conv213 = sext i8 %137 to i32
+  %138 = load ptr, ptr %p, align 8
+  %139 = load i8, ptr %138, align 1
+  %conv213 = sext i8 %139 to i32
   %cmp214 = icmp eq i32 %conv213, 120
   br i1 %cmp214, label %if.then216, label %if.else245
 
 if.then216:                                       ; preds = %if.end212
-  %138 = load ptr, ptr %p, align 8
-  %incdec.ptr217 = getelementptr i8, ptr %138, i32 1
+  %140 = load ptr, ptr %p, align 8
+  %incdec.ptr217 = getelementptr i8, ptr %140, i32 1
   store ptr %incdec.ptr217, ptr %p, align 8
-  %139 = load ptr, ptr %p, align 8
-  %call218 = call i64 @strtol(ptr noundef %139, ptr noundef %p, i32 noundef 10) #15
+  %141 = load ptr, ptr %p, align 8
+  %call218 = call i64 @strtol(ptr noundef %141, ptr noundef %p, i32 noundef 10) #15
   %conv219 = trunc i64 %call218 to i32
   store i32 %conv219, ptr %depth, align 4
-  %140 = load i32, ptr %depth, align 4
-  %cmp220 = icmp ne i32 %140, 1
+  %142 = load i32, ptr %depth, align 4
+  %cmp220 = icmp ne i32 %142, 1
   br i1 %cmp220, label %land.lhs.true222, label %if.end244
 
 land.lhs.true222:                                 ; preds = %if.then216
-  %141 = load i32, ptr %depth, align 4
-  %cmp223 = icmp ne i32 %141, 2
+  %143 = load i32, ptr %depth, align 4
+  %cmp223 = icmp ne i32 %143, 2
   br i1 %cmp223, label %land.lhs.true225, label %if.end244
 
 land.lhs.true225:                                 ; preds = %land.lhs.true222
-  %142 = load i32, ptr %depth, align 4
-  %cmp226 = icmp ne i32 %142, 4
+  %144 = load i32, ptr %depth, align 4
+  %cmp226 = icmp ne i32 %144, 4
   br i1 %cmp226, label %land.lhs.true228, label %if.end244
 
 land.lhs.true228:                                 ; preds = %land.lhs.true225
-  %143 = load i32, ptr %depth, align 4
-  %cmp229 = icmp ne i32 %143, 8
+  %145 = load i32, ptr %depth, align 4
+  %cmp229 = icmp ne i32 %145, 8
   br i1 %cmp229, label %land.lhs.true231, label %if.end244
 
 land.lhs.true231:                                 ; preds = %land.lhs.true228
-  %144 = load i32, ptr %depth, align 4
-  %cmp232 = icmp ne i32 %144, 15
+  %146 = load i32, ptr %depth, align 4
+  %cmp232 = icmp ne i32 %146, 15
   br i1 %cmp232, label %land.lhs.true234, label %if.end244
 
 land.lhs.true234:                                 ; preds = %land.lhs.true231
-  %145 = load i32, ptr %depth, align 4
-  %cmp235 = icmp ne i32 %145, 16
+  %147 = load i32, ptr %depth, align 4
+  %cmp235 = icmp ne i32 %147, 16
   br i1 %cmp235, label %land.lhs.true237, label %if.end244
 
 land.lhs.true237:                                 ; preds = %land.lhs.true234
-  %146 = load i32, ptr %depth, align 4
-  %cmp238 = icmp ne i32 %146, 24
+  %148 = load i32, ptr %depth, align 4
+  %cmp238 = icmp ne i32 %148, 24
   br i1 %cmp238, label %land.lhs.true240, label %if.end244
 
 land.lhs.true240:                                 ; preds = %land.lhs.true237
-  %147 = load i32, ptr %depth, align 4
-  %cmp241 = icmp ne i32 %147, 32
+  %149 = load i32, ptr %depth, align 4
+  %cmp241 = icmp ne i32 %149, 32
   br i1 %cmp241, label %if.then243, label %if.end244
 
 if.then243:                                       ; preds = %land.lhs.true240
@@ -2067,15 +2069,15 @@ if.end244:                                        ; preds = %land.lhs.true240, %
   br label %if.end252
 
 if.else245:                                       ; preds = %if.end212
-  %148 = load ptr, ptr %p, align 8
-  %149 = load i8, ptr %148, align 1
-  %conv246 = sext i8 %149 to i32
+  %150 = load ptr, ptr %p, align 8
+  %151 = load i8, ptr %150, align 1
+  %conv246 = sext i8 %151 to i32
   %cmp247 = icmp eq i32 %conv246, 0
   br i1 %cmp247, label %if.then249, label %if.else250
 
 if.then249:                                       ; preds = %if.else245
-  %150 = load i32, ptr @graphic_depth, align 4
-  store i32 %150, ptr %depth, align 4
+  %152 = load i32, ptr @graphic_depth, align 4
+  store i32 %152, ptr %depth, align 4
   br label %if.end251
 
 if.else250:                                       ; preds = %if.else245
@@ -2085,22 +2087,22 @@ if.end251:                                        ; preds = %if.then249
   br label %if.end252
 
 if.end252:                                        ; preds = %if.end251, %if.end244
-  %151 = load i32, ptr %w, align 4
-  store i32 %151, ptr @graphic_width, align 4
-  %152 = load i32, ptr %h, align 4
-  store i32 %152, ptr @graphic_height, align 4
-  %153 = load i32, ptr %depth, align 4
-  store i32 %153, ptr @graphic_depth, align 4
+  %153 = load i32, ptr %w, align 4
+  store i32 %153, ptr @graphic_width, align 4
+  %154 = load i32, ptr %h, align 4
+  store i32 %154, ptr @graphic_height, align 4
+  %155 = load i32, ptr %depth, align 4
+  store i32 %155, ptr @graphic_depth, align 4
   br label %sw.epilog650
 
 sw.bb253:                                         ; preds = %if.end29
-  %154 = load ptr, ptr %optarg, align 8
-  %call254 = call i64 @strtol(ptr noundef %154, ptr noundef %r, i32 noundef 0) #15
+  %156 = load ptr, ptr %optarg, align 8
+  %call254 = call i64 @strtol(ptr noundef %156, ptr noundef %r, i32 noundef 0) #15
   %conv255 = trunc i64 %call254 to i32
   store i32 %conv255, ptr @term_escape_char, align 4
-  %155 = load ptr, ptr %r, align 8
-  %156 = load ptr, ptr %optarg, align 8
-  %cmp256 = icmp eq ptr %155, %156
+  %157 = load ptr, ptr %r, align 8
+  %158 = load ptr, ptr %optarg, align 8
+  %cmp256 = icmp eq ptr %157, %158
   br i1 %cmp256, label %if.then258, label %if.end260
 
 if.then258:                                       ; preds = %sw.bb253
@@ -2112,38 +2114,38 @@ if.end260:                                        ; preds = %if.then258, %sw.bb2
 
 sw.bb261:                                         ; preds = %if.end29
   store i32 0, ptr @default_monitor, align 4
-  %157 = load ptr, ptr %optarg, align 8
-  %call262 = call i32 @strncmp(ptr noundef %157, ptr noundef @.str.34, i64 noundef 4) #13
+  %159 = load ptr, ptr %optarg, align 8
+  %call262 = call i32 @strncmp(ptr noundef %159, ptr noundef @.str.34, i64 noundef 4) #13
   %tobool263 = icmp ne i32 %call262, 0
   br i1 %tobool263, label %if.then264, label %if.end265
 
 if.then264:                                       ; preds = %sw.bb261
-  %158 = load ptr, ptr %optarg, align 8
-  call void @monitor_parse(ptr noundef %158, ptr noundef @.str.35, i1 noundef zeroext false)
+  %160 = load ptr, ptr %optarg, align 8
+  call void @monitor_parse(ptr noundef %160, ptr noundef @.str.35, i1 noundef zeroext false)
   br label %if.end265
 
 if.end265:                                        ; preds = %if.then264, %sw.bb261
   br label %sw.epilog650
 
 sw.bb266:                                         ; preds = %if.end29
-  %159 = load ptr, ptr %optarg, align 8
-  call void @monitor_parse(ptr noundef %159, ptr noundef @.str.36, i1 noundef zeroext false)
+  %161 = load ptr, ptr %optarg, align 8
+  call void @monitor_parse(ptr noundef %161, ptr noundef @.str.36, i1 noundef zeroext false)
   store i32 0, ptr @default_monitor, align 4
   br label %sw.epilog650
 
 sw.bb267:                                         ; preds = %if.end29
-  %160 = load ptr, ptr %optarg, align 8
-  call void @monitor_parse(ptr noundef %160, ptr noundef @.str.36, i1 noundef zeroext true)
+  %162 = load ptr, ptr %optarg, align 8
+  call void @monitor_parse(ptr noundef %162, ptr noundef @.str.36, i1 noundef zeroext true)
   store i32 0, ptr @default_monitor, align 4
   br label %sw.epilog650
 
 sw.bb268:                                         ; preds = %if.end29
   %call269 = call ptr @qemu_find_opts(ptr noundef @.str.37)
-  %161 = load ptr, ptr %optarg, align 8
-  %call270 = call ptr @qemu_opts_parse_noisily(ptr noundef %call269, ptr noundef %161, i1 noundef zeroext true)
+  %163 = load ptr, ptr %optarg, align 8
+  %call270 = call ptr @qemu_opts_parse_noisily(ptr noundef %call269, ptr noundef %163, i1 noundef zeroext true)
   store ptr %call270, ptr %opts, align 8
-  %162 = load ptr, ptr %opts, align 8
-  %tobool271 = icmp ne ptr %162, null
+  %164 = load ptr, ptr %opts, align 8
+  %tobool271 = icmp ne ptr %164, null
   br i1 %tobool271, label %if.end273, label %if.then272
 
 if.then272:                                       ; preds = %sw.bb268
@@ -2156,11 +2158,11 @@ if.end273:                                        ; preds = %sw.bb268
 
 sw.bb274:                                         ; preds = %if.end29
   %call275 = call ptr @qemu_find_opts(ptr noundef @.str.38)
-  %163 = load ptr, ptr %optarg, align 8
-  %call276 = call ptr @qemu_opts_parse_noisily(ptr noundef %call275, ptr noundef %163, i1 noundef zeroext true)
+  %165 = load ptr, ptr %optarg, align 8
+  %call276 = call ptr @qemu_opts_parse_noisily(ptr noundef %call275, ptr noundef %165, i1 noundef zeroext true)
   store ptr %call276, ptr %opts, align 8
-  %164 = load ptr, ptr %opts, align 8
-  %tobool277 = icmp ne ptr %164, null
+  %166 = load ptr, ptr %opts, align 8
+  %tobool277 = icmp ne ptr %166, null
   br i1 %tobool277, label %if.end279, label %if.then278
 
 if.then278:                                       ; preds = %sw.bb274
@@ -2173,8 +2175,8 @@ if.end279:                                        ; preds = %sw.bb274
 sw.bb280:                                         ; preds = %if.end29
   %call281 = call ptr @qemu_find_opts(ptr noundef @.str.39)
   store ptr %call281, ptr %olist, align 8
-  %165 = load ptr, ptr %olist, align 8
-  %tobool282 = icmp ne ptr %165, null
+  %167 = load ptr, ptr %olist, align 8
+  %tobool282 = icmp ne ptr %167, null
   br i1 %tobool282, label %if.end284, label %if.then283
 
 if.then283:                                       ; preds = %sw.bb280
@@ -2183,12 +2185,12 @@ if.then283:                                       ; preds = %sw.bb280
   unreachable
 
 if.end284:                                        ; preds = %sw.bb280
-  %166 = load ptr, ptr %olist, align 8
-  %167 = load ptr, ptr %optarg, align 8
-  %call285 = call ptr @qemu_opts_parse_noisily(ptr noundef %166, ptr noundef %167, i1 noundef zeroext true)
+  %168 = load ptr, ptr %olist, align 8
+  %169 = load ptr, ptr %optarg, align 8
+  %call285 = call ptr @qemu_opts_parse_noisily(ptr noundef %168, ptr noundef %169, i1 noundef zeroext true)
   store ptr %call285, ptr %opts, align 8
-  %168 = load ptr, ptr %opts, align 8
-  %tobool286 = icmp ne ptr %168, null
+  %170 = load ptr, ptr %opts, align 8
+  %tobool286 = icmp ne ptr %170, null
   br i1 %tobool286, label %if.end288, label %if.then287
 
 if.then287:                                       ; preds = %if.end284
@@ -2201,8 +2203,8 @@ if.end288:                                        ; preds = %if.end284
 sw.bb289:                                         ; preds = %if.end29
   %call290 = call ptr @qemu_find_opts(ptr noundef @.str.41)
   store ptr %call290, ptr %olist, align 8
-  %169 = load ptr, ptr %olist, align 8
-  %tobool291 = icmp ne ptr %169, null
+  %171 = load ptr, ptr %olist, align 8
+  %tobool291 = icmp ne ptr %171, null
   br i1 %tobool291, label %if.end293, label %if.then292
 
 if.then292:                                       ; preds = %sw.bb289
@@ -2211,12 +2213,12 @@ if.then292:                                       ; preds = %sw.bb289
   unreachable
 
 if.end293:                                        ; preds = %sw.bb289
-  %170 = load ptr, ptr %olist, align 8
-  %171 = load ptr, ptr %optarg, align 8
-  %call294 = call ptr @qemu_opts_parse_noisily(ptr noundef %170, ptr noundef %171, i1 noundef zeroext true)
+  %172 = load ptr, ptr %olist, align 8
+  %173 = load ptr, ptr %optarg, align 8
+  %call294 = call ptr @qemu_opts_parse_noisily(ptr noundef %172, ptr noundef %173, i1 noundef zeroext true)
   store ptr %call294, ptr %opts, align 8
-  %172 = load ptr, ptr %opts, align 8
-  %tobool295 = icmp ne ptr %172, null
+  %174 = load ptr, ptr %opts, align 8
+  %tobool295 = icmp ne ptr %174, null
   br i1 %tobool295, label %if.end297, label %if.then296
 
 if.then296:                                       ; preds = %if.end293
@@ -2224,14 +2226,14 @@ if.then296:                                       ; preds = %if.end293
   unreachable
 
 if.end297:                                        ; preds = %if.end293
-  %173 = load ptr, ptr %opts, align 8
-  %call298 = call ptr @qemu_opt_get(ptr noundef %173, ptr noundef @.str.43)
+  %175 = load ptr, ptr %opts, align 8
+  %call298 = call ptr @qemu_opt_get(ptr noundef %175, ptr noundef @.str.43)
   %cmp299 = icmp eq ptr %call298, null
   br i1 %cmp299, label %if.then305, label %lor.lhs.false301
 
 lor.lhs.false301:                                 ; preds = %if.end297
-  %174 = load ptr, ptr %opts, align 8
-  %call302 = call ptr @qemu_opt_get(ptr noundef %174, ptr noundef @.str.44)
+  %176 = load ptr, ptr %opts, align 8
+  %call302 = call ptr @qemu_opt_get(ptr noundef %176, ptr noundef @.str.44)
   %cmp303 = icmp eq ptr %call302, null
   br i1 %cmp303, label %if.then305, label %if.end306
 
@@ -2242,8 +2244,8 @@ if.then305:                                       ; preds = %lor.lhs.false301, %
 
 if.end306:                                        ; preds = %lor.lhs.false301
   %call307 = call ptr @qemu_find_opts(ptr noundef @.str.39)
-  %175 = load ptr, ptr %opts, align 8
-  %call308 = call ptr @qemu_opts_id(ptr noundef %175)
+  %177 = load ptr, ptr %opts, align 8
+  %call308 = call ptr @qemu_opts_id(ptr noundef %177)
   %tobool309 = icmp ne ptr %call308, null
   br i1 %tobool309, label %cond.true310, label %cond.false311
 
@@ -2251,139 +2253,139 @@ cond.true310:                                     ; preds = %if.end306
   br label %cond.end313
 
 cond.false311:                                    ; preds = %if.end306
-  %176 = load ptr, ptr %opts, align 8
-  %call312 = call ptr @qemu_opt_get(ptr noundef %176, ptr noundef @.str.44)
+  %178 = load ptr, ptr %opts, align 8
+  %call312 = call ptr @qemu_opt_get(ptr noundef %178, ptr noundef @.str.44)
   br label %cond.end313
 
 cond.end313:                                      ; preds = %cond.false311, %cond.true310
   %cond314 = phi ptr [ %call308, %cond.true310 ], [ %call312, %cond.false311 ]
   %call315 = call ptr @qemu_opts_create(ptr noundef %call307, ptr noundef %cond314, i32 noundef 1, ptr noundef null)
   store ptr %call315, ptr %fsdev, align 8
-  %177 = load ptr, ptr %fsdev, align 8
-  %tobool316 = icmp ne ptr %177, null
+  %179 = load ptr, ptr %fsdev, align 8
+  %tobool316 = icmp ne ptr %179, null
   br i1 %tobool316, label %if.end319, label %if.then317
 
 if.then317:                                       ; preds = %cond.end313
-  %178 = load ptr, ptr %opts, align 8
-  %call318 = call ptr @qemu_opt_get(ptr noundef %178, ptr noundef @.str.44)
+  %180 = load ptr, ptr %opts, align 8
+  %call318 = call ptr @qemu_opt_get(ptr noundef %180, ptr noundef @.str.44)
   call void (ptr, ...) @error_report(ptr noundef @.str.46, ptr noundef %call318)
   call void @exit(i32 noundef 1) #12
   unreachable
 
 if.end319:                                        ; preds = %cond.end313
-  %179 = load ptr, ptr %opts, align 8
-  %call320 = call ptr @qemu_opt_get(ptr noundef %179, ptr noundef @.str.47)
+  %181 = load ptr, ptr %opts, align 8
+  %call320 = call ptr @qemu_opt_get(ptr noundef %181, ptr noundef @.str.47)
   store ptr %call320, ptr %writeout, align 8
-  %180 = load ptr, ptr %writeout, align 8
-  %tobool321 = icmp ne ptr %180, null
+  %182 = load ptr, ptr %writeout, align 8
+  %tobool321 = icmp ne ptr %182, null
   br i1 %tobool321, label %if.then322, label %if.end324
 
 if.then322:                                       ; preds = %if.end319
-  %181 = load ptr, ptr %fsdev, align 8
-  %182 = load ptr, ptr %writeout, align 8
-  %call323 = call zeroext i1 @qemu_opt_set(ptr noundef %181, ptr noundef @.str.47, ptr noundef %182, ptr noundef @error_abort)
+  %183 = load ptr, ptr %fsdev, align 8
+  %184 = load ptr, ptr %writeout, align 8
+  %call323 = call zeroext i1 @qemu_opt_set(ptr noundef %183, ptr noundef @.str.47, ptr noundef %184, ptr noundef @error_abort)
   br label %if.end324
 
 if.end324:                                        ; preds = %if.then322, %if.end319
-  %183 = load ptr, ptr %fsdev, align 8
-  %184 = load ptr, ptr %opts, align 8
-  %call325 = call ptr @qemu_opt_get(ptr noundef %184, ptr noundef @.str.43)
-  %call326 = call zeroext i1 @qemu_opt_set(ptr noundef %183, ptr noundef @.str.43, ptr noundef %call325, ptr noundef @error_abort)
-  %185 = load ptr, ptr %opts, align 8
-  %call327 = call ptr @qemu_opt_get(ptr noundef %185, ptr noundef @.str.48)
+  %185 = load ptr, ptr %fsdev, align 8
+  %186 = load ptr, ptr %opts, align 8
+  %call325 = call ptr @qemu_opt_get(ptr noundef %186, ptr noundef @.str.43)
+  %call326 = call zeroext i1 @qemu_opt_set(ptr noundef %185, ptr noundef @.str.43, ptr noundef %call325, ptr noundef @error_abort)
+  %187 = load ptr, ptr %opts, align 8
+  %call327 = call ptr @qemu_opt_get(ptr noundef %187, ptr noundef @.str.48)
   store ptr %call327, ptr %path, align 8
-  %186 = load ptr, ptr %path, align 8
-  %tobool328 = icmp ne ptr %186, null
+  %188 = load ptr, ptr %path, align 8
+  %tobool328 = icmp ne ptr %188, null
   br i1 %tobool328, label %if.then329, label %if.end331
 
 if.then329:                                       ; preds = %if.end324
-  %187 = load ptr, ptr %fsdev, align 8
-  %188 = load ptr, ptr %path, align 8
-  %call330 = call zeroext i1 @qemu_opt_set(ptr noundef %187, ptr noundef @.str.48, ptr noundef %188, ptr noundef @error_abort)
+  %189 = load ptr, ptr %fsdev, align 8
+  %190 = load ptr, ptr %path, align 8
+  %call330 = call zeroext i1 @qemu_opt_set(ptr noundef %189, ptr noundef @.str.48, ptr noundef %190, ptr noundef @error_abort)
   br label %if.end331
 
 if.end331:                                        ; preds = %if.then329, %if.end324
-  %189 = load ptr, ptr %opts, align 8
-  %call332 = call ptr @qemu_opt_get(ptr noundef %189, ptr noundef @.str.49)
+  %191 = load ptr, ptr %opts, align 8
+  %call332 = call ptr @qemu_opt_get(ptr noundef %191, ptr noundef @.str.49)
   store ptr %call332, ptr %security_model, align 8
-  %190 = load ptr, ptr %security_model, align 8
-  %tobool333 = icmp ne ptr %190, null
+  %192 = load ptr, ptr %security_model, align 8
+  %tobool333 = icmp ne ptr %192, null
   br i1 %tobool333, label %if.then334, label %if.end336
 
 if.then334:                                       ; preds = %if.end331
-  %191 = load ptr, ptr %fsdev, align 8
-  %192 = load ptr, ptr %security_model, align 8
-  %call335 = call zeroext i1 @qemu_opt_set(ptr noundef %191, ptr noundef @.str.49, ptr noundef %192, ptr noundef @error_abort)
+  %193 = load ptr, ptr %fsdev, align 8
+  %194 = load ptr, ptr %security_model, align 8
+  %call335 = call zeroext i1 @qemu_opt_set(ptr noundef %193, ptr noundef @.str.49, ptr noundef %194, ptr noundef @error_abort)
   br label %if.end336
 
 if.end336:                                        ; preds = %if.then334, %if.end331
-  %193 = load ptr, ptr %opts, align 8
-  %call337 = call ptr @qemu_opt_get(ptr noundef %193, ptr noundef @.str.50)
+  %195 = load ptr, ptr %opts, align 8
+  %call337 = call ptr @qemu_opt_get(ptr noundef %195, ptr noundef @.str.50)
   store ptr %call337, ptr %socket, align 8
-  %194 = load ptr, ptr %socket, align 8
-  %tobool338 = icmp ne ptr %194, null
+  %196 = load ptr, ptr %socket, align 8
+  %tobool338 = icmp ne ptr %196, null
   br i1 %tobool338, label %if.then339, label %if.end341
 
 if.then339:                                       ; preds = %if.end336
-  %195 = load ptr, ptr %fsdev, align 8
-  %196 = load ptr, ptr %socket, align 8
-  %call340 = call zeroext i1 @qemu_opt_set(ptr noundef %195, ptr noundef @.str.50, ptr noundef %196, ptr noundef @error_abort)
+  %197 = load ptr, ptr %fsdev, align 8
+  %198 = load ptr, ptr %socket, align 8
+  %call340 = call zeroext i1 @qemu_opt_set(ptr noundef %197, ptr noundef @.str.50, ptr noundef %198, ptr noundef @error_abort)
   br label %if.end341
 
 if.end341:                                        ; preds = %if.then339, %if.end336
-  %197 = load ptr, ptr %opts, align 8
-  %call342 = call ptr @qemu_opt_get(ptr noundef %197, ptr noundef @.str.51)
+  %199 = load ptr, ptr %opts, align 8
+  %call342 = call ptr @qemu_opt_get(ptr noundef %199, ptr noundef @.str.51)
   store ptr %call342, ptr %sock_fd, align 8
-  %198 = load ptr, ptr %sock_fd, align 8
-  %tobool343 = icmp ne ptr %198, null
+  %200 = load ptr, ptr %sock_fd, align 8
+  %tobool343 = icmp ne ptr %200, null
   br i1 %tobool343, label %if.then344, label %if.end346
 
 if.then344:                                       ; preds = %if.end341
-  %199 = load ptr, ptr %fsdev, align 8
-  %200 = load ptr, ptr %sock_fd, align 8
-  %call345 = call zeroext i1 @qemu_opt_set(ptr noundef %199, ptr noundef @.str.51, ptr noundef %200, ptr noundef @error_abort)
+  %201 = load ptr, ptr %fsdev, align 8
+  %202 = load ptr, ptr %sock_fd, align 8
+  %call345 = call zeroext i1 @qemu_opt_set(ptr noundef %201, ptr noundef @.str.51, ptr noundef %202, ptr noundef @error_abort)
   br label %if.end346
 
 if.end346:                                        ; preds = %if.then344, %if.end341
-  %201 = load ptr, ptr %fsdev, align 8
-  %202 = load ptr, ptr %opts, align 8
-  %call347 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %202, ptr noundef @.str.52, i1 noundef zeroext false)
-  %call348 = call zeroext i1 @qemu_opt_set_bool(ptr noundef %201, ptr noundef @.str.52, i1 noundef zeroext %call347, ptr noundef @error_abort)
-  %203 = load ptr, ptr %opts, align 8
-  %call349 = call ptr @qemu_opt_get(ptr noundef %203, ptr noundef @.str.53)
+  %203 = load ptr, ptr %fsdev, align 8
+  %204 = load ptr, ptr %opts, align 8
+  %call347 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %204, ptr noundef @.str.52, i1 noundef zeroext false)
+  %call348 = call zeroext i1 @qemu_opt_set_bool(ptr noundef %203, ptr noundef @.str.52, i1 noundef zeroext %call347, ptr noundef @error_abort)
+  %205 = load ptr, ptr %opts, align 8
+  %call349 = call ptr @qemu_opt_get(ptr noundef %205, ptr noundef @.str.53)
   store ptr %call349, ptr %multidevs, align 8
-  %204 = load ptr, ptr %multidevs, align 8
-  %tobool350 = icmp ne ptr %204, null
+  %206 = load ptr, ptr %multidevs, align 8
+  %tobool350 = icmp ne ptr %206, null
   br i1 %tobool350, label %if.then351, label %if.end353
 
 if.then351:                                       ; preds = %if.end346
-  %205 = load ptr, ptr %fsdev, align 8
-  %206 = load ptr, ptr %multidevs, align 8
-  %call352 = call zeroext i1 @qemu_opt_set(ptr noundef %205, ptr noundef @.str.53, ptr noundef %206, ptr noundef @error_abort)
+  %207 = load ptr, ptr %fsdev, align 8
+  %208 = load ptr, ptr %multidevs, align 8
+  %call352 = call zeroext i1 @qemu_opt_set(ptr noundef %207, ptr noundef @.str.53, ptr noundef %208, ptr noundef @error_abort)
   br label %if.end353
 
 if.end353:                                        ; preds = %if.then351, %if.end346
   %call354 = call ptr @qemu_find_opts(ptr noundef @.str.54)
   %call355 = call ptr @qemu_opts_create(ptr noundef %call354, ptr noundef null, i32 noundef 0, ptr noundef @error_abort)
   store ptr %call355, ptr %device, align 8
-  %207 = load ptr, ptr %device, align 8
-  %call356 = call zeroext i1 @qemu_opt_set(ptr noundef %207, ptr noundef @.str.7, ptr noundef @.str.55, ptr noundef @error_abort)
-  %208 = load ptr, ptr %device, align 8
-  %209 = load ptr, ptr %fsdev, align 8
-  %call357 = call ptr @qemu_opts_id(ptr noundef %209)
-  %call358 = call zeroext i1 @qemu_opt_set(ptr noundef %208, ptr noundef @.str.39, ptr noundef %call357, ptr noundef @error_abort)
+  %209 = load ptr, ptr %device, align 8
+  %call356 = call zeroext i1 @qemu_opt_set(ptr noundef %209, ptr noundef @.str.7, ptr noundef @.str.55, ptr noundef @error_abort)
   %210 = load ptr, ptr %device, align 8
-  %211 = load ptr, ptr %opts, align 8
-  %call359 = call ptr @qemu_opt_get(ptr noundef %211, ptr noundef @.str.44)
-  %call360 = call zeroext i1 @qemu_opt_set(ptr noundef %210, ptr noundef @.str.44, ptr noundef %call359, ptr noundef @error_abort)
+  %211 = load ptr, ptr %fsdev, align 8
+  %call357 = call ptr @qemu_opts_id(ptr noundef %211)
+  %call358 = call zeroext i1 @qemu_opt_set(ptr noundef %210, ptr noundef @.str.39, ptr noundef %call357, ptr noundef @error_abort)
+  %212 = load ptr, ptr %device, align 8
+  %213 = load ptr, ptr %opts, align 8
+  %call359 = call ptr @qemu_opt_get(ptr noundef %213, ptr noundef @.str.44)
+  %call360 = call zeroext i1 @qemu_opt_set(ptr noundef %212, ptr noundef @.str.44, ptr noundef %call359, ptr noundef @error_abort)
   br label %sw.epilog650
 
 sw.bb361:                                         ; preds = %if.end29
-  %212 = load ptr, ptr %optarg, align 8
-  call void @add_device_config(i32 noundef 1, ptr noundef %212)
+  %214 = load ptr, ptr %optarg, align 8
+  call void @add_device_config(i32 noundef 1, ptr noundef %214)
   store i32 0, ptr @default_serial, align 4
-  %213 = load ptr, ptr %optarg, align 8
-  %call362 = call i32 @strncmp(ptr noundef %213, ptr noundef @.str.56, i64 noundef 4) #13
+  %215 = load ptr, ptr %optarg, align 8
+  %call362 = call i32 @strncmp(ptr noundef %215, ptr noundef @.str.56, i64 noundef 4) #13
   %cmp363 = icmp eq i32 %call362, 0
   br i1 %cmp363, label %if.then365, label %if.end366
 
@@ -2397,9 +2399,9 @@ if.end366:                                        ; preds = %if.then365, %sw.bb3
 sw.bb367:                                         ; preds = %if.end29
   %call368 = call ptr @qemu_find_opts(ptr noundef @.str.57)
   store ptr %call368, ptr %olist, align 8
-  %214 = load ptr, ptr %olist, align 8
-  %215 = load ptr, ptr %optarg, align 8
-  %call369 = call ptr @qemu_opts_parse_noisily(ptr noundef %214, ptr noundef %215, i1 noundef zeroext false)
+  %216 = load ptr, ptr %olist, align 8
+  %217 = load ptr, ptr %optarg, align 8
+  %call369 = call ptr @qemu_opts_parse_noisily(ptr noundef %216, ptr noundef %217, i1 noundef zeroext false)
   %tobool370 = icmp ne ptr %call369, null
   br i1 %tobool370, label %if.end372, label %if.then371
 
@@ -2414,17 +2416,17 @@ sw.bb373:                                         ; preds = %if.end29
   %call374 = call ptr @qemu_find_opts(ptr noundef @.str.57)
   %call375 = call ptr @qemu_opts_create(ptr noundef %call374, ptr noundef null, i32 noundef 0, ptr noundef @error_abort)
   store ptr %call375, ptr %opts, align 8
-  %216 = load ptr, ptr %opts, align 8
-  %217 = load ptr, ptr %optarg, align 8
-  %call376 = call zeroext i1 @qemu_opt_set(ptr noundef %216, ptr noundef @.str.58, ptr noundef %217, ptr noundef @error_abort)
+  %218 = load ptr, ptr %opts, align 8
+  %219 = load ptr, ptr %optarg, align 8
+  %call376 = call zeroext i1 @qemu_opt_set(ptr noundef %218, ptr noundef @.str.58, ptr noundef %219, ptr noundef @error_abort)
   br label %sw.epilog650
 
 sw.bb377:                                         ; preds = %if.end29
-  %218 = load ptr, ptr %optarg, align 8
-  call void @add_device_config(i32 noundef 2, ptr noundef %218)
+  %220 = load ptr, ptr %optarg, align 8
+  call void @add_device_config(i32 noundef 2, ptr noundef %220)
   store i32 0, ptr @default_parallel, align 4
-  %219 = load ptr, ptr %optarg, align 8
-  %call378 = call i32 @strncmp(ptr noundef %219, ptr noundef @.str.56, i64 noundef 4) #13
+  %221 = load ptr, ptr %optarg, align 8
+  %call378 = call i32 @strncmp(ptr noundef %221, ptr noundef @.str.56, i64 noundef 4) #13
   %cmp379 = icmp eq i32 %call378, 0
   br i1 %cmp379, label %if.then381, label %if.end382
 
@@ -2436,23 +2438,25 @@ if.end382:                                        ; preds = %if.then381, %sw.bb3
   br label %sw.epilog650
 
 sw.bb383:                                         ; preds = %if.end29
-  %220 = load ptr, ptr %optarg, align 8
-  call void @add_device_config(i32 noundef 3, ptr noundef %220)
+  %222 = load ptr, ptr %optarg, align 8
+  call void @add_device_config(i32 noundef 3, ptr noundef %222)
   br label %sw.epilog650
 
 sw.bb384:                                         ; preds = %if.end29
-  %221 = load ptr, ptr %optarg, align 8
-  store ptr %221, ptr @loadvm, align 8
+  %223 = load ptr, ptr %optarg, align 8
+  store ptr %223, ptr @loadvm, align 8
   br label %sw.epilog650
 
 sw.bb385:                                         ; preds = %if.end29
-  store i8 1, ptr getelementptr inbounds (%struct.DisplayOptions, ptr @dpy, i32 0, i32 1), align 4
-  store i8 1, ptr getelementptr inbounds (%struct.DisplayOptions, ptr @dpy, i32 0, i32 2), align 1
+  %224 = getelementptr inbounds %struct.DisplayOptions, ptr @dpy, i32 0, i32 1
+  store i8 1, ptr %224, align 4
+  %225 = getelementptr inbounds %struct.DisplayOptions, ptr @dpy, i32 0, i32 2
+  store i8 1, ptr %225, align 1
   br label %sw.epilog650
 
 sw.bb386:                                         ; preds = %if.end29
-  %222 = load ptr, ptr %optarg, align 8
-  store ptr %222, ptr @pid_file, align 8
+  %226 = load ptr, ptr %optarg, align 8
+  store ptr %226, ptr @pid_file, align 8
   br label %sw.epilog650
 
 sw.bb387:                                         ; preds = %if.end29
@@ -2461,11 +2465,11 @@ sw.bb387:                                         ; preds = %if.end29
 
 sw.bb388:                                         ; preds = %if.end29
   %call389 = call ptr @qemu_find_opts(ptr noundef @.str.59)
-  %223 = load ptr, ptr %optarg, align 8
-  %call390 = call ptr @qemu_opts_parse_noisily(ptr noundef %call389, ptr noundef %223, i1 noundef zeroext true)
+  %227 = load ptr, ptr %optarg, align 8
+  %call390 = call ptr @qemu_opts_parse_noisily(ptr noundef %call389, ptr noundef %227, i1 noundef zeroext true)
   store ptr %call390, ptr %opts, align 8
-  %224 = load ptr, ptr %opts, align 8
-  %tobool391 = icmp ne ptr %224, null
+  %228 = load ptr, ptr %opts, align 8
+  %tobool391 = icmp ne ptr %228, null
   br i1 %tobool391, label %if.end393, label %if.then392
 
 if.then392:                                       ; preds = %sw.bb388
@@ -2473,17 +2477,17 @@ if.then392:                                       ; preds = %sw.bb388
   unreachable
 
 if.end393:                                        ; preds = %sw.bb388
-  %225 = load ptr, ptr %opts, align 8
-  call void @acpi_table_add(ptr noundef %225, ptr noundef @error_fatal)
+  %229 = load ptr, ptr %opts, align 8
+  call void @acpi_table_add(ptr noundef %229, ptr noundef @error_fatal)
   br label %sw.epilog650
 
 sw.bb394:                                         ; preds = %if.end29
   %call395 = call ptr @qemu_find_opts(ptr noundef @.str.60)
-  %226 = load ptr, ptr %optarg, align 8
-  %call396 = call ptr @qemu_opts_parse_noisily(ptr noundef %call395, ptr noundef %226, i1 noundef zeroext false)
+  %230 = load ptr, ptr %optarg, align 8
+  %call396 = call ptr @qemu_opts_parse_noisily(ptr noundef %call395, ptr noundef %230, i1 noundef zeroext false)
   store ptr %call396, ptr %opts, align 8
-  %227 = load ptr, ptr %opts, align 8
-  %tobool397 = icmp ne ptr %227, null
+  %231 = load ptr, ptr %opts, align 8
+  %tobool397 = icmp ne ptr %231, null
   br i1 %tobool397, label %if.end399, label %if.then398
 
 if.then398:                                       ; preds = %sw.bb394
@@ -2491,17 +2495,17 @@ if.then398:                                       ; preds = %sw.bb394
   unreachable
 
 if.end399:                                        ; preds = %sw.bb394
-  %228 = load ptr, ptr %opts, align 8
-  call void @smbios_entry_add(ptr noundef %228, ptr noundef @error_fatal)
+  %232 = load ptr, ptr %opts, align 8
+  call void @smbios_entry_add(ptr noundef %232, ptr noundef @error_fatal)
   br label %sw.epilog650
 
 sw.bb400:                                         ; preds = %if.end29
   %call401 = call ptr @qemu_find_opts(ptr noundef @.str.61)
-  %229 = load ptr, ptr %optarg, align 8
-  %call402 = call ptr @qemu_opts_parse_noisily(ptr noundef %call401, ptr noundef %229, i1 noundef zeroext true)
+  %233 = load ptr, ptr %optarg, align 8
+  %call402 = call ptr @qemu_opts_parse_noisily(ptr noundef %call401, ptr noundef %233, i1 noundef zeroext true)
   store ptr %call402, ptr %opts, align 8
-  %230 = load ptr, ptr %opts, align 8
-  %cmp403 = icmp eq ptr %230, null
+  %234 = load ptr, ptr %opts, align 8
+  %cmp403 = icmp eq ptr %234, null
   br i1 %cmp403, label %if.then405, label %if.end406
 
 if.then405:                                       ; preds = %sw.bb400
@@ -2516,21 +2520,21 @@ sw.bb407:                                         ; preds = %if.end29
   br label %sw.epilog650
 
 sw.bb408:                                         ; preds = %if.end29
-  %231 = load ptr, ptr @machine_opts_dict, align 8
-  call void @qdict_put_str(ptr noundef %231, ptr noundef @.str.62, ptr noundef @.str.63)
+  %235 = load ptr, ptr @machine_opts_dict, align 8
+  call void @qdict_put_str(ptr noundef %235, ptr noundef @.str.62, ptr noundef @.str.63)
   br label %sw.epilog650
 
 sw.bb409:                                         ; preds = %if.end29, %if.end29
-  %232 = load ptr, ptr @machine_opts_dict, align 8
-  %233 = load ptr, ptr %optarg, align 8
-  %call411 = call ptr @keyval_parse_into(ptr noundef %232, ptr noundef %233, ptr noundef @.str.64, ptr noundef %help410, ptr noundef @error_fatal)
-  %234 = load i8, ptr %help410, align 1
-  %tobool412 = trunc i8 %234 to i1
+  %236 = load ptr, ptr @machine_opts_dict, align 8
+  %237 = load ptr, ptr %optarg, align 8
+  %call411 = call ptr @keyval_parse_into(ptr noundef %236, ptr noundef %237, ptr noundef @.str.64, ptr noundef %help410, ptr noundef @error_fatal)
+  %238 = load i8, ptr %help410, align 1
+  %tobool412 = trunc i8 %238 to i1
   br i1 %tobool412, label %if.then413, label %if.end414
 
 if.then413:                                       ; preds = %sw.bb409
-  %235 = load ptr, ptr @machine_opts_dict, align 8
-  call void @machine_help_func(ptr noundef %235)
+  %239 = load ptr, ptr @machine_opts_dict, align 8
+  call void @machine_help_func(ptr noundef %239)
   call void @exit(i32 noundef 0) #12
   unreachable
 
@@ -2539,79 +2543,79 @@ if.end414:                                        ; preds = %sw.bb409
 
 sw.bb415:                                         ; preds = %if.end29
   %call416 = call ptr @qemu_find_opts(ptr noundef @.str.62)
-  %236 = load ptr, ptr %optarg, align 8
-  %call417 = call ptr @qemu_opts_parse_noisily(ptr noundef %call416, ptr noundef %236, i1 noundef zeroext true)
+  %240 = load ptr, ptr %optarg, align 8
+  %call417 = call ptr @qemu_opts_parse_noisily(ptr noundef %call416, ptr noundef %240, i1 noundef zeroext true)
   store ptr %call417, ptr %accel_opts, align 8
-  %237 = load ptr, ptr %accel_opts, align 8
-  %call418 = call ptr @qemu_opt_get(ptr noundef %237, ptr noundef @.str.62)
+  %241 = load ptr, ptr %accel_opts, align 8
+  %call418 = call ptr @qemu_opt_get(ptr noundef %241, ptr noundef @.str.62)
   store ptr %call418, ptr %optarg, align 8
-  %238 = load ptr, ptr %optarg, align 8
-  %tobool419 = icmp ne ptr %238, null
+  %242 = load ptr, ptr %optarg, align 8
+  %tobool419 = icmp ne ptr %242, null
   br i1 %tobool419, label %lor.lhs.false420, label %if.then423
 
 lor.lhs.false420:                                 ; preds = %sw.bb415
-  %239 = load ptr, ptr %optarg, align 8
-  %call421 = call zeroext i1 @is_help_option(ptr noundef %239)
+  %243 = load ptr, ptr %optarg, align 8
+  %call421 = call zeroext i1 @is_help_option(ptr noundef %243)
   br i1 %call421, label %if.then423, label %if.end440
 
 if.then423:                                       ; preds = %lor.lhs.false420, %sw.bb415
   %call424 = call i32 (ptr, ...) @printf(ptr noundef @.str.65)
   %call425 = call ptr @object_class_get_list(ptr noundef @.str.62, i1 noundef zeroext false)
   store ptr %call425, ptr %accel_list, align 8
-  %240 = load ptr, ptr %accel_list, align 8
-  store ptr %240, ptr %el, align 8
+  %244 = load ptr, ptr %accel_list, align 8
+  store ptr %244, ptr %el, align 8
   br label %for.cond426
 
 for.cond426:                                      ; preds = %for.inc, %if.then423
-  %241 = load ptr, ptr %el, align 8
-  %tobool427 = icmp ne ptr %241, null
+  %245 = load ptr, ptr %el, align 8
+  %tobool427 = icmp ne ptr %245, null
   br i1 %tobool427, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond426
-  %242 = load ptr, ptr %el, align 8
-  %data = getelementptr inbounds %struct._GSList, ptr %242, i32 0, i32 0
-  %243 = load ptr, ptr %data, align 8
-  %call428 = call ptr @object_class_get_name(ptr noundef %243)
+  %246 = load ptr, ptr %el, align 8
+  %data = getelementptr inbounds %struct._GSList, ptr %246, i32 0, i32 0
+  %247 = load ptr, ptr %data, align 8
+  %call428 = call ptr @object_class_get_name(ptr noundef %247)
   %call429 = call noalias ptr @g_strdup(ptr noundef %call428)
   store ptr %call429, ptr %typename, align 8
-  %244 = load ptr, ptr %typename, align 8
-  %call430 = call i32 @g_strcmp0(ptr noundef %244, ptr noundef @.str.66)
+  %248 = load ptr, ptr %typename, align 8
+  %call430 = call i32 @g_strcmp0(ptr noundef %248, ptr noundef @.str.66)
   %tobool431 = icmp ne i32 %call430, 0
   br i1 %tobool431, label %land.lhs.true432, label %if.end439
 
 land.lhs.true432:                                 ; preds = %for.body
-  %245 = load ptr, ptr %typename, align 8
-  %call433 = call i32 @g_str_has_suffix(ptr noundef %245, ptr noundef @.str.67)
+  %249 = load ptr, ptr %typename, align 8
+  %call433 = call i32 @g_str_has_suffix(ptr noundef %249, ptr noundef @.str.67)
   %tobool434 = icmp ne i32 %call433, 0
   br i1 %tobool434, label %if.then435, label %if.end439
 
 if.then435:                                       ; preds = %land.lhs.true432
-  %246 = load ptr, ptr %typename, align 8
-  %call436 = call ptr @g_strsplit(ptr noundef %246, ptr noundef @.str.67, i32 noundef 0)
+  %250 = load ptr, ptr %typename, align 8
+  %call436 = call ptr @g_strsplit(ptr noundef %250, ptr noundef @.str.67, i32 noundef 0)
   store ptr %call436, ptr %optname, align 8
-  %247 = load ptr, ptr %optname, align 8
-  %arrayidx437 = getelementptr ptr, ptr %247, i64 0
-  %248 = load ptr, ptr %arrayidx437, align 8
-  %call438 = call i32 (ptr, ...) @printf(ptr noundef @.str.68, ptr noundef %248)
-  %249 = load ptr, ptr %optname, align 8
-  call void @g_strfreev(ptr noundef %249)
+  %251 = load ptr, ptr %optname, align 8
+  %arrayidx437 = getelementptr ptr, ptr %251, i64 0
+  %252 = load ptr, ptr %arrayidx437, align 8
+  %call438 = call i32 (ptr, ...) @printf(ptr noundef @.str.68, ptr noundef %252)
+  %253 = load ptr, ptr %optname, align 8
+  call void @g_strfreev(ptr noundef %253)
   br label %if.end439
 
 if.end439:                                        ; preds = %if.then435, %land.lhs.true432, %for.body
-  %250 = load ptr, ptr %typename, align 8
-  call void @g_free(ptr noundef %250)
+  %254 = load ptr, ptr %typename, align 8
+  call void @g_free(ptr noundef %254)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end439
-  %251 = load ptr, ptr %el, align 8
-  %next = getelementptr inbounds %struct._GSList, ptr %251, i32 0, i32 1
-  %252 = load ptr, ptr %next, align 8
-  store ptr %252, ptr %el, align 8
+  %255 = load ptr, ptr %el, align 8
+  %next = getelementptr inbounds %struct._GSList, ptr %255, i32 0, i32 1
+  %256 = load ptr, ptr %next, align 8
+  store ptr %256, ptr %el, align 8
   br label %for.cond426, !llvm.loop !8
 
 for.end:                                          ; preds = %for.cond426
-  %253 = load ptr, ptr %accel_list, align 8
-  call void @g_slist_free(ptr noundef %253)
+  %257 = load ptr, ptr %accel_list, align 8
+  call void @g_slist_free(ptr noundef %257)
   call void @exit(i32 noundef 0) #12
   unreachable
 
@@ -2619,43 +2623,43 @@ if.end440:                                        ; preds = %lor.lhs.false420
   br label %sw.epilog650
 
 sw.bb441:                                         ; preds = %if.end29
-  %254 = load ptr, ptr @machine_opts_dict, align 8
-  call void @qdict_put_str(ptr noundef %254, ptr noundef @.str.69, ptr noundef @.str.70)
+  %258 = load ptr, ptr @machine_opts_dict, align 8
+  call void @qdict_put_str(ptr noundef %258, ptr noundef @.str.69, ptr noundef @.str.70)
   br label %sw.epilog650
 
 sw.bb442:                                         ; preds = %if.end29
-  %255 = load ptr, ptr @machine_opts_dict, align 8
-  call void @qdict_put_str(ptr noundef %255, ptr noundef @.str.69, ptr noundef @.str.70)
-  %256 = load ptr, ptr %optarg, align 8
-  call void @add_device_config(i32 noundef 0, ptr noundef %256)
+  %259 = load ptr, ptr @machine_opts_dict, align 8
+  call void @qdict_put_str(ptr noundef %259, ptr noundef @.str.69, ptr noundef @.str.70)
+  %260 = load ptr, ptr %optarg, align 8
+  call void @add_device_config(i32 noundef 0, ptr noundef %260)
   br label %sw.epilog650
 
 sw.bb443:                                         ; preds = %if.end29
-  %257 = load ptr, ptr %optarg, align 8
-  %arrayidx444 = getelementptr i8, ptr %257, i64 0
-  %258 = load i8, ptr %arrayidx444, align 1
-  %conv445 = sext i8 %258 to i32
+  %261 = load ptr, ptr %optarg, align 8
+  %arrayidx444 = getelementptr i8, ptr %261, i64 0
+  %262 = load i8, ptr %arrayidx444, align 1
+  %conv445 = sext i8 %262 to i32
   %cmp446 = icmp eq i32 %conv445, 123
   br i1 %cmp446, label %if.then448, label %if.else466
 
 if.then448:                                       ; preds = %sw.bb443
-  %259 = load ptr, ptr %optarg, align 8
-  %call449 = call ptr @qobject_from_json(ptr noundef %259, ptr noundef @error_fatal)
+  %263 = load ptr, ptr %optarg, align 8
+  %call449 = call ptr @qobject_from_json(ptr noundef %263, ptr noundef @error_fatal)
   store ptr %call449, ptr %obj, align 8
   %call450 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #14
   store ptr %call450, ptr %opt, align 8
-  %260 = load ptr, ptr %obj, align 8
-  %call451 = call ptr @qobject_check_type(ptr noundef %260, i32 noundef 4)
-  %261 = load ptr, ptr %opt, align 8
-  %opts452 = getelementptr inbounds %struct.DeviceOption, ptr %261, i32 0, i32 0
+  %264 = load ptr, ptr %obj, align 8
+  %call451 = call ptr @qobject_check_type(ptr noundef %264, i32 noundef 4)
+  %265 = load ptr, ptr %opt, align 8
+  %opts452 = getelementptr inbounds %struct.DeviceOption, ptr %265, i32 0, i32 0
   store ptr %call451, ptr %opts452, align 8
-  %262 = load ptr, ptr %opt, align 8
-  %loc453 = getelementptr inbounds %struct.DeviceOption, ptr %262, i32 0, i32 1
+  %266 = load ptr, ptr %opt, align 8
+  %loc453 = getelementptr inbounds %struct.DeviceOption, ptr %266, i32 0, i32 1
   %call454 = call ptr @loc_save(ptr noundef %loc453)
-  %263 = load ptr, ptr %opt, align 8
-  %opts455 = getelementptr inbounds %struct.DeviceOption, ptr %263, i32 0, i32 0
-  %264 = load ptr, ptr %opts455, align 8
-  %cmp456 = icmp ne ptr %264, null
+  %267 = load ptr, ptr %opt, align 8
+  %opts455 = getelementptr inbounds %struct.DeviceOption, ptr %267, i32 0, i32 0
+  %268 = load ptr, ptr %opts455, align 8
+  %cmp456 = icmp ne ptr %268, null
   br i1 %cmp456, label %if.then458, label %if.else459
 
 if.then458:                                       ; preds = %if.then448
@@ -2669,21 +2673,24 @@ if.end460:                                        ; preds = %if.then458
   br label %do.body461
 
 do.body461:                                       ; preds = %if.end460
-  %265 = load ptr, ptr %opt, align 8
-  %next462 = getelementptr inbounds %struct.DeviceOption, ptr %265, i32 0, i32 2
+  %269 = load ptr, ptr %opt, align 8
+  %next462 = getelementptr inbounds %struct.DeviceOption, ptr %269, i32 0, i32 2
   store ptr null, ptr %next462, align 8
-  %266 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @device_opts, i32 0, i32 1), align 8
-  %267 = load ptr, ptr %opt, align 8
-  %next463 = getelementptr inbounds %struct.DeviceOption, ptr %267, i32 0, i32 2
+  %270 = getelementptr inbounds %struct.QTailQLink, ptr @device_opts, i32 0, i32 1
+  %271 = load ptr, ptr %270, align 8
+  %272 = load ptr, ptr %opt, align 8
+  %next463 = getelementptr inbounds %struct.DeviceOption, ptr %272, i32 0, i32 2
   %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next463, i32 0, i32 1
-  store ptr %266, ptr %tql_prev, align 8
-  %268 = load ptr, ptr %opt, align 8
-  %269 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @device_opts, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %269, i32 0, i32 0
-  store ptr %268, ptr %tql_next, align 8
-  %270 = load ptr, ptr %opt, align 8
-  %next464 = getelementptr inbounds %struct.DeviceOption, ptr %270, i32 0, i32 2
-  store ptr %next464, ptr getelementptr inbounds (%struct.QTailQLink, ptr @device_opts, i32 0, i32 1), align 8
+  store ptr %271, ptr %tql_prev, align 8
+  %273 = load ptr, ptr %opt, align 8
+  %274 = getelementptr inbounds %struct.QTailQLink, ptr @device_opts, i32 0, i32 1
+  %275 = load ptr, ptr %274, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %275, i32 0, i32 0
+  store ptr %273, ptr %tql_next, align 8
+  %276 = load ptr, ptr %opt, align 8
+  %next464 = getelementptr inbounds %struct.DeviceOption, ptr %276, i32 0, i32 2
+  %277 = getelementptr inbounds %struct.QTailQLink, ptr @device_opts, i32 0, i32 1
+  store ptr %next464, ptr %277, align 8
   br label %do.end465
 
 do.end465:                                        ; preds = %do.body461
@@ -2691,8 +2698,8 @@ do.end465:                                        ; preds = %do.body461
 
 if.else466:                                       ; preds = %sw.bb443
   %call467 = call ptr @qemu_find_opts(ptr noundef @.str.54)
-  %271 = load ptr, ptr %optarg, align 8
-  %call468 = call ptr @qemu_opts_parse_noisily(ptr noundef %call467, ptr noundef %271, i1 noundef zeroext true)
+  %278 = load ptr, ptr %optarg, align 8
+  %call468 = call ptr @qemu_opts_parse_noisily(ptr noundef %call467, ptr noundef %278, i1 noundef zeroext true)
   %tobool469 = icmp ne ptr %call468, null
   br i1 %tobool469, label %if.end471, label %if.then470
 
@@ -2708,47 +2715,47 @@ if.end472:                                        ; preds = %if.end471, %do.end4
 
 sw.bb473:                                         ; preds = %if.end29
   %call474 = call ptr @qemu_find_opts(ptr noundef @.str.72)
-  %272 = load ptr, ptr %optarg, align 8
-  call void @machine_parse_property_opt(ptr noundef %call474, ptr noundef @.str.73, ptr noundef %272)
+  %279 = load ptr, ptr %optarg, align 8
+  call void @machine_parse_property_opt(ptr noundef %call474, ptr noundef @.str.73, ptr noundef %279)
   br label %sw.epilog650
 
 sw.bb475:                                         ; preds = %if.end29
-  %273 = load ptr, ptr %optarg, align 8
-  call void @vnc_parse(ptr noundef %273)
-  %274 = load i32, ptr @display_remote, align 4
-  %inc476 = add i32 %274, 1
+  %280 = load ptr, ptr %optarg, align 8
+  call void @vnc_parse(ptr noundef %280)
+  %281 = load i32, ptr @display_remote, align 4
+  %inc476 = add i32 %281, 1
   store i32 %inc476, ptr @display_remote, align 4
   br label %sw.epilog650
 
 sw.bb477:                                         ; preds = %if.end29
   call void (ptr, ...) @warn_report(ptr noundef @.str.74)
-  %275 = load ptr, ptr @machine_opts_dict, align 8
-  call void @qdict_put_str(ptr noundef %275, ptr noundef @.str.59, ptr noundef @.str.13)
+  %282 = load ptr, ptr @machine_opts_dict, align 8
+  call void @qdict_put_str(ptr noundef %282, ptr noundef @.str.59, ptr noundef @.str.13)
   br label %sw.epilog650
 
 sw.bb478:                                         ; preds = %if.end29
   call void (ptr, ...) @warn_report(ptr noundef @.str.75)
-  %276 = load ptr, ptr @machine_opts_dict, align 8
-  call void @qdict_put_str(ptr noundef %276, ptr noundef @.str.76, ptr noundef @.str.13)
+  %283 = load ptr, ptr @machine_opts_dict, align 8
+  call void @qdict_put_str(ptr noundef %283, ptr noundef @.str.76, ptr noundef @.str.13)
   br label %sw.epilog650
 
 sw.bb479:                                         ; preds = %if.end29
   %call480 = call ptr @qemu_find_opts(ptr noundef @.str.57)
   store ptr %call480, ptr %olist, align 8
-  %277 = load ptr, ptr %olist, align 8
-  %call481 = call ptr @qemu_opts_parse_noisily(ptr noundef %277, ptr noundef @.str.77, i1 noundef zeroext false)
+  %284 = load ptr, ptr %olist, align 8
+  %call481 = call ptr @qemu_opts_parse_noisily(ptr noundef %284, ptr noundef @.str.77, i1 noundef zeroext false)
   br label %sw.epilog650
 
 sw.bb482:                                         ; preds = %if.end29
   %call483 = call ptr @qemu_find_opts(ptr noundef @.str.57)
   store ptr %call483, ptr %olist, align 8
-  %278 = load ptr, ptr %olist, align 8
-  %call484 = call ptr @qemu_opts_parse_noisily(ptr noundef %278, ptr noundef @.str.78, i1 noundef zeroext false)
+  %285 = load ptr, ptr %olist, align 8
+  %call484 = call ptr @qemu_opts_parse_noisily(ptr noundef %285, ptr noundef @.str.78, i1 noundef zeroext false)
   br label %sw.epilog650
 
 sw.bb485:                                         ; preds = %if.end29
-  %279 = load ptr, ptr %optarg, align 8
-  %call486 = call i32 @qemu_uuid_parse(ptr noundef %279, ptr noundef @qemu_uuid)
+  %286 = load ptr, ptr %optarg, align 8
+  %call486 = call i32 @qemu_uuid_parse(ptr noundef %286, ptr noundef @qemu_uuid)
   %cmp487 = icmp slt i32 %call486, 0
   br i1 %cmp487, label %if.then489, label %if.end490
 
@@ -2762,8 +2769,8 @@ if.end490:                                        ; preds = %sw.bb485
   br label %sw.epilog650
 
 sw.bb491:                                         ; preds = %if.end29
-  %280 = load i32, ptr @nb_option_roms, align 4
-  %cmp492 = icmp sge i32 %280, 16
+  %287 = load i32, ptr @nb_option_roms, align 4
+  %cmp492 = icmp sge i32 %287, 16
   br i1 %cmp492, label %if.then494, label %if.end495
 
 if.then494:                                       ; preds = %sw.bb491
@@ -2773,11 +2780,11 @@ if.then494:                                       ; preds = %sw.bb491
 
 if.end495:                                        ; preds = %sw.bb491
   %call496 = call ptr @qemu_find_opts(ptr noundef @.str.81)
-  %281 = load ptr, ptr %optarg, align 8
-  %call497 = call ptr @qemu_opts_parse_noisily(ptr noundef %call496, ptr noundef %281, i1 noundef zeroext true)
+  %288 = load ptr, ptr %optarg, align 8
+  %call497 = call ptr @qemu_opts_parse_noisily(ptr noundef %call496, ptr noundef %288, i1 noundef zeroext true)
   store ptr %call497, ptr %opts, align 8
-  %282 = load ptr, ptr %opts, align 8
-  %tobool498 = icmp ne ptr %282, null
+  %289 = load ptr, ptr %opts, align 8
+  %tobool498 = icmp ne ptr %289, null
   br i1 %tobool498, label %if.end500, label %if.then499
 
 if.then499:                                       ; preds = %if.end495
@@ -2785,27 +2792,27 @@ if.then499:                                       ; preds = %if.end495
   unreachable
 
 if.end500:                                        ; preds = %if.end495
-  %283 = load ptr, ptr %opts, align 8
-  %call501 = call ptr @qemu_opt_get(ptr noundef %283, ptr noundef @.str.82)
-  %284 = load i32, ptr @nb_option_roms, align 4
-  %idxprom502 = sext i32 %284 to i64
+  %290 = load ptr, ptr %opts, align 8
+  %call501 = call ptr @qemu_opt_get(ptr noundef %290, ptr noundef @.str.82)
+  %291 = load i32, ptr @nb_option_roms, align 4
+  %idxprom502 = sext i32 %291 to i64
   %arrayidx503 = getelementptr [16 x %struct.QEMUOptionRom], ptr @option_rom, i64 0, i64 %idxprom502
   %name = getelementptr inbounds %struct.QEMUOptionRom, ptr %arrayidx503, i32 0, i32 0
   store ptr %call501, ptr %name, align 16
-  %285 = load ptr, ptr %opts, align 8
-  %call504 = call i64 @qemu_opt_get_number(ptr noundef %285, ptr noundef @.str.83, i64 noundef -1)
+  %292 = load ptr, ptr %opts, align 8
+  %call504 = call i64 @qemu_opt_get_number(ptr noundef %292, ptr noundef @.str.83, i64 noundef -1)
   %conv505 = trunc i64 %call504 to i32
-  %286 = load i32, ptr @nb_option_roms, align 4
-  %idxprom506 = sext i32 %286 to i64
+  %293 = load i32, ptr @nb_option_roms, align 4
+  %idxprom506 = sext i32 %293 to i64
   %arrayidx507 = getelementptr [16 x %struct.QEMUOptionRom], ptr @option_rom, i64 0, i64 %idxprom506
   %bootindex = getelementptr inbounds %struct.QEMUOptionRom, ptr %arrayidx507, i32 0, i32 1
   store i32 %conv505, ptr %bootindex, align 8
-  %287 = load i32, ptr @nb_option_roms, align 4
-  %idxprom508 = sext i32 %287 to i64
+  %294 = load i32, ptr @nb_option_roms, align 4
+  %idxprom508 = sext i32 %294 to i64
   %arrayidx509 = getelementptr [16 x %struct.QEMUOptionRom], ptr @option_rom, i64 0, i64 %idxprom508
   %name510 = getelementptr inbounds %struct.QEMUOptionRom, ptr %arrayidx509, i32 0, i32 0
-  %288 = load ptr, ptr %name510, align 16
-  %tobool511 = icmp ne ptr %288, null
+  %295 = load ptr, ptr %name510, align 16
+  %tobool511 = icmp ne ptr %295, null
   br i1 %tobool511, label %if.end513, label %if.then512
 
 if.then512:                                       ; preds = %if.end500
@@ -2814,8 +2821,8 @@ if.then512:                                       ; preds = %if.end500
   unreachable
 
 if.end513:                                        ; preds = %if.end500
-  %289 = load i32, ptr @nb_option_roms, align 4
-  %inc514 = add i32 %289, 1
+  %296 = load i32, ptr @nb_option_roms, align 4
+  %inc514 = add i32 %296, 1
   store i32 %inc514, ptr @nb_option_roms, align 4
   br label %sw.epilog650
 
@@ -2824,8 +2831,8 @@ sw.bb515:                                         ; preds = %if.end29
   br label %sw.epilog650
 
 sw.bb516:                                         ; preds = %if.end29
-  %290 = load ptr, ptr %optarg, align 8
-  %call517 = call i32 @qemu_semihosting_config_options(ptr noundef %290)
+  %297 = load ptr, ptr %optarg, align 8
+  %call517 = call i32 @qemu_semihosting_config_options(ptr noundef %297)
   %cmp518 = icmp ne i32 %call517, 0
   br i1 %cmp518, label %if.then520, label %if.end521
 
@@ -2838,11 +2845,11 @@ if.end521:                                        ; preds = %sw.bb516
 
 sw.bb522:                                         ; preds = %if.end29
   %call523 = call ptr @qemu_find_opts(ptr noundef @.str.85)
-  %291 = load ptr, ptr %optarg, align 8
-  %call524 = call ptr @qemu_opts_parse_noisily(ptr noundef %call523, ptr noundef %291, i1 noundef zeroext true)
+  %298 = load ptr, ptr %optarg, align 8
+  %call524 = call ptr @qemu_opts_parse_noisily(ptr noundef %call523, ptr noundef %298, i1 noundef zeroext true)
   store ptr %call524, ptr %opts, align 8
-  %292 = load ptr, ptr %opts, align 8
-  %tobool525 = icmp ne ptr %292, null
+  %299 = load ptr, ptr %opts, align 8
+  %tobool525 = icmp ne ptr %299, null
   br i1 %tobool525, label %if.end527, label %if.then526
 
 if.then526:                                       ; preds = %sw.bb522
@@ -2850,14 +2857,14 @@ if.then526:                                       ; preds = %sw.bb522
   unreachable
 
 if.end527:                                        ; preds = %sw.bb522
-  %293 = load ptr, ptr %opts, align 8
-  %call528 = call ptr @qemu_opt_get(ptr noundef %293, ptr noundef @.str.86)
+  %300 = load ptr, ptr %opts, align 8
+  %call528 = call ptr @qemu_opt_get(ptr noundef %300, ptr noundef @.str.86)
   store ptr %call528, ptr @error_guest_name, align 8
   br label %sw.epilog650
 
 sw.bb529:                                         ; preds = %if.end29
-  %294 = load i32, ptr @nb_prom_envs, align 4
-  %cmp530 = icmp uge i32 %294, 128
+  %301 = load i32, ptr @nb_prom_envs, align 4
+  %cmp530 = icmp uge i32 %301, 128
   br i1 %cmp530, label %if.then532, label %if.end533
 
 if.then532:                                       ; preds = %sw.bb529
@@ -2866,13 +2873,13 @@ if.then532:                                       ; preds = %sw.bb529
   unreachable
 
 if.end533:                                        ; preds = %sw.bb529
-  %295 = load ptr, ptr %optarg, align 8
-  %296 = load i32, ptr @nb_prom_envs, align 4
-  %idxprom534 = zext i32 %296 to i64
+  %302 = load ptr, ptr %optarg, align 8
+  %303 = load i32, ptr @nb_prom_envs, align 4
+  %idxprom534 = zext i32 %303 to i64
   %arrayidx535 = getelementptr [128 x ptr], ptr @prom_envs, i64 0, i64 %idxprom534
-  store ptr %295, ptr %arrayidx535, align 8
-  %297 = load i32, ptr @nb_prom_envs, align 4
-  %inc536 = add i32 %297, 1
+  store ptr %302, ptr %arrayidx535, align 8
+  %304 = load i32, ptr @nb_prom_envs, align 4
+  %inc536 = add i32 %304, 1
   store i32 %inc536, ptr @nb_prom_envs, align 4
   br label %sw.epilog650
 
@@ -2882,11 +2889,11 @@ sw.bb537:                                         ; preds = %if.end29
 
 sw.bb538:                                         ; preds = %if.end29
   %call539 = call ptr @qemu_find_opts(ptr noundef @.str.88)
-  %298 = load ptr, ptr %optarg, align 8
-  %call540 = call ptr @qemu_opts_parse_noisily(ptr noundef %call539, ptr noundef %298, i1 noundef zeroext false)
+  %305 = load ptr, ptr %optarg, align 8
+  %call540 = call ptr @qemu_opts_parse_noisily(ptr noundef %call539, ptr noundef %305, i1 noundef zeroext false)
   store ptr %call540, ptr %opts, align 8
-  %299 = load ptr, ptr %opts, align 8
-  %tobool541 = icmp ne ptr %299, null
+  %306 = load ptr, ptr %opts, align 8
+  %tobool541 = icmp ne ptr %306, null
   br i1 %tobool541, label %if.end543, label %if.then542
 
 if.then542:                                       ; preds = %sw.bb538
@@ -2898,11 +2905,11 @@ if.end543:                                        ; preds = %sw.bb538
 
 sw.bb544:                                         ; preds = %if.end29
   %call545 = call ptr @qemu_find_opts(ptr noundef @.str.89)
-  %300 = load ptr, ptr %optarg, align 8
-  %call546 = call ptr @qemu_opts_parse_noisily(ptr noundef %call545, ptr noundef %300, i1 noundef zeroext true)
+  %307 = load ptr, ptr %optarg, align 8
+  %call546 = call ptr @qemu_opts_parse_noisily(ptr noundef %call545, ptr noundef %307, i1 noundef zeroext true)
   store ptr %call546, ptr %icount_opts, align 8
-  %301 = load ptr, ptr %icount_opts, align 8
-  %tobool547 = icmp ne ptr %301, null
+  %308 = load ptr, ptr %icount_opts, align 8
+  %tobool547 = icmp ne ptr %308, null
   br i1 %tobool547, label %if.end549, label %if.then548
 
 if.then548:                                       ; preds = %sw.bb544
@@ -2913,8 +2920,8 @@ if.end549:                                        ; preds = %sw.bb544
   br label %sw.epilog650
 
 sw.bb550:                                         ; preds = %if.end29
-  %302 = load ptr, ptr @incoming, align 8
-  %tobool551 = icmp ne ptr %302, null
+  %309 = load ptr, ptr @incoming, align 8
+  %tobool551 = icmp ne ptr %309, null
   br i1 %tobool551, label %if.end553, label %if.then552
 
 if.then552:                                       ; preds = %sw.bb550
@@ -2922,8 +2929,8 @@ if.then552:                                       ; preds = %sw.bb550
   br label %if.end553
 
 if.end553:                                        ; preds = %if.then552, %sw.bb550
-  %303 = load ptr, ptr %optarg, align 8
-  store ptr %303, ptr @incoming, align 8
+  %310 = load ptr, ptr %optarg, align 8
+  store ptr %310, ptr @incoming, align 8
   br label %sw.epilog650
 
 sw.bb554:                                         ; preds = %if.end29
@@ -2950,8 +2957,8 @@ if.then562:                                       ; preds = %land.lhs.true559
   unreachable
 
 if.end563:                                        ; preds = %land.lhs.true559, %sw.bb556
-  %304 = load ptr, ptr %optarg, align 8
-  %call564 = call i32 @atoi(ptr noundef %304) #13
+  %311 = load ptr, ptr %optarg, align 8
+  %call564 = call i32 @atoi(ptr noundef %311) #13
   store i32 %call564, ptr @xen_domid, align 4
   br label %sw.epilog650
 
@@ -2984,35 +2991,35 @@ if.end574:                                        ; preds = %sw.bb570
   br label %sw.epilog650
 
 sw.bb575:                                         ; preds = %if.end29
-  %305 = load ptr, ptr %optarg, align 8
-  call void @trace_opt_parse(ptr noundef %305)
+  %312 = load ptr, ptr %optarg, align 8
+  call void @trace_opt_parse(ptr noundef %312)
   br label %sw.epilog650
 
 sw.bb576:                                         ; preds = %if.end29
-  %306 = load ptr, ptr %optarg, align 8
-  call void @qemu_plugin_opt_parse(ptr noundef %306, ptr noundef @plugin_list)
+  %313 = load ptr, ptr %optarg, align 8
+  call void @qemu_plugin_opt_parse(ptr noundef %313, ptr noundef @plugin_list)
   br label %sw.epilog650
 
 sw.bb577:                                         ; preds = %if.end29
-  %307 = load ptr, ptr %optarg, align 8
-  %call578 = call i32 @qemu_read_config_file(ptr noundef %307, ptr noundef @qemu_parse_config_group, ptr noundef @error_fatal)
+  %314 = load ptr, ptr %optarg, align 8
+  %call578 = call i32 @qemu_read_config_file(ptr noundef %314, ptr noundef @qemu_parse_config_group, ptr noundef @error_fatal)
   br label %sw.epilog650
 
 sw.bb579:                                         ; preds = %if.end29
-  %308 = load ptr, ptr %optarg, align 8
-  store ptr %308, ptr @qtest_chrdev, align 8
+  %315 = load ptr, ptr %optarg, align 8
+  store ptr %315, ptr @qtest_chrdev, align 8
   br label %sw.epilog650
 
 sw.bb580:                                         ; preds = %if.end29
-  %309 = load ptr, ptr %optarg, align 8
-  store ptr %309, ptr @qtest_log, align 8
+  %316 = load ptr, ptr %optarg, align 8
+  store ptr %316, ptr @qtest_log, align 8
   br label %sw.epilog650
 
 sw.bb581:                                         ; preds = %if.end29
   %call582 = call ptr @qemu_find_opts(ptr noundef @.str.91)
   store ptr %call582, ptr %olist, align 8
-  %310 = load ptr, ptr %olist, align 8
-  %tobool583 = icmp ne ptr %310, null
+  %317 = load ptr, ptr %olist, align 8
+  %tobool583 = icmp ne ptr %317, null
   br i1 %tobool583, label %if.end585, label %if.then584
 
 if.then584:                                       ; preds = %sw.bb581
@@ -3021,12 +3028,12 @@ if.then584:                                       ; preds = %sw.bb581
   unreachable
 
 if.end585:                                        ; preds = %sw.bb581
-  %311 = load ptr, ptr %olist, align 8
-  %312 = load ptr, ptr %optarg, align 8
-  %call586 = call ptr @qemu_opts_parse_noisily(ptr noundef %311, ptr noundef %312, i1 noundef zeroext true)
+  %318 = load ptr, ptr %olist, align 8
+  %319 = load ptr, ptr %optarg, align 8
+  %call586 = call ptr @qemu_opts_parse_noisily(ptr noundef %318, ptr noundef %319, i1 noundef zeroext true)
   store ptr %call586, ptr %opts, align 8
-  %313 = load ptr, ptr %opts, align 8
-  %tobool587 = icmp ne ptr %313, null
+  %320 = load ptr, ptr %opts, align 8
+  %tobool587 = icmp ne ptr %320, null
   br i1 %tobool587, label %if.end589, label %if.then588
 
 if.then588:                                       ; preds = %if.end585
@@ -3038,11 +3045,11 @@ if.end589:                                        ; preds = %if.end585
 
 sw.bb590:                                         ; preds = %if.end29
   %call591 = call ptr @qemu_find_opts(ptr noundef @.str.93)
-  %314 = load ptr, ptr %optarg, align 8
-  %call592 = call ptr @qemu_opts_parse_noisily(ptr noundef %call591, ptr noundef %314, i1 noundef zeroext false)
+  %321 = load ptr, ptr %optarg, align 8
+  %call592 = call ptr @qemu_opts_parse_noisily(ptr noundef %call591, ptr noundef %321, i1 noundef zeroext false)
   store ptr %call592, ptr %opts, align 8
-  %315 = load ptr, ptr %opts, align 8
-  %tobool593 = icmp ne ptr %315, null
+  %322 = load ptr, ptr %opts, align 8
+  %tobool593 = icmp ne ptr %322, null
   br i1 %tobool593, label %if.end595, label %if.then594
 
 if.then594:                                       ; preds = %sw.bb590
@@ -3053,17 +3060,17 @@ if.end595:                                        ; preds = %sw.bb590
   br label %sw.epilog650
 
 sw.bb596:                                         ; preds = %if.end29
-  %316 = load ptr, ptr %optarg, align 8
-  call void @object_option_parse(ptr noundef %316)
+  %323 = load ptr, ptr %optarg, align 8
+  call void @object_option_parse(ptr noundef %323)
   br label %sw.epilog650
 
 sw.bb597:                                         ; preds = %if.end29
   %call598 = call ptr @qemu_find_opts(ptr noundef @.str.94)
-  %317 = load ptr, ptr %optarg, align 8
-  %call599 = call ptr @qemu_opts_parse_noisily(ptr noundef %call598, ptr noundef %317, i1 noundef zeroext false)
+  %324 = load ptr, ptr %optarg, align 8
+  %call599 = call ptr @qemu_opts_parse_noisily(ptr noundef %call598, ptr noundef %324, i1 noundef zeroext false)
   store ptr %call599, ptr %opts, align 8
-  %318 = load ptr, ptr %opts, align 8
-  %tobool600 = icmp ne ptr %318, null
+  %325 = load ptr, ptr %opts, align 8
+  %tobool600 = icmp ne ptr %325, null
   br i1 %tobool600, label %if.end602, label %if.then601
 
 if.then601:                                       ; preds = %sw.bb597
@@ -3071,37 +3078,37 @@ if.then601:                                       ; preds = %sw.bb597
   unreachable
 
 if.end602:                                        ; preds = %sw.bb597
-  %319 = load ptr, ptr %opts, align 8
-  %call603 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %319, ptr noundef @.str.95, i1 noundef zeroext false)
+  %326 = load ptr, ptr %opts, align 8
+  %call603 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %326, ptr noundef @.str.95, i1 noundef zeroext false)
   %frombool = zext i1 %call603 to i8
   store i8 %frombool, ptr @enable_mlock, align 1
-  %320 = load ptr, ptr %opts, align 8
-  %call604 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %320, ptr noundef @.str.96, i1 noundef zeroext false)
+  %327 = load ptr, ptr %opts, align 8
+  %call604 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %327, ptr noundef @.str.96, i1 noundef zeroext false)
   %frombool605 = zext i1 %call604 to i8
   store i8 %frombool605, ptr @enable_cpu_pm, align 1
   br label %sw.epilog650
 
 sw.bb606:                                         ; preds = %if.end29
-  %321 = load ptr, ptr %optarg, align 8
-  %call608 = call ptr @qobject_input_visitor_new_str(ptr noundef %321, ptr noundef null, ptr noundef @error_fatal)
+  %328 = load ptr, ptr %optarg, align 8
+  %call608 = call ptr @qobject_input_visitor_new_str(ptr noundef %328, ptr noundef null, ptr noundef @error_fatal)
   store ptr %call608, ptr %v607, align 8
-  %322 = load ptr, ptr %v607, align 8
-  %call609 = call zeroext i1 @visit_type_CompatPolicy(ptr noundef %322, ptr noundef null, ptr noundef %opts_policy, ptr noundef @error_fatal)
-  %323 = load ptr, ptr %opts_policy, align 8
-  call void @qapi_clone_members(ptr noundef @compat_policy, ptr noundef %323, i64 noundef 32, ptr noundef @visit_type_CompatPolicy_members)
-  %324 = load ptr, ptr %opts_policy, align 8
-  call void @qapi_free_CompatPolicy(ptr noundef %324)
-  %325 = load ptr, ptr %v607, align 8
-  call void @visit_free(ptr noundef %325)
+  %329 = load ptr, ptr %v607, align 8
+  %call609 = call zeroext i1 @visit_type_CompatPolicy(ptr noundef %329, ptr noundef null, ptr noundef %opts_policy, ptr noundef @error_fatal)
+  %330 = load ptr, ptr %opts_policy, align 8
+  call void @qapi_clone_members(ptr noundef @compat_policy, ptr noundef %330, i64 noundef 32, ptr noundef @visit_type_CompatPolicy_members)
+  %331 = load ptr, ptr %opts_policy, align 8
+  call void @qapi_free_CompatPolicy(ptr noundef %331)
+  %332 = load ptr, ptr %v607, align 8
+  call void @visit_free(ptr noundef %332)
   br label %sw.epilog650
 
 sw.bb610:                                         ; preds = %if.end29
   %call611 = call ptr @qemu_find_opts(ptr noundef @.str.97)
-  %326 = load ptr, ptr %optarg, align 8
-  %call612 = call ptr @qemu_opts_parse_noisily(ptr noundef %call611, ptr noundef %326, i1 noundef zeroext false)
+  %333 = load ptr, ptr %optarg, align 8
+  %call612 = call ptr @qemu_opts_parse_noisily(ptr noundef %call611, ptr noundef %333, i1 noundef zeroext false)
   store ptr %call612, ptr %opts, align 8
-  %327 = load ptr, ptr %opts, align 8
-  %tobool613 = icmp ne ptr %327, null
+  %334 = load ptr, ptr %opts, align 8
+  %tobool613 = icmp ne ptr %334, null
   br i1 %tobool613, label %if.end615, label %if.then614
 
 if.then614:                                       ; preds = %sw.bb610
@@ -3109,13 +3116,13 @@ if.then614:                                       ; preds = %sw.bb610
   unreachable
 
 if.end615:                                        ; preds = %sw.bb610
-  %328 = load ptr, ptr %opts, align 8
-  call void @configure_msg(ptr noundef %328)
+  %335 = load ptr, ptr %opts, align 8
+  call void @configure_msg(ptr noundef %335)
   br label %sw.epilog650
 
 sw.bb616:                                         ; preds = %if.end29
-  %329 = load ptr, ptr %vmstate_dump_file, align 8
-  %tobool617 = icmp ne ptr %329, null
+  %336 = load ptr, ptr %vmstate_dump_file, align 8
+  %tobool617 = icmp ne ptr %336, null
   br i1 %tobool617, label %if.then618, label %if.end619
 
 if.then618:                                       ; preds = %sw.bb616
@@ -3124,19 +3131,19 @@ if.then618:                                       ; preds = %sw.bb616
   unreachable
 
 if.end619:                                        ; preds = %sw.bb616
-  %330 = load ptr, ptr %optarg, align 8
-  %call620 = call noalias ptr @fopen64(ptr noundef %330, ptr noundef @.str.99)
+  %337 = load ptr, ptr %optarg, align 8
+  %call620 = call noalias ptr @fopen64(ptr noundef %337, ptr noundef @.str.99)
   store ptr %call620, ptr %vmstate_dump_file, align 8
-  %331 = load ptr, ptr %vmstate_dump_file, align 8
-  %cmp621 = icmp eq ptr %331, null
+  %338 = load ptr, ptr %vmstate_dump_file, align 8
+  %cmp621 = icmp eq ptr %338, null
   br i1 %cmp621, label %if.then623, label %if.end626
 
 if.then623:                                       ; preds = %if.end619
-  %332 = load ptr, ptr %optarg, align 8
+  %339 = load ptr, ptr %optarg, align 8
   %call624 = call ptr @__errno_location() #16
-  %333 = load i32, ptr %call624, align 4
-  %call625 = call ptr @strerror(i32 noundef %333) #15
-  call void (ptr, ...) @error_report(ptr noundef @.str.100, ptr noundef %332, ptr noundef %call625)
+  %340 = load i32, ptr %call624, align 4
+  %call625 = call ptr @strerror(i32 noundef %340) #15
+  call void (ptr, ...) @error_report(ptr noundef @.str.100, ptr noundef %339, ptr noundef %call625)
   call void @exit(i32 noundef 1) #12
   unreachable
 
@@ -3151,13 +3158,13 @@ sw.bb628:                                         ; preds = %if.end29
   br label %sw.epilog650
 
 sw.bb629:                                         ; preds = %if.end29
-  %334 = load ptr, ptr %optarg, align 8
-  %call630 = call zeroext i1 @os_set_runas(ptr noundef %334)
+  %341 = load ptr, ptr %optarg, align 8
+  %call630 = call zeroext i1 @os_set_runas(ptr noundef %341)
   br i1 %call630, label %if.end632, label %if.then631
 
 if.then631:                                       ; preds = %sw.bb629
-  %335 = load ptr, ptr %optarg, align 8
-  call void (ptr, ...) @error_report(ptr noundef @.str.101, ptr noundef %335)
+  %342 = load ptr, ptr %optarg, align 8
+  call void (ptr, ...) @error_report(ptr noundef @.str.101, ptr noundef %342)
   call void @exit(i32 noundef 1) #12
   unreachable
 
@@ -3166,8 +3173,8 @@ if.end632:                                        ; preds = %sw.bb629
 
 sw.bb633:                                         ; preds = %if.end29
   call void (ptr, ...) @warn_report(ptr noundef @.str.102)
-  %336 = load ptr, ptr %optarg, align 8
-  call void @os_set_chroot(ptr noundef %336)
+  %343 = load ptr, ptr %optarg, align 8
+  call void @os_set_chroot(ptr noundef %343)
   br label %sw.epilog650
 
 sw.bb634:                                         ; preds = %if.end29
@@ -3180,11 +3187,11 @@ sw.bb636:                                         ; preds = %if.end29
 
 sw.bb637:                                         ; preds = %if.end29
   %call638 = call ptr @qemu_find_opts(ptr noundef @.str.103)
-  %337 = load ptr, ptr %optarg, align 8
-  %call639 = call ptr @qemu_opts_parse_noisily(ptr noundef %call638, ptr noundef %337, i1 noundef zeroext false)
+  %344 = load ptr, ptr %optarg, align 8
+  %call639 = call ptr @qemu_opts_parse_noisily(ptr noundef %call638, ptr noundef %344, i1 noundef zeroext false)
   store ptr %call639, ptr %opts, align 8
-  %338 = load ptr, ptr %opts, align 8
-  %tobool640 = icmp ne ptr %338, null
+  %345 = load ptr, ptr %opts, align 8
+  %tobool640 = icmp ne ptr %345, null
   br i1 %tobool640, label %if.end642, label %if.then641
 
 if.then641:                                       ; preds = %sw.bb637
@@ -3192,8 +3199,8 @@ if.then641:                                       ; preds = %sw.bb637
   unreachable
 
 if.end642:                                        ; preds = %sw.bb637
-  %339 = load ptr, ptr %opts, align 8
-  %call643 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %339, ptr noundef @.str.104, i1 noundef zeroext false)
+  %346 = load ptr, ptr %opts, align 8
+  %call643 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %346, ptr noundef @.str.104, i1 noundef zeroext false)
   br i1 %call643, label %if.then644, label %if.end645
 
 if.then644:                                       ; preds = %if.end642
@@ -3201,16 +3208,16 @@ if.then644:                                       ; preds = %if.end642
   br label %if.end645
 
 if.end645:                                        ; preds = %if.then644, %if.end642
-  %340 = load ptr, ptr %opts, align 8
-  %call646 = call ptr @qemu_opt_get(ptr noundef %340, ptr noundef @.str.105)
+  %347 = load ptr, ptr %opts, align 8
+  %call646 = call ptr @qemu_opt_get(ptr noundef %347, ptr noundef @.str.105)
   store ptr %call646, ptr %str, align 8
-  %341 = load ptr, ptr %str, align 8
-  %tobool647 = icmp ne ptr %341, null
+  %348 = load ptr, ptr %str, align 8
+  %tobool647 = icmp ne ptr %348, null
   br i1 %tobool647, label %if.then648, label %if.end649
 
 if.then648:                                       ; preds = %if.end645
-  %342 = load ptr, ptr %str, align 8
-  call void @os_set_chroot(ptr noundef %342)
+  %349 = load ptr, ptr %str, align 8
+  call void @os_set_chroot(ptr noundef %349)
   br label %if.end649
 
 if.end649:                                        ; preds = %if.then648, %if.end645
@@ -3229,13 +3236,13 @@ if.end651:                                        ; preds = %sw.epilog650, %if.t
 
 for.end652:                                       ; preds = %if.then11
   call void @loc_set_none()
-  %343 = load ptr, ptr @machine_opts_dict, align 8
-  call void @qemu_validate_options(ptr noundef %343)
+  %350 = load ptr, ptr @machine_opts_dict, align 8
+  call void @qemu_validate_options(ptr noundef %350)
   call void @qemu_process_sugar_options()
   call void @qemu_process_early_options()
   call void @qemu_process_help_options()
-  %344 = load ptr, ptr @pid_file, align 8
-  call void @qemu_maybe_daemonize(ptr noundef %344)
+  %351 = load ptr, ptr @pid_file, align 8
+  call void @qemu_maybe_daemonize(ptr noundef %351)
   %call653 = call zeroext i1 @trace_init_backends()
   br i1 %call653, label %if.end655, label %if.then654
 
@@ -3248,114 +3255,114 @@ if.end655:                                        ; preds = %for.end652
   %call656 = call i32 @qemu_init_main_loop(ptr noundef @error_fatal)
   call void @cpu_timers_init()
   call void @user_register_global_props()
-  %345 = load ptr, ptr %icount_opts, align 8
-  call void @replay_configure(ptr noundef %345)
+  %352 = load ptr, ptr %icount_opts, align 8
+  call void @replay_configure(ptr noundef %352)
   %call657 = call ptr @qemu_find_opts_singleton(ptr noundef @.str.88)
   call void @configure_rtc(ptr noundef %call657)
   call void @parse_memory_options()
-  %346 = load ptr, ptr @machine_opts_dict, align 8
-  call void @qemu_create_machine(ptr noundef %346)
+  %353 = load ptr, ptr @machine_opts_dict, align 8
+  call void @qemu_create_machine(ptr noundef %353)
   call void @suspend_mux_open()
   call void @qemu_disable_default_devices()
   call void @qemu_setup_display()
   call void @qemu_create_default_devices()
   call void @qemu_create_early_backends()
-  %347 = load ptr, ptr @machine_opts_dict, align 8
-  call void @qemu_apply_legacy_machine_options(ptr noundef %347)
-  %348 = load ptr, ptr @machine_opts_dict, align 8
-  call void @qemu_apply_machine_options(ptr noundef %348)
-  %349 = load ptr, ptr @machine_opts_dict, align 8
-  store ptr %349, ptr %_obj21, align 8
-  %350 = load ptr, ptr %_obj21, align 8
-  %tobool659 = icmp ne ptr %350, null
+  %354 = load ptr, ptr @machine_opts_dict, align 8
+  call void @qemu_apply_legacy_machine_options(ptr noundef %354)
+  %355 = load ptr, ptr @machine_opts_dict, align 8
+  call void @qemu_apply_machine_options(ptr noundef %355)
+  %356 = load ptr, ptr @machine_opts_dict, align 8
+  store ptr %356, ptr %_obj21, align 8
+  %357 = load ptr, ptr %_obj21, align 8
+  %tobool659 = icmp ne ptr %357, null
   br i1 %tobool659, label %cond.true660, label %cond.false665
 
 cond.true660:                                     ; preds = %if.end655
-  %351 = load ptr, ptr %_obj21, align 8
-  %base662 = getelementptr inbounds %struct.QDict, ptr %351, i32 0, i32 0
+  %358 = load ptr, ptr %_obj21, align 8
+  %base662 = getelementptr inbounds %struct.QDict, ptr %358, i32 0, i32 0
   store ptr %base662, ptr %__mptr661, align 8
-  %352 = load ptr, ptr %__mptr661, align 8
-  %add.ptr664 = getelementptr i8, ptr %352, i64 0
+  %359 = load ptr, ptr %__mptr661, align 8
+  %add.ptr664 = getelementptr i8, ptr %359, i64 0
   store ptr %add.ptr664, ptr %tmp663, align 8
-  %353 = load ptr, ptr %tmp663, align 8
+  %360 = load ptr, ptr %tmp663, align 8
   br label %cond.end666
 
 cond.false665:                                    ; preds = %if.end655
   br label %cond.end666
 
 cond.end666:                                      ; preds = %cond.false665, %cond.true660
-  %cond667 = phi ptr [ %353, %cond.true660 ], [ null, %cond.false665 ]
+  %cond667 = phi ptr [ %360, %cond.true660 ], [ null, %cond.false665 ]
   store ptr %cond667, ptr %tmp658, align 8
-  %354 = load ptr, ptr %tmp658, align 8
-  call void @qobject_unref_impl(ptr noundef %354)
+  %361 = load ptr, ptr %tmp658, align 8
+  call void @qobject_unref_impl(ptr noundef %361)
   call void @phase_advance(i32 noundef 1)
-  %355 = load ptr, ptr %argv.addr, align 8
-  %arrayidx668 = getelementptr ptr, ptr %355, i64 0
-  %356 = load ptr, ptr %arrayidx668, align 8
-  call void @configure_accelerators(ptr noundef %356)
+  %362 = load ptr, ptr %argv.addr, align 8
+  %arrayidx668 = getelementptr ptr, ptr %362, i64 0
+  %363 = load ptr, ptr %arrayidx668, align 8
+  call void @configure_accelerators(ptr noundef %363)
   call void @phase_advance(i32 noundef 2)
-  %357 = load ptr, ptr @current_machine, align 8
-  %call669 = call ptr @MACHINE_GET_CLASS(ptr noundef %357)
+  %364 = load ptr, ptr @current_machine, align 8
+  %call669 = call ptr @MACHINE_GET_CLASS(ptr noundef %364)
   store ptr %call669, ptr %machine_class, align 8
   %call670 = call zeroext i1 @qtest_enabled()
   br i1 %call670, label %if.end676, label %land.lhs.true671
 
 land.lhs.true671:                                 ; preds = %cond.end666
-  %358 = load ptr, ptr %machine_class, align 8
-  %deprecation_reason = getelementptr inbounds %struct.MachineClass, ptr %358, i32 0, i32 5
-  %359 = load ptr, ptr %deprecation_reason, align 8
-  %tobool672 = icmp ne ptr %359, null
+  %365 = load ptr, ptr %machine_class, align 8
+  %deprecation_reason = getelementptr inbounds %struct.MachineClass, ptr %365, i32 0, i32 5
+  %366 = load ptr, ptr %deprecation_reason, align 8
+  %tobool672 = icmp ne ptr %366, null
   br i1 %tobool672, label %if.then673, label %if.end676
 
 if.then673:                                       ; preds = %land.lhs.true671
-  %360 = load ptr, ptr %machine_class, align 8
-  %name674 = getelementptr inbounds %struct.MachineClass, ptr %360, i32 0, i32 2
-  %361 = load ptr, ptr %name674, align 8
-  %362 = load ptr, ptr %machine_class, align 8
-  %deprecation_reason675 = getelementptr inbounds %struct.MachineClass, ptr %362, i32 0, i32 5
-  %363 = load ptr, ptr %deprecation_reason675, align 8
-  call void (ptr, ...) @warn_report(ptr noundef @.str.107, ptr noundef %361, ptr noundef %363)
+  %367 = load ptr, ptr %machine_class, align 8
+  %name674 = getelementptr inbounds %struct.MachineClass, ptr %367, i32 0, i32 2
+  %368 = load ptr, ptr %name674, align 8
+  %369 = load ptr, ptr %machine_class, align 8
+  %deprecation_reason675 = getelementptr inbounds %struct.MachineClass, ptr %369, i32 0, i32 5
+  %370 = load ptr, ptr %deprecation_reason675, align 8
+  call void (ptr, ...) @warn_report(ptr noundef @.str.107, ptr noundef %368, ptr noundef %370)
   br label %if.end676
 
 if.end676:                                        ; preds = %if.then673, %land.lhs.true671, %cond.end666
   call void @qemu_create_late_backends()
   call void @migration_object_init()
-  %364 = load ptr, ptr %machine_class, align 8
-  %default_cpu_type = getelementptr inbounds %struct.MachineClass, ptr %364, i32 0, i32 24
-  %365 = load ptr, ptr %default_cpu_type, align 8
-  %366 = load ptr, ptr @current_machine, align 8
-  %cpu_type = getelementptr inbounds %struct.MachineState, ptr %366, i32 0, i32 26
-  store ptr %365, ptr %cpu_type, align 8
-  %367 = load ptr, ptr @cpu_option, align 8
-  %tobool677 = icmp ne ptr %367, null
+  %371 = load ptr, ptr %machine_class, align 8
+  %default_cpu_type = getelementptr inbounds %struct.MachineClass, ptr %371, i32 0, i32 24
+  %372 = load ptr, ptr %default_cpu_type, align 8
+  %373 = load ptr, ptr @current_machine, align 8
+  %cpu_type = getelementptr inbounds %struct.MachineState, ptr %373, i32 0, i32 26
+  store ptr %372, ptr %cpu_type, align 8
+  %374 = load ptr, ptr @cpu_option, align 8
+  %tobool677 = icmp ne ptr %374, null
   br i1 %tobool677, label %if.then678, label %if.end681
 
 if.then678:                                       ; preds = %if.end676
-  %368 = load ptr, ptr @cpu_option, align 8
-  %call679 = call ptr @parse_cpu_option(ptr noundef %368)
-  %369 = load ptr, ptr @current_machine, align 8
-  %cpu_type680 = getelementptr inbounds %struct.MachineState, ptr %369, i32 0, i32 26
+  %375 = load ptr, ptr @cpu_option, align 8
+  %call679 = call ptr @parse_cpu_option(ptr noundef %375)
+  %376 = load ptr, ptr @current_machine, align 8
+  %cpu_type680 = getelementptr inbounds %struct.MachineState, ptr %376, i32 0, i32 26
   store ptr %call679, ptr %cpu_type680, align 8
   br label %if.end681
 
 if.end681:                                        ; preds = %if.then678, %if.end676
   call void @qemu_resolve_machine_memdev()
-  %370 = load ptr, ptr @current_machine, align 8
-  call void @parse_numa_opts(ptr noundef %370)
-  %371 = load ptr, ptr %vmstate_dump_file, align 8
-  %tobool682 = icmp ne ptr %371, null
+  %377 = load ptr, ptr @current_machine, align 8
+  call void @parse_numa_opts(ptr noundef %377)
+  %378 = load ptr, ptr %vmstate_dump_file, align 8
+  %tobool682 = icmp ne ptr %378, null
   br i1 %tobool682, label %if.then683, label %if.end684
 
 if.then683:                                       ; preds = %if.end681
   call void @module_load_qom_all()
-  %372 = load ptr, ptr %vmstate_dump_file, align 8
-  call void @dump_vmstate_json_to_file(ptr noundef %372)
+  %379 = load ptr, ptr %vmstate_dump_file, align 8
+  call void @dump_vmstate_json_to_file(ptr noundef %379)
   call void @exit(i32 noundef 0) #12
   unreachable
 
 if.end684:                                        ; preds = %if.end681
-  %373 = load i8, ptr @preconfig_requested, align 1
-  %tobool685 = trunc i8 %373 to i1
+  %380 = load i8, ptr @preconfig_requested, align 1
+  %tobool685 = trunc i8 %380 to i1
   br i1 %tobool685, label %if.end687, label %if.then686
 
 if.then686:                                       ; preds = %if.end684
@@ -3364,8 +3371,8 @@ if.then686:                                       ; preds = %if.end684
 
 if.end687:                                        ; preds = %if.then686, %if.end684
   call void @qemu_init_displays()
-  %374 = load ptr, ptr @current_machine, align 8
-  call void @accel_setup_post(ptr noundef %374)
+  %381 = load ptr, ptr @current_machine, align 8
+  call void @accel_setup_post(ptr noundef %381)
   call void @os_setup_post()
   call void @resume_mux_open()
   ret void
@@ -5547,18 +5554,21 @@ do.body:                                          ; preds = %entry
   %5 = load ptr, ptr %conf, align 8
   %next = getelementptr inbounds %struct.device_config, ptr %5, i32 0, i32 3
   store ptr null, ptr %next, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @device_configs, i32 0, i32 1), align 8
-  %7 = load ptr, ptr %conf, align 8
-  %next4 = getelementptr inbounds %struct.device_config, ptr %7, i32 0, i32 3
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next4, i32 0, i32 1
-  store ptr %6, ptr %tql_prev, align 8
+  %6 = getelementptr inbounds %struct.QTailQLink, ptr @device_configs, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %conf, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @device_configs, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %9, i32 0, i32 0
-  store ptr %8, ptr %tql_next, align 8
-  %10 = load ptr, ptr %conf, align 8
-  %next5 = getelementptr inbounds %struct.device_config, ptr %10, i32 0, i32 3
-  store ptr %next5, ptr getelementptr inbounds (%struct.QTailQLink, ptr @device_configs, i32 0, i32 1), align 8
+  %next4 = getelementptr inbounds %struct.device_config, ptr %8, i32 0, i32 3
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next4, i32 0, i32 1
+  store ptr %7, ptr %tql_prev, align 8
+  %9 = load ptr, ptr %conf, align 8
+  %10 = getelementptr inbounds %struct.QTailQLink, ptr @device_configs, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %11, i32 0, i32 0
+  store ptr %9, ptr %tql_next, align 8
+  %12 = load ptr, ptr %conf, align 8
+  %next5 = getelementptr inbounds %struct.device_config, ptr %12, i32 0, i32 3
+  %13 = getelementptr inbounds %struct.QTailQLink, ptr @device_configs, i32 0, i32 1
+  store ptr %next5, ptr %13, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -7156,8 +7166,9 @@ entry:
   store ptr %call, ptr %machine_class, align 8
   store i8 0, ptr %use_sdl, align 1
   store i8 0, ptr %use_gtk, align 1
-  %1 = load i8, ptr getelementptr inbounds (%struct.DisplayOptions, ptr @dpy, i32 0, i32 3), align 2
-  %tobool = trunc i8 %1 to i1
+  %1 = getelementptr inbounds %struct.DisplayOptions, ptr @dpy, i32 0, i32 3
+  %2 = load i8, ptr %1, align 2
+  %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -7166,18 +7177,20 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   call void @qemu_console_early_init()
-  %2 = load i8, ptr getelementptr inbounds (%struct.DisplayOptions, ptr @dpy, i32 0, i32 7), align 2
-  %tobool1 = trunc i8 %2 to i1
+  %3 = getelementptr inbounds %struct.DisplayOptions, ptr @dpy, i32 0, i32 7
+  %4 = load i8, ptr %3, align 2
+  %tobool1 = trunc i8 %4 to i1
   br i1 %tobool1, label %land.lhs.true, label %if.end5
 
 land.lhs.true:                                    ; preds = %if.end
-  %3 = load i32, ptr getelementptr inbounds (%struct.DisplayOptions, ptr @dpy, i32 0, i32 8), align 4
-  %cmp = icmp ne i32 %3, 0
+  %5 = getelementptr inbounds %struct.DisplayOptions, ptr @dpy, i32 0, i32 8
+  %6 = load i32, ptr %5, align 4
+  %cmp = icmp ne i32 %6, 0
   br i1 %cmp, label %land.lhs.true2, label %if.end5
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %4 = load i32, ptr @display_opengl, align 4
-  %cmp3 = icmp eq i32 %4, 0
+  %7 = load i32, ptr @display_opengl, align 4
+  %cmp3 = icmp eq i32 %7, 0
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %land.lhs.true2
@@ -7187,18 +7200,18 @@ if.then4:                                         ; preds = %land.lhs.true2
 
 if.end5:                                          ; preds = %land.lhs.true2, %land.lhs.true, %if.end
   call void @object_option_foreach_add(ptr noundef @object_create_early)
-  %5 = load ptr, ptr @qemu_spice, align 8
-  call void %5()
+  %8 = load ptr, ptr @qemu_spice, align 8
+  call void %8()
   %call6 = call ptr @qemu_find_opts(ptr noundef @.str.38)
   %call7 = call i32 @qemu_opts_foreach(ptr noundef %call6, ptr noundef @chardev_init_func, ptr noundef null, ptr noundef @error_fatal)
   %call8 = call ptr @qemu_find_opts(ptr noundef @.str.39)
   %call9 = call i32 @qemu_opts_foreach(ptr noundef %call8, ptr noundef @fsdev_init_func, ptr noundef null, ptr noundef @error_fatal)
-  %6 = load ptr, ptr %machine_class, align 8
-  %7 = load i32, ptr @snapshot, align 4
-  call void @configure_blockdev(ptr noundef @bdo_queue, ptr noundef %6, i32 noundef %7)
+  %9 = load ptr, ptr %machine_class, align 8
+  %10 = load i32, ptr @snapshot, align 4
+  call void @configure_blockdev(ptr noundef @bdo_queue, ptr noundef %9, i32 noundef %10)
   call void @audio_init_audiodevs()
-  %8 = load i32, ptr @default_audio, align 4
-  %tobool10 = icmp ne i32 %8, 0
+  %11 = load i32, ptr @default_audio, align 4
+  %tobool10 = icmp ne i32 %11, 0
   br i1 %tobool10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end5
@@ -7394,13 +7407,14 @@ entry:
   store i8 0, ptr %init_failed, align 1
   %call = call ptr @qemu_find_opts(ptr noundef @.str.89)
   %call1 = call i32 @qemu_opts_foreach(ptr noundef %call, ptr noundef @do_configure_icount, ptr noundef null, ptr noundef @error_fatal)
-  %0 = load ptr, ptr getelementptr inbounds (%struct.QemuOptsList, ptr @qemu_accel_opts, i32 0, i32 3), align 8
-  %cmp = icmp eq ptr %0, null
+  %0 = getelementptr inbounds %struct.QemuOptsList, ptr @qemu_accel_opts, i32 0, i32 3
+  %1 = load ptr, ptr %0, align 8
+  %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.else34
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr @accelerators, align 8
-  %cmp2 = icmp eq ptr %1, null
+  %2 = load ptr, ptr @accelerators, align 8
+  %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %if.then3, label %if.end24
 
 if.then3:                                         ; preds = %if.then
@@ -7412,18 +7426,18 @@ if.then3:                                         ; preds = %if.then
   %tobool6 = icmp ne ptr %call5, null
   %frombool7 = zext i1 %tobool6 to i8
   store i8 %frombool7, ptr %have_kvm, align 1
-  %2 = load i8, ptr %have_tcg, align 1
-  %tobool8 = trunc i8 %2 to i1
+  %3 = load i8, ptr %have_tcg, align 1
+  %tobool8 = trunc i8 %3 to i1
   br i1 %tobool8, label %land.lhs.true, label %if.else14
 
 land.lhs.true:                                    ; preds = %if.then3
-  %3 = load i8, ptr %have_kvm, align 1
-  %tobool9 = trunc i8 %3 to i1
+  %4 = load i8, ptr %have_kvm, align 1
+  %tobool9 = trunc i8 %4 to i1
   br i1 %tobool9, label %if.then10, label %if.else14
 
 if.then10:                                        ; preds = %land.lhs.true
-  %4 = load ptr, ptr %progname.addr, align 8
-  %call11 = call i32 @g_str_has_suffix(ptr noundef %4, ptr noundef @.str.63)
+  %5 = load ptr, ptr %progname.addr, align 8
+  %call11 = call i32 @g_str_has_suffix(ptr noundef %5, ptr noundef @.str.63)
   %tobool12 = icmp ne i32 %call11, 0
   br i1 %tobool12, label %if.then13, label %if.else
 
@@ -7439,8 +7453,8 @@ if.end:                                           ; preds = %if.else, %if.then13
   br label %if.end23
 
 if.else14:                                        ; preds = %land.lhs.true, %if.then3
-  %5 = load i8, ptr %have_kvm, align 1
-  %tobool15 = trunc i8 %5 to i1
+  %6 = load i8, ptr %have_kvm, align 1
+  %tobool15 = trunc i8 %6 to i1
   br i1 %tobool15, label %if.then16, label %if.else17
 
 if.then16:                                        ; preds = %if.else14
@@ -7448,8 +7462,8 @@ if.then16:                                        ; preds = %if.else14
   br label %if.end22
 
 if.else17:                                        ; preds = %if.else14
-  %6 = load i8, ptr %have_tcg, align 1
-  %tobool18 = trunc i8 %6 to i1
+  %7 = load i8, ptr %have_tcg, align 1
+  %tobool18 = trunc i8 %7 to i1
   br i1 %tobool18, label %if.then19, label %if.else20
 
 if.then19:                                        ; preds = %if.else17
@@ -7471,57 +7485,57 @@ if.end23:                                         ; preds = %if.end22, %if.end
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end23, %if.then
-  %7 = load ptr, ptr @accelerators, align 8
-  %call25 = call ptr @g_strsplit(ptr noundef %7, ptr noundef @.str.539, i32 noundef 0)
+  %8 = load ptr, ptr @accelerators, align 8
+  %call25 = call ptr @g_strsplit(ptr noundef %8, ptr noundef @.str.539, i32 noundef 0)
   store ptr %call25, ptr %accel_list, align 8
-  %8 = load ptr, ptr %accel_list, align 8
-  store ptr %8, ptr %tmp, align 8
+  %9 = load ptr, ptr %accel_list, align 8
+  store ptr %9, ptr %tmp, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end24
-  %9 = load ptr, ptr %tmp, align 8
-  %10 = load ptr, ptr %9, align 8
-  %tobool26 = icmp ne ptr %10, null
+  %10 = load ptr, ptr %tmp, align 8
+  %11 = load ptr, ptr %10, align 8
+  %tobool26 = icmp ne ptr %11, null
   br i1 %tobool26, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %11 = load ptr, ptr %tmp, align 8
-  %12 = load ptr, ptr %11, align 8
-  %call27 = call ptr @accel_find(ptr noundef %12)
+  %12 = load ptr, ptr %tmp, align 8
+  %13 = load ptr, ptr %12, align 8
+  %call27 = call ptr @accel_find(ptr noundef %13)
   %tobool28 = icmp ne ptr %call27, null
   br i1 %tobool28, label %if.then29, label %if.else32
 
 if.then29:                                        ; preds = %for.body
   %call30 = call ptr @qemu_find_opts(ptr noundef @.str.62)
-  %13 = load ptr, ptr %tmp, align 8
-  %14 = load ptr, ptr %13, align 8
-  %call31 = call ptr @qemu_opts_parse_noisily(ptr noundef %call30, ptr noundef %14, i1 noundef zeroext true)
+  %14 = load ptr, ptr %tmp, align 8
+  %15 = load ptr, ptr %14, align 8
+  %call31 = call ptr @qemu_opts_parse_noisily(ptr noundef %call30, ptr noundef %15, i1 noundef zeroext true)
   br label %if.end33
 
 if.else32:                                        ; preds = %for.body
   store i8 1, ptr %init_failed, align 1
-  %15 = load ptr, ptr %tmp, align 8
-  %16 = load ptr, ptr %15, align 8
-  call void (ptr, ...) @error_report(ptr noundef @.str.540, ptr noundef %16)
+  %16 = load ptr, ptr %tmp, align 8
+  %17 = load ptr, ptr %16, align 8
+  call void (ptr, ...) @error_report(ptr noundef @.str.540, ptr noundef %17)
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else32, %if.then29
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end33
-  %17 = load ptr, ptr %tmp, align 8
-  %incdec.ptr = getelementptr ptr, ptr %17, i32 1
+  %18 = load ptr, ptr %tmp, align 8
+  %incdec.ptr = getelementptr ptr, ptr %18, i32 1
   store ptr %incdec.ptr, ptr %tmp, align 8
   br label %for.cond, !llvm.loop !10
 
 for.end:                                          ; preds = %for.cond
-  %18 = load ptr, ptr %accel_list, align 8
-  call void @g_strfreev(ptr noundef %18)
+  %19 = load ptr, ptr %accel_list, align 8
+  call void @g_strfreev(ptr noundef %19)
   br label %if.end38
 
 if.else34:                                        ; preds = %entry
-  %19 = load ptr, ptr @accelerators, align 8
-  %cmp35 = icmp ne ptr %19, null
+  %20 = load ptr, ptr @accelerators, align 8
+  %cmp35 = icmp ne ptr %20, null
   br i1 %cmp35, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %if.else34
@@ -7539,8 +7553,8 @@ if.end38:                                         ; preds = %if.end37, %for.end
   br i1 %tobool41, label %if.end46, label %if.then42
 
 if.then42:                                        ; preds = %if.end38
-  %20 = load i8, ptr %init_failed, align 1
-  %tobool43 = trunc i8 %20 to i1
+  %21 = load i8, ptr %init_failed, align 1
+  %tobool43 = trunc i8 %21 to i1
   br i1 %tobool43, label %if.end45, label %if.then44
 
 if.then44:                                        ; preds = %if.then42
@@ -7552,13 +7566,13 @@ if.end45:                                         ; preds = %if.then44, %if.then
   unreachable
 
 if.end46:                                         ; preds = %if.end38
-  %21 = load i8, ptr %init_failed, align 1
-  %tobool47 = trunc i8 %21 to i1
+  %22 = load i8, ptr %init_failed, align 1
+  %tobool47 = trunc i8 %22 to i1
   br i1 %tobool47, label %land.lhs.true48, label %if.end52
 
 land.lhs.true48:                                  ; preds = %if.end46
-  %22 = load ptr, ptr @qtest_chrdev, align 8
-  %tobool49 = icmp ne ptr %22, null
+  %23 = load ptr, ptr @qtest_chrdev, align 8
+  %tobool49 = icmp ne ptr %23, null
   br i1 %tobool49, label %if.end52, label %if.then50
 
 if.then50:                                        ; preds = %land.lhs.true48
@@ -7567,13 +7581,13 @@ if.then50:                                        ; preds = %land.lhs.true48
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then50, %land.lhs.true48, %if.end46
-  %23 = load i32, ptr @use_icount, align 4
-  %tobool53 = icmp ne i32 %23, 0
+  %24 = load i32, ptr @use_icount, align 4
+  %tobool53 = icmp ne i32 %24, 0
   br i1 %tobool53, label %land.lhs.true54, label %if.end57
 
 land.lhs.true54:                                  ; preds = %if.end52
-  %24 = load i8, ptr @tcg_allowed, align 1
-  %tobool55 = trunc i8 %24 to i1
+  %25 = load i8, ptr @tcg_allowed, align 1
+  %tobool55 = trunc i8 %25 to i1
   br i1 %tobool55, label %if.end57, label %if.then56
 
 if.then56:                                        ; preds = %land.lhs.true54
@@ -7736,8 +7750,9 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.QemuSpiceOps, ptr @qemu_spice, i32 0, i32 1), align 8
-  call void %2()
+  %2 = getelementptr inbounds %struct.QemuSpiceOps, ptr @qemu_spice, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  call void %3()
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -8940,18 +8955,21 @@ do.body:                                          ; preds = %entry
   %2 = load ptr, ptr %opt, align 8
   %next = getelementptr inbounds %struct.ObjectOption, ptr %2, i32 0, i32 1
   store ptr null, ptr %next, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @object_opts, i32 0, i32 1), align 8
-  %4 = load ptr, ptr %opt, align 8
-  %next2 = getelementptr inbounds %struct.ObjectOption, ptr %4, i32 0, i32 1
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next2, i32 0, i32 1
-  store ptr %3, ptr %tql_prev, align 8
+  %3 = getelementptr inbounds %struct.QTailQLink, ptr @object_opts, i32 0, i32 1
+  %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %opt, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @object_opts, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %6, i32 0, i32 0
-  store ptr %5, ptr %tql_next, align 8
-  %7 = load ptr, ptr %opt, align 8
-  %next3 = getelementptr inbounds %struct.ObjectOption, ptr %7, i32 0, i32 1
-  store ptr %next3, ptr getelementptr inbounds (%struct.QTailQLink, ptr @object_opts, i32 0, i32 1), align 8
+  %next2 = getelementptr inbounds %struct.ObjectOption, ptr %5, i32 0, i32 1
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next2, i32 0, i32 1
+  store ptr %4, ptr %tql_prev, align 8
+  %6 = load ptr, ptr %opt, align 8
+  %7 = getelementptr inbounds %struct.QTailQLink, ptr @object_opts, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %8, i32 0, i32 0
+  store ptr %6, ptr %tql_next, align 8
+  %9 = load ptr, ptr %opt, align 8
+  %next3 = getelementptr inbounds %struct.ObjectOption, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds %struct.QTailQLink, ptr @object_opts, i32 0, i32 1
+  store ptr %next3, ptr %10, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -9095,43 +9113,44 @@ if.else:                                          ; preds = %do.body
   %next11 = getelementptr inbounds %struct.ObjectOption, ptr %20, i32 0, i32 1
   %tql_prev12 = getelementptr inbounds %struct.QTailQLink, ptr %next11, i32 0, i32 1
   %21 = load ptr, ptr %tql_prev12, align 8
-  store ptr %21, ptr getelementptr inbounds (%struct.QTailQLink, ptr @object_opts, i32 0, i32 1), align 8
+  %22 = getelementptr inbounds %struct.QTailQLink, ptr @object_opts, i32 0, i32 1
+  store ptr %21, ptr %22, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then6
-  %22 = load ptr, ptr %opt, align 8
-  %next13 = getelementptr inbounds %struct.ObjectOption, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %next13, align 8
-  %24 = load ptr, ptr %opt, align 8
-  %next14 = getelementptr inbounds %struct.ObjectOption, ptr %24, i32 0, i32 1
+  %23 = load ptr, ptr %opt, align 8
+  %next13 = getelementptr inbounds %struct.ObjectOption, ptr %23, i32 0, i32 1
+  %24 = load ptr, ptr %next13, align 8
+  %25 = load ptr, ptr %opt, align 8
+  %next14 = getelementptr inbounds %struct.ObjectOption, ptr %25, i32 0, i32 1
   %tql_prev15 = getelementptr inbounds %struct.QTailQLink, ptr %next14, i32 0, i32 1
-  %25 = load ptr, ptr %tql_prev15, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %25, i32 0, i32 0
-  store ptr %23, ptr %tql_next, align 8
-  %26 = load ptr, ptr %opt, align 8
-  %next16 = getelementptr inbounds %struct.ObjectOption, ptr %26, i32 0, i32 1
+  %26 = load ptr, ptr %tql_prev15, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %26, i32 0, i32 0
+  store ptr %24, ptr %tql_next, align 8
+  %27 = load ptr, ptr %opt, align 8
+  %next16 = getelementptr inbounds %struct.ObjectOption, ptr %27, i32 0, i32 1
   %tql_prev17 = getelementptr inbounds %struct.QTailQLink, ptr %next16, i32 0, i32 1
   store ptr null, ptr %tql_prev17, align 8
-  %27 = load ptr, ptr %opt, align 8
-  %next18 = getelementptr inbounds %struct.ObjectOption, ptr %27, i32 0, i32 1
+  %28 = load ptr, ptr %opt, align 8
+  %next18 = getelementptr inbounds %struct.ObjectOption, ptr %28, i32 0, i32 1
   %tql_next19 = getelementptr inbounds %struct.QTailQLink, ptr %next18, i32 0, i32 0
   store ptr null, ptr %tql_next19, align 8
-  %28 = load ptr, ptr %opt, align 8
-  %next20 = getelementptr inbounds %struct.ObjectOption, ptr %28, i32 0, i32 1
+  %29 = load ptr, ptr %opt, align 8
+  %next20 = getelementptr inbounds %struct.ObjectOption, ptr %29, i32 0, i32 1
   store ptr null, ptr %next20, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %29 = load ptr, ptr %opt, align 8
-  call void @g_free(ptr noundef %29)
+  %30 = load ptr, ptr %opt, align 8
+  call void @g_free(ptr noundef %30)
   br label %if.end21
 
 if.end21:                                         ; preds = %do.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end21
-  %30 = load ptr, ptr %next, align 8
-  store ptr %30, ptr %opt, align 8
+  %31 = load ptr, ptr %next, align 8
+  store ptr %31, ptr %opt, align 8
   br label %for.cond, !llvm.loop !13
 
 for.end:                                          ; preds = %land.end

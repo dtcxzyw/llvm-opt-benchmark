@@ -1629,11 +1629,12 @@ do.end162:                                        ; preds = %do.cond161
   br label %do.body163
 
 do.body163:                                       ; preds = %do.end162
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA3_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp164, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 1))
-  %66 = load ptr, ptr %slot, align 8
-  %incdec.ptr165 = getelementptr inbounds %"struct.std::pair", ptr %66, i32 1
+  %66 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 1
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA3_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp164, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, ptr noundef nonnull align 8 dereferenceable(32) %66)
+  %67 = load ptr, ptr %slot, align 8
+  %incdec.ptr165 = getelementptr inbounds %"struct.std::pair", ptr %67, i32 1
   store ptr %incdec.ptr165, ptr %slot, align 8
-  %call166 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp164) #3
+  %call166 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp164) #3
   br label %do.cond167
 
 do.cond167:                                       ; preds = %do.body163
@@ -1643,11 +1644,12 @@ do.end168:                                        ; preds = %do.cond167
   br label %do.body169
 
 do.body169:                                       ; preds = %do.end168
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA3_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 2))
-  %67 = load ptr, ptr %slot, align 8
-  %incdec.ptr171 = getelementptr inbounds %"struct.std::pair", ptr %67, i32 1
+  %68 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 2
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA3_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, ptr noundef nonnull align 8 dereferenceable(32) %68)
+  %69 = load ptr, ptr %slot, align 8
+  %incdec.ptr171 = getelementptr inbounds %"struct.std::pair", ptr %69, i32 1
   store ptr %incdec.ptr171, ptr %slot, align 8
-  %call172 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170) #3
+  %call172 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170) #3
   br label %do.cond173
 
 do.cond173:                                       ; preds = %do.body169
@@ -1657,11 +1659,12 @@ do.end174:                                        ; preds = %do.cond173
   br label %do.body175
 
 do.body175:                                       ; preds = %do.end174
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp176, ptr noundef nonnull align 1 dereferenceable(5) @.str.5, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 3))
-  %68 = load ptr, ptr %slot, align 8
-  %incdec.ptr177 = getelementptr inbounds %"struct.std::pair", ptr %68, i32 1
+  %70 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 3
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp176, ptr noundef nonnull align 1 dereferenceable(5) @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %70)
+  %71 = load ptr, ptr %slot, align 8
+  %incdec.ptr177 = getelementptr inbounds %"struct.std::pair", ptr %71, i32 1
   store ptr %incdec.ptr177, ptr %slot, align 8
-  %call178 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp176) #3
+  %call178 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp176) #3
   br label %do.cond179
 
 do.cond179:                                       ; preds = %do.body175
@@ -1671,11 +1674,12 @@ do.end180:                                        ; preds = %do.cond179
   br label %do.body181
 
 do.body181:                                       ; preds = %do.end180
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp182, ptr noundef nonnull align 1 dereferenceable(7) @.str.6, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 4))
-  %69 = load ptr, ptr %slot, align 8
-  %incdec.ptr183 = getelementptr inbounds %"struct.std::pair", ptr %69, i32 1
+  %72 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 4
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp182, ptr noundef nonnull align 1 dereferenceable(7) @.str.6, ptr noundef nonnull align 8 dereferenceable(32) %72)
+  %73 = load ptr, ptr %slot, align 8
+  %incdec.ptr183 = getelementptr inbounds %"struct.std::pair", ptr %73, i32 1
   store ptr %incdec.ptr183, ptr %slot, align 8
-  %call184 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp182) #3
+  %call184 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp182) #3
   br label %do.cond185
 
 do.cond185:                                       ; preds = %do.body181
@@ -1685,11 +1689,12 @@ do.end186:                                        ; preds = %do.cond185
   br label %do.body187
 
 do.body187:                                       ; preds = %do.end186
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp188, ptr noundef nonnull align 1 dereferenceable(5) @.str.7, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 5))
-  %70 = load ptr, ptr %slot, align 8
-  %incdec.ptr189 = getelementptr inbounds %"struct.std::pair", ptr %70, i32 1
+  %74 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 5
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp188, ptr noundef nonnull align 1 dereferenceable(5) @.str.7, ptr noundef nonnull align 8 dereferenceable(32) %74)
+  %75 = load ptr, ptr %slot, align 8
+  %incdec.ptr189 = getelementptr inbounds %"struct.std::pair", ptr %75, i32 1
   store ptr %incdec.ptr189, ptr %slot, align 8
-  %call190 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp188) #3
+  %call190 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp188) #3
   br label %do.cond191
 
 do.cond191:                                       ; preds = %do.body187
@@ -1699,11 +1704,12 @@ do.end192:                                        ; preds = %do.cond191
   br label %do.body193
 
 do.body193:                                       ; preds = %do.end192
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194, ptr noundef nonnull align 1 dereferenceable(8) @.str.8, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 6))
-  %71 = load ptr, ptr %slot, align 8
-  %incdec.ptr195 = getelementptr inbounds %"struct.std::pair", ptr %71, i32 1
+  %76 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 6
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194, ptr noundef nonnull align 1 dereferenceable(8) @.str.8, ptr noundef nonnull align 8 dereferenceable(32) %76)
+  %77 = load ptr, ptr %slot, align 8
+  %incdec.ptr195 = getelementptr inbounds %"struct.std::pair", ptr %77, i32 1
   store ptr %incdec.ptr195, ptr %slot, align 8
-  %call196 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194) #3
+  %call196 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194) #3
   br label %do.cond197
 
 do.cond197:                                       ; preds = %do.body193
@@ -1713,11 +1719,12 @@ do.end198:                                        ; preds = %do.cond197
   br label %do.body199
 
 do.body199:                                       ; preds = %do.end198
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp200, ptr noundef nonnull align 1 dereferenceable(8) @.str.9, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 7))
-  %72 = load ptr, ptr %slot, align 8
-  %incdec.ptr201 = getelementptr inbounds %"struct.std::pair", ptr %72, i32 1
+  %78 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 7
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp200, ptr noundef nonnull align 1 dereferenceable(8) @.str.9, ptr noundef nonnull align 8 dereferenceable(32) %78)
+  %79 = load ptr, ptr %slot, align 8
+  %incdec.ptr201 = getelementptr inbounds %"struct.std::pair", ptr %79, i32 1
   store ptr %incdec.ptr201, ptr %slot, align 8
-  %call202 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp200) #3
+  %call202 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp200) #3
   br label %do.cond203
 
 do.cond203:                                       ; preds = %do.body199
@@ -1727,11 +1734,12 @@ do.end204:                                        ; preds = %do.cond203
   br label %do.body205
 
 do.body205:                                       ; preds = %do.end204
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp206, ptr noundef nonnull align 1 dereferenceable(5) @.str.10, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 8))
-  %73 = load ptr, ptr %slot, align 8
-  %incdec.ptr207 = getelementptr inbounds %"struct.std::pair", ptr %73, i32 1
+  %80 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 8
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp206, ptr noundef nonnull align 1 dereferenceable(5) @.str.10, ptr noundef nonnull align 8 dereferenceable(32) %80)
+  %81 = load ptr, ptr %slot, align 8
+  %incdec.ptr207 = getelementptr inbounds %"struct.std::pair", ptr %81, i32 1
   store ptr %incdec.ptr207, ptr %slot, align 8
-  %call208 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp206) #3
+  %call208 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp206) #3
   br label %do.cond209
 
 do.cond209:                                       ; preds = %do.body205
@@ -1741,11 +1749,12 @@ do.end210:                                        ; preds = %do.cond209
   br label %do.body211
 
 do.body211:                                       ; preds = %do.end210
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp212, ptr noundef nonnull align 1 dereferenceable(7) @.str.11, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 9))
-  %74 = load ptr, ptr %slot, align 8
-  %incdec.ptr213 = getelementptr inbounds %"struct.std::pair", ptr %74, i32 1
+  %82 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 9
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp212, ptr noundef nonnull align 1 dereferenceable(7) @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %82)
+  %83 = load ptr, ptr %slot, align 8
+  %incdec.ptr213 = getelementptr inbounds %"struct.std::pair", ptr %83, i32 1
   store ptr %incdec.ptr213, ptr %slot, align 8
-  %call214 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp212) #3
+  %call214 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp212) #3
   br label %do.cond215
 
 do.cond215:                                       ; preds = %do.body211
@@ -1755,11 +1764,12 @@ do.end216:                                        ; preds = %do.cond215
   br label %do.body217
 
 do.body217:                                       ; preds = %do.end216
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218, ptr noundef nonnull align 1 dereferenceable(7) @.str.12, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 10))
-  %75 = load ptr, ptr %slot, align 8
-  %incdec.ptr219 = getelementptr inbounds %"struct.std::pair", ptr %75, i32 1
+  %84 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 10
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218, ptr noundef nonnull align 1 dereferenceable(7) @.str.12, ptr noundef nonnull align 8 dereferenceable(32) %84)
+  %85 = load ptr, ptr %slot, align 8
+  %incdec.ptr219 = getelementptr inbounds %"struct.std::pair", ptr %85, i32 1
   store ptr %incdec.ptr219, ptr %slot, align 8
-  %call220 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218) #3
+  %call220 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218) #3
   br label %do.cond221
 
 do.cond221:                                       ; preds = %do.body217
@@ -1769,11 +1779,12 @@ do.end222:                                        ; preds = %do.cond221
   br label %do.body223
 
 do.body223:                                       ; preds = %do.end222
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA6_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224, ptr noundef nonnull align 1 dereferenceable(6) @.str.13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 11))
-  %76 = load ptr, ptr %slot, align 8
-  %incdec.ptr225 = getelementptr inbounds %"struct.std::pair", ptr %76, i32 1
+  %86 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 11
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA6_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224, ptr noundef nonnull align 1 dereferenceable(6) @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %86)
+  %87 = load ptr, ptr %slot, align 8
+  %incdec.ptr225 = getelementptr inbounds %"struct.std::pair", ptr %87, i32 1
   store ptr %incdec.ptr225, ptr %slot, align 8
-  %call226 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224) #3
+  %call226 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224) #3
   br label %do.cond227
 
 do.cond227:                                       ; preds = %do.body223
@@ -1783,11 +1794,12 @@ do.end228:                                        ; preds = %do.cond227
   br label %do.body229
 
 do.body229:                                       ; preds = %do.end228
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA9_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp230, ptr noundef nonnull align 1 dereferenceable(9) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 12))
-  %77 = load ptr, ptr %slot, align 8
-  %incdec.ptr231 = getelementptr inbounds %"struct.std::pair", ptr %77, i32 1
+  %88 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 12
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA9_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp230, ptr noundef nonnull align 1 dereferenceable(9) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %88)
+  %89 = load ptr, ptr %slot, align 8
+  %incdec.ptr231 = getelementptr inbounds %"struct.std::pair", ptr %89, i32 1
   store ptr %incdec.ptr231, ptr %slot, align 8
-  %call232 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp230) #3
+  %call232 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp230) #3
   br label %do.cond233
 
 do.cond233:                                       ; preds = %do.body229
@@ -1797,11 +1809,12 @@ do.end234:                                        ; preds = %do.cond233
   br label %do.body235
 
 do.body235:                                       ; preds = %do.end234
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp236, ptr noundef nonnull align 1 dereferenceable(8) @.str.15, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 13))
-  %78 = load ptr, ptr %slot, align 8
-  %incdec.ptr237 = getelementptr inbounds %"struct.std::pair", ptr %78, i32 1
+  %90 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 13
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp236, ptr noundef nonnull align 1 dereferenceable(8) @.str.15, ptr noundef nonnull align 8 dereferenceable(32) %90)
+  %91 = load ptr, ptr %slot, align 8
+  %incdec.ptr237 = getelementptr inbounds %"struct.std::pair", ptr %91, i32 1
   store ptr %incdec.ptr237, ptr %slot, align 8
-  %call238 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp236) #3
+  %call238 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp236) #3
   br label %do.cond239
 
 do.cond239:                                       ; preds = %do.body235
@@ -1811,11 +1824,12 @@ do.end240:                                        ; preds = %do.cond239
   br label %do.body241
 
 do.body241:                                       ; preds = %do.end240
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA4_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp242, ptr noundef nonnull align 1 dereferenceable(4) @.str.16, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 14))
-  %79 = load ptr, ptr %slot, align 8
-  %incdec.ptr243 = getelementptr inbounds %"struct.std::pair", ptr %79, i32 1
+  %92 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 14
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA4_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp242, ptr noundef nonnull align 1 dereferenceable(4) @.str.16, ptr noundef nonnull align 8 dereferenceable(32) %92)
+  %93 = load ptr, ptr %slot, align 8
+  %incdec.ptr243 = getelementptr inbounds %"struct.std::pair", ptr %93, i32 1
   store ptr %incdec.ptr243, ptr %slot, align 8
-  %call244 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp242) #3
+  %call244 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp242) #3
   br label %do.cond245
 
 do.cond245:                                       ; preds = %do.body241
@@ -1825,11 +1839,12 @@ do.end246:                                        ; preds = %do.cond245
   br label %do.body247
 
 do.body247:                                       ; preds = %do.end246
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp248, ptr noundef nonnull align 1 dereferenceable(7) @.str.17, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 15))
-  %80 = load ptr, ptr %slot, align 8
-  %incdec.ptr249 = getelementptr inbounds %"struct.std::pair", ptr %80, i32 1
+  %94 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 15
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp248, ptr noundef nonnull align 1 dereferenceable(7) @.str.17, ptr noundef nonnull align 8 dereferenceable(32) %94)
+  %95 = load ptr, ptr %slot, align 8
+  %incdec.ptr249 = getelementptr inbounds %"struct.std::pair", ptr %95, i32 1
   store ptr %incdec.ptr249, ptr %slot, align 8
-  %call250 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp248) #3
+  %call250 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp248) #3
   br label %do.cond251
 
 do.cond251:                                       ; preds = %do.body247
@@ -1839,11 +1854,12 @@ do.end252:                                        ; preds = %do.cond251
   br label %do.body253
 
 do.body253:                                       ; preds = %do.end252
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA17_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp254, ptr noundef nonnull align 1 dereferenceable(17) @.str.18, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 16))
-  %81 = load ptr, ptr %slot, align 8
-  %incdec.ptr255 = getelementptr inbounds %"struct.std::pair", ptr %81, i32 1
+  %96 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 16
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA17_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp254, ptr noundef nonnull align 1 dereferenceable(17) @.str.18, ptr noundef nonnull align 8 dereferenceable(32) %96)
+  %97 = load ptr, ptr %slot, align 8
+  %incdec.ptr255 = getelementptr inbounds %"struct.std::pair", ptr %97, i32 1
   store ptr %incdec.ptr255, ptr %slot, align 8
-  %call256 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp254) #3
+  %call256 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp254) #3
   br label %do.cond257
 
 do.cond257:                                       ; preds = %do.body253
@@ -1853,11 +1869,12 @@ do.end258:                                        ; preds = %do.cond257
   br label %do.body259
 
 do.body259:                                       ; preds = %do.end258
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp260, ptr noundef nonnull align 1 dereferenceable(7) @.str.19, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 17))
-  %82 = load ptr, ptr %slot, align 8
-  %incdec.ptr261 = getelementptr inbounds %"struct.std::pair", ptr %82, i32 1
+  %98 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 17
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp260, ptr noundef nonnull align 1 dereferenceable(7) @.str.19, ptr noundef nonnull align 8 dereferenceable(32) %98)
+  %99 = load ptr, ptr %slot, align 8
+  %incdec.ptr261 = getelementptr inbounds %"struct.std::pair", ptr %99, i32 1
   store ptr %incdec.ptr261, ptr %slot, align 8
-  %call262 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp260) #3
+  %call262 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp260) #3
   br label %do.cond263
 
 do.cond263:                                       ; preds = %do.body259
@@ -1867,11 +1884,12 @@ do.end264:                                        ; preds = %do.cond263
   br label %do.body265
 
 do.body265:                                       ; preds = %do.end264
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp266, ptr noundef nonnull align 1 dereferenceable(8) @.str.20, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 18))
-  %83 = load ptr, ptr %slot, align 8
-  %incdec.ptr267 = getelementptr inbounds %"struct.std::pair", ptr %83, i32 1
+  %100 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 18
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp266, ptr noundef nonnull align 1 dereferenceable(8) @.str.20, ptr noundef nonnull align 8 dereferenceable(32) %100)
+  %101 = load ptr, ptr %slot, align 8
+  %incdec.ptr267 = getelementptr inbounds %"struct.std::pair", ptr %101, i32 1
   store ptr %incdec.ptr267, ptr %slot, align 8
-  %call268 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp266) #3
+  %call268 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp266) #3
   br label %do.cond269
 
 do.cond269:                                       ; preds = %do.body265
@@ -1881,11 +1899,12 @@ do.end270:                                        ; preds = %do.cond269
   br label %do.body271
 
 do.body271:                                       ; preds = %do.end270
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp272, ptr noundef nonnull align 1 dereferenceable(5) @.str.21, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 19))
-  %84 = load ptr, ptr %slot, align 8
-  %incdec.ptr273 = getelementptr inbounds %"struct.std::pair", ptr %84, i32 1
+  %102 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 19
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp272, ptr noundef nonnull align 1 dereferenceable(5) @.str.21, ptr noundef nonnull align 8 dereferenceable(32) %102)
+  %103 = load ptr, ptr %slot, align 8
+  %incdec.ptr273 = getelementptr inbounds %"struct.std::pair", ptr %103, i32 1
   store ptr %incdec.ptr273, ptr %slot, align 8
-  %call274 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp272) #3
+  %call274 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp272) #3
   br label %do.cond275
 
 do.cond275:                                       ; preds = %do.body271
@@ -1895,11 +1914,12 @@ do.end276:                                        ; preds = %do.cond275
   br label %do.body277
 
 do.body277:                                       ; preds = %do.end276
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA4_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp278, ptr noundef nonnull align 1 dereferenceable(4) @.str.22, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 20))
-  %85 = load ptr, ptr %slot, align 8
-  %incdec.ptr279 = getelementptr inbounds %"struct.std::pair", ptr %85, i32 1
+  %104 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 20
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA4_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp278, ptr noundef nonnull align 1 dereferenceable(4) @.str.22, ptr noundef nonnull align 8 dereferenceable(32) %104)
+  %105 = load ptr, ptr %slot, align 8
+  %incdec.ptr279 = getelementptr inbounds %"struct.std::pair", ptr %105, i32 1
   store ptr %incdec.ptr279, ptr %slot, align 8
-  %call280 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp278) #3
+  %call280 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp278) #3
   br label %do.cond281
 
 do.cond281:                                       ; preds = %do.body277
@@ -1909,11 +1929,12 @@ do.end282:                                        ; preds = %do.cond281
   br label %do.body283
 
 do.body283:                                       ; preds = %do.end282
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA3_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp284, ptr noundef nonnull align 1 dereferenceable(3) @.str.23, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 21))
-  %86 = load ptr, ptr %slot, align 8
-  %incdec.ptr285 = getelementptr inbounds %"struct.std::pair", ptr %86, i32 1
+  %106 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 21
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA3_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp284, ptr noundef nonnull align 1 dereferenceable(3) @.str.23, ptr noundef nonnull align 8 dereferenceable(32) %106)
+  %107 = load ptr, ptr %slot, align 8
+  %incdec.ptr285 = getelementptr inbounds %"struct.std::pair", ptr %107, i32 1
   store ptr %incdec.ptr285, ptr %slot, align 8
-  %call286 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp284) #3
+  %call286 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp284) #3
   br label %do.cond287
 
 do.cond287:                                       ; preds = %do.body283
@@ -1923,11 +1944,12 @@ do.end288:                                        ; preds = %do.cond287
   br label %do.body289
 
 do.body289:                                       ; preds = %do.end288
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp290, ptr noundef nonnull align 1 dereferenceable(8) @.str.24, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 22))
-  %87 = load ptr, ptr %slot, align 8
-  %incdec.ptr291 = getelementptr inbounds %"struct.std::pair", ptr %87, i32 1
+  %108 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 22
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp290, ptr noundef nonnull align 1 dereferenceable(8) @.str.24, ptr noundef nonnull align 8 dereferenceable(32) %108)
+  %109 = load ptr, ptr %slot, align 8
+  %incdec.ptr291 = getelementptr inbounds %"struct.std::pair", ptr %109, i32 1
   store ptr %incdec.ptr291, ptr %slot, align 8
-  %call292 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp290) #3
+  %call292 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp290) #3
   br label %do.cond293
 
 do.cond293:                                       ; preds = %do.body289
@@ -1937,11 +1959,12 @@ do.end294:                                        ; preds = %do.cond293
   br label %do.body295
 
 do.body295:                                       ; preds = %do.end294
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp296, ptr noundef nonnull align 1 dereferenceable(7) @.str.25, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 23))
-  %88 = load ptr, ptr %slot, align 8
-  %incdec.ptr297 = getelementptr inbounds %"struct.std::pair", ptr %88, i32 1
+  %110 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 23
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp296, ptr noundef nonnull align 1 dereferenceable(7) @.str.25, ptr noundef nonnull align 8 dereferenceable(32) %110)
+  %111 = load ptr, ptr %slot, align 8
+  %incdec.ptr297 = getelementptr inbounds %"struct.std::pair", ptr %111, i32 1
   store ptr %incdec.ptr297, ptr %slot, align 8
-  %call298 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp296) #3
+  %call298 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp296) #3
   br label %do.cond299
 
 do.cond299:                                       ; preds = %do.body295
@@ -1951,11 +1974,12 @@ do.end300:                                        ; preds = %do.cond299
   br label %do.body301
 
 do.body301:                                       ; preds = %do.end300
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp302, ptr noundef nonnull align 1 dereferenceable(8) @.str.26, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 24))
-  %89 = load ptr, ptr %slot, align 8
-  %incdec.ptr303 = getelementptr inbounds %"struct.std::pair", ptr %89, i32 1
+  %112 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 24
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp302, ptr noundef nonnull align 1 dereferenceable(8) @.str.26, ptr noundef nonnull align 8 dereferenceable(32) %112)
+  %113 = load ptr, ptr %slot, align 8
+  %incdec.ptr303 = getelementptr inbounds %"struct.std::pair", ptr %113, i32 1
   store ptr %incdec.ptr303, ptr %slot, align 8
-  %call304 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp302) #3
+  %call304 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp302) #3
   br label %do.cond305
 
 do.cond305:                                       ; preds = %do.body301
@@ -1967,43 +1991,43 @@ do.end306:                                        ; preds = %do.cond305
   %arrayidx309 = getelementptr inbounds [25 x %"struct.std::pair"], ptr %versions_array, i64 0, i64 %call308
   call void @"_ZSt4sortIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_EZN4node19CreateProcessObjectEPNS7_5RealmEE3$_0EvT_SB_T0_"(ptr noundef %arrayidx307, ptr noundef %arrayidx309)
   store ptr %versions_array, ptr %__range1, align 8
-  %90 = load ptr, ptr %__range1, align 8
-  %arraydecay = getelementptr inbounds [25 x %"struct.std::pair"], ptr %90, i64 0, i64 0
+  %114 = load ptr, ptr %__range1, align 8
+  %arraydecay = getelementptr inbounds [25 x %"struct.std::pair"], ptr %114, i64 0, i64 0
   store ptr %arraydecay, ptr %__begin1, align 8
-  %91 = load ptr, ptr %__range1, align 8
-  %arraydecay311 = getelementptr inbounds [25 x %"struct.std::pair"], ptr %91, i64 0, i64 0
+  %115 = load ptr, ptr %__range1, align 8
+  %arraydecay311 = getelementptr inbounds [25 x %"struct.std::pair"], ptr %115, i64 0, i64 0
   %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %arraydecay311, i64 25
   store ptr %add.ptr, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.end306
-  %92 = load ptr, ptr %__begin1, align 8
-  %93 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %92, %93
+  %116 = load ptr, ptr %__begin1, align 8
+  %117 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %116, %117
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %94 = load ptr, ptr %__begin1, align 8
-  store ptr %94, ptr %version, align 8
+  %118 = load ptr, ptr %__begin1, align 8
+  store ptr %118, ptr %version, align 8
   store ptr %versions, ptr %this.addr.i609, align 8
   %this1.i610 = load ptr, ptr %this.addr.i609, align 8
   store ptr %this1.i610, ptr %this.addr.i850, align 8
   %this1.i851 = load ptr, ptr %this.addr.i850, align 8
   store ptr %this1.i851, ptr %this.addr.i.i849, align 8
   %this1.i.i852 = load ptr, ptr %this.addr.i.i849, align 8
-  %95 = load ptr, ptr %this1.i.i852, align 8
-  store ptr %95, ptr %slot.addr.i884, align 8
-  %96 = load ptr, ptr %slot.addr.i884, align 8
+  %119 = load ptr, ptr %this1.i.i852, align 8
+  store ptr %119, ptr %slot.addr.i884, align 8
+  %120 = load ptr, ptr %slot.addr.i884, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp314, ptr align 8 %context, i64 8, i1 false)
-  %97 = load ptr, ptr %isolate, align 8
-  %98 = load ptr, ptr %version, align 8
-  %first = getelementptr inbounds %"struct.std::pair", ptr %98, i32 0, i32 0
+  %121 = load ptr, ptr %isolate, align 8
+  %122 = load ptr, ptr %version, align 8
+  %first = getelementptr inbounds %"struct.std::pair", ptr %122, i32 0, i32 0
   %call317 = call noundef ptr @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %first) #3
-  %99 = load ptr, ptr %version, align 8
-  %first318 = getelementptr inbounds %"struct.std::pair", ptr %99, i32 0, i32 0
+  %123 = load ptr, ptr %version, align 8
+  %first318 = getelementptr inbounds %"struct.std::pair", ptr %123, i32 0, i32 0
   %call319 = call noundef i64 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %first318) #3
   %conv = trunc i64 %call319 to i32
-  %call320 = call ptr @_ZN4node13OneByteStringEPN2v87IsolateEPKci(ptr noundef %97, ptr noundef %call317, i32 noundef %conv)
+  %call320 = call ptr @_ZN4node13OneByteStringEPN2v87IsolateEPKci(ptr noundef %121, ptr noundef %call317, i32 noundef %conv)
   %coerce.dive321 = getelementptr inbounds %"class.v8::Local.28", ptr %agg.tmp316, i32 0, i32 0
   %coerce.dive322 = getelementptr inbounds %"class.v8::LocalBase.29", ptr %coerce.dive321, i32 0, i32 0
   %coerce.dive323 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive322, i32 0, i32 0
@@ -2011,24 +2035,24 @@ for.body:                                         ; preds = %for.cond
   %coerce.dive324 = getelementptr inbounds %"class.v8::Local.28", ptr %agg.tmp316, i32 0, i32 0
   %coerce.dive325 = getelementptr inbounds %"class.v8::LocalBase.29", ptr %coerce.dive324, i32 0, i32 0
   %coerce.dive326 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive325, i32 0, i32 0
-  %100 = load ptr, ptr %coerce.dive326, align 8
-  store ptr %100, ptr %that.i631, align 8
+  %124 = load ptr, ptr %coerce.dive326, align 8
+  store ptr %124, ptr %that.i631, align 8
   store ptr %agg.tmp315, ptr %this.addr.i632, align 8
   %this3.i633 = load ptr, ptr %this.addr.i632, align 8
   store ptr %this3.i633, ptr %this.addr.i791, align 8
   store ptr %that.i631, ptr %other.addr.i792, align 8
   %this1.i793 = load ptr, ptr %this.addr.i791, align 8
-  %101 = load ptr, ptr %other.addr.i792, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i793, ptr align 8 %101, i64 8, i1 false)
-  %102 = load ptr, ptr %isolate, align 8
-  %103 = load ptr, ptr %version, align 8
-  %second = getelementptr inbounds %"struct.std::pair", ptr %103, i32 0, i32 1
+  %125 = load ptr, ptr %other.addr.i792, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i793, ptr align 8 %125, i64 8, i1 false)
+  %126 = load ptr, ptr %isolate, align 8
+  %127 = load ptr, ptr %version, align 8
+  %second = getelementptr inbounds %"struct.std::pair", ptr %127, i32 0, i32 1
   %call329 = call noundef ptr @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %second) #3
-  %104 = load ptr, ptr %version, align 8
-  %second330 = getelementptr inbounds %"struct.std::pair", ptr %104, i32 0, i32 1
+  %128 = load ptr, ptr %version, align 8
+  %second330 = getelementptr inbounds %"struct.std::pair", ptr %128, i32 0, i32 1
   %call331 = call noundef i64 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second330) #3
   %conv332 = trunc i64 %call331 to i32
-  %call333 = call ptr @_ZN4node13OneByteStringEPN2v87IsolateEPKci(ptr noundef %102, ptr noundef %call329, i32 noundef %conv332)
+  %call333 = call ptr @_ZN4node13OneByteStringEPN2v87IsolateEPKci(ptr noundef %126, ptr noundef %call329, i32 noundef %conv332)
   %coerce.dive334 = getelementptr inbounds %"class.v8::Local.28", ptr %agg.tmp328, i32 0, i32 0
   %coerce.dive335 = getelementptr inbounds %"class.v8::LocalBase.29", ptr %coerce.dive334, i32 0, i32 0
   %coerce.dive336 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive335, i32 0, i32 0
@@ -2036,35 +2060,35 @@ for.body:                                         ; preds = %for.cond
   %coerce.dive337 = getelementptr inbounds %"class.v8::Local.28", ptr %agg.tmp328, i32 0, i32 0
   %coerce.dive338 = getelementptr inbounds %"class.v8::LocalBase.29", ptr %coerce.dive337, i32 0, i32 0
   %coerce.dive339 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive338, i32 0, i32 0
-  %105 = load ptr, ptr %coerce.dive339, align 8
-  store ptr %105, ptr %that.i652, align 8
+  %129 = load ptr, ptr %coerce.dive339, align 8
+  store ptr %129, ptr %that.i652, align 8
   store ptr %agg.tmp327, ptr %this.addr.i653, align 8
   %this3.i654 = load ptr, ptr %this.addr.i653, align 8
   store ptr %this3.i654, ptr %this.addr.i888, align 8
   store ptr %that.i652, ptr %other.addr.i889, align 8
   %this1.i890 = load ptr, ptr %this.addr.i888, align 8
-  %106 = load ptr, ptr %other.addr.i889, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i890, ptr align 8 %106, i64 8, i1 false)
+  %130 = load ptr, ptr %other.addr.i889, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i890, ptr align 8 %130, i64 8, i1 false)
   %coerce.dive340 = getelementptr inbounds %"class.v8::Local.20", ptr %agg.tmp314, i32 0, i32 0
   %coerce.dive341 = getelementptr inbounds %"class.v8::LocalBase.21", ptr %coerce.dive340, i32 0, i32 0
   %coerce.dive342 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive341, i32 0, i32 0
-  %107 = load ptr, ptr %coerce.dive342, align 8
+  %131 = load ptr, ptr %coerce.dive342, align 8
   %coerce.dive343 = getelementptr inbounds %"class.v8::Local.286", ptr %agg.tmp315, i32 0, i32 0
   %coerce.dive344 = getelementptr inbounds %"class.v8::LocalBase.287", ptr %coerce.dive343, i32 0, i32 0
   %coerce.dive345 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive344, i32 0, i32 0
-  %108 = load ptr, ptr %coerce.dive345, align 8
+  %132 = load ptr, ptr %coerce.dive345, align 8
   %coerce.dive346 = getelementptr inbounds %"class.v8::Local.24", ptr %agg.tmp327, i32 0, i32 0
   %coerce.dive347 = getelementptr inbounds %"class.v8::LocalBase.25", ptr %coerce.dive346, i32 0, i32 0
   %coerce.dive348 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive347, i32 0, i32 0
-  %109 = load ptr, ptr %coerce.dive348, align 8
-  %call349 = call i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %96, ptr %107, ptr %108, ptr %109, i32 noundef 1)
+  %133 = load ptr, ptr %coerce.dive348, align 8
+  %call349 = call i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %120, ptr %131, ptr %132, ptr %133, i32 noundef 1)
   store i16 %call349, ptr %ref.tmp312, align 1
   store ptr %ref.tmp312, ptr %this.addr.i687, align 8
   %this1.i688 = load ptr, ptr %this.addr.i687, align 8
   store ptr %this1.i688, ptr %this.addr.i900, align 8
   %this1.i901 = load ptr, ptr %this.addr.i900, align 8
-  %110 = load i8, ptr %this1.i901, align 1
-  %tobool.i902 = trunc i8 %110 to i1
+  %134 = load i8, ptr %this1.i901, align 1
+  %tobool.i902 = trunc i8 %134 to i1
   %lnot3.i691 = xor i1 %tobool.i902, true
   br i1 %lnot3.i691, label %if.then.i692, label %_ZNK2v85MaybeIbE5CheckEv.exit693
 
@@ -2076,8 +2100,8 @@ _ZNK2v85MaybeIbE5CheckEv.exit693:                 ; preds = %if.then.i692, %for.
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK2v85MaybeIbE5CheckEv.exit693
-  %111 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr350 = getelementptr inbounds %"struct.std::pair", ptr %111, i32 1
+  %135 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr350 = getelementptr inbounds %"struct.std::pair", ptr %135, i32 1
   store ptr %incdec.ptr350, ptr %__begin1, align 8
   br label %for.cond
 
@@ -2091,12 +2115,12 @@ do.body351:                                       ; preds = %for.end
   %this1.i856 = load ptr, ptr %this.addr.i855, align 8
   store ptr %this1.i856, ptr %this.addr.i.i854, align 8
   %this1.i.i857 = load ptr, ptr %this.addr.i.i854, align 8
-  %112 = load ptr, ptr %this1.i.i857, align 8
-  store ptr %112, ptr %slot.addr.i883, align 8
-  %113 = load ptr, ptr %slot.addr.i883, align 8
+  %136 = load ptr, ptr %this1.i.i857, align 8
+  store ptr %136, ptr %slot.addr.i883, align 8
+  %137 = load ptr, ptr %slot.addr.i883, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp354, ptr align 8 %context, i64 8, i1 false)
-  %114 = load ptr, ptr %isolate, align 8
-  %call357 = call ptr @_ZN4node21FIXED_ONE_BYTE_STRINGILi9EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc(ptr noundef %114, ptr noundef nonnull align 1 dereferenceable(9) @.str.27)
+  %138 = load ptr, ptr %isolate, align 8
+  %call357 = call ptr @_ZN4node21FIXED_ONE_BYTE_STRINGILi9EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc(ptr noundef %138, ptr noundef nonnull align 1 dereferenceable(9) @.str.27)
   %coerce.dive358 = getelementptr inbounds %"class.v8::Local.28", ptr %agg.tmp356, i32 0, i32 0
   %coerce.dive359 = getelementptr inbounds %"class.v8::LocalBase.29", ptr %coerce.dive358, i32 0, i32 0
   %coerce.dive360 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive359, i32 0, i32 0
@@ -2104,48 +2128,48 @@ do.body351:                                       ; preds = %for.end
   %coerce.dive361 = getelementptr inbounds %"class.v8::Local.28", ptr %agg.tmp356, i32 0, i32 0
   %coerce.dive362 = getelementptr inbounds %"class.v8::LocalBase.29", ptr %coerce.dive361, i32 0, i32 0
   %coerce.dive363 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive362, i32 0, i32 0
-  %115 = load ptr, ptr %coerce.dive363, align 8
-  store ptr %115, ptr %that.i634, align 8
+  %139 = load ptr, ptr %coerce.dive363, align 8
+  store ptr %139, ptr %that.i634, align 8
   store ptr %agg.tmp355, ptr %this.addr.i635, align 8
   %this3.i636 = load ptr, ptr %this.addr.i635, align 8
   store ptr %this3.i636, ptr %this.addr.i788, align 8
   store ptr %that.i634, ptr %other.addr.i789, align 8
   %this1.i790 = load ptr, ptr %this.addr.i788, align 8
-  %116 = load ptr, ptr %other.addr.i789, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i790, ptr align 8 %116, i64 8, i1 false)
+  %140 = load ptr, ptr %other.addr.i789, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i790, ptr align 8 %140, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp365, ptr align 8 %versions, i64 8, i1 false)
   %coerce.dive366 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp365, i32 0, i32 0
   %coerce.dive367 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive366, i32 0, i32 0
   %coerce.dive368 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive367, i32 0, i32 0
-  %117 = load ptr, ptr %coerce.dive368, align 8
-  store ptr %117, ptr %that.i734, align 8
+  %141 = load ptr, ptr %coerce.dive368, align 8
+  store ptr %141, ptr %that.i734, align 8
   store ptr %agg.tmp364, ptr %this.addr.i735, align 8
   %this3.i736 = load ptr, ptr %this.addr.i735, align 8
   store ptr %this3.i736, ptr %this.addr.i921, align 8
   store ptr %that.i734, ptr %other.addr.i922, align 8
   %this1.i923 = load ptr, ptr %this.addr.i921, align 8
-  %118 = load ptr, ptr %other.addr.i922, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i923, ptr align 8 %118, i64 8, i1 false)
+  %142 = load ptr, ptr %other.addr.i922, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i923, ptr align 8 %142, i64 8, i1 false)
   %coerce.dive369 = getelementptr inbounds %"class.v8::Local.20", ptr %agg.tmp354, i32 0, i32 0
   %coerce.dive370 = getelementptr inbounds %"class.v8::LocalBase.21", ptr %coerce.dive369, i32 0, i32 0
   %coerce.dive371 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive370, i32 0, i32 0
-  %119 = load ptr, ptr %coerce.dive371, align 8
+  %143 = load ptr, ptr %coerce.dive371, align 8
   %coerce.dive372 = getelementptr inbounds %"class.v8::Local.286", ptr %agg.tmp355, i32 0, i32 0
   %coerce.dive373 = getelementptr inbounds %"class.v8::LocalBase.287", ptr %coerce.dive372, i32 0, i32 0
   %coerce.dive374 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive373, i32 0, i32 0
-  %120 = load ptr, ptr %coerce.dive374, align 8
+  %144 = load ptr, ptr %coerce.dive374, align 8
   %coerce.dive375 = getelementptr inbounds %"class.v8::Local.24", ptr %agg.tmp364, i32 0, i32 0
   %coerce.dive376 = getelementptr inbounds %"class.v8::LocalBase.25", ptr %coerce.dive375, i32 0, i32 0
   %coerce.dive377 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive376, i32 0, i32 0
-  %121 = load ptr, ptr %coerce.dive377, align 8
-  %call378 = call i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %113, ptr %119, ptr %120, ptr %121, i32 noundef 1)
+  %145 = load ptr, ptr %coerce.dive377, align 8
+  %call378 = call i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %137, ptr %143, ptr %144, ptr %145, i32 noundef 1)
   store i16 %call378, ptr %ref.tmp352, align 1
   store ptr %ref.tmp352, ptr %this.addr.i680, align 8
   %this1.i681 = load ptr, ptr %this.addr.i680, align 8
   store ptr %this1.i681, ptr %this.addr.i903, align 8
   %this1.i904 = load ptr, ptr %this.addr.i903, align 8
-  %122 = load i8, ptr %this1.i904, align 1
-  %tobool.i905 = trunc i8 %122 to i1
+  %146 = load i8, ptr %this1.i904, align 1
+  %tobool.i905 = trunc i8 %146 to i1
   %lnot3.i684 = xor i1 %tobool.i905, true
   br i1 %lnot3.i684, label %if.then.i685, label %_ZNK2v85MaybeIbE5CheckEv.exit686
 
@@ -2169,12 +2193,12 @@ do.body381:                                       ; preds = %do.end380
   %this1.i861 = load ptr, ptr %this.addr.i860, align 8
   store ptr %this1.i861, ptr %this.addr.i.i859, align 8
   %this1.i.i862 = load ptr, ptr %this.addr.i.i859, align 8
-  %123 = load ptr, ptr %this1.i.i862, align 8
-  store ptr %123, ptr %slot.addr.i882, align 8
-  %124 = load ptr, ptr %slot.addr.i882, align 8
+  %147 = load ptr, ptr %this1.i.i862, align 8
+  store ptr %147, ptr %slot.addr.i882, align 8
+  %148 = load ptr, ptr %slot.addr.i882, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp384, ptr align 8 %context, i64 8, i1 false)
-  %125 = load ptr, ptr %isolate, align 8
-  %call387 = call ptr @_ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc(ptr noundef %125, ptr noundef nonnull align 1 dereferenceable(5) @.str.28)
+  %149 = load ptr, ptr %isolate, align 8
+  %call387 = call ptr @_ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc(ptr noundef %149, ptr noundef nonnull align 1 dereferenceable(5) @.str.28)
   %coerce.dive388 = getelementptr inbounds %"class.v8::Local.28", ptr %agg.tmp386, i32 0, i32 0
   %coerce.dive389 = getelementptr inbounds %"class.v8::LocalBase.29", ptr %coerce.dive388, i32 0, i32 0
   %coerce.dive390 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive389, i32 0, i32 0
@@ -2182,32 +2206,33 @@ do.body381:                                       ; preds = %do.end380
   %coerce.dive391 = getelementptr inbounds %"class.v8::Local.28", ptr %agg.tmp386, i32 0, i32 0
   %coerce.dive392 = getelementptr inbounds %"class.v8::LocalBase.29", ptr %coerce.dive391, i32 0, i32 0
   %coerce.dive393 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive392, i32 0, i32 0
-  %126 = load ptr, ptr %coerce.dive393, align 8
-  store ptr %126, ptr %that.i637, align 8
+  %150 = load ptr, ptr %coerce.dive393, align 8
+  store ptr %150, ptr %that.i637, align 8
   store ptr %agg.tmp385, ptr %this.addr.i638, align 8
   %this3.i639 = load ptr, ptr %this.addr.i638, align 8
   store ptr %this3.i639, ptr %this.addr.i785, align 8
   store ptr %that.i637, ptr %other.addr.i786, align 8
   %this1.i787 = load ptr, ptr %this.addr.i785, align 8
-  %127 = load ptr, ptr %other.addr.i786, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i787, ptr align 8 %127, i64 8, i1 false)
+  %151 = load ptr, ptr %other.addr.i786, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i787, ptr align 8 %151, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp396, ptr align 8 %context, i64 8, i1 false)
-  %call398 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 2)) #3
-  %128 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp397, i32 0, i32 0
-  %129 = extractvalue { i64, ptr } %call398, 0
-  store i64 %129, ptr %128, align 8
-  %130 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp397, i32 0, i32 1
-  %131 = extractvalue { i64, ptr } %call398, 1
-  store ptr %131, ptr %130, align 8
+  %152 = getelementptr inbounds %"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 2
+  %call398 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %152) #3
+  %153 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp397, i32 0, i32 0
+  %154 = extractvalue { i64, ptr } %call398, 0
+  store i64 %154, ptr %153, align 8
+  %155 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp397, i32 0, i32 1
+  %156 = extractvalue { i64, ptr } %call398, 1
+  store ptr %156, ptr %155, align 8
   %coerce.dive399 = getelementptr inbounds %"class.v8::Local.20", ptr %agg.tmp396, i32 0, i32 0
   %coerce.dive400 = getelementptr inbounds %"class.v8::LocalBase.21", ptr %coerce.dive399, i32 0, i32 0
   %coerce.dive401 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive400, i32 0, i32 0
-  %132 = load ptr, ptr %coerce.dive401, align 8
-  %133 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp397, i32 0, i32 0
-  %134 = load i64, ptr %133, align 8
-  %135 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp397, i32 0, i32 1
-  %136 = load ptr, ptr %135, align 8
-  %call402 = call ptr @_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE(ptr %132, i64 %134, ptr %136, ptr noundef null)
+  %157 = load ptr, ptr %coerce.dive401, align 8
+  %158 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp397, i32 0, i32 0
+  %159 = load i64, ptr %158, align 8
+  %160 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp397, i32 0, i32 1
+  %161 = load ptr, ptr %160, align 8
+  %call402 = call ptr @_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE(ptr %157, i64 %159, ptr %161, ptr noundef null)
   %coerce.dive403 = getelementptr inbounds %"class.v8::MaybeLocal.288", ptr %ref.tmp395, i32 0, i32 0
   %coerce.dive404 = getelementptr inbounds %"class.v8::Local.24", ptr %coerce.dive403, i32 0, i32 0
   %coerce.dive405 = getelementptr inbounds %"class.v8::LocalBase.25", ptr %coerce.dive404, i32 0, i32 0
@@ -2219,8 +2244,8 @@ do.body381:                                       ; preds = %do.end380
   %this1.i807 = load ptr, ptr %this.addr.i806, align 8
   store ptr %this1.i807, ptr %this.addr.i.i805, align 8
   %this1.i.i808 = load ptr, ptr %this.addr.i.i805, align 8
-  %137 = load ptr, ptr %this1.i.i808, align 8
-  %cmp.i.i809 = icmp eq ptr %137, null
+  %162 = load ptr, ptr %this1.i.i808, align 8
+  %cmp.i.i809 = icmp eq ptr %162, null
   br i1 %cmp.i.i809, label %if.then.i725, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit726
 
 if.then.i725:                                     ; preds = %do.body381
@@ -2229,31 +2254,31 @@ if.then.i725:                                     ; preds = %do.body381
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit726: ; preds = %if.then.i725, %do.body381
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.i720, ptr align 8 %this1.i722, i64 8, i1 false)
-  %138 = load ptr, ptr %retval.i720, align 8
+  %163 = load ptr, ptr %retval.i720, align 8
   %coerce.dive408 = getelementptr inbounds %"class.v8::Local.24", ptr %agg.tmp394, i32 0, i32 0
   %coerce.dive409 = getelementptr inbounds %"class.v8::LocalBase.25", ptr %coerce.dive408, i32 0, i32 0
   %coerce.dive410 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive409, i32 0, i32 0
-  store ptr %138, ptr %coerce.dive410, align 8
+  store ptr %163, ptr %coerce.dive410, align 8
   %coerce.dive411 = getelementptr inbounds %"class.v8::Local.20", ptr %agg.tmp384, i32 0, i32 0
   %coerce.dive412 = getelementptr inbounds %"class.v8::LocalBase.21", ptr %coerce.dive411, i32 0, i32 0
   %coerce.dive413 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive412, i32 0, i32 0
-  %139 = load ptr, ptr %coerce.dive413, align 8
+  %164 = load ptr, ptr %coerce.dive413, align 8
   %coerce.dive414 = getelementptr inbounds %"class.v8::Local.286", ptr %agg.tmp385, i32 0, i32 0
   %coerce.dive415 = getelementptr inbounds %"class.v8::LocalBase.287", ptr %coerce.dive414, i32 0, i32 0
   %coerce.dive416 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive415, i32 0, i32 0
-  %140 = load ptr, ptr %coerce.dive416, align 8
+  %165 = load ptr, ptr %coerce.dive416, align 8
   %coerce.dive417 = getelementptr inbounds %"class.v8::Local.24", ptr %agg.tmp394, i32 0, i32 0
   %coerce.dive418 = getelementptr inbounds %"class.v8::LocalBase.25", ptr %coerce.dive417, i32 0, i32 0
   %coerce.dive419 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive418, i32 0, i32 0
-  %141 = load ptr, ptr %coerce.dive419, align 8
-  %call420 = call i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %124, ptr %139, ptr %140, ptr %141, i32 noundef 1)
+  %166 = load ptr, ptr %coerce.dive419, align 8
+  %call420 = call i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %148, ptr %164, ptr %165, ptr %166, i32 noundef 1)
   store i16 %call420, ptr %ref.tmp382, align 1
   store ptr %ref.tmp382, ptr %this.addr.i673, align 8
   %this1.i674 = load ptr, ptr %this.addr.i673, align 8
   store ptr %this1.i674, ptr %this.addr.i906, align 8
   %this1.i907 = load ptr, ptr %this.addr.i906, align 8
-  %142 = load i8, ptr %this1.i907, align 1
-  %tobool.i908 = trunc i8 %142 to i1
+  %167 = load i8, ptr %this1.i907, align 1
+  %tobool.i908 = trunc i8 %167 to i1
   %lnot3.i677 = xor i1 %tobool.i908, true
   br i1 %lnot3.i677, label %if.then.i678, label %_ZNK2v85MaybeIbE5CheckEv.exit679
 
@@ -2277,12 +2302,12 @@ do.body423:                                       ; preds = %do.end422
   %this1.i866 = load ptr, ptr %this.addr.i865, align 8
   store ptr %this1.i866, ptr %this.addr.i.i864, align 8
   %this1.i.i867 = load ptr, ptr %this.addr.i.i864, align 8
-  %143 = load ptr, ptr %this1.i.i867, align 8
-  store ptr %143, ptr %slot.addr.i881, align 8
-  %144 = load ptr, ptr %slot.addr.i881, align 8
+  %168 = load ptr, ptr %this1.i.i867, align 8
+  store ptr %168, ptr %slot.addr.i881, align 8
+  %169 = load ptr, ptr %slot.addr.i881, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp426, ptr align 8 %context, i64 8, i1 false)
-  %145 = load ptr, ptr %isolate, align 8
-  %call429 = call ptr @_ZN4node21FIXED_ONE_BYTE_STRINGILi9EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc(ptr noundef %145, ptr noundef nonnull align 1 dereferenceable(9) @.str.29)
+  %170 = load ptr, ptr %isolate, align 8
+  %call429 = call ptr @_ZN4node21FIXED_ONE_BYTE_STRINGILi9EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc(ptr noundef %170, ptr noundef nonnull align 1 dereferenceable(9) @.str.29)
   %coerce.dive430 = getelementptr inbounds %"class.v8::Local.28", ptr %agg.tmp428, i32 0, i32 0
   %coerce.dive431 = getelementptr inbounds %"class.v8::LocalBase.29", ptr %coerce.dive430, i32 0, i32 0
   %coerce.dive432 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive431, i32 0, i32 0
@@ -2290,32 +2315,33 @@ do.body423:                                       ; preds = %do.end422
   %coerce.dive433 = getelementptr inbounds %"class.v8::Local.28", ptr %agg.tmp428, i32 0, i32 0
   %coerce.dive434 = getelementptr inbounds %"class.v8::LocalBase.29", ptr %coerce.dive433, i32 0, i32 0
   %coerce.dive435 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive434, i32 0, i32 0
-  %146 = load ptr, ptr %coerce.dive435, align 8
-  store ptr %146, ptr %that.i640, align 8
+  %171 = load ptr, ptr %coerce.dive435, align 8
+  store ptr %171, ptr %that.i640, align 8
   store ptr %agg.tmp427, ptr %this.addr.i641, align 8
   %this3.i642 = load ptr, ptr %this.addr.i641, align 8
   store ptr %this3.i642, ptr %this.addr.i782, align 8
   store ptr %that.i640, ptr %other.addr.i783, align 8
   %this1.i784 = load ptr, ptr %this.addr.i782, align 8
-  %147 = load ptr, ptr %other.addr.i783, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i784, ptr align 8 %147, i64 8, i1 false)
+  %172 = load ptr, ptr %other.addr.i783, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i784, ptr align 8 %172, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp438, ptr align 8 %context, i64 8, i1 false)
-  %call440 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 3)) #3
-  %148 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp439, i32 0, i32 0
-  %149 = extractvalue { i64, ptr } %call440, 0
-  store i64 %149, ptr %148, align 8
-  %150 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp439, i32 0, i32 1
-  %151 = extractvalue { i64, ptr } %call440, 1
-  store ptr %151, ptr %150, align 8
+  %173 = getelementptr inbounds %"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 3
+  %call440 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %173) #3
+  %174 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp439, i32 0, i32 0
+  %175 = extractvalue { i64, ptr } %call440, 0
+  store i64 %175, ptr %174, align 8
+  %176 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp439, i32 0, i32 1
+  %177 = extractvalue { i64, ptr } %call440, 1
+  store ptr %177, ptr %176, align 8
   %coerce.dive441 = getelementptr inbounds %"class.v8::Local.20", ptr %agg.tmp438, i32 0, i32 0
   %coerce.dive442 = getelementptr inbounds %"class.v8::LocalBase.21", ptr %coerce.dive441, i32 0, i32 0
   %coerce.dive443 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive442, i32 0, i32 0
-  %152 = load ptr, ptr %coerce.dive443, align 8
-  %153 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp439, i32 0, i32 0
-  %154 = load i64, ptr %153, align 8
-  %155 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp439, i32 0, i32 1
-  %156 = load ptr, ptr %155, align 8
-  %call444 = call ptr @_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE(ptr %152, i64 %154, ptr %156, ptr noundef null)
+  %178 = load ptr, ptr %coerce.dive443, align 8
+  %179 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp439, i32 0, i32 0
+  %180 = load i64, ptr %179, align 8
+  %181 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp439, i32 0, i32 1
+  %182 = load ptr, ptr %181, align 8
+  %call444 = call ptr @_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE(ptr %178, i64 %180, ptr %182, ptr noundef null)
   %coerce.dive445 = getelementptr inbounds %"class.v8::MaybeLocal.288", ptr %ref.tmp437, i32 0, i32 0
   %coerce.dive446 = getelementptr inbounds %"class.v8::Local.24", ptr %coerce.dive445, i32 0, i32 0
   %coerce.dive447 = getelementptr inbounds %"class.v8::LocalBase.25", ptr %coerce.dive446, i32 0, i32 0
@@ -2327,8 +2353,8 @@ do.body423:                                       ; preds = %do.end422
   %this1.i812 = load ptr, ptr %this.addr.i811, align 8
   store ptr %this1.i812, ptr %this.addr.i.i810, align 8
   %this1.i.i813 = load ptr, ptr %this.addr.i.i810, align 8
-  %157 = load ptr, ptr %this1.i.i813, align 8
-  %cmp.i.i814 = icmp eq ptr %157, null
+  %183 = load ptr, ptr %this1.i.i813, align 8
+  %cmp.i.i814 = icmp eq ptr %183, null
   br i1 %cmp.i.i814, label %if.then.i718, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit719
 
 if.then.i718:                                     ; preds = %do.body423
@@ -2337,31 +2363,31 @@ if.then.i718:                                     ; preds = %do.body423
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit719: ; preds = %if.then.i718, %do.body423
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.i713, ptr align 8 %this1.i715, i64 8, i1 false)
-  %158 = load ptr, ptr %retval.i713, align 8
+  %184 = load ptr, ptr %retval.i713, align 8
   %coerce.dive450 = getelementptr inbounds %"class.v8::Local.24", ptr %agg.tmp436, i32 0, i32 0
   %coerce.dive451 = getelementptr inbounds %"class.v8::LocalBase.25", ptr %coerce.dive450, i32 0, i32 0
   %coerce.dive452 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive451, i32 0, i32 0
-  store ptr %158, ptr %coerce.dive452, align 8
+  store ptr %184, ptr %coerce.dive452, align 8
   %coerce.dive453 = getelementptr inbounds %"class.v8::Local.20", ptr %agg.tmp426, i32 0, i32 0
   %coerce.dive454 = getelementptr inbounds %"class.v8::LocalBase.21", ptr %coerce.dive453, i32 0, i32 0
   %coerce.dive455 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive454, i32 0, i32 0
-  %159 = load ptr, ptr %coerce.dive455, align 8
+  %185 = load ptr, ptr %coerce.dive455, align 8
   %coerce.dive456 = getelementptr inbounds %"class.v8::Local.286", ptr %agg.tmp427, i32 0, i32 0
   %coerce.dive457 = getelementptr inbounds %"class.v8::LocalBase.287", ptr %coerce.dive456, i32 0, i32 0
   %coerce.dive458 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive457, i32 0, i32 0
-  %160 = load ptr, ptr %coerce.dive458, align 8
+  %186 = load ptr, ptr %coerce.dive458, align 8
   %coerce.dive459 = getelementptr inbounds %"class.v8::Local.24", ptr %agg.tmp436, i32 0, i32 0
   %coerce.dive460 = getelementptr inbounds %"class.v8::LocalBase.25", ptr %coerce.dive459, i32 0, i32 0
   %coerce.dive461 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive460, i32 0, i32 0
-  %161 = load ptr, ptr %coerce.dive461, align 8
-  %call462 = call i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %144, ptr %159, ptr %160, ptr %161, i32 noundef 1)
+  %187 = load ptr, ptr %coerce.dive461, align 8
+  %call462 = call i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %169, ptr %185, ptr %186, ptr %187, i32 noundef 1)
   store i16 %call462, ptr %ref.tmp424, align 1
   store ptr %ref.tmp424, ptr %this.addr.i666, align 8
   %this1.i667 = load ptr, ptr %this.addr.i666, align 8
   store ptr %this1.i667, ptr %this.addr.i909, align 8
   %this1.i910 = load ptr, ptr %this.addr.i909, align 8
-  %162 = load i8, ptr %this1.i910, align 1
-  %tobool.i911 = trunc i8 %162 to i1
+  %188 = load i8, ptr %this1.i910, align 1
+  %tobool.i911 = trunc i8 %188 to i1
   %lnot3.i670 = xor i1 %tobool.i911, true
   br i1 %lnot3.i670, label %if.then.i671, label %_ZNK2v85MaybeIbE5CheckEv.exit672
 
@@ -2376,8 +2402,8 @@ do.cond463:                                       ; preds = %_ZNK2v85MaybeIbE5Ch
   br label %do.end464
 
 do.end464:                                        ; preds = %do.cond463
-  %163 = load ptr, ptr %isolate, align 8
-  %call465 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %163)
+  %189 = load ptr, ptr %isolate, align 8
+  %call465 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %189)
   %coerce.dive466 = getelementptr inbounds %"class.v8::Local", ptr %release, i32 0, i32 0
   %coerce.dive467 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive466, i32 0, i32 0
   %coerce.dive468 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive467, i32 0, i32 0
@@ -2391,12 +2417,12 @@ do.body469:                                       ; preds = %do.end464
   %this1.i871 = load ptr, ptr %this.addr.i870, align 8
   store ptr %this1.i871, ptr %this.addr.i.i869, align 8
   %this1.i.i872 = load ptr, ptr %this.addr.i.i869, align 8
-  %164 = load ptr, ptr %this1.i.i872, align 8
-  store ptr %164, ptr %slot.addr.i880, align 8
-  %165 = load ptr, ptr %slot.addr.i880, align 8
+  %190 = load ptr, ptr %this1.i.i872, align 8
+  store ptr %190, ptr %slot.addr.i880, align 8
+  %191 = load ptr, ptr %slot.addr.i880, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp472, ptr align 8 %context, i64 8, i1 false)
-  %166 = load ptr, ptr %isolate, align 8
-  %call475 = call ptr @_ZN4node21FIXED_ONE_BYTE_STRINGILi8EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc(ptr noundef %166, ptr noundef nonnull align 1 dereferenceable(8) @.str.30)
+  %192 = load ptr, ptr %isolate, align 8
+  %call475 = call ptr @_ZN4node21FIXED_ONE_BYTE_STRINGILi8EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc(ptr noundef %192, ptr noundef nonnull align 1 dereferenceable(8) @.str.30)
   %coerce.dive476 = getelementptr inbounds %"class.v8::Local.28", ptr %agg.tmp474, i32 0, i32 0
   %coerce.dive477 = getelementptr inbounds %"class.v8::LocalBase.29", ptr %coerce.dive476, i32 0, i32 0
   %coerce.dive478 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive477, i32 0, i32 0
@@ -2404,48 +2430,48 @@ do.body469:                                       ; preds = %do.end464
   %coerce.dive479 = getelementptr inbounds %"class.v8::Local.28", ptr %agg.tmp474, i32 0, i32 0
   %coerce.dive480 = getelementptr inbounds %"class.v8::LocalBase.29", ptr %coerce.dive479, i32 0, i32 0
   %coerce.dive481 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive480, i32 0, i32 0
-  %167 = load ptr, ptr %coerce.dive481, align 8
-  store ptr %167, ptr %that.i643, align 8
+  %193 = load ptr, ptr %coerce.dive481, align 8
+  store ptr %193, ptr %that.i643, align 8
   store ptr %agg.tmp473, ptr %this.addr.i644, align 8
   %this3.i645 = load ptr, ptr %this.addr.i644, align 8
   store ptr %this3.i645, ptr %this.addr.i779, align 8
   store ptr %that.i643, ptr %other.addr.i780, align 8
   %this1.i781 = load ptr, ptr %this.addr.i779, align 8
-  %168 = load ptr, ptr %other.addr.i780, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i781, ptr align 8 %168, i64 8, i1 false)
+  %194 = load ptr, ptr %other.addr.i780, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i781, ptr align 8 %194, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp483, ptr align 8 %release, i64 8, i1 false)
   %coerce.dive484 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp483, i32 0, i32 0
   %coerce.dive485 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive484, i32 0, i32 0
   %coerce.dive486 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive485, i32 0, i32 0
-  %169 = load ptr, ptr %coerce.dive486, align 8
-  store ptr %169, ptr %that.i737, align 8
+  %195 = load ptr, ptr %coerce.dive486, align 8
+  store ptr %195, ptr %that.i737, align 8
   store ptr %agg.tmp482, ptr %this.addr.i738, align 8
   %this3.i739 = load ptr, ptr %this.addr.i738, align 8
   store ptr %this3.i739, ptr %this.addr.i918, align 8
   store ptr %that.i737, ptr %other.addr.i919, align 8
   %this1.i920 = load ptr, ptr %this.addr.i918, align 8
-  %170 = load ptr, ptr %other.addr.i919, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i920, ptr align 8 %170, i64 8, i1 false)
+  %196 = load ptr, ptr %other.addr.i919, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i920, ptr align 8 %196, i64 8, i1 false)
   %coerce.dive487 = getelementptr inbounds %"class.v8::Local.20", ptr %agg.tmp472, i32 0, i32 0
   %coerce.dive488 = getelementptr inbounds %"class.v8::LocalBase.21", ptr %coerce.dive487, i32 0, i32 0
   %coerce.dive489 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive488, i32 0, i32 0
-  %171 = load ptr, ptr %coerce.dive489, align 8
+  %197 = load ptr, ptr %coerce.dive489, align 8
   %coerce.dive490 = getelementptr inbounds %"class.v8::Local.286", ptr %agg.tmp473, i32 0, i32 0
   %coerce.dive491 = getelementptr inbounds %"class.v8::LocalBase.287", ptr %coerce.dive490, i32 0, i32 0
   %coerce.dive492 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive491, i32 0, i32 0
-  %172 = load ptr, ptr %coerce.dive492, align 8
+  %198 = load ptr, ptr %coerce.dive492, align 8
   %coerce.dive493 = getelementptr inbounds %"class.v8::Local.24", ptr %agg.tmp482, i32 0, i32 0
   %coerce.dive494 = getelementptr inbounds %"class.v8::LocalBase.25", ptr %coerce.dive493, i32 0, i32 0
   %coerce.dive495 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive494, i32 0, i32 0
-  %173 = load ptr, ptr %coerce.dive495, align 8
-  %call496 = call i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %165, ptr %171, ptr %172, ptr %173, i32 noundef 1)
+  %199 = load ptr, ptr %coerce.dive495, align 8
+  %call496 = call i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %191, ptr %197, ptr %198, ptr %199, i32 noundef 1)
   store i16 %call496, ptr %ref.tmp470, align 1
   store ptr %ref.tmp470, ptr %this.addr.i659, align 8
   %this1.i660 = load ptr, ptr %this.addr.i659, align 8
   store ptr %this1.i660, ptr %this.addr.i912, align 8
   %this1.i913 = load ptr, ptr %this.addr.i912, align 8
-  %174 = load i8, ptr %this1.i913, align 1
-  %tobool.i914 = trunc i8 %174 to i1
+  %200 = load i8, ptr %this1.i913, align 1
+  %tobool.i914 = trunc i8 %200 to i1
   %lnot3.i663 = xor i1 %tobool.i914, true
   br i1 %lnot3.i663, label %if.then.i664, label %_ZNK2v85MaybeIbE5CheckEv.exit665
 
@@ -2469,12 +2495,12 @@ do.body499:                                       ; preds = %do.end498
   %this1.i876 = load ptr, ptr %this.addr.i875, align 8
   store ptr %this1.i876, ptr %this.addr.i.i874, align 8
   %this1.i.i877 = load ptr, ptr %this.addr.i.i874, align 8
-  %175 = load ptr, ptr %this1.i.i877, align 8
-  store ptr %175, ptr %slot.addr.i879, align 8
-  %176 = load ptr, ptr %slot.addr.i879, align 8
+  %201 = load ptr, ptr %this1.i.i877, align 8
+  store ptr %201, ptr %slot.addr.i879, align 8
+  %202 = load ptr, ptr %slot.addr.i879, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp502, ptr align 8 %context, i64 8, i1 false)
-  %177 = load ptr, ptr %isolate, align 8
-  %call505 = call ptr @_ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc(ptr noundef %177, ptr noundef nonnull align 1 dereferenceable(5) @.str.31)
+  %203 = load ptr, ptr %isolate, align 8
+  %call505 = call ptr @_ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc(ptr noundef %203, ptr noundef nonnull align 1 dereferenceable(5) @.str.31)
   %coerce.dive506 = getelementptr inbounds %"class.v8::Local.28", ptr %agg.tmp504, i32 0, i32 0
   %coerce.dive507 = getelementptr inbounds %"class.v8::LocalBase.29", ptr %coerce.dive506, i32 0, i32 0
   %coerce.dive508 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive507, i32 0, i32 0
@@ -2482,32 +2508,33 @@ do.body499:                                       ; preds = %do.end498
   %coerce.dive509 = getelementptr inbounds %"class.v8::Local.28", ptr %agg.tmp504, i32 0, i32 0
   %coerce.dive510 = getelementptr inbounds %"class.v8::LocalBase.29", ptr %coerce.dive509, i32 0, i32 0
   %coerce.dive511 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive510, i32 0, i32 0
-  %178 = load ptr, ptr %coerce.dive511, align 8
-  store ptr %178, ptr %that.i646, align 8
+  %204 = load ptr, ptr %coerce.dive511, align 8
+  store ptr %204, ptr %that.i646, align 8
   store ptr %agg.tmp503, ptr %this.addr.i647, align 8
   %this3.i648 = load ptr, ptr %this.addr.i647, align 8
   store ptr %this3.i648, ptr %this.addr.i777, align 8
   store ptr %that.i646, ptr %other.addr.i, align 8
   %this1.i778 = load ptr, ptr %this.addr.i777, align 8
-  %179 = load ptr, ptr %other.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i778, ptr align 8 %179, i64 8, i1 false)
+  %205 = load ptr, ptr %other.addr.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i778, ptr align 8 %205, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp514, ptr align 8 %context, i64 8, i1 false)
-  %call516 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 1)) #3
-  %180 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp515, i32 0, i32 0
-  %181 = extractvalue { i64, ptr } %call516, 0
-  store i64 %181, ptr %180, align 8
-  %182 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp515, i32 0, i32 1
-  %183 = extractvalue { i64, ptr } %call516, 1
-  store ptr %183, ptr %182, align 8
+  %206 = getelementptr inbounds %"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 1
+  %call516 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %206) #3
+  %207 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp515, i32 0, i32 0
+  %208 = extractvalue { i64, ptr } %call516, 0
+  store i64 %208, ptr %207, align 8
+  %209 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp515, i32 0, i32 1
+  %210 = extractvalue { i64, ptr } %call516, 1
+  store ptr %210, ptr %209, align 8
   %coerce.dive517 = getelementptr inbounds %"class.v8::Local.20", ptr %agg.tmp514, i32 0, i32 0
   %coerce.dive518 = getelementptr inbounds %"class.v8::LocalBase.21", ptr %coerce.dive517, i32 0, i32 0
   %coerce.dive519 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive518, i32 0, i32 0
-  %184 = load ptr, ptr %coerce.dive519, align 8
-  %185 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp515, i32 0, i32 0
-  %186 = load i64, ptr %185, align 8
-  %187 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp515, i32 0, i32 1
-  %188 = load ptr, ptr %187, align 8
-  %call520 = call ptr @_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE(ptr %184, i64 %186, ptr %188, ptr noundef null)
+  %211 = load ptr, ptr %coerce.dive519, align 8
+  %212 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp515, i32 0, i32 0
+  %213 = load i64, ptr %212, align 8
+  %214 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp515, i32 0, i32 1
+  %215 = load ptr, ptr %214, align 8
+  %call520 = call ptr @_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE(ptr %211, i64 %213, ptr %215, ptr noundef null)
   %coerce.dive521 = getelementptr inbounds %"class.v8::MaybeLocal.288", ptr %ref.tmp513, i32 0, i32 0
   %coerce.dive522 = getelementptr inbounds %"class.v8::Local.24", ptr %coerce.dive521, i32 0, i32 0
   %coerce.dive523 = getelementptr inbounds %"class.v8::LocalBase.25", ptr %coerce.dive522, i32 0, i32 0
@@ -2519,8 +2546,8 @@ do.body499:                                       ; preds = %do.end498
   %this1.i817 = load ptr, ptr %this.addr.i816, align 8
   store ptr %this1.i817, ptr %this.addr.i.i815, align 8
   %this1.i.i818 = load ptr, ptr %this.addr.i.i815, align 8
-  %189 = load ptr, ptr %this1.i.i818, align 8
-  %cmp.i.i819 = icmp eq ptr %189, null
+  %216 = load ptr, ptr %this1.i.i818, align 8
+  %cmp.i.i819 = icmp eq ptr %216, null
   br i1 %cmp.i.i819, label %if.then.i712, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
 if.then.i712:                                     ; preds = %do.body499
@@ -2529,31 +2556,31 @@ if.then.i712:                                     ; preds = %do.body499
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %if.then.i712, %do.body499
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.i, ptr align 8 %this1.i709, i64 8, i1 false)
-  %190 = load ptr, ptr %retval.i, align 8
+  %217 = load ptr, ptr %retval.i, align 8
   %coerce.dive526 = getelementptr inbounds %"class.v8::Local.24", ptr %agg.tmp512, i32 0, i32 0
   %coerce.dive527 = getelementptr inbounds %"class.v8::LocalBase.25", ptr %coerce.dive526, i32 0, i32 0
   %coerce.dive528 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive527, i32 0, i32 0
-  store ptr %190, ptr %coerce.dive528, align 8
+  store ptr %217, ptr %coerce.dive528, align 8
   %coerce.dive529 = getelementptr inbounds %"class.v8::Local.20", ptr %agg.tmp502, i32 0, i32 0
   %coerce.dive530 = getelementptr inbounds %"class.v8::LocalBase.21", ptr %coerce.dive529, i32 0, i32 0
   %coerce.dive531 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive530, i32 0, i32 0
-  %191 = load ptr, ptr %coerce.dive531, align 8
+  %218 = load ptr, ptr %coerce.dive531, align 8
   %coerce.dive532 = getelementptr inbounds %"class.v8::Local.286", ptr %agg.tmp503, i32 0, i32 0
   %coerce.dive533 = getelementptr inbounds %"class.v8::LocalBase.287", ptr %coerce.dive532, i32 0, i32 0
   %coerce.dive534 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive533, i32 0, i32 0
-  %192 = load ptr, ptr %coerce.dive534, align 8
+  %219 = load ptr, ptr %coerce.dive534, align 8
   %coerce.dive535 = getelementptr inbounds %"class.v8::Local.24", ptr %agg.tmp512, i32 0, i32 0
   %coerce.dive536 = getelementptr inbounds %"class.v8::LocalBase.25", ptr %coerce.dive535, i32 0, i32 0
   %coerce.dive537 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive536, i32 0, i32 0
-  %193 = load ptr, ptr %coerce.dive537, align 8
-  %call538 = call i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %176, ptr %191, ptr %192, ptr %193, i32 noundef 1)
+  %220 = load ptr, ptr %coerce.dive537, align 8
+  %call538 = call i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %202, ptr %218, ptr %219, ptr %220, i32 noundef 1)
   store i16 %call538, ptr %ref.tmp500, align 1
   store ptr %ref.tmp500, ptr %this.addr.i655, align 8
   %this1.i656 = load ptr, ptr %this.addr.i655, align 8
   store ptr %this1.i656, ptr %this.addr.i915, align 8
   %this1.i916 = load ptr, ptr %this.addr.i915, align 8
-  %194 = load i8, ptr %this1.i916, align 1
-  %tobool.i917 = trunc i8 %194 to i1
+  %221 = load i8, ptr %this1.i916, align 1
+  %tobool.i917 = trunc i8 %221 to i1
   %lnot3.i = xor i1 %tobool.i917, true
   br i1 %lnot3.i, label %if.then.i, label %_ZNK2v85MaybeIbE5CheckEv.exit
 
@@ -2574,60 +2601,60 @@ do.end540:                                        ; preds = %do.cond539
   %coerce.dive544 = getelementptr inbounds %"class.v8::Local.20", ptr %agg.tmp541, i32 0, i32 0
   %coerce.dive545 = getelementptr inbounds %"class.v8::LocalBase.21", ptr %coerce.dive544, i32 0, i32 0
   %coerce.dive546 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive545, i32 0, i32 0
-  %195 = load ptr, ptr %coerce.dive546, align 8
+  %222 = load ptr, ptr %coerce.dive546, align 8
   %coerce.dive547 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp542, i32 0, i32 0
   %coerce.dive548 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive547, i32 0, i32 0
   %coerce.dive549 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive548, i32 0, i32 0
-  %196 = load ptr, ptr %coerce.dive549, align 8
-  %197 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp543, i32 0, i32 0
-  %198 = load i64, ptr %197, align 8
-  %199 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp543, i32 0, i32 1
-  %200 = load ptr, ptr %199, align 8
-  call void @_ZN4node9SetMethodEN2v85LocalINS0_7ContextEEENS1_INS0_6ObjectEEESt17basic_string_viewIcSt11char_traitsIcEEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEE(ptr %195, ptr %196, i64 %198, ptr %200, ptr noundef @_ZN4node8RawDebugERKN2v820FunctionCallbackInfoINS0_5ValueEEE)
+  %223 = load ptr, ptr %coerce.dive549, align 8
+  %224 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp543, i32 0, i32 0
+  %225 = load i64, ptr %224, align 8
+  %226 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp543, i32 0, i32 1
+  %227 = load ptr, ptr %226, align 8
+  call void @_ZN4node9SetMethodEN2v85LocalINS0_7ContextEEENS1_INS0_6ObjectEEESt17basic_string_viewIcSt11char_traitsIcEEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEE(ptr %222, ptr %223, i64 %225, ptr %227, ptr noundef @_ZN4node8RawDebugERKN2v820FunctionCallbackInfoINS0_5ValueEEE)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp551, ptr align 8 %process, i64 8, i1 false)
   %coerce.dive552 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp551, i32 0, i32 0
   %coerce.dive553 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive552, i32 0, i32 0
   %coerce.dive554 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive553, i32 0, i32 0
-  %201 = load ptr, ptr %coerce.dive554, align 8
-  store ptr %201, ptr %value.i, align 8
+  %228 = load ptr, ptr %coerce.dive554, align 8
+  store ptr %228, ptr %value.i, align 8
   store ptr %scope, ptr %this.addr.i741, align 8
   %this3.i742 = load ptr, ptr %this.addr.i741, align 8
   store ptr %value.i, ptr %this.addr.i936, align 8
   %this1.i937 = load ptr, ptr %this.addr.i936, align 8
-  %202 = load ptr, ptr %this1.i937, align 8
-  %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %this3.i742, ptr noundef %202) #3
+  %229 = load ptr, ptr %this1.i937, align 8
+  %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %this3.i742, ptr noundef %229) #3
   store ptr %call4.i, ptr %slot.addr.i934, align 8
-  %203 = load ptr, ptr %slot.addr.i934, align 8
-  store ptr %203, ptr %slot.addr.i939, align 8
-  %204 = load ptr, ptr %slot.addr.i939, align 8
+  %230 = load ptr, ptr %slot.addr.i934, align 8
+  store ptr %230, ptr %slot.addr.i939, align 8
+  %231 = load ptr, ptr %slot.addr.i939, align 8
   store ptr %retval.i938, ptr %this.addr.i941, align 8
-  store ptr %204, ptr %location.addr.i, align 8
+  store ptr %231, ptr %location.addr.i, align 8
   %this1.i942 = load ptr, ptr %this.addr.i941, align 8
-  %205 = load ptr, ptr %location.addr.i, align 8
+  %232 = load ptr, ptr %location.addr.i, align 8
   store ptr %this1.i942, ptr %this.addr.i.i940, align 8
-  store ptr %205, ptr %location.addr.i.i, align 8
+  store ptr %232, ptr %location.addr.i.i, align 8
   %this1.i.i943 = load ptr, ptr %this.addr.i.i940, align 8
-  %206 = load ptr, ptr %location.addr.i.i, align 8
-  store ptr %206, ptr %this1.i.i943, align 8
-  %207 = load ptr, ptr %retval.i938, align 8
-  store ptr %207, ptr %ref.tmp.i, align 8
+  %233 = load ptr, ptr %location.addr.i.i, align 8
+  store ptr %233, ptr %this1.i.i943, align 8
+  %234 = load ptr, ptr %retval.i938, align 8
+  store ptr %234, ptr %ref.tmp.i, align 8
   store ptr %retval.i933, ptr %this.addr.i.i932, align 8
   store ptr %ref.tmp.i, ptr %other.addr.i.i, align 8
   %this1.i.i935 = load ptr, ptr %this.addr.i.i932, align 8
-  %208 = load ptr, ptr %other.addr.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i.i935, ptr align 8 %208, i64 8, i1 false)
-  %209 = load ptr, ptr %retval.i933, align 8
-  store ptr %209, ptr %retval.i740, align 8
-  %210 = load ptr, ptr %retval.i740, align 8
+  %235 = load ptr, ptr %other.addr.i.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i.i935, ptr align 8 %235, i64 8, i1 false)
+  %236 = load ptr, ptr %retval.i933, align 8
+  store ptr %236, ptr %retval.i740, align 8
+  %237 = load ptr, ptr %retval.i740, align 8
   %coerce.dive556 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp550, i32 0, i32 0
   %coerce.dive557 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive556, i32 0, i32 0
   %coerce.dive558 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive557, i32 0, i32 0
-  store ptr %210, ptr %coerce.dive558, align 8
+  store ptr %237, ptr %coerce.dive558, align 8
   %coerce.dive559 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp550, i32 0, i32 0
   %coerce.dive560 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive559, i32 0, i32 0
   %coerce.dive561 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive560, i32 0, i32 0
-  %211 = load ptr, ptr %coerce.dive561, align 8
-  store ptr %211, ptr %that.i744, align 8
+  %238 = load ptr, ptr %coerce.dive561, align 8
+  store ptr %238, ptr %that.i744, align 8
   store ptr %retval, ptr %this.addr.i745, align 8
   %this3.i746 = load ptr, ptr %this.addr.i745, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this3.i746, ptr align 8 %that.i744, i64 8, i1 false)
@@ -2642,8 +2669,8 @@ cleanup:                                          ; preds = %do.end540, %if.then
   %coerce.dive563 = getelementptr inbounds %"class.v8::Local", ptr %coerce.dive562, i32 0, i32 0
   %coerce.dive564 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive563, i32 0, i32 0
   %coerce.dive565 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive564, i32 0, i32 0
-  %212 = load ptr, ptr %coerce.dive565, align 8
-  ret ptr %212
+  %239 = load ptr, ptr %coerce.dive565, align 8
+  ret ptr %239
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

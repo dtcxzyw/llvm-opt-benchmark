@@ -297,54 +297,55 @@ define dso_local void @pci_rcec_init(ptr noundef %0) local_unnamed_addr #0 align
   %5 = load i16, ptr %4, align 2
   %6 = and i16 %5, 240
   %7 = icmp eq i16 %6, 160
-  br i1 %7, label %8, label %37
+  br i1 %7, label %8, label %38
 
 8:                                                ; preds = %1
   %9 = tail call zeroext i16 @pci_find_ext_capability(ptr noundef %0, i32 noundef 7) #6
   %10 = zext i16 %9 to i32
   %11 = icmp eq i16 %9, 0
-  br i1 %11, label %37, label %12
+  br i1 %11, label %38, label %12
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
-  %14 = tail call noalias noundef align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3520, i64 noundef 8) #8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %37, label %16
+  %13 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call noalias noundef align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 8) #8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %38, label %17
 
-16:                                               ; preds = %12
-  %17 = add nuw nsw i32 %10, 4
-  %18 = getelementptr inbounds i8, ptr %14, i64 4
-  %19 = tail call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %17, ptr noundef %18) #6
-  %20 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %2) #6
-  %21 = load i32, ptr %2, align 4
-  %22 = and i32 %21, 917504
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %32, label %24
+17:                                               ; preds = %12
+  %18 = add nuw nsw i32 %10, 4
+  %19 = getelementptr inbounds i8, ptr %15, i64 4
+  %20 = tail call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %18, ptr noundef %19) #6
+  %21 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %2) #6
+  %22 = load i32, ptr %2, align 4
+  %23 = and i32 %22, 917504
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %33, label %25
 
-24:                                               ; preds = %16
-  %25 = add nuw nsw i32 %10, 8
-  %26 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %25, ptr noundef nonnull %3) #6
-  %27 = load i32, ptr %3, align 4
-  %28 = lshr i32 %27, 8
-  %29 = trunc i32 %28 to i8
-  store i8 %29, ptr %14, align 8
-  %30 = lshr i32 %27, 16
-  %31 = trunc i32 %30 to i8
-  br label %33
+25:                                               ; preds = %17
+  %26 = add nuw nsw i32 %10, 8
+  %27 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %26, ptr noundef nonnull %3) #6
+  %28 = load i32, ptr %3, align 4
+  %29 = lshr i32 %28, 8
+  %30 = trunc i32 %29 to i8
+  store i8 %30, ptr %15, align 8
+  %31 = lshr i32 %28, 16
+  %32 = trunc i32 %31 to i8
+  br label %34
 
-32:                                               ; preds = %16
-  store i8 -1, ptr %14, align 8
-  br label %33
+33:                                               ; preds = %17
+  store i8 -1, ptr %15, align 8
+  br label %34
 
-33:                                               ; preds = %32, %24
-  %34 = phi i8 [ 0, %32 ], [ %31, %24 ]
-  %35 = getelementptr inbounds i8, ptr %14, i64 1
-  store i8 %34, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %14, ptr %36, align 8
-  br label %37
+34:                                               ; preds = %33, %25
+  %35 = phi i8 [ 0, %33 ], [ %32, %25 ]
+  %36 = getelementptr inbounds i8, ptr %15, i64 1
+  store i8 %35, ptr %36, align 1
+  %37 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %15, ptr %37, align 8
+  br label %38
 
-37:                                               ; preds = %33, %12, %8, %1
+38:                                               ; preds = %34, %12, %8, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
   ret void

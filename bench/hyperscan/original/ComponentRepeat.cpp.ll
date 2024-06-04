@@ -790,31 +790,32 @@ entry:
   store i32 %t, ptr %t.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3ue215ComponentRepeatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN3ue215ComponentRepeatE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %type = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %t.addr, align 4
-  store i32 %0, ptr %type, align 8
+  %1 = load i32, ptr %t.addr, align 4
+  store i32 %1, ptr %type, align 8
   %sub_comp = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %sub_comp, ptr noundef nonnull align 8 dereferenceable(8) %sub_comp_in) #13
   %m_min = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 3
-  %1 = load i32, ptr %min.addr, align 4
-  store i32 %1, ptr %m_min, align 8
+  %2 = load i32, ptr %min.addr, align 4
+  store i32 %2, ptr %m_min, align 8
   %m_max = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 4
-  %2 = load i32, ptr %max.addr, align 4
-  store i32 %2, ptr %m_max, align 4
+  %3 = load i32, ptr %max.addr, align 4
+  store i32 %3, ptr %m_max, align 4
   %m_firsts = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 5
   call void @_ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_firsts) #13
   %m_lasts = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 6
   call void @_ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_lasts) #13
   %posFirst = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 7
-  %3 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
-  store i32 %3, ptr %posFirst, align 8
-  %posLast = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 8
   %4 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
-  store i32 %4, ptr %posLast, align 4
+  store i32 %4, ptr %posFirst, align 8
+  %posLast = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 8
+  %5 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
+  store i32 %5, ptr %posLast, align 4
   %m_min2 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 3
-  %5 = load i32, ptr %m_min2, align 8
-  %cmp = icmp ugt i32 %5, 32767
+  %6 = load i32, ptr %m_min2, align 8
+  %cmp = icmp ugt i32 %6, 32767
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -834,21 +835,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
           to label %unreachable unwind label %lpad3
 
 lpad:                                             ; preds = %if.then
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont4, %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   br label %ehcleanup
 
@@ -866,14 +867,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 if.end:                                           ; preds = %entry
   %m_max6 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 4
-  %12 = load i32, ptr %m_max6, align 4
-  %cmp7 = icmp ne i32 %12, -1
+  %13 = load i32, ptr %m_max6, align 4
+  %cmp7 = icmp ne i32 %13, -1
   br i1 %cmp7, label %land.lhs.true, label %if.end25
 
 land.lhs.true:                                    ; preds = %if.end
   %m_max8 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 4
-  %13 = load i32, ptr %m_max8, align 4
-  %cmp9 = icmp ugt i32 %13, 32767
+  %14 = load i32, ptr %m_max8, align 4
+  %cmp9 = icmp ugt i32 %14, 32767
   br i1 %cmp9, label %if.then10, label %if.end25
 
 if.then10:                                        ; preds = %land.lhs.true
@@ -893,21 +894,21 @@ invoke.cont17:                                    ; preds = %invoke.cont15
           to label %unreachable unwind label %lpad16
 
 lpad14:                                           ; preds = %if.then10
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup20
 
 lpad16:                                           ; preds = %invoke.cont17, %invoke.cont15
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12) #13
   br label %ehcleanup20
 
@@ -1050,7 +1051,8 @@ entry:
   store ptr %why, ptr %why.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue212CompileErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(32) %why)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1142,7 +1144,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3ue215ComponentRepeatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN3ue215ComponentRepeatE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_lasts = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 6
   call void @_ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_lasts) #13
   %m_firsts = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 5
@@ -1215,85 +1218,86 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN3ue29ComponentC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3ue215ComponentRepeatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN3ue215ComponentRepeatE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %type = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %type2 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %type2, align 8
-  store i32 %2, ptr %type, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %type2 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %2, i32 0, i32 1
+  %3 = load i32, ptr %type2, align 8
+  store i32 %3, ptr %type, align 8
   %sub_comp = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %other.addr, align 8
-  %sub_comp3 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %other.addr, align 8
+  %sub_comp3 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %4, i32 0, i32 2
   %call = call noundef ptr @_ZNKSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %sub_comp3) #13
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %4 = load ptr, ptr %vfn, align 8
-  %call4 = invoke noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(16) %call)
+  %5 = load ptr, ptr %vfn, align 8
+  %call4 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %sub_comp, ptr noundef %call4) #13
   %m_min = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %other.addr, align 8
-  %m_min5 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %5, i32 0, i32 3
-  %6 = load i32, ptr %m_min5, align 8
-  store i32 %6, ptr %m_min, align 8
+  %6 = load ptr, ptr %other.addr, align 8
+  %m_min5 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %6, i32 0, i32 3
+  %7 = load i32, ptr %m_min5, align 8
+  store i32 %7, ptr %m_min, align 8
   %m_max = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 4
-  %7 = load ptr, ptr %other.addr, align 8
-  %m_max6 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %7, i32 0, i32 4
-  %8 = load i32, ptr %m_max6, align 4
-  store i32 %8, ptr %m_max, align 4
+  %8 = load ptr, ptr %other.addr, align 8
+  %m_max6 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %8, i32 0, i32 4
+  %9 = load i32, ptr %m_max6, align 4
+  store i32 %9, ptr %m_max, align 4
   %m_firsts = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 5
-  %9 = load ptr, ptr %other.addr, align 8
-  %m_firsts7 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %9, i32 0, i32 5
+  %10 = load ptr, ptr %other.addr, align 8
+  %m_firsts7 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %10, i32 0, i32 5
   invoke void @_ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %m_firsts, ptr noundef nonnull align 8 dereferenceable(24) %m_firsts7)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
   %m_lasts = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 6
-  %10 = load ptr, ptr %other.addr, align 8
-  %m_lasts10 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %10, i32 0, i32 6
+  %11 = load ptr, ptr %other.addr, align 8
+  %m_lasts10 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %11, i32 0, i32 6
   invoke void @_ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %m_lasts, ptr noundef nonnull align 8 dereferenceable(24) %m_lasts10)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont9
   %posFirst = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 7
-  %11 = load ptr, ptr %other.addr, align 8
-  %posFirst13 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %11, i32 0, i32 7
-  %12 = load i32, ptr %posFirst13, align 8
-  store i32 %12, ptr %posFirst, align 8
+  %12 = load ptr, ptr %other.addr, align 8
+  %posFirst13 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %12, i32 0, i32 7
+  %13 = load i32, ptr %posFirst13, align 8
+  store i32 %13, ptr %posFirst, align 8
   %posLast = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %this1, i32 0, i32 8
-  %13 = load ptr, ptr %other.addr, align 8
-  %posLast14 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %13, i32 0, i32 8
-  %14 = load i32, ptr %posLast14, align 4
-  store i32 %14, ptr %posLast, align 4
+  %14 = load ptr, ptr %other.addr, align 8
+  %posLast14 = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %14, i32 0, i32 8
+  %15 = load i32, ptr %posLast14, align 4
+  store i32 %15, ptr %posLast, align 4
   ret void
 
 lpad:                                             ; preds = %entry
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup15
 
 lpad8:                                            ; preds = %invoke.cont
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont9
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_firsts) #13
   br label %ehcleanup
 
@@ -1321,17 +1325,18 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pos_begin = getelementptr inbounds %"class.ue2::Component", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %pos_begin2 = getelementptr inbounds %"class.ue2::Component", ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %pos_begin2, align 8
-  store i32 %1, ptr %pos_begin, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %pos_begin2 = getelementptr inbounds %"class.ue2::Component", ptr %1, i32 0, i32 1
+  %2 = load i32, ptr %pos_begin2, align 8
+  store i32 %2, ptr %pos_begin, align 8
   %pos_end = getelementptr inbounds %"class.ue2::Component", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %pos_end3 = getelementptr inbounds %"class.ue2::Component", ptr %2, i32 0, i32 2
-  %3 = load i32, ptr %pos_end3, align 4
-  store i32 %3, ptr %pos_end, align 4
+  %3 = load ptr, ptr %other.addr, align 8
+  %pos_end3 = getelementptr inbounds %"class.ue2::Component", ptr %3, i32 0, i32 2
+  %4 = load i32, ptr %pos_end3, align 4
+  store i32 %4, ptr %pos_end, align 4
   ret void
 }
 

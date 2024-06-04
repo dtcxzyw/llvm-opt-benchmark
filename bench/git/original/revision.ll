@@ -10859,7 +10859,8 @@ if.end:                                           ; preds = %entry
   %7 = load ptr, ptr %call, align 8
   store ptr %7, ptr %parents, align 8
   %8 = load ptr, ptr %parents, align 8
-  %cmp = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
+  %9 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %8, %9
   br i1 %cmp, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -10867,13 +10868,13 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %9 = load ptr, ptr %parents, align 8
-  store ptr %9, ptr %retval, align 8
+  %10 = load ptr, ptr %parents, align 8
+  store ptr %10, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %10 = load ptr, ptr %retval, align 8
-  ret ptr %10
+  %11 = load ptr, ptr %retval, align 8
+  ret ptr %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11030,7 +11031,8 @@ if.then9:                                         ; preds = %if.end7
 
 if.else:                                          ; preds = %if.end7
   %15 = load ptr, ptr %pp, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %15, align 8
+  %16 = inttoptr i64 -1 to ptr
+  store ptr %16, ptr %15, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %if.then9, %if.then6

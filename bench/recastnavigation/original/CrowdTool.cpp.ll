@@ -209,133 +209,134 @@ define dso_local void @_ZN14CrowdToolStateC2Ev(ptr noundef nonnull align 8 deref
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN15SampleToolStateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14CrowdToolState, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 2
+  %6 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV14CrowdToolState, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 1
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 3
+  %8 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 2
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 5
-  store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 9
-  invoke void @_ZN12ValueHistoryC1Ev(ptr noundef nonnull align 4 dereferenceable(1028) %10)
-          to label %11 unwind label %73
+  %9 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 3
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 5
+  store i32 0, ptr %10, align 4
+  %11 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 9
+  invoke void @_ZN12ValueHistoryC1Ev(ptr noundef nonnull align 4 dereferenceable(1028) %11)
+          to label %12 unwind label %74
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 10
-  invoke void @_ZN12ValueHistoryC1Ev(ptr noundef nonnull align 4 dereferenceable(1028) %12)
-          to label %13 unwind label %73
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 10
+  invoke void @_ZN12ValueHistoryC1Ev(ptr noundef nonnull align 4 dereferenceable(1028) %13)
+          to label %14 unwind label %74
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 12
-  store i8 1, ptr %14, align 8
-  %15 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %16 = getelementptr inbounds %struct.CrowdToolParams, ptr %15, i32 0, i32 0
-  store i8 1, ptr %16, align 8
-  %17 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %18 = getelementptr inbounds %struct.CrowdToolParams, ptr %17, i32 0, i32 1
-  store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %20 = getelementptr inbounds %struct.CrowdToolParams, ptr %19, i32 0, i32 2
-  store i8 0, ptr %20, align 2
-  %21 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %22 = getelementptr inbounds %struct.CrowdToolParams, ptr %21, i32 0, i32 3
-  store i8 0, ptr %22, align 1
-  %23 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %24 = getelementptr inbounds %struct.CrowdToolParams, ptr %23, i32 0, i32 4
-  store i8 0, ptr %24, align 4
-  %25 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %26 = getelementptr inbounds %struct.CrowdToolParams, ptr %25, i32 0, i32 5
-  store i8 0, ptr %26, align 1
-  %27 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %28 = getelementptr inbounds %struct.CrowdToolParams, ptr %27, i32 0, i32 6
-  store i8 0, ptr %28, align 2
-  %29 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %30 = getelementptr inbounds %struct.CrowdToolParams, ptr %29, i32 0, i32 7
-  store i8 0, ptr %30, align 1
-  %31 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %32 = getelementptr inbounds %struct.CrowdToolParams, ptr %31, i32 0, i32 8
-  store i8 0, ptr %32, align 8
-  %33 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %34 = getelementptr inbounds %struct.CrowdToolParams, ptr %33, i32 0, i32 9
-  store i8 0, ptr %34, align 1
-  %35 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %36 = getelementptr inbounds %struct.CrowdToolParams, ptr %35, i32 0, i32 10
-  store i8 0, ptr %36, align 2
-  %37 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %38 = getelementptr inbounds %struct.CrowdToolParams, ptr %37, i32 0, i32 11
-  store i8 0, ptr %38, align 1
-  %39 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %40 = getelementptr inbounds %struct.CrowdToolParams, ptr %39, i32 0, i32 12
-  store i8 0, ptr %40, align 4
-  %41 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %42 = getelementptr inbounds %struct.CrowdToolParams, ptr %41, i32 0, i32 13
-  store i8 1, ptr %42, align 1
-  %43 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %44 = getelementptr inbounds %struct.CrowdToolParams, ptr %43, i32 0, i32 14
-  store i8 1, ptr %44, align 2
-  %45 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %46 = getelementptr inbounds %struct.CrowdToolParams, ptr %45, i32 0, i32 15
-  store i8 1, ptr %46, align 1
-  %47 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %48 = getelementptr inbounds %struct.CrowdToolParams, ptr %47, i32 0, i32 16
-  store i8 1, ptr %48, align 8
-  %49 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %50 = getelementptr inbounds %struct.CrowdToolParams, ptr %49, i32 0, i32 17
-  store i8 1, ptr %50, align 1
-  %51 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %52 = getelementptr inbounds %struct.CrowdToolParams, ptr %51, i32 0, i32 18
-  store float 3.000000e+00, ptr %52, align 4
-  %53 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %54 = getelementptr inbounds %struct.CrowdToolParams, ptr %53, i32 0, i32 19
-  store i8 0, ptr %54, align 8
-  %55 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
-  %56 = getelementptr inbounds %struct.CrowdToolParams, ptr %55, i32 0, i32 20
-  store float 2.000000e+00, ptr %56, align 4
-  %57 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 8
-  %58 = getelementptr inbounds [128 x %"struct.CrowdToolState::AgentTrail"], ptr %57, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 8 %58, i8 0, i64 98816, i1 false)
-  %59 = invoke noundef ptr @_Z33dtAllocObstacleAvoidanceDebugDatav()
-          to label %60 unwind label %73
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 12
+  store i8 1, ptr %15, align 8
+  %16 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %17 = getelementptr inbounds %struct.CrowdToolParams, ptr %16, i32 0, i32 0
+  store i8 1, ptr %17, align 8
+  %18 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %19 = getelementptr inbounds %struct.CrowdToolParams, ptr %18, i32 0, i32 1
+  store i8 0, ptr %19, align 1
+  %20 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %21 = getelementptr inbounds %struct.CrowdToolParams, ptr %20, i32 0, i32 2
+  store i8 0, ptr %21, align 2
+  %22 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %23 = getelementptr inbounds %struct.CrowdToolParams, ptr %22, i32 0, i32 3
+  store i8 0, ptr %23, align 1
+  %24 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %25 = getelementptr inbounds %struct.CrowdToolParams, ptr %24, i32 0, i32 4
+  store i8 0, ptr %25, align 4
+  %26 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %27 = getelementptr inbounds %struct.CrowdToolParams, ptr %26, i32 0, i32 5
+  store i8 0, ptr %27, align 1
+  %28 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %29 = getelementptr inbounds %struct.CrowdToolParams, ptr %28, i32 0, i32 6
+  store i8 0, ptr %29, align 2
+  %30 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %31 = getelementptr inbounds %struct.CrowdToolParams, ptr %30, i32 0, i32 7
+  store i8 0, ptr %31, align 1
+  %32 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %33 = getelementptr inbounds %struct.CrowdToolParams, ptr %32, i32 0, i32 8
+  store i8 0, ptr %33, align 8
+  %34 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %35 = getelementptr inbounds %struct.CrowdToolParams, ptr %34, i32 0, i32 9
+  store i8 0, ptr %35, align 1
+  %36 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %37 = getelementptr inbounds %struct.CrowdToolParams, ptr %36, i32 0, i32 10
+  store i8 0, ptr %37, align 2
+  %38 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %39 = getelementptr inbounds %struct.CrowdToolParams, ptr %38, i32 0, i32 11
+  store i8 0, ptr %39, align 1
+  %40 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %41 = getelementptr inbounds %struct.CrowdToolParams, ptr %40, i32 0, i32 12
+  store i8 0, ptr %41, align 4
+  %42 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %43 = getelementptr inbounds %struct.CrowdToolParams, ptr %42, i32 0, i32 13
+  store i8 1, ptr %43, align 1
+  %44 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %45 = getelementptr inbounds %struct.CrowdToolParams, ptr %44, i32 0, i32 14
+  store i8 1, ptr %45, align 2
+  %46 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %47 = getelementptr inbounds %struct.CrowdToolParams, ptr %46, i32 0, i32 15
+  store i8 1, ptr %47, align 1
+  %48 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %49 = getelementptr inbounds %struct.CrowdToolParams, ptr %48, i32 0, i32 16
+  store i8 1, ptr %49, align 8
+  %50 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %51 = getelementptr inbounds %struct.CrowdToolParams, ptr %50, i32 0, i32 17
+  store i8 1, ptr %51, align 1
+  %52 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %53 = getelementptr inbounds %struct.CrowdToolParams, ptr %52, i32 0, i32 18
+  store float 3.000000e+00, ptr %53, align 4
+  %54 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %55 = getelementptr inbounds %struct.CrowdToolParams, ptr %54, i32 0, i32 19
+  store i8 0, ptr %55, align 8
+  %56 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 11
+  %57 = getelementptr inbounds %struct.CrowdToolParams, ptr %56, i32 0, i32 20
+  store float 2.000000e+00, ptr %57, align 4
+  %58 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 8
+  %59 = getelementptr inbounds [128 x %"struct.CrowdToolState::AgentTrail"], ptr %58, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %59, i8 0, i64 98816, i1 false)
+  %60 = invoke noundef ptr @_Z33dtAllocObstacleAvoidanceDebugDatav()
+          to label %61 unwind label %74
 
-60:                                               ; preds = %13
-  %61 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 7
-  store ptr %59, ptr %61, align 8
+61:                                               ; preds = %14
   %62 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 7
-  %63 = load ptr, ptr %62, align 8
-  %64 = invoke noundef zeroext i1 @_ZN28dtObstacleAvoidanceDebugData4initEi(ptr noundef nonnull align 8 dereferenceable(64) %63, i32 noundef 2048)
-          to label %65 unwind label %73
+  store ptr %60, ptr %62, align 8
+  %63 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 7
+  %64 = load ptr, ptr %63, align 8
+  %65 = invoke noundef zeroext i1 @_ZN28dtObstacleAvoidanceDebugData4initEi(ptr noundef nonnull align 8 dereferenceable(64) %64, i32 noundef 2048)
+          to label %66 unwind label %74
 
-65:                                               ; preds = %60
-  %66 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 6
-  call void @llvm.memset.p0.i64(ptr align 8 %66, i8 0, i64 40, i1 false)
+66:                                               ; preds = %61
   %67 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 6
-  %68 = getelementptr inbounds %struct.dtCrowdAgentDebugInfo, ptr %67, i32 0, i32 0
-  store i32 -1, ptr %68, align 8
-  %69 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 7
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 6
-  %72 = getelementptr inbounds %struct.dtCrowdAgentDebugInfo, ptr %71, i32 0, i32 3
-  store ptr %70, ptr %72, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %67, i8 0, i64 40, i1 false)
+  %68 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 6
+  %69 = getelementptr inbounds %struct.dtCrowdAgentDebugInfo, ptr %68, i32 0, i32 0
+  store i32 -1, ptr %69, align 8
+  %70 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 7
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 6
+  %73 = getelementptr inbounds %struct.dtCrowdAgentDebugInfo, ptr %72, i32 0, i32 3
+  store ptr %71, ptr %73, align 8
   ret void
 
-73:                                               ; preds = %60, %13, %11, %1
-  %74 = landingpad { ptr, i32 }
+74:                                               ; preds = %61, %14, %12, %1
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %3, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %4, align 4
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %3, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %4, align 4
   call void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  br label %77
+  br label %78
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr %3, align 8
-  %79 = load i32, ptr %4, align 4
-  %80 = insertvalue { ptr, i32 } poison, ptr %78, 0
-  %81 = insertvalue { ptr, i32 } %80, i32 %79, 1
-  resume { ptr, i32 } %81
+78:                                               ; preds = %74
+  %79 = load ptr, ptr %3, align 8
+  %80 = load i32, ptr %4, align 4
+  %81 = insertvalue { ptr, i32 } poison, ptr %79, 0
+  %82 = insertvalue { ptr, i32 } %81, i32 %80, 1
+  resume { ptr, i32 } %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -343,7 +344,8 @@ define linkonce_odr dso_local void @_ZN15SampleToolStateC2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15SampleToolState, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV15SampleToolState, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -366,21 +368,22 @@ define dso_local void @_ZN14CrowdToolStateD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14CrowdToolState, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.CrowdToolState, ptr %3, i32 0, i32 7
-  %5 = load ptr, ptr %4, align 8
-  invoke void @_Z32dtFreeObstacleAvoidanceDebugDataP28dtObstacleAvoidanceDebugData(ptr noundef %5)
-          to label %6 unwind label %7
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV14CrowdToolState, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.CrowdToolState, ptr %3, i32 0, i32 7
+  %6 = load ptr, ptr %5, align 8
+  invoke void @_Z32dtFreeObstacleAvoidanceDebugDataP28dtObstacleAvoidanceDebugData(ptr noundef %6)
+          to label %7 unwind label %8
 
-6:                                                ; preds = %1
+7:                                                ; preds = %1
   call void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret void
 
-7:                                                ; preds = %1
-  %8 = landingpad { ptr, i32 }
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #11
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #11
   unreachable
 }
 
@@ -4988,13 +4991,14 @@ define dso_local void @_ZN9CrowdToolC2Ev(ptr noundef nonnull align 8 dereference
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10SampleToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV9CrowdTool, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.CrowdTool, ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %class.CrowdTool, ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV9CrowdTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.CrowdTool, ptr %3, i32 0, i32 1
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %class.CrowdTool, ptr %3, i32 0, i32 3
-  store i32 0, ptr %6, align 8
+  %6 = getelementptr inbounds %class.CrowdTool, ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8
+  %7 = getelementptr inbounds %class.CrowdTool, ptr %3, i32 0, i32 3
+  store i32 0, ptr %7, align 8
   ret void
 }
 
@@ -5003,7 +5007,8 @@ define linkonce_odr dso_local void @_ZN10SampleToolC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

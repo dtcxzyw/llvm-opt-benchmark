@@ -751,7 +751,7 @@ define dso_local void @decl_set_external_name(ptr noundef %0) #0 {
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %1
-  br label %128
+  br label %130
 
 16:                                               ; preds = %1
   %17 = load ptr, ptr %4, align 8
@@ -763,7 +763,7 @@ define dso_local void @decl_set_external_name(ptr noundef %0) #0 {
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %16
-  br label %128
+  br label %130
 
 24:                                               ; preds = %16
   %25 = load ptr, ptr %4, align 8
@@ -785,7 +785,7 @@ define dso_local void @decl_set_external_name(ptr noundef %0) #0 {
   %35 = lshr i64 %34, 14
   %36 = and i64 %35, 1
   %37 = trunc i64 %36 to i1
-  br i1 %37, label %58, label %38
+  br i1 %37, label %59, label %38
 
 38:                                               ; preds = %31
   %39 = load ptr, ptr %4, align 8
@@ -801,135 +801,137 @@ define dso_local void @decl_set_external_name(ptr noundef %0) #0 {
   %46 = getelementptr inbounds %struct.Decl_, ptr %45, i32 0, i32 8
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %47, align 8
-  br label %51
+  br label %52
 
 49:                                               ; preds = %38
-  %50 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 1), align 8
-  br label %51
+  %50 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8
+  br label %52
 
-51:                                               ; preds = %49, %44
-  %52 = phi ptr [ %48, %44 ], [ %50, %49 ]
-  %53 = getelementptr inbounds %struct.Module_, ptr %52, i32 0, i32 3
-  %54 = load i16, ptr %53, align 8
-  %55 = lshr i16 %54, 4
-  %56 = and i16 %55, 1
-  %57 = trunc i16 %56 to i1
-  br i1 %57, label %58, label %62
+52:                                               ; preds = %49, %44
+  %53 = phi ptr [ %48, %44 ], [ %51, %49 ]
+  %54 = getelementptr inbounds %struct.Module_, ptr %53, i32 0, i32 3
+  %55 = load i16, ptr %54, align 8
+  %56 = lshr i16 %55, 4
+  %57 = and i16 %56, 1
+  %58 = trunc i16 %57 to i1
+  br i1 %58, label %59, label %63
 
-58:                                               ; preds = %51, %31
-  %59 = load ptr, ptr %5, align 8
-  %60 = load ptr, ptr %4, align 8
-  %61 = getelementptr inbounds %struct.Decl_, ptr %60, i32 0, i32 1
-  store ptr %59, ptr %61, align 8
-  br label %128
+59:                                               ; preds = %52, %31
+  %60 = load ptr, ptr %5, align 8
+  %61 = load ptr, ptr %4, align 8
+  %62 = getelementptr inbounds %struct.Decl_, ptr %61, i32 0, i32 1
+  store ptr %60, ptr %62, align 8
+  br label %130
 
-62:                                               ; preds = %51
+63:                                               ; preds = %52
   call void @scratch_buffer_clear()
-  %63 = load ptr, ptr %4, align 8
-  store ptr %63, ptr %3, align 8
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct.Decl_, ptr %64, i32 0, i32 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %73
+  %64 = load ptr, ptr %4, align 8
+  store ptr %64, ptr %3, align 8
+  %65 = load ptr, ptr %3, align 8
+  %66 = getelementptr inbounds %struct.Decl_, ptr %65, i32 0, i32 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %74
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds %struct.Decl_, ptr %69, i32 0, i32 8
-  %71 = load ptr, ptr %70, align 8
+69:                                               ; preds = %63
+  %70 = load ptr, ptr %3, align 8
+  %71 = getelementptr inbounds %struct.Decl_, ptr %70, i32 0, i32 8
   %72 = load ptr, ptr %71, align 8
-  br label %75
+  %73 = load ptr, ptr %72, align 8
+  br label %77
 
-73:                                               ; preds = %62
-  %74 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 1), align 8
-  br label %75
+74:                                               ; preds = %63
+  %75 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8
+  br label %77
 
-75:                                               ; preds = %73, %68
-  %76 = phi ptr [ %72, %68 ], [ %74, %73 ]
-  store ptr %76, ptr %6, align 8
-  %77 = load ptr, ptr %6, align 8
-  %78 = getelementptr inbounds %struct.Module_, ptr %77, i32 0, i32 1
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp ne ptr %79, null
-  br i1 %80, label %81, label %85
+77:                                               ; preds = %74, %69
+  %78 = phi ptr [ %73, %69 ], [ %76, %74 ]
+  store ptr %78, ptr %6, align 8
+  %79 = load ptr, ptr %6, align 8
+  %80 = getelementptr inbounds %struct.Module_, ptr %79, i32 0, i32 1
+  %81 = load ptr, ptr %80, align 8
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %87
 
-81:                                               ; preds = %75
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds %struct.Module_, ptr %82, i32 0, i32 1
-  %84 = load ptr, ptr %83, align 8
-  br label %91
-
-85:                                               ; preds = %75
-  %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds %struct.Module_, ptr %86, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct.Path_, ptr %88, i32 0, i32 1
-  %90 = load ptr, ptr %89, align 8
-  br label %91
-
-91:                                               ; preds = %85, %81
-  %92 = phi ptr [ %84, %81 ], [ %90, %85 ]
-  store ptr %92, ptr %7, align 8
+83:                                               ; preds = %77
+  %84 = load ptr, ptr %6, align 8
+  %85 = getelementptr inbounds %struct.Module_, ptr %84, i32 0, i32 1
+  %86 = load ptr, ptr %85, align 8
   br label %93
 
-93:                                               ; preds = %115, %91
-  %94 = load ptr, ptr %7, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i32 1
-  store ptr %95, ptr %7, align 8
-  %96 = load i8, ptr %94, align 1
-  store i8 %96, ptr %8, align 1
-  %97 = sext i8 %96 to i32
-  %98 = icmp ne i32 %97, 0
-  br i1 %98, label %99, label %116
+87:                                               ; preds = %77
+  %88 = load ptr, ptr %6, align 8
+  %89 = getelementptr inbounds %struct.Module_, ptr %88, i32 0, i32 0
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds %struct.Path_, ptr %90, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8
+  br label %93
 
-99:                                               ; preds = %93
-  %100 = load i8, ptr %8, align 1
-  %101 = sext i8 %100 to i32
-  switch i32 %101, label %113 [
-    i32 58, label %102
+93:                                               ; preds = %87, %83
+  %94 = phi ptr [ %86, %83 ], [ %92, %87 ]
+  store ptr %94, ptr %7, align 8
+  br label %95
+
+95:                                               ; preds = %117, %93
+  %96 = load ptr, ptr %7, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i32 1
+  store ptr %97, ptr %7, align 8
+  %98 = load i8, ptr %96, align 1
+  store i8 %98, ptr %8, align 1
+  %99 = sext i8 %98 to i32
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %118
+
+101:                                              ; preds = %95
+  %102 = load i8, ptr %8, align 1
+  %103 = sext i8 %102 to i32
+  switch i32 %103, label %115 [
+    i32 58, label %104
   ]
 
-102:                                              ; preds = %99
-  %103 = load ptr, ptr %4, align 8
-  %104 = getelementptr inbounds %struct.Decl_, ptr %103, i32 0, i32 3
-  %105 = load i64, ptr %104, align 8
-  %106 = lshr i64 %105, 28
-  %107 = and i64 %106, 1
-  %108 = trunc i64 %107 to i1
-  %109 = select i1 %108, i32 95, i32 46
-  %110 = trunc i32 %109 to i8
-  call void @scratch_buffer_append_char(i8 noundef signext %110)
-  %111 = load ptr, ptr %7, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i32 1
-  store ptr %112, ptr %7, align 8
-  br label %115
+104:                                              ; preds = %101
+  %105 = load ptr, ptr %4, align 8
+  %106 = getelementptr inbounds %struct.Decl_, ptr %105, i32 0, i32 3
+  %107 = load i64, ptr %106, align 8
+  %108 = lshr i64 %107, 28
+  %109 = and i64 %108, 1
+  %110 = trunc i64 %109 to i1
+  %111 = select i1 %110, i32 95, i32 46
+  %112 = trunc i32 %111 to i8
+  call void @scratch_buffer_append_char(i8 noundef signext %112)
+  %113 = load ptr, ptr %7, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i32 1
+  store ptr %114, ptr %7, align 8
+  br label %117
 
-113:                                              ; preds = %99
-  %114 = load i8, ptr %8, align 1
-  call void @scratch_buffer_append_char(i8 noundef signext %114)
-  br label %115
+115:                                              ; preds = %101
+  %116 = load i8, ptr %8, align 1
+  call void @scratch_buffer_append_char(i8 noundef signext %116)
+  br label %117
 
-115:                                              ; preds = %113, %102
-  br label %93, !llvm.loop !7
+117:                                              ; preds = %115, %104
+  br label %95, !llvm.loop !7
 
-116:                                              ; preds = %93
-  %117 = load ptr, ptr %4, align 8
-  %118 = getelementptr inbounds %struct.Decl_, ptr %117, i32 0, i32 3
-  %119 = load i64, ptr %118, align 8
-  %120 = lshr i64 %119, 28
-  %121 = and i64 %120, 1
-  %122 = trunc i64 %121 to i1
-  %123 = select i1 %122, ptr @.str.43, ptr @.str.44
-  call void @scratch_buffer_append(ptr noundef %123)
-  %124 = load ptr, ptr %5, align 8
-  call void @scratch_buffer_append(ptr noundef %124)
-  %125 = call ptr @scratch_buffer_copy()
-  %126 = load ptr, ptr %4, align 8
-  %127 = getelementptr inbounds %struct.Decl_, ptr %126, i32 0, i32 1
-  store ptr %125, ptr %127, align 8
-  br label %128
+118:                                              ; preds = %95
+  %119 = load ptr, ptr %4, align 8
+  %120 = getelementptr inbounds %struct.Decl_, ptr %119, i32 0, i32 3
+  %121 = load i64, ptr %120, align 8
+  %122 = lshr i64 %121, 28
+  %123 = and i64 %122, 1
+  %124 = trunc i64 %123 to i1
+  %125 = select i1 %124, ptr @.str.43, ptr @.str.44
+  call void @scratch_buffer_append(ptr noundef %125)
+  %126 = load ptr, ptr %5, align 8
+  call void @scratch_buffer_append(ptr noundef %126)
+  %127 = call ptr @scratch_buffer_copy()
+  %128 = load ptr, ptr %4, align 8
+  %129 = getelementptr inbounds %struct.Decl_, ptr %128, i32 0, i32 1
+  store ptr %127, ptr %129, align 8
+  br label %130
 
-128:                                              ; preds = %116, %58, %23, %15
+130:                                              ; preds = %118, %59, %23, %15
   ret void
 }
 

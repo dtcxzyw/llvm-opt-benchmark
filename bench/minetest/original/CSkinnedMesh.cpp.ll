@@ -341,13 +341,15 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !40
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 208
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !43
-  store ptr getelementptr inbounds inrange(-24, 304) ({ [41 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene12CSkinnedMeshE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [41 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene12CSkinnedMeshE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [41 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene12CSkinnedMeshE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [41 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene12CSkinnedMeshE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %SkinningBuffers = getelementptr inbounds i8, ptr %this, i64 8
   %LocalBuffers = getelementptr inbounds i8, ptr %this, i64 16
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  %3 = getelementptr inbounds i8, ptr %this, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i, align 8, !tbaa !6
   %AllJoints = getelementptr inbounds i8, ptr %this, i64 48
   %is_sorted.i4 = getelementptr inbounds i8, ptr %this, i64 72
@@ -7519,8 +7521,10 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !40
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 464
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !43
-  store ptr getelementptr inbounds inrange(-24, 272) ({ [37 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene15SSkinMeshBufferE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [37 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene15SSkinMeshBufferE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [37 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene15SSkinMeshBufferE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [37 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene15SSkinMeshBufferE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %Vertices_Tangents = getelementptr inbounds i8, ptr %this, i64 8
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Vertices_Tangents, i8 0, i64 24, i1 false)
@@ -7542,8 +7546,8 @@ entry:
   %ChangedID_Index = getelementptr inbounds i8, ptr %this, i64 140
   store i32 1, ptr %ChangedID_Index, align 4, !tbaa !314
   %Transformation = getelementptr inbounds i8, ptr %this, i64 144
-  %1 = getelementptr inbounds i8, ptr %this, i64 148
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
+  %3 = getelementptr inbounds i8, ptr %this, i64 148
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, i8 0, i64 56, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 204
   store float 1.000000e+00, ptr %arrayidx.i.i, align 4, !tbaa !27
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %this, i64 184

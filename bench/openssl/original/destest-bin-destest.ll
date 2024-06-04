@@ -391,11 +391,12 @@ if.end13:                                         ; preds = %if.end8
   %arrayidx = getelementptr inbounds [40 x i8], ptr %cbc_out, i64 0, i64 16
   %1 = load i64, ptr %i, align 8
   %sub = sub i64 %1, 16
-  call void @DES_ede3_cbc_encrypt(ptr noundef getelementptr inbounds ([40 x i8], ptr @cbc_data, i64 0, i64 16), ptr noundef %arrayidx, i64 noundef %sub, ptr noundef %ks, ptr noundef %ks2, ptr noundef %ks3, ptr noundef %iv3, i32 noundef 1)
+  %2 = getelementptr inbounds [40 x i8], ptr @cbc_data, i64 0, i64 16
+  call void @DES_ede3_cbc_encrypt(ptr noundef %2, ptr noundef %arrayidx, i64 noundef %sub, ptr noundef %ks, ptr noundef %ks2, ptr noundef %ks3, ptr noundef %iv3, i32 noundef 1)
   %arraydecay17 = getelementptr inbounds [40 x i8], ptr %cbc_out, i64 0, i64 0
-  %2 = load i64, ptr %n, align 8
   %3 = load i64, ptr %n, align 8
-  %call18 = call i32 @test_mem_eq(ptr noundef @.str.24, i32 noundef 432, ptr noundef @.str.34, ptr noundef @.str.41, ptr noundef %arraydecay17, i64 noundef %2, ptr noundef @cbc3_ok, i64 noundef %3)
+  %4 = load i64, ptr %n, align 8
+  %call18 = call i32 @test_mem_eq(ptr noundef @.str.24, i32 noundef 432, ptr noundef @.str.34, ptr noundef @.str.41, ptr noundef %arraydecay17, i64 noundef %3, ptr noundef @cbc3_ok, i64 noundef %4)
   %tobool19 = icmp ne i32 %call18, 0
   br i1 %tobool19, label %if.end21, label %if.then20
 
@@ -408,18 +409,18 @@ if.end21:                                         ; preds = %if.end13
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arraydecay22, ptr align 1 @cbc_iv, i64 8, i1 false)
   %arraydecay23 = getelementptr inbounds [40 x i8], ptr %cbc_out, i64 0, i64 0
   %arraydecay24 = getelementptr inbounds [40 x i8], ptr %cbc_in, i64 0, i64 0
-  %4 = load i64, ptr %i, align 8
-  call void @DES_ede3_cbc_encrypt(ptr noundef %arraydecay23, ptr noundef %arraydecay24, i64 noundef %4, ptr noundef %ks, ptr noundef %ks2, ptr noundef %ks3, ptr noundef %iv3, i32 noundef 0)
-  %arraydecay25 = getelementptr inbounds [40 x i8], ptr %cbc_in, i64 0, i64 0
   %5 = load i64, ptr %i, align 8
+  call void @DES_ede3_cbc_encrypt(ptr noundef %arraydecay23, ptr noundef %arraydecay24, i64 noundef %5, ptr noundef %ks, ptr noundef %ks2, ptr noundef %ks3, ptr noundef %iv3, i32 noundef 0)
+  %arraydecay25 = getelementptr inbounds [40 x i8], ptr %cbc_in, i64 0, i64 0
   %6 = load i64, ptr %i, align 8
-  %call26 = call i32 @test_mem_eq(ptr noundef @.str.24, i32 noundef 438, ptr noundef @.str.36, ptr noundef @.str.37, ptr noundef %arraydecay25, i64 noundef %5, ptr noundef @cbc_data, i64 noundef %6)
+  %7 = load i64, ptr %i, align 8
+  %call26 = call i32 @test_mem_eq(ptr noundef @.str.24, i32 noundef 438, ptr noundef @.str.36, ptr noundef @.str.37, ptr noundef %arraydecay25, i64 noundef %6, ptr noundef @cbc_data, i64 noundef %7)
   store i32 %call26, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end21, %if.then20, %if.then12, %if.then7, %if.then
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
+  %8 = load i32, ptr %retval, align 4
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -684,7 +685,9 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 @cfb_tmp, ptr align 1 @cfb_iv, i64 8, i1 false)
   store i32 0, ptr %n, align 4
   call void @DES_cfb64_encrypt(ptr noundef @plain, ptr noundef @cfb_buf1, i64 noundef 12, ptr noundef %ks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 1)
-  call void @DES_cfb64_encrypt(ptr noundef getelementptr inbounds ([24 x i8], ptr @plain, i64 0, i64 12), ptr noundef getelementptr inbounds ([40 x i8], ptr @cfb_buf1, i64 0, i64 12), i64 noundef 12, ptr noundef %ks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 1)
+  %0 = getelementptr inbounds [24 x i8], ptr @plain, i64 0, i64 12
+  %1 = getelementptr inbounds [40 x i8], ptr @cfb_buf1, i64 0, i64 12
+  call void @DES_cfb64_encrypt(ptr noundef %0, ptr noundef %1, i64 noundef 12, ptr noundef %ks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 1)
   %call2 = call i32 @test_mem_eq(ptr noundef @.str.24, i32 noundef 558, ptr noundef @.str.50, ptr noundef @.str.47, ptr noundef @cfb_cipher64, i64 noundef 24, ptr noundef @cfb_buf1, i64 noundef 24)
   %tobool3 = icmp ne i32 %call2, 0
   br i1 %tobool3, label %if.end5, label %if.then4
@@ -697,7 +700,9 @@ if.end5:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 @cfb_tmp, ptr align 1 @cfb_iv, i64 8, i1 false)
   store i32 0, ptr %n, align 4
   call void @DES_cfb64_encrypt(ptr noundef @cfb_buf1, ptr noundef @cfb_buf2, i64 noundef 17, ptr noundef %ks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 0)
-  call void @DES_cfb64_encrypt(ptr noundef getelementptr inbounds ([40 x i8], ptr @cfb_buf1, i64 0, i64 17), ptr noundef getelementptr inbounds ([40 x i8], ptr @cfb_buf2, i64 0, i64 17), i64 noundef 7, ptr noundef %ks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 0)
+  %2 = getelementptr inbounds [40 x i8], ptr @cfb_buf1, i64 0, i64 17
+  %3 = getelementptr inbounds [40 x i8], ptr @cfb_buf2, i64 0, i64 17
+  call void @DES_cfb64_encrypt(ptr noundef %2, ptr noundef %3, i64 noundef 7, ptr noundef %ks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 0)
   %call6 = call i32 @test_mem_eq(ptr noundef @.str.24, i32 noundef 565, ptr noundef @.str.48, ptr noundef @.str.49, ptr noundef @plain, i64 noundef 24, ptr noundef @cfb_buf2, i64 noundef 24)
   %tobool7 = icmp ne i32 %call6, 0
   br i1 %tobool7, label %if.end9, label %if.then8
@@ -712,21 +717,21 @@ if.end9:                                          ; preds = %if.end5
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end9
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 24
+  %4 = load i64, ptr %i, align 8
+  %cmp = icmp ult i64 %4, 24
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %1 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [24 x i8], ptr @plain, i64 0, i64 %1
-  %2 = load i64, ptr %i, align 8
-  %arrayidx10 = getelementptr inbounds [40 x i8], ptr @cfb_buf1, i64 0, i64 %2
+  %5 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds [24 x i8], ptr @plain, i64 0, i64 %5
+  %6 = load i64, ptr %i, align 8
+  %arrayidx10 = getelementptr inbounds [40 x i8], ptr @cfb_buf1, i64 0, i64 %6
   call void @DES_cfb_encrypt(ptr noundef %arrayidx, ptr noundef %arrayidx10, i32 noundef 8, i64 noundef 1, ptr noundef %ks, ptr noundef @cfb_tmp, i32 noundef 1)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %3 = load i64, ptr %i, align 8
-  %inc = add i64 %3, 1
+  %7 = load i64, ptr %i, align 8
+  %inc = add i64 %7, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !5
 
@@ -745,21 +750,21 @@ if.end14:                                         ; preds = %for.end
   br label %for.cond15
 
 for.cond15:                                       ; preds = %for.inc20, %if.end14
-  %4 = load i64, ptr %i, align 8
-  %cmp16 = icmp ult i64 %4, 24
+  %8 = load i64, ptr %i, align 8
+  %cmp16 = icmp ult i64 %8, 24
   br i1 %cmp16, label %for.body17, label %for.end22
 
 for.body17:                                       ; preds = %for.cond15
-  %5 = load i64, ptr %i, align 8
-  %arrayidx18 = getelementptr inbounds [40 x i8], ptr @cfb_buf1, i64 0, i64 %5
-  %6 = load i64, ptr %i, align 8
-  %arrayidx19 = getelementptr inbounds [40 x i8], ptr @cfb_buf2, i64 0, i64 %6
+  %9 = load i64, ptr %i, align 8
+  %arrayidx18 = getelementptr inbounds [40 x i8], ptr @cfb_buf1, i64 0, i64 %9
+  %10 = load i64, ptr %i, align 8
+  %arrayidx19 = getelementptr inbounds [40 x i8], ptr @cfb_buf2, i64 0, i64 %10
   call void @DES_cfb_encrypt(ptr noundef %arrayidx18, ptr noundef %arrayidx19, i32 noundef 8, i64 noundef 1, ptr noundef %ks, ptr noundef @cfb_tmp, i32 noundef 0)
   br label %for.inc20
 
 for.inc20:                                        ; preds = %for.body17
-  %7 = load i64, ptr %i, align 8
-  %inc21 = add i64 %7, 1
+  %11 = load i64, ptr %i, align 8
+  %inc21 = add i64 %11, 1
   store i64 %inc21, ptr %i, align 8
   br label %for.cond15, !llvm.loop !7
 
@@ -769,8 +774,8 @@ for.end22:                                        ; preds = %for.cond15
   br label %return
 
 return:                                           ; preds = %for.end22, %if.then13, %if.then8, %if.then4, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+  %12 = load i32, ptr %retval, align 4
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -783,7 +788,9 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 @cfb_tmp, ptr align 1 @cfb_iv, i64 8, i1 false)
   store i32 0, ptr %n, align 4
   call void @DES_ede3_cfb64_encrypt(ptr noundef @plain, ptr noundef @cfb_buf1, i64 noundef 12, ptr noundef %ks, ptr noundef %ks, ptr noundef %ks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 1)
-  call void @DES_ede3_cfb64_encrypt(ptr noundef getelementptr inbounds ([24 x i8], ptr @plain, i64 0, i64 12), ptr noundef getelementptr inbounds ([40 x i8], ptr @cfb_buf1, i64 0, i64 12), i64 noundef 12, ptr noundef %ks, ptr noundef %ks, ptr noundef %ks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 1)
+  %0 = getelementptr inbounds [24 x i8], ptr @plain, i64 0, i64 12
+  %1 = getelementptr inbounds [40 x i8], ptr @cfb_buf1, i64 0, i64 12
+  call void @DES_ede3_cfb64_encrypt(ptr noundef %0, ptr noundef %1, i64 noundef 12, ptr noundef %ks, ptr noundef %ks, ptr noundef %ks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 1)
   %call1 = call i32 @test_mem_eq(ptr noundef @.str.24, i32 noundef 594, ptr noundef @.str.50, ptr noundef @.str.47, ptr noundef @cfb_cipher64, i64 noundef 24, ptr noundef @cfb_buf1, i64 noundef 24)
   %tobool = icmp ne i32 %call1, 0
   br i1 %tobool, label %if.end, label %if.then
@@ -796,14 +803,16 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 @cfb_tmp, ptr align 1 @cfb_iv, i64 8, i1 false)
   store i32 0, ptr %n, align 4
   call void @DES_ede3_cfb64_encrypt(ptr noundef @cfb_buf1, ptr noundef @cfb_buf2, i64 noundef 17, ptr noundef %ks, ptr noundef %ks, ptr noundef %ks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 0)
-  call void @DES_ede3_cfb64_encrypt(ptr noundef getelementptr inbounds ([40 x i8], ptr @cfb_buf1, i64 0, i64 17), ptr noundef getelementptr inbounds ([40 x i8], ptr @cfb_buf2, i64 0, i64 17), i64 noundef 7, ptr noundef %ks, ptr noundef %ks, ptr noundef %ks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 0)
+  %2 = getelementptr inbounds [40 x i8], ptr @cfb_buf1, i64 0, i64 17
+  %3 = getelementptr inbounds [40 x i8], ptr @cfb_buf2, i64 0, i64 17
+  call void @DES_ede3_cfb64_encrypt(ptr noundef %2, ptr noundef %3, i64 noundef 7, ptr noundef %ks, ptr noundef %ks, ptr noundef %ks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 0)
   %call2 = call i32 @test_mem_eq(ptr noundef @.str.24, i32 noundef 602, ptr noundef @.str.48, ptr noundef @.str.49, ptr noundef @plain, i64 noundef 24, ptr noundef @cfb_buf2, i64 noundef 24)
   store i32 %call2, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %0 = load i32, ptr %retval, align 4
-  ret i32 %0
+  %4 = load i32, ptr %retval, align 4
+  ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable

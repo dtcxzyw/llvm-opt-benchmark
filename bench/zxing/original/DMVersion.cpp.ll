@@ -41,59 +41,60 @@ define noundef ptr @_ZN5ZXing10DataMatrix20VersionForDimensionsEii(i32 noundef %
 
 23:                                               ; preds = %20, %17, %13, %2
   store ptr null, ptr %3, align 8
-  br label %49
+  br label %50
 
 24:                                               ; preds = %20
   store ptr @_ZZN5ZXing10DataMatrix20VersionForDimensionsEiiE11allVersions, ptr %6, align 8
   store ptr @_ZZN5ZXing10DataMatrix20VersionForDimensionsEiiE11allVersions, ptr %7, align 8
-  store ptr getelementptr inbounds (%"class.ZXing::DataMatrix::Version", ptr @_ZZN5ZXing10DataMatrix20VersionForDimensionsEiiE11allVersions, i64 48), ptr %8, align 8
-  br label %25
+  %25 = getelementptr inbounds %"class.ZXing::DataMatrix::Version", ptr @_ZZN5ZXing10DataMatrix20VersionForDimensionsEiiE11allVersions, i64 48
+  store ptr %25, ptr %8, align 8
+  br label %26
 
-25:                                               ; preds = %45, %24
-  %26 = load ptr, ptr %7, align 8
-  %27 = load ptr, ptr %8, align 8
-  %28 = icmp ne ptr %26, %27
-  br i1 %28, label %29, label %48
+26:                                               ; preds = %46, %24
+  %27 = load ptr, ptr %7, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = icmp ne ptr %27, %28
+  br i1 %29, label %30, label %49
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %7, align 8
-  store ptr %30, ptr %9, align 8
-  %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds %"class.ZXing::DataMatrix::Version", ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 4
-  %34 = load i32, ptr %4, align 4
-  %35 = icmp eq i32 %33, %34
-  br i1 %35, label %36, label %44
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %7, align 8
+  store ptr %31, ptr %9, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds %"class.ZXing::DataMatrix::Version", ptr %32, i32 0, i32 1
+  %34 = load i32, ptr %33, align 4
+  %35 = load i32, ptr %4, align 4
+  %36 = icmp eq i32 %34, %35
+  br i1 %36, label %37, label %45
 
-36:                                               ; preds = %29
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %"class.ZXing::DataMatrix::Version", ptr %37, i32 0, i32 2
-  %39 = load i32, ptr %38, align 4
-  %40 = load i32, ptr %5, align 4
-  %41 = icmp eq i32 %39, %40
-  br i1 %41, label %42, label %44
+37:                                               ; preds = %30
+  %38 = load ptr, ptr %9, align 8
+  %39 = getelementptr inbounds %"class.ZXing::DataMatrix::Version", ptr %38, i32 0, i32 2
+  %40 = load i32, ptr %39, align 4
+  %41 = load i32, ptr %5, align 4
+  %42 = icmp eq i32 %40, %41
+  br i1 %42, label %43, label %45
 
-42:                                               ; preds = %36
-  %43 = load ptr, ptr %9, align 8
-  store ptr %43, ptr %3, align 8
-  br label %49
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %9, align 8
+  store ptr %44, ptr %3, align 8
+  br label %50
 
-44:                                               ; preds = %36, %29
-  br label %45
+45:                                               ; preds = %37, %30
+  br label %46
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds %"class.ZXing::DataMatrix::Version", ptr %46, i32 1
-  store ptr %47, ptr %7, align 8
-  br label %25
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %7, align 8
+  %48 = getelementptr inbounds %"class.ZXing::DataMatrix::Version", ptr %47, i32 1
+  store ptr %48, ptr %7, align 8
+  br label %26
 
-48:                                               ; preds = %25
+49:                                               ; preds = %26
   store ptr null, ptr %3, align 8
-  br label %49
+  br label %50
 
-49:                                               ; preds = %48, %42, %23
-  %50 = load ptr, ptr %3, align 8
-  ret ptr %50
+50:                                               ; preds = %49, %43, %23
+  %51 = load ptr, ptr %3, align 8
+  ret ptr %51
 }
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -18578,10 +18578,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %k, ptr %k.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %kind = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %k.addr, align 4
-  store i32 %0, ptr %kind, align 8
+  %1 = load i32, ptr %k.addr, align 4
+  store i32 %1, ptr %kind, align 8
   %states = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN3ue26dstateESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %states) #16
   %start_anchored = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 3

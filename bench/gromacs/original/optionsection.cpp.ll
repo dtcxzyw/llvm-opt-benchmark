@@ -171,7 +171,8 @@ define internal void @_ZN3gmx12_GLOBAL__N_120OptionSectionStorageC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx21IOptionSectionStorageC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_120OptionSectionStorageE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_120OptionSectionStorageE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -203,7 +204,8 @@ define linkonce_odr void @_ZN3gmx21IOptionSectionStorageC2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx21IOptionSectionStorageE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx21IOptionSectionStorageE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

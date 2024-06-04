@@ -1137,31 +1137,32 @@ if.end40:                                         ; preds = %if.end39, %land.lhs
 
 if.then42:                                        ; preds = %if.end40
   %48 = load ptr, ptr %created_dirty_bitmaps, align 8
-  call void @g_slist_foreach(ptr noundef %48, ptr noundef @set_readonly_helper, ptr noundef inttoptr (i64 1 to ptr))
+  %49 = inttoptr i64 1 to ptr
+  call void @g_slist_foreach(ptr noundef %48, ptr noundef @set_readonly_helper, ptr noundef %49)
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then42, %if.end40
-  %49 = load ptr, ptr %created_dirty_bitmaps, align 8
-  call void @g_slist_free(ptr noundef %49)
-  %50 = load ptr, ptr %bm_list, align 8
-  call void @bitmap_list_free(ptr noundef %50)
+  %50 = load ptr, ptr %created_dirty_bitmaps, align 8
+  call void @g_slist_free(ptr noundef %50)
+  %51 = load ptr, ptr %bm_list, align 8
+  call void @bitmap_list_free(ptr noundef %51)
   store i1 true, ptr %retval, align 1
   br label %return
 
 fail:                                             ; preds = %if.then35, %if.then14
-  %51 = load ptr, ptr %created_dirty_bitmaps, align 8
-  %52 = load ptr, ptr %bs.addr, align 8
-  call void @g_slist_foreach(ptr noundef %51, ptr noundef @release_dirty_bitmap_helper, ptr noundef %52)
-  %53 = load ptr, ptr %created_dirty_bitmaps, align 8
-  call void @g_slist_free(ptr noundef %53)
-  %54 = load ptr, ptr %bm_list, align 8
-  call void @bitmap_list_free(ptr noundef %54)
+  %52 = load ptr, ptr %created_dirty_bitmaps, align 8
+  %53 = load ptr, ptr %bs.addr, align 8
+  call void @g_slist_foreach(ptr noundef %52, ptr noundef @release_dirty_bitmap_helper, ptr noundef %53)
+  %54 = load ptr, ptr %created_dirty_bitmaps, align 8
+  call void @g_slist_free(ptr noundef %54)
+  %55 = load ptr, ptr %bm_list, align 8
+  call void @bitmap_list_free(ptr noundef %55)
   store i1 false, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %fail, %if.end43, %if.then4, %if.then1
-  %55 = load i1, ptr %retval, align 1
-  ret i1 %55
+  %56 = load i1, ptr %retval, align 1
+  ret i1 %56
 }
 
 declare ptr @bdrv_find_dirty_bitmap(ptr noundef, ptr noundef) #1

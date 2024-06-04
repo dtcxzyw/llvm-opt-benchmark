@@ -815,32 +815,33 @@ define void @_ZN3gmx26AbstractCompositeHelpTopicC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN3gmx10IHelpTopicC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx26AbstractCompositeHelpTopicE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::AbstractCompositeHelpTopic", ptr %5, i32 0, i32 1
-  %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #13
-          to label %8 unwind label %9
-
-8:                                                ; preds = %1
-  call void @_ZN3gmx26AbstractCompositeHelpTopic4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #11
-  call void @_ZNSt10unique_ptrIN3gmx26AbstractCompositeHelpTopic4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7) #11
-  ret void
+  %6 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx26AbstractCompositeHelpTopicE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::AbstractCompositeHelpTopic", ptr %5, i32 0, i32 1
+  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #13
+          to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
-          cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  call void @_ZN3gmx10IHelpTopicD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  br label %13
+  call void @_ZN3gmx26AbstractCompositeHelpTopic4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #11
+  call void @_ZNSt10unique_ptrIN3gmx26AbstractCompositeHelpTopic4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8) #11
+  ret void
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
+  call void @_ZN3gmx10IHelpTopicD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  br label %14
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -848,7 +849,8 @@ define linkonce_odr void @_ZN3gmx10IHelpTopicC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx10IHelpTopicE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx10IHelpTopicE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1209,9 +1211,10 @@ define void @_ZN3gmx26AbstractCompositeHelpTopicD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx26AbstractCompositeHelpTopicE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::AbstractCompositeHelpTopic", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN3gmx26AbstractCompositeHelpTopic4ImplESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx26AbstractCompositeHelpTopicE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::AbstractCompositeHelpTopic", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN3gmx26AbstractCompositeHelpTopic4ImplESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
   call void @_ZN3gmx10IHelpTopicD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }

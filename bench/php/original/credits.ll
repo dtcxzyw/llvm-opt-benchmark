@@ -202,87 +202,90 @@ define void @php_print_credits(i32 noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store i32 %0, ptr %2, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %7 = icmp ne i32 %6, 0
-  br i1 %7, label %13, label %8
+  %6 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %14, label %9
 
-8:                                                ; preds = %1
-  %9 = load i32, ptr %2, align 4
-  %10 = and i32 %9, 32
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %13
+9:                                                ; preds = %1
+  %10 = load i32, ptr %2, align 4
+  %11 = and i32 %10, 32
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %8
+13:                                               ; preds = %9
   call void @php_print_info_htmlhead()
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12, %8, %1
-  %14 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %23, label %16
+14:                                               ; preds = %13, %9, %1
+  %15 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %25, label %18
 
-16:                                               ; preds = %13
-  br label %17
+18:                                               ; preds = %14
+  br label %19
 
-17:                                               ; preds = %16
+19:                                               ; preds = %18
   store ptr @.str, ptr %3, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = load ptr, ptr %3, align 8
-  %20 = call i64 @strlen(ptr noundef %19) #3
-  %21 = call i64 @php_output_write(ptr noundef %18, i64 noundef %20)
-  br label %22
-
-22:                                               ; preds = %17
-  br label %30
-
-23:                                               ; preds = %13
+  %20 = load ptr, ptr %3, align 8
+  %21 = load ptr, ptr %3, align 8
+  %22 = call i64 @strlen(ptr noundef %21) #3
+  %23 = call i64 @php_output_write(ptr noundef %20, i64 noundef %22)
   br label %24
 
-24:                                               ; preds = %23
+24:                                               ; preds = %19
+  br label %32
+
+25:                                               ; preds = %14
+  br label %26
+
+26:                                               ; preds = %25
   store ptr @.str.1, ptr %4, align 8
-  %25 = load ptr, ptr %4, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = call i64 @strlen(ptr noundef %26) #3
-  %28 = call i64 @php_output_write(ptr noundef %25, i64 noundef %27)
-  br label %29
+  %27 = load ptr, ptr %4, align 8
+  %28 = load ptr, ptr %4, align 8
+  %29 = call i64 @strlen(ptr noundef %28) #3
+  %30 = call i64 @php_output_write(ptr noundef %27, i64 noundef %29)
+  br label %31
 
-29:                                               ; preds = %24
-  br label %30
+31:                                               ; preds = %26
+  br label %32
 
-30:                                               ; preds = %29, %22
-  %31 = load i32, ptr %2, align 4
-  %32 = and i32 %31, 1
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %35
+32:                                               ; preds = %31, %24
+  %33 = load i32, ptr %2, align 4
+  %34 = and i32 %33, 1
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %37
 
-34:                                               ; preds = %30
+36:                                               ; preds = %32
   call void @php_info_print_table_start()
   call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef @.str.2)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 1, ptr noundef @.str.3)
   call void @php_info_print_table_end()
-  br label %35
+  br label %37
 
-35:                                               ; preds = %34, %30
-  %36 = load i32, ptr %2, align 4
-  %37 = and i32 %36, 2
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %45
+37:                                               ; preds = %36, %32
+  %38 = load i32, ptr %2, align 4
+  %39 = and i32 %38, 2
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %48
 
-39:                                               ; preds = %35
+41:                                               ; preds = %37
   call void @php_info_print_table_start()
-  %40 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %43, label %42
+  %42 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %46, label %45
 
-42:                                               ; preds = %39
+45:                                               ; preds = %41
   call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef @.str.4)
-  br label %44
+  br label %47
 
-43:                                               ; preds = %39
+46:                                               ; preds = %41
   call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef @.str.5)
-  br label %44
+  br label %47
 
-44:                                               ; preds = %43, %42
+47:                                               ; preds = %46, %45
   call void (i32, ...) @php_info_print_table_row(i32 noundef 1, ptr noundef @.str.6)
   call void @php_info_print_table_end()
   call void @php_info_print_table_start()
@@ -298,15 +301,15 @@ define void @php_print_credits(i32 noundef %0) #0 {
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.24, ptr noundef @.str.25)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.26, ptr noundef @.str.27)
   call void @php_info_print_table_end()
-  br label %45
+  br label %48
 
-45:                                               ; preds = %44, %35
-  %46 = load i32, ptr %2, align 4
-  %47 = and i32 %46, 4
-  %48 = icmp ne i32 %47, 0
-  br i1 %48, label %49, label %50
+48:                                               ; preds = %47, %37
+  %49 = load i32, ptr %2, align 4
+  %50 = and i32 %49, 4
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %53
 
-49:                                               ; preds = %45
+52:                                               ; preds = %48
   call void @php_info_print_table_start()
   call void @php_info_print_table_colspan_header(i32 noundef 2, ptr noundef @.str.28)
   call void (i32, ...) @php_info_print_table_header(i32 noundef 2, ptr noundef @.str.8, ptr noundef @.str.9)
@@ -318,15 +321,15 @@ define void @php_print_credits(i32 noundef %0) #0 {
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.39, ptr noundef @.str.40)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.41, ptr noundef @.str.42)
   call void @php_info_print_table_end()
-  br label %50
+  br label %53
 
-50:                                               ; preds = %49, %45
-  %51 = load i32, ptr %2, align 4
-  %52 = and i32 %51, 8
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %54, label %55
+53:                                               ; preds = %52, %48
+  %54 = load i32, ptr %2, align 4
+  %55 = and i32 %54, 8
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %58
 
-54:                                               ; preds = %50
+57:                                               ; preds = %53
   call void @php_info_print_table_start()
   call void @php_info_print_table_colspan_header(i32 noundef 2, ptr noundef @.str.43)
   call void (i32, ...) @php_info_print_table_header(i32 noundef 2, ptr noundef @.str.44, ptr noundef @.str.9)
@@ -396,15 +399,15 @@ define void @php_print_credits(i32 noundef %0) #0 {
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.166, ptr noundef @.str.167)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.168, ptr noundef @.str.169)
   call void @php_info_print_table_end()
-  br label %55
+  br label %58
 
-55:                                               ; preds = %54, %50
-  %56 = load i32, ptr %2, align 4
-  %57 = and i32 %56, 16
-  %58 = icmp ne i32 %57, 0
-  br i1 %58, label %59, label %60
+58:                                               ; preds = %57, %53
+  %59 = load i32, ptr %2, align 4
+  %60 = and i32 %59, 16
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %63
 
-59:                                               ; preds = %55
+62:                                               ; preds = %58
   call void @php_info_print_table_start()
   call void @php_info_print_table_colspan_header(i32 noundef 2, ptr noundef @.str.170)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.9, ptr noundef @.str.171)
@@ -412,28 +415,28 @@ define void @php_print_credits(i32 noundef %0) #0 {
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.174, ptr noundef @.str.175)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.176, ptr noundef @.str.177)
   call void @php_info_print_table_end()
-  br label %60
+  br label %63
 
-60:                                               ; preds = %59, %55
-  %61 = load i32, ptr %2, align 4
-  %62 = and i32 %61, 64
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %64, label %65
+63:                                               ; preds = %62, %58
+  %64 = load i32, ptr %2, align 4
+  %65 = and i32 %64, 64
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %68
 
-64:                                               ; preds = %60
+67:                                               ; preds = %63
   call void @php_info_print_table_start()
   call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef @.str.178)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 1, ptr noundef @.str.179)
   call void @php_info_print_table_end()
-  br label %65
+  br label %68
 
-65:                                               ; preds = %64, %60
-  %66 = load i32, ptr %2, align 4
-  %67 = and i32 %66, 128
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %70
+68:                                               ; preds = %67, %63
+  %69 = load i32, ptr %2, align 4
+  %70 = and i32 %69, 128
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %73
 
-69:                                               ; preds = %65
+72:                                               ; preds = %68
   call void @php_info_print_table_start()
   call void @php_info_print_table_colspan_header(i32 noundef 2, ptr noundef @.str.180)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.181, ptr noundef @.str.182)
@@ -441,34 +444,35 @@ define void @php_print_credits(i32 noundef %0) #0 {
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.185, ptr noundef @.str.186)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.187, ptr noundef @.str.188)
   call void @php_info_print_table_end()
-  br label %70
+  br label %73
 
-70:                                               ; preds = %69, %65
-  %71 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %84, label %73
-
-73:                                               ; preds = %70
-  %74 = load i32, ptr %2, align 4
-  %75 = and i32 %74, 32
+73:                                               ; preds = %72, %68
+  %74 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %75 = load i32, ptr %74, align 8
   %76 = icmp ne i32 %75, 0
-  br i1 %76, label %77, label %84
+  br i1 %76, label %88, label %77
 
 77:                                               ; preds = %73
-  br label %78
+  %78 = load i32, ptr %2, align 4
+  %79 = and i32 %78, 32
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %88
 
-78:                                               ; preds = %77
+81:                                               ; preds = %77
+  br label %82
+
+82:                                               ; preds = %81
   store ptr @.str.189, ptr %5, align 8
-  %79 = load ptr, ptr %5, align 8
-  %80 = load ptr, ptr %5, align 8
-  %81 = call i64 @strlen(ptr noundef %80) #3
-  %82 = call i64 @php_output_write(ptr noundef %79, i64 noundef %81)
-  br label %83
+  %83 = load ptr, ptr %5, align 8
+  %84 = load ptr, ptr %5, align 8
+  %85 = call i64 @strlen(ptr noundef %84) #3
+  %86 = call i64 @php_output_write(ptr noundef %83, i64 noundef %85)
+  br label %87
 
-83:                                               ; preds = %78
-  br label %84
+87:                                               ; preds = %82
+  br label %88
 
-84:                                               ; preds = %83, %73, %70
+88:                                               ; preds = %87, %77, %73
   ret void
 }
 

@@ -123,7 +123,7 @@ define i32 @mca_common_monitoring_init() #0 {
 
 5:                                                ; preds = %0
   store i32 -1, ptr %1, align 4
-  br label %20
+  br label %21
 
 6:                                                ; preds = %0
   %7 = call i32 @opal_atomic_add_fetch_32(ptr noundef @mca_common_monitoring_hold, i32 noundef 1)
@@ -132,7 +132,7 @@ define i32 @mca_common_monitoring_init() #0 {
 
 9:                                                ; preds = %6
   store i32 0, ptr %1, align 4
-  br label %20
+  br label %21
 
 10:                                               ; preds = %6
   %11 = call double @log10(double noundef 2.000000e+00) #8
@@ -141,19 +141,20 @@ define i32 @mca_common_monitoring_init() #0 {
   store ptr %12, ptr %2, align 8
   %13 = load ptr, ptr %2, align 8
   %14 = call i32 @getpid() #8
-  %15 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef getelementptr inbounds (%struct.opal_output_stream_t, ptr @mca_common_monitoring_output_stream_obj, i32 0, i32 4), ptr noundef @.str, ptr noundef %13, i32 noundef %14)
-  %16 = call i32 @opal_output_open(ptr noundef @mca_common_monitoring_output_stream_obj)
-  store i32 %16, ptr @mca_common_monitoring_output_stream_id, align 4
-  %17 = call ptr @opal_obj_new(ptr noundef @opal_hash_table_t_class)
-  store ptr %17, ptr @ompi_common_monitoring_translation_ht, align 8
-  %18 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
-  %19 = call i32 @opal_hash_table_init(ptr noundef %18, i64 noundef 2048)
+  %15 = getelementptr inbounds %struct.opal_output_stream_t, ptr @mca_common_monitoring_output_stream_obj, i32 0, i32 4
+  %16 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %15, ptr noundef @.str, ptr noundef %13, i32 noundef %14)
+  %17 = call i32 @opal_output_open(ptr noundef @mca_common_monitoring_output_stream_obj)
+  store i32 %17, ptr @mca_common_monitoring_output_stream_id, align 4
+  %18 = call ptr @opal_obj_new(ptr noundef @opal_hash_table_t_class)
+  store ptr %18, ptr @ompi_common_monitoring_translation_ht, align 8
+  %19 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
+  %20 = call i32 @opal_hash_table_init(ptr noundef %19, i64 noundef 2048)
   store i32 0, ptr %1, align 4
-  br label %20
+  br label %21
 
-20:                                               ; preds = %10, %9, %5
-  %21 = load i32, ptr %1, align 4
-  ret i32 %21
+21:                                               ; preds = %10, %9, %5
+  %22 = load i32, ptr %1, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -180,17 +181,19 @@ declare double @log10(double noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @opal_gethostname() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %2 = icmp eq ptr null, %1
-  br i1 %2, label %3, label %5
+  %1 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp eq ptr null, %2
+  br i1 %3, label %4, label %6
 
-3:                                                ; preds = %0
-  %4 = call i32 @opal_init_gethostname()
-  br label %5
+4:                                                ; preds = %0
+  %5 = call i32 @opal_init_gethostname()
+  br label %6
 
-5:                                                ; preds = %3, %0
-  %6 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  ret ptr %6
+6:                                                ; preds = %4, %0
+  %7 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
 }
 
 declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) #2
@@ -260,7 +263,7 @@ define void @mca_common_monitoring_finalize() #0 {
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5, %0
-  br label %34
+  br label %35
 
 9:                                                ; preds = %5
   %10 = load i32, ptr @mca_common_monitoring_output_enabled, align 4
@@ -269,49 +272,50 @@ define void @mca_common_monitoring_finalize() #0 {
   store i32 0, ptr @mca_common_monitoring_enabled, align 4
   %13 = load i32, ptr @mca_common_monitoring_output_stream_id, align 4
   call void @opal_output_close(i32 noundef %13)
-  %14 = load ptr, ptr getelementptr inbounds (%struct.opal_output_stream_t, ptr @mca_common_monitoring_output_stream_obj, i32 0, i32 4), align 8
-  call void @free(ptr noundef %14) #8
-  %15 = load ptr, ptr @pml_data, align 8
+  %14 = getelementptr inbounds %struct.opal_output_stream_t, ptr @mca_common_monitoring_output_stream_obj, i32 0, i32 4
+  %15 = load ptr, ptr %14, align 8
   call void @free(ptr noundef %15) #8
-  %16 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
-  %17 = call i32 @opal_hash_table_remove_all(ptr noundef %16)
-  br label %18
+  %16 = load ptr, ptr @pml_data, align 8
+  call void @free(ptr noundef %16) #8
+  %17 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
+  %18 = call i32 @opal_hash_table_remove_all(ptr noundef %17)
+  br label %19
 
-18:                                               ; preds = %9
-  %19 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
-  store ptr %19, ptr %1, align 8
+19:                                               ; preds = %9
+  %20 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
+  store ptr %20, ptr %1, align 8
   store i32 -1, ptr %2, align 4
-  %20 = load ptr, ptr %1, align 8
-  %21 = getelementptr inbounds %struct.opal_object_t, ptr %20, i32 0, i32 1
-  %22 = load i32, ptr %2, align 4
-  %23 = call i32 @opal_thread_add_fetch_32(ptr noundef %21, i32 noundef %22)
-  %24 = icmp eq i32 0, %23
-  br i1 %24, label %25, label %28
+  %21 = load ptr, ptr %1, align 8
+  %22 = getelementptr inbounds %struct.opal_object_t, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %2, align 4
+  %24 = call i32 @opal_thread_add_fetch_32(ptr noundef %22, i32 noundef %23)
+  %25 = icmp eq i32 0, %24
+  br i1 %25, label %26, label %29
 
-25:                                               ; preds = %18
-  %26 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
-  call void @opal_obj_run_destructors(ptr noundef %26)
+26:                                               ; preds = %19
   %27 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
-  call void @free(ptr noundef %27) #8
+  call void @opal_obj_run_destructors(ptr noundef %27)
+  %28 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
+  call void @free(ptr noundef %28) #8
   store ptr null, ptr @ompi_common_monitoring_translation_ht, align 8
-  br label %28
-
-28:                                               ; preds = %25, %18
   br label %29
 
-29:                                               ; preds = %28
+29:                                               ; preds = %26, %19
+  br label %30
+
+30:                                               ; preds = %29
   call void @mca_common_monitoring_coll_finalize()
-  %30 = load ptr, ptr @mca_common_monitoring_current_filename, align 8
-  %31 = icmp ne ptr null, %30
-  br i1 %31, label %32, label %34
+  %31 = load ptr, ptr @mca_common_monitoring_current_filename, align 8
+  %32 = icmp ne ptr null, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr @mca_common_monitoring_current_filename, align 8
-  call void @free(ptr noundef %33) #8
+33:                                               ; preds = %30
+  %34 = load ptr, ptr @mca_common_monitoring_current_filename, align 8
+  call void @free(ptr noundef %34) #8
   store ptr null, ptr @mca_common_monitoring_current_filename, align 8
-  br label %34
+  br label %35
 
-34:                                               ; preds = %32, %29, %8
+35:                                               ; preds = %33, %30, %8
   ret void
 }
 
@@ -1388,11 +1392,11 @@ define i32 @mca_common_monitoring_add_procs(ptr noundef %0, i64 noundef %1) #0 {
   store i64 0, ptr %8, align 8
   br label %73
 
-73:                                               ; preds = %137, %72
+73:                                               ; preds = %138, %72
   %74 = load i64, ptr %8, align 8
   %75 = load i64, ptr %5, align 8
   %76 = icmp ult i64 %74, %75
-  br i1 %76, label %77, label %140
+  br i1 %76, label %77, label %141
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr %4, align 8
@@ -1435,75 +1439,76 @@ define i32 @mca_common_monitoring_add_procs(ptr noundef %0, i64 noundef %1) #0 {
   br i1 %105, label %106, label %107
 
 106:                                              ; preds = %97
-  br label %137
+  br label %138
 
 107:                                              ; preds = %97
   store i32 0, ptr %9, align 4
   br label %108
 
-108:                                              ; preds = %133, %107
+108:                                              ; preds = %134, %107
   %109 = load i32, ptr %9, align 4
   %110 = load i32, ptr @nprocs_world, align 4
   %111 = icmp slt i32 %109, %110
-  br i1 %111, label %112, label %136
+  br i1 %111, label %112, label %137
 
 112:                                              ; preds = %108
-  %113 = load ptr, ptr getelementptr inbounds (%struct.ompi_communicator_t, ptr @ompi_mpi_comm_world, i32 0, i32 14), align 8
-  %114 = load i32, ptr %9, align 4
-  %115 = call i64 @ompi_group_get_proc_name(ptr noundef %113, i32 noundef %114)
-  store i64 %115, ptr %13, align 4
+  %113 = getelementptr inbounds %struct.ompi_communicator_t, ptr @ompi_mpi_comm_world, i32 0, i32 14
+  %114 = load ptr, ptr %113, align 8
+  %115 = load i32, ptr %9, align 4
+  %116 = call i64 @ompi_group_get_proc_name(ptr noundef %114, i32 noundef %115)
+  store i64 %116, ptr %13, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %13, i64 8, i1 false)
-  %116 = load ptr, ptr @opal_compare_proc, align 8
-  %117 = load i64, ptr %6, align 4
-  %118 = load i64, ptr %7, align 4
-  %119 = call i32 %116(i64 %117, i64 %118)
-  %120 = icmp ne i32 0, %119
-  br i1 %120, label %121, label %122
-
-121:                                              ; preds = %112
-  br label %133
+  %117 = load ptr, ptr @opal_compare_proc, align 8
+  %118 = load i64, ptr %6, align 4
+  %119 = load i64, ptr %7, align 4
+  %120 = call i32 %117(i64 %118, i64 %119)
+  %121 = icmp ne i32 0, %120
+  br i1 %121, label %122, label %123
 
 122:                                              ; preds = %112
-  %123 = load i64, ptr %6, align 4
-  store i64 %123, ptr %10, align 8
-  %124 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
-  %125 = load i64, ptr %10, align 8
-  %126 = load i32, ptr %9, align 4
-  %127 = sext i32 %126 to i64
-  %128 = inttoptr i64 %127 to ptr
-  %129 = call i32 @opal_hash_table_set_value_uint64(ptr noundef %124, i64 noundef %125, ptr noundef %128)
-  %130 = icmp ne i32 0, %129
-  br i1 %130, label %131, label %132
+  br label %134
 
-131:                                              ; preds = %122
+123:                                              ; preds = %112
+  %124 = load i64, ptr %6, align 4
+  store i64 %124, ptr %10, align 8
+  %125 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
+  %126 = load i64, ptr %10, align 8
+  %127 = load i32, ptr %9, align 4
+  %128 = sext i32 %127 to i64
+  %129 = inttoptr i64 %128 to ptr
+  %130 = call i32 @opal_hash_table_set_value_uint64(ptr noundef %125, i64 noundef %126, ptr noundef %129)
+  %131 = icmp ne i32 0, %130
+  br i1 %131, label %132, label %133
+
+132:                                              ; preds = %123
   store i32 -2, ptr %3, align 4
-  br label %141
+  br label %142
 
-132:                                              ; preds = %122
-  br label %136
-
-133:                                              ; preds = %121
-  %134 = load i32, ptr %9, align 4
-  %135 = add nsw i32 %134, 1
-  store i32 %135, ptr %9, align 4
-  br label %108, !llvm.loop !14
-
-136:                                              ; preds = %132, %108
+133:                                              ; preds = %123
   br label %137
 
-137:                                              ; preds = %136, %106
-  %138 = load i64, ptr %8, align 8
-  %139 = add i64 %138, 1
-  store i64 %139, ptr %8, align 8
+134:                                              ; preds = %122
+  %135 = load i32, ptr %9, align 4
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %9, align 4
+  br label %108, !llvm.loop !14
+
+137:                                              ; preds = %133, %108
+  br label %138
+
+138:                                              ; preds = %137, %106
+  %139 = load i64, ptr %8, align 8
+  %140 = add i64 %139, 1
+  store i64 %140, ptr %8, align 8
   br label %73, !llvm.loop !15
 
-140:                                              ; preds = %73
+141:                                              ; preds = %73
   store i32 0, ptr %3, align 4
-  br label %141
+  br label %142
 
-141:                                              ; preds = %140, %131
-  %142 = load i32, ptr %3, align 4
-  ret i32 %142
+142:                                              ; preds = %141, %132
+  %143 = load i32, ptr %3, align 4
+  ret i32 %143
 }
 
 ; Function Attrs: nounwind uwtable

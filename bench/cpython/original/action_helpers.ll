@@ -970,7 +970,8 @@ define hidden ptr @_PyPegen_dummy_name(ptr noundef %p, ...) #0 {
 entry:
   %p.addr = alloca ptr, align 8
   store ptr %p, ptr %p.addr, align 8
-  ret ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 19, i32 1)
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 19, i32 1
+  ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4476,7 +4477,7 @@ entry:
   store i64 %end_col_offset, ptr %end_col_offset.addr, align 8
   store ptr %errmsg, ptr %errmsg.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load i64, ptr %col_offset.addr, align 8
   %cmp = icmp eq i64 %0, -5
   br i1 %cmp, label %cond.true, label %cond.false
@@ -4517,7 +4518,7 @@ cond.end5:                                        ; preds = %cond.false3, %cond.
   %arraydecay7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
   %call = call ptr @_PyPegen_raise_error_known_location(ptr noundef %4, ptr noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, ptr noundef %10, ptr noundef %arraydecay7)
   %arraydecay8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay8)
+  call void @llvm.va_end.p0(ptr %arraydecay8)
   ret ptr null
 }
 
@@ -8574,13 +8575,7 @@ entry:
   ret ptr %1
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
 declare ptr @_PyPegen_raise_error_known_location(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 declare ptr @PyUnicode_AsUTF8(ptr noundef) #1
 
@@ -8682,6 +8677,12 @@ entry:
   %bf.clear = and i32 %bf.lshr, 1
   ret i32 %bf.clear
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

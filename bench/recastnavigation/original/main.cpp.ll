@@ -341,92 +341,99 @@ define internal void @__cxx_global_var_init() #4 section ".text.startup" persona
   store ptr @_ZL9g_samples, ptr %1, align 8
   store ptr @_Z10createSolov, ptr @_ZL9g_samples, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.SampleItem, ptr @_ZL9g_samples, i32 0, i32 1), ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %2)
-          to label %8 unwind label %12
+  %8 = getelementptr inbounds %struct.SampleItem, ptr @_ZL9g_samples, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %2)
+          to label %9 unwind label %19
 
-8:                                                ; preds = %0
-  store ptr getelementptr inbounds (%struct.SampleItem, ptr @_ZL9g_samples, i64 1), ptr %1, align 8
-  store ptr @_Z10createTilev, ptr getelementptr inbounds (%struct.SampleItem, ptr @_ZL9g_samples, i64 1), align 8
+9:                                                ; preds = %0
+  %10 = getelementptr inbounds %struct.SampleItem, ptr @_ZL9g_samples, i64 1
+  store ptr %10, ptr %1, align 8
+  %11 = getelementptr inbounds %struct.SampleItem, ptr @_ZL9g_samples, i64 1
+  store ptr @_Z10createTilev, ptr %11, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.SampleItem, ptr @_ZL9g_samples, i64 1, i32 1), ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %9 unwind label %16
+  %12 = getelementptr inbounds %struct.SampleItem, ptr @_ZL9g_samples, i64 1, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %13 unwind label %23
 
-9:                                                ; preds = %8
-  store ptr getelementptr inbounds (%struct.SampleItem, ptr @_ZL9g_samples, i64 2), ptr %1, align 8
-  store ptr @_Z18createTempObstaclev, ptr getelementptr inbounds (%struct.SampleItem, ptr @_ZL9g_samples, i64 2), align 8
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds %struct.SampleItem, ptr @_ZL9g_samples, i64 2
+  store ptr %14, ptr %1, align 8
+  %15 = getelementptr inbounds %struct.SampleItem, ptr @_ZL9g_samples, i64 2
+  store ptr @_Z18createTempObstaclev, ptr %15, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.SampleItem, ptr @_ZL9g_samples, i64 2, i32 1), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %10 unwind label %20
+  %16 = getelementptr inbounds %struct.SampleItem, ptr @_ZL9g_samples, i64 2, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %6)
+          to label %17 unwind label %27
 
-10:                                               ; preds = %9
+17:                                               ; preds = %13
   store i1 false, ptr %7, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #7
-  %11 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #7
+  %18 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #7
   ret void
 
-12:                                               ; preds = %0
-  %13 = landingpad { ptr, i32 }
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %3, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %4, align 4
-  br label %25
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %3, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %4, align 4
+  br label %32
 
-16:                                               ; preds = %8
-  %17 = landingpad { ptr, i32 }
+23:                                               ; preds = %9
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %3, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %4, align 4
-  br label %24
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %3, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %4, align 4
+  br label %31
 
-20:                                               ; preds = %9
-  %21 = landingpad { ptr, i32 }
+27:                                               ; preds = %13
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %3, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %4, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %3, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %4, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
-  br label %24
+  br label %31
 
-24:                                               ; preds = %20, %16
+31:                                               ; preds = %27, %23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #7
-  br label %25
+  br label %32
 
-25:                                               ; preds = %24, %12
+32:                                               ; preds = %31, %19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #7
-  %26 = load i1, ptr %7, align 1
-  br i1 %26, label %27, label %35
+  %33 = load i1, ptr %7, align 1
+  br i1 %33, label %34, label %42
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %1, align 8
-  %29 = icmp eq ptr @_ZL9g_samples, %28
-  br i1 %29, label %34, label %30
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %1, align 8
+  %36 = icmp eq ptr @_ZL9g_samples, %35
+  br i1 %36, label %41, label %37
 
-30:                                               ; preds = %30, %27
-  %31 = phi ptr [ %28, %27 ], [ %32, %30 ]
-  %32 = getelementptr inbounds %struct.SampleItem, ptr %31, i64 -1
-  call void @_ZN10SampleItemD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %32) #7
-  %33 = icmp eq ptr %32, @_ZL9g_samples
-  br i1 %33, label %34, label %30
+37:                                               ; preds = %37, %34
+  %38 = phi ptr [ %35, %34 ], [ %39, %37 ]
+  %39 = getelementptr inbounds %struct.SampleItem, ptr %38, i64 -1
+  call void @_ZN10SampleItemD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %39) #7
+  %40 = icmp eq ptr %39, @_ZL9g_samples
+  br i1 %40, label %41, label %37
 
-34:                                               ; preds = %30, %27
-  br label %35
+41:                                               ; preds = %37, %34
+  br label %42
 
-35:                                               ; preds = %34, %25
-  br label %36
+42:                                               ; preds = %41, %32
+  br label %43
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %3, align 8
-  %38 = load i32, ptr %4, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %3, align 8
+  %45 = load i32, ptr %4, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
 }
 
 ; Function Attrs: nounwind
@@ -511,16 +518,17 @@ define linkonce_odr dso_local void @_ZN10SampleItemD2Ev(ptr noundef nonnull alig
 define internal void @__cxx_global_array_dtor(ptr noundef %0) #4 section ".text.startup" {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  br label %3
+  %3 = getelementptr inbounds %struct.SampleItem, ptr @_ZL9g_samples, i64 3
+  br label %4
 
-3:                                                ; preds = %3, %1
-  %4 = phi ptr [ getelementptr inbounds (%struct.SampleItem, ptr @_ZL9g_samples, i64 3), %1 ], [ %5, %3 ]
-  %5 = getelementptr inbounds %struct.SampleItem, ptr %4, i64 -1
-  call void @_ZN10SampleItemD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #7
-  %6 = icmp eq ptr %5, @_ZL9g_samples
-  br i1 %6, label %7, label %3
+4:                                                ; preds = %4, %1
+  %5 = phi ptr [ %3, %1 ], [ %6, %4 ]
+  %6 = getelementptr inbounds %struct.SampleItem, ptr %5, i64 -1
+  call void @_ZN10SampleItemD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #7
+  %7 = icmp eq ptr %6, @_ZL9g_samples
+  br i1 %7, label %8, label %4
 
-7:                                                ; preds = %3
+8:                                                ; preds = %4
   ret void
 }
 

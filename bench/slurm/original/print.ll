@@ -54,46 +54,49 @@ define dso_local i32 @print_jobs_array(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %6 = load i8, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 4), align 4
-  %7 = trunc i8 %6 to i1
-  br i1 %7, label %11, label %8
+  %6 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 4
+  %7 = load i8, ptr %6, align 4
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %12, label %9
 
-8:                                                ; preds = %2
-  %9 = load ptr, ptr %5, align 8
-  %10 = call i32 @print_job_from_format(ptr noundef null, ptr noundef %9)
-  br label %11
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %5, align 8
+  %11 = call i32 @print_job_from_format(ptr noundef null, ptr noundef %10)
+  br label %12
 
-11:                                               ; preds = %8, %2
-  %12 = load i8, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 7), align 1
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %17
+12:                                               ; preds = %9, %2
+  %13 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 7
+  %14 = load i8, ptr %13, align 1
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %20
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr %5, align 8
-  %16 = call i32 @print_job_from_format(ptr noundef inttoptr (i64 -1 to ptr), ptr noundef %15)
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = inttoptr i64 -1 to ptr
+  %19 = call i32 @print_job_from_format(ptr noundef %18, ptr noundef %17)
   store i32 0, ptr %3, align 4
-  br label %26
+  br label %29
 
-17:                                               ; preds = %11
-  %18 = load ptr, ptr %4, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %25
-
-20:                                               ; preds = %17
+20:                                               ; preds = %12
   %21 = load ptr, ptr %4, align 8
-  call void @sort_job_list(ptr noundef %21)
-  %22 = load ptr, ptr %4, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = call i32 @list_for_each(ptr noundef %22, ptr noundef @print_job_from_format, ptr noundef %23)
-  br label %25
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %28
 
-25:                                               ; preds = %20, %17
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %4, align 8
+  call void @sort_job_list(ptr noundef %24)
+  %25 = load ptr, ptr %4, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = call i32 @list_for_each(ptr noundef %25, ptr noundef @print_job_from_format, ptr noundef %26)
+  br label %28
+
+28:                                               ; preds = %23, %20
   store i32 0, ptr %3, align 4
-  br label %26
+  br label %29
 
-26:                                               ; preds = %25, %14
-  %27 = load i32, ptr %3, align 4
-  ret i32 %27
+29:                                               ; preds = %28, %16
+  %30 = load i32, ptr %3, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -359,44 +362,45 @@ define dso_local i32 @_print_account(ptr noundef %0, i32 noundef %1, i1 noundef 
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   %16 = call i32 @_print_str(ptr noundef @.str.2, i32 noundef %13, i1 noundef zeroext %15, i1 noundef zeroext true)
-  br label %34
+  br label %35
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %5, align 8
-  %19 = icmp eq ptr %18, inttoptr (i64 -1 to ptr)
-  br i1 %19, label %20, label %25
+  %19 = inttoptr i64 -1 to ptr
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %21, label %26
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr %6, align 4
-  %22 = load i8, ptr %7, align 1
-  %23 = trunc i8 %22 to i1
-  %24 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %21, i1 noundef zeroext %23, i1 noundef zeroext true)
-  br label %33
-
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.priority_factors_object, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = load i8, ptr %7, align 1
-  %31 = trunc i8 %30 to i1
-  %32 = call i32 @_print_str(ptr noundef %28, i32 noundef %29, i1 noundef zeroext %31, i1 noundef zeroext true)
-  br label %33
-
-33:                                               ; preds = %25, %20
+21:                                               ; preds = %17
+  %22 = load i32, ptr %6, align 4
+  %23 = load i8, ptr %7, align 1
+  %24 = trunc i8 %23 to i1
+  %25 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %22, i1 noundef zeroext %24, i1 noundef zeroext true)
   br label %34
 
-34:                                               ; preds = %33, %12
-  %35 = load ptr, ptr %8, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %40
+26:                                               ; preds = %17
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %struct.priority_factors_object, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr %6, align 4
+  %31 = load i8, ptr %7, align 1
+  %32 = trunc i8 %31 to i1
+  %33 = call i32 @_print_str(ptr noundef %29, i32 noundef %30, i1 noundef zeroext %32, i1 noundef zeroext true)
+  br label %34
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %8, align 8
-  %39 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %38)
-  br label %40
+34:                                               ; preds = %26, %21
+  br label %35
 
-40:                                               ; preds = %37, %34
+35:                                               ; preds = %34, %12
+  %36 = load ptr, ptr %8, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %41
+
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %8, align 8
+  %40 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %39)
+  br label %41
+
+41:                                               ; preds = %38, %35
   ret i32 0
 }
 
@@ -577,47 +581,48 @@ define dso_local i32 @_print_job_job_id(ptr noundef %0, i32 noundef %1, i1 nound
   %15 = load i8, ptr %7, align 1
   %16 = trunc i8 %15 to i1
   %17 = call i32 @_print_str(ptr noundef @.str.5, i32 noundef %14, i1 noundef zeroext %16, i1 noundef zeroext true)
-  br label %38
+  br label %39
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %5, align 8
-  %20 = icmp eq ptr %19, inttoptr (i64 -1 to ptr)
-  br i1 %20, label %21, label %26
+  %20 = inttoptr i64 -1 to ptr
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %22, label %27
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr %6, align 4
-  %23 = load i8, ptr %7, align 1
-  %24 = trunc i8 %23 to i1
-  %25 = call i32 @_print_str(ptr noundef @.str.6, i32 noundef %22, i1 noundef zeroext %24, i1 noundef zeroext true)
-  br label %37
-
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.priority_factors_object, ptr %28, i32 0, i32 3
-  %30 = load i32, ptr %29, align 8
-  %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %27, i64 noundef 32, ptr noundef @.str.7, i32 noundef %30) #4
-  %32 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
-  %33 = load i32, ptr %6, align 4
-  %34 = load i8, ptr %7, align 1
-  %35 = trunc i8 %34 to i1
-  %36 = call i32 @_print_str(ptr noundef %32, i32 noundef %33, i1 noundef zeroext %35, i1 noundef zeroext true)
-  br label %37
-
-37:                                               ; preds = %26, %21
+22:                                               ; preds = %18
+  %23 = load i32, ptr %6, align 4
+  %24 = load i8, ptr %7, align 1
+  %25 = trunc i8 %24 to i1
+  %26 = call i32 @_print_str(ptr noundef @.str.6, i32 noundef %23, i1 noundef zeroext %25, i1 noundef zeroext true)
   br label %38
 
-38:                                               ; preds = %37, %13
-  %39 = load ptr, ptr %8, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %44
+27:                                               ; preds = %18
+  %28 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct.priority_factors_object, ptr %29, i32 0, i32 3
+  %31 = load i32, ptr %30, align 8
+  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %28, i64 noundef 32, ptr noundef @.str.7, i32 noundef %31) #4
+  %33 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
+  %34 = load i32, ptr %6, align 4
+  %35 = load i8, ptr %7, align 1
+  %36 = trunc i8 %35 to i1
+  %37 = call i32 @_print_str(ptr noundef %33, i32 noundef %34, i1 noundef zeroext %36, i1 noundef zeroext true)
+  br label %38
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %8, align 8
-  %43 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %42)
-  br label %44
+38:                                               ; preds = %27, %22
+  br label %39
 
-44:                                               ; preds = %41, %38
+39:                                               ; preds = %38, %13
+  %40 = load ptr, ptr %8, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %45
+
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %8, align 8
+  %44 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %43)
+  br label %45
+
+45:                                               ; preds = %42, %39
   ret i32 0
 }
 
@@ -670,81 +675,82 @@ define dso_local i32 @_print_age_priority_normalized(ptr noundef %0, i32 noundef
   %16 = load i8, ptr %7, align 1
   %17 = trunc i8 %16 to i1
   %18 = call i32 @_print_str(ptr noundef @.str.8, i32 noundef %15, i1 noundef zeroext %17, i1 noundef zeroext true)
-  br label %60
+  br label %61
 
 19:                                               ; preds = %4
   %20 = load ptr, ptr %5, align 8
-  %21 = icmp eq ptr %20, inttoptr (i64 -1 to ptr)
-  br i1 %21, label %22, label %29
+  %21 = inttoptr i64 -1 to ptr
+  %22 = icmp eq ptr %20, %21
+  br i1 %22, label %23, label %30
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr @weight_age, align 4
-  %24 = uitofp i32 %23 to double
-  %25 = load i32, ptr %6, align 4
-  %26 = load i8, ptr %7, align 1
-  %27 = trunc i8 %26 to i1
-  %28 = call i32 @_print_int(double noundef %24, i32 noundef %25, i1 noundef zeroext %27, i1 noundef zeroext true)
-  br label %59
-
-29:                                               ; preds = %19
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.priority_factors_object, ptr %30, i32 0, i32 2
-  %32 = load double, ptr %31, align 8
-  %33 = fcmp ogt double %32, 0.000000e+00
-  br i1 %33, label %34, label %39
-
-34:                                               ; preds = %29
-  %35 = load i32, ptr %6, align 4
-  %36 = load i8, ptr %7, align 1
-  %37 = trunc i8 %36 to i1
-  %38 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %35, i1 noundef zeroext %37, i1 noundef zeroext true)
-  br label %58
-
-39:                                               ; preds = %29
-  store double 0.000000e+00, ptr %9, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.priority_factors_object, ptr %40, i32 0, i32 5
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %10, align 8
-  %43 = load i32, ptr @weight_age, align 4
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %45, label %52
-
-45:                                               ; preds = %39
-  %46 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds %struct.priority_factors_t, ptr %46, i32 0, i32 1
-  %48 = load double, ptr %47, align 8
-  %49 = load i32, ptr @weight_age, align 4
-  %50 = uitofp i32 %49 to double
-  %51 = fdiv double %48, %50
-  store double %51, ptr %9, align 8
-  br label %52
-
-52:                                               ; preds = %45, %39
-  %53 = load double, ptr %9, align 8
-  %54 = load i32, ptr %6, align 4
-  %55 = load i8, ptr %7, align 1
-  %56 = trunc i8 %55 to i1
-  %57 = call i32 @_print_norm(double noundef %53, i32 noundef %54, i1 noundef zeroext %56, i1 noundef zeroext true)
-  br label %58
-
-58:                                               ; preds = %52, %34
-  br label %59
-
-59:                                               ; preds = %58, %22
+23:                                               ; preds = %19
+  %24 = load i32, ptr @weight_age, align 4
+  %25 = uitofp i32 %24 to double
+  %26 = load i32, ptr %6, align 4
+  %27 = load i8, ptr %7, align 1
+  %28 = trunc i8 %27 to i1
+  %29 = call i32 @_print_int(double noundef %25, i32 noundef %26, i1 noundef zeroext %28, i1 noundef zeroext true)
   br label %60
 
-60:                                               ; preds = %59, %14
-  %61 = load ptr, ptr %8, align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %63, label %66
+30:                                               ; preds = %19
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds %struct.priority_factors_object, ptr %31, i32 0, i32 2
+  %33 = load double, ptr %32, align 8
+  %34 = fcmp ogt double %33, 0.000000e+00
+  br i1 %34, label %35, label %40
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr %8, align 8
-  %65 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %64)
-  br label %66
+35:                                               ; preds = %30
+  %36 = load i32, ptr %6, align 4
+  %37 = load i8, ptr %7, align 1
+  %38 = trunc i8 %37 to i1
+  %39 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %36, i1 noundef zeroext %38, i1 noundef zeroext true)
+  br label %59
 
-66:                                               ; preds = %63, %60
+40:                                               ; preds = %30
+  store double 0.000000e+00, ptr %9, align 8
+  %41 = load ptr, ptr %5, align 8
+  %42 = getelementptr inbounds %struct.priority_factors_object, ptr %41, i32 0, i32 5
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %10, align 8
+  %44 = load i32, ptr @weight_age, align 4
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %53
+
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %10, align 8
+  %48 = getelementptr inbounds %struct.priority_factors_t, ptr %47, i32 0, i32 1
+  %49 = load double, ptr %48, align 8
+  %50 = load i32, ptr @weight_age, align 4
+  %51 = uitofp i32 %50 to double
+  %52 = fdiv double %49, %51
+  store double %52, ptr %9, align 8
+  br label %53
+
+53:                                               ; preds = %46, %40
+  %54 = load double, ptr %9, align 8
+  %55 = load i32, ptr %6, align 4
+  %56 = load i8, ptr %7, align 1
+  %57 = trunc i8 %56 to i1
+  %58 = call i32 @_print_norm(double noundef %54, i32 noundef %55, i1 noundef zeroext %57, i1 noundef zeroext true)
+  br label %59
+
+59:                                               ; preds = %53, %35
+  br label %60
+
+60:                                               ; preds = %59, %23
+  br label %61
+
+61:                                               ; preds = %60, %14
+  %62 = load ptr, ptr %8, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %67
+
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %8, align 8
+  %66 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %65)
+  br label %67
+
+67:                                               ; preds = %64, %61
   ret i32 0
 }
 
@@ -820,65 +826,66 @@ define dso_local i32 @_print_age_priority_weighted(ptr noundef %0, i32 noundef %
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   %16 = call i32 @_print_str(ptr noundef @.str.8, i32 noundef %13, i1 noundef zeroext %15, i1 noundef zeroext true)
-  br label %49
+  br label %50
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %5, align 8
-  %19 = icmp eq ptr %18, inttoptr (i64 -1 to ptr)
-  br i1 %19, label %20, label %27
+  %19 = inttoptr i64 -1 to ptr
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %21, label %28
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr @weight_age, align 4
-  %22 = uitofp i32 %21 to double
-  %23 = load i32, ptr %6, align 4
-  %24 = load i8, ptr %7, align 1
-  %25 = trunc i8 %24 to i1
-  %26 = call i32 @_print_int(double noundef %22, i32 noundef %23, i1 noundef zeroext %25, i1 noundef zeroext true)
-  br label %48
-
-27:                                               ; preds = %17
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.priority_factors_object, ptr %28, i32 0, i32 2
-  %30 = load double, ptr %29, align 8
-  %31 = fcmp ogt double %30, 0.000000e+00
-  br i1 %31, label %32, label %37
-
-32:                                               ; preds = %27
-  %33 = load i32, ptr %6, align 4
-  %34 = load i8, ptr %7, align 1
-  %35 = trunc i8 %34 to i1
-  %36 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %33, i1 noundef zeroext %35, i1 noundef zeroext true)
-  br label %47
-
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.priority_factors_object, ptr %38, i32 0, i32 5
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.priority_factors_t, ptr %40, i32 0, i32 1
-  %42 = load double, ptr %41, align 8
-  %43 = load i32, ptr %6, align 4
-  %44 = load i8, ptr %7, align 1
-  %45 = trunc i8 %44 to i1
-  %46 = call i32 @_print_int(double noundef %42, i32 noundef %43, i1 noundef zeroext %45, i1 noundef zeroext true)
-  br label %47
-
-47:                                               ; preds = %37, %32
-  br label %48
-
-48:                                               ; preds = %47, %20
+21:                                               ; preds = %17
+  %22 = load i32, ptr @weight_age, align 4
+  %23 = uitofp i32 %22 to double
+  %24 = load i32, ptr %6, align 4
+  %25 = load i8, ptr %7, align 1
+  %26 = trunc i8 %25 to i1
+  %27 = call i32 @_print_int(double noundef %23, i32 noundef %24, i1 noundef zeroext %26, i1 noundef zeroext true)
   br label %49
 
-49:                                               ; preds = %48, %12
-  %50 = load ptr, ptr %8, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %55
+28:                                               ; preds = %17
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct.priority_factors_object, ptr %29, i32 0, i32 2
+  %31 = load double, ptr %30, align 8
+  %32 = fcmp ogt double %31, 0.000000e+00
+  br i1 %32, label %33, label %38
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %8, align 8
-  %54 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %53)
-  br label %55
+33:                                               ; preds = %28
+  %34 = load i32, ptr %6, align 4
+  %35 = load i8, ptr %7, align 1
+  %36 = trunc i8 %35 to i1
+  %37 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %34, i1 noundef zeroext %36, i1 noundef zeroext true)
+  br label %48
 
-55:                                               ; preds = %52, %49
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds %struct.priority_factors_object, ptr %39, i32 0, i32 5
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.priority_factors_t, ptr %41, i32 0, i32 1
+  %43 = load double, ptr %42, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = load i8, ptr %7, align 1
+  %46 = trunc i8 %45 to i1
+  %47 = call i32 @_print_int(double noundef %43, i32 noundef %44, i1 noundef zeroext %46, i1 noundef zeroext true)
+  br label %48
+
+48:                                               ; preds = %38, %33
+  br label %49
+
+49:                                               ; preds = %48, %21
+  br label %50
+
+50:                                               ; preds = %49, %12
+  %51 = load ptr, ptr %8, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %56
+
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %8, align 8
+  %55 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %54)
+  br label %56
+
+56:                                               ; preds = %53, %50
   ret i32 0
 }
 
@@ -903,79 +910,80 @@ define dso_local i32 @_print_assoc_priority_normalized(ptr noundef %0, i32 nound
   %15 = load i8, ptr %7, align 1
   %16 = trunc i8 %15 to i1
   %17 = call i32 @_print_str(ptr noundef @.str.9, i32 noundef %14, i1 noundef zeroext %16, i1 noundef zeroext true)
-  br label %58
+  br label %59
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %5, align 8
-  %20 = icmp eq ptr %19, inttoptr (i64 -1 to ptr)
-  br i1 %20, label %21, label %28
+  %20 = inttoptr i64 -1 to ptr
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %22, label %29
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr @weight_assoc, align 4
-  %23 = uitofp i32 %22 to double
-  %24 = load i32, ptr %6, align 4
-  %25 = load i8, ptr %7, align 1
-  %26 = trunc i8 %25 to i1
-  %27 = call i32 @_print_int(double noundef %23, i32 noundef %24, i1 noundef zeroext %26, i1 noundef zeroext true)
-  br label %57
-
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.priority_factors_object, ptr %29, i32 0, i32 2
-  %31 = load double, ptr %30, align 8
-  %32 = fcmp ogt double %31, 0.000000e+00
-  br i1 %32, label %33, label %38
-
-33:                                               ; preds = %28
-  %34 = load i32, ptr %6, align 4
-  %35 = load i8, ptr %7, align 1
-  %36 = trunc i8 %35 to i1
-  %37 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %34, i1 noundef zeroext %36, i1 noundef zeroext true)
-  br label %56
-
-38:                                               ; preds = %28
-  store double 0.000000e+00, ptr %9, align 8
-  %39 = load i32, ptr @weight_assoc, align 4
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %50
-
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.priority_factors_object, ptr %42, i32 0, i32 5
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.priority_factors_t, ptr %44, i32 0, i32 2
-  %46 = load double, ptr %45, align 8
-  %47 = load i32, ptr @weight_assoc, align 4
-  %48 = uitofp i32 %47 to double
-  %49 = fdiv double %46, %48
-  store double %49, ptr %9, align 8
-  br label %50
-
-50:                                               ; preds = %41, %38
-  %51 = load double, ptr %9, align 8
-  %52 = load i32, ptr %6, align 4
-  %53 = load i8, ptr %7, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = call i32 @_print_norm(double noundef %51, i32 noundef %52, i1 noundef zeroext %54, i1 noundef zeroext true)
-  br label %56
-
-56:                                               ; preds = %50, %33
-  br label %57
-
-57:                                               ; preds = %56, %21
+22:                                               ; preds = %18
+  %23 = load i32, ptr @weight_assoc, align 4
+  %24 = uitofp i32 %23 to double
+  %25 = load i32, ptr %6, align 4
+  %26 = load i8, ptr %7, align 1
+  %27 = trunc i8 %26 to i1
+  %28 = call i32 @_print_int(double noundef %24, i32 noundef %25, i1 noundef zeroext %27, i1 noundef zeroext true)
   br label %58
 
-58:                                               ; preds = %57, %13
-  %59 = load ptr, ptr %8, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %61, label %64
+29:                                               ; preds = %18
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct.priority_factors_object, ptr %30, i32 0, i32 2
+  %32 = load double, ptr %31, align 8
+  %33 = fcmp ogt double %32, 0.000000e+00
+  br i1 %33, label %34, label %39
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %8, align 8
-  %63 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %62)
-  br label %64
+34:                                               ; preds = %29
+  %35 = load i32, ptr %6, align 4
+  %36 = load i8, ptr %7, align 1
+  %37 = trunc i8 %36 to i1
+  %38 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %35, i1 noundef zeroext %37, i1 noundef zeroext true)
+  br label %57
 
-64:                                               ; preds = %61, %58
+39:                                               ; preds = %29
+  store double 0.000000e+00, ptr %9, align 8
+  %40 = load i32, ptr @weight_assoc, align 4
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %51
+
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds %struct.priority_factors_object, ptr %43, i32 0, i32 5
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct.priority_factors_t, ptr %45, i32 0, i32 2
+  %47 = load double, ptr %46, align 8
+  %48 = load i32, ptr @weight_assoc, align 4
+  %49 = uitofp i32 %48 to double
+  %50 = fdiv double %47, %49
+  store double %50, ptr %9, align 8
+  br label %51
+
+51:                                               ; preds = %42, %39
+  %52 = load double, ptr %9, align 8
+  %53 = load i32, ptr %6, align 4
+  %54 = load i8, ptr %7, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = call i32 @_print_norm(double noundef %52, i32 noundef %53, i1 noundef zeroext %55, i1 noundef zeroext true)
+  br label %57
+
+57:                                               ; preds = %51, %34
+  br label %58
+
+58:                                               ; preds = %57, %22
+  br label %59
+
+59:                                               ; preds = %58, %13
+  %60 = load ptr, ptr %8, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %65
+
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %8, align 8
+  %64 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %63)
+  br label %65
+
+65:                                               ; preds = %62, %59
   ret i32 0
 }
 
@@ -999,65 +1007,66 @@ define dso_local i32 @_print_assoc_priority_weighted(ptr noundef %0, i32 noundef
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   %16 = call i32 @_print_str(ptr noundef @.str.9, i32 noundef %13, i1 noundef zeroext %15, i1 noundef zeroext true)
-  br label %49
+  br label %50
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %5, align 8
-  %19 = icmp eq ptr %18, inttoptr (i64 -1 to ptr)
-  br i1 %19, label %20, label %27
+  %19 = inttoptr i64 -1 to ptr
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %21, label %28
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr @weight_assoc, align 4
-  %22 = uitofp i32 %21 to double
-  %23 = load i32, ptr %6, align 4
-  %24 = load i8, ptr %7, align 1
-  %25 = trunc i8 %24 to i1
-  %26 = call i32 @_print_int(double noundef %22, i32 noundef %23, i1 noundef zeroext %25, i1 noundef zeroext true)
-  br label %48
-
-27:                                               ; preds = %17
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.priority_factors_object, ptr %28, i32 0, i32 2
-  %30 = load double, ptr %29, align 8
-  %31 = fcmp ogt double %30, 0.000000e+00
-  br i1 %31, label %32, label %37
-
-32:                                               ; preds = %27
-  %33 = load i32, ptr %6, align 4
-  %34 = load i8, ptr %7, align 1
-  %35 = trunc i8 %34 to i1
-  %36 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %33, i1 noundef zeroext %35, i1 noundef zeroext true)
-  br label %47
-
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.priority_factors_object, ptr %38, i32 0, i32 5
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.priority_factors_t, ptr %40, i32 0, i32 2
-  %42 = load double, ptr %41, align 8
-  %43 = load i32, ptr %6, align 4
-  %44 = load i8, ptr %7, align 1
-  %45 = trunc i8 %44 to i1
-  %46 = call i32 @_print_int(double noundef %42, i32 noundef %43, i1 noundef zeroext %45, i1 noundef zeroext true)
-  br label %47
-
-47:                                               ; preds = %37, %32
-  br label %48
-
-48:                                               ; preds = %47, %20
+21:                                               ; preds = %17
+  %22 = load i32, ptr @weight_assoc, align 4
+  %23 = uitofp i32 %22 to double
+  %24 = load i32, ptr %6, align 4
+  %25 = load i8, ptr %7, align 1
+  %26 = trunc i8 %25 to i1
+  %27 = call i32 @_print_int(double noundef %23, i32 noundef %24, i1 noundef zeroext %26, i1 noundef zeroext true)
   br label %49
 
-49:                                               ; preds = %48, %12
-  %50 = load ptr, ptr %8, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %55
+28:                                               ; preds = %17
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct.priority_factors_object, ptr %29, i32 0, i32 2
+  %31 = load double, ptr %30, align 8
+  %32 = fcmp ogt double %31, 0.000000e+00
+  br i1 %32, label %33, label %38
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %8, align 8
-  %54 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %53)
-  br label %55
+33:                                               ; preds = %28
+  %34 = load i32, ptr %6, align 4
+  %35 = load i8, ptr %7, align 1
+  %36 = trunc i8 %35 to i1
+  %37 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %34, i1 noundef zeroext %36, i1 noundef zeroext true)
+  br label %48
 
-55:                                               ; preds = %52, %49
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds %struct.priority_factors_object, ptr %39, i32 0, i32 5
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.priority_factors_t, ptr %41, i32 0, i32 2
+  %43 = load double, ptr %42, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = load i8, ptr %7, align 1
+  %46 = trunc i8 %45 to i1
+  %47 = call i32 @_print_int(double noundef %43, i32 noundef %44, i1 noundef zeroext %46, i1 noundef zeroext true)
+  br label %48
+
+48:                                               ; preds = %38, %33
+  br label %49
+
+49:                                               ; preds = %48, %21
+  br label %50
+
+50:                                               ; preds = %49, %12
+  %51 = load ptr, ptr %8, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %56
+
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %8, align 8
+  %55 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %54)
+  br label %56
+
+56:                                               ; preds = %53, %50
   ret i32 0
 }
 
@@ -1128,79 +1137,80 @@ define dso_local i32 @_print_fs_priority_normalized(ptr noundef %0, i32 noundef 
   %15 = load i8, ptr %7, align 1
   %16 = trunc i8 %15 to i1
   %17 = call i32 @_print_str(ptr noundef @.str.11, i32 noundef %14, i1 noundef zeroext %16, i1 noundef zeroext true)
-  br label %58
+  br label %59
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %5, align 8
-  %20 = icmp eq ptr %19, inttoptr (i64 -1 to ptr)
-  br i1 %20, label %21, label %28
+  %20 = inttoptr i64 -1 to ptr
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %22, label %29
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr @weight_fs, align 4
-  %23 = uitofp i32 %22 to double
-  %24 = load i32, ptr %6, align 4
-  %25 = load i8, ptr %7, align 1
-  %26 = trunc i8 %25 to i1
-  %27 = call i32 @_print_int(double noundef %23, i32 noundef %24, i1 noundef zeroext %26, i1 noundef zeroext true)
-  br label %57
-
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.priority_factors_object, ptr %29, i32 0, i32 2
-  %31 = load double, ptr %30, align 8
-  %32 = fcmp ogt double %31, 0.000000e+00
-  br i1 %32, label %33, label %38
-
-33:                                               ; preds = %28
-  %34 = load i32, ptr %6, align 4
-  %35 = load i8, ptr %7, align 1
-  %36 = trunc i8 %35 to i1
-  %37 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %34, i1 noundef zeroext %36, i1 noundef zeroext true)
-  br label %56
-
-38:                                               ; preds = %28
-  store double 0.000000e+00, ptr %9, align 8
-  %39 = load i32, ptr @weight_fs, align 4
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %50
-
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.priority_factors_object, ptr %42, i32 0, i32 5
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.priority_factors_t, ptr %44, i32 0, i32 3
-  %46 = load double, ptr %45, align 8
-  %47 = load i32, ptr @weight_fs, align 4
-  %48 = uitofp i32 %47 to double
-  %49 = fdiv double %46, %48
-  store double %49, ptr %9, align 8
-  br label %50
-
-50:                                               ; preds = %41, %38
-  %51 = load double, ptr %9, align 8
-  %52 = load i32, ptr %6, align 4
-  %53 = load i8, ptr %7, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = call i32 @_print_norm(double noundef %51, i32 noundef %52, i1 noundef zeroext %54, i1 noundef zeroext true)
-  br label %56
-
-56:                                               ; preds = %50, %33
-  br label %57
-
-57:                                               ; preds = %56, %21
+22:                                               ; preds = %18
+  %23 = load i32, ptr @weight_fs, align 4
+  %24 = uitofp i32 %23 to double
+  %25 = load i32, ptr %6, align 4
+  %26 = load i8, ptr %7, align 1
+  %27 = trunc i8 %26 to i1
+  %28 = call i32 @_print_int(double noundef %24, i32 noundef %25, i1 noundef zeroext %27, i1 noundef zeroext true)
   br label %58
 
-58:                                               ; preds = %57, %13
-  %59 = load ptr, ptr %8, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %61, label %64
+29:                                               ; preds = %18
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct.priority_factors_object, ptr %30, i32 0, i32 2
+  %32 = load double, ptr %31, align 8
+  %33 = fcmp ogt double %32, 0.000000e+00
+  br i1 %33, label %34, label %39
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %8, align 8
-  %63 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %62)
-  br label %64
+34:                                               ; preds = %29
+  %35 = load i32, ptr %6, align 4
+  %36 = load i8, ptr %7, align 1
+  %37 = trunc i8 %36 to i1
+  %38 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %35, i1 noundef zeroext %37, i1 noundef zeroext true)
+  br label %57
 
-64:                                               ; preds = %61, %58
+39:                                               ; preds = %29
+  store double 0.000000e+00, ptr %9, align 8
+  %40 = load i32, ptr @weight_fs, align 4
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %51
+
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds %struct.priority_factors_object, ptr %43, i32 0, i32 5
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct.priority_factors_t, ptr %45, i32 0, i32 3
+  %47 = load double, ptr %46, align 8
+  %48 = load i32, ptr @weight_fs, align 4
+  %49 = uitofp i32 %48 to double
+  %50 = fdiv double %47, %49
+  store double %50, ptr %9, align 8
+  br label %51
+
+51:                                               ; preds = %42, %39
+  %52 = load double, ptr %9, align 8
+  %53 = load i32, ptr %6, align 4
+  %54 = load i8, ptr %7, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = call i32 @_print_norm(double noundef %52, i32 noundef %53, i1 noundef zeroext %55, i1 noundef zeroext true)
+  br label %57
+
+57:                                               ; preds = %51, %34
+  br label %58
+
+58:                                               ; preds = %57, %22
+  br label %59
+
+59:                                               ; preds = %58, %13
+  %60 = load ptr, ptr %8, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %65
+
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %8, align 8
+  %64 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %63)
+  br label %65
+
+65:                                               ; preds = %62, %59
   ret i32 0
 }
 
@@ -1224,65 +1234,66 @@ define dso_local i32 @_print_fs_priority_weighted(ptr noundef %0, i32 noundef %1
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   %16 = call i32 @_print_str(ptr noundef @.str.11, i32 noundef %13, i1 noundef zeroext %15, i1 noundef zeroext true)
-  br label %49
+  br label %50
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %5, align 8
-  %19 = icmp eq ptr %18, inttoptr (i64 -1 to ptr)
-  br i1 %19, label %20, label %27
+  %19 = inttoptr i64 -1 to ptr
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %21, label %28
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr @weight_fs, align 4
-  %22 = uitofp i32 %21 to double
-  %23 = load i32, ptr %6, align 4
-  %24 = load i8, ptr %7, align 1
-  %25 = trunc i8 %24 to i1
-  %26 = call i32 @_print_int(double noundef %22, i32 noundef %23, i1 noundef zeroext %25, i1 noundef zeroext true)
-  br label %48
-
-27:                                               ; preds = %17
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.priority_factors_object, ptr %28, i32 0, i32 2
-  %30 = load double, ptr %29, align 8
-  %31 = fcmp ogt double %30, 0.000000e+00
-  br i1 %31, label %32, label %37
-
-32:                                               ; preds = %27
-  %33 = load i32, ptr %6, align 4
-  %34 = load i8, ptr %7, align 1
-  %35 = trunc i8 %34 to i1
-  %36 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %33, i1 noundef zeroext %35, i1 noundef zeroext true)
-  br label %47
-
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.priority_factors_object, ptr %38, i32 0, i32 5
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.priority_factors_t, ptr %40, i32 0, i32 3
-  %42 = load double, ptr %41, align 8
-  %43 = load i32, ptr %6, align 4
-  %44 = load i8, ptr %7, align 1
-  %45 = trunc i8 %44 to i1
-  %46 = call i32 @_print_int(double noundef %42, i32 noundef %43, i1 noundef zeroext %45, i1 noundef zeroext true)
-  br label %47
-
-47:                                               ; preds = %37, %32
-  br label %48
-
-48:                                               ; preds = %47, %20
+21:                                               ; preds = %17
+  %22 = load i32, ptr @weight_fs, align 4
+  %23 = uitofp i32 %22 to double
+  %24 = load i32, ptr %6, align 4
+  %25 = load i8, ptr %7, align 1
+  %26 = trunc i8 %25 to i1
+  %27 = call i32 @_print_int(double noundef %23, i32 noundef %24, i1 noundef zeroext %26, i1 noundef zeroext true)
   br label %49
 
-49:                                               ; preds = %48, %12
-  %50 = load ptr, ptr %8, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %55
+28:                                               ; preds = %17
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct.priority_factors_object, ptr %29, i32 0, i32 2
+  %31 = load double, ptr %30, align 8
+  %32 = fcmp ogt double %31, 0.000000e+00
+  br i1 %32, label %33, label %38
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %8, align 8
-  %54 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %53)
-  br label %55
+33:                                               ; preds = %28
+  %34 = load i32, ptr %6, align 4
+  %35 = load i8, ptr %7, align 1
+  %36 = trunc i8 %35 to i1
+  %37 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %34, i1 noundef zeroext %36, i1 noundef zeroext true)
+  br label %48
 
-55:                                               ; preds = %52, %49
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds %struct.priority_factors_object, ptr %39, i32 0, i32 5
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.priority_factors_t, ptr %41, i32 0, i32 3
+  %43 = load double, ptr %42, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = load i8, ptr %7, align 1
+  %46 = trunc i8 %45 to i1
+  %47 = call i32 @_print_int(double noundef %43, i32 noundef %44, i1 noundef zeroext %46, i1 noundef zeroext true)
+  br label %48
+
+48:                                               ; preds = %38, %33
+  br label %49
+
+49:                                               ; preds = %48, %21
+  br label %50
+
+50:                                               ; preds = %49, %12
+  %51 = load ptr, ptr %8, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %56
+
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %8, align 8
+  %55 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %54)
+  br label %56
+
+56:                                               ; preds = %53, %50
   ret i32 0
 }
 
@@ -1309,74 +1320,75 @@ define dso_local i32 @_print_job_priority_normalized(ptr noundef %0, i32 noundef
   %17 = load i8, ptr %7, align 1
   %18 = trunc i8 %17 to i1
   %19 = call i32 @_print_str(ptr noundef @.str.12, i32 noundef %16, i1 noundef zeroext %18, i1 noundef zeroext true)
-  br label %59
+  br label %60
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %5, align 8
-  %22 = icmp eq ptr %21, inttoptr (i64 -1 to ptr)
-  br i1 %22, label %23, label %28
+  %22 = inttoptr i64 -1 to ptr
+  %23 = icmp eq ptr %21, %22
+  br i1 %23, label %24, label %29
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr %6, align 4
-  %25 = load i8, ptr %7, align 1
-  %26 = trunc i8 %25 to i1
-  %27 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %24, i1 noundef zeroext %26, i1 noundef zeroext true)
-  br label %58
-
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.priority_factors_object, ptr %29, i32 0, i32 2
-  %31 = load double, ptr %30, align 8
-  %32 = fcmp ogt double %31, 0.000000e+00
-  br i1 %32, label %33, label %44
-
-33:                                               ; preds = %28
-  %34 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.priority_factors_object, ptr %35, i32 0, i32 2
-  %37 = load double, ptr %36, align 8
-  %38 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %34, ptr noundef @.str.13, double noundef %37) #4
-  %39 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
-  %40 = load i32, ptr %6, align 4
-  %41 = load i8, ptr %7, align 1
-  %42 = trunc i8 %41 to i1
-  %43 = call i32 @_print_str(ptr noundef %39, i32 noundef %40, i1 noundef zeroext %42, i1 noundef zeroext true)
-  br label %57
-
-44:                                               ; preds = %28
-  %45 = load ptr, ptr %5, align 8
-  %46 = call double @get_priority_from_factors(ptr noundef %45)
-  store double %46, ptr %10, align 8
-  %47 = load double, ptr %10, align 8
-  %48 = fdiv double %47, 0x41EFFFFFFFE00000
-  store double %48, ptr %11, align 8
-  %49 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
-  %50 = load double, ptr %11, align 8
-  %51 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %49, ptr noundef @.str.13, double noundef %50) #4
-  %52 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
-  %53 = load i32, ptr %6, align 4
-  %54 = load i8, ptr %7, align 1
-  %55 = trunc i8 %54 to i1
-  %56 = call i32 @_print_str(ptr noundef %52, i32 noundef %53, i1 noundef zeroext %55, i1 noundef zeroext true)
-  br label %57
-
-57:                                               ; preds = %44, %33
-  br label %58
-
-58:                                               ; preds = %57, %23
+24:                                               ; preds = %20
+  %25 = load i32, ptr %6, align 4
+  %26 = load i8, ptr %7, align 1
+  %27 = trunc i8 %26 to i1
+  %28 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %25, i1 noundef zeroext %27, i1 noundef zeroext true)
   br label %59
 
-59:                                               ; preds = %58, %15
-  %60 = load ptr, ptr %8, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %65
+29:                                               ; preds = %20
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct.priority_factors_object, ptr %30, i32 0, i32 2
+  %32 = load double, ptr %31, align 8
+  %33 = fcmp ogt double %32, 0.000000e+00
+  br i1 %33, label %34, label %45
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr %8, align 8
-  %64 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %63)
-  br label %65
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds %struct.priority_factors_object, ptr %36, i32 0, i32 2
+  %38 = load double, ptr %37, align 8
+  %39 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %35, ptr noundef @.str.13, double noundef %38) #4
+  %40 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
+  %41 = load i32, ptr %6, align 4
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = call i32 @_print_str(ptr noundef %40, i32 noundef %41, i1 noundef zeroext %43, i1 noundef zeroext true)
+  br label %58
 
-65:                                               ; preds = %62, %59
+45:                                               ; preds = %29
+  %46 = load ptr, ptr %5, align 8
+  %47 = call double @get_priority_from_factors(ptr noundef %46)
+  store double %47, ptr %10, align 8
+  %48 = load double, ptr %10, align 8
+  %49 = fdiv double %48, 0x41EFFFFFFFE00000
+  store double %49, ptr %11, align 8
+  %50 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
+  %51 = load double, ptr %11, align 8
+  %52 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %50, ptr noundef @.str.13, double noundef %51) #4
+  %53 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
+  %54 = load i32, ptr %6, align 4
+  %55 = load i8, ptr %7, align 1
+  %56 = trunc i8 %55 to i1
+  %57 = call i32 @_print_str(ptr noundef %53, i32 noundef %54, i1 noundef zeroext %56, i1 noundef zeroext true)
+  br label %58
+
+58:                                               ; preds = %45, %34
+  br label %59
+
+59:                                               ; preds = %58, %24
+  br label %60
+
+60:                                               ; preds = %59, %15
+  %61 = load ptr, ptr %8, align 8
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %63, label %66
+
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %8, align 8
+  %65 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %64)
+  br label %66
+
+66:                                               ; preds = %63, %60
   ret i32 0
 }
 
@@ -1404,47 +1416,48 @@ define dso_local i32 @_print_job_priority_weighted(ptr noundef %0, i32 noundef %
   %15 = load i8, ptr %7, align 1
   %16 = trunc i8 %15 to i1
   %17 = call i32 @_print_str(ptr noundef @.str.12, i32 noundef %14, i1 noundef zeroext %16, i1 noundef zeroext true)
-  br label %38
+  br label %39
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %5, align 8
-  %20 = icmp eq ptr %19, inttoptr (i64 -1 to ptr)
-  br i1 %20, label %21, label %26
+  %20 = inttoptr i64 -1 to ptr
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %22, label %27
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr %6, align 4
-  %23 = load i8, ptr %7, align 1
-  %24 = trunc i8 %23 to i1
-  %25 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %22, i1 noundef zeroext %24, i1 noundef zeroext true)
-  br label %37
-
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
-  %28 = load ptr, ptr %5, align 8
-  %29 = call double @get_priority_from_factors(ptr noundef %28)
-  %30 = fptosi double %29 to i64
-  %31 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %27, ptr noundef @.str.14, i64 noundef %30) #4
-  %32 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
-  %33 = load i32, ptr %6, align 4
-  %34 = load i8, ptr %7, align 1
-  %35 = trunc i8 %34 to i1
-  %36 = call i32 @_print_str(ptr noundef %32, i32 noundef %33, i1 noundef zeroext %35, i1 noundef zeroext true)
-  br label %37
-
-37:                                               ; preds = %26, %21
+22:                                               ; preds = %18
+  %23 = load i32, ptr %6, align 4
+  %24 = load i8, ptr %7, align 1
+  %25 = trunc i8 %24 to i1
+  %26 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %23, i1 noundef zeroext %25, i1 noundef zeroext true)
   br label %38
 
-38:                                               ; preds = %37, %13
-  %39 = load ptr, ptr %8, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %44
+27:                                               ; preds = %18
+  %28 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
+  %29 = load ptr, ptr %5, align 8
+  %30 = call double @get_priority_from_factors(ptr noundef %29)
+  %31 = fptosi double %30 to i64
+  %32 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %28, ptr noundef @.str.14, i64 noundef %31) #4
+  %33 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
+  %34 = load i32, ptr %6, align 4
+  %35 = load i8, ptr %7, align 1
+  %36 = trunc i8 %35 to i1
+  %37 = call i32 @_print_str(ptr noundef %33, i32 noundef %34, i1 noundef zeroext %36, i1 noundef zeroext true)
+  br label %38
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %8, align 8
-  %43 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %42)
-  br label %44
+38:                                               ; preds = %27, %22
+  br label %39
 
-44:                                               ; preds = %41, %38
+39:                                               ; preds = %38, %13
+  %40 = load ptr, ptr %8, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %45
+
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %8, align 8
+  %44 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %43)
+  br label %45
+
+45:                                               ; preds = %42, %39
   ret i32 0
 }
 
@@ -1469,79 +1482,80 @@ define dso_local i32 @_print_js_priority_normalized(ptr noundef %0, i32 noundef 
   %15 = load i8, ptr %7, align 1
   %16 = trunc i8 %15 to i1
   %17 = call i32 @_print_str(ptr noundef @.str.15, i32 noundef %14, i1 noundef zeroext %16, i1 noundef zeroext true)
-  br label %58
+  br label %59
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %5, align 8
-  %20 = icmp eq ptr %19, inttoptr (i64 -1 to ptr)
-  br i1 %20, label %21, label %28
+  %20 = inttoptr i64 -1 to ptr
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %22, label %29
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr @weight_js, align 4
-  %23 = uitofp i32 %22 to double
-  %24 = load i32, ptr %6, align 4
-  %25 = load i8, ptr %7, align 1
-  %26 = trunc i8 %25 to i1
-  %27 = call i32 @_print_int(double noundef %23, i32 noundef %24, i1 noundef zeroext %26, i1 noundef zeroext true)
-  br label %57
-
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.priority_factors_object, ptr %29, i32 0, i32 2
-  %31 = load double, ptr %30, align 8
-  %32 = fcmp ogt double %31, 0.000000e+00
-  br i1 %32, label %33, label %38
-
-33:                                               ; preds = %28
-  %34 = load i32, ptr %6, align 4
-  %35 = load i8, ptr %7, align 1
-  %36 = trunc i8 %35 to i1
-  %37 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %34, i1 noundef zeroext %36, i1 noundef zeroext true)
-  br label %56
-
-38:                                               ; preds = %28
-  store double 0.000000e+00, ptr %9, align 8
-  %39 = load i32, ptr @weight_js, align 4
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %50
-
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.priority_factors_object, ptr %42, i32 0, i32 5
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.priority_factors_t, ptr %44, i32 0, i32 4
-  %46 = load double, ptr %45, align 8
-  %47 = load i32, ptr @weight_js, align 4
-  %48 = uitofp i32 %47 to double
-  %49 = fdiv double %46, %48
-  store double %49, ptr %9, align 8
-  br label %50
-
-50:                                               ; preds = %41, %38
-  %51 = load double, ptr %9, align 8
-  %52 = load i32, ptr %6, align 4
-  %53 = load i8, ptr %7, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = call i32 @_print_norm(double noundef %51, i32 noundef %52, i1 noundef zeroext %54, i1 noundef zeroext true)
-  br label %56
-
-56:                                               ; preds = %50, %33
-  br label %57
-
-57:                                               ; preds = %56, %21
+22:                                               ; preds = %18
+  %23 = load i32, ptr @weight_js, align 4
+  %24 = uitofp i32 %23 to double
+  %25 = load i32, ptr %6, align 4
+  %26 = load i8, ptr %7, align 1
+  %27 = trunc i8 %26 to i1
+  %28 = call i32 @_print_int(double noundef %24, i32 noundef %25, i1 noundef zeroext %27, i1 noundef zeroext true)
   br label %58
 
-58:                                               ; preds = %57, %13
-  %59 = load ptr, ptr %8, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %61, label %64
+29:                                               ; preds = %18
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct.priority_factors_object, ptr %30, i32 0, i32 2
+  %32 = load double, ptr %31, align 8
+  %33 = fcmp ogt double %32, 0.000000e+00
+  br i1 %33, label %34, label %39
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %8, align 8
-  %63 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %62)
-  br label %64
+34:                                               ; preds = %29
+  %35 = load i32, ptr %6, align 4
+  %36 = load i8, ptr %7, align 1
+  %37 = trunc i8 %36 to i1
+  %38 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %35, i1 noundef zeroext %37, i1 noundef zeroext true)
+  br label %57
 
-64:                                               ; preds = %61, %58
+39:                                               ; preds = %29
+  store double 0.000000e+00, ptr %9, align 8
+  %40 = load i32, ptr @weight_js, align 4
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %51
+
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds %struct.priority_factors_object, ptr %43, i32 0, i32 5
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct.priority_factors_t, ptr %45, i32 0, i32 4
+  %47 = load double, ptr %46, align 8
+  %48 = load i32, ptr @weight_js, align 4
+  %49 = uitofp i32 %48 to double
+  %50 = fdiv double %47, %49
+  store double %50, ptr %9, align 8
+  br label %51
+
+51:                                               ; preds = %42, %39
+  %52 = load double, ptr %9, align 8
+  %53 = load i32, ptr %6, align 4
+  %54 = load i8, ptr %7, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = call i32 @_print_norm(double noundef %52, i32 noundef %53, i1 noundef zeroext %55, i1 noundef zeroext true)
+  br label %57
+
+57:                                               ; preds = %51, %34
+  br label %58
+
+58:                                               ; preds = %57, %22
+  br label %59
+
+59:                                               ; preds = %58, %13
+  %60 = load ptr, ptr %8, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %65
+
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %8, align 8
+  %64 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %63)
+  br label %65
+
+65:                                               ; preds = %62, %59
   ret i32 0
 }
 
@@ -1565,65 +1579,66 @@ define dso_local i32 @_print_js_priority_weighted(ptr noundef %0, i32 noundef %1
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   %16 = call i32 @_print_str(ptr noundef @.str.15, i32 noundef %13, i1 noundef zeroext %15, i1 noundef zeroext true)
-  br label %49
+  br label %50
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %5, align 8
-  %19 = icmp eq ptr %18, inttoptr (i64 -1 to ptr)
-  br i1 %19, label %20, label %27
+  %19 = inttoptr i64 -1 to ptr
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %21, label %28
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr @weight_js, align 4
-  %22 = uitofp i32 %21 to double
-  %23 = load i32, ptr %6, align 4
-  %24 = load i8, ptr %7, align 1
-  %25 = trunc i8 %24 to i1
-  %26 = call i32 @_print_int(double noundef %22, i32 noundef %23, i1 noundef zeroext %25, i1 noundef zeroext true)
-  br label %48
-
-27:                                               ; preds = %17
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.priority_factors_object, ptr %28, i32 0, i32 2
-  %30 = load double, ptr %29, align 8
-  %31 = fcmp ogt double %30, 0.000000e+00
-  br i1 %31, label %32, label %37
-
-32:                                               ; preds = %27
-  %33 = load i32, ptr %6, align 4
-  %34 = load i8, ptr %7, align 1
-  %35 = trunc i8 %34 to i1
-  %36 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %33, i1 noundef zeroext %35, i1 noundef zeroext true)
-  br label %47
-
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.priority_factors_object, ptr %38, i32 0, i32 5
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.priority_factors_t, ptr %40, i32 0, i32 4
-  %42 = load double, ptr %41, align 8
-  %43 = load i32, ptr %6, align 4
-  %44 = load i8, ptr %7, align 1
-  %45 = trunc i8 %44 to i1
-  %46 = call i32 @_print_int(double noundef %42, i32 noundef %43, i1 noundef zeroext %45, i1 noundef zeroext true)
-  br label %47
-
-47:                                               ; preds = %37, %32
-  br label %48
-
-48:                                               ; preds = %47, %20
+21:                                               ; preds = %17
+  %22 = load i32, ptr @weight_js, align 4
+  %23 = uitofp i32 %22 to double
+  %24 = load i32, ptr %6, align 4
+  %25 = load i8, ptr %7, align 1
+  %26 = trunc i8 %25 to i1
+  %27 = call i32 @_print_int(double noundef %23, i32 noundef %24, i1 noundef zeroext %26, i1 noundef zeroext true)
   br label %49
 
-49:                                               ; preds = %48, %12
-  %50 = load ptr, ptr %8, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %55
+28:                                               ; preds = %17
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct.priority_factors_object, ptr %29, i32 0, i32 2
+  %31 = load double, ptr %30, align 8
+  %32 = fcmp ogt double %31, 0.000000e+00
+  br i1 %32, label %33, label %38
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %8, align 8
-  %54 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %53)
-  br label %55
+33:                                               ; preds = %28
+  %34 = load i32, ptr %6, align 4
+  %35 = load i8, ptr %7, align 1
+  %36 = trunc i8 %35 to i1
+  %37 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %34, i1 noundef zeroext %36, i1 noundef zeroext true)
+  br label %48
 
-55:                                               ; preds = %52, %49
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds %struct.priority_factors_object, ptr %39, i32 0, i32 5
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.priority_factors_t, ptr %41, i32 0, i32 4
+  %43 = load double, ptr %42, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = load i8, ptr %7, align 1
+  %46 = trunc i8 %45 to i1
+  %47 = call i32 @_print_int(double noundef %43, i32 noundef %44, i1 noundef zeroext %46, i1 noundef zeroext true)
+  br label %48
+
+48:                                               ; preds = %38, %33
+  br label %49
+
+49:                                               ; preds = %48, %21
+  br label %50
+
+50:                                               ; preds = %49, %12
+  %51 = load ptr, ptr %8, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %56
+
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %8, align 8
+  %55 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %54)
+  br label %56
+
+56:                                               ; preds = %53, %50
   ret i32 0
 }
 
@@ -1648,79 +1663,80 @@ define dso_local i32 @_print_part_priority_normalized(ptr noundef %0, i32 nounde
   %15 = load i8, ptr %7, align 1
   %16 = trunc i8 %15 to i1
   %17 = call i32 @_print_str(ptr noundef @.str.16, i32 noundef %14, i1 noundef zeroext %16, i1 noundef zeroext true)
-  br label %58
+  br label %59
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %5, align 8
-  %20 = icmp eq ptr %19, inttoptr (i64 -1 to ptr)
-  br i1 %20, label %21, label %28
+  %20 = inttoptr i64 -1 to ptr
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %22, label %29
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr @weight_part, align 4
-  %23 = uitofp i32 %22 to double
-  %24 = load i32, ptr %6, align 4
-  %25 = load i8, ptr %7, align 1
-  %26 = trunc i8 %25 to i1
-  %27 = call i32 @_print_int(double noundef %23, i32 noundef %24, i1 noundef zeroext %26, i1 noundef zeroext true)
-  br label %57
-
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.priority_factors_object, ptr %29, i32 0, i32 2
-  %31 = load double, ptr %30, align 8
-  %32 = fcmp ogt double %31, 0.000000e+00
-  br i1 %32, label %33, label %38
-
-33:                                               ; preds = %28
-  %34 = load i32, ptr %6, align 4
-  %35 = load i8, ptr %7, align 1
-  %36 = trunc i8 %35 to i1
-  %37 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %34, i1 noundef zeroext %36, i1 noundef zeroext true)
-  br label %56
-
-38:                                               ; preds = %28
-  store double 0.000000e+00, ptr %9, align 8
-  %39 = load i32, ptr @weight_part, align 4
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %50
-
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.priority_factors_object, ptr %42, i32 0, i32 5
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.priority_factors_t, ptr %44, i32 0, i32 5
-  %46 = load double, ptr %45, align 8
-  %47 = load i32, ptr @weight_part, align 4
-  %48 = uitofp i32 %47 to double
-  %49 = fdiv double %46, %48
-  store double %49, ptr %9, align 8
-  br label %50
-
-50:                                               ; preds = %41, %38
-  %51 = load double, ptr %9, align 8
-  %52 = load i32, ptr %6, align 4
-  %53 = load i8, ptr %7, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = call i32 @_print_norm(double noundef %51, i32 noundef %52, i1 noundef zeroext %54, i1 noundef zeroext true)
-  br label %56
-
-56:                                               ; preds = %50, %33
-  br label %57
-
-57:                                               ; preds = %56, %21
+22:                                               ; preds = %18
+  %23 = load i32, ptr @weight_part, align 4
+  %24 = uitofp i32 %23 to double
+  %25 = load i32, ptr %6, align 4
+  %26 = load i8, ptr %7, align 1
+  %27 = trunc i8 %26 to i1
+  %28 = call i32 @_print_int(double noundef %24, i32 noundef %25, i1 noundef zeroext %27, i1 noundef zeroext true)
   br label %58
 
-58:                                               ; preds = %57, %13
-  %59 = load ptr, ptr %8, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %61, label %64
+29:                                               ; preds = %18
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct.priority_factors_object, ptr %30, i32 0, i32 2
+  %32 = load double, ptr %31, align 8
+  %33 = fcmp ogt double %32, 0.000000e+00
+  br i1 %33, label %34, label %39
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %8, align 8
-  %63 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %62)
-  br label %64
+34:                                               ; preds = %29
+  %35 = load i32, ptr %6, align 4
+  %36 = load i8, ptr %7, align 1
+  %37 = trunc i8 %36 to i1
+  %38 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %35, i1 noundef zeroext %37, i1 noundef zeroext true)
+  br label %57
 
-64:                                               ; preds = %61, %58
+39:                                               ; preds = %29
+  store double 0.000000e+00, ptr %9, align 8
+  %40 = load i32, ptr @weight_part, align 4
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %51
+
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds %struct.priority_factors_object, ptr %43, i32 0, i32 5
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct.priority_factors_t, ptr %45, i32 0, i32 5
+  %47 = load double, ptr %46, align 8
+  %48 = load i32, ptr @weight_part, align 4
+  %49 = uitofp i32 %48 to double
+  %50 = fdiv double %47, %49
+  store double %50, ptr %9, align 8
+  br label %51
+
+51:                                               ; preds = %42, %39
+  %52 = load double, ptr %9, align 8
+  %53 = load i32, ptr %6, align 4
+  %54 = load i8, ptr %7, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = call i32 @_print_norm(double noundef %52, i32 noundef %53, i1 noundef zeroext %55, i1 noundef zeroext true)
+  br label %57
+
+57:                                               ; preds = %51, %34
+  br label %58
+
+58:                                               ; preds = %57, %22
+  br label %59
+
+59:                                               ; preds = %58, %13
+  %60 = load ptr, ptr %8, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %65
+
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %8, align 8
+  %64 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %63)
+  br label %65
+
+65:                                               ; preds = %62, %59
   ret i32 0
 }
 
@@ -1744,65 +1760,66 @@ define dso_local i32 @_print_part_priority_weighted(ptr noundef %0, i32 noundef 
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   %16 = call i32 @_print_str(ptr noundef @.str.16, i32 noundef %13, i1 noundef zeroext %15, i1 noundef zeroext true)
-  br label %49
+  br label %50
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %5, align 8
-  %19 = icmp eq ptr %18, inttoptr (i64 -1 to ptr)
-  br i1 %19, label %20, label %27
+  %19 = inttoptr i64 -1 to ptr
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %21, label %28
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr @weight_part, align 4
-  %22 = uitofp i32 %21 to double
-  %23 = load i32, ptr %6, align 4
-  %24 = load i8, ptr %7, align 1
-  %25 = trunc i8 %24 to i1
-  %26 = call i32 @_print_int(double noundef %22, i32 noundef %23, i1 noundef zeroext %25, i1 noundef zeroext true)
-  br label %48
-
-27:                                               ; preds = %17
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.priority_factors_object, ptr %28, i32 0, i32 2
-  %30 = load double, ptr %29, align 8
-  %31 = fcmp ogt double %30, 0.000000e+00
-  br i1 %31, label %32, label %37
-
-32:                                               ; preds = %27
-  %33 = load i32, ptr %6, align 4
-  %34 = load i8, ptr %7, align 1
-  %35 = trunc i8 %34 to i1
-  %36 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %33, i1 noundef zeroext %35, i1 noundef zeroext true)
-  br label %47
-
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.priority_factors_object, ptr %38, i32 0, i32 5
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.priority_factors_t, ptr %40, i32 0, i32 5
-  %42 = load double, ptr %41, align 8
-  %43 = load i32, ptr %6, align 4
-  %44 = load i8, ptr %7, align 1
-  %45 = trunc i8 %44 to i1
-  %46 = call i32 @_print_int(double noundef %42, i32 noundef %43, i1 noundef zeroext %45, i1 noundef zeroext true)
-  br label %47
-
-47:                                               ; preds = %37, %32
-  br label %48
-
-48:                                               ; preds = %47, %20
+21:                                               ; preds = %17
+  %22 = load i32, ptr @weight_part, align 4
+  %23 = uitofp i32 %22 to double
+  %24 = load i32, ptr %6, align 4
+  %25 = load i8, ptr %7, align 1
+  %26 = trunc i8 %25 to i1
+  %27 = call i32 @_print_int(double noundef %23, i32 noundef %24, i1 noundef zeroext %26, i1 noundef zeroext true)
   br label %49
 
-49:                                               ; preds = %48, %12
-  %50 = load ptr, ptr %8, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %55
+28:                                               ; preds = %17
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct.priority_factors_object, ptr %29, i32 0, i32 2
+  %31 = load double, ptr %30, align 8
+  %32 = fcmp ogt double %31, 0.000000e+00
+  br i1 %32, label %33, label %38
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %8, align 8
-  %54 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %53)
-  br label %55
+33:                                               ; preds = %28
+  %34 = load i32, ptr %6, align 4
+  %35 = load i8, ptr %7, align 1
+  %36 = trunc i8 %35 to i1
+  %37 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %34, i1 noundef zeroext %36, i1 noundef zeroext true)
+  br label %48
 
-55:                                               ; preds = %52, %49
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds %struct.priority_factors_object, ptr %39, i32 0, i32 5
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.priority_factors_t, ptr %41, i32 0, i32 5
+  %43 = load double, ptr %42, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = load i8, ptr %7, align 1
+  %46 = trunc i8 %45 to i1
+  %47 = call i32 @_print_int(double noundef %43, i32 noundef %44, i1 noundef zeroext %46, i1 noundef zeroext true)
+  br label %48
+
+48:                                               ; preds = %38, %33
+  br label %49
+
+49:                                               ; preds = %48, %21
+  br label %50
+
+50:                                               ; preds = %49, %12
+  %51 = load ptr, ptr %8, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %56
+
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %8, align 8
+  %55 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %54)
+  br label %56
+
+56:                                               ; preds = %53, %50
   ret i32 0
 }
 
@@ -1826,44 +1843,45 @@ define dso_local i32 @_print_partition(ptr noundef %0, i32 noundef %1, i1 nounde
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   %16 = call i32 @_print_str(ptr noundef @.str.16, i32 noundef %13, i1 noundef zeroext %15, i1 noundef zeroext true)
-  br label %34
+  br label %35
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %5, align 8
-  %19 = icmp eq ptr %18, inttoptr (i64 -1 to ptr)
-  br i1 %19, label %20, label %25
+  %19 = inttoptr i64 -1 to ptr
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %21, label %26
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr %6, align 4
-  %22 = load i8, ptr %7, align 1
-  %23 = trunc i8 %22 to i1
-  %24 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %21, i1 noundef zeroext %23, i1 noundef zeroext true)
-  br label %33
-
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.priority_factors_object, ptr %26, i32 0, i32 4
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = load i8, ptr %7, align 1
-  %31 = trunc i8 %30 to i1
-  %32 = call i32 @_print_str(ptr noundef %28, i32 noundef %29, i1 noundef zeroext %31, i1 noundef zeroext true)
-  br label %33
-
-33:                                               ; preds = %25, %20
+21:                                               ; preds = %17
+  %22 = load i32, ptr %6, align 4
+  %23 = load i8, ptr %7, align 1
+  %24 = trunc i8 %23 to i1
+  %25 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %22, i1 noundef zeroext %24, i1 noundef zeroext true)
   br label %34
 
-34:                                               ; preds = %33, %12
-  %35 = load ptr, ptr %8, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %40
+26:                                               ; preds = %17
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %struct.priority_factors_object, ptr %27, i32 0, i32 4
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr %6, align 4
+  %31 = load i8, ptr %7, align 1
+  %32 = trunc i8 %31 to i1
+  %33 = call i32 @_print_str(ptr noundef %29, i32 noundef %30, i1 noundef zeroext %32, i1 noundef zeroext true)
+  br label %34
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %8, align 8
-  %39 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %38)
-  br label %40
+34:                                               ; preds = %26, %21
+  br label %35
 
-40:                                               ; preds = %37, %34
+35:                                               ; preds = %34, %12
+  %36 = load ptr, ptr %8, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %41
+
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %8, align 8
+  %40 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %39)
+  br label %41
+
+41:                                               ; preds = %38, %35
   ret i32 0
 }
 
@@ -1887,44 +1905,45 @@ define dso_local i32 @_print_qos_name(ptr noundef %0, i32 noundef %1, i1 noundef
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   %16 = call i32 @_print_str(ptr noundef @.str.17, i32 noundef %13, i1 noundef zeroext %15, i1 noundef zeroext true)
-  br label %34
+  br label %35
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %5, align 8
-  %19 = icmp eq ptr %18, inttoptr (i64 -1 to ptr)
-  br i1 %19, label %20, label %25
+  %19 = inttoptr i64 -1 to ptr
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %21, label %26
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr %6, align 4
-  %22 = load i8, ptr %7, align 1
-  %23 = trunc i8 %22 to i1
-  %24 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %21, i1 noundef zeroext %23, i1 noundef zeroext true)
-  br label %33
-
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.priority_factors_object, ptr %26, i32 0, i32 6
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = load i8, ptr %7, align 1
-  %31 = trunc i8 %30 to i1
-  %32 = call i32 @_print_str(ptr noundef %28, i32 noundef %29, i1 noundef zeroext %31, i1 noundef zeroext true)
-  br label %33
-
-33:                                               ; preds = %25, %20
+21:                                               ; preds = %17
+  %22 = load i32, ptr %6, align 4
+  %23 = load i8, ptr %7, align 1
+  %24 = trunc i8 %23 to i1
+  %25 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %22, i1 noundef zeroext %24, i1 noundef zeroext true)
   br label %34
 
-34:                                               ; preds = %33, %12
-  %35 = load ptr, ptr %8, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %40
+26:                                               ; preds = %17
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %struct.priority_factors_object, ptr %27, i32 0, i32 6
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr %6, align 4
+  %31 = load i8, ptr %7, align 1
+  %32 = trunc i8 %31 to i1
+  %33 = call i32 @_print_str(ptr noundef %29, i32 noundef %30, i1 noundef zeroext %32, i1 noundef zeroext true)
+  br label %34
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %8, align 8
-  %39 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %38)
-  br label %40
+34:                                               ; preds = %26, %21
+  br label %35
 
-40:                                               ; preds = %37, %34
+35:                                               ; preds = %34, %12
+  %36 = load ptr, ptr %8, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %41
+
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %8, align 8
+  %40 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %39)
+  br label %41
+
+41:                                               ; preds = %38, %35
   ret i32 0
 }
 
@@ -1949,79 +1968,80 @@ define dso_local i32 @_print_qos_priority_normalized(ptr noundef %0, i32 noundef
   %15 = load i8, ptr %7, align 1
   %16 = trunc i8 %15 to i1
   %17 = call i32 @_print_str(ptr noundef @.str.18, i32 noundef %14, i1 noundef zeroext %16, i1 noundef zeroext true)
-  br label %58
+  br label %59
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %5, align 8
-  %20 = icmp eq ptr %19, inttoptr (i64 -1 to ptr)
-  br i1 %20, label %21, label %28
+  %20 = inttoptr i64 -1 to ptr
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %22, label %29
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr @weight_qos, align 4
-  %23 = uitofp i32 %22 to double
-  %24 = load i32, ptr %6, align 4
-  %25 = load i8, ptr %7, align 1
-  %26 = trunc i8 %25 to i1
-  %27 = call i32 @_print_int(double noundef %23, i32 noundef %24, i1 noundef zeroext %26, i1 noundef zeroext true)
-  br label %57
-
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.priority_factors_object, ptr %29, i32 0, i32 2
-  %31 = load double, ptr %30, align 8
-  %32 = fcmp ogt double %31, 0.000000e+00
-  br i1 %32, label %33, label %38
-
-33:                                               ; preds = %28
-  %34 = load i32, ptr %6, align 4
-  %35 = load i8, ptr %7, align 1
-  %36 = trunc i8 %35 to i1
-  %37 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %34, i1 noundef zeroext %36, i1 noundef zeroext true)
-  br label %56
-
-38:                                               ; preds = %28
-  store double 0.000000e+00, ptr %9, align 8
-  %39 = load i32, ptr @weight_qos, align 4
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %50
-
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.priority_factors_object, ptr %42, i32 0, i32 5
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.priority_factors_t, ptr %44, i32 0, i32 6
-  %46 = load double, ptr %45, align 8
-  %47 = load i32, ptr @weight_qos, align 4
-  %48 = uitofp i32 %47 to double
-  %49 = fdiv double %46, %48
-  store double %49, ptr %9, align 8
-  br label %50
-
-50:                                               ; preds = %41, %38
-  %51 = load double, ptr %9, align 8
-  %52 = load i32, ptr %6, align 4
-  %53 = load i8, ptr %7, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = call i32 @_print_norm(double noundef %51, i32 noundef %52, i1 noundef zeroext %54, i1 noundef zeroext true)
-  br label %56
-
-56:                                               ; preds = %50, %33
-  br label %57
-
-57:                                               ; preds = %56, %21
+22:                                               ; preds = %18
+  %23 = load i32, ptr @weight_qos, align 4
+  %24 = uitofp i32 %23 to double
+  %25 = load i32, ptr %6, align 4
+  %26 = load i8, ptr %7, align 1
+  %27 = trunc i8 %26 to i1
+  %28 = call i32 @_print_int(double noundef %24, i32 noundef %25, i1 noundef zeroext %27, i1 noundef zeroext true)
   br label %58
 
-58:                                               ; preds = %57, %13
-  %59 = load ptr, ptr %8, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %61, label %64
+29:                                               ; preds = %18
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct.priority_factors_object, ptr %30, i32 0, i32 2
+  %32 = load double, ptr %31, align 8
+  %33 = fcmp ogt double %32, 0.000000e+00
+  br i1 %33, label %34, label %39
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %8, align 8
-  %63 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %62)
-  br label %64
+34:                                               ; preds = %29
+  %35 = load i32, ptr %6, align 4
+  %36 = load i8, ptr %7, align 1
+  %37 = trunc i8 %36 to i1
+  %38 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %35, i1 noundef zeroext %37, i1 noundef zeroext true)
+  br label %57
 
-64:                                               ; preds = %61, %58
+39:                                               ; preds = %29
+  store double 0.000000e+00, ptr %9, align 8
+  %40 = load i32, ptr @weight_qos, align 4
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %51
+
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds %struct.priority_factors_object, ptr %43, i32 0, i32 5
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct.priority_factors_t, ptr %45, i32 0, i32 6
+  %47 = load double, ptr %46, align 8
+  %48 = load i32, ptr @weight_qos, align 4
+  %49 = uitofp i32 %48 to double
+  %50 = fdiv double %47, %49
+  store double %50, ptr %9, align 8
+  br label %51
+
+51:                                               ; preds = %42, %39
+  %52 = load double, ptr %9, align 8
+  %53 = load i32, ptr %6, align 4
+  %54 = load i8, ptr %7, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = call i32 @_print_norm(double noundef %52, i32 noundef %53, i1 noundef zeroext %55, i1 noundef zeroext true)
+  br label %57
+
+57:                                               ; preds = %51, %34
+  br label %58
+
+58:                                               ; preds = %57, %22
+  br label %59
+
+59:                                               ; preds = %58, %13
+  %60 = load ptr, ptr %8, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %65
+
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %8, align 8
+  %64 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %63)
+  br label %65
+
+65:                                               ; preds = %62, %59
   ret i32 0
 }
 
@@ -2045,65 +2065,66 @@ define dso_local i32 @_print_qos_priority_weighted(ptr noundef %0, i32 noundef %
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   %16 = call i32 @_print_str(ptr noundef @.str.18, i32 noundef %13, i1 noundef zeroext %15, i1 noundef zeroext true)
-  br label %49
+  br label %50
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %5, align 8
-  %19 = icmp eq ptr %18, inttoptr (i64 -1 to ptr)
-  br i1 %19, label %20, label %27
+  %19 = inttoptr i64 -1 to ptr
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %21, label %28
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr @weight_qos, align 4
-  %22 = uitofp i32 %21 to double
-  %23 = load i32, ptr %6, align 4
-  %24 = load i8, ptr %7, align 1
-  %25 = trunc i8 %24 to i1
-  %26 = call i32 @_print_int(double noundef %22, i32 noundef %23, i1 noundef zeroext %25, i1 noundef zeroext true)
-  br label %48
-
-27:                                               ; preds = %17
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.priority_factors_object, ptr %28, i32 0, i32 2
-  %30 = load double, ptr %29, align 8
-  %31 = fcmp ogt double %30, 0.000000e+00
-  br i1 %31, label %32, label %37
-
-32:                                               ; preds = %27
-  %33 = load i32, ptr %6, align 4
-  %34 = load i8, ptr %7, align 1
-  %35 = trunc i8 %34 to i1
-  %36 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %33, i1 noundef zeroext %35, i1 noundef zeroext true)
-  br label %47
-
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.priority_factors_object, ptr %38, i32 0, i32 5
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.priority_factors_t, ptr %40, i32 0, i32 6
-  %42 = load double, ptr %41, align 8
-  %43 = load i32, ptr %6, align 4
-  %44 = load i8, ptr %7, align 1
-  %45 = trunc i8 %44 to i1
-  %46 = call i32 @_print_int(double noundef %42, i32 noundef %43, i1 noundef zeroext %45, i1 noundef zeroext true)
-  br label %47
-
-47:                                               ; preds = %37, %32
-  br label %48
-
-48:                                               ; preds = %47, %20
+21:                                               ; preds = %17
+  %22 = load i32, ptr @weight_qos, align 4
+  %23 = uitofp i32 %22 to double
+  %24 = load i32, ptr %6, align 4
+  %25 = load i8, ptr %7, align 1
+  %26 = trunc i8 %25 to i1
+  %27 = call i32 @_print_int(double noundef %23, i32 noundef %24, i1 noundef zeroext %26, i1 noundef zeroext true)
   br label %49
 
-49:                                               ; preds = %48, %12
-  %50 = load ptr, ptr %8, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %55
+28:                                               ; preds = %17
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct.priority_factors_object, ptr %29, i32 0, i32 2
+  %31 = load double, ptr %30, align 8
+  %32 = fcmp ogt double %31, 0.000000e+00
+  br i1 %32, label %33, label %38
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %8, align 8
-  %54 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %53)
-  br label %55
+33:                                               ; preds = %28
+  %34 = load i32, ptr %6, align 4
+  %35 = load i8, ptr %7, align 1
+  %36 = trunc i8 %35 to i1
+  %37 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %34, i1 noundef zeroext %36, i1 noundef zeroext true)
+  br label %48
 
-55:                                               ; preds = %52, %49
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds %struct.priority_factors_object, ptr %39, i32 0, i32 5
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.priority_factors_t, ptr %41, i32 0, i32 6
+  %43 = load double, ptr %42, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = load i8, ptr %7, align 1
+  %46 = trunc i8 %45 to i1
+  %47 = call i32 @_print_int(double noundef %43, i32 noundef %44, i1 noundef zeroext %46, i1 noundef zeroext true)
+  br label %48
+
+48:                                               ; preds = %38, %33
+  br label %49
+
+49:                                               ; preds = %48, %21
+  br label %50
+
+50:                                               ; preds = %49, %12
+  %51 = load ptr, ptr %8, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %56
+
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %8, align 8
+  %55 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %54)
+  br label %56
+
+56:                                               ; preds = %53, %50
   ret i32 0
 }
 
@@ -2127,66 +2148,67 @@ define dso_local i32 @_print_site_priority(ptr noundef %0, i32 noundef %1, i1 no
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   %16 = call i32 @_print_str(ptr noundef @.str.19, i32 noundef %13, i1 noundef zeroext %15, i1 noundef zeroext true)
-  br label %50
+  br label %51
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %5, align 8
-  %19 = icmp eq ptr %18, inttoptr (i64 -1 to ptr)
-  br i1 %19, label %20, label %25
+  %19 = inttoptr i64 -1 to ptr
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %21, label %26
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr %6, align 4
-  %22 = load i8, ptr %7, align 1
-  %23 = trunc i8 %22 to i1
-  %24 = call i32 @_print_int(double noundef 1.000000e+00, i32 noundef %21, i1 noundef zeroext %23, i1 noundef zeroext true)
-  br label %49
-
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.priority_factors_object, ptr %26, i32 0, i32 2
-  %28 = load double, ptr %27, align 8
-  %29 = fcmp ogt double %28, 0.000000e+00
-  br i1 %29, label %30, label %35
-
-30:                                               ; preds = %25
-  %31 = load i32, ptr %6, align 4
-  %32 = load i8, ptr %7, align 1
-  %33 = trunc i8 %32 to i1
-  %34 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %31, i1 noundef zeroext %33, i1 noundef zeroext true)
-  br label %48
-
-35:                                               ; preds = %25
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.priority_factors_object, ptr %36, i32 0, i32 5
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.priority_factors_t, ptr %38, i32 0, i32 7
-  %40 = load i32, ptr %39, align 8
-  %41 = zext i32 %40 to i64
-  %42 = sub nsw i64 %41, 2147483648
-  %43 = sitofp i64 %42 to double
-  %44 = load i32, ptr %6, align 4
-  %45 = load i8, ptr %7, align 1
-  %46 = trunc i8 %45 to i1
-  %47 = call i32 @_print_int(double noundef %43, i32 noundef %44, i1 noundef zeroext %46, i1 noundef zeroext true)
-  br label %48
-
-48:                                               ; preds = %35, %30
-  br label %49
-
-49:                                               ; preds = %48, %20
+21:                                               ; preds = %17
+  %22 = load i32, ptr %6, align 4
+  %23 = load i8, ptr %7, align 1
+  %24 = trunc i8 %23 to i1
+  %25 = call i32 @_print_int(double noundef 1.000000e+00, i32 noundef %22, i1 noundef zeroext %24, i1 noundef zeroext true)
   br label %50
 
-50:                                               ; preds = %49, %12
-  %51 = load ptr, ptr %8, align 8
-  %52 = icmp ne ptr %51, null
-  br i1 %52, label %53, label %56
+26:                                               ; preds = %17
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %struct.priority_factors_object, ptr %27, i32 0, i32 2
+  %29 = load double, ptr %28, align 8
+  %30 = fcmp ogt double %29, 0.000000e+00
+  br i1 %30, label %31, label %36
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %8, align 8
-  %55 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %54)
-  br label %56
+31:                                               ; preds = %26
+  %32 = load i32, ptr %6, align 4
+  %33 = load i8, ptr %7, align 1
+  %34 = trunc i8 %33 to i1
+  %35 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %32, i1 noundef zeroext %34, i1 noundef zeroext true)
+  br label %49
 
-56:                                               ; preds = %53, %50
+36:                                               ; preds = %26
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds %struct.priority_factors_object, ptr %37, i32 0, i32 5
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds %struct.priority_factors_t, ptr %39, i32 0, i32 7
+  %41 = load i32, ptr %40, align 8
+  %42 = zext i32 %41 to i64
+  %43 = sub nsw i64 %42, 2147483648
+  %44 = sitofp i64 %43 to double
+  %45 = load i32, ptr %6, align 4
+  %46 = load i8, ptr %7, align 1
+  %47 = trunc i8 %46 to i1
+  %48 = call i32 @_print_int(double noundef %44, i32 noundef %45, i1 noundef zeroext %47, i1 noundef zeroext true)
+  br label %49
+
+49:                                               ; preds = %36, %31
+  br label %50
+
+50:                                               ; preds = %49, %21
+  br label %51
+
+51:                                               ; preds = %50, %12
+  %52 = load ptr, ptr %8, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %57
+
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %8, align 8
+  %56 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %55)
+  br label %57
+
+57:                                               ; preds = %54, %51
   ret i32 0
 }
 
@@ -2210,66 +2232,67 @@ define dso_local i32 @_print_job_nice(ptr noundef %0, i32 noundef %1, i1 noundef
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   %16 = call i32 @_print_str(ptr noundef @.str.20, i32 noundef %13, i1 noundef zeroext %15, i1 noundef zeroext true)
-  br label %50
+  br label %51
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %5, align 8
-  %19 = icmp eq ptr %18, inttoptr (i64 -1 to ptr)
-  br i1 %19, label %20, label %25
+  %19 = inttoptr i64 -1 to ptr
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %21, label %26
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr %6, align 4
-  %22 = load i8, ptr %7, align 1
-  %23 = trunc i8 %22 to i1
-  %24 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %21, i1 noundef zeroext %23, i1 noundef zeroext true)
-  br label %49
-
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.priority_factors_object, ptr %26, i32 0, i32 2
-  %28 = load double, ptr %27, align 8
-  %29 = fcmp ogt double %28, 0.000000e+00
-  br i1 %29, label %30, label %35
-
-30:                                               ; preds = %25
-  %31 = load i32, ptr %6, align 4
-  %32 = load i8, ptr %7, align 1
-  %33 = trunc i8 %32 to i1
-  %34 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %31, i1 noundef zeroext %33, i1 noundef zeroext true)
-  br label %48
-
-35:                                               ; preds = %25
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.priority_factors_object, ptr %36, i32 0, i32 5
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.priority_factors_t, ptr %38, i32 0, i32 0
-  %40 = load i32, ptr %39, align 8
-  %41 = zext i32 %40 to i64
-  %42 = sub nsw i64 %41, 2147483648
-  %43 = sitofp i64 %42 to double
-  %44 = load i32, ptr %6, align 4
-  %45 = load i8, ptr %7, align 1
-  %46 = trunc i8 %45 to i1
-  %47 = call i32 @_print_int(double noundef %43, i32 noundef %44, i1 noundef zeroext %46, i1 noundef zeroext true)
-  br label %48
-
-48:                                               ; preds = %35, %30
-  br label %49
-
-49:                                               ; preds = %48, %20
+21:                                               ; preds = %17
+  %22 = load i32, ptr %6, align 4
+  %23 = load i8, ptr %7, align 1
+  %24 = trunc i8 %23 to i1
+  %25 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %22, i1 noundef zeroext %24, i1 noundef zeroext true)
   br label %50
 
-50:                                               ; preds = %49, %12
-  %51 = load ptr, ptr %8, align 8
-  %52 = icmp ne ptr %51, null
-  br i1 %52, label %53, label %56
+26:                                               ; preds = %17
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %struct.priority_factors_object, ptr %27, i32 0, i32 2
+  %29 = load double, ptr %28, align 8
+  %30 = fcmp ogt double %29, 0.000000e+00
+  br i1 %30, label %31, label %36
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %8, align 8
-  %55 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %54)
-  br label %56
+31:                                               ; preds = %26
+  %32 = load i32, ptr %6, align 4
+  %33 = load i8, ptr %7, align 1
+  %34 = trunc i8 %33 to i1
+  %35 = call i32 @_print_int(double noundef 0.000000e+00, i32 noundef %32, i1 noundef zeroext %34, i1 noundef zeroext true)
+  br label %49
 
-56:                                               ; preds = %53, %50
+36:                                               ; preds = %26
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds %struct.priority_factors_object, ptr %37, i32 0, i32 5
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds %struct.priority_factors_t, ptr %39, i32 0, i32 0
+  %41 = load i32, ptr %40, align 8
+  %42 = zext i32 %41 to i64
+  %43 = sub nsw i64 %42, 2147483648
+  %44 = sitofp i64 %43 to double
+  %45 = load i32, ptr %6, align 4
+  %46 = load i8, ptr %7, align 1
+  %47 = trunc i8 %46 to i1
+  %48 = call i32 @_print_int(double noundef %44, i32 noundef %45, i1 noundef zeroext %47, i1 noundef zeroext true)
+  br label %49
+
+49:                                               ; preds = %36, %31
+  br label %50
+
+50:                                               ; preds = %49, %21
+  br label %51
+
+51:                                               ; preds = %50, %12
+  %52 = load ptr, ptr %8, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %57
+
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %8, align 8
+  %56 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %55)
+  br label %57
+
+57:                                               ; preds = %54, %51
   ret i32 0
 }
 
@@ -2294,47 +2317,48 @@ define dso_local i32 @_print_job_user_name(ptr noundef %0, i32 noundef %1, i1 no
   %15 = load i8, ptr %7, align 1
   %16 = trunc i8 %15 to i1
   %17 = call i32 @_print_str(ptr noundef @.str.21, i32 noundef %14, i1 noundef zeroext %16, i1 noundef zeroext true)
-  br label %37
+  br label %38
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %5, align 8
-  %20 = icmp eq ptr %19, inttoptr (i64 -1 to ptr)
-  br i1 %20, label %21, label %26
+  %20 = inttoptr i64 -1 to ptr
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %22, label %27
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr %6, align 4
-  %23 = load i8, ptr %7, align 1
-  %24 = trunc i8 %23 to i1
-  %25 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %22, i1 noundef zeroext %24, i1 noundef zeroext true)
-  br label %36
-
-26:                                               ; preds = %18
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.priority_factors_object, ptr %27, i32 0, i32 7
-  %29 = load i32, ptr %28, align 8
-  %30 = call ptr @uid_to_string_cached(i32 noundef %29)
-  store ptr %30, ptr %9, align 8
-  %31 = load ptr, ptr %9, align 8
-  %32 = load i32, ptr %6, align 4
-  %33 = load i8, ptr %7, align 1
-  %34 = trunc i8 %33 to i1
-  %35 = call i32 @_print_str(ptr noundef %31, i32 noundef %32, i1 noundef zeroext %34, i1 noundef zeroext true)
-  br label %36
-
-36:                                               ; preds = %26, %21
+22:                                               ; preds = %18
+  %23 = load i32, ptr %6, align 4
+  %24 = load i8, ptr %7, align 1
+  %25 = trunc i8 %24 to i1
+  %26 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %23, i1 noundef zeroext %25, i1 noundef zeroext true)
   br label %37
 
-37:                                               ; preds = %36, %13
-  %38 = load ptr, ptr %8, align 8
-  %39 = icmp ne ptr %38, null
-  br i1 %39, label %40, label %43
+27:                                               ; preds = %18
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %struct.priority_factors_object, ptr %28, i32 0, i32 7
+  %30 = load i32, ptr %29, align 8
+  %31 = call ptr @uid_to_string_cached(i32 noundef %30)
+  store ptr %31, ptr %9, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = load i32, ptr %6, align 4
+  %34 = load i8, ptr %7, align 1
+  %35 = trunc i8 %34 to i1
+  %36 = call i32 @_print_str(ptr noundef %32, i32 noundef %33, i1 noundef zeroext %35, i1 noundef zeroext true)
+  br label %37
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr %8, align 8
-  %42 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %41)
-  br label %43
+37:                                               ; preds = %27, %22
+  br label %38
 
-43:                                               ; preds = %40, %37
+38:                                               ; preds = %37, %13
+  %39 = load ptr, ptr %8, align 8
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %44
+
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %8, align 8
+  %43 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %42)
+  br label %44
+
+44:                                               ; preds = %41, %38
   ret i32 0
 }
 
@@ -2363,136 +2387,137 @@ define dso_local i32 @_print_tres_normalized(ptr noundef %0, i32 noundef %1, i1 
   %17 = load i8, ptr %7, align 1
   %18 = trunc i8 %17 to i1
   %19 = call i32 @_print_str(ptr noundef @.str.22, i32 noundef %16, i1 noundef zeroext %18, i1 noundef zeroext true)
-  br label %99
+  br label %100
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %5, align 8
-  %22 = icmp eq ptr %21, inttoptr (i64 -1 to ptr)
-  br i1 %22, label %23, label %28
+  %22 = inttoptr i64 -1 to ptr
+  %23 = icmp eq ptr %21, %22
+  br i1 %23, label %24, label %29
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr %6, align 4
-  %25 = load i8, ptr %7, align 1
-  %26 = trunc i8 %25 to i1
-  %27 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %24, i1 noundef zeroext %26, i1 noundef zeroext true)
-  br label %98
-
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.priority_factors_object, ptr %29, i32 0, i32 2
-  %31 = load double, ptr %30, align 8
-  %32 = fcmp ogt double %31, 0.000000e+00
-  br i1 %32, label %33, label %38
-
-33:                                               ; preds = %28
-  %34 = load i32, ptr %6, align 4
-  %35 = load i8, ptr %7, align 1
-  %36 = trunc i8 %35 to i1
-  %37 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %34, i1 noundef zeroext %36, i1 noundef zeroext true)
-  br label %97
-
-38:                                               ; preds = %28
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.priority_factors_object, ptr %39, i32 0, i32 5
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %9, align 8
-  %42 = call ptr @xstrdup(ptr noundef @.str.3)
-  store ptr %42, ptr %10, align 8
-  store i32 0, ptr %11, align 4
-  store i32 0, ptr %11, align 4
-  br label %43
-
-43:                                               ; preds = %88, %38
-  %44 = load i32, ptr %11, align 4
-  %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds %struct.priority_factors_t, ptr %45, i32 0, i32 9
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp ult i32 %44, %47
-  br i1 %48, label %49, label %91
-
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds %struct.priority_factors_t, ptr %50, i32 0, i32 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr %11, align 4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds double, ptr %52, i64 %54
-  %56 = load double, ptr %55, align 8
-  %57 = fcmp une double %56, 0.000000e+00
-  br i1 %57, label %59, label %58
-
-58:                                               ; preds = %49
-  br label %88
-
-59:                                               ; preds = %49
-  %60 = load ptr, ptr %10, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 0
-  %62 = load i8, ptr %61, align 1
-  %63 = icmp ne i8 %62, 0
-  br i1 %63, label %64, label %65
-
-64:                                               ; preds = %59
-  call void @_xstrcat(ptr noundef %10, ptr noundef @.str.23)
-  br label %65
-
-65:                                               ; preds = %64, %59
-  %66 = load ptr, ptr %9, align 8
-  %67 = getelementptr inbounds %struct.priority_factors_t, ptr %66, i32 0, i32 10
-  %68 = load ptr, ptr %67, align 8
-  %69 = load i32, ptr %11, align 4
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %68, i64 %70
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %9, align 8
-  %74 = getelementptr inbounds %struct.priority_factors_t, ptr %73, i32 0, i32 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = load i32, ptr %11, align 4
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds double, ptr %75, i64 %77
-  %79 = load double, ptr %78, align 8
-  %80 = load ptr, ptr %9, align 8
-  %81 = getelementptr inbounds %struct.priority_factors_t, ptr %80, i32 0, i32 11
-  %82 = load ptr, ptr %81, align 8
-  %83 = load i32, ptr %11, align 4
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds double, ptr %82, i64 %84
-  %86 = load double, ptr %85, align 8
-  %87 = fdiv double %79, %86
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %10, ptr noundef @.str.24, ptr noundef %72, double noundef %87)
-  br label %88
-
-88:                                               ; preds = %65, %58
-  %89 = load i32, ptr %11, align 4
-  %90 = add nsw i32 %89, 1
-  store i32 %90, ptr %11, align 4
-  br label %43, !llvm.loop !11
-
-91:                                               ; preds = %43
-  %92 = load ptr, ptr %10, align 8
-  %93 = load i32, ptr %6, align 4
-  %94 = load i8, ptr %7, align 1
-  %95 = trunc i8 %94 to i1
-  %96 = call i32 @_print_str(ptr noundef %92, i32 noundef %93, i1 noundef zeroext %95, i1 noundef zeroext true)
-  call void @slurm_xfree(ptr noundef %10)
-  br label %97
-
-97:                                               ; preds = %91, %33
-  br label %98
-
-98:                                               ; preds = %97, %23
+24:                                               ; preds = %20
+  %25 = load i32, ptr %6, align 4
+  %26 = load i8, ptr %7, align 1
+  %27 = trunc i8 %26 to i1
+  %28 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %25, i1 noundef zeroext %27, i1 noundef zeroext true)
   br label %99
 
-99:                                               ; preds = %98, %15
-  %100 = load ptr, ptr %8, align 8
-  %101 = icmp ne ptr %100, null
-  br i1 %101, label %102, label %105
+29:                                               ; preds = %20
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct.priority_factors_object, ptr %30, i32 0, i32 2
+  %32 = load double, ptr %31, align 8
+  %33 = fcmp ogt double %32, 0.000000e+00
+  br i1 %33, label %34, label %39
 
-102:                                              ; preds = %99
-  %103 = load ptr, ptr %8, align 8
-  %104 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %103)
-  br label %105
+34:                                               ; preds = %29
+  %35 = load i32, ptr %6, align 4
+  %36 = load i8, ptr %7, align 1
+  %37 = trunc i8 %36 to i1
+  %38 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %35, i1 noundef zeroext %37, i1 noundef zeroext true)
+  br label %98
 
-105:                                              ; preds = %102, %99
+39:                                               ; preds = %29
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds %struct.priority_factors_object, ptr %40, i32 0, i32 5
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr %9, align 8
+  %43 = call ptr @xstrdup(ptr noundef @.str.3)
+  store ptr %43, ptr %10, align 8
+  store i32 0, ptr %11, align 4
+  store i32 0, ptr %11, align 4
+  br label %44
+
+44:                                               ; preds = %89, %39
+  %45 = load i32, ptr %11, align 4
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds %struct.priority_factors_t, ptr %46, i32 0, i32 9
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp ult i32 %45, %48
+  br i1 %49, label %50, label %92
+
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %9, align 8
+  %52 = getelementptr inbounds %struct.priority_factors_t, ptr %51, i32 0, i32 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = load i32, ptr %11, align 4
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds double, ptr %53, i64 %55
+  %57 = load double, ptr %56, align 8
+  %58 = fcmp une double %57, 0.000000e+00
+  br i1 %58, label %60, label %59
+
+59:                                               ; preds = %50
+  br label %89
+
+60:                                               ; preds = %50
+  %61 = load ptr, ptr %10, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 0
+  %63 = load i8, ptr %62, align 1
+  %64 = icmp ne i8 %63, 0
+  br i1 %64, label %65, label %66
+
+65:                                               ; preds = %60
+  call void @_xstrcat(ptr noundef %10, ptr noundef @.str.23)
+  br label %66
+
+66:                                               ; preds = %65, %60
+  %67 = load ptr, ptr %9, align 8
+  %68 = getelementptr inbounds %struct.priority_factors_t, ptr %67, i32 0, i32 10
+  %69 = load ptr, ptr %68, align 8
+  %70 = load i32, ptr %11, align 4
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds ptr, ptr %69, i64 %71
+  %73 = load ptr, ptr %72, align 8
+  %74 = load ptr, ptr %9, align 8
+  %75 = getelementptr inbounds %struct.priority_factors_t, ptr %74, i32 0, i32 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = load i32, ptr %11, align 4
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds double, ptr %76, i64 %78
+  %80 = load double, ptr %79, align 8
+  %81 = load ptr, ptr %9, align 8
+  %82 = getelementptr inbounds %struct.priority_factors_t, ptr %81, i32 0, i32 11
+  %83 = load ptr, ptr %82, align 8
+  %84 = load i32, ptr %11, align 4
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds double, ptr %83, i64 %85
+  %87 = load double, ptr %86, align 8
+  %88 = fdiv double %80, %87
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %10, ptr noundef @.str.24, ptr noundef %73, double noundef %88)
+  br label %89
+
+89:                                               ; preds = %66, %59
+  %90 = load i32, ptr %11, align 4
+  %91 = add nsw i32 %90, 1
+  store i32 %91, ptr %11, align 4
+  br label %44, !llvm.loop !11
+
+92:                                               ; preds = %44
+  %93 = load ptr, ptr %10, align 8
+  %94 = load i32, ptr %6, align 4
+  %95 = load i8, ptr %7, align 1
+  %96 = trunc i8 %95 to i1
+  %97 = call i32 @_print_str(ptr noundef %93, i32 noundef %94, i1 noundef zeroext %96, i1 noundef zeroext true)
+  call void @slurm_xfree(ptr noundef %10)
+  br label %98
+
+98:                                               ; preds = %92, %34
+  br label %99
+
+99:                                               ; preds = %98, %24
+  br label %100
+
+100:                                              ; preds = %99, %15
+  %101 = load ptr, ptr %8, align 8
+  %102 = icmp ne ptr %101, null
+  br i1 %102, label %103, label %106
+
+103:                                              ; preds = %100
+  %104 = load ptr, ptr %8, align 8
+  %105 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %104)
+  br label %106
+
+106:                                              ; preds = %103, %100
   ret i32 0
 }
 
@@ -2527,129 +2552,130 @@ define dso_local i32 @_print_tres_weighted(ptr noundef %0, i32 noundef %1, i1 no
   %17 = load i8, ptr %7, align 1
   %18 = trunc i8 %17 to i1
   %19 = call i32 @_print_str(ptr noundef @.str.22, i32 noundef %16, i1 noundef zeroext %18, i1 noundef zeroext true)
-  br label %92
+  br label %93
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %5, align 8
-  %22 = icmp eq ptr %21, inttoptr (i64 -1 to ptr)
-  br i1 %22, label %23, label %29
+  %22 = inttoptr i64 -1 to ptr
+  %23 = icmp eq ptr %21, %22
+  br i1 %23, label %24, label %30
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr @weight_tres, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = load i8, ptr %7, align 1
-  %27 = trunc i8 %26 to i1
-  %28 = call i32 @_print_str(ptr noundef %24, i32 noundef %25, i1 noundef zeroext %27, i1 noundef zeroext true)
-  br label %91
-
-29:                                               ; preds = %20
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.priority_factors_object, ptr %30, i32 0, i32 2
-  %32 = load double, ptr %31, align 8
-  %33 = fcmp ogt double %32, 0.000000e+00
-  br i1 %33, label %34, label %39
-
-34:                                               ; preds = %29
-  %35 = load i32, ptr %6, align 4
-  %36 = load i8, ptr %7, align 1
-  %37 = trunc i8 %36 to i1
-  %38 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %35, i1 noundef zeroext %37, i1 noundef zeroext true)
-  br label %90
-
-39:                                               ; preds = %29
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.priority_factors_object, ptr %40, i32 0, i32 5
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %9, align 8
-  %43 = call ptr @xstrdup(ptr noundef @.str.3)
-  store ptr %43, ptr %10, align 8
-  store i32 0, ptr %11, align 4
-  store i32 0, ptr %11, align 4
-  br label %44
-
-44:                                               ; preds = %81, %39
-  %45 = load i32, ptr %11, align 4
-  %46 = load ptr, ptr %9, align 8
-  %47 = getelementptr inbounds %struct.priority_factors_t, ptr %46, i32 0, i32 9
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp ult i32 %45, %48
-  br i1 %49, label %50, label %84
-
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds %struct.priority_factors_t, ptr %51, i32 0, i32 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = load i32, ptr %11, align 4
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds double, ptr %53, i64 %55
-  %57 = load double, ptr %56, align 8
-  %58 = fcmp une double %57, 0.000000e+00
-  br i1 %58, label %60, label %59
-
-59:                                               ; preds = %50
-  br label %81
-
-60:                                               ; preds = %50
-  %61 = load ptr, ptr %10, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 0
-  %63 = load i8, ptr %62, align 1
-  %64 = icmp ne i8 %63, 0
-  br i1 %64, label %65, label %66
-
-65:                                               ; preds = %60
-  call void @_xstrcat(ptr noundef %10, ptr noundef @.str.23)
-  br label %66
-
-66:                                               ; preds = %65, %60
-  %67 = load ptr, ptr %9, align 8
-  %68 = getelementptr inbounds %struct.priority_factors_t, ptr %67, i32 0, i32 10
-  %69 = load ptr, ptr %68, align 8
-  %70 = load i32, ptr %11, align 4
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr %69, i64 %71
-  %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %9, align 8
-  %75 = getelementptr inbounds %struct.priority_factors_t, ptr %74, i32 0, i32 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = load i32, ptr %11, align 4
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds double, ptr %76, i64 %78
-  %80 = load double, ptr %79, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %10, ptr noundef @.str.25, ptr noundef %73, double noundef %80)
-  br label %81
-
-81:                                               ; preds = %66, %59
-  %82 = load i32, ptr %11, align 4
-  %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %11, align 4
-  br label %44, !llvm.loop !12
-
-84:                                               ; preds = %44
-  %85 = load ptr, ptr %10, align 8
-  %86 = load i32, ptr %6, align 4
-  %87 = load i8, ptr %7, align 1
-  %88 = trunc i8 %87 to i1
-  %89 = call i32 @_print_str(ptr noundef %85, i32 noundef %86, i1 noundef zeroext %88, i1 noundef zeroext true)
-  call void @slurm_xfree(ptr noundef %10)
-  br label %90
-
-90:                                               ; preds = %84, %34
-  br label %91
-
-91:                                               ; preds = %90, %23
+24:                                               ; preds = %20
+  %25 = load ptr, ptr @weight_tres, align 8
+  %26 = load i32, ptr %6, align 4
+  %27 = load i8, ptr %7, align 1
+  %28 = trunc i8 %27 to i1
+  %29 = call i32 @_print_str(ptr noundef %25, i32 noundef %26, i1 noundef zeroext %28, i1 noundef zeroext true)
   br label %92
 
-92:                                               ; preds = %91, %15
-  %93 = load ptr, ptr %8, align 8
-  %94 = icmp ne ptr %93, null
-  br i1 %94, label %95, label %98
+30:                                               ; preds = %20
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds %struct.priority_factors_object, ptr %31, i32 0, i32 2
+  %33 = load double, ptr %32, align 8
+  %34 = fcmp ogt double %33, 0.000000e+00
+  br i1 %34, label %35, label %40
 
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %8, align 8
-  %97 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %96)
-  br label %98
+35:                                               ; preds = %30
+  %36 = load i32, ptr %6, align 4
+  %37 = load i8, ptr %7, align 1
+  %38 = trunc i8 %37 to i1
+  %39 = call i32 @_print_str(ptr noundef @.str.3, i32 noundef %36, i1 noundef zeroext %38, i1 noundef zeroext true)
+  br label %91
 
-98:                                               ; preds = %95, %92
+40:                                               ; preds = %30
+  %41 = load ptr, ptr %5, align 8
+  %42 = getelementptr inbounds %struct.priority_factors_object, ptr %41, i32 0, i32 5
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %9, align 8
+  %44 = call ptr @xstrdup(ptr noundef @.str.3)
+  store ptr %44, ptr %10, align 8
+  store i32 0, ptr %11, align 4
+  store i32 0, ptr %11, align 4
+  br label %45
+
+45:                                               ; preds = %82, %40
+  %46 = load i32, ptr %11, align 4
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds %struct.priority_factors_t, ptr %47, i32 0, i32 9
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp ult i32 %46, %49
+  br i1 %50, label %51, label %85
+
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds %struct.priority_factors_t, ptr %52, i32 0, i32 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = load i32, ptr %11, align 4
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds double, ptr %54, i64 %56
+  %58 = load double, ptr %57, align 8
+  %59 = fcmp une double %58, 0.000000e+00
+  br i1 %59, label %61, label %60
+
+60:                                               ; preds = %51
+  br label %82
+
+61:                                               ; preds = %51
+  %62 = load ptr, ptr %10, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 0
+  %64 = load i8, ptr %63, align 1
+  %65 = icmp ne i8 %64, 0
+  br i1 %65, label %66, label %67
+
+66:                                               ; preds = %61
+  call void @_xstrcat(ptr noundef %10, ptr noundef @.str.23)
+  br label %67
+
+67:                                               ; preds = %66, %61
+  %68 = load ptr, ptr %9, align 8
+  %69 = getelementptr inbounds %struct.priority_factors_t, ptr %68, i32 0, i32 10
+  %70 = load ptr, ptr %69, align 8
+  %71 = load i32, ptr %11, align 4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds ptr, ptr %70, i64 %72
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %9, align 8
+  %76 = getelementptr inbounds %struct.priority_factors_t, ptr %75, i32 0, i32 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i32, ptr %11, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds double, ptr %77, i64 %79
+  %81 = load double, ptr %80, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %10, ptr noundef @.str.25, ptr noundef %74, double noundef %81)
+  br label %82
+
+82:                                               ; preds = %67, %60
+  %83 = load i32, ptr %11, align 4
+  %84 = add nsw i32 %83, 1
+  store i32 %84, ptr %11, align 4
+  br label %45, !llvm.loop !12
+
+85:                                               ; preds = %45
+  %86 = load ptr, ptr %10, align 8
+  %87 = load i32, ptr %6, align 4
+  %88 = load i8, ptr %7, align 1
+  %89 = trunc i8 %88 to i1
+  %90 = call i32 @_print_str(ptr noundef %86, i32 noundef %87, i1 noundef zeroext %89, i1 noundef zeroext true)
+  call void @slurm_xfree(ptr noundef %10)
+  br label %91
+
+91:                                               ; preds = %85, %35
+  br label %92
+
+92:                                               ; preds = %91, %24
+  br label %93
+
+93:                                               ; preds = %92, %15
+  %94 = load ptr, ptr %8, align 8
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %96, label %99
+
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %8, align 8
+  %98 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %97)
+  br label %99
+
+99:                                               ; preds = %96, %93
   ret i32 0
 }
 

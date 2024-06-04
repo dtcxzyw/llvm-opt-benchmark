@@ -38,22 +38,23 @@ define void @_ZN4LIEF3ELF27SymbolVersionAuxRequirementC2ERKNS0_7details13Elf64_V
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4LIEF3ELF16SymbolVersionAuxC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF27SymbolVersionAuxRequirementE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf64_Vernaux", ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 1
-  store i32 %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf64_Vernaux", ptr %11, i32 0, i32 1
-  %13 = load i16, ptr %12, align 1
-  store i16 %13, ptr %10, align 4
-  %14 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %5, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf64_Vernaux", ptr %15, i32 0, i32 2
-  %17 = load i16, ptr %16, align 1
-  store i16 %17, ptr %14, align 2
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3ELF27SymbolVersionAuxRequirementE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf64_Vernaux", ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 1
+  store i32 %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf64_Vernaux", ptr %12, i32 0, i32 1
+  %14 = load i16, ptr %13, align 1
+  store i16 %14, ptr %11, align 4
+  %15 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf64_Vernaux", ptr %16, i32 0, i32 2
+  %18 = load i16, ptr %17, align 1
+  store i16 %18, ptr %15, align 2
   ret void
 }
 
@@ -63,9 +64,10 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF16SymbolVersionAuxC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF16SymbolVersionAuxE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAux", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3ELF16SymbolVersionAuxE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAux", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
   ret void
 }
 
@@ -77,22 +79,23 @@ define void @_ZN4LIEF3ELF27SymbolVersionAuxRequirementC2ERKNS0_7details13Elf32_V
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4LIEF3ELF16SymbolVersionAuxC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF27SymbolVersionAuxRequirementE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf32_Vernaux", ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 1
-  store i32 %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf32_Vernaux", ptr %11, i32 0, i32 1
-  %13 = load i16, ptr %12, align 1
-  store i16 %13, ptr %10, align 4
-  %14 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %5, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf32_Vernaux", ptr %15, i32 0, i32 2
-  %17 = load i16, ptr %16, align 1
-  store i16 %17, ptr %14, align 2
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3ELF27SymbolVersionAuxRequirementE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf32_Vernaux", ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 1
+  store i32 %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf32_Vernaux", ptr %12, i32 0, i32 1
+  %14 = load i16, ptr %13, align 1
+  store i16 %14, ptr %11, align 4
+  %15 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf32_Vernaux", ptr %16, i32 0, i32 2
+  %18 = load i16, ptr %17, align 1
+  store i16 %18, ptr %15, align 2
   ret void
 }
 
@@ -158,9 +161,10 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF16SymbolVersionAuxD2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF16SymbolVersionAuxE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAux", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3ELF16SymbolVersionAuxE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAux", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
   call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
   ret void
 }

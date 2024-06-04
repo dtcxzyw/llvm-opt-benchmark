@@ -2082,344 +2082,380 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) #6 {
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %7, ptr align 16 @__const.main.longflags, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %8, ptr align 16 @__const.main.longkeys, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr align 8 @_ZL1T, i8 0, i64 30232, i1 false)
-  store i32 1, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  store double 5.000000e-04, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 23), align 8
-  store i32 5555, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 25), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 24), align 8
-  %11 = load i32, ptr %4, align 4
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds [6 x ptr], ptr %7, i64 0, i64 0
-  %14 = getelementptr inbounds [2 x ptr], ptr %8, i64 0, i64 0
-  %15 = call noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %11, ptr noundef %12, ptr noundef @.str.19, ptr noundef @.str.20, ptr noundef %13, ptr noundef %14)
-  store ptr %15, ptr %9, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = icmp eq ptr null, %16
-  br i1 %17, label %18, label %19
+  %11 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  store i32 1, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  store i32 1, ptr %12, align 4
+  %13 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 23
+  store double 5.000000e-04, ptr %13, align 8
+  %14 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 25
+  store i32 5555, ptr %14, align 4
+  %15 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 24
+  store i32 0, ptr %15, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds [6 x ptr], ptr %7, i64 0, i64 0
+  %19 = getelementptr inbounds [2 x ptr], ptr %8, i64 0, i64 0
+  %20 = call noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %16, ptr noundef %17, ptr noundef @.str.19, ptr noundef @.str.20, ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %9, align 8
+  %21 = load ptr, ptr %9, align 8
+  %22 = icmp eq ptr null, %21
+  br i1 %22, label %23, label %24
 
-18:                                               ; preds = %2
+23:                                               ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %222
+  br label %258
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %9, align 8
-  %21 = call noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %20, ptr noundef @.str.21)
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %26, label %23
+24:                                               ; preds = %2
+  %25 = load ptr, ptr %9, align 8
+  %26 = call noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %25, ptr noundef @.str.21)
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %31, label %28
 
-23:                                               ; preds = %19
-  %24 = load i32, ptr %4, align 4
-  %25 = icmp eq i32 %24, 1
-  br i1 %25, label %26, label %32
+28:                                               ; preds = %24
+  %29 = load i32, ptr %4, align 4
+  %30 = icmp eq i32 %29, 1
+  br i1 %30, label %31, label %37
 
-26:                                               ; preds = %23, %19
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct.OPTARGS, ptr %27, i32 0, i32 11
-  %29 = load ptr, ptr %28, align 8
-  %30 = call i32 (ptr, ...) @printf(ptr noundef @_ZL5usage, ptr noundef %29)
-  %31 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %31) #13
+31:                                               ; preds = %28, %24
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds %struct.OPTARGS, ptr %32, i32 0, i32 11
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 (ptr, ...) @printf(ptr noundef @_ZL5usage, ptr noundef %34)
+  %36 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %36) #13
   store i32 0, ptr %3, align 4
-  br label %222
+  br label %258
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %9, align 8
-  %34 = call noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %33, ptr noundef @.str.17)
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %44
-
-36:                                               ; preds = %32
-  %37 = load ptr, ptr @stdout, align 8
+37:                                               ; preds = %28
   %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr inbounds %struct.OPTARGS, ptr %38, i32 0, i32 11
-  %40 = load ptr, ptr %39, align 8
-  %41 = call noundef ptr @_Z14pj_get_releasev()
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.22, ptr noundef %40, ptr noundef %41) #13
+  %39 = call noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %38, ptr noundef @.str.17)
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %49
+
+41:                                               ; preds = %37
+  %42 = load ptr, ptr @stdout, align 8
   %43 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %43) #13
+  %44 = getelementptr inbounds %struct.OPTARGS, ptr %43, i32 0, i32 11
+  %45 = load ptr, ptr %44, align 8
+  %46 = call noundef ptr @_Z14pj_get_releasev()
+  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.22, ptr noundef %45, ptr noundef %46) #13
+  %48 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %48) #13
   store i32 0, ptr %3, align 4
-  br label %222
+  br label %258
 
-44:                                               ; preds = %32
-  %45 = load ptr, ptr %9, align 8
-  %46 = call noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %45, ptr noundef @.str.23)
-  store i32 %46, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %47 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %48 = icmp ne i32 %47, 0
-  br i1 %48, label %49, label %50
+49:                                               ; preds = %37
+  %50 = load ptr, ptr %9, align 8
+  %51 = call noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %50, ptr noundef @.str.23)
+  %52 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  store i32 %51, ptr %52, align 4
+  %53 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %58
 
-49:                                               ; preds = %44
-  store i32 -1, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  br label %50
+56:                                               ; preds = %49
+  %57 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  store i32 -1, ptr %57, align 4
+  br label %58
 
-50:                                               ; preds = %49, %44
-  %51 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %52 = icmp ne i32 %51, -1
-  br i1 %52, label %53, label %57
+58:                                               ; preds = %56, %49
+  %59 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp ne i32 %60, -1
+  br i1 %61, label %62, label %67
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %9, align 8
-  %55 = call noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %54, ptr noundef @.str.24)
-  %56 = add nsw i32 %55, 1
-  store i32 %56, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  br label %57
-
-57:                                               ; preds = %53, %50
-  %58 = load ptr, ptr @stdout, align 8
-  store ptr %58, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %59 = load ptr, ptr %9, align 8
-  %60 = call noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %59, ptr noundef @.str.20)
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %62, label %66
-
-62:                                               ; preds = %57
+62:                                               ; preds = %58
   %63 = load ptr, ptr %9, align 8
-  %64 = call noundef ptr @_Z7opt_argP7OPTARGSPKc(ptr noundef %63, ptr noundef @.str.25)
-  %65 = call noalias ptr @fopen(ptr noundef %64, ptr noundef @.str.1)
-  store ptr %65, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  br label %66
+  %64 = call noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %63, ptr noundef @.str.24)
+  %65 = add nsw i32 %64, 1
+  %66 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  store i32 %65, ptr %66, align 4
+  br label %67
 
-66:                                               ; preds = %62, %57
-  %67 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %68 = icmp eq ptr null, %67
-  br i1 %68, label %69, label %78
+67:                                               ; preds = %62, %58
+  %68 = load ptr, ptr @stdout, align 8
+  %69 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  store ptr %68, ptr %69, align 8
+  %70 = load ptr, ptr %9, align 8
+  %71 = call noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %70, ptr noundef @.str.20)
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %78
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr @stderr, align 8
-  %71 = load ptr, ptr %9, align 8
-  %72 = getelementptr inbounds %struct.OPTARGS, ptr %71, i32 0, i32 11
-  %73 = load ptr, ptr %72, align 8
+73:                                               ; preds = %67
   %74 = load ptr, ptr %9, align 8
   %75 = call noundef ptr @_Z7opt_argP7OPTARGSPKc(ptr noundef %74, ptr noundef @.str.25)
-  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef @.str.26, ptr noundef %73, ptr noundef %75) #13
-  %77 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %77) #13
-  store i32 1, ptr %3, align 4
-  br label %222
+  %76 = call noalias ptr @fopen(ptr noundef %75, ptr noundef @.str.1)
+  %77 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  store ptr %76, ptr %77, align 8
+  br label %78
 
-78:                                               ; preds = %66
-  %79 = load ptr, ptr %9, align 8
-  %80 = call noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %79, ptr noundef @.str.27)
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %82, label %85
+78:                                               ; preds = %73, %67
+  %79 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp eq ptr null, %80
+  br i1 %81, label %82, label %91
 
 82:                                               ; preds = %78
-  %83 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %83) #13
-  %84 = call noundef i32 @_ZL14list_err_codesv()
-  store i32 %84, ptr %3, align 4
-  br label %222
+  %83 = load ptr, ptr @stderr, align 8
+  %84 = load ptr, ptr %9, align 8
+  %85 = getelementptr inbounds %struct.OPTARGS, ptr %84, i32 0, i32 11
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %9, align 8
+  %88 = call noundef ptr @_Z7opt_argP7OPTARGSPKc(ptr noundef %87, ptr noundef @.str.25)
+  %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef @.str.26, ptr noundef %86, ptr noundef %88) #13
+  %90 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %90) #13
+  store i32 1, ptr %3, align 4
+  br label %258
 
-85:                                               ; preds = %78
-  %86 = load ptr, ptr %9, align 8
-  %87 = getelementptr inbounds %struct.OPTARGS, ptr %86, i32 0, i32 3
-  %88 = load i32, ptr %87, align 4
-  %89 = icmp eq i32 0, %88
-  br i1 %89, label %90, label %98
+91:                                               ; preds = %78
+  %92 = load ptr, ptr %9, align 8
+  %93 = call noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %92, ptr noundef @.str.27)
+  %94 = icmp ne i32 %93, 0
+  br i1 %94, label %95, label %98
 
-90:                                               ; preds = %85
-  %91 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %92 = icmp eq i32 %91, -1
-  br i1 %92, label %93, label %94
+95:                                               ; preds = %91
+  %96 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %96) #13
+  %97 = call noundef i32 @_ZL14list_err_codesv()
+  store i32 %97, ptr %3, align 4
+  br label %258
 
-93:                                               ; preds = %90
+98:                                               ; preds = %91
+  %99 = load ptr, ptr %9, align 8
+  %100 = getelementptr inbounds %struct.OPTARGS, ptr %99, i32 0, i32 3
+  %101 = load i32, ptr %100, align 4
+  %102 = icmp eq i32 0, %101
+  br i1 %102, label %103, label %113
+
+103:                                              ; preds = %98
+  %104 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp eq i32 %105, -1
+  br i1 %106, label %107, label %108
+
+107:                                              ; preds = %103
   store i32 -1, ptr %3, align 4
-  br label %222
+  br label %258
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef @.str.28) #13
-  %97 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %97) #13
-  store i32 0, ptr %3, align 4
-  br label %222
-
-98:                                               ; preds = %85
-  %99 = call noundef ptr @_ZL11ffio_createPKPKcmm(ptr noundef @_ZL8gie_tags, i64 noundef 19, i64 noundef 1000)
-  store ptr %99, ptr @F, align 8
-  %100 = load ptr, ptr @F, align 8
-  %101 = icmp eq ptr null, %100
-  br i1 %101, label %102, label %109
-
-102:                                              ; preds = %98
-  %103 = load ptr, ptr @stderr, align 8
-  %104 = load ptr, ptr %9, align 8
-  %105 = getelementptr inbounds %struct.OPTARGS, ptr %104, i32 0, i32 11
-  %106 = load ptr, ptr %105, align 8
-  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef @.str.29, ptr noundef %106) #13
-  %108 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %108) #13
-  store i32 1, ptr %3, align 4
-  br label %222
-
-109:                                              ; preds = %98
-  store i32 0, ptr %6, align 4
-  br label %110
-
-110:                                              ; preds = %140, %109
-  %111 = load i32, ptr %6, align 4
+108:                                              ; preds = %103
+  %109 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %110 = load ptr, ptr %109, align 8
+  %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef @.str.28) #13
   %112 = load ptr, ptr %9, align 8
-  %113 = getelementptr inbounds %struct.OPTARGS, ptr %112, i32 0, i32 3
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp slt i32 %111, %114
-  br i1 %115, label %116, label %143
+  call void @free(ptr noundef %112) #13
+  store i32 0, ptr %3, align 4
+  br label %258
 
-116:                                              ; preds = %110
-  %117 = load ptr, ptr %9, align 8
-  %118 = getelementptr inbounds %struct.OPTARGS, ptr %117, i32 0, i32 7
-  %119 = load ptr, ptr %118, align 8
-  %120 = load i32, ptr %6, align 4
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds ptr, ptr %119, i64 %121
-  %123 = load ptr, ptr %122, align 8
-  %124 = call noalias ptr @fopen(ptr noundef %123, ptr noundef @.str.1)
-  store ptr %124, ptr %10, align 8
-  %125 = load ptr, ptr %10, align 8
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %127, label %137
+113:                                              ; preds = %98
+  %114 = call noundef ptr @_ZL11ffio_createPKPKcmm(ptr noundef @_ZL8gie_tags, i64 noundef 19, i64 noundef 1000)
+  store ptr %114, ptr @F, align 8
+  %115 = load ptr, ptr @F, align 8
+  %116 = icmp eq ptr null, %115
+  br i1 %116, label %117, label %124
 
-127:                                              ; preds = %116
-  %128 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %129 = load ptr, ptr %9, align 8
-  %130 = getelementptr inbounds %struct.OPTARGS, ptr %129, i32 0, i32 7
-  %131 = load ptr, ptr %130, align 8
-  %132 = load i32, ptr %6, align 4
-  %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds ptr, ptr %131, i64 %133
-  %135 = load ptr, ptr %134, align 8
-  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef @.str.30, ptr noundef @_ZL5delim, ptr noundef %135) #13
+117:                                              ; preds = %113
+  %118 = load ptr, ptr @stderr, align 8
+  %119 = load ptr, ptr %9, align 8
+  %120 = getelementptr inbounds %struct.OPTARGS, ptr %119, i32 0, i32 11
+  %121 = load ptr, ptr %120, align 8
+  %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef @.str.29, ptr noundef %121) #13
+  %123 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %123) #13
   store i32 1, ptr %3, align 4
-  br label %222
+  br label %258
 
-137:                                              ; preds = %116
-  %138 = load ptr, ptr %10, align 8
-  %139 = call i32 @fclose(ptr noundef %138)
-  br label %140
-
-140:                                              ; preds = %137
-  %141 = load i32, ptr %6, align 4
-  %142 = add nsw i32 %141, 1
-  store i32 %142, ptr %6, align 4
-  br label %110, !llvm.loop !18
-
-143:                                              ; preds = %110
+124:                                              ; preds = %113
   store i32 0, ptr %6, align 4
-  br label %144
+  br label %125
 
-144:                                              ; preds = %159, %143
-  %145 = load i32, ptr %6, align 4
-  %146 = load ptr, ptr %9, align 8
-  %147 = getelementptr inbounds %struct.OPTARGS, ptr %146, i32 0, i32 3
-  %148 = load i32, ptr %147, align 4
-  %149 = icmp slt i32 %145, %148
-  br i1 %149, label %150, label %162
+125:                                              ; preds = %156, %124
+  %126 = load i32, ptr %6, align 4
+  %127 = load ptr, ptr %9, align 8
+  %128 = getelementptr inbounds %struct.OPTARGS, ptr %127, i32 0, i32 3
+  %129 = load i32, ptr %128, align 4
+  %130 = icmp slt i32 %126, %129
+  br i1 %130, label %131, label %159
 
-150:                                              ; preds = %144
-  %151 = load ptr, ptr %9, align 8
-  %152 = getelementptr inbounds %struct.OPTARGS, ptr %151, i32 0, i32 7
-  %153 = load ptr, ptr %152, align 8
-  %154 = load i32, ptr %6, align 4
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds ptr, ptr %153, i64 %155
-  %157 = load ptr, ptr %156, align 8
-  %158 = call noundef i32 @_ZL12process_filePKc(ptr noundef %157)
-  br label %159
+131:                                              ; preds = %125
+  %132 = load ptr, ptr %9, align 8
+  %133 = getelementptr inbounds %struct.OPTARGS, ptr %132, i32 0, i32 7
+  %134 = load ptr, ptr %133, align 8
+  %135 = load i32, ptr %6, align 4
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr inbounds ptr, ptr %134, i64 %136
+  %138 = load ptr, ptr %137, align 8
+  %139 = call noalias ptr @fopen(ptr noundef %138, ptr noundef @.str.1)
+  store ptr %139, ptr %10, align 8
+  %140 = load ptr, ptr %10, align 8
+  %141 = icmp eq ptr %140, null
+  br i1 %141, label %142, label %153
 
-159:                                              ; preds = %150
-  %160 = load i32, ptr %6, align 4
-  %161 = add nsw i32 %160, 1
-  store i32 %161, ptr %6, align 4
-  br label %144, !llvm.loop !19
+142:                                              ; preds = %131
+  %143 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %144 = load ptr, ptr %143, align 8
+  %145 = load ptr, ptr %9, align 8
+  %146 = getelementptr inbounds %struct.OPTARGS, ptr %145, i32 0, i32 7
+  %147 = load ptr, ptr %146, align 8
+  %148 = load i32, ptr %6, align 4
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr inbounds ptr, ptr %147, i64 %149
+  %151 = load ptr, ptr %150, align 8
+  %152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef @.str.30, ptr noundef @_ZL5delim, ptr noundef %151) #13
+  store i32 1, ptr %3, align 4
+  br label %258
 
-162:                                              ; preds = %144
-  %163 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %164 = icmp sgt i32 %163, 0
-  br i1 %164, label %165, label %202
+153:                                              ; preds = %131
+  %154 = load ptr, ptr %10, align 8
+  %155 = call i32 @fclose(ptr noundef %154)
+  br label %156
 
-165:                                              ; preds = %162
-  %166 = load ptr, ptr %9, align 8
-  %167 = getelementptr inbounds %struct.OPTARGS, ptr %166, i32 0, i32 3
-  %168 = load i32, ptr %167, align 4
-  %169 = icmp sgt i32 %168, 1
-  br i1 %169, label %170, label %181
+156:                                              ; preds = %153
+  %157 = load i32, ptr %6, align 4
+  %158 = add nsw i32 %157, 1
+  store i32 %158, ptr %6, align 4
+  br label %125, !llvm.loop !18
 
-170:                                              ; preds = %165
-  %171 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %172 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 17), align 8
-  %173 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 18), align 4
-  %174 = add nsw i32 %172, %173
-  %175 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 19), align 8
-  %176 = add nsw i32 %174, %175
-  %177 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 17), align 8
-  %178 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 19), align 8
-  %179 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 18), align 4
-  %180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef @.str.31, ptr noundef @_ZL5delim, i32 noundef %176, i32 noundef %177, i32 noundef %178, i32 noundef %179) #13
-  br label %181
+159:                                              ; preds = %125
+  store i32 0, ptr %6, align 4
+  br label %160
 
-181:                                              ; preds = %170, %165
-  %182 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef @.str.32, ptr noundef @_ZL5delim) #13
-  %184 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %185 = icmp sgt i32 %184, 1
-  br i1 %185, label %186, label %201
+160:                                              ; preds = %175, %159
+  %161 = load i32, ptr %6, align 4
+  %162 = load ptr, ptr %9, align 8
+  %163 = getelementptr inbounds %struct.OPTARGS, ptr %162, i32 0, i32 3
+  %164 = load i32, ptr %163, align 4
+  %165 = icmp slt i32 %161, %164
+  br i1 %165, label %166, label %178
 
-186:                                              ; preds = %181
-  %187 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %188 = load i32, ptr @fail_rtps, align 4
-  %189 = load i32, ptr @succ_rtps, align 4
-  %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef @.str.33, i32 noundef %188, i32 noundef %189) #13
-  %191 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %192 = load i32, ptr @fail_fails, align 4
-  %193 = load i32, ptr @succ_fails, align 4
-  %194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %191, ptr noundef @.str.34, i32 noundef %192, i32 noundef %193) #13
-  %195 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %196 = load i32, ptr @tests, align 4
-  %197 = load i32, ptr @succs, align 4
-  %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef @.str.35, i32 noundef %196, i32 noundef %197) #13
-  %199 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %199, ptr noundef @.str.32, ptr noundef @_ZL5delim) #13
-  br label %201
+166:                                              ; preds = %160
+  %167 = load ptr, ptr %9, align 8
+  %168 = getelementptr inbounds %struct.OPTARGS, ptr %167, i32 0, i32 7
+  %169 = load ptr, ptr %168, align 8
+  %170 = load i32, ptr %6, align 4
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds ptr, ptr %169, i64 %171
+  %173 = load ptr, ptr %172, align 8
+  %174 = call noundef i32 @_ZL12process_filePKc(ptr noundef %173)
+  br label %175
 
-201:                                              ; preds = %186, %181
-  br label %210
+175:                                              ; preds = %166
+  %176 = load i32, ptr %6, align 4
+  %177 = add nsw i32 %176, 1
+  store i32 %177, ptr %6, align 4
+  br label %160, !llvm.loop !19
 
-202:                                              ; preds = %162
-  %203 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 18), align 4
-  %204 = icmp ne i32 %203, 0
-  br i1 %204, label %205, label %209
+178:                                              ; preds = %160
+  %179 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %180 = load i32, ptr %179, align 4
+  %181 = icmp sgt i32 %180, 0
+  br i1 %181, label %182, label %232
 
-205:                                              ; preds = %202
-  %206 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %207 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 18), align 4
-  %208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %206, ptr noundef @.str.36, i32 noundef %207) #13
-  br label %209
+182:                                              ; preds = %178
+  %183 = load ptr, ptr %9, align 8
+  %184 = getelementptr inbounds %struct.OPTARGS, ptr %183, i32 0, i32 3
+  %185 = load i32, ptr %184, align 4
+  %186 = icmp sgt i32 %185, 1
+  br i1 %186, label %187, label %205
 
-209:                                              ; preds = %205, %202
-  br label %210
+187:                                              ; preds = %182
+  %188 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 17
+  %191 = load i32, ptr %190, align 8
+  %192 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 18
+  %193 = load i32, ptr %192, align 4
+  %194 = add nsw i32 %191, %193
+  %195 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 19
+  %196 = load i32, ptr %195, align 8
+  %197 = add nsw i32 %194, %196
+  %198 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 17
+  %199 = load i32, ptr %198, align 8
+  %200 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 19
+  %201 = load i32, ptr %200, align 8
+  %202 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 18
+  %203 = load i32, ptr %202, align 4
+  %204 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef @.str.31, ptr noundef @_ZL5delim, i32 noundef %197, i32 noundef %199, i32 noundef %201, i32 noundef %203) #13
+  br label %205
 
-210:                                              ; preds = %209, %201
-  %211 = load ptr, ptr @stdout, align 8
-  %212 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %213 = icmp ne ptr %211, %212
-  br i1 %213, label %214, label %217
+205:                                              ; preds = %187, %182
+  %206 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %207 = load ptr, ptr %206, align 8
+  %208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %207, ptr noundef @.str.32, ptr noundef @_ZL5delim) #13
+  %209 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %210 = load i32, ptr %209, align 4
+  %211 = icmp sgt i32 %210, 1
+  br i1 %211, label %212, label %231
 
-214:                                              ; preds = %210
-  %215 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %216 = call i32 @fclose(ptr noundef %215)
-  br label %217
+212:                                              ; preds = %205
+  %213 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %214 = load ptr, ptr %213, align 8
+  %215 = load i32, ptr @fail_rtps, align 4
+  %216 = load i32, ptr @succ_rtps, align 4
+  %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %214, ptr noundef @.str.33, i32 noundef %215, i32 noundef %216) #13
+  %218 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %219 = load ptr, ptr %218, align 8
+  %220 = load i32, ptr @fail_fails, align 4
+  %221 = load i32, ptr @succ_fails, align 4
+  %222 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef @.str.34, i32 noundef %220, i32 noundef %221) #13
+  %223 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %224 = load ptr, ptr %223, align 8
+  %225 = load i32, ptr @tests, align 4
+  %226 = load i32, ptr @succs, align 4
+  %227 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %224, ptr noundef @.str.35, i32 noundef %225, i32 noundef %226) #13
+  %228 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %229 = load ptr, ptr %228, align 8
+  %230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %229, ptr noundef @.str.32, ptr noundef @_ZL5delim) #13
+  br label %231
 
-217:                                              ; preds = %214, %210
-  %218 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %218) #13
-  %219 = load ptr, ptr @F, align 8
-  %220 = call noundef ptr @_ZL12ffio_destroyP4ffio(ptr noundef %219)
-  %221 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 18), align 4
-  store i32 %221, ptr %3, align 4
-  br label %222
+231:                                              ; preds = %212, %205
+  br label %243
 
-222:                                              ; preds = %217, %127, %102, %94, %93, %82, %69, %36, %26, %18
-  %223 = load i32, ptr %3, align 4
-  ret i32 %223
+232:                                              ; preds = %178
+  %233 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 18
+  %234 = load i32, ptr %233, align 4
+  %235 = icmp ne i32 %234, 0
+  br i1 %235, label %236, label %242
+
+236:                                              ; preds = %232
+  %237 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 18
+  %240 = load i32, ptr %239, align 4
+  %241 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef @.str.36, i32 noundef %240) #13
+  br label %242
+
+242:                                              ; preds = %236, %232
+  br label %243
+
+243:                                              ; preds = %242, %231
+  %244 = load ptr, ptr @stdout, align 8
+  %245 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %246 = load ptr, ptr %245, align 8
+  %247 = icmp ne ptr %244, %246
+  br i1 %247, label %248, label %252
+
+248:                                              ; preds = %243
+  %249 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %250 = load ptr, ptr %249, align 8
+  %251 = call i32 @fclose(ptr noundef %250)
+  br label %252
+
+252:                                              ; preds = %248, %243
+  %253 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %253) #13
+  %254 = load ptr, ptr @F, align 8
+  %255 = call noundef ptr @_ZL12ffio_destroyP4ffio(ptr noundef %254)
+  %256 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 18
+  %257 = load i32, ptr %256, align 4
+  store i32 %257, ptr %3, align 4
+  br label %258
+
+258:                                              ; preds = %252, %142, %117, %108, %107, %95, %82, %41, %31, %23
+  %259 = load i32, ptr %3, align 4
+  ret i32 %259
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2440,39 +2476,40 @@ define internal noundef i32 @_ZL14list_err_codesv() #1 {
   store i32 0, ptr %1, align 4
   br label %3
 
-3:                                                ; preds = %25, %0
+3:                                                ; preds = %26, %0
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %4, 16
-  br i1 %5, label %6, label %28
+  br i1 %5, label %6, label %29
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %8 = load i32, ptr %1, align 4
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [16 x %struct.anon], ptr @_ZN12_GLOBAL__N_16lookupE, i64 0, i64 %9
-  %11 = getelementptr inbounds %struct.anon, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 16
-  %13 = load i32, ptr %1, align 4
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [16 x %struct.anon], ptr @_ZN12_GLOBAL__N_16lookupE, i64 0, i64 %14
-  %16 = getelementptr inbounds %struct.anon, ptr %15, i32 0, i32 1
-  %17 = load i32, ptr %16, align 8
-  %18 = load i32, ptr %1, align 4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [16 x %struct.anon], ptr @_ZN12_GLOBAL__N_16lookupE, i64 0, i64 %19
-  %21 = getelementptr inbounds %struct.anon, ptr %20, i32 0, i32 1
-  %22 = load i32, ptr %21, align 8
-  %23 = call ptr @proj_errno_string(i32 noundef %22)
-  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.133, ptr noundef %12, i32 noundef %17, ptr noundef %23) #13
-  br label %25
+  %7 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i32, ptr %1, align 4
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds [16 x %struct.anon], ptr @_ZN12_GLOBAL__N_16lookupE, i64 0, i64 %10
+  %12 = getelementptr inbounds %struct.anon, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 16
+  %14 = load i32, ptr %1, align 4
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds [16 x %struct.anon], ptr @_ZN12_GLOBAL__N_16lookupE, i64 0, i64 %15
+  %17 = getelementptr inbounds %struct.anon, ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 8
+  %19 = load i32, ptr %1, align 4
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds [16 x %struct.anon], ptr @_ZN12_GLOBAL__N_16lookupE, i64 0, i64 %20
+  %22 = getelementptr inbounds %struct.anon, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 8
+  %24 = call ptr @proj_errno_string(i32 noundef %23)
+  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.133, ptr noundef %13, i32 noundef %18, ptr noundef %24) #13
+  br label %26
 
-25:                                               ; preds = %6
-  %26 = load i32, ptr %1, align 4
-  %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %1, align 4
+26:                                               ; preds = %6
+  %27 = load i32, ptr %1, align 4
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %1, align 4
   br label %3, !llvm.loop !20
 
-28:                                               ; preds = %3
+29:                                               ; preds = %3
   ret i32 0
 }
 
@@ -2587,173 +2624,202 @@ define internal noundef i32 @_ZL12process_filePKc(ptr noundef %0) #1 {
   %8 = load ptr, ptr @F, align 8
   %9 = getelementptr inbounds %struct.ffio, ptr %8, i32 0, i32 9
   store i64 0, ptr %9, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 14), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 11), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 15), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 16), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 13), align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 9), align 8
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %15
+  %10 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 14
+  store i32 0, ptr %10, align 4
+  %11 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 11
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 15
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 16
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 13
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 9
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %24
 
-12:                                               ; preds = %1
-  %13 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %14 = call ptr @proj_destroy(ptr noundef %13)
-  store ptr null, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
+19:                                               ; preds = %1
+  %20 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %21 = load ptr, ptr %20, align 8
+  %22 = call ptr @proj_destroy(ptr noundef %21)
+  %23 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  store ptr null, ptr %23, align 8
   store i32 0, ptr %2, align 4
-  br label %109
+  br label %138
 
-15:                                               ; preds = %1
-  %16 = load ptr, ptr %3, align 8
-  %17 = call noalias ptr @fopen(ptr noundef %16, ptr noundef @.str.1)
-  %18 = load ptr, ptr @F, align 8
-  %19 = getelementptr inbounds %struct.ffio, ptr %18, i32 0, i32 0
-  store ptr %17, ptr %19, align 8
-  %20 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %22, label %26
+24:                                               ; preds = %1
+  %25 = load ptr, ptr %3, align 8
+  %26 = call noalias ptr @fopen(ptr noundef %25, ptr noundef @.str.1)
+  %27 = load ptr, ptr @F, align 8
+  %28 = getelementptr inbounds %struct.ffio, ptr %27, i32 0, i32 0
+  store ptr %26, ptr %28, align 8
+  %29 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %37
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %24 = load ptr, ptr %3, align 8
-  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.57, ptr noundef @_ZL5delim, ptr noundef %24) #13
-  br label %26
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %3, align 8
+  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.57, ptr noundef @_ZL5delim, ptr noundef %35) #13
+  br label %37
 
-26:                                               ; preds = %22, %15
-  %27 = load ptr, ptr %3, align 8
-  store ptr %27, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 27), align 8
-  br label %28
+37:                                               ; preds = %32, %24
+  %38 = load ptr, ptr %3, align 8
+  %39 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 27
+  store ptr %38, ptr %39, align 8
+  br label %40
 
-28:                                               ; preds = %44, %26
-  %29 = load ptr, ptr @F, align 8
-  %30 = call noundef i32 @_ZL7get_inpP4ffio(ptr noundef %29)
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %45
+40:                                               ; preds = %58, %37
+  %41 = load ptr, ptr @F, align 8
+  %42 = call noundef i32 @_ZL7get_inpP4ffio(ptr noundef %41)
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %59
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr @F, align 8
-  %34 = getelementptr inbounds %struct.ffio, ptr %33, i32 0, i32 2
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr @F, align 8
-  %37 = getelementptr inbounds %struct.ffio, ptr %36, i32 0, i32 3
-  %38 = load ptr, ptr %37, align 8
-  %39 = call noundef i32 @_ZL8dispatchPKcS0_(ptr noundef %35, ptr noundef %38)
-  %40 = icmp eq i32 -1, %39
-  br i1 %40, label %41, label %44
+44:                                               ; preds = %40
+  %45 = load ptr, ptr @F, align 8
+  %46 = getelementptr inbounds %struct.ffio, ptr %45, i32 0, i32 2
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr @F, align 8
+  %49 = getelementptr inbounds %struct.ffio, ptr %48, i32 0, i32 3
+  %50 = load ptr, ptr %49, align 8
+  %51 = call noundef i32 @_ZL8dispatchPKcS0_(ptr noundef %47, ptr noundef %50)
+  %52 = icmp eq i32 -1, %51
+  br i1 %52, label %53, label %58
 
-41:                                               ; preds = %32
-  %42 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %43 = call ptr @proj_destroy(ptr noundef %42)
-  store ptr null, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
+53:                                               ; preds = %44
+  %54 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %55 = load ptr, ptr %54, align 8
+  %56 = call ptr @proj_destroy(ptr noundef %55)
+  %57 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  store ptr null, ptr %57, align 8
   store i32 0, ptr %2, align 4
-  br label %109
+  br label %138
 
-44:                                               ; preds = %32
-  br label %28, !llvm.loop !21
+58:                                               ; preds = %44
+  br label %40, !llvm.loop !21
 
-45:                                               ; preds = %28
-  %46 = load ptr, ptr @F, align 8
-  %47 = getelementptr inbounds %struct.ffio, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = call i32 @fclose(ptr noundef %48)
-  %50 = load ptr, ptr @F, align 8
-  %51 = getelementptr inbounds %struct.ffio, ptr %50, i32 0, i32 10
-  store i64 0, ptr %51, align 8
-  %52 = load ptr, ptr @F, align 8
-  %53 = getelementptr inbounds %struct.ffio, ptr %52, i32 0, i32 9
-  store i64 0, ptr %53, align 8
-  %54 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 14), align 4
-  %55 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 17), align 8
-  %56 = add nsw i32 %55, %54
-  store i32 %56, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 17), align 8
-  %57 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 15), align 8
-  %58 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 18), align 4
-  %59 = add nsw i32 %58, %57
-  store i32 %59, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 18), align 4
-  %60 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 19), align 8
-  %61 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 19), align 8
-  %62 = add nsw i32 %61, %60
-  store i32 %62, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 19), align 8
-  %63 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %64 = icmp sgt i32 %63, 0
-  br i1 %64, label %65, label %78
+59:                                               ; preds = %40
+  %60 = load ptr, ptr @F, align 8
+  %61 = getelementptr inbounds %struct.ffio, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  %63 = call i32 @fclose(ptr noundef %62)
+  %64 = load ptr, ptr @F, align 8
+  %65 = getelementptr inbounds %struct.ffio, ptr %64, i32 0, i32 10
+  store i64 0, ptr %65, align 8
+  %66 = load ptr, ptr @F, align 8
+  %67 = getelementptr inbounds %struct.ffio, ptr %66, i32 0, i32 9
+  store i64 0, ptr %67, align 8
+  %68 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 14
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 17
+  %71 = load i32, ptr %70, align 8
+  %72 = add nsw i32 %71, %69
+  %73 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 17
+  store i32 %72, ptr %73, align 8
+  %74 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 15
+  %75 = load i32, ptr %74, align 8
+  %76 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 18
+  %77 = load i32, ptr %76, align 4
+  %78 = add nsw i32 %77, %75
+  %79 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 18
+  store i32 %78, ptr %79, align 4
+  %80 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 19
+  %81 = load i32, ptr %80, align 8
+  %82 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 19
+  %83 = load i32, ptr %82, align 8
+  %84 = add nsw i32 %83, %81
+  %85 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 19
+  store i32 %84, ptr %85, align 8
+  %86 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %87 = load i32, ptr %86, align 4
+  %88 = icmp sgt i32 %87, 0
+  br i1 %88, label %89, label %107
 
-65:                                               ; preds = %45
-  %66 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %67 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 14), align 4
-  %68 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 16), align 4
-  %69 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 15), align 8
-  %70 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 15), align 8
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %72, label %73
+89:                                               ; preds = %59
+  %90 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 14
+  %93 = load i32, ptr %92, align 4
+  %94 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 16
+  %95 = load i32, ptr %94, align 4
+  %96 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 15
+  %97 = load i32, ptr %96, align 8
+  %98 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 15
+  %99 = load i32, ptr %98, align 8
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %102
 
-72:                                               ; preds = %65
-  br label %74
+101:                                              ; preds = %89
+  br label %103
 
-73:                                               ; preds = %65
-  br label %74
+102:                                              ; preds = %89
+  br label %103
 
-74:                                               ; preds = %73, %72
-  %75 = phi ptr [ @.str.59, %72 ], [ @.str.60, %73 ]
-  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 0, i64 0
-  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef @.str.58, ptr noundef @_ZL5delim, i32 noundef %67, i32 noundef %68, i32 noundef %69, ptr noundef %76) #13
-  br label %78
+103:                                              ; preds = %102, %101
+  %104 = phi ptr [ @.str.59, %101 ], [ @.str.60, %102 ]
+  %105 = getelementptr inbounds [8 x i8], ptr %104, i64 0, i64 0
+  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef @.str.58, ptr noundef @_ZL5delim, i32 noundef %93, i32 noundef %95, i32 noundef %97, ptr noundef %105) #13
+  br label %107
 
-78:                                               ; preds = %74, %45
-  %79 = load ptr, ptr @F, align 8
-  %80 = getelementptr inbounds %struct.ffio, ptr %79, i32 0, i32 11
-  %81 = load i64, ptr %80, align 8
-  %82 = icmp eq i64 %81, 0
-  br i1 %82, label %83, label %86
+107:                                              ; preds = %103, %59
+  %108 = load ptr, ptr @F, align 8
+  %109 = getelementptr inbounds %struct.ffio, ptr %108, i32 0, i32 11
+  %110 = load i64, ptr %109, align 8
+  %111 = icmp eq i64 %110, 0
+  br i1 %111, label %112, label %115
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %3, align 8
-  %85 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef -3, ptr noundef @.str.61, ptr noundef %84)
-  store i32 %85, ptr %2, align 4
-  br label %109
+112:                                              ; preds = %107
+  %113 = load ptr, ptr %3, align 8
+  %114 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef -3, ptr noundef @.str.61, ptr noundef %113)
+  store i32 %114, ptr %2, align 4
+  br label %138
 
-86:                                               ; preds = %78
-  %87 = load ptr, ptr @F, align 8
-  %88 = getelementptr inbounds %struct.ffio, ptr %87, i32 0, i32 11
-  %89 = load i64, ptr %88, align 8
-  %90 = icmp ne i64 %89, 0
-  br i1 %90, label %91, label %108
+115:                                              ; preds = %107
+  %116 = load ptr, ptr @F, align 8
+  %117 = getelementptr inbounds %struct.ffio, ptr %116, i32 0, i32 11
+  %118 = load i64, ptr %117, align 8
+  %119 = icmp ne i64 %118, 0
+  br i1 %119, label %120, label %137
 
-91:                                               ; preds = %86
-  %92 = load ptr, ptr @F, align 8
-  %93 = getelementptr inbounds %struct.ffio, ptr %92, i32 0, i32 11
-  %94 = load i64, ptr %93, align 8
-  %95 = urem i64 %94, 2
-  %96 = icmp ne i64 %95, 0
-  br i1 %96, label %97, label %108
+120:                                              ; preds = %115
+  %121 = load ptr, ptr @F, align 8
+  %122 = getelementptr inbounds %struct.ffio, ptr %121, i32 0, i32 11
+  %123 = load i64, ptr %122, align 8
+  %124 = urem i64 %123, 2
+  %125 = icmp ne i64 %124, 0
+  br i1 %125, label %126, label %137
 
-97:                                               ; preds = %91
-  %98 = load ptr, ptr @F, align 8
-  %99 = getelementptr inbounds %struct.ffio, ptr %98, i32 0, i32 12
-  %100 = load i8, ptr %99, align 8
-  %101 = trunc i8 %100 to i1
-  br i1 %101, label %102, label %105
+126:                                              ; preds = %120
+  %127 = load ptr, ptr @F, align 8
+  %128 = getelementptr inbounds %struct.ffio, ptr %127, i32 0, i32 12
+  %129 = load i8, ptr %128, align 8
+  %130 = trunc i8 %129 to i1
+  br i1 %130, label %131, label %134
 
-102:                                              ; preds = %97
-  %103 = load ptr, ptr %3, align 8
-  %104 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef -4, ptr noundef @.str.62, ptr noundef %103)
-  store i32 %104, ptr %2, align 4
-  br label %109
+131:                                              ; preds = %126
+  %132 = load ptr, ptr %3, align 8
+  %133 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef -4, ptr noundef @.str.62, ptr noundef %132)
+  store i32 %133, ptr %2, align 4
+  br label %138
 
-105:                                              ; preds = %97
-  %106 = load ptr, ptr %3, align 8
-  %107 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef -4, ptr noundef @.str.63, ptr noundef %106)
-  store i32 %107, ptr %2, align 4
-  br label %109
+134:                                              ; preds = %126
+  %135 = load ptr, ptr %3, align 8
+  %136 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef -4, ptr noundef @.str.63, ptr noundef %135)
+  store i32 %136, ptr %2, align 4
+  br label %138
 
-108:                                              ; preds = %91, %86
+137:                                              ; preds = %120, %115
   store i32 0, ptr %2, align 4
-  br label %109
+  br label %138
 
-109:                                              ; preds = %108, %105, %102, %83, %41, %12
-  %110 = load i32, ptr %2, align 4
-  ret i32 %110
+138:                                              ; preds = %137, %134, %131, %112, %53, %19
+  %139 = load i32, ptr %2, align 4
+  ret i32 %139
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2815,7 +2881,7 @@ define internal noundef i32 @_ZL7get_inpP4ffio(ptr noundef %0) #1 {
   %9 = getelementptr inbounds %struct.ffio, ptr %8, i32 0, i32 12
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %126
+  br i1 %11, label %12, label %127
 
 12:                                               ; preds = %1
   br label %13
@@ -2824,7 +2890,7 @@ define internal noundef i32 @_ZL7get_inpP4ffio(ptr noundef %0) #1 {
   %14 = load ptr, ptr %3, align 8
   %15 = call noundef i32 @_ZL8nextlineP4ffio(ptr noundef %14)
   %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %125
+  br i1 %16, label %17, label %126
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %3, align 8
@@ -2861,197 +2927,198 @@ define internal noundef i32 @_ZL7get_inpP4ffio(ptr noundef %0) #1 {
   %41 = getelementptr inbounds %struct.ffio, ptr %40, i32 0, i32 2
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr null, %42
-  br i1 %43, label %44, label %55
+  br i1 %43, label %44, label %56
 
 44:                                               ; preds = %35
   %45 = call noundef i32 @_ZL15another_failurev()
-  %46 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.ffio, ptr %47, i32 0, i32 9
-  %49 = load i64, ptr %48, align 8
-  %50 = trunc i64 %49 to i32
-  %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds %struct.ffio, ptr %51, i32 0, i32 4
-  %53 = load ptr, ptr %52, align 8
-  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef @.str.64, i32 noundef %50, ptr noundef %53) #13
+  %46 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds %struct.ffio, ptr %48, i32 0, i32 9
+  %50 = load i64, ptr %49, align 8
+  %51 = trunc i64 %50 to i32
+  %52 = load ptr, ptr %3, align 8
+  %53 = getelementptr inbounds %struct.ffio, ptr %52, i32 0, i32 4
+  %54 = load ptr, ptr %53, align 8
+  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str.64, i32 noundef %51, ptr noundef %54) #13
   store i32 0, ptr %2, align 4
-  br label %168
+  br label %169
 
-55:                                               ; preds = %35
-  %56 = load ptr, ptr %3, align 8
-  %57 = call noundef i32 @_ZL11append_argsP4ffio(ptr noundef %56)
-  %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds %struct.ffio, ptr %58, i32 0, i32 3
-  %60 = load ptr, ptr %59, align 8
-  %61 = call noundef ptr @_Z9pj_shrinkPc(ptr noundef %60)
-  br label %62
+56:                                               ; preds = %35
+  %57 = load ptr, ptr %3, align 8
+  %58 = call noundef i32 @_ZL11append_argsP4ffio(ptr noundef %57)
+  %59 = load ptr, ptr %3, align 8
+  %60 = getelementptr inbounds %struct.ffio, ptr %59, i32 0, i32 3
+  %61 = load ptr, ptr %60, align 8
+  %62 = call noundef ptr @_Z9pj_shrinkPc(ptr noundef %61)
+  br label %63
 
-62:                                               ; preds = %99, %55
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.ffio, ptr %63, i32 0, i32 3
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 0
-  %67 = load i8, ptr %66, align 1
-  %68 = sext i8 %67 to i32
-  %69 = icmp ne i32 %68, 0
-  br i1 %69, label %70, label %83
+63:                                               ; preds = %100, %56
+  %64 = load ptr, ptr %3, align 8
+  %65 = getelementptr inbounds %struct.ffio, ptr %64, i32 0, i32 3
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 0
+  %68 = load i8, ptr %67, align 1
+  %69 = sext i8 %68 to i32
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %84
 
-70:                                               ; preds = %62
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.ffio, ptr %71, i32 0, i32 3
-  %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds %struct.ffio, ptr %74, i32 0, i32 3
-  %76 = load ptr, ptr %75, align 8
-  %77 = call i64 @strlen(ptr noundef %76) #14
-  %78 = sub i64 %77, 1
-  %79 = getelementptr inbounds i8, ptr %73, i64 %78
-  %80 = load i8, ptr %79, align 1
-  %81 = sext i8 %80 to i32
-  %82 = icmp eq i32 %81, 92
-  br label %83
+71:                                               ; preds = %63
+  %72 = load ptr, ptr %3, align 8
+  %73 = getelementptr inbounds %struct.ffio, ptr %72, i32 0, i32 3
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds %struct.ffio, ptr %75, i32 0, i32 3
+  %77 = load ptr, ptr %76, align 8
+  %78 = call i64 @strlen(ptr noundef %77) #14
+  %79 = sub i64 %78, 1
+  %80 = getelementptr inbounds i8, ptr %74, i64 %79
+  %81 = load i8, ptr %80, align 1
+  %82 = sext i8 %81 to i32
+  %83 = icmp eq i32 %82, 92
+  br label %84
 
-83:                                               ; preds = %70, %62
-  %84 = phi i1 [ false, %62 ], [ %82, %70 ]
-  br i1 %84, label %85, label %111
+84:                                               ; preds = %71, %63
+  %85 = phi i1 [ false, %63 ], [ %83, %71 ]
+  br i1 %85, label %86, label %112
 
-85:                                               ; preds = %83
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds %struct.ffio, ptr %86, i32 0, i32 3
-  %88 = load ptr, ptr %87, align 8
-  %89 = load ptr, ptr %3, align 8
-  %90 = getelementptr inbounds %struct.ffio, ptr %89, i32 0, i32 3
-  %91 = load ptr, ptr %90, align 8
-  %92 = call i64 @strlen(ptr noundef %91) #14
-  %93 = sub i64 %92, 1
-  %94 = getelementptr inbounds i8, ptr %88, i64 %93
-  store i8 0, ptr %94, align 1
-  %95 = load ptr, ptr %3, align 8
-  %96 = call noundef i32 @_ZL8nextlineP4ffio(ptr noundef %95)
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %99, label %98
+86:                                               ; preds = %84
+  %87 = load ptr, ptr %3, align 8
+  %88 = getelementptr inbounds %struct.ffio, ptr %87, i32 0, i32 3
+  %89 = load ptr, ptr %88, align 8
+  %90 = load ptr, ptr %3, align 8
+  %91 = getelementptr inbounds %struct.ffio, ptr %90, i32 0, i32 3
+  %92 = load ptr, ptr %91, align 8
+  %93 = call i64 @strlen(ptr noundef %92) #14
+  %94 = sub i64 %93, 1
+  %95 = getelementptr inbounds i8, ptr %89, i64 %94
+  store i8 0, ptr %95, align 1
+  %96 = load ptr, ptr %3, align 8
+  %97 = call noundef i32 @_ZL8nextlineP4ffio(ptr noundef %96)
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %100, label %99
 
-98:                                               ; preds = %85
+99:                                               ; preds = %86
   store i32 0, ptr %2, align 4
-  br label %168
+  br label %169
 
-99:                                               ; preds = %85
-  %100 = load ptr, ptr %3, align 8
-  %101 = getelementptr inbounds %struct.ffio, ptr %100, i32 0, i32 10
-  %102 = load i64, ptr %101, align 8
-  %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds %struct.ffio, ptr %103, i32 0, i32 9
-  store i64 %102, ptr %104, align 8
-  %105 = load ptr, ptr %3, align 8
-  %106 = call noundef i32 @_ZL11append_argsP4ffio(ptr noundef %105)
-  %107 = load ptr, ptr %3, align 8
-  %108 = getelementptr inbounds %struct.ffio, ptr %107, i32 0, i32 3
-  %109 = load ptr, ptr %108, align 8
-  %110 = call noundef ptr @_Z9pj_shrinkPc(ptr noundef %109)
-  br label %62, !llvm.loop !23
+100:                                              ; preds = %86
+  %101 = load ptr, ptr %3, align 8
+  %102 = getelementptr inbounds %struct.ffio, ptr %101, i32 0, i32 10
+  %103 = load i64, ptr %102, align 8
+  %104 = load ptr, ptr %3, align 8
+  %105 = getelementptr inbounds %struct.ffio, ptr %104, i32 0, i32 9
+  store i64 %103, ptr %105, align 8
+  %106 = load ptr, ptr %3, align 8
+  %107 = call noundef i32 @_ZL11append_argsP4ffio(ptr noundef %106)
+  %108 = load ptr, ptr %3, align 8
+  %109 = getelementptr inbounds %struct.ffio, ptr %108, i32 0, i32 3
+  %110 = load ptr, ptr %109, align 8
+  %111 = call noundef ptr @_Z9pj_shrinkPc(ptr noundef %110)
+  br label %63, !llvm.loop !23
 
-111:                                              ; preds = %83
-  %112 = load ptr, ptr %3, align 8
-  %113 = getelementptr inbounds %struct.ffio, ptr %112, i32 0, i32 2
-  %114 = load ptr, ptr %113, align 8
-  %115 = call i32 @strcmp(ptr noundef %114, ptr noundef @.str.56) #14
-  %116 = icmp eq i32 0, %115
-  br i1 %116, label %117, label %124
+112:                                              ; preds = %84
+  %113 = load ptr, ptr %3, align 8
+  %114 = getelementptr inbounds %struct.ffio, ptr %113, i32 0, i32 2
+  %115 = load ptr, ptr %114, align 8
+  %116 = call i32 @strcmp(ptr noundef %115, ptr noundef @.str.56) #14
+  %117 = icmp eq i32 0, %116
+  br i1 %117, label %118, label %125
 
-117:                                              ; preds = %111
-  %118 = load ptr, ptr %3, align 8
-  %119 = getelementptr inbounds %struct.ffio, ptr %118, i32 0, i32 11
-  %120 = load i64, ptr %119, align 8
-  %121 = add i64 %120, 1
-  store i64 %121, ptr %119, align 8
-  %122 = load ptr, ptr %3, align 8
-  %123 = getelementptr inbounds %struct.ffio, ptr %122, i32 0, i32 12
-  store i8 0, ptr %123, align 8
-  br label %124
+118:                                              ; preds = %112
+  %119 = load ptr, ptr %3, align 8
+  %120 = getelementptr inbounds %struct.ffio, ptr %119, i32 0, i32 11
+  %121 = load i64, ptr %120, align 8
+  %122 = add i64 %121, 1
+  store i64 %122, ptr %120, align 8
+  %123 = load ptr, ptr %3, align 8
+  %124 = getelementptr inbounds %struct.ffio, ptr %123, i32 0, i32 12
+  store i8 0, ptr %124, align 8
+  br label %125
 
-124:                                              ; preds = %117, %111
+125:                                              ; preds = %118, %112
   store i32 1, ptr %2, align 4
-  br label %168
+  br label %169
 
-125:                                              ; preds = %13
+126:                                              ; preds = %13
   store i32 0, ptr %2, align 4
-  br label %168
+  br label %169
 
-126:                                              ; preds = %1
-  %127 = load ptr, ptr %3, align 8
-  %128 = call noundef i32 @_ZL16skip_to_next_tagP4ffio(ptr noundef %127)
-  %129 = icmp eq i32 0, %128
-  br i1 %129, label %130, label %139
+127:                                              ; preds = %1
+  %128 = load ptr, ptr %3, align 8
+  %129 = call noundef i32 @_ZL16skip_to_next_tagP4ffio(ptr noundef %128)
+  %130 = icmp eq i32 0, %129
+  br i1 %130, label %131, label %140
 
-130:                                              ; preds = %126
-  %131 = load ptr, ptr %3, align 8
-  %132 = getelementptr inbounds %struct.ffio, ptr %131, i32 0, i32 12
-  %133 = load i8, ptr %132, align 8
-  %134 = trunc i8 %133 to i1
-  br i1 %134, label %135, label %138
+131:                                              ; preds = %127
+  %132 = load ptr, ptr %3, align 8
+  %133 = getelementptr inbounds %struct.ffio, ptr %132, i32 0, i32 12
+  %134 = load i8, ptr %133, align 8
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %136, label %139
 
-135:                                              ; preds = %130
-  %136 = load ptr, ptr %3, align 8
-  %137 = call noundef i32 @_ZL7get_inpP4ffio(ptr noundef %136)
-  store i32 %137, ptr %2, align 4
-  br label %168
+136:                                              ; preds = %131
+  %137 = load ptr, ptr %3, align 8
+  %138 = call noundef i32 @_ZL7get_inpP4ffio(ptr noundef %137)
+  store i32 %138, ptr %2, align 4
+  br label %169
 
-138:                                              ; preds = %130
+139:                                              ; preds = %131
   store i32 0, ptr %2, align 4
-  br label %168
+  br label %169
 
-139:                                              ; preds = %126
-  %140 = load ptr, ptr %3, align 8
-  %141 = call noundef ptr @_ZL6at_tagP4ffio(ptr noundef %140)
-  %142 = load ptr, ptr %3, align 8
-  %143 = getelementptr inbounds %struct.ffio, ptr %142, i32 0, i32 2
-  store ptr %141, ptr %143, align 8
-  %144 = load ptr, ptr %3, align 8
-  %145 = getelementptr inbounds %struct.ffio, ptr %144, i32 0, i32 2
-  %146 = load ptr, ptr %145, align 8
-  %147 = icmp eq ptr null, %146
-  br i1 %147, label %148, label %149
+140:                                              ; preds = %127
+  %141 = load ptr, ptr %3, align 8
+  %142 = call noundef ptr @_ZL6at_tagP4ffio(ptr noundef %141)
+  %143 = load ptr, ptr %3, align 8
+  %144 = getelementptr inbounds %struct.ffio, ptr %143, i32 0, i32 2
+  store ptr %142, ptr %144, align 8
+  %145 = load ptr, ptr %3, align 8
+  %146 = getelementptr inbounds %struct.ffio, ptr %145, i32 0, i32 2
+  %147 = load ptr, ptr %146, align 8
+  %148 = icmp eq ptr null, %147
+  br i1 %148, label %149, label %150
 
-148:                                              ; preds = %139
+149:                                              ; preds = %140
   store i32 0, ptr %2, align 4
-  br label %168
+  br label %169
 
-149:                                              ; preds = %139
-  br label %150
+150:                                              ; preds = %140
+  br label %151
 
-150:                                              ; preds = %158, %149
-  %151 = load ptr, ptr %3, align 8
-  %152 = call noundef i32 @_ZL11append_argsP4ffio(ptr noundef %151)
-  %153 = load ptr, ptr %3, align 8
-  %154 = call noundef i32 @_ZL8nextlineP4ffio(ptr noundef %153)
-  %155 = icmp eq i32 0, %154
-  br i1 %155, label %156, label %157
+151:                                              ; preds = %159, %150
+  %152 = load ptr, ptr %3, align 8
+  %153 = call noundef i32 @_ZL11append_argsP4ffio(ptr noundef %152)
+  %154 = load ptr, ptr %3, align 8
+  %155 = call noundef i32 @_ZL8nextlineP4ffio(ptr noundef %154)
+  %156 = icmp eq i32 0, %155
+  br i1 %156, label %157, label %158
 
-156:                                              ; preds = %150
+157:                                              ; preds = %151
   store i32 0, ptr %2, align 4
-  br label %168
+  br label %169
 
-157:                                              ; preds = %150
-  br label %158
+158:                                              ; preds = %151
+  br label %159
 
-158:                                              ; preds = %157
-  %159 = load ptr, ptr %3, align 8
-  %160 = call noundef i32 @_ZL16at_end_delimiterP4ffio(ptr noundef %159)
-  %161 = icmp ne i32 %160, 0
-  %162 = xor i1 %161, true
-  br i1 %162, label %150, label %163, !llvm.loop !24
+159:                                              ; preds = %158
+  %160 = load ptr, ptr %3, align 8
+  %161 = call noundef i32 @_ZL16at_end_delimiterP4ffio(ptr noundef %160)
+  %162 = icmp ne i32 %161, 0
+  %163 = xor i1 %162, true
+  br i1 %163, label %151, label %164, !llvm.loop !24
 
-163:                                              ; preds = %158
-  %164 = load ptr, ptr %3, align 8
-  %165 = getelementptr inbounds %struct.ffio, ptr %164, i32 0, i32 3
-  %166 = load ptr, ptr %165, align 8
-  %167 = call noundef ptr @_Z9pj_shrinkPc(ptr noundef %166)
+164:                                              ; preds = %159
+  %165 = load ptr, ptr %3, align 8
+  %166 = getelementptr inbounds %struct.ffio, ptr %165, i32 0, i32 3
+  %167 = load ptr, ptr %166, align 8
+  %168 = call noundef ptr @_Z9pj_shrinkPc(ptr noundef %167)
   store i32 1, ptr %2, align 4
-  br label %168
+  br label %169
 
-168:                                              ; preds = %163, %156, %148, %138, %135, %125, %124, %98, %44
-  %169 = load i32, ptr %2, align 4
-  ret i32 %169
+169:                                              ; preds = %164, %157, %149, %139, %136, %126, %125, %99, %44
+  %170 = load i32, ptr %2, align 4
+  ret i32 %170
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3061,221 +3128,223 @@ define internal noundef i32 @_ZL8dispatchPKcS0_(ptr noundef %0, ptr noundef %1) 
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 9), align 8
-  %7 = icmp ne i32 %6, 0
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %2
-  store i32 -1, ptr %3, align 4
-  br label %125
+  %6 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 9
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %4, align 8
-  %11 = call i32 @strcmp(ptr noundef %10, ptr noundef @.str.39) #14
-  %12 = icmp eq i32 0, %11
-  br i1 %12, label %13, label %16
+  store i32 -1, ptr %3, align 4
+  br label %127
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %5, align 8
-  %15 = call noundef i32 @_ZL9operationPKc(ptr noundef %14)
-  store i32 %15, ptr %3, align 4
-  br label %125
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8
+  %12 = call i32 @strcmp(ptr noundef %11, ptr noundef @.str.39) #14
+  %13 = icmp eq i32 0, %12
+  br i1 %13, label %14, label %17
 
-16:                                               ; preds = %9
-  %17 = load ptr, ptr %4, align 8
-  %18 = call i32 @strcmp(ptr noundef %17, ptr noundef @.str.40) #14
-  %19 = icmp eq i32 0, %18
-  br i1 %19, label %20, label %23
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %5, align 8
+  %16 = call noundef i32 @_ZL9operationPKc(ptr noundef %15)
+  store i32 %16, ptr %3, align 4
+  br label %127
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %5, align 8
-  %22 = call noundef i32 @_ZL7crs_srcPKc(ptr noundef %21)
-  store i32 %22, ptr %3, align 4
-  br label %125
+17:                                               ; preds = %10
+  %18 = load ptr, ptr %4, align 8
+  %19 = call i32 @strcmp(ptr noundef %18, ptr noundef @.str.40) #14
+  %20 = icmp eq i32 0, %19
+  br i1 %20, label %21, label %24
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %4, align 8
-  %25 = call i32 @strcmp(ptr noundef %24, ptr noundef @.str.41) #14
-  %26 = icmp eq i32 0, %25
-  br i1 %26, label %27, label %30
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %5, align 8
+  %23 = call noundef i32 @_ZL7crs_srcPKc(ptr noundef %22)
+  store i32 %23, ptr %3, align 4
+  br label %127
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %5, align 8
-  %29 = call noundef i32 @_ZL7crs_dstPKc(ptr noundef %28)
-  store i32 %29, ptr %3, align 4
-  br label %125
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %4, align 8
+  %26 = call i32 @strcmp(ptr noundef %25, ptr noundef @.str.41) #14
+  %27 = icmp eq i32 0, %26
+  br i1 %27, label %28, label %31
 
-30:                                               ; preds = %23
-  %31 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 26), align 8
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %40
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %5, align 8
+  %30 = call noundef i32 @_ZL7crs_dstPKc(ptr noundef %29)
+  store i32 %30, ptr %3, align 4
+  br label %127
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %4, align 8
-  %35 = call i32 @strcmp(ptr noundef %34, ptr noundef @.str.44) #14
-  %36 = icmp eq i32 0, %35
-  br i1 %36, label %37, label %39
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 26
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %42
 
-37:                                               ; preds = %33
-  %38 = call noundef i32 @_ZL12another_skipv()
-  store i32 %38, ptr %3, align 4
-  br label %125
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %4, align 8
+  %37 = call i32 @strcmp(ptr noundef %36, ptr noundef @.str.44) #14
+  %38 = icmp eq i32 0, %37
+  br i1 %38, label %39, label %41
 
-39:                                               ; preds = %33
+39:                                               ; preds = %35
+  %40 = call noundef i32 @_ZL12another_skipv()
+  store i32 %40, ptr %3, align 4
+  br label %127
+
+41:                                               ; preds = %35
   store i32 0, ptr %3, align 4
-  br label %125
+  br label %127
 
-40:                                               ; preds = %30
-  %41 = load ptr, ptr %4, align 8
-  %42 = call i32 @strcmp(ptr noundef %41, ptr noundef @.str.43) #14
-  %43 = icmp eq i32 0, %42
-  br i1 %43, label %44, label %47
+42:                                               ; preds = %31
+  %43 = load ptr, ptr %4, align 8
+  %44 = call i32 @strcmp(ptr noundef %43, ptr noundef @.str.43) #14
+  %45 = icmp eq i32 0, %44
+  br i1 %45, label %46, label %49
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %5, align 8
-  %46 = call noundef i32 @_ZL6acceptPKc(ptr noundef %45)
-  store i32 %46, ptr %3, align 4
-  br label %125
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %5, align 8
+  %48 = call noundef i32 @_ZL6acceptPKc(ptr noundef %47)
+  store i32 %48, ptr %3, align 4
+  br label %127
 
-47:                                               ; preds = %40
-  %48 = load ptr, ptr %4, align 8
-  %49 = call i32 @strcmp(ptr noundef %48, ptr noundef @.str.44) #14
-  %50 = icmp eq i32 0, %49
-  br i1 %50, label %51, label %54
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %4, align 8
+  %51 = call i32 @strcmp(ptr noundef %50, ptr noundef @.str.44) #14
+  %52 = icmp eq i32 0, %51
+  br i1 %52, label %53, label %56
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr %5, align 8
-  %53 = call noundef i32 @_ZL6expectPKc(ptr noundef %52)
-  store i32 %53, ptr %3, align 4
-  br label %125
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %5, align 8
+  %55 = call noundef i32 @_ZL6expectPKc(ptr noundef %54)
+  store i32 %55, ptr %3, align 4
+  br label %127
 
-54:                                               ; preds = %47
-  %55 = load ptr, ptr %4, align 8
-  %56 = call i32 @strcmp(ptr noundef %55, ptr noundef @.str.45) #14
-  %57 = icmp eq i32 0, %56
-  br i1 %57, label %58, label %61
+56:                                               ; preds = %49
+  %57 = load ptr, ptr %4, align 8
+  %58 = call i32 @strcmp(ptr noundef %57, ptr noundef @.str.45) #14
+  %59 = icmp eq i32 0, %58
+  br i1 %59, label %60, label %63
 
-58:                                               ; preds = %54
-  %59 = load ptr, ptr %5, align 8
-  %60 = call noundef i32 @_ZL9roundtripPKc(ptr noundef %59)
-  store i32 %60, ptr %3, align 4
-  br label %125
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %5, align 8
+  %62 = call noundef i32 @_ZL9roundtripPKc(ptr noundef %61)
+  store i32 %62, ptr %3, align 4
+  br label %127
 
-61:                                               ; preds = %54
-  %62 = load ptr, ptr %4, align 8
-  %63 = call i32 @strcmp(ptr noundef %62, ptr noundef @.str.46) #14
-  %64 = icmp eq i32 0, %63
-  br i1 %64, label %65, label %68
+63:                                               ; preds = %56
+  %64 = load ptr, ptr %4, align 8
+  %65 = call i32 @strcmp(ptr noundef %64, ptr noundef @.str.46) #14
+  %66 = icmp eq i32 0, %65
+  br i1 %66, label %67, label %70
 
-65:                                               ; preds = %61
-  %66 = load ptr, ptr %5, align 8
-  %67 = call noundef i32 @_ZL6bannerPKc(ptr noundef %66)
-  store i32 %67, ptr %3, align 4
-  br label %125
+67:                                               ; preds = %63
+  %68 = load ptr, ptr %5, align 8
+  %69 = call noundef i32 @_ZL6bannerPKc(ptr noundef %68)
+  store i32 %69, ptr %3, align 4
+  br label %127
 
-68:                                               ; preds = %61
-  %69 = load ptr, ptr %4, align 8
-  %70 = call i32 @strcmp(ptr noundef %69, ptr noundef @.str.47) #14
-  %71 = icmp eq i32 0, %70
-  br i1 %71, label %72, label %75
+70:                                               ; preds = %63
+  %71 = load ptr, ptr %4, align 8
+  %72 = call i32 @strcmp(ptr noundef %71, ptr noundef @.str.47) #14
+  %73 = icmp eq i32 0, %72
+  br i1 %73, label %74, label %77
 
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %5, align 8
-  %74 = call noundef i32 @_ZL7verbosePKc(ptr noundef %73)
-  store i32 %74, ptr %3, align 4
-  br label %125
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %5, align 8
+  %76 = call noundef i32 @_ZL7verbosePKc(ptr noundef %75)
+  store i32 %76, ptr %3, align 4
+  br label %127
 
-75:                                               ; preds = %68
-  %76 = load ptr, ptr %4, align 8
-  %77 = call i32 @strcmp(ptr noundef %76, ptr noundef @.str.48) #14
-  %78 = icmp eq i32 0, %77
-  br i1 %78, label %79, label %82
+77:                                               ; preds = %70
+  %78 = load ptr, ptr %4, align 8
+  %79 = call i32 @strcmp(ptr noundef %78, ptr noundef @.str.48) #14
+  %80 = icmp eq i32 0, %79
+  br i1 %80, label %81, label %84
 
-79:                                               ; preds = %75
-  %80 = load ptr, ptr %5, align 8
-  %81 = call noundef i32 @_ZL9directionPKc(ptr noundef %80)
-  store i32 %81, ptr %3, align 4
-  br label %125
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %5, align 8
+  %83 = call noundef i32 @_ZL9directionPKc(ptr noundef %82)
+  store i32 %83, ptr %3, align 4
+  br label %127
 
-82:                                               ; preds = %75
-  %83 = load ptr, ptr %4, align 8
-  %84 = call i32 @strcmp(ptr noundef %83, ptr noundef @.str.49) #14
-  %85 = icmp eq i32 0, %84
-  br i1 %85, label %86, label %89
+84:                                               ; preds = %77
+  %85 = load ptr, ptr %4, align 8
+  %86 = call i32 @strcmp(ptr noundef %85, ptr noundef @.str.49) #14
+  %87 = icmp eq i32 0, %86
+  br i1 %87, label %88, label %91
 
-86:                                               ; preds = %82
-  %87 = load ptr, ptr %5, align 8
-  %88 = call noundef i32 @_ZL9tolerancePKc(ptr noundef %87)
-  store i32 %88, ptr %3, align 4
-  br label %125
+88:                                               ; preds = %84
+  %89 = load ptr, ptr %5, align 8
+  %90 = call noundef i32 @_ZL9tolerancePKc(ptr noundef %89)
+  store i32 %90, ptr %3, align 4
+  br label %127
 
-89:                                               ; preds = %82
-  %90 = load ptr, ptr %4, align 8
-  %91 = call i32 @strcmp(ptr noundef %90, ptr noundef @.str.50) #14
-  %92 = icmp eq i32 0, %91
-  br i1 %92, label %93, label %96
+91:                                               ; preds = %84
+  %92 = load ptr, ptr %4, align 8
+  %93 = call i32 @strcmp(ptr noundef %92, ptr noundef @.str.50) #14
+  %94 = icmp eq i32 0, %93
+  br i1 %94, label %95, label %98
 
-93:                                               ; preds = %89
-  %94 = load ptr, ptr %5, align 8
-  %95 = call noundef i32 @_ZL6ignorePKc(ptr noundef %94)
-  store i32 %95, ptr %3, align 4
-  br label %125
+95:                                               ; preds = %91
+  %96 = load ptr, ptr %5, align 8
+  %97 = call noundef i32 @_ZL6ignorePKc(ptr noundef %96)
+  store i32 %97, ptr %3, align 4
+  br label %127
 
-96:                                               ; preds = %89
-  %97 = load ptr, ptr %4, align 8
-  %98 = call i32 @strcmp(ptr noundef %97, ptr noundef @.str.51) #14
-  %99 = icmp eq i32 0, %98
-  br i1 %99, label %100, label %103
+98:                                               ; preds = %91
+  %99 = load ptr, ptr %4, align 8
+  %100 = call i32 @strcmp(ptr noundef %99, ptr noundef @.str.51) #14
+  %101 = icmp eq i32 0, %100
+  br i1 %101, label %102, label %105
 
-100:                                              ; preds = %96
-  %101 = load ptr, ptr %5, align 8
-  %102 = call noundef i32 @_ZL12require_gridPKc(ptr noundef %101)
-  store i32 %102, ptr %3, align 4
-  br label %125
+102:                                              ; preds = %98
+  %103 = load ptr, ptr %5, align 8
+  %104 = call noundef i32 @_ZL12require_gridPKc(ptr noundef %103)
+  store i32 %104, ptr %3, align 4
+  br label %127
 
-103:                                              ; preds = %96
-  %104 = load ptr, ptr %4, align 8
-  %105 = call i32 @strcmp(ptr noundef %104, ptr noundef @.str.52) #14
-  %106 = icmp eq i32 0, %105
-  br i1 %106, label %107, label %110
+105:                                              ; preds = %98
+  %106 = load ptr, ptr %4, align 8
+  %107 = call i32 @strcmp(ptr noundef %106, ptr noundef @.str.52) #14
+  %108 = icmp eq i32 0, %107
+  br i1 %108, label %109, label %112
 
-107:                                              ; preds = %103
-  %108 = load ptr, ptr %5, align 8
-  %109 = call noundef i32 @_ZL4echoPKc(ptr noundef %108)
-  store i32 %109, ptr %3, align 4
-  br label %125
+109:                                              ; preds = %105
+  %110 = load ptr, ptr %5, align 8
+  %111 = call noundef i32 @_ZL4echoPKc(ptr noundef %110)
+  store i32 %111, ptr %3, align 4
+  br label %127
 
-110:                                              ; preds = %103
-  %111 = load ptr, ptr %4, align 8
-  %112 = call i32 @strcmp(ptr noundef %111, ptr noundef @.str.53) #14
-  %113 = icmp eq i32 0, %112
-  br i1 %113, label %114, label %117
+112:                                              ; preds = %105
+  %113 = load ptr, ptr %4, align 8
+  %114 = call i32 @strcmp(ptr noundef %113, ptr noundef @.str.53) #14
+  %115 = icmp eq i32 0, %114
+  br i1 %115, label %116, label %119
 
-114:                                              ; preds = %110
-  %115 = load ptr, ptr %5, align 8
-  %116 = call noundef i32 @_ZL4skipPKc(ptr noundef %115)
-  store i32 %116, ptr %3, align 4
-  br label %125
+116:                                              ; preds = %112
+  %117 = load ptr, ptr %5, align 8
+  %118 = call noundef i32 @_ZL4skipPKc(ptr noundef %117)
+  store i32 %118, ptr %3, align 4
+  br label %127
 
-117:                                              ; preds = %110
-  %118 = load ptr, ptr %4, align 8
-  %119 = call i32 @strcmp(ptr noundef %118, ptr noundef @.str.42) #14
-  %120 = icmp eq i32 0, %119
-  br i1 %120, label %121, label %124
+119:                                              ; preds = %112
+  %120 = load ptr, ptr %4, align 8
+  %121 = call i32 @strcmp(ptr noundef %120, ptr noundef @.str.42) #14
+  %122 = icmp eq i32 0, %121
+  br i1 %122, label %123, label %126
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %5, align 8
-  %123 = call noundef i32 @_ZL20use_proj4_init_rulesPKc(ptr noundef %122)
-  store i32 %123, ptr %3, align 4
-  br label %125
+123:                                              ; preds = %119
+  %124 = load ptr, ptr %5, align 8
+  %125 = call noundef i32 @_ZL20use_proj4_init_rulesPKc(ptr noundef %124)
+  store i32 %125, ptr %3, align 4
+  br label %127
 
-124:                                              ; preds = %117
+126:                                              ; preds = %119
   store i32 0, ptr %3, align 4
-  br label %125
+  br label %127
 
-125:                                              ; preds = %124, %121, %114, %107, %100, %93, %86, %79, %72, %65, %58, %51, %44, %39, %37, %27, %20, %13, %8
-  %126 = load i32, ptr %3, align 4
-  ret i32 %126
+127:                                              ; preds = %126, %123, %116, %109, %102, %95, %88, %81, %74, %67, %60, %53, %46, %41, %39, %28, %21, %14, %9
+  %128 = load i32, ptr %3, align 4
+  ret i32 %128
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3318,62 +3387,63 @@ define internal noundef i32 @_ZL8nextlineP4ffio(ptr noundef %0) #1 {
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 0
   store i8 0, ptr %7, align 1
-  %8 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 9), align 8
-  %9 = icmp ne i32 %8, 0
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %42
+  %8 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 9
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.ffio, ptr %12, i32 0, i32 4
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.ffio, ptr %15, i32 0, i32 7
-  %17 = load i64, ptr %16, align 8
-  %18 = trunc i64 %17 to i32
-  %19 = sub nsw i32 %18, 1
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.ffio, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = call ptr @fgets(ptr noundef %14, i32 noundef %19, ptr noundef %22)
-  %24 = icmp eq ptr null, %23
-  br i1 %24, label %25, label %26
-
-25:                                               ; preds = %11
   store i32 0, ptr %2, align 4
-  br label %42
+  br label %43
 
-26:                                               ; preds = %11
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.ffio, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = call i32 @feof(ptr noundef %29) #13
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %33
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds %struct.ffio, ptr %13, i32 0, i32 4
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds %struct.ffio, ptr %16, i32 0, i32 7
+  %18 = load i64, ptr %17, align 8
+  %19 = trunc i64 %18 to i32
+  %20 = sub nsw i32 %19, 1
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds %struct.ffio, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = call ptr @fgets(ptr noundef %15, i32 noundef %20, ptr noundef %23)
+  %25 = icmp eq ptr null, %24
+  br i1 %25, label %26, label %27
 
-32:                                               ; preds = %26
+26:                                               ; preds = %12
   store i32 0, ptr %2, align 4
-  br label %42
+  br label %43
 
-33:                                               ; preds = %26
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.ffio, ptr %34, i32 0, i32 4
-  %36 = load ptr, ptr %35, align 8
-  %37 = call noundef ptr @_Z8pj_chompPc(ptr noundef %36)
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.ffio, ptr %38, i32 0, i32 10
-  %40 = load i64, ptr %39, align 8
-  %41 = add i64 %40, 1
-  store i64 %41, ptr %39, align 8
+27:                                               ; preds = %12
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds %struct.ffio, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = call i32 @feof(ptr noundef %30) #13
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %34
+
+33:                                               ; preds = %27
+  store i32 0, ptr %2, align 4
+  br label %43
+
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds %struct.ffio, ptr %35, i32 0, i32 4
+  %37 = load ptr, ptr %36, align 8
+  %38 = call noundef ptr @_Z8pj_chompPc(ptr noundef %37)
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds %struct.ffio, ptr %39, i32 0, i32 10
+  %41 = load i64, ptr %40, align 8
+  %42 = add i64 %41, 1
+  store i64 %42, ptr %40, align 8
   store i32 1, ptr %2, align 4
-  br label %42
+  br label %43
 
-42:                                               ; preds = %33, %32, %25, %10
-  %43 = load i32, ptr %2, align 4
-  ret i32 %43
+43:                                               ; preds = %34, %33, %26, %11
+  %44 = load i32, ptr %2, align 4
+  ret i32 %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3529,14 +3599,19 @@ define internal noundef ptr @_ZL6at_tagP4ffio(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL15another_failurev() #1 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  %2 = add nsw i32 %1, 1
-  store i32 %2, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 15), align 8
-  %4 = add nsw i32 %3, 1
-  store i32 %4, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 15), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %6 = call i32 @proj_errno_reset(ptr noundef %5)
+  %1 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  %2 = load i32, ptr %1, align 4
+  %3 = add nsw i32 %2, 1
+  %4 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  store i32 %3, ptr %4, align 4
+  %5 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 15
+  %6 = load i32, ptr %5, align 8
+  %7 = add nsw i32 %6, 1
+  %8 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 15
+  store i32 %7, ptr %8, align 8
+  %9 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %10 = load ptr, ptr %9, align 8
+  %11 = call i32 @proj_errno_reset(ptr noundef %10)
   ret i32 0
 }
 
@@ -3896,59 +3971,73 @@ define internal noundef i32 @_ZL19step_into_gie_blockP4ffio(ptr noundef %0) #1 {
 define internal noundef i32 @_ZL9operationPKc(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 10), align 4
-  %4 = add nsw i32 %3, 1
-  store i32 %4, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 10), align 4
-  %5 = load ptr, ptr @F, align 8
-  %6 = getelementptr inbounds %struct.ffio, ptr %5, i32 0, i32 9
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 20), align 8
-  %8 = load ptr, ptr @F, align 8
-  %9 = getelementptr inbounds %struct.ffio, ptr %8, i32 0, i32 3
-  %10 = load ptr, ptr %9, align 8
-  %11 = call ptr @strncpy(ptr noundef @_ZL1T, ptr noundef %10, i64 noundef 10000) #13
-  store i8 0, ptr getelementptr inbounds ([10001 x i8], ptr @_ZL1T, i64 0, i64 10000), align 8
-  %12 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %13 = icmp sgt i32 %12, 1
-  br i1 %13, label %14, label %20
+  %3 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 10
+  %4 = load i32, ptr %3, align 4
+  %5 = add nsw i32 %4, 1
+  %6 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 10
+  store i32 %5, ptr %6, align 4
+  %7 = load ptr, ptr @F, align 8
+  %8 = getelementptr inbounds %struct.ffio, ptr %7, i32 0, i32 9
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 20
+  store i64 %9, ptr %10, align 8
+  %11 = load ptr, ptr @F, align 8
+  %12 = getelementptr inbounds %struct.ffio, ptr %11, i32 0, i32 3
+  %13 = load ptr, ptr %12, align 8
+  %14 = call ptr @strncpy(ptr noundef @_ZL1T, ptr noundef %13, i64 noundef 10000) #13
+  %15 = getelementptr inbounds [10001 x i8], ptr @_ZL1T, i64 0, i64 10000
+  store i8 0, ptr %15, align 8
+  %16 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp sgt i32 %17, 1
+  br i1 %18, label %19, label %25
 
-14:                                               ; preds = %1
-  %15 = load ptr, ptr @F, align 8
-  %16 = getelementptr inbounds %struct.ffio, ptr %15, i32 0, i32 3
-  %17 = load ptr, ptr %16, align 8
-  call void @_ZL25finish_previous_operationPKc(ptr noundef %17)
-  %18 = load ptr, ptr %2, align 8
-  %19 = call noundef i32 @_ZL6bannerPKc(ptr noundef %18)
-  br label %20
+19:                                               ; preds = %1
+  %20 = load ptr, ptr @F, align 8
+  %21 = getelementptr inbounds %struct.ffio, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  call void @_ZL25finish_previous_operationPKc(ptr noundef %22)
+  %23 = load ptr, ptr %2, align 8
+  %24 = call noundef i32 @_ZL6bannerPKc(ptr noundef %23)
+  br label %25
 
-20:                                               ; preds = %14, %1
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 11), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 13), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 26), align 8
-  %21 = call noundef i32 @_ZL9directionPKc(ptr noundef @.str.65)
-  %22 = call noundef i32 @_ZL9tolerancePKc(ptr noundef @.str.66)
-  %23 = call noundef i32 @_ZL6ignorePKc(ptr noundef @.str.67)
-  %24 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %25 = call i32 @proj_errno_reset(ptr noundef %24)
-  %26 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %31
+25:                                               ; preds = %19, %1
+  %26 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 11
+  store i32 0, ptr %26, align 8
+  %27 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  store i32 0, ptr %27, align 4
+  %28 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 13
+  store i32 0, ptr %28, align 8
+  %29 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 26
+  store i32 0, ptr %29, align 8
+  %30 = call noundef i32 @_ZL9directionPKc(ptr noundef @.str.65)
+  %31 = call noundef i32 @_ZL9tolerancePKc(ptr noundef @.str.66)
+  %32 = call noundef i32 @_ZL6ignorePKc(ptr noundef @.str.67)
+  %33 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 @proj_errno_reset(ptr noundef %34)
+  %36 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %43
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %30 = call ptr @proj_destroy(ptr noundef %29)
-  br label %31
+39:                                               ; preds = %25
+  %40 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8
+  %42 = call ptr @proj_destroy(ptr noundef %41)
+  br label %43
 
-31:                                               ; preds = %28, %20
-  %32 = call i32 @proj_errno_reset(ptr noundef null)
-  %33 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 24), align 8
-  call void @proj_context_use_proj4_init_rules(ptr noundef null, i32 noundef %33)
-  %34 = load ptr, ptr @F, align 8
-  %35 = getelementptr inbounds %struct.ffio, ptr %34, i32 0, i32 3
-  %36 = load ptr, ptr %35, align 8
-  %37 = call ptr @proj_create(ptr noundef null, ptr noundef %36)
-  store ptr %37, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
+43:                                               ; preds = %39, %25
+  %44 = call i32 @proj_errno_reset(ptr noundef null)
+  %45 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 24
+  %46 = load i32, ptr %45, align 8
+  call void @proj_context_use_proj4_init_rules(ptr noundef null, i32 noundef %46)
+  %47 = load ptr, ptr @F, align 8
+  %48 = getelementptr inbounds %struct.ffio, ptr %47, i32 0, i32 3
+  %49 = load ptr, ptr %48, align 8
+  %50 = call ptr @proj_create(ptr noundef null, ptr noundef %49)
+  %51 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  store ptr %50, ptr %51, align 8
   ret i32 0
 }
 
@@ -3959,22 +4048,26 @@ define internal noundef i32 @_ZL7crs_srcPKc(ptr noundef %0) #1 {
   %3 = load ptr, ptr @F, align 8
   %4 = getelementptr inbounds %struct.ffio, ptr %3, i32 0, i32 3
   %5 = load ptr, ptr %4, align 8
-  %6 = call ptr @strncpy(ptr noundef getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 2), ptr noundef %5, i64 noundef 10000) #13
-  store i8 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 2, i64 10000), align 2
-  %7 = call i32 @strcmp(ptr noundef getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 2), ptr noundef @.str.69) #14
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %9, label %14
-
-9:                                                ; preds = %1
-  %10 = call i32 @strcmp(ptr noundef getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 1), ptr noundef @.str.69) #14
+  %6 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 2
+  %7 = call ptr @strncpy(ptr noundef %6, ptr noundef %5, i64 noundef 10000) #13
+  %8 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 2, i64 10000
+  store i8 0, ptr %8, align 2
+  %9 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 2
+  %10 = call i32 @strcmp(ptr noundef %9, ptr noundef @.str.69) #14
   %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %14
+  br i1 %11, label %12, label %18
 
-12:                                               ; preds = %9
-  %13 = call noundef i32 @_ZL20crs_to_crs_operationv()
-  br label %14
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 1
+  %14 = call i32 @strcmp(ptr noundef %13, ptr noundef @.str.69) #14
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %18
 
-14:                                               ; preds = %12, %9, %1
+16:                                               ; preds = %12
+  %17 = call noundef i32 @_ZL20crs_to_crs_operationv()
+  br label %18
+
+18:                                               ; preds = %16, %12, %1
   ret i32 0
 }
 
@@ -3985,33 +4078,41 @@ define internal noundef i32 @_ZL7crs_dstPKc(ptr noundef %0) #1 {
   %3 = load ptr, ptr @F, align 8
   %4 = getelementptr inbounds %struct.ffio, ptr %3, i32 0, i32 3
   %5 = load ptr, ptr %4, align 8
-  %6 = call ptr @strncpy(ptr noundef getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 1), ptr noundef %5, i64 noundef 10000) #13
-  store i8 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 1, i64 10000), align 1
-  %7 = call i32 @strcmp(ptr noundef getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 2), ptr noundef @.str.69) #14
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %9, label %14
-
-9:                                                ; preds = %1
-  %10 = call i32 @strcmp(ptr noundef getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 1), ptr noundef @.str.69) #14
+  %6 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 1
+  %7 = call ptr @strncpy(ptr noundef %6, ptr noundef %5, i64 noundef 10000) #13
+  %8 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 1, i64 10000
+  store i8 0, ptr %8, align 1
+  %9 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 2
+  %10 = call i32 @strcmp(ptr noundef %9, ptr noundef @.str.69) #14
   %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %14
+  br i1 %11, label %12, label %18
 
-12:                                               ; preds = %9
-  %13 = call noundef i32 @_ZL20crs_to_crs_operationv()
-  br label %14
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 1
+  %14 = call i32 @strcmp(ptr noundef %13, ptr noundef @.str.69) #14
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %18
 
-14:                                               ; preds = %12, %9, %1
+16:                                               ; preds = %12
+  %17 = call noundef i32 @_ZL20crs_to_crs_operationv()
+  br label %18
+
+18:                                               ; preds = %16, %12, %1
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZL12another_skipv() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 13), align 8
-  %2 = add nsw i32 %1, 1
-  store i32 %2, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 13), align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 16), align 4
-  %4 = add nsw i32 %3, 1
-  store i32 %4, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 16), align 4
+  %1 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 13
+  %2 = load i32, ptr %1, align 8
+  %3 = add nsw i32 %2, 1
+  %4 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 13
+  store i32 %3, ptr %4, align 8
+  %5 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 16
+  %6 = load i32, ptr %5, align 4
+  %7 = add nsw i32 %6, 1
+  %8 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 16
+  store i32 %7, ptr %8, align 4
   ret i32 0
 }
 
@@ -4022,20 +4123,25 @@ define internal noundef i32 @_ZL6acceptPKc(ptr noundef %0) #1 {
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
   call void @_ZL11parse_coordPKc(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %3, ptr noundef %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 4), ptr align 8 %3, i64 32, i1 false)
-  %5 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %6 = icmp sgt i32 %5, 3
-  br i1 %6, label %7, label %11
+  %5 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %3, i64 32, i1 false)
+  %6 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp sgt i32 %7, 3
+  br i1 %8, label %9, label %14
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %9 = load ptr, ptr %2, align 8
-  %10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.71, ptr noundef %9) #13
-  br label %11
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %2, align 8
+  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.71, ptr noundef %12) #13
+  br label %14
 
-11:                                               ; preds = %7, %1
-  %12 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 21), align 8
-  store i64 %12, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 22), align 8
+14:                                               ; preds = %9, %1
+  %15 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 21
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 22
+  store i64 %16, ptr %17, align 8
   ret i32 0
 }
 
@@ -4091,418 +4197,483 @@ define internal noundef i32 @_ZL6expectPKc(ptr noundef %0) #1 {
   br label %38
 
 38:                                               ; preds = %37, %1
-  %39 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 25), align 4
-  %40 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %41 = call i32 @proj_errno(ptr noundef %40)
-  %42 = icmp eq i32 %39, %41
-  br i1 %42, label %43, label %45
-
-43:                                               ; preds = %38
-  %44 = call noundef i32 @_ZL12another_skipv()
-  store i32 %44, ptr %2, align 4
-  br label %292
+  %39 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 25
+  %40 = load i32, ptr %39, align 4
+  %41 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %42 = load ptr, ptr %41, align 8
+  %43 = call i32 @proj_errno(ptr noundef %42)
+  %44 = icmp eq i32 %40, %43
+  br i1 %44, label %45, label %47
 
 45:                                               ; preds = %38
-  %46 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %47 = icmp eq ptr null, %46
-  br i1 %47, label %48, label %80
+  %46 = call noundef i32 @_ZL12another_skipv()
+  store i32 %46, ptr %2, align 4
+  br label %357
 
-48:                                               ; preds = %45
-  %49 = load i32, ptr %8, align 4
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %51, label %66
+47:                                               ; preds = %38
+  %48 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp eq ptr null, %49
+  br i1 %50, label %51, label %89
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr %9, align 4
+51:                                               ; preds = %47
+  %52 = load i32, ptr %8, align 4
   %53 = icmp ne i32 %52, 0
-  br i1 %53, label %54, label %64
+  br i1 %53, label %54, label %71
 
 54:                                               ; preds = %51
-  %55 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %56 = call i32 @proj_errno(ptr noundef %55)
-  %57 = load i32, ptr %9, align 4
-  %58 = icmp ne i32 %56, %57
-  br i1 %58, label %59, label %64
+  %55 = load i32, ptr %9, align 4
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %69
 
-59:                                               ; preds = %54
-  %60 = load i32, ptr %9, align 4
-  %61 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %62 = call i32 @proj_errno(ptr noundef %61)
-  %63 = call noundef i32 @_ZL33expect_failure_with_errno_messageii(i32 noundef %60, i32 noundef %62)
-  store i32 %63, ptr %2, align 4
-  br label %292
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %59 = load ptr, ptr %58, align 8
+  %60 = call i32 @proj_errno(ptr noundef %59)
+  %61 = load i32, ptr %9, align 4
+  %62 = icmp ne i32 %60, %61
+  br i1 %62, label %63, label %69
 
-64:                                               ; preds = %54, %51
-  %65 = call noundef i32 @_ZL26another_succeeding_failurev()
-  store i32 %65, ptr %2, align 4
-  br label %292
+63:                                               ; preds = %57
+  %64 = load i32, ptr %9, align 4
+  %65 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %66 = load ptr, ptr %65, align 8
+  %67 = call i32 @proj_errno(ptr noundef %66)
+  %68 = call noundef i32 @_ZL33expect_failure_with_errno_messageii(i32 noundef %64, i32 noundef %67)
+  store i32 %68, ptr %2, align 4
+  br label %357
 
-66:                                               ; preds = %48
-  %67 = call noundef i32 @_ZL6bannerPKc(ptr noundef @_ZL1T)
-  %68 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 20), align 8
-  %69 = trunc i64 %68 to i32
-  %70 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %71 = call i32 @proj_errno(ptr noundef %70)
-  %72 = call ptr @proj_errno_string(i32 noundef %71)
-  %73 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %74 = call i32 @proj_errno(ptr noundef %73)
-  %75 = call noundef ptr @_ZL20err_const_from_errnoi(i32 noundef %74)
-  %76 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %77 = call i32 @proj_errno(ptr noundef %76)
-  %78 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef 3, ptr noundef @.str.74, ptr noundef @_ZL5delim, i32 noundef %69, ptr noundef %72, ptr noundef %75, i32 noundef %77)
-  %79 = call noundef i32 @_ZL23another_failing_failurev()
-  store i32 %79, ptr %2, align 4
-  br label %292
+69:                                               ; preds = %57, %54
+  %70 = call noundef i32 @_ZL26another_succeeding_failurev()
+  store i32 %70, ptr %2, align 4
+  br label %357
 
-80:                                               ; preds = %45
-  %81 = load i32, ptr %8, align 4
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %83, label %130
+71:                                               ; preds = %51
+  %72 = call noundef i32 @_ZL6bannerPKc(ptr noundef @_ZL1T)
+  %73 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 20
+  %74 = load i64, ptr %73, align 8
+  %75 = trunc i64 %74 to i32
+  %76 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %77 = load ptr, ptr %76, align 8
+  %78 = call i32 @proj_errno(ptr noundef %77)
+  %79 = call ptr @proj_errno_string(i32 noundef %78)
+  %80 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %81 = load ptr, ptr %80, align 8
+  %82 = call i32 @proj_errno(ptr noundef %81)
+  %83 = call noundef ptr @_ZL20err_const_from_errnoi(i32 noundef %82)
+  %84 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %85 = load ptr, ptr %84, align 8
+  %86 = call i32 @proj_errno(ptr noundef %85)
+  %87 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef 3, ptr noundef @.str.74, ptr noundef @_ZL5delim, i32 noundef %75, ptr noundef %79, ptr noundef %83, i32 noundef %86)
+  %88 = call noundef i32 @_ZL23another_failing_failurev()
+  store i32 %88, ptr %2, align 4
+  br label %357
 
-83:                                               ; preds = %80
-  %84 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %85 = call i32 @proj_errno_reset(ptr noundef %84)
-  %86 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %87 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  %88 = call i32 @proj_angular_input(ptr noundef %86, i32 noundef %87)
-  %89 = icmp ne i32 %88, 0
-  br i1 %89, label %90, label %93
+89:                                               ; preds = %47
+  %90 = load i32, ptr %8, align 4
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %150
 
-90:                                               ; preds = %83
-  %91 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %92 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 4), i64 32, i1 false)
-  call void @_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %10, ptr noundef %91, i32 noundef %92, ptr noundef byval(%union.PJ_COORD) align 8 %11)
-  br label %94
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %94 = load ptr, ptr %93, align 8
+  %95 = call i32 @proj_errno_reset(ptr noundef %94)
+  %96 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %99 = load i32, ptr %98, align 8
+  %100 = call i32 @proj_angular_input(ptr noundef %97, i32 noundef %99)
+  %101 = icmp ne i32 %100, 0
+  br i1 %101, label %102, label %108
 
-93:                                               ; preds = %83
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 4), i64 32, i1 false)
-  br label %94
+102:                                              ; preds = %92
+  %103 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %106 = load i32, ptr %105, align 8
+  %107 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %107, i64 32, i1 false)
+  call void @_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %10, ptr noundef %104, i32 noundef %106, ptr noundef byval(%union.PJ_COORD) align 8 %11)
+  br label %110
 
-94:                                               ; preds = %93, %90
+108:                                              ; preds = %92
+  %109 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %109, i64 32, i1 false)
+  br label %110
+
+110:                                              ; preds = %108, %102
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %10, i64 32, i1 false)
   call void @_ZL18expect_trans_n_dimRK8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %4)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %12, i64 32, i1 false)
-  %95 = load i32, ptr %9, align 4
-  %96 = icmp ne i32 %95, 0
-  br i1 %96, label %97, label %118
-
-97:                                               ; preds = %94
-  %98 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %99 = call i32 @proj_errno(ptr noundef %98)
-  %100 = load i32, ptr %9, align 4
-  %101 = icmp eq i32 %99, %100
-  br i1 %101, label %102, label %104
-
-102:                                              ; preds = %97
-  %103 = call noundef i32 @_ZL26another_succeeding_failurev()
-  store i32 %103, ptr %2, align 4
-  br label %292
-
-104:                                              ; preds = %97
-  %105 = call noundef i32 @_ZL6bannerPKc(ptr noundef @_ZL1T)
-  %106 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %107 = call i32 @proj_errno(ptr noundef %106)
-  %108 = call noundef ptr @_ZL20err_const_from_errnoi(i32 noundef %107)
-  %109 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %110 = call i32 @proj_errno(ptr noundef %109)
   %111 = load i32, ptr %9, align 4
-  %112 = load ptr, ptr @F, align 8
-  %113 = getelementptr inbounds %struct.ffio, ptr %112, i32 0, i32 9
-  %114 = load i64, ptr %113, align 8
-  %115 = trunc i64 %114 to i32
-  %116 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef 3, ptr noundef @.str.75, ptr noundef @_ZL5delim, ptr noundef %108, i32 noundef %110, i32 noundef %111, i32 noundef %115)
-  %117 = call noundef i32 @_ZL23another_failing_failurev()
-  store i32 %117, ptr %2, align 4
-  br label %292
+  %112 = icmp ne i32 %111, 0
+  br i1 %112, label %113, label %137
 
-118:                                              ; preds = %94
-  %119 = getelementptr inbounds %struct.PJ_XYZ, ptr %5, i32 0, i32 0
-  %120 = load double, ptr %119, align 8
-  %121 = fcmp oeq double %120, 0x7FF0000000000000
-  br i1 %121, label %122, label %124
+113:                                              ; preds = %110
+  %114 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %115 = load ptr, ptr %114, align 8
+  %116 = call i32 @proj_errno(ptr noundef %115)
+  %117 = load i32, ptr %9, align 4
+  %118 = icmp eq i32 %116, %117
+  br i1 %118, label %119, label %121
 
-122:                                              ; preds = %118
-  %123 = call noundef i32 @_ZL26another_succeeding_failurev()
-  store i32 %123, ptr %2, align 4
-  br label %292
+119:                                              ; preds = %113
+  %120 = call noundef i32 @_ZL26another_succeeding_failurev()
+  store i32 %120, ptr %2, align 4
+  br label %357
 
-124:                                              ; preds = %118
-  %125 = call noundef i32 @_ZL6bannerPKc(ptr noundef @_ZL1T)
-  %126 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 20), align 8
-  %127 = trunc i64 %126 to i32
-  %128 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef 3, ptr noundef @.str.76, ptr noundef @_ZL5delim, i32 noundef %127)
-  %129 = call noundef i32 @_ZL23another_failing_failurev()
-  store i32 %129, ptr %2, align 4
-  br label %292
+121:                                              ; preds = %113
+  %122 = call noundef i32 @_ZL6bannerPKc(ptr noundef @_ZL1T)
+  %123 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %124 = load ptr, ptr %123, align 8
+  %125 = call i32 @proj_errno(ptr noundef %124)
+  %126 = call noundef ptr @_ZL20err_const_from_errnoi(i32 noundef %125)
+  %127 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %128 = load ptr, ptr %127, align 8
+  %129 = call i32 @proj_errno(ptr noundef %128)
+  %130 = load i32, ptr %9, align 4
+  %131 = load ptr, ptr @F, align 8
+  %132 = getelementptr inbounds %struct.ffio, ptr %131, i32 0, i32 9
+  %133 = load i64, ptr %132, align 8
+  %134 = trunc i64 %133 to i32
+  %135 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef 3, ptr noundef @.str.75, ptr noundef @_ZL5delim, ptr noundef %126, i32 noundef %129, i32 noundef %130, i32 noundef %134)
+  %136 = call noundef i32 @_ZL23another_failing_failurev()
+  store i32 %136, ptr %2, align 4
+  br label %357
 
-130:                                              ; preds = %80
-  %131 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %132 = icmp sgt i32 %131, 3
-  br i1 %132, label %133, label %172
+137:                                              ; preds = %110
+  %138 = getelementptr inbounds %struct.PJ_XYZ, ptr %5, i32 0, i32 0
+  %139 = load double, ptr %138, align 8
+  %140 = fcmp oeq double %139, 0x7FF0000000000000
+  br i1 %140, label %141, label %143
 
-133:                                              ; preds = %130
-  %134 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %135 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %136 = getelementptr inbounds %struct.PJconsts, ptr %135, i32 0, i32 12
-  %137 = load i32, ptr %136, align 8
-  %138 = icmp ne i32 %137, 0
-  %139 = select i1 %138, ptr @.str.78, ptr @.str.79
-  %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef @.str.77, ptr noundef %139) #13
-  %141 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %142 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  %143 = icmp eq i32 %142, 1
-  br i1 %143, label %144, label %145
+141:                                              ; preds = %137
+  %142 = call noundef i32 @_ZL26another_succeeding_failurev()
+  store i32 %142, ptr %2, align 4
+  br label %357
 
-144:                                              ; preds = %133
-  br label %146
+143:                                              ; preds = %137
+  %144 = call noundef i32 @_ZL6bannerPKc(ptr noundef @_ZL1T)
+  %145 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 20
+  %146 = load i64, ptr %145, align 8
+  %147 = trunc i64 %146 to i32
+  %148 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef 3, ptr noundef @.str.76, ptr noundef @_ZL5delim, i32 noundef %147)
+  %149 = call noundef i32 @_ZL23another_failing_failurev()
+  store i32 %149, ptr %2, align 4
+  br label %357
 
-145:                                              ; preds = %133
-  br label %146
+150:                                              ; preds = %89
+  %151 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %152 = load i32, ptr %151, align 4
+  %153 = icmp sgt i32 %152, 3
+  br i1 %153, label %154, label %206
 
-146:                                              ; preds = %145, %144
-  %147 = phi ptr [ @.str.65, %144 ], [ @.str.80, %145 ]
-  %148 = getelementptr inbounds [8 x i8], ptr %147, i64 0, i64 0
-  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef @.str.77, ptr noundef %148) #13
-  %150 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %151 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %152 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  %153 = call i32 @proj_angular_input(ptr noundef %151, i32 noundef %152)
-  %154 = icmp ne i32 %153, 0
-  %155 = select i1 %154, ptr @.str.81, ptr @.str.82
-  %156 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %150, ptr noundef @.str.77, ptr noundef %155) #13
-  %157 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %158 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %159 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  %160 = call i32 @proj_angular_output(ptr noundef %158, i32 noundef %159)
+154:                                              ; preds = %150
+  %155 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds %struct.PJconsts, ptr %158, i32 0, i32 12
+  %160 = load i32, ptr %159, align 8
   %161 = icmp ne i32 %160, 0
-  %162 = select i1 %161, ptr @.str.83, ptr @.str.84
-  %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef @.str.77, ptr noundef %162) #13
-  %164 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %165 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %166 = getelementptr inbounds %struct.PJconsts, ptr %165, i32 0, i32 53
-  %167 = load i32, ptr %166, align 4
-  %168 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %169 = getelementptr inbounds %struct.PJconsts, ptr %168, i32 0, i32 54
-  %170 = load i32, ptr %169, align 8
-  %171 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %164, ptr noundef @.str.85, i32 noundef %167, i32 noundef %170) #13
-  br label %172
+  %162 = select i1 %161, ptr @.str.78, ptr @.str.79
+  %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef @.str.77, ptr noundef %162) #13
+  %164 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %167 = load i32, ptr %166, align 8
+  %168 = icmp eq i32 %167, 1
+  br i1 %168, label %169, label %170
 
-172:                                              ; preds = %146, %130
-  %173 = load i32, ptr @tests, align 4
-  %174 = add nsw i32 %173, 1
-  store i32 %174, ptr @tests, align 4
-  %175 = load ptr, ptr %3, align 8
-  call void @_ZL11parse_coordPKc(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %13, ptr noundef %175)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 6), ptr align 8 %13, i64 32, i1 false)
-  %176 = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 6), align 8
-  %177 = fcmp oeq double 0x7FF0000000000000, %176
-  br i1 %177, label %178, label %181
+169:                                              ; preds = %154
+  br label %171
 
-178:                                              ; preds = %172
-  %179 = load ptr, ptr %3, align 8
-  %180 = call noundef i32 @_ZL27expect_message_cannot_parsePKc(ptr noundef %179)
-  store i32 %180, ptr %2, align 4
-  br label %292
+170:                                              ; preds = %154
+  br label %171
 
-181:                                              ; preds = %172
-  %182 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %183 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  %184 = call i32 @proj_angular_output(ptr noundef %182, i32 noundef %183)
-  %185 = icmp ne i32 %184, 0
-  br i1 %185, label %186, label %189
+171:                                              ; preds = %170, %169
+  %172 = phi ptr [ @.str.65, %169 ], [ @.str.80, %170 ]
+  %173 = getelementptr inbounds [8 x i8], ptr %172, i64 0, i64 0
+  %174 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef @.str.77, ptr noundef %173) #13
+  %175 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %180 = load i32, ptr %179, align 8
+  %181 = call i32 @proj_angular_input(ptr noundef %178, i32 noundef %180)
+  %182 = icmp ne i32 %181, 0
+  %183 = select i1 %182, ptr @.str.81, ptr @.str.82
+  %184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef @.str.77, ptr noundef %183) #13
+  %185 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %186 = load ptr, ptr %185, align 8
+  %187 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %190 = load i32, ptr %189, align 8
+  %191 = call i32 @proj_angular_output(ptr noundef %188, i32 noundef %190)
+  %192 = icmp ne i32 %191, 0
+  %193 = select i1 %192, ptr @.str.83, ptr @.str.84
+  %194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef @.str.77, ptr noundef %193) #13
+  %195 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds %struct.PJconsts, ptr %198, i32 0, i32 53
+  %200 = load i32, ptr %199, align 4
+  %201 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %202 = load ptr, ptr %201, align 8
+  %203 = getelementptr inbounds %struct.PJconsts, ptr %202, i32 0, i32 54
+  %204 = load i32, ptr %203, align 8
+  %205 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef @.str.85, i32 noundef %200, i32 noundef %204) #13
+  br label %206
 
-186:                                              ; preds = %181
-  %187 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %188 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 6), i64 32, i1 false)
-  call void @_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %14, ptr noundef %187, i32 noundef %188, ptr noundef byval(%union.PJ_COORD) align 8 %15)
-  br label %190
+206:                                              ; preds = %171, %150
+  %207 = load i32, ptr @tests, align 4
+  %208 = add nsw i32 %207, 1
+  store i32 %208, ptr @tests, align 4
+  %209 = load ptr, ptr %3, align 8
+  call void @_ZL11parse_coordPKc(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %13, ptr noundef %209)
+  %210 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %210, ptr align 8 %13, i64 32, i1 false)
+  %211 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 6
+  %212 = load double, ptr %211, align 8
+  %213 = fcmp oeq double 0x7FF0000000000000, %212
+  br i1 %213, label %214, label %217
 
-189:                                              ; preds = %181
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 6), i64 32, i1 false)
-  br label %190
+214:                                              ; preds = %206
+  %215 = load ptr, ptr %3, align 8
+  %216 = call noundef i32 @_ZL27expect_message_cannot_parsePKc(ptr noundef %215)
+  store i32 %216, ptr %2, align 4
+  br label %357
 
-190:                                              ; preds = %189, %186
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %14, i64 32, i1 false)
-  %191 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %192 = icmp sgt i32 %191, 3
-  br i1 %192, label %193, label %204
+217:                                              ; preds = %206
+  %218 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %221 = load i32, ptr %220, align 8
+  %222 = call i32 @proj_angular_output(ptr noundef %219, i32 noundef %221)
+  %223 = icmp ne i32 %222, 0
+  br i1 %223, label %224, label %230
 
-193:                                              ; preds = %190
-  %194 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %195 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 0
-  %196 = load double, ptr %195, align 8
-  %197 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 1
-  %198 = load double, ptr %197, align 8
-  %199 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 2
-  %200 = load double, ptr %199, align 8
-  %201 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 3
-  %202 = load double, ptr %201, align 8
-  %203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef @.str.86, double noundef %196, double noundef %198, double noundef %200, double noundef %202) #13
-  br label %204
-
-204:                                              ; preds = %193, %190
-  %205 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %206 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  %207 = call i32 @proj_angular_input(ptr noundef %205, i32 noundef %206)
-  %208 = icmp ne i32 %207, 0
-  br i1 %208, label %209, label %212
-
-209:                                              ; preds = %204
-  %210 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %211 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 4), i64 32, i1 false)
-  call void @_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %16, ptr noundef %210, i32 noundef %211, ptr noundef byval(%union.PJ_COORD) align 8 %17)
-  br label %213
-
-212:                                              ; preds = %204
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 4), i64 32, i1 false)
-  br label %213
-
-213:                                              ; preds = %212, %209
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %16, i64 32, i1 false)
-  %214 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %215 = icmp sgt i32 %214, 3
-  br i1 %215, label %216, label %227
-
-216:                                              ; preds = %213
-  %217 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %218 = getelementptr inbounds [4 x double], ptr %4, i64 0, i64 0
-  %219 = load double, ptr %218, align 8
-  %220 = getelementptr inbounds [4 x double], ptr %4, i64 0, i64 1
-  %221 = load double, ptr %220, align 8
-  %222 = getelementptr inbounds [4 x double], ptr %4, i64 0, i64 2
-  %223 = load double, ptr %222, align 8
-  %224 = getelementptr inbounds [4 x double], ptr %4, i64 0, i64 3
-  %225 = load double, ptr %224, align 8
-  %226 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %217, ptr noundef @.str.87, double noundef %219, double noundef %221, double noundef %223, double noundef %225) #13
-  br label %227
-
-227:                                              ; preds = %216, %213
-  call void @_ZL18expect_trans_n_dimRK8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %18, i64 32, i1 false)
-  %228 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 21), align 8
-  %229 = icmp ult i64 %228, 4
-  br i1 %229, label %230, label %232
-
-230:                                              ; preds = %227
-  %231 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 3
-  store double 0.000000e+00, ptr %231, align 8
+224:                                              ; preds = %217
+  %225 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %226 = load ptr, ptr %225, align 8
+  %227 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %228 = load i32, ptr %227, align 8
+  %229 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %229, i64 32, i1 false)
+  call void @_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %14, ptr noundef %226, i32 noundef %228, ptr noundef byval(%union.PJ_COORD) align 8 %15)
   br label %232
 
-232:                                              ; preds = %230, %227
-  %233 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 21), align 8
-  %234 = icmp ult i64 %233, 3
-  br i1 %234, label %235, label %237
+230:                                              ; preds = %217
+  %231 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %231, i64 32, i1 false)
+  br label %232
 
-235:                                              ; preds = %232
-  %236 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 2
-  store double 0.000000e+00, ptr %236, align 8
-  br label %237
+232:                                              ; preds = %230, %224
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %14, i64 32, i1 false)
+  %233 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %234 = load i32, ptr %233, align 4
+  %235 = icmp sgt i32 %234, 3
+  br i1 %235, label %236, label %248
 
-237:                                              ; preds = %235, %232
-  %238 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %239 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  %240 = call i32 @proj_angular_output(ptr noundef %238, i32 noundef %239)
-  %241 = icmp ne i32 %240, 0
-  br i1 %241, label %242, label %245
+236:                                              ; preds = %232
+  %237 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 0
+  %240 = load double, ptr %239, align 8
+  %241 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 1
+  %242 = load double, ptr %241, align 8
+  %243 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 2
+  %244 = load double, ptr %243, align 8
+  %245 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 3
+  %246 = load double, ptr %245, align 8
+  %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef @.str.86, double noundef %240, double noundef %242, double noundef %244, double noundef %246) #13
+  br label %248
 
-242:                                              ; preds = %237
-  %243 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %244 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
+248:                                              ; preds = %236, %232
+  %249 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %250 = load ptr, ptr %249, align 8
+  %251 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %252 = load i32, ptr %251, align 8
+  %253 = call i32 @proj_angular_input(ptr noundef %250, i32 noundef %252)
+  %254 = icmp ne i32 %253, 0
+  br i1 %254, label %255, label %261
+
+255:                                              ; preds = %248
+  %256 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %257 = load ptr, ptr %256, align 8
+  %258 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %259 = load i32, ptr %258, align 8
+  %260 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %260, i64 32, i1 false)
+  call void @_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %16, ptr noundef %257, i32 noundef %259, ptr noundef byval(%union.PJ_COORD) align 8 %17)
+  br label %263
+
+261:                                              ; preds = %248
+  %262 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %262, i64 32, i1 false)
+  br label %263
+
+263:                                              ; preds = %261, %255
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %16, i64 32, i1 false)
+  %264 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %265 = load i32, ptr %264, align 4
+  %266 = icmp sgt i32 %265, 3
+  br i1 %266, label %267, label %279
+
+267:                                              ; preds = %263
+  %268 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %269 = load ptr, ptr %268, align 8
+  %270 = getelementptr inbounds [4 x double], ptr %4, i64 0, i64 0
+  %271 = load double, ptr %270, align 8
+  %272 = getelementptr inbounds [4 x double], ptr %4, i64 0, i64 1
+  %273 = load double, ptr %272, align 8
+  %274 = getelementptr inbounds [4 x double], ptr %4, i64 0, i64 2
+  %275 = load double, ptr %274, align 8
+  %276 = getelementptr inbounds [4 x double], ptr %4, i64 0, i64 3
+  %277 = load double, ptr %276, align 8
+  %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %269, ptr noundef @.str.87, double noundef %271, double noundef %273, double noundef %275, double noundef %277) #13
+  br label %279
+
+279:                                              ; preds = %267, %263
+  call void @_ZL18expect_trans_n_dimRK8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %18, i64 32, i1 false)
+  %280 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 21
+  %281 = load i64, ptr %280, align 8
+  %282 = icmp ult i64 %281, 4
+  br i1 %282, label %283, label %285
+
+283:                                              ; preds = %279
+  %284 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 3
+  store double 0.000000e+00, ptr %284, align 8
+  br label %285
+
+285:                                              ; preds = %283, %279
+  %286 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 21
+  %287 = load i64, ptr %286, align 8
+  %288 = icmp ult i64 %287, 3
+  br i1 %288, label %289, label %291
+
+289:                                              ; preds = %285
+  %290 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 2
+  store double 0.000000e+00, ptr %290, align 8
+  br label %291
+
+291:                                              ; preds = %289, %285
+  %292 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %293 = load ptr, ptr %292, align 8
+  %294 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %295 = load i32, ptr %294, align 8
+  %296 = call i32 @proj_angular_output(ptr noundef %293, i32 noundef %295)
+  %297 = icmp ne i32 %296, 0
+  br i1 %297, label %298, label %303
+
+298:                                              ; preds = %291
+  %299 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %300 = load ptr, ptr %299, align 8
+  %301 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %302 = load i32, ptr %301, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %5, i64 32, i1 false)
-  call void @_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %19, ptr noundef %243, i32 noundef %244, ptr noundef byval(%union.PJ_COORD) align 8 %20)
-  br label %246
+  call void @_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %19, ptr noundef %300, i32 noundef %302, ptr noundef byval(%union.PJ_COORD) align 8 %20)
+  br label %304
 
-245:                                              ; preds = %237
+303:                                              ; preds = %291
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %5, i64 32, i1 false)
-  br label %246
+  br label %304
 
-246:                                              ; preds = %245, %242
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5), ptr align 8 %19, i64 32, i1 false)
-  %247 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %248 = icmp sgt i32 %247, 3
-  br i1 %248, label %249, label %260
+304:                                              ; preds = %303, %298
+  %305 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %305, ptr align 8 %19, i64 32, i1 false)
+  %306 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %307 = load i32, ptr %306, align 4
+  %308 = icmp sgt i32 %307, 3
+  br i1 %308, label %309, label %321
 
-249:                                              ; preds = %246
-  %250 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %251 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 0
-  %252 = load double, ptr %251, align 8
-  %253 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 1
-  %254 = load double, ptr %253, align 8
-  %255 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 2
-  %256 = load double, ptr %255, align 8
-  %257 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 3
-  %258 = load double, ptr %257, align 8
-  %259 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %250, ptr noundef @.str.88, double noundef %252, double noundef %254, double noundef %256, double noundef %258) #13
-  br label %260
+309:                                              ; preds = %304
+  %310 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %311 = load ptr, ptr %310, align 8
+  %312 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 0
+  %313 = load double, ptr %312, align 8
+  %314 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 1
+  %315 = load double, ptr %314, align 8
+  %316 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 2
+  %317 = load double, ptr %316, align 8
+  %318 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 3
+  %319 = load double, ptr %318, align 8
+  %320 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %311, ptr noundef @.str.88, double noundef %313, double noundef %315, double noundef %317, double noundef %319) #13
+  br label %321
 
-260:                                              ; preds = %249, %246
-  %261 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 0
-  %262 = load double, ptr %261, align 8
-  %263 = call noundef zeroext i1 @_ZSt5isnand(double noundef %262)
-  br i1 %263, label %264, label %269
+321:                                              ; preds = %309, %304
+  %322 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 0
+  %323 = load double, ptr %322, align 8
+  %324 = call noundef zeroext i1 @_ZSt5isnand(double noundef %323)
+  br i1 %324, label %325, label %330
 
-264:                                              ; preds = %260
-  %265 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 0
-  %266 = load double, ptr %265, align 8
-  %267 = call noundef zeroext i1 @_ZSt5isnand(double noundef %266)
-  br i1 %267, label %268, label %269
+325:                                              ; preds = %321
+  %326 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 0
+  %327 = load double, ptr %326, align 8
+  %328 = call noundef zeroext i1 @_ZSt5isnand(double noundef %327)
+  br i1 %328, label %329, label %330
 
-268:                                              ; preds = %264
+329:                                              ; preds = %325
   store double 0.000000e+00, ptr %7, align 8
-  br label %280
+  br label %344
 
-269:                                              ; preds = %264, %260
-  %270 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %271 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  %272 = call i32 @proj_angular_output(ptr noundef %270, i32 noundef %271)
-  %273 = icmp ne i32 %272, 0
-  br i1 %273, label %274, label %277
+330:                                              ; preds = %325, %321
+  %331 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %332 = load ptr, ptr %331, align 8
+  %333 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %334 = load i32, ptr %333, align 8
+  %335 = call i32 @proj_angular_output(ptr noundef %332, i32 noundef %334)
+  %336 = icmp ne i32 %335, 0
+  br i1 %336, label %337, label %341
 
-274:                                              ; preds = %269
-  %275 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
+337:                                              ; preds = %330
+  %338 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %339 = load ptr, ptr %338, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %6, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %5, i64 32, i1 false)
-  %276 = call double @proj_lpz_dist(ptr noundef %275, ptr noundef byval(%union.PJ_COORD) align 8 %21, ptr noundef byval(%union.PJ_COORD) align 8 %22)
-  store double %276, ptr %7, align 8
-  br label %279
+  %340 = call double @proj_lpz_dist(ptr noundef %339, ptr noundef byval(%union.PJ_COORD) align 8 %21, ptr noundef byval(%union.PJ_COORD) align 8 %22)
+  store double %340, ptr %7, align 8
+  br label %343
 
-277:                                              ; preds = %269
+341:                                              ; preds = %330
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %5, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %6, i64 32, i1 false)
-  %278 = call double @proj_xyz_dist(ptr noundef byval(%union.PJ_COORD) align 8 %23, ptr noundef byval(%union.PJ_COORD) align 8 %24)
-  store double %278, ptr %7, align 8
-  br label %279
+  %342 = call double @proj_xyz_dist(ptr noundef byval(%union.PJ_COORD) align 8 %23, ptr noundef byval(%union.PJ_COORD) align 8 %24)
+  store double %342, ptr %7, align 8
+  br label %343
 
-279:                                              ; preds = %277, %274
-  br label %280
+343:                                              ; preds = %341, %337
+  br label %344
 
-280:                                              ; preds = %279, %268
-  %281 = load double, ptr %7, align 8
-  %282 = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 23), align 8
-  %283 = fcmp ole double %281, %282
-  br i1 %283, label %288, label %284
+344:                                              ; preds = %343, %329
+  %345 = load double, ptr %7, align 8
+  %346 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 23
+  %347 = load double, ptr %346, align 8
+  %348 = fcmp ole double %345, %347
+  br i1 %348, label %353, label %349
 
-284:                                              ; preds = %280
-  %285 = load double, ptr %7, align 8
-  %286 = load ptr, ptr %3, align 8
-  %287 = call noundef i32 @_ZL14expect_messagedPKc(double noundef %285, ptr noundef %286)
-  store i32 %287, ptr %2, align 4
-  br label %292
+349:                                              ; preds = %344
+  %350 = load double, ptr %7, align 8
+  %351 = load ptr, ptr %3, align 8
+  %352 = call noundef i32 @_ZL14expect_messagedPKc(double noundef %350, ptr noundef %351)
+  store i32 %352, ptr %2, align 4
+  br label %357
 
-288:                                              ; preds = %280
-  %289 = load i32, ptr @succs, align 4
-  %290 = add nsw i32 %289, 1
-  store i32 %290, ptr @succs, align 4
-  %291 = call noundef i32 @_ZL15another_successv()
+353:                                              ; preds = %344
+  %354 = load i32, ptr @succs, align 4
+  %355 = add nsw i32 %354, 1
+  store i32 %355, ptr @succs, align 4
+  %356 = call noundef i32 @_ZL15another_successv()
   store i32 0, ptr %2, align 4
-  br label %292
+  br label %357
 
-292:                                              ; preds = %288, %284, %178, %124, %122, %104, %102, %66, %64, %59, %43
-  %293 = load i32, ptr %2, align 4
-  ret i32 %293
+357:                                              ; preds = %353, %349, %214, %143, %141, %121, %119, %71, %69, %63, %45
+  %358 = load i32, ptr %2, align 4
+  ret i32 %358
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4518,175 +4689,195 @@ define internal noundef i32 @_ZL9roundtripPKc(ptr noundef %0) #1 {
   %10 = alloca %union.PJ_COORD, align 8
   %11 = alloca %union.PJ_COORD, align 8
   store ptr %0, ptr %3, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %13 = icmp eq ptr null, %12
-  br i1 %13, label %14, label %23
+  %12 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr null, %13
+  br i1 %14, label %15, label %26
 
-14:                                               ; preds = %1
-  %15 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 25), align 4
-  %16 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %17 = call i32 @proj_errno(ptr noundef %16)
-  %18 = icmp eq i32 %15, %17
-  br i1 %18, label %19, label %21
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 25
+  %17 = load i32, ptr %16, align 4
+  %18 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %19 = load ptr, ptr %18, align 8
+  %20 = call i32 @proj_errno(ptr noundef %19)
+  %21 = icmp eq i32 %17, %20
+  br i1 %21, label %22, label %24
 
-19:                                               ; preds = %14
-  %20 = call noundef i32 @_ZL12another_skipv()
-  store i32 %20, ptr %2, align 4
-  br label %111
+22:                                               ; preds = %15
+  %23 = call noundef i32 @_ZL12another_skipv()
+  store i32 %23, ptr %2, align 4
+  br label %131
 
-21:                                               ; preds = %14
-  %22 = call noundef i32 @_ZL15another_failurev()
-  store i32 %22, ptr %2, align 4
-  br label %111
+24:                                               ; preds = %15
+  %25 = call noundef i32 @_ZL15another_failurev()
+  store i32 %25, ptr %2, align 4
+  br label %131
 
-23:                                               ; preds = %1
-  %24 = load ptr, ptr %3, align 8
-  %25 = call noundef double @_Z11proj_strtodPKcPPc(ptr noundef %24, ptr noundef %8)
-  store double %25, ptr %7, align 8
-  %26 = load ptr, ptr %8, align 8
+26:                                               ; preds = %1
   %27 = load ptr, ptr %3, align 8
-  %28 = icmp eq ptr %26, %27
-  br i1 %28, label %29, label %30
+  %28 = call noundef double @_Z11proj_strtodPKcPPc(ptr noundef %27, ptr noundef %8)
+  store double %28, ptr %7, align 8
+  %29 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = icmp eq ptr %29, %30
+  br i1 %31, label %32, label %33
 
-29:                                               ; preds = %23
+32:                                               ; preds = %26
   store i32 100, ptr %4, align 4
-  br label %43
+  br label %46
 
-30:                                               ; preds = %23
-  %31 = load double, ptr %7, align 8
-  %32 = fcmp olt double %31, 1.000000e+00
-  br i1 %32, label %36, label %33
-
-33:                                               ; preds = %30
+33:                                               ; preds = %26
   %34 = load double, ptr %7, align 8
-  %35 = fcmp ogt double %34, 1.000000e+06
-  br i1 %35, label %36, label %40
+  %35 = fcmp olt double %34, 1.000000e+00
+  br i1 %35, label %39, label %36
 
-36:                                               ; preds = %33, %30
+36:                                               ; preds = %33
   %37 = load double, ptr %7, align 8
-  %38 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef 2, ptr noundef @.str.119, double noundef %37)
-  %39 = call noundef i32 @_ZL25another_failing_roundtripv()
-  store i32 %39, ptr %2, align 4
-  br label %111
+  %38 = fcmp ogt double %37, 1.000000e+06
+  br i1 %38, label %39, label %43
 
-40:                                               ; preds = %33
-  %41 = load double, ptr %7, align 8
-  %42 = fptosi double %41 to i32
-  store i32 %42, ptr %4, align 4
-  br label %43
+39:                                               ; preds = %36, %33
+  %40 = load double, ptr %7, align 8
+  %41 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef 2, ptr noundef @.str.119, double noundef %40)
+  %42 = call noundef i32 @_ZL25another_failing_roundtripv()
+  store i32 %42, ptr %2, align 4
+  br label %131
 
-43:                                               ; preds = %40, %29
-  %44 = load ptr, ptr %8, align 8
-  %45 = call noundef double @_ZL13strtod_scaledPKcd(ptr noundef %44, double noundef 1.000000e+00)
-  store double %45, ptr %5, align 8
-  %46 = load double, ptr %5, align 8
-  %47 = fcmp oeq double %46, 0x7FF0000000000000
-  br i1 %47, label %48, label %50
+43:                                               ; preds = %36
+  %44 = load double, ptr %7, align 8
+  %45 = fptosi double %44 to i32
+  store i32 %45, ptr %4, align 4
+  br label %46
 
-48:                                               ; preds = %43
-  %49 = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 23), align 8
-  br label %52
+46:                                               ; preds = %43, %32
+  %47 = load ptr, ptr %8, align 8
+  %48 = call noundef double @_ZL13strtod_scaledPKcd(ptr noundef %47, double noundef 1.000000e+00)
+  store double %48, ptr %5, align 8
+  %49 = load double, ptr %5, align 8
+  %50 = fcmp oeq double %49, 0x7FF0000000000000
+  br i1 %50, label %51, label %54
 
-50:                                               ; preds = %43
-  %51 = load double, ptr %5, align 8
-  br label %52
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 23
+  %53 = load double, ptr %52, align 8
+  br label %56
 
-52:                                               ; preds = %50, %48
-  %53 = phi double [ %49, %48 ], [ %51, %50 ]
-  store double %53, ptr %5, align 8
-  %54 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %55 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  %56 = call i32 @proj_angular_input(ptr noundef %54, i32 noundef %55)
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %58, label %61
+54:                                               ; preds = %46
+  %55 = load double, ptr %5, align 8
+  br label %56
 
-58:                                               ; preds = %52
-  %59 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %60 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 4), i64 32, i1 false)
-  call void @_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %10, ptr noundef %59, i32 noundef %60, ptr noundef byval(%union.PJ_COORD) align 8 %11)
-  br label %62
+56:                                               ; preds = %54, %51
+  %57 = phi double [ %53, %51 ], [ %55, %54 ]
+  store double %57, ptr %5, align 8
+  %58 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %61 = load i32, ptr %60, align 8
+  %62 = call i32 @proj_angular_input(ptr noundef %59, i32 noundef %61)
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %70
 
-61:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 4), i64 32, i1 false)
-  br label %62
+64:                                               ; preds = %56
+  %65 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %68 = load i32, ptr %67, align 8
+  %69 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %69, i64 32, i1 false)
+  call void @_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %10, ptr noundef %66, i32 noundef %68, ptr noundef byval(%union.PJ_COORD) align 8 %11)
+  br label %72
 
-62:                                               ; preds = %61, %58
+70:                                               ; preds = %56
+  %71 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %71, i64 32, i1 false)
+  br label %72
+
+72:                                               ; preds = %70, %64
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %10, i64 32, i1 false)
-  %63 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %64 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  %65 = load i32, ptr %4, align 4
-  %66 = call double @proj_roundtrip(ptr noundef %63, i32 noundef %64, i32 noundef %65, ptr noundef %9)
-  store double %66, ptr %6, align 8
-  %67 = load double, ptr %6, align 8
-  %68 = call noundef zeroext i1 @_ZSt5isnand(double noundef %67)
-  br i1 %68, label %69, label %72
+  %73 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %76 = load i32, ptr %75, align 8
+  %77 = load i32, ptr %4, align 4
+  %78 = call double @proj_roundtrip(ptr noundef %74, i32 noundef %76, i32 noundef %77, ptr noundef %9)
+  store double %78, ptr %6, align 8
+  %79 = load double, ptr %6, align 8
+  %80 = call noundef zeroext i1 @_ZSt5isnand(double noundef %79)
+  br i1 %80, label %81, label %84
 
-69:                                               ; preds = %62
-  %70 = load double, ptr %5, align 8
-  %71 = call noundef zeroext i1 @_ZSt5isnand(double noundef %70)
-  br i1 %71, label %76, label %72
+81:                                               ; preds = %72
+  %82 = load double, ptr %5, align 8
+  %83 = call noundef zeroext i1 @_ZSt5isnand(double noundef %82)
+  br i1 %83, label %88, label %84
 
-72:                                               ; preds = %69, %62
-  %73 = load double, ptr %6, align 8
-  %74 = load double, ptr %5, align 8
-  %75 = fcmp ole double %73, %74
-  br i1 %75, label %76, label %78
+84:                                               ; preds = %81, %72
+  %85 = load double, ptr %6, align 8
+  %86 = load double, ptr %5, align 8
+  %87 = fcmp ole double %85, %86
+  br i1 %87, label %88, label %90
 
-76:                                               ; preds = %72, %69
-  %77 = call noundef i32 @_ZL28another_succeeding_roundtripv()
-  store i32 %77, ptr %2, align 4
-  br label %111
+88:                                               ; preds = %84, %81
+  %89 = call noundef i32 @_ZL28another_succeeding_roundtripv()
+  store i32 %89, ptr %2, align 4
+  br label %131
 
-78:                                               ; preds = %72
-  %79 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %80 = icmp sgt i32 %79, -1
-  br i1 %80, label %81, label %109
+90:                                               ; preds = %84
+  %91 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %92 = load i32, ptr %91, align 4
+  %93 = icmp sgt i32 %92, -1
+  br i1 %93, label %94, label %129
 
-81:                                               ; preds = %78
-  %82 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  %83 = icmp eq i32 0, %82
-  br i1 %83, label %84, label %89
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  %96 = load i32, ptr %95, align 4
+  %97 = icmp eq i32 0, %96
+  br i1 %97, label %98, label %104
 
-84:                                               ; preds = %81
-  %85 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %86 = icmp slt i32 %85, 2
-  br i1 %86, label %87, label %89
+98:                                               ; preds = %94
+  %99 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %100 = load i32, ptr %99, align 4
+  %101 = icmp slt i32 %100, 2
+  br i1 %101, label %102, label %104
 
-87:                                               ; preds = %84
-  %88 = call noundef i32 @_ZL6bannerPKc(ptr noundef @_ZL1T)
-  br label %89
+102:                                              ; preds = %98
+  %103 = call noundef i32 @_ZL6bannerPKc(ptr noundef @_ZL1T)
+  br label %104
 
-89:                                               ; preds = %87, %84, %81
-  %90 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %91 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  %92 = icmp ne i32 %91, 0
-  %93 = select i1 %92, ptr @.str.105, ptr @_ZL5delim
-  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef @.str.32, ptr noundef %93) #13
-  %95 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %96 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 27), align 8
-  %97 = call noundef ptr @_Z14opt_strip_pathPKc(ptr noundef %96)
-  %98 = load ptr, ptr @F, align 8
-  %99 = getelementptr inbounds %struct.ffio, ptr %98, i32 0, i32 9
-  %100 = load i64, ptr %99, align 8
-  %101 = trunc i64 %100 to i32
-  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef @.str.106, ptr noundef %97, i32 noundef %101) #13
-  %103 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %104 = load double, ptr %6, align 8
-  %105 = fmul double 1.000000e+03, %104
-  %106 = load double, ptr %5, align 8
-  %107 = fmul double 1.000000e+03, %106
-  %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef @.str.120, double noundef %105, double noundef %107) #13
-  br label %109
+104:                                              ; preds = %102, %98, %94
+  %105 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  %108 = load i32, ptr %107, align 4
+  %109 = icmp ne i32 %108, 0
+  %110 = select i1 %109, ptr @.str.105, ptr @_ZL5delim
+  %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef @.str.32, ptr noundef %110) #13
+  %112 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 27
+  %115 = load ptr, ptr %114, align 8
+  %116 = call noundef ptr @_Z14opt_strip_pathPKc(ptr noundef %115)
+  %117 = load ptr, ptr @F, align 8
+  %118 = getelementptr inbounds %struct.ffio, ptr %117, i32 0, i32 9
+  %119 = load i64, ptr %118, align 8
+  %120 = trunc i64 %119 to i32
+  %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef @.str.106, ptr noundef %116, i32 noundef %120) #13
+  %122 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %123 = load ptr, ptr %122, align 8
+  %124 = load double, ptr %6, align 8
+  %125 = fmul double 1.000000e+03, %124
+  %126 = load double, ptr %5, align 8
+  %127 = fmul double 1.000000e+03, %126
+  %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef @.str.120, double noundef %125, double noundef %127) #13
+  br label %129
 
-109:                                              ; preds = %89, %78
-  %110 = call noundef i32 @_ZL25another_failing_roundtripv()
-  store i32 %110, ptr %2, align 4
-  br label %111
+129:                                              ; preds = %104, %90
+  %130 = call noundef i32 @_ZL25another_failing_roundtripv()
+  store i32 %130, ptr %2, align 4
+  br label %131
 
-111:                                              ; preds = %109, %76, %36, %21, %19
-  %112 = load i32, ptr %2, align 4
-  ret i32 %112
+131:                                              ; preds = %129, %88, %39, %24, %22
+  %132 = load i32, ptr %2, align 4
+  ret i32 %132
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4711,10 +4902,11 @@ define internal noundef i32 @_ZL6bannerPKc(ptr noundef %0) #0 {
   br label %12
 
 12:                                               ; preds = %10, %1
-  %13 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.130, ptr noundef @_ZL5delim, ptr noundef %14, ptr noundef %15) #13
+  %13 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %2, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.130, ptr noundef @_ZL5delim, ptr noundef %15, ptr noundef %16) #13
   ret i32 0
 }
 
@@ -4728,38 +4920,42 @@ define internal noundef i32 @_ZL7verbosePKc(ptr noundef %0) #1 {
   %6 = call noundef double @_Z9proj_atofPKc(ptr noundef %5)
   %7 = fptosi double %6 to i32
   store i32 %7, ptr %4, align 4
-  %8 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %9 = icmp slt i32 %8, 0
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %21
+  %8 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = call i64 @strlen(ptr noundef %12) #14
-  %14 = icmp ne i64 %13, 0
-  br i1 %14, label %15, label %17
-
-15:                                               ; preds = %11
-  %16 = load i32, ptr %4, align 4
-  store i32 %16, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  br label %20
-
-17:                                               ; preds = %11
-  %18 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  br label %20
-
-20:                                               ; preds = %17, %15
   store i32 0, ptr %2, align 4
-  br label %21
+  br label %25
 
-21:                                               ; preds = %20, %10
-  %22 = load i32, ptr %2, align 4
-  ret i32 %22
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8
+  %14 = call i64 @strlen(ptr noundef %13) #14
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %19
+
+16:                                               ; preds = %12
+  %17 = load i32, ptr %4, align 4
+  %18 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  store i32 %17, ptr %18, align 4
+  br label %24
+
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %21 = load i32, ptr %20, align 4
+  %22 = add nsw i32 %21, 1
+  %23 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  store i32 %22, ptr %23, align 4
+  br label %24
+
+24:                                               ; preds = %19, %16
+  store i32 0, ptr %2, align 4
+  br label %25
+
+25:                                               ; preds = %24, %11
+  %26 = load i32, ptr %2, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4790,34 +4986,36 @@ define internal noundef i32 @_ZL9directionPKc(ptr noundef %0) #0 {
   %16 = load ptr, ptr %4, align 8
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i32
-  switch i32 %18, label %21 [
+  switch i32 %18, label %23 [
     i32 70, label %19
     i32 102, label %19
-    i32 73, label %20
-    i32 105, label %20
-    i32 82, label %20
-    i32 114, label %20
+    i32 73, label %21
+    i32 105, label %21
+    i32 82, label %21
+    i32 114, label %21
   ]
 
 19:                                               ; preds = %15, %15
-  store i32 1, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  br label %22
+  %20 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  store i32 1, ptr %20, align 8
+  br label %24
 
-20:                                               ; preds = %15, %15, %15, %15
-  store i32 -1, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  br label %22
+21:                                               ; preds = %15, %15, %15, %15
+  %22 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  store i32 -1, ptr %22, align 8
+  br label %24
 
-21:                                               ; preds = %15
+23:                                               ; preds = %15
   store i32 1, ptr %2, align 4
-  br label %23
+  br label %25
 
-22:                                               ; preds = %20, %19
+24:                                               ; preds = %21, %19
   store i32 0, ptr %2, align 4
-  br label %23
+  br label %25
 
-23:                                               ; preds = %22, %21
-  %24 = load i32, ptr %2, align 4
-  ret i32 %24
+25:                                               ; preds = %24, %23
+  %26 = load i32, ptr %2, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4827,23 +5025,26 @@ define internal noundef i32 @_ZL9tolerancePKc(ptr noundef %0) #1 {
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = call noundef double @_ZL13strtod_scaledPKcd(ptr noundef %4, double noundef 1.000000e+00)
-  store double %5, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 23), align 8
-  %6 = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 23), align 8
-  %7 = fcmp oeq double 0x7FF0000000000000, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 23
+  store double %5, ptr %6, align 8
+  %7 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 23
+  %8 = load double, ptr %7, align 8
+  %9 = fcmp oeq double 0x7FF0000000000000, %8
+  br i1 %9, label %10, label %12
 
-8:                                                ; preds = %1
-  store double 5.000000e-04, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 23), align 8
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 23
+  store double 5.000000e-04, ptr %11, align 8
   store i32 1, ptr %2, align 4
-  br label %10
+  br label %13
 
-9:                                                ; preds = %1
+12:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %10
+  br label %13
 
-10:                                               ; preds = %9, %8
-  %11 = load i32, ptr %2, align 4
-  ret i32 %11
+13:                                               ; preds = %12, %10
+  %14 = load i32, ptr %2, align 4
+  ret i32 %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4853,7 +5054,8 @@ define internal noundef i32 @_ZL6ignorePKc(ptr noundef %0) #1 {
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef ptr @_ZL6columnPKci(ptr noundef %3, i32 noundef 1)
   %5 = call noundef i32 @_ZL20errno_from_err_constPKc(ptr noundef %4)
-  store i32 %5, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 25), align 4
+  %6 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 25
+  store i32 %5, ptr %6, align 4
   ret i32 0
 }
 
@@ -4874,24 +5076,27 @@ define internal noundef i32 @_ZL12require_gridPKc(ptr noundef %0) #1 {
   %10 = getelementptr inbounds [260 x i8], ptr %9, i64 0, i64 0
   %11 = call i64 @strlen(ptr noundef %10) #14
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %21
+  br i1 %12, label %13, label %24
 
 13:                                               ; preds = %1
-  %14 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %15 = icmp sgt i32 %14, 1
-  br i1 %15, label %16, label %20
+  %14 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp sgt i32 %15, 1
+  br i1 %16, label %17, label %22
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.131, ptr noundef %18) #13
-  br label %20
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.131, ptr noundef %20) #13
+  br label %22
 
-20:                                               ; preds = %16, %13
-  store i32 1, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 26), align 8
-  br label %21
+22:                                               ; preds = %17, %13
+  %23 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 26
+  store i32 1, ptr %23, align 8
+  br label %24
 
-21:                                               ; preds = %20, %1
+24:                                               ; preds = %22, %1
   ret i32 0
 }
 
@@ -4899,9 +5104,10 @@ define internal noundef i32 @_ZL12require_gridPKc(ptr noundef %0) #1 {
 define internal noundef i32 @_ZL4echoPKc(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.77, ptr noundef %4) #13
+  %3 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.77, ptr noundef %5) #13
   ret i32 0
 }
 
@@ -4909,10 +5115,11 @@ define internal noundef i32 @_ZL4echoPKc(ptr noundef %0) #0 {
 define internal noundef i32 @_ZL4skipPKc(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  store i32 1, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 9), align 8
-  %3 = load ptr, ptr @F, align 8
-  %4 = getelementptr inbounds %struct.ffio, ptr %3, i32 0, i32 11
-  store i64 2, ptr %4, align 8
+  %3 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 9
+  store i32 1, ptr %3, align 8
+  %4 = load ptr, ptr @F, align 8
+  %5 = getelementptr inbounds %struct.ffio, ptr %4, i32 0, i32 11
+  store i64 2, ptr %5, align 8
   ret i32 0
 }
 
@@ -4924,7 +5131,8 @@ define internal noundef i32 @_ZL20use_proj4_init_rulesPKc(ptr noundef %0) #0 {
   %4 = call i32 @strcmp(ptr noundef %3, ptr noundef @.str.132) #14
   %5 = icmp eq i32 %4, 0
   %6 = zext i1 %5 to i32
-  store i32 %6, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 24), align 8
+  %7 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 24
+  store i32 %6, ptr %7, align 8
   ret i32 0
 }
 
@@ -4935,44 +5143,53 @@ declare ptr @strncpy(ptr noundef, ptr noundef, i64 noundef) #2
 define internal void @_ZL25finish_previous_operationPKc(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %4 = icmp sgt i32 %3, 1
-  br i1 %4, label %5, label %26
+  %3 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %4 = load i32, ptr %3, align 4
+  %5 = icmp sgt i32 %4, 1
+  br i1 %5, label %6, label %35
 
-5:                                                ; preds = %1
-  %6 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 10), align 4
-  %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %26
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 10
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp sgt i32 %8, 1
+  br i1 %9, label %10, label %35
 
-8:                                                ; preds = %5
-  %9 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 11), align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  %11 = add nsw i32 %9, %10
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %13, label %26
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 11
+  %12 = load i32, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  %14 = load i32, ptr %13, align 4
+  %15 = add nsw i32 %12, %14
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %35
 
-13:                                               ; preds = %8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 11), align 8
-  %16 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 13), align 8
-  %17 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %21
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 11
+  %21 = load i32, ptr %20, align 8
+  %22 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 13
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %30
 
-20:                                               ; preds = %13
-  br label %22
+29:                                               ; preds = %17
+  br label %31
 
-21:                                               ; preds = %13
-  br label %22
+30:                                               ; preds = %17
+  br label %31
 
-22:                                               ; preds = %21, %20
-  %23 = phi ptr [ @.str.59, %20 ], [ @.str.60, %21 ]
-  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 0, i64 0
-  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.68, ptr noundef @_ZL5delim, i32 noundef %15, i32 noundef %16, i32 noundef %17, ptr noundef %24) #13
-  br label %26
+31:                                               ; preds = %30, %29
+  %32 = phi ptr [ @.str.59, %29 ], [ @.str.60, %30 ]
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 0, i64 0
+  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.68, ptr noundef @_ZL5delim, i32 noundef %21, i32 noundef %23, i32 noundef %25, ptr noundef %33) #13
+  br label %35
 
-26:                                               ; preds = %22, %8, %5, %1
+35:                                               ; preds = %31, %10, %6, %1
   ret void
 }
 
@@ -4983,55 +5200,74 @@ declare ptr @proj_create(ptr noundef, ptr noundef) #3
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL20crs_to_crs_operationv() #1 {
   %1 = alloca [80 x i8], align 16
-  %2 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 10), align 4
-  %3 = add nsw i32 %2, 1
-  store i32 %3, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 10), align 4
-  %4 = load ptr, ptr @F, align 8
-  %5 = getelementptr inbounds %struct.ffio, ptr %4, i32 0, i32 9
-  %6 = load i64, ptr %5, align 8
-  store i64 %6, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 20), align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %8 = icmp sgt i32 %7, 1
-  br i1 %8, label %9, label %17
+  %2 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 10
+  %3 = load i32, ptr %2, align 4
+  %4 = add nsw i32 %3, 1
+  %5 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 10
+  store i32 %4, ptr %5, align 4
+  %6 = load ptr, ptr @F, align 8
+  %7 = getelementptr inbounds %struct.ffio, ptr %6, i32 0, i32 9
+  %8 = load i64, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 20
+  store i64 %8, ptr %9, align 8
+  %10 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp sgt i32 %11, 1
+  br i1 %12, label %13, label %23
 
-9:                                                ; preds = %0
-  %10 = load ptr, ptr @F, align 8
-  %11 = getelementptr inbounds %struct.ffio, ptr %10, i32 0, i32 3
-  %12 = load ptr, ptr %11, align 8
-  call void @_ZL25finish_previous_operationPKc(ptr noundef %12)
-  %13 = getelementptr inbounds [80 x i8], ptr %1, i64 0, i64 0
-  %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %13, i64 noundef 80, ptr noundef @.str.70, ptr noundef getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 2), ptr noundef getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 1)) #13
-  %15 = getelementptr inbounds [80 x i8], ptr %1, i64 0, i64 0
-  %16 = call noundef i32 @_ZL6bannerPKc(ptr noundef %15)
-  br label %17
+13:                                               ; preds = %0
+  %14 = load ptr, ptr @F, align 8
+  %15 = getelementptr inbounds %struct.ffio, ptr %14, i32 0, i32 3
+  %16 = load ptr, ptr %15, align 8
+  call void @_ZL25finish_previous_operationPKc(ptr noundef %16)
+  %17 = getelementptr inbounds [80 x i8], ptr %1, i64 0, i64 0
+  %18 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 2
+  %19 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 1
+  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %17, i64 noundef 80, ptr noundef @.str.70, ptr noundef %18, ptr noundef %19) #13
+  %21 = getelementptr inbounds [80 x i8], ptr %1, i64 0, i64 0
+  %22 = call noundef i32 @_ZL6bannerPKc(ptr noundef %21)
+  br label %23
 
-17:                                               ; preds = %9, %0
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 11), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 13), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 26), align 8
-  %18 = call noundef i32 @_ZL9directionPKc(ptr noundef @.str.65)
-  %19 = call noundef i32 @_ZL9tolerancePKc(ptr noundef @.str.66)
-  %20 = call noundef i32 @_ZL6ignorePKc(ptr noundef @.str.67)
-  %21 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %22 = call i32 @proj_errno_reset(ptr noundef %21)
-  %23 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %28
+23:                                               ; preds = %13, %0
+  %24 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 11
+  store i32 0, ptr %24, align 8
+  %25 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  store i32 0, ptr %25, align 4
+  %26 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 13
+  store i32 0, ptr %26, align 8
+  %27 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 26
+  store i32 0, ptr %27, align 8
+  %28 = call noundef i32 @_ZL9directionPKc(ptr noundef @.str.65)
+  %29 = call noundef i32 @_ZL9tolerancePKc(ptr noundef @.str.66)
+  %30 = call noundef i32 @_ZL6ignorePKc(ptr noundef @.str.67)
+  %31 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %32 = load ptr, ptr %31, align 8
+  %33 = call i32 @proj_errno_reset(ptr noundef %32)
+  %34 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %41
 
-25:                                               ; preds = %17
-  %26 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %27 = call ptr @proj_destroy(ptr noundef %26)
-  br label %28
+37:                                               ; preds = %23
+  %38 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %39 = load ptr, ptr %38, align 8
+  %40 = call ptr @proj_destroy(ptr noundef %39)
+  br label %41
 
-28:                                               ; preds = %25, %17
-  %29 = call i32 @proj_errno_reset(ptr noundef null)
-  %30 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 24), align 8
-  call void @proj_context_use_proj4_init_rules(ptr noundef null, i32 noundef %30)
-  %31 = call ptr @proj_create_crs_to_crs(ptr noundef null, ptr noundef getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 2), ptr noundef getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 1), ptr noundef null)
-  store ptr %31, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %32 = call ptr @strcpy(ptr noundef getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 2), ptr noundef @.str.69) #13
-  %33 = call ptr @strcpy(ptr noundef getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 1), ptr noundef @.str.69) #13
+41:                                               ; preds = %37, %23
+  %42 = call i32 @proj_errno_reset(ptr noundef null)
+  %43 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 24
+  %44 = load i32, ptr %43, align 8
+  call void @proj_context_use_proj4_init_rules(ptr noundef null, i32 noundef %44)
+  %45 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 2
+  %46 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 1
+  %47 = call ptr @proj_create_crs_to_crs(ptr noundef null, ptr noundef %45, ptr noundef %46, ptr noundef null)
+  %48 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  store ptr %47, ptr %48, align 8
+  %49 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 2
+  %50 = call ptr @strcpy(ptr noundef %49, ptr noundef @.str.69) #13
+  %51 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 1
+  %52 = call ptr @strcpy(ptr noundef %51, ptr noundef @.str.69) #13
   ret i32 0
 }
 
@@ -5054,139 +5290,142 @@ define internal void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias writable sr
   %11 = load ptr, ptr %3, align 8
   store ptr %11, ptr %7, align 8
   call void @proj_coord(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %8, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00)
-  store i64 0, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 21), align 8
+  %12 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 21
+  store i64 0, ptr %12, align 8
   store i32 0, ptr %4, align 4
-  br label %12
+  br label %13
 
-12:                                               ; preds = %84, %2
-  %13 = load i32, ptr %4, align 4
-  %14 = icmp slt i32 %13, 4
-  br i1 %14, label %15, label %87
+13:                                               ; preds = %87, %2
+  %14 = load i32, ptr %4, align 4
+  %15 = icmp slt i32 %14, 4
+  br i1 %15, label %16, label %90
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %7, align 8
-  %17 = call noundef double @_Z11proj_strtodPKcPPc(ptr noundef %16, ptr noundef %5)
-  store double %17, ptr %9, align 8
-  %18 = load double, ptr %9, align 8
-  %19 = call noundef zeroext i1 @_ZSt5isnand(double noundef %18)
-  br i1 %19, label %66, label %20
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %7, align 8
+  %18 = call noundef double @_Z11proj_strtodPKcPPc(ptr noundef %17, ptr noundef %5)
+  store double %18, ptr %9, align 8
+  %19 = load double, ptr %9, align 8
+  %20 = call noundef zeroext i1 @_ZSt5isnand(double noundef %19)
+  br i1 %20, label %67, label %21
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i8, ptr %21, align 1
-  %23 = sext i8 %22 to i32
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %66
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %5, align 8
+  %23 = load i8, ptr %22, align 1
+  %24 = sext i8 %23 to i32
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %67
 
-25:                                               ; preds = %20
-  %26 = load ptr, ptr %5, align 8
-  %27 = load i8, ptr %26, align 1
-  %28 = sext i8 %27 to i32
-  %29 = call i32 @isspace(i32 noundef %28) #14
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %66, label %31
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i8, ptr %27, align 1
+  %29 = sext i8 %28 to i32
+  %30 = call i32 @isspace(i32 noundef %29) #14
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %67, label %32
 
-31:                                               ; preds = %25
-  %32 = load ptr, ptr %7, align 8
-  %33 = call double @proj_dmstor(ptr noundef %32, ptr noundef %6)
-  %34 = fmul double %33, 1.800000e+02
-  %35 = fdiv double %34, 0x400921FB54442D18
-  store double %35, ptr %10, align 8
-  %36 = load double, ptr %9, align 8
-  %37 = load double, ptr %10, align 8
-  %38 = fcmp une double %36, %37
-  br i1 %38, label %39, label %55
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %7, align 8
+  %34 = call double @proj_dmstor(ptr noundef %33, ptr noundef %6)
+  %35 = fmul double %34, 1.800000e+02
+  %36 = fdiv double %35, 0x400921FB54442D18
+  store double %36, ptr %10, align 8
+  %37 = load double, ptr %9, align 8
+  %38 = load double, ptr %10, align 8
+  %39 = fcmp une double %37, %38
+  br i1 %39, label %40, label %56
 
-39:                                               ; preds = %31
-  %40 = load double, ptr %9, align 8
-  %41 = call double @llvm.fabs.f64(double %40)
-  %42 = load double, ptr %10, align 8
-  %43 = call double @llvm.fabs.f64(double %42)
-  %44 = fcmp olt double %41, %43
-  br i1 %44, label %45, label %55
+40:                                               ; preds = %32
+  %41 = load double, ptr %9, align 8
+  %42 = call double @llvm.fabs.f64(double %41)
+  %43 = load double, ptr %10, align 8
+  %44 = call double @llvm.fabs.f64(double %43)
+  %45 = fcmp olt double %42, %44
+  br i1 %45, label %46, label %56
 
-45:                                               ; preds = %39
-  %46 = load double, ptr %10, align 8
-  %47 = call double @llvm.fabs.f64(double %46)
-  %48 = load double, ptr %9, align 8
-  %49 = call double @llvm.fabs.f64(double %48)
-  %50 = fadd double %49, 1.000000e+00
-  %51 = fcmp olt double %47, %50
-  br i1 %51, label %52, label %55
+46:                                               ; preds = %40
+  %47 = load double, ptr %10, align 8
+  %48 = call double @llvm.fabs.f64(double %47)
+  %49 = load double, ptr %9, align 8
+  %50 = call double @llvm.fabs.f64(double %49)
+  %51 = fadd double %50, 1.000000e+00
+  %52 = fcmp olt double %48, %51
+  br i1 %52, label %53, label %56
 
-52:                                               ; preds = %45
-  %53 = load double, ptr %10, align 8
-  store double %53, ptr %9, align 8
-  %54 = load ptr, ptr %6, align 8
-  store ptr %54, ptr %5, align 8
-  br label %55
+53:                                               ; preds = %46
+  %54 = load double, ptr %10, align 8
+  store double %54, ptr %9, align 8
+  %55 = load ptr, ptr %6, align 8
+  store ptr %55, ptr %5, align 8
+  br label %56
 
-55:                                               ; preds = %52, %45, %39, %31
-  %56 = load double, ptr %9, align 8
-  %57 = load double, ptr %10, align 8
-  %58 = fcmp oeq double %56, %57
-  br i1 %58, label %59, label %65
+56:                                               ; preds = %53, %46, %40, %32
+  %57 = load double, ptr %9, align 8
+  %58 = load double, ptr %10, align 8
+  %59 = fcmp oeq double %57, %58
+  br i1 %59, label %60, label %66
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %5, align 8
-  %61 = load ptr, ptr %6, align 8
-  %62 = icmp ne ptr %60, %61
-  br i1 %62, label %63, label %65
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %5, align 8
+  %62 = load ptr, ptr %6, align 8
+  %63 = icmp ne ptr %61, %62
+  br i1 %63, label %64, label %66
 
-63:                                               ; preds = %59
-  %64 = load ptr, ptr %6, align 8
-  store ptr %64, ptr %5, align 8
-  br label %65
-
-65:                                               ; preds = %63, %59, %55
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %6, align 8
+  store ptr %65, ptr %5, align 8
   br label %66
 
-66:                                               ; preds = %65, %25, %20, %15
-  %67 = load ptr, ptr %7, align 8
-  %68 = load ptr, ptr %5, align 8
-  %69 = icmp eq ptr %67, %68
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %64, %60, %56
+  br label %67
 
-70:                                               ; preds = %66
-  %71 = load i32, ptr %4, align 4
-  %72 = icmp sgt i32 %71, 1
-  br i1 %72, label %73, label %74
+67:                                               ; preds = %66, %26, %21, %16
+  %68 = load ptr, ptr %7, align 8
+  %69 = load ptr, ptr %5, align 8
+  %70 = icmp eq ptr %68, %69
+  br i1 %70, label %71, label %77
 
-73:                                               ; preds = %70
+71:                                               ; preds = %67
+  %72 = load i32, ptr %4, align 4
+  %73 = icmp sgt i32 %72, 1
+  br i1 %73, label %74, label %75
+
+74:                                               ; preds = %71
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %8, i64 32, i1 false)
-  br label %75
+  br label %76
 
-74:                                               ; preds = %70
+75:                                               ; preds = %71
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %0)
-  br label %75
+  br label %76
 
-75:                                               ; preds = %74, %73
-  br label %88
+76:                                               ; preds = %75, %74
+  br label %91
 
-76:                                               ; preds = %66
-  %77 = load double, ptr %9, align 8
-  %78 = load i32, ptr %4, align 4
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds [4 x double], ptr %8, i64 0, i64 %79
-  store double %77, ptr %80, align 8
-  %81 = load ptr, ptr %5, align 8
-  store ptr %81, ptr %7, align 8
-  %82 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 21), align 8
-  %83 = add i64 %82, 1
-  store i64 %83, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 21), align 8
-  br label %84
+77:                                               ; preds = %67
+  %78 = load double, ptr %9, align 8
+  %79 = load i32, ptr %4, align 4
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds [4 x double], ptr %8, i64 0, i64 %80
+  store double %78, ptr %81, align 8
+  %82 = load ptr, ptr %5, align 8
+  store ptr %82, ptr %7, align 8
+  %83 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 21
+  %84 = load i64, ptr %83, align 8
+  %85 = add i64 %84, 1
+  %86 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 21
+  store i64 %85, ptr %86, align 8
+  br label %87
 
-84:                                               ; preds = %76
-  %85 = load i32, ptr %4, align 4
-  %86 = add nsw i32 %85, 1
-  store i32 %86, ptr %4, align 4
-  br label %12, !llvm.loop !30
+87:                                               ; preds = %77
+  %88 = load i32, ptr %4, align 4
+  %89 = add nsw i32 %88, 1
+  store i32 %89, ptr %4, align 4
+  br label %13, !llvm.loop !30
 
-87:                                               ; preds = %12
+90:                                               ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %8, i64 32, i1 false)
-  br label %88
+  br label %91
 
-88:                                               ; preds = %87, %75
+91:                                               ; preds = %90, %76
   ret void
 }
 
@@ -5455,64 +5694,74 @@ define internal noundef i32 @_ZL33expect_failure_with_errno_messageii(i32 nounde
   store i32 %0, ptr %4, align 4
   store i32 %1, ptr %5, align 4
   %6 = call noundef i32 @_ZL23another_failing_failurev()
-  %7 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %8 = icmp slt i32 %7, 0
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  store i32 1, ptr %3, align 4
-  br label %48
+  %7 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp slt i32 %8, 0
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  %12 = icmp eq i32 0, %11
-  br i1 %12, label %13, label %18
-
-13:                                               ; preds = %10
-  %14 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %15 = icmp slt i32 %14, 2
-  br i1 %15, label %16, label %18
-
-16:                                               ; preds = %13
-  %17 = call noundef i32 @_ZL6bannerPKc(ptr noundef @_ZL1T)
-  br label %18
-
-18:                                               ; preds = %16, %13, %10
-  %19 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %20 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  %21 = icmp ne i32 %20, 0
-  %22 = select i1 %21, ptr @.str.105, ptr @_ZL5delim
-  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.32, ptr noundef %22) #13
-  %24 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 27), align 8
-  %26 = call noundef ptr @_Z14opt_strip_pathPKc(ptr noundef %25)
-  %27 = load ptr, ptr @F, align 8
-  %28 = getelementptr inbounds %struct.ffio, ptr %27, i32 0, i32 9
-  %29 = load i64, ptr %28, align 8
-  %30 = trunc i64 %29 to i32
-  %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.106, ptr noundef %26, i32 noundef %30) #13
-  %32 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %33 = load i32, ptr %5, align 4
-  %34 = call noundef ptr @_ZL20err_const_from_errnoi(i32 noundef %33)
-  %35 = load i32, ptr %5, align 4
-  %36 = load i32, ptr %5, align 4
-  %37 = call ptr @proj_errno_string(i32 noundef %36)
-  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef @.str.107, ptr noundef %34, i32 noundef %35, ptr noundef %37) #13
-  %39 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %40 = load i32, ptr %4, align 4
-  %41 = call noundef ptr @_ZL20err_const_from_errnoi(i32 noundef %40)
-  %42 = load i32, ptr %4, align 4
-  %43 = load i32, ptr %4, align 4
-  %44 = call ptr @proj_errno_string(i32 noundef %43)
-  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef @.str.108, ptr noundef %41, i32 noundef %42, ptr noundef %44) #13
-  %46 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef @.str.109) #13
   store i32 1, ptr %3, align 4
-  br label %48
+  br label %58
 
-48:                                               ; preds = %18, %9
-  %49 = load i32, ptr %3, align 4
-  ret i32 %49
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp eq i32 0, %13
+  br i1 %14, label %15, label %21
+
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp slt i32 %17, 2
+  br i1 %18, label %19, label %21
+
+19:                                               ; preds = %15
+  %20 = call noundef i32 @_ZL6bannerPKc(ptr noundef @_ZL1T)
+  br label %21
+
+21:                                               ; preds = %19, %15, %11
+  %22 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp ne i32 %25, 0
+  %27 = select i1 %26, ptr @.str.105, ptr @_ZL5delim
+  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.32, ptr noundef %27) #13
+  %29 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 27
+  %32 = load ptr, ptr %31, align 8
+  %33 = call noundef ptr @_Z14opt_strip_pathPKc(ptr noundef %32)
+  %34 = load ptr, ptr @F, align 8
+  %35 = getelementptr inbounds %struct.ffio, ptr %34, i32 0, i32 9
+  %36 = load i64, ptr %35, align 8
+  %37 = trunc i64 %36 to i32
+  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef @.str.106, ptr noundef %33, i32 noundef %37) #13
+  %39 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %40 = load ptr, ptr %39, align 8
+  %41 = load i32, ptr %5, align 4
+  %42 = call noundef ptr @_ZL20err_const_from_errnoi(i32 noundef %41)
+  %43 = load i32, ptr %5, align 4
+  %44 = load i32, ptr %5, align 4
+  %45 = call ptr @proj_errno_string(i32 noundef %44)
+  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.107, ptr noundef %42, i32 noundef %43, ptr noundef %45) #13
+  %47 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %4, align 4
+  %50 = call noundef ptr @_ZL20err_const_from_errnoi(i32 noundef %49)
+  %51 = load i32, ptr %4, align 4
+  %52 = load i32, ptr %4, align 4
+  %53 = call ptr @proj_errno_string(i32 noundef %52)
+  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str.108, ptr noundef %50, i32 noundef %51, ptr noundef %53) #13
+  %55 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %56 = load ptr, ptr %55, align 8
+  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.109) #13
+  store i32 1, ptr %3, align 4
+  br label %58
+
+58:                                               ; preds = %21, %10
+  %59 = load i32, ptr %3, align 4
+  ret i32 %59
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5675,40 +5924,48 @@ define internal void @_ZL18expect_trans_n_dimRK8PJ_COORD(ptr dead_on_unwind noal
   %5 = alloca %union.PJ_COORD, align 8
   %6 = alloca %union.PJ_COORD, align 8
   store ptr %1, ptr %3, align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 22), align 8
-  %8 = icmp eq i64 4, %7
-  br i1 %8, label %9, label %13
+  %7 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 22
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp eq i64 4, %8
+  br i1 %9, label %10, label %16
 
-9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  %12 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %12, i64 32, i1 false)
-  call void @proj_trans(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %0, ptr noundef %10, i32 noundef %11, ptr noundef byval(%union.PJ_COORD) align 8 %4)
-  br label %24
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %14 = load i32, ptr %13, align 8
+  %15 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %15, i64 32, i1 false)
+  call void @proj_trans(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %0, ptr noundef %12, i32 noundef %14, ptr noundef byval(%union.PJ_COORD) align 8 %4)
+  br label %32
 
-13:                                               ; preds = %2
-  %14 = load i64, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 22), align 8
-  %15 = icmp eq i64 3, %14
-  br i1 %15, label %16, label %20
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 22
+  %18 = load i64, ptr %17, align 8
+  %19 = icmp eq i64 3, %18
+  br i1 %19, label %20, label %26
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %18 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  %19 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %19, i64 32, i1 false)
-  call void @_Z18pj_approx_3D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %0, ptr noundef %17, i32 noundef %18, ptr noundef byval(%union.PJ_COORD) align 8 %5)
-  br label %24
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %24 = load i32, ptr %23, align 8
+  %25 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %25, i64 32, i1 false)
+  call void @_Z18pj_approx_3D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %0, ptr noundef %22, i32 noundef %24, ptr noundef byval(%union.PJ_COORD) align 8 %5)
+  br label %32
 
-20:                                               ; preds = %13
-  %21 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %22 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7), align 8
-  %23 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %23, i64 32, i1 false)
-  call void @_Z18pj_approx_2D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %0, ptr noundef %21, i32 noundef %22, ptr noundef byval(%union.PJ_COORD) align 8 %6)
-  br label %24
+26:                                               ; preds = %16
+  %27 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 7
+  %30 = load i32, ptr %29, align 8
+  %31 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %31, i64 32, i1 false)
+  call void @_Z18pj_approx_2D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %0, ptr noundef %28, i32 noundef %30, ptr noundef byval(%union.PJ_COORD) align 8 %6)
+  br label %32
 
-24:                                               ; preds = %20, %16, %9
+32:                                               ; preds = %26, %20, %10
   ret void
 }
 
@@ -5719,42 +5976,49 @@ define internal noundef i32 @_ZL27expect_message_cannot_parsePKc(ptr noundef %0)
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = call noundef i32 @_ZL15another_failurev()
-  %4 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %6, label %29
+  %4 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %5 = load i32, ptr %4, align 4
+  %6 = icmp sgt i32 %5, -1
+  br i1 %6, label %7, label %36
 
-6:                                                ; preds = %1
-  %7 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  %8 = icmp eq i32 0, %7
-  br i1 %8, label %9, label %14
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp eq i32 0, %9
+  br i1 %10, label %11, label %17
 
-9:                                                ; preds = %6
-  %10 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %11 = icmp slt i32 %10, 2
-  br i1 %11, label %12, label %14
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp slt i32 %13, 2
+  br i1 %14, label %15, label %17
 
-12:                                               ; preds = %9
-  %13 = call noundef i32 @_ZL6bannerPKc(ptr noundef @_ZL1T)
-  br label %14
+15:                                               ; preds = %11
+  %16 = call noundef i32 @_ZL6bannerPKc(ptr noundef @_ZL1T)
+  br label %17
 
-14:                                               ; preds = %12, %9, %6
-  %15 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %16 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  %17 = icmp ne i32 %16, 0
-  %18 = select i1 %17, ptr @.str.105, ptr @_ZL5delim
-  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.32, ptr noundef %18) #13
-  %20 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 27), align 8
-  %22 = call noundef ptr @_Z14opt_strip_pathPKc(ptr noundef %21)
-  %23 = load ptr, ptr @F, align 8
-  %24 = getelementptr inbounds %struct.ffio, ptr %23, i32 0, i32 9
-  %25 = load i64, ptr %24, align 8
-  %26 = trunc i64 %25 to i32
-  %27 = load ptr, ptr %2, align 8
-  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef @.str.114, ptr noundef %22, i32 noundef %26, ptr noundef %27) #13
-  br label %29
+17:                                               ; preds = %15, %11, %7
+  %18 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp ne i32 %21, 0
+  %23 = select i1 %22, ptr @.str.105, ptr @_ZL5delim
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.32, ptr noundef %23) #13
+  %25 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 27
+  %28 = load ptr, ptr %27, align 8
+  %29 = call noundef ptr @_Z14opt_strip_pathPKc(ptr noundef %28)
+  %30 = load ptr, ptr @F, align 8
+  %31 = getelementptr inbounds %struct.ffio, ptr %30, i32 0, i32 9
+  %32 = load i64, ptr %31, align 8
+  %33 = trunc i64 %32 to i32
+  %34 = load ptr, ptr %2, align 8
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.114, ptr noundef %29, i32 noundef %33, ptr noundef %34) #13
+  br label %36
 
-29:                                               ; preds = %14, %1
+36:                                               ; preds = %17, %1
   ret i32 1
 }
 
@@ -5850,111 +6114,143 @@ define internal noundef i32 @_ZL14expect_messagedPKc(double noundef %0, ptr noun
   store double %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %6 = call noundef i32 @_ZL15another_failurev()
-  %7 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %8 = icmp slt i32 %7, 0
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  store i32 1, ptr %3, align 4
-  br label %68
+  %7 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp slt i32 %8, 0
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load double, ptr %4, align 8
-  %12 = fcmp ogt double %11, 1.000000e+06
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %10
-  store double 0x412E847FFFFFDE72, ptr %4, align 8
-  br label %14
-
-14:                                               ; preds = %13, %10
-  %15 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  %16 = icmp eq i32 0, %15
-  br i1 %16, label %17, label %22
-
-17:                                               ; preds = %14
-  %18 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8), align 4
-  %19 = icmp slt i32 %18, 2
-  br i1 %19, label %20, label %22
-
-20:                                               ; preds = %17
-  %21 = call noundef i32 @_ZL6bannerPKc(ptr noundef @_ZL1T)
-  br label %22
-
-22:                                               ; preds = %20, %17, %14
-  %23 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %24 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12), align 4
-  %25 = icmp ne i32 %24, 0
-  %26 = select i1 %25, ptr @.str.105, ptr @_ZL5delim
-  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.32, ptr noundef %26) #13
-  %28 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 27), align 8
-  %30 = call noundef ptr @_Z14opt_strip_pathPKc(ptr noundef %29)
-  %31 = load ptr, ptr @F, align 8
-  %32 = getelementptr inbounds %struct.ffio, ptr %31, i32 0, i32 9
-  %33 = load i64, ptr %32, align 8
-  %34 = trunc i64 %33 to i32
-  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef @.str.106, ptr noundef %30, i32 noundef %34) #13
-  %36 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %37 = load ptr, ptr %5, align 8
-  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef @.str.115, ptr noundef %37) #13
-  %39 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %40 = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5), align 8
-  %41 = load double, ptr getelementptr inbounds (%struct.PJ_XY, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5), i32 0, i32 1), align 8
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef @.str.116, double noundef %40, double noundef %41) #13
-  %43 = load double, ptr getelementptr inbounds (%struct.PJ_XYZT, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5), i32 0, i32 3), align 8
-  %44 = fcmp une double %43, 0.000000e+00
-  br i1 %44, label %48, label %45
-
-45:                                               ; preds = %22
-  %46 = load double, ptr getelementptr inbounds (%struct.PJ_XYZT, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5), i32 0, i32 2), align 8
-  %47 = fcmp une double %46, 0.000000e+00
-  br i1 %47, label %48, label %52
-
-48:                                               ; preds = %45, %22
-  %49 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %50 = load double, ptr getelementptr inbounds (%struct.PJ_XYZ, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5), i32 0, i32 2), align 8
-  %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef @.str.117, double noundef %50) #13
-  br label %52
-
-52:                                               ; preds = %48, %45
-  %53 = load double, ptr getelementptr inbounds (%struct.PJ_XYZT, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5), i32 0, i32 3), align 8
-  %54 = fcmp une double %53, 0.000000e+00
-  br i1 %54, label %55, label %59
-
-55:                                               ; preds = %52
-  %56 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %57 = load double, ptr getelementptr inbounds (%struct.PJ_XYZT, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5), i32 0, i32 3), align 8
-  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.117, double noundef %57) #13
-  br label %59
-
-59:                                               ; preds = %55, %52
-  %60 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef @.str.109) #13
-  %62 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28), align 8
-  %63 = load double, ptr %4, align 8
-  %64 = fmul double 1.000000e+03, %63
-  %65 = load double, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 23), align 8
-  %66 = fmul double 1.000000e+03, %65
-  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef @.str.118, double noundef %64, double noundef %66) #13
   store i32 1, ptr %3, align 4
-  br label %68
+  br label %95
 
-68:                                               ; preds = %59, %9
-  %69 = load i32, ptr %3, align 4
-  ret i32 %69
+11:                                               ; preds = %2
+  %12 = load double, ptr %4, align 8
+  %13 = fcmp ogt double %12, 1.000000e+06
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11
+  store double 0x412E847FFFFFDE72, ptr %4, align 8
+  br label %15
+
+15:                                               ; preds = %14, %11
+  %16 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp eq i32 0, %17
+  br i1 %18, label %19, label %25
+
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 8
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp slt i32 %21, 2
+  br i1 %22, label %23, label %25
+
+23:                                               ; preds = %19
+  %24 = call noundef i32 @_ZL6bannerPKc(ptr noundef @_ZL1T)
+  br label %25
+
+25:                                               ; preds = %23, %19, %15
+  %26 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 12
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp ne i32 %29, 0
+  %31 = select i1 %30, ptr @.str.105, ptr @_ZL5delim
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str.32, ptr noundef %31) #13
+  %33 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 27
+  %36 = load ptr, ptr %35, align 8
+  %37 = call noundef ptr @_Z14opt_strip_pathPKc(ptr noundef %36)
+  %38 = load ptr, ptr @F, align 8
+  %39 = getelementptr inbounds %struct.ffio, ptr %38, i32 0, i32 9
+  %40 = load i64, ptr %39, align 8
+  %41 = trunc i64 %40 to i32
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.106, ptr noundef %37, i32 noundef %41) #13
+  %43 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %5, align 8
+  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef @.str.115, ptr noundef %45) #13
+  %47 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5
+  %50 = load double, ptr %49, align 8
+  %51 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5
+  %52 = getelementptr inbounds %struct.PJ_XY, ptr %51, i32 0, i32 1
+  %53 = load double, ptr %52, align 8
+  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str.116, double noundef %50, double noundef %53) #13
+  %55 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5
+  %56 = getelementptr inbounds %struct.PJ_XYZT, ptr %55, i32 0, i32 3
+  %57 = load double, ptr %56, align 8
+  %58 = fcmp une double %57, 0.000000e+00
+  br i1 %58, label %64, label %59
+
+59:                                               ; preds = %25
+  %60 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5
+  %61 = getelementptr inbounds %struct.PJ_XYZT, ptr %60, i32 0, i32 2
+  %62 = load double, ptr %61, align 8
+  %63 = fcmp une double %62, 0.000000e+00
+  br i1 %63, label %64, label %71
+
+64:                                               ; preds = %59, %25
+  %65 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5
+  %68 = getelementptr inbounds %struct.PJ_XYZ, ptr %67, i32 0, i32 2
+  %69 = load double, ptr %68, align 8
+  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef @.str.117, double noundef %69) #13
+  br label %71
+
+71:                                               ; preds = %64, %59
+  %72 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5
+  %73 = getelementptr inbounds %struct.PJ_XYZT, ptr %72, i32 0, i32 3
+  %74 = load double, ptr %73, align 8
+  %75 = fcmp une double %74, 0.000000e+00
+  br i1 %75, label %76, label %83
+
+76:                                               ; preds = %71
+  %77 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 5
+  %80 = getelementptr inbounds %struct.PJ_XYZT, ptr %79, i32 0, i32 3
+  %81 = load double, ptr %80, align 8
+  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef @.str.117, double noundef %81) #13
+  br label %83
+
+83:                                               ; preds = %76, %71
+  %84 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %85 = load ptr, ptr %84, align 8
+  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef @.str.109) #13
+  %87 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 28
+  %88 = load ptr, ptr %87, align 8
+  %89 = load double, ptr %4, align 8
+  %90 = fmul double 1.000000e+03, %89
+  %91 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 23
+  %92 = load double, ptr %91, align 8
+  %93 = fmul double 1.000000e+03, %92
+  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef @.str.118, double noundef %90, double noundef %93) #13
+  store i32 1, ptr %3, align 4
+  br label %95
+
+95:                                               ; preds = %83, %10
+  %96 = load i32, ptr %3, align 4
+  ret i32 %96
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL15another_successv() #1 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 11), align 8
-  %2 = add nsw i32 %1, 1
-  store i32 %2, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 11), align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 14), align 4
-  %4 = add nsw i32 %3, 1
-  store i32 %4, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 14), align 4
-  %5 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3), align 8
-  %6 = call i32 @proj_errno_reset(ptr noundef %5)
+  %1 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 11
+  %2 = load i32, ptr %1, align 8
+  %3 = add nsw i32 %2, 1
+  %4 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 11
+  store i32 %3, ptr %4, align 8
+  %5 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 14
+  %6 = load i32, ptr %5, align 4
+  %7 = add nsw i32 %6, 1
+  %8 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 14
+  store i32 %7, ptr %8, align 4
+  %9 = getelementptr inbounds %struct.gie_ctx, ptr @_ZL1T, i32 0, i32 3
+  %10 = load ptr, ptr %9, align 8
+  %11 = call i32 @proj_errno_reset(ptr noundef %10)
   ret i32 0
 }
 

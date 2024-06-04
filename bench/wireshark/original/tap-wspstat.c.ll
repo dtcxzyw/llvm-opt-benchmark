@@ -74,155 +74,156 @@ define internal void @wspstat_init(ptr noundef %0, ptr noundef %1) #0 {
   %22 = load ptr, ptr %5, align 8
   %23 = getelementptr inbounds %struct._wsp_stats_t, ptr %22, i32 0, i32 3
   store ptr %21, ptr %23, align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct._value_string_ext, ptr @wsp_vals_status_ext, i32 0, i32 3), align 8
-  store ptr %24, ptr %10, align 8
+  %24 = getelementptr inbounds %struct._value_string_ext, ptr @wsp_vals_status_ext, i32 0, i32 3
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %10, align 8
   store i32 0, ptr %7, align 4
-  br label %25
+  br label %26
 
-25:                                               ; preds = %59, %19
-  %26 = load ptr, ptr %10, align 8
-  %27 = load i32, ptr %7, align 4
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr %struct._value_string, ptr %26, i64 %28
-  %30 = getelementptr inbounds %struct._value_string, ptr %29, i32 0, i32 1
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %62
+26:                                               ; preds = %60, %19
+  %27 = load ptr, ptr %10, align 8
+  %28 = load i32, ptr %7, align 4
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr %struct._value_string, ptr %27, i64 %29
+  %31 = getelementptr inbounds %struct._value_string, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %63
 
-33:                                               ; preds = %25
-  %34 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #7
-  store ptr %34, ptr %9, align 8
-  %35 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #7
-  store ptr %35, ptr %11, align 8
-  %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds %struct._wsp_status_code_t, ptr %36, i32 0, i32 1
-  store i32 0, ptr %37, align 8
-  %38 = load ptr, ptr %10, align 8
-  %39 = load i32, ptr %7, align 4
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr %struct._value_string, ptr %38, i64 %40
-  %42 = getelementptr inbounds %struct._value_string, ptr %41, i32 0, i32 1
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = getelementptr inbounds %struct._wsp_status_code_t, ptr %44, i32 0, i32 0
-  store ptr %43, ptr %45, align 8
-  %46 = load ptr, ptr %10, align 8
-  %47 = load i32, ptr %7, align 4
-  %48 = zext i32 %47 to i64
-  %49 = getelementptr %struct._value_string, ptr %46, i64 %48
-  %50 = getelementptr inbounds %struct._value_string, ptr %49, i32 0, i32 0
-  %51 = load i32, ptr %50, align 8
-  %52 = load ptr, ptr %11, align 8
-  store i32 %51, ptr %52, align 4
-  %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds %struct._wsp_stats_t, ptr %53, i32 0, i32 3
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = load ptr, ptr %9, align 8
-  %58 = call i32 @g_hash_table_insert(ptr noundef %55, ptr noundef %56, ptr noundef %57)
-  br label %59
+34:                                               ; preds = %26
+  %35 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #7
+  store ptr %35, ptr %9, align 8
+  %36 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #7
+  store ptr %36, ptr %11, align 8
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds %struct._wsp_status_code_t, ptr %37, i32 0, i32 1
+  store i32 0, ptr %38, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = load i32, ptr %7, align 4
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr %struct._value_string, ptr %39, i64 %41
+  %43 = getelementptr inbounds %struct._value_string, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %9, align 8
+  %46 = getelementptr inbounds %struct._wsp_status_code_t, ptr %45, i32 0, i32 0
+  store ptr %44, ptr %46, align 8
+  %47 = load ptr, ptr %10, align 8
+  %48 = load i32, ptr %7, align 4
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr %struct._value_string, ptr %47, i64 %49
+  %51 = getelementptr inbounds %struct._value_string, ptr %50, i32 0, i32 0
+  %52 = load i32, ptr %51, align 8
+  %53 = load ptr, ptr %11, align 8
+  store i32 %52, ptr %53, align 4
+  %54 = load ptr, ptr %5, align 8
+  %55 = getelementptr inbounds %struct._wsp_stats_t, ptr %54, i32 0, i32 3
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %11, align 8
+  %58 = load ptr, ptr %9, align 8
+  %59 = call i32 @g_hash_table_insert(ptr noundef %56, ptr noundef %57, ptr noundef %58)
+  br label %60
 
-59:                                               ; preds = %33
-  %60 = load i32, ptr %7, align 4
-  %61 = add i32 %60, 1
-  store i32 %61, ptr %7, align 4
-  br label %25, !llvm.loop !5
+60:                                               ; preds = %34
+  %61 = load i32, ptr %7, align 4
+  %62 = add i32 %61, 1
+  store i32 %62, ptr %7, align 4
+  br label %26, !llvm.loop !5
 
-62:                                               ; preds = %25
-  %63 = load ptr, ptr %5, align 8
-  %64 = getelementptr inbounds %struct._wsp_stats_t, ptr %63, i32 0, i32 2
-  store i32 16, ptr %64, align 8
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct._wsp_stats_t, ptr %65, i32 0, i32 2
-  %67 = load i32, ptr %66, align 8
-  %68 = add i32 %67, 1
-  %69 = zext i32 %68 to i64
-  %70 = call noalias ptr @g_malloc_n(i64 noundef %69, i64 noundef 16) #7
-  %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds %struct._wsp_stats_t, ptr %71, i32 0, i32 1
-  store ptr %70, ptr %72, align 8
-  %73 = load ptr, ptr %6, align 8
-  %74 = call noalias ptr @g_strdup(ptr noundef %73)
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds %struct._wsp_stats_t, ptr %75, i32 0, i32 0
-  store ptr %74, ptr %76, align 8
+63:                                               ; preds = %26
+  %64 = load ptr, ptr %5, align 8
+  %65 = getelementptr inbounds %struct._wsp_stats_t, ptr %64, i32 0, i32 2
+  store i32 16, ptr %65, align 8
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds %struct._wsp_stats_t, ptr %66, i32 0, i32 2
+  %68 = load i32, ptr %67, align 8
+  %69 = add i32 %68, 1
+  %70 = zext i32 %69 to i64
+  %71 = call noalias ptr @g_malloc_n(i64 noundef %70, i64 noundef 16) #7
+  %72 = load ptr, ptr %5, align 8
+  %73 = getelementptr inbounds %struct._wsp_stats_t, ptr %72, i32 0, i32 1
+  store ptr %71, ptr %73, align 8
+  %74 = load ptr, ptr %6, align 8
+  %75 = call noalias ptr @g_strdup(ptr noundef %74)
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds %struct._wsp_stats_t, ptr %76, i32 0, i32 0
+  store ptr %75, ptr %77, align 8
   store i32 0, ptr %7, align 4
-  br label %77
+  br label %78
 
-77:                                               ; preds = %101, %62
-  %78 = load i32, ptr %7, align 4
-  %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds %struct._wsp_stats_t, ptr %79, i32 0, i32 2
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp ult i32 %78, %81
-  br i1 %82, label %83, label %104
+78:                                               ; preds = %102, %63
+  %79 = load i32, ptr %7, align 4
+  %80 = load ptr, ptr %5, align 8
+  %81 = getelementptr inbounds %struct._wsp_stats_t, ptr %80, i32 0, i32 2
+  %82 = load i32, ptr %81, align 8
+  %83 = icmp ult i32 %79, %82
+  br i1 %83, label %84, label %105
 
-83:                                               ; preds = %77
-  %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr inbounds %struct._wsp_stats_t, ptr %84, i32 0, i32 1
-  %86 = load ptr, ptr %85, align 8
-  %87 = load i32, ptr %7, align 4
-  %88 = zext i32 %87 to i64
-  %89 = getelementptr %struct._wsp_pdu_t, ptr %86, i64 %88
-  %90 = getelementptr inbounds %struct._wsp_pdu_t, ptr %89, i32 0, i32 1
-  store i32 0, ptr %90, align 8
-  %91 = load i32, ptr %7, align 4
-  %92 = call i32 @index2pdut(i32 noundef %91)
-  %93 = call ptr @try_val_to_str_ext(i32 noundef %92, ptr noundef @wsp_vals_pdu_type_ext)
-  %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr inbounds %struct._wsp_stats_t, ptr %94, i32 0, i32 1
-  %96 = load ptr, ptr %95, align 8
-  %97 = load i32, ptr %7, align 4
-  %98 = zext i32 %97 to i64
-  %99 = getelementptr %struct._wsp_pdu_t, ptr %96, i64 %98
-  %100 = getelementptr inbounds %struct._wsp_pdu_t, ptr %99, i32 0, i32 0
-  store ptr %93, ptr %100, align 8
-  br label %101
+84:                                               ; preds = %78
+  %85 = load ptr, ptr %5, align 8
+  %86 = getelementptr inbounds %struct._wsp_stats_t, ptr %85, i32 0, i32 1
+  %87 = load ptr, ptr %86, align 8
+  %88 = load i32, ptr %7, align 4
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr %struct._wsp_pdu_t, ptr %87, i64 %89
+  %91 = getelementptr inbounds %struct._wsp_pdu_t, ptr %90, i32 0, i32 1
+  store i32 0, ptr %91, align 8
+  %92 = load i32, ptr %7, align 4
+  %93 = call i32 @index2pdut(i32 noundef %92)
+  %94 = call ptr @try_val_to_str_ext(i32 noundef %93, ptr noundef @wsp_vals_pdu_type_ext)
+  %95 = load ptr, ptr %5, align 8
+  %96 = getelementptr inbounds %struct._wsp_stats_t, ptr %95, i32 0, i32 1
+  %97 = load ptr, ptr %96, align 8
+  %98 = load i32, ptr %7, align 4
+  %99 = zext i32 %98 to i64
+  %100 = getelementptr %struct._wsp_pdu_t, ptr %97, i64 %99
+  %101 = getelementptr inbounds %struct._wsp_pdu_t, ptr %100, i32 0, i32 0
+  store ptr %94, ptr %101, align 8
+  br label %102
 
-101:                                              ; preds = %83
-  %102 = load i32, ptr %7, align 4
-  %103 = add i32 %102, 1
-  store i32 %103, ptr %7, align 4
-  br label %77, !llvm.loop !7
+102:                                              ; preds = %84
+  %103 = load i32, ptr %7, align 4
+  %104 = add i32 %103, 1
+  store i32 %104, ptr %7, align 4
+  br label %78, !llvm.loop !7
 
-104:                                              ; preds = %77
-  %105 = load ptr, ptr %5, align 8
-  %106 = load ptr, ptr %6, align 8
-  %107 = call ptr @register_tap_listener(ptr noundef @.str.2, ptr noundef %105, ptr noundef %106, i32 noundef 0, ptr noundef @wspstat_reset, ptr noundef @wspstat_packet, ptr noundef @wspstat_draw, ptr noundef null)
-  store ptr %107, ptr %8, align 8
-  %108 = load ptr, ptr %8, align 8
-  %109 = icmp ne ptr %108, null
-  br i1 %109, label %110, label %129
+105:                                              ; preds = %78
+  %106 = load ptr, ptr %5, align 8
+  %107 = load ptr, ptr %6, align 8
+  %108 = call ptr @register_tap_listener(ptr noundef @.str.2, ptr noundef %106, ptr noundef %107, i32 noundef 0, ptr noundef @wspstat_reset, ptr noundef @wspstat_packet, ptr noundef @wspstat_draw, ptr noundef null)
+  store ptr %108, ptr %8, align 8
+  %109 = load ptr, ptr %8, align 8
+  %110 = icmp ne ptr %109, null
+  br i1 %110, label %111, label %130
 
-110:                                              ; preds = %104
-  %111 = load ptr, ptr %5, align 8
-  %112 = getelementptr inbounds %struct._wsp_stats_t, ptr %111, i32 0, i32 1
-  %113 = load ptr, ptr %112, align 8
-  call void @g_free(ptr noundef %113)
-  %114 = load ptr, ptr %5, align 8
-  %115 = getelementptr inbounds %struct._wsp_stats_t, ptr %114, i32 0, i32 0
-  %116 = load ptr, ptr %115, align 8
-  call void @g_free(ptr noundef %116)
-  %117 = load ptr, ptr %5, align 8
-  %118 = getelementptr inbounds %struct._wsp_stats_t, ptr %117, i32 0, i32 3
-  %119 = load ptr, ptr %118, align 8
-  call void @g_hash_table_foreach(ptr noundef %119, ptr noundef @wsp_free_hash_table, ptr noundef null)
-  %120 = load ptr, ptr %5, align 8
-  %121 = getelementptr inbounds %struct._wsp_stats_t, ptr %120, i32 0, i32 3
-  %122 = load ptr, ptr %121, align 8
-  call void @g_hash_table_destroy(ptr noundef %122)
-  %123 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %123)
-  %124 = load ptr, ptr %8, align 8
-  %125 = getelementptr inbounds %struct._GString, ptr %124, i32 0, i32 0
-  %126 = load ptr, ptr %125, align 8
-  call void (ptr, ...) @cmdarg_err(ptr noundef @.str.3, ptr noundef %126)
-  %127 = load ptr, ptr %8, align 8
-  %128 = call ptr @g_string_free(ptr noundef %127, i32 noundef 1)
+111:                                              ; preds = %105
+  %112 = load ptr, ptr %5, align 8
+  %113 = getelementptr inbounds %struct._wsp_stats_t, ptr %112, i32 0, i32 1
+  %114 = load ptr, ptr %113, align 8
+  call void @g_free(ptr noundef %114)
+  %115 = load ptr, ptr %5, align 8
+  %116 = getelementptr inbounds %struct._wsp_stats_t, ptr %115, i32 0, i32 0
+  %117 = load ptr, ptr %116, align 8
+  call void @g_free(ptr noundef %117)
+  %118 = load ptr, ptr %5, align 8
+  %119 = getelementptr inbounds %struct._wsp_stats_t, ptr %118, i32 0, i32 3
+  %120 = load ptr, ptr %119, align 8
+  call void @g_hash_table_foreach(ptr noundef %120, ptr noundef @wsp_free_hash_table, ptr noundef null)
+  %121 = load ptr, ptr %5, align 8
+  %122 = getelementptr inbounds %struct._wsp_stats_t, ptr %121, i32 0, i32 3
+  %123 = load ptr, ptr %122, align 8
+  call void @g_hash_table_destroy(ptr noundef %123)
+  %124 = load ptr, ptr %5, align 8
+  call void @g_free(ptr noundef %124)
+  %125 = load ptr, ptr %8, align 8
+  %126 = getelementptr inbounds %struct._GString, ptr %125, i32 0, i32 0
+  %127 = load ptr, ptr %126, align 8
+  call void (ptr, ...) @cmdarg_err(ptr noundef @.str.3, ptr noundef %127)
+  %128 = load ptr, ptr %8, align 8
+  %129 = call ptr @g_string_free(ptr noundef %128, i32 noundef 1)
   call void @exit(i32 noundef 1) #8
   unreachable
 
-129:                                              ; preds = %104
+130:                                              ; preds = %105
   ret void
 }
 

@@ -127,7 +127,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %rb, ptr %rb.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7515RBBIRuleScannerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6icu_7515RBBIRuleScannerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fC = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 8
   call void @_ZN6icu_7515RBBIRuleScanner12RBBIRuleCharC2Ev(ptr noundef nonnull align 4 dereferenceable(5) %fC)
   %fVarName = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 9
@@ -148,9 +149,9 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
-  %0 = load ptr, ptr %rb.addr, align 8
+  %1 = load ptr, ptr %rb.addr, align 8
   %fRB = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %fRB, align 8
+  store ptr %1, ptr %fRB, align 8
   %fScanIndex = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 2
   store i32 0, ptr %fScanIndex, align 8
   %fNextIndex = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 3
@@ -189,11 +190,11 @@ arrayctor.cont:                                   ; preds = %invoke.cont
   store i32 0, ptr %fRuleNum, align 8
   %fOptionStart = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 22
   store i32 0, ptr %fOptionStart, align 4
-  %1 = load ptr, ptr %rb.addr, align 8
-  %fStatus = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %fStatus, align 8
-  %3 = load i32, ptr %2, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %3)
+  %2 = load ptr, ptr %rb.addr, align 8
+  %fStatus = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %fStatus, align 8
+  %4 = load i32, ptr %3, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %4)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %arrayctor.cont
@@ -204,12 +205,12 @@ if.then:                                          ; preds = %invoke.cont5
   br label %invoke.cont99
 
 lpad:                                             ; preds = %arrayctor.loop
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   %arraydestroy.isempty = icmp eq ptr %array.begin, %arrayctor.cur
   br i1 %arraydestroy.isempty, label %arraydestroy.done2, label %arraydestroy.body
 
@@ -224,12 +225,12 @@ arraydestroy.done2:                               ; preds = %arraydestroy.body, 
   br label %ehcleanup108
 
 lpad4:                                            ; preds = %if.end97, %invoke.cont89, %if.end87, %if.end70, %invoke.cont50, %invoke.cont37, %invoke.cont26, %invoke.cont24, %invoke.cont22, %invoke.cont20, %invoke.cont18, %invoke.cont14, %if.end, %arrayctor.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup101
 
 if.end:                                           ; preds = %invoke.cont5
@@ -237,10 +238,10 @@ if.end:                                           ; preds = %invoke.cont5
           to label %invoke.cont7 unwind label %lpad4
 
 invoke.cont7:                                     ; preds = %if.end
-  %10 = load ptr, ptr %rb.addr, align 8
-  %fStatus8 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %fStatus8, align 8
-  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %11 = load ptr, ptr %rb.addr, align 8
+  %fStatus8 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %11, i32 0, i32 2
+  %12 = load ptr, ptr %fStatus8, align 8
+  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont7
@@ -278,10 +279,10 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %invoke.cont30 unwind label %lpad4
 
 invoke.cont30:                                    ; preds = %invoke.cont26
-  %12 = load ptr, ptr %rb.addr, align 8
-  %fStatus31 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %12, i32 0, i32 2
-  %13 = load ptr, ptr %fStatus31, align 8
-  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp29, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  %13 = load ptr, ptr %rb.addr, align 8
+  %fStatus31 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %13, i32 0, i32 2
+  %14 = load ptr, ptr %fStatus31, align 8
+  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp29, ptr noundef nonnull align 4 dereferenceable(4) %14)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
@@ -297,10 +298,10 @@ invoke.cont37:                                    ; preds = %invoke.cont33
           to label %invoke.cont43 unwind label %lpad4
 
 invoke.cont43:                                    ; preds = %invoke.cont37
-  %14 = load ptr, ptr %rb.addr, align 8
-  %fStatus44 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %14, i32 0, i32 2
-  %15 = load ptr, ptr %fStatus44, align 8
-  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp42, ptr noundef nonnull align 4 dereferenceable(4) %15)
+  %15 = load ptr, ptr %rb.addr, align 8
+  %fStatus44 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %15, i32 0, i32 2
+  %16 = load ptr, ptr %fStatus44, align 8
+  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp42, ptr noundef nonnull align 4 dereferenceable(4) %16)
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont43
@@ -316,10 +317,10 @@ invoke.cont50:                                    ; preds = %invoke.cont46
           to label %invoke.cont56 unwind label %lpad4
 
 invoke.cont56:                                    ; preds = %invoke.cont50
-  %16 = load ptr, ptr %rb.addr, align 8
-  %fStatus57 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %fStatus57, align 8
-  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp55, ptr noundef nonnull align 4 dereferenceable(4) %17)
+  %17 = load ptr, ptr %rb.addr, align 8
+  %fStatus57 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %17, i32 0, i32 2
+  %18 = load ptr, ptr %fStatus57, align 8
+  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp55, ptr noundef nonnull align 4 dereferenceable(4) %18)
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont56
@@ -331,36 +332,36 @@ invoke.cont59:                                    ; preds = %invoke.cont56
 invoke.cont63:                                    ; preds = %invoke.cont59
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp54) #8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp55) #8
-  %18 = load ptr, ptr %rb.addr, align 8
-  %fStatus67 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %18, i32 0, i32 2
-  %19 = load ptr, ptr %fStatus67, align 8
-  %20 = load i32, ptr %19, align 4
-  %cmp = icmp eq i32 %20, 1
+  %19 = load ptr, ptr %rb.addr, align 8
+  %fStatus67 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %19, i32 0, i32 2
+  %20 = load ptr, ptr %fStatus67, align 8
+  %21 = load i32, ptr %20, align 4
+  %cmp = icmp eq i32 %21, 1
   br i1 %cmp, label %if.then68, label %if.end70
 
 if.then68:                                        ; preds = %invoke.cont63
-  %21 = load ptr, ptr %rb.addr, align 8
-  %fStatus69 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %21, i32 0, i32 2
-  %22 = load ptr, ptr %fStatus69, align 8
-  store i32 66058, ptr %22, align 4
+  %22 = load ptr, ptr %rb.addr, align 8
+  %fStatus69 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %22, i32 0, i32 2
+  %23 = load ptr, ptr %fStatus69, align 8
+  store i32 66058, ptr %23, align 4
   br label %if.end70
 
 lpad9:                                            ; preds = %invoke.cont7
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad13:                                           ; preds = %invoke.cont10
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp) #8
   br label %ehcleanup
 
@@ -369,21 +370,21 @@ ehcleanup:                                        ; preds = %lpad13, %lpad9
   br label %ehcleanup101
 
 lpad32:                                           ; preds = %invoke.cont30
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %exn.slot, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %ehselector.slot, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %exn.slot, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %ehselector.slot, align 4
   br label %ehcleanup40
 
 lpad36:                                           ; preds = %invoke.cont33
-  %32 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %exn.slot, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %ehselector.slot, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %exn.slot, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp28) #8
   br label %ehcleanup40
 
@@ -392,21 +393,21 @@ ehcleanup40:                                      ; preds = %lpad36, %lpad32
   br label %ehcleanup101
 
 lpad45:                                           ; preds = %invoke.cont43
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %exn.slot, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %ehselector.slot, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %exn.slot, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %ehselector.slot, align 4
   br label %ehcleanup53
 
 lpad49:                                           ; preds = %invoke.cont46
-  %38 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %exn.slot, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %ehselector.slot, align 4
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %exn.slot, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp41) #8
   br label %ehcleanup53
 
@@ -415,21 +416,21 @@ ehcleanup53:                                      ; preds = %lpad49, %lpad45
   br label %ehcleanup101
 
 lpad58:                                           ; preds = %invoke.cont56
-  %41 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %exn.slot, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %ehselector.slot, align 4
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %exn.slot, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %ehselector.slot, align 4
   br label %ehcleanup66
 
 lpad62:                                           ; preds = %invoke.cont59
-  %44 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %exn.slot, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %ehselector.slot, align 4
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %exn.slot, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp54) #8
   br label %ehcleanup66
 
@@ -438,11 +439,11 @@ ehcleanup66:                                      ; preds = %lpad62, %lpad58
   br label %ehcleanup101
 
 if.end70:                                         ; preds = %if.then68, %invoke.cont63
-  %47 = load ptr, ptr %rb.addr, align 8
-  %fStatus71 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %47, i32 0, i32 2
-  %48 = load ptr, ptr %fStatus71, align 8
-  %49 = load i32, ptr %48, align 4
-  %call73 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %49)
+  %48 = load ptr, ptr %rb.addr, align 8
+  %fStatus71 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %48, i32 0, i32 2
+  %49 = load ptr, ptr %fStatus71, align 8
+  %50 = load i32, ptr %49, align 4
+  %call73 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %50)
           to label %invoke.cont72 unwind label %lpad4
 
 invoke.cont72:                                    ; preds = %if.end70
@@ -461,67 +462,67 @@ if.end76:                                         ; preds = %invoke.cont72
 new.notnull:                                      ; preds = %if.end76
   store ptr %call77, ptr %saved-rvalue, align 8
   store i1 true, ptr %cleanup.cond, align 1
-  %50 = load ptr, ptr %rb.addr, align 8
-  %fRules = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %50, i32 0, i32 4
-  %51 = load ptr, ptr %fRules, align 8
-  %52 = load ptr, ptr %rb.addr, align 8
-  %fStatus78 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %52, i32 0, i32 2
-  %53 = load ptr, ptr %fStatus78, align 8
-  invoke void @_ZN6icu_7515RBBISymbolTableC1EPNS_15RBBIRuleScannerERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(108) %call77, ptr noundef %this1, ptr noundef nonnull align 8 dereferenceable(64) %51, ptr noundef nonnull align 4 dereferenceable(4) %53)
+  %51 = load ptr, ptr %rb.addr, align 8
+  %fRules = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %51, i32 0, i32 4
+  %52 = load ptr, ptr %fRules, align 8
+  %53 = load ptr, ptr %rb.addr, align 8
+  %fStatus78 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %53, i32 0, i32 2
+  %54 = load ptr, ptr %fStatus78, align 8
+  invoke void @_ZN6icu_7515RBBISymbolTableC1EPNS_15RBBIRuleScannerERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(108) %call77, ptr noundef %this1, ptr noundef nonnull align 8 dereferenceable(64) %52, ptr noundef nonnull align 4 dereferenceable(4) %54)
           to label %invoke.cont80 unwind label %lpad79
 
 invoke.cont80:                                    ; preds = %new.notnull
   br label %new.cont
 
 new.cont:                                         ; preds = %invoke.cont80, %if.end76
-  %54 = phi ptr [ %call77, %invoke.cont80 ], [ null, %if.end76 ]
+  %55 = phi ptr [ %call77, %invoke.cont80 ], [ null, %if.end76 ]
   %fSymbolTable82 = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 18
-  store ptr %54, ptr %fSymbolTable82, align 8
+  store ptr %55, ptr %fSymbolTable82, align 8
   %fSymbolTable83 = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 18
-  %55 = load ptr, ptr %fSymbolTable83, align 8
-  %cmp84 = icmp eq ptr %55, null
+  %56 = load ptr, ptr %fSymbolTable83, align 8
+  %cmp84 = icmp eq ptr %56, null
   br i1 %cmp84, label %if.then85, label %if.end87
 
 if.then85:                                        ; preds = %new.cont
-  %56 = load ptr, ptr %rb.addr, align 8
-  %fStatus86 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %56, i32 0, i32 2
-  %57 = load ptr, ptr %fStatus86, align 8
-  store i32 7, ptr %57, align 4
+  %57 = load ptr, ptr %rb.addr, align 8
+  %fStatus86 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %57, i32 0, i32 2
+  %58 = load ptr, ptr %fStatus86, align 8
+  store i32 7, ptr %58, align 4
   br label %invoke.cont99
 
 lpad79:                                           ; preds = %new.notnull
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %exn.slot, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %ehselector.slot, align 4
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %exn.slot, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %ehselector.slot, align 4
   %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad79
-  %61 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %61) #8
+  %62 = load ptr, ptr %saved-rvalue, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %62) #8
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad79
   br label %ehcleanup101
 
 if.end87:                                         ; preds = %new.cont
-  %62 = load ptr, ptr %rb.addr, align 8
-  %fStatus88 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %62, i32 0, i32 2
-  %63 = load ptr, ptr %fStatus88, align 8
-  %call90 = invoke ptr @uhash_open_75(ptr noundef @uhash_hashUnicodeString_75, ptr noundef @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef %63)
+  %63 = load ptr, ptr %rb.addr, align 8
+  %fStatus88 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %63, i32 0, i32 2
+  %64 = load ptr, ptr %fStatus88, align 8
+  %call90 = invoke ptr @uhash_open_75(ptr noundef @uhash_hashUnicodeString_75, ptr noundef @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef %64)
           to label %invoke.cont89 unwind label %lpad4
 
 invoke.cont89:                                    ; preds = %if.end87
   %fSetTable91 = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 19
   store ptr %call90, ptr %fSetTable91, align 8
-  %64 = load ptr, ptr %rb.addr, align 8
-  %fStatus92 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %64, i32 0, i32 2
-  %65 = load ptr, ptr %fStatus92, align 8
-  %66 = load i32, ptr %65, align 4
-  %call94 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %66)
+  %65 = load ptr, ptr %rb.addr, align 8
+  %fStatus92 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %65, i32 0, i32 2
+  %66 = load ptr, ptr %fStatus92, align 8
+  %67 = load i32, ptr %66, align 4
+  %call94 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %67)
           to label %invoke.cont93 unwind label %lpad4
 
 invoke.cont93:                                    ; preds = %invoke.cont89
@@ -533,8 +534,8 @@ if.then96:                                        ; preds = %invoke.cont93
 
 if.end97:                                         ; preds = %invoke.cont93
   %fSetTable98 = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 19
-  %67 = load ptr, ptr %fSetTable98, align 8
-  %call100 = invoke ptr @uhash_setValueDeleter_75(ptr noundef %67, ptr noundef @_ZL20RBBISetTable_deleterPv)
+  %68 = load ptr, ptr %fSetTable98, align 8
+  %call100 = invoke ptr @uhash_setValueDeleter_75(ptr noundef %68, ptr noundef @_ZL20RBBISetTable_deleterPv)
           to label %invoke.cont99 unwind label %lpad4
 
 invoke.cont99:                                    ; preds = %if.end97, %if.then96, %if.then85, %if.then75, %if.then
@@ -542,11 +543,11 @@ invoke.cont99:                                    ; preds = %if.end97, %if.then9
 
 ehcleanup101:                                     ; preds = %cleanup.done, %ehcleanup66, %ehcleanup53, %ehcleanup40, %ehcleanup, %lpad4
   %array.begin102 = getelementptr inbounds [10 x %"class.icu_75::UnicodeSet"], ptr %fRuleSets, i32 0, i32 0
-  %68 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %array.begin102, i64 10
+  %69 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %array.begin102, i64 10
   br label %arraydestroy.body103
 
 arraydestroy.body103:                             ; preds = %arraydestroy.body103, %ehcleanup101
-  %arraydestroy.elementPast104 = phi ptr [ %68, %ehcleanup101 ], [ %arraydestroy.element105, %arraydestroy.body103 ]
+  %arraydestroy.elementPast104 = phi ptr [ %69, %ehcleanup101 ], [ %arraydestroy.element105, %arraydestroy.body103 ]
   %arraydestroy.element105 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %arraydestroy.elementPast104, i64 -1
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %arraydestroy.element105) #8
   %arraydestroy.done106 = icmp eq ptr %arraydestroy.element105, %array.begin102
@@ -587,7 +588,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -674,29 +676,30 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7515RBBIRuleScannerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6icu_7515RBBIRuleScannerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fSymbolTable = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 18
-  %0 = load ptr, ptr %fSymbolTable, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %fSymbolTable, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(108) %0) #8
+  %2 = load ptr, ptr %vfn, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(108) %1) #8
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   %fSetTable = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 19
-  %2 = load ptr, ptr %fSetTable, align 8
-  %cmp = icmp ne ptr %2, null
+  %3 = load ptr, ptr %fSetTable, align 8
+  %cmp = icmp ne ptr %3, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %delete.end
   %fSetTable2 = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 19
-  %3 = load ptr, ptr %fSetTable2, align 8
-  invoke void @uhash_close_75(ptr noundef %3)
+  %4 = load ptr, ptr %fSetTable2, align 8
+  invoke void @uhash_close_75(ptr noundef %4)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -709,40 +712,40 @@ if.end:                                           ; preds = %invoke.cont, %delet
 
 while.cond:                                       ; preds = %delete.end8, %if.end
   %fNodeStackPtr = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 14
-  %4 = load i32, ptr %fNodeStackPtr, align 8
-  %cmp4 = icmp sgt i32 %4, 0
+  %5 = load i32, ptr %fNodeStackPtr, align 8
+  %cmp4 = icmp sgt i32 %5, 0
   br i1 %cmp4, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
   %fNodeStack = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 13
   %fNodeStackPtr5 = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 14
-  %5 = load i32, ptr %fNodeStackPtr5, align 8
-  %idxprom = sext i32 %5 to i64
+  %6 = load i32, ptr %fNodeStackPtr5, align 8
+  %idxprom = sext i32 %6 to i64
   %arrayidx = getelementptr inbounds [100 x ptr], ptr %fNodeStack, i64 0, i64 %idxprom
-  %6 = load ptr, ptr %arrayidx, align 8
-  %isnull6 = icmp eq ptr %6, null
+  %7 = load ptr, ptr %arrayidx, align 8
+  %isnull6 = icmp eq ptr %7, null
   br i1 %isnull6, label %delete.end8, label %delete.notnull7
 
 delete.notnull7:                                  ; preds = %while.body
-  call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %6) #8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %6) #8
+  call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %7) #8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %7) #8
   br label %delete.end8
 
 delete.end8:                                      ; preds = %delete.notnull7, %while.body
   %fNodeStackPtr9 = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 14
-  %7 = load i32, ptr %fNodeStackPtr9, align 8
-  %dec = add nsw i32 %7, -1
+  %8 = load i32, ptr %fNodeStackPtr9, align 8
+  %dec = add nsw i32 %8, -1
   store i32 %dec, ptr %fNodeStackPtr9, align 8
   br label %while.cond, !llvm.loop !4
 
 while.end:                                        ; preds = %while.cond
   %fRuleSets = getelementptr inbounds %"class.icu_75::RBBIRuleScanner", ptr %this1, i32 0, i32 20
   %array.begin = getelementptr inbounds [10 x %"class.icu_75::UnicodeSet"], ptr %fRuleSets, i32 0, i32 0
-  %8 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %array.begin, i64 10
+  %9 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %array.begin, i64 10
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %while.end
-  %arraydestroy.elementPast = phi ptr [ %8, %while.end ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %9, %while.end ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %arraydestroy.element) #8
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -754,10 +757,10 @@ arraydestroy.done10:                              ; preds = %arraydestroy.body
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #9
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #9
   unreachable
 }
 
@@ -4449,7 +4452,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %index = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %this1, i32 0, i32 1
   store i32 0, ptr %index, align 8
   %errorIndex = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %this1, i32 0, i32 2
@@ -4602,7 +4606,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4612,7 +4617,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

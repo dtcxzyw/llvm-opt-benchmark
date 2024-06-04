@@ -1647,189 +1647,194 @@ define dso_local void @StartPrepare(ptr noundef %0) #0 {
   %26 = load ptr, ptr @records, align 8
   %27 = getelementptr inbounds %struct.StateFileChunk, ptr %26, i32 0, i32 2
   store ptr null, ptr %27, align 8
-  store i32 512, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 3), align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 3), align 4
-  %29 = zext i32 %28 to i64
-  %30 = call ptr @palloc(i64 noundef %29)
-  %31 = load ptr, ptr @records, align 8
-  %32 = getelementptr inbounds %struct.StateFileChunk, ptr %31, i32 0, i32 0
-  store ptr %30, ptr %32, align 8
+  %28 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 3
+  store i32 512, ptr %28, align 4
+  %29 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 3
+  %30 = load i32, ptr %29, align 4
+  %31 = zext i32 %30 to i64
+  %32 = call ptr @palloc(i64 noundef %31)
   %33 = load ptr, ptr @records, align 8
-  store ptr %33, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 4), align 8
-  %34 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 0
-  store i32 1475953972, ptr %34, align 8
-  %35 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 1
-  store i32 0, ptr %35, align 4
-  %36 = load i32, ptr %4, align 4
-  %37 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 2
-  store i32 %36, ptr %37, align 8
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.PGPROC, ptr %38, i32 0, i32 10
-  %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 3
-  store i32 %40, ptr %41, align 4
-  %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds %struct.GlobalTransactionData, ptr %42, i32 0, i32 2
-  %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 4
-  store i64 %44, ptr %45, align 8
-  %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds %struct.GlobalTransactionData, ptr %46, i32 0, i32 6
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 5
-  store i32 %48, ptr %49, align 8
-  %50 = call i32 @xactGetCommittedChildren(ptr noundef %6)
-  %51 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 6
-  store i32 %50, ptr %51, align 4
-  %52 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext true, ptr noundef %7)
-  %53 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 7
-  store i32 %52, ptr %53, align 8
-  %54 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext false, ptr noundef %8)
-  %55 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 8
-  store i32 %54, ptr %55, align 4
-  %56 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext true, ptr noundef %10)
-  %57 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 9
-  store i32 %56, ptr %57, align 8
-  %58 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext false, ptr noundef %9)
-  %59 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 10
-  store i32 %58, ptr %59, align 4
-  %60 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 12
-  %61 = call i32 @xactGetCommittedInvalidationMessages(ptr noundef %11, ptr noundef %60)
-  %62 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 11
+  %34 = getelementptr inbounds %struct.StateFileChunk, ptr %33, i32 0, i32 0
+  store ptr %32, ptr %34, align 8
+  %35 = load ptr, ptr @records, align 8
+  %36 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 1
+  store ptr %35, ptr %36, align 8
+  %37 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 2
+  store i32 1, ptr %37, align 8
+  %38 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 4
+  store i32 0, ptr %38, align 8
+  %39 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 0
+  store i32 1475953972, ptr %39, align 8
+  %40 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 1
+  store i32 0, ptr %40, align 4
+  %41 = load i32, ptr %4, align 4
+  %42 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 2
+  store i32 %41, ptr %42, align 8
+  %43 = load ptr, ptr %3, align 8
+  %44 = getelementptr inbounds %struct.PGPROC, ptr %43, i32 0, i32 10
+  %45 = load i32, ptr %44, align 4
+  %46 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 3
+  store i32 %45, ptr %46, align 4
+  %47 = load ptr, ptr %2, align 8
+  %48 = getelementptr inbounds %struct.GlobalTransactionData, ptr %47, i32 0, i32 2
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 4
+  store i64 %49, ptr %50, align 8
+  %51 = load ptr, ptr %2, align 8
+  %52 = getelementptr inbounds %struct.GlobalTransactionData, ptr %51, i32 0, i32 6
+  %53 = load i32, ptr %52, align 4
+  %54 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 5
+  store i32 %53, ptr %54, align 8
+  %55 = call i32 @xactGetCommittedChildren(ptr noundef %6)
+  %56 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 6
+  store i32 %55, ptr %56, align 4
+  %57 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext true, ptr noundef %7)
+  %58 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 7
+  store i32 %57, ptr %58, align 8
+  %59 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext false, ptr noundef %8)
+  %60 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 8
+  store i32 %59, ptr %60, align 4
+  %61 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext true, ptr noundef %10)
+  %62 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 9
   store i32 %61, ptr %62, align 8
-  %63 = load ptr, ptr %2, align 8
-  %64 = getelementptr inbounds %struct.GlobalTransactionData, ptr %63, i32 0, i32 11
-  %65 = getelementptr inbounds [200 x i8], ptr %64, i64 0, i64 0
-  %66 = call i64 @strlen(ptr noundef %65) #10
-  %67 = add i64 %66, 1
-  %68 = trunc i64 %67 to i16
-  %69 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 13
-  store i16 %68, ptr %69, align 2
-  %70 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 14
-  store i64 0, ptr %70, align 8
-  %71 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 15
-  store i64 0, ptr %71, align 8
+  %63 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext false, ptr noundef %9)
+  %64 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 10
+  store i32 %63, ptr %64, align 4
+  %65 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 12
+  %66 = call i32 @xactGetCommittedInvalidationMessages(ptr noundef %11, ptr noundef %65)
+  %67 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 11
+  store i32 %66, ptr %67, align 8
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds %struct.GlobalTransactionData, ptr %68, i32 0, i32 11
+  %70 = getelementptr inbounds [200 x i8], ptr %69, i64 0, i64 0
+  %71 = call i64 @strlen(ptr noundef %70) #10
+  %72 = add i64 %71, 1
+  %73 = trunc i64 %72 to i16
+  %74 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 13
+  store i16 %73, ptr %74, align 2
+  %75 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 14
+  store i64 0, ptr %75, align 8
+  %76 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 15
+  store i64 0, ptr %76, align 8
   call void @save_state_data(ptr noundef %5, i32 noundef 72)
-  %72 = load ptr, ptr %2, align 8
-  %73 = getelementptr inbounds %struct.GlobalTransactionData, ptr %72, i32 0, i32 11
-  %74 = getelementptr inbounds [200 x i8], ptr %73, i64 0, i64 0
-  %75 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 13
-  %76 = load i16, ptr %75, align 2
-  %77 = zext i16 %76 to i32
-  call void @save_state_data(ptr noundef %74, i32 noundef %77)
-  %78 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 6
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %81, label %92
-
-81:                                               ; preds = %1
-  %82 = load ptr, ptr %6, align 8
+  %77 = load ptr, ptr %2, align 8
+  %78 = getelementptr inbounds %struct.GlobalTransactionData, ptr %77, i32 0, i32 11
+  %79 = getelementptr inbounds [200 x i8], ptr %78, i64 0, i64 0
+  %80 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 13
+  %81 = load i16, ptr %80, align 2
+  %82 = zext i16 %81 to i32
+  call void @save_state_data(ptr noundef %79, i32 noundef %82)
   %83 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 6
   %84 = load i32, ptr %83, align 4
-  %85 = sext i32 %84 to i64
-  %86 = mul i64 %85, 4
-  %87 = trunc i64 %86 to i32
-  call void @save_state_data(ptr noundef %82, i32 noundef %87)
-  %88 = load ptr, ptr %2, align 8
-  %89 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 6
-  %90 = load i32, ptr %89, align 4
-  %91 = load ptr, ptr %6, align 8
-  call void @GXactLoadSubxactData(ptr noundef %88, i32 noundef %90, ptr noundef %91)
-  br label %92
+  %85 = icmp sgt i32 %84, 0
+  br i1 %85, label %86, label %97
 
-92:                                               ; preds = %81, %1
-  %93 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 7
-  %94 = load i32, ptr %93, align 8
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %96, label %104
+86:                                               ; preds = %1
+  %87 = load ptr, ptr %6, align 8
+  %88 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 6
+  %89 = load i32, ptr %88, align 4
+  %90 = sext i32 %89 to i64
+  %91 = mul i64 %90, 4
+  %92 = trunc i64 %91 to i32
+  call void @save_state_data(ptr noundef %87, i32 noundef %92)
+  %93 = load ptr, ptr %2, align 8
+  %94 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 6
+  %95 = load i32, ptr %94, align 4
+  %96 = load ptr, ptr %6, align 8
+  call void @GXactLoadSubxactData(ptr noundef %93, i32 noundef %95, ptr noundef %96)
+  br label %97
 
-96:                                               ; preds = %92
-  %97 = load ptr, ptr %7, align 8
+97:                                               ; preds = %86, %1
   %98 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 7
   %99 = load i32, ptr %98, align 8
-  %100 = sext i32 %99 to i64
-  %101 = mul i64 %100, 12
-  %102 = trunc i64 %101 to i32
-  call void @save_state_data(ptr noundef %97, i32 noundef %102)
-  %103 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %103)
-  br label %104
+  %100 = icmp sgt i32 %99, 0
+  br i1 %100, label %101, label %109
 
-104:                                              ; preds = %96, %92
-  %105 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 8
-  %106 = load i32, ptr %105, align 4
-  %107 = icmp sgt i32 %106, 0
-  br i1 %107, label %108, label %116
+101:                                              ; preds = %97
+  %102 = load ptr, ptr %7, align 8
+  %103 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 7
+  %104 = load i32, ptr %103, align 8
+  %105 = sext i32 %104 to i64
+  %106 = mul i64 %105, 12
+  %107 = trunc i64 %106 to i32
+  call void @save_state_data(ptr noundef %102, i32 noundef %107)
+  %108 = load ptr, ptr %7, align 8
+  call void @pfree(ptr noundef %108)
+  br label %109
 
-108:                                              ; preds = %104
-  %109 = load ptr, ptr %8, align 8
+109:                                              ; preds = %101, %97
   %110 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 8
   %111 = load i32, ptr %110, align 4
-  %112 = sext i32 %111 to i64
-  %113 = mul i64 %112, 12
-  %114 = trunc i64 %113 to i32
-  call void @save_state_data(ptr noundef %109, i32 noundef %114)
-  %115 = load ptr, ptr %8, align 8
-  call void @pfree(ptr noundef %115)
-  br label %116
+  %112 = icmp sgt i32 %111, 0
+  br i1 %112, label %113, label %121
 
-116:                                              ; preds = %108, %104
-  %117 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 9
-  %118 = load i32, ptr %117, align 8
-  %119 = icmp sgt i32 %118, 0
-  br i1 %119, label %120, label %128
+113:                                              ; preds = %109
+  %114 = load ptr, ptr %8, align 8
+  %115 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 8
+  %116 = load i32, ptr %115, align 4
+  %117 = sext i32 %116 to i64
+  %118 = mul i64 %117, 12
+  %119 = trunc i64 %118 to i32
+  call void @save_state_data(ptr noundef %114, i32 noundef %119)
+  %120 = load ptr, ptr %8, align 8
+  call void @pfree(ptr noundef %120)
+  br label %121
 
-120:                                              ; preds = %116
-  %121 = load ptr, ptr %10, align 8
+121:                                              ; preds = %113, %109
   %122 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 9
   %123 = load i32, ptr %122, align 8
-  %124 = sext i32 %123 to i64
-  %125 = mul i64 %124, 12
-  %126 = trunc i64 %125 to i32
-  call void @save_state_data(ptr noundef %121, i32 noundef %126)
-  %127 = load ptr, ptr %10, align 8
-  call void @pfree(ptr noundef %127)
-  br label %128
+  %124 = icmp sgt i32 %123, 0
+  br i1 %124, label %125, label %133
 
-128:                                              ; preds = %120, %116
-  %129 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 10
-  %130 = load i32, ptr %129, align 4
-  %131 = icmp sgt i32 %130, 0
-  br i1 %131, label %132, label %140
+125:                                              ; preds = %121
+  %126 = load ptr, ptr %10, align 8
+  %127 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 9
+  %128 = load i32, ptr %127, align 8
+  %129 = sext i32 %128 to i64
+  %130 = mul i64 %129, 12
+  %131 = trunc i64 %130 to i32
+  call void @save_state_data(ptr noundef %126, i32 noundef %131)
+  %132 = load ptr, ptr %10, align 8
+  call void @pfree(ptr noundef %132)
+  br label %133
 
-132:                                              ; preds = %128
-  %133 = load ptr, ptr %9, align 8
+133:                                              ; preds = %125, %121
   %134 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 10
   %135 = load i32, ptr %134, align 4
-  %136 = sext i32 %135 to i64
-  %137 = mul i64 %136, 12
-  %138 = trunc i64 %137 to i32
-  call void @save_state_data(ptr noundef %133, i32 noundef %138)
-  %139 = load ptr, ptr %9, align 8
-  call void @pfree(ptr noundef %139)
-  br label %140
+  %136 = icmp sgt i32 %135, 0
+  br i1 %136, label %137, label %145
 
-140:                                              ; preds = %132, %128
-  %141 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 11
-  %142 = load i32, ptr %141, align 8
-  %143 = icmp sgt i32 %142, 0
-  br i1 %143, label %144, label %152
+137:                                              ; preds = %133
+  %138 = load ptr, ptr %9, align 8
+  %139 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 10
+  %140 = load i32, ptr %139, align 4
+  %141 = sext i32 %140 to i64
+  %142 = mul i64 %141, 12
+  %143 = trunc i64 %142 to i32
+  call void @save_state_data(ptr noundef %138, i32 noundef %143)
+  %144 = load ptr, ptr %9, align 8
+  call void @pfree(ptr noundef %144)
+  br label %145
 
-144:                                              ; preds = %140
-  %145 = load ptr, ptr %11, align 8
+145:                                              ; preds = %137, %133
   %146 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 11
   %147 = load i32, ptr %146, align 8
-  %148 = sext i32 %147 to i64
-  %149 = mul i64 %148, 16
-  %150 = trunc i64 %149 to i32
-  call void @save_state_data(ptr noundef %145, i32 noundef %150)
-  %151 = load ptr, ptr %11, align 8
-  call void @pfree(ptr noundef %151)
-  br label %152
+  %148 = icmp sgt i32 %147, 0
+  br i1 %148, label %149, label %157
 
-152:                                              ; preds = %144, %140
+149:                                              ; preds = %145
+  %150 = load ptr, ptr %11, align 8
+  %151 = getelementptr inbounds %struct.xl_xact_prepare, ptr %5, i32 0, i32 11
+  %152 = load i32, ptr %151, align 8
+  %153 = sext i32 %152 to i64
+  %154 = mul i64 %153, 16
+  %155 = trunc i64 %154 to i32
+  call void @save_state_data(ptr noundef %150, i32 noundef %155)
+  %156 = load ptr, ptr %11, align 8
+  call void @pfree(ptr noundef %156)
+  br label %157
+
+157:                                              ; preds = %149, %145
   ret void
 }
 
@@ -1857,77 +1862,95 @@ define internal void @save_state_data(ptr noundef %0, i32 noundef %1) #0 {
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %5, align 4
   %11 = load i32, ptr %5, align 4
-  %12 = load i32, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 3), align 4
-  %13 = icmp ugt i32 %11, %12
-  br i1 %13, label %14, label %39
+  %12 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 3
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp ugt i32 %11, %13
+  br i1 %14, label %15, label %50
 
-14:                                               ; preds = %2
-  %15 = call ptr @palloc0(i64 noundef 24)
-  %16 = load ptr, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 1), align 8
-  %17 = getelementptr inbounds %struct.StateFileChunk, ptr %16, i32 0, i32 2
-  store ptr %15, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 1), align 8
+15:                                               ; preds = %2
+  %16 = call ptr @palloc0(i64 noundef 24)
+  %17 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds %struct.StateFileChunk, ptr %18, i32 0, i32 2
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 1), align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 1), align 8
-  %22 = getelementptr inbounds %struct.StateFileChunk, ptr %21, i32 0, i32 1
-  store i32 0, ptr %22, align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 1), align 8
-  %24 = getelementptr inbounds %struct.StateFileChunk, ptr %23, i32 0, i32 2
-  store ptr null, ptr %24, align 8
-  %25 = load i32, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 2), align 8
-  %26 = add i32 %25, 1
-  store i32 %26, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 2), align 8
-  %27 = load i32, ptr %5, align 4
-  %28 = icmp ugt i32 %27, 512
-  br i1 %28, label %29, label %31
+  store ptr %16, ptr %19, align 8
+  %20 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds %struct.StateFileChunk, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 1
+  store ptr %23, ptr %24, align 8
+  %25 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.StateFileChunk, ptr %26, i32 0, i32 1
+  store i32 0, ptr %27, align 8
+  %28 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %struct.StateFileChunk, ptr %29, i32 0, i32 2
+  store ptr null, ptr %30, align 8
+  %31 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 2
+  %32 = load i32, ptr %31, align 8
+  %33 = add i32 %32, 1
+  %34 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 2
+  store i32 %33, ptr %34, align 8
+  %35 = load i32, ptr %5, align 4
+  %36 = icmp ugt i32 %35, 512
+  br i1 %36, label %37, label %39
 
-29:                                               ; preds = %14
-  %30 = load i32, ptr %5, align 4
-  br label %32
+37:                                               ; preds = %15
+  %38 = load i32, ptr %5, align 4
+  br label %40
 
-31:                                               ; preds = %14
-  br label %32
+39:                                               ; preds = %15
+  br label %40
 
-32:                                               ; preds = %31, %29
-  %33 = phi i32 [ %30, %29 ], [ 512, %31 ]
-  store i32 %33, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 3), align 4
-  %34 = load i32, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 3), align 4
-  %35 = zext i32 %34 to i64
-  %36 = call ptr @palloc(i64 noundef %35)
-  %37 = load ptr, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 1), align 8
-  %38 = getelementptr inbounds %struct.StateFileChunk, ptr %37, i32 0, i32 0
-  store ptr %36, ptr %38, align 8
-  br label %39
+40:                                               ; preds = %39, %37
+  %41 = phi i32 [ %38, %37 ], [ 512, %39 ]
+  %42 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 3
+  store i32 %41, ptr %42, align 4
+  %43 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 3
+  %44 = load i32, ptr %43, align 4
+  %45 = zext i32 %44 to i64
+  %46 = call ptr @palloc(i64 noundef %45)
+  %47 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds %struct.StateFileChunk, ptr %48, i32 0, i32 0
+  store ptr %46, ptr %49, align 8
+  br label %50
 
-39:                                               ; preds = %32, %2
-  %40 = load ptr, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 1), align 8
-  %41 = getelementptr inbounds %struct.StateFileChunk, ptr %40, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 1), align 8
-  %44 = getelementptr inbounds %struct.StateFileChunk, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 8
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr i8, ptr %42, i64 %46
-  %48 = load ptr, ptr %3, align 8
-  %49 = load i32, ptr %4, align 4
-  %50 = zext i32 %49 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %48, i64 %50, i1 false)
-  %51 = load i32, ptr %5, align 4
-  %52 = load ptr, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 1), align 8
-  %53 = getelementptr inbounds %struct.StateFileChunk, ptr %52, i32 0, i32 1
-  %54 = load i32, ptr %53, align 8
-  %55 = add i32 %54, %51
-  store i32 %55, ptr %53, align 8
-  %56 = load i32, ptr %5, align 4
-  %57 = load i32, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 3), align 4
-  %58 = sub i32 %57, %56
-  store i32 %58, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 3), align 4
-  %59 = load i32, ptr %5, align 4
-  %60 = load i32, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 4), align 8
-  %61 = add i32 %60, %59
-  store i32 %61, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 4), align 8
+50:                                               ; preds = %40, %2
+  %51 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds %struct.StateFileChunk, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds %struct.StateFileChunk, ptr %56, i32 0, i32 1
+  %58 = load i32, ptr %57, align 8
+  %59 = zext i32 %58 to i64
+  %60 = getelementptr i8, ptr %54, i64 %59
+  %61 = load ptr, ptr %3, align 8
+  %62 = load i32, ptr %4, align 4
+  %63 = zext i32 %62 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 1 %61, i64 %63, i1 false)
+  %64 = load i32, ptr %5, align 4
+  %65 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 1
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds %struct.StateFileChunk, ptr %66, i32 0, i32 1
+  %68 = load i32, ptr %67, align 8
+  %69 = add i32 %68, %64
+  store i32 %69, ptr %67, align 8
+  %70 = load i32, ptr %5, align 4
+  %71 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 3
+  %72 = load i32, ptr %71, align 4
+  %73 = sub i32 %72, %70
+  %74 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 3
+  store i32 %73, ptr %74, align 4
+  %75 = load i32, ptr %5, align 4
+  %76 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 4
+  %77 = load i32, ptr %76, align 8
+  %78 = add i32 %77, %75
+  %79 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 4
+  store i32 %78, ptr %79, align 8
   ret void
 }
 
@@ -2002,167 +2025,171 @@ define dso_local void @EndPrepare(ptr noundef %0) #0 {
   %7 = getelementptr inbounds %struct.StateFileChunk, ptr %6, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %3, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 4), align 8
-  %10 = zext i32 %9 to i64
-  %11 = add i64 %10, 4
-  %12 = trunc i64 %11 to i32
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.xl_xact_prepare, ptr %13, i32 0, i32 1
-  store i32 %12, ptr %14, align 4
-  %15 = load i16, ptr @replorigin_session_origin, align 2
-  %16 = zext i16 %15 to i32
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %22
+  %9 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 4
+  %10 = load i32, ptr %9, align 8
+  %11 = zext i32 %10 to i64
+  %12 = add i64 %11, 4
+  %13 = trunc i64 %12 to i32
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds %struct.xl_xact_prepare, ptr %14, i32 0, i32 1
+  store i32 %13, ptr %15, align 4
+  %16 = load i16, ptr @replorigin_session_origin, align 2
+  %17 = zext i16 %16 to i32
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %23
 
-18:                                               ; preds = %1
-  %19 = load i16, ptr @replorigin_session_origin, align 2
-  %20 = zext i16 %19 to i32
-  %21 = icmp ne i32 %20, 65535
-  br label %22
+19:                                               ; preds = %1
+  %20 = load i16, ptr @replorigin_session_origin, align 2
+  %21 = zext i16 %20 to i32
+  %22 = icmp ne i32 %21, 65535
+  br label %23
 
-22:                                               ; preds = %18, %1
-  %23 = phi i1 [ false, %1 ], [ %21, %18 ]
-  %24 = zext i1 %23 to i8
-  store i8 %24, ptr %5, align 1
-  %25 = load i8, ptr %5, align 1
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %27, label %34
+23:                                               ; preds = %19, %1
+  %24 = phi i1 [ false, %1 ], [ %22, %19 ]
+  %25 = zext i1 %24 to i8
+  store i8 %25, ptr %5, align 1
+  %26 = load i8, ptr %5, align 1
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %35
 
-27:                                               ; preds = %22
-  %28 = load i64, ptr @replorigin_session_origin_lsn, align 8
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.xl_xact_prepare, ptr %29, i32 0, i32 14
-  store i64 %28, ptr %30, align 8
-  %31 = load i64, ptr @replorigin_session_origin_timestamp, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.xl_xact_prepare, ptr %32, i32 0, i32 15
-  store i64 %31, ptr %33, align 8
-  br label %34
+28:                                               ; preds = %23
+  %29 = load i64, ptr @replorigin_session_origin_lsn, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds %struct.xl_xact_prepare, ptr %30, i32 0, i32 14
+  store i64 %29, ptr %31, align 8
+  %32 = load i64, ptr @replorigin_session_origin_timestamp, align 8
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds %struct.xl_xact_prepare, ptr %33, i32 0, i32 15
+  store i64 %32, ptr %34, align 8
+  br label %35
 
-34:                                               ; preds = %27, %22
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.xl_xact_prepare, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 4
-  %38 = zext i32 %37 to i64
-  %39 = icmp ugt i64 %38, 1073741823
-  br i1 %39, label %40, label %51
+35:                                               ; preds = %28, %23
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds %struct.xl_xact_prepare, ptr %36, i32 0, i32 1
+  %38 = load i32, ptr %37, align 4
+  %39 = zext i32 %38 to i64
+  %40 = icmp ugt i64 %39, 1073741823
+  br i1 %40, label %41, label %52
 
-40:                                               ; preds = %34
-  br label %41
-
-41:                                               ; preds = %40
-  br i1 true, label %42, label %44
+41:                                               ; preds = %35
+  br label %42
 
 42:                                               ; preds = %41
-  %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  br i1 %43, label %46, label %49
+  br i1 true, label %43, label %45
 
-44:                                               ; preds = %41
-  %45 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %45, label %46, label %49
+43:                                               ; preds = %42
+  %44 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %44, label %47, label %50
 
-46:                                               ; preds = %44, %42
-  %47 = call i32 @errcode(i32 noundef 261)
-  %48 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.13)
+45:                                               ; preds = %42
+  %46 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %46, label %47, label %50
+
+47:                                               ; preds = %45, %43
+  %48 = call i32 @errcode(i32 noundef 261)
+  %49 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.13)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 1193, ptr noundef @__func__.EndPrepare)
-  br label %49
+  br label %50
 
-49:                                               ; preds = %46, %44, %42
+50:                                               ; preds = %47, %45, %43
   unreachable
 
-50:                                               ; No predecessors!
-  br label %51
+51:                                               ; No predecessors!
+  br label %52
 
-51:                                               ; preds = %50, %34
-  %52 = load i32, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 2), align 8
-  call void @XLogEnsureRecordSpace(i32 noundef 0, i32 noundef %52)
-  %53 = load volatile i32, ptr @CritSectionCount, align 4
-  %54 = add i32 %53, 1
-  store volatile i32 %54, ptr @CritSectionCount, align 4
-  %55 = load ptr, ptr @MyProc, align 8
-  %56 = getelementptr inbounds %struct.PGPROC, ptr %55, i32 0, i32 24
-  %57 = load i32, ptr %56, align 8
-  %58 = or i32 %57, 1
-  store i32 %58, ptr %56, align 8
+52:                                               ; preds = %51, %35
+  %53 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 2
+  %54 = load i32, ptr %53, align 8
+  call void @XLogEnsureRecordSpace(i32 noundef 0, i32 noundef %54)
+  %55 = load volatile i32, ptr @CritSectionCount, align 4
+  %56 = add i32 %55, 1
+  store volatile i32 %56, ptr @CritSectionCount, align 4
+  %57 = load ptr, ptr @MyProc, align 8
+  %58 = getelementptr inbounds %struct.PGPROC, ptr %57, i32 0, i32 24
+  %59 = load i32, ptr %58, align 8
+  %60 = or i32 %59, 1
+  store i32 %60, ptr %58, align 8
   call void @XLogBeginInsert()
-  %59 = load ptr, ptr @records, align 8
-  store ptr %59, ptr %4, align 8
-  br label %60
+  %61 = load ptr, ptr @records, align 8
+  store ptr %61, ptr %4, align 8
+  br label %62
 
-60:                                               ; preds = %70, %51
-  %61 = load ptr, ptr %4, align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %63, label %74
+62:                                               ; preds = %72, %52
+  %63 = load ptr, ptr %4, align 8
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %76
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.StateFileChunk, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds %struct.StateFileChunk, ptr %67, i32 0, i32 1
-  %69 = load i32, ptr %68, align 8
-  call void @XLogRegisterData(ptr noundef %66, i32 noundef %69)
-  br label %70
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %4, align 8
+  %67 = getelementptr inbounds %struct.StateFileChunk, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %4, align 8
+  %70 = getelementptr inbounds %struct.StateFileChunk, ptr %69, i32 0, i32 1
+  %71 = load i32, ptr %70, align 8
+  call void @XLogRegisterData(ptr noundef %68, i32 noundef %71)
+  br label %72
 
-70:                                               ; preds = %63
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %struct.StateFileChunk, ptr %71, i32 0, i32 2
-  %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr %4, align 8
-  br label %60, !llvm.loop !15
+72:                                               ; preds = %65
+  %73 = load ptr, ptr %4, align 8
+  %74 = getelementptr inbounds %struct.StateFileChunk, ptr %73, i32 0, i32 2
+  %75 = load ptr, ptr %74, align 8
+  store ptr %75, ptr %4, align 8
+  br label %62, !llvm.loop !15
 
-74:                                               ; preds = %60
+76:                                               ; preds = %62
   call void @XLogSetRecordFlags(i8 noundef zeroext 1)
-  %75 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 16)
-  %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds %struct.GlobalTransactionData, ptr %76, i32 0, i32 4
-  store i64 %75, ptr %77, align 8
-  %78 = load i8, ptr %5, align 1
-  %79 = trunc i8 %78 to i1
-  br i1 %79, label %80, label %85
+  %77 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 16)
+  %78 = load ptr, ptr %2, align 8
+  %79 = getelementptr inbounds %struct.GlobalTransactionData, ptr %78, i32 0, i32 4
+  store i64 %77, ptr %79, align 8
+  %80 = load i8, ptr %5, align 1
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %82, label %87
 
-80:                                               ; preds = %74
-  %81 = load i64, ptr @replorigin_session_origin_lsn, align 8
-  %82 = load ptr, ptr %2, align 8
-  %83 = getelementptr inbounds %struct.GlobalTransactionData, ptr %82, i32 0, i32 4
-  %84 = load i64, ptr %83, align 8
-  call void @replorigin_session_advance(i64 noundef %81, i64 noundef %84)
-  br label %85
+82:                                               ; preds = %76
+  %83 = load i64, ptr @replorigin_session_origin_lsn, align 8
+  %84 = load ptr, ptr %2, align 8
+  %85 = getelementptr inbounds %struct.GlobalTransactionData, ptr %84, i32 0, i32 4
+  %86 = load i64, ptr %85, align 8
+  call void @replorigin_session_advance(i64 noundef %83, i64 noundef %86)
+  br label %87
 
-85:                                               ; preds = %80, %74
-  %86 = load ptr, ptr %2, align 8
-  %87 = getelementptr inbounds %struct.GlobalTransactionData, ptr %86, i32 0, i32 4
-  %88 = load i64, ptr %87, align 8
-  call void @XLogFlush(i64 noundef %88)
-  %89 = load i64, ptr @ProcLastRecPtr, align 8
-  %90 = load ptr, ptr %2, align 8
-  %91 = getelementptr inbounds %struct.GlobalTransactionData, ptr %90, i32 0, i32 3
-  store i64 %89, ptr %91, align 8
+87:                                               ; preds = %82, %76
+  %88 = load ptr, ptr %2, align 8
+  %89 = getelementptr inbounds %struct.GlobalTransactionData, ptr %88, i32 0, i32 4
+  %90 = load i64, ptr %89, align 8
+  call void @XLogFlush(i64 noundef %90)
+  %91 = load i64, ptr @ProcLastRecPtr, align 8
   %92 = load ptr, ptr %2, align 8
-  call void @MarkAsPrepared(ptr noundef %92, i1 noundef zeroext false)
-  %93 = load ptr, ptr @MyProc, align 8
-  %94 = getelementptr inbounds %struct.PGPROC, ptr %93, i32 0, i32 24
-  %95 = load i32, ptr %94, align 8
-  %96 = and i32 %95, -2
-  store i32 %96, ptr %94, align 8
-  %97 = load ptr, ptr %2, align 8
-  store ptr %97, ptr @MyLockedGxact, align 8
-  br label %98
+  %93 = getelementptr inbounds %struct.GlobalTransactionData, ptr %92, i32 0, i32 3
+  store i64 %91, ptr %93, align 8
+  %94 = load ptr, ptr %2, align 8
+  call void @MarkAsPrepared(ptr noundef %94, i1 noundef zeroext false)
+  %95 = load ptr, ptr @MyProc, align 8
+  %96 = getelementptr inbounds %struct.PGPROC, ptr %95, i32 0, i32 24
+  %97 = load i32, ptr %96, align 8
+  %98 = and i32 %97, -2
+  store i32 %98, ptr %96, align 8
+  %99 = load ptr, ptr %2, align 8
+  store ptr %99, ptr @MyLockedGxact, align 8
+  br label %100
 
-98:                                               ; preds = %85
-  %99 = load volatile i32, ptr @CritSectionCount, align 4
-  %100 = add i32 %99, -1
-  store volatile i32 %100, ptr @CritSectionCount, align 4
-  br label %101
+100:                                              ; preds = %87
+  %101 = load volatile i32, ptr @CritSectionCount, align 4
+  %102 = add i32 %101, -1
+  store volatile i32 %102, ptr @CritSectionCount, align 4
+  br label %103
 
-101:                                              ; preds = %98
-  %102 = load ptr, ptr %2, align 8
-  %103 = getelementptr inbounds %struct.GlobalTransactionData, ptr %102, i32 0, i32 4
-  %104 = load i64, ptr %103, align 8
-  call void @SyncRepWaitForLSN(i64 noundef %104, i1 noundef zeroext false)
+103:                                              ; preds = %100
+  %104 = load ptr, ptr %2, align 8
+  %105 = getelementptr inbounds %struct.GlobalTransactionData, ptr %104, i32 0, i32 4
+  %106 = load i64, ptr %105, align 8
+  call void @SyncRepWaitForLSN(i64 noundef %106, i1 noundef zeroext false)
   store ptr null, ptr @records, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.xllist, ptr @records, i32 0, i32 2), align 8
+  %107 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 1
+  store ptr null, ptr %107, align 8
+  %108 = getelementptr inbounds %struct.xllist, ptr @records, i32 0, i32 2
+  store i32 0, ptr %108, align 8
   ret void
 }
 

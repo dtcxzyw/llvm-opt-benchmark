@@ -257,158 +257,160 @@ define dso_local void @set_user_limits(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %118, ptr %8, align 4
   %119 = load i64, ptr %7, align 8
   %120 = icmp ne i64 %119, 0
-  br i1 %120, label %121, label %184
+  br i1 %120, label %121, label %186
 
 121:                                              ; preds = %116
-  %122 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 217), align 8
-  %123 = zext i16 %122 to i32
-  %124 = icmp ne i32 %123, 0
-  br i1 %124, label %125, label %184
+  %122 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 217
+  %123 = load i16, ptr %122, align 8
+  %124 = zext i16 %123 to i32
+  %125 = icmp ne i32 %124, 0
+  br i1 %125, label %126, label %186
 
-125:                                              ; preds = %121
-  %126 = load i32, ptr %8, align 4
-  %127 = icmp ne i32 %126, 0
-  br i1 %127, label %184, label %128
+126:                                              ; preds = %121
+  %127 = load i32, ptr %8, align 4
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %186, label %129
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds %struct.rlimit, ptr %6, i32 0, i32 1
-  %130 = load i64, ptr %129, align 8
-  %131 = load i64, ptr %7, align 8
-  %132 = icmp ugt i64 %130, %131
-  br i1 %132, label %133, label %184
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds %struct.rlimit, ptr %6, i32 0, i32 1
+  %131 = load i64, ptr %130, align 8
+  %132 = load i64, ptr %7, align 8
+  %133 = icmp ugt i64 %131, %132
+  br i1 %133, label %134, label %186
 
-133:                                              ; preds = %128
-  %134 = load i64, ptr %7, align 8
-  %135 = uitofp i64 %134 to double
-  %136 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 217), align 8
-  %137 = zext i16 %136 to i32
-  %138 = sitofp i32 %137 to double
-  %139 = fdiv double %138, 1.000000e+02
-  %140 = fmul double %135, %139
-  %141 = fptoui double %140 to i64
-  %142 = getelementptr inbounds %struct.rlimit, ptr %6, i32 0, i32 1
-  store i64 %141, ptr %142, align 8
-  %143 = getelementptr inbounds %struct.rlimit, ptr %6, i32 0, i32 1
-  %144 = load i64, ptr %143, align 8
-  %145 = getelementptr inbounds %struct.rlimit, ptr %6, i32 0, i32 0
-  store i64 %144, ptr %145, align 8
-  %146 = load i32, ptr %4, align 4
-  %147 = call i32 @prlimit(i32 noundef %146, i32 noundef 9, ptr noundef %6, ptr noundef null) #4
-  %148 = icmp ne i32 %147, 0
-  br i1 %148, label %149, label %153
+134:                                              ; preds = %129
+  %135 = load i64, ptr %7, align 8
+  %136 = uitofp i64 %135 to double
+  %137 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 217
+  %138 = load i16, ptr %137, align 8
+  %139 = zext i16 %138 to i32
+  %140 = sitofp i32 %139 to double
+  %141 = fdiv double %140, 1.000000e+02
+  %142 = fmul double %136, %141
+  %143 = fptoui double %142 to i64
+  %144 = getelementptr inbounds %struct.rlimit, ptr %6, i32 0, i32 1
+  store i64 %143, ptr %144, align 8
+  %145 = getelementptr inbounds %struct.rlimit, ptr %6, i32 0, i32 1
+  %146 = load i64, ptr %145, align 8
+  %147 = getelementptr inbounds %struct.rlimit, ptr %6, i32 0, i32 0
+  store i64 %146, ptr %147, align 8
+  %148 = load i32, ptr %4, align 4
+  %149 = call i32 @prlimit(i32 noundef %148, i32 noundef 9, ptr noundef %6, ptr noundef null) #4
+  %150 = icmp ne i32 %149, 0
+  br i1 %150, label %151, label %155
 
-149:                                              ; preds = %133
-  %150 = load ptr, ptr %3, align 8
-  %151 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %150, i32 0, i32 29
-  %152 = load i64, ptr %151, align 8
-  call void (ptr, ...) @fatal(ptr noundef @.str.6, ptr noundef @.str.7, i64 noundef %152) #5
+151:                                              ; preds = %134
+  %152 = load ptr, ptr %3, align 8
+  %153 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %152, i32 0, i32 29
+  %154 = load i64, ptr %153, align 8
+  call void (ptr, ...) @fatal(ptr noundef @.str.6, ptr noundef @.str.7, i64 noundef %154) #5
   unreachable
 
-153:                                              ; preds = %133
-  br label %154
+155:                                              ; preds = %134
+  br label %156
 
-154:                                              ; preds = %153
-  br label %155
+156:                                              ; preds = %155
+  br label %157
 
-155:                                              ; preds = %154
-  %156 = call i32 @get_log_level()
-  %157 = icmp sge i32 %156, 6
-  br i1 %157, label %158, label %162
+157:                                              ; preds = %156
+  %158 = call i32 @get_log_level()
+  %159 = icmp sge i32 %158, 6
+  br i1 %159, label %160, label %164
 
-158:                                              ; preds = %155
-  %159 = load ptr, ptr %3, align 8
-  %160 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %159, i32 0, i32 29
-  %161 = load i64, ptr %160, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.8, i64 noundef %161)
-  br label %162
-
-162:                                              ; preds = %158, %155
-  br label %163
-
-163:                                              ; preds = %162
+160:                                              ; preds = %157
+  %161 = load ptr, ptr %3, align 8
+  %162 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %161, i32 0, i32 29
+  %163 = load i64, ptr %162, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.8, i64 noundef %163)
   br label %164
 
-164:                                              ; preds = %163
+164:                                              ; preds = %160, %157
   br label %165
 
 165:                                              ; preds = %164
-  %166 = call i32 @get_log_level()
-  %167 = icmp sge i32 %166, 6
-  br i1 %167, label %168, label %183
+  br label %166
 
-168:                                              ; preds = %165
-  %169 = load i32, ptr %4, align 4
-  %170 = call i32 @prlimit(i32 noundef %169, i32 noundef 9, ptr noundef null, ptr noundef %6) #4
-  br label %171
+166:                                              ; preds = %165
+  br label %167
 
-171:                                              ; preds = %168
-  br label %172
+167:                                              ; preds = %166
+  %168 = call i32 @get_log_level()
+  %169 = icmp sge i32 %168, 6
+  br i1 %169, label %170, label %185
 
-172:                                              ; preds = %171
-  %173 = call i32 @get_log_level()
-  %174 = icmp sge i32 %173, 6
-  br i1 %174, label %175, label %180
+170:                                              ; preds = %167
+  %171 = load i32, ptr %4, align 4
+  %172 = call i32 @prlimit(i32 noundef %171, i32 noundef 9, ptr noundef null, ptr noundef %6) #4
+  br label %173
 
-175:                                              ; preds = %172
-  %176 = getelementptr inbounds %struct.rlimit, ptr %6, i32 0, i32 0
-  %177 = load i64, ptr %176, align 8
-  %178 = getelementptr inbounds %struct.rlimit, ptr %6, i32 0, i32 1
+173:                                              ; preds = %170
+  br label %174
+
+174:                                              ; preds = %173
+  %175 = call i32 @get_log_level()
+  %176 = icmp sge i32 %175, 6
+  br i1 %176, label %177, label %182
+
+177:                                              ; preds = %174
+  %178 = getelementptr inbounds %struct.rlimit, ptr %6, i32 0, i32 0
   %179 = load i64, ptr %178, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.9, i64 noundef %177, i64 noundef %179)
-  br label %180
-
-180:                                              ; preds = %175, %172
-  br label %181
-
-181:                                              ; preds = %180
+  %180 = getelementptr inbounds %struct.rlimit, ptr %6, i32 0, i32 1
+  %181 = load i64, ptr %180, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.9, i64 noundef %179, i64 noundef %181)
   br label %182
 
-182:                                              ; preds = %181
+182:                                              ; preds = %177, %174
   br label %183
 
-183:                                              ; preds = %182, %165
-  br label %202
+183:                                              ; preds = %182
+  br label %184
 
-184:                                              ; preds = %128, %125, %121, %116
-  %185 = load i32, ptr %8, align 4
-  %186 = icmp ne i32 %185, 0
-  br i1 %186, label %187, label %189
+184:                                              ; preds = %183
+  br label %185
 
-187:                                              ; preds = %184
-  %188 = call i32 (ptr, ...) @error(ptr noundef @.str.10)
-  br label %201
+185:                                              ; preds = %184, %167
+  br label %204
 
-189:                                              ; preds = %184
-  br label %190
+186:                                              ; preds = %129, %126, %121, %116
+  %187 = load i32, ptr %8, align 4
+  %188 = icmp ne i32 %187, 0
+  br i1 %188, label %189, label %191
 
-190:                                              ; preds = %189
-  br label %191
+189:                                              ; preds = %186
+  %190 = call i32 (ptr, ...) @error(ptr noundef @.str.10)
+  br label %203
 
-191:                                              ; preds = %190
-  %192 = call i32 @get_log_level()
-  %193 = icmp sge i32 %192, 6
-  br i1 %193, label %194, label %198
+191:                                              ; preds = %186
+  br label %192
 
-194:                                              ; preds = %191
-  %195 = load i64, ptr %7, align 8
-  %196 = getelementptr inbounds %struct.rlimit, ptr %6, i32 0, i32 1
-  %197 = load i64, ptr %196, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.11, i64 noundef %195, i64 noundef %197)
-  br label %198
+192:                                              ; preds = %191
+  br label %193
 
-198:                                              ; preds = %194, %191
-  br label %199
+193:                                              ; preds = %192
+  %194 = call i32 @get_log_level()
+  %195 = icmp sge i32 %194, 6
+  br i1 %195, label %196, label %200
 
-199:                                              ; preds = %198
+196:                                              ; preds = %193
+  %197 = load i64, ptr %7, align 8
+  %198 = getelementptr inbounds %struct.rlimit, ptr %6, i32 0, i32 1
+  %199 = load i64, ptr %198, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.11, i64 noundef %197, i64 noundef %199)
   br label %200
 
-200:                                              ; preds = %199
+200:                                              ; preds = %196, %193
   br label %201
 
-201:                                              ; preds = %200, %187
+201:                                              ; preds = %200
   br label %202
 
-202:                                              ; preds = %201, %183
+202:                                              ; preds = %201
+  br label %203
+
+203:                                              ; preds = %202, %189
+  br label %204
+
+204:                                              ; preds = %203, %185
   ret void
 }
 

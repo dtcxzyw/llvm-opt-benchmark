@@ -16,7 +16,7 @@ define dso_local void @intel_display_reset_prepare(ptr noundef %0) local_unnamed
   %4 = getelementptr inbounds i8, ptr %0, i64 2638
   %5 = load i8, ptr %4, align 2
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %79, label %7
+  br i1 %6, label %80, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 6793
@@ -31,13 +31,13 @@ define dso_local void @intel_display_reset_prepare(ptr noundef %0) local_unnamed
   %15 = load i64, ptr %14, align 4
   %16 = and i64 %15, 64
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %79, label %18
+  br i1 %17, label %80, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds i8, ptr %0, i64 9304
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 @intel_has_gpu_reset(ptr noundef %20) #3
-  br i1 %21, label %22, label %79
+  br i1 %21, label %22, label %80
 
 22:                                               ; preds = %18, %7
   %23 = getelementptr inbounds i8, ptr %0, i64 9304
@@ -84,72 +84,73 @@ define dso_local void @intel_display_reset_prepare(ptr noundef %0) local_unnamed
 
 47:                                               ; preds = %43, %39
   %48 = tail call ptr @drm_atomic_helper_duplicate_state(ptr noundef %0, ptr noundef %3) #3
-  %49 = icmp ugt ptr %48, inttoptr (i64 -4096 to ptr)
-  br i1 %49, label %50, label %59
+  %49 = inttoptr i64 -4096 to ptr
+  %50 = icmp ugt ptr %48, %49
+  br i1 %50, label %51, label %60
 
-50:                                               ; preds = %47
-  %51 = ptrtoint ptr %48 to i64
-  %52 = trunc i64 %51 to i32
-  %53 = icmp eq ptr %0, null
-  br i1 %53, label %57, label %54
+51:                                               ; preds = %47
+  %52 = ptrtoint ptr %48 to i64
+  %53 = trunc i64 %52 to i32
+  %54 = icmp eq ptr %0, null
+  br i1 %54, label %58, label %55
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8
-  br label %57
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = load ptr, ptr %56, align 8
+  br label %58
 
-57:                                               ; preds = %54, %50
-  %58 = phi ptr [ %56, %54 ], [ null, %50 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %58, ptr noundef nonnull @.str.1, i32 noundef %52) #4
-  br label %79
+58:                                               ; preds = %55, %51
+  %59 = phi ptr [ %57, %55 ], [ null, %51 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %59, ptr noundef nonnull @.str.1, i32 noundef %53) #4
+  br label %80
 
-59:                                               ; preds = %47
-  %60 = tail call i32 @drm_atomic_helper_disable_all(ptr noundef %0, ptr noundef %3) #3
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %77, label %62
+60:                                               ; preds = %47
+  %61 = tail call i32 @drm_atomic_helper_disable_all(ptr noundef %0, ptr noundef %3) #3
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %78, label %63
 
-62:                                               ; preds = %59
-  %63 = icmp eq ptr %0, null
-  br i1 %63, label %67, label %64
+63:                                               ; preds = %60
+  %64 = icmp eq ptr %0, null
+  br i1 %64, label %68, label %65
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
-  %66 = load ptr, ptr %65, align 8
-  br label %67
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds i8, ptr %0, i64 8
+  %67 = load ptr, ptr %66, align 8
+  br label %68
 
-67:                                               ; preds = %64, %62
-  %68 = phi ptr [ %66, %64 ], [ null, %62 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %68, ptr noundef nonnull @.str.2, i32 noundef %60) #4
-  %69 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48, i32 -1, ptr elementtype(i32) %48) #3, !srcloc !10
-  %70 = icmp eq i32 %69, 1
-  br i1 %70, label %71, label %72
+68:                                               ; preds = %65, %63
+  %69 = phi ptr [ %67, %65 ], [ null, %63 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %69, ptr noundef nonnull @.str.2, i32 noundef %61) #4
+  %70 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48, i32 -1, ptr elementtype(i32) %48) #3, !srcloc !10
+  %71 = icmp eq i32 %70, 1
+  br i1 %71, label %72, label %73
 
-71:                                               ; preds = %67
+72:                                               ; preds = %68
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
-  br label %75
+  br label %76
 
-72:                                               ; preds = %67
-  %73 = icmp sgt i32 %69, 0
-  br i1 %73, label %75, label %74, !prof !12
+73:                                               ; preds = %68
+  %74 = icmp sgt i32 %70, 0
+  br i1 %74, label %76, label %75, !prof !12
 
-74:                                               ; preds = %72
+75:                                               ; preds = %73
   tail call void @refcount_warn_saturate(ptr noundef %48, i32 noundef 3) #3
-  br label %75
+  br label %76
 
-75:                                               ; preds = %74, %72, %71
-  br i1 %70, label %76, label %79
+76:                                               ; preds = %75, %73, %72
+  br i1 %71, label %77, label %80
 
-76:                                               ; preds = %75
+77:                                               ; preds = %76
   tail call void @__drm_atomic_state_free(ptr noundef %48) #3
-  br label %79
+  br label %80
 
-77:                                               ; preds = %59
+78:                                               ; preds = %60
   store ptr %48, ptr %2, align 8
-  %78 = getelementptr inbounds i8, ptr %48, i64 72
-  store ptr %3, ptr %78, align 8
-  br label %79
+  %79 = getelementptr inbounds i8, ptr %48, i64 72
+  store ptr %3, ptr %79, align 8
+  br label %80
 
-79:                                               ; preds = %77, %76, %75, %57, %18, %11, %1
+80:                                               ; preds = %78, %77, %76, %58, %18, %11, %1
   ret void
 }
 

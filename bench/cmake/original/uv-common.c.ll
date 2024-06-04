@@ -366,12 +366,13 @@ define dso_local void @uv__free(ptr noundef %0) #0 {
   %4 = call ptr @__errno_location() #12
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %3, align 4
-  %6 = load ptr, ptr getelementptr inbounds (%struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 3), align 8
-  %7 = load ptr, ptr %2, align 8
-  call void %6(ptr noundef %7)
-  %8 = load i32, ptr %3, align 4
-  %9 = call ptr @__errno_location() #12
-  store i32 %8, ptr %9, align 4
+  %6 = getelementptr inbounds %struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 3
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %2, align 8
+  call void %7(ptr noundef %8)
+  %9 = load i32, ptr %3, align 4
+  %10 = call ptr @__errno_location() #12
+  store i32 %9, ptr %10, align 4
   ret void
 }
 
@@ -384,11 +385,12 @@ define dso_local ptr @uv__calloc(i64 noundef %0, i64 noundef %1) #0 {
   %4 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 2), align 8
-  %6 = load i64, ptr %3, align 8
-  %7 = load i64, ptr %4, align 8
-  %8 = call ptr %5(i64 noundef %6, i64 noundef %7)
-  ret ptr %8
+  %5 = getelementptr inbounds %struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i64, ptr %3, align 8
+  %8 = load i64, ptr %4, align 8
+  %9 = call ptr %6(i64 noundef %7, i64 noundef %8)
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -400,25 +402,26 @@ define dso_local ptr @uv__realloc(ptr noundef %0, i64 noundef %1) #0 {
   store i64 %1, ptr %5, align 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %6, 0
-  br i1 %7, label %8, label %13
+  br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 1), align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = load i64, ptr %5, align 8
-  %12 = call ptr %9(ptr noundef %10, i64 noundef %11)
-  store ptr %12, ptr %3, align 8
-  br label %15
+  %9 = getelementptr inbounds %struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = load i64, ptr %5, align 8
+  %13 = call ptr %10(ptr noundef %11, i64 noundef %12)
+  store ptr %13, ptr %3, align 8
+  br label %16
 
-13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
-  call void @uv__free(ptr noundef %14)
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8
+  call void @uv__free(ptr noundef %15)
   store ptr null, ptr %3, align 8
-  br label %15
+  br label %16
 
-15:                                               ; preds = %13, %8
-  %16 = load ptr, ptr %3, align 8
-  ret ptr %16
+16:                                               ; preds = %14, %8
+  %17 = load ptr, ptr %3, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -486,23 +489,26 @@ define dso_local i32 @uv_replace_allocator(ptr noundef %0, ptr noundef %1, ptr n
 
 21:                                               ; preds = %18, %15, %12, %4
   store i32 -22, ptr %5, align 4
-  br label %27
+  br label %30
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %6, align 8
   store ptr %23, ptr @uv__allocator, align 8
   %24 = load ptr, ptr %7, align 8
-  store ptr %24, ptr getelementptr inbounds (%struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 1), align 8
-  %25 = load ptr, ptr %8, align 8
-  store ptr %25, ptr getelementptr inbounds (%struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 2), align 8
-  %26 = load ptr, ptr %9, align 8
-  store ptr %26, ptr getelementptr inbounds (%struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 3), align 8
+  %25 = getelementptr inbounds %struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 1
+  store ptr %24, ptr %25, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = getelementptr inbounds %struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 2
+  store ptr %26, ptr %27, align 8
+  %28 = load ptr, ptr %9, align 8
+  %29 = getelementptr inbounds %struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 3
+  store ptr %28, ptr %29, align 8
   store i32 0, ptr %5, align 4
-  br label %27
+  br label %30
 
-27:                                               ; preds = %22, %21
-  %28 = load i32, ptr %5, align 4
-  ret i32 %28
+30:                                               ; preds = %22, %21
+  %31 = load i32, ptr %5, align 4
+  ret i32 %31
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4735,25 +4741,19 @@ define dso_local i32 @uv_loop_configure(ptr noundef %0, i32 noundef %1, ...) #0 
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = load ptr, ptr %3, align 8
   %9 = load i32, ptr %4, align 4
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %11 = call i32 @uv__loop_configure(ptr noundef %8, i32 noundef %9, ptr noundef %10)
   store i32 %11, ptr %6, align 4
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   %13 = load i32, ptr %6, align 4
   ret i32 %13
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare i32 @uv__loop_configure(ptr noundef, i32 noundef, ptr noundef) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @uv_default_loop() #0 {
@@ -5270,16 +5270,22 @@ define dso_local i64 @uv_metrics_idle_time(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #8
+declare noalias ptr @malloc(i64 noundef) #7
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #9
+declare ptr @realloc(ptr noundef, i64 noundef) #8
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #10
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #9
 
 ; Function Attrs: nounwind
 declare i32 @fprintf(ptr noundef, ptr noundef, ...) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5288,10 +5294,10 @@ attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-tra
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind willreturn memory(read) }
 attributes #12 = { nounwind willreturn memory(none) }
 attributes #13 = { nounwind }

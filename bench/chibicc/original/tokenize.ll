@@ -146,7 +146,7 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr @stderr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
@@ -157,15 +157,12 @@ entry:
   unreachable
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
+declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #2
-
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #3
+declare void @exit(i32 noundef) #2
 
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @error_at(ptr noundef %loc, ptr noundef %fmt, ...) #0 {
@@ -214,7 +211,7 @@ for.inc:                                          ; preds = %if.end
 
 for.end:                                          ; preds = %for.cond
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %8 = load ptr, ptr @current_file, align 8
   %name = getelementptr inbounds %struct.File, ptr %8, i32 0, i32 0
   %9 = load ptr, ptr %name, align 8
@@ -231,7 +228,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @verror_at(ptr noundef %filename, ptr noundef %input, i32 noundef %line_no, ptr noundef %loc, ptr noundef %fmt, ptr noundef %ap) #4 {
+define internal void @verror_at(ptr noundef %filename, ptr noundef %input, i32 noundef %line_no, ptr noundef %loc, ptr noundef %fmt, ptr noundef %ap) #3 {
 entry:
   %filename.addr = alloca ptr, align 8
   %input.addr = alloca ptr, align 8
@@ -355,7 +352,7 @@ entry:
   store ptr %tok, ptr %tok.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %tok.addr, align 8
   %file = getelementptr inbounds %struct.Token, ptr %0, i32 0, i32 8
   %1 = load ptr, ptr %file, align 16
@@ -380,7 +377,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @warn_tok(ptr noundef %tok, ptr noundef %fmt, ...) #4 {
+define dso_local void @warn_tok(ptr noundef %tok, ptr noundef %fmt, ...) #3 {
 entry:
   %tok.addr = alloca ptr, align 8
   %fmt.addr = alloca ptr, align 8
@@ -388,7 +385,7 @@ entry:
   store ptr %tok, ptr %tok.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %tok.addr, align 8
   %file = getelementptr inbounds %struct.Token, ptr %0, i32 0, i32 8
   %1 = load ptr, ptr %file, align 16
@@ -409,15 +406,12 @@ entry:
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @verror_at(ptr noundef %2, ptr noundef %5, i32 noundef %7, ptr noundef %9, ptr noundef %10, ptr noundef %arraydecay2)
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @equal(ptr noundef %tok, ptr noundef %op) #4 {
+define dso_local zeroext i1 @equal(ptr noundef %tok, ptr noundef %op) #3 {
 entry:
   %tok.addr = alloca ptr, align 8
   %op.addr = alloca ptr, align 8
@@ -453,10 +447,10 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @skip(ptr noundef %tok, ptr noundef %op) #4 {
+define dso_local ptr @skip(ptr noundef %tok, ptr noundef %op) #3 {
 entry:
   %tok.addr = alloca ptr, align 8
   %op.addr = alloca ptr, align 8
@@ -481,7 +475,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @consume(ptr noundef %rest, ptr noundef %tok, ptr noundef %str) #4 {
+define dso_local zeroext i1 @consume(ptr noundef %rest, ptr noundef %tok, ptr noundef %str) #3 {
 entry:
   %retval = alloca i1, align 1
   %rest.addr = alloca ptr, align 8
@@ -517,7 +511,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @convert_pp_tokens(ptr noundef %tok) #4 {
+define dso_local void @convert_pp_tokens(ptr noundef %tok) #3 {
 entry:
   %tok.addr = alloca ptr, align 8
   %t = alloca ptr, align 8
@@ -574,13 +568,14 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @is_keyword(ptr noundef %tok) #4 {
+define internal zeroext i1 @is_keyword(ptr noundef %tok) #3 {
 entry:
   %tok.addr = alloca ptr, align 8
   %i = alloca i32, align 4
   store ptr %tok, ptr %tok.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.HashMap, ptr @is_keyword.map, i32 0, i32 1), align 8
-  %cmp = icmp eq i32 %0, 0
+  %0 = getelementptr inbounds %struct.HashMap, ptr @is_keyword.map, i32 0, i32 1
+  %1 = load i32, ptr %0, align 8
+  %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -588,22 +583,23 @@ if.then:                                          ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then
-  %1 = load i32, ptr %i, align 4
-  %conv = sext i32 %1 to i64
+  %2 = load i32, ptr %i, align 4
+  %conv = sext i32 %2 to i64
   %cmp1 = icmp ult i64 %conv, 45
   br i1 %cmp1, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
+  %3 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr inbounds [45 x ptr], ptr @is_keyword.kw, i64 0, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  call void @hashmap_put(ptr noundef @is_keyword.map, ptr noundef %3, ptr noundef inttoptr (i64 1 to ptr))
+  %4 = load ptr, ptr %arrayidx, align 8
+  %5 = inttoptr i64 1 to ptr
+  call void @hashmap_put(ptr noundef @is_keyword.map, ptr noundef %4, ptr noundef %5)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %4 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %4, 1
+  %6 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !12
 
@@ -611,19 +607,19 @@ for.end:                                          ; preds = %for.cond
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %entry
-  %5 = load ptr, ptr %tok.addr, align 8
-  %loc = getelementptr inbounds %struct.Token, ptr %5, i32 0, i32 4
-  %6 = load ptr, ptr %loc, align 16
   %7 = load ptr, ptr %tok.addr, align 8
-  %len = getelementptr inbounds %struct.Token, ptr %7, i32 0, i32 5
-  %8 = load i32, ptr %len, align 8
-  %call = call ptr @hashmap_get2(ptr noundef @is_keyword.map, ptr noundef %6, i32 noundef %8)
+  %loc = getelementptr inbounds %struct.Token, ptr %7, i32 0, i32 4
+  %8 = load ptr, ptr %loc, align 16
+  %9 = load ptr, ptr %tok.addr, align 8
+  %len = getelementptr inbounds %struct.Token, ptr %9, i32 0, i32 5
+  %10 = load i32, ptr %len, align 8
+  %call = call ptr @hashmap_get2(ptr noundef @is_keyword.map, ptr noundef %8, i32 noundef %10)
   %tobool = icmp ne ptr %call, null
   ret i1 %tobool
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @convert_pp_number(ptr noundef %tok) #4 {
+define internal void @convert_pp_number(ptr noundef %tok) #3 {
 entry:
   %tok.addr = alloca ptr, align 8
   %end = alloca ptr, align 8
@@ -731,7 +727,7 @@ return:                                           ; preds = %if.end23, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @tokenize_string_literal(ptr noundef %tok, ptr noundef %basety) #4 {
+define dso_local ptr @tokenize_string_literal(ptr noundef %tok, ptr noundef %basety) #3 {
 entry:
   %tok.addr = alloca ptr, align 8
   %basety.addr = alloca ptr, align 8
@@ -779,7 +775,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @read_utf16_string_literal(ptr noundef %start, ptr noundef %quote) #4 {
+define internal ptr @read_utf16_string_literal(ptr noundef %start, ptr noundef %quote) #3 {
 entry:
   %start.addr = alloca ptr, align 8
   %quote.addr = alloca ptr, align 8
@@ -909,7 +905,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @read_utf32_string_literal(ptr noundef %start, ptr noundef %quote, ptr noundef %ty) #4 {
+define internal ptr @read_utf32_string_literal(ptr noundef %start, ptr noundef %quote, ptr noundef %ty) #3 {
 entry:
   %start.addr = alloca ptr, align 8
   %quote.addr = alloca ptr, align 8
@@ -1002,7 +998,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @tokenize(ptr noundef %file) #4 {
+define dso_local ptr @tokenize(ptr noundef %file) #3 {
 entry:
   %file.addr = alloca ptr, align 8
   %p = alloca ptr, align 8
@@ -1556,10 +1552,10 @@ while.end192:                                     ; preds = %while.cond
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @startswith(ptr noundef %p, ptr noundef %q) #4 {
+define internal zeroext i1 @startswith(ptr noundef %p, ptr noundef %q) #3 {
 entry:
   %p.addr = alloca ptr, align 8
   %q.addr = alloca ptr, align 8
@@ -1575,16 +1571,16 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strstr(ptr noundef, ptr noundef) #5
+declare ptr @strstr(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() #7
+declare ptr @__ctype_b_loc() #6
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #5
+declare ptr @strchr(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @new_token(i32 noundef %kind, ptr noundef %start, ptr noundef %end) #4 {
+define internal ptr @new_token(i32 noundef %kind, ptr noundef %start, ptr noundef %end) #3 {
 entry:
   %kind.addr = alloca i32, align 4
   %start.addr = alloca ptr, align 8
@@ -1641,7 +1637,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @read_string_literal(ptr noundef %start, ptr noundef %quote) #4 {
+define internal ptr @read_string_literal(ptr noundef %start, ptr noundef %quote) #3 {
 entry:
   %start.addr = alloca ptr, align 8
   %quote.addr = alloca ptr, align 8
@@ -1735,7 +1731,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @read_char_literal(ptr noundef %start, ptr noundef %quote, ptr noundef %ty) #4 {
+define internal ptr @read_char_literal(ptr noundef %start, ptr noundef %quote, ptr noundef %ty) #3 {
 entry:
   %start.addr = alloca ptr, align 8
   %quote.addr = alloca ptr, align 8
@@ -1814,7 +1810,7 @@ if.end11:                                         ; preds = %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @read_ident(ptr noundef %start) #4 {
+define internal i32 @read_ident(ptr noundef %start) #3 {
 entry:
   %retval = alloca i32, align 4
   %start.addr = alloca ptr, align 8
@@ -1867,7 +1863,7 @@ return:                                           ; preds = %if.then4, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @read_punct(ptr noundef %p) #4 {
+define internal i32 @read_punct(ptr noundef %p) #3 {
 entry:
   %retval = alloca i32, align 4
   %p.addr = alloca ptr, align 8
@@ -1932,7 +1928,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_line_numbers(ptr noundef %tok) #4 {
+define internal void @add_line_numbers(ptr noundef %tok) #3 {
 entry:
   %tok.addr = alloca ptr, align 8
   %p = alloca ptr, align 8
@@ -1993,14 +1989,14 @@ do.end:                                           ; preds = %do.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_input_files() #4 {
+define dso_local ptr @get_input_files() #3 {
 entry:
   %0 = load ptr, ptr @input_files, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @new_file(ptr noundef %name, i32 noundef %file_no, ptr noundef %contents) #4 {
+define dso_local ptr @new_file(ptr noundef %name, i32 noundef %file_no, ptr noundef %contents) #3 {
 entry:
   %name.addr = alloca ptr, align 8
   %file_no.addr = alloca i32, align 4
@@ -2032,10 +2028,10 @@ entry:
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #8
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @tokenize_file(ptr noundef %path) #4 {
+define dso_local ptr @tokenize_file(ptr noundef %path) #3 {
 entry:
   %retval = alloca ptr, align 8
   %path.addr = alloca ptr, align 8
@@ -2111,7 +2107,7 @@ return:                                           ; preds = %if.end4, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @read_file(ptr noundef %path) #4 {
+define internal ptr @read_file(ptr noundef %path) #3 {
 entry:
   %retval = alloca ptr, align 8
   %path.addr = alloca ptr, align 8
@@ -2221,7 +2217,7 @@ return:                                           ; preds = %if.end26, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @canonicalize_newline(ptr noundef %p) #4 {
+define internal void @canonicalize_newline(ptr noundef %p) #3 {
 entry:
   %p.addr = alloca ptr, align 8
   %i = alloca i32, align 4
@@ -2330,7 +2326,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @remove_backslash_newline(ptr noundef %p) #4 {
+define internal void @remove_backslash_newline(ptr noundef %p) #3 {
 entry:
   %p.addr = alloca ptr, align 8
   %i = alloca i32, align 4
@@ -2489,7 +2485,7 @@ for.end44:                                        ; preds = %for.cond35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @convert_universal_chars(ptr noundef %p) #4 {
+define internal void @convert_universal_chars(ptr noundef %p) #3 {
 entry:
   %p.addr = alloca ptr, align 8
   %q = alloca ptr, align 8
@@ -2642,16 +2638,16 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #9
+declare ptr @realloc(ptr noundef, i64 noundef) #8
 
-declare i32 @display_width(ptr noundef, i32 noundef) #2
+declare i32 @display_width(ptr noundef, i32 noundef) #1
 
-declare void @hashmap_put(ptr noundef, ptr noundef, ptr noundef) #2
+declare void @hashmap_put(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare ptr @hashmap_get2(ptr noundef, ptr noundef, i32 noundef) #2
+declare ptr @hashmap_get2(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @convert_pp_int(ptr noundef %tok) #4 {
+define internal zeroext i1 @convert_pp_int(ptr noundef %tok) #3 {
 entry:
   %retval = alloca i1, align 1
   %tok.addr = alloca ptr, align 8
@@ -3124,16 +3120,16 @@ return:                                           ; preds = %if.end166, %if.then
 }
 
 ; Function Attrs: nounwind
-declare x86_fp80 @strtold(ptr noundef, ptr noundef) #10
+declare x86_fp80 @strtold(ptr noundef, ptr noundef) #9
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @strncasecmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind
-declare i64 @strtoul(ptr noundef, ptr noundef, i32 noundef) #10
+declare i64 @strtoul(ptr noundef, ptr noundef, i32 noundef) #9
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @string_literal_end(ptr noundef %p) #4 {
+define internal ptr @string_literal_end(ptr noundef %p) #3 {
 entry:
   %p.addr = alloca ptr, align 8
   %start = alloca ptr, align 8
@@ -3196,7 +3192,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @read_escaped_char(ptr noundef %new_pos, ptr noundef %p) #4 {
+define internal i32 @read_escaped_char(ptr noundef %new_pos, ptr noundef %p) #3 {
 entry:
   %retval = alloca i32, align 4
   %new_pos.addr = alloca ptr, align 8
@@ -3421,12 +3417,12 @@ return:                                           ; preds = %sw.default, %sw.bb6
   ret i32 %48
 }
 
-declare i32 @decode_utf8(ptr noundef, ptr noundef) #2
+declare i32 @decode_utf8(ptr noundef, ptr noundef) #1
 
-declare ptr @array_of(ptr noundef, i32 noundef) #2
+declare ptr @array_of(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @from_hex(i8 noundef signext %c) #4 {
+define internal i32 @from_hex(i8 noundef signext %c) #3 {
 entry:
   %retval = alloca i32, align 4
   %c.addr = alloca i8, align 1
@@ -3483,35 +3479,35 @@ return:                                           ; preds = %if.end16, %if.then1
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #5
+declare i64 @strlen(ptr noundef) #4
 
-declare zeroext i1 @is_ident1(i32 noundef) #2
+declare zeroext i1 @is_ident1(i32 noundef) #1
 
-declare zeroext i1 @is_ident2(i32 noundef) #2
+declare zeroext i1 @is_ident2(i32 noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #5
+declare i32 @strcmp(ptr noundef, ptr noundef) #4
 
-declare noalias ptr @fopen(ptr noundef, ptr noundef) #2
+declare noalias ptr @fopen(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare noalias ptr @open_memstream(ptr noundef, ptr noundef) #10
+declare noalias ptr @open_memstream(ptr noundef, ptr noundef) #9
 
-declare i64 @fread(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #2
+declare i64 @fread(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
-declare i64 @fwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #2
+declare i64 @fwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
-declare i32 @fclose(ptr noundef) #2
+declare i32 @fclose(ptr noundef) #1
 
-declare i32 @fflush(ptr noundef) #2
+declare i32 @fflush(ptr noundef) #1
 
-declare i32 @fputc(i32 noundef, ptr noundef) #2
+declare i32 @fputc(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @read_universal_char(ptr noundef %p, i32 noundef %len) #4 {
+define internal i32 @read_universal_char(ptr noundef %p, i32 noundef %len) #3 {
 entry:
   %retval = alloca i32, align 4
   %p.addr = alloca ptr, align 8
@@ -3580,19 +3576,25 @@ return:                                           ; preds = %for.end, %if.then
   ret i32 %13
 }
 
-declare i32 @encode_utf8(ptr noundef, i32 noundef) #2
+declare i32 @encode_utf8(ptr noundef, i32 noundef) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind willreturn }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { noreturn nounwind }
 attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { noreturn }

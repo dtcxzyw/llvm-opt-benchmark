@@ -563,7 +563,7 @@ define internal fastcc noundef i32 @klist_dec_and_del(ptr noundef %0) unnamed_ad
   br label %9
 
 9:                                                ; preds = %8, %6, %5
-  br i1 %4, label %10, label %41
+  br i1 %4, label %10, label %45
 
 10:                                               ; preds = %9
   %11 = load ptr, ptr %0, align 8
@@ -586,49 +586,53 @@ define internal fastcc noundef i32 @klist_dec_and_del(ptr noundef %0) unnamed_ad
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %19, ptr %21, align 8
   store volatile ptr %20, ptr %19, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %17, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %18, align 8
+  %22 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %22, ptr %17, align 8
+  %23 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %23, ptr %18, align 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @klist_remove_lock) #8
-  %22 = load ptr, ptr @klist_remove_waiters, align 8
-  %23 = icmp eq ptr %22, @klist_remove_waiters
-  br i1 %23, label %40, label %24
+  %24 = load ptr, ptr @klist_remove_waiters, align 8
+  %25 = icmp eq ptr %24, @klist_remove_waiters
+  br i1 %25, label %44, label %26
 
-24:                                               ; preds = %38, %16
-  %25 = phi ptr [ %26, %38 ], [ %22, %16 ]
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
+26:                                               ; preds = %42, %16
+  %27 = phi ptr [ %28, %42 ], [ %24, %16 ]
   %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, %0
-  br i1 %29, label %30, label %38
+  %29 = getelementptr inbounds i8, ptr %27, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, %0
+  br i1 %31, label %32, label %42
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %25, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %26, i64 8
-  store ptr %32, ptr %33, align 8
-  store volatile ptr %26, ptr %32, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %25, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %25, i64 32
-  store i32 1, ptr %34, align 8
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds i8, ptr %27, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %28, i64 8
+  store ptr %34, ptr %35, align 8
+  store volatile ptr %28, ptr %34, align 8
+  %36 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %36, ptr %27, align 8
+  %37 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %37, ptr %33, align 8
+  %38 = getelementptr inbounds i8, ptr %27, i64 32
+  store i32 1, ptr %38, align 8
   tail call void asm sideeffect "mfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !29
-  %35 = getelementptr inbounds i8, ptr %25, i64 24
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @wake_up_process(ptr noundef %36) #8
-  br label %38
+  %39 = getelementptr inbounds i8, ptr %27, i64 24
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call i32 @wake_up_process(ptr noundef %40) #8
+  br label %42
 
-38:                                               ; preds = %30, %24
-  %39 = icmp eq ptr %26, @klist_remove_waiters
-  br i1 %39, label %40, label %24, !llvm.loop !30
+42:                                               ; preds = %32, %26
+  %43 = icmp eq ptr %28, @klist_remove_waiters
+  br i1 %43, label %44, label %26, !llvm.loop !30
 
-40:                                               ; preds = %38, %16
+44:                                               ; preds = %42, %16
   tail call void @_raw_spin_unlock(ptr noundef nonnull @klist_remove_lock) #8
   store ptr null, ptr %0, align 8
-  br label %41
+  br label %45
 
-41:                                               ; preds = %40, %9
-  %42 = phi i32 [ 1, %40 ], [ 0, %9 ]
-  ret i32 %42
+45:                                               ; preds = %44, %9
+  %46 = phi i32 [ 1, %44 ], [ 0, %9 ]
+  ret i32 %46
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

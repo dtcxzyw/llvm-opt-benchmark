@@ -86,8 +86,9 @@ return:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind uwtable
 define internal signext i8 @aesni_capable() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %cmp = icmp ne i32 %and, 0
   %conv = zext i1 %cmp to i32
   %conv1 = trunc i32 %conv to i8
@@ -1055,8 +1056,9 @@ declare void @bsaes_cbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal signext i8 @vpaes_capable() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 512
+  %0 = getelementptr inbounds [4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 512
   %cmp = icmp ne i32 %and, 0
   %conv = zext i1 %cmp to i32
   %conv1 = trunc i32 %conv to i8

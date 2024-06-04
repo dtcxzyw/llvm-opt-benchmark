@@ -758,88 +758,89 @@ define internal void @_ZN12_GLOBAL__N_112cmQtAutoRccTC2Ev(ptr noundef nonnull al
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17cmQtAutoGeneratorC2EN11cmQtAutoGen4GenTE(ptr noundef nonnull align 8 dereferenceable(328) %5, i32 noundef 3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112cmQtAutoRccTE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 1
-  store i8 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 2
-  store i8 0, ptr %7, align 1
-  %8 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 3
-  store i8 0, ptr %8, align 2
-  %9 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 6
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112cmQtAutoRccTE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 1
+  store i8 0, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 2
+  store i8 0, ptr %8, align 1
+  %9 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 3
+  store i8 0, ptr %9, align 2
+  %10 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  %11 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 7
+  %11 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 8
+  %12 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  %13 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 9
-  call void @_ZN10cmFileTimeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  %14 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 10
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
-  %15 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  %16 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 12
-  invoke void @_ZN10cmFileLockC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %16)
-          to label %17 unwind label %34
+  %13 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
+  %14 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 9
+  call void @_ZN10cmFileTimeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %15 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 10
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
+  %16 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  %17 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 12
+  invoke void @_ZN10cmFileLockC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %17)
+          to label %18 unwind label %35
 
-17:                                               ; preds = %1
-  %18 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
-  %19 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 14
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
-  %20 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 15
+  %20 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  %21 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 16
-  call void @_ZN10cmFileTimeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
-  %22 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
-  %23 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 18
+  %21 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
+  %22 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 16
+  call void @_ZN10cmFileTimeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
+  %23 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
-  %24 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 19
+  %24 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #3
-  %25 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 20
+  %25 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #3
-  %26 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 21
-  call void @_ZN10cmFileTimeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #3
-  %27 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #3
-  %28 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 23
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
-  %29 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 24
+  %26 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
+  %27 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 21
+  call void @_ZN10cmFileTimeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #3
+  %28 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #3
+  %29 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 23
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
-  %30 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 25
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #3
-  %31 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 26
+  %30 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 24
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
+  %31 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #3
-  %32 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 27
-  store i8 0, ptr %32, align 8
-  %33 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 28
-  store i8 0, ptr %33, align 1
+  %32 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #3
+  %33 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 27
+  store i8 0, ptr %33, align 8
+  %34 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %5, i32 0, i32 28
+  store i8 0, ptr %34, align 1
   ret void
 
-34:                                               ; preds = %1
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %1
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %3, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %3, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %4, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   call void @_ZN17cmQtAutoGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %5) #3
-  br label %38
+  br label %39
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %3, align 8
-  %40 = load i32, ptr %4, align 4
-  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
-  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
-  resume { ptr, i32 } %42
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %3, align 8
+  %41 = load i32, ptr %4, align 4
+  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
+  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
+  resume { ptr, i32 } %43
 }
 
 declare noundef zeroext i1 @_ZN17cmQtAutoGenerator3RunESt17basic_string_viewIcSt11char_traitsIcEES3_S3_(ptr noundef nonnull align 8 dereferenceable(328), i64, ptr, i64, ptr, ptr noundef byval(%"class.std::basic_string_view") align 8) #1
@@ -854,45 +855,46 @@ define internal void @_ZN12_GLOBAL__N_112cmQtAutoRccTD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112cmQtAutoRccTE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 25
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112cmQtAutoRccTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %6 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 24
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
-  %7 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 23
+  %6 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  %7 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 24
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  %9 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 20
+  %8 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 23
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 19
+  %10 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  %11 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 18
+  %11 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 17
+  %12 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  %13 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 15
+  %13 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
-  %14 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 14
+  %14 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
-  %15 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 13
+  %15 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  %16 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 12
-  call void @_ZN10cmFileLockD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #3
-  %17 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
-  %18 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 10
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  %19 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
-  %20 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 7
+  %16 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  %17 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 12
+  call void @_ZN10cmFileLockD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #3
+  %18 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
+  %19 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 10
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  %20 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  %21 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 6
+  %21 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
-  %22 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 5
+  %22 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
+  %23 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoRccT", ptr %3, i32 0, i32 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
   call void @_ZN17cmQtAutoGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %3) #3
   ret void
 }

@@ -188,546 +188,590 @@ define hidden void @lstopo_palette_init(ptr noundef %0) #0 {
   store ptr null, ptr %53, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @lstopo_main_palette, ptr align 8 %3, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 1), ptr align 8 %4, i64 32, i1 false)
-  %54 = getelementptr inbounds %struct.lstopo_color, ptr %5, i32 0, i32 0
-  store i32 255, ptr %54, align 8
-  %55 = getelementptr inbounds %struct.lstopo_color, ptr %5, i32 0, i32 1
-  store i32 255, ptr %55, align 4
-  %56 = getelementptr inbounds %struct.lstopo_color, ptr %5, i32 0, i32 2
-  store i32 255, ptr %56, align 8
-  %57 = getelementptr inbounds %struct.lstopo_color, ptr %5, i32 0, i32 3
-  store i32 0, ptr %57, align 4
-  %58 = getelementptr inbounds %struct.lstopo_color, ptr %5, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %58, i8 0, i64 4, i1 false)
-  %59 = getelementptr inbounds %struct.lstopo_color, ptr %5, i32 0, i32 5
-  store ptr null, ptr %59, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 2), ptr align 8 %5, i64 32, i1 false)
-  %60 = getelementptr inbounds %struct.lstopo_color, ptr %6, i32 0, i32 0
-  store i32 255, ptr %60, align 8
-  %61 = getelementptr inbounds %struct.lstopo_color, ptr %6, i32 0, i32 1
-  store i32 255, ptr %61, align 4
-  %62 = getelementptr inbounds %struct.lstopo_color, ptr %6, i32 0, i32 2
+  %54 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %54, ptr align 8 %4, i64 32, i1 false)
+  %55 = getelementptr inbounds %struct.lstopo_color, ptr %5, i32 0, i32 0
+  store i32 255, ptr %55, align 8
+  %56 = getelementptr inbounds %struct.lstopo_color, ptr %5, i32 0, i32 1
+  store i32 255, ptr %56, align 4
+  %57 = getelementptr inbounds %struct.lstopo_color, ptr %5, i32 0, i32 2
+  store i32 255, ptr %57, align 8
+  %58 = getelementptr inbounds %struct.lstopo_color, ptr %5, i32 0, i32 3
+  store i32 0, ptr %58, align 4
+  %59 = getelementptr inbounds %struct.lstopo_color, ptr %5, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %59, i8 0, i64 4, i1 false)
+  %60 = getelementptr inbounds %struct.lstopo_color, ptr %5, i32 0, i32 5
+  store ptr null, ptr %60, align 8
+  %61 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %61, ptr align 8 %5, i64 32, i1 false)
+  %62 = getelementptr inbounds %struct.lstopo_color, ptr %6, i32 0, i32 0
   store i32 255, ptr %62, align 8
-  %63 = getelementptr inbounds %struct.lstopo_color, ptr %6, i32 0, i32 3
-  store i32 0, ptr %63, align 4
-  %64 = getelementptr inbounds %struct.lstopo_color, ptr %6, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %64, i8 0, i64 4, i1 false)
-  %65 = getelementptr inbounds %struct.lstopo_color, ptr %6, i32 0, i32 5
-  store ptr null, ptr %65, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 3), ptr align 8 %6, i64 32, i1 false)
-  %66 = getelementptr inbounds %struct.lstopo_color, ptr %7, i32 0, i32 0
-  store i32 210, ptr %66, align 8
-  %67 = getelementptr inbounds %struct.lstopo_color, ptr %7, i32 0, i32 1
-  store i32 231, ptr %67, align 4
-  %68 = getelementptr inbounds %struct.lstopo_color, ptr %7, i32 0, i32 2
-  store i32 164, ptr %68, align 8
-  %69 = getelementptr inbounds %struct.lstopo_color, ptr %7, i32 0, i32 3
-  store i32 0, ptr %69, align 4
-  %70 = getelementptr inbounds %struct.lstopo_color, ptr %7, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %70, i8 0, i64 4, i1 false)
-  %71 = getelementptr inbounds %struct.lstopo_color, ptr %7, i32 0, i32 5
-  store ptr null, ptr %71, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 4), ptr align 8 %7, i64 32, i1 false)
-  %72 = getelementptr inbounds %struct.lstopo_color, ptr %8, i32 0, i32 0
-  store i32 231, ptr %72, align 8
-  %73 = getelementptr inbounds %struct.lstopo_color, ptr %8, i32 0, i32 1
-  store i32 255, ptr %73, align 4
-  %74 = getelementptr inbounds %struct.lstopo_color, ptr %8, i32 0, i32 2
-  store i32 181, ptr %74, align 8
-  %75 = getelementptr inbounds %struct.lstopo_color, ptr %8, i32 0, i32 3
-  store i32 0, ptr %75, align 4
-  %76 = getelementptr inbounds %struct.lstopo_color, ptr %8, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %76, i8 0, i64 4, i1 false)
-  %77 = getelementptr inbounds %struct.lstopo_color, ptr %8, i32 0, i32 5
-  store ptr null, ptr %77, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 5), ptr align 8 %8, i64 32, i1 false)
-  %78 = getelementptr inbounds %struct.lstopo_color, ptr %9, i32 0, i32 0
-  store i32 231, ptr %78, align 8
-  %79 = getelementptr inbounds %struct.lstopo_color, ptr %9, i32 0, i32 1
-  store i32 255, ptr %79, align 4
-  %80 = getelementptr inbounds %struct.lstopo_color, ptr %9, i32 0, i32 2
-  store i32 181, ptr %80, align 8
-  %81 = getelementptr inbounds %struct.lstopo_color, ptr %9, i32 0, i32 3
-  store i32 0, ptr %81, align 4
-  %82 = getelementptr inbounds %struct.lstopo_color, ptr %9, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %82, i8 0, i64 4, i1 false)
-  %83 = getelementptr inbounds %struct.lstopo_color, ptr %9, i32 0, i32 5
-  store ptr null, ptr %83, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 6), ptr align 8 %9, i64 32, i1 false)
-  %84 = getelementptr inbounds %struct.lstopo_color, ptr %10, i32 0, i32 0
-  store i32 190, ptr %84, align 8
-  %85 = getelementptr inbounds %struct.lstopo_color, ptr %10, i32 0, i32 1
-  store i32 190, ptr %85, align 4
-  %86 = getelementptr inbounds %struct.lstopo_color, ptr %10, i32 0, i32 2
-  store i32 190, ptr %86, align 8
-  %87 = getelementptr inbounds %struct.lstopo_color, ptr %10, i32 0, i32 3
-  store i32 0, ptr %87, align 4
-  %88 = getelementptr inbounds %struct.lstopo_color, ptr %10, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %88, i8 0, i64 4, i1 false)
-  %89 = getelementptr inbounds %struct.lstopo_color, ptr %10, i32 0, i32 5
-  store ptr null, ptr %89, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 7), ptr align 8 %10, i64 32, i1 false)
-  %90 = getelementptr inbounds %struct.lstopo_color, ptr %11, i32 0, i32 0
-  store i32 255, ptr %90, align 8
-  %91 = getelementptr inbounds %struct.lstopo_color, ptr %11, i32 0, i32 1
-  store i32 255, ptr %91, align 4
-  %92 = getelementptr inbounds %struct.lstopo_color, ptr %11, i32 0, i32 2
-  store i32 255, ptr %92, align 8
-  %93 = getelementptr inbounds %struct.lstopo_color, ptr %11, i32 0, i32 3
+  %63 = getelementptr inbounds %struct.lstopo_color, ptr %6, i32 0, i32 1
+  store i32 255, ptr %63, align 4
+  %64 = getelementptr inbounds %struct.lstopo_color, ptr %6, i32 0, i32 2
+  store i32 255, ptr %64, align 8
+  %65 = getelementptr inbounds %struct.lstopo_color, ptr %6, i32 0, i32 3
+  store i32 0, ptr %65, align 4
+  %66 = getelementptr inbounds %struct.lstopo_color, ptr %6, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %66, i8 0, i64 4, i1 false)
+  %67 = getelementptr inbounds %struct.lstopo_color, ptr %6, i32 0, i32 5
+  store ptr null, ptr %67, align 8
+  %68 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %68, ptr align 8 %6, i64 32, i1 false)
+  %69 = getelementptr inbounds %struct.lstopo_color, ptr %7, i32 0, i32 0
+  store i32 210, ptr %69, align 8
+  %70 = getelementptr inbounds %struct.lstopo_color, ptr %7, i32 0, i32 1
+  store i32 231, ptr %70, align 4
+  %71 = getelementptr inbounds %struct.lstopo_color, ptr %7, i32 0, i32 2
+  store i32 164, ptr %71, align 8
+  %72 = getelementptr inbounds %struct.lstopo_color, ptr %7, i32 0, i32 3
+  store i32 0, ptr %72, align 4
+  %73 = getelementptr inbounds %struct.lstopo_color, ptr %7, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %73, i8 0, i64 4, i1 false)
+  %74 = getelementptr inbounds %struct.lstopo_color, ptr %7, i32 0, i32 5
+  store ptr null, ptr %74, align 8
+  %75 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %75, ptr align 8 %7, i64 32, i1 false)
+  %76 = getelementptr inbounds %struct.lstopo_color, ptr %8, i32 0, i32 0
+  store i32 231, ptr %76, align 8
+  %77 = getelementptr inbounds %struct.lstopo_color, ptr %8, i32 0, i32 1
+  store i32 255, ptr %77, align 4
+  %78 = getelementptr inbounds %struct.lstopo_color, ptr %8, i32 0, i32 2
+  store i32 181, ptr %78, align 8
+  %79 = getelementptr inbounds %struct.lstopo_color, ptr %8, i32 0, i32 3
+  store i32 0, ptr %79, align 4
+  %80 = getelementptr inbounds %struct.lstopo_color, ptr %8, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %80, i8 0, i64 4, i1 false)
+  %81 = getelementptr inbounds %struct.lstopo_color, ptr %8, i32 0, i32 5
+  store ptr null, ptr %81, align 8
+  %82 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %82, ptr align 8 %8, i64 32, i1 false)
+  %83 = getelementptr inbounds %struct.lstopo_color, ptr %9, i32 0, i32 0
+  store i32 231, ptr %83, align 8
+  %84 = getelementptr inbounds %struct.lstopo_color, ptr %9, i32 0, i32 1
+  store i32 255, ptr %84, align 4
+  %85 = getelementptr inbounds %struct.lstopo_color, ptr %9, i32 0, i32 2
+  store i32 181, ptr %85, align 8
+  %86 = getelementptr inbounds %struct.lstopo_color, ptr %9, i32 0, i32 3
+  store i32 0, ptr %86, align 4
+  %87 = getelementptr inbounds %struct.lstopo_color, ptr %9, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %87, i8 0, i64 4, i1 false)
+  %88 = getelementptr inbounds %struct.lstopo_color, ptr %9, i32 0, i32 5
+  store ptr null, ptr %88, align 8
+  %89 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %89, ptr align 8 %9, i64 32, i1 false)
+  %90 = getelementptr inbounds %struct.lstopo_color, ptr %10, i32 0, i32 0
+  store i32 190, ptr %90, align 8
+  %91 = getelementptr inbounds %struct.lstopo_color, ptr %10, i32 0, i32 1
+  store i32 190, ptr %91, align 4
+  %92 = getelementptr inbounds %struct.lstopo_color, ptr %10, i32 0, i32 2
+  store i32 190, ptr %92, align 8
+  %93 = getelementptr inbounds %struct.lstopo_color, ptr %10, i32 0, i32 3
   store i32 0, ptr %93, align 4
-  %94 = getelementptr inbounds %struct.lstopo_color, ptr %11, i32 0, i32 4
+  %94 = getelementptr inbounds %struct.lstopo_color, ptr %10, i32 0, i32 4
   call void @llvm.memset.p0.i64(ptr align 8 %94, i8 0, i64 4, i1 false)
-  %95 = getelementptr inbounds %struct.lstopo_color, ptr %11, i32 0, i32 5
+  %95 = getelementptr inbounds %struct.lstopo_color, ptr %10, i32 0, i32 5
   store ptr null, ptr %95, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 8), ptr align 8 %11, i64 32, i1 false)
-  %96 = getelementptr inbounds %struct.lstopo_color, ptr %12, i32 0, i32 0
-  store i32 239, ptr %96, align 8
-  %97 = getelementptr inbounds %struct.lstopo_color, ptr %12, i32 0, i32 1
-  store i32 223, ptr %97, align 4
-  %98 = getelementptr inbounds %struct.lstopo_color, ptr %12, i32 0, i32 2
-  store i32 222, ptr %98, align 8
-  %99 = getelementptr inbounds %struct.lstopo_color, ptr %12, i32 0, i32 3
-  store i32 0, ptr %99, align 4
-  %100 = getelementptr inbounds %struct.lstopo_color, ptr %12, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %100, i8 0, i64 4, i1 false)
-  %101 = getelementptr inbounds %struct.lstopo_color, ptr %12, i32 0, i32 5
-  store ptr null, ptr %101, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 9), ptr align 8 %12, i64 32, i1 false)
-  %102 = getelementptr inbounds %struct.lstopo_color, ptr %13, i32 0, i32 0
-  store i32 242, ptr %102, align 8
-  %103 = getelementptr inbounds %struct.lstopo_color, ptr %13, i32 0, i32 1
-  store i32 232, ptr %103, align 4
-  %104 = getelementptr inbounds %struct.lstopo_color, ptr %13, i32 0, i32 2
-  store i32 232, ptr %104, align 8
-  %105 = getelementptr inbounds %struct.lstopo_color, ptr %13, i32 0, i32 3
-  store i32 0, ptr %105, align 4
-  %106 = getelementptr inbounds %struct.lstopo_color, ptr %13, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %106, i8 0, i64 4, i1 false)
-  %107 = getelementptr inbounds %struct.lstopo_color, ptr %13, i32 0, i32 5
-  store ptr null, ptr %107, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 10), ptr align 8 %13, i64 32, i1 false)
-  %108 = getelementptr inbounds %struct.lstopo_color, ptr %14, i32 0, i32 0
-  store i32 255, ptr %108, align 8
-  %109 = getelementptr inbounds %struct.lstopo_color, ptr %14, i32 0, i32 1
-  store i32 255, ptr %109, align 4
-  %110 = getelementptr inbounds %struct.lstopo_color, ptr %14, i32 0, i32 2
-  store i32 255, ptr %110, align 8
-  %111 = getelementptr inbounds %struct.lstopo_color, ptr %14, i32 0, i32 3
-  store i32 0, ptr %111, align 4
-  %112 = getelementptr inbounds %struct.lstopo_color, ptr %14, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %112, i8 0, i64 4, i1 false)
-  %113 = getelementptr inbounds %struct.lstopo_color, ptr %14, i32 0, i32 5
-  store ptr null, ptr %113, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 11), ptr align 8 %14, i64 32, i1 false)
-  %114 = getelementptr inbounds %struct.lstopo_color, ptr %15, i32 0, i32 0
-  store i32 190, ptr %114, align 8
-  %115 = getelementptr inbounds %struct.lstopo_color, ptr %15, i32 0, i32 1
-  store i32 210, ptr %115, align 4
-  %116 = getelementptr inbounds %struct.lstopo_color, ptr %15, i32 0, i32 2
-  store i32 149, ptr %116, align 8
-  %117 = getelementptr inbounds %struct.lstopo_color, ptr %15, i32 0, i32 3
-  store i32 0, ptr %117, align 4
-  %118 = getelementptr inbounds %struct.lstopo_color, ptr %15, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %118, i8 0, i64 4, i1 false)
-  %119 = getelementptr inbounds %struct.lstopo_color, ptr %15, i32 0, i32 5
-  store ptr null, ptr %119, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 12), ptr align 8 %15, i64 32, i1 false)
-  %120 = getelementptr inbounds %struct.lstopo_color, ptr %16, i32 0, i32 0
-  store i32 222, ptr %120, align 8
-  %121 = getelementptr inbounds %struct.lstopo_color, ptr %16, i32 0, i32 1
-  store i32 222, ptr %121, align 4
-  %122 = getelementptr inbounds %struct.lstopo_color, ptr %16, i32 0, i32 2
-  store i32 222, ptr %122, align 8
-  %123 = getelementptr inbounds %struct.lstopo_color, ptr %16, i32 0, i32 3
-  store i32 0, ptr %123, align 4
-  %124 = getelementptr inbounds %struct.lstopo_color, ptr %16, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %124, i8 0, i64 4, i1 false)
-  %125 = getelementptr inbounds %struct.lstopo_color, ptr %16, i32 0, i32 5
-  store ptr null, ptr %125, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 13), ptr align 8 %16, i64 32, i1 false)
-  %126 = getelementptr inbounds %struct.lstopo_color, ptr %17, i32 0, i32 0
-  store i32 255, ptr %126, align 8
-  %127 = getelementptr inbounds %struct.lstopo_color, ptr %17, i32 0, i32 1
-  store i32 255, ptr %127, align 4
-  %128 = getelementptr inbounds %struct.lstopo_color, ptr %17, i32 0, i32 2
-  store i32 255, ptr %128, align 8
-  %129 = getelementptr inbounds %struct.lstopo_color, ptr %17, i32 0, i32 3
-  store i32 0, ptr %129, align 4
-  %130 = getelementptr inbounds %struct.lstopo_color, ptr %17, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %130, i8 0, i64 4, i1 false)
-  %131 = getelementptr inbounds %struct.lstopo_color, ptr %17, i32 0, i32 5
-  store ptr null, ptr %131, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 14), ptr align 8 %17, i64 32, i1 false)
-  %132 = getelementptr inbounds %struct.lstopo_color, ptr %18, i32 0, i32 0
-  store i32 255, ptr %132, align 8
-  %133 = getelementptr inbounds %struct.lstopo_color, ptr %18, i32 0, i32 1
-  store i32 255, ptr %133, align 4
-  %134 = getelementptr inbounds %struct.lstopo_color, ptr %18, i32 0, i32 2
-  store i32 255, ptr %134, align 8
-  %135 = getelementptr inbounds %struct.lstopo_color, ptr %18, i32 0, i32 3
+  %96 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %96, ptr align 8 %10, i64 32, i1 false)
+  %97 = getelementptr inbounds %struct.lstopo_color, ptr %11, i32 0, i32 0
+  store i32 255, ptr %97, align 8
+  %98 = getelementptr inbounds %struct.lstopo_color, ptr %11, i32 0, i32 1
+  store i32 255, ptr %98, align 4
+  %99 = getelementptr inbounds %struct.lstopo_color, ptr %11, i32 0, i32 2
+  store i32 255, ptr %99, align 8
+  %100 = getelementptr inbounds %struct.lstopo_color, ptr %11, i32 0, i32 3
+  store i32 0, ptr %100, align 4
+  %101 = getelementptr inbounds %struct.lstopo_color, ptr %11, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %101, i8 0, i64 4, i1 false)
+  %102 = getelementptr inbounds %struct.lstopo_color, ptr %11, i32 0, i32 5
+  store ptr null, ptr %102, align 8
+  %103 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %103, ptr align 8 %11, i64 32, i1 false)
+  %104 = getelementptr inbounds %struct.lstopo_color, ptr %12, i32 0, i32 0
+  store i32 239, ptr %104, align 8
+  %105 = getelementptr inbounds %struct.lstopo_color, ptr %12, i32 0, i32 1
+  store i32 223, ptr %105, align 4
+  %106 = getelementptr inbounds %struct.lstopo_color, ptr %12, i32 0, i32 2
+  store i32 222, ptr %106, align 8
+  %107 = getelementptr inbounds %struct.lstopo_color, ptr %12, i32 0, i32 3
+  store i32 0, ptr %107, align 4
+  %108 = getelementptr inbounds %struct.lstopo_color, ptr %12, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %108, i8 0, i64 4, i1 false)
+  %109 = getelementptr inbounds %struct.lstopo_color, ptr %12, i32 0, i32 5
+  store ptr null, ptr %109, align 8
+  %110 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %110, ptr align 8 %12, i64 32, i1 false)
+  %111 = getelementptr inbounds %struct.lstopo_color, ptr %13, i32 0, i32 0
+  store i32 242, ptr %111, align 8
+  %112 = getelementptr inbounds %struct.lstopo_color, ptr %13, i32 0, i32 1
+  store i32 232, ptr %112, align 4
+  %113 = getelementptr inbounds %struct.lstopo_color, ptr %13, i32 0, i32 2
+  store i32 232, ptr %113, align 8
+  %114 = getelementptr inbounds %struct.lstopo_color, ptr %13, i32 0, i32 3
+  store i32 0, ptr %114, align 4
+  %115 = getelementptr inbounds %struct.lstopo_color, ptr %13, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %115, i8 0, i64 4, i1 false)
+  %116 = getelementptr inbounds %struct.lstopo_color, ptr %13, i32 0, i32 5
+  store ptr null, ptr %116, align 8
+  %117 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %117, ptr align 8 %13, i64 32, i1 false)
+  %118 = getelementptr inbounds %struct.lstopo_color, ptr %14, i32 0, i32 0
+  store i32 255, ptr %118, align 8
+  %119 = getelementptr inbounds %struct.lstopo_color, ptr %14, i32 0, i32 1
+  store i32 255, ptr %119, align 4
+  %120 = getelementptr inbounds %struct.lstopo_color, ptr %14, i32 0, i32 2
+  store i32 255, ptr %120, align 8
+  %121 = getelementptr inbounds %struct.lstopo_color, ptr %14, i32 0, i32 3
+  store i32 0, ptr %121, align 4
+  %122 = getelementptr inbounds %struct.lstopo_color, ptr %14, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %122, i8 0, i64 4, i1 false)
+  %123 = getelementptr inbounds %struct.lstopo_color, ptr %14, i32 0, i32 5
+  store ptr null, ptr %123, align 8
+  %124 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %124, ptr align 8 %14, i64 32, i1 false)
+  %125 = getelementptr inbounds %struct.lstopo_color, ptr %15, i32 0, i32 0
+  store i32 190, ptr %125, align 8
+  %126 = getelementptr inbounds %struct.lstopo_color, ptr %15, i32 0, i32 1
+  store i32 210, ptr %126, align 4
+  %127 = getelementptr inbounds %struct.lstopo_color, ptr %15, i32 0, i32 2
+  store i32 149, ptr %127, align 8
+  %128 = getelementptr inbounds %struct.lstopo_color, ptr %15, i32 0, i32 3
+  store i32 0, ptr %128, align 4
+  %129 = getelementptr inbounds %struct.lstopo_color, ptr %15, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %129, i8 0, i64 4, i1 false)
+  %130 = getelementptr inbounds %struct.lstopo_color, ptr %15, i32 0, i32 5
+  store ptr null, ptr %130, align 8
+  %131 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %131, ptr align 8 %15, i64 32, i1 false)
+  %132 = getelementptr inbounds %struct.lstopo_color, ptr %16, i32 0, i32 0
+  store i32 222, ptr %132, align 8
+  %133 = getelementptr inbounds %struct.lstopo_color, ptr %16, i32 0, i32 1
+  store i32 222, ptr %133, align 4
+  %134 = getelementptr inbounds %struct.lstopo_color, ptr %16, i32 0, i32 2
+  store i32 222, ptr %134, align 8
+  %135 = getelementptr inbounds %struct.lstopo_color, ptr %16, i32 0, i32 3
   store i32 0, ptr %135, align 4
-  %136 = getelementptr inbounds %struct.lstopo_color, ptr %18, i32 0, i32 4
+  %136 = getelementptr inbounds %struct.lstopo_color, ptr %16, i32 0, i32 4
   call void @llvm.memset.p0.i64(ptr align 8 %136, i8 0, i64 4, i1 false)
-  %137 = getelementptr inbounds %struct.lstopo_color, ptr %18, i32 0, i32 5
+  %137 = getelementptr inbounds %struct.lstopo_color, ptr %16, i32 0, i32 5
   store ptr null, ptr %137, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 15), ptr align 8 %18, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 32, i1 false)
-  %138 = getelementptr inbounds %struct.lstopo_color, ptr %19, i32 0, i32 1
-  store i32 255, ptr %138, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 16), ptr align 8 %19, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 32, i1 false)
-  %139 = getelementptr inbounds %struct.lstopo_color, ptr %20, i32 0, i32 0
+  %138 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %138, ptr align 8 %16, i64 32, i1 false)
+  %139 = getelementptr inbounds %struct.lstopo_color, ptr %17, i32 0, i32 0
   store i32 255, ptr %139, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 17), ptr align 8 %20, i64 32, i1 false)
+  %140 = getelementptr inbounds %struct.lstopo_color, ptr %17, i32 0, i32 1
+  store i32 255, ptr %140, align 4
+  %141 = getelementptr inbounds %struct.lstopo_color, ptr %17, i32 0, i32 2
+  store i32 255, ptr %141, align 8
+  %142 = getelementptr inbounds %struct.lstopo_color, ptr %17, i32 0, i32 3
+  store i32 0, ptr %142, align 4
+  %143 = getelementptr inbounds %struct.lstopo_color, ptr %17, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %143, i8 0, i64 4, i1 false)
+  %144 = getelementptr inbounds %struct.lstopo_color, ptr %17, i32 0, i32 5
+  store ptr null, ptr %144, align 8
+  %145 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 14
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %145, ptr align 8 %17, i64 32, i1 false)
+  %146 = getelementptr inbounds %struct.lstopo_color, ptr %18, i32 0, i32 0
+  store i32 255, ptr %146, align 8
+  %147 = getelementptr inbounds %struct.lstopo_color, ptr %18, i32 0, i32 1
+  store i32 255, ptr %147, align 4
+  %148 = getelementptr inbounds %struct.lstopo_color, ptr %18, i32 0, i32 2
+  store i32 255, ptr %148, align 8
+  %149 = getelementptr inbounds %struct.lstopo_color, ptr %18, i32 0, i32 3
+  store i32 0, ptr %149, align 4
+  %150 = getelementptr inbounds %struct.lstopo_color, ptr %18, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %150, i8 0, i64 4, i1 false)
+  %151 = getelementptr inbounds %struct.lstopo_color, ptr %18, i32 0, i32 5
+  store ptr null, ptr %151, align 8
+  %152 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 15
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %152, ptr align 8 %18, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 32, i1 false)
+  %153 = getelementptr inbounds %struct.lstopo_color, ptr %19, i32 0, i32 1
+  store i32 255, ptr %153, align 4
+  %154 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %154, ptr align 8 %19, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 32, i1 false)
+  %155 = getelementptr inbounds %struct.lstopo_color, ptr %20, i32 0, i32 0
+  store i32 255, ptr %155, align 8
+  %156 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %156, ptr align 8 %20, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr align 8 %21, i8 0, i64 32, i1 false)
-  %140 = getelementptr inbounds %struct.lstopo_color, ptr %21, i32 0, i32 0
-  store i32 255, ptr %140, align 8
-  %141 = getelementptr inbounds %struct.lstopo_color, ptr %21, i32 0, i32 1
-  store i32 255, ptr %141, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 18), ptr align 8 %21, i64 32, i1 false)
+  %157 = getelementptr inbounds %struct.lstopo_color, ptr %21, i32 0, i32 0
+  store i32 255, ptr %157, align 8
+  %158 = getelementptr inbounds %struct.lstopo_color, ptr %21, i32 0, i32 1
+  store i32 255, ptr %158, align 4
+  %159 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_main_palette, i32 0, i32 18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %159, ptr align 8 %21, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @lstopo_grey_palette, ptr align 8 @lstopo_main_palette, i64 608, i1 false)
-  %142 = getelementptr inbounds %struct.lstopo_color, ptr %22, i32 0, i32 0
-  store i32 201, ptr %142, align 8
-  %143 = getelementptr inbounds %struct.lstopo_color, ptr %22, i32 0, i32 1
-  store i32 201, ptr %143, align 4
-  %144 = getelementptr inbounds %struct.lstopo_color, ptr %22, i32 0, i32 2
-  store i32 201, ptr %144, align 8
-  %145 = getelementptr inbounds %struct.lstopo_color, ptr %22, i32 0, i32 3
-  store i32 0, ptr %145, align 4
-  %146 = getelementptr inbounds %struct.lstopo_color, ptr %22, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %146, i8 0, i64 4, i1 false)
-  %147 = getelementptr inbounds %struct.lstopo_color, ptr %22, i32 0, i32 5
-  store ptr null, ptr %147, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 4), ptr align 8 %22, i64 32, i1 false)
-  %148 = getelementptr inbounds %struct.lstopo_color, ptr %23, i32 0, i32 0
-  store i32 222, ptr %148, align 8
-  %149 = getelementptr inbounds %struct.lstopo_color, ptr %23, i32 0, i32 1
-  store i32 222, ptr %149, align 4
-  %150 = getelementptr inbounds %struct.lstopo_color, ptr %23, i32 0, i32 2
-  store i32 222, ptr %150, align 8
-  %151 = getelementptr inbounds %struct.lstopo_color, ptr %23, i32 0, i32 3
-  store i32 0, ptr %151, align 4
-  %152 = getelementptr inbounds %struct.lstopo_color, ptr %23, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %152, i8 0, i64 4, i1 false)
-  %153 = getelementptr inbounds %struct.lstopo_color, ptr %23, i32 0, i32 5
-  store ptr null, ptr %153, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 5), ptr align 8 %23, i64 32, i1 false)
-  %154 = getelementptr inbounds %struct.lstopo_color, ptr %24, i32 0, i32 0
-  store i32 222, ptr %154, align 8
-  %155 = getelementptr inbounds %struct.lstopo_color, ptr %24, i32 0, i32 1
-  store i32 222, ptr %155, align 4
-  %156 = getelementptr inbounds %struct.lstopo_color, ptr %24, i32 0, i32 2
-  store i32 222, ptr %156, align 8
-  %157 = getelementptr inbounds %struct.lstopo_color, ptr %24, i32 0, i32 3
-  store i32 0, ptr %157, align 4
-  %158 = getelementptr inbounds %struct.lstopo_color, ptr %24, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %158, i8 0, i64 4, i1 false)
-  %159 = getelementptr inbounds %struct.lstopo_color, ptr %24, i32 0, i32 5
-  store ptr null, ptr %159, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 6), ptr align 8 %24, i64 32, i1 false)
-  %160 = getelementptr inbounds %struct.lstopo_color, ptr %25, i32 0, i32 0
-  store i32 228, ptr %160, align 8
-  %161 = getelementptr inbounds %struct.lstopo_color, ptr %25, i32 0, i32 1
-  store i32 228, ptr %161, align 4
-  %162 = getelementptr inbounds %struct.lstopo_color, ptr %25, i32 0, i32 2
-  store i32 228, ptr %162, align 8
-  %163 = getelementptr inbounds %struct.lstopo_color, ptr %25, i32 0, i32 3
+  %160 = getelementptr inbounds %struct.lstopo_color, ptr %22, i32 0, i32 0
+  store i32 201, ptr %160, align 8
+  %161 = getelementptr inbounds %struct.lstopo_color, ptr %22, i32 0, i32 1
+  store i32 201, ptr %161, align 4
+  %162 = getelementptr inbounds %struct.lstopo_color, ptr %22, i32 0, i32 2
+  store i32 201, ptr %162, align 8
+  %163 = getelementptr inbounds %struct.lstopo_color, ptr %22, i32 0, i32 3
   store i32 0, ptr %163, align 4
-  %164 = getelementptr inbounds %struct.lstopo_color, ptr %25, i32 0, i32 4
+  %164 = getelementptr inbounds %struct.lstopo_color, ptr %22, i32 0, i32 4
   call void @llvm.memset.p0.i64(ptr align 8 %164, i8 0, i64 4, i1 false)
-  %165 = getelementptr inbounds %struct.lstopo_color, ptr %25, i32 0, i32 5
+  %165 = getelementptr inbounds %struct.lstopo_color, ptr %22, i32 0, i32 5
   store ptr null, ptr %165, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 9), ptr align 8 %25, i64 32, i1 false)
-  %166 = getelementptr inbounds %struct.lstopo_color, ptr %26, i32 0, i32 0
-  store i32 232, ptr %166, align 8
-  %167 = getelementptr inbounds %struct.lstopo_color, ptr %26, i32 0, i32 1
-  store i32 232, ptr %167, align 4
-  %168 = getelementptr inbounds %struct.lstopo_color, ptr %26, i32 0, i32 2
-  store i32 232, ptr %168, align 8
-  %169 = getelementptr inbounds %struct.lstopo_color, ptr %26, i32 0, i32 3
-  store i32 0, ptr %169, align 4
-  %170 = getelementptr inbounds %struct.lstopo_color, ptr %26, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %170, i8 0, i64 4, i1 false)
-  %171 = getelementptr inbounds %struct.lstopo_color, ptr %26, i32 0, i32 5
-  store ptr null, ptr %171, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 10), ptr align 8 %26, i64 32, i1 false)
-  %172 = getelementptr inbounds %struct.lstopo_color, ptr %27, i32 0, i32 0
-  store i32 182, ptr %172, align 8
-  %173 = getelementptr inbounds %struct.lstopo_color, ptr %27, i32 0, i32 1
-  store i32 182, ptr %173, align 4
-  %174 = getelementptr inbounds %struct.lstopo_color, ptr %27, i32 0, i32 2
-  store i32 182, ptr %174, align 8
-  %175 = getelementptr inbounds %struct.lstopo_color, ptr %27, i32 0, i32 3
-  store i32 0, ptr %175, align 4
-  %176 = getelementptr inbounds %struct.lstopo_color, ptr %27, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %176, i8 0, i64 4, i1 false)
-  %177 = getelementptr inbounds %struct.lstopo_color, ptr %27, i32 0, i32 5
-  store ptr null, ptr %177, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 12), ptr align 8 %27, i64 32, i1 false)
-  %178 = getelementptr inbounds %struct.lstopo_color, ptr %28, i32 0, i32 0
-  store i32 187, ptr %178, align 8
-  %179 = getelementptr inbounds %struct.lstopo_color, ptr %28, i32 0, i32 1
-  store i32 187, ptr %179, align 4
-  %180 = getelementptr inbounds %struct.lstopo_color, ptr %28, i32 0, i32 2
-  store i32 187, ptr %180, align 8
-  %181 = getelementptr inbounds %struct.lstopo_color, ptr %28, i32 0, i32 3
-  store i32 0, ptr %181, align 4
-  %182 = getelementptr inbounds %struct.lstopo_color, ptr %28, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %182, i8 0, i64 4, i1 false)
-  %183 = getelementptr inbounds %struct.lstopo_color, ptr %28, i32 0, i32 5
-  store ptr null, ptr %183, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 16), ptr align 8 %28, i64 32, i1 false)
-  %184 = getelementptr inbounds %struct.lstopo_color, ptr %29, i32 0, i32 0
-  store i32 119, ptr %184, align 8
-  %185 = getelementptr inbounds %struct.lstopo_color, ptr %29, i32 0, i32 1
-  store i32 119, ptr %185, align 4
-  %186 = getelementptr inbounds %struct.lstopo_color, ptr %29, i32 0, i32 2
-  store i32 119, ptr %186, align 8
-  %187 = getelementptr inbounds %struct.lstopo_color, ptr %29, i32 0, i32 3
-  store i32 0, ptr %187, align 4
-  %188 = getelementptr inbounds %struct.lstopo_color, ptr %29, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %188, i8 0, i64 4, i1 false)
-  %189 = getelementptr inbounds %struct.lstopo_color, ptr %29, i32 0, i32 5
-  store ptr null, ptr %189, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 17), ptr align 8 %29, i64 32, i1 false)
-  %190 = getelementptr inbounds %struct.lstopo_color, ptr %30, i32 0, i32 0
-  store i32 153, ptr %190, align 8
-  %191 = getelementptr inbounds %struct.lstopo_color, ptr %30, i32 0, i32 1
-  store i32 153, ptr %191, align 4
-  %192 = getelementptr inbounds %struct.lstopo_color, ptr %30, i32 0, i32 2
-  store i32 153, ptr %192, align 8
-  %193 = getelementptr inbounds %struct.lstopo_color, ptr %30, i32 0, i32 3
-  store i32 0, ptr %193, align 4
-  %194 = getelementptr inbounds %struct.lstopo_color, ptr %30, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %194, i8 0, i64 4, i1 false)
-  %195 = getelementptr inbounds %struct.lstopo_color, ptr %30, i32 0, i32 5
-  store ptr null, ptr %195, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 18), ptr align 8 %30, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @lstopo_white_palette, ptr align 8 @lstopo_main_palette, i64 608, i1 false)
-  %196 = getelementptr inbounds %struct.lstopo_color, ptr %31, i32 0, i32 0
-  store i32 255, ptr %196, align 8
-  %197 = getelementptr inbounds %struct.lstopo_color, ptr %31, i32 0, i32 1
-  store i32 255, ptr %197, align 4
-  %198 = getelementptr inbounds %struct.lstopo_color, ptr %31, i32 0, i32 2
-  store i32 255, ptr %198, align 8
-  %199 = getelementptr inbounds %struct.lstopo_color, ptr %31, i32 0, i32 3
-  store i32 0, ptr %199, align 4
-  %200 = getelementptr inbounds %struct.lstopo_color, ptr %31, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %200, i8 0, i64 4, i1 false)
-  %201 = getelementptr inbounds %struct.lstopo_color, ptr %31, i32 0, i32 5
-  store ptr null, ptr %201, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 2), ptr align 8 %31, i64 32, i1 false)
-  %202 = getelementptr inbounds %struct.lstopo_color, ptr %32, i32 0, i32 0
-  store i32 255, ptr %202, align 8
-  %203 = getelementptr inbounds %struct.lstopo_color, ptr %32, i32 0, i32 1
-  store i32 255, ptr %203, align 4
-  %204 = getelementptr inbounds %struct.lstopo_color, ptr %32, i32 0, i32 2
-  store i32 255, ptr %204, align 8
-  %205 = getelementptr inbounds %struct.lstopo_color, ptr %32, i32 0, i32 3
+  %166 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %166, ptr align 8 %22, i64 32, i1 false)
+  %167 = getelementptr inbounds %struct.lstopo_color, ptr %23, i32 0, i32 0
+  store i32 222, ptr %167, align 8
+  %168 = getelementptr inbounds %struct.lstopo_color, ptr %23, i32 0, i32 1
+  store i32 222, ptr %168, align 4
+  %169 = getelementptr inbounds %struct.lstopo_color, ptr %23, i32 0, i32 2
+  store i32 222, ptr %169, align 8
+  %170 = getelementptr inbounds %struct.lstopo_color, ptr %23, i32 0, i32 3
+  store i32 0, ptr %170, align 4
+  %171 = getelementptr inbounds %struct.lstopo_color, ptr %23, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %171, i8 0, i64 4, i1 false)
+  %172 = getelementptr inbounds %struct.lstopo_color, ptr %23, i32 0, i32 5
+  store ptr null, ptr %172, align 8
+  %173 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %173, ptr align 8 %23, i64 32, i1 false)
+  %174 = getelementptr inbounds %struct.lstopo_color, ptr %24, i32 0, i32 0
+  store i32 222, ptr %174, align 8
+  %175 = getelementptr inbounds %struct.lstopo_color, ptr %24, i32 0, i32 1
+  store i32 222, ptr %175, align 4
+  %176 = getelementptr inbounds %struct.lstopo_color, ptr %24, i32 0, i32 2
+  store i32 222, ptr %176, align 8
+  %177 = getelementptr inbounds %struct.lstopo_color, ptr %24, i32 0, i32 3
+  store i32 0, ptr %177, align 4
+  %178 = getelementptr inbounds %struct.lstopo_color, ptr %24, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %178, i8 0, i64 4, i1 false)
+  %179 = getelementptr inbounds %struct.lstopo_color, ptr %24, i32 0, i32 5
+  store ptr null, ptr %179, align 8
+  %180 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %180, ptr align 8 %24, i64 32, i1 false)
+  %181 = getelementptr inbounds %struct.lstopo_color, ptr %25, i32 0, i32 0
+  store i32 228, ptr %181, align 8
+  %182 = getelementptr inbounds %struct.lstopo_color, ptr %25, i32 0, i32 1
+  store i32 228, ptr %182, align 4
+  %183 = getelementptr inbounds %struct.lstopo_color, ptr %25, i32 0, i32 2
+  store i32 228, ptr %183, align 8
+  %184 = getelementptr inbounds %struct.lstopo_color, ptr %25, i32 0, i32 3
+  store i32 0, ptr %184, align 4
+  %185 = getelementptr inbounds %struct.lstopo_color, ptr %25, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %185, i8 0, i64 4, i1 false)
+  %186 = getelementptr inbounds %struct.lstopo_color, ptr %25, i32 0, i32 5
+  store ptr null, ptr %186, align 8
+  %187 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %187, ptr align 8 %25, i64 32, i1 false)
+  %188 = getelementptr inbounds %struct.lstopo_color, ptr %26, i32 0, i32 0
+  store i32 232, ptr %188, align 8
+  %189 = getelementptr inbounds %struct.lstopo_color, ptr %26, i32 0, i32 1
+  store i32 232, ptr %189, align 4
+  %190 = getelementptr inbounds %struct.lstopo_color, ptr %26, i32 0, i32 2
+  store i32 232, ptr %190, align 8
+  %191 = getelementptr inbounds %struct.lstopo_color, ptr %26, i32 0, i32 3
+  store i32 0, ptr %191, align 4
+  %192 = getelementptr inbounds %struct.lstopo_color, ptr %26, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %192, i8 0, i64 4, i1 false)
+  %193 = getelementptr inbounds %struct.lstopo_color, ptr %26, i32 0, i32 5
+  store ptr null, ptr %193, align 8
+  %194 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %194, ptr align 8 %26, i64 32, i1 false)
+  %195 = getelementptr inbounds %struct.lstopo_color, ptr %27, i32 0, i32 0
+  store i32 182, ptr %195, align 8
+  %196 = getelementptr inbounds %struct.lstopo_color, ptr %27, i32 0, i32 1
+  store i32 182, ptr %196, align 4
+  %197 = getelementptr inbounds %struct.lstopo_color, ptr %27, i32 0, i32 2
+  store i32 182, ptr %197, align 8
+  %198 = getelementptr inbounds %struct.lstopo_color, ptr %27, i32 0, i32 3
+  store i32 0, ptr %198, align 4
+  %199 = getelementptr inbounds %struct.lstopo_color, ptr %27, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %199, i8 0, i64 4, i1 false)
+  %200 = getelementptr inbounds %struct.lstopo_color, ptr %27, i32 0, i32 5
+  store ptr null, ptr %200, align 8
+  %201 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %201, ptr align 8 %27, i64 32, i1 false)
+  %202 = getelementptr inbounds %struct.lstopo_color, ptr %28, i32 0, i32 0
+  store i32 187, ptr %202, align 8
+  %203 = getelementptr inbounds %struct.lstopo_color, ptr %28, i32 0, i32 1
+  store i32 187, ptr %203, align 4
+  %204 = getelementptr inbounds %struct.lstopo_color, ptr %28, i32 0, i32 2
+  store i32 187, ptr %204, align 8
+  %205 = getelementptr inbounds %struct.lstopo_color, ptr %28, i32 0, i32 3
   store i32 0, ptr %205, align 4
-  %206 = getelementptr inbounds %struct.lstopo_color, ptr %32, i32 0, i32 4
+  %206 = getelementptr inbounds %struct.lstopo_color, ptr %28, i32 0, i32 4
   call void @llvm.memset.p0.i64(ptr align 8 %206, i8 0, i64 4, i1 false)
-  %207 = getelementptr inbounds %struct.lstopo_color, ptr %32, i32 0, i32 5
+  %207 = getelementptr inbounds %struct.lstopo_color, ptr %28, i32 0, i32 5
   store ptr null, ptr %207, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 3), ptr align 8 %32, i64 32, i1 false)
-  %208 = getelementptr inbounds %struct.lstopo_color, ptr %33, i32 0, i32 0
-  store i32 255, ptr %208, align 8
-  %209 = getelementptr inbounds %struct.lstopo_color, ptr %33, i32 0, i32 1
-  store i32 255, ptr %209, align 4
-  %210 = getelementptr inbounds %struct.lstopo_color, ptr %33, i32 0, i32 2
-  store i32 255, ptr %210, align 8
-  %211 = getelementptr inbounds %struct.lstopo_color, ptr %33, i32 0, i32 3
-  store i32 0, ptr %211, align 4
-  %212 = getelementptr inbounds %struct.lstopo_color, ptr %33, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %212, i8 0, i64 4, i1 false)
-  %213 = getelementptr inbounds %struct.lstopo_color, ptr %33, i32 0, i32 5
-  store ptr null, ptr %213, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 4), ptr align 8 %33, i64 32, i1 false)
-  %214 = getelementptr inbounds %struct.lstopo_color, ptr %34, i32 0, i32 0
-  store i32 255, ptr %214, align 8
-  %215 = getelementptr inbounds %struct.lstopo_color, ptr %34, i32 0, i32 1
-  store i32 255, ptr %215, align 4
-  %216 = getelementptr inbounds %struct.lstopo_color, ptr %34, i32 0, i32 2
-  store i32 255, ptr %216, align 8
-  %217 = getelementptr inbounds %struct.lstopo_color, ptr %34, i32 0, i32 3
-  store i32 0, ptr %217, align 4
-  %218 = getelementptr inbounds %struct.lstopo_color, ptr %34, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %218, i8 0, i64 4, i1 false)
-  %219 = getelementptr inbounds %struct.lstopo_color, ptr %34, i32 0, i32 5
-  store ptr null, ptr %219, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 5), ptr align 8 %34, i64 32, i1 false)
-  %220 = getelementptr inbounds %struct.lstopo_color, ptr %35, i32 0, i32 0
-  store i32 255, ptr %220, align 8
-  %221 = getelementptr inbounds %struct.lstopo_color, ptr %35, i32 0, i32 1
-  store i32 255, ptr %221, align 4
-  %222 = getelementptr inbounds %struct.lstopo_color, ptr %35, i32 0, i32 2
-  store i32 255, ptr %222, align 8
-  %223 = getelementptr inbounds %struct.lstopo_color, ptr %35, i32 0, i32 3
-  store i32 0, ptr %223, align 4
-  %224 = getelementptr inbounds %struct.lstopo_color, ptr %35, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %224, i8 0, i64 4, i1 false)
-  %225 = getelementptr inbounds %struct.lstopo_color, ptr %35, i32 0, i32 5
-  store ptr null, ptr %225, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 6), ptr align 8 %35, i64 32, i1 false)
-  %226 = getelementptr inbounds %struct.lstopo_color, ptr %36, i32 0, i32 0
-  store i32 255, ptr %226, align 8
-  %227 = getelementptr inbounds %struct.lstopo_color, ptr %36, i32 0, i32 1
-  store i32 255, ptr %227, align 4
-  %228 = getelementptr inbounds %struct.lstopo_color, ptr %36, i32 0, i32 2
-  store i32 255, ptr %228, align 8
-  %229 = getelementptr inbounds %struct.lstopo_color, ptr %36, i32 0, i32 3
-  store i32 0, ptr %229, align 4
-  %230 = getelementptr inbounds %struct.lstopo_color, ptr %36, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %230, i8 0, i64 4, i1 false)
-  %231 = getelementptr inbounds %struct.lstopo_color, ptr %36, i32 0, i32 5
-  store ptr null, ptr %231, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 7), ptr align 8 %36, i64 32, i1 false)
-  %232 = getelementptr inbounds %struct.lstopo_color, ptr %37, i32 0, i32 0
+  %208 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %208, ptr align 8 %28, i64 32, i1 false)
+  %209 = getelementptr inbounds %struct.lstopo_color, ptr %29, i32 0, i32 0
+  store i32 119, ptr %209, align 8
+  %210 = getelementptr inbounds %struct.lstopo_color, ptr %29, i32 0, i32 1
+  store i32 119, ptr %210, align 4
+  %211 = getelementptr inbounds %struct.lstopo_color, ptr %29, i32 0, i32 2
+  store i32 119, ptr %211, align 8
+  %212 = getelementptr inbounds %struct.lstopo_color, ptr %29, i32 0, i32 3
+  store i32 0, ptr %212, align 4
+  %213 = getelementptr inbounds %struct.lstopo_color, ptr %29, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %213, i8 0, i64 4, i1 false)
+  %214 = getelementptr inbounds %struct.lstopo_color, ptr %29, i32 0, i32 5
+  store ptr null, ptr %214, align 8
+  %215 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %215, ptr align 8 %29, i64 32, i1 false)
+  %216 = getelementptr inbounds %struct.lstopo_color, ptr %30, i32 0, i32 0
+  store i32 153, ptr %216, align 8
+  %217 = getelementptr inbounds %struct.lstopo_color, ptr %30, i32 0, i32 1
+  store i32 153, ptr %217, align 4
+  %218 = getelementptr inbounds %struct.lstopo_color, ptr %30, i32 0, i32 2
+  store i32 153, ptr %218, align 8
+  %219 = getelementptr inbounds %struct.lstopo_color, ptr %30, i32 0, i32 3
+  store i32 0, ptr %219, align 4
+  %220 = getelementptr inbounds %struct.lstopo_color, ptr %30, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %220, i8 0, i64 4, i1 false)
+  %221 = getelementptr inbounds %struct.lstopo_color, ptr %30, i32 0, i32 5
+  store ptr null, ptr %221, align 8
+  %222 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_grey_palette, i32 0, i32 18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %222, ptr align 8 %30, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @lstopo_white_palette, ptr align 8 @lstopo_main_palette, i64 608, i1 false)
+  %223 = getelementptr inbounds %struct.lstopo_color, ptr %31, i32 0, i32 0
+  store i32 255, ptr %223, align 8
+  %224 = getelementptr inbounds %struct.lstopo_color, ptr %31, i32 0, i32 1
+  store i32 255, ptr %224, align 4
+  %225 = getelementptr inbounds %struct.lstopo_color, ptr %31, i32 0, i32 2
+  store i32 255, ptr %225, align 8
+  %226 = getelementptr inbounds %struct.lstopo_color, ptr %31, i32 0, i32 3
+  store i32 0, ptr %226, align 4
+  %227 = getelementptr inbounds %struct.lstopo_color, ptr %31, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %227, i8 0, i64 4, i1 false)
+  %228 = getelementptr inbounds %struct.lstopo_color, ptr %31, i32 0, i32 5
+  store ptr null, ptr %228, align 8
+  %229 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %229, ptr align 8 %31, i64 32, i1 false)
+  %230 = getelementptr inbounds %struct.lstopo_color, ptr %32, i32 0, i32 0
+  store i32 255, ptr %230, align 8
+  %231 = getelementptr inbounds %struct.lstopo_color, ptr %32, i32 0, i32 1
+  store i32 255, ptr %231, align 4
+  %232 = getelementptr inbounds %struct.lstopo_color, ptr %32, i32 0, i32 2
   store i32 255, ptr %232, align 8
-  %233 = getelementptr inbounds %struct.lstopo_color, ptr %37, i32 0, i32 1
-  store i32 255, ptr %233, align 4
-  %234 = getelementptr inbounds %struct.lstopo_color, ptr %37, i32 0, i32 2
-  store i32 255, ptr %234, align 8
-  %235 = getelementptr inbounds %struct.lstopo_color, ptr %37, i32 0, i32 3
-  store i32 0, ptr %235, align 4
-  %236 = getelementptr inbounds %struct.lstopo_color, ptr %37, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %236, i8 0, i64 4, i1 false)
-  %237 = getelementptr inbounds %struct.lstopo_color, ptr %37, i32 0, i32 5
-  store ptr null, ptr %237, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 8), ptr align 8 %37, i64 32, i1 false)
-  %238 = getelementptr inbounds %struct.lstopo_color, ptr %38, i32 0, i32 0
-  store i32 255, ptr %238, align 8
-  %239 = getelementptr inbounds %struct.lstopo_color, ptr %38, i32 0, i32 1
-  store i32 255, ptr %239, align 4
-  %240 = getelementptr inbounds %struct.lstopo_color, ptr %38, i32 0, i32 2
-  store i32 255, ptr %240, align 8
-  %241 = getelementptr inbounds %struct.lstopo_color, ptr %38, i32 0, i32 3
-  store i32 0, ptr %241, align 4
-  %242 = getelementptr inbounds %struct.lstopo_color, ptr %38, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %242, i8 0, i64 4, i1 false)
-  %243 = getelementptr inbounds %struct.lstopo_color, ptr %38, i32 0, i32 5
-  store ptr null, ptr %243, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 9), ptr align 8 %38, i64 32, i1 false)
-  %244 = getelementptr inbounds %struct.lstopo_color, ptr %39, i32 0, i32 0
+  %233 = getelementptr inbounds %struct.lstopo_color, ptr %32, i32 0, i32 3
+  store i32 0, ptr %233, align 4
+  %234 = getelementptr inbounds %struct.lstopo_color, ptr %32, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %234, i8 0, i64 4, i1 false)
+  %235 = getelementptr inbounds %struct.lstopo_color, ptr %32, i32 0, i32 5
+  store ptr null, ptr %235, align 8
+  %236 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %236, ptr align 8 %32, i64 32, i1 false)
+  %237 = getelementptr inbounds %struct.lstopo_color, ptr %33, i32 0, i32 0
+  store i32 255, ptr %237, align 8
+  %238 = getelementptr inbounds %struct.lstopo_color, ptr %33, i32 0, i32 1
+  store i32 255, ptr %238, align 4
+  %239 = getelementptr inbounds %struct.lstopo_color, ptr %33, i32 0, i32 2
+  store i32 255, ptr %239, align 8
+  %240 = getelementptr inbounds %struct.lstopo_color, ptr %33, i32 0, i32 3
+  store i32 0, ptr %240, align 4
+  %241 = getelementptr inbounds %struct.lstopo_color, ptr %33, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %241, i8 0, i64 4, i1 false)
+  %242 = getelementptr inbounds %struct.lstopo_color, ptr %33, i32 0, i32 5
+  store ptr null, ptr %242, align 8
+  %243 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %243, ptr align 8 %33, i64 32, i1 false)
+  %244 = getelementptr inbounds %struct.lstopo_color, ptr %34, i32 0, i32 0
   store i32 255, ptr %244, align 8
-  %245 = getelementptr inbounds %struct.lstopo_color, ptr %39, i32 0, i32 1
+  %245 = getelementptr inbounds %struct.lstopo_color, ptr %34, i32 0, i32 1
   store i32 255, ptr %245, align 4
-  %246 = getelementptr inbounds %struct.lstopo_color, ptr %39, i32 0, i32 2
+  %246 = getelementptr inbounds %struct.lstopo_color, ptr %34, i32 0, i32 2
   store i32 255, ptr %246, align 8
-  %247 = getelementptr inbounds %struct.lstopo_color, ptr %39, i32 0, i32 3
+  %247 = getelementptr inbounds %struct.lstopo_color, ptr %34, i32 0, i32 3
   store i32 0, ptr %247, align 4
-  %248 = getelementptr inbounds %struct.lstopo_color, ptr %39, i32 0, i32 4
+  %248 = getelementptr inbounds %struct.lstopo_color, ptr %34, i32 0, i32 4
   call void @llvm.memset.p0.i64(ptr align 8 %248, i8 0, i64 4, i1 false)
-  %249 = getelementptr inbounds %struct.lstopo_color, ptr %39, i32 0, i32 5
+  %249 = getelementptr inbounds %struct.lstopo_color, ptr %34, i32 0, i32 5
   store ptr null, ptr %249, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 10), ptr align 8 %39, i64 32, i1 false)
-  %250 = getelementptr inbounds %struct.lstopo_color, ptr %40, i32 0, i32 0
-  store i32 255, ptr %250, align 8
-  %251 = getelementptr inbounds %struct.lstopo_color, ptr %40, i32 0, i32 1
-  store i32 255, ptr %251, align 4
-  %252 = getelementptr inbounds %struct.lstopo_color, ptr %40, i32 0, i32 2
-  store i32 255, ptr %252, align 8
-  %253 = getelementptr inbounds %struct.lstopo_color, ptr %40, i32 0, i32 3
-  store i32 0, ptr %253, align 4
-  %254 = getelementptr inbounds %struct.lstopo_color, ptr %40, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %254, i8 0, i64 4, i1 false)
-  %255 = getelementptr inbounds %struct.lstopo_color, ptr %40, i32 0, i32 5
-  store ptr null, ptr %255, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 11), ptr align 8 %40, i64 32, i1 false)
-  %256 = getelementptr inbounds %struct.lstopo_color, ptr %41, i32 0, i32 0
-  store i32 255, ptr %256, align 8
-  %257 = getelementptr inbounds %struct.lstopo_color, ptr %41, i32 0, i32 1
-  store i32 255, ptr %257, align 4
-  %258 = getelementptr inbounds %struct.lstopo_color, ptr %41, i32 0, i32 2
+  %250 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %250, ptr align 8 %34, i64 32, i1 false)
+  %251 = getelementptr inbounds %struct.lstopo_color, ptr %35, i32 0, i32 0
+  store i32 255, ptr %251, align 8
+  %252 = getelementptr inbounds %struct.lstopo_color, ptr %35, i32 0, i32 1
+  store i32 255, ptr %252, align 4
+  %253 = getelementptr inbounds %struct.lstopo_color, ptr %35, i32 0, i32 2
+  store i32 255, ptr %253, align 8
+  %254 = getelementptr inbounds %struct.lstopo_color, ptr %35, i32 0, i32 3
+  store i32 0, ptr %254, align 4
+  %255 = getelementptr inbounds %struct.lstopo_color, ptr %35, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %255, i8 0, i64 4, i1 false)
+  %256 = getelementptr inbounds %struct.lstopo_color, ptr %35, i32 0, i32 5
+  store ptr null, ptr %256, align 8
+  %257 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %257, ptr align 8 %35, i64 32, i1 false)
+  %258 = getelementptr inbounds %struct.lstopo_color, ptr %36, i32 0, i32 0
   store i32 255, ptr %258, align 8
-  %259 = getelementptr inbounds %struct.lstopo_color, ptr %41, i32 0, i32 3
-  store i32 0, ptr %259, align 4
-  %260 = getelementptr inbounds %struct.lstopo_color, ptr %41, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %260, i8 0, i64 4, i1 false)
-  %261 = getelementptr inbounds %struct.lstopo_color, ptr %41, i32 0, i32 5
-  store ptr null, ptr %261, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 12), ptr align 8 %41, i64 32, i1 false)
-  %262 = getelementptr inbounds %struct.lstopo_color, ptr %42, i32 0, i32 0
-  store i32 255, ptr %262, align 8
-  %263 = getelementptr inbounds %struct.lstopo_color, ptr %42, i32 0, i32 1
-  store i32 255, ptr %263, align 4
-  %264 = getelementptr inbounds %struct.lstopo_color, ptr %42, i32 0, i32 2
-  store i32 255, ptr %264, align 8
-  %265 = getelementptr inbounds %struct.lstopo_color, ptr %42, i32 0, i32 3
-  store i32 0, ptr %265, align 4
-  %266 = getelementptr inbounds %struct.lstopo_color, ptr %42, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %266, i8 0, i64 4, i1 false)
-  %267 = getelementptr inbounds %struct.lstopo_color, ptr %42, i32 0, i32 5
-  store ptr null, ptr %267, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 13), ptr align 8 %42, i64 32, i1 false)
-  %268 = getelementptr inbounds %struct.lstopo_color, ptr %43, i32 0, i32 0
-  store i32 255, ptr %268, align 8
-  %269 = getelementptr inbounds %struct.lstopo_color, ptr %43, i32 0, i32 1
-  store i32 255, ptr %269, align 4
-  %270 = getelementptr inbounds %struct.lstopo_color, ptr %43, i32 0, i32 2
-  store i32 255, ptr %270, align 8
-  %271 = getelementptr inbounds %struct.lstopo_color, ptr %43, i32 0, i32 3
-  store i32 0, ptr %271, align 4
-  %272 = getelementptr inbounds %struct.lstopo_color, ptr %43, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %272, i8 0, i64 4, i1 false)
-  %273 = getelementptr inbounds %struct.lstopo_color, ptr %43, i32 0, i32 5
-  store ptr null, ptr %273, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 14), ptr align 8 %43, i64 32, i1 false)
-  %274 = getelementptr inbounds %struct.lstopo_color, ptr %44, i32 0, i32 0
+  %259 = getelementptr inbounds %struct.lstopo_color, ptr %36, i32 0, i32 1
+  store i32 255, ptr %259, align 4
+  %260 = getelementptr inbounds %struct.lstopo_color, ptr %36, i32 0, i32 2
+  store i32 255, ptr %260, align 8
+  %261 = getelementptr inbounds %struct.lstopo_color, ptr %36, i32 0, i32 3
+  store i32 0, ptr %261, align 4
+  %262 = getelementptr inbounds %struct.lstopo_color, ptr %36, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %262, i8 0, i64 4, i1 false)
+  %263 = getelementptr inbounds %struct.lstopo_color, ptr %36, i32 0, i32 5
+  store ptr null, ptr %263, align 8
+  %264 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %264, ptr align 8 %36, i64 32, i1 false)
+  %265 = getelementptr inbounds %struct.lstopo_color, ptr %37, i32 0, i32 0
+  store i32 255, ptr %265, align 8
+  %266 = getelementptr inbounds %struct.lstopo_color, ptr %37, i32 0, i32 1
+  store i32 255, ptr %266, align 4
+  %267 = getelementptr inbounds %struct.lstopo_color, ptr %37, i32 0, i32 2
+  store i32 255, ptr %267, align 8
+  %268 = getelementptr inbounds %struct.lstopo_color, ptr %37, i32 0, i32 3
+  store i32 0, ptr %268, align 4
+  %269 = getelementptr inbounds %struct.lstopo_color, ptr %37, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %269, i8 0, i64 4, i1 false)
+  %270 = getelementptr inbounds %struct.lstopo_color, ptr %37, i32 0, i32 5
+  store ptr null, ptr %270, align 8
+  %271 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %271, ptr align 8 %37, i64 32, i1 false)
+  %272 = getelementptr inbounds %struct.lstopo_color, ptr %38, i32 0, i32 0
+  store i32 255, ptr %272, align 8
+  %273 = getelementptr inbounds %struct.lstopo_color, ptr %38, i32 0, i32 1
+  store i32 255, ptr %273, align 4
+  %274 = getelementptr inbounds %struct.lstopo_color, ptr %38, i32 0, i32 2
   store i32 255, ptr %274, align 8
-  %275 = getelementptr inbounds %struct.lstopo_color, ptr %44, i32 0, i32 1
-  store i32 255, ptr %275, align 4
-  %276 = getelementptr inbounds %struct.lstopo_color, ptr %44, i32 0, i32 2
-  store i32 255, ptr %276, align 8
-  %277 = getelementptr inbounds %struct.lstopo_color, ptr %44, i32 0, i32 3
-  store i32 0, ptr %277, align 4
-  %278 = getelementptr inbounds %struct.lstopo_color, ptr %44, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %278, i8 0, i64 4, i1 false)
-  %279 = getelementptr inbounds %struct.lstopo_color, ptr %44, i32 0, i32 5
-  store ptr null, ptr %279, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 15), ptr align 8 %44, i64 32, i1 false)
-  %280 = getelementptr inbounds %struct.lstopo_color, ptr %45, i32 0, i32 0
-  store i32 255, ptr %280, align 8
-  %281 = getelementptr inbounds %struct.lstopo_color, ptr %45, i32 0, i32 1
-  store i32 255, ptr %281, align 4
-  %282 = getelementptr inbounds %struct.lstopo_color, ptr %45, i32 0, i32 2
-  store i32 255, ptr %282, align 8
-  %283 = getelementptr inbounds %struct.lstopo_color, ptr %45, i32 0, i32 3
-  store i32 0, ptr %283, align 4
-  %284 = getelementptr inbounds %struct.lstopo_color, ptr %45, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %284, i8 0, i64 4, i1 false)
-  %285 = getelementptr inbounds %struct.lstopo_color, ptr %45, i32 0, i32 5
-  store ptr null, ptr %285, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 16), ptr align 8 %45, i64 32, i1 false)
-  %286 = getelementptr inbounds %struct.lstopo_color, ptr %46, i32 0, i32 0
+  %275 = getelementptr inbounds %struct.lstopo_color, ptr %38, i32 0, i32 3
+  store i32 0, ptr %275, align 4
+  %276 = getelementptr inbounds %struct.lstopo_color, ptr %38, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %276, i8 0, i64 4, i1 false)
+  %277 = getelementptr inbounds %struct.lstopo_color, ptr %38, i32 0, i32 5
+  store ptr null, ptr %277, align 8
+  %278 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %278, ptr align 8 %38, i64 32, i1 false)
+  %279 = getelementptr inbounds %struct.lstopo_color, ptr %39, i32 0, i32 0
+  store i32 255, ptr %279, align 8
+  %280 = getelementptr inbounds %struct.lstopo_color, ptr %39, i32 0, i32 1
+  store i32 255, ptr %280, align 4
+  %281 = getelementptr inbounds %struct.lstopo_color, ptr %39, i32 0, i32 2
+  store i32 255, ptr %281, align 8
+  %282 = getelementptr inbounds %struct.lstopo_color, ptr %39, i32 0, i32 3
+  store i32 0, ptr %282, align 4
+  %283 = getelementptr inbounds %struct.lstopo_color, ptr %39, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %283, i8 0, i64 4, i1 false)
+  %284 = getelementptr inbounds %struct.lstopo_color, ptr %39, i32 0, i32 5
+  store ptr null, ptr %284, align 8
+  %285 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %285, ptr align 8 %39, i64 32, i1 false)
+  %286 = getelementptr inbounds %struct.lstopo_color, ptr %40, i32 0, i32 0
   store i32 255, ptr %286, align 8
-  %287 = getelementptr inbounds %struct.lstopo_color, ptr %46, i32 0, i32 1
+  %287 = getelementptr inbounds %struct.lstopo_color, ptr %40, i32 0, i32 1
   store i32 255, ptr %287, align 4
-  %288 = getelementptr inbounds %struct.lstopo_color, ptr %46, i32 0, i32 2
+  %288 = getelementptr inbounds %struct.lstopo_color, ptr %40, i32 0, i32 2
   store i32 255, ptr %288, align 8
-  %289 = getelementptr inbounds %struct.lstopo_color, ptr %46, i32 0, i32 3
+  %289 = getelementptr inbounds %struct.lstopo_color, ptr %40, i32 0, i32 3
   store i32 0, ptr %289, align 4
-  %290 = getelementptr inbounds %struct.lstopo_color, ptr %46, i32 0, i32 4
+  %290 = getelementptr inbounds %struct.lstopo_color, ptr %40, i32 0, i32 4
   call void @llvm.memset.p0.i64(ptr align 8 %290, i8 0, i64 4, i1 false)
-  %291 = getelementptr inbounds %struct.lstopo_color, ptr %46, i32 0, i32 5
+  %291 = getelementptr inbounds %struct.lstopo_color, ptr %40, i32 0, i32 5
   store ptr null, ptr %291, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 17), ptr align 8 %46, i64 32, i1 false)
-  %292 = getelementptr inbounds %struct.lstopo_color, ptr %47, i32 0, i32 0
-  store i32 255, ptr %292, align 8
-  %293 = getelementptr inbounds %struct.lstopo_color, ptr %47, i32 0, i32 1
-  store i32 255, ptr %293, align 4
-  %294 = getelementptr inbounds %struct.lstopo_color, ptr %47, i32 0, i32 2
-  store i32 255, ptr %294, align 8
-  %295 = getelementptr inbounds %struct.lstopo_color, ptr %47, i32 0, i32 3
-  store i32 0, ptr %295, align 4
-  %296 = getelementptr inbounds %struct.lstopo_color, ptr %47, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %296, i8 0, i64 4, i1 false)
-  %297 = getelementptr inbounds %struct.lstopo_color, ptr %47, i32 0, i32 5
-  store ptr null, ptr %297, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 18), ptr align 8 %47, i64 32, i1 false)
-  %298 = load ptr, ptr %2, align 8
-  %299 = getelementptr inbounds %struct.lstopo_output, ptr %298, i32 0, i32 62
-  store ptr @lstopo_main_palette, ptr %299, align 8
+  %292 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %292, ptr align 8 %40, i64 32, i1 false)
+  %293 = getelementptr inbounds %struct.lstopo_color, ptr %41, i32 0, i32 0
+  store i32 255, ptr %293, align 8
+  %294 = getelementptr inbounds %struct.lstopo_color, ptr %41, i32 0, i32 1
+  store i32 255, ptr %294, align 4
+  %295 = getelementptr inbounds %struct.lstopo_color, ptr %41, i32 0, i32 2
+  store i32 255, ptr %295, align 8
+  %296 = getelementptr inbounds %struct.lstopo_color, ptr %41, i32 0, i32 3
+  store i32 0, ptr %296, align 4
+  %297 = getelementptr inbounds %struct.lstopo_color, ptr %41, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %297, i8 0, i64 4, i1 false)
+  %298 = getelementptr inbounds %struct.lstopo_color, ptr %41, i32 0, i32 5
+  store ptr null, ptr %298, align 8
+  %299 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %299, ptr align 8 %41, i64 32, i1 false)
+  %300 = getelementptr inbounds %struct.lstopo_color, ptr %42, i32 0, i32 0
+  store i32 255, ptr %300, align 8
+  %301 = getelementptr inbounds %struct.lstopo_color, ptr %42, i32 0, i32 1
+  store i32 255, ptr %301, align 4
+  %302 = getelementptr inbounds %struct.lstopo_color, ptr %42, i32 0, i32 2
+  store i32 255, ptr %302, align 8
+  %303 = getelementptr inbounds %struct.lstopo_color, ptr %42, i32 0, i32 3
+  store i32 0, ptr %303, align 4
+  %304 = getelementptr inbounds %struct.lstopo_color, ptr %42, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %304, i8 0, i64 4, i1 false)
+  %305 = getelementptr inbounds %struct.lstopo_color, ptr %42, i32 0, i32 5
+  store ptr null, ptr %305, align 8
+  %306 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %306, ptr align 8 %42, i64 32, i1 false)
+  %307 = getelementptr inbounds %struct.lstopo_color, ptr %43, i32 0, i32 0
+  store i32 255, ptr %307, align 8
+  %308 = getelementptr inbounds %struct.lstopo_color, ptr %43, i32 0, i32 1
+  store i32 255, ptr %308, align 4
+  %309 = getelementptr inbounds %struct.lstopo_color, ptr %43, i32 0, i32 2
+  store i32 255, ptr %309, align 8
+  %310 = getelementptr inbounds %struct.lstopo_color, ptr %43, i32 0, i32 3
+  store i32 0, ptr %310, align 4
+  %311 = getelementptr inbounds %struct.lstopo_color, ptr %43, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %311, i8 0, i64 4, i1 false)
+  %312 = getelementptr inbounds %struct.lstopo_color, ptr %43, i32 0, i32 5
+  store ptr null, ptr %312, align 8
+  %313 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 14
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %313, ptr align 8 %43, i64 32, i1 false)
+  %314 = getelementptr inbounds %struct.lstopo_color, ptr %44, i32 0, i32 0
+  store i32 255, ptr %314, align 8
+  %315 = getelementptr inbounds %struct.lstopo_color, ptr %44, i32 0, i32 1
+  store i32 255, ptr %315, align 4
+  %316 = getelementptr inbounds %struct.lstopo_color, ptr %44, i32 0, i32 2
+  store i32 255, ptr %316, align 8
+  %317 = getelementptr inbounds %struct.lstopo_color, ptr %44, i32 0, i32 3
+  store i32 0, ptr %317, align 4
+  %318 = getelementptr inbounds %struct.lstopo_color, ptr %44, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %318, i8 0, i64 4, i1 false)
+  %319 = getelementptr inbounds %struct.lstopo_color, ptr %44, i32 0, i32 5
+  store ptr null, ptr %319, align 8
+  %320 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 15
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %320, ptr align 8 %44, i64 32, i1 false)
+  %321 = getelementptr inbounds %struct.lstopo_color, ptr %45, i32 0, i32 0
+  store i32 255, ptr %321, align 8
+  %322 = getelementptr inbounds %struct.lstopo_color, ptr %45, i32 0, i32 1
+  store i32 255, ptr %322, align 4
+  %323 = getelementptr inbounds %struct.lstopo_color, ptr %45, i32 0, i32 2
+  store i32 255, ptr %323, align 8
+  %324 = getelementptr inbounds %struct.lstopo_color, ptr %45, i32 0, i32 3
+  store i32 0, ptr %324, align 4
+  %325 = getelementptr inbounds %struct.lstopo_color, ptr %45, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %325, i8 0, i64 4, i1 false)
+  %326 = getelementptr inbounds %struct.lstopo_color, ptr %45, i32 0, i32 5
+  store ptr null, ptr %326, align 8
+  %327 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %327, ptr align 8 %45, i64 32, i1 false)
+  %328 = getelementptr inbounds %struct.lstopo_color, ptr %46, i32 0, i32 0
+  store i32 255, ptr %328, align 8
+  %329 = getelementptr inbounds %struct.lstopo_color, ptr %46, i32 0, i32 1
+  store i32 255, ptr %329, align 4
+  %330 = getelementptr inbounds %struct.lstopo_color, ptr %46, i32 0, i32 2
+  store i32 255, ptr %330, align 8
+  %331 = getelementptr inbounds %struct.lstopo_color, ptr %46, i32 0, i32 3
+  store i32 0, ptr %331, align 4
+  %332 = getelementptr inbounds %struct.lstopo_color, ptr %46, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %332, i8 0, i64 4, i1 false)
+  %333 = getelementptr inbounds %struct.lstopo_color, ptr %46, i32 0, i32 5
+  store ptr null, ptr %333, align 8
+  %334 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %334, ptr align 8 %46, i64 32, i1 false)
+  %335 = getelementptr inbounds %struct.lstopo_color, ptr %47, i32 0, i32 0
+  store i32 255, ptr %335, align 8
+  %336 = getelementptr inbounds %struct.lstopo_color, ptr %47, i32 0, i32 1
+  store i32 255, ptr %336, align 4
+  %337 = getelementptr inbounds %struct.lstopo_color, ptr %47, i32 0, i32 2
+  store i32 255, ptr %337, align 8
+  %338 = getelementptr inbounds %struct.lstopo_color, ptr %47, i32 0, i32 3
+  store i32 0, ptr %338, align 4
+  %339 = getelementptr inbounds %struct.lstopo_color, ptr %47, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %339, i8 0, i64 4, i1 false)
+  %340 = getelementptr inbounds %struct.lstopo_color, ptr %47, i32 0, i32 5
+  store ptr null, ptr %340, align 8
+  %341 = getelementptr inbounds %struct.lstopo_color_palette, ptr @lstopo_white_palette, i32 0, i32 18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %341, ptr align 8 %47, i64 32, i1 false)
+  %342 = load ptr, ptr %2, align 8
+  %343 = getelementptr inbounds %struct.lstopo_output, ptr %342, i32 0, i32 62
+  store ptr @lstopo_main_palette, ptr %343, align 8
   ret void
 }
 

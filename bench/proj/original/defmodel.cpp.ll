@@ -4116,9 +4116,10 @@ define hidden void @_ZN16DeformationModel9Component12TimeFunctionD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component12TimeFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.DeformationModel::Component::TimeFunction", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component12TimeFunctionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.DeformationModel::Component::TimeFunction", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
   ret void
 }
 
@@ -4956,7 +4957,7 @@ define hidden void @_ZN16DeformationModel10MasterFile5parseERKNSt7__cxx1112basic
 
 115:                                              ; preds = %111
   %116 = load i32, ptr %7, align 4
-  %117 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #5
+  %117 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #5
   %118 = icmp eq i32 %116, %117
   br i1 %118, label %119, label %675
 
@@ -6663,9 +6664,6 @@ define linkonce_odr hidden void @_ZNSt8functionIFbiN8nlohmann6detail13parse_even
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #10
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare ptr @__cxa_allocate_exception(i64)
@@ -6680,31 +6678,32 @@ define linkonce_odr hidden void @_ZN16DeformationModel16ParsingExceptionC2ERKNSt
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel16ParsingExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.DeformationModel::ParsingException", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel16ParsingExceptionE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.DeformationModel::ParsingException", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #5
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #5
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6712,9 +6711,10 @@ define linkonce_odr hidden void @_ZN16DeformationModel16ParsingExceptionD2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel16ParsingExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.DeformationModel::ParsingException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel16ParsingExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.DeformationModel::ParsingException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
   ret void
 }
@@ -6726,7 +6726,7 @@ declare void @__cxa_free_exception(ptr)
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #5
   call void @_ZSt9terminatev() #20
   unreachable
@@ -8212,7 +8212,7 @@ define internal void @_ZN16DeformationModelL15getObjectMemberERKN8nlohmann10basi
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN16DeformationModel5EpochaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #0 comdat align 2 {
@@ -10255,7 +10255,8 @@ define linkonce_odr hidden void @_ZN16DeformationModel9Component20ConstantTimeFu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16DeformationModel9Component12TimeFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component20ConstantTimeFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component20ConstantTimeFunctionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -10357,33 +10358,34 @@ define linkonce_odr hidden void @_ZN16DeformationModel9Component20VelocityTimeFu
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
   call void @_ZN16DeformationModel9Component12TimeFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component20VelocityTimeFunctionE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"struct.DeformationModel::Component::VelocityTimeFunction", ptr %6, i32 0, i32 1
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component20VelocityTimeFunctionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"struct.DeformationModel::Component::VelocityTimeFunction", ptr %6, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
-  invoke void @_ZN16DeformationModel5EpochC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %8 unwind label %9
+  invoke void @_ZN16DeformationModel5EpochC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %1
+9:                                                ; preds = %1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %4, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %5, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %4, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %5, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
   call void @_ZN16DeformationModel9Component12TimeFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #5
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %4, align 8
-  %15 = load i32, ptr %5, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %4, align 8
+  %16 = load i32, ptr %5, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10482,33 +10484,34 @@ define linkonce_odr hidden void @_ZN16DeformationModel9Component16StepTimeFuncti
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
   call void @_ZN16DeformationModel9Component12TimeFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component16StepTimeFunctionE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"struct.DeformationModel::Component::StepTimeFunction", ptr %6, i32 0, i32 1
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component16StepTimeFunctionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"struct.DeformationModel::Component::StepTimeFunction", ptr %6, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
-  invoke void @_ZN16DeformationModel5EpochC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %8 unwind label %9
+  invoke void @_ZN16DeformationModel5EpochC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %1
+9:                                                ; preds = %1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %4, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %5, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %4, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %5, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
   call void @_ZN16DeformationModel9Component12TimeFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #5
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %4, align 8
-  %15 = load i32, ptr %5, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %4, align 8
+  %16 = load i32, ptr %5, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10607,33 +10610,34 @@ define linkonce_odr hidden void @_ZN16DeformationModel9Component23ReverseStepTim
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
   call void @_ZN16DeformationModel9Component12TimeFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component23ReverseStepTimeFunctionE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"struct.DeformationModel::Component::ReverseStepTimeFunction", ptr %6, i32 0, i32 1
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component23ReverseStepTimeFunctionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"struct.DeformationModel::Component::ReverseStepTimeFunction", ptr %6, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
-  invoke void @_ZN16DeformationModel5EpochC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %8 unwind label %9
+  invoke void @_ZN16DeformationModel5EpochC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %1
+9:                                                ; preds = %1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %4, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %5, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %4, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %5, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
   call void @_ZN16DeformationModel9Component12TimeFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #5
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %4, align 8
-  %15 = load i32, ptr %5, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %4, align 8
+  %16 = load i32, ptr %5, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10729,14 +10733,15 @@ define linkonce_odr hidden void @_ZN16DeformationModel9Component21PiecewiseTimeF
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16DeformationModel9Component12TimeFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component21PiecewiseTimeFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.DeformationModel::Component::PiecewiseTimeFunction", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
-  %5 = getelementptr inbounds %"struct.DeformationModel::Component::PiecewiseTimeFunction", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component21PiecewiseTimeFunctionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.DeformationModel::Component::PiecewiseTimeFunction", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
-  %6 = getelementptr inbounds %"struct.DeformationModel::Component::PiecewiseTimeFunction", ptr %3, i32 0, i32 3
-  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorIN16DeformationModel9Component21PiecewiseTimeFunction21EpochScaleFactorTupleESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #5
+  %6 = getelementptr inbounds %"struct.DeformationModel::Component::PiecewiseTimeFunction", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #5
+  %7 = getelementptr inbounds %"struct.DeformationModel::Component::PiecewiseTimeFunction", ptr %3, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorIN16DeformationModel9Component21PiecewiseTimeFunction21EpochScaleFactorTupleESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #5
   ret void
 }
 
@@ -10942,66 +10947,67 @@ define linkonce_odr hidden void @_ZN16DeformationModel9Component23ExponentialTim
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
   call void @_ZN16DeformationModel9Component12TimeFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component23ExponentialTimeFunctionE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %7, i32 0, i32 1
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component23ExponentialTimeFunctionE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %7, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
-  invoke void @_ZN16DeformationModel5EpochC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %9 unwind label %20
+  invoke void @_ZN16DeformationModel5EpochC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %10 unwind label %21
 
-9:                                                ; preds = %1
+10:                                               ; preds = %1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
-  %10 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %7, i32 0, i32 2
+  %11 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %7, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #5
-  invoke void @_ZN16DeformationModel5EpochC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %11 unwind label %24
+  invoke void @_ZN16DeformationModel5EpochC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %12 unwind label %25
 
-11:                                               ; preds = %9
+12:                                               ; preds = %10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #5
-  %12 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %7, i32 0, i32 3
-  %13 = call noundef double @_ZNSt14numeric_limitsIdE9quiet_NaNEv() #5
-  store double %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %7, i32 0, i32 4
-  %15 = call noundef double @_ZNSt14numeric_limitsIdE9quiet_NaNEv() #5
-  store double %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %7, i32 0, i32 5
-  %17 = call noundef double @_ZNSt14numeric_limitsIdE9quiet_NaNEv() #5
-  store double %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %7, i32 0, i32 6
-  %19 = call noundef double @_ZNSt14numeric_limitsIdE9quiet_NaNEv() #5
-  store double %19, ptr %18, align 8
+  %13 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %7, i32 0, i32 3
+  %14 = call noundef double @_ZNSt14numeric_limitsIdE9quiet_NaNEv() #5
+  store double %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %7, i32 0, i32 4
+  %16 = call noundef double @_ZNSt14numeric_limitsIdE9quiet_NaNEv() #5
+  store double %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %7, i32 0, i32 5
+  %18 = call noundef double @_ZNSt14numeric_limitsIdE9quiet_NaNEv() #5
+  store double %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %7, i32 0, i32 6
+  %20 = call noundef double @_ZNSt14numeric_limitsIdE9quiet_NaNEv() #5
+  store double %20, ptr %19, align 8
   ret void
 
-20:                                               ; preds = %1
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %1
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %4, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %5, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %4, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %5, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
-  br label %28
-
-24:                                               ; preds = %9
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %4, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %5, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #5
-  call void @_ZN16DeformationModel5EpochD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #5
-  br label %28
-
-28:                                               ; preds = %24, %20
-  call void @_ZN16DeformationModel9Component12TimeFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #5
   br label %29
 
-29:                                               ; preds = %28
-  %30 = load ptr, ptr %4, align 8
-  %31 = load i32, ptr %5, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+25:                                               ; preds = %10
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %4, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %5, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #5
+  call void @_ZN16DeformationModel5EpochD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #5
+  br label %29
+
+29:                                               ; preds = %25, %21
+  call void @_ZN16DeformationModel9Component12TimeFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #5
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %4, align 8
+  %32 = load i32, ptr %5, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11574,7 +11580,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN16DeformationModel9Compon
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #13
+declare double @llvm.fmuladd.f64(double, double, double) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNKSt6vectorIN16DeformationModel9Component21PiecewiseTimeFunction21EpochScaleFactorTupleESaIS3_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
@@ -12042,7 +12048,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_defmodelP8PJconsts(p
 
 162:                                              ; preds = %161, %146
   %163 = load i32, ptr %7, align 4
-  %164 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #5
+  %164 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #5
   %165 = icmp eq i32 %163, %164
   br i1 %165, label %166, label %208
 
@@ -12888,9 +12894,10 @@ define linkonce_odr hidden void @_ZN16DeformationModel22UnimplementedExceptionD2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel22UnimplementedExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.DeformationModel::UnimplementedException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel22UnimplementedExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.DeformationModel::UnimplementedException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
   ret void
 }
@@ -12910,9 +12917,10 @@ define linkonce_odr hidden void @_ZN16DeformationModel18EvaluatorExceptionD2Ev(p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel18EvaluatorExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.DeformationModel::EvaluatorException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel18EvaluatorExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.DeformationModel::EvaluatorException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
   ret void
 }
@@ -12953,9 +12961,10 @@ define linkonce_odr hidden void @_ZN16DeformationModel9Component20VelocityTimeFu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component20VelocityTimeFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.DeformationModel::Component::VelocityTimeFunction", ptr %3, i32 0, i32 1
-  call void @_ZN16DeformationModel5EpochD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component20VelocityTimeFunctionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.DeformationModel::Component::VelocityTimeFunction", ptr %3, i32 0, i32 1
+  call void @_ZN16DeformationModel5EpochD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #5
   call void @_ZN16DeformationModel9Component12TimeFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #5
   ret void
 }
@@ -12975,9 +12984,10 @@ define linkonce_odr hidden void @_ZN16DeformationModel9Component16StepTimeFuncti
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component16StepTimeFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.DeformationModel::Component::StepTimeFunction", ptr %3, i32 0, i32 1
-  call void @_ZN16DeformationModel5EpochD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component16StepTimeFunctionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.DeformationModel::Component::StepTimeFunction", ptr %3, i32 0, i32 1
+  call void @_ZN16DeformationModel5EpochD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #5
   call void @_ZN16DeformationModel9Component12TimeFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #5
   ret void
 }
@@ -12997,9 +13007,10 @@ define linkonce_odr hidden void @_ZN16DeformationModel9Component23ReverseStepTim
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component23ReverseStepTimeFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.DeformationModel::Component::ReverseStepTimeFunction", ptr %3, i32 0, i32 1
-  call void @_ZN16DeformationModel5EpochD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component23ReverseStepTimeFunctionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.DeformationModel::Component::ReverseStepTimeFunction", ptr %3, i32 0, i32 1
+  call void @_ZN16DeformationModel5EpochD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #5
   call void @_ZN16DeformationModel9Component12TimeFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #5
   ret void
 }
@@ -13019,13 +13030,14 @@ define linkonce_odr hidden void @_ZN16DeformationModel9Component21PiecewiseTimeF
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component21PiecewiseTimeFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.DeformationModel::Component::PiecewiseTimeFunction", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN16DeformationModel9Component21PiecewiseTimeFunction21EpochScaleFactorTupleESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #5
-  %5 = getelementptr inbounds %"struct.DeformationModel::Component::PiecewiseTimeFunction", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
-  %6 = getelementptr inbounds %"struct.DeformationModel::Component::PiecewiseTimeFunction", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component21PiecewiseTimeFunctionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.DeformationModel::Component::PiecewiseTimeFunction", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN16DeformationModel9Component21PiecewiseTimeFunction21EpochScaleFactorTupleESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #5
+  %6 = getelementptr inbounds %"struct.DeformationModel::Component::PiecewiseTimeFunction", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #5
+  %7 = getelementptr inbounds %"struct.DeformationModel::Component::PiecewiseTimeFunction", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #5
   call void @_ZN16DeformationModel9Component12TimeFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #5
   ret void
 }
@@ -13045,11 +13057,12 @@ define linkonce_odr hidden void @_ZN16DeformationModel9Component23ExponentialTim
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component23ExponentialTimeFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %3, i32 0, i32 2
-  call void @_ZN16DeformationModel5EpochD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #5
-  %5 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component23ExponentialTimeFunctionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %3, i32 0, i32 2
   call void @_ZN16DeformationModel5EpochD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #5
+  %6 = getelementptr inbounds %"struct.DeformationModel::Component::ExponentialTimeFunction", ptr %3, i32 0, i32 1
+  call void @_ZN16DeformationModel5EpochD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #5
   call void @_ZN16DeformationModel9Component12TimeFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #5
   ret void
 }
@@ -13519,7 +13532,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -14882,7 +14896,8 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail10type_errorC2EiPKc(ptr noun
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN8nlohmann6detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail10type_errorE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail10type_errorE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -15169,34 +15184,35 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail9exceptionC2EiPKc(ptr nounde
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %5, align 4
-  store i32 %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %13)
-          to label %14 unwind label %15
-
-14:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %9, i32 0, i32 1
+  %12 = load i32, ptr %5, align 4
+  store i32 %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %14)
+          to label %15 unwind label %16
 
 15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #5
-  br label %19
+  ret void
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #5
+  br label %20
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -15226,9 +15242,10 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail9exceptionD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %3, i32 0, i32 2
-  call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %3, i32 0, i32 2
+  call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
   ret void
 }
@@ -16022,9 +16039,10 @@ define linkonce_odr hidden void @_ZN16DeformationModel9Component12TimeFunctionC2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component12TimeFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.DeformationModel::Component::TimeFunction", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel9Component12TimeFunctionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.DeformationModel::Component::TimeFunction", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
   ret void
 }
 
@@ -22827,10 +22845,10 @@ define internal noundef i64 @_ZNKSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIK
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #14
+declare void @_ZSt28__throw_bad_array_new_lengthv() #13
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #14
+declare void @_ZSt17__throw_bad_allocv() #13
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteISA_EEEEEE9constructISE_JS1_IS6_SD_EEEEvRSG_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #6 align 2 {
@@ -23031,7 +23049,7 @@ define linkonce_odr void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9e
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #15
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #14
 
 ; Function Attrs: mustprogress uwtable
 define internal ptr @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSL_PSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 align 2 {
@@ -24495,7 +24513,7 @@ define internal noundef zeroext i1 @_ZN16DeformationModel9EvaluatorIN12_GLOBAL__
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #13
+declare double @llvm.fabs.f64(double) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN16DeformationModel9Component21PiecewiseTimeFunction21EpochScaleFactorTupleESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -25777,7 +25795,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN8nlohmann10basic_jsonISt3
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #14
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES_IhSaIhEEEESaISC_EE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
@@ -26716,7 +26734,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImER
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #15
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEEES4_ISE_SaISE_EEEEbRKNS_17__normal_iteratorIT_T0_EESO_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
@@ -31339,7 +31357,7 @@ define linkonce_odr noundef ptr @_ZNSt11__copy_moveILb0ELb1ESt26random_access_it
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
@@ -34413,7 +34431,8 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail11other_errorC2EiPKc(ptr nou
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN8nlohmann6detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11other_errorE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11other_errorE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -35200,7 +35219,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEEC2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
-define linkonce_odr hidden noundef signext i8 @_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSA_EEEEE17get_decimal_pointEv() #16 comdat align 2 {
+define linkonce_odr hidden noundef signext i8 @_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSA_EEEEE17get_decimal_pointEv() #15 comdat align 2 {
   %1 = alloca ptr, align 8
   %2 = call ptr @localeconv() #5
   store ptr %2, ptr %1, align 8
@@ -35645,7 +35664,7 @@ define linkonce_odr hidden noundef i32 @_ZN8nlohmann6detail5lexerINS_10basic_jso
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef ptr @_ZNSt5arrayIcLm4EE4dataEv(ptr noundef nonnull align 1 dereferenceable(4) %0) #17 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt5arrayIcLm4EE4dataEv(ptr noundef nonnull align 1 dereferenceable(4) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -35655,14 +35674,14 @@ define linkonce_odr noundef ptr @_ZNSt5arrayIcLm4EE4dataEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef i64 @_ZNKSt5arrayIcLm4EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(4) %0) #17 comdat align 2 {
+define linkonce_odr noundef i64 @_ZNKSt5arrayIcLm4EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(4) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret i64 4
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef ptr @_ZNSt5arrayIcLm5EE4dataEv(ptr noundef nonnull align 1 dereferenceable(5) %0) #17 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt5arrayIcLm5EE4dataEv(ptr noundef nonnull align 1 dereferenceable(5) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -35672,7 +35691,7 @@ define linkonce_odr noundef ptr @_ZNSt5arrayIcLm5EE4dataEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef i64 @_ZNKSt5arrayIcLm5EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(5) %0) #17 comdat align 2 {
+define linkonce_odr noundef i64 @_ZNKSt5arrayIcLm5EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(5) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret i64 5
@@ -37257,7 +37276,7 @@ define linkonce_odr void @_ZSt19__iterator_categoryIN9__gnu_cxx17__normal_iterat
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #18
+declare i1 @llvm.is.constant.i64(i64) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
@@ -38378,7 +38397,7 @@ define linkonce_odr noundef i64 @_ZNKSt16initializer_listIiE4sizeEv(ptr noundef 
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #19
+declare ptr @__errno_location() #18
 
 ; Function Attrs: nounwind
 declare i64 @strtoull(ptr noundef, ptr noundef, i32 noundef) #1
@@ -46585,7 +46604,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind noalias w
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() #14
+declare void @_ZSt25__throw_bad_function_callv() #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt4pairIbPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEEEC2IbDnTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISI_SJ_EEEbE4typeELb1EEEOSI_OSJ_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 comdat align 2 {
@@ -48626,7 +48645,8 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail16invalid_iteratorC2EiPKc(pt
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN8nlohmann6detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -50471,7 +50491,7 @@ define linkonce_odr void @_ZNSt10_Head_baseILm0ERKNSt7__cxx1112basic_stringIcSt1
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #13
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nlohmann6detail12out_of_rangeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 {
@@ -50482,7 +50502,8 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail12out_of_rangeC2ERKS1_(ptr n
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8nlohmann6detail9exceptionC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -50495,16 +50516,17 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail9exceptionC2ERKS1_(ptr nound
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr %7, align 8
-  %11 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %5, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %12, i32 0, i32 2
-  call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %13) #5
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %5, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %13, i32 0, i32 2
+  call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %14) #5
   ret void
 }
 
@@ -50525,7 +50547,8 @@ define linkonce_odr void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 der
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -50544,7 +50567,8 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail12out_of_rangeC2EiPKc(ptr no
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN8nlohmann6detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -52395,12 +52419,13 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8nlohmann6detail9exceptionC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.nlohmann::detail::parse_error", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.nlohmann::detail::parse_error", ptr %8, i32 0, i32 1
-  %10 = load i64, ptr %9, align 8
-  store i64 %10, ptr %7, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.nlohmann::detail::parse_error", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.nlohmann::detail::parse_error", ptr %9, i32 0, i32 1
+  %11 = load i64, ptr %10, align 8
+  store i64 %11, ptr %8, align 8
   ret void
 }
 
@@ -52472,7 +52497,7 @@ define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK9__gnu_c
 declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef ptr @_ZNSt5arrayIcLm9EE4dataEv(ptr noundef nonnull align 1 dereferenceable(9) %0) #17 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt5arrayIcLm9EE4dataEv(ptr noundef nonnull align 1 dereferenceable(9) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -52482,7 +52507,7 @@ define linkonce_odr noundef ptr @_ZNSt5arrayIcLm9EE4dataEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef i64 @_ZNKSt5arrayIcLm9EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(9) %0) #17 comdat align 2 {
+define linkonce_odr noundef i64 @_ZNKSt5arrayIcLm9EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(9) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret i64 9
@@ -52647,10 +52672,11 @@ define linkonce_odr hidden void @_ZN8nlohmann6detail11parse_errorC2EimPKc(ptr no
   %10 = load i32, ptr %6, align 4
   %11 = load ptr, ptr %8, align 8
   call void @_ZN8nlohmann6detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"class.nlohmann::detail::parse_error", ptr %9, i32 0, i32 1
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
+  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"class.nlohmann::detail::parse_error", ptr %9, i32 0, i32 1
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
   ret void
 }
 
@@ -52667,7 +52693,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZNK8nlohmann6detail5lexerINS_10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr hidden noundef nonnull ptr @_ZN8nlohmann6detail10lexer_baseINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE15token_type_nameENSF_10token_typeE(i32 noundef %0) #17 comdat align 2 {
+define linkonce_odr hidden noundef nonnull ptr @_ZN8nlohmann6detail10lexer_baseINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE15token_type_nameENSF_10token_typeE(i32 noundef %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
@@ -60214,31 +60240,32 @@ define linkonce_odr hidden void @_ZN16DeformationModel18EvaluatorExceptionC2ERKN
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN16DeformationModel18EvaluatorExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.DeformationModel::EvaluatorException", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN16DeformationModel18EvaluatorExceptionE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.DeformationModel::EvaluatorException", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #5
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #5
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -61461,6 +61488,9 @@ define internal void @_GLOBAL__sub_I_defmodel.cpp() #3 section ".text.startup" {
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #19
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold noreturn nounwind memory(inaccessiblemem: write) }
@@ -61471,16 +61501,16 @@ attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind memory(none) }
-attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #19 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #18 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nounwind memory(none) }
 attributes #20 = { noreturn nounwind }
 attributes #21 = { noreturn }
 attributes #22 = { builtin allocsize(0) }

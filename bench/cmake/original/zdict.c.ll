@@ -650,7 +650,7 @@ define internal i64 @ZDICT_analyzeEntropy(ptr noundef %0, i64 noundef %1, i32 no
 
 71:                                               ; preds = %9
   store i64 -34, ptr %40, align 8
-  br label %523
+  br label %525
 
 72:                                               ; preds = %9
   store i32 0, ptr %32, align 4
@@ -809,7 +809,7 @@ define internal i64 @ZDICT_analyzeEntropy(ptr noundef %0, i64 noundef %1, i32 no
   br label %158
 
 158:                                              ; preds = %153, %150
-  br label %523
+  br label %525
 
 159:                                              ; preds = %146
   store i32 0, ptr %32, align 4
@@ -936,7 +936,7 @@ define internal i64 @ZDICT_analyzeEntropy(ptr noundef %0, i64 noundef %1, i32 no
   br label %241
 
 241:                                              ; preds = %236, %232
-  br label %523
+  br label %525
 
 242:                                              ; preds = %223
   %243 = load i64, ptr %46, align 8
@@ -1050,7 +1050,7 @@ define internal i64 @ZDICT_analyzeEntropy(ptr noundef %0, i64 noundef %1, i32 no
   br label %311
 
 311:                                              ; preds = %306, %302
-  br label %523
+  br label %525
 
 312:                                              ; preds = %291
   %313 = load i64, ptr %39, align 8
@@ -1109,7 +1109,7 @@ define internal i64 @ZDICT_analyzeEntropy(ptr noundef %0, i64 noundef %1, i32 no
   br label %347
 
 347:                                              ; preds = %342, %338
-  br label %523
+  br label %525
 
 348:                                              ; preds = %328
   %349 = load i64, ptr %39, align 8
@@ -1168,7 +1168,7 @@ define internal i64 @ZDICT_analyzeEntropy(ptr noundef %0, i64 noundef %1, i32 no
   br label %383
 
 383:                                              ; preds = %378, %374
-  br label %523
+  br label %525
 
 384:                                              ; preds = %364
   %385 = load i64, ptr %39, align 8
@@ -1201,7 +1201,7 @@ define internal i64 @ZDICT_analyzeEntropy(ptr noundef %0, i64 noundef %1, i32 no
   br label %405
 
 405:                                              ; preds = %400, %396
-  br label %523
+  br label %525
 
 406:                                              ; preds = %384
   %407 = load i64, ptr %48, align 8
@@ -1242,7 +1242,7 @@ define internal i64 @ZDICT_analyzeEntropy(ptr noundef %0, i64 noundef %1, i32 no
   br label %433
 
 433:                                              ; preds = %428, %424
-  br label %523
+  br label %525
 
 434:                                              ; preds = %406
   %435 = load i64, ptr %49, align 8
@@ -1283,7 +1283,7 @@ define internal i64 @ZDICT_analyzeEntropy(ptr noundef %0, i64 noundef %1, i32 no
   br label %461
 
 461:                                              ; preds = %456, %452
-  br label %523
+  br label %525
 
 462:                                              ; preds = %434
   %463 = load i64, ptr %50, align 8
@@ -1324,7 +1324,7 @@ define internal i64 @ZDICT_analyzeEntropy(ptr noundef %0, i64 noundef %1, i32 no
   br label %489
 
 489:                                              ; preds = %484, %480
-  br label %523
+  br label %525
 
 490:                                              ; preds = %462
   %491 = load i64, ptr %51, align 8
@@ -1357,7 +1357,7 @@ define internal i64 @ZDICT_analyzeEntropy(ptr noundef %0, i64 noundef %1, i32 no
   br label %510
 
 510:                                              ; preds = %505, %502
-  br label %523
+  br label %525
 
 511:                                              ; preds = %490
   %512 = load ptr, ptr %43, align 8
@@ -1366,29 +1366,31 @@ define internal i64 @ZDICT_analyzeEntropy(ptr noundef %0, i64 noundef %1, i32 no
   call void @MEM_writeLE32(ptr noundef %513, i32 noundef %514)
   %515 = load ptr, ptr %43, align 8
   %516 = getelementptr inbounds i8, ptr %515, i64 4
-  %517 = load i32, ptr getelementptr inbounds ([3 x i32], ptr @repStartValue, i64 0, i64 1), align 4
-  call void @MEM_writeLE32(ptr noundef %516, i32 noundef %517)
-  %518 = load ptr, ptr %43, align 8
-  %519 = getelementptr inbounds i8, ptr %518, i64 8
-  %520 = load i32, ptr getelementptr inbounds ([3 x i32], ptr @repStartValue, i64 0, i64 2), align 4
-  call void @MEM_writeLE32(ptr noundef %519, i32 noundef %520)
-  %521 = load i64, ptr %40, align 8
-  %522 = add i64 %521, 12
-  store i64 %522, ptr %40, align 8
-  br label %523
+  %517 = getelementptr inbounds [3 x i32], ptr @repStartValue, i64 0, i64 1
+  %518 = load i32, ptr %517, align 4
+  call void @MEM_writeLE32(ptr noundef %516, i32 noundef %518)
+  %519 = load ptr, ptr %43, align 8
+  %520 = getelementptr inbounds i8, ptr %519, i64 8
+  %521 = getelementptr inbounds [3 x i32], ptr @repStartValue, i64 0, i64 2
+  %522 = load i32, ptr %521, align 4
+  call void @MEM_writeLE32(ptr noundef %520, i32 noundef %522)
+  %523 = load i64, ptr %40, align 8
+  %524 = add i64 %523, 12
+  store i64 %524, ptr %40, align 8
+  br label %525
 
-523:                                              ; preds = %511, %510, %489, %461, %433, %405, %383, %347, %311, %241, %158, %71
-  %524 = getelementptr inbounds %struct.EStats_ress_t, ptr %30, i32 0, i32 0
-  %525 = load ptr, ptr %524, align 8
-  %526 = call i64 @ZSTD_freeCDict(ptr noundef %525)
-  %527 = getelementptr inbounds %struct.EStats_ress_t, ptr %30, i32 0, i32 1
-  %528 = load ptr, ptr %527, align 8
-  %529 = call i64 @ZSTD_freeCCtx(ptr noundef %528)
-  %530 = getelementptr inbounds %struct.EStats_ress_t, ptr %30, i32 0, i32 2
-  %531 = load ptr, ptr %530, align 8
-  call void @free(ptr noundef %531) #8
-  %532 = load i64, ptr %40, align 8
-  ret i64 %532
+525:                                              ; preds = %511, %510, %489, %461, %433, %405, %383, %347, %311, %241, %158, %71
+  %526 = getelementptr inbounds %struct.EStats_ress_t, ptr %30, i32 0, i32 0
+  %527 = load ptr, ptr %526, align 8
+  %528 = call i64 @ZSTD_freeCDict(ptr noundef %527)
+  %529 = getelementptr inbounds %struct.EStats_ress_t, ptr %30, i32 0, i32 1
+  %530 = load ptr, ptr %529, align 8
+  %531 = call i64 @ZSTD_freeCCtx(ptr noundef %530)
+  %532 = getelementptr inbounds %struct.EStats_ress_t, ptr %30, i32 0, i32 2
+  %533 = load ptr, ptr %532, align 8
+  call void @free(ptr noundef %533) #8
+  %534 = load i64, ptr %40, align 8
+  ret i64 %534
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

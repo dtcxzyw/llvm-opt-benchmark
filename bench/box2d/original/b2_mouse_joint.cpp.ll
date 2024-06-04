@@ -102,14 +102,15 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %def.addr, align 8
   call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12b2MouseJoint, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %def.addr, align 8
-  %target = getelementptr inbounds %struct.b2MouseJointDef, ptr %1, i32 0, i32 1
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV12b2MouseJoint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %def.addr, align 8
+  %target = getelementptr inbounds %struct.b2MouseJointDef, ptr %2, i32 0, i32 1
   %m_targetA2 = getelementptr inbounds %class.b2MouseJoint, ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_targetA2, ptr align 4 %target, i64 8, i1 false)
   %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %m_bodyB, align 8
-  %call = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK6b2Body12GetTransformEv(ptr noundef nonnull align 8 dereferenceable(184) %2)
+  %3 = load ptr, ptr %m_bodyB, align 8
+  %call = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK6b2Body12GetTransformEv(ptr noundef nonnull align 8 dereferenceable(184) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -121,21 +122,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store <2 x float> %call5, ptr %ref.tmp, align 4
   %m_localAnchorB6 = getelementptr inbounds %class.b2MouseJoint, ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorB6, ptr align 4 %ref.tmp, i64 8, i1 false)
-  %3 = load ptr, ptr %def.addr, align 8
-  %maxForce = getelementptr inbounds %struct.b2MouseJointDef, ptr %3, i32 0, i32 2
-  %4 = load float, ptr %maxForce, align 4
+  %4 = load ptr, ptr %def.addr, align 8
+  %maxForce = getelementptr inbounds %struct.b2MouseJointDef, ptr %4, i32 0, i32 2
+  %5 = load float, ptr %maxForce, align 4
   %m_maxForce = getelementptr inbounds %class.b2MouseJoint, ptr %this1, i32 0, i32 7
-  store float %4, ptr %m_maxForce, align 4
-  %5 = load ptr, ptr %def.addr, align 8
-  %stiffness = getelementptr inbounds %struct.b2MouseJointDef, ptr %5, i32 0, i32 3
-  %6 = load float, ptr %stiffness, align 8
+  store float %5, ptr %m_maxForce, align 4
+  %6 = load ptr, ptr %def.addr, align 8
+  %stiffness = getelementptr inbounds %struct.b2MouseJointDef, ptr %6, i32 0, i32 3
+  %7 = load float, ptr %stiffness, align 8
   %m_stiffness = getelementptr inbounds %class.b2MouseJoint, ptr %this1, i32 0, i32 3
-  store float %6, ptr %m_stiffness, align 8
-  %7 = load ptr, ptr %def.addr, align 8
-  %damping = getelementptr inbounds %struct.b2MouseJointDef, ptr %7, i32 0, i32 4
-  %8 = load float, ptr %damping, align 4
+  store float %7, ptr %m_stiffness, align 8
+  %8 = load ptr, ptr %def.addr, align 8
+  %damping = getelementptr inbounds %struct.b2MouseJointDef, ptr %8, i32 0, i32 4
+  %9 = load float, ptr %damping, align 4
   %m_damping = getelementptr inbounds %class.b2MouseJoint, ptr %this1, i32 0, i32 4
-  store float %8, ptr %m_damping, align 4
+  store float %9, ptr %m_damping, align 4
   %m_impulse7 = getelementptr inbounds %class.b2MouseJoint, ptr %this1, i32 0, i32 6
   invoke void @_ZN6b2Vec27SetZeroEv(ptr noundef nonnull align 4 dereferenceable(8) %m_impulse7)
           to label %invoke.cont8 unwind label %lpad
@@ -148,12 +149,12 @@ invoke.cont8:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont, %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN7b2JointD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this1) #10
   br label %eh.resume
 
@@ -1537,25 +1538,25 @@ entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %string, ptr %string.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %string.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @_Z13b2Log_DefaultPKcP13__va_list_tag(ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare void @_Z13b2Log_DefaultPKcP13__va_list_tag(ptr noundef, ptr noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
-
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #9
+declare void @_ZdlPv(ptr noundef) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1565,8 +1566,8 @@ attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nounwind }
 attributes #11 = { builtin nounwind }
 

@@ -94,487 +94,500 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) #0 {
   %24 = load ptr, ptr %8, align 8
   %25 = getelementptr inbounds %struct.GenContext_, ptr %24, i32 0, i32 17
   call void @codegen_setup_object_names(ptr noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25)
-  %26 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 22), align 8
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds %struct.GenContext_, ptr %27, i32 0, i32 31
-  store ptr %26, ptr %28, align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 23), align 8
-  %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds %struct.GenContext_, ptr %30, i32 0, i32 32
-  store ptr %29, ptr %31, align 8
+  %26 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 22
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = getelementptr inbounds %struct.GenContext_, ptr %28, i32 0, i32 31
+  store ptr %27, ptr %29, align 8
+  %30 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 23
+  %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %struct.GenContext_, ptr %32, i32 0, i32 37
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.Module_, ptr %34, i32 0, i32 0
+  %33 = getelementptr inbounds %struct.GenContext_, ptr %32, i32 0, i32 32
+  store ptr %31, ptr %33, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds %struct.GenContext_, ptr %34, i32 0, i32 37
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.Path_, ptr %36, i32 0, i32 1
+  %37 = getelementptr inbounds %struct.Module_, ptr %36, i32 0, i32 0
   %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct.GenContext_, ptr %39, i32 0, i32 5
-  %41 = load ptr, ptr %40, align 8
-  %42 = call ptr @LLVMModuleCreateWithNameInContext(ptr noundef %38, ptr noundef %41)
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct.GenContext_, ptr %43, i32 0, i32 1
-  store ptr %42, ptr %44, align 8
-  %45 = call ptr @llvm_target_machine_create()
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct.GenContext_, ptr %46, i32 0, i32 3
-  store ptr %45, ptr %47, align 8
+  %39 = getelementptr inbounds %struct.Path_, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds %struct.GenContext_, ptr %41, i32 0, i32 5
+  %43 = load ptr, ptr %42, align 8
+  %44 = call ptr @LLVMModuleCreateWithNameInContext(ptr noundef %40, ptr noundef %43)
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds %struct.GenContext_, ptr %45, i32 0, i32 1
+  store ptr %44, ptr %46, align 8
+  %47 = call ptr @llvm_target_machine_create()
   %48 = load ptr, ptr %8, align 8
   %49 = getelementptr inbounds %struct.GenContext_, ptr %48, i32 0, i32 3
-  %50 = load ptr, ptr %49, align 8
-  %51 = call ptr @LLVMCreateTargetDataLayout(ptr noundef %50)
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.GenContext_, ptr %52, i32 0, i32 4
-  store ptr %51, ptr %53, align 8
+  store ptr %47, ptr %49, align 8
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds %struct.GenContext_, ptr %50, i32 0, i32 3
+  %52 = load ptr, ptr %51, align 8
+  %53 = call ptr @LLVMCreateTargetDataLayout(ptr noundef %52)
   %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds %struct.GenContext_, ptr %54, i32 0, i32 1
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds %struct.GenContext_, ptr %57, i32 0, i32 4
-  %59 = load ptr, ptr %58, align 8
-  call void @LLVMSetModuleDataLayout(ptr noundef %56, ptr noundef %59)
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds %struct.GenContext_, ptr %60, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds %struct.GenContext_, ptr %63, i32 0, i32 37
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds %struct.Module_, ptr %65, i32 0, i32 0
+  %55 = getelementptr inbounds %struct.GenContext_, ptr %54, i32 0, i32 4
+  store ptr %53, ptr %55, align 8
+  %56 = load ptr, ptr %8, align 8
+  %57 = getelementptr inbounds %struct.GenContext_, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %8, align 8
+  %60 = getelementptr inbounds %struct.GenContext_, ptr %59, i32 0, i32 4
+  %61 = load ptr, ptr %60, align 8
+  call void @LLVMSetModuleDataLayout(ptr noundef %58, ptr noundef %61)
+  %62 = load ptr, ptr %8, align 8
+  %63 = getelementptr inbounds %struct.GenContext_, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %8, align 8
+  %66 = getelementptr inbounds %struct.GenContext_, ptr %65, i32 0, i32 37
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct.Path_, ptr %67, i32 0, i32 1
+  %68 = getelementptr inbounds %struct.Module_, ptr %67, i32 0, i32 0
   %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %8, align 8
-  %71 = getelementptr inbounds %struct.GenContext_, ptr %70, i32 0, i32 37
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %struct.Module_, ptr %72, i32 0, i32 0
+  %70 = getelementptr inbounds %struct.Path_, ptr %69, i32 0, i32 1
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %8, align 8
+  %73 = getelementptr inbounds %struct.GenContext_, ptr %72, i32 0, i32 37
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct.Path_, ptr %74, i32 0, i32 1
+  %75 = getelementptr inbounds %struct.Module_, ptr %74, i32 0, i32 0
   %76 = load ptr, ptr %75, align 8
-  %77 = call i64 @strlen(ptr noundef %76) #3
-  call void @LLVMSetSourceFileName(ptr noundef %62, ptr noundef %69, i64 noundef %77)
-  %78 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 51), align 4
-  switch i32 %78, label %95 [
-    i32 4, label %79
-    i32 2, label %83
-    i32 3, label %87
-    i32 1, label %91
+  %77 = getelementptr inbounds %struct.Path_, ptr %76, i32 0, i32 1
+  %78 = load ptr, ptr %77, align 8
+  %79 = call i64 @strlen(ptr noundef %78) #3
+  call void @LLVMSetSourceFileName(ptr noundef %64, ptr noundef %71, i64 noundef %79)
+  %80 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 51
+  %81 = load i32, ptr %80, align 4
+  switch i32 %81, label %98 [
+    i32 4, label %82
+    i32 2, label %86
+    i32 3, label %90
+    i32 1, label %94
   ]
 
-79:                                               ; preds = %1
-  %80 = load ptr, ptr %8, align 8
-  %81 = load ptr, ptr @gencontext_begin_module.pie_level, align 8
-  %82 = load ptr, ptr @type_uint, align 8
-  call void @llvm_set_module_flag(ptr noundef %80, i32 noundef 3, ptr noundef %81, i64 noundef 2, ptr noundef %82)
-  br label %83
+82:                                               ; preds = %1
+  %83 = load ptr, ptr %8, align 8
+  %84 = load ptr, ptr @gencontext_begin_module.pie_level, align 8
+  %85 = load ptr, ptr @type_uint, align 8
+  call void @llvm_set_module_flag(ptr noundef %83, i32 noundef 3, ptr noundef %84, i64 noundef 2, ptr noundef %85)
+  br label %86
 
-83:                                               ; preds = %79, %1
-  %84 = load ptr, ptr %8, align 8
-  %85 = load ptr, ptr @gencontext_begin_module.pic_level, align 8
-  %86 = load ptr, ptr @type_uint, align 8
-  call void @llvm_set_module_flag(ptr noundef %84, i32 noundef 3, ptr noundef %85, i64 noundef 2, ptr noundef %86)
-  br label %96
+86:                                               ; preds = %82, %1
+  %87 = load ptr, ptr %8, align 8
+  %88 = load ptr, ptr @gencontext_begin_module.pic_level, align 8
+  %89 = load ptr, ptr @type_uint, align 8
+  call void @llvm_set_module_flag(ptr noundef %87, i32 noundef 3, ptr noundef %88, i64 noundef 2, ptr noundef %89)
+  br label %99
 
-87:                                               ; preds = %1
-  %88 = load ptr, ptr %8, align 8
-  %89 = load ptr, ptr @gencontext_begin_module.pie_level, align 8
-  %90 = load ptr, ptr @type_uint, align 8
-  call void @llvm_set_module_flag(ptr noundef %88, i32 noundef 3, ptr noundef %89, i64 noundef 1, ptr noundef %90)
-  br label %91
+90:                                               ; preds = %1
+  %91 = load ptr, ptr %8, align 8
+  %92 = load ptr, ptr @gencontext_begin_module.pie_level, align 8
+  %93 = load ptr, ptr @type_uint, align 8
+  call void @llvm_set_module_flag(ptr noundef %91, i32 noundef 3, ptr noundef %92, i64 noundef 1, ptr noundef %93)
+  br label %94
 
-91:                                               ; preds = %87, %1
-  %92 = load ptr, ptr %8, align 8
-  %93 = load ptr, ptr @gencontext_begin_module.pic_level, align 8
-  %94 = load ptr, ptr @type_uint, align 8
-  call void @llvm_set_module_flag(ptr noundef %92, i32 noundef 3, ptr noundef %93, i64 noundef 1, ptr noundef %94)
-  br label %96
+94:                                               ; preds = %90, %1
+  %95 = load ptr, ptr %8, align 8
+  %96 = load ptr, ptr @gencontext_begin_module.pic_level, align 8
+  %97 = load ptr, ptr @type_uint, align 8
+  call void @llvm_set_module_flag(ptr noundef %95, i32 noundef 3, ptr noundef %96, i64 noundef 1, ptr noundef %97)
+  br label %99
 
-95:                                               ; preds = %1
-  br label %96
+98:                                               ; preds = %1
+  br label %99
 
-96:                                               ; preds = %95, %91, %83
-  %97 = load ptr, ptr %8, align 8
-  %98 = getelementptr inbounds %struct.GenContext_, ptr %97, i32 0, i32 1
-  %99 = load ptr, ptr %98, align 8
-  %100 = load ptr, ptr @platform_target, align 8
-  call void @LLVMSetTarget(ptr noundef %99, ptr noundef %100)
-  %101 = load ptr, ptr %8, align 8
-  %102 = getelementptr inbounds %struct.GenContext_, ptr %101, i32 0, i32 34
-  store i32 0, ptr %102, align 8
-  %103 = call i32 (...) @target_alloca_addr_space()
+99:                                               ; preds = %98, %94, %86
+  %100 = load ptr, ptr %8, align 8
+  %101 = getelementptr inbounds %struct.GenContext_, ptr %100, i32 0, i32 1
+  %102 = load ptr, ptr %101, align 8
+  %103 = load ptr, ptr @platform_target, align 8
+  call void @LLVMSetTarget(ptr noundef %102, ptr noundef %103)
   %104 = load ptr, ptr %8, align 8
-  %105 = getelementptr inbounds %struct.GenContext_, ptr %104, i32 0, i32 35
-  store i32 %103, ptr %105, align 4
+  %105 = getelementptr inbounds %struct.GenContext_, ptr %104, i32 0, i32 34
+  store i32 0, ptr %105, align 8
+  %106 = call i32 (...) @target_alloca_addr_space()
+  %107 = load ptr, ptr %8, align 8
+  %108 = getelementptr inbounds %struct.GenContext_, ptr %107, i32 0, i32 35
+  store i32 %106, ptr %108, align 4
   store i32 0, ptr %9, align 4
-  %106 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 4), align 8
-  store ptr %106, ptr %3, align 8
-  %107 = load ptr, ptr %3, align 8
-  %108 = icmp ne ptr %107, null
-  br i1 %108, label %110, label %109
-
-109:                                              ; preds = %96
-  store i32 0, ptr %2, align 4
-  br label %115
-
-110:                                              ; preds = %96
+  %109 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 4
+  %110 = load ptr, ptr %109, align 8
+  store ptr %110, ptr %3, align 8
   %111 = load ptr, ptr %3, align 8
-  store ptr %111, ptr %4, align 8
-  %112 = load ptr, ptr %4, align 8
-  %113 = getelementptr inbounds %struct.VHeader_, ptr %112, i64 -1
-  %114 = load i32, ptr %113, align 4
-  store i32 %114, ptr %2, align 4
-  br label %115
+  %112 = icmp ne ptr %111, null
+  br i1 %112, label %114, label %113
 
-115:                                              ; preds = %110, %109
-  %116 = load i32, ptr %2, align 4
-  store i32 %116, ptr %10, align 4
-  br label %117
+113:                                              ; preds = %99
+  store i32 0, ptr %2, align 4
+  br label %119
 
-117:                                              ; preds = %178, %115
-  %118 = load i32, ptr %9, align 4
-  %119 = load i32, ptr %10, align 4
-  %120 = icmp ult i32 %118, %119
-  br i1 %120, label %121, label %181
+114:                                              ; preds = %99
+  %115 = load ptr, ptr %3, align 8
+  store ptr %115, ptr %4, align 8
+  %116 = load ptr, ptr %4, align 8
+  %117 = getelementptr inbounds %struct.VHeader_, ptr %116, i64 -1
+  %118 = load i32, ptr %117, align 4
+  store i32 %118, ptr %2, align 4
+  br label %119
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 4), align 8
-  %123 = load i32, ptr %9, align 4
-  %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds ptr, ptr %122, i64 %124
-  %126 = load ptr, ptr %125, align 8
-  store ptr %126, ptr %11, align 8
-  %127 = load ptr, ptr %11, align 8
-  %128 = getelementptr inbounds %struct.Type_, ptr %127, i32 0, i32 4
-  store ptr null, ptr %128, align 8
-  %129 = load ptr, ptr %11, align 8
-  %130 = getelementptr inbounds %struct.Type_, ptr %129, i32 0, i32 6
-  store ptr null, ptr %130, align 8
-  %131 = load ptr, ptr %11, align 8
-  %132 = getelementptr inbounds %struct.Type_, ptr %131, i32 0, i32 5
-  store ptr null, ptr %132, align 8
-  %133 = load ptr, ptr %11, align 8
-  %134 = getelementptr inbounds %struct.Type_, ptr %133, i32 0, i32 0
-  %135 = load i32, ptr %134, align 8
-  switch i32 %135, label %176 [
-    i32 24, label %136
-    i32 30, label %136
-    i32 26, label %170
-    i32 27, label %170
-    i32 32, label %170
-    i32 25, label %175
+119:                                              ; preds = %114, %113
+  %120 = load i32, ptr %2, align 4
+  store i32 %120, ptr %10, align 4
+  br label %121
+
+121:                                              ; preds = %183, %119
+  %122 = load i32, ptr %9, align 4
+  %123 = load i32, ptr %10, align 4
+  %124 = icmp ult i32 %122, %123
+  br i1 %124, label %125, label %186
+
+125:                                              ; preds = %121
+  %126 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 4
+  %127 = load ptr, ptr %126, align 8
+  %128 = load i32, ptr %9, align 4
+  %129 = zext i32 %128 to i64
+  %130 = getelementptr inbounds ptr, ptr %127, i64 %129
+  %131 = load ptr, ptr %130, align 8
+  store ptr %131, ptr %11, align 8
+  %132 = load ptr, ptr %11, align 8
+  %133 = getelementptr inbounds %struct.Type_, ptr %132, i32 0, i32 4
+  store ptr null, ptr %133, align 8
+  %134 = load ptr, ptr %11, align 8
+  %135 = getelementptr inbounds %struct.Type_, ptr %134, i32 0, i32 6
+  store ptr null, ptr %135, align 8
+  %136 = load ptr, ptr %11, align 8
+  %137 = getelementptr inbounds %struct.Type_, ptr %136, i32 0, i32 5
+  store ptr null, ptr %137, align 8
+  %138 = load ptr, ptr %11, align 8
+  %139 = getelementptr inbounds %struct.Type_, ptr %138, i32 0, i32 0
+  %140 = load i32, ptr %139, align 8
+  switch i32 %140, label %181 [
+    i32 24, label %141
+    i32 30, label %141
+    i32 26, label %175
+    i32 27, label %175
+    i32 32, label %175
+    i32 25, label %180
   ]
 
-136:                                              ; preds = %121, %121
-  %137 = load ptr, ptr %11, align 8
-  %138 = getelementptr inbounds %struct.Type_, ptr %137, i32 0, i32 7
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds %struct.Decl_, ptr %139, i32 0, i32 11
-  %141 = getelementptr inbounds %struct.anon.2, ptr %140, i32 0, i32 2
-  %142 = getelementptr inbounds %struct.EnumDecl, ptr %141, i32 0, i32 0
-  %143 = load ptr, ptr %142, align 8
-  store ptr %143, ptr %12, align 8
+141:                                              ; preds = %125, %125
+  %142 = load ptr, ptr %11, align 8
+  %143 = getelementptr inbounds %struct.Type_, ptr %142, i32 0, i32 7
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds %struct.Decl_, ptr %144, i32 0, i32 11
+  %146 = getelementptr inbounds %struct.anon.2, ptr %145, i32 0, i32 2
+  %147 = getelementptr inbounds %struct.EnumDecl, ptr %146, i32 0, i32 0
+  %148 = load ptr, ptr %147, align 8
+  store ptr %148, ptr %12, align 8
   store i32 0, ptr %13, align 4
-  %144 = load ptr, ptr %12, align 8
-  store ptr %144, ptr %6, align 8
-  %145 = load ptr, ptr %6, align 8
-  %146 = icmp ne ptr %145, null
-  br i1 %146, label %148, label %147
+  %149 = load ptr, ptr %12, align 8
+  store ptr %149, ptr %6, align 8
+  %150 = load ptr, ptr %6, align 8
+  %151 = icmp ne ptr %150, null
+  br i1 %151, label %153, label %152
 
-147:                                              ; preds = %136
+152:                                              ; preds = %141
   store i32 0, ptr %5, align 4
-  br label %153
+  br label %158
 
-148:                                              ; preds = %136
-  %149 = load ptr, ptr %6, align 8
-  store ptr %149, ptr %7, align 8
-  %150 = load ptr, ptr %7, align 8
-  %151 = getelementptr inbounds %struct.VHeader_, ptr %150, i64 -1
-  %152 = load i32, ptr %151, align 4
-  store i32 %152, ptr %5, align 4
-  br label %153
+153:                                              ; preds = %141
+  %154 = load ptr, ptr %6, align 8
+  store ptr %154, ptr %7, align 8
+  %155 = load ptr, ptr %7, align 8
+  %156 = getelementptr inbounds %struct.VHeader_, ptr %155, i64 -1
+  %157 = load i32, ptr %156, align 4
+  store i32 %157, ptr %5, align 4
+  br label %158
 
-153:                                              ; preds = %148, %147
-  %154 = load i32, ptr %5, align 4
-  store i32 %154, ptr %14, align 4
-  br label %155
+158:                                              ; preds = %153, %152
+  %159 = load i32, ptr %5, align 4
+  store i32 %159, ptr %14, align 4
+  br label %160
 
-155:                                              ; preds = %166, %153
-  %156 = load i32, ptr %13, align 4
-  %157 = load i32, ptr %14, align 4
-  %158 = icmp ult i32 %156, %157
-  br i1 %158, label %159, label %169
-
-159:                                              ; preds = %155
-  %160 = load ptr, ptr %12, align 8
+160:                                              ; preds = %171, %158
   %161 = load i32, ptr %13, align 4
-  %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds ptr, ptr %160, i64 %162
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds %struct.Decl_, ptr %164, i32 0, i32 4
-  store ptr null, ptr %165, align 8
-  br label %166
+  %162 = load i32, ptr %14, align 4
+  %163 = icmp ult i32 %161, %162
+  br i1 %163, label %164, label %174
 
-166:                                              ; preds = %159
-  %167 = load i32, ptr %13, align 4
-  %168 = add i32 %167, 1
-  store i32 %168, ptr %13, align 4
-  br label %155, !llvm.loop !7
+164:                                              ; preds = %160
+  %165 = load ptr, ptr %12, align 8
+  %166 = load i32, ptr %13, align 4
+  %167 = zext i32 %166 to i64
+  %168 = getelementptr inbounds ptr, ptr %165, i64 %167
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds %struct.Decl_, ptr %169, i32 0, i32 4
+  store ptr null, ptr %170, align 8
+  br label %171
 
-169:                                              ; preds = %155
-  br label %170
+171:                                              ; preds = %164
+  %172 = load i32, ptr %13, align 4
+  %173 = add i32 %172, 1
+  store i32 %173, ptr %13, align 4
+  br label %160, !llvm.loop !7
 
-170:                                              ; preds = %169, %121, %121, %121
-  %171 = load ptr, ptr %11, align 8
-  %172 = getelementptr inbounds %struct.Type_, ptr %171, i32 0, i32 7
-  %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds %struct.Decl_, ptr %173, i32 0, i32 4
-  store ptr null, ptr %174, align 8
-  br label %177
+174:                                              ; preds = %160
+  br label %175
 
-175:                                              ; preds = %121
-  br label %177
+175:                                              ; preds = %174, %125, %125, %125
+  %176 = load ptr, ptr %11, align 8
+  %177 = getelementptr inbounds %struct.Type_, ptr %176, i32 0, i32 7
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds %struct.Decl_, ptr %178, i32 0, i32 4
+  store ptr null, ptr %179, align 8
+  br label %182
 
-176:                                              ; preds = %121
-  br label %177
+180:                                              ; preds = %125
+  br label %182
 
-177:                                              ; preds = %176, %175, %170
-  br label %178
+181:                                              ; preds = %125
+  br label %182
 
-178:                                              ; preds = %177
-  %179 = load i32, ptr %9, align 4
-  %180 = add i32 %179, 1
-  store i32 %180, ptr %9, align 4
-  br label %117, !llvm.loop !9
+182:                                              ; preds = %181, %180, %175
+  br label %183
 
-181:                                              ; preds = %117
-  %182 = load ptr, ptr %8, align 8
-  %183 = getelementptr inbounds %struct.GenContext_, ptr %182, i32 0, i32 5
-  %184 = load ptr, ptr %183, align 8
-  %185 = call ptr @LLVMInt1TypeInContext(ptr noundef %184)
-  %186 = load ptr, ptr %8, align 8
-  %187 = getelementptr inbounds %struct.GenContext_, ptr %186, i32 0, i32 20
-  store ptr %185, ptr %187, align 8
-  %188 = load ptr, ptr %8, align 8
-  %189 = getelementptr inbounds %struct.GenContext_, ptr %188, i32 0, i32 5
-  %190 = load ptr, ptr %189, align 8
-  %191 = call ptr @LLVMInt8TypeInContext(ptr noundef %190)
-  %192 = load ptr, ptr %8, align 8
-  %193 = getelementptr inbounds %struct.GenContext_, ptr %192, i32 0, i32 21
-  store ptr %191, ptr %193, align 8
-  %194 = load ptr, ptr %8, align 8
-  %195 = getelementptr inbounds %struct.GenContext_, ptr %194, i32 0, i32 21
-  %196 = load ptr, ptr %195, align 8
-  %197 = call ptr @LLVMPointerType(ptr noundef %196, i32 noundef 0)
-  %198 = load ptr, ptr %8, align 8
-  %199 = getelementptr inbounds %struct.GenContext_, ptr %198, i32 0, i32 27
-  store ptr %197, ptr %199, align 8
-  %200 = load ptr, ptr %8, align 8
-  %201 = load ptr, ptr @type_usz, align 8
-  %202 = call ptr @llvm_get_type(ptr noundef %200, ptr noundef %201)
+183:                                              ; preds = %182
+  %184 = load i32, ptr %9, align 4
+  %185 = add i32 %184, 1
+  store i32 %185, ptr %9, align 4
+  br label %121, !llvm.loop !9
+
+186:                                              ; preds = %121
+  %187 = load ptr, ptr %8, align 8
+  %188 = getelementptr inbounds %struct.GenContext_, ptr %187, i32 0, i32 5
+  %189 = load ptr, ptr %188, align 8
+  %190 = call ptr @LLVMInt1TypeInContext(ptr noundef %189)
+  %191 = load ptr, ptr %8, align 8
+  %192 = getelementptr inbounds %struct.GenContext_, ptr %191, i32 0, i32 20
+  store ptr %190, ptr %192, align 8
+  %193 = load ptr, ptr %8, align 8
+  %194 = getelementptr inbounds %struct.GenContext_, ptr %193, i32 0, i32 5
+  %195 = load ptr, ptr %194, align 8
+  %196 = call ptr @LLVMInt8TypeInContext(ptr noundef %195)
+  %197 = load ptr, ptr %8, align 8
+  %198 = getelementptr inbounds %struct.GenContext_, ptr %197, i32 0, i32 21
+  store ptr %196, ptr %198, align 8
+  %199 = load ptr, ptr %8, align 8
+  %200 = getelementptr inbounds %struct.GenContext_, ptr %199, i32 0, i32 21
+  %201 = load ptr, ptr %200, align 8
+  %202 = call ptr @LLVMPointerType(ptr noundef %201, i32 noundef 0)
   %203 = load ptr, ptr %8, align 8
-  %204 = getelementptr inbounds %struct.GenContext_, ptr %203, i32 0, i32 24
+  %204 = getelementptr inbounds %struct.GenContext_, ptr %203, i32 0, i32 27
   store ptr %202, ptr %204, align 8
   %205 = load ptr, ptr %8, align 8
-  %206 = load ptr, ptr @type_typeid, align 8
+  %206 = load ptr, ptr @type_usz, align 8
   %207 = call ptr @llvm_get_type(ptr noundef %205, ptr noundef %206)
   %208 = load ptr, ptr %8, align 8
-  %209 = getelementptr inbounds %struct.GenContext_, ptr %208, i32 0, i32 25
+  %209 = getelementptr inbounds %struct.GenContext_, ptr %208, i32 0, i32 24
   store ptr %207, ptr %209, align 8
-  %210 = getelementptr inbounds [3 x ptr], ptr %15, i64 0, i64 0
-  %211 = load ptr, ptr %8, align 8
-  %212 = getelementptr inbounds %struct.GenContext_, ptr %211, i32 0, i32 27
-  %213 = load ptr, ptr %212, align 8
-  store ptr %213, ptr %210, align 8
-  %214 = getelementptr inbounds ptr, ptr %210, i64 1
-  %215 = load ptr, ptr %8, align 8
-  %216 = getelementptr inbounds %struct.GenContext_, ptr %215, i32 0, i32 27
-  %217 = load ptr, ptr %216, align 8
-  store ptr %217, ptr %214, align 8
-  %218 = getelementptr inbounds ptr, ptr %214, i64 1
-  %219 = load ptr, ptr %8, align 8
-  %220 = getelementptr inbounds %struct.GenContext_, ptr %219, i32 0, i32 27
-  %221 = load ptr, ptr %220, align 8
-  store ptr %221, ptr %218, align 8
-  %222 = load ptr, ptr %8, align 8
-  %223 = getelementptr inbounds %struct.GenContext_, ptr %222, i32 0, i32 5
-  %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds [3 x ptr], ptr %15, i64 0, i64 0
-  %226 = call ptr @LLVMStructTypeInContext(ptr noundef %224, ptr noundef %225, i32 noundef 3, i32 noundef 0)
+  %210 = load ptr, ptr %8, align 8
+  %211 = load ptr, ptr @type_typeid, align 8
+  %212 = call ptr @llvm_get_type(ptr noundef %210, ptr noundef %211)
+  %213 = load ptr, ptr %8, align 8
+  %214 = getelementptr inbounds %struct.GenContext_, ptr %213, i32 0, i32 25
+  store ptr %212, ptr %214, align 8
+  %215 = getelementptr inbounds [3 x ptr], ptr %15, i64 0, i64 0
+  %216 = load ptr, ptr %8, align 8
+  %217 = getelementptr inbounds %struct.GenContext_, ptr %216, i32 0, i32 27
+  %218 = load ptr, ptr %217, align 8
+  store ptr %218, ptr %215, align 8
+  %219 = getelementptr inbounds ptr, ptr %215, i64 1
+  %220 = load ptr, ptr %8, align 8
+  %221 = getelementptr inbounds %struct.GenContext_, ptr %220, i32 0, i32 27
+  %222 = load ptr, ptr %221, align 8
+  store ptr %222, ptr %219, align 8
+  %223 = getelementptr inbounds ptr, ptr %219, i64 1
+  %224 = load ptr, ptr %8, align 8
+  %225 = getelementptr inbounds %struct.GenContext_, ptr %224, i32 0, i32 27
+  %226 = load ptr, ptr %225, align 8
+  store ptr %226, ptr %223, align 8
   %227 = load ptr, ptr %8, align 8
-  %228 = getelementptr inbounds %struct.GenContext_, ptr %227, i32 0, i32 26
-  store ptr %226, ptr %228, align 8
-  %229 = load ptr, ptr %8, align 8
-  %230 = load ptr, ptr @type_chars, align 8
-  %231 = call ptr @llvm_get_type(ptr noundef %229, ptr noundef %230)
+  %228 = getelementptr inbounds %struct.GenContext_, ptr %227, i32 0, i32 5
+  %229 = load ptr, ptr %228, align 8
+  %230 = getelementptr inbounds [3 x ptr], ptr %15, i64 0, i64 0
+  %231 = call ptr @LLVMStructTypeInContext(ptr noundef %229, ptr noundef %230, i32 noundef 3, i32 noundef 0)
   %232 = load ptr, ptr %8, align 8
-  %233 = getelementptr inbounds %struct.GenContext_, ptr %232, i32 0, i32 28
+  %233 = getelementptr inbounds %struct.GenContext_, ptr %232, i32 0, i32 26
   store ptr %231, ptr %233, align 8
-  %234 = getelementptr inbounds [3 x ptr], ptr %16, i64 0, i64 0
-  %235 = load ptr, ptr %8, align 8
-  %236 = getelementptr inbounds %struct.GenContext_, ptr %235, i32 0, i32 5
-  %237 = load ptr, ptr %236, align 8
-  %238 = call ptr @LLVMInt32TypeInContext(ptr noundef %237)
-  store ptr %238, ptr %234, align 8
-  %239 = getelementptr inbounds ptr, ptr %234, i64 1
+  %234 = load ptr, ptr %8, align 8
+  %235 = load ptr, ptr @type_chars, align 8
+  %236 = call ptr @llvm_get_type(ptr noundef %234, ptr noundef %235)
+  %237 = load ptr, ptr %8, align 8
+  %238 = getelementptr inbounds %struct.GenContext_, ptr %237, i32 0, i32 28
+  store ptr %236, ptr %238, align 8
+  %239 = getelementptr inbounds [3 x ptr], ptr %16, i64 0, i64 0
   %240 = load ptr, ptr %8, align 8
-  %241 = getelementptr inbounds %struct.GenContext_, ptr %240, i32 0, i32 27
+  %241 = getelementptr inbounds %struct.GenContext_, ptr %240, i32 0, i32 5
   %242 = load ptr, ptr %241, align 8
-  store ptr %242, ptr %239, align 8
-  %243 = getelementptr inbounds ptr, ptr %239, i64 1
-  %244 = load ptr, ptr %8, align 8
-  %245 = getelementptr inbounds %struct.GenContext_, ptr %244, i32 0, i32 27
-  %246 = load ptr, ptr %245, align 8
-  store ptr %246, ptr %243, align 8
-  %247 = load ptr, ptr %8, align 8
-  %248 = getelementptr inbounds %struct.GenContext_, ptr %247, i32 0, i32 5
-  %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds [3 x ptr], ptr %16, i64 0, i64 0
-  %251 = call ptr @LLVMStructTypeInContext(ptr noundef %249, ptr noundef %250, i32 noundef 3, i32 noundef 0)
+  %243 = call ptr @LLVMInt32TypeInContext(ptr noundef %242)
+  store ptr %243, ptr %239, align 8
+  %244 = getelementptr inbounds ptr, ptr %239, i64 1
+  %245 = load ptr, ptr %8, align 8
+  %246 = getelementptr inbounds %struct.GenContext_, ptr %245, i32 0, i32 27
+  %247 = load ptr, ptr %246, align 8
+  store ptr %247, ptr %244, align 8
+  %248 = getelementptr inbounds ptr, ptr %244, i64 1
+  %249 = load ptr, ptr %8, align 8
+  %250 = getelementptr inbounds %struct.GenContext_, ptr %249, i32 0, i32 27
+  %251 = load ptr, ptr %250, align 8
+  store ptr %251, ptr %248, align 8
   %252 = load ptr, ptr %8, align 8
-  %253 = getelementptr inbounds %struct.GenContext_, ptr %252, i32 0, i32 29
-  store ptr %251, ptr %253, align 8
-  %254 = load ptr, ptr %8, align 8
-  %255 = getelementptr inbounds %struct.GenContext_, ptr %254, i32 0, i32 5
-  %256 = load ptr, ptr %255, align 8
-  %257 = call ptr @LLVMVoidTypeInContext(ptr noundef %256)
-  %258 = call ptr @LLVMFunctionType(ptr noundef %257, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  %253 = getelementptr inbounds %struct.GenContext_, ptr %252, i32 0, i32 5
+  %254 = load ptr, ptr %253, align 8
+  %255 = getelementptr inbounds [3 x ptr], ptr %16, i64 0, i64 0
+  %256 = call ptr @LLVMStructTypeInContext(ptr noundef %254, ptr noundef %255, i32 noundef 3, i32 noundef 0)
+  %257 = load ptr, ptr %8, align 8
+  %258 = getelementptr inbounds %struct.GenContext_, ptr %257, i32 0, i32 29
+  store ptr %256, ptr %258, align 8
   %259 = load ptr, ptr %8, align 8
-  %260 = getelementptr inbounds %struct.GenContext_, ptr %259, i32 0, i32 30
-  store ptr %258, ptr %260, align 8
-  %261 = load ptr, ptr %8, align 8
-  %262 = call ptr @create_introspection_type(ptr noundef %261)
-  %263 = load ptr, ptr %8, align 8
-  %264 = getelementptr inbounds %struct.GenContext_, ptr %263, i32 0, i32 22
-  store ptr %262, ptr %264, align 8
-  %265 = load ptr, ptr %8, align 8
-  %266 = call ptr @create_fault_type(ptr noundef %265)
-  %267 = load ptr, ptr %8, align 8
-  %268 = getelementptr inbounds %struct.GenContext_, ptr %267, i32 0, i32 23
-  store ptr %266, ptr %268, align 8
-  %269 = load ptr, ptr %8, align 8
-  %270 = getelementptr inbounds %struct.GenContext_, ptr %269, i32 0, i32 31
-  %271 = load ptr, ptr %270, align 8
-  %272 = icmp ne ptr %271, null
-  br i1 %272, label %273, label %278
-
-273:                                              ; preds = %181
+  %260 = getelementptr inbounds %struct.GenContext_, ptr %259, i32 0, i32 5
+  %261 = load ptr, ptr %260, align 8
+  %262 = call ptr @LLVMVoidTypeInContext(ptr noundef %261)
+  %263 = call ptr @LLVMFunctionType(ptr noundef %262, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  %264 = load ptr, ptr %8, align 8
+  %265 = getelementptr inbounds %struct.GenContext_, ptr %264, i32 0, i32 30
+  store ptr %263, ptr %265, align 8
+  %266 = load ptr, ptr %8, align 8
+  %267 = call ptr @create_introspection_type(ptr noundef %266)
+  %268 = load ptr, ptr %8, align 8
+  %269 = getelementptr inbounds %struct.GenContext_, ptr %268, i32 0, i32 22
+  store ptr %267, ptr %269, align 8
+  %270 = load ptr, ptr %8, align 8
+  %271 = call ptr @create_fault_type(ptr noundef %270)
+  %272 = load ptr, ptr %8, align 8
+  %273 = getelementptr inbounds %struct.GenContext_, ptr %272, i32 0, i32 23
+  store ptr %271, ptr %273, align 8
   %274 = load ptr, ptr %8, align 8
   %275 = getelementptr inbounds %struct.GenContext_, ptr %274, i32 0, i32 31
   %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds %struct.Decl_, ptr %276, i32 0, i32 4
-  store ptr null, ptr %277, align 8
-  br label %278
+  %277 = icmp ne ptr %276, null
+  br i1 %277, label %278, label %283
 
-278:                                              ; preds = %273, %181
+278:                                              ; preds = %186
   %279 = load ptr, ptr %8, align 8
-  %280 = getelementptr inbounds %struct.GenContext_, ptr %279, i32 0, i32 32
+  %280 = getelementptr inbounds %struct.GenContext_, ptr %279, i32 0, i32 31
   %281 = load ptr, ptr %280, align 8
-  %282 = icmp ne ptr %281, null
-  br i1 %282, label %283, label %288
+  %282 = getelementptr inbounds %struct.Decl_, ptr %281, i32 0, i32 4
+  store ptr null, ptr %282, align 8
+  br label %283
 
-283:                                              ; preds = %278
+283:                                              ; preds = %278, %186
   %284 = load ptr, ptr %8, align 8
   %285 = getelementptr inbounds %struct.GenContext_, ptr %284, i32 0, i32 32
   %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds %struct.Decl_, ptr %286, i32 0, i32 4
-  store ptr null, ptr %287, align 8
-  br label %288
+  %287 = icmp ne ptr %286, null
+  br i1 %287, label %288, label %293
 
-288:                                              ; preds = %283, %278
-  %289 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 50), align 8
-  %290 = icmp ne i32 %289, 0
-  br i1 %290, label %291, label %346
+288:                                              ; preds = %283
+  %289 = load ptr, ptr %8, align 8
+  %290 = getelementptr inbounds %struct.GenContext_, ptr %289, i32 0, i32 32
+  %291 = load ptr, ptr %290, align 8
+  %292 = getelementptr inbounds %struct.Decl_, ptr %291, i32 0, i32 4
+  store ptr null, ptr %292, align 8
+  br label %293
 
-291:                                              ; preds = %288
-  %292 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 52), align 8
-  %293 = icmp eq i32 %292, 24
-  br i1 %293, label %297, label %294
+293:                                              ; preds = %288, %283
+  %294 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 50
+  %295 = load i32, ptr %294, align 8
+  %296 = icmp ne i32 %295, 0
+  br i1 %296, label %297, label %359
 
-294:                                              ; preds = %291
-  %295 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 52), align 8
-  %296 = icmp eq i32 %295, 23
-  br i1 %296, label %297, label %300
+297:                                              ; preds = %293
+  %298 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 52
+  %299 = load i32, ptr %298, align 8
+  %300 = icmp eq i32 %299, 24
+  br i1 %300, label %305, label %301
 
-297:                                              ; preds = %294, %291
-  %298 = load ptr, ptr %8, align 8
-  %299 = load ptr, ptr @type_uint, align 8
-  call void @llvm_set_module_flag(ptr noundef %298, i32 noundef 0, ptr noundef @.str.2, i64 noundef 1, ptr noundef %299)
-  br label %311
+301:                                              ; preds = %297
+  %302 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 52
+  %303 = load i32, ptr %302, align 8
+  %304 = icmp eq i32 %303, 23
+  br i1 %304, label %305, label %308
 
-300:                                              ; preds = %294
-  %301 = load ptr, ptr %8, align 8
-  %302 = load ptr, ptr @type_uint, align 8
-  call void @llvm_set_module_flag(ptr noundef %301, i32 noundef 1, ptr noundef @.str.3, i64 noundef 4, ptr noundef %302)
-  %303 = load ptr, ptr %8, align 8
-  %304 = load ptr, ptr @type_uint, align 8
-  call void @llvm_set_module_flag(ptr noundef %303, i32 noundef 1, ptr noundef @.str.4, i64 noundef 3, ptr noundef %304)
-  %305 = load ptr, ptr %8, align 8
-  %306 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %307 = icmp eq i32 %306, 3
-  %308 = select i1 %307, i32 1, i32 2
-  %309 = sext i32 %308 to i64
+305:                                              ; preds = %301, %297
+  %306 = load ptr, ptr %8, align 8
+  %307 = load ptr, ptr @type_uint, align 8
+  call void @llvm_set_module_flag(ptr noundef %306, i32 noundef 0, ptr noundef @.str.2, i64 noundef 1, ptr noundef %307)
+  br label %320
+
+308:                                              ; preds = %301
+  %309 = load ptr, ptr %8, align 8
   %310 = load ptr, ptr @type_uint, align 8
-  call void @llvm_set_module_flag(ptr noundef %305, i32 noundef 1, ptr noundef @.str.5, i64 noundef %309, ptr noundef %310)
-  br label %311
+  call void @llvm_set_module_flag(ptr noundef %309, i32 noundef 1, ptr noundef @.str.3, i64 noundef 4, ptr noundef %310)
+  %311 = load ptr, ptr %8, align 8
+  %312 = load ptr, ptr @type_uint, align 8
+  call void @llvm_set_module_flag(ptr noundef %311, i32 noundef 1, ptr noundef @.str.4, i64 noundef 3, ptr noundef %312)
+  %313 = load ptr, ptr %8, align 8
+  %314 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %315 = load i32, ptr %314, align 8
+  %316 = icmp eq i32 %315, 3
+  %317 = select i1 %316, i32 1, i32 2
+  %318 = sext i32 %317 to i64
+  %319 = load ptr, ptr @type_uint, align 8
+  call void @llvm_set_module_flag(ptr noundef %313, i32 noundef 1, ptr noundef @.str.5, i64 noundef %318, ptr noundef %319)
+  br label %320
 
-311:                                              ; preds = %300, %297
-  %312 = load ptr, ptr %8, align 8
-  %313 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 52), align 8
-  %314 = icmp eq i32 %313, 13
-  %315 = select i1 %314, i32 1, i32 2
-  %316 = sext i32 %315 to i64
-  %317 = load ptr, ptr @type_uint, align 8
-  call void @llvm_set_module_flag(ptr noundef %312, i32 noundef 0, ptr noundef @.str.6, i64 noundef %316, ptr noundef %317)
-  %318 = load ptr, ptr %8, align 8
-  %319 = getelementptr inbounds %struct.GenContext_, ptr %318, i32 0, i32 36
-  %320 = load i16, ptr %319, align 8
-  %321 = and i16 %320, -256
-  %322 = or i16 %321, 0
-  store i16 %322, ptr %319, align 8
-  %323 = load ptr, ptr %8, align 8
-  %324 = getelementptr inbounds %struct.GenContext_, ptr %323, i32 0, i32 1
-  %325 = load ptr, ptr %324, align 8
-  %326 = call ptr @LLVMCreateDIBuilder(ptr noundef %325)
-  %327 = load ptr, ptr %8, align 8
-  %328 = getelementptr inbounds %struct.GenContext_, ptr %327, i32 0, i32 36
-  %329 = getelementptr inbounds %struct.DebugContext, ptr %328, i32 0, i32 1
-  store ptr %326, ptr %329, align 8
-  %330 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 50), align 8
-  %331 = icmp eq i32 %330, 2
-  br i1 %331, label %332, label %345
+320:                                              ; preds = %308, %305
+  %321 = load ptr, ptr %8, align 8
+  %322 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 52
+  %323 = load i32, ptr %322, align 8
+  %324 = icmp eq i32 %323, 13
+  %325 = select i1 %324, i32 1, i32 2
+  %326 = sext i32 %325 to i64
+  %327 = load ptr, ptr @type_uint, align 8
+  call void @llvm_set_module_flag(ptr noundef %321, i32 noundef 0, ptr noundef @.str.6, i64 noundef %326, ptr noundef %327)
+  %328 = load ptr, ptr %8, align 8
+  %329 = getelementptr inbounds %struct.GenContext_, ptr %328, i32 0, i32 36
+  %330 = load i16, ptr %329, align 8
+  %331 = and i16 %330, -256
+  %332 = or i16 %331, 0
+  store i16 %332, ptr %329, align 8
+  %333 = load ptr, ptr %8, align 8
+  %334 = getelementptr inbounds %struct.GenContext_, ptr %333, i32 0, i32 1
+  %335 = load ptr, ptr %334, align 8
+  %336 = call ptr @LLVMCreateDIBuilder(ptr noundef %335)
+  %337 = load ptr, ptr %8, align 8
+  %338 = getelementptr inbounds %struct.GenContext_, ptr %337, i32 0, i32 36
+  %339 = getelementptr inbounds %struct.DebugContext, ptr %338, i32 0, i32 1
+  store ptr %336, ptr %339, align 8
+  %340 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 50
+  %341 = load i32, ptr %340, align 8
+  %342 = icmp eq i32 %341, 2
+  br i1 %342, label %343, label %358
 
-332:                                              ; preds = %311
-  %333 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 67, i32 2), align 8
-  %334 = icmp ne i32 %333, 0
-  br i1 %334, label %335, label %345
+343:                                              ; preds = %320
+  %344 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 67, i32 2
+  %345 = load i32, ptr %344, align 8
+  %346 = icmp ne i32 %345, 0
+  br i1 %346, label %347, label %358
 
-335:                                              ; preds = %332
-  %336 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %337 = call zeroext i1 @os_supports_stacktrace(i32 noundef %336)
-  %338 = load ptr, ptr %8, align 8
-  %339 = getelementptr inbounds %struct.GenContext_, ptr %338, i32 0, i32 36
-  %340 = zext i1 %337 to i16
-  %341 = load i16, ptr %339, align 8
-  %342 = shl i16 %340, 8
-  %343 = and i16 %341, -257
-  %344 = or i16 %343, %342
-  store i16 %344, ptr %339, align 8
-  br label %345
+347:                                              ; preds = %343
+  %348 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %349 = load i32, ptr %348, align 4
+  %350 = call zeroext i1 @os_supports_stacktrace(i32 noundef %349)
+  %351 = load ptr, ptr %8, align 8
+  %352 = getelementptr inbounds %struct.GenContext_, ptr %351, i32 0, i32 36
+  %353 = zext i1 %350 to i16
+  %354 = load i16, ptr %352, align 8
+  %355 = shl i16 %353, 8
+  %356 = and i16 %354, -257
+  %357 = or i16 %356, %355
+  store i16 %357, ptr %352, align 8
+  br label %358
 
-345:                                              ; preds = %335, %332, %311
-  br label %346
+358:                                              ; preds = %347, %343, %320
+  br label %359
 
-346:                                              ; preds = %345, %288
-  %347 = call ptr @LLVMCreateBuilder()
-  %348 = load ptr, ptr %8, align 8
-  %349 = getelementptr inbounds %struct.GenContext_, ptr %348, i32 0, i32 2
-  store ptr %347, ptr %349, align 8
-  %350 = load ptr, ptr %8, align 8
-  %351 = getelementptr inbounds %struct.GenContext_, ptr %350, i32 0, i32 2
-  %352 = load ptr, ptr %351, align 8
-  %353 = load ptr, ptr %8, align 8
-  %354 = getelementptr inbounds %struct.GenContext_, ptr %353, i32 0, i32 8
-  store ptr %352, ptr %354, align 8
+359:                                              ; preds = %358, %293
+  %360 = call ptr @LLVMCreateBuilder()
+  %361 = load ptr, ptr %8, align 8
+  %362 = getelementptr inbounds %struct.GenContext_, ptr %361, i32 0, i32 2
+  store ptr %360, ptr %362, align 8
+  %363 = load ptr, ptr %8, align 8
+  %364 = getelementptr inbounds %struct.GenContext_, ptr %363, i32 0, i32 2
+  %365 = load ptr, ptr %364, align 8
+  %366 = load ptr, ptr %8, align 8
+  %367 = getelementptr inbounds %struct.GenContext_, ptr %366, i32 0, i32 8
+  store ptr %365, ptr %367, align 8
   ret void
 }
 
@@ -763,97 +776,100 @@ define dso_local void @gencontext_init_file_emit(ptr noundef %0, ptr noundef %1)
   %14 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 50), align 8
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %84
+  %15 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 50
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %87
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.CompilationUnit_, ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct.File, ptr %21, i32 0, i32 0
-  %23 = load i16, ptr %22, align 8
-  %24 = call ptr @llvm_get_debug_file(ptr noundef %18, i16 noundef zeroext %23)
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.CompilationUnit_, ptr %25, i32 0, i32 32
-  %27 = getelementptr inbounds %struct.anon.104, ptr %26, i32 0, i32 0
-  store ptr %24, ptr %27, align 8
-  %28 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 42), align 8
-  %29 = icmp ne i32 %28, 0
-  %30 = zext i1 %29 to i8
-  store i8 %30, ptr %5, align 1
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %struct.CompilationUnit_, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds %struct.File, ptr %22, i32 0, i32 0
+  %24 = load i16, ptr %23, align 8
+  %25 = call ptr @llvm_get_debug_file(ptr noundef %19, i16 noundef zeroext %24)
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %struct.CompilationUnit_, ptr %26, i32 0, i32 32
+  %28 = getelementptr inbounds %struct.anon.104, ptr %27, i32 0, i32 0
+  store ptr %25, ptr %28, align 8
+  %29 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 42
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp ne i32 %30, 0
+  %32 = zext i1 %31 to i8
+  store i8 %32, ptr %5, align 1
   store ptr @.str.7, ptr %6, align 8
   store i32 0, ptr %7, align 4
-  %31 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 50), align 8
-  %32 = icmp eq i32 %31, 2
-  %33 = select i1 %32, i32 1, i32 2
-  store i32 %33, ptr %8, align 4
+  %33 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 50
+  %34 = load i32, ptr %33, align 8
+  %35 = icmp eq i32 %34, 2
+  %36 = select i1 %35, i32 1, i32 2
+  store i32 %36, ptr %8, align 4
   store ptr @.str.7, ptr %9, align 8
   store i8 0, ptr %10, align 1
   store i8 0, ptr %11, align 1
   store ptr @.str.7, ptr %12, align 8
   store ptr @.str.7, ptr %13, align 8
   store i32 0, ptr %14, align 4
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.GenContext_, ptr %34, i32 0, i32 36
-  %36 = getelementptr inbounds %struct.DebugContext, ptr %35, i32 0, i32 4
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %47
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds %struct.GenContext_, ptr %37, i32 0, i32 36
+  %39 = getelementptr inbounds %struct.DebugContext, ptr %38, i32 0, i32 4
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %50
 
-39:                                               ; preds = %17
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.GenContext_, ptr %40, i32 0, i32 36
-  %42 = getelementptr inbounds %struct.DebugContext, ptr %41, i32 0, i32 4
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.CompilationUnit_, ptr %44, i32 0, i32 32
-  %46 = getelementptr inbounds %struct.anon.104, ptr %45, i32 0, i32 1
-  store ptr %43, ptr %46, align 8
-  br label %84
+42:                                               ; preds = %18
+  %43 = load ptr, ptr %3, align 8
+  %44 = getelementptr inbounds %struct.GenContext_, ptr %43, i32 0, i32 36
+  %45 = getelementptr inbounds %struct.DebugContext, ptr %44, i32 0, i32 4
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds %struct.CompilationUnit_, ptr %47, i32 0, i32 32
+  %49 = getelementptr inbounds %struct.anon.104, ptr %48, i32 0, i32 1
+  store ptr %46, ptr %49, align 8
+  br label %87
 
-47:                                               ; preds = %17
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.GenContext_, ptr %48, i32 0, i32 36
-  %50 = getelementptr inbounds %struct.DebugContext, ptr %49, i32 0, i32 1
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.CompilationUnit_, ptr %52, i32 0, i32 32
-  %54 = getelementptr inbounds %struct.anon.104, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = load i8, ptr %5, align 1
-  %57 = trunc i8 %56 to i1
-  %58 = zext i1 %57 to i32
-  %59 = load ptr, ptr %6, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = call i64 @strlen(ptr noundef %60) #3
-  %62 = load i32, ptr %7, align 4
-  %63 = load ptr, ptr %9, align 8
-  %64 = load ptr, ptr %9, align 8
-  %65 = call i64 @strlen(ptr noundef %64) #3
-  %66 = load i32, ptr %8, align 4
-  %67 = load i32, ptr %14, align 4
-  %68 = load i8, ptr %11, align 1
-  %69 = trunc i8 %68 to i1
-  %70 = zext i1 %69 to i32
-  %71 = load i8, ptr %10, align 1
+50:                                               ; preds = %18
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds %struct.GenContext_, ptr %51, i32 0, i32 36
+  %53 = getelementptr inbounds %struct.DebugContext, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds %struct.CompilationUnit_, ptr %55, i32 0, i32 32
+  %57 = getelementptr inbounds %struct.anon.104, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = load i8, ptr %5, align 1
+  %60 = trunc i8 %59 to i1
+  %61 = zext i1 %60 to i32
+  %62 = load ptr, ptr %6, align 8
+  %63 = load ptr, ptr %6, align 8
+  %64 = call i64 @strlen(ptr noundef %63) #3
+  %65 = load i32, ptr %7, align 4
+  %66 = load ptr, ptr %9, align 8
+  %67 = load ptr, ptr %9, align 8
+  %68 = call i64 @strlen(ptr noundef %67) #3
+  %69 = load i32, ptr %8, align 4
+  %70 = load i32, ptr %14, align 4
+  %71 = load i8, ptr %11, align 1
   %72 = trunc i8 %71 to i1
   %73 = zext i1 %72 to i32
-  %74 = load ptr, ptr %12, align 8
-  %75 = load ptr, ptr %12, align 8
-  %76 = call i64 @strlen(ptr noundef %75) #3
-  %77 = load ptr, ptr %13, align 8
-  %78 = load ptr, ptr %13, align 8
+  %74 = load i8, ptr %10, align 1
+  %75 = trunc i8 %74 to i1
+  %76 = zext i1 %75 to i32
+  %77 = load ptr, ptr %12, align 8
+  %78 = load ptr, ptr %12, align 8
   %79 = call i64 @strlen(ptr noundef %78) #3
-  %80 = call ptr @LLVMDIBuilderCreateCompileUnit(ptr noundef %51, i32 noundef 28, ptr noundef %55, ptr noundef @.str.8, i64 noundef 3, i32 noundef %58, ptr noundef %59, i64 noundef %61, i32 noundef %62, ptr noundef %63, i64 noundef %65, i32 noundef %66, i32 noundef %67, i32 noundef %70, i32 noundef %73, ptr noundef %74, i64 noundef %76, ptr noundef %77, i64 noundef %79)
-  %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds %struct.CompilationUnit_, ptr %81, i32 0, i32 32
-  %83 = getelementptr inbounds %struct.anon.104, ptr %82, i32 0, i32 1
-  store ptr %80, ptr %83, align 8
-  br label %84
+  %80 = load ptr, ptr %13, align 8
+  %81 = load ptr, ptr %13, align 8
+  %82 = call i64 @strlen(ptr noundef %81) #3
+  %83 = call ptr @LLVMDIBuilderCreateCompileUnit(ptr noundef %54, i32 noundef 28, ptr noundef %58, ptr noundef @.str.8, i64 noundef 3, i32 noundef %61, ptr noundef %62, i64 noundef %64, i32 noundef %65, ptr noundef %66, i64 noundef %68, i32 noundef %69, i32 noundef %70, i32 noundef %73, i32 noundef %76, ptr noundef %77, i64 noundef %79, ptr noundef %80, i64 noundef %82)
+  %84 = load ptr, ptr %4, align 8
+  %85 = getelementptr inbounds %struct.CompilationUnit_, ptr %84, i32 0, i32 32
+  %86 = getelementptr inbounds %struct.anon.104, ptr %85, i32 0, i32 1
+  store ptr %83, ptr %86, align 8
+  br label %87
 
-84:                                               ; preds = %47, %39, %2
+87:                                               ; preds = %50, %42, %2
   ret void
 }
 

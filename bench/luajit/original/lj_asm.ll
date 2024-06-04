@@ -3374,81 +3374,82 @@ entry:
   %l_end = alloca ptr, align 8
   %tmp = alloca i32, align 4
   store ptr %as, ptr %as.addr, align 8
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 40), ptr %ci, align 8
-  %0 = load ptr, ptr %as.addr, align 8
-  call void @ra_evictset(ptr noundef %0, i32 noundef -61497)
+  %0 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 40
+  store ptr %0, ptr %ci, align 8
   %1 = load ptr, ptr %as.addr, align 8
-  %mcp = getelementptr inbounds %struct.ASMState, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %mcp, align 8
-  store ptr %2, ptr %l_end, align 8
-  %3 = load ptr, ptr %as.addr, align 8
-  call void @asm_guardcc(ptr noundef %3, i32 noundef 5)
+  call void @ra_evictset(ptr noundef %1, i32 noundef -61497)
+  %2 = load ptr, ptr %as.addr, align 8
+  %mcp = getelementptr inbounds %struct.ASMState, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %mcp, align 8
+  store ptr %3, ptr %l_end, align 8
   %4 = load ptr, ptr %as.addr, align 8
-  call void @emit_rr(ptr noundef %4, i32 noundef -2063597314, i32 noundef 0, i32 noundef 0)
+  call void @asm_guardcc(ptr noundef %4, i32 noundef 5)
+  %5 = load ptr, ptr %as.addr, align 8
+  call void @emit_rr(ptr noundef %5, i32 noundef -2063597314, i32 noundef 0, i32 noundef 0)
   %arrayidx = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 0
   store i32 32765, ptr %arrayidx, align 4
   %arrayidx1 = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 1
   store i32 32766, ptr %arrayidx1, align 4
-  %5 = load ptr, ptr %as.addr, align 8
-  %6 = load ptr, ptr %ci, align 8
+  %6 = load ptr, ptr %as.addr, align 8
+  %7 = load ptr, ptr %ci, align 8
   %arraydecay = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 0
-  call void @asm_gencall(ptr noundef %5, ptr noundef %6, ptr noundef %arraydecay)
-  %7 = load ptr, ptr %as.addr, align 8
-  %call = call i32 @ra_releasetmp(ptr noundef %7, i32 noundef 32765)
-  store i32 %call, ptr %tmp, align 4
+  call void @asm_gencall(ptr noundef %6, ptr noundef %7, ptr noundef %arraydecay)
   %8 = load ptr, ptr %as.addr, align 8
-  %9 = load i32, ptr %tmp, align 4
-  %or = or i32 %9, 524800
-  call void @emit_rmro(ptr noundef %8, i32 noundef -1929379586, i32 noundef %or, i32 noundef 14, i32 noundef -3968)
-  %10 = load ptr, ptr %as.addr, align 8
+  %call = call i32 @ra_releasetmp(ptr noundef %8, i32 noundef 32765)
+  store i32 %call, ptr %tmp, align 4
+  %9 = load ptr, ptr %as.addr, align 8
+  %10 = load i32, ptr %tmp, align 4
+  %or = or i32 %10, 524800
+  call void @emit_rmro(ptr noundef %9, i32 noundef -1929379586, i32 noundef %or, i32 noundef 14, i32 noundef -3968)
   %11 = load ptr, ptr %as.addr, align 8
-  %call2 = call i32 @ra_releasetmp(ptr noundef %11, i32 noundef 32766)
   %12 = load ptr, ptr %as.addr, align 8
-  %gcsteps = getelementptr inbounds %struct.ASMState, ptr %12, i32 0, i32 28
-  %13 = load i32, ptr %gcsteps, align 8
-  call void @emit_loadi(ptr noundef %10, i32 noundef %call2, i32 noundef %13)
-  %14 = load ptr, ptr %as.addr, align 8
-  %15 = load ptr, ptr %l_end, align 8
-  call void @emit_sjcc(ptr noundef %14, i32 noundef 2, ptr noundef %15)
-  %16 = load ptr, ptr %as.addr, align 8
-  %17 = load i32, ptr %tmp, align 4
-  %or3 = or i32 %17, 524800
-  %18 = load ptr, ptr %as.addr, align 8
-  %J = getelementptr inbounds %struct.ASMState, ptr %18, i32 0, i32 4
-  %19 = load ptr, ptr %J, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %19, i64 -824
+  %call2 = call i32 @ra_releasetmp(ptr noundef %12, i32 noundef 32766)
+  %13 = load ptr, ptr %as.addr, align 8
+  %gcsteps = getelementptr inbounds %struct.ASMState, ptr %13, i32 0, i32 28
+  %14 = load i32, ptr %gcsteps, align 8
+  call void @emit_loadi(ptr noundef %11, i32 noundef %call2, i32 noundef %14)
+  %15 = load ptr, ptr %as.addr, align 8
+  %16 = load ptr, ptr %l_end, align 8
+  call void @emit_sjcc(ptr noundef %15, i32 noundef 2, ptr noundef %16)
+  %17 = load ptr, ptr %as.addr, align 8
+  %18 = load i32, ptr %tmp, align 4
+  %or3 = or i32 %18, 524800
+  %19 = load ptr, ptr %as.addr, align 8
+  %J = getelementptr inbounds %struct.ASMState, ptr %19, i32 0, i32 4
+  %20 = load ptr, ptr %J, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %20, i64 -824
   %g = getelementptr inbounds %struct.GG_State, ptr %add.ptr, i32 0, i32 1
   %gc = getelementptr inbounds %struct.global_State, ptr %g, i32 0, i32 2
   %threshold = getelementptr inbounds %struct.GCState, ptr %gc, i32 0, i32 1
-  call void @emit_rma(ptr noundef %16, i32 noundef 989855998, i32 noundef %or3, ptr noundef %threshold)
-  %20 = load ptr, ptr %as.addr, align 8
-  %21 = load i32, ptr %tmp, align 4
-  %or4 = or i32 %21, 524800
-  %22 = load ptr, ptr %as.addr, align 8
-  %J5 = getelementptr inbounds %struct.ASMState, ptr %22, i32 0, i32 4
-  %23 = load ptr, ptr %J5, align 8
-  %add.ptr6 = getelementptr inbounds i8, ptr %23, i64 -824
+  call void @emit_rma(ptr noundef %17, i32 noundef 989855998, i32 noundef %or3, ptr noundef %threshold)
+  %21 = load ptr, ptr %as.addr, align 8
+  %22 = load i32, ptr %tmp, align 4
+  %or4 = or i32 %22, 524800
+  %23 = load ptr, ptr %as.addr, align 8
+  %J5 = getelementptr inbounds %struct.ASMState, ptr %23, i32 0, i32 4
+  %24 = load ptr, ptr %J5, align 8
+  %add.ptr6 = getelementptr inbounds i8, ptr %24, i64 -824
   %g7 = getelementptr inbounds %struct.GG_State, ptr %add.ptr6, i32 0, i32 1
   %gc8 = getelementptr inbounds %struct.global_State, ptr %g7, i32 0, i32 2
   %total = getelementptr inbounds %struct.GCState, ptr %gc8, i32 0, i32 0
-  call void @emit_rma(ptr noundef %20, i32 noundef -1962934018, i32 noundef %or4, ptr noundef %total)
-  %24 = load ptr, ptr %as.addr, align 8
-  %gcsteps9 = getelementptr inbounds %struct.ASMState, ptr %24, i32 0, i32 28
-  store i32 0, ptr %gcsteps9, align 8
+  call void @emit_rma(ptr noundef %21, i32 noundef -1962934018, i32 noundef %or4, ptr noundef %total)
   %25 = load ptr, ptr %as.addr, align 8
-  store ptr %25, ptr %as.addr.i, align 8
-  %26 = load ptr, ptr %as.addr.i, align 8
-  %mcp.i = getelementptr inbounds %struct.ASMState, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %mcp.i, align 8
-  %28 = load ptr, ptr %as.addr.i, align 8
-  %mclim.i = getelementptr inbounds %struct.ASMState, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %mclim.i, align 8
-  %cmp.i = icmp ult ptr %27, %29
+  %gcsteps9 = getelementptr inbounds %struct.ASMState, ptr %25, i32 0, i32 28
+  store i32 0, ptr %gcsteps9, align 8
+  %26 = load ptr, ptr %as.addr, align 8
+  store ptr %26, ptr %as.addr.i, align 8
+  %27 = load ptr, ptr %as.addr.i, align 8
+  %mcp.i = getelementptr inbounds %struct.ASMState, ptr %27, i32 0, i32 1
+  %28 = load ptr, ptr %mcp.i, align 8
+  %29 = load ptr, ptr %as.addr.i, align 8
+  %mclim.i = getelementptr inbounds %struct.ASMState, ptr %29, i32 0, i32 2
+  %30 = load ptr, ptr %mclim.i, align 8
+  %cmp.i = icmp ult ptr %28, %30
   br i1 %cmp.i, label %if.then.i, label %checkmclim.exit
 
 if.then.i:                                        ; preds = %entry
-  %30 = load ptr, ptr %as.addr.i, align 8
-  call void @asm_mclimit(ptr noundef %30) #9
+  %31 = load ptr, ptr %as.addr.i, align 8
+  call void @asm_mclimit(ptr noundef %31) #9
   unreachable
 
 checkmclim.exit:                                  ; preds = %entry
@@ -15265,11 +15266,12 @@ entry:
   %args = alloca [3 x i32], align 4
   store ptr %as, ptr %as.addr, align 8
   store ptr %ir, ptr %ir.addr, align 8
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 35), ptr %ci, align 8
-  %0 = load ptr, ptr %ir.addr, align 8
-  %r = getelementptr inbounds %struct.anon.0, ptr %0, i32 0, i32 3
-  %1 = load i8, ptr %r, align 2
-  %conv = zext i8 %1 to i32
+  %0 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 35
+  store ptr %0, ptr %ci, align 8
+  %1 = load ptr, ptr %ir.addr, align 8
+  %r = getelementptr inbounds %struct.anon.0, ptr %1, i32 0, i32 3
+  %2 = load i8, ptr %r, align 2
+  %conv = zext i8 %2 to i32
   %cmp = icmp eq i32 %conv, 254
   br i1 %cmp, label %if.then, label %if.end
 
@@ -15277,34 +15279,34 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %as.addr, align 8
-  call void @asm_snap_prep(ptr noundef %2)
+  %3 = load ptr, ptr %as.addr, align 8
+  call void @asm_snap_prep(ptr noundef %3)
   %arrayidx = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 0
   store i32 32767, ptr %arrayidx, align 4
-  %3 = load ptr, ptr %ir.addr, align 8
-  %op1 = getelementptr inbounds %struct.anon, ptr %3, i32 0, i32 0
-  %4 = load i16, ptr %op1, align 8
-  %conv2 = zext i16 %4 to i32
+  %4 = load ptr, ptr %ir.addr, align 8
+  %op1 = getelementptr inbounds %struct.anon, ptr %4, i32 0, i32 0
+  %5 = load i16, ptr %op1, align 8
+  %conv2 = zext i16 %5 to i32
   %arrayidx3 = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 1
   store i32 %conv2, ptr %arrayidx3, align 4
   %arrayidx4 = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 2
   store i32 32765, ptr %arrayidx4, align 4
-  %5 = load ptr, ptr %as.addr, align 8
-  %6 = load ptr, ptr %ir.addr, align 8
-  %7 = load ptr, ptr %ci, align 8
-  call void @asm_setupresult(ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %8 = load ptr, ptr %as.addr, align 8
-  %9 = load ptr, ptr %ci, align 8
+  %6 = load ptr, ptr %as.addr, align 8
+  %7 = load ptr, ptr %ir.addr, align 8
+  %8 = load ptr, ptr %ci, align 8
+  call void @asm_setupresult(ptr noundef %6, ptr noundef %7, ptr noundef %8)
+  %9 = load ptr, ptr %as.addr, align 8
+  %10 = load ptr, ptr %ci, align 8
   %arraydecay = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 0
-  call void @asm_gencall(ptr noundef %8, ptr noundef %9, ptr noundef %arraydecay)
-  %10 = load ptr, ptr %as.addr, align 8
+  call void @asm_gencall(ptr noundef %9, ptr noundef %10, ptr noundef %arraydecay)
   %11 = load ptr, ptr %as.addr, align 8
-  %call = call i32 @ra_releasetmp(ptr noundef %11, i32 noundef 32765)
-  %12 = load ptr, ptr %ir.addr, align 8
-  %op2 = getelementptr inbounds %struct.anon, ptr %12, i32 0, i32 1
-  %13 = load i16, ptr %op2, align 2
-  %conv5 = zext i16 %13 to i32
-  call void @asm_tvptr(ptr noundef %10, i32 noundef %call, i32 noundef %conv5, i32 noundef 1)
+  %12 = load ptr, ptr %as.addr, align 8
+  %call = call i32 @ra_releasetmp(ptr noundef %12, i32 noundef 32765)
+  %13 = load ptr, ptr %ir.addr, align 8
+  %op2 = getelementptr inbounds %struct.anon, ptr %13, i32 0, i32 1
+  %14 = load i16, ptr %op2, align 2
+  %conv5 = zext i16 %14 to i32
+  call void @asm_tvptr(ptr noundef %11, i32 noundef %call, i32 noundef %conv5, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -17282,36 +17284,37 @@ entry:
   %args = alloca [3 x i32], align 4
   store ptr %as, ptr %as.addr, align 8
   store ptr %ir, ptr %ir.addr, align 8
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 2), ptr %ci, align 8
-  %0 = load ptr, ptr %as.addr, align 8
-  call void @asm_snap_prep(ptr noundef %0)
+  %0 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 2
+  store ptr %0, ptr %ci, align 8
+  %1 = load ptr, ptr %as.addr, align 8
+  call void @asm_snap_prep(ptr noundef %1)
   %arrayidx = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 0
   store i32 32767, ptr %arrayidx, align 4
-  %1 = load ptr, ptr %ir.addr, align 8
-  %op1 = getelementptr inbounds %struct.anon, ptr %1, i32 0, i32 0
-  %2 = load i16, ptr %op1, align 8
-  %conv = zext i16 %2 to i32
+  %2 = load ptr, ptr %ir.addr, align 8
+  %op1 = getelementptr inbounds %struct.anon, ptr %2, i32 0, i32 0
+  %3 = load i16, ptr %op1, align 8
+  %conv = zext i16 %3 to i32
   %arrayidx1 = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 1
   store i32 %conv, ptr %arrayidx1, align 4
-  %3 = load ptr, ptr %ir.addr, align 8
-  %op2 = getelementptr inbounds %struct.anon, ptr %3, i32 0, i32 1
-  %4 = load i16, ptr %op2, align 2
-  %conv2 = zext i16 %4 to i32
+  %4 = load ptr, ptr %ir.addr, align 8
+  %op2 = getelementptr inbounds %struct.anon, ptr %4, i32 0, i32 1
+  %5 = load i16, ptr %op2, align 2
+  %conv2 = zext i16 %5 to i32
   %arrayidx3 = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 2
   store i32 %conv2, ptr %arrayidx3, align 4
-  %5 = load ptr, ptr %as.addr, align 8
-  %gcsteps = getelementptr inbounds %struct.ASMState, ptr %5, i32 0, i32 28
-  %6 = load i32, ptr %gcsteps, align 8
-  %inc = add nsw i32 %6, 1
+  %6 = load ptr, ptr %as.addr, align 8
+  %gcsteps = getelementptr inbounds %struct.ASMState, ptr %6, i32 0, i32 28
+  %7 = load i32, ptr %gcsteps, align 8
+  %inc = add nsw i32 %7, 1
   store i32 %inc, ptr %gcsteps, align 8
-  %7 = load ptr, ptr %as.addr, align 8
-  %8 = load ptr, ptr %ir.addr, align 8
-  %9 = load ptr, ptr %ci, align 8
-  call void @asm_setupresult(ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  %10 = load ptr, ptr %as.addr, align 8
-  %11 = load ptr, ptr %ci, align 8
+  %8 = load ptr, ptr %as.addr, align 8
+  %9 = load ptr, ptr %ir.addr, align 8
+  %10 = load ptr, ptr %ci, align 8
+  call void @asm_setupresult(ptr noundef %8, ptr noundef %9, ptr noundef %10)
+  %11 = load ptr, ptr %as.addr, align 8
+  %12 = load ptr, ptr %ci, align 8
   %arraydecay = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 0
-  call void @asm_gencall(ptr noundef %10, ptr noundef %11, ptr noundef %arraydecay)
+  call void @asm_gencall(ptr noundef %11, ptr noundef %12, ptr noundef %arraydecay)
   ret void
 }
 
@@ -17324,40 +17327,41 @@ entry:
   %args = alloca [2 x i32], align 4
   store ptr %as, ptr %as.addr, align 8
   store ptr %ir, ptr %ir.addr, align 8
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 32), ptr %ci, align 8
-  %0 = load ptr, ptr %as.addr, align 8
-  call void @asm_snap_prep(ptr noundef %0)
+  %0 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 32
+  store ptr %0, ptr %ci, align 8
+  %1 = load ptr, ptr %as.addr, align 8
+  call void @asm_snap_prep(ptr noundef %1)
   %arrayidx = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 0
   store i32 32767, ptr %arrayidx, align 4
   %arrayidx1 = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 1
   store i32 32765, ptr %arrayidx1, align 4
-  %1 = load ptr, ptr %as.addr, align 8
-  %gcsteps = getelementptr inbounds %struct.ASMState, ptr %1, i32 0, i32 28
-  %2 = load i32, ptr %gcsteps, align 8
-  %inc = add nsw i32 %2, 1
+  %2 = load ptr, ptr %as.addr, align 8
+  %gcsteps = getelementptr inbounds %struct.ASMState, ptr %2, i32 0, i32 28
+  %3 = load i32, ptr %gcsteps, align 8
+  %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %gcsteps, align 8
-  %3 = load ptr, ptr %as.addr, align 8
-  %4 = load ptr, ptr %ir.addr, align 8
-  %5 = load ptr, ptr %ci, align 8
-  call void @asm_setupresult(ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %6 = load ptr, ptr %as.addr, align 8
-  %7 = load ptr, ptr %ci, align 8
+  %4 = load ptr, ptr %as.addr, align 8
+  %5 = load ptr, ptr %ir.addr, align 8
+  %6 = load ptr, ptr %ci, align 8
+  call void @asm_setupresult(ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %7 = load ptr, ptr %as.addr, align 8
+  %8 = load ptr, ptr %ci, align 8
   %arraydecay = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 0
-  call void @asm_gencall(ptr noundef %6, ptr noundef %7, ptr noundef %arraydecay)
-  %8 = load ptr, ptr %as.addr, align 8
+  call void @asm_gencall(ptr noundef %7, ptr noundef %8, ptr noundef %arraydecay)
   %9 = load ptr, ptr %as.addr, align 8
-  %call = call i32 @ra_releasetmp(ptr noundef %9, i32 noundef 32765)
-  %10 = load ptr, ptr %ir.addr, align 8
-  %op1 = getelementptr inbounds %struct.anon, ptr %10, i32 0, i32 0
-  %11 = load i16, ptr %op1, align 8
-  %conv = zext i16 %11 to i32
-  %12 = load ptr, ptr %ir.addr, align 8
-  %op2 = getelementptr inbounds %struct.anon, ptr %12, i32 0, i32 1
-  %13 = load i16, ptr %op2, align 2
-  %conv2 = zext i16 %13 to i32
+  %10 = load ptr, ptr %as.addr, align 8
+  %call = call i32 @ra_releasetmp(ptr noundef %10, i32 noundef 32765)
+  %11 = load ptr, ptr %ir.addr, align 8
+  %op1 = getelementptr inbounds %struct.anon, ptr %11, i32 0, i32 0
+  %12 = load i16, ptr %op1, align 8
+  %conv = zext i16 %12 to i32
+  %13 = load ptr, ptr %ir.addr, align 8
+  %op2 = getelementptr inbounds %struct.anon, ptr %13, i32 0, i32 1
+  %14 = load i16, ptr %op2, align 2
+  %conv2 = zext i16 %14 to i32
   %shl = shl i32 %conv2, 24
   %or = or i32 %conv, %shl
-  call void @emit_loadi(ptr noundef %8, i32 noundef %call, i32 noundef %or)
+  call void @emit_loadi(ptr noundef %9, i32 noundef %call, i32 noundef %or)
   ret void
 }
 
@@ -17370,30 +17374,31 @@ entry:
   %args = alloca [2 x i32], align 4
   store ptr %as, ptr %as.addr, align 8
   store ptr %ir, ptr %ir.addr, align 8
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 33), ptr %ci, align 8
-  %0 = load ptr, ptr %as.addr, align 8
-  call void @asm_snap_prep(ptr noundef %0)
+  %0 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 33
+  store ptr %0, ptr %ci, align 8
+  %1 = load ptr, ptr %as.addr, align 8
+  call void @asm_snap_prep(ptr noundef %1)
   %arrayidx = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 0
   store i32 32767, ptr %arrayidx, align 4
-  %1 = load ptr, ptr %ir.addr, align 8
-  %op1 = getelementptr inbounds %struct.anon, ptr %1, i32 0, i32 0
-  %2 = load i16, ptr %op1, align 8
-  %conv = zext i16 %2 to i32
+  %2 = load ptr, ptr %ir.addr, align 8
+  %op1 = getelementptr inbounds %struct.anon, ptr %2, i32 0, i32 0
+  %3 = load i16, ptr %op1, align 8
+  %conv = zext i16 %3 to i32
   %arrayidx1 = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 1
   store i32 %conv, ptr %arrayidx1, align 4
-  %3 = load ptr, ptr %as.addr, align 8
-  %gcsteps = getelementptr inbounds %struct.ASMState, ptr %3, i32 0, i32 28
-  %4 = load i32, ptr %gcsteps, align 8
-  %inc = add nsw i32 %4, 1
+  %4 = load ptr, ptr %as.addr, align 8
+  %gcsteps = getelementptr inbounds %struct.ASMState, ptr %4, i32 0, i32 28
+  %5 = load i32, ptr %gcsteps, align 8
+  %inc = add nsw i32 %5, 1
   store i32 %inc, ptr %gcsteps, align 8
-  %5 = load ptr, ptr %as.addr, align 8
-  %6 = load ptr, ptr %ir.addr, align 8
-  %7 = load ptr, ptr %ci, align 8
-  call void @asm_setupresult(ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %8 = load ptr, ptr %as.addr, align 8
-  %9 = load ptr, ptr %ci, align 8
+  %6 = load ptr, ptr %as.addr, align 8
+  %7 = load ptr, ptr %ir.addr, align 8
+  %8 = load ptr, ptr %ci, align 8
+  call void @asm_setupresult(ptr noundef %6, ptr noundef %7, ptr noundef %8)
+  %9 = load ptr, ptr %as.addr, align 8
+  %10 = load ptr, ptr %ci, align 8
   %arraydecay = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 0
-  call void @asm_gencall(ptr noundef %8, ptr noundef %9, ptr noundef %arraydecay)
+  call void @asm_gencall(ptr noundef %9, ptr noundef %10, ptr noundef %arraydecay)
   ret void
 }
 
@@ -17439,223 +17444,225 @@ entry:
   %10 = load i32, ptr %id, align 4
   %call = call i32 @lj_ctype_info(ptr noundef %9, i32 noundef %10, ptr noundef %sz)
   store i32 %call, ptr %info, align 4
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 42), ptr %ci, align 8
-  %11 = load ptr, ptr %as.addr, align 8
-  %gcsteps = getelementptr inbounds %struct.ASMState, ptr %11, i32 0, i32 28
-  %12 = load i32, ptr %gcsteps, align 8
-  %inc = add nsw i32 %12, 1
+  %11 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 42
+  store ptr %11, ptr %ci, align 8
+  %12 = load ptr, ptr %as.addr, align 8
+  %gcsteps = getelementptr inbounds %struct.ASMState, ptr %12, i32 0, i32 28
+  %13 = load i32, ptr %gcsteps, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %gcsteps, align 8
-  %13 = load ptr, ptr %as.addr, align 8
-  %14 = load ptr, ptr %ir.addr, align 8
-  %15 = load ptr, ptr %ci, align 8
-  call void @asm_setupresult(ptr noundef %13, ptr noundef %14, ptr noundef %15)
-  %16 = load ptr, ptr %ir.addr, align 8
-  %o = getelementptr inbounds %struct.anon.0, ptr %16, i32 0, i32 2
-  %17 = load i8, ptr %o, align 1
-  %conv = zext i8 %17 to i32
+  %14 = load ptr, ptr %as.addr, align 8
+  %15 = load ptr, ptr %ir.addr, align 8
+  %16 = load ptr, ptr %ci, align 8
+  call void @asm_setupresult(ptr noundef %14, ptr noundef %15, ptr noundef %16)
+  %17 = load ptr, ptr %ir.addr, align 8
+  %o = getelementptr inbounds %struct.anon.0, ptr %17, i32 0, i32 2
+  %18 = load i8, ptr %o, align 1
+  %conv = zext i8 %18 to i32
   %cmp = icmp eq i32 %conv, 84
   br i1 %cmp, label %if.then, label %if.else47
 
 if.then:                                          ; preds = %entry
   store i32 45096, ptr %allow, align 4
-  %18 = load i32, ptr %sz, align 4
-  %cmp3 = icmp eq i32 %18, 8
+  %19 = load i32, ptr %sz, align 4
+  %cmp3 = icmp eq i32 %19, 8
   %cond = select i1 %cmp3, i32 524800, i32 0
   store i32 %cond, ptr %r64, align 4
-  %19 = load ptr, ptr %ir.addr, align 8
-  %op2 = getelementptr inbounds %struct.anon, ptr %19, i32 0, i32 1
-  %20 = load i16, ptr %op2, align 2
-  %conv5 = zext i16 %20 to i32
+  %20 = load ptr, ptr %ir.addr, align 8
+  %op2 = getelementptr inbounds %struct.anon, ptr %20, i32 0, i32 1
+  %21 = load i16, ptr %op2, align 2
+  %conv5 = zext i16 %21 to i32
   %cmp6 = icmp slt i32 %conv5, 32768
   br i1 %cmp6, label %if.then8, label %if.else41
 
 if.then8:                                         ; preds = %if.then
-  %21 = load ptr, ptr %as.addr, align 8
-  %ir9 = getelementptr inbounds %struct.ASMState, ptr %21, i32 0, i32 3
-  %22 = load ptr, ptr %ir9, align 8
-  %23 = load ptr, ptr %ir.addr, align 8
-  %op210 = getelementptr inbounds %struct.anon, ptr %23, i32 0, i32 1
-  %24 = load i16, ptr %op210, align 2
-  %idxprom11 = zext i16 %24 to i64
-  %arrayidx12 = getelementptr inbounds %union.IRIns, ptr %22, i64 %idxprom11
+  %22 = load ptr, ptr %as.addr, align 8
+  %ir9 = getelementptr inbounds %struct.ASMState, ptr %22, i32 0, i32 3
+  %23 = load ptr, ptr %ir9, align 8
+  %24 = load ptr, ptr %ir.addr, align 8
+  %op210 = getelementptr inbounds %struct.anon, ptr %24, i32 0, i32 1
+  %25 = load i16, ptr %op210, align 2
+  %idxprom11 = zext i16 %25 to i64
+  %arrayidx12 = getelementptr inbounds %union.IRIns, ptr %23, i64 %idxprom11
   store ptr %arrayidx12, ptr %irk, align 8
-  %25 = load ptr, ptr %irk, align 8
-  %o13 = getelementptr inbounds %struct.anon.0, ptr %25, i32 0, i32 2
-  %26 = load i8, ptr %o13, align 1
-  %conv14 = zext i8 %26 to i32
+  %26 = load ptr, ptr %irk, align 8
+  %o13 = getelementptr inbounds %struct.anon.0, ptr %26, i32 0, i32 2
+  %27 = load i8, ptr %o13, align 1
+  %conv14 = zext i8 %27 to i32
   %cmp15 = icmp eq i32 %conv14, 29
   br i1 %cmp15, label %cond.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then8
-  %27 = load ptr, ptr %irk, align 8
-  %o17 = getelementptr inbounds %struct.anon.0, ptr %27, i32 0, i32 2
-  %28 = load i8, ptr %o17, align 1
-  %conv18 = zext i8 %28 to i32
+  %28 = load ptr, ptr %irk, align 8
+  %o17 = getelementptr inbounds %struct.anon.0, ptr %28, i32 0, i32 2
+  %29 = load i8, ptr %o17, align 1
+  %conv18 = zext i8 %29 to i32
   %cmp19 = icmp eq i32 %conv18, 25
   br i1 %cmp19, label %cond.true, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false
-  %29 = load ptr, ptr %irk, align 8
-  %o22 = getelementptr inbounds %struct.anon.0, ptr %29, i32 0, i32 2
-  %30 = load i8, ptr %o22, align 1
-  %conv23 = zext i8 %30 to i32
+  %30 = load ptr, ptr %irk, align 8
+  %o22 = getelementptr inbounds %struct.anon.0, ptr %30, i32 0, i32 2
+  %31 = load i8, ptr %o22, align 1
+  %conv23 = zext i8 %31 to i32
   %cmp24 = icmp eq i32 %conv23, 26
   br i1 %cmp24, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %lor.lhs.false21, %lor.lhs.false, %if.then8
-  %31 = load ptr, ptr %irk, align 8
-  %arrayidx26 = getelementptr inbounds %union.IRIns, ptr %31, i64 1
-  %32 = load i64, ptr %arrayidx26, align 8
+  %32 = load ptr, ptr %irk, align 8
+  %arrayidx26 = getelementptr inbounds %union.IRIns, ptr %32, i64 1
+  %33 = load i64, ptr %arrayidx26, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %lor.lhs.false21
-  %33 = load ptr, ptr %irk, align 8
-  %34 = load i32, ptr %33, align 8
-  %conv27 = zext i32 %34 to i64
+  %34 = load ptr, ptr %irk, align 8
+  %35 = load i32, ptr %34, align 8
+  %conv27 = zext i32 %35 to i64
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond28 = phi i64 [ %32, %cond.true ], [ %conv27, %cond.false ]
+  %cond28 = phi i64 [ %33, %cond.true ], [ %conv27, %cond.false ]
   store i64 %cond28, ptr %k, align 8
-  %35 = load i32, ptr %sz, align 4
-  %cmp29 = icmp eq i32 %35, 4
+  %36 = load i32, ptr %sz, align 4
+  %cmp29 = icmp eq i32 %36, 4
   br i1 %cmp29, label %if.then36, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %cond.end
-  %36 = load i64, ptr %k, align 8
   %37 = load i64, ptr %k, align 8
-  %conv32 = trunc i64 %37 to i32
+  %38 = load i64, ptr %k, align 8
+  %conv32 = trunc i64 %38 to i32
   %conv33 = sext i32 %conv32 to i64
-  %cmp34 = icmp eq i64 %36, %conv33
+  %cmp34 = icmp eq i64 %37, %conv33
   br i1 %cmp34, label %if.then36, label %if.else
 
 if.then36:                                        ; preds = %lor.lhs.false31, %cond.end
-  %38 = load i64, ptr %k, align 8
-  %conv37 = trunc i64 %38 to i32
-  %39 = load ptr, ptr %as.addr, align 8
-  %mcp = getelementptr inbounds %struct.ASMState, ptr %39, i32 0, i32 1
-  %40 = load ptr, ptr %mcp, align 8
-  %add.ptr38 = getelementptr inbounds i8, ptr %40, i64 -4
+  %39 = load i64, ptr %k, align 8
+  %conv37 = trunc i64 %39 to i32
+  %40 = load ptr, ptr %as.addr, align 8
+  %mcp = getelementptr inbounds %struct.ASMState, ptr %40, i32 0, i32 1
+  %41 = load ptr, ptr %mcp, align 8
+  %add.ptr38 = getelementptr inbounds i8, ptr %41, i64 -4
   store i32 %conv37, ptr %add.ptr38, align 4
-  %41 = load ptr, ptr %as.addr, align 8
-  %mcp39 = getelementptr inbounds %struct.ASMState, ptr %41, i32 0, i32 1
-  %42 = load ptr, ptr %mcp39, align 8
-  %add.ptr40 = getelementptr inbounds i8, ptr %42, i64 -4
+  %42 = load ptr, ptr %as.addr, align 8
+  %mcp39 = getelementptr inbounds %struct.ASMState, ptr %42, i32 0, i32 1
+  %43 = load ptr, ptr %mcp39, align 8
+  %add.ptr40 = getelementptr inbounds i8, ptr %43, i64 -4
   store ptr %add.ptr40, ptr %mcp39, align 8
-  %43 = load ptr, ptr %as.addr, align 8
-  %44 = load i32, ptr %r64, align 4
-  call void @emit_rmro(ptr noundef %43, i32 noundef -956301058, i32 noundef %44, i32 noundef 0, i32 noundef 16)
+  %44 = load ptr, ptr %as.addr, align 8
+  %45 = load i32, ptr %r64, align 4
+  call void @emit_rmro(ptr noundef %44, i32 noundef -956301058, i32 noundef %45, i32 noundef 0, i32 noundef 16)
   br label %if.end
 
 if.else:                                          ; preds = %lor.lhs.false31
-  %45 = load ptr, ptr %as.addr, align 8
-  %46 = load i32, ptr %r64, align 4
-  %add = add i32 1, %46
-  call void @emit_rmro(ptr noundef %45, i32 noundef -1996488450, i32 noundef %add, i32 noundef 0, i32 noundef 16)
-  %47 = load ptr, ptr %as.addr, align 8
-  %48 = load i64, ptr %k, align 8
-  call void @emit_loadu64(ptr noundef %47, i32 noundef 1, i64 noundef %48)
+  %46 = load ptr, ptr %as.addr, align 8
+  %47 = load i32, ptr %r64, align 4
+  %add = add i32 1, %47
+  call void @emit_rmro(ptr noundef %46, i32 noundef -1996488450, i32 noundef %add, i32 noundef 0, i32 noundef 16)
+  %48 = load ptr, ptr %as.addr, align 8
+  %49 = load i64, ptr %k, align 8
+  call void @emit_loadu64(ptr noundef %48, i32 noundef 1, i64 noundef %49)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then36
   br label %if.end46
 
 if.else41:                                        ; preds = %if.then
-  %49 = load ptr, ptr %as.addr, align 8
-  %50 = load ptr, ptr %ir.addr, align 8
-  %op242 = getelementptr inbounds %struct.anon, ptr %50, i32 0, i32 1
-  %51 = load i16, ptr %op242, align 2
-  %conv43 = zext i16 %51 to i32
-  %52 = load i32, ptr %allow, align 4
-  %call44 = call i32 @ra_alloc1(ptr noundef %49, i32 noundef %conv43, i32 noundef %52)
+  %50 = load ptr, ptr %as.addr, align 8
+  %51 = load ptr, ptr %ir.addr, align 8
+  %op242 = getelementptr inbounds %struct.anon, ptr %51, i32 0, i32 1
+  %52 = load i16, ptr %op242, align 2
+  %conv43 = zext i16 %52 to i32
+  %53 = load i32, ptr %allow, align 4
+  %call44 = call i32 @ra_alloc1(ptr noundef %50, i32 noundef %conv43, i32 noundef %53)
   store i32 %call44, ptr %r, align 4
-  %53 = load ptr, ptr %as.addr, align 8
-  %54 = load i32, ptr %r, align 4
-  %55 = load i32, ptr %r64, align 4
-  %add45 = add i32 %54, %55
-  call void @emit_rmro(ptr noundef %53, i32 noundef -1996488450, i32 noundef %add45, i32 noundef 0, i32 noundef 16)
+  %54 = load ptr, ptr %as.addr, align 8
+  %55 = load i32, ptr %r, align 4
+  %56 = load i32, ptr %r64, align 4
+  %add45 = add i32 %55, %56
+  call void @emit_rmro(ptr noundef %54, i32 noundef -1996488450, i32 noundef %add45, i32 noundef 0, i32 noundef 16)
   br label %if.end46
 
 if.end46:                                         ; preds = %if.else41, %if.end
   br label %if.end63
 
 if.else47:                                        ; preds = %entry
-  %56 = load ptr, ptr %ir.addr, align 8
-  %op248 = getelementptr inbounds %struct.anon, ptr %56, i32 0, i32 1
-  %57 = load i16, ptr %op248, align 2
-  %conv49 = zext i16 %57 to i32
+  %57 = load ptr, ptr %ir.addr, align 8
+  %op248 = getelementptr inbounds %struct.anon, ptr %57, i32 0, i32 1
+  %58 = load i16, ptr %op248, align 2
+  %conv49 = zext i16 %58 to i32
   %cmp50 = icmp ne i32 %conv49, 32767
   br i1 %cmp50, label %if.then52, label %if.end62
 
 if.then52:                                        ; preds = %if.else47
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 101), ptr %ci, align 8
+  %59 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 101
+  store ptr %59, ptr %ci, align 8
   %arrayidx53 = getelementptr inbounds [4 x i32], ptr %args, i64 0, i64 0
   store i32 32767, ptr %arrayidx53, align 16
-  %58 = load ptr, ptr %ir.addr, align 8
-  %op154 = getelementptr inbounds %struct.anon, ptr %58, i32 0, i32 0
-  %59 = load i16, ptr %op154, align 8
-  %conv55 = zext i16 %59 to i32
+  %60 = load ptr, ptr %ir.addr, align 8
+  %op154 = getelementptr inbounds %struct.anon, ptr %60, i32 0, i32 0
+  %61 = load i16, ptr %op154, align 8
+  %conv55 = zext i16 %61 to i32
   %arrayidx56 = getelementptr inbounds [4 x i32], ptr %args, i64 0, i64 1
   store i32 %conv55, ptr %arrayidx56, align 4
-  %60 = load ptr, ptr %ir.addr, align 8
-  %op257 = getelementptr inbounds %struct.anon, ptr %60, i32 0, i32 1
-  %61 = load i16, ptr %op257, align 2
-  %conv58 = zext i16 %61 to i32
+  %62 = load ptr, ptr %ir.addr, align 8
+  %op257 = getelementptr inbounds %struct.anon, ptr %62, i32 0, i32 1
+  %63 = load i16, ptr %op257, align 2
+  %conv58 = zext i16 %63 to i32
   %arrayidx59 = getelementptr inbounds [4 x i32], ptr %args, i64 0, i64 2
   store i32 %conv58, ptr %arrayidx59, align 8
   %arrayidx60 = getelementptr inbounds [4 x i32], ptr %args, i64 0, i64 3
   store i32 32765, ptr %arrayidx60, align 4
-  %62 = load ptr, ptr %as.addr, align 8
-  %63 = load ptr, ptr %ci, align 8
-  %arraydecay = getelementptr inbounds [4 x i32], ptr %args, i64 0, i64 0
-  call void @asm_gencall(ptr noundef %62, ptr noundef %63, ptr noundef %arraydecay)
   %64 = load ptr, ptr %as.addr, align 8
-  %65 = load ptr, ptr %as.addr, align 8
-  %call61 = call i32 @ra_releasetmp(ptr noundef %65, i32 noundef 32765)
-  %66 = load i32, ptr %info, align 4
-  %shr = lshr i32 %66, 16
+  %65 = load ptr, ptr %ci, align 8
+  %arraydecay = getelementptr inbounds [4 x i32], ptr %args, i64 0, i64 0
+  call void @asm_gencall(ptr noundef %64, ptr noundef %65, ptr noundef %arraydecay)
+  %66 = load ptr, ptr %as.addr, align 8
+  %67 = load ptr, ptr %as.addr, align 8
+  %call61 = call i32 @ra_releasetmp(ptr noundef %67, i32 noundef 32765)
+  %68 = load i32, ptr %info, align 4
+  %shr = lshr i32 %68, 16
   %and = and i32 %shr, 15
-  call void @emit_loadi(ptr noundef %64, i32 noundef %call61, i32 noundef %and)
+  call void @emit_loadi(ptr noundef %66, i32 noundef %call61, i32 noundef %and)
   br label %return
 
 if.end62:                                         ; preds = %if.else47
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end62, %if.end46
-  %67 = load ptr, ptr %as.addr, align 8
-  call void @emit_rmro(ptr noundef %67, i32 noundef -1996488450, i32 noundef 1, i32 noundef 0, i32 noundef 8)
-  %68 = load ptr, ptr %as.addr, align 8
-  %69 = load i32, ptr %id, align 4
-  %shl = shl i32 %69, 16
-  %add64 = add i32 2560, %shl
-  call void @emit_gri(ptr noundef %68, i32 noundef 8618241, i32 noundef 1, i32 noundef %add64)
+  %69 = load ptr, ptr %as.addr, align 8
+  call void @emit_rmro(ptr noundef %69, i32 noundef -1996488450, i32 noundef 1, i32 noundef 0, i32 noundef 8)
   %70 = load ptr, ptr %as.addr, align 8
-  call void @emit_gri(ptr noundef %70, i32 noundef 8618244, i32 noundef 1, i32 noundef 3)
-  %71 = load ptr, ptr %as.addr, align 8
+  %71 = load i32, ptr %id, align 4
+  %shl = shl i32 %71, 16
+  %add64 = add i32 2560, %shl
+  call void @emit_gri(ptr noundef %70, i32 noundef 8618241, i32 noundef 1, i32 noundef %add64)
   %72 = load ptr, ptr %as.addr, align 8
-  %J65 = getelementptr inbounds %struct.ASMState, ptr %72, i32 0, i32 4
-  %73 = load ptr, ptr %J65, align 8
-  %add.ptr66 = getelementptr inbounds i8, ptr %73, i64 -824
+  call void @emit_gri(ptr noundef %72, i32 noundef 8618244, i32 noundef 1, i32 noundef 3)
+  %73 = load ptr, ptr %as.addr, align 8
+  %74 = load ptr, ptr %as.addr, align 8
+  %J65 = getelementptr inbounds %struct.ASMState, ptr %74, i32 0, i32 4
+  %75 = load ptr, ptr %J65, align 8
+  %add.ptr66 = getelementptr inbounds i8, ptr %75, i64 -824
   %g67 = getelementptr inbounds %struct.GG_State, ptr %add.ptr66, i32 0, i32 1
   %gc = getelementptr inbounds %struct.global_State, ptr %g67, i32 0, i32 2
   %currentwhite = getelementptr inbounds %struct.GCState, ptr %gc, i32 0, i32 2
-  call void @emit_rma(ptr noundef %71, i32 noundef -1240530691, i32 noundef 1, ptr noundef %currentwhite)
+  call void @emit_rma(ptr noundef %73, i32 noundef -1240530691, i32 noundef 1, ptr noundef %currentwhite)
   %arrayidx68 = getelementptr inbounds [4 x i32], ptr %args, i64 0, i64 0
   store i32 32767, ptr %arrayidx68, align 16
   %arrayidx69 = getelementptr inbounds [4 x i32], ptr %args, i64 0, i64 1
   store i32 32765, ptr %arrayidx69, align 4
-  %74 = load ptr, ptr %as.addr, align 8
-  %75 = load ptr, ptr %ci, align 8
-  %arraydecay70 = getelementptr inbounds [4 x i32], ptr %args, i64 0, i64 0
-  call void @asm_gencall(ptr noundef %74, ptr noundef %75, ptr noundef %arraydecay70)
   %76 = load ptr, ptr %as.addr, align 8
-  %77 = load ptr, ptr %as.addr, align 8
-  %call71 = call i32 @ra_releasetmp(ptr noundef %77, i32 noundef 32765)
-  %78 = load i32, ptr %sz, align 4
-  %conv72 = zext i32 %78 to i64
+  %77 = load ptr, ptr %ci, align 8
+  %arraydecay70 = getelementptr inbounds [4 x i32], ptr %args, i64 0, i64 0
+  call void @asm_gencall(ptr noundef %76, ptr noundef %77, ptr noundef %arraydecay70)
+  %78 = load ptr, ptr %as.addr, align 8
+  %79 = load ptr, ptr %as.addr, align 8
+  %call71 = call i32 @ra_releasetmp(ptr noundef %79, i32 noundef 32765)
+  %80 = load i32, ptr %sz, align 4
+  %conv72 = zext i32 %80 to i64
   %add73 = add i64 %conv72, 16
   %conv74 = trunc i64 %add73 to i32
-  call void @emit_loadi(ptr noundef %76, i32 noundef %call71, i32 noundef %conv74)
+  call void @emit_loadi(ptr noundef %78, i32 noundef %call71, i32 noundef %conv74)
   br label %return
 
 return:                                           ; preds = %if.end63, %if.then52
@@ -17858,126 +17865,131 @@ entry:
   %tmp = alloca i32, align 4
   store ptr %as, ptr %as.addr, align 8
   store ptr %ir, ptr %ir.addr, align 8
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 17), ptr %ci, align 8
+  %0 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 17
+  store ptr %0, ptr %ci, align 8
   store i32 -129, ptr %kchar, align 4
-  %0 = load ptr, ptr %ir.addr, align 8
-  %op1 = getelementptr inbounds %struct.anon, ptr %0, i32 0, i32 0
-  %1 = load i16, ptr %op1, align 8
-  %conv = zext i16 %1 to i32
+  %1 = load ptr, ptr %ir.addr, align 8
+  %op1 = getelementptr inbounds %struct.anon, ptr %1, i32 0, i32 0
+  %2 = load i16, ptr %op1, align 8
+  %conv = zext i16 %2 to i32
   %arrayidx = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 0
   store i32 %conv, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %ir.addr, align 8
-  %op2 = getelementptr inbounds %struct.anon, ptr %2, i32 0, i32 1
-  %3 = load i16, ptr %op2, align 2
-  %conv1 = zext i16 %3 to i32
+  %3 = load ptr, ptr %ir.addr, align 8
+  %op2 = getelementptr inbounds %struct.anon, ptr %3, i32 0, i32 1
+  %4 = load i16, ptr %op2, align 2
+  %conv1 = zext i16 %4 to i32
   %arrayidx2 = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 1
   store i32 %conv1, ptr %arrayidx2, align 4
-  %4 = load ptr, ptr %as.addr, align 8
-  %ir3 = getelementptr inbounds %struct.ASMState, ptr %4, i32 0, i32 3
-  %5 = load ptr, ptr %ir3, align 8
-  %6 = load ptr, ptr %ir.addr, align 8
-  %op24 = getelementptr inbounds %struct.anon, ptr %6, i32 0, i32 1
-  %7 = load i16, ptr %op24, align 2
-  %idxprom = zext i16 %7 to i64
-  %arrayidx5 = getelementptr inbounds %union.IRIns, ptr %5, i64 %idxprom
+  %5 = load ptr, ptr %as.addr, align 8
+  %ir3 = getelementptr inbounds %struct.ASMState, ptr %5, i32 0, i32 3
+  %6 = load ptr, ptr %ir3, align 8
+  %7 = load ptr, ptr %ir.addr, align 8
+  %op24 = getelementptr inbounds %struct.anon, ptr %7, i32 0, i32 1
+  %8 = load i16, ptr %op24, align 2
+  %idxprom = zext i16 %8 to i64
+  %arrayidx5 = getelementptr inbounds %union.IRIns, ptr %6, i64 %idxprom
   store ptr %arrayidx5, ptr %irs, align 8
-  %8 = load ptr, ptr %irs, align 8
-  %o = getelementptr inbounds %struct.anon.0, ptr %8, i32 0, i32 2
-  %9 = load i8, ptr %o, align 1
-  %conv6 = zext i8 %9 to i32
+  %9 = load ptr, ptr %irs, align 8
+  %o = getelementptr inbounds %struct.anon.0, ptr %9, i32 0, i32 2
+  %10 = load i8, ptr %o, align 1
+  %conv6 = zext i8 %10 to i32
   %cmp = icmp eq i32 %conv6, 24
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %10 = load ptr, ptr %irs, align 8
-  %arrayidx8 = getelementptr inbounds %union.IRIns, ptr %10, i64 1
+  %11 = load ptr, ptr %irs, align 8
+  %arrayidx8 = getelementptr inbounds %union.IRIns, ptr %11, i64 1
   %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx8, i32 0, i32 0
-  %11 = load i64, ptr %gcptr64, align 8
-  %12 = inttoptr i64 %11 to ptr
-  store ptr %12, ptr %s, align 8
-  %13 = load ptr, ptr %s, align 8
-  %len = getelementptr inbounds %struct.GCstr, ptr %13, i32 0, i32 7
-  %14 = load i32, ptr %len, align 4
-  %cmp9 = icmp eq i32 %14, 1
+  %12 = load i64, ptr %gcptr64, align 8
+  %13 = inttoptr i64 %12 to ptr
+  store ptr %13, ptr %s, align 8
+  %14 = load ptr, ptr %s, align 8
+  %len = getelementptr inbounds %struct.GCstr, ptr %14, i32 0, i32 7
+  %15 = load i32, ptr %len, align 4
+  %cmp9 = icmp eq i32 %15, 1
   br i1 %cmp9, label %if.then11, label %if.end
 
 if.then11:                                        ; preds = %if.then
-  %15 = load ptr, ptr %s, align 8
-  %add.ptr = getelementptr inbounds %struct.GCstr, ptr %15, i64 1
+  %16 = load ptr, ptr %s, align 8
+  %add.ptr = getelementptr inbounds %struct.GCstr, ptr %16, i64 1
   %arrayidx12 = getelementptr inbounds i8, ptr %add.ptr, i64 0
-  %16 = load i8, ptr %arrayidx12, align 1
-  %conv13 = sext i8 %16 to i32
+  %17 = load i8, ptr %arrayidx12, align 1
+  %conv13 = sext i8 %17 to i32
   store i32 %conv13, ptr %kchar, align 4
   %arrayidx14 = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 1
   store i32 32765, ptr %arrayidx14, align 4
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 18), ptr %ci, align 8
+  %18 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 18
+  store ptr %18, ptr %ci, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then11, %if.then
   br label %if.end59
 
 if.else:                                          ; preds = %entry
-  %17 = load ptr, ptr %ir.addr, align 8
-  %op215 = getelementptr inbounds %struct.anon, ptr %17, i32 0, i32 1
-  %18 = load i16, ptr %op215, align 2
-  %conv16 = zext i16 %18 to i32
-  %19 = load ptr, ptr %as.addr, align 8
-  %fuseref = getelementptr inbounds %struct.ASMState, ptr %19, i32 0, i32 24
-  %20 = load i32, ptr %fuseref, align 8
-  %cmp17 = icmp ugt i32 %conv16, %20
+  %19 = load ptr, ptr %ir.addr, align 8
+  %op215 = getelementptr inbounds %struct.anon, ptr %19, i32 0, i32 1
+  %20 = load i16, ptr %op215, align 2
+  %conv16 = zext i16 %20 to i32
+  %21 = load ptr, ptr %as.addr, align 8
+  %fuseref = getelementptr inbounds %struct.ASMState, ptr %21, i32 0, i32 24
+  %22 = load i32, ptr %fuseref, align 8
+  %cmp17 = icmp ugt i32 %conv16, %22
   br i1 %cmp17, label %land.lhs.true, label %if.end58
 
 land.lhs.true:                                    ; preds = %if.else
-  %21 = load ptr, ptr %irs, align 8
-  %r = getelementptr inbounds %struct.anon.0, ptr %21, i32 0, i32 3
-  %22 = load i8, ptr %r, align 2
-  %conv19 = zext i8 %22 to i32
+  %23 = load ptr, ptr %irs, align 8
+  %r = getelementptr inbounds %struct.anon.0, ptr %23, i32 0, i32 3
+  %24 = load i8, ptr %r, align 2
+  %conv19 = zext i8 %24 to i32
   %and = and i32 %conv19, 128
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then20, label %if.end58
 
 if.then20:                                        ; preds = %land.lhs.true
-  %23 = load ptr, ptr %irs, align 8
-  %o21 = getelementptr inbounds %struct.anon.0, ptr %23, i32 0, i32 2
-  %24 = load i8, ptr %o21, align 1
-  %conv22 = zext i8 %24 to i32
+  %25 = load ptr, ptr %irs, align 8
+  %o21 = getelementptr inbounds %struct.anon.0, ptr %25, i32 0, i32 2
+  %26 = load i8, ptr %o21, align 1
+  %conv22 = zext i8 %26 to i32
   %cmp23 = icmp eq i32 %conv22, 93
   br i1 %cmp23, label %if.then25, label %if.else44
 
 if.then25:                                        ; preds = %if.then20
-  %25 = load ptr, ptr %irs, align 8
-  %op226 = getelementptr inbounds %struct.anon, ptr %25, i32 0, i32 1
-  %26 = load i16, ptr %op226, align 2
-  %conv27 = zext i16 %26 to i32
+  %27 = load ptr, ptr %irs, align 8
+  %op226 = getelementptr inbounds %struct.anon, ptr %27, i32 0, i32 1
+  %28 = load i16, ptr %op226, align 2
+  %conv27 = zext i16 %28 to i32
   %cmp28 = icmp eq i32 %conv27, 1
   br i1 %cmp28, label %if.then30, label %if.else32
 
 if.then30:                                        ; preds = %if.then25
   %arrayidx31 = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 1
   store i32 32765, ptr %arrayidx31, align 4
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 8), ptr %ci, align 8
+  %29 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 8
+  store ptr %29, ptr %ci, align 8
   br label %if.end43
 
 if.else32:                                        ; preds = %if.then25
-  %27 = load ptr, ptr %irs, align 8
-  %op133 = getelementptr inbounds %struct.anon, ptr %27, i32 0, i32 0
-  %28 = load i16, ptr %op133, align 8
-  %conv34 = zext i16 %28 to i32
+  %30 = load ptr, ptr %irs, align 8
+  %op133 = getelementptr inbounds %struct.anon, ptr %30, i32 0, i32 0
+  %31 = load i16, ptr %op133, align 8
+  %conv34 = zext i16 %31 to i32
   %arrayidx35 = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 1
   store i32 %conv34, ptr %arrayidx35, align 4
-  %29 = load ptr, ptr %irs, align 8
-  %op236 = getelementptr inbounds %struct.anon, ptr %29, i32 0, i32 1
-  %30 = load i16, ptr %op236, align 2
-  %conv37 = zext i16 %30 to i32
+  %32 = load ptr, ptr %irs, align 8
+  %op236 = getelementptr inbounds %struct.anon, ptr %32, i32 0, i32 1
+  %33 = load i16, ptr %op236, align 2
+  %conv37 = zext i16 %33 to i32
   %cmp38 = icmp eq i32 %conv37, 0
   br i1 %cmp38, label %if.then40, label %if.else41
 
 if.then40:                                        ; preds = %if.else32
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 7), ptr %ci, align 8
+  %34 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 7
+  store ptr %34, ptr %ci, align 8
   br label %if.end42
 
 if.else41:                                        ; preds = %if.else32
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 18), ptr %ci, align 8
+  %35 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 18
+  store ptr %35, ptr %ci, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %if.else41, %if.then40
@@ -17987,27 +17999,28 @@ if.end43:                                         ; preds = %if.end42, %if.then3
   br label %if.end57
 
 if.else44:                                        ; preds = %if.then20
-  %31 = load ptr, ptr %irs, align 8
-  %o45 = getelementptr inbounds %struct.anon.0, ptr %31, i32 0, i32 2
-  %32 = load i8, ptr %o45, align 1
-  %conv46 = zext i8 %32 to i32
+  %36 = load ptr, ptr %irs, align 8
+  %o45 = getelementptr inbounds %struct.anon.0, ptr %36, i32 0, i32 2
+  %37 = load i8, ptr %o45, align 1
+  %conv46 = zext i8 %37 to i32
   %cmp47 = icmp eq i32 %conv46, 79
   br i1 %cmp47, label %if.then49, label %if.end56
 
 if.then49:                                        ; preds = %if.else44
-  %33 = load ptr, ptr %irs, align 8
-  %op150 = getelementptr inbounds %struct.anon, ptr %33, i32 0, i32 0
-  %34 = load i16, ptr %op150, align 8
-  %conv51 = zext i16 %34 to i32
+  %38 = load ptr, ptr %irs, align 8
+  %op150 = getelementptr inbounds %struct.anon, ptr %38, i32 0, i32 0
+  %39 = load i16, ptr %op150, align 8
+  %conv51 = zext i16 %39 to i32
   %arrayidx52 = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 1
   store i32 %conv51, ptr %arrayidx52, align 4
-  %35 = load ptr, ptr %irs, align 8
-  %op253 = getelementptr inbounds %struct.anon, ptr %35, i32 0, i32 1
-  %36 = load i16, ptr %op253, align 2
-  %conv54 = zext i16 %36 to i32
+  %40 = load ptr, ptr %irs, align 8
+  %op253 = getelementptr inbounds %struct.anon, ptr %40, i32 0, i32 1
+  %41 = load i16, ptr %op253, align 2
+  %conv54 = zext i16 %41 to i32
   %arrayidx55 = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 2
   store i32 %conv54, ptr %arrayidx55, align 4
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 16), ptr %ci, align 8
+  %42 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 16
+  store ptr %42, ptr %ci, align 8
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then49, %if.else44
@@ -18020,42 +18033,42 @@ if.end58:                                         ; preds = %if.end57, %land.lhs
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end58, %if.end
-  %37 = load ptr, ptr %as.addr, align 8
-  %38 = load ptr, ptr %ir.addr, align 8
-  %39 = load ptr, ptr %ci, align 8
-  call void @asm_setupresult(ptr noundef %37, ptr noundef %38, ptr noundef %39)
-  %40 = load ptr, ptr %as.addr, align 8
-  %41 = load ptr, ptr %ci, align 8
+  %43 = load ptr, ptr %as.addr, align 8
+  %44 = load ptr, ptr %ir.addr, align 8
+  %45 = load ptr, ptr %ci, align 8
+  call void @asm_setupresult(ptr noundef %43, ptr noundef %44, ptr noundef %45)
+  %46 = load ptr, ptr %as.addr, align 8
+  %47 = load ptr, ptr %ci, align 8
   %arraydecay = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 0
-  call void @asm_gencall(ptr noundef %40, ptr noundef %41, ptr noundef %arraydecay)
+  call void @asm_gencall(ptr noundef %46, ptr noundef %47, ptr noundef %arraydecay)
   %arrayidx60 = getelementptr inbounds [3 x i32], ptr %args, i64 0, i64 1
-  %42 = load i32, ptr %arrayidx60, align 4
-  %cmp61 = icmp eq i32 %42, 32765
+  %48 = load i32, ptr %arrayidx60, align 4
+  %cmp61 = icmp eq i32 %48, 32765
   br i1 %cmp61, label %if.then63, label %if.end71
 
 if.then63:                                        ; preds = %if.end59
-  %43 = load ptr, ptr %as.addr, align 8
-  %call = call i32 @ra_releasetmp(ptr noundef %43, i32 noundef 32765)
+  %49 = load ptr, ptr %as.addr, align 8
+  %call = call i32 @ra_releasetmp(ptr noundef %49, i32 noundef 32765)
   store i32 %call, ptr %tmp, align 4
-  %44 = load i32, ptr %kchar, align 4
-  %cmp64 = icmp eq i32 %44, -129
+  %50 = load i32, ptr %kchar, align 4
+  %cmp64 = icmp eq i32 %50, -129
   br i1 %cmp64, label %if.then66, label %if.else69
 
 if.then66:                                        ; preds = %if.then63
-  %45 = load ptr, ptr %as.addr, align 8
-  %46 = load i32, ptr %tmp, align 4
-  %47 = load ptr, ptr %irs, align 8
-  %op167 = getelementptr inbounds %struct.anon, ptr %47, i32 0, i32 0
-  %48 = load i16, ptr %op167, align 8
-  %conv68 = zext i16 %48 to i32
-  call void @asm_tvptr(ptr noundef %45, i32 noundef %46, i32 noundef %conv68, i32 noundef 1)
+  %51 = load ptr, ptr %as.addr, align 8
+  %52 = load i32, ptr %tmp, align 4
+  %53 = load ptr, ptr %irs, align 8
+  %op167 = getelementptr inbounds %struct.anon, ptr %53, i32 0, i32 0
+  %54 = load i16, ptr %op167, align 8
+  %conv68 = zext i16 %54 to i32
+  call void @asm_tvptr(ptr noundef %51, i32 noundef %52, i32 noundef %conv68, i32 noundef 1)
   br label %if.end70
 
 if.else69:                                        ; preds = %if.then63
-  %49 = load ptr, ptr %as.addr, align 8
-  %50 = load i32, ptr %tmp, align 4
-  %51 = load i32, ptr %kchar, align 4
-  call void @emit_loadi(ptr noundef %49, i32 noundef %50, i32 noundef %51)
+  %55 = load ptr, ptr %as.addr, align 8
+  %56 = load i32, ptr %tmp, align 4
+  %57 = load i32, ptr %kchar, align 4
+  call void @emit_loadi(ptr noundef %55, i32 noundef %56, i32 noundef %57)
   br label %if.end70
 
 if.end70:                                         ; preds = %if.else69, %if.then66
@@ -18074,26 +18087,27 @@ entry:
   %args = alloca [1 x i32], align 4
   store ptr %as, ptr %as.addr, align 8
   store ptr %ir, ptr %ir.addr, align 8
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 30), ptr %ci, align 8
-  %0 = load ptr, ptr %ir.addr, align 8
-  %op1 = getelementptr inbounds %struct.anon, ptr %0, i32 0, i32 0
-  %1 = load i16, ptr %op1, align 8
-  %conv = zext i16 %1 to i32
+  %0 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 30
+  store ptr %0, ptr %ci, align 8
+  %1 = load ptr, ptr %ir.addr, align 8
+  %op1 = getelementptr inbounds %struct.anon, ptr %1, i32 0, i32 0
+  %2 = load i16, ptr %op1, align 8
+  %conv = zext i16 %2 to i32
   %arrayidx = getelementptr inbounds [1 x i32], ptr %args, i64 0, i64 0
   store i32 %conv, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %as.addr, align 8
-  %gcsteps = getelementptr inbounds %struct.ASMState, ptr %2, i32 0, i32 28
-  %3 = load i32, ptr %gcsteps, align 8
-  %inc = add nsw i32 %3, 1
+  %3 = load ptr, ptr %as.addr, align 8
+  %gcsteps = getelementptr inbounds %struct.ASMState, ptr %3, i32 0, i32 28
+  %4 = load i32, ptr %gcsteps, align 8
+  %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %gcsteps, align 8
-  %4 = load ptr, ptr %as.addr, align 8
-  %5 = load ptr, ptr %ir.addr, align 8
-  %6 = load ptr, ptr %ci, align 8
-  call void @asm_setupresult(ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %7 = load ptr, ptr %as.addr, align 8
-  %8 = load ptr, ptr %ci, align 8
+  %5 = load ptr, ptr %as.addr, align 8
+  %6 = load ptr, ptr %ir.addr, align 8
+  %7 = load ptr, ptr %ci, align 8
+  call void @asm_setupresult(ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %8 = load ptr, ptr %as.addr, align 8
+  %9 = load ptr, ptr %ci, align 8
   %arraydecay = getelementptr inbounds [1 x i32], ptr %args, i64 0, i64 0
-  call void @asm_gencall(ptr noundef %7, ptr noundef %8, ptr noundef %arraydecay)
+  call void @asm_gencall(ptr noundef %8, ptr noundef %9, ptr noundef %arraydecay)
   ret void
 }
 
@@ -18189,113 +18203,114 @@ entry:
   %val = alloca i32, align 4
   store ptr %as, ptr %as.addr, align 8
   store ptr %ir, ptr %ir.addr, align 8
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 41), ptr %ci, align 8
-  %0 = load ptr, ptr %as.addr, align 8
-  call void @ra_evictset(ptr noundef %0, i32 noundef -61497)
+  %0 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 41
+  store ptr %0, ptr %ci, align 8
   %1 = load ptr, ptr %as.addr, align 8
-  %mcp = getelementptr inbounds %struct.ASMState, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %mcp, align 8
-  store ptr %2, ptr %l_end, align 8
+  call void @ra_evictset(ptr noundef %1, i32 noundef -61497)
+  %2 = load ptr, ptr %as.addr, align 8
+  %mcp = getelementptr inbounds %struct.ASMState, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %mcp, align 8
+  store ptr %3, ptr %l_end, align 8
   %arrayidx = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 0
   store i32 32765, ptr %arrayidx, align 4
-  %3 = load ptr, ptr %ir.addr, align 8
-  %op1 = getelementptr inbounds %struct.anon, ptr %3, i32 0, i32 0
-  %4 = load i16, ptr %op1, align 8
-  %conv = zext i16 %4 to i32
+  %4 = load ptr, ptr %ir.addr, align 8
+  %op1 = getelementptr inbounds %struct.anon, ptr %4, i32 0, i32 0
+  %5 = load i16, ptr %op1, align 8
+  %conv = zext i16 %5 to i32
   %arrayidx1 = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 1
   store i32 %conv, ptr %arrayidx1, align 4
-  %5 = load ptr, ptr %as.addr, align 8
-  %6 = load ptr, ptr %ci, align 8
+  %6 = load ptr, ptr %as.addr, align 8
+  %7 = load ptr, ptr %ci, align 8
   %arraydecay = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 0
-  call void @asm_gencall(ptr noundef %5, ptr noundef %6, ptr noundef %arraydecay)
-  %7 = load ptr, ptr %as.addr, align 8
+  call void @asm_gencall(ptr noundef %6, ptr noundef %7, ptr noundef %arraydecay)
   %8 = load ptr, ptr %as.addr, align 8
-  %call = call i32 @ra_releasetmp(ptr noundef %8, i32 noundef 32765)
   %9 = load ptr, ptr %as.addr, align 8
-  %J = getelementptr inbounds %struct.ASMState, ptr %9, i32 0, i32 4
-  %10 = load ptr, ptr %J, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %10, i64 -824
+  %call = call i32 @ra_releasetmp(ptr noundef %9, i32 noundef 32765)
+  %10 = load ptr, ptr %as.addr, align 8
+  %J = getelementptr inbounds %struct.ASMState, ptr %10, i32 0, i32 4
+  %11 = load ptr, ptr %J, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %11, i64 -824
   %g = getelementptr inbounds %struct.GG_State, ptr %add.ptr, i32 0, i32 1
-  %11 = ptrtoint ptr %g to i64
-  call void @emit_loadu64(ptr noundef %7, i32 noundef %call, i64 noundef %11)
-  %12 = load ptr, ptr %as.addr, align 8
-  %ir2 = getelementptr inbounds %struct.ASMState, ptr %12, i32 0, i32 3
-  %13 = load ptr, ptr %ir2, align 8
-  %14 = load ptr, ptr %ir.addr, align 8
-  %op13 = getelementptr inbounds %struct.anon, ptr %14, i32 0, i32 0
-  %15 = load i16, ptr %op13, align 8
-  %idxprom = zext i16 %15 to i64
-  %arrayidx4 = getelementptr inbounds %union.IRIns, ptr %13, i64 %idxprom
+  %12 = ptrtoint ptr %g to i64
+  call void @emit_loadu64(ptr noundef %8, i32 noundef %call, i64 noundef %12)
+  %13 = load ptr, ptr %as.addr, align 8
+  %ir2 = getelementptr inbounds %struct.ASMState, ptr %13, i32 0, i32 3
+  %14 = load ptr, ptr %ir2, align 8
+  %15 = load ptr, ptr %ir.addr, align 8
+  %op13 = getelementptr inbounds %struct.anon, ptr %15, i32 0, i32 0
+  %16 = load i16, ptr %op13, align 8
+  %idxprom = zext i16 %16 to i64
+  %arrayidx4 = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom
   %r = getelementptr inbounds %struct.anon.0, ptr %arrayidx4, i32 0, i32 3
-  %16 = load i8, ptr %r, align 2
-  %conv5 = zext i8 %16 to i32
+  %17 = load i8, ptr %r, align 2
+  %conv5 = zext i8 %17 to i32
   store i32 %conv5, ptr %obj, align 4
-  %17 = load ptr, ptr %as.addr, align 8
-  %18 = load ptr, ptr %l_end, align 8
-  call void @emit_sjcc(ptr noundef %17, i32 noundef 4, ptr noundef %18)
-  %19 = load ptr, ptr %as.addr, align 8
-  %mcp6 = getelementptr inbounds %struct.ASMState, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %mcp6, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %20, i32 -1
+  %18 = load ptr, ptr %as.addr, align 8
+  %19 = load ptr, ptr %l_end, align 8
+  call void @emit_sjcc(ptr noundef %18, i32 noundef 4, ptr noundef %19)
+  %20 = load ptr, ptr %as.addr, align 8
+  %mcp6 = getelementptr inbounds %struct.ASMState, ptr %20, i32 0, i32 1
+  %21 = load ptr, ptr %mcp6, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %21, i32 -1
   store ptr %incdec.ptr, ptr %mcp6, align 8
   store i8 3, ptr %incdec.ptr, align 1
-  %21 = load ptr, ptr %ir.addr, align 8
-  %op2 = getelementptr inbounds %struct.anon, ptr %21, i32 0, i32 1
-  %22 = load i16, ptr %op2, align 2
-  %conv7 = zext i16 %22 to i32
+  %22 = load ptr, ptr %ir.addr, align 8
+  %op2 = getelementptr inbounds %struct.anon, ptr %22, i32 0, i32 1
+  %23 = load i16, ptr %op2, align 2
+  %conv7 = zext i16 %23 to i32
   %cmp = icmp slt i32 %conv7, 32768
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %23 = load ptr, ptr %as.addr, align 8
-  %ir9 = getelementptr inbounds %struct.ASMState, ptr %23, i32 0, i32 3
-  %24 = load ptr, ptr %ir9, align 8
-  %25 = load ptr, ptr %ir.addr, align 8
-  %op210 = getelementptr inbounds %struct.anon, ptr %25, i32 0, i32 1
-  %26 = load i16, ptr %op210, align 2
-  %idxprom11 = zext i16 %26 to i64
-  %arrayidx12 = getelementptr inbounds %union.IRIns, ptr %24, i64 %idxprom11
+  %24 = load ptr, ptr %as.addr, align 8
+  %ir9 = getelementptr inbounds %struct.ASMState, ptr %24, i32 0, i32 3
+  %25 = load ptr, ptr %ir9, align 8
+  %26 = load ptr, ptr %ir.addr, align 8
+  %op210 = getelementptr inbounds %struct.anon, ptr %26, i32 0, i32 1
+  %27 = load i16, ptr %op210, align 2
+  %idxprom11 = zext i16 %27 to i64
+  %arrayidx12 = getelementptr inbounds %union.IRIns, ptr %25, i64 %idxprom11
   %arrayidx13 = getelementptr inbounds %union.IRIns, ptr %arrayidx12, i64 1
   %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx13, i32 0, i32 0
-  %27 = load i64, ptr %gcptr64, align 8
-  %28 = inttoptr i64 %27 to ptr
-  store ptr %28, ptr %vp, align 8
-  %29 = load ptr, ptr %as.addr, align 8
-  %30 = load ptr, ptr %vp, align 8
-  %marked = getelementptr inbounds %struct.GChead, ptr %30, i32 0, i32 1
-  call void @emit_rma(ptr noundef %29, i32 noundef -167771906, i32 noundef 0, ptr noundef %marked)
+  %28 = load i64, ptr %gcptr64, align 8
+  %29 = inttoptr i64 %28 to ptr
+  store ptr %29, ptr %vp, align 8
+  %30 = load ptr, ptr %as.addr, align 8
+  %31 = load ptr, ptr %vp, align 8
+  %marked = getelementptr inbounds %struct.GChead, ptr %31, i32 0, i32 1
+  call void @emit_rma(ptr noundef %30, i32 noundef -167771906, i32 noundef 0, ptr noundef %marked)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %31 = load ptr, ptr %as.addr, align 8
-  %32 = load ptr, ptr %ir.addr, align 8
-  %op214 = getelementptr inbounds %struct.anon, ptr %32, i32 0, i32 1
-  %33 = load i16, ptr %op214, align 2
-  %conv15 = zext i16 %33 to i32
-  %34 = load i32, ptr %obj, align 4
-  %shl = shl i32 1, %34
+  %32 = load ptr, ptr %as.addr, align 8
+  %33 = load ptr, ptr %ir.addr, align 8
+  %op214 = getelementptr inbounds %struct.anon, ptr %33, i32 0, i32 1
+  %34 = load i16, ptr %op214, align 2
+  %conv15 = zext i16 %34 to i32
+  %35 = load i32, ptr %obj, align 4
+  %shl = shl i32 1, %35
   %not = xor i32 %shl, -1
   %and = and i32 4039, %not
-  %call16 = call i32 @ra_alloc1(ptr noundef %31, i32 noundef %conv15, i32 noundef %and)
+  %call16 = call i32 @ra_alloc1(ptr noundef %32, i32 noundef %conv15, i32 noundef %and)
   store i32 %call16, ptr %val, align 4
-  %35 = load ptr, ptr %as.addr, align 8
-  %36 = load i32, ptr %val, align 4
-  call void @emit_rmro(ptr noundef %35, i32 noundef -167771906, i32 noundef 0, i32 noundef %36, i32 noundef 8)
+  %36 = load ptr, ptr %as.addr, align 8
+  %37 = load i32, ptr %val, align 4
+  call void @emit_rmro(ptr noundef %36, i32 noundef -167771906, i32 noundef 0, i32 noundef %37, i32 noundef 8)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %37 = load ptr, ptr %as.addr, align 8
-  %38 = load ptr, ptr %l_end, align 8
-  call void @emit_sjcc(ptr noundef %37, i32 noundef 4, ptr noundef %38)
-  %39 = load ptr, ptr %as.addr, align 8
-  %mcp17 = getelementptr inbounds %struct.ASMState, ptr %39, i32 0, i32 1
-  %40 = load ptr, ptr %mcp17, align 8
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %40, i32 -1
+  %38 = load ptr, ptr %as.addr, align 8
+  %39 = load ptr, ptr %l_end, align 8
+  call void @emit_sjcc(ptr noundef %38, i32 noundef 4, ptr noundef %39)
+  %40 = load ptr, ptr %as.addr, align 8
+  %mcp17 = getelementptr inbounds %struct.ASMState, ptr %40, i32 0, i32 1
+  %41 = load ptr, ptr %mcp17, align 8
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %41, i32 -1
   store ptr %incdec.ptr18, ptr %mcp17, align 8
   store i8 4, ptr %incdec.ptr18, align 1
-  %41 = load ptr, ptr %as.addr, align 8
-  %42 = load i32, ptr %obj, align 4
-  call void @emit_rmro(ptr noundef %41, i32 noundef -167771906, i32 noundef 0, i32 noundef %42, i32 noundef -8)
+  %42 = load ptr, ptr %as.addr, align 8
+  %43 = load i32, ptr %obj, align 4
+  call void @emit_rmro(ptr noundef %42, i32 noundef -167771906, i32 noundef 0, i32 noundef %43, i32 noundef -8)
   ret void
 }
 
@@ -18913,59 +18928,62 @@ entry:
 if.then:                                          ; preds = %entry
   %arrayidx2 = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 1
   store i32 32765, ptr %arrayidx2, align 4
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 5), ptr %ci, align 8
+  %5 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 5
+  store ptr %5, ptr %ci, align 8
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %ir.addr, align 8
-  %op1 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %6 = load i16, ptr %op1, align 8
-  %conv3 = zext i16 %6 to i32
+  %6 = load ptr, ptr %ir.addr, align 8
+  %op1 = getelementptr inbounds %struct.anon, ptr %6, i32 0, i32 0
+  %7 = load i16, ptr %op1, align 8
+  %conv3 = zext i16 %7 to i32
   %arrayidx4 = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 1
   store i32 %conv3, ptr %arrayidx4, align 4
-  %7 = load ptr, ptr %ir.addr, align 8
-  %op25 = getelementptr inbounds %struct.anon, ptr %7, i32 0, i32 1
-  %8 = load i16, ptr %op25, align 2
-  %conv6 = zext i16 %8 to i32
+  %8 = load ptr, ptr %ir.addr, align 8
+  %op25 = getelementptr inbounds %struct.anon, ptr %8, i32 0, i32 1
+  %9 = load i16, ptr %op25, align 2
+  %conv6 = zext i16 %9 to i32
   %cmp7 = icmp eq i32 %conv6, 0
   br i1 %cmp7, label %if.then9, label %if.else10
 
 if.then9:                                         ; preds = %if.else
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 4), ptr %ci, align 8
+  %10 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 4
+  store ptr %10, ptr %ci, align 8
   br label %if.end
 
 if.else10:                                        ; preds = %if.else
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 6), ptr %ci, align 8
+  %11 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 6
+  store ptr %11, ptr %ci, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else10, %if.then9
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end, %if.then
-  %9 = load ptr, ptr %as.addr, align 8
-  %10 = load ptr, ptr %ir.addr, align 8
-  %11 = load ptr, ptr %ci, align 8
-  call void @asm_setupresult(ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %12 = load ptr, ptr %as.addr, align 8
-  %13 = load ptr, ptr %ci, align 8
+  %13 = load ptr, ptr %ir.addr, align 8
+  %14 = load ptr, ptr %ci, align 8
+  call void @asm_setupresult(ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  %15 = load ptr, ptr %as.addr, align 8
+  %16 = load ptr, ptr %ci, align 8
   %arraydecay = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 0
-  call void @asm_gencall(ptr noundef %12, ptr noundef %13, ptr noundef %arraydecay)
-  %14 = load ptr, ptr %ir.addr, align 8
-  %op212 = getelementptr inbounds %struct.anon, ptr %14, i32 0, i32 1
-  %15 = load i16, ptr %op212, align 2
-  %conv13 = zext i16 %15 to i32
+  call void @asm_gencall(ptr noundef %15, ptr noundef %16, ptr noundef %arraydecay)
+  %17 = load ptr, ptr %ir.addr, align 8
+  %op212 = getelementptr inbounds %struct.anon, ptr %17, i32 0, i32 1
+  %18 = load i16, ptr %op212, align 2
+  %conv13 = zext i16 %18 to i32
   %cmp14 = icmp eq i32 %conv13, 1
   br i1 %cmp14, label %if.then16, label %if.end19
 
 if.then16:                                        ; preds = %if.end11
-  %16 = load ptr, ptr %as.addr, align 8
-  %17 = load ptr, ptr %as.addr, align 8
-  %call = call i32 @ra_releasetmp(ptr noundef %17, i32 noundef 32765)
-  %18 = load ptr, ptr %ir.addr, align 8
-  %op117 = getelementptr inbounds %struct.anon, ptr %18, i32 0, i32 0
-  %19 = load i16, ptr %op117, align 8
-  %conv18 = zext i16 %19 to i32
-  call void @asm_tvptr(ptr noundef %16, i32 noundef %call, i32 noundef %conv18, i32 noundef 1)
+  %19 = load ptr, ptr %as.addr, align 8
+  %20 = load ptr, ptr %as.addr, align 8
+  %call = call i32 @ra_releasetmp(ptr noundef %20, i32 noundef 32765)
+  %21 = load ptr, ptr %ir.addr, align 8
+  %op117 = getelementptr inbounds %struct.anon, ptr %21, i32 0, i32 0
+  %22 = load i16, ptr %op117, align 8
+  %conv18 = zext i16 %22 to i32
+  call void @asm_tvptr(ptr noundef %19, i32 noundef %call, i32 noundef %conv18, i32 noundef 1)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then16, %if.end11
@@ -18982,63 +19000,64 @@ entry:
   %drop = alloca i32, align 4
   store ptr %as, ptr %as.addr, align 8
   store ptr %ir, ptr %ir.addr, align 8
-  store ptr getelementptr inbounds ([114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 3), ptr %ci, align 8
+  %0 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 3
+  store ptr %0, ptr %ci, align 8
   store i32 -61497, ptr %drop, align 4
-  %0 = load i32, ptr %drop, align 4
-  %and = and i32 %0, -65536
+  %1 = load i32, ptr %drop, align 4
+  %and = and i32 %1, -65536
   %cmp = icmp ne i32 %and, -65536
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %ir.addr, align 8
-  %r = getelementptr inbounds %struct.anon.0, ptr %1, i32 0, i32 3
-  %2 = load i8, ptr %r, align 2
-  %conv = zext i8 %2 to i32
+  %2 = load ptr, ptr %ir.addr, align 8
+  %r = getelementptr inbounds %struct.anon.0, ptr %2, i32 0, i32 3
+  %3 = load i8, ptr %r, align 2
+  %conv = zext i8 %3 to i32
   %and1 = and i32 %conv, 128
   %tobool = icmp ne i32 %and1, 0
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %3 = load ptr, ptr %ir.addr, align 8
-  %r2 = getelementptr inbounds %struct.anon.0, ptr %3, i32 0, i32 3
-  %4 = load i8, ptr %r2, align 2
-  %conv3 = zext i8 %4 to i32
+  %4 = load ptr, ptr %ir.addr, align 8
+  %r2 = getelementptr inbounds %struct.anon.0, ptr %4, i32 0, i32 3
+  %5 = load i8, ptr %r2, align 2
+  %conv3 = zext i8 %5 to i32
   %shl = shl i32 1, %conv3
-  %5 = load i32, ptr %drop, align 4
-  %or = or i32 %5, %shl
+  %6 = load i32, ptr %drop, align 4
+  %or = or i32 %6, %shl
   store i32 %or, ptr %drop, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %6 = load ptr, ptr %as.addr, align 8
-  %7 = load i32, ptr %drop, align 4
-  call void @ra_evictset(ptr noundef %6, i32 noundef %7)
-  %8 = load ptr, ptr %as.addr, align 8
-  call void @asm_guardcc(ptr noundef %8, i32 noundef 4)
+  %7 = load ptr, ptr %as.addr, align 8
+  %8 = load i32, ptr %drop, align 4
+  call void @ra_evictset(ptr noundef %7, i32 noundef %8)
   %9 = load ptr, ptr %as.addr, align 8
-  call void @emit_rr(ptr noundef %9, i32 noundef -2063597314, i32 noundef 0, i32 noundef 0)
-  %10 = load ptr, ptr %ir.addr, align 8
-  %op1 = getelementptr inbounds %struct.anon, ptr %10, i32 0, i32 0
-  %11 = load i16, ptr %op1, align 8
-  %conv4 = zext i16 %11 to i32
+  call void @asm_guardcc(ptr noundef %9, i32 noundef 4)
+  %10 = load ptr, ptr %as.addr, align 8
+  call void @emit_rr(ptr noundef %10, i32 noundef -2063597314, i32 noundef 0, i32 noundef 0)
+  %11 = load ptr, ptr %ir.addr, align 8
+  %op1 = getelementptr inbounds %struct.anon, ptr %11, i32 0, i32 0
+  %12 = load i16, ptr %op1, align 8
+  %conv4 = zext i16 %12 to i32
   %arrayidx = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 0
   store i32 %conv4, ptr %arrayidx, align 4
   %arrayidx5 = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 1
   store i32 32765, ptr %arrayidx5, align 4
-  %12 = load ptr, ptr %as.addr, align 8
-  %13 = load ptr, ptr %ci, align 8
+  %13 = load ptr, ptr %as.addr, align 8
+  %14 = load ptr, ptr %ci, align 8
   %arraydecay = getelementptr inbounds [2 x i32], ptr %args, i64 0, i64 0
-  call void @asm_gencall(ptr noundef %12, ptr noundef %13, ptr noundef %arraydecay)
-  %14 = load ptr, ptr %as.addr, align 8
+  call void @asm_gencall(ptr noundef %13, ptr noundef %14, ptr noundef %arraydecay)
   %15 = load ptr, ptr %as.addr, align 8
-  %call = call i32 @ra_releasetmp(ptr noundef %15, i32 noundef 32765)
+  %16 = load ptr, ptr %as.addr, align 8
+  %call = call i32 @ra_releasetmp(ptr noundef %16, i32 noundef 32765)
   %or6 = or i32 %call, 524800
-  %16 = load ptr, ptr %ir.addr, align 8
-  %s = getelementptr inbounds %struct.anon.0, ptr %16, i32 0, i32 4
-  %17 = load i8, ptr %s, align 1
-  %conv7 = zext i8 %17 to i32
+  %17 = load ptr, ptr %ir.addr, align 8
+  %s = getelementptr inbounds %struct.anon.0, ptr %17, i32 0, i32 4
+  %18 = load i8, ptr %s, align 1
+  %conv7 = zext i8 %18 to i32
   %mul = mul nsw i32 4, %conv7
-  call void @emit_rmro(ptr noundef %14, i32 noundef -1929379586, i32 noundef %or6, i32 noundef 4, i32 noundef %mul)
+  call void @emit_rmro(ptr noundef %15, i32 noundef -1929379586, i32 noundef %or6, i32 noundef 4, i32 noundef %mul)
   ret void
 }
 

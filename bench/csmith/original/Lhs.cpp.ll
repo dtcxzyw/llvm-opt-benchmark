@@ -1878,17 +1878,18 @@ define dso_local void @_ZN3LhsC2ERK8Variable(ptr noundef nonnull align 8 derefer
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV3Lhs, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.Lhs, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %class.Lhs, ptr %5, i32 0, i32 2
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %class.Variable, ptr %9, i32 0, i32 3
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %8, align 8
-  %12 = getelementptr inbounds %class.Lhs, ptr %5, i32 0, i32 3
-  store i8 0, ptr %12, align 8
+  %6 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTV3Lhs, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.Lhs, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.Lhs, ptr %5, i32 0, i32 2
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %class.Variable, ptr %10, i32 0, i32 3
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %class.Lhs, ptr %5, i32 0, i32 3
+  store i8 0, ptr %13, align 8
   ret void
 }
 
@@ -1902,24 +1903,25 @@ define dso_local void @_ZN3LhsC2ERKS_(ptr noundef nonnull align 8 dereferenceabl
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV3Lhs, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.Lhs, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.Lhs, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds %class.Lhs, ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %class.Lhs, ptr %11, i32 0, i32 2
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %10, align 8
-  %14 = getelementptr inbounds %class.Lhs, ptr %5, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %class.Lhs, ptr %15, i32 0, i32 3
-  %17 = load i8, ptr %16, align 8
-  %18 = trunc i8 %17 to i1
-  %19 = zext i1 %18 to i8
-  store i8 %19, ptr %14, align 8
+  %6 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTV3Lhs, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.Lhs, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %class.Lhs, ptr %8, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %class.Lhs, ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %class.Lhs, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %class.Lhs, ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %class.Lhs, ptr %16, i32 0, i32 3
+  %18 = load i8, ptr %17, align 8
+  %19 = trunc i8 %18 to i1
+  %20 = zext i1 %19 to i8
+  store i8 %20, ptr %15, align 8
   ret void
 }
 
@@ -1936,18 +1938,19 @@ define dso_local void @_ZN3LhsC2ERK8VariablePK4Typeb(ptr noundef nonnull align 8
   store i8 %9, ptr %8, align 1
   %10 = load ptr, ptr %5, align 8
   call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV3Lhs, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %class.Lhs, ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %6, align 8
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds %class.Lhs, ptr %10, i32 0, i32 2
-  %14 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %class.Lhs, ptr %10, i32 0, i32 3
-  %16 = load i8, ptr %8, align 1
-  %17 = trunc i8 %16 to i1
-  %18 = zext i1 %17 to i8
-  store i8 %18, ptr %15, align 8
+  %11 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTV3Lhs, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %class.Lhs, ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %6, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %class.Lhs, ptr %10, i32 0, i32 2
+  %15 = load ptr, ptr %7, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %class.Lhs, ptr %10, i32 0, i32 3
+  %17 = load i8, ptr %8, align 1
+  %18 = trunc i8 %17 to i1
+  %19 = zext i1 %18 to i8
+  store i8 %19, ptr %16, align 8
   ret void
 }
 

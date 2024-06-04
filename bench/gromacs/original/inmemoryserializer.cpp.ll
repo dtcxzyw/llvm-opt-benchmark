@@ -1296,49 +1296,50 @@ define void @_ZN3gmx18InMemorySerializerC2ENS_18EndianSwapBehaviorE(ptr noundef 
   store i32 %1, ptr %4, align 4
   %7 = load ptr, ptr %3, align 8
   call void @_ZN3gmx11ISerializerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
-  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTVN3gmx18InMemorySerializerE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.gmx::InMemorySerializer", ptr %7, i32 0, i32 1
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #13
-          to label %10 unwind label %13
+  %8 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN3gmx18InMemorySerializerE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.gmx::InMemorySerializer", ptr %7, i32 0, i32 1
+  %10 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #13
+          to label %11 unwind label %14
 
-10:                                               ; preds = %2
-  %11 = load i32, ptr %4, align 4
-  invoke void @_ZN3gmx18InMemorySerializer4ImplC2ENS_18EndianSwapBehaviorE(ptr noundef nonnull align 8 dereferenceable(28) %9, i32 noundef %11)
-          to label %12 unwind label %17
+11:                                               ; preds = %2
+  %12 = load i32, ptr %4, align 4
+  invoke void @_ZN3gmx18InMemorySerializer4ImplC2ENS_18EndianSwapBehaviorE(ptr noundef nonnull align 8 dereferenceable(28) %10, i32 noundef %12)
+          to label %13 unwind label %18
 
-12:                                               ; preds = %10
-  call void @_ZNSt10unique_ptrIN3gmx18InMemorySerializer4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9) #11
+13:                                               ; preds = %11
+  call void @_ZNSt10unique_ptrIN3gmx18InMemorySerializer4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10) #11
   ret void
 
-13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  br label %21
-
-17:                                               ; preds = %10
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %9) #12
-  br label %21
-
-21:                                               ; preds = %17, %13
-  call void @_ZN3gmx11ISerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
   br label %22
 
-22:                                               ; preds = %21
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i32, ptr %6, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+18:                                               ; preds = %11
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %10) #12
+  br label %22
+
+22:                                               ; preds = %18, %14
+  call void @_ZN3gmx11ISerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  br label %23
+
+23:                                               ; preds = %22
+  %24 = load ptr, ptr %5, align 8
+  %25 = load i32, ptr %6, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1346,7 +1347,8 @@ define linkonce_odr void @_ZN3gmx11ISerializerC2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTVN3gmx11ISerializerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN3gmx11ISerializerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1829,9 +1831,10 @@ define void @_ZN3gmx18InMemorySerializerD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTVN3gmx18InMemorySerializerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::InMemorySerializer", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN3gmx18InMemorySerializer4ImplESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN3gmx18InMemorySerializerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::InMemorySerializer", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN3gmx18InMemorySerializer4ImplESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
   call void @_ZN3gmx11ISerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }
@@ -6499,59 +6502,60 @@ define void @_ZN3gmx20InMemoryDeserializerC2ENS_8ArrayRefIKcEEbNS_18EndianSwapBe
   store i32 %4, ptr %9, align 4
   %16 = load ptr, ptr %7, align 8
   call void @_ZN3gmx11ISerializerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #11
-  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTVN3gmx20InMemoryDeserializerE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds %"class.gmx::InMemoryDeserializer", ptr %16, i32 0, i32 1
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #13
-          to label %19 unwind label %29
+  %17 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN3gmx20InMemoryDeserializerE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"class.gmx::InMemoryDeserializer", ptr %16, i32 0, i32 1
+  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #13
+          to label %20 unwind label %30
 
-19:                                               ; preds = %5
+20:                                               ; preds = %5
   invoke void @_ZN3gmx8ArrayRefIKcEC2IRS2_vEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %20 unwind label %33
+          to label %21 unwind label %34
 
-20:                                               ; preds = %19
-  %21 = load i8, ptr %8, align 1
-  %22 = trunc i8 %21 to i1
-  %23 = load i32, ptr %9, align 4
-  %24 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  invoke void @_ZN3gmx20InMemoryDeserializer4ImplC2ENS_8ArrayRefIKcEEbNS_18EndianSwapBehaviorE(ptr noundef nonnull align 8 dereferenceable(36) %18, ptr %25, ptr %27, i1 noundef zeroext %22, i32 noundef %23)
-          to label %28 unwind label %33
+21:                                               ; preds = %20
+  %22 = load i8, ptr %8, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = load i32, ptr %9, align 4
+  %25 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  invoke void @_ZN3gmx20InMemoryDeserializer4ImplC2ENS_8ArrayRefIKcEEbNS_18EndianSwapBehaviorE(ptr noundef nonnull align 8 dereferenceable(36) %19, ptr %26, ptr %28, i1 noundef zeroext %23, i32 noundef %24)
+          to label %29 unwind label %34
 
-28:                                               ; preds = %20
-  call void @_ZNSt10unique_ptrIN3gmx20InMemoryDeserializer4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %18) #11
+29:                                               ; preds = %21
+  call void @_ZNSt10unique_ptrIN3gmx20InMemoryDeserializer4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %19) #11
   ret void
 
-29:                                               ; preds = %5
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %5
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %10, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %11, align 4
-  br label %37
-
-33:                                               ; preds = %20, %19
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %10, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %11, align 4
-  call void @_ZdlPv(ptr noundef %18) #12
-  br label %37
-
-37:                                               ; preds = %33, %29
-  call void @_ZN3gmx11ISerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #11
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %10, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %11, align 4
   br label %38
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %10, align 8
-  %40 = load i32, ptr %11, align 4
-  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
-  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
-  resume { ptr, i32 } %42
+34:                                               ; preds = %21, %20
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %10, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %11, align 4
+  call void @_ZdlPv(ptr noundef %19) #12
+  br label %38
+
+38:                                               ; preds = %34, %30
+  call void @_ZN3gmx11ISerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #11
+  br label %39
+
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %10, align 8
+  %41 = load i32, ptr %11, align 4
+  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
+  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
+  resume { ptr, i32 } %43
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6828,9 +6832,10 @@ define void @_ZN3gmx20InMemoryDeserializerD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTVN3gmx20InMemoryDeserializerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::InMemoryDeserializer", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN3gmx20InMemoryDeserializer4ImplESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN3gmx20InMemoryDeserializerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::InMemoryDeserializer", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN3gmx20InMemoryDeserializer4ImplESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
   call void @_ZN3gmx11ISerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }

@@ -3442,21 +3442,22 @@ define linkonce_odr void @_ZN22dtFindNearestPolyQueryC2EPK14dtNavMeshQueryPKf(pt
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN11dtPolyQueryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22dtFindNearestPolyQuery, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.dtFindNearestPolyQuery, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %class.dtFindNearestPolyQuery, ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %class.dtFindNearestPolyQuery, ptr %7, i32 0, i32 3
-  store float 0x47EFFFFFE0000000, ptr %12, align 8
-  %13 = getelementptr inbounds %class.dtFindNearestPolyQuery, ptr %7, i32 0, i32 4
-  store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds %class.dtFindNearestPolyQuery, ptr %7, i32 0, i32 5
-  call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 12, i1 false)
-  %15 = getelementptr inbounds %class.dtFindNearestPolyQuery, ptr %7, i32 0, i32 6
-  store i8 0, ptr %15, align 4
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV22dtFindNearestPolyQuery, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.dtFindNearestPolyQuery, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.dtFindNearestPolyQuery, ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %class.dtFindNearestPolyQuery, ptr %7, i32 0, i32 3
+  store float 0x47EFFFFFE0000000, ptr %13, align 8
+  %14 = getelementptr inbounds %class.dtFindNearestPolyQuery, ptr %7, i32 0, i32 4
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds %class.dtFindNearestPolyQuery, ptr %7, i32 0, i32 5
+  call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 12, i1 false)
+  %16 = getelementptr inbounds %class.dtFindNearestPolyQuery, ptr %7, i32 0, i32 6
+  store i8 0, ptr %16, align 4
   ret void
 }
 
@@ -4746,17 +4747,18 @@ define linkonce_odr void @_ZN19dtCollectPolysQueryC2EPji(ptr noundef nonnull ali
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
   call void @_ZN11dtPolyQueryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19dtCollectPolysQuery, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.dtCollectPolysQuery, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %class.dtCollectPolysQuery, ptr %7, i32 0, i32 2
-  %11 = load i32, ptr %6, align 4
-  store i32 %11, ptr %10, align 8
-  %12 = getelementptr inbounds %class.dtCollectPolysQuery, ptr %7, i32 0, i32 3
-  store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds %class.dtCollectPolysQuery, ptr %7, i32 0, i32 4
-  store i8 0, ptr %13, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV19dtCollectPolysQuery, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.dtCollectPolysQuery, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.dtCollectPolysQuery, ptr %7, i32 0, i32 2
+  %12 = load i32, ptr %6, align 4
+  store i32 %12, ptr %11, align 8
+  %13 = getelementptr inbounds %class.dtCollectPolysQuery, ptr %7, i32 0, i32 3
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds %class.dtCollectPolysQuery, ptr %7, i32 0, i32 4
+  store i8 0, ptr %14, align 8
   ret void
 }
 
@@ -15126,7 +15128,8 @@ define linkonce_odr void @_ZN11dtPolyQueryC2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11dtPolyQuery, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11dtPolyQuery, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

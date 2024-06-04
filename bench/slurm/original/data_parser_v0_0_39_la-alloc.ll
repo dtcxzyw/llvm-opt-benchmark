@@ -93,42 +93,43 @@ define dso_local ptr @alloc_parser_obj(ptr noundef %0) #0 {
   br label %45
 
 45:                                               ; preds = %44
-  %46 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %47 = and i64 %46, 256
-  %48 = icmp ne i64 %47, 0
-  br i1 %48, label %49, label %63
+  %46 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %47 = load i64, ptr %46, align 8
+  %48 = and i64 %47, 256
+  %49 = icmp ne i64 %48, 0
+  br i1 %49, label %50, label %64
 
-49:                                               ; preds = %45
-  br label %50
+50:                                               ; preds = %45
+  br label %51
 
-50:                                               ; preds = %49
-  %51 = call i32 @get_log_level()
-  %52 = icmp sge i32 %51, 4
-  br i1 %52, label %53, label %61
+51:                                               ; preds = %50
+  %52 = call i32 @get_log_level()
+  %53 = icmp sge i32 %52, 4
+  br i1 %53, label %54, label %62
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %3, align 8
-  %55 = call i64 @xsize(ptr noundef %54)
-  %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds %struct.parser_s, ptr %56, i32 0, i32 5
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %3, align 8
-  %60 = ptrtoint ptr %59 to i64
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.1, i64 noundef %55, ptr noundef %58, i64 noundef %60)
-  br label %61
-
-61:                                               ; preds = %53, %50
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %3, align 8
+  %56 = call i64 @xsize(ptr noundef %55)
+  %57 = load ptr, ptr %2, align 8
+  %58 = getelementptr inbounds %struct.parser_s, ptr %57, i32 0, i32 5
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %3, align 8
+  %61 = ptrtoint ptr %60 to i64
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.1, i64 noundef %56, ptr noundef %59, i64 noundef %61)
   br label %62
 
-62:                                               ; preds = %61
+62:                                               ; preds = %54, %51
   br label %63
 
-63:                                               ; preds = %62, %45
+63:                                               ; preds = %62
   br label %64
 
-64:                                               ; preds = %63
-  %65 = load ptr, ptr %3, align 8
-  ret ptr %65
+64:                                               ; preds = %63, %45
+  br label %65
+
+65:                                               ; preds = %64
+  %66 = load ptr, ptr %3, align 8
+  ret ptr %66
 }
 
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) #1
@@ -152,43 +153,44 @@ define dso_local void @free_parser_obj(ptr noundef %0, ptr noundef %1) #0 {
   br label %8
 
 8:                                                ; preds = %2
-  %9 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %10 = and i64 %9, 256
-  %11 = icmp ne i64 %10, 0
-  br i1 %11, label %12, label %26
+  %9 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %10 = load i64, ptr %9, align 8
+  %11 = and i64 %10, 256
+  %12 = icmp ne i64 %11, 0
+  br i1 %12, label %13, label %27
 
-12:                                               ; preds = %8
-  br label %13
+13:                                               ; preds = %8
+  br label %14
 
-13:                                               ; preds = %12
-  %14 = call i32 @get_log_level()
-  %15 = icmp sge i32 %14, 4
-  br i1 %15, label %16, label %24
+14:                                               ; preds = %13
+  %15 = call i32 @get_log_level()
+  %16 = icmp sge i32 %15, 4
+  br i1 %16, label %17, label %25
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %4, align 8
-  %18 = call i64 @xsize(ptr noundef %17)
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.parser_s, ptr %19, i32 0, i32 5
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = ptrtoint ptr %22 to i64
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.2, i64 noundef %18, ptr noundef %21, i64 noundef %23)
-  br label %24
-
-24:                                               ; preds = %16, %13
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %4, align 8
+  %19 = call i64 @xsize(ptr noundef %18)
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds %struct.parser_s, ptr %20, i32 0, i32 5
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %4, align 8
+  %24 = ptrtoint ptr %23 to i64
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.2, i64 noundef %19, ptr noundef %22, i64 noundef %24)
   br label %25
 
-25:                                               ; preds = %24
+25:                                               ; preds = %17, %14
   br label %26
 
-26:                                               ; preds = %25, %8
+26:                                               ; preds = %25
   br label %27
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load ptr, ptr %4, align 8
-  call void %28(ptr noundef %29)
+27:                                               ; preds = %26, %8
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %5, align 8
+  %30 = load ptr, ptr %4, align 8
+  call void %29(ptr noundef %30)
   ret void
 }
 

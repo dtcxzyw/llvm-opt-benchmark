@@ -33,19 +33,19 @@ define i32 @clock_gettime(i32 noundef %0, ptr noundef %1) #0 {
   %18 = load ptr, ptr %4, align 8
   %19 = call i32 @clock_systime_timespec(ptr noundef %18)
   store i32 %19, ptr %7, align 4
-  br label %73
+  br label %74
 
 20:                                               ; preds = %14
   %21 = load i32, ptr %8, align 4
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %71
+  br i1 %22, label %23, label %72
 
 23:                                               ; preds = %20
   %24 = call i32 @clock_systime_timespec(ptr noundef %5)
   store i32 %24, ptr %7, align 4
   %25 = load i32, ptr %7, align 4
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %70
+  br i1 %26, label %27, label %71
 
 27:                                               ; preds = %23
   %28 = call i64 @up_irq_save()
@@ -57,86 +57,87 @@ define i32 @clock_gettime(i32 noundef %0, ptr noundef %1) #0 {
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, %31
   store i64 %34, ptr %32, align 8
-  %35 = load i64, ptr getelementptr inbounds (%struct.timespec, ptr @g_basetime, i32 0, i32 1), align 8
-  %36 = trunc i64 %35 to i32
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 1
-  %39 = load i64, ptr %38, align 8
-  %40 = add nsw i64 %39, %37
-  store i64 %40, ptr %38, align 8
-  %41 = load i64, ptr %9, align 8
-  call void @up_irq_restore(i64 noundef %41)
-  %42 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 1
-  %43 = load i64, ptr %42, align 8
-  %44 = icmp sge i64 %43, 1000000000
-  br i1 %44, label %45, label %61
+  %35 = getelementptr inbounds %struct.timespec, ptr @g_basetime, i32 0, i32 1
+  %36 = load i64, ptr %35, align 8
+  %37 = trunc i64 %36 to i32
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 1
+  %40 = load i64, ptr %39, align 8
+  %41 = add nsw i64 %40, %38
+  store i64 %41, ptr %39, align 8
+  %42 = load i64, ptr %9, align 8
+  call void @up_irq_restore(i64 noundef %42)
+  %43 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 1
+  %44 = load i64, ptr %43, align 8
+  %45 = icmp sge i64 %44, 1000000000
+  br i1 %45, label %46, label %62
 
-45:                                               ; preds = %27
-  %46 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 1
-  %47 = load i64, ptr %46, align 8
-  %48 = sdiv i64 %47, 1000000000
-  %49 = trunc i64 %48 to i32
-  store i32 %49, ptr %6, align 4
-  %50 = load i32, ptr %6, align 4
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 0
-  %53 = load i64, ptr %52, align 8
-  %54 = add i64 %53, %51
-  store i64 %54, ptr %52, align 8
-  %55 = load i32, ptr %6, align 4
-  %56 = zext i32 %55 to i64
-  %57 = mul nsw i64 %56, 1000000000
-  %58 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 1
-  %59 = load i64, ptr %58, align 8
-  %60 = sub nsw i64 %59, %57
-  store i64 %60, ptr %58, align 8
-  br label %61
+46:                                               ; preds = %27
+  %47 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 1
+  %48 = load i64, ptr %47, align 8
+  %49 = sdiv i64 %48, 1000000000
+  %50 = trunc i64 %49 to i32
+  store i32 %50, ptr %6, align 4
+  %51 = load i32, ptr %6, align 4
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 0
+  %54 = load i64, ptr %53, align 8
+  %55 = add i64 %54, %52
+  store i64 %55, ptr %53, align 8
+  %56 = load i32, ptr %6, align 4
+  %57 = zext i32 %56 to i64
+  %58 = mul nsw i64 %57, 1000000000
+  %59 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 1
+  %60 = load i64, ptr %59, align 8
+  %61 = sub nsw i64 %60, %58
+  store i64 %61, ptr %59, align 8
+  br label %62
 
-61:                                               ; preds = %45, %27
-  %62 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 0
-  %63 = load i64, ptr %62, align 8
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.timespec, ptr %64, i32 0, i32 0
-  store i64 %63, ptr %65, align 8
-  %66 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 1
-  %67 = load i64, ptr %66, align 8
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds %struct.timespec, ptr %68, i32 0, i32 1
-  store i64 %67, ptr %69, align 8
-  br label %70
+62:                                               ; preds = %46, %27
+  %63 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 0
+  %64 = load i64, ptr %63, align 8
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds %struct.timespec, ptr %65, i32 0, i32 0
+  store i64 %64, ptr %66, align 8
+  %67 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 1
+  %68 = load i64, ptr %67, align 8
+  %69 = load ptr, ptr %4, align 8
+  %70 = getelementptr inbounds %struct.timespec, ptr %69, i32 0, i32 1
+  store i64 %68, ptr %70, align 8
+  br label %71
 
-70:                                               ; preds = %61, %23
-  br label %72
-
-71:                                               ; preds = %20
-  store i32 -22, ptr %7, align 4
-  br label %72
-
-72:                                               ; preds = %71, %70
+71:                                               ; preds = %62, %23
   br label %73
 
-73:                                               ; preds = %72, %17
-  %74 = load i32, ptr %7, align 4
-  %75 = icmp slt i32 %74, 0
-  br i1 %75, label %76, label %82
+72:                                               ; preds = %20
+  store i32 -22, ptr %7, align 4
+  br label %73
 
-76:                                               ; preds = %73
-  br label %77
+73:                                               ; preds = %72, %71
+  br label %74
 
-77:                                               ; preds = %76
-  %78 = load i32, ptr %7, align 4
-  %79 = sub nsw i32 0, %78
-  %80 = call ptr @__errno()
-  store i32 %79, ptr %80, align 4
-  br label %81
+74:                                               ; preds = %73, %17
+  %75 = load i32, ptr %7, align 4
+  %76 = icmp slt i32 %75, 0
+  br i1 %76, label %77, label %83
 
-81:                                               ; preds = %77
-  store i32 -1, ptr %7, align 4
+77:                                               ; preds = %74
+  br label %78
+
+78:                                               ; preds = %77
+  %79 = load i32, ptr %7, align 4
+  %80 = sub nsw i32 0, %79
+  %81 = call ptr @__errno()
+  store i32 %80, ptr %81, align 4
   br label %82
 
-82:                                               ; preds = %81, %73
-  %83 = load i32, ptr %7, align 4
-  ret i32 %83
+82:                                               ; preds = %78
+  store i32 -1, ptr %7, align 4
+  br label %83
+
+83:                                               ; preds = %82, %74
+  %84 = load i32, ptr %7, align 4
+  ret i32 %84
 }
 
 declare i32 @clock_systime_timespec(ptr noundef) #1

@@ -879,15 +879,16 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %solver, ptr %solver.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc54main15CommandExecutorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc54main15CommandExecutorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_solver = getelementptr inbounds %"class.cvc5::main::CommandExecutor", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %solver.addr, align 8
-  store ptr %0, ptr %d_solver, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
+  store ptr %1, ptr %d_solver, align 8
   %d_symman = getelementptr inbounds %"class.cvc5::main::CommandExecutor", ptr %this1, i32 0, i32 2
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
   %d_solver2 = getelementptr inbounds %"class.cvc5::main::CommandExecutor", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %d_solver2, align 8
-  %call3 = call noundef ptr @_ZNKSt10unique_ptrIN4cvc56SolverESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  %2 = load ptr, ptr %d_solver2, align 8
+  %call3 = call noundef ptr @_ZNKSt10unique_ptrIN4cvc56SolverESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   invoke void @_ZN4cvc56parser13SymbolManagerC1EPNS_6SolverE(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef %call3)
           to label %invoke.cont unwind label %lpad
 
@@ -903,22 +904,22 @@ invoke.cont5:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #13
   br label %eh.resume
 
 lpad4:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN4cvc56parser13SymbolManagerESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_symman) #3
   br label %eh.resume
 
@@ -1021,7 +1022,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc54main15CommandExecutorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc54main15CommandExecutorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_result = getelementptr inbounds %"class.cvc5::main::CommandExecutor", ptr %this1, i32 0, i32 3
   call void @_ZN4cvc56ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %d_result) #3
   %d_symman = getelementptr inbounds %"class.cvc5::main::CommandExecutor", ptr %this1, i32 0, i32 2

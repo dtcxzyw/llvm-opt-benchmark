@@ -130,11 +130,12 @@ define i32 @mca_pml_monitoring_start(i64 noundef %0, ptr noundef %1) #0 {
   br label %10, !llvm.loop !4
 
 64:                                               ; preds = %10
-  %65 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 15), align 8
-  %66 = load i64, ptr %3, align 8
-  %67 = load ptr, ptr %4, align 8
-  %68 = call i32 %65(i64 noundef %66, ptr noundef %67)
-  ret i32 %68
+  %65 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 15
+  %66 = load ptr, ptr %65, align 8
+  %67 = load i64, ptr %3, align 8
+  %68 = load ptr, ptr %4, align 8
+  %69 = call i32 %66(i64 noundef %67, ptr noundef %68)
+  ret i32 %69
 }
 
 ; Function Attrs: nounwind uwtable

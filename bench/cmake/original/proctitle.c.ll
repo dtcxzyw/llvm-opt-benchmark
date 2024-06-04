@@ -320,7 +320,7 @@ define dso_local i32 @uv_get_process_title(ptr noundef %0, i64 noundef %1) #0 {
 
 11:                                               ; preds = %8, %2
   store i32 -22, ptr %3, align 4
-  br label %33
+  br label %37
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr @args_mem, align 8
@@ -329,46 +329,50 @@ define dso_local i32 @uv_get_process_title(ptr noundef %0, i64 noundef %1) #0 {
 
 15:                                               ; preds = %12
   store i32 -105, ptr %3, align 4
-  br label %33
+  br label %37
 
 16:                                               ; preds = %12
   call void @uv_once(ptr noundef @process_title_mutex_once, ptr noundef @init_process_title_mutex_once)
   call void @uv_mutex_lock(ptr noundef @process_title_mutex)
   %17 = load i64, ptr %5, align 8
-  %18 = load i64, ptr getelementptr inbounds (%struct.uv__process_title, ptr @process_title, i32 0, i32 1), align 8
-  %19 = icmp ule i64 %17, %18
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %16
-  call void @uv_mutex_unlock(ptr noundef @process_title_mutex)
-  store i32 -105, ptr %3, align 4
-  br label %33
+  %18 = getelementptr inbounds %struct.uv__process_title, ptr @process_title, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8
+  %20 = icmp ule i64 %17, %19
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %16
-  %22 = load i64, ptr getelementptr inbounds (%struct.uv__process_title, ptr @process_title, i32 0, i32 1), align 8
-  %23 = icmp ne i64 %22, 0
-  br i1 %23, label %24, label %29
+  call void @uv_mutex_unlock(ptr noundef @process_title_mutex)
+  store i32 -105, ptr %3, align 4
+  br label %37
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %4, align 8
-  %26 = load ptr, ptr @process_title, align 8
-  %27 = load i64, ptr getelementptr inbounds (%struct.uv__process_title, ptr @process_title, i32 0, i32 1), align 8
-  %28 = add i64 %27, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %26, i64 %28, i1 false)
-  br label %29
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds %struct.uv__process_title, ptr @process_title, i32 0, i32 1
+  %24 = load i64, ptr %23, align 8
+  %25 = icmp ne i64 %24, 0
+  br i1 %25, label %26, label %32
 
-29:                                               ; preds = %24, %21
-  %30 = load ptr, ptr %4, align 8
-  %31 = load i64, ptr getelementptr inbounds (%struct.uv__process_title, ptr @process_title, i32 0, i32 1), align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 %31
-  store i8 0, ptr %32, align 1
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %4, align 8
+  %28 = load ptr, ptr @process_title, align 8
+  %29 = getelementptr inbounds %struct.uv__process_title, ptr @process_title, i32 0, i32 1
+  %30 = load i64, ptr %29, align 8
+  %31 = add i64 %30, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %28, i64 %31, i1 false)
+  br label %32
+
+32:                                               ; preds = %26, %22
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds %struct.uv__process_title, ptr @process_title, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %33, i64 %35
+  store i8 0, ptr %36, align 1
   call void @uv_mutex_unlock(ptr noundef @process_title_mutex)
   store i32 0, ptr %3, align 4
-  br label %33
+  br label %37
 
-33:                                               ; preds = %29, %20, %15, %11
-  %34 = load i32, ptr %3, align 4
-  ret i32 %34
+37:                                               ; preds = %32, %21, %15, %11
+  %38 = load i32, ptr %3, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind uwtable

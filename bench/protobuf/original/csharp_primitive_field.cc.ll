@@ -1881,9 +1881,10 @@ entry:
   %1 = load i32, ptr %presenceIndex.addr, align 4
   %2 = load ptr, ptr %options.addr, align 8
   call void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBaseC2EPKNS0_15FieldDescriptorEiPKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef %0, i32 noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp23PrimitiveFieldGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %3 = load ptr, ptr %descriptor.addr, align 8
-  %call = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor4typeEv(ptr noundef nonnull align 8 dereferenceable(88) %3)
+  %3 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp23PrimitiveFieldGeneratorE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
+  %4 = load ptr, ptr %descriptor.addr, align 8
+  %call = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor4typeEv(ptr noundef nonnull align 8 dereferenceable(88) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1891,8 +1892,8 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %invoke.cont
-  %4 = load ptr, ptr %descriptor.addr, align 8
-  %call3 = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor4typeEv(ptr noundef nonnull align 8 dereferenceable(88) %4)
+  %5 = load ptr, ptr %descriptor.addr, align 8
+  %call3 = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor4typeEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %land.rhs
@@ -1900,19 +1901,19 @@ invoke.cont2:                                     ; preds = %land.rhs
   br label %land.end
 
 land.end:                                         ; preds = %invoke.cont2, %invoke.cont
-  %5 = phi i1 [ false, %invoke.cont ], [ %cmp4, %invoke.cont2 ]
+  %6 = phi i1 [ false, %invoke.cont ], [ %cmp4, %invoke.cont2 ]
   %is_value_type = getelementptr inbounds %"class.google::protobuf::compiler::csharp::PrimitiveFieldGenerator", ptr %this1, i32 0, i32 1
-  %frombool = zext i1 %5 to i8
+  %frombool = zext i1 %6 to i8
   store i8 %frombool, ptr %is_value_type, align 8
   %is_value_type5 = getelementptr inbounds %"class.google::protobuf::compiler::csharp::PrimitiveFieldGenerator", ptr %this1, i32 0, i32 1
-  %6 = load i8, ptr %is_value_type5, align 8
-  %tobool = trunc i8 %6 to i1
+  %7 = load i8, ptr %is_value_type5, align 8
+  %tobool = trunc i8 %7 to i1
   br i1 %tobool, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.end
   %descriptor_ = getelementptr inbounds %"class.google::protobuf::compiler::csharp::FieldGeneratorBase", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %descriptor_, align 8
-  %call7 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler6csharp19SupportsPresenceApiEPKNS0_15FieldDescriptorE(ptr noundef %7)
+  %8 = load ptr, ptr %descriptor_, align 8
+  %call7 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler6csharp19SupportsPresenceApiEPKNS0_15FieldDescriptorE(ptr noundef %8)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %land.lhs.true
@@ -1974,40 +1975,40 @@ invoke.cont32:                                    ; preds = %invoke.cont29
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont8, %if.then, %land.lhs.true, %land.rhs, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup35
 
 lpad12:                                           ; preds = %invoke.cont28, %invoke.cont26, %invoke.cont24, %invoke.cont19, %invoke.cont15, %invoke.cont13, %invoke.cont10
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad18:                                           ; preds = %invoke.cont16
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %ehcleanup
 
 lpad31:                                           ; preds = %invoke.cont29
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #3
   br label %ehcleanup
 
@@ -3386,7 +3387,8 @@ entry:
   %1 = load i32, ptr %presenceIndex.addr, align 4
   %2 = load ptr, ptr %options.addr, align 8
   call void @_ZN6google8protobuf8compiler6csharp23PrimitiveFieldGeneratorC2EPKNS0_15FieldDescriptorEiPKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(65) %this1, ptr noundef %0, i32 noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp28PrimitiveOneofFieldGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp28PrimitiveOneofFieldGeneratorE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %variables_ = getelementptr inbounds %"class.google::protobuf::compiler::csharp::FieldGeneratorBase", ptr %this1, i32 0, i32 3
   invoke void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBase28SetCommonOneofFieldVariablesEPN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef %variables_)
           to label %invoke.cont unwind label %lpad
@@ -3395,12 +3397,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf8compiler6csharp23PrimitiveFieldGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this1) #3
   br label %eh.resume
 
@@ -5622,7 +5624,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 
@@ -14899,7 +14902,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #5 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable

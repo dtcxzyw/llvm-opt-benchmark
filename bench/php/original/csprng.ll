@@ -98,182 +98,184 @@ define i32 @php_random_bytes(ptr noundef %0, i64 noundef %1, i1 noundef zeroext 
   %53 = load i64, ptr %8, align 8
   %54 = load i64, ptr %6, align 8
   %55 = icmp ult i64 %53, %54
-  br i1 %55, label %56, label %155
+  br i1 %55, label %56, label %157
 
 56:                                               ; preds = %52
-  %57 = load i32, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i32 0, i32 4), align 4
-  store i32 %57, ptr %11, align 4
-  %58 = load i32, ptr %11, align 4
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %60, label %115
+  %57 = getelementptr inbounds %struct._zend_random_globals, ptr @random_globals, i32 0, i32 4
+  %58 = load i32, ptr %57, align 4
+  store i32 %58, ptr %11, align 4
+  %59 = load i32, ptr %11, align 4
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %61, label %117
 
-60:                                               ; preds = %56
-  %61 = call ptr @__errno_location() #5
-  store i32 0, ptr %61, align 4
-  %62 = call i32 (ptr, i32, ...) @open(ptr noundef @.str, i32 noundef 0)
-  store i32 %62, ptr %11, align 4
-  %63 = load i32, ptr %11, align 4
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %65, label %83
+61:                                               ; preds = %56
+  %62 = call ptr @__errno_location() #5
+  store i32 0, ptr %62, align 4
+  %63 = call i32 (ptr, i32, ...) @open(ptr noundef @.str, i32 noundef 0)
+  store i32 %63, ptr %11, align 4
+  %64 = load i32, ptr %11, align 4
+  %65 = icmp slt i32 %64, 0
+  br i1 %65, label %66, label %84
 
-65:                                               ; preds = %60
-  %66 = load i8, ptr %7, align 1
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %82
+66:                                               ; preds = %61
+  %67 = load i8, ptr %7, align 1
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %83
 
-68:                                               ; preds = %65
-  %69 = call ptr @__errno_location() #5
-  %70 = load i32, ptr %69, align 4
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %72, label %78
+69:                                               ; preds = %66
+  %70 = call ptr @__errno_location() #5
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %79
 
-72:                                               ; preds = %68
-  %73 = load ptr, ptr @random_ce_Random_RandomException, align 8
-  %74 = call ptr @__errno_location() #5
-  %75 = load i32, ptr %74, align 4
-  %76 = call ptr @strerror(i32 noundef %75) #6
-  %77 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %73, i64 noundef 0, ptr noundef @.str.1, ptr noundef %76)
-  br label %81
-
-78:                                               ; preds = %68
-  %79 = load ptr, ptr @random_ce_Random_RandomException, align 8
-  %80 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %79, i64 noundef 0, ptr noundef @.str.2)
-  br label %81
-
-81:                                               ; preds = %78, %72
+73:                                               ; preds = %69
+  %74 = load ptr, ptr @random_ce_Random_RandomException, align 8
+  %75 = call ptr @__errno_location() #5
+  %76 = load i32, ptr %75, align 4
+  %77 = call ptr @strerror(i32 noundef %76) #6
+  %78 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %74, i64 noundef 0, ptr noundef @.str.1, ptr noundef %77)
   br label %82
 
-82:                                               ; preds = %81, %65
+79:                                               ; preds = %69
+  %80 = load ptr, ptr @random_ce_Random_RandomException, align 8
+  %81 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %80, i64 noundef 0, ptr noundef @.str.2)
+  br label %82
+
+82:                                               ; preds = %79, %73
+  br label %83
+
+83:                                               ; preds = %82, %66
   store i32 -1, ptr %4, align 4
-  br label %156
+  br label %158
 
-83:                                               ; preds = %60
-  %84 = call ptr @__errno_location() #5
-  store i32 0, ptr %84, align 4
-  %85 = load i32, ptr %11, align 4
-  %86 = call i32 @fstat(i32 noundef %85, ptr noundef %12) #6
-  %87 = icmp ne i32 %86, 0
-  br i1 %87, label %93, label %88
+84:                                               ; preds = %61
+  %85 = call ptr @__errno_location() #5
+  store i32 0, ptr %85, align 4
+  %86 = load i32, ptr %11, align 4
+  %87 = call i32 @fstat(i32 noundef %86, ptr noundef %12) #6
+  %88 = icmp ne i32 %87, 0
+  br i1 %88, label %94, label %89
 
-88:                                               ; preds = %83
-  %89 = getelementptr inbounds %struct.stat, ptr %12, i32 0, i32 3
-  %90 = load i32, ptr %89, align 8
-  %91 = and i32 %90, 61440
-  %92 = icmp eq i32 %91, 8192
-  br i1 %92, label %113, label %93
+89:                                               ; preds = %84
+  %90 = getelementptr inbounds %struct.stat, ptr %12, i32 0, i32 3
+  %91 = load i32, ptr %90, align 8
+  %92 = and i32 %91, 61440
+  %93 = icmp eq i32 %92, 8192
+  br i1 %93, label %114, label %94
 
-93:                                               ; preds = %88, %83
-  %94 = load i32, ptr %11, align 4
-  %95 = call i32 @close(i32 noundef %94)
-  %96 = load i8, ptr %7, align 1
-  %97 = trunc i8 %96 to i1
-  br i1 %97, label %98, label %112
+94:                                               ; preds = %89, %84
+  %95 = load i32, ptr %11, align 4
+  %96 = call i32 @close(i32 noundef %95)
+  %97 = load i8, ptr %7, align 1
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %99, label %113
 
-98:                                               ; preds = %93
-  %99 = call ptr @__errno_location() #5
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp ne i32 %100, 0
-  br i1 %101, label %102, label %108
+99:                                               ; preds = %94
+  %100 = call ptr @__errno_location() #5
+  %101 = load i32, ptr %100, align 4
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %103, label %109
 
-102:                                              ; preds = %98
-  %103 = load ptr, ptr @random_ce_Random_RandomException, align 8
-  %104 = call ptr @__errno_location() #5
-  %105 = load i32, ptr %104, align 4
-  %106 = call ptr @strerror(i32 noundef %105) #6
-  %107 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %103, i64 noundef 0, ptr noundef @.str.3, ptr noundef %106)
-  br label %111
-
-108:                                              ; preds = %98
-  %109 = load ptr, ptr @random_ce_Random_RandomException, align 8
-  %110 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %109, i64 noundef 0, ptr noundef @.str.4)
-  br label %111
-
-111:                                              ; preds = %108, %102
+103:                                              ; preds = %99
+  %104 = load ptr, ptr @random_ce_Random_RandomException, align 8
+  %105 = call ptr @__errno_location() #5
+  %106 = load i32, ptr %105, align 4
+  %107 = call ptr @strerror(i32 noundef %106) #6
+  %108 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %104, i64 noundef 0, ptr noundef @.str.3, ptr noundef %107)
   br label %112
 
-112:                                              ; preds = %111, %93
+109:                                              ; preds = %99
+  %110 = load ptr, ptr @random_ce_Random_RandomException, align 8
+  %111 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %110, i64 noundef 0, ptr noundef @.str.4)
+  br label %112
+
+112:                                              ; preds = %109, %103
+  br label %113
+
+113:                                              ; preds = %112, %94
   store i32 -1, ptr %4, align 4
-  br label %156
+  br label %158
 
-113:                                              ; preds = %88
-  %114 = load i32, ptr %11, align 4
-  store i32 %114, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i32 0, i32 4), align 4
-  br label %115
+114:                                              ; preds = %89
+  %115 = load i32, ptr %11, align 4
+  %116 = getelementptr inbounds %struct._zend_random_globals, ptr @random_globals, i32 0, i32 4
+  store i32 %115, ptr %116, align 4
+  br label %117
 
-115:                                              ; preds = %113, %56
+117:                                              ; preds = %114, %56
   store i64 0, ptr %8, align 8
-  br label %116
+  br label %118
 
-116:                                              ; preds = %150, %115
-  %117 = load i64, ptr %8, align 8
-  %118 = load i64, ptr %6, align 8
-  %119 = icmp ult i64 %117, %118
-  br i1 %119, label %120, label %154
+118:                                              ; preds = %152, %117
+  %119 = load i64, ptr %8, align 8
+  %120 = load i64, ptr %6, align 8
+  %121 = icmp ult i64 %119, %120
+  br i1 %121, label %122, label %156
 
-120:                                              ; preds = %116
-  %121 = call ptr @__errno_location() #5
-  store i32 0, ptr %121, align 4
-  %122 = load i32, ptr %11, align 4
-  %123 = load ptr, ptr %5, align 8
-  %124 = load i64, ptr %8, align 8
-  %125 = getelementptr inbounds i8, ptr %123, i64 %124
-  %126 = load i64, ptr %6, align 8
-  %127 = load i64, ptr %8, align 8
-  %128 = sub i64 %126, %127
-  %129 = call i64 @read(i32 noundef %122, ptr noundef %125, i64 noundef %128)
-  store i64 %129, ptr %13, align 8
-  %130 = load i64, ptr %13, align 8
-  %131 = icmp sle i64 %130, 0
-  br i1 %131, label %132, label %150
+122:                                              ; preds = %118
+  %123 = call ptr @__errno_location() #5
+  store i32 0, ptr %123, align 4
+  %124 = load i32, ptr %11, align 4
+  %125 = load ptr, ptr %5, align 8
+  %126 = load i64, ptr %8, align 8
+  %127 = getelementptr inbounds i8, ptr %125, i64 %126
+  %128 = load i64, ptr %6, align 8
+  %129 = load i64, ptr %8, align 8
+  %130 = sub i64 %128, %129
+  %131 = call i64 @read(i32 noundef %124, ptr noundef %127, i64 noundef %130)
+  store i64 %131, ptr %13, align 8
+  %132 = load i64, ptr %13, align 8
+  %133 = icmp sle i64 %132, 0
+  br i1 %133, label %134, label %152
 
-132:                                              ; preds = %120
-  %133 = load i8, ptr %7, align 1
-  %134 = trunc i8 %133 to i1
-  br i1 %134, label %135, label %149
+134:                                              ; preds = %122
+  %135 = load i8, ptr %7, align 1
+  %136 = trunc i8 %135 to i1
+  br i1 %136, label %137, label %151
 
-135:                                              ; preds = %132
-  %136 = call ptr @__errno_location() #5
-  %137 = load i32, ptr %136, align 4
-  %138 = icmp ne i32 %137, 0
-  br i1 %138, label %139, label %145
+137:                                              ; preds = %134
+  %138 = call ptr @__errno_location() #5
+  %139 = load i32, ptr %138, align 4
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %141, label %147
 
-139:                                              ; preds = %135
-  %140 = load ptr, ptr @random_ce_Random_RandomException, align 8
-  %141 = call ptr @__errno_location() #5
-  %142 = load i32, ptr %141, align 4
-  %143 = call ptr @strerror(i32 noundef %142) #6
-  %144 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %140, i64 noundef 0, ptr noundef @.str.5, ptr noundef %143)
-  br label %148
+141:                                              ; preds = %137
+  %142 = load ptr, ptr @random_ce_Random_RandomException, align 8
+  %143 = call ptr @__errno_location() #5
+  %144 = load i32, ptr %143, align 4
+  %145 = call ptr @strerror(i32 noundef %144) #6
+  %146 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %142, i64 noundef 0, ptr noundef @.str.5, ptr noundef %145)
+  br label %150
 
-145:                                              ; preds = %135
-  %146 = load ptr, ptr @random_ce_Random_RandomException, align 8
-  %147 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %146, i64 noundef 0, ptr noundef @.str.6)
-  br label %148
+147:                                              ; preds = %137
+  %148 = load ptr, ptr @random_ce_Random_RandomException, align 8
+  %149 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %148, i64 noundef 0, ptr noundef @.str.6)
+  br label %150
 
-148:                                              ; preds = %145, %139
-  br label %149
+150:                                              ; preds = %147, %141
+  br label %151
 
-149:                                              ; preds = %148, %132
+151:                                              ; preds = %150, %134
   store i32 -1, ptr %4, align 4
-  br label %156
+  br label %158
 
-150:                                              ; preds = %120
-  %151 = load i64, ptr %13, align 8
-  %152 = load i64, ptr %8, align 8
-  %153 = add i64 %152, %151
-  store i64 %153, ptr %8, align 8
-  br label %116
+152:                                              ; preds = %122
+  %153 = load i64, ptr %13, align 8
+  %154 = load i64, ptr %8, align 8
+  %155 = add i64 %154, %153
+  store i64 %155, ptr %8, align 8
+  br label %118
 
-154:                                              ; preds = %116
-  br label %155
+156:                                              ; preds = %118
+  br label %157
 
-155:                                              ; preds = %154, %52
+157:                                              ; preds = %156, %52
   store i32 0, ptr %4, align 4
-  br label %156
+  br label %158
 
-156:                                              ; preds = %155, %149, %112, %82
-  %157 = load i32, ptr %4, align 4
-  ret i32 %157
+158:                                              ; preds = %157, %151, %113, %83
+  %159 = load i32, ptr %4, align 4
+  ret i32 %159
 }
 
 ; Function Attrs: nounwind willreturn memory(none)

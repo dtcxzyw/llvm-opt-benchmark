@@ -492,74 +492,75 @@ define dso_local ptr @GetOldestSnapshot() #0 {
   %6 = alloca i64, align 8
   store ptr null, ptr %2, align 8
   store i64 0, ptr %3, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2), align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %19, label %9
+  %7 = getelementptr inbounds %struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %20, label %10
 
-9:                                                ; preds = %0
-  br label %10
-
-10:                                               ; preds = %9
+10:                                               ; preds = %0
   br label %11
 
 11:                                               ; preds = %10
-  store i32 1, ptr %4, align 4
   br label %12
 
 12:                                               ; preds = %11
+  store i32 1, ptr %4, align 4
   br label %13
 
 13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
   store i32 1, ptr %5, align 4
-  %14 = call ptr @pairingheap_first(ptr noundef @RegisteredSnapshots)
-  %15 = getelementptr i8, ptr %14, i64 -72
-  store ptr %15, ptr %2, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.SnapshotData, ptr %16, i32 0, i32 17
-  %18 = load i64, ptr %17, align 8
-  store i64 %18, ptr %3, align 8
-  br label %19
+  %15 = call ptr @pairingheap_first(ptr noundef @RegisteredSnapshots)
+  %16 = getelementptr i8, ptr %15, i64 -72
+  store ptr %16, ptr %2, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.SnapshotData, ptr %17, i32 0, i32 17
+  %19 = load i64, ptr %18, align 8
+  store i64 %19, ptr %3, align 8
+  br label %20
 
-19:                                               ; preds = %13, %0
-  %20 = load ptr, ptr @OldestActiveSnapshot, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %39
+20:                                               ; preds = %14, %0
+  %21 = load ptr, ptr @OldestActiveSnapshot, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %40
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr @OldestActiveSnapshot, align 8
-  %24 = getelementptr inbounds %struct.ActiveSnapshotElt, ptr %23, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.SnapshotData, ptr %25, i32 0, i32 17
-  %27 = load i64, ptr %26, align 8
-  store i64 %27, ptr %6, align 8
-  %28 = load i64, ptr %3, align 8
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %34, label %30
+23:                                               ; preds = %20
+  %24 = load ptr, ptr @OldestActiveSnapshot, align 8
+  %25 = getelementptr inbounds %struct.ActiveSnapshotElt, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.SnapshotData, ptr %26, i32 0, i32 17
+  %28 = load i64, ptr %27, align 8
+  store i64 %28, ptr %6, align 8
+  %29 = load i64, ptr %3, align 8
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %35, label %31
 
-30:                                               ; preds = %22
-  %31 = load i64, ptr %3, align 8
-  %32 = load i64, ptr %6, align 8
-  %33 = icmp ugt i64 %31, %32
-  br i1 %33, label %34, label %38
+31:                                               ; preds = %23
+  %32 = load i64, ptr %3, align 8
+  %33 = load i64, ptr %6, align 8
+  %34 = icmp ugt i64 %32, %33
+  br i1 %34, label %35, label %39
 
-34:                                               ; preds = %30, %22
-  %35 = load ptr, ptr @OldestActiveSnapshot, align 8
-  %36 = getelementptr inbounds %struct.ActiveSnapshotElt, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %1, align 8
-  br label %41
+35:                                               ; preds = %31, %23
+  %36 = load ptr, ptr @OldestActiveSnapshot, align 8
+  %37 = getelementptr inbounds %struct.ActiveSnapshotElt, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  store ptr %38, ptr %1, align 8
+  br label %42
 
-38:                                               ; preds = %30
-  br label %39
+39:                                               ; preds = %31
+  br label %40
 
-39:                                               ; preds = %38, %19
-  %40 = load ptr, ptr %2, align 8
-  store ptr %40, ptr %1, align 8
-  br label %41
+40:                                               ; preds = %39, %20
+  %41 = load ptr, ptr %2, align 8
+  store ptr %41, ptr %1, align 8
+  br label %42
 
-41:                                               ; preds = %39, %34
-  %42 = load ptr, ptr %1, align 8
-  ret ptr %42
+42:                                               ; preds = %40, %35
+  %43 = load ptr, ptr %1, align 8
+  ret ptr %43
 }
 
 declare ptr @pairingheap_first(ptr noundef) #1
@@ -644,56 +645,57 @@ define internal void @SnapshotResetXmin() #0 {
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %0
-  br label %33
+  br label %34
 
 7:                                                ; preds = %0
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2), align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %13
+  %8 = getelementptr inbounds %struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %14
 
-10:                                               ; preds = %7
-  %11 = load ptr, ptr @MyProc, align 8
-  %12 = getelementptr inbounds %struct.PGPROC, ptr %11, i32 0, i32 6
-  store i32 0, ptr %12, align 8
-  br label %33
+11:                                               ; preds = %7
+  %12 = load ptr, ptr @MyProc, align 8
+  %13 = getelementptr inbounds %struct.PGPROC, ptr %12, i32 0, i32 6
+  store i32 0, ptr %13, align 8
+  br label %34
 
-13:                                               ; preds = %7
-  br label %14
-
-14:                                               ; preds = %13
+14:                                               ; preds = %7
   br label %15
 
 15:                                               ; preds = %14
-  store i32 1, ptr %2, align 4
   br label %16
 
 16:                                               ; preds = %15
+  store i32 1, ptr %2, align 4
   br label %17
 
 17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
   store i32 1, ptr %3, align 4
-  %18 = call ptr @pairingheap_first(ptr noundef @RegisteredSnapshots)
-  %19 = getelementptr i8, ptr %18, i64 -72
-  store ptr %19, ptr %1, align 8
-  %20 = load ptr, ptr @MyProc, align 8
-  %21 = getelementptr inbounds %struct.PGPROC, ptr %20, i32 0, i32 6
-  %22 = load i32, ptr %21, align 8
-  %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds %struct.SnapshotData, ptr %23, i32 0, i32 1
-  %25 = load i32, ptr %24, align 4
-  %26 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %22, i32 noundef %25)
-  br i1 %26, label %27, label %33
+  %19 = call ptr @pairingheap_first(ptr noundef @RegisteredSnapshots)
+  %20 = getelementptr i8, ptr %19, i64 -72
+  store ptr %20, ptr %1, align 8
+  %21 = load ptr, ptr @MyProc, align 8
+  %22 = getelementptr inbounds %struct.PGPROC, ptr %21, i32 0, i32 6
+  %23 = load i32, ptr %22, align 8
+  %24 = load ptr, ptr %1, align 8
+  %25 = getelementptr inbounds %struct.SnapshotData, ptr %24, i32 0, i32 1
+  %26 = load i32, ptr %25, align 4
+  %27 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %23, i32 noundef %26)
+  br i1 %27, label %28, label %34
 
-27:                                               ; preds = %17
-  %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds %struct.SnapshotData, ptr %28, i32 0, i32 1
-  %30 = load i32, ptr %29, align 4
-  %31 = load ptr, ptr @MyProc, align 8
-  %32 = getelementptr inbounds %struct.PGPROC, ptr %31, i32 0, i32 6
-  store i32 %30, ptr %32, align 8
-  br label %33
+28:                                               ; preds = %18
+  %29 = load ptr, ptr %1, align 8
+  %30 = getelementptr inbounds %struct.SnapshotData, ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 4
+  %32 = load ptr, ptr @MyProc, align 8
+  %33 = getelementptr inbounds %struct.PGPROC, ptr %32, i32 0, i32 6
+  store i32 %31, ptr %33, align 8
+  br label %34
 
-33:                                               ; preds = %27, %17, %10, %6
+34:                                               ; preds = %28, %18, %11, %6
   ret void
 }
 
@@ -701,30 +703,32 @@ define internal void @SnapshotResetXmin() #0 {
 define dso_local void @InvalidateCatalogSnapshotConditionally() #0 {
   %1 = load ptr, ptr @CatalogSnapshot, align 8
   %2 = icmp ne ptr %1, null
-  br i1 %2, label %3, label %15
+  br i1 %2, label %3, label %17
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @ActiveSnapshot, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %15
+  br i1 %5, label %6, label %17
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2), align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %15
+  %7 = getelementptr inbounds %struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %17
 
-9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2), align 8
-  %11 = getelementptr inbounds %struct.pairingheap_node, ptr %10, i32 0, i32 0
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds %struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
+  %13 = getelementptr inbounds %struct.pairingheap_node, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
-14:                                               ; preds = %9
+16:                                               ; preds = %10
   call void @InvalidateCatalogSnapshot()
-  br label %15
+  br label %17
 
-15:                                               ; preds = %14, %9, %6, %3, %0
+17:                                               ; preds = %16, %10, %6, %3, %0
   ret void
 }
 
@@ -1476,100 +1480,102 @@ define dso_local void @AtEOXact_Snapshot(i1 noundef zeroext %0, i1 noundef zeroe
   call void @InvalidateCatalogSnapshot()
   %80 = load i8, ptr %3, align 1
   %81 = trunc i8 %80 to i1
-  br i1 %81, label %82, label %116
+  br i1 %81, label %82, label %117
 
 82:                                               ; preds = %79
-  %83 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2), align 8
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %95, label %85
+  %83 = getelementptr inbounds %struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %96, label %86
 
-85:                                               ; preds = %82
-  br label %86
-
-86:                                               ; preds = %85
-  br i1 false, label %87, label %89
+86:                                               ; preds = %82
+  br label %87
 
 87:                                               ; preds = %86
-  %88 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #10
-  br i1 %88, label %91, label %93
+  br i1 false, label %88, label %90
 
-89:                                               ; preds = %86
-  %90 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
-  br i1 %90, label %91, label %93
+88:                                               ; preds = %87
+  %89 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #10
+  br i1 %89, label %92, label %94
 
-91:                                               ; preds = %89, %87
-  %92 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5)
+90:                                               ; preds = %87
+  %91 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
+  br i1 %91, label %92, label %94
+
+92:                                               ; preds = %90, %88
+  %93 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 1063, ptr noundef @__func__.AtEOXact_Snapshot)
-  br label %93
-
-93:                                               ; preds = %91, %89, %87
   br label %94
 
-94:                                               ; preds = %93
+94:                                               ; preds = %92, %90, %88
   br label %95
 
-95:                                               ; preds = %94, %82
-  %96 = load ptr, ptr @ActiveSnapshot, align 8
-  store ptr %96, ptr %8, align 8
-  br label %97
+95:                                               ; preds = %94
+  br label %96
 
-97:                                               ; preds = %111, %95
-  %98 = load ptr, ptr %8, align 8
-  %99 = icmp ne ptr %98, null
-  br i1 %99, label %100, label %115
+96:                                               ; preds = %95, %82
+  %97 = load ptr, ptr @ActiveSnapshot, align 8
+  store ptr %97, ptr %8, align 8
+  br label %98
 
-100:                                              ; preds = %97
-  br label %101
+98:                                               ; preds = %112, %96
+  %99 = load ptr, ptr %8, align 8
+  %100 = icmp ne ptr %99, null
+  br i1 %100, label %101, label %116
 
-101:                                              ; preds = %100
-  br i1 false, label %102, label %104
+101:                                              ; preds = %98
+  br label %102
 
 102:                                              ; preds = %101
-  %103 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #10
-  br i1 %103, label %106, label %109
+  br i1 false, label %103, label %105
 
-104:                                              ; preds = %101
-  %105 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
-  br i1 %105, label %106, label %109
+103:                                              ; preds = %102
+  %104 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #10
+  br i1 %104, label %107, label %110
 
-106:                                              ; preds = %104, %102
-  %107 = load ptr, ptr %8, align 8
-  %108 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.6, ptr noundef %107)
+105:                                              ; preds = %102
+  %106 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
+  br i1 %106, label %107, label %110
+
+107:                                              ; preds = %105, %103
+  %108 = load ptr, ptr %8, align 8
+  %109 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.6, ptr noundef %108)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 1067, ptr noundef @__func__.AtEOXact_Snapshot)
-  br label %109
-
-109:                                              ; preds = %106, %104, %102
   br label %110
 
-110:                                              ; preds = %109
+110:                                              ; preds = %107, %105, %103
   br label %111
 
 111:                                              ; preds = %110
-  %112 = load ptr, ptr %8, align 8
-  %113 = getelementptr inbounds %struct.ActiveSnapshotElt, ptr %112, i32 0, i32 2
-  %114 = load ptr, ptr %113, align 8
-  store ptr %114, ptr %8, align 8
-  br label %97, !llvm.loop !9
+  br label %112
 
-115:                                              ; preds = %97
-  br label %116
+112:                                              ; preds = %111
+  %113 = load ptr, ptr %8, align 8
+  %114 = getelementptr inbounds %struct.ActiveSnapshotElt, ptr %113, i32 0, i32 2
+  %115 = load ptr, ptr %114, align 8
+  store ptr %115, ptr %8, align 8
+  br label %98, !llvm.loop !9
 
-116:                                              ; preds = %115, %79
+116:                                              ; preds = %98
+  br label %117
+
+117:                                              ; preds = %116, %79
   store ptr null, ptr @ActiveSnapshot, align 8
   store ptr null, ptr @OldestActiveSnapshot, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2), align 8
+  %118 = getelementptr inbounds %struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2
+  store ptr null, ptr %118, align 8
   store ptr null, ptr @CurrentSnapshot, align 8
   store ptr null, ptr @SecondarySnapshot, align 8
   store i8 0, ptr @FirstSnapshotSet, align 1
-  %117 = load i8, ptr %4, align 1
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %119, label %120
+  %119 = load i8, ptr %4, align 1
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %121, label %122
 
-119:                                              ; preds = %116
+121:                                              ; preds = %117
   call void @SnapshotResetXmin()
-  br label %120
+  br label %122
 
-120:                                              ; preds = %119, %116
+122:                                              ; preds = %121, %117
   ret void
 }
 
@@ -3494,33 +3500,36 @@ declare i32 @FreeDir(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @ThereAreNoPriorRegisteredSnapshots() #0 {
   %1 = alloca i1, align 1
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %12, label %4
+  %2 = getelementptr inbounds %struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %15, label %5
 
-4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2), align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %13
+5:                                                ; preds = %0
+  %6 = getelementptr inbounds %struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %16
 
-7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2), align 8
-  %9 = getelementptr inbounds %struct.pairingheap_node, ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %13
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds %struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds %struct.pairingheap_node, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-12:                                               ; preds = %7, %0
+15:                                               ; preds = %9, %0
   store i1 true, ptr %1, align 1
-  br label %14
+  br label %17
 
-13:                                               ; preds = %7, %4
+16:                                               ; preds = %9, %5
   store i1 false, ptr %1, align 1
-  br label %14
+  br label %17
 
-14:                                               ; preds = %13, %12
-  %15 = load i1, ptr %1, align 1
-  ret i1 %15
+17:                                               ; preds = %16, %15
+  %18 = load i1, ptr %1, align 1
+  ret i1 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3532,39 +3541,42 @@ define dso_local zeroext i1 @HaveRegisteredOrActiveSnapshot() #0 {
 
 4:                                                ; preds = %0
   store i1 true, ptr %1, align 1
-  br label %21
+  br label %24
 
 5:                                                ; preds = %0
   %6 = load ptr, ptr @CatalogSnapshot, align 8
   %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %17
+  br i1 %7, label %8, label %19
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2), align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %17
+  %9 = getelementptr inbounds %struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %19
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2), align 8
-  %13 = getelementptr inbounds %struct.pairingheap_node, ptr %12, i32 0, i32 0
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds %struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %17
+  %15 = getelementptr inbounds %struct.pairingheap_node, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %19
 
-16:                                               ; preds = %11
+18:                                               ; preds = %12
   store i1 false, ptr %1, align 1
-  br label %21
+  br label %24
 
-17:                                               ; preds = %11, %8, %5
-  %18 = load ptr, ptr getelementptr inbounds (%struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2), align 8
-  %19 = icmp eq ptr %18, null
-  %20 = xor i1 %19, true
-  store i1 %20, ptr %1, align 1
-  br label %21
+19:                                               ; preds = %12, %8, %5
+  %20 = getelementptr inbounds %struct.pairingheap, ptr @RegisteredSnapshots, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  %23 = xor i1 %22, true
+  store i1 %23, ptr %1, align 1
+  br label %24
 
-21:                                               ; preds = %17, %16, %4
-  %22 = load i1, ptr %1, align 1
-  ret i1 %22
+24:                                               ; preds = %19, %18, %4
+  %25 = load i1, ptr %1, align 1
+  ret i1 %25
 }
 
 ; Function Attrs: nounwind uwtable

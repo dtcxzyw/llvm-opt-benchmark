@@ -537,48 +537,49 @@ define internal i32 @blkdev_open(ptr nocapture noundef readonly %0, ptr noundef 
   %32 = icmp eq i32 %31, 0
   %33 = select i1 %32, ptr null, ptr %1
   %34 = tail call ptr @bdev_open_by_dev(i32 noundef %30, i32 noundef %28, ptr noundef %33, ptr noundef null) #9
-  %35 = icmp ugt ptr %34, inttoptr (i64 -4096 to ptr)
-  br i1 %35, label %36, label %39
+  %35 = inttoptr i64 -4096 to ptr
+  %36 = icmp ugt ptr %34, %35
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %17
-  %37 = ptrtoint ptr %34 to i64
-  %38 = trunc i64 %37 to i32
-  br label %60
+37:                                               ; preds = %17
+  %38 = ptrtoint ptr %34 to i64
+  %39 = trunc i64 %38 to i32
+  br label %61
 
-39:                                               ; preds = %17
-  %40 = load ptr, ptr %34, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
-  %44 = load volatile i64, ptr %43, align 8
-  %45 = and i64 %44, 536870912
-  %46 = icmp eq i64 %45, 0
-  br i1 %46, label %50, label %47
+40:                                               ; preds = %17
+  %41 = load ptr, ptr %34, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 32
+  %45 = load volatile i64, ptr %44, align 8
+  %46 = and i64 %45, 536870912
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %51, label %48
 
-47:                                               ; preds = %39
-  %48 = load i32, ptr %6, align 4
-  %49 = or i32 %48, 134217728
-  store i32 %49, ptr %6, align 4
-  br label %50
+48:                                               ; preds = %40
+  %49 = load i32, ptr %6, align 4
+  %50 = or i32 %49, 134217728
+  store i32 %50, ptr %6, align 4
+  br label %51
 
-50:                                               ; preds = %47, %39
-  %51 = load ptr, ptr %34, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 56
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 48
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 216
-  store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 160
-  %58 = tail call i32 @errseq_sample(ptr noundef %57) #9
-  %59 = getelementptr inbounds i8, ptr %1, i64 224
-  store i32 %58, ptr %59, align 8
+51:                                               ; preds = %48, %40
+  %52 = load ptr, ptr %34, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 56
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 48
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %1, i64 216
+  store ptr %56, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %56, i64 160
+  %59 = tail call i32 @errseq_sample(ptr noundef %58) #9
+  %60 = getelementptr inbounds i8, ptr %1, i64 224
+  store i32 %59, ptr %60, align 8
   store ptr %34, ptr %9, align 8
-  br label %60
+  br label %61
 
-60:                                               ; preds = %50, %36
-  %61 = phi i32 [ %38, %36 ], [ 0, %50 ]
-  ret i32 %61
+61:                                               ; preds = %51, %37
+  %62 = phi i32 [ %39, %37 ], [ 0, %51 ]
+  ret i32 %62
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

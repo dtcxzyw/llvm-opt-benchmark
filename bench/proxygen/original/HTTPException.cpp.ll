@@ -477,10 +477,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZN8proxygen9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %dir_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %dir.addr, align 4
-  store i32 %1, ptr %dir_, align 8
+  %2 = load i32, ptr %dir.addr, align 4
+  store i32 %2, ptr %dir_, align 8
   %httpStatusCode_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 2
   store i32 0, ptr %httpStatusCode_, align 4
   %http3ErrorCode_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 3
@@ -576,10 +577,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZN8proxygen9ExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %dir_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %dir.addr, align 4
-  store i32 %1, ptr %dir_, align 8
+  %2 = load i32, ptr %dir.addr, align 4
+  store i32 %2, ptr %dir_, align 8
   %httpStatusCode_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 2
   store i32 0, ptr %httpStatusCode_, align 4
   %http3ErrorCode_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 3
@@ -611,42 +613,43 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %ex.addr, align 8
   call void @_ZN8proxygen9ExceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(48) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %dir_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %ex.addr, align 8
-  %dir_2 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %dir_2, align 8
-  store i32 %2, ptr %dir_, align 8
+  %2 = load ptr, ptr %ex.addr, align 8
+  %dir_2 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %2, i32 0, i32 1
+  %3 = load i32, ptr %dir_2, align 8
+  store i32 %3, ptr %dir_, align 8
   %httpStatusCode_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %ex.addr, align 8
-  %httpStatusCode_3 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %httpStatusCode_3, align 4
-  store i32 %4, ptr %httpStatusCode_, align 4
+  %4 = load ptr, ptr %ex.addr, align 8
+  %httpStatusCode_3 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %4, i32 0, i32 2
+  %5 = load i32, ptr %httpStatusCode_3, align 4
+  store i32 %5, ptr %httpStatusCode_, align 4
   %http3ErrorCode_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %ex.addr, align 8
-  %http3ErrorCode_4 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %5, i32 0, i32 3
+  %6 = load ptr, ptr %ex.addr, align 8
+  %http3ErrorCode_4 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %6, i32 0, i32 3
   call void @_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %http3ErrorCode_, ptr noundef nonnull align 8 dereferenceable(16) %http3ErrorCode_4) #11
   %codecStatusCode_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 4
-  %6 = load ptr, ptr %ex.addr, align 8
-  %codecStatusCode_5 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %6, i32 0, i32 4
+  %7 = load ptr, ptr %ex.addr, align 8
+  %codecStatusCode_5 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %7, i32 0, i32 4
   call void @_ZN5folly8OptionalIN8proxygen9ErrorCodeEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(2) %codecStatusCode_, ptr noundef nonnull align 1 dereferenceable(2) %codecStatusCode_5) #11
   %errno_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 5
-  %7 = load ptr, ptr %ex.addr, align 8
-  %errno_6 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %7, i32 0, i32 5
-  %8 = load i32, ptr %errno_6, align 4
-  store i32 %8, ptr %errno_, align 4
+  %8 = load ptr, ptr %ex.addr, align 8
+  %errno_6 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %8, i32 0, i32 5
+  %9 = load i32, ptr %errno_6, align 4
+  store i32 %9, ptr %errno_, align 4
   %currentIngressBuf_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 6
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %currentIngressBuf_) #11
   %partialMsg_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 7
   call void @_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %partialMsg_) #11
-  %9 = load ptr, ptr %ex.addr, align 8
-  %currentIngressBuf_7 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %9, i32 0, i32 6
+  %10 = load ptr, ptr %ex.addr, align 8
+  %currentIngressBuf_7 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %10, i32 0, i32 6
   %call = call noundef zeroext i1 @_ZNKSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %currentIngressBuf_7) #11
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %10 = load ptr, ptr %ex.addr, align 8
-  %currentIngressBuf_8 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %10, i32 0, i32 6
+  %11 = load ptr, ptr %ex.addr, align 8
+  %currentIngressBuf_8 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %11, i32 0, i32 6
   %call9 = call noundef ptr @_ZNKSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %currentIngressBuf_8) #11
   invoke void @_ZNK5folly5IOBuf5cloneEv(ptr sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %call9)
           to label %invoke.cont unwind label %lpad
@@ -658,26 +661,26 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then14, %if.then
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %partialMsg_) #11
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %currentIngressBuf_) #11
   call void @_ZN8proxygen9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #11
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  %14 = load ptr, ptr %ex.addr, align 8
-  %partialMsg_12 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %14, i32 0, i32 7
+  %15 = load ptr, ptr %ex.addr, align 8
+  %partialMsg_12 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %15, i32 0, i32 7
   %call13 = call noundef zeroext i1 @_ZNKSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %partialMsg_12) #11
   br i1 %call13, label %if.then14, label %if.end21
 
 if.then14:                                        ; preds = %if.end
-  %15 = load ptr, ptr %ex.addr, align 8
-  %partialMsg_16 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %15, i32 0, i32 7
+  %16 = load ptr, ptr %ex.addr, align 8
+  %partialMsg_16 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %16, i32 0, i32 7
   %call17 = call noundef ptr @_ZNKSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %partialMsg_16) #11
   invoke void @_ZSt11make_uniqueIN8proxygen11HTTPMessageEJRS1_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.5") align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(616) %call17)
           to label %invoke.cont18 unwind label %lpad
@@ -956,7 +959,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %msg_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_) #11
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
@@ -1339,7 +1343,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %partialMsg_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 7
   call void @_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %partialMsg_) #11
   %currentIngressBuf_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 6
@@ -2103,7 +2108,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef @.str.12)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2129,7 +2135,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 

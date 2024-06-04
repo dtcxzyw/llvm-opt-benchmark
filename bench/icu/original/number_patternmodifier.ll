@@ -951,14 +951,17 @@ entry:
   call void @_ZN6icu_756number4impl8ModifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
   %1 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN6icu_756number4impl14SymbolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #12
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %4 = getelementptr inbounds { [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i32 0, i32 2, i32 2
+  store ptr %4, ptr %add.ptr2, align 8
   %fStrong = getelementptr inbounds %"class.icu_75::number::impl::MutablePatternModifier", ptr %this1, i32 0, i32 3
-  %2 = load i8, ptr %isStrong.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %5 = load i8, ptr %isStrong.addr, align 1
+  %tobool = trunc i8 %5 to i1
   %frombool3 = zext i1 %tobool to i8
   store i8 %frombool3, ptr %fStrong, align 8
   %fCurrencySymbols = getelementptr inbounds %"class.icu_75::number::impl::MutablePatternModifier", ptr %this1, i32 0, i32 11
@@ -974,29 +977,29 @@ invoke.cont5:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad4:                                            ; preds = %invoke.cont
   %6 = landingpad { ptr, i32 }
           cleanup
   %7 = extractvalue { ptr, i32 } %6, 0
   store ptr %7, ptr %exn.slot, align 8
   %8 = extractvalue { ptr, i32 } %6, 1
   store i32 %8, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad4:                                            ; preds = %invoke.cont
+  %9 = landingpad { ptr, i32 }
+          cleanup
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN6icu_756number4impl15CurrencySymbolsD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %fCurrencySymbols) #12
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad4, %lpad
-  %9 = getelementptr inbounds i8, ptr %this1, i64 16
-  call void @_ZN6icu_756number4impl14SymbolProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
-  %10 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  %12 = getelementptr inbounds i8, ptr %this1, i64 16
+  call void @_ZN6icu_756number4impl14SymbolProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  %13 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #12
   call void @_ZN6icu_756number4impl19MicroPropsGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
   br label %eh.resume
 
@@ -1014,7 +1017,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl19MicroPropsGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_756number4impl19MicroPropsGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1024,7 +1028,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl8ModifierE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6icu_756number4impl8ModifierE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1034,7 +1039,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl14SymbolProviderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_756number4impl14SymbolProviderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1116,7 +1122,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -1474,7 +1481,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_756number4impl27AdoptingSignumModifierStoreE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6icu_756number4impl27AdoptingSignumModifierStoreE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mods = getelementptr inbounds %"class.icu_75::number::impl::AdoptingSignumModifierStore", ptr %this1, i32 0, i32 1
   %arrayinit.begin = getelementptr inbounds [4 x ptr], ptr %mods, i64 0, i64 0
   %arrayinit.end = getelementptr inbounds ptr, ptr %arrayinit.begin, i64 4
@@ -1758,25 +1766,26 @@ if.end:                                           ; preds = %new.cont
 if.then3:                                         ; preds = %if.end
   store ptr @_ZZN6icu_756number4impl22MutablePatternModifier15createImmutableER10UErrorCodeE22STANDARD_PLURAL_VALUES, ptr %__range2, align 8
   store ptr @_ZZN6icu_756number4impl22MutablePatternModifier15createImmutableER10UErrorCodeE22STANDARD_PLURAL_VALUES, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (i32, ptr @_ZZN6icu_756number4impl22MutablePatternModifier15createImmutableER10UErrorCodeE22STANDARD_PLURAL_VALUES, i64 6), ptr %__end2, align 8
+  %3 = getelementptr inbounds i32, ptr @_ZZN6icu_756number4impl22MutablePatternModifier15createImmutableER10UErrorCodeE22STANDARD_PLURAL_VALUES, i64 6
+  store ptr %3, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then3
-  %3 = load ptr, ptr %__begin2, align 8
-  %4 = load ptr, ptr %__end2, align 8
-  %cmp4 = icmp ne ptr %3, %4
+  %4 = load ptr, ptr %__begin2, align 8
+  %5 = load ptr, ptr %__end2, align 8
+  %cmp4 = icmp ne ptr %4, %5
   br i1 %cmp4, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %__begin2, align 8
-  %6 = load i32, ptr %5, align 4
-  store i32 %6, ptr %plural, align 4
-  %7 = load ptr, ptr %pm, align 8
-  %8 = load i32, ptr %plural, align 4
+  %6 = load ptr, ptr %__begin2, align 8
+  %7 = load i32, ptr %6, align 4
+  store i32 %7, ptr %plural, align 4
+  %8 = load ptr, ptr %pm, align 8
   %9 = load i32, ptr %plural, align 4
-  %10 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_756number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode(ptr sret(%"class.icu_75::number::impl::AdoptingSignumModifierStore") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(392) %this1, i32 noundef %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
-  invoke void @_ZN6icu_756number4impl21AdoptingModifierStore24adoptSignumModifierStoreENS_14StandardPlural4FormENS1_27AdoptingSignumModifierStoreE(ptr noundef nonnull align 8 dereferenceable(328) %7, i32 noundef %8, ptr noundef %agg.tmp)
+  %10 = load i32, ptr %plural, align 4
+  %11 = load ptr, ptr %status.addr, align 8
+  call void @_ZN6icu_756number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode(ptr sret(%"class.icu_75::number::impl::AdoptingSignumModifierStore") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(392) %this1, i32 noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  invoke void @_ZN6icu_756number4impl21AdoptingModifierStore24adoptSignumModifierStoreENS_14StandardPlural4FormENS1_27AdoptingSignumModifierStoreE(ptr noundef nonnull align 8 dereferenceable(328) %8, i32 noundef %9, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
@@ -1784,38 +1793,38 @@ invoke.cont:                                      ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont
-  %11 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %11, i32 1
+  %12 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds i32, ptr %12, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
 lpad:                                             ; preds = %for.body
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZN6icu_756number4impl27AdoptingSignumModifierStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp) #12
   br label %eh.resume
 
 for.end:                                          ; preds = %for.cond
-  %15 = load ptr, ptr %status.addr, align 8
-  %16 = load i32, ptr %15, align 4
-  %call5 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %16)
+  %16 = load ptr, ptr %status.addr, align 8
+  %17 = load i32, ptr %16, align 4
+  %call5 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %17)
   %tobool = icmp ne i8 %call5, 0
   br i1 %tobool, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %for.end
-  %17 = load ptr, ptr %pm, align 8
-  %isnull = icmp eq ptr %17, null
+  %18 = load ptr, ptr %pm, align 8
+  %isnull = icmp eq ptr %18, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then6
-  %vtable = load ptr, ptr %17, align 8
+  %vtable = load ptr, ptr %18, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %18 = load ptr, ptr %vfn, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(328) %17) #12
+  %19 = load ptr, ptr %vfn, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(328) %18) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then6
@@ -1831,63 +1840,63 @@ if.end7:                                          ; preds = %for.end
 new.notnull10:                                    ; preds = %if.end7
   store ptr %call8, ptr %saved-rvalue, align 8
   store i1 true, ptr %cleanup.cond11, align 1
-  %19 = load ptr, ptr %pm, align 8
+  %20 = load ptr, ptr %pm, align 8
   %fRules = getelementptr inbounds %"class.icu_75::number::impl::MutablePatternModifier", ptr %this1, i32 0, i32 12
-  %20 = load ptr, ptr %fRules, align 8
-  invoke void @_ZN6icu_756number4impl24ImmutablePatternModifierC1EPNS1_21AdoptingModifierStoreEPKNS_11PluralRulesE(ptr noundef nonnull align 8 dereferenceable(32) %call8, ptr noundef %19, ptr noundef %20)
+  %21 = load ptr, ptr %fRules, align 8
+  invoke void @_ZN6icu_756number4impl24ImmutablePatternModifierC1EPNS1_21AdoptingModifierStoreEPKNS_11PluralRulesE(ptr noundef nonnull align 8 dereferenceable(32) %call8, ptr noundef %20, ptr noundef %21)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %new.notnull10
   br label %new.cont14
 
 new.cont14:                                       ; preds = %invoke.cont13, %if.end7
-  %21 = phi ptr [ %call8, %invoke.cont13 ], [ null, %if.end7 ]
-  store ptr %21, ptr %retval, align 8
+  %22 = phi ptr [ %call8, %invoke.cont13 ], [ null, %if.end7 ]
+  store ptr %22, ptr %retval, align 8
   br label %return
 
 lpad12:                                           ; preds = %new.notnull10
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   %cleanup.is_active = load i1, ptr %cleanup.cond11, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad12
-  %25 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %25) #12
+  %26 = load ptr, ptr %saved-rvalue, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %26) #12
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad12
   br label %eh.resume
 
 if.else:                                          ; preds = %if.end
-  %26 = load ptr, ptr %pm, align 8
-  %27 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_756number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode(ptr sret(%"class.icu_75::number::impl::AdoptingSignumModifierStore") align 8 %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(392) %this1, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(4) %27)
-  invoke void @_ZN6icu_756number4impl21AdoptingModifierStore32adoptSignumModifierStoreNoPluralENS1_27AdoptingSignumModifierStoreE(ptr noundef nonnull align 8 dereferenceable(328) %26, ptr noundef %agg.tmp15)
+  %27 = load ptr, ptr %pm, align 8
+  %28 = load ptr, ptr %status.addr, align 8
+  call void @_ZN6icu_756number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode(ptr sret(%"class.icu_75::number::impl::AdoptingSignumModifierStore") align 8 %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(392) %this1, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(4) %28)
+  invoke void @_ZN6icu_756number4impl21AdoptingModifierStore32adoptSignumModifierStoreNoPluralENS1_27AdoptingSignumModifierStoreE(ptr noundef nonnull align 8 dereferenceable(328) %27, ptr noundef %agg.tmp15)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %if.else
   call void @_ZN6icu_756number4impl27AdoptingSignumModifierStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp15) #12
-  %28 = load ptr, ptr %status.addr, align 8
-  %29 = load i32, ptr %28, align 4
-  %call18 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %29)
+  %29 = load ptr, ptr %status.addr, align 8
+  %30 = load i32, ptr %29, align 4
+  %call18 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %30)
   %tobool19 = icmp ne i8 %call18, 0
   br i1 %tobool19, label %if.then20, label %if.end26
 
 if.then20:                                        ; preds = %invoke.cont17
-  %30 = load ptr, ptr %pm, align 8
-  %isnull21 = icmp eq ptr %30, null
+  %31 = load ptr, ptr %pm, align 8
+  %isnull21 = icmp eq ptr %31, null
   br i1 %isnull21, label %delete.end25, label %delete.notnull22
 
 delete.notnull22:                                 ; preds = %if.then20
-  %vtable23 = load ptr, ptr %30, align 8
+  %vtable23 = load ptr, ptr %31, align 8
   %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 1
-  %31 = load ptr, ptr %vfn24, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(328) %30) #12
+  %32 = load ptr, ptr %vfn24, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(328) %31) #12
   br label %delete.end25
 
 delete.end25:                                     ; preds = %delete.notnull22, %if.then20
@@ -1895,12 +1904,12 @@ delete.end25:                                     ; preds = %delete.notnull22, %
   br label %return
 
 lpad16:                                           ; preds = %if.else
-  %32 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %exn.slot, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %ehselector.slot, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %exn.slot, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %ehselector.slot, align 4
   call void @_ZN6icu_756number4impl27AdoptingSignumModifierStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp15) #12
   br label %eh.resume
 
@@ -1913,39 +1922,39 @@ if.end26:                                         ; preds = %invoke.cont17
 new.notnull29:                                    ; preds = %if.end26
   store ptr %call27, ptr %saved-rvalue30, align 8
   store i1 true, ptr %cleanup.cond31, align 1
-  %35 = load ptr, ptr %pm, align 8
-  invoke void @_ZN6icu_756number4impl24ImmutablePatternModifierC1EPNS1_21AdoptingModifierStoreEPKNS_11PluralRulesE(ptr noundef nonnull align 8 dereferenceable(32) %call27, ptr noundef %35, ptr noundef null)
+  %36 = load ptr, ptr %pm, align 8
+  invoke void @_ZN6icu_756number4impl24ImmutablePatternModifierC1EPNS1_21AdoptingModifierStoreEPKNS_11PluralRulesE(ptr noundef nonnull align 8 dereferenceable(32) %call27, ptr noundef %36, ptr noundef null)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %new.notnull29
   br label %new.cont37
 
 new.cont37:                                       ; preds = %invoke.cont33, %if.end26
-  %36 = phi ptr [ %call27, %invoke.cont33 ], [ null, %if.end26 ]
-  store ptr %36, ptr %retval, align 8
+  %37 = phi ptr [ %call27, %invoke.cont33 ], [ null, %if.end26 ]
+  store ptr %37, ptr %retval, align 8
   br label %return
 
 lpad32:                                           ; preds = %new.notnull29
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %exn.slot, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %ehselector.slot, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %exn.slot, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %ehselector.slot, align 4
   %cleanup.is_active34 = load i1, ptr %cleanup.cond31, align 1
   br i1 %cleanup.is_active34, label %cleanup.action35, label %cleanup.done36
 
 cleanup.action35:                                 ; preds = %lpad32
-  %40 = load ptr, ptr %saved-rvalue30, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %40) #12
+  %41 = load ptr, ptr %saved-rvalue30, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %41) #12
   br label %cleanup.done36
 
 cleanup.done36:                                   ; preds = %cleanup.action35, %lpad32
   br label %eh.resume
 
 return:                                           ; preds = %new.cont37, %delete.end25, %new.cont14, %delete.end, %if.then
-  %41 = load ptr, ptr %retval, align 8
-  ret ptr %41
+  %42 = load ptr, ptr %retval, align 8
+  ret ptr %42
 
 eh.resume:                                        ; preds = %cleanup.done36, %lpad16, %cleanup.done, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -1969,7 +1978,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_756number4impl13ModifierStoreC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21AdoptingModifierStoreE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21AdoptingModifierStoreE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mods = getelementptr inbounds %"class.icu_75::number::impl::AdoptingModifierStore", ptr %this1, i32 0, i32 1
   %arrayinit.begin = getelementptr inbounds [8 x %"class.icu_75::number::impl::AdoptingSignumModifierStore"], ptr %mods, i64 0, i64 0
   store ptr %arrayinit.begin, ptr %arrayinit.endOfInit, align 8
@@ -2107,27 +2117,28 @@ entry:
   store i8 %frombool1, ptr %strong.addr, align 1
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_756number4impl8ModifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #12
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %fPrefix = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this2, i32 0, i32 1
-  %0 = load ptr, ptr %prefix.addr, align 8
-  invoke void @_ZN6icu_7522FormattedStringBuilderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix, ptr noundef nonnull align 8 dereferenceable(136) %0)
+  %1 = load ptr, ptr %prefix.addr, align 8
+  invoke void @_ZN6icu_7522FormattedStringBuilderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix, ptr noundef nonnull align 8 dereferenceable(136) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %fSuffix = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this2, i32 0, i32 2
-  %1 = load ptr, ptr %suffix.addr, align 8
-  invoke void @_ZN6icu_7522FormattedStringBuilderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix, ptr noundef nonnull align 8 dereferenceable(136) %1)
+  %2 = load ptr, ptr %suffix.addr, align 8
+  invoke void @_ZN6icu_7522FormattedStringBuilderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix, ptr noundef nonnull align 8 dereferenceable(136) %2)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %fOverwrite = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this2, i32 0, i32 3
-  %2 = load i8, ptr %overwrite.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %overwrite.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool5 = zext i1 %tobool to i8
   store i8 %frombool5, ptr %fOverwrite, align 8
   %fStrong = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this2, i32 0, i32 4
-  %3 = load i8, ptr %strong.addr, align 1
-  %tobool6 = trunc i8 %3 to i1
+  %4 = load i8, ptr %strong.addr, align 1
+  %tobool6 = trunc i8 %4 to i1
   %frombool7 = zext i1 %tobool6 to i8
   store i8 %frombool7, ptr %fStrong, align 1
   %fParameters = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this2, i32 0, i32 5
@@ -2138,30 +2149,30 @@ invoke.cont9:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup10
 
 lpad3:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont4
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix) #12
   br label %ehcleanup
 
@@ -2197,27 +2208,28 @@ entry:
   store ptr %rules, ptr %rules.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_756number4impl19MicroPropsGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl24ImmutablePatternModifierE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_756number4impl24ImmutablePatternModifierE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pm2 = getelementptr inbounds %"class.icu_75::number::impl::ImmutablePatternModifier", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pm.addr, align 8
-  invoke void @_ZN6icu_7512LocalPointerINS_6number4impl21AdoptingModifierStoreEEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %pm2, ptr noundef %0)
+  %1 = load ptr, ptr %pm.addr, align 8
+  invoke void @_ZN6icu_7512LocalPointerINS_6number4impl21AdoptingModifierStoreEEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %pm2, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %rules3 = getelementptr inbounds %"class.icu_75::number::impl::ImmutablePatternModifier", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %rules.addr, align 8
-  store ptr %1, ptr %rules3, align 8
+  %2 = load ptr, ptr %rules.addr, align 8
+  store ptr %2, ptr %rules3, align 8
   %parent = getelementptr inbounds %"class.icu_75::number::impl::ImmutablePatternModifier", ptr %this1, i32 0, i32 3
   store ptr null, ptr %parent, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_756number4impl19MicroPropsGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
   br label %eh.resume
 
@@ -3174,19 +3186,22 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %2 = getelementptr inbounds { [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i32 0, i32 2, i32 2
+  store ptr %2, ptr %add.ptr2, align 8
   %currentAffix = getelementptr inbounds %"class.icu_75::number::impl::MutablePatternModifier", ptr %this1, i32 0, i32 16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %currentAffix) #12
   %fCurrencySymbols = getelementptr inbounds %"class.icu_75::number::impl::MutablePatternModifier", ptr %this1, i32 0, i32 11
   call void @_ZN6icu_756number4impl15CurrencySymbolsD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %fCurrencySymbols) #12
-  %0 = getelementptr inbounds i8, ptr %this1, i64 16
-  call void @_ZN6icu_756number4impl14SymbolProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
-  %1 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #12
+  %3 = getelementptr inbounds i8, ptr %this1, i64 16
+  call void @_ZN6icu_756number4impl14SymbolProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  %4 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   call void @_ZN6icu_756number4impl19MicroPropsGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
   ret void
 }
@@ -3252,7 +3267,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl24ImmutablePatternModifierE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_756number4impl24ImmutablePatternModifierE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pm = getelementptr inbounds %"class.icu_75::number::impl::ImmutablePatternModifier", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7512LocalPointerINS_6number4impl21AdoptingModifierStoreEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pm) #12
   call void @_ZN6icu_756number4impl19MicroPropsGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
@@ -3323,7 +3339,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3333,7 +3350,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3353,7 +3371,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl13ModifierStoreE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_756number4impl13ModifierStoreE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3363,14 +3382,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21AdoptingModifierStoreE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21AdoptingModifierStoreE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mods = getelementptr inbounds %"class.icu_75::number::impl::AdoptingModifierStore", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [8 x %"class.icu_75::number::impl::AdoptingSignumModifierStore"], ptr %mods, i32 0, i32 0
-  %0 = getelementptr inbounds %"class.icu_75::number::impl::AdoptingSignumModifierStore", ptr %array.begin, i64 8
+  %1 = getelementptr inbounds %"class.icu_75::number::impl::AdoptingSignumModifierStore", ptr %array.begin, i64 8
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.icu_75::number::impl::AdoptingSignumModifierStore", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN6icu_756number4impl27AdoptingSignumModifierStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %arraydestroy.element) #12
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin

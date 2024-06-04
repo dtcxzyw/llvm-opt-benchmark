@@ -174,7 +174,8 @@ do.body6:                                         ; preds = %if.end
 
 do.end7:                                          ; preds = %do.body6
   %8 = load ptr, ptr %ret, align 8
-  %cmp = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
+  %9 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %8, %9
   br i1 %cmp, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %do.end7
@@ -182,20 +183,20 @@ if.then8:                                         ; preds = %do.end7
   br label %if.end13
 
 if.else:                                          ; preds = %do.end7
-  %9 = load ptr, ptr %addr.addr, align 8
-  %cmp9 = icmp ne ptr %9, null
+  %10 = load ptr, ptr %addr.addr, align 8
+  %cmp9 = icmp ne ptr %10, null
   br i1 %cmp9, label %land.lhs.true, label %if.end12
 
 land.lhs.true:                                    ; preds = %if.else
-  %10 = load ptr, ptr %ret, align 8
-  %11 = load ptr, ptr %addr.addr, align 8
-  %cmp10 = icmp ne ptr %10, %11
+  %11 = load ptr, ptr %ret, align 8
+  %12 = load ptr, ptr %addr.addr, align 8
+  %cmp10 = icmp ne ptr %11, %12
   br i1 %cmp10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %land.lhs.true
-  %12 = load ptr, ptr %ret, align 8
-  %13 = load i64, ptr %size.addr, align 8
-  call void @os_pages_unmap(ptr noundef %12, i64 noundef %13)
+  %13 = load ptr, ptr %ret, align 8
+  %14 = load i64, ptr %size.addr, align 8
+  call void @os_pages_unmap(ptr noundef %13, i64 noundef %14)
   store ptr null, ptr %ret, align 8
   br label %if.end12
 
@@ -209,8 +210,8 @@ do.body14:                                        ; preds = %if.end13
   br label %do.end15
 
 do.end15:                                         ; preds = %do.body14
-  %14 = load ptr, ptr %ret, align 8
-  ret ptr %14
+  %15 = load ptr, ptr %ret, align 8
+  ret ptr %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1320,7 +1321,8 @@ do.end2:                                          ; preds = %do.body1
   %call = call ptr @mmap(ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %or, i32 noundef -1, i64 noundef 0) #7
   store ptr %call, ptr %result, align 8
   %5 = load ptr, ptr %result, align 8
-  %cmp = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
+  %6 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %5, %6
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.end2
@@ -1328,15 +1330,15 @@ if.then:                                          ; preds = %do.end2
   br label %return
 
 if.end:                                           ; preds = %do.end2
-  %6 = load ptr, ptr %result, align 8
-  %7 = load ptr, ptr %addr.addr, align 8
-  %cmp3 = icmp ne ptr %6, %7
+  %7 = load ptr, ptr %result, align 8
+  %8 = load ptr, ptr %addr.addr, align 8
+  %cmp3 = icmp ne ptr %7, %8
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  %8 = load ptr, ptr %result, align 8
-  %9 = load i64, ptr %size.addr, align 8
-  call void @os_pages_unmap(ptr noundef %8, i64 noundef %9)
+  %9 = load ptr, ptr %result, align 8
+  %10 = load i64, ptr %size.addr, align 8
+  call void @os_pages_unmap(ptr noundef %9, i64 noundef %10)
   store i1 true, ptr %retval, align 1
   br label %return
 
@@ -1345,8 +1347,8 @@ if.end5:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %10 = load i1, ptr %retval, align 1
-  ret i1 %10
+  %11 = load i1, ptr %retval, align 1
+  ret i1 %11
 }
 
 ; Function Attrs: nounwind
@@ -1364,13 +1366,14 @@ entry:
   %call = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #7
   store ptr %call, ptr %addr, align 8
   %1 = load ptr, ptr %addr, align 8
-  %cmp = icmp eq ptr %1, inttoptr (i64 -1 to ptr)
+  %2 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %1, %2
   br i1 %cmp, label %if.then, label %if.end2
 
 if.then:                                          ; preds = %entry
   call void @malloc_write(ptr noundef @.str.8)
-  %2 = load i8, ptr @opt_abort, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr @opt_abort, align 1
+  %tobool = trunc i8 %3 to i1
   br i1 %tobool, label %if.then1, label %if.end
 
 if.then1:                                         ; preds = %if.then
@@ -1381,19 +1384,19 @@ if.end:                                           ; preds = %if.then
   br label %if.end2
 
 if.end2:                                          ; preds = %if.end, %entry
-  %3 = load ptr, ptr %addr, align 8
-  %4 = load i64, ptr %size, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %3, i8 65, i64 %4, i1 false)
-  %5 = load ptr, ptr %addr, align 8
-  %6 = load i64, ptr %size, align 8
-  %call3 = call i32 @madvise(ptr noundef %5, i64 noundef %6, i32 noundef 4) #7
+  %4 = load ptr, ptr %addr, align 8
+  %5 = load i64, ptr %size, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %4, i8 65, i64 %5, i1 false)
+  %6 = load ptr, ptr %addr, align 8
+  %7 = load i64, ptr %size, align 8
+  %call3 = call i32 @madvise(ptr noundef %6, i64 noundef %7, i32 noundef 4) #7
   %cmp4 = icmp eq i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end2
-  %7 = load ptr, ptr %addr, align 8
-  %8 = load i64, ptr %size, align 8
-  %call6 = call ptr @memchr(ptr noundef %7, i32 noundef 65, i64 noundef %8) #9
+  %8 = load ptr, ptr %addr, align 8
+  %9 = load i64, ptr %size, align 8
+  %call6 = call ptr @memchr(ptr noundef %8, i32 noundef 65, i64 noundef %9) #9
   %cmp7 = icmp eq ptr %call6, null
   %conv = zext i1 %cmp7 to i32
   store i32 %conv, ptr %works, align 4
@@ -1404,16 +1407,16 @@ if.else:                                          ; preds = %if.end2
   br label %if.end8
 
 if.end8:                                          ; preds = %if.else, %if.then5
-  %9 = load ptr, ptr %addr, align 8
-  %10 = load i64, ptr %size, align 8
-  %call9 = call i32 @munmap(ptr noundef %9, i64 noundef %10) #7
+  %10 = load ptr, ptr %addr, align 8
+  %11 = load i64, ptr %size, align 8
+  %call9 = call i32 @munmap(ptr noundef %10, i64 noundef %11) #7
   %cmp10 = icmp ne i32 %call9, 0
   br i1 %cmp10, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end8
   call void @malloc_write(ptr noundef @.str.9)
-  %11 = load i8, ptr @opt_abort, align 1
-  %tobool13 = trunc i8 %11 to i1
+  %12 = load i8, ptr @opt_abort, align 1
+  %tobool13 = trunc i8 %12 to i1
   br i1 %tobool13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.then12
@@ -1424,8 +1427,8 @@ if.end15:                                         ; preds = %if.then12
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end15, %if.end8
-  %12 = load i32, ptr %works, align 4
-  ret i32 %12
+  %13 = load i32, ptr %works, align 4
+  ret i32 %13
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

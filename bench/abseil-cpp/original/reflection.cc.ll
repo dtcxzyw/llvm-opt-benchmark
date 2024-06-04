@@ -4193,13 +4193,14 @@ entry:
   store ptr %type_id, ptr %type_id.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl15CommandLineFlagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4absl14flags_internal12_GLOBAL__N_114RetiredFlagObjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN4absl14flags_internal12_GLOBAL__N_114RetiredFlagObjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.absl::flags_internal::(anonymous namespace)::RetiredFlagObj", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %name.addr, align 8
-  store ptr %0, ptr %name_, align 8
+  %1 = load ptr, ptr %name.addr, align 8
+  store ptr %1, ptr %name_, align 8
   %type_id_ = getelementptr inbounds %"class.absl::flags_internal::(anonymous namespace)::RetiredFlagObj", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %type_id.addr, align 8
-  store ptr %1, ptr %type_id_, align 8
+  %2 = load ptr, ptr %type_id.addr, align 8
+  store ptr %2, ptr %type_id_, align 8
   ret void
 }
 
@@ -5257,7 +5258,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4absl15CommandLineFlagE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN4absl15CommandLineFlagE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10018,7 +10020,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 
@@ -15846,7 +15849,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN4absl18container_internal10EmptyGroupEv() #5 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

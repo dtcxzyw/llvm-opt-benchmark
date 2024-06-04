@@ -1649,7 +1649,7 @@ define i32 @H5S_select_deserialize(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 51:                                               ; preds = %50
   store i32 -1, ptr %8, align 4
-  br label %155
+  br label %159
 
 52:                                               ; No predecessors!
   br label %53
@@ -1714,111 +1714,115 @@ define i32 @H5S_select_deserialize(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 97:                                               ; preds = %55
   %98 = load i32, ptr %7, align 4
-  switch i32 %98, label %135 [
+  switch i32 %98, label %139 [
     i32 1, label %99
-    i32 2, label %108
-    i32 3, label %117
-    i32 0, label %126
+    i32 2, label %109
+    i32 3, label %119
+    i32 0, label %129
   ]
 
 99:                                               ; preds = %97
-  %100 = load ptr, ptr getelementptr inbounds (%struct.H5S_select_class_t, ptr @H5S_sel_point, i32 0, i32 6), align 16
-  %101 = load ptr, ptr %4, align 8
-  %102 = load ptr, ptr %5, align 8
-  %103 = load i64, ptr %6, align 8
-  %104 = sub i64 %103, 4
-  %105 = load i8, ptr %10, align 1
-  %106 = trunc i8 %105 to i1
-  %107 = call i32 %100(ptr noundef %101, ptr noundef %102, i64 noundef %104, i1 noundef zeroext %106)
-  store i32 %107, ptr %8, align 4
-  br label %136
-
-108:                                              ; preds = %97
-  %109 = load ptr, ptr getelementptr inbounds (%struct.H5S_select_class_t, ptr @H5S_sel_hyper, i32 0, i32 6), align 16
-  %110 = load ptr, ptr %4, align 8
-  %111 = load ptr, ptr %5, align 8
-  %112 = load i64, ptr %6, align 8
-  %113 = sub i64 %112, 4
-  %114 = load i8, ptr %10, align 1
-  %115 = trunc i8 %114 to i1
-  %116 = call i32 %109(ptr noundef %110, ptr noundef %111, i64 noundef %113, i1 noundef zeroext %115)
-  store i32 %116, ptr %8, align 4
-  br label %136
-
-117:                                              ; preds = %97
-  %118 = load ptr, ptr getelementptr inbounds (%struct.H5S_select_class_t, ptr @H5S_sel_all, i32 0, i32 6), align 16
-  %119 = load ptr, ptr %4, align 8
-  %120 = load ptr, ptr %5, align 8
-  %121 = load i64, ptr %6, align 8
-  %122 = sub i64 %121, 4
-  %123 = load i8, ptr %10, align 1
-  %124 = trunc i8 %123 to i1
-  %125 = call i32 %118(ptr noundef %119, ptr noundef %120, i64 noundef %122, i1 noundef zeroext %124)
-  store i32 %125, ptr %8, align 4
-  br label %136
-
-126:                                              ; preds = %97
-  %127 = load ptr, ptr getelementptr inbounds (%struct.H5S_select_class_t, ptr @H5S_sel_none, i32 0, i32 6), align 16
-  %128 = load ptr, ptr %4, align 8
-  %129 = load ptr, ptr %5, align 8
-  %130 = load i64, ptr %6, align 8
-  %131 = sub i64 %130, 4
-  %132 = load i8, ptr %10, align 1
-  %133 = trunc i8 %132 to i1
-  %134 = call i32 %127(ptr noundef %128, ptr noundef %129, i64 noundef %131, i1 noundef zeroext %133)
-  store i32 %134, ptr %8, align 4
-  br label %136
-
-135:                                              ; preds = %97
-  br label %136
-
-136:                                              ; preds = %135, %126, %117, %108, %99
-  %137 = load i32, ptr %8, align 4
-  %138 = icmp slt i32 %137, 0
-  br i1 %138, label %139, label %154
-
-139:                                              ; preds = %136
+  %100 = getelementptr inbounds %struct.H5S_select_class_t, ptr @H5S_sel_point, i32 0, i32 6
+  %101 = load ptr, ptr %100, align 16
+  %102 = load ptr, ptr %4, align 8
+  %103 = load ptr, ptr %5, align 8
+  %104 = load i64, ptr %6, align 8
+  %105 = sub i64 %104, 4
+  %106 = load i8, ptr %10, align 1
+  %107 = trunc i8 %106 to i1
+  %108 = call i32 %101(ptr noundef %102, ptr noundef %103, i64 noundef %105, i1 noundef zeroext %107)
+  store i32 %108, ptr %8, align 4
   br label %140
 
-140:                                              ; preds = %139
-  br label %141
+109:                                              ; preds = %97
+  %110 = getelementptr inbounds %struct.H5S_select_class_t, ptr @H5S_sel_hyper, i32 0, i32 6
+  %111 = load ptr, ptr %110, align 16
+  %112 = load ptr, ptr %4, align 8
+  %113 = load ptr, ptr %5, align 8
+  %114 = load i64, ptr %6, align 8
+  %115 = sub i64 %114, 4
+  %116 = load i8, ptr %10, align 1
+  %117 = trunc i8 %116 to i1
+  %118 = call i32 %111(ptr noundef %112, ptr noundef %113, i64 noundef %115, i1 noundef zeroext %117)
+  store i32 %118, ptr %8, align 4
+  br label %140
 
-141:                                              ; preds = %140
-  br label %142
+119:                                              ; preds = %97
+  %120 = getelementptr inbounds %struct.H5S_select_class_t, ptr @H5S_sel_all, i32 0, i32 6
+  %121 = load ptr, ptr %120, align 16
+  %122 = load ptr, ptr %4, align 8
+  %123 = load ptr, ptr %5, align 8
+  %124 = load i64, ptr %6, align 8
+  %125 = sub i64 %124, 4
+  %126 = load i8, ptr %10, align 1
+  %127 = trunc i8 %126 to i1
+  %128 = call i32 %121(ptr noundef %122, ptr noundef %123, i64 noundef %125, i1 noundef zeroext %127)
+  store i32 %128, ptr %8, align 4
+  br label %140
 
-142:                                              ; preds = %141
-  %143 = load i64, ptr @H5E_DATASPACE_g, align 8
-  %144 = load i64, ptr @H5E_CANTLOAD_g, align 8
-  %145 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str.1, ptr noundef @__func__.H5S_select_deserialize, i32 noundef 551, i64 noundef %143, i64 noundef %144, ptr noundef @.str.11)
+129:                                              ; preds = %97
+  %130 = getelementptr inbounds %struct.H5S_select_class_t, ptr @H5S_sel_none, i32 0, i32 6
+  %131 = load ptr, ptr %130, align 16
+  %132 = load ptr, ptr %4, align 8
+  %133 = load ptr, ptr %5, align 8
+  %134 = load i64, ptr %6, align 8
+  %135 = sub i64 %134, 4
+  %136 = load i8, ptr %10, align 1
+  %137 = trunc i8 %136 to i1
+  %138 = call i32 %131(ptr noundef %132, ptr noundef %133, i64 noundef %135, i1 noundef zeroext %137)
+  store i32 %138, ptr %8, align 4
+  br label %140
+
+139:                                              ; preds = %97
+  br label %140
+
+140:                                              ; preds = %139, %129, %119, %109, %99
+  %141 = load i32, ptr %8, align 4
+  %142 = icmp slt i32 %141, 0
+  br i1 %142, label %143, label %158
+
+143:                                              ; preds = %140
+  br label %144
+
+144:                                              ; preds = %143
+  br label %145
+
+145:                                              ; preds = %144
   br label %146
 
-146:                                              ; preds = %142
-  store i8 1, ptr %11, align 1
-  %147 = load i8, ptr %11, align 1
-  %148 = trunc i8 %147 to i1
-  %149 = zext i1 %148 to i8
-  store i8 %149, ptr %11, align 1
+146:                                              ; preds = %145
+  %147 = load i64, ptr @H5E_DATASPACE_g, align 8
+  %148 = load i64, ptr @H5E_CANTLOAD_g, align 8
+  %149 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str.1, ptr noundef @__func__.H5S_select_deserialize, i32 noundef 551, i64 noundef %147, i64 noundef %148, ptr noundef @.str.11)
   br label %150
 
 150:                                              ; preds = %146
-  br label %151
-
-151:                                              ; preds = %150
-  store i32 -1, ptr %8, align 4
-  br label %155
-
-152:                                              ; No predecessors!
-  br label %153
-
-153:                                              ; preds = %152
+  store i8 1, ptr %11, align 1
+  %151 = load i8, ptr %11, align 1
+  %152 = trunc i8 %151 to i1
+  %153 = zext i1 %152 to i8
+  store i8 %153, ptr %11, align 1
   br label %154
 
-154:                                              ; preds = %153, %136
+154:                                              ; preds = %150
   br label %155
 
-155:                                              ; preds = %154, %151, %51
-  %156 = load i32, ptr %8, align 4
-  ret i32 %156
+155:                                              ; preds = %154
+  store i32 -1, ptr %8, align 4
+  br label %159
+
+156:                                              ; No predecessors!
+  br label %157
+
+157:                                              ; preds = %156
+  br label %158
+
+158:                                              ; preds = %157, %140
+  br label %159
+
+159:                                              ; preds = %158, %155, %51
+  %160 = load i32, ptr %8, align 4
+  ret i32 %160
 }
 
 ; Function Attrs: nounwind uwtable

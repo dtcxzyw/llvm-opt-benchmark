@@ -444,7 +444,7 @@ define internal i32 @_set_default(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   br i1 %75, label %77, label %76
 
 76:                                               ; preds = %71
-  br label %135
+  br label %136
 
 77:                                               ; preds = %71
   br label %112
@@ -463,7 +463,7 @@ define internal i32 @_set_default(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   br i1 %86, label %88, label %87
 
 87:                                               ; preds = %82
-  br label %135
+  br label %136
 
 88:                                               ; preds = %82
   br label %111
@@ -482,7 +482,7 @@ define internal i32 @_set_default(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   br i1 %97, label %99, label %98
 
 98:                                               ; preds = %93
-  br label %135
+  br label %136
 
 99:                                               ; preds = %93
   br label %110
@@ -501,7 +501,7 @@ define internal i32 @_set_default(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   %107 = load i32, ptr %10, align 4
   %108 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.9, ptr noundef %106, ptr noundef @.str.2, i32 noundef %107)
   store i32 -1, ptr %11, align 4
-  br label %135
+  br label %136
 
 109:                                              ; preds = %104
   br label %110
@@ -518,7 +518,7 @@ define internal i32 @_set_default(ptr noundef %0, i1 noundef zeroext %1, ptr nou
 113:                                              ; preds = %112, %58
   %114 = load ptr, ptr %19, align 8
   %115 = icmp ne ptr %114, null
-  br i1 %115, label %116, label %128
+  br i1 %115, label %116, label %129
 
 116:                                              ; preds = %113
   %117 = load ptr, ptr %19, align 8
@@ -526,30 +526,31 @@ define internal i32 @_set_default(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   %119 = load i8, ptr %118, align 1
   %120 = sext i8 %119 to i32
   %121 = icmp ne i32 %120, 42
-  br i1 %121, label %122, label %128
+  br i1 %121, label %122, label %129
 
 122:                                              ; preds = %116
   %123 = load ptr, ptr %19, align 8
-  %124 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %125 = call i32 @slurm_xstrcmp(ptr noundef %123, ptr noundef %124)
-  %126 = icmp ne i32 %125, 0
-  br i1 %126, label %127, label %128
+  %124 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %125 = load ptr, ptr %124, align 8
+  %126 = call i32 @slurm_xstrcmp(ptr noundef %123, ptr noundef %125)
+  %127 = icmp ne i32 %126, 0
+  br i1 %127, label %128, label %129
 
-127:                                              ; preds = %122
-  br label %135
+128:                                              ; preds = %122
+  br label %136
 
-128:                                              ; preds = %122, %116, %113
-  %129 = load ptr, ptr %6, align 8
-  %130 = load ptr, ptr %20, align 8
-  %131 = load ptr, ptr %9, align 8
-  %132 = load i8, ptr %7, align 1
-  %133 = trunc i8 %132 to i1
-  %134 = call i32 @slurm_option_set(ptr noundef %129, ptr noundef %130, ptr noundef %131, i1 noundef zeroext %133)
-  br label %135
+129:                                              ; preds = %122, %116, %113
+  %130 = load ptr, ptr %6, align 8
+  %131 = load ptr, ptr %20, align 8
+  %132 = load ptr, ptr %9, align 8
+  %133 = load i8, ptr %7, align 1
+  %134 = trunc i8 %133 to i1
+  %135 = call i32 @slurm_option_set(ptr noundef %130, ptr noundef %131, ptr noundef %132, i1 noundef zeroext %134)
+  br label %136
 
-135:                                              ; preds = %128, %127, %105, %98, %87, %76
-  %136 = load i32, ptr %11, align 4
-  ret i32 %136
+136:                                              ; preds = %129, %128, %105, %98, %87, %76
+  %137 = load i32, ptr %11, align 4
+  ret i32 %137
 }
 
 ; Function Attrs: nounwind

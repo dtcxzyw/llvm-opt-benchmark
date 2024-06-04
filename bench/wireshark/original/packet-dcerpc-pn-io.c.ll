@@ -6050,133 +6050,134 @@ define internal void @pnio_ar_info(ptr noundef %0, ptr noundef %1, ptr noundef %
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %6, align 8
   %22 = load i32, ptr @proto_pn_io, align 4
-  call void @p_add_proto_data(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 0, ptr noundef inttoptr (i64 10 to ptr))
-  %23 = load ptr, ptr %7, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %126
+  %23 = inttoptr i64 10 to ptr
+  call void @p_add_proto_data(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 0, ptr noundef %23)
+  %24 = load ptr, ptr %7, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %127
 
-25:                                               ; preds = %4
-  %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds %struct.pnio_ar_s, ptr %26, i32 0, i32 3
-  %28 = getelementptr inbounds [6 x i8], ptr %27, i64 0, i64 0
-  call void @set_address(ptr noundef %12, i32 noundef 1, i32 noundef 6, ptr noundef %28)
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.pnio_ar_s, ptr %29, i32 0, i32 5
-  %31 = getelementptr inbounds [6 x i8], ptr %30, i64 0, i64 0
-  call void @set_address(ptr noundef %13, i32 noundef 1, i32 noundef 6, ptr noundef %31)
-  %32 = load ptr, ptr %7, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = load i32, ptr @ett_pn_io_ar_info, align 4
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct._packet_info, ptr %35, i32 0, i32 50
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.pnio_ar_s, ptr %38, i32 0, i32 0
-  %40 = call ptr @guid_to_str(ptr noundef %37, ptr noundef %39)
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct._packet_info, ptr %41, i32 0, i32 50
-  %43 = load ptr, ptr %42, align 8
-  %44 = call ptr @address_to_str(ptr noundef %43, ptr noundef %12)
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct.pnio_ar_s, ptr %45, i32 0, i32 4
-  %47 = load i16, ptr %46, align 2
-  %48 = zext i16 %47 to i32
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct._packet_info, ptr %49, i32 0, i32 50
-  %51 = load ptr, ptr %50, align 8
-  %52 = call ptr @address_to_str(ptr noundef %51, ptr noundef %13)
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds %struct.pnio_ar_s, ptr %53, i32 0, i32 6
-  %55 = load i16, ptr %54, align 2
-  %56 = zext i16 %55 to i32
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds %struct.pnio_ar_s, ptr %57, i32 0, i32 1
-  %59 = load i16, ptr %58, align 4
-  %60 = zext i16 %59 to i32
-  %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr inbounds %struct.pnio_ar_s, ptr %61, i32 0, i32 2
-  %63 = load i16, ptr %62, align 2
-  %64 = zext i16 %63 to i32
-  %65 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %32, ptr noundef %33, i32 noundef 0, i32 noundef 0, i32 noundef %34, ptr noundef %10, ptr noundef @.str.1629, ptr noundef %40, ptr noundef %44, i32 noundef %48, ptr noundef %52, i32 noundef %56, i32 noundef %60, i32 noundef %64)
-  store ptr %65, ptr %11, align 8
-  %66 = load ptr, ptr %10, align 8
-  call void @proto_item_set_generated(ptr noundef %66)
-  %67 = load ptr, ptr %11, align 8
-  %68 = load i32, ptr @hf_pn_io_ar_uuid, align 4
-  %69 = load ptr, ptr %5, align 8
-  %70 = load ptr, ptr %8, align 8
-  %71 = getelementptr inbounds %struct.pnio_ar_s, ptr %70, i32 0, i32 0
-  %72 = call ptr @proto_tree_add_guid(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef 0, i32 noundef 0, ptr noundef %71)
-  store ptr %72, ptr %9, align 8
-  %73 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %73)
-  %74 = load ptr, ptr %11, align 8
-  %75 = load i32, ptr @hf_pn_io_cminitiator_macadd, align 4
-  %76 = load ptr, ptr %5, align 8
-  %77 = load ptr, ptr %8, align 8
-  %78 = getelementptr inbounds %struct.pnio_ar_s, ptr %77, i32 0, i32 3
-  %79 = getelementptr inbounds [6 x i8], ptr %78, i64 0, i64 0
-  %80 = call ptr @proto_tree_add_ether(ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef 0, i32 noundef 0, ptr noundef %79)
-  store ptr %80, ptr %9, align 8
-  %81 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %81)
-  %82 = load ptr, ptr %11, align 8
-  %83 = load i32, ptr @hf_pn_io_localalarmref, align 4
-  %84 = load ptr, ptr %5, align 8
-  %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds %struct.pnio_ar_s, ptr %85, i32 0, i32 4
-  %87 = load i16, ptr %86, align 2
-  %88 = zext i16 %87 to i32
-  %89 = call ptr @proto_tree_add_uint(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef 0, i32 noundef 0, i32 noundef %88)
-  store ptr %89, ptr %9, align 8
-  %90 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %90)
-  %91 = load ptr, ptr %11, align 8
-  %92 = load i32, ptr @hf_pn_io_cmresponder_macadd, align 4
-  %93 = load ptr, ptr %5, align 8
-  %94 = load ptr, ptr %8, align 8
-  %95 = getelementptr inbounds %struct.pnio_ar_s, ptr %94, i32 0, i32 5
-  %96 = getelementptr inbounds [6 x i8], ptr %95, i64 0, i64 0
-  %97 = call ptr @proto_tree_add_ether(ptr noundef %91, i32 noundef %92, ptr noundef %93, i32 noundef 0, i32 noundef 0, ptr noundef %96)
-  store ptr %97, ptr %9, align 8
-  %98 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %98)
-  %99 = load ptr, ptr %11, align 8
-  %100 = load i32, ptr @hf_pn_io_localalarmref, align 4
-  %101 = load ptr, ptr %5, align 8
-  %102 = load ptr, ptr %8, align 8
-  %103 = getelementptr inbounds %struct.pnio_ar_s, ptr %102, i32 0, i32 6
-  %104 = load i16, ptr %103, align 2
-  %105 = zext i16 %104 to i32
-  %106 = call ptr @proto_tree_add_uint(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef 0, i32 noundef 0, i32 noundef %105)
-  store ptr %106, ptr %9, align 8
-  %107 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %107)
-  %108 = load ptr, ptr %11, align 8
-  %109 = load i32, ptr @hf_pn_io_frame_id, align 4
-  %110 = load ptr, ptr %5, align 8
-  %111 = load ptr, ptr %8, align 8
-  %112 = getelementptr inbounds %struct.pnio_ar_s, ptr %111, i32 0, i32 1
-  %113 = load i16, ptr %112, align 4
-  %114 = zext i16 %113 to i32
-  %115 = call ptr @proto_tree_add_uint(ptr noundef %108, i32 noundef %109, ptr noundef %110, i32 noundef 0, i32 noundef 0, i32 noundef %114)
-  store ptr %115, ptr %9, align 8
-  %116 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %116)
-  %117 = load ptr, ptr %11, align 8
-  %118 = load i32, ptr @hf_pn_io_frame_id, align 4
-  %119 = load ptr, ptr %5, align 8
-  %120 = load ptr, ptr %8, align 8
-  %121 = getelementptr inbounds %struct.pnio_ar_s, ptr %120, i32 0, i32 2
-  %122 = load i16, ptr %121, align 2
-  %123 = zext i16 %122 to i32
-  %124 = call ptr @proto_tree_add_uint(ptr noundef %117, i32 noundef %118, ptr noundef %119, i32 noundef 0, i32 noundef 0, i32 noundef %123)
-  store ptr %124, ptr %9, align 8
-  %125 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %125)
-  br label %126
+26:                                               ; preds = %4
+  %27 = load ptr, ptr %8, align 8
+  %28 = getelementptr inbounds %struct.pnio_ar_s, ptr %27, i32 0, i32 3
+  %29 = getelementptr inbounds [6 x i8], ptr %28, i64 0, i64 0
+  call void @set_address(ptr noundef %12, i32 noundef 1, i32 noundef 6, ptr noundef %29)
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds %struct.pnio_ar_s, ptr %30, i32 0, i32 5
+  %32 = getelementptr inbounds [6 x i8], ptr %31, i64 0, i64 0
+  call void @set_address(ptr noundef %13, i32 noundef 1, i32 noundef 6, ptr noundef %32)
+  %33 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr @ett_pn_io_ar_info, align 4
+  %36 = load ptr, ptr %6, align 8
+  %37 = getelementptr inbounds %struct._packet_info, ptr %36, i32 0, i32 50
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %8, align 8
+  %40 = getelementptr inbounds %struct.pnio_ar_s, ptr %39, i32 0, i32 0
+  %41 = call ptr @guid_to_str(ptr noundef %38, ptr noundef %40)
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds %struct._packet_info, ptr %42, i32 0, i32 50
+  %44 = load ptr, ptr %43, align 8
+  %45 = call ptr @address_to_str(ptr noundef %44, ptr noundef %12)
+  %46 = load ptr, ptr %8, align 8
+  %47 = getelementptr inbounds %struct.pnio_ar_s, ptr %46, i32 0, i32 4
+  %48 = load i16, ptr %47, align 2
+  %49 = zext i16 %48 to i32
+  %50 = load ptr, ptr %6, align 8
+  %51 = getelementptr inbounds %struct._packet_info, ptr %50, i32 0, i32 50
+  %52 = load ptr, ptr %51, align 8
+  %53 = call ptr @address_to_str(ptr noundef %52, ptr noundef %13)
+  %54 = load ptr, ptr %8, align 8
+  %55 = getelementptr inbounds %struct.pnio_ar_s, ptr %54, i32 0, i32 6
+  %56 = load i16, ptr %55, align 2
+  %57 = zext i16 %56 to i32
+  %58 = load ptr, ptr %8, align 8
+  %59 = getelementptr inbounds %struct.pnio_ar_s, ptr %58, i32 0, i32 1
+  %60 = load i16, ptr %59, align 4
+  %61 = zext i16 %60 to i32
+  %62 = load ptr, ptr %8, align 8
+  %63 = getelementptr inbounds %struct.pnio_ar_s, ptr %62, i32 0, i32 2
+  %64 = load i16, ptr %63, align 2
+  %65 = zext i16 %64 to i32
+  %66 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %34, i32 noundef 0, i32 noundef 0, i32 noundef %35, ptr noundef %10, ptr noundef @.str.1629, ptr noundef %41, ptr noundef %45, i32 noundef %49, ptr noundef %53, i32 noundef %57, i32 noundef %61, i32 noundef %65)
+  store ptr %66, ptr %11, align 8
+  %67 = load ptr, ptr %10, align 8
+  call void @proto_item_set_generated(ptr noundef %67)
+  %68 = load ptr, ptr %11, align 8
+  %69 = load i32, ptr @hf_pn_io_ar_uuid, align 4
+  %70 = load ptr, ptr %5, align 8
+  %71 = load ptr, ptr %8, align 8
+  %72 = getelementptr inbounds %struct.pnio_ar_s, ptr %71, i32 0, i32 0
+  %73 = call ptr @proto_tree_add_guid(ptr noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef 0, i32 noundef 0, ptr noundef %72)
+  store ptr %73, ptr %9, align 8
+  %74 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %74)
+  %75 = load ptr, ptr %11, align 8
+  %76 = load i32, ptr @hf_pn_io_cminitiator_macadd, align 4
+  %77 = load ptr, ptr %5, align 8
+  %78 = load ptr, ptr %8, align 8
+  %79 = getelementptr inbounds %struct.pnio_ar_s, ptr %78, i32 0, i32 3
+  %80 = getelementptr inbounds [6 x i8], ptr %79, i64 0, i64 0
+  %81 = call ptr @proto_tree_add_ether(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef 0, i32 noundef 0, ptr noundef %80)
+  store ptr %81, ptr %9, align 8
+  %82 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %82)
+  %83 = load ptr, ptr %11, align 8
+  %84 = load i32, ptr @hf_pn_io_localalarmref, align 4
+  %85 = load ptr, ptr %5, align 8
+  %86 = load ptr, ptr %8, align 8
+  %87 = getelementptr inbounds %struct.pnio_ar_s, ptr %86, i32 0, i32 4
+  %88 = load i16, ptr %87, align 2
+  %89 = zext i16 %88 to i32
+  %90 = call ptr @proto_tree_add_uint(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef 0, i32 noundef 0, i32 noundef %89)
+  store ptr %90, ptr %9, align 8
+  %91 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %91)
+  %92 = load ptr, ptr %11, align 8
+  %93 = load i32, ptr @hf_pn_io_cmresponder_macadd, align 4
+  %94 = load ptr, ptr %5, align 8
+  %95 = load ptr, ptr %8, align 8
+  %96 = getelementptr inbounds %struct.pnio_ar_s, ptr %95, i32 0, i32 5
+  %97 = getelementptr inbounds [6 x i8], ptr %96, i64 0, i64 0
+  %98 = call ptr @proto_tree_add_ether(ptr noundef %92, i32 noundef %93, ptr noundef %94, i32 noundef 0, i32 noundef 0, ptr noundef %97)
+  store ptr %98, ptr %9, align 8
+  %99 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %99)
+  %100 = load ptr, ptr %11, align 8
+  %101 = load i32, ptr @hf_pn_io_localalarmref, align 4
+  %102 = load ptr, ptr %5, align 8
+  %103 = load ptr, ptr %8, align 8
+  %104 = getelementptr inbounds %struct.pnio_ar_s, ptr %103, i32 0, i32 6
+  %105 = load i16, ptr %104, align 2
+  %106 = zext i16 %105 to i32
+  %107 = call ptr @proto_tree_add_uint(ptr noundef %100, i32 noundef %101, ptr noundef %102, i32 noundef 0, i32 noundef 0, i32 noundef %106)
+  store ptr %107, ptr %9, align 8
+  %108 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %108)
+  %109 = load ptr, ptr %11, align 8
+  %110 = load i32, ptr @hf_pn_io_frame_id, align 4
+  %111 = load ptr, ptr %5, align 8
+  %112 = load ptr, ptr %8, align 8
+  %113 = getelementptr inbounds %struct.pnio_ar_s, ptr %112, i32 0, i32 1
+  %114 = load i16, ptr %113, align 4
+  %115 = zext i16 %114 to i32
+  %116 = call ptr @proto_tree_add_uint(ptr noundef %109, i32 noundef %110, ptr noundef %111, i32 noundef 0, i32 noundef 0, i32 noundef %115)
+  store ptr %116, ptr %9, align 8
+  %117 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %117)
+  %118 = load ptr, ptr %11, align 8
+  %119 = load i32, ptr @hf_pn_io_frame_id, align 4
+  %120 = load ptr, ptr %5, align 8
+  %121 = load ptr, ptr %8, align 8
+  %122 = getelementptr inbounds %struct.pnio_ar_s, ptr %121, i32 0, i32 2
+  %123 = load i16, ptr %122, align 2
+  %124 = zext i16 %123 to i32
+  %125 = call ptr @proto_tree_add_uint(ptr noundef %118, i32 noundef %119, ptr noundef %120, i32 noundef 0, i32 noundef 0, i32 noundef %124)
+  store ptr %125, ptr %9, align 8
+  %126 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %126)
+  br label %127
 
-126:                                              ; preds = %25, %4
+127:                                              ; preds = %26, %4
   ret void
 }
 

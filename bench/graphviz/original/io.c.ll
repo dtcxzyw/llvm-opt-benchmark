@@ -81,42 +81,46 @@ define internal ptr @agmemread0(ptr noundef %0, ptr noundef %1) #0 {
   %7 = alloca %struct.Agdisc_s, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.Agiodisc_s, ptr @AgIoDisc, i32 0, i32 1), align 8
-  store ptr %8, ptr getelementptr inbounds (%struct.Agiodisc_s, ptr @memIoDisc, i32 0, i32 1), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.Agiodisc_s, ptr @AgIoDisc, i32 0, i32 2), align 8
-  store ptr %9, ptr getelementptr inbounds (%struct.Agiodisc_s, ptr @memIoDisc, i32 0, i32 2), align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.rdr_t, ptr %6, i32 0, i32 0
-  store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = call i64 @strlen(ptr noundef %12) #3
-  %14 = getelementptr inbounds %struct.rdr_t, ptr %6, i32 0, i32 1
-  store i64 %13, ptr %14, align 8
-  %15 = getelementptr inbounds %struct.rdr_t, ptr %6, i32 0, i32 2
-  store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds %struct.Agdisc_s, ptr %7, i32 0, i32 0
-  store ptr @AgIdDisc, ptr %16, align 8
-  %17 = getelementptr inbounds %struct.Agdisc_s, ptr %7, i32 0, i32 1
-  store ptr @memIoDisc, ptr %17, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %23
+  %8 = getelementptr inbounds %struct.Agiodisc_s, ptr @AgIoDisc, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %struct.Agiodisc_s, ptr @memIoDisc, i32 0, i32 1
+  store ptr %9, ptr %10, align 8
+  %11 = getelementptr inbounds %struct.Agiodisc_s, ptr @AgIoDisc, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.Agiodisc_s, ptr @memIoDisc, i32 0, i32 2
+  store ptr %12, ptr %13, align 8
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %struct.rdr_t, ptr %6, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  %16 = load ptr, ptr %4, align 8
+  %17 = call i64 @strlen(ptr noundef %16) #3
+  %18 = getelementptr inbounds %struct.rdr_t, ptr %6, i32 0, i32 1
+  store i64 %17, ptr %18, align 8
+  %19 = getelementptr inbounds %struct.rdr_t, ptr %6, i32 0, i32 2
+  store i64 0, ptr %19, align 8
+  %20 = getelementptr inbounds %struct.Agdisc_s, ptr %7, i32 0, i32 0
+  store ptr @AgIdDisc, ptr %20, align 8
+  %21 = getelementptr inbounds %struct.Agdisc_s, ptr %7, i32 0, i32 1
+  store ptr @memIoDisc, ptr %21, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %27
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %3, align 8
-  %22 = call ptr @agconcat(ptr noundef %21, ptr noundef %6, ptr noundef %7)
-  store ptr %22, ptr %5, align 8
-  br label %25
+24:                                               ; preds = %2
+  %25 = load ptr, ptr %3, align 8
+  %26 = call ptr @agconcat(ptr noundef %25, ptr noundef %6, ptr noundef %7)
+  store ptr %26, ptr %5, align 8
+  br label %29
 
-23:                                               ; preds = %2
-  %24 = call ptr @agread(ptr noundef %6, ptr noundef %7)
-  store ptr %24, ptr %5, align 8
-  br label %25
+27:                                               ; preds = %2
+  %28 = call ptr @agread(ptr noundef %6, ptr noundef %7)
+  store ptr %28, ptr %5, align 8
+  br label %29
 
-25:                                               ; preds = %23, %20
+29:                                               ; preds = %27, %24
   call void @agsetfile(ptr noundef null)
-  %26 = load ptr, ptr %5, align 8
-  ret ptr %26
+  %30 = load ptr, ptr %5, align 8
+  ret ptr %30
 }
 
 ; Function Attrs: nounwind uwtable

@@ -24,7 +24,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mca_topo_treematch_component_register() #0 {
-  %1 = call i32 @mca_base_component_var_register(ptr noundef @mca_topo_treematch_component, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef getelementptr inbounds (%struct.mca_topo_treematch_component_2_2_0_t, ptr @mca_topo_treematch_component, i32 0, i32 1))
+  %1 = getelementptr inbounds %struct.mca_topo_treematch_component_2_2_0_t, ptr @mca_topo_treematch_component, i32 0, i32 1
+  %2 = call i32 @mca_base_component_var_register(ptr noundef @mca_topo_treematch_component, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef %1)
   ret i32 0
 }
 

@@ -2228,23 +2228,24 @@ if.then35:                                        ; preds = %sw.bb
   %mdimem = getelementptr inbounds %struct.EEPRO100State, ptr %14, i32 0, i32 9
   %arrayidx = getelementptr [32 x i16], ptr %mdimem, i64 0, i64 0
   store i16 %13, ptr %arrayidx, align 2
-  %15 = load i16, ptr getelementptr ([32 x i16], ptr @eepro100_mdi_default, i64 0, i64 1), align 2
-  %16 = load ptr, ptr %s.addr, align 8
-  %mdimem36 = getelementptr inbounds %struct.EEPRO100State, ptr %16, i32 0, i32 9
-  %arrayidx37 = getelementptr [32 x i16], ptr %mdimem36, i64 0, i64 1
-  store i16 %15, ptr %arrayidx37, align 2
+  %15 = getelementptr [32 x i16], ptr @eepro100_mdi_default, i64 0, i64 1
+  %16 = load i16, ptr %15, align 2
   %17 = load ptr, ptr %s.addr, align 8
-  %mdimem38 = getelementptr inbounds %struct.EEPRO100State, ptr %17, i32 0, i32 9
-  %18 = load i8, ptr %reg, align 1
-  %idxprom = zext i8 %18 to i64
+  %mdimem36 = getelementptr inbounds %struct.EEPRO100State, ptr %17, i32 0, i32 9
+  %arrayidx37 = getelementptr [32 x i16], ptr %mdimem36, i64 0, i64 1
+  store i16 %16, ptr %arrayidx37, align 2
+  %18 = load ptr, ptr %s.addr, align 8
+  %mdimem38 = getelementptr inbounds %struct.EEPRO100State, ptr %18, i32 0, i32 9
+  %19 = load i8, ptr %reg, align 1
+  %idxprom = zext i8 %19 to i64
   %arrayidx39 = getelementptr [32 x i16], ptr %mdimem38, i64 0, i64 %idxprom
-  %19 = load i16, ptr %arrayidx39, align 2
-  store i16 %19, ptr %data, align 2
+  %20 = load i16, ptr %arrayidx39, align 2
+  store i16 %20, ptr %data, align 2
   br label %if.end
 
 if.else40:                                        ; preds = %sw.bb
-  %20 = load i16, ptr %data, align 2
-  %conv41 = zext i16 %20 to i32
+  %21 = load i16, ptr %data, align 2
+  %conv41 = zext i16 %21 to i32
   %and42 = and i32 %conv41, -513
   %conv43 = trunc i32 %and42 to i16
   store i16 %conv43, ptr %data, align 2
@@ -2254,13 +2255,13 @@ if.end:                                           ; preds = %if.else40, %if.then
   br label %sw.epilog
 
 sw.bb44:                                          ; preds = %if.then31
-  %21 = load ptr, ptr @stderr, align 8
-  %call45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef @.str.57)
+  %22 = load ptr, ptr @stderr, align 8
+  %call45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.57)
   br label %sw.epilog
 
 sw.bb46:                                          ; preds = %if.then31, %if.then31
-  %22 = load ptr, ptr @stderr, align 8
-  %call47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.58)
+  %23 = load ptr, ptr @stderr, align 8
+  %call47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.58)
   br label %sw.epilog
 
 sw.bb48:                                          ; preds = %if.then31, %if.then31
@@ -2270,56 +2271,56 @@ sw.bb49:                                          ; preds = %if.then31
   br label %sw.default
 
 sw.default:                                       ; preds = %sw.bb49, %if.then31
-  %23 = load ptr, ptr @stderr, align 8
-  %call50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.58)
+  %24 = load ptr, ptr @stderr, align 8
+  %call50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.58)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb48, %sw.bb46, %sw.bb44, %if.end
-  %24 = load i8, ptr %reg, align 1
-  %idxprom51 = zext i8 %24 to i64
+  %25 = load i8, ptr %reg, align 1
+  %idxprom51 = zext i8 %25 to i64
   %arrayidx52 = getelementptr [32 x i16], ptr @eepro100_mdi_mask, i64 0, i64 %idxprom51
-  %25 = load i16, ptr %arrayidx52, align 2
-  %conv53 = zext i16 %25 to i32
-  %26 = load ptr, ptr %s.addr, align 8
-  %mdimem54 = getelementptr inbounds %struct.EEPRO100State, ptr %26, i32 0, i32 9
-  %27 = load i8, ptr %reg, align 1
-  %idxprom55 = zext i8 %27 to i64
+  %26 = load i16, ptr %arrayidx52, align 2
+  %conv53 = zext i16 %26 to i32
+  %27 = load ptr, ptr %s.addr, align 8
+  %mdimem54 = getelementptr inbounds %struct.EEPRO100State, ptr %27, i32 0, i32 9
+  %28 = load i8, ptr %reg, align 1
+  %idxprom55 = zext i8 %28 to i64
   %arrayidx56 = getelementptr [32 x i16], ptr %mdimem54, i64 0, i64 %idxprom55
-  %28 = load i16, ptr %arrayidx56, align 2
-  %conv57 = zext i16 %28 to i32
+  %29 = load i16, ptr %arrayidx56, align 2
+  %conv57 = zext i16 %29 to i32
   %and58 = and i32 %conv57, %conv53
   %conv59 = trunc i32 %and58 to i16
   store i16 %conv59, ptr %arrayidx56, align 2
-  %29 = load i16, ptr %data, align 2
-  %conv60 = zext i16 %29 to i32
-  %30 = load i8, ptr %reg, align 1
-  %idxprom61 = zext i8 %30 to i64
+  %30 = load i16, ptr %data, align 2
+  %conv60 = zext i16 %30 to i32
+  %31 = load i8, ptr %reg, align 1
+  %idxprom61 = zext i8 %31 to i64
   %arrayidx62 = getelementptr [32 x i16], ptr @eepro100_mdi_mask, i64 0, i64 %idxprom61
-  %31 = load i16, ptr %arrayidx62, align 2
-  %conv63 = zext i16 %31 to i32
+  %32 = load i16, ptr %arrayidx62, align 2
+  %conv63 = zext i16 %32 to i32
   %not = xor i32 %conv63, -1
   %and64 = and i32 %conv60, %not
-  %32 = load ptr, ptr %s.addr, align 8
-  %mdimem65 = getelementptr inbounds %struct.EEPRO100State, ptr %32, i32 0, i32 9
-  %33 = load i8, ptr %reg, align 1
-  %idxprom66 = zext i8 %33 to i64
+  %33 = load ptr, ptr %s.addr, align 8
+  %mdimem65 = getelementptr inbounds %struct.EEPRO100State, ptr %33, i32 0, i32 9
+  %34 = load i8, ptr %reg, align 1
+  %idxprom66 = zext i8 %34 to i64
   %arrayidx67 = getelementptr [32 x i16], ptr %mdimem65, i64 0, i64 %idxprom66
-  %34 = load i16, ptr %arrayidx67, align 2
-  %conv68 = zext i16 %34 to i32
+  %35 = load i16, ptr %arrayidx67, align 2
+  %conv68 = zext i16 %35 to i32
   %or = or i32 %conv68, %and64
   %conv69 = trunc i32 %or to i16
   store i16 %conv69, ptr %arrayidx67, align 2
   br label %if.end107
 
 if.else70:                                        ; preds = %if.else27
-  %35 = load i8, ptr %opcode, align 1
-  %conv71 = zext i8 %35 to i32
+  %36 = load i8, ptr %opcode, align 1
+  %conv71 = zext i8 %36 to i32
   %cmp72 = icmp eq i32 %conv71, 2
   br i1 %cmp72, label %if.then74, label %if.end106
 
 if.then74:                                        ; preds = %if.else70
-  %36 = load i8, ptr %reg, align 1
-  %conv75 = zext i8 %36 to i32
+  %37 = load i8, ptr %reg, align 1
+  %conv75 = zext i8 %37 to i32
   switch i32 %conv75, label %sw.epilog102 [
     i32 0, label %sw.bb76
     i32 1, label %sw.bb86
@@ -2331,36 +2332,37 @@ if.then74:                                        ; preds = %if.else70
   ]
 
 sw.bb76:                                          ; preds = %if.then74
-  %37 = load i16, ptr %data, align 2
-  %conv77 = zext i16 %37 to i32
+  %38 = load i16, ptr %data, align 2
+  %conv77 = zext i16 %38 to i32
   %and78 = and i32 %conv77, 32768
   %tobool79 = icmp ne i32 %and78, 0
   br i1 %tobool79, label %if.then80, label %if.end85
 
 if.then80:                                        ; preds = %sw.bb76
-  %38 = load i16, ptr @eepro100_mdi_default, align 16
-  %39 = load ptr, ptr %s.addr, align 8
-  %mdimem81 = getelementptr inbounds %struct.EEPRO100State, ptr %39, i32 0, i32 9
+  %39 = load i16, ptr @eepro100_mdi_default, align 16
+  %40 = load ptr, ptr %s.addr, align 8
+  %mdimem81 = getelementptr inbounds %struct.EEPRO100State, ptr %40, i32 0, i32 9
   %arrayidx82 = getelementptr [32 x i16], ptr %mdimem81, i64 0, i64 0
-  store i16 %38, ptr %arrayidx82, align 2
-  %40 = load i16, ptr getelementptr ([32 x i16], ptr @eepro100_mdi_default, i64 0, i64 1), align 2
-  %41 = load ptr, ptr %s.addr, align 8
-  %mdimem83 = getelementptr inbounds %struct.EEPRO100State, ptr %41, i32 0, i32 9
+  store i16 %39, ptr %arrayidx82, align 2
+  %41 = getelementptr [32 x i16], ptr @eepro100_mdi_default, i64 0, i64 1
+  %42 = load i16, ptr %41, align 2
+  %43 = load ptr, ptr %s.addr, align 8
+  %mdimem83 = getelementptr inbounds %struct.EEPRO100State, ptr %43, i32 0, i32 9
   %arrayidx84 = getelementptr [32 x i16], ptr %mdimem83, i64 0, i64 1
-  store i16 %40, ptr %arrayidx84, align 2
+  store i16 %42, ptr %arrayidx84, align 2
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then80, %sw.bb76
   br label %sw.epilog102
 
 sw.bb86:                                          ; preds = %if.then74
-  %42 = load ptr, ptr %s.addr, align 8
-  %mdimem87 = getelementptr inbounds %struct.EEPRO100State, ptr %42, i32 0, i32 9
-  %43 = load i8, ptr %reg, align 1
-  %idxprom88 = zext i8 %43 to i64
+  %44 = load ptr, ptr %s.addr, align 8
+  %mdimem87 = getelementptr inbounds %struct.EEPRO100State, ptr %44, i32 0, i32 9
+  %45 = load i8, ptr %reg, align 1
+  %idxprom88 = zext i8 %45 to i64
   %arrayidx89 = getelementptr [32 x i16], ptr %mdimem87, i64 0, i64 %idxprom88
-  %44 = load i16, ptr %arrayidx89, align 2
-  %conv90 = zext i16 %44 to i32
+  %46 = load i16, ptr %arrayidx89, align 2
+  %conv90 = zext i16 %46 to i32
   %or91 = or i32 %conv90, 32
   %conv92 = trunc i32 %or91 to i16
   store i16 %conv92, ptr %arrayidx89, align 2
@@ -2370,57 +2372,57 @@ sw.bb93:                                          ; preds = %if.then74, %if.then
   br label %sw.epilog102
 
 sw.bb94:                                          ; preds = %if.then74
-  %45 = load ptr, ptr %s.addr, align 8
-  %mdimem95 = getelementptr inbounds %struct.EEPRO100State, ptr %45, i32 0, i32 9
-  %46 = load i8, ptr %reg, align 1
-  %idxprom96 = zext i8 %46 to i64
+  %47 = load ptr, ptr %s.addr, align 8
+  %mdimem95 = getelementptr inbounds %struct.EEPRO100State, ptr %47, i32 0, i32 9
+  %48 = load i8, ptr %reg, align 1
+  %idxprom96 = zext i8 %48 to i64
   %arrayidx97 = getelementptr [32 x i16], ptr %mdimem95, i64 0, i64 %idxprom96
   store i16 16894, ptr %arrayidx97, align 2
   br label %sw.epilog102
 
 sw.bb98:                                          ; preds = %if.then74
-  %47 = load ptr, ptr %s.addr, align 8
-  %mdimem99 = getelementptr inbounds %struct.EEPRO100State, ptr %47, i32 0, i32 9
-  %48 = load i8, ptr %reg, align 1
-  %idxprom100 = zext i8 %48 to i64
+  %49 = load ptr, ptr %s.addr, align 8
+  %mdimem99 = getelementptr inbounds %struct.EEPRO100State, ptr %49, i32 0, i32 9
+  %50 = load i8, ptr %reg, align 1
+  %idxprom100 = zext i8 %50 to i64
   %arrayidx101 = getelementptr [32 x i16], ptr %mdimem99, i64 0, i64 %idxprom100
   store i16 1, ptr %arrayidx101, align 2
   br label %sw.epilog102
 
 sw.epilog102:                                     ; preds = %sw.bb98, %sw.bb94, %sw.bb93, %sw.bb86, %if.end85, %if.then74
-  %49 = load ptr, ptr %s.addr, align 8
-  %mdimem103 = getelementptr inbounds %struct.EEPRO100State, ptr %49, i32 0, i32 9
-  %50 = load i8, ptr %reg, align 1
-  %idxprom104 = zext i8 %50 to i64
+  %51 = load ptr, ptr %s.addr, align 8
+  %mdimem103 = getelementptr inbounds %struct.EEPRO100State, ptr %51, i32 0, i32 9
+  %52 = load i8, ptr %reg, align 1
+  %idxprom104 = zext i8 %52 to i64
   %arrayidx105 = getelementptr [32 x i16], ptr %mdimem103, i64 0, i64 %idxprom104
-  %51 = load i16, ptr %arrayidx105, align 2
-  store i16 %51, ptr %data, align 2
+  %53 = load i16, ptr %arrayidx105, align 2
+  store i16 %53, ptr %data, align 2
   br label %if.end106
 
 if.end106:                                        ; preds = %sw.epilog102, %if.else70
   br label %if.end107
 
 if.end107:                                        ; preds = %if.end106, %sw.epilog
-  %52 = load ptr, ptr %s.addr, align 8
-  %mem = getelementptr inbounds %struct.EEPRO100State, ptr %52, i32 0, i32 21
+  %54 = load ptr, ptr %s.addr, align 8
+  %mem = getelementptr inbounds %struct.EEPRO100State, ptr %54, i32 0, i32 21
   %arrayidx108 = getelementptr [4096 x i8], ptr %mem, i64 0, i64 1
-  %53 = load i8, ptr %arrayidx108, align 1
-  %conv109 = zext i8 %53 to i32
+  %55 = load i8, ptr %arrayidx108, align 1
+  %conv109 = zext i8 %55 to i32
   %or110 = or i32 %conv109, 8
   %conv111 = trunc i32 %or110 to i8
   store i8 %conv111, ptr %arrayidx108, align 1
-  %54 = load i32, ptr %val, align 4
-  %conv112 = zext i32 %54 to i64
+  %56 = load i32, ptr %val, align 4
+  %conv112 = zext i32 %56 to i64
   %or113 = or i64 %conv112, 268435456
   %conv114 = trunc i64 %or113 to i32
   store i32 %conv114, ptr %val, align 4
-  %55 = load i8, ptr %raiseint, align 1
-  %tobool115 = icmp ne i8 %55, 0
+  %57 = load i8, ptr %raiseint, align 1
+  %tobool115 = icmp ne i8 %57, 0
   br i1 %tobool115, label %if.then116, label %if.end117
 
 if.then116:                                       ; preds = %if.end107
-  %56 = load ptr, ptr %s.addr, align 8
-  call void @eepro100_mdi_interrupt(ptr noundef %56)
+  %58 = load ptr, ptr %s.addr, align 8
+  call void @eepro100_mdi_interrupt(ptr noundef %58)
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then116, %if.end107
@@ -2433,15 +2435,15 @@ if.end119:                                        ; preds = %if.end118, %if.then
   br label %if.end120
 
 if.end120:                                        ; preds = %if.end119, %if.then
-  %57 = load i32, ptr %val, align 4
-  %and121 = and i32 %57, -65536
-  %58 = load i16, ptr %data, align 2
-  %conv122 = zext i16 %58 to i32
+  %59 = load i32, ptr %val, align 4
+  %and121 = and i32 %59, -65536
+  %60 = load i16, ptr %data, align 2
+  %conv122 = zext i16 %60 to i32
   %add = add i32 %and121, %conv122
   store i32 %add, ptr %val, align 4
-  %59 = load ptr, ptr %s.addr, align 8
-  %60 = load i32, ptr %val, align 4
-  call void @e100_write_reg4(ptr noundef %59, i32 noundef 16, i32 noundef %60)
+  %61 = load ptr, ptr %s.addr, align 8
+  %62 = load i32, ptr %val, align 4
+  call void @e100_write_reg4(ptr noundef %61, i32 noundef 16, i32 noundef %62)
   ret void
 }
 

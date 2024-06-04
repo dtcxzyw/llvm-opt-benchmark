@@ -2991,26 +2991,28 @@ if.end:                                           ; preds = %_ZNKSt13__atomic_ba
   %call1 = call i32 @uv_tty_reset_mode()
   store ptr @_ZN4nodeL5stdioE, ptr %__range1, align 8
   store ptr @_ZN4nodeL5stdioE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @_ZN4nodeL5stdioE, i64 3), ptr %__end1, align 8
+  %6 = getelementptr inbounds %struct.anon, ptr @_ZN4nodeL5stdioE, i64 3
+  store ptr %6, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %6 = load ptr, ptr %__begin1, align 8
-  %7 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %6, %7
+  %7 = load ptr, ptr %__begin1, align 8
+  %8 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %7, %8
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %8 = load ptr, ptr %__begin1, align 8
-  store ptr %8, ptr %s, align 8
-  %9 = load ptr, ptr %s, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %9 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @_ZN4nodeL5stdioE to i64)
+  %9 = load ptr, ptr %__begin1, align 8
+  store ptr %9, ptr %s, align 8
+  %10 = load ptr, ptr %s, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %10 to i64
+  %11 = ptrtoint ptr @_ZN4nodeL5stdioE to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %11
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 216
   %conv = trunc i64 %sub.ptr.div to i32
   store i32 %conv, ptr %fd, align 4
-  %10 = load i32, ptr %fd, align 4
-  %call2 = call i32 @fstat64(i32 noundef %10, ptr noundef %tmp) #3
+  %12 = load i32, ptr %fd, align 4
+  %call2 = call i32 @fstat64(i32 noundef %12, ptr noundef %tmp) #3
   %cmp3 = icmp eq i32 -1, %call2
   br i1 %cmp3, label %if.then4, label %if.end14
 
@@ -3019,8 +3021,8 @@ if.then4:                                         ; preds = %for.body
 
 do.body:                                          ; preds = %if.then4
   %call5 = call ptr @__errno_location() #17
-  %11 = load i32, ptr %call5, align 4
-  %cmp6 = icmp eq i32 %11, 9
+  %13 = load i32, ptr %call5, align 4
+  %cmp6 = icmp eq i32 %13, 9
   %lnot = xor i1 %cmp6, true
   %lnot7 = xor i1 %lnot, true
   %lnot8 = xor i1 %lnot7, true
@@ -3044,31 +3046,31 @@ do.end13:                                         ; preds = %if.end12
   br label %for.inc
 
 if.end14:                                         ; preds = %for.body
-  %12 = load ptr, ptr %s, align 8
-  %stat = getelementptr inbounds %struct.anon, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %s, align 8
+  %stat = getelementptr inbounds %struct.anon, ptr %14, i32 0, i32 2
   %st_dev = getelementptr inbounds %struct.stat, ptr %stat, i32 0, i32 0
-  %13 = load i64, ptr %st_dev, align 8
+  %15 = load i64, ptr %st_dev, align 8
   %st_dev15 = getelementptr inbounds %struct.stat, ptr %tmp, i32 0, i32 0
-  %14 = load i64, ptr %st_dev15, align 8
-  %cmp16 = icmp eq i64 %13, %14
+  %16 = load i64, ptr %st_dev15, align 8
+  %cmp16 = icmp eq i64 %15, %16
   br i1 %cmp16, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end14
-  %15 = load ptr, ptr %s, align 8
-  %stat17 = getelementptr inbounds %struct.anon, ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %s, align 8
+  %stat17 = getelementptr inbounds %struct.anon, ptr %17, i32 0, i32 2
   %st_ino = getelementptr inbounds %struct.stat, ptr %stat17, i32 0, i32 1
-  %16 = load i64, ptr %st_ino, align 8
+  %18 = load i64, ptr %st_ino, align 8
   %st_ino18 = getelementptr inbounds %struct.stat, ptr %tmp, i32 0, i32 1
-  %17 = load i64, ptr %st_ino18, align 8
-  %cmp19 = icmp eq i64 %16, %17
+  %19 = load i64, ptr %st_ino18, align 8
+  %cmp19 = icmp eq i64 %18, %19
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end14
-  %18 = phi i1 [ false, %if.end14 ], [ %cmp19, %land.rhs ]
-  %frombool = zext i1 %18 to i8
+  %20 = phi i1 [ false, %if.end14 ], [ %cmp19, %land.rhs ]
+  %frombool = zext i1 %20 to i8
   store i8 %frombool, ptr %is_same_file, align 1
-  %19 = load i8, ptr %is_same_file, align 1
-  %tobool20 = trunc i8 %19 to i1
+  %21 = load i8, ptr %is_same_file, align 1
+  %tobool20 = trunc i8 %21 to i1
   br i1 %tobool20, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %land.end
@@ -3078,32 +3080,32 @@ if.end22:                                         ; preds = %land.end
   br label %do.body23
 
 do.body23:                                        ; preds = %land.end29, %if.end22
-  %20 = load i32, ptr %fd, align 4
-  %call24 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %20, i32 noundef 3)
+  %22 = load i32, ptr %fd, align 4
+  %call24 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %22, i32 noundef 3)
   store i32 %call24, ptr %flags, align 4
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body23
-  %21 = load i32, ptr %flags, align 4
-  %cmp25 = icmp eq i32 %21, -1
+  %23 = load i32, ptr %flags, align 4
+  %cmp25 = icmp eq i32 %23, -1
   br i1 %cmp25, label %land.rhs26, label %land.end29
 
 land.rhs26:                                       ; preds = %do.cond
   %call27 = call ptr @__errno_location() #17
-  %22 = load i32, ptr %call27, align 4
-  %cmp28 = icmp eq i32 %22, 4
+  %24 = load i32, ptr %call27, align 4
+  %cmp28 = icmp eq i32 %24, 4
   br label %land.end29
 
 land.end29:                                       ; preds = %land.rhs26, %do.cond
-  %23 = phi i1 [ false, %do.cond ], [ %cmp28, %land.rhs26 ]
-  br i1 %23, label %do.body23, label %do.end30, !llvm.loop !5
+  %25 = phi i1 [ false, %do.cond ], [ %cmp28, %land.rhs26 ]
+  br i1 %25, label %do.body23, label %do.end30, !llvm.loop !5
 
 do.end30:                                         ; preds = %land.end29
   br label %do.body31
 
 do.body31:                                        ; preds = %do.end30
-  %24 = load i32, ptr %flags, align 4
-  %cmp32 = icmp ne i32 %24, -1
+  %26 = load i32, ptr %flags, align 4
+  %cmp32 = icmp ne i32 %26, -1
   %lnot33 = xor i1 %cmp32, true
   %lnot34 = xor i1 %lnot33, true
   %lnot35 = xor i1 %lnot34, true
@@ -3124,56 +3126,56 @@ if.end41:                                         ; preds = %do.end40, %do.body3
   br label %do.end43
 
 do.end43:                                         ; preds = %if.end41
-  %25 = load i32, ptr %flags, align 4
-  %26 = load ptr, ptr %s, align 8
-  %flags44 = getelementptr inbounds %struct.anon, ptr %26, i32 0, i32 0
-  %27 = load i32, ptr %flags44, align 8
-  %xor = xor i32 %25, %27
+  %27 = load i32, ptr %flags, align 4
+  %28 = load ptr, ptr %s, align 8
+  %flags44 = getelementptr inbounds %struct.anon, ptr %28, i32 0, i32 0
+  %29 = load i32, ptr %flags44, align 8
+  %xor = xor i32 %27, %29
   %and45 = and i32 2048, %xor
   %tobool46 = icmp ne i32 %and45, 0
   br i1 %tobool46, label %if.then47, label %if.end73
 
 if.then47:                                        ; preds = %do.end43
-  %28 = load i32, ptr %flags, align 4
-  %and48 = and i32 %28, -2049
+  %30 = load i32, ptr %flags, align 4
+  %and48 = and i32 %30, -2049
   store i32 %and48, ptr %flags, align 4
-  %29 = load ptr, ptr %s, align 8
-  %flags49 = getelementptr inbounds %struct.anon, ptr %29, i32 0, i32 0
-  %30 = load i32, ptr %flags49, align 8
-  %and50 = and i32 %30, 2048
-  %31 = load i32, ptr %flags, align 4
-  %or = or i32 %31, %and50
+  %31 = load ptr, ptr %s, align 8
+  %flags49 = getelementptr inbounds %struct.anon, ptr %31, i32 0, i32 0
+  %32 = load i32, ptr %flags49, align 8
+  %and50 = and i32 %32, 2048
+  %33 = load i32, ptr %flags, align 4
+  %or = or i32 %33, %and50
   store i32 %or, ptr %flags, align 4
   br label %do.body51
 
 do.body51:                                        ; preds = %land.end58, %if.then47
-  %32 = load i32, ptr %fd, align 4
-  %33 = load i32, ptr %flags, align 4
-  %call52 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %32, i32 noundef 4, i32 noundef %33)
+  %34 = load i32, ptr %fd, align 4
+  %35 = load i32, ptr %flags, align 4
+  %call52 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %34, i32 noundef 4, i32 noundef %35)
   store i32 %call52, ptr %err, align 4
   br label %do.cond53
 
 do.cond53:                                        ; preds = %do.body51
-  %34 = load i32, ptr %err, align 4
-  %cmp54 = icmp eq i32 %34, -1
+  %36 = load i32, ptr %err, align 4
+  %cmp54 = icmp eq i32 %36, -1
   br i1 %cmp54, label %land.rhs55, label %land.end58
 
 land.rhs55:                                       ; preds = %do.cond53
   %call56 = call ptr @__errno_location() #17
-  %35 = load i32, ptr %call56, align 4
-  %cmp57 = icmp eq i32 %35, 4
+  %37 = load i32, ptr %call56, align 4
+  %cmp57 = icmp eq i32 %37, 4
   br label %land.end58
 
 land.end58:                                       ; preds = %land.rhs55, %do.cond53
-  %36 = phi i1 [ false, %do.cond53 ], [ %cmp57, %land.rhs55 ]
-  br i1 %36, label %do.body51, label %do.end59, !llvm.loop !7
+  %38 = phi i1 [ false, %do.cond53 ], [ %cmp57, %land.rhs55 ]
+  br i1 %38, label %do.body51, label %do.end59, !llvm.loop !7
 
 do.end59:                                         ; preds = %land.end58
   br label %do.body60
 
 do.body60:                                        ; preds = %do.end59
-  %37 = load i32, ptr %err, align 4
-  %cmp61 = icmp ne i32 %37, -1
+  %39 = load i32, ptr %err, align 4
+  %cmp61 = icmp ne i32 %39, -1
   %lnot62 = xor i1 %cmp61, true
   %lnot63 = xor i1 %lnot62, true
   %lnot64 = xor i1 %lnot63, true
@@ -3197,10 +3199,10 @@ do.end72:                                         ; preds = %if.end70
   br label %if.end73
 
 if.end73:                                         ; preds = %do.end72, %do.end43
-  %38 = load ptr, ptr %s, align 8
-  %isatty = getelementptr inbounds %struct.anon, ptr %38, i32 0, i32 1
-  %39 = load i8, ptr %isatty, align 4
-  %tobool74 = trunc i8 %39 to i1
+  %40 = load ptr, ptr %s, align 8
+  %isatty = getelementptr inbounds %struct.anon, ptr %40, i32 0, i32 1
+  %41 = load i8, ptr %isatty, align 4
+  %tobool74 = trunc i8 %41 to i1
   br i1 %tobool74, label %if.then75, label %if.end134
 
 if.then75:                                        ; preds = %if.end73
@@ -3234,27 +3236,27 @@ do.end92:                                         ; preds = %if.end90
   br label %do.body93
 
 do.body93:                                        ; preds = %land.end100, %do.end92
-  %40 = load i32, ptr %fd, align 4
-  %41 = load ptr, ptr %s, align 8
-  %termios = getelementptr inbounds %struct.anon, ptr %41, i32 0, i32 3
-  %call94 = call i32 @tcsetattr(i32 noundef %40, i32 noundef 0, ptr noundef %termios) #3
+  %42 = load i32, ptr %fd, align 4
+  %43 = load ptr, ptr %s, align 8
+  %termios = getelementptr inbounds %struct.anon, ptr %43, i32 0, i32 3
+  %call94 = call i32 @tcsetattr(i32 noundef %42, i32 noundef 0, ptr noundef %termios) #3
   store i32 %call94, ptr %err76, align 4
   br label %do.cond95
 
 do.cond95:                                        ; preds = %do.body93
-  %42 = load i32, ptr %err76, align 4
-  %cmp96 = icmp eq i32 %42, -1
+  %44 = load i32, ptr %err76, align 4
+  %cmp96 = icmp eq i32 %44, -1
   br i1 %cmp96, label %land.rhs97, label %land.end100
 
 land.rhs97:                                       ; preds = %do.cond95
   %call98 = call ptr @__errno_location() #17
-  %43 = load i32, ptr %call98, align 4
-  %cmp99 = icmp eq i32 %43, 4
+  %45 = load i32, ptr %call98, align 4
+  %cmp99 = icmp eq i32 %45, 4
   br label %land.end100
 
 land.end100:                                      ; preds = %land.rhs97, %do.cond95
-  %44 = phi i1 [ false, %do.cond95 ], [ %cmp99, %land.rhs97 ]
-  br i1 %44, label %do.body93, label %do.end101, !llvm.loop !8
+  %46 = phi i1 [ false, %do.cond95 ], [ %cmp99, %land.rhs97 ]
+  br i1 %46, label %do.body93, label %do.end101, !llvm.loop !8
 
 do.end101:                                        ; preds = %land.end100
   br label %do.body102
@@ -3285,28 +3287,28 @@ do.end115:                                        ; preds = %if.end113
   br label %do.body116
 
 do.body116:                                       ; preds = %do.end115
-  %45 = load i32, ptr %err76, align 4
-  %cmp117 = icmp ne i32 %45, 0
+  %47 = load i32, ptr %err76, align 4
+  %cmp117 = icmp ne i32 %47, 0
   br i1 %cmp117, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %do.body116
-  %46 = load i32, ptr %err76, align 4
-  %cmp118 = icmp eq i32 %46, -1
+  %48 = load i32, ptr %err76, align 4
+  %cmp118 = icmp eq i32 %48, -1
   br i1 %cmp118, label %land.rhs119, label %land.end122
 
 land.rhs119:                                      ; preds = %lor.rhs
   %call120 = call ptr @__errno_location() #17
-  %47 = load i32, ptr %call120, align 4
-  %cmp121 = icmp eq i32 %47, 1
+  %49 = load i32, ptr %call120, align 4
+  %cmp121 = icmp eq i32 %49, 1
   br label %land.end122
 
 land.end122:                                      ; preds = %land.rhs119, %lor.rhs
-  %48 = phi i1 [ false, %lor.rhs ], [ %cmp121, %land.rhs119 ]
+  %50 = phi i1 [ false, %lor.rhs ], [ %cmp121, %land.rhs119 ]
   br label %lor.end
 
 lor.end:                                          ; preds = %land.end122, %do.body116
-  %49 = phi i1 [ true, %do.body116 ], [ %48, %land.end122 ]
-  %lnot123 = xor i1 %49, true
+  %51 = phi i1 [ true, %do.body116 ], [ %50, %land.end122 ]
+  %lnot123 = xor i1 %51, true
   %lnot124 = xor i1 %lnot123, true
   %lnot125 = xor i1 %lnot124, true
   br i1 %lnot125, label %if.then127, label %if.end131
@@ -3332,8 +3334,8 @@ if.end134:                                        ; preds = %do.end133, %if.end7
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end134, %if.then21, %do.end13
-  %50 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.anon, ptr %50, i32 1
+  %52 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.anon, ptr %52, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -5325,20 +5327,21 @@ lor.rhs:                                          ; preds = %if.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.end
   %5 = phi i1 [ true, %if.end ], [ %cmp4, %lor.rhs ]
-  %cond = select i1 %5, ptr inttoptr (i64 1 to ptr), ptr null
+  %6 = inttoptr i64 1 to ptr
+  %cond = select i1 %5, ptr %6, ptr null
   %__sigaction_handler = getelementptr inbounds %struct.sigaction, ptr %act, i32 0, i32 0
   store ptr %cond, ptr %__sigaction_handler, align 8
   %__sigaction_handler5 = getelementptr inbounds %struct.sigaction, ptr %act, i32 0, i32 0
-  %6 = load ptr, ptr %__sigaction_handler5, align 8
-  %cmp6 = icmp eq ptr %6, null
+  %7 = load ptr, ptr %__sigaction_handler5, align 8
+  %cmp6 = icmp eq ptr %7, null
   br i1 %cmp6, label %if.then7, label %if.end20
 
 if.then7:                                         ; preds = %lor.end
   br label %do.body
 
 do.body:                                          ; preds = %if.then7
-  %7 = load i32, ptr %nr, align 4
-  %call = call i32 @sigaction(i32 noundef %7, ptr noundef null, ptr noundef %old) #3
+  %8 = load i32, ptr %nr, align 4
+  %call = call i32 @sigaction(i32 noundef %8, ptr noundef null, ptr noundef %old) #3
   %cmp8 = icmp eq i32 0, %call
   %lnot = xor i1 %cmp8, true
   %lnot9 = xor i1 %lnot, true
@@ -5361,15 +5364,16 @@ if.end13:                                         ; preds = %do.end, %do.body
 
 do.end14:                                         ; preds = %if.end13
   %sa_flags = getelementptr inbounds %struct.sigaction, ptr %old, i32 0, i32 2
-  %8 = load i32, ptr %sa_flags, align 8
-  %and = and i32 %8, 4
+  %9 = load i32, ptr %sa_flags, align 8
+  %and = and i32 %9, 4
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then18, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %do.end14
   %__sigaction_handler16 = getelementptr inbounds %struct.sigaction, ptr %old, i32 0, i32 0
-  %9 = load ptr, ptr %__sigaction_handler16, align 8
-  %cmp17 = icmp ne ptr %9, inttoptr (i64 1 to ptr)
+  %10 = load ptr, ptr %__sigaction_handler16, align 8
+  %11 = inttoptr i64 1 to ptr
+  %cmp17 = icmp ne ptr %10, %11
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %lor.lhs.false15, %do.end14
@@ -5382,8 +5386,8 @@ if.end20:                                         ; preds = %if.end19, %lor.end
   br label %do.body21
 
 do.body21:                                        ; preds = %if.end20
-  %10 = load i32, ptr %nr, align 4
-  %call22 = call i32 @sigaction(i32 noundef %10, ptr noundef %act, ptr noundef null) #3
+  %12 = load i32, ptr %nr, align 4
+  %call22 = call i32 @sigaction(i32 noundef %12, ptr noundef %act, ptr noundef null) #3
   %cmp23 = icmp eq i32 0, %call22
   %lnot24 = xor i1 %cmp23, true
   %lnot25 = xor i1 %lnot24, true
@@ -5408,8 +5412,8 @@ do.end31:                                         ; preds = %if.end30
   br label %for.inc
 
 for.inc:                                          ; preds = %do.end31, %if.then18, %if.then
-  %11 = load i32, ptr %nr, align 4
-  %add = add i32 %11, 1
+  %13 = load i32, ptr %nr, align 4
+  %add = add i32 %13, 1
   store i32 %add, ptr %nr, align 4
   br label %for.cond, !llvm.loop !9
 
@@ -16329,28 +16333,30 @@ if.then10:                                        ; preds = %if.end7
   %call12 = call i32 @setvbuf(ptr noundef %10, ptr noundef null, i32 noundef 2, i64 noundef 0) #3
   store ptr @_ZN4nodeL5stdioE, ptr %__range2, align 8
   store ptr @_ZN4nodeL5stdioE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @_ZN4nodeL5stdioE, i64 3), ptr %__end2, align 8
+  %11 = getelementptr inbounds %struct.anon, ptr @_ZN4nodeL5stdioE, i64 3
+  store ptr %11, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then10
-  %11 = load ptr, ptr %__begin2, align 8
-  %12 = load ptr, ptr %__end2, align 8
-  %cmp = icmp ne ptr %11, %12
+  %12 = load ptr, ptr %__begin2, align 8
+  %13 = load ptr, ptr %__end2, align 8
+  %cmp = icmp ne ptr %12, %13
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %13 = load ptr, ptr %__begin2, align 8
-  store ptr %13, ptr %s, align 8
-  %14 = load ptr, ptr %s, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %14 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @_ZN4nodeL5stdioE to i64)
+  %14 = load ptr, ptr %__begin2, align 8
+  store ptr %14, ptr %s, align 8
+  %15 = load ptr, ptr %s, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %15 to i64
+  %16 = ptrtoint ptr @_ZN4nodeL5stdioE to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %16
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 216
   %conv = trunc i64 %sub.ptr.div to i32
   store i32 %conv, ptr %fd, align 4
-  %15 = load i32, ptr %fd, align 4
-  %16 = load ptr, ptr %s, align 8
-  %stat = getelementptr inbounds %struct.anon, ptr %16, i32 0, i32 2
-  %call13 = call i32 @fstat64(i32 noundef %15, ptr noundef %stat) #3
+  %17 = load i32, ptr %fd, align 4
+  %18 = load ptr, ptr %s, align 8
+  %stat = getelementptr inbounds %struct.anon, ptr %18, i32 0, i32 2
+  %call13 = call i32 @fstat64(i32 noundef %17, ptr noundef %stat) #3
   %cmp14 = icmp eq i32 %call13, 0
   br i1 %cmp14, label %if.then15, label %if.end16
 
@@ -16359,20 +16365,20 @@ if.then15:                                        ; preds = %for.body
 
 if.end16:                                         ; preds = %for.body
   %call17 = call ptr @__errno_location() #17
-  %17 = load i32, ptr %call17, align 4
-  %cmp18 = icmp ne i32 %17, 9
+  %19 = load i32, ptr %call17, align 4
+  %cmp18 = icmp ne i32 %19, 9
   br i1 %cmp18, label %if.then19, label %if.end23
 
 if.then19:                                        ; preds = %if.end16
   br label %do.body20
 
 do.body20:                                        ; preds = %if.then19
-  %18 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node19DumpNativeBacktraceEP8_IO_FILE(ptr noundef %18)
-  %19 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node23DumpJavaScriptBacktraceEP8_IO_FILE(ptr noundef %19)
   %20 = load ptr, ptr @stderr, align 8
-  %call21 = call i32 @fflush(ptr noundef %20)
+  call void @_ZN4node19DumpNativeBacktraceEP8_IO_FILE(ptr noundef %20)
+  %21 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node23DumpJavaScriptBacktraceEP8_IO_FILE(ptr noundef %21)
+  %22 = load ptr, ptr @stderr, align 8
+  %call21 = call i32 @fflush(ptr noundef %22)
   call void @abort() #18
   unreachable
 
@@ -16388,57 +16394,57 @@ do.body24:                                        ; preds = %land.end, %if.end23
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body24
-  %21 = load i32, ptr %null_fd, align 4
-  %cmp26 = icmp slt i32 %21, 0
+  %23 = load i32, ptr %null_fd, align 4
+  %cmp26 = icmp slt i32 %23, 0
   br i1 %cmp26, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %do.cond
   %call27 = call ptr @__errno_location() #17
-  %22 = load i32, ptr %call27, align 4
-  %cmp28 = icmp eq i32 %22, 4
+  %24 = load i32, ptr %call27, align 4
+  %cmp28 = icmp eq i32 %24, 4
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %do.cond
-  %23 = phi i1 [ false, %do.cond ], [ %cmp28, %land.rhs ]
-  br i1 %23, label %do.body24, label %do.end29, !llvm.loop !22
+  %25 = phi i1 [ false, %do.cond ], [ %cmp28, %land.rhs ]
+  br i1 %25, label %do.body24, label %do.end29, !llvm.loop !22
 
 do.end29:                                         ; preds = %land.end
-  %24 = load i32, ptr %null_fd, align 4
-  %25 = load i32, ptr %fd, align 4
-  %cmp30 = icmp ne i32 %24, %25
+  %26 = load i32, ptr %null_fd, align 4
+  %27 = load i32, ptr %fd, align 4
+  %cmp30 = icmp ne i32 %26, %27
   br i1 %cmp30, label %if.then31, label %if.end54
 
 if.then31:                                        ; preds = %do.end29
   br label %do.body32
 
 do.body32:                                        ; preds = %land.end39, %if.then31
-  %26 = load i32, ptr %null_fd, align 4
-  %27 = load i32, ptr %fd, align 4
-  %call33 = call i32 @dup2(i32 noundef %26, i32 noundef %27) #3
+  %28 = load i32, ptr %null_fd, align 4
+  %29 = load i32, ptr %fd, align 4
+  %call33 = call i32 @dup2(i32 noundef %28, i32 noundef %29) #3
   store i32 %call33, ptr %err, align 4
   br label %do.cond34
 
 do.cond34:                                        ; preds = %do.body32
-  %28 = load i32, ptr %err, align 4
-  %cmp35 = icmp slt i32 %28, 0
+  %30 = load i32, ptr %err, align 4
+  %cmp35 = icmp slt i32 %30, 0
   br i1 %cmp35, label %land.rhs36, label %land.end39
 
 land.rhs36:                                       ; preds = %do.cond34
   %call37 = call ptr @__errno_location() #17
-  %29 = load i32, ptr %call37, align 4
-  %cmp38 = icmp eq i32 %29, 4
+  %31 = load i32, ptr %call37, align 4
+  %cmp38 = icmp eq i32 %31, 4
   br label %land.end39
 
 land.end39:                                       ; preds = %land.rhs36, %do.cond34
-  %30 = phi i1 [ false, %do.cond34 ], [ %cmp38, %land.rhs36 ]
-  br i1 %30, label %do.body32, label %do.end40, !llvm.loop !23
+  %32 = phi i1 [ false, %do.cond34 ], [ %cmp38, %land.rhs36 ]
+  br i1 %32, label %do.body32, label %do.end40, !llvm.loop !23
 
 do.end40:                                         ; preds = %land.end39
   br label %do.body41
 
 do.body41:                                        ; preds = %do.end40
-  %31 = load i32, ptr %err, align 4
-  %cmp42 = icmp eq i32 %31, 0
+  %33 = load i32, ptr %err, align 4
+  %cmp42 = icmp eq i32 %33, 0
   %lnot43 = xor i1 %cmp42, true
   %lnot44 = xor i1 %lnot43, true
   %lnot45 = xor i1 %lnot44, true
@@ -16462,10 +16468,10 @@ do.end53:                                         ; preds = %if.end51
   br label %if.end54
 
 if.end54:                                         ; preds = %do.end53, %do.end29
-  %32 = load i32, ptr %fd, align 4
-  %33 = load ptr, ptr %s, align 8
-  %stat55 = getelementptr inbounds %struct.anon, ptr %33, i32 0, i32 2
-  %call56 = call i32 @fstat64(i32 noundef %32, ptr noundef %stat55) #3
+  %34 = load i32, ptr %fd, align 4
+  %35 = load ptr, ptr %s, align 8
+  %stat55 = getelementptr inbounds %struct.anon, ptr %35, i32 0, i32 2
+  %call56 = call i32 @fstat64(i32 noundef %34, ptr noundef %stat55) #3
   %cmp57 = icmp slt i32 %call56, 0
   br i1 %cmp57, label %if.then58, label %if.end63
 
@@ -16473,12 +16479,12 @@ if.then58:                                        ; preds = %if.end54
   br label %do.body59
 
 do.body59:                                        ; preds = %if.then58
-  %34 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node19DumpNativeBacktraceEP8_IO_FILE(ptr noundef %34)
-  %35 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node23DumpJavaScriptBacktraceEP8_IO_FILE(ptr noundef %35)
   %36 = load ptr, ptr @stderr, align 8
-  %call60 = call i32 @fflush(ptr noundef %36)
+  call void @_ZN4node19DumpNativeBacktraceEP8_IO_FILE(ptr noundef %36)
+  %37 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node23DumpJavaScriptBacktraceEP8_IO_FILE(ptr noundef %37)
+  %38 = load ptr, ptr @stderr, align 8
+  %call60 = call i32 @fflush(ptr noundef %38)
   call void @abort() #18
   unreachable
 
@@ -16489,8 +16495,8 @@ if.end63:                                         ; preds = %do.end62, %if.end54
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end63, %if.then15
-  %37 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds %struct.anon, ptr %37, i32 1
+  %39 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds %struct.anon, ptr %39, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
@@ -16498,8 +16504,8 @@ for.end:                                          ; preds = %for.cond
   br label %if.end64
 
 if.end64:                                         ; preds = %for.end, %if.end7
-  %38 = load i32, ptr %flags.addr, align 4
-  %and65 = and i32 %38, 32
+  %40 = load i32, ptr %flags.addr, align 4
+  %and65 = and i32 %40, 32
   %tobool66 = icmp ne i32 %and65, 0
   br i1 %tobool66, label %if.end85, label %if.then67
 
@@ -16511,8 +16517,8 @@ if.then67:                                        ; preds = %if.end64
   br label %do.body72
 
 do.body72:                                        ; preds = %if.then67
-  %39 = load i32, ptr %err70, align 4
-  %cmp73 = icmp eq i32 %39, 0
+  %41 = load i32, ptr %err70, align 4
+  %cmp73 = icmp eq i32 %41, 0
   %lnot74 = xor i1 %cmp73, true
   %lnot75 = xor i1 %lnot74, true
   %lnot76 = xor i1 %lnot75, true
@@ -16537,67 +16543,69 @@ do.end84:                                         ; preds = %if.end82
   br label %if.end85
 
 if.end85:                                         ; preds = %do.end84, %if.end64
-  %40 = load i32, ptr %flags.addr, align 4
-  %and86 = and i32 %40, 16
+  %42 = load i32, ptr %flags.addr, align 4
+  %and86 = and i32 %42, 16
   %tobool87 = icmp ne i32 %and86, 0
   br i1 %tobool87, label %if.end156, label %if.then88
 
 if.then88:                                        ; preds = %if.end85
   store ptr @_ZN4nodeL5stdioE, ptr %__range289, align 8
   store ptr @_ZN4nodeL5stdioE, ptr %__begin290, align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @_ZN4nodeL5stdioE, i64 3), ptr %__end291, align 8
+  %43 = getelementptr inbounds %struct.anon, ptr @_ZN4nodeL5stdioE, i64 3
+  store ptr %43, ptr %__end291, align 8
   br label %for.cond92
 
 for.cond92:                                       ; preds = %for.inc153, %if.then88
-  %41 = load ptr, ptr %__begin290, align 8
-  %42 = load ptr, ptr %__end291, align 8
-  %cmp93 = icmp ne ptr %41, %42
+  %44 = load ptr, ptr %__begin290, align 8
+  %45 = load ptr, ptr %__end291, align 8
+  %cmp93 = icmp ne ptr %44, %45
   br i1 %cmp93, label %for.body94, label %for.end155
 
 for.body94:                                       ; preds = %for.cond92
-  %43 = load ptr, ptr %__begin290, align 8
-  store ptr %43, ptr %s95, align 8
-  %44 = load ptr, ptr %s95, align 8
-  %sub.ptr.lhs.cast97 = ptrtoint ptr %44 to i64
-  %sub.ptr.sub98 = sub i64 %sub.ptr.lhs.cast97, ptrtoint (ptr @_ZN4nodeL5stdioE to i64)
+  %46 = load ptr, ptr %__begin290, align 8
+  store ptr %46, ptr %s95, align 8
+  %47 = load ptr, ptr %s95, align 8
+  %sub.ptr.lhs.cast97 = ptrtoint ptr %47 to i64
+  %48 = ptrtoint ptr @_ZN4nodeL5stdioE to i64
+  %sub.ptr.sub98 = sub i64 %sub.ptr.lhs.cast97, %48
   %sub.ptr.div99 = sdiv exact i64 %sub.ptr.sub98, 216
   %conv100 = trunc i64 %sub.ptr.div99 to i32
   store i32 %conv100, ptr %fd96, align 4
   br label %do.body102
 
 do.body102:                                       ; preds = %land.end111, %for.body94
-  %45 = load i32, ptr %fd96, align 4
-  %call103 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %45, i32 noundef 3)
-  %46 = load ptr, ptr %s95, align 8
-  %flags104 = getelementptr inbounds %struct.anon, ptr %46, i32 0, i32 0
+  %49 = load i32, ptr %fd96, align 4
+  %call103 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %49, i32 noundef 3)
+  %50 = load ptr, ptr %s95, align 8
+  %flags104 = getelementptr inbounds %struct.anon, ptr %50, i32 0, i32 0
   store i32 %call103, ptr %flags104, align 8
   br label %do.cond105
 
 do.cond105:                                       ; preds = %do.body102
-  %47 = load ptr, ptr %s95, align 8
-  %flags106 = getelementptr inbounds %struct.anon, ptr %47, i32 0, i32 0
-  %48 = load i32, ptr %flags106, align 8
-  %cmp107 = icmp eq i32 %48, -1
+  %51 = load ptr, ptr %s95, align 8
+  %flags106 = getelementptr inbounds %struct.anon, ptr %51, i32 0, i32 0
+  %52 = load i32, ptr %flags106, align 8
+  %cmp107 = icmp eq i32 %52, -1
   br i1 %cmp107, label %land.rhs108, label %land.end111
 
 land.rhs108:                                      ; preds = %do.cond105
   %call109 = call ptr @__errno_location() #17
-  %49 = load i32, ptr %call109, align 4
-  %cmp110 = icmp eq i32 %49, 4
+  %53 = load i32, ptr %call109, align 4
+  %cmp110 = icmp eq i32 %53, 4
   br label %land.end111
 
 land.end111:                                      ; preds = %land.rhs108, %do.cond105
-  %50 = phi i1 [ false, %do.cond105 ], [ %cmp110, %land.rhs108 ]
-  br i1 %50, label %do.body102, label %do.end112, !llvm.loop !24
+  %54 = phi i1 [ false, %do.cond105 ], [ %cmp110, %land.rhs108 ]
+  br i1 %54, label %do.body102, label %do.end112, !llvm.loop !24
 
 do.end112:                                        ; preds = %land.end111
   br label %do.body113
 
 do.body113:                                       ; preds = %do.end112
-  %51 = load ptr, ptr %s95, align 8
-  %flags114 = getelementptr inbounds %struct.anon, ptr %51, i32 0, i32 0
-  %52 = load i32, ptr %flags114, align 8
-  %cmp115 = icmp ne i32 %52, -1
+  %55 = load ptr, ptr %s95, align 8
+  %flags114 = getelementptr inbounds %struct.anon, ptr %55, i32 0, i32 0
+  %56 = load i32, ptr %flags114, align 8
+  %cmp115 = icmp ne i32 %56, -1
   %lnot116 = xor i1 %cmp115, true
   %lnot117 = xor i1 %lnot116, true
   %lnot118 = xor i1 %lnot117, true
@@ -16618,8 +16626,8 @@ if.end124:                                        ; preds = %do.end123, %do.body
   br label %do.end126
 
 do.end126:                                        ; preds = %if.end124
-  %53 = load i32, ptr %fd96, align 4
-  %call127 = call i32 @uv_guess_handle(i32 noundef %53)
+  %57 = load i32, ptr %fd96, align 4
+  %call127 = call i32 @uv_guess_handle(i32 noundef %57)
   %cmp128 = icmp ne i32 %call127, 14
   br i1 %cmp128, label %if.then129, label %if.end130
 
@@ -16627,40 +16635,40 @@ if.then129:                                       ; preds = %do.end126
   br label %for.inc153
 
 if.end130:                                        ; preds = %do.end126
-  %54 = load ptr, ptr %s95, align 8
-  %isatty = getelementptr inbounds %struct.anon, ptr %54, i32 0, i32 1
+  %58 = load ptr, ptr %s95, align 8
+  %isatty = getelementptr inbounds %struct.anon, ptr %58, i32 0, i32 1
   store i8 1, ptr %isatty, align 4
   br label %do.body131
 
 do.body131:                                       ; preds = %land.end138, %if.end130
-  %55 = load i32, ptr %fd96, align 4
-  %56 = load ptr, ptr %s95, align 8
-  %termios = getelementptr inbounds %struct.anon, ptr %56, i32 0, i32 3
-  %call132 = call i32 @tcgetattr(i32 noundef %55, ptr noundef %termios) #3
+  %59 = load i32, ptr %fd96, align 4
+  %60 = load ptr, ptr %s95, align 8
+  %termios = getelementptr inbounds %struct.anon, ptr %60, i32 0, i32 3
+  %call132 = call i32 @tcgetattr(i32 noundef %59, ptr noundef %termios) #3
   store i32 %call132, ptr %err101, align 4
   br label %do.cond133
 
 do.cond133:                                       ; preds = %do.body131
-  %57 = load i32, ptr %err101, align 4
-  %cmp134 = icmp eq i32 %57, -1
+  %61 = load i32, ptr %err101, align 4
+  %cmp134 = icmp eq i32 %61, -1
   br i1 %cmp134, label %land.rhs135, label %land.end138
 
 land.rhs135:                                      ; preds = %do.cond133
   %call136 = call ptr @__errno_location() #17
-  %58 = load i32, ptr %call136, align 4
-  %cmp137 = icmp eq i32 %58, 4
+  %62 = load i32, ptr %call136, align 4
+  %cmp137 = icmp eq i32 %62, 4
   br label %land.end138
 
 land.end138:                                      ; preds = %land.rhs135, %do.cond133
-  %59 = phi i1 [ false, %do.cond133 ], [ %cmp137, %land.rhs135 ]
-  br i1 %59, label %do.body131, label %do.end139, !llvm.loop !25
+  %63 = phi i1 [ false, %do.cond133 ], [ %cmp137, %land.rhs135 ]
+  br i1 %63, label %do.body131, label %do.end139, !llvm.loop !25
 
 do.end139:                                        ; preds = %land.end138
   br label %do.body140
 
 do.body140:                                       ; preds = %do.end139
-  %60 = load i32, ptr %err101, align 4
-  %cmp141 = icmp eq i32 %60, 0
+  %64 = load i32, ptr %err101, align 4
+  %cmp141 = icmp eq i32 %64, 0
   %lnot142 = xor i1 %cmp141, true
   %lnot143 = xor i1 %lnot142, true
   %lnot144 = xor i1 %lnot143, true
@@ -16684,8 +16692,8 @@ do.end152:                                        ; preds = %if.end150
   br label %for.inc153
 
 for.inc153:                                       ; preds = %do.end152, %if.then129
-  %61 = load ptr, ptr %__begin290, align 8
-  %incdec.ptr154 = getelementptr inbounds %struct.anon, ptr %61, i32 1
+  %65 = load ptr, ptr %__begin290, align 8
+  %incdec.ptr154 = getelementptr inbounds %struct.anon, ptr %65, i32 1
   store ptr %incdec.ptr154, ptr %__begin290, align 8
   br label %for.cond92
 
@@ -16693,8 +16701,8 @@ for.end155:                                       ; preds = %for.cond92
   br label %if.end156
 
 if.end156:                                        ; preds = %for.end155, %if.end85
-  %62 = load i32, ptr %flags.addr, align 4
-  %and157 = and i32 %62, 32
+  %66 = load i32, ptr %flags.addr, align 4
+  %and157 = and i32 %66, 32
   %tobool158 = icmp ne i32 %and157, 0
   br i1 %tobool158, label %if.end175, label %if.then159
 
@@ -16735,8 +16743,8 @@ do.end173:                                        ; preds = %if.end171
   br label %if.end175
 
 if.end175:                                        ; preds = %do.end173, %if.end156
-  %63 = load i32, ptr %flags.addr, align 4
-  %and176 = and i32 %63, 1024
+  %67 = load i32, ptr %flags.addr, align 4
+  %and176 = and i32 %67, 1024
   %tobool177 = icmp ne i32 %and176, 0
   br i1 %tobool177, label %if.end203, label %if.then178
 
@@ -16747,41 +16755,41 @@ if.then178:                                       ; preds = %if.end175
 
 land.lhs.true:                                    ; preds = %if.then178
   %rlim_cur = getelementptr inbounds %struct.rlimit, ptr %lim, i32 0, i32 0
-  %64 = load i64, ptr %rlim_cur, align 8
+  %68 = load i64, ptr %rlim_cur, align 8
   %rlim_max = getelementptr inbounds %struct.rlimit, ptr %lim, i32 0, i32 1
-  %65 = load i64, ptr %rlim_max, align 8
-  %cmp181 = icmp ne i64 %64, %65
+  %69 = load i64, ptr %rlim_max, align 8
+  %cmp181 = icmp ne i64 %68, %69
   br i1 %cmp181, label %if.then182, label %if.end202
 
 if.then182:                                       ; preds = %land.lhs.true
   %rlim_cur183 = getelementptr inbounds %struct.rlimit, ptr %lim, i32 0, i32 0
-  %66 = load i64, ptr %rlim_cur183, align 8
-  store i64 %66, ptr %min, align 8
+  %70 = load i64, ptr %rlim_cur183, align 8
+  store i64 %70, ptr %min, align 8
   store i64 1048576, ptr %max, align 8
   %rlim_max184 = getelementptr inbounds %struct.rlimit, ptr %lim, i32 0, i32 1
-  %67 = load i64, ptr %rlim_max184, align 8
-  %cmp185 = icmp ne i64 %67, -1
+  %71 = load i64, ptr %rlim_max184, align 8
+  %cmp185 = icmp ne i64 %71, -1
   br i1 %cmp185, label %if.then186, label %if.end189
 
 if.then186:                                       ; preds = %if.then182
   %rlim_max187 = getelementptr inbounds %struct.rlimit, ptr %lim, i32 0, i32 1
-  %68 = load i64, ptr %rlim_max187, align 8
-  store i64 %68, ptr %min, align 8
+  %72 = load i64, ptr %rlim_max187, align 8
+  store i64 %72, ptr %min, align 8
   %rlim_max188 = getelementptr inbounds %struct.rlimit, ptr %lim, i32 0, i32 1
-  %69 = load i64, ptr %rlim_max188, align 8
-  store i64 %69, ptr %max, align 8
+  %73 = load i64, ptr %rlim_max188, align 8
+  store i64 %73, ptr %max, align 8
   br label %if.end189
 
 if.end189:                                        ; preds = %if.then186, %if.then182
   br label %do.body190
 
 do.body190:                                       ; preds = %do.cond198, %if.end189
-  %70 = load i64, ptr %min, align 8
-  %71 = load i64, ptr %max, align 8
-  %72 = load i64, ptr %min, align 8
-  %sub = sub i64 %71, %72
+  %74 = load i64, ptr %min, align 8
+  %75 = load i64, ptr %max, align 8
+  %76 = load i64, ptr %min, align 8
+  %sub = sub i64 %75, %76
   %div = udiv i64 %sub, 2
-  %add = add i64 %70, %div
+  %add = add i64 %74, %div
   %rlim_cur191 = getelementptr inbounds %struct.rlimit, ptr %lim, i32 0, i32 0
   store i64 %add, ptr %rlim_cur191, align 8
   %call192 = call i32 @setrlimit64(i32 noundef 7, ptr noundef %lim) #3
@@ -16790,24 +16798,24 @@ do.body190:                                       ; preds = %do.cond198, %if.end
 
 if.then194:                                       ; preds = %do.body190
   %rlim_cur195 = getelementptr inbounds %struct.rlimit, ptr %lim, i32 0, i32 0
-  %73 = load i64, ptr %rlim_cur195, align 8
-  store i64 %73, ptr %max, align 8
+  %77 = load i64, ptr %rlim_cur195, align 8
+  store i64 %77, ptr %max, align 8
   br label %if.end197
 
 if.else:                                          ; preds = %do.body190
   %rlim_cur196 = getelementptr inbounds %struct.rlimit, ptr %lim, i32 0, i32 0
-  %74 = load i64, ptr %rlim_cur196, align 8
-  store i64 %74, ptr %min, align 8
+  %78 = load i64, ptr %rlim_cur196, align 8
+  store i64 %78, ptr %min, align 8
   br label %if.end197
 
 if.end197:                                        ; preds = %if.else, %if.then194
   br label %do.cond198
 
 do.cond198:                                       ; preds = %if.end197
-  %75 = load i64, ptr %min, align 8
-  %add199 = add i64 %75, 1
-  %76 = load i64, ptr %max, align 8
-  %cmp200 = icmp ult i64 %add199, %76
+  %79 = load i64, ptr %min, align 8
+  %add199 = add i64 %79, 1
+  %80 = load i64, ptr %max, align 8
+  %cmp200 = icmp ult i64 %add199, %80
   br i1 %cmp200, label %do.body190, label %do.end201, !llvm.loop !26
 
 do.end201:                                        ; preds = %do.cond198
@@ -17085,7 +17093,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node20InitializationResultC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node24InitializationResultImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node24InitializationResultImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %exit_code_ = getelementptr inbounds %"class.node::InitializationResultImpl", ptr %this1, i32 0, i32 1
   store i32 0, ptr %exit_code_, align 8
   %args_ = getelementptr inbounds %"class.node::InitializationResultImpl", ptr %this1, i32 0, i32 2
@@ -17121,7 +17130,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node20InitializationResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node20InitializationResultE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17415,7 +17425,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt13__atomic_baseIjE12is_l
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @__atomic_is_lock_free(i64 noundef 4, ptr noundef inttoptr (i64 -4 to ptr))
+  %0 = inttoptr i64 -4 to ptr
+  %call = call noundef zeroext i1 @__atomic_is_lock_free(i64 noundef 4, ptr noundef %0)
   ret i1 %call
 }
 
@@ -18166,10 +18177,11 @@ entry:
   store ptr %controller, ptr %controller.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v817TracingController18TraceStateObserverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node22NodeTraceStateObserverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4node22NodeTraceStateObserverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %controller_ = getelementptr inbounds %"class.node::NodeTraceStateObserver", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %controller.addr, align 8
-  store ptr %0, ptr %controller_, align 8
+  %1 = load ptr, ptr %controller.addr, align 8
+  store ptr %1, ptr %controller_, align 8
   ret void
 }
 
@@ -18193,7 +18205,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2v817TracingController18TraceStateObserverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2v817TracingController18TraceStateObserverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18957,89 +18970,116 @@ do.end37:                                         ; preds = %do.cond36
   %call40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN4node11per_process8metadataE) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call39, ptr noundef @.str.150, ptr noundef %call40)
   %call41 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call42 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 1)) #3
+  %133 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 1
+  %call42 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %133) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call41, ptr noundef @.str.154, ptr noundef %call42)
   %call43 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call44 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 2)) #3
+  %134 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 2
+  %call44 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %134) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call43, ptr noundef @.str.155, ptr noundef %call44)
   %call45 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 3)) #3
+  %135 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 3
+  %call46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %135) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call45, ptr noundef @.str.156, ptr noundef %call46)
   %call47 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call48 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 4)) #3
+  %136 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 4
+  %call48 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %136) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call47, ptr noundef @.str.157, ptr noundef %call48)
   %call49 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call50 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 5)) #3
+  %137 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 5
+  %call50 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %137) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call49, ptr noundef @.str.158, ptr noundef %call50)
   %call51 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call52 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 6)) #3
+  %138 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 6
+  %call52 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %138) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call51, ptr noundef @.str.159, ptr noundef %call52)
   %call53 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call54 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 7)) #3
+  %139 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 7
+  %call54 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %139) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call53, ptr noundef @.str.160, ptr noundef %call54)
   %call55 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call56 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 8)) #3
+  %140 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 8
+  %call56 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %140) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call55, ptr noundef @.str.161, ptr noundef %call56)
   %call57 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call58 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 9)) #3
+  %141 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 9
+  %call58 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %141) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call57, ptr noundef @.str.162, ptr noundef %call58)
   %call59 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 10)) #3
+  %142 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 10
+  %call60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %142) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call59, ptr noundef @.str.163, ptr noundef %call60)
   %call61 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call62 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 11)) #3
+  %143 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 11
+  %call62 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %143) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call61, ptr noundef @.str.164, ptr noundef %call62)
   %call63 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 12)) #3
+  %144 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 12
+  %call64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %144) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call63, ptr noundef @.str.165, ptr noundef %call64)
   %call65 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call66 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 13)) #3
+  %145 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 13
+  %call66 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %145) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call65, ptr noundef @.str.166, ptr noundef %call66)
   %call67 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call68 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 14)) #3
+  %146 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 14
+  %call68 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %146) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call67, ptr noundef @.str.167, ptr noundef %call68)
   %call69 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 15)) #3
+  %147 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 15
+  %call70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %147) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call69, ptr noundef @.str.168, ptr noundef %call70)
   %call71 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call72 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 16)) #3
+  %148 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 16
+  %call72 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %148) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call71, ptr noundef @.str.169, ptr noundef %call72)
   %call73 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 17)) #3
+  %149 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 17
+  %call74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %149) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call73, ptr noundef @.str.170, ptr noundef %call74)
   %call75 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call76 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 18)) #3
+  %150 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 18
+  %call76 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %150) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call75, ptr noundef @.str.171, ptr noundef %call76)
   %call77 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call78 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 19)) #3
+  %151 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 19
+  %call78 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %151) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call77, ptr noundef @.str.172, ptr noundef %call78)
   %call79 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call80 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 20)) #3
+  %152 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 20
+  %call80 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %152) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call79, ptr noundef @.str.173, ptr noundef %call80)
   %call81 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call82 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 21)) #3
+  %153 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 21
+  %call82 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %153) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call81, ptr noundef @.str.174, ptr noundef %call82)
   %call83 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call84 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 22)) #3
+  %154 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 22
+  %call84 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %154) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call83, ptr noundef @.str.175, ptr noundef %call84)
   %call85 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call86 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 23)) #3
+  %155 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 23
+  %call86 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %155) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call85, ptr noundef @.str.176, ptr noundef %call86)
   %call87 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call88 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 24)) #3
+  %156 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 24
+  %call88 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %156) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call87, ptr noundef @.str.177, ptr noundef %call88)
   %call89 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
   call void @_ZN4node7tracing11TracedValue13EndDictionaryEv(ptr noundef nonnull align 8 dereferenceable(42) %call89)
   %call90 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call91 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 2)) #3
+  %157 = getelementptr inbounds %"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 2
+  %call91 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %157) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call90, ptr noundef @.str.178, ptr noundef %call91)
   %call92 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call93 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 3)) #3
+  %158 = getelementptr inbounds %"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 3
+  %call93 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %158) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call92, ptr noundef @.str.179, ptr noundef %call93)
   %call94 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
   call void @_ZN4node7tracing11TracedValue15BeginDictionaryEPKc(ptr noundef nonnull align 8 dereferenceable(42) %call94, ptr noundef @.str.180)
   %call95 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
-  %call96 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 1)) #3
+  %159 = getelementptr inbounds %"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 1
+  %call96 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %159) #3
   call void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %call95, ptr noundef @.str.148, ptr noundef %call96)
   %call97 = call noundef ptr @_ZNKSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
   call void @_ZN4node7tracing11TracedValue13EndDictionaryEv(ptr noundef nonnull align 8 dereferenceable(42) %call97)
@@ -19049,100 +19089,100 @@ do.body98:                                        ; preds = %do.end37
   store ptr @_ZZN4node22NodeTraceStateObserver14OnTraceEnabledEvE27trace_event_unique_atomic64, ptr %this.addr.i, align 8
   store i32 5, ptr %__m.addr.i, align 4
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %133 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %133, i32 noundef 65535)
+  %160 = load i32, ptr %__m.addr.i, align 4
+  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %160, i32 noundef 65535)
   store i32 %call.i, ptr %__b.i, align 4
-  %134 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %134, label %monotonic.i [
+  %161 = load i32, ptr %__m.addr.i, align 4
+  switch i32 %161, label %monotonic.i [
     i32 1, label %acquire.i
     i32 2, label %acquire.i
     i32 5, label %seqcst.i
   ]
 
 monotonic.i:                                      ; preds = %do.body98
-  %135 = load atomic i64, ptr %this1.i monotonic, align 8
-  store i64 %135, ptr %atomic-temp.i, align 8
+  %162 = load atomic i64, ptr %this1.i monotonic, align 8
+  store i64 %162, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
 
 acquire.i:                                        ; preds = %do.body98, %do.body98
-  %136 = load atomic i64, ptr %this1.i acquire, align 8
-  store i64 %136, ptr %atomic-temp.i, align 8
+  %163 = load atomic i64, ptr %this1.i acquire, align 8
+  store i64 %163, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
 
 seqcst.i:                                         ; preds = %do.body98
-  %137 = load atomic i64, ptr %this1.i seq_cst, align 8
-  store i64 %137, ptr %atomic-temp.i, align 8
+  %164 = load atomic i64, ptr %this1.i seq_cst, align 8
+  store i64 %164, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
 
 _ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %138 = load i64, ptr %atomic-temp.i, align 8
-  %139 = inttoptr i64 %138 to ptr
-  store ptr %139, ptr %trace_event_unique_category_group_enabled64, align 8
-  %140 = load ptr, ptr %trace_event_unique_category_group_enabled64, align 8
-  %tobool100 = icmp ne ptr %140, null
+  %165 = load i64, ptr %atomic-temp.i, align 8
+  %166 = inttoptr i64 %165 to ptr
+  store ptr %166, ptr %trace_event_unique_category_group_enabled64, align 8
+  %167 = load ptr, ptr %trace_event_unique_category_group_enabled64, align 8
+  %tobool100 = icmp ne ptr %167, null
   br i1 %tobool100, label %if.end103, label %if.then101
 
 if.then101:                                       ; preds = %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
   %call102 = call noundef ptr @_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc(ptr noundef @.str.146)
   store ptr %call102, ptr %trace_event_unique_category_group_enabled64, align 8
-  %141 = load ptr, ptr %trace_event_unique_category_group_enabled64, align 8
-  %142 = ptrtoint ptr %141 to i64
+  %168 = load ptr, ptr %trace_event_unique_category_group_enabled64, align 8
+  %169 = ptrtoint ptr %168 to i64
   store ptr @_ZZN4node22NodeTraceStateObserver14OnTraceEnabledEvE27trace_event_unique_atomic64, ptr %this.addr.i141, align 8
-  store i64 %142, ptr %__i.addr.i, align 8
+  store i64 %169, ptr %__i.addr.i, align 8
   store i32 5, ptr %__m.addr.i142, align 4
   %this1.i144 = load ptr, ptr %this.addr.i141, align 8
-  %143 = load i32, ptr %__m.addr.i142, align 4
-  %call.i145 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %143, i32 noundef 65535)
+  %170 = load i32, ptr %__m.addr.i142, align 4
+  %call.i145 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %170, i32 noundef 65535)
   store i32 %call.i145, ptr %__b.i143, align 4
-  %144 = load i32, ptr %__m.addr.i142, align 4
-  %145 = load i64, ptr %__i.addr.i, align 8
-  store i64 %145, ptr %.atomictmp.i, align 8
-  switch i32 %144, label %monotonic.i147 [
+  %171 = load i32, ptr %__m.addr.i142, align 4
+  %172 = load i64, ptr %__i.addr.i, align 8
+  store i64 %172, ptr %.atomictmp.i, align 8
+  switch i32 %171, label %monotonic.i147 [
     i32 3, label %release.i
     i32 5, label %seqcst.i146
   ]
 
 monotonic.i147:                                   ; preds = %if.then101
-  %146 = load i64, ptr %.atomictmp.i, align 8
-  store atomic i64 %146, ptr %this1.i144 monotonic, align 8
+  %173 = load i64, ptr %.atomictmp.i, align 8
+  store atomic i64 %173, ptr %this1.i144 monotonic, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
 
 release.i:                                        ; preds = %if.then101
-  %147 = load i64, ptr %.atomictmp.i, align 8
-  store atomic i64 %147, ptr %this1.i144 release, align 8
+  %174 = load i64, ptr %.atomictmp.i, align 8
+  store atomic i64 %174, ptr %this1.i144 release, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
 
 seqcst.i146:                                      ; preds = %if.then101
-  %148 = load i64, ptr %.atomictmp.i, align 8
-  store atomic i64 %148, ptr %this1.i144 seq_cst, align 8
+  %175 = load i64, ptr %.atomictmp.i, align 8
+  store atomic i64 %175, ptr %this1.i144 seq_cst, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
 
 _ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit: ; preds = %seqcst.i146, %release.i, %monotonic.i147
   br label %if.end103
 
 if.end103:                                        ; preds = %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit, %_ZNKSt13__atomic_baseIlE4loadESt12memory_order.exit
-  %149 = load ptr, ptr %trace_event_unique_category_group_enabled64, align 8
-  %150 = load i8, ptr %149, align 1
-  %conv104 = zext i8 %150 to i32
+  %176 = load ptr, ptr %trace_event_unique_category_group_enabled64, align 8
+  %177 = load i8, ptr %176, align 1
+  %conv104 = zext i8 %177 to i32
   %and105 = and i32 %conv104, 5
   %tobool106 = icmp ne i32 %and105, 0
   br i1 %tobool106, label %if.then107, label %if.end108
 
 if.then107:                                       ; preds = %if.end103
-  %151 = load ptr, ptr %trace_event_unique_category_group_enabled64, align 8
-  store ptr %151, ptr %category_group_enabled.addr.i195, align 8
+  %178 = load ptr, ptr %trace_event_unique_category_group_enabled64, align 8
+  store ptr %178, ptr %category_group_enabled.addr.i195, align 8
   store ptr @.str.150, ptr %name.addr.i196, align 8
   store ptr @.str.181, ptr %arg1_name.addr.i197, align 8
   store ptr %trace_process, ptr %arg1_val.addr.i198, align 8
   store i32 1, ptr %num_args.i199, align 4
-  %152 = load ptr, ptr %arg1_val.addr.i198, align 8
-  call void @_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %152) #3
+  %179 = load ptr, ptr %arg1_val.addr.i198, align 8
+  call void @_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %179) #3
   call void @_ZN4node7tracingL13SetTraceValueINS0_11TracedValueEEENSt9enable_ifIXsr3std14is_convertibleIPT_PN2v824ConvertableToTraceFormatEEE5valueEvE4typeESt10unique_ptrIS4_St14default_deleteIS4_EEPhPm(ptr noundef %agg.tmp.i, ptr noundef %arg_type.i200, ptr noundef %arg_value.i201)
   call void @_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i) #3
-  %153 = load ptr, ptr %category_group_enabled.addr.i195, align 8
-  %154 = load ptr, ptr %name.addr.i196, align 8
-  store ptr %153, ptr %category_group_enabled.addr.i202, align 8
-  store ptr %154, ptr %name.addr.i203, align 8
+  %180 = load ptr, ptr %category_group_enabled.addr.i195, align 8
+  %181 = load ptr, ptr %name.addr.i196, align 8
+  store ptr %180, ptr %category_group_enabled.addr.i202, align 8
+  store ptr %181, ptr %name.addr.i203, align 8
   store i32 1, ptr %num_args.addr.i, align 4
   store ptr %arg1_name.addr.i197, ptr %arg_names.addr.i, align 8
   store ptr %arg_type.i200, ptr %arg_types.addr.i, align 8
@@ -19159,51 +19199,51 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %arrayctor.cont.i, label %arrayctor.loop.i
 
 arrayctor.cont.i:                                 ; preds = %arrayctor.loop.i
-  %155 = load i32, ptr %num_args.addr.i, align 4
-  %cmp.i = icmp sgt i32 %155, 0
+  %182 = load i32, ptr %num_args.addr.i, align 4
+  %cmp.i = icmp sgt i32 %182, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %arrayctor.cont.i
-  %156 = load ptr, ptr %arg_types.addr.i, align 8
-  %157 = load i8, ptr %156, align 1
-  %conv.i = zext i8 %157 to i32
+  %183 = load ptr, ptr %arg_types.addr.i, align 8
+  %184 = load i8, ptr %183, align 1
+  %conv.i = zext i8 %184 to i32
   %cmp1.i = icmp eq i32 %conv.i, 8
   br i1 %cmp1.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %158 = load ptr, ptr %arg_values.addr.i, align 8
-  %159 = load i64, ptr %158, align 8
-  %160 = inttoptr i64 %159 to ptr
-  call void @_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EE5resetEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %arg_convertibles.i, ptr noundef %160) #3
+  %185 = load ptr, ptr %arg_values.addr.i, align 8
+  %186 = load i64, ptr %185, align 8
+  %187 = inttoptr i64 %186 to ptr
+  call void @_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EE5resetEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %arg_convertibles.i, ptr noundef %187) #3
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.lhs.true.i, %arrayctor.cont.i
-  %161 = load i32, ptr %num_args.addr.i, align 4
-  %cmp4.i = icmp sgt i32 %161, 1
+  %188 = load i32, ptr %num_args.addr.i, align 4
+  %cmp4.i = icmp sgt i32 %188, 1
   br i1 %cmp4.i, label %land.lhs.true5.i, label %if.end12.i
 
 land.lhs.true5.i:                                 ; preds = %if.end.i
-  %162 = load ptr, ptr %arg_types.addr.i, align 8
-  %arrayidx6.i = getelementptr inbounds i8, ptr %162, i64 1
-  %163 = load i8, ptr %arrayidx6.i, align 1
-  %conv7.i = zext i8 %163 to i32
+  %189 = load ptr, ptr %arg_types.addr.i, align 8
+  %arrayidx6.i = getelementptr inbounds i8, ptr %189, i64 1
+  %190 = load i8, ptr %arrayidx6.i, align 1
+  %conv7.i = zext i8 %190 to i32
   %cmp8.i = icmp eq i32 %conv7.i, 8
   br i1 %cmp8.i, label %if.then9.i, label %if.end12.i
 
 if.then9.i:                                       ; preds = %land.lhs.true5.i
   %arrayidx10.i = getelementptr inbounds [2 x %"class.std::unique_ptr.590"], ptr %arg_convertibles.i, i64 0, i64 1
-  %164 = load ptr, ptr %arg_values.addr.i, align 8
-  %arrayidx11.i = getelementptr inbounds i64, ptr %164, i64 1
-  %165 = load i64, ptr %arrayidx11.i, align 8
-  %166 = inttoptr i64 %165 to ptr
-  call void @_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EE5resetEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx10.i, ptr noundef %166) #3
+  %191 = load ptr, ptr %arg_values.addr.i, align 8
+  %arrayidx11.i = getelementptr inbounds i64, ptr %191, i64 1
+  %192 = load i64, ptr %arrayidx11.i, align 8
+  %193 = inttoptr i64 %192 to ptr
+  call void @_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EE5resetEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx10.i, ptr noundef %193) #3
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then9.i, %land.lhs.true5.i, %if.end.i
   %call.i204 = call noundef ptr @_ZN4node7tracing16TraceEventHelper8GetAgentEv() #3
   store ptr %call.i204, ptr %agent.i, align 8
-  %167 = load ptr, ptr %agent.i, align 8
-  %cmp13.i = icmp eq ptr %167, null
+  %194 = load ptr, ptr %agent.i, align 8
+  %cmp13.i = icmp eq ptr %194, null
   br i1 %cmp13.i, label %if.then14.i, label %if.end15.i
 
 if.then14.i:                                      ; preds = %if.end12.i
@@ -19211,25 +19251,25 @@ if.then14.i:                                      ; preds = %if.end12.i
   br label %cleanup.i
 
 if.end15.i:                                       ; preds = %if.end12.i
-  %168 = load ptr, ptr %agent.i, align 8
-  %call16.i = call noundef ptr @_ZN4node7tracing5Agent20GetTracingControllerEv(ptr noundef nonnull align 8 dereferenceable(1312) %168)
-  %169 = load ptr, ptr %category_group_enabled.addr.i202, align 8
-  %170 = load ptr, ptr %name.addr.i203, align 8
-  %171 = load i32, ptr %num_args.addr.i, align 4
-  %172 = load ptr, ptr %arg_names.addr.i, align 8
-  %173 = load ptr, ptr %arg_types.addr.i, align 8
-  %174 = load ptr, ptr %arg_values.addr.i, align 8
-  %175 = load i32, ptr %flags.addr.i, align 4
-  call void @_ZN4node7tracing17TracingController16AddMetadataEventEPKhPKciPS5_S3_PKmPSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteISB_EEj(ptr noundef nonnull align 8 dereferenceable(96) %call16.i, ptr noundef %169, ptr noundef %170, i32 noundef %171, ptr noundef %172, ptr noundef %173, ptr noundef %174, ptr noundef %arg_convertibles.i, i32 noundef %175) #3
+  %195 = load ptr, ptr %agent.i, align 8
+  %call16.i = call noundef ptr @_ZN4node7tracing5Agent20GetTracingControllerEv(ptr noundef nonnull align 8 dereferenceable(1312) %195)
+  %196 = load ptr, ptr %category_group_enabled.addr.i202, align 8
+  %197 = load ptr, ptr %name.addr.i203, align 8
+  %198 = load i32, ptr %num_args.addr.i, align 4
+  %199 = load ptr, ptr %arg_names.addr.i, align 8
+  %200 = load ptr, ptr %arg_types.addr.i, align 8
+  %201 = load ptr, ptr %arg_values.addr.i, align 8
+  %202 = load i32, ptr %flags.addr.i, align 4
+  call void @_ZN4node7tracing17TracingController16AddMetadataEventEPKhPKciPS5_S3_PKmPSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteISB_EEj(ptr noundef nonnull align 8 dereferenceable(96) %call16.i, ptr noundef %196, ptr noundef %197, i32 noundef %198, ptr noundef %199, ptr noundef %200, ptr noundef %201, ptr noundef %arg_convertibles.i, i32 noundef %202) #3
   store i32 1, ptr %cleanup.dest.slot.i, align 4
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %if.end15.i, %if.then14.i
-  %176 = getelementptr inbounds %"class.std::unique_ptr.590", ptr %arg_convertibles.i, i64 2
+  %203 = getelementptr inbounds %"class.std::unique_ptr.590", ptr %arg_convertibles.i, i64 2
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i, %cleanup.i
-  %arraydestroy.elementPast.i = phi ptr [ %176, %cleanup.i ], [ %arraydestroy.element.i, %arraydestroy.body.i ]
+  %arraydestroy.elementPast.i = phi ptr [ %203, %cleanup.i ], [ %arraydestroy.element.i, %arraydestroy.body.i ]
   %arraydestroy.element.i = getelementptr inbounds %"class.std::unique_ptr.590", ptr %arraydestroy.elementPast.i, i64 -1
   call void @_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element.i) #3
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %arg_convertibles.i
@@ -19246,11 +19286,11 @@ do.cond109:                                       ; preds = %if.end108
 
 do.end110:                                        ; preds = %do.cond109
   %controller_ = getelementptr inbounds %"class.node::NodeTraceStateObserver", ptr %this1, i32 0, i32 1
-  %177 = load ptr, ptr %controller_, align 8
-  %vtable = load ptr, ptr %177, align 8
+  %204 = load ptr, ptr %controller_, align 8
+  %vtable = load ptr, ptr %204, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
-  %178 = load ptr, ptr %vfn, align 8
-  call void %178(ptr noundef nonnull align 8 dereferenceable(8) %177, ptr noundef %this1)
+  %205 = load ptr, ptr %vfn, align 8
+  call void %205(ptr noundef nonnull align 8 dereferenceable(8) %204, ptr noundef %this1)
   call void @_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %trace_process) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %title) #3
   ret void
@@ -25087,7 +25127,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt13__atomic_baseIPFviP9si
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @__atomic_is_lock_free(i64 noundef 8, ptr noundef inttoptr (i64 -8 to ptr))
+  %0 = inttoptr i64 -8 to ptr
+  %call = call noundef zeroext i1 @__atomic_is_lock_free(i64 noundef 8, ptr noundef %0)
   ret i1 %call
 }
 

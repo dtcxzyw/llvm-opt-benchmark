@@ -1500,7 +1500,7 @@ define hidden ptr @get_hostname_ss7pc(i8 noundef zeroext %0, i32 noundef %1) #0 
   %18 = getelementptr inbounds %struct.ss7pc, ptr %17, i32 0, i32 1
   %19 = getelementptr inbounds [64 x i8], ptr %18, i64 0, i64 0
   store ptr %19, ptr %3, align 8
-  br label %42
+  br label %43
 
 20:                                               ; preds = %2
   %21 = load ptr, ptr %6, align 8
@@ -1516,30 +1516,31 @@ define hidden ptr @get_hostname_ss7pc(i8 noundef zeroext %0, i32 noundef %1) #0 
   %29 = getelementptr inbounds %struct.ss7pc, ptr %28, i32 0, i32 1
   %30 = getelementptr inbounds [64 x i8], ptr %29, i64 0, i64 0
   store ptr %30, ptr %3, align 8
-  br label %42
+  br label %43
 
 31:                                               ; preds = %20
-  %32 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 6), align 4
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %38, label %34
+  %32 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 6
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %39, label %35
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct.ss7pc, ptr %35, i32 0, i32 1
-  %37 = getelementptr inbounds [64 x i8], ptr %36, i64 0, i64 0
-  store ptr %37, ptr %3, align 8
-  br label %42
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %6, align 8
+  %37 = getelementptr inbounds %struct.ss7pc, ptr %36, i32 0, i32 1
+  %38 = getelementptr inbounds [64 x i8], ptr %37, i64 0, i64 0
+  store ptr %38, ptr %3, align 8
+  br label %43
 
-38:                                               ; preds = %31
-  %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct.ss7pc, ptr %39, i32 0, i32 2
-  %41 = getelementptr inbounds [64 x i8], ptr %40, i64 0, i64 0
-  store ptr %41, ptr %3, align 8
-  br label %42
+39:                                               ; preds = %31
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds %struct.ss7pc, ptr %40, i32 0, i32 2
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 0, i64 0
+  store ptr %42, ptr %3, align 8
+  br label %43
 
-42:                                               ; preds = %38, %34, %27, %16
-  %43 = load ptr, ptr %3, align 8
-  ret ptr %43
+43:                                               ; preds = %39, %35, %27, %16
+  %44 = load ptr, ptr %3, align 8
+  ret ptr %44
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1549,32 +1550,38 @@ define hidden void @addr_resolve_pref_init(ptr noundef %0) #0 {
   %3 = load ptr, ptr %2, align 8
   call void @prefs_register_bool_preference(ptr noundef %3, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef @gbl_resolv_flags)
   %4 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %4, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef @.str.9, ptr noundef getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2))
-  %5 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %5, ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef @.str.12, ptr noundef getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1))
+  %5 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2
+  call void @prefs_register_bool_preference(ptr noundef %4, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef @.str.9, ptr noundef %5)
   %6 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %6, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @.str.15, ptr noundef getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 3))
-  %7 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef @.str.16, ptr noundef @.str.17, ptr noundef @.str.18, ptr noundef getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 4))
+  %7 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  call void @prefs_register_bool_preference(ptr noundef %6, ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef @.str.12, ptr noundef %7)
   %8 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef @.str.19, ptr noundef @.str.20, ptr noundef @.str.21, ptr noundef @use_custom_dns_server_list)
-  %9 = call ptr @uat_new(ptr noundef @.str.31, i64 noundef 16, ptr noundef @.str.32, i1 noundef zeroext true, ptr noundef @dnsserverlist_uats, ptr noundef @ndnsservers, i32 noundef 1, ptr noundef null, ptr noundef @dns_server_copy_cb, ptr noundef null, ptr noundef @dns_server_free_cb, ptr noundef @c_ares_set_dns_servers, ptr noundef null, ptr noundef @addr_resolve_pref_init.dns_server_uats_flds)
-  store ptr %9, ptr @dnsserver_uat, align 8
-  %10 = load ptr, ptr @dnsserver_uat, align 8
-  call void @uat_set_default_values(ptr noundef %10, ptr noundef @addr_resolve_pref_init.dnsserver_uat_defaults)
-  %11 = load ptr, ptr %2, align 8
-  %12 = load ptr, ptr @dnsserver_uat, align 8
-  call void @prefs_register_uat_preference(ptr noundef %11, ptr noundef @.str.34, ptr noundef @.str.31, ptr noundef @.str.35, ptr noundef %12)
-  %13 = load ptr, ptr %2, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %13, ptr noundef @.str.36)
-  %14 = load ptr, ptr %2, align 8
-  call void @prefs_register_uint_preference(ptr noundef %14, ptr noundef @.str.37, ptr noundef @.str.38, ptr noundef @.str.39, i32 noundef 10, ptr noundef @name_resolve_concurrency)
+  %9 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 3
+  call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @.str.15, ptr noundef %9)
+  %10 = load ptr, ptr %2, align 8
+  %11 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 4
+  call void @prefs_register_bool_preference(ptr noundef %10, ptr noundef @.str.16, ptr noundef @.str.17, ptr noundef @.str.18, ptr noundef %11)
+  %12 = load ptr, ptr %2, align 8
+  call void @prefs_register_bool_preference(ptr noundef %12, ptr noundef @.str.19, ptr noundef @.str.20, ptr noundef @.str.21, ptr noundef @use_custom_dns_server_list)
+  %13 = call ptr @uat_new(ptr noundef @.str.31, i64 noundef 16, ptr noundef @.str.32, i1 noundef zeroext true, ptr noundef @dnsserverlist_uats, ptr noundef @ndnsservers, i32 noundef 1, ptr noundef null, ptr noundef @dns_server_copy_cb, ptr noundef null, ptr noundef @dns_server_free_cb, ptr noundef @c_ares_set_dns_servers, ptr noundef null, ptr noundef @addr_resolve_pref_init.dns_server_uats_flds)
+  store ptr %13, ptr @dnsserver_uat, align 8
+  %14 = load ptr, ptr @dnsserver_uat, align 8
+  call void @uat_set_default_values(ptr noundef %14, ptr noundef @addr_resolve_pref_init.dnsserver_uat_defaults)
   %15 = load ptr, ptr %2, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %15, ptr noundef @.str.40)
-  %16 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %16, ptr noundef @.str.41, ptr noundef @.str.42, ptr noundef @.str.43, ptr noundef getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 5))
+  %16 = load ptr, ptr @dnsserver_uat, align 8
+  call void @prefs_register_uat_preference(ptr noundef %15, ptr noundef @.str.34, ptr noundef @.str.31, ptr noundef @.str.35, ptr noundef %16)
   %17 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %17, ptr noundef @.str.44, ptr noundef @.str.45, ptr noundef @.str.46, ptr noundef getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 6))
+  call void @prefs_register_obsolete_preference(ptr noundef %17, ptr noundef @.str.36)
+  %18 = load ptr, ptr %2, align 8
+  call void @prefs_register_uint_preference(ptr noundef %18, ptr noundef @.str.37, ptr noundef @.str.38, ptr noundef @.str.39, i32 noundef 10, ptr noundef @name_resolve_concurrency)
+  %19 = load ptr, ptr %2, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %19, ptr noundef @.str.40)
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 5
+  call void @prefs_register_bool_preference(ptr noundef %20, ptr noundef @.str.41, ptr noundef @.str.42, ptr noundef @.str.43, ptr noundef %21)
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 6
+  call void @prefs_register_bool_preference(ptr noundef %22, ptr noundef @.str.44, ptr noundef @.str.45, ptr noundef @.str.46, ptr noundef %23)
   ret void
 }
 
@@ -2193,13 +2200,20 @@ declare hidden void @maxmind_db_pref_apply() #2
 ; Function Attrs: nounwind uwtable
 define void @disable_name_resolution() #0 {
   store i32 0, ptr @gbl_resolv_flags, align 4
-  store i32 0, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 3), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 4), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 5), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 6), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 7), align 4
+  %1 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  store i32 0, ptr %1, align 4
+  %2 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2
+  store i32 0, ptr %2, align 4
+  %3 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 3
+  store i32 0, ptr %3, align 4
+  %4 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 4
+  store i32 0, ptr %4, align 4
+  %5 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 5
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 6
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 7
+  store i32 0, ptr %7, align 4
   ret void
 }
 
@@ -2473,34 +2487,35 @@ define ptr @get_hostname(i32 noundef %0) #0 {
   %5 = load i32, ptr %3, align 4
   %6 = call ptr @host_lookup(i32 noundef %5)
   store ptr %6, ptr %4, align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %13, label %9
+  %7 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %14, label %10
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.hashipv4, ptr %10, i32 0, i32 2
-  %12 = getelementptr inbounds [16 x i8], ptr %11, i64 0, i64 0
-  store ptr %12, ptr %2, align 8
-  br label %23
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %struct.hashipv4, ptr %11, i32 0, i32 2
+  %13 = getelementptr inbounds [16 x i8], ptr %12, i64 0, i64 0
+  store ptr %13, ptr %2, align 8
+  br label %24
 
-13:                                               ; preds = %1
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.hashipv4, ptr %14, i32 0, i32 1
-  %16 = load i8, ptr %15, align 4
-  %17 = zext i8 %16 to i32
-  %18 = or i32 %17, 4
-  %19 = trunc i32 %18 to i8
-  store i8 %19, ptr %15, align 4
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.hashipv4, ptr %20, i32 0, i32 3
-  %22 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
-  store ptr %22, ptr %2, align 8
-  br label %23
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %struct.hashipv4, ptr %15, i32 0, i32 1
+  %17 = load i8, ptr %16, align 4
+  %18 = zext i8 %17 to i32
+  %19 = or i32 %18, 4
+  %20 = trunc i32 %19 to i8
+  store i8 %20, ptr %16, align 4
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %struct.hashipv4, ptr %21, i32 0, i32 3
+  %23 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 0
+  store ptr %23, ptr %2, align 8
+  br label %24
 
-23:                                               ; preds = %13, %9
-  %24 = load ptr, ptr %2, align 8
-  ret ptr %24
+24:                                               ; preds = %14, %10
+  %25 = load ptr, ptr %2, align 8
+  ret ptr %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2547,83 +2562,85 @@ define internal ptr @host_lookup(i32 noundef %0) #0 {
 31:                                               ; preds = %24
   %32 = load volatile ptr, ptr %4, align 8
   store ptr %32, ptr %2, align 8
-  br label %73
+  br label %75
 
 33:                                               ; preds = %24
   br label %34
 
 34:                                               ; preds = %33, %13
-  %35 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %39, label %37
+  %35 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %40, label %38
 
-37:                                               ; preds = %34
-  %38 = load volatile ptr, ptr %4, align 8
-  store ptr %38, ptr %2, align 8
-  br label %73
+38:                                               ; preds = %34
+  %39 = load volatile ptr, ptr %4, align 8
+  store ptr %39, ptr %2, align 8
+  br label %75
 
-39:                                               ; preds = %34
-  %40 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 4), align 4
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %42, label %71
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 4
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %73
 
-42:                                               ; preds = %39
-  %43 = load volatile ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.hashipv4, ptr %43, i32 0, i32 1
-  %45 = load i8, ptr %44, align 4
-  %46 = zext i8 %45 to i32
-  %47 = or i32 %46, 1
-  %48 = trunc i32 %47 to i8
-  store i8 %48, ptr %44, align 4
-  %49 = load i32, ptr @async_dns_initialized, align 4
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %51, label %70
+44:                                               ; preds = %40
+  %45 = load volatile ptr, ptr %4, align 8
+  %46 = getelementptr inbounds %struct.hashipv4, ptr %45, i32 0, i32 1
+  %47 = load i8, ptr %46, align 4
+  %48 = zext i8 %47 to i32
+  %49 = or i32 %48, 1
+  %50 = trunc i32 %49 to i8
+  store i8 %50, ptr %46, align 4
+  %51 = load i32, ptr @async_dns_initialized, align 4
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %72
 
-51:                                               ; preds = %42
-  %52 = load i32, ptr @resolve_synchronously, align 4
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %57, label %54
+53:                                               ; preds = %44
+  %54 = load i32, ptr @resolve_synchronously, align 4
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %59, label %56
 
-54:                                               ; preds = %51
-  %55 = load i32, ptr @name_resolve_concurrency, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %59
+56:                                               ; preds = %53
+  %57 = load i32, ptr @name_resolve_concurrency, align 4
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %61
 
-57:                                               ; preds = %54, %51
-  %58 = load i32, ptr %3, align 4
-  call void @sync_lookup_ip4(i32 noundef %58)
-  br label %69
-
-59:                                               ; preds = %54
-  %60 = load ptr, ptr @addr_resolv_scope, align 8
-  %61 = call noalias ptr @wmem_alloc(ptr noundef %60, i64 noundef 20)
-  store ptr %61, ptr %5, align 8
-  %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds %struct._async_dns_queue_msg, ptr %62, i32 0, i32 1
-  store i32 2, ptr %63, align 4
-  %64 = load i32, ptr %3, align 4
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct._async_dns_queue_msg, ptr %65, i32 0, i32 0
-  store i32 %64, ptr %66, align 4
-  %67 = load ptr, ptr @async_dns_queue_head, align 8
-  %68 = load ptr, ptr %5, align 8
-  call void @wmem_list_append(ptr noundef %67, ptr noundef %68)
-  br label %69
-
-69:                                               ; preds = %59, %57
-  br label %70
-
-70:                                               ; preds = %69, %42
+59:                                               ; preds = %56, %53
+  %60 = load i32, ptr %3, align 4
+  call void @sync_lookup_ip4(i32 noundef %60)
   br label %71
 
-71:                                               ; preds = %70, %39
-  %72 = load volatile ptr, ptr %4, align 8
-  store ptr %72, ptr %2, align 8
+61:                                               ; preds = %56
+  %62 = load ptr, ptr @addr_resolv_scope, align 8
+  %63 = call noalias ptr @wmem_alloc(ptr noundef %62, i64 noundef 20)
+  store ptr %63, ptr %5, align 8
+  %64 = load ptr, ptr %5, align 8
+  %65 = getelementptr inbounds %struct._async_dns_queue_msg, ptr %64, i32 0, i32 1
+  store i32 2, ptr %65, align 4
+  %66 = load i32, ptr %3, align 4
+  %67 = load ptr, ptr %5, align 8
+  %68 = getelementptr inbounds %struct._async_dns_queue_msg, ptr %67, i32 0, i32 0
+  store i32 %66, ptr %68, align 4
+  %69 = load ptr, ptr @async_dns_queue_head, align 8
+  %70 = load ptr, ptr %5, align 8
+  call void @wmem_list_append(ptr noundef %69, ptr noundef %70)
+  br label %71
+
+71:                                               ; preds = %61, %59
+  br label %72
+
+72:                                               ; preds = %71, %44
   br label %73
 
-73:                                               ; preds = %71, %37, %31
-  %74 = load ptr, ptr %2, align 8
-  ret ptr %74
+73:                                               ; preds = %72, %40
+  %74 = load volatile ptr, ptr %4, align 8
+  store ptr %74, ptr %2, align 8
+  br label %75
+
+75:                                               ; preds = %73, %38, %31
+  %76 = load ptr, ptr %2, align 8
+  ret ptr %76
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2635,34 +2652,35 @@ define ptr @get_hostname6(ptr noundef %0) #0 {
   %5 = load ptr, ptr %3, align 8
   %6 = call ptr @host_lookup6(ptr noundef %5)
   store ptr %6, ptr %4, align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %13, label %9
+  %7 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %14, label %10
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.hashipv6, ptr %10, i32 0, i32 2
-  %12 = getelementptr inbounds [46 x i8], ptr %11, i64 0, i64 0
-  store ptr %12, ptr %2, align 8
-  br label %23
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %struct.hashipv6, ptr %11, i32 0, i32 2
+  %13 = getelementptr inbounds [46 x i8], ptr %12, i64 0, i64 0
+  store ptr %13, ptr %2, align 8
+  br label %24
 
-13:                                               ; preds = %1
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.hashipv6, ptr %14, i32 0, i32 1
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  %18 = or i32 %17, 4
-  %19 = trunc i32 %18 to i8
-  store i8 %19, ptr %15, align 1
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.hashipv6, ptr %20, i32 0, i32 3
-  %22 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
-  store ptr %22, ptr %2, align 8
-  br label %23
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %struct.hashipv6, ptr %15, i32 0, i32 1
+  %17 = load i8, ptr %16, align 1
+  %18 = zext i8 %17 to i32
+  %19 = or i32 %18, 4
+  %20 = trunc i32 %19 to i8
+  store i8 %20, ptr %16, align 1
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %struct.hashipv6, ptr %21, i32 0, i32 3
+  %23 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 0
+  store ptr %23, ptr %2, align 8
+  br label %24
 
-23:                                               ; preds = %13, %9
-  %24 = load ptr, ptr %2, align 8
-  ret ptr %24
+24:                                               ; preds = %14, %10
+  %25 = load ptr, ptr %2, align 8
+  ret ptr %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2711,83 +2729,85 @@ define internal ptr @host_lookup6(ptr noundef %0) #0 {
 31:                                               ; preds = %24
   %32 = load volatile ptr, ptr %4, align 8
   store ptr %32, ptr %2, align 8
-  br label %73
+  br label %75
 
 33:                                               ; preds = %24
   br label %34
 
 34:                                               ; preds = %33, %12
-  %35 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %39, label %37
+  %35 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %40, label %38
 
-37:                                               ; preds = %34
-  %38 = load volatile ptr, ptr %4, align 8
-  store ptr %38, ptr %2, align 8
-  br label %73
+38:                                               ; preds = %34
+  %39 = load volatile ptr, ptr %4, align 8
+  store ptr %39, ptr %2, align 8
+  br label %75
 
-39:                                               ; preds = %34
-  %40 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 4), align 4
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %42, label %71
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 4
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %73
 
-42:                                               ; preds = %39
-  %43 = load volatile ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.hashipv6, ptr %43, i32 0, i32 1
-  %45 = load i8, ptr %44, align 1
-  %46 = zext i8 %45 to i32
-  %47 = or i32 %46, 1
-  %48 = trunc i32 %47 to i8
-  store i8 %48, ptr %44, align 1
-  %49 = load i32, ptr @async_dns_initialized, align 4
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %51, label %70
+44:                                               ; preds = %40
+  %45 = load volatile ptr, ptr %4, align 8
+  %46 = getelementptr inbounds %struct.hashipv6, ptr %45, i32 0, i32 1
+  %47 = load i8, ptr %46, align 1
+  %48 = zext i8 %47 to i32
+  %49 = or i32 %48, 1
+  %50 = trunc i32 %49 to i8
+  store i8 %50, ptr %46, align 1
+  %51 = load i32, ptr @async_dns_initialized, align 4
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %72
 
-51:                                               ; preds = %42
-  %52 = load i32, ptr @resolve_synchronously, align 4
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %57, label %54
+53:                                               ; preds = %44
+  %54 = load i32, ptr @resolve_synchronously, align 4
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %59, label %56
 
-54:                                               ; preds = %51
-  %55 = load i32, ptr @name_resolve_concurrency, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %59
+56:                                               ; preds = %53
+  %57 = load i32, ptr @name_resolve_concurrency, align 4
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %61
 
-57:                                               ; preds = %54, %51
-  %58 = load ptr, ptr %3, align 8
-  call void @sync_lookup_ip6(ptr noundef %58)
-  br label %69
-
-59:                                               ; preds = %54
-  %60 = load ptr, ptr @addr_resolv_scope, align 8
-  %61 = call noalias ptr @wmem_alloc(ptr noundef %60, i64 noundef 20)
-  store ptr %61, ptr %6, align 8
-  %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds %struct._async_dns_queue_msg, ptr %62, i32 0, i32 1
-  store i32 10, ptr %63, align 4
-  %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds %struct._async_dns_queue_msg, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %65, ptr align 1 %66, i64 16, i1 false)
-  %67 = load ptr, ptr @async_dns_queue_head, align 8
-  %68 = load ptr, ptr %6, align 8
-  call void @wmem_list_append(ptr noundef %67, ptr noundef %68)
-  br label %69
-
-69:                                               ; preds = %59, %57
-  br label %70
-
-70:                                               ; preds = %69, %42
+59:                                               ; preds = %56, %53
+  %60 = load ptr, ptr %3, align 8
+  call void @sync_lookup_ip6(ptr noundef %60)
   br label %71
 
-71:                                               ; preds = %70, %39
-  %72 = load volatile ptr, ptr %4, align 8
-  store ptr %72, ptr %2, align 8
+61:                                               ; preds = %56
+  %62 = load ptr, ptr @addr_resolv_scope, align 8
+  %63 = call noalias ptr @wmem_alloc(ptr noundef %62, i64 noundef 20)
+  store ptr %63, ptr %6, align 8
+  %64 = load ptr, ptr %6, align 8
+  %65 = getelementptr inbounds %struct._async_dns_queue_msg, ptr %64, i32 0, i32 1
+  store i32 10, ptr %65, align 4
+  %66 = load ptr, ptr %6, align 8
+  %67 = getelementptr inbounds %struct._async_dns_queue_msg, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %67, ptr align 1 %68, i64 16, i1 false)
+  %69 = load ptr, ptr @async_dns_queue_head, align 8
+  %70 = load ptr, ptr %6, align 8
+  call void @wmem_list_append(ptr noundef %69, ptr noundef %70)
+  br label %71
+
+71:                                               ; preds = %61, %59
+  br label %72
+
+72:                                               ; preds = %71, %44
   br label %73
 
-73:                                               ; preds = %71, %37, %31
-  %74 = load ptr, ptr %2, align 8
-  ret ptr %74
+73:                                               ; preds = %72, %40
+  %74 = load volatile ptr, ptr %4, align 8
+  store ptr %74, ptr %2, align 8
+  br label %75
+
+75:                                               ; preds = %73, %38, %31
+  %76 = load ptr, ptr %2, align 8
+  ret ptr %76
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3116,28 +3136,29 @@ define ptr @udp_port_to_display(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2), align 4
-  %7 = icmp ne i32 %6, 0
-  br i1 %7, label %12, label %8
+  %6 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %13, label %9
 
-8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
-  %11 = call ptr @wmem_utoa(ptr noundef %9, i32 noundef %10)
-  store ptr %11, ptr %3, align 8
-  br label %17
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8
+  %11 = load i32, ptr %5, align 4
+  %12 = call ptr @wmem_utoa(ptr noundef %10, i32 noundef %11)
+  store ptr %12, ptr %3, align 8
+  br label %18
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  %14 = load i32, ptr %5, align 4
-  %15 = call ptr @serv_name_lookup(i32 noundef 3, i32 noundef %14)
-  %16 = call noalias ptr @wmem_strdup(ptr noundef %13, ptr noundef %15)
-  store ptr %16, ptr %3, align 8
-  br label %17
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  %15 = load i32, ptr %5, align 4
+  %16 = call ptr @serv_name_lookup(i32 noundef 3, i32 noundef %15)
+  %17 = call noalias ptr @wmem_strdup(ptr noundef %14, ptr noundef %16)
+  store ptr %17, ptr %3, align 8
+  br label %18
 
-17:                                               ; preds = %12, %8
-  %18 = load ptr, ptr %3, align 8
-  ret ptr %18
+18:                                               ; preds = %13, %9
+  %19 = load ptr, ptr %3, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3164,28 +3185,29 @@ define hidden ptr @dccp_port_to_display(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2), align 4
-  %7 = icmp ne i32 %6, 0
-  br i1 %7, label %12, label %8
+  %6 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %13, label %9
 
-8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
-  %11 = call ptr @wmem_utoa(ptr noundef %9, i32 noundef %10)
-  store ptr %11, ptr %3, align 8
-  br label %17
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8
+  %11 = load i32, ptr %5, align 4
+  %12 = call ptr @wmem_utoa(ptr noundef %10, i32 noundef %11)
+  store ptr %12, ptr %3, align 8
+  br label %18
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  %14 = load i32, ptr %5, align 4
-  %15 = call ptr @serv_name_lookup(i32 noundef 4, i32 noundef %14)
-  %16 = call noalias ptr @wmem_strdup(ptr noundef %13, ptr noundef %15)
-  store ptr %16, ptr %3, align 8
-  br label %17
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  %15 = load i32, ptr %5, align 4
+  %16 = call ptr @serv_name_lookup(i32 noundef 4, i32 noundef %15)
+  %17 = call noalias ptr @wmem_strdup(ptr noundef %14, ptr noundef %16)
+  store ptr %17, ptr %3, align 8
+  br label %18
 
-17:                                               ; preds = %12, %8
-  %18 = load ptr, ptr %3, align 8
-  ret ptr %18
+18:                                               ; preds = %13, %9
+  %19 = load ptr, ptr %3, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3195,28 +3217,29 @@ define ptr @tcp_port_to_display(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2), align 4
-  %7 = icmp ne i32 %6, 0
-  br i1 %7, label %12, label %8
+  %6 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %13, label %9
 
-8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
-  %11 = call ptr @wmem_utoa(ptr noundef %9, i32 noundef %10)
-  store ptr %11, ptr %3, align 8
-  br label %17
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8
+  %11 = load i32, ptr %5, align 4
+  %12 = call ptr @wmem_utoa(ptr noundef %10, i32 noundef %11)
+  store ptr %12, ptr %3, align 8
+  br label %18
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  %14 = load i32, ptr %5, align 4
-  %15 = call ptr @serv_name_lookup(i32 noundef 2, i32 noundef %14)
-  %16 = call noalias ptr @wmem_strdup(ptr noundef %13, ptr noundef %15)
-  store ptr %16, ptr %3, align 8
-  br label %17
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  %15 = load i32, ptr %5, align 4
+  %16 = call ptr @serv_name_lookup(i32 noundef 2, i32 noundef %15)
+  %17 = call noalias ptr @wmem_strdup(ptr noundef %14, ptr noundef %16)
+  store ptr %17, ptr %3, align 8
+  br label %18
 
-17:                                               ; preds = %12, %8
-  %18 = load ptr, ptr %3, align 8
-  ret ptr %18
+18:                                               ; preds = %13, %9
+  %19 = load ptr, ptr %3, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3226,28 +3249,29 @@ define ptr @sctp_port_to_display(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2), align 4
-  %7 = icmp ne i32 %6, 0
-  br i1 %7, label %12, label %8
+  %6 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %13, label %9
 
-8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
-  %11 = call ptr @wmem_utoa(ptr noundef %9, i32 noundef %10)
-  store ptr %11, ptr %3, align 8
-  br label %17
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8
+  %11 = load i32, ptr %5, align 4
+  %12 = call ptr @wmem_utoa(ptr noundef %10, i32 noundef %11)
+  store ptr %12, ptr %3, align 8
+  br label %18
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  %14 = load i32, ptr %5, align 4
-  %15 = call ptr @serv_name_lookup(i32 noundef 1, i32 noundef %14)
-  %16 = call noalias ptr @wmem_strdup(ptr noundef %13, ptr noundef %15)
-  store ptr %16, ptr %3, align 8
-  br label %17
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  %15 = load i32, ptr %5, align 4
+  %16 = call ptr @serv_name_lookup(i32 noundef 1, i32 noundef %15)
+  %17 = call noalias ptr @wmem_strdup(ptr noundef %14, ptr noundef %16)
+  store ptr %17, ptr %3, align 8
+  br label %18
 
-17:                                               ; preds = %12, %8
-  %18 = load ptr, ptr %3, align 8
-  ret ptr %18
+18:                                               ; preds = %13, %9
+  %19 = load ptr, ptr %3, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3260,43 +3284,44 @@ define ptr @port_with_resolution_to_str(ptr noundef %0, i32 noundef %1, i32 noun
   store ptr %0, ptr %5, align 8
   store i32 %1, ptr %6, align 4
   store i32 %2, ptr %7, align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2), align 4
-  %10 = icmp ne i32 %9, 0
-  br i1 %10, label %11, label %14
+  %9 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %15
 
-11:                                               ; preds = %3
-  %12 = load i32, ptr %6, align 4
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %18
+12:                                               ; preds = %3
+  %13 = load i32, ptr %6, align 4
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %19
 
-14:                                               ; preds = %11, %3
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %15, ptr noundef @.str, i32 noundef %16)
-  store ptr %17, ptr %4, align 8
-  br label %28
+15:                                               ; preds = %12, %3
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %16, ptr noundef @.str, i32 noundef %17)
+  store ptr %18, ptr %4, align 8
+  br label %29
 
-18:                                               ; preds = %11
-  %19 = load i32, ptr %6, align 4
-  %20 = load i32, ptr %7, align 4
-  %21 = call ptr @serv_name_lookup(i32 noundef %19, i32 noundef %20)
-  store ptr %21, ptr %8, align 8
-  br label %22
-
-22:                                               ; preds = %18
+19:                                               ; preds = %12
+  %20 = load i32, ptr %6, align 4
+  %21 = load i32, ptr %7, align 4
+  %22 = call ptr @serv_name_lookup(i32 noundef %20, i32 noundef %21)
+  store ptr %22, ptr %8, align 8
   br label %23
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %5, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = load i32, ptr %7, align 4
-  %27 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %24, ptr noundef @.str.3, ptr noundef %25, i32 noundef %26)
-  store ptr %27, ptr %4, align 8
-  br label %28
+23:                                               ; preds = %19
+  br label %24
 
-28:                                               ; preds = %23, %14
-  %29 = load ptr, ptr %4, align 8
-  ret ptr %29
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %5, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = load i32, ptr %7, align 4
+  %28 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %25, ptr noundef @.str.3, ptr noundef %26, i32 noundef %27)
+  store ptr %28, ptr %4, align 8
+  br label %29
+
+29:                                               ; preds = %24, %15
+  %30 = load ptr, ptr %4, align 8
+  ret ptr %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3311,45 +3336,46 @@ define i32 @port_with_resolution_to_str_buf(ptr noundef %0, i64 noundef %1, i32 
   store i64 %1, ptr %7, align 8
   store i32 %2, ptr %8, align 4
   store i32 %3, ptr %9, align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2), align 4
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %13, label %16
+  %11 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %17
 
-13:                                               ; preds = %4
-  %14 = load i32, ptr %8, align 4
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %21
+14:                                               ; preds = %4
+  %15 = load i32, ptr %8, align 4
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %22
 
-16:                                               ; preds = %13, %4
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i64, ptr %7, align 8
-  %19 = load i32, ptr %9, align 4
-  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %17, i64 noundef %18, ptr noundef @.str, i32 noundef %19) #10
-  store i32 %20, ptr %5, align 4
-  br label %32
+17:                                               ; preds = %14, %4
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i64, ptr %7, align 8
+  %20 = load i32, ptr %9, align 4
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %18, i64 noundef %19, ptr noundef @.str, i32 noundef %20) #10
+  store i32 %21, ptr %5, align 4
+  br label %33
 
-21:                                               ; preds = %13
-  %22 = load i32, ptr %8, align 4
-  %23 = load i32, ptr %9, align 4
-  %24 = call ptr @serv_name_lookup(i32 noundef %22, i32 noundef %23)
-  store ptr %24, ptr %10, align 8
-  br label %25
-
-25:                                               ; preds = %21
+22:                                               ; preds = %14
+  %23 = load i32, ptr %8, align 4
+  %24 = load i32, ptr %9, align 4
+  %25 = call ptr @serv_name_lookup(i32 noundef %23, i32 noundef %24)
+  store ptr %25, ptr %10, align 8
   br label %26
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %6, align 8
-  %28 = load i64, ptr %7, align 8
-  %29 = load ptr, ptr %10, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %27, i64 noundef %28, ptr noundef @.str.3, ptr noundef %29, i32 noundef %30) #10
-  store i32 %31, ptr %5, align 4
-  br label %32
+26:                                               ; preds = %22
+  br label %27
 
-32:                                               ; preds = %26, %16
-  %33 = load i32, ptr %5, align 4
-  ret i32 %33
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i64, ptr %7, align 8
+  %30 = load ptr, ptr %10, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %28, i64 noundef %29, ptr noundef @.str.3, ptr noundef %30, i32 noundef %31) #10
+  store i32 %32, ptr %5, align 4
+  br label %33
+
+33:                                               ; preds = %27, %17
+  %34 = load i32, ptr %5, align 4
+  ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3505,34 +3531,35 @@ define hidden void @add_ether_byip(i32 noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  %7 = icmp ne i32 %6, 0
-  br i1 %7, label %9, label %8
-
-8:                                                ; preds = %2
-  br label %24
+  %6 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %10, label %9
 
 9:                                                ; preds = %2
-  %10 = load i32, ptr %3, align 4
-  %11 = call ptr @host_lookup(i32 noundef %10)
-  store ptr %11, ptr %5, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.hashipv4, ptr %12, i32 0, i32 1
-  %14 = load i8, ptr %13, align 4
-  %15 = zext i8 %14 to i32
-  %16 = and i32 %15, 2
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %24
+  br label %25
 
-18:                                               ; preds = %9
-  %19 = load ptr, ptr %4, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.hashipv4, ptr %20, i32 0, i32 3
-  %22 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
-  %23 = call ptr @add_eth_name(ptr noundef %19, ptr noundef %22)
-  br label %24
+10:                                               ; preds = %2
+  %11 = load i32, ptr %3, align 4
+  %12 = call ptr @host_lookup(i32 noundef %11)
+  store ptr %12, ptr %5, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds %struct.hashipv4, ptr %13, i32 0, i32 1
+  %15 = load i8, ptr %14, align 4
+  %16 = zext i8 %15 to i32
+  %17 = and i32 %16, 2
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %25
 
-24:                                               ; preds = %18, %9, %8
+19:                                               ; preds = %10
+  %20 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %5, align 8
+  %22 = getelementptr inbounds %struct.hashipv4, ptr %21, i32 0, i32 3
+  %23 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 0
+  %24 = call ptr @add_eth_name(ptr noundef %20, ptr noundef %23)
+  br label %25
+
+25:                                               ; preds = %19, %10, %9
   ret void
 }
 
@@ -3594,27 +3621,28 @@ define hidden ptr @get_ipxnet_name(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  %7 = icmp ne i32 %6, 0
-  br i1 %7, label %12, label %8
+  %6 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %13, label %9
 
-8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
-  %11 = call ptr @ipxnet_to_str_punct(ptr noundef %9, i32 noundef %10, i8 noundef signext 0)
-  store ptr %11, ptr %3, align 8
-  br label %16
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8
+  %11 = load i32, ptr %5, align 4
+  %12 = call ptr @ipxnet_to_str_punct(ptr noundef %10, i32 noundef %11, i8 noundef signext 0)
+  store ptr %12, ptr %3, align 8
+  br label %17
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  %14 = load i32, ptr %5, align 4
-  %15 = call ptr @ipxnet_name_lookup(ptr noundef %13, i32 noundef %14)
-  store ptr %15, ptr %3, align 8
-  br label %16
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  %15 = load i32, ptr %5, align 4
+  %16 = call ptr @ipxnet_name_lookup(ptr noundef %14, i32 noundef %15)
+  store ptr %16, ptr %3, align 8
+  br label %17
 
-16:                                               ; preds = %12, %8
-  %17 = load ptr, ptr %3, align 8
-  ret ptr %17
+17:                                               ; preds = %13, %9
+  %18 = load ptr, ptr %3, align 8
+  ret ptr %18
 }
 
 declare ptr @ipxnet_to_str_punct(ptr noundef, i32 noundef, i8 noundef signext) #2
@@ -3709,26 +3737,27 @@ define hidden ptr @get_vlan_name(ptr noundef %0, i16 noundef zeroext %1) #0 {
   %5 = alloca i16, align 2
   store ptr %0, ptr %4, align 8
   store i16 %1, ptr %5, align 2
-  %6 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 5), align 4
-  %7 = icmp ne i32 %6, 0
-  br i1 %7, label %9, label %8
-
-8:                                                ; preds = %2
-  store ptr null, ptr %3, align 8
-  br label %15
+  %6 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 5
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %10, label %9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %4, align 8
-  %11 = load i16, ptr %5, align 2
-  %12 = zext i16 %11 to i32
-  %13 = call ptr @vlan_name_lookup(i32 noundef %12)
-  %14 = call noalias ptr @wmem_strdup(ptr noundef %10, ptr noundef %13)
-  store ptr %14, ptr %3, align 8
-  br label %15
+  store ptr null, ptr %3, align 8
+  br label %16
 
-15:                                               ; preds = %9, %8
-  %16 = load ptr, ptr %3, align 8
-  ret ptr %16
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8
+  %12 = load i16, ptr %5, align 2
+  %13 = zext i16 %12 to i32
+  %14 = call ptr @vlan_name_lookup(i32 noundef %13)
+  %15 = call noalias ptr @wmem_strdup(ptr noundef %11, ptr noundef %14)
+  store ptr %15, ptr %3, align 8
+  br label %16
+
+16:                                               ; preds = %10, %9
+  %17 = load ptr, ptr %3, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4600,176 +4629,178 @@ define i32 @get_host_ipaddr(ptr noundef %0, ptr noundef %1) #0 {
   %16 = load ptr, ptr %4, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call zeroext i1 @ws_inet_pton4(ptr noundef %16, ptr noundef %17)
-  br i1 %18, label %105, label %19
+  br i1 %18, label %107, label %19
 
 19:                                               ; preds = %2
-  %20 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %22, label %25
+  %20 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %27
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 4), align 4
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %26, label %25
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 4
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %28, label %27
 
-25:                                               ; preds = %22, %19
+27:                                               ; preds = %23, %19
   store i32 0, ptr %3, align 4
-  br label %106
+  br label %108
 
-26:                                               ; preds = %22
-  %27 = load i32, ptr @async_dns_initialized, align 4
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %32
+28:                                               ; preds = %23
+  %29 = load i32, ptr @async_dns_initialized, align 4
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %34
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr @name_resolve_concurrency, align 4
-  %31 = icmp ult i32 %30, 1
-  br i1 %31, label %32, label %33
+31:                                               ; preds = %28
+  %32 = load i32, ptr @name_resolve_concurrency, align 4
+  %33 = icmp ult i32 %32, 1
+  br i1 %33, label %34, label %35
 
-32:                                               ; preds = %29, %26
+34:                                               ; preds = %31, %28
   store i32 0, ptr %3, align 4
-  br label %106
+  br label %108
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 0
-  store i32 4, ptr %34, align 8
-  %35 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 1
-  store i32 0, ptr %35, align 4
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 2
-  store ptr %36, ptr %37, align 8
-  %38 = load ptr, ptr @ghbn_chan, align 8
-  %39 = load ptr, ptr %4, align 8
-  call void @ares_gethostbyname(ptr noundef %38, ptr noundef %39, i32 noundef 2, ptr noundef @c_ares_ghi_cb, ptr noundef %11)
-  br label %40
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 0
+  store i32 4, ptr %36, align 8
+  %37 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 1
+  store i32 0, ptr %37, align 4
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 2
+  store ptr %38, ptr %39, align 8
+  %40 = load ptr, ptr @ghbn_chan, align 8
+  %41 = load ptr, ptr %4, align 8
+  call void @ares_gethostbyname(ptr noundef %40, ptr noundef %41, i32 noundef 2, ptr noundef @c_ares_ghi_cb, ptr noundef %11)
+  br label %42
 
-40:                                               ; preds = %33
+42:                                               ; preds = %35
   store ptr %9, ptr %13, align 8
   store i32 0, ptr %12, align 4
-  br label %41
+  br label %43
 
-41:                                               ; preds = %51, %40
-  %42 = load i32, ptr %12, align 4
-  %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %43, 16
-  br i1 %44, label %45, label %54
+43:                                               ; preds = %53, %42
+  %44 = load i32, ptr %12, align 4
+  %45 = zext i32 %44 to i64
+  %46 = icmp ult i64 %45, 16
+  br i1 %46, label %47, label %56
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %13, align 8
-  %47 = getelementptr inbounds %struct.fd_set, ptr %46, i32 0, i32 0
-  %48 = load i32, ptr %12, align 4
-  %49 = zext i32 %48 to i64
-  %50 = getelementptr [16 x i64], ptr %47, i64 0, i64 %49
-  store i64 0, ptr %50, align 8
-  br label %51
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %13, align 8
+  %49 = getelementptr inbounds %struct.fd_set, ptr %48, i32 0, i32 0
+  %50 = load i32, ptr %12, align 4
+  %51 = zext i32 %50 to i64
+  %52 = getelementptr [16 x i64], ptr %49, i64 0, i64 %51
+  store i64 0, ptr %52, align 8
+  br label %53
 
-51:                                               ; preds = %45
-  %52 = load i32, ptr %12, align 4
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %12, align 4
-  br label %41, !llvm.loop !14
+53:                                               ; preds = %47
+  %54 = load i32, ptr %12, align 4
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %12, align 4
+  br label %43, !llvm.loop !14
 
-54:                                               ; preds = %41
-  br label %55
-
-55:                                               ; preds = %54
-  br label %56
-
-56:                                               ; preds = %55
-  store ptr %10, ptr %15, align 8
-  store i32 0, ptr %14, align 4
+56:                                               ; preds = %43
   br label %57
 
-57:                                               ; preds = %67, %56
-  %58 = load i32, ptr %14, align 4
-  %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %59, 16
-  br i1 %60, label %61, label %70
+57:                                               ; preds = %56
+  br label %58
 
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %15, align 8
-  %63 = getelementptr inbounds %struct.fd_set, ptr %62, i32 0, i32 0
-  %64 = load i32, ptr %14, align 4
-  %65 = zext i32 %64 to i64
-  %66 = getelementptr [16 x i64], ptr %63, i64 0, i64 %65
-  store i64 0, ptr %66, align 8
-  br label %67
+58:                                               ; preds = %57
+  store ptr %10, ptr %15, align 8
+  store i32 0, ptr %14, align 4
+  br label %59
 
-67:                                               ; preds = %61
-  %68 = load i32, ptr %14, align 4
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %14, align 4
-  br label %57, !llvm.loop !15
+59:                                               ; preds = %69, %58
+  %60 = load i32, ptr %14, align 4
+  %61 = zext i32 %60 to i64
+  %62 = icmp ult i64 %61, 16
+  br i1 %62, label %63, label %72
 
-70:                                               ; preds = %57
-  br label %71
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %15, align 8
+  %65 = getelementptr inbounds %struct.fd_set, ptr %64, i32 0, i32 0
+  %66 = load i32, ptr %14, align 4
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr [16 x i64], ptr %65, i64 0, i64 %67
+  store i64 0, ptr %68, align 8
+  br label %69
 
-71:                                               ; preds = %70
-  %72 = load ptr, ptr @ghbn_chan, align 8
-  %73 = call i32 @ares_fds(ptr noundef %72, ptr noundef %9, ptr noundef %10)
-  store i32 %73, ptr %8, align 4
-  %74 = load i32, ptr %8, align 4
-  %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %76, label %96
+69:                                               ; preds = %63
+  %70 = load i32, ptr %14, align 4
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %14, align 4
+  br label %59, !llvm.loop !15
 
-76:                                               ; preds = %71
-  %77 = load ptr, ptr @ghbn_chan, align 8
-  %78 = call ptr @ares_timeout(ptr noundef %77, ptr noundef %6, ptr noundef %6)
-  store ptr %78, ptr %7, align 8
-  %79 = load i32, ptr %8, align 4
-  %80 = load ptr, ptr %7, align 8
-  %81 = call i32 @select(i32 noundef %79, ptr noundef %9, ptr noundef %10, ptr noundef null, ptr noundef %80)
-  %82 = icmp eq i32 %81, -1
-  br i1 %82, label %83, label %94
+72:                                               ; preds = %59
+  br label %73
 
-83:                                               ; preds = %76
-  %84 = call ptr @__errno_location() #9
-  %85 = load i32, ptr %84, align 4
-  %86 = icmp ne i32 %85, 4
-  br i1 %86, label %87, label %93
+73:                                               ; preds = %72
+  %74 = load ptr, ptr @ghbn_chan, align 8
+  %75 = call i32 @ares_fds(ptr noundef %74, ptr noundef %9, ptr noundef %10)
+  store i32 %75, ptr %8, align 4
+  %76 = load i32, ptr %8, align 4
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %78, label %98
 
-87:                                               ; preds = %83
-  %88 = load ptr, ptr @stderr, align 8
-  %89 = call ptr @__errno_location() #9
-  %90 = load i32, ptr %89, align 4
-  %91 = call ptr @g_strerror(i32 noundef %90) #9
-  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef @.str.47, ptr noundef %91) #10
-  br label %93
+78:                                               ; preds = %73
+  %79 = load ptr, ptr @ghbn_chan, align 8
+  %80 = call ptr @ares_timeout(ptr noundef %79, ptr noundef %6, ptr noundef %6)
+  store ptr %80, ptr %7, align 8
+  %81 = load i32, ptr %8, align 4
+  %82 = load ptr, ptr %7, align 8
+  %83 = call i32 @select(i32 noundef %81, ptr noundef %9, ptr noundef %10, ptr noundef null, ptr noundef %82)
+  %84 = icmp eq i32 %83, -1
+  br i1 %84, label %85, label %96
 
-93:                                               ; preds = %87, %83
+85:                                               ; preds = %78
+  %86 = call ptr @__errno_location() #9
+  %87 = load i32, ptr %86, align 4
+  %88 = icmp ne i32 %87, 4
+  br i1 %88, label %89, label %95
+
+89:                                               ; preds = %85
+  %90 = load ptr, ptr @stderr, align 8
+  %91 = call ptr @__errno_location() #9
+  %92 = load i32, ptr %91, align 4
+  %93 = call ptr @g_strerror(i32 noundef %92) #9
+  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef @.str.47, ptr noundef %93) #10
+  br label %95
+
+95:                                               ; preds = %89, %85
   store i32 0, ptr %3, align 4
-  br label %106
+  br label %108
 
-94:                                               ; preds = %76
-  %95 = load ptr, ptr @ghbn_chan, align 8
-  call void @ares_process(ptr noundef %95, ptr noundef %9, ptr noundef %10)
-  br label %96
-
-96:                                               ; preds = %94, %71
+96:                                               ; preds = %78
   %97 = load ptr, ptr @ghbn_chan, align 8
-  call void @ares_cancel(ptr noundef %97)
-  %98 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 0
-  %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 1
-  %101 = load i32, ptr %100, align 4
-  %102 = icmp eq i32 %99, %101
-  br i1 %102, label %103, label %104
+  call void @ares_process(ptr noundef %97, ptr noundef %9, ptr noundef %10)
+  br label %98
 
-103:                                              ; preds = %96
+98:                                               ; preds = %96, %73
+  %99 = load ptr, ptr @ghbn_chan, align 8
+  call void @ares_cancel(ptr noundef %99)
+  %100 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 0
+  %101 = load i32, ptr %100, align 8
+  %102 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 1
+  %103 = load i32, ptr %102, align 4
+  %104 = icmp eq i32 %101, %103
+  br i1 %104, label %105, label %106
+
+105:                                              ; preds = %98
   store i32 1, ptr %3, align 4
-  br label %106
+  br label %108
 
-104:                                              ; preds = %96
+106:                                              ; preds = %98
   store i32 0, ptr %3, align 4
-  br label %106
+  br label %108
 
-105:                                              ; preds = %2
+107:                                              ; preds = %2
   store i32 1, ptr %3, align 4
-  br label %106
+  br label %108
 
-106:                                              ; preds = %105, %104, %103, %93, %32, %25
-  %107 = load i32, ptr %3, align 4
-  ret i32 %107
+108:                                              ; preds = %107, %106, %105, %95, %34, %27
+  %109 = load i32, ptr %3, align 4
+  ret i32 %109
 }
 
 declare void @ares_gethostbyname(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
@@ -4867,172 +4898,174 @@ define i32 @get_host_ipaddr6(ptr noundef %0, ptr noundef %1) #0 {
 
 20:                                               ; preds = %2
   store i32 1, ptr %3, align 4
-  br label %107
+  br label %109
 
 21:                                               ; preds = %2
-  %22 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %27
+  %22 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %29
 
-24:                                               ; preds = %21
-  %25 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 4), align 4
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %28, label %27
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 4
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %30, label %29
 
-27:                                               ; preds = %24, %21
+29:                                               ; preds = %25, %21
   store i32 0, ptr %3, align 4
-  br label %107
+  br label %109
 
-28:                                               ; preds = %24
-  %29 = load i32, ptr @async_dns_initialized, align 4
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %31, label %34
+30:                                               ; preds = %25
+  %31 = load i32, ptr @async_dns_initialized, align 4
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %36
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr @name_resolve_concurrency, align 4
-  %33 = icmp ult i32 %32, 1
-  br i1 %33, label %34, label %35
+33:                                               ; preds = %30
+  %34 = load i32, ptr @name_resolve_concurrency, align 4
+  %35 = icmp ult i32 %34, 1
+  br i1 %35, label %36, label %37
 
-34:                                               ; preds = %31, %28
+36:                                               ; preds = %33, %30
   store i32 0, ptr %3, align 4
-  br label %107
+  br label %109
 
-35:                                               ; preds = %31
-  %36 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 0
-  store i32 16, ptr %36, align 8
-  %37 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 1
-  store i32 0, ptr %37, align 4
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 2
-  store ptr %38, ptr %39, align 8
-  %40 = load ptr, ptr @ghbn_chan, align 8
-  %41 = load ptr, ptr %4, align 8
-  call void @ares_gethostbyname(ptr noundef %40, ptr noundef %41, i32 noundef 10, ptr noundef @c_ares_ghi_cb, ptr noundef %11)
-  br label %42
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 0
+  store i32 16, ptr %38, align 8
+  %39 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 1
+  store i32 0, ptr %39, align 4
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 2
+  store ptr %40, ptr %41, align 8
+  %42 = load ptr, ptr @ghbn_chan, align 8
+  %43 = load ptr, ptr %4, align 8
+  call void @ares_gethostbyname(ptr noundef %42, ptr noundef %43, i32 noundef 10, ptr noundef @c_ares_ghi_cb, ptr noundef %11)
+  br label %44
 
-42:                                               ; preds = %35
+44:                                               ; preds = %37
   store ptr %9, ptr %13, align 8
   store i32 0, ptr %12, align 4
-  br label %43
+  br label %45
 
-43:                                               ; preds = %53, %42
-  %44 = load i32, ptr %12, align 4
-  %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %45, 16
-  br i1 %46, label %47, label %56
+45:                                               ; preds = %55, %44
+  %46 = load i32, ptr %12, align 4
+  %47 = zext i32 %46 to i64
+  %48 = icmp ult i64 %47, 16
+  br i1 %48, label %49, label %58
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %13, align 8
-  %49 = getelementptr inbounds %struct.fd_set, ptr %48, i32 0, i32 0
-  %50 = load i32, ptr %12, align 4
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr [16 x i64], ptr %49, i64 0, i64 %51
-  store i64 0, ptr %52, align 8
-  br label %53
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %13, align 8
+  %51 = getelementptr inbounds %struct.fd_set, ptr %50, i32 0, i32 0
+  %52 = load i32, ptr %12, align 4
+  %53 = zext i32 %52 to i64
+  %54 = getelementptr [16 x i64], ptr %51, i64 0, i64 %53
+  store i64 0, ptr %54, align 8
+  br label %55
 
-53:                                               ; preds = %47
-  %54 = load i32, ptr %12, align 4
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %12, align 4
-  br label %43, !llvm.loop !16
+55:                                               ; preds = %49
+  %56 = load i32, ptr %12, align 4
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %12, align 4
+  br label %45, !llvm.loop !16
 
-56:                                               ; preds = %43
-  br label %57
-
-57:                                               ; preds = %56
-  br label %58
-
-58:                                               ; preds = %57
-  store ptr %10, ptr %15, align 8
-  store i32 0, ptr %14, align 4
+58:                                               ; preds = %45
   br label %59
 
-59:                                               ; preds = %69, %58
-  %60 = load i32, ptr %14, align 4
-  %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %61, 16
-  br i1 %62, label %63, label %72
+59:                                               ; preds = %58
+  br label %60
 
-63:                                               ; preds = %59
-  %64 = load ptr, ptr %15, align 8
-  %65 = getelementptr inbounds %struct.fd_set, ptr %64, i32 0, i32 0
-  %66 = load i32, ptr %14, align 4
-  %67 = zext i32 %66 to i64
-  %68 = getelementptr [16 x i64], ptr %65, i64 0, i64 %67
-  store i64 0, ptr %68, align 8
-  br label %69
+60:                                               ; preds = %59
+  store ptr %10, ptr %15, align 8
+  store i32 0, ptr %14, align 4
+  br label %61
 
-69:                                               ; preds = %63
-  %70 = load i32, ptr %14, align 4
-  %71 = add i32 %70, 1
-  store i32 %71, ptr %14, align 4
-  br label %59, !llvm.loop !17
+61:                                               ; preds = %71, %60
+  %62 = load i32, ptr %14, align 4
+  %63 = zext i32 %62 to i64
+  %64 = icmp ult i64 %63, 16
+  br i1 %64, label %65, label %74
 
-72:                                               ; preds = %59
-  br label %73
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %15, align 8
+  %67 = getelementptr inbounds %struct.fd_set, ptr %66, i32 0, i32 0
+  %68 = load i32, ptr %14, align 4
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr [16 x i64], ptr %67, i64 0, i64 %69
+  store i64 0, ptr %70, align 8
+  br label %71
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr @ghbn_chan, align 8
-  %75 = call i32 @ares_fds(ptr noundef %74, ptr noundef %9, ptr noundef %10)
-  store i32 %75, ptr %8, align 4
-  %76 = load i32, ptr %8, align 4
-  %77 = icmp sgt i32 %76, 0
-  br i1 %77, label %78, label %98
+71:                                               ; preds = %65
+  %72 = load i32, ptr %14, align 4
+  %73 = add i32 %72, 1
+  store i32 %73, ptr %14, align 4
+  br label %61, !llvm.loop !17
 
-78:                                               ; preds = %73
-  %79 = load ptr, ptr @ghbn_chan, align 8
-  %80 = call ptr @ares_timeout(ptr noundef %79, ptr noundef %6, ptr noundef %6)
-  store ptr %80, ptr %7, align 8
-  %81 = load i32, ptr %8, align 4
-  %82 = load ptr, ptr %7, align 8
-  %83 = call i32 @select(i32 noundef %81, ptr noundef %9, ptr noundef %10, ptr noundef null, ptr noundef %82)
-  %84 = icmp eq i32 %83, -1
-  br i1 %84, label %85, label %96
+74:                                               ; preds = %61
+  br label %75
 
-85:                                               ; preds = %78
-  %86 = call ptr @__errno_location() #9
-  %87 = load i32, ptr %86, align 4
-  %88 = icmp ne i32 %87, 4
-  br i1 %88, label %89, label %95
+75:                                               ; preds = %74
+  %76 = load ptr, ptr @ghbn_chan, align 8
+  %77 = call i32 @ares_fds(ptr noundef %76, ptr noundef %9, ptr noundef %10)
+  store i32 %77, ptr %8, align 4
+  %78 = load i32, ptr %8, align 4
+  %79 = icmp sgt i32 %78, 0
+  br i1 %79, label %80, label %100
 
-89:                                               ; preds = %85
-  %90 = load ptr, ptr @stderr, align 8
-  %91 = call ptr @__errno_location() #9
-  %92 = load i32, ptr %91, align 4
-  %93 = call ptr @g_strerror(i32 noundef %92) #9
-  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef @.str.47, ptr noundef %93) #10
-  br label %95
+80:                                               ; preds = %75
+  %81 = load ptr, ptr @ghbn_chan, align 8
+  %82 = call ptr @ares_timeout(ptr noundef %81, ptr noundef %6, ptr noundef %6)
+  store ptr %82, ptr %7, align 8
+  %83 = load i32, ptr %8, align 4
+  %84 = load ptr, ptr %7, align 8
+  %85 = call i32 @select(i32 noundef %83, ptr noundef %9, ptr noundef %10, ptr noundef null, ptr noundef %84)
+  %86 = icmp eq i32 %85, -1
+  br i1 %86, label %87, label %98
 
-95:                                               ; preds = %89, %85
+87:                                               ; preds = %80
+  %88 = call ptr @__errno_location() #9
+  %89 = load i32, ptr %88, align 4
+  %90 = icmp ne i32 %89, 4
+  br i1 %90, label %91, label %97
+
+91:                                               ; preds = %87
+  %92 = load ptr, ptr @stderr, align 8
+  %93 = call ptr @__errno_location() #9
+  %94 = load i32, ptr %93, align 4
+  %95 = call ptr @g_strerror(i32 noundef %94) #9
+  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef @.str.47, ptr noundef %95) #10
+  br label %97
+
+97:                                               ; preds = %91, %87
   store i32 0, ptr %3, align 4
-  br label %107
+  br label %109
 
-96:                                               ; preds = %78
-  %97 = load ptr, ptr @ghbn_chan, align 8
-  call void @ares_process(ptr noundef %97, ptr noundef %9, ptr noundef %10)
-  br label %98
-
-98:                                               ; preds = %96, %73
+98:                                               ; preds = %80
   %99 = load ptr, ptr @ghbn_chan, align 8
-  call void @ares_cancel(ptr noundef %99)
-  %100 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 0
-  %101 = load i32, ptr %100, align 8
-  %102 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 1
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp eq i32 %101, %103
-  br i1 %104, label %105, label %106
+  call void @ares_process(ptr noundef %99, ptr noundef %9, ptr noundef %10)
+  br label %100
 
-105:                                              ; preds = %98
+100:                                              ; preds = %98, %75
+  %101 = load ptr, ptr @ghbn_chan, align 8
+  call void @ares_cancel(ptr noundef %101)
+  %102 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 0
+  %103 = load i32, ptr %102, align 8
+  %104 = getelementptr inbounds %struct._async_hostent, ptr %11, i32 0, i32 1
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp eq i32 %103, %105
+  br i1 %106, label %107, label %108
+
+107:                                              ; preds = %100
   store i32 1, ptr %3, align 4
-  br label %107
+  br label %109
 
-106:                                              ; preds = %98
+108:                                              ; preds = %100
   store i32 0, ptr %3, align 4
-  br label %107
+  br label %109
 
-107:                                              ; preds = %106, %105, %95, %34, %27, %20
-  %108 = load i32, ptr %3, align 4
-  ret i32 %108
+109:                                              ; preds = %108, %107, %97, %36, %29, %20
+  %110 = load i32, ptr %3, align 4
+  ret i32 %110
 }
 
 ; Function Attrs: nounwind uwtable

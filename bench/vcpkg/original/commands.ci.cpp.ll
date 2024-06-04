@@ -8558,9 +8558,10 @@ define internal void @_ZZN5vcpkg19command_ci_and_exitERKNS_17VcpkgCmdArgumentsER
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg15GraphRandomizerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVZN5vcpkg19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_E18RandomizerInstance, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.RandomizerInstance, ptr %3, i32 0, i32 1
-  call void @_ZNSt13random_deviceC2Ev(ptr noundef nonnull align 8 dereferenceable(5000) %4)
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVZN5vcpkg19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_E18RandomizerInstance, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.RandomizerInstance, ptr %3, i32 0, i32 1
+  call void @_ZNSt13random_deviceC2Ev(ptr noundef nonnull align 8 dereferenceable(5000) %5)
   ret void
 }
 
@@ -11444,9 +11445,10 @@ define internal void @_ZZN5vcpkg19command_ci_and_exitERKNS_17VcpkgCmdArgumentsER
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVZN5vcpkg19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_E18RandomizerInstance, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.RandomizerInstance, ptr %3, i32 0, i32 1
-  call void @_ZNSt13random_deviceD2Ev(ptr noundef nonnull align 8 dereferenceable(5000) %4) #17
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVZN5vcpkg19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_E18RandomizerInstance, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.RandomizerInstance, ptr %3, i32 0, i32 1
+  call void @_ZNSt13random_deviceD2Ev(ptr noundef nonnull align 8 dereferenceable(5000) %5) #17
   ret void
 }
 
@@ -11529,13 +11531,14 @@ define linkonce_odr dso_local void @_ZN5vcpkg21PathsPortFileProviderD2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
-  %5 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5vcpkg30IFullVersionedPortfileProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
-  %6 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5vcpkg17IBaselineProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  %6 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5vcpkg30IFullVersionedPortfileProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  %7 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5vcpkg17IBaselineProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   call void @_ZN5vcpkg16PortFileProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
   ret void
 }
@@ -15475,10 +15478,11 @@ define internal void @_ZN12_GLOBAL__N_119CiBuildLogsRecorderC2ERKN5vcpkg4PathE(p
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg18IBuildLogsRecorderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119CiBuildLogsRecorderE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.(anonymous namespace)::CiBuildLogsRecorder", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119CiBuildLogsRecorderE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.(anonymous namespace)::CiBuildLogsRecorder", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
   ret void
 }
 
@@ -15512,7 +15516,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg18IBuildLogsRecorderC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg18IBuildLogsRecorderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN5vcpkg18IBuildLogsRecorderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -17231,11 +17236,12 @@ define internal void @_ZN12_GLOBAL__N_119CiBuildLogsRecorderC2EOS0_(ptr noundef 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5vcpkg18IBuildLogsRecorderC2EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #17
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119CiBuildLogsRecorderE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.(anonymous namespace)::CiBuildLogsRecorder", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"struct.(anonymous namespace)::CiBuildLogsRecorder", ptr %8, i32 0, i32 1
-  call void @_ZN5vcpkg4PathC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9) #17
+  %7 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119CiBuildLogsRecorderE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"struct.(anonymous namespace)::CiBuildLogsRecorder", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"struct.(anonymous namespace)::CiBuildLogsRecorder", ptr %9, i32 0, i32 1
+  call void @_ZN5vcpkg4PathC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10) #17
   ret void
 }
 
@@ -17246,7 +17252,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg18IBuildLogsRecorderC2EOS0_(ptr nou
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg18IBuildLogsRecorderE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN5vcpkg18IBuildLogsRecorderE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -18310,7 +18317,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg15GraphRandomizerC2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg15GraphRandomizerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN5vcpkg15GraphRandomizerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

@@ -133,93 +133,94 @@ define dso_local void @_ZN17NavMeshTesterToolC2Ev(ptr noundef nonnull align 8 de
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN10SampleToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV17NavMeshTesterTool, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 2
+  %6 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV17NavMeshTesterTool, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 1
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 3
+  %8 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 2
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 4
-  invoke void @_ZN13dtQueryFilterC1Ev(ptr noundef nonnull align 4 dereferenceable(260) %9)
-          to label %10 unwind label %40
+  %9 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 3
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 4
+  invoke void @_ZN13dtQueryFilterC1Ev(ptr noundef nonnull align 4 dereferenceable(260) %10)
+          to label %11 unwind label %41
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 5
-  store i32 -2147483648, ptr %11, align 4
-  %12 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 6
-  store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 7
-  store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 8
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 9
-  store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 12
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 16
-  store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 19
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 5
+  store i32 -2147483648, ptr %12, align 4
+  %13 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 6
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 7
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 8
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 9
+  store i32 0, ptr %16, align 4
+  %17 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 12
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 16
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 22
-  store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 23
-  store i8 0, ptr %20, align 4
-  %21 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 28
-  store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 29
-  store float 0.000000e+00, ptr %22, align 4
-  %23 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 32
-  store i8 0, ptr %23, align 8
-  %24 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 33
-  store i8 0, ptr %24, align 1
-  %25 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 34
-  store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 36
-  store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 42
-  store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 4
-  invoke void @_ZN13dtQueryFilter15setIncludeFlagsEt(ptr noundef nonnull align 4 dereferenceable(260) %28, i16 noundef zeroext -17)
-          to label %29 unwind label %40
+  %19 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 19
+  store i32 0, ptr %19, align 4
+  %20 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 22
+  store i32 0, ptr %20, align 8
+  %21 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 23
+  store i8 0, ptr %21, align 4
+  %22 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 28
+  store i8 0, ptr %22, align 8
+  %23 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 29
+  store float 0.000000e+00, ptr %23, align 4
+  %24 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 32
+  store i8 0, ptr %24, align 8
+  %25 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 33
+  store i8 0, ptr %25, align 1
+  %26 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 34
+  store i32 0, ptr %26, align 4
+  %27 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 36
+  store i32 0, ptr %27, align 8
+  %28 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 42
+  store i32 0, ptr %28, align 4
+  %29 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 4
+  invoke void @_ZN13dtQueryFilter15setIncludeFlagsEt(ptr noundef nonnull align 4 dereferenceable(260) %29, i16 noundef zeroext -17)
+          to label %30 unwind label %41
 
-29:                                               ; preds = %10
-  %30 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 4
-  invoke void @_ZN13dtQueryFilter15setExcludeFlagsEt(ptr noundef nonnull align 4 dereferenceable(260) %30, i16 noundef zeroext 0)
-          to label %31 unwind label %40
+30:                                               ; preds = %11
+  %31 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 4
+  invoke void @_ZN13dtQueryFilter15setExcludeFlagsEt(ptr noundef nonnull align 4 dereferenceable(260) %31, i16 noundef zeroext 0)
+          to label %32 unwind label %41
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 17
-  %33 = getelementptr inbounds [3 x float], ptr %32, i64 0, i64 0
-  store float 2.000000e+00, ptr %33, align 8
-  %34 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 17
-  %35 = getelementptr inbounds [3 x float], ptr %34, i64 0, i64 1
-  store float 4.000000e+00, ptr %35, align 4
-  %36 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 17
-  %37 = getelementptr inbounds [3 x float], ptr %36, i64 0, i64 2
-  store float 2.000000e+00, ptr %37, align 8
-  %38 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 30
-  store float 2.500000e+00, ptr %38, align 8
-  %39 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 31
-  store float 5.000000e+00, ptr %39, align 4
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 17
+  %34 = getelementptr inbounds [3 x float], ptr %33, i64 0, i64 0
+  store float 2.000000e+00, ptr %34, align 8
+  %35 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 17
+  %36 = getelementptr inbounds [3 x float], ptr %35, i64 0, i64 1
+  store float 4.000000e+00, ptr %36, align 4
+  %37 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 17
+  %38 = getelementptr inbounds [3 x float], ptr %37, i64 0, i64 2
+  store float 2.000000e+00, ptr %38, align 8
+  %39 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 30
+  store float 2.500000e+00, ptr %39, align 8
+  %40 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 31
+  store float 5.000000e+00, ptr %40, align 4
   ret void
 
-40:                                               ; preds = %29, %10, %1
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %30, %11, %1
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %3, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %4, align 4
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %3, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %4, align 4
   call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  br label %44
+  br label %45
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %3, align 8
-  %46 = load i32, ptr %4, align 4
-  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
-  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
-  resume { ptr, i32 } %48
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %3, align 8
+  %47 = load i32, ptr %4, align 4
+  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
+  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
+  resume { ptr, i32 } %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -227,7 +228,8 @@ define linkonce_odr dso_local void @_ZN10SampleToolC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

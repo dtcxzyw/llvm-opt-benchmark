@@ -162,13 +162,18 @@ define dso_local void @idt_setup_apic_and_irq_gates() local_unnamed_addr #1 sect
 
 37:                                               ; preds = %24, %4
   %38 = load i64, ptr @phys_base, align 8
-  %39 = add i64 %38, sub (i64 ptrtoint (ptr @idt_table to i64), i64 -2147483648)
-  %40 = load i64, ptr @__default_kernel_pte_mask, align 8
-  %41 = and i64 %40, -9223372036854775519
-  tail call void @cea_set_pte(ptr noundef nonnull inttoptr (i64 -2199023255552 to ptr), i64 noundef %39, i64 %41) #4
-  store i64 -2199023255552, ptr getelementptr inbounds (%struct.desc_ptr, ptr @idt_descr, i64 0, i32 1), align 1
+  %39 = ptrtoint ptr @idt_table to i64
+  %40 = sub i64 %39, -2147483648
+  %41 = add i64 %38, %40
+  %42 = load i64, ptr @__default_kernel_pte_mask, align 8
+  %43 = and i64 %42, -9223372036854775519
+  %44 = inttoptr i64 -2199023255552 to ptr
+  tail call void @cea_set_pte(ptr noundef nonnull %44, i64 noundef %41, i64 %43) #4
+  %45 = getelementptr inbounds %struct.desc_ptr, ptr @idt_descr, i64 0, i32 1
+  store i64 -2199023255552, ptr %45, align 1
   tail call void asm sideeffect "lidt $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.desc_ptr) @idt_descr) #4, !srcloc !5
-  %42 = tail call i32 @set_memory_ro(i64 noundef ptrtoint (ptr @idt_table to i64), i32 noundef 1) #4
+  %46 = ptrtoint ptr @idt_table to i64
+  %47 = tail call i32 @set_memory_ro(i64 noundef %46, i32 noundef 1) #4
   store i1 true, ptr @idt_setup_done, align 1
   ret void
 }

@@ -99,7 +99,7 @@ define internal i32 @pmix_pif_base_open(i32 noundef %0) #0 {
 
 6:                                                ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %21
+  br label %24
 
 7:                                                ; preds = %1
   store i8 1, ptr @frameopen, align 1
@@ -113,36 +113,39 @@ define internal i32 @pmix_pif_base_open(i32 noundef %0) #0 {
 
 10:                                               ; preds = %9
   %11 = load i32, ptr @pmix_class_init_epoch, align 4
-  %12 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4), align 8
-  %13 = icmp ne i32 %11, %12
-  br i1 %13, label %14, label %15
+  %12 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp ne i32 %11, %13
+  br i1 %14, label %15, label %16
 
-14:                                               ; preds = %10
+15:                                               ; preds = %10
   call void @pmix_class_initialize(ptr noundef @pmix_list_t_class)
-  br label %15
-
-15:                                               ; preds = %14, %10
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (%struct.pmix_object_t, ptr @pmix_if_list, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pmix_object_t, ptr @pmix_if_list, i32 0, i32 2), align 8
-  call void @pmix_obj_construct_tma(ptr noundef @pmix_if_list, ptr noundef null)
-  call void @pmix_obj_run_constructors(ptr noundef @pmix_if_list)
   br label %16
 
-16:                                               ; preds = %15
-  br label %17
+16:                                               ; preds = %15, %10
+  %17 = getelementptr inbounds %struct.pmix_object_t, ptr @pmix_if_list, i32 0, i32 1
+  store ptr @pmix_list_t_class, ptr %17, align 8
+  %18 = getelementptr inbounds %struct.pmix_object_t, ptr @pmix_if_list, i32 0, i32 2
+  store i32 1, ptr %18, align 8
+  call void @pmix_obj_construct_tma(ptr noundef @pmix_if_list, ptr noundef null)
+  call void @pmix_obj_run_constructors(ptr noundef @pmix_if_list)
+  br label %19
 
-17:                                               ; preds = %16
-  br label %18
+19:                                               ; preds = %16
+  br label %20
 
-18:                                               ; preds = %17
-  %19 = load i32, ptr %3, align 4
-  %20 = call i32 @pmix_mca_base_framework_components_open(ptr noundef @pmix_pif_base_framework, i32 noundef %19)
-  store i32 %20, ptr %2, align 4
+20:                                               ; preds = %19
   br label %21
 
-21:                                               ; preds = %18, %6
-  %22 = load i32, ptr %2, align 4
-  ret i32 %22
+21:                                               ; preds = %20
+  %22 = load i32, ptr %3, align 4
+  %23 = call i32 @pmix_mca_base_framework_components_open(ptr noundef @pmix_pif_base_framework, i32 noundef %22)
+  store i32 %23, ptr %2, align 4
+  br label %24
+
+24:                                               ; preds = %21, %6
+  %25 = load i32, ptr %2, align 4
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable

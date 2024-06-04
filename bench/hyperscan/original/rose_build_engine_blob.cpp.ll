@@ -1009,7 +1009,8 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIcN3ue
 
 if.then.i.i.i:                                    ; preds = %cond.true.i
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception.i.i.i, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2
+  store ptr %3, ptr %exception.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #15
   unreachable
 
@@ -1039,14 +1040,14 @@ vector.body:                                      ; preds = %vector.body, %vecto
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %wide.load = load <16 x i8>, ptr %next.gep71, align 1, !alias.scope !19, !noalias !16
-  %3 = getelementptr i8, ptr %next.gep71, i64 16
-  %wide.load73 = load <16 x i8>, ptr %3, align 1, !alias.scope !19, !noalias !16
+  %4 = getelementptr i8, ptr %next.gep71, i64 16
+  %wide.load73 = load <16 x i8>, ptr %4, align 1, !alias.scope !19, !noalias !16
   store <16 x i8> %wide.load, ptr %next.gep, align 1, !alias.scope !16, !noalias !19
-  %4 = getelementptr i8, ptr %next.gep, i64 16
-  store <16 x i8> %wide.load73, ptr %4, align 1, !alias.scope !16, !noalias !19
+  %5 = getelementptr i8, ptr %next.gep, i64 16
+  store <16 x i8> %wide.load73, ptr %5, align 1, !alias.scope !16, !noalias !19
   %index.next = add nuw i64 %index, 32
-  %5 = icmp eq i64 %index.next, %n.vec
-  br i1 %5, label %middle.block, label %vector.body, !llvm.loop !21
+  %6 = icmp eq i64 %index.next, %n.vec
+  br i1 %6, label %middle.block, label %vector.body, !llvm.loop !21
 
 middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %sub.ptr.sub.i, %n.vec
@@ -1075,8 +1076,8 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %wide.load88 = load <8 x i8>, ptr %next.gep87, align 1, !alias.scope !19, !noalias !16
   store <8 x i8> %wide.load88, ptr %next.gep86, align 1, !alias.scope !16, !noalias !19
   %index.next89 = add nuw i64 %index85, 8
-  %6 = icmp eq i64 %index.next89, %n.vec77
-  br i1 %6, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !24
+  %7 = icmp eq i64 %index.next89, %n.vec77
+  br i1 %7, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !24
 
 vec.epilog.middle.block:                          ; preds = %vec.epilog.vector.body
   %cmp.n84 = icmp eq i64 %sub.ptr.sub.i, %n.vec77
@@ -1092,8 +1093,8 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %__first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__first.addr.07.i.i.i.i.ph, %for.body.i.i.i.i.preheader ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %7 = load i8, ptr %__first.addr.07.i.i.i.i, align 1, !alias.scope !19, !noalias !16
-  store i8 %7, ptr %__cur.08.i.i.i.i, align 1, !alias.scope !16, !noalias !19
+  %8 = load i8, ptr %__first.addr.07.i.i.i.i, align 1, !alias.scope !19, !noalias !16
+  store i8 %8, ptr %__cur.08.i.i.i.i, align 1, !alias.scope !16, !noalias !19
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i, i64 1
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
@@ -1108,10 +1109,10 @@ if.then.i68:                                      ; preds = %_ZNSt6vectorIcN3ue2
           to label %_ZNSt12_Vector_baseIcN3ue216AlignedAllocatorIcLm64EEEE13_M_deallocateEPcm.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i68
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #19
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #19
   unreachable
 
 _ZNSt12_Vector_baseIcN3ue216AlignedAllocatorIcLm64EEEE13_M_deallocateEPcm.exit: ; preds = %if.then.i68, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE11_S_relocateEPcS4_S4_RS2_.exit

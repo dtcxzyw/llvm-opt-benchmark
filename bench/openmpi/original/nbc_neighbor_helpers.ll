@@ -168,7 +168,7 @@ define i32 @NBC_Comm_neighbors(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 25:                                               ; preds = %5
   %26 = load i32, ptr %12, align 4
   store i32 %26, ptr %6, align 4
-  br label %182
+  br label %184
 
 27:                                               ; preds = %5
   %28 = load i32, ptr %13, align 4
@@ -200,7 +200,7 @@ define i32 @NBC_Comm_neighbors(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 48:                                               ; preds = %34
   store i32 -2, ptr %6, align 4
-  br label %182
+  br label %184
 
 49:                                               ; preds = %34
   br label %52
@@ -239,7 +239,7 @@ define i32 @NBC_Comm_neighbors(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %72 = load ptr, ptr %8, align 8
   store ptr null, ptr %72, align 8
   store i32 -2, ptr %6, align 4
-  br label %182
+  br label %184
 
 73:                                               ; preds = %55
   br label %76
@@ -261,7 +261,7 @@ define i32 @NBC_Comm_neighbors(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 82:                                               ; preds = %79
   store i32 0, ptr %6, align 4
-  br label %182
+  br label %184
 
 83:                                               ; preds = %79, %76
   %84 = load ptr, ptr %7, align 8
@@ -337,7 +337,7 @@ define i32 @NBC_Comm_neighbors(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %90, !llvm.loop !4
 
 137:                                              ; preds = %90
-  br label %181
+  br label %183
 
 138:                                              ; preds = %83
   %139 = load ptr, ptr %7, align 8
@@ -366,7 +366,7 @@ define i32 @NBC_Comm_neighbors(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %160 = sext i32 %159 to i64
   %161 = mul i64 %160, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %155, ptr align 4 %158, i64 %161, i1 false)
-  br label %180
+  br label %182
 
 162:                                              ; preds = %138
   %163 = load ptr, ptr %7, align 8
@@ -374,7 +374,7 @@ define i32 @NBC_Comm_neighbors(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %165 = load i32, ptr %164, align 8
   %166 = and i32 %165, 1024
   %167 = icmp ne i32 %166, 0
-  br i1 %167, label %168, label %179
+  br i1 %167, label %168, label %181
 
 168:                                              ; preds = %162
   %169 = load ptr, ptr %7, align 8
@@ -386,22 +386,24 @@ define i32 @NBC_Comm_neighbors(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %175 = load ptr, ptr %10, align 8
   %176 = getelementptr inbounds ptr, ptr %175, i64 0
   %177 = load ptr, ptr %176, align 8
-  %178 = call i32 @mca_topo_base_dist_graph_neighbors(ptr noundef %169, i32 noundef %170, ptr noundef %173, ptr noundef inttoptr (i64 2 to ptr), i32 noundef %174, ptr noundef %177, ptr noundef inttoptr (i64 2 to ptr))
-  br label %179
-
-179:                                              ; preds = %168, %162
-  br label %180
-
-180:                                              ; preds = %179, %144
+  %178 = inttoptr i64 2 to ptr
+  %179 = inttoptr i64 2 to ptr
+  %180 = call i32 @mca_topo_base_dist_graph_neighbors(ptr noundef %169, i32 noundef %170, ptr noundef %173, ptr noundef %178, i32 noundef %174, ptr noundef %177, ptr noundef %179)
   br label %181
 
-181:                                              ; preds = %180, %137
-  store i32 0, ptr %6, align 4
+181:                                              ; preds = %168, %162
   br label %182
 
-182:                                              ; preds = %181, %82, %69, %48, %25
-  %183 = load i32, ptr %6, align 4
-  ret i32 %183
+182:                                              ; preds = %181, %144
+  br label %183
+
+183:                                              ; preds = %182, %137
+  store i32 0, ptr %6, align 4
+  br label %184
+
+184:                                              ; preds = %183, %82, %69, %48, %25
+  %185 = load i32, ptr %6, align 4
+  ret i32 %185
 }
 
 ; Function Attrs: nounwind allocsize(0)

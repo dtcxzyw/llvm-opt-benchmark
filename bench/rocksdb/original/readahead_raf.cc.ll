@@ -394,26 +394,27 @@ entry:
   store i64 %readahead_size, ptr %readahead_size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb18FSRandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %file_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::ReadaheadRandomAccessFile", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %file.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %file_, ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  %1 = load ptr, ptr %file.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %file_, ptr noundef nonnull align 8 dereferenceable(8) %1) #12
   %alignment_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::ReadaheadRandomAccessFile", ptr %this1, i32 0, i32 2
   %file_2 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::ReadaheadRandomAccessFile", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZNKSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %file_2) #12
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
-  %1 = load ptr, ptr %vfn, align 8
-  %call3 = invoke noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  %2 = load ptr, ptr %vfn, align 8
+  %call3 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store i64 %call3, ptr %alignment_, align 8
   %readahead_size_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::ReadaheadRandomAccessFile", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %readahead_size.addr, align 8
+  %3 = load i64, ptr %readahead_size.addr, align 8
   %alignment_4 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::ReadaheadRandomAccessFile", ptr %this1, i32 0, i32 2
-  %3 = load i64, ptr %alignment_4, align 8
-  %call6 = invoke noundef i64 @_ZN7rocksdb7RoundupEmm(i64 noundef %2, i64 noundef %3)
+  %4 = load i64, ptr %alignment_4, align 8
+  %call6 = invoke noundef i64 @_ZN7rocksdb7RoundupEmm(i64 noundef %3, i64 noundef %4)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -429,36 +430,36 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   store i64 0, ptr %buffer_offset_, align 8
   %buffer_8 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::ReadaheadRandomAccessFile", ptr %this1, i32 0, i32 5
   %alignment_9 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::ReadaheadRandomAccessFile", ptr %this1, i32 0, i32 2
-  %4 = load i64, ptr %alignment_9, align 8
-  invoke void @_ZN7rocksdb13AlignedBuffer9AlignmentEm(ptr noundef nonnull align 8 dereferenceable(40) %buffer_8, i64 noundef %4)
+  %5 = load i64, ptr %alignment_9, align 8
+  invoke void @_ZN7rocksdb13AlignedBuffer9AlignmentEm(ptr noundef nonnull align 8 dereferenceable(40) %buffer_8, i64 noundef %5)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont7
   %buffer_12 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::ReadaheadRandomAccessFile", ptr %this1, i32 0, i32 5
   %readahead_size_13 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::ReadaheadRandomAccessFile", ptr %this1, i32 0, i32 3
-  %5 = load i64, ptr %readahead_size_13, align 8
-  invoke void @_ZN7rocksdb13AlignedBuffer17AllocateNewBufferEmbmm(ptr noundef nonnull align 8 dereferenceable(40) %buffer_12, i64 noundef %5, i1 noundef zeroext false, i64 noundef 0, i64 noundef 0)
+  %6 = load i64, ptr %readahead_size_13, align 8
+  invoke void @_ZN7rocksdb13AlignedBuffer17AllocateNewBufferEmbmm(ptr noundef nonnull align 8 dereferenceable(40) %buffer_12, i64 noundef %6, i1 noundef zeroext false, i64 noundef 0, i64 noundef 0)
           to label %invoke.cont14 unwind label %lpad10
 
 invoke.cont14:                                    ; preds = %invoke.cont11
   ret void
 
 lpad:                                             ; preds = %invoke.cont5, %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont11, %invoke.cont7
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb13AlignedBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %buffer_) #12
   br label %ehcleanup
 
@@ -548,7 +549,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb18FSRandomAccessFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN7rocksdb18FSRandomAccessFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -765,7 +767,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::ReadaheadRandomAccessFile", ptr %this1, i32 0, i32 5
   call void @_ZN7rocksdb13AlignedBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %buffer_) #12
   %file_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::ReadaheadRandomAccessFile", ptr %this1, i32 0, i32 1

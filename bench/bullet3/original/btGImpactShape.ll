@@ -588,20 +588,21 @@ entry:
   store i32 %part, ptr %part.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN23btGImpactShapeInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this1)
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV22btGImpactMeshShapePart, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [39 x ptr] }, ptr @_ZTV22btGImpactMeshShapePart, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_primitive_manager = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this1, i32 0, i32 1
   invoke void @_ZN22btGImpactMeshShapePart23TrimeshPrimitiveManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(92) %m_primitive_manager)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %meshInterface.addr, align 8
+  %1 = load ptr, ptr %meshInterface.addr, align 8
   %m_primitive_manager2 = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this1, i32 0, i32 1
   %m_meshInterface = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %m_primitive_manager2, i32 0, i32 3
-  store ptr %0, ptr %m_meshInterface, align 8
-  %1 = load i32, ptr %part.addr, align 4
+  store ptr %1, ptr %m_meshInterface, align 8
+  %2 = load i32, ptr %part.addr, align 4
   %m_primitive_manager3 = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this1, i32 0, i32 1
   %m_part = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %m_primitive_manager3, i32 0, i32 5
-  store i32 %1, ptr %m_part, align 8
+  store i32 %2, ptr %m_part, align 8
   %m_box_set = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this1, i32 0, i32 4
   %m_primitive_manager4 = getelementptr inbounds %class.btGImpactMeshShapePart, ptr %this1, i32 0, i32 1
   invoke void @_ZN21btGImpactQuantizedBvh19setPrimitiveManagerEP22btPrimitiveManagerBase(ptr noundef nonnull align 8 dereferenceable(96) %m_box_set, ptr noundef %m_primitive_manager4)
@@ -611,21 +612,21 @@ invoke.cont6:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN22btGImpactMeshShapePart23TrimeshPrimitiveManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %m_primitive_manager) #11
   br label %ehcleanup
 
@@ -653,7 +654,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV23btGImpactShapeInterface, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [39 x ptr] }, ptr @_ZTV23btGImpactShapeInterface, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_localAABB = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this1, i32 0, i32 1
   invoke void @_ZN6btAABBC2Ev(ptr noundef nonnull align 4 dereferenceable(32) %m_localAABB)
           to label %invoke.cont unwind label %lpad
@@ -689,21 +691,21 @@ invoke.cont10:                                    ; preds = %invoke.cont6
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont6, %invoke.cont3
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN21btGImpactQuantizedBvhD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %m_box_set) #11
   br label %ehcleanup
 
@@ -732,7 +734,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN22btPrimitiveManagerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN22btGImpactMeshShapePart23TrimeshPrimitiveManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN22btGImpactMeshShapePart23TrimeshPrimitiveManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_scale = getelementptr inbounds %"class.btGImpactMeshShapePart::TrimeshPrimitiveManager", ptr %this1, i32 0, i32 4
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_scale)
           to label %invoke.cont unwind label %lpad
@@ -770,12 +773,12 @@ invoke.cont5:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN22btPrimitiveManagerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -2361,7 +2364,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV22btGImpactCompoundShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [39 x ptr] }, ptr @_ZTV22btGImpactCompoundShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_childShapes = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this1, i32 0, i32 3
   call void @_ZN20btAlignedObjectArrayIP16btCollisionShapeED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_childShapes) #11
   %m_childTransforms = getelementptr inbounds %class.btGImpactCompoundShape, ptr %this1, i32 0, i32 2
@@ -3113,7 +3117,8 @@ entry:
   %part = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV18btGImpactMeshShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [39 x ptr] }, ptr @_ZTV18btGImpactMeshShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_mesh_parts = getelementptr inbounds %class.btGImpactMeshShape, ptr %this1, i32 0, i32 2
   %call = invoke noundef i32 @_ZNK20btAlignedObjectArrayIP22btGImpactMeshShapePartE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_mesh_parts)
           to label %invoke.cont unwind label %terminate.lpad
@@ -3123,30 +3128,30 @@ invoke.cont:                                      ; preds = %entry
   br label %while.cond
 
 while.cond:                                       ; preds = %delete.end, %invoke.cont
-  %0 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %0, -1
+  %1 = load i32, ptr %i, align 4
+  %dec = add nsw i32 %1, -1
   store i32 %dec, ptr %i, align 4
-  %tobool = icmp ne i32 %0, 0
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
   %m_mesh_parts2 = getelementptr inbounds %class.btGImpactMeshShape, ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %i, align 4
-  %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_mesh_parts2, i32 noundef %1)
+  %2 = load i32, ptr %i, align 4
+  %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_mesh_parts2, i32 noundef %2)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %while.body
-  %2 = load ptr, ptr %call4, align 8
-  store ptr %2, ptr %part, align 8
-  %3 = load ptr, ptr %part, align 8
-  %isnull = icmp eq ptr %3, null
+  %3 = load ptr, ptr %call4, align 8
+  store ptr %3, ptr %part, align 8
+  %4 = load ptr, ptr %part, align 8
+  %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont3
-  %vtable = load ptr, ptr %3, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %4 = load ptr, ptr %vfn, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(280) %3) #11
+  %5 = load ptr, ptr %vfn, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(280) %4) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont3
@@ -3164,10 +3169,10 @@ invoke.cont6:                                     ; preds = %while.end
   ret void
 
 terminate.lpad:                                   ; preds = %while.end, %while.body, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #12
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #12
   unreachable
 }
 
@@ -3592,7 +3597,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV23btGImpactShapeInterface, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [39 x ptr] }, ptr @_ZTV23btGImpactShapeInterface, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_box_set = getelementptr inbounds %class.btGImpactShapeInterface, ptr %this1, i32 0, i32 4
   call void @_ZN21btGImpactQuantizedBvhD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %m_box_set) #11
   call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1) #11
@@ -3875,7 +3881,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22btPrimitiveManagerBase, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV22btPrimitiveManagerBase, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

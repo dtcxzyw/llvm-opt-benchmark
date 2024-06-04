@@ -37209,177 +37209,178 @@ define internal void @par_shapes__sort_points(ptr noundef %0, i32 noundef %1, pt
 
 33:                                               ; preds = %17
   %34 = load i32, ptr %5, align 4
-  store i32 %34, ptr getelementptr inbounds (%struct.anon, ptr @par_shapes__sort_context, i32 0, i32 1), align 8
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr @par_shapes__sort_context, align 8
-  %38 = load ptr, ptr %6, align 8
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %39, i32 0, i32 1
-  %41 = load i32, ptr %40, align 8
-  %42 = sext i32 %41 to i64
-  call void @qsort(ptr noundef %38, i64 noundef %42, i64 noundef 2, ptr noundef @par_shapes__cmp1)
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 8
-  %46 = mul nsw i32 %45, 3
-  %47 = sext i32 %46 to i64
-  %48 = mul i64 %47, 4
-  %49 = call noalias ptr @malloc(i64 noundef %48) #16
-  store ptr %49, ptr %8, align 8
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %50, i32 0, i32 1
-  %52 = load i32, ptr %51, align 8
-  %53 = sext i32 %52 to i64
-  %54 = mul i64 %53, 2
-  %55 = call noalias ptr @malloc(i64 noundef %54) #16
-  store ptr %55, ptr %9, align 8
-  %56 = load ptr, ptr %8, align 8
-  store ptr %56, ptr %10, align 8
+  %35 = getelementptr inbounds %struct.anon, ptr @par_shapes__sort_context, i32 0, i32 1
+  store i32 %34, ptr %35, align 8
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  store ptr %38, ptr @par_shapes__sort_context, align 8
+  %39 = load ptr, ptr %6, align 8
+  %40 = load ptr, ptr %4, align 8
+  %41 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %40, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8
+  %43 = sext i32 %42 to i64
+  call void @qsort(ptr noundef %39, i64 noundef %43, i64 noundef 2, ptr noundef @par_shapes__cmp1)
+  %44 = load ptr, ptr %4, align 8
+  %45 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %44, i32 0, i32 1
+  %46 = load i32, ptr %45, align 8
+  %47 = mul nsw i32 %46, 3
+  %48 = sext i32 %47 to i64
+  %49 = mul i64 %48, 4
+  %50 = call noalias ptr @malloc(i64 noundef %49) #16
+  store ptr %50, ptr %8, align 8
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %51, i32 0, i32 1
+  %53 = load i32, ptr %52, align 8
+  %54 = sext i32 %53 to i64
+  %55 = mul i64 %54, 2
+  %56 = call noalias ptr @malloc(i64 noundef %55) #16
+  store ptr %56, ptr %9, align 8
+  %57 = load ptr, ptr %8, align 8
+  store ptr %57, ptr %10, align 8
   store i32 0, ptr %11, align 4
-  br label %57
+  br label %58
 
-57:                                               ; preds = %101, %33
-  %58 = load i32, ptr %11, align 4
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %59, i32 0, i32 1
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp slt i32 %58, %61
-  br i1 %62, label %63, label %104
+58:                                               ; preds = %102, %33
+  %59 = load i32, ptr %11, align 4
+  %60 = load ptr, ptr %4, align 8
+  %61 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %60, i32 0, i32 1
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp slt i32 %59, %62
+  br i1 %63, label %64, label %105
 
-63:                                               ; preds = %57
-  %64 = load i32, ptr %11, align 4
-  %65 = trunc i32 %64 to i16
-  %66 = load ptr, ptr %9, align 8
-  %67 = load ptr, ptr %6, align 8
-  %68 = load i32, ptr %11, align 4
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i16, ptr %67, i64 %69
-  %71 = load i16, ptr %70, align 2
-  %72 = zext i16 %71 to i64
-  %73 = getelementptr inbounds i16, ptr %66, i64 %72
-  store i16 %65, ptr %73, align 2
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %74, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %6, align 8
-  %78 = load i32, ptr %11, align 4
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i16, ptr %77, i64 %79
-  %81 = load i16, ptr %80, align 2
-  %82 = zext i16 %81 to i32
-  %83 = mul nsw i32 3, %82
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds float, ptr %76, i64 %84
-  store ptr %85, ptr %12, align 8
-  %86 = load ptr, ptr %12, align 8
-  %87 = getelementptr inbounds float, ptr %86, i32 1
-  store ptr %87, ptr %12, align 8
-  %88 = load float, ptr %86, align 4
-  %89 = load ptr, ptr %10, align 8
-  %90 = getelementptr inbounds float, ptr %89, i32 1
-  store ptr %90, ptr %10, align 8
-  store float %88, ptr %89, align 4
-  %91 = load ptr, ptr %12, align 8
-  %92 = getelementptr inbounds float, ptr %91, i32 1
-  store ptr %92, ptr %12, align 8
-  %93 = load float, ptr %91, align 4
-  %94 = load ptr, ptr %10, align 8
-  %95 = getelementptr inbounds float, ptr %94, i32 1
-  store ptr %95, ptr %10, align 8
-  store float %93, ptr %94, align 4
-  %96 = load ptr, ptr %12, align 8
-  %97 = getelementptr inbounds float, ptr %96, i32 1
-  store ptr %97, ptr %12, align 8
-  %98 = load float, ptr %96, align 4
-  %99 = load ptr, ptr %10, align 8
-  %100 = getelementptr inbounds float, ptr %99, i32 1
-  store ptr %100, ptr %10, align 8
-  store float %98, ptr %99, align 4
-  br label %101
+64:                                               ; preds = %58
+  %65 = load i32, ptr %11, align 4
+  %66 = trunc i32 %65 to i16
+  %67 = load ptr, ptr %9, align 8
+  %68 = load ptr, ptr %6, align 8
+  %69 = load i32, ptr %11, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i16, ptr %68, i64 %70
+  %72 = load i16, ptr %71, align 2
+  %73 = zext i16 %72 to i64
+  %74 = getelementptr inbounds i16, ptr %67, i64 %73
+  store i16 %66, ptr %74, align 2
+  %75 = load ptr, ptr %4, align 8
+  %76 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %6, align 8
+  %79 = load i32, ptr %11, align 4
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds i16, ptr %78, i64 %80
+  %82 = load i16, ptr %81, align 2
+  %83 = zext i16 %82 to i32
+  %84 = mul nsw i32 3, %83
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds float, ptr %77, i64 %85
+  store ptr %86, ptr %12, align 8
+  %87 = load ptr, ptr %12, align 8
+  %88 = getelementptr inbounds float, ptr %87, i32 1
+  store ptr %88, ptr %12, align 8
+  %89 = load float, ptr %87, align 4
+  %90 = load ptr, ptr %10, align 8
+  %91 = getelementptr inbounds float, ptr %90, i32 1
+  store ptr %91, ptr %10, align 8
+  store float %89, ptr %90, align 4
+  %92 = load ptr, ptr %12, align 8
+  %93 = getelementptr inbounds float, ptr %92, i32 1
+  store ptr %93, ptr %12, align 8
+  %94 = load float, ptr %92, align 4
+  %95 = load ptr, ptr %10, align 8
+  %96 = getelementptr inbounds float, ptr %95, i32 1
+  store ptr %96, ptr %10, align 8
+  store float %94, ptr %95, align 4
+  %97 = load ptr, ptr %12, align 8
+  %98 = getelementptr inbounds float, ptr %97, i32 1
+  store ptr %98, ptr %12, align 8
+  %99 = load float, ptr %97, align 4
+  %100 = load ptr, ptr %10, align 8
+  %101 = getelementptr inbounds float, ptr %100, i32 1
+  store ptr %101, ptr %10, align 8
+  store float %99, ptr %100, align 4
+  br label %102
 
-101:                                              ; preds = %63
-  %102 = load i32, ptr %11, align 4
-  %103 = add nsw i32 %102, 1
-  store i32 %103, ptr %11, align 4
-  br label %57
+102:                                              ; preds = %64
+  %103 = load i32, ptr %11, align 4
+  %104 = add nsw i32 %103, 1
+  store i32 %104, ptr %11, align 4
+  br label %58
 
-104:                                              ; preds = %57
-  %105 = load ptr, ptr %4, align 8
-  %106 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %105, i32 0, i32 0
-  %107 = load ptr, ptr %106, align 8
-  call void @free(ptr noundef %107) #15
-  %108 = load ptr, ptr %8, align 8
-  %109 = load ptr, ptr %4, align 8
-  %110 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %109, i32 0, i32 0
-  store ptr %108, ptr %110, align 8
-  %111 = load ptr, ptr %4, align 8
-  %112 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %111, i32 0, i32 3
-  %113 = load i32, ptr %112, align 8
-  %114 = mul nsw i32 %113, 3
-  %115 = sext i32 %114 to i64
-  %116 = mul i64 %115, 2
-  %117 = call noalias ptr @malloc(i64 noundef %116) #16
-  store ptr %117, ptr %13, align 8
-  %118 = load ptr, ptr %13, align 8
-  store ptr %118, ptr %14, align 8
-  %119 = load ptr, ptr %4, align 8
-  %120 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %119, i32 0, i32 2
-  %121 = load ptr, ptr %120, align 8
-  store ptr %121, ptr %15, align 8
+105:                                              ; preds = %58
+  %106 = load ptr, ptr %4, align 8
+  %107 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %106, i32 0, i32 0
+  %108 = load ptr, ptr %107, align 8
+  call void @free(ptr noundef %108) #15
+  %109 = load ptr, ptr %8, align 8
+  %110 = load ptr, ptr %4, align 8
+  %111 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %110, i32 0, i32 0
+  store ptr %109, ptr %111, align 8
+  %112 = load ptr, ptr %4, align 8
+  %113 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %112, i32 0, i32 3
+  %114 = load i32, ptr %113, align 8
+  %115 = mul nsw i32 %114, 3
+  %116 = sext i32 %115 to i64
+  %117 = mul i64 %116, 2
+  %118 = call noalias ptr @malloc(i64 noundef %117) #16
+  store ptr %118, ptr %13, align 8
+  %119 = load ptr, ptr %13, align 8
+  store ptr %119, ptr %14, align 8
+  %120 = load ptr, ptr %4, align 8
+  %121 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %120, i32 0, i32 2
+  %122 = load ptr, ptr %121, align 8
+  store ptr %122, ptr %15, align 8
   store i32 0, ptr %16, align 4
-  br label %122
+  br label %123
 
-122:                                              ; preds = %139, %104
-  %123 = load i32, ptr %16, align 4
-  %124 = load ptr, ptr %4, align 8
-  %125 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %124, i32 0, i32 3
-  %126 = load i32, ptr %125, align 8
-  %127 = mul nsw i32 %126, 3
-  %128 = icmp slt i32 %123, %127
-  br i1 %128, label %129, label %142
+123:                                              ; preds = %140, %105
+  %124 = load i32, ptr %16, align 4
+  %125 = load ptr, ptr %4, align 8
+  %126 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %125, i32 0, i32 3
+  %127 = load i32, ptr %126, align 8
+  %128 = mul nsw i32 %127, 3
+  %129 = icmp slt i32 %124, %128
+  br i1 %129, label %130, label %143
 
-129:                                              ; preds = %122
-  %130 = load ptr, ptr %9, align 8
-  %131 = load ptr, ptr %15, align 8
-  %132 = getelementptr inbounds i16, ptr %131, i32 1
-  store ptr %132, ptr %15, align 8
-  %133 = load i16, ptr %131, align 2
-  %134 = zext i16 %133 to i64
-  %135 = getelementptr inbounds i16, ptr %130, i64 %134
-  %136 = load i16, ptr %135, align 2
-  %137 = load ptr, ptr %14, align 8
-  %138 = getelementptr inbounds i16, ptr %137, i32 1
-  store ptr %138, ptr %14, align 8
-  store i16 %136, ptr %137, align 2
-  br label %139
+130:                                              ; preds = %123
+  %131 = load ptr, ptr %9, align 8
+  %132 = load ptr, ptr %15, align 8
+  %133 = getelementptr inbounds i16, ptr %132, i32 1
+  store ptr %133, ptr %15, align 8
+  %134 = load i16, ptr %132, align 2
+  %135 = zext i16 %134 to i64
+  %136 = getelementptr inbounds i16, ptr %131, i64 %135
+  %137 = load i16, ptr %136, align 2
+  %138 = load ptr, ptr %14, align 8
+  %139 = getelementptr inbounds i16, ptr %138, i32 1
+  store ptr %139, ptr %14, align 8
+  store i16 %137, ptr %138, align 2
+  br label %140
 
-139:                                              ; preds = %129
-  %140 = load i32, ptr %16, align 4
-  %141 = add nsw i32 %140, 1
-  store i32 %141, ptr %16, align 4
-  br label %122
+140:                                              ; preds = %130
+  %141 = load i32, ptr %16, align 4
+  %142 = add nsw i32 %141, 1
+  store i32 %142, ptr %16, align 4
+  br label %123
 
-142:                                              ; preds = %122
-  %143 = load ptr, ptr %4, align 8
-  %144 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %143, i32 0, i32 2
-  %145 = load ptr, ptr %144, align 8
-  call void @free(ptr noundef %145) #15
-  %146 = load ptr, ptr %13, align 8
-  %147 = load ptr, ptr %4, align 8
-  %148 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %147, i32 0, i32 2
-  store ptr %146, ptr %148, align 8
-  %149 = load ptr, ptr %6, align 8
-  %150 = load ptr, ptr %9, align 8
-  %151 = load ptr, ptr %4, align 8
-  %152 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %151, i32 0, i32 1
-  %153 = load i32, ptr %152, align 8
-  %154 = sext i32 %153 to i64
-  %155 = mul i64 2, %154
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %149, ptr align 2 %150, i64 %155, i1 false)
-  %156 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %156) #15
+143:                                              ; preds = %123
+  %144 = load ptr, ptr %4, align 8
+  %145 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %144, i32 0, i32 2
+  %146 = load ptr, ptr %145, align 8
+  call void @free(ptr noundef %146) #15
+  %147 = load ptr, ptr %13, align 8
+  %148 = load ptr, ptr %4, align 8
+  %149 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %148, i32 0, i32 2
+  store ptr %147, ptr %149, align 8
+  %150 = load ptr, ptr %6, align 8
+  %151 = load ptr, ptr %9, align 8
+  %152 = load ptr, ptr %4, align 8
+  %153 = getelementptr inbounds %struct.par_shapes_mesh_s, ptr %152, i32 0, i32 1
+  %154 = load i32, ptr %153, align 8
+  %155 = sext i32 %154 to i64
+  %156 = mul i64 2, %155
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %150, ptr align 2 %151, i64 %156, i1 false)
+  %157 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %157) #15
   ret void
 }
 
@@ -106332,108 +106333,109 @@ define internal i32 @par_shapes__cmp1(ptr noundef %0, ptr noundef %1) #0 {
   %18 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @par_shapes__sort_context, i32 0, i32 1), align 8
-  store i32 %19, ptr %6, align 4
-  %20 = load ptr, ptr %4, align 8
-  %21 = load i16, ptr %20, align 2
-  store i16 %21, ptr %7, align 2
-  %22 = load ptr, ptr @par_shapes__sort_context, align 8
-  %23 = load i16, ptr %7, align 2
-  %24 = zext i16 %23 to i32
-  %25 = mul nsw i32 %24, 3
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds float, ptr %22, i64 %26
-  store ptr %27, ptr %8, align 8
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds float, ptr %28, i64 0
-  %30 = load float, ptr %29, align 4
-  %31 = fptosi float %30 to i32
-  store i32 %31, ptr %9, align 4
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds float, ptr %32, i64 1
-  %34 = load float, ptr %33, align 4
-  %35 = fptosi float %34 to i32
-  store i32 %35, ptr %10, align 4
-  %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds float, ptr %36, i64 2
-  %38 = load float, ptr %37, align 4
-  %39 = fptosi float %38 to i32
-  store i32 %39, ptr %11, align 4
-  %40 = load i32, ptr %9, align 4
-  %41 = load i32, ptr %6, align 4
-  %42 = load i32, ptr %10, align 4
-  %43 = mul nsw i32 %41, %42
-  %44 = add nsw i32 %40, %43
-  %45 = load i32, ptr %6, align 4
+  %19 = getelementptr inbounds %struct.anon, ptr @par_shapes__sort_context, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8
+  store i32 %20, ptr %6, align 4
+  %21 = load ptr, ptr %4, align 8
+  %22 = load i16, ptr %21, align 2
+  store i16 %22, ptr %7, align 2
+  %23 = load ptr, ptr @par_shapes__sort_context, align 8
+  %24 = load i16, ptr %7, align 2
+  %25 = zext i16 %24 to i32
+  %26 = mul nsw i32 %25, 3
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds float, ptr %23, i64 %27
+  store ptr %28, ptr %8, align 8
+  %29 = load ptr, ptr %8, align 8
+  %30 = getelementptr inbounds float, ptr %29, i64 0
+  %31 = load float, ptr %30, align 4
+  %32 = fptosi float %31 to i32
+  store i32 %32, ptr %9, align 4
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds float, ptr %33, i64 1
+  %35 = load float, ptr %34, align 4
+  %36 = fptosi float %35 to i32
+  store i32 %36, ptr %10, align 4
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr inbounds float, ptr %37, i64 2
+  %39 = load float, ptr %38, align 4
+  %40 = fptosi float %39 to i32
+  store i32 %40, ptr %11, align 4
+  %41 = load i32, ptr %9, align 4
+  %42 = load i32, ptr %6, align 4
+  %43 = load i32, ptr %10, align 4
+  %44 = mul nsw i32 %42, %43
+  %45 = add nsw i32 %41, %44
   %46 = load i32, ptr %6, align 4
-  %47 = mul nsw i32 %45, %46
-  %48 = load i32, ptr %11, align 4
-  %49 = mul nsw i32 %47, %48
-  %50 = add nsw i32 %44, %49
-  store i32 %50, ptr %12, align 4
-  %51 = load ptr, ptr %5, align 8
-  %52 = load i16, ptr %51, align 2
-  store i16 %52, ptr %13, align 2
-  %53 = load ptr, ptr @par_shapes__sort_context, align 8
-  %54 = load i16, ptr %13, align 2
-  %55 = zext i16 %54 to i32
-  %56 = mul nsw i32 %55, 3
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds float, ptr %53, i64 %57
-  store ptr %58, ptr %14, align 8
-  %59 = load ptr, ptr %14, align 8
-  %60 = getelementptr inbounds float, ptr %59, i64 0
-  %61 = load float, ptr %60, align 4
-  %62 = fptosi float %61 to i32
-  store i32 %62, ptr %15, align 4
-  %63 = load ptr, ptr %14, align 8
-  %64 = getelementptr inbounds float, ptr %63, i64 1
-  %65 = load float, ptr %64, align 4
-  %66 = fptosi float %65 to i32
-  store i32 %66, ptr %16, align 4
-  %67 = load ptr, ptr %14, align 8
-  %68 = getelementptr inbounds float, ptr %67, i64 2
-  %69 = load float, ptr %68, align 4
-  %70 = fptosi float %69 to i32
-  store i32 %70, ptr %17, align 4
-  %71 = load i32, ptr %15, align 4
-  %72 = load i32, ptr %6, align 4
-  %73 = load i32, ptr %16, align 4
-  %74 = mul nsw i32 %72, %73
-  %75 = add nsw i32 %71, %74
-  %76 = load i32, ptr %6, align 4
+  %47 = load i32, ptr %6, align 4
+  %48 = mul nsw i32 %46, %47
+  %49 = load i32, ptr %11, align 4
+  %50 = mul nsw i32 %48, %49
+  %51 = add nsw i32 %45, %50
+  store i32 %51, ptr %12, align 4
+  %52 = load ptr, ptr %5, align 8
+  %53 = load i16, ptr %52, align 2
+  store i16 %53, ptr %13, align 2
+  %54 = load ptr, ptr @par_shapes__sort_context, align 8
+  %55 = load i16, ptr %13, align 2
+  %56 = zext i16 %55 to i32
+  %57 = mul nsw i32 %56, 3
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds float, ptr %54, i64 %58
+  store ptr %59, ptr %14, align 8
+  %60 = load ptr, ptr %14, align 8
+  %61 = getelementptr inbounds float, ptr %60, i64 0
+  %62 = load float, ptr %61, align 4
+  %63 = fptosi float %62 to i32
+  store i32 %63, ptr %15, align 4
+  %64 = load ptr, ptr %14, align 8
+  %65 = getelementptr inbounds float, ptr %64, i64 1
+  %66 = load float, ptr %65, align 4
+  %67 = fptosi float %66 to i32
+  store i32 %67, ptr %16, align 4
+  %68 = load ptr, ptr %14, align 8
+  %69 = getelementptr inbounds float, ptr %68, i64 2
+  %70 = load float, ptr %69, align 4
+  %71 = fptosi float %70 to i32
+  store i32 %71, ptr %17, align 4
+  %72 = load i32, ptr %15, align 4
+  %73 = load i32, ptr %6, align 4
+  %74 = load i32, ptr %16, align 4
+  %75 = mul nsw i32 %73, %74
+  %76 = add nsw i32 %72, %75
   %77 = load i32, ptr %6, align 4
-  %78 = mul nsw i32 %76, %77
-  %79 = load i32, ptr %17, align 4
-  %80 = mul nsw i32 %78, %79
-  %81 = add nsw i32 %75, %80
-  store i32 %81, ptr %18, align 4
-  %82 = load i32, ptr %12, align 4
-  %83 = load i32, ptr %18, align 4
-  %84 = icmp slt i32 %82, %83
-  br i1 %84, label %85, label %86
-
-85:                                               ; preds = %2
-  store i32 -1, ptr %3, align 4
-  br label %92
+  %78 = load i32, ptr %6, align 4
+  %79 = mul nsw i32 %77, %78
+  %80 = load i32, ptr %17, align 4
+  %81 = mul nsw i32 %79, %80
+  %82 = add nsw i32 %76, %81
+  store i32 %82, ptr %18, align 4
+  %83 = load i32, ptr %12, align 4
+  %84 = load i32, ptr %18, align 4
+  %85 = icmp slt i32 %83, %84
+  br i1 %85, label %86, label %87
 
 86:                                               ; preds = %2
-  %87 = load i32, ptr %12, align 4
-  %88 = load i32, ptr %18, align 4
-  %89 = icmp sgt i32 %87, %88
-  br i1 %89, label %90, label %91
+  store i32 -1, ptr %3, align 4
+  br label %93
 
-90:                                               ; preds = %86
+87:                                               ; preds = %2
+  %88 = load i32, ptr %12, align 4
+  %89 = load i32, ptr %18, align 4
+  %90 = icmp sgt i32 %88, %89
+  br i1 %90, label %91, label %92
+
+91:                                               ; preds = %87
   store i32 1, ptr %3, align 4
-  br label %92
+  br label %93
 
-91:                                               ; preds = %86
+92:                                               ; preds = %87
   store i32 0, ptr %3, align 4
-  br label %92
+  br label %93
 
-92:                                               ; preds = %91, %90, %85
-  %93 = load i32, ptr %3, align 4
-  ret i32 %93
+93:                                               ; preds = %92, %91, %86
+  %94 = load i32, ptr %3, align 4
+  ret i32 %94
 }
 
 declare i32 @printf(ptr noundef, ...) #1

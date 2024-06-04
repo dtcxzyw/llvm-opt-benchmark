@@ -2959,10 +2959,11 @@ entry:
   %call = call ptr @object_resolve_path_component(ptr noundef %0, ptr noundef @.str.3)
   %call1 = call ptr @ESP(ptr noundef %call)
   store ptr %call1, ptr %s, align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.VMStateDescription, ptr @vmstate_esp, i32 0, i32 3), align 4
-  %conv = trunc i32 %1 to i8
-  %2 = load ptr, ptr %s, align 8
-  %mig_version_id = getelementptr inbounds %struct.ESPState, ptr %2, i32 0, i32 28
+  %1 = getelementptr inbounds %struct.VMStateDescription, ptr @vmstate_esp, i32 0, i32 3
+  %2 = load i32, ptr %1, align 4
+  %conv = trunc i32 %2 to i8
+  %3 = load ptr, ptr %s, align 8
+  %mig_version_id = getelementptr inbounds %struct.ESPState, ptr %3, i32 0, i32 28
   store i8 %conv, ptr %mig_version_id, align 1
   ret i32 0
 }

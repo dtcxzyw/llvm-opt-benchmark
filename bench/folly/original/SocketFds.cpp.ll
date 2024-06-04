@@ -750,15 +750,16 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #14
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i, align 8, !tbaa !43
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2
+  store ptr %2, ptr %exception.i.i, align 8, !tbaa !43
   %_M_reason.i.i.i = getelementptr inbounds i8, ptr %exception.i.i, i64 8
   store ptr @.str.10, ptr %_M_reason.i.i.i, align 8, !tbaa !58
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #18
   unreachable
 
 "_ZSt5visitIZN5folly9SocketFds21setFdSocketSeqNumOnceElE3$_0JRSt7variantIJSt4pairISt6vectorINS0_4FileESaIS6_EElES4_IS5_ISt10shared_ptrIKS6_ESaISC_EElEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit": ; preds = %if.then
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %seqNum, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %seqNum, ptr %3, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -777,11 +778,11 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   br label %if.end
 
 lpad18:                                           ; preds = %invoke.cont19, %if.else
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #14
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp17) #14
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %4
 
 if.end:                                           ; preds = %invoke.cont21, %"_ZSt5visitIZN5folly9SocketFds21setFdSocketSeqNumOnceElE3$_0JRSt7variantIJSt4pairISt6vectorINS0_4FileESaIS6_EElES4_IS5_ISt10shared_ptrIKS6_ESaISC_EElEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit"
   ret void
@@ -829,7 +830,8 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #14
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i, align 8, !tbaa !43
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2
+  store ptr %3, ptr %exception.i.i, align 8, !tbaa !43
   %_M_reason.i.i.i = getelementptr inbounds i8, ptr %exception.i.i, i64 8
   store ptr @.str.10, ptr %_M_reason.i.i.i, align 8, !tbaa !58
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #18
@@ -859,7 +861,7 @@ cleanup.thread:                                   ; preds = %invoke.cont10
   br label %if.end21
 
 lpad:                                             ; preds = %invoke.cont10, %invoke.cont, %if.then7
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp8) #14
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp8) #14
@@ -885,7 +887,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
   br label %if.end21
 
 lpad16:                                           ; preds = %invoke.cont17, %if.else
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp15) #14
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp15) #14
@@ -899,7 +901,7 @@ return:                                           ; preds = %if.end21, %cleanup
   ret i64 %retval.1
 
 eh.resume:                                        ; preds = %lpad16, %lpad
-  %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %4, %lpad16 ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad16 ]
   resume { ptr, i32 } %.pn
 }
 

@@ -35,53 +35,54 @@ define dso_local i32 @iommu_device_sysfs_add(ptr noundef %0, ptr noundef %1, ptr
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !5
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %7 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 728) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %7, ptr %8, align 8
-  %9 = icmp eq ptr %7, null
-  br i1 %9, label %30, label %10
+  %6 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %7 = load ptr, ptr %6, align 16
+  %8 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 728) #8
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %8, ptr %9, align 8
+  %10 = icmp eq ptr %8, null
+  br i1 %10, label %31, label %11
 
-10:                                               ; preds = %4
-  tail call void @device_initialize(ptr noundef nonnull %7) #7
-  %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 672
-  store ptr @iommu_class, ptr %12, align 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
-  store ptr %1, ptr %14, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 680
-  store ptr %2, ptr %16, align 8
-  call void @llvm.va_start(ptr nonnull %5)
-  %17 = load ptr, ptr %8, align 8
-  %18 = call i32 @kobject_set_name_vargs(ptr noundef %17, ptr noundef %3, ptr noundef nonnull %5) #7
-  call void @llvm.va_end(ptr %5)
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %27
+11:                                               ; preds = %4
+  tail call void @device_initialize(ptr noundef nonnull %8) #7
+  %12 = load ptr, ptr %9, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 672
+  store ptr @iommu_class, ptr %13, align 8
+  %14 = load ptr, ptr %9, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  store ptr %1, ptr %15, align 8
+  %16 = load ptr, ptr %9, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 680
+  store ptr %2, ptr %17, align 8
+  call void @llvm.va_start.p0(ptr nonnull %5)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call i32 @kobject_set_name_vargs(ptr noundef %18, ptr noundef %3, ptr noundef nonnull %5) #7
+  call void @llvm.va_end.p0(ptr %5)
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %28
 
-20:                                               ; preds = %10
-  %21 = load ptr, ptr %8, align 8
-  %22 = call i32 @device_add(ptr noundef %21) #7
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %27
+21:                                               ; preds = %11
+  %22 = load ptr, ptr %9, align 8
+  %23 = call i32 @device_add(ptr noundef %22) #7
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %28
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 120
-  store ptr %0, ptr %26, align 8
-  br label %30
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %9, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 120
+  store ptr %0, ptr %27, align 8
+  br label %31
 
-27:                                               ; preds = %20, %10
-  %28 = phi i32 [ %18, %10 ], [ %22, %20 ]
-  %29 = load ptr, ptr %8, align 8
-  call void @put_device(ptr noundef %29) #7
-  br label %30
+28:                                               ; preds = %21, %11
+  %29 = phi i32 [ %19, %11 ], [ %23, %21 ]
+  %30 = load ptr, ptr %9, align 8
+  call void @put_device(ptr noundef %30) #7
+  br label %31
 
-30:                                               ; preds = %27, %24, %4
-  %31 = phi i32 [ %28, %27 ], [ 0, %24 ], [ -12, %4 ]
+31:                                               ; preds = %28, %25, %4
+  %32 = phi i32 [ %29, %28 ], [ 0, %25 ], [ -12, %4 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
-  ret i32 %31
+  ret i32 %32
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -93,14 +94,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @device_initialize(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @kobject_set_name_vargs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @device_add(ptr noundef) local_unnamed_addr #4
@@ -207,7 +202,7 @@ declare dso_local void @sysfs_remove_link(ptr noundef, ptr noundef) local_unname
 declare dso_local i32 @class_register(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @release_device(ptr noundef %0) #1 align 16 {
@@ -218,13 +213,19 @@ define internal void @release_device(ptr noundef %0) #1 align 16 {
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(2) }
 

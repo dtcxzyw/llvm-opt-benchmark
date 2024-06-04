@@ -102,247 +102,255 @@ define dso_local void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t
   %41 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 1
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 1
-  br i1 %43, label %44, label %54
+  br i1 %43, label %44, label %55
 
 44:                                               ; preds = %40
   br label %45
 
 45:                                               ; preds = %44
-  %46 = call i32 @pthread_rwlock_rdlock(ptr noundef getelementptr inbounds ([5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 1)) #6
-  store i32 %46, ptr %4, align 4
-  %47 = load i32, ptr %4, align 4
-  %48 = icmp ne i32 %47, 0
-  br i1 %48, label %49, label %52
+  %46 = getelementptr inbounds [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 1
+  %47 = call i32 @pthread_rwlock_rdlock(ptr noundef %46) #6
+  store i32 %47, ptr %4, align 4
+  %48 = load i32, ptr %4, align 4
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %53
 
-49:                                               ; preds = %45
-  %50 = load i32, ptr %4, align 4
-  %51 = call ptr @__errno_location() #7
-  store i32 %50, ptr %51, align 4
+50:                                               ; preds = %45
+  %51 = load i32, ptr %4, align 4
+  %52 = call ptr @__errno_location() #7
+  store i32 %51, ptr %52, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 122, ptr noundef @__func__.lock_slurmctld) #8
   unreachable
 
-52:                                               ; preds = %45
-  br label %53
+53:                                               ; preds = %45
+  br label %54
 
-53:                                               ; preds = %52
-  br label %69
+54:                                               ; preds = %53
+  br label %71
 
-54:                                               ; preds = %40
-  %55 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 1
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp eq i32 %56, 2
-  br i1 %57, label %58, label %68
+55:                                               ; preds = %40
+  %56 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 1
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp eq i32 %57, 2
+  br i1 %58, label %59, label %70
 
-58:                                               ; preds = %54
-  br label %59
+59:                                               ; preds = %55
+  br label %60
 
-59:                                               ; preds = %58
-  %60 = call i32 @pthread_rwlock_wrlock(ptr noundef getelementptr inbounds ([5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 1)) #6
-  store i32 %60, ptr %5, align 4
-  %61 = load i32, ptr %5, align 4
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %63, label %66
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 1
+  %62 = call i32 @pthread_rwlock_wrlock(ptr noundef %61) #6
+  store i32 %62, ptr %5, align 4
+  %63 = load i32, ptr %5, align 4
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %68
 
-63:                                               ; preds = %59
-  %64 = load i32, ptr %5, align 4
-  %65 = call ptr @__errno_location() #7
-  store i32 %64, ptr %65, align 4
+65:                                               ; preds = %60
+  %66 = load i32, ptr %5, align 4
+  %67 = call ptr @__errno_location() #7
+  store i32 %66, ptr %67, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str.1, i32 noundef 124, ptr noundef @__func__.lock_slurmctld) #8
   unreachable
 
-66:                                               ; preds = %59
-  br label %67
-
-67:                                               ; preds = %66
-  br label %68
-
-68:                                               ; preds = %67, %54
+68:                                               ; preds = %60
   br label %69
 
-69:                                               ; preds = %68, %53
-  %70 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 2
-  %71 = load i32, ptr %70, align 8
-  %72 = icmp eq i32 %71, 1
-  br i1 %72, label %73, label %83
+69:                                               ; preds = %68
+  br label %70
 
-73:                                               ; preds = %69
-  br label %74
+70:                                               ; preds = %69, %55
+  br label %71
 
-74:                                               ; preds = %73
-  %75 = call i32 @pthread_rwlock_rdlock(ptr noundef getelementptr inbounds ([5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 2)) #6
-  store i32 %75, ptr %6, align 4
-  %76 = load i32, ptr %6, align 4
-  %77 = icmp ne i32 %76, 0
-  br i1 %77, label %78, label %81
+71:                                               ; preds = %70, %54
+  %72 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 2
+  %73 = load i32, ptr %72, align 8
+  %74 = icmp eq i32 %73, 1
+  br i1 %74, label %75, label %86
 
-78:                                               ; preds = %74
+75:                                               ; preds = %71
+  br label %76
+
+76:                                               ; preds = %75
+  %77 = getelementptr inbounds [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 2
+  %78 = call i32 @pthread_rwlock_rdlock(ptr noundef %77) #6
+  store i32 %78, ptr %6, align 4
   %79 = load i32, ptr %6, align 4
-  %80 = call ptr @__errno_location() #7
-  store i32 %79, ptr %80, align 4
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %84
+
+81:                                               ; preds = %76
+  %82 = load i32, ptr %6, align 4
+  %83 = call ptr @__errno_location() #7
+  store i32 %82, ptr %83, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 127, ptr noundef @__func__.lock_slurmctld) #8
   unreachable
 
-81:                                               ; preds = %74
-  br label %82
+84:                                               ; preds = %76
+  br label %85
 
-82:                                               ; preds = %81
-  br label %98
+85:                                               ; preds = %84
+  br label %102
 
-83:                                               ; preds = %69
-  %84 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 2
-  %85 = load i32, ptr %84, align 8
-  %86 = icmp eq i32 %85, 2
-  br i1 %86, label %87, label %97
+86:                                               ; preds = %71
+  %87 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 2
+  %88 = load i32, ptr %87, align 8
+  %89 = icmp eq i32 %88, 2
+  br i1 %89, label %90, label %101
 
-87:                                               ; preds = %83
-  br label %88
+90:                                               ; preds = %86
+  br label %91
 
-88:                                               ; preds = %87
-  %89 = call i32 @pthread_rwlock_wrlock(ptr noundef getelementptr inbounds ([5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 2)) #6
-  store i32 %89, ptr %7, align 4
-  %90 = load i32, ptr %7, align 4
-  %91 = icmp ne i32 %90, 0
-  br i1 %91, label %92, label %95
+91:                                               ; preds = %90
+  %92 = getelementptr inbounds [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 2
+  %93 = call i32 @pthread_rwlock_wrlock(ptr noundef %92) #6
+  store i32 %93, ptr %7, align 4
+  %94 = load i32, ptr %7, align 4
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %96, label %99
 
-92:                                               ; preds = %88
-  %93 = load i32, ptr %7, align 4
-  %94 = call ptr @__errno_location() #7
-  store i32 %93, ptr %94, align 4
+96:                                               ; preds = %91
+  %97 = load i32, ptr %7, align 4
+  %98 = call ptr @__errno_location() #7
+  store i32 %97, ptr %98, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str.1, i32 noundef 129, ptr noundef @__func__.lock_slurmctld) #8
   unreachable
 
-95:                                               ; preds = %88
-  br label %96
+99:                                               ; preds = %91
+  br label %100
 
-96:                                               ; preds = %95
-  br label %97
+100:                                              ; preds = %99
+  br label %101
 
-97:                                               ; preds = %96, %83
-  br label %98
+101:                                              ; preds = %100, %86
+  br label %102
 
-98:                                               ; preds = %97, %82
-  %99 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 3
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp eq i32 %100, 1
-  br i1 %101, label %102, label %112
+102:                                              ; preds = %101, %85
+  %103 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 3
+  %104 = load i32, ptr %103, align 4
+  %105 = icmp eq i32 %104, 1
+  br i1 %105, label %106, label %117
 
-102:                                              ; preds = %98
-  br label %103
+106:                                              ; preds = %102
+  br label %107
 
-103:                                              ; preds = %102
-  %104 = call i32 @pthread_rwlock_rdlock(ptr noundef getelementptr inbounds ([5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 3)) #6
-  store i32 %104, ptr %8, align 4
-  %105 = load i32, ptr %8, align 4
-  %106 = icmp ne i32 %105, 0
-  br i1 %106, label %107, label %110
+107:                                              ; preds = %106
+  %108 = getelementptr inbounds [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 3
+  %109 = call i32 @pthread_rwlock_rdlock(ptr noundef %108) #6
+  store i32 %109, ptr %8, align 4
+  %110 = load i32, ptr %8, align 4
+  %111 = icmp ne i32 %110, 0
+  br i1 %111, label %112, label %115
 
-107:                                              ; preds = %103
-  %108 = load i32, ptr %8, align 4
-  %109 = call ptr @__errno_location() #7
-  store i32 %108, ptr %109, align 4
+112:                                              ; preds = %107
+  %113 = load i32, ptr %8, align 4
+  %114 = call ptr @__errno_location() #7
+  store i32 %113, ptr %114, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 132, ptr noundef @__func__.lock_slurmctld) #8
   unreachable
 
-110:                                              ; preds = %103
-  br label %111
+115:                                              ; preds = %107
+  br label %116
 
-111:                                              ; preds = %110
-  br label %127
+116:                                              ; preds = %115
+  br label %133
 
-112:                                              ; preds = %98
-  %113 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 3
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp eq i32 %114, 2
-  br i1 %115, label %116, label %126
-
-116:                                              ; preds = %112
-  br label %117
-
-117:                                              ; preds = %116
-  %118 = call i32 @pthread_rwlock_wrlock(ptr noundef getelementptr inbounds ([5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 3)) #6
-  store i32 %118, ptr %9, align 4
-  %119 = load i32, ptr %9, align 4
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %121, label %124
+117:                                              ; preds = %102
+  %118 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 3
+  %119 = load i32, ptr %118, align 4
+  %120 = icmp eq i32 %119, 2
+  br i1 %120, label %121, label %132
 
 121:                                              ; preds = %117
-  %122 = load i32, ptr %9, align 4
-  %123 = call ptr @__errno_location() #7
-  store i32 %122, ptr %123, align 4
+  br label %122
+
+122:                                              ; preds = %121
+  %123 = getelementptr inbounds [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 3
+  %124 = call i32 @pthread_rwlock_wrlock(ptr noundef %123) #6
+  store i32 %124, ptr %9, align 4
+  %125 = load i32, ptr %9, align 4
+  %126 = icmp ne i32 %125, 0
+  br i1 %126, label %127, label %130
+
+127:                                              ; preds = %122
+  %128 = load i32, ptr %9, align 4
+  %129 = call ptr @__errno_location() #7
+  store i32 %128, ptr %129, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str.1, i32 noundef 134, ptr noundef @__func__.lock_slurmctld) #8
   unreachable
 
-124:                                              ; preds = %117
-  br label %125
+130:                                              ; preds = %122
+  br label %131
 
-125:                                              ; preds = %124
-  br label %126
-
-126:                                              ; preds = %125, %112
-  br label %127
-
-127:                                              ; preds = %126, %111
-  %128 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 4
-  %129 = load i32, ptr %128, align 8
-  %130 = icmp eq i32 %129, 1
-  br i1 %130, label %131, label %141
-
-131:                                              ; preds = %127
+131:                                              ; preds = %130
   br label %132
 
-132:                                              ; preds = %131
-  %133 = call i32 @pthread_rwlock_rdlock(ptr noundef getelementptr inbounds ([5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 4)) #6
-  store i32 %133, ptr %10, align 4
-  %134 = load i32, ptr %10, align 4
-  %135 = icmp ne i32 %134, 0
-  br i1 %135, label %136, label %139
+132:                                              ; preds = %131, %117
+  br label %133
 
-136:                                              ; preds = %132
-  %137 = load i32, ptr %10, align 4
-  %138 = call ptr @__errno_location() #7
-  store i32 %137, ptr %138, align 4
+133:                                              ; preds = %132, %116
+  %134 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 4
+  %135 = load i32, ptr %134, align 8
+  %136 = icmp eq i32 %135, 1
+  br i1 %136, label %137, label %148
+
+137:                                              ; preds = %133
+  br label %138
+
+138:                                              ; preds = %137
+  %139 = getelementptr inbounds [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 4
+  %140 = call i32 @pthread_rwlock_rdlock(ptr noundef %139) #6
+  store i32 %140, ptr %10, align 4
+  %141 = load i32, ptr %10, align 4
+  %142 = icmp ne i32 %141, 0
+  br i1 %142, label %143, label %146
+
+143:                                              ; preds = %138
+  %144 = load i32, ptr %10, align 4
+  %145 = call ptr @__errno_location() #7
+  store i32 %144, ptr %145, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 137, ptr noundef @__func__.lock_slurmctld) #8
   unreachable
 
-139:                                              ; preds = %132
-  br label %140
+146:                                              ; preds = %138
+  br label %147
 
-140:                                              ; preds = %139
-  br label %156
+147:                                              ; preds = %146
+  br label %164
 
-141:                                              ; preds = %127
-  %142 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 4
-  %143 = load i32, ptr %142, align 8
-  %144 = icmp eq i32 %143, 2
-  br i1 %144, label %145, label %155
+148:                                              ; preds = %133
+  %149 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 4
+  %150 = load i32, ptr %149, align 8
+  %151 = icmp eq i32 %150, 2
+  br i1 %151, label %152, label %163
 
-145:                                              ; preds = %141
-  br label %146
+152:                                              ; preds = %148
+  br label %153
 
-146:                                              ; preds = %145
-  %147 = call i32 @pthread_rwlock_wrlock(ptr noundef getelementptr inbounds ([5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 4)) #6
-  store i32 %147, ptr %11, align 4
-  %148 = load i32, ptr %11, align 4
-  %149 = icmp ne i32 %148, 0
-  br i1 %149, label %150, label %153
+153:                                              ; preds = %152
+  %154 = getelementptr inbounds [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 4
+  %155 = call i32 @pthread_rwlock_wrlock(ptr noundef %154) #6
+  store i32 %155, ptr %11, align 4
+  %156 = load i32, ptr %11, align 4
+  %157 = icmp ne i32 %156, 0
+  br i1 %157, label %158, label %161
 
-150:                                              ; preds = %146
-  %151 = load i32, ptr %11, align 4
-  %152 = call ptr @__errno_location() #7
-  store i32 %151, ptr %152, align 4
+158:                                              ; preds = %153
+  %159 = load i32, ptr %11, align 4
+  %160 = call ptr @__errno_location() #7
+  store i32 %159, ptr %160, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str.1, i32 noundef 139, ptr noundef @__func__.lock_slurmctld) #8
   unreachable
 
-153:                                              ; preds = %146
-  br label %154
+161:                                              ; preds = %153
+  br label %162
 
-154:                                              ; preds = %153
-  br label %155
+162:                                              ; preds = %161
+  br label %163
 
-155:                                              ; preds = %154, %141
-  br label %156
+163:                                              ; preds = %162, %148
+  br label %164
 
-156:                                              ; preds = %155, %140
+164:                                              ; preds = %163, %147
   ret void
 }
 
@@ -368,148 +376,152 @@ define dso_local void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock
   %7 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 4
   %8 = load i32, ptr %7, align 8
   %9 = icmp ne i32 %8, 0
-  br i1 %9, label %10, label %20
+  br i1 %9, label %10, label %21
 
 10:                                               ; preds = %1
   br label %11
 
 11:                                               ; preds = %10
-  %12 = call i32 @pthread_rwlock_unlock(ptr noundef getelementptr inbounds ([5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 4)) #6
-  store i32 %12, ptr %2, align 4
-  %13 = load i32, ptr %2, align 4
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %18
+  %12 = getelementptr inbounds [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 4
+  %13 = call i32 @pthread_rwlock_unlock(ptr noundef %12) #6
+  store i32 %13, ptr %2, align 4
+  %14 = load i32, ptr %2, align 4
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %19
 
-15:                                               ; preds = %11
-  %16 = load i32, ptr %2, align 4
-  %17 = call ptr @__errno_location() #7
-  store i32 %16, ptr %17, align 4
+16:                                               ; preds = %11
+  %17 = load i32, ptr %2, align 4
+  %18 = call ptr @__errno_location() #7
+  store i32 %17, ptr %18, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.3, ptr noundef @.str.1, i32 noundef 149, ptr noundef @__func__.unlock_slurmctld) #8
   unreachable
 
-18:                                               ; preds = %11
-  br label %19
-
-19:                                               ; preds = %18
+19:                                               ; preds = %11
   br label %20
 
-20:                                               ; preds = %19, %1
-  %21 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 3
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %34
+20:                                               ; preds = %19
+  br label %21
 
-24:                                               ; preds = %20
-  br label %25
+21:                                               ; preds = %20, %1
+  %22 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 3
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %36
 
-25:                                               ; preds = %24
-  %26 = call i32 @pthread_rwlock_unlock(ptr noundef getelementptr inbounds ([5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 3)) #6
-  store i32 %26, ptr %3, align 4
-  %27 = load i32, ptr %3, align 4
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %32
+25:                                               ; preds = %21
+  br label %26
 
-29:                                               ; preds = %25
-  %30 = load i32, ptr %3, align 4
-  %31 = call ptr @__errno_location() #7
-  store i32 %30, ptr %31, align 4
+26:                                               ; preds = %25
+  %27 = getelementptr inbounds [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 3
+  %28 = call i32 @pthread_rwlock_unlock(ptr noundef %27) #6
+  store i32 %28, ptr %3, align 4
+  %29 = load i32, ptr %3, align 4
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %34
+
+31:                                               ; preds = %26
+  %32 = load i32, ptr %3, align 4
+  %33 = call ptr @__errno_location() #7
+  store i32 %32, ptr %33, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.3, ptr noundef @.str.1, i32 noundef 152, ptr noundef @__func__.unlock_slurmctld) #8
   unreachable
 
-32:                                               ; preds = %25
-  br label %33
+34:                                               ; preds = %26
+  br label %35
 
-33:                                               ; preds = %32
-  br label %34
+35:                                               ; preds = %34
+  br label %36
 
-34:                                               ; preds = %33, %20
-  %35 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 2
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %48
+36:                                               ; preds = %35, %21
+  %37 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 2
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %51
 
-38:                                               ; preds = %34
-  br label %39
+40:                                               ; preds = %36
+  br label %41
 
-39:                                               ; preds = %38
-  %40 = call i32 @pthread_rwlock_unlock(ptr noundef getelementptr inbounds ([5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 2)) #6
-  store i32 %40, ptr %4, align 4
-  %41 = load i32, ptr %4, align 4
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %46
-
-43:                                               ; preds = %39
+41:                                               ; preds = %40
+  %42 = getelementptr inbounds [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 2
+  %43 = call i32 @pthread_rwlock_unlock(ptr noundef %42) #6
+  store i32 %43, ptr %4, align 4
   %44 = load i32, ptr %4, align 4
-  %45 = call ptr @__errno_location() #7
-  store i32 %44, ptr %45, align 4
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %49
+
+46:                                               ; preds = %41
+  %47 = load i32, ptr %4, align 4
+  %48 = call ptr @__errno_location() #7
+  store i32 %47, ptr %48, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.3, ptr noundef @.str.1, i32 noundef 155, ptr noundef @__func__.unlock_slurmctld) #8
   unreachable
 
-46:                                               ; preds = %39
-  br label %47
+49:                                               ; preds = %41
+  br label %50
 
-47:                                               ; preds = %46
-  br label %48
+50:                                               ; preds = %49
+  br label %51
 
-48:                                               ; preds = %47, %34
-  %49 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 1
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %62
+51:                                               ; preds = %50, %36
+  %52 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 1
+  %53 = load i32, ptr %52, align 4
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %66
 
-52:                                               ; preds = %48
-  br label %53
+55:                                               ; preds = %51
+  br label %56
 
-53:                                               ; preds = %52
-  %54 = call i32 @pthread_rwlock_unlock(ptr noundef getelementptr inbounds ([5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 1)) #6
-  store i32 %54, ptr %5, align 4
-  %55 = load i32, ptr %5, align 4
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %57, label %60
+56:                                               ; preds = %55
+  %57 = getelementptr inbounds [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 1
+  %58 = call i32 @pthread_rwlock_unlock(ptr noundef %57) #6
+  store i32 %58, ptr %5, align 4
+  %59 = load i32, ptr %5, align 4
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %61, label %64
 
-57:                                               ; preds = %53
-  %58 = load i32, ptr %5, align 4
-  %59 = call ptr @__errno_location() #7
-  store i32 %58, ptr %59, align 4
+61:                                               ; preds = %56
+  %62 = load i32, ptr %5, align 4
+  %63 = call ptr @__errno_location() #7
+  store i32 %62, ptr %63, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.3, ptr noundef @.str.1, i32 noundef 158, ptr noundef @__func__.unlock_slurmctld) #8
   unreachable
 
-60:                                               ; preds = %53
-  br label %61
+64:                                               ; preds = %56
+  br label %65
 
-61:                                               ; preds = %60
-  br label %62
+65:                                               ; preds = %64
+  br label %66
 
-62:                                               ; preds = %61, %48
-  %63 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 0
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp ne i32 %64, 0
-  br i1 %65, label %66, label %76
+66:                                               ; preds = %65, %51
+  %67 = getelementptr inbounds %struct.slurmctld_lock_t, ptr %0, i32 0, i32 0
+  %68 = load i32, ptr %67, align 8
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %80
 
-66:                                               ; preds = %62
-  br label %67
+70:                                               ; preds = %66
+  br label %71
 
-67:                                               ; preds = %66
-  %68 = call i32 @pthread_rwlock_unlock(ptr noundef @slurmctld_locks) #6
-  store i32 %68, ptr %6, align 4
-  %69 = load i32, ptr %6, align 4
-  %70 = icmp ne i32 %69, 0
-  br i1 %70, label %71, label %74
+71:                                               ; preds = %70
+  %72 = call i32 @pthread_rwlock_unlock(ptr noundef @slurmctld_locks) #6
+  store i32 %72, ptr %6, align 4
+  %73 = load i32, ptr %6, align 4
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %78
 
-71:                                               ; preds = %67
-  %72 = load i32, ptr %6, align 4
-  %73 = call ptr @__errno_location() #7
-  store i32 %72, ptr %73, align 4
+75:                                               ; preds = %71
+  %76 = load i32, ptr %6, align 4
+  %77 = call ptr @__errno_location() #7
+  store i32 %76, ptr %77, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.3, ptr noundef @.str.1, i32 noundef 161, ptr noundef @__func__.unlock_slurmctld) #8
   unreachable
 
-74:                                               ; preds = %67
-  br label %75
+78:                                               ; preds = %71
+  br label %79
 
-75:                                               ; preds = %74
-  br label %76
+79:                                               ; preds = %78
+  br label %80
 
-76:                                               ; preds = %75, %62
+80:                                               ; preds = %79, %66
   ret void
 }
 

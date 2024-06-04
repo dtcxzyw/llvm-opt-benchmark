@@ -48,12 +48,12 @@ define dso_local i32 @devm_aperture_acquire_for_platform_device(ptr noundef %0, 
   %16 = icmp ugt i64 %15, %1
   %17 = icmp ugt i64 %5, %12
   %18 = and i1 %17, %16
-  br i1 %18, label %39, label %6, !llvm.loop !5
+  br i1 %18, label %41, label %6, !llvm.loop !5
 
 19:                                               ; preds = %6
   %20 = tail call noalias noundef dereferenceable_or_null(48) ptr @devm_kmalloc(ptr noundef %4, i64 noundef 48, i32 noundef 3520) #4
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %39, label %22
+  br i1 %21, label %41, label %22
 
 22:                                               ; preds = %19
   store ptr %4, ptr %20, align 8
@@ -76,12 +76,12 @@ define dso_local i32 @devm_aperture_acquire_for_platform_device(ptr noundef %0, 
   tail call void @mutex_unlock(ptr noundef nonnull @apertures_lock) #3
   %30 = tail call i32 @__devm_add_action(ptr noundef %4, ptr noundef nonnull @devm_aperture_acquire_release, ptr noundef nonnull %20, ptr noundef nonnull @.str) #3
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %41, label %32
+  br i1 %31, label %43, label %32
 
 32:                                               ; preds = %22
   %33 = load ptr, ptr %20, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %41, label %35
+  br i1 %34, label %43, label %35
 
 35:                                               ; preds = %32
   tail call void @mutex_lock(ptr noundef nonnull @apertures_lock) #3
@@ -90,18 +90,20 @@ define dso_local i32 @devm_aperture_acquire_for_platform_device(ptr noundef %0, 
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %36, ptr %38, align 8
   store volatile ptr %37, ptr %36, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %26, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %27, align 8
-  br label %39
-
-39:                                               ; preds = %35, %19, %10
-  %40 = phi i32 [ %30, %35 ], [ -12, %19 ], [ -16, %10 ]
-  tail call void @mutex_unlock(ptr noundef nonnull @apertures_lock) #3
+  %39 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %39, ptr %26, align 8
+  %40 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %40, ptr %27, align 8
   br label %41
 
-41:                                               ; preds = %39, %32, %22
-  %42 = phi i32 [ %30, %22 ], [ %30, %32 ], [ %40, %39 ]
-  ret i32 %42
+41:                                               ; preds = %35, %19, %10
+  %42 = phi i32 [ %30, %35 ], [ -12, %19 ], [ -16, %10 ]
+  tail call void @mutex_unlock(ptr noundef nonnull @apertures_lock) #3
+  br label %43
+
+43:                                               ; preds = %41, %32, %22
+  %44 = phi i32 [ %30, %22 ], [ %30, %32 ], [ %42, %41 ]
+  ret i32 %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -117,10 +119,10 @@ define dso_local noundef i32 @aperture_remove_conflicting_devices(i64 noundef %0
   tail call void @mutex_lock(ptr noundef nonnull @apertures_lock) #3
   %5 = load ptr, ptr @apertures, align 8
   %6 = icmp eq ptr %5, @apertures
-  br i1 %6, label %31, label %7
+  br i1 %6, label %33, label %7
 
-7:                                                ; preds = %29, %3
-  %8 = phi ptr [ %9, %29 ], [ %5, %3 ]
+7:                                                ; preds = %31, %3
+  %8 = phi ptr [ %9, %31 ], [ %5, %3 ]
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %8, i64 -24
   %11 = load ptr, ptr %10, align 8
@@ -131,7 +133,7 @@ define dso_local noundef i32 @aperture_remove_conflicting_devices(i64 noundef %0
   tail call void asm sideeffect "443: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 443b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 443) #3, !srcloc !9
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 258, i32 2307, i64 12) #3, !srcloc !10
   tail call void asm sideeffect "444: nop\0A\09.pushsection .discard.instr_end\0A\09.long 444b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 444) #3, !srcloc !11
-  br label %29
+  br label %31
 
 14:                                               ; preds = %7
   %15 = getelementptr i8, ptr %8, i64 -16
@@ -142,7 +144,7 @@ define dso_local noundef i32 @aperture_remove_conflicting_devices(i64 noundef %0
   %20 = icmp ugt i64 %19, %0
   %21 = icmp ugt i64 %4, %16
   %22 = and i1 %21, %20
-  br i1 %22, label %23, label %29
+  br i1 %22, label %23, label %31
 
 23:                                               ; preds = %14
   store ptr null, ptr %10, align 8
@@ -151,18 +153,20 @@ define dso_local noundef i32 @aperture_remove_conflicting_devices(i64 noundef %0
   %26 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %25, ptr %26, align 8
   store volatile ptr %9, ptr %25, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %8, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %24, align 8
-  %27 = getelementptr i8, ptr %8, i64 16
-  %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef nonnull %11) #3
-  br label %29
+  %27 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %27, ptr %8, align 8
+  %28 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %28, ptr %24, align 8
+  %29 = getelementptr i8, ptr %8, i64 16
+  %30 = load ptr, ptr %29, align 8
+  tail call void %30(ptr noundef nonnull %11) #3
+  br label %31
 
-29:                                               ; preds = %23, %14, %13
-  %30 = icmp eq ptr %9, @apertures
-  br i1 %30, label %31, label %7, !llvm.loop !12
+31:                                               ; preds = %23, %14, %13
+  %32 = icmp eq ptr %9, @apertures
+  br i1 %32, label %33, label %7, !llvm.loop !12
 
-31:                                               ; preds = %29, %3
+33:                                               ; preds = %31, %3
   tail call void @mutex_unlock(ptr noundef nonnull @apertures_lock) #3
   ret i32 0
 }
@@ -172,10 +176,10 @@ define dso_local i32 @__aperture_remove_legacy_vga_devices(ptr noundef %0) #0 al
   tail call void @mutex_lock(ptr noundef nonnull @apertures_lock) #3
   %2 = load ptr, ptr @apertures, align 8
   %3 = icmp eq ptr %2, @apertures
-  br i1 %3, label %28, label %4
+  br i1 %3, label %30, label %4
 
-4:                                                ; preds = %26, %1
-  %5 = phi ptr [ %6, %26 ], [ %2, %1 ]
+4:                                                ; preds = %28, %1
+  %5 = phi ptr [ %6, %28 ], [ %2, %1 ]
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %5, i64 -24
   %8 = load ptr, ptr %7, align 8
@@ -186,7 +190,7 @@ define dso_local i32 @__aperture_remove_legacy_vga_devices(ptr noundef %0) #0 al
   tail call void asm sideeffect "443: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 443b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 443) #3, !srcloc !9
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 258, i32 2307, i64 12) #3, !srcloc !10
   tail call void asm sideeffect "444: nop\0A\09.pushsection .discard.instr_end\0A\09.long 444b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 444) #3, !srcloc !11
-  br label %26
+  br label %28
 
 11:                                               ; preds = %4
   %12 = getelementptr i8, ptr %5, i64 -16
@@ -197,7 +201,7 @@ define dso_local i32 @__aperture_remove_legacy_vga_devices(ptr noundef %0) #0 al
   %17 = icmp ugt i64 %16, 655360
   %18 = icmp ult i64 %13, 720896
   %19 = and i1 %18, %17
-  br i1 %19, label %20, label %26
+  br i1 %19, label %20, label %28
 
 20:                                               ; preds = %11
   store ptr null, ptr %7, align 8
@@ -206,21 +210,23 @@ define dso_local i32 @__aperture_remove_legacy_vga_devices(ptr noundef %0) #0 al
   %23 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %22, ptr %23, align 8
   store volatile ptr %6, ptr %22, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %5, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %21, align 8
-  %24 = getelementptr i8, ptr %5, i64 16
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull %8) #3
-  br label %26
+  %24 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %24, ptr %5, align 8
+  %25 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %25, ptr %21, align 8
+  %26 = getelementptr i8, ptr %5, i64 16
+  %27 = load ptr, ptr %26, align 8
+  tail call void %27(ptr noundef nonnull %8) #3
+  br label %28
 
-26:                                               ; preds = %20, %11, %10
-  %27 = icmp eq ptr %6, @apertures
-  br i1 %27, label %28, label %4, !llvm.loop !12
+28:                                               ; preds = %20, %11, %10
+  %29 = icmp eq ptr %6, @apertures
+  br i1 %29, label %30, label %4, !llvm.loop !12
 
-28:                                               ; preds = %26, %1
+30:                                               ; preds = %28, %1
   tail call void @mutex_unlock(ptr noundef nonnull @apertures_lock) #3
-  %29 = tail call i32 @vga_remove_vgacon(ptr noundef %0) #3
-  ret i32 %29
+  %31 = tail call i32 @vga_remove_vgacon(ptr noundef %0) #3
+  ret i32 %31
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -232,14 +238,14 @@ define dso_local i32 @aperture_remove_conflicting_pci_devices(ptr noundef %0, pt
   %4 = getelementptr inbounds i8, ptr %0, i64 920
   br label %5
 
-5:                                                ; preds = %46, %2
-  %6 = phi i64 [ 0, %2 ], [ %47, %46 ]
+5:                                                ; preds = %48, %2
+  %6 = phi i64 [ 0, %2 ], [ %49, %48 ]
   %7 = getelementptr [11 x %struct.resource], ptr %4, i64 0, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 512
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %46, label %12
+  br i1 %11, label %48, label %12
 
 12:                                               ; preds = %5
   %13 = load i64, ptr %7, align 8
@@ -251,10 +257,10 @@ define dso_local i32 @aperture_remove_conflicting_pci_devices(ptr noundef %0, pt
   tail call void @mutex_lock(ptr noundef nonnull @apertures_lock) #3
   %19 = load ptr, ptr @apertures, align 8
   %20 = icmp eq ptr %19, @apertures
-  br i1 %20, label %45, label %21
+  br i1 %20, label %47, label %21
 
-21:                                               ; preds = %43, %12
-  %22 = phi ptr [ %23, %43 ], [ %19, %12 ]
+21:                                               ; preds = %45, %12
+  %22 = phi ptr [ %23, %45 ], [ %19, %12 ]
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr i8, ptr %22, i64 -24
   %25 = load ptr, ptr %24, align 8
@@ -265,7 +271,7 @@ define dso_local i32 @aperture_remove_conflicting_pci_devices(ptr noundef %0, pt
   tail call void asm sideeffect "443: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 443b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 443) #3, !srcloc !9
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 258, i32 2307, i64 12) #3, !srcloc !10
   tail call void asm sideeffect "444: nop\0A\09.pushsection .discard.instr_end\0A\09.long 444b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 444) #3, !srcloc !11
-  br label %43
+  br label %45
 
 28:                                               ; preds = %21
   %29 = getelementptr i8, ptr %22, i64 -16
@@ -276,7 +282,7 @@ define dso_local i32 @aperture_remove_conflicting_pci_devices(ptr noundef %0, pt
   %34 = icmp ugt i64 %33, %13
   %35 = icmp ugt i64 %18, %30
   %36 = and i1 %35, %34
-  br i1 %36, label %37, label %43
+  br i1 %36, label %37, label %45
 
 37:                                               ; preds = %28
   store ptr null, ptr %24, align 8
@@ -285,37 +291,39 @@ define dso_local i32 @aperture_remove_conflicting_pci_devices(ptr noundef %0, pt
   %40 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %39, ptr %40, align 8
   store volatile ptr %23, ptr %39, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %22, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %38, align 8
-  %41 = getelementptr i8, ptr %22, i64 16
-  %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef nonnull %25) #3
-  br label %43
+  %41 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %41, ptr %22, align 8
+  %42 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %42, ptr %38, align 8
+  %43 = getelementptr i8, ptr %22, i64 16
+  %44 = load ptr, ptr %43, align 8
+  tail call void %44(ptr noundef nonnull %25) #3
+  br label %45
 
-43:                                               ; preds = %37, %28, %27
-  %44 = icmp eq ptr %23, @apertures
-  br i1 %44, label %45, label %21, !llvm.loop !12
+45:                                               ; preds = %37, %28, %27
+  %46 = icmp eq ptr %23, @apertures
+  br i1 %46, label %47, label %21, !llvm.loop !12
 
-45:                                               ; preds = %43, %12
+47:                                               ; preds = %45, %12
   tail call void @mutex_unlock(ptr noundef nonnull @apertures_lock) #3
-  br label %46
+  br label %48
 
-46:                                               ; preds = %45, %5
-  %47 = add nuw nsw i64 %6, 1
-  %48 = icmp eq i64 %47, 6
-  br i1 %48, label %49, label %5, !llvm.loop !13
+48:                                               ; preds = %47, %5
+  %49 = add nuw nsw i64 %6, 1
+  %50 = icmp eq i64 %49, 6
+  br i1 %50, label %51, label %5, !llvm.loop !13
 
-49:                                               ; preds = %46
-  %50 = icmp eq ptr %3, %0
-  br i1 %50, label %51, label %53
+51:                                               ; preds = %48
+  %52 = icmp eq ptr %3, %0
+  br i1 %52, label %53, label %55
 
-51:                                               ; preds = %49
-  %52 = tail call i32 @__aperture_remove_legacy_vga_devices(ptr noundef %0)
-  br label %53
+53:                                               ; preds = %51
+  %54 = tail call i32 @__aperture_remove_legacy_vga_devices(ptr noundef %0)
+  br label %55
 
-53:                                               ; preds = %51, %49
-  %54 = phi i32 [ %52, %51 ], [ 0, %49 ]
-  ret i32 %54
+55:                                               ; preds = %53, %51
+  %56 = phi i32 [ %54, %53 ], [ 0, %51 ]
+  ret i32 %56
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -331,7 +339,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 define internal void @devm_aperture_acquire_release(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  br i1 %3, label %12, label %4
 
 4:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @apertures_lock) #3
@@ -342,12 +350,14 @@ define internal void @devm_aperture_acquire_release(ptr nocapture noundef %0) #0
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %7, ptr %9, align 8
   store volatile ptr %8, ptr %7, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %5, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %6, align 8
+  %10 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %10, ptr %5, align 8
+  %11 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %11, ptr %6, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @apertures_lock) #3
-  br label %10
+  br label %12
 
-10:                                               ; preds = %4, %1
+12:                                               ; preds = %4, %1
   ret void
 }
 

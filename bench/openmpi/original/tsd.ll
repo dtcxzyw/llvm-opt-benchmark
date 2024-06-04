@@ -34,71 +34,73 @@ define void @opal_tsd_tracked_key_constructor(ptr noundef %0) #0 {
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %7 = icmp ne i32 %5, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %5, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %10, i32 0, i32 2
-  %12 = getelementptr inbounds %struct.opal_object_t, ptr %11, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %12, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %13, i32 0, i32 2
-  %15 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 1
-  store volatile i32 1, ptr %15, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %16, i32 0, i32 2
-  call void @opal_obj_run_constructors(ptr noundef %17)
-  br label %18
-
-18:                                               ; preds = %9
+10:                                               ; preds = %9, %4
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %11, i32 0, i32 2
+  %13 = getelementptr inbounds %struct.opal_object_t, ptr %12, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %13, align 8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %14, i32 0, i32 2
+  %16 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
+  store volatile i32 1, ptr %16, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %17, i32 0, i32 2
+  call void @opal_obj_run_constructors(ptr noundef %18)
   br label %19
 
-19:                                               ; preds = %18
+19:                                               ; preds = %10
   br label %20
 
 20:                                               ; preds = %19
   br label %21
 
 21:                                               ; preds = %20
-  %22 = load i32, ptr @opal_class_init_epoch, align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %24 = icmp ne i32 %22, %23
-  br i1 %24, label %25, label %26
+  br label %22
 
-25:                                               ; preds = %21
+22:                                               ; preds = %21
+  %23 = load i32, ptr @opal_class_init_epoch, align 4
+  %24 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp ne i32 %23, %25
+  br i1 %26, label %27, label %28
+
+27:                                               ; preds = %22
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %26
+  br label %28
 
-26:                                               ; preds = %25, %21
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %27, i32 0, i32 3
-  %29 = getelementptr inbounds %struct.opal_object_t, ptr %28, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %29, align 8
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %30, i32 0, i32 3
-  %32 = getelementptr inbounds %struct.opal_object_t, ptr %31, i32 0, i32 1
-  store volatile i32 1, ptr %32, align 8
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %33, i32 0, i32 3
-  call void @opal_obj_run_constructors(ptr noundef %34)
-  br label %35
+28:                                               ; preds = %27, %22
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %29, i32 0, i32 3
+  %31 = getelementptr inbounds %struct.opal_object_t, ptr %30, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %31, align 8
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %32, i32 0, i32 3
+  %34 = getelementptr inbounds %struct.opal_object_t, ptr %33, i32 0, i32 1
+  store volatile i32 1, ptr %34, align 8
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %35, i32 0, i32 3
+  call void @opal_obj_run_constructors(ptr noundef %36)
+  br label %37
 
-35:                                               ; preds = %26
-  br label %36
+37:                                               ; preds = %28
+  br label %38
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %37, i32 0, i32 4
-  store ptr null, ptr %38, align 8
+38:                                               ; preds = %37
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %39, i32 0, i32 1
-  %41 = call i32 @opal_tsd_key_create(ptr noundef %40, ptr noundef @_tracked_destructor)
+  %40 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %39, i32 0, i32 4
+  store ptr null, ptr %40, align 8
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds %struct.opal_tsd_tracked_key_s, ptr %41, i32 0, i32 1
+  %43 = call i32 @opal_tsd_key_create(ptr noundef %42, ptr noundef @_tracked_destructor)
   ret void
 }
 

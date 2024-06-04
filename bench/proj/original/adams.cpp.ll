@@ -2131,49 +2131,50 @@ define internal noundef double @_ZL9ell_int_5d(double noundef %0) #7 {
   store double 0.000000e+00, ptr %7, align 8
   store ptr @_ZZL9ell_int_5dE1C, ptr %8, align 8
   store ptr @_ZZL9ell_int_5dE1C, ptr %9, align 8
-  store ptr getelementptr inbounds (double, ptr @_ZZL9ell_int_5dE1C, i64 7), ptr %10, align 8
-  br label %21
+  %21 = getelementptr inbounds double, ptr @_ZZL9ell_int_5dE1C, i64 7
+  store ptr %21, ptr %10, align 8
+  br label %22
 
-21:                                               ; preds = %37, %1
-  %22 = load ptr, ptr %9, align 8
-  %23 = load ptr, ptr %10, align 8
-  %24 = icmp ne ptr %22, %23
-  br i1 %24, label %25, label %40
+22:                                               ; preds = %38, %1
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = icmp ne ptr %23, %24
+  br i1 %25, label %26, label %41
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %9, align 8
-  %27 = load double, ptr %26, align 8
-  store double %27, ptr %11, align 8
-  %28 = load double, ptr %6, align 8
-  store double %28, ptr %12, align 8
-  %29 = load double, ptr %5, align 8
-  %30 = load double, ptr %6, align 8
-  %31 = load double, ptr %7, align 8
-  %32 = fneg double %31
-  %33 = call double @llvm.fmuladd.f64(double %29, double %30, double %32)
-  %34 = load double, ptr %11, align 8
-  %35 = fadd double %33, %34
-  store double %35, ptr %6, align 8
-  %36 = load double, ptr %12, align 8
-  store double %36, ptr %7, align 8
-  br label %37
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %9, align 8
+  %28 = load double, ptr %27, align 8
+  store double %28, ptr %11, align 8
+  %29 = load double, ptr %6, align 8
+  store double %29, ptr %12, align 8
+  %30 = load double, ptr %5, align 8
+  %31 = load double, ptr %6, align 8
+  %32 = load double, ptr %7, align 8
+  %33 = fneg double %32
+  %34 = call double @llvm.fmuladd.f64(double %30, double %31, double %33)
+  %35 = load double, ptr %11, align 8
+  %36 = fadd double %34, %35
+  store double %36, ptr %6, align 8
+  %37 = load double, ptr %12, align 8
+  store double %37, ptr %7, align 8
+  br label %38
 
-37:                                               ; preds = %25
-  %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr inbounds double, ptr %38, i32 1
-  store ptr %39, ptr %9, align 8
-  br label %21
+38:                                               ; preds = %26
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds double, ptr %39, i32 1
+  store ptr %40, ptr %9, align 8
+  br label %22
 
-40:                                               ; preds = %21
-  %41 = load double, ptr %2, align 8
-  %42 = load double, ptr %4, align 8
-  %43 = load double, ptr %6, align 8
-  %44 = load double, ptr %7, align 8
-  %45 = fneg double %44
-  %46 = call double @llvm.fmuladd.f64(double %42, double %43, double %45)
-  %47 = fadd double %46, 0x3FF188B1F952BB44
-  %48 = fmul double %41, %47
-  ret double %48
+41:                                               ; preds = %22
+  %42 = load double, ptr %2, align 8
+  %43 = load double, ptr %4, align 8
+  %44 = load double, ptr %6, align 8
+  %45 = load double, ptr %7, align 8
+  %46 = fneg double %45
+  %47 = call double @llvm.fmuladd.f64(double %43, double %44, double %46)
+  %48 = fadd double %47, 0x3FF188B1F952BB44
+  %49 = fmul double %42, %48
+  ret double %49
 }
 
 declare { double, double } @_Z21pj_generic_inverse_2d5PJ_XYP8PJconsts5PJ_LPd(double, double, ptr noundef, double, double, double noundef) #1

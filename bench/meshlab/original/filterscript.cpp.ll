@@ -369,7 +369,8 @@ define void @_ZN12FilterScriptC2Ev(ptr noundef nonnull align 8 dereferenceable(2
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null)
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZN5QListI29FilterNameParameterValuesPairEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterScript, i32 0, i32 0, i32 2), ptr %3, align 8
+  %5 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV12FilterScript, i32 0, i32 0, i32 2
+  store ptr %5, ptr %3, align 8
   ret void
 }
 
@@ -2308,7 +2309,8 @@ define linkonce_odr void @_ZN29FilterNameParameterValuesPairC2Ev(ptr noundef non
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZN5QPairI7QString17RichParameterListEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV29FilterNameParameterValuesPair, i32 0, i32 0, i32 2), ptr %3, align 8
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV29FilterNameParameterValuesPair, i32 0, i32 0, i32 2
+  store ptr %5, ptr %3, align 8
   ret void
 }
 
@@ -3256,7 +3258,8 @@ define linkonce_odr void @_ZN29FilterNameParameterValuesPairC2ERKS_(ptr noundef 
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   call void @_ZN5QPairI7QString17RichParameterListEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV29FilterNameParameterValuesPair, i32 0, i32 0, i32 2), ptr %5, align 8
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV29FilterNameParameterValuesPair, i32 0, i32 0, i32 2
+  store ptr %9, ptr %5, align 8
   ret void
 }
 

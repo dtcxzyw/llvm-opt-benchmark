@@ -5172,7 +5172,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5182,7 +5183,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5417,7 +5419,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #5 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7365,7 +7368,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 
@@ -8634,15 +8638,16 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core8Activity19g_current_activity_E() #16 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -34736,24 +34741,25 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE3MapC2ENS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(16) %this2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ESA_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESD_SF_EUlS5_E_ZNS6_9AppendMapISH_EEvT_NS_13DebugLocationEEUlvE_EE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ESA_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESD_SF_EUlS5_E_ZNS6_9AppendMapISH_EEvT_NS_13DebugLocationEEUlvE_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %fn_ = getelementptr inbounds %"class.grpc_core::InterceptorList<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>>::MapImpl", ptr %this2, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp3, ptr align 8 %fn, i64 8, i1 false)
   %coerce.dive4 = getelementptr inbounds %class.anon.142, ptr %agg.tmp3, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive4, align 8
-  invoke void @_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES9_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESC_SE_EUlS6_E_EC2ESG_(ptr noundef nonnull align 8 dereferenceable(8) %fn_, ptr %0)
+  %1 = load ptr, ptr %coerce.dive4, align 8
+  invoke void @_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES9_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESC_SE_EUlS6_E_EC2ESG_(ptr noundef nonnull align 8 dereferenceable(8) %fn_, ptr %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE3MapD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this2) #3
   br label %eh.resume
 
@@ -34771,7 +34777,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE3MapE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE3MapE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %next_ = getelementptr inbounds %"class.grpc_core::InterceptorList<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>>::Map", ptr %this1, i32 0, i32 1
   store ptr null, ptr %next_, align 8
   ret void
@@ -35871,24 +35878,25 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE3MapC2ENS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(16) %this2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ESA_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESD_SF_EUlS5_E_ZNS6_9AppendMapISH_EEvT_NS_13DebugLocationEEUlvE_EE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ESA_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESD_SF_EUlS5_E_ZNS6_9AppendMapISH_EEvT_NS_13DebugLocationEEUlvE_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %fn_ = getelementptr inbounds %"class.grpc_core::InterceptorList<std::unique_ptr<grpc_core::Message, grpc_core::Arena::PooledDeleter>>::MapImpl", ptr %this2, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp3, ptr align 8 %fn, i64 8, i1 false)
   %coerce.dive4 = getelementptr inbounds %class.anon.147, ptr %agg.tmp3, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive4, align 8
-  invoke void @_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES9_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESC_SE_EUlS6_E_EC2ESG_(ptr noundef nonnull align 8 dereferenceable(8) %fn_, ptr %0)
+  %1 = load ptr, ptr %coerce.dive4, align 8
+  invoke void @_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES9_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESC_SE_EUlS6_E_EC2ESG_(ptr noundef nonnull align 8 dereferenceable(8) %fn_, ptr %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE3MapD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this2) #3
   br label %eh.resume
 
@@ -35906,7 +35914,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE3MapE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE3MapE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %next_ = getelementptr inbounds %"class.grpc_core::InterceptorList<std::unique_ptr<grpc_core::Message, grpc_core::Arena::PooledDeleter>>::Map", ptr %this1, i32 0, i32 1
   store ptr null, ptr %next_, align 8
   ret void
@@ -37369,24 +37378,25 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE3MapC2ENS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(16) %this2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ESA_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESD_SF_EUlS5_E0_ZNS6_10PrependMapISH_EEvT_NS_13DebugLocationEEUlvE_EE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ESA_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESD_SF_EUlS5_E0_ZNS6_10PrependMapISH_EEvT_NS_13DebugLocationEEUlvE_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %fn_ = getelementptr inbounds %"class.grpc_core::InterceptorList<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>>::MapImpl.186", ptr %this2, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp3, ptr align 8 %fn, i64 8, i1 false)
   %coerce.dive4 = getelementptr inbounds %class.anon.148, ptr %agg.tmp3, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive4, align 8
-  invoke void @_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES9_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESC_SE_EUlS6_E0_EC2ESG_(ptr noundef nonnull align 8 dereferenceable(8) %fn_, ptr %0)
+  %1 = load ptr, ptr %coerce.dive4, align 8
+  invoke void @_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES9_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESC_SE_EUlS6_E0_EC2ESG_(ptr noundef nonnull align 8 dereferenceable(8) %fn_, ptr %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE3MapD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this2) #3
   br label %eh.resume
 
@@ -37931,24 +37941,25 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE3MapC2ENS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(16) %this2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ESA_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESD_SF_EUlS5_E0_ZNS6_10PrependMapISH_EEvT_NS_13DebugLocationEEUlvE_EE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ESA_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESD_SF_EUlS5_E0_ZNS6_10PrependMapISH_EEvT_NS_13DebugLocationEEUlvE_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %fn_ = getelementptr inbounds %"class.grpc_core::InterceptorList<std::unique_ptr<grpc_core::Message, grpc_core::Arena::PooledDeleter>>::MapImpl.192", ptr %this2, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp3, ptr align 8 %fn, i64 8, i1 false)
   %coerce.dive4 = getelementptr inbounds %class.anon.149, ptr %agg.tmp3, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive4, align 8
-  invoke void @_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES9_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESC_SE_EUlS6_E0_EC2ESG_(ptr noundef nonnull align 8 dereferenceable(8) %fn_, ptr %0)
+  %1 = load ptr, ptr %coerce.dive4, align 8
+  invoke void @_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES9_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESC_SE_EUlS6_E0_EC2ESG_(ptr noundef nonnull align 8 dereferenceable(8) %fn_, ptr %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE3MapD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this2) #3
   br label %eh.resume
 
@@ -38457,24 +38468,25 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE3MapC2ENS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(16) %this2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ESA_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESD_SF_EUlS5_E1_ZNS6_10PrependMapISH_EEvT_NS_13DebugLocationEEUlvE_EE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ESA_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESD_SF_EUlS5_E1_ZNS6_10PrependMapISH_EEvT_NS_13DebugLocationEEUlvE_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %fn_ = getelementptr inbounds %"class.grpc_core::InterceptorList<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>>::MapImpl.198", ptr %this2, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp3, ptr align 8 %fn, i64 8, i1 false)
   %coerce.dive4 = getelementptr inbounds %class.anon.150, ptr %agg.tmp3, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive4, align 8
-  invoke void @_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES9_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESC_SE_EUlS6_E1_EC2ESG_(ptr noundef nonnull align 8 dereferenceable(8) %fn_, ptr %0)
+  %1 = load ptr, ptr %coerce.dive4, align 8
+  invoke void @_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZZZNS_23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES9_ENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESC_SE_EUlS6_E1_EC2ESG_(ptr noundef nonnull align 8 dereferenceable(8) %fn_, ptr %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE3MapD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this2) #3
   br label %eh.resume
 

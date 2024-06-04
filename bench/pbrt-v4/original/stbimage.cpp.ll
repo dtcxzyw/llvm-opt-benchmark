@@ -8152,12 +8152,13 @@ if.end162:                                        ; preds = %if.end161, %if.end1
   br label %if.end163
 
 if.end163:                                        ; preds = %if.end162, %if.end46
-  store ptr inttoptr (i64 1 to ptr), ptr %retval, align 8
+  %111 = inttoptr i64 1 to ptr
+  store ptr %111, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end163, %if.then135, %if.else124, %if.then119, %if.then72, %if.then60, %if.then54, %if.then42, %if.then26, %if.then13, %if.then
-  %111 = load ptr, ptr %retval, align 8
-  ret ptr %111
+  %112 = load ptr, ptr %retval, align 8
+  ret ptr %112
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

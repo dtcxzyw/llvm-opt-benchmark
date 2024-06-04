@@ -47,86 +47,88 @@ define internal void @pmix_mca_base_var_group_constructor(ptr noundef %0) #0 {
 
 7:                                                ; preds = %6
   %8 = load i32, ptr @pmix_class_init_epoch, align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_value_array_t_class, i32 0, i32 4), align 8
-  %10 = icmp ne i32 %8, %9
-  br i1 %10, label %11, label %12
+  %9 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_value_array_t_class, i32 0, i32 4
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp ne i32 %8, %10
+  br i1 %11, label %12, label %13
 
-11:                                               ; preds = %7
+12:                                               ; preds = %7
   call void @pmix_class_initialize(ptr noundef @pmix_value_array_t_class)
-  br label %12
+  br label %13
 
-12:                                               ; preds = %11, %7
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %13, i32 0, i32 8
-  %15 = getelementptr inbounds %struct.pmix_object_t, ptr %14, i32 0, i32 1
-  store ptr @pmix_value_array_t_class, ptr %15, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %16, i32 0, i32 8
-  %18 = getelementptr inbounds %struct.pmix_object_t, ptr %17, i32 0, i32 2
-  store i32 1, ptr %18, align 8
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %19, i32 0, i32 8
-  call void @pmix_obj_construct_tma(ptr noundef %20, ptr noundef null)
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %21, i32 0, i32 8
-  call void @pmix_obj_run_constructors(ptr noundef %22)
-  br label %23
-
-23:                                               ; preds = %12
+13:                                               ; preds = %12, %7
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %14, i32 0, i32 8
+  %16 = getelementptr inbounds %struct.pmix_object_t, ptr %15, i32 0, i32 1
+  store ptr @pmix_value_array_t_class, ptr %16, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %17, i32 0, i32 8
+  %19 = getelementptr inbounds %struct.pmix_object_t, ptr %18, i32 0, i32 2
+  store i32 1, ptr %19, align 8
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %20, i32 0, i32 8
+  call void @pmix_obj_construct_tma(ptr noundef %21, ptr noundef null)
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %22, i32 0, i32 8
+  call void @pmix_obj_run_constructors(ptr noundef %23)
   br label %24
 
-24:                                               ; preds = %23
+24:                                               ; preds = %13
   br label %25
 
 25:                                               ; preds = %24
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %26, i32 0, i32 8
-  %28 = call i32 @pmix_value_array_init(ptr noundef %27, i64 noundef 4)
-  br label %29
+  br label %26
 
-29:                                               ; preds = %25
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %27, i32 0, i32 8
+  %29 = call i32 @pmix_value_array_init(ptr noundef %28, i64 noundef 4)
   br label %30
 
-30:                                               ; preds = %29
+30:                                               ; preds = %26
   br label %31
 
 31:                                               ; preds = %30
-  %32 = load i32, ptr @pmix_class_init_epoch, align 4
-  %33 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_value_array_t_class, i32 0, i32 4), align 8
-  %34 = icmp ne i32 %32, %33
-  br i1 %34, label %35, label %36
+  br label %32
 
-35:                                               ; preds = %31
+32:                                               ; preds = %31
+  %33 = load i32, ptr @pmix_class_init_epoch, align 4
+  %34 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_value_array_t_class, i32 0, i32 4
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp ne i32 %33, %35
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %32
   call void @pmix_class_initialize(ptr noundef @pmix_value_array_t_class)
-  br label %36
+  br label %38
 
-36:                                               ; preds = %35, %31
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %37, i32 0, i32 9
-  %39 = getelementptr inbounds %struct.pmix_object_t, ptr %38, i32 0, i32 1
-  store ptr @pmix_value_array_t_class, ptr %39, align 8
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %40, i32 0, i32 9
-  %42 = getelementptr inbounds %struct.pmix_object_t, ptr %41, i32 0, i32 2
-  store i32 1, ptr %42, align 8
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %43, i32 0, i32 9
-  call void @pmix_obj_construct_tma(ptr noundef %44, ptr noundef null)
+38:                                               ; preds = %37, %32
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %39, i32 0, i32 9
+  %41 = getelementptr inbounds %struct.pmix_object_t, ptr %40, i32 0, i32 1
+  store ptr @pmix_value_array_t_class, ptr %41, align 8
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %42, i32 0, i32 9
+  %44 = getelementptr inbounds %struct.pmix_object_t, ptr %43, i32 0, i32 2
+  store i32 1, ptr %44, align 8
   %45 = load ptr, ptr %2, align 8
   %46 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %45, i32 0, i32 9
-  call void @pmix_obj_run_constructors(ptr noundef %46)
-  br label %47
-
-47:                                               ; preds = %36
-  br label %48
-
-48:                                               ; preds = %47
+  call void @pmix_obj_construct_tma(ptr noundef %46, ptr noundef null)
+  %47 = load ptr, ptr %2, align 8
+  %48 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %47, i32 0, i32 9
+  call void @pmix_obj_run_constructors(ptr noundef %48)
   br label %49
 
-49:                                               ; preds = %48
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %50, i32 0, i32 9
-  %52 = call i32 @pmix_value_array_init(ptr noundef %51, i64 noundef 4)
+49:                                               ; preds = %38
+  br label %50
+
+50:                                               ; preds = %49
+  br label %51
+
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %2, align 8
+  %53 = getelementptr inbounds %struct.pmix_mca_base_var_group_t, ptr %52, i32 0, i32 9
+  %54 = call i32 @pmix_value_array_init(ptr noundef %53, i64 noundef 4)
   ret void
 }
 
@@ -196,7 +198,7 @@ define i32 @pmix_mca_base_var_group_init() #0 {
   %2 = alloca i32, align 4
   %3 = load i8, ptr @pmix_mca_base_var_group_initialized, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %40, label %5
+  br i1 %4, label %46, label %5
 
 5:                                                ; preds = %0
   br label %6
@@ -209,95 +211,101 @@ define i32 @pmix_mca_base_var_group_init() #0 {
 
 8:                                                ; preds = %7
   %9 = load i32, ptr @pmix_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i32 0, i32 4), align 8
-  %11 = icmp ne i32 %9, %10
-  br i1 %11, label %12, label %13
+  %10 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i32 0, i32 4
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ne i32 %9, %11
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %8
+13:                                               ; preds = %8
   call void @pmix_class_initialize(ptr noundef @pmix_pointer_array_t_class)
-  br label %13
-
-13:                                               ; preds = %12, %8
-  store ptr @pmix_pointer_array_t_class, ptr getelementptr inbounds (%struct.pmix_object_t, ptr @pmix_mca_base_var_groups, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pmix_object_t, ptr @pmix_mca_base_var_groups, i32 0, i32 2), align 8
-  call void @pmix_obj_construct_tma(ptr noundef @pmix_mca_base_var_groups, ptr noundef null)
-  call void @pmix_obj_run_constructors(ptr noundef @pmix_mca_base_var_groups)
   br label %14
 
-14:                                               ; preds = %13
-  br label %15
+14:                                               ; preds = %13, %8
+  %15 = getelementptr inbounds %struct.pmix_object_t, ptr @pmix_mca_base_var_groups, i32 0, i32 1
+  store ptr @pmix_pointer_array_t_class, ptr %15, align 8
+  %16 = getelementptr inbounds %struct.pmix_object_t, ptr @pmix_mca_base_var_groups, i32 0, i32 2
+  store i32 1, ptr %16, align 8
+  call void @pmix_obj_construct_tma(ptr noundef @pmix_mca_base_var_groups, ptr noundef null)
+  call void @pmix_obj_run_constructors(ptr noundef @pmix_mca_base_var_groups)
+  br label %17
 
-15:                                               ; preds = %14
-  br label %16
+17:                                               ; preds = %14
+  br label %18
 
-16:                                               ; preds = %15
-  %17 = call i32 @pmix_pointer_array_init(ptr noundef @pmix_mca_base_var_groups, i32 noundef 128, i32 noundef 16384, i32 noundef 128)
-  store i32 %17, ptr %2, align 4
-  %18 = load i32, ptr %2, align 4
-  %19 = icmp ne i32 0, %18
-  br i1 %19, label %20, label %22
+18:                                               ; preds = %17
+  br label %19
 
-20:                                               ; preds = %16
+19:                                               ; preds = %18
+  %20 = call i32 @pmix_pointer_array_init(ptr noundef @pmix_mca_base_var_groups, i32 noundef 128, i32 noundef 16384, i32 noundef 128)
+  store i32 %20, ptr %2, align 4
   %21 = load i32, ptr %2, align 4
-  store i32 %21, ptr %1, align 4
-  br label %41
+  %22 = icmp ne i32 0, %21
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %16
-  br label %23
+23:                                               ; preds = %19
+  %24 = load i32, ptr %2, align 4
+  store i32 %24, ptr %1, align 4
+  br label %47
 
-23:                                               ; preds = %22
-  br label %24
+25:                                               ; preds = %19
+  br label %26
 
-24:                                               ; preds = %23
-  br label %25
+26:                                               ; preds = %25
+  br label %27
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr @pmix_class_init_epoch, align 4
-  %27 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_hash_table_t_class, i32 0, i32 4), align 8
-  %28 = icmp ne i32 %26, %27
-  br i1 %28, label %29, label %30
+27:                                               ; preds = %26
+  br label %28
 
-29:                                               ; preds = %25
+28:                                               ; preds = %27
+  %29 = load i32, ptr @pmix_class_init_epoch, align 4
+  %30 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_hash_table_t_class, i32 0, i32 4
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp ne i32 %29, %31
+  br i1 %32, label %33, label %34
+
+33:                                               ; preds = %28
   call void @pmix_class_initialize(ptr noundef @pmix_hash_table_t_class)
-  br label %30
+  br label %34
 
-30:                                               ; preds = %29, %25
-  store ptr @pmix_hash_table_t_class, ptr getelementptr inbounds (%struct.pmix_object_t, ptr @pmix_mca_base_var_group_index_hash, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pmix_object_t, ptr @pmix_mca_base_var_group_index_hash, i32 0, i32 2), align 8
+34:                                               ; preds = %33, %28
+  %35 = getelementptr inbounds %struct.pmix_object_t, ptr @pmix_mca_base_var_group_index_hash, i32 0, i32 1
+  store ptr @pmix_hash_table_t_class, ptr %35, align 8
+  %36 = getelementptr inbounds %struct.pmix_object_t, ptr @pmix_mca_base_var_group_index_hash, i32 0, i32 2
+  store i32 1, ptr %36, align 8
   call void @pmix_obj_construct_tma(ptr noundef @pmix_mca_base_var_group_index_hash, ptr noundef null)
   call void @pmix_obj_run_constructors(ptr noundef @pmix_mca_base_var_group_index_hash)
-  br label %31
+  br label %37
 
-31:                                               ; preds = %30
-  br label %32
+37:                                               ; preds = %34
+  br label %38
 
-32:                                               ; preds = %31
-  br label %33
+38:                                               ; preds = %37
+  br label %39
 
-33:                                               ; preds = %32
-  %34 = call i32 @pmix_hash_table_init(ptr noundef @pmix_mca_base_var_group_index_hash, i64 noundef 256)
-  store i32 %34, ptr %2, align 4
-  %35 = load i32, ptr %2, align 4
-  %36 = icmp ne i32 0, %35
-  br i1 %36, label %37, label %39
+39:                                               ; preds = %38
+  %40 = call i32 @pmix_hash_table_init(ptr noundef @pmix_mca_base_var_group_index_hash, i64 noundef 256)
+  store i32 %40, ptr %2, align 4
+  %41 = load i32, ptr %2, align 4
+  %42 = icmp ne i32 0, %41
+  br i1 %42, label %43, label %45
 
-37:                                               ; preds = %33
-  %38 = load i32, ptr %2, align 4
-  store i32 %38, ptr %1, align 4
-  br label %41
+43:                                               ; preds = %39
+  %44 = load i32, ptr %2, align 4
+  store i32 %44, ptr %1, align 4
+  br label %47
 
-39:                                               ; preds = %33
+45:                                               ; preds = %39
   store i8 1, ptr @pmix_mca_base_var_group_initialized, align 1
   store i32 0, ptr @pmix_mca_base_var_group_count, align 4
-  br label %40
+  br label %46
 
-40:                                               ; preds = %39, %0
+46:                                               ; preds = %45, %0
   store i32 0, ptr %1, align 4
-  br label %41
+  br label %47
 
-41:                                               ; preds = %40, %37, %20
-  %42 = load i32, ptr %1, align 4
-  ret i32 %42
+47:                                               ; preds = %46, %43, %23
+  %48 = load i32, ptr %1, align 4
+  ret i32 %48
 }
 
 declare void @pmix_class_initialize(ptr noundef) #1

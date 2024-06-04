@@ -7845,18 +7845,19 @@ if.end19:                                         ; preds = %if.then15, %for.bod
   %16 = load ptr, ptr %cp, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %child, ptr align 8 %16, i64 8, i1 false)
   %17 = load ptr, ptr %child, align 8
-  %cmp20 = icmp eq ptr %17, inttoptr (i64 106764128 to ptr)
+  %18 = inttoptr i64 106764128 to ptr
+  %cmp20 = icmp eq ptr %17, %18
   br i1 %cmp20, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.end19
-  %18 = load i32, ptr %count, align 4
-  %inc = add nsw i32 %18, 1
+  %19 = load i32, ptr %count, align 4
+  %inc = add nsw i32 %19, 1
   store i32 %inc, ptr %count, align 4
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then22, %if.end19
-  %19 = load i32, ptr %count, align 4
-  %cmp24 = icmp sgt i32 %19, 1
+  %20 = load i32, ptr %count, align 4
+  %cmp24 = icmp sgt i32 %20, 1
   br i1 %cmp24, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end23
@@ -7864,25 +7865,25 @@ if.then26:                                        ; preds = %if.end23
   unreachable
 
 if.end27:                                         ; preds = %if.end23
-  %20 = load ptr, ptr %child, align 8
-  %call28 = call i64 @raxTouch(ptr noundef %20)
-  %21 = load i64, ptr %sum, align 8
-  %add29 = add i64 %21, %call28
+  %21 = load ptr, ptr %child, align 8
+  %call28 = call i64 @raxTouch(ptr noundef %21)
+  %22 = load i64, ptr %sum, align 8
+  %add29 = add i64 %22, %call28
   store i64 %add29, ptr %sum, align 8
-  %22 = load ptr, ptr %cp, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %22, i32 1
+  %23 = load ptr, ptr %cp, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %23, i32 1
   store ptr %incdec.ptr, ptr %cp, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end27
-  %23 = load i32, ptr %i, align 4
-  %inc30 = add nsw i32 %23, 1
+  %24 = load i32, ptr %i, align 4
+  %inc30 = add nsw i32 %24, 1
   store i32 %inc30, ptr %i, align 4
   br label %for.cond, !llvm.loop !22
 
 for.end:                                          ; preds = %for.cond
-  %24 = load i64, ptr %sum, align 8
-  ret i64 %24
+  %25 = load i64, ptr %sum, align 8
+  ret i64 %25
 }
 
 ; Function Attrs: noreturn nounwind

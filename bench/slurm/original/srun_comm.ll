@@ -817,30 +817,33 @@ declare ptr @xstrdup(ptr noundef) #1
 define dso_local void @srun_ping() #0 {
   %1 = alloca i64, align 8
   %2 = call i64 @time(ptr noundef null) #5
-  %3 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 62), align 8
-  %4 = zext i16 %3 to i32
-  %5 = sdiv i32 %4, 3
-  %6 = sext i32 %5 to i64
-  %7 = sub nsw i64 %2, %6
-  %8 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 105), align 8
-  %9 = zext i16 %8 to i64
-  %10 = add nsw i64 %7, %9
-  %11 = add nsw i64 %10, 1
-  store i64 %11, ptr %1, align 8
-  %12 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 62), align 8
-  %13 = zext i16 %12 to i32
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %16
+  %3 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 62
+  %4 = load i16, ptr %3, align 8
+  %5 = zext i16 %4 to i32
+  %6 = sdiv i32 %5, 3
+  %7 = sext i32 %6 to i64
+  %8 = sub nsw i64 %2, %7
+  %9 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 105
+  %10 = load i16, ptr %9, align 8
+  %11 = zext i16 %10 to i64
+  %12 = add nsw i64 %8, %11
+  %13 = add nsw i64 %12, 1
+  store i64 %13, ptr %1, align 8
+  %14 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 62
+  %15 = load i16, ptr %14, align 8
+  %16 = zext i16 %15 to i32
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %19
 
-15:                                               ; preds = %0
-  br label %19
+18:                                               ; preds = %0
+  br label %22
 
-16:                                               ; preds = %0
-  %17 = load ptr, ptr @job_list, align 8
-  %18 = call i32 @list_for_each_ro(ptr noundef %17, ptr noundef @_srun_ping, ptr noundef %1)
-  br label %19
+19:                                               ; preds = %0
+  %20 = load ptr, ptr @job_list, align 8
+  %21 = call i32 @list_for_each_ro(ptr noundef %20, ptr noundef @_srun_ping, ptr noundef %1)
+  br label %22
 
-19:                                               ; preds = %16, %15
+22:                                               ; preds = %19, %18
   ret void
 }
 

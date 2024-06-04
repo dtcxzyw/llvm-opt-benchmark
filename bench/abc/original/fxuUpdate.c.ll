@@ -36,7 +36,7 @@ define void @Fxu_Update(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 15:                                               ; preds = %3
   %16 = load ptr, ptr %4, align 8
   call void @Fxu_UpdateDouble(ptr noundef %16)
-  br label %127
+  br label %130
 
 17:                                               ; preds = %3
   %18 = load ptr, ptr %6, align 8
@@ -46,7 +46,7 @@ define void @Fxu_Update(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 20:                                               ; preds = %17
   %21 = load ptr, ptr %4, align 8
   call void @Fxu_UpdateSingle(ptr noundef %21)
-  br label %127
+  br label %130
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %5, align 8
@@ -107,104 +107,107 @@ define void @Fxu_Update(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   store ptr %62, ptr %64, align 8
   %65 = load ptr, ptr %11, align 8
   %66 = getelementptr inbounds %struct.FxuVar, ptr %65, i32 0, i32 7
-  store ptr inttoptr (i64 1 to ptr), ptr %66, align 8
-  %67 = load ptr, ptr %12, align 8
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds %struct.FxuMatrix, ptr %68, i32 0, i32 17
-  %70 = load ptr, ptr %69, align 8
-  store ptr %67, ptr %70, align 8
-  %71 = load ptr, ptr %12, align 8
-  %72 = getelementptr inbounds %struct.FxuVar, ptr %71, i32 0, i32 7
-  %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds %struct.FxuMatrix, ptr %73, i32 0, i32 17
-  store ptr %72, ptr %74, align 8
-  %75 = load ptr, ptr %12, align 8
-  %76 = getelementptr inbounds %struct.FxuVar, ptr %75, i32 0, i32 7
-  store ptr inttoptr (i64 1 to ptr), ptr %76, align 8
-  %77 = load ptr, ptr %4, align 8
-  %78 = load ptr, ptr %11, align 8
-  %79 = load ptr, ptr %12, align 8
-  %80 = load ptr, ptr %10, align 8
-  call void @Fxu_UpdateMatrixSingleClean(ptr noundef %77, ptr noundef %78, ptr noundef %79, ptr noundef %80)
-  %81 = load ptr, ptr %4, align 8
-  %82 = load ptr, ptr %6, align 8
-  %83 = load ptr, ptr %9, align 8
-  call void @Fxu_UpdateDoublePairs(ptr noundef %81, ptr noundef %82, ptr noundef %83)
-  %84 = load ptr, ptr %4, align 8
-  %85 = load ptr, ptr %8, align 8
-  %86 = load ptr, ptr %11, align 8
-  call void @Fxu_MatrixAddLiteral(ptr noundef %84, ptr noundef %85, ptr noundef %86)
-  %87 = load ptr, ptr %4, align 8
-  %88 = load ptr, ptr %8, align 8
-  %89 = load ptr, ptr %12, align 8
-  call void @Fxu_MatrixAddLiteral(ptr noundef %87, ptr noundef %88, ptr noundef %89)
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct.FxuMatrix, ptr %90, i32 0, i32 14
-  %92 = load ptr, ptr %91, align 8
-  %93 = icmp ne ptr %92, null
-  br i1 %93, label %94, label %109
+  %67 = inttoptr i64 1 to ptr
+  store ptr %67, ptr %66, align 8
+  %68 = load ptr, ptr %12, align 8
+  %69 = load ptr, ptr %4, align 8
+  %70 = getelementptr inbounds %struct.FxuMatrix, ptr %69, i32 0, i32 17
+  %71 = load ptr, ptr %70, align 8
+  store ptr %68, ptr %71, align 8
+  %72 = load ptr, ptr %12, align 8
+  %73 = getelementptr inbounds %struct.FxuVar, ptr %72, i32 0, i32 7
+  %74 = load ptr, ptr %4, align 8
+  %75 = getelementptr inbounds %struct.FxuMatrix, ptr %74, i32 0, i32 17
+  store ptr %73, ptr %75, align 8
+  %76 = load ptr, ptr %12, align 8
+  %77 = getelementptr inbounds %struct.FxuVar, ptr %76, i32 0, i32 7
+  %78 = inttoptr i64 1 to ptr
+  store ptr %78, ptr %77, align 8
+  %79 = load ptr, ptr %4, align 8
+  %80 = load ptr, ptr %11, align 8
+  %81 = load ptr, ptr %12, align 8
+  %82 = load ptr, ptr %10, align 8
+  call void @Fxu_UpdateMatrixSingleClean(ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %82)
+  %83 = load ptr, ptr %4, align 8
+  %84 = load ptr, ptr %6, align 8
+  %85 = load ptr, ptr %9, align 8
+  call void @Fxu_UpdateDoublePairs(ptr noundef %83, ptr noundef %84, ptr noundef %85)
+  %86 = load ptr, ptr %4, align 8
+  %87 = load ptr, ptr %8, align 8
+  %88 = load ptr, ptr %11, align 8
+  call void @Fxu_MatrixAddLiteral(ptr noundef %86, ptr noundef %87, ptr noundef %88)
+  %89 = load ptr, ptr %4, align 8
+  %90 = load ptr, ptr %8, align 8
+  %91 = load ptr, ptr %12, align 8
+  call void @Fxu_MatrixAddLiteral(ptr noundef %89, ptr noundef %90, ptr noundef %91)
+  %92 = load ptr, ptr %4, align 8
+  %93 = getelementptr inbounds %struct.FxuMatrix, ptr %92, i32 0, i32 14
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %96, label %112
 
-94:                                               ; preds = %22
-  %95 = load ptr, ptr %4, align 8
-  %96 = getelementptr inbounds %struct.FxuMatrix, ptr %95, i32 0, i32 14
-  %97 = load ptr, ptr %96, align 8
-  store ptr %97, ptr %7, align 8
-  br label %98
+96:                                               ; preds = %22
+  %97 = load ptr, ptr %4, align 8
+  %98 = getelementptr inbounds %struct.FxuMatrix, ptr %97, i32 0, i32 14
+  %99 = load ptr, ptr %98, align 8
+  store ptr %99, ptr %7, align 8
+  br label %100
 
-98:                                               ; preds = %104, %94
-  %99 = load ptr, ptr %7, align 8
-  %100 = icmp ne ptr %99, inttoptr (i64 1 to ptr)
-  br i1 %100, label %101, label %108
+100:                                              ; preds = %107, %96
+  %101 = load ptr, ptr %7, align 8
+  %102 = inttoptr i64 1 to ptr
+  %103 = icmp ne ptr %101, %102
+  br i1 %103, label %104, label %111
 
-101:                                              ; preds = %98
-  %102 = load ptr, ptr %4, align 8
-  %103 = load ptr, ptr %7, align 8
-  call void @Fxu_UpdateAddNewDoubles(ptr noundef %102, ptr noundef %103)
-  br label %104
+104:                                              ; preds = %100
+  %105 = load ptr, ptr %4, align 8
+  %106 = load ptr, ptr %7, align 8
+  call void @Fxu_UpdateAddNewDoubles(ptr noundef %105, ptr noundef %106)
+  br label %107
 
-104:                                              ; preds = %101
-  %105 = load ptr, ptr %7, align 8
-  %106 = getelementptr inbounds %struct.FxuCube, ptr %105, i32 0, i32 6
-  %107 = load ptr, ptr %106, align 8
-  store ptr %107, ptr %7, align 8
-  br label %98, !llvm.loop !4
+107:                                              ; preds = %104
+  %108 = load ptr, ptr %7, align 8
+  %109 = getelementptr inbounds %struct.FxuCube, ptr %108, i32 0, i32 6
+  %110 = load ptr, ptr %109, align 8
+  store ptr %110, ptr %7, align 8
+  br label %100, !llvm.loop !4
 
-108:                                              ; preds = %98
-  br label %109
+111:                                              ; preds = %100
+  br label %112
 
-109:                                              ; preds = %108, %22
-  %110 = load ptr, ptr %4, align 8
-  call void @Fxu_UpdateCleanOldSingles(ptr noundef %110)
-  %111 = load ptr, ptr %4, align 8
-  call void @Fxu_MatrixRingCubesUnmark(ptr noundef %111)
-  %112 = load ptr, ptr %4, align 8
-  call void @Fxu_MatrixRingVarsUnmark(ptr noundef %112)
+112:                                              ; preds = %111, %22
   %113 = load ptr, ptr %4, align 8
-  %114 = load ptr, ptr %9, align 8
-  call void @Fxu_UpdateAddNewSingles(ptr noundef %113, ptr noundef %114)
+  call void @Fxu_UpdateCleanOldSingles(ptr noundef %113)
+  %114 = load ptr, ptr %4, align 8
+  call void @Fxu_MatrixRingCubesUnmark(ptr noundef %114)
   %115 = load ptr, ptr %4, align 8
-  %116 = load ptr, ptr %10, align 8
-  call void @Fxu_UpdateAddNewSingles(ptr noundef %115, ptr noundef %116)
-  %117 = load ptr, ptr %6, align 8
-  %118 = icmp ne ptr %117, null
-  br i1 %118, label %119, label %122
+  call void @Fxu_MatrixRingVarsUnmark(ptr noundef %115)
+  %116 = load ptr, ptr %4, align 8
+  %117 = load ptr, ptr %9, align 8
+  call void @Fxu_UpdateAddNewSingles(ptr noundef %116, ptr noundef %117)
+  %118 = load ptr, ptr %4, align 8
+  %119 = load ptr, ptr %10, align 8
+  call void @Fxu_UpdateAddNewSingles(ptr noundef %118, ptr noundef %119)
+  %120 = load ptr, ptr %6, align 8
+  %121 = icmp ne ptr %120, null
+  br i1 %121, label %122, label %125
 
-119:                                              ; preds = %109
-  %120 = load ptr, ptr %4, align 8
-  %121 = load ptr, ptr %6, align 8
-  call void @Fxu_MemRecycle(ptr noundef %120, ptr noundef %121, i32 noundef 64)
-  store ptr null, ptr %6, align 8
-  br label %122
-
-122:                                              ; preds = %119, %109
+122:                                              ; preds = %112
   %123 = load ptr, ptr %4, align 8
-  %124 = getelementptr inbounds %struct.FxuMatrix, ptr %123, i32 0, i32 22
-  %125 = load i32, ptr %124, align 4
-  %126 = add nsw i32 %125, 1
-  store i32 %126, ptr %124, align 4
-  br label %127
+  %124 = load ptr, ptr %6, align 8
+  call void @Fxu_MemRecycle(ptr noundef %123, ptr noundef %124, i32 noundef 64)
+  store ptr null, ptr %6, align 8
+  br label %125
 
-127:                                              ; preds = %122, %20, %15
+125:                                              ; preds = %122, %112
+  %126 = load ptr, ptr %4, align 8
+  %127 = getelementptr inbounds %struct.FxuMatrix, ptr %126, i32 0, i32 22
+  %128 = load i32, ptr %127, align 4
+  %129 = add nsw i32 %128, 1
+  store i32 %129, ptr %127, align 4
+  br label %130
+
+130:                                              ; preds = %125, %20, %15
   ret void
 }
 
@@ -277,7 +280,7 @@ define void @Fxu_UpdateDouble(ptr noundef %0) #0 {
   %51 = getelementptr inbounds %struct.FxuMatrix, ptr %50, i32 0, i32 14
   %52 = load ptr, ptr %51, align 8
   %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %69
+  br i1 %53, label %54, label %70
 
 54:                                               ; preds = %1
   %55 = load ptr, ptr %2, align 8
@@ -286,57 +289,58 @@ define void @Fxu_UpdateDouble(ptr noundef %0) #0 {
   store ptr %57, ptr %4, align 8
   br label %58
 
-58:                                               ; preds = %64, %54
+58:                                               ; preds = %65, %54
   %59 = load ptr, ptr %4, align 8
-  %60 = icmp ne ptr %59, inttoptr (i64 1 to ptr)
-  br i1 %60, label %61, label %68
+  %60 = inttoptr i64 1 to ptr
+  %61 = icmp ne ptr %59, %60
+  br i1 %61, label %62, label %69
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %2, align 8
-  %63 = load ptr, ptr %4, align 8
-  call void @Fxu_UpdateAddNewDoubles(ptr noundef %62, ptr noundef %63)
-  br label %64
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %2, align 8
+  %64 = load ptr, ptr %4, align 8
+  call void @Fxu_UpdateAddNewDoubles(ptr noundef %63, ptr noundef %64)
+  br label %65
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct.FxuCube, ptr %65, i32 0, i32 6
-  %67 = load ptr, ptr %66, align 8
-  store ptr %67, ptr %4, align 8
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %4, align 8
+  %67 = getelementptr inbounds %struct.FxuCube, ptr %66, i32 0, i32 6
+  %68 = load ptr, ptr %67, align 8
+  store ptr %68, ptr %4, align 8
   br label %58, !llvm.loop !6
 
-68:                                               ; preds = %58
-  br label %69
+69:                                               ; preds = %58
+  br label %70
 
-69:                                               ; preds = %68, %1
-  %70 = load ptr, ptr %2, align 8
-  call void @Fxu_UpdateCleanOldSingles(ptr noundef %70)
+70:                                               ; preds = %69, %1
   %71 = load ptr, ptr %2, align 8
-  call void @Fxu_MatrixRingCubesUnmark(ptr noundef %71)
+  call void @Fxu_UpdateCleanOldSingles(ptr noundef %71)
   %72 = load ptr, ptr %2, align 8
-  call void @Fxu_MatrixRingVarsUnmark(ptr noundef %72)
+  call void @Fxu_MatrixRingCubesUnmark(ptr noundef %72)
   %73 = load ptr, ptr %2, align 8
-  %74 = load ptr, ptr %7, align 8
-  call void @Fxu_UpdateAddNewSingles(ptr noundef %73, ptr noundef %74)
-  %75 = load ptr, ptr %2, align 8
-  %76 = load ptr, ptr %8, align 8
-  call void @Fxu_UpdateAddNewSingles(ptr noundef %75, ptr noundef %76)
-  %77 = load ptr, ptr %3, align 8
-  %78 = icmp ne ptr %77, null
-  br i1 %78, label %79, label %82
+  call void @Fxu_MatrixRingVarsUnmark(ptr noundef %73)
+  %74 = load ptr, ptr %2, align 8
+  %75 = load ptr, ptr %7, align 8
+  call void @Fxu_UpdateAddNewSingles(ptr noundef %74, ptr noundef %75)
+  %76 = load ptr, ptr %2, align 8
+  %77 = load ptr, ptr %8, align 8
+  call void @Fxu_UpdateAddNewSingles(ptr noundef %76, ptr noundef %77)
+  %78 = load ptr, ptr %3, align 8
+  %79 = icmp ne ptr %78, null
+  br i1 %79, label %80, label %83
 
-79:                                               ; preds = %69
-  %80 = load ptr, ptr %2, align 8
-  %81 = load ptr, ptr %3, align 8
-  call void @Fxu_MemRecycle(ptr noundef %80, ptr noundef %81, i32 noundef 64)
+80:                                               ; preds = %70
+  %81 = load ptr, ptr %2, align 8
+  %82 = load ptr, ptr %3, align 8
+  call void @Fxu_MemRecycle(ptr noundef %81, ptr noundef %82, i32 noundef 64)
   store ptr null, ptr %3, align 8
-  br label %82
+  br label %83
 
-82:                                               ; preds = %79, %69
-  %83 = load ptr, ptr %2, align 8
-  %84 = getelementptr inbounds %struct.FxuMatrix, ptr %83, i32 0, i32 21
-  %85 = load i32, ptr %84, align 8
-  %86 = add nsw i32 %85, 1
-  store i32 %86, ptr %84, align 8
+83:                                               ; preds = %80, %70
+  %84 = load ptr, ptr %2, align 8
+  %85 = getelementptr inbounds %struct.FxuMatrix, ptr %84, i32 0, i32 21
+  %86 = load i32, ptr %85, align 8
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %85, align 8
   ret void
 }
 
@@ -406,85 +410,88 @@ define void @Fxu_UpdateSingle(ptr noundef %0) #0 {
   store ptr %47, ptr %49, align 8
   %50 = load ptr, ptr %8, align 8
   %51 = getelementptr inbounds %struct.FxuVar, ptr %50, i32 0, i32 7
-  store ptr inttoptr (i64 1 to ptr), ptr %51, align 8
-  %52 = load ptr, ptr %9, align 8
-  %53 = load ptr, ptr %2, align 8
-  %54 = getelementptr inbounds %struct.FxuMatrix, ptr %53, i32 0, i32 17
-  %55 = load ptr, ptr %54, align 8
-  store ptr %52, ptr %55, align 8
-  %56 = load ptr, ptr %9, align 8
-  %57 = getelementptr inbounds %struct.FxuVar, ptr %56, i32 0, i32 7
-  %58 = load ptr, ptr %2, align 8
-  %59 = getelementptr inbounds %struct.FxuMatrix, ptr %58, i32 0, i32 17
-  store ptr %57, ptr %59, align 8
-  %60 = load ptr, ptr %9, align 8
-  %61 = getelementptr inbounds %struct.FxuVar, ptr %60, i32 0, i32 7
-  store ptr inttoptr (i64 1 to ptr), ptr %61, align 8
-  %62 = load ptr, ptr %2, align 8
-  %63 = load ptr, ptr %8, align 8
-  %64 = load ptr, ptr %9, align 8
-  %65 = load ptr, ptr %7, align 8
-  call void @Fxu_UpdateMatrixSingleClean(ptr noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65)
-  %66 = load ptr, ptr %2, align 8
-  %67 = load ptr, ptr %5, align 8
-  %68 = load ptr, ptr %8, align 8
-  call void @Fxu_MatrixAddLiteral(ptr noundef %66, ptr noundef %67, ptr noundef %68)
-  %69 = load ptr, ptr %2, align 8
-  %70 = load ptr, ptr %5, align 8
-  %71 = load ptr, ptr %9, align 8
-  call void @Fxu_MatrixAddLiteral(ptr noundef %69, ptr noundef %70, ptr noundef %71)
-  %72 = load ptr, ptr %2, align 8
-  %73 = getelementptr inbounds %struct.FxuMatrix, ptr %72, i32 0, i32 14
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp ne ptr %74, null
-  br i1 %75, label %76, label %91
+  %52 = inttoptr i64 1 to ptr
+  store ptr %52, ptr %51, align 8
+  %53 = load ptr, ptr %9, align 8
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr inbounds %struct.FxuMatrix, ptr %54, i32 0, i32 17
+  %56 = load ptr, ptr %55, align 8
+  store ptr %53, ptr %56, align 8
+  %57 = load ptr, ptr %9, align 8
+  %58 = getelementptr inbounds %struct.FxuVar, ptr %57, i32 0, i32 7
+  %59 = load ptr, ptr %2, align 8
+  %60 = getelementptr inbounds %struct.FxuMatrix, ptr %59, i32 0, i32 17
+  store ptr %58, ptr %60, align 8
+  %61 = load ptr, ptr %9, align 8
+  %62 = getelementptr inbounds %struct.FxuVar, ptr %61, i32 0, i32 7
+  %63 = inttoptr i64 1 to ptr
+  store ptr %63, ptr %62, align 8
+  %64 = load ptr, ptr %2, align 8
+  %65 = load ptr, ptr %8, align 8
+  %66 = load ptr, ptr %9, align 8
+  %67 = load ptr, ptr %7, align 8
+  call void @Fxu_UpdateMatrixSingleClean(ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67)
+  %68 = load ptr, ptr %2, align 8
+  %69 = load ptr, ptr %5, align 8
+  %70 = load ptr, ptr %8, align 8
+  call void @Fxu_MatrixAddLiteral(ptr noundef %68, ptr noundef %69, ptr noundef %70)
+  %71 = load ptr, ptr %2, align 8
+  %72 = load ptr, ptr %5, align 8
+  %73 = load ptr, ptr %9, align 8
+  call void @Fxu_MatrixAddLiteral(ptr noundef %71, ptr noundef %72, ptr noundef %73)
+  %74 = load ptr, ptr %2, align 8
+  %75 = getelementptr inbounds %struct.FxuMatrix, ptr %74, i32 0, i32 14
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %78, label %94
 
-76:                                               ; preds = %1
-  %77 = load ptr, ptr %2, align 8
-  %78 = getelementptr inbounds %struct.FxuMatrix, ptr %77, i32 0, i32 14
-  %79 = load ptr, ptr %78, align 8
-  store ptr %79, ptr %4, align 8
-  br label %80
+78:                                               ; preds = %1
+  %79 = load ptr, ptr %2, align 8
+  %80 = getelementptr inbounds %struct.FxuMatrix, ptr %79, i32 0, i32 14
+  %81 = load ptr, ptr %80, align 8
+  store ptr %81, ptr %4, align 8
+  br label %82
 
-80:                                               ; preds = %86, %76
-  %81 = load ptr, ptr %4, align 8
-  %82 = icmp ne ptr %81, inttoptr (i64 1 to ptr)
-  br i1 %82, label %83, label %90
+82:                                               ; preds = %89, %78
+  %83 = load ptr, ptr %4, align 8
+  %84 = inttoptr i64 1 to ptr
+  %85 = icmp ne ptr %83, %84
+  br i1 %85, label %86, label %93
 
-83:                                               ; preds = %80
-  %84 = load ptr, ptr %2, align 8
-  %85 = load ptr, ptr %4, align 8
-  call void @Fxu_UpdateAddNewDoubles(ptr noundef %84, ptr noundef %85)
-  br label %86
+86:                                               ; preds = %82
+  %87 = load ptr, ptr %2, align 8
+  %88 = load ptr, ptr %4, align 8
+  call void @Fxu_UpdateAddNewDoubles(ptr noundef %87, ptr noundef %88)
+  br label %89
 
-86:                                               ; preds = %83
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds %struct.FxuCube, ptr %87, i32 0, i32 6
-  %89 = load ptr, ptr %88, align 8
-  store ptr %89, ptr %4, align 8
-  br label %80, !llvm.loop !7
+89:                                               ; preds = %86
+  %90 = load ptr, ptr %4, align 8
+  %91 = getelementptr inbounds %struct.FxuCube, ptr %90, i32 0, i32 6
+  %92 = load ptr, ptr %91, align 8
+  store ptr %92, ptr %4, align 8
+  br label %82, !llvm.loop !7
 
-90:                                               ; preds = %80
-  br label %91
+93:                                               ; preds = %82
+  br label %94
 
-91:                                               ; preds = %90, %1
-  %92 = load ptr, ptr %2, align 8
-  call void @Fxu_UpdateCleanOldSingles(ptr noundef %92)
-  %93 = load ptr, ptr %2, align 8
-  call void @Fxu_MatrixRingCubesUnmark(ptr noundef %93)
-  %94 = load ptr, ptr %2, align 8
-  call void @Fxu_MatrixRingVarsUnmark(ptr noundef %94)
+94:                                               ; preds = %93, %1
   %95 = load ptr, ptr %2, align 8
-  %96 = load ptr, ptr %6, align 8
-  call void @Fxu_UpdateAddNewSingles(ptr noundef %95, ptr noundef %96)
+  call void @Fxu_UpdateCleanOldSingles(ptr noundef %95)
+  %96 = load ptr, ptr %2, align 8
+  call void @Fxu_MatrixRingCubesUnmark(ptr noundef %96)
   %97 = load ptr, ptr %2, align 8
-  %98 = load ptr, ptr %7, align 8
-  call void @Fxu_UpdateAddNewSingles(ptr noundef %97, ptr noundef %98)
-  %99 = load ptr, ptr %2, align 8
-  %100 = getelementptr inbounds %struct.FxuMatrix, ptr %99, i32 0, i32 20
-  %101 = load i32, ptr %100, align 4
-  %102 = add nsw i32 %101, 1
-  store i32 %102, ptr %100, align 4
+  call void @Fxu_MatrixRingVarsUnmark(ptr noundef %97)
+  %98 = load ptr, ptr %2, align 8
+  %99 = load ptr, ptr %6, align 8
+  call void @Fxu_UpdateAddNewSingles(ptr noundef %98, ptr noundef %99)
+  %100 = load ptr, ptr %2, align 8
+  %101 = load ptr, ptr %7, align 8
+  call void @Fxu_UpdateAddNewSingles(ptr noundef %100, ptr noundef %101)
+  %102 = load ptr, ptr %2, align 8
+  %103 = getelementptr inbounds %struct.FxuMatrix, ptr %102, i32 0, i32 20
+  %104 = load i32, ptr %103, align 4
+  %105 = add nsw i32 %104, 1
+  store i32 %105, ptr %103, align 4
   ret void
 }
 
@@ -586,15 +593,15 @@ define internal void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr noundef %1
   store ptr %38, ptr %12, align 8
   br label %39
 
-39:                                               ; preds = %228, %37
+39:                                               ; preds = %229, %37
   %40 = load ptr, ptr %9, align 8
   %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %191
+  br i1 %41, label %42, label %192
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %11, align 8
   %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %191
+  br i1 %44, label %45, label %192
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %9, align 8
@@ -612,7 +619,7 @@ define internal void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr noundef %1
   %58 = getelementptr inbounds %struct.FxuVar, ptr %57, i32 0, i32 0
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %52, %59
-  br i1 %60, label %61, label %151
+  br i1 %60, label %61, label %152
 
 61:                                               ; preds = %45
   %62 = load ptr, ptr %9, align 8
@@ -622,7 +629,7 @@ define internal void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr noundef %1
   %66 = getelementptr inbounds %struct.FxuLit, ptr %65, i32 0, i32 1
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %64, %67
-  br i1 %68, label %69, label %119
+  br i1 %68, label %69, label %120
 
 69:                                               ; preds = %61
   %70 = load ptr, ptr %9, align 8
@@ -643,261 +650,262 @@ define internal void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr noundef %1
   %83 = getelementptr inbounds %struct.FxuLit, ptr %82, i32 0, i32 2
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds %struct.FxuCube, ptr %84, i32 0, i32 6
-  store ptr inttoptr (i64 1 to ptr), ptr %85, align 8
-  %86 = load ptr, ptr %5, align 8
-  %87 = load ptr, ptr %9, align 8
-  %88 = getelementptr inbounds %struct.FxuLit, ptr %87, i32 0, i32 2
-  %89 = load ptr, ptr %88, align 8
-  %90 = load ptr, ptr %8, align 8
-  call void @Fxu_MatrixAddLiteral(ptr noundef %86, ptr noundef %89, ptr noundef %90)
-  %91 = load ptr, ptr %5, align 8
-  %92 = load ptr, ptr %9, align 8
-  %93 = getelementptr inbounds %struct.FxuLit, ptr %92, i32 0, i32 2
-  %94 = load ptr, ptr %93, align 8
-  call void @Fxu_UpdateCleanOldDoubles(ptr noundef %91, ptr noundef null, ptr noundef %94)
-  %95 = load ptr, ptr %5, align 8
-  %96 = load ptr, ptr %9, align 8
-  call void @Fxu_MatrixDelLiteral(ptr noundef %95, ptr noundef %96)
-  %97 = load ptr, ptr %5, align 8
-  %98 = load ptr, ptr %11, align 8
-  call void @Fxu_MatrixDelLiteral(ptr noundef %97, ptr noundef %98)
-  %99 = load ptr, ptr %10, align 8
-  store ptr %99, ptr %9, align 8
-  %100 = load ptr, ptr %12, align 8
-  store ptr %100, ptr %11, align 8
-  %101 = load ptr, ptr %9, align 8
-  %102 = icmp ne ptr %101, null
-  br i1 %102, label %103, label %107
+  %86 = inttoptr i64 1 to ptr
+  store ptr %86, ptr %85, align 8
+  %87 = load ptr, ptr %5, align 8
+  %88 = load ptr, ptr %9, align 8
+  %89 = getelementptr inbounds %struct.FxuLit, ptr %88, i32 0, i32 2
+  %90 = load ptr, ptr %89, align 8
+  %91 = load ptr, ptr %8, align 8
+  call void @Fxu_MatrixAddLiteral(ptr noundef %87, ptr noundef %90, ptr noundef %91)
+  %92 = load ptr, ptr %5, align 8
+  %93 = load ptr, ptr %9, align 8
+  %94 = getelementptr inbounds %struct.FxuLit, ptr %93, i32 0, i32 2
+  %95 = load ptr, ptr %94, align 8
+  call void @Fxu_UpdateCleanOldDoubles(ptr noundef %92, ptr noundef null, ptr noundef %95)
+  %96 = load ptr, ptr %5, align 8
+  %97 = load ptr, ptr %9, align 8
+  call void @Fxu_MatrixDelLiteral(ptr noundef %96, ptr noundef %97)
+  %98 = load ptr, ptr %5, align 8
+  %99 = load ptr, ptr %11, align 8
+  call void @Fxu_MatrixDelLiteral(ptr noundef %98, ptr noundef %99)
+  %100 = load ptr, ptr %10, align 8
+  store ptr %100, ptr %9, align 8
+  %101 = load ptr, ptr %12, align 8
+  store ptr %101, ptr %11, align 8
+  %102 = load ptr, ptr %9, align 8
+  %103 = icmp ne ptr %102, null
+  br i1 %103, label %104, label %108
 
-103:                                              ; preds = %69
-  %104 = load ptr, ptr %9, align 8
-  %105 = getelementptr inbounds %struct.FxuLit, ptr %104, i32 0, i32 7
-  %106 = load ptr, ptr %105, align 8
-  br label %108
+104:                                              ; preds = %69
+  %105 = load ptr, ptr %9, align 8
+  %106 = getelementptr inbounds %struct.FxuLit, ptr %105, i32 0, i32 7
+  %107 = load ptr, ptr %106, align 8
+  br label %109
 
-107:                                              ; preds = %69
-  br label %108
+108:                                              ; preds = %69
+  br label %109
 
-108:                                              ; preds = %107, %103
-  %109 = phi ptr [ %106, %103 ], [ null, %107 ]
-  store ptr %109, ptr %10, align 8
-  %110 = load ptr, ptr %11, align 8
-  %111 = icmp ne ptr %110, null
-  br i1 %111, label %112, label %116
+109:                                              ; preds = %108, %104
+  %110 = phi ptr [ %107, %104 ], [ null, %108 ]
+  store ptr %110, ptr %10, align 8
+  %111 = load ptr, ptr %11, align 8
+  %112 = icmp ne ptr %111, null
+  br i1 %112, label %113, label %117
 
-112:                                              ; preds = %108
-  %113 = load ptr, ptr %11, align 8
-  %114 = getelementptr inbounds %struct.FxuLit, ptr %113, i32 0, i32 7
-  %115 = load ptr, ptr %114, align 8
-  br label %117
+113:                                              ; preds = %109
+  %114 = load ptr, ptr %11, align 8
+  %115 = getelementptr inbounds %struct.FxuLit, ptr %114, i32 0, i32 7
+  %116 = load ptr, ptr %115, align 8
+  br label %118
 
-116:                                              ; preds = %108
-  br label %117
+117:                                              ; preds = %109
+  br label %118
 
-117:                                              ; preds = %116, %112
-  %118 = phi ptr [ %115, %112 ], [ null, %116 ]
-  store ptr %118, ptr %12, align 8
+118:                                              ; preds = %117, %113
+  %119 = phi ptr [ %116, %113 ], [ null, %117 ]
+  store ptr %119, ptr %12, align 8
+  br label %151
+
+120:                                              ; preds = %61
+  %121 = load ptr, ptr %9, align 8
+  %122 = getelementptr inbounds %struct.FxuLit, ptr %121, i32 0, i32 1
+  %123 = load i32, ptr %122, align 4
+  %124 = load ptr, ptr %11, align 8
+  %125 = getelementptr inbounds %struct.FxuLit, ptr %124, i32 0, i32 1
+  %126 = load i32, ptr %125, align 4
+  %127 = icmp slt i32 %123, %126
+  br i1 %127, label %128, label %139
+
+128:                                              ; preds = %120
+  %129 = load ptr, ptr %10, align 8
+  store ptr %129, ptr %9, align 8
+  %130 = load ptr, ptr %9, align 8
+  %131 = icmp ne ptr %130, null
+  br i1 %131, label %132, label %136
+
+132:                                              ; preds = %128
+  %133 = load ptr, ptr %9, align 8
+  %134 = getelementptr inbounds %struct.FxuLit, ptr %133, i32 0, i32 7
+  %135 = load ptr, ptr %134, align 8
+  br label %137
+
+136:                                              ; preds = %128
+  br label %137
+
+137:                                              ; preds = %136, %132
+  %138 = phi ptr [ %135, %132 ], [ null, %136 ]
+  store ptr %138, ptr %10, align 8
   br label %150
 
-119:                                              ; preds = %61
-  %120 = load ptr, ptr %9, align 8
-  %121 = getelementptr inbounds %struct.FxuLit, ptr %120, i32 0, i32 1
-  %122 = load i32, ptr %121, align 4
-  %123 = load ptr, ptr %11, align 8
-  %124 = getelementptr inbounds %struct.FxuLit, ptr %123, i32 0, i32 1
-  %125 = load i32, ptr %124, align 4
-  %126 = icmp slt i32 %122, %125
-  br i1 %126, label %127, label %138
+139:                                              ; preds = %120
+  %140 = load ptr, ptr %12, align 8
+  store ptr %140, ptr %11, align 8
+  %141 = load ptr, ptr %11, align 8
+  %142 = icmp ne ptr %141, null
+  br i1 %142, label %143, label %147
 
-127:                                              ; preds = %119
-  %128 = load ptr, ptr %10, align 8
-  store ptr %128, ptr %9, align 8
-  %129 = load ptr, ptr %9, align 8
-  %130 = icmp ne ptr %129, null
-  br i1 %130, label %131, label %135
+143:                                              ; preds = %139
+  %144 = load ptr, ptr %11, align 8
+  %145 = getelementptr inbounds %struct.FxuLit, ptr %144, i32 0, i32 7
+  %146 = load ptr, ptr %145, align 8
+  br label %148
 
-131:                                              ; preds = %127
-  %132 = load ptr, ptr %9, align 8
-  %133 = getelementptr inbounds %struct.FxuLit, ptr %132, i32 0, i32 7
-  %134 = load ptr, ptr %133, align 8
-  br label %136
+147:                                              ; preds = %139
+  br label %148
 
-135:                                              ; preds = %127
-  br label %136
-
-136:                                              ; preds = %135, %131
-  %137 = phi ptr [ %134, %131 ], [ null, %135 ]
-  store ptr %137, ptr %10, align 8
-  br label %149
-
-138:                                              ; preds = %119
-  %139 = load ptr, ptr %12, align 8
-  store ptr %139, ptr %11, align 8
-  %140 = load ptr, ptr %11, align 8
-  %141 = icmp ne ptr %140, null
-  br i1 %141, label %142, label %146
-
-142:                                              ; preds = %138
-  %143 = load ptr, ptr %11, align 8
-  %144 = getelementptr inbounds %struct.FxuLit, ptr %143, i32 0, i32 7
-  %145 = load ptr, ptr %144, align 8
-  br label %147
-
-146:                                              ; preds = %138
-  br label %147
-
-147:                                              ; preds = %146, %142
-  %148 = phi ptr [ %145, %142 ], [ null, %146 ]
-  store ptr %148, ptr %12, align 8
-  br label %149
-
-149:                                              ; preds = %147, %136
+148:                                              ; preds = %147, %143
+  %149 = phi ptr [ %146, %143 ], [ null, %147 ]
+  store ptr %149, ptr %12, align 8
   br label %150
 
-150:                                              ; preds = %149, %117
+150:                                              ; preds = %148, %137
+  br label %151
+
+151:                                              ; preds = %150, %118
+  br label %191
+
+152:                                              ; preds = %45
+  %153 = load ptr, ptr %9, align 8
+  %154 = getelementptr inbounds %struct.FxuLit, ptr %153, i32 0, i32 2
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds %struct.FxuCube, ptr %155, i32 0, i32 2
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds %struct.FxuVar, ptr %157, i32 0, i32 0
+  %159 = load i32, ptr %158, align 8
+  %160 = load ptr, ptr %11, align 8
+  %161 = getelementptr inbounds %struct.FxuLit, ptr %160, i32 0, i32 2
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds %struct.FxuCube, ptr %162, i32 0, i32 2
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds %struct.FxuVar, ptr %164, i32 0, i32 0
+  %166 = load i32, ptr %165, align 8
+  %167 = icmp slt i32 %159, %166
+  br i1 %167, label %168, label %179
+
+168:                                              ; preds = %152
+  %169 = load ptr, ptr %10, align 8
+  store ptr %169, ptr %9, align 8
+  %170 = load ptr, ptr %9, align 8
+  %171 = icmp ne ptr %170, null
+  br i1 %171, label %172, label %176
+
+172:                                              ; preds = %168
+  %173 = load ptr, ptr %9, align 8
+  %174 = getelementptr inbounds %struct.FxuLit, ptr %173, i32 0, i32 7
+  %175 = load ptr, ptr %174, align 8
+  br label %177
+
+176:                                              ; preds = %168
+  br label %177
+
+177:                                              ; preds = %176, %172
+  %178 = phi ptr [ %175, %172 ], [ null, %176 ]
+  store ptr %178, ptr %10, align 8
   br label %190
 
-151:                                              ; preds = %45
-  %152 = load ptr, ptr %9, align 8
-  %153 = getelementptr inbounds %struct.FxuLit, ptr %152, i32 0, i32 2
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds %struct.FxuCube, ptr %154, i32 0, i32 2
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds %struct.FxuVar, ptr %156, i32 0, i32 0
-  %158 = load i32, ptr %157, align 8
-  %159 = load ptr, ptr %11, align 8
-  %160 = getelementptr inbounds %struct.FxuLit, ptr %159, i32 0, i32 2
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds %struct.FxuCube, ptr %161, i32 0, i32 2
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds %struct.FxuVar, ptr %163, i32 0, i32 0
-  %165 = load i32, ptr %164, align 8
-  %166 = icmp slt i32 %158, %165
-  br i1 %166, label %167, label %178
+179:                                              ; preds = %152
+  %180 = load ptr, ptr %12, align 8
+  store ptr %180, ptr %11, align 8
+  %181 = load ptr, ptr %11, align 8
+  %182 = icmp ne ptr %181, null
+  br i1 %182, label %183, label %187
 
-167:                                              ; preds = %151
-  %168 = load ptr, ptr %10, align 8
-  store ptr %168, ptr %9, align 8
-  %169 = load ptr, ptr %9, align 8
-  %170 = icmp ne ptr %169, null
-  br i1 %170, label %171, label %175
+183:                                              ; preds = %179
+  %184 = load ptr, ptr %11, align 8
+  %185 = getelementptr inbounds %struct.FxuLit, ptr %184, i32 0, i32 7
+  %186 = load ptr, ptr %185, align 8
+  br label %188
 
-171:                                              ; preds = %167
-  %172 = load ptr, ptr %9, align 8
-  %173 = getelementptr inbounds %struct.FxuLit, ptr %172, i32 0, i32 7
-  %174 = load ptr, ptr %173, align 8
-  br label %176
+187:                                              ; preds = %179
+  br label %188
 
-175:                                              ; preds = %167
-  br label %176
-
-176:                                              ; preds = %175, %171
-  %177 = phi ptr [ %174, %171 ], [ null, %175 ]
-  store ptr %177, ptr %10, align 8
-  br label %189
-
-178:                                              ; preds = %151
-  %179 = load ptr, ptr %12, align 8
-  store ptr %179, ptr %11, align 8
-  %180 = load ptr, ptr %11, align 8
-  %181 = icmp ne ptr %180, null
-  br i1 %181, label %182, label %186
-
-182:                                              ; preds = %178
-  %183 = load ptr, ptr %11, align 8
-  %184 = getelementptr inbounds %struct.FxuLit, ptr %183, i32 0, i32 7
-  %185 = load ptr, ptr %184, align 8
-  br label %187
-
-186:                                              ; preds = %178
-  br label %187
-
-187:                                              ; preds = %186, %182
-  %188 = phi ptr [ %185, %182 ], [ null, %186 ]
-  store ptr %188, ptr %12, align 8
-  br label %189
-
-189:                                              ; preds = %187, %176
+188:                                              ; preds = %187, %183
+  %189 = phi ptr [ %186, %183 ], [ null, %187 ]
+  store ptr %189, ptr %12, align 8
   br label %190
 
-190:                                              ; preds = %189, %150
-  br label %228
+190:                                              ; preds = %188, %177
+  br label %191
 
-191:                                              ; preds = %42, %39
-  %192 = load ptr, ptr %9, align 8
-  %193 = icmp ne ptr %192, null
-  br i1 %193, label %194, label %208
-
-194:                                              ; preds = %191
-  %195 = load ptr, ptr %11, align 8
-  %196 = icmp ne ptr %195, null
-  br i1 %196, label %208, label %197
-
-197:                                              ; preds = %194
-  %198 = load ptr, ptr %10, align 8
-  store ptr %198, ptr %9, align 8
-  %199 = load ptr, ptr %9, align 8
-  %200 = icmp ne ptr %199, null
-  br i1 %200, label %201, label %205
-
-201:                                              ; preds = %197
-  %202 = load ptr, ptr %9, align 8
-  %203 = getelementptr inbounds %struct.FxuLit, ptr %202, i32 0, i32 7
-  %204 = load ptr, ptr %203, align 8
-  br label %206
-
-205:                                              ; preds = %197
-  br label %206
-
-206:                                              ; preds = %205, %201
-  %207 = phi ptr [ %204, %201 ], [ null, %205 ]
-  store ptr %207, ptr %10, align 8
-  br label %227
-
-208:                                              ; preds = %194, %191
-  %209 = load ptr, ptr %9, align 8
-  %210 = icmp ne ptr %209, null
-  br i1 %210, label %225, label %211
-
-211:                                              ; preds = %208
-  %212 = load ptr, ptr %11, align 8
-  %213 = icmp ne ptr %212, null
-  br i1 %213, label %214, label %225
-
-214:                                              ; preds = %211
-  %215 = load ptr, ptr %12, align 8
-  store ptr %215, ptr %11, align 8
-  %216 = load ptr, ptr %11, align 8
-  %217 = icmp ne ptr %216, null
-  br i1 %217, label %218, label %222
-
-218:                                              ; preds = %214
-  %219 = load ptr, ptr %11, align 8
-  %220 = getelementptr inbounds %struct.FxuLit, ptr %219, i32 0, i32 7
-  %221 = load ptr, ptr %220, align 8
-  br label %223
-
-222:                                              ; preds = %214
-  br label %223
-
-223:                                              ; preds = %222, %218
-  %224 = phi ptr [ %221, %218 ], [ null, %222 ]
-  store ptr %224, ptr %12, align 8
-  br label %226
-
-225:                                              ; preds = %211, %208
+191:                                              ; preds = %190, %151
   br label %229
 
-226:                                              ; preds = %223
-  br label %227
+192:                                              ; preds = %42, %39
+  %193 = load ptr, ptr %9, align 8
+  %194 = icmp ne ptr %193, null
+  br i1 %194, label %195, label %209
 
-227:                                              ; preds = %226, %206
+195:                                              ; preds = %192
+  %196 = load ptr, ptr %11, align 8
+  %197 = icmp ne ptr %196, null
+  br i1 %197, label %209, label %198
+
+198:                                              ; preds = %195
+  %199 = load ptr, ptr %10, align 8
+  store ptr %199, ptr %9, align 8
+  %200 = load ptr, ptr %9, align 8
+  %201 = icmp ne ptr %200, null
+  br i1 %201, label %202, label %206
+
+202:                                              ; preds = %198
+  %203 = load ptr, ptr %9, align 8
+  %204 = getelementptr inbounds %struct.FxuLit, ptr %203, i32 0, i32 7
+  %205 = load ptr, ptr %204, align 8
+  br label %207
+
+206:                                              ; preds = %198
+  br label %207
+
+207:                                              ; preds = %206, %202
+  %208 = phi ptr [ %205, %202 ], [ null, %206 ]
+  store ptr %208, ptr %10, align 8
   br label %228
 
-228:                                              ; preds = %227, %190
+209:                                              ; preds = %195, %192
+  %210 = load ptr, ptr %9, align 8
+  %211 = icmp ne ptr %210, null
+  br i1 %211, label %226, label %212
+
+212:                                              ; preds = %209
+  %213 = load ptr, ptr %11, align 8
+  %214 = icmp ne ptr %213, null
+  br i1 %214, label %215, label %226
+
+215:                                              ; preds = %212
+  %216 = load ptr, ptr %12, align 8
+  store ptr %216, ptr %11, align 8
+  %217 = load ptr, ptr %11, align 8
+  %218 = icmp ne ptr %217, null
+  br i1 %218, label %219, label %223
+
+219:                                              ; preds = %215
+  %220 = load ptr, ptr %11, align 8
+  %221 = getelementptr inbounds %struct.FxuLit, ptr %220, i32 0, i32 7
+  %222 = load ptr, ptr %221, align 8
+  br label %224
+
+223:                                              ; preds = %215
+  br label %224
+
+224:                                              ; preds = %223, %219
+  %225 = phi ptr [ %222, %219 ], [ null, %223 ]
+  store ptr %225, ptr %12, align 8
+  br label %227
+
+226:                                              ; preds = %212, %209
+  br label %230
+
+227:                                              ; preds = %224
+  br label %228
+
+228:                                              ; preds = %227, %207
+  br label %229
+
+229:                                              ; preds = %228, %191
   br label %39
 
-229:                                              ; preds = %225
+230:                                              ; preds = %226
   ret void
 }
 
@@ -919,7 +927,7 @@ define internal void @Fxu_UpdateDoublePairs(ptr noundef %0, ptr noundef %1, ptr 
   store i32 0, ptr %10, align 4
   br label %13
 
-13:                                               ; preds = %93, %3
+13:                                               ; preds = %94, %3
   %14 = load i32, ptr %10, align 4
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr inbounds %struct.FxuMatrix, ptr %15, i32 0, i32 18
@@ -927,7 +935,7 @@ define internal void @Fxu_UpdateDoublePairs(ptr noundef %0, ptr noundef %1, ptr 
   %18 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %17, i32 0, i32 1
   %19 = load i32, ptr %18, align 4
   %20 = icmp slt i32 %14, %19
-  br i1 %20, label %21, label %96
+  br i1 %20, label %21, label %97
 
 21:                                               ; preds = %13
   %22 = load ptr, ptr %4, align 8
@@ -1000,49 +1008,50 @@ define internal void @Fxu_UpdateDoublePairs(ptr noundef %0, ptr noundef %1, ptr 
   store ptr %70, ptr %72, align 8
   %73 = load ptr, ptr %8, align 8
   %74 = getelementptr inbounds %struct.FxuCube, ptr %73, i32 0, i32 6
-  store ptr inttoptr (i64 1 to ptr), ptr %74, align 8
-  %75 = load ptr, ptr %4, align 8
-  %76 = load ptr, ptr %8, align 8
-  %77 = load ptr, ptr %9, align 8
-  call void @Fxu_UpdateMatrixDoubleClean(ptr noundef %75, ptr noundef %76, ptr noundef %77)
-  %78 = load ptr, ptr %4, align 8
-  %79 = load ptr, ptr %8, align 8
-  %80 = load ptr, ptr %6, align 8
-  call void @Fxu_MatrixAddLiteral(ptr noundef %78, ptr noundef %79, ptr noundef %80)
-  %81 = load ptr, ptr %4, align 8
-  %82 = load ptr, ptr %5, align 8
-  %83 = load ptr, ptr %8, align 8
-  call void @Fxu_UpdateCleanOldDoubles(ptr noundef %81, ptr noundef %82, ptr noundef %83)
-  %84 = load ptr, ptr %4, align 8
-  %85 = load ptr, ptr %5, align 8
-  %86 = load ptr, ptr %9, align 8
-  call void @Fxu_UpdateCleanOldDoubles(ptr noundef %84, ptr noundef %85, ptr noundef %86)
-  %87 = load ptr, ptr %7, align 8
-  %88 = icmp ne ptr %87, null
-  br i1 %88, label %89, label %92
+  %75 = inttoptr i64 1 to ptr
+  store ptr %75, ptr %74, align 8
+  %76 = load ptr, ptr %4, align 8
+  %77 = load ptr, ptr %8, align 8
+  %78 = load ptr, ptr %9, align 8
+  call void @Fxu_UpdateMatrixDoubleClean(ptr noundef %76, ptr noundef %77, ptr noundef %78)
+  %79 = load ptr, ptr %4, align 8
+  %80 = load ptr, ptr %8, align 8
+  %81 = load ptr, ptr %6, align 8
+  call void @Fxu_MatrixAddLiteral(ptr noundef %79, ptr noundef %80, ptr noundef %81)
+  %82 = load ptr, ptr %4, align 8
+  %83 = load ptr, ptr %5, align 8
+  %84 = load ptr, ptr %8, align 8
+  call void @Fxu_UpdateCleanOldDoubles(ptr noundef %82, ptr noundef %83, ptr noundef %84)
+  %85 = load ptr, ptr %4, align 8
+  %86 = load ptr, ptr %5, align 8
+  %87 = load ptr, ptr %9, align 8
+  call void @Fxu_UpdateCleanOldDoubles(ptr noundef %85, ptr noundef %86, ptr noundef %87)
+  %88 = load ptr, ptr %7, align 8
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %93
 
-89:                                               ; preds = %63
-  %90 = load ptr, ptr %4, align 8
-  %91 = load ptr, ptr %7, align 8
-  call void @Fxu_MemRecycle(ptr noundef %90, ptr noundef %91, i32 noundef 64)
+90:                                               ; preds = %63
+  %91 = load ptr, ptr %4, align 8
+  %92 = load ptr, ptr %7, align 8
+  call void @Fxu_MemRecycle(ptr noundef %91, ptr noundef %92, i32 noundef 64)
   store ptr null, ptr %7, align 8
-  br label %92
-
-92:                                               ; preds = %89, %63
   br label %93
 
-93:                                               ; preds = %92
-  %94 = load i32, ptr %10, align 4
-  %95 = add nsw i32 %94, 1
-  store i32 %95, ptr %10, align 4
+93:                                               ; preds = %90, %63
+  br label %94
+
+94:                                               ; preds = %93
+  %95 = load i32, ptr %10, align 4
+  %96 = add nsw i32 %95, 1
+  store i32 %96, ptr %10, align 4
   br label %13, !llvm.loop !8
 
-96:                                               ; preds = %13
-  %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds %struct.FxuMatrix, ptr %97, i32 0, i32 18
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %99, i32 0, i32 1
-  store i32 0, ptr %100, align 4
+97:                                               ; preds = %13
+  %98 = load ptr, ptr %4, align 8
+  %99 = getelementptr inbounds %struct.FxuMatrix, ptr %98, i32 0, i32 18
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %100, i32 0, i32 1
+  store i32 0, ptr %101, align 4
   ret void
 }
 
@@ -1609,15 +1618,15 @@ define internal void @Fxu_UpdateMatrixDoubleClean(ptr noundef %0, ptr noundef %1
   store ptr %36, ptr %10, align 8
   br label %37
 
-37:                                               ; preds = %271, %35
+37:                                               ; preds = %276, %35
   %38 = load ptr, ptr %7, align 8
   %39 = icmp ne ptr %38, null
-  br i1 %39, label %40, label %182
+  br i1 %39, label %40, label %185
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %9, align 8
   %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %182
+  br i1 %42, label %43, label %185
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %7, align 8
@@ -1627,7 +1636,7 @@ define internal void @Fxu_UpdateMatrixDoubleClean(ptr noundef %0, ptr noundef %1
   %48 = getelementptr inbounds %struct.FxuLit, ptr %47, i32 0, i32 0
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %46, %49
-  br i1 %50, label %51, label %98
+  br i1 %50, label %51, label %99
 
 51:                                               ; preds = %43
   %52 = load ptr, ptr %7, align 8
@@ -1636,7 +1645,7 @@ define internal void @Fxu_UpdateMatrixDoubleClean(ptr noundef %0, ptr noundef %1
   %55 = getelementptr inbounds %struct.FxuVar, ptr %54, i32 0, i32 7
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %75
+  br i1 %57, label %58, label %76
 
 58:                                               ; preds = %51
   %59 = load ptr, ptr %7, align 8
@@ -1657,320 +1666,325 @@ define internal void @Fxu_UpdateMatrixDoubleClean(ptr noundef %0, ptr noundef %1
   %72 = getelementptr inbounds %struct.FxuLit, ptr %71, i32 0, i32 3
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds %struct.FxuVar, ptr %73, i32 0, i32 7
-  store ptr inttoptr (i64 1 to ptr), ptr %74, align 8
-  br label %75
+  %75 = inttoptr i64 1 to ptr
+  store ptr %75, ptr %74, align 8
+  br label %76
 
-75:                                               ; preds = %58, %51
-  %76 = load ptr, ptr %4, align 8
-  %77 = load ptr, ptr %9, align 8
-  call void @Fxu_MatrixDelLiteral(ptr noundef %76, ptr noundef %77)
-  %78 = load ptr, ptr %8, align 8
-  store ptr %78, ptr %7, align 8
-  %79 = load ptr, ptr %10, align 8
-  store ptr %79, ptr %9, align 8
-  %80 = load ptr, ptr %7, align 8
-  %81 = icmp ne ptr %80, null
-  br i1 %81, label %82, label %86
+76:                                               ; preds = %58, %51
+  %77 = load ptr, ptr %4, align 8
+  %78 = load ptr, ptr %9, align 8
+  call void @Fxu_MatrixDelLiteral(ptr noundef %77, ptr noundef %78)
+  %79 = load ptr, ptr %8, align 8
+  store ptr %79, ptr %7, align 8
+  %80 = load ptr, ptr %10, align 8
+  store ptr %80, ptr %9, align 8
+  %81 = load ptr, ptr %7, align 8
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %87
 
-82:                                               ; preds = %75
-  %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds %struct.FxuLit, ptr %83, i32 0, i32 5
-  %85 = load ptr, ptr %84, align 8
-  br label %87
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds %struct.FxuLit, ptr %84, i32 0, i32 5
+  %86 = load ptr, ptr %85, align 8
+  br label %88
 
-86:                                               ; preds = %75
-  br label %87
+87:                                               ; preds = %76
+  br label %88
 
-87:                                               ; preds = %86, %82
-  %88 = phi ptr [ %85, %82 ], [ null, %86 ]
-  store ptr %88, ptr %8, align 8
-  %89 = load ptr, ptr %9, align 8
-  %90 = icmp ne ptr %89, null
-  br i1 %90, label %91, label %95
+88:                                               ; preds = %87, %83
+  %89 = phi ptr [ %86, %83 ], [ null, %87 ]
+  store ptr %89, ptr %8, align 8
+  %90 = load ptr, ptr %9, align 8
+  %91 = icmp ne ptr %90, null
+  br i1 %91, label %92, label %96
 
-91:                                               ; preds = %87
-  %92 = load ptr, ptr %9, align 8
-  %93 = getelementptr inbounds %struct.FxuLit, ptr %92, i32 0, i32 5
-  %94 = load ptr, ptr %93, align 8
-  br label %96
+92:                                               ; preds = %88
+  %93 = load ptr, ptr %9, align 8
+  %94 = getelementptr inbounds %struct.FxuLit, ptr %93, i32 0, i32 5
+  %95 = load ptr, ptr %94, align 8
+  br label %97
 
-95:                                               ; preds = %87
-  br label %96
+96:                                               ; preds = %88
+  br label %97
 
-96:                                               ; preds = %95, %91
-  %97 = phi ptr [ %94, %91 ], [ null, %95 ]
-  store ptr %97, ptr %10, align 8
-  br label %181
+97:                                               ; preds = %96, %92
+  %98 = phi ptr [ %95, %92 ], [ null, %96 ]
+  store ptr %98, ptr %10, align 8
+  br label %184
 
-98:                                               ; preds = %43
-  %99 = load ptr, ptr %7, align 8
-  %100 = getelementptr inbounds %struct.FxuLit, ptr %99, i32 0, i32 0
-  %101 = load i32, ptr %100, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = getelementptr inbounds %struct.FxuLit, ptr %102, i32 0, i32 0
-  %104 = load i32, ptr %103, align 8
-  %105 = icmp slt i32 %101, %104
-  br i1 %105, label %106, label %143
+99:                                               ; preds = %43
+  %100 = load ptr, ptr %7, align 8
+  %101 = getelementptr inbounds %struct.FxuLit, ptr %100, i32 0, i32 0
+  %102 = load i32, ptr %101, align 8
+  %103 = load ptr, ptr %9, align 8
+  %104 = getelementptr inbounds %struct.FxuLit, ptr %103, i32 0, i32 0
+  %105 = load i32, ptr %104, align 8
+  %106 = icmp slt i32 %102, %105
+  br i1 %106, label %107, label %145
 
-106:                                              ; preds = %98
-  %107 = load ptr, ptr %7, align 8
-  %108 = getelementptr inbounds %struct.FxuLit, ptr %107, i32 0, i32 3
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct.FxuVar, ptr %109, i32 0, i32 7
-  %111 = load ptr, ptr %110, align 8
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %113, label %130
+107:                                              ; preds = %99
+  %108 = load ptr, ptr %7, align 8
+  %109 = getelementptr inbounds %struct.FxuLit, ptr %108, i32 0, i32 3
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds %struct.FxuVar, ptr %110, i32 0, i32 7
+  %112 = load ptr, ptr %111, align 8
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %114, label %132
 
-113:                                              ; preds = %106
-  %114 = load ptr, ptr %7, align 8
-  %115 = getelementptr inbounds %struct.FxuLit, ptr %114, i32 0, i32 3
-  %116 = load ptr, ptr %115, align 8
-  %117 = load ptr, ptr %4, align 8
-  %118 = getelementptr inbounds %struct.FxuMatrix, ptr %117, i32 0, i32 17
-  %119 = load ptr, ptr %118, align 8
-  store ptr %116, ptr %119, align 8
-  %120 = load ptr, ptr %7, align 8
-  %121 = getelementptr inbounds %struct.FxuLit, ptr %120, i32 0, i32 3
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds %struct.FxuVar, ptr %122, i32 0, i32 7
-  %124 = load ptr, ptr %4, align 8
-  %125 = getelementptr inbounds %struct.FxuMatrix, ptr %124, i32 0, i32 17
-  store ptr %123, ptr %125, align 8
-  %126 = load ptr, ptr %7, align 8
-  %127 = getelementptr inbounds %struct.FxuLit, ptr %126, i32 0, i32 3
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds %struct.FxuVar, ptr %128, i32 0, i32 7
-  store ptr inttoptr (i64 1 to ptr), ptr %129, align 8
-  br label %130
+114:                                              ; preds = %107
+  %115 = load ptr, ptr %7, align 8
+  %116 = getelementptr inbounds %struct.FxuLit, ptr %115, i32 0, i32 3
+  %117 = load ptr, ptr %116, align 8
+  %118 = load ptr, ptr %4, align 8
+  %119 = getelementptr inbounds %struct.FxuMatrix, ptr %118, i32 0, i32 17
+  %120 = load ptr, ptr %119, align 8
+  store ptr %117, ptr %120, align 8
+  %121 = load ptr, ptr %7, align 8
+  %122 = getelementptr inbounds %struct.FxuLit, ptr %121, i32 0, i32 3
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds %struct.FxuVar, ptr %123, i32 0, i32 7
+  %125 = load ptr, ptr %4, align 8
+  %126 = getelementptr inbounds %struct.FxuMatrix, ptr %125, i32 0, i32 17
+  store ptr %124, ptr %126, align 8
+  %127 = load ptr, ptr %7, align 8
+  %128 = getelementptr inbounds %struct.FxuLit, ptr %127, i32 0, i32 3
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds %struct.FxuVar, ptr %129, i32 0, i32 7
+  %131 = inttoptr i64 1 to ptr
+  store ptr %131, ptr %130, align 8
+  br label %132
 
-130:                                              ; preds = %113, %106
-  %131 = load ptr, ptr %4, align 8
-  %132 = load ptr, ptr %7, align 8
-  call void @Fxu_MatrixDelLiteral(ptr noundef %131, ptr noundef %132)
-  %133 = load ptr, ptr %8, align 8
-  store ptr %133, ptr %7, align 8
+132:                                              ; preds = %114, %107
+  %133 = load ptr, ptr %4, align 8
   %134 = load ptr, ptr %7, align 8
-  %135 = icmp ne ptr %134, null
-  br i1 %135, label %136, label %140
+  call void @Fxu_MatrixDelLiteral(ptr noundef %133, ptr noundef %134)
+  %135 = load ptr, ptr %8, align 8
+  store ptr %135, ptr %7, align 8
+  %136 = load ptr, ptr %7, align 8
+  %137 = icmp ne ptr %136, null
+  br i1 %137, label %138, label %142
 
-136:                                              ; preds = %130
-  %137 = load ptr, ptr %7, align 8
-  %138 = getelementptr inbounds %struct.FxuLit, ptr %137, i32 0, i32 5
-  %139 = load ptr, ptr %138, align 8
-  br label %141
+138:                                              ; preds = %132
+  %139 = load ptr, ptr %7, align 8
+  %140 = getelementptr inbounds %struct.FxuLit, ptr %139, i32 0, i32 5
+  %141 = load ptr, ptr %140, align 8
+  br label %143
 
-140:                                              ; preds = %130
-  br label %141
+142:                                              ; preds = %132
+  br label %143
 
-141:                                              ; preds = %140, %136
-  %142 = phi ptr [ %139, %136 ], [ null, %140 ]
-  store ptr %142, ptr %8, align 8
-  br label %180
+143:                                              ; preds = %142, %138
+  %144 = phi ptr [ %141, %138 ], [ null, %142 ]
+  store ptr %144, ptr %8, align 8
+  br label %183
 
-143:                                              ; preds = %98
-  %144 = load ptr, ptr %9, align 8
-  %145 = getelementptr inbounds %struct.FxuLit, ptr %144, i32 0, i32 3
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds %struct.FxuVar, ptr %146, i32 0, i32 7
+145:                                              ; preds = %99
+  %146 = load ptr, ptr %9, align 8
+  %147 = getelementptr inbounds %struct.FxuLit, ptr %146, i32 0, i32 3
   %148 = load ptr, ptr %147, align 8
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %150, label %167
+  %149 = getelementptr inbounds %struct.FxuVar, ptr %148, i32 0, i32 7
+  %150 = load ptr, ptr %149, align 8
+  %151 = icmp eq ptr %150, null
+  br i1 %151, label %152, label %170
 
-150:                                              ; preds = %143
-  %151 = load ptr, ptr %9, align 8
-  %152 = getelementptr inbounds %struct.FxuLit, ptr %151, i32 0, i32 3
-  %153 = load ptr, ptr %152, align 8
-  %154 = load ptr, ptr %4, align 8
-  %155 = getelementptr inbounds %struct.FxuMatrix, ptr %154, i32 0, i32 17
-  %156 = load ptr, ptr %155, align 8
-  store ptr %153, ptr %156, align 8
-  %157 = load ptr, ptr %9, align 8
-  %158 = getelementptr inbounds %struct.FxuLit, ptr %157, i32 0, i32 3
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds %struct.FxuVar, ptr %159, i32 0, i32 7
-  %161 = load ptr, ptr %4, align 8
-  %162 = getelementptr inbounds %struct.FxuMatrix, ptr %161, i32 0, i32 17
-  store ptr %160, ptr %162, align 8
-  %163 = load ptr, ptr %9, align 8
-  %164 = getelementptr inbounds %struct.FxuLit, ptr %163, i32 0, i32 3
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds %struct.FxuVar, ptr %165, i32 0, i32 7
-  store ptr inttoptr (i64 1 to ptr), ptr %166, align 8
-  br label %167
+152:                                              ; preds = %145
+  %153 = load ptr, ptr %9, align 8
+  %154 = getelementptr inbounds %struct.FxuLit, ptr %153, i32 0, i32 3
+  %155 = load ptr, ptr %154, align 8
+  %156 = load ptr, ptr %4, align 8
+  %157 = getelementptr inbounds %struct.FxuMatrix, ptr %156, i32 0, i32 17
+  %158 = load ptr, ptr %157, align 8
+  store ptr %155, ptr %158, align 8
+  %159 = load ptr, ptr %9, align 8
+  %160 = getelementptr inbounds %struct.FxuLit, ptr %159, i32 0, i32 3
+  %161 = load ptr, ptr %160, align 8
+  %162 = getelementptr inbounds %struct.FxuVar, ptr %161, i32 0, i32 7
+  %163 = load ptr, ptr %4, align 8
+  %164 = getelementptr inbounds %struct.FxuMatrix, ptr %163, i32 0, i32 17
+  store ptr %162, ptr %164, align 8
+  %165 = load ptr, ptr %9, align 8
+  %166 = getelementptr inbounds %struct.FxuLit, ptr %165, i32 0, i32 3
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds %struct.FxuVar, ptr %167, i32 0, i32 7
+  %169 = inttoptr i64 1 to ptr
+  store ptr %169, ptr %168, align 8
+  br label %170
 
-167:                                              ; preds = %150, %143
-  %168 = load ptr, ptr %4, align 8
-  %169 = load ptr, ptr %9, align 8
-  call void @Fxu_MatrixDelLiteral(ptr noundef %168, ptr noundef %169)
-  %170 = load ptr, ptr %10, align 8
-  store ptr %170, ptr %9, align 8
-  %171 = load ptr, ptr %9, align 8
-  %172 = icmp ne ptr %171, null
-  br i1 %172, label %173, label %177
-
-173:                                              ; preds = %167
+170:                                              ; preds = %152, %145
+  %171 = load ptr, ptr %4, align 8
+  %172 = load ptr, ptr %9, align 8
+  call void @Fxu_MatrixDelLiteral(ptr noundef %171, ptr noundef %172)
+  %173 = load ptr, ptr %10, align 8
+  store ptr %173, ptr %9, align 8
   %174 = load ptr, ptr %9, align 8
-  %175 = getelementptr inbounds %struct.FxuLit, ptr %174, i32 0, i32 5
-  %176 = load ptr, ptr %175, align 8
-  br label %178
+  %175 = icmp ne ptr %174, null
+  br i1 %175, label %176, label %180
 
-177:                                              ; preds = %167
-  br label %178
-
-178:                                              ; preds = %177, %173
-  %179 = phi ptr [ %176, %173 ], [ null, %177 ]
-  store ptr %179, ptr %10, align 8
-  br label %180
-
-180:                                              ; preds = %178, %141
+176:                                              ; preds = %170
+  %177 = load ptr, ptr %9, align 8
+  %178 = getelementptr inbounds %struct.FxuLit, ptr %177, i32 0, i32 5
+  %179 = load ptr, ptr %178, align 8
   br label %181
 
-181:                                              ; preds = %180, %96
-  br label %271
+180:                                              ; preds = %170
+  br label %181
 
-182:                                              ; preds = %40, %37
-  %183 = load ptr, ptr %7, align 8
-  %184 = icmp ne ptr %183, null
-  br i1 %184, label %185, label %225
+181:                                              ; preds = %180, %176
+  %182 = phi ptr [ %179, %176 ], [ null, %180 ]
+  store ptr %182, ptr %10, align 8
+  br label %183
 
-185:                                              ; preds = %182
-  %186 = load ptr, ptr %9, align 8
+183:                                              ; preds = %181, %143
+  br label %184
+
+184:                                              ; preds = %183, %97
+  br label %276
+
+185:                                              ; preds = %40, %37
+  %186 = load ptr, ptr %7, align 8
   %187 = icmp ne ptr %186, null
-  br i1 %187, label %225, label %188
+  br i1 %187, label %188, label %229
 
 188:                                              ; preds = %185
-  %189 = load ptr, ptr %7, align 8
-  %190 = getelementptr inbounds %struct.FxuLit, ptr %189, i32 0, i32 3
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds %struct.FxuVar, ptr %191, i32 0, i32 7
-  %193 = load ptr, ptr %192, align 8
-  %194 = icmp eq ptr %193, null
-  br i1 %194, label %195, label %212
+  %189 = load ptr, ptr %9, align 8
+  %190 = icmp ne ptr %189, null
+  br i1 %190, label %229, label %191
 
-195:                                              ; preds = %188
-  %196 = load ptr, ptr %7, align 8
-  %197 = getelementptr inbounds %struct.FxuLit, ptr %196, i32 0, i32 3
-  %198 = load ptr, ptr %197, align 8
-  %199 = load ptr, ptr %4, align 8
-  %200 = getelementptr inbounds %struct.FxuMatrix, ptr %199, i32 0, i32 17
+191:                                              ; preds = %188
+  %192 = load ptr, ptr %7, align 8
+  %193 = getelementptr inbounds %struct.FxuLit, ptr %192, i32 0, i32 3
+  %194 = load ptr, ptr %193, align 8
+  %195 = getelementptr inbounds %struct.FxuVar, ptr %194, i32 0, i32 7
+  %196 = load ptr, ptr %195, align 8
+  %197 = icmp eq ptr %196, null
+  br i1 %197, label %198, label %216
+
+198:                                              ; preds = %191
+  %199 = load ptr, ptr %7, align 8
+  %200 = getelementptr inbounds %struct.FxuLit, ptr %199, i32 0, i32 3
   %201 = load ptr, ptr %200, align 8
-  store ptr %198, ptr %201, align 8
-  %202 = load ptr, ptr %7, align 8
-  %203 = getelementptr inbounds %struct.FxuLit, ptr %202, i32 0, i32 3
+  %202 = load ptr, ptr %4, align 8
+  %203 = getelementptr inbounds %struct.FxuMatrix, ptr %202, i32 0, i32 17
   %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds %struct.FxuVar, ptr %204, i32 0, i32 7
-  %206 = load ptr, ptr %4, align 8
-  %207 = getelementptr inbounds %struct.FxuMatrix, ptr %206, i32 0, i32 17
-  store ptr %205, ptr %207, align 8
-  %208 = load ptr, ptr %7, align 8
-  %209 = getelementptr inbounds %struct.FxuLit, ptr %208, i32 0, i32 3
-  %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds %struct.FxuVar, ptr %210, i32 0, i32 7
-  store ptr inttoptr (i64 1 to ptr), ptr %211, align 8
-  br label %212
+  store ptr %201, ptr %204, align 8
+  %205 = load ptr, ptr %7, align 8
+  %206 = getelementptr inbounds %struct.FxuLit, ptr %205, i32 0, i32 3
+  %207 = load ptr, ptr %206, align 8
+  %208 = getelementptr inbounds %struct.FxuVar, ptr %207, i32 0, i32 7
+  %209 = load ptr, ptr %4, align 8
+  %210 = getelementptr inbounds %struct.FxuMatrix, ptr %209, i32 0, i32 17
+  store ptr %208, ptr %210, align 8
+  %211 = load ptr, ptr %7, align 8
+  %212 = getelementptr inbounds %struct.FxuLit, ptr %211, i32 0, i32 3
+  %213 = load ptr, ptr %212, align 8
+  %214 = getelementptr inbounds %struct.FxuVar, ptr %213, i32 0, i32 7
+  %215 = inttoptr i64 1 to ptr
+  store ptr %215, ptr %214, align 8
+  br label %216
 
-212:                                              ; preds = %195, %188
-  %213 = load ptr, ptr %4, align 8
-  %214 = load ptr, ptr %7, align 8
-  call void @Fxu_MatrixDelLiteral(ptr noundef %213, ptr noundef %214)
-  %215 = load ptr, ptr %8, align 8
-  store ptr %215, ptr %7, align 8
-  %216 = load ptr, ptr %7, align 8
-  %217 = icmp ne ptr %216, null
-  br i1 %217, label %218, label %222
+216:                                              ; preds = %198, %191
+  %217 = load ptr, ptr %4, align 8
+  %218 = load ptr, ptr %7, align 8
+  call void @Fxu_MatrixDelLiteral(ptr noundef %217, ptr noundef %218)
+  %219 = load ptr, ptr %8, align 8
+  store ptr %219, ptr %7, align 8
+  %220 = load ptr, ptr %7, align 8
+  %221 = icmp ne ptr %220, null
+  br i1 %221, label %222, label %226
 
-218:                                              ; preds = %212
-  %219 = load ptr, ptr %7, align 8
-  %220 = getelementptr inbounds %struct.FxuLit, ptr %219, i32 0, i32 5
-  %221 = load ptr, ptr %220, align 8
-  br label %223
+222:                                              ; preds = %216
+  %223 = load ptr, ptr %7, align 8
+  %224 = getelementptr inbounds %struct.FxuLit, ptr %223, i32 0, i32 5
+  %225 = load ptr, ptr %224, align 8
+  br label %227
 
-222:                                              ; preds = %212
-  br label %223
+226:                                              ; preds = %216
+  br label %227
 
-223:                                              ; preds = %222, %218
-  %224 = phi ptr [ %221, %218 ], [ null, %222 ]
-  store ptr %224, ptr %8, align 8
-  br label %270
+227:                                              ; preds = %226, %222
+  %228 = phi ptr [ %225, %222 ], [ null, %226 ]
+  store ptr %228, ptr %8, align 8
+  br label %275
 
-225:                                              ; preds = %185, %182
-  %226 = load ptr, ptr %7, align 8
-  %227 = icmp ne ptr %226, null
-  br i1 %227, label %268, label %228
+229:                                              ; preds = %188, %185
+  %230 = load ptr, ptr %7, align 8
+  %231 = icmp ne ptr %230, null
+  br i1 %231, label %273, label %232
 
-228:                                              ; preds = %225
-  %229 = load ptr, ptr %9, align 8
-  %230 = icmp ne ptr %229, null
-  br i1 %230, label %231, label %268
+232:                                              ; preds = %229
+  %233 = load ptr, ptr %9, align 8
+  %234 = icmp ne ptr %233, null
+  br i1 %234, label %235, label %273
 
-231:                                              ; preds = %228
-  %232 = load ptr, ptr %9, align 8
-  %233 = getelementptr inbounds %struct.FxuLit, ptr %232, i32 0, i32 3
-  %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds %struct.FxuVar, ptr %234, i32 0, i32 7
-  %236 = load ptr, ptr %235, align 8
-  %237 = icmp eq ptr %236, null
-  br i1 %237, label %238, label %255
+235:                                              ; preds = %232
+  %236 = load ptr, ptr %9, align 8
+  %237 = getelementptr inbounds %struct.FxuLit, ptr %236, i32 0, i32 3
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds %struct.FxuVar, ptr %238, i32 0, i32 7
+  %240 = load ptr, ptr %239, align 8
+  %241 = icmp eq ptr %240, null
+  br i1 %241, label %242, label %260
 
-238:                                              ; preds = %231
-  %239 = load ptr, ptr %9, align 8
-  %240 = getelementptr inbounds %struct.FxuLit, ptr %239, i32 0, i32 3
-  %241 = load ptr, ptr %240, align 8
-  %242 = load ptr, ptr %4, align 8
-  %243 = getelementptr inbounds %struct.FxuMatrix, ptr %242, i32 0, i32 17
-  %244 = load ptr, ptr %243, align 8
-  store ptr %241, ptr %244, align 8
-  %245 = load ptr, ptr %9, align 8
-  %246 = getelementptr inbounds %struct.FxuLit, ptr %245, i32 0, i32 3
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds %struct.FxuVar, ptr %247, i32 0, i32 7
-  %249 = load ptr, ptr %4, align 8
-  %250 = getelementptr inbounds %struct.FxuMatrix, ptr %249, i32 0, i32 17
-  store ptr %248, ptr %250, align 8
-  %251 = load ptr, ptr %9, align 8
-  %252 = getelementptr inbounds %struct.FxuLit, ptr %251, i32 0, i32 3
-  %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds %struct.FxuVar, ptr %253, i32 0, i32 7
-  store ptr inttoptr (i64 1 to ptr), ptr %254, align 8
-  br label %255
+242:                                              ; preds = %235
+  %243 = load ptr, ptr %9, align 8
+  %244 = getelementptr inbounds %struct.FxuLit, ptr %243, i32 0, i32 3
+  %245 = load ptr, ptr %244, align 8
+  %246 = load ptr, ptr %4, align 8
+  %247 = getelementptr inbounds %struct.FxuMatrix, ptr %246, i32 0, i32 17
+  %248 = load ptr, ptr %247, align 8
+  store ptr %245, ptr %248, align 8
+  %249 = load ptr, ptr %9, align 8
+  %250 = getelementptr inbounds %struct.FxuLit, ptr %249, i32 0, i32 3
+  %251 = load ptr, ptr %250, align 8
+  %252 = getelementptr inbounds %struct.FxuVar, ptr %251, i32 0, i32 7
+  %253 = load ptr, ptr %4, align 8
+  %254 = getelementptr inbounds %struct.FxuMatrix, ptr %253, i32 0, i32 17
+  store ptr %252, ptr %254, align 8
+  %255 = load ptr, ptr %9, align 8
+  %256 = getelementptr inbounds %struct.FxuLit, ptr %255, i32 0, i32 3
+  %257 = load ptr, ptr %256, align 8
+  %258 = getelementptr inbounds %struct.FxuVar, ptr %257, i32 0, i32 7
+  %259 = inttoptr i64 1 to ptr
+  store ptr %259, ptr %258, align 8
+  br label %260
 
-255:                                              ; preds = %238, %231
-  %256 = load ptr, ptr %4, align 8
-  %257 = load ptr, ptr %9, align 8
-  call void @Fxu_MatrixDelLiteral(ptr noundef %256, ptr noundef %257)
-  %258 = load ptr, ptr %10, align 8
-  store ptr %258, ptr %9, align 8
-  %259 = load ptr, ptr %9, align 8
-  %260 = icmp ne ptr %259, null
-  br i1 %260, label %261, label %265
-
-261:                                              ; preds = %255
+260:                                              ; preds = %242, %235
+  %261 = load ptr, ptr %4, align 8
   %262 = load ptr, ptr %9, align 8
-  %263 = getelementptr inbounds %struct.FxuLit, ptr %262, i32 0, i32 5
-  %264 = load ptr, ptr %263, align 8
-  br label %266
+  call void @Fxu_MatrixDelLiteral(ptr noundef %261, ptr noundef %262)
+  %263 = load ptr, ptr %10, align 8
+  store ptr %263, ptr %9, align 8
+  %264 = load ptr, ptr %9, align 8
+  %265 = icmp ne ptr %264, null
+  br i1 %265, label %266, label %270
 
-265:                                              ; preds = %255
-  br label %266
-
-266:                                              ; preds = %265, %261
-  %267 = phi ptr [ %264, %261 ], [ null, %265 ]
-  store ptr %267, ptr %10, align 8
-  br label %269
-
-268:                                              ; preds = %228, %225
-  br label %272
-
-269:                                              ; preds = %266
-  br label %270
-
-270:                                              ; preds = %269, %223
+266:                                              ; preds = %260
+  %267 = load ptr, ptr %9, align 8
+  %268 = getelementptr inbounds %struct.FxuLit, ptr %267, i32 0, i32 5
+  %269 = load ptr, ptr %268, align 8
   br label %271
 
-271:                                              ; preds = %270, %181
+270:                                              ; preds = %260
+  br label %271
+
+271:                                              ; preds = %270, %266
+  %272 = phi ptr [ %269, %266 ], [ null, %270 ]
+  store ptr %272, ptr %10, align 8
+  br label %274
+
+273:                                              ; preds = %232, %229
+  br label %277
+
+274:                                              ; preds = %271
+  br label %275
+
+275:                                              ; preds = %274, %227
+  br label %276
+
+276:                                              ; preds = %275, %184
   br label %37
 
-272:                                              ; preds = %268
+277:                                              ; preds = %273
   ret void
 }
 

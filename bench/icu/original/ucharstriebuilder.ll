@@ -356,7 +356,8 @@ entry:
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringTrieBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6icu_7517UCharsTrieBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6icu_7517UCharsTrieBuilderE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %strings = getelementptr inbounds %"class.icu_75::UCharsTrieBuilder", ptr %this1, i32 0, i32 1
   invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %strings)
           to label %invoke.cont unwind label %lpad
@@ -377,12 +378,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7517StringTrieBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #8
   br label %eh.resume
 
@@ -403,7 +404,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -419,20 +421,21 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6icu_7517UCharsTrieBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6icu_7517UCharsTrieBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %elements = getelementptr inbounds %"class.icu_75::UCharsTrieBuilder", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %elements, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %elements, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZN6icu_757UMemorydaEPv(ptr noundef %0) #8
+  call void @_ZN6icu_757UMemorydaEPv(ptr noundef %1) #8
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   %uchars = getelementptr inbounds %"class.icu_75::UCharsTrieBuilder", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %uchars, align 8
-  invoke void @uprv_free_75(ptr noundef %1)
+  %2 = load ptr, ptr %uchars, align 8
+  invoke void @uprv_free_75(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %delete.end
@@ -442,10 +445,10 @@ invoke.cont:                                      ; preds = %delete.end
   ret void
 
 terminate.lpad:                                   ; preds = %delete.end
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #9
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #9
   unreachable
 }
 
@@ -1648,16 +1651,17 @@ entry:
   %0 = load i32, ptr %len.addr, align 4
   %1 = load ptr, ptr %nextNode.addr, align 8
   call void @_ZN6icu_7517StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517UCharsTrieBuilder18UCTLinearMatchNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517UCharsTrieBuilder18UCTLinearMatchNodeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %s = getelementptr inbounds %"class.icu_75::UCharsTrieBuilder::UCTLinearMatchNode", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %units.addr, align 8
-  store ptr %2, ptr %s, align 8
+  %3 = load ptr, ptr %units.addr, align 8
+  store ptr %3, ptr %s, align 8
   %hash = getelementptr inbounds %"class.icu_75::StringTrieBuilder::Node", ptr %this1, i32 0, i32 1
-  %3 = load i32, ptr %hash, align 8
-  %mul = mul i32 %3, 37
-  %4 = load ptr, ptr %units.addr, align 8
-  %5 = load i32, ptr %len.addr, align 4
-  %call = invoke i32 @ustr_hashUCharsN_75(ptr noundef %4, i32 noundef %5)
+  %4 = load i32, ptr %hash, align 8
+  %mul = mul i32 %4, 37
+  %5 = load ptr, ptr %units.addr, align 8
+  %6 = load i32, ptr %len.addr, align 4
+  %call = invoke i32 @ustr_hashUCharsN_75(ptr noundef %5, i32 noundef %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1667,12 +1671,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7517StringTrieBuilder15LinearMatchNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #8
   br label %eh.resume
 
@@ -1701,13 +1705,14 @@ entry:
   %call = call noundef i32 @_ZN6icu_7517StringTrieBuilder4Node8hashCodeEPKS1_(ptr noundef %1)
   %add2 = add i32 %mul, %call
   call void @_ZN6icu_7517StringTrieBuilder9ValueNodeC2Ei(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %add2)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder15LinearMatchNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder15LinearMatchNodeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %length = getelementptr inbounds %"class.icu_75::StringTrieBuilder::LinearMatchNode", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %len.addr, align 4
-  store i32 %2, ptr %length, align 8
+  %3 = load i32, ptr %len.addr, align 4
+  store i32 %3, ptr %length, align 8
   %next = getelementptr inbounds %"class.icu_75::StringTrieBuilder::LinearMatchNode", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %nextNode.addr, align 8
-  store ptr %3, ptr %next, align 8
+  %4 = load ptr, ptr %nextNode.addr, align 8
+  store ptr %4, ptr %next, align 8
   ret void
 }
 
@@ -2812,7 +2817,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2822,7 +2828,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2860,7 +2867,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %initialHash.addr, align 4
   call void @_ZN6icu_7517StringTrieBuilder4NodeC2Ei(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder9ValueNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder9ValueNodeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %hasValue = getelementptr inbounds %"class.icu_75::StringTrieBuilder::ValueNode", ptr %this1, i32 0, i32 1
   store i8 0, ptr %hasValue, align 8
   %value = getelementptr inbounds %"class.icu_75::StringTrieBuilder::ValueNode", ptr %this1, i32 0, i32 2
@@ -2888,10 +2896,11 @@ entry:
   store i32 %initialHash, ptr %initialHash.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %hash = getelementptr inbounds %"class.icu_75::StringTrieBuilder::Node", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %initialHash.addr, align 4
-  store i32 %0, ptr %hash, align 8
+  %1 = load i32, ptr %initialHash.addr, align 4
+  store i32 %1, ptr %hash, align 8
   %offset = getelementptr inbounds %"class.icu_75::StringTrieBuilder::Node", ptr %this1, i32 0, i32 2
   store i32 0, ptr %offset, align 4
   ret void

@@ -336,9 +336,10 @@ define hidden zeroext i1 @"_ZN20migrations_internals29valid_sql_migration_direct
   store ptr %1, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = load ptr, ptr @anon.d1a174d3a1607914d9c22c4b77ffe78d.2, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = load i64, ptr getelementptr inbounds ({ ptr, i64 }, ptr @anon.d1a174d3a1607914d9c22c4b77ffe78d.2, i32 0, i32 1), align 8, !noundef !3
-  %7 = call zeroext i1 @"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h6d9702e093644527E"(ptr align 8 %4, ptr align 1 %5, i64 %6)
-  ret i1 %7
+  %6 = getelementptr inbounds { ptr, i64 }, ptr @anon.d1a174d3a1607914d9c22c4b77ffe78d.2, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8, !noundef !3
+  %8 = call zeroext i1 @"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h6d9702e093644527E"(ptr align 8 %4, ptr align 1 %5, i64 %7)
+  ret i1 %8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -34609,10 +34609,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %segment_allocation_failure_tag = getelementptr inbounds %"class.tbb::detail::d1::segment_table", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %segment_allocation_failure_tag, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %segment_allocation_failure_tag, align 8
   %my_segment_table_allocator = getelementptr inbounds %"class.tbb::detail::d1::segment_table", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIN4mold3elf13MergedSectionINS6_11LOONGARCH64EEESt14default_deleteIS9_EEEEC2ISC_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIN4mold3elf13MergedSectionINS6_11LOONGARCH64EEESt14default_deleteIS9_EEEEC2ISC_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %my_segment_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table", ptr %this1, i32 0, i32 3
   call void @_ZNSt6atomicIPS_IPSt10unique_ptrIN4mold3elf13MergedSectionINS2_11LOONGARCH64EEESt14default_deleteIS5_EEEEC2ESB_(ptr noundef nonnull align 8 dereferenceable(8) %my_segment_table, ptr noundef null) #3
   %my_embedded_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table", ptr %this1, i32 0, i32 4
@@ -34772,10 +34773,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %segment_allocation_failure_tag = getelementptr inbounds %"class.tbb::detail::d1::segment_table.114", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %segment_allocation_failure_tag, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %segment_allocation_failure_tag, align 8
   %my_segment_table_allocator = getelementptr inbounds %"class.tbb::detail::d1::segment_table.114", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS6_EEEEC2IS9_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS6_EEEEC2IS9_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %my_segment_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.114", ptr %this1, i32 0, i32 3
   call void @_ZNSt6atomicIPS_IPSt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS2_EEEEC2ES8_(ptr noundef nonnull align 8 dereferenceable(8) %my_segment_table, ptr noundef null) #3
   %my_embedded_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.114", ptr %this1, i32 0, i32 4
@@ -34892,10 +34894,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %segment_allocation_failure_tag = getelementptr inbounds %"class.tbb::detail::d1::segment_table.124", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %segment_allocation_failure_tag, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %segment_allocation_failure_tag, align 8
   %my_segment_table_allocator = getelementptr inbounds %"class.tbb::detail::d1::segment_table.124", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt8functionIFvvEEEEC2IS6_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt8functionIFvvEEEEC2IS6_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %my_segment_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.124", ptr %this1, i32 0, i32 3
   call void @_ZNSt6atomicIPS_IPSt8functionIFvvEEEEC2ES5_(ptr noundef nonnull align 8 dereferenceable(8) %my_segment_table, ptr noundef null) #3
   %my_embedded_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.124", ptr %this1, i32 0, i32 4
@@ -35012,10 +35015,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %segment_allocation_failure_tag = getelementptr inbounds %"class.tbb::detail::d1::segment_table.134", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %segment_allocation_failure_tag, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %segment_allocation_failure_tag, align 8
   %my_segment_table_allocator = getelementptr inbounds %"class.tbb::detail::d1::segment_table.134", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIN4mold3elf10ObjectFileINS6_11LOONGARCH64EEESt14default_deleteIS9_EEEEC2ISC_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIN4mold3elf10ObjectFileINS6_11LOONGARCH64EEESt14default_deleteIS9_EEEEC2ISC_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %my_segment_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.134", ptr %this1, i32 0, i32 3
   call void @_ZNSt6atomicIPS_IPSt10unique_ptrIN4mold3elf10ObjectFileINS2_11LOONGARCH64EEESt14default_deleteIS5_EEEEC2ESB_(ptr noundef nonnull align 8 dereferenceable(8) %my_segment_table, ptr noundef null) #3
   %my_embedded_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.134", ptr %this1, i32 0, i32 4
@@ -35132,10 +35136,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %segment_allocation_failure_tag = getelementptr inbounds %"class.tbb::detail::d1::segment_table.144", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %segment_allocation_failure_tag, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %segment_allocation_failure_tag, align 8
   %my_segment_table_allocator = getelementptr inbounds %"class.tbb::detail::d1::segment_table.144", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIN4mold3elf10SharedFileINS6_11LOONGARCH64EEESt14default_deleteIS9_EEEEC2ISC_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIN4mold3elf10SharedFileINS6_11LOONGARCH64EEESt14default_deleteIS9_EEEEC2ISC_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %my_segment_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.144", ptr %this1, i32 0, i32 3
   call void @_ZNSt6atomicIPS_IPSt10unique_ptrIN4mold3elf10SharedFileINS2_11LOONGARCH64EEESt14default_deleteIS5_EEEEC2ESB_(ptr noundef nonnull align 8 dereferenceable(8) %my_segment_table, ptr noundef null) #3
   %my_embedded_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.144", ptr %this1, i32 0, i32 4
@@ -35252,10 +35257,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %segment_allocation_failure_tag = getelementptr inbounds %"class.tbb::detail::d1::segment_table.154", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %segment_allocation_failure_tag, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %segment_allocation_failure_tag, align 8
   %my_segment_table_allocator = getelementptr inbounds %"class.tbb::detail::d1::segment_table.154", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIA_hSt14default_deleteIS5_EEEEC2IS8_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIA_hSt14default_deleteIS5_EEEEC2IS8_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %my_segment_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.154", ptr %this1, i32 0, i32 3
   call void @_ZNSt6atomicIPS_IPSt10unique_ptrIA_hSt14default_deleteIS1_EEEEC2ES7_(ptr noundef nonnull align 8 dereferenceable(8) %my_segment_table, ptr noundef null) #3
   %my_embedded_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.154", ptr %this1, i32 0, i32 4
@@ -35372,10 +35378,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %segment_allocation_failure_tag = getelementptr inbounds %"class.tbb::detail::d1::segment_table.164", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %segment_allocation_failure_tag, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %segment_allocation_failure_tag, align 8
   %my_segment_table_allocator = getelementptr inbounds %"class.tbb::detail::d1::segment_table.164", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIN4mold10MappedFileINS5_3elf7ContextINS7_11LOONGARCH64EEEEESt14default_deleteISB_EEEEC2ISE_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIN4mold10MappedFileINS5_3elf7ContextINS7_11LOONGARCH64EEEEESt14default_deleteISB_EEEEC2ISE_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %my_segment_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.164", ptr %this1, i32 0, i32 3
   call void @_ZNSt6atomicIPS_IPSt10unique_ptrIN4mold10MappedFileINS1_3elf7ContextINS3_11LOONGARCH64EEEEESt14default_deleteIS7_EEEEC2ESD_(ptr noundef nonnull align 8 dereferenceable(8) %my_segment_table, ptr noundef null) #3
   %my_embedded_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.164", ptr %this1, i32 0, i32 4
@@ -35492,10 +35499,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %segment_allocation_failure_tag = getelementptr inbounds %"class.tbb::detail::d1::segment_table.174", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %segment_allocation_failure_tag, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %segment_allocation_failure_tag, align 8
   %my_segment_table_allocator = getelementptr inbounds %"class.tbb::detail::d1::segment_table.174", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIN4mold3elf5ChunkINS6_11LOONGARCH64EEESt14default_deleteIS9_EEEEC2ISC_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIN4mold3elf5ChunkINS6_11LOONGARCH64EEESt14default_deleteIS9_EEEEC2ISC_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %my_segment_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.174", ptr %this1, i32 0, i32 3
   call void @_ZNSt6atomicIPS_IPSt10unique_ptrIN4mold3elf5ChunkINS2_11LOONGARCH64EEESt14default_deleteIS5_EEEEC2ESB_(ptr noundef nonnull align 8 dereferenceable(8) %my_segment_table, ptr noundef null) #3
   %my_embedded_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.174", ptr %this1, i32 0, i32 4
@@ -35612,10 +35620,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %segment_allocation_failure_tag = getelementptr inbounds %"class.tbb::detail::d1::segment_table.184", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %segment_allocation_failure_tag, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %segment_allocation_failure_tag, align 8
   %my_segment_table_allocator = getelementptr inbounds %"class.tbb::detail::d1::segment_table.184", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIN4mold3elf13OutputSectionINS6_11LOONGARCH64EEESt14default_deleteIS9_EEEEC2ISC_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPSt10unique_ptrIN4mold3elf13OutputSectionINS6_11LOONGARCH64EEESt14default_deleteIS9_EEEEC2ISC_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %my_segment_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.184", ptr %this1, i32 0, i32 3
   call void @_ZNSt6atomicIPS_IPSt10unique_ptrIN4mold3elf13OutputSectionINS2_11LOONGARCH64EEESt14default_deleteIS5_EEEEC2ESB_(ptr noundef nonnull align 8 dereferenceable(8) %my_segment_table, ptr noundef null) #3
   %my_embedded_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.184", ptr %this1, i32 0, i32 4
@@ -38852,12 +38861,13 @@ if.then37:                                        ; preds = %if.end31
   %24 = load ptr, ptr %mf, align 8
   %data41 = getelementptr inbounds %"class.mold::MappedFile", ptr %24, i32 0, i32 1
   %25 = load ptr, ptr %data41, align 8
-  %cmp42 = icmp eq ptr %25, inttoptr (i64 -1 to ptr)
+  %26 = inttoptr i64 -1 to ptr
+  %cmp42 = icmp eq ptr %25, %26
   br i1 %cmp42, label %if.then43, label %if.end49
 
 if.then43:                                        ; preds = %if.then37
-  %26 = load ptr, ptr %ctx.addr, align 8
-  call void @_ZN4mold5FatalINS_3elf7ContextINS1_11LOONGARCH64EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(4568) %26)
+  %27 = load ptr, ptr %ctx.addr, align 8
+  call void @_ZN4mold5FatalINS_3elf7ContextINS1_11LOONGARCH64EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(4568) %27)
   %call45 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_11LOONGARCH64EEEElsIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(32) %path)
   %call46 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_11LOONGARCH64EEEElsIRA16_KcEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %call45, ptr noundef nonnull align 1 dereferenceable(16) @.str.30)
   call void @_ZN4mold12errno_stringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp47)
@@ -38870,16 +38880,16 @@ if.end49:                                         ; preds = %if.then37
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end49, %if.end31
-  %27 = load i64, ptr %fd, align 8
-  %conv51 = trunc i64 %27 to i32
+  %28 = load i64, ptr %fd, align 8
+  %conv51 = trunc i64 %28 to i32
   %call52 = call i32 @close(i32 noundef %conv51)
-  %28 = load ptr, ptr %mf, align 8
-  store ptr %28, ptr %retval, align 8
+  %29 = load ptr, ptr %mf, align 8
+  store ptr %29, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end50, %if.end20
-  %29 = load ptr, ptr %retval, align 8
-  ret ptr %29
+  %30 = load ptr, ptr %retval, align 8
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress nounwind
@@ -59032,10 +59042,11 @@ entry:
   store ptr %exemplar, ptr %exemplar.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %my_construct_callback = getelementptr inbounds %"class.tbb::detail::d1::enumerable_thread_specific", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %exemplar.addr, align 8
-  %call = call noundef ptr @_ZN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEE4makeIJRKlEEEPNS1_13callback_baseEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %exemplar.addr, align 8
+  %call = call noundef ptr @_ZN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEE4makeIJRKlEEEPNS1_13callback_baseEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %1)
   store ptr %call, ptr %my_construct_callback, align 8
   %my_locals = getelementptr inbounds %"class.tbb::detail::d1::enumerable_thread_specific", ptr %this1, i32 0, i32 2
   call void @_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(65) %my_locals)
@@ -59061,7 +59072,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %my_root = getelementptr inbounds %"class.tbb::detail::d1::ets_base", ptr %this1, i32 0, i32 1
   call void @_ZNSt6atomicIPN3tbb6detail2d18ets_baseILNS2_18ets_key_usage_typeE1EE5arrayEEC2ES7_(ptr noundef nonnull align 8 dereferenceable(8) %my_root, ptr noundef null) #3
   %my_count = getelementptr inbounds %"class.tbb::detail::d1::ets_base", ptr %this1, i32 0, i32 2
@@ -59167,19 +59179,20 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %my_construct_callback = getelementptr inbounds %"class.tbb::detail::d1::enumerable_thread_specific", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %my_construct_callback, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %my_construct_callback, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %my_construct_callback2 = getelementptr inbounds %"class.tbb::detail::d1::enumerable_thread_specific", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %my_construct_callback2, align 8
-  %vtable = load ptr, ptr %1, align 8
+  %2 = load ptr, ptr %my_construct_callback2, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -59223,7 +59236,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -59278,7 +59292,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   %1 = load ptr, ptr %params.addr, align 8
   call void @_ZN3tbb6detail2d121construct_by_exemplarIlEC2ERKl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -59290,7 +59305,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -59412,7 +59428,8 @@ entry:
   %3 = load ptr, ptr %.addr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %add.ptr, i64 8, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   ret void
 }
 
@@ -59424,7 +59441,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_baseE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -59543,10 +59561,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %segment_allocation_failure_tag = getelementptr inbounds %"class.tbb::detail::d1::segment_table.641", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %segment_allocation_failure_tag, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %segment_allocation_failure_tag, align 8
   %my_segment_table_allocator = getelementptr inbounds %"class.tbb::detail::d1::segment_table.641", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPNS0_2d06paddedINS1_11ets_elementIlEELm128EEEEEC2IS8_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPNS0_2d06paddedINS1_11ets_elementIlEELm128EEEEEC2IS8_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %my_segment_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.641", ptr %this1, i32 0, i32 3
   call void @_ZNSt6atomicIPS_IPN3tbb6detail2d06paddedINS1_2d111ets_elementIlEELm128EEEEEC2ESA_(ptr noundef nonnull align 8 dereferenceable(8) %my_segment_table, ptr noundef null) #3
   %my_embedded_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.641", ptr %this1, i32 0, i32 4
@@ -66026,16 +66045,17 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3tbb6detail2d14taskC2Ev(ptr noundef nonnull align 64 dereferenceable(64) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d113function_taskIZN4mold3elfL15new_object_fileINS4_11LOONGARCH64EEEPNS4_10ObjectFileIT_EERNS4_7ContextIS8_EEPNS3_10MappedFileISC_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_EE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3tbb6detail2d113function_taskIZN4mold3elfL15new_object_fileINS4_11LOONGARCH64EEEPNS4_10ObjectFileIT_EERNS4_7ContextIS8_EEPNS3_10MappedFileISC_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 64
   %m_func = getelementptr inbounds %"class.tbb::detail::d1::function_task", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %f.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %m_func, ptr align 8 %0, i64 16, i1 false)
+  %1 = load ptr, ptr %f.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %m_func, ptr align 8 %1, i64 16, i1 false)
   %m_wait_ctx = getelementptr inbounds %"class.tbb::detail::d1::function_task", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %wo.addr, align 8
-  store ptr %1, ptr %m_wait_ctx, align 16
+  %2 = load ptr, ptr %wo.addr, align 8
+  store ptr %2, ptr %m_wait_ctx, align 16
   %m_allocator = getelementptr inbounds %"class.tbb::detail::d1::function_task", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %alloc.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_allocator, ptr align 8 %2, i64 8, i1 false)
+  %3 = load ptr, ptr %alloc.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_allocator, ptr align 8 %3, i64 8, i1 false)
   ret void
 }
 
@@ -66047,7 +66067,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN3tbb6detail2d111task_traitsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d14taskE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3tbb6detail2d14taskE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 64
   %m_reserved = getelementptr inbounds %"class.tbb::detail::d1::task", ptr %this1, i32 0, i32 2
   %arrayinit.begin = getelementptr inbounds [6 x i64], ptr %m_reserved, i64 0, i64 0
   %arrayinit.end = getelementptr inbounds i64, ptr %arrayinit.begin, i64 6
@@ -66820,16 +66841,17 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3tbb6detail2d14taskC2Ev(ptr noundef nonnull align 64 dereferenceable(64) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d113function_taskIZN4mold3elfL15new_shared_fileINS4_11LOONGARCH64EEEPNS4_10SharedFileIT_EERNS4_7ContextIS8_EEPNS3_10MappedFileISC_EEEUlvE_EE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3tbb6detail2d113function_taskIZN4mold3elfL15new_shared_fileINS4_11LOONGARCH64EEEPNS4_10SharedFileIT_EERNS4_7ContextIS8_EEPNS3_10MappedFileISC_EEEUlvE_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 64
   %m_func = getelementptr inbounds %"class.tbb::detail::d1::function_task.682", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %f.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %m_func, ptr align 8 %0, i64 16, i1 false)
+  %1 = load ptr, ptr %f.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %m_func, ptr align 8 %1, i64 16, i1 false)
   %m_wait_ctx = getelementptr inbounds %"class.tbb::detail::d1::function_task.682", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %wo.addr, align 8
-  store ptr %1, ptr %m_wait_ctx, align 16
+  %2 = load ptr, ptr %wo.addr, align 8
+  store ptr %2, ptr %m_wait_ctx, align 16
   %m_allocator = getelementptr inbounds %"class.tbb::detail::d1::function_task.682", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %alloc.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_allocator, ptr align 8 %2, i64 8, i1 false)
+  %3 = load ptr, ptr %alloc.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_allocator, ptr align 8 %3, i64 8, i1 false)
   ret void
 }
 
@@ -68077,22 +68099,23 @@ entry:
   %0 = load i64, ptr %filesize.addr, align 8
   call void @_ZN4mold10OutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEEC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElb(ptr noundef nonnull align 8 dereferenceable(90) %this1, ptr noundef %agg.tmp, i64 noundef %0, i1 noundef zeroext false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold16MallocOutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4mold16MallocOutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %perm2 = getelementptr inbounds %"class.mold::MallocOutputFile", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %perm.addr, align 8
-  store i64 %1, ptr %perm2, align 8
-  %2 = load i64, ptr %filesize.addr, align 8
-  %call = call noalias ptr @malloc(i64 noundef %2) #23
+  %2 = load i64, ptr %perm.addr, align 8
+  store i64 %2, ptr %perm2, align 8
+  %3 = load i64, ptr %filesize.addr, align 8
+  %call = call noalias ptr @malloc(i64 noundef %3) #23
   %buf = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 1
   store ptr %call, ptr %buf, align 8
   %buf3 = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %buf3, align 8
-  %tobool = icmp ne ptr %3, null
+  %4 = load ptr, ptr %buf3, align 8
+  %tobool = icmp ne ptr %4, null
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %ctx.addr, align 8
-  call void @_ZN4mold5FatalINS_3elf7ContextINS1_11LOONGARCH64EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4568) %4)
+  %5 = load ptr, ptr %ctx.addr, align 8
+  call void @_ZN4mold5FatalINS_3elf7ContextINS1_11LOONGARCH64EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4568) %5)
   %call4 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_11LOONGARCH64EEEElsIRA14_KcEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(14) @.str.118)
   call void @_ZN4mold5FatalINS_3elf7ContextINS1_11LOONGARCH64EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp) #18
   unreachable
@@ -68125,39 +68148,41 @@ entry:
   %0 = load i64, ptr %filesize.addr, align 8
   call void @_ZN4mold10OutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEEC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElb(ptr noundef nonnull align 8 dereferenceable(90) %this1, ptr noundef %agg.tmp, i64 noundef %0, i1 noundef zeroext true)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold22MemoryMappedOutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4mold22MemoryMappedOutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fd2 = getelementptr inbounds %"class.mold::MemoryMappedOutputFile", ptr %this1, i32 0, i32 1
   store i32 -1, ptr %fd2, align 4
-  %1 = load ptr, ptr %ctx.addr, align 8
+  %2 = load ptr, ptr %ctx.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %path)
-  %2 = load i64, ptr %filesize.addr, align 8
-  %3 = load i64, ptr %perm.addr, align 8
-  %call = call { i64, ptr } @_ZN4moldL19open_or_create_fileINS_3elf7ContextINS1_11LOONGARCH64EEEEESt4pairIlPcERT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEll(ptr noundef nonnull align 8 dereferenceable(4568) %1, ptr noundef %agg.tmp2, i64 noundef %2, i64 noundef %3)
-  %4 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp, i32 0, i32 0
-  %5 = extractvalue { i64, ptr } %call, 0
-  store i64 %5, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp, i32 0, i32 1
-  %7 = extractvalue { i64, ptr } %call, 1
-  store ptr %7, ptr %6, align 8
+  %3 = load i64, ptr %filesize.addr, align 8
+  %4 = load i64, ptr %perm.addr, align 8
+  %call = call { i64, ptr } @_ZN4moldL19open_or_create_fileINS_3elf7ContextINS1_11LOONGARCH64EEEEESt4pairIlPcERT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEll(ptr noundef nonnull align 8 dereferenceable(4568) %2, ptr noundef %agg.tmp2, i64 noundef %3, i64 noundef %4)
+  %5 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp, i32 0, i32 0
+  %6 = extractvalue { i64, ptr } %call, 0
+  store i64 %6, ptr %5, align 8
+  %7 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp, i32 0, i32 1
+  %8 = extractvalue { i64, ptr } %call, 1
+  store ptr %8, ptr %7, align 8
   %fd = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 4
   call void @_ZSt3tieIJlPcEESt5tupleIJDpRT_EES4_(ptr sret(%"class.std::tuple.693") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %fd, ptr noundef nonnull align 8 dereferenceable(8) @_ZN4mold14output_tmpfileE) #3
   %call4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5tupleIJRlRPcEEaSIlS1_EENSt9enable_ifIXcl12__assignableIT_T0_EEERS3_E4typeEOSt4pairIS6_S7_E(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #3
-  %8 = load i64, ptr %filesize.addr, align 8
+  %9 = load i64, ptr %filesize.addr, align 8
   %fd5 = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 4
-  %9 = load i64, ptr %fd5, align 8
-  %conv = trunc i64 %9 to i32
-  %call6 = call ptr @mmap(ptr noundef null, i64 noundef %8, i32 noundef 3, i32 noundef 1, i32 noundef %conv, i64 noundef 0) #3
+  %10 = load i64, ptr %fd5, align 8
+  %conv = trunc i64 %10 to i32
+  %call6 = call ptr @mmap(ptr noundef null, i64 noundef %9, i32 noundef 3, i32 noundef 1, i32 noundef %conv, i64 noundef 0) #3
   %buf = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 1
   store ptr %call6, ptr %buf, align 8
   %buf7 = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %buf7, align 8
-  %cmp = icmp eq ptr %10, inttoptr (i64 -1 to ptr)
+  %11 = load ptr, ptr %buf7, align 8
+  %12 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %11, %12
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %11 = load ptr, ptr %ctx.addr, align 8
-  call void @_ZN4mold5FatalINS_3elf7ContextINS1_11LOONGARCH64EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(4568) %11)
+  %13 = load ptr, ptr %ctx.addr, align 8
+  call void @_ZN4mold5FatalINS_3elf7ContextINS1_11LOONGARCH64EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(4568) %13)
   %call9 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_11LOONGARCH64EEEElsIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(32) %path)
   %call10 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_11LOONGARCH64EEEElsIRA16_KcEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %call9, ptr noundef nonnull align 1 dereferenceable(16) @.str.30)
   call void @_ZN4mold12errno_stringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp11)
@@ -68168,12 +68193,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %buf13 = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 1
-  %12 = load ptr, ptr %buf13, align 8
-  store ptr %12, ptr @_ZN4mold19output_buffer_startE, align 8
+  %14 = load ptr, ptr %buf13, align 8
+  store ptr %14, ptr @_ZN4mold19output_buffer_startE, align 8
   %buf14 = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 1
-  %13 = load ptr, ptr %buf14, align 8
-  %14 = load i64, ptr %filesize.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %13, i64 %14
+  %15 = load ptr, ptr %buf14, align 8
+  %16 = load i64, ptr %filesize.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %15, i64 %16
   store ptr %add.ptr, ptr @_ZN4mold17output_buffer_endE, align 8
   ret void
 }
@@ -68208,7 +68233,8 @@ entry:
   %frombool = zext i1 %is_mmapped to i8
   store i8 %frombool, ptr %is_mmapped.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buf = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 1
   store ptr null, ptr %buf, align 8
   %buf2 = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 2
@@ -68218,11 +68244,11 @@ entry:
   %fd = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 4
   store i64 -1, ptr %fd, align 8
   %filesize3 = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 5
-  %0 = load i64, ptr %filesize.addr, align 8
-  store i64 %0, ptr %filesize3, align 8
+  %1 = load i64, ptr %filesize.addr, align 8
+  store i64 %1, ptr %filesize3, align 8
   %is_mmapped4 = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 6
-  %1 = load i8, ptr %is_mmapped.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %is_mmapped.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool5 = zext i1 %tobool to i8
   store i8 %frombool5, ptr %is_mmapped4, align 8
   %is_unmapped = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 7
@@ -68342,10 +68368,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold16MallocOutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4mold16MallocOutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buf = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %buf, align 8
-  call void @free(ptr noundef %0) #3
+  %1 = load ptr, ptr %buf, align 8
+  call void @free(ptr noundef %1) #3
   call void @_ZN4mold10OutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(90) %this1) #3
   ret void
 }
@@ -68367,7 +68394,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %path = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #3
   %buf2 = getelementptr inbounds %"class.mold::OutputFile", ptr %this1, i32 0, i32 2
@@ -68913,16 +68941,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold22MemoryMappedOutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4mold22MemoryMappedOutputFileINS_3elf7ContextINS1_11LOONGARCH64EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fd2 = getelementptr inbounds %"class.mold::MemoryMappedOutputFile", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %fd2, align 4
-  %cmp = icmp ne i32 %0, -1
+  %1 = load i32, ptr %fd2, align 4
+  %cmp = icmp ne i32 %1, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %fd22 = getelementptr inbounds %"class.mold::MemoryMappedOutputFile", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %fd22, align 4
-  %call = call i32 @close(i32 noundef %1)
+  %2 = load i32, ptr %fd22, align 4
+  %call = call i32 @close(i32 noundef %2)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

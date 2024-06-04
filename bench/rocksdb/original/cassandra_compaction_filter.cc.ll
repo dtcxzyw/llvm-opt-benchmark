@@ -1731,12 +1731,13 @@ entry:
   store i32 %gc_grace_period_in_seconds, ptr %gc_grace_period_in_seconds.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb16CompactionFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #4
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7rocksdb9cassandra25CassandraCompactionFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN7rocksdb9cassandra25CassandraCompactionFilterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::cassandra::CassandraCompactionFilter", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %gc_grace_period_in_seconds.addr, align 4
-  %1 = load i8, ptr %purge_ttl_on_expiration.addr, align 1
-  %tobool = trunc i8 %1 to i1
-  invoke void @_ZN7rocksdb9cassandra16CassandraOptionsC2Eimb(ptr noundef nonnull align 8 dereferenceable(13) %options_, i32 noundef %0, i64 noundef 0, i1 noundef zeroext %tobool)
+  %1 = load i32, ptr %gc_grace_period_in_seconds.addr, align 4
+  %2 = load i8, ptr %purge_ttl_on_expiration.addr, align 1
+  %tobool = trunc i8 %2 to i1
+  invoke void @_ZN7rocksdb9cassandra16CassandraOptionsC2Eimb(ptr noundef nonnull align 8 dereferenceable(13) %options_, i32 noundef %1, i64 noundef 0, i1 noundef zeroext %tobool)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1748,12 +1749,12 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb16CompactionFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #4
   br label %eh.resume
 
@@ -1772,7 +1773,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb12CustomizableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #4
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7rocksdb16CompactionFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN7rocksdb16CompactionFilterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2085,12 +2087,13 @@ entry:
   store i32 %gc_grace_period_in_seconds, ptr %gc_grace_period_in_seconds.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb23CompactionFilterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #4
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN7rocksdb9cassandra32CassandraCompactionFilterFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTVN7rocksdb9cassandra32CassandraCompactionFilterFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::cassandra::CassandraCompactionFilterFactory", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %gc_grace_period_in_seconds.addr, align 4
-  %1 = load i8, ptr %purge_ttl_on_expiration.addr, align 1
-  %tobool = trunc i8 %1 to i1
-  invoke void @_ZN7rocksdb9cassandra16CassandraOptionsC2Eimb(ptr noundef nonnull align 8 dereferenceable(13) %options_, i32 noundef %0, i64 noundef 0, i1 noundef zeroext %tobool)
+  %1 = load i32, ptr %gc_grace_period_in_seconds.addr, align 4
+  %2 = load i8, ptr %purge_ttl_on_expiration.addr, align 1
+  %tobool = trunc i8 %2 to i1
+  invoke void @_ZN7rocksdb9cassandra16CassandraOptionsC2Eimb(ptr noundef nonnull align 8 dereferenceable(13) %options_, i32 noundef %1, i64 noundef 0, i1 noundef zeroext %tobool)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2102,12 +2105,12 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb23CompactionFilterFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #4
   br label %eh.resume
 
@@ -2126,7 +2129,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb12CustomizableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #4
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN7rocksdb23CompactionFilterFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTVN7rocksdb23CompactionFilterFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4476,7 +4480,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb12ConfigurableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #4
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN7rocksdb12CustomizableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN7rocksdb12CustomizableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4592,7 +4597,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::Configurable", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb12Configurable17RegisteredOptionsESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_) #4
   ret void
@@ -4682,7 +4688,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::Configurable", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb12Configurable17RegisteredOptionsESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_) #4
   ret void
@@ -8326,18 +8333,19 @@ entry:
   store i8 %frombool, ptr %optional.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb13ObjectLibrary5EntryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary12PatternEntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary12PatternEntryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::PatternEntry", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %name.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %name.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %names_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::PatternEntry", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %names_) #4
   %optional_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::PatternEntry", ptr %this1, i32 0, i32 4
-  %1 = load i8, ptr %optional.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %optional.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %optional_, align 8
   %slength_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::PatternEntry", ptr %this1, i32 0, i32 5
@@ -8351,12 +8359,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb13ObjectLibrary5EntryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
   br label %eh.resume
 
@@ -8442,10 +8450,11 @@ entry:
   store ptr %f, ptr %f.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb13ObjectLibrary5EntryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryINS_13MergeOperatorEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryINS_13MergeOperatorEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %entry_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::FactoryEntry", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %e.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %entry_, ptr noundef %0) #4
+  %1 = load ptr, ptr %e.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %entry_, ptr noundef %1) #4
   %factory_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::FactoryEntry", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EEC2EOSI_(ptr noundef nonnull align 8 dereferenceable(32) %factory_, ptr noundef nonnull align 8 dereferenceable(32) %f) #4
   ret void
@@ -8610,7 +8619,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary5EntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary5EntryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8820,7 +8830,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryINS_13MergeOperatorEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryINS_13MergeOperatorEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %factory_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::FactoryEntry", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %factory_) #4
   %entry_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::FactoryEntry", ptr %this1, i32 0, i32 1
@@ -12817,10 +12828,11 @@ entry:
   store ptr %f, ptr %f.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb13ObjectLibrary5EntryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryINS_16CompactionFilterEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryINS_16CompactionFilterEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %entry_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::FactoryEntry.115", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %e.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %entry_, ptr noundef %0) #4
+  %1 = load ptr, ptr %e.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %entry_, ptr noundef %1) #4
   %factory_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::FactoryEntry.115", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFPN7rocksdb16CompactionFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EEC2EOSI_(ptr noundef nonnull align 8 dereferenceable(32) %factory_, ptr noundef nonnull align 8 dereferenceable(32) %f) #4
   ret void
@@ -12891,7 +12903,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryINS_16CompactionFilterEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryINS_16CompactionFilterEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %factory_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::FactoryEntry.115", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFPN7rocksdb16CompactionFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %factory_) #4
   %entry_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::FactoryEntry.115", ptr %this1, i32 0, i32 1
@@ -13327,10 +13340,11 @@ entry:
   store ptr %f, ptr %f.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb13ObjectLibrary5EntryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryINS_23CompactionFilterFactoryEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryINS_23CompactionFilterFactoryEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %entry_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::FactoryEntry.116", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %e.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %entry_, ptr noundef %0) #4
+  %1 = load ptr, ptr %e.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %entry_, ptr noundef %1) #4
   %factory_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::FactoryEntry.116", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFPN7rocksdb23CompactionFilterFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EEC2EOSI_(ptr noundef nonnull align 8 dereferenceable(32) %factory_, ptr noundef nonnull align 8 dereferenceable(32) %f) #4
   ret void
@@ -13401,7 +13415,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryINS_23CompactionFilterFactoryEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryINS_23CompactionFilterFactoryEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %factory_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::FactoryEntry.116", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFPN7rocksdb23CompactionFilterFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %factory_) #4
   %entry_ = getelementptr inbounds %"class.rocksdb::ObjectLibrary::FactoryEntry.116", ptr %this1, i32 0, i32 1

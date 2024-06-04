@@ -701,115 +701,117 @@ if.then15:                                        ; preds = %if.end8
   %17 = load ptr, ptr %pArgs.addr, align 8
   %name16 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %17, i32 0, i32 7
   store ptr @.str, ptr %name16, align 8
-  %18 = load ptr, ptr getelementptr inbounds ([34 x ptr], ptr @_ZL13converterData, i64 0, i64 4), align 16
-  store ptr %18, ptr %retval, align 8
+  %18 = getelementptr inbounds [34 x ptr], ptr @_ZL13converterData, i64 0, i64 4
+  %19 = load ptr, ptr %18, align 16
+  store ptr %19, ptr %retval, align 8
   br label %return
 
 if.else:                                          ; preds = %if.end8
-  %19 = load ptr, ptr %converterName.addr, align 8
-  %arrayidx17 = getelementptr inbounds i8, ptr %19, i64 0
-  %20 = load i8, ptr %arrayidx17, align 1
-  %conv = sext i8 %20 to i32
+  %20 = load ptr, ptr %converterName.addr, align 8
+  %arrayidx17 = getelementptr inbounds i8, ptr %20, i64 0
+  %21 = load i8, ptr %arrayidx17, align 1
+  %conv = sext i8 %21 to i32
   %cmp18 = icmp eq i32 %conv, 85
   br i1 %cmp18, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.else
-  %21 = load ptr, ptr %converterName.addr, align 8
-  %arrayidx19 = getelementptr inbounds i8, ptr %21, i64 1
-  %22 = load i8, ptr %arrayidx19, align 1
-  %conv20 = sext i8 %22 to i32
+  %22 = load ptr, ptr %converterName.addr, align 8
+  %arrayidx19 = getelementptr inbounds i8, ptr %22, i64 1
+  %23 = load i8, ptr %arrayidx19, align 1
+  %conv20 = sext i8 %23 to i32
   %cmp21 = icmp eq i32 %conv20, 84
   br i1 %cmp21, label %land.lhs.true, label %if.else58
 
 land.lhs.true:                                    ; preds = %cond.true
-  %23 = load ptr, ptr %converterName.addr, align 8
-  %arrayidx22 = getelementptr inbounds i8, ptr %23, i64 2
-  %24 = load i8, ptr %arrayidx22, align 1
-  %conv23 = sext i8 %24 to i32
+  %24 = load ptr, ptr %converterName.addr, align 8
+  %arrayidx22 = getelementptr inbounds i8, ptr %24, i64 2
+  %25 = load i8, ptr %arrayidx22, align 1
+  %conv23 = sext i8 %25 to i32
   %cmp24 = icmp eq i32 %conv23, 70
   br i1 %cmp24, label %land.lhs.true36, label %if.else58
 
 cond.false:                                       ; preds = %if.else
-  %25 = load ptr, ptr %converterName.addr, align 8
-  %arrayidx25 = getelementptr inbounds i8, ptr %25, i64 0
-  %26 = load i8, ptr %arrayidx25, align 1
-  %conv26 = sext i8 %26 to i32
+  %26 = load ptr, ptr %converterName.addr, align 8
+  %arrayidx25 = getelementptr inbounds i8, ptr %26, i64 0
+  %27 = load i8, ptr %arrayidx25, align 1
+  %conv26 = sext i8 %27 to i32
   %cmp27 = icmp eq i32 %conv26, 117
   br i1 %cmp27, label %land.lhs.true28, label %if.else58
 
 land.lhs.true28:                                  ; preds = %cond.false
-  %27 = load ptr, ptr %converterName.addr, align 8
-  %arrayidx29 = getelementptr inbounds i8, ptr %27, i64 1
-  %28 = load i8, ptr %arrayidx29, align 1
-  %conv30 = sext i8 %28 to i32
+  %28 = load ptr, ptr %converterName.addr, align 8
+  %arrayidx29 = getelementptr inbounds i8, ptr %28, i64 1
+  %29 = load i8, ptr %arrayidx29, align 1
+  %conv30 = sext i8 %29 to i32
   %cmp31 = icmp eq i32 %conv30, 116
   br i1 %cmp31, label %land.lhs.true32, label %if.else58
 
 land.lhs.true32:                                  ; preds = %land.lhs.true28
-  %29 = load ptr, ptr %converterName.addr, align 8
-  %arrayidx33 = getelementptr inbounds i8, ptr %29, i64 2
-  %30 = load i8, ptr %arrayidx33, align 1
-  %conv34 = sext i8 %30 to i32
+  %30 = load ptr, ptr %converterName.addr, align 8
+  %arrayidx33 = getelementptr inbounds i8, ptr %30, i64 2
+  %31 = load i8, ptr %arrayidx33, align 1
+  %conv34 = sext i8 %31 to i32
   %cmp35 = icmp eq i32 %conv34, 102
   br i1 %cmp35, label %land.lhs.true36, label %if.else58
 
 land.lhs.true36:                                  ; preds = %land.lhs.true32, %land.lhs.true
-  %31 = load ptr, ptr %converterName.addr, align 8
-  %arrayidx37 = getelementptr inbounds i8, ptr %31, i64 3
-  %32 = load i8, ptr %arrayidx37, align 1
-  %conv38 = sext i8 %32 to i32
+  %32 = load ptr, ptr %converterName.addr, align 8
+  %arrayidx37 = getelementptr inbounds i8, ptr %32, i64 3
+  %33 = load i8, ptr %arrayidx37, align 1
+  %conv38 = sext i8 %33 to i32
   %cmp39 = icmp eq i32 %conv38, 45
   br i1 %cmp39, label %cond.true40, label %cond.false48
 
 cond.true40:                                      ; preds = %land.lhs.true36
-  %33 = load ptr, ptr %converterName.addr, align 8
-  %arrayidx41 = getelementptr inbounds i8, ptr %33, i64 4
-  %34 = load i8, ptr %arrayidx41, align 1
-  %conv42 = sext i8 %34 to i32
+  %34 = load ptr, ptr %converterName.addr, align 8
+  %arrayidx41 = getelementptr inbounds i8, ptr %34, i64 4
+  %35 = load i8, ptr %arrayidx41, align 1
+  %conv42 = sext i8 %35 to i32
   %cmp43 = icmp eq i32 %conv42, 56
   br i1 %cmp43, label %land.lhs.true44, label %if.else58
 
 land.lhs.true44:                                  ; preds = %cond.true40
-  %35 = load ptr, ptr %converterName.addr, align 8
-  %arrayidx45 = getelementptr inbounds i8, ptr %35, i64 5
-  %36 = load i8, ptr %arrayidx45, align 1
-  %conv46 = sext i8 %36 to i32
+  %36 = load ptr, ptr %converterName.addr, align 8
+  %arrayidx45 = getelementptr inbounds i8, ptr %36, i64 5
+  %37 = load i8, ptr %arrayidx45, align 1
+  %conv46 = sext i8 %37 to i32
   %cmp47 = icmp eq i32 %conv46, 0
   br i1 %cmp47, label %if.then56, label %if.else58
 
 cond.false48:                                     ; preds = %land.lhs.true36
-  %37 = load ptr, ptr %converterName.addr, align 8
-  %arrayidx49 = getelementptr inbounds i8, ptr %37, i64 3
-  %38 = load i8, ptr %arrayidx49, align 1
-  %conv50 = sext i8 %38 to i32
+  %38 = load ptr, ptr %converterName.addr, align 8
+  %arrayidx49 = getelementptr inbounds i8, ptr %38, i64 3
+  %39 = load i8, ptr %arrayidx49, align 1
+  %conv50 = sext i8 %39 to i32
   %cmp51 = icmp eq i32 %conv50, 56
   br i1 %cmp51, label %land.lhs.true52, label %if.else58
 
 land.lhs.true52:                                  ; preds = %cond.false48
-  %39 = load ptr, ptr %converterName.addr, align 8
-  %arrayidx53 = getelementptr inbounds i8, ptr %39, i64 4
-  %40 = load i8, ptr %arrayidx53, align 1
-  %conv54 = sext i8 %40 to i32
+  %40 = load ptr, ptr %converterName.addr, align 8
+  %arrayidx53 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = load i8, ptr %arrayidx53, align 1
+  %conv54 = sext i8 %41 to i32
   %cmp55 = icmp eq i32 %conv54, 0
   br i1 %cmp55, label %if.then56, label %if.else58
 
 if.then56:                                        ; preds = %land.lhs.true52, %land.lhs.true44
-  %41 = load ptr, ptr %pArgs.addr, align 8
-  %name57 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %41, i32 0, i32 7
+  %42 = load ptr, ptr %pArgs.addr, align 8
+  %name57 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %42, i32 0, i32 7
   store ptr @.str, ptr %name57, align 8
-  %42 = load ptr, ptr getelementptr inbounds ([34 x ptr], ptr @_ZL13converterData, i64 0, i64 4), align 16
-  store ptr %42, ptr %retval, align 8
+  %43 = getelementptr inbounds [34 x ptr], ptr @_ZL13converterData, i64 0, i64 4
+  %44 = load ptr, ptr %43, align 16
+  store ptr %44, ptr %retval, align 8
   br label %return
 
 if.else58:                                        ; preds = %land.lhs.true52, %cond.false48, %land.lhs.true44, %cond.true40, %land.lhs.true32, %land.lhs.true28, %cond.false, %land.lhs.true, %cond.true
-  %43 = load ptr, ptr %converterName.addr, align 8
-  %44 = load ptr, ptr %pPieces.addr, align 8
-  %45 = load ptr, ptr %pArgs.addr, align 8
-  %46 = load ptr, ptr %err.addr, align 8
-  call void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46)
-  %47 = load ptr, ptr %err.addr, align 8
-  %48 = load i32, ptr %47, align 4
-  %call59 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %48)
+  %45 = load ptr, ptr %converterName.addr, align 8
+  %46 = load ptr, ptr %pPieces.addr, align 8
+  %47 = load ptr, ptr %pArgs.addr, align 8
+  %48 = load ptr, ptr %err.addr, align 8
+  call void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
+  %49 = load ptr, ptr %err.addr, align 8
+  %50 = load i32, ptr %49, align 4
+  %call59 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %50)
   %tobool60 = icmp ne i8 %call59, 0
   br i1 %tobool60, label %if.then61, label %if.end62
 
@@ -818,42 +820,42 @@ if.then61:                                        ; preds = %if.else58
   br label %return
 
 if.end62:                                         ; preds = %if.else58
-  %49 = load ptr, ptr %pArgs.addr, align 8
-  %name63 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %49, i32 0, i32 7
-  %50 = load ptr, ptr %name63, align 8
-  %call64 = call ptr @ucnv_io_getConverterName_75(ptr noundef %50, ptr noundef %mayContainOption, ptr noundef %internalErrorCode)
   %51 = load ptr, ptr %pArgs.addr, align 8
-  %name65 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %51, i32 0, i32 7
+  %name63 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %51, i32 0, i32 7
+  %52 = load ptr, ptr %name63, align 8
+  %call64 = call ptr @ucnv_io_getConverterName_75(ptr noundef %52, ptr noundef %mayContainOption, ptr noundef %internalErrorCode)
+  %53 = load ptr, ptr %pArgs.addr, align 8
+  %name65 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %53, i32 0, i32 7
   store ptr %call64, ptr %name65, align 8
-  %52 = load i32, ptr %internalErrorCode, align 4
-  %call66 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %52)
+  %54 = load i32, ptr %internalErrorCode, align 4
+  %call66 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %54)
   %tobool67 = icmp ne i8 %call66, 0
   br i1 %tobool67, label %if.then70, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end62
-  %53 = load ptr, ptr %pArgs.addr, align 8
-  %name68 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %53, i32 0, i32 7
-  %54 = load ptr, ptr %name68, align 8
-  %cmp69 = icmp eq ptr %54, null
+  %55 = load ptr, ptr %pArgs.addr, align 8
+  %name68 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %55, i32 0, i32 7
+  %56 = load ptr, ptr %name68, align 8
+  %cmp69 = icmp eq ptr %56, null
   br i1 %cmp69, label %if.then70, label %if.else74
 
 if.then70:                                        ; preds = %lor.lhs.false, %if.end62
-  %55 = load ptr, ptr %pPieces.addr, align 8
-  %cnvName71 = getelementptr inbounds %struct.UConverterNamePieces, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %pPieces.addr, align 8
+  %cnvName71 = getelementptr inbounds %struct.UConverterNamePieces, ptr %57, i32 0, i32 0
   %arraydecay72 = getelementptr inbounds [60 x i8], ptr %cnvName71, i64 0, i64 0
-  %56 = load ptr, ptr %pArgs.addr, align 8
-  %name73 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %56, i32 0, i32 7
+  %58 = load ptr, ptr %pArgs.addr, align 8
+  %name73 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %58, i32 0, i32 7
   store ptr %arraydecay72, ptr %name73, align 8
   br label %if.end78
 
 if.else74:                                        ; preds = %lor.lhs.false
-  %57 = load i32, ptr %internalErrorCode, align 4
-  %cmp75 = icmp eq i32 %57, -122
+  %59 = load i32, ptr %internalErrorCode, align 4
+  %cmp75 = icmp eq i32 %59, -122
   br i1 %cmp75, label %if.then76, label %if.end77
 
 if.then76:                                        ; preds = %if.else74
-  %58 = load ptr, ptr %err.addr, align 8
-  store i32 -122, ptr %58, align 4
+  %60 = load ptr, ptr %err.addr, align 8
+  store i32 -122, ptr %60, align 4
   br label %if.end77
 
 if.end77:                                         ; preds = %if.then76, %if.else74
@@ -866,70 +868,70 @@ if.end79:                                         ; preds = %if.end78
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end79
-  %59 = load i8, ptr %mayContainOption, align 1
-  %tobool81 = icmp ne i8 %59, 0
+  %61 = load i8, ptr %mayContainOption, align 1
+  %tobool81 = icmp ne i8 %61, 0
   br i1 %tobool81, label %land.lhs.true82, label %if.end89
 
 land.lhs.true82:                                  ; preds = %if.end80
-  %60 = load ptr, ptr %pArgs.addr, align 8
-  %name83 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %60, i32 0, i32 7
-  %61 = load ptr, ptr %name83, align 8
-  %62 = load ptr, ptr %pPieces.addr, align 8
-  %cnvName84 = getelementptr inbounds %struct.UConverterNamePieces, ptr %62, i32 0, i32 0
+  %62 = load ptr, ptr %pArgs.addr, align 8
+  %name83 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %62, i32 0, i32 7
+  %63 = load ptr, ptr %name83, align 8
+  %64 = load ptr, ptr %pPieces.addr, align 8
+  %cnvName84 = getelementptr inbounds %struct.UConverterNamePieces, ptr %64, i32 0, i32 0
   %arraydecay85 = getelementptr inbounds [60 x i8], ptr %cnvName84, i64 0, i64 0
-  %cmp86 = icmp ne ptr %61, %arraydecay85
+  %cmp86 = icmp ne ptr %63, %arraydecay85
   br i1 %cmp86, label %if.then87, label %if.end89
 
 if.then87:                                        ; preds = %land.lhs.true82
-  %63 = load ptr, ptr %pArgs.addr, align 8
-  %name88 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %63, i32 0, i32 7
-  %64 = load ptr, ptr %name88, align 8
-  %65 = load ptr, ptr %pPieces.addr, align 8
-  %66 = load ptr, ptr %pArgs.addr, align 8
-  %67 = load ptr, ptr %err.addr, align 8
-  call void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67)
+  %65 = load ptr, ptr %pArgs.addr, align 8
+  %name88 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %65, i32 0, i32 7
+  %66 = load ptr, ptr %name88, align 8
+  %67 = load ptr, ptr %pPieces.addr, align 8
+  %68 = load ptr, ptr %pArgs.addr, align 8
+  %69 = load ptr, ptr %err.addr, align 8
+  call void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69)
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then87, %land.lhs.true82, %if.end80
-  %68 = load i8, ptr %checkForAlgorithmic, align 1
-  %tobool90 = icmp ne i8 %68, 0
+  %70 = load i8, ptr %checkForAlgorithmic, align 1
+  %tobool90 = icmp ne i8 %70, 0
   br i1 %tobool90, label %if.then91, label %if.end94
 
 if.then91:                                        ; preds = %if.end89
-  %69 = load ptr, ptr %pArgs.addr, align 8
-  %name92 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %69, i32 0, i32 7
-  %70 = load ptr, ptr %name92, align 8
-  %call93 = call noundef ptr @_ZL26getAlgorithmicTypeFromNamePKc(ptr noundef %70)
+  %71 = load ptr, ptr %pArgs.addr, align 8
+  %name92 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %71, i32 0, i32 7
+  %72 = load ptr, ptr %name92, align 8
+  %call93 = call noundef ptr @_ZL26getAlgorithmicTypeFromNamePKc(ptr noundef %72)
   store ptr %call93, ptr %mySharedConverterData, align 8
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then91, %if.end89
-  %71 = load ptr, ptr %mySharedConverterData, align 8
-  %cmp95 = icmp eq ptr %71, null
+  %73 = load ptr, ptr %mySharedConverterData, align 8
+  %cmp95 = icmp eq ptr %73, null
   br i1 %cmp95, label %if.then96, label %if.end104
 
 if.then96:                                        ; preds = %if.end94
-  %72 = load ptr, ptr %pArgs.addr, align 8
-  %nestedLoads = getelementptr inbounds %struct.UConverterLoadArgs, ptr %72, i32 0, i32 1
+  %74 = load ptr, ptr %pArgs.addr, align 8
+  %nestedLoads = getelementptr inbounds %struct.UConverterLoadArgs, ptr %74, i32 0, i32 1
   store i32 1, ptr %nestedLoads, align 4
-  %73 = load ptr, ptr %pArgs.addr, align 8
-  %pkg = getelementptr inbounds %struct.UConverterLoadArgs, ptr %73, i32 0, i32 6
+  %75 = load ptr, ptr %pArgs.addr, align 8
+  %pkg = getelementptr inbounds %struct.UConverterLoadArgs, ptr %75, i32 0, i32 6
   store ptr null, ptr %pkg, align 8
   call void @umtx_lock_75(ptr noundef @_ZL13cnvCacheMutex)
-  %74 = load ptr, ptr %pArgs.addr, align 8
-  %75 = load ptr, ptr %err.addr, align 8
-  %call97 = call ptr @ucnv_load_75(ptr noundef %74, ptr noundef %75)
+  %76 = load ptr, ptr %pArgs.addr, align 8
+  %77 = load ptr, ptr %err.addr, align 8
+  %call97 = call ptr @ucnv_load_75(ptr noundef %76, ptr noundef %77)
   store ptr %call97, ptr %mySharedConverterData, align 8
   call void @umtx_unlock_75(ptr noundef @_ZL13cnvCacheMutex)
-  %76 = load ptr, ptr %err.addr, align 8
-  %77 = load i32, ptr %76, align 4
-  %call98 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %77)
+  %78 = load ptr, ptr %err.addr, align 8
+  %79 = load i32, ptr %78, align 4
+  %call98 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %79)
   %tobool99 = icmp ne i8 %call98, 0
   br i1 %tobool99, label %if.then102, label %lor.lhs.false100
 
 lor.lhs.false100:                                 ; preds = %if.then96
-  %78 = load ptr, ptr %mySharedConverterData, align 8
-  %cmp101 = icmp eq ptr %78, null
+  %80 = load ptr, ptr %mySharedConverterData, align 8
+  %cmp101 = icmp eq ptr %80, null
   br i1 %cmp101, label %if.then102, label %if.end103
 
 if.then102:                                       ; preds = %lor.lhs.false100, %if.then96
@@ -940,13 +942,13 @@ if.end103:                                        ; preds = %lor.lhs.false100
   br label %if.end104
 
 if.end104:                                        ; preds = %if.end103, %if.end94
-  %79 = load ptr, ptr %mySharedConverterData, align 8
-  store ptr %79, ptr %retval, align 8
+  %81 = load ptr, ptr %mySharedConverterData, align 8
+  store ptr %81, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end104, %if.then102, %if.then61, %if.then56, %if.then15, %if.then3, %if.then
-  %80 = load ptr, ptr %retval, align 8
-  ret ptr %80
+  %82 = load ptr, ptr %retval, align 8
+  ret ptr %82
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

@@ -38,15 +38,16 @@ define dso_local void @vsmp_init() local_unnamed_addr #0 section ".init.text" al
 4:                                                ; preds = %3, %0
   %5 = phi i32 [ 0, %3 ], [ %1, %0 ]
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %8, label %7
+  br i1 %6, label %9, label %7
 
 7:                                                ; preds = %4
-  store ptr @vsmp_apic_post_init, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 10), align 8
+  %8 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 10
+  store ptr @vsmp_apic_post_init, ptr %8, align 8
   tail call fastcc void @vsmp_cap_cpus() #5
   tail call fastcc void @set_vsmp_ctl() #5
-  br label %8
+  br label %9
 
-8:                                                ; preds = %7, %4
+9:                                                ; preds = %7, %4
   ret void
 }
 

@@ -476,7 +476,7 @@ define internal ptr @_parse_plugin_type(ptr noundef %0) #0 {
 
 13:                                               ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %78
+  br label %79
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr %3, align 8
@@ -487,10 +487,10 @@ define internal ptr @_parse_plugin_type(ptr noundef %0) #0 {
   store ptr %18, ptr %4, align 8
   br label %19
 
-19:                                               ; preds = %72, %14
+19:                                               ; preds = %73, %14
   %20 = load ptr, ptr %4, align 8
   %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %76
+  br i1 %21, label %22, label %77
 
 22:                                               ; preds = %19
   %23 = load i32, ptr %8, align 4
@@ -538,55 +538,56 @@ define internal ptr @_parse_plugin_type(ptr noundef %0) #0 {
   br label %54
 
 54:                                               ; preds = %53
-  %55 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %56 = and i64 %55, 256
-  %57 = icmp ne i64 %56, 0
-  br i1 %57, label %58, label %71
+  %55 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %56 = load i64, ptr %55, align 8
+  %57 = and i64 %56, 256
+  %58 = icmp ne i64 %57, 0
+  br i1 %58, label %59, label %72
 
-58:                                               ; preds = %54
-  br label %59
+59:                                               ; preds = %54
+  br label %60
 
-59:                                               ; preds = %58
-  %60 = call i32 @get_log_level()
-  %61 = icmp sge i32 %60, 4
-  br i1 %61, label %62, label %69
+60:                                               ; preds = %59
+  %61 = call i32 @get_log_level()
+  %62 = icmp sge i32 %61, 4
+  br i1 %62, label %63, label %70
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr %10, align 8
-  %64 = getelementptr inbounds %struct.plugin_param_t, ptr %63, i32 0, i32 0
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %10, align 8
-  %67 = getelementptr inbounds %struct.plugin_param_t, ptr %66, i32 0, i32 1
-  %68 = load ptr, ptr %67, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.34, ptr noundef @__func__._parse_plugin_type, ptr noundef %65, ptr noundef %68)
-  br label %69
-
-69:                                               ; preds = %62, %59
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %10, align 8
+  %65 = getelementptr inbounds %struct.plugin_param_t, ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %10, align 8
+  %68 = getelementptr inbounds %struct.plugin_param_t, ptr %67, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.34, ptr noundef @__func__._parse_plugin_type, ptr noundef %66, ptr noundef %69)
   br label %70
 
-70:                                               ; preds = %69
+70:                                               ; preds = %63, %60
   br label %71
 
-71:                                               ; preds = %70, %54
+71:                                               ; preds = %70
   br label %72
 
-72:                                               ; preds = %71
-  %73 = load i32, ptr %8, align 4
-  %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %8, align 4
-  %75 = call ptr @strtok_r(ptr noundef null, ptr noundef @.str.32, ptr noundef %5) #8
-  store ptr %75, ptr %4, align 8
+72:                                               ; preds = %71, %54
+  br label %73
+
+73:                                               ; preds = %72
+  %74 = load i32, ptr %8, align 4
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr %8, align 4
+  %76 = call ptr @strtok_r(ptr noundef null, ptr noundef @.str.32, ptr noundef %5) #8
+  store ptr %76, ptr %4, align 8
   br label %19, !llvm.loop !8
 
-76:                                               ; preds = %19
+77:                                               ; preds = %19
   call void @slurm_xfree(ptr noundef %6)
-  %77 = load ptr, ptr %7, align 8
-  store ptr %77, ptr %2, align 8
-  br label %78
+  %78 = load ptr, ptr %7, align 8
+  store ptr %78, ptr %2, align 8
+  br label %79
 
-78:                                               ; preds = %76, %13
-  %79 = load ptr, ptr %2, align 8
-  ret ptr %79
+79:                                               ; preds = %77, %13
+  %80 = load ptr, ptr %2, align 8
+  ret ptr %80
 }
 
 declare i32 @error(ptr noundef, ...) #2
@@ -1837,55 +1838,57 @@ define ptr @data_parser_cli_meta(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   %54 = load ptr, ptr %11, align 8
   store ptr %54, ptr %53, align 8
   %55 = getelementptr inbounds %struct.anon, ptr %50, i32 0, i32 3
-  %56 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 9), align 8
-  store ptr %56, ptr %55, align 8
-  %57 = getelementptr inbounds %struct.openapi_resp_meta_t, ptr %13, i32 0, i32 1
-  %58 = load ptr, ptr %12, align 8
-  store ptr %58, ptr %57, align 8
-  %59 = getelementptr inbounds %struct.openapi_resp_meta_t, ptr %13, i32 0, i32 2
-  %60 = getelementptr inbounds %struct.anon.0, ptr %59, i32 0, i32 0
-  %61 = load i32, ptr %10, align 4
-  %62 = icmp ne i32 %61, -1
-  br i1 %62, label %63, label %66
+  %56 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 9
+  %57 = load ptr, ptr %56, align 8
+  store ptr %57, ptr %55, align 8
+  %58 = getelementptr inbounds %struct.openapi_resp_meta_t, ptr %13, i32 0, i32 1
+  %59 = load ptr, ptr %12, align 8
+  store ptr %59, ptr %58, align 8
+  %60 = getelementptr inbounds %struct.openapi_resp_meta_t, ptr %13, i32 0, i32 2
+  %61 = getelementptr inbounds %struct.anon.0, ptr %60, i32 0, i32 0
+  %62 = load i32, ptr %10, align 4
+  %63 = icmp ne i32 %62, -1
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %48
-  %64 = load i32, ptr %10, align 4
-  %65 = call ptr @fd_resolve_path(i32 noundef %64)
-  br label %67
+64:                                               ; preds = %48
+  %65 = load i32, ptr %10, align 4
+  %66 = call ptr @fd_resolve_path(i32 noundef %65)
+  br label %68
 
-66:                                               ; preds = %48
-  br label %67
+67:                                               ; preds = %48
+  br label %68
 
-67:                                               ; preds = %66, %63
-  %68 = phi ptr [ %65, %63 ], [ null, %66 ]
-  store ptr %68, ptr %60, align 8
-  %69 = getelementptr inbounds %struct.anon.0, ptr %59, i32 0, i32 1
-  %70 = call i32 @getuid() #8
-  store i32 %70, ptr %69, align 8
-  %71 = getelementptr inbounds %struct.anon.0, ptr %59, i32 0, i32 2
-  %72 = call i32 @getgid() #8
-  store i32 %72, ptr %71, align 4
-  %73 = getelementptr inbounds %struct.openapi_resp_meta_t, ptr %13, i32 0, i32 3
-  %74 = getelementptr inbounds %struct.anon.1, ptr %73, i32 0, i32 0
-  %75 = getelementptr inbounds %struct.anon.2, ptr %74, i32 0, i32 0
-  %76 = call ptr @xstrdup(ptr noundef @.str.11)
-  store ptr %76, ptr %75, align 8
-  %77 = getelementptr inbounds %struct.anon.2, ptr %74, i32 0, i32 1
-  %78 = call ptr @xstrdup(ptr noundef @.str.12)
-  store ptr %78, ptr %77, align 8
-  %79 = getelementptr inbounds %struct.anon.2, ptr %74, i32 0, i32 2
-  %80 = call ptr @xstrdup(ptr noundef @.str.13)
-  store ptr %80, ptr %79, align 8
-  %81 = getelementptr inbounds %struct.anon.1, ptr %73, i32 0, i32 1
-  %82 = call ptr @xstrdup(ptr noundef @.str.14)
-  store ptr %82, ptr %81, align 8
-  %83 = getelementptr inbounds %struct.anon.1, ptr %73, i32 0, i32 2
-  %84 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %85 = call ptr @xstrdup(ptr noundef %84)
-  store ptr %85, ptr %83, align 8
+68:                                               ; preds = %67, %64
+  %69 = phi ptr [ %66, %64 ], [ null, %67 ]
+  store ptr %69, ptr %61, align 8
+  %70 = getelementptr inbounds %struct.anon.0, ptr %60, i32 0, i32 1
+  %71 = call i32 @getuid() #8
+  store i32 %71, ptr %70, align 8
+  %72 = getelementptr inbounds %struct.anon.0, ptr %60, i32 0, i32 2
+  %73 = call i32 @getgid() #8
+  store i32 %73, ptr %72, align 4
+  %74 = getelementptr inbounds %struct.openapi_resp_meta_t, ptr %13, i32 0, i32 3
+  %75 = getelementptr inbounds %struct.anon.1, ptr %74, i32 0, i32 0
+  %76 = getelementptr inbounds %struct.anon.2, ptr %75, i32 0, i32 0
+  %77 = call ptr @xstrdup(ptr noundef @.str.11)
+  store ptr %77, ptr %76, align 8
+  %78 = getelementptr inbounds %struct.anon.2, ptr %75, i32 0, i32 1
+  %79 = call ptr @xstrdup(ptr noundef @.str.12)
+  store ptr %79, ptr %78, align 8
+  %80 = getelementptr inbounds %struct.anon.2, ptr %75, i32 0, i32 2
+  %81 = call ptr @xstrdup(ptr noundef @.str.13)
+  store ptr %81, ptr %80, align 8
+  %82 = getelementptr inbounds %struct.anon.1, ptr %74, i32 0, i32 1
+  %83 = call ptr @xstrdup(ptr noundef @.str.14)
+  store ptr %83, ptr %82, align 8
+  %84 = getelementptr inbounds %struct.anon.1, ptr %74, i32 0, i32 2
+  %85 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %86 = load ptr, ptr %85, align 8
+  %87 = call ptr @xstrdup(ptr noundef %86)
+  store ptr %87, ptr %84, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr align 8 %13, i64 96, i1 false)
-  %86 = load ptr, ptr %9, align 8
-  ret ptr %86
+  %88 = load ptr, ptr %9, align 8
+  ret ptr %88
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2312,13 +2315,13 @@ define internal zeroext i1 @_on_error(ptr noundef %0, i32 noundef %1, i32 nounde
 
 27:                                               ; preds = %25, %5
   %28 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
-  call void @llvm.va_start(ptr %28)
+  call void @llvm.va_start.p0(ptr %28)
   %29 = load ptr, ptr %11, align 8
   %30 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
   %31 = call ptr @vxstrfmt(ptr noundef %29, ptr noundef %30)
   store ptr %31, ptr %13, align 8
   %32 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
-  call void @llvm.va_end(ptr %32)
+  call void @llvm.va_end.p0(ptr %32)
   %33 = load ptr, ptr %13, align 8
   %34 = icmp ne ptr %33, null
   br i1 %34, label %35, label %64
@@ -2488,13 +2491,13 @@ define internal void @_on_warn(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 
 24:                                               ; preds = %22, %4
   %25 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_start(ptr %25)
+  call void @llvm.va_start.p0(ptr %25)
   %26 = load ptr, ptr %8, align 8
   %27 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
   %28 = call ptr @vxstrfmt(ptr noundef %26, ptr noundef %27)
   store ptr %28, ptr %10, align 8
   %29 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_end(ptr %29)
+  call void @llvm.va_end.p0(ptr %29)
   %30 = load ptr, ptr %10, align 8
   %31 = icmp ne ptr %30, null
   br i1 %31, label %32, label %65
@@ -2891,15 +2894,15 @@ declare ptr @xstrndup(ptr noundef, i64 noundef) #2
 
 declare i32 @serializer_g_init(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare ptr @vxstrfmt(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
-
 declare void @list_append(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }

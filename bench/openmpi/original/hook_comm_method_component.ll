@@ -60,95 +60,97 @@ define internal i32 @ompi_hook_comm_method_component_register() #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i32 0, i32 10), align 8
-  %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %7, label %9
+  %5 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i32 0, i32 10
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp sgt i32 %6, -1
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %0
-  %8 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i32 0, i32 10), align 8
-  store i32 %8, ptr @mca_hook_comm_method_verbose, align 4
-  br label %10
+8:                                                ; preds = %0
+  %9 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_hook_base_framework, i32 0, i32 10
+  %10 = load i32, ptr %9, align 8
+  store i32 %10, ptr @mca_hook_comm_method_verbose, align 4
+  br label %12
 
-9:                                                ; preds = %0
+11:                                               ; preds = %0
   store i32 -1, ptr @mca_hook_comm_method_verbose, align 4
-  br label %10
+  br label %12
 
-10:                                               ; preds = %9, %7
-  %11 = call i32 @mca_base_component_var_register(ptr noundef @mca_hook_comm_method_component, ptr noundef @.str.1, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_hook_comm_method_verbose)
-  %12 = call i32 @opal_output_open(ptr noundef null)
-  store i32 %12, ptr @mca_hook_comm_method_output, align 4
-  %13 = load i32, ptr @mca_hook_comm_method_output, align 4
-  %14 = load i32, ptr @mca_hook_comm_method_verbose, align 4
-  call void @opal_output_set_verbosity(i32 noundef %13, i32 noundef %14)
+12:                                               ; preds = %11, %8
+  %13 = call i32 @mca_base_component_var_register(ptr noundef @mca_hook_comm_method_component, ptr noundef @.str.1, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_hook_comm_method_verbose)
+  %14 = call i32 @opal_output_open(ptr noundef null)
+  store i32 %14, ptr @mca_hook_comm_method_output, align 4
+  %15 = load i32, ptr @mca_hook_comm_method_output, align 4
+  %16 = load i32, ptr @mca_hook_comm_method_verbose, align 4
+  call void @opal_output_set_verbosity(i32 noundef %15, i32 noundef %16)
   store i8 0, ptr @mca_hook_comm_method_enable_mpi_init, align 1
   store i8 0, ptr @mca_hook_comm_method_enable_mpi_finalize, align 1
-  %15 = call i32 @mca_base_var_enum_create_flag(ptr noundef @.str.2, ptr noundef @mca_hook_comm_method_modes, ptr noundef %4)
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.mca_base_var_enum_flag_t, ptr %16, i32 0, i32 0
-  %18 = call i32 @mca_base_component_var_register(ptr noundef @mca_hook_comm_method_component, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 1, ptr noundef %17, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef @mca_hook_comm_method_enabled_flags)
-  store i32 %18, ptr %3, align 4
-  %19 = load i32, ptr %3, align 4
-  %20 = call i32 @mca_base_var_register_synonym(i32 noundef %19, ptr noundef @.str.5, ptr noundef @.str.5, ptr noundef null, ptr noundef @.str.6, i32 noundef 2)
-  br label %21
+  %17 = call i32 @mca_base_var_enum_create_flag(ptr noundef @.str.2, ptr noundef @mca_hook_comm_method_modes, ptr noundef %4)
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %struct.mca_base_var_enum_flag_t, ptr %18, i32 0, i32 0
+  %20 = call i32 @mca_base_component_var_register(ptr noundef @mca_hook_comm_method_component, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 1, ptr noundef %19, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef @mca_hook_comm_method_enabled_flags)
+  store i32 %20, ptr %3, align 4
+  %21 = load i32, ptr %3, align 4
+  %22 = call i32 @mca_base_var_register_synonym(i32 noundef %21, ptr noundef @.str.5, ptr noundef @.str.5, ptr noundef null, ptr noundef @.str.6, i32 noundef 2)
+  br label %23
 
-21:                                               ; preds = %10
-  %22 = load ptr, ptr %4, align 8
-  store ptr %22, ptr %1, align 8
+23:                                               ; preds = %12
+  %24 = load ptr, ptr %4, align 8
+  store ptr %24, ptr %1, align 8
   store i32 -1, ptr %2, align 4
-  %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds %struct.opal_object_t, ptr %23, i32 0, i32 1
-  %25 = load i32, ptr %2, align 4
-  %26 = call i32 @opal_thread_add_fetch_32(ptr noundef %24, i32 noundef %25)
-  %27 = icmp eq i32 0, %26
-  br i1 %27, label %28, label %31
+  %25 = load ptr, ptr %1, align 8
+  %26 = getelementptr inbounds %struct.opal_object_t, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %2, align 4
+  %28 = call i32 @opal_thread_add_fetch_32(ptr noundef %26, i32 noundef %27)
+  %29 = icmp eq i32 0, %28
+  br i1 %29, label %30, label %33
 
-28:                                               ; preds = %21
-  %29 = load ptr, ptr %4, align 8
-  call void @opal_obj_run_destructors(ptr noundef %29)
-  %30 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %30) #3
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %4, align 8
+  call void @opal_obj_run_destructors(ptr noundef %31)
+  %32 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %32) #3
   store ptr null, ptr %4, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %28, %21
-  br label %32
+33:                                               ; preds = %30, %23
+  br label %34
 
-32:                                               ; preds = %31
-  %33 = load i32, ptr %3, align 4
-  %34 = icmp eq i32 -18, %33
-  br i1 %34, label %35, label %36
+34:                                               ; preds = %33
+  %35 = load i32, ptr %3, align 4
+  %36 = icmp eq i32 -18, %35
+  br i1 %36, label %37, label %38
 
-35:                                               ; preds = %32
+37:                                               ; preds = %34
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.7)
-  br label %47
+  br label %49
 
-36:                                               ; preds = %32
-  %37 = load i32, ptr @mca_hook_comm_method_enabled_flags, align 4
-  %38 = and i32 %37, 1
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %41
+38:                                               ; preds = %34
+  %39 = load i32, ptr @mca_hook_comm_method_enabled_flags, align 4
+  %40 = and i32 %39, 1
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %43
 
-40:                                               ; preds = %36
+42:                                               ; preds = %38
   store i8 1, ptr @mca_hook_comm_method_enable_mpi_init, align 1
-  br label %41
+  br label %43
 
-41:                                               ; preds = %40, %36
-  %42 = load i32, ptr @mca_hook_comm_method_enabled_flags, align 4
-  %43 = and i32 %42, 2
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %45, label %46
+43:                                               ; preds = %42, %38
+  %44 = load i32, ptr @mca_hook_comm_method_enabled_flags, align 4
+  %45 = and i32 %44, 2
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %48
 
-45:                                               ; preds = %41
+47:                                               ; preds = %43
   store i8 1, ptr @mca_hook_comm_method_enable_mpi_finalize, align 1
-  br label %46
+  br label %48
 
-46:                                               ; preds = %45, %41
-  br label %47
+48:                                               ; preds = %47, %43
+  br label %49
 
-47:                                               ; preds = %46, %35
-  %48 = call i32 @mca_base_component_var_register(ptr noundef @mca_hook_comm_method_component, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef @mca_hook_comm_method_max)
-  %49 = call i32 @mca_base_component_var_register(ptr noundef @mca_hook_comm_method_component, ptr noundef @.str.10, ptr noundef @.str.11, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef @mca_hook_comm_method_brief)
-  %50 = call i32 @mca_base_component_var_register(ptr noundef @mca_hook_comm_method_component, ptr noundef @.str.12, ptr noundef @.str.13, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef @mca_hook_comm_method_fakefile)
+49:                                               ; preds = %48, %37
+  %50 = call i32 @mca_base_component_var_register(ptr noundef @mca_hook_comm_method_component, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef @mca_hook_comm_method_max)
+  %51 = call i32 @mca_base_component_var_register(ptr noundef @mca_hook_comm_method_component, ptr noundef @.str.10, ptr noundef @.str.11, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef @mca_hook_comm_method_brief)
+  %52 = call i32 @mca_base_component_var_register(ptr noundef @mca_hook_comm_method_component, ptr noundef @.str.12, ptr noundef @.str.13, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef @mca_hook_comm_method_fakefile)
   ret i32 0
 }
 

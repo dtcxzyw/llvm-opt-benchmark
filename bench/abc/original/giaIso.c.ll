@@ -2245,323 +2245,326 @@ define void @Gia_IsoSimulate(ptr noundef %0, i32 noundef %1) #0 {
   %8 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
-  %9 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @s_256Primes, i64 0, i64 255), align 4
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = call ptr @Gia_ManConst0(ptr noundef %12)
-  %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %13, i32 0, i32 1
-  %15 = load i32, ptr %14, align 4
-  %16 = add i32 %15, %9
-  store i32 %16, ptr %14, align 4
+  %9 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 255
+  %10 = load i32, ptr %9, align 4
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = call ptr @Gia_ManConst0(ptr noundef %13)
+  %15 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 4
+  %17 = add i32 %16, %10
+  store i32 %17, ptr %15, align 4
   store i32 0, ptr %7, align 4
-  br label %17
+  br label %18
 
-17:                                               ; preds = %39, %2
-  %18 = load i32, ptr %7, align 4
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = call i32 @Gia_ManPiNum(ptr noundef %21)
-  %23 = icmp slt i32 %18, %22
-  br i1 %23, label %24, label %31
+18:                                               ; preds = %41, %2
+  %19 = load i32, ptr %7, align 4
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = call i32 @Gia_ManPiNum(ptr noundef %22)
+  %24 = icmp slt i32 %19, %23
+  br i1 %24, label %25, label %32
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i32, ptr %7, align 4
-  %29 = call ptr @Gia_ManCi(ptr noundef %27, i32 noundef %28)
-  store ptr %29, ptr %5, align 8
-  %30 = icmp ne ptr %29, null
-  br label %31
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = load i32, ptr %7, align 4
+  %30 = call ptr @Gia_ManCi(ptr noundef %28, i32 noundef %29)
+  store ptr %30, ptr %5, align 8
+  %31 = icmp ne ptr %30, null
+  br label %32
 
-31:                                               ; preds = %24, %17
-  %32 = phi i1 [ false, %17 ], [ %30, %24 ]
-  br i1 %32, label %33, label %42
+32:                                               ; preds = %25, %18
+  %33 = phi i1 [ false, %18 ], [ %31, %25 ]
+  br i1 %33, label %34, label %44
 
-33:                                               ; preds = %31
-  %34 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @s_256Primes, i64 0, i64 254), align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 4
-  %38 = add i32 %37, %34
-  store i32 %38, ptr %36, align 4
-  br label %39
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 254
+  %36 = load i32, ptr %35, align 8
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %37, i32 0, i32 1
+  %39 = load i32, ptr %38, align 4
+  %40 = add i32 %39, %36
+  store i32 %40, ptr %38, align 4
+  br label %41
 
-39:                                               ; preds = %33
-  %40 = load i32, ptr %7, align 4
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %7, align 4
-  br label %17, !llvm.loop !23
+41:                                               ; preds = %34
+  %42 = load i32, ptr %7, align 4
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %7, align 4
+  br label %18, !llvm.loop !23
 
-42:                                               ; preds = %31
-  %43 = load i32, ptr %4, align 4
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %77
+44:                                               ; preds = %32
+  %45 = load i32, ptr %4, align 4
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %80
 
-45:                                               ; preds = %42
+47:                                               ; preds = %44
   store i32 0, ptr %7, align 4
-  br label %46
+  br label %48
 
-46:                                               ; preds = %73, %45
-  %47 = load i32, ptr %7, align 4
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %48, i32 0, i32 0
-  %50 = load ptr, ptr %49, align 8
-  %51 = call i32 @Gia_ManRegNum(ptr noundef %50)
-  %52 = icmp slt i32 %47, %51
-  br i1 %52, label %53, label %65
+48:                                               ; preds = %76, %47
+  %49 = load i32, ptr %7, align 4
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = call i32 @Gia_ManRegNum(ptr noundef %52)
+  %54 = icmp slt i32 %49, %53
+  br i1 %54, label %55, label %67
 
-53:                                               ; preds = %46
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %57, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  %60 = call i32 @Gia_ManPiNum(ptr noundef %59)
-  %61 = load i32, ptr %7, align 4
-  %62 = add nsw i32 %60, %61
-  %63 = call ptr @Gia_ManCi(ptr noundef %56, i32 noundef %62)
-  store ptr %63, ptr %5, align 8
-  %64 = icmp ne ptr %63, null
-  br label %65
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %3, align 8
+  %60 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  %62 = call i32 @Gia_ManPiNum(ptr noundef %61)
+  %63 = load i32, ptr %7, align 4
+  %64 = add nsw i32 %62, %63
+  %65 = call ptr @Gia_ManCi(ptr noundef %58, i32 noundef %64)
+  store ptr %65, ptr %5, align 8
+  %66 = icmp ne ptr %65, null
+  br label %67
 
-65:                                               ; preds = %53, %46
-  %66 = phi i1 [ false, %46 ], [ %64, %53 ]
-  br i1 %66, label %67, label %76
+67:                                               ; preds = %55, %48
+  %68 = phi i1 [ false, %48 ], [ %66, %55 ]
+  br i1 %68, label %69, label %79
 
-67:                                               ; preds = %65
-  %68 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @s_256Primes, i64 0, i64 253), align 4
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %69, i32 0, i32 1
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 253
   %71 = load i32, ptr %70, align 4
-  %72 = add i32 %71, %68
-  store i32 %72, ptr %70, align 4
-  br label %73
+  %72 = load ptr, ptr %5, align 8
+  %73 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %72, i32 0, i32 1
+  %74 = load i32, ptr %73, align 4
+  %75 = add i32 %74, %71
+  store i32 %75, ptr %73, align 4
+  br label %76
 
-73:                                               ; preds = %67
-  %74 = load i32, ptr %7, align 4
-  %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %7, align 4
-  br label %46, !llvm.loop !24
+76:                                               ; preds = %69
+  %77 = load i32, ptr %7, align 4
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %7, align 4
+  br label %48, !llvm.loop !24
 
-76:                                               ; preds = %65
-  br label %77
+79:                                               ; preds = %67
+  br label %80
 
-77:                                               ; preds = %76, %42
+80:                                               ; preds = %79, %44
   store i32 0, ptr %7, align 4
-  br label %78
+  br label %81
 
-78:                                               ; preds = %136, %77
-  %79 = load i32, ptr %7, align 4
-  %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %80, i32 0, i32 0
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds %struct.Gia_Man_t_, ptr %82, i32 0, i32 4
-  %84 = load i32, ptr %83, align 8
-  %85 = icmp slt i32 %79, %84
-  br i1 %85, label %86, label %93
+81:                                               ; preds = %139, %80
+  %82 = load i32, ptr %7, align 4
+  %83 = load ptr, ptr %3, align 8
+  %84 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %83, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds %struct.Gia_Man_t_, ptr %85, i32 0, i32 4
+  %87 = load i32, ptr %86, align 8
+  %88 = icmp slt i32 %82, %87
+  br i1 %88, label %89, label %96
 
-86:                                               ; preds = %78
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %87, i32 0, i32 0
-  %89 = load ptr, ptr %88, align 8
-  %90 = load i32, ptr %7, align 4
-  %91 = call ptr @Gia_ManObj(ptr noundef %89, i32 noundef %90)
-  store ptr %91, ptr %5, align 8
-  %92 = icmp ne ptr %91, null
-  br label %93
+89:                                               ; preds = %81
+  %90 = load ptr, ptr %3, align 8
+  %91 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %90, i32 0, i32 0
+  %92 = load ptr, ptr %91, align 8
+  %93 = load i32, ptr %7, align 4
+  %94 = call ptr @Gia_ManObj(ptr noundef %92, i32 noundef %93)
+  store ptr %94, ptr %5, align 8
+  %95 = icmp ne ptr %94, null
+  br label %96
 
-93:                                               ; preds = %86, %78
-  %94 = phi i1 [ false, %78 ], [ %92, %86 ]
-  br i1 %94, label %95, label %139
+96:                                               ; preds = %89, %81
+  %97 = phi i1 [ false, %81 ], [ %95, %89 ]
+  br i1 %97, label %98, label %142
 
-95:                                               ; preds = %93
-  %96 = load ptr, ptr %5, align 8
-  %97 = call i32 @Gia_ObjIsAnd(ptr noundef %96)
-  %98 = icmp ne i32 %97, 0
-  br i1 %98, label %100, label %99
+98:                                               ; preds = %96
+  %99 = load ptr, ptr %5, align 8
+  %100 = call i32 @Gia_ObjIsAnd(ptr noundef %99)
+  %101 = icmp ne i32 %100, 0
+  br i1 %101, label %103, label %102
 
-99:                                               ; preds = %95
-  br label %135
+102:                                              ; preds = %98
+  br label %138
 
-100:                                              ; preds = %95
-  %101 = load ptr, ptr %5, align 8
-  %102 = call ptr @Gia_ObjFanin0(ptr noundef %101)
-  %103 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %102, i32 0, i32 1
-  %104 = load i32, ptr %103, align 4
-  %105 = load ptr, ptr %3, align 8
-  %106 = load i32, ptr %4, align 4
-  %107 = load ptr, ptr %5, align 8
-  %108 = load i32, ptr %7, align 4
-  %109 = call i32 @Gia_ObjFaninId0(ptr noundef %107, i32 noundef %108)
+103:                                              ; preds = %98
+  %104 = load ptr, ptr %5, align 8
+  %105 = call ptr @Gia_ObjFanin0(ptr noundef %104)
+  %106 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %105, i32 0, i32 1
+  %107 = load i32, ptr %106, align 4
+  %108 = load ptr, ptr %3, align 8
+  %109 = load i32, ptr %4, align 4
   %110 = load ptr, ptr %5, align 8
-  %111 = call i32 @Gia_ObjFaninC0(ptr noundef %110)
-  %112 = call i32 @Gia_IsoUpdate(ptr noundef %105, i32 noundef %106, i32 noundef %109, i32 noundef %111)
-  %113 = add i32 %104, %112
-  %114 = load ptr, ptr %5, align 8
-  %115 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %114, i32 0, i32 1
-  %116 = load i32, ptr %115, align 4
-  %117 = add i32 %116, %113
-  store i32 %117, ptr %115, align 4
-  %118 = load ptr, ptr %5, align 8
-  %119 = call ptr @Gia_ObjFanin1(ptr noundef %118)
-  %120 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %119, i32 0, i32 1
-  %121 = load i32, ptr %120, align 4
-  %122 = load ptr, ptr %3, align 8
-  %123 = load i32, ptr %4, align 4
-  %124 = load ptr, ptr %5, align 8
-  %125 = load i32, ptr %7, align 4
-  %126 = call i32 @Gia_ObjFaninId1(ptr noundef %124, i32 noundef %125)
+  %111 = load i32, ptr %7, align 4
+  %112 = call i32 @Gia_ObjFaninId0(ptr noundef %110, i32 noundef %111)
+  %113 = load ptr, ptr %5, align 8
+  %114 = call i32 @Gia_ObjFaninC0(ptr noundef %113)
+  %115 = call i32 @Gia_IsoUpdate(ptr noundef %108, i32 noundef %109, i32 noundef %112, i32 noundef %114)
+  %116 = add i32 %107, %115
+  %117 = load ptr, ptr %5, align 8
+  %118 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %117, i32 0, i32 1
+  %119 = load i32, ptr %118, align 4
+  %120 = add i32 %119, %116
+  store i32 %120, ptr %118, align 4
+  %121 = load ptr, ptr %5, align 8
+  %122 = call ptr @Gia_ObjFanin1(ptr noundef %121)
+  %123 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %122, i32 0, i32 1
+  %124 = load i32, ptr %123, align 4
+  %125 = load ptr, ptr %3, align 8
+  %126 = load i32, ptr %4, align 4
   %127 = load ptr, ptr %5, align 8
-  %128 = call i32 @Gia_ObjFaninC1(ptr noundef %127)
-  %129 = call i32 @Gia_IsoUpdate(ptr noundef %122, i32 noundef %123, i32 noundef %126, i32 noundef %128)
-  %130 = add i32 %121, %129
-  %131 = load ptr, ptr %5, align 8
-  %132 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %131, i32 0, i32 1
-  %133 = load i32, ptr %132, align 4
-  %134 = add i32 %133, %130
-  store i32 %134, ptr %132, align 4
-  br label %135
+  %128 = load i32, ptr %7, align 4
+  %129 = call i32 @Gia_ObjFaninId1(ptr noundef %127, i32 noundef %128)
+  %130 = load ptr, ptr %5, align 8
+  %131 = call i32 @Gia_ObjFaninC1(ptr noundef %130)
+  %132 = call i32 @Gia_IsoUpdate(ptr noundef %125, i32 noundef %126, i32 noundef %129, i32 noundef %131)
+  %133 = add i32 %124, %132
+  %134 = load ptr, ptr %5, align 8
+  %135 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %134, i32 0, i32 1
+  %136 = load i32, ptr %135, align 4
+  %137 = add i32 %136, %133
+  store i32 %137, ptr %135, align 4
+  br label %138
 
-135:                                              ; preds = %100, %99
-  br label %136
+138:                                              ; preds = %103, %102
+  br label %139
 
-136:                                              ; preds = %135
-  %137 = load i32, ptr %7, align 4
-  %138 = add nsw i32 %137, 1
-  store i32 %138, ptr %7, align 4
-  br label %78, !llvm.loop !25
+139:                                              ; preds = %138
+  %140 = load i32, ptr %7, align 4
+  %141 = add nsw i32 %140, 1
+  store i32 %141, ptr %7, align 4
+  br label %81, !llvm.loop !25
 
-139:                                              ; preds = %93
+142:                                              ; preds = %96
   store i32 0, ptr %7, align 4
-  br label %140
+  br label %143
 
-140:                                              ; preds = %181, %139
-  %141 = load i32, ptr %7, align 4
-  %142 = load ptr, ptr %3, align 8
-  %143 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %142, i32 0, i32 0
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds %struct.Gia_Man_t_, ptr %144, i32 0, i32 12
-  %146 = load ptr, ptr %145, align 8
-  %147 = call i32 @Vec_IntSize(ptr noundef %146)
-  %148 = icmp slt i32 %141, %147
-  br i1 %148, label %149, label %156
+143:                                              ; preds = %184, %142
+  %144 = load i32, ptr %7, align 4
+  %145 = load ptr, ptr %3, align 8
+  %146 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %145, i32 0, i32 0
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds %struct.Gia_Man_t_, ptr %147, i32 0, i32 12
+  %149 = load ptr, ptr %148, align 8
+  %150 = call i32 @Vec_IntSize(ptr noundef %149)
+  %151 = icmp slt i32 %144, %150
+  br i1 %151, label %152, label %159
 
-149:                                              ; preds = %140
-  %150 = load ptr, ptr %3, align 8
-  %151 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %150, i32 0, i32 0
-  %152 = load ptr, ptr %151, align 8
-  %153 = load i32, ptr %7, align 4
-  %154 = call ptr @Gia_ManCo(ptr noundef %152, i32 noundef %153)
-  store ptr %154, ptr %5, align 8
-  %155 = icmp ne ptr %154, null
-  br label %156
+152:                                              ; preds = %143
+  %153 = load ptr, ptr %3, align 8
+  %154 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %153, i32 0, i32 0
+  %155 = load ptr, ptr %154, align 8
+  %156 = load i32, ptr %7, align 4
+  %157 = call ptr @Gia_ManCo(ptr noundef %155, i32 noundef %156)
+  store ptr %157, ptr %5, align 8
+  %158 = icmp ne ptr %157, null
+  br label %159
 
-156:                                              ; preds = %149, %140
-  %157 = phi i1 [ false, %140 ], [ %155, %149 ]
-  br i1 %157, label %158, label %184
+159:                                              ; preds = %152, %143
+  %160 = phi i1 [ false, %143 ], [ %158, %152 ]
+  br i1 %160, label %161, label %187
 
-158:                                              ; preds = %156
-  %159 = load ptr, ptr %3, align 8
-  %160 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %159, i32 0, i32 0
-  %161 = load ptr, ptr %160, align 8
-  %162 = load ptr, ptr %5, align 8
-  %163 = call i32 @Gia_ObjId(ptr noundef %161, ptr noundef %162)
-  store i32 %163, ptr %8, align 4
-  %164 = load ptr, ptr %5, align 8
-  %165 = call ptr @Gia_ObjFanin0(ptr noundef %164)
-  %166 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %165, i32 0, i32 1
-  %167 = load i32, ptr %166, align 4
-  %168 = load ptr, ptr %3, align 8
-  %169 = load i32, ptr %4, align 4
-  %170 = load ptr, ptr %5, align 8
-  %171 = load i32, ptr %8, align 4
-  %172 = call i32 @Gia_ObjFaninId0(ptr noundef %170, i32 noundef %171)
+161:                                              ; preds = %159
+  %162 = load ptr, ptr %3, align 8
+  %163 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %162, i32 0, i32 0
+  %164 = load ptr, ptr %163, align 8
+  %165 = load ptr, ptr %5, align 8
+  %166 = call i32 @Gia_ObjId(ptr noundef %164, ptr noundef %165)
+  store i32 %166, ptr %8, align 4
+  %167 = load ptr, ptr %5, align 8
+  %168 = call ptr @Gia_ObjFanin0(ptr noundef %167)
+  %169 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %168, i32 0, i32 1
+  %170 = load i32, ptr %169, align 4
+  %171 = load ptr, ptr %3, align 8
+  %172 = load i32, ptr %4, align 4
   %173 = load ptr, ptr %5, align 8
-  %174 = call i32 @Gia_ObjFaninC0(ptr noundef %173)
-  %175 = call i32 @Gia_IsoUpdate(ptr noundef %168, i32 noundef %169, i32 noundef %172, i32 noundef %174)
-  %176 = add i32 %167, %175
-  %177 = load ptr, ptr %5, align 8
-  %178 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %177, i32 0, i32 1
-  %179 = load i32, ptr %178, align 4
-  %180 = add i32 %179, %176
-  store i32 %180, ptr %178, align 4
-  br label %181
+  %174 = load i32, ptr %8, align 4
+  %175 = call i32 @Gia_ObjFaninId0(ptr noundef %173, i32 noundef %174)
+  %176 = load ptr, ptr %5, align 8
+  %177 = call i32 @Gia_ObjFaninC0(ptr noundef %176)
+  %178 = call i32 @Gia_IsoUpdate(ptr noundef %171, i32 noundef %172, i32 noundef %175, i32 noundef %177)
+  %179 = add i32 %170, %178
+  %180 = load ptr, ptr %5, align 8
+  %181 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %180, i32 0, i32 1
+  %182 = load i32, ptr %181, align 4
+  %183 = add i32 %182, %179
+  store i32 %183, ptr %181, align 4
+  br label %184
 
-181:                                              ; preds = %158
-  %182 = load i32, ptr %7, align 4
-  %183 = add nsw i32 %182, 1
-  store i32 %183, ptr %7, align 4
-  br label %140, !llvm.loop !26
+184:                                              ; preds = %161
+  %185 = load i32, ptr %7, align 4
+  %186 = add nsw i32 %185, 1
+  store i32 %186, ptr %7, align 4
+  br label %143, !llvm.loop !26
 
-184:                                              ; preds = %156
+187:                                              ; preds = %159
   store i32 0, ptr %7, align 4
-  br label %185
+  br label %188
 
-185:                                              ; preds = %226, %184
-  %186 = load i32, ptr %7, align 4
-  %187 = load ptr, ptr %3, align 8
-  %188 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %187, i32 0, i32 0
-  %189 = load ptr, ptr %188, align 8
-  %190 = call i32 @Gia_ManRegNum(ptr noundef %189)
-  %191 = icmp slt i32 %186, %190
-  br i1 %191, label %192, label %216
+188:                                              ; preds = %229, %187
+  %189 = load i32, ptr %7, align 4
+  %190 = load ptr, ptr %3, align 8
+  %191 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %190, i32 0, i32 0
+  %192 = load ptr, ptr %191, align 8
+  %193 = call i32 @Gia_ManRegNum(ptr noundef %192)
+  %194 = icmp slt i32 %189, %193
+  br i1 %194, label %195, label %219
 
-192:                                              ; preds = %185
-  %193 = load ptr, ptr %3, align 8
-  %194 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %193, i32 0, i32 0
-  %195 = load ptr, ptr %194, align 8
+195:                                              ; preds = %188
   %196 = load ptr, ptr %3, align 8
   %197 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %196, i32 0, i32 0
   %198 = load ptr, ptr %197, align 8
-  %199 = call i32 @Gia_ManPoNum(ptr noundef %198)
-  %200 = load i32, ptr %7, align 4
-  %201 = add nsw i32 %199, %200
-  %202 = call ptr @Gia_ManCo(ptr noundef %195, i32 noundef %201)
-  store ptr %202, ptr %6, align 8
-  %203 = icmp ne ptr %202, null
-  br i1 %203, label %204, label %216
+  %199 = load ptr, ptr %3, align 8
+  %200 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %199, i32 0, i32 0
+  %201 = load ptr, ptr %200, align 8
+  %202 = call i32 @Gia_ManPoNum(ptr noundef %201)
+  %203 = load i32, ptr %7, align 4
+  %204 = add nsw i32 %202, %203
+  %205 = call ptr @Gia_ManCo(ptr noundef %198, i32 noundef %204)
+  store ptr %205, ptr %6, align 8
+  %206 = icmp ne ptr %205, null
+  br i1 %206, label %207, label %219
 
-204:                                              ; preds = %192
-  %205 = load ptr, ptr %3, align 8
-  %206 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %205, i32 0, i32 0
-  %207 = load ptr, ptr %206, align 8
+207:                                              ; preds = %195
   %208 = load ptr, ptr %3, align 8
   %209 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %208, i32 0, i32 0
   %210 = load ptr, ptr %209, align 8
-  %211 = call i32 @Gia_ManPiNum(ptr noundef %210)
-  %212 = load i32, ptr %7, align 4
-  %213 = add nsw i32 %211, %212
-  %214 = call ptr @Gia_ManCi(ptr noundef %207, i32 noundef %213)
-  store ptr %214, ptr %5, align 8
-  %215 = icmp ne ptr %214, null
-  br label %216
+  %211 = load ptr, ptr %3, align 8
+  %212 = getelementptr inbounds %struct.Gia_IsoMan_t_, ptr %211, i32 0, i32 0
+  %213 = load ptr, ptr %212, align 8
+  %214 = call i32 @Gia_ManPiNum(ptr noundef %213)
+  %215 = load i32, ptr %7, align 4
+  %216 = add nsw i32 %214, %215
+  %217 = call ptr @Gia_ManCi(ptr noundef %210, i32 noundef %216)
+  store ptr %217, ptr %5, align 8
+  %218 = icmp ne ptr %217, null
+  br label %219
 
-216:                                              ; preds = %204, %192, %185
-  %217 = phi i1 [ false, %192 ], [ false, %185 ], [ %215, %204 ]
-  br i1 %217, label %218, label %229
+219:                                              ; preds = %207, %195, %188
+  %220 = phi i1 [ false, %195 ], [ false, %188 ], [ %218, %207 ]
+  br i1 %220, label %221, label %232
 
-218:                                              ; preds = %216
-  %219 = load ptr, ptr %6, align 8
-  %220 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %219, i32 0, i32 1
-  %221 = load i32, ptr %220, align 4
-  %222 = load ptr, ptr %5, align 8
+221:                                              ; preds = %219
+  %222 = load ptr, ptr %6, align 8
   %223 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %222, i32 0, i32 1
   %224 = load i32, ptr %223, align 4
-  %225 = add i32 %224, %221
-  store i32 %225, ptr %223, align 4
-  br label %226
+  %225 = load ptr, ptr %5, align 8
+  %226 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %225, i32 0, i32 1
+  %227 = load i32, ptr %226, align 4
+  %228 = add i32 %227, %224
+  store i32 %228, ptr %226, align 4
+  br label %229
 
-226:                                              ; preds = %218
-  %227 = load i32, ptr %7, align 4
-  %228 = add nsw i32 %227, 1
-  store i32 %228, ptr %7, align 4
-  br label %185, !llvm.loop !27
+229:                                              ; preds = %221
+  %230 = load i32, ptr %7, align 4
+  %231 = add nsw i32 %230, 1
+  store i32 %231, ptr %7, align 4
+  br label %188, !llvm.loop !27
 
-229:                                              ; preds = %216
+232:                                              ; preds = %219
   ret void
 }
 
@@ -3853,7 +3856,7 @@ define void @Gia_IsoRecognizeMuxes(ptr noundef %0) #0 {
   store i32 0, ptr %7, align 4
   br label %8
 
-8:                                                ; preds = %85, %1
+8:                                                ; preds = %92, %1
   %9 = load i32, ptr %7, align 4
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds %struct.Gia_Man_t_, ptr %10, i32 0, i32 4
@@ -3871,7 +3874,7 @@ define void @Gia_IsoRecognizeMuxes(ptr noundef %0) #0 {
 
 19:                                               ; preds = %14, %8
   %20 = phi i1 [ false, %8 ], [ %18, %14 ]
-  br i1 %20, label %21, label %88
+  br i1 %20, label %21, label %95
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %3, align 8
@@ -3880,7 +3883,7 @@ define void @Gia_IsoRecognizeMuxes(ptr noundef %0) #0 {
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %21
-  br label %84
+  br label %91
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %3, align 8
@@ -3889,7 +3892,7 @@ define void @Gia_IsoRecognizeMuxes(ptr noundef %0) #0 {
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %26
-  br label %85
+  br label %92
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %3, align 8
@@ -3900,76 +3903,83 @@ define void @Gia_IsoRecognizeMuxes(ptr noundef %0) #0 {
   %36 = load ptr, ptr %5, align 8
   %37 = call ptr @Gia_Regular(ptr noundef %36)
   %38 = icmp eq ptr %35, %37
-  br i1 %38, label %39, label %58
+  br i1 %38, label %39, label %61
 
 39:                                               ; preds = %31
-  %40 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @s_256Primes, i64 0, i64 233), align 4
-  %41 = load ptr, ptr %3, align 8
-  %42 = call ptr @Gia_Regular(ptr noundef %41)
-  %43 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %42, i32 0, i32 1
-  %44 = load i32, ptr %43, align 4
-  %45 = add i32 %44, %40
-  store i32 %45, ptr %43, align 4
-  %46 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @s_256Primes, i64 0, i64 234), align 8
-  %47 = load ptr, ptr %4, align 8
-  %48 = call ptr @Gia_Regular(ptr noundef %47)
-  %49 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %48, i32 0, i32 1
-  %50 = load i32, ptr %49, align 4
-  %51 = add i32 %50, %46
-  store i32 %51, ptr %49, align 4
-  %52 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @s_256Primes, i64 0, i64 234), align 8
-  %53 = load ptr, ptr %6, align 8
-  %54 = call ptr @Gia_Regular(ptr noundef %53)
-  %55 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %54, i32 0, i32 1
-  %56 = load i32, ptr %55, align 4
-  %57 = add i32 %56, %52
-  store i32 %57, ptr %55, align 4
-  br label %83
+  %40 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 233
+  %41 = load i32, ptr %40, align 4
+  %42 = load ptr, ptr %3, align 8
+  %43 = call ptr @Gia_Regular(ptr noundef %42)
+  %44 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %43, i32 0, i32 1
+  %45 = load i32, ptr %44, align 4
+  %46 = add i32 %45, %41
+  store i32 %46, ptr %44, align 4
+  %47 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 234
+  %48 = load i32, ptr %47, align 8
+  %49 = load ptr, ptr %4, align 8
+  %50 = call ptr @Gia_Regular(ptr noundef %49)
+  %51 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %50, i32 0, i32 1
+  %52 = load i32, ptr %51, align 4
+  %53 = add i32 %52, %48
+  store i32 %53, ptr %51, align 4
+  %54 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 234
+  %55 = load i32, ptr %54, align 8
+  %56 = load ptr, ptr %6, align 8
+  %57 = call ptr @Gia_Regular(ptr noundef %56)
+  %58 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %57, i32 0, i32 1
+  %59 = load i32, ptr %58, align 4
+  %60 = add i32 %59, %55
+  store i32 %60, ptr %58, align 4
+  br label %90
 
-58:                                               ; preds = %31
-  %59 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @s_256Primes, i64 0, i64 235), align 4
-  %60 = load ptr, ptr %3, align 8
-  %61 = call ptr @Gia_Regular(ptr noundef %60)
-  %62 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %61, i32 0, i32 1
+61:                                               ; preds = %31
+  %62 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 235
   %63 = load i32, ptr %62, align 4
-  %64 = add i32 %63, %59
-  store i32 %64, ptr %62, align 4
-  %65 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @s_256Primes, i64 0, i64 236), align 16
-  %66 = load ptr, ptr %4, align 8
-  %67 = call ptr @Gia_Regular(ptr noundef %66)
-  %68 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %67, i32 0, i32 1
-  %69 = load i32, ptr %68, align 4
-  %70 = add i32 %69, %65
-  store i32 %70, ptr %68, align 4
-  %71 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @s_256Primes, i64 0, i64 237), align 4
-  %72 = load ptr, ptr %6, align 8
-  %73 = call ptr @Gia_Regular(ptr noundef %72)
-  %74 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %73, i32 0, i32 1
-  %75 = load i32, ptr %74, align 4
-  %76 = add i32 %75, %71
-  store i32 %76, ptr %74, align 4
-  %77 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @s_256Primes, i64 0, i64 237), align 4
-  %78 = load ptr, ptr %5, align 8
+  %64 = load ptr, ptr %3, align 8
+  %65 = call ptr @Gia_Regular(ptr noundef %64)
+  %66 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %65, i32 0, i32 1
+  %67 = load i32, ptr %66, align 4
+  %68 = add i32 %67, %63
+  store i32 %68, ptr %66, align 4
+  %69 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 236
+  %70 = load i32, ptr %69, align 16
+  %71 = load ptr, ptr %4, align 8
+  %72 = call ptr @Gia_Regular(ptr noundef %71)
+  %73 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %72, i32 0, i32 1
+  %74 = load i32, ptr %73, align 4
+  %75 = add i32 %74, %70
+  store i32 %75, ptr %73, align 4
+  %76 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 237
+  %77 = load i32, ptr %76, align 4
+  %78 = load ptr, ptr %6, align 8
   %79 = call ptr @Gia_Regular(ptr noundef %78)
   %80 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %79, i32 0, i32 1
   %81 = load i32, ptr %80, align 4
   %82 = add i32 %81, %77
   store i32 %82, ptr %80, align 4
-  br label %83
+  %83 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 237
+  %84 = load i32, ptr %83, align 4
+  %85 = load ptr, ptr %5, align 8
+  %86 = call ptr @Gia_Regular(ptr noundef %85)
+  %87 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %86, i32 0, i32 1
+  %88 = load i32, ptr %87, align 4
+  %89 = add i32 %88, %84
+  store i32 %89, ptr %87, align 4
+  br label %90
 
-83:                                               ; preds = %58, %39
-  br label %84
+90:                                               ; preds = %61, %39
+  br label %91
 
-84:                                               ; preds = %83, %25
-  br label %85
+91:                                               ; preds = %90, %25
+  br label %92
 
-85:                                               ; preds = %84, %30
-  %86 = load i32, ptr %7, align 4
-  %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %7, align 4
+92:                                               ; preds = %91, %30
+  %93 = load i32, ptr %7, align 4
+  %94 = add nsw i32 %93, 1
+  store i32 %94, ptr %7, align 4
   br label %8, !llvm.loop !40
 
-88:                                               ; preds = %19
+95:                                               ; preds = %19
   ret void
 }
 
@@ -4932,7 +4942,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -4960,7 +4970,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -7634,19 +7644,13 @@ declare i32 @Abc_FrameIsBridgeMode(...) #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #7
+declare i64 @strlen(ptr noundef) #6
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Vec_PtrSortComparePtr(ptr noundef %0, ptr noundef %1) #0 {
@@ -7688,7 +7692,7 @@ define internal i32 @Vec_PtrSortComparePtr(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Vec_VecSize(ptr noundef %0) #0 {
@@ -7717,7 +7721,7 @@ define internal ptr @Vec_VecEntry(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Vec_StrSize(ptr noundef %0) #0 {
@@ -7730,7 +7734,7 @@ define internal i32 @Vec_StrSize(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #7
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @Vec_StrArray(ptr noundef %0) #0 {
@@ -7775,16 +7779,22 @@ define internal i32 @Vec_VecLevelSize(ptr noundef %0, i32 noundef %1) #0 {
   ret i32 %12
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nounwind allocsize(0,1) }
 attributes #11 = { nounwind allocsize(0) }
 attributes #12 = { nounwind }

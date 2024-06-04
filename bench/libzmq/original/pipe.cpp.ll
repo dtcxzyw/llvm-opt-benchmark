@@ -748,7 +748,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3zmq12ypipe_base_tINS_5msg_tEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq16ypipe_conflate_tINS_5msg_tEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3zmq16ypipe_conflate_tINS_5msg_tEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %dbuffer = getelementptr inbounds %"class.zmq::ypipe_conflate_t", ptr %this1, i32 0, i32 1
   invoke void @_ZN3zmq9dbuffer_tINS_5msg_tEEC2Ev(ptr noundef nonnull align 8 dereferenceable(193) %dbuffer)
           to label %invoke.cont unwind label %lpad
@@ -759,12 +760,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN3zmq12ypipe_base_tINS_5msg_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
   br label %eh.resume
 
@@ -790,7 +791,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3zmq12ypipe_base_tINS_5msg_tEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq7ypipe_tINS_5msg_tELi256EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3zmq7ypipe_tINS_5msg_tELi256EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_queue = getelementptr inbounds %"class.zmq::ypipe_t", ptr %this1, i32 0, i32 1
   invoke void @_ZN3zmq8yqueue_tINS_5msg_tELi256ELm64EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %_queue)
           to label %invoke.cont unwind label %lpad
@@ -824,21 +826,21 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont6, %invoke.cont4, %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN3zmq8yqueue_tINS_5msg_tELi256ELm64EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %_queue) #14
   br label %ehcleanup
 
@@ -1245,29 +1247,33 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %5 = getelementptr inbounds { [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, i32 1, i32 2
+  store ptr %5, ptr %add.ptr, align 8
   %add.ptr6 = getelementptr inbounds i8, ptr %this1, i64 40
-  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, i32 2, i32 2), ptr %add.ptr6, align 8
+  %6 = getelementptr inbounds { [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, i32 2, i32 2
+  store ptr %6, ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this1, i64 56
-  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, i32 3, i32 2), ptr %add.ptr7, align 8
+  %7 = getelementptr inbounds { [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, i32 3, i32 2
+  store ptr %7, ptr %add.ptr7, align 8
   %_in_pipe = getelementptr inbounds %"class.zmq::pipe_t", ptr %this1, i32 0, i32 7
-  %4 = load ptr, ptr %inpipe_.addr, align 8
-  store ptr %4, ptr %_in_pipe, align 8
+  %8 = load ptr, ptr %inpipe_.addr, align 8
+  store ptr %8, ptr %_in_pipe, align 8
   %_out_pipe = getelementptr inbounds %"class.zmq::pipe_t", ptr %this1, i32 0, i32 8
-  %5 = load ptr, ptr %outpipe_.addr, align 8
-  store ptr %5, ptr %_out_pipe, align 8
+  %9 = load ptr, ptr %outpipe_.addr, align 8
+  store ptr %9, ptr %_out_pipe, align 8
   %_in_active = getelementptr inbounds %"class.zmq::pipe_t", ptr %this1, i32 0, i32 9
   store i8 1, ptr %_in_active, align 8
   %_out_active = getelementptr inbounds %"class.zmq::pipe_t", ptr %this1, i32 0, i32 10
   store i8 1, ptr %_out_active, align 1
   %_hwm = getelementptr inbounds %"class.zmq::pipe_t", ptr %this1, i32 0, i32 11
-  %6 = load i32, ptr %outhwm_.addr, align 4
-  store i32 %6, ptr %_hwm, align 4
+  %10 = load i32, ptr %outhwm_.addr, align 4
+  store i32 %10, ptr %_hwm, align 4
   %_lwm = getelementptr inbounds %"class.zmq::pipe_t", ptr %this1, i32 0, i32 12
-  %7 = load i32, ptr %inhwm_.addr, align 4
-  %call = invoke noundef i32 @_ZN3zmq6pipe_t11compute_lwmEi(i32 noundef %7)
+  %11 = load i32, ptr %inhwm_.addr, align 4
+  %call = invoke noundef i32 @_ZN3zmq6pipe_t11compute_lwmEi(i32 noundef %11)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont5
@@ -1298,8 +1304,8 @@ invoke.cont10:                                    ; preds = %invoke.cont9
   %_server_socket_routing_id = getelementptr inbounds %"class.zmq::pipe_t", ptr %this1, i32 0, i32 24
   store i32 0, ptr %_server_socket_routing_id, align 8
   %_conflate = getelementptr inbounds %"class.zmq::pipe_t", ptr %this1, i32 0, i32 25
-  %8 = load i8, ptr %conflate_.addr, align 1
-  %tobool = trunc i8 %8 to i1
+  %12 = load i8, ptr %conflate_.addr, align 1
+  %tobool = trunc i8 %12 to i1
   %frombool11 = zext i1 %tobool to i8
   store i8 %frombool11, ptr %_conflate, align 4
   %_endpoint_pair = getelementptr inbounds %"class.zmq::pipe_t", ptr %this1, i32 0, i32 27
@@ -1315,57 +1321,57 @@ invoke.cont16:                                    ; preds = %invoke.cont13
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup21
 
 lpad2:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup20
 
 lpad4:                                            ; preds = %invoke.cont3
-  %15 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup19
 
 lpad8:                                            ; preds = %invoke.cont9, %invoke.cont5
-  %18 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   br label %ehcleanup18
 
 lpad12:                                           ; preds = %invoke.cont10
-  %21 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad15:                                           ; preds = %invoke.cont13
-  %24 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot, align 4
   call void @_ZN3zmq19endpoint_uri_pair_tD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %_endpoint_pair) #14
   br label %ehcleanup
 
@@ -1374,18 +1380,18 @@ ehcleanup:                                        ; preds = %lpad15, %lpad12
   br label %ehcleanup18
 
 ehcleanup18:                                      ; preds = %ehcleanup, %lpad8
-  %27 = getelementptr inbounds i8, ptr %this1, i64 56
-  call void @_ZN3zmq12array_item_tILi3EED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %27) #14
+  %31 = getelementptr inbounds i8, ptr %this1, i64 56
+  call void @_ZN3zmq12array_item_tILi3EED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %31) #14
   br label %ehcleanup19
 
 ehcleanup19:                                      ; preds = %ehcleanup18, %lpad4
-  %28 = getelementptr inbounds i8, ptr %this1, i64 40
-  call void @_ZN3zmq12array_item_tILi2EED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %28) #14
+  %32 = getelementptr inbounds i8, ptr %this1, i64 40
+  call void @_ZN3zmq12array_item_tILi2EED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %32) #14
   br label %ehcleanup20
 
 ehcleanup20:                                      ; preds = %ehcleanup19, %lpad2
-  %29 = getelementptr inbounds i8, ptr %this1, i64 24
-  call void @_ZN3zmq12array_item_tILi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %29) #14
+  %33 = getelementptr inbounds i8, ptr %this1, i64 24
+  call void @_ZN3zmq12array_item_tILi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %33) #14
   br label %ehcleanup21
 
 ehcleanup21:                                      ; preds = %ehcleanup20, %lpad
@@ -1408,7 +1414,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3zmq12array_item_tILi1EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3zmq12array_item_tILi1EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_array_index = getelementptr inbounds %"class.zmq::array_item_t", ptr %this1, i32 0, i32 1
   store i32 -1, ptr %_array_index, align 8
   ret void
@@ -1420,7 +1427,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3zmq12array_item_tILi2EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3zmq12array_item_tILi2EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_array_index = getelementptr inbounds %"class.zmq::array_item_t.10", ptr %this1, i32 0, i32 1
   store i32 -1, ptr %_array_index, align 8
   ret void
@@ -1432,7 +1440,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3zmq12array_item_tILi3EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3zmq12array_item_tILi3EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_array_index = getelementptr inbounds %"class.zmq::array_item_t.12", ptr %this1, i32 0, i32 1
   store i32 -1, ptr %_array_index, align 8
   ret void
@@ -3751,7 +3760,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq12ypipe_base_tINS_5msg_tEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3zmq12ypipe_base_tINS_5msg_tEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

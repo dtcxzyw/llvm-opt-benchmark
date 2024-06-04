@@ -27,7 +27,7 @@ define void @slurmctld_script(ptr noundef %0, i1 noundef zeroext %1) #0 {
   store ptr %11, ptr %5, align 8
   %12 = load i8, ptr %4, align 1
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %22, label %14
+  br i1 %13, label %23, label %14
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %3, align 8
@@ -35,50 +35,52 @@ define void @slurmctld_script(ptr noundef %0, i1 noundef zeroext %1) #0 {
   %17 = load i32, ptr %16, align 8
   %18 = load i8, ptr %4, align 1
   %19 = trunc i8 %18 to i1
-  %20 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 140), align 8
-  %21 = load ptr, ptr %5, align 8
-  call void @slurmscriptd_run_prepilog(i32 noundef %17, i1 noundef zeroext %19, ptr noundef %20, ptr noundef %21)
-  br label %30
+  %20 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 140
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %5, align 8
+  call void @slurmscriptd_run_prepilog(i32 noundef %17, i1 noundef zeroext %19, ptr noundef %21, ptr noundef %22)
+  br label %32
 
-22:                                               ; preds = %2
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.job_record, ptr %23, i32 0, i32 53
-  %25 = load i32, ptr %24, align 8
-  %26 = load i8, ptr %4, align 1
-  %27 = trunc i8 %26 to i1
-  %28 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 45), align 8
-  %29 = load ptr, ptr %5, align 8
-  call void @slurmscriptd_run_prepilog(i32 noundef %25, i1 noundef zeroext %27, ptr noundef %28, ptr noundef %29)
-  br label %30
+23:                                               ; preds = %2
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds %struct.job_record, ptr %24, i32 0, i32 53
+  %26 = load i32, ptr %25, align 8
+  %27 = load i8, ptr %4, align 1
+  %28 = trunc i8 %27 to i1
+  %29 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 45
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %5, align 8
+  call void @slurmscriptd_run_prepilog(i32 noundef %26, i1 noundef zeroext %28, ptr noundef %30, ptr noundef %31)
+  br label %32
 
-30:                                               ; preds = %22, %14
+32:                                               ; preds = %23, %14
   store i32 0, ptr %6, align 4
-  br label %31
+  br label %33
 
-31:                                               ; preds = %43, %30
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %32, i64 %34
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %46
+33:                                               ; preds = %45, %32
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds ptr, ptr %34, i64 %36
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %48
 
-38:                                               ; preds = %31
-  %39 = load ptr, ptr %5, align 8
-  %40 = load i32, ptr %6, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
-  call void @slurm_xfree(ptr noundef %42)
-  br label %43
+40:                                               ; preds = %33
+  %41 = load ptr, ptr %5, align 8
+  %42 = load i32, ptr %6, align 4
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds ptr, ptr %41, i64 %43
+  call void @slurm_xfree(ptr noundef %44)
+  br label %45
 
-43:                                               ; preds = %38
-  %44 = load i32, ptr %6, align 4
-  %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %6, align 4
-  br label %31, !llvm.loop !6
+45:                                               ; preds = %40
+  %46 = load i32, ptr %6, align 4
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %6, align 4
+  br label %33, !llvm.loop !6
 
-46:                                               ; preds = %31
+48:                                               ; preds = %33
   call void @slurm_xfree(ptr noundef %5)
   ret void
 }

@@ -425,31 +425,32 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %5 = load i64, ptr getelementptr inbounds ([200 x i64], ptr @h_steps, i64 0, i64 199), align 8
-  store i64 %5, ptr %h_steps_max, align 8
+  %5 = getelementptr inbounds [200 x i64], ptr @h_steps, i64 0, i64 199
+  %6 = load i64, ptr %5, align 8
+  store i64 %6, ptr %h_steps_max, align 8
   br label %do.body
 
 do.body:                                          ; preds = %if.else
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %6 = load i64, ptr %npages_new.addr, align 8
-  %7 = load i64, ptr %h_steps_max, align 8
-  %8 = load i64, ptr %n_epoch, align 8
-  %sub = sub i64 199, %8
+  %7 = load i64, ptr %npages_new.addr, align 8
+  %8 = load i64, ptr %h_steps_max, align 8
+  %9 = load i64, ptr %n_epoch, align 8
+  %sub = sub i64 199, %9
   %arrayidx = getelementptr inbounds [200 x i64], ptr @h_steps, i64 0, i64 %sub
-  %9 = load i64, ptr %arrayidx, align 8
-  %sub2 = sub i64 %7, %9
-  %mul = mul i64 %6, %sub2
+  %10 = load i64, ptr %arrayidx, align 8
+  %sub2 = sub i64 %8, %10
+  %mul = mul i64 %7, %sub2
   store i64 %mul, ptr %npages_purge, align 8
-  %10 = load i64, ptr %npages_purge, align 8
-  %shr = lshr i64 %10, 24
+  %11 = load i64, ptr %npages_purge, align 8
+  %shr = lshr i64 %11, 24
   store i64 %shr, ptr %npages_purge, align 8
   br label %if.end
 
 if.end:                                           ; preds = %do.end, %if.then
-  %11 = load i64, ptr %npages_purge, align 8
-  ret i64 %11
+  %12 = load i64, ptr %npages_purge, align 8
+  ret i64 %12
 }
 
 ; Function Attrs: nounwind uwtable

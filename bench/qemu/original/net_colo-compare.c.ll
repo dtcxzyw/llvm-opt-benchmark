@@ -555,29 +555,30 @@ if.else:                                          ; preds = %do.body2
   %next9 = getelementptr inbounds %struct.CompareState, ptr %15, i32 0, i32 24
   %tql_prev10 = getelementptr inbounds %struct.QTailQLink, ptr %next9, i32 0, i32 1
   %16 = load ptr, ptr %tql_prev10, align 8
-  store ptr %16, ptr getelementptr inbounds (%struct.QTailQLink, ptr @net_compares, i32 0, i32 1), align 8
+  %17 = getelementptr inbounds %struct.QTailQLink, ptr @net_compares, i32 0, i32 1
+  store ptr %16, ptr %17, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then4
-  %17 = load ptr, ptr %s, align 8
-  %next11 = getelementptr inbounds %struct.CompareState, ptr %17, i32 0, i32 24
-  %18 = load ptr, ptr %next11, align 8
-  %19 = load ptr, ptr %s, align 8
-  %next12 = getelementptr inbounds %struct.CompareState, ptr %19, i32 0, i32 24
+  %18 = load ptr, ptr %s, align 8
+  %next11 = getelementptr inbounds %struct.CompareState, ptr %18, i32 0, i32 24
+  %19 = load ptr, ptr %next11, align 8
+  %20 = load ptr, ptr %s, align 8
+  %next12 = getelementptr inbounds %struct.CompareState, ptr %20, i32 0, i32 24
   %tql_prev13 = getelementptr inbounds %struct.QTailQLink, ptr %next12, i32 0, i32 1
-  %20 = load ptr, ptr %tql_prev13, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %20, i32 0, i32 0
-  store ptr %18, ptr %tql_next, align 8
-  %21 = load ptr, ptr %s, align 8
-  %next14 = getelementptr inbounds %struct.CompareState, ptr %21, i32 0, i32 24
+  %21 = load ptr, ptr %tql_prev13, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %21, i32 0, i32 0
+  store ptr %19, ptr %tql_next, align 8
+  %22 = load ptr, ptr %s, align 8
+  %next14 = getelementptr inbounds %struct.CompareState, ptr %22, i32 0, i32 24
   %tql_prev15 = getelementptr inbounds %struct.QTailQLink, ptr %next14, i32 0, i32 1
   store ptr null, ptr %tql_prev15, align 8
-  %22 = load ptr, ptr %s, align 8
-  %next16 = getelementptr inbounds %struct.CompareState, ptr %22, i32 0, i32 24
+  %23 = load ptr, ptr %s, align 8
+  %next16 = getelementptr inbounds %struct.CompareState, ptr %23, i32 0, i32 24
   %tql_next17 = getelementptr inbounds %struct.QTailQLink, ptr %next16, i32 0, i32 0
   store ptr null, ptr %tql_next17, align 8
-  %23 = load ptr, ptr %s, align 8
-  %next18 = getelementptr inbounds %struct.CompareState, ptr %23, i32 0, i32 24
+  %24 = load ptr, ptr %s, align 8
+  %next18 = getelementptr inbounds %struct.CompareState, ptr %24, i32 0, i32 24
   store ptr null, ptr %next18, align 8
   br label %do.end19
 
@@ -588,15 +589,15 @@ if.end20:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end20
-  %24 = load ptr, ptr %tmp, align 8
-  %next21 = getelementptr inbounds %struct.CompareState, ptr %24, i32 0, i32 24
-  %25 = load ptr, ptr %next21, align 8
-  store ptr %25, ptr %tmp, align 8
+  %25 = load ptr, ptr %tmp, align 8
+  %next21 = getelementptr inbounds %struct.CompareState, ptr %25, i32 0, i32 24
+  %26 = load ptr, ptr %next21, align 8
+  store ptr %26, ptr %tmp, align 8
   br label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %do.end19, %for.cond
-  %26 = load ptr, ptr @net_compares, align 8
-  %cmp22 = icmp eq ptr %26, null
+  %27 = load ptr, ptr @net_compares, align 8
+  %cmp22 = icmp eq ptr %27, null
   br i1 %cmp22, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %for.end
@@ -607,76 +608,76 @@ if.then23:                                        ; preds = %for.end
 
 if.end24:                                         ; preds = %if.then23, %for.end
   call void @qemu_mutex_unlock_impl(ptr noundef @colo_compare_mutex, ptr noundef @.str, i32 noundef 1428)
-  %27 = load ptr, ptr %s, align 8
-  %chr_pri_in = getelementptr inbounds %struct.CompareState, ptr %27, i32 0, i32 5
-  call void @qemu_chr_fe_deinit(ptr noundef %chr_pri_in, i1 noundef zeroext false)
   %28 = load ptr, ptr %s, align 8
-  %chr_sec_in = getelementptr inbounds %struct.CompareState, ptr %28, i32 0, i32 6
-  call void @qemu_chr_fe_deinit(ptr noundef %chr_sec_in, i1 noundef zeroext false)
+  %chr_pri_in = getelementptr inbounds %struct.CompareState, ptr %28, i32 0, i32 5
+  call void @qemu_chr_fe_deinit(ptr noundef %chr_pri_in, i1 noundef zeroext false)
   %29 = load ptr, ptr %s, align 8
-  %chr_out = getelementptr inbounds %struct.CompareState, ptr %29, i32 0, i32 7
-  call void @qemu_chr_fe_deinit(ptr noundef %chr_out, i1 noundef zeroext false)
+  %chr_sec_in = getelementptr inbounds %struct.CompareState, ptr %29, i32 0, i32 6
+  call void @qemu_chr_fe_deinit(ptr noundef %chr_sec_in, i1 noundef zeroext false)
   %30 = load ptr, ptr %s, align 8
-  %notify_dev = getelementptr inbounds %struct.CompareState, ptr %30, i32 0, i32 4
-  %31 = load ptr, ptr %notify_dev, align 8
-  %tobool25 = icmp ne ptr %31, null
+  %chr_out = getelementptr inbounds %struct.CompareState, ptr %30, i32 0, i32 7
+  call void @qemu_chr_fe_deinit(ptr noundef %chr_out, i1 noundef zeroext false)
+  %31 = load ptr, ptr %s, align 8
+  %notify_dev = getelementptr inbounds %struct.CompareState, ptr %31, i32 0, i32 4
+  %32 = load ptr, ptr %notify_dev, align 8
+  %tobool25 = icmp ne ptr %32, null
   br i1 %tobool25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end24
-  %32 = load ptr, ptr %s, align 8
-  %chr_notify_dev = getelementptr inbounds %struct.CompareState, ptr %32, i32 0, i32 8
+  %33 = load ptr, ptr %s, align 8
+  %chr_notify_dev = getelementptr inbounds %struct.CompareState, ptr %33, i32 0, i32 8
   call void @qemu_chr_fe_deinit(ptr noundef %chr_notify_dev, i1 noundef zeroext false)
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then26, %if.end24
-  %33 = load ptr, ptr %s, align 8
-  call void @colo_compare_timer_del(ptr noundef %33)
   %34 = load ptr, ptr %s, align 8
-  %event_bh = getelementptr inbounds %struct.CompareState, ptr %34, i32 0, i32 22
-  %35 = load ptr, ptr %event_bh, align 8
-  call void @qemu_bh_delete(ptr noundef %35)
-  %36 = load ptr, ptr %s, align 8
-  %iothread = getelementptr inbounds %struct.CompareState, ptr %36, i32 0, i32 19
-  %37 = load ptr, ptr %iothread, align 8
-  %call28 = call ptr @iothread_get_aio_context(ptr noundef %37)
+  call void @colo_compare_timer_del(ptr noundef %34)
+  %35 = load ptr, ptr %s, align 8
+  %event_bh = getelementptr inbounds %struct.CompareState, ptr %35, i32 0, i32 22
+  %36 = load ptr, ptr %event_bh, align 8
+  call void @qemu_bh_delete(ptr noundef %36)
+  %37 = load ptr, ptr %s, align 8
+  %iothread = getelementptr inbounds %struct.CompareState, ptr %37, i32 0, i32 19
+  %38 = load ptr, ptr %iothread, align 8
+  %call28 = call ptr @iothread_get_aio_context(ptr noundef %38)
   store ptr %call28, ptr %ctx, align 8
-  %38 = load ptr, ptr %ctx, align 8
-  call void @aio_context_acquire(ptr noundef %38)
+  %39 = load ptr, ptr %ctx, align 8
+  call void @aio_context_acquire(ptr noundef %39)
   store i8 0, ptr %waited_, align 1
   store ptr @global_aio_wait, ptr %wait_, align 8
-  %39 = load ptr, ptr %ctx, align 8
-  store ptr %39, ptr %ctx_, align 8
-  %40 = load ptr, ptr %wait_, align 8
-  %num_waiters = getelementptr inbounds %struct.AioWait, ptr %40, i32 0, i32 0
+  %40 = load ptr, ptr %ctx, align 8
+  store ptr %40, ptr %ctx_, align 8
+  %41 = load ptr, ptr %wait_, align 8
+  %num_waiters = getelementptr inbounds %struct.AioWait, ptr %41, i32 0, i32 0
   store i32 1, ptr %.atomictmp, align 4
-  %41 = load i32, ptr %.atomictmp, align 4
-  %42 = atomicrmw add ptr %num_waiters, i32 %41 seq_cst, align 4
-  store i32 %42, ptr %atomic-temp29, align 4
+  %42 = load i32, ptr %.atomictmp, align 4
+  %43 = atomicrmw add ptr %num_waiters, i32 %42 seq_cst, align 4
+  store i32 %43, ptr %atomic-temp29, align 4
   fence syncscope("singlethread") seq_cst
-  %43 = load ptr, ptr %ctx_, align 8
-  %tobool30 = icmp ne ptr %43, null
+  %44 = load ptr, ptr %ctx_, align 8
+  %tobool30 = icmp ne ptr %44, null
   br i1 %tobool30, label %land.lhs.true, label %if.else38
 
 land.lhs.true:                                    ; preds = %if.end27
-  %44 = load ptr, ptr %ctx_, align 8
-  %call31 = call zeroext i1 @in_aio_context_home_thread(ptr noundef %44)
+  %45 = load ptr, ptr %ctx_, align 8
+  %call31 = call zeroext i1 @in_aio_context_home_thread(ptr noundef %45)
   br i1 %call31, label %if.then32, label %if.else38
 
 if.then32:                                        ; preds = %land.lhs.true
   br label %while.cond33
 
 while.cond33:                                     ; preds = %while.body35, %if.then32
-  %45 = load ptr, ptr %s, align 8
-  %out_sendco = getelementptr inbounds %struct.CompareState, ptr %45, i32 0, i32 12
+  %46 = load ptr, ptr %s, align 8
+  %out_sendco = getelementptr inbounds %struct.CompareState, ptr %46, i32 0, i32 12
   %done = getelementptr inbounds %struct.SendCo, ptr %out_sendco, i32 0, i32 5
-  %46 = load i8, ptr %done, align 1
-  %tobool34 = trunc i8 %46 to i1
+  %47 = load i8, ptr %done, align 1
+  %tobool34 = trunc i8 %47 to i1
   %lnot = xor i1 %tobool34, true
   br i1 %lnot, label %while.body35, label %while.end37
 
 while.body35:                                     ; preds = %while.cond33
-  %47 = load ptr, ptr %ctx_, align 8
-  %call36 = call zeroext i1 @aio_poll(ptr noundef %47, i1 noundef zeroext true)
+  %48 = load ptr, ptr %ctx_, align 8
+  %call36 = call zeroext i1 @aio_poll(ptr noundef %48, i1 noundef zeroext true)
   store i8 1, ptr %waited_, align 1
   br label %while.cond33, !llvm.loop !10
 
@@ -700,34 +701,34 @@ if.end44:                                         ; preds = %if.then42
   br label %while.cond45
 
 while.cond45:                                     ; preds = %if.end58, %if.end44
-  %48 = load ptr, ptr %s, align 8
-  %out_sendco46 = getelementptr inbounds %struct.CompareState, ptr %48, i32 0, i32 12
+  %49 = load ptr, ptr %s, align 8
+  %out_sendco46 = getelementptr inbounds %struct.CompareState, ptr %49, i32 0, i32 12
   %done47 = getelementptr inbounds %struct.SendCo, ptr %out_sendco46, i32 0, i32 5
-  %49 = load i8, ptr %done47, align 1
-  %tobool48 = trunc i8 %49 to i1
+  %50 = load i8, ptr %done47, align 1
+  %tobool48 = trunc i8 %50 to i1
   %lnot49 = xor i1 %tobool48, true
   br i1 %lnot49, label %while.body50, label %while.end59
 
 while.body50:                                     ; preds = %while.cond45
-  %50 = load ptr, ptr %ctx_, align 8
-  %tobool51 = icmp ne ptr %50, null
+  %51 = load ptr, ptr %ctx_, align 8
+  %tobool51 = icmp ne ptr %51, null
   br i1 %tobool51, label %if.then52, label %if.end53
 
 if.then52:                                        ; preds = %while.body50
-  %51 = load ptr, ptr %ctx_, align 8
-  call void @aio_context_release(ptr noundef %51)
+  %52 = load ptr, ptr %ctx_, align 8
+  call void @aio_context_release(ptr noundef %52)
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then52, %while.body50
   %call54 = call ptr @qemu_get_aio_context()
   %call55 = call zeroext i1 @aio_poll(ptr noundef %call54, i1 noundef zeroext true)
-  %52 = load ptr, ptr %ctx_, align 8
-  %tobool56 = icmp ne ptr %52, null
+  %53 = load ptr, ptr %ctx_, align 8
+  %tobool56 = icmp ne ptr %53, null
   br i1 %tobool56, label %if.then57, label %if.end58
 
 if.then57:                                        ; preds = %if.end53
-  %53 = load ptr, ptr %ctx_, align 8
-  call void @aio_context_acquire(ptr noundef %53)
+  %54 = load ptr, ptr %ctx_, align 8
+  call void @aio_context_acquire(ptr noundef %54)
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then57, %if.end53
@@ -738,58 +739,58 @@ while.end59:                                      ; preds = %while.cond45
   br label %if.end60
 
 if.end60:                                         ; preds = %while.end59, %while.end37
-  %54 = load ptr, ptr %wait_, align 8
-  %num_waiters61 = getelementptr inbounds %struct.AioWait, ptr %54, i32 0, i32 0
+  %55 = load ptr, ptr %wait_, align 8
+  %num_waiters61 = getelementptr inbounds %struct.AioWait, ptr %55, i32 0, i32 0
   store i32 1, ptr %.atomictmp62, align 4
-  %55 = load i32, ptr %.atomictmp62, align 4
-  %56 = atomicrmw sub ptr %num_waiters61, i32 %55 seq_cst, align 4
-  store i32 %56, ptr %atomic-temp63, align 4
-  %57 = load i8, ptr %waited_, align 1
-  %tobool65 = trunc i8 %57 to i1
+  %56 = load i32, ptr %.atomictmp62, align 4
+  %57 = atomicrmw sub ptr %num_waiters61, i32 %56 seq_cst, align 4
+  store i32 %57, ptr %atomic-temp63, align 4
+  %58 = load i8, ptr %waited_, align 1
+  %tobool65 = trunc i8 %58 to i1
   %frombool = zext i1 %tobool65 to i8
   store i8 %frombool, ptr %tmp64, align 1
-  %58 = load ptr, ptr %s, align 8
-  %notify_dev67 = getelementptr inbounds %struct.CompareState, ptr %58, i32 0, i32 4
-  %59 = load ptr, ptr %notify_dev67, align 8
-  %tobool68 = icmp ne ptr %59, null
+  %59 = load ptr, ptr %s, align 8
+  %notify_dev67 = getelementptr inbounds %struct.CompareState, ptr %59, i32 0, i32 4
+  %60 = load ptr, ptr %notify_dev67, align 8
+  %tobool68 = icmp ne ptr %60, null
   br i1 %tobool68, label %if.then69, label %if.end117
 
 if.then69:                                        ; preds = %if.end60
   store i8 0, ptr %waited_70, align 1
   store ptr @global_aio_wait, ptr %wait_71, align 8
-  %60 = load ptr, ptr %ctx, align 8
-  store ptr %60, ptr %ctx_72, align 8
-  %61 = load ptr, ptr %wait_71, align 8
-  %num_waiters73 = getelementptr inbounds %struct.AioWait, ptr %61, i32 0, i32 0
+  %61 = load ptr, ptr %ctx, align 8
+  store ptr %61, ptr %ctx_72, align 8
+  %62 = load ptr, ptr %wait_71, align 8
+  %num_waiters73 = getelementptr inbounds %struct.AioWait, ptr %62, i32 0, i32 0
   store i32 1, ptr %.atomictmp74, align 4
-  %62 = load i32, ptr %.atomictmp74, align 4
-  %63 = atomicrmw add ptr %num_waiters73, i32 %62 seq_cst, align 4
-  store i32 %63, ptr %atomic-temp75, align 4
+  %63 = load i32, ptr %.atomictmp74, align 4
+  %64 = atomicrmw add ptr %num_waiters73, i32 %63 seq_cst, align 4
+  store i32 %64, ptr %atomic-temp75, align 4
   fence syncscope("singlethread") seq_cst
-  %64 = load ptr, ptr %ctx_72, align 8
-  %tobool76 = icmp ne ptr %64, null
+  %65 = load ptr, ptr %ctx_72, align 8
+  %tobool76 = icmp ne ptr %65, null
   br i1 %tobool76, label %land.lhs.true77, label %if.else87
 
 land.lhs.true77:                                  ; preds = %if.then69
-  %65 = load ptr, ptr %ctx_72, align 8
-  %call78 = call zeroext i1 @in_aio_context_home_thread(ptr noundef %65)
+  %66 = load ptr, ptr %ctx_72, align 8
+  %call78 = call zeroext i1 @in_aio_context_home_thread(ptr noundef %66)
   br i1 %call78, label %if.then79, label %if.else87
 
 if.then79:                                        ; preds = %land.lhs.true77
   br label %while.cond80
 
 while.cond80:                                     ; preds = %while.body84, %if.then79
-  %66 = load ptr, ptr %s, align 8
-  %notify_sendco = getelementptr inbounds %struct.CompareState, ptr %66, i32 0, i32 13
+  %67 = load ptr, ptr %s, align 8
+  %notify_sendco = getelementptr inbounds %struct.CompareState, ptr %67, i32 0, i32 13
   %done81 = getelementptr inbounds %struct.SendCo, ptr %notify_sendco, i32 0, i32 5
-  %67 = load i8, ptr %done81, align 1
-  %tobool82 = trunc i8 %67 to i1
+  %68 = load i8, ptr %done81, align 1
+  %tobool82 = trunc i8 %68 to i1
   %lnot83 = xor i1 %tobool82, true
   br i1 %lnot83, label %while.body84, label %while.end86
 
 while.body84:                                     ; preds = %while.cond80
-  %68 = load ptr, ptr %ctx_72, align 8
-  %call85 = call zeroext i1 @aio_poll(ptr noundef %68, i1 noundef zeroext true)
+  %69 = load ptr, ptr %ctx_72, align 8
+  %call85 = call zeroext i1 @aio_poll(ptr noundef %69, i1 noundef zeroext true)
   store i8 1, ptr %waited_70, align 1
   br label %while.cond80, !llvm.loop !12
 
@@ -813,34 +814,34 @@ if.end93:                                         ; preds = %if.then91
   br label %while.cond94
 
 while.cond94:                                     ; preds = %if.end107, %if.end93
-  %69 = load ptr, ptr %s, align 8
-  %notify_sendco95 = getelementptr inbounds %struct.CompareState, ptr %69, i32 0, i32 13
+  %70 = load ptr, ptr %s, align 8
+  %notify_sendco95 = getelementptr inbounds %struct.CompareState, ptr %70, i32 0, i32 13
   %done96 = getelementptr inbounds %struct.SendCo, ptr %notify_sendco95, i32 0, i32 5
-  %70 = load i8, ptr %done96, align 1
-  %tobool97 = trunc i8 %70 to i1
+  %71 = load i8, ptr %done96, align 1
+  %tobool97 = trunc i8 %71 to i1
   %lnot98 = xor i1 %tobool97, true
   br i1 %lnot98, label %while.body99, label %while.end108
 
 while.body99:                                     ; preds = %while.cond94
-  %71 = load ptr, ptr %ctx_72, align 8
-  %tobool100 = icmp ne ptr %71, null
+  %72 = load ptr, ptr %ctx_72, align 8
+  %tobool100 = icmp ne ptr %72, null
   br i1 %tobool100, label %if.then101, label %if.end102
 
 if.then101:                                       ; preds = %while.body99
-  %72 = load ptr, ptr %ctx_72, align 8
-  call void @aio_context_release(ptr noundef %72)
+  %73 = load ptr, ptr %ctx_72, align 8
+  call void @aio_context_release(ptr noundef %73)
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then101, %while.body99
   %call103 = call ptr @qemu_get_aio_context()
   %call104 = call zeroext i1 @aio_poll(ptr noundef %call103, i1 noundef zeroext true)
-  %73 = load ptr, ptr %ctx_72, align 8
-  %tobool105 = icmp ne ptr %73, null
+  %74 = load ptr, ptr %ctx_72, align 8
+  %tobool105 = icmp ne ptr %74, null
   br i1 %tobool105, label %if.then106, label %if.end107
 
 if.then106:                                       ; preds = %if.end102
-  %74 = load ptr, ptr %ctx_72, align 8
-  call void @aio_context_acquire(ptr noundef %74)
+  %75 = load ptr, ptr %ctx_72, align 8
+  call void @aio_context_acquire(ptr noundef %75)
   br label %if.end107
 
 if.end107:                                        ; preds = %if.then106, %if.end102
@@ -851,59 +852,59 @@ while.end108:                                     ; preds = %while.cond94
   br label %if.end109
 
 if.end109:                                        ; preds = %while.end108, %while.end86
-  %75 = load ptr, ptr %wait_71, align 8
-  %num_waiters110 = getelementptr inbounds %struct.AioWait, ptr %75, i32 0, i32 0
+  %76 = load ptr, ptr %wait_71, align 8
+  %num_waiters110 = getelementptr inbounds %struct.AioWait, ptr %76, i32 0, i32 0
   store i32 1, ptr %.atomictmp111, align 4
-  %76 = load i32, ptr %.atomictmp111, align 4
-  %77 = atomicrmw sub ptr %num_waiters110, i32 %76 seq_cst, align 4
-  store i32 %77, ptr %atomic-temp112, align 4
-  %78 = load i8, ptr %waited_70, align 1
-  %tobool114 = trunc i8 %78 to i1
+  %77 = load i32, ptr %.atomictmp111, align 4
+  %78 = atomicrmw sub ptr %num_waiters110, i32 %77 seq_cst, align 4
+  store i32 %78, ptr %atomic-temp112, align 4
+  %79 = load i8, ptr %waited_70, align 1
+  %tobool114 = trunc i8 %79 to i1
   %frombool115 = zext i1 %tobool114 to i8
   store i8 %frombool115, ptr %tmp113, align 1
   br label %if.end117
 
 if.end117:                                        ; preds = %if.end109, %if.end60
-  %79 = load ptr, ptr %ctx, align 8
-  call void @aio_context_release(ptr noundef %79)
-  %80 = load ptr, ptr %s, align 8
-  %conn_list = getelementptr inbounds %struct.CompareState, ptr %80, i32 0, i32 17
+  %80 = load ptr, ptr %ctx, align 8
+  call void @aio_context_release(ptr noundef %80)
   %81 = load ptr, ptr %s, align 8
-  call void @g_queue_foreach(ptr noundef %conn_list, ptr noundef @colo_flush_packets, ptr noundef %81)
+  %conn_list = getelementptr inbounds %struct.CompareState, ptr %81, i32 0, i32 17
+  %82 = load ptr, ptr %s, align 8
+  call void @g_queue_foreach(ptr noundef %conn_list, ptr noundef @colo_flush_packets, ptr noundef %82)
   store i8 0, ptr %waited_118, align 1
   store ptr @global_aio_wait, ptr %wait_119, align 8
   store ptr null, ptr %ctx_120, align 8
-  %82 = load ptr, ptr %wait_119, align 8
-  %num_waiters121 = getelementptr inbounds %struct.AioWait, ptr %82, i32 0, i32 0
+  %83 = load ptr, ptr %wait_119, align 8
+  %num_waiters121 = getelementptr inbounds %struct.AioWait, ptr %83, i32 0, i32 0
   store i32 1, ptr %.atomictmp122, align 4
-  %83 = load i32, ptr %.atomictmp122, align 4
-  %84 = atomicrmw add ptr %num_waiters121, i32 %83 seq_cst, align 4
-  store i32 %84, ptr %atomic-temp123, align 4
+  %84 = load i32, ptr %.atomictmp122, align 4
+  %85 = atomicrmw add ptr %num_waiters121, i32 %84 seq_cst, align 4
+  store i32 %85, ptr %atomic-temp123, align 4
   fence syncscope("singlethread") seq_cst
-  %85 = load ptr, ptr %ctx_120, align 8
-  %tobool124 = icmp ne ptr %85, null
+  %86 = load ptr, ptr %ctx_120, align 8
+  %tobool124 = icmp ne ptr %86, null
   br i1 %tobool124, label %land.lhs.true125, label %if.else136
 
 land.lhs.true125:                                 ; preds = %if.end117
-  %86 = load ptr, ptr %ctx_120, align 8
-  %call126 = call zeroext i1 @in_aio_context_home_thread(ptr noundef %86)
+  %87 = load ptr, ptr %ctx_120, align 8
+  %call126 = call zeroext i1 @in_aio_context_home_thread(ptr noundef %87)
   br i1 %call126, label %if.then127, label %if.else136
 
 if.then127:                                       ; preds = %land.lhs.true125
   br label %while.cond128
 
 while.cond128:                                    ; preds = %while.body133, %if.then127
-  %87 = load ptr, ptr %s, align 8
-  %out_sendco129 = getelementptr inbounds %struct.CompareState, ptr %87, i32 0, i32 12
+  %88 = load ptr, ptr %s, align 8
+  %out_sendco129 = getelementptr inbounds %struct.CompareState, ptr %88, i32 0, i32 12
   %done130 = getelementptr inbounds %struct.SendCo, ptr %out_sendco129, i32 0, i32 5
-  %88 = load i8, ptr %done130, align 1
-  %tobool131 = trunc i8 %88 to i1
+  %89 = load i8, ptr %done130, align 1
+  %tobool131 = trunc i8 %89 to i1
   %lnot132 = xor i1 %tobool131, true
   br i1 %lnot132, label %while.body133, label %while.end135
 
 while.body133:                                    ; preds = %while.cond128
-  %89 = load ptr, ptr %ctx_120, align 8
-  %call134 = call zeroext i1 @aio_poll(ptr noundef %89, i1 noundef zeroext true)
+  %90 = load ptr, ptr %ctx_120, align 8
+  %call134 = call zeroext i1 @aio_poll(ptr noundef %90, i1 noundef zeroext true)
   store i8 1, ptr %waited_118, align 1
   br label %while.cond128, !llvm.loop !14
 
@@ -927,34 +928,34 @@ if.end142:                                        ; preds = %if.then140
   br label %while.cond143
 
 while.cond143:                                    ; preds = %if.end156, %if.end142
-  %90 = load ptr, ptr %s, align 8
-  %out_sendco144 = getelementptr inbounds %struct.CompareState, ptr %90, i32 0, i32 12
+  %91 = load ptr, ptr %s, align 8
+  %out_sendco144 = getelementptr inbounds %struct.CompareState, ptr %91, i32 0, i32 12
   %done145 = getelementptr inbounds %struct.SendCo, ptr %out_sendco144, i32 0, i32 5
-  %91 = load i8, ptr %done145, align 1
-  %tobool146 = trunc i8 %91 to i1
+  %92 = load i8, ptr %done145, align 1
+  %tobool146 = trunc i8 %92 to i1
   %lnot147 = xor i1 %tobool146, true
   br i1 %lnot147, label %while.body148, label %while.end157
 
 while.body148:                                    ; preds = %while.cond143
-  %92 = load ptr, ptr %ctx_120, align 8
-  %tobool149 = icmp ne ptr %92, null
+  %93 = load ptr, ptr %ctx_120, align 8
+  %tobool149 = icmp ne ptr %93, null
   br i1 %tobool149, label %if.then150, label %if.end151
 
 if.then150:                                       ; preds = %while.body148
-  %93 = load ptr, ptr %ctx_120, align 8
-  call void @aio_context_release(ptr noundef %93)
+  %94 = load ptr, ptr %ctx_120, align 8
+  call void @aio_context_release(ptr noundef %94)
   br label %if.end151
 
 if.end151:                                        ; preds = %if.then150, %while.body148
   %call152 = call ptr @qemu_get_aio_context()
   %call153 = call zeroext i1 @aio_poll(ptr noundef %call152, i1 noundef zeroext true)
-  %94 = load ptr, ptr %ctx_120, align 8
-  %tobool154 = icmp ne ptr %94, null
+  %95 = load ptr, ptr %ctx_120, align 8
+  %tobool154 = icmp ne ptr %95, null
   br i1 %tobool154, label %if.then155, label %if.end156
 
 if.then155:                                       ; preds = %if.end151
-  %95 = load ptr, ptr %ctx_120, align 8
-  call void @aio_context_acquire(ptr noundef %95)
+  %96 = load ptr, ptr %ctx_120, align 8
+  call void @aio_context_acquire(ptr noundef %96)
   br label %if.end156
 
 if.end156:                                        ; preds = %if.then155, %if.end151
@@ -965,71 +966,71 @@ while.end157:                                     ; preds = %while.cond143
   br label %if.end158
 
 if.end158:                                        ; preds = %while.end157, %while.end135
-  %96 = load ptr, ptr %wait_119, align 8
-  %num_waiters159 = getelementptr inbounds %struct.AioWait, ptr %96, i32 0, i32 0
+  %97 = load ptr, ptr %wait_119, align 8
+  %num_waiters159 = getelementptr inbounds %struct.AioWait, ptr %97, i32 0, i32 0
   store i32 1, ptr %.atomictmp160, align 4
-  %97 = load i32, ptr %.atomictmp160, align 4
-  %98 = atomicrmw sub ptr %num_waiters159, i32 %97 seq_cst, align 4
-  store i32 %98, ptr %atomic-temp161, align 4
-  %99 = load i8, ptr %waited_118, align 1
-  %tobool163 = trunc i8 %99 to i1
+  %98 = load i32, ptr %.atomictmp160, align 4
+  %99 = atomicrmw sub ptr %num_waiters159, i32 %98 seq_cst, align 4
+  store i32 %99, ptr %atomic-temp161, align 4
+  %100 = load i8, ptr %waited_118, align 1
+  %tobool163 = trunc i8 %100 to i1
   %frombool164 = zext i1 %tobool163 to i8
   store i8 %frombool164, ptr %tmp162, align 1
-  %100 = load ptr, ptr %s, align 8
-  %conn_list166 = getelementptr inbounds %struct.CompareState, ptr %100, i32 0, i32 17
-  call void @g_queue_clear(ptr noundef %conn_list166)
   %101 = load ptr, ptr %s, align 8
-  %out_sendco167 = getelementptr inbounds %struct.CompareState, ptr %101, i32 0, i32 12
+  %conn_list166 = getelementptr inbounds %struct.CompareState, ptr %101, i32 0, i32 17
+  call void @g_queue_clear(ptr noundef %conn_list166)
+  %102 = load ptr, ptr %s, align 8
+  %out_sendco167 = getelementptr inbounds %struct.CompareState, ptr %102, i32 0, i32 12
   %send_list = getelementptr inbounds %struct.SendCo, ptr %out_sendco167, i32 0, i32 3
   call void @g_queue_clear(ptr noundef %send_list)
-  %102 = load ptr, ptr %s, align 8
-  %notify_dev168 = getelementptr inbounds %struct.CompareState, ptr %102, i32 0, i32 4
-  %103 = load ptr, ptr %notify_dev168, align 8
-  %tobool169 = icmp ne ptr %103, null
+  %103 = load ptr, ptr %s, align 8
+  %notify_dev168 = getelementptr inbounds %struct.CompareState, ptr %103, i32 0, i32 4
+  %104 = load ptr, ptr %notify_dev168, align 8
+  %tobool169 = icmp ne ptr %104, null
   br i1 %tobool169, label %if.then170, label %if.end173
 
 if.then170:                                       ; preds = %if.end158
-  %104 = load ptr, ptr %s, align 8
-  %notify_sendco171 = getelementptr inbounds %struct.CompareState, ptr %104, i32 0, i32 13
+  %105 = load ptr, ptr %s, align 8
+  %notify_sendco171 = getelementptr inbounds %struct.CompareState, ptr %105, i32 0, i32 13
   %send_list172 = getelementptr inbounds %struct.SendCo, ptr %notify_sendco171, i32 0, i32 3
   call void @g_queue_clear(ptr noundef %send_list172)
   br label %if.end173
 
 if.end173:                                        ; preds = %if.then170, %if.end158
-  %105 = load ptr, ptr %s, align 8
-  %connection_track_table = getelementptr inbounds %struct.CompareState, ptr %105, i32 0, i32 18
-  %106 = load ptr, ptr %connection_track_table, align 8
-  %tobool174 = icmp ne ptr %106, null
+  %106 = load ptr, ptr %s, align 8
+  %connection_track_table = getelementptr inbounds %struct.CompareState, ptr %106, i32 0, i32 18
+  %107 = load ptr, ptr %connection_track_table, align 8
+  %tobool174 = icmp ne ptr %107, null
   br i1 %tobool174, label %if.then175, label %if.end177
 
 if.then175:                                       ; preds = %if.end173
-  %107 = load ptr, ptr %s, align 8
-  %connection_track_table176 = getelementptr inbounds %struct.CompareState, ptr %107, i32 0, i32 18
-  %108 = load ptr, ptr %connection_track_table176, align 8
-  call void @g_hash_table_destroy(ptr noundef %108)
+  %108 = load ptr, ptr %s, align 8
+  %connection_track_table176 = getelementptr inbounds %struct.CompareState, ptr %108, i32 0, i32 18
+  %109 = load ptr, ptr %connection_track_table176, align 8
+  call void @g_hash_table_destroy(ptr noundef %109)
   br label %if.end177
 
 if.end177:                                        ; preds = %if.then175, %if.end173
-  %109 = load ptr, ptr %s, align 8
-  %iothread178 = getelementptr inbounds %struct.CompareState, ptr %109, i32 0, i32 19
-  %110 = load ptr, ptr %iothread178, align 8
-  call void @object_unref(ptr noundef %110)
-  %111 = load ptr, ptr %s, align 8
-  %pri_indev = getelementptr inbounds %struct.CompareState, ptr %111, i32 0, i32 1
-  %112 = load ptr, ptr %pri_indev, align 8
-  call void @g_free(ptr noundef %112)
-  %113 = load ptr, ptr %s, align 8
-  %sec_indev = getelementptr inbounds %struct.CompareState, ptr %113, i32 0, i32 2
-  %114 = load ptr, ptr %sec_indev, align 8
-  call void @g_free(ptr noundef %114)
-  %115 = load ptr, ptr %s, align 8
-  %outdev = getelementptr inbounds %struct.CompareState, ptr %115, i32 0, i32 3
-  %116 = load ptr, ptr %outdev, align 8
-  call void @g_free(ptr noundef %116)
-  %117 = load ptr, ptr %s, align 8
-  %notify_dev179 = getelementptr inbounds %struct.CompareState, ptr %117, i32 0, i32 4
-  %118 = load ptr, ptr %notify_dev179, align 8
-  call void @g_free(ptr noundef %118)
+  %110 = load ptr, ptr %s, align 8
+  %iothread178 = getelementptr inbounds %struct.CompareState, ptr %110, i32 0, i32 19
+  %111 = load ptr, ptr %iothread178, align 8
+  call void @object_unref(ptr noundef %111)
+  %112 = load ptr, ptr %s, align 8
+  %pri_indev = getelementptr inbounds %struct.CompareState, ptr %112, i32 0, i32 1
+  %113 = load ptr, ptr %pri_indev, align 8
+  call void @g_free(ptr noundef %113)
+  %114 = load ptr, ptr %s, align 8
+  %sec_indev = getelementptr inbounds %struct.CompareState, ptr %114, i32 0, i32 2
+  %115 = load ptr, ptr %sec_indev, align 8
+  call void @g_free(ptr noundef %115)
+  %116 = load ptr, ptr %s, align 8
+  %outdev = getelementptr inbounds %struct.CompareState, ptr %116, i32 0, i32 3
+  %117 = load ptr, ptr %outdev, align 8
+  call void @g_free(ptr noundef %117)
+  %118 = load ptr, ptr %s, align 8
+  %notify_dev179 = getelementptr inbounds %struct.CompareState, ptr %118, i32 0, i32 4
+  %119 = load ptr, ptr %notify_dev179, align 8
+  call void @g_free(ptr noundef %119)
   ret void
 }
 
@@ -2452,18 +2453,21 @@ do.body94:                                        ; preds = %if.end93
   %89 = load ptr, ptr %s, align 8
   %next = getelementptr inbounds %struct.CompareState, ptr %89, i32 0, i32 24
   store ptr null, ptr %next, align 8
-  %90 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @net_compares, i32 0, i32 1), align 8
-  %91 = load ptr, ptr %s, align 8
-  %next95 = getelementptr inbounds %struct.CompareState, ptr %91, i32 0, i32 24
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next95, i32 0, i32 1
-  store ptr %90, ptr %tql_prev, align 8
+  %90 = getelementptr inbounds %struct.QTailQLink, ptr @net_compares, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr %s, align 8
-  %93 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @net_compares, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %93, i32 0, i32 0
-  store ptr %92, ptr %tql_next, align 8
-  %94 = load ptr, ptr %s, align 8
-  %next96 = getelementptr inbounds %struct.CompareState, ptr %94, i32 0, i32 24
-  store ptr %next96, ptr getelementptr inbounds (%struct.QTailQLink, ptr @net_compares, i32 0, i32 1), align 8
+  %next95 = getelementptr inbounds %struct.CompareState, ptr %92, i32 0, i32 24
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next95, i32 0, i32 1
+  store ptr %91, ptr %tql_prev, align 8
+  %93 = load ptr, ptr %s, align 8
+  %94 = getelementptr inbounds %struct.QTailQLink, ptr @net_compares, i32 0, i32 1
+  %95 = load ptr, ptr %94, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %95, i32 0, i32 0
+  store ptr %93, ptr %tql_next, align 8
+  %96 = load ptr, ptr %s, align 8
+  %next96 = getelementptr inbounds %struct.CompareState, ptr %96, i32 0, i32 24
+  %97 = getelementptr inbounds %struct.QTailQLink, ptr @net_compares, i32 0, i32 1
+  store ptr %next96, ptr %97, align 8
   br label %do.end97
 
 do.end97:                                         ; preds = %do.body94

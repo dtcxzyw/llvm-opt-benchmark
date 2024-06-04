@@ -73,64 +73,66 @@ define void @ompi_file_open_f(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %29 = call i32 @ompi_fortran_string_f2c(ptr noundef %27, i32 noundef %28, ptr noundef %18)
   store i32 %29, ptr %20, align 4
   %30 = icmp ne i32 0, %29
-  br i1 %30, label %31, label %43
+  br i1 %30, label %31, label %45
 
 31:                                               ; preds = %7
-  %32 = load ptr, ptr getelementptr inbounds (%struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 6), align 8
-  %33 = load i32, ptr getelementptr inbounds (%struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 7), align 8
-  %34 = load i32, ptr %20, align 4
-  %35 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %34)
-  %36 = call i32 @ompi_errhandler_invoke(ptr noundef %32, ptr noundef @ompi_mpi_file_null, i32 noundef %33, i32 noundef %35, ptr noundef @.str)
-  store i32 %36, ptr %19, align 4
-  %37 = load ptr, ptr %13, align 8
-  %38 = icmp ne ptr null, %37
-  br i1 %38, label %39, label %42
+  %32 = getelementptr inbounds %struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 6
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 7
+  %35 = load i32, ptr %34, align 8
+  %36 = load i32, ptr %20, align 4
+  %37 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %36)
+  %38 = call i32 @ompi_errhandler_invoke(ptr noundef %33, ptr noundef @ompi_mpi_file_null, i32 noundef %35, i32 noundef %37, ptr noundef @.str)
+  store i32 %38, ptr %19, align 4
+  %39 = load ptr, ptr %13, align 8
+  %40 = icmp ne ptr null, %39
+  br i1 %40, label %41, label %44
 
-39:                                               ; preds = %31
-  %40 = load i32, ptr %19, align 4
-  %41 = load ptr, ptr %13, align 8
-  store i32 %40, ptr %41, align 4
-  br label %42
+41:                                               ; preds = %31
+  %42 = load i32, ptr %19, align 4
+  %43 = load ptr, ptr %13, align 8
+  store i32 %42, ptr %43, align 4
+  br label %44
 
-42:                                               ; preds = %39, %31
+44:                                               ; preds = %41, %31
+  br label %66
+
+45:                                               ; preds = %7
+  %46 = load ptr, ptr %15, align 8
+  %47 = load ptr, ptr %18, align 8
+  %48 = load ptr, ptr %10, align 8
+  %49 = load i32, ptr %48, align 4
+  %50 = load ptr, ptr %16, align 8
+  %51 = call i32 @PMPI_File_open(ptr noundef %46, ptr noundef %47, i32 noundef %49, ptr noundef %50, ptr noundef %17)
+  store i32 %51, ptr %19, align 4
+  %52 = load ptr, ptr %13, align 8
+  %53 = icmp ne ptr null, %52
+  br i1 %53, label %54, label %57
+
+54:                                               ; preds = %45
+  %55 = load i32, ptr %19, align 4
+  %56 = load ptr, ptr %13, align 8
+  store i32 %55, ptr %56, align 4
+  br label %57
+
+57:                                               ; preds = %54, %45
+  %58 = load i32, ptr %19, align 4
+  %59 = icmp eq i32 0, %58
+  br i1 %59, label %60, label %64
+
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %17, align 8
+  %62 = call i32 @PMPI_File_c2f(ptr noundef %61)
+  %63 = load ptr, ptr %12, align 8
+  store i32 %62, ptr %63, align 4
   br label %64
 
-43:                                               ; preds = %7
-  %44 = load ptr, ptr %15, align 8
-  %45 = load ptr, ptr %18, align 8
-  %46 = load ptr, ptr %10, align 8
-  %47 = load i32, ptr %46, align 4
-  %48 = load ptr, ptr %16, align 8
-  %49 = call i32 @PMPI_File_open(ptr noundef %44, ptr noundef %45, i32 noundef %47, ptr noundef %48, ptr noundef %17)
-  store i32 %49, ptr %19, align 4
-  %50 = load ptr, ptr %13, align 8
-  %51 = icmp ne ptr null, %50
-  br i1 %51, label %52, label %55
+64:                                               ; preds = %60, %57
+  %65 = load ptr, ptr %18, align 8
+  call void @free(ptr noundef %65) #3
+  br label %66
 
-52:                                               ; preds = %43
-  %53 = load i32, ptr %19, align 4
-  %54 = load ptr, ptr %13, align 8
-  store i32 %53, ptr %54, align 4
-  br label %55
-
-55:                                               ; preds = %52, %43
-  %56 = load i32, ptr %19, align 4
-  %57 = icmp eq i32 0, %56
-  br i1 %57, label %58, label %62
-
-58:                                               ; preds = %55
-  %59 = load ptr, ptr %17, align 8
-  %60 = call i32 @PMPI_File_c2f(ptr noundef %59)
-  %61 = load ptr, ptr %12, align 8
-  store i32 %60, ptr %61, align 4
-  br label %62
-
-62:                                               ; preds = %58, %55
-  %63 = load ptr, ptr %18, align 8
-  call void @free(ptr noundef %63) #3
-  br label %64
-
-64:                                               ; preds = %62, %42
+66:                                               ; preds = %64, %44
   ret void
 }
 

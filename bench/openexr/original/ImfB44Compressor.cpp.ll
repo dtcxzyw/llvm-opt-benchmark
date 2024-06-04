@@ -142,17 +142,18 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %hdr.addr, align 8
   call void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(49) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213B44CompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_213B44CompressorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_optFlatFields = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %optFlatFields.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %optFlatFields.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %_optFlatFields, align 8
   %_format = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 3
   store i32 1, ptr %_format, align 4
   %_numScanLines = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 4
-  %2 = load i64, ptr %numScanLines.addr, align 8
-  %conv = trunc i64 %2 to i32
+  %3 = load i64, ptr %numScanLines.addr, align 8
+  %conv = trunc i64 %3 to i32
   store i32 %conv, ptr %_numScanLines, align 8
   %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 6
   store ptr null, ptr %_tmpBuffer, align 8
@@ -161,18 +162,18 @@ entry:
   %_numChans = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 8
   store i32 0, ptr %_numChans, align 8
   %_channels = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 10
-  %3 = load ptr, ptr %hdr.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %3)
+  %4 = load ptr, ptr %hdr.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %_channels, align 8
   %_channelData = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 11
   store ptr null, ptr %_channelData, align 8
-  %4 = load i64, ptr %maxScanLineSize.addr, align 8
-  %div = udiv i64 %4, 2
-  %5 = load i64, ptr %numScanLines.addr, align 8
-  %call4 = invoke noundef i64 @_ZN7Imf_3_26uiMultImEET_S1_S1_(i64 noundef %div, i64 noundef %5)
+  %5 = load i64, ptr %maxScanLineSize.addr, align 8
+  %div = udiv i64 %5, 2
+  %6 = load i64, ptr %numScanLines.addr, align 8
+  %call4 = invoke noundef i64 @_ZN7Imf_3_26uiMultImEET_S1_S1_(i64 noundef %div, i64 noundef %6)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -180,11 +181,11 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %6 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %call6, i64 2)
-  %7 = extractvalue { i64, i1 } %6, 1
-  %8 = extractvalue { i64, i1 } %6, 0
-  %9 = select i1 %7, i64 -1, i64 %8
-  %call8 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %9) #12
+  %7 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %call6, i64 2)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = extractvalue { i64, i1 } %7, 0
+  %10 = select i1 %8, i64 -1, i64 %9
+  %call8 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %10) #12
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -200,8 +201,8 @@ invoke.cont10:                                    ; preds = %invoke.cont7
 invoke.cont12:                                    ; preds = %invoke.cont10
   store ptr %call13, ptr %channels, align 8
   store i32 0, ptr %numHalfChans, align 4
-  %10 = load ptr, ptr %channels, align 8
-  %call15 = invoke ptr @_ZNK7Imf_3_211ChannelList5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %10)
+  %11 = load ptr, ptr %channels, align 8
+  %call15 = invoke ptr @_ZNK7Imf_3_211ChannelList5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont12
@@ -211,8 +212,8 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   br label %for.cond
 
 for.cond:                                         ; preds = %invoke.cont27, %invoke.cont14
-  %11 = load ptr, ptr %channels, align 8
-  %call18 = invoke ptr @_ZNK7Imf_3_211ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
+  %12 = load ptr, ptr %channels, align 8
+  %call18 = invoke ptr @_ZNK7Imf_3_211ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %for.cond
@@ -227,31 +228,31 @@ invoke.cont21:                                    ; preds = %invoke.cont17
 
 for.body:                                         ; preds = %invoke.cont21
   %_numChans23 = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 8
-  %12 = load i32, ptr %_numChans23, align 8
-  %inc = add nsw i32 %12, 1
+  %13 = load i32, ptr %_numChans23, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %_numChans23, align 8
   %call25 = invoke noundef nonnull align 4 dereferenceable(13) ptr @_ZNK7Imf_3_211ChannelList13ConstIterator7channelEv(ptr noundef nonnull align 8 dereferenceable(8) %c)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %for.body
   %type = getelementptr inbounds %"struct.Imf_3_2::Channel", ptr %call25, i32 0, i32 0
-  %13 = load i32, ptr %type, align 4
-  %cmp = icmp eq i32 %13, 1
+  %14 = load i32, ptr %type, align 4
+  %cmp = icmp eq i32 %14, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont24
-  %14 = load i32, ptr %numHalfChans, align 4
-  %inc26 = add nsw i32 %14, 1
+  %15 = load i32, ptr %numHalfChans, align 4
+  %inc26 = add nsw i32 %15, 1
   store i32 %inc26, ptr %numHalfChans, align 4
   br label %if.end
 
 lpad:                                             ; preds = %for.end91, %for.inc87, %invoke.cont79, %invoke.cont76, %invoke.cont68, %invoke.cont61, %invoke.cont58, %for.body57, %invoke.cont51, %for.cond49, %invoke.cont41, %invoke.cont36, %invoke.cont34, %invoke.cont32, %for.end, %for.inc, %for.body, %invoke.cont17, %for.cond, %invoke.cont12, %invoke.cont10, %invoke.cont7, %invoke.cont5, %invoke.cont3, %invoke.cont, %entry
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -266,22 +267,22 @@ invoke.cont27:                                    ; preds = %for.inc
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %invoke.cont21
-  %18 = load i32, ptr %numHalfChans, align 4
-  %mul = mul nsw i32 12, %18
+  %19 = load i32, ptr %numHalfChans, align 4
+  %mul = mul nsw i32 12, %19
   %conv29 = sext i32 %mul to i64
-  %19 = load i64, ptr %numScanLines.addr, align 8
-  %add = add i64 %19, 3
+  %20 = load i64, ptr %numScanLines.addr, align 8
+  %add = add i64 %20, 3
   %mul30 = mul i64 %conv29, %add
   %div31 = udiv i64 %mul30, 4
   store i64 %div31, ptr %padding, align 8
-  %20 = load i64, ptr %maxScanLineSize.addr, align 8
-  %21 = load i64, ptr %numScanLines.addr, align 8
-  %call33 = invoke noundef i64 @_ZN7Imf_3_26uiMultImEET_S1_S1_(i64 noundef %20, i64 noundef %21)
+  %21 = load i64, ptr %maxScanLineSize.addr, align 8
+  %22 = load i64, ptr %numScanLines.addr, align 8
+  %call33 = invoke noundef i64 @_ZN7Imf_3_26uiMultImEET_S1_S1_(i64 noundef %21, i64 noundef %22)
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %for.end
-  %22 = load i64, ptr %padding, align 8
-  %call35 = invoke noundef i64 @_ZN7Imf_3_25uiAddImEET_S1_S1_(i64 noundef %call33, i64 noundef %22)
+  %23 = load i64, ptr %padding, align 8
+  %call35 = invoke noundef i64 @_ZN7Imf_3_25uiAddImEET_S1_S1_(i64 noundef %call33, i64 noundef %23)
           to label %invoke.cont34 unwind label %lpad
 
 invoke.cont34:                                    ; preds = %invoke.cont32
@@ -292,21 +293,21 @@ invoke.cont36:                                    ; preds = %invoke.cont34
   %_outBuffer38 = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 7
   store ptr %call37, ptr %_outBuffer38, align 8
   %_numChans39 = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 8
-  %23 = load i32, ptr %_numChans39, align 8
-  %conv40 = sext i32 %23 to i64
-  %24 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv40, i64 40)
-  %25 = extractvalue { i64, i1 } %24, 1
-  %26 = extractvalue { i64, i1 } %24, 0
-  %27 = select i1 %25, i64 -1, i64 %26
-  %call42 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #12
+  %24 = load i32, ptr %_numChans39, align 8
+  %conv40 = sext i32 %24 to i64
+  %25 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv40, i64 40)
+  %26 = extractvalue { i64, i1 } %25, 1
+  %27 = extractvalue { i64, i1 } %25, 0
+  %28 = select i1 %26, i64 -1, i64 %27
+  %call42 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %28) #12
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %invoke.cont36
   %_channelData43 = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 11
   store ptr %call42, ptr %_channelData43, align 8
   store i32 0, ptr %i, align 4
-  %28 = load ptr, ptr %channels, align 8
-  %call46 = invoke ptr @_ZNK7Imf_3_211ChannelList5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %28)
+  %29 = load ptr, ptr %channels, align 8
+  %call46 = invoke ptr @_ZNK7Imf_3_211ChannelList5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %29)
           to label %invoke.cont45 unwind label %lpad
 
 invoke.cont45:                                    ; preds = %invoke.cont41
@@ -316,8 +317,8 @@ invoke.cont45:                                    ; preds = %invoke.cont41
   br label %for.cond49
 
 for.cond49:                                       ; preds = %invoke.cont88, %invoke.cont45
-  %29 = load ptr, ptr %channels, align 8
-  %call52 = invoke ptr @_ZNK7Imf_3_211ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %29)
+  %30 = load ptr, ptr %channels, align 8
+  %call52 = invoke ptr @_ZNK7Imf_3_211ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %30)
           to label %invoke.cont51 unwind label %lpad
 
 invoke.cont51:                                    ; preds = %for.cond49
@@ -336,39 +337,39 @@ for.body57:                                       ; preds = %invoke.cont55
 
 invoke.cont58:                                    ; preds = %for.body57
   %ySampling = getelementptr inbounds %"struct.Imf_3_2::Channel", ptr %call59, i32 0, i32 2
-  %30 = load i32, ptr %ySampling, align 4
+  %31 = load i32, ptr %ySampling, align 4
   %_channelData60 = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 11
-  %31 = load ptr, ptr %_channelData60, align 8
-  %32 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %32 to i64
-  %arrayidx = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %31, i64 %idxprom
+  %32 = load ptr, ptr %_channelData60, align 8
+  %33 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %33 to i64
+  %arrayidx = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %32, i64 %idxprom
   %ys = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %arrayidx, i32 0, i32 4
-  store i32 %30, ptr %ys, align 8
+  store i32 %31, ptr %ys, align 8
   %call62 = invoke noundef nonnull align 4 dereferenceable(13) ptr @_ZNK7Imf_3_211ChannelList13ConstIterator7channelEv(ptr noundef nonnull align 8 dereferenceable(8) %c44)
           to label %invoke.cont61 unwind label %lpad
 
 invoke.cont61:                                    ; preds = %invoke.cont58
   %type63 = getelementptr inbounds %"struct.Imf_3_2::Channel", ptr %call62, i32 0, i32 0
-  %33 = load i32, ptr %type63, align 4
+  %34 = load i32, ptr %type63, align 4
   %_channelData64 = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 11
-  %34 = load ptr, ptr %_channelData64, align 8
-  %35 = load i32, ptr %i, align 4
-  %idxprom65 = sext i32 %35 to i64
-  %arrayidx66 = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %34, i64 %idxprom65
+  %35 = load ptr, ptr %_channelData64, align 8
+  %36 = load i32, ptr %i, align 4
+  %idxprom65 = sext i32 %36 to i64
+  %arrayidx66 = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %35, i64 %idxprom65
   %type67 = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %arrayidx66, i32 0, i32 5
-  store i32 %33, ptr %type67, align 4
+  store i32 %34, ptr %type67, align 4
   %call69 = invoke noundef nonnull align 4 dereferenceable(13) ptr @_ZNK7Imf_3_211ChannelList13ConstIterator7channelEv(ptr noundef nonnull align 8 dereferenceable(8) %c44)
           to label %invoke.cont68 unwind label %lpad
 
 invoke.cont68:                                    ; preds = %invoke.cont61
   %pLinear = getelementptr inbounds %"struct.Imf_3_2::Channel", ptr %call69, i32 0, i32 3
-  %36 = load i8, ptr %pLinear, align 4
-  %tobool70 = trunc i8 %36 to i1
+  %37 = load i8, ptr %pLinear, align 4
+  %tobool70 = trunc i8 %37 to i1
   %_channelData71 = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 11
-  %37 = load ptr, ptr %_channelData71, align 8
-  %38 = load i32, ptr %i, align 4
-  %idxprom72 = sext i32 %38 to i64
-  %arrayidx73 = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %37, i64 %idxprom72
+  %38 = load ptr, ptr %_channelData71, align 8
+  %39 = load i32, ptr %i, align 4
+  %idxprom72 = sext i32 %39 to i64
+  %arrayidx73 = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %38, i64 %idxprom72
   %pLinear74 = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %arrayidx73, i32 0, i32 6
   %frombool75 = zext i1 %tobool70 to i8
   store i8 %frombool75, ptr %pLinear74, align 8
@@ -377,8 +378,8 @@ invoke.cont68:                                    ; preds = %invoke.cont61
 
 invoke.cont76:                                    ; preds = %invoke.cont68
   %type78 = getelementptr inbounds %"struct.Imf_3_2::Channel", ptr %call77, i32 0, i32 0
-  %39 = load i32, ptr %type78, align 4
-  %call80 = invoke noundef i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef %39)
+  %40 = load i32, ptr %type78, align 4
+  %call80 = invoke noundef i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef %40)
           to label %invoke.cont79 unwind label %lpad
 
 invoke.cont79:                                    ; preds = %invoke.cont76
@@ -388,10 +389,10 @@ invoke.cont79:                                    ; preds = %invoke.cont76
 invoke.cont81:                                    ; preds = %invoke.cont79
   %div83 = sdiv i32 %call80, %call82
   %_channelData84 = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 11
-  %40 = load ptr, ptr %_channelData84, align 8
-  %41 = load i32, ptr %i, align 4
-  %idxprom85 = sext i32 %41 to i64
-  %arrayidx86 = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %40, i64 %idxprom85
+  %41 = load ptr, ptr %_channelData84, align 8
+  %42 = load i32, ptr %i, align 4
+  %idxprom85 = sext i32 %42 to i64
+  %arrayidx86 = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %41, i64 %idxprom85
   %size = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %arrayidx86, i32 0, i32 7
   store i32 %div83, ptr %size, align 4
   br label %for.inc87
@@ -401,40 +402,40 @@ for.inc87:                                        ; preds = %invoke.cont81
           to label %invoke.cont88 unwind label %lpad
 
 invoke.cont88:                                    ; preds = %for.inc87
-  %42 = load i32, ptr %i, align 4
-  %inc90 = add nsw i32 %42, 1
+  %43 = load i32, ptr %i, align 4
+  %inc90 = add nsw i32 %43, 1
   store i32 %inc90, ptr %i, align 4
   br label %for.cond49, !llvm.loop !6
 
 for.end91:                                        ; preds = %invoke.cont55
-  %43 = load ptr, ptr %hdr.addr, align 8
-  %call93 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %43)
+  %44 = load ptr, ptr %hdr.addr, align 8
+  %call93 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %44)
           to label %invoke.cont92 unwind label %lpad
 
 invoke.cont92:                                    ; preds = %for.end91
   store ptr %call93, ptr %dataWindow, align 8
-  %44 = load ptr, ptr %dataWindow, align 8
-  %min = getelementptr inbounds %"class.Imath_3_2::Box", ptr %44, i32 0, i32 0
+  %45 = load ptr, ptr %dataWindow, align 8
+  %min = getelementptr inbounds %"class.Imath_3_2::Box", ptr %45, i32 0, i32 0
   %x = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %min, i32 0, i32 0
-  %45 = load i32, ptr %x, align 4
+  %46 = load i32, ptr %x, align 4
   %_minX = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 12
-  store i32 %45, ptr %_minX, align 8
-  %46 = load ptr, ptr %dataWindow, align 8
-  %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %46, i32 0, i32 1
+  store i32 %46, ptr %_minX, align 8
+  %47 = load ptr, ptr %dataWindow, align 8
+  %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %47, i32 0, i32 1
   %x94 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %max, i32 0, i32 0
-  %47 = load i32, ptr %x94, align 4
+  %48 = load i32, ptr %x94, align 4
   %_maxX = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 13
-  store i32 %47, ptr %_maxX, align 4
-  %48 = load ptr, ptr %dataWindow, align 8
-  %max95 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %48, i32 0, i32 1
+  store i32 %48, ptr %_maxX, align 4
+  %49 = load ptr, ptr %dataWindow, align 8
+  %max95 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %49, i32 0, i32 1
   %y = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %max95, i32 0, i32 1
-  %49 = load i32, ptr %y, align 4
+  %50 = load i32, ptr %y, align 4
   %_maxY = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 14
-  store i32 %49, ptr %_maxY, align 8
+  store i32 %50, ptr %_maxY, align 8
   %_numChans96 = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 8
-  %50 = load i32, ptr %_numChans96, align 8
-  %51 = load i32, ptr %numHalfChans, align 4
-  %cmp97 = icmp eq i32 %50, %51
+  %51 = load i32, ptr %_numChans96, align 8
+  %52 = load i32, ptr %numHalfChans, align 4
+  %cmp97 = icmp eq i32 %51, %52
   br i1 %cmp97, label %if.then98, label %if.end100
 
 if.then98:                                        ; preds = %invoke.cont92
@@ -704,34 +705,35 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213B44CompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_213B44CompressorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 6
-  %0 = load ptr, ptr %_tmpBuffer, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_tmpBuffer, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdaPv(ptr noundef %0) #14
+  call void @_ZdaPv(ptr noundef %1) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   %_outBuffer = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 7
-  %1 = load ptr, ptr %_outBuffer, align 8
-  %isnull2 = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_outBuffer, align 8
+  %isnull2 = icmp eq ptr %2, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  call void @_ZdaPv(ptr noundef %1) #14
+  call void @_ZdaPv(ptr noundef %2) #14
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
   %_channelData = getelementptr inbounds %"class.Imf_3_2::B44Compressor", ptr %this1, i32 0, i32 11
-  %2 = load ptr, ptr %_channelData, align 8
-  %isnull5 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %_channelData, align 8
+  %isnull5 = icmp eq ptr %3, null
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
 
 delete.notnull6:                                  ; preds = %delete.end4
-  call void @_ZdaPv(ptr noundef %2) #14
+  call void @_ZdaPv(ptr noundef %3) #14
   br label %delete.end7
 
 delete.end7:                                      ; preds = %delete.notnull6, %delete.end4

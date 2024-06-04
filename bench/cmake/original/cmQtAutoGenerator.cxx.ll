@@ -2973,24 +2973,25 @@ define dso_local void @_ZN17cmQtAutoGeneratorC2EN11cmQtAutoGen4GenTE(ptr noundef
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17cmQtAutoGenerator, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %4, align 4
-  store i32 %7, ptr %6, align 8
-  %8 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 3
-  call void @_ZN17cmQtAutoGenerator6LoggerC1Ev(ptr noundef nonnull align 8 dereferenceable(45) %8)
-  %9 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  %10 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 5
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17cmQtAutoGenerator, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 1
+  %8 = load i32, ptr %4, align 4
+  store i32 %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 3
+  call void @_ZN17cmQtAutoGenerator6LoggerC1Ev(ptr noundef nonnull align 8 dereferenceable(45) %9)
+  %10 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  %11 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 6
-  call void @_ZN10cmFileTimeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  %12 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  %13 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 8
+  %11 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  %12 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 6
+  call void @_ZN10cmFileTimeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  %13 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
-  %14 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 9
-  call void @_ZN17cmQtAutoGenerator12ProjectDirsTC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %14) #3
+  %14 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  %15 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %5, i32 0, i32 9
+  call void @_ZN17cmQtAutoGenerator12ProjectDirsTC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %15) #3
   ret void
 }
 
@@ -3025,17 +3026,18 @@ define dso_local void @_ZN17cmQtAutoGeneratorD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17cmQtAutoGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %3, i32 0, i32 9
-  call void @_ZN17cmQtAutoGenerator12ProjectDirsTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #3
-  %5 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %3, i32 0, i32 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %6 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %3, i32 0, i32 7
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17cmQtAutoGenerator, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %3, i32 0, i32 9
+  call void @_ZN17cmQtAutoGenerator12ProjectDirsTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
+  %6 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %3, i32 0, i32 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  %7 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %3, i32 0, i32 5
+  %7 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %3, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  %8 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %3, i32 0, i32 4
+  %8 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %3, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  %9 = getelementptr inbounds %class.cmQtAutoGenerator, ptr %3, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   ret void
 }
 

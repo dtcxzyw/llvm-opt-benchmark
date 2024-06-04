@@ -288,32 +288,33 @@ if.end13:                                         ; preds = %if.end12, %if.end
   %call14 = call ptr @mmap64(ptr noundef null, i64 noundef %14, i32 noundef 3, i32 noundef 1, i32 noundef %15, i64 noundef 0) #5
   store ptr %call14, ptr %ptr, align 8
   %16 = load ptr, ptr %ptr, align 8
-  %cmp15 = icmp eq ptr %16, inttoptr (i64 -1 to ptr)
+  %17 = inttoptr i64 -1 to ptr
+  %cmp15 = icmp eq ptr %16, %17
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end13
   br label %err
 
 if.end17:                                         ; preds = %if.end13
-  %17 = load i32, ptr %mfd, align 4
-  %18 = load ptr, ptr %fd.addr, align 8
-  store i32 %17, ptr %18, align 4
-  %19 = load ptr, ptr %ptr, align 8
-  store ptr %19, ptr %retval, align 8
+  %18 = load i32, ptr %mfd, align 4
+  %19 = load ptr, ptr %fd.addr, align 8
+  store i32 %18, ptr %19, align 4
+  %20 = load ptr, ptr %ptr, align 8
+  store ptr %20, ptr %retval, align 8
   br label %return
 
 err:                                              ; preds = %if.then16, %if.then11
-  %20 = load ptr, ptr %errp.addr, align 8
+  %21 = load ptr, ptr %errp.addr, align 8
   %call18 = call ptr @__errno_location() #6
-  %21 = load i32, ptr %call18, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %20, ptr noundef @.str, i32 noundef 142, ptr noundef @__func__.qemu_memfd_alloc, i32 noundef %21, ptr noundef @.str.6)
-  %22 = load i32, ptr %mfd, align 4
-  %cmp19 = icmp sge i32 %22, 0
+  %22 = load i32, ptr %call18, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %21, ptr noundef @.str, i32 noundef 142, ptr noundef @__func__.qemu_memfd_alloc, i32 noundef %22, ptr noundef @.str.6)
+  %23 = load i32, ptr %mfd, align 4
+  %cmp19 = icmp sge i32 %23, 0
   br i1 %cmp19, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %err
-  %23 = load i32, ptr %mfd, align 4
-  %call21 = call i32 @close(i32 noundef %23)
+  %24 = load i32, ptr %mfd, align 4
+  %call21 = call i32 @close(i32 noundef %24)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %err
@@ -321,8 +322,8 @@ if.end22:                                         ; preds = %if.then20, %err
   br label %return
 
 return:                                           ; preds = %if.end22, %if.end17
-  %24 = load ptr, ptr %retval, align 8
-  ret ptr %24
+  %25 = load ptr, ptr %retval, align 8
+  ret ptr %25
 }
 
 declare ptr @g_get_tmp_dir() #1

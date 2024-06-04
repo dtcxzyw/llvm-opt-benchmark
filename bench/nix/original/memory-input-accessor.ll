@@ -1867,32 +1867,33 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix23MemoryInputAcces
   store ptr %0, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix23MemoryInputAccessorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix23MemoryInputAccessorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(208) %7) #3
-  %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3nix23MemoryInputAccessorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(224) %6) #3
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3nix23MemoryInputAccessorImplEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %8)
-          to label %9 unwind label %10
-
-9:                                                ; preds = %1
-  ret void
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix23MemoryInputAccessorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix23MemoryInputAccessorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(208) %8) #3
+  %9 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3nix23MemoryInputAccessorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(224) %6) #3
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3nix23MemoryInputAccessorImplEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %9)
+          to label %10 unwind label %11
 
 10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %4, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %5, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  br label %14
+  ret void
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i32, ptr %5, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %4, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %5, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  br label %15
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8
+  %17 = load i32, ptr %5, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2056,11 +2057,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -2247,37 +2249,43 @@ define linkonce_odr void @_ZN3nix23MemoryInputAccessorImplC1Ev(ptr noundef nonnu
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 128
   call void @_ZN3nix14SourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6)
-  call void @_ZN3nix19MemoryInputAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef getelementptr inbounds ([9 x ptr], ptr @_ZTTN3nix23MemoryInputAccessorImplE, i64 0, i64 1)) #3
-  %7 = getelementptr inbounds i8, ptr %5, i64 64
-  invoke void @_ZN3nix20MemorySourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef getelementptr inbounds ([9 x ptr], ptr @_ZTTN3nix23MemoryInputAccessorImplE, i64 0, i64 5))
-          to label %8 unwind label %11
+  %7 = getelementptr inbounds [9 x ptr], ptr @_ZTTN3nix23MemoryInputAccessorImplE, i64 0, i64 1
+  call void @_ZN3nix19MemoryInputAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %7) #3
+  %8 = getelementptr inbounds i8, ptr %5, i64 64
+  %9 = getelementptr inbounds [9 x ptr], ptr @_ZTTN3nix23MemoryInputAccessorImplE, i64 0, i64 5
+  invoke void @_ZN3nix20MemorySourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %9)
+          to label %10 unwind label %16
 
-8:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [7 x ptr], [10 x ptr], [23 x ptr] }, ptr @_ZTVN3nix23MemoryInputAccessorImplE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr getelementptr inbounds ({ [7 x ptr], [10 x ptr], [23 x ptr] }, ptr @_ZTVN3nix23MemoryInputAccessorImplE, i32 0, i32 2, i32 12), ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [7 x ptr], [10 x ptr], [23 x ptr] }, ptr @_ZTVN3nix23MemoryInputAccessorImplE, i32 0, i32 1, i32 3), ptr %10, align 8
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds { [7 x ptr], [10 x ptr], [23 x ptr] }, ptr @_ZTVN3nix23MemoryInputAccessorImplE, i32 0, i32 0, i32 3
+  store ptr %11, ptr %5, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 128
+  %13 = getelementptr inbounds { [7 x ptr], [10 x ptr], [23 x ptr] }, ptr @_ZTVN3nix23MemoryInputAccessorImplE, i32 0, i32 2, i32 12
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 64
+  %15 = getelementptr inbounds { [7 x ptr], [10 x ptr], [23 x ptr] }, ptr @_ZTVN3nix23MemoryInputAccessorImplE, i32 0, i32 1, i32 3
+  store ptr %15, ptr %14, align 8
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %3, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %4, align 4
-  call void @_ZN3nix19MemoryInputAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef getelementptr inbounds ([9 x ptr], ptr @_ZTTN3nix23MemoryInputAccessorImplE, i64 0, i64 1)) #3
-  %15 = getelementptr inbounds i8, ptr %5, i64 128
-  call void @_ZN3nix14SourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #3
-  br label %16
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
+  %20 = getelementptr inbounds [9 x ptr], ptr @_ZTTN3nix23MemoryInputAccessorImplE, i64 0, i64 1
+  call void @_ZN3nix19MemoryInputAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %20) #3
+  %21 = getelementptr inbounds i8, ptr %5, i64 128
+  call void @_ZN3nix14SourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %21) #3
+  br label %22
 
-16:                                               ; preds = %11
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %4, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %3, align 8
+  %24 = load i32, ptr %4, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 declare void @_ZN3nix14SourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #1
@@ -2371,11 +2379,12 @@ define linkonce_odr void @_ZN3nix14SourceAccessorD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix14SourceAccessorE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.nix::SourceAccessor", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %"struct.nix::SourceAccessor", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3nix14SourceAccessorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.nix::SourceAccessor", ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %"struct.nix::SourceAccessor", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   ret void
 }
 
@@ -5057,7 +5066,8 @@ define linkonce_odr void @_ZNSt12bad_weak_ptrC2Ev(ptr noundef nonnull align 8 de
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5071,7 +5081,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

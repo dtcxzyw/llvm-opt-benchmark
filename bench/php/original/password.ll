@@ -6417,7 +6417,7 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr noundef %1) #0 {
   %441 = load i32, ptr %54, align 4
   %442 = load ptr, ptr %53, align 8
   call void @zend_wrong_parameter_error(i32 noundef %438, i32 noundef %439, ptr noundef %440, i32 noundef %441, ptr noundef %442)
-  br label %486
+  br label %489
 
 443:                                              ; preds = %429
   br label %444
@@ -6431,78 +6431,81 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %449, ptr %45, align 8
   %450 = load ptr, ptr %45, align 8
   %451 = icmp ne ptr %450, null
-  br i1 %451, label %457, label %452
+  br i1 %451, label %458, label %452
 
 452:                                              ; preds = %444
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef @.str.6)
   br label %453
 
 453:                                              ; preds = %452
-  %454 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %455 = icmp ne ptr %454, null
-  call void @llvm.assume(i1 %455)
-  br label %486
+  %454 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %455 = load ptr, ptr %454, align 8
+  %456 = icmp ne ptr %455, null
+  call void @llvm.assume(i1 %456)
+  br label %489
 
-456:                                              ; No predecessors!
-  br label %457
+457:                                              ; No predecessors!
+  br label %458
 
-457:                                              ; preds = %456, %444
-  %458 = load ptr, ptr %45, align 8
-  %459 = getelementptr inbounds %struct._php_password_algo, ptr %458, i32 0, i32 1
-  %460 = load ptr, ptr %459, align 8
-  %461 = load ptr, ptr %40, align 8
-  %462 = load ptr, ptr %46, align 8
-  %463 = call ptr %460(ptr noundef %461, ptr noundef %462)
-  store ptr %463, ptr %41, align 8
-  %464 = load ptr, ptr %41, align 8
-  %465 = icmp ne ptr %464, null
-  br i1 %465, label %475, label %466
+458:                                              ; preds = %457, %444
+  %459 = load ptr, ptr %45, align 8
+  %460 = getelementptr inbounds %struct._php_password_algo, ptr %459, i32 0, i32 1
+  %461 = load ptr, ptr %460, align 8
+  %462 = load ptr, ptr %40, align 8
+  %463 = load ptr, ptr %46, align 8
+  %464 = call ptr %461(ptr noundef %462, ptr noundef %463)
+  store ptr %464, ptr %41, align 8
+  %465 = load ptr, ptr %41, align 8
+  %466 = icmp ne ptr %465, null
+  br i1 %466, label %478, label %467
 
-466:                                              ; preds = %457
-  %467 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %468 = icmp ne ptr %467, null
-  br i1 %468, label %470, label %469
+467:                                              ; preds = %458
+  %468 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %469 = load ptr, ptr %468, align 8
+  %470 = icmp ne ptr %469, null
+  br i1 %470, label %472, label %471
 
-469:                                              ; preds = %466
+471:                                              ; preds = %467
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.7)
-  br label %470
+  br label %472
 
-470:                                              ; preds = %469, %466
-  br label %471
+472:                                              ; preds = %471, %467
+  br label %473
 
-471:                                              ; preds = %470
-  %472 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %473 = icmp ne ptr %472, null
-  call void @llvm.assume(i1 %473)
-  br label %486
+473:                                              ; preds = %472
+  %474 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %475 = load ptr, ptr %474, align 8
+  %476 = icmp ne ptr %475, null
+  call void @llvm.assume(i1 %476)
+  br label %489
 
-474:                                              ; No predecessors!
-  br label %475
+477:                                              ; No predecessors!
+  br label %478
 
-475:                                              ; preds = %474, %457
-  br label %476
+478:                                              ; preds = %477, %458
+  br label %479
 
-476:                                              ; preds = %475
-  br label %477
+479:                                              ; preds = %478
+  br label %480
 
-477:                                              ; preds = %476
-  %478 = load ptr, ptr %39, align 8
-  store ptr %478, ptr %59, align 8
-  %479 = load ptr, ptr %41, align 8
-  store ptr %479, ptr %60, align 8
-  %480 = load ptr, ptr %60, align 8
-  %481 = load ptr, ptr %59, align 8
-  %482 = getelementptr inbounds %struct._zval_struct, ptr %481, i32 0, i32 0
-  store ptr %480, ptr %482, align 8
-  %483 = load ptr, ptr %59, align 8
-  %484 = getelementptr inbounds %struct._zval_struct, ptr %483, i32 0, i32 1
-  store i32 262, ptr %484, align 8
-  br label %485
+480:                                              ; preds = %479
+  %481 = load ptr, ptr %39, align 8
+  store ptr %481, ptr %59, align 8
+  %482 = load ptr, ptr %41, align 8
+  store ptr %482, ptr %60, align 8
+  %483 = load ptr, ptr %60, align 8
+  %484 = load ptr, ptr %59, align 8
+  %485 = getelementptr inbounds %struct._zval_struct, ptr %484, i32 0, i32 0
+  store ptr %483, ptr %485, align 8
+  %486 = load ptr, ptr %59, align 8
+  %487 = getelementptr inbounds %struct._zval_struct, ptr %486, i32 0, i32 1
+  store i32 262, ptr %487, align 8
+  br label %488
 
-485:                                              ; preds = %477
-  br label %486
+488:                                              ; preds = %480
+  br label %489
 
-486:                                              ; preds = %485, %471, %453, %437
+489:                                              ; preds = %488, %473, %453, %437
   ret void
 }
 

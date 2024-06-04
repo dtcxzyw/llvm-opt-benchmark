@@ -2687,7 +2687,8 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node10BaseObjectC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node6crypto8SignBaseE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node6crypto8SignBaseE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %mdctx_ = getelementptr inbounds %"class.node::crypto::SignBase", ptr %this3, i32 0, i32 1
   call void @_ZNSt10unique_ptrI13evp_md_ctx_stN4node15FunctionDeleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %mdctx_) #3
   ret void
@@ -2799,7 +2800,8 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node6crypto8SignBaseC2EPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(40) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node6crypto4SignE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node6crypto4SignE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
   ret void
 }
@@ -8320,7 +8322,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mutex_ = getelementptr inbounds %"class.node::crypto::ManagedEVPPKey", ptr %this1, i32 0, i32 2
   call void @_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %mutex_) #3
   %pkey_ = getelementptr inbounds %"class.node::crypto::ManagedEVPPKey", ptr %this1, i32 0, i32 1
@@ -8359,7 +8362,8 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node6crypto8SignBaseC2EPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(40) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node6crypto6VerifyE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node6crypto6VerifyE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
   ret void
 }
@@ -12988,54 +12992,55 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto17SignConfigurationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node6crypto17SignConfigurationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %job_mode = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %job_mode2 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %job_mode2, align 8
-  store i32 %1, ptr %job_mode, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %job_mode2 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %1, i32 0, i32 1
+  %2 = load i32, ptr %job_mode2, align 8
+  store i32 %2, ptr %job_mode, align 8
   %mode = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %mode3 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %2, i32 0, i32 2
-  %3 = load i32, ptr %mode3, align 4
-  store i32 %3, ptr %mode, align 4
+  %3 = load ptr, ptr %other.addr, align 8
+  %mode3 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %3, i32 0, i32 2
+  %4 = load i32, ptr %mode3, align 4
+  store i32 %4, ptr %mode, align 4
   %key = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %other.addr, align 8
-  %key4 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %4, i32 0, i32 3
+  %5 = load ptr, ptr %other.addr, align 8
+  %key4 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %5, i32 0, i32 3
   call void @_ZN4node6crypto14ManagedEVPPKeyC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 8 dereferenceable(32) %key4)
   %data = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %other.addr, align 8
-  %data5 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %5, i32 0, i32 4
+  %6 = load ptr, ptr %other.addr, align 8
+  %data5 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %6, i32 0, i32 4
   call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(24) %data5) #3
   %signature = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %this1, i32 0, i32 5
-  %6 = load ptr, ptr %other.addr, align 8
-  %signature6 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %6, i32 0, i32 5
+  %7 = load ptr, ptr %other.addr, align 8
+  %signature6 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %7, i32 0, i32 5
   call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %signature, ptr noundef nonnull align 8 dereferenceable(24) %signature6) #3
   %digest = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %this1, i32 0, i32 6
-  %7 = load ptr, ptr %other.addr, align 8
-  %digest7 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %7, i32 0, i32 6
-  %8 = load ptr, ptr %digest7, align 8
-  store ptr %8, ptr %digest, align 8
+  %8 = load ptr, ptr %other.addr, align 8
+  %digest7 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %8, i32 0, i32 6
+  %9 = load ptr, ptr %digest7, align 8
+  store ptr %9, ptr %digest, align 8
   %flags = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %this1, i32 0, i32 7
-  %9 = load ptr, ptr %other.addr, align 8
-  %flags8 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %9, i32 0, i32 7
-  %10 = load i32, ptr %flags8, align 8
-  store i32 %10, ptr %flags, align 8
+  %10 = load ptr, ptr %other.addr, align 8
+  %flags8 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %10, i32 0, i32 7
+  %11 = load i32, ptr %flags8, align 8
+  store i32 %11, ptr %flags, align 8
   %padding = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %this1, i32 0, i32 8
-  %11 = load ptr, ptr %other.addr, align 8
-  %padding9 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %11, i32 0, i32 8
-  %12 = load i32, ptr %padding9, align 4
-  store i32 %12, ptr %padding, align 4
+  %12 = load ptr, ptr %other.addr, align 8
+  %padding9 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %12, i32 0, i32 8
+  %13 = load i32, ptr %padding9, align 4
+  store i32 %13, ptr %padding, align 4
   %salt_length = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %this1, i32 0, i32 9
-  %13 = load ptr, ptr %other.addr, align 8
-  %salt_length10 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %13, i32 0, i32 9
-  %14 = load i32, ptr %salt_length10, align 8
-  store i32 %14, ptr %salt_length, align 8
+  %14 = load ptr, ptr %other.addr, align 8
+  %salt_length10 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %14, i32 0, i32 9
+  %15 = load i32, ptr %salt_length10, align 8
+  store i32 %15, ptr %salt_length, align 8
   %dsa_encoding = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %this1, i32 0, i32 10
-  %15 = load ptr, ptr %other.addr, align 8
-  %dsa_encoding11 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %15, i32 0, i32 10
-  %16 = load i32, ptr %dsa_encoding11, align 4
-  store i32 %16, ptr %dsa_encoding, align 4
+  %16 = load ptr, ptr %other.addr, align 8
+  %dsa_encoding11 = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %16, i32 0, i32 10
+  %17 = load i32, ptr %dsa_encoding11, align 4
+  store i32 %17, ptr %dsa_encoding, align 4
   ret void
 }
 
@@ -13045,7 +13050,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15635,7 +15641,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pkey_ = getelementptr inbounds %"class.node::crypto::ManagedEVPPKey", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %pkey_) #3
   %mutex_ = getelementptr inbounds %"class.node::crypto::ManagedEVPPKey", ptr %this1, i32 0, i32 2
@@ -16746,7 +16753,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node6crypto8SignBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node6crypto8SignBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mdctx_ = getelementptr inbounds %"class.node::crypto::SignBase", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrI13evp_md_ctx_stN4node15FunctionDeleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mdctx_) #3
   call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -17194,7 +17202,8 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -17205,14 +17214,14 @@ entry:
   store i64 0, ptr %size_, align 8
   %detachedness_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 0, ptr %detachedness_, align 8
-  %0 = load ptr, ptr %name.addr, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
-  store ptr %0, ptr %name_, align 8
-  %1 = load i64, ptr %size.addr, align 8
+  store ptr %1, ptr %name_, align 8
+  %2 = load i64, ptr %size.addr, align 8
   %size_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
-  store i64 %1, ptr %size_2, align 8
-  %2 = load i8, ptr %is_root_node.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  store i64 %2, ptr %size_2, align 8
+  %3 = load i8, ptr %is_root_node.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %is_root_node_3 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %is_root_node_3, align 8
@@ -17294,7 +17303,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22981,10 +22991,11 @@ entry:
   store ptr %retainer, ptr %retainer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %retainer.addr, align 8
-  store ptr %0, ptr %retainer_, align 8
+  %1 = load ptr, ptr %retainer.addr, align 8
+  store ptr %1, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
   store ptr null, ptr %wrapper_node_, align 8
   %is_root_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
@@ -22997,8 +23008,8 @@ entry:
 
 do.body:                                          ; preds = %entry
   %retainer_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %retainer_2, align 8
-  %cmp = icmp ne ptr %1, null
+  %2 = load ptr, ptr %retainer_2, align 8
+  %cmp = icmp ne ptr %2, null
   %lnot = xor i1 %cmp, true
   %lnot3 = xor i1 %lnot, true
   %lnot4 = xor i1 %lnot3, true
@@ -23019,72 +23030,72 @@ if.end:                                           ; preds = %do.end, %do.body
   br label %do.end6
 
 do.end6:                                          ; preds = %if.end
-  %2 = load ptr, ptr %tracker.addr, align 8
-  %call = call noundef ptr @_ZN4node13MemoryTracker7isolateEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  %3 = load ptr, ptr %tracker.addr, align 8
+  %call = call noundef ptr @_ZN4node13MemoryTracker7isolateEv(ptr noundef nonnull align 8 dereferenceable(152) %3)
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %call)
   %retainer_7 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %retainer_7, align 8
-  %vtable = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %retainer_7, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
-  %4 = load ptr, ptr %vfn, align 8
-  %call8 = call ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %5 = load ptr, ptr %vfn, align 8
+  %call8 = call ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %coerce.dive = getelementptr inbounds %"class.v8::Local", ptr %obj, i32 0, i32 0
   %coerce.dive9 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive, i32 0, i32 0
   %coerce.dive10 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive9, i32 0, i32 0
   store ptr %call8, ptr %coerce.dive10, align 8
   store ptr %obj, ptr %this.addr.i36, align 8
   %this1.i = load ptr, ptr %this.addr.i36, align 8
-  %5 = load ptr, ptr %this1.i, align 8
-  %cmp.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %this1.i, align 8
+  %cmp.i = icmp eq ptr %6, null
   br i1 %cmp.i, label %if.end21, label %if.then12
 
 if.then12:                                        ; preds = %do.end6
-  %6 = load ptr, ptr %tracker.addr, align 8
-  %call13 = call noundef ptr @_ZN4node13MemoryTracker5graphEv(ptr noundef nonnull align 8 dereferenceable(152) %6)
+  %7 = load ptr, ptr %tracker.addr, align 8
+  %call13 = call noundef ptr @_ZN4node13MemoryTracker5graphEv(ptr noundef nonnull align 8 dereferenceable(152) %7)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %obj, i64 8, i1 false)
   %coerce.dive14 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive15 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive14, i32 0, i32 0
   %coerce.dive16 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive15, i32 0, i32 0
-  %7 = load ptr, ptr %coerce.dive16, align 8
-  store ptr %7, ptr %that.i, align 8
+  %8 = load ptr, ptr %coerce.dive16, align 8
+  store ptr %8, ptr %that.i, align 8
   store ptr %ref.tmp, ptr %this.addr.i, align 8
   %this3.i = load ptr, ptr %this.addr.i, align 8
   store ptr %this3.i, ptr %this.addr.i37, align 8
   store ptr %that.i, ptr %other.addr.i, align 8
   %this1.i38 = load ptr, ptr %this.addr.i37, align 8
-  %8 = load ptr, ptr %other.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i38, ptr align 8 %8, i64 8, i1 false)
+  %9 = load ptr, ptr %other.addr.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i38, ptr align 8 %9, i64 8, i1 false)
   %vtable17 = load ptr, ptr %call13, align 8
   %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 0
-  %9 = load ptr, ptr %vfn18, align 8
-  %call19 = call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %10 = load ptr, ptr %vfn18, align 8
+  %call19 = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %wrapper_node_20 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
   store ptr %call19, ptr %wrapper_node_20, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then12, %do.end6
   %retainer_22 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %retainer_22, align 8
-  %vtable23 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %retainer_22, align 8
+  %vtable23 = load ptr, ptr %11, align 8
   %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 3
-  %11 = load ptr, ptr %vfn24, align 8
-  %call25 = call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %12 = load ptr, ptr %vfn24, align 8
+  %call25 = call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
   store ptr %call25, ptr %name_, align 8
   %retainer_26 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %12 = load ptr, ptr %retainer_26, align 8
-  %vtable27 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %retainer_26, align 8
+  %vtable27 = load ptr, ptr %13, align 8
   %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 4
-  %13 = load ptr, ptr %vfn28, align 8
-  %call29 = call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %14 = load ptr, ptr %vfn28, align 8
+  %call29 = call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %size_30 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
   store i64 %call29, ptr %size_30, align 8
   %retainer_31 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %14 = load ptr, ptr %retainer_31, align 8
-  %vtable32 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %retainer_31, align 8
+  %vtable32 = load ptr, ptr %15, align 8
   %vfn33 = getelementptr inbounds ptr, ptr %vtable32, i64 7
-  %15 = load ptr, ptr %vfn33, align 8
-  %call34 = call noundef zeroext i8 %15(ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %16 = load ptr, ptr %vfn33, align 8
+  %call34 = call noundef zeroext i8 %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
   %detachedness_35 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 %call34, ptr %detachedness_35, align 8
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #3
@@ -25663,7 +25674,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
@@ -25827,7 +25839,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -29151,7 +29164,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto17SignConfigurationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node6crypto17SignConfigurationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %key = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %this1, i32 0, i32 3
   call void @_ZN4node6crypto14ManagedEVPPKeyC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key)
   %data = getelementptr inbounds %"struct.node::crypto::SignConfiguration", ptr %this1, i32 0, i32 4
@@ -29198,9 +29212,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %3 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node6crypto9CryptoJobINS0_10SignTraitsEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS_9AsyncWrap12ProviderTypeENS0_13CryptoJobModeEONS0_17SignConfigurationE(ptr noundef nonnull align 8 dereferenceable(368) %this3, ptr noundef %0, ptr %3, i32 noundef 60, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(120) %2)
-  store ptr getelementptr inbounds ({ [23 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_10SignTraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %4 = getelementptr inbounds { [23 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_10SignTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [23 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_10SignTraitsEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %5 = getelementptr inbounds { [23 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_10SignTraitsEEE, i32 0, i32 1, i32 2
+  store ptr %5, ptr %add.ptr, align 8
   %out_ = getelementptr inbounds %"class.node::crypto::DeriveBitsJob", ptr %this3, i32 0, i32 1
   call void @_ZN4node6crypto10ByteSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %out_) #3
   %success_ = getelementptr inbounds %"class.node::crypto::DeriveBitsJob", ptr %this3, i32 0, i32 2
@@ -29239,19 +29255,21 @@ entry:
   %3 = getelementptr inbounds i8, ptr %this3, i64 56
   %4 = load ptr, ptr %env.addr, align 8
   call void @_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc(ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef %4, ptr noundef @.str.123)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_10SignTraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %5 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_10SignTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_10SignTraitsEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %6 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_10SignTraitsEEE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %add.ptr, align 8
   %mode_ = getelementptr inbounds %"class.node::crypto::CryptoJob", ptr %this3, i32 0, i32 2
-  %5 = load i32, ptr %mode.addr, align 4
-  store i32 %5, ptr %mode_, align 8
+  %7 = load i32, ptr %mode.addr, align 4
+  store i32 %7, ptr %mode_, align 8
   %errors_ = getelementptr inbounds %"class.node::crypto::CryptoJob", ptr %this3, i32 0, i32 3
   call void @_ZN4node6crypto16CryptoErrorStoreC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %errors_) #3
   %params_ = getelementptr inbounds %"class.node::crypto::CryptoJob", ptr %this3, i32 0, i32 4
-  %6 = load ptr, ptr %params.addr, align 8
-  call void @_ZN4node6crypto17SignConfigurationC1EOS1_(ptr noundef nonnull align 8 dereferenceable(120) %params_, ptr noundef nonnull align 8 dereferenceable(120) %6) #3
-  %7 = load i32, ptr %mode.addr, align 4
-  %cmp = icmp eq i32 %7, 1
+  %8 = load ptr, ptr %params.addr, align 8
+  call void @_ZN4node6crypto17SignConfigurationC1EOS1_(ptr noundef nonnull align 8 dereferenceable(120) %params_, ptr noundef nonnull align 8 dereferenceable(120) %8) #3
+  %9 = load i32, ptr %mode.addr, align 4
+  %cmp = icmp eq i32 %9, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -30091,18 +30109,19 @@ entry:
   store ptr %env, ptr %env.addr, align 8
   store ptr %type, ptr %type.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node14ThreadPoolWorkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4node14ThreadPoolWorkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.node::ThreadPoolWork", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %env.addr, align 8
-  store ptr %0, ptr %env_, align 8
+  %1 = load ptr, ptr %env.addr, align 8
+  store ptr %1, ptr %env_, align 8
   %type_ = getelementptr inbounds %"class.node::ThreadPoolWork", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %type.addr, align 8
-  store ptr %1, ptr %type_, align 8
+  %2 = load ptr, ptr %type.addr, align 8
+  store ptr %2, ptr %type_, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %2 = load ptr, ptr %env.addr, align 8
-  %cmp = icmp ne ptr %2, null
+  %3 = load ptr, ptr %env.addr, align 8
+  %cmp = icmp ne ptr %3, null
   %lnot = xor i1 %cmp, true
   %lnot2 = xor i1 %lnot, true
   %lnot3 = xor i1 %lnot2, true
@@ -30133,7 +30152,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %errors_ = getelementptr inbounds %"struct.node::crypto::CryptoErrorStore", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %errors_) #3
   ret void
@@ -30145,15 +30165,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_10SignTraitsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_10SignTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_10SignTraitsEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node6crypto9CryptoJobINS0_10SignTraitsEEE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %params_ = getelementptr inbounds %"class.node::crypto::CryptoJob", ptr %this1, i32 0, i32 4
   call void @_ZN4node6crypto17SignConfigurationD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %params_) #3
   %errors_ = getelementptr inbounds %"class.node::crypto::CryptoJob", ptr %this1, i32 0, i32 3
   call void @_ZN4node6crypto16CryptoErrorStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %errors_) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 56
-  call void @_ZN4node14ThreadPoolWorkD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #3
+  %2 = getelementptr inbounds i8, ptr %this1, i64 56
+  call void @_ZN4node14ThreadPoolWorkD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %2) #3
   call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
   ret void
 }
@@ -33860,10 +33882,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   ret void
 }
 

@@ -48,22 +48,23 @@ entry:
   %0 = load ptr, ptr %aLocale.addr, align 8
   %1 = load ptr, ptr %success.addr, align 8
   call void @_ZN6icu_7517GregorianCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this1, ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7515ISO8601CalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [61 x ptr] }, ptr @_ZTVN6icu_7515ISO8601CalendarE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   store i32 0, ptr %tempStatus, align 4
-  %2 = load ptr, ptr %aLocale.addr, align 8
-  %call = invoke noundef i32 @_ZNK6icu_756Locale15getKeywordValueEPKcPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %2, ptr noundef @.str, ptr noundef null, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %tempStatus)
+  %3 = load ptr, ptr %aLocale.addr, align 8
+  %call = invoke noundef i32 @_ZNK6icu_756Locale15getKeywordValueEPKcPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef @.str, ptr noundef null, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %tempStatus)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load ptr, ptr %aLocale.addr, align 8
-  %call3 = invoke noundef i32 @_ZNK6icu_756Locale15getKeywordValueEPKcPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef @.str.1, ptr noundef null, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %tempStatus)
+  %4 = load ptr, ptr %aLocale.addr, align 8
+  %call3 = invoke noundef i32 @_ZNK6icu_756Locale15getKeywordValueEPKcPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %4, ptr noundef @.str.1, ptr noundef null, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %tempStatus)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %add = add nsw i32 %call, %call3
   store i32 %add, ptr %length, align 4
-  %4 = load i32, ptr %tempStatus, align 4
-  %call5 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %4)
+  %5 = load i32, ptr %tempStatus, align 4
+  %call5 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %5)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -71,8 +72,8 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %invoke.cont4
-  %5 = load i32, ptr %length, align 4
-  %cmp = icmp eq i32 %5, 0
+  %6 = load i32, ptr %length, align 4
+  %cmp = icmp eq i32 %6, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
@@ -83,12 +84,12 @@ invoke.cont6:                                     ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.end, %if.then, %invoke.cont2, %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7517GregorianCalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(654) %this1) #4
   br label %eh.resume
 
@@ -219,7 +220,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_7517GregorianCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(654) %this1, ptr noundef nonnull align 8 dereferenceable(654) %0)
-  store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7515ISO8601CalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [61 x ptr] }, ptr @_ZTVN6icu_7515ISO8601CalendarE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 

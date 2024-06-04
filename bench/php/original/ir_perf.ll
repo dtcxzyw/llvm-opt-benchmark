@@ -34,7 +34,7 @@ define hidden i32 @ir_perf_jitdump_open() #0 {
 
 12:                                               ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %85
+  br label %86
 
 13:                                               ; preds = %0
   %14 = call i32 (ptr, i32, ...) @open(ptr noundef @.str.1, i32 noundef 0)
@@ -45,7 +45,7 @@ define hidden i32 @ir_perf_jitdump_open() #0 {
 
 17:                                               ; preds = %13
   store i32 0, ptr %1, align 4
-  br label %85
+  br label %86
 
 18:                                               ; preds = %13
   %19 = load i32, ptr %3, align 4
@@ -93,7 +93,7 @@ define hidden i32 @ir_perf_jitdump_open() #0 {
 
 51:                                               ; preds = %45, %39, %33, %27, %18
   store i32 0, ptr %1, align 4
-  br label %85
+  br label %86
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds [64 x i8], ptr %2, i64 0, i64 0
@@ -105,7 +105,7 @@ define hidden i32 @ir_perf_jitdump_open() #0 {
 
 57:                                               ; preds = %52
   store i32 0, ptr %1, align 4
-  br label %85
+  br label %86
 
 58:                                               ; preds = %52
   %59 = call i64 @sysconf(i32 noundef 30) #5
@@ -113,53 +113,54 @@ define hidden i32 @ir_perf_jitdump_open() #0 {
   %61 = call ptr @mmap(ptr noundef null, i64 noundef %59, i32 noundef 5, i32 noundef 2, i32 noundef %60, i64 noundef 0) #5
   store ptr %61, ptr @jitdump_mem, align 8
   %62 = load ptr, ptr @jitdump_mem, align 8
-  %63 = icmp eq ptr %62, inttoptr (i64 -1 to ptr)
-  br i1 %63, label %64, label %67
+  %63 = inttoptr i64 -1 to ptr
+  %64 = icmp eq ptr %62, %63
+  br i1 %64, label %65, label %68
 
-64:                                               ; preds = %58
-  %65 = load i32, ptr @jitdump_fd, align 4
-  %66 = call i32 @close(i32 noundef %65)
+65:                                               ; preds = %58
+  %66 = load i32, ptr @jitdump_fd, align 4
+  %67 = call i32 @close(i32 noundef %66)
   store i32 -1, ptr @jitdump_fd, align 4
   store i32 0, ptr %1, align 4
-  br label %85
+  br label %86
 
-67:                                               ; preds = %58
+68:                                               ; preds = %58
   call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 40, i1 false)
-  %68 = getelementptr inbounds %struct.ir_perf_jitdump_header, ptr %6, i32 0, i32 0
-  store i32 1248416836, ptr %68, align 8
-  %69 = getelementptr inbounds %struct.ir_perf_jitdump_header, ptr %6, i32 0, i32 1
-  store i32 1, ptr %69, align 4
-  %70 = getelementptr inbounds %struct.ir_perf_jitdump_header, ptr %6, i32 0, i32 2
-  store i32 40, ptr %70, align 8
-  %71 = getelementptr inbounds %struct._ir_elf_header, ptr %5, i32 0, i32 8
-  %72 = load i16, ptr %71, align 2
-  %73 = zext i16 %72 to i32
-  %74 = getelementptr inbounds %struct.ir_perf_jitdump_header, ptr %6, i32 0, i32 3
-  store i32 %73, ptr %74, align 4
-  %75 = call i32 @getpid() #5
-  %76 = getelementptr inbounds %struct.ir_perf_jitdump_header, ptr %6, i32 0, i32 5
-  store i32 %75, ptr %76, align 4
-  %77 = call i64 @ir_perf_timestamp()
-  %78 = getelementptr inbounds %struct.ir_perf_jitdump_header, ptr %6, i32 0, i32 6
-  store i64 %77, ptr %78, align 8
-  %79 = getelementptr inbounds %struct.ir_perf_jitdump_header, ptr %6, i32 0, i32 7
-  store i64 0, ptr %79, align 8
-  %80 = load i32, ptr @jitdump_fd, align 4
-  %81 = call i64 @write(i32 noundef %80, ptr noundef %6, i64 noundef 40)
-  %82 = icmp ne i64 %81, 40
-  br i1 %82, label %83, label %84
+  %69 = getelementptr inbounds %struct.ir_perf_jitdump_header, ptr %6, i32 0, i32 0
+  store i32 1248416836, ptr %69, align 8
+  %70 = getelementptr inbounds %struct.ir_perf_jitdump_header, ptr %6, i32 0, i32 1
+  store i32 1, ptr %70, align 4
+  %71 = getelementptr inbounds %struct.ir_perf_jitdump_header, ptr %6, i32 0, i32 2
+  store i32 40, ptr %71, align 8
+  %72 = getelementptr inbounds %struct._ir_elf_header, ptr %5, i32 0, i32 8
+  %73 = load i16, ptr %72, align 2
+  %74 = zext i16 %73 to i32
+  %75 = getelementptr inbounds %struct.ir_perf_jitdump_header, ptr %6, i32 0, i32 3
+  store i32 %74, ptr %75, align 4
+  %76 = call i32 @getpid() #5
+  %77 = getelementptr inbounds %struct.ir_perf_jitdump_header, ptr %6, i32 0, i32 5
+  store i32 %76, ptr %77, align 4
+  %78 = call i64 @ir_perf_timestamp()
+  %79 = getelementptr inbounds %struct.ir_perf_jitdump_header, ptr %6, i32 0, i32 6
+  store i64 %78, ptr %79, align 8
+  %80 = getelementptr inbounds %struct.ir_perf_jitdump_header, ptr %6, i32 0, i32 7
+  store i64 0, ptr %80, align 8
+  %81 = load i32, ptr @jitdump_fd, align 4
+  %82 = call i64 @write(i32 noundef %81, ptr noundef %6, i64 noundef 40)
+  %83 = icmp ne i64 %82, 40
+  br i1 %83, label %84, label %85
 
-83:                                               ; preds = %67
+84:                                               ; preds = %68
   store i32 0, ptr %1, align 4
-  br label %85
+  br label %86
 
-84:                                               ; preds = %67
+85:                                               ; preds = %68
   store i32 1, ptr %1, align 4
-  br label %85
+  br label %86
 
-85:                                               ; preds = %84, %83, %64, %57, %51, %17, %12
-  %86 = load i32, ptr %1, align 4
-  ret i32 %86
+86:                                               ; preds = %85, %84, %65, %57, %51, %17, %12
+  %87 = load i32, ptr %1, align 4
+  ret i32 %87
 }
 
 ; Function Attrs: nounwind
@@ -219,7 +220,7 @@ define hidden i32 @ir_perf_jitdump_close() #0 {
   store i32 1, ptr %1, align 4
   %3 = load i32, ptr @jitdump_fd, align 4
   %4 = icmp sge i32 %3, 0
-  br i1 %4, label %5, label %24
+  br i1 %4, label %5, label %25
 
 5:                                                ; preds = %0
   %6 = getelementptr inbounds %struct._ir_perf_jitdump_record, ptr %2, i32 0, i32 0
@@ -242,21 +243,22 @@ define hidden i32 @ir_perf_jitdump_close() #0 {
   %15 = load i32, ptr @jitdump_fd, align 4
   %16 = call i32 @close(i32 noundef %15)
   %17 = load ptr, ptr @jitdump_mem, align 8
-  %18 = icmp ne ptr %17, inttoptr (i64 -1 to ptr)
-  br i1 %18, label %19, label %23
+  %18 = inttoptr i64 -1 to ptr
+  %19 = icmp ne ptr %17, %18
+  br i1 %19, label %20, label %24
 
-19:                                               ; preds = %14
-  %20 = load ptr, ptr @jitdump_mem, align 8
-  %21 = call i64 @sysconf(i32 noundef 30) #5
-  %22 = call i32 @munmap(ptr noundef %20, i64 noundef %21) #5
-  br label %23
-
-23:                                               ; preds = %19, %14
+20:                                               ; preds = %14
+  %21 = load ptr, ptr @jitdump_mem, align 8
+  %22 = call i64 @sysconf(i32 noundef 30) #5
+  %23 = call i32 @munmap(ptr noundef %21, i64 noundef %22) #5
   br label %24
 
-24:                                               ; preds = %23, %0
-  %25 = load i32, ptr %1, align 4
-  ret i32 %25
+24:                                               ; preds = %20, %14
+  br label %25
+
+25:                                               ; preds = %24, %0
+  %26 = load i32, ptr %1, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind

@@ -162,52 +162,53 @@ declare dso_local ptr @idr_replace(ptr noundef, ptr noundef, i64 noundef) local_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @drm_master_create(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %3 = tail call noalias noundef align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 160) #7
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %23, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %3 = load ptr, ptr %2, align 16
+  %4 = tail call noalias noundef align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 160) #7
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %24, label %6
 
-5:                                                ; preds = %1
-  store volatile i32 1, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 36
-  store i32 67108868, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 96
-  store volatile ptr %12, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 104
-  store volatile ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 80
-  store volatile ptr %14, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 88
-  store volatile ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 112
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 116
-  store i32 67108868, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %3, i64 120
-  %19 = getelementptr inbounds i8, ptr %3, i64 140
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %18, i8 0, i64 20, i1 false)
-  store i32 67108868, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %3, i64 144
-  store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 152
-  store i32 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 156
-  store i32 0, ptr %22, align 4
-  br label %23
+6:                                                ; preds = %1
+  store volatile i32 1, ptr %4, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 36
+  store i32 67108868, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 52
+  store i32 0, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %4, i64 96
+  store volatile ptr %13, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %4, i64 104
+  store volatile ptr %13, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %4, i64 80
+  store volatile ptr %15, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %4, i64 88
+  store volatile ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %4, i64 112
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %4, i64 116
+  store i32 67108868, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %4, i64 120
+  %20 = getelementptr inbounds i8, ptr %4, i64 140
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
+  store i32 67108868, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %4, i64 144
+  store ptr null, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %4, i64 152
+  store i32 1, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %4, i64 156
+  store i32 0, ptr %23, align 4
+  br label %24
 
-23:                                               ; preds = %5, %1
-  %24 = phi ptr [ %3, %5 ], [ null, %1 ]
-  ret ptr %24
+24:                                               ; preds = %6, %1
+  %25 = phi ptr [ %4, %6 ], [ null, %1 ]
+  ret ptr %25
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -333,105 +334,106 @@ define internal fastcc noundef i32 @drm_new_set_master(ptr noundef %0, ptr nound
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %3, align 8
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %12 = tail call noalias noundef align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 160) #7
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %32, label %14
+  %11 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %12 = load ptr, ptr %11, align 16
+  %13 = tail call noalias noundef align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 160) #7
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %33, label %15
 
-14:                                               ; preds = %8
-  store volatile i32 1, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 32
-  store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 36
-  store i32 67108868, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 48
-  store i32 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 52
-  store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr %0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 96
-  store volatile ptr %21, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %12, i64 104
-  store volatile ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %12, i64 80
-  store volatile ptr %23, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %12, i64 88
-  store volatile ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %12, i64 112
-  store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %12, i64 116
-  store i32 67108868, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %12, i64 120
-  %28 = getelementptr inbounds i8, ptr %12, i64 140
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %27, i8 0, i64 20, i1 false)
-  store i32 67108868, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %12, i64 144
-  store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %12, i64 152
-  store i32 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %12, i64 156
-  store i32 0, ptr %31, align 4
-  br label %32
+15:                                               ; preds = %8
+  store volatile i32 1, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 32
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %13, i64 36
+  store i32 67108868, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %13, i64 40
+  store ptr null, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %13, i64 48
+  store i32 1, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %13, i64 52
+  store i32 0, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr %0, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %13, i64 96
+  store volatile ptr %22, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %13, i64 104
+  store volatile ptr %22, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %13, i64 80
+  store volatile ptr %24, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %13, i64 88
+  store volatile ptr %24, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %13, i64 112
+  store i32 0, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %13, i64 116
+  store i32 67108868, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %13, i64 120
+  %29 = getelementptr inbounds i8, ptr %13, i64 140
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %28, i8 0, i64 20, i1 false)
+  store i32 67108868, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %13, i64 144
+  store ptr null, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %13, i64 152
+  store i32 1, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %13, i64 156
+  store i32 0, ptr %32, align 4
+  br label %33
 
-32:                                               ; preds = %14, %8
-  %33 = phi ptr [ %12, %14 ], [ null, %8 ]
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %58, label %35
+33:                                               ; preds = %15, %8
+  %34 = phi ptr [ %13, %15 ], [ null, %8 ]
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %59, label %36
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @_raw_spin_lock(ptr noundef %36) #6
-  store ptr %33, ptr %9, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %36) #6
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  tail call void @_raw_spin_lock(ptr noundef %37) #6
+  store ptr %34, ptr %9, align 8
+  tail call void @_raw_spin_unlock(ptr noundef %37) #6
   store i8 1, ptr %4, align 1
   store i8 1, ptr %1, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %37, i32 1, ptr elementtype(i32) %37) #6, !srcloc !14
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %44, label %40, !prof !15
+  %38 = load ptr, ptr %9, align 8
+  %39 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38, i32 1, ptr elementtype(i32) %38) #6, !srcloc !14
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %45, label %41, !prof !15
 
-40:                                               ; preds = %35
-  %41 = add i32 %38, 1
-  %42 = or i32 %41, %38
-  %43 = icmp sgt i32 %42, -1
-  br i1 %43, label %46, label %44, !prof !10
+41:                                               ; preds = %36
+  %42 = add i32 %39, 1
+  %43 = or i32 %42, %39
+  %44 = icmp sgt i32 %43, -1
+  br i1 %44, label %47, label %45, !prof !10
 
-44:                                               ; preds = %40, %35
-  %45 = phi i32 [ 2, %35 ], [ 1, %40 ]
-  tail call void @refcount_warn_saturate(ptr noundef %37, i32 noundef %45) #6
-  br label %46
+45:                                               ; preds = %41, %36
+  %46 = phi i32 [ 2, %36 ], [ 1, %41 ]
+  tail call void @refcount_warn_saturate(ptr noundef %38, i32 noundef %46) #6
+  br label %47
 
-46:                                               ; preds = %44, %40
-  %47 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %37, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 48
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 48
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %54, label %53
+47:                                               ; preds = %45, %41
+  %48 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %38, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 48
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %55, label %54
 
-53:                                               ; preds = %46
-  tail call void %51(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true) #6
-  br label %54
+54:                                               ; preds = %47
+  tail call void %52(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true) #6
+  br label %55
 
-54:                                               ; preds = %53, %46
-  %55 = getelementptr inbounds i8, ptr %1, i64 6
-  store i8 1, ptr %55, align 2
-  %56 = icmp eq ptr %10, null
-  br i1 %56, label %58, label %57
+55:                                               ; preds = %54, %47
+  %56 = getelementptr inbounds i8, ptr %1, i64 6
+  store i8 1, ptr %56, align 2
+  %57 = icmp eq ptr %10, null
+  br i1 %57, label %59, label %58
 
-57:                                               ; preds = %54
+58:                                               ; preds = %55
   call void @drm_master_put(ptr noundef nonnull %3)
-  br label %58
+  br label %59
 
-58:                                               ; preds = %57, %54, %32
-  %59 = phi i32 [ -12, %32 ], [ 0, %57 ], [ 0, %54 ]
+59:                                               ; preds = %58, %55, %33
+  %60 = phi i32 [ -12, %33 ], [ 0, %58 ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  ret i32 %59
+  ret i32 %60
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

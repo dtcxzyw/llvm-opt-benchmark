@@ -2005,7 +2005,8 @@ define internal void @wimax_defragment_init() #0 {
 
 15:                                               ; preds = %2
   store i32 0, ptr @cid_adj_array_size, align 4
-  store i32 0, ptr getelementptr inbounds (%struct._address, ptr @bs_address, i32 0, i32 1), align 4
+  %16 = getelementptr inbounds %struct._address, ptr @bs_address, i32 0, i32 1
+  store i32 0, ptr %16, align 4
   store i32 0, ptr @seen_a_service_type, align 4
   store i32 12, ptr @max_logical_bands, align 4
   call void @init_wimax_globals()

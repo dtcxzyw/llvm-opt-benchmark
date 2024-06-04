@@ -1639,12 +1639,16 @@ while.end:                                        ; preds = %while.cond
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  store i8 trunc (i64 sub (i64 ptrtoint (ptr @qsp_snapshot_destroy to i64), i64 ptrtoint (ptr @qsp_snapshot_destroy to i64)) to i8), ptr %func_type_invalid, align 1
-  %9 = load ptr, ptr %old, align 8
-  %rcu = getelementptr inbounds %struct.QSPSnapshot, ptr %9, i32 0, i32 0
+  %9 = ptrtoint ptr @qsp_snapshot_destroy to i64
+  %10 = ptrtoint ptr @qsp_snapshot_destroy to i64
+  %11 = sub i64 %9, %10
+  %12 = trunc i64 %11 to i8
+  store i8 %12, ptr %func_type_invalid, align 1
+  %13 = load ptr, ptr %old, align 8
+  %rcu = getelementptr inbounds %struct.QSPSnapshot, ptr %13, i32 0, i32 0
   store ptr %rcu, ptr %tmp3, align 8
-  %10 = load ptr, ptr %tmp3, align 8
-  call void @call_rcu1(ptr noundef %10, ptr noundef @qsp_snapshot_destroy)
+  %14 = load ptr, ptr %tmp3, align 8
+  call void @call_rcu1(ptr noundef %14, ptr noundef @qsp_snapshot_destroy)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.end
@@ -2562,7 +2566,8 @@ lor.end13:                                        ; preds = %land.end, %entry
 define internal ptr @rcu_read_auto_lock() #1 {
 entry:
   call void @rcu_read_lock()
-  ret ptr inttoptr (i64 1 to ptr)
+  %0 = inttoptr i64 1 to ptr
+  ret ptr %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

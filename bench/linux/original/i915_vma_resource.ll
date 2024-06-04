@@ -20,8 +20,9 @@ define dso_local nonnull ptr @i915_vma_resource_alloc() local_unnamed_addr #0 al
   %1 = load ptr, ptr @slab_vma_resources, align 8
   %2 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %1, i32 noundef 3520) #8
   %3 = icmp eq ptr %2, null
-  %4 = select i1 %3, ptr inttoptr (i64 -12 to ptr), ptr %2
-  ret ptr %4
+  %4 = inttoptr i64 -12 to ptr
+  %5 = select i1 %3, ptr %4, ptr %2
+  ret ptr %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -133,11 +133,13 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   %1 = load i32, ptr %type.addr, align 4
   call void @_ZN13btTypedObjectC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_userConstraintType = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 2
   store i32 -1, ptr %m_userConstraintType, align 4
-  %2 = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 3
-  store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
+  %3 = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 3
+  %4 = inttoptr i64 -1 to ptr
+  store ptr %4, ptr %3, align 8
   %m_breakingImpulseThreshold = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 4
   store float 0x47EFFFFFE0000000, ptr %m_breakingImpulseThreshold, align 8
   %m_isEnabled = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 5
@@ -147,8 +149,8 @@ entry:
   %m_overrideNumSolverIterations = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 7
   store i32 -1, ptr %m_overrideNumSolverIterations, align 8
   %m_rbA = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 8
-  %3 = load ptr, ptr %rbA.addr, align 8
-  store ptr %3, ptr %m_rbA, align 8
+  %5 = load ptr, ptr %rbA.addr, align 8
+  store ptr %5, ptr %m_rbA, align 8
   %m_rbB = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 9
   %call = call noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint12getFixedBodyEv()
   store ptr %call, ptr %m_rbB, align 8
@@ -254,11 +256,13 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   %1 = load i32, ptr %type.addr, align 4
   call void @_ZN13btTypedObjectC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_userConstraintType = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 2
   store i32 -1, ptr %m_userConstraintType, align 4
-  %2 = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 3
-  store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
+  %3 = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 3
+  %4 = inttoptr i64 -1 to ptr
+  store ptr %4, ptr %3, align 8
   %m_breakingImpulseThreshold = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 4
   store float 0x47EFFFFFE0000000, ptr %m_breakingImpulseThreshold, align 8
   %m_isEnabled = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 5
@@ -268,11 +272,11 @@ entry:
   %m_overrideNumSolverIterations = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 7
   store i32 -1, ptr %m_overrideNumSolverIterations, align 8
   %m_rbA = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 8
-  %3 = load ptr, ptr %rbA.addr, align 8
-  store ptr %3, ptr %m_rbA, align 8
+  %5 = load ptr, ptr %rbA.addr, align 8
+  store ptr %5, ptr %m_rbA, align 8
   %m_rbB = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 9
-  %4 = load ptr, ptr %rbB.addr, align 8
-  store ptr %4, ptr %m_rbB, align 8
+  %6 = load ptr, ptr %rbB.addr, align 8
+  store ptr %6, ptr %m_rbB, align 8
   %m_appliedImpulse = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 10
   store float 0.000000e+00, ptr %m_appliedImpulse, align 8
   %m_dbgDrawSize = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 11
@@ -704,7 +708,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11btRigidBody, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV11btRigidBody, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_constraintRefs = getelementptr inbounds %class.btRigidBody, ptr %this1, i32 0, i32 21
   call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_constraintRefs) #3
   call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this1) #3
@@ -1011,7 +1016,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

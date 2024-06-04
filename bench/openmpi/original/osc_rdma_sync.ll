@@ -51,65 +51,67 @@ define internal void @ompi_osc_rdma_sync_constructor(ptr noundef %0) #0 {
 
 11:                                               ; preds = %10
   %12 = load i32, ptr @opal_class_init_epoch, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %14 = icmp ne i32 %12, %13
-  br i1 %14, label %15, label %16
+  %13 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp ne i32 %12, %14
+  br i1 %15, label %16, label %17
 
-15:                                               ; preds = %11
+16:                                               ; preds = %11
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %11
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.ompi_osc_rdma_sync_t, ptr %17, i32 0, i32 10
-  %19 = getelementptr inbounds %struct.opal_object_t, ptr %18, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %19, align 64
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.ompi_osc_rdma_sync_t, ptr %20, i32 0, i32 10
-  %22 = getelementptr inbounds %struct.opal_object_t, ptr %21, i32 0, i32 1
-  store volatile i32 1, ptr %22, align 8
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.ompi_osc_rdma_sync_t, ptr %23, i32 0, i32 10
-  call void @opal_obj_run_constructors(ptr noundef %24)
-  br label %25
-
-25:                                               ; preds = %16
+17:                                               ; preds = %16, %11
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds %struct.ompi_osc_rdma_sync_t, ptr %18, i32 0, i32 10
+  %20 = getelementptr inbounds %struct.opal_object_t, ptr %19, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %20, align 64
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds %struct.ompi_osc_rdma_sync_t, ptr %21, i32 0, i32 10
+  %23 = getelementptr inbounds %struct.opal_object_t, ptr %22, i32 0, i32 1
+  store volatile i32 1, ptr %23, align 8
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds %struct.ompi_osc_rdma_sync_t, ptr %24, i32 0, i32 10
+  call void @opal_obj_run_constructors(ptr noundef %25)
   br label %26
 
-26:                                               ; preds = %25
+26:                                               ; preds = %17
   br label %27
 
 27:                                               ; preds = %26
   br label %28
 
 28:                                               ; preds = %27
-  %29 = load i32, ptr @opal_class_init_epoch, align 4
-  %30 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %31 = icmp ne i32 %29, %30
-  br i1 %31, label %32, label %33
+  br label %29
 
-32:                                               ; preds = %28
+29:                                               ; preds = %28
+  %30 = load i32, ptr @opal_class_init_epoch, align 4
+  %31 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp ne i32 %30, %32
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %29
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %33
+  br label %35
 
-33:                                               ; preds = %32, %28
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.ompi_osc_rdma_sync_t, ptr %34, i32 0, i32 5
-  %36 = getelementptr inbounds %struct.opal_object_t, ptr %35, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %36, align 16
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.ompi_osc_rdma_sync_t, ptr %37, i32 0, i32 5
-  %39 = getelementptr inbounds %struct.opal_object_t, ptr %38, i32 0, i32 1
-  store volatile i32 1, ptr %39, align 8
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.ompi_osc_rdma_sync_t, ptr %40, i32 0, i32 5
-  call void @opal_obj_run_constructors(ptr noundef %41)
-  br label %42
+35:                                               ; preds = %34, %29
+  %36 = load ptr, ptr %2, align 8
+  %37 = getelementptr inbounds %struct.ompi_osc_rdma_sync_t, ptr %36, i32 0, i32 5
+  %38 = getelementptr inbounds %struct.opal_object_t, ptr %37, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %38, align 16
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds %struct.ompi_osc_rdma_sync_t, ptr %39, i32 0, i32 5
+  %41 = getelementptr inbounds %struct.opal_object_t, ptr %40, i32 0, i32 1
+  store volatile i32 1, ptr %41, align 8
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds %struct.ompi_osc_rdma_sync_t, ptr %42, i32 0, i32 5
+  call void @opal_obj_run_constructors(ptr noundef %43)
+  br label %44
 
-42:                                               ; preds = %33
-  br label %43
+44:                                               ; preds = %35
+  br label %45
 
-43:                                               ; preds = %42
+45:                                               ; preds = %44
   ret void
 }
 

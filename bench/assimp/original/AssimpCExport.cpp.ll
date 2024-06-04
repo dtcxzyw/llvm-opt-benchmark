@@ -692,10 +692,11 @@ entry:
   store ptr %pFile, ptr %pFile.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp8IOSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #13
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp16CIOSystemWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp16CIOSystemWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mFileSystem = getelementptr inbounds %"class.Assimp::CIOSystemWrapper", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pFile.addr, align 8
-  store ptr %0, ptr %mFileSystem, align 8
+  %1 = load ptr, ptr %pFile.addr, align 8
+  store ptr %1, ptr %mFileSystem, align 8
   ret void
 }
 
@@ -837,7 +838,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack) #13
   ret void
@@ -1009,7 +1011,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack) #13
   ret void

@@ -358,43 +358,44 @@ define internal void @_ZN20wasmtime_wit_bindgen6source6Source7newline17h13827853
   store i64 %10, ptr %11, align 8
   br label %12
 
-12:                                               ; preds = %29, %1
+12:                                               ; preds = %30, %1
   %13 = load i64, ptr %3, align 8, !noundef !3
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = icmp ult i64 %13, %15
-  br i1 %16, label %21, label %17
+  br i1 %16, label %22, label %17
 
 17:                                               ; preds = %12
   %18 = load i64, ptr @anon.d785142e4473bdce7d93bedff84d681f.1, align 8, !range !7, !noundef !3
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @anon.d785142e4473bdce7d93bedff84d681f.1, i64 8), align 8
+  %19 = getelementptr inbounds i8, ptr @anon.d785142e4473bdce7d93bedff84d681f.1, i64 8
+  %20 = load i64, ptr %19, align 8
   store i64 %18, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %19, ptr %20, align 8
-  br label %25
+  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %20, ptr %21, align 8
+  br label %26
 
-21:                                               ; preds = %12
-  %22 = load i64, ptr %3, align 8, !noundef !3
-  %23 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %22, i64 1)
-  store i64 %23, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %22, ptr %24, align 8
+22:                                               ; preds = %12
+  %23 = load i64, ptr %3, align 8, !noundef !3
+  %24 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %23, i64 1)
+  store i64 %24, ptr %3, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %23, ptr %25, align 8
   store i64 1, ptr %2, align 8
-  br label %25
+  br label %26
 
-25:                                               ; preds = %21, %17
-  %26 = load i64, ptr %2, align 8, !range !7, !noundef !3
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %29
+26:                                               ; preds = %22, %17
+  %27 = load i64, ptr %2, align 8, !range !7, !noundef !3
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %25
+29:                                               ; preds = %26
   ret void
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hdf5e5aa6b7f379b6E"(ptr align 8 %0, ptr align 1 @anon.d785142e4473bdce7d93bedff84d681f.0, i64 2)
   br label %12
 
-30:                                               ; No predecessors!
+31:                                               ; No predecessors!
   unreachable
 }
 

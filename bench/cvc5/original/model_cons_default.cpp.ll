@@ -846,13 +846,14 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6theory7strings9ModelConsC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings16ModelConsDefaultE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings16ModelConsDefaultE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_state = getelementptr inbounds %"class.cvc5::internal::theory::strings::ModelConsDefault", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %state.addr, align 8
-  store ptr %1, ptr %d_state, align 8
+  %2 = load ptr, ptr %state.addr, align 8
+  store ptr %2, ptr %d_state, align 8
   %d_csolver = getelementptr inbounds %"class.cvc5::internal::theory::strings::ModelConsDefault", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %csolver.addr, align 8
-  store ptr %2, ptr %d_csolver, align 8
+  %3 = load ptr, ptr %csolver.addr, align 8
+  store ptr %3, ptr %d_csolver, align 8
   ret void
 }
 
@@ -866,7 +867,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings9ModelConsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings9ModelConsE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 

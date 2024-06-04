@@ -386,38 +386,39 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItem(ptr noundef %0, ptr noundef
   %12 = load i32, ptr %11, align 4
   %13 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %12, ptr noundef @.str, ptr noundef %6, ptr noundef %5)
   %14 = icmp eq i32 %13, -1
-  br i1 %14, label %15, label %20
+  br i1 %14, label %15, label %21
 
 15:                                               ; preds = %2
   br label %16
 
 16:                                               ; preds = %15
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %32
+  %17 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %18, null
+  call void @llvm.assume(i1 %19)
+  br label %33
 
-19:                                               ; No predecessors!
-  br label %20
+20:                                               ; No predecessors!
+  br label %21
 
-20:                                               ; preds = %19, %2
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct._zend_execute_data, ptr %21, i32 0, i32 4
-  store ptr %22, ptr %7, align 8
-  %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds %struct._zval_struct, ptr %23, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = call ptr @php_dom_obj_from_obj(ptr noundef %25)
-  %27 = getelementptr inbounds %struct._dom_object, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %8, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = load ptr, ptr %4, align 8
-  call void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef %29, ptr noundef %30, ptr noundef %31)
-  br label %32
+21:                                               ; preds = %20, %2
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds %struct._zend_execute_data, ptr %22, i32 0, i32 4
+  store ptr %23, ptr %7, align 8
+  %24 = load ptr, ptr %7, align 8
+  %25 = getelementptr inbounds %struct._zval_struct, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = call ptr @php_dom_obj_from_obj(ptr noundef %26)
+  %28 = getelementptr inbounds %struct._dom_object, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr %8, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = load ptr, ptr %6, align 8
+  %32 = load ptr, ptr %4, align 8
+  call void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef %30, ptr noundef %31, ptr noundef %32)
+  br label %33
 
-32:                                               ; preds = %20, %16
+33:                                               ; preds = %21, %16
   ret void
 }
 
@@ -908,7 +909,7 @@ define hidden void @zim_DOMNamedNodeMap_item(ptr noundef %0, ptr noundef %1) #0 
   %184 = load i32, ptr %27, align 4
   %185 = load ptr, ptr %26, align 8
   call void @zend_wrong_parameter_error(i32 noundef %181, i32 noundef %182, ptr noundef %183, i32 noundef %184, ptr noundef %185)
-  br label %216
+  br label %217
 
 186:                                              ; preds = %172
   br label %187
@@ -926,41 +927,42 @@ define hidden void @zim_DOMNamedNodeMap_item(ptr noundef %0, ptr noundef %1) #0 
   %195 = zext i1 %194 to i32
   %196 = sext i32 %195 to i64
   %197 = icmp ne i64 %196, 0
-  br i1 %197, label %198, label %203
+  br i1 %197, label %198, label %204
 
 198:                                              ; preds = %190, %187
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef @.str.1, i32 noundef 2147483647)
   br label %199
 
 199:                                              ; preds = %198
-  %200 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %201 = icmp ne ptr %200, null
-  call void @llvm.assume(i1 %201)
-  br label %216
+  %200 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %201 = load ptr, ptr %200, align 8
+  %202 = icmp ne ptr %201, null
+  call void @llvm.assume(i1 %202)
+  br label %217
 
-202:                                              ; No predecessors!
-  br label %203
+203:                                              ; No predecessors!
+  br label %204
 
-203:                                              ; preds = %202, %190
-  %204 = load ptr, ptr %17, align 8
-  %205 = getelementptr inbounds %struct._zend_execute_data, ptr %204, i32 0, i32 4
-  store ptr %205, ptr %32, align 8
-  %206 = load ptr, ptr %32, align 8
-  %207 = getelementptr inbounds %struct._zval_struct, ptr %206, i32 0, i32 0
-  %208 = load ptr, ptr %207, align 8
-  %209 = call ptr @php_dom_obj_from_obj(ptr noundef %208)
-  store ptr %209, ptr %33, align 8
-  %210 = load ptr, ptr %33, align 8
-  %211 = getelementptr inbounds %struct._dom_object, ptr %210, i32 0, i32 0
-  %212 = load ptr, ptr %211, align 8
-  store ptr %212, ptr %34, align 8
-  %213 = load ptr, ptr %34, align 8
-  %214 = load i64, ptr %19, align 8
-  %215 = load ptr, ptr %18, align 8
-  call void @php_dom_named_node_map_get_item_into_zval(ptr noundef %213, i64 noundef %214, ptr noundef %215)
-  br label %216
+204:                                              ; preds = %203, %190
+  %205 = load ptr, ptr %17, align 8
+  %206 = getelementptr inbounds %struct._zend_execute_data, ptr %205, i32 0, i32 4
+  store ptr %206, ptr %32, align 8
+  %207 = load ptr, ptr %32, align 8
+  %208 = getelementptr inbounds %struct._zval_struct, ptr %207, i32 0, i32 0
+  %209 = load ptr, ptr %208, align 8
+  %210 = call ptr @php_dom_obj_from_obj(ptr noundef %209)
+  store ptr %210, ptr %33, align 8
+  %211 = load ptr, ptr %33, align 8
+  %212 = getelementptr inbounds %struct._dom_object, ptr %211, i32 0, i32 0
+  %213 = load ptr, ptr %212, align 8
+  store ptr %213, ptr %34, align 8
+  %214 = load ptr, ptr %34, align 8
+  %215 = load i64, ptr %19, align 8
+  %216 = load ptr, ptr %18, align 8
+  call void @php_dom_named_node_map_get_item_into_zval(ptr noundef %214, i64 noundef %215, ptr noundef %216)
+  br label %217
 
-216:                                              ; preds = %203, %199, %180
+217:                                              ; preds = %204, %199, %180
   ret void
 }
 
@@ -1000,158 +1002,159 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItemNS(ptr noundef %0, ptr nound
   %21 = load i32, ptr %20, align 4
   %22 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %21, ptr noundef @.str.2, ptr noundef %11, ptr noundef %8, ptr noundef %12, ptr noundef %7)
   %23 = icmp eq i32 %22, -1
-  br i1 %23, label %24, label %29
+  br i1 %23, label %24, label %30
 
 24:                                               ; preds = %2
   br label %25
 
 25:                                               ; preds = %24
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %27 = icmp ne ptr %26, null
-  call void @llvm.assume(i1 %27)
-  br label %117
+  %26 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp ne ptr %27, null
+  call void @llvm.assume(i1 %28)
+  br label %118
 
-28:                                               ; No predecessors!
-  br label %29
+29:                                               ; No predecessors!
+  br label %30
 
-29:                                               ; preds = %28, %2
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct._zval_struct, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = call ptr @php_dom_obj_from_obj(ptr noundef %32)
-  store ptr %33, ptr %9, align 8
-  %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %struct._dom_object, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr %13, align 8
-  %37 = load ptr, ptr %13, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %101
+30:                                               ; preds = %29, %2
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds %struct._zval_struct, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = call ptr @php_dom_obj_from_obj(ptr noundef %33)
+  store ptr %34, ptr %9, align 8
+  %35 = load ptr, ptr %9, align 8
+  %36 = getelementptr inbounds %struct._dom_object, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %13, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %102
 
-39:                                               ; preds = %29
-  %40 = load ptr, ptr %13, align 8
-  %41 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %40, i32 0, i32 2
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp eq i32 %42, 12
-  br i1 %43, label %49, label %44
+40:                                               ; preds = %30
+  %41 = load ptr, ptr %13, align 8
+  %42 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp eq i32 %43, 12
+  br i1 %44, label %50, label %45
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %13, align 8
-  %46 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %45, i32 0, i32 2
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp eq i32 %47, 6
-  br i1 %48, label %49, label %87
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %13, align 8
+  %47 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %46, i32 0, i32 2
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp eq i32 %48, 6
+  br i1 %49, label %50, label %88
 
-49:                                               ; preds = %44, %39
-  %50 = load ptr, ptr %13, align 8
-  %51 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %50, i32 0, i32 4
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %86
+50:                                               ; preds = %45, %40
+  %51 = load ptr, ptr %13, align 8
+  %52 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %51, i32 0, i32 4
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %87
 
-54:                                               ; preds = %49
-  %55 = load ptr, ptr %13, align 8
-  %56 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %55, i32 0, i32 2
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp eq i32 %57, 6
-  br i1 %58, label %59, label %65
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %13, align 8
+  %57 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %56, i32 0, i32 2
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 6
+  br i1 %59, label %60, label %66
 
-59:                                               ; preds = %54
-  %60 = load ptr, ptr %13, align 8
-  %61 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %60, i32 0, i32 4
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %12, align 8
-  %64 = call ptr @xmlHashLookup(ptr noundef %62, ptr noundef %63)
-  store ptr %64, ptr %10, align 8
-  br label %85
-
-65:                                               ; preds = %54
-  %66 = load ptr, ptr %13, align 8
-  %67 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %66, i32 0, i32 4
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %12, align 8
-  %70 = call ptr @xmlHashLookup(ptr noundef %68, ptr noundef %69)
-  store ptr %70, ptr %15, align 8
-  %71 = load ptr, ptr %15, align 8
-  %72 = icmp ne ptr %71, null
-  br i1 %72, label %73, label %84
-
-73:                                               ; preds = %65
-  %74 = load ptr, ptr %15, align 8
-  %75 = getelementptr inbounds %struct._xmlNotation, ptr %74, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %15, align 8
-  %78 = getelementptr inbounds %struct._xmlNotation, ptr %77, i32 0, i32 1
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %15, align 8
-  %81 = getelementptr inbounds %struct._xmlNotation, ptr %80, i32 0, i32 2
-  %82 = load ptr, ptr %81, align 8
-  %83 = call ptr @create_notation(ptr noundef %76, ptr noundef %79, ptr noundef %82)
-  store ptr %83, ptr %10, align 8
-  br label %84
-
-84:                                               ; preds = %73, %65
-  br label %85
-
-85:                                               ; preds = %84, %59
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %13, align 8
+  %62 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %61, i32 0, i32 4
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %12, align 8
+  %65 = call ptr @xmlHashLookup(ptr noundef %63, ptr noundef %64)
+  store ptr %65, ptr %10, align 8
   br label %86
 
-86:                                               ; preds = %85, %49
-  br label %100
+66:                                               ; preds = %55
+  %67 = load ptr, ptr %13, align 8
+  %68 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %67, i32 0, i32 4
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr %12, align 8
+  %71 = call ptr @xmlHashLookup(ptr noundef %69, ptr noundef %70)
+  store ptr %71, ptr %15, align 8
+  %72 = load ptr, ptr %15, align 8
+  %73 = icmp ne ptr %72, null
+  br i1 %73, label %74, label %85
 
-87:                                               ; preds = %44
-  %88 = load ptr, ptr %13, align 8
-  %89 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %88, i32 0, i32 0
-  %90 = load ptr, ptr %89, align 8
-  %91 = call ptr @dom_object_get_node(ptr noundef %90)
-  store ptr %91, ptr %14, align 8
-  %92 = load ptr, ptr %14, align 8
-  %93 = icmp ne ptr %92, null
-  br i1 %93, label %94, label %99
+74:                                               ; preds = %66
+  %75 = load ptr, ptr %15, align 8
+  %76 = getelementptr inbounds %struct._xmlNotation, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %15, align 8
+  %79 = getelementptr inbounds %struct._xmlNotation, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %15, align 8
+  %82 = getelementptr inbounds %struct._xmlNotation, ptr %81, i32 0, i32 2
+  %83 = load ptr, ptr %82, align 8
+  %84 = call ptr @create_notation(ptr noundef %77, ptr noundef %80, ptr noundef %83)
+  store ptr %84, ptr %10, align 8
+  br label %85
 
-94:                                               ; preds = %87
-  %95 = load ptr, ptr %14, align 8
-  %96 = load ptr, ptr %12, align 8
-  %97 = load ptr, ptr %11, align 8
-  %98 = call ptr @xmlHasNsProp(ptr noundef %95, ptr noundef %96, ptr noundef %97)
-  store ptr %98, ptr %10, align 8
-  br label %99
+85:                                               ; preds = %74, %66
+  br label %86
 
-99:                                               ; preds = %94, %87
-  br label %100
+86:                                               ; preds = %85, %60
+  br label %87
 
-100:                                              ; preds = %99, %86
+87:                                               ; preds = %86, %50
   br label %101
 
-101:                                              ; preds = %100, %29
-  %102 = load ptr, ptr %10, align 8
-  %103 = icmp ne ptr %102, null
-  br i1 %103, label %104, label %112
+88:                                               ; preds = %45
+  %89 = load ptr, ptr %13, align 8
+  %90 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8
+  %92 = call ptr @dom_object_get_node(ptr noundef %91)
+  store ptr %92, ptr %14, align 8
+  %93 = load ptr, ptr %14, align 8
+  %94 = icmp ne ptr %93, null
+  br i1 %94, label %95, label %100
 
-104:                                              ; preds = %101
-  %105 = load ptr, ptr %10, align 8
-  %106 = load ptr, ptr %4, align 8
-  %107 = load ptr, ptr %13, align 8
-  %108 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %107, i32 0, i32 0
-  %109 = load ptr, ptr %108, align 8
-  %110 = call zeroext i1 @php_dom_create_object(ptr noundef %105, ptr noundef %106, ptr noundef %109)
-  %111 = zext i1 %110 to i32
-  store i32 %111, ptr %6, align 4
+95:                                               ; preds = %88
+  %96 = load ptr, ptr %14, align 8
+  %97 = load ptr, ptr %12, align 8
+  %98 = load ptr, ptr %11, align 8
+  %99 = call ptr @xmlHasNsProp(ptr noundef %96, ptr noundef %97, ptr noundef %98)
+  store ptr %99, ptr %10, align 8
+  br label %100
+
+100:                                              ; preds = %95, %88
+  br label %101
+
+101:                                              ; preds = %100, %87
+  br label %102
+
+102:                                              ; preds = %101, %30
+  %103 = load ptr, ptr %10, align 8
+  %104 = icmp ne ptr %103, null
+  br i1 %104, label %105, label %113
+
+105:                                              ; preds = %102
+  %106 = load ptr, ptr %10, align 8
+  %107 = load ptr, ptr %4, align 8
+  %108 = load ptr, ptr %13, align 8
+  %109 = getelementptr inbounds %struct._dom_nnodemap_object, ptr %108, i32 0, i32 0
+  %110 = load ptr, ptr %109, align 8
+  %111 = call zeroext i1 @php_dom_create_object(ptr noundef %106, ptr noundef %107, ptr noundef %110)
+  %112 = zext i1 %111 to i32
+  store i32 %112, ptr %6, align 4
+  br label %118
+
+113:                                              ; preds = %102
+  br label %114
+
+114:                                              ; preds = %113
+  %115 = load ptr, ptr %4, align 8
+  %116 = getelementptr inbounds %struct._zval_struct, ptr %115, i32 0, i32 1
+  store i32 1, ptr %116, align 8
   br label %117
 
-112:                                              ; preds = %101
-  br label %113
+117:                                              ; preds = %114
+  br label %118
 
-113:                                              ; preds = %112
-  %114 = load ptr, ptr %4, align 8
-  %115 = getelementptr inbounds %struct._zval_struct, ptr %114, i32 0, i32 1
-  store i32 1, ptr %115, align 8
-  br label %116
-
-116:                                              ; preds = %113
-  br label %117
-
-117:                                              ; preds = %116, %104, %25
+118:                                              ; preds = %117, %105, %25
   ret void
 }
 
@@ -1191,49 +1194,50 @@ define hidden void @zim_DOMNamedNodeMap_count(ptr noundef %0, ptr noundef %1) #0
 22:                                               ; preds = %21, %20
   %23 = phi i32 [ 0, %20 ], [ -1, %21 ]
   %24 = icmp eq i32 %23, -1
-  br i1 %24, label %25, label %30
+  br i1 %24, label %25, label %31
 
 25:                                               ; preds = %22
   br label %26
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
-  br label %46
+  %27 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp ne ptr %28, null
+  call void @llvm.assume(i1 %29)
+  br label %47
 
-29:                                               ; No predecessors!
-  br label %30
+30:                                               ; No predecessors!
+  br label %31
 
-30:                                               ; preds = %29, %22
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct._zval_struct, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = call ptr @php_dom_obj_from_obj(ptr noundef %33)
-  store ptr %34, ptr %6, align 8
-  br label %35
-
-35:                                               ; preds = %30
+31:                                               ; preds = %30, %22
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds %struct._zval_struct, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = call ptr @php_dom_obj_from_obj(ptr noundef %34)
+  store ptr %35, ptr %6, align 8
   br label %36
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %4, align 8
-  store ptr %37, ptr %7, align 8
-  %38 = load ptr, ptr %6, align 8
-  %39 = call i32 @php_dom_get_namednodemap_length(ptr noundef %38)
-  %40 = sext i32 %39 to i64
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct._zval_struct, ptr %41, i32 0, i32 0
-  store i64 %40, ptr %42, align 8
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %struct._zval_struct, ptr %43, i32 0, i32 1
-  store i32 4, ptr %44, align 8
-  br label %45
+36:                                               ; preds = %31
+  br label %37
 
-45:                                               ; preds = %36
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %4, align 8
+  store ptr %38, ptr %7, align 8
+  %39 = load ptr, ptr %6, align 8
+  %40 = call i32 @php_dom_get_namednodemap_length(ptr noundef %39)
+  %41 = sext i32 %40 to i64
+  %42 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds %struct._zval_struct, ptr %42, i32 0, i32 0
+  store i64 %41, ptr %43, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds %struct._zval_struct, ptr %44, i32 0, i32 1
+  store i32 4, ptr %45, align 8
   br label %46
 
-46:                                               ; preds = %45, %26
+46:                                               ; preds = %37
+  br label %47
+
+47:                                               ; preds = %46, %26
   ret void
 }
 

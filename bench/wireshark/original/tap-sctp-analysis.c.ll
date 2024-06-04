@@ -30,16 +30,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @remove_tap_listener_sctp_stat() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct._sctp_allassocs_info, ptr @sctp_tapinfo_struct, i32 0, i32 2), align 8
-  %2 = icmp ne i32 %1, 0
-  br i1 %2, label %3, label %4
+  %1 = getelementptr inbounds %struct._sctp_allassocs_info, ptr @sctp_tapinfo_struct, i32 0, i32 2
+  %2 = load i32, ptr %1, align 8
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %6
 
-3:                                                ; preds = %0
+4:                                                ; preds = %0
   call void @remove_tap_listener(ptr noundef @sctp_tapinfo_struct)
-  store i32 0, ptr getelementptr inbounds (%struct._sctp_allassocs_info, ptr @sctp_tapinfo_struct, i32 0, i32 2), align 8
-  br label %4
+  %5 = getelementptr inbounds %struct._sctp_allassocs_info, ptr @sctp_tapinfo_struct, i32 0, i32 2
+  store i32 0, ptr %5, align 8
+  br label %6
 
-4:                                                ; preds = %3, %0
+6:                                                ; preds = %4, %0
   ret void
 }
 
@@ -47,45 +49,48 @@ declare void @remove_tap_listener(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @sctp_stat_scan() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct._sctp_allassocs_info, ptr @sctp_tapinfo_struct, i32 0, i32 2), align 8
-  %2 = icmp ne i32 %1, 0
-  br i1 %2, label %4, label %3
+  %1 = getelementptr inbounds %struct._sctp_allassocs_info, ptr @sctp_tapinfo_struct, i32 0, i32 2
+  %2 = load i32, ptr %1, align 8
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %5, label %4
 
-3:                                                ; preds = %0
+4:                                                ; preds = %0
   call void @register_tap_listener_sctp_stat()
-  br label %4
+  br label %5
 
-4:                                                ; preds = %3, %0
+5:                                                ; preds = %4, %0
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @register_tap_listener_sctp_stat() #0 {
   %1 = alloca ptr, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct._sctp_allassocs_info, ptr @sctp_tapinfo_struct, i32 0, i32 2), align 8
-  %3 = icmp ne i32 %2, 0
-  br i1 %3, label %15, label %4
+  %2 = getelementptr inbounds %struct._sctp_allassocs_info, ptr @sctp_tapinfo_struct, i32 0, i32 2
+  %3 = load i32, ptr %2, align 8
+  %4 = icmp ne i32 %3, 0
+  br i1 %4, label %17, label %5
 
-4:                                                ; preds = %0
-  %5 = call ptr @register_tap_listener(ptr noundef @.str, ptr noundef @sctp_tapinfo_struct, ptr noundef null, i32 noundef 0, ptr noundef @reset, ptr noundef @packet, ptr noundef null, ptr noundef null)
-  store ptr %5, ptr %1, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %14
+5:                                                ; preds = %0
+  %6 = call ptr @register_tap_listener(ptr noundef @.str, ptr noundef @sctp_tapinfo_struct, ptr noundef null, i32 noundef 0, ptr noundef @reset, ptr noundef @packet, ptr noundef null, ptr noundef null)
+  store ptr %6, ptr %1, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %15
 
-7:                                                ; preds = %4
-  %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds %struct._GString, ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef @.str.1, ptr noundef %10)
-  %12 = load ptr, ptr %1, align 8
-  %13 = call ptr @g_string_free(ptr noundef %12, i32 noundef 1)
-  br label %15
+8:                                                ; preds = %5
+  %9 = load ptr, ptr %1, align 8
+  %10 = getelementptr inbounds %struct._GString, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef @.str.1, ptr noundef %11)
+  %13 = load ptr, ptr %1, align 8
+  %14 = call ptr @g_string_free(ptr noundef %13, i32 noundef 1)
+  br label %17
 
-14:                                               ; preds = %4
-  store i32 1, ptr getelementptr inbounds (%struct._sctp_allassocs_info, ptr @sctp_tapinfo_struct, i32 0, i32 2), align 8
-  br label %15
+15:                                               ; preds = %5
+  %16 = getelementptr inbounds %struct._sctp_allassocs_info, ptr @sctp_tapinfo_struct, i32 0, i32 2
+  store i32 1, ptr %16, align 8
+  br label %17
 
-15:                                               ; preds = %14, %7, %0
+17:                                               ; preds = %15, %8, %0
   ret void
 }
 
@@ -687,7 +692,7 @@ define internal i32 @packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   store ptr %132, ptr %16, align 8
   %133 = load ptr, ptr %16, align 8
   %134 = icmp ne ptr %133, null
-  br i1 %134, label %1701, label %135
+  br i1 %134, label %1703, label %135
 
 135:                                              ; preds = %123
   %136 = load ptr, ptr %11, align 8
@@ -705,7 +710,7 @@ define internal i32 @packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %146 = getelementptr inbounds %struct._sctp_info, ptr %145, i32 0, i32 14
   %147 = load i32, ptr %146, align 8
   %148 = icmp ugt i32 %147, 0
-  br i1 %148, label %149, label %1700
+  br i1 %148, label %149, label %1702
 
 149:                                              ; preds = %135
   %150 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 3464) #7
@@ -2610,7 +2615,7 @@ define internal i32 @packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %1561 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1560, i32 0, i32 6
   %1562 = load i32, ptr %1561, align 8
   %1563 = icmp ne i32 %1562, 0
-  br i1 %1563, label %1564, label %1631
+  br i1 %1563, label %1564, label %1633
 
 1564:                                             ; preds = %1559, %1554
   %1565 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #7
@@ -2705,3061 +2710,3063 @@ define internal i32 @packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br label %1627
 
 1627:                                             ; preds = %1619, %1616
-  %1628 = load ptr, ptr getelementptr inbounds (%struct._sctp_allassocs_info, ptr @sctp_tapinfo_struct, i32 0, i32 1), align 8
-  %1629 = load ptr, ptr %16, align 8
-  %1630 = call ptr @g_list_append(ptr noundef %1628, ptr noundef %1629)
-  store ptr %1630, ptr getelementptr inbounds (%struct._sctp_allassocs_info, ptr @sctp_tapinfo_struct, i32 0, i32 1), align 8
-  br label %1699
+  %1628 = getelementptr inbounds %struct._sctp_allassocs_info, ptr @sctp_tapinfo_struct, i32 0, i32 1
+  %1629 = load ptr, ptr %1628, align 8
+  %1630 = load ptr, ptr %16, align 8
+  %1631 = call ptr @g_list_append(ptr noundef %1629, ptr noundef %1630)
+  %1632 = getelementptr inbounds %struct._sctp_allassocs_info, ptr @sctp_tapinfo_struct, i32 0, i32 1
+  store ptr %1631, ptr %1632, align 8
+  br label %1701
 
-1631:                                             ; preds = %1559
-  %1632 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 216) #7
-  store ptr %1632, ptr %17, align 8
-  %1633 = load ptr, ptr %7, align 8
-  %1634 = getelementptr inbounds %struct._packet_info, ptr %1633, i32 0, i32 3
-  %1635 = load i32, ptr %1634, align 4
-  %1636 = load ptr, ptr %17, align 8
-  %1637 = getelementptr inbounds %struct._sctp_error_info, ptr %1636, i32 0, i32 0
-  store i32 %1635, ptr %1637, align 8
+1633:                                             ; preds = %1559
+  %1634 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 216) #7
+  store ptr %1634, ptr %17, align 8
+  %1635 = load ptr, ptr %7, align 8
+  %1636 = getelementptr inbounds %struct._packet_info, ptr %1635, i32 0, i32 3
+  %1637 = load i32, ptr %1636, align 4
   %1638 = load ptr, ptr %17, align 8
-  %1639 = getelementptr inbounds %struct._sctp_error_info, ptr %1638, i32 0, i32 1
-  %1640 = getelementptr [200 x i8], ptr %1639, i64 0, i64 0
-  store i8 0, ptr %1640, align 4
-  %1641 = load ptr, ptr %11, align 8
-  %1642 = getelementptr inbounds %struct._sctp_info, ptr %1641, i32 0, i32 15
-  %1643 = getelementptr [2048 x ptr], ptr %1642, i64 0, i64 0
-  %1644 = load ptr, ptr %1643, align 8
-  %1645 = call zeroext i8 @tvb_get_guint8(ptr noundef %1644, i32 noundef 0)
-  %1646 = zext i8 %1645 to i32
-  %1647 = icmp eq i32 %1646, 1
-  br i1 %1647, label %1648, label %1662
+  %1639 = getelementptr inbounds %struct._sctp_error_info, ptr %1638, i32 0, i32 0
+  store i32 %1637, ptr %1639, align 8
+  %1640 = load ptr, ptr %17, align 8
+  %1641 = getelementptr inbounds %struct._sctp_error_info, ptr %1640, i32 0, i32 1
+  %1642 = getelementptr [200 x i8], ptr %1641, i64 0, i64 0
+  store i8 0, ptr %1642, align 4
+  %1643 = load ptr, ptr %11, align 8
+  %1644 = getelementptr inbounds %struct._sctp_info, ptr %1643, i32 0, i32 15
+  %1645 = getelementptr [2048 x ptr], ptr %1644, i64 0, i64 0
+  %1646 = load ptr, ptr %1645, align 8
+  %1647 = call zeroext i8 @tvb_get_guint8(ptr noundef %1646, i32 noundef 0)
+  %1648 = zext i8 %1647 to i32
+  %1649 = icmp eq i32 %1648, 1
+  br i1 %1649, label %1650, label %1664
 
-1648:                                             ; preds = %1631
-  %1649 = load ptr, ptr %11, align 8
-  %1650 = getelementptr inbounds %struct._sctp_info, ptr %1649, i32 0, i32 15
-  %1651 = getelementptr [2048 x ptr], ptr %1650, i64 0, i64 0
-  %1652 = load ptr, ptr %1651, align 8
-  %1653 = call zeroext i8 @tvb_get_guint8(ptr noundef %1652, i32 noundef 0)
-  %1654 = zext i8 %1653 to i32
-  %1655 = call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %1654, ptr noundef @chunk_type_values, ptr noundef @.str.2)
-  store ptr %1655, ptr %33, align 8
-  %1656 = load ptr, ptr %17, align 8
-  %1657 = getelementptr inbounds %struct._sctp_error_info, ptr %1656, i32 0, i32 1
-  %1658 = getelementptr inbounds [200 x i8], ptr %1657, i64 0, i64 0
-  %1659 = load ptr, ptr %33, align 8
-  %1660 = call i64 @g_strlcpy(ptr noundef %1658, ptr noundef %1659, i64 noundef 200)
+1650:                                             ; preds = %1633
+  %1651 = load ptr, ptr %11, align 8
+  %1652 = getelementptr inbounds %struct._sctp_info, ptr %1651, i32 0, i32 15
+  %1653 = getelementptr [2048 x ptr], ptr %1652, i64 0, i64 0
+  %1654 = load ptr, ptr %1653, align 8
+  %1655 = call zeroext i8 @tvb_get_guint8(ptr noundef %1654, i32 noundef 0)
+  %1656 = zext i8 %1655 to i32
+  %1657 = call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %1656, ptr noundef @chunk_type_values, ptr noundef @.str.2)
+  store ptr %1657, ptr %33, align 8
+  %1658 = load ptr, ptr %17, align 8
+  %1659 = getelementptr inbounds %struct._sctp_error_info, ptr %1658, i32 0, i32 1
+  %1660 = getelementptr inbounds [200 x i8], ptr %1659, i64 0, i64 0
   %1661 = load ptr, ptr %33, align 8
-  call void @wmem_free(ptr noundef null, ptr noundef %1661)
-  br label %1689
+  %1662 = call i64 @g_strlcpy(ptr noundef %1660, ptr noundef %1661, i64 noundef 200)
+  %1663 = load ptr, ptr %33, align 8
+  call void @wmem_free(ptr noundef null, ptr noundef %1663)
+  br label %1691
 
-1662:                                             ; preds = %1631
+1664:                                             ; preds = %1633
   store i32 0, ptr %12, align 4
-  br label %1663
+  br label %1665
 
-1663:                                             ; preds = %1685, %1662
-  %1664 = load i32, ptr %12, align 4
-  %1665 = load ptr, ptr %11, align 8
-  %1666 = getelementptr inbounds %struct._sctp_info, ptr %1665, i32 0, i32 14
-  %1667 = load i32, ptr %1666, align 8
-  %1668 = icmp ult i32 %1664, %1667
-  br i1 %1668, label %1669, label %1688
+1665:                                             ; preds = %1687, %1664
+  %1666 = load i32, ptr %12, align 4
+  %1667 = load ptr, ptr %11, align 8
+  %1668 = getelementptr inbounds %struct._sctp_info, ptr %1667, i32 0, i32 14
+  %1669 = load i32, ptr %1668, align 8
+  %1670 = icmp ult i32 %1666, %1669
+  br i1 %1670, label %1671, label %1690
 
-1669:                                             ; preds = %1663
-  %1670 = load ptr, ptr %11, align 8
-  %1671 = getelementptr inbounds %struct._sctp_info, ptr %1670, i32 0, i32 15
-  %1672 = load i32, ptr %12, align 4
-  %1673 = zext i32 %1672 to i64
-  %1674 = getelementptr [2048 x ptr], ptr %1671, i64 0, i64 %1673
-  %1675 = load ptr, ptr %1674, align 8
-  %1676 = call zeroext i8 @tvb_get_guint8(ptr noundef %1675, i32 noundef 0)
-  %1677 = zext i8 %1676 to i32
-  %1678 = call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %1677, ptr noundef @chunk_type_values, ptr noundef @.str.2)
-  store ptr %1678, ptr %33, align 8
-  %1679 = load ptr, ptr %17, align 8
-  %1680 = getelementptr inbounds %struct._sctp_error_info, ptr %1679, i32 0, i32 1
-  %1681 = getelementptr inbounds [200 x i8], ptr %1680, i64 0, i64 0
-  %1682 = load ptr, ptr %33, align 8
-  %1683 = call i64 @g_strlcat(ptr noundef %1681, ptr noundef %1682, i64 noundef 200)
+1671:                                             ; preds = %1665
+  %1672 = load ptr, ptr %11, align 8
+  %1673 = getelementptr inbounds %struct._sctp_info, ptr %1672, i32 0, i32 15
+  %1674 = load i32, ptr %12, align 4
+  %1675 = zext i32 %1674 to i64
+  %1676 = getelementptr [2048 x ptr], ptr %1673, i64 0, i64 %1675
+  %1677 = load ptr, ptr %1676, align 8
+  %1678 = call zeroext i8 @tvb_get_guint8(ptr noundef %1677, i32 noundef 0)
+  %1679 = zext i8 %1678 to i32
+  %1680 = call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %1679, ptr noundef @chunk_type_values, ptr noundef @.str.2)
+  store ptr %1680, ptr %33, align 8
+  %1681 = load ptr, ptr %17, align 8
+  %1682 = getelementptr inbounds %struct._sctp_error_info, ptr %1681, i32 0, i32 1
+  %1683 = getelementptr inbounds [200 x i8], ptr %1682, i64 0, i64 0
   %1684 = load ptr, ptr %33, align 8
-  call void @wmem_free(ptr noundef null, ptr noundef %1684)
-  br label %1685
+  %1685 = call i64 @g_strlcat(ptr noundef %1683, ptr noundef %1684, i64 noundef 200)
+  %1686 = load ptr, ptr %33, align 8
+  call void @wmem_free(ptr noundef null, ptr noundef %1686)
+  br label %1687
 
-1685:                                             ; preds = %1669
-  %1686 = load i32, ptr %12, align 4
-  %1687 = add i32 %1686, 1
-  store i32 %1687, ptr %12, align 4
-  br label %1663, !llvm.loop !10
+1687:                                             ; preds = %1671
+  %1688 = load i32, ptr %12, align 4
+  %1689 = add i32 %1688, 1
+  store i32 %1689, ptr %12, align 4
+  br label %1665, !llvm.loop !10
 
-1688:                                             ; preds = %1663
-  br label %1689
+1690:                                             ; preds = %1665
+  br label %1691
 
-1689:                                             ; preds = %1688, %1648
-  %1690 = load ptr, ptr %17, align 8
-  %1691 = getelementptr inbounds %struct._sctp_error_info, ptr %1690, i32 0, i32 2
-  store ptr @.str.3, ptr %1691, align 8
-  %1692 = load ptr, ptr %16, align 8
-  %1693 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1692, i32 0, i32 69
-  %1694 = load ptr, ptr %1693, align 8
-  %1695 = load ptr, ptr %17, align 8
-  %1696 = call ptr @g_list_append(ptr noundef %1694, ptr noundef %1695)
-  %1697 = load ptr, ptr %16, align 8
-  %1698 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1697, i32 0, i32 69
-  store ptr %1696, ptr %1698, align 8
-  br label %1699
+1691:                                             ; preds = %1690, %1650
+  %1692 = load ptr, ptr %17, align 8
+  %1693 = getelementptr inbounds %struct._sctp_error_info, ptr %1692, i32 0, i32 2
+  store ptr @.str.3, ptr %1693, align 8
+  %1694 = load ptr, ptr %16, align 8
+  %1695 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1694, i32 0, i32 69
+  %1696 = load ptr, ptr %1695, align 8
+  %1697 = load ptr, ptr %17, align 8
+  %1698 = call ptr @g_list_append(ptr noundef %1696, ptr noundef %1697)
+  %1699 = load ptr, ptr %16, align 8
+  %1700 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1699, i32 0, i32 69
+  store ptr %1698, ptr %1700, align 8
+  br label %1701
 
-1699:                                             ; preds = %1689, %1627
-  br label %1700
+1701:                                             ; preds = %1691, %1627
+  br label %1702
 
-1700:                                             ; preds = %1699, %135
-  br label %3820
+1702:                                             ; preds = %1701, %135
+  br label %3822
 
-1701:                                             ; preds = %123
-  %1702 = load ptr, ptr %11, align 8
-  %1703 = getelementptr inbounds %struct._sctp_info, ptr %1702, i32 0, i32 13
-  %1704 = load i16, ptr %1703, align 2
-  %1705 = load ptr, ptr %16, align 8
-  %1706 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1705, i32 0, i32 45
-  store i16 %1704, ptr %1706, align 8
+1703:                                             ; preds = %123
+  %1704 = load ptr, ptr %11, align 8
+  %1705 = getelementptr inbounds %struct._sctp_info, ptr %1704, i32 0, i32 13
+  %1706 = load i16, ptr %1705, align 2
   %1707 = load ptr, ptr %16, align 8
-  %1708 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1707, i32 0, i32 5
-  %1709 = load i32, ptr %1708, align 4
-  %1710 = icmp eq i32 %1709, 0
-  br i1 %1710, label %1711, label %1725
+  %1708 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1707, i32 0, i32 45
+  store i16 %1706, ptr %1708, align 8
+  %1709 = load ptr, ptr %16, align 8
+  %1710 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1709, i32 0, i32 5
+  %1711 = load i32, ptr %1710, align 4
+  %1712 = icmp eq i32 %1711, 0
+  br i1 %1712, label %1713, label %1727
 
-1711:                                             ; preds = %1701
-  %1712 = load ptr, ptr %16, align 8
-  %1713 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1712, i32 0, i32 6
-  %1714 = load i32, ptr %1713, align 8
-  %1715 = load ptr, ptr %11, align 8
-  %1716 = getelementptr inbounds %struct._sctp_info, ptr %1715, i32 0, i32 11
-  %1717 = load i32, ptr %1716, align 8
-  %1718 = icmp ne i32 %1714, %1717
-  br i1 %1718, label %1719, label %1725
+1713:                                             ; preds = %1703
+  %1714 = load ptr, ptr %16, align 8
+  %1715 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1714, i32 0, i32 6
+  %1716 = load i32, ptr %1715, align 8
+  %1717 = load ptr, ptr %11, align 8
+  %1718 = getelementptr inbounds %struct._sctp_info, ptr %1717, i32 0, i32 11
+  %1719 = load i32, ptr %1718, align 8
+  %1720 = icmp ne i32 %1716, %1719
+  br i1 %1720, label %1721, label %1727
 
-1719:                                             ; preds = %1711
-  %1720 = load ptr, ptr %11, align 8
-  %1721 = getelementptr inbounds %struct._sctp_info, ptr %1720, i32 0, i32 11
-  %1722 = load i32, ptr %1721, align 8
-  %1723 = load ptr, ptr %16, align 8
-  %1724 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1723, i32 0, i32 5
-  store i32 %1722, ptr %1724, align 4
-  br label %1745
+1721:                                             ; preds = %1713
+  %1722 = load ptr, ptr %11, align 8
+  %1723 = getelementptr inbounds %struct._sctp_info, ptr %1722, i32 0, i32 11
+  %1724 = load i32, ptr %1723, align 8
+  %1725 = load ptr, ptr %16, align 8
+  %1726 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1725, i32 0, i32 5
+  store i32 %1724, ptr %1726, align 4
+  br label %1747
 
-1725:                                             ; preds = %1711, %1701
-  %1726 = load ptr, ptr %16, align 8
-  %1727 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1726, i32 0, i32 6
-  %1728 = load i32, ptr %1727, align 8
-  %1729 = icmp eq i32 %1728, 0
-  br i1 %1729, label %1730, label %1744
+1727:                                             ; preds = %1713, %1703
+  %1728 = load ptr, ptr %16, align 8
+  %1729 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1728, i32 0, i32 6
+  %1730 = load i32, ptr %1729, align 8
+  %1731 = icmp eq i32 %1730, 0
+  br i1 %1731, label %1732, label %1746
 
-1730:                                             ; preds = %1725
-  %1731 = load ptr, ptr %16, align 8
-  %1732 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1731, i32 0, i32 5
-  %1733 = load i32, ptr %1732, align 4
-  %1734 = load ptr, ptr %11, align 8
-  %1735 = getelementptr inbounds %struct._sctp_info, ptr %1734, i32 0, i32 11
-  %1736 = load i32, ptr %1735, align 8
-  %1737 = icmp ne i32 %1733, %1736
-  br i1 %1737, label %1738, label %1744
+1732:                                             ; preds = %1727
+  %1733 = load ptr, ptr %16, align 8
+  %1734 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1733, i32 0, i32 5
+  %1735 = load i32, ptr %1734, align 4
+  %1736 = load ptr, ptr %11, align 8
+  %1737 = getelementptr inbounds %struct._sctp_info, ptr %1736, i32 0, i32 11
+  %1738 = load i32, ptr %1737, align 8
+  %1739 = icmp ne i32 %1735, %1738
+  br i1 %1739, label %1740, label %1746
 
-1738:                                             ; preds = %1730
-  %1739 = load ptr, ptr %11, align 8
-  %1740 = getelementptr inbounds %struct._sctp_info, ptr %1739, i32 0, i32 11
-  %1741 = load i32, ptr %1740, align 8
-  %1742 = load ptr, ptr %16, align 8
-  %1743 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1742, i32 0, i32 6
-  store i32 %1741, ptr %1743, align 8
-  br label %1744
+1740:                                             ; preds = %1732
+  %1741 = load ptr, ptr %11, align 8
+  %1742 = getelementptr inbounds %struct._sctp_info, ptr %1741, i32 0, i32 11
+  %1743 = load i32, ptr %1742, align 8
+  %1744 = load ptr, ptr %16, align 8
+  %1745 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1744, i32 0, i32 6
+  store i32 %1743, ptr %1745, align 8
+  br label %1746
 
-1744:                                             ; preds = %1738, %1730, %1725
-  br label %1745
+1746:                                             ; preds = %1740, %1732, %1727
+  br label %1747
 
-1745:                                             ; preds = %1744, %1719
-  %1746 = load ptr, ptr %11, align 8
-  %1747 = getelementptr inbounds %struct._sctp_info, ptr %1746, i32 0, i32 15
-  %1748 = getelementptr [2048 x ptr], ptr %1747, i64 0, i64 0
-  %1749 = load ptr, ptr %1748, align 8
-  %1750 = call zeroext i8 @tvb_get_guint8(ptr noundef %1749, i32 noundef 0)
-  %1751 = zext i8 %1750 to i32
-  %1752 = icmp eq i32 %1751, 1
-  br i1 %1752, label %1801, label %1753
+1747:                                             ; preds = %1746, %1721
+  %1748 = load ptr, ptr %11, align 8
+  %1749 = getelementptr inbounds %struct._sctp_info, ptr %1748, i32 0, i32 15
+  %1750 = getelementptr [2048 x ptr], ptr %1749, i64 0, i64 0
+  %1751 = load ptr, ptr %1750, align 8
+  %1752 = call zeroext i8 @tvb_get_guint8(ptr noundef %1751, i32 noundef 0)
+  %1753 = zext i8 %1752 to i32
+  %1754 = icmp eq i32 %1753, 1
+  br i1 %1754, label %1803, label %1755
 
-1753:                                             ; preds = %1745
-  %1754 = load ptr, ptr %11, align 8
-  %1755 = getelementptr inbounds %struct._sctp_info, ptr %1754, i32 0, i32 15
-  %1756 = getelementptr [2048 x ptr], ptr %1755, i64 0, i64 0
-  %1757 = load ptr, ptr %1756, align 8
-  %1758 = call zeroext i8 @tvb_get_guint8(ptr noundef %1757, i32 noundef 0)
-  %1759 = zext i8 %1758 to i32
-  %1760 = icmp eq i32 %1759, 2
-  br i1 %1760, label %1801, label %1761
+1755:                                             ; preds = %1747
+  %1756 = load ptr, ptr %11, align 8
+  %1757 = getelementptr inbounds %struct._sctp_info, ptr %1756, i32 0, i32 15
+  %1758 = getelementptr [2048 x ptr], ptr %1757, i64 0, i64 0
+  %1759 = load ptr, ptr %1758, align 8
+  %1760 = call zeroext i8 @tvb_get_guint8(ptr noundef %1759, i32 noundef 0)
+  %1761 = zext i8 %1760 to i32
+  %1762 = icmp eq i32 %1761, 2
+  br i1 %1762, label %1803, label %1763
 
-1761:                                             ; preds = %1753
-  %1762 = load ptr, ptr %11, align 8
-  %1763 = getelementptr inbounds %struct._sctp_info, ptr %1762, i32 0, i32 15
-  %1764 = getelementptr [2048 x ptr], ptr %1763, i64 0, i64 0
-  %1765 = load ptr, ptr %1764, align 8
-  %1766 = call zeroext i8 @tvb_get_guint8(ptr noundef %1765, i32 noundef 0)
-  %1767 = zext i8 %1766 to i32
-  %1768 = icmp eq i32 %1767, 0
-  br i1 %1768, label %1801, label %1769
+1763:                                             ; preds = %1755
+  %1764 = load ptr, ptr %11, align 8
+  %1765 = getelementptr inbounds %struct._sctp_info, ptr %1764, i32 0, i32 15
+  %1766 = getelementptr [2048 x ptr], ptr %1765, i64 0, i64 0
+  %1767 = load ptr, ptr %1766, align 8
+  %1768 = call zeroext i8 @tvb_get_guint8(ptr noundef %1767, i32 noundef 0)
+  %1769 = zext i8 %1768 to i32
+  %1770 = icmp eq i32 %1769, 0
+  br i1 %1770, label %1803, label %1771
 
-1769:                                             ; preds = %1761
-  %1770 = load ptr, ptr %11, align 8
-  %1771 = getelementptr inbounds %struct._sctp_info, ptr %1770, i32 0, i32 15
-  %1772 = getelementptr [2048 x ptr], ptr %1771, i64 0, i64 0
-  %1773 = load ptr, ptr %1772, align 8
-  %1774 = call zeroext i8 @tvb_get_guint8(ptr noundef %1773, i32 noundef 0)
-  %1775 = zext i8 %1774 to i32
-  %1776 = icmp eq i32 %1775, 64
-  br i1 %1776, label %1801, label %1777
+1771:                                             ; preds = %1763
+  %1772 = load ptr, ptr %11, align 8
+  %1773 = getelementptr inbounds %struct._sctp_info, ptr %1772, i32 0, i32 15
+  %1774 = getelementptr [2048 x ptr], ptr %1773, i64 0, i64 0
+  %1775 = load ptr, ptr %1774, align 8
+  %1776 = call zeroext i8 @tvb_get_guint8(ptr noundef %1775, i32 noundef 0)
+  %1777 = zext i8 %1776 to i32
+  %1778 = icmp eq i32 %1777, 64
+  br i1 %1778, label %1803, label %1779
 
-1777:                                             ; preds = %1769
-  %1778 = load ptr, ptr %11, align 8
-  %1779 = getelementptr inbounds %struct._sctp_info, ptr %1778, i32 0, i32 15
-  %1780 = getelementptr [2048 x ptr], ptr %1779, i64 0, i64 0
-  %1781 = load ptr, ptr %1780, align 8
-  %1782 = call zeroext i8 @tvb_get_guint8(ptr noundef %1781, i32 noundef 0)
-  %1783 = zext i8 %1782 to i32
-  %1784 = icmp eq i32 %1783, 3
-  br i1 %1784, label %1801, label %1785
+1779:                                             ; preds = %1771
+  %1780 = load ptr, ptr %11, align 8
+  %1781 = getelementptr inbounds %struct._sctp_info, ptr %1780, i32 0, i32 15
+  %1782 = getelementptr [2048 x ptr], ptr %1781, i64 0, i64 0
+  %1783 = load ptr, ptr %1782, align 8
+  %1784 = call zeroext i8 @tvb_get_guint8(ptr noundef %1783, i32 noundef 0)
+  %1785 = zext i8 %1784 to i32
+  %1786 = icmp eq i32 %1785, 3
+  br i1 %1786, label %1803, label %1787
 
-1785:                                             ; preds = %1777
-  %1786 = load ptr, ptr %11, align 8
-  %1787 = getelementptr inbounds %struct._sctp_info, ptr %1786, i32 0, i32 15
-  %1788 = getelementptr [2048 x ptr], ptr %1787, i64 0, i64 0
-  %1789 = load ptr, ptr %1788, align 8
-  %1790 = call zeroext i8 @tvb_get_guint8(ptr noundef %1789, i32 noundef 0)
-  %1791 = zext i8 %1790 to i32
-  %1792 = icmp eq i32 %1791, 16
-  br i1 %1792, label %1801, label %1793
+1787:                                             ; preds = %1779
+  %1788 = load ptr, ptr %11, align 8
+  %1789 = getelementptr inbounds %struct._sctp_info, ptr %1788, i32 0, i32 15
+  %1790 = getelementptr [2048 x ptr], ptr %1789, i64 0, i64 0
+  %1791 = load ptr, ptr %1790, align 8
+  %1792 = call zeroext i8 @tvb_get_guint8(ptr noundef %1791, i32 noundef 0)
+  %1793 = zext i8 %1792 to i32
+  %1794 = icmp eq i32 %1793, 16
+  br i1 %1794, label %1803, label %1795
 
-1793:                                             ; preds = %1785
-  %1794 = load ptr, ptr %11, align 8
-  %1795 = getelementptr inbounds %struct._sctp_info, ptr %1794, i32 0, i32 15
-  %1796 = getelementptr [2048 x ptr], ptr %1795, i64 0, i64 0
-  %1797 = load ptr, ptr %1796, align 8
-  %1798 = call zeroext i8 @tvb_get_guint8(ptr noundef %1797, i32 noundef 0)
-  %1799 = zext i8 %1798 to i32
-  %1800 = icmp eq i32 %1799, 192
-  br i1 %1800, label %1801, label %1966
+1795:                                             ; preds = %1787
+  %1796 = load ptr, ptr %11, align 8
+  %1797 = getelementptr inbounds %struct._sctp_info, ptr %1796, i32 0, i32 15
+  %1798 = getelementptr [2048 x ptr], ptr %1797, i64 0, i64 0
+  %1799 = load ptr, ptr %1798, align 8
+  %1800 = call zeroext i8 @tvb_get_guint8(ptr noundef %1799, i32 noundef 0)
+  %1801 = zext i8 %1800 to i32
+  %1802 = icmp eq i32 %1801, 192
+  br i1 %1802, label %1803, label %1968
 
-1801:                                             ; preds = %1793, %1785, %1777, %1769, %1761, %1753, %1745
-  %1802 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #7
-  store ptr %1802, ptr %21, align 8
-  %1803 = load ptr, ptr %21, align 8
-  %1804 = getelementptr inbounds %struct._tsn, ptr %1803, i32 0, i32 3
-  %1805 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 2
-  call void @copy_address(ptr noundef %1804, ptr noundef %1805)
-  %1806 = load ptr, ptr %21, align 8
-  %1807 = getelementptr inbounds %struct._tsn, ptr %1806, i32 0, i32 4
-  %1808 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 3
-  call void @copy_address(ptr noundef %1807, ptr noundef %1808)
-  %1809 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #7
-  store ptr %1809, ptr %22, align 8
-  %1810 = load ptr, ptr %22, align 8
-  %1811 = getelementptr inbounds %struct._tsn, ptr %1810, i32 0, i32 3
-  %1812 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 2
-  call void @copy_address(ptr noundef %1811, ptr noundef %1812)
-  %1813 = load ptr, ptr %22, align 8
-  %1814 = getelementptr inbounds %struct._tsn, ptr %1813, i32 0, i32 4
-  %1815 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 3
-  call void @copy_address(ptr noundef %1814, ptr noundef %1815)
-  %1816 = load ptr, ptr %7, align 8
-  %1817 = getelementptr inbounds %struct._packet_info, ptr %1816, i32 0, i32 5
-  %1818 = getelementptr inbounds %struct.nstime_t, ptr %1817, i32 0, i32 0
-  %1819 = load i64, ptr %1818, align 8
-  %1820 = trunc i64 %1819 to i32
-  %1821 = load ptr, ptr %21, align 8
-  %1822 = getelementptr inbounds %struct._tsn, ptr %1821, i32 0, i32 1
-  store i32 %1820, ptr %1822, align 4
-  %1823 = load ptr, ptr %22, align 8
+1803:                                             ; preds = %1795, %1787, %1779, %1771, %1763, %1755, %1747
+  %1804 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #7
+  store ptr %1804, ptr %21, align 8
+  %1805 = load ptr, ptr %21, align 8
+  %1806 = getelementptr inbounds %struct._tsn, ptr %1805, i32 0, i32 3
+  %1807 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 2
+  call void @copy_address(ptr noundef %1806, ptr noundef %1807)
+  %1808 = load ptr, ptr %21, align 8
+  %1809 = getelementptr inbounds %struct._tsn, ptr %1808, i32 0, i32 4
+  %1810 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 3
+  call void @copy_address(ptr noundef %1809, ptr noundef %1810)
+  %1811 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #7
+  store ptr %1811, ptr %22, align 8
+  %1812 = load ptr, ptr %22, align 8
+  %1813 = getelementptr inbounds %struct._tsn, ptr %1812, i32 0, i32 3
+  %1814 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 2
+  call void @copy_address(ptr noundef %1813, ptr noundef %1814)
+  %1815 = load ptr, ptr %22, align 8
+  %1816 = getelementptr inbounds %struct._tsn, ptr %1815, i32 0, i32 4
+  %1817 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 3
+  call void @copy_address(ptr noundef %1816, ptr noundef %1817)
+  %1818 = load ptr, ptr %7, align 8
+  %1819 = getelementptr inbounds %struct._packet_info, ptr %1818, i32 0, i32 5
+  %1820 = getelementptr inbounds %struct.nstime_t, ptr %1819, i32 0, i32 0
+  %1821 = load i64, ptr %1820, align 8
+  %1822 = trunc i64 %1821 to i32
+  %1823 = load ptr, ptr %21, align 8
   %1824 = getelementptr inbounds %struct._tsn, ptr %1823, i32 0, i32 1
-  store i32 %1820, ptr %1824, align 4
-  %1825 = load ptr, ptr %7, align 8
-  %1826 = getelementptr inbounds %struct._packet_info, ptr %1825, i32 0, i32 5
-  %1827 = getelementptr inbounds %struct.nstime_t, ptr %1826, i32 0, i32 1
-  %1828 = load i32, ptr %1827, align 8
-  %1829 = udiv i32 %1828, 1000
-  %1830 = load ptr, ptr %21, align 8
-  %1831 = getelementptr inbounds %struct._tsn, ptr %1830, i32 0, i32 2
-  store i32 %1829, ptr %1831, align 8
-  %1832 = load ptr, ptr %22, align 8
+  store i32 %1822, ptr %1824, align 4
+  %1825 = load ptr, ptr %22, align 8
+  %1826 = getelementptr inbounds %struct._tsn, ptr %1825, i32 0, i32 1
+  store i32 %1822, ptr %1826, align 4
+  %1827 = load ptr, ptr %7, align 8
+  %1828 = getelementptr inbounds %struct._packet_info, ptr %1827, i32 0, i32 5
+  %1829 = getelementptr inbounds %struct.nstime_t, ptr %1828, i32 0, i32 1
+  %1830 = load i32, ptr %1829, align 8
+  %1831 = udiv i32 %1830, 1000
+  %1832 = load ptr, ptr %21, align 8
   %1833 = getelementptr inbounds %struct._tsn, ptr %1832, i32 0, i32 2
-  store i32 %1829, ptr %1833, align 8
-  %1834 = load ptr, ptr %11, align 8
-  %1835 = getelementptr inbounds %struct._sctp_info, ptr %1834, i32 0, i32 15
-  %1836 = getelementptr [2048 x ptr], ptr %1835, i64 0, i64 0
-  %1837 = load ptr, ptr %1836, align 8
-  %1838 = call zeroext i8 @tvb_get_guint8(ptr noundef %1837, i32 noundef 0)
-  %1839 = zext i8 %1838 to i32
-  %1840 = icmp eq i32 %1839, 0
-  br i1 %1840, label %1873, label %1841
+  store i32 %1831, ptr %1833, align 8
+  %1834 = load ptr, ptr %22, align 8
+  %1835 = getelementptr inbounds %struct._tsn, ptr %1834, i32 0, i32 2
+  store i32 %1831, ptr %1835, align 8
+  %1836 = load ptr, ptr %11, align 8
+  %1837 = getelementptr inbounds %struct._sctp_info, ptr %1836, i32 0, i32 15
+  %1838 = getelementptr [2048 x ptr], ptr %1837, i64 0, i64 0
+  %1839 = load ptr, ptr %1838, align 8
+  %1840 = call zeroext i8 @tvb_get_guint8(ptr noundef %1839, i32 noundef 0)
+  %1841 = zext i8 %1840 to i32
+  %1842 = icmp eq i32 %1841, 0
+  br i1 %1842, label %1875, label %1843
 
-1841:                                             ; preds = %1801
-  %1842 = load ptr, ptr %11, align 8
-  %1843 = getelementptr inbounds %struct._sctp_info, ptr %1842, i32 0, i32 15
-  %1844 = getelementptr [2048 x ptr], ptr %1843, i64 0, i64 0
-  %1845 = load ptr, ptr %1844, align 8
-  %1846 = call zeroext i8 @tvb_get_guint8(ptr noundef %1845, i32 noundef 0)
-  %1847 = zext i8 %1846 to i32
-  %1848 = icmp eq i32 %1847, 64
-  br i1 %1848, label %1873, label %1849
+1843:                                             ; preds = %1803
+  %1844 = load ptr, ptr %11, align 8
+  %1845 = getelementptr inbounds %struct._sctp_info, ptr %1844, i32 0, i32 15
+  %1846 = getelementptr [2048 x ptr], ptr %1845, i64 0, i64 0
+  %1847 = load ptr, ptr %1846, align 8
+  %1848 = call zeroext i8 @tvb_get_guint8(ptr noundef %1847, i32 noundef 0)
+  %1849 = zext i8 %1848 to i32
+  %1850 = icmp eq i32 %1849, 64
+  br i1 %1850, label %1875, label %1851
 
-1849:                                             ; preds = %1841
-  %1850 = load ptr, ptr %11, align 8
-  %1851 = getelementptr inbounds %struct._sctp_info, ptr %1850, i32 0, i32 15
-  %1852 = getelementptr [2048 x ptr], ptr %1851, i64 0, i64 0
-  %1853 = load ptr, ptr %1852, align 8
-  %1854 = call zeroext i8 @tvb_get_guint8(ptr noundef %1853, i32 noundef 0)
-  %1855 = zext i8 %1854 to i32
-  %1856 = icmp eq i32 %1855, 3
-  br i1 %1856, label %1873, label %1857
+1851:                                             ; preds = %1843
+  %1852 = load ptr, ptr %11, align 8
+  %1853 = getelementptr inbounds %struct._sctp_info, ptr %1852, i32 0, i32 15
+  %1854 = getelementptr [2048 x ptr], ptr %1853, i64 0, i64 0
+  %1855 = load ptr, ptr %1854, align 8
+  %1856 = call zeroext i8 @tvb_get_guint8(ptr noundef %1855, i32 noundef 0)
+  %1857 = zext i8 %1856 to i32
+  %1858 = icmp eq i32 %1857, 3
+  br i1 %1858, label %1875, label %1859
 
-1857:                                             ; preds = %1849
-  %1858 = load ptr, ptr %11, align 8
-  %1859 = getelementptr inbounds %struct._sctp_info, ptr %1858, i32 0, i32 15
-  %1860 = getelementptr [2048 x ptr], ptr %1859, i64 0, i64 0
-  %1861 = load ptr, ptr %1860, align 8
-  %1862 = call zeroext i8 @tvb_get_guint8(ptr noundef %1861, i32 noundef 0)
-  %1863 = zext i8 %1862 to i32
-  %1864 = icmp eq i32 %1863, 16
-  br i1 %1864, label %1873, label %1865
+1859:                                             ; preds = %1851
+  %1860 = load ptr, ptr %11, align 8
+  %1861 = getelementptr inbounds %struct._sctp_info, ptr %1860, i32 0, i32 15
+  %1862 = getelementptr [2048 x ptr], ptr %1861, i64 0, i64 0
+  %1863 = load ptr, ptr %1862, align 8
+  %1864 = call zeroext i8 @tvb_get_guint8(ptr noundef %1863, i32 noundef 0)
+  %1865 = zext i8 %1864 to i32
+  %1866 = icmp eq i32 %1865, 16
+  br i1 %1866, label %1875, label %1867
 
-1865:                                             ; preds = %1857
-  %1866 = load ptr, ptr %11, align 8
-  %1867 = getelementptr inbounds %struct._sctp_info, ptr %1866, i32 0, i32 15
-  %1868 = getelementptr [2048 x ptr], ptr %1867, i64 0, i64 0
-  %1869 = load ptr, ptr %1868, align 8
-  %1870 = call zeroext i8 @tvb_get_guint8(ptr noundef %1869, i32 noundef 0)
-  %1871 = zext i8 %1870 to i32
-  %1872 = icmp eq i32 %1871, 192
-  br i1 %1872, label %1873, label %1958
+1867:                                             ; preds = %1859
+  %1868 = load ptr, ptr %11, align 8
+  %1869 = getelementptr inbounds %struct._sctp_info, ptr %1868, i32 0, i32 15
+  %1870 = getelementptr [2048 x ptr], ptr %1869, i64 0, i64 0
+  %1871 = load ptr, ptr %1870, align 8
+  %1872 = call zeroext i8 @tvb_get_guint8(ptr noundef %1871, i32 noundef 0)
+  %1873 = zext i8 %1872 to i32
+  %1874 = icmp eq i32 %1873, 192
+  br i1 %1874, label %1875, label %1960
 
-1873:                                             ; preds = %1865, %1857, %1849, %1841, %1801
-  %1874 = load ptr, ptr %21, align 8
-  %1875 = getelementptr inbounds %struct._tsn, ptr %1874, i32 0, i32 1
-  %1876 = load i32, ptr %1875, align 4
-  %1877 = load ptr, ptr %16, align 8
-  %1878 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1877, i32 0, i32 46
-  %1879 = load i32, ptr %1878, align 4
-  %1880 = icmp ult i32 %1876, %1879
-  br i1 %1880, label %1881, label %1892
+1875:                                             ; preds = %1867, %1859, %1851, %1843, %1803
+  %1876 = load ptr, ptr %21, align 8
+  %1877 = getelementptr inbounds %struct._tsn, ptr %1876, i32 0, i32 1
+  %1878 = load i32, ptr %1877, align 4
+  %1879 = load ptr, ptr %16, align 8
+  %1880 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1879, i32 0, i32 46
+  %1881 = load i32, ptr %1880, align 4
+  %1882 = icmp ult i32 %1878, %1881
+  br i1 %1882, label %1883, label %1894
 
-1881:                                             ; preds = %1873
-  %1882 = load ptr, ptr %21, align 8
-  %1883 = getelementptr inbounds %struct._tsn, ptr %1882, i32 0, i32 1
-  %1884 = load i32, ptr %1883, align 4
-  %1885 = load ptr, ptr %16, align 8
-  %1886 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1885, i32 0, i32 46
-  store i32 %1884, ptr %1886, align 4
-  %1887 = load ptr, ptr %21, align 8
-  %1888 = getelementptr inbounds %struct._tsn, ptr %1887, i32 0, i32 2
-  %1889 = load i32, ptr %1888, align 8
-  %1890 = load ptr, ptr %16, align 8
-  %1891 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1890, i32 0, i32 47
-  store i32 %1889, ptr %1891, align 8
-  br label %1915
+1883:                                             ; preds = %1875
+  %1884 = load ptr, ptr %21, align 8
+  %1885 = getelementptr inbounds %struct._tsn, ptr %1884, i32 0, i32 1
+  %1886 = load i32, ptr %1885, align 4
+  %1887 = load ptr, ptr %16, align 8
+  %1888 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1887, i32 0, i32 46
+  store i32 %1886, ptr %1888, align 4
+  %1889 = load ptr, ptr %21, align 8
+  %1890 = getelementptr inbounds %struct._tsn, ptr %1889, i32 0, i32 2
+  %1891 = load i32, ptr %1890, align 8
+  %1892 = load ptr, ptr %16, align 8
+  %1893 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1892, i32 0, i32 47
+  store i32 %1891, ptr %1893, align 8
+  br label %1917
 
-1892:                                             ; preds = %1873
-  %1893 = load ptr, ptr %21, align 8
-  %1894 = getelementptr inbounds %struct._tsn, ptr %1893, i32 0, i32 1
-  %1895 = load i32, ptr %1894, align 4
-  %1896 = load ptr, ptr %16, align 8
-  %1897 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1896, i32 0, i32 46
-  %1898 = load i32, ptr %1897, align 4
-  %1899 = icmp eq i32 %1895, %1898
-  br i1 %1899, label %1900, label %1914
+1894:                                             ; preds = %1875
+  %1895 = load ptr, ptr %21, align 8
+  %1896 = getelementptr inbounds %struct._tsn, ptr %1895, i32 0, i32 1
+  %1897 = load i32, ptr %1896, align 4
+  %1898 = load ptr, ptr %16, align 8
+  %1899 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1898, i32 0, i32 46
+  %1900 = load i32, ptr %1899, align 4
+  %1901 = icmp eq i32 %1897, %1900
+  br i1 %1901, label %1902, label %1916
 
-1900:                                             ; preds = %1892
-  %1901 = load ptr, ptr %21, align 8
-  %1902 = getelementptr inbounds %struct._tsn, ptr %1901, i32 0, i32 2
-  %1903 = load i32, ptr %1902, align 8
-  %1904 = load ptr, ptr %16, align 8
-  %1905 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1904, i32 0, i32 47
-  %1906 = load i32, ptr %1905, align 8
-  %1907 = icmp ult i32 %1903, %1906
-  br i1 %1907, label %1908, label %1914
+1902:                                             ; preds = %1894
+  %1903 = load ptr, ptr %21, align 8
+  %1904 = getelementptr inbounds %struct._tsn, ptr %1903, i32 0, i32 2
+  %1905 = load i32, ptr %1904, align 8
+  %1906 = load ptr, ptr %16, align 8
+  %1907 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1906, i32 0, i32 47
+  %1908 = load i32, ptr %1907, align 8
+  %1909 = icmp ult i32 %1905, %1908
+  br i1 %1909, label %1910, label %1916
 
-1908:                                             ; preds = %1900
-  %1909 = load ptr, ptr %21, align 8
-  %1910 = getelementptr inbounds %struct._tsn, ptr %1909, i32 0, i32 2
-  %1911 = load i32, ptr %1910, align 8
-  %1912 = load ptr, ptr %16, align 8
-  %1913 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1912, i32 0, i32 47
-  store i32 %1911, ptr %1913, align 8
-  br label %1914
+1910:                                             ; preds = %1902
+  %1911 = load ptr, ptr %21, align 8
+  %1912 = getelementptr inbounds %struct._tsn, ptr %1911, i32 0, i32 2
+  %1913 = load i32, ptr %1912, align 8
+  %1914 = load ptr, ptr %16, align 8
+  %1915 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1914, i32 0, i32 47
+  store i32 %1913, ptr %1915, align 8
+  br label %1916
 
-1914:                                             ; preds = %1908, %1900, %1892
-  br label %1915
+1916:                                             ; preds = %1910, %1902, %1894
+  br label %1917
 
-1915:                                             ; preds = %1914, %1881
-  %1916 = load ptr, ptr %21, align 8
-  %1917 = getelementptr inbounds %struct._tsn, ptr %1916, i32 0, i32 1
-  %1918 = load i32, ptr %1917, align 4
-  %1919 = load ptr, ptr %16, align 8
-  %1920 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1919, i32 0, i32 48
-  %1921 = load i32, ptr %1920, align 4
-  %1922 = icmp ugt i32 %1918, %1921
-  br i1 %1922, label %1923, label %1934
+1917:                                             ; preds = %1916, %1883
+  %1918 = load ptr, ptr %21, align 8
+  %1919 = getelementptr inbounds %struct._tsn, ptr %1918, i32 0, i32 1
+  %1920 = load i32, ptr %1919, align 4
+  %1921 = load ptr, ptr %16, align 8
+  %1922 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1921, i32 0, i32 48
+  %1923 = load i32, ptr %1922, align 4
+  %1924 = icmp ugt i32 %1920, %1923
+  br i1 %1924, label %1925, label %1936
 
-1923:                                             ; preds = %1915
-  %1924 = load ptr, ptr %21, align 8
-  %1925 = getelementptr inbounds %struct._tsn, ptr %1924, i32 0, i32 1
-  %1926 = load i32, ptr %1925, align 4
-  %1927 = load ptr, ptr %16, align 8
-  %1928 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1927, i32 0, i32 48
-  store i32 %1926, ptr %1928, align 4
-  %1929 = load ptr, ptr %21, align 8
-  %1930 = getelementptr inbounds %struct._tsn, ptr %1929, i32 0, i32 2
-  %1931 = load i32, ptr %1930, align 8
-  %1932 = load ptr, ptr %16, align 8
-  %1933 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1932, i32 0, i32 49
-  store i32 %1931, ptr %1933, align 8
-  br label %1957
+1925:                                             ; preds = %1917
+  %1926 = load ptr, ptr %21, align 8
+  %1927 = getelementptr inbounds %struct._tsn, ptr %1926, i32 0, i32 1
+  %1928 = load i32, ptr %1927, align 4
+  %1929 = load ptr, ptr %16, align 8
+  %1930 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1929, i32 0, i32 48
+  store i32 %1928, ptr %1930, align 4
+  %1931 = load ptr, ptr %21, align 8
+  %1932 = getelementptr inbounds %struct._tsn, ptr %1931, i32 0, i32 2
+  %1933 = load i32, ptr %1932, align 8
+  %1934 = load ptr, ptr %16, align 8
+  %1935 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1934, i32 0, i32 49
+  store i32 %1933, ptr %1935, align 8
+  br label %1959
 
-1934:                                             ; preds = %1915
-  %1935 = load ptr, ptr %21, align 8
-  %1936 = getelementptr inbounds %struct._tsn, ptr %1935, i32 0, i32 1
-  %1937 = load i32, ptr %1936, align 4
-  %1938 = load ptr, ptr %16, align 8
-  %1939 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1938, i32 0, i32 48
-  %1940 = load i32, ptr %1939, align 4
-  %1941 = icmp eq i32 %1937, %1940
-  br i1 %1941, label %1942, label %1956
+1936:                                             ; preds = %1917
+  %1937 = load ptr, ptr %21, align 8
+  %1938 = getelementptr inbounds %struct._tsn, ptr %1937, i32 0, i32 1
+  %1939 = load i32, ptr %1938, align 4
+  %1940 = load ptr, ptr %16, align 8
+  %1941 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1940, i32 0, i32 48
+  %1942 = load i32, ptr %1941, align 4
+  %1943 = icmp eq i32 %1939, %1942
+  br i1 %1943, label %1944, label %1958
 
-1942:                                             ; preds = %1934
-  %1943 = load ptr, ptr %21, align 8
-  %1944 = getelementptr inbounds %struct._tsn, ptr %1943, i32 0, i32 2
-  %1945 = load i32, ptr %1944, align 8
-  %1946 = load ptr, ptr %16, align 8
-  %1947 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1946, i32 0, i32 49
-  %1948 = load i32, ptr %1947, align 8
-  %1949 = icmp ugt i32 %1945, %1948
-  br i1 %1949, label %1950, label %1956
+1944:                                             ; preds = %1936
+  %1945 = load ptr, ptr %21, align 8
+  %1946 = getelementptr inbounds %struct._tsn, ptr %1945, i32 0, i32 2
+  %1947 = load i32, ptr %1946, align 8
+  %1948 = load ptr, ptr %16, align 8
+  %1949 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1948, i32 0, i32 49
+  %1950 = load i32, ptr %1949, align 8
+  %1951 = icmp ugt i32 %1947, %1950
+  br i1 %1951, label %1952, label %1958
 
-1950:                                             ; preds = %1942
-  %1951 = load ptr, ptr %21, align 8
-  %1952 = getelementptr inbounds %struct._tsn, ptr %1951, i32 0, i32 2
-  %1953 = load i32, ptr %1952, align 8
-  %1954 = load ptr, ptr %16, align 8
-  %1955 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1954, i32 0, i32 49
-  store i32 %1953, ptr %1955, align 8
-  br label %1956
-
-1956:                                             ; preds = %1950, %1942, %1934
-  br label %1957
-
-1957:                                             ; preds = %1956, %1923
+1952:                                             ; preds = %1944
+  %1953 = load ptr, ptr %21, align 8
+  %1954 = getelementptr inbounds %struct._tsn, ptr %1953, i32 0, i32 2
+  %1955 = load i32, ptr %1954, align 8
+  %1956 = load ptr, ptr %16, align 8
+  %1957 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1956, i32 0, i32 49
+  store i32 %1955, ptr %1957, align 8
   br label %1958
 
-1958:                                             ; preds = %1957, %1865
-  %1959 = load ptr, ptr %7, align 8
-  %1960 = getelementptr inbounds %struct._packet_info, ptr %1959, i32 0, i32 3
-  %1961 = load i32, ptr %1960, align 4
-  %1962 = load ptr, ptr %21, align 8
-  %1963 = getelementptr inbounds %struct._tsn, ptr %1962, i32 0, i32 0
-  store i32 %1961, ptr %1963, align 8
-  %1964 = load ptr, ptr %22, align 8
+1958:                                             ; preds = %1952, %1944, %1936
+  br label %1959
+
+1959:                                             ; preds = %1958, %1925
+  br label %1960
+
+1960:                                             ; preds = %1959, %1867
+  %1961 = load ptr, ptr %7, align 8
+  %1962 = getelementptr inbounds %struct._packet_info, ptr %1961, i32 0, i32 3
+  %1963 = load i32, ptr %1962, align 4
+  %1964 = load ptr, ptr %21, align 8
   %1965 = getelementptr inbounds %struct._tsn, ptr %1964, i32 0, i32 0
-  store i32 %1961, ptr %1965, align 8
-  br label %1966
+  store i32 %1963, ptr %1965, align 8
+  %1966 = load ptr, ptr %22, align 8
+  %1967 = getelementptr inbounds %struct._tsn, ptr %1966, i32 0, i32 0
+  store i32 %1963, ptr %1967, align 8
+  br label %1968
 
-1966:                                             ; preds = %1958, %1793
-  %1967 = load ptr, ptr %7, align 8
-  %1968 = getelementptr inbounds %struct._packet_info, ptr %1967, i32 0, i32 3
-  %1969 = load i32, ptr %1968, align 4
-  store i32 %1969, ptr %34, align 4
-  %1970 = load ptr, ptr %16, align 8
-  %1971 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1970, i32 0, i32 59
-  %1972 = load ptr, ptr %1971, align 8
-  %1973 = load i32, ptr %34, align 4
-  %1974 = zext i32 %1973 to i64
-  %1975 = inttoptr i64 %1974 to ptr
-  %1976 = call ptr @g_list_prepend(ptr noundef %1972, ptr noundef %1975)
-  %1977 = load ptr, ptr %16, align 8
-  %1978 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1977, i32 0, i32 59
-  store ptr %1976, ptr %1978, align 8
-  %1979 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #7
-  store ptr %1979, ptr %20, align 8
-  %1980 = load ptr, ptr %20, align 8
-  %1981 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 2
-  call void @copy_address(ptr noundef %1980, ptr noundef %1981)
-  %1982 = load ptr, ptr %16, align 8
-  %1983 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1982, i32 0, i32 45
-  %1984 = load i16, ptr %1983, align 8
-  %1985 = zext i16 %1984 to i32
-  switch i32 %1985, label %1994 [
-    i32 1, label %1986
-    i32 2, label %1990
+1968:                                             ; preds = %1960, %1795
+  %1969 = load ptr, ptr %7, align 8
+  %1970 = getelementptr inbounds %struct._packet_info, ptr %1969, i32 0, i32 3
+  %1971 = load i32, ptr %1970, align 4
+  store i32 %1971, ptr %34, align 4
+  %1972 = load ptr, ptr %16, align 8
+  %1973 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1972, i32 0, i32 59
+  %1974 = load ptr, ptr %1973, align 8
+  %1975 = load i32, ptr %34, align 4
+  %1976 = zext i32 %1975 to i64
+  %1977 = inttoptr i64 %1976 to ptr
+  %1978 = call ptr @g_list_prepend(ptr noundef %1974, ptr noundef %1977)
+  %1979 = load ptr, ptr %16, align 8
+  %1980 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1979, i32 0, i32 59
+  store ptr %1978, ptr %1980, align 8
+  %1981 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #7
+  store ptr %1981, ptr %20, align 8
+  %1982 = load ptr, ptr %20, align 8
+  %1983 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 2
+  call void @copy_address(ptr noundef %1982, ptr noundef %1983)
+  %1984 = load ptr, ptr %16, align 8
+  %1985 = getelementptr inbounds %struct._sctp_assoc_info, ptr %1984, i32 0, i32 45
+  %1986 = load i16, ptr %1985, align 8
+  %1987 = zext i16 %1986 to i32
+  switch i32 %1987, label %1996 [
+    i32 1, label %1988
+    i32 2, label %1992
   ]
 
-1986:                                             ; preds = %1966
-  %1987 = load ptr, ptr %20, align 8
-  %1988 = load ptr, ptr %16, align 8
-  %1989 = call ptr @add_address(ptr noundef %1987, ptr noundef %1988, i16 noundef zeroext 1)
-  store ptr %1989, ptr %16, align 8
-  br label %1996
+1988:                                             ; preds = %1968
+  %1989 = load ptr, ptr %20, align 8
+  %1990 = load ptr, ptr %16, align 8
+  %1991 = call ptr @add_address(ptr noundef %1989, ptr noundef %1990, i16 noundef zeroext 1)
+  store ptr %1991, ptr %16, align 8
+  br label %1998
 
-1990:                                             ; preds = %1966
-  %1991 = load ptr, ptr %20, align 8
-  %1992 = load ptr, ptr %16, align 8
-  %1993 = call ptr @add_address(ptr noundef %1991, ptr noundef %1992, i16 noundef zeroext 2)
-  store ptr %1993, ptr %16, align 8
-  br label %1996
+1992:                                             ; preds = %1968
+  %1993 = load ptr, ptr %20, align 8
+  %1994 = load ptr, ptr %16, align 8
+  %1995 = call ptr @add_address(ptr noundef %1993, ptr noundef %1994, i16 noundef zeroext 2)
+  store ptr %1995, ptr %16, align 8
+  br label %1998
 
-1994:                                             ; preds = %1966
-  %1995 = load ptr, ptr %20, align 8
-  call void @g_free(ptr noundef %1995)
-  br label %1996
+1996:                                             ; preds = %1968
+  %1997 = load ptr, ptr %20, align 8
+  call void @g_free(ptr noundef %1997)
+  br label %1998
 
-1996:                                             ; preds = %1994, %1990, %1986
-  %1997 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #7
-  store ptr %1997, ptr %20, align 8
-  %1998 = load ptr, ptr %20, align 8
-  %1999 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 3
-  call void @copy_address(ptr noundef %1998, ptr noundef %1999)
-  %2000 = load ptr, ptr %16, align 8
-  %2001 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2000, i32 0, i32 45
-  %2002 = load i16, ptr %2001, align 8
-  %2003 = zext i16 %2002 to i32
-  switch i32 %2003, label %2012 [
-    i32 1, label %2004
-    i32 2, label %2008
+1998:                                             ; preds = %1996, %1992, %1988
+  %1999 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #7
+  store ptr %1999, ptr %20, align 8
+  %2000 = load ptr, ptr %20, align 8
+  %2001 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 3
+  call void @copy_address(ptr noundef %2000, ptr noundef %2001)
+  %2002 = load ptr, ptr %16, align 8
+  %2003 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2002, i32 0, i32 45
+  %2004 = load i16, ptr %2003, align 8
+  %2005 = zext i16 %2004 to i32
+  switch i32 %2005, label %2014 [
+    i32 1, label %2006
+    i32 2, label %2010
   ]
 
-2004:                                             ; preds = %1996
-  %2005 = load ptr, ptr %20, align 8
-  %2006 = load ptr, ptr %16, align 8
-  %2007 = call ptr @add_address(ptr noundef %2005, ptr noundef %2006, i16 noundef zeroext 2)
-  store ptr %2007, ptr %16, align 8
-  br label %2014
+2006:                                             ; preds = %1998
+  %2007 = load ptr, ptr %20, align 8
+  %2008 = load ptr, ptr %16, align 8
+  %2009 = call ptr @add_address(ptr noundef %2007, ptr noundef %2008, i16 noundef zeroext 2)
+  store ptr %2009, ptr %16, align 8
+  br label %2016
 
-2008:                                             ; preds = %1996
-  %2009 = load ptr, ptr %20, align 8
-  %2010 = load ptr, ptr %16, align 8
-  %2011 = call ptr @add_address(ptr noundef %2009, ptr noundef %2010, i16 noundef zeroext 1)
-  store ptr %2011, ptr %16, align 8
-  br label %2014
+2010:                                             ; preds = %1998
+  %2011 = load ptr, ptr %20, align 8
+  %2012 = load ptr, ptr %16, align 8
+  %2013 = call ptr @add_address(ptr noundef %2011, ptr noundef %2012, i16 noundef zeroext 1)
+  store ptr %2013, ptr %16, align 8
+  br label %2016
 
-2012:                                             ; preds = %1996
-  %2013 = load ptr, ptr %20, align 8
-  call void @g_free(ptr noundef %2013)
-  br label %2014
+2014:                                             ; preds = %1998
+  %2015 = load ptr, ptr %20, align 8
+  call void @g_free(ptr noundef %2015)
+  br label %2016
 
-2014:                                             ; preds = %2012, %2008, %2004
-  %2015 = load ptr, ptr %11, align 8
-  %2016 = getelementptr inbounds %struct._sctp_info, ptr %2015, i32 0, i32 15
-  %2017 = getelementptr [2048 x ptr], ptr %2016, i64 0, i64 0
-  %2018 = load ptr, ptr %2017, align 8
-  %2019 = call zeroext i8 @tvb_get_guint8(ptr noundef %2018, i32 noundef 0)
-  %2020 = zext i8 %2019 to i32
-  %2021 = icmp eq i32 %2020, 2
-  br i1 %2021, label %2030, label %2022
+2016:                                             ; preds = %2014, %2010, %2006
+  %2017 = load ptr, ptr %11, align 8
+  %2018 = getelementptr inbounds %struct._sctp_info, ptr %2017, i32 0, i32 15
+  %2019 = getelementptr [2048 x ptr], ptr %2018, i64 0, i64 0
+  %2020 = load ptr, ptr %2019, align 8
+  %2021 = call zeroext i8 @tvb_get_guint8(ptr noundef %2020, i32 noundef 0)
+  %2022 = zext i8 %2021 to i32
+  %2023 = icmp eq i32 %2022, 2
+  br i1 %2023, label %2032, label %2024
 
-2022:                                             ; preds = %2014
-  %2023 = load ptr, ptr %11, align 8
-  %2024 = getelementptr inbounds %struct._sctp_info, ptr %2023, i32 0, i32 15
-  %2025 = getelementptr [2048 x ptr], ptr %2024, i64 0, i64 0
-  %2026 = load ptr, ptr %2025, align 8
-  %2027 = call zeroext i8 @tvb_get_guint8(ptr noundef %2026, i32 noundef 0)
-  %2028 = zext i8 %2027 to i32
-  %2029 = icmp eq i32 %2028, 1
-  br i1 %2029, label %2030, label %2528
+2024:                                             ; preds = %2016
+  %2025 = load ptr, ptr %11, align 8
+  %2026 = getelementptr inbounds %struct._sctp_info, ptr %2025, i32 0, i32 15
+  %2027 = getelementptr [2048 x ptr], ptr %2026, i64 0, i64 0
+  %2028 = load ptr, ptr %2027, align 8
+  %2029 = call zeroext i8 @tvb_get_guint8(ptr noundef %2028, i32 noundef 0)
+  %2030 = zext i8 %2029 to i32
+  %2031 = icmp eq i32 %2030, 1
+  br i1 %2031, label %2032, label %2530
 
-2030:                                             ; preds = %2022, %2014
-  %2031 = load ptr, ptr %11, align 8
-  %2032 = getelementptr inbounds %struct._sctp_info, ptr %2031, i32 0, i32 15
-  %2033 = load i32, ptr %12, align 4
-  %2034 = zext i32 %2033 to i64
-  %2035 = getelementptr [2048 x ptr], ptr %2032, i64 0, i64 %2034
-  %2036 = load ptr, ptr %2035, align 8
-  %2037 = call i32 @tvb_get_ntohl(ptr noundef %2036, i32 noundef 16)
-  store i32 %2037, ptr %13, align 4
-  %2038 = load ptr, ptr %16, align 8
-  %2039 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2038, i32 0, i32 45
-  %2040 = load i16, ptr %2039, align 8
-  %2041 = zext i16 %2040 to i32
-  %2042 = icmp eq i32 %2041, 2
-  br i1 %2042, label %2043, label %2092
+2032:                                             ; preds = %2024, %2016
+  %2033 = load ptr, ptr %11, align 8
+  %2034 = getelementptr inbounds %struct._sctp_info, ptr %2033, i32 0, i32 15
+  %2035 = load i32, ptr %12, align 4
+  %2036 = zext i32 %2035 to i64
+  %2037 = getelementptr [2048 x ptr], ptr %2034, i64 0, i64 %2036
+  %2038 = load ptr, ptr %2037, align 8
+  %2039 = call i32 @tvb_get_ntohl(ptr noundef %2038, i32 noundef 16)
+  store i32 %2039, ptr %13, align 4
+  %2040 = load ptr, ptr %16, align 8
+  %2041 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2040, i32 0, i32 45
+  %2042 = load i16, ptr %2041, align 8
+  %2043 = zext i16 %2042 to i32
+  %2044 = icmp eq i32 %2043, 2
+  br i1 %2044, label %2045, label %2094
 
-2043:                                             ; preds = %2030
-  %2044 = load i32, ptr %13, align 4
-  %2045 = load ptr, ptr %16, align 8
-  %2046 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2045, i32 0, i32 51
-  %2047 = load i32, ptr %2046, align 8
-  %2048 = icmp ult i32 %2044, %2047
-  br i1 %2048, label %2049, label %2053
+2045:                                             ; preds = %2032
+  %2046 = load i32, ptr %13, align 4
+  %2047 = load ptr, ptr %16, align 8
+  %2048 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2047, i32 0, i32 51
+  %2049 = load i32, ptr %2048, align 8
+  %2050 = icmp ult i32 %2046, %2049
+  br i1 %2050, label %2051, label %2055
 
-2049:                                             ; preds = %2043
-  %2050 = load i32, ptr %13, align 4
-  %2051 = load ptr, ptr %16, align 8
-  %2052 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2051, i32 0, i32 51
-  store i32 %2050, ptr %2052, align 8
-  br label %2053
+2051:                                             ; preds = %2045
+  %2052 = load i32, ptr %13, align 4
+  %2053 = load ptr, ptr %16, align 8
+  %2054 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2053, i32 0, i32 51
+  store i32 %2052, ptr %2054, align 8
+  br label %2055
 
-2053:                                             ; preds = %2049, %2043
-  %2054 = load i32, ptr %13, align 4
-  %2055 = load ptr, ptr %16, align 8
-  %2056 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2055, i32 0, i32 53
-  %2057 = load i32, ptr %2056, align 8
-  %2058 = icmp ugt i32 %2054, %2057
-  br i1 %2058, label %2059, label %2063
+2055:                                             ; preds = %2051, %2045
+  %2056 = load i32, ptr %13, align 4
+  %2057 = load ptr, ptr %16, align 8
+  %2058 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2057, i32 0, i32 53
+  %2059 = load i32, ptr %2058, align 8
+  %2060 = icmp ugt i32 %2056, %2059
+  br i1 %2060, label %2061, label %2065
 
-2059:                                             ; preds = %2053
-  %2060 = load i32, ptr %13, align 4
-  %2061 = load ptr, ptr %16, align 8
-  %2062 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2061, i32 0, i32 53
-  store i32 %2060, ptr %2062, align 8
-  br label %2063
+2061:                                             ; preds = %2055
+  %2062 = load i32, ptr %13, align 4
+  %2063 = load ptr, ptr %16, align 8
+  %2064 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2063, i32 0, i32 53
+  store i32 %2062, ptr %2064, align 8
+  br label %2065
 
-2063:                                             ; preds = %2059, %2053
-  %2064 = load ptr, ptr %11, align 8
-  %2065 = getelementptr inbounds %struct._sctp_info, ptr %2064, i32 0, i32 15
-  %2066 = getelementptr [2048 x ptr], ptr %2065, i64 0, i64 0
-  %2067 = load ptr, ptr %2066, align 8
-  %2068 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2067, i32 noundef 14)
-  %2069 = load ptr, ptr %16, align 8
-  %2070 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2069, i32 0, i32 13
-  store i16 %2068, ptr %2070, align 4
-  %2071 = load ptr, ptr %11, align 8
-  %2072 = getelementptr inbounds %struct._sctp_info, ptr %2071, i32 0, i32 15
-  %2073 = getelementptr [2048 x ptr], ptr %2072, i64 0, i64 0
-  %2074 = load ptr, ptr %2073, align 8
-  %2075 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2074, i32 noundef 12)
-  %2076 = load ptr, ptr %16, align 8
-  %2077 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2076, i32 0, i32 14
-  store i16 %2075, ptr %2077, align 2
-  %2078 = load ptr, ptr %11, align 8
-  %2079 = getelementptr inbounds %struct._sctp_info, ptr %2078, i32 0, i32 15
-  %2080 = getelementptr [2048 x ptr], ptr %2079, i64 0, i64 0
-  %2081 = load ptr, ptr %2080, align 8
-  %2082 = call i32 @tvb_get_ntohl(ptr noundef %2081, i32 noundef 8)
-  %2083 = load ptr, ptr %16, align 8
-  %2084 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2083, i32 0, i32 42
-  store i32 %2082, ptr %2084, align 8
+2065:                                             ; preds = %2061, %2055
+  %2066 = load ptr, ptr %11, align 8
+  %2067 = getelementptr inbounds %struct._sctp_info, ptr %2066, i32 0, i32 15
+  %2068 = getelementptr [2048 x ptr], ptr %2067, i64 0, i64 0
+  %2069 = load ptr, ptr %2068, align 8
+  %2070 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2069, i32 noundef 14)
+  %2071 = load ptr, ptr %16, align 8
+  %2072 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2071, i32 0, i32 13
+  store i16 %2070, ptr %2072, align 4
+  %2073 = load ptr, ptr %11, align 8
+  %2074 = getelementptr inbounds %struct._sctp_info, ptr %2073, i32 0, i32 15
+  %2075 = getelementptr [2048 x ptr], ptr %2074, i64 0, i64 0
+  %2076 = load ptr, ptr %2075, align 8
+  %2077 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2076, i32 noundef 12)
+  %2078 = load ptr, ptr %16, align 8
+  %2079 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2078, i32 0, i32 14
+  store i16 %2077, ptr %2079, align 2
+  %2080 = load ptr, ptr %11, align 8
+  %2081 = getelementptr inbounds %struct._sctp_info, ptr %2080, i32 0, i32 15
+  %2082 = getelementptr [2048 x ptr], ptr %2081, i64 0, i64 0
+  %2083 = load ptr, ptr %2082, align 8
+  %2084 = call i32 @tvb_get_ntohl(ptr noundef %2083, i32 noundef 8)
   %2085 = load ptr, ptr %16, align 8
-  %2086 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2085, i32 0, i32 64
-  %2087 = load ptr, ptr %2086, align 8
-  %2088 = load ptr, ptr %21, align 8
-  %2089 = call ptr @g_list_prepend(ptr noundef %2087, ptr noundef %2088)
-  %2090 = load ptr, ptr %16, align 8
-  %2091 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2090, i32 0, i32 64
-  store ptr %2089, ptr %2091, align 8
+  %2086 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2085, i32 0, i32 42
+  store i32 %2084, ptr %2086, align 8
+  %2087 = load ptr, ptr %16, align 8
+  %2088 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2087, i32 0, i32 64
+  %2089 = load ptr, ptr %2088, align 8
+  %2090 = load ptr, ptr %21, align 8
+  %2091 = call ptr @g_list_prepend(ptr noundef %2089, ptr noundef %2090)
+  %2092 = load ptr, ptr %16, align 8
+  %2093 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2092, i32 0, i32 64
+  store ptr %2091, ptr %2093, align 8
   store i32 1, ptr %30, align 4
-  br label %2148
+  br label %2150
 
-2092:                                             ; preds = %2030
-  %2093 = load ptr, ptr %16, align 8
-  %2094 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2093, i32 0, i32 45
-  %2095 = load i16, ptr %2094, align 8
-  %2096 = zext i16 %2095 to i32
-  %2097 = icmp eq i32 %2096, 1
-  br i1 %2097, label %2098, label %2147
+2094:                                             ; preds = %2032
+  %2095 = load ptr, ptr %16, align 8
+  %2096 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2095, i32 0, i32 45
+  %2097 = load i16, ptr %2096, align 8
+  %2098 = zext i16 %2097 to i32
+  %2099 = icmp eq i32 %2098, 1
+  br i1 %2099, label %2100, label %2149
 
-2098:                                             ; preds = %2092
-  %2099 = load i32, ptr %13, align 4
-  %2100 = load ptr, ptr %16, align 8
-  %2101 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2100, i32 0, i32 50
-  %2102 = load i32, ptr %2101, align 4
-  %2103 = icmp ult i32 %2099, %2102
-  br i1 %2103, label %2104, label %2108
+2100:                                             ; preds = %2094
+  %2101 = load i32, ptr %13, align 4
+  %2102 = load ptr, ptr %16, align 8
+  %2103 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2102, i32 0, i32 50
+  %2104 = load i32, ptr %2103, align 4
+  %2105 = icmp ult i32 %2101, %2104
+  br i1 %2105, label %2106, label %2110
 
-2104:                                             ; preds = %2098
-  %2105 = load i32, ptr %13, align 4
-  %2106 = load ptr, ptr %16, align 8
-  %2107 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2106, i32 0, i32 50
-  store i32 %2105, ptr %2107, align 4
-  br label %2108
+2106:                                             ; preds = %2100
+  %2107 = load i32, ptr %13, align 4
+  %2108 = load ptr, ptr %16, align 8
+  %2109 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2108, i32 0, i32 50
+  store i32 %2107, ptr %2109, align 4
+  br label %2110
 
-2108:                                             ; preds = %2104, %2098
-  %2109 = load i32, ptr %13, align 4
-  %2110 = load ptr, ptr %16, align 8
-  %2111 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2110, i32 0, i32 52
-  %2112 = load i32, ptr %2111, align 4
-  %2113 = icmp ugt i32 %2109, %2112
-  br i1 %2113, label %2114, label %2118
+2110:                                             ; preds = %2106, %2100
+  %2111 = load i32, ptr %13, align 4
+  %2112 = load ptr, ptr %16, align 8
+  %2113 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2112, i32 0, i32 52
+  %2114 = load i32, ptr %2113, align 4
+  %2115 = icmp ugt i32 %2111, %2114
+  br i1 %2115, label %2116, label %2120
 
-2114:                                             ; preds = %2108
-  %2115 = load i32, ptr %13, align 4
-  %2116 = load ptr, ptr %16, align 8
-  %2117 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2116, i32 0, i32 52
-  store i32 %2115, ptr %2117, align 4
-  br label %2118
+2116:                                             ; preds = %2110
+  %2117 = load i32, ptr %13, align 4
+  %2118 = load ptr, ptr %16, align 8
+  %2119 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2118, i32 0, i32 52
+  store i32 %2117, ptr %2119, align 4
+  br label %2120
 
-2118:                                             ; preds = %2114, %2108
-  %2119 = load ptr, ptr %11, align 8
-  %2120 = getelementptr inbounds %struct._sctp_info, ptr %2119, i32 0, i32 15
-  %2121 = getelementptr [2048 x ptr], ptr %2120, i64 0, i64 0
-  %2122 = load ptr, ptr %2121, align 8
-  %2123 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2122, i32 noundef 14)
-  %2124 = load ptr, ptr %16, align 8
-  %2125 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2124, i32 0, i32 11
-  store i16 %2123, ptr %2125, align 8
-  %2126 = load ptr, ptr %11, align 8
-  %2127 = getelementptr inbounds %struct._sctp_info, ptr %2126, i32 0, i32 15
-  %2128 = getelementptr [2048 x ptr], ptr %2127, i64 0, i64 0
-  %2129 = load ptr, ptr %2128, align 8
-  %2130 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2129, i32 noundef 12)
-  %2131 = load ptr, ptr %16, align 8
-  %2132 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2131, i32 0, i32 12
-  store i16 %2130, ptr %2132, align 2
-  %2133 = load ptr, ptr %11, align 8
-  %2134 = getelementptr inbounds %struct._sctp_info, ptr %2133, i32 0, i32 15
-  %2135 = getelementptr [2048 x ptr], ptr %2134, i64 0, i64 0
-  %2136 = load ptr, ptr %2135, align 8
-  %2137 = call i32 @tvb_get_ntohl(ptr noundef %2136, i32 noundef 8)
-  %2138 = load ptr, ptr %16, align 8
-  %2139 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2138, i32 0, i32 41
-  store i32 %2137, ptr %2139, align 4
+2120:                                             ; preds = %2116, %2110
+  %2121 = load ptr, ptr %11, align 8
+  %2122 = getelementptr inbounds %struct._sctp_info, ptr %2121, i32 0, i32 15
+  %2123 = getelementptr [2048 x ptr], ptr %2122, i64 0, i64 0
+  %2124 = load ptr, ptr %2123, align 8
+  %2125 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2124, i32 noundef 14)
+  %2126 = load ptr, ptr %16, align 8
+  %2127 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2126, i32 0, i32 11
+  store i16 %2125, ptr %2127, align 8
+  %2128 = load ptr, ptr %11, align 8
+  %2129 = getelementptr inbounds %struct._sctp_info, ptr %2128, i32 0, i32 15
+  %2130 = getelementptr [2048 x ptr], ptr %2129, i64 0, i64 0
+  %2131 = load ptr, ptr %2130, align 8
+  %2132 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2131, i32 noundef 12)
+  %2133 = load ptr, ptr %16, align 8
+  %2134 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2133, i32 0, i32 12
+  store i16 %2132, ptr %2134, align 2
+  %2135 = load ptr, ptr %11, align 8
+  %2136 = getelementptr inbounds %struct._sctp_info, ptr %2135, i32 0, i32 15
+  %2137 = getelementptr [2048 x ptr], ptr %2136, i64 0, i64 0
+  %2138 = load ptr, ptr %2137, align 8
+  %2139 = call i32 @tvb_get_ntohl(ptr noundef %2138, i32 noundef 8)
   %2140 = load ptr, ptr %16, align 8
-  %2141 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2140, i32 0, i32 60
-  %2142 = load ptr, ptr %2141, align 8
-  %2143 = load ptr, ptr %21, align 8
-  %2144 = call ptr @g_list_prepend(ptr noundef %2142, ptr noundef %2143)
-  %2145 = load ptr, ptr %16, align 8
-  %2146 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2145, i32 0, i32 60
-  store ptr %2144, ptr %2146, align 8
+  %2141 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2140, i32 0, i32 41
+  store i32 %2139, ptr %2141, align 4
+  %2142 = load ptr, ptr %16, align 8
+  %2143 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2142, i32 0, i32 60
+  %2144 = load ptr, ptr %2143, align 8
+  %2145 = load ptr, ptr %21, align 8
+  %2146 = call ptr @g_list_prepend(ptr noundef %2144, ptr noundef %2145)
+  %2147 = load ptr, ptr %16, align 8
+  %2148 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2147, i32 0, i32 60
+  store ptr %2146, ptr %2148, align 8
   store i32 1, ptr %30, align 4
-  br label %2147
+  br label %2149
 
-2147:                                             ; preds = %2118, %2092
-  br label %2148
+2149:                                             ; preds = %2120, %2094
+  br label %2150
 
-2148:                                             ; preds = %2147, %2063
-  %2149 = load ptr, ptr %11, align 8
-  %2150 = getelementptr inbounds %struct._sctp_info, ptr %2149, i32 0, i32 15
-  %2151 = getelementptr [2048 x ptr], ptr %2150, i64 0, i64 0
-  %2152 = load ptr, ptr %2151, align 8
-  %2153 = call zeroext i8 @tvb_get_guint8(ptr noundef %2152, i32 noundef 0)
-  store i8 %2153, ptr %29, align 1
-  %2154 = load i8, ptr %29, align 1
-  %2155 = zext i8 %2154 to i32
-  %2156 = icmp sle i32 %2155, 16
-  br i1 %2156, label %2178, label %2157
+2150:                                             ; preds = %2149, %2065
+  %2151 = load ptr, ptr %11, align 8
+  %2152 = getelementptr inbounds %struct._sctp_info, ptr %2151, i32 0, i32 15
+  %2153 = getelementptr [2048 x ptr], ptr %2152, i64 0, i64 0
+  %2154 = load ptr, ptr %2153, align 8
+  %2155 = call zeroext i8 @tvb_get_guint8(ptr noundef %2154, i32 noundef 0)
+  store i8 %2155, ptr %29, align 1
+  %2156 = load i8, ptr %29, align 1
+  %2157 = zext i8 %2156 to i32
+  %2158 = icmp sle i32 %2157, 16
+  br i1 %2158, label %2180, label %2159
 
-2157:                                             ; preds = %2148
-  %2158 = load i8, ptr %29, align 1
-  %2159 = zext i8 %2158 to i32
-  %2160 = icmp eq i32 %2159, 64
-  br i1 %2160, label %2178, label %2161
+2159:                                             ; preds = %2150
+  %2160 = load i8, ptr %29, align 1
+  %2161 = zext i8 %2160 to i32
+  %2162 = icmp eq i32 %2161, 64
+  br i1 %2162, label %2180, label %2163
 
-2161:                                             ; preds = %2157
-  %2162 = load i8, ptr %29, align 1
-  %2163 = zext i8 %2162 to i32
-  %2164 = icmp eq i32 %2163, 192
-  br i1 %2164, label %2178, label %2165
+2163:                                             ; preds = %2159
+  %2164 = load i8, ptr %29, align 1
+  %2165 = zext i8 %2164 to i32
+  %2166 = icmp eq i32 %2165, 192
+  br i1 %2166, label %2180, label %2167
 
-2165:                                             ; preds = %2161
-  %2166 = load i8, ptr %29, align 1
-  %2167 = zext i8 %2166 to i32
-  %2168 = icmp eq i32 %2167, 193
-  br i1 %2168, label %2178, label %2169
+2167:                                             ; preds = %2163
+  %2168 = load i8, ptr %29, align 1
+  %2169 = zext i8 %2168 to i32
+  %2170 = icmp eq i32 %2169, 193
+  br i1 %2170, label %2180, label %2171
 
-2169:                                             ; preds = %2165
-  %2170 = load i8, ptr %29, align 1
-  %2171 = zext i8 %2170 to i32
-  %2172 = icmp eq i32 %2171, 128
-  br i1 %2172, label %2178, label %2173
+2171:                                             ; preds = %2167
+  %2172 = load i8, ptr %29, align 1
+  %2173 = zext i8 %2172 to i32
+  %2174 = icmp eq i32 %2173, 128
+  br i1 %2174, label %2180, label %2175
 
-2173:                                             ; preds = %2169
-  %2174 = load i8, ptr %29, align 1
-  %2175 = zext i8 %2174 to i32
-  %2176 = icmp eq i32 %2175, 129
-  br i1 %2176, label %2178, label %2177
+2175:                                             ; preds = %2171
+  %2176 = load i8, ptr %29, align 1
+  %2177 = zext i8 %2176 to i32
+  %2178 = icmp eq i32 %2177, 129
+  br i1 %2178, label %2180, label %2179
 
-2177:                                             ; preds = %2173
+2179:                                             ; preds = %2175
   store i8 -2, ptr %29, align 1
-  br label %2178
+  br label %2180
 
-2178:                                             ; preds = %2177, %2173, %2169, %2165, %2161, %2157, %2148
-  %2179 = load ptr, ptr %16, align 8
-  %2180 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2179, i32 0, i32 70
-  %2181 = load i8, ptr %29, align 1
-  %2182 = zext i8 %2181 to i64
-  %2183 = getelementptr [256 x i32], ptr %2180, i64 0, i64 %2182
-  %2184 = load i32, ptr %2183, align 4
-  %2185 = add i32 %2184, 1
-  store i32 %2185, ptr %2183, align 4
-  %2186 = load ptr, ptr %16, align 8
-  %2187 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2186, i32 0, i32 45
-  %2188 = load i16, ptr %2187, align 8
-  %2189 = zext i16 %2188 to i32
-  %2190 = icmp eq i32 %2189, 1
-  br i1 %2190, label %2191, label %2199
+2180:                                             ; preds = %2179, %2175, %2171, %2167, %2163, %2159, %2150
+  %2181 = load ptr, ptr %16, align 8
+  %2182 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2181, i32 0, i32 70
+  %2183 = load i8, ptr %29, align 1
+  %2184 = zext i8 %2183 to i64
+  %2185 = getelementptr [256 x i32], ptr %2182, i64 0, i64 %2184
+  %2186 = load i32, ptr %2185, align 4
+  %2187 = add i32 %2186, 1
+  store i32 %2187, ptr %2185, align 4
+  %2188 = load ptr, ptr %16, align 8
+  %2189 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2188, i32 0, i32 45
+  %2190 = load i16, ptr %2189, align 8
+  %2191 = zext i16 %2190 to i32
+  %2192 = icmp eq i32 %2191, 1
+  br i1 %2192, label %2193, label %2201
 
-2191:                                             ; preds = %2178
-  %2192 = load ptr, ptr %16, align 8
-  %2193 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2192, i32 0, i32 71
-  %2194 = load i8, ptr %29, align 1
-  %2195 = zext i8 %2194 to i64
-  %2196 = getelementptr [256 x i32], ptr %2193, i64 0, i64 %2195
-  %2197 = load i32, ptr %2196, align 4
-  %2198 = add i32 %2197, 1
-  store i32 %2198, ptr %2196, align 4
-  br label %2207
+2193:                                             ; preds = %2180
+  %2194 = load ptr, ptr %16, align 8
+  %2195 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2194, i32 0, i32 71
+  %2196 = load i8, ptr %29, align 1
+  %2197 = zext i8 %2196 to i64
+  %2198 = getelementptr [256 x i32], ptr %2195, i64 0, i64 %2197
+  %2199 = load i32, ptr %2198, align 4
+  %2200 = add i32 %2199, 1
+  store i32 %2200, ptr %2198, align 4
+  br label %2209
 
-2199:                                             ; preds = %2178
-  %2200 = load ptr, ptr %16, align 8
-  %2201 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2200, i32 0, i32 72
-  %2202 = load i8, ptr %29, align 1
-  %2203 = zext i8 %2202 to i64
-  %2204 = getelementptr [256 x i32], ptr %2201, i64 0, i64 %2203
-  %2205 = load i32, ptr %2204, align 4
-  %2206 = add i32 %2205, 1
-  store i32 %2206, ptr %2204, align 4
-  br label %2207
+2201:                                             ; preds = %2180
+  %2202 = load ptr, ptr %16, align 8
+  %2203 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2202, i32 0, i32 72
+  %2204 = load i8, ptr %29, align 1
+  %2205 = zext i8 %2204 to i64
+  %2206 = getelementptr [256 x i32], ptr %2203, i64 0, i64 %2205
+  %2207 = load i32, ptr %2206, align 4
+  %2208 = add i32 %2207, 1
+  store i32 %2208, ptr %2206, align 4
+  br label %2209
 
-2207:                                             ; preds = %2199, %2191
-  %2208 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 2
-  %2209 = load ptr, ptr %16, align 8
-  %2210 = load ptr, ptr %16, align 8
-  %2211 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2210, i32 0, i32 45
-  %2212 = load i16, ptr %2211, align 8
-  %2213 = zext i16 %2212 to i32
-  %2214 = load i8, ptr %29, align 1
-  %2215 = zext i8 %2214 to i32
-  %2216 = call ptr @add_chunk_count(ptr noundef %2208, ptr noundef %2209, i32 noundef %2213, i32 noundef %2215)
-  store ptr %2216, ptr %16, align 8
+2209:                                             ; preds = %2201, %2193
+  %2210 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 2
+  %2211 = load ptr, ptr %16, align 8
+  %2212 = load ptr, ptr %16, align 8
+  %2213 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2212, i32 0, i32 45
+  %2214 = load i16, ptr %2213, align 8
+  %2215 = zext i16 %2214 to i32
+  %2216 = load i8, ptr %29, align 1
+  %2217 = zext i8 %2216 to i32
+  %2218 = call ptr @add_chunk_count(ptr noundef %2210, ptr noundef %2211, i32 noundef %2215, i32 noundef %2217)
+  store ptr %2218, ptr %16, align 8
   store i32 1, ptr %12, align 4
-  br label %2217
+  br label %2219
 
-2217:                                             ; preds = %2270, %2207
-  %2218 = load i32, ptr %12, align 4
-  %2219 = load ptr, ptr %11, align 8
-  %2220 = getelementptr inbounds %struct._sctp_info, ptr %2219, i32 0, i32 14
-  %2221 = load i32, ptr %2220, align 8
-  %2222 = icmp ult i32 %2218, %2221
-  br i1 %2222, label %2223, label %2273
+2219:                                             ; preds = %2272, %2209
+  %2220 = load i32, ptr %12, align 4
+  %2221 = load ptr, ptr %11, align 8
+  %2222 = getelementptr inbounds %struct._sctp_info, ptr %2221, i32 0, i32 14
+  %2223 = load i32, ptr %2222, align 8
+  %2224 = icmp ult i32 %2220, %2223
+  br i1 %2224, label %2225, label %2275
 
-2223:                                             ; preds = %2217
-  %2224 = load ptr, ptr %11, align 8
-  %2225 = getelementptr inbounds %struct._sctp_info, ptr %2224, i32 0, i32 15
-  %2226 = load i32, ptr %12, align 4
-  %2227 = zext i32 %2226 to i64
-  %2228 = getelementptr [2048 x ptr], ptr %2225, i64 0, i64 %2227
-  %2229 = load ptr, ptr %2228, align 8
-  %2230 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2229, i32 noundef 0)
-  store i16 %2230, ptr %18, align 2
-  %2231 = load i16, ptr %18, align 2
-  %2232 = zext i16 %2231 to i32
-  %2233 = icmp eq i32 %2232, 5
-  br i1 %2233, label %2234, label %2249
+2225:                                             ; preds = %2219
+  %2226 = load ptr, ptr %11, align 8
+  %2227 = getelementptr inbounds %struct._sctp_info, ptr %2226, i32 0, i32 15
+  %2228 = load i32, ptr %12, align 4
+  %2229 = zext i32 %2228 to i64
+  %2230 = getelementptr [2048 x ptr], ptr %2227, i64 0, i64 %2229
+  %2231 = load ptr, ptr %2230, align 8
+  %2232 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2231, i32 noundef 0)
+  store i16 %2232, ptr %18, align 2
+  %2233 = load i16, ptr %18, align 2
+  %2234 = zext i16 %2233 to i32
+  %2235 = icmp eq i32 %2234, 5
+  br i1 %2235, label %2236, label %2251
 
-2234:                                             ; preds = %2223
-  %2235 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #7
-  store ptr %2235, ptr %20, align 8
-  %2236 = load ptr, ptr %20, align 8
-  %2237 = load ptr, ptr %11, align 8
-  %2238 = getelementptr inbounds %struct._sctp_info, ptr %2237, i32 0, i32 15
-  %2239 = load i32, ptr %12, align 4
-  %2240 = zext i32 %2239 to i64
-  %2241 = getelementptr [2048 x ptr], ptr %2238, i64 0, i64 %2240
-  %2242 = load ptr, ptr %2241, align 8
-  call void @alloc_address_tvb(ptr noundef null, ptr noundef %2236, i32 noundef 2, i32 noundef 4, ptr noundef %2242, i32 noundef 4)
-  %2243 = load ptr, ptr %20, align 8
-  %2244 = load ptr, ptr %16, align 8
-  %2245 = load ptr, ptr %16, align 8
-  %2246 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2245, i32 0, i32 45
-  %2247 = load i16, ptr %2246, align 8
-  %2248 = call ptr @add_address(ptr noundef %2243, ptr noundef %2244, i16 noundef zeroext %2247)
-  store ptr %2248, ptr %16, align 8
-  br label %2269
+2236:                                             ; preds = %2225
+  %2237 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #7
+  store ptr %2237, ptr %20, align 8
+  %2238 = load ptr, ptr %20, align 8
+  %2239 = load ptr, ptr %11, align 8
+  %2240 = getelementptr inbounds %struct._sctp_info, ptr %2239, i32 0, i32 15
+  %2241 = load i32, ptr %12, align 4
+  %2242 = zext i32 %2241 to i64
+  %2243 = getelementptr [2048 x ptr], ptr %2240, i64 0, i64 %2242
+  %2244 = load ptr, ptr %2243, align 8
+  call void @alloc_address_tvb(ptr noundef null, ptr noundef %2238, i32 noundef 2, i32 noundef 4, ptr noundef %2244, i32 noundef 4)
+  %2245 = load ptr, ptr %20, align 8
+  %2246 = load ptr, ptr %16, align 8
+  %2247 = load ptr, ptr %16, align 8
+  %2248 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2247, i32 0, i32 45
+  %2249 = load i16, ptr %2248, align 8
+  %2250 = call ptr @add_address(ptr noundef %2245, ptr noundef %2246, i16 noundef zeroext %2249)
+  store ptr %2250, ptr %16, align 8
+  br label %2271
 
-2249:                                             ; preds = %2223
-  %2250 = load i16, ptr %18, align 2
-  %2251 = zext i16 %2250 to i32
-  %2252 = icmp eq i32 %2251, 6
-  br i1 %2252, label %2253, label %2268
+2251:                                             ; preds = %2225
+  %2252 = load i16, ptr %18, align 2
+  %2253 = zext i16 %2252 to i32
+  %2254 = icmp eq i32 %2253, 6
+  br i1 %2254, label %2255, label %2270
 
-2253:                                             ; preds = %2249
-  %2254 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #7
-  store ptr %2254, ptr %20, align 8
-  %2255 = load ptr, ptr %20, align 8
-  %2256 = load ptr, ptr %11, align 8
-  %2257 = getelementptr inbounds %struct._sctp_info, ptr %2256, i32 0, i32 15
-  %2258 = load i32, ptr %12, align 4
-  %2259 = zext i32 %2258 to i64
-  %2260 = getelementptr [2048 x ptr], ptr %2257, i64 0, i64 %2259
-  %2261 = load ptr, ptr %2260, align 8
-  call void @alloc_address_tvb(ptr noundef null, ptr noundef %2255, i32 noundef 3, i32 noundef 16, ptr noundef %2261, i32 noundef 4)
-  %2262 = load ptr, ptr %20, align 8
-  %2263 = load ptr, ptr %16, align 8
-  %2264 = load ptr, ptr %16, align 8
-  %2265 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2264, i32 0, i32 45
-  %2266 = load i16, ptr %2265, align 8
-  %2267 = call ptr @add_address(ptr noundef %2262, ptr noundef %2263, i16 noundef zeroext %2266)
-  store ptr %2267, ptr %16, align 8
-  br label %2268
-
-2268:                                             ; preds = %2253, %2249
-  br label %2269
-
-2269:                                             ; preds = %2268, %2234
+2255:                                             ; preds = %2251
+  %2256 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #7
+  store ptr %2256, ptr %20, align 8
+  %2257 = load ptr, ptr %20, align 8
+  %2258 = load ptr, ptr %11, align 8
+  %2259 = getelementptr inbounds %struct._sctp_info, ptr %2258, i32 0, i32 15
+  %2260 = load i32, ptr %12, align 4
+  %2261 = zext i32 %2260 to i64
+  %2262 = getelementptr [2048 x ptr], ptr %2259, i64 0, i64 %2261
+  %2263 = load ptr, ptr %2262, align 8
+  call void @alloc_address_tvb(ptr noundef null, ptr noundef %2257, i32 noundef 3, i32 noundef 16, ptr noundef %2263, i32 noundef 4)
+  %2264 = load ptr, ptr %20, align 8
+  %2265 = load ptr, ptr %16, align 8
+  %2266 = load ptr, ptr %16, align 8
+  %2267 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2266, i32 0, i32 45
+  %2268 = load i16, ptr %2267, align 8
+  %2269 = call ptr @add_address(ptr noundef %2264, ptr noundef %2265, i16 noundef zeroext %2268)
+  store ptr %2269, ptr %16, align 8
   br label %2270
 
-2270:                                             ; preds = %2269
-  %2271 = load i32, ptr %12, align 4
-  %2272 = add i32 %2271, 1
-  store i32 %2272, ptr %12, align 4
-  br label %2217, !llvm.loop !11
+2270:                                             ; preds = %2255, %2251
+  br label %2271
 
-2273:                                             ; preds = %2217
-  %2274 = load ptr, ptr %16, align 8
-  %2275 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2274, i32 0, i32 45
-  %2276 = load i16, ptr %2275, align 8
-  %2277 = zext i16 %2276 to i32
-  %2278 = icmp eq i32 %2277, 1
-  br i1 %2278, label %2279, label %2386
+2271:                                             ; preds = %2270, %2236
+  br label %2272
 
-2279:                                             ; preds = %2273
-  %2280 = load ptr, ptr %16, align 8
-  %2281 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2280, i32 0, i32 56
-  %2282 = load ptr, ptr %2281, align 8
-  %2283 = getelementptr inbounds %struct._sctp_init_collision, ptr %2282, i32 0, i32 4
-  %2284 = load i8, ptr %2283, align 4
-  %2285 = and i8 %2284, 1
-  %2286 = trunc i8 %2285 to i1
-  br i1 %2286, label %2296, label %2287
+2272:                                             ; preds = %2271
+  %2273 = load i32, ptr %12, align 4
+  %2274 = add i32 %2273, 1
+  store i32 %2274, ptr %12, align 4
+  br label %2219, !llvm.loop !11
 
-2287:                                             ; preds = %2279
-  %2288 = load ptr, ptr %16, align 8
-  %2289 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2288, i32 0, i32 56
-  %2290 = load ptr, ptr %2289, align 8
-  %2291 = getelementptr inbounds %struct._sctp_init_collision, ptr %2290, i32 0, i32 4
-  %2292 = load i8, ptr %2291, align 4
-  %2293 = lshr i8 %2292, 1
-  %2294 = and i8 %2293, 1
-  %2295 = trunc i8 %2294 to i1
-  br i1 %2295, label %2296, label %2302
+2275:                                             ; preds = %2219
+  %2276 = load ptr, ptr %16, align 8
+  %2277 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2276, i32 0, i32 45
+  %2278 = load i16, ptr %2277, align 8
+  %2279 = zext i16 %2278 to i32
+  %2280 = icmp eq i32 %2279, 1
+  br i1 %2280, label %2281, label %2388
 
-2296:                                             ; preds = %2287, %2279
-  %2297 = load ptr, ptr %16, align 8
-  %2298 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2297, i32 0, i32 43
-  %2299 = load i8, ptr %2298, align 4
-  %2300 = and i8 %2299, -9
-  %2301 = or i8 %2300, 8
-  store i8 %2301, ptr %2298, align 4
-  br label %2302
+2281:                                             ; preds = %2275
+  %2282 = load ptr, ptr %16, align 8
+  %2283 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2282, i32 0, i32 56
+  %2284 = load ptr, ptr %2283, align 8
+  %2285 = getelementptr inbounds %struct._sctp_init_collision, ptr %2284, i32 0, i32 4
+  %2286 = load i8, ptr %2285, align 4
+  %2287 = and i8 %2286, 1
+  %2288 = trunc i8 %2287 to i1
+  br i1 %2288, label %2298, label %2289
 
-2302:                                             ; preds = %2296, %2287
-  %2303 = load ptr, ptr %11, align 8
-  %2304 = getelementptr inbounds %struct._sctp_info, ptr %2303, i32 0, i32 15
-  %2305 = getelementptr [2048 x ptr], ptr %2304, i64 0, i64 0
-  %2306 = load ptr, ptr %2305, align 8
-  %2307 = call zeroext i8 @tvb_get_guint8(ptr noundef %2306, i32 noundef 0)
-  %2308 = zext i8 %2307 to i32
-  %2309 = icmp eq i32 %2308, 1
-  br i1 %2309, label %2310, label %2343
+2289:                                             ; preds = %2281
+  %2290 = load ptr, ptr %16, align 8
+  %2291 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2290, i32 0, i32 56
+  %2292 = load ptr, ptr %2291, align 8
+  %2293 = getelementptr inbounds %struct._sctp_init_collision, ptr %2292, i32 0, i32 4
+  %2294 = load i8, ptr %2293, align 4
+  %2295 = lshr i8 %2294, 1
+  %2296 = and i8 %2295, 1
+  %2297 = trunc i8 %2296 to i1
+  br i1 %2297, label %2298, label %2304
 
-2310:                                             ; preds = %2302
-  %2311 = load ptr, ptr %16, align 8
-  %2312 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2311, i32 0, i32 56
-  %2313 = load ptr, ptr %2312, align 8
-  %2314 = getelementptr inbounds %struct._sctp_init_collision, ptr %2313, i32 0, i32 4
-  %2315 = load i8, ptr %2314, align 4
-  %2316 = and i8 %2315, -2
-  %2317 = or i8 %2316, 1
-  store i8 %2317, ptr %2314, align 4
-  %2318 = load ptr, ptr %11, align 8
-  %2319 = getelementptr inbounds %struct._sctp_info, ptr %2318, i32 0, i32 15
-  %2320 = getelementptr [2048 x ptr], ptr %2319, i64 0, i64 0
-  %2321 = load ptr, ptr %2320, align 8
-  %2322 = call i32 @tvb_get_ntohl(ptr noundef %2321, i32 noundef 16)
-  %2323 = load ptr, ptr %16, align 8
-  %2324 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2323, i32 0, i32 56
-  %2325 = load ptr, ptr %2324, align 8
-  %2326 = getelementptr inbounds %struct._sctp_init_collision, ptr %2325, i32 0, i32 2
-  store i32 %2322, ptr %2326, align 4
-  %2327 = load ptr, ptr %16, align 8
-  %2328 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2327, i32 0, i32 56
-  %2329 = load ptr, ptr %2328, align 8
-  %2330 = getelementptr inbounds %struct._sctp_init_collision, ptr %2329, i32 0, i32 2
-  %2331 = load i32, ptr %2330, align 4
-  %2332 = load ptr, ptr %16, align 8
-  %2333 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2332, i32 0, i32 50
-  store i32 %2331, ptr %2333, align 4
-  %2334 = load ptr, ptr %11, align 8
-  %2335 = getelementptr inbounds %struct._sctp_info, ptr %2334, i32 0, i32 15
-  %2336 = getelementptr [2048 x ptr], ptr %2335, i64 0, i64 0
-  %2337 = load ptr, ptr %2336, align 8
-  %2338 = call i32 @tvb_get_ntohl(ptr noundef %2337, i32 noundef 4)
-  %2339 = load ptr, ptr %16, align 8
-  %2340 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2339, i32 0, i32 56
-  %2341 = load ptr, ptr %2340, align 8
-  %2342 = getelementptr inbounds %struct._sctp_init_collision, ptr %2341, i32 0, i32 0
-  store i32 %2338, ptr %2342, align 4
-  br label %2385
+2298:                                             ; preds = %2289, %2281
+  %2299 = load ptr, ptr %16, align 8
+  %2300 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2299, i32 0, i32 43
+  %2301 = load i8, ptr %2300, align 4
+  %2302 = and i8 %2301, -9
+  %2303 = or i8 %2302, 8
+  store i8 %2303, ptr %2300, align 4
+  br label %2304
 
-2343:                                             ; preds = %2302
-  %2344 = load ptr, ptr %11, align 8
-  %2345 = getelementptr inbounds %struct._sctp_info, ptr %2344, i32 0, i32 15
-  %2346 = getelementptr [2048 x ptr], ptr %2345, i64 0, i64 0
-  %2347 = load ptr, ptr %2346, align 8
-  %2348 = call zeroext i8 @tvb_get_guint8(ptr noundef %2347, i32 noundef 0)
-  %2349 = zext i8 %2348 to i32
-  %2350 = icmp eq i32 %2349, 2
-  br i1 %2350, label %2351, label %2384
+2304:                                             ; preds = %2298, %2289
+  %2305 = load ptr, ptr %11, align 8
+  %2306 = getelementptr inbounds %struct._sctp_info, ptr %2305, i32 0, i32 15
+  %2307 = getelementptr [2048 x ptr], ptr %2306, i64 0, i64 0
+  %2308 = load ptr, ptr %2307, align 8
+  %2309 = call zeroext i8 @tvb_get_guint8(ptr noundef %2308, i32 noundef 0)
+  %2310 = zext i8 %2309 to i32
+  %2311 = icmp eq i32 %2310, 1
+  br i1 %2311, label %2312, label %2345
 
-2351:                                             ; preds = %2343
-  %2352 = load ptr, ptr %16, align 8
-  %2353 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2352, i32 0, i32 56
-  %2354 = load ptr, ptr %2353, align 8
-  %2355 = getelementptr inbounds %struct._sctp_init_collision, ptr %2354, i32 0, i32 4
-  %2356 = load i8, ptr %2355, align 4
-  %2357 = and i8 %2356, -3
-  %2358 = or i8 %2357, 2
-  store i8 %2358, ptr %2355, align 4
-  %2359 = load ptr, ptr %11, align 8
-  %2360 = getelementptr inbounds %struct._sctp_info, ptr %2359, i32 0, i32 15
-  %2361 = getelementptr [2048 x ptr], ptr %2360, i64 0, i64 0
-  %2362 = load ptr, ptr %2361, align 8
-  %2363 = call i32 @tvb_get_ntohl(ptr noundef %2362, i32 noundef 16)
-  %2364 = load ptr, ptr %16, align 8
-  %2365 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2364, i32 0, i32 56
-  %2366 = load ptr, ptr %2365, align 8
-  %2367 = getelementptr inbounds %struct._sctp_init_collision, ptr %2366, i32 0, i32 3
-  store i32 %2363, ptr %2367, align 4
-  %2368 = load ptr, ptr %16, align 8
-  %2369 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2368, i32 0, i32 56
-  %2370 = load ptr, ptr %2369, align 8
-  %2371 = getelementptr inbounds %struct._sctp_init_collision, ptr %2370, i32 0, i32 3
-  %2372 = load i32, ptr %2371, align 4
-  %2373 = load ptr, ptr %16, align 8
-  %2374 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2373, i32 0, i32 50
-  store i32 %2372, ptr %2374, align 4
-  %2375 = load ptr, ptr %11, align 8
-  %2376 = getelementptr inbounds %struct._sctp_info, ptr %2375, i32 0, i32 15
-  %2377 = getelementptr [2048 x ptr], ptr %2376, i64 0, i64 0
-  %2378 = load ptr, ptr %2377, align 8
-  %2379 = call i32 @tvb_get_ntohl(ptr noundef %2378, i32 noundef 4)
-  %2380 = load ptr, ptr %16, align 8
-  %2381 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2380, i32 0, i32 56
-  %2382 = load ptr, ptr %2381, align 8
-  %2383 = getelementptr inbounds %struct._sctp_init_collision, ptr %2382, i32 0, i32 1
-  store i32 %2379, ptr %2383, align 4
-  br label %2384
+2312:                                             ; preds = %2304
+  %2313 = load ptr, ptr %16, align 8
+  %2314 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2313, i32 0, i32 56
+  %2315 = load ptr, ptr %2314, align 8
+  %2316 = getelementptr inbounds %struct._sctp_init_collision, ptr %2315, i32 0, i32 4
+  %2317 = load i8, ptr %2316, align 4
+  %2318 = and i8 %2317, -2
+  %2319 = or i8 %2318, 1
+  store i8 %2319, ptr %2316, align 4
+  %2320 = load ptr, ptr %11, align 8
+  %2321 = getelementptr inbounds %struct._sctp_info, ptr %2320, i32 0, i32 15
+  %2322 = getelementptr [2048 x ptr], ptr %2321, i64 0, i64 0
+  %2323 = load ptr, ptr %2322, align 8
+  %2324 = call i32 @tvb_get_ntohl(ptr noundef %2323, i32 noundef 16)
+  %2325 = load ptr, ptr %16, align 8
+  %2326 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2325, i32 0, i32 56
+  %2327 = load ptr, ptr %2326, align 8
+  %2328 = getelementptr inbounds %struct._sctp_init_collision, ptr %2327, i32 0, i32 2
+  store i32 %2324, ptr %2328, align 4
+  %2329 = load ptr, ptr %16, align 8
+  %2330 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2329, i32 0, i32 56
+  %2331 = load ptr, ptr %2330, align 8
+  %2332 = getelementptr inbounds %struct._sctp_init_collision, ptr %2331, i32 0, i32 2
+  %2333 = load i32, ptr %2332, align 4
+  %2334 = load ptr, ptr %16, align 8
+  %2335 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2334, i32 0, i32 50
+  store i32 %2333, ptr %2335, align 4
+  %2336 = load ptr, ptr %11, align 8
+  %2337 = getelementptr inbounds %struct._sctp_info, ptr %2336, i32 0, i32 15
+  %2338 = getelementptr [2048 x ptr], ptr %2337, i64 0, i64 0
+  %2339 = load ptr, ptr %2338, align 8
+  %2340 = call i32 @tvb_get_ntohl(ptr noundef %2339, i32 noundef 4)
+  %2341 = load ptr, ptr %16, align 8
+  %2342 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2341, i32 0, i32 56
+  %2343 = load ptr, ptr %2342, align 8
+  %2344 = getelementptr inbounds %struct._sctp_init_collision, ptr %2343, i32 0, i32 0
+  store i32 %2340, ptr %2344, align 4
+  br label %2387
 
-2384:                                             ; preds = %2351, %2343
-  br label %2385
+2345:                                             ; preds = %2304
+  %2346 = load ptr, ptr %11, align 8
+  %2347 = getelementptr inbounds %struct._sctp_info, ptr %2346, i32 0, i32 15
+  %2348 = getelementptr [2048 x ptr], ptr %2347, i64 0, i64 0
+  %2349 = load ptr, ptr %2348, align 8
+  %2350 = call zeroext i8 @tvb_get_guint8(ptr noundef %2349, i32 noundef 0)
+  %2351 = zext i8 %2350 to i32
+  %2352 = icmp eq i32 %2351, 2
+  br i1 %2352, label %2353, label %2386
 
-2385:                                             ; preds = %2384, %2310
+2353:                                             ; preds = %2345
+  %2354 = load ptr, ptr %16, align 8
+  %2355 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2354, i32 0, i32 56
+  %2356 = load ptr, ptr %2355, align 8
+  %2357 = getelementptr inbounds %struct._sctp_init_collision, ptr %2356, i32 0, i32 4
+  %2358 = load i8, ptr %2357, align 4
+  %2359 = and i8 %2358, -3
+  %2360 = or i8 %2359, 2
+  store i8 %2360, ptr %2357, align 4
+  %2361 = load ptr, ptr %11, align 8
+  %2362 = getelementptr inbounds %struct._sctp_info, ptr %2361, i32 0, i32 15
+  %2363 = getelementptr [2048 x ptr], ptr %2362, i64 0, i64 0
+  %2364 = load ptr, ptr %2363, align 8
+  %2365 = call i32 @tvb_get_ntohl(ptr noundef %2364, i32 noundef 16)
+  %2366 = load ptr, ptr %16, align 8
+  %2367 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2366, i32 0, i32 56
+  %2368 = load ptr, ptr %2367, align 8
+  %2369 = getelementptr inbounds %struct._sctp_init_collision, ptr %2368, i32 0, i32 3
+  store i32 %2365, ptr %2369, align 4
+  %2370 = load ptr, ptr %16, align 8
+  %2371 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2370, i32 0, i32 56
+  %2372 = load ptr, ptr %2371, align 8
+  %2373 = getelementptr inbounds %struct._sctp_init_collision, ptr %2372, i32 0, i32 3
+  %2374 = load i32, ptr %2373, align 4
+  %2375 = load ptr, ptr %16, align 8
+  %2376 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2375, i32 0, i32 50
+  store i32 %2374, ptr %2376, align 4
+  %2377 = load ptr, ptr %11, align 8
+  %2378 = getelementptr inbounds %struct._sctp_info, ptr %2377, i32 0, i32 15
+  %2379 = getelementptr [2048 x ptr], ptr %2378, i64 0, i64 0
+  %2380 = load ptr, ptr %2379, align 8
+  %2381 = call i32 @tvb_get_ntohl(ptr noundef %2380, i32 noundef 4)
+  %2382 = load ptr, ptr %16, align 8
+  %2383 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2382, i32 0, i32 56
+  %2384 = load ptr, ptr %2383, align 8
+  %2385 = getelementptr inbounds %struct._sctp_init_collision, ptr %2384, i32 0, i32 1
+  store i32 %2381, ptr %2385, align 4
+  br label %2386
+
+2386:                                             ; preds = %2353, %2345
+  br label %2387
+
+2387:                                             ; preds = %2386, %2312
+  br label %2495
+
+2388:                                             ; preds = %2275
+  %2389 = load ptr, ptr %16, align 8
+  %2390 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2389, i32 0, i32 57
+  %2391 = load ptr, ptr %2390, align 8
+  %2392 = getelementptr inbounds %struct._sctp_init_collision, ptr %2391, i32 0, i32 4
+  %2393 = load i8, ptr %2392, align 4
+  %2394 = and i8 %2393, 1
+  %2395 = trunc i8 %2394 to i1
+  br i1 %2395, label %2405, label %2396
+
+2396:                                             ; preds = %2388
+  %2397 = load ptr, ptr %16, align 8
+  %2398 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2397, i32 0, i32 57
+  %2399 = load ptr, ptr %2398, align 8
+  %2400 = getelementptr inbounds %struct._sctp_init_collision, ptr %2399, i32 0, i32 4
+  %2401 = load i8, ptr %2400, align 4
+  %2402 = lshr i8 %2401, 1
+  %2403 = and i8 %2402, 1
+  %2404 = trunc i8 %2403 to i1
+  br i1 %2404, label %2405, label %2411
+
+2405:                                             ; preds = %2396, %2388
+  %2406 = load ptr, ptr %16, align 8
+  %2407 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2406, i32 0, i32 43
+  %2408 = load i8, ptr %2407, align 4
+  %2409 = and i8 %2408, -9
+  %2410 = or i8 %2409, 8
+  store i8 %2410, ptr %2407, align 4
+  br label %2411
+
+2411:                                             ; preds = %2405, %2396
+  %2412 = load ptr, ptr %11, align 8
+  %2413 = getelementptr inbounds %struct._sctp_info, ptr %2412, i32 0, i32 15
+  %2414 = getelementptr [2048 x ptr], ptr %2413, i64 0, i64 0
+  %2415 = load ptr, ptr %2414, align 8
+  %2416 = call zeroext i8 @tvb_get_guint8(ptr noundef %2415, i32 noundef 0)
+  %2417 = zext i8 %2416 to i32
+  %2418 = icmp eq i32 %2417, 1
+  br i1 %2418, label %2419, label %2452
+
+2419:                                             ; preds = %2411
+  %2420 = load ptr, ptr %16, align 8
+  %2421 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2420, i32 0, i32 57
+  %2422 = load ptr, ptr %2421, align 8
+  %2423 = getelementptr inbounds %struct._sctp_init_collision, ptr %2422, i32 0, i32 4
+  %2424 = load i8, ptr %2423, align 4
+  %2425 = and i8 %2424, -2
+  %2426 = or i8 %2425, 1
+  store i8 %2426, ptr %2423, align 4
+  %2427 = load ptr, ptr %11, align 8
+  %2428 = getelementptr inbounds %struct._sctp_info, ptr %2427, i32 0, i32 15
+  %2429 = getelementptr [2048 x ptr], ptr %2428, i64 0, i64 0
+  %2430 = load ptr, ptr %2429, align 8
+  %2431 = call i32 @tvb_get_ntohl(ptr noundef %2430, i32 noundef 16)
+  %2432 = load ptr, ptr %16, align 8
+  %2433 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2432, i32 0, i32 57
+  %2434 = load ptr, ptr %2433, align 8
+  %2435 = getelementptr inbounds %struct._sctp_init_collision, ptr %2434, i32 0, i32 2
+  store i32 %2431, ptr %2435, align 4
+  %2436 = load ptr, ptr %16, align 8
+  %2437 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2436, i32 0, i32 57
+  %2438 = load ptr, ptr %2437, align 8
+  %2439 = getelementptr inbounds %struct._sctp_init_collision, ptr %2438, i32 0, i32 2
+  %2440 = load i32, ptr %2439, align 4
+  %2441 = load ptr, ptr %16, align 8
+  %2442 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2441, i32 0, i32 51
+  store i32 %2440, ptr %2442, align 8
+  %2443 = load ptr, ptr %11, align 8
+  %2444 = getelementptr inbounds %struct._sctp_info, ptr %2443, i32 0, i32 15
+  %2445 = getelementptr [2048 x ptr], ptr %2444, i64 0, i64 0
+  %2446 = load ptr, ptr %2445, align 8
+  %2447 = call i32 @tvb_get_ntohl(ptr noundef %2446, i32 noundef 4)
+  %2448 = load ptr, ptr %16, align 8
+  %2449 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2448, i32 0, i32 57
+  %2450 = load ptr, ptr %2449, align 8
+  %2451 = getelementptr inbounds %struct._sctp_init_collision, ptr %2450, i32 0, i32 0
+  store i32 %2447, ptr %2451, align 4
+  br label %2494
+
+2452:                                             ; preds = %2411
+  %2453 = load ptr, ptr %11, align 8
+  %2454 = getelementptr inbounds %struct._sctp_info, ptr %2453, i32 0, i32 15
+  %2455 = getelementptr [2048 x ptr], ptr %2454, i64 0, i64 0
+  %2456 = load ptr, ptr %2455, align 8
+  %2457 = call zeroext i8 @tvb_get_guint8(ptr noundef %2456, i32 noundef 0)
+  %2458 = zext i8 %2457 to i32
+  %2459 = icmp eq i32 %2458, 2
+  br i1 %2459, label %2460, label %2493
+
+2460:                                             ; preds = %2452
+  %2461 = load ptr, ptr %16, align 8
+  %2462 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2461, i32 0, i32 57
+  %2463 = load ptr, ptr %2462, align 8
+  %2464 = getelementptr inbounds %struct._sctp_init_collision, ptr %2463, i32 0, i32 4
+  %2465 = load i8, ptr %2464, align 4
+  %2466 = and i8 %2465, -3
+  %2467 = or i8 %2466, 2
+  store i8 %2467, ptr %2464, align 4
+  %2468 = load ptr, ptr %11, align 8
+  %2469 = getelementptr inbounds %struct._sctp_info, ptr %2468, i32 0, i32 15
+  %2470 = getelementptr [2048 x ptr], ptr %2469, i64 0, i64 0
+  %2471 = load ptr, ptr %2470, align 8
+  %2472 = call i32 @tvb_get_ntohl(ptr noundef %2471, i32 noundef 16)
+  %2473 = load ptr, ptr %16, align 8
+  %2474 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2473, i32 0, i32 57
+  %2475 = load ptr, ptr %2474, align 8
+  %2476 = getelementptr inbounds %struct._sctp_init_collision, ptr %2475, i32 0, i32 3
+  store i32 %2472, ptr %2476, align 4
+  %2477 = load ptr, ptr %16, align 8
+  %2478 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2477, i32 0, i32 57
+  %2479 = load ptr, ptr %2478, align 8
+  %2480 = getelementptr inbounds %struct._sctp_init_collision, ptr %2479, i32 0, i32 3
+  %2481 = load i32, ptr %2480, align 4
+  %2482 = load ptr, ptr %16, align 8
+  %2483 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2482, i32 0, i32 51
+  store i32 %2481, ptr %2483, align 8
+  %2484 = load ptr, ptr %11, align 8
+  %2485 = getelementptr inbounds %struct._sctp_info, ptr %2484, i32 0, i32 15
+  %2486 = getelementptr [2048 x ptr], ptr %2485, i64 0, i64 0
+  %2487 = load ptr, ptr %2486, align 8
+  %2488 = call i32 @tvb_get_ntohl(ptr noundef %2487, i32 noundef 4)
+  %2489 = load ptr, ptr %16, align 8
+  %2490 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2489, i32 0, i32 57
+  %2491 = load ptr, ptr %2490, align 8
+  %2492 = getelementptr inbounds %struct._sctp_init_collision, ptr %2491, i32 0, i32 1
+  store i32 %2488, ptr %2492, align 4
   br label %2493
 
-2386:                                             ; preds = %2273
-  %2387 = load ptr, ptr %16, align 8
-  %2388 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2387, i32 0, i32 57
-  %2389 = load ptr, ptr %2388, align 8
-  %2390 = getelementptr inbounds %struct._sctp_init_collision, ptr %2389, i32 0, i32 4
-  %2391 = load i8, ptr %2390, align 4
-  %2392 = and i8 %2391, 1
-  %2393 = trunc i8 %2392 to i1
-  br i1 %2393, label %2403, label %2394
+2493:                                             ; preds = %2460, %2452
+  br label %2494
 
-2394:                                             ; preds = %2386
-  %2395 = load ptr, ptr %16, align 8
-  %2396 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2395, i32 0, i32 57
-  %2397 = load ptr, ptr %2396, align 8
-  %2398 = getelementptr inbounds %struct._sctp_init_collision, ptr %2397, i32 0, i32 4
-  %2399 = load i8, ptr %2398, align 4
-  %2400 = lshr i8 %2399, 1
-  %2401 = and i8 %2400, 1
-  %2402 = trunc i8 %2401 to i1
-  br i1 %2402, label %2403, label %2409
+2494:                                             ; preds = %2493, %2419
+  br label %2495
 
-2403:                                             ; preds = %2394, %2386
-  %2404 = load ptr, ptr %16, align 8
-  %2405 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2404, i32 0, i32 43
-  %2406 = load i8, ptr %2405, align 4
-  %2407 = and i8 %2406, -9
-  %2408 = or i8 %2407, 8
-  store i8 %2408, ptr %2405, align 4
-  br label %2409
+2495:                                             ; preds = %2494, %2387
+  %2496 = load ptr, ptr %11, align 8
+  %2497 = getelementptr inbounds %struct._sctp_info, ptr %2496, i32 0, i32 15
+  %2498 = getelementptr [2048 x ptr], ptr %2497, i64 0, i64 0
+  %2499 = load ptr, ptr %2498, align 8
+  %2500 = call zeroext i8 @tvb_get_guint8(ptr noundef %2499, i32 noundef 0)
+  %2501 = zext i8 %2500 to i32
+  %2502 = icmp eq i32 %2501, 2
+  br i1 %2502, label %2503, label %2514
 
-2409:                                             ; preds = %2403, %2394
-  %2410 = load ptr, ptr %11, align 8
-  %2411 = getelementptr inbounds %struct._sctp_info, ptr %2410, i32 0, i32 15
-  %2412 = getelementptr [2048 x ptr], ptr %2411, i64 0, i64 0
-  %2413 = load ptr, ptr %2412, align 8
-  %2414 = call zeroext i8 @tvb_get_guint8(ptr noundef %2413, i32 noundef 0)
-  %2415 = zext i8 %2414 to i32
-  %2416 = icmp eq i32 %2415, 1
-  br i1 %2416, label %2417, label %2450
+2503:                                             ; preds = %2495
+  %2504 = load ptr, ptr %16, align 8
+  %2505 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2504, i32 0, i32 43
+  %2506 = load i8, ptr %2505, align 4
+  %2507 = and i8 %2506, -3
+  %2508 = or i8 %2507, 2
+  store i8 %2508, ptr %2505, align 4
+  %2509 = load ptr, ptr %16, align 8
+  %2510 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2509, i32 0, i32 45
+  %2511 = load i16, ptr %2510, align 8
+  %2512 = load ptr, ptr %16, align 8
+  %2513 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2512, i32 0, i32 44
+  store i16 %2511, ptr %2513, align 2
+  br label %2529
 
-2417:                                             ; preds = %2409
-  %2418 = load ptr, ptr %16, align 8
-  %2419 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2418, i32 0, i32 57
-  %2420 = load ptr, ptr %2419, align 8
-  %2421 = getelementptr inbounds %struct._sctp_init_collision, ptr %2420, i32 0, i32 4
-  %2422 = load i8, ptr %2421, align 4
-  %2423 = and i8 %2422, -2
-  %2424 = or i8 %2423, 1
-  store i8 %2424, ptr %2421, align 4
-  %2425 = load ptr, ptr %11, align 8
-  %2426 = getelementptr inbounds %struct._sctp_info, ptr %2425, i32 0, i32 15
-  %2427 = getelementptr [2048 x ptr], ptr %2426, i64 0, i64 0
-  %2428 = load ptr, ptr %2427, align 8
-  %2429 = call i32 @tvb_get_ntohl(ptr noundef %2428, i32 noundef 16)
-  %2430 = load ptr, ptr %16, align 8
-  %2431 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2430, i32 0, i32 57
-  %2432 = load ptr, ptr %2431, align 8
-  %2433 = getelementptr inbounds %struct._sctp_init_collision, ptr %2432, i32 0, i32 2
-  store i32 %2429, ptr %2433, align 4
-  %2434 = load ptr, ptr %16, align 8
-  %2435 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2434, i32 0, i32 57
-  %2436 = load ptr, ptr %2435, align 8
-  %2437 = getelementptr inbounds %struct._sctp_init_collision, ptr %2436, i32 0, i32 2
-  %2438 = load i32, ptr %2437, align 4
-  %2439 = load ptr, ptr %16, align 8
-  %2440 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2439, i32 0, i32 51
-  store i32 %2438, ptr %2440, align 8
-  %2441 = load ptr, ptr %11, align 8
-  %2442 = getelementptr inbounds %struct._sctp_info, ptr %2441, i32 0, i32 15
-  %2443 = getelementptr [2048 x ptr], ptr %2442, i64 0, i64 0
-  %2444 = load ptr, ptr %2443, align 8
-  %2445 = call i32 @tvb_get_ntohl(ptr noundef %2444, i32 noundef 4)
-  %2446 = load ptr, ptr %16, align 8
-  %2447 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2446, i32 0, i32 57
-  %2448 = load ptr, ptr %2447, align 8
-  %2449 = getelementptr inbounds %struct._sctp_init_collision, ptr %2448, i32 0, i32 0
-  store i32 %2445, ptr %2449, align 4
-  br label %2492
+2514:                                             ; preds = %2495
+  %2515 = load ptr, ptr %11, align 8
+  %2516 = getelementptr inbounds %struct._sctp_info, ptr %2515, i32 0, i32 15
+  %2517 = getelementptr [2048 x ptr], ptr %2516, i64 0, i64 0
+  %2518 = load ptr, ptr %2517, align 8
+  %2519 = call zeroext i8 @tvb_get_guint8(ptr noundef %2518, i32 noundef 0)
+  %2520 = zext i8 %2519 to i32
+  %2521 = icmp eq i32 %2520, 1
+  br i1 %2521, label %2522, label %2528
 
-2450:                                             ; preds = %2409
-  %2451 = load ptr, ptr %11, align 8
-  %2452 = getelementptr inbounds %struct._sctp_info, ptr %2451, i32 0, i32 15
-  %2453 = getelementptr [2048 x ptr], ptr %2452, i64 0, i64 0
-  %2454 = load ptr, ptr %2453, align 8
-  %2455 = call zeroext i8 @tvb_get_guint8(ptr noundef %2454, i32 noundef 0)
-  %2456 = zext i8 %2455 to i32
-  %2457 = icmp eq i32 %2456, 2
-  br i1 %2457, label %2458, label %2491
+2522:                                             ; preds = %2514
+  %2523 = load ptr, ptr %16, align 8
+  %2524 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2523, i32 0, i32 43
+  %2525 = load i8, ptr %2524, align 4
+  %2526 = and i8 %2525, -2
+  %2527 = or i8 %2526, 1
+  store i8 %2527, ptr %2524, align 4
+  br label %2528
 
-2458:                                             ; preds = %2450
-  %2459 = load ptr, ptr %16, align 8
-  %2460 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2459, i32 0, i32 57
-  %2461 = load ptr, ptr %2460, align 8
-  %2462 = getelementptr inbounds %struct._sctp_init_collision, ptr %2461, i32 0, i32 4
-  %2463 = load i8, ptr %2462, align 4
-  %2464 = and i8 %2463, -3
-  %2465 = or i8 %2464, 2
-  store i8 %2465, ptr %2462, align 4
-  %2466 = load ptr, ptr %11, align 8
-  %2467 = getelementptr inbounds %struct._sctp_info, ptr %2466, i32 0, i32 15
-  %2468 = getelementptr [2048 x ptr], ptr %2467, i64 0, i64 0
-  %2469 = load ptr, ptr %2468, align 8
-  %2470 = call i32 @tvb_get_ntohl(ptr noundef %2469, i32 noundef 16)
-  %2471 = load ptr, ptr %16, align 8
-  %2472 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2471, i32 0, i32 57
-  %2473 = load ptr, ptr %2472, align 8
-  %2474 = getelementptr inbounds %struct._sctp_init_collision, ptr %2473, i32 0, i32 3
-  store i32 %2470, ptr %2474, align 4
-  %2475 = load ptr, ptr %16, align 8
-  %2476 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2475, i32 0, i32 57
-  %2477 = load ptr, ptr %2476, align 8
-  %2478 = getelementptr inbounds %struct._sctp_init_collision, ptr %2477, i32 0, i32 3
-  %2479 = load i32, ptr %2478, align 4
-  %2480 = load ptr, ptr %16, align 8
-  %2481 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2480, i32 0, i32 51
-  store i32 %2479, ptr %2481, align 8
-  %2482 = load ptr, ptr %11, align 8
-  %2483 = getelementptr inbounds %struct._sctp_info, ptr %2482, i32 0, i32 15
-  %2484 = getelementptr [2048 x ptr], ptr %2483, i64 0, i64 0
-  %2485 = load ptr, ptr %2484, align 8
-  %2486 = call i32 @tvb_get_ntohl(ptr noundef %2485, i32 noundef 4)
-  %2487 = load ptr, ptr %16, align 8
-  %2488 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2487, i32 0, i32 57
-  %2489 = load ptr, ptr %2488, align 8
-  %2490 = getelementptr inbounds %struct._sctp_init_collision, ptr %2489, i32 0, i32 1
-  store i32 %2486, ptr %2490, align 4
-  br label %2491
+2528:                                             ; preds = %2522, %2514
+  br label %2529
 
-2491:                                             ; preds = %2458, %2450
-  br label %2492
+2529:                                             ; preds = %2528, %2503
+  br label %3733
 
-2492:                                             ; preds = %2491, %2417
-  br label %2493
+2530:                                             ; preds = %2024
+  %2531 = load ptr, ptr %11, align 8
+  %2532 = getelementptr inbounds %struct._sctp_info, ptr %2531, i32 0, i32 15
+  %2533 = getelementptr [2048 x ptr], ptr %2532, i64 0, i64 0
+  %2534 = load ptr, ptr %2533, align 8
+  %2535 = call zeroext i8 @tvb_get_guint8(ptr noundef %2534, i32 noundef 0)
+  %2536 = zext i8 %2535 to i32
+  %2537 = icmp ne i32 %2536, 2
+  br i1 %2537, label %2538, label %2597
 
-2493:                                             ; preds = %2492, %2385
-  %2494 = load ptr, ptr %11, align 8
-  %2495 = getelementptr inbounds %struct._sctp_info, ptr %2494, i32 0, i32 15
-  %2496 = getelementptr [2048 x ptr], ptr %2495, i64 0, i64 0
-  %2497 = load ptr, ptr %2496, align 8
-  %2498 = call zeroext i8 @tvb_get_guint8(ptr noundef %2497, i32 noundef 0)
-  %2499 = zext i8 %2498 to i32
-  %2500 = icmp eq i32 %2499, 2
-  br i1 %2500, label %2501, label %2512
+2538:                                             ; preds = %2530
+  %2539 = load ptr, ptr %11, align 8
+  %2540 = getelementptr inbounds %struct._sctp_info, ptr %2539, i32 0, i32 15
+  %2541 = getelementptr [2048 x ptr], ptr %2540, i64 0, i64 0
+  %2542 = load ptr, ptr %2541, align 8
+  %2543 = call zeroext i8 @tvb_get_guint8(ptr noundef %2542, i32 noundef 0)
+  %2544 = zext i8 %2543 to i32
+  %2545 = icmp ne i32 %2544, 0
+  br i1 %2545, label %2546, label %2597
 
-2501:                                             ; preds = %2493
-  %2502 = load ptr, ptr %16, align 8
-  %2503 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2502, i32 0, i32 43
-  %2504 = load i8, ptr %2503, align 4
-  %2505 = and i8 %2504, -3
-  %2506 = or i8 %2505, 2
-  store i8 %2506, ptr %2503, align 4
-  %2507 = load ptr, ptr %16, align 8
-  %2508 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2507, i32 0, i32 45
-  %2509 = load i16, ptr %2508, align 8
-  %2510 = load ptr, ptr %16, align 8
-  %2511 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2510, i32 0, i32 44
-  store i16 %2509, ptr %2511, align 2
-  br label %2527
+2546:                                             ; preds = %2538
+  %2547 = load ptr, ptr %11, align 8
+  %2548 = getelementptr inbounds %struct._sctp_info, ptr %2547, i32 0, i32 15
+  %2549 = getelementptr [2048 x ptr], ptr %2548, i64 0, i64 0
+  %2550 = load ptr, ptr %2549, align 8
+  %2551 = call zeroext i8 @tvb_get_guint8(ptr noundef %2550, i32 noundef 0)
+  %2552 = zext i8 %2551 to i32
+  %2553 = icmp ne i32 %2552, 64
+  br i1 %2553, label %2554, label %2597
 
-2512:                                             ; preds = %2493
-  %2513 = load ptr, ptr %11, align 8
-  %2514 = getelementptr inbounds %struct._sctp_info, ptr %2513, i32 0, i32 15
-  %2515 = getelementptr [2048 x ptr], ptr %2514, i64 0, i64 0
-  %2516 = load ptr, ptr %2515, align 8
-  %2517 = call zeroext i8 @tvb_get_guint8(ptr noundef %2516, i32 noundef 0)
-  %2518 = zext i8 %2517 to i32
-  %2519 = icmp eq i32 %2518, 1
-  br i1 %2519, label %2520, label %2526
+2554:                                             ; preds = %2546
+  %2555 = load ptr, ptr %11, align 8
+  %2556 = getelementptr inbounds %struct._sctp_info, ptr %2555, i32 0, i32 15
+  %2557 = getelementptr [2048 x ptr], ptr %2556, i64 0, i64 0
+  %2558 = load ptr, ptr %2557, align 8
+  %2559 = call zeroext i8 @tvb_get_guint8(ptr noundef %2558, i32 noundef 0)
+  %2560 = zext i8 %2559 to i32
+  %2561 = icmp ne i32 %2560, 3
+  br i1 %2561, label %2562, label %2597
 
-2520:                                             ; preds = %2512
-  %2521 = load ptr, ptr %16, align 8
-  %2522 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2521, i32 0, i32 43
-  %2523 = load i8, ptr %2522, align 4
-  %2524 = and i8 %2523, -2
-  %2525 = or i8 %2524, 1
-  store i8 %2525, ptr %2522, align 4
-  br label %2526
+2562:                                             ; preds = %2554
+  %2563 = load ptr, ptr %11, align 8
+  %2564 = getelementptr inbounds %struct._sctp_info, ptr %2563, i32 0, i32 15
+  %2565 = getelementptr [2048 x ptr], ptr %2564, i64 0, i64 0
+  %2566 = load ptr, ptr %2565, align 8
+  %2567 = call zeroext i8 @tvb_get_guint8(ptr noundef %2566, i32 noundef 0)
+  %2568 = zext i8 %2567 to i32
+  %2569 = icmp ne i32 %2568, 16
+  br i1 %2569, label %2570, label %2597
 
-2526:                                             ; preds = %2520, %2512
-  br label %2527
+2570:                                             ; preds = %2562
+  %2571 = load ptr, ptr %11, align 8
+  %2572 = getelementptr inbounds %struct._sctp_info, ptr %2571, i32 0, i32 15
+  %2573 = getelementptr [2048 x ptr], ptr %2572, i64 0, i64 0
+  %2574 = load ptr, ptr %2573, align 8
+  %2575 = call zeroext i8 @tvb_get_guint8(ptr noundef %2574, i32 noundef 0)
+  %2576 = zext i8 %2575 to i32
+  %2577 = icmp ne i32 %2576, 192
+  br i1 %2577, label %2578, label %2597
 
-2527:                                             ; preds = %2526, %2501
-  br label %3731
+2578:                                             ; preds = %2570
+  %2579 = load ptr, ptr %22, align 8
+  %2580 = icmp ne ptr %2579, null
+  br i1 %2580, label %2583, label %2581
 
-2528:                                             ; preds = %2022
-  %2529 = load ptr, ptr %11, align 8
-  %2530 = getelementptr inbounds %struct._sctp_info, ptr %2529, i32 0, i32 15
-  %2531 = getelementptr [2048 x ptr], ptr %2530, i64 0, i64 0
-  %2532 = load ptr, ptr %2531, align 8
-  %2533 = call zeroext i8 @tvb_get_guint8(ptr noundef %2532, i32 noundef 0)
-  %2534 = zext i8 %2533 to i32
-  %2535 = icmp ne i32 %2534, 2
-  br i1 %2535, label %2536, label %2595
+2581:                                             ; preds = %2578
+  %2582 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #7
+  store ptr %2582, ptr %22, align 8
+  br label %2583
 
-2536:                                             ; preds = %2528
-  %2537 = load ptr, ptr %11, align 8
-  %2538 = getelementptr inbounds %struct._sctp_info, ptr %2537, i32 0, i32 15
-  %2539 = getelementptr [2048 x ptr], ptr %2538, i64 0, i64 0
-  %2540 = load ptr, ptr %2539, align 8
-  %2541 = call zeroext i8 @tvb_get_guint8(ptr noundef %2540, i32 noundef 0)
-  %2542 = zext i8 %2541 to i32
-  %2543 = icmp ne i32 %2542, 0
-  br i1 %2543, label %2544, label %2595
-
-2544:                                             ; preds = %2536
-  %2545 = load ptr, ptr %11, align 8
-  %2546 = getelementptr inbounds %struct._sctp_info, ptr %2545, i32 0, i32 15
-  %2547 = getelementptr [2048 x ptr], ptr %2546, i64 0, i64 0
-  %2548 = load ptr, ptr %2547, align 8
-  %2549 = call zeroext i8 @tvb_get_guint8(ptr noundef %2548, i32 noundef 0)
-  %2550 = zext i8 %2549 to i32
-  %2551 = icmp ne i32 %2550, 64
-  br i1 %2551, label %2552, label %2595
-
-2552:                                             ; preds = %2544
-  %2553 = load ptr, ptr %11, align 8
-  %2554 = getelementptr inbounds %struct._sctp_info, ptr %2553, i32 0, i32 15
-  %2555 = getelementptr [2048 x ptr], ptr %2554, i64 0, i64 0
-  %2556 = load ptr, ptr %2555, align 8
-  %2557 = call zeroext i8 @tvb_get_guint8(ptr noundef %2556, i32 noundef 0)
-  %2558 = zext i8 %2557 to i32
-  %2559 = icmp ne i32 %2558, 3
-  br i1 %2559, label %2560, label %2595
-
-2560:                                             ; preds = %2552
-  %2561 = load ptr, ptr %11, align 8
-  %2562 = getelementptr inbounds %struct._sctp_info, ptr %2561, i32 0, i32 15
-  %2563 = getelementptr [2048 x ptr], ptr %2562, i64 0, i64 0
-  %2564 = load ptr, ptr %2563, align 8
-  %2565 = call zeroext i8 @tvb_get_guint8(ptr noundef %2564, i32 noundef 0)
-  %2566 = zext i8 %2565 to i32
-  %2567 = icmp ne i32 %2566, 16
-  br i1 %2567, label %2568, label %2595
-
-2568:                                             ; preds = %2560
-  %2569 = load ptr, ptr %11, align 8
-  %2570 = getelementptr inbounds %struct._sctp_info, ptr %2569, i32 0, i32 15
-  %2571 = getelementptr [2048 x ptr], ptr %2570, i64 0, i64 0
-  %2572 = load ptr, ptr %2571, align 8
-  %2573 = call zeroext i8 @tvb_get_guint8(ptr noundef %2572, i32 noundef 0)
-  %2574 = zext i8 %2573 to i32
-  %2575 = icmp ne i32 %2574, 192
-  br i1 %2575, label %2576, label %2595
-
-2576:                                             ; preds = %2568
-  %2577 = load ptr, ptr %22, align 8
-  %2578 = icmp ne ptr %2577, null
-  br i1 %2578, label %2581, label %2579
-
-2579:                                             ; preds = %2576
-  %2580 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #7
-  store ptr %2580, ptr %22, align 8
-  br label %2581
-
-2581:                                             ; preds = %2579, %2576
-  %2582 = load ptr, ptr %22, align 8
-  %2583 = getelementptr inbounds %struct._tsn, ptr %2582, i32 0, i32 6
-  store ptr null, ptr %2583, align 8
+2583:                                             ; preds = %2581, %2578
   %2584 = load ptr, ptr %22, align 8
-  %2585 = getelementptr inbounds %struct._tsn, ptr %2584, i32 0, i32 5
-  store i32 0, ptr %2585, align 8
-  %2586 = load ptr, ptr %21, align 8
-  %2587 = icmp ne ptr %2586, null
-  br i1 %2587, label %2590, label %2588
+  %2585 = getelementptr inbounds %struct._tsn, ptr %2584, i32 0, i32 6
+  store ptr null, ptr %2585, align 8
+  %2586 = load ptr, ptr %22, align 8
+  %2587 = getelementptr inbounds %struct._tsn, ptr %2586, i32 0, i32 5
+  store i32 0, ptr %2587, align 8
+  %2588 = load ptr, ptr %21, align 8
+  %2589 = icmp ne ptr %2588, null
+  br i1 %2589, label %2592, label %2590
 
-2588:                                             ; preds = %2581
-  %2589 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #7
-  store ptr %2589, ptr %21, align 8
-  br label %2590
+2590:                                             ; preds = %2583
+  %2591 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #7
+  store ptr %2591, ptr %21, align 8
+  br label %2592
 
-2590:                                             ; preds = %2588, %2581
-  %2591 = load ptr, ptr %21, align 8
-  %2592 = getelementptr inbounds %struct._tsn, ptr %2591, i32 0, i32 6
-  store ptr null, ptr %2592, align 8
+2592:                                             ; preds = %2590, %2583
   %2593 = load ptr, ptr %21, align 8
-  %2594 = getelementptr inbounds %struct._tsn, ptr %2593, i32 0, i32 5
-  store i32 0, ptr %2594, align 8
-  br label %2595
+  %2594 = getelementptr inbounds %struct._tsn, ptr %2593, i32 0, i32 6
+  store ptr null, ptr %2594, align 8
+  %2595 = load ptr, ptr %21, align 8
+  %2596 = getelementptr inbounds %struct._tsn, ptr %2595, i32 0, i32 5
+  store i32 0, ptr %2596, align 8
+  br label %2597
 
-2595:                                             ; preds = %2590, %2568, %2560, %2552, %2544, %2536, %2528
+2597:                                             ; preds = %2592, %2570, %2562, %2554, %2546, %2538, %2530
   store i32 0, ptr %12, align 4
-  br label %2596
+  br label %2598
 
-2596:                                             ; preds = %3727, %2595
-  %2597 = load i32, ptr %12, align 4
-  %2598 = load ptr, ptr %11, align 8
-  %2599 = getelementptr inbounds %struct._sctp_info, ptr %2598, i32 0, i32 14
-  %2600 = load i32, ptr %2599, align 8
-  %2601 = icmp ult i32 %2597, %2600
-  br i1 %2601, label %2602, label %3730
+2598:                                             ; preds = %3729, %2597
+  %2599 = load i32, ptr %12, align 4
+  %2600 = load ptr, ptr %11, align 8
+  %2601 = getelementptr inbounds %struct._sctp_info, ptr %2600, i32 0, i32 14
+  %2602 = load i32, ptr %2601, align 8
+  %2603 = icmp ult i32 %2599, %2602
+  br i1 %2603, label %2604, label %3732
 
-2602:                                             ; preds = %2596
-  %2603 = load ptr, ptr %11, align 8
-  %2604 = getelementptr inbounds %struct._sctp_info, ptr %2603, i32 0, i32 15
-  %2605 = load i32, ptr %12, align 4
-  %2606 = zext i32 %2605 to i64
-  %2607 = getelementptr [2048 x ptr], ptr %2604, i64 0, i64 %2606
-  %2608 = load ptr, ptr %2607, align 8
-  %2609 = call zeroext i8 @tvb_get_guint8(ptr noundef %2608, i32 noundef 0)
-  store i8 %2609, ptr %29, align 1
-  %2610 = load i8, ptr %29, align 1
-  %2611 = zext i8 %2610 to i32
-  %2612 = icmp sle i32 %2611, 16
-  br i1 %2612, label %2634, label %2613
+2604:                                             ; preds = %2598
+  %2605 = load ptr, ptr %11, align 8
+  %2606 = getelementptr inbounds %struct._sctp_info, ptr %2605, i32 0, i32 15
+  %2607 = load i32, ptr %12, align 4
+  %2608 = zext i32 %2607 to i64
+  %2609 = getelementptr [2048 x ptr], ptr %2606, i64 0, i64 %2608
+  %2610 = load ptr, ptr %2609, align 8
+  %2611 = call zeroext i8 @tvb_get_guint8(ptr noundef %2610, i32 noundef 0)
+  store i8 %2611, ptr %29, align 1
+  %2612 = load i8, ptr %29, align 1
+  %2613 = zext i8 %2612 to i32
+  %2614 = icmp sle i32 %2613, 16
+  br i1 %2614, label %2636, label %2615
 
-2613:                                             ; preds = %2602
-  %2614 = load i8, ptr %29, align 1
-  %2615 = zext i8 %2614 to i32
-  %2616 = icmp eq i32 %2615, 64
-  br i1 %2616, label %2634, label %2617
+2615:                                             ; preds = %2604
+  %2616 = load i8, ptr %29, align 1
+  %2617 = zext i8 %2616 to i32
+  %2618 = icmp eq i32 %2617, 64
+  br i1 %2618, label %2636, label %2619
 
-2617:                                             ; preds = %2613
-  %2618 = load i8, ptr %29, align 1
-  %2619 = zext i8 %2618 to i32
-  %2620 = icmp eq i32 %2619, 192
-  br i1 %2620, label %2634, label %2621
+2619:                                             ; preds = %2615
+  %2620 = load i8, ptr %29, align 1
+  %2621 = zext i8 %2620 to i32
+  %2622 = icmp eq i32 %2621, 192
+  br i1 %2622, label %2636, label %2623
 
-2621:                                             ; preds = %2617
-  %2622 = load i8, ptr %29, align 1
-  %2623 = zext i8 %2622 to i32
-  %2624 = icmp eq i32 %2623, 193
-  br i1 %2624, label %2634, label %2625
+2623:                                             ; preds = %2619
+  %2624 = load i8, ptr %29, align 1
+  %2625 = zext i8 %2624 to i32
+  %2626 = icmp eq i32 %2625, 193
+  br i1 %2626, label %2636, label %2627
 
-2625:                                             ; preds = %2621
-  %2626 = load i8, ptr %29, align 1
-  %2627 = zext i8 %2626 to i32
-  %2628 = icmp eq i32 %2627, 128
-  br i1 %2628, label %2634, label %2629
+2627:                                             ; preds = %2623
+  %2628 = load i8, ptr %29, align 1
+  %2629 = zext i8 %2628 to i32
+  %2630 = icmp eq i32 %2629, 128
+  br i1 %2630, label %2636, label %2631
 
-2629:                                             ; preds = %2625
-  %2630 = load i8, ptr %29, align 1
-  %2631 = zext i8 %2630 to i32
-  %2632 = icmp eq i32 %2631, 129
-  br i1 %2632, label %2634, label %2633
+2631:                                             ; preds = %2627
+  %2632 = load i8, ptr %29, align 1
+  %2633 = zext i8 %2632 to i32
+  %2634 = icmp eq i32 %2633, 129
+  br i1 %2634, label %2636, label %2635
 
-2633:                                             ; preds = %2629
+2635:                                             ; preds = %2631
   store i8 -2, ptr %29, align 1
-  br label %2634
+  br label %2636
 
-2634:                                             ; preds = %2633, %2629, %2625, %2621, %2617, %2613, %2602
-  %2635 = load ptr, ptr %16, align 8
-  %2636 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2635, i32 0, i32 70
-  %2637 = load i8, ptr %29, align 1
-  %2638 = zext i8 %2637 to i64
-  %2639 = getelementptr [256 x i32], ptr %2636, i64 0, i64 %2638
-  %2640 = load i32, ptr %2639, align 4
-  %2641 = add i32 %2640, 1
-  store i32 %2641, ptr %2639, align 4
-  %2642 = load ptr, ptr %16, align 8
-  %2643 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2642, i32 0, i32 45
-  %2644 = load i16, ptr %2643, align 8
-  %2645 = zext i16 %2644 to i32
-  %2646 = icmp eq i32 %2645, 1
-  br i1 %2646, label %2647, label %2655
+2636:                                             ; preds = %2635, %2631, %2627, %2623, %2619, %2615, %2604
+  %2637 = load ptr, ptr %16, align 8
+  %2638 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2637, i32 0, i32 70
+  %2639 = load i8, ptr %29, align 1
+  %2640 = zext i8 %2639 to i64
+  %2641 = getelementptr [256 x i32], ptr %2638, i64 0, i64 %2640
+  %2642 = load i32, ptr %2641, align 4
+  %2643 = add i32 %2642, 1
+  store i32 %2643, ptr %2641, align 4
+  %2644 = load ptr, ptr %16, align 8
+  %2645 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2644, i32 0, i32 45
+  %2646 = load i16, ptr %2645, align 8
+  %2647 = zext i16 %2646 to i32
+  %2648 = icmp eq i32 %2647, 1
+  br i1 %2648, label %2649, label %2657
 
-2647:                                             ; preds = %2634
-  %2648 = load ptr, ptr %16, align 8
-  %2649 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2648, i32 0, i32 71
-  %2650 = load i8, ptr %29, align 1
-  %2651 = zext i8 %2650 to i64
-  %2652 = getelementptr [256 x i32], ptr %2649, i64 0, i64 %2651
-  %2653 = load i32, ptr %2652, align 4
-  %2654 = add i32 %2653, 1
-  store i32 %2654, ptr %2652, align 4
-  br label %2663
+2649:                                             ; preds = %2636
+  %2650 = load ptr, ptr %16, align 8
+  %2651 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2650, i32 0, i32 71
+  %2652 = load i8, ptr %29, align 1
+  %2653 = zext i8 %2652 to i64
+  %2654 = getelementptr [256 x i32], ptr %2651, i64 0, i64 %2653
+  %2655 = load i32, ptr %2654, align 4
+  %2656 = add i32 %2655, 1
+  store i32 %2656, ptr %2654, align 4
+  br label %2665
 
-2655:                                             ; preds = %2634
-  %2656 = load ptr, ptr %16, align 8
-  %2657 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2656, i32 0, i32 72
-  %2658 = load i8, ptr %29, align 1
-  %2659 = zext i8 %2658 to i64
-  %2660 = getelementptr [256 x i32], ptr %2657, i64 0, i64 %2659
-  %2661 = load i32, ptr %2660, align 4
-  %2662 = add i32 %2661, 1
-  store i32 %2662, ptr %2660, align 4
-  br label %2663
+2657:                                             ; preds = %2636
+  %2658 = load ptr, ptr %16, align 8
+  %2659 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2658, i32 0, i32 72
+  %2660 = load i8, ptr %29, align 1
+  %2661 = zext i8 %2660 to i64
+  %2662 = getelementptr [256 x i32], ptr %2659, i64 0, i64 %2661
+  %2663 = load i32, ptr %2662, align 4
+  %2664 = add i32 %2663, 1
+  store i32 %2664, ptr %2662, align 4
+  br label %2665
 
-2663:                                             ; preds = %2655, %2647
-  %2664 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 2
-  %2665 = load ptr, ptr %16, align 8
-  %2666 = load ptr, ptr %16, align 8
-  %2667 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2666, i32 0, i32 45
-  %2668 = load i16, ptr %2667, align 8
-  %2669 = zext i16 %2668 to i32
-  %2670 = load i8, ptr %29, align 1
-  %2671 = zext i8 %2670 to i32
-  %2672 = call ptr @add_chunk_count(ptr noundef %2664, ptr noundef %2665, i32 noundef %2669, i32 noundef %2671)
-  store ptr %2672, ptr %16, align 8
-  %2673 = load ptr, ptr %11, align 8
-  %2674 = getelementptr inbounds %struct._sctp_info, ptr %2673, i32 0, i32 15
-  %2675 = load i32, ptr %12, align 4
-  %2676 = zext i32 %2675 to i64
-  %2677 = getelementptr [2048 x ptr], ptr %2674, i64 0, i64 %2676
-  %2678 = load ptr, ptr %2677, align 8
-  %2679 = call zeroext i8 @tvb_get_guint8(ptr noundef %2678, i32 noundef 0)
-  %2680 = zext i8 %2679 to i32
-  %2681 = icmp eq i32 %2680, 0
-  br i1 %2681, label %2692, label %2682
+2665:                                             ; preds = %2657, %2649
+  %2666 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 2
+  %2667 = load ptr, ptr %16, align 8
+  %2668 = load ptr, ptr %16, align 8
+  %2669 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2668, i32 0, i32 45
+  %2670 = load i16, ptr %2669, align 8
+  %2671 = zext i16 %2670 to i32
+  %2672 = load i8, ptr %29, align 1
+  %2673 = zext i8 %2672 to i32
+  %2674 = call ptr @add_chunk_count(ptr noundef %2666, ptr noundef %2667, i32 noundef %2671, i32 noundef %2673)
+  store ptr %2674, ptr %16, align 8
+  %2675 = load ptr, ptr %11, align 8
+  %2676 = getelementptr inbounds %struct._sctp_info, ptr %2675, i32 0, i32 15
+  %2677 = load i32, ptr %12, align 4
+  %2678 = zext i32 %2677 to i64
+  %2679 = getelementptr [2048 x ptr], ptr %2676, i64 0, i64 %2678
+  %2680 = load ptr, ptr %2679, align 8
+  %2681 = call zeroext i8 @tvb_get_guint8(ptr noundef %2680, i32 noundef 0)
+  %2682 = zext i8 %2681 to i32
+  %2683 = icmp eq i32 %2682, 0
+  br i1 %2683, label %2694, label %2684
 
-2682:                                             ; preds = %2663
-  %2683 = load ptr, ptr %11, align 8
-  %2684 = getelementptr inbounds %struct._sctp_info, ptr %2683, i32 0, i32 15
-  %2685 = load i32, ptr %12, align 4
-  %2686 = zext i32 %2685 to i64
-  %2687 = getelementptr [2048 x ptr], ptr %2684, i64 0, i64 %2686
-  %2688 = load ptr, ptr %2687, align 8
-  %2689 = call zeroext i8 @tvb_get_guint8(ptr noundef %2688, i32 noundef 0)
-  %2690 = zext i8 %2689 to i32
-  %2691 = icmp eq i32 %2690, 64
-  br i1 %2691, label %2692, label %2693
+2684:                                             ; preds = %2665
+  %2685 = load ptr, ptr %11, align 8
+  %2686 = getelementptr inbounds %struct._sctp_info, ptr %2685, i32 0, i32 15
+  %2687 = load i32, ptr %12, align 4
+  %2688 = zext i32 %2687 to i64
+  %2689 = getelementptr [2048 x ptr], ptr %2686, i64 0, i64 %2688
+  %2690 = load ptr, ptr %2689, align 8
+  %2691 = call zeroext i8 @tvb_get_guint8(ptr noundef %2690, i32 noundef 0)
+  %2692 = zext i8 %2691 to i32
+  %2693 = icmp eq i32 %2692, 64
+  br i1 %2693, label %2694, label %2695
 
-2692:                                             ; preds = %2682, %2663
+2694:                                             ; preds = %2684, %2665
   store i32 1, ptr %25, align 4
-  br label %2693
+  br label %2695
 
-2693:                                             ; preds = %2692, %2682
-  %2694 = load ptr, ptr %11, align 8
-  %2695 = getelementptr inbounds %struct._sctp_info, ptr %2694, i32 0, i32 15
-  %2696 = load i32, ptr %12, align 4
-  %2697 = zext i32 %2696 to i64
-  %2698 = getelementptr [2048 x ptr], ptr %2695, i64 0, i64 %2697
-  %2699 = load ptr, ptr %2698, align 8
-  %2700 = call zeroext i8 @tvb_get_guint8(ptr noundef %2699, i32 noundef 0)
-  %2701 = zext i8 %2700 to i32
-  %2702 = icmp eq i32 %2701, 192
-  br i1 %2702, label %2703, label %2704
+2695:                                             ; preds = %2694, %2684
+  %2696 = load ptr, ptr %11, align 8
+  %2697 = getelementptr inbounds %struct._sctp_info, ptr %2696, i32 0, i32 15
+  %2698 = load i32, ptr %12, align 4
+  %2699 = zext i32 %2698 to i64
+  %2700 = getelementptr [2048 x ptr], ptr %2697, i64 0, i64 %2699
+  %2701 = load ptr, ptr %2700, align 8
+  %2702 = call zeroext i8 @tvb_get_guint8(ptr noundef %2701, i32 noundef 0)
+  %2703 = zext i8 %2702 to i32
+  %2704 = icmp eq i32 %2703, 192
+  br i1 %2704, label %2705, label %2706
 
-2703:                                             ; preds = %2693
+2705:                                             ; preds = %2695
   store i32 1, ptr %26, align 4
-  br label %2704
+  br label %2706
 
-2704:                                             ; preds = %2703, %2693
-  %2705 = load i32, ptr %25, align 4
-  %2706 = icmp ne i32 %2705, 0
-  br i1 %2706, label %2710, label %2707
+2706:                                             ; preds = %2705, %2695
+  %2707 = load i32, ptr %25, align 4
+  %2708 = icmp ne i32 %2707, 0
+  br i1 %2708, label %2712, label %2709
 
-2707:                                             ; preds = %2704
-  %2708 = load i32, ptr %26, align 4
-  %2709 = icmp ne i32 %2708, 0
-  br i1 %2709, label %2710, label %3439
+2709:                                             ; preds = %2706
+  %2710 = load i32, ptr %26, align 4
+  %2711 = icmp ne i32 %2710, 0
+  br i1 %2711, label %2712, label %3441
 
-2710:                                             ; preds = %2707, %2704
-  %2711 = load ptr, ptr %21, align 8
-  %2712 = icmp ne ptr %2711, null
-  br i1 %2712, label %2713, label %3439
+2712:                                             ; preds = %2709, %2706
+  %2713 = load ptr, ptr %21, align 8
+  %2714 = icmp ne ptr %2713, null
+  br i1 %2714, label %2715, label %3441
 
-2713:                                             ; preds = %2710
-  %2714 = load ptr, ptr %11, align 8
-  %2715 = getelementptr inbounds %struct._sctp_info, ptr %2714, i32 0, i32 15
-  %2716 = load i32, ptr %12, align 4
-  %2717 = zext i32 %2716 to i64
-  %2718 = getelementptr [2048 x ptr], ptr %2715, i64 0, i64 %2717
-  %2719 = load ptr, ptr %2718, align 8
-  %2720 = call i32 @tvb_get_ntohl(ptr noundef %2719, i32 noundef 4)
-  store i32 %2720, ptr %13, align 4
-  %2721 = load ptr, ptr %21, align 8
-  %2722 = getelementptr inbounds %struct._tsn, ptr %2721, i32 0, i32 5
-  %2723 = load i32, ptr %2722, align 8
-  %2724 = icmp eq i32 %2723, 0
-  br i1 %2724, label %2725, label %2729
+2715:                                             ; preds = %2712
+  %2716 = load ptr, ptr %11, align 8
+  %2717 = getelementptr inbounds %struct._sctp_info, ptr %2716, i32 0, i32 15
+  %2718 = load i32, ptr %12, align 4
+  %2719 = zext i32 %2718 to i64
+  %2720 = getelementptr [2048 x ptr], ptr %2717, i64 0, i64 %2719
+  %2721 = load ptr, ptr %2720, align 8
+  %2722 = call i32 @tvb_get_ntohl(ptr noundef %2721, i32 noundef 4)
+  store i32 %2722, ptr %13, align 4
+  %2723 = load ptr, ptr %21, align 8
+  %2724 = getelementptr inbounds %struct._tsn, ptr %2723, i32 0, i32 5
+  %2725 = load i32, ptr %2724, align 8
+  %2726 = icmp eq i32 %2725, 0
+  br i1 %2726, label %2727, label %2731
 
-2725:                                             ; preds = %2713
-  %2726 = load i32, ptr %13, align 4
-  %2727 = load ptr, ptr %21, align 8
-  %2728 = getelementptr inbounds %struct._tsn, ptr %2727, i32 0, i32 5
-  store i32 %2726, ptr %2728, align 8
-  br label %2729
+2727:                                             ; preds = %2715
+  %2728 = load i32, ptr %13, align 4
+  %2729 = load ptr, ptr %21, align 8
+  %2730 = getelementptr inbounds %struct._tsn, ptr %2729, i32 0, i32 5
+  store i32 %2728, ptr %2730, align 8
+  br label %2731
 
-2729:                                             ; preds = %2725, %2713
-  %2730 = load i32, ptr %25, align 4
-  %2731 = icmp ne i32 %2730, 0
-  br i1 %2731, label %2732, label %2784
+2731:                                             ; preds = %2727, %2715
+  %2732 = load i32, ptr %25, align 4
+  %2733 = icmp ne i32 %2732, 0
+  br i1 %2733, label %2734, label %2786
 
-2732:                                             ; preds = %2729
-  %2733 = call noalias ptr @g_malloc(i64 noundef 16) #8
-  store ptr %2733, ptr %23, align 8
-  %2734 = load ptr, ptr %11, align 8
-  %2735 = getelementptr inbounds %struct._sctp_info, ptr %2734, i32 0, i32 15
-  %2736 = load i32, ptr %12, align 4
-  %2737 = zext i32 %2736 to i64
-  %2738 = getelementptr [2048 x ptr], ptr %2735, i64 0, i64 %2737
-  %2739 = load ptr, ptr %2738, align 8
-  %2740 = load ptr, ptr %23, align 8
-  %2741 = call ptr @tvb_memcpy(ptr noundef %2739, ptr noundef %2740, i32 noundef 0, i64 noundef 16)
-  %2742 = load ptr, ptr %11, align 8
-  %2743 = getelementptr inbounds %struct._sctp_info, ptr %2742, i32 0, i32 15
-  %2744 = load i32, ptr %12, align 4
-  %2745 = zext i32 %2744 to i64
-  %2746 = getelementptr [2048 x ptr], ptr %2743, i64 0, i64 %2745
-  %2747 = load ptr, ptr %2746, align 8
-  %2748 = call zeroext i8 @tvb_get_guint8(ptr noundef %2747, i32 noundef 0)
-  %2749 = zext i8 %2748 to i32
-  %2750 = icmp eq i32 %2749, 0
-  br i1 %2750, label %2751, label %2762
+2734:                                             ; preds = %2731
+  %2735 = call noalias ptr @g_malloc(i64 noundef 16) #8
+  store ptr %2735, ptr %23, align 8
+  %2736 = load ptr, ptr %11, align 8
+  %2737 = getelementptr inbounds %struct._sctp_info, ptr %2736, i32 0, i32 15
+  %2738 = load i32, ptr %12, align 4
+  %2739 = zext i32 %2738 to i64
+  %2740 = getelementptr [2048 x ptr], ptr %2737, i64 0, i64 %2739
+  %2741 = load ptr, ptr %2740, align 8
+  %2742 = load ptr, ptr %23, align 8
+  %2743 = call ptr @tvb_memcpy(ptr noundef %2741, ptr noundef %2742, i32 noundef 0, i64 noundef 16)
+  %2744 = load ptr, ptr %11, align 8
+  %2745 = getelementptr inbounds %struct._sctp_info, ptr %2744, i32 0, i32 15
+  %2746 = load i32, ptr %12, align 4
+  %2747 = zext i32 %2746 to i64
+  %2748 = getelementptr [2048 x ptr], ptr %2745, i64 0, i64 %2747
+  %2749 = load ptr, ptr %2748, align 8
+  %2750 = call zeroext i8 @tvb_get_guint8(ptr noundef %2749, i32 noundef 0)
+  %2751 = zext i8 %2750 to i32
+  %2752 = icmp eq i32 %2751, 0
+  br i1 %2752, label %2753, label %2764
 
-2751:                                             ; preds = %2732
-  %2752 = load ptr, ptr %11, align 8
-  %2753 = getelementptr inbounds %struct._sctp_info, ptr %2752, i32 0, i32 15
-  %2754 = load i32, ptr %12, align 4
-  %2755 = zext i32 %2754 to i64
-  %2756 = getelementptr [2048 x ptr], ptr %2753, i64 0, i64 %2755
-  %2757 = load ptr, ptr %2756, align 8
-  %2758 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2757, i32 noundef 2)
-  %2759 = zext i16 %2758 to i32
-  %2760 = sub i32 %2759, 16
-  %2761 = trunc i32 %2760 to i16
-  store i16 %2761, ptr %19, align 2
-  br label %2773
+2753:                                             ; preds = %2734
+  %2754 = load ptr, ptr %11, align 8
+  %2755 = getelementptr inbounds %struct._sctp_info, ptr %2754, i32 0, i32 15
+  %2756 = load i32, ptr %12, align 4
+  %2757 = zext i32 %2756 to i64
+  %2758 = getelementptr [2048 x ptr], ptr %2755, i64 0, i64 %2757
+  %2759 = load ptr, ptr %2758, align 8
+  %2760 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2759, i32 noundef 2)
+  %2761 = zext i16 %2760 to i32
+  %2762 = sub i32 %2761, 16
+  %2763 = trunc i32 %2762 to i16
+  store i16 %2763, ptr %19, align 2
+  br label %2775
 
-2762:                                             ; preds = %2732
-  %2763 = load ptr, ptr %11, align 8
-  %2764 = getelementptr inbounds %struct._sctp_info, ptr %2763, i32 0, i32 15
-  %2765 = load i32, ptr %12, align 4
-  %2766 = zext i32 %2765 to i64
-  %2767 = getelementptr [2048 x ptr], ptr %2764, i64 0, i64 %2766
-  %2768 = load ptr, ptr %2767, align 8
-  %2769 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2768, i32 noundef 2)
-  %2770 = zext i16 %2769 to i32
-  %2771 = sub i32 %2770, 20
-  %2772 = trunc i32 %2771 to i16
-  store i16 %2772, ptr %19, align 2
-  br label %2773
+2764:                                             ; preds = %2734
+  %2765 = load ptr, ptr %11, align 8
+  %2766 = getelementptr inbounds %struct._sctp_info, ptr %2765, i32 0, i32 15
+  %2767 = load i32, ptr %12, align 4
+  %2768 = zext i32 %2767 to i64
+  %2769 = getelementptr [2048 x ptr], ptr %2766, i64 0, i64 %2768
+  %2770 = load ptr, ptr %2769, align 8
+  %2771 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2770, i32 noundef 2)
+  %2772 = zext i16 %2771 to i32
+  %2773 = sub i32 %2772, 20
+  %2774 = trunc i32 %2773 to i16
+  store i16 %2774, ptr %19, align 2
+  br label %2775
 
-2773:                                             ; preds = %2762, %2751
-  %2774 = load ptr, ptr %16, align 8
-  %2775 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2774, i32 0, i32 25
-  %2776 = load i32, ptr %2775, align 4
-  %2777 = add i32 %2776, 1
-  store i32 %2777, ptr %2775, align 4
-  %2778 = load i16, ptr %19, align 2
-  %2779 = zext i16 %2778 to i32
-  %2780 = load ptr, ptr %16, align 8
-  %2781 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2780, i32 0, i32 29
-  %2782 = load i32, ptr %2781, align 4
-  %2783 = add i32 %2782, %2779
-  store i32 %2783, ptr %2781, align 4
-  br label %2809
+2775:                                             ; preds = %2764, %2753
+  %2776 = load ptr, ptr %16, align 8
+  %2777 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2776, i32 0, i32 25
+  %2778 = load i32, ptr %2777, align 4
+  %2779 = add i32 %2778, 1
+  store i32 %2779, ptr %2777, align 4
+  %2780 = load i16, ptr %19, align 2
+  %2781 = zext i16 %2780 to i32
+  %2782 = load ptr, ptr %16, align 8
+  %2783 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2782, i32 0, i32 29
+  %2784 = load i32, ptr %2783, align 4
+  %2785 = add i32 %2784, %2781
+  store i32 %2785, ptr %2783, align 4
+  br label %2811
 
-2784:                                             ; preds = %2729
-  %2785 = load ptr, ptr %11, align 8
-  %2786 = getelementptr inbounds %struct._sctp_info, ptr %2785, i32 0, i32 15
-  %2787 = load i32, ptr %12, align 4
-  %2788 = zext i32 %2787 to i64
-  %2789 = getelementptr [2048 x ptr], ptr %2786, i64 0, i64 %2788
-  %2790 = load ptr, ptr %2789, align 8
-  %2791 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2790, i32 noundef 2)
-  store i16 %2791, ptr %19, align 2
-  %2792 = load i16, ptr %19, align 2
-  %2793 = zext i16 %2792 to i64
-  %2794 = call noalias ptr @g_malloc(i64 noundef %2793) #8
-  store ptr %2794, ptr %23, align 8
-  %2795 = load ptr, ptr %11, align 8
-  %2796 = getelementptr inbounds %struct._sctp_info, ptr %2795, i32 0, i32 15
-  %2797 = load i32, ptr %12, align 4
-  %2798 = zext i32 %2797 to i64
-  %2799 = getelementptr [2048 x ptr], ptr %2796, i64 0, i64 %2798
-  %2800 = load ptr, ptr %2799, align 8
-  %2801 = load ptr, ptr %23, align 8
-  %2802 = load i16, ptr %19, align 2
-  %2803 = zext i16 %2802 to i64
-  %2804 = call ptr @tvb_memcpy(ptr noundef %2800, ptr noundef %2801, i32 noundef 0, i64 noundef %2803)
-  %2805 = load ptr, ptr %16, align 8
-  %2806 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2805, i32 0, i32 26
-  %2807 = load i32, ptr %2806, align 8
-  %2808 = add i32 %2807, 1
-  store i32 %2808, ptr %2806, align 8
-  br label %2809
+2786:                                             ; preds = %2731
+  %2787 = load ptr, ptr %11, align 8
+  %2788 = getelementptr inbounds %struct._sctp_info, ptr %2787, i32 0, i32 15
+  %2789 = load i32, ptr %12, align 4
+  %2790 = zext i32 %2789 to i64
+  %2791 = getelementptr [2048 x ptr], ptr %2788, i64 0, i64 %2790
+  %2792 = load ptr, ptr %2791, align 8
+  %2793 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2792, i32 noundef 2)
+  store i16 %2793, ptr %19, align 2
+  %2794 = load i16, ptr %19, align 2
+  %2795 = zext i16 %2794 to i64
+  %2796 = call noalias ptr @g_malloc(i64 noundef %2795) #8
+  store ptr %2796, ptr %23, align 8
+  %2797 = load ptr, ptr %11, align 8
+  %2798 = getelementptr inbounds %struct._sctp_info, ptr %2797, i32 0, i32 15
+  %2799 = load i32, ptr %12, align 4
+  %2800 = zext i32 %2799 to i64
+  %2801 = getelementptr [2048 x ptr], ptr %2798, i64 0, i64 %2800
+  %2802 = load ptr, ptr %2801, align 8
+  %2803 = load ptr, ptr %23, align 8
+  %2804 = load i16, ptr %19, align 2
+  %2805 = zext i16 %2804 to i64
+  %2806 = call ptr @tvb_memcpy(ptr noundef %2802, ptr noundef %2803, i32 noundef 0, i64 noundef %2805)
+  %2807 = load ptr, ptr %16, align 8
+  %2808 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2807, i32 0, i32 26
+  %2809 = load i32, ptr %2808, align 8
+  %2810 = add i32 %2809, 1
+  store i32 %2810, ptr %2808, align 8
+  br label %2811
 
-2809:                                             ; preds = %2784, %2773
-  %2810 = load ptr, ptr %21, align 8
-  %2811 = getelementptr inbounds %struct._tsn, ptr %2810, i32 0, i32 6
-  %2812 = load ptr, ptr %2811, align 8
-  %2813 = load ptr, ptr %23, align 8
-  %2814 = call ptr @g_list_append(ptr noundef %2812, ptr noundef %2813)
-  %2815 = load ptr, ptr %21, align 8
-  %2816 = getelementptr inbounds %struct._tsn, ptr %2815, i32 0, i32 6
-  store ptr %2814, ptr %2816, align 8
-  %2817 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #7
-  store ptr %2817, ptr %27, align 8
-  %2818 = load i32, ptr %13, align 4
-  %2819 = load ptr, ptr %27, align 8
-  %2820 = getelementptr inbounds %struct.tsn_sort, ptr %2819, i32 0, i32 0
-  store i32 %2818, ptr %2820, align 4
-  %2821 = load ptr, ptr %7, align 8
-  %2822 = getelementptr inbounds %struct._packet_info, ptr %2821, i32 0, i32 5
-  %2823 = getelementptr inbounds %struct.nstime_t, ptr %2822, i32 0, i32 0
-  %2824 = load i64, ptr %2823, align 8
-  %2825 = trunc i64 %2824 to i32
-  %2826 = load ptr, ptr %21, align 8
-  %2827 = getelementptr inbounds %struct._tsn, ptr %2826, i32 0, i32 1
-  store i32 %2825, ptr %2827, align 4
-  %2828 = load ptr, ptr %27, align 8
-  %2829 = getelementptr inbounds %struct.tsn_sort, ptr %2828, i32 0, i32 1
-  store i32 %2825, ptr %2829, align 4
-  %2830 = load ptr, ptr %7, align 8
-  %2831 = getelementptr inbounds %struct._packet_info, ptr %2830, i32 0, i32 5
-  %2832 = getelementptr inbounds %struct.nstime_t, ptr %2831, i32 0, i32 1
-  %2833 = load i32, ptr %2832, align 8
-  %2834 = udiv i32 %2833, 1000
-  %2835 = load ptr, ptr %21, align 8
-  %2836 = getelementptr inbounds %struct._tsn, ptr %2835, i32 0, i32 2
-  store i32 %2834, ptr %2836, align 8
-  %2837 = load ptr, ptr %27, align 8
-  %2838 = getelementptr inbounds %struct.tsn_sort, ptr %2837, i32 0, i32 2
-  store i32 %2834, ptr %2838, align 4
+2811:                                             ; preds = %2786, %2775
+  %2812 = load ptr, ptr %21, align 8
+  %2813 = getelementptr inbounds %struct._tsn, ptr %2812, i32 0, i32 6
+  %2814 = load ptr, ptr %2813, align 8
+  %2815 = load ptr, ptr %23, align 8
+  %2816 = call ptr @g_list_append(ptr noundef %2814, ptr noundef %2815)
+  %2817 = load ptr, ptr %21, align 8
+  %2818 = getelementptr inbounds %struct._tsn, ptr %2817, i32 0, i32 6
+  store ptr %2816, ptr %2818, align 8
+  %2819 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #7
+  store ptr %2819, ptr %27, align 8
+  %2820 = load i32, ptr %13, align 4
+  %2821 = load ptr, ptr %27, align 8
+  %2822 = getelementptr inbounds %struct.tsn_sort, ptr %2821, i32 0, i32 0
+  store i32 %2820, ptr %2822, align 4
+  %2823 = load ptr, ptr %7, align 8
+  %2824 = getelementptr inbounds %struct._packet_info, ptr %2823, i32 0, i32 5
+  %2825 = getelementptr inbounds %struct.nstime_t, ptr %2824, i32 0, i32 0
+  %2826 = load i64, ptr %2825, align 8
+  %2827 = trunc i64 %2826 to i32
+  %2828 = load ptr, ptr %21, align 8
+  %2829 = getelementptr inbounds %struct._tsn, ptr %2828, i32 0, i32 1
+  store i32 %2827, ptr %2829, align 4
+  %2830 = load ptr, ptr %27, align 8
+  %2831 = getelementptr inbounds %struct.tsn_sort, ptr %2830, i32 0, i32 1
+  store i32 %2827, ptr %2831, align 4
+  %2832 = load ptr, ptr %7, align 8
+  %2833 = getelementptr inbounds %struct._packet_info, ptr %2832, i32 0, i32 5
+  %2834 = getelementptr inbounds %struct.nstime_t, ptr %2833, i32 0, i32 1
+  %2835 = load i32, ptr %2834, align 8
+  %2836 = udiv i32 %2835, 1000
+  %2837 = load ptr, ptr %21, align 8
+  %2838 = getelementptr inbounds %struct._tsn, ptr %2837, i32 0, i32 2
+  store i32 %2836, ptr %2838, align 8
   %2839 = load ptr, ptr %27, align 8
-  %2840 = getelementptr inbounds %struct.tsn_sort, ptr %2839, i32 0, i32 3
-  store i32 0, ptr %2840, align 4
-  %2841 = load i32, ptr %14, align 4
-  %2842 = load ptr, ptr %27, align 8
-  %2843 = getelementptr inbounds %struct.tsn_sort, ptr %2842, i32 0, i32 5
-  store i32 %2841, ptr %2843, align 4
-  %2844 = load i16, ptr %19, align 2
-  %2845 = zext i16 %2844 to i32
-  %2846 = load ptr, ptr %27, align 8
-  %2847 = getelementptr inbounds %struct.tsn_sort, ptr %2846, i32 0, i32 4
-  store i32 %2845, ptr %2847, align 4
-  %2848 = load ptr, ptr %21, align 8
-  %2849 = getelementptr inbounds %struct._tsn, ptr %2848, i32 0, i32 1
-  %2850 = load i32, ptr %2849, align 4
-  %2851 = load ptr, ptr %16, align 8
-  %2852 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2851, i32 0, i32 46
-  %2853 = load i32, ptr %2852, align 4
-  %2854 = icmp ult i32 %2850, %2853
-  br i1 %2854, label %2855, label %2866
+  %2840 = getelementptr inbounds %struct.tsn_sort, ptr %2839, i32 0, i32 2
+  store i32 %2836, ptr %2840, align 4
+  %2841 = load ptr, ptr %27, align 8
+  %2842 = getelementptr inbounds %struct.tsn_sort, ptr %2841, i32 0, i32 3
+  store i32 0, ptr %2842, align 4
+  %2843 = load i32, ptr %14, align 4
+  %2844 = load ptr, ptr %27, align 8
+  %2845 = getelementptr inbounds %struct.tsn_sort, ptr %2844, i32 0, i32 5
+  store i32 %2843, ptr %2845, align 4
+  %2846 = load i16, ptr %19, align 2
+  %2847 = zext i16 %2846 to i32
+  %2848 = load ptr, ptr %27, align 8
+  %2849 = getelementptr inbounds %struct.tsn_sort, ptr %2848, i32 0, i32 4
+  store i32 %2847, ptr %2849, align 4
+  %2850 = load ptr, ptr %21, align 8
+  %2851 = getelementptr inbounds %struct._tsn, ptr %2850, i32 0, i32 1
+  %2852 = load i32, ptr %2851, align 4
+  %2853 = load ptr, ptr %16, align 8
+  %2854 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2853, i32 0, i32 46
+  %2855 = load i32, ptr %2854, align 4
+  %2856 = icmp ult i32 %2852, %2855
+  br i1 %2856, label %2857, label %2868
 
-2855:                                             ; preds = %2809
-  %2856 = load ptr, ptr %21, align 8
-  %2857 = getelementptr inbounds %struct._tsn, ptr %2856, i32 0, i32 1
-  %2858 = load i32, ptr %2857, align 4
-  %2859 = load ptr, ptr %16, align 8
-  %2860 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2859, i32 0, i32 46
-  store i32 %2858, ptr %2860, align 4
-  %2861 = load ptr, ptr %21, align 8
-  %2862 = getelementptr inbounds %struct._tsn, ptr %2861, i32 0, i32 2
-  %2863 = load i32, ptr %2862, align 8
-  %2864 = load ptr, ptr %16, align 8
-  %2865 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2864, i32 0, i32 47
-  store i32 %2863, ptr %2865, align 8
-  br label %2889
+2857:                                             ; preds = %2811
+  %2858 = load ptr, ptr %21, align 8
+  %2859 = getelementptr inbounds %struct._tsn, ptr %2858, i32 0, i32 1
+  %2860 = load i32, ptr %2859, align 4
+  %2861 = load ptr, ptr %16, align 8
+  %2862 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2861, i32 0, i32 46
+  store i32 %2860, ptr %2862, align 4
+  %2863 = load ptr, ptr %21, align 8
+  %2864 = getelementptr inbounds %struct._tsn, ptr %2863, i32 0, i32 2
+  %2865 = load i32, ptr %2864, align 8
+  %2866 = load ptr, ptr %16, align 8
+  %2867 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2866, i32 0, i32 47
+  store i32 %2865, ptr %2867, align 8
+  br label %2891
 
-2866:                                             ; preds = %2809
-  %2867 = load ptr, ptr %21, align 8
-  %2868 = getelementptr inbounds %struct._tsn, ptr %2867, i32 0, i32 1
-  %2869 = load i32, ptr %2868, align 4
-  %2870 = load ptr, ptr %16, align 8
-  %2871 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2870, i32 0, i32 46
-  %2872 = load i32, ptr %2871, align 4
-  %2873 = icmp eq i32 %2869, %2872
-  br i1 %2873, label %2874, label %2888
+2868:                                             ; preds = %2811
+  %2869 = load ptr, ptr %21, align 8
+  %2870 = getelementptr inbounds %struct._tsn, ptr %2869, i32 0, i32 1
+  %2871 = load i32, ptr %2870, align 4
+  %2872 = load ptr, ptr %16, align 8
+  %2873 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2872, i32 0, i32 46
+  %2874 = load i32, ptr %2873, align 4
+  %2875 = icmp eq i32 %2871, %2874
+  br i1 %2875, label %2876, label %2890
 
-2874:                                             ; preds = %2866
-  %2875 = load ptr, ptr %21, align 8
-  %2876 = getelementptr inbounds %struct._tsn, ptr %2875, i32 0, i32 2
-  %2877 = load i32, ptr %2876, align 8
-  %2878 = load ptr, ptr %16, align 8
-  %2879 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2878, i32 0, i32 47
-  %2880 = load i32, ptr %2879, align 8
-  %2881 = icmp ult i32 %2877, %2880
-  br i1 %2881, label %2882, label %2888
+2876:                                             ; preds = %2868
+  %2877 = load ptr, ptr %21, align 8
+  %2878 = getelementptr inbounds %struct._tsn, ptr %2877, i32 0, i32 2
+  %2879 = load i32, ptr %2878, align 8
+  %2880 = load ptr, ptr %16, align 8
+  %2881 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2880, i32 0, i32 47
+  %2882 = load i32, ptr %2881, align 8
+  %2883 = icmp ult i32 %2879, %2882
+  br i1 %2883, label %2884, label %2890
 
-2882:                                             ; preds = %2874
-  %2883 = load ptr, ptr %21, align 8
-  %2884 = getelementptr inbounds %struct._tsn, ptr %2883, i32 0, i32 2
-  %2885 = load i32, ptr %2884, align 8
-  %2886 = load ptr, ptr %16, align 8
-  %2887 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2886, i32 0, i32 47
-  store i32 %2885, ptr %2887, align 8
-  br label %2888
+2884:                                             ; preds = %2876
+  %2885 = load ptr, ptr %21, align 8
+  %2886 = getelementptr inbounds %struct._tsn, ptr %2885, i32 0, i32 2
+  %2887 = load i32, ptr %2886, align 8
+  %2888 = load ptr, ptr %16, align 8
+  %2889 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2888, i32 0, i32 47
+  store i32 %2887, ptr %2889, align 8
+  br label %2890
 
-2888:                                             ; preds = %2882, %2874, %2866
-  br label %2889
+2890:                                             ; preds = %2884, %2876, %2868
+  br label %2891
 
-2889:                                             ; preds = %2888, %2855
-  %2890 = load ptr, ptr %21, align 8
-  %2891 = getelementptr inbounds %struct._tsn, ptr %2890, i32 0, i32 1
-  %2892 = load i32, ptr %2891, align 4
-  %2893 = load ptr, ptr %16, align 8
-  %2894 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2893, i32 0, i32 48
-  %2895 = load i32, ptr %2894, align 4
-  %2896 = icmp ugt i32 %2892, %2895
-  br i1 %2896, label %2897, label %2908
+2891:                                             ; preds = %2890, %2857
+  %2892 = load ptr, ptr %21, align 8
+  %2893 = getelementptr inbounds %struct._tsn, ptr %2892, i32 0, i32 1
+  %2894 = load i32, ptr %2893, align 4
+  %2895 = load ptr, ptr %16, align 8
+  %2896 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2895, i32 0, i32 48
+  %2897 = load i32, ptr %2896, align 4
+  %2898 = icmp ugt i32 %2894, %2897
+  br i1 %2898, label %2899, label %2910
 
-2897:                                             ; preds = %2889
-  %2898 = load ptr, ptr %21, align 8
-  %2899 = getelementptr inbounds %struct._tsn, ptr %2898, i32 0, i32 1
-  %2900 = load i32, ptr %2899, align 4
-  %2901 = load ptr, ptr %16, align 8
-  %2902 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2901, i32 0, i32 48
-  store i32 %2900, ptr %2902, align 4
-  %2903 = load ptr, ptr %21, align 8
-  %2904 = getelementptr inbounds %struct._tsn, ptr %2903, i32 0, i32 2
-  %2905 = load i32, ptr %2904, align 8
-  %2906 = load ptr, ptr %16, align 8
-  %2907 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2906, i32 0, i32 49
-  store i32 %2905, ptr %2907, align 8
-  br label %2931
+2899:                                             ; preds = %2891
+  %2900 = load ptr, ptr %21, align 8
+  %2901 = getelementptr inbounds %struct._tsn, ptr %2900, i32 0, i32 1
+  %2902 = load i32, ptr %2901, align 4
+  %2903 = load ptr, ptr %16, align 8
+  %2904 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2903, i32 0, i32 48
+  store i32 %2902, ptr %2904, align 4
+  %2905 = load ptr, ptr %21, align 8
+  %2906 = getelementptr inbounds %struct._tsn, ptr %2905, i32 0, i32 2
+  %2907 = load i32, ptr %2906, align 8
+  %2908 = load ptr, ptr %16, align 8
+  %2909 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2908, i32 0, i32 49
+  store i32 %2907, ptr %2909, align 8
+  br label %2933
 
-2908:                                             ; preds = %2889
-  %2909 = load ptr, ptr %21, align 8
-  %2910 = getelementptr inbounds %struct._tsn, ptr %2909, i32 0, i32 1
-  %2911 = load i32, ptr %2910, align 4
-  %2912 = load ptr, ptr %16, align 8
-  %2913 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2912, i32 0, i32 48
-  %2914 = load i32, ptr %2913, align 4
-  %2915 = icmp eq i32 %2911, %2914
-  br i1 %2915, label %2916, label %2930
+2910:                                             ; preds = %2891
+  %2911 = load ptr, ptr %21, align 8
+  %2912 = getelementptr inbounds %struct._tsn, ptr %2911, i32 0, i32 1
+  %2913 = load i32, ptr %2912, align 4
+  %2914 = load ptr, ptr %16, align 8
+  %2915 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2914, i32 0, i32 48
+  %2916 = load i32, ptr %2915, align 4
+  %2917 = icmp eq i32 %2913, %2916
+  br i1 %2917, label %2918, label %2932
 
-2916:                                             ; preds = %2908
-  %2917 = load ptr, ptr %21, align 8
-  %2918 = getelementptr inbounds %struct._tsn, ptr %2917, i32 0, i32 2
-  %2919 = load i32, ptr %2918, align 8
-  %2920 = load ptr, ptr %16, align 8
-  %2921 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2920, i32 0, i32 49
-  %2922 = load i32, ptr %2921, align 8
-  %2923 = icmp ugt i32 %2919, %2922
-  br i1 %2923, label %2924, label %2930
+2918:                                             ; preds = %2910
+  %2919 = load ptr, ptr %21, align 8
+  %2920 = getelementptr inbounds %struct._tsn, ptr %2919, i32 0, i32 2
+  %2921 = load i32, ptr %2920, align 8
+  %2922 = load ptr, ptr %16, align 8
+  %2923 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2922, i32 0, i32 49
+  %2924 = load i32, ptr %2923, align 8
+  %2925 = icmp ugt i32 %2921, %2924
+  br i1 %2925, label %2926, label %2932
 
-2924:                                             ; preds = %2916
-  %2925 = load ptr, ptr %21, align 8
-  %2926 = getelementptr inbounds %struct._tsn, ptr %2925, i32 0, i32 2
-  %2927 = load i32, ptr %2926, align 8
-  %2928 = load ptr, ptr %16, align 8
-  %2929 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2928, i32 0, i32 49
-  store i32 %2927, ptr %2929, align 8
-  br label %2930
+2926:                                             ; preds = %2918
+  %2927 = load ptr, ptr %21, align 8
+  %2928 = getelementptr inbounds %struct._tsn, ptr %2927, i32 0, i32 2
+  %2929 = load i32, ptr %2928, align 8
+  %2930 = load ptr, ptr %16, align 8
+  %2931 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2930, i32 0, i32 49
+  store i32 %2929, ptr %2931, align 8
+  br label %2932
 
-2930:                                             ; preds = %2924, %2916, %2908
-  br label %2931
+2932:                                             ; preds = %2926, %2918, %2910
+  br label %2933
 
-2931:                                             ; preds = %2930, %2897
-  %2932 = load ptr, ptr %16, align 8
-  %2933 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2932, i32 0, i32 45
-  %2934 = load i16, ptr %2933, align 8
-  %2935 = zext i16 %2934 to i32
-  %2936 = icmp eq i32 %2935, 1
-  br i1 %2936, label %2937, label %3154
+2933:                                             ; preds = %2932, %2899
+  %2934 = load ptr, ptr %16, align 8
+  %2935 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2934, i32 0, i32 45
+  %2936 = load i16, ptr %2935, align 8
+  %2937 = zext i16 %2936 to i32
+  %2938 = icmp eq i32 %2937, 1
+  br i1 %2938, label %2939, label %3156
 
-2937:                                             ; preds = %2931
-  %2938 = load ptr, ptr %16, align 8
-  %2939 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2938, i32 0, i32 43
-  %2940 = load i8, ptr %2939, align 4
-  %2941 = lshr i8 %2940, 2
-  %2942 = and i8 %2941, 1
-  %2943 = trunc i8 %2942 to i1
-  br i1 %2943, label %2944, label %2979
+2939:                                             ; preds = %2933
+  %2940 = load ptr, ptr %16, align 8
+  %2941 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2940, i32 0, i32 43
+  %2942 = load i8, ptr %2941, align 4
+  %2943 = lshr i8 %2942, 2
+  %2944 = and i8 %2943, 1
+  %2945 = trunc i8 %2944 to i1
+  br i1 %2945, label %2946, label %2981
 
-2944:                                             ; preds = %2937
-  %2945 = load ptr, ptr %16, align 8
-  %2946 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2945, i32 0, i32 43
-  %2947 = load i8, ptr %2946, align 4
-  %2948 = and i8 %2947, -5
-  %2949 = or i8 %2948, 0
-  store i8 %2949, ptr %2946, align 4
-  %2950 = load ptr, ptr %16, align 8
-  %2951 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2950, i32 0, i32 43
-  %2952 = load i8, ptr %2951, align 4
-  %2953 = lshr i8 %2952, 3
-  %2954 = and i8 %2953, 1
-  %2955 = trunc i8 %2954 to i1
-  br i1 %2955, label %2956, label %2978
+2946:                                             ; preds = %2939
+  %2947 = load ptr, ptr %16, align 8
+  %2948 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2947, i32 0, i32 43
+  %2949 = load i8, ptr %2948, align 4
+  %2950 = and i8 %2949, -5
+  %2951 = or i8 %2950, 0
+  store i8 %2951, ptr %2948, align 4
+  %2952 = load ptr, ptr %16, align 8
+  %2953 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2952, i32 0, i32 43
+  %2954 = load i8, ptr %2953, align 4
+  %2955 = lshr i8 %2954, 3
+  %2956 = and i8 %2955, 1
+  %2957 = trunc i8 %2956 to i1
+  br i1 %2957, label %2958, label %2980
 
-2956:                                             ; preds = %2944
-  %2957 = load i32, ptr %13, align 4
-  %2958 = load ptr, ptr %16, align 8
-  %2959 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2958, i32 0, i32 50
-  %2960 = load i32, ptr %2959, align 4
-  %2961 = icmp ne i32 %2957, %2960
-  br i1 %2961, label %2962, label %2970
+2958:                                             ; preds = %2946
+  %2959 = load i32, ptr %13, align 4
+  %2960 = load ptr, ptr %16, align 8
+  %2961 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2960, i32 0, i32 50
+  %2962 = load i32, ptr %2961, align 4
+  %2963 = icmp ne i32 %2959, %2962
+  br i1 %2963, label %2964, label %2972
 
-2962:                                             ; preds = %2956
-  %2963 = load ptr, ptr %16, align 8
-  %2964 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2963, i32 0, i32 56
-  %2965 = load ptr, ptr %2964, align 8
-  %2966 = getelementptr inbounds %struct._sctp_init_collision, ptr %2965, i32 0, i32 2
-  %2967 = load i32, ptr %2966, align 4
-  %2968 = load ptr, ptr %16, align 8
-  %2969 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2968, i32 0, i32 50
-  store i32 %2967, ptr %2969, align 4
-  br label %2970
+2964:                                             ; preds = %2958
+  %2965 = load ptr, ptr %16, align 8
+  %2966 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2965, i32 0, i32 56
+  %2967 = load ptr, ptr %2966, align 8
+  %2968 = getelementptr inbounds %struct._sctp_init_collision, ptr %2967, i32 0, i32 2
+  %2969 = load i32, ptr %2968, align 4
+  %2970 = load ptr, ptr %16, align 8
+  %2971 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2970, i32 0, i32 50
+  store i32 %2969, ptr %2971, align 4
+  br label %2972
 
-2970:                                             ; preds = %2962, %2956
-  %2971 = load ptr, ptr %16, align 8
-  %2972 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2971, i32 0, i32 57
-  %2973 = load ptr, ptr %2972, align 8
-  %2974 = getelementptr inbounds %struct._sctp_init_collision, ptr %2973, i32 0, i32 3
-  %2975 = load i32, ptr %2974, align 4
-  %2976 = load ptr, ptr %16, align 8
-  %2977 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2976, i32 0, i32 51
-  store i32 %2975, ptr %2977, align 8
-  br label %2978
+2972:                                             ; preds = %2964, %2958
+  %2973 = load ptr, ptr %16, align 8
+  %2974 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2973, i32 0, i32 57
+  %2975 = load ptr, ptr %2974, align 8
+  %2976 = getelementptr inbounds %struct._sctp_init_collision, ptr %2975, i32 0, i32 3
+  %2977 = load i32, ptr %2976, align 4
+  %2978 = load ptr, ptr %16, align 8
+  %2979 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2978, i32 0, i32 51
+  store i32 %2977, ptr %2979, align 8
+  br label %2980
 
-2978:                                             ; preds = %2970, %2944
-  br label %2990
+2980:                                             ; preds = %2972, %2946
+  br label %2992
 
-2979:                                             ; preds = %2937
-  %2980 = load i32, ptr %13, align 4
-  %2981 = load ptr, ptr %16, align 8
-  %2982 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2981, i32 0, i32 50
-  %2983 = load i32, ptr %2982, align 4
-  %2984 = icmp ult i32 %2980, %2983
-  br i1 %2984, label %2985, label %2989
+2981:                                             ; preds = %2939
+  %2982 = load i32, ptr %13, align 4
+  %2983 = load ptr, ptr %16, align 8
+  %2984 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2983, i32 0, i32 50
+  %2985 = load i32, ptr %2984, align 4
+  %2986 = icmp ult i32 %2982, %2985
+  br i1 %2986, label %2987, label %2991
 
-2985:                                             ; preds = %2979
-  %2986 = load i32, ptr %13, align 4
-  %2987 = load ptr, ptr %16, align 8
-  %2988 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2987, i32 0, i32 50
-  store i32 %2986, ptr %2988, align 4
-  br label %2989
+2987:                                             ; preds = %2981
+  %2988 = load i32, ptr %13, align 4
+  %2989 = load ptr, ptr %16, align 8
+  %2990 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2989, i32 0, i32 50
+  store i32 %2988, ptr %2990, align 4
+  br label %2991
 
-2989:                                             ; preds = %2985, %2979
-  br label %2990
+2991:                                             ; preds = %2987, %2981
+  br label %2992
 
-2990:                                             ; preds = %2989, %2978
-  %2991 = load ptr, ptr %16, align 8
-  %2992 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2991, i32 0, i32 43
-  %2993 = load i8, ptr %2992, align 4
-  %2994 = and i8 %2993, 1
-  %2995 = trunc i8 %2994 to i1
-  br i1 %2995, label %3009, label %2996
+2992:                                             ; preds = %2991, %2980
+  %2993 = load ptr, ptr %16, align 8
+  %2994 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2993, i32 0, i32 43
+  %2995 = load i8, ptr %2994, align 4
+  %2996 = and i8 %2995, 1
+  %2997 = trunc i8 %2996 to i1
+  br i1 %2997, label %3011, label %2998
 
-2996:                                             ; preds = %2990
-  %2997 = load ptr, ptr %16, align 8
-  %2998 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2997, i32 0, i32 43
-  %2999 = load i8, ptr %2998, align 4
-  %3000 = lshr i8 %2999, 1
-  %3001 = and i8 %3000, 1
-  %3002 = trunc i8 %3001 to i1
-  br i1 %3002, label %3003, label %3045
+2998:                                             ; preds = %2992
+  %2999 = load ptr, ptr %16, align 8
+  %3000 = getelementptr inbounds %struct._sctp_assoc_info, ptr %2999, i32 0, i32 43
+  %3001 = load i8, ptr %3000, align 4
+  %3002 = lshr i8 %3001, 1
+  %3003 = and i8 %3002, 1
+  %3004 = trunc i8 %3003 to i1
+  br i1 %3004, label %3005, label %3047
 
-3003:                                             ; preds = %2996
-  %3004 = load ptr, ptr %16, align 8
-  %3005 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3004, i32 0, i32 44
-  %3006 = load i16, ptr %3005, align 2
-  %3007 = zext i16 %3006 to i32
-  %3008 = icmp eq i32 %3007, 1
-  br i1 %3008, label %3009, label %3045
+3005:                                             ; preds = %2998
+  %3006 = load ptr, ptr %16, align 8
+  %3007 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3006, i32 0, i32 44
+  %3008 = load i16, ptr %3007, align 2
+  %3009 = zext i16 %3008 to i32
+  %3010 = icmp eq i32 %3009, 1
+  br i1 %3010, label %3011, label %3047
 
-3009:                                             ; preds = %3003, %2990
-  %3010 = load i32, ptr %13, align 4
-  %3011 = load ptr, ptr %16, align 8
-  %3012 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3011, i32 0, i32 50
-  %3013 = load i32, ptr %3012, align 4
-  %3014 = icmp uge i32 %3010, %3013
-  br i1 %3014, label %3015, label %3045
+3011:                                             ; preds = %3005, %2992
+  %3012 = load i32, ptr %13, align 4
+  %3013 = load ptr, ptr %16, align 8
+  %3014 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3013, i32 0, i32 50
+  %3015 = load i32, ptr %3014, align 4
+  %3016 = icmp uge i32 %3012, %3015
+  br i1 %3016, label %3017, label %3047
 
-3015:                                             ; preds = %3009
-  %3016 = load i32, ptr %13, align 4
-  %3017 = load ptr, ptr %16, align 8
-  %3018 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3017, i32 0, i32 52
-  %3019 = load i32, ptr %3018, align 4
-  %3020 = icmp ule i32 %3016, %3019
-  br i1 %3020, label %3021, label %3045
+3017:                                             ; preds = %3011
+  %3018 = load i32, ptr %13, align 4
+  %3019 = load ptr, ptr %16, align 8
+  %3020 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3019, i32 0, i32 52
+  %3021 = load i32, ptr %3020, align 4
+  %3022 = icmp ule i32 %3018, %3021
+  br i1 %3022, label %3023, label %3047
 
-3021:                                             ; preds = %3015
-  %3022 = load i32, ptr %25, align 4
-  %3023 = icmp ne i32 %3022, 0
-  br i1 %3023, label %3024, label %3035
+3023:                                             ; preds = %3017
+  %3024 = load i32, ptr %25, align 4
+  %3025 = icmp ne i32 %3024, 0
+  br i1 %3025, label %3026, label %3037
 
-3024:                                             ; preds = %3021
-  %3025 = load ptr, ptr %16, align 8
-  %3026 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3025, i32 0, i32 31
-  %3027 = load i32, ptr %3026, align 4
-  %3028 = add i32 %3027, 1
-  store i32 %3028, ptr %3026, align 4
-  %3029 = load i16, ptr %19, align 2
-  %3030 = zext i16 %3029 to i32
-  %3031 = load ptr, ptr %16, align 8
-  %3032 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3031, i32 0, i32 32
-  %3033 = load i32, ptr %3032, align 8
-  %3034 = add i32 %3033, %3030
-  store i32 %3034, ptr %3032, align 8
-  br label %3044
+3026:                                             ; preds = %3023
+  %3027 = load ptr, ptr %16, align 8
+  %3028 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3027, i32 0, i32 31
+  %3029 = load i32, ptr %3028, align 4
+  %3030 = add i32 %3029, 1
+  store i32 %3030, ptr %3028, align 4
+  %3031 = load i16, ptr %19, align 2
+  %3032 = zext i16 %3031 to i32
+  %3033 = load ptr, ptr %16, align 8
+  %3034 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3033, i32 0, i32 32
+  %3035 = load i32, ptr %3034, align 8
+  %3036 = add i32 %3035, %3032
+  store i32 %3036, ptr %3034, align 8
+  br label %3046
 
-3035:                                             ; preds = %3021
-  %3036 = load i32, ptr %26, align 4
-  %3037 = icmp ne i32 %3036, 0
-  br i1 %3037, label %3038, label %3043
+3037:                                             ; preds = %3023
+  %3038 = load i32, ptr %26, align 4
+  %3039 = icmp ne i32 %3038, 0
+  br i1 %3039, label %3040, label %3045
 
-3038:                                             ; preds = %3035
-  %3039 = load ptr, ptr %16, align 8
-  %3040 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3039, i32 0, i32 27
-  %3041 = load i32, ptr %3040, align 4
-  %3042 = add i32 %3041, 1
-  store i32 %3042, ptr %3040, align 4
-  br label %3043
-
-3043:                                             ; preds = %3038, %3035
-  br label %3044
-
-3044:                                             ; preds = %3043, %3024
+3040:                                             ; preds = %3037
+  %3041 = load ptr, ptr %16, align 8
+  %3042 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3041, i32 0, i32 27
+  %3043 = load i32, ptr %3042, align 4
+  %3044 = add i32 %3043, 1
+  store i32 %3044, ptr %3042, align 4
   br label %3045
 
-3045:                                             ; preds = %3044, %3015, %3009, %3003, %2996
-  %3046 = load i32, ptr %13, align 4
-  %3047 = load ptr, ptr %16, align 8
-  %3048 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3047, i32 0, i32 52
-  %3049 = load i32, ptr %3048, align 4
-  %3050 = icmp ugt i32 %3046, %3049
-  br i1 %3050, label %3051, label %3078
+3045:                                             ; preds = %3040, %3037
+  br label %3046
 
-3051:                                             ; preds = %3045
-  %3052 = load i32, ptr %13, align 4
-  %3053 = load ptr, ptr %16, align 8
-  %3054 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3053, i32 0, i32 52
-  store i32 %3052, ptr %3054, align 4
-  %3055 = load i32, ptr %25, align 4
-  %3056 = icmp ne i32 %3055, 0
-  br i1 %3056, label %3057, label %3068
+3046:                                             ; preds = %3045, %3026
+  br label %3047
 
-3057:                                             ; preds = %3051
-  %3058 = load ptr, ptr %16, align 8
-  %3059 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3058, i32 0, i32 31
-  %3060 = load i32, ptr %3059, align 4
-  %3061 = add i32 %3060, 1
-  store i32 %3061, ptr %3059, align 4
-  %3062 = load i16, ptr %19, align 2
-  %3063 = zext i16 %3062 to i32
-  %3064 = load ptr, ptr %16, align 8
-  %3065 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3064, i32 0, i32 32
-  %3066 = load i32, ptr %3065, align 8
-  %3067 = add i32 %3066, %3063
-  store i32 %3067, ptr %3065, align 8
-  br label %3077
+3047:                                             ; preds = %3046, %3017, %3011, %3005, %2998
+  %3048 = load i32, ptr %13, align 4
+  %3049 = load ptr, ptr %16, align 8
+  %3050 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3049, i32 0, i32 52
+  %3051 = load i32, ptr %3050, align 4
+  %3052 = icmp ugt i32 %3048, %3051
+  br i1 %3052, label %3053, label %3080
 
-3068:                                             ; preds = %3051
-  %3069 = load i32, ptr %26, align 4
-  %3070 = icmp ne i32 %3069, 0
-  br i1 %3070, label %3071, label %3076
+3053:                                             ; preds = %3047
+  %3054 = load i32, ptr %13, align 4
+  %3055 = load ptr, ptr %16, align 8
+  %3056 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3055, i32 0, i32 52
+  store i32 %3054, ptr %3056, align 4
+  %3057 = load i32, ptr %25, align 4
+  %3058 = icmp ne i32 %3057, 0
+  br i1 %3058, label %3059, label %3070
 
-3071:                                             ; preds = %3068
-  %3072 = load ptr, ptr %16, align 8
-  %3073 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3072, i32 0, i32 27
-  %3074 = load i32, ptr %3073, align 4
-  %3075 = add i32 %3074, 1
-  store i32 %3075, ptr %3073, align 4
-  br label %3076
+3059:                                             ; preds = %3053
+  %3060 = load ptr, ptr %16, align 8
+  %3061 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3060, i32 0, i32 31
+  %3062 = load i32, ptr %3061, align 4
+  %3063 = add i32 %3062, 1
+  store i32 %3063, ptr %3061, align 4
+  %3064 = load i16, ptr %19, align 2
+  %3065 = zext i16 %3064 to i32
+  %3066 = load ptr, ptr %16, align 8
+  %3067 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3066, i32 0, i32 32
+  %3068 = load i32, ptr %3067, align 8
+  %3069 = add i32 %3068, %3065
+  store i32 %3069, ptr %3067, align 8
+  br label %3079
 
-3076:                                             ; preds = %3071, %3068
-  br label %3077
+3070:                                             ; preds = %3053
+  %3071 = load i32, ptr %26, align 4
+  %3072 = icmp ne i32 %3071, 0
+  br i1 %3072, label %3073, label %3078
 
-3077:                                             ; preds = %3076, %3057
+3073:                                             ; preds = %3070
+  %3074 = load ptr, ptr %16, align 8
+  %3075 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3074, i32 0, i32 27
+  %3076 = load i32, ptr %3075, align 4
+  %3077 = add i32 %3076, 1
+  store i32 %3077, ptr %3075, align 4
   br label %3078
 
-3078:                                             ; preds = %3077, %3045
-  %3079 = load i32, ptr %25, align 4
-  %3080 = icmp ne i32 %3079, 0
-  br i1 %3080, label %3081, label %3145
+3078:                                             ; preds = %3073, %3070
+  br label %3079
 
-3081:                                             ; preds = %3078
-  %3082 = load ptr, ptr %16, align 8
-  %3083 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3082, i32 0, i32 43
-  %3084 = load i8, ptr %3083, align 4
-  %3085 = and i8 %3084, 1
-  %3086 = trunc i8 %3085 to i1
-  %3087 = zext i1 %3086 to i32
-  %3088 = icmp eq i32 %3087, 0
-  br i1 %3088, label %3089, label %3112
+3079:                                             ; preds = %3078, %3059
+  br label %3080
 
-3089:                                             ; preds = %3081
-  %3090 = load ptr, ptr %11, align 8
-  %3091 = getelementptr inbounds %struct._sctp_info, ptr %3090, i32 0, i32 15
-  %3092 = load i32, ptr %12, align 4
-  %3093 = zext i32 %3092 to i64
-  %3094 = getelementptr [2048 x ptr], ptr %3091, i64 0, i64 %3093
-  %3095 = load ptr, ptr %3094, align 8
-  %3096 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3095, i32 noundef 8)
-  %3097 = zext i16 %3096 to i32
-  %3098 = add i32 %3097, 1
-  %3099 = trunc i32 %3098 to i16
-  store i16 %3099, ptr %35, align 2
-  %3100 = load ptr, ptr %16, align 8
-  %3101 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3100, i32 0, i32 12
-  %3102 = load i16, ptr %3101, align 2
-  %3103 = zext i16 %3102 to i32
-  %3104 = load i16, ptr %35, align 2
+3080:                                             ; preds = %3079, %3047
+  %3081 = load i32, ptr %25, align 4
+  %3082 = icmp ne i32 %3081, 0
+  br i1 %3082, label %3083, label %3147
+
+3083:                                             ; preds = %3080
+  %3084 = load ptr, ptr %16, align 8
+  %3085 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3084, i32 0, i32 43
+  %3086 = load i8, ptr %3085, align 4
+  %3087 = and i8 %3086, 1
+  %3088 = trunc i8 %3087 to i1
+  %3089 = zext i1 %3088 to i32
+  %3090 = icmp eq i32 %3089, 0
+  br i1 %3090, label %3091, label %3114
+
+3091:                                             ; preds = %3083
+  %3092 = load ptr, ptr %11, align 8
+  %3093 = getelementptr inbounds %struct._sctp_info, ptr %3092, i32 0, i32 15
+  %3094 = load i32, ptr %12, align 4
+  %3095 = zext i32 %3094 to i64
+  %3096 = getelementptr [2048 x ptr], ptr %3093, i64 0, i64 %3095
+  %3097 = load ptr, ptr %3096, align 8
+  %3098 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3097, i32 noundef 8)
+  %3099 = zext i16 %3098 to i32
+  %3100 = add i32 %3099, 1
+  %3101 = trunc i32 %3100 to i16
+  store i16 %3101, ptr %35, align 2
+  %3102 = load ptr, ptr %16, align 8
+  %3103 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3102, i32 0, i32 12
+  %3104 = load i16, ptr %3103, align 2
   %3105 = zext i16 %3104 to i32
-  %3106 = icmp slt i32 %3103, %3105
-  br i1 %3106, label %3107, label %3111
+  %3106 = load i16, ptr %35, align 2
+  %3107 = zext i16 %3106 to i32
+  %3108 = icmp slt i32 %3105, %3107
+  br i1 %3108, label %3109, label %3113
 
-3107:                                             ; preds = %3089
-  %3108 = load i16, ptr %35, align 2
-  %3109 = load ptr, ptr %16, align 8
-  %3110 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3109, i32 0, i32 12
-  store i16 %3108, ptr %3110, align 2
-  br label %3111
+3109:                                             ; preds = %3091
+  %3110 = load i16, ptr %35, align 2
+  %3111 = load ptr, ptr %16, align 8
+  %3112 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3111, i32 0, i32 12
+  store i16 %3110, ptr %3112, align 2
+  br label %3113
 
-3111:                                             ; preds = %3107, %3089
-  br label %3112
+3113:                                             ; preds = %3109, %3091
+  br label %3114
 
-3112:                                             ; preds = %3111, %3081
-  %3113 = load ptr, ptr %16, align 8
-  %3114 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3113, i32 0, i32 43
-  %3115 = load i8, ptr %3114, align 4
-  %3116 = lshr i8 %3115, 1
-  %3117 = and i8 %3116, 1
-  %3118 = trunc i8 %3117 to i1
-  %3119 = zext i1 %3118 to i32
-  %3120 = icmp eq i32 %3119, 0
-  br i1 %3120, label %3121, label %3144
+3114:                                             ; preds = %3113, %3083
+  %3115 = load ptr, ptr %16, align 8
+  %3116 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3115, i32 0, i32 43
+  %3117 = load i8, ptr %3116, align 4
+  %3118 = lshr i8 %3117, 1
+  %3119 = and i8 %3118, 1
+  %3120 = trunc i8 %3119 to i1
+  %3121 = zext i1 %3120 to i32
+  %3122 = icmp eq i32 %3121, 0
+  br i1 %3122, label %3123, label %3146
 
-3121:                                             ; preds = %3112
-  %3122 = load ptr, ptr %11, align 8
-  %3123 = getelementptr inbounds %struct._sctp_info, ptr %3122, i32 0, i32 15
-  %3124 = load i32, ptr %12, align 4
-  %3125 = zext i32 %3124 to i64
-  %3126 = getelementptr [2048 x ptr], ptr %3123, i64 0, i64 %3125
-  %3127 = load ptr, ptr %3126, align 8
-  %3128 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3127, i32 noundef 8)
-  %3129 = zext i16 %3128 to i32
-  %3130 = add i32 %3129, 1
-  %3131 = trunc i32 %3130 to i16
-  store i16 %3131, ptr %36, align 2
-  %3132 = load ptr, ptr %16, align 8
-  %3133 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3132, i32 0, i32 13
-  %3134 = load i16, ptr %3133, align 4
-  %3135 = zext i16 %3134 to i32
-  %3136 = load i16, ptr %36, align 2
+3123:                                             ; preds = %3114
+  %3124 = load ptr, ptr %11, align 8
+  %3125 = getelementptr inbounds %struct._sctp_info, ptr %3124, i32 0, i32 15
+  %3126 = load i32, ptr %12, align 4
+  %3127 = zext i32 %3126 to i64
+  %3128 = getelementptr [2048 x ptr], ptr %3125, i64 0, i64 %3127
+  %3129 = load ptr, ptr %3128, align 8
+  %3130 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3129, i32 noundef 8)
+  %3131 = zext i16 %3130 to i32
+  %3132 = add i32 %3131, 1
+  %3133 = trunc i32 %3132 to i16
+  store i16 %3133, ptr %36, align 2
+  %3134 = load ptr, ptr %16, align 8
+  %3135 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3134, i32 0, i32 13
+  %3136 = load i16, ptr %3135, align 4
   %3137 = zext i16 %3136 to i32
-  %3138 = icmp slt i32 %3135, %3137
-  br i1 %3138, label %3139, label %3143
+  %3138 = load i16, ptr %36, align 2
+  %3139 = zext i16 %3138 to i32
+  %3140 = icmp slt i32 %3137, %3139
+  br i1 %3140, label %3141, label %3145
 
-3139:                                             ; preds = %3121
-  %3140 = load i16, ptr %36, align 2
-  %3141 = load ptr, ptr %16, align 8
-  %3142 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3141, i32 0, i32 13
-  store i16 %3140, ptr %3142, align 4
-  br label %3143
-
-3143:                                             ; preds = %3139, %3121
-  br label %3144
-
-3144:                                             ; preds = %3143, %3112
+3141:                                             ; preds = %3123
+  %3142 = load i16, ptr %36, align 2
+  %3143 = load ptr, ptr %16, align 8
+  %3144 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3143, i32 0, i32 13
+  store i16 %3142, ptr %3144, align 4
   br label %3145
 
-3145:                                             ; preds = %3144, %3078
-  %3146 = load ptr, ptr %16, align 8
-  %3147 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3146, i32 0, i32 61
-  %3148 = load ptr, ptr %3147, align 8
-  %3149 = load ptr, ptr %27, align 8
-  call void @g_ptr_array_add(ptr noundef %3148, ptr noundef %3149)
-  %3150 = load ptr, ptr %16, align 8
-  %3151 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3150, i32 0, i32 37
-  %3152 = load i32, ptr %3151, align 4
-  %3153 = add i32 %3152, 1
-  store i32 %3153, ptr %3151, align 4
-  br label %3438
+3145:                                             ; preds = %3141, %3123
+  br label %3146
 
-3154:                                             ; preds = %2931
-  %3155 = load ptr, ptr %16, align 8
-  %3156 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3155, i32 0, i32 45
-  %3157 = load i16, ptr %3156, align 8
-  %3158 = zext i16 %3157 to i32
-  %3159 = icmp eq i32 %3158, 2
-  br i1 %3159, label %3160, label %3437
+3146:                                             ; preds = %3145, %3114
+  br label %3147
 
-3160:                                             ; preds = %3154
-  %3161 = load ptr, ptr %16, align 8
-  %3162 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3161, i32 0, i32 43
-  %3163 = load i8, ptr %3162, align 4
-  %3164 = lshr i8 %3163, 2
-  %3165 = and i8 %3164, 1
-  %3166 = trunc i8 %3165 to i1
-  br i1 %3166, label %3167, label %3204
+3147:                                             ; preds = %3146, %3080
+  %3148 = load ptr, ptr %16, align 8
+  %3149 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3148, i32 0, i32 61
+  %3150 = load ptr, ptr %3149, align 8
+  %3151 = load ptr, ptr %27, align 8
+  call void @g_ptr_array_add(ptr noundef %3150, ptr noundef %3151)
+  %3152 = load ptr, ptr %16, align 8
+  %3153 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3152, i32 0, i32 37
+  %3154 = load i32, ptr %3153, align 4
+  %3155 = add i32 %3154, 1
+  store i32 %3155, ptr %3153, align 4
+  br label %3440
 
-3167:                                             ; preds = %3160
-  %3168 = load ptr, ptr %16, align 8
-  %3169 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3168, i32 0, i32 43
-  %3170 = load i8, ptr %3169, align 4
-  %3171 = and i8 %3170, -5
-  %3172 = or i8 %3171, 0
-  store i8 %3172, ptr %3169, align 4
-  %3173 = load ptr, ptr %16, align 8
-  %3174 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3173, i32 0, i32 43
-  %3175 = load i8, ptr %3174, align 4
-  %3176 = lshr i8 %3175, 3
-  %3177 = and i8 %3176, 1
-  %3178 = trunc i8 %3177 to i1
-  br i1 %3178, label %3179, label %3203
+3156:                                             ; preds = %2933
+  %3157 = load ptr, ptr %16, align 8
+  %3158 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3157, i32 0, i32 45
+  %3159 = load i16, ptr %3158, align 8
+  %3160 = zext i16 %3159 to i32
+  %3161 = icmp eq i32 %3160, 2
+  br i1 %3161, label %3162, label %3439
 
-3179:                                             ; preds = %3167
-  %3180 = load i32, ptr %13, align 4
-  %3181 = load ptr, ptr %16, align 8
-  %3182 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3181, i32 0, i32 51
-  %3183 = load i32, ptr %3182, align 8
-  %3184 = icmp ne i32 %3180, %3183
-  br i1 %3184, label %3185, label %3195
+3162:                                             ; preds = %3156
+  %3163 = load ptr, ptr %16, align 8
+  %3164 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3163, i32 0, i32 43
+  %3165 = load i8, ptr %3164, align 4
+  %3166 = lshr i8 %3165, 2
+  %3167 = and i8 %3166, 1
+  %3168 = trunc i8 %3167 to i1
+  br i1 %3168, label %3169, label %3206
 
-3185:                                             ; preds = %3179
-  %3186 = load ptr, ptr %16, align 8
-  %3187 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3186, i32 0, i32 57
-  %3188 = load ptr, ptr %3187, align 8
-  %3189 = getelementptr inbounds %struct._sctp_init_collision, ptr %3188, i32 0, i32 2
-  %3190 = load i32, ptr %3189, align 4
-  %3191 = load ptr, ptr %16, align 8
-  %3192 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3191, i32 0, i32 51
-  store i32 %3190, ptr %3192, align 8
+3169:                                             ; preds = %3162
+  %3170 = load ptr, ptr %16, align 8
+  %3171 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3170, i32 0, i32 43
+  %3172 = load i8, ptr %3171, align 4
+  %3173 = and i8 %3172, -5
+  %3174 = or i8 %3173, 0
+  store i8 %3174, ptr %3171, align 4
+  %3175 = load ptr, ptr %16, align 8
+  %3176 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3175, i32 0, i32 43
+  %3177 = load i8, ptr %3176, align 4
+  %3178 = lshr i8 %3177, 3
+  %3179 = and i8 %3178, 1
+  %3180 = trunc i8 %3179 to i1
+  br i1 %3180, label %3181, label %3205
+
+3181:                                             ; preds = %3169
+  %3182 = load i32, ptr %13, align 4
+  %3183 = load ptr, ptr %16, align 8
+  %3184 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3183, i32 0, i32 51
+  %3185 = load i32, ptr %3184, align 8
+  %3186 = icmp ne i32 %3182, %3185
+  br i1 %3186, label %3187, label %3197
+
+3187:                                             ; preds = %3181
+  %3188 = load ptr, ptr %16, align 8
+  %3189 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3188, i32 0, i32 57
+  %3190 = load ptr, ptr %3189, align 8
+  %3191 = getelementptr inbounds %struct._sctp_init_collision, ptr %3190, i32 0, i32 2
+  %3192 = load i32, ptr %3191, align 4
   %3193 = load ptr, ptr %16, align 8
-  %3194 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3193, i32 0, i32 44
-  store i16 2, ptr %3194, align 2
-  br label %3195
+  %3194 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3193, i32 0, i32 51
+  store i32 %3192, ptr %3194, align 8
+  %3195 = load ptr, ptr %16, align 8
+  %3196 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3195, i32 0, i32 44
+  store i16 2, ptr %3196, align 2
+  br label %3197
 
-3195:                                             ; preds = %3185, %3179
-  %3196 = load ptr, ptr %16, align 8
-  %3197 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3196, i32 0, i32 56
-  %3198 = load ptr, ptr %3197, align 8
-  %3199 = getelementptr inbounds %struct._sctp_init_collision, ptr %3198, i32 0, i32 3
-  %3200 = load i32, ptr %3199, align 4
-  %3201 = load ptr, ptr %16, align 8
-  %3202 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3201, i32 0, i32 50
-  store i32 %3200, ptr %3202, align 4
-  br label %3203
+3197:                                             ; preds = %3187, %3181
+  %3198 = load ptr, ptr %16, align 8
+  %3199 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3198, i32 0, i32 56
+  %3200 = load ptr, ptr %3199, align 8
+  %3201 = getelementptr inbounds %struct._sctp_init_collision, ptr %3200, i32 0, i32 3
+  %3202 = load i32, ptr %3201, align 4
+  %3203 = load ptr, ptr %16, align 8
+  %3204 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3203, i32 0, i32 50
+  store i32 %3202, ptr %3204, align 4
+  br label %3205
 
-3203:                                             ; preds = %3195, %3167
-  br label %3215
+3205:                                             ; preds = %3197, %3169
+  br label %3217
 
-3204:                                             ; preds = %3160
-  %3205 = load i32, ptr %13, align 4
-  %3206 = load ptr, ptr %16, align 8
-  %3207 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3206, i32 0, i32 51
-  %3208 = load i32, ptr %3207, align 8
-  %3209 = icmp ult i32 %3205, %3208
-  br i1 %3209, label %3210, label %3214
+3206:                                             ; preds = %3162
+  %3207 = load i32, ptr %13, align 4
+  %3208 = load ptr, ptr %16, align 8
+  %3209 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3208, i32 0, i32 51
+  %3210 = load i32, ptr %3209, align 8
+  %3211 = icmp ult i32 %3207, %3210
+  br i1 %3211, label %3212, label %3216
 
-3210:                                             ; preds = %3204
-  %3211 = load i32, ptr %13, align 4
-  %3212 = load ptr, ptr %16, align 8
-  %3213 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3212, i32 0, i32 51
-  store i32 %3211, ptr %3213, align 8
-  br label %3214
+3212:                                             ; preds = %3206
+  %3213 = load i32, ptr %13, align 4
+  %3214 = load ptr, ptr %16, align 8
+  %3215 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3214, i32 0, i32 51
+  store i32 %3213, ptr %3215, align 8
+  br label %3216
 
-3214:                                             ; preds = %3210, %3204
-  br label %3215
+3216:                                             ; preds = %3212, %3206
+  br label %3217
 
-3215:                                             ; preds = %3214, %3203
-  %3216 = load ptr, ptr %16, align 8
-  %3217 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3216, i32 0, i32 43
-  %3218 = load i8, ptr %3217, align 4
-  %3219 = lshr i8 %3218, 1
-  %3220 = and i8 %3219, 1
-  %3221 = trunc i8 %3220 to i1
-  br i1 %3221, label %3222, label %3296
+3217:                                             ; preds = %3216, %3205
+  %3218 = load ptr, ptr %16, align 8
+  %3219 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3218, i32 0, i32 43
+  %3220 = load i8, ptr %3219, align 4
+  %3221 = lshr i8 %3220, 1
+  %3222 = and i8 %3221, 1
+  %3223 = trunc i8 %3222 to i1
+  br i1 %3223, label %3224, label %3298
 
-3222:                                             ; preds = %3215
-  %3223 = load ptr, ptr %16, align 8
-  %3224 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3223, i32 0, i32 44
-  %3225 = load i16, ptr %3224, align 2
-  %3226 = zext i16 %3225 to i32
-  %3227 = icmp eq i32 %3226, 2
-  br i1 %3227, label %3228, label %3296
+3224:                                             ; preds = %3217
+  %3225 = load ptr, ptr %16, align 8
+  %3226 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3225, i32 0, i32 44
+  %3227 = load i16, ptr %3226, align 2
+  %3228 = zext i16 %3227 to i32
+  %3229 = icmp eq i32 %3228, 2
+  br i1 %3229, label %3230, label %3298
 
-3228:                                             ; preds = %3222
-  %3229 = load i32, ptr %13, align 4
-  %3230 = load ptr, ptr %16, align 8
-  %3231 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3230, i32 0, i32 51
-  %3232 = load i32, ptr %3231, align 8
-  %3233 = icmp uge i32 %3229, %3232
-  br i1 %3233, label %3234, label %3296
+3230:                                             ; preds = %3224
+  %3231 = load i32, ptr %13, align 4
+  %3232 = load ptr, ptr %16, align 8
+  %3233 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3232, i32 0, i32 51
+  %3234 = load i32, ptr %3233, align 8
+  %3235 = icmp uge i32 %3231, %3234
+  br i1 %3235, label %3236, label %3298
 
-3234:                                             ; preds = %3228
-  %3235 = load i32, ptr %13, align 4
-  %3236 = load ptr, ptr %16, align 8
-  %3237 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3236, i32 0, i32 53
-  %3238 = load i32, ptr %3237, align 8
-  %3239 = icmp ule i32 %3235, %3238
-  br i1 %3239, label %3240, label %3296
+3236:                                             ; preds = %3230
+  %3237 = load i32, ptr %13, align 4
+  %3238 = load ptr, ptr %16, align 8
+  %3239 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3238, i32 0, i32 53
+  %3240 = load i32, ptr %3239, align 8
+  %3241 = icmp ule i32 %3237, %3240
+  br i1 %3241, label %3242, label %3298
 
-3240:                                             ; preds = %3234
-  %3241 = load i32, ptr %25, align 4
-  %3242 = icmp ne i32 %3241, 0
-  br i1 %3242, label %3243, label %3286
+3242:                                             ; preds = %3236
+  %3243 = load i32, ptr %25, align 4
+  %3244 = icmp ne i32 %3243, 0
+  br i1 %3244, label %3245, label %3288
 
-3243:                                             ; preds = %3240
-  %3244 = load ptr, ptr %11, align 8
-  %3245 = getelementptr inbounds %struct._sctp_info, ptr %3244, i32 0, i32 15
-  %3246 = load i32, ptr %12, align 4
-  %3247 = zext i32 %3246 to i64
-  %3248 = getelementptr [2048 x ptr], ptr %3245, i64 0, i64 %3247
-  %3249 = load ptr, ptr %3248, align 8
-  %3250 = call zeroext i8 @tvb_get_guint8(ptr noundef %3249, i32 noundef 0)
-  %3251 = zext i8 %3250 to i32
-  %3252 = icmp eq i32 %3251, 0
-  br i1 %3252, label %3253, label %3264
+3245:                                             ; preds = %3242
+  %3246 = load ptr, ptr %11, align 8
+  %3247 = getelementptr inbounds %struct._sctp_info, ptr %3246, i32 0, i32 15
+  %3248 = load i32, ptr %12, align 4
+  %3249 = zext i32 %3248 to i64
+  %3250 = getelementptr [2048 x ptr], ptr %3247, i64 0, i64 %3249
+  %3251 = load ptr, ptr %3250, align 8
+  %3252 = call zeroext i8 @tvb_get_guint8(ptr noundef %3251, i32 noundef 0)
+  %3253 = zext i8 %3252 to i32
+  %3254 = icmp eq i32 %3253, 0
+  br i1 %3254, label %3255, label %3266
 
-3253:                                             ; preds = %3243
-  %3254 = load ptr, ptr %11, align 8
-  %3255 = getelementptr inbounds %struct._sctp_info, ptr %3254, i32 0, i32 15
-  %3256 = load i32, ptr %12, align 4
-  %3257 = zext i32 %3256 to i64
-  %3258 = getelementptr [2048 x ptr], ptr %3255, i64 0, i64 %3257
-  %3259 = load ptr, ptr %3258, align 8
-  %3260 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3259, i32 noundef 2)
-  %3261 = zext i16 %3260 to i32
-  %3262 = sub i32 %3261, 16
-  %3263 = trunc i32 %3262 to i16
-  store i16 %3263, ptr %19, align 2
-  br label %3275
+3255:                                             ; preds = %3245
+  %3256 = load ptr, ptr %11, align 8
+  %3257 = getelementptr inbounds %struct._sctp_info, ptr %3256, i32 0, i32 15
+  %3258 = load i32, ptr %12, align 4
+  %3259 = zext i32 %3258 to i64
+  %3260 = getelementptr [2048 x ptr], ptr %3257, i64 0, i64 %3259
+  %3261 = load ptr, ptr %3260, align 8
+  %3262 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3261, i32 noundef 2)
+  %3263 = zext i16 %3262 to i32
+  %3264 = sub i32 %3263, 16
+  %3265 = trunc i32 %3264 to i16
+  store i16 %3265, ptr %19, align 2
+  br label %3277
 
-3264:                                             ; preds = %3243
-  %3265 = load ptr, ptr %11, align 8
-  %3266 = getelementptr inbounds %struct._sctp_info, ptr %3265, i32 0, i32 15
-  %3267 = load i32, ptr %12, align 4
-  %3268 = zext i32 %3267 to i64
-  %3269 = getelementptr [2048 x ptr], ptr %3266, i64 0, i64 %3268
-  %3270 = load ptr, ptr %3269, align 8
-  %3271 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3270, i32 noundef 2)
-  %3272 = zext i16 %3271 to i32
-  %3273 = sub i32 %3272, 20
-  %3274 = trunc i32 %3273 to i16
-  store i16 %3274, ptr %19, align 2
-  br label %3275
+3266:                                             ; preds = %3245
+  %3267 = load ptr, ptr %11, align 8
+  %3268 = getelementptr inbounds %struct._sctp_info, ptr %3267, i32 0, i32 15
+  %3269 = load i32, ptr %12, align 4
+  %3270 = zext i32 %3269 to i64
+  %3271 = getelementptr [2048 x ptr], ptr %3268, i64 0, i64 %3270
+  %3272 = load ptr, ptr %3271, align 8
+  %3273 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3272, i32 noundef 2)
+  %3274 = zext i16 %3273 to i32
+  %3275 = sub i32 %3274, 20
+  %3276 = trunc i32 %3275 to i16
+  store i16 %3276, ptr %19, align 2
+  br label %3277
 
-3275:                                             ; preds = %3264, %3253
-  %3276 = load ptr, ptr %16, align 8
-  %3277 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3276, i32 0, i32 33
-  %3278 = load i32, ptr %3277, align 4
-  %3279 = add i32 %3278, 1
-  store i32 %3279, ptr %3277, align 4
-  %3280 = load i16, ptr %19, align 2
-  %3281 = zext i16 %3280 to i32
-  %3282 = load ptr, ptr %16, align 8
-  %3283 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3282, i32 0, i32 34
-  %3284 = load i32, ptr %3283, align 8
-  %3285 = add i32 %3284, %3281
-  store i32 %3285, ptr %3283, align 8
-  br label %3295
+3277:                                             ; preds = %3266, %3255
+  %3278 = load ptr, ptr %16, align 8
+  %3279 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3278, i32 0, i32 33
+  %3280 = load i32, ptr %3279, align 4
+  %3281 = add i32 %3280, 1
+  store i32 %3281, ptr %3279, align 4
+  %3282 = load i16, ptr %19, align 2
+  %3283 = zext i16 %3282 to i32
+  %3284 = load ptr, ptr %16, align 8
+  %3285 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3284, i32 0, i32 34
+  %3286 = load i32, ptr %3285, align 8
+  %3287 = add i32 %3286, %3283
+  store i32 %3287, ptr %3285, align 8
+  br label %3297
 
-3286:                                             ; preds = %3240
-  %3287 = load i32, ptr %26, align 4
-  %3288 = icmp ne i32 %3287, 0
-  br i1 %3288, label %3289, label %3294
+3288:                                             ; preds = %3242
+  %3289 = load i32, ptr %26, align 4
+  %3290 = icmp ne i32 %3289, 0
+  br i1 %3290, label %3291, label %3296
 
-3289:                                             ; preds = %3286
-  %3290 = load ptr, ptr %16, align 8
-  %3291 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3290, i32 0, i32 28
-  %3292 = load i32, ptr %3291, align 8
-  %3293 = add i32 %3292, 1
-  store i32 %3293, ptr %3291, align 8
-  br label %3294
-
-3294:                                             ; preds = %3289, %3286
-  br label %3295
-
-3295:                                             ; preds = %3294, %3275
+3291:                                             ; preds = %3288
+  %3292 = load ptr, ptr %16, align 8
+  %3293 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3292, i32 0, i32 28
+  %3294 = load i32, ptr %3293, align 8
+  %3295 = add i32 %3294, 1
+  store i32 %3295, ptr %3293, align 8
   br label %3296
 
-3296:                                             ; preds = %3295, %3234, %3228, %3222, %3215
-  %3297 = load i32, ptr %13, align 4
-  %3298 = load ptr, ptr %16, align 8
-  %3299 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3298, i32 0, i32 53
-  %3300 = load i32, ptr %3299, align 8
-  %3301 = icmp ugt i32 %3297, %3300
-  br i1 %3301, label %3302, label %3361
+3296:                                             ; preds = %3291, %3288
+  br label %3297
 
-3302:                                             ; preds = %3296
-  %3303 = load i32, ptr %13, align 4
-  %3304 = load ptr, ptr %16, align 8
-  %3305 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3304, i32 0, i32 53
-  store i32 %3303, ptr %3305, align 8
-  %3306 = load i32, ptr %25, align 4
-  %3307 = icmp ne i32 %3306, 0
-  br i1 %3307, label %3308, label %3351
+3297:                                             ; preds = %3296, %3277
+  br label %3298
 
-3308:                                             ; preds = %3302
-  %3309 = load ptr, ptr %11, align 8
-  %3310 = getelementptr inbounds %struct._sctp_info, ptr %3309, i32 0, i32 15
-  %3311 = load i32, ptr %12, align 4
-  %3312 = zext i32 %3311 to i64
-  %3313 = getelementptr [2048 x ptr], ptr %3310, i64 0, i64 %3312
-  %3314 = load ptr, ptr %3313, align 8
-  %3315 = call zeroext i8 @tvb_get_guint8(ptr noundef %3314, i32 noundef 0)
-  %3316 = zext i8 %3315 to i32
-  %3317 = icmp eq i32 %3316, 0
-  br i1 %3317, label %3318, label %3329
+3298:                                             ; preds = %3297, %3236, %3230, %3224, %3217
+  %3299 = load i32, ptr %13, align 4
+  %3300 = load ptr, ptr %16, align 8
+  %3301 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3300, i32 0, i32 53
+  %3302 = load i32, ptr %3301, align 8
+  %3303 = icmp ugt i32 %3299, %3302
+  br i1 %3303, label %3304, label %3363
 
-3318:                                             ; preds = %3308
-  %3319 = load ptr, ptr %11, align 8
-  %3320 = getelementptr inbounds %struct._sctp_info, ptr %3319, i32 0, i32 15
-  %3321 = load i32, ptr %12, align 4
-  %3322 = zext i32 %3321 to i64
-  %3323 = getelementptr [2048 x ptr], ptr %3320, i64 0, i64 %3322
-  %3324 = load ptr, ptr %3323, align 8
-  %3325 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3324, i32 noundef 2)
-  %3326 = zext i16 %3325 to i32
-  %3327 = sub i32 %3326, 16
-  %3328 = trunc i32 %3327 to i16
-  store i16 %3328, ptr %19, align 2
-  br label %3340
+3304:                                             ; preds = %3298
+  %3305 = load i32, ptr %13, align 4
+  %3306 = load ptr, ptr %16, align 8
+  %3307 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3306, i32 0, i32 53
+  store i32 %3305, ptr %3307, align 8
+  %3308 = load i32, ptr %25, align 4
+  %3309 = icmp ne i32 %3308, 0
+  br i1 %3309, label %3310, label %3353
 
-3329:                                             ; preds = %3308
-  %3330 = load ptr, ptr %11, align 8
-  %3331 = getelementptr inbounds %struct._sctp_info, ptr %3330, i32 0, i32 15
-  %3332 = load i32, ptr %12, align 4
-  %3333 = zext i32 %3332 to i64
-  %3334 = getelementptr [2048 x ptr], ptr %3331, i64 0, i64 %3333
-  %3335 = load ptr, ptr %3334, align 8
-  %3336 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3335, i32 noundef 2)
-  %3337 = zext i16 %3336 to i32
-  %3338 = sub i32 %3337, 20
-  %3339 = trunc i32 %3338 to i16
-  store i16 %3339, ptr %19, align 2
-  br label %3340
+3310:                                             ; preds = %3304
+  %3311 = load ptr, ptr %11, align 8
+  %3312 = getelementptr inbounds %struct._sctp_info, ptr %3311, i32 0, i32 15
+  %3313 = load i32, ptr %12, align 4
+  %3314 = zext i32 %3313 to i64
+  %3315 = getelementptr [2048 x ptr], ptr %3312, i64 0, i64 %3314
+  %3316 = load ptr, ptr %3315, align 8
+  %3317 = call zeroext i8 @tvb_get_guint8(ptr noundef %3316, i32 noundef 0)
+  %3318 = zext i8 %3317 to i32
+  %3319 = icmp eq i32 %3318, 0
+  br i1 %3319, label %3320, label %3331
 
-3340:                                             ; preds = %3329, %3318
-  %3341 = load ptr, ptr %16, align 8
-  %3342 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3341, i32 0, i32 33
-  %3343 = load i32, ptr %3342, align 4
-  %3344 = add i32 %3343, 1
-  store i32 %3344, ptr %3342, align 4
-  %3345 = load i16, ptr %19, align 2
-  %3346 = zext i16 %3345 to i32
-  %3347 = load ptr, ptr %16, align 8
-  %3348 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3347, i32 0, i32 34
-  %3349 = load i32, ptr %3348, align 8
-  %3350 = add i32 %3349, %3346
-  store i32 %3350, ptr %3348, align 8
-  br label %3360
+3320:                                             ; preds = %3310
+  %3321 = load ptr, ptr %11, align 8
+  %3322 = getelementptr inbounds %struct._sctp_info, ptr %3321, i32 0, i32 15
+  %3323 = load i32, ptr %12, align 4
+  %3324 = zext i32 %3323 to i64
+  %3325 = getelementptr [2048 x ptr], ptr %3322, i64 0, i64 %3324
+  %3326 = load ptr, ptr %3325, align 8
+  %3327 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3326, i32 noundef 2)
+  %3328 = zext i16 %3327 to i32
+  %3329 = sub i32 %3328, 16
+  %3330 = trunc i32 %3329 to i16
+  store i16 %3330, ptr %19, align 2
+  br label %3342
 
-3351:                                             ; preds = %3302
-  %3352 = load i32, ptr %26, align 4
-  %3353 = icmp ne i32 %3352, 0
-  br i1 %3353, label %3354, label %3359
+3331:                                             ; preds = %3310
+  %3332 = load ptr, ptr %11, align 8
+  %3333 = getelementptr inbounds %struct._sctp_info, ptr %3332, i32 0, i32 15
+  %3334 = load i32, ptr %12, align 4
+  %3335 = zext i32 %3334 to i64
+  %3336 = getelementptr [2048 x ptr], ptr %3333, i64 0, i64 %3335
+  %3337 = load ptr, ptr %3336, align 8
+  %3338 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3337, i32 noundef 2)
+  %3339 = zext i16 %3338 to i32
+  %3340 = sub i32 %3339, 20
+  %3341 = trunc i32 %3340 to i16
+  store i16 %3341, ptr %19, align 2
+  br label %3342
 
-3354:                                             ; preds = %3351
-  %3355 = load ptr, ptr %16, align 8
-  %3356 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3355, i32 0, i32 28
-  %3357 = load i32, ptr %3356, align 8
-  %3358 = add i32 %3357, 1
-  store i32 %3358, ptr %3356, align 8
-  br label %3359
+3342:                                             ; preds = %3331, %3320
+  %3343 = load ptr, ptr %16, align 8
+  %3344 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3343, i32 0, i32 33
+  %3345 = load i32, ptr %3344, align 4
+  %3346 = add i32 %3345, 1
+  store i32 %3346, ptr %3344, align 4
+  %3347 = load i16, ptr %19, align 2
+  %3348 = zext i16 %3347 to i32
+  %3349 = load ptr, ptr %16, align 8
+  %3350 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3349, i32 0, i32 34
+  %3351 = load i32, ptr %3350, align 8
+  %3352 = add i32 %3351, %3348
+  store i32 %3352, ptr %3350, align 8
+  br label %3362
 
-3359:                                             ; preds = %3354, %3351
-  br label %3360
+3353:                                             ; preds = %3304
+  %3354 = load i32, ptr %26, align 4
+  %3355 = icmp ne i32 %3354, 0
+  br i1 %3355, label %3356, label %3361
 
-3360:                                             ; preds = %3359, %3340
+3356:                                             ; preds = %3353
+  %3357 = load ptr, ptr %16, align 8
+  %3358 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3357, i32 0, i32 28
+  %3359 = load i32, ptr %3358, align 8
+  %3360 = add i32 %3359, 1
+  store i32 %3360, ptr %3358, align 8
   br label %3361
 
-3361:                                             ; preds = %3360, %3296
-  %3362 = load i32, ptr %25, align 4
-  %3363 = icmp ne i32 %3362, 0
-  br i1 %3363, label %3364, label %3428
+3361:                                             ; preds = %3356, %3353
+  br label %3362
 
-3364:                                             ; preds = %3361
-  %3365 = load ptr, ptr %16, align 8
-  %3366 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3365, i32 0, i32 43
-  %3367 = load i8, ptr %3366, align 4
-  %3368 = and i8 %3367, 1
-  %3369 = trunc i8 %3368 to i1
-  %3370 = zext i1 %3369 to i32
-  %3371 = icmp eq i32 %3370, 0
-  br i1 %3371, label %3372, label %3395
+3362:                                             ; preds = %3361, %3342
+  br label %3363
 
-3372:                                             ; preds = %3364
-  %3373 = load ptr, ptr %11, align 8
-  %3374 = getelementptr inbounds %struct._sctp_info, ptr %3373, i32 0, i32 15
-  %3375 = load i32, ptr %12, align 4
-  %3376 = zext i32 %3375 to i64
-  %3377 = getelementptr [2048 x ptr], ptr %3374, i64 0, i64 %3376
-  %3378 = load ptr, ptr %3377, align 8
-  %3379 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3378, i32 noundef 8)
-  %3380 = zext i16 %3379 to i32
-  %3381 = add i32 %3380, 1
-  %3382 = trunc i32 %3381 to i16
-  store i16 %3382, ptr %37, align 2
-  %3383 = load ptr, ptr %16, align 8
-  %3384 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3383, i32 0, i32 11
-  %3385 = load i16, ptr %3384, align 8
-  %3386 = zext i16 %3385 to i32
-  %3387 = load i16, ptr %37, align 2
+3363:                                             ; preds = %3362, %3298
+  %3364 = load i32, ptr %25, align 4
+  %3365 = icmp ne i32 %3364, 0
+  br i1 %3365, label %3366, label %3430
+
+3366:                                             ; preds = %3363
+  %3367 = load ptr, ptr %16, align 8
+  %3368 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3367, i32 0, i32 43
+  %3369 = load i8, ptr %3368, align 4
+  %3370 = and i8 %3369, 1
+  %3371 = trunc i8 %3370 to i1
+  %3372 = zext i1 %3371 to i32
+  %3373 = icmp eq i32 %3372, 0
+  br i1 %3373, label %3374, label %3397
+
+3374:                                             ; preds = %3366
+  %3375 = load ptr, ptr %11, align 8
+  %3376 = getelementptr inbounds %struct._sctp_info, ptr %3375, i32 0, i32 15
+  %3377 = load i32, ptr %12, align 4
+  %3378 = zext i32 %3377 to i64
+  %3379 = getelementptr [2048 x ptr], ptr %3376, i64 0, i64 %3378
+  %3380 = load ptr, ptr %3379, align 8
+  %3381 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3380, i32 noundef 8)
+  %3382 = zext i16 %3381 to i32
+  %3383 = add i32 %3382, 1
+  %3384 = trunc i32 %3383 to i16
+  store i16 %3384, ptr %37, align 2
+  %3385 = load ptr, ptr %16, align 8
+  %3386 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3385, i32 0, i32 11
+  %3387 = load i16, ptr %3386, align 8
   %3388 = zext i16 %3387 to i32
-  %3389 = icmp slt i32 %3386, %3388
-  br i1 %3389, label %3390, label %3394
+  %3389 = load i16, ptr %37, align 2
+  %3390 = zext i16 %3389 to i32
+  %3391 = icmp slt i32 %3388, %3390
+  br i1 %3391, label %3392, label %3396
 
-3390:                                             ; preds = %3372
-  %3391 = load i16, ptr %37, align 2
-  %3392 = load ptr, ptr %16, align 8
-  %3393 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3392, i32 0, i32 11
-  store i16 %3391, ptr %3393, align 8
-  br label %3394
+3392:                                             ; preds = %3374
+  %3393 = load i16, ptr %37, align 2
+  %3394 = load ptr, ptr %16, align 8
+  %3395 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3394, i32 0, i32 11
+  store i16 %3393, ptr %3395, align 8
+  br label %3396
 
-3394:                                             ; preds = %3390, %3372
-  br label %3395
+3396:                                             ; preds = %3392, %3374
+  br label %3397
 
-3395:                                             ; preds = %3394, %3364
-  %3396 = load ptr, ptr %16, align 8
-  %3397 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3396, i32 0, i32 43
-  %3398 = load i8, ptr %3397, align 4
-  %3399 = lshr i8 %3398, 1
-  %3400 = and i8 %3399, 1
-  %3401 = trunc i8 %3400 to i1
-  %3402 = zext i1 %3401 to i32
-  %3403 = icmp eq i32 %3402, 0
-  br i1 %3403, label %3404, label %3427
+3397:                                             ; preds = %3396, %3366
+  %3398 = load ptr, ptr %16, align 8
+  %3399 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3398, i32 0, i32 43
+  %3400 = load i8, ptr %3399, align 4
+  %3401 = lshr i8 %3400, 1
+  %3402 = and i8 %3401, 1
+  %3403 = trunc i8 %3402 to i1
+  %3404 = zext i1 %3403 to i32
+  %3405 = icmp eq i32 %3404, 0
+  br i1 %3405, label %3406, label %3429
 
-3404:                                             ; preds = %3395
-  %3405 = load ptr, ptr %11, align 8
-  %3406 = getelementptr inbounds %struct._sctp_info, ptr %3405, i32 0, i32 15
-  %3407 = load i32, ptr %12, align 4
-  %3408 = zext i32 %3407 to i64
-  %3409 = getelementptr [2048 x ptr], ptr %3406, i64 0, i64 %3408
-  %3410 = load ptr, ptr %3409, align 8
-  %3411 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3410, i32 noundef 8)
-  %3412 = zext i16 %3411 to i32
-  %3413 = add i32 %3412, 1
-  %3414 = trunc i32 %3413 to i16
-  store i16 %3414, ptr %38, align 2
-  %3415 = load ptr, ptr %16, align 8
-  %3416 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3415, i32 0, i32 14
-  %3417 = load i16, ptr %3416, align 2
-  %3418 = zext i16 %3417 to i32
-  %3419 = load i16, ptr %38, align 2
+3406:                                             ; preds = %3397
+  %3407 = load ptr, ptr %11, align 8
+  %3408 = getelementptr inbounds %struct._sctp_info, ptr %3407, i32 0, i32 15
+  %3409 = load i32, ptr %12, align 4
+  %3410 = zext i32 %3409 to i64
+  %3411 = getelementptr [2048 x ptr], ptr %3408, i64 0, i64 %3410
+  %3412 = load ptr, ptr %3411, align 8
+  %3413 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3412, i32 noundef 8)
+  %3414 = zext i16 %3413 to i32
+  %3415 = add i32 %3414, 1
+  %3416 = trunc i32 %3415 to i16
+  store i16 %3416, ptr %38, align 2
+  %3417 = load ptr, ptr %16, align 8
+  %3418 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3417, i32 0, i32 14
+  %3419 = load i16, ptr %3418, align 2
   %3420 = zext i16 %3419 to i32
-  %3421 = icmp slt i32 %3418, %3420
-  br i1 %3421, label %3422, label %3426
+  %3421 = load i16, ptr %38, align 2
+  %3422 = zext i16 %3421 to i32
+  %3423 = icmp slt i32 %3420, %3422
+  br i1 %3423, label %3424, label %3428
 
-3422:                                             ; preds = %3404
-  %3423 = load i16, ptr %38, align 2
-  %3424 = load ptr, ptr %16, align 8
-  %3425 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3424, i32 0, i32 14
-  store i16 %3423, ptr %3425, align 2
-  br label %3426
-
-3426:                                             ; preds = %3422, %3404
-  br label %3427
-
-3427:                                             ; preds = %3426, %3395
+3424:                                             ; preds = %3406
+  %3425 = load i16, ptr %38, align 2
+  %3426 = load ptr, ptr %16, align 8
+  %3427 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3426, i32 0, i32 14
+  store i16 %3425, ptr %3427, align 2
   br label %3428
 
-3428:                                             ; preds = %3427, %3361
-  %3429 = load ptr, ptr %16, align 8
-  %3430 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3429, i32 0, i32 65
-  %3431 = load ptr, ptr %3430, align 8
-  %3432 = load ptr, ptr %27, align 8
-  call void @g_ptr_array_add(ptr noundef %3431, ptr noundef %3432)
-  %3433 = load ptr, ptr %16, align 8
-  %3434 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3433, i32 0, i32 38
-  %3435 = load i32, ptr %3434, align 8
-  %3436 = add i32 %3435, 1
-  store i32 %3436, ptr %3434, align 8
-  br label %3437
+3428:                                             ; preds = %3424, %3406
+  br label %3429
 
-3437:                                             ; preds = %3428, %3154
-  br label %3438
+3429:                                             ; preds = %3428, %3397
+  br label %3430
 
-3438:                                             ; preds = %3437, %3145
+3430:                                             ; preds = %3429, %3363
+  %3431 = load ptr, ptr %16, align 8
+  %3432 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3431, i32 0, i32 65
+  %3433 = load ptr, ptr %3432, align 8
+  %3434 = load ptr, ptr %27, align 8
+  call void @g_ptr_array_add(ptr noundef %3433, ptr noundef %3434)
+  %3435 = load ptr, ptr %16, align 8
+  %3436 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3435, i32 0, i32 38
+  %3437 = load i32, ptr %3436, align 8
+  %3438 = add i32 %3437, 1
+  store i32 %3438, ptr %3436, align 8
+  br label %3439
+
+3439:                                             ; preds = %3430, %3156
+  br label %3440
+
+3440:                                             ; preds = %3439, %3147
+  br label %3728
+
+3441:                                             ; preds = %2712, %2709
+  %3442 = load ptr, ptr %11, align 8
+  %3443 = getelementptr inbounds %struct._sctp_info, ptr %3442, i32 0, i32 15
+  %3444 = load i32, ptr %12, align 4
+  %3445 = zext i32 %3444 to i64
+  %3446 = getelementptr [2048 x ptr], ptr %3443, i64 0, i64 %3445
+  %3447 = load ptr, ptr %3446, align 8
+  %3448 = call zeroext i8 @tvb_get_guint8(ptr noundef %3447, i32 noundef 0)
+  %3449 = zext i8 %3448 to i32
+  %3450 = icmp eq i32 %3449, 3
+  br i1 %3450, label %3461, label %3451
+
+3451:                                             ; preds = %3441
+  %3452 = load ptr, ptr %11, align 8
+  %3453 = getelementptr inbounds %struct._sctp_info, ptr %3452, i32 0, i32 15
+  %3454 = load i32, ptr %12, align 4
+  %3455 = zext i32 %3454 to i64
+  %3456 = getelementptr [2048 x ptr], ptr %3453, i64 0, i64 %3455
+  %3457 = load ptr, ptr %3456, align 8
+  %3458 = call zeroext i8 @tvb_get_guint8(ptr noundef %3457, i32 noundef 0)
+  %3459 = zext i8 %3458 to i32
+  %3460 = icmp eq i32 %3459, 16
+  br i1 %3460, label %3461, label %3727
+
+3461:                                             ; preds = %3451, %3441
+  %3462 = load ptr, ptr %22, align 8
+  %3463 = icmp ne ptr %3462, null
+  br i1 %3463, label %3464, label %3727
+
+3464:                                             ; preds = %3461
+  %3465 = load ptr, ptr %11, align 8
+  %3466 = getelementptr inbounds %struct._sctp_info, ptr %3465, i32 0, i32 15
+  %3467 = load i32, ptr %12, align 4
+  %3468 = zext i32 %3467 to i64
+  %3469 = getelementptr [2048 x ptr], ptr %3466, i64 0, i64 %3468
+  %3470 = load ptr, ptr %3469, align 8
+  %3471 = call i32 @tvb_get_ntohl(ptr noundef %3470, i32 noundef 4)
+  store i32 %3471, ptr %13, align 4
+  %3472 = load ptr, ptr %11, align 8
+  %3473 = getelementptr inbounds %struct._sctp_info, ptr %3472, i32 0, i32 15
+  %3474 = load i32, ptr %12, align 4
+  %3475 = zext i32 %3474 to i64
+  %3476 = getelementptr [2048 x ptr], ptr %3473, i64 0, i64 %3475
+  %3477 = load ptr, ptr %3476, align 8
+  %3478 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3477, i32 noundef 2)
+  store i16 %3478, ptr %19, align 2
+  %3479 = load ptr, ptr %22, align 8
+  %3480 = getelementptr inbounds %struct._tsn, ptr %3479, i32 0, i32 5
+  %3481 = load i32, ptr %3480, align 8
+  %3482 = icmp eq i32 %3481, 0
+  br i1 %3482, label %3483, label %3487
+
+3483:                                             ; preds = %3464
+  %3484 = load i32, ptr %13, align 4
+  %3485 = load ptr, ptr %22, align 8
+  %3486 = getelementptr inbounds %struct._tsn, ptr %3485, i32 0, i32 5
+  store i32 %3484, ptr %3486, align 8
+  br label %3487
+
+3487:                                             ; preds = %3483, %3464
+  %3488 = load i16, ptr %19, align 2
+  %3489 = zext i16 %3488 to i64
+  %3490 = call noalias ptr @g_malloc(i64 noundef %3489) #8
+  store ptr %3490, ptr %23, align 8
+  %3491 = load ptr, ptr %11, align 8
+  %3492 = getelementptr inbounds %struct._sctp_info, ptr %3491, i32 0, i32 15
+  %3493 = load i32, ptr %12, align 4
+  %3494 = zext i32 %3493 to i64
+  %3495 = getelementptr [2048 x ptr], ptr %3492, i64 0, i64 %3494
+  %3496 = load ptr, ptr %3495, align 8
+  %3497 = load ptr, ptr %23, align 8
+  %3498 = load i16, ptr %19, align 2
+  %3499 = zext i16 %3498 to i64
+  %3500 = call ptr @tvb_memcpy(ptr noundef %3496, ptr noundef %3497, i32 noundef 0, i64 noundef %3499)
+  %3501 = load ptr, ptr %22, align 8
+  %3502 = getelementptr inbounds %struct._tsn, ptr %3501, i32 0, i32 6
+  %3503 = load ptr, ptr %3502, align 8
+  %3504 = load ptr, ptr %23, align 8
+  %3505 = call ptr @g_list_append(ptr noundef %3503, ptr noundef %3504)
+  %3506 = load ptr, ptr %22, align 8
+  %3507 = getelementptr inbounds %struct._tsn, ptr %3506, i32 0, i32 6
+  store ptr %3505, ptr %3507, align 8
+  store i32 1, ptr %24, align 4
+  %3508 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #7
+  store ptr %3508, ptr %27, align 8
+  %3509 = load i32, ptr %13, align 4
+  %3510 = load ptr, ptr %27, align 8
+  %3511 = getelementptr inbounds %struct.tsn_sort, ptr %3510, i32 0, i32 0
+  store i32 %3509, ptr %3511, align 4
+  %3512 = load ptr, ptr %7, align 8
+  %3513 = getelementptr inbounds %struct._packet_info, ptr %3512, i32 0, i32 5
+  %3514 = getelementptr inbounds %struct.nstime_t, ptr %3513, i32 0, i32 0
+  %3515 = load i64, ptr %3514, align 8
+  %3516 = trunc i64 %3515 to i32
+  %3517 = load ptr, ptr %21, align 8
+  %3518 = getelementptr inbounds %struct._tsn, ptr %3517, i32 0, i32 1
+  store i32 %3516, ptr %3518, align 4
+  %3519 = load ptr, ptr %27, align 8
+  %3520 = getelementptr inbounds %struct.tsn_sort, ptr %3519, i32 0, i32 1
+  store i32 %3516, ptr %3520, align 4
+  %3521 = load ptr, ptr %7, align 8
+  %3522 = getelementptr inbounds %struct._packet_info, ptr %3521, i32 0, i32 5
+  %3523 = getelementptr inbounds %struct.nstime_t, ptr %3522, i32 0, i32 1
+  %3524 = load i32, ptr %3523, align 8
+  %3525 = udiv i32 %3524, 1000
+  %3526 = load ptr, ptr %21, align 8
+  %3527 = getelementptr inbounds %struct._tsn, ptr %3526, i32 0, i32 2
+  store i32 %3525, ptr %3527, align 8
+  %3528 = load ptr, ptr %27, align 8
+  %3529 = getelementptr inbounds %struct.tsn_sort, ptr %3528, i32 0, i32 2
+  store i32 %3525, ptr %3529, align 4
+  %3530 = load ptr, ptr %27, align 8
+  %3531 = getelementptr inbounds %struct.tsn_sort, ptr %3530, i32 0, i32 3
+  store i32 0, ptr %3531, align 4
+  %3532 = load i32, ptr %14, align 4
+  %3533 = load ptr, ptr %27, align 8
+  %3534 = getelementptr inbounds %struct.tsn_sort, ptr %3533, i32 0, i32 5
+  store i32 %3532, ptr %3534, align 4
+  %3535 = load ptr, ptr %11, align 8
+  %3536 = getelementptr inbounds %struct._sctp_info, ptr %3535, i32 0, i32 15
+  %3537 = load i32, ptr %12, align 4
+  %3538 = zext i32 %3537 to i64
+  %3539 = getelementptr [2048 x ptr], ptr %3536, i64 0, i64 %3538
+  %3540 = load ptr, ptr %3539, align 8
+  %3541 = call i32 @tvb_get_ntohl(ptr noundef %3540, i32 noundef 8)
+  %3542 = load ptr, ptr %27, align 8
+  %3543 = getelementptr inbounds %struct.tsn_sort, ptr %3542, i32 0, i32 4
+  store i32 %3541, ptr %3543, align 4
+  %3544 = load ptr, ptr %21, align 8
+  %3545 = getelementptr inbounds %struct._tsn, ptr %3544, i32 0, i32 1
+  %3546 = load i32, ptr %3545, align 4
+  %3547 = load ptr, ptr %16, align 8
+  %3548 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3547, i32 0, i32 46
+  %3549 = load i32, ptr %3548, align 4
+  %3550 = icmp ult i32 %3546, %3549
+  br i1 %3550, label %3551, label %3562
+
+3551:                                             ; preds = %3487
+  %3552 = load ptr, ptr %21, align 8
+  %3553 = getelementptr inbounds %struct._tsn, ptr %3552, i32 0, i32 1
+  %3554 = load i32, ptr %3553, align 4
+  %3555 = load ptr, ptr %16, align 8
+  %3556 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3555, i32 0, i32 46
+  store i32 %3554, ptr %3556, align 4
+  %3557 = load ptr, ptr %21, align 8
+  %3558 = getelementptr inbounds %struct._tsn, ptr %3557, i32 0, i32 2
+  %3559 = load i32, ptr %3558, align 8
+  %3560 = load ptr, ptr %16, align 8
+  %3561 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3560, i32 0, i32 47
+  store i32 %3559, ptr %3561, align 8
+  br label %3585
+
+3562:                                             ; preds = %3487
+  %3563 = load ptr, ptr %21, align 8
+  %3564 = getelementptr inbounds %struct._tsn, ptr %3563, i32 0, i32 1
+  %3565 = load i32, ptr %3564, align 4
+  %3566 = load ptr, ptr %16, align 8
+  %3567 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3566, i32 0, i32 46
+  %3568 = load i32, ptr %3567, align 4
+  %3569 = icmp eq i32 %3565, %3568
+  br i1 %3569, label %3570, label %3584
+
+3570:                                             ; preds = %3562
+  %3571 = load ptr, ptr %21, align 8
+  %3572 = getelementptr inbounds %struct._tsn, ptr %3571, i32 0, i32 2
+  %3573 = load i32, ptr %3572, align 8
+  %3574 = load ptr, ptr %16, align 8
+  %3575 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3574, i32 0, i32 47
+  %3576 = load i32, ptr %3575, align 8
+  %3577 = icmp ult i32 %3573, %3576
+  br i1 %3577, label %3578, label %3584
+
+3578:                                             ; preds = %3570
+  %3579 = load ptr, ptr %21, align 8
+  %3580 = getelementptr inbounds %struct._tsn, ptr %3579, i32 0, i32 2
+  %3581 = load i32, ptr %3580, align 8
+  %3582 = load ptr, ptr %16, align 8
+  %3583 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3582, i32 0, i32 47
+  store i32 %3581, ptr %3583, align 8
+  br label %3584
+
+3584:                                             ; preds = %3578, %3570, %3562
+  br label %3585
+
+3585:                                             ; preds = %3584, %3551
+  %3586 = load ptr, ptr %21, align 8
+  %3587 = getelementptr inbounds %struct._tsn, ptr %3586, i32 0, i32 1
+  %3588 = load i32, ptr %3587, align 4
+  %3589 = load ptr, ptr %16, align 8
+  %3590 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3589, i32 0, i32 48
+  %3591 = load i32, ptr %3590, align 4
+  %3592 = icmp ugt i32 %3588, %3591
+  br i1 %3592, label %3593, label %3604
+
+3593:                                             ; preds = %3585
+  %3594 = load ptr, ptr %21, align 8
+  %3595 = getelementptr inbounds %struct._tsn, ptr %3594, i32 0, i32 1
+  %3596 = load i32, ptr %3595, align 4
+  %3597 = load ptr, ptr %16, align 8
+  %3598 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3597, i32 0, i32 48
+  store i32 %3596, ptr %3598, align 4
+  %3599 = load ptr, ptr %21, align 8
+  %3600 = getelementptr inbounds %struct._tsn, ptr %3599, i32 0, i32 2
+  %3601 = load i32, ptr %3600, align 8
+  %3602 = load ptr, ptr %16, align 8
+  %3603 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3602, i32 0, i32 49
+  store i32 %3601, ptr %3603, align 8
+  br label %3627
+
+3604:                                             ; preds = %3585
+  %3605 = load ptr, ptr %21, align 8
+  %3606 = getelementptr inbounds %struct._tsn, ptr %3605, i32 0, i32 1
+  %3607 = load i32, ptr %3606, align 4
+  %3608 = load ptr, ptr %16, align 8
+  %3609 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3608, i32 0, i32 48
+  %3610 = load i32, ptr %3609, align 4
+  %3611 = icmp eq i32 %3607, %3610
+  br i1 %3611, label %3612, label %3626
+
+3612:                                             ; preds = %3604
+  %3613 = load ptr, ptr %21, align 8
+  %3614 = getelementptr inbounds %struct._tsn, ptr %3613, i32 0, i32 2
+  %3615 = load i32, ptr %3614, align 8
+  %3616 = load ptr, ptr %16, align 8
+  %3617 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3616, i32 0, i32 49
+  %3618 = load i32, ptr %3617, align 8
+  %3619 = icmp ugt i32 %3615, %3618
+  br i1 %3619, label %3620, label %3626
+
+3620:                                             ; preds = %3612
+  %3621 = load ptr, ptr %21, align 8
+  %3622 = getelementptr inbounds %struct._tsn, ptr %3621, i32 0, i32 2
+  %3623 = load i32, ptr %3622, align 8
+  %3624 = load ptr, ptr %16, align 8
+  %3625 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3624, i32 0, i32 49
+  store i32 %3623, ptr %3625, align 8
+  br label %3626
+
+3626:                                             ; preds = %3620, %3612, %3604
+  br label %3627
+
+3627:                                             ; preds = %3626, %3593
+  %3628 = load ptr, ptr %16, align 8
+  %3629 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3628, i32 0, i32 45
+  %3630 = load i16, ptr %3629, align 8
+  %3631 = zext i16 %3630 to i32
+  %3632 = icmp eq i32 %3631, 2
+  br i1 %3632, label %3633, label %3676
+
+3633:                                             ; preds = %3627
+  %3634 = load i32, ptr %13, align 4
+  %3635 = load ptr, ptr %16, align 8
+  %3636 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3635, i32 0, i32 50
+  %3637 = load i32, ptr %3636, align 4
+  %3638 = icmp ult i32 %3634, %3637
+  br i1 %3638, label %3639, label %3643
+
+3639:                                             ; preds = %3633
+  %3640 = load i32, ptr %13, align 4
+  %3641 = load ptr, ptr %16, align 8
+  %3642 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3641, i32 0, i32 50
+  store i32 %3640, ptr %3642, align 4
+  br label %3643
+
+3643:                                             ; preds = %3639, %3633
+  %3644 = load i32, ptr %13, align 4
+  %3645 = load ptr, ptr %16, align 8
+  %3646 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3645, i32 0, i32 52
+  %3647 = load i32, ptr %3646, align 4
+  %3648 = icmp ugt i32 %3644, %3647
+  br i1 %3648, label %3649, label %3653
+
+3649:                                             ; preds = %3643
+  %3650 = load i32, ptr %13, align 4
+  %3651 = load ptr, ptr %16, align 8
+  %3652 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3651, i32 0, i32 52
+  store i32 %3650, ptr %3652, align 4
+  br label %3653
+
+3653:                                             ; preds = %3649, %3643
+  %3654 = load ptr, ptr %27, align 8
+  %3655 = getelementptr inbounds %struct.tsn_sort, ptr %3654, i32 0, i32 4
+  %3656 = load i32, ptr %3655, align 4
+  %3657 = load ptr, ptr %16, align 8
+  %3658 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3657, i32 0, i32 39
+  %3659 = load i32, ptr %3658, align 4
+  %3660 = icmp ugt i32 %3656, %3659
+  br i1 %3660, label %3661, label %3667
+
+3661:                                             ; preds = %3653
+  %3662 = load ptr, ptr %27, align 8
+  %3663 = getelementptr inbounds %struct.tsn_sort, ptr %3662, i32 0, i32 4
+  %3664 = load i32, ptr %3663, align 4
+  %3665 = load ptr, ptr %16, align 8
+  %3666 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3665, i32 0, i32 39
+  store i32 %3664, ptr %3666, align 4
+  br label %3667
+
+3667:                                             ; preds = %3661, %3653
+  %3668 = load ptr, ptr %16, align 8
+  %3669 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3668, i32 0, i32 62
+  %3670 = load ptr, ptr %3669, align 8
+  %3671 = load ptr, ptr %27, align 8
+  call void @g_ptr_array_add(ptr noundef %3670, ptr noundef %3671)
+  %3672 = load ptr, ptr %16, align 8
+  %3673 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3672, i32 0, i32 35
+  %3674 = load i32, ptr %3673, align 4
+  %3675 = add i32 %3674, 1
+  store i32 %3675, ptr %3673, align 4
   br label %3726
 
-3439:                                             ; preds = %2710, %2707
-  %3440 = load ptr, ptr %11, align 8
-  %3441 = getelementptr inbounds %struct._sctp_info, ptr %3440, i32 0, i32 15
-  %3442 = load i32, ptr %12, align 4
-  %3443 = zext i32 %3442 to i64
-  %3444 = getelementptr [2048 x ptr], ptr %3441, i64 0, i64 %3443
-  %3445 = load ptr, ptr %3444, align 8
-  %3446 = call zeroext i8 @tvb_get_guint8(ptr noundef %3445, i32 noundef 0)
-  %3447 = zext i8 %3446 to i32
-  %3448 = icmp eq i32 %3447, 3
-  br i1 %3448, label %3459, label %3449
+3676:                                             ; preds = %3627
+  %3677 = load ptr, ptr %16, align 8
+  %3678 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3677, i32 0, i32 45
+  %3679 = load i16, ptr %3678, align 8
+  %3680 = zext i16 %3679 to i32
+  %3681 = icmp eq i32 %3680, 1
+  br i1 %3681, label %3682, label %3725
 
-3449:                                             ; preds = %3439
-  %3450 = load ptr, ptr %11, align 8
-  %3451 = getelementptr inbounds %struct._sctp_info, ptr %3450, i32 0, i32 15
-  %3452 = load i32, ptr %12, align 4
-  %3453 = zext i32 %3452 to i64
-  %3454 = getelementptr [2048 x ptr], ptr %3451, i64 0, i64 %3453
-  %3455 = load ptr, ptr %3454, align 8
-  %3456 = call zeroext i8 @tvb_get_guint8(ptr noundef %3455, i32 noundef 0)
-  %3457 = zext i8 %3456 to i32
-  %3458 = icmp eq i32 %3457, 16
-  br i1 %3458, label %3459, label %3725
+3682:                                             ; preds = %3676
+  %3683 = load i32, ptr %13, align 4
+  %3684 = load ptr, ptr %16, align 8
+  %3685 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3684, i32 0, i32 51
+  %3686 = load i32, ptr %3685, align 8
+  %3687 = icmp ult i32 %3683, %3686
+  br i1 %3687, label %3688, label %3692
 
-3459:                                             ; preds = %3449, %3439
-  %3460 = load ptr, ptr %22, align 8
-  %3461 = icmp ne ptr %3460, null
-  br i1 %3461, label %3462, label %3725
+3688:                                             ; preds = %3682
+  %3689 = load i32, ptr %13, align 4
+  %3690 = load ptr, ptr %16, align 8
+  %3691 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3690, i32 0, i32 51
+  store i32 %3689, ptr %3691, align 8
+  br label %3692
 
-3462:                                             ; preds = %3459
-  %3463 = load ptr, ptr %11, align 8
-  %3464 = getelementptr inbounds %struct._sctp_info, ptr %3463, i32 0, i32 15
-  %3465 = load i32, ptr %12, align 4
-  %3466 = zext i32 %3465 to i64
-  %3467 = getelementptr [2048 x ptr], ptr %3464, i64 0, i64 %3466
-  %3468 = load ptr, ptr %3467, align 8
-  %3469 = call i32 @tvb_get_ntohl(ptr noundef %3468, i32 noundef 4)
-  store i32 %3469, ptr %13, align 4
-  %3470 = load ptr, ptr %11, align 8
-  %3471 = getelementptr inbounds %struct._sctp_info, ptr %3470, i32 0, i32 15
-  %3472 = load i32, ptr %12, align 4
-  %3473 = zext i32 %3472 to i64
-  %3474 = getelementptr [2048 x ptr], ptr %3471, i64 0, i64 %3473
-  %3475 = load ptr, ptr %3474, align 8
-  %3476 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3475, i32 noundef 2)
-  store i16 %3476, ptr %19, align 2
-  %3477 = load ptr, ptr %22, align 8
-  %3478 = getelementptr inbounds %struct._tsn, ptr %3477, i32 0, i32 5
-  %3479 = load i32, ptr %3478, align 8
-  %3480 = icmp eq i32 %3479, 0
-  br i1 %3480, label %3481, label %3485
+3692:                                             ; preds = %3688, %3682
+  %3693 = load i32, ptr %13, align 4
+  %3694 = load ptr, ptr %16, align 8
+  %3695 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3694, i32 0, i32 53
+  %3696 = load i32, ptr %3695, align 8
+  %3697 = icmp ugt i32 %3693, %3696
+  br i1 %3697, label %3698, label %3702
 
-3481:                                             ; preds = %3462
-  %3482 = load i32, ptr %13, align 4
-  %3483 = load ptr, ptr %22, align 8
-  %3484 = getelementptr inbounds %struct._tsn, ptr %3483, i32 0, i32 5
-  store i32 %3482, ptr %3484, align 8
-  br label %3485
+3698:                                             ; preds = %3692
+  %3699 = load i32, ptr %13, align 4
+  %3700 = load ptr, ptr %16, align 8
+  %3701 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3700, i32 0, i32 53
+  store i32 %3699, ptr %3701, align 8
+  br label %3702
 
-3485:                                             ; preds = %3481, %3462
-  %3486 = load i16, ptr %19, align 2
-  %3487 = zext i16 %3486 to i64
-  %3488 = call noalias ptr @g_malloc(i64 noundef %3487) #8
-  store ptr %3488, ptr %23, align 8
-  %3489 = load ptr, ptr %11, align 8
-  %3490 = getelementptr inbounds %struct._sctp_info, ptr %3489, i32 0, i32 15
-  %3491 = load i32, ptr %12, align 4
-  %3492 = zext i32 %3491 to i64
-  %3493 = getelementptr [2048 x ptr], ptr %3490, i64 0, i64 %3492
-  %3494 = load ptr, ptr %3493, align 8
-  %3495 = load ptr, ptr %23, align 8
-  %3496 = load i16, ptr %19, align 2
-  %3497 = zext i16 %3496 to i64
-  %3498 = call ptr @tvb_memcpy(ptr noundef %3494, ptr noundef %3495, i32 noundef 0, i64 noundef %3497)
-  %3499 = load ptr, ptr %22, align 8
-  %3500 = getelementptr inbounds %struct._tsn, ptr %3499, i32 0, i32 6
-  %3501 = load ptr, ptr %3500, align 8
-  %3502 = load ptr, ptr %23, align 8
-  %3503 = call ptr @g_list_append(ptr noundef %3501, ptr noundef %3502)
-  %3504 = load ptr, ptr %22, align 8
-  %3505 = getelementptr inbounds %struct._tsn, ptr %3504, i32 0, i32 6
-  store ptr %3503, ptr %3505, align 8
-  store i32 1, ptr %24, align 4
-  %3506 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #7
-  store ptr %3506, ptr %27, align 8
-  %3507 = load i32, ptr %13, align 4
-  %3508 = load ptr, ptr %27, align 8
-  %3509 = getelementptr inbounds %struct.tsn_sort, ptr %3508, i32 0, i32 0
-  store i32 %3507, ptr %3509, align 4
-  %3510 = load ptr, ptr %7, align 8
-  %3511 = getelementptr inbounds %struct._packet_info, ptr %3510, i32 0, i32 5
-  %3512 = getelementptr inbounds %struct.nstime_t, ptr %3511, i32 0, i32 0
-  %3513 = load i64, ptr %3512, align 8
-  %3514 = trunc i64 %3513 to i32
-  %3515 = load ptr, ptr %21, align 8
-  %3516 = getelementptr inbounds %struct._tsn, ptr %3515, i32 0, i32 1
-  store i32 %3514, ptr %3516, align 4
-  %3517 = load ptr, ptr %27, align 8
-  %3518 = getelementptr inbounds %struct.tsn_sort, ptr %3517, i32 0, i32 1
-  store i32 %3514, ptr %3518, align 4
-  %3519 = load ptr, ptr %7, align 8
-  %3520 = getelementptr inbounds %struct._packet_info, ptr %3519, i32 0, i32 5
-  %3521 = getelementptr inbounds %struct.nstime_t, ptr %3520, i32 0, i32 1
-  %3522 = load i32, ptr %3521, align 8
-  %3523 = udiv i32 %3522, 1000
-  %3524 = load ptr, ptr %21, align 8
-  %3525 = getelementptr inbounds %struct._tsn, ptr %3524, i32 0, i32 2
-  store i32 %3523, ptr %3525, align 8
-  %3526 = load ptr, ptr %27, align 8
-  %3527 = getelementptr inbounds %struct.tsn_sort, ptr %3526, i32 0, i32 2
-  store i32 %3523, ptr %3527, align 4
-  %3528 = load ptr, ptr %27, align 8
-  %3529 = getelementptr inbounds %struct.tsn_sort, ptr %3528, i32 0, i32 3
-  store i32 0, ptr %3529, align 4
-  %3530 = load i32, ptr %14, align 4
-  %3531 = load ptr, ptr %27, align 8
-  %3532 = getelementptr inbounds %struct.tsn_sort, ptr %3531, i32 0, i32 5
-  store i32 %3530, ptr %3532, align 4
-  %3533 = load ptr, ptr %11, align 8
-  %3534 = getelementptr inbounds %struct._sctp_info, ptr %3533, i32 0, i32 15
-  %3535 = load i32, ptr %12, align 4
-  %3536 = zext i32 %3535 to i64
-  %3537 = getelementptr [2048 x ptr], ptr %3534, i64 0, i64 %3536
-  %3538 = load ptr, ptr %3537, align 8
-  %3539 = call i32 @tvb_get_ntohl(ptr noundef %3538, i32 noundef 8)
-  %3540 = load ptr, ptr %27, align 8
-  %3541 = getelementptr inbounds %struct.tsn_sort, ptr %3540, i32 0, i32 4
-  store i32 %3539, ptr %3541, align 4
-  %3542 = load ptr, ptr %21, align 8
-  %3543 = getelementptr inbounds %struct._tsn, ptr %3542, i32 0, i32 1
-  %3544 = load i32, ptr %3543, align 4
-  %3545 = load ptr, ptr %16, align 8
-  %3546 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3545, i32 0, i32 46
-  %3547 = load i32, ptr %3546, align 4
-  %3548 = icmp ult i32 %3544, %3547
-  br i1 %3548, label %3549, label %3560
+3702:                                             ; preds = %3698, %3692
+  %3703 = load ptr, ptr %27, align 8
+  %3704 = getelementptr inbounds %struct.tsn_sort, ptr %3703, i32 0, i32 4
+  %3705 = load i32, ptr %3704, align 4
+  %3706 = load ptr, ptr %16, align 8
+  %3707 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3706, i32 0, i32 40
+  %3708 = load i32, ptr %3707, align 8
+  %3709 = icmp ugt i32 %3705, %3708
+  br i1 %3709, label %3710, label %3716
 
-3549:                                             ; preds = %3485
-  %3550 = load ptr, ptr %21, align 8
-  %3551 = getelementptr inbounds %struct._tsn, ptr %3550, i32 0, i32 1
-  %3552 = load i32, ptr %3551, align 4
-  %3553 = load ptr, ptr %16, align 8
-  %3554 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3553, i32 0, i32 46
-  store i32 %3552, ptr %3554, align 4
-  %3555 = load ptr, ptr %21, align 8
-  %3556 = getelementptr inbounds %struct._tsn, ptr %3555, i32 0, i32 2
-  %3557 = load i32, ptr %3556, align 8
-  %3558 = load ptr, ptr %16, align 8
-  %3559 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3558, i32 0, i32 47
-  store i32 %3557, ptr %3559, align 8
-  br label %3583
+3710:                                             ; preds = %3702
+  %3711 = load ptr, ptr %27, align 8
+  %3712 = getelementptr inbounds %struct.tsn_sort, ptr %3711, i32 0, i32 4
+  %3713 = load i32, ptr %3712, align 4
+  %3714 = load ptr, ptr %16, align 8
+  %3715 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3714, i32 0, i32 40
+  store i32 %3713, ptr %3715, align 8
+  br label %3716
 
-3560:                                             ; preds = %3485
-  %3561 = load ptr, ptr %21, align 8
-  %3562 = getelementptr inbounds %struct._tsn, ptr %3561, i32 0, i32 1
-  %3563 = load i32, ptr %3562, align 4
-  %3564 = load ptr, ptr %16, align 8
-  %3565 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3564, i32 0, i32 46
-  %3566 = load i32, ptr %3565, align 4
-  %3567 = icmp eq i32 %3563, %3566
-  br i1 %3567, label %3568, label %3582
-
-3568:                                             ; preds = %3560
-  %3569 = load ptr, ptr %21, align 8
-  %3570 = getelementptr inbounds %struct._tsn, ptr %3569, i32 0, i32 2
-  %3571 = load i32, ptr %3570, align 8
-  %3572 = load ptr, ptr %16, align 8
-  %3573 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3572, i32 0, i32 47
-  %3574 = load i32, ptr %3573, align 8
-  %3575 = icmp ult i32 %3571, %3574
-  br i1 %3575, label %3576, label %3582
-
-3576:                                             ; preds = %3568
-  %3577 = load ptr, ptr %21, align 8
-  %3578 = getelementptr inbounds %struct._tsn, ptr %3577, i32 0, i32 2
-  %3579 = load i32, ptr %3578, align 8
-  %3580 = load ptr, ptr %16, align 8
-  %3581 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3580, i32 0, i32 47
-  store i32 %3579, ptr %3581, align 8
-  br label %3582
-
-3582:                                             ; preds = %3576, %3568, %3560
-  br label %3583
-
-3583:                                             ; preds = %3582, %3549
-  %3584 = load ptr, ptr %21, align 8
-  %3585 = getelementptr inbounds %struct._tsn, ptr %3584, i32 0, i32 1
-  %3586 = load i32, ptr %3585, align 4
-  %3587 = load ptr, ptr %16, align 8
-  %3588 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3587, i32 0, i32 48
-  %3589 = load i32, ptr %3588, align 4
-  %3590 = icmp ugt i32 %3586, %3589
-  br i1 %3590, label %3591, label %3602
-
-3591:                                             ; preds = %3583
-  %3592 = load ptr, ptr %21, align 8
-  %3593 = getelementptr inbounds %struct._tsn, ptr %3592, i32 0, i32 1
-  %3594 = load i32, ptr %3593, align 4
-  %3595 = load ptr, ptr %16, align 8
-  %3596 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3595, i32 0, i32 48
-  store i32 %3594, ptr %3596, align 4
-  %3597 = load ptr, ptr %21, align 8
-  %3598 = getelementptr inbounds %struct._tsn, ptr %3597, i32 0, i32 2
-  %3599 = load i32, ptr %3598, align 8
-  %3600 = load ptr, ptr %16, align 8
-  %3601 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3600, i32 0, i32 49
-  store i32 %3599, ptr %3601, align 8
-  br label %3625
-
-3602:                                             ; preds = %3583
-  %3603 = load ptr, ptr %21, align 8
-  %3604 = getelementptr inbounds %struct._tsn, ptr %3603, i32 0, i32 1
-  %3605 = load i32, ptr %3604, align 4
-  %3606 = load ptr, ptr %16, align 8
-  %3607 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3606, i32 0, i32 48
-  %3608 = load i32, ptr %3607, align 4
-  %3609 = icmp eq i32 %3605, %3608
-  br i1 %3609, label %3610, label %3624
-
-3610:                                             ; preds = %3602
-  %3611 = load ptr, ptr %21, align 8
-  %3612 = getelementptr inbounds %struct._tsn, ptr %3611, i32 0, i32 2
-  %3613 = load i32, ptr %3612, align 8
-  %3614 = load ptr, ptr %16, align 8
-  %3615 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3614, i32 0, i32 49
-  %3616 = load i32, ptr %3615, align 8
-  %3617 = icmp ugt i32 %3613, %3616
-  br i1 %3617, label %3618, label %3624
-
-3618:                                             ; preds = %3610
-  %3619 = load ptr, ptr %21, align 8
-  %3620 = getelementptr inbounds %struct._tsn, ptr %3619, i32 0, i32 2
-  %3621 = load i32, ptr %3620, align 8
-  %3622 = load ptr, ptr %16, align 8
-  %3623 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3622, i32 0, i32 49
-  store i32 %3621, ptr %3623, align 8
-  br label %3624
-
-3624:                                             ; preds = %3618, %3610, %3602
-  br label %3625
-
-3625:                                             ; preds = %3624, %3591
-  %3626 = load ptr, ptr %16, align 8
-  %3627 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3626, i32 0, i32 45
-  %3628 = load i16, ptr %3627, align 8
-  %3629 = zext i16 %3628 to i32
-  %3630 = icmp eq i32 %3629, 2
-  br i1 %3630, label %3631, label %3674
-
-3631:                                             ; preds = %3625
-  %3632 = load i32, ptr %13, align 4
-  %3633 = load ptr, ptr %16, align 8
-  %3634 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3633, i32 0, i32 50
-  %3635 = load i32, ptr %3634, align 4
-  %3636 = icmp ult i32 %3632, %3635
-  br i1 %3636, label %3637, label %3641
-
-3637:                                             ; preds = %3631
-  %3638 = load i32, ptr %13, align 4
-  %3639 = load ptr, ptr %16, align 8
-  %3640 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3639, i32 0, i32 50
-  store i32 %3638, ptr %3640, align 4
-  br label %3641
-
-3641:                                             ; preds = %3637, %3631
-  %3642 = load i32, ptr %13, align 4
-  %3643 = load ptr, ptr %16, align 8
-  %3644 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3643, i32 0, i32 52
-  %3645 = load i32, ptr %3644, align 4
-  %3646 = icmp ugt i32 %3642, %3645
-  br i1 %3646, label %3647, label %3651
-
-3647:                                             ; preds = %3641
-  %3648 = load i32, ptr %13, align 4
-  %3649 = load ptr, ptr %16, align 8
-  %3650 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3649, i32 0, i32 52
-  store i32 %3648, ptr %3650, align 4
-  br label %3651
-
-3651:                                             ; preds = %3647, %3641
-  %3652 = load ptr, ptr %27, align 8
-  %3653 = getelementptr inbounds %struct.tsn_sort, ptr %3652, i32 0, i32 4
-  %3654 = load i32, ptr %3653, align 4
-  %3655 = load ptr, ptr %16, align 8
-  %3656 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3655, i32 0, i32 39
-  %3657 = load i32, ptr %3656, align 4
-  %3658 = icmp ugt i32 %3654, %3657
-  br i1 %3658, label %3659, label %3665
-
-3659:                                             ; preds = %3651
-  %3660 = load ptr, ptr %27, align 8
-  %3661 = getelementptr inbounds %struct.tsn_sort, ptr %3660, i32 0, i32 4
-  %3662 = load i32, ptr %3661, align 4
-  %3663 = load ptr, ptr %16, align 8
-  %3664 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3663, i32 0, i32 39
-  store i32 %3662, ptr %3664, align 4
-  br label %3665
-
-3665:                                             ; preds = %3659, %3651
-  %3666 = load ptr, ptr %16, align 8
-  %3667 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3666, i32 0, i32 62
-  %3668 = load ptr, ptr %3667, align 8
-  %3669 = load ptr, ptr %27, align 8
-  call void @g_ptr_array_add(ptr noundef %3668, ptr noundef %3669)
-  %3670 = load ptr, ptr %16, align 8
-  %3671 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3670, i32 0, i32 35
-  %3672 = load i32, ptr %3671, align 4
-  %3673 = add i32 %3672, 1
-  store i32 %3673, ptr %3671, align 4
-  br label %3724
-
-3674:                                             ; preds = %3625
-  %3675 = load ptr, ptr %16, align 8
-  %3676 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3675, i32 0, i32 45
-  %3677 = load i16, ptr %3676, align 8
-  %3678 = zext i16 %3677 to i32
-  %3679 = icmp eq i32 %3678, 1
-  br i1 %3679, label %3680, label %3723
-
-3680:                                             ; preds = %3674
-  %3681 = load i32, ptr %13, align 4
-  %3682 = load ptr, ptr %16, align 8
-  %3683 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3682, i32 0, i32 51
-  %3684 = load i32, ptr %3683, align 8
-  %3685 = icmp ult i32 %3681, %3684
-  br i1 %3685, label %3686, label %3690
-
-3686:                                             ; preds = %3680
-  %3687 = load i32, ptr %13, align 4
-  %3688 = load ptr, ptr %16, align 8
-  %3689 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3688, i32 0, i32 51
-  store i32 %3687, ptr %3689, align 8
-  br label %3690
-
-3690:                                             ; preds = %3686, %3680
-  %3691 = load i32, ptr %13, align 4
-  %3692 = load ptr, ptr %16, align 8
-  %3693 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3692, i32 0, i32 53
-  %3694 = load i32, ptr %3693, align 8
-  %3695 = icmp ugt i32 %3691, %3694
-  br i1 %3695, label %3696, label %3700
-
-3696:                                             ; preds = %3690
-  %3697 = load i32, ptr %13, align 4
-  %3698 = load ptr, ptr %16, align 8
-  %3699 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3698, i32 0, i32 53
-  store i32 %3697, ptr %3699, align 8
-  br label %3700
-
-3700:                                             ; preds = %3696, %3690
-  %3701 = load ptr, ptr %27, align 8
-  %3702 = getelementptr inbounds %struct.tsn_sort, ptr %3701, i32 0, i32 4
-  %3703 = load i32, ptr %3702, align 4
-  %3704 = load ptr, ptr %16, align 8
-  %3705 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3704, i32 0, i32 40
-  %3706 = load i32, ptr %3705, align 8
-  %3707 = icmp ugt i32 %3703, %3706
-  br i1 %3707, label %3708, label %3714
-
-3708:                                             ; preds = %3700
-  %3709 = load ptr, ptr %27, align 8
-  %3710 = getelementptr inbounds %struct.tsn_sort, ptr %3709, i32 0, i32 4
-  %3711 = load i32, ptr %3710, align 4
-  %3712 = load ptr, ptr %16, align 8
-  %3713 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3712, i32 0, i32 40
-  store i32 %3711, ptr %3713, align 8
-  br label %3714
-
-3714:                                             ; preds = %3708, %3700
-  %3715 = load ptr, ptr %16, align 8
-  %3716 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3715, i32 0, i32 66
-  %3717 = load ptr, ptr %3716, align 8
-  %3718 = load ptr, ptr %27, align 8
-  call void @g_ptr_array_add(ptr noundef %3717, ptr noundef %3718)
-  %3719 = load ptr, ptr %16, align 8
-  %3720 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3719, i32 0, i32 36
-  %3721 = load i32, ptr %3720, align 8
-  %3722 = add i32 %3721, 1
-  store i32 %3722, ptr %3720, align 8
-  br label %3723
-
-3723:                                             ; preds = %3714, %3674
-  br label %3724
-
-3724:                                             ; preds = %3723, %3665
+3716:                                             ; preds = %3710, %3702
+  %3717 = load ptr, ptr %16, align 8
+  %3718 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3717, i32 0, i32 66
+  %3719 = load ptr, ptr %3718, align 8
+  %3720 = load ptr, ptr %27, align 8
+  call void @g_ptr_array_add(ptr noundef %3719, ptr noundef %3720)
+  %3721 = load ptr, ptr %16, align 8
+  %3722 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3721, i32 0, i32 36
+  %3723 = load i32, ptr %3722, align 8
+  %3724 = add i32 %3723, 1
+  store i32 %3724, ptr %3722, align 8
   br label %3725
 
-3725:                                             ; preds = %3724, %3459, %3449
+3725:                                             ; preds = %3716, %3676
   br label %3726
 
-3726:                                             ; preds = %3725, %3438
+3726:                                             ; preds = %3725, %3667
   br label %3727
 
-3727:                                             ; preds = %3726
-  %3728 = load i32, ptr %12, align 4
-  %3729 = add i32 %3728, 1
-  store i32 %3729, ptr %12, align 4
-  br label %2596, !llvm.loop !12
+3727:                                             ; preds = %3726, %3461, %3451
+  br label %3728
 
-3730:                                             ; preds = %2596
-  br label %3731
+3728:                                             ; preds = %3727, %3440
+  br label %3729
 
-3731:                                             ; preds = %3730, %2527
-  %3732 = load i32, ptr %25, align 4
-  %3733 = icmp ne i32 %3732, 0
-  br i1 %3733, label %3737, label %3734
+3729:                                             ; preds = %3728
+  %3730 = load i32, ptr %12, align 4
+  %3731 = add i32 %3730, 1
+  store i32 %3731, ptr %12, align 4
+  br label %2598, !llvm.loop !12
 
-3734:                                             ; preds = %3731
-  %3735 = load i32, ptr %26, align 4
-  %3736 = icmp ne i32 %3735, 0
-  br i1 %3736, label %3737, label %3767
+3732:                                             ; preds = %2598
+  br label %3733
 
-3737:                                             ; preds = %3734, %3731
-  %3738 = load ptr, ptr %16, align 8
-  %3739 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3738, i32 0, i32 45
-  %3740 = load i16, ptr %3739, align 8
-  %3741 = zext i16 %3740 to i32
-  %3742 = icmp eq i32 %3741, 1
-  br i1 %3742, label %3743, label %3751
+3733:                                             ; preds = %3732, %2529
+  %3734 = load i32, ptr %25, align 4
+  %3735 = icmp ne i32 %3734, 0
+  br i1 %3735, label %3739, label %3736
 
-3743:                                             ; preds = %3737
-  %3744 = load ptr, ptr %16, align 8
-  %3745 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3744, i32 0, i32 60
-  %3746 = load ptr, ptr %3745, align 8
-  %3747 = load ptr, ptr %21, align 8
-  %3748 = call ptr @g_list_prepend(ptr noundef %3746, ptr noundef %3747)
-  %3749 = load ptr, ptr %16, align 8
-  %3750 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3749, i32 0, i32 60
-  store ptr %3748, ptr %3750, align 8
-  br label %3766
+3736:                                             ; preds = %3733
+  %3737 = load i32, ptr %26, align 4
+  %3738 = icmp ne i32 %3737, 0
+  br i1 %3738, label %3739, label %3769
 
-3751:                                             ; preds = %3737
-  %3752 = load ptr, ptr %16, align 8
-  %3753 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3752, i32 0, i32 45
-  %3754 = load i16, ptr %3753, align 8
-  %3755 = zext i16 %3754 to i32
-  %3756 = icmp eq i32 %3755, 2
-  br i1 %3756, label %3757, label %3765
+3739:                                             ; preds = %3736, %3733
+  %3740 = load ptr, ptr %16, align 8
+  %3741 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3740, i32 0, i32 45
+  %3742 = load i16, ptr %3741, align 8
+  %3743 = zext i16 %3742 to i32
+  %3744 = icmp eq i32 %3743, 1
+  br i1 %3744, label %3745, label %3753
 
-3757:                                             ; preds = %3751
-  %3758 = load ptr, ptr %16, align 8
-  %3759 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3758, i32 0, i32 64
-  %3760 = load ptr, ptr %3759, align 8
-  %3761 = load ptr, ptr %21, align 8
-  %3762 = call ptr @g_list_prepend(ptr noundef %3760, ptr noundef %3761)
-  %3763 = load ptr, ptr %16, align 8
-  %3764 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3763, i32 0, i32 64
-  store ptr %3762, ptr %3764, align 8
-  br label %3765
+3745:                                             ; preds = %3739
+  %3746 = load ptr, ptr %16, align 8
+  %3747 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3746, i32 0, i32 60
+  %3748 = load ptr, ptr %3747, align 8
+  %3749 = load ptr, ptr %21, align 8
+  %3750 = call ptr @g_list_prepend(ptr noundef %3748, ptr noundef %3749)
+  %3751 = load ptr, ptr %16, align 8
+  %3752 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3751, i32 0, i32 60
+  store ptr %3750, ptr %3752, align 8
+  br label %3768
 
-3765:                                             ; preds = %3757, %3751
-  br label %3766
+3753:                                             ; preds = %3739
+  %3754 = load ptr, ptr %16, align 8
+  %3755 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3754, i32 0, i32 45
+  %3756 = load i16, ptr %3755, align 8
+  %3757 = zext i16 %3756 to i32
+  %3758 = icmp eq i32 %3757, 2
+  br i1 %3758, label %3759, label %3767
 
-3766:                                             ; preds = %3765, %3743
-  store i32 1, ptr %30, align 4
+3759:                                             ; preds = %3753
+  %3760 = load ptr, ptr %16, align 8
+  %3761 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3760, i32 0, i32 64
+  %3762 = load ptr, ptr %3761, align 8
+  %3763 = load ptr, ptr %21, align 8
+  %3764 = call ptr @g_list_prepend(ptr noundef %3762, ptr noundef %3763)
+  %3765 = load ptr, ptr %16, align 8
+  %3766 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3765, i32 0, i32 64
+  store ptr %3764, ptr %3766, align 8
   br label %3767
 
-3767:                                             ; preds = %3766, %3734
-  %3768 = load i32, ptr %24, align 4
-  %3769 = icmp eq i32 %3768, 1
-  br i1 %3769, label %3770, label %3800
+3767:                                             ; preds = %3759, %3753
+  br label %3768
 
-3770:                                             ; preds = %3767
-  %3771 = load ptr, ptr %16, align 8
-  %3772 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3771, i32 0, i32 45
-  %3773 = load i16, ptr %3772, align 8
-  %3774 = zext i16 %3773 to i32
-  %3775 = icmp eq i32 %3774, 1
-  br i1 %3775, label %3776, label %3784
+3768:                                             ; preds = %3767, %3745
+  store i32 1, ptr %30, align 4
+  br label %3769
 
-3776:                                             ; preds = %3770
-  %3777 = load ptr, ptr %16, align 8
-  %3778 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3777, i32 0, i32 67
-  %3779 = load ptr, ptr %3778, align 8
-  %3780 = load ptr, ptr %22, align 8
-  %3781 = call ptr @g_list_prepend(ptr noundef %3779, ptr noundef %3780)
-  %3782 = load ptr, ptr %16, align 8
-  %3783 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3782, i32 0, i32 67
-  store ptr %3781, ptr %3783, align 8
-  br label %3799
+3769:                                             ; preds = %3768, %3736
+  %3770 = load i32, ptr %24, align 4
+  %3771 = icmp eq i32 %3770, 1
+  br i1 %3771, label %3772, label %3802
 
-3784:                                             ; preds = %3770
-  %3785 = load ptr, ptr %16, align 8
-  %3786 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3785, i32 0, i32 45
-  %3787 = load i16, ptr %3786, align 8
-  %3788 = zext i16 %3787 to i32
-  %3789 = icmp eq i32 %3788, 2
-  br i1 %3789, label %3790, label %3798
+3772:                                             ; preds = %3769
+  %3773 = load ptr, ptr %16, align 8
+  %3774 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3773, i32 0, i32 45
+  %3775 = load i16, ptr %3774, align 8
+  %3776 = zext i16 %3775 to i32
+  %3777 = icmp eq i32 %3776, 1
+  br i1 %3777, label %3778, label %3786
 
-3790:                                             ; preds = %3784
-  %3791 = load ptr, ptr %16, align 8
-  %3792 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3791, i32 0, i32 63
-  %3793 = load ptr, ptr %3792, align 8
-  %3794 = load ptr, ptr %22, align 8
-  %3795 = call ptr @g_list_prepend(ptr noundef %3793, ptr noundef %3794)
-  %3796 = load ptr, ptr %16, align 8
-  %3797 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3796, i32 0, i32 63
-  store ptr %3795, ptr %3797, align 8
-  br label %3798
+3778:                                             ; preds = %3772
+  %3779 = load ptr, ptr %16, align 8
+  %3780 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3779, i32 0, i32 67
+  %3781 = load ptr, ptr %3780, align 8
+  %3782 = load ptr, ptr %22, align 8
+  %3783 = call ptr @g_list_prepend(ptr noundef %3781, ptr noundef %3782)
+  %3784 = load ptr, ptr %16, align 8
+  %3785 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3784, i32 0, i32 67
+  store ptr %3783, ptr %3785, align 8
+  br label %3801
 
-3798:                                             ; preds = %3790, %3784
-  br label %3799
+3786:                                             ; preds = %3772
+  %3787 = load ptr, ptr %16, align 8
+  %3788 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3787, i32 0, i32 45
+  %3789 = load i16, ptr %3788, align 8
+  %3790 = zext i16 %3789 to i32
+  %3791 = icmp eq i32 %3790, 2
+  br i1 %3791, label %3792, label %3800
 
-3799:                                             ; preds = %3798, %3776
-  store i32 1, ptr %31, align 4
+3792:                                             ; preds = %3786
+  %3793 = load ptr, ptr %16, align 8
+  %3794 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3793, i32 0, i32 63
+  %3795 = load ptr, ptr %3794, align 8
+  %3796 = load ptr, ptr %22, align 8
+  %3797 = call ptr @g_list_prepend(ptr noundef %3795, ptr noundef %3796)
+  %3798 = load ptr, ptr %16, align 8
+  %3799 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3798, i32 0, i32 63
+  store ptr %3797, ptr %3799, align 8
   br label %3800
 
-3800:                                             ; preds = %3799, %3767
-  %3801 = load ptr, ptr %11, align 8
-  %3802 = getelementptr inbounds %struct._sctp_info, ptr %3801, i32 0, i32 14
-  %3803 = load i32, ptr %3802, align 8
-  %3804 = load ptr, ptr %16, align 8
-  %3805 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3804, i32 0, i32 8
-  %3806 = load i32, ptr %3805, align 8
-  %3807 = add i32 %3806, %3803
-  store i32 %3807, ptr %3805, align 8
-  %3808 = load ptr, ptr %11, align 8
-  %3809 = getelementptr inbounds %struct._sctp_info, ptr %3808, i32 0, i32 14
-  %3810 = load i32, ptr %3809, align 8
-  %3811 = load i32, ptr @sctp_tapinfo_struct, align 8
-  %3812 = add i32 %3811, %3810
-  store i32 %3812, ptr @sctp_tapinfo_struct, align 8
-  %3813 = load ptr, ptr %11, align 8
-  %3814 = load ptr, ptr %16, align 8
-  %3815 = call ptr @calc_checksum(ptr noundef %3813, ptr noundef %3814)
-  store ptr %3815, ptr %16, align 8
+3800:                                             ; preds = %3792, %3786
+  br label %3801
+
+3801:                                             ; preds = %3800, %3778
+  store i32 1, ptr %31, align 4
+  br label %3802
+
+3802:                                             ; preds = %3801, %3769
+  %3803 = load ptr, ptr %11, align 8
+  %3804 = getelementptr inbounds %struct._sctp_info, ptr %3803, i32 0, i32 14
+  %3805 = load i32, ptr %3804, align 8
+  %3806 = load ptr, ptr %16, align 8
+  %3807 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3806, i32 0, i32 8
+  %3808 = load i32, ptr %3807, align 8
+  %3809 = add i32 %3808, %3805
+  store i32 %3809, ptr %3807, align 8
+  %3810 = load ptr, ptr %11, align 8
+  %3811 = getelementptr inbounds %struct._sctp_info, ptr %3810, i32 0, i32 14
+  %3812 = load i32, ptr %3811, align 8
+  %3813 = load i32, ptr @sctp_tapinfo_struct, align 8
+  %3814 = add i32 %3813, %3812
+  store i32 %3814, ptr @sctp_tapinfo_struct, align 8
+  %3815 = load ptr, ptr %11, align 8
   %3816 = load ptr, ptr %16, align 8
-  %3817 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3816, i32 0, i32 30
-  %3818 = load i32, ptr %3817, align 8
-  %3819 = add i32 %3818, 1
-  store i32 %3819, ptr %3817, align 8
-  br label %3820
+  %3817 = call ptr @calc_checksum(ptr noundef %3815, ptr noundef %3816)
+  store ptr %3817, ptr %16, align 8
+  %3818 = load ptr, ptr %16, align 8
+  %3819 = getelementptr inbounds %struct._sctp_assoc_info, ptr %3818, i32 0, i32 30
+  %3820 = load i32, ptr %3819, align 8
+  %3821 = add i32 %3820, 1
+  store i32 %3821, ptr %3819, align 8
+  br label %3822
 
-3820:                                             ; preds = %3800, %1700
-  %3821 = load ptr, ptr %21, align 8
-  %3822 = icmp ne ptr %3821, null
-  br i1 %3822, label %3823, label %3828
+3822:                                             ; preds = %3802, %1702
+  %3823 = load ptr, ptr %21, align 8
+  %3824 = icmp ne ptr %3823, null
+  br i1 %3824, label %3825, label %3830
 
-3823:                                             ; preds = %3820
-  %3824 = load i32, ptr %30, align 4
-  %3825 = icmp ne i32 %3824, 0
-  br i1 %3825, label %3828, label %3826
+3825:                                             ; preds = %3822
+  %3826 = load i32, ptr %30, align 4
+  %3827 = icmp ne i32 %3826, 0
+  br i1 %3827, label %3830, label %3828
 
-3826:                                             ; preds = %3823
-  %3827 = load ptr, ptr %21, align 8
-  call void @tsn_free(ptr noundef %3827)
-  br label %3828
+3828:                                             ; preds = %3825
+  %3829 = load ptr, ptr %21, align 8
+  call void @tsn_free(ptr noundef %3829)
+  br label %3830
 
-3828:                                             ; preds = %3826, %3823, %3820
-  %3829 = load ptr, ptr %22, align 8
-  %3830 = icmp ne ptr %3829, null
-  br i1 %3830, label %3831, label %3836
+3830:                                             ; preds = %3828, %3825, %3822
+  %3831 = load ptr, ptr %22, align 8
+  %3832 = icmp ne ptr %3831, null
+  br i1 %3832, label %3833, label %3838
 
-3831:                                             ; preds = %3828
-  %3832 = load i32, ptr %31, align 4
-  %3833 = icmp ne i32 %3832, 0
-  br i1 %3833, label %3836, label %3834
+3833:                                             ; preds = %3830
+  %3834 = load i32, ptr %31, align 4
+  %3835 = icmp ne i32 %3834, 0
+  br i1 %3835, label %3838, label %3836
 
-3834:                                             ; preds = %3831
-  %3835 = load ptr, ptr %22, align 8
-  call void @tsn_free(ptr noundef %3835)
-  br label %3836
+3836:                                             ; preds = %3833
+  %3837 = load ptr, ptr %22, align 8
+  call void @tsn_free(ptr noundef %3837)
+  br label %3838
 
-3836:                                             ; preds = %3834, %3831, %3828
-  %3837 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 2
-  call void @free_address(ptr noundef %3837)
-  %3838 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 3
-  call void @free_address(ptr noundef %3838)
+3838:                                             ; preds = %3836, %3833, %3830
+  %3839 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 2
+  call void @free_address(ptr noundef %3839)
+  %3840 = getelementptr inbounds %struct._sctp_tmp_info, ptr %15, i32 0, i32 3
+  call void @free_address(ptr noundef %3840)
   ret i32 1
 }
 

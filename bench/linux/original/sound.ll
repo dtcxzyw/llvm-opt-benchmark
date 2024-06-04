@@ -158,114 +158,115 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_register_device(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 align 16 {
   %7 = icmp eq ptr %5, null
-  br i1 %7, label %60, label %8
+  br i1 %7, label %61, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %10 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 48) #6
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %60, label %12
+  %9 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %10 = load ptr, ptr %9, align 16
+  %11 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3264, i64 noundef 48) #6
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %61, label %13
 
-12:                                               ; preds = %8
-  store i32 %0, ptr %10, align 8
-  %13 = icmp eq ptr %1, null
-  br i1 %13, label %16, label %14
+13:                                               ; preds = %8
+  store i32 %0, ptr %11, align 8
+  %14 = icmp eq ptr %1, null
+  br i1 %14, label %17, label %15
 
-14:                                               ; preds = %12
-  %15 = load i32, ptr %1, align 8
-  br label %16
+15:                                               ; preds = %13
+  %16 = load i32, ptr %1, align 8
+  br label %17
 
-16:                                               ; preds = %14, %12
-  %17 = phi i32 [ %15, %14 ], [ -1, %12 ]
-  %18 = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %10, i64 8
-  store i32 %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %3, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %4, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 40
-  store ptr %1, ptr %22, align 8
+17:                                               ; preds = %15, %13
+  %18 = phi i32 [ %16, %15 ], [ -1, %13 ]
+  %19 = getelementptr inbounds i8, ptr %11, i64 4
+  store i32 %18, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %11, i64 8
+  store i32 %2, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %3, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %11, i64 24
+  store ptr %4, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %11, i64 40
+  store ptr %1, ptr %23, align 8
   tail call void @mutex_lock(ptr noundef nonnull @sound_mutex) #5
-  switch i32 %0, label %42 [
-    i32 1, label %33
-    i32 33, label %33
-    i32 0, label %23
-    i32 4, label %27
-    i32 8, label %27
-    i32 16, label %27
-    i32 24, label %27
-    i32 2, label %27
+  switch i32 %0, label %43 [
+    i32 1, label %34
+    i32 33, label %34
+    i32 0, label %24
+    i32 4, label %28
+    i32 8, label %28
+    i32 16, label %28
+    i32 24, label %28
+    i32 2, label %28
   ]
 
-23:                                               ; preds = %16
-  br i1 %13, label %42, label %24
+24:                                               ; preds = %17
+  br i1 %14, label %43, label %25
 
-24:                                               ; preds = %23
-  %25 = load i32, ptr %1, align 8
-  %26 = shl i32 %25, 5
-  br label %33
+25:                                               ; preds = %24
+  %26 = load i32, ptr %1, align 8
+  %27 = shl i32 %26, 5
+  br label %34
 
-27:                                               ; preds = %16, %16, %16, %16, %16
-  br i1 %13, label %42, label %28
+28:                                               ; preds = %17, %17, %17, %17, %17
+  br i1 %14, label %43, label %29
 
-28:                                               ; preds = %27
-  %29 = load i32, ptr %1, align 8
-  %30 = shl i32 %29, 5
-  %31 = add i32 %2, %0
-  %32 = or i32 %30, %31
-  br label %33
+29:                                               ; preds = %28
+  %30 = load i32, ptr %1, align 8
+  %31 = shl i32 %30, 5
+  %32 = add i32 %2, %0
+  %33 = or i32 %31, %32
+  br label %34
 
-33:                                               ; preds = %28, %24, %16, %16
-  %34 = phi i32 [ %32, %28 ], [ %26, %24 ], [ %0, %16 ], [ %0, %16 ]
-  %35 = icmp ugt i32 %34, 255
-  br i1 %35, label %42, label %36
+34:                                               ; preds = %29, %25, %17, %17
+  %35 = phi i32 [ %33, %29 ], [ %27, %25 ], [ %0, %17 ], [ %0, %17 ]
+  %36 = icmp ugt i32 %35, 255
+  br i1 %36, label %43, label %37
 
-36:                                               ; preds = %33
-  %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr [256 x ptr], ptr @snd_minors, i64 0, i64 %37
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, null
-  %41 = select i1 %40, i32 %34, i32 -16
-  br label %42
+37:                                               ; preds = %34
+  %38 = zext nneg i32 %35 to i64
+  %39 = getelementptr [256 x ptr], ptr @snd_minors, i64 0, i64 %38
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, null
+  %42 = select i1 %41, i32 %35, i32 -16
+  br label %43
 
-42:                                               ; preds = %36, %33, %27, %23, %16
-  %43 = phi i32 [ -22, %23 ], [ -22, %27 ], [ -22, %16 ], [ -22, %33 ], [ %41, %36 ]
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %56, label %45
+43:                                               ; preds = %37, %34, %28, %24, %17
+  %44 = phi i32 [ -22, %24 ], [ -22, %28 ], [ -22, %17 ], [ -22, %34 ], [ %42, %37 ]
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %57, label %46
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr %5, ptr %46, align 8
-  %47 = load i32, ptr @major, align 4
-  %48 = shl i32 %47, 20
-  %49 = or i32 %48, %43
-  %50 = getelementptr inbounds i8, ptr %5, i64 644
-  store i32 %49, ptr %50, align 4
-  %51 = tail call i32 @device_add(ptr noundef nonnull %5) #5
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %56, label %53
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %11, i64 32
+  store ptr %5, ptr %47, align 8
+  %48 = load i32, ptr @major, align 4
+  %49 = shl i32 %48, 20
+  %50 = or i32 %49, %44
+  %51 = getelementptr inbounds i8, ptr %5, i64 644
+  store i32 %50, ptr %51, align 4
+  %52 = tail call i32 @device_add(ptr noundef nonnull %5) #5
+  %53 = icmp slt i32 %52, 0
+  br i1 %53, label %57, label %54
 
-53:                                               ; preds = %45
-  %54 = zext nneg i32 %43 to i64
-  %55 = getelementptr [256 x ptr], ptr @snd_minors, i64 0, i64 %54
-  store ptr %10, ptr %55, align 8
-  br label %56
+54:                                               ; preds = %46
+  %55 = zext nneg i32 %44 to i64
+  %56 = getelementptr [256 x ptr], ptr @snd_minors, i64 0, i64 %55
+  store ptr %11, ptr %56, align 8
+  br label %57
 
-56:                                               ; preds = %53, %45, %42
-  %57 = phi i32 [ %51, %45 ], [ %51, %53 ], [ %43, %42 ]
+57:                                               ; preds = %54, %46, %43
+  %58 = phi i32 [ %52, %46 ], [ %52, %54 ], [ %44, %43 ]
   tail call void @mutex_unlock(ptr noundef nonnull @sound_mutex) #5
-  %58 = icmp slt i32 %57, 0
-  br i1 %58, label %59, label %60
+  %59 = icmp slt i32 %58, 0
+  br i1 %59, label %60, label %61
 
-59:                                               ; preds = %56
-  tail call void @kfree(ptr noundef nonnull %10) #5
-  br label %60
+60:                                               ; preds = %57
+  tail call void @kfree(ptr noundef nonnull %11) #5
+  br label %61
 
-60:                                               ; preds = %59, %56, %8, %6
-  %61 = phi i32 [ -22, %6 ], [ -12, %8 ], [ %57, %59 ], [ %57, %56 ]
-  ret i32 %61
+61:                                               ; preds = %60, %57, %8, %6
+  %62 = phi i32 [ -22, %6 ], [ -12, %8 ], [ %58, %60 ], [ %58, %57 ]
+  ret i32 %62
 }
 
 ; Function Attrs: null_pointer_is_valid

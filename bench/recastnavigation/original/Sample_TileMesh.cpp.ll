@@ -249,98 +249,99 @@ define dso_local void @_ZN15Sample_TileMeshC2Ev(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_TileMesh, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 1
-  store i8 0, ptr %6, align 8
-  %7 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 2
-  store i8 1, ptr %7, align 1
-  %8 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 4
-  store float 0.000000e+00, ptr %8, align 4
-  %9 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 5
-  store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 6
+  %6 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTV15Sample_TileMesh, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 1
+  store i8 0, ptr %7, align 8
+  %8 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 2
+  store i8 1, ptr %8, align 1
+  %9 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 4
+  store float 0.000000e+00, ptr %9, align 4
+  %10 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 5
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 7
+  %11 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 6
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 8
+  %12 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 7
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 9
+  %13 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 8
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 10
+  %14 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 9
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 12
-  store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 13
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 14
-  store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 15
-  store float 3.200000e+01, ptr %18, align 8
-  %19 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 16
-  %20 = invoke noundef i32 @_Z6duRGBAiiii(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 32)
-          to label %21 unwind label %34
+  %15 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 10
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 12
+  store i32 0, ptr %16, align 4
+  %17 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 13
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 14
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 15
+  store float 3.200000e+01, ptr %19, align 8
+  %20 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 16
+  %21 = invoke noundef i32 @_Z6duRGBAiiii(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 32)
+          to label %22 unwind label %35
 
-21:                                               ; preds = %1
-  store i32 %20, ptr %19, align 4
-  %22 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 19
-  store float 0.000000e+00, ptr %22, align 8
-  %23 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 20
-  store float 0.000000e+00, ptr %23, align 4
-  %24 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 21
-  store i32 0, ptr %24, align 8
+22:                                               ; preds = %1
+  store i32 %21, ptr %20, align 4
+  %23 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 19
+  store float 0.000000e+00, ptr %23, align 8
+  %24 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 20
+  store float 0.000000e+00, ptr %24, align 4
+  %25 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 21
+  store i32 0, ptr %25, align 8
   invoke void @_ZN6Sample19resetCommonSettingsEv(ptr noundef nonnull align 8 dereferenceable(200) %5)
-          to label %25 unwind label %34
+          to label %26 unwind label %35
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 17
-  %27 = getelementptr inbounds [3 x float], ptr %26, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 8 %27, i8 0, i64 12, i1 false)
-  %28 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 18
-  %29 = getelementptr inbounds [3 x float], ptr %28, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 4 %29, i8 0, i64 12, i1 false)
-  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #11
-          to label %31 unwind label %34
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 17
+  %28 = getelementptr inbounds [3 x float], ptr %27, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %28, i8 0, i64 12, i1 false)
+  %29 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 18
+  %30 = getelementptr inbounds [3 x float], ptr %29, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 12, i1 false)
+  %31 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #11
+          to label %32 unwind label %35
 
-31:                                               ; preds = %25
-  invoke void @_ZN15NavMeshTileToolC2Ev(ptr noundef nonnull align 8 dereferenceable(29) %30)
-          to label %32 unwind label %38
-
-32:                                               ; preds = %31
-  invoke void @_ZN6Sample7setToolEP10SampleTool(ptr noundef nonnull align 8 dereferenceable(200) %5, ptr noundef %30)
-          to label %33 unwind label %34
+32:                                               ; preds = %26
+  invoke void @_ZN15NavMeshTileToolC2Ev(ptr noundef nonnull align 8 dereferenceable(29) %31)
+          to label %33 unwind label %39
 
 33:                                               ; preds = %32
+  invoke void @_ZN6Sample7setToolEP10SampleTool(ptr noundef nonnull align 8 dereferenceable(200) %5, ptr noundef %31)
+          to label %34 unwind label %35
+
+34:                                               ; preds = %33
   ret void
 
-34:                                               ; preds = %32, %25, %21, %1
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %33, %26, %22, %1
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %3, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %4, align 4
-  br label %42
-
-38:                                               ; preds = %31
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %3, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %4, align 4
-  call void @_ZdlPv(ptr noundef %30) #10
-  br label %42
-
-42:                                               ; preds = %38, %34
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5) #9
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %3, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %4, align 4
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %3, align 8
-  %45 = load i32, ptr %4, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+39:                                               ; preds = %32
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %3, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %31) #10
+  br label %43
+
+43:                                               ; preds = %39, %35
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5) #9
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %3, align 8
+  %46 = load i32, ptr %4, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 declare void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #4
@@ -386,20 +387,21 @@ define linkonce_odr dso_local void @_ZN15NavMeshTileToolC2Ev(ptr noundef nonnull
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10SampleToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15NavMeshTileTool, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.NavMeshTileTool, ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %class.NavMeshTileTool, ptr %3, i32 0, i32 3
-  store i8 0, ptr %5, align 4
-  %6 = getelementptr inbounds %class.NavMeshTileTool, ptr %3, i32 0, i32 2
-  %7 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 2
-  store float 0.000000e+00, ptr %7, align 8
-  %8 = getelementptr inbounds %class.NavMeshTileTool, ptr %3, i32 0, i32 2
-  %9 = getelementptr inbounds [3 x float], ptr %8, i64 0, i64 1
-  store float 0.000000e+00, ptr %9, align 4
-  %10 = getelementptr inbounds %class.NavMeshTileTool, ptr %3, i32 0, i32 2
-  %11 = getelementptr inbounds [3 x float], ptr %10, i64 0, i64 0
-  store float 0.000000e+00, ptr %11, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV15NavMeshTileTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.NavMeshTileTool, ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %class.NavMeshTileTool, ptr %3, i32 0, i32 3
+  store i8 0, ptr %6, align 4
+  %7 = getelementptr inbounds %class.NavMeshTileTool, ptr %3, i32 0, i32 2
+  %8 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 2
+  store float 0.000000e+00, ptr %8, align 8
+  %9 = getelementptr inbounds %class.NavMeshTileTool, ptr %3, i32 0, i32 2
+  %10 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 1
+  store float 0.000000e+00, ptr %10, align 4
+  %11 = getelementptr inbounds %class.NavMeshTileTool, ptr %3, i32 0, i32 2
+  %12 = getelementptr inbounds [3 x float], ptr %11, i64 0, i64 0
+  store float 0.000000e+00, ptr %12, align 8
   ret void
 }
 
@@ -411,27 +413,28 @@ define dso_local void @_ZN15Sample_TileMeshD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_TileMesh, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTV15Sample_TileMesh, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN15Sample_TileMesh7cleanupEv(ptr noundef nonnull align 8 dereferenceable(404) %3)
-          to label %4 unwind label %9
+          to label %5 unwind label %10
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %class.Sample, ptr %3, i32 0, i32 2
-  %6 = load ptr, ptr %5, align 8
-  invoke void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef %6)
-          to label %7 unwind label %9
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %class.Sample, ptr %3, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8
+  invoke void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef %7)
+          to label %8 unwind label %10
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds %class.Sample, ptr %3, i32 0, i32 2
-  store ptr null, ptr %8, align 8
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds %class.Sample, ptr %3, i32 0, i32 2
+  store ptr null, ptr %9, align 8
   call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %3) #9
   ret void
 
-9:                                                ; preds = %4, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %5, %1
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #12
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #12
   unreachable
 }
 
@@ -5506,7 +5509,8 @@ define linkonce_odr dso_local void @_ZN10SampleToolC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

@@ -228,83 +228,84 @@ declare dso_local void @logfc(ptr noundef, ptr noundef, i8 noundef zeroext, ptr 
 define dso_local i32 @fs_lookup_param(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4) #1 align 16 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
-  switch i8 %7, label %19 [
+  switch i8 %7, label %20 [
     i8 2, label %8
-    i8 4, label %16
+    i8 4, label %17
   ]
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @getname_kernel(ptr noundef %10) #6
-  %12 = icmp ugt ptr %11, inttoptr (i64 -4096 to ptr)
-  br i1 %12, label %13, label %23
+  %12 = inttoptr i64 -4096 to ptr
+  %13 = icmp ugt ptr %11, %12
+  br i1 %13, label %14, label %24
 
-13:                                               ; preds = %8
-  %14 = ptrtoint ptr %11 to i64
-  %15 = trunc i64 %14 to i32
-  br label %50
+14:                                               ; preds = %8
+  %15 = ptrtoint ptr %11 to i64
+  %16 = trunc i64 %15 to i32
+  br label %51
 
-16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
-  %18 = load ptr, ptr %17, align 8
-  br label %23
+17:                                               ; preds = %5
+  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = load ptr, ptr %18, align 8
+  br label %24
 
-19:                                               ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %1, align 8
-  tail call void (ptr, ptr, i8, ptr, ...) @logfc(ptr noundef %21, ptr noundef null, i8 noundef zeroext 101, ptr noundef nonnull @.str.2, ptr noundef %22) #6
-  br label %50
+20:                                               ; preds = %5
+  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %1, align 8
+  tail call void (ptr, ptr, i8, ptr, ...) @logfc(ptr noundef %22, ptr noundef null, i8 noundef zeroext 101, ptr noundef nonnull @.str.2, ptr noundef %23) #6
+  br label %51
 
-23:                                               ; preds = %16, %8
-  %24 = phi ptr [ %18, %16 ], [ %11, %8 ]
-  %25 = phi i1 [ false, %16 ], [ true, %8 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
-  %27 = load i32, ptr %26, align 8
-  %28 = tail call i32 @filename_lookup(i32 noundef %27, ptr noundef %24, i32 noundef %3, ptr noundef %4, ptr noundef null) #6
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %40, label %30
+24:                                               ; preds = %17, %8
+  %25 = phi ptr [ %19, %17 ], [ %11, %8 ]
+  %26 = phi i1 [ false, %17 ], [ true, %8 ]
+  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = load i32, ptr %27, align 8
+  %29 = tail call i32 @filename_lookup(i32 noundef %28, ptr noundef %25, i32 noundef %3, ptr noundef %4, ptr noundef null) #6
+  %30 = icmp slt i32 %29, 0
+  br i1 %30, label %41, label %31
 
-30:                                               ; preds = %23
-  br i1 %2, label %31, label %47
+31:                                               ; preds = %24
+  br i1 %2, label %32, label %48
 
-31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 48
-  %35 = load ptr, ptr %34, align 8
-  %36 = load i16, ptr %35, align 8
-  %37 = and i16 %36, -4096
-  %38 = icmp eq i16 %37, 24576
-  br i1 %38, label %47, label %39
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 48
+  %36 = load ptr, ptr %35, align 8
+  %37 = load i16, ptr %36, align 8
+  %38 = and i16 %37, -4096
+  %39 = icmp eq i16 %38, 24576
+  br i1 %39, label %48, label %40
 
-39:                                               ; preds = %31
+40:                                               ; preds = %32
   tail call void @path_put(ptr noundef %4) #6
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  br label %40
+  br label %41
 
-40:                                               ; preds = %39, %23
-  %41 = phi ptr [ @.str.4, %39 ], [ @.str.3, %23 ]
-  %42 = phi i32 [ -15, %39 ], [ %28, %23 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 104
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %1, align 8
-  %46 = load ptr, ptr %24, align 8
-  tail call void (ptr, ptr, i8, ptr, ...) @logfc(ptr noundef %44, ptr noundef null, i8 noundef zeroext 101, ptr noundef nonnull %41, ptr noundef %45, ptr noundef %46) #6
-  br label %47
+41:                                               ; preds = %40, %24
+  %42 = phi ptr [ @.str.4, %40 ], [ @.str.3, %24 ]
+  %43 = phi i32 [ -15, %40 ], [ %29, %24 ]
+  %44 = getelementptr inbounds i8, ptr %0, i64 104
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %1, align 8
+  %47 = load ptr, ptr %25, align 8
+  tail call void (ptr, ptr, i8, ptr, ...) @logfc(ptr noundef %45, ptr noundef null, i8 noundef zeroext 101, ptr noundef nonnull %42, ptr noundef %46, ptr noundef %47) #6
+  br label %48
 
-47:                                               ; preds = %40, %31, %30
-  %48 = phi i32 [ %28, %31 ], [ %28, %30 ], [ %42, %40 ]
-  br i1 %25, label %49, label %50
+48:                                               ; preds = %41, %32, %31
+  %49 = phi i32 [ %29, %32 ], [ %29, %31 ], [ %43, %41 ]
+  br i1 %26, label %50, label %51
 
-49:                                               ; preds = %47
-  tail call void @putname(ptr noundef %24) #6
-  br label %50
+50:                                               ; preds = %48
+  tail call void @putname(ptr noundef %25) #6
+  br label %51
 
-50:                                               ; preds = %49, %47, %19, %13
-  %51 = phi i32 [ -22, %19 ], [ %15, %13 ], [ %48, %49 ], [ %48, %47 ]
-  ret i32 %51
+51:                                               ; preds = %50, %48, %20, %14
+  %52 = phi i32 [ -22, %20 ], [ %16, %14 ], [ %49, %50 ], [ %49, %48 ]
+  ret i32 %52
 }
 
 ; Function Attrs: null_pointer_is_valid

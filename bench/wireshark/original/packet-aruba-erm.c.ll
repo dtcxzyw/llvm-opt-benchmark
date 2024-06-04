@@ -320,10 +320,11 @@ define internal i32 @dissect_aruba_erm_type1(ptr noundef %0, ptr noundef %1, ptr
   %15 = load ptr, ptr %5, align 8
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %7, align 8
-  %18 = call i32 @call_dissector_with_data(ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef inttoptr (i64 1 to ptr))
-  %19 = load ptr, ptr %5, align 8
-  %20 = call i32 @tvb_captured_length(ptr noundef %19)
-  ret i32 %20
+  %18 = inttoptr i64 1 to ptr
+  %19 = call i32 @call_dissector_with_data(ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18)
+  %20 = load ptr, ptr %5, align 8
+  %21 = call i32 @tvb_captured_length(ptr noundef %20)
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -691,10 +692,11 @@ define internal i32 @dissect_aruba_erm_type5(ptr noundef %0, ptr noundef %1, ptr
   %15 = load ptr, ptr %5, align 8
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %7, align 8
-  %18 = call i32 @call_dissector_with_data(ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef inttoptr (i64 1 to ptr))
-  %19 = load ptr, ptr %5, align 8
-  %20 = call i32 @tvb_captured_length(ptr noundef %19)
-  ret i32 %20
+  %18 = inttoptr i64 1 to ptr
+  %19 = call i32 @call_dissector_with_data(ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18)
+  %20 = load ptr, ptr %5, align 8
+  %21 = call i32 @tvb_captured_length(ptr noundef %20)
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable

@@ -187,13 +187,14 @@ entry:
   store float %height, ptr %height.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV11btConeShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV11btConeShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_radius = getelementptr inbounds %class.btConeShape, ptr %this1, i32 0, i32 2
-  %0 = load float, ptr %radius.addr, align 4
-  store float %0, ptr %m_radius, align 4
+  %1 = load float, ptr %radius.addr, align 4
+  store float %1, ptr %m_radius, align 4
   %m_height = getelementptr inbounds %class.btConeShape, ptr %this1, i32 0, i32 3
-  %1 = load float, ptr %height.addr, align 4
-  store float %1, ptr %m_height, align 8
+  %2 = load float, ptr %height.addr, align 4
+  store float %2, ptr %m_height, align 8
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 11, ptr %m_shapeType, align 8
   invoke void @_ZN11btConeShape14setConeUpIndexEi(ptr noundef nonnull align 8 dereferenceable(96) %this1, i32 noundef 1)
@@ -205,33 +206,33 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_radius3 = getelementptr inbounds %class.btConeShape, ptr %this1, i32 0, i32 2
-  %2 = load float, ptr %m_radius3, align 4
+  %3 = load float, ptr %m_radius3, align 4
   %m_radius4 = getelementptr inbounds %class.btConeShape, ptr %this1, i32 0, i32 2
-  %3 = load float, ptr %m_radius4, align 4
+  %4 = load float, ptr %m_radius4, align 4
   %m_radius5 = getelementptr inbounds %class.btConeShape, ptr %this1, i32 0, i32 2
-  %4 = load float, ptr %m_radius5, align 4
+  %5 = load float, ptr %m_radius5, align 4
   %m_height6 = getelementptr inbounds %class.btConeShape, ptr %this1, i32 0, i32 3
-  %5 = load float, ptr %m_height6, align 8
+  %6 = load float, ptr %m_height6, align 8
   %m_height7 = getelementptr inbounds %class.btConeShape, ptr %this1, i32 0, i32 3
-  %6 = load float, ptr %m_height7, align 8
-  %mul8 = fmul float %5, %6
-  %7 = call float @llvm.fmuladd.f32(float %3, float %4, float %mul8)
-  %call = invoke noundef float @_Z6btSqrtf(float noundef %7)
+  %7 = load float, ptr %m_height7, align 8
+  %mul8 = fmul float %6, %7
+  %8 = call float @llvm.fmuladd.f32(float %4, float %5, float %mul8)
+  %call = invoke noundef float @_Z6btSqrtf(float noundef %8)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont2
-  %div = fdiv float %2, %call
+  %div = fdiv float %3, %call
   %m_sinAngle = getelementptr inbounds %class.btConeShape, ptr %this1, i32 0, i32 1
   store float %div, ptr %m_sinAngle, align 8
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN21btConvexInternalShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #9
   br label %eh.resume
 
@@ -381,7 +382,8 @@ entry:
   %0 = load float, ptr %radius.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN11btConeShapeC2Eff(ptr noundef nonnull align 8 dereferenceable(96) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12btConeShapeZ, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV12btConeShapeZ, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   invoke void @_ZN11btConeShape14setConeUpIndexEi(ptr noundef nonnull align 8 dereferenceable(96) %this1, i32 noundef 2)
           to label %invoke.cont unwind label %lpad
 
@@ -389,12 +391,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN11btConeShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #9
   br label %eh.resume
 
@@ -421,7 +423,8 @@ entry:
   %0 = load float, ptr %radius.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN11btConeShapeC2Eff(ptr noundef nonnull align 8 dereferenceable(96) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12btConeShapeX, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV12btConeShapeX, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   invoke void @_ZN11btConeShape14setConeUpIndexEi(ptr noundef nonnull align 8 dereferenceable(96) %this1, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 
@@ -429,12 +432,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN11btConeShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #9
   br label %eh.resume
 

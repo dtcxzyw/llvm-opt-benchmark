@@ -53,7 +53,7 @@ define internal i32 @patcher_open() #0 {
 
 5:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %72
+  br label %79
 
 6:                                                ; preds = %0
   store i32 1, ptr @patcher_open.was_executed_already, align 4
@@ -66,114 +66,121 @@ define internal i32 @patcher_open() #0 {
 10:                                               ; preds = %6
   %11 = call i32 @mca_base_framework_close(ptr noundef @opal_patcher_base_framework)
   store i32 -16, ptr %1, align 4
-  br label %72
+  br label %79
 
 12:                                               ; preds = %6
   call void @opal_mem_hooks_set_support(i32 noundef 3)
   %13 = load ptr, ptr @opal_patcher, align 8
   %14 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %13, i32 0, i32 5
   %15 = load ptr, ptr %14, align 8
-  %16 = call i32 %15(ptr noundef @.str.2, i64 noundef ptrtoint (ptr @intercept_mmap to i64), ptr noundef @original_mmap)
-  store i32 %16, ptr %2, align 4
-  %17 = load i32, ptr %2, align 4
-  %18 = icmp ne i32 0, %17
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %12
-  br label %69
+  %16 = ptrtoint ptr @intercept_mmap to i64
+  %17 = call i32 %15(ptr noundef @.str.2, i64 noundef %16, ptr noundef @original_mmap)
+  store i32 %17, ptr %2, align 4
+  %18 = load i32, ptr %2, align 4
+  %19 = icmp ne i32 0, %18
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %12
-  %21 = load ptr, ptr @opal_patcher, align 8
-  %22 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %21, i32 0, i32 5
-  %23 = load ptr, ptr %22, align 8
-  %24 = call i32 %23(ptr noundef @.str.3, i64 noundef ptrtoint (ptr @intercept_munmap to i64), ptr noundef @original_munmap)
-  store i32 %24, ptr %2, align 4
-  %25 = load i32, ptr %2, align 4
-  %26 = icmp ne i32 0, %25
-  br i1 %26, label %27, label %28
+  br label %76
 
-27:                                               ; preds = %20
-  br label %69
+21:                                               ; preds = %12
+  %22 = load ptr, ptr @opal_patcher, align 8
+  %23 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %22, i32 0, i32 5
+  %24 = load ptr, ptr %23, align 8
+  %25 = ptrtoint ptr @intercept_munmap to i64
+  %26 = call i32 %24(ptr noundef @.str.3, i64 noundef %25, ptr noundef @original_munmap)
+  store i32 %26, ptr %2, align 4
+  %27 = load i32, ptr %2, align 4
+  %28 = icmp ne i32 0, %27
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr @opal_patcher, align 8
-  %30 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %29, i32 0, i32 5
-  %31 = load ptr, ptr %30, align 8
-  %32 = call i32 %31(ptr noundef @.str.4, i64 noundef ptrtoint (ptr @intercept_mremap to i64), ptr noundef @original_mremap)
-  store i32 %32, ptr %2, align 4
-  %33 = load i32, ptr %2, align 4
-  %34 = icmp ne i32 0, %33
-  br i1 %34, label %35, label %36
+29:                                               ; preds = %21
+  br label %76
 
-35:                                               ; preds = %28
-  br label %69
+30:                                               ; preds = %21
+  %31 = load ptr, ptr @opal_patcher, align 8
+  %32 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %31, i32 0, i32 5
+  %33 = load ptr, ptr %32, align 8
+  %34 = ptrtoint ptr @intercept_mremap to i64
+  %35 = call i32 %33(ptr noundef @.str.4, i64 noundef %34, ptr noundef @original_mremap)
+  store i32 %35, ptr %2, align 4
+  %36 = load i32, ptr %2, align 4
+  %37 = icmp ne i32 0, %36
+  br i1 %37, label %38, label %39
 
-36:                                               ; preds = %28
-  %37 = load ptr, ptr @opal_patcher, align 8
-  %38 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %37, i32 0, i32 5
-  %39 = load ptr, ptr %38, align 8
-  %40 = call i32 %39(ptr noundef @.str.5, i64 noundef ptrtoint (ptr @intercept_madvise to i64), ptr noundef @original_madvise)
-  store i32 %40, ptr %2, align 4
-  %41 = load i32, ptr %2, align 4
-  %42 = icmp ne i32 0, %41
-  br i1 %42, label %43, label %44
+38:                                               ; preds = %30
+  br label %76
 
-43:                                               ; preds = %36
-  br label %69
+39:                                               ; preds = %30
+  %40 = load ptr, ptr @opal_patcher, align 8
+  %41 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %40, i32 0, i32 5
+  %42 = load ptr, ptr %41, align 8
+  %43 = ptrtoint ptr @intercept_madvise to i64
+  %44 = call i32 %42(ptr noundef @.str.5, i64 noundef %43, ptr noundef @original_madvise)
+  store i32 %44, ptr %2, align 4
+  %45 = load i32, ptr %2, align 4
+  %46 = icmp ne i32 0, %45
+  br i1 %46, label %47, label %48
 
-44:                                               ; preds = %36
-  %45 = load ptr, ptr @opal_patcher, align 8
-  %46 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %45, i32 0, i32 5
-  %47 = load ptr, ptr %46, align 8
-  %48 = call i32 %47(ptr noundef @.str.6, i64 noundef ptrtoint (ptr @intercept_shmat to i64), ptr noundef @original_shmat)
-  store i32 %48, ptr %2, align 4
-  %49 = load i32, ptr %2, align 4
-  %50 = icmp ne i32 0, %49
-  br i1 %50, label %51, label %52
+47:                                               ; preds = %39
+  br label %76
 
-51:                                               ; preds = %44
-  br label %69
+48:                                               ; preds = %39
+  %49 = load ptr, ptr @opal_patcher, align 8
+  %50 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %49, i32 0, i32 5
+  %51 = load ptr, ptr %50, align 8
+  %52 = ptrtoint ptr @intercept_shmat to i64
+  %53 = call i32 %51(ptr noundef @.str.6, i64 noundef %52, ptr noundef @original_shmat)
+  store i32 %53, ptr %2, align 4
+  %54 = load i32, ptr %2, align 4
+  %55 = icmp ne i32 0, %54
+  br i1 %55, label %56, label %57
 
-52:                                               ; preds = %44
-  %53 = load ptr, ptr @opal_patcher, align 8
-  %54 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %53, i32 0, i32 5
-  %55 = load ptr, ptr %54, align 8
-  %56 = call i32 %55(ptr noundef @.str.7, i64 noundef ptrtoint (ptr @intercept_shmdt to i64), ptr noundef @original_shmdt)
-  store i32 %56, ptr %2, align 4
-  %57 = load i32, ptr %2, align 4
-  %58 = icmp ne i32 0, %57
-  br i1 %58, label %59, label %60
+56:                                               ; preds = %48
+  br label %76
 
-59:                                               ; preds = %52
-  br label %69
+57:                                               ; preds = %48
+  %58 = load ptr, ptr @opal_patcher, align 8
+  %59 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %58, i32 0, i32 5
+  %60 = load ptr, ptr %59, align 8
+  %61 = ptrtoint ptr @intercept_shmdt to i64
+  %62 = call i32 %60(ptr noundef @.str.7, i64 noundef %61, ptr noundef @original_shmdt)
+  store i32 %62, ptr %2, align 4
+  %63 = load i32, ptr %2, align 4
+  %64 = icmp ne i32 0, %63
+  br i1 %64, label %65, label %66
 
-60:                                               ; preds = %52
-  %61 = load ptr, ptr @opal_patcher, align 8
-  %62 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %61, i32 0, i32 5
-  %63 = load ptr, ptr %62, align 8
-  %64 = call i32 %63(ptr noundef @.str.8, i64 noundef ptrtoint (ptr @intercept_brk to i64), ptr noundef @original_brk)
-  store i32 %64, ptr %2, align 4
-  %65 = load i32, ptr %2, align 4
-  %66 = icmp ne i32 0, %65
-  br i1 %66, label %67, label %68
+65:                                               ; preds = %57
+  br label %76
 
-67:                                               ; preds = %60
-  br label %69
+66:                                               ; preds = %57
+  %67 = load ptr, ptr @opal_patcher, align 8
+  %68 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %67, i32 0, i32 5
+  %69 = load ptr, ptr %68, align 8
+  %70 = ptrtoint ptr @intercept_brk to i64
+  %71 = call i32 %69(ptr noundef @.str.8, i64 noundef %70, ptr noundef @original_brk)
+  store i32 %71, ptr %2, align 4
+  %72 = load i32, ptr %2, align 4
+  %73 = icmp ne i32 0, %72
+  br i1 %73, label %74, label %75
 
-68:                                               ; preds = %60
+74:                                               ; preds = %66
+  br label %76
+
+75:                                               ; preds = %66
   store i32 0, ptr %1, align 4
-  br label %72
+  br label %79
 
-69:                                               ; preds = %67, %59, %51, %43, %35, %27, %19
+76:                                               ; preds = %74, %65, %56, %47, %38, %29, %20
   store i32 0, ptr @patcher_open.was_executed_already, align 4
-  %70 = call i32 @opal_patcher_base_restore_all()
-  %71 = load i32, ptr %2, align 4
-  store i32 %71, ptr %1, align 4
-  br label %72
+  %77 = call i32 @opal_patcher_base_restore_all()
+  %78 = load i32, ptr %2, align 4
+  store i32 %78, ptr %1, align 4
+  br label %79
 
-72:                                               ; preds = %69, %68, %10, %5
-  %73 = load i32, ptr %1, align 4
-  ret i32 %73
+79:                                               ; preds = %76, %75, %10, %5
+  %80 = load i32, ptr %1, align 4
+  ret i32 %80
 }
 
 ; Function Attrs: nounwind uwtable
@@ -483,62 +490,64 @@ define internal ptr @_intercept_mremap(ptr noundef %0, i64 noundef %1, i64 nound
   store i64 %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store ptr %4, ptr %10, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %11, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = icmp ne ptr inttoptr (i64 -1 to ptr), %12
-  br i1 %13, label %14, label %20
+  %12 = inttoptr i64 -1 to ptr
+  store ptr %12, ptr %11, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = inttoptr i64 -1 to ptr
+  %15 = icmp ne ptr %14, %13
+  br i1 %15, label %16, label %22
 
-14:                                               ; preds = %5
-  %15 = load i64, ptr %7, align 8
-  %16 = icmp ugt i64 %15, 0
-  br i1 %16, label %17, label %20
+16:                                               ; preds = %5
+  %17 = load i64, ptr %7, align 8
+  %18 = icmp ugt i64 %17, 0
+  br i1 %18, label %19, label %22
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i64, ptr %7, align 8
-  call void @opal_mem_hooks_release_hook(ptr noundef %18, i64 noundef %19, i1 noundef zeroext true)
-  br label %20
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %6, align 8
+  %21 = load i64, ptr %7, align 8
+  call void @opal_mem_hooks_release_hook(ptr noundef %20, i64 noundef %21, i1 noundef zeroext true)
+  br label %22
 
-20:                                               ; preds = %17, %14, %5
-  %21 = load i32, ptr %9, align 4
-  %22 = and i32 %21, 2
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %25, label %24
+22:                                               ; preds = %19, %16, %5
+  %23 = load i32, ptr %9, align 4
+  %24 = and i32 %23, 2
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %27, label %26
 
-24:                                               ; preds = %20
+26:                                               ; preds = %22
   store ptr null, ptr %10, align 8
-  br label %25
+  br label %27
 
-25:                                               ; preds = %24, %20
-  %26 = load ptr, ptr @original_mremap, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %36, label %28
+27:                                               ; preds = %26, %22
+  %28 = load ptr, ptr @original_mremap, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %38, label %30
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %6, align 8
-  %30 = load i64, ptr %7, align 8
-  %31 = load i64, ptr %8, align 8
-  %32 = load i32, ptr %9, align 4
-  %33 = load ptr, ptr %10, align 8
-  %34 = call i64 (i64, ...) @syscall(i64 noundef 25, ptr noundef %29, i64 noundef %30, i64 noundef %31, i32 noundef %32, ptr noundef %33) #6
-  %35 = inttoptr i64 %34 to ptr
-  store ptr %35, ptr %11, align 8
-  br label %44
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %6, align 8
+  %32 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %8, align 8
+  %34 = load i32, ptr %9, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = call i64 (i64, ...) @syscall(i64 noundef 25, ptr noundef %31, i64 noundef %32, i64 noundef %33, i32 noundef %34, ptr noundef %35) #6
+  %37 = inttoptr i64 %36 to ptr
+  store ptr %37, ptr %11, align 8
+  br label %46
 
-36:                                               ; preds = %25
-  %37 = load ptr, ptr @original_mremap, align 8
-  %38 = load ptr, ptr %6, align 8
-  %39 = load i64, ptr %7, align 8
-  %40 = load i64, ptr %8, align 8
-  %41 = load i32, ptr %9, align 4
-  %42 = load ptr, ptr %10, align 8
-  %43 = call ptr %37(ptr noundef %38, i64 noundef %39, i64 noundef %40, i32 noundef %41, ptr noundef %42)
-  store ptr %43, ptr %11, align 8
-  br label %44
+38:                                               ; preds = %27
+  %39 = load ptr, ptr @original_mremap, align 8
+  %40 = load ptr, ptr %6, align 8
+  %41 = load i64, ptr %7, align 8
+  %42 = load i64, ptr %8, align 8
+  %43 = load i32, ptr %9, align 4
+  %44 = load ptr, ptr %10, align 8
+  %45 = call ptr %39(ptr noundef %40, i64 noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef %44)
+  store ptr %45, ptr %11, align 8
+  br label %46
 
-44:                                               ; preds = %36, %28
-  %45 = load ptr, ptr %11, align 8
-  ret ptr %45
+46:                                               ; preds = %38, %30
+  %47 = load ptr, ptr %11, align 8
+  ret ptr %47
 }
 
 ; Function Attrs: nounwind uwtable

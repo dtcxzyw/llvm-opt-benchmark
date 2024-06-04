@@ -1152,7 +1152,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp13DeboneProcessE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6Assimp13DeboneProcessE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mNumBones = getelementptr inbounds %"class.Assimp::DeboneProcess", ptr %this1, i32 0, i32 1
   store i32 0, ptr %mNumBones, align 8
   %mNumBonesCanDoWithout = getelementptr inbounds %"class.Assimp::DeboneProcess", ptr %this1, i32 0, i32 2
@@ -6555,7 +6556,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp13DeboneProcessE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6Assimp13DeboneProcessE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mSubMeshIndices = getelementptr inbounds %"class.Assimp::DeboneProcess", ptr %this1, i32 0, i32 5
   call void @_ZNSt6vectorIS_ISt4pairIjP6aiNodeESaIS3_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mSubMeshIndices) #14
   call void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #14

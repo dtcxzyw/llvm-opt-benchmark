@@ -216654,22 +216654,23 @@ define available_externally hidden void @"_ZN8minicbor6encode5error14Error$LT$E$
   call void @llvm.lifetime.start.p0(i64 24, ptr %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr %2)
   %5 = getelementptr inbounds { ptr, i64 }, ptr %2, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %5, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %2, i32 0, i32 1
-  store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %2, i32 0, i32 1
+  %6 = inttoptr i64 1 to ptr
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds { ptr, i64 }, ptr %2, i32 0, i32 1
   store i64 0, ptr %7, align 8
+  %8 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %2, i32 0, i32 1
+  store i64 0, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %2, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr %2)
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8, !align !10, !noundef !4
-  %10 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { ptr, ptr } }, ptr %0, i32 0, i32 1
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
-  store ptr %9, ptr %13, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
-  store ptr %11, ptr %14, align 8
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !align !10, !noundef !4
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { ptr, ptr } }, ptr %0, i32 0, i32 1
+  %14 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 0
+  store ptr %10, ptr %14, align 8
+  %15 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 1
+  store ptr %12, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr %4)

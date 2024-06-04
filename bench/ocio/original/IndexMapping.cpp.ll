@@ -172,10 +172,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i64 %dimension, ptr %dimension.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_dimension = getelementptr inbounds %"class.OpenColorIO_v2_4dev::IndexMapping", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %dimension.addr, align 8
-  store i64 %0, ptr %m_dimension, align 8
+  %1 = load i64, ptr %dimension.addr, align 8
+  store i64 %1, ptr %m_dimension, align 8
   %m_indices = getelementptr inbounds %"class.OpenColorIO_v2_4dev::IndexMapping", ptr %this1, i32 0, i32 2
   %array.begin = getelementptr inbounds [3 x %"class.std::vector"], ptr %m_indices, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"class.std::vector", ptr %array.begin, i64 3
@@ -190,26 +191,26 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %en
 
 arrayctor.cont:                                   ; preds = %arrayctor.loop
   %m_dimension2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::IndexMapping", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %m_dimension2, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev12IndexMapping6resizeEm(ptr noundef nonnull align 8 dereferenceable(88) %this1, i64 noundef %1)
+  %2 = load i64, ptr %m_dimension2, align 8
+  invoke void @_ZN19OpenColorIO_v2_4dev12IndexMapping6resizeEm(ptr noundef nonnull align 8 dereferenceable(88) %this1, i64 noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %arrayctor.cont
   ret void
 
 lpad:                                             ; preds = %arrayctor.cont
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   %array.begin3 = getelementptr inbounds [3 x %"class.std::vector"], ptr %m_indices, i32 0, i32 0
-  %5 = getelementptr inbounds %"class.std::vector", ptr %array.begin3, i64 3
+  %6 = getelementptr inbounds %"class.std::vector", ptr %array.begin3, i64 3
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %lpad
-  %arraydestroy.elementPast = phi ptr [ %5, %lpad ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %6, %lpad ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::vector", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt6vectorISt4pairIffESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element) #10
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin3
@@ -290,14 +291,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_indices = getelementptr inbounds %"class.OpenColorIO_v2_4dev::IndexMapping", ptr %this1, i32 0, i32 2
   %array.begin = getelementptr inbounds [3 x %"class.std::vector"], ptr %m_indices, i32 0, i32 0
-  %0 = getelementptr inbounds %"class.std::vector", ptr %array.begin, i64 3
+  %1 = getelementptr inbounds %"class.std::vector", ptr %array.begin, i64 3
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::vector", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt6vectorISt4pairIffESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element) #10
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin

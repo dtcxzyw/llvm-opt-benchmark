@@ -4609,11 +4609,12 @@ define internal void @__cxx_global_var_init() #9 section ".text.startup" {
   %2 = phi ptr [ @_ZN16TransferFunction10defaultTFsE, %0 ], [ %3, %1 ]
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #10
   %3 = getelementptr inbounds %class.QString, ptr %2, i64 1
-  %4 = icmp eq ptr %3, getelementptr inbounds (%class.QString, ptr @_ZN16TransferFunction10defaultTFsE, i64 10)
-  br i1 %4, label %5, label %1
+  %4 = getelementptr inbounds %class.QString, ptr @_ZN16TransferFunction10defaultTFsE, i64 10
+  %5 = icmp eq ptr %3, %4
+  br i1 %5, label %6, label %1
 
-5:                                                ; preds = %1
-  %6 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #10
+6:                                                ; preds = %1
+  %7 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #10
   ret void
 }
 
@@ -4632,16 +4633,17 @@ define linkonce_odr void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenc
 define internal void @__cxx_global_array_dtor(ptr noundef %0) #9 section ".text.startup" {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  br label %3
+  %3 = getelementptr inbounds %class.QString, ptr @_ZN16TransferFunction10defaultTFsE, i64 10
+  br label %4
 
-3:                                                ; preds = %3, %1
-  %4 = phi ptr [ getelementptr inbounds (%class.QString, ptr @_ZN16TransferFunction10defaultTFsE, i64 10), %1 ], [ %5, %3 ]
-  %5 = getelementptr inbounds %class.QString, ptr %4, i64 -1
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  %6 = icmp eq ptr %5, @_ZN16TransferFunction10defaultTFsE
-  br i1 %6, label %7, label %3
+4:                                                ; preds = %4, %1
+  %5 = phi ptr [ %3, %1 ], [ %6, %4 ]
+  %6 = getelementptr inbounds %class.QString, ptr %5, i64 -1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
+  %7 = icmp eq ptr %6, @_ZN16TransferFunction10defaultTFsE
+  br i1 %7, label %8, label %4
 
-7:                                                ; preds = %3
+8:                                                ; preds = %4
   ret void
 }
 
@@ -4994,15 +4996,24 @@ define void @_ZN16TransferFunction6initTFEv(ptr noundef nonnull align 8 derefere
   %24 = getelementptr inbounds [1024 x %class.QColor], ptr %23, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 4 %24, i8 0, i64 16384, i1 false)
   %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZN16TransferFunction10defaultTFsE, ptr noundef @.str.3)
-  %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 1), ptr noundef @.str.4)
-  %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 3), ptr noundef @.str.5)
-  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 2), ptr noundef @.str.6)
-  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 4), ptr noundef @.str.7)
-  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 5), ptr noundef @.str.8)
-  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 6), ptr noundef @.str.9)
-  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 8), ptr noundef @.str.10)
-  %33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 9), ptr noundef @.str.11)
-  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds ([10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 7), ptr noundef @.str.12)
+  %26 = getelementptr inbounds [10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 1
+  %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef @.str.4)
+  %28 = getelementptr inbounds [10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 3
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef @.str.5)
+  %30 = getelementptr inbounds [10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 2
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef @.str.6)
+  %32 = getelementptr inbounds [10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 4
+  %33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef @.str.7)
+  %34 = getelementptr inbounds [10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 5
+  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef @.str.8)
+  %36 = getelementptr inbounds [10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 6
+  %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef @.str.9)
+  %38 = getelementptr inbounds [10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 8
+  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef @.str.10)
+  %40 = getelementptr inbounds [10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 9
+  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef @.str.11)
+  %42 = getelementptr inbounds [10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 7
+  %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef @.str.12)
   ret void
 }
 

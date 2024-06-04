@@ -4038,7 +4038,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %stream_id.addr, align 4
   call void @_ZN3net18SpdyFrameWithFinIRC2Ej(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %header_block_ = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %this1, i32 0, i32 1
   invoke void @_ZN3net15SpdyHeaderBlockC1EOS0_(ptr noundef nonnull align 8 dereferenceable(88) %header_block_, ptr noundef nonnull align 8 dereferenceable(88) %header_block)
           to label %invoke.cont unwind label %lpad
@@ -4047,12 +4048,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN3net18SpdyFrameWithFinIRD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1) #11
   br label %eh.resume
 
@@ -4074,7 +4075,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %stream_id.addr, align 4
   call void @_ZN3net23SpdyFrameWithStreamIdIRC2Ej(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net18SpdyFrameWithFinIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net18SpdyFrameWithFinIRE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fin_ = getelementptr inbounds %"class.net::SpdyFrameWithFinIR", ptr %this1, i32 0, i32 1
   store i8 0, ptr %fin_, align 4
   ret void
@@ -4088,7 +4090,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %header_block_ = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %this1, i32 0, i32 1
   call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_) #11
   call void @_ZN3net18SpdyFrameWithFinIRD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1) #11
@@ -4128,7 +4131,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %2 = load i32, ptr %stream_id.addr, align 4
   call void @_ZN3net18SpdyFrameWithFinIRC2Ej(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %data_store_ = getelementptr inbounds %"class.net::SpdyDataIR", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEC2IS7_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %data_store_) #11
   %data_ = getelementptr inbounds %"class.net::SpdyDataIR", ptr %this1, i32 0, i32 2
@@ -4141,23 +4145,23 @@ invoke.cont:                                      ; preds = %entry
   %padding_payload_len_ = getelementptr inbounds %"class.net::SpdyDataIR", ptr %this1, i32 0, i32 4
   store i32 0, ptr %padding_payload_len_, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %data, i64 16, i1 false)
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %6 = load i64, ptr %5, align 8
-  invoke void @_ZN3net10SpdyDataIR11SetDataDeepEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr %4, i64 %6)
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  invoke void @_ZN3net10SpdyDataIR11SetDataDeepEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr %5, i64 %7)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %data_store_) #11
   call void @_ZN3net18SpdyFrameWithFinIRD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1) #11
   br label %eh.resume
@@ -4333,7 +4337,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %stream_id.addr, align 4
   call void @_ZN3net18SpdyFrameWithFinIRC2Ej(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %data_store_ = getelementptr inbounds %"class.net::SpdyDataIR", ptr %this1, i32 0, i32 1
   invoke void @_ZN4base10MakeUniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS6_EEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_(ptr sret(%"class.std::unique_ptr.10") align 8 %data_store_, ptr noundef nonnull align 8 dereferenceable(32) %data)
           to label %invoke.cont unwind label %lpad
@@ -4353,21 +4358,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %data_store_) #11
   br label %ehcleanup
 
@@ -4430,7 +4435,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %stream_id.addr, align 4
   call void @_ZN3net18SpdyFrameWithFinIRC2Ej(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %data_store_ = getelementptr inbounds %"class.net::SpdyDataIR", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEC2IS7_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %data_store_) #11
   %data_ = getelementptr inbounds %"class.net::SpdyDataIR", ptr %this1, i32 0, i32 2
@@ -4445,12 +4451,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %data_store_) #11
   call void @_ZN3net18SpdyFrameWithFinIRD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1) #11
   br label %eh.resume
@@ -4469,7 +4475,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_store_ = getelementptr inbounds %"class.net::SpdyDataIR", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %data_store_) #11
   call void @_ZN3net18SpdyFrameWithFinIRD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1) #11
@@ -4552,21 +4559,22 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %stream_id.addr, align 4
   call void @_ZN3net23SpdyFrameWithStreamIdIRC2Ej(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net15SpdyRstStreamIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load i32, ptr %status.addr, align 4
-  invoke void @_ZN3net15SpdyRstStreamIR10set_statusENS_19SpdyRstStreamStatusE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %1)
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net15SpdyRstStreamIRE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load i32, ptr %status.addr, align 4
+  invoke void @_ZN3net15SpdyRstStreamIR10set_statusENS_19SpdyRstStreamStatusE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN3net23SpdyFrameWithStreamIdIRD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #11
   br label %eh.resume
 
@@ -4589,21 +4597,22 @@ entry:
   store i32 %stream_id, ptr %stream_id.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net11SpdyFrameIRC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net23SpdyFrameWithStreamIdIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load i32, ptr %stream_id.addr, align 4
-  invoke void @_ZN3net23SpdyFrameWithStreamIdIR13set_stream_idEj(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net23SpdyFrameWithStreamIdIRE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load i32, ptr %stream_id.addr, align 4
+  invoke void @_ZN3net23SpdyFrameWithStreamIdIR13set_stream_idEj(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN3net11SpdyFrameIRD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -4673,7 +4682,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net11SpdyFrameIRC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net14SpdySettingsIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net14SpdySettingsIRE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %values_ = getelementptr inbounds %"class.net::SpdySettingsIR", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIN3net15SpdySettingsIdsENS0_14SpdySettingsIR5ValueESt4lessIS1_ESaISt4pairIKS1_S3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %values_) #11
   %clear_settings_ = getelementptr inbounds %"class.net::SpdySettingsIR", ptr %this1, i32 0, i32 2
@@ -4689,7 +4699,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net11SpdyFrameIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net11SpdyFrameIRE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4710,7 +4721,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net14SpdySettingsIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net14SpdySettingsIRE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %values_ = getelementptr inbounds %"class.net::SpdySettingsIR", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIN3net15SpdySettingsIdsENS0_14SpdySettingsIR5ValueESt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %values_) #11
   call void @_ZN3net11SpdyFrameIRD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
@@ -4789,30 +4801,31 @@ entry:
   store i32 %status, ptr %status.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net11SpdyFrameIRC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyGoAwayIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net12SpdyGoAwayIRE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %description_store_ = getelementptr inbounds %"class.net::SpdyGoAwayIR", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description_store_) #11
   %description_ = getelementptr inbounds %"class.net::SpdyGoAwayIR", ptr %this1, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %description_, ptr align 8 %description, i64 16, i1 false)
-  %2 = load i32, ptr %last_good_stream_id.addr, align 4
-  invoke void @_ZN3net12SpdyGoAwayIR23set_last_good_stream_idEj(ptr noundef nonnull align 8 dereferenceable(64) %this1, i32 noundef %2)
+  %3 = load i32, ptr %last_good_stream_id.addr, align 4
+  invoke void @_ZN3net12SpdyGoAwayIR23set_last_good_stream_idEj(ptr noundef nonnull align 8 dereferenceable(64) %this1, i32 noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load i32, ptr %status.addr, align 4
-  invoke void @_ZN3net12SpdyGoAwayIR10set_statusENS_16SpdyGoAwayStatusE(ptr noundef nonnull align 8 dereferenceable(64) %this1, i32 noundef %3)
+  %4 = load i32, ptr %status.addr, align 4
+  invoke void @_ZN3net12SpdyGoAwayIR10set_statusENS_16SpdyGoAwayStatusE(ptr noundef nonnull align 8 dereferenceable(64) %this1, i32 noundef %4)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description_store_) #11
   call void @_ZN3net11SpdyFrameIRD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
@@ -4933,7 +4946,8 @@ entry:
   store ptr %description, ptr %description.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net11SpdyFrameIRC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyGoAwayIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net12SpdyGoAwayIRE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %description_store_ = getelementptr inbounds %"class.net::SpdyGoAwayIR", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %description_store_, ptr noundef nonnull align 8 dereferenceable(32) %description) #11
   %description_ = getelementptr inbounds %"class.net::SpdyGoAwayIR", ptr %this1, i32 0, i32 4
@@ -4942,25 +4956,25 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load i32, ptr %last_good_stream_id.addr, align 4
-  invoke void @_ZN3net12SpdyGoAwayIR23set_last_good_stream_idEj(ptr noundef nonnull align 8 dereferenceable(64) %this1, i32 noundef %0)
+  %1 = load i32, ptr %last_good_stream_id.addr, align 4
+  invoke void @_ZN3net12SpdyGoAwayIR23set_last_good_stream_idEj(ptr noundef nonnull align 8 dereferenceable(64) %this1, i32 noundef %1)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %1 = load i32, ptr %status.addr, align 4
-  invoke void @_ZN3net12SpdyGoAwayIR10set_statusENS_16SpdyGoAwayStatusE(ptr noundef nonnull align 8 dereferenceable(64) %this1, i32 noundef %1)
+  %2 = load i32, ptr %status.addr, align 4
+  invoke void @_ZN3net12SpdyGoAwayIR10set_statusENS_16SpdyGoAwayStatusE(ptr noundef nonnull align 8 dereferenceable(64) %this1, i32 noundef %2)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description_store_) #11
   call void @_ZN3net11SpdyFrameIRD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
@@ -4982,7 +4996,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyGoAwayIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net12SpdyGoAwayIRE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %description_store_ = getelementptr inbounds %"class.net::SpdyGoAwayIR", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description_store_) #11
   call void @_ZN3net11SpdyFrameIRD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
@@ -5106,7 +5121,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %stream_id.addr, align 4
   call void @_ZN3net23SpdyFrameWithStreamIdIRC2Ej(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyAltSvcIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net12SpdyAltSvcIRE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %origin_ = getelementptr inbounds %"class.net::SpdyAltSvcIR", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %origin_) #11
   %altsvc_vector_ = getelementptr inbounds %"class.net::SpdyAltSvcIR", ptr %this1, i32 0, i32 2
@@ -5130,7 +5146,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyAltSvcIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net12SpdyAltSvcIRE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %altsvc_vector_ = getelementptr inbounds %"class.net::SpdyAltSvcIR", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %altsvc_vector_) #11
   %origin_ = getelementptr inbounds %"class.net::SpdyAltSvcIR", ptr %this1, i32 0, i32 1

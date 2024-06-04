@@ -4851,8 +4851,9 @@ entry:
   call void @quote_two_c_style(ptr noundef @dump_quoted_path.buf, ptr noundef %3, ptr noundef %4, i32 noundef 0)
   %5 = load ptr, ptr %c_reset.addr, align 8
   call void @strbuf_addstr(ptr noundef @dump_quoted_path.buf, ptr noundef %5)
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @dump_quoted_path.buf, i32 0, i32 2), align 8
-  %call = call i32 @puts(ptr noundef %6)
+  %6 = getelementptr inbounds %struct.strbuf, ptr @dump_quoted_path.buf, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8
+  %call = call i32 @puts(ptr noundef %7)
   ret void
 }
 

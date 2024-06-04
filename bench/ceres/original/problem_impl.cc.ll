@@ -13307,108 +13307,109 @@ define linkonce_odr hidden void @_ZN5ceres8internal16ProgramEvaluatorINS0_23Scra
   store ptr %2, ptr %6, align 8
   %12 = load ptr, ptr %4, align 8
   call void @_ZN5ceres8internal9EvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #18
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5ceres8internal16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_27CompressedRowJacobianWriterENS0_21NullJacobianFinalizerEEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %14, i64 40, i1 false)
-  %15 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 2
-  %16 = load ptr, ptr %6, align 8
-  store ptr %16, ptr %15, align 8
-  %17 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %18, i64 40, i1 false)
-  %19 = load ptr, ptr %6, align 8
-  invoke void @_ZN5ceres8internal27CompressedRowJacobianWriterC2ENS0_9Evaluator7OptionsEPNS0_7ProgramE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef byval(%"struct.ceres::internal::Evaluator::Options") align 8 %7, ptr noundef %19)
-          to label %20 unwind label %44
+  %13 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5ceres8internal16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_27CompressedRowJacobianWriterENS0_21NullJacobianFinalizerEEE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 1
+  %15 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %15, i64 40, i1 false)
+  %16 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 2
+  %17 = load ptr, ptr %6, align 8
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 3
+  %19 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %19, i64 40, i1 false)
+  %20 = load ptr, ptr %6, align 8
+  invoke void @_ZN5ceres8internal27CompressedRowJacobianWriterC2ENS0_9Evaluator7OptionsEPNS0_7ProgramE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef byval(%"struct.ceres::internal::Evaluator::Options") align 8 %7, ptr noundef %20)
+          to label %21 unwind label %45
 
-20:                                               ; preds = %3
-  %21 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 4
-  %22 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 3
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %"struct.ceres::internal::Evaluator::Options", ptr %23, i32 0, i32 0
-  %25 = load i32, ptr %24, align 8
-  invoke void @_ZN5ceres8internal27CompressedRowJacobianWriter23CreateEvaluatePreparersEi(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.99") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %22, i32 noundef %25)
-          to label %26 unwind label %44
+21:                                               ; preds = %3
+  %22 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 4
+  %23 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 3
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds %"struct.ceres::internal::Evaluator::Options", ptr %24, i32 0, i32 0
+  %26 = load i32, ptr %25, align 8
+  invoke void @_ZN5ceres8internal27CompressedRowJacobianWriter23CreateEvaluatePreparersEi(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.99") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %26)
+          to label %27 unwind label %45
 
-26:                                               ; preds = %20
-  call void @_ZNSt10unique_ptrIA_N5ceres8internal23ScratchEvaluatePreparerESt14default_deleteIS3_EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %10) #18
+27:                                               ; preds = %21
+  call void @_ZNSt10unique_ptrIA_N5ceres8internal23ScratchEvaluatePreparerESt14default_deleteIS3_EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %10) #18
   call void @_ZNSt10unique_ptrIA_N5ceres8internal23ScratchEvaluatePreparerESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
-  %27 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 5
-  call void @_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EEC2ISA_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #18
-  %28 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 6
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #18
-  %29 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 7
-  %30 = load ptr, ptr %6, align 8
-  %31 = invoke noundef i32 @_ZNK5ceres8internal7Program22NumEffectiveParametersEv(ptr noundef nonnull align 8 dereferenceable(56) %30)
-          to label %32 unwind label %48
+  %28 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 5
+  call void @_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EEC2ISA_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %28) #18
+  %29 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 6
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #18
+  %30 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 7
+  %31 = load ptr, ptr %6, align 8
+  %32 = invoke noundef i32 @_ZNK5ceres8internal7Program22NumEffectiveParametersEv(ptr noundef nonnull align 8 dereferenceable(56) %31)
+          to label %33 unwind label %49
 
-32:                                               ; preds = %26
-  store i32 %31, ptr %29, align 8
-  %33 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 8
-  call void @_ZN5ceres8internal16ExecutionSummaryC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %33) #18
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 6
-  invoke void @_ZN5ceres8internal16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_27CompressedRowJacobianWriterENS0_21NullJacobianFinalizerEE19BuildResidualLayoutERKNS0_7ProgramEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef %35)
-          to label %36 unwind label %52
+33:                                               ; preds = %27
+  store i32 %32, ptr %30, align 8
+  %34 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 8
+  call void @_ZN5ceres8internal16ExecutionSummaryC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %34) #18
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 6
+  invoke void @_ZN5ceres8internal16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_27CompressedRowJacobianWriterENS0_21NullJacobianFinalizerEE19BuildResidualLayoutERKNS0_7ProgramEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef %36)
+          to label %37 unwind label %53
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %"struct.ceres::internal::Evaluator::Options", ptr %38, i32 0, i32 0
-  %40 = load i32, ptr %39, align 8
-  invoke void @_ZN5ceres8internal16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_27CompressedRowJacobianWriterENS0_21NullJacobianFinalizerEE22CreateEvaluatorScratchERKNS0_7ProgramEj(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.107") align 8 %11, ptr noundef nonnull align 8 dereferenceable(56) %37, i32 noundef %40)
-          to label %41 unwind label %52
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %6, align 8
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds %"struct.ceres::internal::Evaluator::Options", ptr %39, i32 0, i32 0
+  %41 = load i32, ptr %40, align 8
+  invoke void @_ZN5ceres8internal16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_27CompressedRowJacobianWriterENS0_21NullJacobianFinalizerEE22CreateEvaluatorScratchERKNS0_7ProgramEj(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.107") align 8 %11, ptr noundef nonnull align 8 dereferenceable(56) %38, i32 noundef %41)
+          to label %42 unwind label %53
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 5
-  %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EEaSEOSB_(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %11) #18
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds %"class.ceres::internal::ProgramEvaluator", ptr %12, i32 0, i32 5
+  %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EEaSEOSB_(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(8) %11) #18
   call void @_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #18
   ret void
 
-44:                                               ; preds = %20, %3
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %21, %3
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %8, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %9, align 4
-  br label %57
-
-48:                                               ; preds = %26
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %8, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %9, align 4
-  br label %56
-
-52:                                               ; preds = %36, %32
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %8, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %9, align 4
-  call void @_ZN5ceres8internal16ExecutionSummaryD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %33) #18
-  br label %56
-
-56:                                               ; preds = %52, %48
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #18
-  call void @_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #18
-  call void @_ZNSt10unique_ptrIA_N5ceres8internal23ScratchEvaluatePreparerESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #18
-  br label %57
-
-57:                                               ; preds = %56, %44
-  call void @_ZN5ceres8internal9EvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #18
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %8, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %9, align 4
   br label %58
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %8, align 8
-  %60 = load i32, ptr %9, align 4
-  %61 = insertvalue { ptr, i32 } poison, ptr %59, 0
-  %62 = insertvalue { ptr, i32 } %61, i32 %60, 1
-  resume { ptr, i32 } %62
+49:                                               ; preds = %27
+  %50 = landingpad { ptr, i32 }
+          cleanup
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %8, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %9, align 4
+  br label %57
+
+53:                                               ; preds = %37, %33
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %8, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %9, align 4
+  call void @_ZN5ceres8internal16ExecutionSummaryD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %34) #18
+  br label %57
+
+57:                                               ; preds = %53, %49
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #18
+  call void @_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #18
+  call void @_ZNSt10unique_ptrIA_N5ceres8internal23ScratchEvaluatePreparerESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #18
+  br label %58
+
+58:                                               ; preds = %57, %45
+  call void @_ZN5ceres8internal9EvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #18
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %8, align 8
+  %61 = load i32, ptr %9, align 4
+  %62 = insertvalue { ptr, i32 } poison, ptr %60, 0
+  %63 = insertvalue { ptr, i32 } %62, i32 %61, 1
+  resume { ptr, i32 } %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -21819,7 +21820,8 @@ define linkonce_odr hidden void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -21833,7 +21835,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -42035,7 +42038,8 @@ define linkonce_odr hidden void @_ZN5ceres8internal9EvaluatorC2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5ceres8internal9EvaluatorE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5ceres8internal9EvaluatorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49273,35 +49277,36 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal
   store ptr %3, ptr %9, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %12, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(128) %13) #18
-  %14 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(144) %12) #18
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = load ptr, ptr %9, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5ceres8internal19ParallelInvokeStateEJRiS6_RKiEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
-          to label %18 unwind label %19
-
-18:                                               ; preds = %4
-  ret void
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %12, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(128) %14) #18
+  %15 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(144) %12) #18
+  %16 = load ptr, ptr %7, align 8
+  %17 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5ceres8internal19ParallelInvokeStateEJRiS6_RKiEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+          to label %19 unwind label %20
 
 19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %10, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %11, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
-  br label %23
+  ret void
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %10, align 8
-  %25 = load i32, ptr %11, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+20:                                               ; preds = %4
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %10, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %11, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
+  br label %24
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %10, align 8
+  %26 = load i32, ptr %11, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -49459,11 +49464,12 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 

@@ -1190,14 +1190,14 @@ define internal i32 @dissect_atn_ulcs_heur(ptr noundef %0, ptr noundef %1, ptr n
 
 13:                                               ; preds = %4
   store i32 0, ptr %5, align 4
-  br label %37
+  br label %38
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %6, align 8
   %16 = call zeroext i16 @tvb_get_ntohs(ptr noundef %15, i32 noundef 0)
   %17 = zext i16 %16 to i32
   %18 = and i32 %17, 63743
-  switch i32 %18, label %24 [
+  switch i32 %18, label %25 [
     i32 59394, label %19
     i32 63490, label %19
     i32 61442, label %19
@@ -1224,41 +1224,42 @@ define internal i32 @dissect_atn_ulcs_heur(ptr noundef %0, ptr noundef %1, ptr n
   %20 = load ptr, ptr %6, align 8
   %21 = load ptr, ptr %7, align 8
   %22 = load ptr, ptr %8, align 8
-  %23 = call i32 @dissect_atn_ulcs(ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef inttoptr (i64 1 to ptr))
+  %23 = inttoptr i64 1 to ptr
+  %24 = call i32 @dissect_atn_ulcs(ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23)
   store i32 1, ptr %5, align 4
-  br label %37
+  br label %38
 
-24:                                               ; preds = %14
-  br label %25
+25:                                               ; preds = %14
+  br label %26
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %6, align 8
-  %27 = call zeroext i16 @tvb_get_ntohs(ptr noundef %26, i32 noundef 0)
-  %28 = zext i16 %27 to i32
-  %29 = and i32 %28, 65520
-  switch i32 %29, label %35 [
-    i32 32, label %30
-    i32 160, label %30
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %6, align 8
+  %28 = call zeroext i16 @tvb_get_ntohs(ptr noundef %27, i32 noundef 0)
+  %29 = zext i16 %28 to i32
+  %30 = and i32 %29, 65520
+  switch i32 %30, label %36 [
+    i32 32, label %31
+    i32 160, label %31
   ]
 
-30:                                               ; preds = %25, %25
-  %31 = load ptr, ptr %6, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = load ptr, ptr %8, align 8
-  %34 = call i32 @dissect_atn_ulcs(ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef null)
+31:                                               ; preds = %26, %26
+  %32 = load ptr, ptr %6, align 8
+  %33 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = call i32 @dissect_atn_ulcs(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef null)
   store i32 1, ptr %5, align 4
+  br label %38
+
+36:                                               ; preds = %26
   br label %37
 
-35:                                               ; preds = %25
-  br label %36
-
-36:                                               ; preds = %35
+37:                                               ; preds = %36
   store i32 0, ptr %5, align 4
-  br label %37
+  br label %38
 
-37:                                               ; preds = %36, %30, %19, %13
-  %38 = load i32, ptr %5, align 4
-  ret i32 %38
+38:                                               ; preds = %37, %31, %19, %13
+  %39 = load i32, ptr %5, align 4
+  ret i32 %39
 }
 
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1

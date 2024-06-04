@@ -3659,7 +3659,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
 91:                                               ; preds = %90, %0
   br label %92
 
-92:                                               ; preds = %5026, %91
+92:                                               ; preds = %5028, %91
   store i32 0, ptr @_ZL11yy_more_len, align 4
   %93 = load i32, ptr @_ZL12yy_more_flag, align 4
   %94 = icmp ne i32 %93, 0
@@ -3697,7 +3697,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   store i32 %115, ptr %2, align 4
   br label %116
 
-116:                                              ; preds = %4996, %4978, %102
+116:                                              ; preds = %4998, %4980, %102
   br label %117
 
 117:                                              ; preds = %171, %116
@@ -3788,7 +3788,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
 177:                                              ; preds = %171
   br label %178
 
-178:                                              ; preds = %5007, %4982, %211, %177
+178:                                              ; preds = %5009, %4984, %211, %177
   %179 = load i32, ptr %2, align 4
   %180 = sext i32 %179 to i64
   %181 = getelementptr inbounds [660 x i32], ptr @_ZL9yy_accept, i64 0, i64 %180
@@ -3835,9 +3835,9 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   store ptr %208, ptr @_ZL10yy_c_buf_p, align 8
   br label %209
 
-209:                                              ; preds = %4986, %192
+209:                                              ; preds = %4988, %192
   %210 = load i32, ptr %5, align 4
-  switch i32 %210, label %5025 [
+  switch i32 %210, label %5027 [
     i32 0, label %211
     i32 1, label %216
     i32 2, label %235
@@ -3864,168 +3864,168 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
     i32 23, label %954
     i32 24, label %1079
     i32 25, label %1127
-    i32 26, label %1202
-    i32 27, label %1259
-    i32 28, label %1283
-    i32 29, label %1330
-    i32 30, label %1354
-    i32 31, label %1396
-    i32 32, label %1441
-    i32 33, label %1472
-    i32 187, label %1491
-    i32 34, label %1497
-    i32 35, label %1523
-    i32 36, label %1542
-    i32 37, label %1561
-    i32 38, label %1580
-    i32 39, label %1628
-    i32 40, label %1647
-    i32 41, label %1690
-    i32 185, label %1709
-    i32 42, label %1715
-    i32 43, label %1739
-    i32 44, label %1758
-    i32 45, label %1777
-    i32 46, label %1796
-    i32 47, label %1844
-    i32 48, label %1863
-    i32 49, label %1882
-    i32 50, label %1925
-    i32 186, label %1949
-    i32 51, label %1955
-    i32 52, label %1979
-    i32 53, label %1998
-    i32 54, label %2022
-    i32 55, label %2046
-    i32 56, label %2072
-    i32 57, label %2096
-    i32 58, label %2122
-    i32 59, label %2148
-    i32 60, label %2172
-    i32 61, label %2196
-    i32 62, label %2222
-    i32 63, label %2248
-    i32 64, label %2272
-    i32 184, label %2291
-    i32 65, label %2297
-    i32 66, label %2321
-    i32 67, label %2340
-    i32 179, label %2364
-    i32 68, label %2370
-    i32 69, label %2396
-    i32 70, label %2415
-    i32 71, label %2434
-    i32 72, label %2458
-    i32 73, label %2486
-    i32 175, label %2511
-    i32 74, label %2517
-    i32 75, label %2549
-    i32 76, label %2582
-    i32 77, label %2618
-    i32 78, label %2637
-    i32 79, label %2661
-    i32 174, label %2687
-    i32 80, label %2693
-    i32 81, label %2719
-    i32 82, label %2767
-    i32 83, label %2793
-    i32 84, label %2814
-    i32 85, label %2835
-    i32 86, label %2864
-    i32 87, label %2893
-    i32 88, label %2926
-    i32 89, label %2959
-    i32 90, label %2959
-    i32 91, label %2959
-    i32 92, label %2988
-    i32 93, label %3009
-    i32 94, label %3035
-    i32 95, label %3059
-    i32 176, label %3085
-    i32 96, label %3091
-    i32 97, label %3115
-    i32 98, label %3163
-    i32 99, label %3189
-    i32 100, label %3210
-    i32 101, label %3231
-    i32 102, label %3231
-    i32 103, label %3231
-    i32 104, label %3260
-    i32 105, label %3289
-    i32 106, label %3337
-    i32 107, label %3369
-    i32 108, label %3394
-    i32 109, label %3413
-    i32 173, label %3432
-    i32 178, label %3438
-    i32 110, label %3444
-    i32 111, label %3463
-    i32 112, label %3487
-    i32 113, label %3511
-    i32 114, label %3535
-    i32 115, label %3559
-    i32 116, label %3583
-    i32 117, label %3607
-    i32 118, label %3631
-    i32 119, label %3655
-    i32 120, label %3679
-    i32 121, label %3703
-    i32 122, label %3727
-    i32 123, label %3751
-    i32 124, label %3770
-    i32 125, label %3794
-    i32 170, label %3820
-    i32 126, label %3826
-    i32 127, label %3850
-    i32 128, label %3869
-    i32 129, label %3888
-    i32 130, label %3917
-    i32 131, label %3941
-    i32 132, label %3974
-    i32 133, label %4007
-    i32 134, label %4058
-    i32 135, label %4098
-    i32 136, label %4134
-    i32 137, label %4163
-    i32 138, label %4192
-    i32 139, label %4221
-    i32 140, label %4221
-    i32 141, label %4250
-    i32 142, label %4277
-    i32 143, label %4304
-    i32 144, label %4329
-    i32 145, label %4354
-    i32 146, label %4381
-    i32 147, label %4408
-    i32 148, label %4433
-    i32 149, label %4458
-    i32 150, label %4482
-    i32 151, label %4501
-    i32 152, label %4525
-    i32 153, label %4544
-    i32 154, label %4568
-    i32 171, label %4587
-    i32 155, label %4593
-    i32 156, label %4612
-    i32 157, label %4631
-    i32 158, label %4655
-    i32 159, label %4681
-    i32 169, label %4705
-    i32 160, label %4711
-    i32 161, label %4735
-    i32 162, label %4761
-    i32 163, label %4787
-    i32 164, label %4811
-    i32 165, label %4837
-    i32 166, label %4863
-    i32 167, label %4887
-    i32 172, label %4916
-    i32 177, label %4916
-    i32 180, label %4916
-    i32 181, label %4916
-    i32 182, label %4916
-    i32 183, label %4916
-    i32 168, label %4917
+    i32 26, label %1203
+    i32 27, label %1261
+    i32 28, label %1285
+    i32 29, label %1332
+    i32 30, label %1356
+    i32 31, label %1398
+    i32 32, label %1443
+    i32 33, label %1474
+    i32 187, label %1493
+    i32 34, label %1499
+    i32 35, label %1525
+    i32 36, label %1544
+    i32 37, label %1563
+    i32 38, label %1582
+    i32 39, label %1630
+    i32 40, label %1649
+    i32 41, label %1692
+    i32 185, label %1711
+    i32 42, label %1717
+    i32 43, label %1741
+    i32 44, label %1760
+    i32 45, label %1779
+    i32 46, label %1798
+    i32 47, label %1846
+    i32 48, label %1865
+    i32 49, label %1884
+    i32 50, label %1927
+    i32 186, label %1951
+    i32 51, label %1957
+    i32 52, label %1981
+    i32 53, label %2000
+    i32 54, label %2024
+    i32 55, label %2048
+    i32 56, label %2074
+    i32 57, label %2098
+    i32 58, label %2124
+    i32 59, label %2150
+    i32 60, label %2174
+    i32 61, label %2198
+    i32 62, label %2224
+    i32 63, label %2250
+    i32 64, label %2274
+    i32 184, label %2293
+    i32 65, label %2299
+    i32 66, label %2323
+    i32 67, label %2342
+    i32 179, label %2366
+    i32 68, label %2372
+    i32 69, label %2398
+    i32 70, label %2417
+    i32 71, label %2436
+    i32 72, label %2460
+    i32 73, label %2488
+    i32 175, label %2513
+    i32 74, label %2519
+    i32 75, label %2551
+    i32 76, label %2584
+    i32 77, label %2620
+    i32 78, label %2639
+    i32 79, label %2663
+    i32 174, label %2689
+    i32 80, label %2695
+    i32 81, label %2721
+    i32 82, label %2769
+    i32 83, label %2795
+    i32 84, label %2816
+    i32 85, label %2837
+    i32 86, label %2866
+    i32 87, label %2895
+    i32 88, label %2928
+    i32 89, label %2961
+    i32 90, label %2961
+    i32 91, label %2961
+    i32 92, label %2990
+    i32 93, label %3011
+    i32 94, label %3037
+    i32 95, label %3061
+    i32 176, label %3087
+    i32 96, label %3093
+    i32 97, label %3117
+    i32 98, label %3165
+    i32 99, label %3191
+    i32 100, label %3212
+    i32 101, label %3233
+    i32 102, label %3233
+    i32 103, label %3233
+    i32 104, label %3262
+    i32 105, label %3291
+    i32 106, label %3339
+    i32 107, label %3371
+    i32 108, label %3396
+    i32 109, label %3415
+    i32 173, label %3434
+    i32 178, label %3440
+    i32 110, label %3446
+    i32 111, label %3465
+    i32 112, label %3489
+    i32 113, label %3513
+    i32 114, label %3537
+    i32 115, label %3561
+    i32 116, label %3585
+    i32 117, label %3609
+    i32 118, label %3633
+    i32 119, label %3657
+    i32 120, label %3681
+    i32 121, label %3705
+    i32 122, label %3729
+    i32 123, label %3753
+    i32 124, label %3772
+    i32 125, label %3796
+    i32 170, label %3822
+    i32 126, label %3828
+    i32 127, label %3852
+    i32 128, label %3871
+    i32 129, label %3890
+    i32 130, label %3919
+    i32 131, label %3943
+    i32 132, label %3976
+    i32 133, label %4009
+    i32 134, label %4060
+    i32 135, label %4100
+    i32 136, label %4136
+    i32 137, label %4165
+    i32 138, label %4194
+    i32 139, label %4223
+    i32 140, label %4223
+    i32 141, label %4252
+    i32 142, label %4279
+    i32 143, label %4306
+    i32 144, label %4331
+    i32 145, label %4356
+    i32 146, label %4383
+    i32 147, label %4410
+    i32 148, label %4435
+    i32 149, label %4460
+    i32 150, label %4484
+    i32 151, label %4503
+    i32 152, label %4527
+    i32 153, label %4546
+    i32 154, label %4570
+    i32 171, label %4589
+    i32 155, label %4595
+    i32 156, label %4614
+    i32 157, label %4633
+    i32 158, label %4657
+    i32 159, label %4683
+    i32 169, label %4707
+    i32 160, label %4713
+    i32 161, label %4737
+    i32 162, label %4763
+    i32 163, label %4789
+    i32 164, label %4813
+    i32 165, label %4839
+    i32 166, label %4865
+    i32 167, label %4889
+    i32 172, label %4918
+    i32 177, label %4918
+    i32 180, label %4918
+    i32 181, label %4918
+    i32 182, label %4918
+    i32 183, label %4918
+    i32 168, label %4919
   ]
 
 211:                                              ; preds = %209
@@ -4062,7 +4062,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   br label %234
 
 234:                                              ; preds = %219, %216
-  br label %5026
+  br label %5028
 
 235:                                              ; preds = %209
   %236 = load i32, ptr @V3PreLexleng, align 4
@@ -4098,7 +4098,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   %260 = load ptr, ptr @V3PreLextext, align 8
   call void @_ZN8V3PreLex13lineDirectiveEPKc(ptr noundef nonnull align 8 dereferenceable(264) %259, ptr noundef %260)
   store i32 264, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 261:                                              ; preds = %209
   %262 = load i32, ptr @V3PreLexleng, align 4
@@ -4131,7 +4131,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   %284 = sext i32 %283 to i64
   call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %281, ptr noundef %282, i64 noundef %284, i1 noundef zeroext false)
   store i32 261, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 285:                                              ; preds = %209
   %286 = load i32, ptr @V3PreLexleng, align 4
@@ -4164,7 +4164,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   %308 = sext i32 %307 to i64
   call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %305, ptr noundef %306, i64 noundef %308, i1 noundef zeroext false)
   store i32 262, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 309:                                              ; preds = %209
   %310 = load i32, ptr @V3PreLexleng, align 4
@@ -4197,7 +4197,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   %332 = sext i32 %331 to i64
   call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %329, ptr noundef %330, i64 noundef %332, i1 noundef zeroext false)
   store i32 263, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 333:                                              ; preds = %209
   %334 = load i32, ptr @V3PreLexleng, align 4
@@ -4230,7 +4230,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   %356 = sext i32 %355 to i64
   call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %353, ptr noundef %354, i64 noundef %356, i1 noundef zeroext false)
   store i32 259, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 357:                                              ; preds = %209
   %358 = load i32, ptr @V3PreLexleng, align 4
@@ -4263,7 +4263,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   %380 = sext i32 %379 to i64
   call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %377, ptr noundef %378, i64 noundef %380, i1 noundef zeroext false)
   store i32 257, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 381:                                              ; preds = %209
   %382 = load i32, ptr @V3PreLexleng, align 4
@@ -4296,7 +4296,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   %404 = sext i32 %403 to i64
   call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %401, ptr noundef %402, i64 noundef %404, i1 noundef zeroext false)
   store i32 258, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 405:                                              ; preds = %209
   %406 = load i32, ptr @V3PreLexleng, align 4
@@ -4329,7 +4329,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   %428 = sext i32 %427 to i64
   call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %425, ptr noundef %426, i64 noundef %428, i1 noundef zeroext false)
   store i32 256, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 429:                                              ; preds = %209
   %430 = load i32, ptr @V3PreLexleng, align 4
@@ -4362,7 +4362,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   %452 = sext i32 %451 to i64
   call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %449, ptr noundef %450, i64 noundef %452, i1 noundef zeroext false)
   store i32 260, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 453:                                              ; preds = %209
   %454 = load i32, ptr @V3PreLexleng, align 4
@@ -4395,7 +4395,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   %476 = sext i32 %475 to i64
   call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %473, ptr noundef %474, i64 noundef %476, i1 noundef zeroext false)
   store i32 265, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 477:                                              ; preds = %209
   %478 = load i32, ptr @V3PreLexleng, align 4
@@ -4432,11 +4432,11 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
 
 502:                                              ; preds = %495
   store i32 308, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 503:                                              ; preds = %495
   store i32 306, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 504:                                              ; preds = %209
   %505 = load i32, ptr @V3PreLexleng, align 4
@@ -4517,7 +4517,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
 
 550:                                              ; preds = %546, %542
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  br label %5029
+  br label %5031
 
 551:                                              ; preds = %541, %522
   %552 = load ptr, ptr @V3PreLextext, align 8
@@ -4576,7 +4576,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
 
 580:                                              ; preds = %576, %572
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  br label %5029
+  br label %5031
 
 581:                                              ; preds = %571, %551
   %582 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
@@ -4675,7 +4675,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
 
 632:                                              ; preds = %628, %624
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #3
-  br label %5029
+  br label %5031
 
 633:                                              ; preds = %623, %606
   %634 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
@@ -4727,7 +4727,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
 
 656:                                              ; preds = %652, %648
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #3
-  br label %5029
+  br label %5031
 
 657:                                              ; preds = %647, %633
   %658 = load i32, ptr %7, align 4
@@ -4792,7 +4792,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
 
 689:                                              ; preds = %685, %681
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
-  br label %5029
+  br label %5031
 
 690:                                              ; preds = %680, %665, %660
   br label %696
@@ -4809,7 +4809,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
 696:                                              ; preds = %691, %690
   store i32 1, ptr @_ZL8yy_start, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 697:                                              ; preds = %209
   %698 = load i32, ptr @V3PreLexleng, align 4
@@ -4844,7 +4844,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   call void @_ZL9linenoIncv()
   store i32 17, ptr @_ZL8yy_start, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 721:                                              ; preds = %209
   %722 = load i32, ptr @V3PreLexleng, align 4
@@ -4898,7 +4898,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #3
   store i32 17, ptr @_ZL8yy_start, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 754:                                              ; preds = %739
   %755 = landingpad { ptr, i32 }
@@ -4921,7 +4921,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
 
 762:                                              ; preds = %758, %754
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #3
-  br label %5029
+  br label %5031
 
 763:                                              ; preds = %209
   %764 = load i32, ptr @V3PreLexleng, align 4
@@ -4956,7 +4956,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   call void @_ZL9linenoIncv()
   store i32 1, ptr @_ZL8yy_start, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 787:                                              ; preds = %209
   %788 = load i32, ptr @V3PreLexleng, align 4
@@ -4991,7 +4991,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   call void @_ZL9linenoIncv()
   store i32 1, ptr @_ZL8yy_start, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 811:                                              ; preds = %209
   %812 = load i32, ptr @V3PreLexleng, align 4
@@ -5026,7 +5026,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   call void @_ZL9linenoIncv()
   store i32 1, ptr @_ZL8yy_start, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 835:                                              ; preds = %209
   %836 = load i32, ptr @V3PreLexleng, align 4
@@ -5061,7 +5061,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   call void @_ZL9linenoIncv()
   store i32 1, ptr @_ZL8yy_start, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 859:                                              ; preds = %209
   %860 = load i32, ptr @V3PreLexleng, align 4
@@ -5094,7 +5094,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   %882 = sext i32 %881 to i64
   call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %879, ptr noundef %880, i64 noundef %882, i1 noundef zeroext false)
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 883:                                              ; preds = %209
   %884 = load i32, ptr @V3PreLexleng, align 4
@@ -5129,7 +5129,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   call void @_ZL9linenoIncv()
   store i32 1, ptr @_ZL8yy_start, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 907:                                              ; preds = %209
   %908 = load i32, ptr @V3PreLexleng, align 4
@@ -5199,7 +5199,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
 953:                                              ; preds = %926
   store i32 29, ptr @_ZL8yy_start, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 954:                                              ; preds = %209
   %955 = load i32, ptr @V3PreLexleng, align 4
@@ -5305,7 +5305,7 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
 
 1018:                                             ; preds = %1014, %1010
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #3
-  br label %5029
+  br label %5031
 
 1019:                                             ; preds = %1009, %991
   %1020 = load ptr, ptr @V3PreLextext, align 8
@@ -5406,13 +5406,13 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
 
 1076:                                             ; preds = %1072, %1068
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #3
-  br label %5029
+  br label %5031
 
 1077:                                             ; preds = %1067, %1053
   br label %1078
 
 1078:                                             ; preds = %1077, %1052
-  br label %5026
+  br label %5028
 
 1079:                                             ; preds = %209
   %1080 = load i32, ptr @V3PreLexleng, align 4
@@ -5493,13 +5493,13 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
 
 1125:                                             ; preds = %1121, %1117
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
-  br label %5029
+  br label %5031
 
 1126:                                             ; preds = %1116, %1097
   call void @_ZL9linenoIncv()
   store i32 1, ptr @_ZL8yy_start, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
 1127:                                             ; preds = %209
   %1128 = load i32, ptr @V3PreLexleng, align 4
@@ -5575,5585 +5575,5587 @@ define dso_local noundef i32 @_Z11V3PreLexlexv() #5 personality ptr @__gxx_perso
   %1179 = load i32, ptr @V3PreLexleng, align 4
   %1180 = sext i32 %1179 to i64
   call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1177, ptr noundef %1178, i64 noundef %1180, i1 noundef zeroext false)
-  %1181 = call noundef zeroext i1 @_ZNK9V3Options8pedanticEv(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22))
-  br i1 %1181, label %1182, label %1201
+  %1181 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %1182 = call noundef zeroext i1 @_ZNK9V3Options8pedanticEv(ptr noundef nonnull align 8 dereferenceable(1560) %1181)
+  br i1 %1182, label %1183, label %1202
 
-1182:                                             ; preds = %1175
-  %1183 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1184 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1183)
+1183:                                             ; preds = %1175
+  %1184 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1185 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1184)
   call void @_ZN11V3ErrorCodeC2ENS_2enE(ptr noundef nonnull align 1 dereferenceable(1) %40, i8 noundef zeroext 25)
-  %1185 = getelementptr inbounds %class.V3ErrorCode, ptr %40, i32 0, i32 0
-  %1186 = load i8, ptr %1185, align 1
-  %1187 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 %1186, i1 noundef zeroext true)
-  %1188 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %1189 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1188, ptr noundef @.str.15)
+  %1186 = getelementptr inbounds %class.V3ErrorCode, ptr %40, i32 0, i32 0
+  %1187 = load i8, ptr %1186, align 1
+  %1188 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 %1187, i1 noundef zeroext true)
+  %1189 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %1190 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1189, ptr noundef @.str.15)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %42)
-          to label %1190 unwind label %1192
+          to label %1191 unwind label %1193
 
-1190:                                             ; preds = %1182
-  invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %1184, ptr noundef nonnull align 8 dereferenceable(112) %1189, ptr noundef nonnull align 8 dereferenceable(32) %41)
-          to label %1191 unwind label %1196
+1191:                                             ; preds = %1183
+  invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %1185, ptr noundef nonnull align 8 dereferenceable(112) %1190, ptr noundef nonnull align 8 dereferenceable(32) %41)
+          to label %1192 unwind label %1197
 
-1191:                                             ; preds = %1190
+1192:                                             ; preds = %1191
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #3
+  br label %1202
+
+1193:                                             ; preds = %1183
+  %1194 = landingpad { ptr, i32 }
+          cleanup
+  %1195 = extractvalue { ptr, i32 } %1194, 0
+  store ptr %1195, ptr %12, align 8
+  %1196 = extractvalue { ptr, i32 } %1194, 1
+  store i32 %1196, ptr %13, align 4
   br label %1201
 
-1192:                                             ; preds = %1182
-  %1193 = landingpad { ptr, i32 }
+1197:                                             ; preds = %1191
+  %1198 = landingpad { ptr, i32 }
           cleanup
-  %1194 = extractvalue { ptr, i32 } %1193, 0
-  store ptr %1194, ptr %12, align 8
-  %1195 = extractvalue { ptr, i32 } %1193, 1
-  store i32 %1195, ptr %13, align 4
-  br label %1200
-
-1196:                                             ; preds = %1190
-  %1197 = landingpad { ptr, i32 }
-          cleanup
-  %1198 = extractvalue { ptr, i32 } %1197, 0
-  store ptr %1198, ptr %12, align 8
-  %1199 = extractvalue { ptr, i32 } %1197, 1
-  store i32 %1199, ptr %13, align 4
+  %1199 = extractvalue { ptr, i32 } %1198, 0
+  store ptr %1199, ptr %12, align 8
+  %1200 = extractvalue { ptr, i32 } %1198, 1
+  store i32 %1200, ptr %13, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #3
-  br label %1200
+  br label %1201
 
-1200:                                             ; preds = %1196, %1192
+1201:                                             ; preds = %1197, %1193
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #3
+  br label %5031
+
+1202:                                             ; preds = %1192, %1175
+  store i32 304, ptr %1, align 4
   br label %5029
 
-1201:                                             ; preds = %1191, %1175
-  store i32 304, ptr %1, align 4
-  br label %5027
+1203:                                             ; preds = %209
+  %1204 = load i32, ptr @V3PreLexleng, align 4
+  %1205 = icmp sgt i32 %1204, 0
+  br i1 %1205, label %1206, label %1221
 
-1202:                                             ; preds = %209
-  %1203 = load i32, ptr @V3PreLexleng, align 4
-  %1204 = icmp sgt i32 %1203, 0
-  br i1 %1204, label %1205, label %1220
-
-1205:                                             ; preds = %1202
-  %1206 = load ptr, ptr @V3PreLextext, align 8
-  %1207 = load i32, ptr @V3PreLexleng, align 4
-  %1208 = sub nsw i32 %1207, 1
-  %1209 = sext i32 %1208 to i64
-  %1210 = getelementptr inbounds i8, ptr %1206, i64 %1209
-  %1211 = load i8, ptr %1210, align 1
-  %1212 = sext i8 %1211 to i32
-  %1213 = icmp eq i32 %1212, 10
-  %1214 = zext i1 %1213 to i32
-  %1215 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1216 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1217 = getelementptr inbounds ptr, ptr %1215, i64 %1216
-  %1218 = load ptr, ptr %1217, align 8
-  %1219 = getelementptr inbounds %struct.yy_buffer_state, ptr %1218, i32 0, i32 7
-  store i32 %1214, ptr %1219, align 8
-  br label %1220
-
-1220:                                             ; preds = %1205, %1202
+1206:                                             ; preds = %1203
+  %1207 = load ptr, ptr @V3PreLextext, align 8
+  %1208 = load i32, ptr @V3PreLexleng, align 4
+  %1209 = sub nsw i32 %1208, 1
+  %1210 = sext i32 %1209 to i64
+  %1211 = getelementptr inbounds i8, ptr %1207, i64 %1210
+  %1212 = load i8, ptr %1211, align 1
+  %1213 = sext i8 %1212 to i32
+  %1214 = icmp eq i32 %1213, 10
+  %1215 = zext i1 %1214 to i32
+  %1216 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1217 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1218 = getelementptr inbounds ptr, ptr %1216, i64 %1217
+  %1219 = load ptr, ptr %1218, align 8
+  %1220 = getelementptr inbounds %struct.yy_buffer_state, ptr %1219, i32 0, i32 7
+  store i32 %1215, ptr %1220, align 8
   br label %1221
 
-1221:                                             ; preds = %1220
-  %1222 = load i32, ptr @V3PreLexleng, align 4
-  %1223 = sub nsw i32 %1222, 1
-  store i32 %1223, ptr %43, align 4
-  %1224 = load i8, ptr @_ZL12yy_hold_char, align 1
-  %1225 = load ptr, ptr %3, align 8
-  store i8 %1224, ptr %1225, align 1
-  %1226 = load ptr, ptr %4, align 8
-  %1227 = load i32, ptr %43, align 4
-  %1228 = sext i32 %1227 to i64
-  %1229 = getelementptr inbounds i8, ptr %1226, i64 %1228
-  %1230 = load i32, ptr @_ZL11yy_more_len, align 4
-  %1231 = sext i32 %1230 to i64
-  %1232 = sub i64 0, %1231
-  %1233 = getelementptr inbounds i8, ptr %1229, i64 %1232
-  store ptr %1233, ptr %3, align 8
-  store ptr %1233, ptr @_ZL10yy_c_buf_p, align 8
-  %1234 = load ptr, ptr %4, align 8
-  store ptr %1234, ptr @V3PreLextext, align 8
-  %1235 = load i32, ptr @_ZL11yy_more_len, align 4
-  %1236 = load ptr, ptr @V3PreLextext, align 8
-  %1237 = sext i32 %1235 to i64
-  %1238 = sub i64 0, %1237
-  %1239 = getelementptr inbounds i8, ptr %1236, i64 %1238
-  store ptr %1239, ptr @V3PreLextext, align 8
-  %1240 = load ptr, ptr %3, align 8
-  %1241 = load ptr, ptr @V3PreLextext, align 8
-  %1242 = ptrtoint ptr %1240 to i64
+1221:                                             ; preds = %1206, %1203
+  br label %1222
+
+1222:                                             ; preds = %1221
+  %1223 = load i32, ptr @V3PreLexleng, align 4
+  %1224 = sub nsw i32 %1223, 1
+  store i32 %1224, ptr %43, align 4
+  %1225 = load i8, ptr @_ZL12yy_hold_char, align 1
+  %1226 = load ptr, ptr %3, align 8
+  store i8 %1225, ptr %1226, align 1
+  %1227 = load ptr, ptr %4, align 8
+  %1228 = load i32, ptr %43, align 4
+  %1229 = sext i32 %1228 to i64
+  %1230 = getelementptr inbounds i8, ptr %1227, i64 %1229
+  %1231 = load i32, ptr @_ZL11yy_more_len, align 4
+  %1232 = sext i32 %1231 to i64
+  %1233 = sub i64 0, %1232
+  %1234 = getelementptr inbounds i8, ptr %1230, i64 %1233
+  store ptr %1234, ptr %3, align 8
+  store ptr %1234, ptr @_ZL10yy_c_buf_p, align 8
+  %1235 = load ptr, ptr %4, align 8
+  store ptr %1235, ptr @V3PreLextext, align 8
+  %1236 = load i32, ptr @_ZL11yy_more_len, align 4
+  %1237 = load ptr, ptr @V3PreLextext, align 8
+  %1238 = sext i32 %1236 to i64
+  %1239 = sub i64 0, %1238
+  %1240 = getelementptr inbounds i8, ptr %1237, i64 %1239
+  store ptr %1240, ptr @V3PreLextext, align 8
+  %1241 = load ptr, ptr %3, align 8
+  %1242 = load ptr, ptr @V3PreLextext, align 8
   %1243 = ptrtoint ptr %1241 to i64
-  %1244 = sub i64 %1242, %1243
-  %1245 = trunc i64 %1244 to i32
-  store i32 %1245, ptr @V3PreLexleng, align 4
-  %1246 = load ptr, ptr %3, align 8
-  %1247 = load i8, ptr %1246, align 1
-  store i8 %1247, ptr @_ZL12yy_hold_char, align 1
-  %1248 = load ptr, ptr %3, align 8
-  store i8 0, ptr %1248, align 1
+  %1244 = ptrtoint ptr %1242 to i64
+  %1245 = sub i64 %1243, %1244
+  %1246 = trunc i64 %1245 to i32
+  store i32 %1246, ptr @V3PreLexleng, align 4
+  %1247 = load ptr, ptr %3, align 8
+  %1248 = load i8, ptr %1247, align 1
+  store i8 %1248, ptr @_ZL12yy_hold_char, align 1
   %1249 = load ptr, ptr %3, align 8
-  store ptr %1249, ptr @_ZL10yy_c_buf_p, align 8
-  br label %1250
+  store i8 0, ptr %1249, align 1
+  %1250 = load ptr, ptr %3, align 8
+  store ptr %1250, ptr @_ZL10yy_c_buf_p, align 8
+  br label %1251
 
-1250:                                             ; preds = %1221
-  %1251 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1252 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1251)
-  %1253 = load ptr, ptr @V3PreLextext, align 8
-  %1254 = load i32, ptr @V3PreLexleng, align 4
-  %1255 = sext i32 %1254 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1252, ptr noundef %1253, i64 noundef %1255, i1 noundef zeroext false)
-  %1256 = call noundef zeroext i1 @_ZNK9V3Options11preprocOnlyEv(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22))
-  br i1 %1256, label %1258, label %1257
+1251:                                             ; preds = %1222
+  %1252 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1253 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1252)
+  %1254 = load ptr, ptr @V3PreLextext, align 8
+  %1255 = load i32, ptr @V3PreLexleng, align 4
+  %1256 = sext i32 %1255 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1253, ptr noundef %1254, i64 noundef %1256, i1 noundef zeroext false)
+  %1257 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %1258 = call noundef zeroext i1 @_ZNK9V3Options11preprocOnlyEv(ptr noundef nonnull align 8 dereferenceable(1560) %1257)
+  br i1 %1258, label %1260, label %1259
 
-1257:                                             ; preds = %1250
+1259:                                             ; preds = %1251
   store i32 23, ptr @_ZL8yy_start, align 4
-  br label %1258
+  br label %1260
 
-1258:                                             ; preds = %1257, %1250
+1260:                                             ; preds = %1259, %1251
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-1259:                                             ; preds = %209
-  %1260 = load i32, ptr @V3PreLexleng, align 4
-  %1261 = icmp sgt i32 %1260, 0
-  br i1 %1261, label %1262, label %1277
+1261:                                             ; preds = %209
+  %1262 = load i32, ptr @V3PreLexleng, align 4
+  %1263 = icmp sgt i32 %1262, 0
+  br i1 %1263, label %1264, label %1279
 
-1262:                                             ; preds = %1259
-  %1263 = load ptr, ptr @V3PreLextext, align 8
-  %1264 = load i32, ptr @V3PreLexleng, align 4
-  %1265 = sub nsw i32 %1264, 1
-  %1266 = sext i32 %1265 to i64
-  %1267 = getelementptr inbounds i8, ptr %1263, i64 %1266
-  %1268 = load i8, ptr %1267, align 1
-  %1269 = sext i8 %1268 to i32
-  %1270 = icmp eq i32 %1269, 10
-  %1271 = zext i1 %1270 to i32
-  %1272 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1273 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1274 = getelementptr inbounds ptr, ptr %1272, i64 %1273
-  %1275 = load ptr, ptr %1274, align 8
-  %1276 = getelementptr inbounds %struct.yy_buffer_state, ptr %1275, i32 0, i32 7
-  store i32 %1271, ptr %1276, align 8
-  br label %1277
+1264:                                             ; preds = %1261
+  %1265 = load ptr, ptr @V3PreLextext, align 8
+  %1266 = load i32, ptr @V3PreLexleng, align 4
+  %1267 = sub nsw i32 %1266, 1
+  %1268 = sext i32 %1267 to i64
+  %1269 = getelementptr inbounds i8, ptr %1265, i64 %1268
+  %1270 = load i8, ptr %1269, align 1
+  %1271 = sext i8 %1270 to i32
+  %1272 = icmp eq i32 %1271, 10
+  %1273 = zext i1 %1272 to i32
+  %1274 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1275 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1276 = getelementptr inbounds ptr, ptr %1274, i64 %1275
+  %1277 = load ptr, ptr %1276, align 8
+  %1278 = getelementptr inbounds %struct.yy_buffer_state, ptr %1277, i32 0, i32 7
+  store i32 %1273, ptr %1278, align 8
+  br label %1279
 
-1277:                                             ; preds = %1262, %1259
-  %1278 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1279 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1278)
-  %1280 = load ptr, ptr @V3PreLextext, align 8
-  %1281 = load i32, ptr @V3PreLexleng, align 4
-  %1282 = sext i32 %1281 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1279, ptr noundef %1280, i64 noundef %1282, i1 noundef zeroext false)
+1279:                                             ; preds = %1264, %1261
+  %1280 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1281 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1280)
+  %1282 = load ptr, ptr @V3PreLextext, align 8
+  %1283 = load i32, ptr @V3PreLexleng, align 4
+  %1284 = sext i32 %1283 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1281, ptr noundef %1282, i64 noundef %1284, i1 noundef zeroext false)
   store i32 27, ptr @_ZL8yy_start, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-1283:                                             ; preds = %209
-  %1284 = load i32, ptr @V3PreLexleng, align 4
-  %1285 = icmp sgt i32 %1284, 0
-  br i1 %1285, label %1286, label %1301
+1285:                                             ; preds = %209
+  %1286 = load i32, ptr @V3PreLexleng, align 4
+  %1287 = icmp sgt i32 %1286, 0
+  br i1 %1287, label %1288, label %1303
 
-1286:                                             ; preds = %1283
-  %1287 = load ptr, ptr @V3PreLextext, align 8
-  %1288 = load i32, ptr @V3PreLexleng, align 4
-  %1289 = sub nsw i32 %1288, 1
-  %1290 = sext i32 %1289 to i64
-  %1291 = getelementptr inbounds i8, ptr %1287, i64 %1290
-  %1292 = load i8, ptr %1291, align 1
-  %1293 = sext i8 %1292 to i32
-  %1294 = icmp eq i32 %1293, 10
-  %1295 = zext i1 %1294 to i32
-  %1296 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1297 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1298 = getelementptr inbounds ptr, ptr %1296, i64 %1297
-  %1299 = load ptr, ptr %1298, align 8
-  %1300 = getelementptr inbounds %struct.yy_buffer_state, ptr %1299, i32 0, i32 7
-  store i32 %1295, ptr %1300, align 8
-  br label %1301
+1288:                                             ; preds = %1285
+  %1289 = load ptr, ptr @V3PreLextext, align 8
+  %1290 = load i32, ptr @V3PreLexleng, align 4
+  %1291 = sub nsw i32 %1290, 1
+  %1292 = sext i32 %1291 to i64
+  %1293 = getelementptr inbounds i8, ptr %1289, i64 %1292
+  %1294 = load i8, ptr %1293, align 1
+  %1295 = sext i8 %1294 to i32
+  %1296 = icmp eq i32 %1295, 10
+  %1297 = zext i1 %1296 to i32
+  %1298 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1299 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1300 = getelementptr inbounds ptr, ptr %1298, i64 %1299
+  %1301 = load ptr, ptr %1300, align 8
+  %1302 = getelementptr inbounds %struct.yy_buffer_state, ptr %1301, i32 0, i32 7
+  store i32 %1297, ptr %1302, align 8
+  br label %1303
 
-1301:                                             ; preds = %1286, %1283
-  br label %1302
+1303:                                             ; preds = %1288, %1285
+  br label %1304
 
-1302:                                             ; preds = %1301
+1304:                                             ; preds = %1303
   store i32 0, ptr %44, align 4
-  %1303 = load i8, ptr @_ZL12yy_hold_char, align 1
-  %1304 = load ptr, ptr %3, align 8
-  store i8 %1303, ptr %1304, align 1
-  %1305 = load ptr, ptr %4, align 8
-  %1306 = load i32, ptr %44, align 4
-  %1307 = sext i32 %1306 to i64
-  %1308 = getelementptr inbounds i8, ptr %1305, i64 %1307
-  %1309 = load i32, ptr @_ZL11yy_more_len, align 4
-  %1310 = sext i32 %1309 to i64
-  %1311 = sub i64 0, %1310
-  %1312 = getelementptr inbounds i8, ptr %1308, i64 %1311
-  store ptr %1312, ptr %3, align 8
-  store ptr %1312, ptr @_ZL10yy_c_buf_p, align 8
-  %1313 = load ptr, ptr %4, align 8
-  store ptr %1313, ptr @V3PreLextext, align 8
-  %1314 = load i32, ptr @_ZL11yy_more_len, align 4
-  %1315 = load ptr, ptr @V3PreLextext, align 8
-  %1316 = sext i32 %1314 to i64
-  %1317 = sub i64 0, %1316
-  %1318 = getelementptr inbounds i8, ptr %1315, i64 %1317
-  store ptr %1318, ptr @V3PreLextext, align 8
-  %1319 = load ptr, ptr %3, align 8
-  %1320 = load ptr, ptr @V3PreLextext, align 8
-  %1321 = ptrtoint ptr %1319 to i64
-  %1322 = ptrtoint ptr %1320 to i64
-  %1323 = sub i64 %1321, %1322
-  %1324 = trunc i64 %1323 to i32
-  store i32 %1324, ptr @V3PreLexleng, align 4
-  %1325 = load ptr, ptr %3, align 8
-  %1326 = load i8, ptr %1325, align 1
-  store i8 %1326, ptr @_ZL12yy_hold_char, align 1
+  %1305 = load i8, ptr @_ZL12yy_hold_char, align 1
+  %1306 = load ptr, ptr %3, align 8
+  store i8 %1305, ptr %1306, align 1
+  %1307 = load ptr, ptr %4, align 8
+  %1308 = load i32, ptr %44, align 4
+  %1309 = sext i32 %1308 to i64
+  %1310 = getelementptr inbounds i8, ptr %1307, i64 %1309
+  %1311 = load i32, ptr @_ZL11yy_more_len, align 4
+  %1312 = sext i32 %1311 to i64
+  %1313 = sub i64 0, %1312
+  %1314 = getelementptr inbounds i8, ptr %1310, i64 %1313
+  store ptr %1314, ptr %3, align 8
+  store ptr %1314, ptr @_ZL10yy_c_buf_p, align 8
+  %1315 = load ptr, ptr %4, align 8
+  store ptr %1315, ptr @V3PreLextext, align 8
+  %1316 = load i32, ptr @_ZL11yy_more_len, align 4
+  %1317 = load ptr, ptr @V3PreLextext, align 8
+  %1318 = sext i32 %1316 to i64
+  %1319 = sub i64 0, %1318
+  %1320 = getelementptr inbounds i8, ptr %1317, i64 %1319
+  store ptr %1320, ptr @V3PreLextext, align 8
+  %1321 = load ptr, ptr %3, align 8
+  %1322 = load ptr, ptr @V3PreLextext, align 8
+  %1323 = ptrtoint ptr %1321 to i64
+  %1324 = ptrtoint ptr %1322 to i64
+  %1325 = sub i64 %1323, %1324
+  %1326 = trunc i64 %1325 to i32
+  store i32 %1326, ptr @V3PreLexleng, align 4
   %1327 = load ptr, ptr %3, align 8
-  store i8 0, ptr %1327, align 1
-  %1328 = load ptr, ptr %3, align 8
-  store ptr %1328, ptr @_ZL10yy_c_buf_p, align 8
-  br label %1329
+  %1328 = load i8, ptr %1327, align 1
+  store i8 %1328, ptr @_ZL12yy_hold_char, align 1
+  %1329 = load ptr, ptr %3, align 8
+  store i8 0, ptr %1329, align 1
+  %1330 = load ptr, ptr %3, align 8
+  store ptr %1330, ptr @_ZL10yy_c_buf_p, align 8
+  br label %1331
 
-1329:                                             ; preds = %1302
+1331:                                             ; preds = %1304
   store i32 25, ptr @_ZL8yy_start, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-1330:                                             ; preds = %209
-  %1331 = load i32, ptr @V3PreLexleng, align 4
-  %1332 = icmp sgt i32 %1331, 0
-  br i1 %1332, label %1333, label %1348
+1332:                                             ; preds = %209
+  %1333 = load i32, ptr @V3PreLexleng, align 4
+  %1334 = icmp sgt i32 %1333, 0
+  br i1 %1334, label %1335, label %1350
 
-1333:                                             ; preds = %1330
-  %1334 = load ptr, ptr @V3PreLextext, align 8
-  %1335 = load i32, ptr @V3PreLexleng, align 4
-  %1336 = sub nsw i32 %1335, 1
-  %1337 = sext i32 %1336 to i64
-  %1338 = getelementptr inbounds i8, ptr %1334, i64 %1337
-  %1339 = load i8, ptr %1338, align 1
-  %1340 = sext i8 %1339 to i32
-  %1341 = icmp eq i32 %1340, 10
-  %1342 = zext i1 %1341 to i32
-  %1343 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1344 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1345 = getelementptr inbounds ptr, ptr %1343, i64 %1344
-  %1346 = load ptr, ptr %1345, align 8
-  %1347 = getelementptr inbounds %struct.yy_buffer_state, ptr %1346, i32 0, i32 7
-  store i32 %1342, ptr %1347, align 8
-  br label %1348
+1335:                                             ; preds = %1332
+  %1336 = load ptr, ptr @V3PreLextext, align 8
+  %1337 = load i32, ptr @V3PreLexleng, align 4
+  %1338 = sub nsw i32 %1337, 1
+  %1339 = sext i32 %1338 to i64
+  %1340 = getelementptr inbounds i8, ptr %1336, i64 %1339
+  %1341 = load i8, ptr %1340, align 1
+  %1342 = sext i8 %1341 to i32
+  %1343 = icmp eq i32 %1342, 10
+  %1344 = zext i1 %1343 to i32
+  %1345 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1346 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1347 = getelementptr inbounds ptr, ptr %1345, i64 %1346
+  %1348 = load ptr, ptr %1347, align 8
+  %1349 = getelementptr inbounds %struct.yy_buffer_state, ptr %1348, i32 0, i32 7
+  store i32 %1344, ptr %1349, align 8
+  br label %1350
 
-1348:                                             ; preds = %1333, %1330
-  %1349 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1350 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1349)
-  %1351 = load ptr, ptr @V3PreLextext, align 8
-  %1352 = load i32, ptr @V3PreLexleng, align 4
-  %1353 = sext i32 %1352 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1350, ptr noundef %1351, i64 noundef %1353, i1 noundef zeroext false)
+1350:                                             ; preds = %1335, %1332
+  %1351 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1352 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1351)
+  %1353 = load ptr, ptr @V3PreLextext, align 8
+  %1354 = load i32, ptr @V3PreLexleng, align 4
+  %1355 = sext i32 %1354 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1352, ptr noundef %1353, i64 noundef %1355, i1 noundef zeroext false)
   store i32 1, ptr @_ZL8yy_start, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-1354:                                             ; preds = %209
-  %1355 = load i32, ptr @V3PreLexleng, align 4
-  %1356 = icmp sgt i32 %1355, 0
-  br i1 %1356, label %1357, label %1372
+1356:                                             ; preds = %209
+  %1357 = load i32, ptr @V3PreLexleng, align 4
+  %1358 = icmp sgt i32 %1357, 0
+  br i1 %1358, label %1359, label %1374
 
-1357:                                             ; preds = %1354
-  %1358 = load ptr, ptr @V3PreLextext, align 8
-  %1359 = load i32, ptr @V3PreLexleng, align 4
-  %1360 = sub nsw i32 %1359, 1
-  %1361 = sext i32 %1360 to i64
-  %1362 = getelementptr inbounds i8, ptr %1358, i64 %1361
-  %1363 = load i8, ptr %1362, align 1
-  %1364 = sext i8 %1363 to i32
-  %1365 = icmp eq i32 %1364, 10
-  %1366 = zext i1 %1365 to i32
-  %1367 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1368 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1369 = getelementptr inbounds ptr, ptr %1367, i64 %1368
-  %1370 = load ptr, ptr %1369, align 8
-  %1371 = getelementptr inbounds %struct.yy_buffer_state, ptr %1370, i32 0, i32 7
-  store i32 %1366, ptr %1371, align 8
-  br label %1372
+1359:                                             ; preds = %1356
+  %1360 = load ptr, ptr @V3PreLextext, align 8
+  %1361 = load i32, ptr @V3PreLexleng, align 4
+  %1362 = sub nsw i32 %1361, 1
+  %1363 = sext i32 %1362 to i64
+  %1364 = getelementptr inbounds i8, ptr %1360, i64 %1363
+  %1365 = load i8, ptr %1364, align 1
+  %1366 = sext i8 %1365 to i32
+  %1367 = icmp eq i32 %1366, 10
+  %1368 = zext i1 %1367 to i32
+  %1369 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1370 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1371 = getelementptr inbounds ptr, ptr %1369, i64 %1370
+  %1372 = load ptr, ptr %1371, align 8
+  %1373 = getelementptr inbounds %struct.yy_buffer_state, ptr %1372, i32 0, i32 7
+  store i32 %1368, ptr %1373, align 8
+  br label %1374
 
-1372:                                             ; preds = %1357, %1354
-  %1373 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1374 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1373)
-  %1375 = load ptr, ptr @V3PreLextext, align 8
-  %1376 = load i32, ptr @V3PreLexleng, align 4
-  %1377 = sext i32 %1376 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1374, ptr noundef %1375, i64 noundef %1377, i1 noundef zeroext false)
-  %1378 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1379 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1378)
+1374:                                             ; preds = %1359, %1356
+  %1375 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1376 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1375)
+  %1377 = load ptr, ptr @V3PreLextext, align 8
+  %1378 = load i32, ptr @V3PreLexleng, align 4
+  %1379 = sext i32 %1378 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1376, ptr noundef %1377, i64 noundef %1379, i1 noundef zeroext false)
+  %1380 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1381 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1380)
   call void @_ZN11V3ErrorCodeC2ENS_2enE(ptr noundef nonnull align 1 dereferenceable(1) %45, i8 noundef zeroext 25)
-  %1380 = getelementptr inbounds %class.V3ErrorCode, ptr %45, i32 0, i32 0
-  %1381 = load i8, ptr %1380, align 1
-  %1382 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 %1381, i1 noundef zeroext true)
-  %1383 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %1384 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1383, ptr noundef @.str.16)
+  %1382 = getelementptr inbounds %class.V3ErrorCode, ptr %45, i32 0, i32 0
+  %1383 = load i8, ptr %1382, align 1
+  %1384 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 %1383, i1 noundef zeroext true)
+  %1385 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %1386 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1385, ptr noundef @.str.16)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %47)
-          to label %1385 unwind label %1387
+          to label %1387 unwind label %1389
 
-1385:                                             ; preds = %1372
-  invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %1379, ptr noundef nonnull align 8 dereferenceable(112) %1384, ptr noundef nonnull align 8 dereferenceable(32) %46)
-          to label %1386 unwind label %1391
+1387:                                             ; preds = %1374
+  invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %1381, ptr noundef nonnull align 8 dereferenceable(112) %1386, ptr noundef nonnull align 8 dereferenceable(32) %46)
+          to label %1388 unwind label %1393
 
-1386:                                             ; preds = %1385
+1388:                                             ; preds = %1387
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #3
   store i32 1, ptr @_ZL8yy_start, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-1387:                                             ; preds = %1372
-  %1388 = landingpad { ptr, i32 }
+1389:                                             ; preds = %1374
+  %1390 = landingpad { ptr, i32 }
           cleanup
-  %1389 = extractvalue { ptr, i32 } %1388, 0
-  store ptr %1389, ptr %12, align 8
-  %1390 = extractvalue { ptr, i32 } %1388, 1
-  store i32 %1390, ptr %13, align 4
-  br label %1395
+  %1391 = extractvalue { ptr, i32 } %1390, 0
+  store ptr %1391, ptr %12, align 8
+  %1392 = extractvalue { ptr, i32 } %1390, 1
+  store i32 %1392, ptr %13, align 4
+  br label %1397
 
-1391:                                             ; preds = %1385
-  %1392 = landingpad { ptr, i32 }
+1393:                                             ; preds = %1387
+  %1394 = landingpad { ptr, i32 }
           cleanup
-  %1393 = extractvalue { ptr, i32 } %1392, 0
-  store ptr %1393, ptr %12, align 8
-  %1394 = extractvalue { ptr, i32 } %1392, 1
-  store i32 %1394, ptr %13, align 4
+  %1395 = extractvalue { ptr, i32 } %1394, 0
+  store ptr %1395, ptr %12, align 8
+  %1396 = extractvalue { ptr, i32 } %1394, 1
+  store i32 %1396, ptr %13, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #3
-  br label %1395
+  br label %1397
 
-1395:                                             ; preds = %1391, %1387
+1397:                                             ; preds = %1393, %1389
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #3
-  br label %5029
+  br label %5031
 
-1396:                                             ; preds = %209
-  %1397 = load i32, ptr @V3PreLexleng, align 4
-  %1398 = icmp sgt i32 %1397, 0
-  br i1 %1398, label %1399, label %1414
+1398:                                             ; preds = %209
+  %1399 = load i32, ptr @V3PreLexleng, align 4
+  %1400 = icmp sgt i32 %1399, 0
+  br i1 %1400, label %1401, label %1416
 
-1399:                                             ; preds = %1396
-  %1400 = load ptr, ptr @V3PreLextext, align 8
-  %1401 = load i32, ptr @V3PreLexleng, align 4
-  %1402 = sub nsw i32 %1401, 1
-  %1403 = sext i32 %1402 to i64
-  %1404 = getelementptr inbounds i8, ptr %1400, i64 %1403
-  %1405 = load i8, ptr %1404, align 1
-  %1406 = sext i8 %1405 to i32
-  %1407 = icmp eq i32 %1406, 10
-  %1408 = zext i1 %1407 to i32
-  %1409 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1410 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1411 = getelementptr inbounds ptr, ptr %1409, i64 %1410
-  %1412 = load ptr, ptr %1411, align 8
-  %1413 = getelementptr inbounds %struct.yy_buffer_state, ptr %1412, i32 0, i32 7
-  store i32 %1408, ptr %1413, align 8
-  br label %1414
+1401:                                             ; preds = %1398
+  %1402 = load ptr, ptr @V3PreLextext, align 8
+  %1403 = load i32, ptr @V3PreLexleng, align 4
+  %1404 = sub nsw i32 %1403, 1
+  %1405 = sext i32 %1404 to i64
+  %1406 = getelementptr inbounds i8, ptr %1402, i64 %1405
+  %1407 = load i8, ptr %1406, align 1
+  %1408 = sext i8 %1407 to i32
+  %1409 = icmp eq i32 %1408, 10
+  %1410 = zext i1 %1409 to i32
+  %1411 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1412 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1413 = getelementptr inbounds ptr, ptr %1411, i64 %1412
+  %1414 = load ptr, ptr %1413, align 8
+  %1415 = getelementptr inbounds %struct.yy_buffer_state, ptr %1414, i32 0, i32 7
+  store i32 %1410, ptr %1415, align 8
+  br label %1416
 
-1414:                                             ; preds = %1399, %1396
-  %1415 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1416 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1415)
-  %1417 = load ptr, ptr @V3PreLextext, align 8
-  %1418 = load i32, ptr @V3PreLexleng, align 4
-  %1419 = sext i32 %1418 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1416, ptr noundef %1417, i64 noundef %1419, i1 noundef zeroext false)
-  %1420 = load atomic i8, ptr @_ZGVZ11V3PreLexlexvE7rtnfileB5cxx11 acquire, align 8
-  %1421 = icmp eq i8 %1420, 0
-  br i1 %1421, label %1422, label %1427, !prof !8
+1416:                                             ; preds = %1401, %1398
+  %1417 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1418 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1417)
+  %1419 = load ptr, ptr @V3PreLextext, align 8
+  %1420 = load i32, ptr @V3PreLexleng, align 4
+  %1421 = sext i32 %1420 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1418, ptr noundef %1419, i64 noundef %1421, i1 noundef zeroext false)
+  %1422 = load atomic i8, ptr @_ZGVZ11V3PreLexlexvE7rtnfileB5cxx11 acquire, align 8
+  %1423 = icmp eq i8 %1422, 0
+  br i1 %1423, label %1424, label %1429, !prof !8
 
-1422:                                             ; preds = %1414
-  %1423 = call i32 @__cxa_guard_acquire(ptr @_ZGVZ11V3PreLexlexvE7rtnfileB5cxx11) #3
-  %1424 = icmp ne i32 %1423, 0
-  br i1 %1424, label %1425, label %1427
+1424:                                             ; preds = %1416
+  %1425 = call i32 @__cxa_guard_acquire(ptr @_ZGVZ11V3PreLexlexvE7rtnfileB5cxx11) #3
+  %1426 = icmp ne i32 %1425, 0
+  br i1 %1426, label %1427, label %1429
 
-1425:                                             ; preds = %1422
+1427:                                             ; preds = %1424
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZ11V3PreLexlexvE7rtnfileB5cxx11) #3
-  %1426 = call i32 @__cxa_atexit(ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr @_ZZ11V3PreLexlexvE7rtnfileB5cxx11, ptr @__dso_handle) #3
+  %1428 = call i32 @__cxa_atexit(ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr @_ZZ11V3PreLexlexvE7rtnfileB5cxx11, ptr @__dso_handle) #3
   call void @__cxa_guard_release(ptr @_ZGVZ11V3PreLexlexvE7rtnfileB5cxx11) #3
-  br label %1427
+  br label %1429
 
-1427:                                             ; preds = %1425, %1422, %1414
-  %1428 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEc(ptr noundef nonnull align 8 dereferenceable(32) @_ZZ11V3PreLexlexvE7rtnfileB5cxx11, i8 noundef signext 34)
-  %1429 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1430 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1429)
-  call void @_ZNK8FileLine8filenameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %48, ptr noundef nonnull align 8 dereferenceable(40) %1430)
-  %1431 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZ11V3PreLexlexvE7rtnfileB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %48)
-          to label %1432 unwind label %1437
+1429:                                             ; preds = %1427, %1424, %1416
+  %1430 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEc(ptr noundef nonnull align 8 dereferenceable(32) @_ZZ11V3PreLexlexvE7rtnfileB5cxx11, i8 noundef signext 34)
+  %1431 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1432 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1431)
+  call void @_ZNK8FileLine8filenameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %48, ptr noundef nonnull align 8 dereferenceable(40) %1432)
+  %1433 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZ11V3PreLexlexvE7rtnfileB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %48)
+          to label %1434 unwind label %1439
 
-1432:                                             ; preds = %1427
+1434:                                             ; preds = %1429
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #3
-  %1433 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) @_ZZ11V3PreLexlexvE7rtnfileB5cxx11, i8 noundef signext 34)
-  %1434 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZ11V3PreLexlexvE7rtnfileB5cxx11) #3
-  store ptr %1434, ptr @V3PreLextext, align 8
-  %1435 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZ11V3PreLexlexvE7rtnfileB5cxx11) #3
-  %1436 = trunc i64 %1435 to i32
-  store i32 %1436, ptr @V3PreLexleng, align 4
+  %1435 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) @_ZZ11V3PreLexlexvE7rtnfileB5cxx11, i8 noundef signext 34)
+  %1436 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZ11V3PreLexlexvE7rtnfileB5cxx11) #3
+  store ptr %1436, ptr @V3PreLextext, align 8
+  %1437 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZ11V3PreLexlexvE7rtnfileB5cxx11) #3
+  %1438 = trunc i64 %1437 to i32
+  store i32 %1438, ptr @V3PreLexleng, align 4
   store i32 301, ptr %1, align 4
-  br label %5027
-
-1437:                                             ; preds = %1427
-  %1438 = landingpad { ptr, i32 }
-          cleanup
-  %1439 = extractvalue { ptr, i32 } %1438, 0
-  store ptr %1439, ptr %12, align 8
-  %1440 = extractvalue { ptr, i32 } %1438, 1
-  store i32 %1440, ptr %13, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #3
   br label %5029
 
-1441:                                             ; preds = %209
-  %1442 = load i32, ptr @V3PreLexleng, align 4
-  %1443 = icmp sgt i32 %1442, 0
-  br i1 %1443, label %1444, label %1459
+1439:                                             ; preds = %1429
+  %1440 = landingpad { ptr, i32 }
+          cleanup
+  %1441 = extractvalue { ptr, i32 } %1440, 0
+  store ptr %1441, ptr %12, align 8
+  %1442 = extractvalue { ptr, i32 } %1440, 1
+  store i32 %1442, ptr %13, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #3
+  br label %5031
 
-1444:                                             ; preds = %1441
-  %1445 = load ptr, ptr @V3PreLextext, align 8
-  %1446 = load i32, ptr @V3PreLexleng, align 4
-  %1447 = sub nsw i32 %1446, 1
-  %1448 = sext i32 %1447 to i64
-  %1449 = getelementptr inbounds i8, ptr %1445, i64 %1448
-  %1450 = load i8, ptr %1449, align 1
-  %1451 = sext i8 %1450 to i32
-  %1452 = icmp eq i32 %1451, 10
-  %1453 = zext i1 %1452 to i32
-  %1454 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1455 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1456 = getelementptr inbounds ptr, ptr %1454, i64 %1455
-  %1457 = load ptr, ptr %1456, align 8
-  %1458 = getelementptr inbounds %struct.yy_buffer_state, ptr %1457, i32 0, i32 7
-  store i32 %1453, ptr %1458, align 8
-  br label %1459
+1443:                                             ; preds = %209
+  %1444 = load i32, ptr @V3PreLexleng, align 4
+  %1445 = icmp sgt i32 %1444, 0
+  br i1 %1445, label %1446, label %1461
 
-1459:                                             ; preds = %1444, %1441
-  %1460 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1461 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1460)
-  %1462 = load ptr, ptr @V3PreLextext, align 8
-  %1463 = load i32, ptr @V3PreLexleng, align 4
-  %1464 = sext i32 %1463 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1461, ptr noundef %1462, i64 noundef %1464, i1 noundef zeroext false)
-  %1465 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1466 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1465)
-  %1467 = call noundef i32 @_ZNK8FileLine10lastLinenoEv(ptr noundef nonnull align 8 dereferenceable(40) %1466)
-  %1468 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef @_ZZ11V3PreLexlexvE3buf, i64 noundef 25, ptr noundef @.str.17, i32 noundef %1467) #3
+1446:                                             ; preds = %1443
+  %1447 = load ptr, ptr @V3PreLextext, align 8
+  %1448 = load i32, ptr @V3PreLexleng, align 4
+  %1449 = sub nsw i32 %1448, 1
+  %1450 = sext i32 %1449 to i64
+  %1451 = getelementptr inbounds i8, ptr %1447, i64 %1450
+  %1452 = load i8, ptr %1451, align 1
+  %1453 = sext i8 %1452 to i32
+  %1454 = icmp eq i32 %1453, 10
+  %1455 = zext i1 %1454 to i32
+  %1456 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1457 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1458 = getelementptr inbounds ptr, ptr %1456, i64 %1457
+  %1459 = load ptr, ptr %1458, align 8
+  %1460 = getelementptr inbounds %struct.yy_buffer_state, ptr %1459, i32 0, i32 7
+  store i32 %1455, ptr %1460, align 8
+  br label %1461
+
+1461:                                             ; preds = %1446, %1443
+  %1462 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1463 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1462)
+  %1464 = load ptr, ptr @V3PreLextext, align 8
+  %1465 = load i32, ptr @V3PreLexleng, align 4
+  %1466 = sext i32 %1465 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1463, ptr noundef %1464, i64 noundef %1466, i1 noundef zeroext false)
+  %1467 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1468 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1467)
+  %1469 = call noundef i32 @_ZNK8FileLine10lastLinenoEv(ptr noundef nonnull align 8 dereferenceable(40) %1468)
+  %1470 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef @_ZZ11V3PreLexlexvE3buf, i64 noundef 25, ptr noundef @.str.17, i32 noundef %1469) #3
   store ptr @_ZZ11V3PreLexlexvE3buf, ptr @V3PreLextext, align 8
-  %1469 = load ptr, ptr @V3PreLextext, align 8
-  %1470 = call i64 @strlen(ptr noundef %1469) #20
-  %1471 = trunc i64 %1470 to i32
-  store i32 %1471, ptr @V3PreLexleng, align 4
+  %1471 = load ptr, ptr @V3PreLextext, align 8
+  %1472 = call i64 @strlen(ptr noundef %1471) #20
+  %1473 = trunc i64 %1472 to i32
+  store i32 %1473, ptr @V3PreLexleng, align 4
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-1472:                                             ; preds = %209
-  %1473 = load i32, ptr @V3PreLexleng, align 4
-  %1474 = icmp sgt i32 %1473, 0
-  br i1 %1474, label %1475, label %1490
+1474:                                             ; preds = %209
+  %1475 = load i32, ptr @V3PreLexleng, align 4
+  %1476 = icmp sgt i32 %1475, 0
+  br i1 %1476, label %1477, label %1492
 
-1475:                                             ; preds = %1472
-  %1476 = load ptr, ptr @V3PreLextext, align 8
-  %1477 = load i32, ptr @V3PreLexleng, align 4
-  %1478 = sub nsw i32 %1477, 1
-  %1479 = sext i32 %1478 to i64
-  %1480 = getelementptr inbounds i8, ptr %1476, i64 %1479
-  %1481 = load i8, ptr %1480, align 1
-  %1482 = sext i8 %1481 to i32
-  %1483 = icmp eq i32 %1482, 10
-  %1484 = zext i1 %1483 to i32
-  %1485 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1486 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1487 = getelementptr inbounds ptr, ptr %1485, i64 %1486
-  %1488 = load ptr, ptr %1487, align 8
-  %1489 = getelementptr inbounds %struct.yy_buffer_state, ptr %1488, i32 0, i32 7
-  store i32 %1484, ptr %1489, align 8
-  br label %1490
+1477:                                             ; preds = %1474
+  %1478 = load ptr, ptr @V3PreLextext, align 8
+  %1479 = load i32, ptr @V3PreLexleng, align 4
+  %1480 = sub nsw i32 %1479, 1
+  %1481 = sext i32 %1480 to i64
+  %1482 = getelementptr inbounds i8, ptr %1478, i64 %1481
+  %1483 = load i8, ptr %1482, align 1
+  %1484 = sext i8 %1483 to i32
+  %1485 = icmp eq i32 %1484, 10
+  %1486 = zext i1 %1485 to i32
+  %1487 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1488 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1489 = getelementptr inbounds ptr, ptr %1487, i64 %1488
+  %1490 = load ptr, ptr %1489, align 8
+  %1491 = getelementptr inbounds %struct.yy_buffer_state, ptr %1490, i32 0, i32 7
+  store i32 %1486, ptr %1491, align 8
+  br label %1492
 
-1490:                                             ; preds = %1475, %1472
+1492:                                             ; preds = %1477, %1474
   call void @_ZL13yy_push_statei(i32 noundef 18)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-1491:                                             ; preds = %209
-  %1492 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1493 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1492)
-  %1494 = load ptr, ptr @V3PreLextext, align 8
-  %1495 = load i32, ptr @V3PreLexleng, align 4
-  %1496 = sext i32 %1495 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1493, ptr noundef %1494, i64 noundef %1496, i1 noundef zeroext false)
+1493:                                             ; preds = %209
+  %1494 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1495 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1494)
+  %1496 = load ptr, ptr @V3PreLextext, align 8
+  %1497 = load i32, ptr @V3PreLexleng, align 4
+  %1498 = sext i32 %1497 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1495, ptr noundef %1496, i64 noundef %1498, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL14V3PreLexerrorfPKc(ptr noundef @.str.18)
   store i32 0, ptr @V3PreLexleng, align 4
   store i32 400, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-1497:                                             ; preds = %209
-  %1498 = load i32, ptr @V3PreLexleng, align 4
-  %1499 = icmp sgt i32 %1498, 0
-  br i1 %1499, label %1500, label %1515
+1499:                                             ; preds = %209
+  %1500 = load i32, ptr @V3PreLexleng, align 4
+  %1501 = icmp sgt i32 %1500, 0
+  br i1 %1501, label %1502, label %1517
 
-1500:                                             ; preds = %1497
-  %1501 = load ptr, ptr @V3PreLextext, align 8
-  %1502 = load i32, ptr @V3PreLexleng, align 4
-  %1503 = sub nsw i32 %1502, 1
-  %1504 = sext i32 %1503 to i64
-  %1505 = getelementptr inbounds i8, ptr %1501, i64 %1504
-  %1506 = load i8, ptr %1505, align 1
-  %1507 = sext i8 %1506 to i32
-  %1508 = icmp eq i32 %1507, 10
-  %1509 = zext i1 %1508 to i32
-  %1510 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1511 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1512 = getelementptr inbounds ptr, ptr %1510, i64 %1511
-  %1513 = load ptr, ptr %1512, align 8
-  %1514 = getelementptr inbounds %struct.yy_buffer_state, ptr %1513, i32 0, i32 7
-  store i32 %1509, ptr %1514, align 8
-  br label %1515
+1502:                                             ; preds = %1499
+  %1503 = load ptr, ptr @V3PreLextext, align 8
+  %1504 = load i32, ptr @V3PreLexleng, align 4
+  %1505 = sub nsw i32 %1504, 1
+  %1506 = sext i32 %1505 to i64
+  %1507 = getelementptr inbounds i8, ptr %1503, i64 %1506
+  %1508 = load i8, ptr %1507, align 1
+  %1509 = sext i8 %1508 to i32
+  %1510 = icmp eq i32 %1509, 10
+  %1511 = zext i1 %1510 to i32
+  %1512 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1513 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1514 = getelementptr inbounds ptr, ptr %1512, i64 %1513
+  %1515 = load ptr, ptr %1514, align 8
+  %1516 = getelementptr inbounds %struct.yy_buffer_state, ptr %1515, i32 0, i32 7
+  store i32 %1511, ptr %1516, align 8
+  br label %1517
 
-1515:                                             ; preds = %1500, %1497
-  %1516 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1517 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1516)
-  %1518 = load ptr, ptr @V3PreLextext, align 8
-  %1519 = load i32, ptr @V3PreLexleng, align 4
-  %1520 = sext i32 %1519 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1517, ptr noundef %1518, i64 noundef %1520, i1 noundef zeroext false)
+1517:                                             ; preds = %1502, %1499
+  %1518 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1519 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1518)
+  %1520 = load ptr, ptr @V3PreLextext, align 8
+  %1521 = load i32, ptr @V3PreLexleng, align 4
+  %1522 = sext i32 %1521 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1519, ptr noundef %1520, i64 noundef %1522, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL14V3PreLexerrorfPKc(ptr noundef @.str.19)
-  %1521 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1522 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1521)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %1522)
+  %1523 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1524 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1523)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %1524)
   store i32 1, ptr @_ZL8yy_start, align 4
-  br label %5026
+  br label %5028
 
-1523:                                             ; preds = %209
-  %1524 = load i32, ptr @V3PreLexleng, align 4
-  %1525 = icmp sgt i32 %1524, 0
-  br i1 %1525, label %1526, label %1541
+1525:                                             ; preds = %209
+  %1526 = load i32, ptr @V3PreLexleng, align 4
+  %1527 = icmp sgt i32 %1526, 0
+  br i1 %1527, label %1528, label %1543
 
-1526:                                             ; preds = %1523
-  %1527 = load ptr, ptr @V3PreLextext, align 8
-  %1528 = load i32, ptr @V3PreLexleng, align 4
-  %1529 = sub nsw i32 %1528, 1
-  %1530 = sext i32 %1529 to i64
-  %1531 = getelementptr inbounds i8, ptr %1527, i64 %1530
-  %1532 = load i8, ptr %1531, align 1
-  %1533 = sext i8 %1532 to i32
-  %1534 = icmp eq i32 %1533, 10
-  %1535 = zext i1 %1534 to i32
-  %1536 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1537 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1538 = getelementptr inbounds ptr, ptr %1536, i64 %1537
-  %1539 = load ptr, ptr %1538, align 8
-  %1540 = getelementptr inbounds %struct.yy_buffer_state, ptr %1539, i32 0, i32 7
-  store i32 %1535, ptr %1540, align 8
-  br label %1541
+1528:                                             ; preds = %1525
+  %1529 = load ptr, ptr @V3PreLextext, align 8
+  %1530 = load i32, ptr @V3PreLexleng, align 4
+  %1531 = sub nsw i32 %1530, 1
+  %1532 = sext i32 %1531 to i64
+  %1533 = getelementptr inbounds i8, ptr %1529, i64 %1532
+  %1534 = load i8, ptr %1533, align 1
+  %1535 = sext i8 %1534 to i32
+  %1536 = icmp eq i32 %1535, 10
+  %1537 = zext i1 %1536 to i32
+  %1538 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1539 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1540 = getelementptr inbounds ptr, ptr %1538, i64 %1539
+  %1541 = load ptr, ptr %1540, align 8
+  %1542 = getelementptr inbounds %struct.yy_buffer_state, ptr %1541, i32 0, i32 7
+  store i32 %1537, ptr %1542, align 8
+  br label %1543
 
-1541:                                             ; preds = %1526, %1523
+1543:                                             ; preds = %1528, %1525
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-1542:                                             ; preds = %209
-  %1543 = load i32, ptr @V3PreLexleng, align 4
-  %1544 = icmp sgt i32 %1543, 0
-  br i1 %1544, label %1545, label %1560
+1544:                                             ; preds = %209
+  %1545 = load i32, ptr @V3PreLexleng, align 4
+  %1546 = icmp sgt i32 %1545, 0
+  br i1 %1546, label %1547, label %1562
 
-1545:                                             ; preds = %1542
-  %1546 = load ptr, ptr @V3PreLextext, align 8
-  %1547 = load i32, ptr @V3PreLexleng, align 4
-  %1548 = sub nsw i32 %1547, 1
-  %1549 = sext i32 %1548 to i64
-  %1550 = getelementptr inbounds i8, ptr %1546, i64 %1549
-  %1551 = load i8, ptr %1550, align 1
-  %1552 = sext i8 %1551 to i32
-  %1553 = icmp eq i32 %1552, 10
-  %1554 = zext i1 %1553 to i32
-  %1555 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1556 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1557 = getelementptr inbounds ptr, ptr %1555, i64 %1556
-  %1558 = load ptr, ptr %1557, align 8
-  %1559 = getelementptr inbounds %struct.yy_buffer_state, ptr %1558, i32 0, i32 7
-  store i32 %1554, ptr %1559, align 8
-  br label %1560
+1547:                                             ; preds = %1544
+  %1548 = load ptr, ptr @V3PreLextext, align 8
+  %1549 = load i32, ptr @V3PreLexleng, align 4
+  %1550 = sub nsw i32 %1549, 1
+  %1551 = sext i32 %1550 to i64
+  %1552 = getelementptr inbounds i8, ptr %1548, i64 %1551
+  %1553 = load i8, ptr %1552, align 1
+  %1554 = sext i8 %1553 to i32
+  %1555 = icmp eq i32 %1554, 10
+  %1556 = zext i1 %1555 to i32
+  %1557 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1558 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1559 = getelementptr inbounds ptr, ptr %1557, i64 %1558
+  %1560 = load ptr, ptr %1559, align 8
+  %1561 = getelementptr inbounds %struct.yy_buffer_state, ptr %1560, i32 0, i32 7
+  store i32 %1556, ptr %1561, align 8
+  br label %1562
 
-1560:                                             ; preds = %1545, %1542
+1562:                                             ; preds = %1547, %1544
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-1561:                                             ; preds = %209
-  %1562 = load i32, ptr @V3PreLexleng, align 4
-  %1563 = icmp sgt i32 %1562, 0
-  br i1 %1563, label %1564, label %1579
+1563:                                             ; preds = %209
+  %1564 = load i32, ptr @V3PreLexleng, align 4
+  %1565 = icmp sgt i32 %1564, 0
+  br i1 %1565, label %1566, label %1581
 
-1564:                                             ; preds = %1561
-  %1565 = load ptr, ptr @V3PreLextext, align 8
-  %1566 = load i32, ptr @V3PreLexleng, align 4
-  %1567 = sub nsw i32 %1566, 1
-  %1568 = sext i32 %1567 to i64
-  %1569 = getelementptr inbounds i8, ptr %1565, i64 %1568
-  %1570 = load i8, ptr %1569, align 1
-  %1571 = sext i8 %1570 to i32
-  %1572 = icmp eq i32 %1571, 10
-  %1573 = zext i1 %1572 to i32
-  %1574 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1575 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1576 = getelementptr inbounds ptr, ptr %1574, i64 %1575
-  %1577 = load ptr, ptr %1576, align 8
-  %1578 = getelementptr inbounds %struct.yy_buffer_state, ptr %1577, i32 0, i32 7
-  store i32 %1573, ptr %1578, align 8
-  br label %1579
+1566:                                             ; preds = %1563
+  %1567 = load ptr, ptr @V3PreLextext, align 8
+  %1568 = load i32, ptr @V3PreLexleng, align 4
+  %1569 = sub nsw i32 %1568, 1
+  %1570 = sext i32 %1569 to i64
+  %1571 = getelementptr inbounds i8, ptr %1567, i64 %1570
+  %1572 = load i8, ptr %1571, align 1
+  %1573 = sext i8 %1572 to i32
+  %1574 = icmp eq i32 %1573, 10
+  %1575 = zext i1 %1574 to i32
+  %1576 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1577 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1578 = getelementptr inbounds ptr, ptr %1576, i64 %1577
+  %1579 = load ptr, ptr %1578, align 8
+  %1580 = getelementptr inbounds %struct.yy_buffer_state, ptr %1579, i32 0, i32 7
+  store i32 %1575, ptr %1580, align 8
+  br label %1581
 
-1579:                                             ; preds = %1564, %1561
+1581:                                             ; preds = %1566, %1563
   call void @_ZL9linenoIncv()
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-1580:                                             ; preds = %209
-  %1581 = load i32, ptr @V3PreLexleng, align 4
-  %1582 = icmp sgt i32 %1581, 0
-  br i1 %1582, label %1583, label %1598
+1582:                                             ; preds = %209
+  %1583 = load i32, ptr @V3PreLexleng, align 4
+  %1584 = icmp sgt i32 %1583, 0
+  br i1 %1584, label %1585, label %1600
 
-1583:                                             ; preds = %1580
-  %1584 = load ptr, ptr @V3PreLextext, align 8
-  %1585 = load i32, ptr @V3PreLexleng, align 4
-  %1586 = sub nsw i32 %1585, 1
-  %1587 = sext i32 %1586 to i64
-  %1588 = getelementptr inbounds i8, ptr %1584, i64 %1587
-  %1589 = load i8, ptr %1588, align 1
-  %1590 = sext i8 %1589 to i32
-  %1591 = icmp eq i32 %1590, 10
-  %1592 = zext i1 %1591 to i32
-  %1593 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1594 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1595 = getelementptr inbounds ptr, ptr %1593, i64 %1594
-  %1596 = load ptr, ptr %1595, align 8
-  %1597 = getelementptr inbounds %struct.yy_buffer_state, ptr %1596, i32 0, i32 7
-  store i32 %1592, ptr %1597, align 8
-  br label %1598
-
-1598:                                             ; preds = %1583, %1580
-  %1599 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  call void @_ZN8V3PreLex18warnBackslashSpaceEv(ptr noundef nonnull align 8 dereferenceable(264) %1599)
+1585:                                             ; preds = %1582
+  %1586 = load ptr, ptr @V3PreLextext, align 8
+  %1587 = load i32, ptr @V3PreLexleng, align 4
+  %1588 = sub nsw i32 %1587, 1
+  %1589 = sext i32 %1588 to i64
+  %1590 = getelementptr inbounds i8, ptr %1586, i64 %1589
+  %1591 = load i8, ptr %1590, align 1
+  %1592 = sext i8 %1591 to i32
+  %1593 = icmp eq i32 %1592, 10
+  %1594 = zext i1 %1593 to i32
+  %1595 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1596 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1597 = getelementptr inbounds ptr, ptr %1595, i64 %1596
+  %1598 = load ptr, ptr %1597, align 8
+  %1599 = getelementptr inbounds %struct.yy_buffer_state, ptr %1598, i32 0, i32 7
+  store i32 %1594, ptr %1599, align 8
   br label %1600
 
-1600:                                             ; preds = %1598
+1600:                                             ; preds = %1585, %1582
+  %1601 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  call void @_ZN8V3PreLex18warnBackslashSpaceEv(ptr noundef nonnull align 8 dereferenceable(264) %1601)
+  br label %1602
+
+1602:                                             ; preds = %1600
   store i32 1, ptr %49, align 4
-  %1601 = load i8, ptr @_ZL12yy_hold_char, align 1
-  %1602 = load ptr, ptr %3, align 8
-  store i8 %1601, ptr %1602, align 1
-  %1603 = load ptr, ptr %4, align 8
-  %1604 = load i32, ptr %49, align 4
-  %1605 = sext i32 %1604 to i64
-  %1606 = getelementptr inbounds i8, ptr %1603, i64 %1605
-  %1607 = load i32, ptr @_ZL11yy_more_len, align 4
-  %1608 = sext i32 %1607 to i64
-  %1609 = sub i64 0, %1608
-  %1610 = getelementptr inbounds i8, ptr %1606, i64 %1609
-  store ptr %1610, ptr %3, align 8
-  store ptr %1610, ptr @_ZL10yy_c_buf_p, align 8
-  %1611 = load ptr, ptr %4, align 8
-  store ptr %1611, ptr @V3PreLextext, align 8
-  %1612 = load i32, ptr @_ZL11yy_more_len, align 4
-  %1613 = load ptr, ptr @V3PreLextext, align 8
-  %1614 = sext i32 %1612 to i64
-  %1615 = sub i64 0, %1614
-  %1616 = getelementptr inbounds i8, ptr %1613, i64 %1615
-  store ptr %1616, ptr @V3PreLextext, align 8
-  %1617 = load ptr, ptr %3, align 8
-  %1618 = load ptr, ptr @V3PreLextext, align 8
-  %1619 = ptrtoint ptr %1617 to i64
-  %1620 = ptrtoint ptr %1618 to i64
-  %1621 = sub i64 %1619, %1620
-  %1622 = trunc i64 %1621 to i32
-  store i32 %1622, ptr @V3PreLexleng, align 4
-  %1623 = load ptr, ptr %3, align 8
-  %1624 = load i8, ptr %1623, align 1
-  store i8 %1624, ptr @_ZL12yy_hold_char, align 1
+  %1603 = load i8, ptr @_ZL12yy_hold_char, align 1
+  %1604 = load ptr, ptr %3, align 8
+  store i8 %1603, ptr %1604, align 1
+  %1605 = load ptr, ptr %4, align 8
+  %1606 = load i32, ptr %49, align 4
+  %1607 = sext i32 %1606 to i64
+  %1608 = getelementptr inbounds i8, ptr %1605, i64 %1607
+  %1609 = load i32, ptr @_ZL11yy_more_len, align 4
+  %1610 = sext i32 %1609 to i64
+  %1611 = sub i64 0, %1610
+  %1612 = getelementptr inbounds i8, ptr %1608, i64 %1611
+  store ptr %1612, ptr %3, align 8
+  store ptr %1612, ptr @_ZL10yy_c_buf_p, align 8
+  %1613 = load ptr, ptr %4, align 8
+  store ptr %1613, ptr @V3PreLextext, align 8
+  %1614 = load i32, ptr @_ZL11yy_more_len, align 4
+  %1615 = load ptr, ptr @V3PreLextext, align 8
+  %1616 = sext i32 %1614 to i64
+  %1617 = sub i64 0, %1616
+  %1618 = getelementptr inbounds i8, ptr %1615, i64 %1617
+  store ptr %1618, ptr @V3PreLextext, align 8
+  %1619 = load ptr, ptr %3, align 8
+  %1620 = load ptr, ptr @V3PreLextext, align 8
+  %1621 = ptrtoint ptr %1619 to i64
+  %1622 = ptrtoint ptr %1620 to i64
+  %1623 = sub i64 %1621, %1622
+  %1624 = trunc i64 %1623 to i32
+  store i32 %1624, ptr @V3PreLexleng, align 4
   %1625 = load ptr, ptr %3, align 8
-  store i8 0, ptr %1625, align 1
-  %1626 = load ptr, ptr %3, align 8
-  store ptr %1626, ptr @_ZL10yy_c_buf_p, align 8
-  br label %1627
+  %1626 = load i8, ptr %1625, align 1
+  store i8 %1626, ptr @_ZL12yy_hold_char, align 1
+  %1627 = load ptr, ptr %3, align 8
+  store i8 0, ptr %1627, align 1
+  %1628 = load ptr, ptr %3, align 8
+  store ptr %1628, ptr @_ZL10yy_c_buf_p, align 8
+  br label %1629
 
-1627:                                             ; preds = %1600
-  br label %5026
+1629:                                             ; preds = %1602
+  br label %5028
 
-1628:                                             ; preds = %209
-  %1629 = load i32, ptr @V3PreLexleng, align 4
-  %1630 = icmp sgt i32 %1629, 0
-  br i1 %1630, label %1631, label %1646
+1630:                                             ; preds = %209
+  %1631 = load i32, ptr @V3PreLexleng, align 4
+  %1632 = icmp sgt i32 %1631, 0
+  br i1 %1632, label %1633, label %1648
 
-1631:                                             ; preds = %1628
-  %1632 = load ptr, ptr @V3PreLextext, align 8
-  %1633 = load i32, ptr @V3PreLexleng, align 4
-  %1634 = sub nsw i32 %1633, 1
-  %1635 = sext i32 %1634 to i64
-  %1636 = getelementptr inbounds i8, ptr %1632, i64 %1635
-  %1637 = load i8, ptr %1636, align 1
-  %1638 = sext i8 %1637 to i32
-  %1639 = icmp eq i32 %1638, 10
-  %1640 = zext i1 %1639 to i32
-  %1641 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1642 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1643 = getelementptr inbounds ptr, ptr %1641, i64 %1642
-  %1644 = load ptr, ptr %1643, align 8
-  %1645 = getelementptr inbounds %struct.yy_buffer_state, ptr %1644, i32 0, i32 7
-  store i32 %1640, ptr %1645, align 8
-  br label %1646
+1633:                                             ; preds = %1630
+  %1634 = load ptr, ptr @V3PreLextext, align 8
+  %1635 = load i32, ptr @V3PreLexleng, align 4
+  %1636 = sub nsw i32 %1635, 1
+  %1637 = sext i32 %1636 to i64
+  %1638 = getelementptr inbounds i8, ptr %1634, i64 %1637
+  %1639 = load i8, ptr %1638, align 1
+  %1640 = sext i8 %1639 to i32
+  %1641 = icmp eq i32 %1640, 10
+  %1642 = zext i1 %1641 to i32
+  %1643 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1644 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1645 = getelementptr inbounds ptr, ptr %1643, i64 %1644
+  %1646 = load ptr, ptr %1645, align 8
+  %1647 = getelementptr inbounds %struct.yy_buffer_state, ptr %1646, i32 0, i32 7
+  store i32 %1642, ptr %1647, align 8
+  br label %1648
 
-1646:                                             ; preds = %1631, %1628
+1648:                                             ; preds = %1633, %1630
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-1647:                                             ; preds = %209
-  %1648 = load i32, ptr @V3PreLexleng, align 4
-  %1649 = icmp sgt i32 %1648, 0
-  br i1 %1649, label %1650, label %1665
+1649:                                             ; preds = %209
+  %1650 = load i32, ptr @V3PreLexleng, align 4
+  %1651 = icmp sgt i32 %1650, 0
+  br i1 %1651, label %1652, label %1667
 
-1650:                                             ; preds = %1647
-  %1651 = load ptr, ptr @V3PreLextext, align 8
-  %1652 = load i32, ptr @V3PreLexleng, align 4
-  %1653 = sub nsw i32 %1652, 1
-  %1654 = sext i32 %1653 to i64
-  %1655 = getelementptr inbounds i8, ptr %1651, i64 %1654
-  %1656 = load i8, ptr %1655, align 1
-  %1657 = sext i8 %1656 to i32
-  %1658 = icmp eq i32 %1657, 10
-  %1659 = zext i1 %1658 to i32
-  %1660 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1661 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1662 = getelementptr inbounds ptr, ptr %1660, i64 %1661
-  %1663 = load ptr, ptr %1662, align 8
-  %1664 = getelementptr inbounds %struct.yy_buffer_state, ptr %1663, i32 0, i32 7
-  store i32 %1659, ptr %1664, align 8
-  br label %1665
+1652:                                             ; preds = %1649
+  %1653 = load ptr, ptr @V3PreLextext, align 8
+  %1654 = load i32, ptr @V3PreLexleng, align 4
+  %1655 = sub nsw i32 %1654, 1
+  %1656 = sext i32 %1655 to i64
+  %1657 = getelementptr inbounds i8, ptr %1653, i64 %1656
+  %1658 = load i8, ptr %1657, align 1
+  %1659 = sext i8 %1658 to i32
+  %1660 = icmp eq i32 %1659, 10
+  %1661 = zext i1 %1660 to i32
+  %1662 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1663 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1664 = getelementptr inbounds ptr, ptr %1662, i64 %1663
+  %1665 = load ptr, ptr %1664, align 8
+  %1666 = getelementptr inbounds %struct.yy_buffer_state, ptr %1665, i32 0, i32 7
+  store i32 %1661, ptr %1666, align 8
+  br label %1667
 
-1665:                                             ; preds = %1650, %1647
-  %1666 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1667 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1666)
-  %1668 = load ptr, ptr @V3PreLextext, align 8
-  %1669 = load i32, ptr @V3PreLexleng, align 4
-  %1670 = sext i32 %1669 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1667, ptr noundef %1668, i64 noundef %1670, i1 noundef zeroext false)
+1667:                                             ; preds = %1652, %1649
+  %1668 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1669 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1668)
+  %1670 = load ptr, ptr @V3PreLextext, align 8
+  %1671 = load i32, ptr @V3PreLexleng, align 4
+  %1672 = sext i32 %1671 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1669, ptr noundef %1670, i64 noundef %1672, i1 noundef zeroext false)
   call void @_ZL12yy_pop_statev()
-  %1671 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1672 = getelementptr inbounds %class.V3PreLex, ptr %1671, i32 0, i32 12
-  %1673 = load i32, ptr %1672, align 8
-  %1674 = icmp ne i32 %1673, 0
-  br i1 %1674, label %1680, label %1675
+  %1673 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1674 = getelementptr inbounds %class.V3PreLex, ptr %1673, i32 0, i32 12
+  %1675 = load i32, ptr %1674, align 8
+  %1676 = icmp ne i32 %1675, 0
+  br i1 %1676, label %1682, label %1677
 
-1675:                                             ; preds = %1665
-  %1676 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1677 = getelementptr inbounds %class.V3PreLex, ptr %1676, i32 0, i32 14
-  %1678 = load i8, ptr %1677, align 1
-  %1679 = trunc i8 %1678 to i1
-  br i1 %1679, label %1680, label %1688
+1677:                                             ; preds = %1667
+  %1678 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1679 = getelementptr inbounds %class.V3PreLex, ptr %1678, i32 0, i32 14
+  %1680 = load i8, ptr %1679, align 1
+  %1681 = trunc i8 %1680 to i1
+  br i1 %1681, label %1682, label %1690
 
-1680:                                             ; preds = %1675, %1665
-  %1681 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1682 = getelementptr inbounds %class.V3PreLex, ptr %1681, i32 0, i32 14
-  store i8 0, ptr %1682, align 1
-  %1683 = load ptr, ptr @V3PreLextext, align 8
-  %1684 = load i32, ptr @V3PreLexleng, align 4
-  %1685 = sext i32 %1684 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %1683, i64 noundef %1685)
+1682:                                             ; preds = %1677, %1667
+  %1683 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1684 = getelementptr inbounds %class.V3PreLex, ptr %1683, i32 0, i32 14
+  store i8 0, ptr %1684, align 1
+  %1685 = load ptr, ptr @V3PreLextext, align 8
+  %1686 = load i32, ptr @V3PreLexleng, align 4
+  %1687 = sext i32 %1686 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %1685, i64 noundef %1687)
   store i32 0, ptr @V3PreLexleng, align 4
-  %1686 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1687 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1686)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %1687)
-  br label %1689
+  %1688 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1689 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1688)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %1689)
+  br label %1691
 
-1688:                                             ; preds = %1675
+1690:                                             ; preds = %1677
   store i32 301, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-1689:                                             ; preds = %1680
-  br label %5026
+1691:                                             ; preds = %1682
+  br label %5028
 
-1690:                                             ; preds = %209
-  %1691 = load i32, ptr @V3PreLexleng, align 4
-  %1692 = icmp sgt i32 %1691, 0
-  br i1 %1692, label %1693, label %1708
+1692:                                             ; preds = %209
+  %1693 = load i32, ptr @V3PreLexleng, align 4
+  %1694 = icmp sgt i32 %1693, 0
+  br i1 %1694, label %1695, label %1710
 
-1693:                                             ; preds = %1690
-  %1694 = load ptr, ptr @V3PreLextext, align 8
-  %1695 = load i32, ptr @V3PreLexleng, align 4
-  %1696 = sub nsw i32 %1695, 1
-  %1697 = sext i32 %1696 to i64
-  %1698 = getelementptr inbounds i8, ptr %1694, i64 %1697
-  %1699 = load i8, ptr %1698, align 1
-  %1700 = sext i8 %1699 to i32
-  %1701 = icmp eq i32 %1700, 10
-  %1702 = zext i1 %1701 to i32
-  %1703 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1704 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1705 = getelementptr inbounds ptr, ptr %1703, i64 %1704
-  %1706 = load ptr, ptr %1705, align 8
-  %1707 = getelementptr inbounds %struct.yy_buffer_state, ptr %1706, i32 0, i32 7
-  store i32 %1702, ptr %1707, align 8
-  br label %1708
+1695:                                             ; preds = %1692
+  %1696 = load ptr, ptr @V3PreLextext, align 8
+  %1697 = load i32, ptr @V3PreLexleng, align 4
+  %1698 = sub nsw i32 %1697, 1
+  %1699 = sext i32 %1698 to i64
+  %1700 = getelementptr inbounds i8, ptr %1696, i64 %1699
+  %1701 = load i8, ptr %1700, align 1
+  %1702 = sext i8 %1701 to i32
+  %1703 = icmp eq i32 %1702, 10
+  %1704 = zext i1 %1703 to i32
+  %1705 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1706 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1707 = getelementptr inbounds ptr, ptr %1705, i64 %1706
+  %1708 = load ptr, ptr %1707, align 8
+  %1709 = getelementptr inbounds %struct.yy_buffer_state, ptr %1708, i32 0, i32 7
+  store i32 %1704, ptr %1709, align 8
+  br label %1710
 
-1708:                                             ; preds = %1693, %1690
+1710:                                             ; preds = %1695, %1692
   call void @_ZL13yy_push_statei(i32 noundef 16)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-1709:                                             ; preds = %209
-  %1710 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1711 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1710)
-  %1712 = load ptr, ptr @V3PreLextext, align 8
-  %1713 = load i32, ptr @V3PreLexleng, align 4
-  %1714 = sext i32 %1713 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1711, ptr noundef %1712, i64 noundef %1714, i1 noundef zeroext false)
+1711:                                             ; preds = %209
+  %1712 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1713 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1712)
+  %1714 = load ptr, ptr @V3PreLextext, align 8
+  %1715 = load i32, ptr @V3PreLexleng, align 4
+  %1716 = sext i32 %1715 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1713, ptr noundef %1714, i64 noundef %1716, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL14V3PreLexerrorfPKc(ptr noundef @.str.20)
   store i32 0, ptr @V3PreLexleng, align 4
   store i32 400, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-1715:                                             ; preds = %209
-  %1716 = load i32, ptr @V3PreLexleng, align 4
-  %1717 = icmp sgt i32 %1716, 0
-  br i1 %1717, label %1718, label %1733
+1717:                                             ; preds = %209
+  %1718 = load i32, ptr @V3PreLexleng, align 4
+  %1719 = icmp sgt i32 %1718, 0
+  br i1 %1719, label %1720, label %1735
 
-1718:                                             ; preds = %1715
-  %1719 = load ptr, ptr @V3PreLextext, align 8
-  %1720 = load i32, ptr @V3PreLexleng, align 4
-  %1721 = sub nsw i32 %1720, 1
-  %1722 = sext i32 %1721 to i64
-  %1723 = getelementptr inbounds i8, ptr %1719, i64 %1722
-  %1724 = load i8, ptr %1723, align 1
-  %1725 = sext i8 %1724 to i32
-  %1726 = icmp eq i32 %1725, 10
-  %1727 = zext i1 %1726 to i32
-  %1728 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1729 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1730 = getelementptr inbounds ptr, ptr %1728, i64 %1729
-  %1731 = load ptr, ptr %1730, align 8
-  %1732 = getelementptr inbounds %struct.yy_buffer_state, ptr %1731, i32 0, i32 7
-  store i32 %1727, ptr %1732, align 8
-  br label %1733
+1720:                                             ; preds = %1717
+  %1721 = load ptr, ptr @V3PreLextext, align 8
+  %1722 = load i32, ptr @V3PreLexleng, align 4
+  %1723 = sub nsw i32 %1722, 1
+  %1724 = sext i32 %1723 to i64
+  %1725 = getelementptr inbounds i8, ptr %1721, i64 %1724
+  %1726 = load i8, ptr %1725, align 1
+  %1727 = sext i8 %1726 to i32
+  %1728 = icmp eq i32 %1727, 10
+  %1729 = zext i1 %1728 to i32
+  %1730 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1731 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1732 = getelementptr inbounds ptr, ptr %1730, i64 %1731
+  %1733 = load ptr, ptr %1732, align 8
+  %1734 = getelementptr inbounds %struct.yy_buffer_state, ptr %1733, i32 0, i32 7
+  store i32 %1729, ptr %1734, align 8
+  br label %1735
 
-1733:                                             ; preds = %1718, %1715
-  %1734 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1735 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1734)
-  %1736 = load ptr, ptr @V3PreLextext, align 8
-  %1737 = load i32, ptr @V3PreLexleng, align 4
-  %1738 = sext i32 %1737 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1735, ptr noundef %1736, i64 noundef %1738, i1 noundef zeroext false)
+1735:                                             ; preds = %1720, %1717
+  %1736 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1737 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1736)
+  %1738 = load ptr, ptr @V3PreLextext, align 8
+  %1739 = load i32, ptr @V3PreLexleng, align 4
+  %1740 = sext i32 %1739 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1737, ptr noundef %1738, i64 noundef %1740, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-1739:                                             ; preds = %209
-  %1740 = load i32, ptr @V3PreLexleng, align 4
-  %1741 = icmp sgt i32 %1740, 0
-  br i1 %1741, label %1742, label %1757
+1741:                                             ; preds = %209
+  %1742 = load i32, ptr @V3PreLexleng, align 4
+  %1743 = icmp sgt i32 %1742, 0
+  br i1 %1743, label %1744, label %1759
 
-1742:                                             ; preds = %1739
-  %1743 = load ptr, ptr @V3PreLextext, align 8
-  %1744 = load i32, ptr @V3PreLexleng, align 4
-  %1745 = sub nsw i32 %1744, 1
-  %1746 = sext i32 %1745 to i64
-  %1747 = getelementptr inbounds i8, ptr %1743, i64 %1746
-  %1748 = load i8, ptr %1747, align 1
-  %1749 = sext i8 %1748 to i32
-  %1750 = icmp eq i32 %1749, 10
-  %1751 = zext i1 %1750 to i32
-  %1752 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1753 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1754 = getelementptr inbounds ptr, ptr %1752, i64 %1753
-  %1755 = load ptr, ptr %1754, align 8
-  %1756 = getelementptr inbounds %struct.yy_buffer_state, ptr %1755, i32 0, i32 7
-  store i32 %1751, ptr %1756, align 8
-  br label %1757
+1744:                                             ; preds = %1741
+  %1745 = load ptr, ptr @V3PreLextext, align 8
+  %1746 = load i32, ptr @V3PreLexleng, align 4
+  %1747 = sub nsw i32 %1746, 1
+  %1748 = sext i32 %1747 to i64
+  %1749 = getelementptr inbounds i8, ptr %1745, i64 %1748
+  %1750 = load i8, ptr %1749, align 1
+  %1751 = sext i8 %1750 to i32
+  %1752 = icmp eq i32 %1751, 10
+  %1753 = zext i1 %1752 to i32
+  %1754 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1755 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1756 = getelementptr inbounds ptr, ptr %1754, i64 %1755
+  %1757 = load ptr, ptr %1756, align 8
+  %1758 = getelementptr inbounds %struct.yy_buffer_state, ptr %1757, i32 0, i32 7
+  store i32 %1753, ptr %1758, align 8
+  br label %1759
 
-1757:                                             ; preds = %1742, %1739
+1759:                                             ; preds = %1744, %1741
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-1758:                                             ; preds = %209
-  %1759 = load i32, ptr @V3PreLexleng, align 4
-  %1760 = icmp sgt i32 %1759, 0
-  br i1 %1760, label %1761, label %1776
+1760:                                             ; preds = %209
+  %1761 = load i32, ptr @V3PreLexleng, align 4
+  %1762 = icmp sgt i32 %1761, 0
+  br i1 %1762, label %1763, label %1778
 
-1761:                                             ; preds = %1758
-  %1762 = load ptr, ptr @V3PreLextext, align 8
-  %1763 = load i32, ptr @V3PreLexleng, align 4
-  %1764 = sub nsw i32 %1763, 1
-  %1765 = sext i32 %1764 to i64
-  %1766 = getelementptr inbounds i8, ptr %1762, i64 %1765
-  %1767 = load i8, ptr %1766, align 1
-  %1768 = sext i8 %1767 to i32
-  %1769 = icmp eq i32 %1768, 10
-  %1770 = zext i1 %1769 to i32
-  %1771 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1772 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1773 = getelementptr inbounds ptr, ptr %1771, i64 %1772
-  %1774 = load ptr, ptr %1773, align 8
-  %1775 = getelementptr inbounds %struct.yy_buffer_state, ptr %1774, i32 0, i32 7
-  store i32 %1770, ptr %1775, align 8
-  br label %1776
+1763:                                             ; preds = %1760
+  %1764 = load ptr, ptr @V3PreLextext, align 8
+  %1765 = load i32, ptr @V3PreLexleng, align 4
+  %1766 = sub nsw i32 %1765, 1
+  %1767 = sext i32 %1766 to i64
+  %1768 = getelementptr inbounds i8, ptr %1764, i64 %1767
+  %1769 = load i8, ptr %1768, align 1
+  %1770 = sext i8 %1769 to i32
+  %1771 = icmp eq i32 %1770, 10
+  %1772 = zext i1 %1771 to i32
+  %1773 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1774 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1775 = getelementptr inbounds ptr, ptr %1773, i64 %1774
+  %1776 = load ptr, ptr %1775, align 8
+  %1777 = getelementptr inbounds %struct.yy_buffer_state, ptr %1776, i32 0, i32 7
+  store i32 %1772, ptr %1777, align 8
+  br label %1778
 
-1776:                                             ; preds = %1761, %1758
+1778:                                             ; preds = %1763, %1760
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-1777:                                             ; preds = %209
-  %1778 = load i32, ptr @V3PreLexleng, align 4
-  %1779 = icmp sgt i32 %1778, 0
-  br i1 %1779, label %1780, label %1795
+1779:                                             ; preds = %209
+  %1780 = load i32, ptr @V3PreLexleng, align 4
+  %1781 = icmp sgt i32 %1780, 0
+  br i1 %1781, label %1782, label %1797
 
-1780:                                             ; preds = %1777
-  %1781 = load ptr, ptr @V3PreLextext, align 8
-  %1782 = load i32, ptr @V3PreLexleng, align 4
-  %1783 = sub nsw i32 %1782, 1
-  %1784 = sext i32 %1783 to i64
-  %1785 = getelementptr inbounds i8, ptr %1781, i64 %1784
-  %1786 = load i8, ptr %1785, align 1
-  %1787 = sext i8 %1786 to i32
-  %1788 = icmp eq i32 %1787, 10
-  %1789 = zext i1 %1788 to i32
-  %1790 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1791 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1792 = getelementptr inbounds ptr, ptr %1790, i64 %1791
-  %1793 = load ptr, ptr %1792, align 8
-  %1794 = getelementptr inbounds %struct.yy_buffer_state, ptr %1793, i32 0, i32 7
-  store i32 %1789, ptr %1794, align 8
-  br label %1795
+1782:                                             ; preds = %1779
+  %1783 = load ptr, ptr @V3PreLextext, align 8
+  %1784 = load i32, ptr @V3PreLexleng, align 4
+  %1785 = sub nsw i32 %1784, 1
+  %1786 = sext i32 %1785 to i64
+  %1787 = getelementptr inbounds i8, ptr %1783, i64 %1786
+  %1788 = load i8, ptr %1787, align 1
+  %1789 = sext i8 %1788 to i32
+  %1790 = icmp eq i32 %1789, 10
+  %1791 = zext i1 %1790 to i32
+  %1792 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1793 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1794 = getelementptr inbounds ptr, ptr %1792, i64 %1793
+  %1795 = load ptr, ptr %1794, align 8
+  %1796 = getelementptr inbounds %struct.yy_buffer_state, ptr %1795, i32 0, i32 7
+  store i32 %1791, ptr %1796, align 8
+  br label %1797
 
-1795:                                             ; preds = %1780, %1777
+1797:                                             ; preds = %1782, %1779
   call void @_ZL9linenoIncv()
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-1796:                                             ; preds = %209
-  %1797 = load i32, ptr @V3PreLexleng, align 4
-  %1798 = icmp sgt i32 %1797, 0
-  br i1 %1798, label %1799, label %1814
+1798:                                             ; preds = %209
+  %1799 = load i32, ptr @V3PreLexleng, align 4
+  %1800 = icmp sgt i32 %1799, 0
+  br i1 %1800, label %1801, label %1816
 
-1799:                                             ; preds = %1796
-  %1800 = load ptr, ptr @V3PreLextext, align 8
-  %1801 = load i32, ptr @V3PreLexleng, align 4
-  %1802 = sub nsw i32 %1801, 1
-  %1803 = sext i32 %1802 to i64
-  %1804 = getelementptr inbounds i8, ptr %1800, i64 %1803
-  %1805 = load i8, ptr %1804, align 1
-  %1806 = sext i8 %1805 to i32
-  %1807 = icmp eq i32 %1806, 10
-  %1808 = zext i1 %1807 to i32
-  %1809 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1810 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1811 = getelementptr inbounds ptr, ptr %1809, i64 %1810
-  %1812 = load ptr, ptr %1811, align 8
-  %1813 = getelementptr inbounds %struct.yy_buffer_state, ptr %1812, i32 0, i32 7
-  store i32 %1808, ptr %1813, align 8
-  br label %1814
-
-1814:                                             ; preds = %1799, %1796
-  %1815 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  call void @_ZN8V3PreLex18warnBackslashSpaceEv(ptr noundef nonnull align 8 dereferenceable(264) %1815)
+1801:                                             ; preds = %1798
+  %1802 = load ptr, ptr @V3PreLextext, align 8
+  %1803 = load i32, ptr @V3PreLexleng, align 4
+  %1804 = sub nsw i32 %1803, 1
+  %1805 = sext i32 %1804 to i64
+  %1806 = getelementptr inbounds i8, ptr %1802, i64 %1805
+  %1807 = load i8, ptr %1806, align 1
+  %1808 = sext i8 %1807 to i32
+  %1809 = icmp eq i32 %1808, 10
+  %1810 = zext i1 %1809 to i32
+  %1811 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1812 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1813 = getelementptr inbounds ptr, ptr %1811, i64 %1812
+  %1814 = load ptr, ptr %1813, align 8
+  %1815 = getelementptr inbounds %struct.yy_buffer_state, ptr %1814, i32 0, i32 7
+  store i32 %1810, ptr %1815, align 8
   br label %1816
 
-1816:                                             ; preds = %1814
+1816:                                             ; preds = %1801, %1798
+  %1817 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  call void @_ZN8V3PreLex18warnBackslashSpaceEv(ptr noundef nonnull align 8 dereferenceable(264) %1817)
+  br label %1818
+
+1818:                                             ; preds = %1816
   store i32 1, ptr %50, align 4
-  %1817 = load i8, ptr @_ZL12yy_hold_char, align 1
-  %1818 = load ptr, ptr %3, align 8
-  store i8 %1817, ptr %1818, align 1
-  %1819 = load ptr, ptr %4, align 8
-  %1820 = load i32, ptr %50, align 4
-  %1821 = sext i32 %1820 to i64
-  %1822 = getelementptr inbounds i8, ptr %1819, i64 %1821
-  %1823 = load i32, ptr @_ZL11yy_more_len, align 4
-  %1824 = sext i32 %1823 to i64
-  %1825 = sub i64 0, %1824
-  %1826 = getelementptr inbounds i8, ptr %1822, i64 %1825
-  store ptr %1826, ptr %3, align 8
-  store ptr %1826, ptr @_ZL10yy_c_buf_p, align 8
-  %1827 = load ptr, ptr %4, align 8
-  store ptr %1827, ptr @V3PreLextext, align 8
-  %1828 = load i32, ptr @_ZL11yy_more_len, align 4
-  %1829 = load ptr, ptr @V3PreLextext, align 8
-  %1830 = sext i32 %1828 to i64
-  %1831 = sub i64 0, %1830
-  %1832 = getelementptr inbounds i8, ptr %1829, i64 %1831
-  store ptr %1832, ptr @V3PreLextext, align 8
-  %1833 = load ptr, ptr %3, align 8
-  %1834 = load ptr, ptr @V3PreLextext, align 8
-  %1835 = ptrtoint ptr %1833 to i64
-  %1836 = ptrtoint ptr %1834 to i64
-  %1837 = sub i64 %1835, %1836
-  %1838 = trunc i64 %1837 to i32
-  store i32 %1838, ptr @V3PreLexleng, align 4
-  %1839 = load ptr, ptr %3, align 8
-  %1840 = load i8, ptr %1839, align 1
-  store i8 %1840, ptr @_ZL12yy_hold_char, align 1
+  %1819 = load i8, ptr @_ZL12yy_hold_char, align 1
+  %1820 = load ptr, ptr %3, align 8
+  store i8 %1819, ptr %1820, align 1
+  %1821 = load ptr, ptr %4, align 8
+  %1822 = load i32, ptr %50, align 4
+  %1823 = sext i32 %1822 to i64
+  %1824 = getelementptr inbounds i8, ptr %1821, i64 %1823
+  %1825 = load i32, ptr @_ZL11yy_more_len, align 4
+  %1826 = sext i32 %1825 to i64
+  %1827 = sub i64 0, %1826
+  %1828 = getelementptr inbounds i8, ptr %1824, i64 %1827
+  store ptr %1828, ptr %3, align 8
+  store ptr %1828, ptr @_ZL10yy_c_buf_p, align 8
+  %1829 = load ptr, ptr %4, align 8
+  store ptr %1829, ptr @V3PreLextext, align 8
+  %1830 = load i32, ptr @_ZL11yy_more_len, align 4
+  %1831 = load ptr, ptr @V3PreLextext, align 8
+  %1832 = sext i32 %1830 to i64
+  %1833 = sub i64 0, %1832
+  %1834 = getelementptr inbounds i8, ptr %1831, i64 %1833
+  store ptr %1834, ptr @V3PreLextext, align 8
+  %1835 = load ptr, ptr %3, align 8
+  %1836 = load ptr, ptr @V3PreLextext, align 8
+  %1837 = ptrtoint ptr %1835 to i64
+  %1838 = ptrtoint ptr %1836 to i64
+  %1839 = sub i64 %1837, %1838
+  %1840 = trunc i64 %1839 to i32
+  store i32 %1840, ptr @V3PreLexleng, align 4
   %1841 = load ptr, ptr %3, align 8
-  store i8 0, ptr %1841, align 1
-  %1842 = load ptr, ptr %3, align 8
-  store ptr %1842, ptr @_ZL10yy_c_buf_p, align 8
-  br label %1843
+  %1842 = load i8, ptr %1841, align 1
+  store i8 %1842, ptr @_ZL12yy_hold_char, align 1
+  %1843 = load ptr, ptr %3, align 8
+  store i8 0, ptr %1843, align 1
+  %1844 = load ptr, ptr %3, align 8
+  store ptr %1844, ptr @_ZL10yy_c_buf_p, align 8
+  br label %1845
 
-1843:                                             ; preds = %1816
-  br label %5026
+1845:                                             ; preds = %1818
+  br label %5028
 
-1844:                                             ; preds = %209
-  %1845 = load i32, ptr @V3PreLexleng, align 4
-  %1846 = icmp sgt i32 %1845, 0
-  br i1 %1846, label %1847, label %1862
+1846:                                             ; preds = %209
+  %1847 = load i32, ptr @V3PreLexleng, align 4
+  %1848 = icmp sgt i32 %1847, 0
+  br i1 %1848, label %1849, label %1864
 
-1847:                                             ; preds = %1844
-  %1848 = load ptr, ptr @V3PreLextext, align 8
-  %1849 = load i32, ptr @V3PreLexleng, align 4
-  %1850 = sub nsw i32 %1849, 1
-  %1851 = sext i32 %1850 to i64
-  %1852 = getelementptr inbounds i8, ptr %1848, i64 %1851
-  %1853 = load i8, ptr %1852, align 1
-  %1854 = sext i8 %1853 to i32
-  %1855 = icmp eq i32 %1854, 10
-  %1856 = zext i1 %1855 to i32
-  %1857 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1858 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1859 = getelementptr inbounds ptr, ptr %1857, i64 %1858
-  %1860 = load ptr, ptr %1859, align 8
-  %1861 = getelementptr inbounds %struct.yy_buffer_state, ptr %1860, i32 0, i32 7
-  store i32 %1856, ptr %1861, align 8
-  br label %1862
+1849:                                             ; preds = %1846
+  %1850 = load ptr, ptr @V3PreLextext, align 8
+  %1851 = load i32, ptr @V3PreLexleng, align 4
+  %1852 = sub nsw i32 %1851, 1
+  %1853 = sext i32 %1852 to i64
+  %1854 = getelementptr inbounds i8, ptr %1850, i64 %1853
+  %1855 = load i8, ptr %1854, align 1
+  %1856 = sext i8 %1855 to i32
+  %1857 = icmp eq i32 %1856, 10
+  %1858 = zext i1 %1857 to i32
+  %1859 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1860 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1861 = getelementptr inbounds ptr, ptr %1859, i64 %1860
+  %1862 = load ptr, ptr %1861, align 8
+  %1863 = getelementptr inbounds %struct.yy_buffer_state, ptr %1862, i32 0, i32 7
+  store i32 %1858, ptr %1863, align 8
+  br label %1864
 
-1862:                                             ; preds = %1847, %1844
+1864:                                             ; preds = %1849, %1846
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-1863:                                             ; preds = %209
-  %1864 = load i32, ptr @V3PreLexleng, align 4
-  %1865 = icmp sgt i32 %1864, 0
-  br i1 %1865, label %1866, label %1881
+1865:                                             ; preds = %209
+  %1866 = load i32, ptr @V3PreLexleng, align 4
+  %1867 = icmp sgt i32 %1866, 0
+  br i1 %1867, label %1868, label %1883
 
-1866:                                             ; preds = %1863
-  %1867 = load ptr, ptr @V3PreLextext, align 8
-  %1868 = load i32, ptr @V3PreLexleng, align 4
-  %1869 = sub nsw i32 %1868, 1
-  %1870 = sext i32 %1869 to i64
-  %1871 = getelementptr inbounds i8, ptr %1867, i64 %1870
-  %1872 = load i8, ptr %1871, align 1
-  %1873 = sext i8 %1872 to i32
-  %1874 = icmp eq i32 %1873, 10
-  %1875 = zext i1 %1874 to i32
-  %1876 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1877 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1878 = getelementptr inbounds ptr, ptr %1876, i64 %1877
-  %1879 = load ptr, ptr %1878, align 8
-  %1880 = getelementptr inbounds %struct.yy_buffer_state, ptr %1879, i32 0, i32 7
-  store i32 %1875, ptr %1880, align 8
-  br label %1881
+1868:                                             ; preds = %1865
+  %1869 = load ptr, ptr @V3PreLextext, align 8
+  %1870 = load i32, ptr @V3PreLexleng, align 4
+  %1871 = sub nsw i32 %1870, 1
+  %1872 = sext i32 %1871 to i64
+  %1873 = getelementptr inbounds i8, ptr %1869, i64 %1872
+  %1874 = load i8, ptr %1873, align 1
+  %1875 = sext i8 %1874 to i32
+  %1876 = icmp eq i32 %1875, 10
+  %1877 = zext i1 %1876 to i32
+  %1878 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1879 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1880 = getelementptr inbounds ptr, ptr %1878, i64 %1879
+  %1881 = load ptr, ptr %1880, align 8
+  %1882 = getelementptr inbounds %struct.yy_buffer_state, ptr %1881, i32 0, i32 7
+  store i32 %1877, ptr %1882, align 8
+  br label %1883
 
-1881:                                             ; preds = %1866, %1863
+1883:                                             ; preds = %1868, %1865
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-1882:                                             ; preds = %209
-  %1883 = load i32, ptr @V3PreLexleng, align 4
-  %1884 = icmp sgt i32 %1883, 0
-  br i1 %1884, label %1885, label %1900
+1884:                                             ; preds = %209
+  %1885 = load i32, ptr @V3PreLexleng, align 4
+  %1886 = icmp sgt i32 %1885, 0
+  br i1 %1886, label %1887, label %1902
 
-1885:                                             ; preds = %1882
-  %1886 = load ptr, ptr @V3PreLextext, align 8
-  %1887 = load i32, ptr @V3PreLexleng, align 4
-  %1888 = sub nsw i32 %1887, 1
-  %1889 = sext i32 %1888 to i64
-  %1890 = getelementptr inbounds i8, ptr %1886, i64 %1889
-  %1891 = load i8, ptr %1890, align 1
-  %1892 = sext i8 %1891 to i32
-  %1893 = icmp eq i32 %1892, 10
-  %1894 = zext i1 %1893 to i32
-  %1895 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1896 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1897 = getelementptr inbounds ptr, ptr %1895, i64 %1896
-  %1898 = load ptr, ptr %1897, align 8
-  %1899 = getelementptr inbounds %struct.yy_buffer_state, ptr %1898, i32 0, i32 7
-  store i32 %1894, ptr %1899, align 8
-  br label %1900
+1887:                                             ; preds = %1884
+  %1888 = load ptr, ptr @V3PreLextext, align 8
+  %1889 = load i32, ptr @V3PreLexleng, align 4
+  %1890 = sub nsw i32 %1889, 1
+  %1891 = sext i32 %1890 to i64
+  %1892 = getelementptr inbounds i8, ptr %1888, i64 %1891
+  %1893 = load i8, ptr %1892, align 1
+  %1894 = sext i8 %1893 to i32
+  %1895 = icmp eq i32 %1894, 10
+  %1896 = zext i1 %1895 to i32
+  %1897 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1898 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1899 = getelementptr inbounds ptr, ptr %1897, i64 %1898
+  %1900 = load ptr, ptr %1899, align 8
+  %1901 = getelementptr inbounds %struct.yy_buffer_state, ptr %1900, i32 0, i32 7
+  store i32 %1896, ptr %1901, align 8
+  br label %1902
 
-1900:                                             ; preds = %1885, %1882
-  %1901 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1902 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1901)
-  %1903 = load ptr, ptr @V3PreLextext, align 8
-  %1904 = load i32, ptr @V3PreLexleng, align 4
-  %1905 = sext i32 %1904 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1902, ptr noundef %1903, i64 noundef %1905, i1 noundef zeroext false)
+1902:                                             ; preds = %1887, %1884
+  %1903 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1904 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1903)
+  %1905 = load ptr, ptr @V3PreLextext, align 8
+  %1906 = load i32, ptr @V3PreLexleng, align 4
+  %1907 = sext i32 %1906 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1904, ptr noundef %1905, i64 noundef %1907, i1 noundef zeroext false)
   call void @_ZL12yy_pop_statev()
-  %1906 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1907 = getelementptr inbounds %class.V3PreLex, ptr %1906, i32 0, i32 12
-  %1908 = load i32, ptr %1907, align 8
-  %1909 = icmp ne i32 %1908, 0
-  br i1 %1909, label %1915, label %1910
+  %1908 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1909 = getelementptr inbounds %class.V3PreLex, ptr %1908, i32 0, i32 12
+  %1910 = load i32, ptr %1909, align 8
+  %1911 = icmp ne i32 %1910, 0
+  br i1 %1911, label %1917, label %1912
 
-1910:                                             ; preds = %1900
-  %1911 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1912 = getelementptr inbounds %class.V3PreLex, ptr %1911, i32 0, i32 14
-  %1913 = load i8, ptr %1912, align 1
-  %1914 = trunc i8 %1913 to i1
-  br i1 %1914, label %1915, label %1923
+1912:                                             ; preds = %1902
+  %1913 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1914 = getelementptr inbounds %class.V3PreLex, ptr %1913, i32 0, i32 14
+  %1915 = load i8, ptr %1914, align 1
+  %1916 = trunc i8 %1915 to i1
+  br i1 %1916, label %1917, label %1925
 
-1915:                                             ; preds = %1910, %1900
-  %1916 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1917 = getelementptr inbounds %class.V3PreLex, ptr %1916, i32 0, i32 14
-  store i8 0, ptr %1917, align 1
-  %1918 = load ptr, ptr @V3PreLextext, align 8
-  %1919 = load i32, ptr @V3PreLexleng, align 4
-  %1920 = sext i32 %1919 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %1918, i64 noundef %1920)
+1917:                                             ; preds = %1912, %1902
+  %1918 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1919 = getelementptr inbounds %class.V3PreLex, ptr %1918, i32 0, i32 14
+  store i8 0, ptr %1919, align 1
+  %1920 = load ptr, ptr @V3PreLextext, align 8
+  %1921 = load i32, ptr @V3PreLexleng, align 4
+  %1922 = sext i32 %1921 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %1920, i64 noundef %1922)
   store i32 0, ptr @V3PreLexleng, align 4
-  %1921 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1922 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1921)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %1922)
-  br label %1924
+  %1923 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1924 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1923)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %1924)
+  br label %1926
 
-1923:                                             ; preds = %1910
+1925:                                             ; preds = %1912
   store i32 301, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-1924:                                             ; preds = %1915
-  br label %5026
+1926:                                             ; preds = %1917
+  br label %5028
 
-1925:                                             ; preds = %209
-  %1926 = load i32, ptr @V3PreLexleng, align 4
-  %1927 = icmp sgt i32 %1926, 0
-  br i1 %1927, label %1928, label %1943
+1927:                                             ; preds = %209
+  %1928 = load i32, ptr @V3PreLexleng, align 4
+  %1929 = icmp sgt i32 %1928, 0
+  br i1 %1929, label %1930, label %1945
 
-1928:                                             ; preds = %1925
-  %1929 = load ptr, ptr @V3PreLextext, align 8
-  %1930 = load i32, ptr @V3PreLexleng, align 4
-  %1931 = sub nsw i32 %1930, 1
-  %1932 = sext i32 %1931 to i64
-  %1933 = getelementptr inbounds i8, ptr %1929, i64 %1932
-  %1934 = load i8, ptr %1933, align 1
-  %1935 = sext i8 %1934 to i32
-  %1936 = icmp eq i32 %1935, 10
-  %1937 = zext i1 %1936 to i32
-  %1938 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1939 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1940 = getelementptr inbounds ptr, ptr %1938, i64 %1939
-  %1941 = load ptr, ptr %1940, align 8
-  %1942 = getelementptr inbounds %struct.yy_buffer_state, ptr %1941, i32 0, i32 7
-  store i32 %1937, ptr %1942, align 8
-  br label %1943
+1930:                                             ; preds = %1927
+  %1931 = load ptr, ptr @V3PreLextext, align 8
+  %1932 = load i32, ptr @V3PreLexleng, align 4
+  %1933 = sub nsw i32 %1932, 1
+  %1934 = sext i32 %1933 to i64
+  %1935 = getelementptr inbounds i8, ptr %1931, i64 %1934
+  %1936 = load i8, ptr %1935, align 1
+  %1937 = sext i8 %1936 to i32
+  %1938 = icmp eq i32 %1937, 10
+  %1939 = zext i1 %1938 to i32
+  %1940 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1941 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1942 = getelementptr inbounds ptr, ptr %1940, i64 %1941
+  %1943 = load ptr, ptr %1942, align 8
+  %1944 = getelementptr inbounds %struct.yy_buffer_state, ptr %1943, i32 0, i32 7
+  store i32 %1939, ptr %1944, align 8
+  br label %1945
 
-1943:                                             ; preds = %1928, %1925
-  %1944 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1945 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1944)
-  %1946 = load ptr, ptr @V3PreLextext, align 8
-  %1947 = load i32, ptr @V3PreLexleng, align 4
-  %1948 = sext i32 %1947 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1945, ptr noundef %1946, i64 noundef %1948, i1 noundef zeroext false)
+1945:                                             ; preds = %1930, %1927
+  %1946 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1947 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1946)
+  %1948 = load ptr, ptr @V3PreLextext, align 8
+  %1949 = load i32, ptr @V3PreLexleng, align 4
+  %1950 = sext i32 %1949 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1947, ptr noundef %1948, i64 noundef %1950, i1 noundef zeroext false)
   call void @_ZL13yy_push_statei(i32 noundef 17)
   store i32 310, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-1949:                                             ; preds = %209
-  %1950 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1951 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1950)
-  %1952 = load ptr, ptr @V3PreLextext, align 8
-  %1953 = load i32, ptr @V3PreLexleng, align 4
-  %1954 = sext i32 %1953 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1951, ptr noundef %1952, i64 noundef %1954, i1 noundef zeroext false)
+1951:                                             ; preds = %209
+  %1952 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1953 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1952)
+  %1954 = load ptr, ptr @V3PreLextext, align 8
+  %1955 = load i32, ptr @V3PreLexleng, align 4
+  %1956 = sext i32 %1955 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1953, ptr noundef %1954, i64 noundef %1956, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL14V3PreLexerrorfPKc(ptr noundef @.str.21)
   store i32 0, ptr @V3PreLexleng, align 4
   store i32 400, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-1955:                                             ; preds = %209
-  %1956 = load i32, ptr @V3PreLexleng, align 4
-  %1957 = icmp sgt i32 %1956, 0
-  br i1 %1957, label %1958, label %1973
+1957:                                             ; preds = %209
+  %1958 = load i32, ptr @V3PreLexleng, align 4
+  %1959 = icmp sgt i32 %1958, 0
+  br i1 %1959, label %1960, label %1975
 
-1958:                                             ; preds = %1955
-  %1959 = load ptr, ptr @V3PreLextext, align 8
-  %1960 = load i32, ptr @V3PreLexleng, align 4
-  %1961 = sub nsw i32 %1960, 1
-  %1962 = sext i32 %1961 to i64
-  %1963 = getelementptr inbounds i8, ptr %1959, i64 %1962
-  %1964 = load i8, ptr %1963, align 1
-  %1965 = sext i8 %1964 to i32
-  %1966 = icmp eq i32 %1965, 10
-  %1967 = zext i1 %1966 to i32
-  %1968 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1969 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1970 = getelementptr inbounds ptr, ptr %1968, i64 %1969
-  %1971 = load ptr, ptr %1970, align 8
-  %1972 = getelementptr inbounds %struct.yy_buffer_state, ptr %1971, i32 0, i32 7
-  store i32 %1967, ptr %1972, align 8
-  br label %1973
+1960:                                             ; preds = %1957
+  %1961 = load ptr, ptr @V3PreLextext, align 8
+  %1962 = load i32, ptr @V3PreLexleng, align 4
+  %1963 = sub nsw i32 %1962, 1
+  %1964 = sext i32 %1963 to i64
+  %1965 = getelementptr inbounds i8, ptr %1961, i64 %1964
+  %1966 = load i8, ptr %1965, align 1
+  %1967 = sext i8 %1966 to i32
+  %1968 = icmp eq i32 %1967, 10
+  %1969 = zext i1 %1968 to i32
+  %1970 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1971 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1972 = getelementptr inbounds ptr, ptr %1970, i64 %1971
+  %1973 = load ptr, ptr %1972, align 8
+  %1974 = getelementptr inbounds %struct.yy_buffer_state, ptr %1973, i32 0, i32 7
+  store i32 %1969, ptr %1974, align 8
+  br label %1975
 
-1973:                                             ; preds = %1958, %1955
-  %1974 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %1975 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1974)
-  %1976 = load ptr, ptr @V3PreLextext, align 8
-  %1977 = load i32, ptr @V3PreLexleng, align 4
-  %1978 = sext i32 %1977 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1975, ptr noundef %1976, i64 noundef %1978, i1 noundef zeroext false)
+1975:                                             ; preds = %1960, %1957
+  %1976 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %1977 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %1976)
+  %1978 = load ptr, ptr @V3PreLextext, align 8
+  %1979 = load i32, ptr @V3PreLexleng, align 4
+  %1980 = sext i32 %1979 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %1977, ptr noundef %1978, i64 noundef %1980, i1 noundef zeroext false)
   store i32 311, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-1979:                                             ; preds = %209
-  %1980 = load i32, ptr @V3PreLexleng, align 4
-  %1981 = icmp sgt i32 %1980, 0
-  br i1 %1981, label %1982, label %1997
+1981:                                             ; preds = %209
+  %1982 = load i32, ptr @V3PreLexleng, align 4
+  %1983 = icmp sgt i32 %1982, 0
+  br i1 %1983, label %1984, label %1999
 
-1982:                                             ; preds = %1979
-  %1983 = load ptr, ptr @V3PreLextext, align 8
-  %1984 = load i32, ptr @V3PreLexleng, align 4
-  %1985 = sub nsw i32 %1984, 1
-  %1986 = sext i32 %1985 to i64
-  %1987 = getelementptr inbounds i8, ptr %1983, i64 %1986
-  %1988 = load i8, ptr %1987, align 1
-  %1989 = sext i8 %1988 to i32
-  %1990 = icmp eq i32 %1989, 10
-  %1991 = zext i1 %1990 to i32
-  %1992 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %1993 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %1994 = getelementptr inbounds ptr, ptr %1992, i64 %1993
-  %1995 = load ptr, ptr %1994, align 8
-  %1996 = getelementptr inbounds %struct.yy_buffer_state, ptr %1995, i32 0, i32 7
-  store i32 %1991, ptr %1996, align 8
-  br label %1997
+1984:                                             ; preds = %1981
+  %1985 = load ptr, ptr @V3PreLextext, align 8
+  %1986 = load i32, ptr @V3PreLexleng, align 4
+  %1987 = sub nsw i32 %1986, 1
+  %1988 = sext i32 %1987 to i64
+  %1989 = getelementptr inbounds i8, ptr %1985, i64 %1988
+  %1990 = load i8, ptr %1989, align 1
+  %1991 = sext i8 %1990 to i32
+  %1992 = icmp eq i32 %1991, 10
+  %1993 = zext i1 %1992 to i32
+  %1994 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %1995 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %1996 = getelementptr inbounds ptr, ptr %1994, i64 %1995
+  %1997 = load ptr, ptr %1996, align 8
+  %1998 = getelementptr inbounds %struct.yy_buffer_state, ptr %1997, i32 0, i32 7
+  store i32 %1993, ptr %1998, align 8
+  br label %1999
 
-1997:                                             ; preds = %1982, %1979
+1999:                                             ; preds = %1984, %1981
   call void @_ZL13yy_push_statei(i32 noundef 18)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-1998:                                             ; preds = %209
-  %1999 = load i32, ptr @V3PreLexleng, align 4
-  %2000 = icmp sgt i32 %1999, 0
-  br i1 %2000, label %2001, label %2016
+2000:                                             ; preds = %209
+  %2001 = load i32, ptr @V3PreLexleng, align 4
+  %2002 = icmp sgt i32 %2001, 0
+  br i1 %2002, label %2003, label %2018
 
-2001:                                             ; preds = %1998
-  %2002 = load ptr, ptr @V3PreLextext, align 8
-  %2003 = load i32, ptr @V3PreLexleng, align 4
-  %2004 = sub nsw i32 %2003, 1
-  %2005 = sext i32 %2004 to i64
-  %2006 = getelementptr inbounds i8, ptr %2002, i64 %2005
-  %2007 = load i8, ptr %2006, align 1
-  %2008 = sext i8 %2007 to i32
-  %2009 = icmp eq i32 %2008, 10
-  %2010 = zext i1 %2009 to i32
-  %2011 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2012 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2013 = getelementptr inbounds ptr, ptr %2011, i64 %2012
-  %2014 = load ptr, ptr %2013, align 8
-  %2015 = getelementptr inbounds %struct.yy_buffer_state, ptr %2014, i32 0, i32 7
-  store i32 %2010, ptr %2015, align 8
-  br label %2016
+2003:                                             ; preds = %2000
+  %2004 = load ptr, ptr @V3PreLextext, align 8
+  %2005 = load i32, ptr @V3PreLexleng, align 4
+  %2006 = sub nsw i32 %2005, 1
+  %2007 = sext i32 %2006 to i64
+  %2008 = getelementptr inbounds i8, ptr %2004, i64 %2007
+  %2009 = load i8, ptr %2008, align 1
+  %2010 = sext i8 %2009 to i32
+  %2011 = icmp eq i32 %2010, 10
+  %2012 = zext i1 %2011 to i32
+  %2013 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2014 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2015 = getelementptr inbounds ptr, ptr %2013, i64 %2014
+  %2016 = load ptr, ptr %2015, align 8
+  %2017 = getelementptr inbounds %struct.yy_buffer_state, ptr %2016, i32 0, i32 7
+  store i32 %2012, ptr %2017, align 8
+  br label %2018
 
-2016:                                             ; preds = %2001, %1998
-  %2017 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2018 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2017)
-  %2019 = load ptr, ptr @V3PreLextext, align 8
-  %2020 = load i32, ptr @V3PreLexleng, align 4
-  %2021 = sext i32 %2020 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2018, ptr noundef %2019, i64 noundef %2021, i1 noundef zeroext false)
+2018:                                             ; preds = %2003, %2000
+  %2019 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2020 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2019)
+  %2021 = load ptr, ptr @V3PreLextext, align 8
+  %2022 = load i32, ptr @V3PreLexleng, align 4
+  %2023 = sext i32 %2022 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2020, ptr noundef %2021, i64 noundef %2023, i1 noundef zeroext false)
   call void @_ZL12yy_pop_statev()
   store i32 310, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2022:                                             ; preds = %209
-  %2023 = load i32, ptr @V3PreLexleng, align 4
-  %2024 = icmp sgt i32 %2023, 0
-  br i1 %2024, label %2025, label %2040
+2024:                                             ; preds = %209
+  %2025 = load i32, ptr @V3PreLexleng, align 4
+  %2026 = icmp sgt i32 %2025, 0
+  br i1 %2026, label %2027, label %2042
 
-2025:                                             ; preds = %2022
-  %2026 = load ptr, ptr @V3PreLextext, align 8
-  %2027 = load i32, ptr @V3PreLexleng, align 4
-  %2028 = sub nsw i32 %2027, 1
-  %2029 = sext i32 %2028 to i64
-  %2030 = getelementptr inbounds i8, ptr %2026, i64 %2029
-  %2031 = load i8, ptr %2030, align 1
-  %2032 = sext i8 %2031 to i32
-  %2033 = icmp eq i32 %2032, 10
-  %2034 = zext i1 %2033 to i32
-  %2035 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2036 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2037 = getelementptr inbounds ptr, ptr %2035, i64 %2036
-  %2038 = load ptr, ptr %2037, align 8
-  %2039 = getelementptr inbounds %struct.yy_buffer_state, ptr %2038, i32 0, i32 7
-  store i32 %2034, ptr %2039, align 8
-  br label %2040
+2027:                                             ; preds = %2024
+  %2028 = load ptr, ptr @V3PreLextext, align 8
+  %2029 = load i32, ptr @V3PreLexleng, align 4
+  %2030 = sub nsw i32 %2029, 1
+  %2031 = sext i32 %2030 to i64
+  %2032 = getelementptr inbounds i8, ptr %2028, i64 %2031
+  %2033 = load i8, ptr %2032, align 1
+  %2034 = sext i8 %2033 to i32
+  %2035 = icmp eq i32 %2034, 10
+  %2036 = zext i1 %2035 to i32
+  %2037 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2038 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2039 = getelementptr inbounds ptr, ptr %2037, i64 %2038
+  %2040 = load ptr, ptr %2039, align 8
+  %2041 = getelementptr inbounds %struct.yy_buffer_state, ptr %2040, i32 0, i32 7
+  store i32 %2036, ptr %2041, align 8
+  br label %2042
 
-2040:                                             ; preds = %2025, %2022
-  %2041 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2042 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2041)
-  %2043 = load ptr, ptr @V3PreLextext, align 8
-  %2044 = load i32, ptr @V3PreLexleng, align 4
-  %2045 = sext i32 %2044 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2042, ptr noundef %2043, i64 noundef %2045, i1 noundef zeroext false)
+2042:                                             ; preds = %2027, %2024
+  %2043 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2044 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2043)
+  %2045 = load ptr, ptr @V3PreLextext, align 8
+  %2046 = load i32, ptr @V3PreLexleng, align 4
+  %2047 = sext i32 %2046 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2044, ptr noundef %2045, i64 noundef %2047, i1 noundef zeroext false)
   store i32 300, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2046:                                             ; preds = %209
-  %2047 = load i32, ptr @V3PreLexleng, align 4
-  %2048 = icmp sgt i32 %2047, 0
-  br i1 %2048, label %2049, label %2064
+2048:                                             ; preds = %209
+  %2049 = load i32, ptr @V3PreLexleng, align 4
+  %2050 = icmp sgt i32 %2049, 0
+  br i1 %2050, label %2051, label %2066
 
-2049:                                             ; preds = %2046
-  %2050 = load ptr, ptr @V3PreLextext, align 8
-  %2051 = load i32, ptr @V3PreLexleng, align 4
-  %2052 = sub nsw i32 %2051, 1
-  %2053 = sext i32 %2052 to i64
-  %2054 = getelementptr inbounds i8, ptr %2050, i64 %2053
-  %2055 = load i8, ptr %2054, align 1
-  %2056 = sext i8 %2055 to i32
-  %2057 = icmp eq i32 %2056, 10
-  %2058 = zext i1 %2057 to i32
-  %2059 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2060 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2061 = getelementptr inbounds ptr, ptr %2059, i64 %2060
-  %2062 = load ptr, ptr %2061, align 8
-  %2063 = getelementptr inbounds %struct.yy_buffer_state, ptr %2062, i32 0, i32 7
-  store i32 %2058, ptr %2063, align 8
-  br label %2064
+2051:                                             ; preds = %2048
+  %2052 = load ptr, ptr @V3PreLextext, align 8
+  %2053 = load i32, ptr @V3PreLexleng, align 4
+  %2054 = sub nsw i32 %2053, 1
+  %2055 = sext i32 %2054 to i64
+  %2056 = getelementptr inbounds i8, ptr %2052, i64 %2055
+  %2057 = load i8, ptr %2056, align 1
+  %2058 = sext i8 %2057 to i32
+  %2059 = icmp eq i32 %2058, 10
+  %2060 = zext i1 %2059 to i32
+  %2061 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2062 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2063 = getelementptr inbounds ptr, ptr %2061, i64 %2062
+  %2064 = load ptr, ptr %2063, align 8
+  %2065 = getelementptr inbounds %struct.yy_buffer_state, ptr %2064, i32 0, i32 7
+  store i32 %2060, ptr %2065, align 8
+  br label %2066
 
-2064:                                             ; preds = %2049, %2046
-  %2065 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2066 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2065)
-  %2067 = load ptr, ptr @V3PreLextext, align 8
-  %2068 = load i32, ptr @V3PreLexleng, align 4
-  %2069 = sext i32 %2068 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2066, ptr noundef %2067, i64 noundef %2069, i1 noundef zeroext false)
+2066:                                             ; preds = %2051, %2048
+  %2067 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2068 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2067)
+  %2069 = load ptr, ptr @V3PreLextext, align 8
   %2070 = load i32, ptr @V3PreLexleng, align 4
-  %2071 = sub nsw i32 %2070, 2
-  store i32 %2071, ptr @V3PreLexleng, align 4
+  %2071 = sext i32 %2070 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2068, ptr noundef %2069, i64 noundef %2071, i1 noundef zeroext false)
+  %2072 = load i32, ptr @V3PreLexleng, align 4
+  %2073 = sub nsw i32 %2072, 2
+  store i32 %2073, ptr @V3PreLexleng, align 4
   store i32 312, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2072:                                             ; preds = %209
-  %2073 = load i32, ptr @V3PreLexleng, align 4
-  %2074 = icmp sgt i32 %2073, 0
-  br i1 %2074, label %2075, label %2090
+2074:                                             ; preds = %209
+  %2075 = load i32, ptr @V3PreLexleng, align 4
+  %2076 = icmp sgt i32 %2075, 0
+  br i1 %2076, label %2077, label %2092
 
-2075:                                             ; preds = %2072
-  %2076 = load ptr, ptr @V3PreLextext, align 8
-  %2077 = load i32, ptr @V3PreLexleng, align 4
-  %2078 = sub nsw i32 %2077, 1
-  %2079 = sext i32 %2078 to i64
-  %2080 = getelementptr inbounds i8, ptr %2076, i64 %2079
-  %2081 = load i8, ptr %2080, align 1
-  %2082 = sext i8 %2081 to i32
-  %2083 = icmp eq i32 %2082, 10
-  %2084 = zext i1 %2083 to i32
-  %2085 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2086 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2087 = getelementptr inbounds ptr, ptr %2085, i64 %2086
-  %2088 = load ptr, ptr %2087, align 8
-  %2089 = getelementptr inbounds %struct.yy_buffer_state, ptr %2088, i32 0, i32 7
-  store i32 %2084, ptr %2089, align 8
-  br label %2090
+2077:                                             ; preds = %2074
+  %2078 = load ptr, ptr @V3PreLextext, align 8
+  %2079 = load i32, ptr @V3PreLexleng, align 4
+  %2080 = sub nsw i32 %2079, 1
+  %2081 = sext i32 %2080 to i64
+  %2082 = getelementptr inbounds i8, ptr %2078, i64 %2081
+  %2083 = load i8, ptr %2082, align 1
+  %2084 = sext i8 %2083 to i32
+  %2085 = icmp eq i32 %2084, 10
+  %2086 = zext i1 %2085 to i32
+  %2087 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2088 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2089 = getelementptr inbounds ptr, ptr %2087, i64 %2088
+  %2090 = load ptr, ptr %2089, align 8
+  %2091 = getelementptr inbounds %struct.yy_buffer_state, ptr %2090, i32 0, i32 7
+  store i32 %2086, ptr %2091, align 8
+  br label %2092
 
-2090:                                             ; preds = %2075, %2072
-  %2091 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2092 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2091)
-  %2093 = load ptr, ptr @V3PreLextext, align 8
-  %2094 = load i32, ptr @V3PreLexleng, align 4
-  %2095 = sext i32 %2094 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2092, ptr noundef %2093, i64 noundef %2095, i1 noundef zeroext false)
+2092:                                             ; preds = %2077, %2074
+  %2093 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2094 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2093)
+  %2095 = load ptr, ptr @V3PreLextext, align 8
+  %2096 = load i32, ptr @V3PreLexleng, align 4
+  %2097 = sext i32 %2096 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2094, ptr noundef %2095, i64 noundef %2097, i1 noundef zeroext false)
   store i32 306, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2096:                                             ; preds = %209
-  %2097 = load i32, ptr @V3PreLexleng, align 4
-  %2098 = icmp sgt i32 %2097, 0
-  br i1 %2098, label %2099, label %2114
+2098:                                             ; preds = %209
+  %2099 = load i32, ptr @V3PreLexleng, align 4
+  %2100 = icmp sgt i32 %2099, 0
+  br i1 %2100, label %2101, label %2116
 
-2099:                                             ; preds = %2096
-  %2100 = load ptr, ptr @V3PreLextext, align 8
-  %2101 = load i32, ptr @V3PreLexleng, align 4
-  %2102 = sub nsw i32 %2101, 1
-  %2103 = sext i32 %2102 to i64
-  %2104 = getelementptr inbounds i8, ptr %2100, i64 %2103
-  %2105 = load i8, ptr %2104, align 1
-  %2106 = sext i8 %2105 to i32
-  %2107 = icmp eq i32 %2106, 10
-  %2108 = zext i1 %2107 to i32
-  %2109 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2110 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2111 = getelementptr inbounds ptr, ptr %2109, i64 %2110
-  %2112 = load ptr, ptr %2111, align 8
-  %2113 = getelementptr inbounds %struct.yy_buffer_state, ptr %2112, i32 0, i32 7
-  store i32 %2108, ptr %2113, align 8
-  br label %2114
+2101:                                             ; preds = %2098
+  %2102 = load ptr, ptr @V3PreLextext, align 8
+  %2103 = load i32, ptr @V3PreLexleng, align 4
+  %2104 = sub nsw i32 %2103, 1
+  %2105 = sext i32 %2104 to i64
+  %2106 = getelementptr inbounds i8, ptr %2102, i64 %2105
+  %2107 = load i8, ptr %2106, align 1
+  %2108 = sext i8 %2107 to i32
+  %2109 = icmp eq i32 %2108, 10
+  %2110 = zext i1 %2109 to i32
+  %2111 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2112 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2113 = getelementptr inbounds ptr, ptr %2111, i64 %2112
+  %2114 = load ptr, ptr %2113, align 8
+  %2115 = getelementptr inbounds %struct.yy_buffer_state, ptr %2114, i32 0, i32 7
+  store i32 %2110, ptr %2115, align 8
+  br label %2116
 
-2114:                                             ; preds = %2099, %2096
-  %2115 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2116 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2115)
-  %2117 = load ptr, ptr @V3PreLextext, align 8
-  %2118 = load i32, ptr @V3PreLexleng, align 4
-  %2119 = sext i32 %2118 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2116, ptr noundef %2117, i64 noundef %2119, i1 noundef zeroext false)
+2116:                                             ; preds = %2101, %2098
+  %2117 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2118 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2117)
+  %2119 = load ptr, ptr @V3PreLextext, align 8
   %2120 = load i32, ptr @V3PreLexleng, align 4
-  %2121 = sub nsw i32 %2120, 2
-  store i32 %2121, ptr @V3PreLexleng, align 4
+  %2121 = sext i32 %2120 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2118, ptr noundef %2119, i64 noundef %2121, i1 noundef zeroext false)
+  %2122 = load i32, ptr @V3PreLexleng, align 4
+  %2123 = sub nsw i32 %2122, 2
+  store i32 %2123, ptr @V3PreLexleng, align 4
   store i32 313, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2122:                                             ; preds = %209
-  %2123 = load i32, ptr @V3PreLexleng, align 4
-  %2124 = icmp sgt i32 %2123, 0
-  br i1 %2124, label %2125, label %2140
+2124:                                             ; preds = %209
+  %2125 = load i32, ptr @V3PreLexleng, align 4
+  %2126 = icmp sgt i32 %2125, 0
+  br i1 %2126, label %2127, label %2142
 
-2125:                                             ; preds = %2122
-  %2126 = load ptr, ptr @V3PreLextext, align 8
-  %2127 = load i32, ptr @V3PreLexleng, align 4
-  %2128 = sub nsw i32 %2127, 1
-  %2129 = sext i32 %2128 to i64
-  %2130 = getelementptr inbounds i8, ptr %2126, i64 %2129
-  %2131 = load i8, ptr %2130, align 1
-  %2132 = sext i8 %2131 to i32
-  %2133 = icmp eq i32 %2132, 10
-  %2134 = zext i1 %2133 to i32
-  %2135 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2136 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2137 = getelementptr inbounds ptr, ptr %2135, i64 %2136
-  %2138 = load ptr, ptr %2137, align 8
-  %2139 = getelementptr inbounds %struct.yy_buffer_state, ptr %2138, i32 0, i32 7
-  store i32 %2134, ptr %2139, align 8
-  br label %2140
+2127:                                             ; preds = %2124
+  %2128 = load ptr, ptr @V3PreLextext, align 8
+  %2129 = load i32, ptr @V3PreLexleng, align 4
+  %2130 = sub nsw i32 %2129, 1
+  %2131 = sext i32 %2130 to i64
+  %2132 = getelementptr inbounds i8, ptr %2128, i64 %2131
+  %2133 = load i8, ptr %2132, align 1
+  %2134 = sext i8 %2133 to i32
+  %2135 = icmp eq i32 %2134, 10
+  %2136 = zext i1 %2135 to i32
+  %2137 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2138 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2139 = getelementptr inbounds ptr, ptr %2137, i64 %2138
+  %2140 = load ptr, ptr %2139, align 8
+  %2141 = getelementptr inbounds %struct.yy_buffer_state, ptr %2140, i32 0, i32 7
+  store i32 %2136, ptr %2141, align 8
+  br label %2142
 
-2140:                                             ; preds = %2125, %2122
-  %2141 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2142 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2141)
-  %2143 = load ptr, ptr @V3PreLextext, align 8
-  %2144 = load i32, ptr @V3PreLexleng, align 4
-  %2145 = sext i32 %2144 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2142, ptr noundef %2143, i64 noundef %2145, i1 noundef zeroext false)
+2142:                                             ; preds = %2127, %2124
+  %2143 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2144 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2143)
+  %2145 = load ptr, ptr @V3PreLextext, align 8
   %2146 = load i32, ptr @V3PreLexleng, align 4
-  %2147 = sub nsw i32 %2146, 2
-  store i32 %2147, ptr @V3PreLexleng, align 4
+  %2147 = sext i32 %2146 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2144, ptr noundef %2145, i64 noundef %2147, i1 noundef zeroext false)
+  %2148 = load i32, ptr @V3PreLexleng, align 4
+  %2149 = sub nsw i32 %2148, 2
+  store i32 %2149, ptr @V3PreLexleng, align 4
   store i32 314, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2148:                                             ; preds = %209
-  %2149 = load i32, ptr @V3PreLexleng, align 4
-  %2150 = icmp sgt i32 %2149, 0
-  br i1 %2150, label %2151, label %2166
+2150:                                             ; preds = %209
+  %2151 = load i32, ptr @V3PreLexleng, align 4
+  %2152 = icmp sgt i32 %2151, 0
+  br i1 %2152, label %2153, label %2168
 
-2151:                                             ; preds = %2148
-  %2152 = load ptr, ptr @V3PreLextext, align 8
-  %2153 = load i32, ptr @V3PreLexleng, align 4
-  %2154 = sub nsw i32 %2153, 1
-  %2155 = sext i32 %2154 to i64
-  %2156 = getelementptr inbounds i8, ptr %2152, i64 %2155
-  %2157 = load i8, ptr %2156, align 1
-  %2158 = sext i8 %2157 to i32
-  %2159 = icmp eq i32 %2158, 10
-  %2160 = zext i1 %2159 to i32
-  %2161 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2162 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2163 = getelementptr inbounds ptr, ptr %2161, i64 %2162
-  %2164 = load ptr, ptr %2163, align 8
-  %2165 = getelementptr inbounds %struct.yy_buffer_state, ptr %2164, i32 0, i32 7
-  store i32 %2160, ptr %2165, align 8
-  br label %2166
+2153:                                             ; preds = %2150
+  %2154 = load ptr, ptr @V3PreLextext, align 8
+  %2155 = load i32, ptr @V3PreLexleng, align 4
+  %2156 = sub nsw i32 %2155, 1
+  %2157 = sext i32 %2156 to i64
+  %2158 = getelementptr inbounds i8, ptr %2154, i64 %2157
+  %2159 = load i8, ptr %2158, align 1
+  %2160 = sext i8 %2159 to i32
+  %2161 = icmp eq i32 %2160, 10
+  %2162 = zext i1 %2161 to i32
+  %2163 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2164 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2165 = getelementptr inbounds ptr, ptr %2163, i64 %2164
+  %2166 = load ptr, ptr %2165, align 8
+  %2167 = getelementptr inbounds %struct.yy_buffer_state, ptr %2166, i32 0, i32 7
+  store i32 %2162, ptr %2167, align 8
+  br label %2168
 
-2166:                                             ; preds = %2151, %2148
-  %2167 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2168 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2167)
-  %2169 = load ptr, ptr @V3PreLextext, align 8
-  %2170 = load i32, ptr @V3PreLexleng, align 4
-  %2171 = sext i32 %2170 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2168, ptr noundef %2169, i64 noundef %2171, i1 noundef zeroext false)
+2168:                                             ; preds = %2153, %2150
+  %2169 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2170 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2169)
+  %2171 = load ptr, ptr @V3PreLextext, align 8
+  %2172 = load i32, ptr @V3PreLexleng, align 4
+  %2173 = sext i32 %2172 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2170, ptr noundef %2171, i64 noundef %2173, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   store ptr @.str.22, ptr @V3PreLextext, align 8
   store i32 1, ptr @V3PreLexleng, align 4
   store i32 305, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2172:                                             ; preds = %209
-  %2173 = load i32, ptr @V3PreLexleng, align 4
-  %2174 = icmp sgt i32 %2173, 0
-  br i1 %2174, label %2175, label %2190
+2174:                                             ; preds = %209
+  %2175 = load i32, ptr @V3PreLexleng, align 4
+  %2176 = icmp sgt i32 %2175, 0
+  br i1 %2176, label %2177, label %2192
 
-2175:                                             ; preds = %2172
-  %2176 = load ptr, ptr @V3PreLextext, align 8
-  %2177 = load i32, ptr @V3PreLexleng, align 4
-  %2178 = sub nsw i32 %2177, 1
-  %2179 = sext i32 %2178 to i64
-  %2180 = getelementptr inbounds i8, ptr %2176, i64 %2179
-  %2181 = load i8, ptr %2180, align 1
-  %2182 = sext i8 %2181 to i32
-  %2183 = icmp eq i32 %2182, 10
-  %2184 = zext i1 %2183 to i32
-  %2185 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2186 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2187 = getelementptr inbounds ptr, ptr %2185, i64 %2186
-  %2188 = load ptr, ptr %2187, align 8
-  %2189 = getelementptr inbounds %struct.yy_buffer_state, ptr %2188, i32 0, i32 7
-  store i32 %2184, ptr %2189, align 8
-  br label %2190
+2177:                                             ; preds = %2174
+  %2178 = load ptr, ptr @V3PreLextext, align 8
+  %2179 = load i32, ptr @V3PreLexleng, align 4
+  %2180 = sub nsw i32 %2179, 1
+  %2181 = sext i32 %2180 to i64
+  %2182 = getelementptr inbounds i8, ptr %2178, i64 %2181
+  %2183 = load i8, ptr %2182, align 1
+  %2184 = sext i8 %2183 to i32
+  %2185 = icmp eq i32 %2184, 10
+  %2186 = zext i1 %2185 to i32
+  %2187 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2188 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2189 = getelementptr inbounds ptr, ptr %2187, i64 %2188
+  %2190 = load ptr, ptr %2189, align 8
+  %2191 = getelementptr inbounds %struct.yy_buffer_state, ptr %2190, i32 0, i32 7
+  store i32 %2186, ptr %2191, align 8
+  br label %2192
 
-2190:                                             ; preds = %2175, %2172
-  %2191 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2192 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2191)
-  %2193 = load ptr, ptr @V3PreLextext, align 8
-  %2194 = load i32, ptr @V3PreLexleng, align 4
-  %2195 = sext i32 %2194 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2192, ptr noundef %2193, i64 noundef %2195, i1 noundef zeroext false)
+2192:                                             ; preds = %2177, %2174
+  %2193 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2194 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2193)
+  %2195 = load ptr, ptr @V3PreLextext, align 8
+  %2196 = load i32, ptr @V3PreLexleng, align 4
+  %2197 = sext i32 %2196 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2194, ptr noundef %2195, i64 noundef %2197, i1 noundef zeroext false)
   store i32 305, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2196:                                             ; preds = %209
-  %2197 = load i32, ptr @V3PreLexleng, align 4
-  %2198 = icmp sgt i32 %2197, 0
-  br i1 %2198, label %2199, label %2214
+2198:                                             ; preds = %209
+  %2199 = load i32, ptr @V3PreLexleng, align 4
+  %2200 = icmp sgt i32 %2199, 0
+  br i1 %2200, label %2201, label %2216
 
-2199:                                             ; preds = %2196
-  %2200 = load ptr, ptr @V3PreLextext, align 8
-  %2201 = load i32, ptr @V3PreLexleng, align 4
-  %2202 = sub nsw i32 %2201, 1
-  %2203 = sext i32 %2202 to i64
-  %2204 = getelementptr inbounds i8, ptr %2200, i64 %2203
-  %2205 = load i8, ptr %2204, align 1
-  %2206 = sext i8 %2205 to i32
-  %2207 = icmp eq i32 %2206, 10
-  %2208 = zext i1 %2207 to i32
-  %2209 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2210 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2211 = getelementptr inbounds ptr, ptr %2209, i64 %2210
-  %2212 = load ptr, ptr %2211, align 8
-  %2213 = getelementptr inbounds %struct.yy_buffer_state, ptr %2212, i32 0, i32 7
-  store i32 %2208, ptr %2213, align 8
-  br label %2214
+2201:                                             ; preds = %2198
+  %2202 = load ptr, ptr @V3PreLextext, align 8
+  %2203 = load i32, ptr @V3PreLexleng, align 4
+  %2204 = sub nsw i32 %2203, 1
+  %2205 = sext i32 %2204 to i64
+  %2206 = getelementptr inbounds i8, ptr %2202, i64 %2205
+  %2207 = load i8, ptr %2206, align 1
+  %2208 = sext i8 %2207 to i32
+  %2209 = icmp eq i32 %2208, 10
+  %2210 = zext i1 %2209 to i32
+  %2211 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2212 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2213 = getelementptr inbounds ptr, ptr %2211, i64 %2212
+  %2214 = load ptr, ptr %2213, align 8
+  %2215 = getelementptr inbounds %struct.yy_buffer_state, ptr %2214, i32 0, i32 7
+  store i32 %2210, ptr %2215, align 8
+  br label %2216
 
-2214:                                             ; preds = %2199, %2196
-  %2215 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2216 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2215)
-  %2217 = load ptr, ptr @V3PreLextext, align 8
-  %2218 = load i32, ptr @V3PreLexleng, align 4
-  %2219 = sext i32 %2218 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2216, ptr noundef %2217, i64 noundef %2219, i1 noundef zeroext false)
-  %2220 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2221 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2220)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2221)
-  br label %5026
+2216:                                             ; preds = %2201, %2198
+  %2217 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2218 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2217)
+  %2219 = load ptr, ptr @V3PreLextext, align 8
+  %2220 = load i32, ptr @V3PreLexleng, align 4
+  %2221 = sext i32 %2220 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2218, ptr noundef %2219, i64 noundef %2221, i1 noundef zeroext false)
+  %2222 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2223 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2222)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2223)
+  br label %5028
 
-2222:                                             ; preds = %209
-  %2223 = load i32, ptr @V3PreLexleng, align 4
-  %2224 = icmp sgt i32 %2223, 0
-  br i1 %2224, label %2225, label %2240
+2224:                                             ; preds = %209
+  %2225 = load i32, ptr @V3PreLexleng, align 4
+  %2226 = icmp sgt i32 %2225, 0
+  br i1 %2226, label %2227, label %2242
 
-2225:                                             ; preds = %2222
-  %2226 = load ptr, ptr @V3PreLextext, align 8
-  %2227 = load i32, ptr @V3PreLexleng, align 4
-  %2228 = sub nsw i32 %2227, 1
-  %2229 = sext i32 %2228 to i64
-  %2230 = getelementptr inbounds i8, ptr %2226, i64 %2229
-  %2231 = load i8, ptr %2230, align 1
-  %2232 = sext i8 %2231 to i32
-  %2233 = icmp eq i32 %2232, 10
-  %2234 = zext i1 %2233 to i32
-  %2235 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2236 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2237 = getelementptr inbounds ptr, ptr %2235, i64 %2236
-  %2238 = load ptr, ptr %2237, align 8
-  %2239 = getelementptr inbounds %struct.yy_buffer_state, ptr %2238, i32 0, i32 7
-  store i32 %2234, ptr %2239, align 8
-  br label %2240
+2227:                                             ; preds = %2224
+  %2228 = load ptr, ptr @V3PreLextext, align 8
+  %2229 = load i32, ptr @V3PreLexleng, align 4
+  %2230 = sub nsw i32 %2229, 1
+  %2231 = sext i32 %2230 to i64
+  %2232 = getelementptr inbounds i8, ptr %2228, i64 %2231
+  %2233 = load i8, ptr %2232, align 1
+  %2234 = sext i8 %2233 to i32
+  %2235 = icmp eq i32 %2234, 10
+  %2236 = zext i1 %2235 to i32
+  %2237 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2238 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2239 = getelementptr inbounds ptr, ptr %2237, i64 %2238
+  %2240 = load ptr, ptr %2239, align 8
+  %2241 = getelementptr inbounds %struct.yy_buffer_state, ptr %2240, i32 0, i32 7
+  store i32 %2236, ptr %2241, align 8
+  br label %2242
 
-2240:                                             ; preds = %2225, %2222
-  %2241 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2242 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2241)
-  %2243 = load ptr, ptr @V3PreLextext, align 8
-  %2244 = load i32, ptr @V3PreLexleng, align 4
-  %2245 = sext i32 %2244 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2242, ptr noundef %2243, i64 noundef %2245, i1 noundef zeroext false)
-  %2246 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2247 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2246)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2247)
-  br label %5026
+2242:                                             ; preds = %2227, %2224
+  %2243 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2244 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2243)
+  %2245 = load ptr, ptr @V3PreLextext, align 8
+  %2246 = load i32, ptr @V3PreLexleng, align 4
+  %2247 = sext i32 %2246 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2244, ptr noundef %2245, i64 noundef %2247, i1 noundef zeroext false)
+  %2248 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2249 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2248)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2249)
+  br label %5028
 
-2248:                                             ; preds = %209
-  %2249 = load i32, ptr @V3PreLexleng, align 4
-  %2250 = icmp sgt i32 %2249, 0
-  br i1 %2250, label %2251, label %2266
+2250:                                             ; preds = %209
+  %2251 = load i32, ptr @V3PreLexleng, align 4
+  %2252 = icmp sgt i32 %2251, 0
+  br i1 %2252, label %2253, label %2268
 
-2251:                                             ; preds = %2248
-  %2252 = load ptr, ptr @V3PreLextext, align 8
-  %2253 = load i32, ptr @V3PreLexleng, align 4
-  %2254 = sub nsw i32 %2253, 1
-  %2255 = sext i32 %2254 to i64
-  %2256 = getelementptr inbounds i8, ptr %2252, i64 %2255
-  %2257 = load i8, ptr %2256, align 1
-  %2258 = sext i8 %2257 to i32
-  %2259 = icmp eq i32 %2258, 10
-  %2260 = zext i1 %2259 to i32
-  %2261 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2262 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2263 = getelementptr inbounds ptr, ptr %2261, i64 %2262
-  %2264 = load ptr, ptr %2263, align 8
-  %2265 = getelementptr inbounds %struct.yy_buffer_state, ptr %2264, i32 0, i32 7
-  store i32 %2260, ptr %2265, align 8
-  br label %2266
+2253:                                             ; preds = %2250
+  %2254 = load ptr, ptr @V3PreLextext, align 8
+  %2255 = load i32, ptr @V3PreLexleng, align 4
+  %2256 = sub nsw i32 %2255, 1
+  %2257 = sext i32 %2256 to i64
+  %2258 = getelementptr inbounds i8, ptr %2254, i64 %2257
+  %2259 = load i8, ptr %2258, align 1
+  %2260 = sext i8 %2259 to i32
+  %2261 = icmp eq i32 %2260, 10
+  %2262 = zext i1 %2261 to i32
+  %2263 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2264 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2265 = getelementptr inbounds ptr, ptr %2263, i64 %2264
+  %2266 = load ptr, ptr %2265, align 8
+  %2267 = getelementptr inbounds %struct.yy_buffer_state, ptr %2266, i32 0, i32 7
+  store i32 %2262, ptr %2267, align 8
+  br label %2268
 
-2266:                                             ; preds = %2251, %2248
-  %2267 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2268 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2267)
-  %2269 = load ptr, ptr @V3PreLextext, align 8
-  %2270 = load i32, ptr @V3PreLexleng, align 4
-  %2271 = sext i32 %2270 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2268, ptr noundef %2269, i64 noundef %2271, i1 noundef zeroext false)
+2268:                                             ; preds = %2253, %2250
+  %2269 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2270 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2269)
+  %2271 = load ptr, ptr @V3PreLextext, align 8
+  %2272 = load i32, ptr @V3PreLexleng, align 4
+  %2273 = sext i32 %2272 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2270, ptr noundef %2271, i64 noundef %2273, i1 noundef zeroext false)
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2272:                                             ; preds = %209
-  %2273 = load i32, ptr @V3PreLexleng, align 4
-  %2274 = icmp sgt i32 %2273, 0
-  br i1 %2274, label %2275, label %2290
+2274:                                             ; preds = %209
+  %2275 = load i32, ptr @V3PreLexleng, align 4
+  %2276 = icmp sgt i32 %2275, 0
+  br i1 %2276, label %2277, label %2292
 
-2275:                                             ; preds = %2272
-  %2276 = load ptr, ptr @V3PreLextext, align 8
-  %2277 = load i32, ptr @V3PreLexleng, align 4
-  %2278 = sub nsw i32 %2277, 1
-  %2279 = sext i32 %2278 to i64
-  %2280 = getelementptr inbounds i8, ptr %2276, i64 %2279
-  %2281 = load i8, ptr %2280, align 1
-  %2282 = sext i8 %2281 to i32
-  %2283 = icmp eq i32 %2282, 10
-  %2284 = zext i1 %2283 to i32
-  %2285 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2286 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2287 = getelementptr inbounds ptr, ptr %2285, i64 %2286
-  %2288 = load ptr, ptr %2287, align 8
-  %2289 = getelementptr inbounds %struct.yy_buffer_state, ptr %2288, i32 0, i32 7
-  store i32 %2284, ptr %2289, align 8
-  br label %2290
+2277:                                             ; preds = %2274
+  %2278 = load ptr, ptr @V3PreLextext, align 8
+  %2279 = load i32, ptr @V3PreLexleng, align 4
+  %2280 = sub nsw i32 %2279, 1
+  %2281 = sext i32 %2280 to i64
+  %2282 = getelementptr inbounds i8, ptr %2278, i64 %2281
+  %2283 = load i8, ptr %2282, align 1
+  %2284 = sext i8 %2283 to i32
+  %2285 = icmp eq i32 %2284, 10
+  %2286 = zext i1 %2285 to i32
+  %2287 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2288 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2289 = getelementptr inbounds ptr, ptr %2287, i64 %2288
+  %2290 = load ptr, ptr %2289, align 8
+  %2291 = getelementptr inbounds %struct.yy_buffer_state, ptr %2290, i32 0, i32 7
+  store i32 %2286, ptr %2291, align 8
+  br label %2292
 
-2290:                                             ; preds = %2275, %2272
+2292:                                             ; preds = %2277, %2274
   call void @_ZL13yy_push_statei(i32 noundef 15)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-2291:                                             ; preds = %209
-  %2292 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2293 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2292)
-  %2294 = load ptr, ptr @V3PreLextext, align 8
-  %2295 = load i32, ptr @V3PreLexleng, align 4
-  %2296 = sext i32 %2295 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2293, ptr noundef %2294, i64 noundef %2296, i1 noundef zeroext false)
+2293:                                             ; preds = %209
+  %2294 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2295 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2294)
+  %2296 = load ptr, ptr @V3PreLextext, align 8
+  %2297 = load i32, ptr @V3PreLexleng, align 4
+  %2298 = sext i32 %2297 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2295, ptr noundef %2296, i64 noundef %2298, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL14V3PreLexerrorfPKc(ptr noundef @.str.23)
   store i32 0, ptr @V3PreLexleng, align 4
   store i32 400, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2297:                                             ; preds = %209
-  %2298 = load i32, ptr @V3PreLexleng, align 4
-  %2299 = icmp sgt i32 %2298, 0
-  br i1 %2299, label %2300, label %2315
+2299:                                             ; preds = %209
+  %2300 = load i32, ptr @V3PreLexleng, align 4
+  %2301 = icmp sgt i32 %2300, 0
+  br i1 %2301, label %2302, label %2317
 
-2300:                                             ; preds = %2297
-  %2301 = load ptr, ptr @V3PreLextext, align 8
-  %2302 = load i32, ptr @V3PreLexleng, align 4
-  %2303 = sub nsw i32 %2302, 1
-  %2304 = sext i32 %2303 to i64
-  %2305 = getelementptr inbounds i8, ptr %2301, i64 %2304
-  %2306 = load i8, ptr %2305, align 1
-  %2307 = sext i8 %2306 to i32
-  %2308 = icmp eq i32 %2307, 10
-  %2309 = zext i1 %2308 to i32
-  %2310 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2311 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2312 = getelementptr inbounds ptr, ptr %2310, i64 %2311
-  %2313 = load ptr, ptr %2312, align 8
-  %2314 = getelementptr inbounds %struct.yy_buffer_state, ptr %2313, i32 0, i32 7
-  store i32 %2309, ptr %2314, align 8
-  br label %2315
+2302:                                             ; preds = %2299
+  %2303 = load ptr, ptr @V3PreLextext, align 8
+  %2304 = load i32, ptr @V3PreLexleng, align 4
+  %2305 = sub nsw i32 %2304, 1
+  %2306 = sext i32 %2305 to i64
+  %2307 = getelementptr inbounds i8, ptr %2303, i64 %2306
+  %2308 = load i8, ptr %2307, align 1
+  %2309 = sext i8 %2308 to i32
+  %2310 = icmp eq i32 %2309, 10
+  %2311 = zext i1 %2310 to i32
+  %2312 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2313 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2314 = getelementptr inbounds ptr, ptr %2312, i64 %2313
+  %2315 = load ptr, ptr %2314, align 8
+  %2316 = getelementptr inbounds %struct.yy_buffer_state, ptr %2315, i32 0, i32 7
+  store i32 %2311, ptr %2316, align 8
+  br label %2317
 
-2315:                                             ; preds = %2300, %2297
-  %2316 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2317 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2316)
-  %2318 = load ptr, ptr @V3PreLextext, align 8
-  %2319 = load i32, ptr @V3PreLexleng, align 4
-  %2320 = sext i32 %2319 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2317, ptr noundef %2318, i64 noundef %2320, i1 noundef zeroext false)
+2317:                                             ; preds = %2302, %2299
+  %2318 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2319 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2318)
+  %2320 = load ptr, ptr @V3PreLextext, align 8
+  %2321 = load i32, ptr @V3PreLexleng, align 4
+  %2322 = sext i32 %2321 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2319, ptr noundef %2320, i64 noundef %2322, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2321:                                             ; preds = %209
-  %2322 = load i32, ptr @V3PreLexleng, align 4
-  %2323 = icmp sgt i32 %2322, 0
-  br i1 %2323, label %2324, label %2339
+2323:                                             ; preds = %209
+  %2324 = load i32, ptr @V3PreLexleng, align 4
+  %2325 = icmp sgt i32 %2324, 0
+  br i1 %2325, label %2326, label %2341
 
-2324:                                             ; preds = %2321
-  %2325 = load ptr, ptr @V3PreLextext, align 8
-  %2326 = load i32, ptr @V3PreLexleng, align 4
-  %2327 = sub nsw i32 %2326, 1
-  %2328 = sext i32 %2327 to i64
-  %2329 = getelementptr inbounds i8, ptr %2325, i64 %2328
-  %2330 = load i8, ptr %2329, align 1
-  %2331 = sext i8 %2330 to i32
-  %2332 = icmp eq i32 %2331, 10
-  %2333 = zext i1 %2332 to i32
-  %2334 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2335 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2336 = getelementptr inbounds ptr, ptr %2334, i64 %2335
-  %2337 = load ptr, ptr %2336, align 8
-  %2338 = getelementptr inbounds %struct.yy_buffer_state, ptr %2337, i32 0, i32 7
-  store i32 %2333, ptr %2338, align 8
-  br label %2339
+2326:                                             ; preds = %2323
+  %2327 = load ptr, ptr @V3PreLextext, align 8
+  %2328 = load i32, ptr @V3PreLexleng, align 4
+  %2329 = sub nsw i32 %2328, 1
+  %2330 = sext i32 %2329 to i64
+  %2331 = getelementptr inbounds i8, ptr %2327, i64 %2330
+  %2332 = load i8, ptr %2331, align 1
+  %2333 = sext i8 %2332 to i32
+  %2334 = icmp eq i32 %2333, 10
+  %2335 = zext i1 %2334 to i32
+  %2336 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2337 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2338 = getelementptr inbounds ptr, ptr %2336, i64 %2337
+  %2339 = load ptr, ptr %2338, align 8
+  %2340 = getelementptr inbounds %struct.yy_buffer_state, ptr %2339, i32 0, i32 7
+  store i32 %2335, ptr %2340, align 8
+  br label %2341
 
-2339:                                             ; preds = %2324, %2321
+2341:                                             ; preds = %2326, %2323
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-2340:                                             ; preds = %209
-  %2341 = load i32, ptr @V3PreLexleng, align 4
-  %2342 = icmp sgt i32 %2341, 0
-  br i1 %2342, label %2343, label %2358
+2342:                                             ; preds = %209
+  %2343 = load i32, ptr @V3PreLexleng, align 4
+  %2344 = icmp sgt i32 %2343, 0
+  br i1 %2344, label %2345, label %2360
 
-2343:                                             ; preds = %2340
-  %2344 = load ptr, ptr @V3PreLextext, align 8
-  %2345 = load i32, ptr @V3PreLexleng, align 4
-  %2346 = sub nsw i32 %2345, 1
-  %2347 = sext i32 %2346 to i64
-  %2348 = getelementptr inbounds i8, ptr %2344, i64 %2347
-  %2349 = load i8, ptr %2348, align 1
-  %2350 = sext i8 %2349 to i32
-  %2351 = icmp eq i32 %2350, 10
-  %2352 = zext i1 %2351 to i32
-  %2353 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2354 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2355 = getelementptr inbounds ptr, ptr %2353, i64 %2354
-  %2356 = load ptr, ptr %2355, align 8
-  %2357 = getelementptr inbounds %struct.yy_buffer_state, ptr %2356, i32 0, i32 7
-  store i32 %2352, ptr %2357, align 8
-  br label %2358
+2345:                                             ; preds = %2342
+  %2346 = load ptr, ptr @V3PreLextext, align 8
+  %2347 = load i32, ptr @V3PreLexleng, align 4
+  %2348 = sub nsw i32 %2347, 1
+  %2349 = sext i32 %2348 to i64
+  %2350 = getelementptr inbounds i8, ptr %2346, i64 %2349
+  %2351 = load i8, ptr %2350, align 1
+  %2352 = sext i8 %2351 to i32
+  %2353 = icmp eq i32 %2352, 10
+  %2354 = zext i1 %2353 to i32
+  %2355 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2356 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2357 = getelementptr inbounds ptr, ptr %2355, i64 %2356
+  %2358 = load ptr, ptr %2357, align 8
+  %2359 = getelementptr inbounds %struct.yy_buffer_state, ptr %2358, i32 0, i32 7
+  store i32 %2354, ptr %2359, align 8
+  br label %2360
 
-2358:                                             ; preds = %2343, %2340
-  %2359 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2360 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2359)
-  %2361 = load ptr, ptr @V3PreLextext, align 8
-  %2362 = load i32, ptr @V3PreLexleng, align 4
-  %2363 = sext i32 %2362 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2360, ptr noundef %2361, i64 noundef %2363, i1 noundef zeroext false)
+2360:                                             ; preds = %2345, %2342
+  %2361 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2362 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2361)
+  %2363 = load ptr, ptr @V3PreLextext, align 8
+  %2364 = load i32, ptr @V3PreLexleng, align 4
+  %2365 = sext i32 %2364 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2362, ptr noundef %2363, i64 noundef %2365, i1 noundef zeroext false)
   call void @_ZL12yy_pop_statev()
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2364:                                             ; preds = %209
-  %2365 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2366 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2365)
-  %2367 = load ptr, ptr @V3PreLextext, align 8
-  %2368 = load i32, ptr @V3PreLexleng, align 4
-  %2369 = sext i32 %2368 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2366, ptr noundef %2367, i64 noundef %2369, i1 noundef zeroext false)
+2366:                                             ; preds = %209
+  %2367 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2368 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2367)
+  %2369 = load ptr, ptr @V3PreLextext, align 8
+  %2370 = load i32, ptr @V3PreLexleng, align 4
+  %2371 = sext i32 %2370 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2368, ptr noundef %2369, i64 noundef %2371, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL14V3PreLexerrorfPKc(ptr noundef @.str.24)
   store i32 0, ptr @V3PreLexleng, align 4
   store i32 400, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2370:                                             ; preds = %209
-  %2371 = load i32, ptr @V3PreLexleng, align 4
-  %2372 = icmp sgt i32 %2371, 0
-  br i1 %2372, label %2373, label %2388
+2372:                                             ; preds = %209
+  %2373 = load i32, ptr @V3PreLexleng, align 4
+  %2374 = icmp sgt i32 %2373, 0
+  br i1 %2374, label %2375, label %2390
 
-2373:                                             ; preds = %2370
-  %2374 = load ptr, ptr @V3PreLextext, align 8
-  %2375 = load i32, ptr @V3PreLexleng, align 4
-  %2376 = sub nsw i32 %2375, 1
-  %2377 = sext i32 %2376 to i64
-  %2378 = getelementptr inbounds i8, ptr %2374, i64 %2377
-  %2379 = load i8, ptr %2378, align 1
-  %2380 = sext i8 %2379 to i32
-  %2381 = icmp eq i32 %2380, 10
-  %2382 = zext i1 %2381 to i32
-  %2383 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2384 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2385 = getelementptr inbounds ptr, ptr %2383, i64 %2384
-  %2386 = load ptr, ptr %2385, align 8
-  %2387 = getelementptr inbounds %struct.yy_buffer_state, ptr %2386, i32 0, i32 7
-  store i32 %2382, ptr %2387, align 8
-  br label %2388
+2375:                                             ; preds = %2372
+  %2376 = load ptr, ptr @V3PreLextext, align 8
+  %2377 = load i32, ptr @V3PreLexleng, align 4
+  %2378 = sub nsw i32 %2377, 1
+  %2379 = sext i32 %2378 to i64
+  %2380 = getelementptr inbounds i8, ptr %2376, i64 %2379
+  %2381 = load i8, ptr %2380, align 1
+  %2382 = sext i8 %2381 to i32
+  %2383 = icmp eq i32 %2382, 10
+  %2384 = zext i1 %2383 to i32
+  %2385 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2386 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2387 = getelementptr inbounds ptr, ptr %2385, i64 %2386
+  %2388 = load ptr, ptr %2387, align 8
+  %2389 = getelementptr inbounds %struct.yy_buffer_state, ptr %2388, i32 0, i32 7
+  store i32 %2384, ptr %2389, align 8
+  br label %2390
 
-2388:                                             ; preds = %2373, %2370
-  %2389 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2390 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2389)
-  %2391 = load ptr, ptr @V3PreLextext, align 8
-  %2392 = load i32, ptr @V3PreLexleng, align 4
-  %2393 = sext i32 %2392 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2390, ptr noundef %2391, i64 noundef %2393, i1 noundef zeroext false)
+2390:                                             ; preds = %2375, %2372
+  %2391 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2392 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2391)
+  %2393 = load ptr, ptr @V3PreLextext, align 8
+  %2394 = load i32, ptr @V3PreLexleng, align 4
+  %2395 = sext i32 %2394 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2392, ptr noundef %2393, i64 noundef %2395, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL14V3PreLexerrorfPKc(ptr noundef @.str.25)
-  %2394 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2395 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2394)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2395)
+  %2396 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2397 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2396)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2397)
   store i32 1, ptr @_ZL8yy_start, align 4
-  br label %5026
+  br label %5028
 
-2396:                                             ; preds = %209
-  %2397 = load i32, ptr @V3PreLexleng, align 4
-  %2398 = icmp sgt i32 %2397, 0
-  br i1 %2398, label %2399, label %2414
+2398:                                             ; preds = %209
+  %2399 = load i32, ptr @V3PreLexleng, align 4
+  %2400 = icmp sgt i32 %2399, 0
+  br i1 %2400, label %2401, label %2416
 
-2399:                                             ; preds = %2396
-  %2400 = load ptr, ptr @V3PreLextext, align 8
-  %2401 = load i32, ptr @V3PreLexleng, align 4
-  %2402 = sub nsw i32 %2401, 1
-  %2403 = sext i32 %2402 to i64
-  %2404 = getelementptr inbounds i8, ptr %2400, i64 %2403
-  %2405 = load i8, ptr %2404, align 1
-  %2406 = sext i8 %2405 to i32
-  %2407 = icmp eq i32 %2406, 10
-  %2408 = zext i1 %2407 to i32
-  %2409 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2410 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2411 = getelementptr inbounds ptr, ptr %2409, i64 %2410
-  %2412 = load ptr, ptr %2411, align 8
-  %2413 = getelementptr inbounds %struct.yy_buffer_state, ptr %2412, i32 0, i32 7
-  store i32 %2408, ptr %2413, align 8
-  br label %2414
+2401:                                             ; preds = %2398
+  %2402 = load ptr, ptr @V3PreLextext, align 8
+  %2403 = load i32, ptr @V3PreLexleng, align 4
+  %2404 = sub nsw i32 %2403, 1
+  %2405 = sext i32 %2404 to i64
+  %2406 = getelementptr inbounds i8, ptr %2402, i64 %2405
+  %2407 = load i8, ptr %2406, align 1
+  %2408 = sext i8 %2407 to i32
+  %2409 = icmp eq i32 %2408, 10
+  %2410 = zext i1 %2409 to i32
+  %2411 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2412 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2413 = getelementptr inbounds ptr, ptr %2411, i64 %2412
+  %2414 = load ptr, ptr %2413, align 8
+  %2415 = getelementptr inbounds %struct.yy_buffer_state, ptr %2414, i32 0, i32 7
+  store i32 %2410, ptr %2415, align 8
+  br label %2416
 
-2414:                                             ; preds = %2399, %2396
+2416:                                             ; preds = %2401, %2398
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-2415:                                             ; preds = %209
-  %2416 = load i32, ptr @V3PreLexleng, align 4
-  %2417 = icmp sgt i32 %2416, 0
-  br i1 %2417, label %2418, label %2433
+2417:                                             ; preds = %209
+  %2418 = load i32, ptr @V3PreLexleng, align 4
+  %2419 = icmp sgt i32 %2418, 0
+  br i1 %2419, label %2420, label %2435
 
-2418:                                             ; preds = %2415
-  %2419 = load ptr, ptr @V3PreLextext, align 8
-  %2420 = load i32, ptr @V3PreLexleng, align 4
-  %2421 = sub nsw i32 %2420, 1
-  %2422 = sext i32 %2421 to i64
-  %2423 = getelementptr inbounds i8, ptr %2419, i64 %2422
-  %2424 = load i8, ptr %2423, align 1
-  %2425 = sext i8 %2424 to i32
-  %2426 = icmp eq i32 %2425, 10
-  %2427 = zext i1 %2426 to i32
-  %2428 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2429 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2430 = getelementptr inbounds ptr, ptr %2428, i64 %2429
-  %2431 = load ptr, ptr %2430, align 8
-  %2432 = getelementptr inbounds %struct.yy_buffer_state, ptr %2431, i32 0, i32 7
-  store i32 %2427, ptr %2432, align 8
-  br label %2433
+2420:                                             ; preds = %2417
+  %2421 = load ptr, ptr @V3PreLextext, align 8
+  %2422 = load i32, ptr @V3PreLexleng, align 4
+  %2423 = sub nsw i32 %2422, 1
+  %2424 = sext i32 %2423 to i64
+  %2425 = getelementptr inbounds i8, ptr %2421, i64 %2424
+  %2426 = load i8, ptr %2425, align 1
+  %2427 = sext i8 %2426 to i32
+  %2428 = icmp eq i32 %2427, 10
+  %2429 = zext i1 %2428 to i32
+  %2430 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2431 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2432 = getelementptr inbounds ptr, ptr %2430, i64 %2431
+  %2433 = load ptr, ptr %2432, align 8
+  %2434 = getelementptr inbounds %struct.yy_buffer_state, ptr %2433, i32 0, i32 7
+  store i32 %2429, ptr %2434, align 8
+  br label %2435
 
-2433:                                             ; preds = %2418, %2415
+2435:                                             ; preds = %2420, %2417
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-2434:                                             ; preds = %209
-  %2435 = load i32, ptr @V3PreLexleng, align 4
-  %2436 = icmp sgt i32 %2435, 0
-  br i1 %2436, label %2437, label %2452
+2436:                                             ; preds = %209
+  %2437 = load i32, ptr @V3PreLexleng, align 4
+  %2438 = icmp sgt i32 %2437, 0
+  br i1 %2438, label %2439, label %2454
 
-2437:                                             ; preds = %2434
-  %2438 = load ptr, ptr @V3PreLextext, align 8
-  %2439 = load i32, ptr @V3PreLexleng, align 4
-  %2440 = sub nsw i32 %2439, 1
-  %2441 = sext i32 %2440 to i64
-  %2442 = getelementptr inbounds i8, ptr %2438, i64 %2441
-  %2443 = load i8, ptr %2442, align 1
-  %2444 = sext i8 %2443 to i32
-  %2445 = icmp eq i32 %2444, 10
-  %2446 = zext i1 %2445 to i32
-  %2447 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2448 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2449 = getelementptr inbounds ptr, ptr %2447, i64 %2448
-  %2450 = load ptr, ptr %2449, align 8
-  %2451 = getelementptr inbounds %struct.yy_buffer_state, ptr %2450, i32 0, i32 7
-  store i32 %2446, ptr %2451, align 8
-  br label %2452
+2439:                                             ; preds = %2436
+  %2440 = load ptr, ptr @V3PreLextext, align 8
+  %2441 = load i32, ptr @V3PreLexleng, align 4
+  %2442 = sub nsw i32 %2441, 1
+  %2443 = sext i32 %2442 to i64
+  %2444 = getelementptr inbounds i8, ptr %2440, i64 %2443
+  %2445 = load i8, ptr %2444, align 1
+  %2446 = sext i8 %2445 to i32
+  %2447 = icmp eq i32 %2446, 10
+  %2448 = zext i1 %2447 to i32
+  %2449 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2450 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2451 = getelementptr inbounds ptr, ptr %2449, i64 %2450
+  %2452 = load ptr, ptr %2451, align 8
+  %2453 = getelementptr inbounds %struct.yy_buffer_state, ptr %2452, i32 0, i32 7
+  store i32 %2448, ptr %2453, align 8
+  br label %2454
 
-2452:                                             ; preds = %2437, %2434
-  %2453 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2454 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2453)
-  %2455 = load ptr, ptr @V3PreLextext, align 8
-  %2456 = load i32, ptr @V3PreLexleng, align 4
-  %2457 = sext i32 %2456 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2454, ptr noundef %2455, i64 noundef %2457, i1 noundef zeroext false)
+2454:                                             ; preds = %2439, %2436
+  %2455 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2456 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2455)
+  %2457 = load ptr, ptr @V3PreLextext, align 8
+  %2458 = load i32, ptr @V3PreLexleng, align 4
+  %2459 = sext i32 %2458 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2456, ptr noundef %2457, i64 noundef %2459, i1 noundef zeroext false)
   call void @_ZL12yy_pop_statev()
   store i32 301, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2458:                                             ; preds = %209
-  %2459 = load i32, ptr @V3PreLexleng, align 4
-  %2460 = icmp sgt i32 %2459, 0
-  br i1 %2460, label %2461, label %2476
+2460:                                             ; preds = %209
+  %2461 = load i32, ptr @V3PreLexleng, align 4
+  %2462 = icmp sgt i32 %2461, 0
+  br i1 %2462, label %2463, label %2478
 
-2461:                                             ; preds = %2458
-  %2462 = load ptr, ptr @V3PreLextext, align 8
-  %2463 = load i32, ptr @V3PreLexleng, align 4
-  %2464 = sub nsw i32 %2463, 1
-  %2465 = sext i32 %2464 to i64
-  %2466 = getelementptr inbounds i8, ptr %2462, i64 %2465
-  %2467 = load i8, ptr %2466, align 1
-  %2468 = sext i8 %2467 to i32
-  %2469 = icmp eq i32 %2468, 10
-  %2470 = zext i1 %2469 to i32
-  %2471 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2472 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2473 = getelementptr inbounds ptr, ptr %2471, i64 %2472
-  %2474 = load ptr, ptr %2473, align 8
-  %2475 = getelementptr inbounds %struct.yy_buffer_state, ptr %2474, i32 0, i32 7
-  store i32 %2470, ptr %2475, align 8
-  br label %2476
+2463:                                             ; preds = %2460
+  %2464 = load ptr, ptr @V3PreLextext, align 8
+  %2465 = load i32, ptr @V3PreLexleng, align 4
+  %2466 = sub nsw i32 %2465, 1
+  %2467 = sext i32 %2466 to i64
+  %2468 = getelementptr inbounds i8, ptr %2464, i64 %2467
+  %2469 = load i8, ptr %2468, align 1
+  %2470 = sext i8 %2469 to i32
+  %2471 = icmp eq i32 %2470, 10
+  %2472 = zext i1 %2471 to i32
+  %2473 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2474 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2475 = getelementptr inbounds ptr, ptr %2473, i64 %2474
+  %2476 = load ptr, ptr %2475, align 8
+  %2477 = getelementptr inbounds %struct.yy_buffer_state, ptr %2476, i32 0, i32 7
+  store i32 %2472, ptr %2477, align 8
+  br label %2478
 
-2476:                                             ; preds = %2461, %2458
-  %2477 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2478 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2477)
-  %2479 = load ptr, ptr @V3PreLextext, align 8
-  %2480 = load i32, ptr @V3PreLexleng, align 4
-  %2481 = sext i32 %2480 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2478, ptr noundef %2479, i64 noundef %2481, i1 noundef zeroext false)
+2478:                                             ; preds = %2463, %2460
+  %2479 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2480 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2479)
+  %2481 = load ptr, ptr @V3PreLextext, align 8
+  %2482 = load i32, ptr @V3PreLexleng, align 4
+  %2483 = sext i32 %2482 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2480, ptr noundef %2481, i64 noundef %2483, i1 noundef zeroext false)
   call void @_ZL14appendDefValuePKcm(ptr noundef @.str.26, i64 noundef 1)
-  %2482 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2483 = getelementptr inbounds %class.V3PreLex, ptr %2482, i32 0, i32 11
-  store i32 1, ptr %2483, align 4
   %2484 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2485 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2484)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2485)
+  %2485 = getelementptr inbounds %class.V3PreLex, ptr %2484, i32 0, i32 11
+  store i32 1, ptr %2485, align 4
+  %2486 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2487 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2486)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2487)
   store i32 11, ptr @_ZL8yy_start, align 4
-  br label %5026
+  br label %5028
 
-2486:                                             ; preds = %209
-  %2487 = load i32, ptr @V3PreLexleng, align 4
-  %2488 = icmp sgt i32 %2487, 0
-  br i1 %2488, label %2489, label %2504
+2488:                                             ; preds = %209
+  %2489 = load i32, ptr @V3PreLexleng, align 4
+  %2490 = icmp sgt i32 %2489, 0
+  br i1 %2490, label %2491, label %2506
 
-2489:                                             ; preds = %2486
-  %2490 = load ptr, ptr @V3PreLextext, align 8
-  %2491 = load i32, ptr @V3PreLexleng, align 4
-  %2492 = sub nsw i32 %2491, 1
-  %2493 = sext i32 %2492 to i64
-  %2494 = getelementptr inbounds i8, ptr %2490, i64 %2493
-  %2495 = load i8, ptr %2494, align 1
-  %2496 = sext i8 %2495 to i32
-  %2497 = icmp eq i32 %2496, 10
-  %2498 = zext i1 %2497 to i32
-  %2499 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2500 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2501 = getelementptr inbounds ptr, ptr %2499, i64 %2500
-  %2502 = load ptr, ptr %2501, align 8
-  %2503 = getelementptr inbounds %struct.yy_buffer_state, ptr %2502, i32 0, i32 7
-  store i32 %2498, ptr %2503, align 8
-  br label %2504
+2491:                                             ; preds = %2488
+  %2492 = load ptr, ptr @V3PreLextext, align 8
+  %2493 = load i32, ptr @V3PreLexleng, align 4
+  %2494 = sub nsw i32 %2493, 1
+  %2495 = sext i32 %2494 to i64
+  %2496 = getelementptr inbounds i8, ptr %2492, i64 %2495
+  %2497 = load i8, ptr %2496, align 1
+  %2498 = sext i8 %2497 to i32
+  %2499 = icmp eq i32 %2498, 10
+  %2500 = zext i1 %2499 to i32
+  %2501 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2502 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2503 = getelementptr inbounds ptr, ptr %2501, i64 %2502
+  %2504 = load ptr, ptr %2503, align 8
+  %2505 = getelementptr inbounds %struct.yy_buffer_state, ptr %2504, i32 0, i32 7
+  store i32 %2500, ptr %2505, align 8
+  br label %2506
 
-2504:                                             ; preds = %2489, %2486
-  %2505 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2506 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2505)
-  %2507 = load ptr, ptr @V3PreLextext, align 8
-  %2508 = load i32, ptr @V3PreLexleng, align 4
-  %2509 = sext i32 %2508 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2506, ptr noundef %2507, i64 noundef %2509, i1 noundef zeroext false)
+2506:                                             ; preds = %2491, %2488
+  %2507 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2508 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2507)
+  %2509 = load ptr, ptr @V3PreLextext, align 8
+  %2510 = load i32, ptr @V3PreLexleng, align 4
+  %2511 = sext i32 %2510 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2508, ptr noundef %2509, i64 noundef %2511, i1 noundef zeroext false)
   call void @_ZL12yy_pop_statev()
-  %2510 = load ptr, ptr @V3PreLextext, align 8
-  call void @_ZL7yyunputiPc(i32 noundef 10, ptr noundef %2510)
+  %2512 = load ptr, ptr @V3PreLextext, align 8
+  call void @_ZL7yyunputiPc(i32 noundef 10, ptr noundef %2512)
   store i32 0, ptr @V3PreLexleng, align 4
   store i32 309, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2511:                                             ; preds = %209
-  %2512 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2513 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2512)
-  %2514 = load ptr, ptr @V3PreLextext, align 8
-  %2515 = load i32, ptr @V3PreLexleng, align 4
-  %2516 = sext i32 %2515 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2513, ptr noundef %2514, i64 noundef %2516, i1 noundef zeroext false)
+2513:                                             ; preds = %209
+  %2514 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2515 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2514)
+  %2516 = load ptr, ptr @V3PreLextext, align 8
+  %2517 = load i32, ptr @V3PreLexleng, align 4
+  %2518 = sext i32 %2517 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2515, ptr noundef %2516, i64 noundef %2518, i1 noundef zeroext false)
   call void @_ZL12yy_pop_statev()
   store i32 309, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2517:                                             ; preds = %209
-  %2518 = load i32, ptr @V3PreLexleng, align 4
-  %2519 = icmp sgt i32 %2518, 0
-  br i1 %2519, label %2520, label %2535
+2519:                                             ; preds = %209
+  %2520 = load i32, ptr @V3PreLexleng, align 4
+  %2521 = icmp sgt i32 %2520, 0
+  br i1 %2521, label %2522, label %2537
 
-2520:                                             ; preds = %2517
-  %2521 = load ptr, ptr @V3PreLextext, align 8
-  %2522 = load i32, ptr @V3PreLexleng, align 4
-  %2523 = sub nsw i32 %2522, 1
-  %2524 = sext i32 %2523 to i64
-  %2525 = getelementptr inbounds i8, ptr %2521, i64 %2524
-  %2526 = load i8, ptr %2525, align 1
-  %2527 = sext i8 %2526 to i32
-  %2528 = icmp eq i32 %2527, 10
-  %2529 = zext i1 %2528 to i32
-  %2530 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2531 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2532 = getelementptr inbounds ptr, ptr %2530, i64 %2531
-  %2533 = load ptr, ptr %2532, align 8
-  %2534 = getelementptr inbounds %struct.yy_buffer_state, ptr %2533, i32 0, i32 7
-  store i32 %2529, ptr %2534, align 8
-  br label %2535
+2522:                                             ; preds = %2519
+  %2523 = load ptr, ptr @V3PreLextext, align 8
+  %2524 = load i32, ptr @V3PreLexleng, align 4
+  %2525 = sub nsw i32 %2524, 1
+  %2526 = sext i32 %2525 to i64
+  %2527 = getelementptr inbounds i8, ptr %2523, i64 %2526
+  %2528 = load i8, ptr %2527, align 1
+  %2529 = sext i8 %2528 to i32
+  %2530 = icmp eq i32 %2529, 10
+  %2531 = zext i1 %2530 to i32
+  %2532 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2533 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2534 = getelementptr inbounds ptr, ptr %2532, i64 %2533
+  %2535 = load ptr, ptr %2534, align 8
+  %2536 = getelementptr inbounds %struct.yy_buffer_state, ptr %2535, i32 0, i32 7
+  store i32 %2531, ptr %2536, align 8
+  br label %2537
 
-2535:                                             ; preds = %2520, %2517
-  %2536 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2537 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2536)
-  %2538 = load ptr, ptr @V3PreLextext, align 8
-  %2539 = load i32, ptr @V3PreLexleng, align 4
-  %2540 = sext i32 %2539 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2537, ptr noundef %2538, i64 noundef %2540, i1 noundef zeroext false)
+2537:                                             ; preds = %2522, %2519
+  %2538 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2539 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2538)
+  %2540 = load ptr, ptr @V3PreLextext, align 8
+  %2541 = load i32, ptr @V3PreLexleng, align 4
+  %2542 = sext i32 %2541 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2539, ptr noundef %2540, i64 noundef %2542, i1 noundef zeroext false)
   call void @_ZL12yy_pop_statev()
-  %2541 = load ptr, ptr @V3PreLextext, align 8
-  %2542 = load i32, ptr @V3PreLexleng, align 4
-  %2543 = sub nsw i32 %2542, 1
-  %2544 = sext i32 %2543 to i64
-  %2545 = getelementptr inbounds i8, ptr %2541, i64 %2544
-  %2546 = load i8, ptr %2545, align 1
-  %2547 = sext i8 %2546 to i32
-  %2548 = load ptr, ptr @V3PreLextext, align 8
-  call void @_ZL7yyunputiPc(i32 noundef %2547, ptr noundef %2548)
+  %2543 = load ptr, ptr @V3PreLextext, align 8
+  %2544 = load i32, ptr @V3PreLexleng, align 4
+  %2545 = sub nsw i32 %2544, 1
+  %2546 = sext i32 %2545 to i64
+  %2547 = getelementptr inbounds i8, ptr %2543, i64 %2546
+  %2548 = load i8, ptr %2547, align 1
+  %2549 = sext i8 %2548 to i32
+  %2550 = load ptr, ptr @V3PreLextext, align 8
+  call void @_ZL7yyunputiPc(i32 noundef %2549, ptr noundef %2550)
   store i32 0, ptr @V3PreLexleng, align 4
   store i32 309, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2549:                                             ; preds = %209
-  %2550 = load i32, ptr @V3PreLexleng, align 4
-  %2551 = icmp sgt i32 %2550, 0
-  br i1 %2551, label %2552, label %2567
+2551:                                             ; preds = %209
+  %2552 = load i32, ptr @V3PreLexleng, align 4
+  %2553 = icmp sgt i32 %2552, 0
+  br i1 %2553, label %2554, label %2569
 
-2552:                                             ; preds = %2549
-  %2553 = load ptr, ptr @V3PreLextext, align 8
-  %2554 = load i32, ptr @V3PreLexleng, align 4
-  %2555 = sub nsw i32 %2554, 1
-  %2556 = sext i32 %2555 to i64
-  %2557 = getelementptr inbounds i8, ptr %2553, i64 %2556
-  %2558 = load i8, ptr %2557, align 1
-  %2559 = sext i8 %2558 to i32
-  %2560 = icmp eq i32 %2559, 10
-  %2561 = zext i1 %2560 to i32
-  %2562 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2563 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2564 = getelementptr inbounds ptr, ptr %2562, i64 %2563
-  %2565 = load ptr, ptr %2564, align 8
-  %2566 = getelementptr inbounds %struct.yy_buffer_state, ptr %2565, i32 0, i32 7
-  store i32 %2561, ptr %2566, align 8
-  br label %2567
+2554:                                             ; preds = %2551
+  %2555 = load ptr, ptr @V3PreLextext, align 8
+  %2556 = load i32, ptr @V3PreLexleng, align 4
+  %2557 = sub nsw i32 %2556, 1
+  %2558 = sext i32 %2557 to i64
+  %2559 = getelementptr inbounds i8, ptr %2555, i64 %2558
+  %2560 = load i8, ptr %2559, align 1
+  %2561 = sext i8 %2560 to i32
+  %2562 = icmp eq i32 %2561, 10
+  %2563 = zext i1 %2562 to i32
+  %2564 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2565 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2566 = getelementptr inbounds ptr, ptr %2564, i64 %2565
+  %2567 = load ptr, ptr %2566, align 8
+  %2568 = getelementptr inbounds %struct.yy_buffer_state, ptr %2567, i32 0, i32 7
+  store i32 %2563, ptr %2568, align 8
+  br label %2569
 
-2567:                                             ; preds = %2552, %2549
-  %2568 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2569 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2568)
-  %2570 = load ptr, ptr @V3PreLextext, align 8
-  %2571 = load i32, ptr @V3PreLexleng, align 4
-  %2572 = sext i32 %2571 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2569, ptr noundef %2570, i64 noundef %2572, i1 noundef zeroext false)
-  %2573 = load ptr, ptr @V3PreLextext, align 8
-  %2574 = load i32, ptr @V3PreLexleng, align 4
-  %2575 = sext i32 %2574 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %2573, i64 noundef %2575)
-  %2576 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2577 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2576)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2577)
-  store i32 0, ptr @V3PreLexleng, align 4
+2569:                                             ; preds = %2554, %2551
+  %2570 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2571 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2570)
+  %2572 = load ptr, ptr @V3PreLextext, align 8
+  %2573 = load i32, ptr @V3PreLexleng, align 4
+  %2574 = sext i32 %2573 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2571, ptr noundef %2572, i64 noundef %2574, i1 noundef zeroext false)
+  %2575 = load ptr, ptr @V3PreLextext, align 8
+  %2576 = load i32, ptr @V3PreLexleng, align 4
+  %2577 = sext i32 %2576 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %2575, i64 noundef %2577)
   %2578 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2579 = getelementptr inbounds %class.V3PreLex, ptr %2578, i32 0, i32 11
-  %2580 = load i32, ptr %2579, align 4
-  %2581 = add nsw i32 %2580, 1
-  store i32 %2581, ptr %2579, align 4
-  br label %5026
-
-2582:                                             ; preds = %209
-  %2583 = load i32, ptr @V3PreLexleng, align 4
-  %2584 = icmp sgt i32 %2583, 0
-  br i1 %2584, label %2585, label %2600
-
-2585:                                             ; preds = %2582
-  %2586 = load ptr, ptr @V3PreLextext, align 8
-  %2587 = load i32, ptr @V3PreLexleng, align 4
-  %2588 = sub nsw i32 %2587, 1
-  %2589 = sext i32 %2588 to i64
-  %2590 = getelementptr inbounds i8, ptr %2586, i64 %2589
-  %2591 = load i8, ptr %2590, align 1
-  %2592 = sext i8 %2591 to i32
-  %2593 = icmp eq i32 %2592, 10
-  %2594 = zext i1 %2593 to i32
-  %2595 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2596 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2597 = getelementptr inbounds ptr, ptr %2595, i64 %2596
-  %2598 = load ptr, ptr %2597, align 8
-  %2599 = getelementptr inbounds %struct.yy_buffer_state, ptr %2598, i32 0, i32 7
-  store i32 %2594, ptr %2599, align 8
-  br label %2600
-
-2600:                                             ; preds = %2585, %2582
-  %2601 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2602 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2601)
-  %2603 = load ptr, ptr @V3PreLextext, align 8
-  %2604 = load i32, ptr @V3PreLexleng, align 4
-  %2605 = sext i32 %2604 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2602, ptr noundef %2603, i64 noundef %2605, i1 noundef zeroext false)
-  %2606 = load ptr, ptr @V3PreLextext, align 8
-  %2607 = load i32, ptr @V3PreLexleng, align 4
-  %2608 = sext i32 %2607 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %2606, i64 noundef %2608)
+  %2579 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2578)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2579)
   store i32 0, ptr @V3PreLexleng, align 4
-  %2609 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2610 = getelementptr inbounds %class.V3PreLex, ptr %2609, i32 0, i32 11
-  %2611 = load i32, ptr %2610, align 4
-  %2612 = add nsw i32 %2611, -1
-  store i32 %2612, ptr %2610, align 4
-  %2613 = icmp eq i32 %2612, 0
-  br i1 %2613, label %2614, label %2615
+  %2580 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2581 = getelementptr inbounds %class.V3PreLex, ptr %2580, i32 0, i32 11
+  %2582 = load i32, ptr %2581, align 4
+  %2583 = add nsw i32 %2582, 1
+  store i32 %2583, ptr %2581, align 4
+  br label %5028
 
-2614:                                             ; preds = %2600
+2584:                                             ; preds = %209
+  %2585 = load i32, ptr @V3PreLexleng, align 4
+  %2586 = icmp sgt i32 %2585, 0
+  br i1 %2586, label %2587, label %2602
+
+2587:                                             ; preds = %2584
+  %2588 = load ptr, ptr @V3PreLextext, align 8
+  %2589 = load i32, ptr @V3PreLexleng, align 4
+  %2590 = sub nsw i32 %2589, 1
+  %2591 = sext i32 %2590 to i64
+  %2592 = getelementptr inbounds i8, ptr %2588, i64 %2591
+  %2593 = load i8, ptr %2592, align 1
+  %2594 = sext i8 %2593 to i32
+  %2595 = icmp eq i32 %2594, 10
+  %2596 = zext i1 %2595 to i32
+  %2597 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2598 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2599 = getelementptr inbounds ptr, ptr %2597, i64 %2598
+  %2600 = load ptr, ptr %2599, align 8
+  %2601 = getelementptr inbounds %struct.yy_buffer_state, ptr %2600, i32 0, i32 7
+  store i32 %2596, ptr %2601, align 8
+  br label %2602
+
+2602:                                             ; preds = %2587, %2584
+  %2603 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2604 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2603)
+  %2605 = load ptr, ptr @V3PreLextext, align 8
+  %2606 = load i32, ptr @V3PreLexleng, align 4
+  %2607 = sext i32 %2606 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2604, ptr noundef %2605, i64 noundef %2607, i1 noundef zeroext false)
+  %2608 = load ptr, ptr @V3PreLextext, align 8
+  %2609 = load i32, ptr @V3PreLexleng, align 4
+  %2610 = sext i32 %2609 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %2608, i64 noundef %2610)
+  store i32 0, ptr @V3PreLexleng, align 4
+  %2611 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2612 = getelementptr inbounds %class.V3PreLex, ptr %2611, i32 0, i32 11
+  %2613 = load i32, ptr %2612, align 4
+  %2614 = add nsw i32 %2613, -1
+  store i32 %2614, ptr %2612, align 4
+  %2615 = icmp eq i32 %2614, 0
+  br i1 %2615, label %2616, label %2617
+
+2616:                                             ; preds = %2602
   call void @_ZL12yy_pop_statev()
   store i32 309, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2615:                                             ; preds = %2600
-  %2616 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2617 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2616)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2617)
-  br label %5026
+2617:                                             ; preds = %2602
+  %2618 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2619 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2618)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2619)
+  br label %5028
 
-2618:                                             ; preds = %209
-  %2619 = load i32, ptr @V3PreLexleng, align 4
-  %2620 = icmp sgt i32 %2619, 0
-  br i1 %2620, label %2621, label %2636
+2620:                                             ; preds = %209
+  %2621 = load i32, ptr @V3PreLexleng, align 4
+  %2622 = icmp sgt i32 %2621, 0
+  br i1 %2622, label %2623, label %2638
 
-2621:                                             ; preds = %2618
-  %2622 = load ptr, ptr @V3PreLextext, align 8
-  %2623 = load i32, ptr @V3PreLexleng, align 4
-  %2624 = sub nsw i32 %2623, 1
-  %2625 = sext i32 %2624 to i64
-  %2626 = getelementptr inbounds i8, ptr %2622, i64 %2625
-  %2627 = load i8, ptr %2626, align 1
-  %2628 = sext i8 %2627 to i32
-  %2629 = icmp eq i32 %2628, 10
-  %2630 = zext i1 %2629 to i32
-  %2631 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2632 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2633 = getelementptr inbounds ptr, ptr %2631, i64 %2632
-  %2634 = load ptr, ptr %2633, align 8
-  %2635 = getelementptr inbounds %struct.yy_buffer_state, ptr %2634, i32 0, i32 7
-  store i32 %2630, ptr %2635, align 8
-  br label %2636
+2623:                                             ; preds = %2620
+  %2624 = load ptr, ptr @V3PreLextext, align 8
+  %2625 = load i32, ptr @V3PreLexleng, align 4
+  %2626 = sub nsw i32 %2625, 1
+  %2627 = sext i32 %2626 to i64
+  %2628 = getelementptr inbounds i8, ptr %2624, i64 %2627
+  %2629 = load i8, ptr %2628, align 1
+  %2630 = sext i8 %2629 to i32
+  %2631 = icmp eq i32 %2630, 10
+  %2632 = zext i1 %2631 to i32
+  %2633 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2634 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2635 = getelementptr inbounds ptr, ptr %2633, i64 %2634
+  %2636 = load ptr, ptr %2635, align 8
+  %2637 = getelementptr inbounds %struct.yy_buffer_state, ptr %2636, i32 0, i32 7
+  store i32 %2632, ptr %2637, align 8
+  br label %2638
 
-2636:                                             ; preds = %2621, %2618
+2638:                                             ; preds = %2623, %2620
   call void @_ZL13yy_push_statei(i32 noundef 2)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-2637:                                             ; preds = %209
-  %2638 = load i32, ptr @V3PreLexleng, align 4
-  %2639 = icmp sgt i32 %2638, 0
-  br i1 %2639, label %2640, label %2655
+2639:                                             ; preds = %209
+  %2640 = load i32, ptr @V3PreLexleng, align 4
+  %2641 = icmp sgt i32 %2640, 0
+  br i1 %2641, label %2642, label %2657
 
-2640:                                             ; preds = %2637
-  %2641 = load ptr, ptr @V3PreLextext, align 8
-  %2642 = load i32, ptr @V3PreLexleng, align 4
-  %2643 = sub nsw i32 %2642, 1
-  %2644 = sext i32 %2643 to i64
-  %2645 = getelementptr inbounds i8, ptr %2641, i64 %2644
-  %2646 = load i8, ptr %2645, align 1
-  %2647 = sext i8 %2646 to i32
-  %2648 = icmp eq i32 %2647, 10
-  %2649 = zext i1 %2648 to i32
-  %2650 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2651 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2652 = getelementptr inbounds ptr, ptr %2650, i64 %2651
-  %2653 = load ptr, ptr %2652, align 8
-  %2654 = getelementptr inbounds %struct.yy_buffer_state, ptr %2653, i32 0, i32 7
-  store i32 %2649, ptr %2654, align 8
-  br label %2655
+2642:                                             ; preds = %2639
+  %2643 = load ptr, ptr @V3PreLextext, align 8
+  %2644 = load i32, ptr @V3PreLexleng, align 4
+  %2645 = sub nsw i32 %2644, 1
+  %2646 = sext i32 %2645 to i64
+  %2647 = getelementptr inbounds i8, ptr %2643, i64 %2646
+  %2648 = load i8, ptr %2647, align 1
+  %2649 = sext i8 %2648 to i32
+  %2650 = icmp eq i32 %2649, 10
+  %2651 = zext i1 %2650 to i32
+  %2652 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2653 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2654 = getelementptr inbounds ptr, ptr %2652, i64 %2653
+  %2655 = load ptr, ptr %2654, align 8
+  %2656 = getelementptr inbounds %struct.yy_buffer_state, ptr %2655, i32 0, i32 7
+  store i32 %2651, ptr %2656, align 8
+  br label %2657
 
-2655:                                             ; preds = %2640, %2637
-  %2656 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2657 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2656)
-  %2658 = load ptr, ptr @V3PreLextext, align 8
-  %2659 = load i32, ptr @V3PreLexleng, align 4
-  %2660 = sext i32 %2659 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2657, ptr noundef %2658, i64 noundef %2660, i1 noundef zeroext false)
+2657:                                             ; preds = %2642, %2639
+  %2658 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2659 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2658)
+  %2660 = load ptr, ptr @V3PreLextext, align 8
+  %2661 = load i32, ptr @V3PreLexleng, align 4
+  %2662 = sext i32 %2661 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2659, ptr noundef %2660, i64 noundef %2662, i1 noundef zeroext false)
   store i32 303, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2661:                                             ; preds = %209
-  %2662 = load i32, ptr @V3PreLexleng, align 4
-  %2663 = icmp sgt i32 %2662, 0
-  br i1 %2663, label %2664, label %2679
+2663:                                             ; preds = %209
+  %2664 = load i32, ptr @V3PreLexleng, align 4
+  %2665 = icmp sgt i32 %2664, 0
+  br i1 %2665, label %2666, label %2681
 
-2664:                                             ; preds = %2661
-  %2665 = load ptr, ptr @V3PreLextext, align 8
-  %2666 = load i32, ptr @V3PreLexleng, align 4
-  %2667 = sub nsw i32 %2666, 1
-  %2668 = sext i32 %2667 to i64
-  %2669 = getelementptr inbounds i8, ptr %2665, i64 %2668
-  %2670 = load i8, ptr %2669, align 1
-  %2671 = sext i8 %2670 to i32
-  %2672 = icmp eq i32 %2671, 10
-  %2673 = zext i1 %2672 to i32
-  %2674 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2675 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2676 = getelementptr inbounds ptr, ptr %2674, i64 %2675
-  %2677 = load ptr, ptr %2676, align 8
-  %2678 = getelementptr inbounds %struct.yy_buffer_state, ptr %2677, i32 0, i32 7
-  store i32 %2673, ptr %2678, align 8
-  br label %2679
+2666:                                             ; preds = %2663
+  %2667 = load ptr, ptr @V3PreLextext, align 8
+  %2668 = load i32, ptr @V3PreLexleng, align 4
+  %2669 = sub nsw i32 %2668, 1
+  %2670 = sext i32 %2669 to i64
+  %2671 = getelementptr inbounds i8, ptr %2667, i64 %2670
+  %2672 = load i8, ptr %2671, align 1
+  %2673 = sext i8 %2672 to i32
+  %2674 = icmp eq i32 %2673, 10
+  %2675 = zext i1 %2674 to i32
+  %2676 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2677 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2678 = getelementptr inbounds ptr, ptr %2676, i64 %2677
+  %2679 = load ptr, ptr %2678, align 8
+  %2680 = getelementptr inbounds %struct.yy_buffer_state, ptr %2679, i32 0, i32 7
+  store i32 %2675, ptr %2680, align 8
+  br label %2681
 
-2679:                                             ; preds = %2664, %2661
-  %2680 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2681 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2680)
-  %2682 = load ptr, ptr @V3PreLextext, align 8
-  %2683 = load i32, ptr @V3PreLexleng, align 4
-  %2684 = sext i32 %2683 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2681, ptr noundef %2682, i64 noundef %2684, i1 noundef zeroext false)
-  %2685 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2686 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2685)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2686)
-  br label %5026
+2681:                                             ; preds = %2666, %2663
+  %2682 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2683 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2682)
+  %2684 = load ptr, ptr @V3PreLextext, align 8
+  %2685 = load i32, ptr @V3PreLexleng, align 4
+  %2686 = sext i32 %2685 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2683, ptr noundef %2684, i64 noundef %2686, i1 noundef zeroext false)
+  %2687 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2688 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2687)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2688)
+  br label %5028
 
-2687:                                             ; preds = %209
-  %2688 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2689 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2688)
-  %2690 = load ptr, ptr @V3PreLextext, align 8
-  %2691 = load i32, ptr @V3PreLexleng, align 4
-  %2692 = sext i32 %2691 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2689, ptr noundef %2690, i64 noundef %2692, i1 noundef zeroext false)
+2689:                                             ; preds = %209
+  %2690 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2691 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2690)
+  %2692 = load ptr, ptr @V3PreLextext, align 8
+  %2693 = load i32, ptr @V3PreLexleng, align 4
+  %2694 = sext i32 %2693 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2691, ptr noundef %2692, i64 noundef %2694, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL12yy_pop_statev()
   call void @_ZL14V3PreLexerrorfPKc(ptr noundef @.str.27)
   store i32 0, ptr @V3PreLexleng, align 4
   store i32 309, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-2693:                                             ; preds = %209
-  %2694 = load i32, ptr @V3PreLexleng, align 4
-  %2695 = icmp sgt i32 %2694, 0
-  br i1 %2695, label %2696, label %2711
+2695:                                             ; preds = %209
+  %2696 = load i32, ptr @V3PreLexleng, align 4
+  %2697 = icmp sgt i32 %2696, 0
+  br i1 %2697, label %2698, label %2713
 
-2696:                                             ; preds = %2693
-  %2697 = load ptr, ptr @V3PreLextext, align 8
-  %2698 = load i32, ptr @V3PreLexleng, align 4
-  %2699 = sub nsw i32 %2698, 1
-  %2700 = sext i32 %2699 to i64
-  %2701 = getelementptr inbounds i8, ptr %2697, i64 %2700
-  %2702 = load i8, ptr %2701, align 1
-  %2703 = sext i8 %2702 to i32
-  %2704 = icmp eq i32 %2703, 10
-  %2705 = zext i1 %2704 to i32
-  %2706 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2707 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2708 = getelementptr inbounds ptr, ptr %2706, i64 %2707
-  %2709 = load ptr, ptr %2708, align 8
-  %2710 = getelementptr inbounds %struct.yy_buffer_state, ptr %2709, i32 0, i32 7
-  store i32 %2705, ptr %2710, align 8
-  br label %2711
+2698:                                             ; preds = %2695
+  %2699 = load ptr, ptr @V3PreLextext, align 8
+  %2700 = load i32, ptr @V3PreLexleng, align 4
+  %2701 = sub nsw i32 %2700, 1
+  %2702 = sext i32 %2701 to i64
+  %2703 = getelementptr inbounds i8, ptr %2699, i64 %2702
+  %2704 = load i8, ptr %2703, align 1
+  %2705 = sext i8 %2704 to i32
+  %2706 = icmp eq i32 %2705, 10
+  %2707 = zext i1 %2706 to i32
+  %2708 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2709 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2710 = getelementptr inbounds ptr, ptr %2708, i64 %2709
+  %2711 = load ptr, ptr %2710, align 8
+  %2712 = getelementptr inbounds %struct.yy_buffer_state, ptr %2711, i32 0, i32 7
+  store i32 %2707, ptr %2712, align 8
+  br label %2713
 
-2711:                                             ; preds = %2696, %2693
-  %2712 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2713 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2712)
-  %2714 = load ptr, ptr @V3PreLextext, align 8
-  %2715 = load i32, ptr @V3PreLexleng, align 4
-  %2716 = sext i32 %2715 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2713, ptr noundef %2714, i64 noundef %2716, i1 noundef zeroext false)
+2713:                                             ; preds = %2698, %2695
+  %2714 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2715 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2714)
+  %2716 = load ptr, ptr @V3PreLextext, align 8
+  %2717 = load i32, ptr @V3PreLexleng, align 4
+  %2718 = sext i32 %2717 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2715, ptr noundef %2716, i64 noundef %2718, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL14appendDefValuePKcm(ptr noundef @.str.22, i64 noundef 1)
-  %2717 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2718 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2717)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2718)
-  br label %5026
+  %2719 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2720 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2719)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2720)
+  br label %5028
 
-2719:                                             ; preds = %209
-  %2720 = load i32, ptr @V3PreLexleng, align 4
-  %2721 = icmp sgt i32 %2720, 0
-  br i1 %2721, label %2722, label %2737
+2721:                                             ; preds = %209
+  %2722 = load i32, ptr @V3PreLexleng, align 4
+  %2723 = icmp sgt i32 %2722, 0
+  br i1 %2723, label %2724, label %2739
 
-2722:                                             ; preds = %2719
-  %2723 = load ptr, ptr @V3PreLextext, align 8
-  %2724 = load i32, ptr @V3PreLexleng, align 4
-  %2725 = sub nsw i32 %2724, 1
-  %2726 = sext i32 %2725 to i64
-  %2727 = getelementptr inbounds i8, ptr %2723, i64 %2726
-  %2728 = load i8, ptr %2727, align 1
-  %2729 = sext i8 %2728 to i32
-  %2730 = icmp eq i32 %2729, 10
-  %2731 = zext i1 %2730 to i32
-  %2732 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2733 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2734 = getelementptr inbounds ptr, ptr %2732, i64 %2733
-  %2735 = load ptr, ptr %2734, align 8
-  %2736 = getelementptr inbounds %struct.yy_buffer_state, ptr %2735, i32 0, i32 7
-  store i32 %2731, ptr %2736, align 8
-  br label %2737
-
-2737:                                             ; preds = %2722, %2719
-  %2738 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  call void @_ZN8V3PreLex18warnBackslashSpaceEv(ptr noundef nonnull align 8 dereferenceable(264) %2738)
+2724:                                             ; preds = %2721
+  %2725 = load ptr, ptr @V3PreLextext, align 8
+  %2726 = load i32, ptr @V3PreLexleng, align 4
+  %2727 = sub nsw i32 %2726, 1
+  %2728 = sext i32 %2727 to i64
+  %2729 = getelementptr inbounds i8, ptr %2725, i64 %2728
+  %2730 = load i8, ptr %2729, align 1
+  %2731 = sext i8 %2730 to i32
+  %2732 = icmp eq i32 %2731, 10
+  %2733 = zext i1 %2732 to i32
+  %2734 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2735 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2736 = getelementptr inbounds ptr, ptr %2734, i64 %2735
+  %2737 = load ptr, ptr %2736, align 8
+  %2738 = getelementptr inbounds %struct.yy_buffer_state, ptr %2737, i32 0, i32 7
+  store i32 %2733, ptr %2738, align 8
   br label %2739
 
-2739:                                             ; preds = %2737
+2739:                                             ; preds = %2724, %2721
+  %2740 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  call void @_ZN8V3PreLex18warnBackslashSpaceEv(ptr noundef nonnull align 8 dereferenceable(264) %2740)
+  br label %2741
+
+2741:                                             ; preds = %2739
   store i32 1, ptr %51, align 4
-  %2740 = load i8, ptr @_ZL12yy_hold_char, align 1
-  %2741 = load ptr, ptr %3, align 8
-  store i8 %2740, ptr %2741, align 1
-  %2742 = load ptr, ptr %4, align 8
-  %2743 = load i32, ptr %51, align 4
-  %2744 = sext i32 %2743 to i64
-  %2745 = getelementptr inbounds i8, ptr %2742, i64 %2744
-  %2746 = load i32, ptr @_ZL11yy_more_len, align 4
-  %2747 = sext i32 %2746 to i64
-  %2748 = sub i64 0, %2747
-  %2749 = getelementptr inbounds i8, ptr %2745, i64 %2748
-  store ptr %2749, ptr %3, align 8
-  store ptr %2749, ptr @_ZL10yy_c_buf_p, align 8
-  %2750 = load ptr, ptr %4, align 8
-  store ptr %2750, ptr @V3PreLextext, align 8
-  %2751 = load i32, ptr @_ZL11yy_more_len, align 4
-  %2752 = load ptr, ptr @V3PreLextext, align 8
-  %2753 = sext i32 %2751 to i64
-  %2754 = sub i64 0, %2753
-  %2755 = getelementptr inbounds i8, ptr %2752, i64 %2754
-  store ptr %2755, ptr @V3PreLextext, align 8
-  %2756 = load ptr, ptr %3, align 8
-  %2757 = load ptr, ptr @V3PreLextext, align 8
-  %2758 = ptrtoint ptr %2756 to i64
-  %2759 = ptrtoint ptr %2757 to i64
-  %2760 = sub i64 %2758, %2759
-  %2761 = trunc i64 %2760 to i32
-  store i32 %2761, ptr @V3PreLexleng, align 4
-  %2762 = load ptr, ptr %3, align 8
-  %2763 = load i8, ptr %2762, align 1
-  store i8 %2763, ptr @_ZL12yy_hold_char, align 1
+  %2742 = load i8, ptr @_ZL12yy_hold_char, align 1
+  %2743 = load ptr, ptr %3, align 8
+  store i8 %2742, ptr %2743, align 1
+  %2744 = load ptr, ptr %4, align 8
+  %2745 = load i32, ptr %51, align 4
+  %2746 = sext i32 %2745 to i64
+  %2747 = getelementptr inbounds i8, ptr %2744, i64 %2746
+  %2748 = load i32, ptr @_ZL11yy_more_len, align 4
+  %2749 = sext i32 %2748 to i64
+  %2750 = sub i64 0, %2749
+  %2751 = getelementptr inbounds i8, ptr %2747, i64 %2750
+  store ptr %2751, ptr %3, align 8
+  store ptr %2751, ptr @_ZL10yy_c_buf_p, align 8
+  %2752 = load ptr, ptr %4, align 8
+  store ptr %2752, ptr @V3PreLextext, align 8
+  %2753 = load i32, ptr @_ZL11yy_more_len, align 4
+  %2754 = load ptr, ptr @V3PreLextext, align 8
+  %2755 = sext i32 %2753 to i64
+  %2756 = sub i64 0, %2755
+  %2757 = getelementptr inbounds i8, ptr %2754, i64 %2756
+  store ptr %2757, ptr @V3PreLextext, align 8
+  %2758 = load ptr, ptr %3, align 8
+  %2759 = load ptr, ptr @V3PreLextext, align 8
+  %2760 = ptrtoint ptr %2758 to i64
+  %2761 = ptrtoint ptr %2759 to i64
+  %2762 = sub i64 %2760, %2761
+  %2763 = trunc i64 %2762 to i32
+  store i32 %2763, ptr @V3PreLexleng, align 4
   %2764 = load ptr, ptr %3, align 8
-  store i8 0, ptr %2764, align 1
-  %2765 = load ptr, ptr %3, align 8
-  store ptr %2765, ptr @_ZL10yy_c_buf_p, align 8
-  br label %2766
+  %2765 = load i8, ptr %2764, align 1
+  store i8 %2765, ptr @_ZL12yy_hold_char, align 1
+  %2766 = load ptr, ptr %3, align 8
+  store i8 0, ptr %2766, align 1
+  %2767 = load ptr, ptr %3, align 8
+  store ptr %2767, ptr @_ZL10yy_c_buf_p, align 8
+  br label %2768
 
-2766:                                             ; preds = %2739
-  br label %5026
+2768:                                             ; preds = %2741
+  br label %5028
 
-2767:                                             ; preds = %209
-  %2768 = load i32, ptr @V3PreLexleng, align 4
-  %2769 = icmp sgt i32 %2768, 0
-  br i1 %2769, label %2770, label %2785
+2769:                                             ; preds = %209
+  %2770 = load i32, ptr @V3PreLexleng, align 4
+  %2771 = icmp sgt i32 %2770, 0
+  br i1 %2771, label %2772, label %2787
 
-2770:                                             ; preds = %2767
-  %2771 = load ptr, ptr @V3PreLextext, align 8
-  %2772 = load i32, ptr @V3PreLexleng, align 4
-  %2773 = sub nsw i32 %2772, 1
-  %2774 = sext i32 %2773 to i64
-  %2775 = getelementptr inbounds i8, ptr %2771, i64 %2774
-  %2776 = load i8, ptr %2775, align 1
-  %2777 = sext i8 %2776 to i32
-  %2778 = icmp eq i32 %2777, 10
-  %2779 = zext i1 %2778 to i32
-  %2780 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2781 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2782 = getelementptr inbounds ptr, ptr %2780, i64 %2781
-  %2783 = load ptr, ptr %2782, align 8
-  %2784 = getelementptr inbounds %struct.yy_buffer_state, ptr %2783, i32 0, i32 7
-  store i32 %2779, ptr %2784, align 8
-  br label %2785
+2772:                                             ; preds = %2769
+  %2773 = load ptr, ptr @V3PreLextext, align 8
+  %2774 = load i32, ptr @V3PreLexleng, align 4
+  %2775 = sub nsw i32 %2774, 1
+  %2776 = sext i32 %2775 to i64
+  %2777 = getelementptr inbounds i8, ptr %2773, i64 %2776
+  %2778 = load i8, ptr %2777, align 1
+  %2779 = sext i8 %2778 to i32
+  %2780 = icmp eq i32 %2779, 10
+  %2781 = zext i1 %2780 to i32
+  %2782 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2783 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2784 = getelementptr inbounds ptr, ptr %2782, i64 %2783
+  %2785 = load ptr, ptr %2784, align 8
+  %2786 = getelementptr inbounds %struct.yy_buffer_state, ptr %2785, i32 0, i32 7
+  store i32 %2781, ptr %2786, align 8
+  br label %2787
 
-2785:                                             ; preds = %2770, %2767
-  %2786 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2787 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2786)
-  %2788 = load ptr, ptr @V3PreLextext, align 8
-  %2789 = load i32, ptr @V3PreLexleng, align 4
-  %2790 = sext i32 %2789 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2787, ptr noundef %2788, i64 noundef %2790, i1 noundef zeroext false)
+2787:                                             ; preds = %2772, %2769
+  %2788 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2789 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2788)
+  %2790 = load ptr, ptr @V3PreLextext, align 8
+  %2791 = load i32, ptr @V3PreLexleng, align 4
+  %2792 = sext i32 %2791 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2789, ptr noundef %2790, i64 noundef %2792, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL14appendDefValuePKcm(ptr noundef @.str.28, i64 noundef 2)
-  %2791 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2792 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2791)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2792)
-  br label %5026
+  %2793 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2794 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2793)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2794)
+  br label %5028
 
-2793:                                             ; preds = %209
-  %2794 = load i32, ptr @V3PreLexleng, align 4
-  %2795 = icmp sgt i32 %2794, 0
-  br i1 %2795, label %2796, label %2811
+2795:                                             ; preds = %209
+  %2796 = load i32, ptr @V3PreLexleng, align 4
+  %2797 = icmp sgt i32 %2796, 0
+  br i1 %2797, label %2798, label %2813
 
-2796:                                             ; preds = %2793
-  %2797 = load ptr, ptr @V3PreLextext, align 8
-  %2798 = load i32, ptr @V3PreLexleng, align 4
-  %2799 = sub nsw i32 %2798, 1
-  %2800 = sext i32 %2799 to i64
-  %2801 = getelementptr inbounds i8, ptr %2797, i64 %2800
-  %2802 = load i8, ptr %2801, align 1
-  %2803 = sext i8 %2802 to i32
-  %2804 = icmp eq i32 %2803, 10
-  %2805 = zext i1 %2804 to i32
-  %2806 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2807 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2808 = getelementptr inbounds ptr, ptr %2806, i64 %2807
-  %2809 = load ptr, ptr %2808, align 8
-  %2810 = getelementptr inbounds %struct.yy_buffer_state, ptr %2809, i32 0, i32 7
-  store i32 %2805, ptr %2810, align 8
-  br label %2811
+2798:                                             ; preds = %2795
+  %2799 = load ptr, ptr @V3PreLextext, align 8
+  %2800 = load i32, ptr @V3PreLexleng, align 4
+  %2801 = sub nsw i32 %2800, 1
+  %2802 = sext i32 %2801 to i64
+  %2803 = getelementptr inbounds i8, ptr %2799, i64 %2802
+  %2804 = load i8, ptr %2803, align 1
+  %2805 = sext i8 %2804 to i32
+  %2806 = icmp eq i32 %2805, 10
+  %2807 = zext i1 %2806 to i32
+  %2808 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2809 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2810 = getelementptr inbounds ptr, ptr %2808, i64 %2809
+  %2811 = load ptr, ptr %2810, align 8
+  %2812 = getelementptr inbounds %struct.yy_buffer_state, ptr %2811, i32 0, i32 7
+  store i32 %2807, ptr %2812, align 8
+  br label %2813
 
-2811:                                             ; preds = %2796, %2793
-  %2812 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2813 = getelementptr inbounds %class.V3PreLex, ptr %2812, i32 0, i32 14
-  store i8 1, ptr %2813, align 1
+2813:                                             ; preds = %2798, %2795
+  %2814 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2815 = getelementptr inbounds %class.V3PreLex, ptr %2814, i32 0, i32 14
+  store i8 1, ptr %2815, align 1
   call void @_ZL13yy_push_statei(i32 noundef 18)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-2814:                                             ; preds = %209
-  %2815 = load i32, ptr @V3PreLexleng, align 4
-  %2816 = icmp sgt i32 %2815, 0
-  br i1 %2816, label %2817, label %2832
+2816:                                             ; preds = %209
+  %2817 = load i32, ptr @V3PreLexleng, align 4
+  %2818 = icmp sgt i32 %2817, 0
+  br i1 %2818, label %2819, label %2834
 
-2817:                                             ; preds = %2814
-  %2818 = load ptr, ptr @V3PreLextext, align 8
-  %2819 = load i32, ptr @V3PreLexleng, align 4
-  %2820 = sub nsw i32 %2819, 1
-  %2821 = sext i32 %2820 to i64
-  %2822 = getelementptr inbounds i8, ptr %2818, i64 %2821
-  %2823 = load i8, ptr %2822, align 1
-  %2824 = sext i8 %2823 to i32
-  %2825 = icmp eq i32 %2824, 10
-  %2826 = zext i1 %2825 to i32
-  %2827 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2828 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2829 = getelementptr inbounds ptr, ptr %2827, i64 %2828
-  %2830 = load ptr, ptr %2829, align 8
-  %2831 = getelementptr inbounds %struct.yy_buffer_state, ptr %2830, i32 0, i32 7
-  store i32 %2826, ptr %2831, align 8
-  br label %2832
+2819:                                             ; preds = %2816
+  %2820 = load ptr, ptr @V3PreLextext, align 8
+  %2821 = load i32, ptr @V3PreLexleng, align 4
+  %2822 = sub nsw i32 %2821, 1
+  %2823 = sext i32 %2822 to i64
+  %2824 = getelementptr inbounds i8, ptr %2820, i64 %2823
+  %2825 = load i8, ptr %2824, align 1
+  %2826 = sext i8 %2825 to i32
+  %2827 = icmp eq i32 %2826, 10
+  %2828 = zext i1 %2827 to i32
+  %2829 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2830 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2831 = getelementptr inbounds ptr, ptr %2829, i64 %2830
+  %2832 = load ptr, ptr %2831, align 8
+  %2833 = getelementptr inbounds %struct.yy_buffer_state, ptr %2832, i32 0, i32 7
+  store i32 %2828, ptr %2833, align 8
+  br label %2834
 
-2832:                                             ; preds = %2817, %2814
-  %2833 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2834 = getelementptr inbounds %class.V3PreLex, ptr %2833, i32 0, i32 14
-  store i8 1, ptr %2834, align 1
+2834:                                             ; preds = %2819, %2816
+  %2835 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2836 = getelementptr inbounds %class.V3PreLex, ptr %2835, i32 0, i32 14
+  store i8 1, ptr %2836, align 1
   call void @_ZL13yy_push_statei(i32 noundef 16)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-2835:                                             ; preds = %209
-  %2836 = load i32, ptr @V3PreLexleng, align 4
-  %2837 = icmp sgt i32 %2836, 0
-  br i1 %2837, label %2838, label %2853
+2837:                                             ; preds = %209
+  %2838 = load i32, ptr @V3PreLexleng, align 4
+  %2839 = icmp sgt i32 %2838, 0
+  br i1 %2839, label %2840, label %2855
 
-2838:                                             ; preds = %2835
-  %2839 = load ptr, ptr @V3PreLextext, align 8
-  %2840 = load i32, ptr @V3PreLexleng, align 4
-  %2841 = sub nsw i32 %2840, 1
-  %2842 = sext i32 %2841 to i64
-  %2843 = getelementptr inbounds i8, ptr %2839, i64 %2842
-  %2844 = load i8, ptr %2843, align 1
-  %2845 = sext i8 %2844 to i32
-  %2846 = icmp eq i32 %2845, 10
-  %2847 = zext i1 %2846 to i32
-  %2848 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2849 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2850 = getelementptr inbounds ptr, ptr %2848, i64 %2849
-  %2851 = load ptr, ptr %2850, align 8
-  %2852 = getelementptr inbounds %struct.yy_buffer_state, ptr %2851, i32 0, i32 7
-  store i32 %2847, ptr %2852, align 8
-  br label %2853
+2840:                                             ; preds = %2837
+  %2841 = load ptr, ptr @V3PreLextext, align 8
+  %2842 = load i32, ptr @V3PreLexleng, align 4
+  %2843 = sub nsw i32 %2842, 1
+  %2844 = sext i32 %2843 to i64
+  %2845 = getelementptr inbounds i8, ptr %2841, i64 %2844
+  %2846 = load i8, ptr %2845, align 1
+  %2847 = sext i8 %2846 to i32
+  %2848 = icmp eq i32 %2847, 10
+  %2849 = zext i1 %2848 to i32
+  %2850 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2851 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2852 = getelementptr inbounds ptr, ptr %2850, i64 %2851
+  %2853 = load ptr, ptr %2852, align 8
+  %2854 = getelementptr inbounds %struct.yy_buffer_state, ptr %2853, i32 0, i32 7
+  store i32 %2849, ptr %2854, align 8
+  br label %2855
 
-2853:                                             ; preds = %2838, %2835
-  %2854 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2855 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2854)
-  %2856 = load ptr, ptr @V3PreLextext, align 8
-  %2857 = load i32, ptr @V3PreLexleng, align 4
-  %2858 = sext i32 %2857 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2855, ptr noundef %2856, i64 noundef %2858, i1 noundef zeroext false)
-  %2859 = load ptr, ptr @V3PreLextext, align 8
-  %2860 = load i32, ptr @V3PreLexleng, align 4
-  %2861 = sext i32 %2860 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %2859, i64 noundef %2861)
-  %2862 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2863 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2862)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2863)
-  br label %5026
+2855:                                             ; preds = %2840, %2837
+  %2856 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2857 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2856)
+  %2858 = load ptr, ptr @V3PreLextext, align 8
+  %2859 = load i32, ptr @V3PreLexleng, align 4
+  %2860 = sext i32 %2859 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2857, ptr noundef %2858, i64 noundef %2860, i1 noundef zeroext false)
+  %2861 = load ptr, ptr @V3PreLextext, align 8
+  %2862 = load i32, ptr @V3PreLexleng, align 4
+  %2863 = sext i32 %2862 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %2861, i64 noundef %2863)
+  %2864 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2865 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2864)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2865)
+  br label %5028
 
-2864:                                             ; preds = %209
-  %2865 = load i32, ptr @V3PreLexleng, align 4
-  %2866 = icmp sgt i32 %2865, 0
-  br i1 %2866, label %2867, label %2882
+2866:                                             ; preds = %209
+  %2867 = load i32, ptr @V3PreLexleng, align 4
+  %2868 = icmp sgt i32 %2867, 0
+  br i1 %2868, label %2869, label %2884
 
-2867:                                             ; preds = %2864
-  %2868 = load ptr, ptr @V3PreLextext, align 8
-  %2869 = load i32, ptr @V3PreLexleng, align 4
-  %2870 = sub nsw i32 %2869, 1
-  %2871 = sext i32 %2870 to i64
-  %2872 = getelementptr inbounds i8, ptr %2868, i64 %2871
-  %2873 = load i8, ptr %2872, align 1
-  %2874 = sext i8 %2873 to i32
-  %2875 = icmp eq i32 %2874, 10
-  %2876 = zext i1 %2875 to i32
-  %2877 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2878 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2879 = getelementptr inbounds ptr, ptr %2877, i64 %2878
-  %2880 = load ptr, ptr %2879, align 8
-  %2881 = getelementptr inbounds %struct.yy_buffer_state, ptr %2880, i32 0, i32 7
-  store i32 %2876, ptr %2881, align 8
-  br label %2882
+2869:                                             ; preds = %2866
+  %2870 = load ptr, ptr @V3PreLextext, align 8
+  %2871 = load i32, ptr @V3PreLexleng, align 4
+  %2872 = sub nsw i32 %2871, 1
+  %2873 = sext i32 %2872 to i64
+  %2874 = getelementptr inbounds i8, ptr %2870, i64 %2873
+  %2875 = load i8, ptr %2874, align 1
+  %2876 = sext i8 %2875 to i32
+  %2877 = icmp eq i32 %2876, 10
+  %2878 = zext i1 %2877 to i32
+  %2879 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2880 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2881 = getelementptr inbounds ptr, ptr %2879, i64 %2880
+  %2882 = load ptr, ptr %2881, align 8
+  %2883 = getelementptr inbounds %struct.yy_buffer_state, ptr %2882, i32 0, i32 7
+  store i32 %2878, ptr %2883, align 8
+  br label %2884
 
-2882:                                             ; preds = %2867, %2864
-  %2883 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2884 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2883)
-  %2885 = load ptr, ptr @V3PreLextext, align 8
-  %2886 = load i32, ptr @V3PreLexleng, align 4
-  %2887 = sext i32 %2886 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2884, ptr noundef %2885, i64 noundef %2887, i1 noundef zeroext false)
-  %2888 = load ptr, ptr @V3PreLextext, align 8
-  %2889 = load i32, ptr @V3PreLexleng, align 4
-  %2890 = sext i32 %2889 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %2888, i64 noundef %2890)
-  %2891 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2892 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2891)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2892)
-  br label %5026
+2884:                                             ; preds = %2869, %2866
+  %2885 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2886 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2885)
+  %2887 = load ptr, ptr @V3PreLextext, align 8
+  %2888 = load i32, ptr @V3PreLexleng, align 4
+  %2889 = sext i32 %2888 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2886, ptr noundef %2887, i64 noundef %2889, i1 noundef zeroext false)
+  %2890 = load ptr, ptr @V3PreLextext, align 8
+  %2891 = load i32, ptr @V3PreLexleng, align 4
+  %2892 = sext i32 %2891 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %2890, i64 noundef %2892)
+  %2893 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2894 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2893)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2894)
+  br label %5028
 
-2893:                                             ; preds = %209
-  %2894 = load i32, ptr @V3PreLexleng, align 4
-  %2895 = icmp sgt i32 %2894, 0
-  br i1 %2895, label %2896, label %2911
+2895:                                             ; preds = %209
+  %2896 = load i32, ptr @V3PreLexleng, align 4
+  %2897 = icmp sgt i32 %2896, 0
+  br i1 %2897, label %2898, label %2913
 
-2896:                                             ; preds = %2893
-  %2897 = load ptr, ptr @V3PreLextext, align 8
-  %2898 = load i32, ptr @V3PreLexleng, align 4
-  %2899 = sub nsw i32 %2898, 1
-  %2900 = sext i32 %2899 to i64
-  %2901 = getelementptr inbounds i8, ptr %2897, i64 %2900
-  %2902 = load i8, ptr %2901, align 1
-  %2903 = sext i8 %2902 to i32
-  %2904 = icmp eq i32 %2903, 10
-  %2905 = zext i1 %2904 to i32
-  %2906 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2907 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2908 = getelementptr inbounds ptr, ptr %2906, i64 %2907
-  %2909 = load ptr, ptr %2908, align 8
-  %2910 = getelementptr inbounds %struct.yy_buffer_state, ptr %2909, i32 0, i32 7
-  store i32 %2905, ptr %2910, align 8
-  br label %2911
+2898:                                             ; preds = %2895
+  %2899 = load ptr, ptr @V3PreLextext, align 8
+  %2900 = load i32, ptr @V3PreLexleng, align 4
+  %2901 = sub nsw i32 %2900, 1
+  %2902 = sext i32 %2901 to i64
+  %2903 = getelementptr inbounds i8, ptr %2899, i64 %2902
+  %2904 = load i8, ptr %2903, align 1
+  %2905 = sext i8 %2904 to i32
+  %2906 = icmp eq i32 %2905, 10
+  %2907 = zext i1 %2906 to i32
+  %2908 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2909 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2910 = getelementptr inbounds ptr, ptr %2908, i64 %2909
+  %2911 = load ptr, ptr %2910, align 8
+  %2912 = getelementptr inbounds %struct.yy_buffer_state, ptr %2911, i32 0, i32 7
+  store i32 %2907, ptr %2912, align 8
+  br label %2913
 
-2911:                                             ; preds = %2896, %2893
-  %2912 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2913 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2912)
-  %2914 = load ptr, ptr @V3PreLextext, align 8
-  %2915 = load i32, ptr @V3PreLexleng, align 4
-  %2916 = sext i32 %2915 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2913, ptr noundef %2914, i64 noundef %2916, i1 noundef zeroext false)
-  %2917 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2918 = getelementptr inbounds %class.V3PreLex, ptr %2917, i32 0, i32 11
-  %2919 = load i32, ptr %2918, align 4
-  %2920 = add nsw i32 %2919, 1
-  store i32 %2920, ptr %2918, align 4
-  %2921 = load ptr, ptr @V3PreLextext, align 8
-  %2922 = load i32, ptr @V3PreLexleng, align 4
-  %2923 = sext i32 %2922 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %2921, i64 noundef %2923)
-  %2924 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2925 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2924)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2925)
-  br label %5026
+2913:                                             ; preds = %2898, %2895
+  %2914 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2915 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2914)
+  %2916 = load ptr, ptr @V3PreLextext, align 8
+  %2917 = load i32, ptr @V3PreLexleng, align 4
+  %2918 = sext i32 %2917 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2915, ptr noundef %2916, i64 noundef %2918, i1 noundef zeroext false)
+  %2919 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2920 = getelementptr inbounds %class.V3PreLex, ptr %2919, i32 0, i32 11
+  %2921 = load i32, ptr %2920, align 4
+  %2922 = add nsw i32 %2921, 1
+  store i32 %2922, ptr %2920, align 4
+  %2923 = load ptr, ptr @V3PreLextext, align 8
+  %2924 = load i32, ptr @V3PreLexleng, align 4
+  %2925 = sext i32 %2924 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %2923, i64 noundef %2925)
+  %2926 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2927 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2926)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2927)
+  br label %5028
 
-2926:                                             ; preds = %209
-  %2927 = load i32, ptr @V3PreLexleng, align 4
-  %2928 = icmp sgt i32 %2927, 0
-  br i1 %2928, label %2929, label %2944
+2928:                                             ; preds = %209
+  %2929 = load i32, ptr @V3PreLexleng, align 4
+  %2930 = icmp sgt i32 %2929, 0
+  br i1 %2930, label %2931, label %2946
 
-2929:                                             ; preds = %2926
-  %2930 = load ptr, ptr @V3PreLextext, align 8
-  %2931 = load i32, ptr @V3PreLexleng, align 4
-  %2932 = sub nsw i32 %2931, 1
-  %2933 = sext i32 %2932 to i64
-  %2934 = getelementptr inbounds i8, ptr %2930, i64 %2933
-  %2935 = load i8, ptr %2934, align 1
-  %2936 = sext i8 %2935 to i32
-  %2937 = icmp eq i32 %2936, 10
-  %2938 = zext i1 %2937 to i32
-  %2939 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2940 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2941 = getelementptr inbounds ptr, ptr %2939, i64 %2940
-  %2942 = load ptr, ptr %2941, align 8
-  %2943 = getelementptr inbounds %struct.yy_buffer_state, ptr %2942, i32 0, i32 7
-  store i32 %2938, ptr %2943, align 8
-  br label %2944
+2931:                                             ; preds = %2928
+  %2932 = load ptr, ptr @V3PreLextext, align 8
+  %2933 = load i32, ptr @V3PreLexleng, align 4
+  %2934 = sub nsw i32 %2933, 1
+  %2935 = sext i32 %2934 to i64
+  %2936 = getelementptr inbounds i8, ptr %2932, i64 %2935
+  %2937 = load i8, ptr %2936, align 1
+  %2938 = sext i8 %2937 to i32
+  %2939 = icmp eq i32 %2938, 10
+  %2940 = zext i1 %2939 to i32
+  %2941 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2942 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2943 = getelementptr inbounds ptr, ptr %2941, i64 %2942
+  %2944 = load ptr, ptr %2943, align 8
+  %2945 = getelementptr inbounds %struct.yy_buffer_state, ptr %2944, i32 0, i32 7
+  store i32 %2940, ptr %2945, align 8
+  br label %2946
 
-2944:                                             ; preds = %2929, %2926
-  %2945 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2946 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2945)
-  %2947 = load ptr, ptr @V3PreLextext, align 8
-  %2948 = load i32, ptr @V3PreLexleng, align 4
-  %2949 = sext i32 %2948 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2946, ptr noundef %2947, i64 noundef %2949, i1 noundef zeroext false)
-  %2950 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2951 = getelementptr inbounds %class.V3PreLex, ptr %2950, i32 0, i32 11
-  %2952 = load i32, ptr %2951, align 4
-  %2953 = add nsw i32 %2952, -1
-  store i32 %2953, ptr %2951, align 4
-  %2954 = load ptr, ptr @V3PreLextext, align 8
-  %2955 = load i32, ptr @V3PreLexleng, align 4
-  %2956 = sext i32 %2955 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %2954, i64 noundef %2956)
-  %2957 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2958 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2957)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2958)
-  br label %5026
+2946:                                             ; preds = %2931, %2928
+  %2947 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2948 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2947)
+  %2949 = load ptr, ptr @V3PreLextext, align 8
+  %2950 = load i32, ptr @V3PreLexleng, align 4
+  %2951 = sext i32 %2950 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2948, ptr noundef %2949, i64 noundef %2951, i1 noundef zeroext false)
+  %2952 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2953 = getelementptr inbounds %class.V3PreLex, ptr %2952, i32 0, i32 11
+  %2954 = load i32, ptr %2953, align 4
+  %2955 = add nsw i32 %2954, -1
+  store i32 %2955, ptr %2953, align 4
+  %2956 = load ptr, ptr @V3PreLextext, align 8
+  %2957 = load i32, ptr @V3PreLexleng, align 4
+  %2958 = sext i32 %2957 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %2956, i64 noundef %2958)
+  %2959 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2960 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2959)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2960)
+  br label %5028
 
-2959:                                             ; preds = %209, %209, %209
-  %2960 = load i32, ptr @V3PreLexleng, align 4
-  %2961 = icmp sgt i32 %2960, 0
-  br i1 %2961, label %2962, label %2977
+2961:                                             ; preds = %209, %209, %209
+  %2962 = load i32, ptr @V3PreLexleng, align 4
+  %2963 = icmp sgt i32 %2962, 0
+  br i1 %2963, label %2964, label %2979
 
-2962:                                             ; preds = %2959
-  %2963 = load ptr, ptr @V3PreLextext, align 8
-  %2964 = load i32, ptr @V3PreLexleng, align 4
-  %2965 = sub nsw i32 %2964, 1
-  %2966 = sext i32 %2965 to i64
-  %2967 = getelementptr inbounds i8, ptr %2963, i64 %2966
-  %2968 = load i8, ptr %2967, align 1
-  %2969 = sext i8 %2968 to i32
-  %2970 = icmp eq i32 %2969, 10
-  %2971 = zext i1 %2970 to i32
-  %2972 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %2973 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %2974 = getelementptr inbounds ptr, ptr %2972, i64 %2973
-  %2975 = load ptr, ptr %2974, align 8
-  %2976 = getelementptr inbounds %struct.yy_buffer_state, ptr %2975, i32 0, i32 7
-  store i32 %2971, ptr %2976, align 8
-  br label %2977
+2964:                                             ; preds = %2961
+  %2965 = load ptr, ptr @V3PreLextext, align 8
+  %2966 = load i32, ptr @V3PreLexleng, align 4
+  %2967 = sub nsw i32 %2966, 1
+  %2968 = sext i32 %2967 to i64
+  %2969 = getelementptr inbounds i8, ptr %2965, i64 %2968
+  %2970 = load i8, ptr %2969, align 1
+  %2971 = sext i8 %2970 to i32
+  %2972 = icmp eq i32 %2971, 10
+  %2973 = zext i1 %2972 to i32
+  %2974 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %2975 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %2976 = getelementptr inbounds ptr, ptr %2974, i64 %2975
+  %2977 = load ptr, ptr %2976, align 8
+  %2978 = getelementptr inbounds %struct.yy_buffer_state, ptr %2977, i32 0, i32 7
+  store i32 %2973, ptr %2978, align 8
+  br label %2979
 
-2977:                                             ; preds = %2962, %2959
-  %2978 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2979 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2978)
-  %2980 = load ptr, ptr @V3PreLextext, align 8
-  %2981 = load i32, ptr @V3PreLexleng, align 4
-  %2982 = sext i32 %2981 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2979, ptr noundef %2980, i64 noundef %2982, i1 noundef zeroext false)
-  %2983 = load ptr, ptr @V3PreLextext, align 8
-  %2984 = load i32, ptr @V3PreLexleng, align 4
-  %2985 = sext i32 %2984 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %2983, i64 noundef %2985)
-  %2986 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %2987 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2986)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2987)
-  br label %5026
+2979:                                             ; preds = %2964, %2961
+  %2980 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2981 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2980)
+  %2982 = load ptr, ptr @V3PreLextext, align 8
+  %2983 = load i32, ptr @V3PreLexleng, align 4
+  %2984 = sext i32 %2983 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %2981, ptr noundef %2982, i64 noundef %2984, i1 noundef zeroext false)
+  %2985 = load ptr, ptr @V3PreLextext, align 8
+  %2986 = load i32, ptr @V3PreLexleng, align 4
+  %2987 = sext i32 %2986 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %2985, i64 noundef %2987)
+  %2988 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %2989 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %2988)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %2989)
+  br label %5028
 
-2988:                                             ; preds = %209
-  %2989 = load i32, ptr @V3PreLexleng, align 4
-  %2990 = icmp sgt i32 %2989, 0
-  br i1 %2990, label %2991, label %3006
+2990:                                             ; preds = %209
+  %2991 = load i32, ptr @V3PreLexleng, align 4
+  %2992 = icmp sgt i32 %2991, 0
+  br i1 %2992, label %2993, label %3008
 
-2991:                                             ; preds = %2988
-  %2992 = load ptr, ptr @V3PreLextext, align 8
-  %2993 = load i32, ptr @V3PreLexleng, align 4
-  %2994 = sub nsw i32 %2993, 1
-  %2995 = sext i32 %2994 to i64
-  %2996 = getelementptr inbounds i8, ptr %2992, i64 %2995
-  %2997 = load i8, ptr %2996, align 1
-  %2998 = sext i8 %2997 to i32
-  %2999 = icmp eq i32 %2998, 10
-  %3000 = zext i1 %2999 to i32
-  %3001 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3002 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3003 = getelementptr inbounds ptr, ptr %3001, i64 %3002
-  %3004 = load ptr, ptr %3003, align 8
-  %3005 = getelementptr inbounds %struct.yy_buffer_state, ptr %3004, i32 0, i32 7
-  store i32 %3000, ptr %3005, align 8
-  br label %3006
+2993:                                             ; preds = %2990
+  %2994 = load ptr, ptr @V3PreLextext, align 8
+  %2995 = load i32, ptr @V3PreLexleng, align 4
+  %2996 = sub nsw i32 %2995, 1
+  %2997 = sext i32 %2996 to i64
+  %2998 = getelementptr inbounds i8, ptr %2994, i64 %2997
+  %2999 = load i8, ptr %2998, align 1
+  %3000 = sext i8 %2999 to i32
+  %3001 = icmp eq i32 %3000, 10
+  %3002 = zext i1 %3001 to i32
+  %3003 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3004 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3005 = getelementptr inbounds ptr, ptr %3003, i64 %3004
+  %3006 = load ptr, ptr %3005, align 8
+  %3007 = getelementptr inbounds %struct.yy_buffer_state, ptr %3006, i32 0, i32 7
+  store i32 %3002, ptr %3007, align 8
+  br label %3008
 
-3006:                                             ; preds = %2991, %2988
-  %3007 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3008 = getelementptr inbounds %class.V3PreLex, ptr %3007, i32 0, i32 13
-  store i8 0, ptr %3008, align 4
+3008:                                             ; preds = %2993, %2990
+  %3009 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3010 = getelementptr inbounds %class.V3PreLex, ptr %3009, i32 0, i32 13
+  store i8 0, ptr %3010, align 4
   call void @_ZL13yy_push_statei(i32 noundef 4)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-3009:                                             ; preds = %209
-  %3010 = load i32, ptr @V3PreLexleng, align 4
-  %3011 = icmp sgt i32 %3010, 0
-  br i1 %3011, label %3012, label %3027
+3011:                                             ; preds = %209
+  %3012 = load i32, ptr @V3PreLexleng, align 4
+  %3013 = icmp sgt i32 %3012, 0
+  br i1 %3013, label %3014, label %3029
 
-3012:                                             ; preds = %3009
-  %3013 = load ptr, ptr @V3PreLextext, align 8
-  %3014 = load i32, ptr @V3PreLexleng, align 4
-  %3015 = sub nsw i32 %3014, 1
-  %3016 = sext i32 %3015 to i64
-  %3017 = getelementptr inbounds i8, ptr %3013, i64 %3016
-  %3018 = load i8, ptr %3017, align 1
-  %3019 = sext i8 %3018 to i32
-  %3020 = icmp eq i32 %3019, 10
-  %3021 = zext i1 %3020 to i32
-  %3022 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3023 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3024 = getelementptr inbounds ptr, ptr %3022, i64 %3023
-  %3025 = load ptr, ptr %3024, align 8
-  %3026 = getelementptr inbounds %struct.yy_buffer_state, ptr %3025, i32 0, i32 7
-  store i32 %3021, ptr %3026, align 8
-  br label %3027
+3014:                                             ; preds = %3011
+  %3015 = load ptr, ptr @V3PreLextext, align 8
+  %3016 = load i32, ptr @V3PreLexleng, align 4
+  %3017 = sub nsw i32 %3016, 1
+  %3018 = sext i32 %3017 to i64
+  %3019 = getelementptr inbounds i8, ptr %3015, i64 %3018
+  %3020 = load i8, ptr %3019, align 1
+  %3021 = sext i8 %3020 to i32
+  %3022 = icmp eq i32 %3021, 10
+  %3023 = zext i1 %3022 to i32
+  %3024 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3025 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3026 = getelementptr inbounds ptr, ptr %3024, i64 %3025
+  %3027 = load ptr, ptr %3026, align 8
+  %3028 = getelementptr inbounds %struct.yy_buffer_state, ptr %3027, i32 0, i32 7
+  store i32 %3023, ptr %3028, align 8
+  br label %3029
 
-3027:                                             ; preds = %3012, %3009
-  %3028 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3029 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3028)
-  %3030 = load ptr, ptr @V3PreLextext, align 8
-  %3031 = load i32, ptr @V3PreLexleng, align 4
-  %3032 = sext i32 %3031 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3029, ptr noundef %3030, i64 noundef %3032, i1 noundef zeroext false)
+3029:                                             ; preds = %3014, %3011
+  %3030 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3031 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3030)
+  %3032 = load ptr, ptr @V3PreLextext, align 8
+  %3033 = load i32, ptr @V3PreLexleng, align 4
+  %3034 = sext i32 %3033 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3031, ptr noundef %3032, i64 noundef %3034, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL14appendDefValuePKcm(ptr noundef @.str.22, i64 noundef 1)
-  %3033 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3034 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3033)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3034)
-  br label %5026
+  %3035 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3036 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3035)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3036)
+  br label %5028
 
-3035:                                             ; preds = %209
-  %3036 = load i32, ptr @V3PreLexleng, align 4
-  %3037 = icmp sgt i32 %3036, 0
-  br i1 %3037, label %3038, label %3053
+3037:                                             ; preds = %209
+  %3038 = load i32, ptr @V3PreLexleng, align 4
+  %3039 = icmp sgt i32 %3038, 0
+  br i1 %3039, label %3040, label %3055
 
-3038:                                             ; preds = %3035
-  %3039 = load ptr, ptr @V3PreLextext, align 8
-  %3040 = load i32, ptr @V3PreLexleng, align 4
-  %3041 = sub nsw i32 %3040, 1
-  %3042 = sext i32 %3041 to i64
-  %3043 = getelementptr inbounds i8, ptr %3039, i64 %3042
-  %3044 = load i8, ptr %3043, align 1
-  %3045 = sext i8 %3044 to i32
-  %3046 = icmp eq i32 %3045, 10
-  %3047 = zext i1 %3046 to i32
-  %3048 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3049 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3050 = getelementptr inbounds ptr, ptr %3048, i64 %3049
-  %3051 = load ptr, ptr %3050, align 8
-  %3052 = getelementptr inbounds %struct.yy_buffer_state, ptr %3051, i32 0, i32 7
-  store i32 %3047, ptr %3052, align 8
-  br label %3053
+3040:                                             ; preds = %3037
+  %3041 = load ptr, ptr @V3PreLextext, align 8
+  %3042 = load i32, ptr @V3PreLexleng, align 4
+  %3043 = sub nsw i32 %3042, 1
+  %3044 = sext i32 %3043 to i64
+  %3045 = getelementptr inbounds i8, ptr %3041, i64 %3044
+  %3046 = load i8, ptr %3045, align 1
+  %3047 = sext i8 %3046 to i32
+  %3048 = icmp eq i32 %3047, 10
+  %3049 = zext i1 %3048 to i32
+  %3050 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3051 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3052 = getelementptr inbounds ptr, ptr %3050, i64 %3051
+  %3053 = load ptr, ptr %3052, align 8
+  %3054 = getelementptr inbounds %struct.yy_buffer_state, ptr %3053, i32 0, i32 7
+  store i32 %3049, ptr %3054, align 8
+  br label %3055
 
-3053:                                             ; preds = %3038, %3035
-  %3054 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3055 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3054)
-  %3056 = load ptr, ptr @V3PreLextext, align 8
-  %3057 = load i32, ptr @V3PreLexleng, align 4
-  %3058 = sext i32 %3057 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3055, ptr noundef %3056, i64 noundef %3058, i1 noundef zeroext false)
+3055:                                             ; preds = %3040, %3037
+  %3056 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3057 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3056)
+  %3058 = load ptr, ptr @V3PreLextext, align 8
+  %3059 = load i32, ptr @V3PreLexleng, align 4
+  %3060 = sext i32 %3059 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3057, ptr noundef %3058, i64 noundef %3060, i1 noundef zeroext false)
   store i32 303, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3059:                                             ; preds = %209
-  %3060 = load i32, ptr @V3PreLexleng, align 4
-  %3061 = icmp sgt i32 %3060, 0
-  br i1 %3061, label %3062, label %3077
+3061:                                             ; preds = %209
+  %3062 = load i32, ptr @V3PreLexleng, align 4
+  %3063 = icmp sgt i32 %3062, 0
+  br i1 %3063, label %3064, label %3079
 
-3062:                                             ; preds = %3059
-  %3063 = load ptr, ptr @V3PreLextext, align 8
-  %3064 = load i32, ptr @V3PreLexleng, align 4
-  %3065 = sub nsw i32 %3064, 1
-  %3066 = sext i32 %3065 to i64
-  %3067 = getelementptr inbounds i8, ptr %3063, i64 %3066
-  %3068 = load i8, ptr %3067, align 1
-  %3069 = sext i8 %3068 to i32
-  %3070 = icmp eq i32 %3069, 10
-  %3071 = zext i1 %3070 to i32
-  %3072 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3073 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3074 = getelementptr inbounds ptr, ptr %3072, i64 %3073
-  %3075 = load ptr, ptr %3074, align 8
-  %3076 = getelementptr inbounds %struct.yy_buffer_state, ptr %3075, i32 0, i32 7
-  store i32 %3071, ptr %3076, align 8
-  br label %3077
+3064:                                             ; preds = %3061
+  %3065 = load ptr, ptr @V3PreLextext, align 8
+  %3066 = load i32, ptr @V3PreLexleng, align 4
+  %3067 = sub nsw i32 %3066, 1
+  %3068 = sext i32 %3067 to i64
+  %3069 = getelementptr inbounds i8, ptr %3065, i64 %3068
+  %3070 = load i8, ptr %3069, align 1
+  %3071 = sext i8 %3070 to i32
+  %3072 = icmp eq i32 %3071, 10
+  %3073 = zext i1 %3072 to i32
+  %3074 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3075 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3076 = getelementptr inbounds ptr, ptr %3074, i64 %3075
+  %3077 = load ptr, ptr %3076, align 8
+  %3078 = getelementptr inbounds %struct.yy_buffer_state, ptr %3077, i32 0, i32 7
+  store i32 %3073, ptr %3078, align 8
+  br label %3079
 
-3077:                                             ; preds = %3062, %3059
-  %3078 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3079 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3078)
-  %3080 = load ptr, ptr @V3PreLextext, align 8
-  %3081 = load i32, ptr @V3PreLexleng, align 4
-  %3082 = sext i32 %3081 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3079, ptr noundef %3080, i64 noundef %3082, i1 noundef zeroext false)
-  %3083 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3084 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3083)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3084)
-  br label %5026
+3079:                                             ; preds = %3064, %3061
+  %3080 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3081 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3080)
+  %3082 = load ptr, ptr @V3PreLextext, align 8
+  %3083 = load i32, ptr @V3PreLexleng, align 4
+  %3084 = sext i32 %3083 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3081, ptr noundef %3082, i64 noundef %3084, i1 noundef zeroext false)
+  %3085 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3086 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3085)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3086)
+  br label %5028
 
-3085:                                             ; preds = %209
-  %3086 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3087 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3086)
-  %3088 = load ptr, ptr @V3PreLextext, align 8
-  %3089 = load i32, ptr @V3PreLexleng, align 4
-  %3090 = sext i32 %3089 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3087, ptr noundef %3088, i64 noundef %3090, i1 noundef zeroext false)
+3087:                                             ; preds = %209
+  %3088 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3089 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3088)
+  %3090 = load ptr, ptr @V3PreLextext, align 8
+  %3091 = load i32, ptr @V3PreLexleng, align 4
+  %3092 = sext i32 %3091 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3089, ptr noundef %3090, i64 noundef %3092, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL12yy_pop_statev()
   store ptr @.str.22, ptr @V3PreLextext, align 8
   store i32 1, ptr @V3PreLexleng, align 4
   store i32 302, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3091:                                             ; preds = %209
-  %3092 = load i32, ptr @V3PreLexleng, align 4
-  %3093 = icmp sgt i32 %3092, 0
-  br i1 %3093, label %3094, label %3109
+3093:                                             ; preds = %209
+  %3094 = load i32, ptr @V3PreLexleng, align 4
+  %3095 = icmp sgt i32 %3094, 0
+  br i1 %3095, label %3096, label %3111
 
-3094:                                             ; preds = %3091
-  %3095 = load ptr, ptr @V3PreLextext, align 8
-  %3096 = load i32, ptr @V3PreLexleng, align 4
-  %3097 = sub nsw i32 %3096, 1
-  %3098 = sext i32 %3097 to i64
-  %3099 = getelementptr inbounds i8, ptr %3095, i64 %3098
-  %3100 = load i8, ptr %3099, align 1
-  %3101 = sext i8 %3100 to i32
-  %3102 = icmp eq i32 %3101, 10
-  %3103 = zext i1 %3102 to i32
-  %3104 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3105 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3106 = getelementptr inbounds ptr, ptr %3104, i64 %3105
-  %3107 = load ptr, ptr %3106, align 8
-  %3108 = getelementptr inbounds %struct.yy_buffer_state, ptr %3107, i32 0, i32 7
-  store i32 %3103, ptr %3108, align 8
-  br label %3109
+3096:                                             ; preds = %3093
+  %3097 = load ptr, ptr @V3PreLextext, align 8
+  %3098 = load i32, ptr @V3PreLexleng, align 4
+  %3099 = sub nsw i32 %3098, 1
+  %3100 = sext i32 %3099 to i64
+  %3101 = getelementptr inbounds i8, ptr %3097, i64 %3100
+  %3102 = load i8, ptr %3101, align 1
+  %3103 = sext i8 %3102 to i32
+  %3104 = icmp eq i32 %3103, 10
+  %3105 = zext i1 %3104 to i32
+  %3106 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3107 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3108 = getelementptr inbounds ptr, ptr %3106, i64 %3107
+  %3109 = load ptr, ptr %3108, align 8
+  %3110 = getelementptr inbounds %struct.yy_buffer_state, ptr %3109, i32 0, i32 7
+  store i32 %3105, ptr %3110, align 8
+  br label %3111
 
-3109:                                             ; preds = %3094, %3091
-  %3110 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3111 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3110)
-  %3112 = load ptr, ptr @V3PreLextext, align 8
-  %3113 = load i32, ptr @V3PreLexleng, align 4
-  %3114 = sext i32 %3113 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3111, ptr noundef %3112, i64 noundef %3114, i1 noundef zeroext false)
+3111:                                             ; preds = %3096, %3093
+  %3112 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3113 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3112)
+  %3114 = load ptr, ptr @V3PreLextext, align 8
+  %3115 = load i32, ptr @V3PreLexleng, align 4
+  %3116 = sext i32 %3115 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3113, ptr noundef %3114, i64 noundef %3116, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL12yy_pop_statev()
   store ptr @.str.22, ptr @V3PreLextext, align 8
   store i32 1, ptr @V3PreLexleng, align 4
   store i32 302, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3115:                                             ; preds = %209
-  %3116 = load i32, ptr @V3PreLexleng, align 4
-  %3117 = icmp sgt i32 %3116, 0
-  br i1 %3117, label %3118, label %3133
+3117:                                             ; preds = %209
+  %3118 = load i32, ptr @V3PreLexleng, align 4
+  %3119 = icmp sgt i32 %3118, 0
+  br i1 %3119, label %3120, label %3135
 
-3118:                                             ; preds = %3115
-  %3119 = load ptr, ptr @V3PreLextext, align 8
-  %3120 = load i32, ptr @V3PreLexleng, align 4
-  %3121 = sub nsw i32 %3120, 1
-  %3122 = sext i32 %3121 to i64
-  %3123 = getelementptr inbounds i8, ptr %3119, i64 %3122
-  %3124 = load i8, ptr %3123, align 1
-  %3125 = sext i8 %3124 to i32
-  %3126 = icmp eq i32 %3125, 10
-  %3127 = zext i1 %3126 to i32
-  %3128 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3129 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3130 = getelementptr inbounds ptr, ptr %3128, i64 %3129
-  %3131 = load ptr, ptr %3130, align 8
-  %3132 = getelementptr inbounds %struct.yy_buffer_state, ptr %3131, i32 0, i32 7
-  store i32 %3127, ptr %3132, align 8
-  br label %3133
-
-3133:                                             ; preds = %3118, %3115
-  %3134 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  call void @_ZN8V3PreLex18warnBackslashSpaceEv(ptr noundef nonnull align 8 dereferenceable(264) %3134)
+3120:                                             ; preds = %3117
+  %3121 = load ptr, ptr @V3PreLextext, align 8
+  %3122 = load i32, ptr @V3PreLexleng, align 4
+  %3123 = sub nsw i32 %3122, 1
+  %3124 = sext i32 %3123 to i64
+  %3125 = getelementptr inbounds i8, ptr %3121, i64 %3124
+  %3126 = load i8, ptr %3125, align 1
+  %3127 = sext i8 %3126 to i32
+  %3128 = icmp eq i32 %3127, 10
+  %3129 = zext i1 %3128 to i32
+  %3130 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3131 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3132 = getelementptr inbounds ptr, ptr %3130, i64 %3131
+  %3133 = load ptr, ptr %3132, align 8
+  %3134 = getelementptr inbounds %struct.yy_buffer_state, ptr %3133, i32 0, i32 7
+  store i32 %3129, ptr %3134, align 8
   br label %3135
 
-3135:                                             ; preds = %3133
+3135:                                             ; preds = %3120, %3117
+  %3136 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  call void @_ZN8V3PreLex18warnBackslashSpaceEv(ptr noundef nonnull align 8 dereferenceable(264) %3136)
+  br label %3137
+
+3137:                                             ; preds = %3135
   store i32 1, ptr %52, align 4
-  %3136 = load i8, ptr @_ZL12yy_hold_char, align 1
-  %3137 = load ptr, ptr %3, align 8
-  store i8 %3136, ptr %3137, align 1
-  %3138 = load ptr, ptr %4, align 8
-  %3139 = load i32, ptr %52, align 4
-  %3140 = sext i32 %3139 to i64
-  %3141 = getelementptr inbounds i8, ptr %3138, i64 %3140
-  %3142 = load i32, ptr @_ZL11yy_more_len, align 4
-  %3143 = sext i32 %3142 to i64
-  %3144 = sub i64 0, %3143
-  %3145 = getelementptr inbounds i8, ptr %3141, i64 %3144
-  store ptr %3145, ptr %3, align 8
-  store ptr %3145, ptr @_ZL10yy_c_buf_p, align 8
-  %3146 = load ptr, ptr %4, align 8
-  store ptr %3146, ptr @V3PreLextext, align 8
-  %3147 = load i32, ptr @_ZL11yy_more_len, align 4
-  %3148 = load ptr, ptr @V3PreLextext, align 8
-  %3149 = sext i32 %3147 to i64
-  %3150 = sub i64 0, %3149
-  %3151 = getelementptr inbounds i8, ptr %3148, i64 %3150
-  store ptr %3151, ptr @V3PreLextext, align 8
-  %3152 = load ptr, ptr %3, align 8
-  %3153 = load ptr, ptr @V3PreLextext, align 8
-  %3154 = ptrtoint ptr %3152 to i64
-  %3155 = ptrtoint ptr %3153 to i64
-  %3156 = sub i64 %3154, %3155
-  %3157 = trunc i64 %3156 to i32
-  store i32 %3157, ptr @V3PreLexleng, align 4
-  %3158 = load ptr, ptr %3, align 8
-  %3159 = load i8, ptr %3158, align 1
-  store i8 %3159, ptr @_ZL12yy_hold_char, align 1
+  %3138 = load i8, ptr @_ZL12yy_hold_char, align 1
+  %3139 = load ptr, ptr %3, align 8
+  store i8 %3138, ptr %3139, align 1
+  %3140 = load ptr, ptr %4, align 8
+  %3141 = load i32, ptr %52, align 4
+  %3142 = sext i32 %3141 to i64
+  %3143 = getelementptr inbounds i8, ptr %3140, i64 %3142
+  %3144 = load i32, ptr @_ZL11yy_more_len, align 4
+  %3145 = sext i32 %3144 to i64
+  %3146 = sub i64 0, %3145
+  %3147 = getelementptr inbounds i8, ptr %3143, i64 %3146
+  store ptr %3147, ptr %3, align 8
+  store ptr %3147, ptr @_ZL10yy_c_buf_p, align 8
+  %3148 = load ptr, ptr %4, align 8
+  store ptr %3148, ptr @V3PreLextext, align 8
+  %3149 = load i32, ptr @_ZL11yy_more_len, align 4
+  %3150 = load ptr, ptr @V3PreLextext, align 8
+  %3151 = sext i32 %3149 to i64
+  %3152 = sub i64 0, %3151
+  %3153 = getelementptr inbounds i8, ptr %3150, i64 %3152
+  store ptr %3153, ptr @V3PreLextext, align 8
+  %3154 = load ptr, ptr %3, align 8
+  %3155 = load ptr, ptr @V3PreLextext, align 8
+  %3156 = ptrtoint ptr %3154 to i64
+  %3157 = ptrtoint ptr %3155 to i64
+  %3158 = sub i64 %3156, %3157
+  %3159 = trunc i64 %3158 to i32
+  store i32 %3159, ptr @V3PreLexleng, align 4
   %3160 = load ptr, ptr %3, align 8
-  store i8 0, ptr %3160, align 1
-  %3161 = load ptr, ptr %3, align 8
-  store ptr %3161, ptr @_ZL10yy_c_buf_p, align 8
-  br label %3162
+  %3161 = load i8, ptr %3160, align 1
+  store i8 %3161, ptr @_ZL12yy_hold_char, align 1
+  %3162 = load ptr, ptr %3, align 8
+  store i8 0, ptr %3162, align 1
+  %3163 = load ptr, ptr %3, align 8
+  store ptr %3163, ptr @_ZL10yy_c_buf_p, align 8
+  br label %3164
 
-3162:                                             ; preds = %3135
-  br label %5026
+3164:                                             ; preds = %3137
+  br label %5028
 
-3163:                                             ; preds = %209
-  %3164 = load i32, ptr @V3PreLexleng, align 4
-  %3165 = icmp sgt i32 %3164, 0
-  br i1 %3165, label %3166, label %3181
+3165:                                             ; preds = %209
+  %3166 = load i32, ptr @V3PreLexleng, align 4
+  %3167 = icmp sgt i32 %3166, 0
+  br i1 %3167, label %3168, label %3183
 
-3166:                                             ; preds = %3163
-  %3167 = load ptr, ptr @V3PreLextext, align 8
-  %3168 = load i32, ptr @V3PreLexleng, align 4
-  %3169 = sub nsw i32 %3168, 1
-  %3170 = sext i32 %3169 to i64
-  %3171 = getelementptr inbounds i8, ptr %3167, i64 %3170
-  %3172 = load i8, ptr %3171, align 1
-  %3173 = sext i8 %3172 to i32
-  %3174 = icmp eq i32 %3173, 10
-  %3175 = zext i1 %3174 to i32
-  %3176 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3177 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3178 = getelementptr inbounds ptr, ptr %3176, i64 %3177
-  %3179 = load ptr, ptr %3178, align 8
-  %3180 = getelementptr inbounds %struct.yy_buffer_state, ptr %3179, i32 0, i32 7
-  store i32 %3175, ptr %3180, align 8
-  br label %3181
+3168:                                             ; preds = %3165
+  %3169 = load ptr, ptr @V3PreLextext, align 8
+  %3170 = load i32, ptr @V3PreLexleng, align 4
+  %3171 = sub nsw i32 %3170, 1
+  %3172 = sext i32 %3171 to i64
+  %3173 = getelementptr inbounds i8, ptr %3169, i64 %3172
+  %3174 = load i8, ptr %3173, align 1
+  %3175 = sext i8 %3174 to i32
+  %3176 = icmp eq i32 %3175, 10
+  %3177 = zext i1 %3176 to i32
+  %3178 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3179 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3180 = getelementptr inbounds ptr, ptr %3178, i64 %3179
+  %3181 = load ptr, ptr %3180, align 8
+  %3182 = getelementptr inbounds %struct.yy_buffer_state, ptr %3181, i32 0, i32 7
+  store i32 %3177, ptr %3182, align 8
+  br label %3183
 
-3181:                                             ; preds = %3166, %3163
-  %3182 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3183 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3182)
-  %3184 = load ptr, ptr @V3PreLextext, align 8
-  %3185 = load i32, ptr @V3PreLexleng, align 4
-  %3186 = sext i32 %3185 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3183, ptr noundef %3184, i64 noundef %3186, i1 noundef zeroext false)
+3183:                                             ; preds = %3168, %3165
+  %3184 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3185 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3184)
+  %3186 = load ptr, ptr @V3PreLextext, align 8
+  %3187 = load i32, ptr @V3PreLexleng, align 4
+  %3188 = sext i32 %3187 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3185, ptr noundef %3186, i64 noundef %3188, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL14appendDefValuePKcm(ptr noundef @.str.28, i64 noundef 2)
-  %3187 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3188 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3187)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3188)
-  br label %5026
+  %3189 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3190 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3189)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3190)
+  br label %5028
 
-3189:                                             ; preds = %209
-  %3190 = load i32, ptr @V3PreLexleng, align 4
-  %3191 = icmp sgt i32 %3190, 0
-  br i1 %3191, label %3192, label %3207
+3191:                                             ; preds = %209
+  %3192 = load i32, ptr @V3PreLexleng, align 4
+  %3193 = icmp sgt i32 %3192, 0
+  br i1 %3193, label %3194, label %3209
 
-3192:                                             ; preds = %3189
-  %3193 = load ptr, ptr @V3PreLextext, align 8
-  %3194 = load i32, ptr @V3PreLexleng, align 4
-  %3195 = sub nsw i32 %3194, 1
-  %3196 = sext i32 %3195 to i64
-  %3197 = getelementptr inbounds i8, ptr %3193, i64 %3196
-  %3198 = load i8, ptr %3197, align 1
-  %3199 = sext i8 %3198 to i32
-  %3200 = icmp eq i32 %3199, 10
-  %3201 = zext i1 %3200 to i32
-  %3202 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3203 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3204 = getelementptr inbounds ptr, ptr %3202, i64 %3203
-  %3205 = load ptr, ptr %3204, align 8
-  %3206 = getelementptr inbounds %struct.yy_buffer_state, ptr %3205, i32 0, i32 7
-  store i32 %3201, ptr %3206, align 8
-  br label %3207
+3194:                                             ; preds = %3191
+  %3195 = load ptr, ptr @V3PreLextext, align 8
+  %3196 = load i32, ptr @V3PreLexleng, align 4
+  %3197 = sub nsw i32 %3196, 1
+  %3198 = sext i32 %3197 to i64
+  %3199 = getelementptr inbounds i8, ptr %3195, i64 %3198
+  %3200 = load i8, ptr %3199, align 1
+  %3201 = sext i8 %3200 to i32
+  %3202 = icmp eq i32 %3201, 10
+  %3203 = zext i1 %3202 to i32
+  %3204 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3205 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3206 = getelementptr inbounds ptr, ptr %3204, i64 %3205
+  %3207 = load ptr, ptr %3206, align 8
+  %3208 = getelementptr inbounds %struct.yy_buffer_state, ptr %3207, i32 0, i32 7
+  store i32 %3203, ptr %3208, align 8
+  br label %3209
 
-3207:                                             ; preds = %3192, %3189
-  %3208 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3209 = getelementptr inbounds %class.V3PreLex, ptr %3208, i32 0, i32 14
-  store i8 1, ptr %3209, align 1
+3209:                                             ; preds = %3194, %3191
+  %3210 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3211 = getelementptr inbounds %class.V3PreLex, ptr %3210, i32 0, i32 14
+  store i8 1, ptr %3211, align 1
   call void @_ZL13yy_push_statei(i32 noundef 18)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-3210:                                             ; preds = %209
-  %3211 = load i32, ptr @V3PreLexleng, align 4
-  %3212 = icmp sgt i32 %3211, 0
-  br i1 %3212, label %3213, label %3228
+3212:                                             ; preds = %209
+  %3213 = load i32, ptr @V3PreLexleng, align 4
+  %3214 = icmp sgt i32 %3213, 0
+  br i1 %3214, label %3215, label %3230
 
-3213:                                             ; preds = %3210
-  %3214 = load ptr, ptr @V3PreLextext, align 8
-  %3215 = load i32, ptr @V3PreLexleng, align 4
-  %3216 = sub nsw i32 %3215, 1
-  %3217 = sext i32 %3216 to i64
-  %3218 = getelementptr inbounds i8, ptr %3214, i64 %3217
-  %3219 = load i8, ptr %3218, align 1
-  %3220 = sext i8 %3219 to i32
-  %3221 = icmp eq i32 %3220, 10
-  %3222 = zext i1 %3221 to i32
-  %3223 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3224 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3225 = getelementptr inbounds ptr, ptr %3223, i64 %3224
-  %3226 = load ptr, ptr %3225, align 8
-  %3227 = getelementptr inbounds %struct.yy_buffer_state, ptr %3226, i32 0, i32 7
-  store i32 %3222, ptr %3227, align 8
-  br label %3228
+3215:                                             ; preds = %3212
+  %3216 = load ptr, ptr @V3PreLextext, align 8
+  %3217 = load i32, ptr @V3PreLexleng, align 4
+  %3218 = sub nsw i32 %3217, 1
+  %3219 = sext i32 %3218 to i64
+  %3220 = getelementptr inbounds i8, ptr %3216, i64 %3219
+  %3221 = load i8, ptr %3220, align 1
+  %3222 = sext i8 %3221 to i32
+  %3223 = icmp eq i32 %3222, 10
+  %3224 = zext i1 %3223 to i32
+  %3225 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3226 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3227 = getelementptr inbounds ptr, ptr %3225, i64 %3226
+  %3228 = load ptr, ptr %3227, align 8
+  %3229 = getelementptr inbounds %struct.yy_buffer_state, ptr %3228, i32 0, i32 7
+  store i32 %3224, ptr %3229, align 8
+  br label %3230
 
-3228:                                             ; preds = %3213, %3210
-  %3229 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3230 = getelementptr inbounds %class.V3PreLex, ptr %3229, i32 0, i32 14
-  store i8 1, ptr %3230, align 1
+3230:                                             ; preds = %3215, %3212
+  %3231 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3232 = getelementptr inbounds %class.V3PreLex, ptr %3231, i32 0, i32 14
+  store i8 1, ptr %3232, align 1
   call void @_ZL13yy_push_statei(i32 noundef 16)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-3231:                                             ; preds = %209, %209, %209
-  %3232 = load i32, ptr @V3PreLexleng, align 4
-  %3233 = icmp sgt i32 %3232, 0
-  br i1 %3233, label %3234, label %3249
+3233:                                             ; preds = %209, %209, %209
+  %3234 = load i32, ptr @V3PreLexleng, align 4
+  %3235 = icmp sgt i32 %3234, 0
+  br i1 %3235, label %3236, label %3251
 
-3234:                                             ; preds = %3231
-  %3235 = load ptr, ptr @V3PreLextext, align 8
-  %3236 = load i32, ptr @V3PreLexleng, align 4
-  %3237 = sub nsw i32 %3236, 1
-  %3238 = sext i32 %3237 to i64
-  %3239 = getelementptr inbounds i8, ptr %3235, i64 %3238
-  %3240 = load i8, ptr %3239, align 1
-  %3241 = sext i8 %3240 to i32
-  %3242 = icmp eq i32 %3241, 10
-  %3243 = zext i1 %3242 to i32
-  %3244 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3245 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3246 = getelementptr inbounds ptr, ptr %3244, i64 %3245
-  %3247 = load ptr, ptr %3246, align 8
-  %3248 = getelementptr inbounds %struct.yy_buffer_state, ptr %3247, i32 0, i32 7
-  store i32 %3243, ptr %3248, align 8
-  br label %3249
+3236:                                             ; preds = %3233
+  %3237 = load ptr, ptr @V3PreLextext, align 8
+  %3238 = load i32, ptr @V3PreLexleng, align 4
+  %3239 = sub nsw i32 %3238, 1
+  %3240 = sext i32 %3239 to i64
+  %3241 = getelementptr inbounds i8, ptr %3237, i64 %3240
+  %3242 = load i8, ptr %3241, align 1
+  %3243 = sext i8 %3242 to i32
+  %3244 = icmp eq i32 %3243, 10
+  %3245 = zext i1 %3244 to i32
+  %3246 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3247 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3248 = getelementptr inbounds ptr, ptr %3246, i64 %3247
+  %3249 = load ptr, ptr %3248, align 8
+  %3250 = getelementptr inbounds %struct.yy_buffer_state, ptr %3249, i32 0, i32 7
+  store i32 %3245, ptr %3250, align 8
+  br label %3251
 
-3249:                                             ; preds = %3234, %3231
-  %3250 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3251 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3250)
-  %3252 = load ptr, ptr @V3PreLextext, align 8
-  %3253 = load i32, ptr @V3PreLexleng, align 4
-  %3254 = sext i32 %3253 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3251, ptr noundef %3252, i64 noundef %3254, i1 noundef zeroext false)
-  %3255 = load ptr, ptr @V3PreLextext, align 8
-  %3256 = load i32, ptr @V3PreLexleng, align 4
-  %3257 = sext i32 %3256 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %3255, i64 noundef %3257)
-  %3258 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3259 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3258)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3259)
-  br label %5026
+3251:                                             ; preds = %3236, %3233
+  %3252 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3253 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3252)
+  %3254 = load ptr, ptr @V3PreLextext, align 8
+  %3255 = load i32, ptr @V3PreLexleng, align 4
+  %3256 = sext i32 %3255 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3253, ptr noundef %3254, i64 noundef %3256, i1 noundef zeroext false)
+  %3257 = load ptr, ptr @V3PreLextext, align 8
+  %3258 = load i32, ptr @V3PreLexleng, align 4
+  %3259 = sext i32 %3258 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %3257, i64 noundef %3259)
+  %3260 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3261 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3260)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3261)
+  br label %5028
 
-3260:                                             ; preds = %209
-  %3261 = load i32, ptr @V3PreLexleng, align 4
-  %3262 = icmp sgt i32 %3261, 0
-  br i1 %3262, label %3263, label %3278
+3262:                                             ; preds = %209
+  %3263 = load i32, ptr @V3PreLexleng, align 4
+  %3264 = icmp sgt i32 %3263, 0
+  br i1 %3264, label %3265, label %3280
 
-3263:                                             ; preds = %3260
-  %3264 = load ptr, ptr @V3PreLextext, align 8
-  %3265 = load i32, ptr @V3PreLexleng, align 4
-  %3266 = sub nsw i32 %3265, 1
-  %3267 = sext i32 %3266 to i64
-  %3268 = getelementptr inbounds i8, ptr %3264, i64 %3267
-  %3269 = load i8, ptr %3268, align 1
-  %3270 = sext i8 %3269 to i32
-  %3271 = icmp eq i32 %3270, 10
-  %3272 = zext i1 %3271 to i32
-  %3273 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3274 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3275 = getelementptr inbounds ptr, ptr %3273, i64 %3274
-  %3276 = load ptr, ptr %3275, align 8
-  %3277 = getelementptr inbounds %struct.yy_buffer_state, ptr %3276, i32 0, i32 7
-  store i32 %3272, ptr %3277, align 8
-  br label %3278
+3265:                                             ; preds = %3262
+  %3266 = load ptr, ptr @V3PreLextext, align 8
+  %3267 = load i32, ptr @V3PreLexleng, align 4
+  %3268 = sub nsw i32 %3267, 1
+  %3269 = sext i32 %3268 to i64
+  %3270 = getelementptr inbounds i8, ptr %3266, i64 %3269
+  %3271 = load i8, ptr %3270, align 1
+  %3272 = sext i8 %3271 to i32
+  %3273 = icmp eq i32 %3272, 10
+  %3274 = zext i1 %3273 to i32
+  %3275 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3276 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3277 = getelementptr inbounds ptr, ptr %3275, i64 %3276
+  %3278 = load ptr, ptr %3277, align 8
+  %3279 = getelementptr inbounds %struct.yy_buffer_state, ptr %3278, i32 0, i32 7
+  store i32 %3274, ptr %3279, align 8
+  br label %3280
 
-3278:                                             ; preds = %3263, %3260
-  %3279 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3280 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3279)
-  %3281 = load ptr, ptr @V3PreLextext, align 8
-  %3282 = load i32, ptr @V3PreLexleng, align 4
-  %3283 = sext i32 %3282 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3280, ptr noundef %3281, i64 noundef %3283, i1 noundef zeroext false)
+3280:                                             ; preds = %3265, %3262
+  %3281 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3282 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3281)
+  %3283 = load ptr, ptr @V3PreLextext, align 8
+  %3284 = load i32, ptr @V3PreLexleng, align 4
+  %3285 = sext i32 %3284 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3282, ptr noundef %3283, i64 noundef %3285, i1 noundef zeroext false)
   call void @_ZL12yy_pop_statev()
-  %3284 = load ptr, ptr @V3PreLextext, align 8
-  %3285 = load i32, ptr @V3PreLexleng, align 4
-  %3286 = sext i32 %3285 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %3284, i64 noundef %3286)
-  %3287 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3288 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3287)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3288)
-  br label %5026
+  %3286 = load ptr, ptr @V3PreLextext, align 8
+  %3287 = load i32, ptr @V3PreLexleng, align 4
+  %3288 = sext i32 %3287 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %3286, i64 noundef %3288)
+  %3289 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3290 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3289)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3290)
+  br label %5028
 
-3289:                                             ; preds = %209
-  %3290 = load i32, ptr @V3PreLexleng, align 4
-  %3291 = icmp sgt i32 %3290, 0
-  br i1 %3291, label %3292, label %3307
+3291:                                             ; preds = %209
+  %3292 = load i32, ptr @V3PreLexleng, align 4
+  %3293 = icmp sgt i32 %3292, 0
+  br i1 %3293, label %3294, label %3309
 
-3292:                                             ; preds = %3289
-  %3293 = load ptr, ptr @V3PreLextext, align 8
-  %3294 = load i32, ptr @V3PreLexleng, align 4
-  %3295 = sub nsw i32 %3294, 1
-  %3296 = sext i32 %3295 to i64
-  %3297 = getelementptr inbounds i8, ptr %3293, i64 %3296
-  %3298 = load i8, ptr %3297, align 1
-  %3299 = sext i8 %3298 to i32
-  %3300 = icmp eq i32 %3299, 10
-  %3301 = zext i1 %3300 to i32
-  %3302 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3303 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3304 = getelementptr inbounds ptr, ptr %3302, i64 %3303
-  %3305 = load ptr, ptr %3304, align 8
-  %3306 = getelementptr inbounds %struct.yy_buffer_state, ptr %3305, i32 0, i32 7
-  store i32 %3301, ptr %3306, align 8
-  br label %3307
-
-3307:                                             ; preds = %3292, %3289
-  %3308 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  call void @_ZN8V3PreLex18warnBackslashSpaceEv(ptr noundef nonnull align 8 dereferenceable(264) %3308)
+3294:                                             ; preds = %3291
+  %3295 = load ptr, ptr @V3PreLextext, align 8
+  %3296 = load i32, ptr @V3PreLexleng, align 4
+  %3297 = sub nsw i32 %3296, 1
+  %3298 = sext i32 %3297 to i64
+  %3299 = getelementptr inbounds i8, ptr %3295, i64 %3298
+  %3300 = load i8, ptr %3299, align 1
+  %3301 = sext i8 %3300 to i32
+  %3302 = icmp eq i32 %3301, 10
+  %3303 = zext i1 %3302 to i32
+  %3304 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3305 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3306 = getelementptr inbounds ptr, ptr %3304, i64 %3305
+  %3307 = load ptr, ptr %3306, align 8
+  %3308 = getelementptr inbounds %struct.yy_buffer_state, ptr %3307, i32 0, i32 7
+  store i32 %3303, ptr %3308, align 8
   br label %3309
 
-3309:                                             ; preds = %3307
+3309:                                             ; preds = %3294, %3291
+  %3310 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  call void @_ZN8V3PreLex18warnBackslashSpaceEv(ptr noundef nonnull align 8 dereferenceable(264) %3310)
+  br label %3311
+
+3311:                                             ; preds = %3309
   store i32 1, ptr %53, align 4
-  %3310 = load i8, ptr @_ZL12yy_hold_char, align 1
-  %3311 = load ptr, ptr %3, align 8
-  store i8 %3310, ptr %3311, align 1
-  %3312 = load ptr, ptr %4, align 8
-  %3313 = load i32, ptr %53, align 4
-  %3314 = sext i32 %3313 to i64
-  %3315 = getelementptr inbounds i8, ptr %3312, i64 %3314
-  %3316 = load i32, ptr @_ZL11yy_more_len, align 4
-  %3317 = sext i32 %3316 to i64
-  %3318 = sub i64 0, %3317
-  %3319 = getelementptr inbounds i8, ptr %3315, i64 %3318
-  store ptr %3319, ptr %3, align 8
-  store ptr %3319, ptr @_ZL10yy_c_buf_p, align 8
-  %3320 = load ptr, ptr %4, align 8
-  store ptr %3320, ptr @V3PreLextext, align 8
-  %3321 = load i32, ptr @_ZL11yy_more_len, align 4
-  %3322 = load ptr, ptr @V3PreLextext, align 8
-  %3323 = sext i32 %3321 to i64
-  %3324 = sub i64 0, %3323
-  %3325 = getelementptr inbounds i8, ptr %3322, i64 %3324
-  store ptr %3325, ptr @V3PreLextext, align 8
-  %3326 = load ptr, ptr %3, align 8
-  %3327 = load ptr, ptr @V3PreLextext, align 8
-  %3328 = ptrtoint ptr %3326 to i64
-  %3329 = ptrtoint ptr %3327 to i64
-  %3330 = sub i64 %3328, %3329
-  %3331 = trunc i64 %3330 to i32
-  store i32 %3331, ptr @V3PreLexleng, align 4
-  %3332 = load ptr, ptr %3, align 8
-  %3333 = load i8, ptr %3332, align 1
-  store i8 %3333, ptr @_ZL12yy_hold_char, align 1
+  %3312 = load i8, ptr @_ZL12yy_hold_char, align 1
+  %3313 = load ptr, ptr %3, align 8
+  store i8 %3312, ptr %3313, align 1
+  %3314 = load ptr, ptr %4, align 8
+  %3315 = load i32, ptr %53, align 4
+  %3316 = sext i32 %3315 to i64
+  %3317 = getelementptr inbounds i8, ptr %3314, i64 %3316
+  %3318 = load i32, ptr @_ZL11yy_more_len, align 4
+  %3319 = sext i32 %3318 to i64
+  %3320 = sub i64 0, %3319
+  %3321 = getelementptr inbounds i8, ptr %3317, i64 %3320
+  store ptr %3321, ptr %3, align 8
+  store ptr %3321, ptr @_ZL10yy_c_buf_p, align 8
+  %3322 = load ptr, ptr %4, align 8
+  store ptr %3322, ptr @V3PreLextext, align 8
+  %3323 = load i32, ptr @_ZL11yy_more_len, align 4
+  %3324 = load ptr, ptr @V3PreLextext, align 8
+  %3325 = sext i32 %3323 to i64
+  %3326 = sub i64 0, %3325
+  %3327 = getelementptr inbounds i8, ptr %3324, i64 %3326
+  store ptr %3327, ptr @V3PreLextext, align 8
+  %3328 = load ptr, ptr %3, align 8
+  %3329 = load ptr, ptr @V3PreLextext, align 8
+  %3330 = ptrtoint ptr %3328 to i64
+  %3331 = ptrtoint ptr %3329 to i64
+  %3332 = sub i64 %3330, %3331
+  %3333 = trunc i64 %3332 to i32
+  store i32 %3333, ptr @V3PreLexleng, align 4
   %3334 = load ptr, ptr %3, align 8
-  store i8 0, ptr %3334, align 1
-  %3335 = load ptr, ptr %3, align 8
-  store ptr %3335, ptr @_ZL10yy_c_buf_p, align 8
-  br label %3336
+  %3335 = load i8, ptr %3334, align 1
+  store i8 %3335, ptr @_ZL12yy_hold_char, align 1
+  %3336 = load ptr, ptr %3, align 8
+  store i8 0, ptr %3336, align 1
+  %3337 = load ptr, ptr %3, align 8
+  store ptr %3337, ptr @_ZL10yy_c_buf_p, align 8
+  br label %3338
 
-3336:                                             ; preds = %3309
-  br label %5026
+3338:                                             ; preds = %3311
+  br label %5028
 
-3337:                                             ; preds = %209
-  %3338 = load i32, ptr @V3PreLexleng, align 4
-  %3339 = icmp sgt i32 %3338, 0
-  br i1 %3339, label %3340, label %3355
+3339:                                             ; preds = %209
+  %3340 = load i32, ptr @V3PreLexleng, align 4
+  %3341 = icmp sgt i32 %3340, 0
+  br i1 %3341, label %3342, label %3357
 
-3340:                                             ; preds = %3337
-  %3341 = load ptr, ptr @V3PreLextext, align 8
-  %3342 = load i32, ptr @V3PreLexleng, align 4
-  %3343 = sub nsw i32 %3342, 1
-  %3344 = sext i32 %3343 to i64
-  %3345 = getelementptr inbounds i8, ptr %3341, i64 %3344
-  %3346 = load i8, ptr %3345, align 1
-  %3347 = sext i8 %3346 to i32
-  %3348 = icmp eq i32 %3347, 10
-  %3349 = zext i1 %3348 to i32
-  %3350 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3351 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3352 = getelementptr inbounds ptr, ptr %3350, i64 %3351
-  %3353 = load ptr, ptr %3352, align 8
-  %3354 = getelementptr inbounds %struct.yy_buffer_state, ptr %3353, i32 0, i32 7
-  store i32 %3349, ptr %3354, align 8
-  br label %3355
+3342:                                             ; preds = %3339
+  %3343 = load ptr, ptr @V3PreLextext, align 8
+  %3344 = load i32, ptr @V3PreLexleng, align 4
+  %3345 = sub nsw i32 %3344, 1
+  %3346 = sext i32 %3345 to i64
+  %3347 = getelementptr inbounds i8, ptr %3343, i64 %3346
+  %3348 = load i8, ptr %3347, align 1
+  %3349 = sext i8 %3348 to i32
+  %3350 = icmp eq i32 %3349, 10
+  %3351 = zext i1 %3350 to i32
+  %3352 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3353 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3354 = getelementptr inbounds ptr, ptr %3352, i64 %3353
+  %3355 = load ptr, ptr %3354, align 8
+  %3356 = getelementptr inbounds %struct.yy_buffer_state, ptr %3355, i32 0, i32 7
+  store i32 %3351, ptr %3356, align 8
+  br label %3357
 
-3355:                                             ; preds = %3340, %3337
-  %3356 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3357 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3356)
-  %3358 = load ptr, ptr @V3PreLextext, align 8
-  %3359 = load i32, ptr @V3PreLexleng, align 4
-  %3360 = sext i32 %3359 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3357, ptr noundef %3358, i64 noundef %3360, i1 noundef zeroext false)
+3357:                                             ; preds = %3342, %3339
+  %3358 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3359 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3358)
+  %3360 = load ptr, ptr @V3PreLextext, align 8
+  %3361 = load i32, ptr @V3PreLexleng, align 4
+  %3362 = sext i32 %3361 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3359, ptr noundef %3360, i64 noundef %3362, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
-  %3361 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3362 = getelementptr inbounds %class.V3PreLex, ptr %3361, i32 0, i32 13
-  store i8 1, ptr %3362, align 4
-  %3363 = load ptr, ptr @V3PreLextext, align 8
-  %3364 = load i32, ptr @V3PreLexleng, align 4
-  %3365 = sub nsw i32 %3364, 2
-  %3366 = sext i32 %3365 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %3363, i64 noundef %3366)
+  %3363 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3364 = getelementptr inbounds %class.V3PreLex, ptr %3363, i32 0, i32 13
+  store i8 1, ptr %3364, align 4
+  %3365 = load ptr, ptr @V3PreLextext, align 8
+  %3366 = load i32, ptr @V3PreLexleng, align 4
+  %3367 = sub nsw i32 %3366, 2
+  %3368 = sext i32 %3367 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %3365, i64 noundef %3368)
   call void @_ZL14appendDefValuePKcm(ptr noundef @.str.22, i64 noundef 1)
-  %3367 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3368 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3367)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3368)
-  br label %5026
+  %3369 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3370 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3369)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3370)
+  br label %5028
 
-3369:                                             ; preds = %209
-  %3370 = load i32, ptr @V3PreLexleng, align 4
-  %3371 = icmp sgt i32 %3370, 0
-  br i1 %3371, label %3372, label %3387
+3371:                                             ; preds = %209
+  %3372 = load i32, ptr @V3PreLexleng, align 4
+  %3373 = icmp sgt i32 %3372, 0
+  br i1 %3373, label %3374, label %3389
 
-3372:                                             ; preds = %3369
-  %3373 = load ptr, ptr @V3PreLextext, align 8
-  %3374 = load i32, ptr @V3PreLexleng, align 4
-  %3375 = sub nsw i32 %3374, 1
-  %3376 = sext i32 %3375 to i64
-  %3377 = getelementptr inbounds i8, ptr %3373, i64 %3376
-  %3378 = load i8, ptr %3377, align 1
-  %3379 = sext i8 %3378 to i32
-  %3380 = icmp eq i32 %3379, 10
-  %3381 = zext i1 %3380 to i32
-  %3382 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3383 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3384 = getelementptr inbounds ptr, ptr %3382, i64 %3383
-  %3385 = load ptr, ptr %3384, align 8
-  %3386 = getelementptr inbounds %struct.yy_buffer_state, ptr %3385, i32 0, i32 7
-  store i32 %3381, ptr %3386, align 8
-  br label %3387
+3374:                                             ; preds = %3371
+  %3375 = load ptr, ptr @V3PreLextext, align 8
+  %3376 = load i32, ptr @V3PreLexleng, align 4
+  %3377 = sub nsw i32 %3376, 1
+  %3378 = sext i32 %3377 to i64
+  %3379 = getelementptr inbounds i8, ptr %3375, i64 %3378
+  %3380 = load i8, ptr %3379, align 1
+  %3381 = sext i8 %3380 to i32
+  %3382 = icmp eq i32 %3381, 10
+  %3383 = zext i1 %3382 to i32
+  %3384 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3385 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3386 = getelementptr inbounds ptr, ptr %3384, i64 %3385
+  %3387 = load ptr, ptr %3386, align 8
+  %3388 = getelementptr inbounds %struct.yy_buffer_state, ptr %3387, i32 0, i32 7
+  store i32 %3383, ptr %3388, align 8
+  br label %3389
 
-3387:                                             ; preds = %3372, %3369
+3389:                                             ; preds = %3374, %3371
   call void @_ZL9linenoIncv()
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  %3388 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3389 = getelementptr inbounds %class.V3PreLex, ptr %3388, i32 0, i32 13
-  %3390 = load i8, ptr %3389, align 4
-  %3391 = trunc i8 %3390 to i1
-  br i1 %3391, label %3392, label %3393
+  %3390 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3391 = getelementptr inbounds %class.V3PreLex, ptr %3390, i32 0, i32 13
+  %3392 = load i8, ptr %3391, align 4
+  %3393 = trunc i8 %3392 to i1
+  br i1 %3393, label %3394, label %3395
 
-3392:                                             ; preds = %3387
+3394:                                             ; preds = %3389
   call void @_ZL14V3PreLexerrorfPKc(ptr noundef @.str.29)
-  br label %3393
+  br label %3395
 
-3393:                                             ; preds = %3392, %3387
+3395:                                             ; preds = %3394, %3389
   store i32 5, ptr @_ZL8yy_start, align 4
-  br label %5026
+  br label %5028
 
-3394:                                             ; preds = %209
-  %3395 = load i32, ptr @V3PreLexleng, align 4
-  %3396 = icmp sgt i32 %3395, 0
-  br i1 %3396, label %3397, label %3412
+3396:                                             ; preds = %209
+  %3397 = load i32, ptr @V3PreLexleng, align 4
+  %3398 = icmp sgt i32 %3397, 0
+  br i1 %3398, label %3399, label %3414
 
-3397:                                             ; preds = %3394
-  %3398 = load ptr, ptr @V3PreLextext, align 8
-  %3399 = load i32, ptr @V3PreLexleng, align 4
-  %3400 = sub nsw i32 %3399, 1
-  %3401 = sext i32 %3400 to i64
-  %3402 = getelementptr inbounds i8, ptr %3398, i64 %3401
-  %3403 = load i8, ptr %3402, align 1
-  %3404 = sext i8 %3403 to i32
-  %3405 = icmp eq i32 %3404, 10
-  %3406 = zext i1 %3405 to i32
-  %3407 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3408 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3409 = getelementptr inbounds ptr, ptr %3407, i64 %3408
-  %3410 = load ptr, ptr %3409, align 8
-  %3411 = getelementptr inbounds %struct.yy_buffer_state, ptr %3410, i32 0, i32 7
-  store i32 %3406, ptr %3411, align 8
-  br label %3412
+3399:                                             ; preds = %3396
+  %3400 = load ptr, ptr @V3PreLextext, align 8
+  %3401 = load i32, ptr @V3PreLexleng, align 4
+  %3402 = sub nsw i32 %3401, 1
+  %3403 = sext i32 %3402 to i64
+  %3404 = getelementptr inbounds i8, ptr %3400, i64 %3403
+  %3405 = load i8, ptr %3404, align 1
+  %3406 = sext i8 %3405 to i32
+  %3407 = icmp eq i32 %3406, 10
+  %3408 = zext i1 %3407 to i32
+  %3409 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3410 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3411 = getelementptr inbounds ptr, ptr %3409, i64 %3410
+  %3412 = load ptr, ptr %3411, align 8
+  %3413 = getelementptr inbounds %struct.yy_buffer_state, ptr %3412, i32 0, i32 7
+  store i32 %3408, ptr %3413, align 8
+  br label %3414
 
-3412:                                             ; preds = %3397, %3394
+3414:                                             ; preds = %3399, %3396
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-3413:                                             ; preds = %209
-  %3414 = load i32, ptr @V3PreLexleng, align 4
-  %3415 = icmp sgt i32 %3414, 0
-  br i1 %3415, label %3416, label %3431
+3415:                                             ; preds = %209
+  %3416 = load i32, ptr @V3PreLexleng, align 4
+  %3417 = icmp sgt i32 %3416, 0
+  br i1 %3417, label %3418, label %3433
 
-3416:                                             ; preds = %3413
-  %3417 = load ptr, ptr @V3PreLextext, align 8
-  %3418 = load i32, ptr @V3PreLexleng, align 4
-  %3419 = sub nsw i32 %3418, 1
-  %3420 = sext i32 %3419 to i64
-  %3421 = getelementptr inbounds i8, ptr %3417, i64 %3420
-  %3422 = load i8, ptr %3421, align 1
-  %3423 = sext i8 %3422 to i32
-  %3424 = icmp eq i32 %3423, 10
-  %3425 = zext i1 %3424 to i32
-  %3426 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3427 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3428 = getelementptr inbounds ptr, ptr %3426, i64 %3427
-  %3429 = load ptr, ptr %3428, align 8
-  %3430 = getelementptr inbounds %struct.yy_buffer_state, ptr %3429, i32 0, i32 7
-  store i32 %3425, ptr %3430, align 8
-  br label %3431
+3418:                                             ; preds = %3415
+  %3419 = load ptr, ptr @V3PreLextext, align 8
+  %3420 = load i32, ptr @V3PreLexleng, align 4
+  %3421 = sub nsw i32 %3420, 1
+  %3422 = sext i32 %3421 to i64
+  %3423 = getelementptr inbounds i8, ptr %3419, i64 %3422
+  %3424 = load i8, ptr %3423, align 1
+  %3425 = sext i8 %3424 to i32
+  %3426 = icmp eq i32 %3425, 10
+  %3427 = zext i1 %3426 to i32
+  %3428 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3429 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3430 = getelementptr inbounds ptr, ptr %3428, i64 %3429
+  %3431 = load ptr, ptr %3430, align 8
+  %3432 = getelementptr inbounds %struct.yy_buffer_state, ptr %3431, i32 0, i32 7
+  store i32 %3427, ptr %3432, align 8
+  br label %3433
 
-3431:                                             ; preds = %3416, %3413
+3433:                                             ; preds = %3418, %3415
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-3432:                                             ; preds = %209
-  %3433 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3434 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3433)
-  %3435 = load ptr, ptr @V3PreLextext, align 8
-  %3436 = load i32, ptr @V3PreLexleng, align 4
-  %3437 = sext i32 %3436 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3434, ptr noundef %3435, i64 noundef %3437, i1 noundef zeroext false)
+3434:                                             ; preds = %209
+  %3435 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3436 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3435)
+  %3437 = load ptr, ptr @V3PreLextext, align 8
+  %3438 = load i32, ptr @V3PreLexleng, align 4
+  %3439 = sext i32 %3438 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3436, ptr noundef %3437, i64 noundef %3439, i1 noundef zeroext false)
   call void @_ZL14V3PreLexerrorfPKc(ptr noundef @.str.30)
   store i32 0, ptr @V3PreLexleng, align 4
   store i32 400, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3438:                                             ; preds = %209
-  %3439 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3440 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3439)
-  %3441 = load ptr, ptr @V3PreLextext, align 8
-  %3442 = load i32, ptr @V3PreLexleng, align 4
-  %3443 = sext i32 %3442 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3440, ptr noundef %3441, i64 noundef %3443, i1 noundef zeroext false)
+3440:                                             ; preds = %209
+  %3441 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3442 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3441)
+  %3443 = load ptr, ptr @V3PreLextext, align 8
+  %3444 = load i32, ptr @V3PreLexleng, align 4
+  %3445 = sext i32 %3444 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3442, ptr noundef %3443, i64 noundef %3445, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   call void @_ZL14V3PreLexerrorfPKc(ptr noundef @.str.31)
   store i32 0, ptr @V3PreLexleng, align 4
   store i32 400, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3444:                                             ; preds = %209
-  %3445 = load i32, ptr @V3PreLexleng, align 4
-  %3446 = icmp sgt i32 %3445, 0
-  br i1 %3446, label %3447, label %3462
+3446:                                             ; preds = %209
+  %3447 = load i32, ptr @V3PreLexleng, align 4
+  %3448 = icmp sgt i32 %3447, 0
+  br i1 %3448, label %3449, label %3464
 
-3447:                                             ; preds = %3444
-  %3448 = load ptr, ptr @V3PreLextext, align 8
-  %3449 = load i32, ptr @V3PreLexleng, align 4
-  %3450 = sub nsw i32 %3449, 1
-  %3451 = sext i32 %3450 to i64
-  %3452 = getelementptr inbounds i8, ptr %3448, i64 %3451
-  %3453 = load i8, ptr %3452, align 1
-  %3454 = sext i8 %3453 to i32
-  %3455 = icmp eq i32 %3454, 10
-  %3456 = zext i1 %3455 to i32
-  %3457 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3458 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3459 = getelementptr inbounds ptr, ptr %3457, i64 %3458
-  %3460 = load ptr, ptr %3459, align 8
-  %3461 = getelementptr inbounds %struct.yy_buffer_state, ptr %3460, i32 0, i32 7
-  store i32 %3456, ptr %3461, align 8
-  br label %3462
+3449:                                             ; preds = %3446
+  %3450 = load ptr, ptr @V3PreLextext, align 8
+  %3451 = load i32, ptr @V3PreLexleng, align 4
+  %3452 = sub nsw i32 %3451, 1
+  %3453 = sext i32 %3452 to i64
+  %3454 = getelementptr inbounds i8, ptr %3450, i64 %3453
+  %3455 = load i8, ptr %3454, align 1
+  %3456 = sext i8 %3455 to i32
+  %3457 = icmp eq i32 %3456, 10
+  %3458 = zext i1 %3457 to i32
+  %3459 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3460 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3461 = getelementptr inbounds ptr, ptr %3459, i64 %3460
+  %3462 = load ptr, ptr %3461, align 8
+  %3463 = getelementptr inbounds %struct.yy_buffer_state, ptr %3462, i32 0, i32 7
+  store i32 %3458, ptr %3463, align 8
+  br label %3464
 
-3462:                                             ; preds = %3447, %3444
+3464:                                             ; preds = %3449, %3446
   call void @_ZL13yy_push_statei(i32 noundef 2)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-3463:                                             ; preds = %209
-  %3464 = load i32, ptr @V3PreLexleng, align 4
-  %3465 = icmp sgt i32 %3464, 0
-  br i1 %3465, label %3466, label %3481
+3465:                                             ; preds = %209
+  %3466 = load i32, ptr @V3PreLexleng, align 4
+  %3467 = icmp sgt i32 %3466, 0
+  br i1 %3467, label %3468, label %3483
 
-3466:                                             ; preds = %3463
-  %3467 = load ptr, ptr @V3PreLextext, align 8
-  %3468 = load i32, ptr @V3PreLexleng, align 4
-  %3469 = sub nsw i32 %3468, 1
-  %3470 = sext i32 %3469 to i64
-  %3471 = getelementptr inbounds i8, ptr %3467, i64 %3470
-  %3472 = load i8, ptr %3471, align 1
-  %3473 = sext i8 %3472 to i32
-  %3474 = icmp eq i32 %3473, 10
-  %3475 = zext i1 %3474 to i32
-  %3476 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3477 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3478 = getelementptr inbounds ptr, ptr %3476, i64 %3477
-  %3479 = load ptr, ptr %3478, align 8
-  %3480 = getelementptr inbounds %struct.yy_buffer_state, ptr %3479, i32 0, i32 7
-  store i32 %3475, ptr %3480, align 8
-  br label %3481
+3468:                                             ; preds = %3465
+  %3469 = load ptr, ptr @V3PreLextext, align 8
+  %3470 = load i32, ptr @V3PreLexleng, align 4
+  %3471 = sub nsw i32 %3470, 1
+  %3472 = sext i32 %3471 to i64
+  %3473 = getelementptr inbounds i8, ptr %3469, i64 %3472
+  %3474 = load i8, ptr %3473, align 1
+  %3475 = sext i8 %3474 to i32
+  %3476 = icmp eq i32 %3475, 10
+  %3477 = zext i1 %3476 to i32
+  %3478 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3479 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3480 = getelementptr inbounds ptr, ptr %3478, i64 %3479
+  %3481 = load ptr, ptr %3480, align 8
+  %3482 = getelementptr inbounds %struct.yy_buffer_state, ptr %3481, i32 0, i32 7
+  store i32 %3477, ptr %3482, align 8
+  br label %3483
 
-3481:                                             ; preds = %3466, %3463
-  %3482 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3483 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3482)
-  %3484 = load ptr, ptr @V3PreLextext, align 8
-  %3485 = load i32, ptr @V3PreLexleng, align 4
-  %3486 = sext i32 %3485 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3483, ptr noundef %3484, i64 noundef %3486, i1 noundef zeroext false)
+3483:                                             ; preds = %3468, %3465
+  %3484 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3485 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3484)
+  %3486 = load ptr, ptr @V3PreLextext, align 8
+  %3487 = load i32, ptr @V3PreLexleng, align 4
+  %3488 = sext i32 %3487 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3485, ptr noundef %3486, i64 noundef %3488, i1 noundef zeroext false)
   store i32 303, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3487:                                             ; preds = %209
-  %3488 = load i32, ptr @V3PreLexleng, align 4
-  %3489 = icmp sgt i32 %3488, 0
-  br i1 %3489, label %3490, label %3505
+3489:                                             ; preds = %209
+  %3490 = load i32, ptr @V3PreLexleng, align 4
+  %3491 = icmp sgt i32 %3490, 0
+  br i1 %3491, label %3492, label %3507
 
-3490:                                             ; preds = %3487
-  %3491 = load ptr, ptr @V3PreLextext, align 8
-  %3492 = load i32, ptr @V3PreLexleng, align 4
-  %3493 = sub nsw i32 %3492, 1
-  %3494 = sext i32 %3493 to i64
-  %3495 = getelementptr inbounds i8, ptr %3491, i64 %3494
-  %3496 = load i8, ptr %3495, align 1
-  %3497 = sext i8 %3496 to i32
-  %3498 = icmp eq i32 %3497, 10
-  %3499 = zext i1 %3498 to i32
-  %3500 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3501 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3502 = getelementptr inbounds ptr, ptr %3500, i64 %3501
-  %3503 = load ptr, ptr %3502, align 8
-  %3504 = getelementptr inbounds %struct.yy_buffer_state, ptr %3503, i32 0, i32 7
-  store i32 %3499, ptr %3504, align 8
-  br label %3505
+3492:                                             ; preds = %3489
+  %3493 = load ptr, ptr @V3PreLextext, align 8
+  %3494 = load i32, ptr @V3PreLexleng, align 4
+  %3495 = sub nsw i32 %3494, 1
+  %3496 = sext i32 %3495 to i64
+  %3497 = getelementptr inbounds i8, ptr %3493, i64 %3496
+  %3498 = load i8, ptr %3497, align 1
+  %3499 = sext i8 %3498 to i32
+  %3500 = icmp eq i32 %3499, 10
+  %3501 = zext i1 %3500 to i32
+  %3502 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3503 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3504 = getelementptr inbounds ptr, ptr %3502, i64 %3503
+  %3505 = load ptr, ptr %3504, align 8
+  %3506 = getelementptr inbounds %struct.yy_buffer_state, ptr %3505, i32 0, i32 7
+  store i32 %3501, ptr %3506, align 8
+  br label %3507
 
-3505:                                             ; preds = %3490, %3487
-  %3506 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3507 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3506)
-  %3508 = load ptr, ptr @V3PreLextext, align 8
-  %3509 = load i32, ptr @V3PreLexleng, align 4
-  %3510 = sext i32 %3509 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3507, ptr noundef %3508, i64 noundef %3510, i1 noundef zeroext false)
+3507:                                             ; preds = %3492, %3489
+  %3508 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3509 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3508)
+  %3510 = load ptr, ptr @V3PreLextext, align 8
+  %3511 = load i32, ptr @V3PreLexleng, align 4
+  %3512 = sext i32 %3511 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3509, ptr noundef %3510, i64 noundef %3512, i1 noundef zeroext false)
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3511:                                             ; preds = %209
-  %3512 = load i32, ptr @V3PreLexleng, align 4
-  %3513 = icmp sgt i32 %3512, 0
-  br i1 %3513, label %3514, label %3529
+3513:                                             ; preds = %209
+  %3514 = load i32, ptr @V3PreLexleng, align 4
+  %3515 = icmp sgt i32 %3514, 0
+  br i1 %3515, label %3516, label %3531
 
-3514:                                             ; preds = %3511
-  %3515 = load ptr, ptr @V3PreLextext, align 8
-  %3516 = load i32, ptr @V3PreLexleng, align 4
-  %3517 = sub nsw i32 %3516, 1
-  %3518 = sext i32 %3517 to i64
-  %3519 = getelementptr inbounds i8, ptr %3515, i64 %3518
-  %3520 = load i8, ptr %3519, align 1
-  %3521 = sext i8 %3520 to i32
-  %3522 = icmp eq i32 %3521, 10
-  %3523 = zext i1 %3522 to i32
-  %3524 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3525 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3526 = getelementptr inbounds ptr, ptr %3524, i64 %3525
-  %3527 = load ptr, ptr %3526, align 8
-  %3528 = getelementptr inbounds %struct.yy_buffer_state, ptr %3527, i32 0, i32 7
-  store i32 %3523, ptr %3528, align 8
-  br label %3529
+3516:                                             ; preds = %3513
+  %3517 = load ptr, ptr @V3PreLextext, align 8
+  %3518 = load i32, ptr @V3PreLexleng, align 4
+  %3519 = sub nsw i32 %3518, 1
+  %3520 = sext i32 %3519 to i64
+  %3521 = getelementptr inbounds i8, ptr %3517, i64 %3520
+  %3522 = load i8, ptr %3521, align 1
+  %3523 = sext i8 %3522 to i32
+  %3524 = icmp eq i32 %3523, 10
+  %3525 = zext i1 %3524 to i32
+  %3526 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3527 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3528 = getelementptr inbounds ptr, ptr %3526, i64 %3527
+  %3529 = load ptr, ptr %3528, align 8
+  %3530 = getelementptr inbounds %struct.yy_buffer_state, ptr %3529, i32 0, i32 7
+  store i32 %3525, ptr %3530, align 8
+  br label %3531
 
-3529:                                             ; preds = %3514, %3511
-  %3530 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3531 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3530)
-  %3532 = load ptr, ptr @V3PreLextext, align 8
-  %3533 = load i32, ptr @V3PreLexleng, align 4
-  %3534 = sext i32 %3533 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3531, ptr noundef %3532, i64 noundef %3534, i1 noundef zeroext false)
+3531:                                             ; preds = %3516, %3513
+  %3532 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3533 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3532)
+  %3534 = load ptr, ptr @V3PreLextext, align 8
+  %3535 = load i32, ptr @V3PreLexleng, align 4
+  %3536 = sext i32 %3535 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3533, ptr noundef %3534, i64 noundef %3536, i1 noundef zeroext false)
   call void @_ZL12yy_pop_statev()
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3535:                                             ; preds = %209
-  %3536 = load i32, ptr @V3PreLexleng, align 4
-  %3537 = icmp sgt i32 %3536, 0
-  br i1 %3537, label %3538, label %3553
+3537:                                             ; preds = %209
+  %3538 = load i32, ptr @V3PreLexleng, align 4
+  %3539 = icmp sgt i32 %3538, 0
+  br i1 %3539, label %3540, label %3555
 
-3538:                                             ; preds = %3535
-  %3539 = load ptr, ptr @V3PreLextext, align 8
-  %3540 = load i32, ptr @V3PreLexleng, align 4
-  %3541 = sub nsw i32 %3540, 1
-  %3542 = sext i32 %3541 to i64
-  %3543 = getelementptr inbounds i8, ptr %3539, i64 %3542
-  %3544 = load i8, ptr %3543, align 1
-  %3545 = sext i8 %3544 to i32
-  %3546 = icmp eq i32 %3545, 10
-  %3547 = zext i1 %3546 to i32
-  %3548 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3549 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3550 = getelementptr inbounds ptr, ptr %3548, i64 %3549
-  %3551 = load ptr, ptr %3550, align 8
-  %3552 = getelementptr inbounds %struct.yy_buffer_state, ptr %3551, i32 0, i32 7
-  store i32 %3547, ptr %3552, align 8
-  br label %3553
+3540:                                             ; preds = %3537
+  %3541 = load ptr, ptr @V3PreLextext, align 8
+  %3542 = load i32, ptr @V3PreLexleng, align 4
+  %3543 = sub nsw i32 %3542, 1
+  %3544 = sext i32 %3543 to i64
+  %3545 = getelementptr inbounds i8, ptr %3541, i64 %3544
+  %3546 = load i8, ptr %3545, align 1
+  %3547 = sext i8 %3546 to i32
+  %3548 = icmp eq i32 %3547, 10
+  %3549 = zext i1 %3548 to i32
+  %3550 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3551 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3552 = getelementptr inbounds ptr, ptr %3550, i64 %3551
+  %3553 = load ptr, ptr %3552, align 8
+  %3554 = getelementptr inbounds %struct.yy_buffer_state, ptr %3553, i32 0, i32 7
+  store i32 %3549, ptr %3554, align 8
+  br label %3555
 
-3553:                                             ; preds = %3538, %3535
-  %3554 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3555 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3554)
-  %3556 = load ptr, ptr @V3PreLextext, align 8
-  %3557 = load i32, ptr @V3PreLexleng, align 4
-  %3558 = sext i32 %3557 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3555, ptr noundef %3556, i64 noundef %3558, i1 noundef zeroext false)
+3555:                                             ; preds = %3540, %3537
+  %3556 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3557 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3556)
+  %3558 = load ptr, ptr @V3PreLextext, align 8
+  %3559 = load i32, ptr @V3PreLexleng, align 4
+  %3560 = sext i32 %3559 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3557, ptr noundef %3558, i64 noundef %3560, i1 noundef zeroext false)
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3559:                                             ; preds = %209
-  %3560 = load i32, ptr @V3PreLexleng, align 4
-  %3561 = icmp sgt i32 %3560, 0
-  br i1 %3561, label %3562, label %3577
+3561:                                             ; preds = %209
+  %3562 = load i32, ptr @V3PreLexleng, align 4
+  %3563 = icmp sgt i32 %3562, 0
+  br i1 %3563, label %3564, label %3579
 
-3562:                                             ; preds = %3559
-  %3563 = load ptr, ptr @V3PreLextext, align 8
-  %3564 = load i32, ptr @V3PreLexleng, align 4
-  %3565 = sub nsw i32 %3564, 1
-  %3566 = sext i32 %3565 to i64
-  %3567 = getelementptr inbounds i8, ptr %3563, i64 %3566
-  %3568 = load i8, ptr %3567, align 1
-  %3569 = sext i8 %3568 to i32
-  %3570 = icmp eq i32 %3569, 10
-  %3571 = zext i1 %3570 to i32
-  %3572 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3573 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3574 = getelementptr inbounds ptr, ptr %3572, i64 %3573
-  %3575 = load ptr, ptr %3574, align 8
-  %3576 = getelementptr inbounds %struct.yy_buffer_state, ptr %3575, i32 0, i32 7
-  store i32 %3571, ptr %3576, align 8
-  br label %3577
+3564:                                             ; preds = %3561
+  %3565 = load ptr, ptr @V3PreLextext, align 8
+  %3566 = load i32, ptr @V3PreLexleng, align 4
+  %3567 = sub nsw i32 %3566, 1
+  %3568 = sext i32 %3567 to i64
+  %3569 = getelementptr inbounds i8, ptr %3565, i64 %3568
+  %3570 = load i8, ptr %3569, align 1
+  %3571 = sext i8 %3570 to i32
+  %3572 = icmp eq i32 %3571, 10
+  %3573 = zext i1 %3572 to i32
+  %3574 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3575 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3576 = getelementptr inbounds ptr, ptr %3574, i64 %3575
+  %3577 = load ptr, ptr %3576, align 8
+  %3578 = getelementptr inbounds %struct.yy_buffer_state, ptr %3577, i32 0, i32 7
+  store i32 %3573, ptr %3578, align 8
+  br label %3579
 
-3577:                                             ; preds = %3562, %3559
-  %3578 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3579 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3578)
-  %3580 = load ptr, ptr @V3PreLextext, align 8
-  %3581 = load i32, ptr @V3PreLexleng, align 4
-  %3582 = sext i32 %3581 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3579, ptr noundef %3580, i64 noundef %3582, i1 noundef zeroext false)
+3579:                                             ; preds = %3564, %3561
+  %3580 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3581 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3580)
+  %3582 = load ptr, ptr @V3PreLextext, align 8
+  %3583 = load i32, ptr @V3PreLexleng, align 4
+  %3584 = sext i32 %3583 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3581, ptr noundef %3582, i64 noundef %3584, i1 noundef zeroext false)
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3583:                                             ; preds = %209
-  %3584 = load i32, ptr @V3PreLexleng, align 4
-  %3585 = icmp sgt i32 %3584, 0
-  br i1 %3585, label %3586, label %3601
+3585:                                             ; preds = %209
+  %3586 = load i32, ptr @V3PreLexleng, align 4
+  %3587 = icmp sgt i32 %3586, 0
+  br i1 %3587, label %3588, label %3603
 
-3586:                                             ; preds = %3583
-  %3587 = load ptr, ptr @V3PreLextext, align 8
-  %3588 = load i32, ptr @V3PreLexleng, align 4
-  %3589 = sub nsw i32 %3588, 1
-  %3590 = sext i32 %3589 to i64
-  %3591 = getelementptr inbounds i8, ptr %3587, i64 %3590
-  %3592 = load i8, ptr %3591, align 1
-  %3593 = sext i8 %3592 to i32
-  %3594 = icmp eq i32 %3593, 10
-  %3595 = zext i1 %3594 to i32
-  %3596 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3597 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3598 = getelementptr inbounds ptr, ptr %3596, i64 %3597
-  %3599 = load ptr, ptr %3598, align 8
-  %3600 = getelementptr inbounds %struct.yy_buffer_state, ptr %3599, i32 0, i32 7
-  store i32 %3595, ptr %3600, align 8
-  br label %3601
+3588:                                             ; preds = %3585
+  %3589 = load ptr, ptr @V3PreLextext, align 8
+  %3590 = load i32, ptr @V3PreLexleng, align 4
+  %3591 = sub nsw i32 %3590, 1
+  %3592 = sext i32 %3591 to i64
+  %3593 = getelementptr inbounds i8, ptr %3589, i64 %3592
+  %3594 = load i8, ptr %3593, align 1
+  %3595 = sext i8 %3594 to i32
+  %3596 = icmp eq i32 %3595, 10
+  %3597 = zext i1 %3596 to i32
+  %3598 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3599 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3600 = getelementptr inbounds ptr, ptr %3598, i64 %3599
+  %3601 = load ptr, ptr %3600, align 8
+  %3602 = getelementptr inbounds %struct.yy_buffer_state, ptr %3601, i32 0, i32 7
+  store i32 %3597, ptr %3602, align 8
+  br label %3603
 
-3601:                                             ; preds = %3586, %3583
-  %3602 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3603 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3602)
-  %3604 = load ptr, ptr @V3PreLextext, align 8
-  %3605 = load i32, ptr @V3PreLexleng, align 4
-  %3606 = sext i32 %3605 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3603, ptr noundef %3604, i64 noundef %3606, i1 noundef zeroext false)
+3603:                                             ; preds = %3588, %3585
+  %3604 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3605 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3604)
+  %3606 = load ptr, ptr @V3PreLextext, align 8
+  %3607 = load i32, ptr @V3PreLexleng, align 4
+  %3608 = sext i32 %3607 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3605, ptr noundef %3606, i64 noundef %3608, i1 noundef zeroext false)
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3607:                                             ; preds = %209
-  %3608 = load i32, ptr @V3PreLexleng, align 4
-  %3609 = icmp sgt i32 %3608, 0
-  br i1 %3609, label %3610, label %3625
+3609:                                             ; preds = %209
+  %3610 = load i32, ptr @V3PreLexleng, align 4
+  %3611 = icmp sgt i32 %3610, 0
+  br i1 %3611, label %3612, label %3627
 
-3610:                                             ; preds = %3607
-  %3611 = load ptr, ptr @V3PreLextext, align 8
-  %3612 = load i32, ptr @V3PreLexleng, align 4
-  %3613 = sub nsw i32 %3612, 1
-  %3614 = sext i32 %3613 to i64
-  %3615 = getelementptr inbounds i8, ptr %3611, i64 %3614
-  %3616 = load i8, ptr %3615, align 1
-  %3617 = sext i8 %3616 to i32
-  %3618 = icmp eq i32 %3617, 10
-  %3619 = zext i1 %3618 to i32
-  %3620 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3621 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3622 = getelementptr inbounds ptr, ptr %3620, i64 %3621
-  %3623 = load ptr, ptr %3622, align 8
-  %3624 = getelementptr inbounds %struct.yy_buffer_state, ptr %3623, i32 0, i32 7
-  store i32 %3619, ptr %3624, align 8
-  br label %3625
+3612:                                             ; preds = %3609
+  %3613 = load ptr, ptr @V3PreLextext, align 8
+  %3614 = load i32, ptr @V3PreLexleng, align 4
+  %3615 = sub nsw i32 %3614, 1
+  %3616 = sext i32 %3615 to i64
+  %3617 = getelementptr inbounds i8, ptr %3613, i64 %3616
+  %3618 = load i8, ptr %3617, align 1
+  %3619 = sext i8 %3618 to i32
+  %3620 = icmp eq i32 %3619, 10
+  %3621 = zext i1 %3620 to i32
+  %3622 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3623 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3624 = getelementptr inbounds ptr, ptr %3622, i64 %3623
+  %3625 = load ptr, ptr %3624, align 8
+  %3626 = getelementptr inbounds %struct.yy_buffer_state, ptr %3625, i32 0, i32 7
+  store i32 %3621, ptr %3626, align 8
+  br label %3627
 
-3625:                                             ; preds = %3610, %3607
-  %3626 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3627 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3626)
-  %3628 = load ptr, ptr @V3PreLextext, align 8
-  %3629 = load i32, ptr @V3PreLexleng, align 4
-  %3630 = sext i32 %3629 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3627, ptr noundef %3628, i64 noundef %3630, i1 noundef zeroext false)
+3627:                                             ; preds = %3612, %3609
+  %3628 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3629 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3628)
+  %3630 = load ptr, ptr @V3PreLextext, align 8
+  %3631 = load i32, ptr @V3PreLexleng, align 4
+  %3632 = sext i32 %3631 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3629, ptr noundef %3630, i64 noundef %3632, i1 noundef zeroext false)
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3631:                                             ; preds = %209
-  %3632 = load i32, ptr @V3PreLexleng, align 4
-  %3633 = icmp sgt i32 %3632, 0
-  br i1 %3633, label %3634, label %3649
+3633:                                             ; preds = %209
+  %3634 = load i32, ptr @V3PreLexleng, align 4
+  %3635 = icmp sgt i32 %3634, 0
+  br i1 %3635, label %3636, label %3651
 
-3634:                                             ; preds = %3631
-  %3635 = load ptr, ptr @V3PreLextext, align 8
-  %3636 = load i32, ptr @V3PreLexleng, align 4
-  %3637 = sub nsw i32 %3636, 1
-  %3638 = sext i32 %3637 to i64
-  %3639 = getelementptr inbounds i8, ptr %3635, i64 %3638
-  %3640 = load i8, ptr %3639, align 1
-  %3641 = sext i8 %3640 to i32
-  %3642 = icmp eq i32 %3641, 10
-  %3643 = zext i1 %3642 to i32
-  %3644 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3645 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3646 = getelementptr inbounds ptr, ptr %3644, i64 %3645
-  %3647 = load ptr, ptr %3646, align 8
-  %3648 = getelementptr inbounds %struct.yy_buffer_state, ptr %3647, i32 0, i32 7
-  store i32 %3643, ptr %3648, align 8
-  br label %3649
+3636:                                             ; preds = %3633
+  %3637 = load ptr, ptr @V3PreLextext, align 8
+  %3638 = load i32, ptr @V3PreLexleng, align 4
+  %3639 = sub nsw i32 %3638, 1
+  %3640 = sext i32 %3639 to i64
+  %3641 = getelementptr inbounds i8, ptr %3637, i64 %3640
+  %3642 = load i8, ptr %3641, align 1
+  %3643 = sext i8 %3642 to i32
+  %3644 = icmp eq i32 %3643, 10
+  %3645 = zext i1 %3644 to i32
+  %3646 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3647 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3648 = getelementptr inbounds ptr, ptr %3646, i64 %3647
+  %3649 = load ptr, ptr %3648, align 8
+  %3650 = getelementptr inbounds %struct.yy_buffer_state, ptr %3649, i32 0, i32 7
+  store i32 %3645, ptr %3650, align 8
+  br label %3651
 
-3649:                                             ; preds = %3634, %3631
-  %3650 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3651 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3650)
-  %3652 = load ptr, ptr @V3PreLextext, align 8
-  %3653 = load i32, ptr @V3PreLexleng, align 4
-  %3654 = sext i32 %3653 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3651, ptr noundef %3652, i64 noundef %3654, i1 noundef zeroext false)
+3651:                                             ; preds = %3636, %3633
+  %3652 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3653 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3652)
+  %3654 = load ptr, ptr @V3PreLextext, align 8
+  %3655 = load i32, ptr @V3PreLexleng, align 4
+  %3656 = sext i32 %3655 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3653, ptr noundef %3654, i64 noundef %3656, i1 noundef zeroext false)
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3655:                                             ; preds = %209
-  %3656 = load i32, ptr @V3PreLexleng, align 4
-  %3657 = icmp sgt i32 %3656, 0
-  br i1 %3657, label %3658, label %3673
+3657:                                             ; preds = %209
+  %3658 = load i32, ptr @V3PreLexleng, align 4
+  %3659 = icmp sgt i32 %3658, 0
+  br i1 %3659, label %3660, label %3675
 
-3658:                                             ; preds = %3655
-  %3659 = load ptr, ptr @V3PreLextext, align 8
-  %3660 = load i32, ptr @V3PreLexleng, align 4
-  %3661 = sub nsw i32 %3660, 1
-  %3662 = sext i32 %3661 to i64
-  %3663 = getelementptr inbounds i8, ptr %3659, i64 %3662
-  %3664 = load i8, ptr %3663, align 1
-  %3665 = sext i8 %3664 to i32
-  %3666 = icmp eq i32 %3665, 10
-  %3667 = zext i1 %3666 to i32
-  %3668 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3669 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3670 = getelementptr inbounds ptr, ptr %3668, i64 %3669
-  %3671 = load ptr, ptr %3670, align 8
-  %3672 = getelementptr inbounds %struct.yy_buffer_state, ptr %3671, i32 0, i32 7
-  store i32 %3667, ptr %3672, align 8
-  br label %3673
+3660:                                             ; preds = %3657
+  %3661 = load ptr, ptr @V3PreLextext, align 8
+  %3662 = load i32, ptr @V3PreLexleng, align 4
+  %3663 = sub nsw i32 %3662, 1
+  %3664 = sext i32 %3663 to i64
+  %3665 = getelementptr inbounds i8, ptr %3661, i64 %3664
+  %3666 = load i8, ptr %3665, align 1
+  %3667 = sext i8 %3666 to i32
+  %3668 = icmp eq i32 %3667, 10
+  %3669 = zext i1 %3668 to i32
+  %3670 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3671 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3672 = getelementptr inbounds ptr, ptr %3670, i64 %3671
+  %3673 = load ptr, ptr %3672, align 8
+  %3674 = getelementptr inbounds %struct.yy_buffer_state, ptr %3673, i32 0, i32 7
+  store i32 %3669, ptr %3674, align 8
+  br label %3675
 
-3673:                                             ; preds = %3658, %3655
-  %3674 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3675 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3674)
-  %3676 = load ptr, ptr @V3PreLextext, align 8
-  %3677 = load i32, ptr @V3PreLexleng, align 4
-  %3678 = sext i32 %3677 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3675, ptr noundef %3676, i64 noundef %3678, i1 noundef zeroext false)
+3675:                                             ; preds = %3660, %3657
+  %3676 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3677 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3676)
+  %3678 = load ptr, ptr @V3PreLextext, align 8
+  %3679 = load i32, ptr @V3PreLexleng, align 4
+  %3680 = sext i32 %3679 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3677, ptr noundef %3678, i64 noundef %3680, i1 noundef zeroext false)
   store i32 300, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3679:                                             ; preds = %209
-  %3680 = load i32, ptr @V3PreLexleng, align 4
-  %3681 = icmp sgt i32 %3680, 0
-  br i1 %3681, label %3682, label %3697
+3681:                                             ; preds = %209
+  %3682 = load i32, ptr @V3PreLexleng, align 4
+  %3683 = icmp sgt i32 %3682, 0
+  br i1 %3683, label %3684, label %3699
 
-3682:                                             ; preds = %3679
-  %3683 = load ptr, ptr @V3PreLextext, align 8
-  %3684 = load i32, ptr @V3PreLexleng, align 4
-  %3685 = sub nsw i32 %3684, 1
-  %3686 = sext i32 %3685 to i64
-  %3687 = getelementptr inbounds i8, ptr %3683, i64 %3686
-  %3688 = load i8, ptr %3687, align 1
-  %3689 = sext i8 %3688 to i32
-  %3690 = icmp eq i32 %3689, 10
-  %3691 = zext i1 %3690 to i32
-  %3692 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3693 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3694 = getelementptr inbounds ptr, ptr %3692, i64 %3693
-  %3695 = load ptr, ptr %3694, align 8
-  %3696 = getelementptr inbounds %struct.yy_buffer_state, ptr %3695, i32 0, i32 7
-  store i32 %3691, ptr %3696, align 8
-  br label %3697
+3684:                                             ; preds = %3681
+  %3685 = load ptr, ptr @V3PreLextext, align 8
+  %3686 = load i32, ptr @V3PreLexleng, align 4
+  %3687 = sub nsw i32 %3686, 1
+  %3688 = sext i32 %3687 to i64
+  %3689 = getelementptr inbounds i8, ptr %3685, i64 %3688
+  %3690 = load i8, ptr %3689, align 1
+  %3691 = sext i8 %3690 to i32
+  %3692 = icmp eq i32 %3691, 10
+  %3693 = zext i1 %3692 to i32
+  %3694 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3695 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3696 = getelementptr inbounds ptr, ptr %3694, i64 %3695
+  %3697 = load ptr, ptr %3696, align 8
+  %3698 = getelementptr inbounds %struct.yy_buffer_state, ptr %3697, i32 0, i32 7
+  store i32 %3693, ptr %3698, align 8
+  br label %3699
 
-3697:                                             ; preds = %3682, %3679
-  %3698 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3699 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3698)
-  %3700 = load ptr, ptr @V3PreLextext, align 8
-  %3701 = load i32, ptr @V3PreLexleng, align 4
-  %3702 = sext i32 %3701 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3699, ptr noundef %3700, i64 noundef %3702, i1 noundef zeroext false)
+3699:                                             ; preds = %3684, %3681
+  %3700 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3701 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3700)
+  %3702 = load ptr, ptr @V3PreLextext, align 8
+  %3703 = load i32, ptr @V3PreLexleng, align 4
+  %3704 = sext i32 %3703 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3701, ptr noundef %3702, i64 noundef %3704, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   store ptr @.str.22, ptr @V3PreLextext, align 8
   store i32 1, ptr @V3PreLexleng, align 4
   store i32 305, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3703:                                             ; preds = %209
-  %3704 = load i32, ptr @V3PreLexleng, align 4
-  %3705 = icmp sgt i32 %3704, 0
-  br i1 %3705, label %3706, label %3721
+3705:                                             ; preds = %209
+  %3706 = load i32, ptr @V3PreLexleng, align 4
+  %3707 = icmp sgt i32 %3706, 0
+  br i1 %3707, label %3708, label %3723
 
-3706:                                             ; preds = %3703
-  %3707 = load ptr, ptr @V3PreLextext, align 8
-  %3708 = load i32, ptr @V3PreLexleng, align 4
-  %3709 = sub nsw i32 %3708, 1
-  %3710 = sext i32 %3709 to i64
-  %3711 = getelementptr inbounds i8, ptr %3707, i64 %3710
-  %3712 = load i8, ptr %3711, align 1
-  %3713 = sext i8 %3712 to i32
-  %3714 = icmp eq i32 %3713, 10
-  %3715 = zext i1 %3714 to i32
-  %3716 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3717 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3718 = getelementptr inbounds ptr, ptr %3716, i64 %3717
-  %3719 = load ptr, ptr %3718, align 8
-  %3720 = getelementptr inbounds %struct.yy_buffer_state, ptr %3719, i32 0, i32 7
-  store i32 %3715, ptr %3720, align 8
-  br label %3721
+3708:                                             ; preds = %3705
+  %3709 = load ptr, ptr @V3PreLextext, align 8
+  %3710 = load i32, ptr @V3PreLexleng, align 4
+  %3711 = sub nsw i32 %3710, 1
+  %3712 = sext i32 %3711 to i64
+  %3713 = getelementptr inbounds i8, ptr %3709, i64 %3712
+  %3714 = load i8, ptr %3713, align 1
+  %3715 = sext i8 %3714 to i32
+  %3716 = icmp eq i32 %3715, 10
+  %3717 = zext i1 %3716 to i32
+  %3718 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3719 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3720 = getelementptr inbounds ptr, ptr %3718, i64 %3719
+  %3721 = load ptr, ptr %3720, align 8
+  %3722 = getelementptr inbounds %struct.yy_buffer_state, ptr %3721, i32 0, i32 7
+  store i32 %3717, ptr %3722, align 8
+  br label %3723
 
-3721:                                             ; preds = %3706, %3703
-  %3722 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3723 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3722)
-  %3724 = load ptr, ptr @V3PreLextext, align 8
-  %3725 = load i32, ptr @V3PreLexleng, align 4
-  %3726 = sext i32 %3725 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3723, ptr noundef %3724, i64 noundef %3726, i1 noundef zeroext false)
+3723:                                             ; preds = %3708, %3705
+  %3724 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3725 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3724)
+  %3726 = load ptr, ptr @V3PreLextext, align 8
+  %3727 = load i32, ptr @V3PreLexleng, align 4
+  %3728 = sext i32 %3727 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3725, ptr noundef %3726, i64 noundef %3728, i1 noundef zeroext false)
   store i32 305, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3727:                                             ; preds = %209
-  %3728 = load i32, ptr @V3PreLexleng, align 4
-  %3729 = icmp sgt i32 %3728, 0
-  br i1 %3729, label %3730, label %3745
+3729:                                             ; preds = %209
+  %3730 = load i32, ptr @V3PreLexleng, align 4
+  %3731 = icmp sgt i32 %3730, 0
+  br i1 %3731, label %3732, label %3747
 
-3730:                                             ; preds = %3727
-  %3731 = load ptr, ptr @V3PreLextext, align 8
-  %3732 = load i32, ptr @V3PreLexleng, align 4
-  %3733 = sub nsw i32 %3732, 1
-  %3734 = sext i32 %3733 to i64
-  %3735 = getelementptr inbounds i8, ptr %3731, i64 %3734
-  %3736 = load i8, ptr %3735, align 1
-  %3737 = sext i8 %3736 to i32
-  %3738 = icmp eq i32 %3737, 10
-  %3739 = zext i1 %3738 to i32
-  %3740 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3741 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3742 = getelementptr inbounds ptr, ptr %3740, i64 %3741
-  %3743 = load ptr, ptr %3742, align 8
-  %3744 = getelementptr inbounds %struct.yy_buffer_state, ptr %3743, i32 0, i32 7
-  store i32 %3739, ptr %3744, align 8
-  br label %3745
+3732:                                             ; preds = %3729
+  %3733 = load ptr, ptr @V3PreLextext, align 8
+  %3734 = load i32, ptr @V3PreLexleng, align 4
+  %3735 = sub nsw i32 %3734, 1
+  %3736 = sext i32 %3735 to i64
+  %3737 = getelementptr inbounds i8, ptr %3733, i64 %3736
+  %3738 = load i8, ptr %3737, align 1
+  %3739 = sext i8 %3738 to i32
+  %3740 = icmp eq i32 %3739, 10
+  %3741 = zext i1 %3740 to i32
+  %3742 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3743 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3744 = getelementptr inbounds ptr, ptr %3742, i64 %3743
+  %3745 = load ptr, ptr %3744, align 8
+  %3746 = getelementptr inbounds %struct.yy_buffer_state, ptr %3745, i32 0, i32 7
+  store i32 %3741, ptr %3746, align 8
+  br label %3747
 
-3745:                                             ; preds = %3730, %3727
-  %3746 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3747 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3746)
-  %3748 = load ptr, ptr @V3PreLextext, align 8
-  %3749 = load i32, ptr @V3PreLexleng, align 4
-  %3750 = sext i32 %3749 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3747, ptr noundef %3748, i64 noundef %3750, i1 noundef zeroext false)
+3747:                                             ; preds = %3732, %3729
+  %3748 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3749 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3748)
+  %3750 = load ptr, ptr @V3PreLextext, align 8
+  %3751 = load i32, ptr @V3PreLexleng, align 4
+  %3752 = sext i32 %3751 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3749, ptr noundef %3750, i64 noundef %3752, i1 noundef zeroext false)
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3751:                                             ; preds = %209
-  %3752 = load i32, ptr @V3PreLexleng, align 4
-  %3753 = icmp sgt i32 %3752, 0
-  br i1 %3753, label %3754, label %3769
+3753:                                             ; preds = %209
+  %3754 = load i32, ptr @V3PreLexleng, align 4
+  %3755 = icmp sgt i32 %3754, 0
+  br i1 %3755, label %3756, label %3771
 
-3754:                                             ; preds = %3751
-  %3755 = load ptr, ptr @V3PreLextext, align 8
-  %3756 = load i32, ptr @V3PreLexleng, align 4
-  %3757 = sub nsw i32 %3756, 1
-  %3758 = sext i32 %3757 to i64
-  %3759 = getelementptr inbounds i8, ptr %3755, i64 %3758
-  %3760 = load i8, ptr %3759, align 1
-  %3761 = sext i8 %3760 to i32
-  %3762 = icmp eq i32 %3761, 10
-  %3763 = zext i1 %3762 to i32
-  %3764 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3765 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3766 = getelementptr inbounds ptr, ptr %3764, i64 %3765
-  %3767 = load ptr, ptr %3766, align 8
-  %3768 = getelementptr inbounds %struct.yy_buffer_state, ptr %3767, i32 0, i32 7
-  store i32 %3763, ptr %3768, align 8
-  br label %3769
+3756:                                             ; preds = %3753
+  %3757 = load ptr, ptr @V3PreLextext, align 8
+  %3758 = load i32, ptr @V3PreLexleng, align 4
+  %3759 = sub nsw i32 %3758, 1
+  %3760 = sext i32 %3759 to i64
+  %3761 = getelementptr inbounds i8, ptr %3757, i64 %3760
+  %3762 = load i8, ptr %3761, align 1
+  %3763 = sext i8 %3762 to i32
+  %3764 = icmp eq i32 %3763, 10
+  %3765 = zext i1 %3764 to i32
+  %3766 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3767 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3768 = getelementptr inbounds ptr, ptr %3766, i64 %3767
+  %3769 = load ptr, ptr %3768, align 8
+  %3770 = getelementptr inbounds %struct.yy_buffer_state, ptr %3769, i32 0, i32 7
+  store i32 %3765, ptr %3770, align 8
+  br label %3771
 
-3769:                                             ; preds = %3754, %3751
+3771:                                             ; preds = %3756, %3753
   call void @_ZL13yy_push_statei(i32 noundef 2)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-3770:                                             ; preds = %209
-  %3771 = load i32, ptr @V3PreLexleng, align 4
-  %3772 = icmp sgt i32 %3771, 0
-  br i1 %3772, label %3773, label %3788
+3772:                                             ; preds = %209
+  %3773 = load i32, ptr @V3PreLexleng, align 4
+  %3774 = icmp sgt i32 %3773, 0
+  br i1 %3774, label %3775, label %3790
 
-3773:                                             ; preds = %3770
-  %3774 = load ptr, ptr @V3PreLextext, align 8
-  %3775 = load i32, ptr @V3PreLexleng, align 4
-  %3776 = sub nsw i32 %3775, 1
-  %3777 = sext i32 %3776 to i64
-  %3778 = getelementptr inbounds i8, ptr %3774, i64 %3777
-  %3779 = load i8, ptr %3778, align 1
-  %3780 = sext i8 %3779 to i32
-  %3781 = icmp eq i32 %3780, 10
-  %3782 = zext i1 %3781 to i32
-  %3783 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3784 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3785 = getelementptr inbounds ptr, ptr %3783, i64 %3784
-  %3786 = load ptr, ptr %3785, align 8
-  %3787 = getelementptr inbounds %struct.yy_buffer_state, ptr %3786, i32 0, i32 7
-  store i32 %3782, ptr %3787, align 8
-  br label %3788
+3775:                                             ; preds = %3772
+  %3776 = load ptr, ptr @V3PreLextext, align 8
+  %3777 = load i32, ptr @V3PreLexleng, align 4
+  %3778 = sub nsw i32 %3777, 1
+  %3779 = sext i32 %3778 to i64
+  %3780 = getelementptr inbounds i8, ptr %3776, i64 %3779
+  %3781 = load i8, ptr %3780, align 1
+  %3782 = sext i8 %3781 to i32
+  %3783 = icmp eq i32 %3782, 10
+  %3784 = zext i1 %3783 to i32
+  %3785 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3786 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3787 = getelementptr inbounds ptr, ptr %3785, i64 %3786
+  %3788 = load ptr, ptr %3787, align 8
+  %3789 = getelementptr inbounds %struct.yy_buffer_state, ptr %3788, i32 0, i32 7
+  store i32 %3784, ptr %3789, align 8
+  br label %3790
 
-3788:                                             ; preds = %3773, %3770
-  %3789 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3790 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3789)
-  %3791 = load ptr, ptr @V3PreLextext, align 8
-  %3792 = load i32, ptr @V3PreLexleng, align 4
-  %3793 = sext i32 %3792 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3790, ptr noundef %3791, i64 noundef %3793, i1 noundef zeroext false)
+3790:                                             ; preds = %3775, %3772
+  %3791 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3792 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3791)
+  %3793 = load ptr, ptr @V3PreLextext, align 8
+  %3794 = load i32, ptr @V3PreLexleng, align 4
+  %3795 = sext i32 %3794 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3792, ptr noundef %3793, i64 noundef %3795, i1 noundef zeroext false)
   store i32 303, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3794:                                             ; preds = %209
-  %3795 = load i32, ptr @V3PreLexleng, align 4
-  %3796 = icmp sgt i32 %3795, 0
-  br i1 %3796, label %3797, label %3812
+3796:                                             ; preds = %209
+  %3797 = load i32, ptr @V3PreLexleng, align 4
+  %3798 = icmp sgt i32 %3797, 0
+  br i1 %3798, label %3799, label %3814
 
-3797:                                             ; preds = %3794
-  %3798 = load ptr, ptr @V3PreLextext, align 8
-  %3799 = load i32, ptr @V3PreLexleng, align 4
-  %3800 = sub nsw i32 %3799, 1
-  %3801 = sext i32 %3800 to i64
-  %3802 = getelementptr inbounds i8, ptr %3798, i64 %3801
-  %3803 = load i8, ptr %3802, align 1
-  %3804 = sext i8 %3803 to i32
-  %3805 = icmp eq i32 %3804, 10
-  %3806 = zext i1 %3805 to i32
-  %3807 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3808 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3809 = getelementptr inbounds ptr, ptr %3807, i64 %3808
-  %3810 = load ptr, ptr %3809, align 8
-  %3811 = getelementptr inbounds %struct.yy_buffer_state, ptr %3810, i32 0, i32 7
-  store i32 %3806, ptr %3811, align 8
-  br label %3812
+3799:                                             ; preds = %3796
+  %3800 = load ptr, ptr @V3PreLextext, align 8
+  %3801 = load i32, ptr @V3PreLexleng, align 4
+  %3802 = sub nsw i32 %3801, 1
+  %3803 = sext i32 %3802 to i64
+  %3804 = getelementptr inbounds i8, ptr %3800, i64 %3803
+  %3805 = load i8, ptr %3804, align 1
+  %3806 = sext i8 %3805 to i32
+  %3807 = icmp eq i32 %3806, 10
+  %3808 = zext i1 %3807 to i32
+  %3809 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3810 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3811 = getelementptr inbounds ptr, ptr %3809, i64 %3810
+  %3812 = load ptr, ptr %3811, align 8
+  %3813 = getelementptr inbounds %struct.yy_buffer_state, ptr %3812, i32 0, i32 7
+  store i32 %3808, ptr %3813, align 8
+  br label %3814
 
-3812:                                             ; preds = %3797, %3794
-  %3813 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3814 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3813)
-  %3815 = load ptr, ptr @V3PreLextext, align 8
-  %3816 = load i32, ptr @V3PreLexleng, align 4
-  %3817 = sext i32 %3816 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3814, ptr noundef %3815, i64 noundef %3817, i1 noundef zeroext false)
-  %3818 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3819 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3818)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3819)
-  br label %5026
+3814:                                             ; preds = %3799, %3796
+  %3815 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3816 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3815)
+  %3817 = load ptr, ptr @V3PreLextext, align 8
+  %3818 = load i32, ptr @V3PreLexleng, align 4
+  %3819 = sext i32 %3818 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3816, ptr noundef %3817, i64 noundef %3819, i1 noundef zeroext false)
+  %3820 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3821 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3820)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3821)
+  br label %5028
 
-3820:                                             ; preds = %209
-  %3821 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3822 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3821)
-  %3823 = load ptr, ptr @V3PreLextext, align 8
-  %3824 = load i32, ptr @V3PreLexleng, align 4
-  %3825 = sext i32 %3824 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3822, ptr noundef %3823, i64 noundef %3825, i1 noundef zeroext false)
+3822:                                             ; preds = %209
+  %3823 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3824 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3823)
+  %3825 = load ptr, ptr @V3PreLextext, align 8
+  %3826 = load i32, ptr @V3PreLexleng, align 4
+  %3827 = sext i32 %3826 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3824, ptr noundef %3825, i64 noundef %3827, i1 noundef zeroext false)
   call void @_ZL14V3PreLexerrorfPKc(ptr noundef @.str.32)
   store i32 0, ptr @V3PreLexleng, align 4
   store i32 400, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3826:                                             ; preds = %209
-  %3827 = load i32, ptr @V3PreLexleng, align 4
-  %3828 = icmp sgt i32 %3827, 0
-  br i1 %3828, label %3829, label %3844
+3828:                                             ; preds = %209
+  %3829 = load i32, ptr @V3PreLexleng, align 4
+  %3830 = icmp sgt i32 %3829, 0
+  br i1 %3830, label %3831, label %3846
 
-3829:                                             ; preds = %3826
-  %3830 = load ptr, ptr @V3PreLextext, align 8
-  %3831 = load i32, ptr @V3PreLexleng, align 4
-  %3832 = sub nsw i32 %3831, 1
-  %3833 = sext i32 %3832 to i64
-  %3834 = getelementptr inbounds i8, ptr %3830, i64 %3833
-  %3835 = load i8, ptr %3834, align 1
-  %3836 = sext i8 %3835 to i32
-  %3837 = icmp eq i32 %3836, 10
-  %3838 = zext i1 %3837 to i32
-  %3839 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3840 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3841 = getelementptr inbounds ptr, ptr %3839, i64 %3840
-  %3842 = load ptr, ptr %3841, align 8
-  %3843 = getelementptr inbounds %struct.yy_buffer_state, ptr %3842, i32 0, i32 7
-  store i32 %3838, ptr %3843, align 8
-  br label %3844
+3831:                                             ; preds = %3828
+  %3832 = load ptr, ptr @V3PreLextext, align 8
+  %3833 = load i32, ptr @V3PreLexleng, align 4
+  %3834 = sub nsw i32 %3833, 1
+  %3835 = sext i32 %3834 to i64
+  %3836 = getelementptr inbounds i8, ptr %3832, i64 %3835
+  %3837 = load i8, ptr %3836, align 1
+  %3838 = sext i8 %3837 to i32
+  %3839 = icmp eq i32 %3838, 10
+  %3840 = zext i1 %3839 to i32
+  %3841 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3842 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3843 = getelementptr inbounds ptr, ptr %3841, i64 %3842
+  %3844 = load ptr, ptr %3843, align 8
+  %3845 = getelementptr inbounds %struct.yy_buffer_state, ptr %3844, i32 0, i32 7
+  store i32 %3840, ptr %3845, align 8
+  br label %3846
 
-3844:                                             ; preds = %3829, %3826
-  %3845 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3846 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3845)
-  %3847 = load ptr, ptr @V3PreLextext, align 8
-  %3848 = load i32, ptr @V3PreLexleng, align 4
-  %3849 = sext i32 %3848 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3846, ptr noundef %3847, i64 noundef %3849, i1 noundef zeroext false)
+3846:                                             ; preds = %3831, %3828
+  %3847 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3848 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3847)
+  %3849 = load ptr, ptr @V3PreLextext, align 8
+  %3850 = load i32, ptr @V3PreLexleng, align 4
+  %3851 = sext i32 %3850 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3848, ptr noundef %3849, i64 noundef %3851, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   store ptr @.str.22, ptr @V3PreLextext, align 8
   store i32 1, ptr @V3PreLexleng, align 4
   store i32 305, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3850:                                             ; preds = %209
-  %3851 = load i32, ptr @V3PreLexleng, align 4
-  %3852 = icmp sgt i32 %3851, 0
-  br i1 %3852, label %3853, label %3868
+3852:                                             ; preds = %209
+  %3853 = load i32, ptr @V3PreLexleng, align 4
+  %3854 = icmp sgt i32 %3853, 0
+  br i1 %3854, label %3855, label %3870
 
-3853:                                             ; preds = %3850
-  %3854 = load ptr, ptr @V3PreLextext, align 8
-  %3855 = load i32, ptr @V3PreLexleng, align 4
-  %3856 = sub nsw i32 %3855, 1
-  %3857 = sext i32 %3856 to i64
-  %3858 = getelementptr inbounds i8, ptr %3854, i64 %3857
-  %3859 = load i8, ptr %3858, align 1
-  %3860 = sext i8 %3859 to i32
-  %3861 = icmp eq i32 %3860, 10
-  %3862 = zext i1 %3861 to i32
-  %3863 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3864 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3865 = getelementptr inbounds ptr, ptr %3863, i64 %3864
-  %3866 = load ptr, ptr %3865, align 8
-  %3867 = getelementptr inbounds %struct.yy_buffer_state, ptr %3866, i32 0, i32 7
-  store i32 %3862, ptr %3867, align 8
-  br label %3868
+3855:                                             ; preds = %3852
+  %3856 = load ptr, ptr @V3PreLextext, align 8
+  %3857 = load i32, ptr @V3PreLexleng, align 4
+  %3858 = sub nsw i32 %3857, 1
+  %3859 = sext i32 %3858 to i64
+  %3860 = getelementptr inbounds i8, ptr %3856, i64 %3859
+  %3861 = load i8, ptr %3860, align 1
+  %3862 = sext i8 %3861 to i32
+  %3863 = icmp eq i32 %3862, 10
+  %3864 = zext i1 %3863 to i32
+  %3865 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3866 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3867 = getelementptr inbounds ptr, ptr %3865, i64 %3866
+  %3868 = load ptr, ptr %3867, align 8
+  %3869 = getelementptr inbounds %struct.yy_buffer_state, ptr %3868, i32 0, i32 7
+  store i32 %3864, ptr %3869, align 8
+  br label %3870
 
-3868:                                             ; preds = %3853, %3850
+3870:                                             ; preds = %3855, %3852
   call void @_ZL13yy_push_statei(i32 noundef 18)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-3869:                                             ; preds = %209
-  %3870 = load i32, ptr @V3PreLexleng, align 4
-  %3871 = icmp sgt i32 %3870, 0
-  br i1 %3871, label %3872, label %3887
+3871:                                             ; preds = %209
+  %3872 = load i32, ptr @V3PreLexleng, align 4
+  %3873 = icmp sgt i32 %3872, 0
+  br i1 %3873, label %3874, label %3889
 
-3872:                                             ; preds = %3869
-  %3873 = load ptr, ptr @V3PreLextext, align 8
-  %3874 = load i32, ptr @V3PreLexleng, align 4
-  %3875 = sub nsw i32 %3874, 1
-  %3876 = sext i32 %3875 to i64
-  %3877 = getelementptr inbounds i8, ptr %3873, i64 %3876
-  %3878 = load i8, ptr %3877, align 1
-  %3879 = sext i8 %3878 to i32
-  %3880 = icmp eq i32 %3879, 10
-  %3881 = zext i1 %3880 to i32
-  %3882 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3883 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3884 = getelementptr inbounds ptr, ptr %3882, i64 %3883
-  %3885 = load ptr, ptr %3884, align 8
-  %3886 = getelementptr inbounds %struct.yy_buffer_state, ptr %3885, i32 0, i32 7
-  store i32 %3881, ptr %3886, align 8
-  br label %3887
+3874:                                             ; preds = %3871
+  %3875 = load ptr, ptr @V3PreLextext, align 8
+  %3876 = load i32, ptr @V3PreLexleng, align 4
+  %3877 = sub nsw i32 %3876, 1
+  %3878 = sext i32 %3877 to i64
+  %3879 = getelementptr inbounds i8, ptr %3875, i64 %3878
+  %3880 = load i8, ptr %3879, align 1
+  %3881 = sext i8 %3880 to i32
+  %3882 = icmp eq i32 %3881, 10
+  %3883 = zext i1 %3882 to i32
+  %3884 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3885 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3886 = getelementptr inbounds ptr, ptr %3884, i64 %3885
+  %3887 = load ptr, ptr %3886, align 8
+  %3888 = getelementptr inbounds %struct.yy_buffer_state, ptr %3887, i32 0, i32 7
+  store i32 %3883, ptr %3888, align 8
+  br label %3889
 
-3887:                                             ; preds = %3872, %3869
+3889:                                             ; preds = %3874, %3871
   call void @_ZL13yy_push_statei(i32 noundef 16)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-3888:                                             ; preds = %209
-  %3889 = load i32, ptr @V3PreLexleng, align 4
-  %3890 = icmp sgt i32 %3889, 0
-  br i1 %3890, label %3891, label %3906
+3890:                                             ; preds = %209
+  %3891 = load i32, ptr @V3PreLexleng, align 4
+  %3892 = icmp sgt i32 %3891, 0
+  br i1 %3892, label %3893, label %3908
 
-3891:                                             ; preds = %3888
-  %3892 = load ptr, ptr @V3PreLextext, align 8
-  %3893 = load i32, ptr @V3PreLexleng, align 4
-  %3894 = sub nsw i32 %3893, 1
-  %3895 = sext i32 %3894 to i64
-  %3896 = getelementptr inbounds i8, ptr %3892, i64 %3895
-  %3897 = load i8, ptr %3896, align 1
-  %3898 = sext i8 %3897 to i32
-  %3899 = icmp eq i32 %3898, 10
-  %3900 = zext i1 %3899 to i32
-  %3901 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3902 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3903 = getelementptr inbounds ptr, ptr %3901, i64 %3902
-  %3904 = load ptr, ptr %3903, align 8
-  %3905 = getelementptr inbounds %struct.yy_buffer_state, ptr %3904, i32 0, i32 7
-  store i32 %3900, ptr %3905, align 8
-  br label %3906
+3893:                                             ; preds = %3890
+  %3894 = load ptr, ptr @V3PreLextext, align 8
+  %3895 = load i32, ptr @V3PreLexleng, align 4
+  %3896 = sub nsw i32 %3895, 1
+  %3897 = sext i32 %3896 to i64
+  %3898 = getelementptr inbounds i8, ptr %3894, i64 %3897
+  %3899 = load i8, ptr %3898, align 1
+  %3900 = sext i8 %3899 to i32
+  %3901 = icmp eq i32 %3900, 10
+  %3902 = zext i1 %3901 to i32
+  %3903 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3904 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3905 = getelementptr inbounds ptr, ptr %3903, i64 %3904
+  %3906 = load ptr, ptr %3905, align 8
+  %3907 = getelementptr inbounds %struct.yy_buffer_state, ptr %3906, i32 0, i32 7
+  store i32 %3902, ptr %3907, align 8
+  br label %3908
 
-3906:                                             ; preds = %3891, %3888
-  %3907 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3908 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3907)
-  %3909 = load ptr, ptr @V3PreLextext, align 8
-  %3910 = load i32, ptr @V3PreLexleng, align 4
-  %3911 = sext i32 %3910 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3908, ptr noundef %3909, i64 noundef %3911, i1 noundef zeroext false)
-  %3912 = load ptr, ptr @V3PreLextext, align 8
-  %3913 = load i32, ptr @V3PreLexleng, align 4
-  %3914 = sext i32 %3913 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %3912, i64 noundef %3914)
-  %3915 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3916 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3915)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3916)
-  br label %5026
+3908:                                             ; preds = %3893, %3890
+  %3909 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3910 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3909)
+  %3911 = load ptr, ptr @V3PreLextext, align 8
+  %3912 = load i32, ptr @V3PreLexleng, align 4
+  %3913 = sext i32 %3912 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3910, ptr noundef %3911, i64 noundef %3913, i1 noundef zeroext false)
+  %3914 = load ptr, ptr @V3PreLextext, align 8
+  %3915 = load i32, ptr @V3PreLexleng, align 4
+  %3916 = sext i32 %3915 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %3914, i64 noundef %3916)
+  %3917 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3918 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3917)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3918)
+  br label %5028
 
-3917:                                             ; preds = %209
-  %3918 = load i32, ptr @V3PreLexleng, align 4
-  %3919 = icmp sgt i32 %3918, 0
-  br i1 %3919, label %3920, label %3935
+3919:                                             ; preds = %209
+  %3920 = load i32, ptr @V3PreLexleng, align 4
+  %3921 = icmp sgt i32 %3920, 0
+  br i1 %3921, label %3922, label %3937
 
-3920:                                             ; preds = %3917
-  %3921 = load ptr, ptr @V3PreLextext, align 8
-  %3922 = load i32, ptr @V3PreLexleng, align 4
-  %3923 = sub nsw i32 %3922, 1
-  %3924 = sext i32 %3923 to i64
-  %3925 = getelementptr inbounds i8, ptr %3921, i64 %3924
-  %3926 = load i8, ptr %3925, align 1
-  %3927 = sext i8 %3926 to i32
-  %3928 = icmp eq i32 %3927, 10
-  %3929 = zext i1 %3928 to i32
-  %3930 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3931 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3932 = getelementptr inbounds ptr, ptr %3930, i64 %3931
-  %3933 = load ptr, ptr %3932, align 8
-  %3934 = getelementptr inbounds %struct.yy_buffer_state, ptr %3933, i32 0, i32 7
-  store i32 %3929, ptr %3934, align 8
-  br label %3935
+3922:                                             ; preds = %3919
+  %3923 = load ptr, ptr @V3PreLextext, align 8
+  %3924 = load i32, ptr @V3PreLexleng, align 4
+  %3925 = sub nsw i32 %3924, 1
+  %3926 = sext i32 %3925 to i64
+  %3927 = getelementptr inbounds i8, ptr %3923, i64 %3926
+  %3928 = load i8, ptr %3927, align 1
+  %3929 = sext i8 %3928 to i32
+  %3930 = icmp eq i32 %3929, 10
+  %3931 = zext i1 %3930 to i32
+  %3932 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3933 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3934 = getelementptr inbounds ptr, ptr %3932, i64 %3933
+  %3935 = load ptr, ptr %3934, align 8
+  %3936 = getelementptr inbounds %struct.yy_buffer_state, ptr %3935, i32 0, i32 7
+  store i32 %3931, ptr %3936, align 8
+  br label %3937
 
-3935:                                             ; preds = %3920, %3917
-  %3936 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3937 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3936)
-  %3938 = load ptr, ptr @V3PreLextext, align 8
-  %3939 = load i32, ptr @V3PreLexleng, align 4
-  %3940 = sext i32 %3939 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3937, ptr noundef %3938, i64 noundef %3940, i1 noundef zeroext false)
+3937:                                             ; preds = %3922, %3919
+  %3938 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3939 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3938)
+  %3940 = load ptr, ptr @V3PreLextext, align 8
+  %3941 = load i32, ptr @V3PreLexleng, align 4
+  %3942 = sext i32 %3941 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3939, ptr noundef %3940, i64 noundef %3942, i1 noundef zeroext false)
   call void @_ZL13yy_push_statei(i32 noundef 17)
   store i32 310, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-3941:                                             ; preds = %209
-  %3942 = load i32, ptr @V3PreLexleng, align 4
-  %3943 = icmp sgt i32 %3942, 0
-  br i1 %3943, label %3944, label %3959
+3943:                                             ; preds = %209
+  %3944 = load i32, ptr @V3PreLexleng, align 4
+  %3945 = icmp sgt i32 %3944, 0
+  br i1 %3945, label %3946, label %3961
 
-3944:                                             ; preds = %3941
-  %3945 = load ptr, ptr @V3PreLextext, align 8
-  %3946 = load i32, ptr @V3PreLexleng, align 4
-  %3947 = sub nsw i32 %3946, 1
-  %3948 = sext i32 %3947 to i64
-  %3949 = getelementptr inbounds i8, ptr %3945, i64 %3948
-  %3950 = load i8, ptr %3949, align 1
-  %3951 = sext i8 %3950 to i32
-  %3952 = icmp eq i32 %3951, 10
-  %3953 = zext i1 %3952 to i32
-  %3954 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3955 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3956 = getelementptr inbounds ptr, ptr %3954, i64 %3955
-  %3957 = load ptr, ptr %3956, align 8
-  %3958 = getelementptr inbounds %struct.yy_buffer_state, ptr %3957, i32 0, i32 7
-  store i32 %3953, ptr %3958, align 8
-  br label %3959
+3946:                                             ; preds = %3943
+  %3947 = load ptr, ptr @V3PreLextext, align 8
+  %3948 = load i32, ptr @V3PreLexleng, align 4
+  %3949 = sub nsw i32 %3948, 1
+  %3950 = sext i32 %3949 to i64
+  %3951 = getelementptr inbounds i8, ptr %3947, i64 %3950
+  %3952 = load i8, ptr %3951, align 1
+  %3953 = sext i8 %3952 to i32
+  %3954 = icmp eq i32 %3953, 10
+  %3955 = zext i1 %3954 to i32
+  %3956 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3957 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3958 = getelementptr inbounds ptr, ptr %3956, i64 %3957
+  %3959 = load ptr, ptr %3958, align 8
+  %3960 = getelementptr inbounds %struct.yy_buffer_state, ptr %3959, i32 0, i32 7
+  store i32 %3955, ptr %3960, align 8
+  br label %3961
 
-3959:                                             ; preds = %3944, %3941
-  %3960 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3961 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3960)
-  %3962 = load ptr, ptr @V3PreLextext, align 8
-  %3963 = load i32, ptr @V3PreLexleng, align 4
-  %3964 = sext i32 %3963 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3961, ptr noundef %3962, i64 noundef %3964, i1 noundef zeroext false)
-  %3965 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3966 = getelementptr inbounds %class.V3PreLex, ptr %3965, i32 0, i32 12
-  %3967 = load i32, ptr %3966, align 8
-  %3968 = add nsw i32 %3967, 1
-  store i32 %3968, ptr %3966, align 8
-  %3969 = load ptr, ptr @V3PreLextext, align 8
-  %3970 = load i32, ptr @V3PreLexleng, align 4
-  %3971 = sext i32 %3970 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %3969, i64 noundef %3971)
-  %3972 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3973 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3972)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3973)
-  br label %5026
+3961:                                             ; preds = %3946, %3943
+  %3962 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3963 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3962)
+  %3964 = load ptr, ptr @V3PreLextext, align 8
+  %3965 = load i32, ptr @V3PreLexleng, align 4
+  %3966 = sext i32 %3965 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3963, ptr noundef %3964, i64 noundef %3966, i1 noundef zeroext false)
+  %3967 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3968 = getelementptr inbounds %class.V3PreLex, ptr %3967, i32 0, i32 12
+  %3969 = load i32, ptr %3968, align 8
+  %3970 = add nsw i32 %3969, 1
+  store i32 %3970, ptr %3968, align 8
+  %3971 = load ptr, ptr @V3PreLextext, align 8
+  %3972 = load i32, ptr @V3PreLexleng, align 4
+  %3973 = sext i32 %3972 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %3971, i64 noundef %3973)
+  %3974 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3975 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3974)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %3975)
+  br label %5028
 
-3974:                                             ; preds = %209
-  %3975 = load i32, ptr @V3PreLexleng, align 4
-  %3976 = icmp sgt i32 %3975, 0
-  br i1 %3976, label %3977, label %3992
+3976:                                             ; preds = %209
+  %3977 = load i32, ptr @V3PreLexleng, align 4
+  %3978 = icmp sgt i32 %3977, 0
+  br i1 %3978, label %3979, label %3994
 
-3977:                                             ; preds = %3974
-  %3978 = load ptr, ptr @V3PreLextext, align 8
-  %3979 = load i32, ptr @V3PreLexleng, align 4
-  %3980 = sub nsw i32 %3979, 1
-  %3981 = sext i32 %3980 to i64
-  %3982 = getelementptr inbounds i8, ptr %3978, i64 %3981
-  %3983 = load i8, ptr %3982, align 1
-  %3984 = sext i8 %3983 to i32
-  %3985 = icmp eq i32 %3984, 10
-  %3986 = zext i1 %3985 to i32
-  %3987 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %3988 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %3989 = getelementptr inbounds ptr, ptr %3987, i64 %3988
-  %3990 = load ptr, ptr %3989, align 8
-  %3991 = getelementptr inbounds %struct.yy_buffer_state, ptr %3990, i32 0, i32 7
-  store i32 %3986, ptr %3991, align 8
-  br label %3992
+3979:                                             ; preds = %3976
+  %3980 = load ptr, ptr @V3PreLextext, align 8
+  %3981 = load i32, ptr @V3PreLexleng, align 4
+  %3982 = sub nsw i32 %3981, 1
+  %3983 = sext i32 %3982 to i64
+  %3984 = getelementptr inbounds i8, ptr %3980, i64 %3983
+  %3985 = load i8, ptr %3984, align 1
+  %3986 = sext i8 %3985 to i32
+  %3987 = icmp eq i32 %3986, 10
+  %3988 = zext i1 %3987 to i32
+  %3989 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %3990 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %3991 = getelementptr inbounds ptr, ptr %3989, i64 %3990
+  %3992 = load ptr, ptr %3991, align 8
+  %3993 = getelementptr inbounds %struct.yy_buffer_state, ptr %3992, i32 0, i32 7
+  store i32 %3988, ptr %3993, align 8
+  br label %3994
 
-3992:                                             ; preds = %3977, %3974
-  %3993 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3994 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3993)
-  %3995 = load ptr, ptr @V3PreLextext, align 8
-  %3996 = load i32, ptr @V3PreLexleng, align 4
-  %3997 = sext i32 %3996 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3994, ptr noundef %3995, i64 noundef %3997, i1 noundef zeroext false)
-  %3998 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %3999 = getelementptr inbounds %class.V3PreLex, ptr %3998, i32 0, i32 12
-  %4000 = load i32, ptr %3999, align 8
-  %4001 = add nsw i32 %4000, -1
-  store i32 %4001, ptr %3999, align 8
-  %4002 = load ptr, ptr @V3PreLextext, align 8
-  %4003 = load i32, ptr @V3PreLexleng, align 4
-  %4004 = sext i32 %4003 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %4002, i64 noundef %4004)
-  %4005 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4006 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4005)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4006)
-  br label %5026
+3994:                                             ; preds = %3979, %3976
+  %3995 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %3996 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %3995)
+  %3997 = load ptr, ptr @V3PreLextext, align 8
+  %3998 = load i32, ptr @V3PreLexleng, align 4
+  %3999 = sext i32 %3998 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %3996, ptr noundef %3997, i64 noundef %3999, i1 noundef zeroext false)
+  %4000 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4001 = getelementptr inbounds %class.V3PreLex, ptr %4000, i32 0, i32 12
+  %4002 = load i32, ptr %4001, align 8
+  %4003 = add nsw i32 %4002, -1
+  store i32 %4003, ptr %4001, align 8
+  %4004 = load ptr, ptr @V3PreLextext, align 8
+  %4005 = load i32, ptr @V3PreLexleng, align 4
+  %4006 = sext i32 %4005 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %4004, i64 noundef %4006)
+  %4007 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4008 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4007)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4008)
+  br label %5028
 
-4007:                                             ; preds = %209
-  %4008 = load i32, ptr @V3PreLexleng, align 4
-  %4009 = icmp sgt i32 %4008, 0
-  br i1 %4009, label %4010, label %4025
+4009:                                             ; preds = %209
+  %4010 = load i32, ptr @V3PreLexleng, align 4
+  %4011 = icmp sgt i32 %4010, 0
+  br i1 %4011, label %4012, label %4027
 
-4010:                                             ; preds = %4007
-  %4011 = load ptr, ptr @V3PreLextext, align 8
-  %4012 = load i32, ptr @V3PreLexleng, align 4
-  %4013 = sub nsw i32 %4012, 1
-  %4014 = sext i32 %4013 to i64
-  %4015 = getelementptr inbounds i8, ptr %4011, i64 %4014
-  %4016 = load i8, ptr %4015, align 1
-  %4017 = sext i8 %4016 to i32
-  %4018 = icmp eq i32 %4017, 10
-  %4019 = zext i1 %4018 to i32
-  %4020 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4021 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4022 = getelementptr inbounds ptr, ptr %4020, i64 %4021
-  %4023 = load ptr, ptr %4022, align 8
-  %4024 = getelementptr inbounds %struct.yy_buffer_state, ptr %4023, i32 0, i32 7
-  store i32 %4019, ptr %4024, align 8
-  br label %4025
+4012:                                             ; preds = %4009
+  %4013 = load ptr, ptr @V3PreLextext, align 8
+  %4014 = load i32, ptr @V3PreLexleng, align 4
+  %4015 = sub nsw i32 %4014, 1
+  %4016 = sext i32 %4015 to i64
+  %4017 = getelementptr inbounds i8, ptr %4013, i64 %4016
+  %4018 = load i8, ptr %4017, align 1
+  %4019 = sext i8 %4018 to i32
+  %4020 = icmp eq i32 %4019, 10
+  %4021 = zext i1 %4020 to i32
+  %4022 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4023 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4024 = getelementptr inbounds ptr, ptr %4022, i64 %4023
+  %4025 = load ptr, ptr %4024, align 8
+  %4026 = getelementptr inbounds %struct.yy_buffer_state, ptr %4025, i32 0, i32 7
+  store i32 %4021, ptr %4026, align 8
+  br label %4027
 
-4025:                                             ; preds = %4010, %4007
-  %4026 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4027 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4026)
-  %4028 = load ptr, ptr @V3PreLextext, align 8
-  %4029 = load i32, ptr @V3PreLexleng, align 4
-  %4030 = sext i32 %4029 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4027, ptr noundef %4028, i64 noundef %4030, i1 noundef zeroext false)
-  %4031 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4032 = getelementptr inbounds %class.V3PreLex, ptr %4031, i32 0, i32 12
-  %4033 = load i32, ptr %4032, align 8
-  %4034 = add nsw i32 %4033, 1
-  store i32 %4034, ptr %4032, align 8
-  %4035 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4036 = getelementptr inbounds %class.V3PreLex, ptr %4035, i32 0, i32 12
-  %4037 = load i32, ptr %4036, align 8
-  %4038 = icmp eq i32 %4037, 1
-  br i1 %4038, label %4039, label %4045
+4027:                                             ; preds = %4012, %4009
+  %4028 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4029 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4028)
+  %4030 = load ptr, ptr @V3PreLextext, align 8
+  %4031 = load i32, ptr @V3PreLexleng, align 4
+  %4032 = sext i32 %4031 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4029, ptr noundef %4030, i64 noundef %4032, i1 noundef zeroext false)
+  %4033 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4034 = getelementptr inbounds %class.V3PreLex, ptr %4033, i32 0, i32 12
+  %4035 = load i32, ptr %4034, align 8
+  %4036 = add nsw i32 %4035, 1
+  store i32 %4036, ptr %4034, align 8
+  %4037 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4038 = getelementptr inbounds %class.V3PreLex, ptr %4037, i32 0, i32 12
+  %4039 = load i32, ptr %4038, align 8
+  %4040 = icmp eq i32 %4039, 1
+  br i1 %4040, label %4041, label %4047
 
-4039:                                             ; preds = %4025
-  %4040 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4041 = getelementptr inbounds %class.V3PreLex, ptr %4040, i32 0, i32 16
-  %4042 = call noundef zeroext i1 @_ZN7VString12isWhitespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %4041)
-  br i1 %4042, label %4044, label %4043
+4041:                                             ; preds = %4027
+  %4042 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4043 = getelementptr inbounds %class.V3PreLex, ptr %4042, i32 0, i32 16
+  %4044 = call noundef zeroext i1 @_ZN7VString12isWhitespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %4043)
+  br i1 %4044, label %4046, label %4045
 
-4043:                                             ; preds = %4039
+4045:                                             ; preds = %4041
   call void @_ZL14V3PreLexerrorfPKc(ptr noundef @.str.33)
-  br label %4044
+  br label %4046
 
-4044:                                             ; preds = %4043, %4039
-  br label %4045
+4046:                                             ; preds = %4045, %4041
+  br label %4047
 
-4045:                                             ; preds = %4044, %4025
-  %4046 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4047 = getelementptr inbounds %class.V3PreLex, ptr %4046, i32 0, i32 12
-  %4048 = load i32, ptr %4047, align 8
-  %4049 = icmp sgt i32 %4048, 1
-  br i1 %4049, label %4050, label %4056
+4047:                                             ; preds = %4046, %4027
+  %4048 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4049 = getelementptr inbounds %class.V3PreLex, ptr %4048, i32 0, i32 12
+  %4050 = load i32, ptr %4049, align 8
+  %4051 = icmp sgt i32 %4050, 1
+  br i1 %4051, label %4052, label %4058
 
-4050:                                             ; preds = %4045
-  %4051 = load ptr, ptr @V3PreLextext, align 8
-  %4052 = load i32, ptr @V3PreLexleng, align 4
-  %4053 = sext i32 %4052 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %4051, i64 noundef %4053)
-  %4054 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4055 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4054)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4055)
-  br label %4057
+4052:                                             ; preds = %4047
+  %4053 = load ptr, ptr @V3PreLextext, align 8
+  %4054 = load i32, ptr @V3PreLexleng, align 4
+  %4055 = sext i32 %4054 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %4053, i64 noundef %4055)
+  %4056 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4057 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4056)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4057)
+  br label %4059
 
-4056:                                             ; preds = %4045
+4058:                                             ; preds = %4047
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4057:                                             ; preds = %4050
-  br label %5026
+4059:                                             ; preds = %4052
+  br label %5028
 
-4058:                                             ; preds = %209
-  %4059 = load i32, ptr @V3PreLexleng, align 4
-  %4060 = icmp sgt i32 %4059, 0
-  br i1 %4060, label %4061, label %4076
+4060:                                             ; preds = %209
+  %4061 = load i32, ptr @V3PreLexleng, align 4
+  %4062 = icmp sgt i32 %4061, 0
+  br i1 %4062, label %4063, label %4078
 
-4061:                                             ; preds = %4058
-  %4062 = load ptr, ptr @V3PreLextext, align 8
-  %4063 = load i32, ptr @V3PreLexleng, align 4
-  %4064 = sub nsw i32 %4063, 1
-  %4065 = sext i32 %4064 to i64
-  %4066 = getelementptr inbounds i8, ptr %4062, i64 %4065
-  %4067 = load i8, ptr %4066, align 1
-  %4068 = sext i8 %4067 to i32
-  %4069 = icmp eq i32 %4068, 10
-  %4070 = zext i1 %4069 to i32
-  %4071 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4072 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4073 = getelementptr inbounds ptr, ptr %4071, i64 %4072
-  %4074 = load ptr, ptr %4073, align 8
-  %4075 = getelementptr inbounds %struct.yy_buffer_state, ptr %4074, i32 0, i32 7
-  store i32 %4070, ptr %4075, align 8
-  br label %4076
+4063:                                             ; preds = %4060
+  %4064 = load ptr, ptr @V3PreLextext, align 8
+  %4065 = load i32, ptr @V3PreLexleng, align 4
+  %4066 = sub nsw i32 %4065, 1
+  %4067 = sext i32 %4066 to i64
+  %4068 = getelementptr inbounds i8, ptr %4064, i64 %4067
+  %4069 = load i8, ptr %4068, align 1
+  %4070 = sext i8 %4069 to i32
+  %4071 = icmp eq i32 %4070, 10
+  %4072 = zext i1 %4071 to i32
+  %4073 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4074 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4075 = getelementptr inbounds ptr, ptr %4073, i64 %4074
+  %4076 = load ptr, ptr %4075, align 8
+  %4077 = getelementptr inbounds %struct.yy_buffer_state, ptr %4076, i32 0, i32 7
+  store i32 %4072, ptr %4077, align 8
+  br label %4078
 
-4076:                                             ; preds = %4061, %4058
-  %4077 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4078 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4077)
-  %4079 = load ptr, ptr @V3PreLextext, align 8
-  %4080 = load i32, ptr @V3PreLexleng, align 4
-  %4081 = sext i32 %4080 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4078, ptr noundef %4079, i64 noundef %4081, i1 noundef zeroext false)
-  %4082 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4083 = getelementptr inbounds %class.V3PreLex, ptr %4082, i32 0, i32 12
-  %4084 = load i32, ptr %4083, align 8
-  %4085 = add nsw i32 %4084, -1
-  store i32 %4085, ptr %4083, align 8
-  %4086 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4087 = getelementptr inbounds %class.V3PreLex, ptr %4086, i32 0, i32 12
-  %4088 = load i32, ptr %4087, align 8
-  %4089 = icmp sgt i32 %4088, 0
-  br i1 %4089, label %4090, label %4096
+4078:                                             ; preds = %4063, %4060
+  %4079 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4080 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4079)
+  %4081 = load ptr, ptr @V3PreLextext, align 8
+  %4082 = load i32, ptr @V3PreLexleng, align 4
+  %4083 = sext i32 %4082 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4080, ptr noundef %4081, i64 noundef %4083, i1 noundef zeroext false)
+  %4084 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4085 = getelementptr inbounds %class.V3PreLex, ptr %4084, i32 0, i32 12
+  %4086 = load i32, ptr %4085, align 8
+  %4087 = add nsw i32 %4086, -1
+  store i32 %4087, ptr %4085, align 8
+  %4088 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4089 = getelementptr inbounds %class.V3PreLex, ptr %4088, i32 0, i32 12
+  %4090 = load i32, ptr %4089, align 8
+  %4091 = icmp sgt i32 %4090, 0
+  br i1 %4091, label %4092, label %4098
 
-4090:                                             ; preds = %4076
-  %4091 = load ptr, ptr @V3PreLextext, align 8
-  %4092 = load i32, ptr @V3PreLexleng, align 4
-  %4093 = sext i32 %4092 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %4091, i64 noundef %4093)
-  %4094 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4095 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4094)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4095)
-  br label %4097
+4092:                                             ; preds = %4078
+  %4093 = load ptr, ptr @V3PreLextext, align 8
+  %4094 = load i32, ptr @V3PreLexleng, align 4
+  %4095 = sext i32 %4094 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %4093, i64 noundef %4095)
+  %4096 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4097 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4096)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4097)
+  br label %4099
 
-4096:                                             ; preds = %4076
+4098:                                             ; preds = %4078
   call void @_ZL12yy_pop_statev()
   store i32 307, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4097:                                             ; preds = %4090
-  br label %5026
+4099:                                             ; preds = %4092
+  br label %5028
 
-4098:                                             ; preds = %209
-  %4099 = load i32, ptr @V3PreLexleng, align 4
-  %4100 = icmp sgt i32 %4099, 0
-  br i1 %4100, label %4101, label %4116
+4100:                                             ; preds = %209
+  %4101 = load i32, ptr @V3PreLexleng, align 4
+  %4102 = icmp sgt i32 %4101, 0
+  br i1 %4102, label %4103, label %4118
 
-4101:                                             ; preds = %4098
-  %4102 = load ptr, ptr @V3PreLextext, align 8
-  %4103 = load i32, ptr @V3PreLexleng, align 4
-  %4104 = sub nsw i32 %4103, 1
-  %4105 = sext i32 %4104 to i64
-  %4106 = getelementptr inbounds i8, ptr %4102, i64 %4105
-  %4107 = load i8, ptr %4106, align 1
-  %4108 = sext i8 %4107 to i32
-  %4109 = icmp eq i32 %4108, 10
-  %4110 = zext i1 %4109 to i32
-  %4111 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4112 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4113 = getelementptr inbounds ptr, ptr %4111, i64 %4112
-  %4114 = load ptr, ptr %4113, align 8
-  %4115 = getelementptr inbounds %struct.yy_buffer_state, ptr %4114, i32 0, i32 7
-  store i32 %4110, ptr %4115, align 8
-  br label %4116
+4103:                                             ; preds = %4100
+  %4104 = load ptr, ptr @V3PreLextext, align 8
+  %4105 = load i32, ptr @V3PreLexleng, align 4
+  %4106 = sub nsw i32 %4105, 1
+  %4107 = sext i32 %4106 to i64
+  %4108 = getelementptr inbounds i8, ptr %4104, i64 %4107
+  %4109 = load i8, ptr %4108, align 1
+  %4110 = sext i8 %4109 to i32
+  %4111 = icmp eq i32 %4110, 10
+  %4112 = zext i1 %4111 to i32
+  %4113 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4114 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4115 = getelementptr inbounds ptr, ptr %4113, i64 %4114
+  %4116 = load ptr, ptr %4115, align 8
+  %4117 = getelementptr inbounds %struct.yy_buffer_state, ptr %4116, i32 0, i32 7
+  store i32 %4112, ptr %4117, align 8
+  br label %4118
 
-4116:                                             ; preds = %4101, %4098
-  %4117 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4118 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4117)
-  %4119 = load ptr, ptr @V3PreLextext, align 8
-  %4120 = load i32, ptr @V3PreLexleng, align 4
-  %4121 = sext i32 %4120 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4118, ptr noundef %4119, i64 noundef %4121, i1 noundef zeroext false)
-  %4122 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4123 = getelementptr inbounds %class.V3PreLex, ptr %4122, i32 0, i32 12
-  %4124 = load i32, ptr %4123, align 8
-  %4125 = icmp sgt i32 %4124, 1
-  br i1 %4125, label %4126, label %4132
+4118:                                             ; preds = %4103, %4100
+  %4119 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4120 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4119)
+  %4121 = load ptr, ptr @V3PreLextext, align 8
+  %4122 = load i32, ptr @V3PreLexleng, align 4
+  %4123 = sext i32 %4122 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4120, ptr noundef %4121, i64 noundef %4123, i1 noundef zeroext false)
+  %4124 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4125 = getelementptr inbounds %class.V3PreLex, ptr %4124, i32 0, i32 12
+  %4126 = load i32, ptr %4125, align 8
+  %4127 = icmp sgt i32 %4126, 1
+  br i1 %4127, label %4128, label %4134
 
-4126:                                             ; preds = %4116
-  %4127 = load ptr, ptr @V3PreLextext, align 8
-  %4128 = load i32, ptr @V3PreLexleng, align 4
-  %4129 = sext i32 %4128 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %4127, i64 noundef %4129)
-  %4130 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4131 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4130)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4131)
-  br label %4133
+4128:                                             ; preds = %4118
+  %4129 = load ptr, ptr @V3PreLextext, align 8
+  %4130 = load i32, ptr @V3PreLexleng, align 4
+  %4131 = sext i32 %4130 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %4129, i64 noundef %4131)
+  %4132 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4133 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4132)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4133)
+  br label %4135
 
-4132:                                             ; preds = %4116
+4134:                                             ; preds = %4118
   call void @_ZL12yy_pop_statev()
   store i32 307, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4133:                                             ; preds = %4126
-  br label %5026
+4135:                                             ; preds = %4128
+  br label %5028
 
-4134:                                             ; preds = %209
-  %4135 = load i32, ptr @V3PreLexleng, align 4
-  %4136 = icmp sgt i32 %4135, 0
-  br i1 %4136, label %4137, label %4152
+4136:                                             ; preds = %209
+  %4137 = load i32, ptr @V3PreLexleng, align 4
+  %4138 = icmp sgt i32 %4137, 0
+  br i1 %4138, label %4139, label %4154
 
-4137:                                             ; preds = %4134
-  %4138 = load ptr, ptr @V3PreLextext, align 8
-  %4139 = load i32, ptr @V3PreLexleng, align 4
-  %4140 = sub nsw i32 %4139, 1
-  %4141 = sext i32 %4140 to i64
-  %4142 = getelementptr inbounds i8, ptr %4138, i64 %4141
-  %4143 = load i8, ptr %4142, align 1
-  %4144 = sext i8 %4143 to i32
-  %4145 = icmp eq i32 %4144, 10
-  %4146 = zext i1 %4145 to i32
-  %4147 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4148 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4149 = getelementptr inbounds ptr, ptr %4147, i64 %4148
-  %4150 = load ptr, ptr %4149, align 8
-  %4151 = getelementptr inbounds %struct.yy_buffer_state, ptr %4150, i32 0, i32 7
-  store i32 %4146, ptr %4151, align 8
-  br label %4152
+4139:                                             ; preds = %4136
+  %4140 = load ptr, ptr @V3PreLextext, align 8
+  %4141 = load i32, ptr @V3PreLexleng, align 4
+  %4142 = sub nsw i32 %4141, 1
+  %4143 = sext i32 %4142 to i64
+  %4144 = getelementptr inbounds i8, ptr %4140, i64 %4143
+  %4145 = load i8, ptr %4144, align 1
+  %4146 = sext i8 %4145 to i32
+  %4147 = icmp eq i32 %4146, 10
+  %4148 = zext i1 %4147 to i32
+  %4149 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4150 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4151 = getelementptr inbounds ptr, ptr %4149, i64 %4150
+  %4152 = load ptr, ptr %4151, align 8
+  %4153 = getelementptr inbounds %struct.yy_buffer_state, ptr %4152, i32 0, i32 7
+  store i32 %4148, ptr %4153, align 8
+  br label %4154
 
-4152:                                             ; preds = %4137, %4134
-  %4153 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4154 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4153)
-  %4155 = load ptr, ptr @V3PreLextext, align 8
-  %4156 = load i32, ptr @V3PreLexleng, align 4
-  %4157 = sext i32 %4156 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4154, ptr noundef %4155, i64 noundef %4157, i1 noundef zeroext false)
-  %4158 = load ptr, ptr @V3PreLextext, align 8
-  %4159 = load i32, ptr @V3PreLexleng, align 4
-  %4160 = sext i32 %4159 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %4158, i64 noundef %4160)
-  %4161 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4162 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4161)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4162)
-  br label %5026
+4154:                                             ; preds = %4139, %4136
+  %4155 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4156 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4155)
+  %4157 = load ptr, ptr @V3PreLextext, align 8
+  %4158 = load i32, ptr @V3PreLexleng, align 4
+  %4159 = sext i32 %4158 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4156, ptr noundef %4157, i64 noundef %4159, i1 noundef zeroext false)
+  %4160 = load ptr, ptr @V3PreLextext, align 8
+  %4161 = load i32, ptr @V3PreLexleng, align 4
+  %4162 = sext i32 %4161 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %4160, i64 noundef %4162)
+  %4163 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4164 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4163)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4164)
+  br label %5028
 
-4163:                                             ; preds = %209
-  %4164 = load i32, ptr @V3PreLexleng, align 4
-  %4165 = icmp sgt i32 %4164, 0
-  br i1 %4165, label %4166, label %4181
+4165:                                             ; preds = %209
+  %4166 = load i32, ptr @V3PreLexleng, align 4
+  %4167 = icmp sgt i32 %4166, 0
+  br i1 %4167, label %4168, label %4183
 
-4166:                                             ; preds = %4163
-  %4167 = load ptr, ptr @V3PreLextext, align 8
-  %4168 = load i32, ptr @V3PreLexleng, align 4
-  %4169 = sub nsw i32 %4168, 1
-  %4170 = sext i32 %4169 to i64
-  %4171 = getelementptr inbounds i8, ptr %4167, i64 %4170
-  %4172 = load i8, ptr %4171, align 1
-  %4173 = sext i8 %4172 to i32
-  %4174 = icmp eq i32 %4173, 10
-  %4175 = zext i1 %4174 to i32
-  %4176 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4177 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4178 = getelementptr inbounds ptr, ptr %4176, i64 %4177
-  %4179 = load ptr, ptr %4178, align 8
-  %4180 = getelementptr inbounds %struct.yy_buffer_state, ptr %4179, i32 0, i32 7
-  store i32 %4175, ptr %4180, align 8
-  br label %4181
+4168:                                             ; preds = %4165
+  %4169 = load ptr, ptr @V3PreLextext, align 8
+  %4170 = load i32, ptr @V3PreLexleng, align 4
+  %4171 = sub nsw i32 %4170, 1
+  %4172 = sext i32 %4171 to i64
+  %4173 = getelementptr inbounds i8, ptr %4169, i64 %4172
+  %4174 = load i8, ptr %4173, align 1
+  %4175 = sext i8 %4174 to i32
+  %4176 = icmp eq i32 %4175, 10
+  %4177 = zext i1 %4176 to i32
+  %4178 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4179 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4180 = getelementptr inbounds ptr, ptr %4178, i64 %4179
+  %4181 = load ptr, ptr %4180, align 8
+  %4182 = getelementptr inbounds %struct.yy_buffer_state, ptr %4181, i32 0, i32 7
+  store i32 %4177, ptr %4182, align 8
+  br label %4183
 
-4181:                                             ; preds = %4166, %4163
-  %4182 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4183 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4182)
-  %4184 = load ptr, ptr @V3PreLextext, align 8
-  %4185 = load i32, ptr @V3PreLexleng, align 4
-  %4186 = sext i32 %4185 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4183, ptr noundef %4184, i64 noundef %4186, i1 noundef zeroext false)
-  %4187 = load ptr, ptr @V3PreLextext, align 8
-  %4188 = load i32, ptr @V3PreLexleng, align 4
-  %4189 = sext i32 %4188 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %4187, i64 noundef %4189)
-  %4190 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4191 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4190)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4191)
-  br label %5026
+4183:                                             ; preds = %4168, %4165
+  %4184 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4185 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4184)
+  %4186 = load ptr, ptr @V3PreLextext, align 8
+  %4187 = load i32, ptr @V3PreLexleng, align 4
+  %4188 = sext i32 %4187 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4185, ptr noundef %4186, i64 noundef %4188, i1 noundef zeroext false)
+  %4189 = load ptr, ptr @V3PreLextext, align 8
+  %4190 = load i32, ptr @V3PreLexleng, align 4
+  %4191 = sext i32 %4190 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %4189, i64 noundef %4191)
+  %4192 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4193 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4192)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4193)
+  br label %5028
 
-4192:                                             ; preds = %209
-  %4193 = load i32, ptr @V3PreLexleng, align 4
-  %4194 = icmp sgt i32 %4193, 0
-  br i1 %4194, label %4195, label %4210
+4194:                                             ; preds = %209
+  %4195 = load i32, ptr @V3PreLexleng, align 4
+  %4196 = icmp sgt i32 %4195, 0
+  br i1 %4196, label %4197, label %4212
 
-4195:                                             ; preds = %4192
-  %4196 = load ptr, ptr @V3PreLextext, align 8
-  %4197 = load i32, ptr @V3PreLexleng, align 4
-  %4198 = sub nsw i32 %4197, 1
-  %4199 = sext i32 %4198 to i64
-  %4200 = getelementptr inbounds i8, ptr %4196, i64 %4199
-  %4201 = load i8, ptr %4200, align 1
-  %4202 = sext i8 %4201 to i32
-  %4203 = icmp eq i32 %4202, 10
-  %4204 = zext i1 %4203 to i32
-  %4205 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4206 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4207 = getelementptr inbounds ptr, ptr %4205, i64 %4206
-  %4208 = load ptr, ptr %4207, align 8
-  %4209 = getelementptr inbounds %struct.yy_buffer_state, ptr %4208, i32 0, i32 7
-  store i32 %4204, ptr %4209, align 8
-  br label %4210
+4197:                                             ; preds = %4194
+  %4198 = load ptr, ptr @V3PreLextext, align 8
+  %4199 = load i32, ptr @V3PreLexleng, align 4
+  %4200 = sub nsw i32 %4199, 1
+  %4201 = sext i32 %4200 to i64
+  %4202 = getelementptr inbounds i8, ptr %4198, i64 %4201
+  %4203 = load i8, ptr %4202, align 1
+  %4204 = sext i8 %4203 to i32
+  %4205 = icmp eq i32 %4204, 10
+  %4206 = zext i1 %4205 to i32
+  %4207 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4208 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4209 = getelementptr inbounds ptr, ptr %4207, i64 %4208
+  %4210 = load ptr, ptr %4209, align 8
+  %4211 = getelementptr inbounds %struct.yy_buffer_state, ptr %4210, i32 0, i32 7
+  store i32 %4206, ptr %4211, align 8
+  br label %4212
 
-4210:                                             ; preds = %4195, %4192
-  %4211 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4212 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4211)
-  %4213 = load ptr, ptr @V3PreLextext, align 8
-  %4214 = load i32, ptr @V3PreLexleng, align 4
-  %4215 = sext i32 %4214 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4212, ptr noundef %4213, i64 noundef %4215, i1 noundef zeroext false)
-  %4216 = load ptr, ptr @V3PreLextext, align 8
-  %4217 = load i32, ptr @V3PreLexleng, align 4
-  %4218 = sext i32 %4217 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %4216, i64 noundef %4218)
-  %4219 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4220 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4219)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4220)
-  br label %5026
+4212:                                             ; preds = %4197, %4194
+  %4213 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4214 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4213)
+  %4215 = load ptr, ptr @V3PreLextext, align 8
+  %4216 = load i32, ptr @V3PreLexleng, align 4
+  %4217 = sext i32 %4216 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4214, ptr noundef %4215, i64 noundef %4217, i1 noundef zeroext false)
+  %4218 = load ptr, ptr @V3PreLextext, align 8
+  %4219 = load i32, ptr @V3PreLexleng, align 4
+  %4220 = sext i32 %4219 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %4218, i64 noundef %4220)
+  %4221 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4222 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4221)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4222)
+  br label %5028
 
-4221:                                             ; preds = %209, %209
-  %4222 = load i32, ptr @V3PreLexleng, align 4
-  %4223 = icmp sgt i32 %4222, 0
-  br i1 %4223, label %4224, label %4239
+4223:                                             ; preds = %209, %209
+  %4224 = load i32, ptr @V3PreLexleng, align 4
+  %4225 = icmp sgt i32 %4224, 0
+  br i1 %4225, label %4226, label %4241
 
-4224:                                             ; preds = %4221
-  %4225 = load ptr, ptr @V3PreLextext, align 8
-  %4226 = load i32, ptr @V3PreLexleng, align 4
-  %4227 = sub nsw i32 %4226, 1
-  %4228 = sext i32 %4227 to i64
-  %4229 = getelementptr inbounds i8, ptr %4225, i64 %4228
-  %4230 = load i8, ptr %4229, align 1
-  %4231 = sext i8 %4230 to i32
-  %4232 = icmp eq i32 %4231, 10
-  %4233 = zext i1 %4232 to i32
-  %4234 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4235 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4236 = getelementptr inbounds ptr, ptr %4234, i64 %4235
-  %4237 = load ptr, ptr %4236, align 8
-  %4238 = getelementptr inbounds %struct.yy_buffer_state, ptr %4237, i32 0, i32 7
-  store i32 %4233, ptr %4238, align 8
-  br label %4239
+4226:                                             ; preds = %4223
+  %4227 = load ptr, ptr @V3PreLextext, align 8
+  %4228 = load i32, ptr @V3PreLexleng, align 4
+  %4229 = sub nsw i32 %4228, 1
+  %4230 = sext i32 %4229 to i64
+  %4231 = getelementptr inbounds i8, ptr %4227, i64 %4230
+  %4232 = load i8, ptr %4231, align 1
+  %4233 = sext i8 %4232 to i32
+  %4234 = icmp eq i32 %4233, 10
+  %4235 = zext i1 %4234 to i32
+  %4236 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4237 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4238 = getelementptr inbounds ptr, ptr %4236, i64 %4237
+  %4239 = load ptr, ptr %4238, align 8
+  %4240 = getelementptr inbounds %struct.yy_buffer_state, ptr %4239, i32 0, i32 7
+  store i32 %4235, ptr %4240, align 8
+  br label %4241
 
-4239:                                             ; preds = %4224, %4221
-  %4240 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4241 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4240)
-  %4242 = load ptr, ptr @V3PreLextext, align 8
-  %4243 = load i32, ptr @V3PreLexleng, align 4
-  %4244 = sext i32 %4243 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4241, ptr noundef %4242, i64 noundef %4244, i1 noundef zeroext false)
-  %4245 = load ptr, ptr @V3PreLextext, align 8
-  %4246 = load i32, ptr @V3PreLexleng, align 4
-  %4247 = sext i32 %4246 to i64
-  call void @_ZL14appendDefValuePKcm(ptr noundef %4245, i64 noundef %4247)
-  %4248 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4249 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4248)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4249)
-  br label %5026
+4241:                                             ; preds = %4226, %4223
+  %4242 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4243 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4242)
+  %4244 = load ptr, ptr @V3PreLextext, align 8
+  %4245 = load i32, ptr @V3PreLexleng, align 4
+  %4246 = sext i32 %4245 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4243, ptr noundef %4244, i64 noundef %4246, i1 noundef zeroext false)
+  %4247 = load ptr, ptr @V3PreLextext, align 8
+  %4248 = load i32, ptr @V3PreLexleng, align 4
+  %4249 = sext i32 %4248 to i64
+  call void @_ZL14appendDefValuePKcm(ptr noundef %4247, i64 noundef %4249)
+  %4250 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4251 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4250)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4251)
+  br label %5028
 
-4250:                                             ; preds = %209
-  %4251 = load i32, ptr @V3PreLexleng, align 4
-  %4252 = icmp sgt i32 %4251, 0
-  br i1 %4252, label %4253, label %4268
+4252:                                             ; preds = %209
+  %4253 = load i32, ptr @V3PreLexleng, align 4
+  %4254 = icmp sgt i32 %4253, 0
+  br i1 %4254, label %4255, label %4270
 
-4253:                                             ; preds = %4250
-  %4254 = load ptr, ptr @V3PreLextext, align 8
-  %4255 = load i32, ptr @V3PreLexleng, align 4
-  %4256 = sub nsw i32 %4255, 1
-  %4257 = sext i32 %4256 to i64
-  %4258 = getelementptr inbounds i8, ptr %4254, i64 %4257
-  %4259 = load i8, ptr %4258, align 1
-  %4260 = sext i8 %4259 to i32
-  %4261 = icmp eq i32 %4260, 10
-  %4262 = zext i1 %4261 to i32
-  %4263 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4264 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4265 = getelementptr inbounds ptr, ptr %4263, i64 %4264
-  %4266 = load ptr, ptr %4265, align 8
-  %4267 = getelementptr inbounds %struct.yy_buffer_state, ptr %4266, i32 0, i32 7
-  store i32 %4262, ptr %4267, align 8
-  br label %4268
+4255:                                             ; preds = %4252
+  %4256 = load ptr, ptr @V3PreLextext, align 8
+  %4257 = load i32, ptr @V3PreLexleng, align 4
+  %4258 = sub nsw i32 %4257, 1
+  %4259 = sext i32 %4258 to i64
+  %4260 = getelementptr inbounds i8, ptr %4256, i64 %4259
+  %4261 = load i8, ptr %4260, align 1
+  %4262 = sext i8 %4261 to i32
+  %4263 = icmp eq i32 %4262, 10
+  %4264 = zext i1 %4263 to i32
+  %4265 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4266 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4267 = getelementptr inbounds ptr, ptr %4265, i64 %4266
+  %4268 = load ptr, ptr %4267, align 8
+  %4269 = getelementptr inbounds %struct.yy_buffer_state, ptr %4268, i32 0, i32 7
+  store i32 %4264, ptr %4269, align 8
+  br label %4270
 
-4268:                                             ; preds = %4253, %4250
-  %4269 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4270 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4269)
-  %4271 = load ptr, ptr @V3PreLextext, align 8
-  %4272 = load i32, ptr @V3PreLexleng, align 4
-  %4273 = sext i32 %4272 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4270, ptr noundef %4271, i64 noundef %4273, i1 noundef zeroext false)
-  %4274 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4275 = load ptr, ptr @V3PreLextext, align 8
-  %4276 = getelementptr inbounds i8, ptr %4275, i64 2
-  call void @_ZN8V3PreLex16verilatorCmtLintEPKcb(ptr noundef nonnull align 8 dereferenceable(264) %4274, ptr noundef %4276, i1 noundef zeroext true)
+4270:                                             ; preds = %4255, %4252
+  %4271 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4272 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4271)
+  %4273 = load ptr, ptr @V3PreLextext, align 8
+  %4274 = load i32, ptr @V3PreLexleng, align 4
+  %4275 = sext i32 %4274 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4272, ptr noundef %4273, i64 noundef %4275, i1 noundef zeroext false)
+  %4276 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4277 = load ptr, ptr @V3PreLextext, align 8
+  %4278 = getelementptr inbounds i8, ptr %4277, i64 2
+  call void @_ZN8V3PreLex16verilatorCmtLintEPKcb(ptr noundef nonnull align 8 dereferenceable(264) %4276, ptr noundef %4278, i1 noundef zeroext true)
   store i32 303, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4277:                                             ; preds = %209
-  %4278 = load i32, ptr @V3PreLexleng, align 4
-  %4279 = icmp sgt i32 %4278, 0
-  br i1 %4279, label %4280, label %4295
+4279:                                             ; preds = %209
+  %4280 = load i32, ptr @V3PreLexleng, align 4
+  %4281 = icmp sgt i32 %4280, 0
+  br i1 %4281, label %4282, label %4297
 
-4280:                                             ; preds = %4277
-  %4281 = load ptr, ptr @V3PreLextext, align 8
-  %4282 = load i32, ptr @V3PreLexleng, align 4
-  %4283 = sub nsw i32 %4282, 1
-  %4284 = sext i32 %4283 to i64
-  %4285 = getelementptr inbounds i8, ptr %4281, i64 %4284
-  %4286 = load i8, ptr %4285, align 1
-  %4287 = sext i8 %4286 to i32
-  %4288 = icmp eq i32 %4287, 10
-  %4289 = zext i1 %4288 to i32
-  %4290 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4291 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4292 = getelementptr inbounds ptr, ptr %4290, i64 %4291
-  %4293 = load ptr, ptr %4292, align 8
-  %4294 = getelementptr inbounds %struct.yy_buffer_state, ptr %4293, i32 0, i32 7
-  store i32 %4289, ptr %4294, align 8
-  br label %4295
+4282:                                             ; preds = %4279
+  %4283 = load ptr, ptr @V3PreLextext, align 8
+  %4284 = load i32, ptr @V3PreLexleng, align 4
+  %4285 = sub nsw i32 %4284, 1
+  %4286 = sext i32 %4285 to i64
+  %4287 = getelementptr inbounds i8, ptr %4283, i64 %4286
+  %4288 = load i8, ptr %4287, align 1
+  %4289 = sext i8 %4288 to i32
+  %4290 = icmp eq i32 %4289, 10
+  %4291 = zext i1 %4290 to i32
+  %4292 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4293 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4294 = getelementptr inbounds ptr, ptr %4292, i64 %4293
+  %4295 = load ptr, ptr %4294, align 8
+  %4296 = getelementptr inbounds %struct.yy_buffer_state, ptr %4295, i32 0, i32 7
+  store i32 %4291, ptr %4296, align 8
+  br label %4297
 
-4295:                                             ; preds = %4280, %4277
-  %4296 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4297 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4296)
-  %4298 = load ptr, ptr @V3PreLextext, align 8
-  %4299 = load i32, ptr @V3PreLexleng, align 4
-  %4300 = sext i32 %4299 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4297, ptr noundef %4298, i64 noundef %4300, i1 noundef zeroext false)
-  %4301 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4302 = load ptr, ptr @V3PreLextext, align 8
-  %4303 = getelementptr inbounds i8, ptr %4302, i64 2
-  call void @_ZN8V3PreLex16verilatorCmtLintEPKcb(ptr noundef nonnull align 8 dereferenceable(264) %4301, ptr noundef %4303, i1 noundef zeroext false)
+4297:                                             ; preds = %4282, %4279
+  %4298 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4299 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4298)
+  %4300 = load ptr, ptr @V3PreLextext, align 8
+  %4301 = load i32, ptr @V3PreLexleng, align 4
+  %4302 = sext i32 %4301 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4299, ptr noundef %4300, i64 noundef %4302, i1 noundef zeroext false)
+  %4303 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4304 = load ptr, ptr @V3PreLextext, align 8
+  %4305 = getelementptr inbounds i8, ptr %4304, i64 2
+  call void @_ZN8V3PreLex16verilatorCmtLintEPKcb(ptr noundef nonnull align 8 dereferenceable(264) %4303, ptr noundef %4305, i1 noundef zeroext false)
   store i32 303, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4304:                                             ; preds = %209
-  %4305 = load i32, ptr @V3PreLexleng, align 4
-  %4306 = icmp sgt i32 %4305, 0
-  br i1 %4306, label %4307, label %4322
+4306:                                             ; preds = %209
+  %4307 = load i32, ptr @V3PreLexleng, align 4
+  %4308 = icmp sgt i32 %4307, 0
+  br i1 %4308, label %4309, label %4324
 
-4307:                                             ; preds = %4304
-  %4308 = load ptr, ptr @V3PreLextext, align 8
-  %4309 = load i32, ptr @V3PreLexleng, align 4
-  %4310 = sub nsw i32 %4309, 1
-  %4311 = sext i32 %4310 to i64
-  %4312 = getelementptr inbounds i8, ptr %4308, i64 %4311
-  %4313 = load i8, ptr %4312, align 1
-  %4314 = sext i8 %4313 to i32
-  %4315 = icmp eq i32 %4314, 10
-  %4316 = zext i1 %4315 to i32
-  %4317 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4318 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4319 = getelementptr inbounds ptr, ptr %4317, i64 %4318
-  %4320 = load ptr, ptr %4319, align 8
-  %4321 = getelementptr inbounds %struct.yy_buffer_state, ptr %4320, i32 0, i32 7
-  store i32 %4316, ptr %4321, align 8
-  br label %4322
+4309:                                             ; preds = %4306
+  %4310 = load ptr, ptr @V3PreLextext, align 8
+  %4311 = load i32, ptr @V3PreLexleng, align 4
+  %4312 = sub nsw i32 %4311, 1
+  %4313 = sext i32 %4312 to i64
+  %4314 = getelementptr inbounds i8, ptr %4310, i64 %4313
+  %4315 = load i8, ptr %4314, align 1
+  %4316 = sext i8 %4315 to i32
+  %4317 = icmp eq i32 %4316, 10
+  %4318 = zext i1 %4317 to i32
+  %4319 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4320 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4321 = getelementptr inbounds ptr, ptr %4319, i64 %4320
+  %4322 = load ptr, ptr %4321, align 8
+  %4323 = getelementptr inbounds %struct.yy_buffer_state, ptr %4322, i32 0, i32 7
+  store i32 %4318, ptr %4323, align 8
+  br label %4324
 
-4322:                                             ; preds = %4307, %4304
-  %4323 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4324 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4323)
-  %4325 = load ptr, ptr @V3PreLextext, align 8
-  %4326 = load i32, ptr @V3PreLexleng, align 4
-  %4327 = sext i32 %4326 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4324, ptr noundef %4325, i64 noundef %4327, i1 noundef zeroext false)
-  %4328 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  call void @_ZN8V3PreLex23verilatorCmtLintRestoreEv(ptr noundef nonnull align 8 dereferenceable(264) %4328)
+4324:                                             ; preds = %4309, %4306
+  %4325 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4326 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4325)
+  %4327 = load ptr, ptr @V3PreLextext, align 8
+  %4328 = load i32, ptr @V3PreLexleng, align 4
+  %4329 = sext i32 %4328 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4326, ptr noundef %4327, i64 noundef %4329, i1 noundef zeroext false)
+  %4330 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  call void @_ZN8V3PreLex23verilatorCmtLintRestoreEv(ptr noundef nonnull align 8 dereferenceable(264) %4330)
   store i32 303, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4329:                                             ; preds = %209
-  %4330 = load i32, ptr @V3PreLexleng, align 4
-  %4331 = icmp sgt i32 %4330, 0
-  br i1 %4331, label %4332, label %4347
+4331:                                             ; preds = %209
+  %4332 = load i32, ptr @V3PreLexleng, align 4
+  %4333 = icmp sgt i32 %4332, 0
+  br i1 %4333, label %4334, label %4349
 
-4332:                                             ; preds = %4329
-  %4333 = load ptr, ptr @V3PreLextext, align 8
-  %4334 = load i32, ptr @V3PreLexleng, align 4
-  %4335 = sub nsw i32 %4334, 1
-  %4336 = sext i32 %4335 to i64
-  %4337 = getelementptr inbounds i8, ptr %4333, i64 %4336
-  %4338 = load i8, ptr %4337, align 1
-  %4339 = sext i8 %4338 to i32
-  %4340 = icmp eq i32 %4339, 10
-  %4341 = zext i1 %4340 to i32
-  %4342 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4343 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4344 = getelementptr inbounds ptr, ptr %4342, i64 %4343
-  %4345 = load ptr, ptr %4344, align 8
-  %4346 = getelementptr inbounds %struct.yy_buffer_state, ptr %4345, i32 0, i32 7
-  store i32 %4341, ptr %4346, align 8
-  br label %4347
+4334:                                             ; preds = %4331
+  %4335 = load ptr, ptr @V3PreLextext, align 8
+  %4336 = load i32, ptr @V3PreLexleng, align 4
+  %4337 = sub nsw i32 %4336, 1
+  %4338 = sext i32 %4337 to i64
+  %4339 = getelementptr inbounds i8, ptr %4335, i64 %4338
+  %4340 = load i8, ptr %4339, align 1
+  %4341 = sext i8 %4340 to i32
+  %4342 = icmp eq i32 %4341, 10
+  %4343 = zext i1 %4342 to i32
+  %4344 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4345 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4346 = getelementptr inbounds ptr, ptr %4344, i64 %4345
+  %4347 = load ptr, ptr %4346, align 8
+  %4348 = getelementptr inbounds %struct.yy_buffer_state, ptr %4347, i32 0, i32 7
+  store i32 %4343, ptr %4348, align 8
+  br label %4349
 
-4347:                                             ; preds = %4332, %4329
-  %4348 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4349 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4348)
-  %4350 = load ptr, ptr @V3PreLextext, align 8
-  %4351 = load i32, ptr @V3PreLexleng, align 4
-  %4352 = sext i32 %4351 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4349, ptr noundef %4350, i64 noundef %4352, i1 noundef zeroext false)
-  %4353 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  call void @_ZN8V3PreLex20verilatorCmtLintSaveEv(ptr noundef nonnull align 8 dereferenceable(264) %4353)
+4349:                                             ; preds = %4334, %4331
+  %4350 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4351 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4350)
+  %4352 = load ptr, ptr @V3PreLextext, align 8
+  %4353 = load i32, ptr @V3PreLexleng, align 4
+  %4354 = sext i32 %4353 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4351, ptr noundef %4352, i64 noundef %4354, i1 noundef zeroext false)
+  %4355 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  call void @_ZN8V3PreLex20verilatorCmtLintSaveEv(ptr noundef nonnull align 8 dereferenceable(264) %4355)
   store i32 303, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4354:                                             ; preds = %209
-  %4355 = load i32, ptr @V3PreLexleng, align 4
-  %4356 = icmp sgt i32 %4355, 0
-  br i1 %4356, label %4357, label %4372
+4356:                                             ; preds = %209
+  %4357 = load i32, ptr @V3PreLexleng, align 4
+  %4358 = icmp sgt i32 %4357, 0
+  br i1 %4358, label %4359, label %4374
 
-4357:                                             ; preds = %4354
-  %4358 = load ptr, ptr @V3PreLextext, align 8
-  %4359 = load i32, ptr @V3PreLexleng, align 4
-  %4360 = sub nsw i32 %4359, 1
-  %4361 = sext i32 %4360 to i64
-  %4362 = getelementptr inbounds i8, ptr %4358, i64 %4361
-  %4363 = load i8, ptr %4362, align 1
-  %4364 = sext i8 %4363 to i32
-  %4365 = icmp eq i32 %4364, 10
-  %4366 = zext i1 %4365 to i32
-  %4367 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4368 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4369 = getelementptr inbounds ptr, ptr %4367, i64 %4368
-  %4370 = load ptr, ptr %4369, align 8
-  %4371 = getelementptr inbounds %struct.yy_buffer_state, ptr %4370, i32 0, i32 7
-  store i32 %4366, ptr %4371, align 8
-  br label %4372
+4359:                                             ; preds = %4356
+  %4360 = load ptr, ptr @V3PreLextext, align 8
+  %4361 = load i32, ptr @V3PreLexleng, align 4
+  %4362 = sub nsw i32 %4361, 1
+  %4363 = sext i32 %4362 to i64
+  %4364 = getelementptr inbounds i8, ptr %4360, i64 %4363
+  %4365 = load i8, ptr %4364, align 1
+  %4366 = sext i8 %4365 to i32
+  %4367 = icmp eq i32 %4366, 10
+  %4368 = zext i1 %4367 to i32
+  %4369 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4370 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4371 = getelementptr inbounds ptr, ptr %4369, i64 %4370
+  %4372 = load ptr, ptr %4371, align 8
+  %4373 = getelementptr inbounds %struct.yy_buffer_state, ptr %4372, i32 0, i32 7
+  store i32 %4368, ptr %4373, align 8
+  br label %4374
 
-4372:                                             ; preds = %4357, %4354
-  %4373 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4374 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4373)
-  %4375 = load ptr, ptr @V3PreLextext, align 8
-  %4376 = load i32, ptr @V3PreLexleng, align 4
-  %4377 = sext i32 %4376 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4374, ptr noundef %4375, i64 noundef %4377, i1 noundef zeroext false)
-  %4378 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4379 = load ptr, ptr @V3PreLextext, align 8
-  %4380 = getelementptr inbounds i8, ptr %4379, i64 2
-  call void @_ZN8V3PreLex16verilatorCmtLintEPKcb(ptr noundef nonnull align 8 dereferenceable(264) %4378, ptr noundef %4380, i1 noundef zeroext true)
+4374:                                             ; preds = %4359, %4356
+  %4375 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4376 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4375)
+  %4377 = load ptr, ptr @V3PreLextext, align 8
+  %4378 = load i32, ptr @V3PreLexleng, align 4
+  %4379 = sext i32 %4378 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4376, ptr noundef %4377, i64 noundef %4379, i1 noundef zeroext false)
+  %4380 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4381 = load ptr, ptr @V3PreLextext, align 8
+  %4382 = getelementptr inbounds i8, ptr %4381, i64 2
+  call void @_ZN8V3PreLex16verilatorCmtLintEPKcb(ptr noundef nonnull align 8 dereferenceable(264) %4380, ptr noundef %4382, i1 noundef zeroext true)
   store i32 303, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4381:                                             ; preds = %209
-  %4382 = load i32, ptr @V3PreLexleng, align 4
-  %4383 = icmp sgt i32 %4382, 0
-  br i1 %4383, label %4384, label %4399
+4383:                                             ; preds = %209
+  %4384 = load i32, ptr @V3PreLexleng, align 4
+  %4385 = icmp sgt i32 %4384, 0
+  br i1 %4385, label %4386, label %4401
 
-4384:                                             ; preds = %4381
-  %4385 = load ptr, ptr @V3PreLextext, align 8
-  %4386 = load i32, ptr @V3PreLexleng, align 4
-  %4387 = sub nsw i32 %4386, 1
-  %4388 = sext i32 %4387 to i64
-  %4389 = getelementptr inbounds i8, ptr %4385, i64 %4388
-  %4390 = load i8, ptr %4389, align 1
-  %4391 = sext i8 %4390 to i32
-  %4392 = icmp eq i32 %4391, 10
-  %4393 = zext i1 %4392 to i32
-  %4394 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4395 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4396 = getelementptr inbounds ptr, ptr %4394, i64 %4395
-  %4397 = load ptr, ptr %4396, align 8
-  %4398 = getelementptr inbounds %struct.yy_buffer_state, ptr %4397, i32 0, i32 7
-  store i32 %4393, ptr %4398, align 8
-  br label %4399
+4386:                                             ; preds = %4383
+  %4387 = load ptr, ptr @V3PreLextext, align 8
+  %4388 = load i32, ptr @V3PreLexleng, align 4
+  %4389 = sub nsw i32 %4388, 1
+  %4390 = sext i32 %4389 to i64
+  %4391 = getelementptr inbounds i8, ptr %4387, i64 %4390
+  %4392 = load i8, ptr %4391, align 1
+  %4393 = sext i8 %4392 to i32
+  %4394 = icmp eq i32 %4393, 10
+  %4395 = zext i1 %4394 to i32
+  %4396 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4397 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4398 = getelementptr inbounds ptr, ptr %4396, i64 %4397
+  %4399 = load ptr, ptr %4398, align 8
+  %4400 = getelementptr inbounds %struct.yy_buffer_state, ptr %4399, i32 0, i32 7
+  store i32 %4395, ptr %4400, align 8
+  br label %4401
 
-4399:                                             ; preds = %4384, %4381
-  %4400 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4401 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4400)
-  %4402 = load ptr, ptr @V3PreLextext, align 8
-  %4403 = load i32, ptr @V3PreLexleng, align 4
-  %4404 = sext i32 %4403 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4401, ptr noundef %4402, i64 noundef %4404, i1 noundef zeroext false)
-  %4405 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4406 = load ptr, ptr @V3PreLextext, align 8
-  %4407 = getelementptr inbounds i8, ptr %4406, i64 2
-  call void @_ZN8V3PreLex16verilatorCmtLintEPKcb(ptr noundef nonnull align 8 dereferenceable(264) %4405, ptr noundef %4407, i1 noundef zeroext false)
+4401:                                             ; preds = %4386, %4383
+  %4402 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4403 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4402)
+  %4404 = load ptr, ptr @V3PreLextext, align 8
+  %4405 = load i32, ptr @V3PreLexleng, align 4
+  %4406 = sext i32 %4405 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4403, ptr noundef %4404, i64 noundef %4406, i1 noundef zeroext false)
+  %4407 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4408 = load ptr, ptr @V3PreLextext, align 8
+  %4409 = getelementptr inbounds i8, ptr %4408, i64 2
+  call void @_ZN8V3PreLex16verilatorCmtLintEPKcb(ptr noundef nonnull align 8 dereferenceable(264) %4407, ptr noundef %4409, i1 noundef zeroext false)
   store i32 303, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4408:                                             ; preds = %209
-  %4409 = load i32, ptr @V3PreLexleng, align 4
-  %4410 = icmp sgt i32 %4409, 0
-  br i1 %4410, label %4411, label %4426
+4410:                                             ; preds = %209
+  %4411 = load i32, ptr @V3PreLexleng, align 4
+  %4412 = icmp sgt i32 %4411, 0
+  br i1 %4412, label %4413, label %4428
 
-4411:                                             ; preds = %4408
-  %4412 = load ptr, ptr @V3PreLextext, align 8
-  %4413 = load i32, ptr @V3PreLexleng, align 4
-  %4414 = sub nsw i32 %4413, 1
-  %4415 = sext i32 %4414 to i64
-  %4416 = getelementptr inbounds i8, ptr %4412, i64 %4415
-  %4417 = load i8, ptr %4416, align 1
-  %4418 = sext i8 %4417 to i32
-  %4419 = icmp eq i32 %4418, 10
-  %4420 = zext i1 %4419 to i32
-  %4421 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4422 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4423 = getelementptr inbounds ptr, ptr %4421, i64 %4422
-  %4424 = load ptr, ptr %4423, align 8
-  %4425 = getelementptr inbounds %struct.yy_buffer_state, ptr %4424, i32 0, i32 7
-  store i32 %4420, ptr %4425, align 8
-  br label %4426
+4413:                                             ; preds = %4410
+  %4414 = load ptr, ptr @V3PreLextext, align 8
+  %4415 = load i32, ptr @V3PreLexleng, align 4
+  %4416 = sub nsw i32 %4415, 1
+  %4417 = sext i32 %4416 to i64
+  %4418 = getelementptr inbounds i8, ptr %4414, i64 %4417
+  %4419 = load i8, ptr %4418, align 1
+  %4420 = sext i8 %4419 to i32
+  %4421 = icmp eq i32 %4420, 10
+  %4422 = zext i1 %4421 to i32
+  %4423 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4424 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4425 = getelementptr inbounds ptr, ptr %4423, i64 %4424
+  %4426 = load ptr, ptr %4425, align 8
+  %4427 = getelementptr inbounds %struct.yy_buffer_state, ptr %4426, i32 0, i32 7
+  store i32 %4422, ptr %4427, align 8
+  br label %4428
 
-4426:                                             ; preds = %4411, %4408
-  %4427 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4428 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4427)
-  %4429 = load ptr, ptr @V3PreLextext, align 8
-  %4430 = load i32, ptr @V3PreLexleng, align 4
-  %4431 = sext i32 %4430 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4428, ptr noundef %4429, i64 noundef %4431, i1 noundef zeroext false)
-  %4432 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  call void @_ZN8V3PreLex23verilatorCmtLintRestoreEv(ptr noundef nonnull align 8 dereferenceable(264) %4432)
+4428:                                             ; preds = %4413, %4410
+  %4429 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4430 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4429)
+  %4431 = load ptr, ptr @V3PreLextext, align 8
+  %4432 = load i32, ptr @V3PreLexleng, align 4
+  %4433 = sext i32 %4432 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4430, ptr noundef %4431, i64 noundef %4433, i1 noundef zeroext false)
+  %4434 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  call void @_ZN8V3PreLex23verilatorCmtLintRestoreEv(ptr noundef nonnull align 8 dereferenceable(264) %4434)
   store i32 303, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4433:                                             ; preds = %209
-  %4434 = load i32, ptr @V3PreLexleng, align 4
-  %4435 = icmp sgt i32 %4434, 0
-  br i1 %4435, label %4436, label %4451
+4435:                                             ; preds = %209
+  %4436 = load i32, ptr @V3PreLexleng, align 4
+  %4437 = icmp sgt i32 %4436, 0
+  br i1 %4437, label %4438, label %4453
 
-4436:                                             ; preds = %4433
-  %4437 = load ptr, ptr @V3PreLextext, align 8
-  %4438 = load i32, ptr @V3PreLexleng, align 4
-  %4439 = sub nsw i32 %4438, 1
-  %4440 = sext i32 %4439 to i64
-  %4441 = getelementptr inbounds i8, ptr %4437, i64 %4440
-  %4442 = load i8, ptr %4441, align 1
-  %4443 = sext i8 %4442 to i32
-  %4444 = icmp eq i32 %4443, 10
-  %4445 = zext i1 %4444 to i32
-  %4446 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4447 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4448 = getelementptr inbounds ptr, ptr %4446, i64 %4447
-  %4449 = load ptr, ptr %4448, align 8
-  %4450 = getelementptr inbounds %struct.yy_buffer_state, ptr %4449, i32 0, i32 7
-  store i32 %4445, ptr %4450, align 8
-  br label %4451
+4438:                                             ; preds = %4435
+  %4439 = load ptr, ptr @V3PreLextext, align 8
+  %4440 = load i32, ptr @V3PreLexleng, align 4
+  %4441 = sub nsw i32 %4440, 1
+  %4442 = sext i32 %4441 to i64
+  %4443 = getelementptr inbounds i8, ptr %4439, i64 %4442
+  %4444 = load i8, ptr %4443, align 1
+  %4445 = sext i8 %4444 to i32
+  %4446 = icmp eq i32 %4445, 10
+  %4447 = zext i1 %4446 to i32
+  %4448 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4449 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4450 = getelementptr inbounds ptr, ptr %4448, i64 %4449
+  %4451 = load ptr, ptr %4450, align 8
+  %4452 = getelementptr inbounds %struct.yy_buffer_state, ptr %4451, i32 0, i32 7
+  store i32 %4447, ptr %4452, align 8
+  br label %4453
 
-4451:                                             ; preds = %4436, %4433
-  %4452 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4453 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4452)
-  %4454 = load ptr, ptr @V3PreLextext, align 8
-  %4455 = load i32, ptr @V3PreLexleng, align 4
-  %4456 = sext i32 %4455 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4453, ptr noundef %4454, i64 noundef %4456, i1 noundef zeroext false)
-  %4457 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  call void @_ZN8V3PreLex20verilatorCmtLintSaveEv(ptr noundef nonnull align 8 dereferenceable(264) %4457)
+4453:                                             ; preds = %4438, %4435
+  %4454 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4455 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4454)
+  %4456 = load ptr, ptr @V3PreLextext, align 8
+  %4457 = load i32, ptr @V3PreLexleng, align 4
+  %4458 = sext i32 %4457 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4455, ptr noundef %4456, i64 noundef %4458, i1 noundef zeroext false)
+  %4459 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  call void @_ZN8V3PreLex20verilatorCmtLintSaveEv(ptr noundef nonnull align 8 dereferenceable(264) %4459)
   store i32 303, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4458:                                             ; preds = %209
-  %4459 = load i32, ptr @V3PreLexleng, align 4
-  %4460 = icmp sgt i32 %4459, 0
-  br i1 %4460, label %4461, label %4476
+4460:                                             ; preds = %209
+  %4461 = load i32, ptr @V3PreLexleng, align 4
+  %4462 = icmp sgt i32 %4461, 0
+  br i1 %4462, label %4463, label %4478
 
-4461:                                             ; preds = %4458
-  %4462 = load ptr, ptr @V3PreLextext, align 8
-  %4463 = load i32, ptr @V3PreLexleng, align 4
-  %4464 = sub nsw i32 %4463, 1
-  %4465 = sext i32 %4464 to i64
-  %4466 = getelementptr inbounds i8, ptr %4462, i64 %4465
-  %4467 = load i8, ptr %4466, align 1
-  %4468 = sext i8 %4467 to i32
-  %4469 = icmp eq i32 %4468, 10
-  %4470 = zext i1 %4469 to i32
-  %4471 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4472 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4473 = getelementptr inbounds ptr, ptr %4471, i64 %4472
-  %4474 = load ptr, ptr %4473, align 8
-  %4475 = getelementptr inbounds %struct.yy_buffer_state, ptr %4474, i32 0, i32 7
-  store i32 %4470, ptr %4475, align 8
-  br label %4476
+4463:                                             ; preds = %4460
+  %4464 = load ptr, ptr @V3PreLextext, align 8
+  %4465 = load i32, ptr @V3PreLexleng, align 4
+  %4466 = sub nsw i32 %4465, 1
+  %4467 = sext i32 %4466 to i64
+  %4468 = getelementptr inbounds i8, ptr %4464, i64 %4467
+  %4469 = load i8, ptr %4468, align 1
+  %4470 = sext i8 %4469 to i32
+  %4471 = icmp eq i32 %4470, 10
+  %4472 = zext i1 %4471 to i32
+  %4473 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4474 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4475 = getelementptr inbounds ptr, ptr %4473, i64 %4474
+  %4476 = load ptr, ptr %4475, align 8
+  %4477 = getelementptr inbounds %struct.yy_buffer_state, ptr %4476, i32 0, i32 7
+  store i32 %4472, ptr %4477, align 8
+  br label %4478
 
-4476:                                             ; preds = %4461, %4458
-  %4477 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4478 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4477)
-  %4479 = load ptr, ptr @V3PreLextext, align 8
-  %4480 = load i32, ptr @V3PreLexleng, align 4
-  %4481 = sext i32 %4480 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4478, ptr noundef %4479, i64 noundef %4481, i1 noundef zeroext false)
+4478:                                             ; preds = %4463, %4460
+  %4479 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4480 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4479)
+  %4481 = load ptr, ptr @V3PreLextext, align 8
+  %4482 = load i32, ptr @V3PreLexleng, align 4
+  %4483 = sext i32 %4482 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4480, ptr noundef %4481, i64 noundef %4483, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   store ptr @.str.22, ptr @V3PreLextext, align 8
   store i32 1, ptr @V3PreLexleng, align 4
   store i32 305, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4482:                                             ; preds = %209
-  %4483 = load i32, ptr @V3PreLexleng, align 4
-  %4484 = icmp sgt i32 %4483, 0
-  br i1 %4484, label %4485, label %4500
+4484:                                             ; preds = %209
+  %4485 = load i32, ptr @V3PreLexleng, align 4
+  %4486 = icmp sgt i32 %4485, 0
+  br i1 %4486, label %4487, label %4502
 
-4485:                                             ; preds = %4482
-  %4486 = load ptr, ptr @V3PreLextext, align 8
-  %4487 = load i32, ptr @V3PreLexleng, align 4
-  %4488 = sub nsw i32 %4487, 1
-  %4489 = sext i32 %4488 to i64
-  %4490 = getelementptr inbounds i8, ptr %4486, i64 %4489
-  %4491 = load i8, ptr %4490, align 1
-  %4492 = sext i8 %4491 to i32
-  %4493 = icmp eq i32 %4492, 10
-  %4494 = zext i1 %4493 to i32
-  %4495 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4496 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4497 = getelementptr inbounds ptr, ptr %4495, i64 %4496
-  %4498 = load ptr, ptr %4497, align 8
-  %4499 = getelementptr inbounds %struct.yy_buffer_state, ptr %4498, i32 0, i32 7
-  store i32 %4494, ptr %4499, align 8
-  br label %4500
+4487:                                             ; preds = %4484
+  %4488 = load ptr, ptr @V3PreLextext, align 8
+  %4489 = load i32, ptr @V3PreLexleng, align 4
+  %4490 = sub nsw i32 %4489, 1
+  %4491 = sext i32 %4490 to i64
+  %4492 = getelementptr inbounds i8, ptr %4488, i64 %4491
+  %4493 = load i8, ptr %4492, align 1
+  %4494 = sext i8 %4493 to i32
+  %4495 = icmp eq i32 %4494, 10
+  %4496 = zext i1 %4495 to i32
+  %4497 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4498 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4499 = getelementptr inbounds ptr, ptr %4497, i64 %4498
+  %4500 = load ptr, ptr %4499, align 8
+  %4501 = getelementptr inbounds %struct.yy_buffer_state, ptr %4500, i32 0, i32 7
+  store i32 %4496, ptr %4501, align 8
+  br label %4502
 
-4500:                                             ; preds = %4485, %4482
+4502:                                             ; preds = %4487, %4484
   call void @_ZL13yy_push_statei(i32 noundef 3)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-4501:                                             ; preds = %209
-  %4502 = load i32, ptr @V3PreLexleng, align 4
-  %4503 = icmp sgt i32 %4502, 0
-  br i1 %4503, label %4504, label %4519
+4503:                                             ; preds = %209
+  %4504 = load i32, ptr @V3PreLexleng, align 4
+  %4505 = icmp sgt i32 %4504, 0
+  br i1 %4505, label %4506, label %4521
 
-4504:                                             ; preds = %4501
-  %4505 = load ptr, ptr @V3PreLextext, align 8
-  %4506 = load i32, ptr @V3PreLexleng, align 4
-  %4507 = sub nsw i32 %4506, 1
-  %4508 = sext i32 %4507 to i64
-  %4509 = getelementptr inbounds i8, ptr %4505, i64 %4508
-  %4510 = load i8, ptr %4509, align 1
-  %4511 = sext i8 %4510 to i32
-  %4512 = icmp eq i32 %4511, 10
-  %4513 = zext i1 %4512 to i32
-  %4514 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4515 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4516 = getelementptr inbounds ptr, ptr %4514, i64 %4515
-  %4517 = load ptr, ptr %4516, align 8
-  %4518 = getelementptr inbounds %struct.yy_buffer_state, ptr %4517, i32 0, i32 7
-  store i32 %4513, ptr %4518, align 8
-  br label %4519
+4506:                                             ; preds = %4503
+  %4507 = load ptr, ptr @V3PreLextext, align 8
+  %4508 = load i32, ptr @V3PreLexleng, align 4
+  %4509 = sub nsw i32 %4508, 1
+  %4510 = sext i32 %4509 to i64
+  %4511 = getelementptr inbounds i8, ptr %4507, i64 %4510
+  %4512 = load i8, ptr %4511, align 1
+  %4513 = sext i8 %4512 to i32
+  %4514 = icmp eq i32 %4513, 10
+  %4515 = zext i1 %4514 to i32
+  %4516 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4517 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4518 = getelementptr inbounds ptr, ptr %4516, i64 %4517
+  %4519 = load ptr, ptr %4518, align 8
+  %4520 = getelementptr inbounds %struct.yy_buffer_state, ptr %4519, i32 0, i32 7
+  store i32 %4515, ptr %4520, align 8
+  br label %4521
 
-4519:                                             ; preds = %4504, %4501
-  %4520 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4521 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4520)
-  %4522 = load ptr, ptr @V3PreLextext, align 8
-  %4523 = load i32, ptr @V3PreLexleng, align 4
-  %4524 = sext i32 %4523 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4521, ptr noundef %4522, i64 noundef %4524, i1 noundef zeroext false)
+4521:                                             ; preds = %4506, %4503
+  %4522 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4523 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4522)
+  %4524 = load ptr, ptr @V3PreLextext, align 8
+  %4525 = load i32, ptr @V3PreLexleng, align 4
+  %4526 = sext i32 %4525 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4523, ptr noundef %4524, i64 noundef %4526, i1 noundef zeroext false)
   call void @_ZL12yy_pop_statev()
   store i32 303, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4525:                                             ; preds = %209
-  %4526 = load i32, ptr @V3PreLexleng, align 4
-  %4527 = icmp sgt i32 %4526, 0
-  br i1 %4527, label %4528, label %4543
+4527:                                             ; preds = %209
+  %4528 = load i32, ptr @V3PreLexleng, align 4
+  %4529 = icmp sgt i32 %4528, 0
+  br i1 %4529, label %4530, label %4545
 
-4528:                                             ; preds = %4525
-  %4529 = load ptr, ptr @V3PreLextext, align 8
-  %4530 = load i32, ptr @V3PreLexleng, align 4
-  %4531 = sub nsw i32 %4530, 1
-  %4532 = sext i32 %4531 to i64
-  %4533 = getelementptr inbounds i8, ptr %4529, i64 %4532
-  %4534 = load i8, ptr %4533, align 1
-  %4535 = sext i8 %4534 to i32
-  %4536 = icmp eq i32 %4535, 10
-  %4537 = zext i1 %4536 to i32
-  %4538 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4539 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4540 = getelementptr inbounds ptr, ptr %4538, i64 %4539
-  %4541 = load ptr, ptr %4540, align 8
-  %4542 = getelementptr inbounds %struct.yy_buffer_state, ptr %4541, i32 0, i32 7
-  store i32 %4537, ptr %4542, align 8
-  br label %4543
+4530:                                             ; preds = %4527
+  %4531 = load ptr, ptr @V3PreLextext, align 8
+  %4532 = load i32, ptr @V3PreLexleng, align 4
+  %4533 = sub nsw i32 %4532, 1
+  %4534 = sext i32 %4533 to i64
+  %4535 = getelementptr inbounds i8, ptr %4531, i64 %4534
+  %4536 = load i8, ptr %4535, align 1
+  %4537 = sext i8 %4536 to i32
+  %4538 = icmp eq i32 %4537, 10
+  %4539 = zext i1 %4538 to i32
+  %4540 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4541 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4542 = getelementptr inbounds ptr, ptr %4540, i64 %4541
+  %4543 = load ptr, ptr %4542, align 8
+  %4544 = getelementptr inbounds %struct.yy_buffer_state, ptr %4543, i32 0, i32 7
+  store i32 %4539, ptr %4544, align 8
+  br label %4545
 
-4543:                                             ; preds = %4528, %4525
+4545:                                             ; preds = %4530, %4527
   call void @_ZL13yy_push_statei(i32 noundef 2)
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-4544:                                             ; preds = %209
-  %4545 = load i32, ptr @V3PreLexleng, align 4
-  %4546 = icmp sgt i32 %4545, 0
-  br i1 %4546, label %4547, label %4562
+4546:                                             ; preds = %209
+  %4547 = load i32, ptr @V3PreLexleng, align 4
+  %4548 = icmp sgt i32 %4547, 0
+  br i1 %4548, label %4549, label %4564
 
-4547:                                             ; preds = %4544
-  %4548 = load ptr, ptr @V3PreLextext, align 8
-  %4549 = load i32, ptr @V3PreLexleng, align 4
-  %4550 = sub nsw i32 %4549, 1
-  %4551 = sext i32 %4550 to i64
-  %4552 = getelementptr inbounds i8, ptr %4548, i64 %4551
-  %4553 = load i8, ptr %4552, align 1
-  %4554 = sext i8 %4553 to i32
-  %4555 = icmp eq i32 %4554, 10
-  %4556 = zext i1 %4555 to i32
-  %4557 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4558 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4559 = getelementptr inbounds ptr, ptr %4557, i64 %4558
-  %4560 = load ptr, ptr %4559, align 8
-  %4561 = getelementptr inbounds %struct.yy_buffer_state, ptr %4560, i32 0, i32 7
-  store i32 %4556, ptr %4561, align 8
-  br label %4562
+4549:                                             ; preds = %4546
+  %4550 = load ptr, ptr @V3PreLextext, align 8
+  %4551 = load i32, ptr @V3PreLexleng, align 4
+  %4552 = sub nsw i32 %4551, 1
+  %4553 = sext i32 %4552 to i64
+  %4554 = getelementptr inbounds i8, ptr %4550, i64 %4553
+  %4555 = load i8, ptr %4554, align 1
+  %4556 = sext i8 %4555 to i32
+  %4557 = icmp eq i32 %4556, 10
+  %4558 = zext i1 %4557 to i32
+  %4559 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4560 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4561 = getelementptr inbounds ptr, ptr %4559, i64 %4560
+  %4562 = load ptr, ptr %4561, align 8
+  %4563 = getelementptr inbounds %struct.yy_buffer_state, ptr %4562, i32 0, i32 7
+  store i32 %4558, ptr %4563, align 8
+  br label %4564
 
-4562:                                             ; preds = %4547, %4544
-  %4563 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4564 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4563)
-  %4565 = load ptr, ptr @V3PreLextext, align 8
-  %4566 = load i32, ptr @V3PreLexleng, align 4
-  %4567 = sext i32 %4566 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4564, ptr noundef %4565, i64 noundef %4567, i1 noundef zeroext false)
+4564:                                             ; preds = %4549, %4546
+  %4565 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4566 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4565)
+  %4567 = load ptr, ptr @V3PreLextext, align 8
+  %4568 = load i32, ptr @V3PreLexleng, align 4
+  %4569 = sext i32 %4568 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4566, ptr noundef %4567, i64 noundef %4569, i1 noundef zeroext false)
   call void @_ZL12yy_pop_statev()
   store i32 303, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4568:                                             ; preds = %209
-  %4569 = load i32, ptr @V3PreLexleng, align 4
-  %4570 = icmp sgt i32 %4569, 0
-  br i1 %4570, label %4571, label %4586
+4570:                                             ; preds = %209
+  %4571 = load i32, ptr @V3PreLexleng, align 4
+  %4572 = icmp sgt i32 %4571, 0
+  br i1 %4572, label %4573, label %4588
 
-4571:                                             ; preds = %4568
-  %4572 = load ptr, ptr @V3PreLextext, align 8
-  %4573 = load i32, ptr @V3PreLexleng, align 4
-  %4574 = sub nsw i32 %4573, 1
-  %4575 = sext i32 %4574 to i64
-  %4576 = getelementptr inbounds i8, ptr %4572, i64 %4575
-  %4577 = load i8, ptr %4576, align 1
-  %4578 = sext i8 %4577 to i32
-  %4579 = icmp eq i32 %4578, 10
-  %4580 = zext i1 %4579 to i32
-  %4581 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4582 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4583 = getelementptr inbounds ptr, ptr %4581, i64 %4582
-  %4584 = load ptr, ptr %4583, align 8
-  %4585 = getelementptr inbounds %struct.yy_buffer_state, ptr %4584, i32 0, i32 7
-  store i32 %4580, ptr %4585, align 8
-  br label %4586
+4573:                                             ; preds = %4570
+  %4574 = load ptr, ptr @V3PreLextext, align 8
+  %4575 = load i32, ptr @V3PreLexleng, align 4
+  %4576 = sub nsw i32 %4575, 1
+  %4577 = sext i32 %4576 to i64
+  %4578 = getelementptr inbounds i8, ptr %4574, i64 %4577
+  %4579 = load i8, ptr %4578, align 1
+  %4580 = sext i8 %4579 to i32
+  %4581 = icmp eq i32 %4580, 10
+  %4582 = zext i1 %4581 to i32
+  %4583 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4584 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4585 = getelementptr inbounds ptr, ptr %4583, i64 %4584
+  %4586 = load ptr, ptr %4585, align 8
+  %4587 = getelementptr inbounds %struct.yy_buffer_state, ptr %4586, i32 0, i32 7
+  store i32 %4582, ptr %4587, align 8
+  br label %4588
 
-4586:                                             ; preds = %4571, %4568
+4588:                                             ; preds = %4573, %4570
   call void @_ZL9linenoIncv()
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-4587:                                             ; preds = %209
-  %4588 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4589 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4588)
-  %4590 = load ptr, ptr @V3PreLextext, align 8
-  %4591 = load i32, ptr @V3PreLexleng, align 4
-  %4592 = sext i32 %4591 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4589, ptr noundef %4590, i64 noundef %4592, i1 noundef zeroext false)
+4589:                                             ; preds = %209
+  %4590 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4591 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4590)
+  %4592 = load ptr, ptr @V3PreLextext, align 8
+  %4593 = load i32, ptr @V3PreLexleng, align 4
+  %4594 = sext i32 %4593 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4591, ptr noundef %4592, i64 noundef %4594, i1 noundef zeroext false)
   call void @_ZL14V3PreLexerrorfPKc(ptr noundef @.str.30)
   store i32 0, ptr @V3PreLexleng, align 4
   store i32 400, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4593:                                             ; preds = %209
-  %4594 = load i32, ptr @V3PreLexleng, align 4
-  %4595 = icmp sgt i32 %4594, 0
-  br i1 %4595, label %4596, label %4611
+4595:                                             ; preds = %209
+  %4596 = load i32, ptr @V3PreLexleng, align 4
+  %4597 = icmp sgt i32 %4596, 0
+  br i1 %4597, label %4598, label %4613
 
-4596:                                             ; preds = %4593
-  %4597 = load ptr, ptr @V3PreLextext, align 8
-  %4598 = load i32, ptr @V3PreLexleng, align 4
-  %4599 = sub nsw i32 %4598, 1
-  %4600 = sext i32 %4599 to i64
-  %4601 = getelementptr inbounds i8, ptr %4597, i64 %4600
-  %4602 = load i8, ptr %4601, align 1
-  %4603 = sext i8 %4602 to i32
-  %4604 = icmp eq i32 %4603, 10
-  %4605 = zext i1 %4604 to i32
-  %4606 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4607 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4608 = getelementptr inbounds ptr, ptr %4606, i64 %4607
-  %4609 = load ptr, ptr %4608, align 8
-  %4610 = getelementptr inbounds %struct.yy_buffer_state, ptr %4609, i32 0, i32 7
-  store i32 %4605, ptr %4610, align 8
-  br label %4611
+4598:                                             ; preds = %4595
+  %4599 = load ptr, ptr @V3PreLextext, align 8
+  %4600 = load i32, ptr @V3PreLexleng, align 4
+  %4601 = sub nsw i32 %4600, 1
+  %4602 = sext i32 %4601 to i64
+  %4603 = getelementptr inbounds i8, ptr %4599, i64 %4602
+  %4604 = load i8, ptr %4603, align 1
+  %4605 = sext i8 %4604 to i32
+  %4606 = icmp eq i32 %4605, 10
+  %4607 = zext i1 %4606 to i32
+  %4608 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4609 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4610 = getelementptr inbounds ptr, ptr %4608, i64 %4609
+  %4611 = load ptr, ptr %4610, align 8
+  %4612 = getelementptr inbounds %struct.yy_buffer_state, ptr %4611, i32 0, i32 7
+  store i32 %4607, ptr %4612, align 8
+  br label %4613
 
-4611:                                             ; preds = %4596, %4593
+4613:                                             ; preds = %4598, %4595
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-4612:                                             ; preds = %209
-  %4613 = load i32, ptr @V3PreLexleng, align 4
-  %4614 = icmp sgt i32 %4613, 0
-  br i1 %4614, label %4615, label %4630
+4614:                                             ; preds = %209
+  %4615 = load i32, ptr @V3PreLexleng, align 4
+  %4616 = icmp sgt i32 %4615, 0
+  br i1 %4616, label %4617, label %4632
 
-4615:                                             ; preds = %4612
-  %4616 = load ptr, ptr @V3PreLextext, align 8
-  %4617 = load i32, ptr @V3PreLexleng, align 4
-  %4618 = sub nsw i32 %4617, 1
-  %4619 = sext i32 %4618 to i64
-  %4620 = getelementptr inbounds i8, ptr %4616, i64 %4619
-  %4621 = load i8, ptr %4620, align 1
-  %4622 = sext i8 %4621 to i32
-  %4623 = icmp eq i32 %4622, 10
-  %4624 = zext i1 %4623 to i32
-  %4625 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4626 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4627 = getelementptr inbounds ptr, ptr %4625, i64 %4626
-  %4628 = load ptr, ptr %4627, align 8
-  %4629 = getelementptr inbounds %struct.yy_buffer_state, ptr %4628, i32 0, i32 7
-  store i32 %4624, ptr %4629, align 8
-  br label %4630
+4617:                                             ; preds = %4614
+  %4618 = load ptr, ptr @V3PreLextext, align 8
+  %4619 = load i32, ptr @V3PreLexleng, align 4
+  %4620 = sub nsw i32 %4619, 1
+  %4621 = sext i32 %4620 to i64
+  %4622 = getelementptr inbounds i8, ptr %4618, i64 %4621
+  %4623 = load i8, ptr %4622, align 1
+  %4624 = sext i8 %4623 to i32
+  %4625 = icmp eq i32 %4624, 10
+  %4626 = zext i1 %4625 to i32
+  %4627 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4628 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4629 = getelementptr inbounds ptr, ptr %4627, i64 %4628
+  %4630 = load ptr, ptr %4629, align 8
+  %4631 = getelementptr inbounds %struct.yy_buffer_state, ptr %4630, i32 0, i32 7
+  store i32 %4626, ptr %4631, align 8
+  br label %4632
 
-4630:                                             ; preds = %4615, %4612
+4632:                                             ; preds = %4617, %4614
   store i32 1, ptr @_ZL12yy_more_flag, align 4
-  br label %5026
+  br label %5028
 
-4631:                                             ; preds = %209
-  %4632 = load i32, ptr @V3PreLexleng, align 4
-  %4633 = icmp sgt i32 %4632, 0
-  br i1 %4633, label %4634, label %4649
+4633:                                             ; preds = %209
+  %4634 = load i32, ptr @V3PreLexleng, align 4
+  %4635 = icmp sgt i32 %4634, 0
+  br i1 %4635, label %4636, label %4651
 
-4634:                                             ; preds = %4631
-  %4635 = load ptr, ptr @V3PreLextext, align 8
-  %4636 = load i32, ptr @V3PreLexleng, align 4
-  %4637 = sub nsw i32 %4636, 1
-  %4638 = sext i32 %4637 to i64
-  %4639 = getelementptr inbounds i8, ptr %4635, i64 %4638
-  %4640 = load i8, ptr %4639, align 1
-  %4641 = sext i8 %4640 to i32
-  %4642 = icmp eq i32 %4641, 10
-  %4643 = zext i1 %4642 to i32
-  %4644 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4645 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4646 = getelementptr inbounds ptr, ptr %4644, i64 %4645
-  %4647 = load ptr, ptr %4646, align 8
-  %4648 = getelementptr inbounds %struct.yy_buffer_state, ptr %4647, i32 0, i32 7
-  store i32 %4643, ptr %4648, align 8
-  br label %4649
+4636:                                             ; preds = %4633
+  %4637 = load ptr, ptr @V3PreLextext, align 8
+  %4638 = load i32, ptr @V3PreLexleng, align 4
+  %4639 = sub nsw i32 %4638, 1
+  %4640 = sext i32 %4639 to i64
+  %4641 = getelementptr inbounds i8, ptr %4637, i64 %4640
+  %4642 = load i8, ptr %4641, align 1
+  %4643 = sext i8 %4642 to i32
+  %4644 = icmp eq i32 %4643, 10
+  %4645 = zext i1 %4644 to i32
+  %4646 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4647 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4648 = getelementptr inbounds ptr, ptr %4646, i64 %4647
+  %4649 = load ptr, ptr %4648, align 8
+  %4650 = getelementptr inbounds %struct.yy_buffer_state, ptr %4649, i32 0, i32 7
+  store i32 %4645, ptr %4650, align 8
+  br label %4651
 
-4649:                                             ; preds = %4634, %4631
-  %4650 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4651 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4650)
-  %4652 = load ptr, ptr @V3PreLextext, align 8
-  %4653 = load i32, ptr @V3PreLexleng, align 4
-  %4654 = sext i32 %4653 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4651, ptr noundef %4652, i64 noundef %4654, i1 noundef zeroext false)
+4651:                                             ; preds = %4636, %4633
+  %4652 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4653 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4652)
+  %4654 = load ptr, ptr @V3PreLextext, align 8
+  %4655 = load i32, ptr @V3PreLexleng, align 4
+  %4656 = sext i32 %4655 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4653, ptr noundef %4654, i64 noundef %4656, i1 noundef zeroext false)
   store i32 306, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4655:                                             ; preds = %209
-  %4656 = load i32, ptr @V3PreLexleng, align 4
-  %4657 = icmp sgt i32 %4656, 0
-  br i1 %4657, label %4658, label %4673
+4657:                                             ; preds = %209
+  %4658 = load i32, ptr @V3PreLexleng, align 4
+  %4659 = icmp sgt i32 %4658, 0
+  br i1 %4659, label %4660, label %4675
 
-4658:                                             ; preds = %4655
-  %4659 = load ptr, ptr @V3PreLextext, align 8
-  %4660 = load i32, ptr @V3PreLexleng, align 4
-  %4661 = sub nsw i32 %4660, 1
-  %4662 = sext i32 %4661 to i64
-  %4663 = getelementptr inbounds i8, ptr %4659, i64 %4662
-  %4664 = load i8, ptr %4663, align 1
-  %4665 = sext i8 %4664 to i32
-  %4666 = icmp eq i32 %4665, 10
-  %4667 = zext i1 %4666 to i32
-  %4668 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4669 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4670 = getelementptr inbounds ptr, ptr %4668, i64 %4669
-  %4671 = load ptr, ptr %4670, align 8
-  %4672 = getelementptr inbounds %struct.yy_buffer_state, ptr %4671, i32 0, i32 7
-  store i32 %4667, ptr %4672, align 8
-  br label %4673
+4660:                                             ; preds = %4657
+  %4661 = load ptr, ptr @V3PreLextext, align 8
+  %4662 = load i32, ptr @V3PreLexleng, align 4
+  %4663 = sub nsw i32 %4662, 1
+  %4664 = sext i32 %4663 to i64
+  %4665 = getelementptr inbounds i8, ptr %4661, i64 %4664
+  %4666 = load i8, ptr %4665, align 1
+  %4667 = sext i8 %4666 to i32
+  %4668 = icmp eq i32 %4667, 10
+  %4669 = zext i1 %4668 to i32
+  %4670 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4671 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4672 = getelementptr inbounds ptr, ptr %4670, i64 %4671
+  %4673 = load ptr, ptr %4672, align 8
+  %4674 = getelementptr inbounds %struct.yy_buffer_state, ptr %4673, i32 0, i32 7
+  store i32 %4669, ptr %4674, align 8
+  br label %4675
 
-4673:                                             ; preds = %4658, %4655
-  %4674 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4675 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4674)
-  %4676 = load ptr, ptr @V3PreLextext, align 8
-  %4677 = load i32, ptr @V3PreLexleng, align 4
-  %4678 = sext i32 %4677 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4675, ptr noundef %4676, i64 noundef %4678, i1 noundef zeroext false)
+4675:                                             ; preds = %4660, %4657
+  %4676 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4677 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4676)
+  %4678 = load ptr, ptr @V3PreLextext, align 8
   %4679 = load i32, ptr @V3PreLexleng, align 4
-  %4680 = sub nsw i32 %4679, 2
-  store i32 %4680, ptr @V3PreLexleng, align 4
+  %4680 = sext i32 %4679 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4677, ptr noundef %4678, i64 noundef %4680, i1 noundef zeroext false)
+  %4681 = load i32, ptr @V3PreLexleng, align 4
+  %4682 = sub nsw i32 %4681, 2
+  store i32 %4682, ptr @V3PreLexleng, align 4
   store i32 313, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4681:                                             ; preds = %209
-  %4682 = load i32, ptr @V3PreLexleng, align 4
-  %4683 = icmp sgt i32 %4682, 0
-  br i1 %4683, label %4684, label %4699
+4683:                                             ; preds = %209
+  %4684 = load i32, ptr @V3PreLexleng, align 4
+  %4685 = icmp sgt i32 %4684, 0
+  br i1 %4685, label %4686, label %4701
 
-4684:                                             ; preds = %4681
-  %4685 = load ptr, ptr @V3PreLextext, align 8
-  %4686 = load i32, ptr @V3PreLexleng, align 4
-  %4687 = sub nsw i32 %4686, 1
-  %4688 = sext i32 %4687 to i64
-  %4689 = getelementptr inbounds i8, ptr %4685, i64 %4688
-  %4690 = load i8, ptr %4689, align 1
-  %4691 = sext i8 %4690 to i32
-  %4692 = icmp eq i32 %4691, 10
-  %4693 = zext i1 %4692 to i32
-  %4694 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4695 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4696 = getelementptr inbounds ptr, ptr %4694, i64 %4695
-  %4697 = load ptr, ptr %4696, align 8
-  %4698 = getelementptr inbounds %struct.yy_buffer_state, ptr %4697, i32 0, i32 7
-  store i32 %4693, ptr %4698, align 8
-  br label %4699
+4686:                                             ; preds = %4683
+  %4687 = load ptr, ptr @V3PreLextext, align 8
+  %4688 = load i32, ptr @V3PreLexleng, align 4
+  %4689 = sub nsw i32 %4688, 1
+  %4690 = sext i32 %4689 to i64
+  %4691 = getelementptr inbounds i8, ptr %4687, i64 %4690
+  %4692 = load i8, ptr %4691, align 1
+  %4693 = sext i8 %4692 to i32
+  %4694 = icmp eq i32 %4693, 10
+  %4695 = zext i1 %4694 to i32
+  %4696 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4697 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4698 = getelementptr inbounds ptr, ptr %4696, i64 %4697
+  %4699 = load ptr, ptr %4698, align 8
+  %4700 = getelementptr inbounds %struct.yy_buffer_state, ptr %4699, i32 0, i32 7
+  store i32 %4695, ptr %4700, align 8
+  br label %4701
 
-4699:                                             ; preds = %4684, %4681
-  %4700 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4701 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4700)
-  %4702 = load ptr, ptr @V3PreLextext, align 8
-  %4703 = load i32, ptr @V3PreLexleng, align 4
-  %4704 = sext i32 %4703 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4701, ptr noundef %4702, i64 noundef %4704, i1 noundef zeroext false)
+4701:                                             ; preds = %4686, %4683
+  %4702 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4703 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4702)
+  %4704 = load ptr, ptr @V3PreLextext, align 8
+  %4705 = load i32, ptr @V3PreLexleng, align 4
+  %4706 = sext i32 %4705 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4703, ptr noundef %4704, i64 noundef %4706, i1 noundef zeroext false)
   call void @_ZL9linenoIncv()
   store ptr @.str.22, ptr @V3PreLextext, align 8
   store i32 1, ptr @V3PreLexleng, align 4
   store i32 305, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4705:                                             ; preds = %209
-  %4706 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4707 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4706)
-  %4708 = load ptr, ptr @V3PreLextext, align 8
-  %4709 = load i32, ptr @V3PreLexleng, align 4
-  %4710 = sext i32 %4709 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4707, ptr noundef %4708, i64 noundef %4710, i1 noundef zeroext false)
+4707:                                             ; preds = %209
+  %4708 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4709 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4708)
+  %4710 = load ptr, ptr @V3PreLextext, align 8
+  %4711 = load i32, ptr @V3PreLexleng, align 4
+  %4712 = sext i32 %4711 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4709, ptr noundef %4710, i64 noundef %4712, i1 noundef zeroext false)
   store i32 0, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4711:                                             ; preds = %209
-  %4712 = load i32, ptr @V3PreLexleng, align 4
-  %4713 = icmp sgt i32 %4712, 0
-  br i1 %4713, label %4714, label %4729
+4713:                                             ; preds = %209
+  %4714 = load i32, ptr @V3PreLexleng, align 4
+  %4715 = icmp sgt i32 %4714, 0
+  br i1 %4715, label %4716, label %4731
 
-4714:                                             ; preds = %4711
-  %4715 = load ptr, ptr @V3PreLextext, align 8
-  %4716 = load i32, ptr @V3PreLexleng, align 4
-  %4717 = sub nsw i32 %4716, 1
-  %4718 = sext i32 %4717 to i64
-  %4719 = getelementptr inbounds i8, ptr %4715, i64 %4718
-  %4720 = load i8, ptr %4719, align 1
-  %4721 = sext i8 %4720 to i32
-  %4722 = icmp eq i32 %4721, 10
-  %4723 = zext i1 %4722 to i32
-  %4724 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4725 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4726 = getelementptr inbounds ptr, ptr %4724, i64 %4725
-  %4727 = load ptr, ptr %4726, align 8
-  %4728 = getelementptr inbounds %struct.yy_buffer_state, ptr %4727, i32 0, i32 7
-  store i32 %4723, ptr %4728, align 8
-  br label %4729
+4716:                                             ; preds = %4713
+  %4717 = load ptr, ptr @V3PreLextext, align 8
+  %4718 = load i32, ptr @V3PreLexleng, align 4
+  %4719 = sub nsw i32 %4718, 1
+  %4720 = sext i32 %4719 to i64
+  %4721 = getelementptr inbounds i8, ptr %4717, i64 %4720
+  %4722 = load i8, ptr %4721, align 1
+  %4723 = sext i8 %4722 to i32
+  %4724 = icmp eq i32 %4723, 10
+  %4725 = zext i1 %4724 to i32
+  %4726 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4727 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4728 = getelementptr inbounds ptr, ptr %4726, i64 %4727
+  %4729 = load ptr, ptr %4728, align 8
+  %4730 = getelementptr inbounds %struct.yy_buffer_state, ptr %4729, i32 0, i32 7
+  store i32 %4725, ptr %4730, align 8
+  br label %4731
 
-4729:                                             ; preds = %4714, %4711
-  %4730 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4731 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4730)
-  %4732 = load ptr, ptr @V3PreLextext, align 8
-  %4733 = load i32, ptr @V3PreLexleng, align 4
-  %4734 = sext i32 %4733 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4731, ptr noundef %4732, i64 noundef %4734, i1 noundef zeroext false)
+4731:                                             ; preds = %4716, %4713
+  %4732 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4733 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4732)
+  %4734 = load ptr, ptr @V3PreLextext, align 8
+  %4735 = load i32, ptr @V3PreLexleng, align 4
+  %4736 = sext i32 %4735 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4733, ptr noundef %4734, i64 noundef %4736, i1 noundef zeroext false)
   store i32 300, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4735:                                             ; preds = %209
-  %4736 = load i32, ptr @V3PreLexleng, align 4
-  %4737 = icmp sgt i32 %4736, 0
-  br i1 %4737, label %4738, label %4753
+4737:                                             ; preds = %209
+  %4738 = load i32, ptr @V3PreLexleng, align 4
+  %4739 = icmp sgt i32 %4738, 0
+  br i1 %4739, label %4740, label %4755
 
-4738:                                             ; preds = %4735
-  %4739 = load ptr, ptr @V3PreLextext, align 8
-  %4740 = load i32, ptr @V3PreLexleng, align 4
-  %4741 = sub nsw i32 %4740, 1
-  %4742 = sext i32 %4741 to i64
-  %4743 = getelementptr inbounds i8, ptr %4739, i64 %4742
-  %4744 = load i8, ptr %4743, align 1
-  %4745 = sext i8 %4744 to i32
-  %4746 = icmp eq i32 %4745, 10
-  %4747 = zext i1 %4746 to i32
-  %4748 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4749 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4750 = getelementptr inbounds ptr, ptr %4748, i64 %4749
-  %4751 = load ptr, ptr %4750, align 8
-  %4752 = getelementptr inbounds %struct.yy_buffer_state, ptr %4751, i32 0, i32 7
-  store i32 %4747, ptr %4752, align 8
-  br label %4753
+4740:                                             ; preds = %4737
+  %4741 = load ptr, ptr @V3PreLextext, align 8
+  %4742 = load i32, ptr @V3PreLexleng, align 4
+  %4743 = sub nsw i32 %4742, 1
+  %4744 = sext i32 %4743 to i64
+  %4745 = getelementptr inbounds i8, ptr %4741, i64 %4744
+  %4746 = load i8, ptr %4745, align 1
+  %4747 = sext i8 %4746 to i32
+  %4748 = icmp eq i32 %4747, 10
+  %4749 = zext i1 %4748 to i32
+  %4750 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4751 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4752 = getelementptr inbounds ptr, ptr %4750, i64 %4751
+  %4753 = load ptr, ptr %4752, align 8
+  %4754 = getelementptr inbounds %struct.yy_buffer_state, ptr %4753, i32 0, i32 7
+  store i32 %4749, ptr %4754, align 8
+  br label %4755
 
-4753:                                             ; preds = %4738, %4735
-  %4754 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4755 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4754)
-  %4756 = load ptr, ptr @V3PreLextext, align 8
-  %4757 = load i32, ptr @V3PreLexleng, align 4
-  %4758 = sext i32 %4757 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4755, ptr noundef %4756, i64 noundef %4758, i1 noundef zeroext false)
+4755:                                             ; preds = %4740, %4737
+  %4756 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4757 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4756)
+  %4758 = load ptr, ptr @V3PreLextext, align 8
   %4759 = load i32, ptr @V3PreLexleng, align 4
-  %4760 = sub nsw i32 %4759, 2
-  store i32 %4760, ptr @V3PreLexleng, align 4
+  %4760 = sext i32 %4759 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4757, ptr noundef %4758, i64 noundef %4760, i1 noundef zeroext false)
+  %4761 = load i32, ptr @V3PreLexleng, align 4
+  %4762 = sub nsw i32 %4761, 2
+  store i32 %4762, ptr @V3PreLexleng, align 4
   store i32 312, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4761:                                             ; preds = %209
-  %4762 = load i32, ptr @V3PreLexleng, align 4
-  %4763 = icmp sgt i32 %4762, 0
-  br i1 %4763, label %4764, label %4779
+4763:                                             ; preds = %209
+  %4764 = load i32, ptr @V3PreLexleng, align 4
+  %4765 = icmp sgt i32 %4764, 0
+  br i1 %4765, label %4766, label %4781
 
-4764:                                             ; preds = %4761
-  %4765 = load ptr, ptr @V3PreLextext, align 8
-  %4766 = load i32, ptr @V3PreLexleng, align 4
-  %4767 = sub nsw i32 %4766, 1
-  %4768 = sext i32 %4767 to i64
-  %4769 = getelementptr inbounds i8, ptr %4765, i64 %4768
-  %4770 = load i8, ptr %4769, align 1
-  %4771 = sext i8 %4770 to i32
-  %4772 = icmp eq i32 %4771, 10
-  %4773 = zext i1 %4772 to i32
-  %4774 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4775 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4776 = getelementptr inbounds ptr, ptr %4774, i64 %4775
-  %4777 = load ptr, ptr %4776, align 8
-  %4778 = getelementptr inbounds %struct.yy_buffer_state, ptr %4777, i32 0, i32 7
-  store i32 %4773, ptr %4778, align 8
-  br label %4779
+4766:                                             ; preds = %4763
+  %4767 = load ptr, ptr @V3PreLextext, align 8
+  %4768 = load i32, ptr @V3PreLexleng, align 4
+  %4769 = sub nsw i32 %4768, 1
+  %4770 = sext i32 %4769 to i64
+  %4771 = getelementptr inbounds i8, ptr %4767, i64 %4770
+  %4772 = load i8, ptr %4771, align 1
+  %4773 = sext i8 %4772 to i32
+  %4774 = icmp eq i32 %4773, 10
+  %4775 = zext i1 %4774 to i32
+  %4776 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4777 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4778 = getelementptr inbounds ptr, ptr %4776, i64 %4777
+  %4779 = load ptr, ptr %4778, align 8
+  %4780 = getelementptr inbounds %struct.yy_buffer_state, ptr %4779, i32 0, i32 7
+  store i32 %4775, ptr %4780, align 8
+  br label %4781
 
-4779:                                             ; preds = %4764, %4761
-  %4780 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4781 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4780)
-  %4782 = load ptr, ptr @V3PreLextext, align 8
-  %4783 = load i32, ptr @V3PreLexleng, align 4
-  %4784 = sext i32 %4783 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4781, ptr noundef %4782, i64 noundef %4784, i1 noundef zeroext false)
+4781:                                             ; preds = %4766, %4763
+  %4782 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4783 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4782)
+  %4784 = load ptr, ptr @V3PreLextext, align 8
   %4785 = load i32, ptr @V3PreLexleng, align 4
-  %4786 = sub nsw i32 %4785, 2
-  store i32 %4786, ptr @V3PreLexleng, align 4
+  %4786 = sext i32 %4785 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4783, ptr noundef %4784, i64 noundef %4786, i1 noundef zeroext false)
+  %4787 = load i32, ptr @V3PreLexleng, align 4
+  %4788 = sub nsw i32 %4787, 2
+  store i32 %4788, ptr @V3PreLexleng, align 4
   store i32 314, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4787:                                             ; preds = %209
-  %4788 = load i32, ptr @V3PreLexleng, align 4
-  %4789 = icmp sgt i32 %4788, 0
-  br i1 %4789, label %4790, label %4805
+4789:                                             ; preds = %209
+  %4790 = load i32, ptr @V3PreLexleng, align 4
+  %4791 = icmp sgt i32 %4790, 0
+  br i1 %4791, label %4792, label %4807
 
-4790:                                             ; preds = %4787
-  %4791 = load ptr, ptr @V3PreLextext, align 8
-  %4792 = load i32, ptr @V3PreLexleng, align 4
-  %4793 = sub nsw i32 %4792, 1
-  %4794 = sext i32 %4793 to i64
-  %4795 = getelementptr inbounds i8, ptr %4791, i64 %4794
-  %4796 = load i8, ptr %4795, align 1
-  %4797 = sext i8 %4796 to i32
-  %4798 = icmp eq i32 %4797, 10
-  %4799 = zext i1 %4798 to i32
-  %4800 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4801 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4802 = getelementptr inbounds ptr, ptr %4800, i64 %4801
-  %4803 = load ptr, ptr %4802, align 8
-  %4804 = getelementptr inbounds %struct.yy_buffer_state, ptr %4803, i32 0, i32 7
-  store i32 %4799, ptr %4804, align 8
-  br label %4805
+4792:                                             ; preds = %4789
+  %4793 = load ptr, ptr @V3PreLextext, align 8
+  %4794 = load i32, ptr @V3PreLexleng, align 4
+  %4795 = sub nsw i32 %4794, 1
+  %4796 = sext i32 %4795 to i64
+  %4797 = getelementptr inbounds i8, ptr %4793, i64 %4796
+  %4798 = load i8, ptr %4797, align 1
+  %4799 = sext i8 %4798 to i32
+  %4800 = icmp eq i32 %4799, 10
+  %4801 = zext i1 %4800 to i32
+  %4802 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4803 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4804 = getelementptr inbounds ptr, ptr %4802, i64 %4803
+  %4805 = load ptr, ptr %4804, align 8
+  %4806 = getelementptr inbounds %struct.yy_buffer_state, ptr %4805, i32 0, i32 7
+  store i32 %4801, ptr %4806, align 8
+  br label %4807
 
-4805:                                             ; preds = %4790, %4787
-  %4806 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4807 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4806)
-  %4808 = load ptr, ptr @V3PreLextext, align 8
-  %4809 = load i32, ptr @V3PreLexleng, align 4
-  %4810 = sext i32 %4809 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4807, ptr noundef %4808, i64 noundef %4810, i1 noundef zeroext false)
+4807:                                             ; preds = %4792, %4789
+  %4808 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4809 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4808)
+  %4810 = load ptr, ptr @V3PreLextext, align 8
+  %4811 = load i32, ptr @V3PreLexleng, align 4
+  %4812 = sext i32 %4811 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4809, ptr noundef %4810, i64 noundef %4812, i1 noundef zeroext false)
   store i32 305, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4811:                                             ; preds = %209
-  %4812 = load i32, ptr @V3PreLexleng, align 4
-  %4813 = icmp sgt i32 %4812, 0
-  br i1 %4813, label %4814, label %4829
+4813:                                             ; preds = %209
+  %4814 = load i32, ptr @V3PreLexleng, align 4
+  %4815 = icmp sgt i32 %4814, 0
+  br i1 %4815, label %4816, label %4831
 
-4814:                                             ; preds = %4811
-  %4815 = load ptr, ptr @V3PreLextext, align 8
-  %4816 = load i32, ptr @V3PreLexleng, align 4
-  %4817 = sub nsw i32 %4816, 1
-  %4818 = sext i32 %4817 to i64
-  %4819 = getelementptr inbounds i8, ptr %4815, i64 %4818
-  %4820 = load i8, ptr %4819, align 1
-  %4821 = sext i8 %4820 to i32
-  %4822 = icmp eq i32 %4821, 10
-  %4823 = zext i1 %4822 to i32
-  %4824 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4825 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4826 = getelementptr inbounds ptr, ptr %4824, i64 %4825
-  %4827 = load ptr, ptr %4826, align 8
-  %4828 = getelementptr inbounds %struct.yy_buffer_state, ptr %4827, i32 0, i32 7
-  store i32 %4823, ptr %4828, align 8
-  br label %4829
+4816:                                             ; preds = %4813
+  %4817 = load ptr, ptr @V3PreLextext, align 8
+  %4818 = load i32, ptr @V3PreLexleng, align 4
+  %4819 = sub nsw i32 %4818, 1
+  %4820 = sext i32 %4819 to i64
+  %4821 = getelementptr inbounds i8, ptr %4817, i64 %4820
+  %4822 = load i8, ptr %4821, align 1
+  %4823 = sext i8 %4822 to i32
+  %4824 = icmp eq i32 %4823, 10
+  %4825 = zext i1 %4824 to i32
+  %4826 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4827 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4828 = getelementptr inbounds ptr, ptr %4826, i64 %4827
+  %4829 = load ptr, ptr %4828, align 8
+  %4830 = getelementptr inbounds %struct.yy_buffer_state, ptr %4829, i32 0, i32 7
+  store i32 %4825, ptr %4830, align 8
+  br label %4831
 
-4829:                                             ; preds = %4814, %4811
-  %4830 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4831 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4830)
-  %4832 = load ptr, ptr @V3PreLextext, align 8
-  %4833 = load i32, ptr @V3PreLexleng, align 4
-  %4834 = sext i32 %4833 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4831, ptr noundef %4832, i64 noundef %4834, i1 noundef zeroext false)
-  %4835 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4836 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4835)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4836)
-  br label %5026
+4831:                                             ; preds = %4816, %4813
+  %4832 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4833 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4832)
+  %4834 = load ptr, ptr @V3PreLextext, align 8
+  %4835 = load i32, ptr @V3PreLexleng, align 4
+  %4836 = sext i32 %4835 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4833, ptr noundef %4834, i64 noundef %4836, i1 noundef zeroext false)
+  %4837 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4838 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4837)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4838)
+  br label %5028
 
-4837:                                             ; preds = %209
-  %4838 = load i32, ptr @V3PreLexleng, align 4
-  %4839 = icmp sgt i32 %4838, 0
-  br i1 %4839, label %4840, label %4855
+4839:                                             ; preds = %209
+  %4840 = load i32, ptr @V3PreLexleng, align 4
+  %4841 = icmp sgt i32 %4840, 0
+  br i1 %4841, label %4842, label %4857
 
-4840:                                             ; preds = %4837
-  %4841 = load ptr, ptr @V3PreLextext, align 8
-  %4842 = load i32, ptr @V3PreLexleng, align 4
-  %4843 = sub nsw i32 %4842, 1
-  %4844 = sext i32 %4843 to i64
-  %4845 = getelementptr inbounds i8, ptr %4841, i64 %4844
-  %4846 = load i8, ptr %4845, align 1
-  %4847 = sext i8 %4846 to i32
-  %4848 = icmp eq i32 %4847, 10
-  %4849 = zext i1 %4848 to i32
-  %4850 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4851 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4852 = getelementptr inbounds ptr, ptr %4850, i64 %4851
-  %4853 = load ptr, ptr %4852, align 8
-  %4854 = getelementptr inbounds %struct.yy_buffer_state, ptr %4853, i32 0, i32 7
-  store i32 %4849, ptr %4854, align 8
-  br label %4855
+4842:                                             ; preds = %4839
+  %4843 = load ptr, ptr @V3PreLextext, align 8
+  %4844 = load i32, ptr @V3PreLexleng, align 4
+  %4845 = sub nsw i32 %4844, 1
+  %4846 = sext i32 %4845 to i64
+  %4847 = getelementptr inbounds i8, ptr %4843, i64 %4846
+  %4848 = load i8, ptr %4847, align 1
+  %4849 = sext i8 %4848 to i32
+  %4850 = icmp eq i32 %4849, 10
+  %4851 = zext i1 %4850 to i32
+  %4852 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4853 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4854 = getelementptr inbounds ptr, ptr %4852, i64 %4853
+  %4855 = load ptr, ptr %4854, align 8
+  %4856 = getelementptr inbounds %struct.yy_buffer_state, ptr %4855, i32 0, i32 7
+  store i32 %4851, ptr %4856, align 8
+  br label %4857
 
-4855:                                             ; preds = %4840, %4837
-  %4856 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4857 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4856)
-  %4858 = load ptr, ptr @V3PreLextext, align 8
-  %4859 = load i32, ptr @V3PreLexleng, align 4
-  %4860 = sext i32 %4859 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4857, ptr noundef %4858, i64 noundef %4860, i1 noundef zeroext false)
-  %4861 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4862 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4861)
-  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4862)
-  br label %5026
+4857:                                             ; preds = %4842, %4839
+  %4858 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4859 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4858)
+  %4860 = load ptr, ptr @V3PreLextext, align 8
+  %4861 = load i32, ptr @V3PreLexleng, align 4
+  %4862 = sext i32 %4861 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4859, ptr noundef %4860, i64 noundef %4862, i1 noundef zeroext false)
+  %4863 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4864 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4863)
+  call void @_ZN8FileLine10startTokenEv(ptr noundef nonnull align 8 dereferenceable(40) %4864)
+  br label %5028
 
-4863:                                             ; preds = %209
-  %4864 = load i32, ptr @V3PreLexleng, align 4
-  %4865 = icmp sgt i32 %4864, 0
-  br i1 %4865, label %4866, label %4881
+4865:                                             ; preds = %209
+  %4866 = load i32, ptr @V3PreLexleng, align 4
+  %4867 = icmp sgt i32 %4866, 0
+  br i1 %4867, label %4868, label %4883
 
-4866:                                             ; preds = %4863
-  %4867 = load ptr, ptr @V3PreLextext, align 8
-  %4868 = load i32, ptr @V3PreLexleng, align 4
-  %4869 = sub nsw i32 %4868, 1
-  %4870 = sext i32 %4869 to i64
-  %4871 = getelementptr inbounds i8, ptr %4867, i64 %4870
-  %4872 = load i8, ptr %4871, align 1
-  %4873 = sext i8 %4872 to i32
-  %4874 = icmp eq i32 %4873, 10
-  %4875 = zext i1 %4874 to i32
-  %4876 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4877 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4878 = getelementptr inbounds ptr, ptr %4876, i64 %4877
-  %4879 = load ptr, ptr %4878, align 8
-  %4880 = getelementptr inbounds %struct.yy_buffer_state, ptr %4879, i32 0, i32 7
-  store i32 %4875, ptr %4880, align 8
-  br label %4881
+4868:                                             ; preds = %4865
+  %4869 = load ptr, ptr @V3PreLextext, align 8
+  %4870 = load i32, ptr @V3PreLexleng, align 4
+  %4871 = sub nsw i32 %4870, 1
+  %4872 = sext i32 %4871 to i64
+  %4873 = getelementptr inbounds i8, ptr %4869, i64 %4872
+  %4874 = load i8, ptr %4873, align 1
+  %4875 = sext i8 %4874 to i32
+  %4876 = icmp eq i32 %4875, 10
+  %4877 = zext i1 %4876 to i32
+  %4878 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4879 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4880 = getelementptr inbounds ptr, ptr %4878, i64 %4879
+  %4881 = load ptr, ptr %4880, align 8
+  %4882 = getelementptr inbounds %struct.yy_buffer_state, ptr %4881, i32 0, i32 7
+  store i32 %4877, ptr %4882, align 8
+  br label %4883
 
-4881:                                             ; preds = %4866, %4863
-  %4882 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
-  %4883 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4882)
-  %4884 = load ptr, ptr @V3PreLextext, align 8
-  %4885 = load i32, ptr @V3PreLexleng, align 4
-  %4886 = sext i32 %4885 to i64
-  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4883, ptr noundef %4884, i64 noundef %4886, i1 noundef zeroext false)
+4883:                                             ; preds = %4868, %4865
+  %4884 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
+  %4885 = call noundef ptr @_ZN8V3PreLex12curFilelinepEv(ptr noundef nonnull align 8 dereferenceable(264) %4884)
+  %4886 = load ptr, ptr @V3PreLextext, align 8
+  %4887 = load i32, ptr @V3PreLexleng, align 4
+  %4888 = sext i32 %4887 to i64
+  call void @_ZN8FileLine12forwardTokenEPKcmb(ptr noundef nonnull align 8 dereferenceable(40) %4885, ptr noundef %4886, i64 noundef %4888, i1 noundef zeroext false)
   store i32 304, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4887:                                             ; preds = %209
-  %4888 = load i32, ptr @V3PreLexleng, align 4
-  %4889 = icmp sgt i32 %4888, 0
-  br i1 %4889, label %4890, label %4905
+4889:                                             ; preds = %209
+  %4890 = load i32, ptr @V3PreLexleng, align 4
+  %4891 = icmp sgt i32 %4890, 0
+  br i1 %4891, label %4892, label %4907
 
-4890:                                             ; preds = %4887
-  %4891 = load ptr, ptr @V3PreLextext, align 8
-  %4892 = load i32, ptr @V3PreLexleng, align 4
-  %4893 = sub nsw i32 %4892, 1
-  %4894 = sext i32 %4893 to i64
-  %4895 = getelementptr inbounds i8, ptr %4891, i64 %4894
-  %4896 = load i8, ptr %4895, align 1
-  %4897 = sext i8 %4896 to i32
-  %4898 = icmp eq i32 %4897, 10
-  %4899 = zext i1 %4898 to i32
-  %4900 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4901 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4902 = getelementptr inbounds ptr, ptr %4900, i64 %4901
-  %4903 = load ptr, ptr %4902, align 8
-  %4904 = getelementptr inbounds %struct.yy_buffer_state, ptr %4903, i32 0, i32 7
-  store i32 %4899, ptr %4904, align 8
-  br label %4905
+4892:                                             ; preds = %4889
+  %4893 = load ptr, ptr @V3PreLextext, align 8
+  %4894 = load i32, ptr @V3PreLexleng, align 4
+  %4895 = sub nsw i32 %4894, 1
+  %4896 = sext i32 %4895 to i64
+  %4897 = getelementptr inbounds i8, ptr %4893, i64 %4896
+  %4898 = load i8, ptr %4897, align 1
+  %4899 = sext i8 %4898 to i32
+  %4900 = icmp eq i32 %4899, 10
+  %4901 = zext i1 %4900 to i32
+  %4902 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4903 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4904 = getelementptr inbounds ptr, ptr %4902, i64 %4903
+  %4905 = load ptr, ptr %4904, align 8
+  %4906 = getelementptr inbounds %struct.yy_buffer_state, ptr %4905, i32 0, i32 7
+  store i32 %4901, ptr %4906, align 8
+  br label %4907
 
-4905:                                             ; preds = %4890, %4887
-  br label %4906
+4907:                                             ; preds = %4892, %4889
+  br label %4908
 
-4906:                                             ; preds = %4905
-  %4907 = load ptr, ptr @V3PreLextext, align 8
-  %4908 = load i32, ptr @V3PreLexleng, align 4
-  %4909 = sext i32 %4908 to i64
-  %4910 = load ptr, ptr @V3PreLexout, align 8
-  %4911 = call i64 @fwrite(ptr noundef %4907, i64 noundef %4909, i64 noundef 1, ptr noundef %4910)
-  %4912 = icmp ne i64 %4911, 0
-  br i1 %4912, label %4913, label %4914
+4908:                                             ; preds = %4907
+  %4909 = load ptr, ptr @V3PreLextext, align 8
+  %4910 = load i32, ptr @V3PreLexleng, align 4
+  %4911 = sext i32 %4910 to i64
+  %4912 = load ptr, ptr @V3PreLexout, align 8
+  %4913 = call i64 @fwrite(ptr noundef %4909, i64 noundef %4911, i64 noundef 1, ptr noundef %4912)
+  %4914 = icmp ne i64 %4913, 0
+  br i1 %4914, label %4915, label %4916
 
-4913:                                             ; preds = %4906
-  br label %4914
+4915:                                             ; preds = %4908
+  br label %4916
 
-4914:                                             ; preds = %4913, %4906
-  br label %4915
+4916:                                             ; preds = %4915, %4908
+  br label %4917
 
-4915:                                             ; preds = %4914
-  br label %5026
+4917:                                             ; preds = %4916
+  br label %5028
 
-4916:                                             ; preds = %209, %209, %209, %209, %209, %209
+4918:                                             ; preds = %209, %209, %209, %209, %209, %209
   store i32 0, ptr %1, align 4
-  br label %5027
+  br label %5029
 
-4917:                                             ; preds = %209
-  %4918 = load ptr, ptr %3, align 8
-  %4919 = load ptr, ptr @V3PreLextext, align 8
-  %4920 = ptrtoint ptr %4918 to i64
-  %4921 = ptrtoint ptr %4919 to i64
-  %4922 = sub i64 %4920, %4921
-  %4923 = trunc i64 %4922 to i32
-  %4924 = sub nsw i32 %4923, 1
-  store i32 %4924, ptr %54, align 4
-  %4925 = load i8, ptr @_ZL12yy_hold_char, align 1
-  %4926 = load ptr, ptr %3, align 8
-  store i8 %4925, ptr %4926, align 1
-  %4927 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4928 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4929 = getelementptr inbounds ptr, ptr %4927, i64 %4928
-  %4930 = load ptr, ptr %4929, align 8
-  %4931 = getelementptr inbounds %struct.yy_buffer_state, ptr %4930, i32 0, i32 11
-  %4932 = load i32, ptr %4931, align 8
-  %4933 = icmp eq i32 %4932, 0
-  br i1 %4933, label %4934, label %4952
+4919:                                             ; preds = %209
+  %4920 = load ptr, ptr %3, align 8
+  %4921 = load ptr, ptr @V3PreLextext, align 8
+  %4922 = ptrtoint ptr %4920 to i64
+  %4923 = ptrtoint ptr %4921 to i64
+  %4924 = sub i64 %4922, %4923
+  %4925 = trunc i64 %4924 to i32
+  %4926 = sub nsw i32 %4925, 1
+  store i32 %4926, ptr %54, align 4
+  %4927 = load i8, ptr @_ZL12yy_hold_char, align 1
+  %4928 = load ptr, ptr %3, align 8
+  store i8 %4927, ptr %4928, align 1
+  %4929 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4930 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4931 = getelementptr inbounds ptr, ptr %4929, i64 %4930
+  %4932 = load ptr, ptr %4931, align 8
+  %4933 = getelementptr inbounds %struct.yy_buffer_state, ptr %4932, i32 0, i32 11
+  %4934 = load i32, ptr %4933, align 8
+  %4935 = icmp eq i32 %4934, 0
+  br i1 %4935, label %4936, label %4954
 
-4934:                                             ; preds = %4917
-  %4935 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4936 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4937 = getelementptr inbounds ptr, ptr %4935, i64 %4936
-  %4938 = load ptr, ptr %4937, align 8
-  %4939 = getelementptr inbounds %struct.yy_buffer_state, ptr %4938, i32 0, i32 4
-  %4940 = load i32, ptr %4939, align 4
-  store i32 %4940, ptr @_ZL10yy_n_chars, align 4
-  %4941 = load ptr, ptr @V3PreLexin, align 8
-  %4942 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4943 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4944 = getelementptr inbounds ptr, ptr %4942, i64 %4943
-  %4945 = load ptr, ptr %4944, align 8
-  %4946 = getelementptr inbounds %struct.yy_buffer_state, ptr %4945, i32 0, i32 0
-  store ptr %4941, ptr %4946, align 8
-  %4947 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4948 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4949 = getelementptr inbounds ptr, ptr %4947, i64 %4948
-  %4950 = load ptr, ptr %4949, align 8
-  %4951 = getelementptr inbounds %struct.yy_buffer_state, ptr %4950, i32 0, i32 11
-  store i32 1, ptr %4951, align 8
-  br label %4952
+4936:                                             ; preds = %4919
+  %4937 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4938 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4939 = getelementptr inbounds ptr, ptr %4937, i64 %4938
+  %4940 = load ptr, ptr %4939, align 8
+  %4941 = getelementptr inbounds %struct.yy_buffer_state, ptr %4940, i32 0, i32 4
+  %4942 = load i32, ptr %4941, align 4
+  store i32 %4942, ptr @_ZL10yy_n_chars, align 4
+  %4943 = load ptr, ptr @V3PreLexin, align 8
+  %4944 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4945 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4946 = getelementptr inbounds ptr, ptr %4944, i64 %4945
+  %4947 = load ptr, ptr %4946, align 8
+  %4948 = getelementptr inbounds %struct.yy_buffer_state, ptr %4947, i32 0, i32 0
+  store ptr %4943, ptr %4948, align 8
+  %4949 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4950 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4951 = getelementptr inbounds ptr, ptr %4949, i64 %4950
+  %4952 = load ptr, ptr %4951, align 8
+  %4953 = getelementptr inbounds %struct.yy_buffer_state, ptr %4952, i32 0, i32 11
+  store i32 1, ptr %4953, align 8
+  br label %4954
 
-4952:                                             ; preds = %4934, %4917
-  %4953 = load ptr, ptr @_ZL10yy_c_buf_p, align 8
-  %4954 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %4955 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %4956 = getelementptr inbounds ptr, ptr %4954, i64 %4955
-  %4957 = load ptr, ptr %4956, align 8
-  %4958 = getelementptr inbounds %struct.yy_buffer_state, ptr %4957, i32 0, i32 1
+4954:                                             ; preds = %4936, %4919
+  %4955 = load ptr, ptr @_ZL10yy_c_buf_p, align 8
+  %4956 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %4957 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %4958 = getelementptr inbounds ptr, ptr %4956, i64 %4957
   %4959 = load ptr, ptr %4958, align 8
-  %4960 = load i32, ptr @_ZL10yy_n_chars, align 4
-  %4961 = sext i32 %4960 to i64
-  %4962 = getelementptr inbounds i8, ptr %4959, i64 %4961
-  %4963 = icmp ule ptr %4953, %4962
-  br i1 %4963, label %4964, label %4984
+  %4960 = getelementptr inbounds %struct.yy_buffer_state, ptr %4959, i32 0, i32 1
+  %4961 = load ptr, ptr %4960, align 8
+  %4962 = load i32, ptr @_ZL10yy_n_chars, align 4
+  %4963 = sext i32 %4962 to i64
+  %4964 = getelementptr inbounds i8, ptr %4961, i64 %4963
+  %4965 = icmp ule ptr %4955, %4964
+  br i1 %4965, label %4966, label %4986
 
-4964:                                             ; preds = %4952
-  %4965 = load ptr, ptr @V3PreLextext, align 8
-  %4966 = load i32, ptr %54, align 4
-  %4967 = sext i32 %4966 to i64
-  %4968 = getelementptr inbounds i8, ptr %4965, i64 %4967
-  store ptr %4968, ptr @_ZL10yy_c_buf_p, align 8
-  %4969 = call noundef i32 @_ZL21yy_get_previous_statev()
-  store i32 %4969, ptr %2, align 4
-  %4970 = load i32, ptr %2, align 4
-  %4971 = call noundef i32 @_ZL16yy_try_NUL_transi(i32 noundef %4970)
-  store i32 %4971, ptr %55, align 4
-  %4972 = load ptr, ptr @V3PreLextext, align 8
-  %4973 = load i32, ptr @_ZL11yy_more_len, align 4
-  %4974 = sext i32 %4973 to i64
-  %4975 = getelementptr inbounds i8, ptr %4972, i64 %4974
-  store ptr %4975, ptr %4, align 8
-  %4976 = load i32, ptr %55, align 4
-  %4977 = icmp ne i32 %4976, 0
-  br i1 %4977, label %4978, label %4982
+4966:                                             ; preds = %4954
+  %4967 = load ptr, ptr @V3PreLextext, align 8
+  %4968 = load i32, ptr %54, align 4
+  %4969 = sext i32 %4968 to i64
+  %4970 = getelementptr inbounds i8, ptr %4967, i64 %4969
+  store ptr %4970, ptr @_ZL10yy_c_buf_p, align 8
+  %4971 = call noundef i32 @_ZL21yy_get_previous_statev()
+  store i32 %4971, ptr %2, align 4
+  %4972 = load i32, ptr %2, align 4
+  %4973 = call noundef i32 @_ZL16yy_try_NUL_transi(i32 noundef %4972)
+  store i32 %4973, ptr %55, align 4
+  %4974 = load ptr, ptr @V3PreLextext, align 8
+  %4975 = load i32, ptr @_ZL11yy_more_len, align 4
+  %4976 = sext i32 %4975 to i64
+  %4977 = getelementptr inbounds i8, ptr %4974, i64 %4976
+  store ptr %4977, ptr %4, align 8
+  %4978 = load i32, ptr %55, align 4
+  %4979 = icmp ne i32 %4978, 0
+  br i1 %4979, label %4980, label %4984
 
-4978:                                             ; preds = %4964
-  %4979 = load ptr, ptr @_ZL10yy_c_buf_p, align 8
-  %4980 = getelementptr inbounds i8, ptr %4979, i32 1
-  store ptr %4980, ptr @_ZL10yy_c_buf_p, align 8
-  store ptr %4980, ptr %3, align 8
-  %4981 = load i32, ptr %55, align 4
-  store i32 %4981, ptr %2, align 4
+4980:                                             ; preds = %4966
+  %4981 = load ptr, ptr @_ZL10yy_c_buf_p, align 8
+  %4982 = getelementptr inbounds i8, ptr %4981, i32 1
+  store ptr %4982, ptr @_ZL10yy_c_buf_p, align 8
+  store ptr %4982, ptr %3, align 8
+  %4983 = load i32, ptr %55, align 4
+  store i32 %4983, ptr %2, align 4
   br label %116
 
-4982:                                             ; preds = %4964
-  %4983 = load ptr, ptr @_ZL10yy_c_buf_p, align 8
-  store ptr %4983, ptr %3, align 8
+4984:                                             ; preds = %4966
+  %4985 = load ptr, ptr @_ZL10yy_c_buf_p, align 8
+  store ptr %4985, ptr %3, align 8
   br label %178
 
-4984:                                             ; preds = %4952
-  %4985 = call noundef i32 @_ZL18yy_get_next_bufferv()
-  switch i32 %4985, label %5023 [
-    i32 1, label %4986
-    i32 0, label %4996
-    i32 2, label %5007
+4986:                                             ; preds = %4954
+  %4987 = call noundef i32 @_ZL18yy_get_next_bufferv()
+  switch i32 %4987, label %5025 [
+    i32 1, label %4988
+    i32 0, label %4998
+    i32 2, label %5009
   ]
 
-4986:                                             ; preds = %4984
+4988:                                             ; preds = %4986
   store i32 0, ptr @_ZL27yy_did_buffer_switch_on_eof, align 4
-  %4987 = load ptr, ptr @V3PreLextext, align 8
-  %4988 = load i32, ptr @_ZL11yy_more_len, align 4
-  %4989 = sext i32 %4988 to i64
-  %4990 = getelementptr inbounds i8, ptr %4987, i64 %4989
-  store ptr %4990, ptr @_ZL10yy_c_buf_p, align 8
-  %4991 = load i32, ptr @_ZL8yy_start, align 4
-  %4992 = sub nsw i32 %4991, 1
-  %4993 = sdiv i32 %4992, 2
-  %4994 = add nsw i32 168, %4993
-  %4995 = add nsw i32 %4994, 1
-  store i32 %4995, ptr %5, align 4
+  %4989 = load ptr, ptr @V3PreLextext, align 8
+  %4990 = load i32, ptr @_ZL11yy_more_len, align 4
+  %4991 = sext i32 %4990 to i64
+  %4992 = getelementptr inbounds i8, ptr %4989, i64 %4991
+  store ptr %4992, ptr @_ZL10yy_c_buf_p, align 8
+  %4993 = load i32, ptr @_ZL8yy_start, align 4
+  %4994 = sub nsw i32 %4993, 1
+  %4995 = sdiv i32 %4994, 2
+  %4996 = add nsw i32 168, %4995
+  %4997 = add nsw i32 %4996, 1
+  store i32 %4997, ptr %5, align 4
   br label %209
 
-4996:                                             ; preds = %4984
-  %4997 = load ptr, ptr @V3PreLextext, align 8
-  %4998 = load i32, ptr %54, align 4
-  %4999 = sext i32 %4998 to i64
-  %5000 = getelementptr inbounds i8, ptr %4997, i64 %4999
-  store ptr %5000, ptr @_ZL10yy_c_buf_p, align 8
-  %5001 = call noundef i32 @_ZL21yy_get_previous_statev()
-  store i32 %5001, ptr %2, align 4
-  %5002 = load ptr, ptr @_ZL10yy_c_buf_p, align 8
-  store ptr %5002, ptr %3, align 8
-  %5003 = load ptr, ptr @V3PreLextext, align 8
-  %5004 = load i32, ptr @_ZL11yy_more_len, align 4
-  %5005 = sext i32 %5004 to i64
-  %5006 = getelementptr inbounds i8, ptr %5003, i64 %5005
-  store ptr %5006, ptr %4, align 8
+4998:                                             ; preds = %4986
+  %4999 = load ptr, ptr @V3PreLextext, align 8
+  %5000 = load i32, ptr %54, align 4
+  %5001 = sext i32 %5000 to i64
+  %5002 = getelementptr inbounds i8, ptr %4999, i64 %5001
+  store ptr %5002, ptr @_ZL10yy_c_buf_p, align 8
+  %5003 = call noundef i32 @_ZL21yy_get_previous_statev()
+  store i32 %5003, ptr %2, align 4
+  %5004 = load ptr, ptr @_ZL10yy_c_buf_p, align 8
+  store ptr %5004, ptr %3, align 8
+  %5005 = load ptr, ptr @V3PreLextext, align 8
+  %5006 = load i32, ptr @_ZL11yy_more_len, align 4
+  %5007 = sext i32 %5006 to i64
+  %5008 = getelementptr inbounds i8, ptr %5005, i64 %5007
+  store ptr %5008, ptr %4, align 8
   br label %116
 
-5007:                                             ; preds = %4984
-  %5008 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
-  %5009 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
-  %5010 = getelementptr inbounds ptr, ptr %5008, i64 %5009
-  %5011 = load ptr, ptr %5010, align 8
-  %5012 = getelementptr inbounds %struct.yy_buffer_state, ptr %5011, i32 0, i32 1
+5009:                                             ; preds = %4986
+  %5010 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
+  %5011 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
+  %5012 = getelementptr inbounds ptr, ptr %5010, i64 %5011
   %5013 = load ptr, ptr %5012, align 8
-  %5014 = load i32, ptr @_ZL10yy_n_chars, align 4
-  %5015 = sext i32 %5014 to i64
-  %5016 = getelementptr inbounds i8, ptr %5013, i64 %5015
-  store ptr %5016, ptr @_ZL10yy_c_buf_p, align 8
-  %5017 = call noundef i32 @_ZL21yy_get_previous_statev()
-  store i32 %5017, ptr %2, align 4
-  %5018 = load ptr, ptr @_ZL10yy_c_buf_p, align 8
-  store ptr %5018, ptr %3, align 8
-  %5019 = load ptr, ptr @V3PreLextext, align 8
-  %5020 = load i32, ptr @_ZL11yy_more_len, align 4
-  %5021 = sext i32 %5020 to i64
-  %5022 = getelementptr inbounds i8, ptr %5019, i64 %5021
-  store ptr %5022, ptr %4, align 8
+  %5014 = getelementptr inbounds %struct.yy_buffer_state, ptr %5013, i32 0, i32 1
+  %5015 = load ptr, ptr %5014, align 8
+  %5016 = load i32, ptr @_ZL10yy_n_chars, align 4
+  %5017 = sext i32 %5016 to i64
+  %5018 = getelementptr inbounds i8, ptr %5015, i64 %5017
+  store ptr %5018, ptr @_ZL10yy_c_buf_p, align 8
+  %5019 = call noundef i32 @_ZL21yy_get_previous_statev()
+  store i32 %5019, ptr %2, align 4
+  %5020 = load ptr, ptr @_ZL10yy_c_buf_p, align 8
+  store ptr %5020, ptr %3, align 8
+  %5021 = load ptr, ptr @V3PreLextext, align 8
+  %5022 = load i32, ptr @_ZL11yy_more_len, align 4
+  %5023 = sext i32 %5022 to i64
+  %5024 = getelementptr inbounds i8, ptr %5021, i64 %5023
+  store ptr %5024, ptr %4, align 8
   br label %178
 
-5023:                                             ; preds = %4984
-  br label %5024
-
-5024:                                             ; preds = %5023
+5025:                                             ; preds = %4986
   br label %5026
 
-5025:                                             ; preds = %209
+5026:                                             ; preds = %5025
+  br label %5028
+
+5027:                                             ; preds = %209
   call void @_ZL14yy_fatal_errorPKc(ptr noundef @.str.34) #21
   unreachable
 
-5026:                                             ; preds = %5024, %4915, %4855, %4829, %4630, %4611, %4586, %4543, %4500, %4239, %4210, %4181, %4152, %4133, %4097, %4057, %3992, %3959, %3906, %3887, %3868, %3812, %3769, %3462, %3431, %3412, %3393, %3355, %3336, %3278, %3249, %3228, %3207, %3181, %3162, %3077, %3027, %3006, %2977, %2944, %2911, %2882, %2853, %2832, %2811, %2785, %2766, %2711, %2679, %2636, %2615, %2567, %2476, %2433, %2414, %2388, %2339, %2290, %2240, %2214, %1997, %1924, %1881, %1862, %1843, %1795, %1776, %1757, %1733, %1708, %1689, %1646, %1627, %1579, %1560, %1541, %1515, %1490, %1078, %234
+5028:                                             ; preds = %5026, %4917, %4857, %4831, %4632, %4613, %4588, %4545, %4502, %4241, %4212, %4183, %4154, %4135, %4099, %4059, %3994, %3961, %3908, %3889, %3870, %3814, %3771, %3464, %3433, %3414, %3395, %3357, %3338, %3280, %3251, %3230, %3209, %3183, %3164, %3079, %3029, %3008, %2979, %2946, %2913, %2884, %2855, %2834, %2813, %2787, %2768, %2713, %2681, %2638, %2617, %2569, %2478, %2435, %2416, %2390, %2341, %2292, %2242, %2216, %1999, %1926, %1883, %1864, %1845, %1797, %1778, %1759, %1735, %1710, %1691, %1648, %1629, %1581, %1562, %1543, %1517, %1492, %1078, %234
   br label %92, !llvm.loop !9
 
-5027:                                             ; preds = %4916, %4881, %4805, %4779, %4753, %4729, %4705, %4699, %4673, %4649, %4587, %4562, %4519, %4476, %4451, %4426, %4399, %4372, %4347, %4322, %4295, %4268, %4132, %4096, %4056, %3935, %3844, %3820, %3788, %3745, %3721, %3697, %3673, %3649, %3625, %3601, %3577, %3553, %3529, %3505, %3481, %3438, %3432, %3109, %3085, %3053, %2687, %2655, %2614, %2535, %2511, %2504, %2452, %2364, %2358, %2315, %2291, %2266, %2190, %2166, %2140, %2114, %2090, %2064, %2040, %2016, %1973, %1949, %1943, %1923, %1709, %1688, %1491, %1459, %1432, %1386, %1348, %1329, %1277, %1258, %1201, %1126, %953, %901, %877, %853, %829, %805, %781, %753, %715, %696, %503, %502, %471, %447, %423, %399, %375, %351, %327, %303, %279, %253
-  %5028 = load i32, ptr %1, align 4
-  ret i32 %5028
+5029:                                             ; preds = %4918, %4883, %4807, %4781, %4755, %4731, %4707, %4701, %4675, %4651, %4589, %4564, %4521, %4478, %4453, %4428, %4401, %4374, %4349, %4324, %4297, %4270, %4134, %4098, %4058, %3937, %3846, %3822, %3790, %3747, %3723, %3699, %3675, %3651, %3627, %3603, %3579, %3555, %3531, %3507, %3483, %3440, %3434, %3111, %3087, %3055, %2689, %2657, %2616, %2537, %2513, %2506, %2454, %2366, %2360, %2317, %2293, %2268, %2192, %2168, %2142, %2116, %2092, %2066, %2042, %2018, %1975, %1951, %1945, %1925, %1711, %1690, %1493, %1461, %1434, %1388, %1350, %1331, %1279, %1260, %1202, %1126, %953, %901, %877, %853, %829, %805, %781, %753, %715, %696, %503, %502, %471, %447, %423, %399, %375, %351, %327, %303, %279, %253
+  %5030 = load i32, ptr %1, align 4
+  ret i32 %5030
 
-5029:                                             ; preds = %1437, %1395, %1200, %1125, %1076, %1018, %762, %689, %656, %632, %580, %550
-  %5030 = load ptr, ptr %12, align 8
-  %5031 = load i32, ptr %13, align 4
-  %5032 = insertvalue { ptr, i32 } poison, ptr %5030, 0
-  %5033 = insertvalue { ptr, i32 } %5032, i32 %5031, 1
-  resume { ptr, i32 } %5033
+5031:                                             ; preds = %1439, %1397, %1201, %1125, %1076, %1018, %762, %689, %656, %632, %580, %550
+  %5032 = load ptr, ptr %12, align 8
+  %5033 = load i32, ptr %13, align 4
+  %5034 = insertvalue { ptr, i32 } poison, ptr %5032, 0
+  %5035 = insertvalue { ptr, i32 } %5034, i32 %5033, 1
+  resume { ptr, i32 } %5035
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14238,17 +14240,17 @@ define internal noundef i32 @_ZL5debugv() #5 personality ptr @__gxx_personality_
   %13 = icmp slt i32 %12, 0
   %14 = xor i1 %13, true
   %15 = xor i1 %14, true
-  br i1 %15, label %16, label %67
+  br i1 %15, label %16, label %70
 
 16:                                               ; preds = %0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %17 unwind label %44
+          to label %17 unwind label %47
 
 17:                                               ; preds = %16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   %18 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0)
-          to label %19 unwind label %48
+          to label %19 unwind label %51
 
 19:                                               ; preds = %17
   %20 = load i8, ptr %18, align 1
@@ -14256,135 +14258,138 @@ define internal noundef i32 @_ZL5debugv() #5 personality ptr @__gxx_personality_
   %22 = call i32 @tolower(i32 noundef %21) #20
   %23 = trunc i32 %22 to i8
   %24 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0)
-          to label %25 unwind label %48
+          to label %25 unwind label %51
 
 25:                                               ; preds = %19
   store i8 %23, ptr %24, align 1
-  %26 = invoke noundef i32 @_ZNK9V3Options10debugLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22), ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %27 unwind label %48
+  %26 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %27 = invoke noundef i32 @_ZNK9V3Options10debugLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) %26, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %28 unwind label %51
 
-27:                                               ; preds = %25
-  store i32 %26, ptr %6, align 4
+28:                                               ; preds = %25
+  store i32 %27, ptr %6, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef @.str.63, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %28 unwind label %52
+          to label %29 unwind label %55
 
-28:                                               ; preds = %27
-  %29 = invoke noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22), ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %30 unwind label %56
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %31 = invoke noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) %30, ptr noundef nonnull align 8 dereferenceable(32) %8)
+          to label %32 unwind label %59
 
-30:                                               ; preds = %28
+32:                                               ; preds = %29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  store i32 %29, ptr %7, align 4
-  %31 = load i32, ptr %6, align 4
-  %32 = load i32, ptr %7, align 4
-  %33 = icmp uge i32 %31, %32
-  br i1 %33, label %34, label %36
+  store i32 %31, ptr %7, align 4
+  %33 = load i32, ptr %6, align 4
+  %34 = load i32, ptr %7, align 4
+  %35 = icmp uge i32 %33, %34
+  br i1 %35, label %36, label %38
 
-34:                                               ; preds = %30
-  %35 = load i32, ptr %6, align 4
-  br label %38
+36:                                               ; preds = %32
+  %37 = load i32, ptr %6, align 4
+  br label %40
 
-36:                                               ; preds = %30
-  %37 = load i32, ptr %7, align 4
-  br label %38
+38:                                               ; preds = %32
+  %39 = load i32, ptr %7, align 4
+  br label %40
 
-38:                                               ; preds = %36, %34
-  %39 = phi i32 [ %35, %34 ], [ %37, %36 ]
-  store i32 %39, ptr %10, align 4
-  %40 = invoke noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22))
-          to label %41 unwind label %48
+40:                                               ; preds = %38, %36
+  %41 = phi i32 [ %37, %36 ], [ %39, %38 ]
+  store i32 %41, ptr %10, align 4
+  %42 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %43 = invoke noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) %42)
+          to label %44 unwind label %51
 
-41:                                               ; preds = %38
-  br i1 %40, label %61, label %42
+44:                                               ; preds = %40
+  br i1 %43, label %64, label %45
 
-42:                                               ; preds = %41
-  %43 = load i32, ptr %10, align 4
-  store i32 %43, ptr %1, align 4
+45:                                               ; preds = %44
+  %46 = load i32, ptr %10, align 4
+  store i32 %46, ptr %1, align 4
   store i32 1, ptr %11, align 4
-  br label %63
+  br label %66
 
-44:                                               ; preds = %16
-  %45 = landingpad { ptr, i32 }
+47:                                               ; preds = %16
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %4, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %5, align 4
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %4, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %5, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
-  br label %71
+  br label %74
 
-48:                                               ; preds = %38, %25, %19, %17
-  %49 = landingpad { ptr, i32 }
+51:                                               ; preds = %40, %25, %19, %17
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %4, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %5, align 4
-  br label %66
-
-52:                                               ; preds = %27
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %4, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %5, align 4
-  br label %60
-
-56:                                               ; preds = %28
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %4, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %5, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  br label %60
-
-60:                                               ; preds = %56, %52
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  br label %66
-
-61:                                               ; preds = %41
-  %62 = load i32, ptr %10, align 4
-  store i32 %62, ptr @_ZZL5debugvE5level, align 4
-  store i32 0, ptr %11, align 4
-  br label %63
-
-63:                                               ; preds = %61, %42
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
-  %64 = load i32, ptr %11, align 4
-  switch i32 %64, label %76 [
-    i32 0, label %65
-    i32 1, label %69
-  ]
-
-65:                                               ; preds = %63
-  br label %67
-
-66:                                               ; preds = %60, %48
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
-  br label %71
-
-67:                                               ; preds = %65, %0
-  %68 = load i32, ptr @_ZZL5debugvE5level, align 4
-  store i32 %68, ptr %1, align 4
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %4, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %5, align 4
   br label %69
 
-69:                                               ; preds = %67, %63
-  %70 = load i32, ptr %1, align 4
-  ret i32 %70
+55:                                               ; preds = %28
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %4, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %5, align 4
+  br label %63
 
-71:                                               ; preds = %66, %44
-  %72 = load ptr, ptr %4, align 8
-  %73 = load i32, ptr %5, align 4
-  %74 = insertvalue { ptr, i32 } poison, ptr %72, 0
-  %75 = insertvalue { ptr, i32 } %74, i32 %73, 1
-  resume { ptr, i32 } %75
+59:                                               ; preds = %29
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %4, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %5, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  br label %63
 
-76:                                               ; preds = %63
+63:                                               ; preds = %59, %55
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
+  br label %69
+
+64:                                               ; preds = %44
+  %65 = load i32, ptr %10, align 4
+  store i32 %65, ptr @_ZZL5debugvE5level, align 4
+  store i32 0, ptr %11, align 4
+  br label %66
+
+66:                                               ; preds = %64, %45
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  %67 = load i32, ptr %11, align 4
+  switch i32 %67, label %79 [
+    i32 0, label %68
+    i32 1, label %72
+  ]
+
+68:                                               ; preds = %66
+  br label %70
+
+69:                                               ; preds = %63, %51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %74
+
+70:                                               ; preds = %68, %0
+  %71 = load i32, ptr @_ZZL5debugvE5level, align 4
+  store i32 %71, ptr %1, align 4
+  br label %72
+
+72:                                               ; preds = %70, %66
+  %73 = load i32, ptr %1, align 4
+  ret i32 %73
+
+74:                                               ; preds = %69, %47
+  %75 = load ptr, ptr %4, align 8
+  %76 = load i32, ptr %5, align 4
+  %77 = insertvalue { ptr, i32 } poison, ptr %75, 0
+  %78 = insertvalue { ptr, i32 } %77, i32 %76, 1
+  resume { ptr, i32 } %78
+
+79:                                               ; preds = %66
   unreachable
 }
 
@@ -16012,192 +16017,193 @@ define linkonce_odr dso_local void @_ZN12V3PreProcImpC2Ev(ptr noundef nonnull al
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
   call void @_ZN9V3PreProcC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV12V3PreProcImp, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 1
-  call void @_ZNSt3mapIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE7VDefineSt4lessIS6_ESaISt4pairIS6_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
-  %8 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 2
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 3
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV12V3PreProcImp, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 1
+  call void @_ZNSt3mapIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE7VDefineSt4lessIS6_ESaISt4pairIS6_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  %9 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 2
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 4
-  invoke void @_ZNSt5stackIP8V3PreLexSt5dequeIS1_SaIS1_EEEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %10)
-          to label %11 unwind label %44
+  %10 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 3
+  store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 4
+  invoke void @_ZNSt5stackIP8V3PreLexSt5dequeIS1_SaIS1_EEEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %11)
+          to label %12 unwind label %45
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 5
-  store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 6
-  store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 7
-  invoke void @_ZNSt5stackIN12V3PreProcImp9ProcStateESt5dequeIS1_SaIS1_EEEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %14)
-          to label %15 unwind label %48
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 5
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 6
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 7
+  invoke void @_ZNSt5stackIN12V3PreProcImp9ProcStateESt5dequeIS1_SaIS1_EEEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %15)
+          to label %16 unwind label %49
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 8
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 9
-  store i8 0, ptr %17, align 4
-  %18 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 10
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
-  %19 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 11
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 8
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 9
+  store i8 0, ptr %18, align 4
+  %19 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
-  %20 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 12
+  %20 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  %21 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 13
-  store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 14
-  store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 15
-  store i8 1, ptr %23, align 8
-  %24 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 16
-  store i8 0, ptr %24, align 1
-  %25 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 17
-  store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
-  %27 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 19
-  store i8 1, ptr %27, align 8
-  %28 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 20
-  store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #3
-  %30 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 22
-  invoke void @_ZNSt5stackI10VDefineRefSt5dequeIS0_SaIS0_EEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %30)
-          to label %31 unwind label %52
+  %21 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
+  %22 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 13
+  store i8 0, ptr %22, align 8
+  %23 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 14
+  store i32 0, ptr %23, align 4
+  %24 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 15
+  store i8 1, ptr %24, align 8
+  %25 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 16
+  store i8 0, ptr %25, align 1
+  %26 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 17
+  store i32 0, ptr %26, align 4
+  %27 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #3
+  %28 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 19
+  store i8 1, ptr %28, align 8
+  %29 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 20
+  store ptr null, ptr %29, align 8
+  %30 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #3
+  %31 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 22
+  invoke void @_ZNSt5stackI10VDefineRefSt5dequeIS0_SaIS0_EEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %31)
+          to label %32 unwind label %53
 
-31:                                               ; preds = %15
-  %32 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 23
-  invoke void @_ZNSt5stackI11VPreIfEntrySt5dequeIS0_SaIS0_EEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %32)
-          to label %33 unwind label %56
+32:                                               ; preds = %16
+  %33 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 23
+  invoke void @_ZNSt5stackI11VPreIfEntrySt5dequeIS0_SaIS0_EEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %33)
+          to label %34 unwind label %57
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 24
-  store i32 0, ptr %34, align 8
-  %35 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 25
-  store i8 0, ptr %35, align 4
-  %36 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 26
-  invoke void @_ZNSt5stackINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5dequeIS5_SaIS5_EEEC2IS8_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %36)
-          to label %37 unwind label %60
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 24
+  store i32 0, ptr %35, align 8
+  %36 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 25
+  store i8 0, ptr %36, align 4
+  %37 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 26
+  invoke void @_ZNSt5stackINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5dequeIS5_SaIS5_EEEC2IS8_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %37)
+          to label %38 unwind label %61
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 27
-  invoke void @_ZN9V3PreExprC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %38)
-          to label %39 unwind label %64
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 27
+  invoke void @_ZN9V3PreExprC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %39)
+          to label %40 unwind label %65
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 28
-  store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #3
-  %42 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 7
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 28
+  store i32 0, ptr %41, align 8
+  %42 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #3
+  %43 = getelementptr inbounds %class.V3PreProcImp, ptr %6, i32 0, i32 7
   store i8 0, ptr %5, align 1
-  invoke void @_ZNSt5stackIN12V3PreProcImp9ProcStateESt5dequeIS1_SaIS1_EEE4pushEOS1_(ptr noundef nonnull align 8 dereferenceable(80) %42, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %43 unwind label %68
+  invoke void @_ZNSt5stackIN12V3PreProcImp9ProcStateESt5dequeIS1_SaIS1_EEE4pushEOS1_(ptr noundef nonnull align 8 dereferenceable(80) %43, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %44 unwind label %69
 
-43:                                               ; preds = %39
+44:                                               ; preds = %40
   ret void
 
-44:                                               ; preds = %1
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %1
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %3, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %4, align 4
-  br label %77
-
-48:                                               ; preds = %11
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %3, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %4, align 4
-  br label %76
-
-52:                                               ; preds = %15
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %3, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %4, align 4
-  br label %75
-
-56:                                               ; preds = %31
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %3, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %4, align 4
-  br label %74
-
-60:                                               ; preds = %33
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %3, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %4, align 4
-  br label %73
-
-64:                                               ; preds = %37
-  %65 = landingpad { ptr, i32 }
-          cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %3, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %4, align 4
-  br label %72
-
-68:                                               ; preds = %39
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %3, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #3
-  call void @_ZN9V3PreExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %38) #3
-  br label %72
-
-72:                                               ; preds = %68, %64
-  call void @_ZNSt5stackINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5dequeIS5_SaIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %36) #3
-  br label %73
-
-73:                                               ; preds = %72, %60
-  call void @_ZNSt5stackI11VPreIfEntrySt5dequeIS0_SaIS0_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %32) #3
-  br label %74
-
-74:                                               ; preds = %73, %56
-  call void @_ZNSt5stackI10VDefineRefSt5dequeIS0_SaIS0_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %30) #3
-  br label %75
-
-75:                                               ; preds = %74, %52
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
-  call void @_ZNSt5stackIN12V3PreProcImp9ProcStateESt5dequeIS1_SaIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %14) #3
-  br label %76
-
-76:                                               ; preds = %75, %48
-  call void @_ZNSt5stackIP8V3PreLexSt5dequeIS1_SaIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #3
-  br label %77
-
-77:                                               ; preds = %76, %44
-  call void @_ZNSt3mapIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE7VDefineSt4lessIS6_ESaISt4pairIS6_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
-  call void @_ZN9V3PreProcD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %3, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %4, align 4
   br label %78
 
-78:                                               ; preds = %77
-  %79 = load ptr, ptr %3, align 8
-  %80 = load i32, ptr %4, align 4
-  %81 = insertvalue { ptr, i32 } poison, ptr %79, 0
-  %82 = insertvalue { ptr, i32 } %81, i32 %80, 1
-  resume { ptr, i32 } %82
+49:                                               ; preds = %12
+  %50 = landingpad { ptr, i32 }
+          cleanup
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %3, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %4, align 4
+  br label %77
+
+53:                                               ; preds = %16
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %3, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %4, align 4
+  br label %76
+
+57:                                               ; preds = %32
+  %58 = landingpad { ptr, i32 }
+          cleanup
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %3, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %4, align 4
+  br label %75
+
+61:                                               ; preds = %34
+  %62 = landingpad { ptr, i32 }
+          cleanup
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %3, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %4, align 4
+  br label %74
+
+65:                                               ; preds = %38
+  %66 = landingpad { ptr, i32 }
+          cleanup
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %3, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %4, align 4
+  br label %73
+
+69:                                               ; preds = %40
+  %70 = landingpad { ptr, i32 }
+          cleanup
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %3, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %4, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #3
+  call void @_ZN9V3PreExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %39) #3
+  br label %73
+
+73:                                               ; preds = %69, %65
+  call void @_ZNSt5stackINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5dequeIS5_SaIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %37) #3
+  br label %74
+
+74:                                               ; preds = %73, %61
+  call void @_ZNSt5stackI11VPreIfEntrySt5dequeIS0_SaIS0_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %33) #3
+  br label %75
+
+75:                                               ; preds = %74, %57
+  call void @_ZNSt5stackI10VDefineRefSt5dequeIS0_SaIS0_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %31) #3
+  br label %76
+
+76:                                               ; preds = %75, %53
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
+  call void @_ZNSt5stackIN12V3PreProcImp9ProcStateESt5dequeIS1_SaIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #3
+  br label %77
+
+77:                                               ; preds = %76, %49
+  call void @_ZNSt5stackIP8V3PreLexSt5dequeIS1_SaIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #3
+  br label %78
+
+78:                                               ; preds = %77, %45
+  call void @_ZNSt3mapIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE7VDefineSt4lessIS6_ESaISt4pairIS6_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  call void @_ZN9V3PreProcD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  br label %79
+
+79:                                               ; preds = %78
+  %80 = load ptr, ptr %3, align 8
+  %81 = load i32, ptr %4, align 4
+  %82 = insertvalue { ptr, i32 } poison, ptr %80, 0
+  %83 = insertvalue { ptr, i32 } %82, i32 %81, 1
+  resume { ptr, i32 } %83
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17514,17 +17520,17 @@ define linkonce_odr dso_local noundef i32 @_ZN9V3PreProc5debugEv() #5 comdat ali
   %13 = icmp slt i32 %12, 0
   %14 = xor i1 %13, true
   %15 = xor i1 %14, true
-  br i1 %15, label %16, label %66
+  br i1 %15, label %16, label %69
 
 16:                                               ; preds = %0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %17 unwind label %43
+          to label %17 unwind label %46
 
 17:                                               ; preds = %16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   %18 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0)
-          to label %19 unwind label %47
+          to label %19 unwind label %50
 
 19:                                               ; preds = %17
   %20 = load i8, ptr %18, align 1
@@ -17532,132 +17538,135 @@ define linkonce_odr dso_local noundef i32 @_ZN9V3PreProc5debugEv() #5 comdat ali
   %22 = call i32 @tolower(i32 noundef %21) #20
   %23 = trunc i32 %22 to i8
   %24 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0)
-          to label %25 unwind label %47
+          to label %25 unwind label %50
 
 25:                                               ; preds = %19
   store i8 %23, ptr %24, align 1
-  %26 = invoke noundef i32 @_ZNK9V3Options10debugLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22), ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %27 unwind label %47
+  %26 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %27 = invoke noundef i32 @_ZNK9V3Options10debugLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) %26, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %28 unwind label %50
 
-27:                                               ; preds = %25
-  store i32 %26, ptr %6, align 4
+28:                                               ; preds = %25
+  store i32 %27, ptr %6, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef @.str.264, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %28 unwind label %51
+          to label %29 unwind label %54
 
-28:                                               ; preds = %27
-  %29 = invoke noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22), ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %30 unwind label %55
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %31 = invoke noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) %30, ptr noundef nonnull align 8 dereferenceable(32) %8)
+          to label %32 unwind label %58
 
-30:                                               ; preds = %28
+32:                                               ; preds = %29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  store i32 %29, ptr %7, align 4
-  %31 = load i32, ptr %6, align 4
-  %32 = load i32, ptr %7, align 4
-  %33 = icmp uge i32 %31, %32
-  br i1 %33, label %34, label %36
+  store i32 %31, ptr %7, align 4
+  %33 = load i32, ptr %6, align 4
+  %34 = load i32, ptr %7, align 4
+  %35 = icmp uge i32 %33, %34
+  br i1 %35, label %36, label %38
 
-34:                                               ; preds = %30
-  %35 = load i32, ptr %6, align 4
-  br label %38
+36:                                               ; preds = %32
+  %37 = load i32, ptr %6, align 4
+  br label %40
 
-36:                                               ; preds = %30
-  %37 = load i32, ptr %7, align 4
-  br label %38
+38:                                               ; preds = %32
+  %39 = load i32, ptr %7, align 4
+  br label %40
 
-38:                                               ; preds = %36, %34
-  %39 = phi i32 [ %35, %34 ], [ %37, %36 ]
-  store i32 %39, ptr %10, align 4
-  %40 = call noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22))
-  br i1 %40, label %60, label %41
+40:                                               ; preds = %38, %36
+  %41 = phi i32 [ %37, %36 ], [ %39, %38 ]
+  store i32 %41, ptr %10, align 4
+  %42 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %43 = call noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) %42)
+  br i1 %43, label %63, label %44
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %10, align 4
-  store i32 %42, ptr %1, align 4
+44:                                               ; preds = %40
+  %45 = load i32, ptr %10, align 4
+  store i32 %45, ptr %1, align 4
   store i32 1, ptr %11, align 4
-  br label %62
+  br label %65
 
-43:                                               ; preds = %16
-  %44 = landingpad { ptr, i32 }
+46:                                               ; preds = %16
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %4, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %5, align 4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %4, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %5, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
-  br label %70
+  br label %73
 
-47:                                               ; preds = %25, %19, %17
-  %48 = landingpad { ptr, i32 }
+50:                                               ; preds = %25, %19, %17
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %4, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %5, align 4
-  br label %65
-
-51:                                               ; preds = %27
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %4, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %5, align 4
-  br label %59
-
-55:                                               ; preds = %28
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %4, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %5, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  br label %59
-
-59:                                               ; preds = %55, %51
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  br label %65
-
-60:                                               ; preds = %38
-  %61 = load i32, ptr %10, align 4
-  store i32 %61, ptr @_ZZN9V3PreProc5debugEvE5level, align 4
-  store i32 0, ptr %11, align 4
-  br label %62
-
-62:                                               ; preds = %60, %41
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
-  %63 = load i32, ptr %11, align 4
-  switch i32 %63, label %75 [
-    i32 0, label %64
-    i32 1, label %68
-  ]
-
-64:                                               ; preds = %62
-  br label %66
-
-65:                                               ; preds = %59, %47
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
-  br label %70
-
-66:                                               ; preds = %64, %0
-  %67 = load i32, ptr @_ZZN9V3PreProc5debugEvE5level, align 4
-  store i32 %67, ptr %1, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %4, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %5, align 4
   br label %68
 
-68:                                               ; preds = %66, %62
-  %69 = load i32, ptr %1, align 4
-  ret i32 %69
+54:                                               ; preds = %28
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %4, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %5, align 4
+  br label %62
 
-70:                                               ; preds = %65, %43
-  %71 = load ptr, ptr %4, align 8
-  %72 = load i32, ptr %5, align 4
-  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
-  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
-  resume { ptr, i32 } %74
+58:                                               ; preds = %29
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %4, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %5, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  br label %62
 
-75:                                               ; preds = %62
+62:                                               ; preds = %58, %54
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
+  br label %68
+
+63:                                               ; preds = %40
+  %64 = load i32, ptr %10, align 4
+  store i32 %64, ptr @_ZZN9V3PreProc5debugEvE5level, align 4
+  store i32 0, ptr %11, align 4
+  br label %65
+
+65:                                               ; preds = %63, %44
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  %66 = load i32, ptr %11, align 4
+  switch i32 %66, label %78 [
+    i32 0, label %67
+    i32 1, label %71
+  ]
+
+67:                                               ; preds = %65
+  br label %69
+
+68:                                               ; preds = %62, %50
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %73
+
+69:                                               ; preds = %67, %0
+  %70 = load i32, ptr @_ZZN9V3PreProc5debugEvE5level, align 4
+  store i32 %70, ptr %1, align 4
+  br label %71
+
+71:                                               ; preds = %69, %65
+  %72 = load i32, ptr %1, align 4
+  ret i32 %72
+
+73:                                               ; preds = %68, %46
+  %74 = load ptr, ptr %4, align 8
+  %75 = load i32, ptr %5, align 4
+  %76 = insertvalue { ptr, i32 } poison, ptr %74, 0
+  %77 = insertvalue { ptr, i32 } %76, i32 %75, 1
+  resume { ptr, i32 } %77
+
+78:                                               ; preds = %65
   unreachable
 }
 
@@ -18644,1102 +18653,1105 @@ define dso_local void @_ZN12V3PreProcImp7commentERKNSt7__cxx1112basic_stringIcSt
   store ptr %1, ptr %4, align 8
   %60 = load ptr, ptr %3, align 8
   store i8 0, ptr %5, align 1
-  %61 = call noundef zeroext i1 @_ZNK9V3Options11preprocOnlyEv(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22))
-  br i1 %61, label %62, label %66
+  %61 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %62 = call noundef zeroext i1 @_ZNK9V3Options11preprocOnlyEv(ptr noundef nonnull align 8 dereferenceable(1560) %61)
+  br i1 %62, label %63, label %68
 
-62:                                               ; preds = %2
-  %63 = call noundef zeroext i1 @_ZNK9V3Options10ppCommentsEv(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22))
-  br i1 %63, label %64, label %66
+63:                                               ; preds = %2
+  %64 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %65 = call noundef zeroext i1 @_ZNK9V3Options10ppCommentsEv(ptr noundef nonnull align 8 dereferenceable(1560) %64)
+  br i1 %65, label %66, label %68
 
-64:                                               ; preds = %62
-  %65 = load ptr, ptr %4, align 8
-  call void @_ZN12V3PreProcImp16insertUnreadbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1080) %60, ptr noundef nonnull align 8 dereferenceable(32) %65)
-  store i8 1, ptr %5, align 1
-  br label %66
-
-66:                                               ; preds = %64, %62, %2
+66:                                               ; preds = %63
   %67 = load ptr, ptr %4, align 8
-  %68 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %67) #3
-  store ptr %68, ptr %6, align 8
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 0
-  %71 = load i8, ptr %70, align 1
-  %72 = sext i8 %71 to i32
-  %73 = icmp eq i32 %72, 47
-  br i1 %73, label %74, label %89
+  call void @_ZN12V3PreProcImp16insertUnreadbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1080) %60, ptr noundef nonnull align 8 dereferenceable(32) %67)
+  store i8 1, ptr %5, align 1
+  br label %68
 
-74:                                               ; preds = %66
-  %75 = load ptr, ptr %6, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 1
-  %77 = load i8, ptr %76, align 1
-  %78 = sext i8 %77 to i32
-  %79 = icmp eq i32 %78, 47
-  br i1 %79, label %86, label %80
+68:                                               ; preds = %66, %63, %2
+  %69 = load ptr, ptr %4, align 8
+  %70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %69) #3
+  store ptr %70, ptr %6, align 8
+  %71 = load ptr, ptr %6, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 0
+  %73 = load i8, ptr %72, align 1
+  %74 = sext i8 %73 to i32
+  %75 = icmp eq i32 %74, 47
+  br i1 %75, label %76, label %91
 
-80:                                               ; preds = %74
-  %81 = load ptr, ptr %6, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 1
-  %83 = load i8, ptr %82, align 1
-  %84 = sext i8 %83 to i32
-  %85 = icmp eq i32 %84, 42
-  br i1 %85, label %86, label %89
+76:                                               ; preds = %68
+  %77 = load ptr, ptr %6, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 1
+  %79 = load i8, ptr %78, align 1
+  %80 = sext i8 %79 to i32
+  %81 = icmp eq i32 %80, 47
+  br i1 %81, label %88, label %82
 
-86:                                               ; preds = %80, %74
-  %87 = load ptr, ptr %6, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 2
-  store ptr %88, ptr %6, align 8
-  br label %90
+82:                                               ; preds = %76
+  %83 = load ptr, ptr %6, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %85 = load i8, ptr %84, align 1
+  %86 = sext i8 %85 to i32
+  %87 = icmp eq i32 %86, 42
+  br i1 %87, label %88, label %91
 
-89:                                               ; preds = %80, %66
-  br label %494
+88:                                               ; preds = %82, %76
+  %89 = load ptr, ptr %6, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 2
+  store ptr %90, ptr %6, align 8
+  br label %92
 
-90:                                               ; preds = %86
-  br label %91
+91:                                               ; preds = %82, %68
+  br label %497
 
-91:                                               ; preds = %97, %90
-  %92 = load ptr, ptr %6, align 8
-  %93 = load i8, ptr %92, align 1
-  %94 = sext i8 %93 to i32
-  %95 = call i32 @isspace(i32 noundef %94) #20
-  %96 = icmp ne i32 %95, 0
-  br i1 %96, label %97, label %100
+92:                                               ; preds = %88
+  br label %93
 
-97:                                               ; preds = %91
-  %98 = load ptr, ptr %6, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i32 1
-  store ptr %99, ptr %6, align 8
-  br label %91, !llvm.loop !37
+93:                                               ; preds = %99, %92
+  %94 = load ptr, ptr %6, align 8
+  %95 = load i8, ptr %94, align 1
+  %96 = sext i8 %95 to i32
+  %97 = call i32 @isspace(i32 noundef %96) #20
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %99, label %102
 
-100:                                              ; preds = %91
+99:                                               ; preds = %93
+  %100 = load ptr, ptr %6, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i32 1
+  store ptr %101, ptr %6, align 8
+  br label %93, !llvm.loop !37
+
+102:                                              ; preds = %93
   store i8 0, ptr %7, align 1
   store i8 0, ptr %8, align 1
-  %101 = load ptr, ptr %6, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 0
-  %103 = load i8, ptr %102, align 1
-  %104 = sext i8 %103 to i32
-  %105 = icmp eq i32 %104, 118
+  %103 = load ptr, ptr %6, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 0
+  %105 = load i8, ptr %104, align 1
+  %106 = sext i8 %105 to i32
+  %107 = icmp eq i32 %106, 118
   store i1 false, ptr %11, align 1
   store i1 false, ptr %14, align 1
   store i1 false, ptr %17, align 1
   store i1 false, ptr %18, align 1
-  br i1 %105, label %112, label %106
+  br i1 %107, label %114, label %108
 
-106:                                              ; preds = %100
-  %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 0
-  %109 = load i8, ptr %108, align 1
-  %110 = sext i8 %109 to i32
-  %111 = icmp eq i32 %110, 86
-  br i1 %111, label %112, label %119
+108:                                              ; preds = %102
+  %109 = load ptr, ptr %6, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 0
+  %111 = load i8, ptr %110, align 1
+  %112 = sext i8 %111 to i32
+  %113 = icmp eq i32 %112, 86
+  br i1 %113, label %114, label %121
 
-112:                                              ; preds = %106, %100
-  %113 = load ptr, ptr %6, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 1
+114:                                              ; preds = %108, %102
+  %115 = load ptr, ptr %6, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
   store i1 true, ptr %11, align 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %114, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %115 unwind label %149
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %116, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %117 unwind label %151
 
-115:                                              ; preds = %112
+117:                                              ; preds = %114
   store i1 true, ptr %14, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
   store i1 true, ptr %17, align 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str.79, ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %116 unwind label %153
+          to label %118 unwind label %155
 
-116:                                              ; preds = %115
+118:                                              ; preds = %117
   store i1 true, ptr %18, align 1
-  %117 = invoke noundef zeroext i1 @_ZN7VString10startsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %118 unwind label %157
+  %119 = invoke noundef zeroext i1 @_ZN7VString10startsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %15)
+          to label %120 unwind label %159
 
-118:                                              ; preds = %116
-  br label %119
+120:                                              ; preds = %118
+  br label %121
 
-119:                                              ; preds = %118, %106
-  %120 = phi i1 [ false, %106 ], [ %117, %118 ]
-  %121 = load i1, ptr %18, align 1
-  br i1 %121, label %122, label %123
+121:                                              ; preds = %120, %108
+  %122 = phi i1 [ false, %108 ], [ %119, %120 ]
+  %123 = load i1, ptr %18, align 1
+  br i1 %123, label %124, label %125
 
-122:                                              ; preds = %119
+124:                                              ; preds = %121
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  br label %123
+  br label %125
 
-123:                                              ; preds = %122, %119
-  %124 = load i1, ptr %17, align 1
-  br i1 %124, label %125, label %126
+125:                                              ; preds = %124, %121
+  %126 = load i1, ptr %17, align 1
+  br i1 %126, label %127, label %128
 
-125:                                              ; preds = %123
+127:                                              ; preds = %125
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  br label %126
+  br label %128
 
-126:                                              ; preds = %125, %123
-  %127 = load i1, ptr %14, align 1
-  br i1 %127, label %128, label %129
+128:                                              ; preds = %127, %125
+  %129 = load i1, ptr %14, align 1
+  br i1 %129, label %130, label %131
 
-128:                                              ; preds = %126
+130:                                              ; preds = %128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %129
+  br label %131
 
-129:                                              ; preds = %128, %126
-  %130 = load i1, ptr %11, align 1
-  br i1 %130, label %131, label %132
+131:                                              ; preds = %130, %128
+  %132 = load i1, ptr %11, align 1
+  br i1 %132, label %133, label %134
 
-131:                                              ; preds = %129
+133:                                              ; preds = %131
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  br label %132
+  br label %134
 
-132:                                              ; preds = %131, %129
-  br i1 %120, label %133, label %185
+134:                                              ; preds = %133, %131
+  br i1 %122, label %135, label %187
 
-133:                                              ; preds = %132
-  %134 = load ptr, ptr %6, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 9
-  store ptr %135, ptr %6, align 8
+135:                                              ; preds = %134
   %136 = load ptr, ptr %6, align 8
-  %137 = load i8, ptr %136, align 1
-  %138 = sext i8 %137 to i32
-  %139 = icmp eq i32 %138, 95
-  br i1 %139, label %140, label %184
+  %137 = getelementptr inbounds i8, ptr %136, i64 9
+  store ptr %137, ptr %6, align 8
+  %138 = load ptr, ptr %6, align 8
+  %139 = load i8, ptr %138, align 1
+  %140 = sext i8 %139 to i32
+  %141 = icmp eq i32 %140, 95
+  br i1 %141, label %142, label %186
 
-140:                                              ; preds = %133
-  %141 = call noundef ptr @_ZN9V3PreProc8filelineEv(ptr noundef nonnull align 8 dereferenceable(8) %60)
+142:                                              ; preds = %135
+  %143 = call noundef ptr @_ZN9V3PreProc8filelineEv(ptr noundef nonnull align 8 dereferenceable(8) %60)
   call void @_ZN11V3ErrorCodeC2ENS_2enE(ptr noundef nonnull align 1 dereferenceable(1) %19, i8 noundef zeroext 5)
-  %142 = getelementptr inbounds %class.V3ErrorCode, ptr %19, i32 0, i32 0
-  %143 = load i8, ptr %142, align 1
-  %144 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 %143, i1 noundef zeroext true)
-  %145 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %146 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %145, ptr noundef @.str.80)
+  %144 = getelementptr inbounds %class.V3ErrorCode, ptr %19, i32 0, i32 0
+  %145 = load i8, ptr %144, align 1
+  %146 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 %145, i1 noundef zeroext true)
+  %147 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %148 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef @.str.80)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %21)
-          to label %147 unwind label %175
+          to label %149 unwind label %177
 
-147:                                              ; preds = %140
-  invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %141, ptr noundef nonnull align 8 dereferenceable(112) %146, ptr noundef nonnull align 8 dereferenceable(32) %20)
-          to label %148 unwind label %179
+149:                                              ; preds = %142
+  invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %143, ptr noundef nonnull align 8 dereferenceable(112) %148, ptr noundef nonnull align 8 dereferenceable(32) %20)
+          to label %150 unwind label %181
 
-148:                                              ; preds = %147
+150:                                              ; preds = %149
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #3
-  br label %184
+  br label %186
 
-149:                                              ; preds = %112
-  %150 = landingpad { ptr, i32 }
+151:                                              ; preds = %114
+  %152 = landingpad { ptr, i32 }
           cleanup
-  %151 = extractvalue { ptr, i32 } %150, 0
-  store ptr %151, ptr %12, align 8
-  %152 = extractvalue { ptr, i32 } %150, 1
-  store i32 %152, ptr %13, align 4
-  br label %171
+  %153 = extractvalue { ptr, i32 } %152, 0
+  store ptr %153, ptr %12, align 8
+  %154 = extractvalue { ptr, i32 } %152, 1
+  store i32 %154, ptr %13, align 4
+  br label %173
 
-153:                                              ; preds = %115
-  %154 = landingpad { ptr, i32 }
+155:                                              ; preds = %117
+  %156 = landingpad { ptr, i32 }
           cleanup
-  %155 = extractvalue { ptr, i32 } %154, 0
-  store ptr %155, ptr %12, align 8
-  %156 = extractvalue { ptr, i32 } %154, 1
-  store i32 %156, ptr %13, align 4
-  br label %164
+  %157 = extractvalue { ptr, i32 } %156, 0
+  store ptr %157, ptr %12, align 8
+  %158 = extractvalue { ptr, i32 } %156, 1
+  store i32 %158, ptr %13, align 4
+  br label %166
 
-157:                                              ; preds = %116
-  %158 = landingpad { ptr, i32 }
+159:                                              ; preds = %118
+  %160 = landingpad { ptr, i32 }
           cleanup
-  %159 = extractvalue { ptr, i32 } %158, 0
-  store ptr %159, ptr %12, align 8
-  %160 = extractvalue { ptr, i32 } %158, 1
-  store i32 %160, ptr %13, align 4
-  %161 = load i1, ptr %18, align 1
-  br i1 %161, label %162, label %163
+  %161 = extractvalue { ptr, i32 } %160, 0
+  store ptr %161, ptr %12, align 8
+  %162 = extractvalue { ptr, i32 } %160, 1
+  store i32 %162, ptr %13, align 4
+  %163 = load i1, ptr %18, align 1
+  br i1 %163, label %164, label %165
 
-162:                                              ; preds = %157
+164:                                              ; preds = %159
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  br label %163
+  br label %165
 
-163:                                              ; preds = %162, %157
-  br label %164
+165:                                              ; preds = %164, %159
+  br label %166
 
-164:                                              ; preds = %163, %153
-  %165 = load i1, ptr %17, align 1
-  br i1 %165, label %166, label %167
+166:                                              ; preds = %165, %155
+  %167 = load i1, ptr %17, align 1
+  br i1 %167, label %168, label %169
 
-166:                                              ; preds = %164
+168:                                              ; preds = %166
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  br label %167
+  br label %169
 
-167:                                              ; preds = %166, %164
-  %168 = load i1, ptr %14, align 1
-  br i1 %168, label %169, label %170
+169:                                              ; preds = %168, %166
+  %170 = load i1, ptr %14, align 1
+  br i1 %170, label %171, label %172
 
-169:                                              ; preds = %167
+171:                                              ; preds = %169
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %170
+  br label %172
 
-170:                                              ; preds = %169, %167
-  br label %171
+172:                                              ; preds = %171, %169
+  br label %173
 
-171:                                              ; preds = %170, %149
-  %172 = load i1, ptr %11, align 1
-  br i1 %172, label %173, label %174
+173:                                              ; preds = %172, %151
+  %174 = load i1, ptr %11, align 1
+  br i1 %174, label %175, label %176
 
-173:                                              ; preds = %171
+175:                                              ; preds = %173
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  br label %174
+  br label %176
 
-174:                                              ; preds = %173, %171
-  br label %496
+176:                                              ; preds = %175, %173
+  br label %499
 
-175:                                              ; preds = %140
-  %176 = landingpad { ptr, i32 }
+177:                                              ; preds = %142
+  %178 = landingpad { ptr, i32 }
           cleanup
-  %177 = extractvalue { ptr, i32 } %176, 0
-  store ptr %177, ptr %12, align 8
-  %178 = extractvalue { ptr, i32 } %176, 1
-  store i32 %178, ptr %13, align 4
-  br label %183
+  %179 = extractvalue { ptr, i32 } %178, 0
+  store ptr %179, ptr %12, align 8
+  %180 = extractvalue { ptr, i32 } %178, 1
+  store i32 %180, ptr %13, align 4
+  br label %185
 
-179:                                              ; preds = %147
-  %180 = landingpad { ptr, i32 }
+181:                                              ; preds = %149
+  %182 = landingpad { ptr, i32 }
           cleanup
-  %181 = extractvalue { ptr, i32 } %180, 0
-  store ptr %181, ptr %12, align 8
-  %182 = extractvalue { ptr, i32 } %180, 1
-  store i32 %182, ptr %13, align 4
+  %183 = extractvalue { ptr, i32 } %182, 0
+  store ptr %183, ptr %12, align 8
+  %184 = extractvalue { ptr, i32 } %182, 1
+  store i32 %184, ptr %13, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  br label %183
+  br label %185
 
-183:                                              ; preds = %179, %175
+185:                                              ; preds = %181, %177
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #3
-  br label %496
+  br label %499
 
-184:                                              ; preds = %148, %133
+186:                                              ; preds = %150, %135
   store i8 1, ptr %8, align 1
-  br label %305
+  br label %307
 
-185:                                              ; preds = %132
-  %186 = load ptr, ptr %6, align 8
+187:                                              ; preds = %134
+  %188 = load ptr, ptr %6, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %186, ptr noundef nonnull align 1 dereferenceable(1) %23)
-          to label %187 unwind label %207
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %188, ptr noundef nonnull align 1 dereferenceable(1) %23)
+          to label %189 unwind label %209
 
-187:                                              ; preds = %185
+189:                                              ; preds = %187
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef @.str.81, ptr noundef nonnull align 1 dereferenceable(1) %25)
-          to label %188 unwind label %211
+          to label %190 unwind label %213
 
-188:                                              ; preds = %187
-  %189 = invoke noundef zeroext i1 @_ZN7VString10startsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %24)
-          to label %190 unwind label %215
+190:                                              ; preds = %189
+  %191 = invoke noundef zeroext i1 @_ZN7VString10startsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %24)
+          to label %192 unwind label %217
 
-190:                                              ; preds = %188
+192:                                              ; preds = %190
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #3
-  br i1 %189, label %191, label %231
+  br i1 %191, label %193, label %233
 
-191:                                              ; preds = %190
-  %192 = load ptr, ptr %6, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 8
-  store ptr %193, ptr %6, align 8
-  store i8 1, ptr %7, align 1
+193:                                              ; preds = %192
   %194 = load ptr, ptr %6, align 8
-  %195 = load i8, ptr %194, align 1
-  %196 = sext i8 %195 to i32
-  %197 = icmp eq i32 %196, 95
-  br i1 %197, label %198, label %230
+  %195 = getelementptr inbounds i8, ptr %194, i64 8
+  store ptr %195, ptr %6, align 8
+  store i8 1, ptr %7, align 1
+  %196 = load ptr, ptr %6, align 8
+  %197 = load i8, ptr %196, align 1
+  %198 = sext i8 %197 to i32
+  %199 = icmp eq i32 %198, 95
+  br i1 %199, label %200, label %232
 
-198:                                              ; preds = %191
-  %199 = call noundef ptr @_ZN9V3PreProc8filelineEv(ptr noundef nonnull align 8 dereferenceable(8) %60)
+200:                                              ; preds = %193
+  %201 = call noundef ptr @_ZN9V3PreProc8filelineEv(ptr noundef nonnull align 8 dereferenceable(8) %60)
   call void @_ZN11V3ErrorCodeC2ENS_2enE(ptr noundef nonnull align 1 dereferenceable(1) %26, i8 noundef zeroext 5)
-  %200 = getelementptr inbounds %class.V3ErrorCode, ptr %26, i32 0, i32 0
-  %201 = load i8, ptr %200, align 1
-  %202 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 %201, i1 noundef zeroext true)
-  %203 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %204 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %203, ptr noundef @.str.82)
+  %202 = getelementptr inbounds %class.V3ErrorCode, ptr %26, i32 0, i32 0
+  %203 = load i8, ptr %202, align 1
+  %204 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 %203, i1 noundef zeroext true)
+  %205 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %206 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %205, ptr noundef @.str.82)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %28)
-          to label %205 unwind label %221
+          to label %207 unwind label %223
 
-205:                                              ; preds = %198
-  invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %199, ptr noundef nonnull align 8 dereferenceable(112) %204, ptr noundef nonnull align 8 dereferenceable(32) %27)
-          to label %206 unwind label %225
+207:                                              ; preds = %200
+  invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %201, ptr noundef nonnull align 8 dereferenceable(112) %206, ptr noundef nonnull align 8 dereferenceable(32) %27)
+          to label %208 unwind label %227
 
-206:                                              ; preds = %205
+208:                                              ; preds = %207
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #3
-  br label %230
+  br label %232
 
-207:                                              ; preds = %185
-  %208 = landingpad { ptr, i32 }
+209:                                              ; preds = %187
+  %210 = landingpad { ptr, i32 }
           cleanup
-  %209 = extractvalue { ptr, i32 } %208, 0
-  store ptr %209, ptr %12, align 8
-  %210 = extractvalue { ptr, i32 } %208, 1
-  store i32 %210, ptr %13, align 4
-  br label %220
+  %211 = extractvalue { ptr, i32 } %210, 0
+  store ptr %211, ptr %12, align 8
+  %212 = extractvalue { ptr, i32 } %210, 1
+  store i32 %212, ptr %13, align 4
+  br label %222
 
-211:                                              ; preds = %187
-  %212 = landingpad { ptr, i32 }
+213:                                              ; preds = %189
+  %214 = landingpad { ptr, i32 }
           cleanup
-  %213 = extractvalue { ptr, i32 } %212, 0
-  store ptr %213, ptr %12, align 8
-  %214 = extractvalue { ptr, i32 } %212, 1
-  store i32 %214, ptr %13, align 4
-  br label %219
+  %215 = extractvalue { ptr, i32 } %214, 0
+  store ptr %215, ptr %12, align 8
+  %216 = extractvalue { ptr, i32 } %214, 1
+  store i32 %216, ptr %13, align 4
+  br label %221
 
-215:                                              ; preds = %188
-  %216 = landingpad { ptr, i32 }
+217:                                              ; preds = %190
+  %218 = landingpad { ptr, i32 }
           cleanup
-  %217 = extractvalue { ptr, i32 } %216, 0
-  store ptr %217, ptr %12, align 8
-  %218 = extractvalue { ptr, i32 } %216, 1
-  store i32 %218, ptr %13, align 4
+  %219 = extractvalue { ptr, i32 } %218, 0
+  store ptr %219, ptr %12, align 8
+  %220 = extractvalue { ptr, i32 } %218, 1
+  store i32 %220, ptr %13, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #3
-  br label %219
+  br label %221
 
-219:                                              ; preds = %215, %211
+221:                                              ; preds = %217, %213
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
-  br label %220
+  br label %222
 
-220:                                              ; preds = %219, %207
+222:                                              ; preds = %221, %209
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #3
-  br label %496
+  br label %499
 
-221:                                              ; preds = %198
-  %222 = landingpad { ptr, i32 }
+223:                                              ; preds = %200
+  %224 = landingpad { ptr, i32 }
           cleanup
-  %223 = extractvalue { ptr, i32 } %222, 0
-  store ptr %223, ptr %12, align 8
-  %224 = extractvalue { ptr, i32 } %222, 1
-  store i32 %224, ptr %13, align 4
-  br label %229
+  %225 = extractvalue { ptr, i32 } %224, 0
+  store ptr %225, ptr %12, align 8
+  %226 = extractvalue { ptr, i32 } %224, 1
+  store i32 %226, ptr %13, align 4
+  br label %231
 
-225:                                              ; preds = %205
-  %226 = landingpad { ptr, i32 }
+227:                                              ; preds = %207
+  %228 = landingpad { ptr, i32 }
           cleanup
-  %227 = extractvalue { ptr, i32 } %226, 0
-  store ptr %227, ptr %12, align 8
-  %228 = extractvalue { ptr, i32 } %226, 1
-  store i32 %228, ptr %13, align 4
+  %229 = extractvalue { ptr, i32 } %228, 0
+  store ptr %229, ptr %12, align 8
+  %230 = extractvalue { ptr, i32 } %228, 1
+  store i32 %230, ptr %13, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #3
-  br label %229
+  br label %231
 
-229:                                              ; preds = %225, %221
+231:                                              ; preds = %227, %223
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #3
-  br label %496
+  br label %499
 
-230:                                              ; preds = %206, %191
-  br label %304
+232:                                              ; preds = %208, %193
+  br label %306
 
-231:                                              ; preds = %190
-  %232 = load ptr, ptr %6, align 8
+233:                                              ; preds = %192
+  %234 = load ptr, ptr %6, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef %232, ptr noundef nonnull align 1 dereferenceable(1) %30)
-          to label %233 unwind label %240
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef %234, ptr noundef nonnull align 1 dereferenceable(1) %30)
+          to label %235 unwind label %242
 
-233:                                              ; preds = %231
+235:                                              ; preds = %233
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef @.str.83, ptr noundef nonnull align 1 dereferenceable(1) %32)
-          to label %234 unwind label %244
+          to label %236 unwind label %246
 
-234:                                              ; preds = %233
-  %235 = invoke noundef zeroext i1 @_ZN7VString10startsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %31)
-          to label %236 unwind label %248
+236:                                              ; preds = %235
+  %237 = invoke noundef zeroext i1 @_ZN7VString10startsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %31)
+          to label %238 unwind label %250
 
-236:                                              ; preds = %234
+238:                                              ; preds = %236
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #3
-  br i1 %235, label %237, label %254
+  br i1 %237, label %239, label %256
 
-237:                                              ; preds = %236
-  %238 = load ptr, ptr %6, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 7
-  store ptr %239, ptr %6, align 8
+239:                                              ; preds = %238
+  %240 = load ptr, ptr %6, align 8
+  %241 = getelementptr inbounds i8, ptr %240, i64 7
+  store ptr %241, ptr %6, align 8
   store i8 1, ptr %7, align 1
-  br label %303
-
-240:                                              ; preds = %231
-  %241 = landingpad { ptr, i32 }
-          cleanup
-  %242 = extractvalue { ptr, i32 } %241, 0
-  store ptr %242, ptr %12, align 8
-  %243 = extractvalue { ptr, i32 } %241, 1
-  store i32 %243, ptr %13, align 4
-  br label %253
-
-244:                                              ; preds = %233
-  %245 = landingpad { ptr, i32 }
-          cleanup
-  %246 = extractvalue { ptr, i32 } %245, 0
-  store ptr %246, ptr %12, align 8
-  %247 = extractvalue { ptr, i32 } %245, 1
-  store i32 %247, ptr %13, align 4
-  br label %252
-
-248:                                              ; preds = %234
-  %249 = landingpad { ptr, i32 }
-          cleanup
-  %250 = extractvalue { ptr, i32 } %249, 0
-  store ptr %250, ptr %12, align 8
-  %251 = extractvalue { ptr, i32 } %249, 1
-  store i32 %251, ptr %13, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #3
-  br label %252
-
-252:                                              ; preds = %248, %244
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #3
-  br label %253
-
-253:                                              ; preds = %252, %240
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #3
-  br label %496
-
-254:                                              ; preds = %236
-  %255 = load ptr, ptr %6, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef %255, ptr noundef nonnull align 1 dereferenceable(1) %34)
-          to label %256 unwind label %263
-
-256:                                              ; preds = %254
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef @.str.84, ptr noundef nonnull align 1 dereferenceable(1) %36)
-          to label %257 unwind label %267
-
-257:                                              ; preds = %256
-  %258 = invoke noundef zeroext i1 @_ZN7VString10startsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %35)
-          to label %259 unwind label %271
-
-259:                                              ; preds = %257
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
-  br i1 %258, label %260, label %277
-
-260:                                              ; preds = %259
-  %261 = load ptr, ptr %6, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 6
-  store ptr %262, ptr %6, align 8
-  store i8 1, ptr %7, align 1
-  br label %302
-
-263:                                              ; preds = %254
-  %264 = landingpad { ptr, i32 }
-          cleanup
-  %265 = extractvalue { ptr, i32 } %264, 0
-  store ptr %265, ptr %12, align 8
-  %266 = extractvalue { ptr, i32 } %264, 1
-  store i32 %266, ptr %13, align 4
-  br label %276
-
-267:                                              ; preds = %256
-  %268 = landingpad { ptr, i32 }
-          cleanup
-  %269 = extractvalue { ptr, i32 } %268, 0
-  store ptr %269, ptr %12, align 8
-  %270 = extractvalue { ptr, i32 } %268, 1
-  store i32 %270, ptr %13, align 4
-  br label %275
-
-271:                                              ; preds = %257
-  %272 = landingpad { ptr, i32 }
-          cleanup
-  %273 = extractvalue { ptr, i32 } %272, 0
-  store ptr %273, ptr %12, align 8
-  %274 = extractvalue { ptr, i32 } %272, 1
-  store i32 %274, ptr %13, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #3
-  br label %275
-
-275:                                              ; preds = %271, %267
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #3
-  br label %276
-
-276:                                              ; preds = %275, %263
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
-  br label %496
-
-277:                                              ; preds = %259
-  %278 = load ptr, ptr %6, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef %278, ptr noundef nonnull align 1 dereferenceable(1) %38)
-          to label %279 unwind label %286
-
-279:                                              ; preds = %277
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef @.str.85, ptr noundef nonnull align 1 dereferenceable(1) %40)
-          to label %280 unwind label %290
-
-280:                                              ; preds = %279
-  %281 = invoke noundef zeroext i1 @_ZN7VString10startsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %39)
-          to label %282 unwind label %294
-
-282:                                              ; preds = %280
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
-  br i1 %281, label %283, label %300
-
-283:                                              ; preds = %282
-  %284 = load ptr, ptr %6, align 8
-  %285 = getelementptr inbounds i8, ptr %284, i64 15
-  store ptr %285, ptr %6, align 8
-  store i8 1, ptr %7, align 1
-  br label %301
-
-286:                                              ; preds = %277
-  %287 = landingpad { ptr, i32 }
-          cleanup
-  %288 = extractvalue { ptr, i32 } %287, 0
-  store ptr %288, ptr %12, align 8
-  %289 = extractvalue { ptr, i32 } %287, 1
-  store i32 %289, ptr %13, align 4
-  br label %299
-
-290:                                              ; preds = %279
-  %291 = landingpad { ptr, i32 }
-          cleanup
-  %292 = extractvalue { ptr, i32 } %291, 0
-  store ptr %292, ptr %12, align 8
-  %293 = extractvalue { ptr, i32 } %291, 1
-  store i32 %293, ptr %13, align 4
-  br label %298
-
-294:                                              ; preds = %280
-  %295 = landingpad { ptr, i32 }
-          cleanup
-  %296 = extractvalue { ptr, i32 } %295, 0
-  store ptr %296, ptr %12, align 8
-  %297 = extractvalue { ptr, i32 } %295, 1
-  store i32 %297, ptr %13, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #3
-  br label %298
-
-298:                                              ; preds = %294, %290
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #3
-  br label %299
-
-299:                                              ; preds = %298, %286
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
-  br label %496
-
-300:                                              ; preds = %282
-  br label %494
-
-301:                                              ; preds = %283
-  br label %302
-
-302:                                              ; preds = %301, %260
-  br label %303
-
-303:                                              ; preds = %302, %237
-  br label %304
-
-304:                                              ; preds = %303, %230
   br label %305
 
-305:                                              ; preds = %304, %184
-  %306 = load i8, ptr %8, align 1
-  %307 = trunc i8 %306 to i1
-  br i1 %307, label %312, label %308
+242:                                              ; preds = %233
+  %243 = landingpad { ptr, i32 }
+          cleanup
+  %244 = extractvalue { ptr, i32 } %243, 0
+  store ptr %244, ptr %12, align 8
+  %245 = extractvalue { ptr, i32 } %243, 1
+  store i32 %245, ptr %13, align 4
+  br label %255
 
-308:                                              ; preds = %305
-  %309 = load i8, ptr %7, align 1
-  %310 = trunc i8 %309 to i1
-  br i1 %310, label %312, label %311
+246:                                              ; preds = %235
+  %247 = landingpad { ptr, i32 }
+          cleanup
+  %248 = extractvalue { ptr, i32 } %247, 0
+  store ptr %248, ptr %12, align 8
+  %249 = extractvalue { ptr, i32 } %247, 1
+  store i32 %249, ptr %13, align 4
+  br label %254
 
-311:                                              ; preds = %308
-  br label %494
+250:                                              ; preds = %236
+  %251 = landingpad { ptr, i32 }
+          cleanup
+  %252 = extractvalue { ptr, i32 } %251, 0
+  store ptr %252, ptr %12, align 8
+  %253 = extractvalue { ptr, i32 } %251, 1
+  store i32 %253, ptr %13, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #3
+  br label %254
 
-312:                                              ; preds = %308, %305
-  br label %313
+254:                                              ; preds = %250, %246
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #3
+  br label %255
 
-313:                                              ; preds = %319, %312
-  %314 = load ptr, ptr %6, align 8
-  %315 = load i8, ptr %314, align 1
-  %316 = sext i8 %315 to i32
-  %317 = call i32 @isspace(i32 noundef %316) #20
-  %318 = icmp ne i32 %317, 0
-  br i1 %318, label %319, label %322
+255:                                              ; preds = %254, %242
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #3
+  br label %499
 
-319:                                              ; preds = %313
-  %320 = load ptr, ptr %6, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i32 1
-  store ptr %321, ptr %6, align 8
-  br label %313, !llvm.loop !38
+256:                                              ; preds = %238
+  %257 = load ptr, ptr %6, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef %257, ptr noundef nonnull align 1 dereferenceable(1) %34)
+          to label %258 unwind label %265
 
-322:                                              ; preds = %313
-  %323 = load ptr, ptr %6, align 8
+258:                                              ; preds = %256
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef @.str.84, ptr noundef nonnull align 1 dereferenceable(1) %36)
+          to label %259 unwind label %269
+
+259:                                              ; preds = %258
+  %260 = invoke noundef zeroext i1 @_ZN7VString10startsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %35)
+          to label %261 unwind label %273
+
+261:                                              ; preds = %259
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
+  br i1 %260, label %262, label %279
+
+262:                                              ; preds = %261
+  %263 = load ptr, ptr %6, align 8
+  %264 = getelementptr inbounds i8, ptr %263, i64 6
+  store ptr %264, ptr %6, align 8
+  store i8 1, ptr %7, align 1
+  br label %304
+
+265:                                              ; preds = %256
+  %266 = landingpad { ptr, i32 }
+          cleanup
+  %267 = extractvalue { ptr, i32 } %266, 0
+  store ptr %267, ptr %12, align 8
+  %268 = extractvalue { ptr, i32 } %266, 1
+  store i32 %268, ptr %13, align 4
+  br label %278
+
+269:                                              ; preds = %258
+  %270 = landingpad { ptr, i32 }
+          cleanup
+  %271 = extractvalue { ptr, i32 } %270, 0
+  store ptr %271, ptr %12, align 8
+  %272 = extractvalue { ptr, i32 } %270, 1
+  store i32 %272, ptr %13, align 4
+  br label %277
+
+273:                                              ; preds = %259
+  %274 = landingpad { ptr, i32 }
+          cleanup
+  %275 = extractvalue { ptr, i32 } %274, 0
+  store ptr %275, ptr %12, align 8
+  %276 = extractvalue { ptr, i32 } %274, 1
+  store i32 %276, ptr %13, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #3
+  br label %277
+
+277:                                              ; preds = %273, %269
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #3
+  br label %278
+
+278:                                              ; preds = %277, %265
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
+  br label %499
+
+279:                                              ; preds = %261
+  %280 = load ptr, ptr %6, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef %280, ptr noundef nonnull align 1 dereferenceable(1) %38)
+          to label %281 unwind label %288
+
+281:                                              ; preds = %279
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef @.str.85, ptr noundef nonnull align 1 dereferenceable(1) %40)
+          to label %282 unwind label %292
+
+282:                                              ; preds = %281
+  %283 = invoke noundef zeroext i1 @_ZN7VString10startsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %39)
+          to label %284 unwind label %296
+
+284:                                              ; preds = %282
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
+  br i1 %283, label %285, label %302
+
+285:                                              ; preds = %284
+  %286 = load ptr, ptr %6, align 8
+  %287 = getelementptr inbounds i8, ptr %286, i64 15
+  store ptr %287, ptr %6, align 8
+  store i8 1, ptr %7, align 1
+  br label %303
+
+288:                                              ; preds = %279
+  %289 = landingpad { ptr, i32 }
+          cleanup
+  %290 = extractvalue { ptr, i32 } %289, 0
+  store ptr %290, ptr %12, align 8
+  %291 = extractvalue { ptr, i32 } %289, 1
+  store i32 %291, ptr %13, align 4
+  br label %301
+
+292:                                              ; preds = %281
+  %293 = landingpad { ptr, i32 }
+          cleanup
+  %294 = extractvalue { ptr, i32 } %293, 0
+  store ptr %294, ptr %12, align 8
+  %295 = extractvalue { ptr, i32 } %293, 1
+  store i32 %295, ptr %13, align 4
+  br label %300
+
+296:                                              ; preds = %282
+  %297 = landingpad { ptr, i32 }
+          cleanup
+  %298 = extractvalue { ptr, i32 } %297, 0
+  store ptr %298, ptr %12, align 8
+  %299 = extractvalue { ptr, i32 } %297, 1
+  store i32 %299, ptr %13, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #3
+  br label %300
+
+300:                                              ; preds = %296, %292
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #3
+  br label %301
+
+301:                                              ; preds = %300, %288
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
+  br label %499
+
+302:                                              ; preds = %284
+  br label %497
+
+303:                                              ; preds = %285
+  br label %304
+
+304:                                              ; preds = %303, %262
+  br label %305
+
+305:                                              ; preds = %304, %239
+  br label %306
+
+306:                                              ; preds = %305, %232
+  br label %307
+
+307:                                              ; preds = %306, %186
+  %308 = load i8, ptr %8, align 1
+  %309 = trunc i8 %308 to i1
+  br i1 %309, label %314, label %310
+
+310:                                              ; preds = %307
+  %311 = load i8, ptr %7, align 1
+  %312 = trunc i8 %311 to i1
+  br i1 %312, label %314, label %313
+
+313:                                              ; preds = %310
+  br label %497
+
+314:                                              ; preds = %310, %307
+  br label %315
+
+315:                                              ; preds = %321, %314
+  %316 = load ptr, ptr %6, align 8
+  %317 = load i8, ptr %316, align 1
+  %318 = sext i8 %317 to i32
+  %319 = call i32 @isspace(i32 noundef %318) #20
+  %320 = icmp ne i32 %319, 0
+  br i1 %320, label %321, label %324
+
+321:                                              ; preds = %315
+  %322 = load ptr, ptr %6, align 8
+  %323 = getelementptr inbounds i8, ptr %322, i32 1
+  store ptr %323, ptr %6, align 8
+  br label %315, !llvm.loop !38
+
+324:                                              ; preds = %315
+  %325 = load ptr, ptr %6, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef %323, ptr noundef nonnull align 1 dereferenceable(1) %43)
-          to label %324 unwind label %340
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef %325, ptr noundef nonnull align 1 dereferenceable(1) %43)
+          to label %326 unwind label %343
 
-324:                                              ; preds = %322
+326:                                              ; preds = %324
   invoke void @_ZN12V3PreProcImp14commentCleanupERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %41, ptr noundef nonnull align 8 dereferenceable(1080) %60, ptr noundef nonnull align 8 dereferenceable(32) %42)
-          to label %325 unwind label %344
+          to label %327 unwind label %347
 
-325:                                              ; preds = %324
+327:                                              ; preds = %326
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #3
-  %326 = load i8, ptr %7, align 1
-  %327 = trunc i8 %326 to i1
-  br i1 %327, label %328, label %384
+  %328 = load i8, ptr %7, align 1
+  %329 = trunc i8 %328 to i1
+  br i1 %329, label %330, label %387
 
-328:                                              ; preds = %325
-  %329 = invoke noundef zeroext i1 @_ZNK9V3Options8assertOnEv(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22))
-          to label %330 unwind label %349
+330:                                              ; preds = %327
+  %331 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %332 = invoke noundef zeroext i1 @_ZNK9V3Options8assertOnEv(ptr noundef nonnull align 8 dereferenceable(1560) %331)
+          to label %333 unwind label %352
 
-330:                                              ; preds = %328
-  br i1 %329, label %331, label %383
-
-331:                                              ; preds = %330
-  %332 = invoke noundef zeroext i1 @_ZN12V3PreProcImp17commentTokenMatchERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(1080) %60, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef @.str.86)
-          to label %333 unwind label %349
-
-333:                                              ; preds = %331
-  br i1 %332, label %334, label %363
+333:                                              ; preds = %330
+  br i1 %332, label %334, label %386
 
 334:                                              ; preds = %333
-  %335 = load i8, ptr %5, align 1
-  %336 = trunc i8 %335 to i1
-  br i1 %336, label %362, label %337
+  %335 = invoke noundef zeroext i1 @_ZN12V3PreProcImp17commentTokenMatchERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(1080) %60, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef @.str.86)
+          to label %336 unwind label %352
 
-337:                                              ; preds = %334
+336:                                              ; preds = %334
+  br i1 %335, label %337, label %366
+
+337:                                              ; preds = %336
+  %338 = load i8, ptr %5, align 1
+  %339 = trunc i8 %338 to i1
+  br i1 %339, label %365, label %340
+
+340:                                              ; preds = %337
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef @.str.87, ptr noundef nonnull align 1 dereferenceable(1) %45)
-          to label %338 unwind label %353
+          to label %341 unwind label %356
 
-338:                                              ; preds = %337
+341:                                              ; preds = %340
   invoke void @_ZN12V3PreProcImp16insertUnreadbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1080) %60, ptr noundef nonnull align 8 dereferenceable(32) %44)
-          to label %339 unwind label %357
+          to label %342 unwind label %360
 
-339:                                              ; preds = %338
+342:                                              ; preds = %341
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #3
-  br label %362
+  br label %365
 
-340:                                              ; preds = %322
-  %341 = landingpad { ptr, i32 }
+343:                                              ; preds = %324
+  %344 = landingpad { ptr, i32 }
           cleanup
-  %342 = extractvalue { ptr, i32 } %341, 0
-  store ptr %342, ptr %12, align 8
-  %343 = extractvalue { ptr, i32 } %341, 1
-  store i32 %343, ptr %13, align 4
-  br label %348
+  %345 = extractvalue { ptr, i32 } %344, 0
+  store ptr %345, ptr %12, align 8
+  %346 = extractvalue { ptr, i32 } %344, 1
+  store i32 %346, ptr %13, align 4
+  br label %351
 
-344:                                              ; preds = %324
-  %345 = landingpad { ptr, i32 }
+347:                                              ; preds = %326
+  %348 = landingpad { ptr, i32 }
           cleanup
-  %346 = extractvalue { ptr, i32 } %345, 0
-  store ptr %346, ptr %12, align 8
-  %347 = extractvalue { ptr, i32 } %345, 1
-  store i32 %347, ptr %13, align 4
+  %349 = extractvalue { ptr, i32 } %348, 0
+  store ptr %349, ptr %12, align 8
+  %350 = extractvalue { ptr, i32 } %348, 1
+  store i32 %350, ptr %13, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #3
-  br label %348
+  br label %351
 
-348:                                              ; preds = %344, %340
+351:                                              ; preds = %347, %343
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #3
-  br label %496
+  br label %499
 
-349:                                              ; preds = %477, %411, %395, %392, %363, %331, %328
-  %350 = landingpad { ptr, i32 }
+352:                                              ; preds = %480, %414, %398, %395, %366, %334, %330
+  %353 = landingpad { ptr, i32 }
           cleanup
-  %351 = extractvalue { ptr, i32 } %350, 0
-  store ptr %351, ptr %12, align 8
-  %352 = extractvalue { ptr, i32 } %350, 1
-  store i32 %352, ptr %13, align 4
-  br label %495
+  %354 = extractvalue { ptr, i32 } %353, 0
+  store ptr %354, ptr %12, align 8
+  %355 = extractvalue { ptr, i32 } %353, 1
+  store i32 %355, ptr %13, align 4
+  br label %498
 
-353:                                              ; preds = %337
-  %354 = landingpad { ptr, i32 }
+356:                                              ; preds = %340
+  %357 = landingpad { ptr, i32 }
           cleanup
-  %355 = extractvalue { ptr, i32 } %354, 0
-  store ptr %355, ptr %12, align 8
-  %356 = extractvalue { ptr, i32 } %354, 1
-  store i32 %356, ptr %13, align 4
-  br label %361
+  %358 = extractvalue { ptr, i32 } %357, 0
+  store ptr %358, ptr %12, align 8
+  %359 = extractvalue { ptr, i32 } %357, 1
+  store i32 %359, ptr %13, align 4
+  br label %364
 
-357:                                              ; preds = %338
-  %358 = landingpad { ptr, i32 }
+360:                                              ; preds = %341
+  %361 = landingpad { ptr, i32 }
           cleanup
-  %359 = extractvalue { ptr, i32 } %358, 0
-  store ptr %359, ptr %12, align 8
-  %360 = extractvalue { ptr, i32 } %358, 1
-  store i32 %360, ptr %13, align 4
+  %362 = extractvalue { ptr, i32 } %361, 0
+  store ptr %362, ptr %12, align 8
+  %363 = extractvalue { ptr, i32 } %361, 1
+  store i32 %363, ptr %13, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #3
-  br label %361
+  br label %364
 
-361:                                              ; preds = %357, %353
+364:                                              ; preds = %360, %356
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #3
-  br label %495
+  br label %498
 
-362:                                              ; preds = %339, %334
-  br label %363
+365:                                              ; preds = %342, %337
+  br label %366
 
-363:                                              ; preds = %362, %333
-  %364 = invoke noundef zeroext i1 @_ZN12V3PreProcImp17commentTokenMatchERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(1080) %60, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef @.str.88)
-          to label %365 unwind label %349
+366:                                              ; preds = %365, %336
+  %367 = invoke noundef zeroext i1 @_ZN12V3PreProcImp17commentTokenMatchERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(1080) %60, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef @.str.88)
+          to label %368 unwind label %352
 
-365:                                              ; preds = %363
-  br i1 %364, label %366, label %382
+368:                                              ; preds = %366
+  br i1 %367, label %369, label %385
 
-366:                                              ; preds = %365
-  %367 = load i8, ptr %5, align 1
-  %368 = trunc i8 %367 to i1
-  br i1 %368, label %381, label %369
-
-369:                                              ; preds = %366
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef @.str.89, ptr noundef nonnull align 1 dereferenceable(1) %47)
-          to label %370 unwind label %372
-
-370:                                              ; preds = %369
-  invoke void @_ZN12V3PreProcImp16insertUnreadbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1080) %60, ptr noundef nonnull align 8 dereferenceable(32) %46)
-          to label %371 unwind label %376
-
-371:                                              ; preds = %370
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #3
-  br label %381
+369:                                              ; preds = %368
+  %370 = load i8, ptr %5, align 1
+  %371 = trunc i8 %370 to i1
+  br i1 %371, label %384, label %372
 
 372:                                              ; preds = %369
-  %373 = landingpad { ptr, i32 }
-          cleanup
-  %374 = extractvalue { ptr, i32 } %373, 0
-  store ptr %374, ptr %12, align 8
-  %375 = extractvalue { ptr, i32 } %373, 1
-  store i32 %375, ptr %13, align 4
-  br label %380
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef @.str.89, ptr noundef nonnull align 1 dereferenceable(1) %47)
+          to label %373 unwind label %375
 
-376:                                              ; preds = %370
-  %377 = landingpad { ptr, i32 }
-          cleanup
-  %378 = extractvalue { ptr, i32 } %377, 0
-  store ptr %378, ptr %12, align 8
-  %379 = extractvalue { ptr, i32 } %377, 1
-  store i32 %379, ptr %13, align 4
+373:                                              ; preds = %372
+  invoke void @_ZN12V3PreProcImp16insertUnreadbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1080) %60, ptr noundef nonnull align 8 dereferenceable(32) %46)
+          to label %374 unwind label %379
+
+374:                                              ; preds = %373
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #3
-  br label %380
-
-380:                                              ; preds = %376, %372
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #3
-  br label %495
+  br label %384
 
-381:                                              ; preds = %371, %366
-  br label %382
-
-382:                                              ; preds = %381, %365
+375:                                              ; preds = %372
+  %376 = landingpad { ptr, i32 }
+          cleanup
+  %377 = extractvalue { ptr, i32 } %376, 0
+  store ptr %377, ptr %12, align 8
+  %378 = extractvalue { ptr, i32 } %376, 1
+  store i32 %378, ptr %13, align 4
   br label %383
 
-383:                                              ; preds = %382, %330
-  br label %493
-
-384:                                              ; preds = %325
-  %385 = load i8, ptr %8, align 1
-  %386 = trunc i8 %385 to i1
-  br i1 %386, label %387, label %492
-
-387:                                              ; preds = %384
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef @.str.90, ptr noundef nonnull align 1 dereferenceable(1) %49)
-          to label %388 unwind label %402
-
-388:                                              ; preds = %387
-  %389 = invoke noundef zeroext i1 @_ZN7VString10startsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %48)
-          to label %390 unwind label %406
-
-390:                                              ; preds = %388
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #3
-  br i1 %389, label %391, label %474
-
-391:                                              ; preds = %390
-  store i64 14, ptr %50, align 8
-  br label %392
-
-392:                                              ; preds = %399, %391
-  %393 = load i64, ptr %50, align 8
-  %394 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %41, i64 noundef %393)
-          to label %395 unwind label %349
-
-395:                                              ; preds = %392
-  %396 = load i8, ptr %394, align 1
-  %397 = invoke noundef zeroext i1 @_ZN7VString10isWordCharEc(i8 noundef signext %396)
-          to label %398 unwind label %349
-
-398:                                              ; preds = %395
-  br i1 %397, label %399, label %411
-
-399:                                              ; preds = %398
-  %400 = load i64, ptr %50, align 8
-  %401 = add i64 %400, 1
-  store i64 %401, ptr %50, align 8
-  br label %392, !llvm.loop !39
-
-402:                                              ; preds = %387
-  %403 = landingpad { ptr, i32 }
+379:                                              ; preds = %373
+  %380 = landingpad { ptr, i32 }
           cleanup
-  %404 = extractvalue { ptr, i32 } %403, 0
-  store ptr %404, ptr %12, align 8
-  %405 = extractvalue { ptr, i32 } %403, 1
-  store i32 %405, ptr %13, align 4
-  br label %410
+  %381 = extractvalue { ptr, i32 } %380, 0
+  store ptr %381, ptr %12, align 8
+  %382 = extractvalue { ptr, i32 } %380, 1
+  store i32 %382, ptr %13, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #3
+  br label %383
 
-406:                                              ; preds = %388
-  %407 = landingpad { ptr, i32 }
-          cleanup
-  %408 = extractvalue { ptr, i32 } %407, 0
-  store ptr %408, ptr %12, align 8
-  %409 = extractvalue { ptr, i32 } %407, 1
-  store i32 %409, ptr %13, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #3
-  br label %410
+383:                                              ; preds = %379, %375
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #3
+  br label %498
 
-410:                                              ; preds = %406, %402
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #3
-  br label %495
+384:                                              ; preds = %374, %369
+  br label %385
 
-411:                                              ; preds = %398
-  %412 = load i64, ptr %50, align 8
-  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %51, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 noundef 0, i64 noundef %412)
-          to label %413 unwind label %349
+385:                                              ; preds = %384, %368
+  br label %386
 
-413:                                              ; preds = %411
-  %414 = load i64, ptr %50, align 8
-  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %52, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 noundef %414, i64 noundef -1)
-          to label %415 unwind label %426
-
-415:                                              ; preds = %413
-  br label %416
-
-416:                                              ; preds = %424, %415
-  %417 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef 0)
-          to label %418 unwind label %430
-
-418:                                              ; preds = %416
-  %419 = load i8, ptr %417, align 1
-  %420 = sext i8 %419 to i32
-  %421 = call i32 @isspace(i32 noundef %420) #20
-  %422 = icmp ne i32 %421, 0
-  br i1 %422, label %423, label %434
-
-423:                                              ; preds = %418
-  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %53, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef 1, i64 noundef -1)
-          to label %424 unwind label %430
-
-424:                                              ; preds = %423
-  %425 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %53) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #3
-  br label %416, !llvm.loop !40
-
-426:                                              ; preds = %413
-  %427 = landingpad { ptr, i32 }
-          cleanup
-  %428 = extractvalue { ptr, i32 } %427, 0
-  store ptr %428, ptr %12, align 8
-  %429 = extractvalue { ptr, i32 } %427, 1
-  store i32 %429, ptr %13, align 4
-  br label %473
-
-430:                                              ; preds = %446, %440, %437, %423, %416
-  %431 = landingpad { ptr, i32 }
-          cleanup
-  %432 = extractvalue { ptr, i32 } %431, 0
-  store ptr %432, ptr %12, align 8
-  %433 = extractvalue { ptr, i32 } %431, 1
-  store i32 %433, ptr %13, align 4
-  br label %472
-
-434:                                              ; preds = %418
-  %435 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #3
-  %436 = icmp ne i64 %435, 0
-  br i1 %436, label %437, label %443
-
-437:                                              ; preds = %434
-  %438 = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef @.str.91)
-          to label %439 unwind label %430
-
-439:                                              ; preds = %437
-  br i1 %438, label %440, label %443
-
-440:                                              ; preds = %439
-  %441 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef @.str.92)
-          to label %442 unwind label %430
-
-442:                                              ; preds = %440
-  br label %443
-
-443:                                              ; preds = %442, %439, %434
-  %444 = load i8, ptr %5, align 1
-  %445 = trunc i8 %444 to i1
-  br i1 %445, label %471, label %446
-
-446:                                              ; preds = %443
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %57, ptr noundef @.str.93, ptr noundef nonnull align 8 dereferenceable(32) %51)
-          to label %447 unwind label %430
-
-447:                                              ; preds = %446
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %56, ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef @.str.94)
-          to label %448 unwind label %452
-
-448:                                              ; preds = %447
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %55, ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %52)
-          to label %449 unwind label %456
-
-449:                                              ; preds = %448
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %54, ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef @.str.95)
-          to label %450 unwind label %460
-
-450:                                              ; preds = %449
-  invoke void @_ZN12V3PreProcImp16insertUnreadbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1080) %60, ptr noundef nonnull align 8 dereferenceable(32) %54)
-          to label %451 unwind label %464
-
-451:                                              ; preds = %450
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #3
-  br label %471
-
-452:                                              ; preds = %447
-  %453 = landingpad { ptr, i32 }
-          cleanup
-  %454 = extractvalue { ptr, i32 } %453, 0
-  store ptr %454, ptr %12, align 8
-  %455 = extractvalue { ptr, i32 } %453, 1
-  store i32 %455, ptr %13, align 4
-  br label %470
-
-456:                                              ; preds = %448
-  %457 = landingpad { ptr, i32 }
-          cleanup
-  %458 = extractvalue { ptr, i32 } %457, 0
-  store ptr %458, ptr %12, align 8
-  %459 = extractvalue { ptr, i32 } %457, 1
-  store i32 %459, ptr %13, align 4
-  br label %469
-
-460:                                              ; preds = %449
-  %461 = landingpad { ptr, i32 }
-          cleanup
-  %462 = extractvalue { ptr, i32 } %461, 0
-  store ptr %462, ptr %12, align 8
-  %463 = extractvalue { ptr, i32 } %461, 1
-  store i32 %463, ptr %13, align 4
-  br label %468
-
-464:                                              ; preds = %450
-  %465 = landingpad { ptr, i32 }
-          cleanup
-  %466 = extractvalue { ptr, i32 } %465, 0
-  store ptr %466, ptr %12, align 8
-  %467 = extractvalue { ptr, i32 } %465, 1
-  store i32 %467, ptr %13, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #3
-  br label %468
-
-468:                                              ; preds = %464, %460
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #3
-  br label %469
-
-469:                                              ; preds = %468, %456
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #3
-  br label %470
-
-470:                                              ; preds = %469, %452
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #3
-  br label %472
-
-471:                                              ; preds = %451, %443
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #3
-  br label %491
-
-472:                                              ; preds = %470, %430
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #3
-  br label %473
-
-473:                                              ; preds = %472, %426
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #3
-  br label %495
-
-474:                                              ; preds = %390
-  %475 = load i8, ptr %5, align 1
-  %476 = trunc i8 %475 to i1
-  br i1 %476, label %490, label %477
-
-477:                                              ; preds = %474
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %59, ptr noundef @.str.93, ptr noundef nonnull align 8 dereferenceable(32) %41)
-          to label %478 unwind label %349
-
-478:                                              ; preds = %477
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %58, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef @.str.77)
-          to label %479 unwind label %481
-
-479:                                              ; preds = %478
-  invoke void @_ZN12V3PreProcImp16insertUnreadbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1080) %60, ptr noundef nonnull align 8 dereferenceable(32) %58)
-          to label %480 unwind label %485
-
-480:                                              ; preds = %479
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #3
-  br label %490
-
-481:                                              ; preds = %478
-  %482 = landingpad { ptr, i32 }
-          cleanup
-  %483 = extractvalue { ptr, i32 } %482, 0
-  store ptr %483, ptr %12, align 8
-  %484 = extractvalue { ptr, i32 } %482, 1
-  store i32 %484, ptr %13, align 4
-  br label %489
-
-485:                                              ; preds = %479
-  %486 = landingpad { ptr, i32 }
-          cleanup
-  %487 = extractvalue { ptr, i32 } %486, 0
-  store ptr %487, ptr %12, align 8
-  %488 = extractvalue { ptr, i32 } %486, 1
-  store i32 %488, ptr %13, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #3
-  br label %489
-
-489:                                              ; preds = %485, %481
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #3
-  br label %495
-
-490:                                              ; preds = %480, %474
-  br label %491
-
-491:                                              ; preds = %490, %471
-  br label %492
-
-492:                                              ; preds = %491, %384
-  br label %493
-
-493:                                              ; preds = %492, %383
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #3
-  br label %494
-
-494:                                              ; preds = %493, %311, %300, %89
-  ret void
-
-495:                                              ; preds = %489, %473, %410, %380, %361, %349
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #3
+386:                                              ; preds = %385, %333
   br label %496
 
-496:                                              ; preds = %495, %348, %299, %276, %253, %229, %220, %183, %174
-  %497 = load ptr, ptr %12, align 8
-  %498 = load i32, ptr %13, align 4
-  %499 = insertvalue { ptr, i32 } poison, ptr %497, 0
-  %500 = insertvalue { ptr, i32 } %499, i32 %498, 1
-  resume { ptr, i32 } %500
+387:                                              ; preds = %327
+  %388 = load i8, ptr %8, align 1
+  %389 = trunc i8 %388 to i1
+  br i1 %389, label %390, label %495
+
+390:                                              ; preds = %387
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef @.str.90, ptr noundef nonnull align 1 dereferenceable(1) %49)
+          to label %391 unwind label %405
+
+391:                                              ; preds = %390
+  %392 = invoke noundef zeroext i1 @_ZN7VString10startsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %48)
+          to label %393 unwind label %409
+
+393:                                              ; preds = %391
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #3
+  br i1 %392, label %394, label %477
+
+394:                                              ; preds = %393
+  store i64 14, ptr %50, align 8
+  br label %395
+
+395:                                              ; preds = %402, %394
+  %396 = load i64, ptr %50, align 8
+  %397 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %41, i64 noundef %396)
+          to label %398 unwind label %352
+
+398:                                              ; preds = %395
+  %399 = load i8, ptr %397, align 1
+  %400 = invoke noundef zeroext i1 @_ZN7VString10isWordCharEc(i8 noundef signext %399)
+          to label %401 unwind label %352
+
+401:                                              ; preds = %398
+  br i1 %400, label %402, label %414
+
+402:                                              ; preds = %401
+  %403 = load i64, ptr %50, align 8
+  %404 = add i64 %403, 1
+  store i64 %404, ptr %50, align 8
+  br label %395, !llvm.loop !39
+
+405:                                              ; preds = %390
+  %406 = landingpad { ptr, i32 }
+          cleanup
+  %407 = extractvalue { ptr, i32 } %406, 0
+  store ptr %407, ptr %12, align 8
+  %408 = extractvalue { ptr, i32 } %406, 1
+  store i32 %408, ptr %13, align 4
+  br label %413
+
+409:                                              ; preds = %391
+  %410 = landingpad { ptr, i32 }
+          cleanup
+  %411 = extractvalue { ptr, i32 } %410, 0
+  store ptr %411, ptr %12, align 8
+  %412 = extractvalue { ptr, i32 } %410, 1
+  store i32 %412, ptr %13, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #3
+  br label %413
+
+413:                                              ; preds = %409, %405
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #3
+  br label %498
+
+414:                                              ; preds = %401
+  %415 = load i64, ptr %50, align 8
+  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %51, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 noundef 0, i64 noundef %415)
+          to label %416 unwind label %352
+
+416:                                              ; preds = %414
+  %417 = load i64, ptr %50, align 8
+  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %52, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 noundef %417, i64 noundef -1)
+          to label %418 unwind label %429
+
+418:                                              ; preds = %416
+  br label %419
+
+419:                                              ; preds = %427, %418
+  %420 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef 0)
+          to label %421 unwind label %433
+
+421:                                              ; preds = %419
+  %422 = load i8, ptr %420, align 1
+  %423 = sext i8 %422 to i32
+  %424 = call i32 @isspace(i32 noundef %423) #20
+  %425 = icmp ne i32 %424, 0
+  br i1 %425, label %426, label %437
+
+426:                                              ; preds = %421
+  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %53, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef 1, i64 noundef -1)
+          to label %427 unwind label %433
+
+427:                                              ; preds = %426
+  %428 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %53) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #3
+  br label %419, !llvm.loop !40
+
+429:                                              ; preds = %416
+  %430 = landingpad { ptr, i32 }
+          cleanup
+  %431 = extractvalue { ptr, i32 } %430, 0
+  store ptr %431, ptr %12, align 8
+  %432 = extractvalue { ptr, i32 } %430, 1
+  store i32 %432, ptr %13, align 4
+  br label %476
+
+433:                                              ; preds = %449, %443, %440, %426, %419
+  %434 = landingpad { ptr, i32 }
+          cleanup
+  %435 = extractvalue { ptr, i32 } %434, 0
+  store ptr %435, ptr %12, align 8
+  %436 = extractvalue { ptr, i32 } %434, 1
+  store i32 %436, ptr %13, align 4
+  br label %475
+
+437:                                              ; preds = %421
+  %438 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #3
+  %439 = icmp ne i64 %438, 0
+  br i1 %439, label %440, label %446
+
+440:                                              ; preds = %437
+  %441 = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef @.str.91)
+          to label %442 unwind label %433
+
+442:                                              ; preds = %440
+  br i1 %441, label %443, label %446
+
+443:                                              ; preds = %442
+  %444 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef @.str.92)
+          to label %445 unwind label %433
+
+445:                                              ; preds = %443
+  br label %446
+
+446:                                              ; preds = %445, %442, %437
+  %447 = load i8, ptr %5, align 1
+  %448 = trunc i8 %447 to i1
+  br i1 %448, label %474, label %449
+
+449:                                              ; preds = %446
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %57, ptr noundef @.str.93, ptr noundef nonnull align 8 dereferenceable(32) %51)
+          to label %450 unwind label %433
+
+450:                                              ; preds = %449
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %56, ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef @.str.94)
+          to label %451 unwind label %455
+
+451:                                              ; preds = %450
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %55, ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %52)
+          to label %452 unwind label %459
+
+452:                                              ; preds = %451
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %54, ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef @.str.95)
+          to label %453 unwind label %463
+
+453:                                              ; preds = %452
+  invoke void @_ZN12V3PreProcImp16insertUnreadbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1080) %60, ptr noundef nonnull align 8 dereferenceable(32) %54)
+          to label %454 unwind label %467
+
+454:                                              ; preds = %453
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #3
+  br label %474
+
+455:                                              ; preds = %450
+  %456 = landingpad { ptr, i32 }
+          cleanup
+  %457 = extractvalue { ptr, i32 } %456, 0
+  store ptr %457, ptr %12, align 8
+  %458 = extractvalue { ptr, i32 } %456, 1
+  store i32 %458, ptr %13, align 4
+  br label %473
+
+459:                                              ; preds = %451
+  %460 = landingpad { ptr, i32 }
+          cleanup
+  %461 = extractvalue { ptr, i32 } %460, 0
+  store ptr %461, ptr %12, align 8
+  %462 = extractvalue { ptr, i32 } %460, 1
+  store i32 %462, ptr %13, align 4
+  br label %472
+
+463:                                              ; preds = %452
+  %464 = landingpad { ptr, i32 }
+          cleanup
+  %465 = extractvalue { ptr, i32 } %464, 0
+  store ptr %465, ptr %12, align 8
+  %466 = extractvalue { ptr, i32 } %464, 1
+  store i32 %466, ptr %13, align 4
+  br label %471
+
+467:                                              ; preds = %453
+  %468 = landingpad { ptr, i32 }
+          cleanup
+  %469 = extractvalue { ptr, i32 } %468, 0
+  store ptr %469, ptr %12, align 8
+  %470 = extractvalue { ptr, i32 } %468, 1
+  store i32 %470, ptr %13, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #3
+  br label %471
+
+471:                                              ; preds = %467, %463
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #3
+  br label %472
+
+472:                                              ; preds = %471, %459
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #3
+  br label %473
+
+473:                                              ; preds = %472, %455
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #3
+  br label %475
+
+474:                                              ; preds = %454, %446
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #3
+  br label %494
+
+475:                                              ; preds = %473, %433
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #3
+  br label %476
+
+476:                                              ; preds = %475, %429
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #3
+  br label %498
+
+477:                                              ; preds = %393
+  %478 = load i8, ptr %5, align 1
+  %479 = trunc i8 %478 to i1
+  br i1 %479, label %493, label %480
+
+480:                                              ; preds = %477
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %59, ptr noundef @.str.93, ptr noundef nonnull align 8 dereferenceable(32) %41)
+          to label %481 unwind label %352
+
+481:                                              ; preds = %480
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %58, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef @.str.77)
+          to label %482 unwind label %484
+
+482:                                              ; preds = %481
+  invoke void @_ZN12V3PreProcImp16insertUnreadbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1080) %60, ptr noundef nonnull align 8 dereferenceable(32) %58)
+          to label %483 unwind label %488
+
+483:                                              ; preds = %482
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #3
+  br label %493
+
+484:                                              ; preds = %481
+  %485 = landingpad { ptr, i32 }
+          cleanup
+  %486 = extractvalue { ptr, i32 } %485, 0
+  store ptr %486, ptr %12, align 8
+  %487 = extractvalue { ptr, i32 } %485, 1
+  store i32 %487, ptr %13, align 4
+  br label %492
+
+488:                                              ; preds = %482
+  %489 = landingpad { ptr, i32 }
+          cleanup
+  %490 = extractvalue { ptr, i32 } %489, 0
+  store ptr %490, ptr %12, align 8
+  %491 = extractvalue { ptr, i32 } %489, 1
+  store i32 %491, ptr %13, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #3
+  br label %492
+
+492:                                              ; preds = %488, %484
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #3
+  br label %498
+
+493:                                              ; preds = %483, %477
+  br label %494
+
+494:                                              ; preds = %493, %474
+  br label %495
+
+495:                                              ; preds = %494, %387
+  br label %496
+
+496:                                              ; preds = %495, %386
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #3
+  br label %497
+
+497:                                              ; preds = %496, %313, %302, %91
+  ret void
+
+498:                                              ; preds = %492, %476, %413, %383, %364, %352
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #3
+  br label %499
+
+499:                                              ; preds = %498, %351, %301, %278, %255, %231, %222, %185, %176
+  %500 = load ptr, ptr %12, align 8
+  %501 = load i32, ptr %13, align 4
+  %502 = insertvalue { ptr, i32 } poison, ptr %500, 0
+  %503 = insertvalue { ptr, i32 } %502, i32 %501, 1
+  resume { ptr, i32 } %503
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23467,17 +23479,19 @@ define dso_local void @_ZN12V3PreProcImp21insertUnreadbackAtBolERKNSt7__cxx1112b
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN9V3PreProc14lineDirectivesEv() #5 comdat align 2 {
-  %1 = call noundef zeroext i1 @_ZNK9V3Options11preprocOnlyEv(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22))
-  br i1 %1, label %2, label %4
+  %1 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %2 = call noundef zeroext i1 @_ZNK9V3Options11preprocOnlyEv(ptr noundef nonnull align 8 dereferenceable(1560) %1)
+  br i1 %2, label %3, label %6
 
-2:                                                ; preds = %0
-  %3 = call noundef zeroext i1 @_ZNK9V3Options13preprocNoLineEv(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22))
-  br label %4
+3:                                                ; preds = %0
+  %4 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %5 = call noundef zeroext i1 @_ZNK9V3Options13preprocNoLineEv(ptr noundef nonnull align 8 dereferenceable(1560) %4)
+  br label %6
 
-4:                                                ; preds = %2, %0
-  %5 = phi i1 [ false, %0 ], [ %3, %2 ]
-  %6 = xor i1 %5, true
-  ret i1 %6
+6:                                                ; preds = %3, %0
+  %7 = phi i1 [ false, %0 ], [ %5, %3 ]
+  %8 = xor i1 %7, true
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24096,349 +24110,350 @@ define dso_local void @_ZN12V3PreProcImp10debugTokenEiPKc(ptr noundef nonnull al
   %17 = load ptr, ptr %4, align 8
   %18 = load atomic i8, ptr @_ZGVZN12V3PreProcImp10debugTokenEiPKcE15s_debugFileline acquire, align 8
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %20, label %27, !prof !8
+  br i1 %19, label %20, label %28, !prof !8
 
 20:                                               ; preds = %3
   %21 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN12V3PreProcImp10debugTokenEiPKcE15s_debugFileline) #3
   %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %27
+  br i1 %22, label %23, label %28
 
 23:                                               ; preds = %20
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.150, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %24 unwind label %41
+          to label %24 unwind label %42
 
 24:                                               ; preds = %23
-  %25 = invoke noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22), ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %26 unwind label %45
+  %25 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %26 = invoke noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) %25, ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %27 unwind label %46
 
-26:                                               ; preds = %24
+27:                                               ; preds = %24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  store i32 %25, ptr @_ZZN12V3PreProcImp10debugTokenEiPKcE15s_debugFileline, align 4
+  store i32 %26, ptr @_ZZN12V3PreProcImp10debugTokenEiPKcE15s_debugFileline, align 4
   call void @__cxa_guard_release(ptr @_ZGVZN12V3PreProcImp10debugTokenEiPKcE15s_debugFileline) #3
-  br label %27
+  br label %28
 
-27:                                               ; preds = %26, %20, %3
-  %28 = call noundef i32 @_ZN9V3PreProc5debugEv()
-  %29 = icmp sge i32 %28, 5
-  br i1 %29, label %30, label %175
+28:                                               ; preds = %27, %20, %3
+  %29 = call noundef i32 @_ZN9V3PreProc5debugEv()
+  %30 = icmp sge i32 %29, 5
+  br i1 %30, label %31, label %176
 
-30:                                               ; preds = %27
-  %31 = call noundef ptr @_Z15V3PreLexourtextv()
-  %32 = call noundef i64 @_Z15V3PreLexourlengv()
+31:                                               ; preds = %28
+  %32 = call noundef ptr @_Z15V3PreLexourtextv()
+  %33 = call noundef i64 @_Z15V3PreLexourlengv()
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %31, i64 noundef %32, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %33 unwind label %50
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %32, i64 noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %12)
+          to label %34 unwind label %51
 
-33:                                               ; preds = %30
+34:                                               ; preds = %31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #3
-  br label %34
+  br label %35
 
-34:                                               ; preds = %40, %33
-  %35 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 noundef signext 10, i64 noundef 0) #3
-  store i64 %35, ptr %13, align 8
-  %36 = icmp ne i64 %35, -1
-  br i1 %36, label %37, label %58
+35:                                               ; preds = %41, %34
+  %36 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 noundef signext 10, i64 noundef 0) #3
+  store i64 %36, ptr %13, align 8
+  %37 = icmp ne i64 %36, -1
+  br i1 %37, label %38, label %59
 
-37:                                               ; preds = %34
-  %38 = load i64, ptr %13, align 8
-  %39 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %38, i64 noundef 1, ptr noundef @.str.59)
-          to label %40 unwind label %54
+38:                                               ; preds = %35
+  %39 = load i64, ptr %13, align 8
+  %40 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %39, i64 noundef 1, ptr noundef @.str.59)
+          to label %41 unwind label %55
 
-40:                                               ; preds = %37
-  br label %34, !llvm.loop !51
+41:                                               ; preds = %38
+  br label %35, !llvm.loop !51
 
-41:                                               ; preds = %23
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %23
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %9, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %10, align 4
-  br label %49
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %9, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %10, align 4
+  br label %50
 
-45:                                               ; preds = %24
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %24
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %9, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %10, align 4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %9, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %10, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %49
+  br label %50
 
-49:                                               ; preds = %45, %41
+50:                                               ; preds = %46, %42
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @__cxa_guard_abort(ptr @_ZGVZN12V3PreProcImp10debugTokenEiPKcE15s_debugFileline) #3
-  br label %176
+  br label %177
 
-50:                                               ; preds = %30
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %31
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %9, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %10, align 4
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %9, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %10, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #3
-  br label %176
+  br label %177
 
-54:                                               ; preds = %66, %62, %37
-  %55 = landingpad { ptr, i32 }
+55:                                               ; preds = %67, %63, %38
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %9, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %10, align 4
-  br label %174
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %9, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %10, align 4
+  br label %175
 
-58:                                               ; preds = %34
-  br label %59
+59:                                               ; preds = %35
+  br label %60
 
-59:                                               ; preds = %65, %58
-  %60 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 noundef signext 13, i64 noundef 0) #3
-  store i64 %60, ptr %13, align 8
-  %61 = icmp ne i64 %60, -1
-  br i1 %61, label %62, label %66
+60:                                               ; preds = %66, %59
+  %61 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 noundef signext 13, i64 noundef 0) #3
+  store i64 %61, ptr %13, align 8
+  %62 = icmp ne i64 %61, -1
+  br i1 %62, label %63, label %67
 
-62:                                               ; preds = %59
-  %63 = load i64, ptr %13, align 8
-  %64 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %63, i64 noundef 1, ptr noundef @.str.60)
-          to label %65 unwind label %54
+63:                                               ; preds = %60
+  %64 = load i64, ptr %13, align 8
+  %65 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %64, i64 noundef 1, ptr noundef @.str.60)
+          to label %66 unwind label %55
 
-65:                                               ; preds = %62
-  br label %59, !llvm.loop !52
+66:                                               ; preds = %63
+  br label %60, !llvm.loop !52
 
-66:                                               ; preds = %59
-  %67 = getelementptr inbounds %class.V3PreProcImp, ptr %17, i32 0, i32 3
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds %class.V3PreLex, ptr %68, i32 0, i32 5
-  %70 = load ptr, ptr %69, align 8
-  invoke void @_ZNK8FileLine12asciiLineColB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(40) %70)
-          to label %71 unwind label %54
+67:                                               ; preds = %60
+  %68 = getelementptr inbounds %class.V3PreProcImp, ptr %17, i32 0, i32 3
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds %class.V3PreLex, ptr %69, i32 0, i32 5
+  %71 = load ptr, ptr %70, align 8
+  invoke void @_ZNK8FileLine12asciiLineColB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(40) %71)
+          to label %72 unwind label %55
 
-71:                                               ; preds = %66
-  br label %72
+72:                                               ; preds = %67
+  br label %73
 
-72:                                               ; preds = %71
-  %73 = invoke noundef i32 @_ZN9V3PreProc5debugEv()
-          to label %74 unwind label %145
+73:                                               ; preds = %72
+  %74 = invoke noundef i32 @_ZN9V3PreProc5debugEv()
+          to label %75 unwind label %146
 
-74:                                               ; preds = %72
-  %75 = icmp sge i32 %73, 0
-  %76 = xor i1 %75, true
+75:                                               ; preds = %73
+  %76 = icmp sge i32 %74, 0
   %77 = xor i1 %76, true
-  br i1 %77, label %78, label %153
+  %78 = xor i1 %77, true
+  br i1 %78, label %79, label %154
 
-78:                                               ; preds = %74
-  %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef @.str.62)
-          to label %80 unwind label %145
+79:                                               ; preds = %75
+  %80 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef @.str.62)
+          to label %81 unwind label %146
 
-80:                                               ; preds = %78
+81:                                               ; preds = %79
   invoke void @_ZN7V3Error7lineStrB5cxx11EPKci(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef @.str.63, i32 noundef 974)
-          to label %81 unwind label %145
+          to label %82 unwind label %146
 
-81:                                               ; preds = %80
-  %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %83 unwind label %149
+82:                                               ; preds = %81
+  %83 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull align 8 dereferenceable(32) %15)
+          to label %84 unwind label %150
 
-83:                                               ; preds = %81
-  %84 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %85 unwind label %149
+84:                                               ; preds = %82
+  %85 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull align 8 dereferenceable(32) %14)
+          to label %86 unwind label %150
 
-85:                                               ; preds = %83
-  %86 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef @.str.151)
-          to label %87 unwind label %149
+86:                                               ; preds = %84
+  %87 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef @.str.151)
+          to label %88 unwind label %150
 
-87:                                               ; preds = %85
-  %88 = load ptr, ptr %6, align 8
-  %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef %88)
-          to label %90 unwind label %149
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %6, align 8
+  %90 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef %89)
+          to label %91 unwind label %150
 
-90:                                               ; preds = %87
-  %91 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef @.str.72)
-          to label %92 unwind label %149
+91:                                               ; preds = %88
+  %92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef @.str.72)
+          to label %93 unwind label %150
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds %class.V3PreProcImp, ptr %17, i32 0, i32 8
-  %94 = load i32, ptr %93, align 8
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %97
+93:                                               ; preds = %91
+  %94 = getelementptr inbounds %class.V3PreProcImp, ptr %17, i32 0, i32 8
+  %95 = load i32, ptr %94, align 8
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %98
 
-96:                                               ; preds = %92
-  br label %98
+97:                                               ; preds = %93
+  br label %99
 
-97:                                               ; preds = %92
-  br label %98
+98:                                               ; preds = %93
+  br label %99
 
-98:                                               ; preds = %97, %96
-  %99 = phi ptr [ @.str.152, %96 ], [ @.str.153, %97 ]
-  %100 = getelementptr inbounds [3 x i8], ptr %99, i64 0, i64 0
-  %101 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef %100)
-          to label %102 unwind label %149
+99:                                               ; preds = %98, %97
+  %100 = phi ptr [ @.str.152, %97 ], [ @.str.153, %98 ]
+  %101 = getelementptr inbounds [3 x i8], ptr %100, i64 0, i64 0
+  %102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef %101)
+          to label %103 unwind label %150
 
-102:                                              ; preds = %98
-  %103 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef @.str.72)
-          to label %104 unwind label %149
+103:                                              ; preds = %99
+  %104 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef @.str.72)
+          to label %105 unwind label %150
 
-104:                                              ; preds = %102
-  %105 = invoke noundef zeroext i8 @_ZNK12V3PreProcImp5stateEv(ptr noundef nonnull align 8 dereferenceable(1080) %17)
-          to label %106 unwind label %149
+105:                                              ; preds = %103
+  %106 = invoke noundef zeroext i8 @_ZNK12V3PreProcImp5stateEv(ptr noundef nonnull align 8 dereferenceable(1080) %17)
+          to label %107 unwind label %150
 
-106:                                              ; preds = %104
-  %107 = invoke noundef ptr @_ZN12V3PreProcImp13procStateNameENS_9ProcStateE(i8 noundef zeroext %105)
-          to label %108 unwind label %149
+107:                                              ; preds = %105
+  %108 = invoke noundef ptr @_ZN12V3PreProcImp13procStateNameENS_9ProcStateE(i8 noundef zeroext %106)
+          to label %109 unwind label %150
 
-108:                                              ; preds = %106
-  %109 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef %107)
-          to label %110 unwind label %149
+109:                                              ; preds = %107
+  %110 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef %108)
+          to label %111 unwind label %150
 
-110:                                              ; preds = %108
-  %111 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef @.str.26)
-          to label %112 unwind label %149
+111:                                              ; preds = %109
+  %112 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef @.str.26)
+          to label %113 unwind label %150
 
-112:                                              ; preds = %110
-  %113 = getelementptr inbounds %class.V3PreProcImp, ptr %17, i32 0, i32 7
-  %114 = invoke noundef i64 @_ZNKSt5stackIN12V3PreProcImp9ProcStateESt5dequeIS1_SaIS1_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %113)
-          to label %115 unwind label %149
+113:                                              ; preds = %111
+  %114 = getelementptr inbounds %class.V3PreProcImp, ptr %17, i32 0, i32 7
+  %115 = invoke noundef i64 @_ZNKSt5stackIN12V3PreProcImp9ProcStateESt5dequeIS1_SaIS1_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %114)
+          to label %116 unwind label %150
 
-115:                                              ; preds = %112
-  %116 = trunc i64 %114 to i32
-  %117 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %111, i32 noundef %116)
-          to label %118 unwind label %149
+116:                                              ; preds = %113
+  %117 = trunc i64 %115 to i32
+  %118 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %112, i32 noundef %117)
+          to label %119 unwind label %150
 
-118:                                              ; preds = %115
-  %119 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef @.str.154)
-          to label %120 unwind label %149
+119:                                              ; preds = %116
+  %120 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef @.str.154)
+          to label %121 unwind label %150
 
-120:                                              ; preds = %118
-  %121 = getelementptr inbounds %class.V3PreProcImp, ptr %17, i32 0, i32 22
-  %122 = invoke noundef i64 @_ZNKSt5stackI10VDefineRefSt5dequeIS0_SaIS0_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %121)
-          to label %123 unwind label %149
+121:                                              ; preds = %119
+  %122 = getelementptr inbounds %class.V3PreProcImp, ptr %17, i32 0, i32 22
+  %123 = invoke noundef i64 @_ZNKSt5stackI10VDefineRefSt5dequeIS0_SaIS0_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %122)
+          to label %124 unwind label %150
 
-123:                                              ; preds = %120
-  %124 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %119, i64 noundef %122)
-          to label %125 unwind label %149
+124:                                              ; preds = %121
+  %125 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %120, i64 noundef %123)
+          to label %126 unwind label %150
 
-125:                                              ; preds = %123
-  %126 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef @.str.155)
-          to label %127 unwind label %149
+126:                                              ; preds = %124
+  %127 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef @.str.155)
+          to label %128 unwind label %150
 
-127:                                              ; preds = %125
-  %128 = getelementptr inbounds %class.V3PreProcImp, ptr %17, i32 0, i32 3
-  %129 = load ptr, ptr %128, align 8
-  %130 = call noundef i32 @_ZNK8V3PreLex17currentStartStateEv(ptr noundef nonnull align 8 dereferenceable(264) %129)
-  %131 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %126, i32 noundef %130)
-          to label %132 unwind label %149
+128:                                              ; preds = %126
+  %129 = getelementptr inbounds %class.V3PreProcImp, ptr %17, i32 0, i32 3
+  %130 = load ptr, ptr %129, align 8
+  %131 = call noundef i32 @_ZNK8V3PreLex17currentStartStateEv(ptr noundef nonnull align 8 dereferenceable(264) %130)
+  %132 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %127, i32 noundef %131)
+          to label %133 unwind label %150
 
-132:                                              ; preds = %127
-  %133 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %131, ptr noundef @.str.156)
-          to label %134 unwind label %149
+133:                                              ; preds = %128
+  %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef @.str.156)
+          to label %135 unwind label %150
 
-134:                                              ; preds = %132
-  %135 = load i32, ptr %5, align 4
-  %136 = call noundef ptr @_ZN12V3PreProcImp9tokenNameEi(i32 noundef %135)
-  %137 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef %136)
-          to label %138 unwind label %149
+135:                                              ; preds = %133
+  %136 = load i32, ptr %5, align 4
+  %137 = call noundef ptr @_ZN12V3PreProcImp9tokenNameEi(i32 noundef %136)
+  %138 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef %137)
+          to label %139 unwind label %150
 
-138:                                              ; preds = %134
-  %139 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %137, ptr noundef @.str.151)
-          to label %140 unwind label %149
+139:                                              ; preds = %135
+  %140 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %138, ptr noundef @.str.151)
+          to label %141 unwind label %150
 
-140:                                              ; preds = %138
-  %141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %142 unwind label %149
+141:                                              ; preds = %139
+  %142 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %143 unwind label %150
 
-142:                                              ; preds = %140
-  %143 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %141, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %144 unwind label %149
+143:                                              ; preds = %141
+  %144 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %145 unwind label %150
 
-144:                                              ; preds = %142
+145:                                              ; preds = %143
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  br label %153
-
-145:                                              ; preds = %158, %80, %78, %72
-  %146 = landingpad { ptr, i32 }
-          cleanup
-  %147 = extractvalue { ptr, i32 } %146, 0
-  store ptr %147, ptr %9, align 8
-  %148 = extractvalue { ptr, i32 } %146, 1
-  store i32 %148, ptr %10, align 4
-  br label %173
-
-149:                                              ; preds = %142, %140, %138, %134, %132, %127, %125, %123, %120, %118, %115, %112, %110, %108, %106, %104, %102, %98, %90, %87, %85, %83, %81
-  %150 = landingpad { ptr, i32 }
-          cleanup
-  %151 = extractvalue { ptr, i32 } %150, 0
-  store ptr %151, ptr %9, align 8
-  %152 = extractvalue { ptr, i32 } %150, 1
-  store i32 %152, ptr %10, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  br label %173
-
-153:                                              ; preds = %144, %74
   br label %154
 
-154:                                              ; preds = %153
+146:                                              ; preds = %159, %81, %79, %73
+  %147 = landingpad { ptr, i32 }
+          cleanup
+  %148 = extractvalue { ptr, i32 } %147, 0
+  store ptr %148, ptr %9, align 8
+  %149 = extractvalue { ptr, i32 } %147, 1
+  store i32 %149, ptr %10, align 4
+  br label %174
+
+150:                                              ; preds = %143, %141, %139, %135, %133, %128, %126, %124, %121, %119, %116, %113, %111, %109, %107, %105, %103, %99, %91, %88, %86, %84, %82
+  %151 = landingpad { ptr, i32 }
+          cleanup
+  %152 = extractvalue { ptr, i32 } %151, 0
+  store ptr %152, ptr %9, align 8
+  %153 = extractvalue { ptr, i32 } %151, 1
+  store i32 %153, ptr %10, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  br label %174
+
+154:                                              ; preds = %145, %75
   br label %155
 
 155:                                              ; preds = %154
-  %156 = load i32, ptr @_ZZN12V3PreProcImp10debugTokenEiPKcE15s_debugFileline, align 4
-  %157 = icmp sge i32 %156, 9
-  br i1 %157, label %158, label %172
+  br label %156
 
-158:                                              ; preds = %155
-  %159 = getelementptr inbounds %class.V3PreProcImp, ptr %17, i32 0, i32 3
-  %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds %class.V3PreLex, ptr %160, i32 0, i32 5
-  %162 = load ptr, ptr %161, align 8
-  invoke void @_ZNK8FileLine20warnContextSecondaryB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(40) %162)
-          to label %163 unwind label %145
+156:                                              ; preds = %155
+  %157 = load i32, ptr @_ZZN12V3PreProcImp10debugTokenEiPKcE15s_debugFileline, align 4
+  %158 = icmp sge i32 %157, 9
+  br i1 %158, label %159, label %173
 
-163:                                              ; preds = %158
-  %164 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %165 unwind label %168
+159:                                              ; preds = %156
+  %160 = getelementptr inbounds %class.V3PreProcImp, ptr %17, i32 0, i32 3
+  %161 = load ptr, ptr %160, align 8
+  %162 = getelementptr inbounds %class.V3PreLex, ptr %161, i32 0, i32 5
+  %163 = load ptr, ptr %162, align 8
+  invoke void @_ZNK8FileLine20warnContextSecondaryB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(40) %163)
+          to label %164 unwind label %146
 
-165:                                              ; preds = %163
-  %166 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %164, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %167 unwind label %168
+164:                                              ; preds = %159
+  %165 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %166 unwind label %169
 
-167:                                              ; preds = %165
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
-  br label %172
+166:                                              ; preds = %164
+  %167 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %165, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %168 unwind label %169
 
-168:                                              ; preds = %165, %163
-  %169 = landingpad { ptr, i32 }
-          cleanup
-  %170 = extractvalue { ptr, i32 } %169, 0
-  store ptr %170, ptr %9, align 8
-  %171 = extractvalue { ptr, i32 } %169, 1
-  store i32 %171, ptr %10, align 4
+168:                                              ; preds = %166
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
   br label %173
 
-172:                                              ; preds = %167, %155
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  br label %175
-
-173:                                              ; preds = %168, %149, %145
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+169:                                              ; preds = %166, %164
+  %170 = landingpad { ptr, i32 }
+          cleanup
+  %171 = extractvalue { ptr, i32 } %170, 0
+  store ptr %171, ptr %9, align 8
+  %172 = extractvalue { ptr, i32 } %170, 1
+  store i32 %172, ptr %10, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
   br label %174
 
-174:                                              ; preds = %173, %54
+173:                                              ; preds = %168, %156
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
   br label %176
 
-175:                                              ; preds = %172, %27
+174:                                              ; preds = %169, %150, %146
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  br label %175
+
+175:                                              ; preds = %174, %55
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %177
+
+176:                                              ; preds = %173, %28
   ret void
 
-176:                                              ; preds = %174, %50, %49
-  %177 = load ptr, ptr %9, align 8
-  %178 = load i32, ptr %10, align 4
-  %179 = insertvalue { ptr, i32 } poison, ptr %177, 0
-  %180 = insertvalue { ptr, i32 } %179, i32 %178, 1
-  resume { ptr, i32 } %180
+177:                                              ; preds = %175, %51, %50
+  %178 = load ptr, ptr %9, align 8
+  %179 = load i32, ptr %10, align 4
+  %180 = insertvalue { ptr, i32 } poison, ptr %178, 0
+  %181 = insertvalue { ptr, i32 } %180, i32 %179, 1
+  resume { ptr, i32 } %181
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) #1
@@ -37405,7 +37420,8 @@ define linkonce_odr dso_local void @_ZN9V3PreProcC2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTV9V3PreProc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV9V3PreProc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -45804,17 +45820,17 @@ define linkonce_odr dso_local noundef i32 @_ZN9V3PreExpr5debugEv() #5 comdat ali
   %13 = icmp slt i32 %12, 0
   %14 = xor i1 %13, true
   %15 = xor i1 %14, true
-  br i1 %15, label %16, label %66
+  br i1 %15, label %16, label %69
 
 16:                                               ; preds = %0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %17 unwind label %43
+          to label %17 unwind label %46
 
 17:                                               ; preds = %16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   %18 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0)
-          to label %19 unwind label %47
+          to label %19 unwind label %50
 
 19:                                               ; preds = %17
   %20 = load i8, ptr %18, align 1
@@ -45822,132 +45838,135 @@ define linkonce_odr dso_local noundef i32 @_ZN9V3PreExpr5debugEv() #5 comdat ali
   %22 = call i32 @tolower(i32 noundef %21) #20
   %23 = trunc i32 %22 to i8
   %24 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0)
-          to label %25 unwind label %47
+          to label %25 unwind label %50
 
 25:                                               ; preds = %19
   store i8 %23, ptr %24, align 1
-  %26 = invoke noundef i32 @_ZNK9V3Options10debugLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22), ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %27 unwind label %47
+  %26 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %27 = invoke noundef i32 @_ZNK9V3Options10debugLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) %26, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %28 unwind label %50
 
-27:                                               ; preds = %25
-  store i32 %26, ptr %6, align 4
+28:                                               ; preds = %25
+  store i32 %27, ptr %6, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef @.str.260, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %28 unwind label %51
+          to label %29 unwind label %54
 
-28:                                               ; preds = %27
-  %29 = invoke noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22), ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %30 unwind label %55
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %31 = invoke noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) %30, ptr noundef nonnull align 8 dereferenceable(32) %8)
+          to label %32 unwind label %58
 
-30:                                               ; preds = %28
+32:                                               ; preds = %29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  store i32 %29, ptr %7, align 4
-  %31 = load i32, ptr %6, align 4
-  %32 = load i32, ptr %7, align 4
-  %33 = icmp uge i32 %31, %32
-  br i1 %33, label %34, label %36
+  store i32 %31, ptr %7, align 4
+  %33 = load i32, ptr %6, align 4
+  %34 = load i32, ptr %7, align 4
+  %35 = icmp uge i32 %33, %34
+  br i1 %35, label %36, label %38
 
-34:                                               ; preds = %30
-  %35 = load i32, ptr %6, align 4
-  br label %38
+36:                                               ; preds = %32
+  %37 = load i32, ptr %6, align 4
+  br label %40
 
-36:                                               ; preds = %30
-  %37 = load i32, ptr %7, align 4
-  br label %38
+38:                                               ; preds = %32
+  %39 = load i32, ptr %7, align 4
+  br label %40
 
-38:                                               ; preds = %36, %34
-  %39 = phi i32 [ %35, %34 ], [ %37, %36 ]
-  store i32 %39, ptr %10, align 4
-  %40 = call noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22))
-  br i1 %40, label %60, label %41
+40:                                               ; preds = %38, %36
+  %41 = phi i32 [ %37, %36 ], [ %39, %38 ]
+  store i32 %41, ptr %10, align 4
+  %42 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %43 = call noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) %42)
+  br i1 %43, label %63, label %44
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %10, align 4
-  store i32 %42, ptr %1, align 4
+44:                                               ; preds = %40
+  %45 = load i32, ptr %10, align 4
+  store i32 %45, ptr %1, align 4
   store i32 1, ptr %11, align 4
-  br label %62
+  br label %65
 
-43:                                               ; preds = %16
-  %44 = landingpad { ptr, i32 }
+46:                                               ; preds = %16
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %4, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %5, align 4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %4, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %5, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
-  br label %70
+  br label %73
 
-47:                                               ; preds = %25, %19, %17
-  %48 = landingpad { ptr, i32 }
+50:                                               ; preds = %25, %19, %17
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %4, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %5, align 4
-  br label %65
-
-51:                                               ; preds = %27
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %4, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %5, align 4
-  br label %59
-
-55:                                               ; preds = %28
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %4, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %5, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  br label %59
-
-59:                                               ; preds = %55, %51
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  br label %65
-
-60:                                               ; preds = %38
-  %61 = load i32, ptr %10, align 4
-  store i32 %61, ptr @_ZZN9V3PreExpr5debugEvE5level, align 4
-  store i32 0, ptr %11, align 4
-  br label %62
-
-62:                                               ; preds = %60, %41
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
-  %63 = load i32, ptr %11, align 4
-  switch i32 %63, label %75 [
-    i32 0, label %64
-    i32 1, label %68
-  ]
-
-64:                                               ; preds = %62
-  br label %66
-
-65:                                               ; preds = %59, %47
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
-  br label %70
-
-66:                                               ; preds = %64, %0
-  %67 = load i32, ptr @_ZZN9V3PreExpr5debugEvE5level, align 4
-  store i32 %67, ptr %1, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %4, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %5, align 4
   br label %68
 
-68:                                               ; preds = %66, %62
-  %69 = load i32, ptr %1, align 4
-  ret i32 %69
+54:                                               ; preds = %28
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %4, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %5, align 4
+  br label %62
 
-70:                                               ; preds = %65, %43
-  %71 = load ptr, ptr %4, align 8
-  %72 = load i32, ptr %5, align 4
-  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
-  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
-  resume { ptr, i32 } %74
+58:                                               ; preds = %29
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %4, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %5, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  br label %62
 
-75:                                               ; preds = %62
+62:                                               ; preds = %58, %54
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
+  br label %68
+
+63:                                               ; preds = %40
+  %64 = load i32, ptr %10, align 4
+  store i32 %64, ptr @_ZZN9V3PreExpr5debugEvE5level, align 4
+  store i32 0, ptr %11, align 4
+  br label %65
+
+65:                                               ; preds = %63, %44
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  %66 = load i32, ptr %11, align 4
+  switch i32 %66, label %78 [
+    i32 0, label %67
+    i32 1, label %71
+  ]
+
+67:                                               ; preds = %65
+  br label %69
+
+68:                                               ; preds = %62, %50
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %73
+
+69:                                               ; preds = %67, %0
+  %70 = load i32, ptr @_ZZN9V3PreExpr5debugEvE5level, align 4
+  store i32 %70, ptr %1, align 4
+  br label %71
+
+71:                                               ; preds = %69, %65
+  %72 = load i32, ptr %1, align 4
+  ret i32 %72
+
+73:                                               ; preds = %68, %46
+  %74 = load ptr, ptr %4, align 8
+  %75 = load i32, ptr %5, align 4
+  %76 = insertvalue { ptr, i32 } poison, ptr %74, 0
+  %77 = insertvalue { ptr, i32 } %76, i32 %75, 1
+  resume { ptr, i32 } %77
+
+78:                                               ; preds = %65
   unreachable
 }
 

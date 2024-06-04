@@ -1120,39 +1120,42 @@ entry:
   call void @copy_le16_clamp(ptr noundef %arraydecay4, i64 noundef %1, ptr noundef %clamped)
   %size = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer, i32 0, i32 5
   %arraydecay5 = getelementptr inbounds [4 x i8], ptr %size, i64 0, i64 0
-  %2 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @zip_dir, i32 0, i32 1), align 8
-  %conv = trunc i64 %2 to i32
+  %2 = getelementptr inbounds %struct.strbuf, ptr @zip_dir, i32 0, i32 1
+  %3 = load i64, ptr %2, align 8
+  %conv = trunc i64 %3 to i32
   call void @copy_le32(ptr noundef %arraydecay5, i32 noundef %conv)
   %offset = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer, i32 0, i32 6
   %arraydecay6 = getelementptr inbounds [4 x i8], ptr %offset, i64 0, i64 0
-  %3 = load i64, ptr @zip_offset, align 8
-  call void @copy_le32_clamp(ptr noundef %arraydecay6, i64 noundef %3, ptr noundef %clamped)
+  %4 = load i64, ptr @zip_offset, align 8
+  call void @copy_le32_clamp(ptr noundef %arraydecay6, i64 noundef %4, ptr noundef %clamped)
   %comment_length = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer, i32 0, i32 7
   %arraydecay7 = getelementptr inbounds [2 x i8], ptr %comment_length, i64 0, i64 0
-  %4 = load ptr, ptr %oid.addr, align 8
-  %tobool = icmp ne ptr %4, null
+  %5 = load ptr, ptr %oid.addr, align 8
+  %tobool = icmp ne ptr %5, null
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %5 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %5, i32 0, i32 15
-  %6 = load ptr, ptr %hash_algo, align 8
-  %hexsz = getelementptr inbounds %struct.git_hash_algo, ptr %6, i32 0, i32 3
-  %7 = load i64, ptr %hexsz, align 8
+  %6 = load ptr, ptr @the_repository, align 8
+  %hash_algo = getelementptr inbounds %struct.repository, ptr %6, i32 0, i32 15
+  %7 = load ptr, ptr %hash_algo, align 8
+  %hexsz = getelementptr inbounds %struct.git_hash_algo, ptr %7, i32 0, i32 3
+  %8 = load i64, ptr %hexsz, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %7, %cond.true ], [ 0, %cond.false ]
+  %cond = phi i64 [ %8, %cond.true ], [ 0, %cond.false ]
   %conv8 = trunc i64 %cond to i32
   call void @copy_le16(ptr noundef %arraydecay7, i32 noundef %conv8)
-  %8 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @zip_dir, i32 0, i32 2), align 8
-  %9 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @zip_dir, i32 0, i32 1), align 8
-  call void @write_or_die(i32 noundef 1, ptr noundef %8, i64 noundef %9)
-  %10 = load i32, ptr %clamped, align 4
-  %tobool9 = icmp ne i32 %10, 0
+  %9 = getelementptr inbounds %struct.strbuf, ptr @zip_dir, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.strbuf, ptr @zip_dir, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8
+  call void @write_or_die(i32 noundef 1, ptr noundef %10, i64 noundef %12)
+  %13 = load i32, ptr %clamped, align 4
+  %tobool9 = icmp ne i32 %13, 0
   br i1 %tobool9, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end
@@ -1161,19 +1164,19 @@ if.then:                                          ; preds = %cond.end
 
 if.end:                                           ; preds = %if.then, %cond.end
   call void @write_or_die(i32 noundef 1, ptr noundef %trailer, i64 noundef 22)
-  %11 = load ptr, ptr %oid.addr, align 8
-  %tobool10 = icmp ne ptr %11, null
+  %14 = load ptr, ptr %oid.addr, align 8
+  %tobool10 = icmp ne ptr %14, null
   br i1 %tobool10, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %if.end
-  %12 = load ptr, ptr %oid.addr, align 8
-  %call = call ptr @oid_to_hex(ptr noundef %12)
-  %13 = load ptr, ptr @the_repository, align 8
-  %hash_algo12 = getelementptr inbounds %struct.repository, ptr %13, i32 0, i32 15
-  %14 = load ptr, ptr %hash_algo12, align 8
-  %hexsz13 = getelementptr inbounds %struct.git_hash_algo, ptr %14, i32 0, i32 3
-  %15 = load i64, ptr %hexsz13, align 8
-  call void @write_or_die(i32 noundef 1, ptr noundef %call, i64 noundef %15)
+  %15 = load ptr, ptr %oid.addr, align 8
+  %call = call ptr @oid_to_hex(ptr noundef %15)
+  %16 = load ptr, ptr @the_repository, align 8
+  %hash_algo12 = getelementptr inbounds %struct.repository, ptr %16, i32 0, i32 15
+  %17 = load ptr, ptr %hash_algo12, align 8
+  %hexsz13 = getelementptr inbounds %struct.git_hash_algo, ptr %17, i32 0, i32 3
+  %18 = load i64, ptr %hexsz13, align 8
+  call void @write_or_die(i32 noundef 1, ptr noundef %call, i64 noundef %18)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %if.end
@@ -1879,12 +1882,13 @@ entry:
   call void @copy_le64(ptr noundef %arraydecay7, i64 noundef %2)
   %size = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64, i32 0, i32 8
   %arraydecay8 = getelementptr inbounds [8 x i8], ptr %size, i64 0, i64 0
-  %3 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @zip_dir, i32 0, i32 1), align 8
-  call void @copy_le64(ptr noundef %arraydecay8, i64 noundef %3)
+  %3 = getelementptr inbounds %struct.strbuf, ptr @zip_dir, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  call void @copy_le64(ptr noundef %arraydecay8, i64 noundef %4)
   %offset = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64, i32 0, i32 9
   %arraydecay9 = getelementptr inbounds [8 x i8], ptr %offset, i64 0, i64 0
-  %4 = load i64, ptr @zip_offset, align 8
-  call void @copy_le64(ptr noundef %arraydecay9, i64 noundef %4)
+  %5 = load i64, ptr @zip_offset, align 8
+  call void @copy_le64(ptr noundef %arraydecay9, i64 noundef %5)
   %magic10 = getelementptr inbounds %struct.zip64_dir_trailer_locator, ptr %locator64, i32 0, i32 0
   %arraydecay11 = getelementptr inbounds [4 x i8], ptr %magic10, i64 0, i64 0
   call void @copy_le32(ptr noundef %arraydecay11, i32 noundef 117853008)
@@ -1893,9 +1897,10 @@ entry:
   call void @copy_le32(ptr noundef %arraydecay13, i32 noundef 0)
   %offset14 = getelementptr inbounds %struct.zip64_dir_trailer_locator, ptr %locator64, i32 0, i32 2
   %arraydecay15 = getelementptr inbounds [8 x i8], ptr %offset14, i64 0, i64 0
-  %5 = load i64, ptr @zip_offset, align 8
-  %6 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @zip_dir, i32 0, i32 1), align 8
-  %add = add i64 %5, %6
+  %6 = load i64, ptr @zip_offset, align 8
+  %7 = getelementptr inbounds %struct.strbuf, ptr @zip_dir, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8
+  %add = add i64 %6, %8
   call void @copy_le64(ptr noundef %arraydecay15, i64 noundef %add)
   %number_of_disks = getelementptr inbounds %struct.zip64_dir_trailer_locator, ptr %locator64, i32 0, i32 3
   %arraydecay16 = getelementptr inbounds [4 x i8], ptr %number_of_disks, i64 0, i64 0

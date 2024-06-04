@@ -166,54 +166,55 @@ entry:
   %0 = load i32, ptr %rbA.addr, align 4
   %1 = load i32, ptr %rbB.addr, align 4
   call void @_ZN17b3TypedConstraintC2E21b3TypedConstraintTypeii(ptr noundef nonnull align 16 dereferenceable(64) %this1, i32 noundef 11, i32 noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3FixedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV17b3FixedConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 16
   %m_relTargetAB = getelementptr inbounds %class.b3FixedConstraint, ptr %this1, i32 0, i32 3
   invoke void @_ZN12b3QuaternionC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %m_relTargetAB)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %frameInA.addr, align 8
-  %call = invoke noundef nonnull align 16 dereferenceable(16) ptr @_ZNK11b3Transform9getOriginEv(ptr noundef nonnull align 16 dereferenceable(64) %2)
+  %3 = load ptr, ptr %frameInA.addr, align 8
+  %call = invoke noundef nonnull align 16 dereferenceable(16) ptr @_ZNK11b3Transform9getOriginEv(ptr noundef nonnull align 16 dereferenceable(64) %3)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_pivotInA3 = getelementptr inbounds %class.b3FixedConstraint, ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %m_pivotInA3, ptr align 16 %call, i64 16, i1 false)
-  %3 = load ptr, ptr %frameInB.addr, align 8
-  %call5 = invoke noundef nonnull align 16 dereferenceable(16) ptr @_ZNK11b3Transform9getOriginEv(ptr noundef nonnull align 16 dereferenceable(64) %3)
+  %4 = load ptr, ptr %frameInB.addr, align 8
+  %call5 = invoke noundef nonnull align 16 dereferenceable(16) ptr @_ZNK11b3Transform9getOriginEv(ptr noundef nonnull align 16 dereferenceable(64) %4)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   %m_pivotInB6 = getelementptr inbounds %class.b3FixedConstraint, ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %m_pivotInB6, ptr align 16 %call5, i64 16, i1 false)
-  %4 = load ptr, ptr %frameInA.addr, align 8
-  %call9 = invoke { <2 x float>, <2 x float> } @_ZNK11b3Transform11getRotationEv(ptr noundef nonnull align 16 dereferenceable(64) %4)
+  %5 = load ptr, ptr %frameInA.addr, align 8
+  %call9 = invoke { <2 x float>, <2 x float> } @_ZNK11b3Transform11getRotationEv(ptr noundef nonnull align 16 dereferenceable(64) %5)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont4
   %coerce.dive = getelementptr inbounds %class.b3Quaternion, ptr %ref.tmp7, i32 0, i32 0
   %coerce.dive10 = getelementptr inbounds %class.b3QuadWord, ptr %coerce.dive, i32 0, i32 0
   %coerce.dive11 = getelementptr inbounds %union.anon.1, ptr %coerce.dive10, i32 0, i32 0
-  %5 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive11, i32 0, i32 0
-  %6 = extractvalue { <2 x float>, <2 x float> } %call9, 0
-  store <2 x float> %6, ptr %5, align 16
-  %7 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive11, i32 0, i32 1
-  %8 = extractvalue { <2 x float>, <2 x float> } %call9, 1
-  store <2 x float> %8, ptr %7, align 8
-  %9 = load ptr, ptr %frameInB.addr, align 8
-  %call15 = invoke { <2 x float>, <2 x float> } @_ZNK11b3Transform11getRotationEv(ptr noundef nonnull align 16 dereferenceable(64) %9)
+  %6 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive11, i32 0, i32 0
+  %7 = extractvalue { <2 x float>, <2 x float> } %call9, 0
+  store <2 x float> %7, ptr %6, align 16
+  %8 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive11, i32 0, i32 1
+  %9 = extractvalue { <2 x float>, <2 x float> } %call9, 1
+  store <2 x float> %9, ptr %8, align 8
+  %10 = load ptr, ptr %frameInB.addr, align 8
+  %call15 = invoke { <2 x float>, <2 x float> } @_ZNK11b3Transform11getRotationEv(ptr noundef nonnull align 16 dereferenceable(64) %10)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont8
   %coerce.dive16 = getelementptr inbounds %class.b3Quaternion, ptr %ref.tmp13, i32 0, i32 0
   %coerce.dive17 = getelementptr inbounds %class.b3QuadWord, ptr %coerce.dive16, i32 0, i32 0
   %coerce.dive18 = getelementptr inbounds %union.anon.1, ptr %coerce.dive17, i32 0, i32 0
-  %10 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive18, i32 0, i32 0
-  %11 = extractvalue { <2 x float>, <2 x float> } %call15, 0
-  store <2 x float> %11, ptr %10, align 16
-  %12 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive18, i32 0, i32 1
-  %13 = extractvalue { <2 x float>, <2 x float> } %call15, 1
-  store <2 x float> %13, ptr %12, align 8
+  %11 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive18, i32 0, i32 0
+  %12 = extractvalue { <2 x float>, <2 x float> } %call15, 0
+  store <2 x float> %12, ptr %11, align 16
+  %13 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive18, i32 0, i32 1
+  %14 = extractvalue { <2 x float>, <2 x float> } %call15, 1
+  store <2 x float> %14, ptr %13, align 8
   %call20 = invoke { <2 x float>, <2 x float> } @_ZNK12b3Quaternion7inverseEv(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp13)
           to label %invoke.cont19 unwind label %lpad
 
@@ -221,12 +222,12 @@ invoke.cont19:                                    ; preds = %invoke.cont14
   %coerce.dive21 = getelementptr inbounds %class.b3Quaternion, ptr %ref.tmp12, i32 0, i32 0
   %coerce.dive22 = getelementptr inbounds %class.b3QuadWord, ptr %coerce.dive21, i32 0, i32 0
   %coerce.dive23 = getelementptr inbounds %union.anon.1, ptr %coerce.dive22, i32 0, i32 0
-  %14 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive23, i32 0, i32 0
-  %15 = extractvalue { <2 x float>, <2 x float> } %call20, 0
-  store <2 x float> %15, ptr %14, align 16
-  %16 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive23, i32 0, i32 1
-  %17 = extractvalue { <2 x float>, <2 x float> } %call20, 1
-  store <2 x float> %17, ptr %16, align 8
+  %15 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive23, i32 0, i32 0
+  %16 = extractvalue { <2 x float>, <2 x float> } %call20, 0
+  store <2 x float> %16, ptr %15, align 16
+  %17 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive23, i32 0, i32 1
+  %18 = extractvalue { <2 x float>, <2 x float> } %call20, 1
+  store <2 x float> %18, ptr %17, align 8
   %call25 = invoke { <2 x float>, <2 x float> } @_ZmlRK12b3QuaternionS1_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp7, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp12)
           to label %invoke.cont24 unwind label %lpad
 
@@ -234,23 +235,23 @@ invoke.cont24:                                    ; preds = %invoke.cont19
   %coerce.dive26 = getelementptr inbounds %class.b3Quaternion, ptr %ref.tmp, i32 0, i32 0
   %coerce.dive27 = getelementptr inbounds %class.b3QuadWord, ptr %coerce.dive26, i32 0, i32 0
   %coerce.dive28 = getelementptr inbounds %union.anon.1, ptr %coerce.dive27, i32 0, i32 0
-  %18 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive28, i32 0, i32 0
-  %19 = extractvalue { <2 x float>, <2 x float> } %call25, 0
-  store <2 x float> %19, ptr %18, align 16
-  %20 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive28, i32 0, i32 1
-  %21 = extractvalue { <2 x float>, <2 x float> } %call25, 1
-  store <2 x float> %21, ptr %20, align 8
+  %19 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive28, i32 0, i32 0
+  %20 = extractvalue { <2 x float>, <2 x float> } %call25, 0
+  store <2 x float> %20, ptr %19, align 16
+  %21 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive28, i32 0, i32 1
+  %22 = extractvalue { <2 x float>, <2 x float> } %call25, 1
+  store <2 x float> %22, ptr %21, align 8
   %m_relTargetAB29 = getelementptr inbounds %class.b3FixedConstraint, ptr %this1, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %m_relTargetAB29, ptr align 16 %ref.tmp, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %invoke.cont19, %invoke.cont14, %invoke.cont8, %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   call void @_ZN17b3TypedConstraintD2Ev(ptr noundef nonnull align 16 dereferenceable(64) %this1) #9
   br label %eh.resume
 
@@ -1921,7 +1922,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   ret void
 }
 

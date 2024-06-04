@@ -2279,7 +2279,7 @@ define ptr @slurm_ctl_conf_2_key_pairs(ptr noundef %0) #0 {
 
 14:                                               ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %3247
+  br label %3249
 
 15:                                               ; preds = %1
   %16 = call ptr @list_create(ptr noundef @destroy_config_key_pair)
@@ -3328,3264 +3328,3266 @@ define ptr @slurm_ctl_conf_2_key_pairs(ptr noundef %0) #0 {
   %803 = getelementptr inbounds %struct.slurm_conf_t, ptr %802, i32 0, i32 58
   %804 = load i32, ptr %803, align 8
   %805 = icmp ne i32 %804, -2
-  br i1 %805, label %806, label %833
+  br i1 %805, label %806, label %835
 
 806:                                              ; preds = %702
   %807 = load ptr, ptr %3, align 8
   %808 = getelementptr inbounds %struct.slurm_conf_t, ptr %807, i32 0, i32 58
   %809 = load i32, ptr %808, align 8
-  %810 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 58), align 8
-  %811 = icmp eq i32 %809, %810
-  br i1 %811, label %812, label %815
+  %810 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 58
+  %811 = load i32, ptr %810, align 8
+  %812 = icmp eq i32 %809, %811
+  br i1 %812, label %813, label %816
 
-812:                                              ; preds = %806
-  %813 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %814 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %813, i64 noundef 256, ptr noundef @.str.151) #6
-  br label %822
+813:                                              ; preds = %806
+  %814 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %815 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %814, i64 noundef 256, ptr noundef @.str.151) #6
+  br label %824
 
-815:                                              ; preds = %806
-  %816 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %817 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 58), align 8
-  %818 = load ptr, ptr %3, align 8
-  %819 = getelementptr inbounds %struct.slurm_conf_t, ptr %818, i32 0, i32 58
-  %820 = load i32, ptr %819, align 8
-  %821 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %816, i64 noundef 256, ptr noundef @.str.152, i32 noundef %817, i32 noundef %820) #6
-  br label %822
+816:                                              ; preds = %806
+  %817 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %818 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 58
+  %819 = load i32, ptr %818, align 8
+  %820 = load ptr, ptr %3, align 8
+  %821 = getelementptr inbounds %struct.slurm_conf_t, ptr %820, i32 0, i32 58
+  %822 = load i32, ptr %821, align 8
+  %823 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %817, i64 noundef 256, ptr noundef @.str.152, i32 noundef %819, i32 noundef %822) #6
+  br label %824
 
-822:                                              ; preds = %815, %812
-  %823 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 860, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %823, ptr %5, align 8
-  %824 = call ptr @xstrdup(ptr noundef @.str.153)
-  %825 = load ptr, ptr %5, align 8
-  %826 = getelementptr inbounds %struct.config_key_pair_t, ptr %825, i32 0, i32 0
-  store ptr %824, ptr %826, align 8
-  %827 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %828 = call ptr @xstrdup(ptr noundef %827)
-  %829 = load ptr, ptr %5, align 8
-  %830 = getelementptr inbounds %struct.config_key_pair_t, ptr %829, i32 0, i32 1
-  store ptr %828, ptr %830, align 8
-  %831 = load ptr, ptr %4, align 8
-  %832 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %831, ptr noundef %832)
-  br label %833
+824:                                              ; preds = %816, %813
+  %825 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 860, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %825, ptr %5, align 8
+  %826 = call ptr @xstrdup(ptr noundef @.str.153)
+  %827 = load ptr, ptr %5, align 8
+  %828 = getelementptr inbounds %struct.config_key_pair_t, ptr %827, i32 0, i32 0
+  store ptr %826, ptr %828, align 8
+  %829 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %830 = call ptr @xstrdup(ptr noundef %829)
+  %831 = load ptr, ptr %5, align 8
+  %832 = getelementptr inbounds %struct.config_key_pair_t, ptr %831, i32 0, i32 1
+  store ptr %830, ptr %832, align 8
+  %833 = load ptr, ptr %4, align 8
+  %834 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %833, ptr noundef %834)
+  br label %835
 
-833:                                              ; preds = %822, %702
-  %834 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %835 = load ptr, ptr %3, align 8
-  %836 = getelementptr inbounds %struct.slurm_conf_t, ptr %835, i32 0, i32 59
-  %837 = load i16, ptr %836, align 4
-  %838 = zext i16 %837 to i32
-  %839 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %834, i64 noundef 256, ptr noundef @.str.105, i32 noundef %838) #6
-  %840 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 868, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %840, ptr %5, align 8
-  %841 = call ptr @xstrdup(ptr noundef @.str.154)
-  %842 = load ptr, ptr %5, align 8
-  %843 = getelementptr inbounds %struct.config_key_pair_t, ptr %842, i32 0, i32 0
-  store ptr %841, ptr %843, align 8
-  %844 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %845 = call ptr @xstrdup(ptr noundef %844)
-  %846 = load ptr, ptr %5, align 8
-  %847 = getelementptr inbounds %struct.config_key_pair_t, ptr %846, i32 0, i32 1
-  store ptr %845, ptr %847, align 8
-  %848 = load ptr, ptr %4, align 8
-  %849 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %848, ptr noundef %849)
-  %850 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 873, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %850, ptr %5, align 8
-  %851 = call ptr @xstrdup(ptr noundef @.str.155)
-  %852 = load ptr, ptr %5, align 8
-  %853 = getelementptr inbounds %struct.config_key_pair_t, ptr %852, i32 0, i32 0
-  store ptr %851, ptr %853, align 8
-  %854 = load ptr, ptr %3, align 8
-  %855 = getelementptr inbounds %struct.slurm_conf_t, ptr %854, i32 0, i32 60
-  %856 = load i16, ptr %855, align 2
-  %857 = zext i16 %856 to i32
-  %858 = call ptr @health_check_node_state_str(i32 noundef %857)
-  %859 = load ptr, ptr %5, align 8
-  %860 = getelementptr inbounds %struct.config_key_pair_t, ptr %859, i32 0, i32 1
-  store ptr %858, ptr %860, align 8
-  %861 = load ptr, ptr %4, align 8
-  %862 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %861, ptr noundef %862)
-  %863 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 879, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %863, ptr %5, align 8
-  %864 = call ptr @xstrdup(ptr noundef @.str.156)
-  %865 = load ptr, ptr %5, align 8
-  %866 = getelementptr inbounds %struct.config_key_pair_t, ptr %865, i32 0, i32 0
-  store ptr %864, ptr %866, align 8
-  %867 = load ptr, ptr %3, align 8
-  %868 = getelementptr inbounds %struct.slurm_conf_t, ptr %867, i32 0, i32 61
-  %869 = load ptr, ptr %868, align 8
-  %870 = call ptr @xstrdup(ptr noundef %869)
-  %871 = load ptr, ptr %5, align 8
-  %872 = getelementptr inbounds %struct.config_key_pair_t, ptr %871, i32 0, i32 1
-  store ptr %870, ptr %872, align 8
-  %873 = load ptr, ptr %4, align 8
-  %874 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %873, ptr noundef %874)
-  %875 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %876 = load ptr, ptr %3, align 8
-  %877 = getelementptr inbounds %struct.slurm_conf_t, ptr %876, i32 0, i32 62
-  %878 = load i16, ptr %877, align 8
-  %879 = zext i16 %878 to i32
-  %880 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %875, i64 noundef 256, ptr noundef @.str.105, i32 noundef %879) #6
-  %881 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 886, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %881, ptr %5, align 8
-  %882 = call ptr @xstrdup(ptr noundef @.str.157)
-  %883 = load ptr, ptr %5, align 8
-  %884 = getelementptr inbounds %struct.config_key_pair_t, ptr %883, i32 0, i32 0
-  store ptr %882, ptr %884, align 8
-  %885 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %886 = call ptr @xstrdup(ptr noundef %885)
-  %887 = load ptr, ptr %5, align 8
-  %888 = getelementptr inbounds %struct.config_key_pair_t, ptr %887, i32 0, i32 1
-  store ptr %886, ptr %888, align 8
-  %889 = load ptr, ptr %4, align 8
-  %890 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %889, ptr noundef %890)
-  %891 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 891, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %891, ptr %5, align 8
-  %892 = call ptr @xstrdup(ptr noundef @.str.158)
-  %893 = load ptr, ptr %5, align 8
-  %894 = getelementptr inbounds %struct.config_key_pair_t, ptr %893, i32 0, i32 0
-  store ptr %892, ptr %894, align 8
-  %895 = load ptr, ptr %3, align 8
-  %896 = getelementptr inbounds %struct.slurm_conf_t, ptr %895, i32 0, i32 63
-  %897 = load ptr, ptr %896, align 8
-  %898 = call ptr @xstrdup(ptr noundef %897)
-  %899 = load ptr, ptr %5, align 8
-  %900 = getelementptr inbounds %struct.config_key_pair_t, ptr %899, i32 0, i32 1
-  store ptr %898, ptr %900, align 8
-  %901 = load ptr, ptr %4, align 8
-  %902 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %901, ptr noundef %902)
-  %903 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 896, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %903, ptr %5, align 8
-  %904 = call ptr @xstrdup(ptr noundef @.str.159)
-  %905 = load ptr, ptr %5, align 8
-  %906 = getelementptr inbounds %struct.config_key_pair_t, ptr %905, i32 0, i32 0
-  store ptr %904, ptr %906, align 8
-  %907 = load ptr, ptr %3, align 8
-  %908 = getelementptr inbounds %struct.slurm_conf_t, ptr %907, i32 0, i32 64
-  %909 = load ptr, ptr %908, align 8
-  %910 = call ptr @xstrdup(ptr noundef %909)
-  %911 = load ptr, ptr %5, align 8
-  %912 = getelementptr inbounds %struct.config_key_pair_t, ptr %911, i32 0, i32 1
-  store ptr %910, ptr %912, align 8
-  %913 = load ptr, ptr %4, align 8
-  %914 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %913, ptr noundef %914)
-  %915 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 901, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %915, ptr %5, align 8
-  %916 = call ptr @xstrdup(ptr noundef @.str.160)
-  %917 = load ptr, ptr %5, align 8
-  %918 = getelementptr inbounds %struct.config_key_pair_t, ptr %917, i32 0, i32 0
-  store ptr %916, ptr %918, align 8
-  %919 = load ptr, ptr %3, align 8
-  %920 = getelementptr inbounds %struct.slurm_conf_t, ptr %919, i32 0, i32 65
-  %921 = load ptr, ptr %920, align 8
-  %922 = call ptr @xstrdup(ptr noundef %921)
-  %923 = load ptr, ptr %5, align 8
-  %924 = getelementptr inbounds %struct.config_key_pair_t, ptr %923, i32 0, i32 1
-  store ptr %922, ptr %924, align 8
-  %925 = load ptr, ptr %4, align 8
-  %926 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %925, ptr noundef %926)
-  %927 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 906, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %927, ptr %5, align 8
-  %928 = call ptr @xstrdup(ptr noundef @.str.161)
-  %929 = load ptr, ptr %5, align 8
-  %930 = getelementptr inbounds %struct.config_key_pair_t, ptr %929, i32 0, i32 0
-  store ptr %928, ptr %930, align 8
-  %931 = load ptr, ptr %3, align 8
-  %932 = getelementptr inbounds %struct.slurm_conf_t, ptr %931, i32 0, i32 66
-  %933 = load ptr, ptr %932, align 8
-  %934 = call ptr @xstrdup(ptr noundef %933)
-  %935 = load ptr, ptr %5, align 8
-  %936 = getelementptr inbounds %struct.config_key_pair_t, ptr %935, i32 0, i32 1
-  store ptr %934, ptr %936, align 8
-  %937 = load ptr, ptr %4, align 8
-  %938 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %937, ptr noundef %938)
-  %939 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 911, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %939, ptr %5, align 8
-  %940 = call ptr @xstrdup(ptr noundef @.str.162)
-  %941 = load ptr, ptr %5, align 8
-  %942 = getelementptr inbounds %struct.config_key_pair_t, ptr %941, i32 0, i32 0
-  store ptr %940, ptr %942, align 8
-  %943 = load ptr, ptr %3, align 8
-  %944 = getelementptr inbounds %struct.slurm_conf_t, ptr %943, i32 0, i32 68
-  %945 = load ptr, ptr %944, align 8
-  %946 = call ptr @xstrdup(ptr noundef %945)
-  %947 = load ptr, ptr %5, align 8
-  %948 = getelementptr inbounds %struct.config_key_pair_t, ptr %947, i32 0, i32 1
-  store ptr %946, ptr %948, align 8
-  %949 = load ptr, ptr %4, align 8
-  %950 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %949, ptr noundef %950)
-  %951 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 916, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %951, ptr %5, align 8
-  %952 = call ptr @xstrdup(ptr noundef @.str.163)
-  %953 = load ptr, ptr %5, align 8
-  %954 = getelementptr inbounds %struct.config_key_pair_t, ptr %953, i32 0, i32 0
-  store ptr %952, ptr %954, align 8
-  %955 = load ptr, ptr %3, align 8
-  %956 = getelementptr inbounds %struct.slurm_conf_t, ptr %955, i32 0, i32 69
-  %957 = load ptr, ptr %956, align 8
-  %958 = call ptr @xstrdup(ptr noundef %957)
-  %959 = load ptr, ptr %5, align 8
-  %960 = getelementptr inbounds %struct.config_key_pair_t, ptr %959, i32 0, i32 1
-  store ptr %958, ptr %960, align 8
-  %961 = load ptr, ptr %4, align 8
-  %962 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %961, ptr noundef %962)
-  %963 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 921, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %963, ptr %5, align 8
-  %964 = call ptr @xstrdup(ptr noundef @.str.164)
-  %965 = load ptr, ptr %5, align 8
-  %966 = getelementptr inbounds %struct.config_key_pair_t, ptr %965, i32 0, i32 0
-  store ptr %964, ptr %966, align 8
-  %967 = load ptr, ptr %3, align 8
-  %968 = getelementptr inbounds %struct.slurm_conf_t, ptr %967, i32 0, i32 70
-  %969 = load ptr, ptr %968, align 8
-  %970 = call ptr @xstrdup(ptr noundef %969)
-  %971 = load ptr, ptr %5, align 8
-  %972 = getelementptr inbounds %struct.config_key_pair_t, ptr %971, i32 0, i32 1
-  store ptr %970, ptr %972, align 8
-  %973 = load ptr, ptr %4, align 8
-  %974 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %973, ptr noundef %974)
-  %975 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %976 = load ptr, ptr %3, align 8
-  %977 = getelementptr inbounds %struct.slurm_conf_t, ptr %976, i32 0, i32 72
-  %978 = load i32, ptr %977, align 8
-  %979 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %975, i64 noundef 256, ptr noundef @.str.91, i32 noundef %978) #6
-  %980 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 928, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %980, ptr %5, align 8
-  %981 = call ptr @xstrdup(ptr noundef @.str.165)
-  %982 = load ptr, ptr %5, align 8
-  %983 = getelementptr inbounds %struct.config_key_pair_t, ptr %982, i32 0, i32 0
-  store ptr %981, ptr %983, align 8
-  %984 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %985 = call ptr @xstrdup(ptr noundef %984)
-  %986 = load ptr, ptr %5, align 8
-  %987 = getelementptr inbounds %struct.config_key_pair_t, ptr %986, i32 0, i32 1
-  store ptr %985, ptr %987, align 8
-  %988 = load ptr, ptr %4, align 8
-  %989 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %988, ptr noundef %989)
-  %990 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 933, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %990, ptr %5, align 8
-  %991 = call ptr @xstrdup(ptr noundef @.str.166)
-  %992 = load ptr, ptr %5, align 8
-  %993 = getelementptr inbounds %struct.config_key_pair_t, ptr %992, i32 0, i32 0
-  store ptr %991, ptr %993, align 8
-  %994 = load ptr, ptr %3, align 8
-  %995 = getelementptr inbounds %struct.slurm_conf_t, ptr %994, i32 0, i32 73
-  %996 = load ptr, ptr %995, align 8
-  %997 = call ptr @xstrdup(ptr noundef %996)
-  %998 = load ptr, ptr %5, align 8
-  %999 = getelementptr inbounds %struct.config_key_pair_t, ptr %998, i32 0, i32 1
-  store ptr %997, ptr %999, align 8
-  %1000 = load ptr, ptr %4, align 8
-  %1001 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1000, ptr noundef %1001)
-  %1002 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 938, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1002, ptr %5, align 8
-  %1003 = call ptr @xstrdup(ptr noundef @.str.167)
-  %1004 = load ptr, ptr %5, align 8
-  %1005 = getelementptr inbounds %struct.config_key_pair_t, ptr %1004, i32 0, i32 0
-  store ptr %1003, ptr %1005, align 8
-  %1006 = load ptr, ptr %3, align 8
-  %1007 = getelementptr inbounds %struct.slurm_conf_t, ptr %1006, i32 0, i32 74
-  %1008 = load ptr, ptr %1007, align 8
-  %1009 = call ptr @xstrdup(ptr noundef %1008)
-  %1010 = load ptr, ptr %5, align 8
-  %1011 = getelementptr inbounds %struct.config_key_pair_t, ptr %1010, i32 0, i32 1
-  store ptr %1009, ptr %1011, align 8
-  %1012 = load ptr, ptr %4, align 8
-  %1013 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1012, ptr noundef %1013)
-  %1014 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 943, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1014, ptr %5, align 8
-  %1015 = call ptr @xstrdup(ptr noundef @.str.168)
-  %1016 = load ptr, ptr %5, align 8
-  %1017 = getelementptr inbounds %struct.config_key_pair_t, ptr %1016, i32 0, i32 0
-  store ptr %1015, ptr %1017, align 8
-  %1018 = load ptr, ptr %3, align 8
-  %1019 = getelementptr inbounds %struct.slurm_conf_t, ptr %1018, i32 0, i32 75
-  %1020 = load ptr, ptr %1019, align 8
-  %1021 = call ptr @xstrdup(ptr noundef %1020)
-  %1022 = load ptr, ptr %5, align 8
-  %1023 = getelementptr inbounds %struct.config_key_pair_t, ptr %1022, i32 0, i32 1
-  store ptr %1021, ptr %1023, align 8
-  %1024 = load ptr, ptr %4, align 8
-  %1025 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1024, ptr noundef %1025)
-  %1026 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 948, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1026, ptr %5, align 8
-  %1027 = call ptr @xstrdup(ptr noundef @.str.169)
-  %1028 = load ptr, ptr %5, align 8
-  %1029 = getelementptr inbounds %struct.config_key_pair_t, ptr %1028, i32 0, i32 0
-  store ptr %1027, ptr %1029, align 8
-  %1030 = load ptr, ptr %3, align 8
-  %1031 = getelementptr inbounds %struct.slurm_conf_t, ptr %1030, i32 0, i32 76
-  %1032 = load ptr, ptr %1031, align 8
-  %1033 = call ptr @job_defaults_str(ptr noundef %1032)
-  %1034 = load ptr, ptr %5, align 8
-  %1035 = getelementptr inbounds %struct.config_key_pair_t, ptr %1034, i32 0, i32 1
-  store ptr %1033, ptr %1035, align 8
-  %1036 = load ptr, ptr %4, align 8
-  %1037 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1036, ptr noundef %1037)
-  %1038 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1039 = load ptr, ptr %3, align 8
-  %1040 = getelementptr inbounds %struct.slurm_conf_t, ptr %1039, i32 0, i32 77
-  %1041 = load i16, ptr %1040, align 8
-  %1042 = zext i16 %1041 to i32
-  %1043 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1038, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1042) #6
-  %1044 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 956, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1044, ptr %5, align 8
-  %1045 = call ptr @xstrdup(ptr noundef @.str.170)
-  %1046 = load ptr, ptr %5, align 8
-  %1047 = getelementptr inbounds %struct.config_key_pair_t, ptr %1046, i32 0, i32 0
-  store ptr %1045, ptr %1047, align 8
-  %1048 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1049 = call ptr @xstrdup(ptr noundef %1048)
-  %1050 = load ptr, ptr %5, align 8
-  %1051 = getelementptr inbounds %struct.config_key_pair_t, ptr %1050, i32 0, i32 1
-  store ptr %1049, ptr %1051, align 8
-  %1052 = load ptr, ptr %4, align 8
-  %1053 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1052, ptr noundef %1053)
-  %1054 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 961, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1054, ptr %5, align 8
-  %1055 = call ptr @xstrdup(ptr noundef @.str.171)
-  %1056 = load ptr, ptr %5, align 8
-  %1057 = getelementptr inbounds %struct.config_key_pair_t, ptr %1056, i32 0, i32 0
-  store ptr %1055, ptr %1057, align 8
-  %1058 = load ptr, ptr %3, align 8
-  %1059 = getelementptr inbounds %struct.slurm_conf_t, ptr %1058, i32 0, i32 78
-  %1060 = load i16, ptr %1059, align 2
-  %1061 = zext i16 %1060 to i32
-  %1062 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.91, i32 noundef %1061)
-  %1063 = load ptr, ptr %5, align 8
-  %1064 = getelementptr inbounds %struct.config_key_pair_t, ptr %1063, i32 0, i32 1
-  store ptr %1062, ptr %1064, align 8
-  %1065 = load ptr, ptr %4, align 8
-  %1066 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1065, ptr noundef %1066)
-  %1067 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 967, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1067, ptr %5, align 8
-  %1068 = call ptr @xstrdup(ptr noundef @.str.172)
-  %1069 = load ptr, ptr %5, align 8
-  %1070 = getelementptr inbounds %struct.config_key_pair_t, ptr %1069, i32 0, i32 0
-  store ptr %1068, ptr %1070, align 8
-  %1071 = load ptr, ptr %3, align 8
-  %1072 = getelementptr inbounds %struct.slurm_conf_t, ptr %1071, i32 0, i32 79
-  %1073 = load ptr, ptr %1072, align 8
-  %1074 = call ptr @xstrdup(ptr noundef %1073)
-  %1075 = load ptr, ptr %5, align 8
-  %1076 = getelementptr inbounds %struct.config_key_pair_t, ptr %1075, i32 0, i32 1
-  store ptr %1074, ptr %1076, align 8
-  %1077 = load ptr, ptr %4, align 8
-  %1078 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1077, ptr noundef %1078)
-  %1079 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1080 = load ptr, ptr %3, align 8
-  %1081 = getelementptr inbounds %struct.slurm_conf_t, ptr %1080, i32 0, i32 83
-  %1082 = load i16, ptr %1081, align 4
-  %1083 = zext i16 %1082 to i32
-  %1084 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1079, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1083) #6
-  %1085 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 974, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1085, ptr %5, align 8
-  %1086 = call ptr @xstrdup(ptr noundef @.str.173)
-  %1087 = load ptr, ptr %5, align 8
-  %1088 = getelementptr inbounds %struct.config_key_pair_t, ptr %1087, i32 0, i32 0
-  store ptr %1086, ptr %1088, align 8
-  %1089 = load ptr, ptr %3, align 8
-  %1090 = getelementptr inbounds %struct.slurm_conf_t, ptr %1089, i32 0, i32 83
-  %1091 = load i16, ptr %1090, align 4
-  %1092 = zext i16 %1091 to i32
-  %1093 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.91, i32 noundef %1092)
-  %1094 = load ptr, ptr %5, align 8
-  %1095 = getelementptr inbounds %struct.config_key_pair_t, ptr %1094, i32 0, i32 1
-  store ptr %1093, ptr %1095, align 8
-  %1096 = load ptr, ptr %4, align 8
-  %1097 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1096, ptr noundef %1097)
-  %1098 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1099 = load ptr, ptr %3, align 8
-  %1100 = getelementptr inbounds %struct.slurm_conf_t, ptr %1099, i32 0, i32 84
-  %1101 = load i16, ptr %1100, align 2
-  %1102 = zext i16 %1101 to i32
-  %1103 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1098, i64 noundef 256, ptr noundef @.str.105, i32 noundef %1102) #6
-  %1104 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 982, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1104, ptr %5, align 8
-  %1105 = call ptr @xstrdup(ptr noundef @.str.174)
-  %1106 = load ptr, ptr %5, align 8
-  %1107 = getelementptr inbounds %struct.config_key_pair_t, ptr %1106, i32 0, i32 0
-  store ptr %1105, ptr %1107, align 8
-  %1108 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1109 = call ptr @xstrdup(ptr noundef %1108)
-  %1110 = load ptr, ptr %5, align 8
-  %1111 = getelementptr inbounds %struct.config_key_pair_t, ptr %1110, i32 0, i32 1
-  store ptr %1109, ptr %1111, align 8
-  %1112 = load ptr, ptr %4, align 8
-  %1113 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1112, ptr noundef %1113)
-  %1114 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 987, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1114, ptr %5, align 8
-  %1115 = call ptr @xstrdup(ptr noundef @.str.175)
-  %1116 = load ptr, ptr %5, align 8
-  %1117 = getelementptr inbounds %struct.config_key_pair_t, ptr %1116, i32 0, i32 0
-  store ptr %1115, ptr %1117, align 8
-  %1118 = load ptr, ptr %3, align 8
-  %1119 = getelementptr inbounds %struct.slurm_conf_t, ptr %1118, i32 0, i32 85
-  %1120 = load ptr, ptr %1119, align 8
-  %1121 = call ptr @xstrdup(ptr noundef %1120)
-  %1122 = load ptr, ptr %5, align 8
-  %1123 = getelementptr inbounds %struct.config_key_pair_t, ptr %1122, i32 0, i32 1
-  store ptr %1121, ptr %1123, align 8
-  %1124 = load ptr, ptr %4, align 8
-  %1125 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1124, ptr noundef %1125)
-  %1126 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 992, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1126, ptr %5, align 8
-  %1127 = call ptr @xstrdup(ptr noundef @.str.176)
-  %1128 = load ptr, ptr %5, align 8
-  %1129 = getelementptr inbounds %struct.config_key_pair_t, ptr %1128, i32 0, i32 0
-  store ptr %1127, ptr %1129, align 8
-  %1130 = load ptr, ptr %3, align 8
-  %1131 = getelementptr inbounds %struct.slurm_conf_t, ptr %1130, i32 0, i32 86
-  %1132 = load ptr, ptr %1131, align 8
-  %1133 = call ptr @xstrdup(ptr noundef %1132)
-  %1134 = load ptr, ptr %5, align 8
-  %1135 = getelementptr inbounds %struct.config_key_pair_t, ptr %1134, i32 0, i32 1
-  store ptr %1133, ptr %1135, align 8
-  %1136 = load ptr, ptr %4, align 8
-  %1137 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1136, ptr noundef %1137)
-  %1138 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 997, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1138, ptr %5, align 8
-  %1139 = call ptr @xstrdup(ptr noundef @.str.177)
-  %1140 = load ptr, ptr %5, align 8
-  %1141 = getelementptr inbounds %struct.config_key_pair_t, ptr %1140, i32 0, i32 0
-  store ptr %1139, ptr %1141, align 8
-  %1142 = load ptr, ptr %3, align 8
-  %1143 = getelementptr inbounds %struct.slurm_conf_t, ptr %1142, i32 0, i32 87
-  %1144 = load i16, ptr %1143, align 8
-  %1145 = zext i16 %1144 to i64
-  %1146 = and i64 %1145, 32768
-  %1147 = icmp ne i64 %1146, 0
-  br i1 %1147, label %1148, label %1155
+835:                                              ; preds = %824, %702
+  %836 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %837 = load ptr, ptr %3, align 8
+  %838 = getelementptr inbounds %struct.slurm_conf_t, ptr %837, i32 0, i32 59
+  %839 = load i16, ptr %838, align 4
+  %840 = zext i16 %839 to i32
+  %841 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %836, i64 noundef 256, ptr noundef @.str.105, i32 noundef %840) #6
+  %842 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 868, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %842, ptr %5, align 8
+  %843 = call ptr @xstrdup(ptr noundef @.str.154)
+  %844 = load ptr, ptr %5, align 8
+  %845 = getelementptr inbounds %struct.config_key_pair_t, ptr %844, i32 0, i32 0
+  store ptr %843, ptr %845, align 8
+  %846 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %847 = call ptr @xstrdup(ptr noundef %846)
+  %848 = load ptr, ptr %5, align 8
+  %849 = getelementptr inbounds %struct.config_key_pair_t, ptr %848, i32 0, i32 1
+  store ptr %847, ptr %849, align 8
+  %850 = load ptr, ptr %4, align 8
+  %851 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %850, ptr noundef %851)
+  %852 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 873, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %852, ptr %5, align 8
+  %853 = call ptr @xstrdup(ptr noundef @.str.155)
+  %854 = load ptr, ptr %5, align 8
+  %855 = getelementptr inbounds %struct.config_key_pair_t, ptr %854, i32 0, i32 0
+  store ptr %853, ptr %855, align 8
+  %856 = load ptr, ptr %3, align 8
+  %857 = getelementptr inbounds %struct.slurm_conf_t, ptr %856, i32 0, i32 60
+  %858 = load i16, ptr %857, align 2
+  %859 = zext i16 %858 to i32
+  %860 = call ptr @health_check_node_state_str(i32 noundef %859)
+  %861 = load ptr, ptr %5, align 8
+  %862 = getelementptr inbounds %struct.config_key_pair_t, ptr %861, i32 0, i32 1
+  store ptr %860, ptr %862, align 8
+  %863 = load ptr, ptr %4, align 8
+  %864 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %863, ptr noundef %864)
+  %865 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 879, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %865, ptr %5, align 8
+  %866 = call ptr @xstrdup(ptr noundef @.str.156)
+  %867 = load ptr, ptr %5, align 8
+  %868 = getelementptr inbounds %struct.config_key_pair_t, ptr %867, i32 0, i32 0
+  store ptr %866, ptr %868, align 8
+  %869 = load ptr, ptr %3, align 8
+  %870 = getelementptr inbounds %struct.slurm_conf_t, ptr %869, i32 0, i32 61
+  %871 = load ptr, ptr %870, align 8
+  %872 = call ptr @xstrdup(ptr noundef %871)
+  %873 = load ptr, ptr %5, align 8
+  %874 = getelementptr inbounds %struct.config_key_pair_t, ptr %873, i32 0, i32 1
+  store ptr %872, ptr %874, align 8
+  %875 = load ptr, ptr %4, align 8
+  %876 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %875, ptr noundef %876)
+  %877 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %878 = load ptr, ptr %3, align 8
+  %879 = getelementptr inbounds %struct.slurm_conf_t, ptr %878, i32 0, i32 62
+  %880 = load i16, ptr %879, align 8
+  %881 = zext i16 %880 to i32
+  %882 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %877, i64 noundef 256, ptr noundef @.str.105, i32 noundef %881) #6
+  %883 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 886, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %883, ptr %5, align 8
+  %884 = call ptr @xstrdup(ptr noundef @.str.157)
+  %885 = load ptr, ptr %5, align 8
+  %886 = getelementptr inbounds %struct.config_key_pair_t, ptr %885, i32 0, i32 0
+  store ptr %884, ptr %886, align 8
+  %887 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %888 = call ptr @xstrdup(ptr noundef %887)
+  %889 = load ptr, ptr %5, align 8
+  %890 = getelementptr inbounds %struct.config_key_pair_t, ptr %889, i32 0, i32 1
+  store ptr %888, ptr %890, align 8
+  %891 = load ptr, ptr %4, align 8
+  %892 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %891, ptr noundef %892)
+  %893 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 891, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %893, ptr %5, align 8
+  %894 = call ptr @xstrdup(ptr noundef @.str.158)
+  %895 = load ptr, ptr %5, align 8
+  %896 = getelementptr inbounds %struct.config_key_pair_t, ptr %895, i32 0, i32 0
+  store ptr %894, ptr %896, align 8
+  %897 = load ptr, ptr %3, align 8
+  %898 = getelementptr inbounds %struct.slurm_conf_t, ptr %897, i32 0, i32 63
+  %899 = load ptr, ptr %898, align 8
+  %900 = call ptr @xstrdup(ptr noundef %899)
+  %901 = load ptr, ptr %5, align 8
+  %902 = getelementptr inbounds %struct.config_key_pair_t, ptr %901, i32 0, i32 1
+  store ptr %900, ptr %902, align 8
+  %903 = load ptr, ptr %4, align 8
+  %904 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %903, ptr noundef %904)
+  %905 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 896, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %905, ptr %5, align 8
+  %906 = call ptr @xstrdup(ptr noundef @.str.159)
+  %907 = load ptr, ptr %5, align 8
+  %908 = getelementptr inbounds %struct.config_key_pair_t, ptr %907, i32 0, i32 0
+  store ptr %906, ptr %908, align 8
+  %909 = load ptr, ptr %3, align 8
+  %910 = getelementptr inbounds %struct.slurm_conf_t, ptr %909, i32 0, i32 64
+  %911 = load ptr, ptr %910, align 8
+  %912 = call ptr @xstrdup(ptr noundef %911)
+  %913 = load ptr, ptr %5, align 8
+  %914 = getelementptr inbounds %struct.config_key_pair_t, ptr %913, i32 0, i32 1
+  store ptr %912, ptr %914, align 8
+  %915 = load ptr, ptr %4, align 8
+  %916 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %915, ptr noundef %916)
+  %917 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 901, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %917, ptr %5, align 8
+  %918 = call ptr @xstrdup(ptr noundef @.str.160)
+  %919 = load ptr, ptr %5, align 8
+  %920 = getelementptr inbounds %struct.config_key_pair_t, ptr %919, i32 0, i32 0
+  store ptr %918, ptr %920, align 8
+  %921 = load ptr, ptr %3, align 8
+  %922 = getelementptr inbounds %struct.slurm_conf_t, ptr %921, i32 0, i32 65
+  %923 = load ptr, ptr %922, align 8
+  %924 = call ptr @xstrdup(ptr noundef %923)
+  %925 = load ptr, ptr %5, align 8
+  %926 = getelementptr inbounds %struct.config_key_pair_t, ptr %925, i32 0, i32 1
+  store ptr %924, ptr %926, align 8
+  %927 = load ptr, ptr %4, align 8
+  %928 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %927, ptr noundef %928)
+  %929 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 906, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %929, ptr %5, align 8
+  %930 = call ptr @xstrdup(ptr noundef @.str.161)
+  %931 = load ptr, ptr %5, align 8
+  %932 = getelementptr inbounds %struct.config_key_pair_t, ptr %931, i32 0, i32 0
+  store ptr %930, ptr %932, align 8
+  %933 = load ptr, ptr %3, align 8
+  %934 = getelementptr inbounds %struct.slurm_conf_t, ptr %933, i32 0, i32 66
+  %935 = load ptr, ptr %934, align 8
+  %936 = call ptr @xstrdup(ptr noundef %935)
+  %937 = load ptr, ptr %5, align 8
+  %938 = getelementptr inbounds %struct.config_key_pair_t, ptr %937, i32 0, i32 1
+  store ptr %936, ptr %938, align 8
+  %939 = load ptr, ptr %4, align 8
+  %940 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %939, ptr noundef %940)
+  %941 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 911, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %941, ptr %5, align 8
+  %942 = call ptr @xstrdup(ptr noundef @.str.162)
+  %943 = load ptr, ptr %5, align 8
+  %944 = getelementptr inbounds %struct.config_key_pair_t, ptr %943, i32 0, i32 0
+  store ptr %942, ptr %944, align 8
+  %945 = load ptr, ptr %3, align 8
+  %946 = getelementptr inbounds %struct.slurm_conf_t, ptr %945, i32 0, i32 68
+  %947 = load ptr, ptr %946, align 8
+  %948 = call ptr @xstrdup(ptr noundef %947)
+  %949 = load ptr, ptr %5, align 8
+  %950 = getelementptr inbounds %struct.config_key_pair_t, ptr %949, i32 0, i32 1
+  store ptr %948, ptr %950, align 8
+  %951 = load ptr, ptr %4, align 8
+  %952 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %951, ptr noundef %952)
+  %953 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 916, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %953, ptr %5, align 8
+  %954 = call ptr @xstrdup(ptr noundef @.str.163)
+  %955 = load ptr, ptr %5, align 8
+  %956 = getelementptr inbounds %struct.config_key_pair_t, ptr %955, i32 0, i32 0
+  store ptr %954, ptr %956, align 8
+  %957 = load ptr, ptr %3, align 8
+  %958 = getelementptr inbounds %struct.slurm_conf_t, ptr %957, i32 0, i32 69
+  %959 = load ptr, ptr %958, align 8
+  %960 = call ptr @xstrdup(ptr noundef %959)
+  %961 = load ptr, ptr %5, align 8
+  %962 = getelementptr inbounds %struct.config_key_pair_t, ptr %961, i32 0, i32 1
+  store ptr %960, ptr %962, align 8
+  %963 = load ptr, ptr %4, align 8
+  %964 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %963, ptr noundef %964)
+  %965 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 921, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %965, ptr %5, align 8
+  %966 = call ptr @xstrdup(ptr noundef @.str.164)
+  %967 = load ptr, ptr %5, align 8
+  %968 = getelementptr inbounds %struct.config_key_pair_t, ptr %967, i32 0, i32 0
+  store ptr %966, ptr %968, align 8
+  %969 = load ptr, ptr %3, align 8
+  %970 = getelementptr inbounds %struct.slurm_conf_t, ptr %969, i32 0, i32 70
+  %971 = load ptr, ptr %970, align 8
+  %972 = call ptr @xstrdup(ptr noundef %971)
+  %973 = load ptr, ptr %5, align 8
+  %974 = getelementptr inbounds %struct.config_key_pair_t, ptr %973, i32 0, i32 1
+  store ptr %972, ptr %974, align 8
+  %975 = load ptr, ptr %4, align 8
+  %976 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %975, ptr noundef %976)
+  %977 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %978 = load ptr, ptr %3, align 8
+  %979 = getelementptr inbounds %struct.slurm_conf_t, ptr %978, i32 0, i32 72
+  %980 = load i32, ptr %979, align 8
+  %981 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %977, i64 noundef 256, ptr noundef @.str.91, i32 noundef %980) #6
+  %982 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 928, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %982, ptr %5, align 8
+  %983 = call ptr @xstrdup(ptr noundef @.str.165)
+  %984 = load ptr, ptr %5, align 8
+  %985 = getelementptr inbounds %struct.config_key_pair_t, ptr %984, i32 0, i32 0
+  store ptr %983, ptr %985, align 8
+  %986 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %987 = call ptr @xstrdup(ptr noundef %986)
+  %988 = load ptr, ptr %5, align 8
+  %989 = getelementptr inbounds %struct.config_key_pair_t, ptr %988, i32 0, i32 1
+  store ptr %987, ptr %989, align 8
+  %990 = load ptr, ptr %4, align 8
+  %991 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %990, ptr noundef %991)
+  %992 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 933, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %992, ptr %5, align 8
+  %993 = call ptr @xstrdup(ptr noundef @.str.166)
+  %994 = load ptr, ptr %5, align 8
+  %995 = getelementptr inbounds %struct.config_key_pair_t, ptr %994, i32 0, i32 0
+  store ptr %993, ptr %995, align 8
+  %996 = load ptr, ptr %3, align 8
+  %997 = getelementptr inbounds %struct.slurm_conf_t, ptr %996, i32 0, i32 73
+  %998 = load ptr, ptr %997, align 8
+  %999 = call ptr @xstrdup(ptr noundef %998)
+  %1000 = load ptr, ptr %5, align 8
+  %1001 = getelementptr inbounds %struct.config_key_pair_t, ptr %1000, i32 0, i32 1
+  store ptr %999, ptr %1001, align 8
+  %1002 = load ptr, ptr %4, align 8
+  %1003 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1002, ptr noundef %1003)
+  %1004 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 938, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1004, ptr %5, align 8
+  %1005 = call ptr @xstrdup(ptr noundef @.str.167)
+  %1006 = load ptr, ptr %5, align 8
+  %1007 = getelementptr inbounds %struct.config_key_pair_t, ptr %1006, i32 0, i32 0
+  store ptr %1005, ptr %1007, align 8
+  %1008 = load ptr, ptr %3, align 8
+  %1009 = getelementptr inbounds %struct.slurm_conf_t, ptr %1008, i32 0, i32 74
+  %1010 = load ptr, ptr %1009, align 8
+  %1011 = call ptr @xstrdup(ptr noundef %1010)
+  %1012 = load ptr, ptr %5, align 8
+  %1013 = getelementptr inbounds %struct.config_key_pair_t, ptr %1012, i32 0, i32 1
+  store ptr %1011, ptr %1013, align 8
+  %1014 = load ptr, ptr %4, align 8
+  %1015 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1014, ptr noundef %1015)
+  %1016 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 943, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1016, ptr %5, align 8
+  %1017 = call ptr @xstrdup(ptr noundef @.str.168)
+  %1018 = load ptr, ptr %5, align 8
+  %1019 = getelementptr inbounds %struct.config_key_pair_t, ptr %1018, i32 0, i32 0
+  store ptr %1017, ptr %1019, align 8
+  %1020 = load ptr, ptr %3, align 8
+  %1021 = getelementptr inbounds %struct.slurm_conf_t, ptr %1020, i32 0, i32 75
+  %1022 = load ptr, ptr %1021, align 8
+  %1023 = call ptr @xstrdup(ptr noundef %1022)
+  %1024 = load ptr, ptr %5, align 8
+  %1025 = getelementptr inbounds %struct.config_key_pair_t, ptr %1024, i32 0, i32 1
+  store ptr %1023, ptr %1025, align 8
+  %1026 = load ptr, ptr %4, align 8
+  %1027 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1026, ptr noundef %1027)
+  %1028 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 948, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1028, ptr %5, align 8
+  %1029 = call ptr @xstrdup(ptr noundef @.str.169)
+  %1030 = load ptr, ptr %5, align 8
+  %1031 = getelementptr inbounds %struct.config_key_pair_t, ptr %1030, i32 0, i32 0
+  store ptr %1029, ptr %1031, align 8
+  %1032 = load ptr, ptr %3, align 8
+  %1033 = getelementptr inbounds %struct.slurm_conf_t, ptr %1032, i32 0, i32 76
+  %1034 = load ptr, ptr %1033, align 8
+  %1035 = call ptr @job_defaults_str(ptr noundef %1034)
+  %1036 = load ptr, ptr %5, align 8
+  %1037 = getelementptr inbounds %struct.config_key_pair_t, ptr %1036, i32 0, i32 1
+  store ptr %1035, ptr %1037, align 8
+  %1038 = load ptr, ptr %4, align 8
+  %1039 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1038, ptr noundef %1039)
+  %1040 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1041 = load ptr, ptr %3, align 8
+  %1042 = getelementptr inbounds %struct.slurm_conf_t, ptr %1041, i32 0, i32 77
+  %1043 = load i16, ptr %1042, align 8
+  %1044 = zext i16 %1043 to i32
+  %1045 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1040, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1044) #6
+  %1046 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 956, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1046, ptr %5, align 8
+  %1047 = call ptr @xstrdup(ptr noundef @.str.170)
+  %1048 = load ptr, ptr %5, align 8
+  %1049 = getelementptr inbounds %struct.config_key_pair_t, ptr %1048, i32 0, i32 0
+  store ptr %1047, ptr %1049, align 8
+  %1050 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1051 = call ptr @xstrdup(ptr noundef %1050)
+  %1052 = load ptr, ptr %5, align 8
+  %1053 = getelementptr inbounds %struct.config_key_pair_t, ptr %1052, i32 0, i32 1
+  store ptr %1051, ptr %1053, align 8
+  %1054 = load ptr, ptr %4, align 8
+  %1055 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1054, ptr noundef %1055)
+  %1056 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 961, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1056, ptr %5, align 8
+  %1057 = call ptr @xstrdup(ptr noundef @.str.171)
+  %1058 = load ptr, ptr %5, align 8
+  %1059 = getelementptr inbounds %struct.config_key_pair_t, ptr %1058, i32 0, i32 0
+  store ptr %1057, ptr %1059, align 8
+  %1060 = load ptr, ptr %3, align 8
+  %1061 = getelementptr inbounds %struct.slurm_conf_t, ptr %1060, i32 0, i32 78
+  %1062 = load i16, ptr %1061, align 2
+  %1063 = zext i16 %1062 to i32
+  %1064 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.91, i32 noundef %1063)
+  %1065 = load ptr, ptr %5, align 8
+  %1066 = getelementptr inbounds %struct.config_key_pair_t, ptr %1065, i32 0, i32 1
+  store ptr %1064, ptr %1066, align 8
+  %1067 = load ptr, ptr %4, align 8
+  %1068 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1067, ptr noundef %1068)
+  %1069 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 967, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1069, ptr %5, align 8
+  %1070 = call ptr @xstrdup(ptr noundef @.str.172)
+  %1071 = load ptr, ptr %5, align 8
+  %1072 = getelementptr inbounds %struct.config_key_pair_t, ptr %1071, i32 0, i32 0
+  store ptr %1070, ptr %1072, align 8
+  %1073 = load ptr, ptr %3, align 8
+  %1074 = getelementptr inbounds %struct.slurm_conf_t, ptr %1073, i32 0, i32 79
+  %1075 = load ptr, ptr %1074, align 8
+  %1076 = call ptr @xstrdup(ptr noundef %1075)
+  %1077 = load ptr, ptr %5, align 8
+  %1078 = getelementptr inbounds %struct.config_key_pair_t, ptr %1077, i32 0, i32 1
+  store ptr %1076, ptr %1078, align 8
+  %1079 = load ptr, ptr %4, align 8
+  %1080 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1079, ptr noundef %1080)
+  %1081 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1082 = load ptr, ptr %3, align 8
+  %1083 = getelementptr inbounds %struct.slurm_conf_t, ptr %1082, i32 0, i32 83
+  %1084 = load i16, ptr %1083, align 4
+  %1085 = zext i16 %1084 to i32
+  %1086 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1081, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1085) #6
+  %1087 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 974, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1087, ptr %5, align 8
+  %1088 = call ptr @xstrdup(ptr noundef @.str.173)
+  %1089 = load ptr, ptr %5, align 8
+  %1090 = getelementptr inbounds %struct.config_key_pair_t, ptr %1089, i32 0, i32 0
+  store ptr %1088, ptr %1090, align 8
+  %1091 = load ptr, ptr %3, align 8
+  %1092 = getelementptr inbounds %struct.slurm_conf_t, ptr %1091, i32 0, i32 83
+  %1093 = load i16, ptr %1092, align 4
+  %1094 = zext i16 %1093 to i32
+  %1095 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.91, i32 noundef %1094)
+  %1096 = load ptr, ptr %5, align 8
+  %1097 = getelementptr inbounds %struct.config_key_pair_t, ptr %1096, i32 0, i32 1
+  store ptr %1095, ptr %1097, align 8
+  %1098 = load ptr, ptr %4, align 8
+  %1099 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1098, ptr noundef %1099)
+  %1100 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1101 = load ptr, ptr %3, align 8
+  %1102 = getelementptr inbounds %struct.slurm_conf_t, ptr %1101, i32 0, i32 84
+  %1103 = load i16, ptr %1102, align 2
+  %1104 = zext i16 %1103 to i32
+  %1105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1100, i64 noundef 256, ptr noundef @.str.105, i32 noundef %1104) #6
+  %1106 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 982, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1106, ptr %5, align 8
+  %1107 = call ptr @xstrdup(ptr noundef @.str.174)
+  %1108 = load ptr, ptr %5, align 8
+  %1109 = getelementptr inbounds %struct.config_key_pair_t, ptr %1108, i32 0, i32 0
+  store ptr %1107, ptr %1109, align 8
+  %1110 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1111 = call ptr @xstrdup(ptr noundef %1110)
+  %1112 = load ptr, ptr %5, align 8
+  %1113 = getelementptr inbounds %struct.config_key_pair_t, ptr %1112, i32 0, i32 1
+  store ptr %1111, ptr %1113, align 8
+  %1114 = load ptr, ptr %4, align 8
+  %1115 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1114, ptr noundef %1115)
+  %1116 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 987, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1116, ptr %5, align 8
+  %1117 = call ptr @xstrdup(ptr noundef @.str.175)
+  %1118 = load ptr, ptr %5, align 8
+  %1119 = getelementptr inbounds %struct.config_key_pair_t, ptr %1118, i32 0, i32 0
+  store ptr %1117, ptr %1119, align 8
+  %1120 = load ptr, ptr %3, align 8
+  %1121 = getelementptr inbounds %struct.slurm_conf_t, ptr %1120, i32 0, i32 85
+  %1122 = load ptr, ptr %1121, align 8
+  %1123 = call ptr @xstrdup(ptr noundef %1122)
+  %1124 = load ptr, ptr %5, align 8
+  %1125 = getelementptr inbounds %struct.config_key_pair_t, ptr %1124, i32 0, i32 1
+  store ptr %1123, ptr %1125, align 8
+  %1126 = load ptr, ptr %4, align 8
+  %1127 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1126, ptr noundef %1127)
+  %1128 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 992, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1128, ptr %5, align 8
+  %1129 = call ptr @xstrdup(ptr noundef @.str.176)
+  %1130 = load ptr, ptr %5, align 8
+  %1131 = getelementptr inbounds %struct.config_key_pair_t, ptr %1130, i32 0, i32 0
+  store ptr %1129, ptr %1131, align 8
+  %1132 = load ptr, ptr %3, align 8
+  %1133 = getelementptr inbounds %struct.slurm_conf_t, ptr %1132, i32 0, i32 86
+  %1134 = load ptr, ptr %1133, align 8
+  %1135 = call ptr @xstrdup(ptr noundef %1134)
+  %1136 = load ptr, ptr %5, align 8
+  %1137 = getelementptr inbounds %struct.config_key_pair_t, ptr %1136, i32 0, i32 1
+  store ptr %1135, ptr %1137, align 8
+  %1138 = load ptr, ptr %4, align 8
+  %1139 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1138, ptr noundef %1139)
+  %1140 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 997, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1140, ptr %5, align 8
+  %1141 = call ptr @xstrdup(ptr noundef @.str.177)
+  %1142 = load ptr, ptr %5, align 8
+  %1143 = getelementptr inbounds %struct.config_key_pair_t, ptr %1142, i32 0, i32 0
+  store ptr %1141, ptr %1143, align 8
+  %1144 = load ptr, ptr %3, align 8
+  %1145 = getelementptr inbounds %struct.slurm_conf_t, ptr %1144, i32 0, i32 87
+  %1146 = load i16, ptr %1145, align 8
+  %1147 = zext i16 %1146 to i64
+  %1148 = and i64 %1147, 32768
+  %1149 = icmp ne i64 %1148, 0
+  br i1 %1149, label %1150, label %1157
 
-1148:                                             ; preds = %833
+1150:                                             ; preds = %835
   store i8 1, ptr %9, align 1
-  %1149 = load ptr, ptr %3, align 8
-  %1150 = getelementptr inbounds %struct.slurm_conf_t, ptr %1149, i32 0, i32 87
-  %1151 = load i16, ptr %1150, align 8
-  %1152 = zext i16 %1151 to i64
-  %1153 = and i64 %1152, -32769
-  %1154 = trunc i64 %1153 to i16
-  store i16 %1154, ptr %1150, align 8
-  br label %1155
+  %1151 = load ptr, ptr %3, align 8
+  %1152 = getelementptr inbounds %struct.slurm_conf_t, ptr %1151, i32 0, i32 87
+  %1153 = load i16, ptr %1152, align 8
+  %1154 = zext i16 %1153 to i64
+  %1155 = and i64 %1154, -32769
+  %1156 = trunc i64 %1155 to i16
+  store i16 %1156, ptr %1152, align 8
+  br label %1157
 
-1155:                                             ; preds = %1148, %833
-  %1156 = load ptr, ptr %3, align 8
-  %1157 = getelementptr inbounds %struct.slurm_conf_t, ptr %1156, i32 0, i32 87
-  %1158 = load i16, ptr %1157, align 8
-  %1159 = zext i16 %1158 to i32
-  %1160 = icmp eq i32 %1159, 0
-  br i1 %1160, label %1161, label %1165
+1157:                                             ; preds = %1150, %835
+  %1158 = load ptr, ptr %3, align 8
+  %1159 = getelementptr inbounds %struct.slurm_conf_t, ptr %1158, i32 0, i32 87
+  %1160 = load i16, ptr %1159, align 8
+  %1161 = zext i16 %1160 to i32
+  %1162 = icmp eq i32 %1161, 0
+  br i1 %1162, label %1163, label %1167
 
-1161:                                             ; preds = %1155
-  %1162 = call ptr @xstrdup(ptr noundef @.str.178)
-  %1163 = load ptr, ptr %5, align 8
-  %1164 = getelementptr inbounds %struct.config_key_pair_t, ptr %1163, i32 0, i32 1
-  store ptr %1162, ptr %1164, align 8
+1163:                                             ; preds = %1157
+  %1164 = call ptr @xstrdup(ptr noundef @.str.178)
+  %1165 = load ptr, ptr %5, align 8
+  %1166 = getelementptr inbounds %struct.config_key_pair_t, ptr %1165, i32 0, i32 1
+  store ptr %1164, ptr %1166, align 8
+  br label %1244
+
+1167:                                             ; preds = %1157
+  %1168 = load ptr, ptr %3, align 8
+  %1169 = getelementptr inbounds %struct.slurm_conf_t, ptr %1168, i32 0, i32 87
+  %1170 = load i16, ptr %1169, align 8
+  %1171 = zext i16 %1170 to i32
+  %1172 = icmp eq i32 %1171, 1
+  br i1 %1172, label %1173, label %1177
+
+1173:                                             ; preds = %1167
+  %1174 = call ptr @xstrdup(ptr noundef @.str.179)
+  %1175 = load ptr, ptr %5, align 8
+  %1176 = getelementptr inbounds %struct.config_key_pair_t, ptr %1175, i32 0, i32 1
+  store ptr %1174, ptr %1176, align 8
+  br label %1243
+
+1177:                                             ; preds = %1167
+  %1178 = load ptr, ptr %3, align 8
+  %1179 = getelementptr inbounds %struct.slurm_conf_t, ptr %1178, i32 0, i32 87
+  %1180 = load i16, ptr %1179, align 8
+  %1181 = zext i16 %1180 to i32
+  %1182 = icmp eq i32 %1181, 2
+  br i1 %1182, label %1183, label %1187
+
+1183:                                             ; preds = %1177
+  %1184 = call ptr @xstrdup(ptr noundef @.str.180)
+  %1185 = load ptr, ptr %5, align 8
+  %1186 = getelementptr inbounds %struct.config_key_pair_t, ptr %1185, i32 0, i32 1
+  store ptr %1184, ptr %1186, align 8
   br label %1242
 
-1165:                                             ; preds = %1155
-  %1166 = load ptr, ptr %3, align 8
-  %1167 = getelementptr inbounds %struct.slurm_conf_t, ptr %1166, i32 0, i32 87
-  %1168 = load i16, ptr %1167, align 8
-  %1169 = zext i16 %1168 to i32
-  %1170 = icmp eq i32 %1169, 1
-  br i1 %1170, label %1171, label %1175
+1187:                                             ; preds = %1177
+  %1188 = load ptr, ptr %3, align 8
+  %1189 = getelementptr inbounds %struct.slurm_conf_t, ptr %1188, i32 0, i32 87
+  %1190 = load i16, ptr %1189, align 8
+  %1191 = zext i16 %1190 to i32
+  %1192 = icmp eq i32 %1191, 3
+  br i1 %1192, label %1193, label %1197
 
-1171:                                             ; preds = %1165
-  %1172 = call ptr @xstrdup(ptr noundef @.str.179)
-  %1173 = load ptr, ptr %5, align 8
-  %1174 = getelementptr inbounds %struct.config_key_pair_t, ptr %1173, i32 0, i32 1
-  store ptr %1172, ptr %1174, align 8
+1193:                                             ; preds = %1187
+  %1194 = call ptr @xstrdup(ptr noundef @.str.181)
+  %1195 = load ptr, ptr %5, align 8
+  %1196 = getelementptr inbounds %struct.config_key_pair_t, ptr %1195, i32 0, i32 1
+  store ptr %1194, ptr %1196, align 8
   br label %1241
 
-1175:                                             ; preds = %1165
-  %1176 = load ptr, ptr %3, align 8
-  %1177 = getelementptr inbounds %struct.slurm_conf_t, ptr %1176, i32 0, i32 87
-  %1178 = load i16, ptr %1177, align 8
-  %1179 = zext i16 %1178 to i32
-  %1180 = icmp eq i32 %1179, 2
-  br i1 %1180, label %1181, label %1185
+1197:                                             ; preds = %1187
+  %1198 = load ptr, ptr %3, align 8
+  %1199 = getelementptr inbounds %struct.slurm_conf_t, ptr %1198, i32 0, i32 87
+  %1200 = load i16, ptr %1199, align 8
+  %1201 = zext i16 %1200 to i32
+  %1202 = icmp eq i32 %1201, 7
+  br i1 %1202, label %1203, label %1207
 
-1181:                                             ; preds = %1175
-  %1182 = call ptr @xstrdup(ptr noundef @.str.180)
-  %1183 = load ptr, ptr %5, align 8
-  %1184 = getelementptr inbounds %struct.config_key_pair_t, ptr %1183, i32 0, i32 1
-  store ptr %1182, ptr %1184, align 8
+1203:                                             ; preds = %1197
+  %1204 = call ptr @xstrdup(ptr noundef @.str.182)
+  %1205 = load ptr, ptr %5, align 8
+  %1206 = getelementptr inbounds %struct.config_key_pair_t, ptr %1205, i32 0, i32 1
+  store ptr %1204, ptr %1206, align 8
   br label %1240
 
-1185:                                             ; preds = %1175
-  %1186 = load ptr, ptr %3, align 8
-  %1187 = getelementptr inbounds %struct.slurm_conf_t, ptr %1186, i32 0, i32 87
-  %1188 = load i16, ptr %1187, align 8
-  %1189 = zext i16 %1188 to i32
-  %1190 = icmp eq i32 %1189, 3
-  br i1 %1190, label %1191, label %1195
+1207:                                             ; preds = %1197
+  %1208 = load ptr, ptr %3, align 8
+  %1209 = getelementptr inbounds %struct.slurm_conf_t, ptr %1208, i32 0, i32 87
+  %1210 = load i16, ptr %1209, align 8
+  %1211 = zext i16 %1210 to i32
+  %1212 = icmp eq i32 %1211, 4
+  br i1 %1212, label %1213, label %1217
 
-1191:                                             ; preds = %1185
-  %1192 = call ptr @xstrdup(ptr noundef @.str.181)
-  %1193 = load ptr, ptr %5, align 8
-  %1194 = getelementptr inbounds %struct.config_key_pair_t, ptr %1193, i32 0, i32 1
-  store ptr %1192, ptr %1194, align 8
+1213:                                             ; preds = %1207
+  %1214 = call ptr @xstrdup(ptr noundef @.str.183)
+  %1215 = load ptr, ptr %5, align 8
+  %1216 = getelementptr inbounds %struct.config_key_pair_t, ptr %1215, i32 0, i32 1
+  store ptr %1214, ptr %1216, align 8
   br label %1239
 
-1195:                                             ; preds = %1185
-  %1196 = load ptr, ptr %3, align 8
-  %1197 = getelementptr inbounds %struct.slurm_conf_t, ptr %1196, i32 0, i32 87
-  %1198 = load i16, ptr %1197, align 8
-  %1199 = zext i16 %1198 to i32
-  %1200 = icmp eq i32 %1199, 7
-  br i1 %1200, label %1201, label %1205
+1217:                                             ; preds = %1207
+  %1218 = load ptr, ptr %3, align 8
+  %1219 = getelementptr inbounds %struct.slurm_conf_t, ptr %1218, i32 0, i32 87
+  %1220 = load i16, ptr %1219, align 8
+  %1221 = zext i16 %1220 to i32
+  %1222 = icmp eq i32 %1221, 5
+  br i1 %1222, label %1223, label %1227
 
-1201:                                             ; preds = %1195
-  %1202 = call ptr @xstrdup(ptr noundef @.str.182)
-  %1203 = load ptr, ptr %5, align 8
-  %1204 = getelementptr inbounds %struct.config_key_pair_t, ptr %1203, i32 0, i32 1
-  store ptr %1202, ptr %1204, align 8
+1223:                                             ; preds = %1217
+  %1224 = call ptr @xstrdup(ptr noundef @.str.184)
+  %1225 = load ptr, ptr %5, align 8
+  %1226 = getelementptr inbounds %struct.config_key_pair_t, ptr %1225, i32 0, i32 1
+  store ptr %1224, ptr %1226, align 8
   br label %1238
 
-1205:                                             ; preds = %1195
-  %1206 = load ptr, ptr %3, align 8
-  %1207 = getelementptr inbounds %struct.slurm_conf_t, ptr %1206, i32 0, i32 87
-  %1208 = load i16, ptr %1207, align 8
-  %1209 = zext i16 %1208 to i32
-  %1210 = icmp eq i32 %1209, 4
-  br i1 %1210, label %1211, label %1215
+1227:                                             ; preds = %1217
+  %1228 = load ptr, ptr %3, align 8
+  %1229 = getelementptr inbounds %struct.slurm_conf_t, ptr %1228, i32 0, i32 87
+  %1230 = load i16, ptr %1229, align 8
+  %1231 = zext i16 %1230 to i32
+  %1232 = icmp eq i32 %1231, 6
+  br i1 %1232, label %1233, label %1237
 
-1211:                                             ; preds = %1205
-  %1212 = call ptr @xstrdup(ptr noundef @.str.183)
-  %1213 = load ptr, ptr %5, align 8
-  %1214 = getelementptr inbounds %struct.config_key_pair_t, ptr %1213, i32 0, i32 1
-  store ptr %1212, ptr %1214, align 8
+1233:                                             ; preds = %1227
+  %1234 = call ptr @xstrdup(ptr noundef @.str.185)
+  %1235 = load ptr, ptr %5, align 8
+  %1236 = getelementptr inbounds %struct.config_key_pair_t, ptr %1235, i32 0, i32 1
+  store ptr %1234, ptr %1236, align 8
   br label %1237
 
-1215:                                             ; preds = %1205
-  %1216 = load ptr, ptr %3, align 8
-  %1217 = getelementptr inbounds %struct.slurm_conf_t, ptr %1216, i32 0, i32 87
-  %1218 = load i16, ptr %1217, align 8
-  %1219 = zext i16 %1218 to i32
-  %1220 = icmp eq i32 %1219, 5
-  br i1 %1220, label %1221, label %1225
-
-1221:                                             ; preds = %1215
-  %1222 = call ptr @xstrdup(ptr noundef @.str.184)
-  %1223 = load ptr, ptr %5, align 8
-  %1224 = getelementptr inbounds %struct.config_key_pair_t, ptr %1223, i32 0, i32 1
-  store ptr %1222, ptr %1224, align 8
-  br label %1236
-
-1225:                                             ; preds = %1215
-  %1226 = load ptr, ptr %3, align 8
-  %1227 = getelementptr inbounds %struct.slurm_conf_t, ptr %1226, i32 0, i32 87
-  %1228 = load i16, ptr %1227, align 8
-  %1229 = zext i16 %1228 to i32
-  %1230 = icmp eq i32 %1229, 6
-  br i1 %1230, label %1231, label %1235
-
-1231:                                             ; preds = %1225
-  %1232 = call ptr @xstrdup(ptr noundef @.str.185)
-  %1233 = load ptr, ptr %5, align 8
-  %1234 = getelementptr inbounds %struct.config_key_pair_t, ptr %1233, i32 0, i32 1
-  store ptr %1232, ptr %1234, align 8
-  br label %1235
-
-1235:                                             ; preds = %1231, %1225
-  br label %1236
-
-1236:                                             ; preds = %1235, %1221
-  br label %1237
-
-1237:                                             ; preds = %1236, %1211
+1237:                                             ; preds = %1233, %1227
   br label %1238
 
-1238:                                             ; preds = %1237, %1201
+1238:                                             ; preds = %1237, %1223
   br label %1239
 
-1239:                                             ; preds = %1238, %1191
+1239:                                             ; preds = %1238, %1213
   br label %1240
 
-1240:                                             ; preds = %1239, %1181
+1240:                                             ; preds = %1239, %1203
   br label %1241
 
-1241:                                             ; preds = %1240, %1171
+1241:                                             ; preds = %1240, %1193
   br label %1242
 
-1242:                                             ; preds = %1241, %1161
-  %1243 = load i8, ptr %9, align 1
-  %1244 = trunc i8 %1243 to i1
-  br i1 %1244, label %1245, label %1254
+1242:                                             ; preds = %1241, %1183
+  br label %1243
 
-1245:                                             ; preds = %1242
-  %1246 = load ptr, ptr %5, align 8
-  %1247 = getelementptr inbounds %struct.config_key_pair_t, ptr %1246, i32 0, i32 1
-  call void @_xstrcat(ptr noundef %1247, ptr noundef @.str.186)
-  %1248 = load ptr, ptr %3, align 8
-  %1249 = getelementptr inbounds %struct.slurm_conf_t, ptr %1248, i32 0, i32 87
-  %1250 = load i16, ptr %1249, align 8
-  %1251 = zext i16 %1250 to i64
-  %1252 = or i64 %1251, 32768
-  %1253 = trunc i64 %1252 to i16
-  store i16 %1253, ptr %1249, align 8
-  br label %1254
+1243:                                             ; preds = %1242, %1173
+  br label %1244
 
-1254:                                             ; preds = %1245, %1242
-  %1255 = load ptr, ptr %4, align 8
-  %1256 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1255, ptr noundef %1256)
-  %1257 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1027, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1257, ptr %5, align 8
-  %1258 = call ptr @xstrdup(ptr noundef @.str.187)
-  %1259 = load ptr, ptr %5, align 8
-  %1260 = getelementptr inbounds %struct.config_key_pair_t, ptr %1259, i32 0, i32 0
-  store ptr %1258, ptr %1260, align 8
-  %1261 = load ptr, ptr %3, align 8
-  %1262 = getelementptr inbounds %struct.slurm_conf_t, ptr %1261, i32 0, i32 88
-  %1263 = load ptr, ptr %1262, align 8
-  %1264 = call ptr @xstrdup(ptr noundef %1263)
-  %1265 = load ptr, ptr %5, align 8
-  %1266 = getelementptr inbounds %struct.config_key_pair_t, ptr %1265, i32 0, i32 1
-  store ptr %1264, ptr %1266, align 8
-  %1267 = load ptr, ptr %4, align 8
-  %1268 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1267, ptr noundef %1268)
-  %1269 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1032, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1269, ptr %5, align 8
-  %1270 = call ptr @xstrdup(ptr noundef @.str.188)
-  %1271 = load ptr, ptr %5, align 8
-  %1272 = getelementptr inbounds %struct.config_key_pair_t, ptr %1271, i32 0, i32 0
-  store ptr %1270, ptr %1272, align 8
-  %1273 = load ptr, ptr %3, align 8
-  %1274 = getelementptr inbounds %struct.slurm_conf_t, ptr %1273, i32 0, i32 89
-  %1275 = load ptr, ptr %1274, align 8
-  %1276 = call ptr @xstrdup(ptr noundef %1275)
-  %1277 = load ptr, ptr %5, align 8
-  %1278 = getelementptr inbounds %struct.config_key_pair_t, ptr %1277, i32 0, i32 1
-  store ptr %1276, ptr %1278, align 8
-  %1279 = load ptr, ptr %4, align 8
-  %1280 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1279, ptr noundef %1280)
-  %1281 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1282 = load ptr, ptr %3, align 8
-  %1283 = getelementptr inbounds %struct.slurm_conf_t, ptr %1282, i32 0, i32 90
-  %1284 = load i32, ptr %1283, align 8
-  %1285 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1281, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1284) #6
-  %1286 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1039, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1286, ptr %5, align 8
-  %1287 = call ptr @xstrdup(ptr noundef @.str.189)
-  %1288 = load ptr, ptr %5, align 8
-  %1289 = getelementptr inbounds %struct.config_key_pair_t, ptr %1288, i32 0, i32 0
-  store ptr %1287, ptr %1289, align 8
-  %1290 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1291 = call ptr @xstrdup(ptr noundef %1290)
-  %1292 = load ptr, ptr %5, align 8
-  %1293 = getelementptr inbounds %struct.config_key_pair_t, ptr %1292, i32 0, i32 1
-  store ptr %1291, ptr %1293, align 8
-  %1294 = load ptr, ptr %4, align 8
-  %1295 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1294, ptr noundef %1295)
-  %1296 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1297 = load ptr, ptr %3, align 8
-  %1298 = getelementptr inbounds %struct.slurm_conf_t, ptr %1297, i32 0, i32 91
-  %1299 = load i32, ptr %1298, align 4
-  %1300 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1296, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1299) #6
-  %1301 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1046, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1301, ptr %5, align 8
-  %1302 = call ptr @xstrdup(ptr noundef @.str.190)
-  %1303 = load ptr, ptr %5, align 8
-  %1304 = getelementptr inbounds %struct.config_key_pair_t, ptr %1303, i32 0, i32 0
-  store ptr %1302, ptr %1304, align 8
-  %1305 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1306 = call ptr @xstrdup(ptr noundef %1305)
-  %1307 = load ptr, ptr %5, align 8
-  %1308 = getelementptr inbounds %struct.config_key_pair_t, ptr %1307, i32 0, i32 1
-  store ptr %1306, ptr %1308, align 8
-  %1309 = load ptr, ptr %4, align 8
-  %1310 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1309, ptr noundef %1310)
-  %1311 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1312 = load ptr, ptr %3, align 8
-  %1313 = getelementptr inbounds %struct.slurm_conf_t, ptr %1312, i32 0, i32 92
-  %1314 = load i32, ptr %1313, align 8
-  %1315 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1311, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1314) #6
-  %1316 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1053, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1316, ptr %5, align 8
-  %1317 = call ptr @xstrdup(ptr noundef @.str.191)
-  %1318 = load ptr, ptr %5, align 8
-  %1319 = getelementptr inbounds %struct.config_key_pair_t, ptr %1318, i32 0, i32 0
-  store ptr %1317, ptr %1319, align 8
-  %1320 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1321 = call ptr @xstrdup(ptr noundef %1320)
-  %1322 = load ptr, ptr %5, align 8
-  %1323 = getelementptr inbounds %struct.config_key_pair_t, ptr %1322, i32 0, i32 1
-  store ptr %1321, ptr %1323, align 8
-  %1324 = load ptr, ptr %4, align 8
-  %1325 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1324, ptr noundef %1325)
-  %1326 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1327 = load ptr, ptr %3, align 8
-  %1328 = getelementptr inbounds %struct.slurm_conf_t, ptr %1327, i32 0, i32 93
-  %1329 = load i32, ptr %1328, align 4
-  %1330 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1326, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1329) #6
-  %1331 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1060, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1331, ptr %5, align 8
-  %1332 = call ptr @xstrdup(ptr noundef @.str.192)
-  %1333 = load ptr, ptr %5, align 8
-  %1334 = getelementptr inbounds %struct.config_key_pair_t, ptr %1333, i32 0, i32 0
-  store ptr %1332, ptr %1334, align 8
-  %1335 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1336 = call ptr @xstrdup(ptr noundef %1335)
-  %1337 = load ptr, ptr %5, align 8
-  %1338 = getelementptr inbounds %struct.config_key_pair_t, ptr %1337, i32 0, i32 1
-  store ptr %1336, ptr %1338, align 8
-  %1339 = load ptr, ptr %4, align 8
-  %1340 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1339, ptr noundef %1340)
-  %1341 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1342 = load ptr, ptr %3, align 8
-  %1343 = getelementptr inbounds %struct.slurm_conf_t, ptr %1342, i32 0, i32 94
-  %1344 = load i32, ptr %1343, align 8
-  %1345 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1341, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1344) #6
-  %1346 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1067, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1346, ptr %5, align 8
-  %1347 = call ptr @xstrdup(ptr noundef @.str.193)
-  %1348 = load ptr, ptr %5, align 8
-  %1349 = getelementptr inbounds %struct.config_key_pair_t, ptr %1348, i32 0, i32 0
-  store ptr %1347, ptr %1349, align 8
-  %1350 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1351 = call ptr @xstrdup(ptr noundef %1350)
-  %1352 = load ptr, ptr %5, align 8
-  %1353 = getelementptr inbounds %struct.config_key_pair_t, ptr %1352, i32 0, i32 1
-  store ptr %1351, ptr %1353, align 8
-  %1354 = load ptr, ptr %4, align 8
-  %1355 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1354, ptr noundef %1355)
-  %1356 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1072, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1356, ptr %5, align 8
-  %1357 = load ptr, ptr %4, align 8
-  %1358 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1357, ptr noundef %1358)
-  %1359 = load ptr, ptr %3, align 8
-  %1360 = getelementptr inbounds %struct.slurm_conf_t, ptr %1359, i32 0, i32 95
-  %1361 = load i64, ptr %1360, align 8
-  %1362 = icmp eq i64 %1361, -1
-  br i1 %1362, label %1363, label %1370
+1244:                                             ; preds = %1243, %1163
+  %1245 = load i8, ptr %9, align 1
+  %1246 = trunc i8 %1245 to i1
+  br i1 %1246, label %1247, label %1256
 
-1363:                                             ; preds = %1254
-  %1364 = call ptr @xstrdup(ptr noundef @.str.194)
-  %1365 = load ptr, ptr %5, align 8
-  %1366 = getelementptr inbounds %struct.config_key_pair_t, ptr %1365, i32 0, i32 0
-  store ptr %1364, ptr %1366, align 8
-  %1367 = call ptr @xstrdup(ptr noundef @.str.129)
-  %1368 = load ptr, ptr %5, align 8
-  %1369 = getelementptr inbounds %struct.config_key_pair_t, ptr %1368, i32 0, i32 1
-  store ptr %1367, ptr %1369, align 8
+1247:                                             ; preds = %1244
+  %1248 = load ptr, ptr %5, align 8
+  %1249 = getelementptr inbounds %struct.config_key_pair_t, ptr %1248, i32 0, i32 1
+  call void @_xstrcat(ptr noundef %1249, ptr noundef @.str.186)
+  %1250 = load ptr, ptr %3, align 8
+  %1251 = getelementptr inbounds %struct.slurm_conf_t, ptr %1250, i32 0, i32 87
+  %1252 = load i16, ptr %1251, align 8
+  %1253 = zext i16 %1252 to i64
+  %1254 = or i64 %1253, 32768
+  %1255 = trunc i64 %1254 to i16
+  store i16 %1255, ptr %1251, align 8
+  br label %1256
+
+1256:                                             ; preds = %1247, %1244
+  %1257 = load ptr, ptr %4, align 8
+  %1258 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1257, ptr noundef %1258)
+  %1259 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1027, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1259, ptr %5, align 8
+  %1260 = call ptr @xstrdup(ptr noundef @.str.187)
+  %1261 = load ptr, ptr %5, align 8
+  %1262 = getelementptr inbounds %struct.config_key_pair_t, ptr %1261, i32 0, i32 0
+  store ptr %1260, ptr %1262, align 8
+  %1263 = load ptr, ptr %3, align 8
+  %1264 = getelementptr inbounds %struct.slurm_conf_t, ptr %1263, i32 0, i32 88
+  %1265 = load ptr, ptr %1264, align 8
+  %1266 = call ptr @xstrdup(ptr noundef %1265)
+  %1267 = load ptr, ptr %5, align 8
+  %1268 = getelementptr inbounds %struct.config_key_pair_t, ptr %1267, i32 0, i32 1
+  store ptr %1266, ptr %1268, align 8
+  %1269 = load ptr, ptr %4, align 8
+  %1270 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1269, ptr noundef %1270)
+  %1271 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1032, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1271, ptr %5, align 8
+  %1272 = call ptr @xstrdup(ptr noundef @.str.188)
+  %1273 = load ptr, ptr %5, align 8
+  %1274 = getelementptr inbounds %struct.config_key_pair_t, ptr %1273, i32 0, i32 0
+  store ptr %1272, ptr %1274, align 8
+  %1275 = load ptr, ptr %3, align 8
+  %1276 = getelementptr inbounds %struct.slurm_conf_t, ptr %1275, i32 0, i32 89
+  %1277 = load ptr, ptr %1276, align 8
+  %1278 = call ptr @xstrdup(ptr noundef %1277)
+  %1279 = load ptr, ptr %5, align 8
+  %1280 = getelementptr inbounds %struct.config_key_pair_t, ptr %1279, i32 0, i32 1
+  store ptr %1278, ptr %1280, align 8
+  %1281 = load ptr, ptr %4, align 8
+  %1282 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1281, ptr noundef %1282)
+  %1283 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1284 = load ptr, ptr %3, align 8
+  %1285 = getelementptr inbounds %struct.slurm_conf_t, ptr %1284, i32 0, i32 90
+  %1286 = load i32, ptr %1285, align 8
+  %1287 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1283, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1286) #6
+  %1288 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1039, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1288, ptr %5, align 8
+  %1289 = call ptr @xstrdup(ptr noundef @.str.189)
+  %1290 = load ptr, ptr %5, align 8
+  %1291 = getelementptr inbounds %struct.config_key_pair_t, ptr %1290, i32 0, i32 0
+  store ptr %1289, ptr %1291, align 8
+  %1292 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1293 = call ptr @xstrdup(ptr noundef %1292)
+  %1294 = load ptr, ptr %5, align 8
+  %1295 = getelementptr inbounds %struct.config_key_pair_t, ptr %1294, i32 0, i32 1
+  store ptr %1293, ptr %1295, align 8
+  %1296 = load ptr, ptr %4, align 8
+  %1297 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1296, ptr noundef %1297)
+  %1298 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1299 = load ptr, ptr %3, align 8
+  %1300 = getelementptr inbounds %struct.slurm_conf_t, ptr %1299, i32 0, i32 91
+  %1301 = load i32, ptr %1300, align 4
+  %1302 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1298, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1301) #6
+  %1303 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1046, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1303, ptr %5, align 8
+  %1304 = call ptr @xstrdup(ptr noundef @.str.190)
+  %1305 = load ptr, ptr %5, align 8
+  %1306 = getelementptr inbounds %struct.config_key_pair_t, ptr %1305, i32 0, i32 0
+  store ptr %1304, ptr %1306, align 8
+  %1307 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1308 = call ptr @xstrdup(ptr noundef %1307)
+  %1309 = load ptr, ptr %5, align 8
+  %1310 = getelementptr inbounds %struct.config_key_pair_t, ptr %1309, i32 0, i32 1
+  store ptr %1308, ptr %1310, align 8
+  %1311 = load ptr, ptr %4, align 8
+  %1312 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1311, ptr noundef %1312)
+  %1313 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1314 = load ptr, ptr %3, align 8
+  %1315 = getelementptr inbounds %struct.slurm_conf_t, ptr %1314, i32 0, i32 92
+  %1316 = load i32, ptr %1315, align 8
+  %1317 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1313, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1316) #6
+  %1318 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1053, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1318, ptr %5, align 8
+  %1319 = call ptr @xstrdup(ptr noundef @.str.191)
+  %1320 = load ptr, ptr %5, align 8
+  %1321 = getelementptr inbounds %struct.config_key_pair_t, ptr %1320, i32 0, i32 0
+  store ptr %1319, ptr %1321, align 8
+  %1322 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1323 = call ptr @xstrdup(ptr noundef %1322)
+  %1324 = load ptr, ptr %5, align 8
+  %1325 = getelementptr inbounds %struct.config_key_pair_t, ptr %1324, i32 0, i32 1
+  store ptr %1323, ptr %1325, align 8
+  %1326 = load ptr, ptr %4, align 8
+  %1327 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1326, ptr noundef %1327)
+  %1328 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1329 = load ptr, ptr %3, align 8
+  %1330 = getelementptr inbounds %struct.slurm_conf_t, ptr %1329, i32 0, i32 93
+  %1331 = load i32, ptr %1330, align 4
+  %1332 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1328, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1331) #6
+  %1333 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1060, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1333, ptr %5, align 8
+  %1334 = call ptr @xstrdup(ptr noundef @.str.192)
+  %1335 = load ptr, ptr %5, align 8
+  %1336 = getelementptr inbounds %struct.config_key_pair_t, ptr %1335, i32 0, i32 0
+  store ptr %1334, ptr %1336, align 8
+  %1337 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1338 = call ptr @xstrdup(ptr noundef %1337)
+  %1339 = load ptr, ptr %5, align 8
+  %1340 = getelementptr inbounds %struct.config_key_pair_t, ptr %1339, i32 0, i32 1
+  store ptr %1338, ptr %1340, align 8
+  %1341 = load ptr, ptr %4, align 8
+  %1342 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1341, ptr noundef %1342)
+  %1343 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1344 = load ptr, ptr %3, align 8
+  %1345 = getelementptr inbounds %struct.slurm_conf_t, ptr %1344, i32 0, i32 94
+  %1346 = load i32, ptr %1345, align 8
+  %1347 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1343, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1346) #6
+  %1348 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1067, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1348, ptr %5, align 8
+  %1349 = call ptr @xstrdup(ptr noundef @.str.193)
+  %1350 = load ptr, ptr %5, align 8
+  %1351 = getelementptr inbounds %struct.config_key_pair_t, ptr %1350, i32 0, i32 0
+  store ptr %1349, ptr %1351, align 8
+  %1352 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1353 = call ptr @xstrdup(ptr noundef %1352)
+  %1354 = load ptr, ptr %5, align 8
+  %1355 = getelementptr inbounds %struct.config_key_pair_t, ptr %1354, i32 0, i32 1
+  store ptr %1353, ptr %1355, align 8
+  %1356 = load ptr, ptr %4, align 8
+  %1357 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1356, ptr noundef %1357)
+  %1358 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1072, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1358, ptr %5, align 8
+  %1359 = load ptr, ptr %4, align 8
+  %1360 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1359, ptr noundef %1360)
+  %1361 = load ptr, ptr %3, align 8
+  %1362 = getelementptr inbounds %struct.slurm_conf_t, ptr %1361, i32 0, i32 95
+  %1363 = load i64, ptr %1362, align 8
+  %1364 = icmp eq i64 %1363, -1
+  br i1 %1364, label %1365, label %1372
+
+1365:                                             ; preds = %1256
+  %1366 = call ptr @xstrdup(ptr noundef @.str.194)
+  %1367 = load ptr, ptr %5, align 8
+  %1368 = getelementptr inbounds %struct.config_key_pair_t, ptr %1367, i32 0, i32 0
+  store ptr %1366, ptr %1368, align 8
+  %1369 = call ptr @xstrdup(ptr noundef @.str.129)
+  %1370 = load ptr, ptr %5, align 8
+  %1371 = getelementptr inbounds %struct.config_key_pair_t, ptr %1370, i32 0, i32 1
+  store ptr %1369, ptr %1371, align 8
+  br label %1419
+
+1372:                                             ; preds = %1256
+  %1373 = load ptr, ptr %3, align 8
+  %1374 = getelementptr inbounds %struct.slurm_conf_t, ptr %1373, i32 0, i32 95
+  %1375 = load i64, ptr %1374, align 8
+  %1376 = and i64 %1375, -9223372036854775808
+  %1377 = icmp ne i64 %1376, 0
+  br i1 %1377, label %1378, label %1392
+
+1378:                                             ; preds = %1372
+  %1379 = call ptr @xstrdup(ptr noundef @.str.195)
+  %1380 = load ptr, ptr %5, align 8
+  %1381 = getelementptr inbounds %struct.config_key_pair_t, ptr %1380, i32 0, i32 0
+  store ptr %1379, ptr %1381, align 8
+  %1382 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1383 = load ptr, ptr %3, align 8
+  %1384 = getelementptr inbounds %struct.slurm_conf_t, ptr %1383, i32 0, i32 95
+  %1385 = load i64, ptr %1384, align 8
+  %1386 = and i64 %1385, 9223372036854775807
+  %1387 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1382, i64 noundef 256, ptr noundef @.str.131, i64 noundef %1386) #6
+  %1388 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1389 = call ptr @xstrdup(ptr noundef %1388)
+  %1390 = load ptr, ptr %5, align 8
+  %1391 = getelementptr inbounds %struct.config_key_pair_t, ptr %1390, i32 0, i32 1
+  store ptr %1389, ptr %1391, align 8
+  br label %1418
+
+1392:                                             ; preds = %1372
+  %1393 = load ptr, ptr %3, align 8
+  %1394 = getelementptr inbounds %struct.slurm_conf_t, ptr %1393, i32 0, i32 95
+  %1395 = load i64, ptr %1394, align 8
+  %1396 = icmp ne i64 %1395, 0
+  br i1 %1396, label %1397, label %1410
+
+1397:                                             ; preds = %1392
+  %1398 = call ptr @xstrdup(ptr noundef @.str.194)
+  %1399 = load ptr, ptr %5, align 8
+  %1400 = getelementptr inbounds %struct.config_key_pair_t, ptr %1399, i32 0, i32 0
+  store ptr %1398, ptr %1400, align 8
+  %1401 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1402 = load ptr, ptr %3, align 8
+  %1403 = getelementptr inbounds %struct.slurm_conf_t, ptr %1402, i32 0, i32 95
+  %1404 = load i64, ptr %1403, align 8
+  %1405 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1401, i64 noundef 256, ptr noundef @.str.131, i64 noundef %1404) #6
+  %1406 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1407 = call ptr @xstrdup(ptr noundef %1406)
+  %1408 = load ptr, ptr %5, align 8
+  %1409 = getelementptr inbounds %struct.config_key_pair_t, ptr %1408, i32 0, i32 1
+  store ptr %1407, ptr %1409, align 8
   br label %1417
 
-1370:                                             ; preds = %1254
-  %1371 = load ptr, ptr %3, align 8
-  %1372 = getelementptr inbounds %struct.slurm_conf_t, ptr %1371, i32 0, i32 95
-  %1373 = load i64, ptr %1372, align 8
-  %1374 = and i64 %1373, -9223372036854775808
-  %1375 = icmp ne i64 %1374, 0
-  br i1 %1375, label %1376, label %1390
-
-1376:                                             ; preds = %1370
-  %1377 = call ptr @xstrdup(ptr noundef @.str.195)
-  %1378 = load ptr, ptr %5, align 8
-  %1379 = getelementptr inbounds %struct.config_key_pair_t, ptr %1378, i32 0, i32 0
-  store ptr %1377, ptr %1379, align 8
-  %1380 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1381 = load ptr, ptr %3, align 8
-  %1382 = getelementptr inbounds %struct.slurm_conf_t, ptr %1381, i32 0, i32 95
-  %1383 = load i64, ptr %1382, align 8
-  %1384 = and i64 %1383, 9223372036854775807
-  %1385 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1380, i64 noundef 256, ptr noundef @.str.131, i64 noundef %1384) #6
-  %1386 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1387 = call ptr @xstrdup(ptr noundef %1386)
-  %1388 = load ptr, ptr %5, align 8
-  %1389 = getelementptr inbounds %struct.config_key_pair_t, ptr %1388, i32 0, i32 1
-  store ptr %1387, ptr %1389, align 8
-  br label %1416
-
-1390:                                             ; preds = %1370
-  %1391 = load ptr, ptr %3, align 8
-  %1392 = getelementptr inbounds %struct.slurm_conf_t, ptr %1391, i32 0, i32 95
-  %1393 = load i64, ptr %1392, align 8
-  %1394 = icmp ne i64 %1393, 0
-  br i1 %1394, label %1395, label %1408
-
-1395:                                             ; preds = %1390
-  %1396 = call ptr @xstrdup(ptr noundef @.str.194)
-  %1397 = load ptr, ptr %5, align 8
-  %1398 = getelementptr inbounds %struct.config_key_pair_t, ptr %1397, i32 0, i32 0
-  store ptr %1396, ptr %1398, align 8
-  %1399 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1400 = load ptr, ptr %3, align 8
-  %1401 = getelementptr inbounds %struct.slurm_conf_t, ptr %1400, i32 0, i32 95
-  %1402 = load i64, ptr %1401, align 8
-  %1403 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1399, i64 noundef 256, ptr noundef @.str.131, i64 noundef %1402) #6
-  %1404 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1405 = call ptr @xstrdup(ptr noundef %1404)
-  %1406 = load ptr, ptr %5, align 8
-  %1407 = getelementptr inbounds %struct.config_key_pair_t, ptr %1406, i32 0, i32 1
-  store ptr %1405, ptr %1407, align 8
-  br label %1415
-
-1408:                                             ; preds = %1390
-  %1409 = call ptr @xstrdup(ptr noundef @.str.194)
-  %1410 = load ptr, ptr %5, align 8
-  %1411 = getelementptr inbounds %struct.config_key_pair_t, ptr %1410, i32 0, i32 0
-  store ptr %1409, ptr %1411, align 8
-  %1412 = call ptr @xstrdup(ptr noundef @.str.129)
-  %1413 = load ptr, ptr %5, align 8
-  %1414 = getelementptr inbounds %struct.config_key_pair_t, ptr %1413, i32 0, i32 1
-  store ptr %1412, ptr %1414, align 8
-  br label %1415
-
-1415:                                             ; preds = %1408, %1395
-  br label %1416
-
-1416:                                             ; preds = %1415, %1376
+1410:                                             ; preds = %1392
+  %1411 = call ptr @xstrdup(ptr noundef @.str.194)
+  %1412 = load ptr, ptr %5, align 8
+  %1413 = getelementptr inbounds %struct.config_key_pair_t, ptr %1412, i32 0, i32 0
+  store ptr %1411, ptr %1413, align 8
+  %1414 = call ptr @xstrdup(ptr noundef @.str.129)
+  %1415 = load ptr, ptr %5, align 8
+  %1416 = getelementptr inbounds %struct.config_key_pair_t, ptr %1415, i32 0, i32 1
+  store ptr %1414, ptr %1416, align 8
   br label %1417
 
-1417:                                             ; preds = %1416, %1363
-  %1418 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1419 = load ptr, ptr %3, align 8
-  %1420 = getelementptr inbounds %struct.slurm_conf_t, ptr %1419, i32 0, i32 96
-  %1421 = load i32, ptr %1420, align 8
-  %1422 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1418, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1421) #6
-  %1423 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1095, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1423, ptr %5, align 8
-  %1424 = call ptr @xstrdup(ptr noundef @.str.196)
-  %1425 = load ptr, ptr %5, align 8
-  %1426 = getelementptr inbounds %struct.config_key_pair_t, ptr %1425, i32 0, i32 0
-  store ptr %1424, ptr %1426, align 8
-  %1427 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1428 = call ptr @xstrdup(ptr noundef %1427)
-  %1429 = load ptr, ptr %5, align 8
-  %1430 = getelementptr inbounds %struct.config_key_pair_t, ptr %1429, i32 0, i32 1
-  store ptr %1428, ptr %1430, align 8
-  %1431 = load ptr, ptr %4, align 8
-  %1432 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1431, ptr noundef %1432)
-  %1433 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1434 = load ptr, ptr %3, align 8
-  %1435 = getelementptr inbounds %struct.slurm_conf_t, ptr %1434, i32 0, i32 97
-  %1436 = load i32, ptr %1435, align 4
-  %1437 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1433, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1436) #6
-  %1438 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1102, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1438, ptr %5, align 8
-  %1439 = call ptr @xstrdup(ptr noundef @.str.197)
-  %1440 = load ptr, ptr %5, align 8
-  %1441 = getelementptr inbounds %struct.config_key_pair_t, ptr %1440, i32 0, i32 0
-  store ptr %1439, ptr %1441, align 8
-  %1442 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1443 = call ptr @xstrdup(ptr noundef %1442)
-  %1444 = load ptr, ptr %5, align 8
-  %1445 = getelementptr inbounds %struct.config_key_pair_t, ptr %1444, i32 0, i32 1
-  store ptr %1443, ptr %1445, align 8
-  %1446 = load ptr, ptr %4, align 8
-  %1447 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1446, ptr noundef %1447)
-  %1448 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1449 = load ptr, ptr %3, align 8
-  %1450 = getelementptr inbounds %struct.slurm_conf_t, ptr %1449, i32 0, i32 98
-  %1451 = load i16, ptr %1450, align 8
-  %1452 = zext i16 %1451 to i32
-  %1453 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1448, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1452) #6
-  %1454 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1109, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1454, ptr %5, align 8
-  %1455 = call ptr @xstrdup(ptr noundef @.str.198)
-  %1456 = load ptr, ptr %5, align 8
-  %1457 = getelementptr inbounds %struct.config_key_pair_t, ptr %1456, i32 0, i32 0
-  store ptr %1455, ptr %1457, align 8
-  %1458 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1459 = call ptr @xstrdup(ptr noundef %1458)
-  %1460 = load ptr, ptr %5, align 8
-  %1461 = getelementptr inbounds %struct.config_key_pair_t, ptr %1460, i32 0, i32 1
-  store ptr %1459, ptr %1461, align 8
-  %1462 = load ptr, ptr %4, align 8
-  %1463 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1462, ptr noundef %1463)
-  %1464 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1114, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1464, ptr %5, align 8
-  %1465 = call ptr @xstrdup(ptr noundef @.str.199)
-  %1466 = load ptr, ptr %5, align 8
-  %1467 = getelementptr inbounds %struct.config_key_pair_t, ptr %1466, i32 0, i32 0
-  store ptr %1465, ptr %1467, align 8
-  %1468 = load ptr, ptr %3, align 8
-  %1469 = getelementptr inbounds %struct.slurm_conf_t, ptr %1468, i32 0, i32 99
-  %1470 = load ptr, ptr %1469, align 8
-  %1471 = call ptr @xstrdup(ptr noundef %1470)
-  %1472 = load ptr, ptr %5, align 8
-  %1473 = getelementptr inbounds %struct.config_key_pair_t, ptr %1472, i32 0, i32 1
-  store ptr %1471, ptr %1473, align 8
-  %1474 = load ptr, ptr %4, align 8
-  %1475 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1474, ptr noundef %1475)
-  %1476 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1119, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1476, ptr %5, align 8
-  %1477 = call ptr @xstrdup(ptr noundef @.str.200)
-  %1478 = load ptr, ptr %5, align 8
-  %1479 = getelementptr inbounds %struct.config_key_pair_t, ptr %1478, i32 0, i32 0
-  store ptr %1477, ptr %1479, align 8
-  %1480 = load ptr, ptr %3, align 8
-  %1481 = getelementptr inbounds %struct.slurm_conf_t, ptr %1480, i32 0, i32 100
-  %1482 = load ptr, ptr %1481, align 8
-  %1483 = call ptr @xstrdup(ptr noundef %1482)
-  %1484 = load ptr, ptr %5, align 8
-  %1485 = getelementptr inbounds %struct.config_key_pair_t, ptr %1484, i32 0, i32 1
-  store ptr %1483, ptr %1485, align 8
-  %1486 = load ptr, ptr %4, align 8
-  %1487 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1486, ptr noundef %1487)
-  %1488 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1489 = load ptr, ptr %3, align 8
-  %1490 = getelementptr inbounds %struct.slurm_conf_t, ptr %1489, i32 0, i32 105
-  %1491 = load i16, ptr %1490, align 8
-  %1492 = zext i16 %1491 to i32
-  %1493 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1488, i64 noundef 256, ptr noundef @.str.105, i32 noundef %1492) #6
-  %1494 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1126, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1494, ptr %5, align 8
-  %1495 = call ptr @xstrdup(ptr noundef @.str.201)
-  %1496 = load ptr, ptr %5, align 8
-  %1497 = getelementptr inbounds %struct.config_key_pair_t, ptr %1496, i32 0, i32 0
-  store ptr %1495, ptr %1497, align 8
-  %1498 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1499 = call ptr @xstrdup(ptr noundef %1498)
-  %1500 = load ptr, ptr %5, align 8
-  %1501 = getelementptr inbounds %struct.config_key_pair_t, ptr %1500, i32 0, i32 1
-  store ptr %1499, ptr %1501, align 8
-  %1502 = load ptr, ptr %4, align 8
-  %1503 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1502, ptr noundef %1503)
-  %1504 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1505 = load ptr, ptr %3, align 8
-  %1506 = getelementptr inbounds %struct.slurm_conf_t, ptr %1505, i32 0, i32 101
-  %1507 = load i32, ptr %1506, align 8
-  %1508 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1504, i64 noundef 256, ptr noundef @.str.105, i32 noundef %1507) #6
-  %1509 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1133, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1509, ptr %5, align 8
-  %1510 = call ptr @xstrdup(ptr noundef @.str.202)
-  %1511 = load ptr, ptr %5, align 8
-  %1512 = getelementptr inbounds %struct.config_key_pair_t, ptr %1511, i32 0, i32 0
-  store ptr %1510, ptr %1512, align 8
-  %1513 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1514 = call ptr @xstrdup(ptr noundef %1513)
-  %1515 = load ptr, ptr %5, align 8
-  %1516 = getelementptr inbounds %struct.config_key_pair_t, ptr %1515, i32 0, i32 1
-  store ptr %1514, ptr %1516, align 8
-  %1517 = load ptr, ptr %4, align 8
-  %1518 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1517, ptr noundef %1518)
-  %1519 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1138, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1519, ptr %5, align 8
-  %1520 = call ptr @xstrdup(ptr noundef @.str.203)
-  %1521 = load ptr, ptr %5, align 8
-  %1522 = getelementptr inbounds %struct.config_key_pair_t, ptr %1521, i32 0, i32 0
-  store ptr %1520, ptr %1522, align 8
-  %1523 = load ptr, ptr %3, align 8
-  %1524 = getelementptr inbounds %struct.slurm_conf_t, ptr %1523, i32 0, i32 103
-  %1525 = load ptr, ptr %1524, align 8
-  %1526 = call ptr @xstrdup(ptr noundef %1525)
-  %1527 = load ptr, ptr %5, align 8
-  %1528 = getelementptr inbounds %struct.config_key_pair_t, ptr %1527, i32 0, i32 1
-  store ptr %1526, ptr %1528, align 8
-  %1529 = load ptr, ptr %4, align 8
-  %1530 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1529, ptr noundef %1530)
-  %1531 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1143, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1531, ptr %5, align 8
-  %1532 = call ptr @xstrdup(ptr noundef @.str.204)
-  %1533 = load ptr, ptr %5, align 8
-  %1534 = getelementptr inbounds %struct.config_key_pair_t, ptr %1533, i32 0, i32 0
-  store ptr %1532, ptr %1534, align 8
-  %1535 = load ptr, ptr %3, align 8
-  %1536 = getelementptr inbounds %struct.slurm_conf_t, ptr %1535, i32 0, i32 104
-  %1537 = load ptr, ptr %1536, align 8
-  %1538 = call ptr @xstrdup(ptr noundef %1537)
-  %1539 = load ptr, ptr %5, align 8
-  %1540 = getelementptr inbounds %struct.config_key_pair_t, ptr %1539, i32 0, i32 1
-  store ptr %1538, ptr %1540, align 8
-  %1541 = load ptr, ptr %4, align 8
-  %1542 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1541, ptr noundef %1542)
-  %1543 = load i32, ptr %7, align 4
-  %1544 = zext i32 %1543 to i64
-  %1545 = and i64 %1544, 128
-  %1546 = icmp ne i64 %1545, 0
-  br i1 %1546, label %1547, label %1557
+1417:                                             ; preds = %1410, %1397
+  br label %1418
 
-1547:                                             ; preds = %1417
-  %1548 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1149, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1548, ptr %5, align 8
-  %1549 = call ptr @xstrdup(ptr noundef @.str.205)
-  %1550 = load ptr, ptr %5, align 8
-  %1551 = getelementptr inbounds %struct.config_key_pair_t, ptr %1550, i32 0, i32 0
-  store ptr %1549, ptr %1551, align 8
-  %1552 = call ptr @xstrdup(ptr noundef @.str.109)
-  %1553 = load ptr, ptr %5, align 8
-  %1554 = getelementptr inbounds %struct.config_key_pair_t, ptr %1553, i32 0, i32 1
-  store ptr %1552, ptr %1554, align 8
-  %1555 = load ptr, ptr %4, align 8
-  %1556 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1555, ptr noundef %1556)
-  br label %1557
+1418:                                             ; preds = %1417, %1378
+  br label %1419
 
-1557:                                             ; preds = %1547, %1417
-  %1558 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1559 = load ptr, ptr %3, align 8
-  %1560 = getelementptr inbounds %struct.slurm_conf_t, ptr %1559, i32 0, i32 106
-  %1561 = load i32, ptr %1560, align 4
-  %1562 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1558, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1561) #6
-  %1563 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1157, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1563, ptr %5, align 8
-  %1564 = call ptr @xstrdup(ptr noundef @.str.206)
-  %1565 = load ptr, ptr %5, align 8
-  %1566 = getelementptr inbounds %struct.config_key_pair_t, ptr %1565, i32 0, i32 0
-  store ptr %1564, ptr %1566, align 8
-  %1567 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1568 = call ptr @xstrdup(ptr noundef %1567)
-  %1569 = load ptr, ptr %5, align 8
-  %1570 = getelementptr inbounds %struct.config_key_pair_t, ptr %1569, i32 0, i32 1
-  store ptr %1568, ptr %1570, align 8
-  %1571 = load ptr, ptr %4, align 8
-  %1572 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1571, ptr noundef %1572)
-  %1573 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1162, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1573, ptr %5, align 8
-  %1574 = call ptr @xstrdup(ptr noundef @.str.207)
-  %1575 = load ptr, ptr %5, align 8
-  %1576 = getelementptr inbounds %struct.config_key_pair_t, ptr %1575, i32 0, i32 0
-  store ptr %1574, ptr %1576, align 8
-  %1577 = load ptr, ptr %3, align 8
-  %1578 = getelementptr inbounds %struct.slurm_conf_t, ptr %1577, i32 0, i32 108
-  %1579 = load ptr, ptr %1578, align 8
-  %1580 = call ptr @xstrdup(ptr noundef %1579)
-  %1581 = load ptr, ptr %5, align 8
-  %1582 = getelementptr inbounds %struct.config_key_pair_t, ptr %1581, i32 0, i32 1
-  store ptr %1580, ptr %1582, align 8
-  %1583 = load ptr, ptr %4, align 8
-  %1584 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1583, ptr noundef %1584)
-  %1585 = load ptr, ptr %3, align 8
-  %1586 = getelementptr inbounds %struct.slurm_conf_t, ptr %1585, i32 0, i32 110
-  %1587 = load i16, ptr %1586, align 8
-  %1588 = zext i16 %1587 to i32
-  %1589 = icmp eq i32 %1588, 65535
-  br i1 %1589, label %1590, label %1593
+1419:                                             ; preds = %1418, %1365
+  %1420 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1421 = load ptr, ptr %3, align 8
+  %1422 = getelementptr inbounds %struct.slurm_conf_t, ptr %1421, i32 0, i32 96
+  %1423 = load i32, ptr %1422, align 8
+  %1424 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1420, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1423) #6
+  %1425 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1095, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1425, ptr %5, align 8
+  %1426 = call ptr @xstrdup(ptr noundef @.str.196)
+  %1427 = load ptr, ptr %5, align 8
+  %1428 = getelementptr inbounds %struct.config_key_pair_t, ptr %1427, i32 0, i32 0
+  store ptr %1426, ptr %1428, align 8
+  %1429 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1430 = call ptr @xstrdup(ptr noundef %1429)
+  %1431 = load ptr, ptr %5, align 8
+  %1432 = getelementptr inbounds %struct.config_key_pair_t, ptr %1431, i32 0, i32 1
+  store ptr %1430, ptr %1432, align 8
+  %1433 = load ptr, ptr %4, align 8
+  %1434 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1433, ptr noundef %1434)
+  %1435 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1436 = load ptr, ptr %3, align 8
+  %1437 = getelementptr inbounds %struct.slurm_conf_t, ptr %1436, i32 0, i32 97
+  %1438 = load i32, ptr %1437, align 4
+  %1439 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1435, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1438) #6
+  %1440 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1102, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1440, ptr %5, align 8
+  %1441 = call ptr @xstrdup(ptr noundef @.str.197)
+  %1442 = load ptr, ptr %5, align 8
+  %1443 = getelementptr inbounds %struct.config_key_pair_t, ptr %1442, i32 0, i32 0
+  store ptr %1441, ptr %1443, align 8
+  %1444 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1445 = call ptr @xstrdup(ptr noundef %1444)
+  %1446 = load ptr, ptr %5, align 8
+  %1447 = getelementptr inbounds %struct.config_key_pair_t, ptr %1446, i32 0, i32 1
+  store ptr %1445, ptr %1447, align 8
+  %1448 = load ptr, ptr %4, align 8
+  %1449 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1448, ptr noundef %1449)
+  %1450 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1451 = load ptr, ptr %3, align 8
+  %1452 = getelementptr inbounds %struct.slurm_conf_t, ptr %1451, i32 0, i32 98
+  %1453 = load i16, ptr %1452, align 8
+  %1454 = zext i16 %1453 to i32
+  %1455 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1450, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1454) #6
+  %1456 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1109, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1456, ptr %5, align 8
+  %1457 = call ptr @xstrdup(ptr noundef @.str.198)
+  %1458 = load ptr, ptr %5, align 8
+  %1459 = getelementptr inbounds %struct.config_key_pair_t, ptr %1458, i32 0, i32 0
+  store ptr %1457, ptr %1459, align 8
+  %1460 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1461 = call ptr @xstrdup(ptr noundef %1460)
+  %1462 = load ptr, ptr %5, align 8
+  %1463 = getelementptr inbounds %struct.config_key_pair_t, ptr %1462, i32 0, i32 1
+  store ptr %1461, ptr %1463, align 8
+  %1464 = load ptr, ptr %4, align 8
+  %1465 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1464, ptr noundef %1465)
+  %1466 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1114, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1466, ptr %5, align 8
+  %1467 = call ptr @xstrdup(ptr noundef @.str.199)
+  %1468 = load ptr, ptr %5, align 8
+  %1469 = getelementptr inbounds %struct.config_key_pair_t, ptr %1468, i32 0, i32 0
+  store ptr %1467, ptr %1469, align 8
+  %1470 = load ptr, ptr %3, align 8
+  %1471 = getelementptr inbounds %struct.slurm_conf_t, ptr %1470, i32 0, i32 99
+  %1472 = load ptr, ptr %1471, align 8
+  %1473 = call ptr @xstrdup(ptr noundef %1472)
+  %1474 = load ptr, ptr %5, align 8
+  %1475 = getelementptr inbounds %struct.config_key_pair_t, ptr %1474, i32 0, i32 1
+  store ptr %1473, ptr %1475, align 8
+  %1476 = load ptr, ptr %4, align 8
+  %1477 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1476, ptr noundef %1477)
+  %1478 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1119, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1478, ptr %5, align 8
+  %1479 = call ptr @xstrdup(ptr noundef @.str.200)
+  %1480 = load ptr, ptr %5, align 8
+  %1481 = getelementptr inbounds %struct.config_key_pair_t, ptr %1480, i32 0, i32 0
+  store ptr %1479, ptr %1481, align 8
+  %1482 = load ptr, ptr %3, align 8
+  %1483 = getelementptr inbounds %struct.slurm_conf_t, ptr %1482, i32 0, i32 100
+  %1484 = load ptr, ptr %1483, align 8
+  %1485 = call ptr @xstrdup(ptr noundef %1484)
+  %1486 = load ptr, ptr %5, align 8
+  %1487 = getelementptr inbounds %struct.config_key_pair_t, ptr %1486, i32 0, i32 1
+  store ptr %1485, ptr %1487, align 8
+  %1488 = load ptr, ptr %4, align 8
+  %1489 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1488, ptr noundef %1489)
+  %1490 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1491 = load ptr, ptr %3, align 8
+  %1492 = getelementptr inbounds %struct.slurm_conf_t, ptr %1491, i32 0, i32 105
+  %1493 = load i16, ptr %1492, align 8
+  %1494 = zext i16 %1493 to i32
+  %1495 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1490, i64 noundef 256, ptr noundef @.str.105, i32 noundef %1494) #6
+  %1496 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1126, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1496, ptr %5, align 8
+  %1497 = call ptr @xstrdup(ptr noundef @.str.201)
+  %1498 = load ptr, ptr %5, align 8
+  %1499 = getelementptr inbounds %struct.config_key_pair_t, ptr %1498, i32 0, i32 0
+  store ptr %1497, ptr %1499, align 8
+  %1500 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1501 = call ptr @xstrdup(ptr noundef %1500)
+  %1502 = load ptr, ptr %5, align 8
+  %1503 = getelementptr inbounds %struct.config_key_pair_t, ptr %1502, i32 0, i32 1
+  store ptr %1501, ptr %1503, align 8
+  %1504 = load ptr, ptr %4, align 8
+  %1505 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1504, ptr noundef %1505)
+  %1506 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1507 = load ptr, ptr %3, align 8
+  %1508 = getelementptr inbounds %struct.slurm_conf_t, ptr %1507, i32 0, i32 101
+  %1509 = load i32, ptr %1508, align 8
+  %1510 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1506, i64 noundef 256, ptr noundef @.str.105, i32 noundef %1509) #6
+  %1511 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1133, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1511, ptr %5, align 8
+  %1512 = call ptr @xstrdup(ptr noundef @.str.202)
+  %1513 = load ptr, ptr %5, align 8
+  %1514 = getelementptr inbounds %struct.config_key_pair_t, ptr %1513, i32 0, i32 0
+  store ptr %1512, ptr %1514, align 8
+  %1515 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1516 = call ptr @xstrdup(ptr noundef %1515)
+  %1517 = load ptr, ptr %5, align 8
+  %1518 = getelementptr inbounds %struct.config_key_pair_t, ptr %1517, i32 0, i32 1
+  store ptr %1516, ptr %1518, align 8
+  %1519 = load ptr, ptr %4, align 8
+  %1520 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1519, ptr noundef %1520)
+  %1521 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1138, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1521, ptr %5, align 8
+  %1522 = call ptr @xstrdup(ptr noundef @.str.203)
+  %1523 = load ptr, ptr %5, align 8
+  %1524 = getelementptr inbounds %struct.config_key_pair_t, ptr %1523, i32 0, i32 0
+  store ptr %1522, ptr %1524, align 8
+  %1525 = load ptr, ptr %3, align 8
+  %1526 = getelementptr inbounds %struct.slurm_conf_t, ptr %1525, i32 0, i32 103
+  %1527 = load ptr, ptr %1526, align 8
+  %1528 = call ptr @xstrdup(ptr noundef %1527)
+  %1529 = load ptr, ptr %5, align 8
+  %1530 = getelementptr inbounds %struct.config_key_pair_t, ptr %1529, i32 0, i32 1
+  store ptr %1528, ptr %1530, align 8
+  %1531 = load ptr, ptr %4, align 8
+  %1532 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1531, ptr noundef %1532)
+  %1533 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1143, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1533, ptr %5, align 8
+  %1534 = call ptr @xstrdup(ptr noundef @.str.204)
+  %1535 = load ptr, ptr %5, align 8
+  %1536 = getelementptr inbounds %struct.config_key_pair_t, ptr %1535, i32 0, i32 0
+  store ptr %1534, ptr %1536, align 8
+  %1537 = load ptr, ptr %3, align 8
+  %1538 = getelementptr inbounds %struct.slurm_conf_t, ptr %1537, i32 0, i32 104
+  %1539 = load ptr, ptr %1538, align 8
+  %1540 = call ptr @xstrdup(ptr noundef %1539)
+  %1541 = load ptr, ptr %5, align 8
+  %1542 = getelementptr inbounds %struct.config_key_pair_t, ptr %1541, i32 0, i32 1
+  store ptr %1540, ptr %1542, align 8
+  %1543 = load ptr, ptr %4, align 8
+  %1544 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1543, ptr noundef %1544)
+  %1545 = load i32, ptr %7, align 4
+  %1546 = zext i32 %1545 to i64
+  %1547 = and i64 %1546, 128
+  %1548 = icmp ne i64 %1547, 0
+  br i1 %1548, label %1549, label %1559
 
-1590:                                             ; preds = %1557
-  %1591 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1592 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1591, i64 noundef 256, ptr noundef @.str.129) #6
-  br label %1600
+1549:                                             ; preds = %1419
+  %1550 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1149, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1550, ptr %5, align 8
+  %1551 = call ptr @xstrdup(ptr noundef @.str.205)
+  %1552 = load ptr, ptr %5, align 8
+  %1553 = getelementptr inbounds %struct.config_key_pair_t, ptr %1552, i32 0, i32 0
+  store ptr %1551, ptr %1553, align 8
+  %1554 = call ptr @xstrdup(ptr noundef @.str.109)
+  %1555 = load ptr, ptr %5, align 8
+  %1556 = getelementptr inbounds %struct.config_key_pair_t, ptr %1555, i32 0, i32 1
+  store ptr %1554, ptr %1556, align 8
+  %1557 = load ptr, ptr %4, align 8
+  %1558 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1557, ptr noundef %1558)
+  br label %1559
 
-1593:                                             ; preds = %1557
-  %1594 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1595 = load ptr, ptr %3, align 8
-  %1596 = getelementptr inbounds %struct.slurm_conf_t, ptr %1595, i32 0, i32 110
-  %1597 = load i16, ptr %1596, align 8
-  %1598 = zext i16 %1597 to i32
-  %1599 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1594, i64 noundef 256, ptr noundef @.str.208, i32 noundef %1598) #6
-  br label %1600
+1559:                                             ; preds = %1549, %1419
+  %1560 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1561 = load ptr, ptr %3, align 8
+  %1562 = getelementptr inbounds %struct.slurm_conf_t, ptr %1561, i32 0, i32 106
+  %1563 = load i32, ptr %1562, align 4
+  %1564 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1560, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1563) #6
+  %1565 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1157, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1565, ptr %5, align 8
+  %1566 = call ptr @xstrdup(ptr noundef @.str.206)
+  %1567 = load ptr, ptr %5, align 8
+  %1568 = getelementptr inbounds %struct.config_key_pair_t, ptr %1567, i32 0, i32 0
+  store ptr %1566, ptr %1568, align 8
+  %1569 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1570 = call ptr @xstrdup(ptr noundef %1569)
+  %1571 = load ptr, ptr %5, align 8
+  %1572 = getelementptr inbounds %struct.config_key_pair_t, ptr %1571, i32 0, i32 1
+  store ptr %1570, ptr %1572, align 8
+  %1573 = load ptr, ptr %4, align 8
+  %1574 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1573, ptr noundef %1574)
+  %1575 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1162, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1575, ptr %5, align 8
+  %1576 = call ptr @xstrdup(ptr noundef @.str.207)
+  %1577 = load ptr, ptr %5, align 8
+  %1578 = getelementptr inbounds %struct.config_key_pair_t, ptr %1577, i32 0, i32 0
+  store ptr %1576, ptr %1578, align 8
+  %1579 = load ptr, ptr %3, align 8
+  %1580 = getelementptr inbounds %struct.slurm_conf_t, ptr %1579, i32 0, i32 108
+  %1581 = load ptr, ptr %1580, align 8
+  %1582 = call ptr @xstrdup(ptr noundef %1581)
+  %1583 = load ptr, ptr %5, align 8
+  %1584 = getelementptr inbounds %struct.config_key_pair_t, ptr %1583, i32 0, i32 1
+  store ptr %1582, ptr %1584, align 8
+  %1585 = load ptr, ptr %4, align 8
+  %1586 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1585, ptr noundef %1586)
+  %1587 = load ptr, ptr %3, align 8
+  %1588 = getelementptr inbounds %struct.slurm_conf_t, ptr %1587, i32 0, i32 110
+  %1589 = load i16, ptr %1588, align 8
+  %1590 = zext i16 %1589 to i32
+  %1591 = icmp eq i32 %1590, 65535
+  br i1 %1591, label %1592, label %1595
 
-1600:                                             ; preds = %1593, %1590
-  %1601 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1172, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1601, ptr %5, align 8
-  %1602 = call ptr @xstrdup(ptr noundef @.str.209)
-  %1603 = load ptr, ptr %5, align 8
-  %1604 = getelementptr inbounds %struct.config_key_pair_t, ptr %1603, i32 0, i32 0
-  store ptr %1602, ptr %1604, align 8
-  %1605 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1606 = call ptr @xstrdup(ptr noundef %1605)
-  %1607 = load ptr, ptr %5, align 8
-  %1608 = getelementptr inbounds %struct.config_key_pair_t, ptr %1607, i32 0, i32 1
-  store ptr %1606, ptr %1608, align 8
-  %1609 = load ptr, ptr %4, align 8
-  %1610 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1609, ptr noundef %1610)
-  %1611 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1177, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1611, ptr %5, align 8
-  %1612 = call ptr @xstrdup(ptr noundef @.str.210)
-  %1613 = load ptr, ptr %5, align 8
-  %1614 = getelementptr inbounds %struct.config_key_pair_t, ptr %1613, i32 0, i32 0
-  store ptr %1612, ptr %1614, align 8
-  %1615 = load ptr, ptr %3, align 8
-  %1616 = getelementptr inbounds %struct.slurm_conf_t, ptr %1615, i32 0, i32 111
-  %1617 = load ptr, ptr %1616, align 8
-  %1618 = call ptr @xstrdup(ptr noundef %1617)
-  %1619 = load ptr, ptr %5, align 8
-  %1620 = getelementptr inbounds %struct.config_key_pair_t, ptr %1619, i32 0, i32 1
-  store ptr %1618, ptr %1620, align 8
-  %1621 = load ptr, ptr %4, align 8
-  %1622 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1621, ptr noundef %1622)
-  %1623 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1182, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1623, ptr %5, align 8
-  %1624 = call ptr @xstrdup(ptr noundef @.str.211)
-  %1625 = load ptr, ptr %5, align 8
-  %1626 = getelementptr inbounds %struct.config_key_pair_t, ptr %1625, i32 0, i32 0
-  store ptr %1624, ptr %1626, align 8
-  %1627 = load ptr, ptr %3, align 8
-  %1628 = getelementptr inbounds %struct.slurm_conf_t, ptr %1627, i32 0, i32 112
-  %1629 = load ptr, ptr %1628, align 8
-  %1630 = call ptr @xstrdup(ptr noundef %1629)
-  %1631 = load ptr, ptr %5, align 8
-  %1632 = getelementptr inbounds %struct.config_key_pair_t, ptr %1631, i32 0, i32 1
-  store ptr %1630, ptr %1632, align 8
-  %1633 = load ptr, ptr %4, align 8
-  %1634 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1633, ptr noundef %1634)
-  %1635 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1187, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1635, ptr %5, align 8
-  %1636 = call ptr @xstrdup(ptr noundef @.str.212)
-  %1637 = load ptr, ptr %5, align 8
-  %1638 = getelementptr inbounds %struct.config_key_pair_t, ptr %1637, i32 0, i32 0
-  store ptr %1636, ptr %1638, align 8
-  %1639 = load ptr, ptr %3, align 8
-  %1640 = getelementptr inbounds %struct.slurm_conf_t, ptr %1639, i32 0, i32 113
-  %1641 = load ptr, ptr %1640, align 8
-  %1642 = call ptr @xstrdup(ptr noundef %1641)
-  %1643 = load ptr, ptr %5, align 8
-  %1644 = getelementptr inbounds %struct.config_key_pair_t, ptr %1643, i32 0, i32 1
-  store ptr %1642, ptr %1644, align 8
-  %1645 = load ptr, ptr %4, align 8
-  %1646 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1645, ptr noundef %1646)
-  %1647 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1192, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1647, ptr %5, align 8
-  %1648 = call ptr @xstrdup(ptr noundef @.str.213)
-  %1649 = load ptr, ptr %5, align 8
-  %1650 = getelementptr inbounds %struct.config_key_pair_t, ptr %1649, i32 0, i32 0
-  store ptr %1648, ptr %1650, align 8
-  %1651 = load ptr, ptr %3, align 8
-  %1652 = getelementptr inbounds %struct.slurm_conf_t, ptr %1651, i32 0, i32 114
-  %1653 = load ptr, ptr %1652, align 8
-  %1654 = call ptr @xstrdup(ptr noundef %1653)
-  %1655 = load ptr, ptr %5, align 8
-  %1656 = getelementptr inbounds %struct.config_key_pair_t, ptr %1655, i32 0, i32 1
-  store ptr %1654, ptr %1656, align 8
-  %1657 = load ptr, ptr %4, align 8
-  %1658 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1657, ptr noundef %1658)
-  %1659 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1197, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1659, ptr %5, align 8
-  %1660 = call ptr @xstrdup(ptr noundef @.str.214)
-  %1661 = load ptr, ptr %5, align 8
-  %1662 = getelementptr inbounds %struct.config_key_pair_t, ptr %1661, i32 0, i32 0
-  store ptr %1660, ptr %1662, align 8
-  %1663 = load ptr, ptr %3, align 8
-  %1664 = getelementptr inbounds %struct.slurm_conf_t, ptr %1663, i32 0, i32 116
-  %1665 = load i16, ptr %1664, align 4
-  %1666 = call ptr @preempt_mode_string(i16 noundef zeroext %1665)
-  %1667 = call ptr @xstrdup(ptr noundef %1666)
-  %1668 = load ptr, ptr %5, align 8
-  %1669 = getelementptr inbounds %struct.config_key_pair_t, ptr %1668, i32 0, i32 1
-  store ptr %1667, ptr %1669, align 8
-  %1670 = load ptr, ptr %4, align 8
-  %1671 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1670, ptr noundef %1671)
-  %1672 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1203, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1672, ptr %5, align 8
-  %1673 = call ptr @xstrdup(ptr noundef @.str.215)
-  %1674 = load ptr, ptr %5, align 8
-  %1675 = getelementptr inbounds %struct.config_key_pair_t, ptr %1674, i32 0, i32 0
-  store ptr %1673, ptr %1675, align 8
-  %1676 = load ptr, ptr %3, align 8
-  %1677 = getelementptr inbounds %struct.slurm_conf_t, ptr %1676, i32 0, i32 117
-  %1678 = load ptr, ptr %1677, align 8
-  %1679 = call ptr @xstrdup(ptr noundef %1678)
-  %1680 = load ptr, ptr %5, align 8
-  %1681 = getelementptr inbounds %struct.config_key_pair_t, ptr %1680, i32 0, i32 1
-  store ptr %1679, ptr %1681, align 8
-  %1682 = load ptr, ptr %4, align 8
-  %1683 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1682, ptr noundef %1683)
-  %1684 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1208, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1684, ptr %5, align 8
-  %1685 = call ptr @xstrdup(ptr noundef @.str.216)
-  %1686 = load ptr, ptr %5, align 8
-  %1687 = getelementptr inbounds %struct.config_key_pair_t, ptr %1686, i32 0, i32 0
-  store ptr %1685, ptr %1687, align 8
-  %1688 = load ptr, ptr %3, align 8
-  %1689 = getelementptr inbounds %struct.slurm_conf_t, ptr %1688, i32 0, i32 118
-  %1690 = load ptr, ptr %1689, align 8
-  %1691 = call ptr @xstrdup(ptr noundef %1690)
-  %1692 = load ptr, ptr %5, align 8
-  %1693 = getelementptr inbounds %struct.config_key_pair_t, ptr %1692, i32 0, i32 1
-  store ptr %1691, ptr %1693, align 8
-  %1694 = load ptr, ptr %4, align 8
-  %1695 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1694, ptr noundef %1695)
-  %1696 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1213, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1696, ptr %5, align 8
-  %1697 = call ptr @xstrdup(ptr noundef @.str.217)
-  %1698 = load ptr, ptr %5, align 8
-  %1699 = getelementptr inbounds %struct.config_key_pair_t, ptr %1698, i32 0, i32 0
-  store ptr %1697, ptr %1699, align 8
-  %1700 = load ptr, ptr %3, align 8
-  %1701 = getelementptr inbounds %struct.slurm_conf_t, ptr %1700, i32 0, i32 115
-  %1702 = load i32, ptr %1701, align 8
-  %1703 = icmp eq i32 %1702, -1
-  br i1 %1703, label %1704, label %1708
+1592:                                             ; preds = %1559
+  %1593 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1594 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1593, i64 noundef 256, ptr noundef @.str.129) #6
+  br label %1602
 
-1704:                                             ; preds = %1600
-  %1705 = call ptr @xstrdup(ptr noundef @.str.218)
-  %1706 = load ptr, ptr %5, align 8
-  %1707 = getelementptr inbounds %struct.config_key_pair_t, ptr %1706, i32 0, i32 1
-  store ptr %1705, ptr %1707, align 8
-  br label %1718
+1595:                                             ; preds = %1559
+  %1596 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1597 = load ptr, ptr %3, align 8
+  %1598 = getelementptr inbounds %struct.slurm_conf_t, ptr %1597, i32 0, i32 110
+  %1599 = load i16, ptr %1598, align 8
+  %1600 = zext i16 %1599 to i32
+  %1601 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1596, i64 noundef 256, ptr noundef @.str.208, i32 noundef %1600) #6
+  br label %1602
 
-1708:                                             ; preds = %1600
-  %1709 = load ptr, ptr %3, align 8
-  %1710 = getelementptr inbounds %struct.slurm_conf_t, ptr %1709, i32 0, i32 115
-  %1711 = load i32, ptr %1710, align 8
-  %1712 = zext i32 %1711 to i64
-  %1713 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  call void @secs2time_str(i64 noundef %1712, ptr noundef %1713, i32 noundef 256)
-  %1714 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1715 = call ptr @xstrdup(ptr noundef %1714)
-  %1716 = load ptr, ptr %5, align 8
-  %1717 = getelementptr inbounds %struct.config_key_pair_t, ptr %1716, i32 0, i32 1
-  store ptr %1715, ptr %1717, align 8
-  br label %1718
+1602:                                             ; preds = %1595, %1592
+  %1603 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1172, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1603, ptr %5, align 8
+  %1604 = call ptr @xstrdup(ptr noundef @.str.209)
+  %1605 = load ptr, ptr %5, align 8
+  %1606 = getelementptr inbounds %struct.config_key_pair_t, ptr %1605, i32 0, i32 0
+  store ptr %1604, ptr %1606, align 8
+  %1607 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1608 = call ptr @xstrdup(ptr noundef %1607)
+  %1609 = load ptr, ptr %5, align 8
+  %1610 = getelementptr inbounds %struct.config_key_pair_t, ptr %1609, i32 0, i32 1
+  store ptr %1608, ptr %1610, align 8
+  %1611 = load ptr, ptr %4, align 8
+  %1612 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1611, ptr noundef %1612)
+  %1613 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1177, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1613, ptr %5, align 8
+  %1614 = call ptr @xstrdup(ptr noundef @.str.210)
+  %1615 = load ptr, ptr %5, align 8
+  %1616 = getelementptr inbounds %struct.config_key_pair_t, ptr %1615, i32 0, i32 0
+  store ptr %1614, ptr %1616, align 8
+  %1617 = load ptr, ptr %3, align 8
+  %1618 = getelementptr inbounds %struct.slurm_conf_t, ptr %1617, i32 0, i32 111
+  %1619 = load ptr, ptr %1618, align 8
+  %1620 = call ptr @xstrdup(ptr noundef %1619)
+  %1621 = load ptr, ptr %5, align 8
+  %1622 = getelementptr inbounds %struct.config_key_pair_t, ptr %1621, i32 0, i32 1
+  store ptr %1620, ptr %1622, align 8
+  %1623 = load ptr, ptr %4, align 8
+  %1624 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1623, ptr noundef %1624)
+  %1625 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1182, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1625, ptr %5, align 8
+  %1626 = call ptr @xstrdup(ptr noundef @.str.211)
+  %1627 = load ptr, ptr %5, align 8
+  %1628 = getelementptr inbounds %struct.config_key_pair_t, ptr %1627, i32 0, i32 0
+  store ptr %1626, ptr %1628, align 8
+  %1629 = load ptr, ptr %3, align 8
+  %1630 = getelementptr inbounds %struct.slurm_conf_t, ptr %1629, i32 0, i32 112
+  %1631 = load ptr, ptr %1630, align 8
+  %1632 = call ptr @xstrdup(ptr noundef %1631)
+  %1633 = load ptr, ptr %5, align 8
+  %1634 = getelementptr inbounds %struct.config_key_pair_t, ptr %1633, i32 0, i32 1
+  store ptr %1632, ptr %1634, align 8
+  %1635 = load ptr, ptr %4, align 8
+  %1636 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1635, ptr noundef %1636)
+  %1637 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1187, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1637, ptr %5, align 8
+  %1638 = call ptr @xstrdup(ptr noundef @.str.212)
+  %1639 = load ptr, ptr %5, align 8
+  %1640 = getelementptr inbounds %struct.config_key_pair_t, ptr %1639, i32 0, i32 0
+  store ptr %1638, ptr %1640, align 8
+  %1641 = load ptr, ptr %3, align 8
+  %1642 = getelementptr inbounds %struct.slurm_conf_t, ptr %1641, i32 0, i32 113
+  %1643 = load ptr, ptr %1642, align 8
+  %1644 = call ptr @xstrdup(ptr noundef %1643)
+  %1645 = load ptr, ptr %5, align 8
+  %1646 = getelementptr inbounds %struct.config_key_pair_t, ptr %1645, i32 0, i32 1
+  store ptr %1644, ptr %1646, align 8
+  %1647 = load ptr, ptr %4, align 8
+  %1648 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1647, ptr noundef %1648)
+  %1649 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1192, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1649, ptr %5, align 8
+  %1650 = call ptr @xstrdup(ptr noundef @.str.213)
+  %1651 = load ptr, ptr %5, align 8
+  %1652 = getelementptr inbounds %struct.config_key_pair_t, ptr %1651, i32 0, i32 0
+  store ptr %1650, ptr %1652, align 8
+  %1653 = load ptr, ptr %3, align 8
+  %1654 = getelementptr inbounds %struct.slurm_conf_t, ptr %1653, i32 0, i32 114
+  %1655 = load ptr, ptr %1654, align 8
+  %1656 = call ptr @xstrdup(ptr noundef %1655)
+  %1657 = load ptr, ptr %5, align 8
+  %1658 = getelementptr inbounds %struct.config_key_pair_t, ptr %1657, i32 0, i32 1
+  store ptr %1656, ptr %1658, align 8
+  %1659 = load ptr, ptr %4, align 8
+  %1660 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1659, ptr noundef %1660)
+  %1661 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1197, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1661, ptr %5, align 8
+  %1662 = call ptr @xstrdup(ptr noundef @.str.214)
+  %1663 = load ptr, ptr %5, align 8
+  %1664 = getelementptr inbounds %struct.config_key_pair_t, ptr %1663, i32 0, i32 0
+  store ptr %1662, ptr %1664, align 8
+  %1665 = load ptr, ptr %3, align 8
+  %1666 = getelementptr inbounds %struct.slurm_conf_t, ptr %1665, i32 0, i32 116
+  %1667 = load i16, ptr %1666, align 4
+  %1668 = call ptr @preempt_mode_string(i16 noundef zeroext %1667)
+  %1669 = call ptr @xstrdup(ptr noundef %1668)
+  %1670 = load ptr, ptr %5, align 8
+  %1671 = getelementptr inbounds %struct.config_key_pair_t, ptr %1670, i32 0, i32 1
+  store ptr %1669, ptr %1671, align 8
+  %1672 = load ptr, ptr %4, align 8
+  %1673 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1672, ptr noundef %1673)
+  %1674 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1203, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1674, ptr %5, align 8
+  %1675 = call ptr @xstrdup(ptr noundef @.str.215)
+  %1676 = load ptr, ptr %5, align 8
+  %1677 = getelementptr inbounds %struct.config_key_pair_t, ptr %1676, i32 0, i32 0
+  store ptr %1675, ptr %1677, align 8
+  %1678 = load ptr, ptr %3, align 8
+  %1679 = getelementptr inbounds %struct.slurm_conf_t, ptr %1678, i32 0, i32 117
+  %1680 = load ptr, ptr %1679, align 8
+  %1681 = call ptr @xstrdup(ptr noundef %1680)
+  %1682 = load ptr, ptr %5, align 8
+  %1683 = getelementptr inbounds %struct.config_key_pair_t, ptr %1682, i32 0, i32 1
+  store ptr %1681, ptr %1683, align 8
+  %1684 = load ptr, ptr %4, align 8
+  %1685 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1684, ptr noundef %1685)
+  %1686 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1208, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1686, ptr %5, align 8
+  %1687 = call ptr @xstrdup(ptr noundef @.str.216)
+  %1688 = load ptr, ptr %5, align 8
+  %1689 = getelementptr inbounds %struct.config_key_pair_t, ptr %1688, i32 0, i32 0
+  store ptr %1687, ptr %1689, align 8
+  %1690 = load ptr, ptr %3, align 8
+  %1691 = getelementptr inbounds %struct.slurm_conf_t, ptr %1690, i32 0, i32 118
+  %1692 = load ptr, ptr %1691, align 8
+  %1693 = call ptr @xstrdup(ptr noundef %1692)
+  %1694 = load ptr, ptr %5, align 8
+  %1695 = getelementptr inbounds %struct.config_key_pair_t, ptr %1694, i32 0, i32 1
+  store ptr %1693, ptr %1695, align 8
+  %1696 = load ptr, ptr %4, align 8
+  %1697 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1696, ptr noundef %1697)
+  %1698 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1213, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1698, ptr %5, align 8
+  %1699 = call ptr @xstrdup(ptr noundef @.str.217)
+  %1700 = load ptr, ptr %5, align 8
+  %1701 = getelementptr inbounds %struct.config_key_pair_t, ptr %1700, i32 0, i32 0
+  store ptr %1699, ptr %1701, align 8
+  %1702 = load ptr, ptr %3, align 8
+  %1703 = getelementptr inbounds %struct.slurm_conf_t, ptr %1702, i32 0, i32 115
+  %1704 = load i32, ptr %1703, align 8
+  %1705 = icmp eq i32 %1704, -1
+  br i1 %1705, label %1706, label %1710
 
-1718:                                             ; preds = %1708, %1704
-  %1719 = load ptr, ptr %4, align 8
-  %1720 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1719, ptr noundef %1720)
-  %1721 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1224, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1721, ptr %5, align 8
-  %1722 = call ptr @xstrdup(ptr noundef @.str.219)
-  %1723 = load ptr, ptr %5, align 8
-  %1724 = getelementptr inbounds %struct.config_key_pair_t, ptr %1723, i32 0, i32 0
-  store ptr %1722, ptr %1724, align 8
-  %1725 = load ptr, ptr %3, align 8
-  %1726 = getelementptr inbounds %struct.slurm_conf_t, ptr %1725, i32 0, i32 119
-  %1727 = load ptr, ptr %1726, align 8
-  %1728 = call ptr @xstrdup(ptr noundef %1727)
-  %1729 = load ptr, ptr %5, align 8
-  %1730 = getelementptr inbounds %struct.config_key_pair_t, ptr %1729, i32 0, i32 1
-  store ptr %1728, ptr %1730, align 8
-  %1731 = load ptr, ptr %4, align 8
-  %1732 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1731, ptr noundef %1732)
-  %1733 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1229, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1733, ptr %5, align 8
-  %1734 = call ptr @xstrdup(ptr noundef @.str.220)
-  %1735 = load ptr, ptr %5, align 8
-  %1736 = getelementptr inbounds %struct.config_key_pair_t, ptr %1735, i32 0, i32 0
-  store ptr %1734, ptr %1736, align 8
-  %1737 = load ptr, ptr %3, align 8
-  %1738 = getelementptr inbounds %struct.slurm_conf_t, ptr %1737, i32 0, i32 120
-  %1739 = load ptr, ptr %1738, align 8
-  %1740 = call ptr @xstrdup(ptr noundef %1739)
-  %1741 = load ptr, ptr %5, align 8
-  %1742 = getelementptr inbounds %struct.config_key_pair_t, ptr %1741, i32 0, i32 1
-  store ptr %1740, ptr %1742, align 8
-  %1743 = load ptr, ptr %4, align 8
-  %1744 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1743, ptr noundef %1744)
-  %1745 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1234, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1745, ptr %5, align 8
-  %1746 = call ptr @xstrdup(ptr noundef @.str.221)
-  %1747 = load ptr, ptr %5, align 8
-  %1748 = getelementptr inbounds %struct.config_key_pair_t, ptr %1747, i32 0, i32 0
-  store ptr %1746, ptr %1748, align 8
-  %1749 = load ptr, ptr %3, align 8
-  %1750 = getelementptr inbounds %struct.slurm_conf_t, ptr %1749, i32 0, i32 126
-  %1751 = load ptr, ptr %1750, align 8
-  %1752 = call ptr @xstrdup(ptr noundef %1751)
-  %1753 = load ptr, ptr %5, align 8
-  %1754 = getelementptr inbounds %struct.config_key_pair_t, ptr %1753, i32 0, i32 1
-  store ptr %1752, ptr %1754, align 8
-  %1755 = load ptr, ptr %4, align 8
-  %1756 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1755, ptr noundef %1756)
-  %1757 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1239, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1757, ptr %5, align 8
-  %1758 = call ptr @xstrdup(ptr noundef @.str.222)
-  %1759 = load ptr, ptr %5, align 8
-  %1760 = getelementptr inbounds %struct.config_key_pair_t, ptr %1759, i32 0, i32 0
-  store ptr %1758, ptr %1760, align 8
-  %1761 = load ptr, ptr %3, align 8
-  %1762 = getelementptr inbounds %struct.slurm_conf_t, ptr %1761, i32 0, i32 167
-  %1763 = load ptr, ptr %1762, align 8
-  %1764 = call ptr @xstrdup(ptr noundef %1763)
-  %1765 = load ptr, ptr %5, align 8
-  %1766 = getelementptr inbounds %struct.config_key_pair_t, ptr %1765, i32 0, i32 1
-  store ptr %1764, ptr %1766, align 8
-  %1767 = load ptr, ptr %4, align 8
-  %1768 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1767, ptr noundef %1768)
-  %1769 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1244, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1769, ptr %5, align 8
-  %1770 = call ptr @xstrdup(ptr noundef @.str.223)
-  %1771 = load ptr, ptr %5, align 8
-  %1772 = getelementptr inbounds %struct.config_key_pair_t, ptr %1771, i32 0, i32 0
-  store ptr %1770, ptr %1772, align 8
-  %1773 = load ptr, ptr %3, align 8
-  %1774 = getelementptr inbounds %struct.slurm_conf_t, ptr %1773, i32 0, i32 166
-  %1775 = load ptr, ptr %1774, align 8
-  %1776 = call ptr @xstrdup(ptr noundef %1775)
-  %1777 = load ptr, ptr %5, align 8
-  %1778 = getelementptr inbounds %struct.config_key_pair_t, ptr %1777, i32 0, i32 1
-  store ptr %1776, ptr %1778, align 8
-  %1779 = load ptr, ptr %4, align 8
-  %1780 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1779, ptr noundef %1780)
-  %1781 = load ptr, ptr %3, align 8
-  %1782 = getelementptr inbounds %struct.slurm_conf_t, ptr %1781, i32 0, i32 128
-  %1783 = load ptr, ptr %1782, align 8
-  %1784 = call i32 @xstrcmp(ptr noundef %1783, ptr noundef @.str.142)
-  %1785 = icmp eq i32 %1784, 0
-  br i1 %1785, label %1786, label %1799
+1706:                                             ; preds = %1602
+  %1707 = call ptr @xstrdup(ptr noundef @.str.218)
+  %1708 = load ptr, ptr %5, align 8
+  %1709 = getelementptr inbounds %struct.config_key_pair_t, ptr %1708, i32 0, i32 1
+  store ptr %1707, ptr %1709, align 8
+  br label %1720
 
-1786:                                             ; preds = %1718
-  %1787 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1250, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1787, ptr %5, align 8
-  %1788 = call ptr @xstrdup(ptr noundef @.str.224)
-  %1789 = load ptr, ptr %5, align 8
-  %1790 = getelementptr inbounds %struct.config_key_pair_t, ptr %1789, i32 0, i32 0
-  store ptr %1788, ptr %1790, align 8
-  %1791 = load ptr, ptr %3, align 8
-  %1792 = getelementptr inbounds %struct.slurm_conf_t, ptr %1791, i32 0, i32 128
-  %1793 = load ptr, ptr %1792, align 8
-  %1794 = call ptr @xstrdup(ptr noundef %1793)
-  %1795 = load ptr, ptr %5, align 8
-  %1796 = getelementptr inbounds %struct.config_key_pair_t, ptr %1795, i32 0, i32 1
-  store ptr %1794, ptr %1796, align 8
-  %1797 = load ptr, ptr %4, align 8
-  %1798 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1797, ptr noundef %1798)
-  br label %1999
+1710:                                             ; preds = %1602
+  %1711 = load ptr, ptr %3, align 8
+  %1712 = getelementptr inbounds %struct.slurm_conf_t, ptr %1711, i32 0, i32 115
+  %1713 = load i32, ptr %1712, align 8
+  %1714 = zext i32 %1713 to i64
+  %1715 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  call void @secs2time_str(i64 noundef %1714, ptr noundef %1715, i32 noundef 256)
+  %1716 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1717 = call ptr @xstrdup(ptr noundef %1716)
+  %1718 = load ptr, ptr %5, align 8
+  %1719 = getelementptr inbounds %struct.config_key_pair_t, ptr %1718, i32 0, i32 1
+  store ptr %1717, ptr %1719, align 8
+  br label %1720
 
-1799:                                             ; preds = %1718
-  %1800 = load ptr, ptr %3, align 8
-  %1801 = getelementptr inbounds %struct.slurm_conf_t, ptr %1800, i32 0, i32 121
-  %1802 = load i32, ptr %1801, align 8
-  %1803 = zext i32 %1802 to i64
-  %1804 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  call void @secs2time_str(i64 noundef %1803, ptr noundef %1804, i32 noundef 256)
-  %1805 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1257, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1805, ptr %5, align 8
-  %1806 = call ptr @xstrdup(ptr noundef @.str.225)
-  %1807 = load ptr, ptr %5, align 8
-  %1808 = getelementptr inbounds %struct.config_key_pair_t, ptr %1807, i32 0, i32 0
-  store ptr %1806, ptr %1808, align 8
-  %1809 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1810 = call ptr @xstrdup(ptr noundef %1809)
-  %1811 = load ptr, ptr %5, align 8
-  %1812 = getelementptr inbounds %struct.config_key_pair_t, ptr %1811, i32 0, i32 1
-  store ptr %1810, ptr %1812, align 8
-  %1813 = load ptr, ptr %4, align 8
-  %1814 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1813, ptr noundef %1814)
-  %1815 = load ptr, ptr %3, align 8
-  %1816 = getelementptr inbounds %struct.slurm_conf_t, ptr %1815, i32 0, i32 122
-  %1817 = load i32, ptr %1816, align 4
-  %1818 = zext i32 %1817 to i64
-  %1819 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  call void @secs2time_str(i64 noundef %1818, ptr noundef %1819, i32 noundef 256)
-  %1820 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1264, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1820, ptr %5, align 8
-  %1821 = call ptr @xstrdup(ptr noundef @.str.226)
-  %1822 = load ptr, ptr %5, align 8
-  %1823 = getelementptr inbounds %struct.config_key_pair_t, ptr %1822, i32 0, i32 0
-  store ptr %1821, ptr %1823, align 8
-  %1824 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1825 = call ptr @xstrdup(ptr noundef %1824)
-  %1826 = load ptr, ptr %5, align 8
-  %1827 = getelementptr inbounds %struct.config_key_pair_t, ptr %1826, i32 0, i32 1
-  store ptr %1825, ptr %1827, align 8
-  %1828 = load ptr, ptr %4, align 8
-  %1829 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1828, ptr noundef %1829)
-  %1830 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1269, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1830, ptr %5, align 8
-  %1831 = call ptr @xstrdup(ptr noundef @.str.227)
-  %1832 = load ptr, ptr %5, align 8
-  %1833 = getelementptr inbounds %struct.config_key_pair_t, ptr %1832, i32 0, i32 0
-  store ptr %1831, ptr %1833, align 8
-  %1834 = load ptr, ptr %3, align 8
-  %1835 = getelementptr inbounds %struct.slurm_conf_t, ptr %1834, i32 0, i32 123
-  %1836 = load i16, ptr %1835, align 8
-  %1837 = zext i16 %1836 to i32
-  %1838 = icmp ne i32 %1837, 0
-  %1839 = select i1 %1838, ptr @.str.109, ptr @.str.110
-  %1840 = call ptr @xstrdup(ptr noundef %1839)
-  %1841 = load ptr, ptr %5, align 8
-  %1842 = getelementptr inbounds %struct.config_key_pair_t, ptr %1841, i32 0, i32 1
-  store ptr %1840, ptr %1842, align 8
-  %1843 = load ptr, ptr %4, align 8
-  %1844 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1843, ptr noundef %1844)
-  %1845 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1276, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1845, ptr %5, align 8
-  %1846 = call ptr @xstrdup(ptr noundef @.str.228)
-  %1847 = load ptr, ptr %5, align 8
-  %1848 = getelementptr inbounds %struct.config_key_pair_t, ptr %1847, i32 0, i32 0
-  store ptr %1846, ptr %1848, align 8
-  %1849 = load ptr, ptr %3, align 8
-  %1850 = getelementptr inbounds %struct.slurm_conf_t, ptr %1849, i32 0, i32 124
-  %1851 = load i16, ptr %1850, align 2
-  %1852 = call ptr @priority_flags_string(i16 noundef zeroext %1851)
-  %1853 = load ptr, ptr %5, align 8
-  %1854 = getelementptr inbounds %struct.config_key_pair_t, ptr %1853, i32 0, i32 1
-  store ptr %1852, ptr %1854, align 8
-  %1855 = load ptr, ptr %4, align 8
-  %1856 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1855, ptr noundef %1856)
-  %1857 = load ptr, ptr %3, align 8
-  %1858 = getelementptr inbounds %struct.slurm_conf_t, ptr %1857, i32 0, i32 125
-  %1859 = load i32, ptr %1858, align 4
-  %1860 = zext i32 %1859 to i64
-  %1861 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  call void @secs2time_str(i64 noundef %1860, ptr noundef %1861, i32 noundef 256)
-  %1862 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1284, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1862, ptr %5, align 8
-  %1863 = call ptr @xstrdup(ptr noundef @.str.229)
-  %1864 = load ptr, ptr %5, align 8
-  %1865 = getelementptr inbounds %struct.config_key_pair_t, ptr %1864, i32 0, i32 0
-  store ptr %1863, ptr %1865, align 8
-  %1866 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1867 = call ptr @xstrdup(ptr noundef %1866)
-  %1868 = load ptr, ptr %5, align 8
-  %1869 = getelementptr inbounds %struct.config_key_pair_t, ptr %1868, i32 0, i32 1
-  store ptr %1867, ptr %1869, align 8
-  %1870 = load ptr, ptr %4, align 8
-  %1871 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1870, ptr noundef %1871)
-  %1872 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1289, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1872, ptr %5, align 8
-  %1873 = call ptr @xstrdup(ptr noundef @.str.230)
-  %1874 = load ptr, ptr %5, align 8
-  %1875 = getelementptr inbounds %struct.config_key_pair_t, ptr %1874, i32 0, i32 0
-  store ptr %1873, ptr %1875, align 8
-  %1876 = load ptr, ptr %3, align 8
-  %1877 = getelementptr inbounds %struct.slurm_conf_t, ptr %1876, i32 0, i32 127
-  %1878 = load i16, ptr %1877, align 8
-  %1879 = call ptr @_reset_period_str(i16 noundef zeroext %1878)
-  %1880 = call ptr @xstrdup(ptr noundef %1879)
-  %1881 = load ptr, ptr %5, align 8
-  %1882 = getelementptr inbounds %struct.config_key_pair_t, ptr %1881, i32 0, i32 1
-  store ptr %1880, ptr %1882, align 8
-  %1883 = load ptr, ptr %4, align 8
-  %1884 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1883, ptr noundef %1884)
-  %1885 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1296, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1885, ptr %5, align 8
-  %1886 = call ptr @xstrdup(ptr noundef @.str.224)
-  %1887 = load ptr, ptr %5, align 8
-  %1888 = getelementptr inbounds %struct.config_key_pair_t, ptr %1887, i32 0, i32 0
-  store ptr %1886, ptr %1888, align 8
-  %1889 = load ptr, ptr %3, align 8
-  %1890 = getelementptr inbounds %struct.slurm_conf_t, ptr %1889, i32 0, i32 128
-  %1891 = load ptr, ptr %1890, align 8
-  %1892 = call ptr @xstrdup(ptr noundef %1891)
-  %1893 = load ptr, ptr %5, align 8
-  %1894 = getelementptr inbounds %struct.config_key_pair_t, ptr %1893, i32 0, i32 1
-  store ptr %1892, ptr %1894, align 8
-  %1895 = load ptr, ptr %4, align 8
-  %1896 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1895, ptr noundef %1896)
-  %1897 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1898 = load ptr, ptr %3, align 8
-  %1899 = getelementptr inbounds %struct.slurm_conf_t, ptr %1898, i32 0, i32 129
-  %1900 = load i32, ptr %1899, align 8
-  %1901 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1897, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1900) #6
-  %1902 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1303, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1902, ptr %5, align 8
-  %1903 = call ptr @xstrdup(ptr noundef @.str.231)
-  %1904 = load ptr, ptr %5, align 8
-  %1905 = getelementptr inbounds %struct.config_key_pair_t, ptr %1904, i32 0, i32 0
-  store ptr %1903, ptr %1905, align 8
-  %1906 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1907 = call ptr @xstrdup(ptr noundef %1906)
-  %1908 = load ptr, ptr %5, align 8
-  %1909 = getelementptr inbounds %struct.config_key_pair_t, ptr %1908, i32 0, i32 1
-  store ptr %1907, ptr %1909, align 8
-  %1910 = load ptr, ptr %4, align 8
-  %1911 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1910, ptr noundef %1911)
-  %1912 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1913 = load ptr, ptr %3, align 8
-  %1914 = getelementptr inbounds %struct.slurm_conf_t, ptr %1913, i32 0, i32 130
-  %1915 = load i32, ptr %1914, align 4
-  %1916 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1912, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1915) #6
-  %1917 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1310, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1917, ptr %5, align 8
-  %1918 = call ptr @xstrdup(ptr noundef @.str.232)
-  %1919 = load ptr, ptr %5, align 8
-  %1920 = getelementptr inbounds %struct.config_key_pair_t, ptr %1919, i32 0, i32 0
-  store ptr %1918, ptr %1920, align 8
-  %1921 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1922 = call ptr @xstrdup(ptr noundef %1921)
-  %1923 = load ptr, ptr %5, align 8
-  %1924 = getelementptr inbounds %struct.config_key_pair_t, ptr %1923, i32 0, i32 1
-  store ptr %1922, ptr %1924, align 8
-  %1925 = load ptr, ptr %4, align 8
-  %1926 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1925, ptr noundef %1926)
-  %1927 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1928 = load ptr, ptr %3, align 8
-  %1929 = getelementptr inbounds %struct.slurm_conf_t, ptr %1928, i32 0, i32 131
-  %1930 = load i32, ptr %1929, align 8
-  %1931 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1927, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1930) #6
-  %1932 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1317, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1932, ptr %5, align 8
-  %1933 = call ptr @xstrdup(ptr noundef @.str.233)
-  %1934 = load ptr, ptr %5, align 8
-  %1935 = getelementptr inbounds %struct.config_key_pair_t, ptr %1934, i32 0, i32 0
-  store ptr %1933, ptr %1935, align 8
-  %1936 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1937 = call ptr @xstrdup(ptr noundef %1936)
-  %1938 = load ptr, ptr %5, align 8
-  %1939 = getelementptr inbounds %struct.config_key_pair_t, ptr %1938, i32 0, i32 1
-  store ptr %1937, ptr %1939, align 8
-  %1940 = load ptr, ptr %4, align 8
-  %1941 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1940, ptr noundef %1941)
-  %1942 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1943 = load ptr, ptr %3, align 8
-  %1944 = getelementptr inbounds %struct.slurm_conf_t, ptr %1943, i32 0, i32 132
-  %1945 = load i32, ptr %1944, align 4
-  %1946 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1942, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1945) #6
-  %1947 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1324, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1947, ptr %5, align 8
-  %1948 = call ptr @xstrdup(ptr noundef @.str.234)
-  %1949 = load ptr, ptr %5, align 8
-  %1950 = getelementptr inbounds %struct.config_key_pair_t, ptr %1949, i32 0, i32 0
-  store ptr %1948, ptr %1950, align 8
-  %1951 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1952 = call ptr @xstrdup(ptr noundef %1951)
-  %1953 = load ptr, ptr %5, align 8
-  %1954 = getelementptr inbounds %struct.config_key_pair_t, ptr %1953, i32 0, i32 1
-  store ptr %1952, ptr %1954, align 8
-  %1955 = load ptr, ptr %4, align 8
-  %1956 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1955, ptr noundef %1956)
-  %1957 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1958 = load ptr, ptr %3, align 8
-  %1959 = getelementptr inbounds %struct.slurm_conf_t, ptr %1958, i32 0, i32 133
-  %1960 = load i32, ptr %1959, align 8
-  %1961 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1957, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1960) #6
-  %1962 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1331, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1962, ptr %5, align 8
-  %1963 = call ptr @xstrdup(ptr noundef @.str.235)
-  %1964 = load ptr, ptr %5, align 8
-  %1965 = getelementptr inbounds %struct.config_key_pair_t, ptr %1964, i32 0, i32 0
-  store ptr %1963, ptr %1965, align 8
-  %1966 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1967 = call ptr @xstrdup(ptr noundef %1966)
-  %1968 = load ptr, ptr %5, align 8
-  %1969 = getelementptr inbounds %struct.config_key_pair_t, ptr %1968, i32 0, i32 1
-  store ptr %1967, ptr %1969, align 8
-  %1970 = load ptr, ptr %4, align 8
-  %1971 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1970, ptr noundef %1971)
-  %1972 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1973 = load ptr, ptr %3, align 8
-  %1974 = getelementptr inbounds %struct.slurm_conf_t, ptr %1973, i32 0, i32 134
-  %1975 = load i32, ptr %1974, align 4
-  %1976 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1972, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1975) #6
-  %1977 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1338, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1977, ptr %5, align 8
-  %1978 = call ptr @xstrdup(ptr noundef @.str.236)
-  %1979 = load ptr, ptr %5, align 8
-  %1980 = getelementptr inbounds %struct.config_key_pair_t, ptr %1979, i32 0, i32 0
-  store ptr %1978, ptr %1980, align 8
-  %1981 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %1982 = call ptr @xstrdup(ptr noundef %1981)
-  %1983 = load ptr, ptr %5, align 8
-  %1984 = getelementptr inbounds %struct.config_key_pair_t, ptr %1983, i32 0, i32 1
-  store ptr %1982, ptr %1984, align 8
-  %1985 = load ptr, ptr %4, align 8
-  %1986 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1985, ptr noundef %1986)
-  %1987 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1343, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %1987, ptr %5, align 8
-  %1988 = call ptr @xstrdup(ptr noundef @.str.237)
-  %1989 = load ptr, ptr %5, align 8
-  %1990 = getelementptr inbounds %struct.config_key_pair_t, ptr %1989, i32 0, i32 0
-  store ptr %1988, ptr %1990, align 8
-  %1991 = load ptr, ptr %3, align 8
-  %1992 = getelementptr inbounds %struct.slurm_conf_t, ptr %1991, i32 0, i32 135
-  %1993 = load ptr, ptr %1992, align 8
-  %1994 = call ptr @xstrdup(ptr noundef %1993)
-  %1995 = load ptr, ptr %5, align 8
-  %1996 = getelementptr inbounds %struct.config_key_pair_t, ptr %1995, i32 0, i32 1
-  store ptr %1994, ptr %1996, align 8
-  %1997 = load ptr, ptr %4, align 8
-  %1998 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %1997, ptr noundef %1998)
-  br label %1999
+1720:                                             ; preds = %1710, %1706
+  %1721 = load ptr, ptr %4, align 8
+  %1722 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1721, ptr noundef %1722)
+  %1723 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1224, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1723, ptr %5, align 8
+  %1724 = call ptr @xstrdup(ptr noundef @.str.219)
+  %1725 = load ptr, ptr %5, align 8
+  %1726 = getelementptr inbounds %struct.config_key_pair_t, ptr %1725, i32 0, i32 0
+  store ptr %1724, ptr %1726, align 8
+  %1727 = load ptr, ptr %3, align 8
+  %1728 = getelementptr inbounds %struct.slurm_conf_t, ptr %1727, i32 0, i32 119
+  %1729 = load ptr, ptr %1728, align 8
+  %1730 = call ptr @xstrdup(ptr noundef %1729)
+  %1731 = load ptr, ptr %5, align 8
+  %1732 = getelementptr inbounds %struct.config_key_pair_t, ptr %1731, i32 0, i32 1
+  store ptr %1730, ptr %1732, align 8
+  %1733 = load ptr, ptr %4, align 8
+  %1734 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1733, ptr noundef %1734)
+  %1735 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1229, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1735, ptr %5, align 8
+  %1736 = call ptr @xstrdup(ptr noundef @.str.220)
+  %1737 = load ptr, ptr %5, align 8
+  %1738 = getelementptr inbounds %struct.config_key_pair_t, ptr %1737, i32 0, i32 0
+  store ptr %1736, ptr %1738, align 8
+  %1739 = load ptr, ptr %3, align 8
+  %1740 = getelementptr inbounds %struct.slurm_conf_t, ptr %1739, i32 0, i32 120
+  %1741 = load ptr, ptr %1740, align 8
+  %1742 = call ptr @xstrdup(ptr noundef %1741)
+  %1743 = load ptr, ptr %5, align 8
+  %1744 = getelementptr inbounds %struct.config_key_pair_t, ptr %1743, i32 0, i32 1
+  store ptr %1742, ptr %1744, align 8
+  %1745 = load ptr, ptr %4, align 8
+  %1746 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1745, ptr noundef %1746)
+  %1747 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1234, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1747, ptr %5, align 8
+  %1748 = call ptr @xstrdup(ptr noundef @.str.221)
+  %1749 = load ptr, ptr %5, align 8
+  %1750 = getelementptr inbounds %struct.config_key_pair_t, ptr %1749, i32 0, i32 0
+  store ptr %1748, ptr %1750, align 8
+  %1751 = load ptr, ptr %3, align 8
+  %1752 = getelementptr inbounds %struct.slurm_conf_t, ptr %1751, i32 0, i32 126
+  %1753 = load ptr, ptr %1752, align 8
+  %1754 = call ptr @xstrdup(ptr noundef %1753)
+  %1755 = load ptr, ptr %5, align 8
+  %1756 = getelementptr inbounds %struct.config_key_pair_t, ptr %1755, i32 0, i32 1
+  store ptr %1754, ptr %1756, align 8
+  %1757 = load ptr, ptr %4, align 8
+  %1758 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1757, ptr noundef %1758)
+  %1759 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1239, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1759, ptr %5, align 8
+  %1760 = call ptr @xstrdup(ptr noundef @.str.222)
+  %1761 = load ptr, ptr %5, align 8
+  %1762 = getelementptr inbounds %struct.config_key_pair_t, ptr %1761, i32 0, i32 0
+  store ptr %1760, ptr %1762, align 8
+  %1763 = load ptr, ptr %3, align 8
+  %1764 = getelementptr inbounds %struct.slurm_conf_t, ptr %1763, i32 0, i32 167
+  %1765 = load ptr, ptr %1764, align 8
+  %1766 = call ptr @xstrdup(ptr noundef %1765)
+  %1767 = load ptr, ptr %5, align 8
+  %1768 = getelementptr inbounds %struct.config_key_pair_t, ptr %1767, i32 0, i32 1
+  store ptr %1766, ptr %1768, align 8
+  %1769 = load ptr, ptr %4, align 8
+  %1770 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1769, ptr noundef %1770)
+  %1771 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1244, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1771, ptr %5, align 8
+  %1772 = call ptr @xstrdup(ptr noundef @.str.223)
+  %1773 = load ptr, ptr %5, align 8
+  %1774 = getelementptr inbounds %struct.config_key_pair_t, ptr %1773, i32 0, i32 0
+  store ptr %1772, ptr %1774, align 8
+  %1775 = load ptr, ptr %3, align 8
+  %1776 = getelementptr inbounds %struct.slurm_conf_t, ptr %1775, i32 0, i32 166
+  %1777 = load ptr, ptr %1776, align 8
+  %1778 = call ptr @xstrdup(ptr noundef %1777)
+  %1779 = load ptr, ptr %5, align 8
+  %1780 = getelementptr inbounds %struct.config_key_pair_t, ptr %1779, i32 0, i32 1
+  store ptr %1778, ptr %1780, align 8
+  %1781 = load ptr, ptr %4, align 8
+  %1782 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1781, ptr noundef %1782)
+  %1783 = load ptr, ptr %3, align 8
+  %1784 = getelementptr inbounds %struct.slurm_conf_t, ptr %1783, i32 0, i32 128
+  %1785 = load ptr, ptr %1784, align 8
+  %1786 = call i32 @xstrcmp(ptr noundef %1785, ptr noundef @.str.142)
+  %1787 = icmp eq i32 %1786, 0
+  br i1 %1787, label %1788, label %1801
 
-1999:                                             ; preds = %1799, %1786
-  %2000 = load ptr, ptr %3, align 8
-  %2001 = getelementptr inbounds %struct.slurm_conf_t, ptr %2000, i32 0, i32 136
-  %2002 = load i16, ptr %2001, align 8
-  %2003 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  call void @private_data_string(i16 noundef zeroext %2002, ptr noundef %2003, i32 noundef 256)
-  %2004 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1353, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2004, ptr %5, align 8
-  %2005 = call ptr @xstrdup(ptr noundef @.str.238)
-  %2006 = load ptr, ptr %5, align 8
-  %2007 = getelementptr inbounds %struct.config_key_pair_t, ptr %2006, i32 0, i32 0
-  store ptr %2005, ptr %2007, align 8
-  %2008 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2009 = call ptr @xstrdup(ptr noundef %2008)
-  %2010 = load ptr, ptr %5, align 8
-  %2011 = getelementptr inbounds %struct.config_key_pair_t, ptr %2010, i32 0, i32 1
-  store ptr %2009, ptr %2011, align 8
-  %2012 = load ptr, ptr %4, align 8
-  %2013 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2012, ptr noundef %2013)
-  %2014 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1358, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2014, ptr %5, align 8
-  %2015 = call ptr @xstrdup(ptr noundef @.str.239)
-  %2016 = load ptr, ptr %5, align 8
-  %2017 = getelementptr inbounds %struct.config_key_pair_t, ptr %2016, i32 0, i32 0
-  store ptr %2015, ptr %2017, align 8
-  %2018 = load ptr, ptr %3, align 8
-  %2019 = getelementptr inbounds %struct.slurm_conf_t, ptr %2018, i32 0, i32 137
-  %2020 = load ptr, ptr %2019, align 8
-  %2021 = call ptr @xstrdup(ptr noundef %2020)
-  %2022 = load ptr, ptr %5, align 8
-  %2023 = getelementptr inbounds %struct.config_key_pair_t, ptr %2022, i32 0, i32 1
-  store ptr %2021, ptr %2023, align 8
-  %2024 = load ptr, ptr %4, align 8
-  %2025 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2024, ptr noundef %2025)
-  %2026 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1363, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2026, ptr %5, align 8
-  %2027 = call ptr @xstrdup(ptr noundef @.str.240)
-  %2028 = load ptr, ptr %5, align 8
-  %2029 = getelementptr inbounds %struct.config_key_pair_t, ptr %2028, i32 0, i32 0
-  store ptr %2027, ptr %2029, align 8
-  %2030 = load ptr, ptr %3, align 8
-  %2031 = getelementptr inbounds %struct.slurm_conf_t, ptr %2030, i32 0, i32 138
-  %2032 = load ptr, ptr %2031, align 8
-  %2033 = call ptr @xstrdup(ptr noundef %2032)
-  %2034 = load ptr, ptr %5, align 8
-  %2035 = getelementptr inbounds %struct.config_key_pair_t, ptr %2034, i32 0, i32 1
-  store ptr %2033, ptr %2035, align 8
-  %2036 = load ptr, ptr %4, align 8
-  %2037 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2036, ptr noundef %2037)
-  %2038 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2039 = load ptr, ptr %3, align 8
-  %2040 = getelementptr inbounds %struct.slurm_conf_t, ptr %2039, i32 0, i32 139
-  %2041 = load i16, ptr %2040, align 8
-  %2042 = zext i16 %2041 to i32
-  %2043 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2038, i64 noundef 256, ptr noundef @.str.91, i32 noundef %2042) #6
-  %2044 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1370, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2044, ptr %5, align 8
-  %2045 = call ptr @xstrdup(ptr noundef @.str.241)
-  %2046 = load ptr, ptr %5, align 8
-  %2047 = getelementptr inbounds %struct.config_key_pair_t, ptr %2046, i32 0, i32 0
-  store ptr %2045, ptr %2047, align 8
-  %2048 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2049 = call ptr @xstrdup(ptr noundef %2048)
-  %2050 = load ptr, ptr %5, align 8
-  %2051 = getelementptr inbounds %struct.config_key_pair_t, ptr %2050, i32 0, i32 1
-  store ptr %2049, ptr %2051, align 8
-  %2052 = load ptr, ptr %4, align 8
-  %2053 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2052, ptr noundef %2053)
-  %2054 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1375, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2054, ptr %5, align 8
-  %2055 = call ptr @xstrdup(ptr noundef @.str.242)
-  %2056 = load ptr, ptr %5, align 8
-  %2057 = getelementptr inbounds %struct.config_key_pair_t, ptr %2056, i32 0, i32 0
-  store ptr %2055, ptr %2057, align 8
-  %2058 = load ptr, ptr %3, align 8
-  %2059 = getelementptr inbounds %struct.slurm_conf_t, ptr %2058, i32 0, i32 140
-  %2060 = load ptr, ptr %2059, align 8
-  %2061 = call ptr @xstrdup(ptr noundef %2060)
-  %2062 = load ptr, ptr %5, align 8
-  %2063 = getelementptr inbounds %struct.config_key_pair_t, ptr %2062, i32 0, i32 1
-  store ptr %2061, ptr %2063, align 8
-  %2064 = load ptr, ptr %4, align 8
-  %2065 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2064, ptr noundef %2065)
-  %2066 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1380, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2066, ptr %5, align 8
-  %2067 = call ptr @xstrdup(ptr noundef @.str.243)
-  %2068 = load ptr, ptr %5, align 8
-  %2069 = getelementptr inbounds %struct.config_key_pair_t, ptr %2068, i32 0, i32 0
-  store ptr %2067, ptr %2069, align 8
-  %2070 = load ptr, ptr %3, align 8
-  %2071 = getelementptr inbounds %struct.slurm_conf_t, ptr %2070, i32 0, i32 142
-  %2072 = load i16, ptr %2071, align 2
-  %2073 = call ptr @prolog_flags2str(i16 noundef zeroext %2072)
-  %2074 = load ptr, ptr %5, align 8
-  %2075 = getelementptr inbounds %struct.config_key_pair_t, ptr %2074, i32 0, i32 1
-  store ptr %2073, ptr %2075, align 8
-  %2076 = load ptr, ptr %4, align 8
-  %2077 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2076, ptr noundef %2077)
-  %2078 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2079 = load ptr, ptr %3, align 8
-  %2080 = getelementptr inbounds %struct.slurm_conf_t, ptr %2079, i32 0, i32 141
-  %2081 = load i16, ptr %2080, align 8
-  %2082 = zext i16 %2081 to i32
-  %2083 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2078, i64 noundef 256, ptr noundef @.str.91, i32 noundef %2082) #6
-  %2084 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1387, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2084, ptr %5, align 8
-  %2085 = call ptr @xstrdup(ptr noundef @.str.244)
-  %2086 = load ptr, ptr %5, align 8
-  %2087 = getelementptr inbounds %struct.config_key_pair_t, ptr %2086, i32 0, i32 0
-  store ptr %2085, ptr %2087, align 8
-  %2088 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2089 = call ptr @xstrdup(ptr noundef %2088)
-  %2090 = load ptr, ptr %5, align 8
-  %2091 = getelementptr inbounds %struct.config_key_pair_t, ptr %2090, i32 0, i32 1
-  store ptr %2089, ptr %2091, align 8
-  %2092 = load ptr, ptr %4, align 8
-  %2093 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2092, ptr noundef %2093)
-  %2094 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1392, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2094, ptr %5, align 8
-  %2095 = call ptr @xstrdup(ptr noundef @.str.245)
-  %2096 = load ptr, ptr %5, align 8
-  %2097 = getelementptr inbounds %struct.config_key_pair_t, ptr %2096, i32 0, i32 0
-  store ptr %2095, ptr %2097, align 8
-  %2098 = load ptr, ptr %3, align 8
-  %2099 = getelementptr inbounds %struct.slurm_conf_t, ptr %2098, i32 0, i32 143
-  %2100 = load ptr, ptr %2099, align 8
-  %2101 = call ptr @xstrdup(ptr noundef %2100)
-  %2102 = load ptr, ptr %5, align 8
-  %2103 = getelementptr inbounds %struct.config_key_pair_t, ptr %2102, i32 0, i32 1
-  store ptr %2101, ptr %2103, align 8
-  %2104 = load ptr, ptr %4, align 8
-  %2105 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2104, ptr noundef %2105)
-  %2106 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1397, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2106, ptr %5, align 8
-  %2107 = call ptr @xstrdup(ptr noundef @.str.246)
-  %2108 = load ptr, ptr %5, align 8
-  %2109 = getelementptr inbounds %struct.config_key_pair_t, ptr %2108, i32 0, i32 0
-  store ptr %2107, ptr %2109, align 8
-  %2110 = load ptr, ptr %3, align 8
-  %2111 = getelementptr inbounds %struct.slurm_conf_t, ptr %2110, i32 0, i32 144
-  %2112 = load ptr, ptr %2111, align 8
-  %2113 = call ptr @xstrdup(ptr noundef %2112)
-  %2114 = load ptr, ptr %5, align 8
-  %2115 = getelementptr inbounds %struct.config_key_pair_t, ptr %2114, i32 0, i32 1
-  store ptr %2113, ptr %2115, align 8
-  %2116 = load ptr, ptr %4, align 8
-  %2117 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2116, ptr noundef %2117)
-  %2118 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1403, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2118, ptr %5, align 8
-  %2119 = call ptr @xstrdup(ptr noundef @.str.247)
-  %2120 = load ptr, ptr %5, align 8
-  %2121 = getelementptr inbounds %struct.config_key_pair_t, ptr %2120, i32 0, i32 0
-  store ptr %2119, ptr %2121, align 8
-  %2122 = load ptr, ptr %3, align 8
-  %2123 = getelementptr inbounds %struct.slurm_conf_t, ptr %2122, i32 0, i32 145
-  %2124 = load ptr, ptr %2123, align 8
-  %2125 = call ptr @xstrdup(ptr noundef %2124)
-  %2126 = load ptr, ptr %5, align 8
-  %2127 = getelementptr inbounds %struct.config_key_pair_t, ptr %2126, i32 0, i32 1
-  store ptr %2125, ptr %2127, align 8
-  %2128 = load ptr, ptr %4, align 8
-  %2129 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2128, ptr noundef %2129)
-  %2130 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1408, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2130, ptr %5, align 8
-  %2131 = call ptr @xstrdup(ptr noundef @.str.248)
-  %2132 = load ptr, ptr %5, align 8
-  %2133 = getelementptr inbounds %struct.config_key_pair_t, ptr %2132, i32 0, i32 0
-  store ptr %2131, ptr %2133, align 8
-  %2134 = load ptr, ptr %3, align 8
-  %2135 = getelementptr inbounds %struct.slurm_conf_t, ptr %2134, i32 0, i32 146
-  %2136 = load i16, ptr %2135, align 8
-  %2137 = call ptr @reconfig_flags2str(i16 noundef zeroext %2136)
-  %2138 = load ptr, ptr %5, align 8
-  %2139 = getelementptr inbounds %struct.config_key_pair_t, ptr %2138, i32 0, i32 1
-  store ptr %2137, ptr %2139, align 8
-  %2140 = load ptr, ptr %4, align 8
-  %2141 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2140, ptr noundef %2141)
-  %2142 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1414, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2142, ptr %5, align 8
-  %2143 = call ptr @xstrdup(ptr noundef @.str.249)
-  %2144 = load ptr, ptr %5, align 8
-  %2145 = getelementptr inbounds %struct.config_key_pair_t, ptr %2144, i32 0, i32 0
-  store ptr %2143, ptr %2145, align 8
-  %2146 = load ptr, ptr %3, align 8
-  %2147 = getelementptr inbounds %struct.slurm_conf_t, ptr %2146, i32 0, i32 147
-  %2148 = load ptr, ptr %2147, align 8
-  %2149 = call ptr @xstrdup(ptr noundef %2148)
-  %2150 = load ptr, ptr %5, align 8
-  %2151 = getelementptr inbounds %struct.config_key_pair_t, ptr %2150, i32 0, i32 1
-  store ptr %2149, ptr %2151, align 8
-  %2152 = load ptr, ptr %4, align 8
-  %2153 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2152, ptr noundef %2153)
-  %2154 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1419, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2154, ptr %5, align 8
-  %2155 = call ptr @xstrdup(ptr noundef @.str.250)
-  %2156 = load ptr, ptr %5, align 8
-  %2157 = getelementptr inbounds %struct.config_key_pair_t, ptr %2156, i32 0, i32 0
-  store ptr %2155, ptr %2157, align 8
-  %2158 = load ptr, ptr %3, align 8
-  %2159 = getelementptr inbounds %struct.slurm_conf_t, ptr %2158, i32 0, i32 148
-  %2160 = load ptr, ptr %2159, align 8
-  %2161 = call ptr @xstrdup(ptr noundef %2160)
-  %2162 = load ptr, ptr %5, align 8
-  %2163 = getelementptr inbounds %struct.config_key_pair_t, ptr %2162, i32 0, i32 1
-  store ptr %2161, ptr %2163, align 8
-  %2164 = load ptr, ptr %4, align 8
-  %2165 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2164, ptr noundef %2165)
-  %2166 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1424, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2166, ptr %5, align 8
-  %2167 = call ptr @xstrdup(ptr noundef @.str.251)
-  %2168 = load ptr, ptr %5, align 8
-  %2169 = getelementptr inbounds %struct.config_key_pair_t, ptr %2168, i32 0, i32 0
-  store ptr %2167, ptr %2169, align 8
-  %2170 = load ptr, ptr %3, align 8
-  %2171 = getelementptr inbounds %struct.slurm_conf_t, ptr %2170, i32 0, i32 149
-  %2172 = load ptr, ptr %2171, align 8
-  %2173 = call ptr @xstrdup(ptr noundef %2172)
-  %2174 = load ptr, ptr %5, align 8
-  %2175 = getelementptr inbounds %struct.config_key_pair_t, ptr %2174, i32 0, i32 1
-  store ptr %2173, ptr %2175, align 8
-  %2176 = load ptr, ptr %4, align 8
-  %2177 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2176, ptr noundef %2177)
-  %2178 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1429, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2178, ptr %5, align 8
-  %2179 = call ptr @xstrdup(ptr noundef @.str.252)
-  %2180 = load ptr, ptr %5, align 8
-  %2181 = getelementptr inbounds %struct.config_key_pair_t, ptr %2180, i32 0, i32 0
-  store ptr %2179, ptr %2181, align 8
-  %2182 = load ptr, ptr %3, align 8
-  %2183 = getelementptr inbounds %struct.slurm_conf_t, ptr %2182, i32 0, i32 150
-  %2184 = load ptr, ptr %2183, align 8
-  %2185 = call ptr @xstrdup(ptr noundef %2184)
-  %2186 = load ptr, ptr %5, align 8
-  %2187 = getelementptr inbounds %struct.config_key_pair_t, ptr %2186, i32 0, i32 1
-  store ptr %2185, ptr %2187, align 8
-  %2188 = load ptr, ptr %4, align 8
-  %2189 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2188, ptr noundef %2189)
-  %2190 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2191 = load ptr, ptr %3, align 8
-  %2192 = getelementptr inbounds %struct.slurm_conf_t, ptr %2191, i32 0, i32 151
-  %2193 = load i16, ptr %2192, align 8
-  %2194 = zext i16 %2193 to i32
-  %2195 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2190, i64 noundef 256, ptr noundef @.str.253, i32 noundef %2194) #6
-  %2196 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1436, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2196, ptr %5, align 8
-  %2197 = call ptr @xstrdup(ptr noundef @.str.254)
-  %2198 = load ptr, ptr %5, align 8
-  %2199 = getelementptr inbounds %struct.config_key_pair_t, ptr %2198, i32 0, i32 0
-  store ptr %2197, ptr %2199, align 8
-  %2200 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2201 = call ptr @xstrdup(ptr noundef %2200)
-  %2202 = load ptr, ptr %5, align 8
-  %2203 = getelementptr inbounds %struct.config_key_pair_t, ptr %2202, i32 0, i32 1
-  store ptr %2201, ptr %2203, align 8
-  %2204 = load ptr, ptr %4, align 8
-  %2205 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2204, ptr noundef %2205)
-  %2206 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2207 = load ptr, ptr %3, align 8
-  %2208 = getelementptr inbounds %struct.slurm_conf_t, ptr %2207, i32 0, i32 152
-  %2209 = load i16, ptr %2208, align 2
-  %2210 = zext i16 %2209 to i32
-  %2211 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2206, i64 noundef 256, ptr noundef @.str.105, i32 noundef %2210) #6
-  %2212 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1443, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2212, ptr %5, align 8
-  %2213 = call ptr @xstrdup(ptr noundef @.str.255)
-  %2214 = load ptr, ptr %5, align 8
-  %2215 = getelementptr inbounds %struct.config_key_pair_t, ptr %2214, i32 0, i32 0
-  store ptr %2213, ptr %2215, align 8
-  %2216 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2217 = call ptr @xstrdup(ptr noundef %2216)
-  %2218 = load ptr, ptr %5, align 8
-  %2219 = getelementptr inbounds %struct.config_key_pair_t, ptr %2218, i32 0, i32 1
-  store ptr %2217, ptr %2219, align 8
-  %2220 = load ptr, ptr %4, align 8
-  %2221 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2220, ptr noundef %2221)
-  %2222 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1448, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2222, ptr %5, align 8
-  %2223 = call ptr @xstrdup(ptr noundef @.str.256)
-  %2224 = load ptr, ptr %5, align 8
-  %2225 = getelementptr inbounds %struct.config_key_pair_t, ptr %2224, i32 0, i32 0
-  store ptr %2223, ptr %2225, align 8
-  %2226 = load ptr, ptr %3, align 8
-  %2227 = getelementptr inbounds %struct.slurm_conf_t, ptr %2226, i32 0, i32 153
-  %2228 = load ptr, ptr %2227, align 8
-  %2229 = call ptr @xstrdup(ptr noundef %2228)
-  %2230 = load ptr, ptr %5, align 8
-  %2231 = getelementptr inbounds %struct.config_key_pair_t, ptr %2230, i32 0, i32 1
-  store ptr %2229, ptr %2231, align 8
-  %2232 = load ptr, ptr %4, align 8
-  %2233 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2232, ptr noundef %2233)
-  %2234 = load ptr, ptr %3, align 8
-  %2235 = getelementptr inbounds %struct.slurm_conf_t, ptr %2234, i32 0, i32 154
-  %2236 = load i16, ptr %2235, align 8
-  %2237 = zext i16 %2236 to i32
-  %2238 = icmp eq i32 %2237, 65535
-  br i1 %2238, label %2239, label %2242
+1788:                                             ; preds = %1720
+  %1789 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1250, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1789, ptr %5, align 8
+  %1790 = call ptr @xstrdup(ptr noundef @.str.224)
+  %1791 = load ptr, ptr %5, align 8
+  %1792 = getelementptr inbounds %struct.config_key_pair_t, ptr %1791, i32 0, i32 0
+  store ptr %1790, ptr %1792, align 8
+  %1793 = load ptr, ptr %3, align 8
+  %1794 = getelementptr inbounds %struct.slurm_conf_t, ptr %1793, i32 0, i32 128
+  %1795 = load ptr, ptr %1794, align 8
+  %1796 = call ptr @xstrdup(ptr noundef %1795)
+  %1797 = load ptr, ptr %5, align 8
+  %1798 = getelementptr inbounds %struct.config_key_pair_t, ptr %1797, i32 0, i32 1
+  store ptr %1796, ptr %1798, align 8
+  %1799 = load ptr, ptr %4, align 8
+  %1800 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1799, ptr noundef %1800)
+  br label %2001
 
-2239:                                             ; preds = %1999
-  %2240 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2241 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2240, i64 noundef 256, ptr noundef @.str.129) #6
-  br label %2249
+1801:                                             ; preds = %1720
+  %1802 = load ptr, ptr %3, align 8
+  %1803 = getelementptr inbounds %struct.slurm_conf_t, ptr %1802, i32 0, i32 121
+  %1804 = load i32, ptr %1803, align 8
+  %1805 = zext i32 %1804 to i64
+  %1806 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  call void @secs2time_str(i64 noundef %1805, ptr noundef %1806, i32 noundef 256)
+  %1807 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1257, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1807, ptr %5, align 8
+  %1808 = call ptr @xstrdup(ptr noundef @.str.225)
+  %1809 = load ptr, ptr %5, align 8
+  %1810 = getelementptr inbounds %struct.config_key_pair_t, ptr %1809, i32 0, i32 0
+  store ptr %1808, ptr %1810, align 8
+  %1811 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1812 = call ptr @xstrdup(ptr noundef %1811)
+  %1813 = load ptr, ptr %5, align 8
+  %1814 = getelementptr inbounds %struct.config_key_pair_t, ptr %1813, i32 0, i32 1
+  store ptr %1812, ptr %1814, align 8
+  %1815 = load ptr, ptr %4, align 8
+  %1816 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1815, ptr noundef %1816)
+  %1817 = load ptr, ptr %3, align 8
+  %1818 = getelementptr inbounds %struct.slurm_conf_t, ptr %1817, i32 0, i32 122
+  %1819 = load i32, ptr %1818, align 4
+  %1820 = zext i32 %1819 to i64
+  %1821 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  call void @secs2time_str(i64 noundef %1820, ptr noundef %1821, i32 noundef 256)
+  %1822 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1264, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1822, ptr %5, align 8
+  %1823 = call ptr @xstrdup(ptr noundef @.str.226)
+  %1824 = load ptr, ptr %5, align 8
+  %1825 = getelementptr inbounds %struct.config_key_pair_t, ptr %1824, i32 0, i32 0
+  store ptr %1823, ptr %1825, align 8
+  %1826 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1827 = call ptr @xstrdup(ptr noundef %1826)
+  %1828 = load ptr, ptr %5, align 8
+  %1829 = getelementptr inbounds %struct.config_key_pair_t, ptr %1828, i32 0, i32 1
+  store ptr %1827, ptr %1829, align 8
+  %1830 = load ptr, ptr %4, align 8
+  %1831 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1830, ptr noundef %1831)
+  %1832 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1269, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1832, ptr %5, align 8
+  %1833 = call ptr @xstrdup(ptr noundef @.str.227)
+  %1834 = load ptr, ptr %5, align 8
+  %1835 = getelementptr inbounds %struct.config_key_pair_t, ptr %1834, i32 0, i32 0
+  store ptr %1833, ptr %1835, align 8
+  %1836 = load ptr, ptr %3, align 8
+  %1837 = getelementptr inbounds %struct.slurm_conf_t, ptr %1836, i32 0, i32 123
+  %1838 = load i16, ptr %1837, align 8
+  %1839 = zext i16 %1838 to i32
+  %1840 = icmp ne i32 %1839, 0
+  %1841 = select i1 %1840, ptr @.str.109, ptr @.str.110
+  %1842 = call ptr @xstrdup(ptr noundef %1841)
+  %1843 = load ptr, ptr %5, align 8
+  %1844 = getelementptr inbounds %struct.config_key_pair_t, ptr %1843, i32 0, i32 1
+  store ptr %1842, ptr %1844, align 8
+  %1845 = load ptr, ptr %4, align 8
+  %1846 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1845, ptr noundef %1846)
+  %1847 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1276, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1847, ptr %5, align 8
+  %1848 = call ptr @xstrdup(ptr noundef @.str.228)
+  %1849 = load ptr, ptr %5, align 8
+  %1850 = getelementptr inbounds %struct.config_key_pair_t, ptr %1849, i32 0, i32 0
+  store ptr %1848, ptr %1850, align 8
+  %1851 = load ptr, ptr %3, align 8
+  %1852 = getelementptr inbounds %struct.slurm_conf_t, ptr %1851, i32 0, i32 124
+  %1853 = load i16, ptr %1852, align 2
+  %1854 = call ptr @priority_flags_string(i16 noundef zeroext %1853)
+  %1855 = load ptr, ptr %5, align 8
+  %1856 = getelementptr inbounds %struct.config_key_pair_t, ptr %1855, i32 0, i32 1
+  store ptr %1854, ptr %1856, align 8
+  %1857 = load ptr, ptr %4, align 8
+  %1858 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1857, ptr noundef %1858)
+  %1859 = load ptr, ptr %3, align 8
+  %1860 = getelementptr inbounds %struct.slurm_conf_t, ptr %1859, i32 0, i32 125
+  %1861 = load i32, ptr %1860, align 4
+  %1862 = zext i32 %1861 to i64
+  %1863 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  call void @secs2time_str(i64 noundef %1862, ptr noundef %1863, i32 noundef 256)
+  %1864 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1284, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1864, ptr %5, align 8
+  %1865 = call ptr @xstrdup(ptr noundef @.str.229)
+  %1866 = load ptr, ptr %5, align 8
+  %1867 = getelementptr inbounds %struct.config_key_pair_t, ptr %1866, i32 0, i32 0
+  store ptr %1865, ptr %1867, align 8
+  %1868 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1869 = call ptr @xstrdup(ptr noundef %1868)
+  %1870 = load ptr, ptr %5, align 8
+  %1871 = getelementptr inbounds %struct.config_key_pair_t, ptr %1870, i32 0, i32 1
+  store ptr %1869, ptr %1871, align 8
+  %1872 = load ptr, ptr %4, align 8
+  %1873 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1872, ptr noundef %1873)
+  %1874 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1289, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1874, ptr %5, align 8
+  %1875 = call ptr @xstrdup(ptr noundef @.str.230)
+  %1876 = load ptr, ptr %5, align 8
+  %1877 = getelementptr inbounds %struct.config_key_pair_t, ptr %1876, i32 0, i32 0
+  store ptr %1875, ptr %1877, align 8
+  %1878 = load ptr, ptr %3, align 8
+  %1879 = getelementptr inbounds %struct.slurm_conf_t, ptr %1878, i32 0, i32 127
+  %1880 = load i16, ptr %1879, align 8
+  %1881 = call ptr @_reset_period_str(i16 noundef zeroext %1880)
+  %1882 = call ptr @xstrdup(ptr noundef %1881)
+  %1883 = load ptr, ptr %5, align 8
+  %1884 = getelementptr inbounds %struct.config_key_pair_t, ptr %1883, i32 0, i32 1
+  store ptr %1882, ptr %1884, align 8
+  %1885 = load ptr, ptr %4, align 8
+  %1886 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1885, ptr noundef %1886)
+  %1887 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1296, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1887, ptr %5, align 8
+  %1888 = call ptr @xstrdup(ptr noundef @.str.224)
+  %1889 = load ptr, ptr %5, align 8
+  %1890 = getelementptr inbounds %struct.config_key_pair_t, ptr %1889, i32 0, i32 0
+  store ptr %1888, ptr %1890, align 8
+  %1891 = load ptr, ptr %3, align 8
+  %1892 = getelementptr inbounds %struct.slurm_conf_t, ptr %1891, i32 0, i32 128
+  %1893 = load ptr, ptr %1892, align 8
+  %1894 = call ptr @xstrdup(ptr noundef %1893)
+  %1895 = load ptr, ptr %5, align 8
+  %1896 = getelementptr inbounds %struct.config_key_pair_t, ptr %1895, i32 0, i32 1
+  store ptr %1894, ptr %1896, align 8
+  %1897 = load ptr, ptr %4, align 8
+  %1898 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1897, ptr noundef %1898)
+  %1899 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1900 = load ptr, ptr %3, align 8
+  %1901 = getelementptr inbounds %struct.slurm_conf_t, ptr %1900, i32 0, i32 129
+  %1902 = load i32, ptr %1901, align 8
+  %1903 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1899, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1902) #6
+  %1904 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1303, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1904, ptr %5, align 8
+  %1905 = call ptr @xstrdup(ptr noundef @.str.231)
+  %1906 = load ptr, ptr %5, align 8
+  %1907 = getelementptr inbounds %struct.config_key_pair_t, ptr %1906, i32 0, i32 0
+  store ptr %1905, ptr %1907, align 8
+  %1908 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1909 = call ptr @xstrdup(ptr noundef %1908)
+  %1910 = load ptr, ptr %5, align 8
+  %1911 = getelementptr inbounds %struct.config_key_pair_t, ptr %1910, i32 0, i32 1
+  store ptr %1909, ptr %1911, align 8
+  %1912 = load ptr, ptr %4, align 8
+  %1913 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1912, ptr noundef %1913)
+  %1914 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1915 = load ptr, ptr %3, align 8
+  %1916 = getelementptr inbounds %struct.slurm_conf_t, ptr %1915, i32 0, i32 130
+  %1917 = load i32, ptr %1916, align 4
+  %1918 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1914, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1917) #6
+  %1919 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1310, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1919, ptr %5, align 8
+  %1920 = call ptr @xstrdup(ptr noundef @.str.232)
+  %1921 = load ptr, ptr %5, align 8
+  %1922 = getelementptr inbounds %struct.config_key_pair_t, ptr %1921, i32 0, i32 0
+  store ptr %1920, ptr %1922, align 8
+  %1923 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1924 = call ptr @xstrdup(ptr noundef %1923)
+  %1925 = load ptr, ptr %5, align 8
+  %1926 = getelementptr inbounds %struct.config_key_pair_t, ptr %1925, i32 0, i32 1
+  store ptr %1924, ptr %1926, align 8
+  %1927 = load ptr, ptr %4, align 8
+  %1928 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1927, ptr noundef %1928)
+  %1929 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1930 = load ptr, ptr %3, align 8
+  %1931 = getelementptr inbounds %struct.slurm_conf_t, ptr %1930, i32 0, i32 131
+  %1932 = load i32, ptr %1931, align 8
+  %1933 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1929, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1932) #6
+  %1934 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1317, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1934, ptr %5, align 8
+  %1935 = call ptr @xstrdup(ptr noundef @.str.233)
+  %1936 = load ptr, ptr %5, align 8
+  %1937 = getelementptr inbounds %struct.config_key_pair_t, ptr %1936, i32 0, i32 0
+  store ptr %1935, ptr %1937, align 8
+  %1938 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1939 = call ptr @xstrdup(ptr noundef %1938)
+  %1940 = load ptr, ptr %5, align 8
+  %1941 = getelementptr inbounds %struct.config_key_pair_t, ptr %1940, i32 0, i32 1
+  store ptr %1939, ptr %1941, align 8
+  %1942 = load ptr, ptr %4, align 8
+  %1943 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1942, ptr noundef %1943)
+  %1944 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1945 = load ptr, ptr %3, align 8
+  %1946 = getelementptr inbounds %struct.slurm_conf_t, ptr %1945, i32 0, i32 132
+  %1947 = load i32, ptr %1946, align 4
+  %1948 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1944, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1947) #6
+  %1949 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1324, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1949, ptr %5, align 8
+  %1950 = call ptr @xstrdup(ptr noundef @.str.234)
+  %1951 = load ptr, ptr %5, align 8
+  %1952 = getelementptr inbounds %struct.config_key_pair_t, ptr %1951, i32 0, i32 0
+  store ptr %1950, ptr %1952, align 8
+  %1953 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1954 = call ptr @xstrdup(ptr noundef %1953)
+  %1955 = load ptr, ptr %5, align 8
+  %1956 = getelementptr inbounds %struct.config_key_pair_t, ptr %1955, i32 0, i32 1
+  store ptr %1954, ptr %1956, align 8
+  %1957 = load ptr, ptr %4, align 8
+  %1958 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1957, ptr noundef %1958)
+  %1959 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1960 = load ptr, ptr %3, align 8
+  %1961 = getelementptr inbounds %struct.slurm_conf_t, ptr %1960, i32 0, i32 133
+  %1962 = load i32, ptr %1961, align 8
+  %1963 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1959, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1962) #6
+  %1964 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1331, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1964, ptr %5, align 8
+  %1965 = call ptr @xstrdup(ptr noundef @.str.235)
+  %1966 = load ptr, ptr %5, align 8
+  %1967 = getelementptr inbounds %struct.config_key_pair_t, ptr %1966, i32 0, i32 0
+  store ptr %1965, ptr %1967, align 8
+  %1968 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1969 = call ptr @xstrdup(ptr noundef %1968)
+  %1970 = load ptr, ptr %5, align 8
+  %1971 = getelementptr inbounds %struct.config_key_pair_t, ptr %1970, i32 0, i32 1
+  store ptr %1969, ptr %1971, align 8
+  %1972 = load ptr, ptr %4, align 8
+  %1973 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1972, ptr noundef %1973)
+  %1974 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1975 = load ptr, ptr %3, align 8
+  %1976 = getelementptr inbounds %struct.slurm_conf_t, ptr %1975, i32 0, i32 134
+  %1977 = load i32, ptr %1976, align 4
+  %1978 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1974, i64 noundef 256, ptr noundef @.str.91, i32 noundef %1977) #6
+  %1979 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1338, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1979, ptr %5, align 8
+  %1980 = call ptr @xstrdup(ptr noundef @.str.236)
+  %1981 = load ptr, ptr %5, align 8
+  %1982 = getelementptr inbounds %struct.config_key_pair_t, ptr %1981, i32 0, i32 0
+  store ptr %1980, ptr %1982, align 8
+  %1983 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %1984 = call ptr @xstrdup(ptr noundef %1983)
+  %1985 = load ptr, ptr %5, align 8
+  %1986 = getelementptr inbounds %struct.config_key_pair_t, ptr %1985, i32 0, i32 1
+  store ptr %1984, ptr %1986, align 8
+  %1987 = load ptr, ptr %4, align 8
+  %1988 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1987, ptr noundef %1988)
+  %1989 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1343, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %1989, ptr %5, align 8
+  %1990 = call ptr @xstrdup(ptr noundef @.str.237)
+  %1991 = load ptr, ptr %5, align 8
+  %1992 = getelementptr inbounds %struct.config_key_pair_t, ptr %1991, i32 0, i32 0
+  store ptr %1990, ptr %1992, align 8
+  %1993 = load ptr, ptr %3, align 8
+  %1994 = getelementptr inbounds %struct.slurm_conf_t, ptr %1993, i32 0, i32 135
+  %1995 = load ptr, ptr %1994, align 8
+  %1996 = call ptr @xstrdup(ptr noundef %1995)
+  %1997 = load ptr, ptr %5, align 8
+  %1998 = getelementptr inbounds %struct.config_key_pair_t, ptr %1997, i32 0, i32 1
+  store ptr %1996, ptr %1998, align 8
+  %1999 = load ptr, ptr %4, align 8
+  %2000 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %1999, ptr noundef %2000)
+  br label %2001
 
-2242:                                             ; preds = %1999
-  %2243 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2244 = load ptr, ptr %3, align 8
-  %2245 = getelementptr inbounds %struct.slurm_conf_t, ptr %2244, i32 0, i32 154
-  %2246 = load i16, ptr %2245, align 8
-  %2247 = zext i16 %2246 to i32
-  %2248 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2243, i64 noundef 256, ptr noundef @.str.208, i32 noundef %2247) #6
-  br label %2249
+2001:                                             ; preds = %1801, %1788
+  %2002 = load ptr, ptr %3, align 8
+  %2003 = getelementptr inbounds %struct.slurm_conf_t, ptr %2002, i32 0, i32 136
+  %2004 = load i16, ptr %2003, align 8
+  %2005 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  call void @private_data_string(i16 noundef zeroext %2004, ptr noundef %2005, i32 noundef 256)
+  %2006 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1353, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2006, ptr %5, align 8
+  %2007 = call ptr @xstrdup(ptr noundef @.str.238)
+  %2008 = load ptr, ptr %5, align 8
+  %2009 = getelementptr inbounds %struct.config_key_pair_t, ptr %2008, i32 0, i32 0
+  store ptr %2007, ptr %2009, align 8
+  %2010 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2011 = call ptr @xstrdup(ptr noundef %2010)
+  %2012 = load ptr, ptr %5, align 8
+  %2013 = getelementptr inbounds %struct.config_key_pair_t, ptr %2012, i32 0, i32 1
+  store ptr %2011, ptr %2013, align 8
+  %2014 = load ptr, ptr %4, align 8
+  %2015 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2014, ptr noundef %2015)
+  %2016 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1358, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2016, ptr %5, align 8
+  %2017 = call ptr @xstrdup(ptr noundef @.str.239)
+  %2018 = load ptr, ptr %5, align 8
+  %2019 = getelementptr inbounds %struct.config_key_pair_t, ptr %2018, i32 0, i32 0
+  store ptr %2017, ptr %2019, align 8
+  %2020 = load ptr, ptr %3, align 8
+  %2021 = getelementptr inbounds %struct.slurm_conf_t, ptr %2020, i32 0, i32 137
+  %2022 = load ptr, ptr %2021, align 8
+  %2023 = call ptr @xstrdup(ptr noundef %2022)
+  %2024 = load ptr, ptr %5, align 8
+  %2025 = getelementptr inbounds %struct.config_key_pair_t, ptr %2024, i32 0, i32 1
+  store ptr %2023, ptr %2025, align 8
+  %2026 = load ptr, ptr %4, align 8
+  %2027 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2026, ptr noundef %2027)
+  %2028 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1363, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2028, ptr %5, align 8
+  %2029 = call ptr @xstrdup(ptr noundef @.str.240)
+  %2030 = load ptr, ptr %5, align 8
+  %2031 = getelementptr inbounds %struct.config_key_pair_t, ptr %2030, i32 0, i32 0
+  store ptr %2029, ptr %2031, align 8
+  %2032 = load ptr, ptr %3, align 8
+  %2033 = getelementptr inbounds %struct.slurm_conf_t, ptr %2032, i32 0, i32 138
+  %2034 = load ptr, ptr %2033, align 8
+  %2035 = call ptr @xstrdup(ptr noundef %2034)
+  %2036 = load ptr, ptr %5, align 8
+  %2037 = getelementptr inbounds %struct.config_key_pair_t, ptr %2036, i32 0, i32 1
+  store ptr %2035, ptr %2037, align 8
+  %2038 = load ptr, ptr %4, align 8
+  %2039 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2038, ptr noundef %2039)
+  %2040 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2041 = load ptr, ptr %3, align 8
+  %2042 = getelementptr inbounds %struct.slurm_conf_t, ptr %2041, i32 0, i32 139
+  %2043 = load i16, ptr %2042, align 8
+  %2044 = zext i16 %2043 to i32
+  %2045 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2040, i64 noundef 256, ptr noundef @.str.91, i32 noundef %2044) #6
+  %2046 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1370, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2046, ptr %5, align 8
+  %2047 = call ptr @xstrdup(ptr noundef @.str.241)
+  %2048 = load ptr, ptr %5, align 8
+  %2049 = getelementptr inbounds %struct.config_key_pair_t, ptr %2048, i32 0, i32 0
+  store ptr %2047, ptr %2049, align 8
+  %2050 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2051 = call ptr @xstrdup(ptr noundef %2050)
+  %2052 = load ptr, ptr %5, align 8
+  %2053 = getelementptr inbounds %struct.config_key_pair_t, ptr %2052, i32 0, i32 1
+  store ptr %2051, ptr %2053, align 8
+  %2054 = load ptr, ptr %4, align 8
+  %2055 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2054, ptr noundef %2055)
+  %2056 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1375, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2056, ptr %5, align 8
+  %2057 = call ptr @xstrdup(ptr noundef @.str.242)
+  %2058 = load ptr, ptr %5, align 8
+  %2059 = getelementptr inbounds %struct.config_key_pair_t, ptr %2058, i32 0, i32 0
+  store ptr %2057, ptr %2059, align 8
+  %2060 = load ptr, ptr %3, align 8
+  %2061 = getelementptr inbounds %struct.slurm_conf_t, ptr %2060, i32 0, i32 140
+  %2062 = load ptr, ptr %2061, align 8
+  %2063 = call ptr @xstrdup(ptr noundef %2062)
+  %2064 = load ptr, ptr %5, align 8
+  %2065 = getelementptr inbounds %struct.config_key_pair_t, ptr %2064, i32 0, i32 1
+  store ptr %2063, ptr %2065, align 8
+  %2066 = load ptr, ptr %4, align 8
+  %2067 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2066, ptr noundef %2067)
+  %2068 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1380, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2068, ptr %5, align 8
+  %2069 = call ptr @xstrdup(ptr noundef @.str.243)
+  %2070 = load ptr, ptr %5, align 8
+  %2071 = getelementptr inbounds %struct.config_key_pair_t, ptr %2070, i32 0, i32 0
+  store ptr %2069, ptr %2071, align 8
+  %2072 = load ptr, ptr %3, align 8
+  %2073 = getelementptr inbounds %struct.slurm_conf_t, ptr %2072, i32 0, i32 142
+  %2074 = load i16, ptr %2073, align 2
+  %2075 = call ptr @prolog_flags2str(i16 noundef zeroext %2074)
+  %2076 = load ptr, ptr %5, align 8
+  %2077 = getelementptr inbounds %struct.config_key_pair_t, ptr %2076, i32 0, i32 1
+  store ptr %2075, ptr %2077, align 8
+  %2078 = load ptr, ptr %4, align 8
+  %2079 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2078, ptr noundef %2079)
+  %2080 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2081 = load ptr, ptr %3, align 8
+  %2082 = getelementptr inbounds %struct.slurm_conf_t, ptr %2081, i32 0, i32 141
+  %2083 = load i16, ptr %2082, align 8
+  %2084 = zext i16 %2083 to i32
+  %2085 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2080, i64 noundef 256, ptr noundef @.str.91, i32 noundef %2084) #6
+  %2086 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1387, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2086, ptr %5, align 8
+  %2087 = call ptr @xstrdup(ptr noundef @.str.244)
+  %2088 = load ptr, ptr %5, align 8
+  %2089 = getelementptr inbounds %struct.config_key_pair_t, ptr %2088, i32 0, i32 0
+  store ptr %2087, ptr %2089, align 8
+  %2090 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2091 = call ptr @xstrdup(ptr noundef %2090)
+  %2092 = load ptr, ptr %5, align 8
+  %2093 = getelementptr inbounds %struct.config_key_pair_t, ptr %2092, i32 0, i32 1
+  store ptr %2091, ptr %2093, align 8
+  %2094 = load ptr, ptr %4, align 8
+  %2095 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2094, ptr noundef %2095)
+  %2096 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1392, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2096, ptr %5, align 8
+  %2097 = call ptr @xstrdup(ptr noundef @.str.245)
+  %2098 = load ptr, ptr %5, align 8
+  %2099 = getelementptr inbounds %struct.config_key_pair_t, ptr %2098, i32 0, i32 0
+  store ptr %2097, ptr %2099, align 8
+  %2100 = load ptr, ptr %3, align 8
+  %2101 = getelementptr inbounds %struct.slurm_conf_t, ptr %2100, i32 0, i32 143
+  %2102 = load ptr, ptr %2101, align 8
+  %2103 = call ptr @xstrdup(ptr noundef %2102)
+  %2104 = load ptr, ptr %5, align 8
+  %2105 = getelementptr inbounds %struct.config_key_pair_t, ptr %2104, i32 0, i32 1
+  store ptr %2103, ptr %2105, align 8
+  %2106 = load ptr, ptr %4, align 8
+  %2107 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2106, ptr noundef %2107)
+  %2108 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1397, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2108, ptr %5, align 8
+  %2109 = call ptr @xstrdup(ptr noundef @.str.246)
+  %2110 = load ptr, ptr %5, align 8
+  %2111 = getelementptr inbounds %struct.config_key_pair_t, ptr %2110, i32 0, i32 0
+  store ptr %2109, ptr %2111, align 8
+  %2112 = load ptr, ptr %3, align 8
+  %2113 = getelementptr inbounds %struct.slurm_conf_t, ptr %2112, i32 0, i32 144
+  %2114 = load ptr, ptr %2113, align 8
+  %2115 = call ptr @xstrdup(ptr noundef %2114)
+  %2116 = load ptr, ptr %5, align 8
+  %2117 = getelementptr inbounds %struct.config_key_pair_t, ptr %2116, i32 0, i32 1
+  store ptr %2115, ptr %2117, align 8
+  %2118 = load ptr, ptr %4, align 8
+  %2119 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2118, ptr noundef %2119)
+  %2120 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1403, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2120, ptr %5, align 8
+  %2121 = call ptr @xstrdup(ptr noundef @.str.247)
+  %2122 = load ptr, ptr %5, align 8
+  %2123 = getelementptr inbounds %struct.config_key_pair_t, ptr %2122, i32 0, i32 0
+  store ptr %2121, ptr %2123, align 8
+  %2124 = load ptr, ptr %3, align 8
+  %2125 = getelementptr inbounds %struct.slurm_conf_t, ptr %2124, i32 0, i32 145
+  %2126 = load ptr, ptr %2125, align 8
+  %2127 = call ptr @xstrdup(ptr noundef %2126)
+  %2128 = load ptr, ptr %5, align 8
+  %2129 = getelementptr inbounds %struct.config_key_pair_t, ptr %2128, i32 0, i32 1
+  store ptr %2127, ptr %2129, align 8
+  %2130 = load ptr, ptr %4, align 8
+  %2131 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2130, ptr noundef %2131)
+  %2132 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1408, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2132, ptr %5, align 8
+  %2133 = call ptr @xstrdup(ptr noundef @.str.248)
+  %2134 = load ptr, ptr %5, align 8
+  %2135 = getelementptr inbounds %struct.config_key_pair_t, ptr %2134, i32 0, i32 0
+  store ptr %2133, ptr %2135, align 8
+  %2136 = load ptr, ptr %3, align 8
+  %2137 = getelementptr inbounds %struct.slurm_conf_t, ptr %2136, i32 0, i32 146
+  %2138 = load i16, ptr %2137, align 8
+  %2139 = call ptr @reconfig_flags2str(i16 noundef zeroext %2138)
+  %2140 = load ptr, ptr %5, align 8
+  %2141 = getelementptr inbounds %struct.config_key_pair_t, ptr %2140, i32 0, i32 1
+  store ptr %2139, ptr %2141, align 8
+  %2142 = load ptr, ptr %4, align 8
+  %2143 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2142, ptr noundef %2143)
+  %2144 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1414, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2144, ptr %5, align 8
+  %2145 = call ptr @xstrdup(ptr noundef @.str.249)
+  %2146 = load ptr, ptr %5, align 8
+  %2147 = getelementptr inbounds %struct.config_key_pair_t, ptr %2146, i32 0, i32 0
+  store ptr %2145, ptr %2147, align 8
+  %2148 = load ptr, ptr %3, align 8
+  %2149 = getelementptr inbounds %struct.slurm_conf_t, ptr %2148, i32 0, i32 147
+  %2150 = load ptr, ptr %2149, align 8
+  %2151 = call ptr @xstrdup(ptr noundef %2150)
+  %2152 = load ptr, ptr %5, align 8
+  %2153 = getelementptr inbounds %struct.config_key_pair_t, ptr %2152, i32 0, i32 1
+  store ptr %2151, ptr %2153, align 8
+  %2154 = load ptr, ptr %4, align 8
+  %2155 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2154, ptr noundef %2155)
+  %2156 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1419, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2156, ptr %5, align 8
+  %2157 = call ptr @xstrdup(ptr noundef @.str.250)
+  %2158 = load ptr, ptr %5, align 8
+  %2159 = getelementptr inbounds %struct.config_key_pair_t, ptr %2158, i32 0, i32 0
+  store ptr %2157, ptr %2159, align 8
+  %2160 = load ptr, ptr %3, align 8
+  %2161 = getelementptr inbounds %struct.slurm_conf_t, ptr %2160, i32 0, i32 148
+  %2162 = load ptr, ptr %2161, align 8
+  %2163 = call ptr @xstrdup(ptr noundef %2162)
+  %2164 = load ptr, ptr %5, align 8
+  %2165 = getelementptr inbounds %struct.config_key_pair_t, ptr %2164, i32 0, i32 1
+  store ptr %2163, ptr %2165, align 8
+  %2166 = load ptr, ptr %4, align 8
+  %2167 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2166, ptr noundef %2167)
+  %2168 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1424, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2168, ptr %5, align 8
+  %2169 = call ptr @xstrdup(ptr noundef @.str.251)
+  %2170 = load ptr, ptr %5, align 8
+  %2171 = getelementptr inbounds %struct.config_key_pair_t, ptr %2170, i32 0, i32 0
+  store ptr %2169, ptr %2171, align 8
+  %2172 = load ptr, ptr %3, align 8
+  %2173 = getelementptr inbounds %struct.slurm_conf_t, ptr %2172, i32 0, i32 149
+  %2174 = load ptr, ptr %2173, align 8
+  %2175 = call ptr @xstrdup(ptr noundef %2174)
+  %2176 = load ptr, ptr %5, align 8
+  %2177 = getelementptr inbounds %struct.config_key_pair_t, ptr %2176, i32 0, i32 1
+  store ptr %2175, ptr %2177, align 8
+  %2178 = load ptr, ptr %4, align 8
+  %2179 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2178, ptr noundef %2179)
+  %2180 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1429, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2180, ptr %5, align 8
+  %2181 = call ptr @xstrdup(ptr noundef @.str.252)
+  %2182 = load ptr, ptr %5, align 8
+  %2183 = getelementptr inbounds %struct.config_key_pair_t, ptr %2182, i32 0, i32 0
+  store ptr %2181, ptr %2183, align 8
+  %2184 = load ptr, ptr %3, align 8
+  %2185 = getelementptr inbounds %struct.slurm_conf_t, ptr %2184, i32 0, i32 150
+  %2186 = load ptr, ptr %2185, align 8
+  %2187 = call ptr @xstrdup(ptr noundef %2186)
+  %2188 = load ptr, ptr %5, align 8
+  %2189 = getelementptr inbounds %struct.config_key_pair_t, ptr %2188, i32 0, i32 1
+  store ptr %2187, ptr %2189, align 8
+  %2190 = load ptr, ptr %4, align 8
+  %2191 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2190, ptr noundef %2191)
+  %2192 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2193 = load ptr, ptr %3, align 8
+  %2194 = getelementptr inbounds %struct.slurm_conf_t, ptr %2193, i32 0, i32 151
+  %2195 = load i16, ptr %2194, align 8
+  %2196 = zext i16 %2195 to i32
+  %2197 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2192, i64 noundef 256, ptr noundef @.str.253, i32 noundef %2196) #6
+  %2198 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1436, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2198, ptr %5, align 8
+  %2199 = call ptr @xstrdup(ptr noundef @.str.254)
+  %2200 = load ptr, ptr %5, align 8
+  %2201 = getelementptr inbounds %struct.config_key_pair_t, ptr %2200, i32 0, i32 0
+  store ptr %2199, ptr %2201, align 8
+  %2202 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2203 = call ptr @xstrdup(ptr noundef %2202)
+  %2204 = load ptr, ptr %5, align 8
+  %2205 = getelementptr inbounds %struct.config_key_pair_t, ptr %2204, i32 0, i32 1
+  store ptr %2203, ptr %2205, align 8
+  %2206 = load ptr, ptr %4, align 8
+  %2207 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2206, ptr noundef %2207)
+  %2208 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2209 = load ptr, ptr %3, align 8
+  %2210 = getelementptr inbounds %struct.slurm_conf_t, ptr %2209, i32 0, i32 152
+  %2211 = load i16, ptr %2210, align 2
+  %2212 = zext i16 %2211 to i32
+  %2213 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2208, i64 noundef 256, ptr noundef @.str.105, i32 noundef %2212) #6
+  %2214 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1443, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2214, ptr %5, align 8
+  %2215 = call ptr @xstrdup(ptr noundef @.str.255)
+  %2216 = load ptr, ptr %5, align 8
+  %2217 = getelementptr inbounds %struct.config_key_pair_t, ptr %2216, i32 0, i32 0
+  store ptr %2215, ptr %2217, align 8
+  %2218 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2219 = call ptr @xstrdup(ptr noundef %2218)
+  %2220 = load ptr, ptr %5, align 8
+  %2221 = getelementptr inbounds %struct.config_key_pair_t, ptr %2220, i32 0, i32 1
+  store ptr %2219, ptr %2221, align 8
+  %2222 = load ptr, ptr %4, align 8
+  %2223 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2222, ptr noundef %2223)
+  %2224 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1448, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2224, ptr %5, align 8
+  %2225 = call ptr @xstrdup(ptr noundef @.str.256)
+  %2226 = load ptr, ptr %5, align 8
+  %2227 = getelementptr inbounds %struct.config_key_pair_t, ptr %2226, i32 0, i32 0
+  store ptr %2225, ptr %2227, align 8
+  %2228 = load ptr, ptr %3, align 8
+  %2229 = getelementptr inbounds %struct.slurm_conf_t, ptr %2228, i32 0, i32 153
+  %2230 = load ptr, ptr %2229, align 8
+  %2231 = call ptr @xstrdup(ptr noundef %2230)
+  %2232 = load ptr, ptr %5, align 8
+  %2233 = getelementptr inbounds %struct.config_key_pair_t, ptr %2232, i32 0, i32 1
+  store ptr %2231, ptr %2233, align 8
+  %2234 = load ptr, ptr %4, align 8
+  %2235 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2234, ptr noundef %2235)
+  %2236 = load ptr, ptr %3, align 8
+  %2237 = getelementptr inbounds %struct.slurm_conf_t, ptr %2236, i32 0, i32 154
+  %2238 = load i16, ptr %2237, align 8
+  %2239 = zext i16 %2238 to i32
+  %2240 = icmp eq i32 %2239, 65535
+  br i1 %2240, label %2241, label %2244
 
-2249:                                             ; preds = %2242, %2239
-  %2250 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1458, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2250, ptr %5, align 8
-  %2251 = call ptr @xstrdup(ptr noundef @.str.257)
-  %2252 = load ptr, ptr %5, align 8
-  %2253 = getelementptr inbounds %struct.config_key_pair_t, ptr %2252, i32 0, i32 0
-  store ptr %2251, ptr %2253, align 8
-  %2254 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2255 = call ptr @xstrdup(ptr noundef %2254)
-  %2256 = load ptr, ptr %5, align 8
-  %2257 = getelementptr inbounds %struct.config_key_pair_t, ptr %2256, i32 0, i32 1
-  store ptr %2255, ptr %2257, align 8
-  %2258 = load ptr, ptr %4, align 8
-  %2259 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2258, ptr noundef %2259)
-  %2260 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1463, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2260, ptr %5, align 8
-  %2261 = call ptr @xstrdup(ptr noundef @.str.258)
-  %2262 = load ptr, ptr %5, align 8
-  %2263 = getelementptr inbounds %struct.config_key_pair_t, ptr %2262, i32 0, i32 0
-  store ptr %2261, ptr %2263, align 8
-  %2264 = load ptr, ptr %3, align 8
-  %2265 = getelementptr inbounds %struct.slurm_conf_t, ptr %2264, i32 0, i32 155
-  %2266 = load ptr, ptr %2265, align 8
-  %2267 = call ptr @xstrdup(ptr noundef %2266)
-  %2268 = load ptr, ptr %5, align 8
-  %2269 = getelementptr inbounds %struct.config_key_pair_t, ptr %2268, i32 0, i32 1
-  store ptr %2267, ptr %2269, align 8
-  %2270 = load ptr, ptr %4, align 8
-  %2271 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2270, ptr noundef %2271)
-  %2272 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2273 = load ptr, ptr %3, align 8
-  %2274 = getelementptr inbounds %struct.slurm_conf_t, ptr %2273, i32 0, i32 156
-  %2275 = load i16, ptr %2274, align 8
-  %2276 = zext i16 %2275 to i32
-  %2277 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2272, i64 noundef 256, ptr noundef @.str.91, i32 noundef %2276) #6
-  %2278 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1470, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2278, ptr %5, align 8
-  %2279 = call ptr @xstrdup(ptr noundef @.str.259)
-  %2280 = load ptr, ptr %5, align 8
-  %2281 = getelementptr inbounds %struct.config_key_pair_t, ptr %2280, i32 0, i32 0
-  store ptr %2279, ptr %2281, align 8
-  %2282 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2283 = call ptr @xstrdup(ptr noundef %2282)
-  %2284 = load ptr, ptr %5, align 8
-  %2285 = getelementptr inbounds %struct.config_key_pair_t, ptr %2284, i32 0, i32 1
-  store ptr %2283, ptr %2285, align 8
-  %2286 = load ptr, ptr %4, align 8
-  %2287 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2286, ptr noundef %2287)
-  %2288 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1475, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2288, ptr %5, align 8
-  %2289 = call ptr @xstrdup(ptr noundef @.str.260)
-  %2290 = load ptr, ptr %5, align 8
-  %2291 = getelementptr inbounds %struct.config_key_pair_t, ptr %2290, i32 0, i32 0
-  store ptr %2289, ptr %2291, align 8
-  %2292 = load ptr, ptr %3, align 8
-  %2293 = getelementptr inbounds %struct.slurm_conf_t, ptr %2292, i32 0, i32 159
-  %2294 = load ptr, ptr %2293, align 8
-  %2295 = call ptr @xstrdup(ptr noundef %2294)
-  %2296 = load ptr, ptr %5, align 8
-  %2297 = getelementptr inbounds %struct.config_key_pair_t, ptr %2296, i32 0, i32 1
-  store ptr %2295, ptr %2297, align 8
-  %2298 = load ptr, ptr %4, align 8
-  %2299 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2298, ptr noundef %2299)
-  %2300 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2301 = load ptr, ptr %3, align 8
-  %2302 = getelementptr inbounds %struct.slurm_conf_t, ptr %2301, i32 0, i32 160
-  %2303 = load i16, ptr %2302, align 8
-  %2304 = zext i16 %2303 to i32
-  %2305 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2300, i64 noundef 256, ptr noundef @.str.105, i32 noundef %2304) #6
-  %2306 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1482, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2306, ptr %5, align 8
-  %2307 = call ptr @xstrdup(ptr noundef @.str.261)
-  %2308 = load ptr, ptr %5, align 8
-  %2309 = getelementptr inbounds %struct.config_key_pair_t, ptr %2308, i32 0, i32 0
-  store ptr %2307, ptr %2309, align 8
-  %2310 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2311 = call ptr @xstrdup(ptr noundef %2310)
-  %2312 = load ptr, ptr %5, align 8
-  %2313 = getelementptr inbounds %struct.config_key_pair_t, ptr %2312, i32 0, i32 1
-  store ptr %2311, ptr %2313, align 8
-  %2314 = load ptr, ptr %4, align 8
-  %2315 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2314, ptr noundef %2315)
-  %2316 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1487, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2316, ptr %5, align 8
-  %2317 = call ptr @xstrdup(ptr noundef @.str.262)
-  %2318 = load ptr, ptr %5, align 8
-  %2319 = getelementptr inbounds %struct.config_key_pair_t, ptr %2318, i32 0, i32 0
-  store ptr %2317, ptr %2319, align 8
-  %2320 = load ptr, ptr %3, align 8
-  %2321 = getelementptr inbounds %struct.slurm_conf_t, ptr %2320, i32 0, i32 161
-  %2322 = load ptr, ptr %2321, align 8
-  %2323 = call ptr @xstrdup(ptr noundef %2322)
-  %2324 = load ptr, ptr %5, align 8
-  %2325 = getelementptr inbounds %struct.config_key_pair_t, ptr %2324, i32 0, i32 1
-  store ptr %2323, ptr %2325, align 8
-  %2326 = load ptr, ptr %4, align 8
-  %2327 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2326, ptr noundef %2327)
-  %2328 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1492, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2328, ptr %5, align 8
-  %2329 = call ptr @xstrdup(ptr noundef @.str.263)
-  %2330 = load ptr, ptr %5, align 8
-  %2331 = getelementptr inbounds %struct.config_key_pair_t, ptr %2330, i32 0, i32 0
-  store ptr %2329, ptr %2331, align 8
-  %2332 = load ptr, ptr %3, align 8
-  %2333 = getelementptr inbounds %struct.slurm_conf_t, ptr %2332, i32 0, i32 162
-  %2334 = load ptr, ptr %2333, align 8
-  %2335 = call ptr @xstrdup(ptr noundef %2334)
-  %2336 = load ptr, ptr %5, align 8
-  %2337 = getelementptr inbounds %struct.config_key_pair_t, ptr %2336, i32 0, i32 1
-  store ptr %2335, ptr %2337, align 8
-  %2338 = load ptr, ptr %4, align 8
-  %2339 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2338, ptr noundef %2339)
-  %2340 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1497, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2340, ptr %5, align 8
-  %2341 = call ptr @xstrdup(ptr noundef @.str.264)
-  %2342 = load ptr, ptr %5, align 8
-  %2343 = getelementptr inbounds %struct.config_key_pair_t, ptr %2342, i32 0, i32 0
-  store ptr %2341, ptr %2343, align 8
-  %2344 = load ptr, ptr %3, align 8
-  %2345 = getelementptr inbounds %struct.slurm_conf_t, ptr %2344, i32 0, i32 163
-  %2346 = load ptr, ptr %2345, align 8
-  %2347 = call ptr @xstrdup(ptr noundef %2346)
-  %2348 = load ptr, ptr %5, align 8
-  %2349 = getelementptr inbounds %struct.config_key_pair_t, ptr %2348, i32 0, i32 1
-  store ptr %2347, ptr %2349, align 8
-  %2350 = load ptr, ptr %4, align 8
-  %2351 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2350, ptr noundef %2351)
-  %2352 = load ptr, ptr %3, align 8
-  %2353 = getelementptr inbounds %struct.slurm_conf_t, ptr %2352, i32 0, i32 165
-  %2354 = load i16, ptr %2353, align 8
-  %2355 = icmp ne i16 %2354, 0
-  br i1 %2355, label %2356, label %2370
+2241:                                             ; preds = %2001
+  %2242 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2243 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2242, i64 noundef 256, ptr noundef @.str.129) #6
+  br label %2251
 
-2356:                                             ; preds = %2249
-  %2357 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1503, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2357, ptr %5, align 8
-  %2358 = call ptr @xstrdup(ptr noundef @.str.265)
-  %2359 = load ptr, ptr %5, align 8
-  %2360 = getelementptr inbounds %struct.config_key_pair_t, ptr %2359, i32 0, i32 0
-  store ptr %2358, ptr %2360, align 8
-  %2361 = load ptr, ptr %3, align 8
-  %2362 = getelementptr inbounds %struct.slurm_conf_t, ptr %2361, i32 0, i32 165
-  %2363 = load i16, ptr %2362, align 8
-  %2364 = call ptr @select_type_param_string(i16 noundef zeroext %2363)
-  %2365 = call ptr @xstrdup(ptr noundef %2364)
-  %2366 = load ptr, ptr %5, align 8
-  %2367 = getelementptr inbounds %struct.config_key_pair_t, ptr %2366, i32 0, i32 1
-  store ptr %2365, ptr %2367, align 8
-  %2368 = load ptr, ptr %4, align 8
-  %2369 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2368, ptr noundef %2369)
-  br label %2370
+2244:                                             ; preds = %2001
+  %2245 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2246 = load ptr, ptr %3, align 8
+  %2247 = getelementptr inbounds %struct.slurm_conf_t, ptr %2246, i32 0, i32 154
+  %2248 = load i16, ptr %2247, align 8
+  %2249 = zext i16 %2248 to i32
+  %2250 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2245, i64 noundef 256, ptr noundef @.str.208, i32 noundef %2249) #6
+  br label %2251
 
-2370:                                             ; preds = %2356, %2249
-  %2371 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2372 = load ptr, ptr %3, align 8
-  %2373 = getelementptr inbounds %struct.slurm_conf_t, ptr %2372, i32 0, i32 170
-  %2374 = load ptr, ptr %2373, align 8
-  %2375 = load ptr, ptr %3, align 8
-  %2376 = getelementptr inbounds %struct.slurm_conf_t, ptr %2375, i32 0, i32 169
-  %2377 = load i32, ptr %2376, align 8
-  %2378 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2371, i64 noundef 256, ptr noundef @.str.266, ptr noundef %2374, i32 noundef %2377) #6
-  %2379 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1514, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2379, ptr %5, align 8
-  %2380 = call ptr @xstrdup(ptr noundef @.str.267)
-  %2381 = load ptr, ptr %5, align 8
-  %2382 = getelementptr inbounds %struct.config_key_pair_t, ptr %2381, i32 0, i32 0
-  store ptr %2380, ptr %2382, align 8
-  %2383 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2384 = call ptr @xstrdup(ptr noundef %2383)
-  %2385 = load ptr, ptr %5, align 8
-  %2386 = getelementptr inbounds %struct.config_key_pair_t, ptr %2385, i32 0, i32 1
-  store ptr %2384, ptr %2386, align 8
-  %2387 = load ptr, ptr %4, align 8
-  %2388 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2387, ptr noundef %2388)
-  %2389 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2390 = load ptr, ptr %3, align 8
-  %2391 = getelementptr inbounds %struct.slurm_conf_t, ptr %2390, i32 0, i32 173
-  %2392 = load ptr, ptr %2391, align 8
-  %2393 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2389, i64 noundef 256, ptr noundef @.str.268, ptr noundef %2392) #6
-  %2394 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1521, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2394, ptr %5, align 8
-  %2395 = call ptr @xstrdup(ptr noundef @.str.269)
-  %2396 = load ptr, ptr %5, align 8
-  %2397 = getelementptr inbounds %struct.config_key_pair_t, ptr %2396, i32 0, i32 0
-  store ptr %2395, ptr %2397, align 8
-  %2398 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2399 = call ptr @xstrdup(ptr noundef %2398)
-  %2400 = load ptr, ptr %5, align 8
-  %2401 = getelementptr inbounds %struct.config_key_pair_t, ptr %2400, i32 0, i32 1
-  store ptr %2399, ptr %2401, align 8
-  %2402 = load ptr, ptr %4, align 8
-  %2403 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2402, ptr noundef %2403)
-  %2404 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2405 = load ptr, ptr %3, align 8
-  %2406 = getelementptr inbounds %struct.slurm_conf_t, ptr %2405, i32 0, i32 174
-  %2407 = load i16, ptr %2406, align 8
-  %2408 = call ptr @log_num2string(i16 noundef zeroext %2407)
-  %2409 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2404, i64 noundef 256, ptr noundef @.str.268, ptr noundef %2408) #6
-  %2410 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1528, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2410, ptr %5, align 8
-  %2411 = call ptr @xstrdup(ptr noundef @.str.270)
-  %2412 = load ptr, ptr %5, align 8
-  %2413 = getelementptr inbounds %struct.config_key_pair_t, ptr %2412, i32 0, i32 0
-  store ptr %2411, ptr %2413, align 8
-  %2414 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2415 = call ptr @xstrdup(ptr noundef %2414)
-  %2416 = load ptr, ptr %5, align 8
-  %2417 = getelementptr inbounds %struct.config_key_pair_t, ptr %2416, i32 0, i32 1
-  store ptr %2415, ptr %2417, align 8
-  %2418 = load ptr, ptr %4, align 8
-  %2419 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2418, ptr noundef %2419)
+2251:                                             ; preds = %2244, %2241
+  %2252 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1458, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2252, ptr %5, align 8
+  %2253 = call ptr @xstrdup(ptr noundef @.str.257)
+  %2254 = load ptr, ptr %5, align 8
+  %2255 = getelementptr inbounds %struct.config_key_pair_t, ptr %2254, i32 0, i32 0
+  store ptr %2253, ptr %2255, align 8
+  %2256 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2257 = call ptr @xstrdup(ptr noundef %2256)
+  %2258 = load ptr, ptr %5, align 8
+  %2259 = getelementptr inbounds %struct.config_key_pair_t, ptr %2258, i32 0, i32 1
+  store ptr %2257, ptr %2259, align 8
+  %2260 = load ptr, ptr %4, align 8
+  %2261 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2260, ptr noundef %2261)
+  %2262 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1463, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2262, ptr %5, align 8
+  %2263 = call ptr @xstrdup(ptr noundef @.str.258)
+  %2264 = load ptr, ptr %5, align 8
+  %2265 = getelementptr inbounds %struct.config_key_pair_t, ptr %2264, i32 0, i32 0
+  store ptr %2263, ptr %2265, align 8
+  %2266 = load ptr, ptr %3, align 8
+  %2267 = getelementptr inbounds %struct.slurm_conf_t, ptr %2266, i32 0, i32 155
+  %2268 = load ptr, ptr %2267, align 8
+  %2269 = call ptr @xstrdup(ptr noundef %2268)
+  %2270 = load ptr, ptr %5, align 8
+  %2271 = getelementptr inbounds %struct.config_key_pair_t, ptr %2270, i32 0, i32 1
+  store ptr %2269, ptr %2271, align 8
+  %2272 = load ptr, ptr %4, align 8
+  %2273 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2272, ptr noundef %2273)
+  %2274 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2275 = load ptr, ptr %3, align 8
+  %2276 = getelementptr inbounds %struct.slurm_conf_t, ptr %2275, i32 0, i32 156
+  %2277 = load i16, ptr %2276, align 8
+  %2278 = zext i16 %2277 to i32
+  %2279 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2274, i64 noundef 256, ptr noundef @.str.91, i32 noundef %2278) #6
+  %2280 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1470, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2280, ptr %5, align 8
+  %2281 = call ptr @xstrdup(ptr noundef @.str.259)
+  %2282 = load ptr, ptr %5, align 8
+  %2283 = getelementptr inbounds %struct.config_key_pair_t, ptr %2282, i32 0, i32 0
+  store ptr %2281, ptr %2283, align 8
+  %2284 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2285 = call ptr @xstrdup(ptr noundef %2284)
+  %2286 = load ptr, ptr %5, align 8
+  %2287 = getelementptr inbounds %struct.config_key_pair_t, ptr %2286, i32 0, i32 1
+  store ptr %2285, ptr %2287, align 8
+  %2288 = load ptr, ptr %4, align 8
+  %2289 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2288, ptr noundef %2289)
+  %2290 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1475, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2290, ptr %5, align 8
+  %2291 = call ptr @xstrdup(ptr noundef @.str.260)
+  %2292 = load ptr, ptr %5, align 8
+  %2293 = getelementptr inbounds %struct.config_key_pair_t, ptr %2292, i32 0, i32 0
+  store ptr %2291, ptr %2293, align 8
+  %2294 = load ptr, ptr %3, align 8
+  %2295 = getelementptr inbounds %struct.slurm_conf_t, ptr %2294, i32 0, i32 159
+  %2296 = load ptr, ptr %2295, align 8
+  %2297 = call ptr @xstrdup(ptr noundef %2296)
+  %2298 = load ptr, ptr %5, align 8
+  %2299 = getelementptr inbounds %struct.config_key_pair_t, ptr %2298, i32 0, i32 1
+  store ptr %2297, ptr %2299, align 8
+  %2300 = load ptr, ptr %4, align 8
+  %2301 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2300, ptr noundef %2301)
+  %2302 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2303 = load ptr, ptr %3, align 8
+  %2304 = getelementptr inbounds %struct.slurm_conf_t, ptr %2303, i32 0, i32 160
+  %2305 = load i16, ptr %2304, align 8
+  %2306 = zext i16 %2305 to i32
+  %2307 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2302, i64 noundef 256, ptr noundef @.str.105, i32 noundef %2306) #6
+  %2308 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1482, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2308, ptr %5, align 8
+  %2309 = call ptr @xstrdup(ptr noundef @.str.261)
+  %2310 = load ptr, ptr %5, align 8
+  %2311 = getelementptr inbounds %struct.config_key_pair_t, ptr %2310, i32 0, i32 0
+  store ptr %2309, ptr %2311, align 8
+  %2312 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2313 = call ptr @xstrdup(ptr noundef %2312)
+  %2314 = load ptr, ptr %5, align 8
+  %2315 = getelementptr inbounds %struct.config_key_pair_t, ptr %2314, i32 0, i32 1
+  store ptr %2313, ptr %2315, align 8
+  %2316 = load ptr, ptr %4, align 8
+  %2317 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2316, ptr noundef %2317)
+  %2318 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1487, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2318, ptr %5, align 8
+  %2319 = call ptr @xstrdup(ptr noundef @.str.262)
+  %2320 = load ptr, ptr %5, align 8
+  %2321 = getelementptr inbounds %struct.config_key_pair_t, ptr %2320, i32 0, i32 0
+  store ptr %2319, ptr %2321, align 8
+  %2322 = load ptr, ptr %3, align 8
+  %2323 = getelementptr inbounds %struct.slurm_conf_t, ptr %2322, i32 0, i32 161
+  %2324 = load ptr, ptr %2323, align 8
+  %2325 = call ptr @xstrdup(ptr noundef %2324)
+  %2326 = load ptr, ptr %5, align 8
+  %2327 = getelementptr inbounds %struct.config_key_pair_t, ptr %2326, i32 0, i32 1
+  store ptr %2325, ptr %2327, align 8
+  %2328 = load ptr, ptr %4, align 8
+  %2329 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2328, ptr noundef %2329)
+  %2330 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1492, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2330, ptr %5, align 8
+  %2331 = call ptr @xstrdup(ptr noundef @.str.263)
+  %2332 = load ptr, ptr %5, align 8
+  %2333 = getelementptr inbounds %struct.config_key_pair_t, ptr %2332, i32 0, i32 0
+  store ptr %2331, ptr %2333, align 8
+  %2334 = load ptr, ptr %3, align 8
+  %2335 = getelementptr inbounds %struct.slurm_conf_t, ptr %2334, i32 0, i32 162
+  %2336 = load ptr, ptr %2335, align 8
+  %2337 = call ptr @xstrdup(ptr noundef %2336)
+  %2338 = load ptr, ptr %5, align 8
+  %2339 = getelementptr inbounds %struct.config_key_pair_t, ptr %2338, i32 0, i32 1
+  store ptr %2337, ptr %2339, align 8
+  %2340 = load ptr, ptr %4, align 8
+  %2341 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2340, ptr noundef %2341)
+  %2342 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1497, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2342, ptr %5, align 8
+  %2343 = call ptr @xstrdup(ptr noundef @.str.264)
+  %2344 = load ptr, ptr %5, align 8
+  %2345 = getelementptr inbounds %struct.config_key_pair_t, ptr %2344, i32 0, i32 0
+  store ptr %2343, ptr %2345, align 8
+  %2346 = load ptr, ptr %3, align 8
+  %2347 = getelementptr inbounds %struct.slurm_conf_t, ptr %2346, i32 0, i32 163
+  %2348 = load ptr, ptr %2347, align 8
+  %2349 = call ptr @xstrdup(ptr noundef %2348)
+  %2350 = load ptr, ptr %5, align 8
+  %2351 = getelementptr inbounds %struct.config_key_pair_t, ptr %2350, i32 0, i32 1
+  store ptr %2349, ptr %2351, align 8
+  %2352 = load ptr, ptr %4, align 8
+  %2353 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2352, ptr noundef %2353)
+  %2354 = load ptr, ptr %3, align 8
+  %2355 = getelementptr inbounds %struct.slurm_conf_t, ptr %2354, i32 0, i32 165
+  %2356 = load i16, ptr %2355, align 8
+  %2357 = icmp ne i16 %2356, 0
+  br i1 %2357, label %2358, label %2372
+
+2358:                                             ; preds = %2251
+  %2359 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1503, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2359, ptr %5, align 8
+  %2360 = call ptr @xstrdup(ptr noundef @.str.265)
+  %2361 = load ptr, ptr %5, align 8
+  %2362 = getelementptr inbounds %struct.config_key_pair_t, ptr %2361, i32 0, i32 0
+  store ptr %2360, ptr %2362, align 8
+  %2363 = load ptr, ptr %3, align 8
+  %2364 = getelementptr inbounds %struct.slurm_conf_t, ptr %2363, i32 0, i32 165
+  %2365 = load i16, ptr %2364, align 8
+  %2366 = call ptr @select_type_param_string(i16 noundef zeroext %2365)
+  %2367 = call ptr @xstrdup(ptr noundef %2366)
+  %2368 = load ptr, ptr %5, align 8
+  %2369 = getelementptr inbounds %struct.config_key_pair_t, ptr %2368, i32 0, i32 1
+  store ptr %2367, ptr %2369, align 8
+  %2370 = load ptr, ptr %4, align 8
+  %2371 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2370, ptr noundef %2371)
+  br label %2372
+
+2372:                                             ; preds = %2358, %2251
+  %2373 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2374 = load ptr, ptr %3, align 8
+  %2375 = getelementptr inbounds %struct.slurm_conf_t, ptr %2374, i32 0, i32 170
+  %2376 = load ptr, ptr %2375, align 8
+  %2377 = load ptr, ptr %3, align 8
+  %2378 = getelementptr inbounds %struct.slurm_conf_t, ptr %2377, i32 0, i32 169
+  %2379 = load i32, ptr %2378, align 8
+  %2380 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2373, i64 noundef 256, ptr noundef @.str.266, ptr noundef %2376, i32 noundef %2379) #6
+  %2381 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1514, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2381, ptr %5, align 8
+  %2382 = call ptr @xstrdup(ptr noundef @.str.267)
+  %2383 = load ptr, ptr %5, align 8
+  %2384 = getelementptr inbounds %struct.config_key_pair_t, ptr %2383, i32 0, i32 0
+  store ptr %2382, ptr %2384, align 8
+  %2385 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2386 = call ptr @xstrdup(ptr noundef %2385)
+  %2387 = load ptr, ptr %5, align 8
+  %2388 = getelementptr inbounds %struct.config_key_pair_t, ptr %2387, i32 0, i32 1
+  store ptr %2386, ptr %2388, align 8
+  %2389 = load ptr, ptr %4, align 8
+  %2390 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2389, ptr noundef %2390)
+  %2391 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2392 = load ptr, ptr %3, align 8
+  %2393 = getelementptr inbounds %struct.slurm_conf_t, ptr %2392, i32 0, i32 173
+  %2394 = load ptr, ptr %2393, align 8
+  %2395 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2391, i64 noundef 256, ptr noundef @.str.268, ptr noundef %2394) #6
+  %2396 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1521, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2396, ptr %5, align 8
+  %2397 = call ptr @xstrdup(ptr noundef @.str.269)
+  %2398 = load ptr, ptr %5, align 8
+  %2399 = getelementptr inbounds %struct.config_key_pair_t, ptr %2398, i32 0, i32 0
+  store ptr %2397, ptr %2399, align 8
+  %2400 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2401 = call ptr @xstrdup(ptr noundef %2400)
+  %2402 = load ptr, ptr %5, align 8
+  %2403 = getelementptr inbounds %struct.config_key_pair_t, ptr %2402, i32 0, i32 1
+  store ptr %2401, ptr %2403, align 8
+  %2404 = load ptr, ptr %4, align 8
+  %2405 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2404, ptr noundef %2405)
+  %2406 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2407 = load ptr, ptr %3, align 8
+  %2408 = getelementptr inbounds %struct.slurm_conf_t, ptr %2407, i32 0, i32 174
+  %2409 = load i16, ptr %2408, align 8
+  %2410 = call ptr @log_num2string(i16 noundef zeroext %2409)
+  %2411 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2406, i64 noundef 256, ptr noundef @.str.268, ptr noundef %2410) #6
+  %2412 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1528, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2412, ptr %5, align 8
+  %2413 = call ptr @xstrdup(ptr noundef @.str.270)
+  %2414 = load ptr, ptr %5, align 8
+  %2415 = getelementptr inbounds %struct.config_key_pair_t, ptr %2414, i32 0, i32 0
+  store ptr %2413, ptr %2415, align 8
+  %2416 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2417 = call ptr @xstrdup(ptr noundef %2416)
+  %2418 = load ptr, ptr %5, align 8
+  %2419 = getelementptr inbounds %struct.config_key_pair_t, ptr %2418, i32 0, i32 1
+  store ptr %2417, ptr %2419, align 8
+  %2420 = load ptr, ptr %4, align 8
+  %2421 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2420, ptr noundef %2421)
   store i32 0, ptr %8, align 4
-  br label %2420
+  br label %2422
 
-2420:                                             ; preds = %2478, %2370
-  %2421 = load i32, ptr %8, align 4
-  %2422 = load ptr, ptr %3, align 8
-  %2423 = getelementptr inbounds %struct.slurm_conf_t, ptr %2422, i32 0, i32 33
-  %2424 = load i32, ptr %2423, align 8
-  %2425 = icmp ult i32 %2421, %2424
-  br i1 %2425, label %2426, label %2481
+2422:                                             ; preds = %2480, %2372
+  %2423 = load i32, ptr %8, align 4
+  %2424 = load ptr, ptr %3, align 8
+  %2425 = getelementptr inbounds %struct.slurm_conf_t, ptr %2424, i32 0, i32 33
+  %2426 = load i32, ptr %2425, align 8
+  %2427 = icmp ult i32 %2423, %2426
+  br i1 %2427, label %2428, label %2483
 
-2426:                                             ; preds = %2420
-  %2427 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1535, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2427, ptr %5, align 8
-  %2428 = load ptr, ptr %5, align 8
-  %2429 = getelementptr inbounds %struct.config_key_pair_t, ptr %2428, i32 0, i32 0
-  %2430 = load i32, ptr %8, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %2429, ptr noundef @.str.271, i32 noundef %2430)
-  %2431 = load ptr, ptr %3, align 8
-  %2432 = getelementptr inbounds %struct.slurm_conf_t, ptr %2431, i32 0, i32 34
-  %2433 = load ptr, ptr %2432, align 8
-  %2434 = load i32, ptr %8, align 4
-  %2435 = sext i32 %2434 to i64
-  %2436 = getelementptr inbounds ptr, ptr %2433, i64 %2435
-  %2437 = load ptr, ptr %2436, align 8
-  %2438 = load ptr, ptr %3, align 8
-  %2439 = getelementptr inbounds %struct.slurm_conf_t, ptr %2438, i32 0, i32 32
-  %2440 = load ptr, ptr %2439, align 8
-  %2441 = load i32, ptr %8, align 4
-  %2442 = sext i32 %2441 to i64
-  %2443 = getelementptr inbounds ptr, ptr %2440, i64 %2442
-  %2444 = load ptr, ptr %2443, align 8
-  %2445 = call i32 @xstrcmp(ptr noundef %2437, ptr noundef %2444)
-  %2446 = icmp ne i32 %2445, 0
-  br i1 %2446, label %2447, label %2464
+2428:                                             ; preds = %2422
+  %2429 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1535, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2429, ptr %5, align 8
+  %2430 = load ptr, ptr %5, align 8
+  %2431 = getelementptr inbounds %struct.config_key_pair_t, ptr %2430, i32 0, i32 0
+  %2432 = load i32, ptr %8, align 4
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %2431, ptr noundef @.str.271, i32 noundef %2432)
+  %2433 = load ptr, ptr %3, align 8
+  %2434 = getelementptr inbounds %struct.slurm_conf_t, ptr %2433, i32 0, i32 34
+  %2435 = load ptr, ptr %2434, align 8
+  %2436 = load i32, ptr %8, align 4
+  %2437 = sext i32 %2436 to i64
+  %2438 = getelementptr inbounds ptr, ptr %2435, i64 %2437
+  %2439 = load ptr, ptr %2438, align 8
+  %2440 = load ptr, ptr %3, align 8
+  %2441 = getelementptr inbounds %struct.slurm_conf_t, ptr %2440, i32 0, i32 32
+  %2442 = load ptr, ptr %2441, align 8
+  %2443 = load i32, ptr %8, align 4
+  %2444 = sext i32 %2443 to i64
+  %2445 = getelementptr inbounds ptr, ptr %2442, i64 %2444
+  %2446 = load ptr, ptr %2445, align 8
+  %2447 = call i32 @xstrcmp(ptr noundef %2439, ptr noundef %2446)
+  %2448 = icmp ne i32 %2447, 0
+  br i1 %2448, label %2449, label %2466
 
-2447:                                             ; preds = %2426
-  %2448 = load ptr, ptr %5, align 8
-  %2449 = getelementptr inbounds %struct.config_key_pair_t, ptr %2448, i32 0, i32 1
-  %2450 = load ptr, ptr %3, align 8
-  %2451 = getelementptr inbounds %struct.slurm_conf_t, ptr %2450, i32 0, i32 34
-  %2452 = load ptr, ptr %2451, align 8
-  %2453 = load i32, ptr %8, align 4
-  %2454 = sext i32 %2453 to i64
-  %2455 = getelementptr inbounds ptr, ptr %2452, i64 %2454
-  %2456 = load ptr, ptr %2455, align 8
-  %2457 = load ptr, ptr %3, align 8
-  %2458 = getelementptr inbounds %struct.slurm_conf_t, ptr %2457, i32 0, i32 32
-  %2459 = load ptr, ptr %2458, align 8
-  %2460 = load i32, ptr %8, align 4
-  %2461 = sext i32 %2460 to i64
-  %2462 = getelementptr inbounds ptr, ptr %2459, i64 %2461
-  %2463 = load ptr, ptr %2462, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %2449, ptr noundef @.str.272, ptr noundef %2456, ptr noundef %2463)
-  br label %2475
+2449:                                             ; preds = %2428
+  %2450 = load ptr, ptr %5, align 8
+  %2451 = getelementptr inbounds %struct.config_key_pair_t, ptr %2450, i32 0, i32 1
+  %2452 = load ptr, ptr %3, align 8
+  %2453 = getelementptr inbounds %struct.slurm_conf_t, ptr %2452, i32 0, i32 34
+  %2454 = load ptr, ptr %2453, align 8
+  %2455 = load i32, ptr %8, align 4
+  %2456 = sext i32 %2455 to i64
+  %2457 = getelementptr inbounds ptr, ptr %2454, i64 %2456
+  %2458 = load ptr, ptr %2457, align 8
+  %2459 = load ptr, ptr %3, align 8
+  %2460 = getelementptr inbounds %struct.slurm_conf_t, ptr %2459, i32 0, i32 32
+  %2461 = load ptr, ptr %2460, align 8
+  %2462 = load i32, ptr %8, align 4
+  %2463 = sext i32 %2462 to i64
+  %2464 = getelementptr inbounds ptr, ptr %2461, i64 %2463
+  %2465 = load ptr, ptr %2464, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %2451, ptr noundef @.str.272, ptr noundef %2458, ptr noundef %2465)
+  br label %2477
 
-2464:                                             ; preds = %2426
-  %2465 = load ptr, ptr %3, align 8
-  %2466 = getelementptr inbounds %struct.slurm_conf_t, ptr %2465, i32 0, i32 34
-  %2467 = load ptr, ptr %2466, align 8
-  %2468 = load i32, ptr %8, align 4
-  %2469 = sext i32 %2468 to i64
-  %2470 = getelementptr inbounds ptr, ptr %2467, i64 %2469
-  %2471 = load ptr, ptr %2470, align 8
-  %2472 = call ptr @xstrdup(ptr noundef %2471)
-  %2473 = load ptr, ptr %5, align 8
-  %2474 = getelementptr inbounds %struct.config_key_pair_t, ptr %2473, i32 0, i32 1
-  store ptr %2472, ptr %2474, align 8
-  br label %2475
+2466:                                             ; preds = %2428
+  %2467 = load ptr, ptr %3, align 8
+  %2468 = getelementptr inbounds %struct.slurm_conf_t, ptr %2467, i32 0, i32 34
+  %2469 = load ptr, ptr %2468, align 8
+  %2470 = load i32, ptr %8, align 4
+  %2471 = sext i32 %2470 to i64
+  %2472 = getelementptr inbounds ptr, ptr %2469, i64 %2471
+  %2473 = load ptr, ptr %2472, align 8
+  %2474 = call ptr @xstrdup(ptr noundef %2473)
+  %2475 = load ptr, ptr %5, align 8
+  %2476 = getelementptr inbounds %struct.config_key_pair_t, ptr %2475, i32 0, i32 1
+  store ptr %2474, ptr %2476, align 8
+  br label %2477
 
-2475:                                             ; preds = %2464, %2447
-  %2476 = load ptr, ptr %4, align 8
-  %2477 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2476, ptr noundef %2477)
-  br label %2478
+2477:                                             ; preds = %2466, %2449
+  %2478 = load ptr, ptr %4, align 8
+  %2479 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2478, ptr noundef %2479)
+  br label %2480
 
-2478:                                             ; preds = %2475
-  %2479 = load i32, ptr %8, align 4
-  %2480 = add nsw i32 %2479, 1
-  store i32 %2480, ptr %8, align 4
-  br label %2420, !llvm.loop !12
+2480:                                             ; preds = %2477
+  %2481 = load i32, ptr %8, align 4
+  %2482 = add nsw i32 %2481, 1
+  store i32 %2482, ptr %8, align 4
+  br label %2422, !llvm.loop !12
 
-2481:                                             ; preds = %2420
-  %2482 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1549, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2482, ptr %5, align 8
-  %2483 = call ptr @xstrdup(ptr noundef @.str.273)
-  %2484 = load ptr, ptr %5, align 8
-  %2485 = getelementptr inbounds %struct.config_key_pair_t, ptr %2484, i32 0, i32 0
-  store ptr %2483, ptr %2485, align 8
-  %2486 = load ptr, ptr %3, align 8
-  %2487 = getelementptr inbounds %struct.slurm_conf_t, ptr %2486, i32 0, i32 175
-  %2488 = load ptr, ptr %2487, align 8
-  %2489 = call ptr @xstrdup(ptr noundef %2488)
-  %2490 = load ptr, ptr %5, align 8
-  %2491 = getelementptr inbounds %struct.config_key_pair_t, ptr %2490, i32 0, i32 1
-  store ptr %2489, ptr %2491, align 8
-  %2492 = load ptr, ptr %4, align 8
-  %2493 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2492, ptr noundef %2493)
-  %2494 = load ptr, ptr %3, align 8
-  %2495 = getelementptr inbounds %struct.slurm_conf_t, ptr %2494, i32 0, i32 178
-  %2496 = load i16, ptr %2495, align 4
-  %2497 = zext i16 %2496 to i32
-  %2498 = icmp sgt i32 %2497, 1
-  br i1 %2498, label %2499, label %2516
+2483:                                             ; preds = %2422
+  %2484 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1549, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2484, ptr %5, align 8
+  %2485 = call ptr @xstrdup(ptr noundef @.str.273)
+  %2486 = load ptr, ptr %5, align 8
+  %2487 = getelementptr inbounds %struct.config_key_pair_t, ptr %2486, i32 0, i32 0
+  store ptr %2485, ptr %2487, align 8
+  %2488 = load ptr, ptr %3, align 8
+  %2489 = getelementptr inbounds %struct.slurm_conf_t, ptr %2488, i32 0, i32 175
+  %2490 = load ptr, ptr %2489, align 8
+  %2491 = call ptr @xstrdup(ptr noundef %2490)
+  %2492 = load ptr, ptr %5, align 8
+  %2493 = getelementptr inbounds %struct.config_key_pair_t, ptr %2492, i32 0, i32 1
+  store ptr %2491, ptr %2493, align 8
+  %2494 = load ptr, ptr %4, align 8
+  %2495 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2494, ptr noundef %2495)
+  %2496 = load ptr, ptr %3, align 8
+  %2497 = getelementptr inbounds %struct.slurm_conf_t, ptr %2496, i32 0, i32 178
+  %2498 = load i16, ptr %2497, align 4
+  %2499 = zext i16 %2498 to i32
+  %2500 = icmp sgt i32 %2499, 1
+  br i1 %2500, label %2501, label %2518
 
-2499:                                             ; preds = %2481
-  %2500 = load ptr, ptr %3, align 8
-  %2501 = getelementptr inbounds %struct.slurm_conf_t, ptr %2500, i32 0, i32 177
-  %2502 = load i32, ptr %2501, align 8
-  store i32 %2502, ptr %10, align 4
-  %2503 = load ptr, ptr %3, align 8
-  %2504 = getelementptr inbounds %struct.slurm_conf_t, ptr %2503, i32 0, i32 178
-  %2505 = load i16, ptr %2504, align 4
-  %2506 = zext i16 %2505 to i32
-  %2507 = sub nsw i32 %2506, 1
-  %2508 = load i32, ptr %10, align 4
-  %2509 = add i32 %2508, %2507
-  store i32 %2509, ptr %10, align 4
-  %2510 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2511 = load ptr, ptr %3, align 8
-  %2512 = getelementptr inbounds %struct.slurm_conf_t, ptr %2511, i32 0, i32 177
-  %2513 = load i32, ptr %2512, align 8
-  %2514 = load i32, ptr %10, align 4
-  %2515 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2510, i64 noundef 256, ptr noundef @.str.274, i32 noundef %2513, i32 noundef %2514) #6
-  br label %2522
+2501:                                             ; preds = %2483
+  %2502 = load ptr, ptr %3, align 8
+  %2503 = getelementptr inbounds %struct.slurm_conf_t, ptr %2502, i32 0, i32 177
+  %2504 = load i32, ptr %2503, align 8
+  store i32 %2504, ptr %10, align 4
+  %2505 = load ptr, ptr %3, align 8
+  %2506 = getelementptr inbounds %struct.slurm_conf_t, ptr %2505, i32 0, i32 178
+  %2507 = load i16, ptr %2506, align 4
+  %2508 = zext i16 %2507 to i32
+  %2509 = sub nsw i32 %2508, 1
+  %2510 = load i32, ptr %10, align 4
+  %2511 = add i32 %2510, %2509
+  store i32 %2511, ptr %10, align 4
+  %2512 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2513 = load ptr, ptr %3, align 8
+  %2514 = getelementptr inbounds %struct.slurm_conf_t, ptr %2513, i32 0, i32 177
+  %2515 = load i32, ptr %2514, align 8
+  %2516 = load i32, ptr %10, align 4
+  %2517 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2512, i64 noundef 256, ptr noundef @.str.274, i32 noundef %2515, i32 noundef %2516) #6
+  br label %2524
 
-2516:                                             ; preds = %2481
-  %2517 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2518 = load ptr, ptr %3, align 8
-  %2519 = getelementptr inbounds %struct.slurm_conf_t, ptr %2518, i32 0, i32 177
-  %2520 = load i32, ptr %2519, align 8
-  %2521 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2517, i64 noundef 256, ptr noundef @.str.91, i32 noundef %2520) #6
-  br label %2522
+2518:                                             ; preds = %2483
+  %2519 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2520 = load ptr, ptr %3, align 8
+  %2521 = getelementptr inbounds %struct.slurm_conf_t, ptr %2520, i32 0, i32 177
+  %2522 = load i32, ptr %2521, align 8
+  %2523 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2519, i64 noundef 256, ptr noundef @.str.91, i32 noundef %2522) #6
+  br label %2524
 
-2522:                                             ; preds = %2516, %2499
-  %2523 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1563, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2523, ptr %5, align 8
-  %2524 = call ptr @xstrdup(ptr noundef @.str.275)
-  %2525 = load ptr, ptr %5, align 8
-  %2526 = getelementptr inbounds %struct.config_key_pair_t, ptr %2525, i32 0, i32 0
-  store ptr %2524, ptr %2526, align 8
-  %2527 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2528 = call ptr @xstrdup(ptr noundef %2527)
-  %2529 = load ptr, ptr %5, align 8
-  %2530 = getelementptr inbounds %struct.config_key_pair_t, ptr %2529, i32 0, i32 1
-  store ptr %2528, ptr %2530, align 8
-  %2531 = load ptr, ptr %4, align 8
-  %2532 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2531, ptr noundef %2532)
-  %2533 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2534 = load ptr, ptr %3, align 8
-  %2535 = getelementptr inbounds %struct.slurm_conf_t, ptr %2534, i32 0, i32 181
-  %2536 = load i16, ptr %2535, align 8
-  %2537 = call ptr @log_num2string(i16 noundef zeroext %2536)
-  %2538 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2533, i64 noundef 256, ptr noundef @.str.268, ptr noundef %2537) #6
-  %2539 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1570, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2539, ptr %5, align 8
-  %2540 = call ptr @xstrdup(ptr noundef @.str.276)
-  %2541 = load ptr, ptr %5, align 8
-  %2542 = getelementptr inbounds %struct.config_key_pair_t, ptr %2541, i32 0, i32 0
-  store ptr %2540, ptr %2542, align 8
-  %2543 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2544 = call ptr @xstrdup(ptr noundef %2543)
-  %2545 = load ptr, ptr %5, align 8
-  %2546 = getelementptr inbounds %struct.config_key_pair_t, ptr %2545, i32 0, i32 1
-  store ptr %2544, ptr %2546, align 8
-  %2547 = load ptr, ptr %4, align 8
-  %2548 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2547, ptr noundef %2548)
-  %2549 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2550 = load ptr, ptr %3, align 8
-  %2551 = getelementptr inbounds %struct.slurm_conf_t, ptr %2550, i32 0, i32 179
-  %2552 = load ptr, ptr %2551, align 8
-  %2553 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2549, i64 noundef 256, ptr noundef @.str.268, ptr noundef %2552) #6
-  %2554 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1577, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2554, ptr %5, align 8
-  %2555 = call ptr @xstrdup(ptr noundef @.str.277)
-  %2556 = load ptr, ptr %5, align 8
-  %2557 = getelementptr inbounds %struct.config_key_pair_t, ptr %2556, i32 0, i32 0
-  store ptr %2555, ptr %2557, align 8
-  %2558 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2559 = call ptr @xstrdup(ptr noundef %2558)
-  %2560 = load ptr, ptr %5, align 8
-  %2561 = getelementptr inbounds %struct.config_key_pair_t, ptr %2560, i32 0, i32 1
-  store ptr %2559, ptr %2561, align 8
-  %2562 = load ptr, ptr %4, align 8
-  %2563 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2562, ptr noundef %2563)
-  %2564 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2565 = load ptr, ptr %3, align 8
-  %2566 = getelementptr inbounds %struct.slurm_conf_t, ptr %2565, i32 0, i32 180
-  %2567 = load ptr, ptr %2566, align 8
-  %2568 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2564, i64 noundef 256, ptr noundef @.str.268, ptr noundef %2567) #6
-  %2569 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1584, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2569, ptr %5, align 8
-  %2570 = call ptr @xstrdup(ptr noundef @.str.278)
-  %2571 = load ptr, ptr %5, align 8
-  %2572 = getelementptr inbounds %struct.config_key_pair_t, ptr %2571, i32 0, i32 0
-  store ptr %2570, ptr %2572, align 8
-  %2573 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2574 = call ptr @xstrdup(ptr noundef %2573)
-  %2575 = load ptr, ptr %5, align 8
-  %2576 = getelementptr inbounds %struct.config_key_pair_t, ptr %2575, i32 0, i32 1
-  store ptr %2574, ptr %2576, align 8
-  %2577 = load ptr, ptr %4, align 8
-  %2578 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2577, ptr noundef %2578)
-  %2579 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2580 = load ptr, ptr %3, align 8
-  %2581 = getelementptr inbounds %struct.slurm_conf_t, ptr %2580, i32 0, i32 182
-  %2582 = load i16, ptr %2581, align 2
-  %2583 = zext i16 %2582 to i32
-  %2584 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2579, i64 noundef 256, ptr noundef @.str.105, i32 noundef %2583) #6
-  %2585 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1591, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2585, ptr %5, align 8
-  %2586 = call ptr @xstrdup(ptr noundef @.str.279)
-  %2587 = load ptr, ptr %5, align 8
-  %2588 = getelementptr inbounds %struct.config_key_pair_t, ptr %2587, i32 0, i32 0
-  store ptr %2586, ptr %2588, align 8
-  %2589 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2590 = call ptr @xstrdup(ptr noundef %2589)
-  %2591 = load ptr, ptr %5, align 8
-  %2592 = getelementptr inbounds %struct.config_key_pair_t, ptr %2591, i32 0, i32 1
-  store ptr %2590, ptr %2592, align 8
-  %2593 = load ptr, ptr %4, align 8
-  %2594 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2593, ptr noundef %2594)
-  %2595 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1596, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2595, ptr %5, align 8
-  %2596 = call ptr @xstrdup(ptr noundef @.str.280)
-  %2597 = load ptr, ptr %5, align 8
-  %2598 = getelementptr inbounds %struct.config_key_pair_t, ptr %2597, i32 0, i32 0
-  store ptr %2596, ptr %2598, align 8
-  %2599 = load ptr, ptr %3, align 8
-  %2600 = getelementptr inbounds %struct.slurm_conf_t, ptr %2599, i32 0, i32 183
-  %2601 = load ptr, ptr %2600, align 8
-  %2602 = call ptr @xstrdup(ptr noundef %2601)
-  %2603 = load ptr, ptr %5, align 8
-  %2604 = getelementptr inbounds %struct.config_key_pair_t, ptr %2603, i32 0, i32 1
-  store ptr %2602, ptr %2604, align 8
-  %2605 = load ptr, ptr %4, align 8
-  %2606 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2605, ptr noundef %2606)
-  %2607 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2608 = load ptr, ptr %3, align 8
-  %2609 = getelementptr inbounds %struct.slurm_conf_t, ptr %2608, i32 0, i32 184
-  %2610 = load i16, ptr %2609, align 8
-  %2611 = call ptr @log_num2string(i16 noundef zeroext %2610)
-  %2612 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2607, i64 noundef 256, ptr noundef @.str.268, ptr noundef %2611) #6
-  %2613 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1603, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2613, ptr %5, align 8
-  %2614 = call ptr @xstrdup(ptr noundef @.str.281)
-  %2615 = load ptr, ptr %5, align 8
-  %2616 = getelementptr inbounds %struct.config_key_pair_t, ptr %2615, i32 0, i32 0
-  store ptr %2614, ptr %2616, align 8
-  %2617 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2618 = call ptr @xstrdup(ptr noundef %2617)
-  %2619 = load ptr, ptr %5, align 8
-  %2620 = getelementptr inbounds %struct.config_key_pair_t, ptr %2619, i32 0, i32 1
-  store ptr %2618, ptr %2620, align 8
-  %2621 = load ptr, ptr %4, align 8
-  %2622 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2621, ptr noundef %2622)
-  %2623 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1608, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2623, ptr %5, align 8
-  %2624 = call ptr @xstrdup(ptr noundef @.str.282)
-  %2625 = load ptr, ptr %5, align 8
-  %2626 = getelementptr inbounds %struct.config_key_pair_t, ptr %2625, i32 0, i32 0
-  store ptr %2624, ptr %2626, align 8
-  %2627 = load ptr, ptr %3, align 8
-  %2628 = getelementptr inbounds %struct.slurm_conf_t, ptr %2627, i32 0, i32 185
-  %2629 = load ptr, ptr %2628, align 8
-  %2630 = call ptr @xstrdup(ptr noundef %2629)
-  %2631 = load ptr, ptr %5, align 8
-  %2632 = getelementptr inbounds %struct.config_key_pair_t, ptr %2631, i32 0, i32 1
-  store ptr %2630, ptr %2632, align 8
-  %2633 = load ptr, ptr %4, align 8
-  %2634 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2633, ptr noundef %2634)
-  %2635 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1613, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2635, ptr %5, align 8
-  %2636 = call ptr @xstrdup(ptr noundef @.str.283)
-  %2637 = load ptr, ptr %5, align 8
-  %2638 = getelementptr inbounds %struct.config_key_pair_t, ptr %2637, i32 0, i32 0
-  store ptr %2636, ptr %2638, align 8
-  %2639 = load ptr, ptr %3, align 8
-  %2640 = getelementptr inbounds %struct.slurm_conf_t, ptr %2639, i32 0, i32 186
-  %2641 = load ptr, ptr %2640, align 8
-  %2642 = call ptr @xstrdup(ptr noundef %2641)
-  %2643 = load ptr, ptr %5, align 8
-  %2644 = getelementptr inbounds %struct.config_key_pair_t, ptr %2643, i32 0, i32 1
-  store ptr %2642, ptr %2644, align 8
-  %2645 = load ptr, ptr %4, align 8
-  %2646 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2645, ptr noundef %2646)
-  %2647 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1618, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2647, ptr %5, align 8
-  %2648 = call ptr @xstrdup(ptr noundef @.str.284)
-  %2649 = load ptr, ptr %5, align 8
-  %2650 = getelementptr inbounds %struct.config_key_pair_t, ptr %2649, i32 0, i32 0
-  store ptr %2648, ptr %2650, align 8
-  %2651 = load ptr, ptr %3, align 8
-  %2652 = getelementptr inbounds %struct.slurm_conf_t, ptr %2651, i32 0, i32 187
-  %2653 = load ptr, ptr %2652, align 8
-  %2654 = call ptr @xstrdup(ptr noundef %2653)
-  %2655 = load ptr, ptr %5, align 8
-  %2656 = getelementptr inbounds %struct.config_key_pair_t, ptr %2655, i32 0, i32 1
-  store ptr %2654, ptr %2656, align 8
-  %2657 = load ptr, ptr %4, align 8
-  %2658 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2657, ptr noundef %2658)
-  %2659 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2660 = load ptr, ptr %3, align 8
-  %2661 = getelementptr inbounds %struct.slurm_conf_t, ptr %2660, i32 0, i32 188
-  %2662 = load i32, ptr %2661, align 8
-  %2663 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2659, i64 noundef 256, ptr noundef @.str.91, i32 noundef %2662) #6
-  %2664 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1625, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2664, ptr %5, align 8
-  %2665 = call ptr @xstrdup(ptr noundef @.str.285)
-  %2666 = load ptr, ptr %5, align 8
-  %2667 = getelementptr inbounds %struct.config_key_pair_t, ptr %2666, i32 0, i32 0
-  store ptr %2665, ptr %2667, align 8
-  %2668 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2669 = call ptr @xstrdup(ptr noundef %2668)
-  %2670 = load ptr, ptr %5, align 8
-  %2671 = getelementptr inbounds %struct.config_key_pair_t, ptr %2670, i32 0, i32 1
-  store ptr %2669, ptr %2671, align 8
-  %2672 = load ptr, ptr %4, align 8
-  %2673 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2672, ptr noundef %2673)
-  %2674 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1630, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2674, ptr %5, align 8
-  %2675 = call ptr @xstrdup(ptr noundef @.str.286)
-  %2676 = load ptr, ptr %5, align 8
-  %2677 = getelementptr inbounds %struct.config_key_pair_t, ptr %2676, i32 0, i32 0
-  store ptr %2675, ptr %2677, align 8
-  %2678 = load ptr, ptr %3, align 8
-  %2679 = getelementptr inbounds %struct.slurm_conf_t, ptr %2678, i32 0, i32 189
-  %2680 = load ptr, ptr %2679, align 8
-  %2681 = call ptr @xstrdup(ptr noundef %2680)
-  %2682 = load ptr, ptr %5, align 8
-  %2683 = getelementptr inbounds %struct.config_key_pair_t, ptr %2682, i32 0, i32 1
-  store ptr %2681, ptr %2683, align 8
-  %2684 = load ptr, ptr %4, align 8
-  %2685 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2684, ptr noundef %2685)
-  %2686 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2687 = load ptr, ptr %3, align 8
-  %2688 = getelementptr inbounds %struct.slurm_conf_t, ptr %2687, i32 0, i32 190
-  %2689 = load i16, ptr %2688, align 8
-  %2690 = call ptr @log_num2string(i16 noundef zeroext %2689)
-  %2691 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2686, i64 noundef 256, ptr noundef @.str.268, ptr noundef %2690) #6
-  %2692 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1637, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2692, ptr %5, align 8
-  %2693 = call ptr @xstrdup(ptr noundef @.str.287)
-  %2694 = load ptr, ptr %5, align 8
-  %2695 = getelementptr inbounds %struct.config_key_pair_t, ptr %2694, i32 0, i32 0
-  store ptr %2693, ptr %2695, align 8
-  %2696 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2697 = call ptr @xstrdup(ptr noundef %2696)
-  %2698 = load ptr, ptr %5, align 8
-  %2699 = getelementptr inbounds %struct.config_key_pair_t, ptr %2698, i32 0, i32 1
-  store ptr %2697, ptr %2699, align 8
-  %2700 = load ptr, ptr %4, align 8
-  %2701 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2700, ptr noundef %2701)
-  %2702 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2703 = load ptr, ptr %3, align 8
-  %2704 = getelementptr inbounds %struct.slurm_conf_t, ptr %2703, i32 0, i32 191
-  %2705 = load i16, ptr %2704, align 2
-  %2706 = zext i16 %2705 to i32
-  %2707 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2702, i64 noundef 256, ptr noundef @.str.105, i32 noundef %2706) #6
-  %2708 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1644, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2708, ptr %5, align 8
-  %2709 = call ptr @xstrdup(ptr noundef @.str.288)
-  %2710 = load ptr, ptr %5, align 8
-  %2711 = getelementptr inbounds %struct.config_key_pair_t, ptr %2710, i32 0, i32 0
-  store ptr %2709, ptr %2711, align 8
-  %2712 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2713 = call ptr @xstrdup(ptr noundef %2712)
-  %2714 = load ptr, ptr %5, align 8
-  %2715 = getelementptr inbounds %struct.config_key_pair_t, ptr %2714, i32 0, i32 1
-  store ptr %2713, ptr %2715, align 8
-  %2716 = load ptr, ptr %4, align 8
-  %2717 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2716, ptr noundef %2717)
-  %2718 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2719 = load ptr, ptr %3, align 8
-  %2720 = getelementptr inbounds %struct.slurm_conf_t, ptr %2719, i32 0, i32 172
-  %2721 = load ptr, ptr %2720, align 8
-  %2722 = load ptr, ptr %3, align 8
-  %2723 = getelementptr inbounds %struct.slurm_conf_t, ptr %2722, i32 0, i32 171
-  %2724 = load i32, ptr %2723, align 8
-  %2725 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2718, i64 noundef 256, ptr noundef @.str.266, ptr noundef %2721, i32 noundef %2724) #6
-  %2726 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1652, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2726, ptr %5, align 8
-  %2727 = call ptr @xstrdup(ptr noundef @.str.289)
-  %2728 = load ptr, ptr %5, align 8
-  %2729 = getelementptr inbounds %struct.config_key_pair_t, ptr %2728, i32 0, i32 0
-  store ptr %2727, ptr %2729, align 8
-  %2730 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2731 = call ptr @xstrdup(ptr noundef %2730)
-  %2732 = load ptr, ptr %5, align 8
-  %2733 = getelementptr inbounds %struct.config_key_pair_t, ptr %2732, i32 0, i32 1
-  store ptr %2731, ptr %2733, align 8
-  %2734 = load ptr, ptr %4, align 8
-  %2735 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2734, ptr noundef %2735)
-  %2736 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1657, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2736, ptr %5, align 8
-  %2737 = call ptr @xstrdup(ptr noundef @.str.290)
-  %2738 = load ptr, ptr %5, align 8
-  %2739 = getelementptr inbounds %struct.config_key_pair_t, ptr %2738, i32 0, i32 0
-  store ptr %2737, ptr %2739, align 8
-  %2740 = load ptr, ptr %3, align 8
-  %2741 = getelementptr inbounds %struct.slurm_conf_t, ptr %2740, i32 0, i32 157
-  %2742 = load ptr, ptr %2741, align 8
-  %2743 = call ptr @xstrdup(ptr noundef %2742)
-  %2744 = load ptr, ptr %5, align 8
-  %2745 = getelementptr inbounds %struct.config_key_pair_t, ptr %2744, i32 0, i32 1
-  store ptr %2743, ptr %2745, align 8
-  %2746 = load ptr, ptr %4, align 8
-  %2747 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2746, ptr noundef %2747)
-  %2748 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2749 = load ptr, ptr %3, align 8
-  %2750 = getelementptr inbounds %struct.slurm_conf_t, ptr %2749, i32 0, i32 158
-  %2751 = load i16, ptr %2750, align 8
-  %2752 = zext i16 %2751 to i32
-  %2753 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2748, i64 noundef 256, ptr noundef @.str.91, i32 noundef %2752) #6
-  %2754 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1664, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2754, ptr %5, align 8
-  %2755 = call ptr @xstrdup(ptr noundef @.str.291)
-  %2756 = load ptr, ptr %5, align 8
-  %2757 = getelementptr inbounds %struct.config_key_pair_t, ptr %2756, i32 0, i32 0
-  store ptr %2755, ptr %2757, align 8
-  %2758 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2759 = call ptr @xstrdup(ptr noundef %2758)
-  %2760 = load ptr, ptr %5, align 8
-  %2761 = getelementptr inbounds %struct.config_key_pair_t, ptr %2760, i32 0, i32 1
-  store ptr %2759, ptr %2761, align 8
-  %2762 = load ptr, ptr %4, align 8
-  %2763 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2762, ptr noundef %2763)
-  %2764 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1669, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2764, ptr %5, align 8
-  %2765 = call ptr @xstrdup(ptr noundef @.str.292)
-  %2766 = load ptr, ptr %5, align 8
-  %2767 = getelementptr inbounds %struct.config_key_pair_t, ptr %2766, i32 0, i32 0
-  store ptr %2765, ptr %2767, align 8
-  %2768 = load ptr, ptr %3, align 8
-  %2769 = getelementptr inbounds %struct.slurm_conf_t, ptr %2768, i32 0, i32 176
-  %2770 = load ptr, ptr %2769, align 8
-  %2771 = call ptr @xstrdup(ptr noundef %2770)
-  %2772 = load ptr, ptr %5, align 8
-  %2773 = getelementptr inbounds %struct.config_key_pair_t, ptr %2772, i32 0, i32 1
-  store ptr %2771, ptr %2773, align 8
-  %2774 = load ptr, ptr %4, align 8
-  %2775 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2774, ptr noundef %2775)
-  %2776 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1674, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2776, ptr %5, align 8
-  %2777 = call ptr @xstrdup(ptr noundef @.str.1)
-  %2778 = load ptr, ptr %5, align 8
-  %2779 = getelementptr inbounds %struct.config_key_pair_t, ptr %2778, i32 0, i32 0
-  store ptr %2777, ptr %2779, align 8
-  %2780 = load ptr, ptr %3, align 8
-  %2781 = getelementptr inbounds %struct.slurm_conf_t, ptr %2780, i32 0, i32 168
-  %2782 = load ptr, ptr %2781, align 8
-  %2783 = call ptr @xstrdup(ptr noundef %2782)
-  %2784 = load ptr, ptr %5, align 8
-  %2785 = getelementptr inbounds %struct.config_key_pair_t, ptr %2784, i32 0, i32 1
-  store ptr %2783, ptr %2785, align 8
-  %2786 = load ptr, ptr %4, align 8
-  %2787 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2786, ptr noundef %2787)
-  %2788 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1679, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2788, ptr %5, align 8
-  %2789 = call ptr @xstrdup(ptr noundef @.str.293)
-  %2790 = load ptr, ptr %5, align 8
-  %2791 = getelementptr inbounds %struct.config_key_pair_t, ptr %2790, i32 0, i32 0
-  store ptr %2789, ptr %2791, align 8
-  %2792 = load ptr, ptr %3, align 8
-  %2793 = getelementptr inbounds %struct.slurm_conf_t, ptr %2792, i32 0, i32 216
-  %2794 = load ptr, ptr %2793, align 8
-  %2795 = call ptr @xstrdup(ptr noundef %2794)
-  %2796 = load ptr, ptr %5, align 8
-  %2797 = getelementptr inbounds %struct.config_key_pair_t, ptr %2796, i32 0, i32 1
-  store ptr %2795, ptr %2797, align 8
-  %2798 = load ptr, ptr %4, align 8
-  %2799 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2798, ptr noundef %2799)
-  %2800 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1684, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2800, ptr %5, align 8
-  %2801 = call ptr @xstrdup(ptr noundef @.str.294)
-  %2802 = load ptr, ptr %5, align 8
-  %2803 = getelementptr inbounds %struct.config_key_pair_t, ptr %2802, i32 0, i32 0
-  store ptr %2801, ptr %2803, align 8
-  %2804 = load ptr, ptr %3, align 8
-  %2805 = getelementptr inbounds %struct.slurm_conf_t, ptr %2804, i32 0, i32 192
-  %2806 = load ptr, ptr %2805, align 8
-  %2807 = call ptr @xstrdup(ptr noundef %2806)
-  %2808 = load ptr, ptr %5, align 8
-  %2809 = getelementptr inbounds %struct.config_key_pair_t, ptr %2808, i32 0, i32 1
-  store ptr %2807, ptr %2809, align 8
-  %2810 = load ptr, ptr %4, align 8
-  %2811 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2810, ptr noundef %2811)
-  %2812 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1689, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2812, ptr %5, align 8
-  %2813 = call ptr @xstrdup(ptr noundef @.str.295)
-  %2814 = load ptr, ptr %5, align 8
-  %2815 = getelementptr inbounds %struct.config_key_pair_t, ptr %2814, i32 0, i32 0
-  store ptr %2813, ptr %2815, align 8
-  %2816 = load ptr, ptr %3, align 8
-  %2817 = getelementptr inbounds %struct.slurm_conf_t, ptr %2816, i32 0, i32 193
-  %2818 = load ptr, ptr %2817, align 8
-  %2819 = icmp ne ptr %2818, null
-  br i1 %2819, label %2820, label %2835
+2524:                                             ; preds = %2518, %2501
+  %2525 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1563, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2525, ptr %5, align 8
+  %2526 = call ptr @xstrdup(ptr noundef @.str.275)
+  %2527 = load ptr, ptr %5, align 8
+  %2528 = getelementptr inbounds %struct.config_key_pair_t, ptr %2527, i32 0, i32 0
+  store ptr %2526, ptr %2528, align 8
+  %2529 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2530 = call ptr @xstrdup(ptr noundef %2529)
+  %2531 = load ptr, ptr %5, align 8
+  %2532 = getelementptr inbounds %struct.config_key_pair_t, ptr %2531, i32 0, i32 1
+  store ptr %2530, ptr %2532, align 8
+  %2533 = load ptr, ptr %4, align 8
+  %2534 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2533, ptr noundef %2534)
+  %2535 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2536 = load ptr, ptr %3, align 8
+  %2537 = getelementptr inbounds %struct.slurm_conf_t, ptr %2536, i32 0, i32 181
+  %2538 = load i16, ptr %2537, align 8
+  %2539 = call ptr @log_num2string(i16 noundef zeroext %2538)
+  %2540 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2535, i64 noundef 256, ptr noundef @.str.268, ptr noundef %2539) #6
+  %2541 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1570, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2541, ptr %5, align 8
+  %2542 = call ptr @xstrdup(ptr noundef @.str.276)
+  %2543 = load ptr, ptr %5, align 8
+  %2544 = getelementptr inbounds %struct.config_key_pair_t, ptr %2543, i32 0, i32 0
+  store ptr %2542, ptr %2544, align 8
+  %2545 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2546 = call ptr @xstrdup(ptr noundef %2545)
+  %2547 = load ptr, ptr %5, align 8
+  %2548 = getelementptr inbounds %struct.config_key_pair_t, ptr %2547, i32 0, i32 1
+  store ptr %2546, ptr %2548, align 8
+  %2549 = load ptr, ptr %4, align 8
+  %2550 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2549, ptr noundef %2550)
+  %2551 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2552 = load ptr, ptr %3, align 8
+  %2553 = getelementptr inbounds %struct.slurm_conf_t, ptr %2552, i32 0, i32 179
+  %2554 = load ptr, ptr %2553, align 8
+  %2555 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2551, i64 noundef 256, ptr noundef @.str.268, ptr noundef %2554) #6
+  %2556 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1577, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2556, ptr %5, align 8
+  %2557 = call ptr @xstrdup(ptr noundef @.str.277)
+  %2558 = load ptr, ptr %5, align 8
+  %2559 = getelementptr inbounds %struct.config_key_pair_t, ptr %2558, i32 0, i32 0
+  store ptr %2557, ptr %2559, align 8
+  %2560 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2561 = call ptr @xstrdup(ptr noundef %2560)
+  %2562 = load ptr, ptr %5, align 8
+  %2563 = getelementptr inbounds %struct.config_key_pair_t, ptr %2562, i32 0, i32 1
+  store ptr %2561, ptr %2563, align 8
+  %2564 = load ptr, ptr %4, align 8
+  %2565 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2564, ptr noundef %2565)
+  %2566 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2567 = load ptr, ptr %3, align 8
+  %2568 = getelementptr inbounds %struct.slurm_conf_t, ptr %2567, i32 0, i32 180
+  %2569 = load ptr, ptr %2568, align 8
+  %2570 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2566, i64 noundef 256, ptr noundef @.str.268, ptr noundef %2569) #6
+  %2571 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1584, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2571, ptr %5, align 8
+  %2572 = call ptr @xstrdup(ptr noundef @.str.278)
+  %2573 = load ptr, ptr %5, align 8
+  %2574 = getelementptr inbounds %struct.config_key_pair_t, ptr %2573, i32 0, i32 0
+  store ptr %2572, ptr %2574, align 8
+  %2575 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2576 = call ptr @xstrdup(ptr noundef %2575)
+  %2577 = load ptr, ptr %5, align 8
+  %2578 = getelementptr inbounds %struct.config_key_pair_t, ptr %2577, i32 0, i32 1
+  store ptr %2576, ptr %2578, align 8
+  %2579 = load ptr, ptr %4, align 8
+  %2580 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2579, ptr noundef %2580)
+  %2581 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2582 = load ptr, ptr %3, align 8
+  %2583 = getelementptr inbounds %struct.slurm_conf_t, ptr %2582, i32 0, i32 182
+  %2584 = load i16, ptr %2583, align 2
+  %2585 = zext i16 %2584 to i32
+  %2586 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2581, i64 noundef 256, ptr noundef @.str.105, i32 noundef %2585) #6
+  %2587 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1591, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2587, ptr %5, align 8
+  %2588 = call ptr @xstrdup(ptr noundef @.str.279)
+  %2589 = load ptr, ptr %5, align 8
+  %2590 = getelementptr inbounds %struct.config_key_pair_t, ptr %2589, i32 0, i32 0
+  store ptr %2588, ptr %2590, align 8
+  %2591 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2592 = call ptr @xstrdup(ptr noundef %2591)
+  %2593 = load ptr, ptr %5, align 8
+  %2594 = getelementptr inbounds %struct.config_key_pair_t, ptr %2593, i32 0, i32 1
+  store ptr %2592, ptr %2594, align 8
+  %2595 = load ptr, ptr %4, align 8
+  %2596 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2595, ptr noundef %2596)
+  %2597 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1596, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2597, ptr %5, align 8
+  %2598 = call ptr @xstrdup(ptr noundef @.str.280)
+  %2599 = load ptr, ptr %5, align 8
+  %2600 = getelementptr inbounds %struct.config_key_pair_t, ptr %2599, i32 0, i32 0
+  store ptr %2598, ptr %2600, align 8
+  %2601 = load ptr, ptr %3, align 8
+  %2602 = getelementptr inbounds %struct.slurm_conf_t, ptr %2601, i32 0, i32 183
+  %2603 = load ptr, ptr %2602, align 8
+  %2604 = call ptr @xstrdup(ptr noundef %2603)
+  %2605 = load ptr, ptr %5, align 8
+  %2606 = getelementptr inbounds %struct.config_key_pair_t, ptr %2605, i32 0, i32 1
+  store ptr %2604, ptr %2606, align 8
+  %2607 = load ptr, ptr %4, align 8
+  %2608 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2607, ptr noundef %2608)
+  %2609 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2610 = load ptr, ptr %3, align 8
+  %2611 = getelementptr inbounds %struct.slurm_conf_t, ptr %2610, i32 0, i32 184
+  %2612 = load i16, ptr %2611, align 8
+  %2613 = call ptr @log_num2string(i16 noundef zeroext %2612)
+  %2614 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2609, i64 noundef 256, ptr noundef @.str.268, ptr noundef %2613) #6
+  %2615 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1603, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2615, ptr %5, align 8
+  %2616 = call ptr @xstrdup(ptr noundef @.str.281)
+  %2617 = load ptr, ptr %5, align 8
+  %2618 = getelementptr inbounds %struct.config_key_pair_t, ptr %2617, i32 0, i32 0
+  store ptr %2616, ptr %2618, align 8
+  %2619 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2620 = call ptr @xstrdup(ptr noundef %2619)
+  %2621 = load ptr, ptr %5, align 8
+  %2622 = getelementptr inbounds %struct.config_key_pair_t, ptr %2621, i32 0, i32 1
+  store ptr %2620, ptr %2622, align 8
+  %2623 = load ptr, ptr %4, align 8
+  %2624 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2623, ptr noundef %2624)
+  %2625 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1608, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2625, ptr %5, align 8
+  %2626 = call ptr @xstrdup(ptr noundef @.str.282)
+  %2627 = load ptr, ptr %5, align 8
+  %2628 = getelementptr inbounds %struct.config_key_pair_t, ptr %2627, i32 0, i32 0
+  store ptr %2626, ptr %2628, align 8
+  %2629 = load ptr, ptr %3, align 8
+  %2630 = getelementptr inbounds %struct.slurm_conf_t, ptr %2629, i32 0, i32 185
+  %2631 = load ptr, ptr %2630, align 8
+  %2632 = call ptr @xstrdup(ptr noundef %2631)
+  %2633 = load ptr, ptr %5, align 8
+  %2634 = getelementptr inbounds %struct.config_key_pair_t, ptr %2633, i32 0, i32 1
+  store ptr %2632, ptr %2634, align 8
+  %2635 = load ptr, ptr %4, align 8
+  %2636 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2635, ptr noundef %2636)
+  %2637 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1613, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2637, ptr %5, align 8
+  %2638 = call ptr @xstrdup(ptr noundef @.str.283)
+  %2639 = load ptr, ptr %5, align 8
+  %2640 = getelementptr inbounds %struct.config_key_pair_t, ptr %2639, i32 0, i32 0
+  store ptr %2638, ptr %2640, align 8
+  %2641 = load ptr, ptr %3, align 8
+  %2642 = getelementptr inbounds %struct.slurm_conf_t, ptr %2641, i32 0, i32 186
+  %2643 = load ptr, ptr %2642, align 8
+  %2644 = call ptr @xstrdup(ptr noundef %2643)
+  %2645 = load ptr, ptr %5, align 8
+  %2646 = getelementptr inbounds %struct.config_key_pair_t, ptr %2645, i32 0, i32 1
+  store ptr %2644, ptr %2646, align 8
+  %2647 = load ptr, ptr %4, align 8
+  %2648 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2647, ptr noundef %2648)
+  %2649 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1618, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2649, ptr %5, align 8
+  %2650 = call ptr @xstrdup(ptr noundef @.str.284)
+  %2651 = load ptr, ptr %5, align 8
+  %2652 = getelementptr inbounds %struct.config_key_pair_t, ptr %2651, i32 0, i32 0
+  store ptr %2650, ptr %2652, align 8
+  %2653 = load ptr, ptr %3, align 8
+  %2654 = getelementptr inbounds %struct.slurm_conf_t, ptr %2653, i32 0, i32 187
+  %2655 = load ptr, ptr %2654, align 8
+  %2656 = call ptr @xstrdup(ptr noundef %2655)
+  %2657 = load ptr, ptr %5, align 8
+  %2658 = getelementptr inbounds %struct.config_key_pair_t, ptr %2657, i32 0, i32 1
+  store ptr %2656, ptr %2658, align 8
+  %2659 = load ptr, ptr %4, align 8
+  %2660 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2659, ptr noundef %2660)
+  %2661 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2662 = load ptr, ptr %3, align 8
+  %2663 = getelementptr inbounds %struct.slurm_conf_t, ptr %2662, i32 0, i32 188
+  %2664 = load i32, ptr %2663, align 8
+  %2665 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2661, i64 noundef 256, ptr noundef @.str.91, i32 noundef %2664) #6
+  %2666 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1625, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2666, ptr %5, align 8
+  %2667 = call ptr @xstrdup(ptr noundef @.str.285)
+  %2668 = load ptr, ptr %5, align 8
+  %2669 = getelementptr inbounds %struct.config_key_pair_t, ptr %2668, i32 0, i32 0
+  store ptr %2667, ptr %2669, align 8
+  %2670 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2671 = call ptr @xstrdup(ptr noundef %2670)
+  %2672 = load ptr, ptr %5, align 8
+  %2673 = getelementptr inbounds %struct.config_key_pair_t, ptr %2672, i32 0, i32 1
+  store ptr %2671, ptr %2673, align 8
+  %2674 = load ptr, ptr %4, align 8
+  %2675 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2674, ptr noundef %2675)
+  %2676 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1630, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2676, ptr %5, align 8
+  %2677 = call ptr @xstrdup(ptr noundef @.str.286)
+  %2678 = load ptr, ptr %5, align 8
+  %2679 = getelementptr inbounds %struct.config_key_pair_t, ptr %2678, i32 0, i32 0
+  store ptr %2677, ptr %2679, align 8
+  %2680 = load ptr, ptr %3, align 8
+  %2681 = getelementptr inbounds %struct.slurm_conf_t, ptr %2680, i32 0, i32 189
+  %2682 = load ptr, ptr %2681, align 8
+  %2683 = call ptr @xstrdup(ptr noundef %2682)
+  %2684 = load ptr, ptr %5, align 8
+  %2685 = getelementptr inbounds %struct.config_key_pair_t, ptr %2684, i32 0, i32 1
+  store ptr %2683, ptr %2685, align 8
+  %2686 = load ptr, ptr %4, align 8
+  %2687 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2686, ptr noundef %2687)
+  %2688 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2689 = load ptr, ptr %3, align 8
+  %2690 = getelementptr inbounds %struct.slurm_conf_t, ptr %2689, i32 0, i32 190
+  %2691 = load i16, ptr %2690, align 8
+  %2692 = call ptr @log_num2string(i16 noundef zeroext %2691)
+  %2693 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2688, i64 noundef 256, ptr noundef @.str.268, ptr noundef %2692) #6
+  %2694 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1637, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2694, ptr %5, align 8
+  %2695 = call ptr @xstrdup(ptr noundef @.str.287)
+  %2696 = load ptr, ptr %5, align 8
+  %2697 = getelementptr inbounds %struct.config_key_pair_t, ptr %2696, i32 0, i32 0
+  store ptr %2695, ptr %2697, align 8
+  %2698 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2699 = call ptr @xstrdup(ptr noundef %2698)
+  %2700 = load ptr, ptr %5, align 8
+  %2701 = getelementptr inbounds %struct.config_key_pair_t, ptr %2700, i32 0, i32 1
+  store ptr %2699, ptr %2701, align 8
+  %2702 = load ptr, ptr %4, align 8
+  %2703 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2702, ptr noundef %2703)
+  %2704 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2705 = load ptr, ptr %3, align 8
+  %2706 = getelementptr inbounds %struct.slurm_conf_t, ptr %2705, i32 0, i32 191
+  %2707 = load i16, ptr %2706, align 2
+  %2708 = zext i16 %2707 to i32
+  %2709 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2704, i64 noundef 256, ptr noundef @.str.105, i32 noundef %2708) #6
+  %2710 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1644, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2710, ptr %5, align 8
+  %2711 = call ptr @xstrdup(ptr noundef @.str.288)
+  %2712 = load ptr, ptr %5, align 8
+  %2713 = getelementptr inbounds %struct.config_key_pair_t, ptr %2712, i32 0, i32 0
+  store ptr %2711, ptr %2713, align 8
+  %2714 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2715 = call ptr @xstrdup(ptr noundef %2714)
+  %2716 = load ptr, ptr %5, align 8
+  %2717 = getelementptr inbounds %struct.config_key_pair_t, ptr %2716, i32 0, i32 1
+  store ptr %2715, ptr %2717, align 8
+  %2718 = load ptr, ptr %4, align 8
+  %2719 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2718, ptr noundef %2719)
+  %2720 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2721 = load ptr, ptr %3, align 8
+  %2722 = getelementptr inbounds %struct.slurm_conf_t, ptr %2721, i32 0, i32 172
+  %2723 = load ptr, ptr %2722, align 8
+  %2724 = load ptr, ptr %3, align 8
+  %2725 = getelementptr inbounds %struct.slurm_conf_t, ptr %2724, i32 0, i32 171
+  %2726 = load i32, ptr %2725, align 8
+  %2727 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2720, i64 noundef 256, ptr noundef @.str.266, ptr noundef %2723, i32 noundef %2726) #6
+  %2728 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1652, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2728, ptr %5, align 8
+  %2729 = call ptr @xstrdup(ptr noundef @.str.289)
+  %2730 = load ptr, ptr %5, align 8
+  %2731 = getelementptr inbounds %struct.config_key_pair_t, ptr %2730, i32 0, i32 0
+  store ptr %2729, ptr %2731, align 8
+  %2732 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2733 = call ptr @xstrdup(ptr noundef %2732)
+  %2734 = load ptr, ptr %5, align 8
+  %2735 = getelementptr inbounds %struct.config_key_pair_t, ptr %2734, i32 0, i32 1
+  store ptr %2733, ptr %2735, align 8
+  %2736 = load ptr, ptr %4, align 8
+  %2737 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2736, ptr noundef %2737)
+  %2738 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1657, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2738, ptr %5, align 8
+  %2739 = call ptr @xstrdup(ptr noundef @.str.290)
+  %2740 = load ptr, ptr %5, align 8
+  %2741 = getelementptr inbounds %struct.config_key_pair_t, ptr %2740, i32 0, i32 0
+  store ptr %2739, ptr %2741, align 8
+  %2742 = load ptr, ptr %3, align 8
+  %2743 = getelementptr inbounds %struct.slurm_conf_t, ptr %2742, i32 0, i32 157
+  %2744 = load ptr, ptr %2743, align 8
+  %2745 = call ptr @xstrdup(ptr noundef %2744)
+  %2746 = load ptr, ptr %5, align 8
+  %2747 = getelementptr inbounds %struct.config_key_pair_t, ptr %2746, i32 0, i32 1
+  store ptr %2745, ptr %2747, align 8
+  %2748 = load ptr, ptr %4, align 8
+  %2749 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2748, ptr noundef %2749)
+  %2750 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2751 = load ptr, ptr %3, align 8
+  %2752 = getelementptr inbounds %struct.slurm_conf_t, ptr %2751, i32 0, i32 158
+  %2753 = load i16, ptr %2752, align 8
+  %2754 = zext i16 %2753 to i32
+  %2755 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2750, i64 noundef 256, ptr noundef @.str.91, i32 noundef %2754) #6
+  %2756 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1664, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2756, ptr %5, align 8
+  %2757 = call ptr @xstrdup(ptr noundef @.str.291)
+  %2758 = load ptr, ptr %5, align 8
+  %2759 = getelementptr inbounds %struct.config_key_pair_t, ptr %2758, i32 0, i32 0
+  store ptr %2757, ptr %2759, align 8
+  %2760 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2761 = call ptr @xstrdup(ptr noundef %2760)
+  %2762 = load ptr, ptr %5, align 8
+  %2763 = getelementptr inbounds %struct.config_key_pair_t, ptr %2762, i32 0, i32 1
+  store ptr %2761, ptr %2763, align 8
+  %2764 = load ptr, ptr %4, align 8
+  %2765 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2764, ptr noundef %2765)
+  %2766 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1669, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2766, ptr %5, align 8
+  %2767 = call ptr @xstrdup(ptr noundef @.str.292)
+  %2768 = load ptr, ptr %5, align 8
+  %2769 = getelementptr inbounds %struct.config_key_pair_t, ptr %2768, i32 0, i32 0
+  store ptr %2767, ptr %2769, align 8
+  %2770 = load ptr, ptr %3, align 8
+  %2771 = getelementptr inbounds %struct.slurm_conf_t, ptr %2770, i32 0, i32 176
+  %2772 = load ptr, ptr %2771, align 8
+  %2773 = call ptr @xstrdup(ptr noundef %2772)
+  %2774 = load ptr, ptr %5, align 8
+  %2775 = getelementptr inbounds %struct.config_key_pair_t, ptr %2774, i32 0, i32 1
+  store ptr %2773, ptr %2775, align 8
+  %2776 = load ptr, ptr %4, align 8
+  %2777 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2776, ptr noundef %2777)
+  %2778 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1674, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2778, ptr %5, align 8
+  %2779 = call ptr @xstrdup(ptr noundef @.str.1)
+  %2780 = load ptr, ptr %5, align 8
+  %2781 = getelementptr inbounds %struct.config_key_pair_t, ptr %2780, i32 0, i32 0
+  store ptr %2779, ptr %2781, align 8
+  %2782 = load ptr, ptr %3, align 8
+  %2783 = getelementptr inbounds %struct.slurm_conf_t, ptr %2782, i32 0, i32 168
+  %2784 = load ptr, ptr %2783, align 8
+  %2785 = call ptr @xstrdup(ptr noundef %2784)
+  %2786 = load ptr, ptr %5, align 8
+  %2787 = getelementptr inbounds %struct.config_key_pair_t, ptr %2786, i32 0, i32 1
+  store ptr %2785, ptr %2787, align 8
+  %2788 = load ptr, ptr %4, align 8
+  %2789 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2788, ptr noundef %2789)
+  %2790 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1679, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2790, ptr %5, align 8
+  %2791 = call ptr @xstrdup(ptr noundef @.str.293)
+  %2792 = load ptr, ptr %5, align 8
+  %2793 = getelementptr inbounds %struct.config_key_pair_t, ptr %2792, i32 0, i32 0
+  store ptr %2791, ptr %2793, align 8
+  %2794 = load ptr, ptr %3, align 8
+  %2795 = getelementptr inbounds %struct.slurm_conf_t, ptr %2794, i32 0, i32 216
+  %2796 = load ptr, ptr %2795, align 8
+  %2797 = call ptr @xstrdup(ptr noundef %2796)
+  %2798 = load ptr, ptr %5, align 8
+  %2799 = getelementptr inbounds %struct.config_key_pair_t, ptr %2798, i32 0, i32 1
+  store ptr %2797, ptr %2799, align 8
+  %2800 = load ptr, ptr %4, align 8
+  %2801 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2800, ptr noundef %2801)
+  %2802 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1684, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2802, ptr %5, align 8
+  %2803 = call ptr @xstrdup(ptr noundef @.str.294)
+  %2804 = load ptr, ptr %5, align 8
+  %2805 = getelementptr inbounds %struct.config_key_pair_t, ptr %2804, i32 0, i32 0
+  store ptr %2803, ptr %2805, align 8
+  %2806 = load ptr, ptr %3, align 8
+  %2807 = getelementptr inbounds %struct.slurm_conf_t, ptr %2806, i32 0, i32 192
+  %2808 = load ptr, ptr %2807, align 8
+  %2809 = call ptr @xstrdup(ptr noundef %2808)
+  %2810 = load ptr, ptr %5, align 8
+  %2811 = getelementptr inbounds %struct.config_key_pair_t, ptr %2810, i32 0, i32 1
+  store ptr %2809, ptr %2811, align 8
+  %2812 = load ptr, ptr %4, align 8
+  %2813 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2812, ptr noundef %2813)
+  %2814 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1689, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2814, ptr %5, align 8
+  %2815 = call ptr @xstrdup(ptr noundef @.str.295)
+  %2816 = load ptr, ptr %5, align 8
+  %2817 = getelementptr inbounds %struct.config_key_pair_t, ptr %2816, i32 0, i32 0
+  store ptr %2815, ptr %2817, align 8
+  %2818 = load ptr, ptr %3, align 8
+  %2819 = getelementptr inbounds %struct.slurm_conf_t, ptr %2818, i32 0, i32 193
+  %2820 = load ptr, ptr %2819, align 8
+  %2821 = icmp ne ptr %2820, null
+  br i1 %2821, label %2822, label %2837
 
-2820:                                             ; preds = %2522
-  %2821 = load ptr, ptr %3, align 8
-  %2822 = getelementptr inbounds %struct.slurm_conf_t, ptr %2821, i32 0, i32 193
-  %2823 = load ptr, ptr %2822, align 8
-  %2824 = getelementptr inbounds i16, ptr %2823, i64 0
-  %2825 = load i16, ptr %2824, align 2
-  %2826 = zext i16 %2825 to i32
-  %2827 = icmp ne i32 %2826, 0
-  br i1 %2827, label %2828, label %2835
+2822:                                             ; preds = %2524
+  %2823 = load ptr, ptr %3, align 8
+  %2824 = getelementptr inbounds %struct.slurm_conf_t, ptr %2823, i32 0, i32 193
+  %2825 = load ptr, ptr %2824, align 8
+  %2826 = getelementptr inbounds i16, ptr %2825, i64 0
+  %2827 = load i16, ptr %2826, align 2
+  %2828 = zext i16 %2827 to i32
+  %2829 = icmp ne i32 %2828, 0
+  br i1 %2829, label %2830, label %2837
 
-2828:                                             ; preds = %2820
-  %2829 = load ptr, ptr %3, align 8
-  %2830 = getelementptr inbounds %struct.slurm_conf_t, ptr %2829, i32 0, i32 193
-  %2831 = load ptr, ptr %2830, align 8
-  %2832 = getelementptr inbounds i16, ptr %2831, i64 0
-  %2833 = load i16, ptr %2832, align 2
-  %2834 = zext i16 %2833 to i32
-  br label %2836
+2830:                                             ; preds = %2822
+  %2831 = load ptr, ptr %3, align 8
+  %2832 = getelementptr inbounds %struct.slurm_conf_t, ptr %2831, i32 0, i32 193
+  %2833 = load ptr, ptr %2832, align 8
+  %2834 = getelementptr inbounds i16, ptr %2833, i64 0
+  %2835 = load i16, ptr %2834, align 2
+  %2836 = zext i16 %2835 to i32
+  br label %2838
 
-2835:                                             ; preds = %2820, %2522
-  br label %2836
+2837:                                             ; preds = %2822, %2524
+  br label %2838
 
-2836:                                             ; preds = %2835, %2828
-  %2837 = phi i32 [ %2834, %2828 ], [ 0, %2835 ]
-  %2838 = load ptr, ptr %3, align 8
-  %2839 = getelementptr inbounds %struct.slurm_conf_t, ptr %2838, i32 0, i32 193
-  %2840 = load ptr, ptr %2839, align 8
-  %2841 = icmp ne ptr %2840, null
-  br i1 %2841, label %2842, label %2857
+2838:                                             ; preds = %2837, %2830
+  %2839 = phi i32 [ %2836, %2830 ], [ 0, %2837 ]
+  %2840 = load ptr, ptr %3, align 8
+  %2841 = getelementptr inbounds %struct.slurm_conf_t, ptr %2840, i32 0, i32 193
+  %2842 = load ptr, ptr %2841, align 8
+  %2843 = icmp ne ptr %2842, null
+  br i1 %2843, label %2844, label %2859
 
-2842:                                             ; preds = %2836
-  %2843 = load ptr, ptr %3, align 8
-  %2844 = getelementptr inbounds %struct.slurm_conf_t, ptr %2843, i32 0, i32 193
-  %2845 = load ptr, ptr %2844, align 8
-  %2846 = getelementptr inbounds i16, ptr %2845, i64 1
-  %2847 = load i16, ptr %2846, align 2
-  %2848 = zext i16 %2847 to i32
-  %2849 = icmp ne i32 %2848, 0
-  br i1 %2849, label %2850, label %2857
+2844:                                             ; preds = %2838
+  %2845 = load ptr, ptr %3, align 8
+  %2846 = getelementptr inbounds %struct.slurm_conf_t, ptr %2845, i32 0, i32 193
+  %2847 = load ptr, ptr %2846, align 8
+  %2848 = getelementptr inbounds i16, ptr %2847, i64 1
+  %2849 = load i16, ptr %2848, align 2
+  %2850 = zext i16 %2849 to i32
+  %2851 = icmp ne i32 %2850, 0
+  br i1 %2851, label %2852, label %2859
 
-2850:                                             ; preds = %2842
-  %2851 = load ptr, ptr %3, align 8
-  %2852 = getelementptr inbounds %struct.slurm_conf_t, ptr %2851, i32 0, i32 193
-  %2853 = load ptr, ptr %2852, align 8
-  %2854 = getelementptr inbounds i16, ptr %2853, i64 1
-  %2855 = load i16, ptr %2854, align 2
-  %2856 = zext i16 %2855 to i32
-  br label %2858
+2852:                                             ; preds = %2844
+  %2853 = load ptr, ptr %3, align 8
+  %2854 = getelementptr inbounds %struct.slurm_conf_t, ptr %2853, i32 0, i32 193
+  %2855 = load ptr, ptr %2854, align 8
+  %2856 = getelementptr inbounds i16, ptr %2855, i64 1
+  %2857 = load i16, ptr %2856, align 2
+  %2858 = zext i16 %2857 to i32
+  br label %2860
 
-2857:                                             ; preds = %2842, %2836
-  br label %2858
+2859:                                             ; preds = %2844, %2838
+  br label %2860
 
-2858:                                             ; preds = %2857, %2850
-  %2859 = phi i32 [ %2856, %2850 ], [ 0, %2857 ]
-  %2860 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.274, i32 noundef %2837, i32 noundef %2859)
-  %2861 = load ptr, ptr %5, align 8
-  %2862 = getelementptr inbounds %struct.config_key_pair_t, ptr %2861, i32 0, i32 1
-  store ptr %2860, ptr %2862, align 8
-  %2863 = load ptr, ptr %4, align 8
-  %2864 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2863, ptr noundef %2864)
-  %2865 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1700, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2865, ptr %5, align 8
-  %2866 = call ptr @xstrdup(ptr noundef @.str.296)
-  %2867 = load ptr, ptr %5, align 8
-  %2868 = getelementptr inbounds %struct.config_key_pair_t, ptr %2867, i32 0, i32 0
-  store ptr %2866, ptr %2868, align 8
-  %2869 = load ptr, ptr %3, align 8
-  %2870 = getelementptr inbounds %struct.slurm_conf_t, ptr %2869, i32 0, i32 194
-  %2871 = load ptr, ptr %2870, align 8
-  %2872 = call ptr @xstrdup(ptr noundef %2871)
-  %2873 = load ptr, ptr %5, align 8
-  %2874 = getelementptr inbounds %struct.config_key_pair_t, ptr %2873, i32 0, i32 1
-  store ptr %2872, ptr %2874, align 8
-  %2875 = load ptr, ptr %4, align 8
-  %2876 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2875, ptr noundef %2876)
-  %2877 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1705, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2877, ptr %5, align 8
-  %2878 = call ptr @xstrdup(ptr noundef @.str.297)
-  %2879 = load ptr, ptr %5, align 8
-  %2880 = getelementptr inbounds %struct.config_key_pair_t, ptr %2879, i32 0, i32 0
-  store ptr %2878, ptr %2880, align 8
-  %2881 = load ptr, ptr %3, align 8
-  %2882 = getelementptr inbounds %struct.slurm_conf_t, ptr %2881, i32 0, i32 195
-  %2883 = load ptr, ptr %2882, align 8
-  %2884 = call ptr @xstrdup(ptr noundef %2883)
-  %2885 = load ptr, ptr %5, align 8
-  %2886 = getelementptr inbounds %struct.config_key_pair_t, ptr %2885, i32 0, i32 1
-  store ptr %2884, ptr %2886, align 8
-  %2887 = load ptr, ptr %4, align 8
-  %2888 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2887, ptr noundef %2888)
-  %2889 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1710, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2889, ptr %5, align 8
-  %2890 = call ptr @xstrdup(ptr noundef @.str.298)
-  %2891 = load ptr, ptr %5, align 8
-  %2892 = getelementptr inbounds %struct.config_key_pair_t, ptr %2891, i32 0, i32 0
-  store ptr %2890, ptr %2892, align 8
-  %2893 = load ptr, ptr %3, align 8
-  %2894 = getelementptr inbounds %struct.slurm_conf_t, ptr %2893, i32 0, i32 196
-  %2895 = load ptr, ptr %2894, align 8
-  %2896 = call ptr @xstrdup(ptr noundef %2895)
-  %2897 = load ptr, ptr %5, align 8
-  %2898 = getelementptr inbounds %struct.config_key_pair_t, ptr %2897, i32 0, i32 1
-  store ptr %2896, ptr %2898, align 8
-  %2899 = load ptr, ptr %4, align 8
-  %2900 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2899, ptr noundef %2900)
-  %2901 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1715, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2901, ptr %5, align 8
-  %2902 = call ptr @xstrdup(ptr noundef @.str.299)
-  %2903 = load ptr, ptr %5, align 8
-  %2904 = getelementptr inbounds %struct.config_key_pair_t, ptr %2903, i32 0, i32 0
-  store ptr %2902, ptr %2904, align 8
-  %2905 = load ptr, ptr %3, align 8
-  %2906 = getelementptr inbounds %struct.slurm_conf_t, ptr %2905, i32 0, i32 197
-  %2907 = load ptr, ptr %2906, align 8
-  %2908 = call ptr @xstrdup(ptr noundef %2907)
-  %2909 = load ptr, ptr %5, align 8
-  %2910 = getelementptr inbounds %struct.config_key_pair_t, ptr %2909, i32 0, i32 1
-  store ptr %2908, ptr %2910, align 8
-  %2911 = load ptr, ptr %4, align 8
-  %2912 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2911, ptr noundef %2912)
-  %2913 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1720, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2913, ptr %5, align 8
-  %2914 = call ptr @xstrdup(ptr noundef @.str.300)
-  %2915 = load ptr, ptr %5, align 8
-  %2916 = getelementptr inbounds %struct.config_key_pair_t, ptr %2915, i32 0, i32 0
-  store ptr %2914, ptr %2916, align 8
-  %2917 = load ptr, ptr %3, align 8
-  %2918 = getelementptr inbounds %struct.slurm_conf_t, ptr %2917, i32 0, i32 198
-  %2919 = load ptr, ptr %2918, align 8
-  %2920 = call ptr @xstrdup(ptr noundef %2919)
-  %2921 = load ptr, ptr %5, align 8
-  %2922 = getelementptr inbounds %struct.config_key_pair_t, ptr %2921, i32 0, i32 1
-  store ptr %2920, ptr %2922, align 8
-  %2923 = load ptr, ptr %4, align 8
-  %2924 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2923, ptr noundef %2924)
-  %2925 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1725, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2925, ptr %5, align 8
-  %2926 = call ptr @xstrdup(ptr noundef @.str.301)
-  %2927 = load ptr, ptr %5, align 8
-  %2928 = getelementptr inbounds %struct.config_key_pair_t, ptr %2927, i32 0, i32 0
-  store ptr %2926, ptr %2928, align 8
-  %2929 = load ptr, ptr %3, align 8
-  %2930 = getelementptr inbounds %struct.slurm_conf_t, ptr %2929, i32 0, i32 199
-  %2931 = load ptr, ptr %2930, align 8
-  %2932 = call ptr @xstrdup(ptr noundef %2931)
-  %2933 = load ptr, ptr %5, align 8
-  %2934 = getelementptr inbounds %struct.config_key_pair_t, ptr %2933, i32 0, i32 1
-  store ptr %2932, ptr %2934, align 8
-  %2935 = load ptr, ptr %4, align 8
-  %2936 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2935, ptr noundef %2936)
-  %2937 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2938 = load ptr, ptr %3, align 8
-  %2939 = getelementptr inbounds %struct.slurm_conf_t, ptr %2938, i32 0, i32 200
-  %2940 = load i16, ptr %2939, align 8
-  %2941 = zext i16 %2940 to i32
-  %2942 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2937, i64 noundef 256, ptr noundef @.str.253, i32 noundef %2941) #6
-  %2943 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1732, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2943, ptr %5, align 8
-  %2944 = call ptr @xstrdup(ptr noundef @.str.302)
-  %2945 = load ptr, ptr %5, align 8
-  %2946 = getelementptr inbounds %struct.config_key_pair_t, ptr %2945, i32 0, i32 0
-  store ptr %2944, ptr %2946, align 8
-  %2947 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2948 = call ptr @xstrdup(ptr noundef %2947)
-  %2949 = load ptr, ptr %5, align 8
-  %2950 = getelementptr inbounds %struct.config_key_pair_t, ptr %2949, i32 0, i32 1
-  store ptr %2948, ptr %2950, align 8
-  %2951 = load ptr, ptr %4, align 8
-  %2952 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2951, ptr noundef %2952)
-  %2953 = load ptr, ptr %3, align 8
-  %2954 = getelementptr inbounds %struct.slurm_conf_t, ptr %2953, i32 0, i32 201
-  %2955 = load i32, ptr %2954, align 4
-  %2956 = icmp eq i32 %2955, -1
-  br i1 %2956, label %2957, label %2960
+2860:                                             ; preds = %2859, %2852
+  %2861 = phi i32 [ %2858, %2852 ], [ 0, %2859 ]
+  %2862 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.274, i32 noundef %2839, i32 noundef %2861)
+  %2863 = load ptr, ptr %5, align 8
+  %2864 = getelementptr inbounds %struct.config_key_pair_t, ptr %2863, i32 0, i32 1
+  store ptr %2862, ptr %2864, align 8
+  %2865 = load ptr, ptr %4, align 8
+  %2866 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2865, ptr noundef %2866)
+  %2867 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1700, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2867, ptr %5, align 8
+  %2868 = call ptr @xstrdup(ptr noundef @.str.296)
+  %2869 = load ptr, ptr %5, align 8
+  %2870 = getelementptr inbounds %struct.config_key_pair_t, ptr %2869, i32 0, i32 0
+  store ptr %2868, ptr %2870, align 8
+  %2871 = load ptr, ptr %3, align 8
+  %2872 = getelementptr inbounds %struct.slurm_conf_t, ptr %2871, i32 0, i32 194
+  %2873 = load ptr, ptr %2872, align 8
+  %2874 = call ptr @xstrdup(ptr noundef %2873)
+  %2875 = load ptr, ptr %5, align 8
+  %2876 = getelementptr inbounds %struct.config_key_pair_t, ptr %2875, i32 0, i32 1
+  store ptr %2874, ptr %2876, align 8
+  %2877 = load ptr, ptr %4, align 8
+  %2878 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2877, ptr noundef %2878)
+  %2879 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1705, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2879, ptr %5, align 8
+  %2880 = call ptr @xstrdup(ptr noundef @.str.297)
+  %2881 = load ptr, ptr %5, align 8
+  %2882 = getelementptr inbounds %struct.config_key_pair_t, ptr %2881, i32 0, i32 0
+  store ptr %2880, ptr %2882, align 8
+  %2883 = load ptr, ptr %3, align 8
+  %2884 = getelementptr inbounds %struct.slurm_conf_t, ptr %2883, i32 0, i32 195
+  %2885 = load ptr, ptr %2884, align 8
+  %2886 = call ptr @xstrdup(ptr noundef %2885)
+  %2887 = load ptr, ptr %5, align 8
+  %2888 = getelementptr inbounds %struct.config_key_pair_t, ptr %2887, i32 0, i32 1
+  store ptr %2886, ptr %2888, align 8
+  %2889 = load ptr, ptr %4, align 8
+  %2890 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2889, ptr noundef %2890)
+  %2891 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1710, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2891, ptr %5, align 8
+  %2892 = call ptr @xstrdup(ptr noundef @.str.298)
+  %2893 = load ptr, ptr %5, align 8
+  %2894 = getelementptr inbounds %struct.config_key_pair_t, ptr %2893, i32 0, i32 0
+  store ptr %2892, ptr %2894, align 8
+  %2895 = load ptr, ptr %3, align 8
+  %2896 = getelementptr inbounds %struct.slurm_conf_t, ptr %2895, i32 0, i32 196
+  %2897 = load ptr, ptr %2896, align 8
+  %2898 = call ptr @xstrdup(ptr noundef %2897)
+  %2899 = load ptr, ptr %5, align 8
+  %2900 = getelementptr inbounds %struct.config_key_pair_t, ptr %2899, i32 0, i32 1
+  store ptr %2898, ptr %2900, align 8
+  %2901 = load ptr, ptr %4, align 8
+  %2902 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2901, ptr noundef %2902)
+  %2903 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1715, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2903, ptr %5, align 8
+  %2904 = call ptr @xstrdup(ptr noundef @.str.299)
+  %2905 = load ptr, ptr %5, align 8
+  %2906 = getelementptr inbounds %struct.config_key_pair_t, ptr %2905, i32 0, i32 0
+  store ptr %2904, ptr %2906, align 8
+  %2907 = load ptr, ptr %3, align 8
+  %2908 = getelementptr inbounds %struct.slurm_conf_t, ptr %2907, i32 0, i32 197
+  %2909 = load ptr, ptr %2908, align 8
+  %2910 = call ptr @xstrdup(ptr noundef %2909)
+  %2911 = load ptr, ptr %5, align 8
+  %2912 = getelementptr inbounds %struct.config_key_pair_t, ptr %2911, i32 0, i32 1
+  store ptr %2910, ptr %2912, align 8
+  %2913 = load ptr, ptr %4, align 8
+  %2914 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2913, ptr noundef %2914)
+  %2915 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1720, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2915, ptr %5, align 8
+  %2916 = call ptr @xstrdup(ptr noundef @.str.300)
+  %2917 = load ptr, ptr %5, align 8
+  %2918 = getelementptr inbounds %struct.config_key_pair_t, ptr %2917, i32 0, i32 0
+  store ptr %2916, ptr %2918, align 8
+  %2919 = load ptr, ptr %3, align 8
+  %2920 = getelementptr inbounds %struct.slurm_conf_t, ptr %2919, i32 0, i32 198
+  %2921 = load ptr, ptr %2920, align 8
+  %2922 = call ptr @xstrdup(ptr noundef %2921)
+  %2923 = load ptr, ptr %5, align 8
+  %2924 = getelementptr inbounds %struct.config_key_pair_t, ptr %2923, i32 0, i32 1
+  store ptr %2922, ptr %2924, align 8
+  %2925 = load ptr, ptr %4, align 8
+  %2926 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2925, ptr noundef %2926)
+  %2927 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1725, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2927, ptr %5, align 8
+  %2928 = call ptr @xstrdup(ptr noundef @.str.301)
+  %2929 = load ptr, ptr %5, align 8
+  %2930 = getelementptr inbounds %struct.config_key_pair_t, ptr %2929, i32 0, i32 0
+  store ptr %2928, ptr %2930, align 8
+  %2931 = load ptr, ptr %3, align 8
+  %2932 = getelementptr inbounds %struct.slurm_conf_t, ptr %2931, i32 0, i32 199
+  %2933 = load ptr, ptr %2932, align 8
+  %2934 = call ptr @xstrdup(ptr noundef %2933)
+  %2935 = load ptr, ptr %5, align 8
+  %2936 = getelementptr inbounds %struct.config_key_pair_t, ptr %2935, i32 0, i32 1
+  store ptr %2934, ptr %2936, align 8
+  %2937 = load ptr, ptr %4, align 8
+  %2938 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2937, ptr noundef %2938)
+  %2939 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2940 = load ptr, ptr %3, align 8
+  %2941 = getelementptr inbounds %struct.slurm_conf_t, ptr %2940, i32 0, i32 200
+  %2942 = load i16, ptr %2941, align 8
+  %2943 = zext i16 %2942 to i32
+  %2944 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2939, i64 noundef 256, ptr noundef @.str.253, i32 noundef %2943) #6
+  %2945 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1732, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2945, ptr %5, align 8
+  %2946 = call ptr @xstrdup(ptr noundef @.str.302)
+  %2947 = load ptr, ptr %5, align 8
+  %2948 = getelementptr inbounds %struct.config_key_pair_t, ptr %2947, i32 0, i32 0
+  store ptr %2946, ptr %2948, align 8
+  %2949 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2950 = call ptr @xstrdup(ptr noundef %2949)
+  %2951 = load ptr, ptr %5, align 8
+  %2952 = getelementptr inbounds %struct.config_key_pair_t, ptr %2951, i32 0, i32 1
+  store ptr %2950, ptr %2952, align 8
+  %2953 = load ptr, ptr %4, align 8
+  %2954 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2953, ptr noundef %2954)
+  %2955 = load ptr, ptr %3, align 8
+  %2956 = getelementptr inbounds %struct.slurm_conf_t, ptr %2955, i32 0, i32 201
+  %2957 = load i32, ptr %2956, align 4
+  %2958 = icmp eq i32 %2957, -1
+  br i1 %2958, label %2959, label %2962
 
-2957:                                             ; preds = %2858
-  %2958 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2959 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2958, i64 noundef 256, ptr noundef @.str.303) #6
-  br label %2966
+2959:                                             ; preds = %2860
+  %2960 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2961 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2960, i64 noundef 256, ptr noundef @.str.303) #6
+  br label %2968
 
-2960:                                             ; preds = %2858
-  %2961 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2962 = load ptr, ptr %3, align 8
-  %2963 = getelementptr inbounds %struct.slurm_conf_t, ptr %2962, i32 0, i32 201
-  %2964 = load i32, ptr %2963, align 4
-  %2965 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2961, i64 noundef 256, ptr noundef @.str.105, i32 noundef %2964) #6
-  br label %2966
+2962:                                             ; preds = %2860
+  %2963 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2964 = load ptr, ptr %3, align 8
+  %2965 = getelementptr inbounds %struct.slurm_conf_t, ptr %2964, i32 0, i32 201
+  %2966 = load i32, ptr %2965, align 4
+  %2967 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2963, i64 noundef 256, ptr noundef @.str.105, i32 noundef %2966) #6
+  br label %2968
 
-2966:                                             ; preds = %2960, %2957
-  %2967 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1743, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2967, ptr %5, align 8
-  %2968 = call ptr @xstrdup(ptr noundef @.str.304)
-  %2969 = load ptr, ptr %5, align 8
-  %2970 = getelementptr inbounds %struct.config_key_pair_t, ptr %2969, i32 0, i32 0
-  store ptr %2968, ptr %2970, align 8
-  %2971 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2972 = call ptr @xstrdup(ptr noundef %2971)
-  %2973 = load ptr, ptr %5, align 8
-  %2974 = getelementptr inbounds %struct.config_key_pair_t, ptr %2973, i32 0, i32 1
-  store ptr %2972, ptr %2974, align 8
-  %2975 = load ptr, ptr %4, align 8
-  %2976 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %2975, ptr noundef %2976)
-  %2977 = load ptr, ptr %3, align 8
-  %2978 = getelementptr inbounds %struct.slurm_conf_t, ptr %2977, i32 0, i32 202
-  %2979 = load i16, ptr %2978, align 8
-  %2980 = zext i16 %2979 to i32
-  %2981 = icmp eq i32 %2980, 0
-  br i1 %2981, label %2982, label %2985
+2968:                                             ; preds = %2962, %2959
+  %2969 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1743, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2969, ptr %5, align 8
+  %2970 = call ptr @xstrdup(ptr noundef @.str.304)
+  %2971 = load ptr, ptr %5, align 8
+  %2972 = getelementptr inbounds %struct.config_key_pair_t, ptr %2971, i32 0, i32 0
+  store ptr %2970, ptr %2972, align 8
+  %2973 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2974 = call ptr @xstrdup(ptr noundef %2973)
+  %2975 = load ptr, ptr %5, align 8
+  %2976 = getelementptr inbounds %struct.config_key_pair_t, ptr %2975, i32 0, i32 1
+  store ptr %2974, ptr %2976, align 8
+  %2977 = load ptr, ptr %4, align 8
+  %2978 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %2977, ptr noundef %2978)
+  %2979 = load ptr, ptr %3, align 8
+  %2980 = getelementptr inbounds %struct.slurm_conf_t, ptr %2979, i32 0, i32 202
+  %2981 = load i16, ptr %2980, align 8
+  %2982 = zext i16 %2981 to i32
+  %2983 = icmp eq i32 %2982, 0
+  br i1 %2983, label %2984, label %2987
 
-2982:                                             ; preds = %2966
-  %2983 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2984 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2983, i64 noundef 256, ptr noundef @.str.218) #6
-  br label %2992
+2984:                                             ; preds = %2968
+  %2985 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2986 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2985, i64 noundef 256, ptr noundef @.str.218) #6
+  br label %2994
 
-2985:                                             ; preds = %2966
-  %2986 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2987 = load ptr, ptr %3, align 8
-  %2988 = getelementptr inbounds %struct.slurm_conf_t, ptr %2987, i32 0, i32 202
-  %2989 = load i16, ptr %2988, align 8
-  %2990 = zext i16 %2989 to i32
-  %2991 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2986, i64 noundef 256, ptr noundef @.str.105, i32 noundef %2990) #6
-  br label %2992
+2987:                                             ; preds = %2968
+  %2988 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %2989 = load ptr, ptr %3, align 8
+  %2990 = getelementptr inbounds %struct.slurm_conf_t, ptr %2989, i32 0, i32 202
+  %2991 = load i16, ptr %2990, align 8
+  %2992 = zext i16 %2991 to i32
+  %2993 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2988, i64 noundef 256, ptr noundef @.str.105, i32 noundef %2992) #6
+  br label %2994
 
-2992:                                             ; preds = %2985, %2982
-  %2993 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1754, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %2993, ptr %5, align 8
-  %2994 = call ptr @xstrdup(ptr noundef @.str.305)
-  %2995 = load ptr, ptr %5, align 8
-  %2996 = getelementptr inbounds %struct.config_key_pair_t, ptr %2995, i32 0, i32 0
-  store ptr %2994, ptr %2996, align 8
-  %2997 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %2998 = call ptr @xstrdup(ptr noundef %2997)
-  %2999 = load ptr, ptr %5, align 8
-  %3000 = getelementptr inbounds %struct.config_key_pair_t, ptr %2999, i32 0, i32 1
-  store ptr %2998, ptr %3000, align 8
-  %3001 = load ptr, ptr %4, align 8
-  %3002 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3001, ptr noundef %3002)
-  %3003 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1759, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3003, ptr %5, align 8
-  %3004 = call ptr @xstrdup(ptr noundef @.str.306)
-  %3005 = load ptr, ptr %5, align 8
-  %3006 = getelementptr inbounds %struct.config_key_pair_t, ptr %3005, i32 0, i32 0
-  store ptr %3004, ptr %3006, align 8
-  %3007 = load ptr, ptr %3, align 8
-  %3008 = getelementptr inbounds %struct.slurm_conf_t, ptr %3007, i32 0, i32 204
-  %3009 = load ptr, ptr %3008, align 8
-  %3010 = call ptr @xstrdup(ptr noundef %3009)
-  %3011 = load ptr, ptr %5, align 8
-  %3012 = getelementptr inbounds %struct.config_key_pair_t, ptr %3011, i32 0, i32 1
-  store ptr %3010, ptr %3012, align 8
-  %3013 = load ptr, ptr %4, align 8
-  %3014 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3013, ptr noundef %3014)
-  %3015 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1764, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3015, ptr %5, align 8
-  %3016 = call ptr @xstrdup(ptr noundef @.str.307)
-  %3017 = load ptr, ptr %5, align 8
-  %3018 = getelementptr inbounds %struct.config_key_pair_t, ptr %3017, i32 0, i32 0
-  store ptr %3016, ptr %3018, align 8
-  %3019 = load ptr, ptr %3, align 8
-  %3020 = getelementptr inbounds %struct.slurm_conf_t, ptr %3019, i32 0, i32 203
-  %3021 = load ptr, ptr %3020, align 8
-  %3022 = call ptr @xstrdup(ptr noundef %3021)
-  %3023 = load ptr, ptr %5, align 8
-  %3024 = getelementptr inbounds %struct.config_key_pair_t, ptr %3023, i32 0, i32 1
-  store ptr %3022, ptr %3024, align 8
-  %3025 = load ptr, ptr %4, align 8
-  %3026 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3025, ptr noundef %3026)
-  %3027 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1769, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3027, ptr %5, align 8
-  %3028 = call ptr @xstrdup(ptr noundef @.str.308)
-  %3029 = load ptr, ptr %5, align 8
-  %3030 = getelementptr inbounds %struct.config_key_pair_t, ptr %3029, i32 0, i32 0
-  store ptr %3028, ptr %3030, align 8
-  %3031 = load ptr, ptr %3, align 8
-  %3032 = getelementptr inbounds %struct.slurm_conf_t, ptr %3031, i32 0, i32 205
-  %3033 = load ptr, ptr %3032, align 8
-  %3034 = call ptr @xstrdup(ptr noundef %3033)
-  %3035 = load ptr, ptr %5, align 8
-  %3036 = getelementptr inbounds %struct.config_key_pair_t, ptr %3035, i32 0, i32 1
-  store ptr %3034, ptr %3036, align 8
-  %3037 = load ptr, ptr %4, align 8
-  %3038 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3037, ptr noundef %3038)
-  %3039 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1774, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3039, ptr %5, align 8
-  %3040 = call ptr @xstrdup(ptr noundef @.str.309)
-  %3041 = load ptr, ptr %5, align 8
-  %3042 = getelementptr inbounds %struct.config_key_pair_t, ptr %3041, i32 0, i32 0
-  store ptr %3040, ptr %3042, align 8
-  %3043 = load ptr, ptr %3, align 8
-  %3044 = getelementptr inbounds %struct.slurm_conf_t, ptr %3043, i32 0, i32 206
-  %3045 = load ptr, ptr %3044, align 8
-  %3046 = call ptr @xstrdup(ptr noundef %3045)
-  %3047 = load ptr, ptr %5, align 8
-  %3048 = getelementptr inbounds %struct.config_key_pair_t, ptr %3047, i32 0, i32 1
-  store ptr %3046, ptr %3048, align 8
-  %3049 = load ptr, ptr %4, align 8
-  %3050 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3049, ptr noundef %3050)
-  %3051 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %3052 = load ptr, ptr %3, align 8
-  %3053 = getelementptr inbounds %struct.slurm_conf_t, ptr %3052, i32 0, i32 207
-  %3054 = load i32, ptr %3053, align 8
-  call void @slurm_sprint_cpu_bind_type(ptr noundef %3051, i32 noundef %3054)
-  %3055 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1781, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3055, ptr %5, align 8
-  %3056 = call ptr @xstrdup(ptr noundef @.str.310)
-  %3057 = load ptr, ptr %5, align 8
-  %3058 = getelementptr inbounds %struct.config_key_pair_t, ptr %3057, i32 0, i32 0
-  store ptr %3056, ptr %3058, align 8
-  %3059 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %3060 = call ptr @xstrdup(ptr noundef %3059)
-  %3061 = load ptr, ptr %5, align 8
-  %3062 = getelementptr inbounds %struct.config_key_pair_t, ptr %3061, i32 0, i32 1
-  store ptr %3060, ptr %3062, align 8
-  %3063 = load ptr, ptr %4, align 8
-  %3064 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3063, ptr noundef %3064)
-  %3065 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1786, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3065, ptr %5, align 8
-  %3066 = call ptr @xstrdup(ptr noundef @.str.311)
-  %3067 = load ptr, ptr %5, align 8
-  %3068 = getelementptr inbounds %struct.config_key_pair_t, ptr %3067, i32 0, i32 0
-  store ptr %3066, ptr %3068, align 8
-  %3069 = load ptr, ptr %3, align 8
-  %3070 = getelementptr inbounds %struct.slurm_conf_t, ptr %3069, i32 0, i32 208
-  %3071 = load ptr, ptr %3070, align 8
-  %3072 = call ptr @xstrdup(ptr noundef %3071)
-  %3073 = load ptr, ptr %5, align 8
-  %3074 = getelementptr inbounds %struct.config_key_pair_t, ptr %3073, i32 0, i32 1
-  store ptr %3072, ptr %3074, align 8
-  %3075 = load ptr, ptr %4, align 8
-  %3076 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3075, ptr noundef %3076)
-  %3077 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1791, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3077, ptr %5, align 8
-  %3078 = call ptr @xstrdup(ptr noundef @.str.312)
-  %3079 = load ptr, ptr %5, align 8
-  %3080 = getelementptr inbounds %struct.config_key_pair_t, ptr %3079, i32 0, i32 0
-  store ptr %3078, ptr %3080, align 8
-  %3081 = load ptr, ptr %3, align 8
-  %3082 = getelementptr inbounds %struct.slurm_conf_t, ptr %3081, i32 0, i32 209
-  %3083 = load i16, ptr %3082, align 8
-  %3084 = zext i16 %3083 to i32
-  %3085 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.105, i32 noundef %3084)
-  %3086 = load ptr, ptr %5, align 8
-  %3087 = getelementptr inbounds %struct.config_key_pair_t, ptr %3086, i32 0, i32 1
-  store ptr %3085, ptr %3087, align 8
-  %3088 = load ptr, ptr %4, align 8
-  %3089 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3088, ptr noundef %3089)
-  %3090 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1797, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3090, ptr %5, align 8
-  %3091 = call ptr @xstrdup(ptr noundef @.str.313)
-  %3092 = load ptr, ptr %5, align 8
-  %3093 = getelementptr inbounds %struct.config_key_pair_t, ptr %3092, i32 0, i32 0
-  store ptr %3091, ptr %3093, align 8
-  %3094 = load ptr, ptr %3, align 8
-  %3095 = getelementptr inbounds %struct.slurm_conf_t, ptr %3094, i32 0, i32 210
-  %3096 = load ptr, ptr %3095, align 8
-  %3097 = call ptr @xstrdup(ptr noundef %3096)
-  %3098 = load ptr, ptr %5, align 8
-  %3099 = getelementptr inbounds %struct.config_key_pair_t, ptr %3098, i32 0, i32 1
-  store ptr %3097, ptr %3099, align 8
-  %3100 = load ptr, ptr %4, align 8
-  %3101 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3100, ptr noundef %3101)
-  %3102 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1802, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3102, ptr %5, align 8
-  %3103 = call ptr @xstrdup(ptr noundef @.str.314)
-  %3104 = load ptr, ptr %5, align 8
-  %3105 = getelementptr inbounds %struct.config_key_pair_t, ptr %3104, i32 0, i32 0
-  store ptr %3103, ptr %3105, align 8
-  %3106 = load ptr, ptr %3, align 8
-  %3107 = getelementptr inbounds %struct.slurm_conf_t, ptr %3106, i32 0, i32 211
-  %3108 = load ptr, ptr %3107, align 8
-  %3109 = call ptr @xstrdup(ptr noundef %3108)
-  %3110 = load ptr, ptr %5, align 8
-  %3111 = getelementptr inbounds %struct.config_key_pair_t, ptr %3110, i32 0, i32 1
-  store ptr %3109, ptr %3111, align 8
-  %3112 = load ptr, ptr %4, align 8
-  %3113 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3112, ptr noundef %3113)
-  %3114 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1807, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3114, ptr %5, align 8
-  %3115 = call ptr @xstrdup(ptr noundef @.str.315)
-  %3116 = load ptr, ptr %5, align 8
-  %3117 = getelementptr inbounds %struct.config_key_pair_t, ptr %3116, i32 0, i32 0
-  store ptr %3115, ptr %3117, align 8
-  %3118 = load ptr, ptr %3, align 8
-  %3119 = getelementptr inbounds %struct.slurm_conf_t, ptr %3118, i32 0, i32 212
-  %3120 = load ptr, ptr %3119, align 8
-  %3121 = call ptr @xstrdup(ptr noundef %3120)
-  %3122 = load ptr, ptr %5, align 8
-  %3123 = getelementptr inbounds %struct.config_key_pair_t, ptr %3122, i32 0, i32 1
-  store ptr %3121, ptr %3123, align 8
-  %3124 = load ptr, ptr %4, align 8
-  %3125 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3124, ptr noundef %3125)
-  %3126 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1812, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3126, ptr %5, align 8
-  %3127 = call ptr @xstrdup(ptr noundef @.str.316)
-  %3128 = load ptr, ptr %5, align 8
-  %3129 = getelementptr inbounds %struct.config_key_pair_t, ptr %3128, i32 0, i32 0
-  store ptr %3127, ptr %3129, align 8
-  %3130 = load ptr, ptr %3, align 8
-  %3131 = getelementptr inbounds %struct.slurm_conf_t, ptr %3130, i32 0, i32 31
-  %3132 = load i32, ptr %3131, align 4
-  %3133 = zext i32 %3132 to i64
-  %3134 = and i64 %3133, 32
-  %3135 = icmp ne i64 %3134, 0
-  %3136 = select i1 %3135, ptr @.str.109, ptr @.str.110
-  %3137 = call ptr @xstrdup(ptr noundef %3136)
-  %3138 = load ptr, ptr %5, align 8
-  %3139 = getelementptr inbounds %struct.config_key_pair_t, ptr %3138, i32 0, i32 1
-  store ptr %3137, ptr %3139, align 8
-  %3140 = load ptr, ptr %4, align 8
-  %3141 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3140, ptr noundef %3141)
-  %3142 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %3143 = load ptr, ptr %3, align 8
-  %3144 = getelementptr inbounds %struct.slurm_conf_t, ptr %3143, i32 0, i32 213
-  %3145 = load i16, ptr %3144, align 8
-  %3146 = zext i16 %3145 to i32
-  %3147 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3142, i64 noundef 256, ptr noundef @.str.91, i32 noundef %3146) #6
-  %3148 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1821, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3148, ptr %5, align 8
-  %3149 = call ptr @xstrdup(ptr noundef @.str.317)
-  %3150 = load ptr, ptr %5, align 8
-  %3151 = getelementptr inbounds %struct.config_key_pair_t, ptr %3150, i32 0, i32 0
-  store ptr %3149, ptr %3151, align 8
-  %3152 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %3153 = call ptr @xstrdup(ptr noundef %3152)
-  %3154 = load ptr, ptr %5, align 8
-  %3155 = getelementptr inbounds %struct.config_key_pair_t, ptr %3154, i32 0, i32 1
-  store ptr %3153, ptr %3155, align 8
-  %3156 = load ptr, ptr %4, align 8
-  %3157 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3156, ptr noundef %3157)
-  %3158 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1826, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3158, ptr %5, align 8
-  %3159 = call ptr @xstrdup(ptr noundef @.str.318)
-  %3160 = load ptr, ptr %5, align 8
-  %3161 = getelementptr inbounds %struct.config_key_pair_t, ptr %3160, i32 0, i32 0
-  store ptr %3159, ptr %3161, align 8
-  %3162 = load ptr, ptr %3, align 8
-  %3163 = getelementptr inbounds %struct.slurm_conf_t, ptr %3162, i32 0, i32 31
-  %3164 = load i32, ptr %3163, align 4
-  %3165 = zext i32 %3164 to i64
-  %3166 = and i64 %3165, 16
-  %3167 = icmp ne i64 %3166, 0
-  %3168 = select i1 %3167, ptr @.str.109, ptr @.str.110
-  %3169 = call ptr @xstrdup(ptr noundef %3168)
-  %3170 = load ptr, ptr %5, align 8
-  %3171 = getelementptr inbounds %struct.config_key_pair_t, ptr %3170, i32 0, i32 1
-  store ptr %3169, ptr %3171, align 8
-  %3172 = load ptr, ptr %4, align 8
-  %3173 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3172, ptr noundef %3173)
-  %3174 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1832, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3174, ptr %5, align 8
-  %3175 = call ptr @xstrdup(ptr noundef @.str.319)
-  %3176 = load ptr, ptr %5, align 8
-  %3177 = getelementptr inbounds %struct.config_key_pair_t, ptr %3176, i32 0, i32 0
-  store ptr %3175, ptr %3177, align 8
-  %3178 = load ptr, ptr %3, align 8
-  %3179 = getelementptr inbounds %struct.slurm_conf_t, ptr %3178, i32 0, i32 214
-  %3180 = load ptr, ptr %3179, align 8
-  %3181 = call ptr @xstrdup(ptr noundef %3180)
-  %3182 = load ptr, ptr %5, align 8
-  %3183 = getelementptr inbounds %struct.config_key_pair_t, ptr %3182, i32 0, i32 1
-  store ptr %3181, ptr %3183, align 8
-  %3184 = load ptr, ptr %4, align 8
-  %3185 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3184, ptr noundef %3185)
-  %3186 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %3187 = load ptr, ptr %3, align 8
-  %3188 = getelementptr inbounds %struct.slurm_conf_t, ptr %3187, i32 0, i32 215
-  %3189 = load i16, ptr %3188, align 8
-  %3190 = zext i16 %3189 to i32
-  %3191 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3186, i64 noundef 256, ptr noundef @.str.105, i32 noundef %3190) #6
-  %3192 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1839, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3192, ptr %5, align 8
-  %3193 = call ptr @xstrdup(ptr noundef @.str.320)
-  %3194 = load ptr, ptr %5, align 8
-  %3195 = getelementptr inbounds %struct.config_key_pair_t, ptr %3194, i32 0, i32 0
-  store ptr %3193, ptr %3195, align 8
-  %3196 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %3197 = call ptr @xstrdup(ptr noundef %3196)
-  %3198 = load ptr, ptr %5, align 8
-  %3199 = getelementptr inbounds %struct.config_key_pair_t, ptr %3198, i32 0, i32 1
-  store ptr %3197, ptr %3199, align 8
-  %3200 = load ptr, ptr %4, align 8
-  %3201 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3200, ptr noundef %3201)
-  %3202 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %3203 = load ptr, ptr %3, align 8
-  %3204 = getelementptr inbounds %struct.slurm_conf_t, ptr %3203, i32 0, i32 217
-  %3205 = load i16, ptr %3204, align 8
-  %3206 = zext i16 %3205 to i32
-  %3207 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3202, i64 noundef 256, ptr noundef @.str.321, i32 noundef %3206) #6
-  %3208 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1846, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3208, ptr %5, align 8
-  %3209 = call ptr @xstrdup(ptr noundef @.str.322)
-  %3210 = load ptr, ptr %5, align 8
-  %3211 = getelementptr inbounds %struct.config_key_pair_t, ptr %3210, i32 0, i32 0
-  store ptr %3209, ptr %3211, align 8
-  %3212 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %3213 = call ptr @xstrdup(ptr noundef %3212)
-  %3214 = load ptr, ptr %5, align 8
-  %3215 = getelementptr inbounds %struct.config_key_pair_t, ptr %3214, i32 0, i32 1
-  store ptr %3213, ptr %3215, align 8
-  %3216 = load ptr, ptr %4, align 8
-  %3217 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3216, ptr noundef %3217)
-  %3218 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %3219 = load ptr, ptr %3, align 8
-  %3220 = getelementptr inbounds %struct.slurm_conf_t, ptr %3219, i32 0, i32 218
-  %3221 = load i16, ptr %3220, align 2
-  %3222 = zext i16 %3221 to i32
-  %3223 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3218, i64 noundef 256, ptr noundef @.str.105, i32 noundef %3222) #6
-  %3224 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1853, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3224, ptr %5, align 8
-  %3225 = call ptr @xstrdup(ptr noundef @.str.323)
-  %3226 = load ptr, ptr %5, align 8
-  %3227 = getelementptr inbounds %struct.config_key_pair_t, ptr %3226, i32 0, i32 0
-  store ptr %3225, ptr %3227, align 8
-  %3228 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %3229 = call ptr @xstrdup(ptr noundef %3228)
-  %3230 = load ptr, ptr %5, align 8
-  %3231 = getelementptr inbounds %struct.config_key_pair_t, ptr %3230, i32 0, i32 1
-  store ptr %3229, ptr %3231, align 8
-  %3232 = load ptr, ptr %4, align 8
-  %3233 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3232, ptr noundef %3233)
-  %3234 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1858, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
-  store ptr %3234, ptr %5, align 8
-  %3235 = call ptr @xstrdup(ptr noundef @.str.324)
-  %3236 = load ptr, ptr %5, align 8
-  %3237 = getelementptr inbounds %struct.config_key_pair_t, ptr %3236, i32 0, i32 0
-  store ptr %3235, ptr %3237, align 8
-  %3238 = load ptr, ptr %3, align 8
-  %3239 = getelementptr inbounds %struct.slurm_conf_t, ptr %3238, i32 0, i32 219
-  %3240 = load ptr, ptr %3239, align 8
-  %3241 = call ptr @xstrdup(ptr noundef %3240)
-  %3242 = load ptr, ptr %5, align 8
-  %3243 = getelementptr inbounds %struct.config_key_pair_t, ptr %3242, i32 0, i32 1
-  store ptr %3241, ptr %3243, align 8
-  %3244 = load ptr, ptr %4, align 8
-  %3245 = load ptr, ptr %5, align 8
-  call void @list_append(ptr noundef %3244, ptr noundef %3245)
+2994:                                             ; preds = %2987, %2984
+  %2995 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1754, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %2995, ptr %5, align 8
+  %2996 = call ptr @xstrdup(ptr noundef @.str.305)
+  %2997 = load ptr, ptr %5, align 8
+  %2998 = getelementptr inbounds %struct.config_key_pair_t, ptr %2997, i32 0, i32 0
+  store ptr %2996, ptr %2998, align 8
+  %2999 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %3000 = call ptr @xstrdup(ptr noundef %2999)
+  %3001 = load ptr, ptr %5, align 8
+  %3002 = getelementptr inbounds %struct.config_key_pair_t, ptr %3001, i32 0, i32 1
+  store ptr %3000, ptr %3002, align 8
+  %3003 = load ptr, ptr %4, align 8
+  %3004 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3003, ptr noundef %3004)
+  %3005 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1759, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3005, ptr %5, align 8
+  %3006 = call ptr @xstrdup(ptr noundef @.str.306)
+  %3007 = load ptr, ptr %5, align 8
+  %3008 = getelementptr inbounds %struct.config_key_pair_t, ptr %3007, i32 0, i32 0
+  store ptr %3006, ptr %3008, align 8
+  %3009 = load ptr, ptr %3, align 8
+  %3010 = getelementptr inbounds %struct.slurm_conf_t, ptr %3009, i32 0, i32 204
+  %3011 = load ptr, ptr %3010, align 8
+  %3012 = call ptr @xstrdup(ptr noundef %3011)
+  %3013 = load ptr, ptr %5, align 8
+  %3014 = getelementptr inbounds %struct.config_key_pair_t, ptr %3013, i32 0, i32 1
+  store ptr %3012, ptr %3014, align 8
+  %3015 = load ptr, ptr %4, align 8
+  %3016 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3015, ptr noundef %3016)
+  %3017 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1764, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3017, ptr %5, align 8
+  %3018 = call ptr @xstrdup(ptr noundef @.str.307)
+  %3019 = load ptr, ptr %5, align 8
+  %3020 = getelementptr inbounds %struct.config_key_pair_t, ptr %3019, i32 0, i32 0
+  store ptr %3018, ptr %3020, align 8
+  %3021 = load ptr, ptr %3, align 8
+  %3022 = getelementptr inbounds %struct.slurm_conf_t, ptr %3021, i32 0, i32 203
+  %3023 = load ptr, ptr %3022, align 8
+  %3024 = call ptr @xstrdup(ptr noundef %3023)
+  %3025 = load ptr, ptr %5, align 8
+  %3026 = getelementptr inbounds %struct.config_key_pair_t, ptr %3025, i32 0, i32 1
+  store ptr %3024, ptr %3026, align 8
+  %3027 = load ptr, ptr %4, align 8
+  %3028 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3027, ptr noundef %3028)
+  %3029 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1769, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3029, ptr %5, align 8
+  %3030 = call ptr @xstrdup(ptr noundef @.str.308)
+  %3031 = load ptr, ptr %5, align 8
+  %3032 = getelementptr inbounds %struct.config_key_pair_t, ptr %3031, i32 0, i32 0
+  store ptr %3030, ptr %3032, align 8
+  %3033 = load ptr, ptr %3, align 8
+  %3034 = getelementptr inbounds %struct.slurm_conf_t, ptr %3033, i32 0, i32 205
+  %3035 = load ptr, ptr %3034, align 8
+  %3036 = call ptr @xstrdup(ptr noundef %3035)
+  %3037 = load ptr, ptr %5, align 8
+  %3038 = getelementptr inbounds %struct.config_key_pair_t, ptr %3037, i32 0, i32 1
+  store ptr %3036, ptr %3038, align 8
+  %3039 = load ptr, ptr %4, align 8
+  %3040 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3039, ptr noundef %3040)
+  %3041 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1774, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3041, ptr %5, align 8
+  %3042 = call ptr @xstrdup(ptr noundef @.str.309)
+  %3043 = load ptr, ptr %5, align 8
+  %3044 = getelementptr inbounds %struct.config_key_pair_t, ptr %3043, i32 0, i32 0
+  store ptr %3042, ptr %3044, align 8
+  %3045 = load ptr, ptr %3, align 8
+  %3046 = getelementptr inbounds %struct.slurm_conf_t, ptr %3045, i32 0, i32 206
+  %3047 = load ptr, ptr %3046, align 8
+  %3048 = call ptr @xstrdup(ptr noundef %3047)
+  %3049 = load ptr, ptr %5, align 8
+  %3050 = getelementptr inbounds %struct.config_key_pair_t, ptr %3049, i32 0, i32 1
+  store ptr %3048, ptr %3050, align 8
+  %3051 = load ptr, ptr %4, align 8
+  %3052 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3051, ptr noundef %3052)
+  %3053 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %3054 = load ptr, ptr %3, align 8
+  %3055 = getelementptr inbounds %struct.slurm_conf_t, ptr %3054, i32 0, i32 207
+  %3056 = load i32, ptr %3055, align 8
+  call void @slurm_sprint_cpu_bind_type(ptr noundef %3053, i32 noundef %3056)
+  %3057 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1781, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3057, ptr %5, align 8
+  %3058 = call ptr @xstrdup(ptr noundef @.str.310)
+  %3059 = load ptr, ptr %5, align 8
+  %3060 = getelementptr inbounds %struct.config_key_pair_t, ptr %3059, i32 0, i32 0
+  store ptr %3058, ptr %3060, align 8
+  %3061 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %3062 = call ptr @xstrdup(ptr noundef %3061)
+  %3063 = load ptr, ptr %5, align 8
+  %3064 = getelementptr inbounds %struct.config_key_pair_t, ptr %3063, i32 0, i32 1
+  store ptr %3062, ptr %3064, align 8
+  %3065 = load ptr, ptr %4, align 8
+  %3066 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3065, ptr noundef %3066)
+  %3067 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1786, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3067, ptr %5, align 8
+  %3068 = call ptr @xstrdup(ptr noundef @.str.311)
+  %3069 = load ptr, ptr %5, align 8
+  %3070 = getelementptr inbounds %struct.config_key_pair_t, ptr %3069, i32 0, i32 0
+  store ptr %3068, ptr %3070, align 8
+  %3071 = load ptr, ptr %3, align 8
+  %3072 = getelementptr inbounds %struct.slurm_conf_t, ptr %3071, i32 0, i32 208
+  %3073 = load ptr, ptr %3072, align 8
+  %3074 = call ptr @xstrdup(ptr noundef %3073)
+  %3075 = load ptr, ptr %5, align 8
+  %3076 = getelementptr inbounds %struct.config_key_pair_t, ptr %3075, i32 0, i32 1
+  store ptr %3074, ptr %3076, align 8
+  %3077 = load ptr, ptr %4, align 8
+  %3078 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3077, ptr noundef %3078)
+  %3079 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1791, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3079, ptr %5, align 8
+  %3080 = call ptr @xstrdup(ptr noundef @.str.312)
+  %3081 = load ptr, ptr %5, align 8
+  %3082 = getelementptr inbounds %struct.config_key_pair_t, ptr %3081, i32 0, i32 0
+  store ptr %3080, ptr %3082, align 8
+  %3083 = load ptr, ptr %3, align 8
+  %3084 = getelementptr inbounds %struct.slurm_conf_t, ptr %3083, i32 0, i32 209
+  %3085 = load i16, ptr %3084, align 8
+  %3086 = zext i16 %3085 to i32
+  %3087 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.105, i32 noundef %3086)
+  %3088 = load ptr, ptr %5, align 8
+  %3089 = getelementptr inbounds %struct.config_key_pair_t, ptr %3088, i32 0, i32 1
+  store ptr %3087, ptr %3089, align 8
+  %3090 = load ptr, ptr %4, align 8
+  %3091 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3090, ptr noundef %3091)
+  %3092 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1797, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3092, ptr %5, align 8
+  %3093 = call ptr @xstrdup(ptr noundef @.str.313)
+  %3094 = load ptr, ptr %5, align 8
+  %3095 = getelementptr inbounds %struct.config_key_pair_t, ptr %3094, i32 0, i32 0
+  store ptr %3093, ptr %3095, align 8
+  %3096 = load ptr, ptr %3, align 8
+  %3097 = getelementptr inbounds %struct.slurm_conf_t, ptr %3096, i32 0, i32 210
+  %3098 = load ptr, ptr %3097, align 8
+  %3099 = call ptr @xstrdup(ptr noundef %3098)
+  %3100 = load ptr, ptr %5, align 8
+  %3101 = getelementptr inbounds %struct.config_key_pair_t, ptr %3100, i32 0, i32 1
+  store ptr %3099, ptr %3101, align 8
+  %3102 = load ptr, ptr %4, align 8
+  %3103 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3102, ptr noundef %3103)
+  %3104 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1802, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3104, ptr %5, align 8
+  %3105 = call ptr @xstrdup(ptr noundef @.str.314)
+  %3106 = load ptr, ptr %5, align 8
+  %3107 = getelementptr inbounds %struct.config_key_pair_t, ptr %3106, i32 0, i32 0
+  store ptr %3105, ptr %3107, align 8
+  %3108 = load ptr, ptr %3, align 8
+  %3109 = getelementptr inbounds %struct.slurm_conf_t, ptr %3108, i32 0, i32 211
+  %3110 = load ptr, ptr %3109, align 8
+  %3111 = call ptr @xstrdup(ptr noundef %3110)
+  %3112 = load ptr, ptr %5, align 8
+  %3113 = getelementptr inbounds %struct.config_key_pair_t, ptr %3112, i32 0, i32 1
+  store ptr %3111, ptr %3113, align 8
+  %3114 = load ptr, ptr %4, align 8
+  %3115 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3114, ptr noundef %3115)
+  %3116 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1807, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3116, ptr %5, align 8
+  %3117 = call ptr @xstrdup(ptr noundef @.str.315)
+  %3118 = load ptr, ptr %5, align 8
+  %3119 = getelementptr inbounds %struct.config_key_pair_t, ptr %3118, i32 0, i32 0
+  store ptr %3117, ptr %3119, align 8
+  %3120 = load ptr, ptr %3, align 8
+  %3121 = getelementptr inbounds %struct.slurm_conf_t, ptr %3120, i32 0, i32 212
+  %3122 = load ptr, ptr %3121, align 8
+  %3123 = call ptr @xstrdup(ptr noundef %3122)
+  %3124 = load ptr, ptr %5, align 8
+  %3125 = getelementptr inbounds %struct.config_key_pair_t, ptr %3124, i32 0, i32 1
+  store ptr %3123, ptr %3125, align 8
+  %3126 = load ptr, ptr %4, align 8
+  %3127 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3126, ptr noundef %3127)
+  %3128 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1812, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3128, ptr %5, align 8
+  %3129 = call ptr @xstrdup(ptr noundef @.str.316)
+  %3130 = load ptr, ptr %5, align 8
+  %3131 = getelementptr inbounds %struct.config_key_pair_t, ptr %3130, i32 0, i32 0
+  store ptr %3129, ptr %3131, align 8
+  %3132 = load ptr, ptr %3, align 8
+  %3133 = getelementptr inbounds %struct.slurm_conf_t, ptr %3132, i32 0, i32 31
+  %3134 = load i32, ptr %3133, align 4
+  %3135 = zext i32 %3134 to i64
+  %3136 = and i64 %3135, 32
+  %3137 = icmp ne i64 %3136, 0
+  %3138 = select i1 %3137, ptr @.str.109, ptr @.str.110
+  %3139 = call ptr @xstrdup(ptr noundef %3138)
+  %3140 = load ptr, ptr %5, align 8
+  %3141 = getelementptr inbounds %struct.config_key_pair_t, ptr %3140, i32 0, i32 1
+  store ptr %3139, ptr %3141, align 8
+  %3142 = load ptr, ptr %4, align 8
+  %3143 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3142, ptr noundef %3143)
+  %3144 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %3145 = load ptr, ptr %3, align 8
+  %3146 = getelementptr inbounds %struct.slurm_conf_t, ptr %3145, i32 0, i32 213
+  %3147 = load i16, ptr %3146, align 8
+  %3148 = zext i16 %3147 to i32
+  %3149 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3144, i64 noundef 256, ptr noundef @.str.91, i32 noundef %3148) #6
+  %3150 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1821, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3150, ptr %5, align 8
+  %3151 = call ptr @xstrdup(ptr noundef @.str.317)
+  %3152 = load ptr, ptr %5, align 8
+  %3153 = getelementptr inbounds %struct.config_key_pair_t, ptr %3152, i32 0, i32 0
+  store ptr %3151, ptr %3153, align 8
+  %3154 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %3155 = call ptr @xstrdup(ptr noundef %3154)
+  %3156 = load ptr, ptr %5, align 8
+  %3157 = getelementptr inbounds %struct.config_key_pair_t, ptr %3156, i32 0, i32 1
+  store ptr %3155, ptr %3157, align 8
+  %3158 = load ptr, ptr %4, align 8
+  %3159 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3158, ptr noundef %3159)
+  %3160 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1826, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3160, ptr %5, align 8
+  %3161 = call ptr @xstrdup(ptr noundef @.str.318)
+  %3162 = load ptr, ptr %5, align 8
+  %3163 = getelementptr inbounds %struct.config_key_pair_t, ptr %3162, i32 0, i32 0
+  store ptr %3161, ptr %3163, align 8
+  %3164 = load ptr, ptr %3, align 8
+  %3165 = getelementptr inbounds %struct.slurm_conf_t, ptr %3164, i32 0, i32 31
+  %3166 = load i32, ptr %3165, align 4
+  %3167 = zext i32 %3166 to i64
+  %3168 = and i64 %3167, 16
+  %3169 = icmp ne i64 %3168, 0
+  %3170 = select i1 %3169, ptr @.str.109, ptr @.str.110
+  %3171 = call ptr @xstrdup(ptr noundef %3170)
+  %3172 = load ptr, ptr %5, align 8
+  %3173 = getelementptr inbounds %struct.config_key_pair_t, ptr %3172, i32 0, i32 1
+  store ptr %3171, ptr %3173, align 8
+  %3174 = load ptr, ptr %4, align 8
+  %3175 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3174, ptr noundef %3175)
+  %3176 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1832, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3176, ptr %5, align 8
+  %3177 = call ptr @xstrdup(ptr noundef @.str.319)
+  %3178 = load ptr, ptr %5, align 8
+  %3179 = getelementptr inbounds %struct.config_key_pair_t, ptr %3178, i32 0, i32 0
+  store ptr %3177, ptr %3179, align 8
+  %3180 = load ptr, ptr %3, align 8
+  %3181 = getelementptr inbounds %struct.slurm_conf_t, ptr %3180, i32 0, i32 214
+  %3182 = load ptr, ptr %3181, align 8
+  %3183 = call ptr @xstrdup(ptr noundef %3182)
+  %3184 = load ptr, ptr %5, align 8
+  %3185 = getelementptr inbounds %struct.config_key_pair_t, ptr %3184, i32 0, i32 1
+  store ptr %3183, ptr %3185, align 8
+  %3186 = load ptr, ptr %4, align 8
+  %3187 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3186, ptr noundef %3187)
+  %3188 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %3189 = load ptr, ptr %3, align 8
+  %3190 = getelementptr inbounds %struct.slurm_conf_t, ptr %3189, i32 0, i32 215
+  %3191 = load i16, ptr %3190, align 8
+  %3192 = zext i16 %3191 to i32
+  %3193 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3188, i64 noundef 256, ptr noundef @.str.105, i32 noundef %3192) #6
+  %3194 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1839, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3194, ptr %5, align 8
+  %3195 = call ptr @xstrdup(ptr noundef @.str.320)
+  %3196 = load ptr, ptr %5, align 8
+  %3197 = getelementptr inbounds %struct.config_key_pair_t, ptr %3196, i32 0, i32 0
+  store ptr %3195, ptr %3197, align 8
+  %3198 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %3199 = call ptr @xstrdup(ptr noundef %3198)
+  %3200 = load ptr, ptr %5, align 8
+  %3201 = getelementptr inbounds %struct.config_key_pair_t, ptr %3200, i32 0, i32 1
+  store ptr %3199, ptr %3201, align 8
+  %3202 = load ptr, ptr %4, align 8
+  %3203 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3202, ptr noundef %3203)
+  %3204 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %3205 = load ptr, ptr %3, align 8
+  %3206 = getelementptr inbounds %struct.slurm_conf_t, ptr %3205, i32 0, i32 217
+  %3207 = load i16, ptr %3206, align 8
+  %3208 = zext i16 %3207 to i32
+  %3209 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3204, i64 noundef 256, ptr noundef @.str.321, i32 noundef %3208) #6
+  %3210 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1846, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3210, ptr %5, align 8
+  %3211 = call ptr @xstrdup(ptr noundef @.str.322)
+  %3212 = load ptr, ptr %5, align 8
+  %3213 = getelementptr inbounds %struct.config_key_pair_t, ptr %3212, i32 0, i32 0
+  store ptr %3211, ptr %3213, align 8
+  %3214 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %3215 = call ptr @xstrdup(ptr noundef %3214)
+  %3216 = load ptr, ptr %5, align 8
+  %3217 = getelementptr inbounds %struct.config_key_pair_t, ptr %3216, i32 0, i32 1
+  store ptr %3215, ptr %3217, align 8
+  %3218 = load ptr, ptr %4, align 8
+  %3219 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3218, ptr noundef %3219)
+  %3220 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %3221 = load ptr, ptr %3, align 8
+  %3222 = getelementptr inbounds %struct.slurm_conf_t, ptr %3221, i32 0, i32 218
+  %3223 = load i16, ptr %3222, align 2
+  %3224 = zext i16 %3223 to i32
+  %3225 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3220, i64 noundef 256, ptr noundef @.str.105, i32 noundef %3224) #6
+  %3226 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1853, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3226, ptr %5, align 8
+  %3227 = call ptr @xstrdup(ptr noundef @.str.323)
+  %3228 = load ptr, ptr %5, align 8
+  %3229 = getelementptr inbounds %struct.config_key_pair_t, ptr %3228, i32 0, i32 0
+  store ptr %3227, ptr %3229, align 8
+  %3230 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %3231 = call ptr @xstrdup(ptr noundef %3230)
+  %3232 = load ptr, ptr %5, align 8
+  %3233 = getelementptr inbounds %struct.config_key_pair_t, ptr %3232, i32 0, i32 1
+  store ptr %3231, ptr %3233, align 8
+  %3234 = load ptr, ptr %4, align 8
+  %3235 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3234, ptr noundef %3235)
+  %3236 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.21, i32 noundef 1858, ptr noundef @__func__.slurm_ctl_conf_2_key_pairs)
+  store ptr %3236, ptr %5, align 8
+  %3237 = call ptr @xstrdup(ptr noundef @.str.324)
+  %3238 = load ptr, ptr %5, align 8
+  %3239 = getelementptr inbounds %struct.config_key_pair_t, ptr %3238, i32 0, i32 0
+  store ptr %3237, ptr %3239, align 8
+  %3240 = load ptr, ptr %3, align 8
+  %3241 = getelementptr inbounds %struct.slurm_conf_t, ptr %3240, i32 0, i32 219
+  %3242 = load ptr, ptr %3241, align 8
+  %3243 = call ptr @xstrdup(ptr noundef %3242)
+  %3244 = load ptr, ptr %5, align 8
+  %3245 = getelementptr inbounds %struct.config_key_pair_t, ptr %3244, i32 0, i32 1
+  store ptr %3243, ptr %3245, align 8
   %3246 = load ptr, ptr %4, align 8
-  store ptr %3246, ptr %2, align 8
-  br label %3247
+  %3247 = load ptr, ptr %5, align 8
+  call void @list_append(ptr noundef %3246, ptr noundef %3247)
+  %3248 = load ptr, ptr %4, align 8
+  store ptr %3248, ptr %2, align 8
+  br label %3249
 
-3247:                                             ; preds = %2992, %14
-  %3248 = load ptr, ptr %2, align 8
-  ret ptr %3248
+3249:                                             ; preds = %2994, %14
+  %3250 = load ptr, ptr %2, align 8
+  ret ptr %3250
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8850,7 +8852,7 @@ define i32 @slurm_load_slurmd_status(ptr noundef %0) #0 {
   %13 = zext i32 %12 to i64
   %14 = and i64 %13, 128
   %15 = icmp ne i64 %14, 0
-  br i1 %15, label %16, label %52
+  br i1 %15, label %16, label %53
 
 16:                                               ; preds = %1
   %17 = call ptr @getenv(ptr noundef @.str.325) #6
@@ -8894,150 +8896,152 @@ define i32 @slurm_load_slurmd_status(ptr noundef %0) #0 {
   br label %45
 
 45:                                               ; preds = %38, %19
-  br label %51
+  br label %52
 
 46:                                               ; preds = %16
   store ptr @.str.326, ptr %8, align 8
   %47 = getelementptr inbounds %struct.slurm_msg, ptr %5, i32 0, i32 0
-  %48 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 188), align 8
-  %49 = trunc i32 %48 to i16
-  %50 = load ptr, ptr %8, align 8
-  call void @slurm_set_addr(ptr noundef %47, i16 noundef zeroext %49, ptr noundef %50)
-  br label %51
+  %48 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 188
+  %49 = load i32, ptr %48, align 8
+  %50 = trunc i32 %49 to i16
+  %51 = load ptr, ptr %8, align 8
+  call void @slurm_set_addr(ptr noundef %47, i16 noundef zeroext %50, ptr noundef %51)
+  br label %52
 
-51:                                               ; preds = %46, %45
-  br label %66
+52:                                               ; preds = %46, %45
+  br label %68
 
-52:                                               ; preds = %1
-  %53 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 0
-  %54 = call i32 @gethostname_short(ptr noundef %53, i64 noundef 256)
-  %55 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 0
-  %56 = call ptr @slurm_conf_get_nodeaddr(ptr noundef %55)
-  store ptr %56, ptr %8, align 8
-  %57 = load ptr, ptr %8, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %61
+53:                                               ; preds = %1
+  %54 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 0
+  %55 = call i32 @gethostname_short(ptr noundef %54, i64 noundef 256)
+  %56 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 0
+  %57 = call ptr @slurm_conf_get_nodeaddr(ptr noundef %56)
+  store ptr %57, ptr %8, align 8
+  %58 = load ptr, ptr %8, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %62
 
-59:                                               ; preds = %52
-  %60 = call ptr @xstrdup(ptr noundef @.str.326)
-  store ptr %60, ptr %8, align 8
-  br label %61
+60:                                               ; preds = %53
+  %61 = call ptr @xstrdup(ptr noundef @.str.326)
+  store ptr %61, ptr %8, align 8
+  br label %62
 
-61:                                               ; preds = %59, %52
-  %62 = getelementptr inbounds %struct.slurm_msg, ptr %5, i32 0, i32 0
-  %63 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 188), align 8
-  %64 = trunc i32 %63 to i16
-  %65 = load ptr, ptr %8, align 8
-  call void @slurm_set_addr(ptr noundef %62, i16 noundef zeroext %64, ptr noundef %65)
+62:                                               ; preds = %60, %53
+  %63 = getelementptr inbounds %struct.slurm_msg, ptr %5, i32 0, i32 0
+  %64 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 188
+  %65 = load i32, ptr %64, align 8
+  %66 = trunc i32 %65 to i16
+  %67 = load ptr, ptr %8, align 8
+  call void @slurm_set_addr(ptr noundef %63, i16 noundef zeroext %66, ptr noundef %67)
   call void @slurm_xfree(ptr noundef %8)
-  br label %66
+  br label %68
 
-66:                                               ; preds = %61, %51
-  %67 = getelementptr inbounds %struct.slurm_msg, ptr %5, i32 0, i32 15
-  store i16 5024, ptr %67, align 4
-  %68 = getelementptr inbounds %struct.slurm_msg, ptr %5, i32 0, i32 12
-  store ptr null, ptr %68, align 8
+68:                                               ; preds = %62, %52
+  %69 = getelementptr inbounds %struct.slurm_msg, ptr %5, i32 0, i32 15
+  store i16 5024, ptr %69, align 4
+  %70 = getelementptr inbounds %struct.slurm_msg, ptr %5, i32 0, i32 12
+  store ptr null, ptr %70, align 8
   call void @slurm_msg_set_r_uid(ptr noundef %5, i32 noundef -1)
-  %69 = call i32 @slurm_send_recv_node_msg(ptr noundef %5, ptr noundef %6, i32 noundef 0)
-  store i32 %69, ptr %4, align 4
-  %70 = load i32, ptr %4, align 4
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %72, label %81
+  %71 = call i32 @slurm_send_recv_node_msg(ptr noundef %5, ptr noundef %6, i32 noundef 0)
+  store i32 %71, ptr %4, align 4
+  %72 = load i32, ptr %4, align 4
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %83
 
-72:                                               ; preds = %66
-  %73 = call i32 (ptr, ...) @error(ptr noundef @.str.327)
-  %74 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 1
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp ne ptr %75, null
-  br i1 %76, label %77, label %80
+74:                                               ; preds = %68
+  %75 = call i32 (ptr, ...) @error(ptr noundef @.str.327)
+  %76 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %79, label %82
 
-77:                                               ; preds = %72
-  %78 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 1
-  %79 = load ptr, ptr %78, align 8
-  call void @auth_g_destroy(ptr noundef %79)
-  br label %80
+79:                                               ; preds = %74
+  %80 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 1
+  %81 = load ptr, ptr %80, align 8
+  call void @auth_g_destroy(ptr noundef %81)
+  br label %82
 
-80:                                               ; preds = %77, %72
+82:                                               ; preds = %79, %74
   store i32 -1, ptr %2, align 4
-  br label %117
+  br label %119
 
-81:                                               ; preds = %66
-  %82 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 1
-  %83 = load ptr, ptr %82, align 8
-  %84 = icmp ne ptr %83, null
-  br i1 %84, label %85, label %88
+83:                                               ; preds = %68
+  %84 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 1
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp ne ptr %85, null
+  br i1 %86, label %87, label %90
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 1
-  %87 = load ptr, ptr %86, align 8
-  call void @auth_g_destroy(ptr noundef %87)
-  br label %88
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8
+  call void @auth_g_destroy(ptr noundef %89)
+  br label %90
 
-88:                                               ; preds = %85, %81
-  %89 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 15
-  %90 = load i16, ptr %89, align 4
-  %91 = zext i16 %90 to i32
-  switch i32 %91, label %113 [
-    i32 5025, label %92
-    i32 8001, label %96
+90:                                               ; preds = %87, %83
+  %91 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 15
+  %92 = load i16, ptr %91, align 4
+  %93 = zext i16 %92 to i32
+  switch i32 %93, label %115 [
+    i32 5025, label %94
+    i32 8001, label %98
   ]
 
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 12
-  %94 = load ptr, ptr %93, align 8
-  %95 = load ptr, ptr %3, align 8
-  store ptr %94, ptr %95, align 8
-  br label %116
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 12
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %3, align 8
+  store ptr %96, ptr %97, align 8
+  br label %118
 
-96:                                               ; preds = %88
-  %97 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 12
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.return_code_msg, ptr %98, i32 0, i32 0
-  %100 = load i32, ptr %99, align 4
-  store i32 %100, ptr %4, align 4
-  %101 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 12
-  %102 = load ptr, ptr %101, align 8
-  call void @slurm_free_return_code_msg(ptr noundef %102)
-  %103 = load i32, ptr %4, align 4
-  %104 = icmp ne i32 %103, 0
-  br i1 %104, label %105, label %112
+98:                                               ; preds = %90
+  %99 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 12
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds %struct.return_code_msg, ptr %100, i32 0, i32 0
+  %102 = load i32, ptr %101, align 4
+  store i32 %102, ptr %4, align 4
+  %103 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 12
+  %104 = load ptr, ptr %103, align 8
+  call void @slurm_free_return_code_msg(ptr noundef %104)
+  %105 = load i32, ptr %4, align 4
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %107, label %114
 
-105:                                              ; preds = %96
-  br label %106
+107:                                              ; preds = %98
+  br label %108
 
-106:                                              ; preds = %105
-  %107 = load i32, ptr %4, align 4
-  call void @slurm_seterrno(i32 noundef %107)
-  %108 = load i32, ptr %4, align 4
-  %109 = icmp ne i32 %108, 0
-  %110 = select i1 %109, i32 -1, i32 0
-  store i32 %110, ptr %2, align 4
-  br label %117
+108:                                              ; preds = %107
+  %109 = load i32, ptr %4, align 4
+  call void @slurm_seterrno(i32 noundef %109)
+  %110 = load i32, ptr %4, align 4
+  %111 = icmp ne i32 %110, 0
+  %112 = select i1 %111, i32 -1, i32 0
+  store i32 %112, ptr %2, align 4
+  br label %119
 
-111:                                              ; No predecessors!
-  br label %112
-
-112:                                              ; preds = %111, %96
-  br label %116
-
-113:                                              ; preds = %88
+113:                                              ; No predecessors!
   br label %114
 
-114:                                              ; preds = %113
-  call void @slurm_seterrno(i32 noundef 1000)
-  store i32 -1, ptr %2, align 4
-  br label %117
+114:                                              ; preds = %113, %98
+  br label %118
 
-115:                                              ; No predecessors!
+115:                                              ; preds = %90
   br label %116
 
-116:                                              ; preds = %115, %112, %92
-  store i32 0, ptr %2, align 4
-  br label %117
+116:                                              ; preds = %115
+  call void @slurm_seterrno(i32 noundef 1000)
+  store i32 -1, ptr %2, align 4
+  br label %119
 
-117:                                              ; preds = %116, %114, %106, %80
-  %118 = load i32, ptr %2, align 4
-  ret i32 %118
+117:                                              ; No predecessors!
+  br label %118
+
+118:                                              ; preds = %117, %114, %94
+  store i32 0, ptr %2, align 4
+  br label %119
+
+119:                                              ; preds = %118, %116, %108, %82
+  %120 = load i32, ptr %2, align 4
+  ret i32 %120
 }
 
 declare i32 @slurm_conf_get_addr(ptr noundef, ptr noundef, i16 noundef zeroext) #1

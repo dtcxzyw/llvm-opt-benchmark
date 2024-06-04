@@ -20,11 +20,12 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local i32 @rpc_init_authunix() local_unnamed_addr #0 section ".init.text" align 16 {
-  %1 = tail call ptr @mempool_create(i32 noundef 16, ptr noundef nonnull @mempool_kmalloc, ptr noundef nonnull @mempool_kfree, ptr noundef nonnull inttoptr (i64 96 to ptr)) #8
-  store ptr %1, ptr @unix_pool, align 8
-  %2 = icmp eq ptr %1, null
-  %3 = select i1 %2, i32 -12, i32 0
-  ret i32 %3
+  %1 = inttoptr i64 96 to ptr
+  %2 = tail call ptr @mempool_create(i32 noundef 16, ptr noundef nonnull @mempool_kmalloc, ptr noundef nonnull @mempool_kfree, ptr noundef nonnull %1) #8
+  store ptr %2, ptr @unix_pool, align 8
+  %3 = icmp eq ptr %2, null
+  %4 = select i1 %3, i32 -12, i32 0
+  ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -39,22 +40,25 @@ declare dso_local void @mempool_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef ptr @unx_create(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 align 16 {
-  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rpc_auth, ptr @unix_auth, i64 0, i32 7), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rpc_auth, ptr @unix_auth, i64 0, i32 7)) #8, !srcloc !5
-  %4 = icmp eq i32 %3, 0
-  br i1 %4, label %9, label %5, !prof !6
+  %3 = getelementptr inbounds %struct.rpc_auth, ptr @unix_auth, i64 0, i32 7
+  %4 = getelementptr inbounds %struct.rpc_auth, ptr @unix_auth, i64 0, i32 7
+  %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, i32 1, ptr nonnull elementtype(i32) %4) #8, !srcloc !5
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %11, label %7, !prof !6
 
-5:                                                ; preds = %2
-  %6 = add i32 %3, 1
-  %7 = or i32 %6, %3
-  %8 = icmp sgt i32 %7, -1
-  br i1 %8, label %11, label %9, !prof !7
+7:                                                ; preds = %2
+  %8 = add i32 %5, 1
+  %9 = or i32 %8, %5
+  %10 = icmp sgt i32 %9, -1
+  br i1 %10, label %14, label %11, !prof !7
 
-9:                                                ; preds = %5, %2
-  %10 = phi i32 [ 2, %2 ], [ 1, %5 ]
-  tail call void @refcount_warn_saturate(ptr noundef nonnull getelementptr inbounds (%struct.rpc_auth, ptr @unix_auth, i64 0, i32 7), i32 noundef %10) #8
-  br label %11
+11:                                               ; preds = %7, %2
+  %12 = phi i32 [ 2, %2 ], [ 1, %7 ]
+  %13 = getelementptr inbounds %struct.rpc_auth, ptr @unix_auth, i64 0, i32 7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %13, i32 noundef %12) #8
+  br label %14
 
-11:                                               ; preds = %9, %5
+14:                                               ; preds = %11, %7
   ret ptr @unix_auth
 }
 
@@ -82,29 +86,31 @@ define internal noundef nonnull ptr @unx_lookup_cred(ptr noundef %0, ptr noundef
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %14, i32 noundef %4, i64 noundef 96) #9
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %24
+  br i1 %16, label %17, label %26
 
 17:                                               ; preds = %11
   %18 = and i32 %2, 2
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %27, label %20
+  %20 = inttoptr i64 -12 to ptr
+  br i1 %19, label %29, label %21
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr @unix_pool, align 8
-  %22 = tail call noalias ptr @mempool_alloc(ptr noundef %21, i32 noundef 10240) #8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %27, label %24
+21:                                               ; preds = %17
+  %22 = load ptr, ptr @unix_pool, align 8
+  %23 = tail call noalias ptr @mempool_alloc(ptr noundef %22, i32 noundef 10240) #8
+  %24 = icmp eq ptr %23, null
+  %25 = inttoptr i64 -12 to ptr
+  br i1 %24, label %29, label %26
 
-24:                                               ; preds = %20, %11
-  %25 = phi ptr [ %15, %11 ], [ %22, %20 ]
-  tail call void @rpcauth_init_cred(ptr noundef nonnull %25, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @unix_credops) #8
-  %26 = getelementptr inbounds i8, ptr %25, i64 72
-  store i64 2, ptr %26, align 8
-  br label %27
+26:                                               ; preds = %21, %11
+  %27 = phi ptr [ %15, %11 ], [ %23, %21 ]
+  tail call void @rpcauth_init_cred(ptr noundef nonnull %27, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @unix_credops) #8
+  %28 = getelementptr inbounds i8, ptr %27, i64 72
+  store i64 2, ptr %28, align 8
+  br label %29
 
-27:                                               ; preds = %24, %20, %17
-  %28 = phi ptr [ %25, %24 ], [ inttoptr (i64 -12 to ptr), %17 ], [ inttoptr (i64 -12 to ptr), %20 ]
-  ret ptr %28
+29:                                               ; preds = %26, %21, %17
+  %30 = phi ptr [ %27, %26 ], [ %20, %17 ], [ %25, %21 ]
+  ret ptr %30
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -2594,7 +2594,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %runtime, ptr %runtime.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm16SamplingProfilerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6hermes2vm16SamplingProfilerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %runtimeDataLock_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %this1, i32 0, i32 1
   call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #10
   %sampledStacks_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %this1, i32 0, i32 2
@@ -2614,8 +2615,8 @@ entry:
   %nativeFunctions_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %this1, i32 0, i32 9
   call void @_ZNSt6vectorIPN6hermes2vm14NativeFunctionESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %nativeFunctions_) #10
   %runtime_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %this1, i32 0, i32 10
-  %0 = load ptr, ptr %runtime.addr, align 8
-  store ptr %0, ptr %runtime_, align 8
+  %1 = load ptr, ptr %runtime.addr, align 8
+  store ptr %1, ptr %runtime_, align 8
   call void @_ZN6hermes8oscompat11thread_nameB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp)
   %threadNames_2 = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %this1, i32 0, i32 6
   %call = call noundef i64 @_ZN6hermes8oscompat16global_thread_idEv()
@@ -3865,7 +3866,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm16SamplingProfilerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6hermes2vm16SamplingProfilerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %nativeFunctions_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %this1, i32 0, i32 9
   call void @_ZNSt6vectorIPN6hermes2vm14NativeFunctionESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %nativeFunctions_) #10
   %domains_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %this1, i32 0, i32 8

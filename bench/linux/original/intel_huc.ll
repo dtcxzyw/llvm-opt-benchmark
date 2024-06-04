@@ -432,94 +432,95 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
 96:                                               ; preds = %90, %80, %66, %50, %34
   %97 = phi i1 [ false, %66 ], [ true, %90 ], [ false, %80 ], [ false, %50 ], [ false, %34 ]
   %98 = phi i32 [ -5, %66 ], [ 0, %90 ], [ -5, %80 ], [ -8, %50 ], [ -8, %34 ]
-  br i1 %97, label %99, label %134
+  br i1 %97, label %99, label %135
 
 99:                                               ; preds = %96
   %100 = getelementptr i8, ptr %0, i64 2564
   %101 = load i32, ptr %100, align 4
   %102 = and i32 %101, 67108864
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %124, label %104
+  br i1 %103, label %125, label %104
 
 104:                                              ; preds = %99
   %105 = getelementptr i8, ptr %0, i64 -1760
   %106 = tail call ptr @intel_guc_allocate_vma(ptr noundef %105, i32 noundef 8192) #4
-  %107 = icmp ugt ptr %106, inttoptr (i64 -4096 to ptr)
-  br i1 %107, label %108, label %120
+  %107 = inttoptr i64 -4096 to ptr
+  %108 = icmp ugt ptr %106, %107
+  br i1 %108, label %109, label %121
 
-108:                                              ; preds = %104
-  %109 = ptrtoint ptr %106 to i64
-  %110 = trunc i64 %109 to i32
-  %111 = load ptr, ptr %2, align 8
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %116, label %113
+109:                                              ; preds = %104
+  %110 = ptrtoint ptr %106 to i64
+  %111 = trunc i64 %110 to i32
+  %112 = load ptr, ptr %2, align 8
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %117, label %114
 
-113:                                              ; preds = %108
-  %114 = getelementptr inbounds i8, ptr %111, i64 8
-  %115 = load ptr, ptr %114, align 8
-  br label %116
+114:                                              ; preds = %109
+  %115 = getelementptr inbounds i8, ptr %112, i64 8
+  %116 = load ptr, ptr %115, align 8
+  br label %117
 
-116:                                              ; preds = %113, %108
-  %117 = phi ptr [ %115, %113 ], [ null, %108 ]
-  %118 = getelementptr i8, ptr %0, i64 2560
-  %119 = load i32, ptr %118, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %117, ptr noundef nonnull @.str.1, i32 noundef %119) #5
-  br label %122
+117:                                              ; preds = %114, %109
+  %118 = phi ptr [ %116, %114 ], [ null, %109 ]
+  %119 = getelementptr i8, ptr %0, i64 2560
+  %120 = load i32, ptr %119, align 8
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %118, ptr noundef nonnull @.str.1, i32 noundef %120) #5
+  br label %123
 
-120:                                              ; preds = %104
-  %121 = getelementptr inbounds i8, ptr %0, i64 576
-  store ptr %106, ptr %121, align 8
-  br label %122
+121:                                              ; preds = %104
+  %122 = getelementptr inbounds i8, ptr %0, i64 576
+  store ptr %106, ptr %122, align 8
+  br label %123
 
-122:                                              ; preds = %120, %116
-  %123 = phi i32 [ %110, %116 ], [ 0, %120 ]
-  br i1 %107, label %134, label %124
+123:                                              ; preds = %121, %117
+  %124 = phi i32 [ %111, %117 ], [ 0, %121 ]
+  br i1 %108, label %135, label %125
 
-124:                                              ; preds = %122, %99
-  %125 = tail call i32 @intel_uc_fw_init(ptr noundef %0) #4
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %129
+125:                                              ; preds = %123, %99
+  %126 = tail call i32 @intel_uc_fw_init(ptr noundef %0) #4
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %130
 
-127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 7, ptr %128, align 4
-  br label %148
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 7, ptr %129, align 4
+  br label %149
 
-129:                                              ; preds = %124
-  %130 = getelementptr inbounds i8, ptr %0, i64 576
-  %131 = load ptr, ptr %130, align 8
-  %132 = icmp eq ptr %131, null
-  br i1 %132, label %134, label %133
+130:                                              ; preds = %125
+  %131 = getelementptr inbounds i8, ptr %0, i64 576
+  %132 = load ptr, ptr %131, align 8
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %135, label %134
 
-133:                                              ; preds = %129
-  tail call void @i915_vma_unpin_and_release(ptr noundef %130, i32 noundef 0) #4
-  br label %134
+134:                                              ; preds = %130
+  tail call void @i915_vma_unpin_and_release(ptr noundef %131, i32 noundef 0) #4
+  br label %135
 
-134:                                              ; preds = %133, %129, %122, %96
-  %135 = phi i32 [ %98, %96 ], [ %123, %122 ], [ %125, %133 ], [ %125, %129 ]
-  %136 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 6, ptr %136, align 4
-  %137 = load ptr, ptr %2, align 8
-  %138 = icmp eq ptr %137, null
-  br i1 %138, label %142, label %139
+135:                                              ; preds = %134, %130, %123, %96
+  %136 = phi i32 [ %98, %96 ], [ %124, %123 ], [ %126, %134 ], [ %126, %130 ]
+  %137 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 6, ptr %137, align 4
+  %138 = load ptr, ptr %2, align 8
+  %139 = icmp eq ptr %138, null
+  br i1 %139, label %143, label %140
 
-139:                                              ; preds = %134
-  %140 = getelementptr inbounds i8, ptr %137, i64 8
-  %141 = load ptr, ptr %140, align 8
-  br label %142
+140:                                              ; preds = %135
+  %141 = getelementptr inbounds i8, ptr %138, i64 8
+  %142 = load ptr, ptr %141, align 8
+  br label %143
 
-142:                                              ; preds = %139, %134
-  %143 = phi ptr [ %141, %139 ], [ null, %134 ]
-  %144 = getelementptr i8, ptr %0, i64 2560
-  %145 = load i32, ptr %144, align 8
-  %146 = sext i32 %135 to i64
-  %147 = inttoptr i64 %146 to ptr
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %143, ptr noundef nonnull @.str.2, i32 noundef %145, ptr noundef %147) #5
-  br label %148
+143:                                              ; preds = %140, %135
+  %144 = phi ptr [ %142, %140 ], [ null, %135 ]
+  %145 = getelementptr i8, ptr %0, i64 2560
+  %146 = load i32, ptr %145, align 8
+  %147 = sext i32 %136 to i64
+  %148 = inttoptr i64 %147 to ptr
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %144, ptr noundef nonnull @.str.2, i32 noundef %146, ptr noundef %148) #5
+  br label %149
 
-148:                                              ; preds = %142, %127
-  %149 = phi i32 [ %135, %142 ], [ 0, %127 ]
-  ret i32 %149
+149:                                              ; preds = %143, %128
+  %150 = phi i32 [ %136, %143 ], [ 0, %128 ]
+  ret i32 %150
 }
 
 ; Function Attrs: null_pointer_is_valid

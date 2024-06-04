@@ -2493,10 +2493,11 @@ define void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$G
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN74_$LT$T$u20$as$u20$core..iter..adapters..flatten..ConstSizeIntoIterator$GT$4size17hf24217764301af59E"() unnamed_addr #1 {
   %1 = load i64, ptr @anon.36ad5f8ab799e7f9c3f34b814914ebdc.0, align 8, !range !7, !noundef !3
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @anon.36ad5f8ab799e7f9c3f34b814914ebdc.0, i64 8), align 8
-  %3 = insertvalue { i64, i64 } poison, i64 %1, 0
-  %4 = insertvalue { i64, i64 } %3, i64 %2, 1
-  ret { i64, i64 } %4
+  %2 = getelementptr inbounds i8, ptr @anon.36ad5f8ab799e7f9c3f34b814914ebdc.0, i64 8
+  %3 = load i64, ptr %2, align 8
+  %4 = insertvalue { i64, i64 } poison, i64 %1, 0
+  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
+  ret { i64, i64 } %5
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

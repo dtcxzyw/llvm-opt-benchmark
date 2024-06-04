@@ -73,11 +73,12 @@ define void @_ZN4LIEF5MachO13DataCodeEntryC2ERKS1_(ptr noundef nonnull align 8 d
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF5MachO13DataCodeEntryE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 12, i1 false)
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF5MachO13DataCodeEntryE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 12, i1 false)
   ret void
 }
 
@@ -114,13 +115,14 @@ define void @_ZN4LIEF5MachO13DataCodeEntryC2Ev(ptr noundef nonnull align 8 deref
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF5MachO13DataCodeEntryE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %3, i32 0, i32 2
-  store i16 0, ptr %5, align 4
-  %6 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %3, i32 0, i32 4
-  store i32 0, ptr %6, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF5MachO13DataCodeEntryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %3, i32 0, i32 2
+  store i16 0, ptr %6, align 4
+  %7 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %3, i32 0, i32 4
+  store i32 0, ptr %7, align 8
   ret void
 }
 
@@ -138,16 +140,17 @@ define void @_ZN4LIEF5MachO13DataCodeEntryC2EjtNS1_5TYPESE(ptr noundef nonnull a
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %5, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF5MachO13DataCodeEntryE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %6, align 4
-  store i32 %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %9, i32 0, i32 2
-  %13 = load i16, ptr %7, align 2
-  store i16 %13, ptr %12, align 4
-  %14 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %9, i32 0, i32 4
-  %15 = load i32, ptr %8, align 4
-  store i32 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF5MachO13DataCodeEntryE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %9, i32 0, i32 1
+  %12 = load i32, ptr %6, align 4
+  store i32 %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %9, i32 0, i32 2
+  %14 = load i16, ptr %7, align 2
+  store i16 %14, ptr %13, align 4
+  %15 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %9, i32 0, i32 4
+  %16 = load i32, ptr %8, align 4
+  store i32 %16, ptr %15, align 8
   ret void
 }
 
@@ -159,23 +162,24 @@ define void @_ZN4LIEF5MachO13DataCodeEntryC2ERKNS0_7details18data_in_code_entryE
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF5MachO13DataCodeEntryE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.LIEF::MachO::details::data_in_code_entry", ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 4
-  store i32 %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"struct.LIEF::MachO::details::data_in_code_entry", ptr %11, i32 0, i32 1
-  %13 = load i16, ptr %12, align 4
-  store i16 %13, ptr %10, align 4
-  %14 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %5, i32 0, i32 4
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.LIEF::MachO::details::data_in_code_entry", ptr %15, i32 0, i32 2
-  %17 = load i16, ptr %16, align 2
-  %18 = zext i16 %17 to i32
-  store i32 %18, ptr %14, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF5MachO13DataCodeEntryE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.LIEF::MachO::details::data_in_code_entry", ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 4
+  store i32 %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %"struct.LIEF::MachO::details::data_in_code_entry", ptr %12, i32 0, i32 1
+  %14 = load i16, ptr %13, align 4
+  store i16 %14, ptr %11, align 4
+  %15 = getelementptr inbounds %"class.LIEF::MachO::DataCodeEntry", ptr %5, i32 0, i32 4
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"struct.LIEF::MachO::details::data_in_code_entry", ptr %16, i32 0, i32 2
+  %18 = load i16, ptr %17, align 2
+  %19 = zext i16 %18 to i32
+  store i32 %19, ptr %15, align 8
   ret void
 }
 

@@ -298,7 +298,7 @@ define internal ptr @mca_bml_base_get_endpoint(ptr noundef %0) #0 {
   %10 = zext i1 %9 to i32
   %11 = sext i32 %10 to i64
   %12 = icmp ne i64 %11, 0
-  br i1 %12, label %13, label %46
+  br i1 %12, label %13, label %47
 
 13:                                               ; preds = %1
   br label %14
@@ -326,43 +326,44 @@ define internal ptr @mca_bml_base_get_endpoint(ptr noundef %0) #0 {
   %27 = getelementptr inbounds [1 x ptr], ptr %26, i64 0, i64 0
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr null, %28
-  br i1 %29, label %30, label %34
+  br i1 %29, label %30, label %35
 
 30:                                               ; preds = %24
-  %31 = load ptr, ptr getelementptr inbounds (%struct.mca_bml_base_module_t, ptr @mca_bml, i32 0, i32 1), align 8
-  %32 = load ptr, ptr %2, align 8
-  %33 = call i32 %31(ptr noundef %32)
-  br label %34
-
-34:                                               ; preds = %30, %24
+  %31 = getelementptr inbounds %struct.mca_bml_base_module_t, ptr @mca_bml, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %2, align 8
+  %34 = call i32 %32(ptr noundef %33)
   br label %35
 
-35:                                               ; preds = %34
-  %36 = load i8, ptr @opal_uses_threads, align 1
-  %37 = trunc i8 %36 to i1
-  %38 = xor i1 %37, true
+35:                                               ; preds = %30, %24
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load i8, ptr @opal_uses_threads, align 1
+  %38 = trunc i8 %37 to i1
   %39 = xor i1 %38, true
-  %40 = zext i1 %39 to i32
-  %41 = sext i32 %40 to i64
-  %42 = icmp ne i64 %41, 0
-  br i1 %42, label %43, label %44
+  %40 = xor i1 %39, true
+  %41 = zext i1 %40 to i32
+  %42 = sext i32 %41 to i64
+  %43 = icmp ne i64 %42, 0
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %35
+44:                                               ; preds = %36
   call void @opal_mutex_unlock(ptr noundef @mca_bml_lock)
-  br label %44
-
-44:                                               ; preds = %43, %35
   br label %45
 
-45:                                               ; preds = %44
+45:                                               ; preds = %44, %36
   br label %46
 
-46:                                               ; preds = %45, %1
-  %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.ompi_proc_t, ptr %47, i32 0, i32 2
-  %49 = getelementptr inbounds [1 x ptr], ptr %48, i64 0, i64 0
-  %50 = load ptr, ptr %49, align 8
-  ret ptr %50
+46:                                               ; preds = %45
+  br label %47
+
+47:                                               ; preds = %46, %1
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds %struct.ompi_proc_t, ptr %48, i32 0, i32 2
+  %50 = getelementptr inbounds [1 x ptr], ptr %49, i64 0, i64 0
+  %51 = load ptr, ptr %50, align 8
+  ret ptr %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -580,7 +581,7 @@ define i32 @ompi_comm_rbcast_init() #0 {
 
 4:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %20
+  br label %21
 
 5:                                                ; preds = %0
   store ptr @ompi_comm_rbcast_bmg, ptr @ompi_comm_rbcast, align 8
@@ -594,7 +595,7 @@ define i32 @ompi_comm_rbcast_init() #0 {
 
 7:                                                ; preds = %0
   store i32 -5, ptr %1, align 4
-  br label %20
+  br label %21
 
 8:                                                ; preds = %6, %5
   %9 = load i8, ptr @comm_rbcast_listener_started, align 1
@@ -603,28 +604,29 @@ define i32 @ompi_comm_rbcast_init() #0 {
 
 11:                                               ; preds = %8
   store i32 0, ptr %1, align 4
-  br label %20
+  br label %21
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.mca_bml_base_module_t, ptr @mca_bml, i32 0, i32 7), align 8
-  %14 = call i32 %13(i8 noundef zeroext 48, ptr noundef @ompi_comm_rbcast_bml_recv_cb, ptr noundef null)
-  store i32 %14, ptr %2, align 4
-  %15 = load i32, ptr %2, align 4
-  %16 = icmp eq i32 0, %15
-  br i1 %16, label %17, label %18
+  %13 = getelementptr inbounds %struct.mca_bml_base_module_t, ptr @mca_bml, i32 0, i32 7
+  %14 = load ptr, ptr %13, align 8
+  %15 = call i32 %14(i8 noundef zeroext 48, ptr noundef @ompi_comm_rbcast_bml_recv_cb, ptr noundef null)
+  store i32 %15, ptr %2, align 4
+  %16 = load i32, ptr %2, align 4
+  %17 = icmp eq i32 0, %16
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %12
+18:                                               ; preds = %12
   store i8 1, ptr @comm_rbcast_listener_started, align 1
-  br label %18
+  br label %19
 
-18:                                               ; preds = %17, %12
-  %19 = load i32, ptr %2, align 4
-  store i32 %19, ptr %1, align 4
-  br label %20
+19:                                               ; preds = %18, %12
+  %20 = load i32, ptr %2, align 4
+  store i32 %20, ptr %1, align 4
+  br label %21
 
-20:                                               ; preds = %18, %11, %7, %4
-  %21 = load i32, ptr %1, align 4
-  ret i32 %21
+21:                                               ; preds = %19, %11, %7, %4
+  %22 = load i32, ptr %1, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable

@@ -88,7 +88,7 @@ define dso_local noundef i32 @byd_init(ptr noundef %0) local_unnamed_addr #0 ali
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @psmouse_reset(ptr noundef %0) #5
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %49
+  br i1 %6, label %7, label %50
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -112,82 +112,83 @@ define dso_local noundef i32 @byd_init(ptr noundef %0) local_unnamed_addr #0 ali
   %18 = zext i16 %17 to i32
   %19 = call i32 @ps2_command(ptr noundef %8, ptr noundef nonnull %2, i32 noundef %18) #5
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %9, label %48
+  br i1 %20, label %9, label %49
 
 21:                                               ; preds = %9
   call void @psmouse_set_state(ptr noundef %0, i32 noundef 4) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
-  br i1 %20, label %22, label %49
+  br i1 %20, label %22, label %50
 
 22:                                               ; preds = %21
-  %23 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %24 = call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 72) #6
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %49, label %26
+  %23 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3520, i64 noundef 72) #6
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %50, label %27
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %24, i64 40
-  store ptr %0, ptr %27, align 8
-  call void @init_timer_key(ptr noundef nonnull %24, ptr noundef nonnull @byd_clear_touch, i32 noundef 0, ptr noundef null, ptr noundef null) #5
-  store ptr %24, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 448
-  store ptr @byd_disconnect, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 432
-  store ptr @byd_reconnect, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 400
-  store ptr @byd_process_byte, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 242
-  store i8 4, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %0, i64 392
-  store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %33, i64 0) #5, !srcloc !9
-  %34 = getelementptr inbounds i8, ptr %4, i64 48
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %34, i64 330) #5, !srcloc !9
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %34, i64 325) #5, !srcloc !9
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %34, i64 272) #5, !srcloc !9
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %34, i64 273) #5, !srcloc !9
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %34, i64 274) #5, !srcloc !10
-  %35 = getelementptr inbounds i8, ptr %4, i64 40
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %35, i64 3) #5, !srcloc !9
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds i8, ptr %25, i64 40
+  store ptr %0, ptr %28, align 8
+  call void @init_timer_key(ptr noundef nonnull %25, ptr noundef nonnull @byd_clear_touch, i32 noundef 0, ptr noundef null, ptr noundef null) #5
+  store ptr %25, ptr %0, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 448
+  store ptr @byd_disconnect, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 432
+  store ptr @byd_reconnect, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 400
+  store ptr @byd_process_byte, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 242
+  store i8 4, ptr %32, align 2
+  %33 = getelementptr inbounds i8, ptr %0, i64 392
+  store i32 0, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %4, i64 32
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %34, i64 0) #5, !srcloc !9
+  %35 = getelementptr inbounds i8, ptr %4, i64 48
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %35, i64 330) #5, !srcloc !9
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %35, i64 325) #5, !srcloc !9
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %35, i64 272) #5, !srcloc !9
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %35, i64 273) #5, !srcloc !9
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %35, i64 274) #5, !srcloc !10
+  %36 = getelementptr inbounds i8, ptr %4, i64 40
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %36, i64 3) #5, !srcloc !9
   call void @input_set_abs_params(ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 11264, i32 noundef 0, i32 noundef 0) #5
   call void @input_set_abs_params(ptr noundef %4, i32 noundef 1, i32 noundef 0, i32 noundef 6656, i32 noundef 0, i32 noundef 0) #5
   call void @input_alloc_absinfo(ptr noundef %4) #5
-  %36 = getelementptr inbounds i8, ptr %4, i64 328
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %41, label %39
+  %37 = getelementptr inbounds i8, ptr %4, i64 328
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %42, label %40
 
-39:                                               ; preds = %26
-  %40 = getelementptr i8, ptr %37, i64 20
-  store i32 111, ptr %40, align 4
-  br label %41
+40:                                               ; preds = %27
+  %41 = getelementptr i8, ptr %38, i64 20
+  store i32 111, ptr %41, align 4
+  br label %42
 
-41:                                               ; preds = %39, %26
+42:                                               ; preds = %40, %27
   call void @input_alloc_absinfo(ptr noundef %4) #5
-  %42 = load ptr, ptr %36, align 8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %46, label %44
+  %43 = load ptr, ptr %37, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %47, label %45
 
-44:                                               ; preds = %41
-  %45 = getelementptr i8, ptr %42, i64 44
-  store i32 111, ptr %45, align 4
-  br label %46
+45:                                               ; preds = %42
+  %46 = getelementptr i8, ptr %43, i64 44
+  store i32 111, ptr %46, align 4
+  br label %47
 
-46:                                               ; preds = %44, %41
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %35, i64 2) #5, !srcloc !10
-  %47 = getelementptr inbounds i8, ptr %4, i64 144
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %47, i64 0) #5, !srcloc !10
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %47, i64 1) #5, !srcloc !10
-  br label %49
+47:                                               ; preds = %45, %42
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %36, i64 2) #5, !srcloc !10
+  %48 = getelementptr inbounds i8, ptr %4, i64 144
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %48, i64 0) #5, !srcloc !10
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %48, i64 1) #5, !srcloc !10
+  br label %50
 
-48:                                               ; preds = %12
+49:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
-  br label %49
+  br label %50
 
-49:                                               ; preds = %48, %46, %22, %21, %1
-  %50 = phi i32 [ -5, %1 ], [ -5, %21 ], [ -12, %22 ], [ 0, %46 ], [ -5, %48 ]
-  ret i32 %50
+50:                                               ; preds = %49, %47, %22, %21, %1
+  %51 = phi i32 [ -5, %1 ], [ -5, %21 ], [ -12, %22 ], [ 0, %47 ], [ -5, %49 ]
+  ret i32 %51
 }
 
 ; Function Attrs: null_pointer_is_valid

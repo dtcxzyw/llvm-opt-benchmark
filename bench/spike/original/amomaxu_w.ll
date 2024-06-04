@@ -1058,7 +1058,8 @@ define linkonce_odr void @_ZN24trap_illegal_instructionC2Em(ptr noundef nonnull 
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   call void @_ZN11insn_trap_tC2Embm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 2, i1 noundef zeroext false, i64 noundef %6)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -1415,7 +1416,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv32i_amomaxu_wP11processor
 
 210:                                              ; preds = %206
   %211 = load i32, ptr %36, align 4
-  %212 = call i32 @llvm.eh.typeid.for(ptr @_ZTI28trap_load_address_misaligned) #3
+  %212 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI28trap_load_address_misaligned) #3
   %213 = icmp eq i32 %211, %212
   br i1 %213, label %214, label %243
 
@@ -1464,7 +1465,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv32i_amomaxu_wP11processor
           to label %382 unwind label %367
 
 243:                                              ; preds = %210
-  %244 = call i32 @llvm.eh.typeid.for(ptr @_ZTI20trap_load_page_fault) #3
+  %244 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI20trap_load_page_fault) #3
   %245 = icmp eq i32 %211, %244
   br i1 %245, label %246, label %275
 
@@ -1513,7 +1514,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv32i_amomaxu_wP11processor
           to label %382 unwind label %357
 
 275:                                              ; preds = %243
-  %276 = call i32 @llvm.eh.typeid.for(ptr @_ZTI22trap_load_access_fault) #3
+  %276 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI22trap_load_access_fault) #3
   %277 = icmp eq i32 %211, %276
   br i1 %277, label %278, label %307
 
@@ -1562,7 +1563,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv32i_amomaxu_wP11processor
           to label %382 unwind label %347
 
 307:                                              ; preds = %275
-  %308 = call i32 @llvm.eh.typeid.for(ptr @_ZTI26trap_load_guest_page_fault) #3
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI26trap_load_guest_page_fault) #3
   %309 = icmp eq i32 %211, %308
   br i1 %309, label %310, label %374
 
@@ -2247,7 +2248,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv64i_amomaxu_wP11processor
 
 210:                                              ; preds = %206
   %211 = load i32, ptr %36, align 4
-  %212 = call i32 @llvm.eh.typeid.for(ptr @_ZTI28trap_load_address_misaligned) #3
+  %212 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI28trap_load_address_misaligned) #3
   %213 = icmp eq i32 %211, %212
   br i1 %213, label %214, label %243
 
@@ -2296,7 +2297,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv64i_amomaxu_wP11processor
           to label %382 unwind label %367
 
 243:                                              ; preds = %210
-  %244 = call i32 @llvm.eh.typeid.for(ptr @_ZTI20trap_load_page_fault) #3
+  %244 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI20trap_load_page_fault) #3
   %245 = icmp eq i32 %211, %244
   br i1 %245, label %246, label %275
 
@@ -2345,7 +2346,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv64i_amomaxu_wP11processor
           to label %382 unwind label %357
 
 275:                                              ; preds = %243
-  %276 = call i32 @llvm.eh.typeid.for(ptr @_ZTI22trap_load_access_fault) #3
+  %276 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI22trap_load_access_fault) #3
   %277 = icmp eq i32 %211, %276
   br i1 %277, label %278, label %307
 
@@ -2394,7 +2395,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv64i_amomaxu_wP11processor
           to label %382 unwind label %347
 
 307:                                              ; preds = %275
-  %308 = call i32 @llvm.eh.typeid.for(ptr @_ZTI26trap_load_guest_page_fault) #3
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI26trap_load_guest_page_fault) #3
   %309 = icmp eq i32 %211, %308
   br i1 %309, label %310, label %374
 
@@ -3015,7 +3016,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv32i_amomaxu_wP11process
 
 210:                                              ; preds = %206
   %211 = load i32, ptr %36, align 4
-  %212 = call i32 @llvm.eh.typeid.for(ptr @_ZTI28trap_load_address_misaligned) #3
+  %212 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI28trap_load_address_misaligned) #3
   %213 = icmp eq i32 %211, %212
   br i1 %213, label %214, label %243
 
@@ -3064,7 +3065,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv32i_amomaxu_wP11process
           to label %382 unwind label %367
 
 243:                                              ; preds = %210
-  %244 = call i32 @llvm.eh.typeid.for(ptr @_ZTI20trap_load_page_fault) #3
+  %244 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI20trap_load_page_fault) #3
   %245 = icmp eq i32 %211, %244
   br i1 %245, label %246, label %275
 
@@ -3113,7 +3114,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv32i_amomaxu_wP11process
           to label %382 unwind label %357
 
 275:                                              ; preds = %243
-  %276 = call i32 @llvm.eh.typeid.for(ptr @_ZTI22trap_load_access_fault) #3
+  %276 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI22trap_load_access_fault) #3
   %277 = icmp eq i32 %211, %276
   br i1 %277, label %278, label %307
 
@@ -3162,7 +3163,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv32i_amomaxu_wP11process
           to label %382 unwind label %347
 
 307:                                              ; preds = %275
-  %308 = call i32 @llvm.eh.typeid.for(ptr @_ZTI26trap_load_guest_page_fault) #3
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI26trap_load_guest_page_fault) #3
   %309 = icmp eq i32 %211, %308
   br i1 %309, label %310, label %374
 
@@ -3796,7 +3797,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv64i_amomaxu_wP11process
 
 210:                                              ; preds = %206
   %211 = load i32, ptr %36, align 4
-  %212 = call i32 @llvm.eh.typeid.for(ptr @_ZTI28trap_load_address_misaligned) #3
+  %212 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI28trap_load_address_misaligned) #3
   %213 = icmp eq i32 %211, %212
   br i1 %213, label %214, label %243
 
@@ -3845,7 +3846,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv64i_amomaxu_wP11process
           to label %382 unwind label %367
 
 243:                                              ; preds = %210
-  %244 = call i32 @llvm.eh.typeid.for(ptr @_ZTI20trap_load_page_fault) #3
+  %244 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI20trap_load_page_fault) #3
   %245 = icmp eq i32 %211, %244
   br i1 %245, label %246, label %275
 
@@ -3894,7 +3895,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv64i_amomaxu_wP11process
           to label %382 unwind label %357
 
 275:                                              ; preds = %243
-  %276 = call i32 @llvm.eh.typeid.for(ptr @_ZTI22trap_load_access_fault) #3
+  %276 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI22trap_load_access_fault) #3
   %277 = icmp eq i32 %211, %276
   br i1 %277, label %278, label %307
 
@@ -3943,7 +3944,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv64i_amomaxu_wP11process
           to label %382 unwind label %347
 
 307:                                              ; preds = %275
-  %308 = call i32 @llvm.eh.typeid.for(ptr @_ZTI26trap_load_guest_page_fault) #3
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI26trap_load_guest_page_fault) #3
   %309 = icmp eq i32 %211, %308
   br i1 %309, label %310, label %374
 
@@ -4644,7 +4645,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv32e_amomaxu_wP11processor
 
 210:                                              ; preds = %206
   %211 = load i32, ptr %36, align 4
-  %212 = call i32 @llvm.eh.typeid.for(ptr @_ZTI28trap_load_address_misaligned) #3
+  %212 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI28trap_load_address_misaligned) #3
   %213 = icmp eq i32 %211, %212
   br i1 %213, label %214, label %243
 
@@ -4693,7 +4694,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv32e_amomaxu_wP11processor
           to label %382 unwind label %367
 
 243:                                              ; preds = %210
-  %244 = call i32 @llvm.eh.typeid.for(ptr @_ZTI20trap_load_page_fault) #3
+  %244 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI20trap_load_page_fault) #3
   %245 = icmp eq i32 %211, %244
   br i1 %245, label %246, label %275
 
@@ -4742,7 +4743,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv32e_amomaxu_wP11processor
           to label %382 unwind label %357
 
 275:                                              ; preds = %243
-  %276 = call i32 @llvm.eh.typeid.for(ptr @_ZTI22trap_load_access_fault) #3
+  %276 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI22trap_load_access_fault) #3
   %277 = icmp eq i32 %211, %276
   br i1 %277, label %278, label %307
 
@@ -4791,7 +4792,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv32e_amomaxu_wP11processor
           to label %382 unwind label %347
 
 307:                                              ; preds = %275
-  %308 = call i32 @llvm.eh.typeid.for(ptr @_ZTI26trap_load_guest_page_fault) #3
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI26trap_load_guest_page_fault) #3
   %309 = icmp eq i32 %211, %308
   br i1 %309, label %310, label %374
 
@@ -5492,7 +5493,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv64e_amomaxu_wP11processor
 
 210:                                              ; preds = %206
   %211 = load i32, ptr %36, align 4
-  %212 = call i32 @llvm.eh.typeid.for(ptr @_ZTI28trap_load_address_misaligned) #3
+  %212 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI28trap_load_address_misaligned) #3
   %213 = icmp eq i32 %211, %212
   br i1 %213, label %214, label %243
 
@@ -5541,7 +5542,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv64e_amomaxu_wP11processor
           to label %382 unwind label %367
 
 243:                                              ; preds = %210
-  %244 = call i32 @llvm.eh.typeid.for(ptr @_ZTI20trap_load_page_fault) #3
+  %244 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI20trap_load_page_fault) #3
   %245 = icmp eq i32 %211, %244
   br i1 %245, label %246, label %275
 
@@ -5590,7 +5591,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv64e_amomaxu_wP11processor
           to label %382 unwind label %357
 
 275:                                              ; preds = %243
-  %276 = call i32 @llvm.eh.typeid.for(ptr @_ZTI22trap_load_access_fault) #3
+  %276 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI22trap_load_access_fault) #3
   %277 = icmp eq i32 %211, %276
   br i1 %277, label %278, label %307
 
@@ -5639,7 +5640,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ20fast_rv64e_amomaxu_wP11processor
           to label %382 unwind label %347
 
 307:                                              ; preds = %275
-  %308 = call i32 @llvm.eh.typeid.for(ptr @_ZTI26trap_load_guest_page_fault) #3
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI26trap_load_guest_page_fault) #3
   %309 = icmp eq i32 %211, %308
   br i1 %309, label %310, label %374
 
@@ -6356,7 +6357,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv32e_amomaxu_wP11process
 
 210:                                              ; preds = %206
   %211 = load i32, ptr %36, align 4
-  %212 = call i32 @llvm.eh.typeid.for(ptr @_ZTI28trap_load_address_misaligned) #3
+  %212 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI28trap_load_address_misaligned) #3
   %213 = icmp eq i32 %211, %212
   br i1 %213, label %214, label %243
 
@@ -6405,7 +6406,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv32e_amomaxu_wP11process
           to label %382 unwind label %367
 
 243:                                              ; preds = %210
-  %244 = call i32 @llvm.eh.typeid.for(ptr @_ZTI20trap_load_page_fault) #3
+  %244 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI20trap_load_page_fault) #3
   %245 = icmp eq i32 %211, %244
   br i1 %245, label %246, label %275
 
@@ -6454,7 +6455,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv32e_amomaxu_wP11process
           to label %382 unwind label %357
 
 275:                                              ; preds = %243
-  %276 = call i32 @llvm.eh.typeid.for(ptr @_ZTI22trap_load_access_fault) #3
+  %276 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI22trap_load_access_fault) #3
   %277 = icmp eq i32 %211, %276
   br i1 %277, label %278, label %307
 
@@ -6503,7 +6504,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv32e_amomaxu_wP11process
           to label %382 unwind label %347
 
 307:                                              ; preds = %275
-  %308 = call i32 @llvm.eh.typeid.for(ptr @_ZTI26trap_load_guest_page_fault) #3
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI26trap_load_guest_page_fault) #3
   %309 = icmp eq i32 %211, %308
   br i1 %309, label %310, label %374
 
@@ -7220,7 +7221,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv64e_amomaxu_wP11process
 
 210:                                              ; preds = %206
   %211 = load i32, ptr %36, align 4
-  %212 = call i32 @llvm.eh.typeid.for(ptr @_ZTI28trap_load_address_misaligned) #3
+  %212 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI28trap_load_address_misaligned) #3
   %213 = icmp eq i32 %211, %212
   br i1 %213, label %214, label %243
 
@@ -7269,7 +7270,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv64e_amomaxu_wP11process
           to label %382 unwind label %367
 
 243:                                              ; preds = %210
-  %244 = call i32 @llvm.eh.typeid.for(ptr @_ZTI20trap_load_page_fault) #3
+  %244 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI20trap_load_page_fault) #3
   %245 = icmp eq i32 %211, %244
   br i1 %245, label %246, label %275
 
@@ -7318,7 +7319,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv64e_amomaxu_wP11process
           to label %382 unwind label %357
 
 275:                                              ; preds = %243
-  %276 = call i32 @llvm.eh.typeid.for(ptr @_ZTI22trap_load_access_fault) #3
+  %276 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI22trap_load_access_fault) #3
   %277 = icmp eq i32 %211, %276
   br i1 %277, label %278, label %307
 
@@ -7367,7 +7368,7 @@ define internal noundef i32 @"_ZN5mmu_t3amoIjZ22logged_rv64e_amomaxu_wP11process
           to label %382 unwind label %347
 
 307:                                              ; preds = %275
-  %308 = call i32 @llvm.eh.typeid.for(ptr @_ZTI26trap_load_guest_page_fault) #3
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI26trap_load_guest_page_fault) #3
   %309 = icmp eq i32 %211, %308
   br i1 %309, label %310, label %374
 
@@ -7714,15 +7715,16 @@ define linkonce_odr void @_ZN11insn_trap_tC2Embm(ptr noundef nonnull align 8 der
   %10 = load ptr, ptr %5, align 8
   %11 = load i64, ptr %6, align 8
   call void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV11insn_trap_t, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = getelementptr inbounds %class.insn_trap_t, ptr %10, i32 0, i32 1
-  %13 = load i8, ptr %7, align 1
-  %14 = trunc i8 %13 to i1
-  %15 = zext i1 %14 to i8
-  store i8 %15, ptr %12, align 8
-  %16 = getelementptr inbounds %class.insn_trap_t, ptr %10, i32 0, i32 2
-  %17 = load i64, ptr %8, align 8
-  store i64 %17, ptr %16, align 8
+  %12 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV11insn_trap_t, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds %class.insn_trap_t, ptr %10, i32 0, i32 1
+  %14 = load i8, ptr %7, align 1
+  %15 = trunc i8 %14 to i1
+  %16 = zext i1 %15 to i8
+  store i8 %16, ptr %13, align 8
+  %17 = getelementptr inbounds %class.insn_trap_t, ptr %10, i32 0, i32 2
+  %18 = load i64, ptr %8, align 8
+  store i64 %18, ptr %17, align 8
   ret void
 }
 
@@ -7834,10 +7836,11 @@ define linkonce_odr void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereference
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV6trap_t, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.trap_t, ptr %5, i32 0, i32 1
-  %7 = load i64, ptr %4, align 8
-  store i64 %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV6trap_t, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.trap_t, ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %4, align 8
+  store i64 %8, ptr %7, align 8
   ret void
 }
 
@@ -9945,9 +9948,6 @@ define internal noundef i32 @"_ZZ20fast_rv32i_amomaxu_wP11processor_t6insn_tmENK
   ret i32 %19
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #12
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN27trap_store_guest_page_faultC2Emmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 comdat align 2 {
   %5 = alloca ptr, align 8
@@ -9963,7 +9963,8 @@ define linkonce_odr void @_ZN27trap_store_guest_page_faultC2Emmm(ptr noundef non
   %11 = load i64, ptr %7, align 8
   %12 = load i64, ptr %8, align 8
   call void @_ZN10mem_trap_tC2Embmmm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef 23, i1 noundef zeroext true, i64 noundef %10, i64 noundef %11, i64 noundef %12)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i32 0, i32 0, i32 2), ptr %9, align 8
+  %13 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
   ret void
 }
 
@@ -9998,7 +9999,8 @@ define linkonce_odr void @_ZN23trap_store_access_faultC2Ebmmm(ptr noundef nonnul
   %16 = load i64, ptr %9, align 8
   %17 = load i64, ptr %10, align 8
   call void @_ZN10mem_trap_tC2Embmmm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 7, i1 noundef zeroext %14, i64 noundef %15, i64 noundef %16, i64 noundef %17)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i32 0, i32 0, i32 2), ptr %12, align 8
+  %18 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i32 0, i32 0, i32 2
+  store ptr %18, ptr %12, align 8
   ret void
 }
 
@@ -10031,7 +10033,8 @@ define linkonce_odr void @_ZN21trap_store_page_faultC2Ebmmm(ptr noundef nonnull 
   %16 = load i64, ptr %9, align 8
   %17 = load i64, ptr %10, align 8
   call void @_ZN10mem_trap_tC2Embmmm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 15, i1 noundef zeroext %14, i64 noundef %15, i64 noundef %16, i64 noundef %17)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i32 0, i32 0, i32 2), ptr %12, align 8
+  %18 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i32 0, i32 0, i32 2
+  store ptr %18, ptr %12, align 8
   ret void
 }
 
@@ -10064,7 +10067,8 @@ define linkonce_odr void @_ZN29trap_store_address_misalignedC2Ebmmm(ptr noundef 
   %16 = load i64, ptr %9, align 8
   %17 = load i64, ptr %10, align 8
   call void @_ZN10mem_trap_tC2Embmmm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 6, i1 noundef zeroext %14, i64 noundef %15, i64 noundef %16, i64 noundef %17)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i32 0, i32 0, i32 2), ptr %12, align 8
+  %18 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i32 0, i32 0, i32 2
+  store ptr %18, ptr %12, align 8
   ret void
 }
 
@@ -10078,7 +10082,7 @@ define linkonce_odr void @_ZN29trap_store_address_misalignedD2Ev(ptr noundef non
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #13
+declare void @llvm.trap() #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN13target_endianIjEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #4 comdat align 2 {
@@ -11713,21 +11717,22 @@ define linkonce_odr void @_ZN10mem_trap_tC2Embmmm(ptr noundef nonnull align 8 de
   %14 = load ptr, ptr %7, align 8
   %15 = load i64, ptr %8, align 8
   call void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %15)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV10mem_trap_t, i32 0, i32 0, i32 2), ptr %14, align 8
-  %16 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 1
-  %17 = load i8, ptr %9, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = zext i1 %18 to i8
-  store i8 %19, ptr %16, align 8
-  %20 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 2
-  %21 = load i64, ptr %10, align 8
-  store i64 %21, ptr %20, align 8
-  %22 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 3
-  %23 = load i64, ptr %11, align 8
-  store i64 %23, ptr %22, align 8
-  %24 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 4
-  %25 = load i64, ptr %12, align 8
-  store i64 %25, ptr %24, align 8
+  %16 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV10mem_trap_t, i32 0, i32 0, i32 2
+  store ptr %16, ptr %14, align 8
+  %17 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 1
+  %18 = load i8, ptr %9, align 1
+  %19 = trunc i8 %18 to i1
+  %20 = zext i1 %19 to i8
+  store i8 %20, ptr %17, align 8
+  %21 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 2
+  %22 = load i64, ptr %10, align 8
+  store i64 %22, ptr %21, align 8
+  %23 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 3
+  %24 = load i64, ptr %11, align 8
+  store i64 %24, ptr %23, align 8
+  %25 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 4
+  %26 = load i64, ptr %12, align 8
+  store i64 %26, ptr %25, align 8
   ret void
 }
 
@@ -14171,6 +14176,9 @@ define internal void @_GLOBAL__sub_I_amomaxu_w.cc() #0 section ".text.startup" {
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #13
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -14183,8 +14191,8 @@ attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind memory(none) }
-attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #13 = { nounwind memory(none) }
 attributes #14 = { noreturn }
 attributes #15 = { noreturn nounwind }
 attributes #16 = { builtin nounwind }

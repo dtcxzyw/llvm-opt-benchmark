@@ -21,19 +21,19 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @logic_pio_register_range(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %93, label %3
+  br i1 %2, label %95, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %93, label %7
+  br i1 %6, label %95, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %93, label %11
+  br i1 %10, label %95, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %0, i64 48
@@ -45,7 +45,7 @@ define dso_local noundef i32 @logic_pio_register_range(ptr noundef %0) local_unn
   %16 = getelementptr inbounds i8, ptr %0, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %93, label %19
+  br i1 %18, label %95, label %19
 
 19:                                               ; preds = %15, %11
   %20 = getelementptr inbounds i8, ptr %0, i64 24
@@ -67,7 +67,7 @@ define dso_local noundef i32 @logic_pio_register_range(ptr noundef %0) local_unn
   %31 = getelementptr inbounds i8, ptr %28, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %26
-  br i1 %33, label %91, label %34
+  br i1 %33, label %93, label %34
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds i8, ptr %28, i64 48
@@ -91,7 +91,7 @@ define dso_local noundef i32 @logic_pio_register_range(ptr noundef %0) local_unn
   %46 = icmp uge i64 %21, %45
   %47 = icmp ult i64 %22, %42
   %48 = or i1 %47, %46
-  br i1 %48, label %49, label %91
+  br i1 %48, label %49, label %93
 
 49:                                               ; preds = %40
   %50 = getelementptr inbounds i8, ptr %28, i64 32
@@ -125,7 +125,7 @@ define dso_local noundef i32 @logic_pio_register_range(ptr noundef %0) local_unn
   %68 = phi i64 [ 65535, %19 ], [ %63, %62 ]
   %69 = phi i64 [ 0, %19 ], [ %64, %62 ]
   %70 = load i64, ptr %12, align 8
-  switch i64 %70, label %91 [
+  switch i64 %70, label %93 [
     i64 1, label %71
     i64 0, label %81
   ]
@@ -140,7 +140,7 @@ define dso_local noundef i32 @logic_pio_register_range(ptr noundef %0) local_unn
 76:                                               ; preds = %71
   %77 = add i64 %69, -1
   %78 = icmp ult i64 %77, -65536
-  br i1 %78, label %91, label %79
+  br i1 %78, label %93, label %79
 
 79:                                               ; preds = %76
   store i64 65536, ptr %8, align 8
@@ -152,29 +152,31 @@ define dso_local noundef i32 @logic_pio_register_range(ptr noundef %0) local_unn
   %83 = add i64 %68, -65537
   %84 = add i64 %83, %82
   %85 = icmp ult i64 %84, -65536
-  br i1 %85, label %91, label %86
+  br i1 %85, label %93, label %86
 
 86:                                               ; preds = %81, %79, %71
   %87 = phi i64 [ %69, %79 ], [ %69, %71 ], [ %68, %81 ]
   %88 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %87, ptr %88, align 8
-  %89 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @io_range_list, i64 0, i32 1), align 8
+  %89 = getelementptr inbounds %struct.list_head, ptr @io_range_list, i64 0, i32 1
+  %90 = load ptr, ptr %89, align 8
   store ptr @io_range_list, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %89, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %90, ptr %91, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !8
-  store volatile ptr %0, ptr %89, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @io_range_list, i64 0, i32 1), align 8
-  br label %91
-
-91:                                               ; preds = %86, %81, %76, %67, %40, %27
-  %92 = phi i32 [ 0, %86 ], [ -7, %76 ], [ -7, %81 ], [ -22, %67 ], [ -17, %27 ], [ -14, %40 ]
-  tail call void @mutex_unlock(ptr noundef nonnull @io_range_mutex) #3
+  store volatile ptr %0, ptr %90, align 8
+  %92 = getelementptr inbounds %struct.list_head, ptr @io_range_list, i64 0, i32 1
+  store ptr %0, ptr %92, align 8
   br label %93
 
-93:                                               ; preds = %91, %15, %7, %3, %1
-  %94 = phi i32 [ %92, %91 ], [ -22, %15 ], [ -22, %7 ], [ -22, %3 ], [ -22, %1 ]
-  ret i32 %94
+93:                                               ; preds = %86, %81, %76, %67, %40, %27
+  %94 = phi i32 [ 0, %86 ], [ -7, %76 ], [ -7, %81 ], [ -22, %67 ], [ -17, %27 ], [ -14, %40 ]
+  tail call void @mutex_unlock(ptr noundef nonnull @io_range_mutex) #3
+  br label %95
+
+95:                                               ; preds = %93, %15, %7, %3, %1
+  %96 = phi i32 [ %94, %93 ], [ -22, %15 ], [ -22, %7 ], [ -22, %3 ], [ -22, %1 ]
+  ret i32 %96
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -195,7 +197,8 @@ define dso_local void @logic_pio_unregister_range(ptr nocapture noundef %0) loca
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
   store volatile ptr %4, ptr %3, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %2, align 8
+  %6 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %6, ptr %2, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @io_range_mutex) #3
   tail call void @synchronize_rcu() #3
   ret void

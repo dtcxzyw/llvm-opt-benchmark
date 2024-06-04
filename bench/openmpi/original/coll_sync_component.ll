@@ -20,15 +20,21 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @sync_register() #0 {
   %1 = alloca ptr, align 8
   store ptr @mca_coll_sync_component, ptr %1, align 8
-  store i32 50, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 1), align 8
-  %2 = load ptr, ptr %1, align 8
-  %3 = call i32 @mca_base_component_var_register(ptr noundef %2, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 1))
-  store i32 0, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 2), align 4
-  %4 = load ptr, ptr %1, align 8
-  %5 = call i32 @mca_base_component_var_register(ptr noundef %4, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 2))
-  store i32 0, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 3), align 8
-  %6 = load ptr, ptr %1, align 8
-  %7 = call i32 @mca_base_component_var_register(ptr noundef %6, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 3))
+  %2 = getelementptr inbounds %struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 1
+  store i32 50, ptr %2, align 8
+  %3 = load ptr, ptr %1, align 8
+  %4 = getelementptr inbounds %struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 1
+  %5 = call i32 @mca_base_component_var_register(ptr noundef %3, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %4)
+  %6 = getelementptr inbounds %struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 2
+  store i32 0, ptr %6, align 4
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds %struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 2
+  %9 = call i32 @mca_base_component_var_register(ptr noundef %7, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %8)
+  %10 = getelementptr inbounds %struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 3
+  store i32 0, ptr %10, align 8
+  %11 = load ptr, ptr %1, align 8
+  %12 = getelementptr inbounds %struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 3
+  %13 = call i32 @mca_base_component_var_register(ptr noundef %11, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %12)
   ret i32 0
 }
 

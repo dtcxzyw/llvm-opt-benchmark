@@ -3055,16 +3055,17 @@ define internal void @_ZN5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg9CMakeVars16CMakeVarProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProviderE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.vcpkg::CMakeVars::(anonymous namespace)::TripletCMakeVarProvider", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"struct.vcpkg::CMakeVars::(anonymous namespace)::TripletCMakeVarProvider", ptr %5, i32 0, i32 2
-  call void @_ZNSt13unordered_mapIN5vcpkg11PackageSpecES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #15
-  %9 = getelementptr inbounds %"struct.vcpkg::CMakeVars::(anonymous namespace)::TripletCMakeVarProvider", ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProviderE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.vcpkg::CMakeVars::(anonymous namespace)::TripletCMakeVarProvider", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.vcpkg::CMakeVars::(anonymous namespace)::TripletCMakeVarProvider", ptr %5, i32 0, i32 2
   call void @_ZNSt13unordered_mapIN5vcpkg11PackageSpecES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #15
-  %10 = getelementptr inbounds %"struct.vcpkg::CMakeVars::(anonymous namespace)::TripletCMakeVarProvider", ptr %5, i32 0, i32 4
-  call void @_ZNSt13unordered_mapIN5vcpkg7TripletES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #15
+  %10 = getelementptr inbounds %"struct.vcpkg::CMakeVars::(anonymous namespace)::TripletCMakeVarProvider", ptr %5, i32 0, i32 3
+  call void @_ZNSt13unordered_mapIN5vcpkg11PackageSpecES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #15
+  %11 = getelementptr inbounds %"struct.vcpkg::CMakeVars::(anonymous namespace)::TripletCMakeVarProvider", ptr %5, i32 0, i32 4
+  call void @_ZNSt13unordered_mapIN5vcpkg7TripletES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #15
   ret void
 }
 
@@ -3099,7 +3100,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg9CMakeVars16CMakeVarProviderC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5vcpkg9CMakeVars16CMakeVarProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5vcpkg9CMakeVars16CMakeVarProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3128,13 +3130,14 @@ define internal void @_ZN5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.vcpkg::CMakeVars::(anonymous namespace)::TripletCMakeVarProvider", ptr %3, i32 0, i32 4
-  call void @_ZNSt13unordered_mapIN5vcpkg7TripletES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #15
-  %5 = getelementptr inbounds %"struct.vcpkg::CMakeVars::(anonymous namespace)::TripletCMakeVarProvider", ptr %3, i32 0, i32 3
-  call void @_ZNSt13unordered_mapIN5vcpkg11PackageSpecES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
-  %6 = getelementptr inbounds %"struct.vcpkg::CMakeVars::(anonymous namespace)::TripletCMakeVarProvider", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.vcpkg::CMakeVars::(anonymous namespace)::TripletCMakeVarProvider", ptr %3, i32 0, i32 4
+  call void @_ZNSt13unordered_mapIN5vcpkg7TripletES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  %6 = getelementptr inbounds %"struct.vcpkg::CMakeVars::(anonymous namespace)::TripletCMakeVarProvider", ptr %3, i32 0, i32 3
   call void @_ZNSt13unordered_mapIN5vcpkg11PackageSpecES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #15
+  %7 = getelementptr inbounds %"struct.vcpkg::CMakeVars::(anonymous namespace)::TripletCMakeVarProvider", ptr %3, i32 0, i32 2
+  call void @_ZNSt13unordered_mapIN5vcpkg11PackageSpecES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEES8_IS1_ESA_IS1_ESaISC_IKS1_SG_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #15
   call void @_ZN5vcpkg9CMakeVars16CMakeVarProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret void
 }
@@ -12324,10 +12327,11 @@ define linkonce_odr dso_local void @_ZN3fmt3v106detail15iterator_bufferISt20back
   %6 = load ptr, ptr %4, align 8
   %7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   call void @_ZN3fmt3v106detail6bufferIcEC2Em(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %7) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %8 = getelementptr inbounds %"class.fmt::v10::detail::iterator_buffer", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
+  %8 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %5, align 8
+  %9 = getelementptr inbounds %"class.fmt::v10::detail::iterator_buffer", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
   ret void
 }
 
@@ -12353,13 +12357,14 @@ define linkonce_odr dso_local void @_ZN3fmt3v106detail6bufferIcEC2Em(ptr noundef
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %5, i32 0, i32 2
-  %7 = load i64, ptr %4, align 8
-  store i64 %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %5, i32 0, i32 3
-  %9 = load i64, ptr %4, align 8
-  store i64 %9, ptr %8, align 8
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %5, i32 0, i32 2
+  %8 = load i64, ptr %4, align 8
+  store i64 %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %5, i32 0, i32 3
+  %10 = load i64, ptr %4, align 8
+  store i64 %10, ptr %9, align 8
   ret void
 }
 

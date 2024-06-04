@@ -48,7 +48,7 @@ define i32 @sigsuspend(ptr noundef %0) #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 4 %4, i64 8, i1 false)
   %23 = load i64, ptr %5, align 8
   call void @up_irq_restore(i64 noundef %23)
-  br label %59
+  br label %63
 
 24:                                               ; preds = %1
   %25 = load ptr, ptr %3, align 8
@@ -66,63 +66,67 @@ define i32 @sigsuspend(ptr noundef %0) #0 {
   %32 = load ptr, ptr %7, align 8
   %33 = getelementptr inbounds %struct.dq_entry_s, ptr %32, i32 0, i32 0
   store ptr null, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_waitingforsignal, i32 0, i32 1), align 8
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct.dq_entry_s, ptr %35, i32 0, i32 1
-  store ptr %34, ptr %36, align 8
-  %37 = load ptr, ptr @g_waitingforsignal, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %42, label %39
+  %34 = getelementptr inbounds %struct.dq_queue_s, ptr @g_waitingforsignal, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %7, align 8
+  %37 = getelementptr inbounds %struct.dq_entry_s, ptr %36, i32 0, i32 1
+  store ptr %35, ptr %37, align 8
+  %38 = load ptr, ptr @g_waitingforsignal, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %44, label %40
 
-39:                                               ; preds = %30
-  %40 = load ptr, ptr %7, align 8
-  store ptr %40, ptr @g_waitingforsignal, align 8
+40:                                               ; preds = %30
   %41 = load ptr, ptr %7, align 8
-  store ptr %41, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_waitingforsignal, i32 0, i32 1), align 8
-  br label %47
+  store ptr %41, ptr @g_waitingforsignal, align 8
+  %42 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds %struct.dq_queue_s, ptr @g_waitingforsignal, i32 0, i32 1
+  store ptr %42, ptr %43, align 8
+  br label %51
 
-42:                                               ; preds = %30
-  %43 = load ptr, ptr %7, align 8
-  %44 = load ptr, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_waitingforsignal, i32 0, i32 1), align 8
-  %45 = getelementptr inbounds %struct.dq_entry_s, ptr %44, i32 0, i32 0
-  store ptr %43, ptr %45, align 8
-  %46 = load ptr, ptr %7, align 8
-  store ptr %46, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_waitingforsignal, i32 0, i32 1), align 8
-  br label %47
+44:                                               ; preds = %30
+  %45 = load ptr, ptr %7, align 8
+  %46 = getelementptr inbounds %struct.dq_queue_s, ptr @g_waitingforsignal, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %struct.dq_entry_s, ptr %47, i32 0, i32 0
+  store ptr %45, ptr %48, align 8
+  %49 = load ptr, ptr %7, align 8
+  %50 = getelementptr inbounds %struct.dq_queue_s, ptr @g_waitingforsignal, i32 0, i32 1
+  store ptr %49, ptr %50, align 8
+  br label %51
 
-47:                                               ; preds = %42, %39
-  br label %48
+51:                                               ; preds = %44, %40
+  br label %52
 
-48:                                               ; preds = %47
-  %49 = load i8, ptr %6, align 1
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %54
+52:                                               ; preds = %51
+  %53 = load i8, ptr %6, align 1
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %58
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr @g_readytorun, align 8
-  %53 = load ptr, ptr %3, align 8
-  call void @up_switch_context(ptr noundef %52, ptr noundef %53)
-  br label %54
+55:                                               ; preds = %52
+  %56 = load ptr, ptr @g_readytorun, align 8
+  %57 = load ptr, ptr %3, align 8
+  call void @up_switch_context(ptr noundef %56, ptr noundef %57)
+  br label %58
 
-54:                                               ; preds = %51, %48
-  %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds %struct.tcb_s, ptr %55, i32 0, i32 20
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %56, ptr align 4 %4, i64 8, i1 false)
-  %57 = load i64, ptr %5, align 8
-  call void @up_irq_restore(i64 noundef %57)
-  %58 = call zeroext i1 @nxsig_unmask_pendingsignal()
-  br label %59
-
-59:                                               ; preds = %54, %20
-  %60 = call i32 @sched_unlock()
-  br label %61
-
-61:                                               ; preds = %59
-  %62 = call ptr @__errno()
-  store i32 4, ptr %62, align 4
+58:                                               ; preds = %55, %52
+  %59 = load ptr, ptr %3, align 8
+  %60 = getelementptr inbounds %struct.tcb_s, ptr %59, i32 0, i32 20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %60, ptr align 4 %4, i64 8, i1 false)
+  %61 = load i64, ptr %5, align 8
+  call void @up_irq_restore(i64 noundef %61)
+  %62 = call zeroext i1 @nxsig_unmask_pendingsignal()
   br label %63
 
-63:                                               ; preds = %61
+63:                                               ; preds = %58, %20
+  %64 = call i32 @sched_unlock()
+  br label %65
+
+65:                                               ; preds = %63
+  %66 = call ptr @__errno()
+  store i32 4, ptr %66, align 4
+  br label %67
+
+67:                                               ; preds = %65
   ret i32 -1
 }
 

@@ -28,18 +28,18 @@ define dso_local i32 @g4x_hdmi_connector_atomic_check(ptr noundef %0, ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !5
   %6 = tail call i32 @intel_digital_connector_atomic_check(ptr noundef %0, ptr noundef %1) #6
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %68
+  br i1 %7, label %8, label %69
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %5, i64 7184
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 196608
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %68, label %13
+  br i1 %12, label %69, label %13
 
 13:                                               ; preds = %8
   %14 = tail call zeroext i1 @intel_connector_needs_modeset(ptr noundef %1, ptr noundef %0) #6
-  br i1 %14, label %15, label %68
+  br i1 %14, label %15, label %69
 
 15:                                               ; preds = %13
   call void @drm_connector_list_iter_begin(ptr noundef %5, ptr noundef nonnull %3) #6
@@ -48,23 +48,23 @@ define dso_local i32 @g4x_hdmi_connector_atomic_check(ptr noundef %0, ptr nounde
   %18 = getelementptr inbounds i8, ptr %1, i64 32
   br label %19
 
-19:                                               ; preds = %62, %15
-  %20 = phi i32 [ 0, %15 ], [ %63, %62 ]
+19:                                               ; preds = %63, %15
+  %20 = phi i32 [ 0, %15 ], [ %64, %63 ]
   %21 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #6
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %66, label %23
+  br i1 %22, label %67, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %21, i64 1976
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %62, label %27
+  br i1 %26, label %63, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %25, i64 128
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 6
-  br i1 %30, label %31, label %62, !llvm.loop !6
+  br i1 %30, label %31, label %63, !llvm.loop !6
 
 31:                                               ; preds = %27
   br i1 %16, label %34, label %32
@@ -81,51 +81,52 @@ define dso_local i32 @g4x_hdmi_connector_atomic_check(ptr noundef %0, ptr nounde
   %39 = load ptr, ptr %38, align 8
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %35, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %37, ptr noundef %39) #6
   %40 = call ptr @drm_atomic_get_connector_state(ptr noundef %1, ptr noundef nonnull %21) #6
-  %41 = icmp ugt ptr %40, inttoptr (i64 -4096 to ptr)
-  br i1 %41, label %42, label %45
+  %41 = inttoptr i64 -4096 to ptr
+  %42 = icmp ugt ptr %40, %41
+  br i1 %42, label %43, label %46
 
-42:                                               ; preds = %34
-  %43 = ptrtoint ptr %40 to i64
-  %44 = trunc i64 %43 to i32
-  br label %62
+43:                                               ; preds = %34
+  %44 = ptrtoint ptr %40 to i64
+  %45 = trunc i64 %44 to i32
+  br label %63
 
-45:                                               ; preds = %34
-  %46 = getelementptr inbounds i8, ptr %40, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %62, label %49, !llvm.loop !6
+46:                                               ; preds = %34
+  %47 = getelementptr inbounds i8, ptr %40, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %63, label %50, !llvm.loop !6
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %18, align 8
-  %51 = getelementptr inbounds i8, ptr %47, i64 144
-  %52 = load i32, ptr %51, align 8
-  %53 = zext i32 %52 to i64
-  %54 = getelementptr %struct.__drm_crtcs_state, ptr %50, i64 %53, i32 3
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 10
-  %57 = load i8, ptr %56, align 2
-  %58 = or i8 %57, 2
-  store i8 %58, ptr %56, align 2
-  %59 = call i32 @drm_atomic_add_affected_planes(ptr noundef %1, ptr noundef nonnull %47) #6
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 0, i32 3
-  br label %62
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %18, align 8
+  %52 = getelementptr inbounds i8, ptr %48, i64 144
+  %53 = load i32, ptr %52, align 8
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr %struct.__drm_crtcs_state, ptr %51, i64 %54, i32 3
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 10
+  %58 = load i8, ptr %57, align 2
+  %59 = or i8 %58, 2
+  store i8 %59, ptr %57, align 2
+  %60 = call i32 @drm_atomic_add_affected_planes(ptr noundef %1, ptr noundef nonnull %48) #6
+  %61 = icmp eq i32 %60, 0
+  %62 = select i1 %61, i32 0, i32 3
+  br label %63
 
-62:                                               ; preds = %49, %45, %42, %27, %23
-  %63 = phi i32 [ %44, %42 ], [ %20, %27 ], [ %20, %45 ], [ %59, %49 ], [ %20, %23 ]
-  %64 = phi i32 [ 3, %42 ], [ 2, %27 ], [ 2, %45 ], [ %61, %49 ], [ 2, %23 ]
-  %65 = icmp eq i32 %64, 3
-  br i1 %65, label %66, label %19
+63:                                               ; preds = %50, %46, %43, %27, %23
+  %64 = phi i32 [ %45, %43 ], [ %20, %27 ], [ %20, %46 ], [ %60, %50 ], [ %20, %23 ]
+  %65 = phi i32 [ 3, %43 ], [ 2, %27 ], [ 2, %46 ], [ %62, %50 ], [ 2, %23 ]
+  %66 = icmp eq i32 %65, 3
+  br i1 %66, label %67, label %19
 
-66:                                               ; preds = %62, %19
-  %67 = phi i32 [ %63, %62 ], [ %20, %19 ]
+67:                                               ; preds = %63, %19
+  %68 = phi i32 [ %64, %63 ], [ %20, %19 ]
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #6
-  br label %68
+  br label %69
 
-68:                                               ; preds = %66, %13, %8, %2
-  %69 = phi i32 [ %67, %66 ], [ %6, %2 ], [ 0, %13 ], [ 0, %8 ]
+69:                                               ; preds = %67, %13, %8, %2
+  %70 = phi i32 [ %68, %67 ], [ %6, %2 ], [ 0, %13 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
-  ret i32 %69
+  ret i32 %70
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -164,7 +165,7 @@ declare dso_local void @drm_connector_list_iter_end(ptr noundef) local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @g4x_hdmi_init(ptr noundef %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call zeroext i1 @assert_port_valid(ptr noundef %0, i32 noundef %2) #6
-  br i1 %4, label %5, label %119
+  br i1 %4, label %5, label %120
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 7184
@@ -199,7 +200,7 @@ define dso_local void @g4x_hdmi_init(ptr noundef %0, i32 %1, i32 noundef %2) loc
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 683, i32 2313, i64 12) #6, !srcloc !12
   tail call void asm sideeffect "903: nop\0A\09.pushsection .discard.instr_end\0A\09.long 903b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 903) #6, !srcloc !13
   tail call void asm sideeffect "904: nop\0A\09.pushsection .discard.instr_end\0A\09.long 904b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 904) #6, !srcloc !14
-  br i1 %12, label %26, label %119
+  br i1 %12, label %26, label %120
 
 26:                                               ; preds = %23, %5
   %27 = tail call ptr @intel_bios_encoder_data_lookup(ptr noundef %0, i32 noundef %2) #6
@@ -222,176 +223,177 @@ define dso_local void @g4x_hdmi_init(ptr noundef %0, i32 %1, i32 noundef %2) loc
   br label %37
 
 37:                                               ; preds = %34, %26
-  %38 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
-  %39 = tail call noalias noundef align 8 dereferenceable_or_null(4056) ptr @kmalloc_trace(ptr noundef %38, i32 noundef 3520, i64 noundef 4056) #7
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %119, label %41
+  %38 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12
+  %39 = load ptr, ptr %38, align 16
+  %40 = tail call noalias noundef align 8 dereferenceable_or_null(4056) ptr @kmalloc_trace(ptr noundef %39, i32 noundef 3520, i64 noundef 4056) #7
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %120, label %42
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %39, i64 3908
-  store i32 -1, ptr %42, align 4
-  %43 = tail call ptr @intel_connector_alloc() #6
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %46
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds i8, ptr %40, i64 3908
+  store i32 -1, ptr %43, align 4
+  %44 = tail call ptr @intel_connector_alloc() #6
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %41
-  tail call void @kfree(ptr noundef nonnull %39) #6
-  br label %119
+46:                                               ; preds = %42
+  tail call void @kfree(ptr noundef nonnull %40) #6
+  br label %120
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %39, i64 376
-  store ptr %27, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %39, i64 3944
-  tail call void @__mutex_init(ptr noundef %48, ptr noundef nonnull @.str.2, ptr noundef nonnull @g4x_hdmi_init.__key) #6
-  %49 = add i32 %2, 65
-  %50 = tail call i32 (ptr, ptr, ptr, i32, ptr, ...) @drm_encoder_init(ptr noundef %0, ptr noundef nonnull %39, ptr noundef nonnull @intel_hdmi_enc_funcs, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %49) #6
-  %51 = getelementptr inbounds i8, ptr %39, i64 144
-  store ptr @intel_hdmi_hotplug, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %39, i64 160
-  store ptr @g4x_hdmi_compute_config, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 8112
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp eq i32 %54, 0
-  %56 = getelementptr inbounds i8, ptr %39, i64 200
-  br i1 %55, label %59, label %57
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds i8, ptr %40, i64 376
+  store ptr %27, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %40, i64 3944
+  tail call void @__mutex_init(ptr noundef %49, ptr noundef nonnull @.str.2, ptr noundef nonnull @g4x_hdmi_init.__key) #6
+  %50 = add i32 %2, 65
+  %51 = tail call i32 (ptr, ptr, ptr, i32, ptr, ...) @drm_encoder_init(ptr noundef %0, ptr noundef nonnull %40, ptr noundef nonnull @intel_hdmi_enc_funcs, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %50) #6
+  %52 = getelementptr inbounds i8, ptr %40, i64 144
+  store ptr @intel_hdmi_hotplug, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %40, i64 160
+  store ptr @g4x_hdmi_compute_config, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 8112
+  %55 = load i32, ptr %54, align 8
+  %56 = icmp eq i32 %55, 0
+  %57 = getelementptr inbounds i8, ptr %40, i64 200
+  br i1 %56, label %60, label %58
 
-57:                                               ; preds = %46
-  store ptr @pch_disable_hdmi, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %39, i64 208
-  store ptr @pch_post_disable_hdmi, ptr %58, align 8
-  br label %60
+58:                                               ; preds = %47
+  store ptr @pch_disable_hdmi, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %40, i64 208
+  store ptr @pch_post_disable_hdmi, ptr %59, align 8
+  br label %61
 
-59:                                               ; preds = %46
-  store ptr @g4x_disable_hdmi, ptr %56, align 8
-  br label %60
+60:                                               ; preds = %47
+  store ptr @g4x_disable_hdmi, ptr %57, align 8
+  br label %61
 
-60:                                               ; preds = %59, %57
-  %61 = getelementptr inbounds i8, ptr %39, i64 248
-  store ptr @intel_hdmi_get_hw_state, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %39, i64 256
-  store ptr @intel_hdmi_get_config, ptr %62, align 8
-  %63 = load i32, ptr %6, align 4
-  %64 = zext i32 %63 to i64
-  %65 = and i64 %64, 16777216
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %73, label %67
+61:                                               ; preds = %60, %58
+  %62 = getelementptr inbounds i8, ptr %40, i64 248
+  store ptr @intel_hdmi_get_hw_state, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %40, i64 256
+  store ptr @intel_hdmi_get_config, ptr %63, align 8
+  %64 = load i32, ptr %6, align 4
+  %65 = zext i32 %64 to i64
+  %66 = and i64 %65, 16777216
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %74, label %68
 
-67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %39, i64 176
-  store ptr @chv_hdmi_pre_pll_enable, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %39, i64 184
-  store ptr @chv_hdmi_pre_enable, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %39, i64 192
-  store ptr @vlv_enable_hdmi, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %39, i64 208
-  store ptr @chv_hdmi_post_disable, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %39, i64 216
-  store ptr @chv_hdmi_post_pll_disable, ptr %72, align 8
-  br label %87
+68:                                               ; preds = %61
+  %69 = getelementptr inbounds i8, ptr %40, i64 176
+  store ptr @chv_hdmi_pre_pll_enable, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %40, i64 184
+  store ptr @chv_hdmi_pre_enable, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %40, i64 192
+  store ptr @vlv_enable_hdmi, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %40, i64 208
+  store ptr @chv_hdmi_post_disable, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %40, i64 216
+  store ptr @chv_hdmi_post_pll_disable, ptr %73, align 8
+  br label %88
 
-73:                                               ; preds = %60
-  %74 = and i64 %64, 2097152
-  %75 = icmp eq i64 %74, 0
-  br i1 %75, label %81, label %76
+74:                                               ; preds = %61
+  %75 = and i64 %65, 2097152
+  %76 = icmp eq i64 %75, 0
+  br i1 %76, label %82, label %77
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %39, i64 176
-  store ptr @vlv_hdmi_pre_pll_enable, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %39, i64 184
-  store ptr @vlv_hdmi_pre_enable, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %39, i64 192
-  store ptr @vlv_enable_hdmi, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %39, i64 208
-  store ptr @vlv_hdmi_post_disable, ptr %80, align 8
-  br label %87
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds i8, ptr %40, i64 176
+  store ptr @vlv_hdmi_pre_pll_enable, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %40, i64 184
+  store ptr @vlv_hdmi_pre_enable, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %40, i64 192
+  store ptr @vlv_enable_hdmi, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %40, i64 208
+  store ptr @vlv_hdmi_post_disable, ptr %81, align 8
+  br label %88
 
-81:                                               ; preds = %73
-  %82 = getelementptr inbounds i8, ptr %39, i64 184
-  store ptr @intel_hdmi_pre_enable, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %39, i64 192
-  switch i32 %54, label %86 [
-    i32 2, label %84
-    i32 1, label %85
+82:                                               ; preds = %74
+  %83 = getelementptr inbounds i8, ptr %40, i64 184
+  store ptr @intel_hdmi_pre_enable, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %40, i64 192
+  switch i32 %55, label %87 [
+    i32 2, label %85
+    i32 1, label %86
   ]
 
-84:                                               ; preds = %81
-  store ptr @cpt_enable_hdmi, ptr %83, align 8
-  br label %87
+85:                                               ; preds = %82
+  store ptr @cpt_enable_hdmi, ptr %84, align 8
+  br label %88
 
-85:                                               ; preds = %81
-  store ptr @ibx_enable_hdmi, ptr %83, align 8
-  br label %87
+86:                                               ; preds = %82
+  store ptr @ibx_enable_hdmi, ptr %84, align 8
+  br label %88
 
-86:                                               ; preds = %81
-  store ptr @g4x_enable_hdmi, ptr %83, align 8
-  br label %87
+87:                                               ; preds = %82
+  store ptr @g4x_enable_hdmi, ptr %84, align 8
+  br label %88
 
-87:                                               ; preds = %86, %85, %84, %76, %67
-  %88 = getelementptr inbounds i8, ptr %39, i64 232
-  store ptr @g4x_hdmi_audio_enable, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %39, i64 240
-  store ptr @g4x_hdmi_audio_disable, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %39, i64 304
-  store ptr @intel_hdmi_encoder_shutdown, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %39, i64 128
-  store i32 6, ptr %91, align 8
-  %92 = tail call i32 @intel_display_power_ddi_lanes_domain(ptr noundef %0, i32 noundef %2) #6
-  %93 = getelementptr inbounds i8, ptr %39, i64 372
-  store i32 %92, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %39, i64 132
-  store i32 %2, ptr %94, align 4
-  %95 = load i32, ptr %6, align 4
-  %96 = and i32 %95, 16777216
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %103, label %98
+88:                                               ; preds = %87, %86, %85, %77, %68
+  %89 = getelementptr inbounds i8, ptr %40, i64 232
+  store ptr @g4x_hdmi_audio_enable, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %40, i64 240
+  store ptr @g4x_hdmi_audio_disable, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %40, i64 304
+  store ptr @intel_hdmi_encoder_shutdown, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %40, i64 128
+  store i32 6, ptr %92, align 8
+  %93 = tail call i32 @intel_display_power_ddi_lanes_domain(ptr noundef %0, i32 noundef %2) #6
+  %94 = getelementptr inbounds i8, ptr %40, i64 372
+  store i32 %93, ptr %94, align 4
+  %95 = getelementptr inbounds i8, ptr %40, i64 132
+  store i32 %2, ptr %95, align 4
+  %96 = load i32, ptr %6, align 4
+  %97 = and i32 %96, 16777216
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %104, label %99
 
-98:                                               ; preds = %87
-  %99 = icmp eq i32 %2, 3
-  %100 = getelementptr inbounds i8, ptr %39, i64 138
-  br i1 %99, label %101, label %102
+99:                                               ; preds = %88
+  %100 = icmp eq i32 %2, 3
+  %101 = getelementptr inbounds i8, ptr %40, i64 138
+  br i1 %100, label %102, label %103
 
-101:                                              ; preds = %98
-  store i8 4, ptr %100, align 2
-  br label %105
+102:                                              ; preds = %99
+  store i8 4, ptr %101, align 2
+  br label %106
 
-102:                                              ; preds = %98
-  store i8 3, ptr %100, align 2
-  br label %105
+103:                                              ; preds = %99
+  store i8 3, ptr %101, align 2
+  br label %106
 
-103:                                              ; preds = %87
-  %104 = getelementptr inbounds i8, ptr %39, i64 138
-  store i8 -1, ptr %104, align 2
-  br label %105
+104:                                              ; preds = %88
+  %105 = getelementptr inbounds i8, ptr %40, i64 138
+  store i8 -1, ptr %105, align 2
+  br label %106
 
-105:                                              ; preds = %103, %102, %101
-  %106 = getelementptr inbounds i8, ptr %39, i64 136
-  store i16 2, ptr %106, align 8
-  %107 = tail call i32 @intel_hpd_pin_default(ptr noundef %0, i32 noundef %2) #6
-  %108 = getelementptr inbounds i8, ptr %39, i64 368
-  store i32 %107, ptr %108, align 8
-  %109 = load i32, ptr %6, align 4
-  %110 = and i32 %109, 196608
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %115, label %112
+106:                                              ; preds = %104, %103, %102
+  %107 = getelementptr inbounds i8, ptr %40, i64 136
+  store i16 2, ptr %107, align 8
+  %108 = tail call i32 @intel_hpd_pin_default(ptr noundef %0, i32 noundef %2) #6
+  %109 = getelementptr inbounds i8, ptr %40, i64 368
+  store i32 %108, ptr %109, align 8
+  %110 = load i32, ptr %6, align 4
+  %111 = and i32 %110, 196608
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %116, label %113
 
-112:                                              ; preds = %105
-  %113 = load i16, ptr %106, align 8
-  %114 = or i16 %113, 64
-  store i16 %114, ptr %106, align 8
-  br label %115
+113:                                              ; preds = %106
+  %114 = load i16, ptr %107, align 8
+  %115 = or i16 %114, 64
+  store i16 %115, ptr %107, align 8
+  br label %116
 
-115:                                              ; preds = %112, %105
-  %116 = getelementptr inbounds i8, ptr %39, i64 3848
-  store i32 %1, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %39, i64 392
-  store i32 0, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %39, i64 3905
-  store i8 4, ptr %118, align 1
-  tail call void @intel_infoframe_init(ptr noundef nonnull %39) #6
-  tail call void @intel_hdmi_init_connector(ptr noundef nonnull %39, ptr noundef nonnull %43) #6
-  br label %119
+116:                                              ; preds = %113, %106
+  %117 = getelementptr inbounds i8, ptr %40, i64 3848
+  store i32 %1, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %40, i64 392
+  store i32 0, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %40, i64 3905
+  store i8 4, ptr %119, align 1
+  tail call void @intel_infoframe_init(ptr noundef nonnull %40) #6
+  tail call void @intel_hdmi_init_connector(ptr noundef nonnull %40, ptr noundef nonnull %44) #6
+  br label %120
 
-119:                                              ; preds = %115, %45, %37, %23, %3
+120:                                              ; preds = %116, %46, %37, %23, %3
   ret void
 }
 

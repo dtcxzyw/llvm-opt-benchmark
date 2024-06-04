@@ -66,41 +66,44 @@ define dso_local void @init_IRQ() local_unnamed_addr #0 section ".init.text" ali
   %1 = load ptr, ptr @legacy_pic, align 8
   %2 = load i32, ptr %1, align 8
   %3 = icmp sgt i32 %2, 0
-  br i1 %3, label %4, label %20
+  br i1 %3, label %4, label %21
 
 4:                                                ; preds = %4, %0
-  %5 = phi i64 [ %15, %4 ], [ 0, %0 ]
+  %5 = phi i64 [ %16, %4 ], [ 0, %0 ]
   %6 = trunc i64 %5 to i32
   %7 = tail call ptr @irq_to_desc(i32 noundef %6) #3
   %8 = load i64, ptr @__per_cpu_offset, align 16
-  %9 = add i64 %8, ptrtoint (ptr @vector_irq to i64)
-  %10 = inttoptr i64 %9 to ptr
-  %11 = shl i64 %5, 32
-  %12 = add i64 %11, 206158430208
-  %13 = ashr exact i64 %12, 32
-  %14 = getelementptr [256 x ptr], ptr %10, i64 0, i64 %13
-  store ptr %7, ptr %14, align 8
-  %15 = add nuw nsw i64 %5, 1
-  %16 = load ptr, ptr @legacy_pic, align 8
-  %17 = load i32, ptr %16, align 8
-  %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %15, %18
-  br i1 %19, label %4, label %20, !llvm.loop !8
+  %9 = ptrtoint ptr @vector_irq to i64
+  %10 = add i64 %8, %9
+  %11 = inttoptr i64 %10 to ptr
+  %12 = shl i64 %5, 32
+  %13 = add i64 %12, 206158430208
+  %14 = ashr exact i64 %13, 32
+  %15 = getelementptr [256 x ptr], ptr %11, i64 0, i64 %14
+  store ptr %7, ptr %15, align 8
+  %16 = add nuw nsw i64 %5, 1
+  %17 = load ptr, ptr @legacy_pic, align 8
+  %18 = load i32, ptr %17, align 8
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %16, %19
+  br i1 %20, label %4, label %21, !llvm.loop !8
 
-20:                                               ; preds = %4, %0
-  %21 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #4, !srcloc !9
-  %22 = tail call i32 @irq_init_percpu_irqstack(i32 noundef %21) #3
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %25, label %24, !prof !10
+21:                                               ; preds = %4, %0
+  %22 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %23 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %22) #4, !srcloc !9
+  %24 = tail call i32 @irq_init_percpu_irqstack(i32 noundef %23) #3
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %27, label %26, !prof !10
 
-24:                                               ; preds = %20
+26:                                               ; preds = %21
   tail call void asm sideeffect "498: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 498b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 498) #3, !srcloc !11
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 89, i32 0, i64 12) #3, !srcloc !12
   unreachable
 
-25:                                               ; preds = %20
-  %26 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 2, i32 1), align 8
-  tail call void %26() #3
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds %struct.x86_init_ops, ptr @x86_init, i64 0, i32 2, i32 1
+  %29 = load ptr, ptr %28, align 8
+  tail call void %29() #3
   ret void
 }
 
@@ -112,30 +115,31 @@ declare dso_local i32 @irq_init_percpu_irqstack(i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @native_init_IRQ() local_unnamed_addr #0 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 2), align 8
-  tail call void %1() #3
+  %1 = getelementptr inbounds %struct.x86_init_ops, ptr @x86_init, i64 0, i32 2
+  %2 = load ptr, ptr %1, align 8
+  tail call void %2() #3
   tail call void @idt_setup_apic_and_irq_gates() #3
   tail call void @lapic_assign_system_vectors() #3
-  %2 = load i32, ptr @acpi_ioapic, align 4
-  %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %13
+  %3 = load i32, ptr @acpi_ioapic, align 4
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %5, label %14
 
-4:                                                ; preds = %0
-  %5 = load ptr, ptr @legacy_pic, align 8
-  %6 = load i32, ptr %5, align 8
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %13, label %8
+5:                                                ; preds = %0
+  %6 = load ptr, ptr @legacy_pic, align 8
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %14, label %9
 
-8:                                                ; preds = %4
-  %9 = tail call i32 @request_threaded_irq(i32 noundef 2, ptr noundef nonnull @no_action, ptr noundef null, i64 noundef 65536, ptr noundef nonnull @.str.2, ptr noundef null) #3
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %13, label %11
+9:                                                ; preds = %5
+  %10 = tail call i32 @request_threaded_irq(i32 noundef 2, ptr noundef nonnull @no_action, ptr noundef null, i64 noundef 65536, ptr noundef nonnull @.str.2, ptr noundef null) #3
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %14, label %12
 
-11:                                               ; preds = %8
-  %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2) #5
-  br label %13
+12:                                               ; preds = %9
+  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2) #5
+  br label %14
 
-13:                                               ; preds = %11, %8, %4, %0
+14:                                               ; preds = %12, %9, %5, %0
   ret void
 }
 

@@ -452,32 +452,33 @@ define void @_ZN12RichFileSaveC2ERK7QStringS2_S2_S2_S2_bS2_(ptr noundef nonnull 
   %27 = trunc i8 %26 to i1
   %28 = load ptr, ptr %16, align 8
   invoke void @_ZN13RichParameterC2ERK7QStringRK5ValueS2_S2_bS2_(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %25, i1 noundef zeroext %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
-          to label %29 unwind label %32
+          to label %29 unwind label %33
 
 29:                                               ; preds = %8
   call void @_ZN11StringValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12RichFileSave, i32 0, i32 0, i32 2), ptr %21, align 8
-  %30 = getelementptr inbounds %class.RichFileSave, ptr %21, i32 0, i32 1
-  %31 = load ptr, ptr %12, align 8
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %31) #5
+  %30 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV12RichFileSave, i32 0, i32 0, i32 2
+  store ptr %30, ptr %21, align 8
+  %31 = getelementptr inbounds %class.RichFileSave, ptr %21, i32 0, i32 1
+  %32 = load ptr, ptr %12, align 8
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32) #5
   ret void
 
-32:                                               ; preds = %8
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %8
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %18, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %19, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %18, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %19, align 4
   call void @_ZN11StringValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #5
-  br label %36
+  br label %37
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %18, align 8
-  %38 = load i32, ptr %19, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %18, align 8
+  %39 = load i32, ptr %19, align 4
+  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
+  resume { ptr, i32 } %41
 }
 
 declare void @_ZN11StringValueC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
@@ -491,9 +492,10 @@ define linkonce_odr void @_ZN11StringValueD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV11StringValue, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.StringValue, ptr %3, i32 0, i32 1
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV11StringValue, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.StringValue, ptr %3, i32 0, i32 1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
   call void @_ZN5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
   ret void
 }
@@ -816,9 +818,10 @@ define void @_ZN12RichFileSaveD2Ev(ptr noundef nonnull align 8 dereferenceable(6
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12RichFileSave, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.RichFileSave, ptr %3, i32 0, i32 1
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV12RichFileSave, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.RichFileSave, ptr %3, i32 0, i32 1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
   call void @_ZN13RichParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #5
   ret void
 }
@@ -891,11 +894,12 @@ define linkonce_odr void @_ZN12RichFileSaveC2ERKS_(ptr noundef nonnull align 8 d
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12RichFileSave, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.RichFileSave, ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %class.RichFileSave, ptr %8, i32 0, i32 1
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %9) #5
+  %7 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV12RichFileSave, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.RichFileSave, ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %class.RichFileSave, ptr %9, i32 0, i32 1
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10) #5
   ret void
 }
 

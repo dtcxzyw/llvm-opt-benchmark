@@ -9385,157 +9385,158 @@ define internal i32 @SpoolssOpenPrinterEx_q(ptr noundef %0, i32 noundef %1, ptr 
   %24 = load ptr, ptr %11, align 8
   %25 = load ptr, ptr %12, align 8
   %26 = load i32, ptr @hf_printername, align 4
-  %27 = call i32 @dissect_ndr_pointer_cb(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef @dissect_ndr_wchar_cvstring, i32 noundef 2, ptr noundef @.str.31, i32 noundef %26, ptr noundef @cb_wstr_postprocess, ptr noundef inttoptr (i64 805306369 to ptr))
-  store i32 %27, ptr %8, align 4
-  %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds %struct._dcerpc_call_value, ptr %28, i32 0, i32 9
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %14, align 8
-  %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds %struct._packet_info, ptr %31, i32 0, i32 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct._frame_data, ptr %33, i32 0, i32 9
-  %35 = load i16, ptr %34, align 2
-  %36 = lshr i16 %35, 3
-  %37 = and i16 %36, 1
-  %38 = zext i16 %37 to i32
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %58, label %40
+  %27 = inttoptr i64 805306369 to ptr
+  %28 = call i32 @dissect_ndr_pointer_cb(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef @dissect_ndr_wchar_cvstring, i32 noundef 2, ptr noundef @.str.31, i32 noundef %26, ptr noundef @cb_wstr_postprocess, ptr noundef %27)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %13, align 8
+  %30 = getelementptr inbounds %struct._dcerpc_call_value, ptr %29, i32 0, i32 9
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %14, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds %struct._packet_info, ptr %32, i32 0, i32 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds %struct._frame_data, ptr %34, i32 0, i32 9
+  %36 = load i16, ptr %35, align 2
+  %37 = lshr i16 %36, 3
+  %38 = and i16 %37, 1
+  %39 = zext i16 %38 to i32
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %59, label %41
 
-40:                                               ; preds = %6
-  %41 = load ptr, ptr %13, align 8
-  %42 = getelementptr inbounds %struct._dcerpc_call_value, ptr %41, i32 0, i32 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %57, label %45
+41:                                               ; preds = %6
+  %42 = load ptr, ptr %13, align 8
+  %43 = getelementptr inbounds %struct._dcerpc_call_value, ptr %42, i32 0, i32 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %58, label %46
 
-45:                                               ; preds = %40
-  %46 = call ptr @wmem_file_scope()
-  %47 = load ptr, ptr %14, align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %49, label %51
+46:                                               ; preds = %41
+  %47 = call ptr @wmem_file_scope()
+  %48 = load ptr, ptr %14, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %52
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %14, align 8
-  br label %52
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %14, align 8
+  br label %53
 
-51:                                               ; preds = %45
-  br label %52
+52:                                               ; preds = %46
+  br label %53
 
-52:                                               ; preds = %51, %49
-  %53 = phi ptr [ %50, %49 ], [ @.str.755, %51 ]
-  %54 = call noalias ptr @wmem_strdup(ptr noundef %46, ptr noundef %53)
-  %55 = load ptr, ptr %13, align 8
-  %56 = getelementptr inbounds %struct._dcerpc_call_value, ptr %55, i32 0, i32 8
-  store ptr %54, ptr %56, align 8
-  br label %57
-
-57:                                               ; preds = %52, %40
+53:                                               ; preds = %52, %50
+  %54 = phi ptr [ %51, %50 ], [ @.str.755, %52 ]
+  %55 = call noalias ptr @wmem_strdup(ptr noundef %47, ptr noundef %54)
+  %56 = load ptr, ptr %13, align 8
+  %57 = getelementptr inbounds %struct._dcerpc_call_value, ptr %56, i32 0, i32 8
+  store ptr %55, ptr %57, align 8
   br label %58
 
-58:                                               ; preds = %57, %6
-  %59 = load ptr, ptr %7, align 8
-  %60 = load i32, ptr %8, align 4
-  %61 = load ptr, ptr %9, align 8
-  %62 = load ptr, ptr %10, align 8
-  %63 = load ptr, ptr %11, align 8
-  %64 = load ptr, ptr %12, align 8
-  %65 = call i32 @dissect_ndr_pointer(ptr noundef %59, i32 noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef @dissect_PRINTER_DATATYPE, i32 noundef 2, ptr noundef @.str.1244, i32 noundef -1)
-  store i32 %65, ptr %8, align 4
-  %66 = load ptr, ptr %7, align 8
-  %67 = load i32, ptr %8, align 4
-  %68 = load ptr, ptr %9, align 8
-  %69 = load ptr, ptr %10, align 8
-  %70 = load ptr, ptr %11, align 8
-  %71 = load ptr, ptr %12, align 8
-  %72 = call i32 @dissect_DEVMODE_CTR(ptr noundef %66, i32 noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, ptr noundef %71)
-  store i32 %72, ptr %8, align 4
-  %73 = load ptr, ptr %13, align 8
-  %74 = getelementptr inbounds %struct._dcerpc_call_value, ptr %73, i32 0, i32 8
-  %75 = load ptr, ptr %74, align 8
-  store ptr %75, ptr %14, align 8
-  %76 = load ptr, ptr %14, align 8
-  %77 = icmp ne ptr %76, null
-  br i1 %77, label %78, label %116
+58:                                               ; preds = %53, %41
+  br label %59
 
-78:                                               ; preds = %58
-  %79 = load ptr, ptr %14, align 8
-  %80 = getelementptr i8, ptr %79, i64 0
-  %81 = load i8, ptr %80, align 1
-  %82 = sext i8 %81 to i32
-  %83 = icmp eq i32 %82, 92
-  br i1 %83, label %84, label %93
+59:                                               ; preds = %58, %6
+  %60 = load ptr, ptr %7, align 8
+  %61 = load i32, ptr %8, align 4
+  %62 = load ptr, ptr %9, align 8
+  %63 = load ptr, ptr %10, align 8
+  %64 = load ptr, ptr %11, align 8
+  %65 = load ptr, ptr %12, align 8
+  %66 = call i32 @dissect_ndr_pointer(ptr noundef %60, i32 noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef @dissect_PRINTER_DATATYPE, i32 noundef 2, ptr noundef @.str.1244, i32 noundef -1)
+  store i32 %66, ptr %8, align 4
+  %67 = load ptr, ptr %7, align 8
+  %68 = load i32, ptr %8, align 4
+  %69 = load ptr, ptr %9, align 8
+  %70 = load ptr, ptr %10, align 8
+  %71 = load ptr, ptr %11, align 8
+  %72 = load ptr, ptr %12, align 8
+  %73 = call i32 @dissect_DEVMODE_CTR(ptr noundef %67, i32 noundef %68, ptr noundef %69, ptr noundef %70, ptr noundef %71, ptr noundef %72)
+  store i32 %73, ptr %8, align 4
+  %74 = load ptr, ptr %13, align 8
+  %75 = getelementptr inbounds %struct._dcerpc_call_value, ptr %74, i32 0, i32 8
+  %76 = load ptr, ptr %75, align 8
+  store ptr %76, ptr %14, align 8
+  %77 = load ptr, ptr %14, align 8
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %79, label %117
 
-84:                                               ; preds = %78
-  %85 = load ptr, ptr %14, align 8
-  %86 = getelementptr i8, ptr %85, i64 1
-  %87 = load i8, ptr %86, align 1
-  %88 = sext i8 %87 to i32
-  %89 = icmp eq i32 %88, 92
-  br i1 %89, label %90, label %93
+79:                                               ; preds = %59
+  %80 = load ptr, ptr %14, align 8
+  %81 = getelementptr i8, ptr %80, i64 0
+  %82 = load i8, ptr %81, align 1
+  %83 = sext i8 %82 to i32
+  %84 = icmp eq i32 %83, 92
+  br i1 %84, label %85, label %94
 
-90:                                               ; preds = %84
-  %91 = load ptr, ptr %14, align 8
-  %92 = getelementptr i8, ptr %91, i64 2
-  store ptr %92, ptr %14, align 8
-  br label %93
+85:                                               ; preds = %79
+  %86 = load ptr, ptr %14, align 8
+  %87 = getelementptr i8, ptr %86, i64 1
+  %88 = load i8, ptr %87, align 1
+  %89 = sext i8 %88 to i32
+  %90 = icmp eq i32 %89, 92
+  br i1 %90, label %91, label %94
 
-93:                                               ; preds = %90, %84, %78
-  %94 = load ptr, ptr %14, align 8
-  %95 = call ptr @strchr(ptr noundef %94, i32 noundef 92) #4
-  %96 = icmp ne ptr %95, null
-  br i1 %96, label %97, label %106
+91:                                               ; preds = %85
+  %92 = load ptr, ptr %14, align 8
+  %93 = getelementptr i8, ptr %92, i64 2
+  store ptr %93, ptr %14, align 8
+  br label %94
 
-97:                                               ; preds = %93
-  %98 = load ptr, ptr %7, align 8
-  %99 = load i32, ptr %8, align 4
-  %100 = load ptr, ptr %9, align 8
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %11, align 8
-  %103 = load ptr, ptr %12, align 8
-  %104 = load i32, ptr @hf_access_required, align 4
-  %105 = call i32 @dissect_nt_access_mask(ptr noundef %98, i32 noundef %99, ptr noundef %100, ptr noundef %101, ptr noundef %102, ptr noundef %103, i32 noundef %104, ptr noundef @spoolss_printer_access_mask_info, ptr noundef null)
-  store i32 %105, ptr %8, align 4
-  br label %115
+94:                                               ; preds = %91, %85, %79
+  %95 = load ptr, ptr %14, align 8
+  %96 = call ptr @strchr(ptr noundef %95, i32 noundef 92) #4
+  %97 = icmp ne ptr %96, null
+  br i1 %97, label %98, label %107
 
-106:                                              ; preds = %93
-  %107 = load ptr, ptr %7, align 8
-  %108 = load i32, ptr %8, align 4
-  %109 = load ptr, ptr %9, align 8
-  %110 = load ptr, ptr %10, align 8
-  %111 = load ptr, ptr %11, align 8
-  %112 = load ptr, ptr %12, align 8
-  %113 = load i32, ptr @hf_access_required, align 4
-  %114 = call i32 @dissect_nt_access_mask(ptr noundef %107, i32 noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112, i32 noundef %113, ptr noundef @spoolss_printserver_access_mask_info, ptr noundef null)
-  store i32 %114, ptr %8, align 4
-  br label %115
+98:                                               ; preds = %94
+  %99 = load ptr, ptr %7, align 8
+  %100 = load i32, ptr %8, align 4
+  %101 = load ptr, ptr %9, align 8
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %11, align 8
+  %104 = load ptr, ptr %12, align 8
+  %105 = load i32, ptr @hf_access_required, align 4
+  %106 = call i32 @dissect_nt_access_mask(ptr noundef %99, i32 noundef %100, ptr noundef %101, ptr noundef %102, ptr noundef %103, ptr noundef %104, i32 noundef %105, ptr noundef @spoolss_printer_access_mask_info, ptr noundef null)
+  store i32 %106, ptr %8, align 4
+  br label %116
 
-115:                                              ; preds = %106, %97
-  br label %125
+107:                                              ; preds = %94
+  %108 = load ptr, ptr %7, align 8
+  %109 = load i32, ptr %8, align 4
+  %110 = load ptr, ptr %9, align 8
+  %111 = load ptr, ptr %10, align 8
+  %112 = load ptr, ptr %11, align 8
+  %113 = load ptr, ptr %12, align 8
+  %114 = load i32, ptr @hf_access_required, align 4
+  %115 = call i32 @dissect_nt_access_mask(ptr noundef %108, i32 noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef %113, i32 noundef %114, ptr noundef @spoolss_printserver_access_mask_info, ptr noundef null)
+  store i32 %115, ptr %8, align 4
+  br label %116
 
-116:                                              ; preds = %58
-  %117 = load ptr, ptr %7, align 8
-  %118 = load i32, ptr %8, align 4
-  %119 = load ptr, ptr %9, align 8
-  %120 = load ptr, ptr %10, align 8
-  %121 = load ptr, ptr %11, align 8
-  %122 = load ptr, ptr %12, align 8
-  %123 = load i32, ptr @hf_access_required, align 4
-  %124 = call i32 @dissect_nt_access_mask(ptr noundef %117, i32 noundef %118, ptr noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef %122, i32 noundef %123, ptr noundef null, ptr noundef null)
-  store i32 %124, ptr %8, align 4
-  br label %125
+116:                                              ; preds = %107, %98
+  br label %126
 
-125:                                              ; preds = %116, %115
-  %126 = load ptr, ptr %7, align 8
-  %127 = load i32, ptr %8, align 4
-  %128 = load ptr, ptr %9, align 8
-  %129 = load ptr, ptr %10, align 8
-  %130 = load ptr, ptr %11, align 8
-  %131 = load ptr, ptr %12, align 8
-  %132 = call i32 @dissect_USER_LEVEL_CTR(ptr noundef %126, i32 noundef %127, ptr noundef %128, ptr noundef %129, ptr noundef %130, ptr noundef %131)
-  store i32 %132, ptr %8, align 4
-  %133 = load i32, ptr %8, align 4
-  ret i32 %133
+117:                                              ; preds = %59
+  %118 = load ptr, ptr %7, align 8
+  %119 = load i32, ptr %8, align 4
+  %120 = load ptr, ptr %9, align 8
+  %121 = load ptr, ptr %10, align 8
+  %122 = load ptr, ptr %11, align 8
+  %123 = load ptr, ptr %12, align 8
+  %124 = load i32, ptr @hf_access_required, align 4
+  %125 = call i32 @dissect_nt_access_mask(ptr noundef %118, i32 noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef %122, ptr noundef %123, i32 noundef %124, ptr noundef null, ptr noundef null)
+  store i32 %125, ptr %8, align 4
+  br label %126
+
+126:                                              ; preds = %117, %116
+  %127 = load ptr, ptr %7, align 8
+  %128 = load i32, ptr %8, align 4
+  %129 = load ptr, ptr %9, align 8
+  %130 = load ptr, ptr %10, align 8
+  %131 = load ptr, ptr %11, align 8
+  %132 = load ptr, ptr %12, align 8
+  %133 = call i32 @dissect_USER_LEVEL_CTR(ptr noundef %127, i32 noundef %128, ptr noundef %129, ptr noundef %130, ptr noundef %131, ptr noundef %132)
+  store i32 %133, ptr %8, align 4
+  %134 = load i32, ptr %8, align 4
+  ret i32 %134
 }
 
 ; Function Attrs: nounwind uwtable

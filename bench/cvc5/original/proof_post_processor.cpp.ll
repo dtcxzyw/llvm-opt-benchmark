@@ -603,23 +603,25 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal4prop24ProofPostprocessCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal4prop24ProofPostprocessCallbackE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal4prop24ProofPostprocessCallbackE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [6 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal4prop24ProofPostprocessCallbackE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %d_proofCnfStream = getelementptr inbounds %"class.cvc5::internal::prop::ProofPostprocessCallback", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %proofCnfStream.addr, align 8
-  store ptr %2, ptr %d_proofCnfStream, align 8
+  %4 = load ptr, ptr %proofCnfStream.addr, align 8
+  store ptr %4, ptr %d_proofCnfStream, align 8
   %d_assumpToProof = getelementptr inbounds %"class.cvc5::internal::prop::ProofPostprocessCallback", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt10shared_ptrINS1_9ProofNodeEESt4lessIS3_ESaISt4pairIKS3_S6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_assumpToProof) #3
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -2650,23 +2652,24 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 1 %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop16ProofPostprocessE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop16ProofPostprocessE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_cb = getelementptr inbounds %"class.cvc5::internal::prop::ProofPostprocess", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %env.addr, align 8
-  %2 = load ptr, ptr %proofCnfStream.addr, align 8
-  invoke void @_ZN4cvc58internal4prop24ProofPostprocessCallbackC1ERNS0_3EnvEPNS1_14ProofCnfStreamE(ptr noundef nonnull align 8 dereferenceable(80) %d_cb, ptr noundef nonnull align 1 %1, ptr noundef %2)
+  %2 = load ptr, ptr %env.addr, align 8
+  %3 = load ptr, ptr %proofCnfStream.addr, align 8
+  invoke void @_ZN4cvc58internal4prop24ProofPostprocessCallbackC1ERNS0_3EnvEPNS1_14ProofCnfStreamE(ptr noundef nonnull align 8 dereferenceable(80) %d_cb, ptr noundef nonnull align 1 %2, ptr noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -2684,7 +2687,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop16ProofPostprocessE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop16ProofPostprocessE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_cb = getelementptr inbounds %"class.cvc5::internal::prop::ProofPostprocess", ptr %this1, i32 0, i32 1
   call void @_ZN4cvc58internal4prop24ProofPostprocessCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %d_cb) #3
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -2697,13 +2701,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal4prop24ProofPostprocessCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal4prop24ProofPostprocessCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal4prop24ProofPostprocessCallbackE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [6 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal4prop24ProofPostprocessCallbackE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %d_assumpToProof = getelementptr inbounds %"class.cvc5::internal::prop::ProofPostprocessCallback", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt10shared_ptrINS1_9ProofNodeEESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_assumpToProof) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 16
-  call void @_ZN4cvc58internal24ProofNodeUpdaterCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  %2 = getelementptr inbounds i8, ptr %this1, i64 16
+  call void @_ZN4cvc58internal24ProofNodeUpdaterCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   ret void
 }
@@ -2779,7 +2785,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal16ProofNodeUpdaterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal16ProofNodeUpdaterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_freeAssumps = getelementptr inbounds %"class.cvc5::internal::ProofNodeUpdater", ptr %this1, i32 0, i32 4
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_freeAssumps) #3
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3

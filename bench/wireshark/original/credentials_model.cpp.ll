@@ -338,9 +338,10 @@ define void @_ZN16CredentialsModelC2EP7QObject(ptr noundef nonnull align 8 deref
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN18QAbstractListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV16CredentialsModel, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.CredentialsModel, ptr %5, i32 0, i32 1
-  call void @_ZN5QListIP14tap_credentialEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
+  %7 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV16CredentialsModel, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.CredentialsModel, ptr %5, i32 0, i32 1
+  call void @_ZN5QListIP14tap_credentialEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #10
   ret void
 }
 
@@ -361,21 +362,22 @@ define void @_ZN16CredentialsModelD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV16CredentialsModel, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV16CredentialsModel, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN16CredentialsModel5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
-          to label %4 unwind label %6
+          to label %5 unwind label %7
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %class.CredentialsModel, ptr %3, i32 0, i32 1
-  call void @_ZN5QListIP14tap_credentialED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %class.CredentialsModel, ptr %3, i32 0, i32 1
+  call void @_ZN5QListIP14tap_credentialED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #10
   call void @_ZN18QAbstractListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   ret void
 
-6:                                                ; preds = %1
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #11
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #11
   unreachable
 }
 

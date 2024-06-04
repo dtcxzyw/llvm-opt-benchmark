@@ -261,7 +261,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define internal fastcc i32 @do_signalfd4(i32 noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = and i32 %2, -526337
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %50
+  br i1 %5, label %6, label %51
 
 6:                                                ; preds = %3
   %7 = load i64, ptr %1, align 8
@@ -269,75 +269,76 @@ define internal fastcc i32 @do_signalfd4(i32 noundef %0, ptr nocapture noundef %
   %9 = xor i64 %8, -1
   store i64 %9, ptr %1, align 8
   %10 = icmp eq i32 %0, -1
-  br i1 %10, label %11, label %21
+  br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
-  %13 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3264, i64 noundef 8) #6
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %50, label %15
+  %12 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3264, i64 noundef 8) #6
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %51, label %16
 
-15:                                               ; preds = %11
-  %16 = load i64, ptr %1, align 8
-  store i64 %16, ptr %13, align 8
-  %17 = or disjoint i32 %2, 2
-  %18 = tail call i32 @anon_inode_getfd(ptr noundef nonnull @.str.1, ptr noundef nonnull @signalfd_fops, ptr noundef nonnull %13, i32 noundef %17) #5
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %50
+16:                                               ; preds = %11
+  %17 = load i64, ptr %1, align 8
+  store i64 %17, ptr %14, align 8
+  %18 = or disjoint i32 %2, 2
+  %19 = tail call i32 @anon_inode_getfd(ptr noundef nonnull @.str.1, ptr noundef nonnull @signalfd_fops, ptr noundef nonnull %14, i32 noundef %18) #5
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %51
 
-20:                                               ; preds = %15
-  tail call void @kfree(ptr noundef nonnull %13) #5
-  br label %50
+21:                                               ; preds = %16
+  tail call void @kfree(ptr noundef nonnull %14) #5
+  br label %51
 
-21:                                               ; preds = %6
-  %22 = tail call i64 @__fdget(i32 noundef %0) #5
-  %23 = and i64 %22, -4
-  %24 = inttoptr i64 %23 to ptr
-  %25 = trunc i64 %22 to i32
-  %26 = icmp eq i64 %23, 0
-  br i1 %26, label %50, label %27
+22:                                               ; preds = %6
+  %23 = tail call i64 @__fdget(i32 noundef %0) #5
+  %24 = and i64 %23, -4
+  %25 = inttoptr i64 %24 to ptr
+  %26 = trunc i64 %23 to i32
+  %27 = icmp eq i64 %24, 0
+  br i1 %27, label %51, label %28
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %24, i64 176
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, @signalfd_fops
-  br i1 %30, label %35, label %31
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds i8, ptr %25, i64 176
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, @signalfd_fops
+  br i1 %31, label %36, label %32
 
-31:                                               ; preds = %27
-  %32 = and i32 %25, 1
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %50, label %34
+32:                                               ; preds = %28
+  %33 = and i32 %26, 1
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %51, label %35
 
-34:                                               ; preds = %31
-  tail call void @fput(ptr noundef nonnull %24) #5
-  br label %50
+35:                                               ; preds = %32
+  tail call void @fput(ptr noundef nonnull %25) #5
+  br label %51
 
-35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %24, i64 200
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
-  %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds i8, ptr %39, i64 1888
-  %41 = load ptr, ptr %40, align 32
-  tail call void @_raw_spin_lock_irq(ptr noundef %41) #5
-  %42 = load i64, ptr %1, align 8
-  store i64 %42, ptr %37, align 8
-  %43 = load ptr, ptr %40, align 32
-  tail call void @_raw_spin_unlock_irq(ptr noundef %43) #5
-  %44 = load ptr, ptr %40, align 32
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
-  %46 = tail call i32 @__wake_up(ptr noundef %45, i32 noundef 3, i32 noundef 1, ptr noundef null) #5
-  %47 = and i32 %25, 1
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %50, label %49
+36:                                               ; preds = %28
+  %37 = getelementptr inbounds i8, ptr %25, i64 200
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
+  %40 = inttoptr i64 %39 to ptr
+  %41 = getelementptr inbounds i8, ptr %40, i64 1888
+  %42 = load ptr, ptr %41, align 32
+  tail call void @_raw_spin_lock_irq(ptr noundef %42) #5
+  %43 = load i64, ptr %1, align 8
+  store i64 %43, ptr %38, align 8
+  %44 = load ptr, ptr %41, align 32
+  tail call void @_raw_spin_unlock_irq(ptr noundef %44) #5
+  %45 = load ptr, ptr %41, align 32
+  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = tail call i32 @__wake_up(ptr noundef %46, i32 noundef 3, i32 noundef 1, ptr noundef null) #5
+  %48 = and i32 %26, 1
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %51, label %50
 
-49:                                               ; preds = %35
-  tail call void @fput(ptr noundef nonnull %24) #5
-  br label %50
+50:                                               ; preds = %36
+  tail call void @fput(ptr noundef nonnull %25) #5
+  br label %51
 
-50:                                               ; preds = %49, %35, %34, %31, %21, %20, %15, %11, %3
-  %51 = phi i32 [ -22, %3 ], [ -12, %11 ], [ %18, %20 ], [ %18, %15 ], [ -9, %21 ], [ -22, %31 ], [ -22, %34 ], [ %0, %35 ], [ %0, %49 ]
-  ret i32 %51
+51:                                               ; preds = %50, %36, %35, %32, %22, %21, %16, %11, %3
+  %52 = phi i32 [ -22, %3 ], [ -12, %11 ], [ %19, %21 ], [ %19, %16 ], [ -9, %22 ], [ -22, %32 ], [ -22, %35 ], [ %0, %36 ], [ %0, %50 ]
+  ret i32 %52
 }
 
 ; Function Attrs: null_pointer_is_valid

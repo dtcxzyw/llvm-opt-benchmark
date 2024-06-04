@@ -469,18 +469,19 @@ entry:
   store ptr %0, ptr %so1, align 8
   %1 = load ptr, ptr %s2.addr, align 8
   store ptr %1, ptr %so2, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 334), align 4
-  %tobool = icmp ne i32 %2, 0
+  %2 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 334
+  %3 = load i32, ptr %2, align 4
+  %tobool = icmp ne i32 %3, 0
   br i1 %tobool, label %if.else11, label %if.then
 
 if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %so1, align 8
-  %u = getelementptr inbounds %struct._redisSortObject, ptr %3, i32 0, i32 1
-  %4 = load double, ptr %u, align 8
-  %5 = load ptr, ptr %so2, align 8
-  %u1 = getelementptr inbounds %struct._redisSortObject, ptr %5, i32 0, i32 1
-  %6 = load double, ptr %u1, align 8
-  %cmp2 = fcmp ogt double %4, %6
+  %4 = load ptr, ptr %so1, align 8
+  %u = getelementptr inbounds %struct._redisSortObject, ptr %4, i32 0, i32 1
+  %5 = load double, ptr %u, align 8
+  %6 = load ptr, ptr %so2, align 8
+  %u1 = getelementptr inbounds %struct._redisSortObject, ptr %6, i32 0, i32 1
+  %7 = load double, ptr %u1, align 8
+  %cmp2 = fcmp ogt double %5, %7
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
@@ -488,13 +489,13 @@ if.then3:                                         ; preds = %if.then
   br label %if.end10
 
 if.else:                                          ; preds = %if.then
-  %7 = load ptr, ptr %so1, align 8
-  %u4 = getelementptr inbounds %struct._redisSortObject, ptr %7, i32 0, i32 1
-  %8 = load double, ptr %u4, align 8
-  %9 = load ptr, ptr %so2, align 8
-  %u5 = getelementptr inbounds %struct._redisSortObject, ptr %9, i32 0, i32 1
-  %10 = load double, ptr %u5, align 8
-  %cmp6 = fcmp olt double %8, %10
+  %8 = load ptr, ptr %so1, align 8
+  %u4 = getelementptr inbounds %struct._redisSortObject, ptr %8, i32 0, i32 1
+  %9 = load double, ptr %u4, align 8
+  %10 = load ptr, ptr %so2, align 8
+  %u5 = getelementptr inbounds %struct._redisSortObject, ptr %10, i32 0, i32 1
+  %11 = load double, ptr %u5, align 8
+  %cmp6 = fcmp olt double %9, %11
   br i1 %cmp6, label %if.then7, label %if.else8
 
 if.then7:                                         ; preds = %if.else
@@ -502,13 +503,13 @@ if.then7:                                         ; preds = %if.else
   br label %if.end
 
 if.else8:                                         ; preds = %if.else
-  %11 = load ptr, ptr %so1, align 8
-  %obj = getelementptr inbounds %struct._redisSortObject, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %obj, align 8
-  %13 = load ptr, ptr %so2, align 8
-  %obj9 = getelementptr inbounds %struct._redisSortObject, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %obj9, align 8
-  %call = call i32 @compareStringObjects(ptr noundef %12, ptr noundef %14)
+  %12 = load ptr, ptr %so1, align 8
+  %obj = getelementptr inbounds %struct._redisSortObject, ptr %12, i32 0, i32 0
+  %13 = load ptr, ptr %obj, align 8
+  %14 = load ptr, ptr %so2, align 8
+  %obj9 = getelementptr inbounds %struct._redisSortObject, ptr %14, i32 0, i32 0
+  %15 = load ptr, ptr %obj9, align 8
+  %call = call i32 @compareStringObjects(ptr noundef %13, ptr noundef %15)
   store i32 %call, ptr %cmp, align 4
   br label %if.end
 
@@ -519,32 +520,33 @@ if.end10:                                         ; preds = %if.end, %if.then3
   br label %if.end55
 
 if.else11:                                        ; preds = %entry
-  %15 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 335), align 8
-  %tobool12 = icmp ne i32 %15, 0
+  %16 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 335
+  %17 = load i32, ptr %16, align 8
+  %tobool12 = icmp ne i32 %17, 0
   br i1 %tobool12, label %if.then13, label %if.else43
 
 if.then13:                                        ; preds = %if.else11
-  %16 = load ptr, ptr %so1, align 8
-  %u14 = getelementptr inbounds %struct._redisSortObject, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %u14, align 8
-  %tobool15 = icmp ne ptr %17, null
+  %18 = load ptr, ptr %so1, align 8
+  %u14 = getelementptr inbounds %struct._redisSortObject, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %u14, align 8
+  %tobool15 = icmp ne ptr %19, null
   br i1 %tobool15, label %lor.lhs.false, label %if.then18
 
 lor.lhs.false:                                    ; preds = %if.then13
-  %18 = load ptr, ptr %so2, align 8
-  %u16 = getelementptr inbounds %struct._redisSortObject, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %u16, align 8
-  %tobool17 = icmp ne ptr %19, null
+  %20 = load ptr, ptr %so2, align 8
+  %u16 = getelementptr inbounds %struct._redisSortObject, ptr %20, i32 0, i32 1
+  %21 = load ptr, ptr %u16, align 8
+  %tobool17 = icmp ne ptr %21, null
   br i1 %tobool17, label %if.else30, label %if.then18
 
 if.then18:                                        ; preds = %lor.lhs.false, %if.then13
-  %20 = load ptr, ptr %so1, align 8
-  %u19 = getelementptr inbounds %struct._redisSortObject, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %u19, align 8
-  %22 = load ptr, ptr %so2, align 8
-  %u20 = getelementptr inbounds %struct._redisSortObject, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %u20, align 8
-  %cmp21 = icmp eq ptr %21, %23
+  %22 = load ptr, ptr %so1, align 8
+  %u19 = getelementptr inbounds %struct._redisSortObject, ptr %22, i32 0, i32 1
+  %23 = load ptr, ptr %u19, align 8
+  %24 = load ptr, ptr %so2, align 8
+  %u20 = getelementptr inbounds %struct._redisSortObject, ptr %24, i32 0, i32 1
+  %25 = load ptr, ptr %u20, align 8
+  %cmp21 = icmp eq ptr %23, %25
   br i1 %cmp21, label %if.then22, label %if.else23
 
 if.then22:                                        ; preds = %if.then18
@@ -552,10 +554,10 @@ if.then22:                                        ; preds = %if.then18
   br label %if.end29
 
 if.else23:                                        ; preds = %if.then18
-  %24 = load ptr, ptr %so1, align 8
-  %u24 = getelementptr inbounds %struct._redisSortObject, ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %u24, align 8
-  %cmp25 = icmp eq ptr %25, null
+  %26 = load ptr, ptr %so1, align 8
+  %u24 = getelementptr inbounds %struct._redisSortObject, ptr %26, i32 0, i32 1
+  %27 = load ptr, ptr %u24, align 8
+  %cmp25 = icmp eq ptr %27, null
   br i1 %cmp25, label %if.then26, label %if.else27
 
 if.then26:                                        ; preds = %if.else23
@@ -573,33 +575,34 @@ if.end29:                                         ; preds = %if.end28, %if.then2
   br label %if.end42
 
 if.else30:                                        ; preds = %lor.lhs.false
-  %26 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 336), align 4
-  %tobool31 = icmp ne i32 %26, 0
+  %28 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 336
+  %29 = load i32, ptr %28, align 4
+  %tobool31 = icmp ne i32 %29, 0
   br i1 %tobool31, label %if.then32, label %if.else36
 
 if.then32:                                        ; preds = %if.else30
-  %27 = load ptr, ptr %so1, align 8
-  %u33 = getelementptr inbounds %struct._redisSortObject, ptr %27, i32 0, i32 1
-  %28 = load ptr, ptr %u33, align 8
-  %29 = load ptr, ptr %so2, align 8
-  %u34 = getelementptr inbounds %struct._redisSortObject, ptr %29, i32 0, i32 1
-  %30 = load ptr, ptr %u34, align 8
-  %call35 = call i32 @compareStringObjects(ptr noundef %28, ptr noundef %30)
+  %30 = load ptr, ptr %so1, align 8
+  %u33 = getelementptr inbounds %struct._redisSortObject, ptr %30, i32 0, i32 1
+  %31 = load ptr, ptr %u33, align 8
+  %32 = load ptr, ptr %so2, align 8
+  %u34 = getelementptr inbounds %struct._redisSortObject, ptr %32, i32 0, i32 1
+  %33 = load ptr, ptr %u34, align 8
+  %call35 = call i32 @compareStringObjects(ptr noundef %31, ptr noundef %33)
   store i32 %call35, ptr %cmp, align 4
   br label %if.end41
 
 if.else36:                                        ; preds = %if.else30
-  %31 = load ptr, ptr %so1, align 8
-  %u37 = getelementptr inbounds %struct._redisSortObject, ptr %31, i32 0, i32 1
-  %32 = load ptr, ptr %u37, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %32, i32 0, i32 2
-  %33 = load ptr, ptr %ptr, align 8
-  %34 = load ptr, ptr %so2, align 8
-  %u38 = getelementptr inbounds %struct._redisSortObject, ptr %34, i32 0, i32 1
-  %35 = load ptr, ptr %u38, align 8
-  %ptr39 = getelementptr inbounds %struct.redisObject, ptr %35, i32 0, i32 2
-  %36 = load ptr, ptr %ptr39, align 8
-  %call40 = call i32 @strcoll(ptr noundef %33, ptr noundef %36) #10
+  %34 = load ptr, ptr %so1, align 8
+  %u37 = getelementptr inbounds %struct._redisSortObject, ptr %34, i32 0, i32 1
+  %35 = load ptr, ptr %u37, align 8
+  %ptr = getelementptr inbounds %struct.redisObject, ptr %35, i32 0, i32 2
+  %36 = load ptr, ptr %ptr, align 8
+  %37 = load ptr, ptr %so2, align 8
+  %u38 = getelementptr inbounds %struct._redisSortObject, ptr %37, i32 0, i32 1
+  %38 = load ptr, ptr %u38, align 8
+  %ptr39 = getelementptr inbounds %struct.redisObject, ptr %38, i32 0, i32 2
+  %39 = load ptr, ptr %ptr39, align 8
+  %call40 = call i32 @strcoll(ptr noundef %36, ptr noundef %39) #10
   store i32 %call40, ptr %cmp, align 4
   br label %if.end41
 
@@ -610,29 +613,30 @@ if.end42:                                         ; preds = %if.end41, %if.end29
   br label %if.end54
 
 if.else43:                                        ; preds = %if.else11
-  %37 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 336), align 4
-  %tobool44 = icmp ne i32 %37, 0
+  %40 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 336
+  %41 = load i32, ptr %40, align 4
+  %tobool44 = icmp ne i32 %41, 0
   br i1 %tobool44, label %if.then45, label %if.else49
 
 if.then45:                                        ; preds = %if.else43
-  %38 = load ptr, ptr %so1, align 8
-  %obj46 = getelementptr inbounds %struct._redisSortObject, ptr %38, i32 0, i32 0
-  %39 = load ptr, ptr %obj46, align 8
-  %40 = load ptr, ptr %so2, align 8
-  %obj47 = getelementptr inbounds %struct._redisSortObject, ptr %40, i32 0, i32 0
-  %41 = load ptr, ptr %obj47, align 8
-  %call48 = call i32 @compareStringObjects(ptr noundef %39, ptr noundef %41)
+  %42 = load ptr, ptr %so1, align 8
+  %obj46 = getelementptr inbounds %struct._redisSortObject, ptr %42, i32 0, i32 0
+  %43 = load ptr, ptr %obj46, align 8
+  %44 = load ptr, ptr %so2, align 8
+  %obj47 = getelementptr inbounds %struct._redisSortObject, ptr %44, i32 0, i32 0
+  %45 = load ptr, ptr %obj47, align 8
+  %call48 = call i32 @compareStringObjects(ptr noundef %43, ptr noundef %45)
   store i32 %call48, ptr %cmp, align 4
   br label %if.end53
 
 if.else49:                                        ; preds = %if.else43
-  %42 = load ptr, ptr %so1, align 8
-  %obj50 = getelementptr inbounds %struct._redisSortObject, ptr %42, i32 0, i32 0
-  %43 = load ptr, ptr %obj50, align 8
-  %44 = load ptr, ptr %so2, align 8
-  %obj51 = getelementptr inbounds %struct._redisSortObject, ptr %44, i32 0, i32 0
-  %45 = load ptr, ptr %obj51, align 8
-  %call52 = call i32 @collateStringObjects(ptr noundef %43, ptr noundef %45)
+  %46 = load ptr, ptr %so1, align 8
+  %obj50 = getelementptr inbounds %struct._redisSortObject, ptr %46, i32 0, i32 0
+  %47 = load ptr, ptr %obj50, align 8
+  %48 = load ptr, ptr %so2, align 8
+  %obj51 = getelementptr inbounds %struct._redisSortObject, ptr %48, i32 0, i32 0
+  %49 = load ptr, ptr %obj51, align 8
+  %call52 = call i32 @collateStringObjects(ptr noundef %47, ptr noundef %49)
   store i32 %call52, ptr %cmp, align 4
   br label %if.end53
 
@@ -643,21 +647,22 @@ if.end54:                                         ; preds = %if.end53, %if.end42
   br label %if.end55
 
 if.end55:                                         ; preds = %if.end54, %if.end10
-  %46 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 333), align 8
-  %tobool56 = icmp ne i32 %46, 0
+  %50 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 333
+  %51 = load i32, ptr %50, align 8
+  %tobool56 = icmp ne i32 %51, 0
   br i1 %tobool56, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end55
-  %47 = load i32, ptr %cmp, align 4
-  %sub = sub nsw i32 0, %47
+  %52 = load i32, ptr %cmp, align 4
+  %sub = sub nsw i32 0, %52
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end55
-  %48 = load i32, ptr %cmp, align 4
+  %53 = load i32, ptr %cmp, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %sub, %cond.true ], [ %48, %cond.false ]
+  %cond = phi i32 [ %sub, %cond.true ], [ %53, %cond.false ]
   ret i32 %cond
 }
 
@@ -971,44 +976,45 @@ if.then82:                                        ; preds = %if.then70
   br label %if.end99
 
 if.else83:                                        ; preds = %if.then70
-  %75 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 362), align 4
-  %tobool84 = icmp ne i32 %75, 0
+  %75 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 362
+  %76 = load i32, ptr %75, align 4
+  %tobool84 = icmp ne i32 %76, 0
   br i1 %tobool84, label %land.lhs.true85, label %if.end94
 
 land.lhs.true85:                                  ; preds = %if.else83
-  %76 = load ptr, ptr %sortby, align 8
-  %ptr86 = getelementptr inbounds %struct.redisObject, ptr %76, i32 0, i32 2
-  %77 = load ptr, ptr %ptr86, align 8
-  %78 = load ptr, ptr %sortby, align 8
-  %ptr87 = getelementptr inbounds %struct.redisObject, ptr %78, i32 0, i32 2
-  %79 = load ptr, ptr %ptr87, align 8
-  %call88 = call i64 @sdslen(ptr noundef %79)
+  %77 = load ptr, ptr %sortby, align 8
+  %ptr86 = getelementptr inbounds %struct.redisObject, ptr %77, i32 0, i32 2
+  %78 = load ptr, ptr %ptr86, align 8
+  %79 = load ptr, ptr %sortby, align 8
+  %ptr87 = getelementptr inbounds %struct.redisObject, ptr %79, i32 0, i32 2
+  %80 = load ptr, ptr %ptr87, align 8
+  %call88 = call i64 @sdslen(ptr noundef %80)
   %conv = trunc i64 %call88 to i32
-  %call89 = call i32 @patternHashSlot(ptr noundef %77, i32 noundef %conv)
-  %80 = load ptr, ptr %c.addr, align 8
-  %slot = getelementptr inbounds %struct.client, ptr %80, i32 0, i32 30
-  %81 = load i32, ptr %slot, align 8
-  %cmp90 = icmp ne i32 %call89, %81
+  %call89 = call i32 @patternHashSlot(ptr noundef %78, i32 noundef %conv)
+  %81 = load ptr, ptr %c.addr, align 8
+  %slot = getelementptr inbounds %struct.client, ptr %81, i32 0, i32 30
+  %82 = load i32, ptr %slot, align 8
+  %cmp90 = icmp ne i32 %call89, %82
   br i1 %cmp90, label %if.then92, label %if.end94
 
 if.then92:                                        ; preds = %land.lhs.true85
-  %82 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %82, ptr noundef @.str.7)
-  %83 = load i32, ptr %syntax_error, align 4
-  %inc93 = add nsw i32 %83, 1
+  %83 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %83, ptr noundef @.str.7)
+  %84 = load i32, ptr %syntax_error, align 4
+  %inc93 = add nsw i32 %84, 1
   store i32 %inc93, ptr %syntax_error, align 4
   br label %while.end
 
 if.end94:                                         ; preds = %land.lhs.true85, %if.else83
-  %84 = load i32, ptr %user_has_full_key_access, align 4
-  %tobool95 = icmp ne i32 %84, 0
+  %85 = load i32, ptr %user_has_full_key_access, align 4
+  %tobool95 = icmp ne i32 %85, 0
   br i1 %tobool95, label %if.end98, label %if.then96
 
 if.then96:                                        ; preds = %if.end94
-  %85 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %85, ptr noundef @.str.8)
-  %86 = load i32, ptr %syntax_error, align 4
-  %inc97 = add nsw i32 %86, 1
+  %86 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %86, ptr noundef @.str.8)
+  %87 = load i32, ptr %syntax_error, align 4
+  %inc97 = add nsw i32 %87, 1
   store i32 %inc97, ptr %syntax_error, align 4
   br label %while.end
 
@@ -1016,112 +1022,114 @@ if.end98:                                         ; preds = %if.end94
   br label %if.end99
 
 if.end99:                                         ; preds = %if.end98, %if.then82
-  %87 = load i32, ptr %j, align 4
-  %inc100 = add nsw i32 %87, 1
+  %88 = load i32, ptr %j, align 4
+  %inc100 = add nsw i32 %88, 1
   store i32 %inc100, ptr %j, align 4
   br label %if.end148
 
 if.else101:                                       ; preds = %land.lhs.true68, %if.else61
-  %88 = load ptr, ptr %c.addr, align 8
-  %argv102 = getelementptr inbounds %struct.client, ptr %88, i32 0, i32 12
-  %89 = load ptr, ptr %argv102, align 8
-  %90 = load i32, ptr %j, align 4
-  %idxprom103 = sext i32 %90 to i64
-  %arrayidx104 = getelementptr inbounds ptr, ptr %89, i64 %idxprom103
-  %91 = load ptr, ptr %arrayidx104, align 8
-  %ptr105 = getelementptr inbounds %struct.redisObject, ptr %91, i32 0, i32 2
-  %92 = load ptr, ptr %ptr105, align 8
-  %call106 = call i32 @strcasecmp(ptr noundef %92, ptr noundef @.str.9) #10
+  %89 = load ptr, ptr %c.addr, align 8
+  %argv102 = getelementptr inbounds %struct.client, ptr %89, i32 0, i32 12
+  %90 = load ptr, ptr %argv102, align 8
+  %91 = load i32, ptr %j, align 4
+  %idxprom103 = sext i32 %91 to i64
+  %arrayidx104 = getelementptr inbounds ptr, ptr %90, i64 %idxprom103
+  %92 = load ptr, ptr %arrayidx104, align 8
+  %ptr105 = getelementptr inbounds %struct.redisObject, ptr %92, i32 0, i32 2
+  %93 = load ptr, ptr %ptr105, align 8
+  %call106 = call i32 @strcasecmp(ptr noundef %93, ptr noundef @.str.9) #10
   %tobool107 = icmp ne i32 %call106, 0
   br i1 %tobool107, label %if.else145, label %land.lhs.true108
 
 land.lhs.true108:                                 ; preds = %if.else101
-  %93 = load i32, ptr %leftargs, align 4
-  %cmp109 = icmp sge i32 %93, 1
+  %94 = load i32, ptr %leftargs, align 4
+  %cmp109 = icmp sge i32 %94, 1
   br i1 %cmp109, label %if.then111, label %if.else145
 
 if.then111:                                       ; preds = %land.lhs.true108
-  %94 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 362), align 4
-  %tobool112 = icmp ne i32 %94, 0
+  %95 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 362
+  %96 = load i32, ptr %95, align 4
+  %tobool112 = icmp ne i32 %96, 0
   br i1 %tobool112, label %land.lhs.true113, label %if.end132
 
 land.lhs.true113:                                 ; preds = %if.then111
-  %95 = load ptr, ptr %c.addr, align 8
-  %argv114 = getelementptr inbounds %struct.client, ptr %95, i32 0, i32 12
-  %96 = load ptr, ptr %argv114, align 8
-  %97 = load i32, ptr %j, align 4
-  %add115 = add nsw i32 %97, 1
+  %97 = load ptr, ptr %c.addr, align 8
+  %argv114 = getelementptr inbounds %struct.client, ptr %97, i32 0, i32 12
+  %98 = load ptr, ptr %argv114, align 8
+  %99 = load i32, ptr %j, align 4
+  %add115 = add nsw i32 %99, 1
   %idxprom116 = sext i32 %add115 to i64
-  %arrayidx117 = getelementptr inbounds ptr, ptr %96, i64 %idxprom116
-  %98 = load ptr, ptr %arrayidx117, align 8
-  %ptr118 = getelementptr inbounds %struct.redisObject, ptr %98, i32 0, i32 2
-  %99 = load ptr, ptr %ptr118, align 8
-  %100 = load ptr, ptr %c.addr, align 8
-  %argv119 = getelementptr inbounds %struct.client, ptr %100, i32 0, i32 12
-  %101 = load ptr, ptr %argv119, align 8
-  %102 = load i32, ptr %j, align 4
-  %add120 = add nsw i32 %102, 1
+  %arrayidx117 = getelementptr inbounds ptr, ptr %98, i64 %idxprom116
+  %100 = load ptr, ptr %arrayidx117, align 8
+  %ptr118 = getelementptr inbounds %struct.redisObject, ptr %100, i32 0, i32 2
+  %101 = load ptr, ptr %ptr118, align 8
+  %102 = load ptr, ptr %c.addr, align 8
+  %argv119 = getelementptr inbounds %struct.client, ptr %102, i32 0, i32 12
+  %103 = load ptr, ptr %argv119, align 8
+  %104 = load i32, ptr %j, align 4
+  %add120 = add nsw i32 %104, 1
   %idxprom121 = sext i32 %add120 to i64
-  %arrayidx122 = getelementptr inbounds ptr, ptr %101, i64 %idxprom121
-  %103 = load ptr, ptr %arrayidx122, align 8
-  %ptr123 = getelementptr inbounds %struct.redisObject, ptr %103, i32 0, i32 2
-  %104 = load ptr, ptr %ptr123, align 8
-  %call124 = call i64 @sdslen(ptr noundef %104)
+  %arrayidx122 = getelementptr inbounds ptr, ptr %103, i64 %idxprom121
+  %105 = load ptr, ptr %arrayidx122, align 8
+  %ptr123 = getelementptr inbounds %struct.redisObject, ptr %105, i32 0, i32 2
+  %106 = load ptr, ptr %ptr123, align 8
+  %call124 = call i64 @sdslen(ptr noundef %106)
   %conv125 = trunc i64 %call124 to i32
-  %call126 = call i32 @patternHashSlot(ptr noundef %99, i32 noundef %conv125)
-  %105 = load ptr, ptr %c.addr, align 8
-  %slot127 = getelementptr inbounds %struct.client, ptr %105, i32 0, i32 30
-  %106 = load i32, ptr %slot127, align 8
-  %cmp128 = icmp ne i32 %call126, %106
+  %call126 = call i32 @patternHashSlot(ptr noundef %101, i32 noundef %conv125)
+  %107 = load ptr, ptr %c.addr, align 8
+  %slot127 = getelementptr inbounds %struct.client, ptr %107, i32 0, i32 30
+  %108 = load i32, ptr %slot127, align 8
+  %cmp128 = icmp ne i32 %call126, %108
   br i1 %cmp128, label %if.then130, label %if.end132
 
 if.then130:                                       ; preds = %land.lhs.true113
-  %107 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %107, ptr noundef @.str.10)
-  %108 = load i32, ptr %syntax_error, align 4
-  %inc131 = add nsw i32 %108, 1
+  %109 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %109, ptr noundef @.str.10)
+  %110 = load i32, ptr %syntax_error, align 4
+  %inc131 = add nsw i32 %110, 1
   store i32 %inc131, ptr %syntax_error, align 4
   br label %while.end
 
 if.end132:                                        ; preds = %land.lhs.true113, %if.then111
-  %109 = load i32, ptr %user_has_full_key_access, align 4
-  %tobool133 = icmp ne i32 %109, 0
+  %111 = load i32, ptr %user_has_full_key_access, align 4
+  %tobool133 = icmp ne i32 %111, 0
   br i1 %tobool133, label %if.end136, label %if.then134
 
 if.then134:                                       ; preds = %if.end132
-  %110 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %110, ptr noundef @.str.11)
-  %111 = load i32, ptr %syntax_error, align 4
-  %inc135 = add nsw i32 %111, 1
+  %112 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %112, ptr noundef @.str.11)
+  %113 = load i32, ptr %syntax_error, align 4
+  %inc135 = add nsw i32 %113, 1
   store i32 %inc135, ptr %syntax_error, align 4
   br label %while.end
 
 if.end136:                                        ; preds = %if.end132
-  %112 = load ptr, ptr %operations, align 8
-  %113 = load ptr, ptr %c.addr, align 8
-  %argv137 = getelementptr inbounds %struct.client, ptr %113, i32 0, i32 12
-  %114 = load ptr, ptr %argv137, align 8
-  %115 = load i32, ptr %j, align 4
-  %add138 = add nsw i32 %115, 1
+  %114 = load ptr, ptr %operations, align 8
+  %115 = load ptr, ptr %c.addr, align 8
+  %argv137 = getelementptr inbounds %struct.client, ptr %115, i32 0, i32 12
+  %116 = load ptr, ptr %argv137, align 8
+  %117 = load i32, ptr %j, align 4
+  %add138 = add nsw i32 %117, 1
   %idxprom139 = sext i32 %add138 to i64
-  %arrayidx140 = getelementptr inbounds ptr, ptr %114, i64 %idxprom139
-  %116 = load ptr, ptr %arrayidx140, align 8
-  %call141 = call ptr @createSortOperation(i32 noundef 0, ptr noundef %116)
-  %call142 = call ptr @listAddNodeTail(ptr noundef %112, ptr noundef %call141)
-  %117 = load i32, ptr %getop, align 4
-  %inc143 = add nsw i32 %117, 1
+  %arrayidx140 = getelementptr inbounds ptr, ptr %116, i64 %idxprom139
+  %118 = load ptr, ptr %arrayidx140, align 8
+  %call141 = call ptr @createSortOperation(i32 noundef 0, ptr noundef %118)
+  %call142 = call ptr @listAddNodeTail(ptr noundef %114, ptr noundef %call141)
+  %119 = load i32, ptr %getop, align 4
+  %inc143 = add nsw i32 %119, 1
   store i32 %inc143, ptr %getop, align 4
-  %118 = load i32, ptr %j, align 4
-  %inc144 = add nsw i32 %118, 1
+  %120 = load i32, ptr %j, align 4
+  %inc144 = add nsw i32 %120, 1
   store i32 %inc144, ptr %j, align 4
   br label %if.end147
 
 if.else145:                                       ; preds = %land.lhs.true108, %if.else101
-  %119 = load ptr, ptr %c.addr, align 8
-  %120 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i32 0, i32 15), align 8
-  call void @addReplyErrorObject(ptr noundef %119, ptr noundef %120)
-  %121 = load i32, ptr %syntax_error, align 4
-  %inc146 = add nsw i32 %121, 1
+  %121 = load ptr, ptr %c.addr, align 8
+  %122 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i32 0, i32 15
+  %123 = load ptr, ptr %122, align 8
+  call void @addReplyErrorObject(ptr noundef %121, ptr noundef %123)
+  %124 = load i32, ptr %syntax_error, align 4
+  %inc146 = add nsw i32 %124, 1
   store i32 %inc146, ptr %syntax_error, align 4
   br label %while.end
 
@@ -1144,73 +1152,74 @@ if.end152:                                        ; preds = %if.end151, %if.then
   br label %if.end153
 
 if.end153:                                        ; preds = %if.end152, %if.then
-  %122 = load i32, ptr %j, align 4
-  %inc154 = add nsw i32 %122, 1
+  %125 = load i32, ptr %j, align 4
+  %inc154 = add nsw i32 %125, 1
   store i32 %inc154, ptr %j, align 4
   br label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %if.else145, %if.then134, %if.then130, %if.then96, %if.then92, %if.then42, %while.cond
-  %123 = load i32, ptr %syntax_error, align 4
-  %tobool155 = icmp ne i32 %123, 0
+  %126 = load i32, ptr %syntax_error, align 4
+  %tobool155 = icmp ne i32 %126, 0
   br i1 %tobool155, label %if.then156, label %if.end157
 
 if.then156:                                       ; preds = %while.end
-  %124 = load ptr, ptr %operations, align 8
-  call void @listRelease(ptr noundef %124)
+  %127 = load ptr, ptr %operations, align 8
+  call void @listRelease(ptr noundef %127)
   br label %return
 
 if.end157:                                        ; preds = %while.end
-  %125 = load ptr, ptr %c.addr, align 8
-  %db = getelementptr inbounds %struct.client, ptr %125, i32 0, i32 4
-  %126 = load ptr, ptr %db, align 8
-  %127 = load ptr, ptr %c.addr, align 8
-  %argv158 = getelementptr inbounds %struct.client, ptr %127, i32 0, i32 12
-  %128 = load ptr, ptr %argv158, align 8
-  %arrayidx159 = getelementptr inbounds ptr, ptr %128, i64 1
-  %129 = load ptr, ptr %arrayidx159, align 8
-  %call160 = call ptr @lookupKeyRead(ptr noundef %126, ptr noundef %129)
+  %128 = load ptr, ptr %c.addr, align 8
+  %db = getelementptr inbounds %struct.client, ptr %128, i32 0, i32 4
+  %129 = load ptr, ptr %db, align 8
+  %130 = load ptr, ptr %c.addr, align 8
+  %argv158 = getelementptr inbounds %struct.client, ptr %130, i32 0, i32 12
+  %131 = load ptr, ptr %argv158, align 8
+  %arrayidx159 = getelementptr inbounds ptr, ptr %131, i64 1
+  %132 = load ptr, ptr %arrayidx159, align 8
+  %call160 = call ptr @lookupKeyRead(ptr noundef %129, ptr noundef %132)
   store ptr %call160, ptr %sortval, align 8
-  %130 = load ptr, ptr %sortval, align 8
-  %tobool161 = icmp ne ptr %130, null
+  %133 = load ptr, ptr %sortval, align 8
+  %tobool161 = icmp ne ptr %133, null
   br i1 %tobool161, label %land.lhs.true162, label %if.end176
 
 land.lhs.true162:                                 ; preds = %if.end157
-  %131 = load ptr, ptr %sortval, align 8
-  %bf.load = load i32, ptr %131, align 8
+  %134 = load ptr, ptr %sortval, align 8
+  %bf.load = load i32, ptr %134, align 8
   %bf.clear = and i32 %bf.load, 15
   %cmp163 = icmp ne i32 %bf.clear, 2
   br i1 %cmp163, label %land.lhs.true165, label %if.end176
 
 land.lhs.true165:                                 ; preds = %land.lhs.true162
-  %132 = load ptr, ptr %sortval, align 8
-  %bf.load166 = load i32, ptr %132, align 8
+  %135 = load ptr, ptr %sortval, align 8
+  %bf.load166 = load i32, ptr %135, align 8
   %bf.clear167 = and i32 %bf.load166, 15
   %cmp168 = icmp ne i32 %bf.clear167, 1
   br i1 %cmp168, label %land.lhs.true170, label %if.end176
 
 land.lhs.true170:                                 ; preds = %land.lhs.true165
-  %133 = load ptr, ptr %sortval, align 8
-  %bf.load171 = load i32, ptr %133, align 8
+  %136 = load ptr, ptr %sortval, align 8
+  %bf.load171 = load i32, ptr %136, align 8
   %bf.clear172 = and i32 %bf.load171, 15
   %cmp173 = icmp ne i32 %bf.clear172, 3
   br i1 %cmp173, label %if.then175, label %if.end176
 
 if.then175:                                       ; preds = %land.lhs.true170
-  %134 = load ptr, ptr %operations, align 8
-  call void @listRelease(ptr noundef %134)
-  %135 = load ptr, ptr %c.addr, align 8
-  %136 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i32 0, i32 13), align 8
-  call void @addReplyErrorObject(ptr noundef %135, ptr noundef %136)
+  %137 = load ptr, ptr %operations, align 8
+  call void @listRelease(ptr noundef %137)
+  %138 = load ptr, ptr %c.addr, align 8
+  %139 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i32 0, i32 13
+  %140 = load ptr, ptr %139, align 8
+  call void @addReplyErrorObject(ptr noundef %138, ptr noundef %140)
   br label %return
 
 if.end176:                                        ; preds = %land.lhs.true170, %land.lhs.true165, %land.lhs.true162, %if.end157
-  %137 = load ptr, ptr %sortval, align 8
-  %tobool177 = icmp ne ptr %137, null
+  %141 = load ptr, ptr %sortval, align 8
+  %tobool177 = icmp ne ptr %141, null
   br i1 %tobool177, label %if.then178, label %if.else179
 
 if.then178:                                       ; preds = %if.end176
-  %138 = load ptr, ptr %sortval, align 8
-  call void @incrRefCount(ptr noundef %138)
+  %142 = load ptr, ptr %sortval, align 8
+  call void @incrRefCount(ptr noundef %142)
   br label %if.end181
 
 if.else179:                                       ; preds = %if.end176
@@ -1219,27 +1228,27 @@ if.else179:                                       ; preds = %if.end176
   br label %if.end181
 
 if.end181:                                        ; preds = %if.else179, %if.then178
-  %139 = load i32, ptr %dontsort, align 4
-  %tobool182 = icmp ne i32 %139, 0
+  %143 = load i32, ptr %dontsort, align 4
+  %tobool182 = icmp ne i32 %143, 0
   br i1 %tobool182, label %land.lhs.true183, label %if.end193
 
 land.lhs.true183:                                 ; preds = %if.end181
-  %140 = load ptr, ptr %sortval, align 8
-  %bf.load184 = load i32, ptr %140, align 8
+  %144 = load ptr, ptr %sortval, align 8
+  %bf.load184 = load i32, ptr %144, align 8
   %bf.clear185 = and i32 %bf.load184, 15
   %cmp186 = icmp eq i32 %bf.clear185, 2
   br i1 %cmp186, label %land.lhs.true188, label %if.end193
 
 land.lhs.true188:                                 ; preds = %land.lhs.true183
-  %141 = load ptr, ptr %storekey, align 8
-  %tobool189 = icmp ne ptr %141, null
+  %145 = load ptr, ptr %storekey, align 8
+  %tobool189 = icmp ne ptr %145, null
   br i1 %tobool189, label %if.then192, label %lor.lhs.false190
 
 lor.lhs.false190:                                 ; preds = %land.lhs.true188
-  %142 = load ptr, ptr %c.addr, align 8
-  %flags = getelementptr inbounds %struct.client, ptr %142, i32 0, i32 1
-  %143 = load i64, ptr %flags, align 8
-  %and = and i64 %143, 256
+  %146 = load ptr, ptr %c.addr, align 8
+  %flags = getelementptr inbounds %struct.client, ptr %146, i32 0, i32 1
+  %147 = load i64, ptr %flags, align 8
+  %and = and i64 %147, 256
   %tobool191 = icmp ne i64 %and, 0
   br i1 %tobool191, label %if.then192, label %if.end193
 
@@ -1250,20 +1259,20 @@ if.then192:                                       ; preds = %lor.lhs.false190, %
   br label %if.end193
 
 if.end193:                                        ; preds = %if.then192, %lor.lhs.false190, %land.lhs.true183, %if.end181
-  %144 = load ptr, ptr %sortval, align 8
-  %bf.load194 = load i32, ptr %144, align 8
+  %148 = load ptr, ptr %sortval, align 8
+  %bf.load194 = load i32, ptr %148, align 8
   %bf.clear195 = and i32 %bf.load194, 15
   %cmp196 = icmp eq i32 %bf.clear195, 3
   br i1 %cmp196, label %if.then198, label %if.end199
 
 if.then198:                                       ; preds = %if.end193
-  %145 = load ptr, ptr %sortval, align 8
-  call void @zsetConvert(ptr noundef %145, i32 noundef 7)
+  %149 = load ptr, ptr %sortval, align 8
+  call void @zsetConvert(ptr noundef %149, i32 noundef 7)
   br label %if.end199
 
 if.end199:                                        ; preds = %if.then198, %if.end193
-  %146 = load ptr, ptr %sortval, align 8
-  %bf.load200 = load i32, ptr %146, align 8
+  %150 = load ptr, ptr %sortval, align 8
+  %bf.load200 = load i32, ptr %150, align 8
   %bf.clear201 = and i32 %bf.load200, 15
   switch i32 %bf.clear201, label %sw.default [
     i32 1, label %sw.bb
@@ -1272,37 +1281,37 @@ if.end199:                                        ; preds = %if.then198, %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end199
-  %147 = load ptr, ptr %sortval, align 8
-  %call202 = call i64 @listTypeLength(ptr noundef %147)
+  %151 = load ptr, ptr %sortval, align 8
+  %call202 = call i64 @listTypeLength(ptr noundef %151)
   %conv203 = trunc i64 %call202 to i32
   store i32 %conv203, ptr %vectorlen, align 4
   br label %sw.epilog
 
 sw.bb204:                                         ; preds = %if.end199
-  %148 = load ptr, ptr %sortval, align 8
-  %call205 = call i64 @setTypeSize(ptr noundef %148)
+  %152 = load ptr, ptr %sortval, align 8
+  %call205 = call i64 @setTypeSize(ptr noundef %152)
   %conv206 = trunc i64 %call205 to i32
   store i32 %conv206, ptr %vectorlen, align 4
   br label %sw.epilog
 
 sw.bb207:                                         ; preds = %if.end199
-  %149 = load ptr, ptr %sortval, align 8
-  %ptr208 = getelementptr inbounds %struct.redisObject, ptr %149, i32 0, i32 2
-  %150 = load ptr, ptr %ptr208, align 8
-  %dict = getelementptr inbounds %struct.zset, ptr %150, i32 0, i32 0
-  %151 = load ptr, ptr %dict, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %151, i32 0, i32 2
-  %arrayidx209 = getelementptr inbounds [2 x i64], ptr %ht_used, i64 0, i64 0
-  %152 = load i64, ptr %arrayidx209, align 8
   %153 = load ptr, ptr %sortval, align 8
-  %ptr210 = getelementptr inbounds %struct.redisObject, ptr %153, i32 0, i32 2
-  %154 = load ptr, ptr %ptr210, align 8
-  %dict211 = getelementptr inbounds %struct.zset, ptr %154, i32 0, i32 0
-  %155 = load ptr, ptr %dict211, align 8
-  %ht_used212 = getelementptr inbounds %struct.dict, ptr %155, i32 0, i32 2
+  %ptr208 = getelementptr inbounds %struct.redisObject, ptr %153, i32 0, i32 2
+  %154 = load ptr, ptr %ptr208, align 8
+  %dict = getelementptr inbounds %struct.zset, ptr %154, i32 0, i32 0
+  %155 = load ptr, ptr %dict, align 8
+  %ht_used = getelementptr inbounds %struct.dict, ptr %155, i32 0, i32 2
+  %arrayidx209 = getelementptr inbounds [2 x i64], ptr %ht_used, i64 0, i64 0
+  %156 = load i64, ptr %arrayidx209, align 8
+  %157 = load ptr, ptr %sortval, align 8
+  %ptr210 = getelementptr inbounds %struct.redisObject, ptr %157, i32 0, i32 2
+  %158 = load ptr, ptr %ptr210, align 8
+  %dict211 = getelementptr inbounds %struct.zset, ptr %158, i32 0, i32 0
+  %159 = load ptr, ptr %dict211, align 8
+  %ht_used212 = getelementptr inbounds %struct.dict, ptr %159, i32 0, i32 2
   %arrayidx213 = getelementptr inbounds [2 x i64], ptr %ht_used212, i64 0, i64 1
-  %156 = load i64, ptr %arrayidx213, align 8
-  %add214 = add i64 %152, %156
+  %160 = load i64, ptr %arrayidx213, align 8
+  %add214 = add i64 %156, %160
   %conv215 = trunc i64 %add214 to i32
   store i32 %conv215, ptr %vectorlen, align 4
   br label %sw.epilog
@@ -1314,281 +1323,281 @@ sw.default:                                       ; preds = %if.end199
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb207, %sw.bb204, %sw.bb
-  %157 = load i64, ptr %limit_start, align 8
-  %cmp216 = icmp sgt i64 %157, 0
+  %161 = load i64, ptr %limit_start, align 8
+  %cmp216 = icmp sgt i64 %161, 0
   br i1 %cmp216, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %sw.epilog
-  %158 = load i64, ptr %limit_start, align 8
+  %162 = load i64, ptr %limit_start, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %sw.epilog
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %158, %cond.true ], [ 0, %cond.false ]
-  %159 = load i32, ptr %vectorlen, align 4
-  %conv218 = sext i32 %159 to i64
+  %cond = phi i64 [ %162, %cond.true ], [ 0, %cond.false ]
+  %163 = load i32, ptr %vectorlen, align 4
+  %conv218 = sext i32 %163 to i64
   %cmp219 = icmp slt i64 %cond, %conv218
   br i1 %cmp219, label %cond.true221, label %cond.false228
 
 cond.true221:                                     ; preds = %cond.end
-  %160 = load i64, ptr %limit_start, align 8
-  %cmp222 = icmp sgt i64 %160, 0
+  %164 = load i64, ptr %limit_start, align 8
+  %cmp222 = icmp sgt i64 %164, 0
   br i1 %cmp222, label %cond.true224, label %cond.false225
 
 cond.true224:                                     ; preds = %cond.true221
-  %161 = load i64, ptr %limit_start, align 8
+  %165 = load i64, ptr %limit_start, align 8
   br label %cond.end226
 
 cond.false225:                                    ; preds = %cond.true221
   br label %cond.end226
 
 cond.end226:                                      ; preds = %cond.false225, %cond.true224
-  %cond227 = phi i64 [ %161, %cond.true224 ], [ 0, %cond.false225 ]
+  %cond227 = phi i64 [ %165, %cond.true224 ], [ 0, %cond.false225 ]
   br label %cond.end230
 
 cond.false228:                                    ; preds = %cond.end
-  %162 = load i32, ptr %vectorlen, align 4
-  %conv229 = sext i32 %162 to i64
+  %166 = load i32, ptr %vectorlen, align 4
+  %conv229 = sext i32 %166 to i64
   br label %cond.end230
 
 cond.end230:                                      ; preds = %cond.false228, %cond.end226
   %cond231 = phi i64 [ %cond227, %cond.end226 ], [ %conv229, %cond.false228 ]
   store i64 %cond231, ptr %start, align 8
-  %163 = load i64, ptr %limit_count, align 8
-  %cmp232 = icmp sgt i64 %163, -1
+  %167 = load i64, ptr %limit_count, align 8
+  %cmp232 = icmp sgt i64 %167, -1
   br i1 %cmp232, label %cond.true234, label %cond.false235
 
 cond.true234:                                     ; preds = %cond.end230
-  %164 = load i64, ptr %limit_count, align 8
+  %168 = load i64, ptr %limit_count, align 8
   br label %cond.end236
 
 cond.false235:                                    ; preds = %cond.end230
   br label %cond.end236
 
 cond.end236:                                      ; preds = %cond.false235, %cond.true234
-  %cond237 = phi i64 [ %164, %cond.true234 ], [ -1, %cond.false235 ]
-  %165 = load i32, ptr %vectorlen, align 4
-  %conv238 = sext i32 %165 to i64
+  %cond237 = phi i64 [ %168, %cond.true234 ], [ -1, %cond.false235 ]
+  %169 = load i32, ptr %vectorlen, align 4
+  %conv238 = sext i32 %169 to i64
   %cmp239 = icmp slt i64 %cond237, %conv238
   br i1 %cmp239, label %cond.true241, label %cond.false248
 
 cond.true241:                                     ; preds = %cond.end236
-  %166 = load i64, ptr %limit_count, align 8
-  %cmp242 = icmp sgt i64 %166, -1
+  %170 = load i64, ptr %limit_count, align 8
+  %cmp242 = icmp sgt i64 %170, -1
   br i1 %cmp242, label %cond.true244, label %cond.false245
 
 cond.true244:                                     ; preds = %cond.true241
-  %167 = load i64, ptr %limit_count, align 8
+  %171 = load i64, ptr %limit_count, align 8
   br label %cond.end246
 
 cond.false245:                                    ; preds = %cond.true241
   br label %cond.end246
 
 cond.end246:                                      ; preds = %cond.false245, %cond.true244
-  %cond247 = phi i64 [ %167, %cond.true244 ], [ -1, %cond.false245 ]
+  %cond247 = phi i64 [ %171, %cond.true244 ], [ -1, %cond.false245 ]
   br label %cond.end250
 
 cond.false248:                                    ; preds = %cond.end236
-  %168 = load i32, ptr %vectorlen, align 4
-  %conv249 = sext i32 %168 to i64
+  %172 = load i32, ptr %vectorlen, align 4
+  %conv249 = sext i32 %172 to i64
   br label %cond.end250
 
 cond.end250:                                      ; preds = %cond.false248, %cond.end246
   %cond251 = phi i64 [ %cond247, %cond.end246 ], [ %conv249, %cond.false248 ]
   store i64 %cond251, ptr %limit_count, align 8
-  %169 = load i64, ptr %limit_count, align 8
-  %cmp252 = icmp slt i64 %169, 0
+  %173 = load i64, ptr %limit_count, align 8
+  %cmp252 = icmp slt i64 %173, 0
   br i1 %cmp252, label %cond.true254, label %cond.false257
 
 cond.true254:                                     ; preds = %cond.end250
-  %170 = load i32, ptr %vectorlen, align 4
-  %sub255 = sub nsw i32 %170, 1
+  %174 = load i32, ptr %vectorlen, align 4
+  %sub255 = sub nsw i32 %174, 1
   %conv256 = sext i32 %sub255 to i64
   br label %cond.end260
 
 cond.false257:                                    ; preds = %cond.end250
-  %171 = load i64, ptr %start, align 8
-  %172 = load i64, ptr %limit_count, align 8
-  %add258 = add nsw i64 %171, %172
+  %175 = load i64, ptr %start, align 8
+  %176 = load i64, ptr %limit_count, align 8
+  %add258 = add nsw i64 %175, %176
   %sub259 = sub nsw i64 %add258, 1
   br label %cond.end260
 
 cond.end260:                                      ; preds = %cond.false257, %cond.true254
   %cond261 = phi i64 [ %conv256, %cond.true254 ], [ %sub259, %cond.false257 ]
   store i64 %cond261, ptr %end, align 8
-  %173 = load i64, ptr %start, align 8
-  %174 = load i32, ptr %vectorlen, align 4
-  %conv262 = sext i32 %174 to i64
-  %cmp263 = icmp sge i64 %173, %conv262
+  %177 = load i64, ptr %start, align 8
+  %178 = load i32, ptr %vectorlen, align 4
+  %conv262 = sext i32 %178 to i64
+  %cmp263 = icmp sge i64 %177, %conv262
   br i1 %cmp263, label %if.then265, label %if.end270
 
 if.then265:                                       ; preds = %cond.end260
-  %175 = load i32, ptr %vectorlen, align 4
-  %sub266 = sub nsw i32 %175, 1
+  %179 = load i32, ptr %vectorlen, align 4
+  %sub266 = sub nsw i32 %179, 1
   %conv267 = sext i32 %sub266 to i64
   store i64 %conv267, ptr %start, align 8
-  %176 = load i32, ptr %vectorlen, align 4
-  %sub268 = sub nsw i32 %176, 2
+  %180 = load i32, ptr %vectorlen, align 4
+  %sub268 = sub nsw i32 %180, 2
   %conv269 = sext i32 %sub268 to i64
   store i64 %conv269, ptr %end, align 8
   br label %if.end270
 
 if.end270:                                        ; preds = %if.then265, %cond.end260
-  %177 = load i64, ptr %end, align 8
-  %178 = load i32, ptr %vectorlen, align 4
-  %conv271 = sext i32 %178 to i64
-  %cmp272 = icmp sge i64 %177, %conv271
+  %181 = load i64, ptr %end, align 8
+  %182 = load i32, ptr %vectorlen, align 4
+  %conv271 = sext i32 %182 to i64
+  %cmp272 = icmp sge i64 %181, %conv271
   br i1 %cmp272, label %if.then274, label %if.end277
 
 if.then274:                                       ; preds = %if.end270
-  %179 = load i32, ptr %vectorlen, align 4
-  %sub275 = sub nsw i32 %179, 1
+  %183 = load i32, ptr %vectorlen, align 4
+  %sub275 = sub nsw i32 %183, 1
   %conv276 = sext i32 %sub275 to i64
   store i64 %conv276, ptr %end, align 8
   br label %if.end277
 
 if.end277:                                        ; preds = %if.then274, %if.end270
-  %180 = load ptr, ptr %sortval, align 8
-  %bf.load278 = load i32, ptr %180, align 8
+  %184 = load ptr, ptr %sortval, align 8
+  %bf.load278 = load i32, ptr %184, align 8
   %bf.clear279 = and i32 %bf.load278, 15
   %cmp280 = icmp eq i32 %bf.clear279, 3
   br i1 %cmp280, label %land.lhs.true287, label %lor.lhs.false282
 
 lor.lhs.false282:                                 ; preds = %if.end277
-  %181 = load ptr, ptr %sortval, align 8
-  %bf.load283 = load i32, ptr %181, align 8
+  %185 = load ptr, ptr %sortval, align 8
+  %bf.load283 = load i32, ptr %185, align 8
   %bf.clear284 = and i32 %bf.load283, 15
   %cmp285 = icmp eq i32 %bf.clear284, 1
   br i1 %cmp285, label %land.lhs.true287, label %if.end301
 
 land.lhs.true287:                                 ; preds = %lor.lhs.false282, %if.end277
-  %182 = load i32, ptr %dontsort, align 4
-  %tobool288 = icmp ne i32 %182, 0
+  %186 = load i32, ptr %dontsort, align 4
+  %tobool288 = icmp ne i32 %186, 0
   br i1 %tobool288, label %land.lhs.true289, label %if.end301
 
 land.lhs.true289:                                 ; preds = %land.lhs.true287
-  %183 = load i64, ptr %start, align 8
-  %cmp290 = icmp ne i64 %183, 0
+  %187 = load i64, ptr %start, align 8
+  %cmp290 = icmp ne i64 %187, 0
   br i1 %cmp290, label %if.then297, label %lor.lhs.false292
 
 lor.lhs.false292:                                 ; preds = %land.lhs.true289
-  %184 = load i64, ptr %end, align 8
-  %185 = load i32, ptr %vectorlen, align 4
-  %sub293 = sub nsw i32 %185, 1
+  %188 = load i64, ptr %end, align 8
+  %189 = load i32, ptr %vectorlen, align 4
+  %sub293 = sub nsw i32 %189, 1
   %conv294 = sext i32 %sub293 to i64
-  %cmp295 = icmp ne i64 %184, %conv294
+  %cmp295 = icmp ne i64 %188, %conv294
   br i1 %cmp295, label %if.then297, label %if.end301
 
 if.then297:                                       ; preds = %lor.lhs.false292, %land.lhs.true289
-  %186 = load i64, ptr %end, align 8
-  %187 = load i64, ptr %start, align 8
-  %sub298 = sub nsw i64 %186, %187
+  %190 = load i64, ptr %end, align 8
+  %191 = load i64, ptr %start, align 8
+  %sub298 = sub nsw i64 %190, %191
   %add299 = add nsw i64 %sub298, 1
   %conv300 = trunc i64 %add299 to i32
   store i32 %conv300, ptr %vectorlen, align 4
   br label %if.end301
 
 if.end301:                                        ; preds = %if.then297, %lor.lhs.false292, %land.lhs.true287, %lor.lhs.false282
-  %188 = load i32, ptr %vectorlen, align 4
-  %conv302 = sext i32 %188 to i64
+  %192 = load i32, ptr %vectorlen, align 4
+  %conv302 = sext i32 %192 to i64
   %mul = mul i64 16, %conv302
   %call303 = call noalias ptr @zmalloc(i64 noundef %mul) #9
   store ptr %call303, ptr %vector, align 8
   store i32 0, ptr %j, align 4
-  %189 = load ptr, ptr %sortval, align 8
-  %bf.load304 = load i32, ptr %189, align 8
+  %193 = load ptr, ptr %sortval, align 8
+  %bf.load304 = load i32, ptr %193, align 8
   %bf.clear305 = and i32 %bf.load304, 15
   %cmp306 = icmp eq i32 %bf.clear305, 1
   br i1 %cmp306, label %land.lhs.true308, label %if.else345
 
 land.lhs.true308:                                 ; preds = %if.end301
-  %190 = load i32, ptr %dontsort, align 4
-  %tobool309 = icmp ne i32 %190, 0
+  %194 = load i32, ptr %dontsort, align 4
+  %tobool309 = icmp ne i32 %194, 0
   br i1 %tobool309, label %if.then310, label %if.else345
 
 if.then310:                                       ; preds = %land.lhs.true308
-  %191 = load i64, ptr %end, align 8
-  %192 = load i64, ptr %start, align 8
-  %cmp311 = icmp sge i64 %191, %192
+  %195 = load i64, ptr %end, align 8
+  %196 = load i64, ptr %start, align 8
+  %cmp311 = icmp sge i64 %195, %196
   br i1 %cmp311, label %if.then313, label %if.end344
 
 if.then313:                                       ; preds = %if.then310
-  %193 = load ptr, ptr %sortval, align 8
-  %194 = load i32, ptr %desc, align 4
-  %tobool315 = icmp ne i32 %194, 0
+  %197 = load ptr, ptr %sortval, align 8
+  %198 = load i32, ptr %desc, align 4
+  %tobool315 = icmp ne i32 %198, 0
   br i1 %tobool315, label %cond.true316, label %cond.false320
 
 cond.true316:                                     ; preds = %if.then313
-  %195 = load ptr, ptr %sortval, align 8
-  %call317 = call i64 @listTypeLength(ptr noundef %195)
-  %196 = load i64, ptr %start, align 8
-  %sub318 = sub i64 %call317, %196
+  %199 = load ptr, ptr %sortval, align 8
+  %call317 = call i64 @listTypeLength(ptr noundef %199)
+  %200 = load i64, ptr %start, align 8
+  %sub318 = sub i64 %call317, %200
   %sub319 = sub i64 %sub318, 1
   br label %cond.end321
 
 cond.false320:                                    ; preds = %if.then313
-  %197 = load i64, ptr %start, align 8
+  %201 = load i64, ptr %start, align 8
   br label %cond.end321
 
 cond.end321:                                      ; preds = %cond.false320, %cond.true316
-  %cond322 = phi i64 [ %sub319, %cond.true316 ], [ %197, %cond.false320 ]
-  %198 = load i32, ptr %desc, align 4
-  %tobool323 = icmp ne i32 %198, 0
+  %cond322 = phi i64 [ %sub319, %cond.true316 ], [ %201, %cond.false320 ]
+  %202 = load i32, ptr %desc, align 4
+  %tobool323 = icmp ne i32 %202, 0
   %cond324 = select i1 %tobool323, i32 0, i32 1
   %conv325 = trunc i32 %cond324 to i8
-  %call326 = call ptr @listTypeInitIterator(ptr noundef %193, i64 noundef %cond322, i8 noundef zeroext %conv325)
+  %call326 = call ptr @listTypeInitIterator(ptr noundef %197, i64 noundef %cond322, i8 noundef zeroext %conv325)
   store ptr %call326, ptr %li, align 8
   br label %while.cond327
 
 while.cond327:                                    ; preds = %while.body332, %cond.end321
-  %199 = load i32, ptr %j, align 4
-  %200 = load i32, ptr %vectorlen, align 4
-  %cmp328 = icmp slt i32 %199, %200
+  %203 = load i32, ptr %j, align 4
+  %204 = load i32, ptr %vectorlen, align 4
+  %cmp328 = icmp slt i32 %203, %204
   br i1 %cmp328, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond327
-  %201 = load ptr, ptr %li, align 8
-  %call330 = call i32 @listTypeNext(ptr noundef %201, ptr noundef %entry314)
+  %205 = load ptr, ptr %li, align 8
+  %call330 = call i32 @listTypeNext(ptr noundef %205, ptr noundef %entry314)
   %tobool331 = icmp ne i32 %call330, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond327
-  %202 = phi i1 [ false, %while.cond327 ], [ %tobool331, %land.rhs ]
-  br i1 %202, label %while.body332, label %while.end342
+  %206 = phi i1 [ false, %while.cond327 ], [ %tobool331, %land.rhs ]
+  br i1 %206, label %while.body332, label %while.end342
 
 while.body332:                                    ; preds = %land.end
   %call333 = call ptr @listTypeGet(ptr noundef %entry314)
-  %203 = load ptr, ptr %vector, align 8
-  %204 = load i32, ptr %j, align 4
-  %idxprom334 = sext i32 %204 to i64
-  %arrayidx335 = getelementptr inbounds %struct._redisSortObject, ptr %203, i64 %idxprom334
-  %obj = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx335, i32 0, i32 0
-  store ptr %call333, ptr %obj, align 8
-  %205 = load ptr, ptr %vector, align 8
-  %206 = load i32, ptr %j, align 4
-  %idxprom336 = sext i32 %206 to i64
-  %arrayidx337 = getelementptr inbounds %struct._redisSortObject, ptr %205, i64 %idxprom336
-  %u = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx337, i32 0, i32 1
-  store double 0.000000e+00, ptr %u, align 8
   %207 = load ptr, ptr %vector, align 8
   %208 = load i32, ptr %j, align 4
-  %idxprom338 = sext i32 %208 to i64
-  %arrayidx339 = getelementptr inbounds %struct._redisSortObject, ptr %207, i64 %idxprom338
+  %idxprom334 = sext i32 %208 to i64
+  %arrayidx335 = getelementptr inbounds %struct._redisSortObject, ptr %207, i64 %idxprom334
+  %obj = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx335, i32 0, i32 0
+  store ptr %call333, ptr %obj, align 8
+  %209 = load ptr, ptr %vector, align 8
+  %210 = load i32, ptr %j, align 4
+  %idxprom336 = sext i32 %210 to i64
+  %arrayidx337 = getelementptr inbounds %struct._redisSortObject, ptr %209, i64 %idxprom336
+  %u = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx337, i32 0, i32 1
+  store double 0.000000e+00, ptr %u, align 8
+  %211 = load ptr, ptr %vector, align 8
+  %212 = load i32, ptr %j, align 4
+  %idxprom338 = sext i32 %212 to i64
+  %arrayidx339 = getelementptr inbounds %struct._redisSortObject, ptr %211, i64 %idxprom338
   %u340 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx339, i32 0, i32 1
   store ptr null, ptr %u340, align 8
-  %209 = load i32, ptr %j, align 4
-  %inc341 = add nsw i32 %209, 1
+  %213 = load i32, ptr %j, align 4
+  %inc341 = add nsw i32 %213, 1
   store i32 %inc341, ptr %j, align 4
   br label %while.cond327, !llvm.loop !7
 
 while.end342:                                     ; preds = %land.end
-  %210 = load ptr, ptr %li, align 8
-  call void @listTypeReleaseIterator(ptr noundef %210)
-  %211 = load i64, ptr %start, align 8
-  %212 = load i64, ptr %end, align 8
-  %sub343 = sub nsw i64 %212, %211
+  %214 = load ptr, ptr %li, align 8
+  call void @listTypeReleaseIterator(ptr noundef %214)
+  %215 = load i64, ptr %start, align 8
+  %216 = load i64, ptr %end, align 8
+  %sub343 = sub nsw i64 %216, %215
   store i64 %sub343, ptr %end, align 8
   store i64 0, ptr %start, align 8
   br label %if.end344
@@ -1597,165 +1606,165 @@ if.end344:                                        ; preds = %while.end342, %if.t
   br label %if.end498
 
 if.else345:                                       ; preds = %land.lhs.true308, %if.end301
-  %213 = load ptr, ptr %sortval, align 8
-  %bf.load346 = load i32, ptr %213, align 8
+  %217 = load ptr, ptr %sortval, align 8
+  %bf.load346 = load i32, ptr %217, align 8
   %bf.clear347 = and i32 %bf.load346, 15
   %cmp348 = icmp eq i32 %bf.clear347, 1
   br i1 %cmp348, label %if.then350, label %if.else370
 
 if.then350:                                       ; preds = %if.else345
-  %214 = load ptr, ptr %sortval, align 8
-  %call352 = call ptr @listTypeInitIterator(ptr noundef %214, i64 noundef 0, i8 noundef zeroext 1)
+  %218 = load ptr, ptr %sortval, align 8
+  %call352 = call ptr @listTypeInitIterator(ptr noundef %218, i64 noundef 0, i8 noundef zeroext 1)
   store ptr %call352, ptr %li351, align 8
   br label %while.cond354
 
 while.cond354:                                    ; preds = %while.body357, %if.then350
-  %215 = load ptr, ptr %li351, align 8
-  %call355 = call i32 @listTypeNext(ptr noundef %215, ptr noundef %entry353)
+  %219 = load ptr, ptr %li351, align 8
+  %call355 = call i32 @listTypeNext(ptr noundef %219, ptr noundef %entry353)
   %tobool356 = icmp ne i32 %call355, 0
   br i1 %tobool356, label %while.body357, label %while.end369
 
 while.body357:                                    ; preds = %while.cond354
   %call358 = call ptr @listTypeGet(ptr noundef %entry353)
-  %216 = load ptr, ptr %vector, align 8
-  %217 = load i32, ptr %j, align 4
-  %idxprom359 = sext i32 %217 to i64
-  %arrayidx360 = getelementptr inbounds %struct._redisSortObject, ptr %216, i64 %idxprom359
-  %obj361 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx360, i32 0, i32 0
-  store ptr %call358, ptr %obj361, align 8
-  %218 = load ptr, ptr %vector, align 8
-  %219 = load i32, ptr %j, align 4
-  %idxprom362 = sext i32 %219 to i64
-  %arrayidx363 = getelementptr inbounds %struct._redisSortObject, ptr %218, i64 %idxprom362
-  %u364 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx363, i32 0, i32 1
-  store double 0.000000e+00, ptr %u364, align 8
   %220 = load ptr, ptr %vector, align 8
   %221 = load i32, ptr %j, align 4
-  %idxprom365 = sext i32 %221 to i64
-  %arrayidx366 = getelementptr inbounds %struct._redisSortObject, ptr %220, i64 %idxprom365
+  %idxprom359 = sext i32 %221 to i64
+  %arrayidx360 = getelementptr inbounds %struct._redisSortObject, ptr %220, i64 %idxprom359
+  %obj361 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx360, i32 0, i32 0
+  store ptr %call358, ptr %obj361, align 8
+  %222 = load ptr, ptr %vector, align 8
+  %223 = load i32, ptr %j, align 4
+  %idxprom362 = sext i32 %223 to i64
+  %arrayidx363 = getelementptr inbounds %struct._redisSortObject, ptr %222, i64 %idxprom362
+  %u364 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx363, i32 0, i32 1
+  store double 0.000000e+00, ptr %u364, align 8
+  %224 = load ptr, ptr %vector, align 8
+  %225 = load i32, ptr %j, align 4
+  %idxprom365 = sext i32 %225 to i64
+  %arrayidx366 = getelementptr inbounds %struct._redisSortObject, ptr %224, i64 %idxprom365
   %u367 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx366, i32 0, i32 1
   store ptr null, ptr %u367, align 8
-  %222 = load i32, ptr %j, align 4
-  %inc368 = add nsw i32 %222, 1
+  %226 = load i32, ptr %j, align 4
+  %inc368 = add nsw i32 %226, 1
   store i32 %inc368, ptr %j, align 4
   br label %while.cond354, !llvm.loop !8
 
 while.end369:                                     ; preds = %while.cond354
-  %223 = load ptr, ptr %li351, align 8
-  call void @listTypeReleaseIterator(ptr noundef %223)
+  %227 = load ptr, ptr %li351, align 8
+  call void @listTypeReleaseIterator(ptr noundef %227)
   br label %if.end497
 
 if.else370:                                       ; preds = %if.else345
-  %224 = load ptr, ptr %sortval, align 8
-  %bf.load371 = load i32, ptr %224, align 8
+  %228 = load ptr, ptr %sortval, align 8
+  %bf.load371 = load i32, ptr %228, align 8
   %bf.clear372 = and i32 %bf.load371, 15
   %cmp373 = icmp eq i32 %bf.clear372, 2
   br i1 %cmp373, label %if.then375, label %if.else394
 
 if.then375:                                       ; preds = %if.else370
-  %225 = load ptr, ptr %sortval, align 8
-  %call376 = call ptr @setTypeInitIterator(ptr noundef %225)
+  %229 = load ptr, ptr %sortval, align 8
+  %call376 = call ptr @setTypeInitIterator(ptr noundef %229)
   store ptr %call376, ptr %si, align 8
   br label %while.cond377
 
 while.cond377:                                    ; preds = %while.body381, %if.then375
-  %226 = load ptr, ptr %si, align 8
-  %call378 = call ptr @setTypeNextObject(ptr noundef %226)
+  %230 = load ptr, ptr %si, align 8
+  %call378 = call ptr @setTypeNextObject(ptr noundef %230)
   store ptr %call378, ptr %sdsele, align 8
   %cmp379 = icmp ne ptr %call378, null
   br i1 %cmp379, label %while.body381, label %while.end393
 
 while.body381:                                    ; preds = %while.cond377
-  %227 = load ptr, ptr %sdsele, align 8
-  %call382 = call ptr @createObject(i32 noundef 0, ptr noundef %227)
-  %228 = load ptr, ptr %vector, align 8
-  %229 = load i32, ptr %j, align 4
-  %idxprom383 = sext i32 %229 to i64
-  %arrayidx384 = getelementptr inbounds %struct._redisSortObject, ptr %228, i64 %idxprom383
-  %obj385 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx384, i32 0, i32 0
-  store ptr %call382, ptr %obj385, align 8
-  %230 = load ptr, ptr %vector, align 8
-  %231 = load i32, ptr %j, align 4
-  %idxprom386 = sext i32 %231 to i64
-  %arrayidx387 = getelementptr inbounds %struct._redisSortObject, ptr %230, i64 %idxprom386
-  %u388 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx387, i32 0, i32 1
-  store double 0.000000e+00, ptr %u388, align 8
+  %231 = load ptr, ptr %sdsele, align 8
+  %call382 = call ptr @createObject(i32 noundef 0, ptr noundef %231)
   %232 = load ptr, ptr %vector, align 8
   %233 = load i32, ptr %j, align 4
-  %idxprom389 = sext i32 %233 to i64
-  %arrayidx390 = getelementptr inbounds %struct._redisSortObject, ptr %232, i64 %idxprom389
+  %idxprom383 = sext i32 %233 to i64
+  %arrayidx384 = getelementptr inbounds %struct._redisSortObject, ptr %232, i64 %idxprom383
+  %obj385 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx384, i32 0, i32 0
+  store ptr %call382, ptr %obj385, align 8
+  %234 = load ptr, ptr %vector, align 8
+  %235 = load i32, ptr %j, align 4
+  %idxprom386 = sext i32 %235 to i64
+  %arrayidx387 = getelementptr inbounds %struct._redisSortObject, ptr %234, i64 %idxprom386
+  %u388 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx387, i32 0, i32 1
+  store double 0.000000e+00, ptr %u388, align 8
+  %236 = load ptr, ptr %vector, align 8
+  %237 = load i32, ptr %j, align 4
+  %idxprom389 = sext i32 %237 to i64
+  %arrayidx390 = getelementptr inbounds %struct._redisSortObject, ptr %236, i64 %idxprom389
   %u391 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx390, i32 0, i32 1
   store ptr null, ptr %u391, align 8
-  %234 = load i32, ptr %j, align 4
-  %inc392 = add nsw i32 %234, 1
+  %238 = load i32, ptr %j, align 4
+  %inc392 = add nsw i32 %238, 1
   store i32 %inc392, ptr %j, align 4
   br label %while.cond377, !llvm.loop !9
 
 while.end393:                                     ; preds = %while.cond377
-  %235 = load ptr, ptr %si, align 8
-  call void @setTypeReleaseIterator(ptr noundef %235)
+  %239 = load ptr, ptr %si, align 8
+  call void @setTypeReleaseIterator(ptr noundef %239)
   br label %if.end496
 
 if.else394:                                       ; preds = %if.else370
-  %236 = load ptr, ptr %sortval, align 8
-  %bf.load395 = load i32, ptr %236, align 8
+  %240 = load ptr, ptr %sortval, align 8
+  %bf.load395 = load i32, ptr %240, align 8
   %bf.clear396 = and i32 %bf.load395, 15
   %cmp397 = icmp eq i32 %bf.clear396, 3
   br i1 %cmp397, label %land.lhs.true399, label %if.else464
 
 land.lhs.true399:                                 ; preds = %if.else394
-  %237 = load i32, ptr %dontsort, align 4
-  %tobool400 = icmp ne i32 %237, 0
+  %241 = load i32, ptr %dontsort, align 4
+  %tobool400 = icmp ne i32 %241, 0
   br i1 %tobool400, label %if.then401, label %if.else464
 
 if.then401:                                       ; preds = %land.lhs.true399
-  %238 = load ptr, ptr %sortval, align 8
-  %ptr402 = getelementptr inbounds %struct.redisObject, ptr %238, i32 0, i32 2
-  %239 = load ptr, ptr %ptr402, align 8
-  store ptr %239, ptr %zs, align 8
-  %240 = load ptr, ptr %zs, align 8
-  %zsl403 = getelementptr inbounds %struct.zset, ptr %240, i32 0, i32 1
-  %241 = load ptr, ptr %zsl403, align 8
-  store ptr %241, ptr %zsl, align 8
-  %242 = load i32, ptr %vectorlen, align 4
-  store i32 %242, ptr %rangelen, align 4
-  %243 = load i32, ptr %desc, align 4
-  %tobool405 = icmp ne i32 %243, 0
+  %242 = load ptr, ptr %sortval, align 8
+  %ptr402 = getelementptr inbounds %struct.redisObject, ptr %242, i32 0, i32 2
+  %243 = load ptr, ptr %ptr402, align 8
+  store ptr %243, ptr %zs, align 8
+  %244 = load ptr, ptr %zs, align 8
+  %zsl403 = getelementptr inbounds %struct.zset, ptr %244, i32 0, i32 1
+  %245 = load ptr, ptr %zsl403, align 8
+  store ptr %245, ptr %zsl, align 8
+  %246 = load i32, ptr %vectorlen, align 4
+  store i32 %246, ptr %rangelen, align 4
+  %247 = load i32, ptr %desc, align 4
+  %tobool405 = icmp ne i32 %247, 0
   br i1 %tobool405, label %if.then406, label %if.else422
 
 if.then406:                                       ; preds = %if.then401
-  %244 = load ptr, ptr %sortval, align 8
-  %ptr407 = getelementptr inbounds %struct.redisObject, ptr %244, i32 0, i32 2
-  %245 = load ptr, ptr %ptr407, align 8
-  %dict408 = getelementptr inbounds %struct.zset, ptr %245, i32 0, i32 0
-  %246 = load ptr, ptr %dict408, align 8
-  %ht_used409 = getelementptr inbounds %struct.dict, ptr %246, i32 0, i32 2
-  %arrayidx410 = getelementptr inbounds [2 x i64], ptr %ht_used409, i64 0, i64 0
-  %247 = load i64, ptr %arrayidx410, align 8
   %248 = load ptr, ptr %sortval, align 8
-  %ptr411 = getelementptr inbounds %struct.redisObject, ptr %248, i32 0, i32 2
-  %249 = load ptr, ptr %ptr411, align 8
-  %dict412 = getelementptr inbounds %struct.zset, ptr %249, i32 0, i32 0
-  %250 = load ptr, ptr %dict412, align 8
-  %ht_used413 = getelementptr inbounds %struct.dict, ptr %250, i32 0, i32 2
+  %ptr407 = getelementptr inbounds %struct.redisObject, ptr %248, i32 0, i32 2
+  %249 = load ptr, ptr %ptr407, align 8
+  %dict408 = getelementptr inbounds %struct.zset, ptr %249, i32 0, i32 0
+  %250 = load ptr, ptr %dict408, align 8
+  %ht_used409 = getelementptr inbounds %struct.dict, ptr %250, i32 0, i32 2
+  %arrayidx410 = getelementptr inbounds [2 x i64], ptr %ht_used409, i64 0, i64 0
+  %251 = load i64, ptr %arrayidx410, align 8
+  %252 = load ptr, ptr %sortval, align 8
+  %ptr411 = getelementptr inbounds %struct.redisObject, ptr %252, i32 0, i32 2
+  %253 = load ptr, ptr %ptr411, align 8
+  %dict412 = getelementptr inbounds %struct.zset, ptr %253, i32 0, i32 0
+  %254 = load ptr, ptr %dict412, align 8
+  %ht_used413 = getelementptr inbounds %struct.dict, ptr %254, i32 0, i32 2
   %arrayidx414 = getelementptr inbounds [2 x i64], ptr %ht_used413, i64 0, i64 1
-  %251 = load i64, ptr %arrayidx414, align 8
-  %add415 = add i64 %247, %251
+  %255 = load i64, ptr %arrayidx414, align 8
+  %add415 = add i64 %251, %255
   store i64 %add415, ptr %zsetlen, align 8
-  %252 = load ptr, ptr %zsl, align 8
-  %tail = getelementptr inbounds %struct.zskiplist, ptr %252, i32 0, i32 1
-  %253 = load ptr, ptr %tail, align 8
-  store ptr %253, ptr %ln, align 8
-  %254 = load i64, ptr %start, align 8
-  %cmp416 = icmp sgt i64 %254, 0
+  %256 = load ptr, ptr %zsl, align 8
+  %tail = getelementptr inbounds %struct.zskiplist, ptr %256, i32 0, i32 1
+  %257 = load ptr, ptr %tail, align 8
+  store ptr %257, ptr %ln, align 8
+  %258 = load i64, ptr %start, align 8
+  %cmp416 = icmp sgt i64 %258, 0
   br i1 %cmp416, label %if.then418, label %if.end421
 
 if.then418:                                       ; preds = %if.then406
-  %255 = load ptr, ptr %zsl, align 8
-  %256 = load i64, ptr %zsetlen, align 8
-  %257 = load i64, ptr %start, align 8
-  %sub419 = sub nsw i64 %256, %257
-  %call420 = call ptr @zslGetElementByRank(ptr noundef %255, i64 noundef %sub419)
+  %259 = load ptr, ptr %zsl, align 8
+  %260 = load i64, ptr %zsetlen, align 8
+  %261 = load i64, ptr %start, align 8
+  %sub419 = sub nsw i64 %260, %261
+  %call420 = call ptr @zslGetElementByRank(ptr noundef %259, i64 noundef %sub419)
   store ptr %call420, ptr %ln, align 8
   br label %if.end421
 
@@ -1763,23 +1772,23 @@ if.end421:                                        ; preds = %if.then418, %if.the
   br label %if.end430
 
 if.else422:                                       ; preds = %if.then401
-  %258 = load ptr, ptr %zsl, align 8
-  %header = getelementptr inbounds %struct.zskiplist, ptr %258, i32 0, i32 0
-  %259 = load ptr, ptr %header, align 8
-  %level = getelementptr inbounds %struct.zskiplistNode, ptr %259, i32 0, i32 3
+  %262 = load ptr, ptr %zsl, align 8
+  %header = getelementptr inbounds %struct.zskiplist, ptr %262, i32 0, i32 0
+  %263 = load ptr, ptr %header, align 8
+  %level = getelementptr inbounds %struct.zskiplistNode, ptr %263, i32 0, i32 3
   %arrayidx423 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level, i64 0, i64 0
   %forward = getelementptr inbounds %struct.zskiplistLevel, ptr %arrayidx423, i32 0, i32 0
-  %260 = load ptr, ptr %forward, align 8
-  store ptr %260, ptr %ln, align 8
-  %261 = load i64, ptr %start, align 8
-  %cmp424 = icmp sgt i64 %261, 0
+  %264 = load ptr, ptr %forward, align 8
+  store ptr %264, ptr %ln, align 8
+  %265 = load i64, ptr %start, align 8
+  %cmp424 = icmp sgt i64 %265, 0
   br i1 %cmp424, label %if.then426, label %if.end429
 
 if.then426:                                       ; preds = %if.else422
-  %262 = load ptr, ptr %zsl, align 8
-  %263 = load i64, ptr %start, align 8
-  %add427 = add nsw i64 %263, 1
-  %call428 = call ptr @zslGetElementByRank(ptr noundef %262, i64 noundef %add427)
+  %266 = load ptr, ptr %zsl, align 8
+  %267 = load i64, ptr %start, align 8
+  %add427 = add nsw i64 %267, 1
+  %call428 = call ptr @zslGetElementByRank(ptr noundef %266, i64 noundef %add427)
   store ptr %call428, ptr %ln, align 8
   br label %if.end429
 
@@ -1790,15 +1799,15 @@ if.end430:                                        ; preds = %if.end429, %if.end4
   br label %while.cond431
 
 while.cond431:                                    ; preds = %cond.end460, %if.end430
-  %264 = load i32, ptr %rangelen, align 4
-  %dec = add nsw i32 %264, -1
+  %268 = load i32, ptr %rangelen, align 4
+  %dec = add nsw i32 %268, -1
   store i32 %dec, ptr %rangelen, align 4
-  %tobool432 = icmp ne i32 %264, 0
+  %tobool432 = icmp ne i32 %268, 0
   br i1 %tobool432, label %while.body433, label %while.end462
 
 while.body433:                                    ; preds = %while.cond431
-  %265 = load ptr, ptr %ln, align 8
-  %cmp434 = icmp ne ptr %265, null
+  %269 = load ptr, ptr %ln, align 8
+  %cmp434 = icmp ne ptr %269, null
   %lnot = xor i1 %cmp434, true
   %lnot436 = xor i1 %lnot, true
   %lnot.ext = zext i1 %lnot436 to i32
@@ -1810,136 +1819,136 @@ cond.true439:                                     ; preds = %while.body433
   br label %cond.end441
 
 cond.false440:                                    ; preds = %while.body433
-  %266 = load ptr, ptr %c.addr, align 8
-  %267 = load ptr, ptr %sortval, align 8
-  call void @_serverAssertWithInfo(ptr noundef %266, ptr noundef %267, ptr noundef @.str.14, ptr noundef @.str.12, i32 noundef 443)
+  %270 = load ptr, ptr %c.addr, align 8
+  %271 = load ptr, ptr %sortval, align 8
+  call void @_serverAssertWithInfo(ptr noundef %270, ptr noundef %271, ptr noundef @.str.14, ptr noundef @.str.12, i32 noundef 443)
   call void @abort() #11
   unreachable
 
-268:                                              ; No predecessors!
+272:                                              ; No predecessors!
   br label %cond.end441
 
-cond.end441:                                      ; preds = %268, %cond.true439
-  %269 = load ptr, ptr %ln, align 8
-  %ele = getelementptr inbounds %struct.zskiplistNode, ptr %269, i32 0, i32 0
-  %270 = load ptr, ptr %ele, align 8
-  store ptr %270, ptr %sdsele404, align 8
-  %271 = load ptr, ptr %sdsele404, align 8
-  %272 = load ptr, ptr %sdsele404, align 8
-  %call442 = call i64 @sdslen(ptr noundef %272)
-  %call443 = call ptr @createStringObject(ptr noundef %271, i64 noundef %call442)
-  %273 = load ptr, ptr %vector, align 8
-  %274 = load i32, ptr %j, align 4
-  %idxprom444 = sext i32 %274 to i64
-  %arrayidx445 = getelementptr inbounds %struct._redisSortObject, ptr %273, i64 %idxprom444
-  %obj446 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx445, i32 0, i32 0
-  store ptr %call443, ptr %obj446, align 8
-  %275 = load ptr, ptr %vector, align 8
-  %276 = load i32, ptr %j, align 4
-  %idxprom447 = sext i32 %276 to i64
-  %arrayidx448 = getelementptr inbounds %struct._redisSortObject, ptr %275, i64 %idxprom447
-  %u449 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx448, i32 0, i32 1
-  store double 0.000000e+00, ptr %u449, align 8
+cond.end441:                                      ; preds = %272, %cond.true439
+  %273 = load ptr, ptr %ln, align 8
+  %ele = getelementptr inbounds %struct.zskiplistNode, ptr %273, i32 0, i32 0
+  %274 = load ptr, ptr %ele, align 8
+  store ptr %274, ptr %sdsele404, align 8
+  %275 = load ptr, ptr %sdsele404, align 8
+  %276 = load ptr, ptr %sdsele404, align 8
+  %call442 = call i64 @sdslen(ptr noundef %276)
+  %call443 = call ptr @createStringObject(ptr noundef %275, i64 noundef %call442)
   %277 = load ptr, ptr %vector, align 8
   %278 = load i32, ptr %j, align 4
-  %idxprom450 = sext i32 %278 to i64
-  %arrayidx451 = getelementptr inbounds %struct._redisSortObject, ptr %277, i64 %idxprom450
+  %idxprom444 = sext i32 %278 to i64
+  %arrayidx445 = getelementptr inbounds %struct._redisSortObject, ptr %277, i64 %idxprom444
+  %obj446 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx445, i32 0, i32 0
+  store ptr %call443, ptr %obj446, align 8
+  %279 = load ptr, ptr %vector, align 8
+  %280 = load i32, ptr %j, align 4
+  %idxprom447 = sext i32 %280 to i64
+  %arrayidx448 = getelementptr inbounds %struct._redisSortObject, ptr %279, i64 %idxprom447
+  %u449 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx448, i32 0, i32 1
+  store double 0.000000e+00, ptr %u449, align 8
+  %281 = load ptr, ptr %vector, align 8
+  %282 = load i32, ptr %j, align 4
+  %idxprom450 = sext i32 %282 to i64
+  %arrayidx451 = getelementptr inbounds %struct._redisSortObject, ptr %281, i64 %idxprom450
   %u452 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx451, i32 0, i32 1
   store ptr null, ptr %u452, align 8
-  %279 = load i32, ptr %j, align 4
-  %inc453 = add nsw i32 %279, 1
+  %283 = load i32, ptr %j, align 4
+  %inc453 = add nsw i32 %283, 1
   store i32 %inc453, ptr %j, align 4
-  %280 = load i32, ptr %desc, align 4
-  %tobool454 = icmp ne i32 %280, 0
+  %284 = load i32, ptr %desc, align 4
+  %tobool454 = icmp ne i32 %284, 0
   br i1 %tobool454, label %cond.true455, label %cond.false456
 
 cond.true455:                                     ; preds = %cond.end441
-  %281 = load ptr, ptr %ln, align 8
-  %backward = getelementptr inbounds %struct.zskiplistNode, ptr %281, i32 0, i32 2
-  %282 = load ptr, ptr %backward, align 8
+  %285 = load ptr, ptr %ln, align 8
+  %backward = getelementptr inbounds %struct.zskiplistNode, ptr %285, i32 0, i32 2
+  %286 = load ptr, ptr %backward, align 8
   br label %cond.end460
 
 cond.false456:                                    ; preds = %cond.end441
-  %283 = load ptr, ptr %ln, align 8
-  %level457 = getelementptr inbounds %struct.zskiplistNode, ptr %283, i32 0, i32 3
+  %287 = load ptr, ptr %ln, align 8
+  %level457 = getelementptr inbounds %struct.zskiplistNode, ptr %287, i32 0, i32 3
   %arrayidx458 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level457, i64 0, i64 0
   %forward459 = getelementptr inbounds %struct.zskiplistLevel, ptr %arrayidx458, i32 0, i32 0
-  %284 = load ptr, ptr %forward459, align 8
+  %288 = load ptr, ptr %forward459, align 8
   br label %cond.end460
 
 cond.end460:                                      ; preds = %cond.false456, %cond.true455
-  %cond461 = phi ptr [ %282, %cond.true455 ], [ %284, %cond.false456 ]
+  %cond461 = phi ptr [ %286, %cond.true455 ], [ %288, %cond.false456 ]
   store ptr %cond461, ptr %ln, align 8
   br label %while.cond431, !llvm.loop !10
 
 while.end462:                                     ; preds = %while.cond431
-  %285 = load i64, ptr %start, align 8
-  %286 = load i64, ptr %end, align 8
-  %sub463 = sub nsw i64 %286, %285
+  %289 = load i64, ptr %start, align 8
+  %290 = load i64, ptr %end, align 8
+  %sub463 = sub nsw i64 %290, %289
   store i64 %sub463, ptr %end, align 8
   store i64 0, ptr %start, align 8
   br label %if.end495
 
 if.else464:                                       ; preds = %land.lhs.true399, %if.else394
-  %287 = load ptr, ptr %sortval, align 8
-  %bf.load465 = load i32, ptr %287, align 8
+  %291 = load ptr, ptr %sortval, align 8
+  %bf.load465 = load i32, ptr %291, align 8
   %bf.clear466 = and i32 %bf.load465, 15
   %cmp467 = icmp eq i32 %bf.clear466, 3
   br i1 %cmp467, label %if.then469, label %if.else493
 
 if.then469:                                       ; preds = %if.else464
-  %288 = load ptr, ptr %sortval, align 8
-  %ptr470 = getelementptr inbounds %struct.redisObject, ptr %288, i32 0, i32 2
-  %289 = load ptr, ptr %ptr470, align 8
-  %dict471 = getelementptr inbounds %struct.zset, ptr %289, i32 0, i32 0
-  %290 = load ptr, ptr %dict471, align 8
-  store ptr %290, ptr %set, align 8
-  %291 = load ptr, ptr %set, align 8
-  %call473 = call ptr @dictGetIterator(ptr noundef %291)
+  %292 = load ptr, ptr %sortval, align 8
+  %ptr470 = getelementptr inbounds %struct.redisObject, ptr %292, i32 0, i32 2
+  %293 = load ptr, ptr %ptr470, align 8
+  %dict471 = getelementptr inbounds %struct.zset, ptr %293, i32 0, i32 0
+  %294 = load ptr, ptr %dict471, align 8
+  store ptr %294, ptr %set, align 8
+  %295 = load ptr, ptr %set, align 8
+  %call473 = call ptr @dictGetIterator(ptr noundef %295)
   store ptr %call473, ptr %di, align 8
   br label %while.cond474
 
 while.cond474:                                    ; preds = %while.body478, %if.then469
-  %292 = load ptr, ptr %di, align 8
-  %call475 = call ptr @dictNext(ptr noundef %292)
+  %296 = load ptr, ptr %di, align 8
+  %call475 = call ptr @dictNext(ptr noundef %296)
   store ptr %call475, ptr %setele, align 8
   %cmp476 = icmp ne ptr %call475, null
   br i1 %cmp476, label %while.body478, label %while.end492
 
 while.body478:                                    ; preds = %while.cond474
-  %293 = load ptr, ptr %setele, align 8
-  %call479 = call ptr @dictGetKey(ptr noundef %293)
+  %297 = load ptr, ptr %setele, align 8
+  %call479 = call ptr @dictGetKey(ptr noundef %297)
   store ptr %call479, ptr %sdsele472, align 8
-  %294 = load ptr, ptr %sdsele472, align 8
-  %295 = load ptr, ptr %sdsele472, align 8
-  %call480 = call i64 @sdslen(ptr noundef %295)
-  %call481 = call ptr @createStringObject(ptr noundef %294, i64 noundef %call480)
-  %296 = load ptr, ptr %vector, align 8
-  %297 = load i32, ptr %j, align 4
-  %idxprom482 = sext i32 %297 to i64
-  %arrayidx483 = getelementptr inbounds %struct._redisSortObject, ptr %296, i64 %idxprom482
-  %obj484 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx483, i32 0, i32 0
-  store ptr %call481, ptr %obj484, align 8
-  %298 = load ptr, ptr %vector, align 8
-  %299 = load i32, ptr %j, align 4
-  %idxprom485 = sext i32 %299 to i64
-  %arrayidx486 = getelementptr inbounds %struct._redisSortObject, ptr %298, i64 %idxprom485
-  %u487 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx486, i32 0, i32 1
-  store double 0.000000e+00, ptr %u487, align 8
+  %298 = load ptr, ptr %sdsele472, align 8
+  %299 = load ptr, ptr %sdsele472, align 8
+  %call480 = call i64 @sdslen(ptr noundef %299)
+  %call481 = call ptr @createStringObject(ptr noundef %298, i64 noundef %call480)
   %300 = load ptr, ptr %vector, align 8
   %301 = load i32, ptr %j, align 4
-  %idxprom488 = sext i32 %301 to i64
-  %arrayidx489 = getelementptr inbounds %struct._redisSortObject, ptr %300, i64 %idxprom488
+  %idxprom482 = sext i32 %301 to i64
+  %arrayidx483 = getelementptr inbounds %struct._redisSortObject, ptr %300, i64 %idxprom482
+  %obj484 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx483, i32 0, i32 0
+  store ptr %call481, ptr %obj484, align 8
+  %302 = load ptr, ptr %vector, align 8
+  %303 = load i32, ptr %j, align 4
+  %idxprom485 = sext i32 %303 to i64
+  %arrayidx486 = getelementptr inbounds %struct._redisSortObject, ptr %302, i64 %idxprom485
+  %u487 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx486, i32 0, i32 1
+  store double 0.000000e+00, ptr %u487, align 8
+  %304 = load ptr, ptr %vector, align 8
+  %305 = load i32, ptr %j, align 4
+  %idxprom488 = sext i32 %305 to i64
+  %arrayidx489 = getelementptr inbounds %struct._redisSortObject, ptr %304, i64 %idxprom488
   %u490 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx489, i32 0, i32 1
   store ptr null, ptr %u490, align 8
-  %302 = load i32, ptr %j, align 4
-  %inc491 = add nsw i32 %302, 1
+  %306 = load i32, ptr %j, align 4
+  %inc491 = add nsw i32 %306, 1
   store i32 %inc491, ptr %j, align 4
   br label %while.cond474, !llvm.loop !11
 
 while.end492:                                     ; preds = %while.cond474
-  %303 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %303)
+  %307 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %307)
   br label %if.end494
 
 if.else493:                                       ; preds = %if.else464
@@ -1960,9 +1969,9 @@ if.end497:                                        ; preds = %if.end496, %while.e
   br label %if.end498
 
 if.end498:                                        ; preds = %if.end497, %if.end344
-  %304 = load i32, ptr %j, align 4
-  %305 = load i32, ptr %vectorlen, align 4
-  %cmp499 = icmp eq i32 %304, %305
+  %308 = load i32, ptr %j, align 4
+  %309 = load i32, ptr %vectorlen, align 4
+  %cmp499 = icmp eq i32 %308, %309
   %lnot501 = xor i1 %cmp499, true
   %lnot503 = xor i1 %lnot501, true
   %lnot.ext504 = zext i1 %lnot503 to i32
@@ -1974,18 +1983,18 @@ cond.true507:                                     ; preds = %if.end498
   br label %cond.end509
 
 cond.false508:                                    ; preds = %if.end498
-  %306 = load ptr, ptr %c.addr, align 8
-  %307 = load ptr, ptr %sortval, align 8
-  call void @_serverAssertWithInfo(ptr noundef %306, ptr noundef %307, ptr noundef @.str.16, ptr noundef @.str.12, i32 noundef 471)
+  %310 = load ptr, ptr %c.addr, align 8
+  %311 = load ptr, ptr %sortval, align 8
+  call void @_serverAssertWithInfo(ptr noundef %310, ptr noundef %311, ptr noundef @.str.16, ptr noundef @.str.12, i32 noundef 471)
   call void @abort() #11
   unreachable
 
-308:                                              ; No predecessors!
+312:                                              ; No predecessors!
   br label %cond.end509
 
-cond.end509:                                      ; preds = %308, %cond.true507
-  %309 = load i32, ptr %dontsort, align 4
-  %tobool510 = icmp ne i32 %309, 0
+cond.end509:                                      ; preds = %312, %cond.true507
+  %313 = load i32, ptr %dontsort, align 4
+  %tobool510 = icmp ne i32 %313, 0
   br i1 %tobool510, label %if.end607, label %if.then511
 
 if.then511:                                       ; preds = %cond.end509
@@ -1993,31 +2002,31 @@ if.then511:                                       ; preds = %cond.end509
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then511
-  %310 = load i32, ptr %j, align 4
-  %311 = load i32, ptr %vectorlen, align 4
-  %cmp512 = icmp slt i32 %310, %311
+  %314 = load i32, ptr %j, align 4
+  %315 = load i32, ptr %vectorlen, align 4
+  %cmp512 = icmp slt i32 %314, %315
   br i1 %cmp512, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %312 = load ptr, ptr %sortby, align 8
-  %tobool514 = icmp ne ptr %312, null
+  %316 = load ptr, ptr %sortby, align 8
+  %tobool514 = icmp ne ptr %316, null
   br i1 %tobool514, label %if.then515, label %if.else524
 
 if.then515:                                       ; preds = %for.body
-  %313 = load ptr, ptr %c.addr, align 8
-  %db516 = getelementptr inbounds %struct.client, ptr %313, i32 0, i32 4
-  %314 = load ptr, ptr %db516, align 8
-  %315 = load ptr, ptr %sortby, align 8
-  %316 = load ptr, ptr %vector, align 8
-  %317 = load i32, ptr %j, align 4
-  %idxprom517 = sext i32 %317 to i64
-  %arrayidx518 = getelementptr inbounds %struct._redisSortObject, ptr %316, i64 %idxprom517
+  %317 = load ptr, ptr %c.addr, align 8
+  %db516 = getelementptr inbounds %struct.client, ptr %317, i32 0, i32 4
+  %318 = load ptr, ptr %db516, align 8
+  %319 = load ptr, ptr %sortby, align 8
+  %320 = load ptr, ptr %vector, align 8
+  %321 = load i32, ptr %j, align 4
+  %idxprom517 = sext i32 %321 to i64
+  %arrayidx518 = getelementptr inbounds %struct._redisSortObject, ptr %320, i64 %idxprom517
   %obj519 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx518, i32 0, i32 0
-  %318 = load ptr, ptr %obj519, align 8
-  %call520 = call ptr @lookupKeyByPattern(ptr noundef %314, ptr noundef %315, ptr noundef %318)
+  %322 = load ptr, ptr %obj519, align 8
+  %call520 = call ptr @lookupKeyByPattern(ptr noundef %318, ptr noundef %319, ptr noundef %322)
   store ptr %call520, ptr %byval, align 8
-  %319 = load ptr, ptr %byval, align 8
-  %tobool521 = icmp ne ptr %319, null
+  %323 = load ptr, ptr %byval, align 8
+  %tobool521 = icmp ne ptr %323, null
   br i1 %tobool521, label %if.end523, label %if.then522
 
 if.then522:                                       ; preds = %if.then515
@@ -2027,32 +2036,32 @@ if.end523:                                        ; preds = %if.then515
   br label %if.end528
 
 if.else524:                                       ; preds = %for.body
-  %320 = load ptr, ptr %vector, align 8
-  %321 = load i32, ptr %j, align 4
-  %idxprom525 = sext i32 %321 to i64
-  %arrayidx526 = getelementptr inbounds %struct._redisSortObject, ptr %320, i64 %idxprom525
+  %324 = load ptr, ptr %vector, align 8
+  %325 = load i32, ptr %j, align 4
+  %idxprom525 = sext i32 %325 to i64
+  %arrayidx526 = getelementptr inbounds %struct._redisSortObject, ptr %324, i64 %idxprom525
   %obj527 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx526, i32 0, i32 0
-  %322 = load ptr, ptr %obj527, align 8
-  store ptr %322, ptr %byval, align 8
+  %326 = load ptr, ptr %obj527, align 8
+  store ptr %326, ptr %byval, align 8
   br label %if.end528
 
 if.end528:                                        ; preds = %if.else524, %if.end523
-  %323 = load i32, ptr %alpha, align 4
-  %tobool529 = icmp ne i32 %323, 0
+  %327 = load i32, ptr %alpha, align 4
+  %tobool529 = icmp ne i32 %327, 0
   br i1 %tobool529, label %if.then530, label %if.else538
 
 if.then530:                                       ; preds = %if.end528
-  %324 = load ptr, ptr %sortby, align 8
-  %tobool531 = icmp ne ptr %324, null
+  %328 = load ptr, ptr %sortby, align 8
+  %tobool531 = icmp ne ptr %328, null
   br i1 %tobool531, label %if.then532, label %if.end537
 
 if.then532:                                       ; preds = %if.then530
-  %325 = load ptr, ptr %byval, align 8
-  %call533 = call ptr @getDecodedObject(ptr noundef %325)
-  %326 = load ptr, ptr %vector, align 8
-  %327 = load i32, ptr %j, align 4
-  %idxprom534 = sext i32 %327 to i64
-  %arrayidx535 = getelementptr inbounds %struct._redisSortObject, ptr %326, i64 %idxprom534
+  %329 = load ptr, ptr %byval, align 8
+  %call533 = call ptr @getDecodedObject(ptr noundef %329)
+  %330 = load ptr, ptr %vector, align 8
+  %331 = load i32, ptr %j, align 4
+  %idxprom534 = sext i32 %331 to i64
+  %arrayidx535 = getelementptr inbounds %struct._redisSortObject, ptr %330, i64 %idxprom534
   %u536 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx535, i32 0, i32 1
   store ptr %call533, ptr %u536, align 8
   br label %if.end537
@@ -2061,54 +2070,54 @@ if.end537:                                        ; preds = %if.then532, %if.the
   br label %if.end584
 
 if.else538:                                       ; preds = %if.end528
-  %328 = load ptr, ptr %byval, align 8
-  %bf.load539 = load i32, ptr %328, align 8
+  %332 = load ptr, ptr %byval, align 8
+  %bf.load539 = load i32, ptr %332, align 8
   %bf.lshr = lshr i32 %bf.load539, 4
   %bf.clear540 = and i32 %bf.lshr, 15
   %cmp541 = icmp eq i32 %bf.clear540, 0
   br i1 %cmp541, label %if.then549, label %lor.lhs.false543
 
 lor.lhs.false543:                                 ; preds = %if.else538
-  %329 = load ptr, ptr %byval, align 8
-  %bf.load544 = load i32, ptr %329, align 8
+  %333 = load ptr, ptr %byval, align 8
+  %bf.load544 = load i32, ptr %333, align 8
   %bf.lshr545 = lshr i32 %bf.load544, 4
   %bf.clear546 = and i32 %bf.lshr545, 15
   %cmp547 = icmp eq i32 %bf.clear546, 8
   br i1 %cmp547, label %if.then549, label %if.else569
 
 if.then549:                                       ; preds = %lor.lhs.false543, %if.else538
-  %330 = load ptr, ptr %byval, align 8
-  %ptr550 = getelementptr inbounds %struct.redisObject, ptr %330, i32 0, i32 2
-  %331 = load ptr, ptr %ptr550, align 8
-  %call551 = call double @strtod(ptr noundef %331, ptr noundef %eptr) #12
-  %332 = load ptr, ptr %vector, align 8
-  %333 = load i32, ptr %j, align 4
-  %idxprom552 = sext i32 %333 to i64
-  %arrayidx553 = getelementptr inbounds %struct._redisSortObject, ptr %332, i64 %idxprom552
+  %334 = load ptr, ptr %byval, align 8
+  %ptr550 = getelementptr inbounds %struct.redisObject, ptr %334, i32 0, i32 2
+  %335 = load ptr, ptr %ptr550, align 8
+  %call551 = call double @strtod(ptr noundef %335, ptr noundef %eptr) #12
+  %336 = load ptr, ptr %vector, align 8
+  %337 = load i32, ptr %j, align 4
+  %idxprom552 = sext i32 %337 to i64
+  %arrayidx553 = getelementptr inbounds %struct._redisSortObject, ptr %336, i64 %idxprom552
   %u554 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx553, i32 0, i32 1
   store double %call551, ptr %u554, align 8
-  %334 = load ptr, ptr %eptr, align 8
-  %arrayidx555 = getelementptr inbounds i8, ptr %334, i64 0
-  %335 = load i8, ptr %arrayidx555, align 1
-  %conv556 = sext i8 %335 to i32
+  %338 = load ptr, ptr %eptr, align 8
+  %arrayidx555 = getelementptr inbounds i8, ptr %338, i64 0
+  %339 = load i8, ptr %arrayidx555, align 1
+  %conv556 = sext i8 %339 to i32
   %cmp557 = icmp ne i32 %conv556, 0
   br i1 %cmp557, label %if.then567, label %lor.lhs.false559
 
 lor.lhs.false559:                                 ; preds = %if.then549
   %call560 = call ptr @__errno_location() #13
-  %336 = load i32, ptr %call560, align 4
-  %cmp561 = icmp eq i32 %336, 34
+  %340 = load i32, ptr %call560, align 4
+  %cmp561 = icmp eq i32 %340, 34
   br i1 %cmp561, label %if.then567, label %lor.lhs.false563
 
 lor.lhs.false563:                                 ; preds = %lor.lhs.false559
-  %337 = load ptr, ptr %vector, align 8
-  %338 = load i32, ptr %j, align 4
-  %idxprom564 = sext i32 %338 to i64
-  %arrayidx565 = getelementptr inbounds %struct._redisSortObject, ptr %337, i64 %idxprom564
+  %341 = load ptr, ptr %vector, align 8
+  %342 = load i32, ptr %j, align 4
+  %idxprom564 = sext i32 %342 to i64
+  %arrayidx565 = getelementptr inbounds %struct._redisSortObject, ptr %341, i64 %idxprom564
   %u566 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx565, i32 0, i32 1
-  %339 = load double, ptr %u566, align 8
-  %340 = call i1 @llvm.is.fpclass.f64(double %339, i32 3)
-  br i1 %340, label %if.then567, label %if.end568
+  %343 = load double, ptr %u566, align 8
+  %344 = call i1 @llvm.is.fpclass.f64(double %343, i32 3)
+  br i1 %344, label %if.then567, label %if.end568
 
 if.then567:                                       ; preds = %lor.lhs.false563, %lor.lhs.false559, %if.then549
   store i32 1, ptr %int_conversion_error, align 4
@@ -2118,31 +2127,31 @@ if.end568:                                        ; preds = %if.then567, %lor.lh
   br label %if.end583
 
 if.else569:                                       ; preds = %lor.lhs.false543
-  %341 = load ptr, ptr %byval, align 8
-  %bf.load570 = load i32, ptr %341, align 8
+  %345 = load ptr, ptr %byval, align 8
+  %bf.load570 = load i32, ptr %345, align 8
   %bf.lshr571 = lshr i32 %bf.load570, 4
   %bf.clear572 = and i32 %bf.lshr571, 15
   %cmp573 = icmp eq i32 %bf.clear572, 1
   br i1 %cmp573, label %if.then575, label %if.else581
 
 if.then575:                                       ; preds = %if.else569
-  %342 = load ptr, ptr %byval, align 8
-  %ptr576 = getelementptr inbounds %struct.redisObject, ptr %342, i32 0, i32 2
-  %343 = load ptr, ptr %ptr576, align 8
-  %344 = ptrtoint ptr %343 to i64
-  %conv577 = sitofp i64 %344 to double
-  %345 = load ptr, ptr %vector, align 8
-  %346 = load i32, ptr %j, align 4
-  %idxprom578 = sext i32 %346 to i64
-  %arrayidx579 = getelementptr inbounds %struct._redisSortObject, ptr %345, i64 %idxprom578
+  %346 = load ptr, ptr %byval, align 8
+  %ptr576 = getelementptr inbounds %struct.redisObject, ptr %346, i32 0, i32 2
+  %347 = load ptr, ptr %ptr576, align 8
+  %348 = ptrtoint ptr %347 to i64
+  %conv577 = sitofp i64 %348 to double
+  %349 = load ptr, ptr %vector, align 8
+  %350 = load i32, ptr %j, align 4
+  %idxprom578 = sext i32 %350 to i64
+  %arrayidx579 = getelementptr inbounds %struct._redisSortObject, ptr %349, i64 %idxprom578
   %u580 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx579, i32 0, i32 1
   store double %conv577, ptr %u580, align 8
   br label %if.end582
 
 if.else581:                                       ; preds = %if.else569
-  %347 = load ptr, ptr %c.addr, align 8
-  %348 = load ptr, ptr %sortval, align 8
-  call void @_serverAssertWithInfo(ptr noundef %347, ptr noundef %348, ptr noundef @.str.17, ptr noundef @.str.12, i32 noundef 504)
+  %351 = load ptr, ptr %c.addr, align 8
+  %352 = load ptr, ptr %sortval, align 8
+  call void @_serverAssertWithInfo(ptr noundef %351, ptr noundef %352, ptr noundef @.str.17, ptr noundef @.str.12, i32 noundef 504)
   call void @abort() #11
   unreachable
 
@@ -2153,92 +2162,96 @@ if.end583:                                        ; preds = %if.end582, %if.end5
   br label %if.end584
 
 if.end584:                                        ; preds = %if.end583, %if.end537
-  %349 = load ptr, ptr %sortby, align 8
-  %tobool585 = icmp ne ptr %349, null
+  %353 = load ptr, ptr %sortby, align 8
+  %tobool585 = icmp ne ptr %353, null
   br i1 %tobool585, label %if.then586, label %if.end587
 
 if.then586:                                       ; preds = %if.end584
-  %350 = load ptr, ptr %byval, align 8
-  call void @decrRefCount(ptr noundef %350)
+  %354 = load ptr, ptr %byval, align 8
+  call void @decrRefCount(ptr noundef %354)
   br label %if.end587
 
 if.end587:                                        ; preds = %if.then586, %if.end584
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end587, %if.then522
-  %351 = load i32, ptr %j, align 4
-  %inc588 = add nsw i32 %351, 1
+  %355 = load i32, ptr %j, align 4
+  %inc588 = add nsw i32 %355, 1
   store i32 %inc588, ptr %j, align 4
   br label %for.cond, !llvm.loop !12
 
 for.end:                                          ; preds = %for.cond
-  %352 = load i32, ptr %desc, align 4
-  store i32 %352, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 333), align 8
-  %353 = load i32, ptr %alpha, align 4
-  store i32 %353, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 334), align 4
-  %354 = load ptr, ptr %sortby, align 8
-  %tobool589 = icmp ne ptr %354, null
+  %356 = load i32, ptr %desc, align 4
+  %357 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 333
+  store i32 %356, ptr %357, align 8
+  %358 = load i32, ptr %alpha, align 4
+  %359 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 334
+  store i32 %358, ptr %359, align 4
+  %360 = load ptr, ptr %sortby, align 8
+  %tobool589 = icmp ne ptr %360, null
   %cond590 = select i1 %tobool589, i32 1, i32 0
-  store i32 %cond590, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 335), align 8
-  %355 = load ptr, ptr %storekey, align 8
-  %tobool591 = icmp ne ptr %355, null
+  %361 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 335
+  store i32 %cond590, ptr %361, align 8
+  %362 = load ptr, ptr %storekey, align 8
+  %tobool591 = icmp ne ptr %362, null
   %cond592 = select i1 %tobool591, i32 1, i32 0
-  store i32 %cond592, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 336), align 4
-  %356 = load ptr, ptr %sortby, align 8
-  %tobool593 = icmp ne ptr %356, null
+  %363 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 336
+  store i32 %cond592, ptr %363, align 4
+  %364 = load ptr, ptr %sortby, align 8
+  %tobool593 = icmp ne ptr %364, null
   br i1 %tobool593, label %land.lhs.true594, label %if.else604
 
 land.lhs.true594:                                 ; preds = %for.end
-  %357 = load i64, ptr %start, align 8
-  %cmp595 = icmp ne i64 %357, 0
+  %365 = load i64, ptr %start, align 8
+  %cmp595 = icmp ne i64 %365, 0
   br i1 %cmp595, label %if.then602, label %lor.lhs.false597
 
 lor.lhs.false597:                                 ; preds = %land.lhs.true594
-  %358 = load i64, ptr %end, align 8
-  %359 = load i32, ptr %vectorlen, align 4
-  %sub598 = sub nsw i32 %359, 1
+  %366 = load i64, ptr %end, align 8
+  %367 = load i32, ptr %vectorlen, align 4
+  %sub598 = sub nsw i32 %367, 1
   %conv599 = sext i32 %sub598 to i64
-  %cmp600 = icmp ne i64 %358, %conv599
+  %cmp600 = icmp ne i64 %366, %conv599
   br i1 %cmp600, label %if.then602, label %if.else604
 
 if.then602:                                       ; preds = %lor.lhs.false597, %land.lhs.true594
-  %360 = load ptr, ptr %vector, align 8
-  %361 = load i32, ptr %vectorlen, align 4
-  %conv603 = sext i32 %361 to i64
-  %362 = load i64, ptr %start, align 8
-  %363 = load i64, ptr %end, align 8
-  call void @pqsort(ptr noundef %360, i64 noundef %conv603, i64 noundef 16, ptr noundef @sortCompare, i64 noundef %362, i64 noundef %363)
+  %368 = load ptr, ptr %vector, align 8
+  %369 = load i32, ptr %vectorlen, align 4
+  %conv603 = sext i32 %369 to i64
+  %370 = load i64, ptr %start, align 8
+  %371 = load i64, ptr %end, align 8
+  call void @pqsort(ptr noundef %368, i64 noundef %conv603, i64 noundef 16, ptr noundef @sortCompare, i64 noundef %370, i64 noundef %371)
   br label %if.end606
 
 if.else604:                                       ; preds = %lor.lhs.false597, %for.end
-  %364 = load ptr, ptr %vector, align 8
-  %365 = load i32, ptr %vectorlen, align 4
-  %conv605 = sext i32 %365 to i64
-  call void @qsort(ptr noundef %364, i64 noundef %conv605, i64 noundef 16, ptr noundef @sortCompare)
+  %372 = load ptr, ptr %vector, align 8
+  %373 = load i32, ptr %vectorlen, align 4
+  %conv605 = sext i32 %373 to i64
+  call void @qsort(ptr noundef %372, i64 noundef %conv605, i64 noundef 16, ptr noundef @sortCompare)
   br label %if.end606
 
 if.end606:                                        ; preds = %if.else604, %if.then602
   br label %if.end607
 
 if.end607:                                        ; preds = %if.end606, %cond.end509
-  %366 = load i32, ptr %getop, align 4
-  %tobool608 = icmp ne i32 %366, 0
+  %374 = load i32, ptr %getop, align 4
+  %tobool608 = icmp ne i32 %374, 0
   br i1 %tobool608, label %cond.true609, label %cond.false614
 
 cond.true609:                                     ; preds = %if.end607
-  %367 = load i32, ptr %getop, align 4
-  %conv610 = sext i32 %367 to i64
-  %368 = load i64, ptr %end, align 8
-  %369 = load i64, ptr %start, align 8
-  %sub611 = sub nsw i64 %368, %369
+  %375 = load i32, ptr %getop, align 4
+  %conv610 = sext i32 %375 to i64
+  %376 = load i64, ptr %end, align 8
+  %377 = load i64, ptr %start, align 8
+  %sub611 = sub nsw i64 %376, %377
   %add612 = add nsw i64 %sub611, 1
   %mul613 = mul nsw i64 %conv610, %add612
   br label %cond.end617
 
 cond.false614:                                    ; preds = %if.end607
-  %370 = load i64, ptr %end, align 8
-  %371 = load i64, ptr %start, align 8
-  %sub615 = sub nsw i64 %370, %371
+  %378 = load i64, ptr %end, align 8
+  %379 = load i64, ptr %start, align 8
+  %sub615 = sub nsw i64 %378, %379
   %add616 = add nsw i64 %sub615, 1
   br label %cond.end617
 
@@ -2246,56 +2259,56 @@ cond.end617:                                      ; preds = %cond.false614, %con
   %cond618 = phi i64 [ %mul613, %cond.true609 ], [ %add616, %cond.false614 ]
   %conv619 = trunc i64 %cond618 to i32
   store i32 %conv619, ptr %outputlen, align 4
-  %372 = load i32, ptr %int_conversion_error, align 4
-  %tobool620 = icmp ne i32 %372, 0
+  %380 = load i32, ptr %int_conversion_error, align 4
+  %tobool620 = icmp ne i32 %380, 0
   br i1 %tobool620, label %if.then621, label %if.else622
 
 if.then621:                                       ; preds = %cond.end617
-  %373 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %373, ptr noundef @.str.18)
+  %381 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %381, ptr noundef @.str.18)
   br label %if.end750
 
 if.else622:                                       ; preds = %cond.end617
-  %374 = load ptr, ptr %storekey, align 8
-  %cmp623 = icmp eq ptr %374, null
+  %382 = load ptr, ptr %storekey, align 8
+  %cmp623 = icmp eq ptr %382, null
   br i1 %cmp623, label %if.then625, label %if.else675
 
 if.then625:                                       ; preds = %if.else622
-  %375 = load ptr, ptr %c.addr, align 8
-  %376 = load i32, ptr %outputlen, align 4
-  %conv626 = zext i32 %376 to i64
-  call void @addReplyArrayLen(ptr noundef %375, i64 noundef %conv626)
-  %377 = load i64, ptr %start, align 8
-  %conv627 = trunc i64 %377 to i32
+  %383 = load ptr, ptr %c.addr, align 8
+  %384 = load i32, ptr %outputlen, align 4
+  %conv626 = zext i32 %384 to i64
+  call void @addReplyArrayLen(ptr noundef %383, i64 noundef %conv626)
+  %385 = load i64, ptr %start, align 8
+  %conv627 = trunc i64 %385 to i32
   store i32 %conv627, ptr %j, align 4
   br label %for.cond628
 
 for.cond628:                                      ; preds = %for.inc672, %if.then625
-  %378 = load i32, ptr %j, align 4
-  %conv629 = sext i32 %378 to i64
-  %379 = load i64, ptr %end, align 8
-  %cmp630 = icmp sle i64 %conv629, %379
+  %386 = load i32, ptr %j, align 4
+  %conv629 = sext i32 %386 to i64
+  %387 = load i64, ptr %end, align 8
+  %cmp630 = icmp sle i64 %conv629, %387
   br i1 %cmp630, label %for.body632, label %for.end674
 
 for.body632:                                      ; preds = %for.cond628
-  %380 = load i32, ptr %getop, align 4
-  %tobool635 = icmp ne i32 %380, 0
+  %388 = load i32, ptr %getop, align 4
+  %tobool635 = icmp ne i32 %388, 0
   br i1 %tobool635, label %if.end640, label %if.then636
 
 if.then636:                                       ; preds = %for.body632
-  %381 = load ptr, ptr %c.addr, align 8
-  %382 = load ptr, ptr %vector, align 8
-  %383 = load i32, ptr %j, align 4
-  %idxprom637 = sext i32 %383 to i64
-  %arrayidx638 = getelementptr inbounds %struct._redisSortObject, ptr %382, i64 %idxprom637
+  %389 = load ptr, ptr %c.addr, align 8
+  %390 = load ptr, ptr %vector, align 8
+  %391 = load i32, ptr %j, align 4
+  %idxprom637 = sext i32 %391 to i64
+  %arrayidx638 = getelementptr inbounds %struct._redisSortObject, ptr %390, i64 %idxprom637
   %obj639 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx638, i32 0, i32 0
-  %384 = load ptr, ptr %obj639, align 8
-  call void @addReplyBulk(ptr noundef %381, ptr noundef %384)
+  %392 = load ptr, ptr %obj639, align 8
+  call void @addReplyBulk(ptr noundef %389, ptr noundef %392)
   br label %if.end640
 
 if.end640:                                        ; preds = %if.then636, %for.body632
-  %385 = load ptr, ptr %operations, align 8
-  call void @listRewind(ptr noundef %385, ptr noundef %li634)
+  %393 = load ptr, ptr %operations, align 8
+  call void @listRewind(ptr noundef %393, ptr noundef %li634)
   br label %while.cond641
 
 while.cond641:                                    ; preds = %if.end670, %if.end640
@@ -2305,56 +2318,56 @@ while.cond641:                                    ; preds = %if.end670, %if.end6
   br i1 %tobool643, label %while.body644, label %while.end671
 
 while.body644:                                    ; preds = %while.cond641
-  %386 = load ptr, ptr %ln633, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %386, i32 0, i32 2
-  %387 = load ptr, ptr %value, align 8
-  store ptr %387, ptr %sop, align 8
-  %388 = load ptr, ptr %c.addr, align 8
-  %db645 = getelementptr inbounds %struct.client, ptr %388, i32 0, i32 4
-  %389 = load ptr, ptr %db645, align 8
-  %390 = load ptr, ptr %sop, align 8
-  %pattern = getelementptr inbounds %struct._redisSortOperation, ptr %390, i32 0, i32 1
-  %391 = load ptr, ptr %pattern, align 8
-  %392 = load ptr, ptr %vector, align 8
-  %393 = load i32, ptr %j, align 4
-  %idxprom646 = sext i32 %393 to i64
-  %arrayidx647 = getelementptr inbounds %struct._redisSortObject, ptr %392, i64 %idxprom646
+  %394 = load ptr, ptr %ln633, align 8
+  %value = getelementptr inbounds %struct.listNode, ptr %394, i32 0, i32 2
+  %395 = load ptr, ptr %value, align 8
+  store ptr %395, ptr %sop, align 8
+  %396 = load ptr, ptr %c.addr, align 8
+  %db645 = getelementptr inbounds %struct.client, ptr %396, i32 0, i32 4
+  %397 = load ptr, ptr %db645, align 8
+  %398 = load ptr, ptr %sop, align 8
+  %pattern = getelementptr inbounds %struct._redisSortOperation, ptr %398, i32 0, i32 1
+  %399 = load ptr, ptr %pattern, align 8
+  %400 = load ptr, ptr %vector, align 8
+  %401 = load i32, ptr %j, align 4
+  %idxprom646 = sext i32 %401 to i64
+  %arrayidx647 = getelementptr inbounds %struct._redisSortObject, ptr %400, i64 %idxprom646
   %obj648 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx647, i32 0, i32 0
-  %394 = load ptr, ptr %obj648, align 8
-  %call649 = call ptr @lookupKeyByPattern(ptr noundef %389, ptr noundef %391, ptr noundef %394)
+  %402 = load ptr, ptr %obj648, align 8
+  %call649 = call ptr @lookupKeyByPattern(ptr noundef %397, ptr noundef %399, ptr noundef %402)
   store ptr %call649, ptr %val, align 8
-  %395 = load ptr, ptr %sop, align 8
-  %type = getelementptr inbounds %struct._redisSortOperation, ptr %395, i32 0, i32 0
-  %396 = load i32, ptr %type, align 8
-  %cmp650 = icmp eq i32 %396, 0
+  %403 = load ptr, ptr %sop, align 8
+  %type = getelementptr inbounds %struct._redisSortOperation, ptr %403, i32 0, i32 0
+  %404 = load i32, ptr %type, align 8
+  %cmp650 = icmp eq i32 %404, 0
   br i1 %cmp650, label %if.then652, label %if.else657
 
 if.then652:                                       ; preds = %while.body644
-  %397 = load ptr, ptr %val, align 8
-  %tobool653 = icmp ne ptr %397, null
+  %405 = load ptr, ptr %val, align 8
+  %tobool653 = icmp ne ptr %405, null
   br i1 %tobool653, label %if.else655, label %if.then654
 
 if.then654:                                       ; preds = %if.then652
-  %398 = load ptr, ptr %c.addr, align 8
-  call void @addReplyNull(ptr noundef %398)
+  %406 = load ptr, ptr %c.addr, align 8
+  call void @addReplyNull(ptr noundef %406)
   br label %if.end656
 
 if.else655:                                       ; preds = %if.then652
-  %399 = load ptr, ptr %c.addr, align 8
-  %400 = load ptr, ptr %val, align 8
-  call void @addReplyBulk(ptr noundef %399, ptr noundef %400)
-  %401 = load ptr, ptr %val, align 8
-  call void @decrRefCount(ptr noundef %401)
+  %407 = load ptr, ptr %c.addr, align 8
+  %408 = load ptr, ptr %val, align 8
+  call void @addReplyBulk(ptr noundef %407, ptr noundef %408)
+  %409 = load ptr, ptr %val, align 8
+  call void @decrRefCount(ptr noundef %409)
   br label %if.end656
 
 if.end656:                                        ; preds = %if.else655, %if.then654
   br label %if.end670
 
 if.else657:                                       ; preds = %while.body644
-  %402 = load ptr, ptr %sop, align 8
-  %type658 = getelementptr inbounds %struct._redisSortOperation, ptr %402, i32 0, i32 0
-  %403 = load i32, ptr %type658, align 8
-  %cmp659 = icmp eq i32 %403, 0
+  %410 = load ptr, ptr %sop, align 8
+  %type658 = getelementptr inbounds %struct._redisSortOperation, ptr %410, i32 0, i32 0
+  %411 = load i32, ptr %type658, align 8
+  %cmp659 = icmp eq i32 %411, 0
   %lnot661 = xor i1 %cmp659, true
   %lnot663 = xor i1 %lnot661, true
   %lnot.ext664 = zext i1 %lnot663 to i32
@@ -2366,16 +2379,16 @@ cond.true667:                                     ; preds = %if.else657
   br label %cond.end669
 
 cond.false668:                                    ; preds = %if.else657
-  %404 = load ptr, ptr %c.addr, align 8
-  %405 = load ptr, ptr %sortval, align 8
-  call void @_serverAssertWithInfo(ptr noundef %404, ptr noundef %405, ptr noundef @.str.19, ptr noundef @.str.12, i32 noundef 553)
+  %412 = load ptr, ptr %c.addr, align 8
+  %413 = load ptr, ptr %sortval, align 8
+  call void @_serverAssertWithInfo(ptr noundef %412, ptr noundef %413, ptr noundef @.str.19, ptr noundef @.str.12, i32 noundef 553)
   call void @abort() #11
   unreachable
 
-406:                                              ; No predecessors!
+414:                                              ; No predecessors!
   br label %cond.end669
 
-cond.end669:                                      ; preds = %406, %cond.true667
+cond.end669:                                      ; preds = %414, %cond.true667
   br label %if.end670
 
 if.end670:                                        ; preds = %cond.end669, %if.end656
@@ -2385,8 +2398,8 @@ while.end671:                                     ; preds = %while.cond641
   br label %for.inc672
 
 for.inc672:                                       ; preds = %while.end671
-  %407 = load i32, ptr %j, align 4
-  %inc673 = add nsw i32 %407, 1
+  %415 = load i32, ptr %j, align 4
+  %inc673 = add nsw i32 %415, 1
   store i32 %inc673, ptr %j, align 4
   br label %for.cond628, !llvm.loop !14
 
@@ -2396,37 +2409,37 @@ for.end674:                                       ; preds = %for.cond628
 if.else675:                                       ; preds = %if.else622
   %call676 = call ptr @createQuicklistObject()
   store ptr %call676, ptr %sobj, align 8
-  %408 = load i64, ptr %start, align 8
-  %conv677 = trunc i64 %408 to i32
+  %416 = load i64, ptr %start, align 8
+  %conv677 = trunc i64 %416 to i32
   store i32 %conv677, ptr %j, align 4
   br label %for.cond678
 
 for.cond678:                                      ; preds = %for.inc728, %if.else675
-  %409 = load i32, ptr %j, align 4
-  %conv679 = sext i32 %409 to i64
-  %410 = load i64, ptr %end, align 8
-  %cmp680 = icmp sle i64 %conv679, %410
+  %417 = load i32, ptr %j, align 4
+  %conv679 = sext i32 %417 to i64
+  %418 = load i64, ptr %end, align 8
+  %cmp680 = icmp sle i64 %conv679, %418
   br i1 %cmp680, label %for.body682, label %for.end730
 
 for.body682:                                      ; preds = %for.cond678
-  %411 = load i32, ptr %getop, align 4
-  %tobool685 = icmp ne i32 %411, 0
+  %419 = load i32, ptr %getop, align 4
+  %tobool685 = icmp ne i32 %419, 0
   br i1 %tobool685, label %if.else690, label %if.then686
 
 if.then686:                                       ; preds = %for.body682
-  %412 = load ptr, ptr %sobj, align 8
-  %413 = load ptr, ptr %vector, align 8
-  %414 = load i32, ptr %j, align 4
-  %idxprom687 = sext i32 %414 to i64
-  %arrayidx688 = getelementptr inbounds %struct._redisSortObject, ptr %413, i64 %idxprom687
+  %420 = load ptr, ptr %sobj, align 8
+  %421 = load ptr, ptr %vector, align 8
+  %422 = load i32, ptr %j, align 4
+  %idxprom687 = sext i32 %422 to i64
+  %arrayidx688 = getelementptr inbounds %struct._redisSortObject, ptr %421, i64 %idxprom687
   %obj689 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx688, i32 0, i32 0
-  %415 = load ptr, ptr %obj689, align 8
-  call void @listTypePush(ptr noundef %412, ptr noundef %415, i32 noundef 1)
+  %423 = load ptr, ptr %obj689, align 8
+  call void @listTypePush(ptr noundef %420, ptr noundef %423, i32 noundef 1)
   br label %if.end727
 
 if.else690:                                       ; preds = %for.body682
-  %416 = load ptr, ptr %operations, align 8
-  call void @listRewind(ptr noundef %416, ptr noundef %li684)
+  %424 = load ptr, ptr %operations, align 8
+  call void @listRewind(ptr noundef %424, ptr noundef %li684)
   br label %while.cond691
 
 while.cond691:                                    ; preds = %if.end725, %if.else690
@@ -2436,33 +2449,33 @@ while.cond691:                                    ; preds = %if.end725, %if.else
   br i1 %tobool693, label %while.body694, label %while.end726
 
 while.body694:                                    ; preds = %while.cond691
-  %417 = load ptr, ptr %ln683, align 8
-  %value696 = getelementptr inbounds %struct.listNode, ptr %417, i32 0, i32 2
-  %418 = load ptr, ptr %value696, align 8
-  store ptr %418, ptr %sop695, align 8
-  %419 = load ptr, ptr %c.addr, align 8
-  %db698 = getelementptr inbounds %struct.client, ptr %419, i32 0, i32 4
-  %420 = load ptr, ptr %db698, align 8
-  %421 = load ptr, ptr %sop695, align 8
-  %pattern699 = getelementptr inbounds %struct._redisSortOperation, ptr %421, i32 0, i32 1
-  %422 = load ptr, ptr %pattern699, align 8
-  %423 = load ptr, ptr %vector, align 8
-  %424 = load i32, ptr %j, align 4
-  %idxprom700 = sext i32 %424 to i64
-  %arrayidx701 = getelementptr inbounds %struct._redisSortObject, ptr %423, i64 %idxprom700
+  %425 = load ptr, ptr %ln683, align 8
+  %value696 = getelementptr inbounds %struct.listNode, ptr %425, i32 0, i32 2
+  %426 = load ptr, ptr %value696, align 8
+  store ptr %426, ptr %sop695, align 8
+  %427 = load ptr, ptr %c.addr, align 8
+  %db698 = getelementptr inbounds %struct.client, ptr %427, i32 0, i32 4
+  %428 = load ptr, ptr %db698, align 8
+  %429 = load ptr, ptr %sop695, align 8
+  %pattern699 = getelementptr inbounds %struct._redisSortOperation, ptr %429, i32 0, i32 1
+  %430 = load ptr, ptr %pattern699, align 8
+  %431 = load ptr, ptr %vector, align 8
+  %432 = load i32, ptr %j, align 4
+  %idxprom700 = sext i32 %432 to i64
+  %arrayidx701 = getelementptr inbounds %struct._redisSortObject, ptr %431, i64 %idxprom700
   %obj702 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx701, i32 0, i32 0
-  %425 = load ptr, ptr %obj702, align 8
-  %call703 = call ptr @lookupKeyByPattern(ptr noundef %420, ptr noundef %422, ptr noundef %425)
+  %433 = load ptr, ptr %obj702, align 8
+  %call703 = call ptr @lookupKeyByPattern(ptr noundef %428, ptr noundef %430, ptr noundef %433)
   store ptr %call703, ptr %val697, align 8
-  %426 = load ptr, ptr %sop695, align 8
-  %type704 = getelementptr inbounds %struct._redisSortOperation, ptr %426, i32 0, i32 0
-  %427 = load i32, ptr %type704, align 8
-  %cmp705 = icmp eq i32 %427, 0
+  %434 = load ptr, ptr %sop695, align 8
+  %type704 = getelementptr inbounds %struct._redisSortOperation, ptr %434, i32 0, i32 0
+  %435 = load i32, ptr %type704, align 8
+  %cmp705 = icmp eq i32 %435, 0
   br i1 %cmp705, label %if.then707, label %if.else712
 
 if.then707:                                       ; preds = %while.body694
-  %428 = load ptr, ptr %val697, align 8
-  %tobool708 = icmp ne ptr %428, null
+  %436 = load ptr, ptr %val697, align 8
+  %tobool708 = icmp ne ptr %436, null
   br i1 %tobool708, label %if.end711, label %if.then709
 
 if.then709:                                       ; preds = %if.then707
@@ -2471,18 +2484,18 @@ if.then709:                                       ; preds = %if.then707
   br label %if.end711
 
 if.end711:                                        ; preds = %if.then709, %if.then707
-  %429 = load ptr, ptr %sobj, align 8
-  %430 = load ptr, ptr %val697, align 8
-  call void @listTypePush(ptr noundef %429, ptr noundef %430, i32 noundef 1)
-  %431 = load ptr, ptr %val697, align 8
-  call void @decrRefCount(ptr noundef %431)
+  %437 = load ptr, ptr %sobj, align 8
+  %438 = load ptr, ptr %val697, align 8
+  call void @listTypePush(ptr noundef %437, ptr noundef %438, i32 noundef 1)
+  %439 = load ptr, ptr %val697, align 8
+  call void @decrRefCount(ptr noundef %439)
   br label %if.end725
 
 if.else712:                                       ; preds = %while.body694
-  %432 = load ptr, ptr %sop695, align 8
-  %type713 = getelementptr inbounds %struct._redisSortOperation, ptr %432, i32 0, i32 0
-  %433 = load i32, ptr %type713, align 8
-  %cmp714 = icmp eq i32 %433, 0
+  %440 = load ptr, ptr %sop695, align 8
+  %type713 = getelementptr inbounds %struct._redisSortOperation, ptr %440, i32 0, i32 0
+  %441 = load i32, ptr %type713, align 8
+  %cmp714 = icmp eq i32 %441, 0
   %lnot716 = xor i1 %cmp714, true
   %lnot718 = xor i1 %lnot716, true
   %lnot.ext719 = zext i1 %lnot718 to i32
@@ -2494,16 +2507,16 @@ cond.true722:                                     ; preds = %if.else712
   br label %cond.end724
 
 cond.false723:                                    ; preds = %if.else712
-  %434 = load ptr, ptr %c.addr, align 8
-  %435 = load ptr, ptr %sortval, align 8
-  call void @_serverAssertWithInfo(ptr noundef %434, ptr noundef %435, ptr noundef @.str.19, ptr noundef @.str.12, i32 noundef 586)
+  %442 = load ptr, ptr %c.addr, align 8
+  %443 = load ptr, ptr %sortval, align 8
+  call void @_serverAssertWithInfo(ptr noundef %442, ptr noundef %443, ptr noundef @.str.19, ptr noundef @.str.12, i32 noundef 586)
   call void @abort() #11
   unreachable
 
-436:                                              ; No predecessors!
+444:                                              ; No predecessors!
   br label %cond.end724
 
-cond.end724:                                      ; preds = %436, %cond.true722
+cond.end724:                                      ; preds = %444, %cond.true722
   br label %if.end725
 
 if.end725:                                        ; preds = %cond.end724, %if.end711
@@ -2516,78 +2529,82 @@ if.end727:                                        ; preds = %while.end726, %if.t
   br label %for.inc728
 
 for.inc728:                                       ; preds = %if.end727
-  %437 = load i32, ptr %j, align 4
-  %inc729 = add nsw i32 %437, 1
+  %445 = load i32, ptr %j, align 4
+  %inc729 = add nsw i32 %445, 1
   store i32 %inc729, ptr %j, align 4
   br label %for.cond678, !llvm.loop !16
 
 for.end730:                                       ; preds = %for.cond678
-  %438 = load i32, ptr %outputlen, align 4
-  %tobool731 = icmp ne i32 %438, 0
+  %446 = load i32, ptr %outputlen, align 4
+  %tobool731 = icmp ne i32 %446, 0
   br i1 %tobool731, label %if.then732, label %if.else737
 
 if.then732:                                       ; preds = %for.end730
-  %439 = load ptr, ptr %sobj, align 8
-  call void @listTypeTryConversion(ptr noundef %439, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %440 = load ptr, ptr %c.addr, align 8
-  %441 = load ptr, ptr %c.addr, align 8
-  %db733 = getelementptr inbounds %struct.client, ptr %441, i32 0, i32 4
-  %442 = load ptr, ptr %db733, align 8
-  %443 = load ptr, ptr %storekey, align 8
-  %444 = load ptr, ptr %sobj, align 8
-  call void @setKey(ptr noundef %440, ptr noundef %442, ptr noundef %443, ptr noundef %444, i32 noundef 0)
-  %445 = load ptr, ptr %storekey, align 8
-  %446 = load ptr, ptr %c.addr, align 8
-  %db734 = getelementptr inbounds %struct.client, ptr %446, i32 0, i32 4
-  %447 = load ptr, ptr %db734, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %447, i32 0, i32 6
-  %448 = load i32, ptr %id, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef @.str.21, ptr noundef %445, i32 noundef %448)
-  %449 = load i32, ptr %outputlen, align 4
-  %conv735 = zext i32 %449 to i64
-  %450 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 219), align 8
-  %add736 = add nsw i64 %450, %conv735
-  store i64 %add736, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 219), align 8
+  %447 = load ptr, ptr %sobj, align 8
+  call void @listTypeTryConversion(ptr noundef %447, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %448 = load ptr, ptr %c.addr, align 8
+  %449 = load ptr, ptr %c.addr, align 8
+  %db733 = getelementptr inbounds %struct.client, ptr %449, i32 0, i32 4
+  %450 = load ptr, ptr %db733, align 8
+  %451 = load ptr, ptr %storekey, align 8
+  %452 = load ptr, ptr %sobj, align 8
+  call void @setKey(ptr noundef %448, ptr noundef %450, ptr noundef %451, ptr noundef %452, i32 noundef 0)
+  %453 = load ptr, ptr %storekey, align 8
+  %454 = load ptr, ptr %c.addr, align 8
+  %db734 = getelementptr inbounds %struct.client, ptr %454, i32 0, i32 4
+  %455 = load ptr, ptr %db734, align 8
+  %id = getelementptr inbounds %struct.redisDb, ptr %455, i32 0, i32 6
+  %456 = load i32, ptr %id, align 8
+  call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef @.str.21, ptr noundef %453, i32 noundef %456)
+  %457 = load i32, ptr %outputlen, align 4
+  %conv735 = zext i32 %457 to i64
+  %458 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 219
+  %459 = load i64, ptr %458, align 8
+  %add736 = add nsw i64 %459, %conv735
+  %460 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 219
+  store i64 %add736, ptr %460, align 8
   br label %if.end747
 
 if.else737:                                       ; preds = %for.end730
-  %451 = load ptr, ptr %c.addr, align 8
-  %db738 = getelementptr inbounds %struct.client, ptr %451, i32 0, i32 4
-  %452 = load ptr, ptr %db738, align 8
-  %453 = load ptr, ptr %storekey, align 8
-  %call739 = call i32 @dbDelete(ptr noundef %452, ptr noundef %453)
+  %461 = load ptr, ptr %c.addr, align 8
+  %db738 = getelementptr inbounds %struct.client, ptr %461, i32 0, i32 4
+  %462 = load ptr, ptr %db738, align 8
+  %463 = load ptr, ptr %storekey, align 8
+  %call739 = call i32 @dbDelete(ptr noundef %462, ptr noundef %463)
   %tobool740 = icmp ne i32 %call739, 0
   br i1 %tobool740, label %if.then741, label %if.end746
 
 if.then741:                                       ; preds = %if.else737
-  %454 = load ptr, ptr %c.addr, align 8
-  %455 = load ptr, ptr %c.addr, align 8
-  %db742 = getelementptr inbounds %struct.client, ptr %455, i32 0, i32 4
-  %456 = load ptr, ptr %db742, align 8
-  %457 = load ptr, ptr %storekey, align 8
-  call void @signalModifiedKey(ptr noundef %454, ptr noundef %456, ptr noundef %457)
-  %458 = load ptr, ptr %storekey, align 8
-  %459 = load ptr, ptr %c.addr, align 8
-  %db743 = getelementptr inbounds %struct.client, ptr %459, i32 0, i32 4
-  %460 = load ptr, ptr %db743, align 8
-  %id744 = getelementptr inbounds %struct.redisDb, ptr %460, i32 0, i32 6
-  %461 = load i32, ptr %id744, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef @.str.22, ptr noundef %458, i32 noundef %461)
-  %462 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 219), align 8
-  %inc745 = add nsw i64 %462, 1
-  store i64 %inc745, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 219), align 8
+  %464 = load ptr, ptr %c.addr, align 8
+  %465 = load ptr, ptr %c.addr, align 8
+  %db742 = getelementptr inbounds %struct.client, ptr %465, i32 0, i32 4
+  %466 = load ptr, ptr %db742, align 8
+  %467 = load ptr, ptr %storekey, align 8
+  call void @signalModifiedKey(ptr noundef %464, ptr noundef %466, ptr noundef %467)
+  %468 = load ptr, ptr %storekey, align 8
+  %469 = load ptr, ptr %c.addr, align 8
+  %db743 = getelementptr inbounds %struct.client, ptr %469, i32 0, i32 4
+  %470 = load ptr, ptr %db743, align 8
+  %id744 = getelementptr inbounds %struct.redisDb, ptr %470, i32 0, i32 6
+  %471 = load i32, ptr %id744, align 8
+  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef @.str.22, ptr noundef %468, i32 noundef %471)
+  %472 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 219
+  %473 = load i64, ptr %472, align 8
+  %inc745 = add nsw i64 %473, 1
+  %474 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 219
+  store i64 %inc745, ptr %474, align 8
   br label %if.end746
 
 if.end746:                                        ; preds = %if.then741, %if.else737
   br label %if.end747
 
 if.end747:                                        ; preds = %if.end746, %if.then732
-  %463 = load ptr, ptr %sobj, align 8
-  call void @decrRefCount(ptr noundef %463)
-  %464 = load ptr, ptr %c.addr, align 8
-  %465 = load i32, ptr %outputlen, align 4
-  %conv748 = zext i32 %465 to i64
-  call void @addReplyLongLong(ptr noundef %464, i64 noundef %conv748)
+  %475 = load ptr, ptr %sobj, align 8
+  call void @decrRefCount(ptr noundef %475)
+  %476 = load ptr, ptr %c.addr, align 8
+  %477 = load i32, ptr %outputlen, align 4
+  %conv748 = zext i32 %477 to i64
+  call void @addReplyLongLong(ptr noundef %476, i64 noundef %conv748)
   br label %if.end749
 
 if.end749:                                        ; preds = %if.end747, %for.end674
@@ -2598,78 +2615,78 @@ if.end750:                                        ; preds = %if.end749, %if.then
   br label %for.cond751
 
 for.cond751:                                      ; preds = %for.inc758, %if.end750
-  %466 = load i32, ptr %j, align 4
-  %467 = load i32, ptr %vectorlen, align 4
-  %cmp752 = icmp slt i32 %466, %467
+  %478 = load i32, ptr %j, align 4
+  %479 = load i32, ptr %vectorlen, align 4
+  %cmp752 = icmp slt i32 %478, %479
   br i1 %cmp752, label %for.body754, label %for.end760
 
 for.body754:                                      ; preds = %for.cond751
-  %468 = load ptr, ptr %vector, align 8
-  %469 = load i32, ptr %j, align 4
-  %idxprom755 = sext i32 %469 to i64
-  %arrayidx756 = getelementptr inbounds %struct._redisSortObject, ptr %468, i64 %idxprom755
+  %480 = load ptr, ptr %vector, align 8
+  %481 = load i32, ptr %j, align 4
+  %idxprom755 = sext i32 %481 to i64
+  %arrayidx756 = getelementptr inbounds %struct._redisSortObject, ptr %480, i64 %idxprom755
   %obj757 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx756, i32 0, i32 0
-  %470 = load ptr, ptr %obj757, align 8
-  call void @decrRefCount(ptr noundef %470)
+  %482 = load ptr, ptr %obj757, align 8
+  call void @decrRefCount(ptr noundef %482)
   br label %for.inc758
 
 for.inc758:                                       ; preds = %for.body754
-  %471 = load i32, ptr %j, align 4
-  %inc759 = add nsw i32 %471, 1
+  %483 = load i32, ptr %j, align 4
+  %inc759 = add nsw i32 %483, 1
   store i32 %inc759, ptr %j, align 4
   br label %for.cond751, !llvm.loop !17
 
 for.end760:                                       ; preds = %for.cond751
-  %472 = load ptr, ptr %sortval, align 8
-  call void @decrRefCount(ptr noundef %472)
-  %473 = load ptr, ptr %operations, align 8
-  call void @listRelease(ptr noundef %473)
+  %484 = load ptr, ptr %sortval, align 8
+  call void @decrRefCount(ptr noundef %484)
+  %485 = load ptr, ptr %operations, align 8
+  call void @listRelease(ptr noundef %485)
   store i32 0, ptr %j, align 4
   br label %for.cond761
 
 for.cond761:                                      ; preds = %for.inc776, %for.end760
-  %474 = load i32, ptr %j, align 4
-  %475 = load i32, ptr %vectorlen, align 4
-  %cmp762 = icmp slt i32 %474, %475
+  %486 = load i32, ptr %j, align 4
+  %487 = load i32, ptr %vectorlen, align 4
+  %cmp762 = icmp slt i32 %486, %487
   br i1 %cmp762, label %for.body764, label %for.end778
 
 for.body764:                                      ; preds = %for.cond761
-  %476 = load i32, ptr %alpha, align 4
-  %tobool765 = icmp ne i32 %476, 0
+  %488 = load i32, ptr %alpha, align 4
+  %tobool765 = icmp ne i32 %488, 0
   br i1 %tobool765, label %land.lhs.true766, label %if.end775
 
 land.lhs.true766:                                 ; preds = %for.body764
-  %477 = load ptr, ptr %vector, align 8
-  %478 = load i32, ptr %j, align 4
-  %idxprom767 = sext i32 %478 to i64
-  %arrayidx768 = getelementptr inbounds %struct._redisSortObject, ptr %477, i64 %idxprom767
+  %489 = load ptr, ptr %vector, align 8
+  %490 = load i32, ptr %j, align 4
+  %idxprom767 = sext i32 %490 to i64
+  %arrayidx768 = getelementptr inbounds %struct._redisSortObject, ptr %489, i64 %idxprom767
   %u769 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx768, i32 0, i32 1
-  %479 = load ptr, ptr %u769, align 8
-  %tobool770 = icmp ne ptr %479, null
+  %491 = load ptr, ptr %u769, align 8
+  %tobool770 = icmp ne ptr %491, null
   br i1 %tobool770, label %if.then771, label %if.end775
 
 if.then771:                                       ; preds = %land.lhs.true766
-  %480 = load ptr, ptr %vector, align 8
-  %481 = load i32, ptr %j, align 4
-  %idxprom772 = sext i32 %481 to i64
-  %arrayidx773 = getelementptr inbounds %struct._redisSortObject, ptr %480, i64 %idxprom772
+  %492 = load ptr, ptr %vector, align 8
+  %493 = load i32, ptr %j, align 4
+  %idxprom772 = sext i32 %493 to i64
+  %arrayidx773 = getelementptr inbounds %struct._redisSortObject, ptr %492, i64 %idxprom772
   %u774 = getelementptr inbounds %struct._redisSortObject, ptr %arrayidx773, i32 0, i32 1
-  %482 = load ptr, ptr %u774, align 8
-  call void @decrRefCount(ptr noundef %482)
+  %494 = load ptr, ptr %u774, align 8
+  call void @decrRefCount(ptr noundef %494)
   br label %if.end775
 
 if.end775:                                        ; preds = %if.then771, %land.lhs.true766, %for.body764
   br label %for.inc776
 
 for.inc776:                                       ; preds = %if.end775
-  %483 = load i32, ptr %j, align 4
-  %inc777 = add nsw i32 %483, 1
+  %495 = load i32, ptr %j, align 4
+  %inc777 = add nsw i32 %495, 1
   store i32 %inc777, ptr %j, align 4
   br label %for.cond761, !llvm.loop !18
 
 for.end778:                                       ; preds = %for.cond761
-  %484 = load ptr, ptr %vector, align 8
-  call void @zfree(ptr noundef %484)
+  %496 = load ptr, ptr %vector, align 8
+  call void @zfree(ptr noundef %496)
   br label %return
 
 return:                                           ; preds = %for.end778, %if.then175, %if.then156

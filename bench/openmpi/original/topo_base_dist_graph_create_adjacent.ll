@@ -120,7 +120,7 @@ define internal i32 @_mca_topo_base_dist_graph_create_adjacent(ptr noundef %0, i
   %28 = load ptr, ptr %21, align 8
   %29 = call i32 @ompi_comm_free(ptr noundef %28)
   store i32 -2, ptr %12, align 4
-  br label %219
+  br label %223
 
 30:                                               ; preds = %9
   %31 = load ptr, ptr %22, align 8
@@ -144,259 +144,263 @@ define internal i32 @_mca_topo_base_dist_graph_create_adjacent(ptr noundef %0, i
   %44 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %43, i32 0, i32 6
   store i32 %42, ptr %44, align 4
   %45 = load ptr, ptr %16, align 8
-  %46 = icmp eq ptr inttoptr (i64 2 to ptr), %45
-  br i1 %46, label %47, label %50
+  %46 = inttoptr i64 2 to ptr
+  %47 = icmp eq ptr %46, %45
+  br i1 %47, label %48, label %52
 
-47:                                               ; preds = %30
-  %48 = load ptr, ptr %19, align 8
-  %49 = icmp eq ptr inttoptr (i64 2 to ptr), %48
-  br label %50
+48:                                               ; preds = %30
+  %49 = load ptr, ptr %19, align 8
+  %50 = inttoptr i64 2 to ptr
+  %51 = icmp eq ptr %50, %49
+  br label %52
 
-50:                                               ; preds = %47, %30
-  %51 = phi i1 [ false, %30 ], [ %49, %47 ]
-  %52 = xor i1 %51, true
-  %53 = load ptr, ptr %22, align 8
-  %54 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %53, i32 0, i32 7
-  %55 = zext i1 %52 to i8
-  store i8 %55, ptr %54, align 8
-  %56 = load ptr, ptr %22, align 8
-  %57 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %56, i32 0, i32 5
-  %58 = load i32, ptr %57, align 8
-  %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %60, label %111
+52:                                               ; preds = %48, %30
+  %53 = phi i1 [ false, %30 ], [ %51, %48 ]
+  %54 = xor i1 %53, true
+  %55 = load ptr, ptr %22, align 8
+  %56 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %55, i32 0, i32 7
+  %57 = zext i1 %54 to i8
+  store i8 %57, ptr %56, align 8
+  %58 = load ptr, ptr %22, align 8
+  %59 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %58, i32 0, i32 5
+  %60 = load i32, ptr %59, align 8
+  %61 = icmp sgt i32 %60, 0
+  br i1 %61, label %62, label %114
 
-60:                                               ; preds = %50
-  %61 = load ptr, ptr %22, align 8
-  %62 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %61, i32 0, i32 5
-  %63 = load i32, ptr %62, align 8
-  %64 = sext i32 %63 to i64
-  %65 = mul i64 4, %64
-  %66 = call noalias ptr @malloc(i64 noundef %65) #5
-  %67 = load ptr, ptr %22, align 8
-  %68 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %67, i32 0, i32 1
-  store ptr %66, ptr %68, align 8
+62:                                               ; preds = %52
+  %63 = load ptr, ptr %22, align 8
+  %64 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %63, i32 0, i32 5
+  %65 = load i32, ptr %64, align 8
+  %66 = sext i32 %65 to i64
+  %67 = mul i64 4, %66
+  %68 = call noalias ptr @malloc(i64 noundef %67) #5
   %69 = load ptr, ptr %22, align 8
   %70 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %69, i32 0, i32 1
-  %71 = load ptr, ptr %70, align 8
-  %72 = icmp eq ptr null, %71
-  br i1 %72, label %73, label %74
+  store ptr %68, ptr %70, align 8
+  %71 = load ptr, ptr %22, align 8
+  %72 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp eq ptr null, %73
+  br i1 %74, label %75, label %76
 
-73:                                               ; preds = %60
-  br label %199
+75:                                               ; preds = %62
+  br label %203
 
-74:                                               ; preds = %60
-  %75 = load ptr, ptr %22, align 8
-  %76 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %75, i32 0, i32 1
-  %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr %15, align 8
-  %79 = load ptr, ptr %22, align 8
-  %80 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %79, i32 0, i32 5
-  %81 = load i32, ptr %80, align 8
-  %82 = sext i32 %81 to i64
-  %83 = mul i64 4, %82
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %77, ptr align 4 %78, i64 %83, i1 false)
-  %84 = load ptr, ptr %16, align 8
-  %85 = icmp ne ptr inttoptr (i64 2 to ptr), %84
-  br i1 %85, label %86, label %110
+76:                                               ; preds = %62
+  %77 = load ptr, ptr %22, align 8
+  %78 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %77, i32 0, i32 1
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %15, align 8
+  %81 = load ptr, ptr %22, align 8
+  %82 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %81, i32 0, i32 5
+  %83 = load i32, ptr %82, align 8
+  %84 = sext i32 %83 to i64
+  %85 = mul i64 4, %84
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %79, ptr align 4 %80, i64 %85, i1 false)
+  %86 = load ptr, ptr %16, align 8
+  %87 = inttoptr i64 2 to ptr
+  %88 = icmp ne ptr %87, %86
+  br i1 %88, label %89, label %113
 
-86:                                               ; preds = %74
-  %87 = load ptr, ptr %22, align 8
-  %88 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %87, i32 0, i32 5
-  %89 = load i32, ptr %88, align 8
-  %90 = sext i32 %89 to i64
-  %91 = mul i64 4, %90
-  %92 = call noalias ptr @malloc(i64 noundef %91) #5
-  %93 = load ptr, ptr %22, align 8
-  %94 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %93, i32 0, i32 2
-  store ptr %92, ptr %94, align 8
-  %95 = load ptr, ptr %22, align 8
-  %96 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %95, i32 0, i32 2
-  %97 = load ptr, ptr %96, align 8
-  %98 = icmp eq ptr null, %97
-  br i1 %98, label %99, label %100
+89:                                               ; preds = %76
+  %90 = load ptr, ptr %22, align 8
+  %91 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %90, i32 0, i32 5
+  %92 = load i32, ptr %91, align 8
+  %93 = sext i32 %92 to i64
+  %94 = mul i64 4, %93
+  %95 = call noalias ptr @malloc(i64 noundef %94) #5
+  %96 = load ptr, ptr %22, align 8
+  %97 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %96, i32 0, i32 2
+  store ptr %95, ptr %97, align 8
+  %98 = load ptr, ptr %22, align 8
+  %99 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %98, i32 0, i32 2
+  %100 = load ptr, ptr %99, align 8
+  %101 = icmp eq ptr null, %100
+  br i1 %101, label %102, label %103
 
-99:                                               ; preds = %86
-  br label %199
+102:                                              ; preds = %89
+  br label %203
 
-100:                                              ; preds = %86
-  %101 = load ptr, ptr %22, align 8
-  %102 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %101, i32 0, i32 2
-  %103 = load ptr, ptr %102, align 8
-  %104 = load ptr, ptr %16, align 8
-  %105 = load ptr, ptr %22, align 8
-  %106 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %105, i32 0, i32 5
-  %107 = load i32, ptr %106, align 8
-  %108 = sext i32 %107 to i64
-  %109 = mul i64 4, %108
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %103, ptr align 4 %104, i64 %109, i1 false)
-  br label %110
+103:                                              ; preds = %89
+  %104 = load ptr, ptr %22, align 8
+  %105 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %104, i32 0, i32 2
+  %106 = load ptr, ptr %105, align 8
+  %107 = load ptr, ptr %16, align 8
+  %108 = load ptr, ptr %22, align 8
+  %109 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %108, i32 0, i32 5
+  %110 = load i32, ptr %109, align 8
+  %111 = sext i32 %110 to i64
+  %112 = mul i64 4, %111
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %106, ptr align 4 %107, i64 %112, i1 false)
+  br label %113
 
-110:                                              ; preds = %100, %74
-  br label %111
+113:                                              ; preds = %103, %76
+  br label %114
 
-111:                                              ; preds = %110, %50
-  %112 = load ptr, ptr %22, align 8
-  %113 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %112, i32 0, i32 6
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp sgt i32 %114, 0
-  br i1 %115, label %116, label %175
+114:                                              ; preds = %113, %52
+  %115 = load ptr, ptr %22, align 8
+  %116 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %115, i32 0, i32 6
+  %117 = load i32, ptr %116, align 4
+  %118 = icmp sgt i32 %117, 0
+  br i1 %118, label %119, label %179
 
-116:                                              ; preds = %111
-  %117 = load ptr, ptr %22, align 8
-  %118 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %117, i32 0, i32 6
-  %119 = load i32, ptr %118, align 4
-  %120 = sext i32 %119 to i64
-  %121 = mul i64 4, %120
-  %122 = call noalias ptr @malloc(i64 noundef %121) #5
-  %123 = load ptr, ptr %22, align 8
-  %124 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %123, i32 0, i32 3
-  store ptr %122, ptr %124, align 8
-  %125 = load ptr, ptr %22, align 8
-  %126 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %125, i32 0, i32 3
-  %127 = load ptr, ptr %126, align 8
-  %128 = icmp eq ptr null, %127
-  br i1 %128, label %129, label %130
+119:                                              ; preds = %114
+  %120 = load ptr, ptr %22, align 8
+  %121 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %120, i32 0, i32 6
+  %122 = load i32, ptr %121, align 4
+  %123 = sext i32 %122 to i64
+  %124 = mul i64 4, %123
+  %125 = call noalias ptr @malloc(i64 noundef %124) #5
+  %126 = load ptr, ptr %22, align 8
+  %127 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %126, i32 0, i32 3
+  store ptr %125, ptr %127, align 8
+  %128 = load ptr, ptr %22, align 8
+  %129 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %128, i32 0, i32 3
+  %130 = load ptr, ptr %129, align 8
+  %131 = icmp eq ptr null, %130
+  br i1 %131, label %132, label %133
 
-129:                                              ; preds = %116
-  br label %199
+132:                                              ; preds = %119
+  br label %203
 
-130:                                              ; preds = %116
-  %131 = load ptr, ptr %22, align 8
-  %132 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %131, i32 0, i32 3
-  %133 = load ptr, ptr %132, align 8
-  %134 = load ptr, ptr %18, align 8
-  %135 = load ptr, ptr %22, align 8
-  %136 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %135, i32 0, i32 6
-  %137 = load i32, ptr %136, align 4
-  %138 = sext i32 %137 to i64
-  %139 = mul i64 4, %138
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %133, ptr align 4 %134, i64 %139, i1 false)
-  %140 = load ptr, ptr %22, align 8
-  %141 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %140, i32 0, i32 4
-  store ptr null, ptr %141, align 8
-  %142 = load ptr, ptr %19, align 8
-  %143 = icmp ne ptr inttoptr (i64 2 to ptr), %142
-  br i1 %143, label %144, label %174
+133:                                              ; preds = %119
+  %134 = load ptr, ptr %22, align 8
+  %135 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %134, i32 0, i32 3
+  %136 = load ptr, ptr %135, align 8
+  %137 = load ptr, ptr %18, align 8
+  %138 = load ptr, ptr %22, align 8
+  %139 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %138, i32 0, i32 6
+  %140 = load i32, ptr %139, align 4
+  %141 = sext i32 %140 to i64
+  %142 = mul i64 4, %141
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %136, ptr align 4 %137, i64 %142, i1 false)
+  %143 = load ptr, ptr %22, align 8
+  %144 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %143, i32 0, i32 4
+  store ptr null, ptr %144, align 8
+  %145 = load ptr, ptr %19, align 8
+  %146 = inttoptr i64 2 to ptr
+  %147 = icmp ne ptr %146, %145
+  br i1 %147, label %148, label %178
 
-144:                                              ; preds = %130
-  %145 = load ptr, ptr %22, align 8
-  %146 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %145, i32 0, i32 6
-  %147 = load i32, ptr %146, align 4
-  %148 = icmp sgt i32 %147, 0
-  br i1 %148, label %149, label %173
+148:                                              ; preds = %133
+  %149 = load ptr, ptr %22, align 8
+  %150 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %149, i32 0, i32 6
+  %151 = load i32, ptr %150, align 4
+  %152 = icmp sgt i32 %151, 0
+  br i1 %152, label %153, label %177
 
-149:                                              ; preds = %144
-  %150 = load ptr, ptr %22, align 8
-  %151 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %150, i32 0, i32 6
-  %152 = load i32, ptr %151, align 4
-  %153 = sext i32 %152 to i64
-  %154 = mul i64 4, %153
-  %155 = call noalias ptr @malloc(i64 noundef %154) #5
-  %156 = load ptr, ptr %22, align 8
-  %157 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %156, i32 0, i32 4
-  store ptr %155, ptr %157, align 8
-  %158 = load ptr, ptr %22, align 8
-  %159 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %158, i32 0, i32 4
-  %160 = load ptr, ptr %159, align 8
-  %161 = icmp eq ptr null, %160
-  br i1 %161, label %162, label %163
+153:                                              ; preds = %148
+  %154 = load ptr, ptr %22, align 8
+  %155 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %154, i32 0, i32 6
+  %156 = load i32, ptr %155, align 4
+  %157 = sext i32 %156 to i64
+  %158 = mul i64 4, %157
+  %159 = call noalias ptr @malloc(i64 noundef %158) #5
+  %160 = load ptr, ptr %22, align 8
+  %161 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %160, i32 0, i32 4
+  store ptr %159, ptr %161, align 8
+  %162 = load ptr, ptr %22, align 8
+  %163 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %162, i32 0, i32 4
+  %164 = load ptr, ptr %163, align 8
+  %165 = icmp eq ptr null, %164
+  br i1 %165, label %166, label %167
 
-162:                                              ; preds = %149
-  br label %199
+166:                                              ; preds = %153
+  br label %203
 
-163:                                              ; preds = %149
-  %164 = load ptr, ptr %22, align 8
-  %165 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %164, i32 0, i32 4
-  %166 = load ptr, ptr %165, align 8
-  %167 = load ptr, ptr %19, align 8
+167:                                              ; preds = %153
   %168 = load ptr, ptr %22, align 8
-  %169 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %168, i32 0, i32 6
-  %170 = load i32, ptr %169, align 4
-  %171 = sext i32 %170 to i64
-  %172 = mul i64 4, %171
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %166, ptr align 4 %167, i64 %172, i1 false)
-  br label %173
+  %169 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %168, i32 0, i32 4
+  %170 = load ptr, ptr %169, align 8
+  %171 = load ptr, ptr %19, align 8
+  %172 = load ptr, ptr %22, align 8
+  %173 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %172, i32 0, i32 6
+  %174 = load i32, ptr %173, align 4
+  %175 = sext i32 %174 to i64
+  %176 = mul i64 4, %175
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %170, ptr align 4 %171, i64 %176, i1 false)
+  br label %177
 
-173:                                              ; preds = %163, %144
-  br label %174
+177:                                              ; preds = %167, %148
+  br label %178
 
-174:                                              ; preds = %173, %130
-  br label %175
+178:                                              ; preds = %177, %133
+  br label %179
 
-175:                                              ; preds = %174, %111
-  %176 = load ptr, ptr %13, align 8
-  %177 = load ptr, ptr %21, align 8
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds %struct.ompi_communicator_t, ptr %178, i32 0, i32 17
-  store ptr %176, ptr %179, align 8
-  %180 = load ptr, ptr %22, align 8
+179:                                              ; preds = %178, %114
+  %180 = load ptr, ptr %13, align 8
   %181 = load ptr, ptr %21, align 8
   %182 = load ptr, ptr %181, align 8
   %183 = getelementptr inbounds %struct.ompi_communicator_t, ptr %182, i32 0, i32 17
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds %struct.mca_topo_base_module_t, ptr %184, i32 0, i32 5
-  store ptr %180, ptr %185, align 8
-  %186 = load i32, ptr %20, align 4
-  %187 = icmp ne i32 %186, 0
-  %188 = load ptr, ptr %21, align 8
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds %struct.ompi_communicator_t, ptr %189, i32 0, i32 17
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds %struct.mca_topo_base_module_t, ptr %191, i32 0, i32 2
-  %193 = zext i1 %187 to i8
-  store i8 %193, ptr %192, align 4
-  %194 = load ptr, ptr %21, align 8
+  store ptr %180, ptr %183, align 8
+  %184 = load ptr, ptr %22, align 8
+  %185 = load ptr, ptr %21, align 8
+  %186 = load ptr, ptr %185, align 8
+  %187 = getelementptr inbounds %struct.ompi_communicator_t, ptr %186, i32 0, i32 17
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds %struct.mca_topo_base_module_t, ptr %188, i32 0, i32 5
+  store ptr %184, ptr %189, align 8
+  %190 = load i32, ptr %20, align 4
+  %191 = icmp ne i32 %190, 0
+  %192 = load ptr, ptr %21, align 8
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds %struct.ompi_communicator_t, ptr %193, i32 0, i32 17
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds %struct.ompi_communicator_t, ptr %195, i32 0, i32 7
-  %197 = load i32, ptr %196, align 8
-  %198 = or i32 %197, 1024
-  store i32 %198, ptr %196, align 8
+  %196 = getelementptr inbounds %struct.mca_topo_base_module_t, ptr %195, i32 0, i32 2
+  %197 = zext i1 %191 to i8
+  store i8 %197, ptr %196, align 4
+  %198 = load ptr, ptr %21, align 8
+  %199 = load ptr, ptr %198, align 8
+  %200 = getelementptr inbounds %struct.ompi_communicator_t, ptr %199, i32 0, i32 7
+  %201 = load i32, ptr %200, align 8
+  %202 = or i32 %201, 1024
+  store i32 %202, ptr %200, align 8
   store i32 0, ptr %12, align 4
-  br label %219
+  br label %223
 
-199:                                              ; preds = %162, %129, %99, %73
-  %200 = load ptr, ptr %22, align 8
-  %201 = icmp ne ptr null, %200
-  br i1 %201, label %202, label %215
-
-202:                                              ; preds = %199
-  br label %203
-
-203:                                              ; preds = %202
+203:                                              ; preds = %166, %132, %102, %75
   %204 = load ptr, ptr %22, align 8
-  store ptr %204, ptr %10, align 8
+  %205 = icmp ne ptr null, %204
+  br i1 %205, label %206, label %219
+
+206:                                              ; preds = %203
+  br label %207
+
+207:                                              ; preds = %206
+  %208 = load ptr, ptr %22, align 8
+  store ptr %208, ptr %10, align 8
   store i32 -1, ptr %11, align 4
-  %205 = load ptr, ptr %10, align 8
-  %206 = getelementptr inbounds %struct.opal_object_t, ptr %205, i32 0, i32 1
-  %207 = load i32, ptr %11, align 4
-  %208 = call i32 @opal_thread_add_fetch_32(ptr noundef %206, i32 noundef %207)
-  %209 = icmp eq i32 0, %208
-  br i1 %209, label %210, label %213
+  %209 = load ptr, ptr %10, align 8
+  %210 = getelementptr inbounds %struct.opal_object_t, ptr %209, i32 0, i32 1
+  %211 = load i32, ptr %11, align 4
+  %212 = call i32 @opal_thread_add_fetch_32(ptr noundef %210, i32 noundef %211)
+  %213 = icmp eq i32 0, %212
+  br i1 %213, label %214, label %217
 
-210:                                              ; preds = %203
-  %211 = load ptr, ptr %22, align 8
-  call void @opal_obj_run_destructors(ptr noundef %211)
-  %212 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %212) #6
+214:                                              ; preds = %207
+  %215 = load ptr, ptr %22, align 8
+  call void @opal_obj_run_destructors(ptr noundef %215)
+  %216 = load ptr, ptr %22, align 8
+  call void @free(ptr noundef %216) #6
   store ptr null, ptr %22, align 8
-  br label %213
+  br label %217
 
-213:                                              ; preds = %210, %203
-  br label %214
+217:                                              ; preds = %214, %207
+  br label %218
 
-214:                                              ; preds = %213
-  br label %215
-
-215:                                              ; preds = %214, %199
-  %216 = load ptr, ptr %21, align 8
-  %217 = call i32 @ompi_comm_free(ptr noundef %216)
-  %218 = load i32, ptr %23, align 4
-  store i32 %218, ptr %12, align 4
+218:                                              ; preds = %217
   br label %219
 
-219:                                              ; preds = %215, %175, %27
-  %220 = load i32, ptr %12, align 4
-  ret i32 %220
+219:                                              ; preds = %218, %203
+  %220 = load ptr, ptr %21, align 8
+  %221 = call i32 @ompi_comm_free(ptr noundef %220)
+  %222 = load i32, ptr %23, align 4
+  store i32 %222, ptr %12, align 4
+  br label %223
+
+223:                                              ; preds = %219, %179, %27
+  %224 = load i32, ptr %12, align 4
+  ret i32 %224
 }
 
 ; Function Attrs: nounwind uwtable

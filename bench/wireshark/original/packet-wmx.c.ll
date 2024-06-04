@@ -524,41 +524,42 @@ define hidden i32 @is_down_link(ptr noundef %0) #0 {
 
 8:                                                ; preds = %1
   store i32 1, ptr %2, align 4
-  br label %25
+  br label %26
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr inbounds %struct._packet_info, ptr %10, i32 0, i32 36
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %24
+  br i1 %13, label %14, label %25
 
 14:                                               ; preds = %9
-  %15 = load i32, ptr getelementptr inbounds (%struct._address, ptr @bs_address, i32 0, i32 1), align 4
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %23
+  %15 = getelementptr inbounds %struct._address, ptr @bs_address, i32 0, i32 1
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %24
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 16
-  %20 = call i32 @cmp_address(ptr noundef @bs_address, ptr noundef %19)
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %23, label %22
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 16
+  %21 = call i32 @cmp_address(ptr noundef @bs_address, ptr noundef %20)
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %24, label %23
 
-22:                                               ; preds = %17
+23:                                               ; preds = %18
   store i32 1, ptr %2, align 4
+  br label %26
+
+24:                                               ; preds = %18, %14
   br label %25
 
-23:                                               ; preds = %17, %14
-  br label %24
-
-24:                                               ; preds = %23, %9
+25:                                               ; preds = %24, %9
   store i32 0, ptr %2, align 4
-  br label %25
+  br label %26
 
-25:                                               ; preds = %24, %22, %8
-  %26 = load i32, ptr %2, align 4
-  ret i32 %26
+26:                                               ; preds = %25, %23, %8
+  %27 = load i32, ptr %2, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable

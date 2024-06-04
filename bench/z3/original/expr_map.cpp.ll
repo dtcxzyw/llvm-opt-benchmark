@@ -1735,12 +1735,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %"class.obj_map<expr, expr *>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key3 = getelementptr inbounds %"struct.obj_map<expr, expr *>::key_data", ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %m_key3, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2067,12 +2068,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %"class.obj_map<expr, app *>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key3 = getelementptr inbounds %"struct.obj_map<expr, app *>::key_data", ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %m_key3, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3381,7 +3383,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %m_data = getelementptr inbounds %"class.obj_map<expr, expr *>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key = getelementptr inbounds %"struct.obj_map<expr, expr *>::key_data", ptr %m_data, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_key, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %m_key, align 8
   ret void
 }
 
@@ -3679,7 +3682,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %m_data = getelementptr inbounds %"class.obj_map<expr, app *>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key = getelementptr inbounds %"struct.obj_map<expr, app *>::key_data", ptr %m_data, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_key, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %m_key, align 8
   ret void
 }
 

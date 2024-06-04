@@ -101,66 +101,67 @@ define dso_local ptr @load_msg(ptr noundef %0, i64 noundef %1) local_unnamed_add
 33:                                               ; preds = %28, %25, %10, %2
   %34 = phi ptr [ null, %2 ], [ null, %25 ], [ null, %28 ], [ %5, %10 ]
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %72, label %36
+  %36 = inttoptr i64 -12 to ptr
+  br i1 %35, label %73, label %37
 
-36:                                               ; preds = %33
-  %37 = getelementptr i8, ptr %34, i64 48
-  %38 = tail call i64 @_copy_from_user(ptr noundef %37, ptr noundef %0, i64 noundef %3) #7
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %59
+37:                                               ; preds = %33
+  %38 = getelementptr i8, ptr %34, i64 48
+  %39 = tail call i64 @_copy_from_user(ptr noundef %38, ptr noundef %0, i64 noundef %3) #7
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %41, label %60
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %34, i64 32
-  br label %42
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds i8, ptr %34, i64 32
+  br label %43
 
-42:                                               ; preds = %49, %40
-  %43 = phi i64 [ %3, %40 ], [ %52, %49 ]
-  %44 = phi ptr [ %41, %40 ], [ %47, %49 ]
-  %45 = phi i64 [ %1, %40 ], [ %50, %49 ]
-  %46 = phi ptr [ %0, %40 ], [ %51, %49 ]
-  %47 = load ptr, ptr %44, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %56, label %49
+43:                                               ; preds = %50, %41
+  %44 = phi i64 [ %3, %41 ], [ %53, %50 ]
+  %45 = phi ptr [ %42, %41 ], [ %48, %50 ]
+  %46 = phi i64 [ %1, %41 ], [ %51, %50 ]
+  %47 = phi ptr [ %0, %41 ], [ %52, %50 ]
+  %48 = load ptr, ptr %45, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %57, label %50
 
-49:                                               ; preds = %42
-  %50 = sub i64 %45, %43
-  %51 = getelementptr i8, ptr %46, i64 %43
-  %52 = tail call i64 @llvm.umin.i64(i64 %50, i64 4088)
-  %53 = getelementptr i8, ptr %47, i64 8
-  %54 = tail call i64 @_copy_from_user(ptr noundef %53, ptr noundef %51, i64 noundef %52) #7
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %42, label %59, !llvm.loop !8
+50:                                               ; preds = %43
+  %51 = sub i64 %46, %44
+  %52 = getelementptr i8, ptr %47, i64 %44
+  %53 = tail call i64 @llvm.umin.i64(i64 %51, i64 4088)
+  %54 = getelementptr i8, ptr %48, i64 8
+  %55 = tail call i64 @_copy_from_user(ptr noundef %54, ptr noundef %52, i64 noundef %53) #7
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %43, label %60, !llvm.loop !8
 
-56:                                               ; preds = %42
-  %57 = tail call i32 @security_msg_msg_alloc(ptr noundef nonnull %34) #7
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %72, label %59
+57:                                               ; preds = %43
+  %58 = tail call i32 @security_msg_msg_alloc(ptr noundef nonnull %34) #7
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %73, label %60
 
-59:                                               ; preds = %56, %49, %36
-  %60 = phi i32 [ -14, %36 ], [ %57, %56 ], [ -14, %49 ]
+60:                                               ; preds = %57, %50, %37
+  %61 = phi i32 [ -14, %37 ], [ %58, %57 ], [ -14, %50 ]
   tail call void @security_msg_msg_free(ptr noundef nonnull %34) #7
-  %61 = getelementptr inbounds i8, ptr %34, i64 32
-  %62 = load ptr, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %34, i64 32
+  %63 = load ptr, ptr %62, align 8
   tail call void @kfree(ptr noundef nonnull %34) #7
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %69, label %64
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %70, label %65
 
-64:                                               ; preds = %64, %59
-  %65 = phi ptr [ %66, %64 ], [ %62, %59 ]
-  %66 = load ptr, ptr %65, align 8
-  %67 = tail call i32 @__SCT__cond_resched() #7
-  tail call void @kfree(ptr noundef nonnull %65) #7
-  %68 = icmp eq ptr %66, null
-  br i1 %68, label %69, label %64, !llvm.loop !5
+65:                                               ; preds = %65, %60
+  %66 = phi ptr [ %67, %65 ], [ %63, %60 ]
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call i32 @__SCT__cond_resched() #7
+  tail call void @kfree(ptr noundef nonnull %66) #7
+  %69 = icmp eq ptr %67, null
+  br i1 %69, label %70, label %65, !llvm.loop !5
 
-69:                                               ; preds = %64, %59
-  %70 = sext i32 %60 to i64
-  %71 = inttoptr i64 %70 to ptr
-  br label %72
+70:                                               ; preds = %65, %60
+  %71 = sext i32 %61 to i64
+  %72 = inttoptr i64 %71 to ptr
+  br label %73
 
-72:                                               ; preds = %69, %56, %33
-  %73 = phi ptr [ %71, %69 ], [ %34, %56 ], [ inttoptr (i64 -12 to ptr), %33 ]
-  ret ptr %73
+73:                                               ; preds = %70, %57, %33
+  %74 = phi ptr [ %72, %70 ], [ %34, %57 ], [ %36, %33 ]
+  ret ptr %74
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -189,7 +190,8 @@ define dso_local void @free_msg(ptr noundef %0) local_unnamed_addr #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local noundef nonnull ptr @copy_msg(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 align 16 {
-  ret ptr inttoptr (i64 -38 to ptr)
+  %3 = inttoptr i64 -38 to ptr
+  ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -474,122 +474,123 @@ define dso_local void @_ZN15cmFileInstallerC2ER17cmExecutionStatus(ptr noundef n
   %11 = load ptr, ptr %3, align 8
   %12 = load ptr, ptr %4, align 8
   call void @_ZN12cmFileCopierC2ER17cmExecutionStatusPKc(ptr noundef nonnull align 8 dereferenceable(244) %11, ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef @.str)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15cmFileInstaller, i32 0, i32 0, i32 2), ptr %11, align 8
-  %13 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 1
-  store i32 4, ptr %13, align 4
-  %14 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 2
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 3
-  store i8 0, ptr %15, align 4
-  %16 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 4
-  store i8 0, ptr %16, align 1
-  %17 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 5
-  store i8 0, ptr %17, align 2
-  %18 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 6
-  store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 7
-  store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  %21 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 9
+  %13 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV15cmFileInstaller, i32 0, i32 0, i32 2
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 1
+  store i32 4, ptr %14, align 4
+  %15 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 2
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 3
+  store i8 0, ptr %16, align 4
+  %17 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 4
+  store i8 0, ptr %17, align 1
+  %18 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 5
+  store i8 0, ptr %18, align 2
+  %19 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 6
+  store i8 0, ptr %19, align 1
+  %20 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 7
+  store i32 0, ptr %20, align 8
+  %21 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
-  %22 = getelementptr inbounds %struct.cmFileCopier, ptr %11, i32 0, i32 16
-  store i8 0, ptr %22, align 2
+  %22 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
+  %23 = getelementptr inbounds %struct.cmFileCopier, ptr %11, i32 0, i32 16
+  store i8 0, ptr %23, align 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %23 = invoke noundef zeroext i1 @_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef @.str.1, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %24 unwind label %39
+  %24 = invoke noundef zeroext i1 @_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef @.str.1, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %25 unwind label %40
 
-24:                                               ; preds = %2
-  br i1 %23, label %25, label %43
+25:                                               ; preds = %2
+  br i1 %24, label %26, label %44
 
-25:                                               ; preds = %24
-  %26 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %27 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 0
-  %28 = extractvalue { i64, ptr } %26, 0
-  store i64 %28, ptr %27, align 8
-  %29 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 1
-  %30 = extractvalue { i64, ptr } %26, 1
-  store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 0
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 1
-  %34 = load ptr, ptr %33, align 8
-  %35 = invoke noundef zeroext i1 @_Z6cmIsOnSt17basic_string_viewIcSt11char_traitsIcEE(i64 %32, ptr %34)
-          to label %36 unwind label %39
+26:                                               ; preds = %25
+  %27 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %28 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 0
+  %29 = extractvalue { i64, ptr } %27, 0
+  store i64 %29, ptr %28, align 8
+  %30 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 1
+  %31 = extractvalue { i64, ptr } %27, 1
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  %36 = invoke noundef zeroext i1 @_Z6cmIsOnSt17basic_string_viewIcSt11char_traitsIcEE(i64 %33, ptr %35)
+          to label %37 unwind label %40
 
-36:                                               ; preds = %25
-  %37 = getelementptr inbounds %struct.cmFileCopier, ptr %11, i32 0, i32 4
-  %38 = zext i1 %35 to i8
-  store i8 %38, ptr %37, align 8
-  br label %43
+37:                                               ; preds = %26
+  %38 = getelementptr inbounds %struct.cmFileCopier, ptr %11, i32 0, i32 4
+  %39 = zext i1 %36 to i8
+  store i8 %39, ptr %38, align 8
+  br label %44
 
-39:                                               ; preds = %25, %2
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %26, %2
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %6, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %7, align 4
-  br label %61
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %6, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %7, align 4
+  br label %62
 
-43:                                               ; preds = %36, %24
-  %44 = getelementptr inbounds %struct.cmFileCopier, ptr %11, i32 0, i32 2
-  %45 = load ptr, ptr %44, align 8
+44:                                               ; preds = %37, %25
+  %45 = getelementptr inbounds %struct.cmFileCopier, ptr %11, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %46 unwind label %52
+          to label %47 unwind label %53
 
-46:                                               ; preds = %43
-  %47 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10cmMakefile17GetSafeDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520) %45, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %48 unwind label %56
+47:                                               ; preds = %44
+  %48 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10cmMakefile17GetSafeDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520) %46, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %49 unwind label %57
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 9
-  %50 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %47)
-          to label %51 unwind label %56
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 9
+  %51 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %48)
+          to label %52 unwind label %57
 
-51:                                               ; preds = %48
+52:                                               ; preds = %49
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 
-52:                                               ; preds = %43
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %44
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %6, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %7, align 4
-  br label %60
-
-56:                                               ; preds = %48, %46
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %6, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %7, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %60
-
-60:                                               ; preds = %56, %52
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %6, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %7, align 4
   br label %61
 
-61:                                               ; preds = %60, %39
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  call void @_ZN12cmFileCopierD2Ev(ptr noundef nonnull align 8 dereferenceable(244) %11) #3
+57:                                               ; preds = %49, %47
+  %58 = landingpad { ptr, i32 }
+          cleanup
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %6, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %7, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  br label %61
+
+61:                                               ; preds = %57, %53
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
   br label %62
 
-62:                                               ; preds = %61
-  %63 = load ptr, ptr %6, align 8
-  %64 = load i32, ptr %7, align 4
-  %65 = insertvalue { ptr, i32 } poison, ptr %63, 0
-  %66 = insertvalue { ptr, i32 } %65, i32 %64, 1
-  resume { ptr, i32 } %66
+62:                                               ; preds = %61, %40
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
+  call void @_ZN12cmFileCopierD2Ev(ptr noundef nonnull align 8 dereferenceable(244) %11) #3
+  br label %63
+
+63:                                               ; preds = %62
+  %64 = load ptr, ptr %6, align 8
+  %65 = load i32, ptr %7, align 4
+  %66 = insertvalue { ptr, i32 } poison, ptr %64, 0
+  %67 = insertvalue { ptr, i32 } %66, i32 %65, 1
+  resume { ptr, i32 } %67
 }
 
 declare void @_ZN12cmFileCopierC2ER17cmExecutionStatusPKc(ptr noundef nonnull align 8 dereferenceable(244), ptr noundef nonnull align 8 dereferenceable(80), ptr noundef) unnamed_addr #1
@@ -707,44 +708,45 @@ define dso_local void @_ZN15cmFileInstallerD2Ev(ptr noundef nonnull align 8 dere
   %5 = alloca %"class.std::basic_string_view", align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15cmFileInstaller, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %struct.cmFileCopier, ptr %6, i32 0, i32 2
-  %8 = load ptr, ptr %7, align 8
+  %7 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV15cmFileInstaller, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %struct.cmFileCopier, ptr %6, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %9 unwind label %23
+          to label %10 unwind label %24
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds %struct.cmFileInstaller, ptr %6, i32 0, i32 9
-  %11 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  %12 = getelementptr inbounds { i64, ptr }, ptr %5, i32 0, i32 0
-  %13 = extractvalue { i64, ptr } %11, 0
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds { i64, ptr }, ptr %5, i32 0, i32 1
-  %15 = extractvalue { i64, ptr } %11, 1
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds { i64, ptr }, ptr %5, i32 0, i32 0
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds { i64, ptr }, ptr %5, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  invoke void @_ZN10cmMakefile13AddDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(3520) %8, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 %17, ptr %19)
-          to label %20 unwind label %23
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %struct.cmFileInstaller, ptr %6, i32 0, i32 9
+  %12 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  %13 = getelementptr inbounds { i64, ptr }, ptr %5, i32 0, i32 0
+  %14 = extractvalue { i64, ptr } %12, 0
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds { i64, ptr }, ptr %5, i32 0, i32 1
+  %16 = extractvalue { i64, ptr } %12, 1
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds { i64, ptr }, ptr %5, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds { i64, ptr }, ptr %5, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  invoke void @_ZN10cmMakefile13AddDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(3520) %9, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 %18, ptr %20)
+          to label %21 unwind label %24
 
-20:                                               ; preds = %9
+21:                                               ; preds = %10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  %21 = getelementptr inbounds %struct.cmFileInstaller, ptr %6, i32 0, i32 9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
-  %22 = getelementptr inbounds %struct.cmFileInstaller, ptr %6, i32 0, i32 8
+  %22 = getelementptr inbounds %struct.cmFileInstaller, ptr %6, i32 0, i32 9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
+  %23 = getelementptr inbounds %struct.cmFileInstaller, ptr %6, i32 0, i32 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
   call void @_ZN12cmFileCopierD2Ev(ptr noundef nonnull align 8 dereferenceable(244) %6) #3
   ret void
 
-23:                                               ; preds = %9, %1
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %10, %1
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #14
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #14
   unreachable
 }
 

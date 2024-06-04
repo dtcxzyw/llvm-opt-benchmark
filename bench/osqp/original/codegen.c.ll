@@ -1061,7 +1061,7 @@ define internal i64 @write_info(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 10:                                               ; preds = %3
   %11 = call i64 @_osqp_error(i32 noundef 6, ptr noundef @__func__.write_info)
   store i64 %11, ptr %4, align 8
-  br label %52
+  br label %53
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %5, align 8
@@ -1070,45 +1070,46 @@ define internal i64 @write_info(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %16 = load ptr, ptr %7, align 8
   %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.81, ptr noundef %16) #4
   %18 = load ptr, ptr %5, align 8
-  %19 = load ptr, ptr getelementptr inbounds ([0 x ptr], ptr @OSQP_STATUS_MESSAGE, i64 0, i64 11), align 8
-  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.82, ptr noundef %19) #4
-  %21 = load ptr, ptr %5, align 8
-  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef @.str.83, i32 noundef 11) #4
-  %23 = load ptr, ptr %5, align 8
-  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.61) #4
-  %25 = load ptr, ptr %5, align 8
-  %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.65, double noundef 1.000000e+30) #4
-  %27 = load ptr, ptr %5, align 8
-  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str.65, double noundef 1.000000e+30) #4
-  %29 = load ptr, ptr %5, align 8
-  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef @.str.65, double noundef 1.000000e+30) #4
-  %31 = load ptr, ptr %5, align 8
-  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.61) #4
-  %33 = load ptr, ptr %5, align 8
-  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef @.str.61) #4
-  %35 = load ptr, ptr %5, align 8
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.OSQPInfo, ptr %36, i32 0, i32 8
-  %38 = load double, ptr %37, align 8
-  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.65, double noundef %38) #4
-  %40 = load ptr, ptr %5, align 8
-  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.84) #4
-  %42 = load ptr, ptr %5, align 8
-  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.84) #4
-  %44 = load ptr, ptr %5, align 8
-  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef @.str.84) #4
-  %46 = load ptr, ptr %5, align 8
-  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef @.str.84) #4
-  %48 = load ptr, ptr %5, align 8
-  %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str.84) #4
-  %50 = load ptr, ptr %5, align 8
-  %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.67) #4
+  %19 = getelementptr inbounds [0 x ptr], ptr @OSQP_STATUS_MESSAGE, i64 0, i64 11
+  %20 = load ptr, ptr %19, align 8
+  %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.82, ptr noundef %20) #4
+  %22 = load ptr, ptr %5, align 8
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.83, i32 noundef 11) #4
+  %24 = load ptr, ptr %5, align 8
+  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.61) #4
+  %26 = load ptr, ptr %5, align 8
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.65, double noundef 1.000000e+30) #4
+  %28 = load ptr, ptr %5, align 8
+  %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef @.str.65, double noundef 1.000000e+30) #4
+  %30 = load ptr, ptr %5, align 8
+  %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef @.str.65, double noundef 1.000000e+30) #4
+  %32 = load ptr, ptr %5, align 8
+  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef @.str.61) #4
+  %34 = load ptr, ptr %5, align 8
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.61) #4
+  %36 = load ptr, ptr %5, align 8
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds %struct.OSQPInfo, ptr %37, i32 0, i32 8
+  %39 = load double, ptr %38, align 8
+  %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef @.str.65, double noundef %39) #4
+  %41 = load ptr, ptr %5, align 8
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef @.str.84) #4
+  %43 = load ptr, ptr %5, align 8
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef @.str.84) #4
+  %45 = load ptr, ptr %5, align 8
+  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef @.str.84) #4
+  %47 = load ptr, ptr %5, align 8
+  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str.84) #4
+  %49 = load ptr, ptr %5, align 8
+  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef @.str.84) #4
+  %51 = load ptr, ptr %5, align 8
+  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef @.str.67) #4
   store i64 0, ptr %4, align 8
-  br label %52
+  br label %53
 
-52:                                               ; preds = %12, %10
-  %53 = load i64, ptr %4, align 8
-  ret i64 %53
+53:                                               ; preds = %12, %10
+  %54 = load i64, ptr %4, align 8
+  ret i64 %54
 }
 
 ; Function Attrs: nounwind uwtable

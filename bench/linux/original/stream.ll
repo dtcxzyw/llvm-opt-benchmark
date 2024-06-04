@@ -66,7 +66,7 @@ define dso_local void @sk_stream_write_space(ptr noundef %0) local_unnamed_addr 
   %29 = phi i1 [ false, %1 ], [ false, %12 ], [ true, %16 ], [ %25, %24 ], [ %27, %26 ]
   %30 = icmp ne ptr %3, null
   %31 = select i1 %29, i1 %30, i1 false
-  br i1 %31, label %32, label %56
+  br i1 %31, label %32, label %57
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %3, i64 8
@@ -75,44 +75,45 @@ define dso_local void @sk_stream_write_space(ptr noundef %0) local_unnamed_addr 
   %34 = getelementptr inbounds i8, ptr %0, i64 296
   %35 = load volatile ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %55, label %37
+  br i1 %36, label %56, label %37
 
 37:                                               ; preds = %32
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = load volatile ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %38
-  br i1 %40, label %43, label %41
+  br i1 %40, label %44, label %41
 
 41:                                               ; preds = %37
-  %42 = tail call i32 @__wake_up(ptr noundef nonnull %35, i32 noundef 1, i32 noundef 1, ptr noundef nonnull inttoptr (i64 772 to ptr)) #5
-  br label %43
+  %42 = inttoptr i64 772 to ptr
+  %43 = tail call i32 @__wake_up(ptr noundef nonnull %35, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %42) #5
+  br label %44
 
-43:                                               ; preds = %41, %37
-  br i1 %36, label %55, label %44
+44:                                               ; preds = %41, %37
+  br i1 %36, label %56, label %45
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %35, i64 24
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %55, label %48
+45:                                               ; preds = %44
+  %46 = getelementptr inbounds i8, ptr %35, i64 24
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %56, label %49
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %0, i64 620
-  %50 = load i8, ptr %49, align 4
-  %51 = and i8 %50, 2
-  %52 = icmp eq i8 %51, 0
-  br i1 %52, label %53, label %55
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %0, i64 620
+  %51 = load i8, ptr %50, align 4
+  %52 = and i8 %51, 2
+  %53 = icmp eq i8 %52, 0
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %48
-  %54 = tail call i32 @sock_wake_async(ptr noundef nonnull %35, i32 noundef 2, i32 noundef 2) #5
-  br label %55
-
-55:                                               ; preds = %53, %48, %44, %43, %32
-  tail call void @__rcu_read_unlock() #5
+54:                                               ; preds = %49
+  %55 = tail call i32 @sock_wake_async(ptr noundef nonnull %35, i32 noundef 2, i32 noundef 2) #5
   br label %56
 
-56:                                               ; preds = %55, %28
+56:                                               ; preds = %54, %49, %45, %44, %32
+  tail call void @__rcu_read_unlock() #5
+  br label %57
+
+57:                                               ; preds = %56, %28
   ret void
 }
 

@@ -426,10 +426,11 @@ define void @_ZN6common3cpu9CpuPermit5dummy17ha0410902a5b29f39E(ptr sret({ { ptr
   %3 = getelementptr inbounds { { ptr, [1 x i64] }, i32, [1 x i32] }, ptr %0, i32 0, i32 1
   store i32 %1, ptr %3, align 8
   %4 = load ptr, ptr @anon.cc052e27bd61535bd7e25b5293e3cbed.7, align 8, !noundef !3
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @anon.cc052e27bd61535bd7e25b5293e3cbed.7, i64 8), align 8
+  %5 = getelementptr inbounds i8, ptr @anon.cc052e27bd61535bd7e25b5293e3cbed.7, i64 8
+  %6 = load i32, ptr %5, align 8
   store ptr %4, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %5, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %6, ptr %7, align 8
   ret void
 }
 
@@ -443,10 +444,11 @@ define void @_ZN6common3cpu9CpuPermit7release17h58f7d5b87aaa8edaE(ptr align 8 %0
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %5, ptr %6, align 8
   %7 = load ptr, ptr @anon.cc052e27bd61535bd7e25b5293e3cbed.7, align 8, !noundef !3
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @anon.cc052e27bd61535bd7e25b5293e3cbed.7, i64 8), align 8
+  %8 = getelementptr inbounds i8, ptr @anon.cc052e27bd61535bd7e25b5293e3cbed.7, i64 8
+  %9 = load i32, ptr %8, align 8
   store ptr %7, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %8, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %9, ptr %10, align 8
   call void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokio..sync..semaphore..OwnedSemaphorePermit$GT$$GT$17h2809d4fdc057142eE"(ptr align 8 %2)
   ret void
 }

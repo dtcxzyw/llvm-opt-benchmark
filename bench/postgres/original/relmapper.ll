@@ -1785,26 +1785,30 @@ define dso_local void @RelationMapInvalidateAll() #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtCCI_RelationMap() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.RelMapFile, ptr @pending_shared_updates, i32 0, i32 1), align 4
-  %2 = icmp ne i32 %1, 0
-  br i1 %2, label %3, label %4
+  %1 = getelementptr inbounds %struct.RelMapFile, ptr @pending_shared_updates, i32 0, i32 1
+  %2 = load i32, ptr %1, align 4
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %6
 
-3:                                                ; preds = %0
+4:                                                ; preds = %0
   call void @merge_map_updates(ptr noundef @active_shared_updates, ptr noundef @pending_shared_updates, i1 noundef zeroext true)
-  store i32 0, ptr getelementptr inbounds (%struct.RelMapFile, ptr @pending_shared_updates, i32 0, i32 1), align 4
-  br label %4
+  %5 = getelementptr inbounds %struct.RelMapFile, ptr @pending_shared_updates, i32 0, i32 1
+  store i32 0, ptr %5, align 4
+  br label %6
 
-4:                                                ; preds = %3, %0
-  %5 = load i32, ptr getelementptr inbounds (%struct.RelMapFile, ptr @pending_local_updates, i32 0, i32 1), align 4
-  %6 = icmp ne i32 %5, 0
-  br i1 %6, label %7, label %8
+6:                                                ; preds = %4, %0
+  %7 = getelementptr inbounds %struct.RelMapFile, ptr @pending_local_updates, i32 0, i32 1
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %10, label %12
 
-7:                                                ; preds = %4
+10:                                               ; preds = %6
   call void @merge_map_updates(ptr noundef @active_local_updates, ptr noundef @pending_local_updates, i1 noundef zeroext true)
-  store i32 0, ptr getelementptr inbounds (%struct.RelMapFile, ptr @pending_local_updates, i32 0, i32 1), align 4
-  br label %8
+  %11 = getelementptr inbounds %struct.RelMapFile, ptr @pending_local_updates, i32 0, i32 1
+  store i32 0, ptr %11, align 4
+  br label %12
 
-8:                                                ; preds = %7, %4
+12:                                               ; preds = %10, %6
   ret void
 }
 
@@ -1870,44 +1874,52 @@ define dso_local void @AtEOXact_RelationMap(i1 noundef zeroext %0, i1 noundef ze
   store i8 %6, ptr %4, align 1
   %7 = load i8, ptr %3, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %9, label %21
+  br i1 %8, label %9, label %25
 
 9:                                                ; preds = %2
   %10 = load i8, ptr %4, align 1
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %21, label %12
+  br i1 %11, label %25, label %12
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr getelementptr inbounds (%struct.RelMapFile, ptr @active_shared_updates, i32 0, i32 1), align 4
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %16
+  %13 = getelementptr inbounds %struct.RelMapFile, ptr @active_shared_updates, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %12
+16:                                               ; preds = %12
   call void @perform_relmap_update(i1 noundef zeroext true, ptr noundef @active_shared_updates)
-  store i32 0, ptr getelementptr inbounds (%struct.RelMapFile, ptr @active_shared_updates, i32 0, i32 1), align 4
-  br label %16
+  %17 = getelementptr inbounds %struct.RelMapFile, ptr @active_shared_updates, i32 0, i32 1
+  store i32 0, ptr %17, align 4
+  br label %18
 
-16:                                               ; preds = %15, %12
-  %17 = load i32, ptr getelementptr inbounds (%struct.RelMapFile, ptr @active_local_updates, i32 0, i32 1), align 4
-  %18 = icmp ne i32 %17, 0
-  br i1 %18, label %19, label %20
+18:                                               ; preds = %16, %12
+  %19 = getelementptr inbounds %struct.RelMapFile, ptr @active_local_updates, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %24
 
-19:                                               ; preds = %16
+22:                                               ; preds = %18
   call void @perform_relmap_update(i1 noundef zeroext false, ptr noundef @active_local_updates)
-  store i32 0, ptr getelementptr inbounds (%struct.RelMapFile, ptr @active_local_updates, i32 0, i32 1), align 4
-  br label %20
+  %23 = getelementptr inbounds %struct.RelMapFile, ptr @active_local_updates, i32 0, i32 1
+  store i32 0, ptr %23, align 4
+  br label %24
 
-20:                                               ; preds = %19, %16
-  br label %22
+24:                                               ; preds = %22, %18
+  br label %30
 
-21:                                               ; preds = %9, %2
-  store i32 0, ptr getelementptr inbounds (%struct.RelMapFile, ptr @active_shared_updates, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.RelMapFile, ptr @active_local_updates, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.RelMapFile, ptr @pending_shared_updates, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.RelMapFile, ptr @pending_local_updates, i32 0, i32 1), align 4
-  br label %22
+25:                                               ; preds = %9, %2
+  %26 = getelementptr inbounds %struct.RelMapFile, ptr @active_shared_updates, i32 0, i32 1
+  store i32 0, ptr %26, align 4
+  %27 = getelementptr inbounds %struct.RelMapFile, ptr @active_local_updates, i32 0, i32 1
+  store i32 0, ptr %27, align 4
+  %28 = getelementptr inbounds %struct.RelMapFile, ptr @pending_shared_updates, i32 0, i32 1
+  store i32 0, ptr %28, align 4
+  %29 = getelementptr inbounds %struct.RelMapFile, ptr @pending_local_updates, i32 0, i32 1
+  store i32 0, ptr %29, align 4
+  br label %30
 
-22:                                               ; preds = %21, %20
+30:                                               ; preds = %25, %24
   ret void
 }
 
@@ -2003,52 +2015,56 @@ define internal void @perform_relmap_update(i1 noundef zeroext %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtPrepare_RelationMap() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.RelMapFile, ptr @active_shared_updates, i32 0, i32 1), align 4
-  %2 = icmp ne i32 %1, 0
-  br i1 %2, label %12, label %3
+  %1 = getelementptr inbounds %struct.RelMapFile, ptr @active_shared_updates, i32 0, i32 1
+  %2 = load i32, ptr %1, align 4
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %16, label %4
 
-3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (%struct.RelMapFile, ptr @active_local_updates, i32 0, i32 1), align 4
-  %5 = icmp ne i32 %4, 0
-  br i1 %5, label %12, label %6
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.RelMapFile, ptr @active_local_updates, i32 0, i32 1
+  %6 = load i32, ptr %5, align 4
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %16, label %8
 
-6:                                                ; preds = %3
-  %7 = load i32, ptr getelementptr inbounds (%struct.RelMapFile, ptr @pending_shared_updates, i32 0, i32 1), align 4
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %12, label %9
-
-9:                                                ; preds = %6
-  %10 = load i32, ptr getelementptr inbounds (%struct.RelMapFile, ptr @pending_local_updates, i32 0, i32 1), align 4
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds %struct.RelMapFile, ptr @pending_shared_updates, i32 0, i32 1
+  %10 = load i32, ptr %9, align 4
   %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %23
+  br i1 %11, label %16, label %12
 
-12:                                               ; preds = %9, %6, %3, %0
-  br label %13
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds %struct.RelMapFile, ptr @pending_local_updates, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %27
 
-13:                                               ; preds = %12
-  br i1 true, label %14, label %16
+16:                                               ; preds = %12, %8, %4, %0
+  br label %17
 
-14:                                               ; preds = %13
-  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %15, label %18, label %21
+17:                                               ; preds = %16
+  br i1 true, label %18, label %20
 
-16:                                               ; preds = %13
-  %17 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %17, label %18, label %21
+18:                                               ; preds = %17
+  %19 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  br i1 %19, label %22, label %25
 
-18:                                               ; preds = %16, %14
-  %19 = call i32 @errcode(i32 noundef 1088)
-  %20 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4)
+20:                                               ; preds = %17
+  %21 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %21, label %22, label %25
+
+22:                                               ; preds = %20, %18
+  %23 = call i32 @errcode(i32 noundef 1088)
+  %24 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 597, ptr noundef @__func__.AtPrepare_RelationMap)
-  br label %21
+  br label %25
 
-21:                                               ; preds = %18, %16, %14
+25:                                               ; preds = %22, %20, %18
   unreachable
 
-22:                                               ; No predecessors!
-  br label %23
+26:                                               ; No predecessors!
+  br label %27
 
-23:                                               ; preds = %22, %9
+27:                                               ; preds = %26, %12
   ret void
 }
 
@@ -2087,12 +2103,18 @@ define dso_local void @RelationMapFinishBootstrap() #0 {
 define dso_local void @RelationMapInitialize() #0 {
   store i32 0, ptr @shared_map, align 4
   store i32 0, ptr @local_map, align 4
-  store i32 0, ptr getelementptr inbounds (%struct.RelMapFile, ptr @shared_map, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.RelMapFile, ptr @local_map, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.RelMapFile, ptr @active_shared_updates, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.RelMapFile, ptr @active_local_updates, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.RelMapFile, ptr @pending_shared_updates, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.RelMapFile, ptr @pending_local_updates, i32 0, i32 1), align 4
+  %1 = getelementptr inbounds %struct.RelMapFile, ptr @shared_map, i32 0, i32 1
+  store i32 0, ptr %1, align 4
+  %2 = getelementptr inbounds %struct.RelMapFile, ptr @local_map, i32 0, i32 1
+  store i32 0, ptr %2, align 4
+  %3 = getelementptr inbounds %struct.RelMapFile, ptr @active_shared_updates, i32 0, i32 1
+  store i32 0, ptr %3, align 4
+  %4 = getelementptr inbounds %struct.RelMapFile, ptr @active_local_updates, i32 0, i32 1
+  store i32 0, ptr %4, align 4
+  %5 = getelementptr inbounds %struct.RelMapFile, ptr @pending_shared_updates, i32 0, i32 1
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds %struct.RelMapFile, ptr @pending_local_updates, i32 0, i32 1
+  store i32 0, ptr %6, align 4
   ret void
 }
 
@@ -2158,59 +2180,63 @@ define dso_local void @RestoreRelationMap(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.RelMapFile, ptr @active_shared_updates, i32 0, i32 1), align 4
-  %5 = icmp ne i32 %4, 0
-  br i1 %5, label %15, label %6
+  %4 = getelementptr inbounds %struct.RelMapFile, ptr @active_shared_updates, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %19, label %7
 
-6:                                                ; preds = %1
-  %7 = load i32, ptr getelementptr inbounds (%struct.RelMapFile, ptr @active_local_updates, i32 0, i32 1), align 4
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %15, label %9
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %struct.RelMapFile, ptr @active_local_updates, i32 0, i32 1
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %19, label %11
 
-9:                                                ; preds = %6
-  %10 = load i32, ptr getelementptr inbounds (%struct.RelMapFile, ptr @pending_shared_updates, i32 0, i32 1), align 4
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %15, label %12
-
-12:                                               ; preds = %9
-  %13 = load i32, ptr getelementptr inbounds (%struct.RelMapFile, ptr @pending_local_updates, i32 0, i32 1), align 4
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds %struct.RelMapFile, ptr @pending_shared_updates, i32 0, i32 1
+  %13 = load i32, ptr %12, align 4
   %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %25
+  br i1 %14, label %19, label %15
 
-15:                                               ; preds = %12, %9, %6, %1
-  br label %16
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds %struct.RelMapFile, ptr @pending_local_updates, i32 0, i32 1
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %29
 
-16:                                               ; preds = %15
-  br i1 true, label %17, label %19
+19:                                               ; preds = %15, %11, %7, %1
+  br label %20
 
-17:                                               ; preds = %16
-  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %18, label %21, label %23
+20:                                               ; preds = %19
+  br i1 true, label %21, label %23
 
-19:                                               ; preds = %16
-  %20 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %20, label %21, label %23
+21:                                               ; preds = %20
+  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  br i1 %22, label %25, label %27
 
-21:                                               ; preds = %19, %17
-  %22 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.6)
+23:                                               ; preds = %20
+  %24 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %24, label %25, label %27
+
+25:                                               ; preds = %23, %21
+  %26 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.6)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 750, ptr noundef @__func__.RestoreRelationMap)
-  br label %23
+  br label %27
 
-23:                                               ; preds = %21, %19, %17
+27:                                               ; preds = %25, %23, %21
   unreachable
 
-24:                                               ; No predecessors!
-  br label %25
+28:                                               ; No predecessors!
+  br label %29
 
-25:                                               ; preds = %24, %12
-  %26 = load ptr, ptr %2, align 8
-  store ptr %26, ptr %3, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.SerializedActiveRelMaps, ptr %27, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 @active_shared_updates, ptr align 4 %28, i64 524, i1 false)
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.SerializedActiveRelMaps, ptr %29, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 @active_local_updates, ptr align 4 %30, i64 524, i1 false)
+29:                                               ; preds = %28, %15
+  %30 = load ptr, ptr %2, align 8
+  store ptr %30, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds %struct.SerializedActiveRelMaps, ptr %31, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 @active_shared_updates, ptr align 4 %32, i64 524, i1 false)
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds %struct.SerializedActiveRelMaps, ptr %33, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 @active_local_updates, ptr align 4 %34, i64 524, i1 false)
   ret void
 }
 

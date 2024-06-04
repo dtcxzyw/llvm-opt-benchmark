@@ -63,11 +63,12 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 416
   store ptr %4, ptr %5, align 8, !tbaa !13
   store ptr %4, ptr %2, align 8, !tbaa !14
-  %6 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !16
-  %7 = getelementptr inbounds i8, ptr %6, i64 272
-  store ptr %0, ptr %7, align 8, !tbaa !26
-  %8 = getelementptr inbounds i8, ptr %6, i64 280
-  store ptr @_lib_view_toolbox_add, ptr %8, align 8, !tbaa !40
+  %6 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %8 = getelementptr inbounds i8, ptr %7, i64 272
+  store ptr %0, ptr %8, align 8, !tbaa !26
+  %9 = getelementptr inbounds i8, ptr %7, i64 280
+  store ptr @_lib_view_toolbox_add, ptr %9, align 8, !tbaa !40
   ret void
 }
 

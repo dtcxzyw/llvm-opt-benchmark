@@ -38,7 +38,7 @@ define dso_local noundef i32 @tcf_em_register(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %21, label %5
+  br i1 %4, label %23, label %5
 
 5:                                                ; preds = %1
   tail call void @_raw_write_lock(ptr noundef nonnull @ematch_mod_lock) #7
@@ -55,26 +55,28 @@ define dso_local noundef i32 @tcf_em_register(ptr noundef %0) #0 align 16 {
   %12 = load i32, ptr %0, align 8
   %13 = load i32, ptr %11, align 8
   %14 = icmp eq i32 %12, %13
-  br i1 %14, label %19, label %6, !llvm.loop !5
+  br i1 %14, label %21, label %6, !llvm.loop !5
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @ematch_ops, i64 0, i32 1), align 8
-  store ptr %16, ptr getelementptr inbounds (%struct.list_head, ptr @ematch_ops, i64 0, i32 1), align 8
+  %17 = getelementptr inbounds %struct.list_head, ptr @ematch_ops, i64 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.list_head, ptr @ematch_ops, i64 0, i32 1
+  store ptr %16, ptr %19, align 8
   store ptr @ematch_ops, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %17, ptr %18, align 8
-  store volatile ptr %16, ptr %17, align 8
-  br label %19
-
-19:                                               ; preds = %15, %10
-  %20 = phi i32 [ 0, %15 ], [ -17, %10 ]
-  tail call void @_raw_write_unlock(ptr noundef nonnull @ematch_mod_lock) #7
+  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %18, ptr %20, align 8
+  store volatile ptr %16, ptr %18, align 8
   br label %21
 
-21:                                               ; preds = %19, %1
-  %22 = phi i32 [ %20, %19 ], [ -22, %1 ]
-  ret i32 %22
+21:                                               ; preds = %15, %10
+  %22 = phi i32 [ 0, %15 ], [ -17, %10 ]
+  tail call void @_raw_write_unlock(ptr noundef nonnull @ematch_mod_lock) #7
+  br label %23
+
+23:                                               ; preds = %21, %1
+  %24 = phi i32 [ %22, %21 ], [ -22, %1 ]
+  ret i32 %24
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -99,8 +101,10 @@ define dso_local void @tcf_em_unregister(ptr nocapture noundef %0) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   store volatile ptr %5, ptr %4, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %2, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %3, align 8
+  %7 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %7, ptr %2, align 8
+  %8 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %8, ptr %3, align 8
   tail call void @_raw_write_unlock(ptr noundef nonnull @ematch_mod_lock) #7
   ret void
 }

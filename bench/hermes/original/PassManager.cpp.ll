@@ -2726,16 +2726,17 @@ entry:
   %length.addr.i = alloca i64, align 8
   %retval = alloca %"class.llvh::StringRef", align 8
   store ptr %retval, ptr %this.addr.i, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %data.addr.i, align 8
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %data.addr.i, align 8
   store i64 0, ptr %length.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load ptr, ptr %data.addr.i, align 8
-  store ptr %0, ptr %this1.i, align 8
+  %1 = load ptr, ptr %data.addr.i, align 8
+  store ptr %1, ptr %this1.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %1 = load i64, ptr %length.addr.i, align 8
-  store i64 %1, ptr %Length.i, align 8
-  %2 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %2
+  %2 = load i64, ptr %length.addr.i, align 8
+  store i64 %2, ptr %Length.i, align 8
+  %3 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2746,16 +2747,17 @@ entry:
   %length.addr.i = alloca i64, align 8
   %retval = alloca %"class.llvh::StringRef", align 8
   store ptr %retval, ptr %this.addr.i, align 8
-  store ptr inttoptr (i64 -2 to ptr), ptr %data.addr.i, align 8
+  %0 = inttoptr i64 -2 to ptr
+  store ptr %0, ptr %data.addr.i, align 8
   store i64 0, ptr %length.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load ptr, ptr %data.addr.i, align 8
-  store ptr %0, ptr %this1.i, align 8
+  %1 = load ptr, ptr %data.addr.i, align 8
+  store ptr %1, ptr %this1.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %1 = load i64, ptr %length.addr.i, align 8
-  store i64 %1, ptr %Length.i, align 8
-  %2 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %2
+  %2 = load i64, ptr %length.addr.i, align 8
+  store i64 %2, ptr %Length.i, align 8
+  %3 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3984,13 +3986,14 @@ entry:
   %6 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %7 = load i64, ptr %6, align 8
   call void @_ZN6hermes10ModulePassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %5, i64 %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %this1, align 8
   %cgSettings_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::DumpModule", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %s.addr, align 8
-  store ptr %8, ptr %cgSettings_, align 8
+  %9 = load ptr, ptr %s.addr, align 8
+  store ptr %9, ptr %cgSettings_, align 8
   %outs_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::DumpModule", ptr %this1, i32 0, i32 2
-  %9 = load ptr, ptr %o.addr, align 8
-  store ptr %9, ptr %outs_, align 8
+  %10 = load ptr, ptr %o.addr, align 8
+  store ptr %10, ptr %outs_, align 8
   %pass_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::DumpModule", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %pass_, ptr noundef nonnull align 8 dereferenceable(8) %p) #11
   ret void
@@ -4107,7 +4110,8 @@ entry:
   %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %5 = load i64, ptr %4, align 8
   call void @_ZN6hermes4PassC2ENS0_8PassKindEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef 1, ptr %3, i64 %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes10ModulePassE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6hermes10ModulePassE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   ret void
 }
 
@@ -4117,7 +4121,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pass_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::DumpModule", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pass_) #11
   call void @_ZN6hermes10ModulePassD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #11
@@ -4300,10 +4305,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %K, ptr %K.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes4PassE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6hermes4PassE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %kind = getelementptr inbounds %"class.hermes::Pass", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %K.addr, align 4
-  store i32 %2, ptr %kind, align 8
+  %3 = load i32, ptr %K.addr, align 4
+  store i32 %3, ptr %kind, align 8
   %name2 = getelementptr inbounds %"class.hermes::Pass", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %name2, ptr align 8 %name, i64 16, i1 false)
   ret void
@@ -5283,13 +5289,14 @@ entry:
   %6 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %7 = load i64, ptr %6, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %5, i64 %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %this1, align 8
   %cgSettings_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::DumpFunction", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %s.addr, align 8
-  store ptr %8, ptr %cgSettings_, align 8
+  %9 = load ptr, ptr %s.addr, align 8
+  store ptr %9, ptr %cgSettings_, align 8
   %outs_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::DumpFunction", ptr %this1, i32 0, i32 2
-  %9 = load ptr, ptr %o.addr, align 8
-  store ptr %9, ptr %outs_, align 8
+  %10 = load ptr, ptr %o.addr, align 8
+  store ptr %10, ptr %outs_, align 8
   %pass_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::DumpFunction", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %pass_, ptr noundef nonnull align 8 dereferenceable(8) %p) #11
   ret void
@@ -5406,7 +5413,8 @@ entry:
   %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %5 = load i64, ptr %4, align 8
   call void @_ZN6hermes4PassC2ENS0_8PassKindEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef 0, ptr %3, i64 %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes12FunctionPassE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6hermes12FunctionPassE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   ret void
 }
 
@@ -5416,7 +5424,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pass_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::DumpFunction", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pass_) #11
   call void @_ZN6hermes12FunctionPassD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #11

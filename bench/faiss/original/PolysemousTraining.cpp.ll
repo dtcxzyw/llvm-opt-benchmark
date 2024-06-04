@@ -1668,11 +1668,12 @@ define linkonce_odr void @_ZN5faiss27ReproduceDistancesObjectiveD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss27ReproduceDistancesObjectiveE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
-  %5 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss27ReproduceDistancesObjectiveE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %6 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
   call void @_ZN5faiss20PermutationObjectiveD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #11
   ret void
 }
@@ -2514,120 +2515,121 @@ define void @_ZN5faiss27SimulatedAnnealingOptimizerC2EPNS_20PermutationObjective
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %13, i64 40, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5faiss27SimulatedAnnealingOptimizerE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %14 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %11, i32 0, i32 2
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %11, i32 0, i32 3
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %"struct.faiss::PermutationObjective", ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 8
-  store i32 %19, ptr %16, align 8
-  %20 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %11, i32 0, i32 4
-  store ptr null, ptr %20, align 8
-  %21 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 5000) #17
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingParameters", ptr %22, i32 0, i32 4
-  %24 = load i32, ptr %23, align 8
-  %25 = sext i32 %24 to i64
-  invoke void @_ZN5faiss15RandomGeneratorC1El(ptr noundef nonnull align 8 dereferenceable(5000) %21, i64 noundef %25)
-          to label %26 unwind label %49
+  %14 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5faiss27SimulatedAnnealingOptimizerE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %11, i32 0, i32 2
+  %16 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %11, i32 0, i32 3
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds %"struct.faiss::PermutationObjective", ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8
+  store i32 %20, ptr %17, align 8
+  %21 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %11, i32 0, i32 4
+  store ptr null, ptr %21, align 8
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 5000) #17
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingParameters", ptr %23, i32 0, i32 4
+  %25 = load i32, ptr %24, align 8
+  %26 = sext i32 %25 to i64
+  invoke void @_ZN5faiss15RandomGeneratorC1El(ptr noundef nonnull align 8 dereferenceable(5000) %22, i64 noundef %26)
+          to label %27 unwind label %50
 
-26:                                               ; preds = %3
-  %27 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %11, i32 0, i32 5
-  store ptr %21, ptr %27, align 8
-  br label %28
+27:                                               ; preds = %3
+  %28 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %11, i32 0, i32 5
+  store ptr %22, ptr %28, align 8
+  br label %29
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %11, i32 0, i32 3
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp slt i32 %30, 100000
-  br i1 %31, label %32, label %36
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %11, i32 0, i32 3
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp slt i32 %31, 100000
+  br i1 %32, label %33, label %37
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %11, i32 0, i32 3
-  %34 = load i32, ptr %33, align 8
-  %35 = icmp sge i32 %34, 0
-  br i1 %35, label %63, label %36
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %11, i32 0, i32 3
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp sge i32 %35, 0
+  br i1 %36, label %64, label %37
 
-36:                                               ; preds = %32, %28
-  br label %37
+37:                                               ; preds = %33, %29
+  br label %38
 
-37:                                               ; preds = %36
+38:                                               ; preds = %37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
-  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.1, ptr noundef @.str.2) #11
-  store i32 %38, ptr %10, align 4
-  %39 = load i32, ptr %10, align 4
-  %40 = add nsw i32 %39, 1
-  %41 = sext i32 %40 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %41)
-          to label %42 unwind label %53
+  %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.1, ptr noundef @.str.2) #11
+  store i32 %39, ptr %10, align 4
+  %40 = load i32, ptr %10, align 4
+  %41 = add nsw i32 %40, 1
+  %42 = sext i32 %41 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %42)
+          to label %43 unwind label %54
 
-42:                                               ; preds = %37
-  %43 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0)
-          to label %44 unwind label %53
+43:                                               ; preds = %38
+  %44 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0)
+          to label %45 unwind label %54
 
-44:                                               ; preds = %42
-  %45 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
-  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %43, i64 noundef %45, ptr noundef @.str.1, ptr noundef @.str.2) #11
-  %47 = call ptr @__cxa_allocate_exception(i64 40) #11
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss27SimulatedAnnealingOptimizerC2EPNS_20PermutationObjectiveERKNS_28SimulatedAnnealingParametersE, ptr noundef @.str.3, i32 noundef 62)
-          to label %48 unwind label %57
+45:                                               ; preds = %43
+  %46 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
+  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %44, i64 noundef %46, ptr noundef @.str.1, ptr noundef @.str.2) #11
+  %48 = call ptr @__cxa_allocate_exception(i64 40) #11
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss27SimulatedAnnealingOptimizerC2EPNS_20PermutationObjectiveERKNS_28SimulatedAnnealingParametersE, ptr noundef @.str.3, i32 noundef 62)
+          to label %49 unwind label %58
 
-48:                                               ; preds = %44
-  invoke void @__cxa_throw(ptr %47, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #16
-          to label %70 unwind label %53
+49:                                               ; preds = %45
+  invoke void @__cxa_throw(ptr %48, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #16
+          to label %71 unwind label %54
 
-49:                                               ; preds = %3
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %3
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %7, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %8, align 4
-  call void @_ZdlPv(ptr noundef %21) #15
-  br label %65
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %7, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %8, align 4
+  call void @_ZdlPv(ptr noundef %22) #15
+  br label %66
 
-53:                                               ; preds = %48, %42, %37
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %49, %43, %38
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %7, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %8, align 4
-  br label %61
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %7, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %8, align 4
+  br label %62
 
-57:                                               ; preds = %44
-  %58 = landingpad { ptr, i32 }
+58:                                               ; preds = %45
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %7, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %8, align 4
-  call void @__cxa_free_exception(ptr %47) #11
-  br label %61
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %7, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %8, align 4
+  call void @__cxa_free_exception(ptr %48) #11
+  br label %62
 
-61:                                               ; preds = %57, %53
+62:                                               ; preds = %58, %54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
-  br label %65
+  br label %66
 
-62:                                               ; No predecessors!
-  br label %63
-
-63:                                               ; preds = %62, %32
+63:                                               ; No predecessors!
   br label %64
 
-64:                                               ; preds = %63
+64:                                               ; preds = %63, %33
+  br label %65
+
+65:                                               ; preds = %64
   ret void
 
-65:                                               ; preds = %61, %49
-  %66 = load ptr, ptr %7, align 8
-  %67 = load i32, ptr %8, align 4
-  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
-  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
-  resume { ptr, i32 } %69
+66:                                               ; preds = %62, %50
+  %67 = load ptr, ptr %7, align 8
+  %68 = load i32, ptr %8, align 4
+  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
+  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
+  resume { ptr, i32 } %70
 
-70:                                               ; preds = %48
+71:                                               ; preds = %49
   unreachable
 }
 
@@ -2660,9 +2662,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }
@@ -2680,17 +2683,18 @@ define void @_ZN5faiss27SimulatedAnnealingOptimizerD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5faiss27SimulatedAnnealingOptimizerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %3, i32 0, i32 5
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5faiss27SimulatedAnnealingOptimizerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %3, i32 0, i32 5
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %5) #15
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZdlPv(ptr noundef %6) #15
+  br label %9
 
-8:                                                ; preds = %7, %1
+9:                                                ; preds = %8, %1
   ret void
 }
 
@@ -3273,45 +3277,46 @@ define void @_ZN5faiss27ReproduceDistancesObjectiveC2EiPKdS2_d(ptr noundef nonnu
   store double %4, ptr %10, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN5faiss20PermutationObjectiveC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss27ReproduceDistancesObjectiveE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %13, i32 0, i32 1
-  %15 = load double, ptr %10, align 8
-  store double %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %13, i32 0, i32 2
-  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #11
-  %17 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %13, i32 0, i32 3
-  %18 = load ptr, ptr %9, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %13, i32 0, i32 4
-  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #11
-  %20 = load i32, ptr %7, align 4
-  %21 = getelementptr inbounds %"struct.faiss::PermutationObjective", ptr %13, i32 0, i32 1
-  store i32 %20, ptr %21, align 8
-  %22 = load ptr, ptr %8, align 8
-  invoke void @_ZN5faiss27ReproduceDistancesObjective21set_affine_target_disEPKd(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef %22)
-          to label %23 unwind label %24
-
-23:                                               ; preds = %5
-  ret void
+  %14 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss27ReproduceDistancesObjectiveE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %13, i32 0, i32 1
+  %16 = load double, ptr %10, align 8
+  store double %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %13, i32 0, i32 2
+  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
+  %18 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %13, i32 0, i32 3
+  %19 = load ptr, ptr %9, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %13, i32 0, i32 4
+  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #11
+  %21 = load i32, ptr %7, align 4
+  %22 = getelementptr inbounds %"struct.faiss::PermutationObjective", ptr %13, i32 0, i32 1
+  store i32 %21, ptr %22, align 8
+  %23 = load ptr, ptr %8, align 8
+  invoke void @_ZN5faiss27ReproduceDistancesObjective21set_affine_target_disEPKd(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef %23)
+          to label %24 unwind label %25
 
 24:                                               ; preds = %5
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %11, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %12, align 4
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #11
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #11
-  call void @_ZN5faiss20PermutationObjectiveD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #11
-  br label %28
+  ret void
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %11, align 8
-  %30 = load i32, ptr %12, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+25:                                               ; preds = %5
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %11, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %12, align 4
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #11
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
+  call void @_ZN5faiss20PermutationObjectiveD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #11
+  br label %29
+
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %11, align 8
+  %31 = load i32, ptr %12, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3319,7 +3324,8 @@ define linkonce_odr void @_ZN5faiss20PermutationObjectiveC2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20PermutationObjectiveE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss20PermutationObjectiveE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5365,129 +5371,130 @@ define internal void @_ZN5faiss12_GLOBAL__N_129ReproduceWithHammingObjectiveC2Ei
   store double %3, ptr %8, align 8
   %13 = load ptr, ptr %5, align 8
   call void @_ZN5faiss20PermutationObjectiveC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_129ReproduceWithHammingObjectiveE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %13, i32 0, i32 1
-  %15 = load i32, ptr %6, align 4
-  store i32 %15, ptr %14, align 4
-  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %13, i32 0, i32 2
-  %17 = load double, ptr %8, align 8
-  store double %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %13, i32 0, i32 3
-  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #11
-  %19 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %13, i32 0, i32 4
+  %14 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_129ReproduceWithHammingObjectiveE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %13, i32 0, i32 1
+  %16 = load i32, ptr %6, align 4
+  store i32 %16, ptr %15, align 4
+  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %13, i32 0, i32 2
+  %18 = load double, ptr %8, align 8
+  store double %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %13, i32 0, i32 3
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #11
-  %20 = load i32, ptr %6, align 4
-  %21 = shl i32 1, %20
-  %22 = getelementptr inbounds %"struct.faiss::PermutationObjective", ptr %13, i32 0, i32 1
-  store i32 %21, ptr %22, align 8
-  br label %23
+  %20 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %13, i32 0, i32 4
+  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #11
+  %21 = load i32, ptr %6, align 4
+  %22 = shl i32 1, %21
+  %23 = getelementptr inbounds %"struct.faiss::PermutationObjective", ptr %13, i32 0, i32 1
+  store i32 %22, ptr %23, align 8
+  br label %24
 
-23:                                               ; preds = %4
-  %24 = load ptr, ptr %7, align 8
-  %25 = call noundef i64 @_ZNKSt6vectorIdSaIdEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #11
-  %26 = getelementptr inbounds %"struct.faiss::PermutationObjective", ptr %13, i32 0, i32 1
-  %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds %"struct.faiss::PermutationObjective", ptr %13, i32 0, i32 1
-  %29 = load i32, ptr %28, align 8
-  %30 = mul nsw i32 %27, %29
-  %31 = sext i32 %30 to i64
-  %32 = icmp eq i64 %25, %31
-  br i1 %32, label %57, label %33
+24:                                               ; preds = %4
+  %25 = load ptr, ptr %7, align 8
+  %26 = call noundef i64 @_ZNKSt6vectorIdSaIdEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #11
+  %27 = getelementptr inbounds %"struct.faiss::PermutationObjective", ptr %13, i32 0, i32 1
+  %28 = load i32, ptr %27, align 8
+  %29 = getelementptr inbounds %"struct.faiss::PermutationObjective", ptr %13, i32 0, i32 1
+  %30 = load i32, ptr %29, align 8
+  %31 = mul nsw i32 %28, %30
+  %32 = sext i32 %31 to i64
+  %33 = icmp eq i64 %26, %32
+  br i1 %33, label %58, label %34
 
-33:                                               ; preds = %23
-  br label %34
+34:                                               ; preds = %24
+  br label %35
 
-34:                                               ; preds = %33
+35:                                               ; preds = %34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
-  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.1, ptr noundef @.str.21) #11
-  store i32 %35, ptr %10, align 4
-  %36 = load i32, ptr %10, align 4
-  %37 = add nsw i32 %36, 1
-  %38 = sext i32 %37 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %38)
-          to label %39 unwind label %46
+  %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.1, ptr noundef @.str.21) #11
+  store i32 %36, ptr %10, align 4
+  %37 = load i32, ptr %10, align 4
+  %38 = add nsw i32 %37, 1
+  %39 = sext i32 %38 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %39)
+          to label %40 unwind label %47
 
-39:                                               ; preds = %34
-  %40 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0)
-          to label %41 unwind label %46
+40:                                               ; preds = %35
+  %41 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0)
+          to label %42 unwind label %47
 
-41:                                               ; preds = %39
-  %42 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
-  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %40, i64 noundef %42, ptr noundef @.str.1, ptr noundef @.str.21) #11
-  %44 = call ptr @__cxa_allocate_exception(i64 40) #11
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_129ReproduceWithHammingObjectiveC2EiRKSt6vectorIdSaIdEEd, ptr noundef @.str.3, i32 noundef 260)
-          to label %45 unwind label %50
+42:                                               ; preds = %40
+  %43 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
+  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %41, i64 noundef %43, ptr noundef @.str.1, ptr noundef @.str.21) #11
+  %45 = call ptr @__cxa_allocate_exception(i64 40) #11
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_129ReproduceWithHammingObjectiveC2EiRKSt6vectorIdSaIdEEd, ptr noundef @.str.3, i32 noundef 260)
+          to label %46 unwind label %51
 
-45:                                               ; preds = %41
-  invoke void @__cxa_throw(ptr %44, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #16
-          to label %72 unwind label %46
+46:                                               ; preds = %42
+  invoke void @__cxa_throw(ptr %45, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #16
+          to label %73 unwind label %47
 
-46:                                               ; preds = %45, %39, %34
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %46, %40, %35
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %11, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %12, align 4
-  br label %54
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %11, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %12, align 4
+  br label %55
 
-50:                                               ; preds = %41
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %42
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %11, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %44) #11
-  br label %54
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %11, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %12, align 4
+  call void @__cxa_free_exception(ptr %45) #11
+  br label %55
 
-54:                                               ; preds = %50, %46
+55:                                               ; preds = %51, %47
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
-  br label %66
+  br label %67
 
-55:                                               ; No predecessors!
-  br label %56
-
-56:                                               ; preds = %55
+56:                                               ; No predecessors!
   br label %57
 
-57:                                               ; preds = %56, %23
+57:                                               ; preds = %56
   br label %58
 
-58:                                               ; preds = %57
+58:                                               ; preds = %57, %24
   br label %59
 
 59:                                               ; preds = %58
-  %60 = load ptr, ptr %7, align 8
-  invoke void @_ZN5faiss12_GLOBAL__N_129ReproduceWithHammingObjective21set_affine_target_disERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(24) %60)
-          to label %61 unwind label %62
+  br label %60
 
-61:                                               ; preds = %59
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %7, align 8
+  invoke void @_ZN5faiss12_GLOBAL__N_129ReproduceWithHammingObjective21set_affine_target_disERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(24) %61)
+          to label %62 unwind label %63
+
+62:                                               ; preds = %60
   ret void
 
-62:                                               ; preds = %59
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %60
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %11, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %12, align 4
-  br label %66
-
-66:                                               ; preds = %62, %54
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #11
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #11
-  call void @_ZN5faiss20PermutationObjectiveD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #11
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %11, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %12, align 4
   br label %67
 
-67:                                               ; preds = %66
-  %68 = load ptr, ptr %11, align 8
-  %69 = load i32, ptr %12, align 4
-  %70 = insertvalue { ptr, i32 } poison, ptr %68, 0
-  %71 = insertvalue { ptr, i32 } %70, i32 %69, 1
-  resume { ptr, i32 } %71
+67:                                               ; preds = %63, %55
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #11
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #11
+  call void @_ZN5faiss20PermutationObjectiveD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #11
+  br label %68
 
-72:                                               ; preds = %45
+68:                                               ; preds = %67
+  %69 = load ptr, ptr %11, align 8
+  %70 = load i32, ptr %12, align 4
+  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
+  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
+  resume { ptr, i32 } %72
+
+73:                                               ; preds = %46
   unreachable
 }
 
@@ -5596,11 +5603,12 @@ define internal void @_ZN5faiss12_GLOBAL__N_129ReproduceWithHammingObjectiveD2Ev
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_129ReproduceWithHammingObjectiveE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
-  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_129ReproduceWithHammingObjectiveE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
   call void @_ZN5faiss20PermutationObjectiveD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #11
   ret void
 }
@@ -8416,67 +8424,68 @@ define linkonce_odr void @_ZN5faiss13RankingScore2C2EiiiPKjS2_PKf(ptr noundef no
   store ptr %6, ptr %14, align 8
   %17 = load ptr, ptr %8, align 8
   call void @_ZN5faiss14Score3ComputerIfdEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss13RankingScore2E, i32 0, i32 0, i32 2), ptr %17, align 8
-  %18 = getelementptr inbounds %"struct.faiss::RankingScore2", ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %9, align 4
-  store i32 %19, ptr %18, align 8
-  %20 = getelementptr inbounds %"struct.faiss::RankingScore2", ptr %17, i32 0, i32 2
-  %21 = load i32, ptr %10, align 4
-  store i32 %21, ptr %20, align 4
-  %22 = getelementptr inbounds %"struct.faiss::RankingScore2", ptr %17, i32 0, i32 3
-  %23 = load i32, ptr %11, align 4
-  store i32 %23, ptr %22, align 8
-  %24 = getelementptr inbounds %"struct.faiss::RankingScore2", ptr %17, i32 0, i32 4
-  %25 = load ptr, ptr %12, align 8
-  store ptr %25, ptr %24, align 8
-  %26 = getelementptr inbounds %"struct.faiss::RankingScore2", ptr %17, i32 0, i32 5
-  %27 = load ptr, ptr %13, align 8
-  store ptr %27, ptr %26, align 8
-  %28 = getelementptr inbounds %"struct.faiss::RankingScore2", ptr %17, i32 0, i32 6
-  %29 = load ptr, ptr %14, align 8
-  store ptr %29, ptr %28, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = shl i32 1, %30
-  %32 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %17, i32 0, i32 1
-  store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds %"struct.faiss::PermutationObjective", ptr %17, i32 0, i32 1
-  store i32 %31, ptr %33, align 8
-  %34 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %17, i32 0, i32 2
-  %35 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %17, i32 0, i32 1
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %17, i32 0, i32 1
-  %38 = load i32, ptr %37, align 4
-  %39 = mul nsw i32 %36, %38
-  %40 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %17, i32 0, i32 1
-  %41 = load i32, ptr %40, align 4
-  %42 = mul nsw i32 %39, %41
-  %43 = sext i32 %42 to i64
-  invoke void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %43)
-          to label %44 unwind label %46
+  %18 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss13RankingScore2E, i32 0, i32 0, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"struct.faiss::RankingScore2", ptr %17, i32 0, i32 1
+  %20 = load i32, ptr %9, align 4
+  store i32 %20, ptr %19, align 8
+  %21 = getelementptr inbounds %"struct.faiss::RankingScore2", ptr %17, i32 0, i32 2
+  %22 = load i32, ptr %10, align 4
+  store i32 %22, ptr %21, align 4
+  %23 = getelementptr inbounds %"struct.faiss::RankingScore2", ptr %17, i32 0, i32 3
+  %24 = load i32, ptr %11, align 4
+  store i32 %24, ptr %23, align 8
+  %25 = getelementptr inbounds %"struct.faiss::RankingScore2", ptr %17, i32 0, i32 4
+  %26 = load ptr, ptr %12, align 8
+  store ptr %26, ptr %25, align 8
+  %27 = getelementptr inbounds %"struct.faiss::RankingScore2", ptr %17, i32 0, i32 5
+  %28 = load ptr, ptr %13, align 8
+  store ptr %28, ptr %27, align 8
+  %29 = getelementptr inbounds %"struct.faiss::RankingScore2", ptr %17, i32 0, i32 6
+  %30 = load ptr, ptr %14, align 8
+  store ptr %30, ptr %29, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = shl i32 1, %31
+  %33 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %17, i32 0, i32 1
+  store i32 %32, ptr %33, align 4
+  %34 = getelementptr inbounds %"struct.faiss::PermutationObjective", ptr %17, i32 0, i32 1
+  store i32 %32, ptr %34, align 8
+  %35 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %17, i32 0, i32 2
+  %36 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %17, i32 0, i32 1
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %17, i32 0, i32 1
+  %39 = load i32, ptr %38, align 4
+  %40 = mul nsw i32 %37, %39
+  %41 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %17, i32 0, i32 1
+  %42 = load i32, ptr %41, align 4
+  %43 = mul nsw i32 %40, %42
+  %44 = sext i32 %43 to i64
+  invoke void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef %44)
+          to label %45 unwind label %47
 
-44:                                               ; preds = %7
+45:                                               ; preds = %7
   invoke void @_ZN5faiss13RankingScore29init_n_gtEv(ptr noundef nonnull align 8 dereferenceable(80) %17)
-          to label %45 unwind label %46
+          to label %46 unwind label %47
 
-45:                                               ; preds = %44
+46:                                               ; preds = %45
   ret void
 
-46:                                               ; preds = %44, %7
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %45, %7
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %15, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %16, align 4
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %15, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %16, align 4
   call void @_ZN5faiss14Score3ComputerIfdED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #11
-  br label %50
+  br label %51
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %15, align 8
-  %52 = load i32, ptr %16, align 4
-  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
-  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
-  resume { ptr, i32 } %54
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %15, align 8
+  %53 = load i32, ptr %16, align 4
+  %54 = insertvalue { ptr, i32 } poison, ptr %52, 0
+  %55 = insertvalue { ptr, i32 } %54, i32 %53, 1
+  resume { ptr, i32 } %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10607,9 +10616,10 @@ define linkonce_odr void @_ZN5faiss14Score3ComputerIfdEC2Ev(ptr noundef nonnull 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss20PermutationObjectiveC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss14Score3ComputerIfdEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss14Score3ComputerIfdEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
   ret void
 }
 
@@ -10964,9 +10974,10 @@ define linkonce_odr void @_ZN5faiss14Score3ComputerIfdED2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss14Score3ComputerIfdEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss14Score3ComputerIfdEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
   call void @_ZN5faiss20PermutationObjectiveD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #11
   ret void
 }

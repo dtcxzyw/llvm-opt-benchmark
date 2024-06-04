@@ -887,145 +887,147 @@ define hidden void @proto_register_frame() #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  %6 = load ptr, ptr getelementptr inbounds (%struct.hf_register_info, ptr @proto_register_frame.hf_encap, i32 0, i32 1, i32 4), align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %61
+  %6 = getelementptr inbounds %struct.hf_register_info, ptr @proto_register_frame.hf_encap, i32 0, i32 1, i32 4
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %63
 
-8:                                                ; preds = %0
-  %9 = call i32 @wtap_get_num_encap_types()
-  store i32 %9, ptr %3, align 4
-  %10 = call ptr @wmem_epan_scope()
-  %11 = load i32, ptr %3, align 4
-  %12 = add i32 %11, 1
-  %13 = icmp sle i32 %12, 0
-  br i1 %13, label %20, label %14
+9:                                                ; preds = %0
+  %10 = call i32 @wtap_get_num_encap_types()
+  store i32 %10, ptr %3, align 4
+  %11 = call ptr @wmem_epan_scope()
+  %12 = load i32, ptr %3, align 4
+  %13 = add i32 %12, 1
+  %14 = icmp sle i32 %13, 0
+  br i1 %14, label %21, label %15
 
-14:                                               ; preds = %8
-  %15 = load i32, ptr %3, align 4
-  %16 = add i32 %15, 1
-  %17 = sext i32 %16 to i64
-  %18 = udiv i64 9223372036854775807, %17
-  %19 = icmp ugt i64 16, %18
-  br i1 %19, label %20, label %21
+15:                                               ; preds = %9
+  %16 = load i32, ptr %3, align 4
+  %17 = add i32 %16, 1
+  %18 = sext i32 %17 to i64
+  %19 = udiv i64 9223372036854775807, %18
+  %20 = icmp ugt i64 16, %19
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %14, %8
-  br label %26
+21:                                               ; preds = %15, %9
+  br label %27
 
-21:                                               ; preds = %14
-  %22 = load i32, ptr %3, align 4
-  %23 = add i32 %22, 1
-  %24 = sext i32 %23 to i64
-  %25 = mul i64 16, %24
-  br label %26
+22:                                               ; preds = %15
+  %23 = load i32, ptr %3, align 4
+  %24 = add i32 %23, 1
+  %25 = sext i32 %24 to i64
+  %26 = mul i64 16, %25
+  br label %27
 
-26:                                               ; preds = %21, %20
-  %27 = phi i64 [ 0, %20 ], [ %25, %21 ]
-  %28 = call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef %27)
-  store ptr %28, ptr %4, align 8
-  store ptr %28, ptr getelementptr inbounds (%struct.hf_register_info, ptr @proto_register_frame.hf_encap, i32 0, i32 1, i32 4), align 8
+27:                                               ; preds = %22, %21
+  %28 = phi i64 [ 0, %21 ], [ %26, %22 ]
+  %29 = call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef %28)
+  store ptr %29, ptr %4, align 8
+  %30 = getelementptr inbounds %struct.hf_register_info, ptr @proto_register_frame.hf_encap, i32 0, i32 1, i32 4
+  store ptr %29, ptr %30, align 8
   store i32 0, ptr %5, align 4
-  br label %29
+  br label %31
 
-29:                                               ; preds = %47, %26
-  %30 = load i32, ptr %5, align 4
-  %31 = load i32, ptr %3, align 4
-  %32 = icmp slt i32 %30, %31
-  br i1 %32, label %33, label %50
+31:                                               ; preds = %49, %27
+  %32 = load i32, ptr %5, align 4
+  %33 = load i32, ptr %3, align 4
+  %34 = icmp slt i32 %32, %33
+  br i1 %34, label %35, label %52
 
-33:                                               ; preds = %29
-  %34 = load i32, ptr %5, align 4
-  %35 = load ptr, ptr %4, align 8
+35:                                               ; preds = %31
   %36 = load i32, ptr %5, align 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct._value_string, ptr %35, i64 %37
-  %39 = getelementptr inbounds %struct._value_string, ptr %38, i32 0, i32 0
-  store i32 %34, ptr %39, align 8
-  %40 = load i32, ptr %5, align 4
-  %41 = call ptr @wtap_encap_description(i32 noundef %40)
-  %42 = load ptr, ptr %4, align 8
-  %43 = load i32, ptr %5, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr %struct._value_string, ptr %42, i64 %44
-  %46 = getelementptr inbounds %struct._value_string, ptr %45, i32 0, i32 1
-  store ptr %41, ptr %46, align 8
-  br label %47
+  %37 = load ptr, ptr %4, align 8
+  %38 = load i32, ptr %5, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr %struct._value_string, ptr %37, i64 %39
+  %41 = getelementptr inbounds %struct._value_string, ptr %40, i32 0, i32 0
+  store i32 %36, ptr %41, align 8
+  %42 = load i32, ptr %5, align 4
+  %43 = call ptr @wtap_encap_description(i32 noundef %42)
+  %44 = load ptr, ptr %4, align 8
+  %45 = load i32, ptr %5, align 4
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr %struct._value_string, ptr %44, i64 %46
+  %48 = getelementptr inbounds %struct._value_string, ptr %47, i32 0, i32 1
+  store ptr %43, ptr %48, align 8
+  br label %49
 
-47:                                               ; preds = %33
-  %48 = load i32, ptr %5, align 4
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %5, align 4
-  br label %29, !llvm.loop !4
+49:                                               ; preds = %35
+  %50 = load i32, ptr %5, align 4
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %5, align 4
+  br label %31, !llvm.loop !4
 
-50:                                               ; preds = %29
-  %51 = load ptr, ptr %4, align 8
-  %52 = load i32, ptr %3, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr %struct._value_string, ptr %51, i64 %53
-  %55 = getelementptr inbounds %struct._value_string, ptr %54, i32 0, i32 0
-  store i32 0, ptr %55, align 8
-  %56 = load ptr, ptr %4, align 8
-  %57 = load i32, ptr %3, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr %struct._value_string, ptr %56, i64 %58
-  %60 = getelementptr inbounds %struct._value_string, ptr %59, i32 0, i32 1
-  store ptr null, ptr %60, align 8
-  br label %61
+52:                                               ; preds = %31
+  %53 = load ptr, ptr %4, align 8
+  %54 = load i32, ptr %3, align 4
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr %struct._value_string, ptr %53, i64 %55
+  %57 = getelementptr inbounds %struct._value_string, ptr %56, i32 0, i32 0
+  store i32 0, ptr %57, align 8
+  %58 = load ptr, ptr %4, align 8
+  %59 = load i32, ptr %3, align 4
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr %struct._value_string, ptr %58, i64 %60
+  %62 = getelementptr inbounds %struct._value_string, ptr %61, i32 0, i32 1
+  store ptr null, ptr %62, align 8
+  br label %63
 
-61:                                               ; preds = %50, %0
-  %62 = call i32 @proto_register_protocol(ptr noundef @.str.308, ptr noundef @.str.308, ptr noundef @.str.309)
-  store i32 %62, ptr @proto_frame, align 4
-  %63 = load i32, ptr @proto_frame, align 4
-  %64 = call i32 @proto_register_protocol_in_name_only(ptr noundef @.str.310, ptr noundef @.str.311, ptr noundef @.str.312, i32 noundef %63, i32 noundef 1)
-  store i32 %64, ptr @proto_pkt_comment, align 4
-  %65 = call i32 @proto_register_protocol(ptr noundef @.str.313, ptr noundef @.str.314, ptr noundef @.str.315)
-  store i32 %65, ptr @proto_syscall, align 4
-  %66 = call i32 @proto_get_id_by_filter_name(ptr noundef @.str.316)
-  store i32 %66, ptr @proto_bblog, align 4
-  %67 = load i32, ptr @proto_frame, align 4
-  call void @proto_register_field_array(i32 noundef %67, ptr noundef @proto_register_frame.hf, i32 noundef 141)
-  %68 = load i32, ptr @proto_frame, align 4
-  call void @proto_register_field_array(i32 noundef %68, ptr noundef @proto_register_frame.hf_encap, i32 noundef 1)
-  call void @proto_register_subtree_array(ptr noundef @proto_register_frame.ett, i32 noundef 10)
+63:                                               ; preds = %52, %0
+  %64 = call i32 @proto_register_protocol(ptr noundef @.str.308, ptr noundef @.str.308, ptr noundef @.str.309)
+  store i32 %64, ptr @proto_frame, align 4
+  %65 = load i32, ptr @proto_frame, align 4
+  %66 = call i32 @proto_register_protocol_in_name_only(ptr noundef @.str.310, ptr noundef @.str.311, ptr noundef @.str.312, i32 noundef %65, i32 noundef 1)
+  store i32 %66, ptr @proto_pkt_comment, align 4
+  %67 = call i32 @proto_register_protocol(ptr noundef @.str.313, ptr noundef @.str.314, ptr noundef @.str.315)
+  store i32 %67, ptr @proto_syscall, align 4
+  %68 = call i32 @proto_get_id_by_filter_name(ptr noundef @.str.316)
+  store i32 %68, ptr @proto_bblog, align 4
   %69 = load i32, ptr @proto_frame, align 4
-  %70 = call ptr @expert_register_protocol(i32 noundef %69)
-  store ptr %70, ptr %2, align 8
-  %71 = load ptr, ptr %2, align 8
-  call void @expert_register_field_array(ptr noundef %71, ptr noundef @proto_register_frame.ei, i32 noundef 4)
-  %72 = load i32, ptr @proto_frame, align 4
-  %73 = call ptr @register_dissector(ptr noundef @.str.309, ptr noundef @dissect_frame, i32 noundef %72)
+  call void @proto_register_field_array(i32 noundef %69, ptr noundef @proto_register_frame.hf, i32 noundef 141)
+  %70 = load i32, ptr @proto_frame, align 4
+  call void @proto_register_field_array(i32 noundef %70, ptr noundef @proto_register_frame.hf_encap, i32 noundef 1)
+  call void @proto_register_subtree_array(ptr noundef @proto_register_frame.ett, i32 noundef 10)
+  %71 = load i32, ptr @proto_frame, align 4
+  %72 = call ptr @expert_register_protocol(i32 noundef %71)
+  store ptr %72, ptr %2, align 8
+  %73 = load ptr, ptr %2, align 8
+  call void @expert_register_field_array(ptr noundef %73, ptr noundef @proto_register_frame.ei, i32 noundef 4)
   %74 = load i32, ptr @proto_frame, align 4
-  %75 = call ptr @register_dissector_table(ptr noundef @.str.317, ptr noundef @.str.318, i32 noundef %74, i32 noundef 7, i32 noundef 1)
-  store ptr %75, ptr @wtap_encap_dissector_table, align 8
+  %75 = call ptr @register_dissector(ptr noundef @.str.309, ptr noundef @dissect_frame, i32 noundef %74)
   %76 = load i32, ptr @proto_frame, align 4
-  %77 = call ptr @register_dissector_table(ptr noundef @.str.319, ptr noundef @.str.320, i32 noundef %76, i32 noundef 7, i32 noundef 1)
-  store ptr %77, ptr @wtap_fts_rec_dissector_table, align 8
+  %77 = call ptr @register_dissector_table(ptr noundef @.str.317, ptr noundef @.str.318, i32 noundef %76, i32 noundef 7, i32 noundef 1)
+  store ptr %77, ptr @wtap_encap_dissector_table, align 8
   %78 = load i32, ptr @proto_frame, align 4
-  %79 = call ptr @register_dissector_table(ptr noundef @.str.321, ptr noundef @.str.322, i32 noundef %78, i32 noundef 7, i32 noundef 1)
-  store ptr %79, ptr @block_pen_dissector_table, align 8
-  call void @register_capture_dissector_table(ptr noundef @.str.317, ptr noundef @.str.318)
+  %79 = call ptr @register_dissector_table(ptr noundef @.str.319, ptr noundef @.str.320, i32 noundef %78, i32 noundef 7, i32 noundef 1)
+  store ptr %79, ptr @wtap_fts_rec_dissector_table, align 8
   %80 = load i32, ptr @proto_frame, align 4
-  call void @proto_set_cant_toggle(i32 noundef %80)
-  %81 = load i32, ptr @proto_frame, align 4
-  call void @register_seq_analysis(ptr noundef @.str.323, ptr noundef @.str.324, i32 noundef %81, ptr noundef null, i32 noundef 2, ptr noundef @frame_seq_analysis_packet)
+  %81 = call ptr @register_dissector_table(ptr noundef @.str.321, ptr noundef @.str.322, i32 noundef %80, i32 noundef 7, i32 noundef 1)
+  store ptr %81, ptr @block_pen_dissector_table, align 8
+  call void @register_capture_dissector_table(ptr noundef @.str.317, ptr noundef @.str.318)
   %82 = load i32, ptr @proto_frame, align 4
-  %83 = call ptr @prefs_register_protocol(i32 noundef %82, ptr noundef null)
-  store ptr %83, ptr %1, align 8
-  %84 = load ptr, ptr %1, align 8
-  call void @prefs_register_bool_preference(ptr noundef %84, ptr noundef @.str.325, ptr noundef @.str.326, ptr noundef @.str.327, ptr noundef @show_file_off)
-  %85 = load ptr, ptr %1, align 8
-  call void @prefs_register_bool_preference(ptr noundef %85, ptr noundef @.str.328, ptr noundef @.str.329, ptr noundef @.str.330, ptr noundef @force_docsis_encap)
+  call void @proto_set_cant_toggle(i32 noundef %82)
+  %83 = load i32, ptr @proto_frame, align 4
+  call void @register_seq_analysis(ptr noundef @.str.323, ptr noundef @.str.324, i32 noundef %83, ptr noundef null, i32 noundef 2, ptr noundef @frame_seq_analysis_packet)
+  %84 = load i32, ptr @proto_frame, align 4
+  %85 = call ptr @prefs_register_protocol(i32 noundef %84, ptr noundef null)
+  store ptr %85, ptr %1, align 8
   %86 = load ptr, ptr %1, align 8
-  call void @prefs_register_bool_preference(ptr noundef %86, ptr noundef @.str.331, ptr noundef @.str.332, ptr noundef @.str.333, ptr noundef @generate_md5_hash)
+  call void @prefs_register_bool_preference(ptr noundef %86, ptr noundef @.str.325, ptr noundef @.str.326, ptr noundef @.str.327, ptr noundef @show_file_off)
   %87 = load ptr, ptr %1, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %87, ptr noundef @.str.334)
+  call void @prefs_register_bool_preference(ptr noundef %87, ptr noundef @.str.328, ptr noundef @.str.329, ptr noundef @.str.330, ptr noundef @force_docsis_encap)
   %88 = load ptr, ptr %1, align 8
-  call void @prefs_register_bool_preference(ptr noundef %88, ptr noundef @.str.335, ptr noundef @.str.336, ptr noundef @.str.337, ptr noundef @generate_bits_field)
+  call void @prefs_register_bool_preference(ptr noundef %88, ptr noundef @.str.331, ptr noundef @.str.332, ptr noundef @.str.333, ptr noundef @generate_md5_hash)
   %89 = load ptr, ptr %1, align 8
-  call void @prefs_register_bool_preference(ptr noundef %89, ptr noundef @.str.338, ptr noundef @.str.339, ptr noundef @.str.340, ptr noundef @disable_packet_size_limited_in_summary)
+  call void @prefs_register_obsolete_preference(ptr noundef %89, ptr noundef @.str.334)
   %90 = load ptr, ptr %1, align 8
-  call void @prefs_register_uint_preference(ptr noundef %90, ptr noundef @.str.341, ptr noundef @.str.342, ptr noundef @.str.343, i32 noundef 10, ptr noundef @max_comment_lines)
-  %91 = call i32 @register_tap(ptr noundef @.str.309)
-  store i32 %91, ptr @frame_tap, align 4
+  call void @prefs_register_bool_preference(ptr noundef %90, ptr noundef @.str.335, ptr noundef @.str.336, ptr noundef @.str.337, ptr noundef @generate_bits_field)
+  %91 = load ptr, ptr %1, align 8
+  call void @prefs_register_bool_preference(ptr noundef %91, ptr noundef @.str.338, ptr noundef @.str.339, ptr noundef @.str.340, ptr noundef @disable_packet_size_limited_in_summary)
+  %92 = load ptr, ptr %1, align 8
+  call void @prefs_register_uint_preference(ptr noundef %92, ptr noundef @.str.341, ptr noundef @.str.342, ptr noundef @.str.343, i32 noundef 10, ptr noundef @max_comment_lines)
+  %93 = call i32 @register_tap(ptr noundef @.str.309)
+  store i32 %93, ptr @frame_tap, align 4
   ret void
 }
 
@@ -3009,7 +3011,7 @@ define internal i32 @dissect_frame(ptr noundef %0, ptr noundef %1, ptr noundef %
   %1455 = load ptr, ptr %6, align 8
   %1456 = call i32 @tvb_captured_length(ptr noundef %1455)
   store i32 %1456, ptr %5, align 4
-  br label %2084
+  br label %2086
 
 1457:                                             ; preds = %1437
   %1458 = load i32, ptr %12, align 4
@@ -3777,145 +3779,147 @@ define internal i32 @dissect_frame(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %1989
 
 1989:                                             ; preds = %1983, %1976
-  %1990 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 76), align 4
-  %1991 = icmp ne i32 %1990, 0
-  br i1 %1991, label %1992, label %2081
+  %1990 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 76
+  %1991 = load i32, ptr %1990, align 4
+  %1992 = icmp ne i32 %1991, 0
+  br i1 %1992, label %1993, label %2083
 
-1992:                                             ; preds = %1989
-  %1993 = load volatile ptr, ptr %17, align 8
-  %1994 = icmp ne ptr %1993, null
-  br i1 %1994, label %1995, label %2081
+1993:                                             ; preds = %1989
+  %1994 = load volatile ptr, ptr %17, align 8
+  %1995 = icmp ne ptr %1994, null
+  br i1 %1995, label %1996, label %2083
 
-1995:                                             ; preds = %1992
-  %1996 = load volatile ptr, ptr %17, align 8
-  %1997 = getelementptr inbounds %struct._proto_node, ptr %1996, i32 0, i32 5
-  %1998 = load ptr, ptr %1997, align 8
-  %1999 = getelementptr inbounds %struct.tree_data_t, ptr %1998, i32 0, i32 1
-  %2000 = load i32, ptr %1999, align 8
-  %2001 = icmp ne i32 %2000, 0
-  br i1 %2001, label %2002, label %2081
+1996:                                             ; preds = %1993
+  %1997 = load volatile ptr, ptr %17, align 8
+  %1998 = getelementptr inbounds %struct._proto_node, ptr %1997, i32 0, i32 5
+  %1999 = load ptr, ptr %1998, align 8
+  %2000 = getelementptr inbounds %struct.tree_data_t, ptr %1999, i32 0, i32 1
+  %2001 = load i32, ptr %2000, align 8
+  %2002 = icmp ne i32 %2001, 0
+  br i1 %2002, label %2003, label %2083
 
-2002:                                             ; preds = %1995
-  %2003 = load ptr, ptr %6, align 8
-  %2004 = call i32 @tvb_captured_length(ptr noundef %2003)
-  store i32 %2004, ptr %61, align 4
-  %2005 = load volatile ptr, ptr %17, align 8
-  %2006 = load i32, ptr %61, align 4
-  %2007 = call ptr @proto_find_undecoded_data(ptr noundef %2005, i32 noundef %2006)
-  store ptr %2007, ptr %60, align 8
+2003:                                             ; preds = %1996
+  %2004 = load ptr, ptr %6, align 8
+  %2005 = call i32 @tvb_captured_length(ptr noundef %2004)
+  store i32 %2005, ptr %61, align 4
+  %2006 = load volatile ptr, ptr %17, align 8
+  %2007 = load i32, ptr %61, align 4
+  %2008 = call ptr @proto_find_undecoded_data(ptr noundef %2006, i32 noundef %2007)
+  store ptr %2008, ptr %60, align 8
   store i32 0, ptr %62, align 4
-  br label %2008
+  br label %2009
 
-2008:                                             ; preds = %2077, %2002
-  %2009 = load i32, ptr %62, align 4
-  %2010 = load i32, ptr %61, align 4
-  %2011 = icmp ult i32 %2009, %2010
-  br i1 %2011, label %2012, label %2080
+2009:                                             ; preds = %2079, %2003
+  %2010 = load i32, ptr %62, align 4
+  %2011 = load i32, ptr %61, align 4
+  %2012 = icmp ult i32 %2010, %2011
+  br i1 %2012, label %2013, label %2082
 
-2012:                                             ; preds = %2008
-  %2013 = load i32, ptr %62, align 4
-  %2014 = udiv i32 %2013, 8
-  store i32 %2014, ptr %63, align 4
-  %2015 = load i32, ptr %62, align 4
-  %2016 = urem i32 %2015, 8
-  store i32 %2016, ptr %64, align 4
-  %2017 = load ptr, ptr %60, align 8
-  %2018 = load i32, ptr %63, align 4
-  %2019 = zext i32 %2018 to i64
-  %2020 = getelementptr i8, ptr %2017, i64 %2019
-  %2021 = load i8, ptr %2020, align 1
-  %2022 = sext i8 %2021 to i32
-  %2023 = load i32, ptr %64, align 4
-  %2024 = shl i32 1, %2023
-  %2025 = and i32 %2022, %2024
-  %2026 = icmp ne i32 %2025, 0
-  br i1 %2026, label %2076, label %2027
+2013:                                             ; preds = %2009
+  %2014 = load i32, ptr %62, align 4
+  %2015 = udiv i32 %2014, 8
+  store i32 %2015, ptr %63, align 4
+  %2016 = load i32, ptr %62, align 4
+  %2017 = urem i32 %2016, 8
+  store i32 %2017, ptr %64, align 4
+  %2018 = load ptr, ptr %60, align 8
+  %2019 = load i32, ptr %63, align 4
+  %2020 = zext i32 %2019 to i64
+  %2021 = getelementptr i8, ptr %2018, i64 %2020
+  %2022 = load i8, ptr %2021, align 1
+  %2023 = sext i8 %2022 to i32
+  %2024 = load i32, ptr %64, align 4
+  %2025 = shl i32 1, %2024
+  %2026 = and i32 %2023, %2025
+  %2027 = icmp ne i32 %2026, 0
+  br i1 %2027, label %2078, label %2028
 
-2027:                                             ; preds = %2012
-  %2028 = load volatile ptr, ptr %17, align 8
-  %2029 = load i32, ptr %62, align 4
-  %2030 = load ptr, ptr %6, align 8
-  %2031 = call ptr @proto_find_field_from_offset(ptr noundef %2028, i32 noundef %2029, ptr noundef %2030)
-  store ptr %2031, ptr %65, align 8
-  %2032 = load ptr, ptr %65, align 8
-  %2033 = icmp ne ptr %2032, null
-  br i1 %2033, label %2034, label %2075
+2028:                                             ; preds = %2013
+  %2029 = load volatile ptr, ptr %17, align 8
+  %2030 = load i32, ptr %62, align 4
+  %2031 = load ptr, ptr %6, align 8
+  %2032 = call ptr @proto_find_field_from_offset(ptr noundef %2029, i32 noundef %2030, ptr noundef %2031)
+  store ptr %2032, ptr %65, align 8
+  %2033 = load ptr, ptr %65, align 8
+  %2034 = icmp ne ptr %2033, null
+  br i1 %2034, label %2035, label %2077
 
-2034:                                             ; preds = %2027
-  %2035 = load ptr, ptr %65, align 8
-  %2036 = getelementptr inbounds %struct.field_info, ptr %2035, i32 0, i32 0
-  %2037 = load ptr, ptr %2036, align 8
-  %2038 = getelementptr inbounds %struct._header_field_info, ptr %2037, i32 0, i32 7
-  %2039 = load i32, ptr %2038, align 8
-  %2040 = load i32, ptr @proto_frame, align 4
-  %2041 = icmp ne i32 %2039, %2040
-  br i1 %2041, label %2042, label %2075
+2035:                                             ; preds = %2028
+  %2036 = load ptr, ptr %65, align 8
+  %2037 = getelementptr inbounds %struct.field_info, ptr %2036, i32 0, i32 0
+  %2038 = load ptr, ptr %2037, align 8
+  %2039 = getelementptr inbounds %struct._header_field_info, ptr %2038, i32 0, i32 7
+  %2040 = load i32, ptr %2039, align 8
+  %2041 = load i32, ptr @proto_frame, align 4
+  %2042 = icmp ne i32 %2040, %2041
+  br i1 %2042, label %2043, label %2077
 
-2042:                                             ; preds = %2034
-  %2043 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 77), align 8
-  %2044 = icmp ne i32 %2043, 0
-  br i1 %2044, label %2045, label %2061
+2043:                                             ; preds = %2035
+  %2044 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 77
+  %2045 = load i32, ptr %2044, align 8
+  %2046 = icmp ne i32 %2045, 0
+  br i1 %2046, label %2047, label %2063
 
-2045:                                             ; preds = %2042
-  %2046 = load ptr, ptr %65, align 8
-  %2047 = getelementptr inbounds %struct.field_info, ptr %2046, i32 0, i32 0
-  %2048 = load ptr, ptr %2047, align 8
-  %2049 = getelementptr inbounds %struct._header_field_info, ptr %2048, i32 0, i32 1
+2047:                                             ; preds = %2043
+  %2048 = load ptr, ptr %65, align 8
+  %2049 = getelementptr inbounds %struct.field_info, ptr %2048, i32 0, i32 0
   %2050 = load ptr, ptr %2049, align 8
-  %2051 = load ptr, ptr %7, align 8
-  %2052 = getelementptr inbounds %struct._packet_info, ptr %2051, i32 0, i32 3
-  %2053 = load i32, ptr %2052, align 4
-  %2054 = load i32, ptr %62, align 4
-  %2055 = load i32, ptr %62, align 4
+  %2051 = getelementptr inbounds %struct._header_field_info, ptr %2050, i32 0, i32 1
+  %2052 = load ptr, ptr %2051, align 8
+  %2053 = load ptr, ptr %7, align 8
+  %2054 = getelementptr inbounds %struct._packet_info, ptr %2053, i32 0, i32 3
+  %2055 = load i32, ptr %2054, align 4
   %2056 = load i32, ptr %62, align 4
-  %2057 = urem i32 %2056, 16
-  %2058 = sub i32 %2055, %2057
-  %2059 = load i32, ptr %62, align 4
-  %2060 = urem i32 %2059, 16
-  call void (ptr, i32, ptr, ...) @ws_log(ptr noundef @.str.591, i32 noundef 5, ptr noundef @.str.592, ptr noundef %2050, i32 noundef %2053, i32 noundef %2054, i32 noundef %2058, i32 noundef %2060)
-  br label %2061
+  %2057 = load i32, ptr %62, align 4
+  %2058 = load i32, ptr %62, align 4
+  %2059 = urem i32 %2058, 16
+  %2060 = sub i32 %2057, %2059
+  %2061 = load i32, ptr %62, align 4
+  %2062 = urem i32 %2061, 16
+  call void (ptr, i32, ptr, ...) @ws_log(ptr noundef @.str.591, i32 noundef 5, ptr noundef @.str.592, ptr noundef %2052, i32 noundef %2055, i32 noundef %2056, i32 noundef %2060, i32 noundef %2062)
+  br label %2063
 
-2061:                                             ; preds = %2045, %2042
-  %2062 = load volatile ptr, ptr %17, align 8
-  call void @ensure_tree_item(ptr noundef %2062, i32 noundef 1)
-  %2063 = load volatile ptr, ptr %17, align 8
-  %2064 = load ptr, ptr %7, align 8
-  %2065 = load ptr, ptr %6, align 8
-  %2066 = load i32, ptr %62, align 4
-  %2067 = load i32, ptr %62, align 4
+2063:                                             ; preds = %2047, %2043
+  %2064 = load volatile ptr, ptr %17, align 8
+  call void @ensure_tree_item(ptr noundef %2064, i32 noundef 1)
+  %2065 = load volatile ptr, ptr %17, align 8
+  %2066 = load ptr, ptr %7, align 8
+  %2067 = load ptr, ptr %6, align 8
   %2068 = load i32, ptr %62, align 4
   %2069 = load i32, ptr %62, align 4
-  %2070 = urem i32 %2069, 16
-  %2071 = sub i32 %2068, %2070
-  %2072 = load i32, ptr %62, align 4
-  %2073 = urem i32 %2072, 16
-  %2074 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2063, ptr noundef %2064, ptr noundef @ei_incomplete, ptr noundef %2065, i32 noundef %2066, i32 noundef 1, ptr noundef @.str.593, i32 noundef %2067, i32 noundef %2071, i32 noundef %2073)
-  br label %2075
-
-2075:                                             ; preds = %2061, %2034, %2027
-  br label %2076
-
-2076:                                             ; preds = %2075, %2012
+  %2070 = load i32, ptr %62, align 4
+  %2071 = load i32, ptr %62, align 4
+  %2072 = urem i32 %2071, 16
+  %2073 = sub i32 %2070, %2072
+  %2074 = load i32, ptr %62, align 4
+  %2075 = urem i32 %2074, 16
+  %2076 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2065, ptr noundef %2066, ptr noundef @ei_incomplete, ptr noundef %2067, i32 noundef %2068, i32 noundef 1, ptr noundef @.str.593, i32 noundef %2069, i32 noundef %2073, i32 noundef %2075)
   br label %2077
 
-2077:                                             ; preds = %2076
-  %2078 = load i32, ptr %62, align 4
-  %2079 = add i32 %2078, 1
-  store i32 %2079, ptr %62, align 4
-  br label %2008, !llvm.loop !7
+2077:                                             ; preds = %2063, %2035, %2028
+  br label %2078
 
-2080:                                             ; preds = %2008
-  br label %2081
+2078:                                             ; preds = %2077, %2013
+  br label %2079
 
-2081:                                             ; preds = %2080, %1995, %1992, %1989
-  %2082 = load ptr, ptr %6, align 8
-  %2083 = call i32 @tvb_captured_length(ptr noundef %2082)
-  store i32 %2083, ptr %5, align 4
-  br label %2084
+2079:                                             ; preds = %2078
+  %2080 = load i32, ptr %62, align 4
+  %2081 = add i32 %2080, 1
+  store i32 %2081, ptr %62, align 4
+  br label %2009, !llvm.loop !7
 
-2084:                                             ; preds = %2081, %1447
-  %2085 = load i32, ptr %5, align 4
-  ret i32 %2085
+2082:                                             ; preds = %2009
+  br label %2083
+
+2083:                                             ; preds = %2082, %1996, %1993, %1989
+  %2084 = load ptr, ptr %6, align 8
+  %2085 = call i32 @tvb_captured_length(ptr noundef %2084)
+  store i32 %2085, ptr %5, align 4
+  br label %2086
+
+2086:                                             ; preds = %2083, %1447
+  %2087 = load i32, ptr %5, align 4
+  ret i32 %2087
 }
 
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1

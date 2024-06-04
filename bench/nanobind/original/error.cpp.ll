@@ -351,51 +351,52 @@ define void @_ZN8nanobind12python_errorC2Ev(ptr noundef nonnull align 8 derefere
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 2
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 3
+  %8 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 2
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 4
+  %9 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 3
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
-  %11 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 2
-  %12 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 3
-  invoke void @PyErr_Fetch(ptr noundef %10, ptr noundef %11, ptr noundef %12)
-          to label %13 unwind label %19
+  %10 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 4
+  store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
+  %12 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 2
+  %13 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 3
+  invoke void @PyErr_Fetch(ptr noundef %11, ptr noundef %12, ptr noundef %13)
+          to label %14 unwind label %20
 
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp ne ptr %15, null
-  %17 = xor i1 %16, true
-  br i1 %17, label %18, label %23
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr %16, null
+  %18 = xor i1 %17, true
+  br i1 %18, label %19, label %24
 
-18:                                               ; preds = %13
+19:                                               ; preds = %14
   call void @_ZN8nanobind6detail16fail_unspecifiedEv() #19
   unreachable
 
-19:                                               ; preds = %1
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %1
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %3, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %4, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %3, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %4, align 4
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  br label %24
+  br label %25
 
-23:                                               ; preds = %13
+24:                                               ; preds = %14
   ret void
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %3, align 8
-  %26 = load i32, ptr %4, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %3, align 8
+  %27 = load i32, ptr %4, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -403,7 +404,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -424,52 +426,53 @@ define void @_ZN8nanobind12python_errorD2Ev(ptr noundef nonnull align 8 derefere
   %4 = alloca %"struct.nanobind::error_scope", align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %20
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %21
 
-9:                                                ; preds = %1
+10:                                               ; preds = %1
   call void @_ZN8nanobind18gil_scoped_acquireC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #3
   invoke void @_ZN8nanobind11error_scopeC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %10 unwind label %23
+          to label %11 unwind label %24
 
-10:                                               ; preds = %9
-  %11 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8
-  invoke void @_ZL11_Py_XDECREFP7_object(ptr noundef %12)
-          to label %13 unwind label %23
+11:                                               ; preds = %10
+  %12 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  invoke void @_ZL11_Py_XDECREFP7_object(ptr noundef %13)
+          to label %14 unwind label %24
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 2
-  %15 = load ptr, ptr %14, align 8
-  invoke void @_ZL11_Py_XDECREFP7_object(ptr noundef %15)
-          to label %16 unwind label %23
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8
+  invoke void @_ZL11_Py_XDECREFP7_object(ptr noundef %16)
+          to label %17 unwind label %24
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 3
-  %18 = load ptr, ptr %17, align 8
-  invoke void @_ZL11_Py_XDECREFP7_object(ptr noundef %18)
-          to label %19 unwind label %23
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 3
+  %19 = load ptr, ptr %18, align 8
+  invoke void @_ZL11_Py_XDECREFP7_object(ptr noundef %19)
+          to label %20 unwind label %24
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   call void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   call void @_ZN8nanobind18gil_scoped_acquireD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #3
-  br label %20
+  br label %21
 
-20:                                               ; preds = %19, %1
-  %21 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 4
-  %22 = load ptr, ptr %21, align 8
-  call void @free(ptr noundef %22) #3
+21:                                               ; preds = %20, %1
+  %22 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 4
+  %23 = load ptr, ptr %22, align 8
+  call void @free(ptr noundef %23) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   ret void
 
-23:                                               ; preds = %16, %13, %10, %9
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %17, %14, %11, %10
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #19
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #19
   unreachable
 }
 
@@ -608,103 +611,104 @@ define void @_ZN8nanobind12python_errorC2ERKS0_(ptr noundef nonnull align 8 dere
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %10 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"class.nanobind::python_error", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %10, align 8
-  %14 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 2
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"class.nanobind::python_error", ptr %15, i32 0, i32 2
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %14, align 8
-  %18 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 3
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"class.nanobind::python_error", ptr %19, i32 0, i32 3
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %18, align 8
-  %22 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 4
-  store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %40
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %"class.nanobind::python_error", ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 2
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"class.nanobind::python_error", ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %15, align 8
+  %19 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 3
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %"class.nanobind::python_error", ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %19, align 8
+  %23 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 4
+  store ptr null, ptr %23, align 8
+  %24 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %41
 
-26:                                               ; preds = %2
+27:                                               ; preds = %2
   call void @_ZN8nanobind18gil_scoped_acquireC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #3
-  %27 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8
-  invoke void @_ZL10_Py_INCREFP7_object(ptr noundef %28)
-          to label %29 unwind label %36
+  %28 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  invoke void @_ZL10_Py_INCREFP7_object(ptr noundef %29)
+          to label %30 unwind label %37
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 2
-  %31 = load ptr, ptr %30, align 8
-  invoke void @_ZL11_Py_XINCREFP7_object(ptr noundef %31)
-          to label %32 unwind label %36
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8
+  invoke void @_ZL11_Py_XINCREFP7_object(ptr noundef %32)
+          to label %33 unwind label %37
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 3
-  %34 = load ptr, ptr %33, align 8
-  invoke void @_ZL11_Py_XINCREFP7_object(ptr noundef %34)
-          to label %35 unwind label %36
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 3
+  %35 = load ptr, ptr %34, align 8
+  invoke void @_ZL11_Py_XINCREFP7_object(ptr noundef %35)
+          to label %36 unwind label %37
 
-35:                                               ; preds = %32
+36:                                               ; preds = %33
   call void @_ZN8nanobind18gil_scoped_acquireD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #3
-  br label %40
+  br label %41
 
-36:                                               ; preds = %32, %29, %26
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %33, %30, %27
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %6, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %7, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %6, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %7, align 4
   call void @_ZN8nanobind18gil_scoped_acquireD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #3
-  br label %57
-
-40:                                               ; preds = %35, %2
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %"class.nanobind::python_error", ptr %41, i32 0, i32 4
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %56
-
-45:                                               ; preds = %40
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %"class.nanobind::python_error", ptr %46, i32 0, i32 4
-  %48 = load ptr, ptr %47, align 8
-  %49 = invoke noundef ptr @_ZN8nanobind6detail12strdup_checkEPKc(ptr noundef %48)
-          to label %50 unwind label %52
-
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 4
-  store ptr %49, ptr %51, align 8
-  br label %56
-
-52:                                               ; preds = %45
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %6, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %7, align 4
-  br label %57
-
-56:                                               ; preds = %50, %40
-  ret void
-
-57:                                               ; preds = %52, %36
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   br label %58
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %6, align 8
-  %60 = load i32, ptr %7, align 4
-  %61 = insertvalue { ptr, i32 } poison, ptr %59, 0
-  %62 = insertvalue { ptr, i32 } %61, i32 %60, 1
-  resume { ptr, i32 } %62
+41:                                               ; preds = %36, %2
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds %"class.nanobind::python_error", ptr %42, i32 0, i32 4
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %57
+
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds %"class.nanobind::python_error", ptr %47, i32 0, i32 4
+  %49 = load ptr, ptr %48, align 8
+  %50 = invoke noundef ptr @_ZN8nanobind6detail12strdup_checkEPKc(ptr noundef %49)
+          to label %51 unwind label %53
+
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 4
+  store ptr %50, ptr %52, align 8
+  br label %57
+
+53:                                               ; preds = %46
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %6, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %7, align 4
+  br label %58
+
+57:                                               ; preds = %51, %41
+  ret void
+
+58:                                               ; preds = %53, %37
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %6, align 8
+  %61 = load i32, ptr %7, align 4
+  %62 = insertvalue { ptr, i32 } poison, ptr %60, 0
+  %63 = insertvalue { ptr, i32 } %62, i32 %61, 1
+  resume { ptr, i32 } %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -714,7 +718,8 @@ define linkonce_odr void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 der
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -758,39 +763,40 @@ define void @_ZN8nanobind12python_errorC2EOS0_(ptr noundef nonnull align 8 deref
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.nanobind::python_error", ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %11, align 8
-  %15 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 3
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %"class.nanobind::python_error", ptr %16, i32 0, i32 3
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %15, align 8
-  %19 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 4
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %"class.nanobind::python_error", ptr %20, i32 0, i32 4
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %19, align 8
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %"class.nanobind::python_error", ptr %23, i32 0, i32 3
-  store ptr null, ptr %24, align 8
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"class.nanobind::python_error", ptr %25, i32 0, i32 2
-  store ptr null, ptr %26, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"class.nanobind::python_error", ptr %27, i32 0, i32 1
-  store ptr null, ptr %28, align 8
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %"class.nanobind::python_error", ptr %29, i32 0, i32 4
-  store ptr null, ptr %30, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.nanobind::python_error", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"class.nanobind::python_error", ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 3
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %"class.nanobind::python_error", ptr %17, i32 0, i32 3
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %16, align 8
+  %20 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 4
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %"class.nanobind::python_error", ptr %21, i32 0, i32 4
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %20, align 8
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %"class.nanobind::python_error", ptr %24, i32 0, i32 3
+  store ptr null, ptr %25, align 8
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %"class.nanobind::python_error", ptr %26, i32 0, i32 2
+  store ptr null, ptr %27, align 8
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %"class.nanobind::python_error", ptr %28, i32 0, i32 1
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds %"class.nanobind::python_error", ptr %30, i32 0, i32 4
+  store ptr null, ptr %31, align 8
   ret void
 }
 
@@ -1942,10 +1948,11 @@ define void @_ZN8nanobind17builtin_exceptionC2ENS_14exception_typeEPKc(ptr nound
 13:                                               ; preds = %12, %10
   %14 = phi ptr [ %11, %10 ], [ @.str.6, %12 ]
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind17builtin_exceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %15 = getelementptr inbounds %"class.nanobind::builtin_exception", ptr %7, i32 0, i32 1
-  %16 = load i32, ptr %5, align 4
-  store i32 %16, ptr %15, align 8
+  %15 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nanobind17builtin_exceptionE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %7, align 8
+  %16 = getelementptr inbounds %"class.nanobind::builtin_exception", ptr %7, i32 0, i32 1
+  %17 = load i32, ptr %5, align 4
+  store i32 %17, ptr %16, align 8
   ret void
 }
 
@@ -2544,7 +2551,7 @@ define void @_ZN8nanobind11chain_errorENS_6handleEPKcz(ptr %0, ptr noundef %1, .
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %4, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %3, i64 8, i1 false)
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
@@ -2552,12 +2559,9 @@ define void @_ZN8nanobind11chain_errorENS_6handleEPKcz(ptr %0, ptr noundef %1, .
   %12 = load ptr, ptr %11, align 8
   call void @_ZN8nanobindL13chain_error_vENS_6handleEPKcP13__va_list_tag(ptr %12, ptr noundef %9, ptr noundef %10) #3
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %13)
+  call void @llvm.va_end.p0(ptr %13)
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8nanobindL13chain_error_vENS_6handleEPKcP13__va_list_tag(ptr %0, ptr noundef %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
@@ -2675,11 +2679,8 @@ define internal void @_ZN8nanobindL13chain_error_vENS_6handleEPKcP13__va_list_ta
   unreachable
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #13
-
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN8nanobind10raise_fromERNS_12python_errorENS_6handleEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, ptr noundef %2, ...) #14 {
+define void @_ZN8nanobind10raise_fromERNS_12python_errorENS_6handleEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, ptr noundef %2, ...) #13 {
   %4 = alloca %"class.nanobind::handle", align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2692,7 +2693,7 @@ define void @_ZN8nanobind10raise_fromERNS_12python_errorENS_6handleEPKcz(ptr nou
   %10 = load ptr, ptr %5, align 8
   call void @_ZN8nanobind12python_error7restoreEv(ptr noundef nonnull align 8 dereferenceable(40) %10) #3
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %11)
+  call void @llvm.va_start.p0(ptr %11)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %4, i64 8, i1 false)
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
@@ -2700,7 +2701,7 @@ define void @_ZN8nanobind10raise_fromERNS_12python_errorENS_6handleEPKcz(ptr nou
   %15 = load ptr, ptr %14, align 8
   call void @_ZN8nanobindL13chain_error_vENS_6handleEPKcP13__va_list_tag(ptr %15, ptr noundef %12, ptr noundef %13) #3
   %16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %16)
+  call void @llvm.va_end.p0(ptr %16)
   call void @_ZN8nanobind6detail18raise_python_errorEv() #23
   unreachable
 }
@@ -2712,7 +2713,7 @@ declare void @_ZN8nanobind6detail18raise_python_errorEv() #12
 declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #15
+declare noalias ptr @malloc(i64 noundef) #14
 
 ; Function Attrs: nounwind
 declare i32 @fprintf(ptr noundef, ptr noundef, ...) #6
@@ -2905,7 +2906,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail6Buffer3putEPKcm(ptr noundef
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #16
+declare i64 @strlen(ptr noundef) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nanobind6detail6Buffer6expandEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
@@ -3923,7 +3924,13 @@ define internal void @_GLOBAL__sub_I_error.cpp() #0 section ".text.startup" {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #17
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #17
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3938,11 +3945,11 @@ attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind willreturn }
-attributes #14 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #13 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn }
 attributes #18 = { nounwind allocsize(0) }
 attributes #19 = { noreturn nounwind }
 attributes #20 = { builtin nounwind }

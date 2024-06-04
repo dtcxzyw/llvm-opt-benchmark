@@ -2462,12 +2462,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers14QueryGeneratorC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_terms = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QueryGeneratorSampleSat", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_terms) #3
   %d_deqThresh = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QueryGeneratorSampleSat", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %deqThresh.addr, align 4
-  store i32 %1, ptr %d_deqThresh, align 8
+  %2 = load i32, ptr %deqThresh.addr, align 4
+  store i32 %2, ptr %d_deqThresh, align 8
   %d_qgtTrie = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QueryGeneratorSampleSat", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapIN4cvc58internal8TypeNodeENS1_6theory11quantifiers8LazyTrieESt4lessIS2_ESaISt4pairIKS2_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_qgtTrie) #3
   %d_ptToQueries = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QueryGeneratorSampleSat", ptr %this1, i32 0, i32 4
@@ -9129,7 +9130,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23QueryGeneratorSampleSatE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_allQueries = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QueryGeneratorSampleSat", ptr %this1, i32 0, i32 6
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_allQueries) #3
   %d_qysToPoints = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QueryGeneratorSampleSat", ptr %this1, i32 0, i32 5
@@ -12412,7 +12414,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9ExprMinerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9ExprMinerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_fv_to_skolem = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ExprMiner", ptr %this1, i32 0, i32 4
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_fv_to_skolem) #3
   %d_skolems = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ExprMiner", ptr %this1, i32 0, i32 2

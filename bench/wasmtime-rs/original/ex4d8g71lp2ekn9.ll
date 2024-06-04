@@ -241,11 +241,11 @@ define internal void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a
   invoke void @"_ZN4witx3abi42_$LT$impl$u20$witx..ast..InterfaceFunc$GT$14wasm_signature17hdf14704c64b5f211E"(ptr sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %108, ptr align 8 %2)
           to label %118 unwind label %113
 
-112:                                              ; preds = %810, %113
+112:                                              ; preds = %811, %113
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %111) #6
-          to label %840 unwind label %191
+          to label %841 unwind label %191
 
-113:                                              ; preds = %816, %4
+113:                                              ; preds = %817, %4
   %114 = landingpad { ptr, i32 }
           cleanup
   %115 = extractvalue { ptr, i32 } %114, 0
@@ -278,9 +278,9 @@ define internal void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a
 
 130:                                              ; preds = %155, %131
   invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$witx..abi..WasmType$GT$$GT$17h21cf68782e7ae3e4E"(ptr align 8 %109) #6
-          to label %810 unwind label %191
+          to label %811 unwind label %191
 
-131:                                              ; preds = %808, %118
+131:                                              ; preds = %809, %118
   %132 = landingpad { ptr, i32 }
           cleanup
   %133 = extractvalue { ptr, i32 } %132, 0
@@ -323,7 +323,7 @@ define internal void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr align 8 %107) #6
           to label %130 unwind label %191
 
-156:                                              ; preds = %807, %212, %196, %193, %165, %164, %136
+156:                                              ; preds = %808, %212, %196, %193, %165, %164, %136
   %157 = landingpad { ptr, i32 }
           cleanup
   %158 = extractvalue { ptr, i32 } %157, 0
@@ -401,7 +401,7 @@ define internal void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %97)
           to label %219 unwind label %214
 
-191:                                              ; preds = %838, %822, %810, %787, %731, %721, %705, %697, %689, %682, %673, %665, %654, %645, %615, %592, %524, %514, %498, %490, %482, %475, %467, %456, %437, %427, %418, %394, %386, %377, %367, %360, %328, %312, %274, %228, %221, %213, %206, %199, %182, %155, %130, %112
+191:                                              ; preds = %839, %823, %811, %788, %732, %722, %706, %698, %690, %683, %674, %666, %655, %646, %616, %593, %525, %515, %499, %491, %483, %476, %468, %457, %438, %428, %419, %395, %387, %378, %368, %361, %329, %313, %275, %228, %221, %213, %206, %199, %182, %155, %130, %112
   %192 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
@@ -465,7 +465,7 @@ define internal void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %102) #6
           to label %155 unwind label %191
 
-214:                                              ; preds = %806, %190
+214:                                              ; preds = %807, %190
   %215 = landingpad { ptr, i32 }
           cleanup
   %216 = extractvalue { ptr, i32 } %215, 0
@@ -479,7 +479,7 @@ define internal void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a
   %220 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hbb1747b8bbd8f118E(i64 32, i64 8)
           to label %227 unwind label %222
 
-221:                                              ; preds = %839, %838, %281, %222
+221:                                              ; preds = %840, %839, %282, %222
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %97) #6
           to label %213 unwind label %191
 
@@ -500,7 +500,7 @@ define internal void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a
 
 228:                                              ; preds = %229
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he0d1447b2d0b27c2E"(ptr align 8 %95) #6
-          to label %839 unwind label %191
+          to label %840 unwind label %191
 
 229:                                              ; preds = %227
   %230 = landingpad { ptr, i32 }
@@ -540,1700 +540,1701 @@ define internal void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a
   %250 = load i64, ptr %249, align 8, !noundef !3
   store i64 0, ptr %92, align 8
   %251 = getelementptr inbounds i8, ptr %92, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %251, align 8
-  %252 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %92, i32 0, i32 1
-  store i64 0, ptr %252, align 8
-  %253 = getelementptr inbounds i8, ptr %2, i64 8
-  %254 = load ptr, ptr %253, align 8, !nonnull !3, !noundef !3
-  %255 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %2, i32 0, i32 1
-  %256 = load i64, ptr %255, align 8, !noundef !3
-  store ptr %254, ptr %6, align 8
-  %257 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %256, ptr %257, align 8
-  %258 = load ptr, ptr %6, align 8, !noundef !3
-  %259 = getelementptr inbounds i8, ptr %6, i64 8
-  %260 = load i64, ptr %259, align 8, !noundef !3
-  store ptr %258, ptr %10, align 8
-  %261 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %260, ptr %261, align 8
-  %262 = load ptr, ptr %10, align 8, !noundef !3
-  %263 = getelementptr inbounds i8, ptr %10, i64 8
-  %264 = load i64, ptr %263, align 8, !noundef !3
-  %265 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %93, i32 0, i32 2
-  store ptr %97, ptr %265, align 8
-  %266 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %93, i32 0, i32 3
-  store ptr %248, ptr %266, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 8
-  store i64 %250, ptr %267, align 8
+  %252 = inttoptr i64 8 to ptr
+  store ptr %252, ptr %251, align 8
+  %253 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %92, i32 0, i32 1
+  store i64 0, ptr %253, align 8
+  %254 = getelementptr inbounds i8, ptr %2, i64 8
+  %255 = load ptr, ptr %254, align 8, !nonnull !3, !noundef !3
+  %256 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %2, i32 0, i32 1
+  %257 = load i64, ptr %256, align 8, !noundef !3
+  store ptr %255, ptr %6, align 8
+  %258 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %257, ptr %258, align 8
+  %259 = load ptr, ptr %6, align 8, !noundef !3
+  %260 = getelementptr inbounds i8, ptr %6, i64 8
+  %261 = load i64, ptr %260, align 8, !noundef !3
+  store ptr %259, ptr %10, align 8
+  %262 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 %261, ptr %262, align 8
+  %263 = load ptr, ptr %10, align 8, !noundef !3
+  %264 = getelementptr inbounds i8, ptr %10, i64 8
+  %265 = load i64, ptr %264, align 8, !noundef !3
+  %266 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %93, i32 0, i32 2
+  store ptr %97, ptr %266, align 8
+  %267 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %93, i32 0, i32 3
+  store ptr %248, ptr %267, align 8
+  %268 = getelementptr inbounds i8, ptr %267, i64 8
+  store i64 %250, ptr %268, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %93, ptr align 8 %92, i64 24, i1 false)
-  %268 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %93, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %268, ptr align 8 %92, i64 24, i1 false)
-  %269 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %93, i32 0, i32 4
-  store ptr %1, ptr %269, align 8
-  %270 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %93, i32 0, i32 5
-  store ptr %262, ptr %270, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 8
-  store i64 %264, ptr %271, align 8
-  %272 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %93, i32 0, i32 6
-  store ptr %3, ptr %272, align 8
-  %273 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %93, i32 0, i32 7
-  store ptr %96, ptr %273, align 8
+  %269 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %93, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %269, ptr align 8 %92, i64 24, i1 false)
+  %270 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %93, i32 0, i32 4
+  store ptr %1, ptr %270, align 8
+  %271 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %93, i32 0, i32 5
+  store ptr %263, ptr %271, align 8
+  %272 = getelementptr inbounds i8, ptr %271, i64 8
+  store i64 %265, ptr %272, align 8
+  %273 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %93, i32 0, i32 6
+  store ptr %3, ptr %273, align 8
+  %274 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %93, i32 0, i32 7
+  store ptr %96, ptr %274, align 8
   invoke void @"_ZN4witx3abi42_$LT$impl$u20$witx..ast..InterfaceFunc$GT$14call_interface17h47279ad9329f5d5cE"(ptr align 8 %2, ptr align 8 %1, ptr align 8 %93)
-          to label %280 unwind label %275
+          to label %281 unwind label %276
 
-274:                                              ; preds = %275
+275:                                              ; preds = %276
   invoke void @"_ZN4core3ptr49drop_in_place$LT$wiggle_generate..funcs..Rust$GT$17hd57b51bcf508e6b2E"(ptr align 8 %93) #6
-          to label %281 unwind label %191
+          to label %282 unwind label %191
 
-275:                                              ; preds = %238
-  %276 = landingpad { ptr, i32 }
+276:                                              ; preds = %238
+  %277 = landingpad { ptr, i32 }
           cleanup
-  %277 = extractvalue { ptr, i32 } %276, 0
-  %278 = extractvalue { ptr, i32 } %276, 1
-  store ptr %277, ptr %5, align 8
-  %279 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %278, ptr %279, align 8
-  br label %274
+  %278 = extractvalue { ptr, i32 } %277, 0
+  %279 = extractvalue { ptr, i32 } %277, 1
+  store ptr %278, ptr %5, align 8
+  %280 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %279, ptr %280, align 8
+  br label %275
 
-280:                                              ; preds = %238
+281:                                              ; preds = %238
   invoke void @"_ZN4core3ptr49drop_in_place$LT$wiggle_generate..funcs..Rust$GT$17hd57b51bcf508e6b2E"(ptr align 8 %93)
-          to label %289 unwind label %284
+          to label %290 unwind label %285
 
-281:                                              ; preds = %360, %312, %284, %274
-  %282 = load i8, ptr %18, align 1, !range !6, !noundef !3
-  %283 = trunc i8 %282 to i1
-  br i1 %283, label %838, label %221
+282:                                              ; preds = %361, %313, %285, %275
+  %283 = load i8, ptr %18, align 1, !range !6, !noundef !3
+  %284 = trunc i8 %283 to i1
+  br i1 %284, label %839, label %221
 
-284:                                              ; preds = %805, %289, %280
-  %285 = landingpad { ptr, i32 }
+285:                                              ; preds = %806, %290, %281
+  %286 = landingpad { ptr, i32 }
           cleanup
-  %286 = extractvalue { ptr, i32 } %285, 0
-  %287 = extractvalue { ptr, i32 } %285, 1
-  store ptr %286, ptr %5, align 8
-  %288 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %287, ptr %288, align 8
-  br label %281
+  %287 = extractvalue { ptr, i32 } %286, 0
+  %288 = extractvalue { ptr, i32 } %286, 1
+  store ptr %287, ptr %5, align 8
+  %289 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %288, ptr %289, align 8
+  br label %282
 
-289:                                              ; preds = %280
-  %290 = getelementptr inbounds i8, ptr %1, i64 8
-  %291 = load ptr, ptr %290, align 8, !nonnull !3, !noundef !3
-  %292 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %1, i32 0, i32 1
-  %293 = load i64, ptr %292, align 8, !noundef !3
-  store ptr %291, ptr %8, align 8
-  %294 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %293, ptr %294, align 8
-  %295 = load ptr, ptr %8, align 8, !noundef !3
-  %296 = getelementptr inbounds i8, ptr %8, i64 8
-  %297 = load i64, ptr %296, align 8, !noundef !3
-  store ptr %295, ptr %9, align 8
-  %298 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %297, ptr %298, align 8
-  %299 = load ptr, ptr %9, align 8, !noundef !3
-  %300 = getelementptr inbounds i8, ptr %9, i64 8
-  %301 = load i64, ptr %300, align 8, !noundef !3
-  store ptr %299, ptr %90, align 8
-  %302 = getelementptr inbounds i8, ptr %90, i64 8
-  store i64 %301, ptr %302, align 8
+290:                                              ; preds = %281
+  %291 = getelementptr inbounds i8, ptr %1, i64 8
+  %292 = load ptr, ptr %291, align 8, !nonnull !3, !noundef !3
+  %293 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %1, i32 0, i32 1
+  %294 = load i64, ptr %293, align 8, !noundef !3
+  store ptr %292, ptr %8, align 8
+  %295 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %294, ptr %295, align 8
+  %296 = load ptr, ptr %8, align 8, !noundef !3
+  %297 = getelementptr inbounds i8, ptr %8, i64 8
+  %298 = load i64, ptr %297, align 8, !noundef !3
+  store ptr %296, ptr %9, align 8
+  %299 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %298, ptr %299, align 8
+  %300 = load ptr, ptr %9, align 8, !noundef !3
+  %301 = getelementptr inbounds i8, ptr %9, i64 8
+  %302 = load i64, ptr %301, align 8, !noundef !3
+  store ptr %300, ptr %90, align 8
+  %303 = getelementptr inbounds i8, ptr %90, i64 8
+  store i64 %302, ptr %303, align 8
   store ptr %90, ptr %91, align 8
-  %303 = load ptr, ptr %6, align 8, !noundef !3
-  %304 = getelementptr inbounds i8, ptr %6, i64 8
-  %305 = load i64, ptr %304, align 8, !noundef !3
-  store ptr %303, ptr %7, align 8
-  %306 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %305, ptr %306, align 8
-  %307 = load ptr, ptr %7, align 8, !noundef !3
-  %308 = getelementptr inbounds i8, ptr %7, i64 8
-  %309 = load i64, ptr %308, align 8, !noundef !3
-  store ptr %307, ptr %88, align 8
-  %310 = getelementptr inbounds i8, ptr %88, i64 8
-  store i64 %309, ptr %310, align 8
+  %304 = load ptr, ptr %6, align 8, !noundef !3
+  %305 = getelementptr inbounds i8, ptr %6, i64 8
+  %306 = load i64, ptr %305, align 8, !noundef !3
+  store ptr %304, ptr %7, align 8
+  %307 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %306, ptr %307, align 8
+  %308 = load ptr, ptr %7, align 8, !noundef !3
+  %309 = getelementptr inbounds i8, ptr %7, i64 8
+  %310 = load i64, ptr %309, align 8, !noundef !3
+  store ptr %308, ptr %88, align 8
+  %311 = getelementptr inbounds i8, ptr %88, i64 8
+  store i64 %310, ptr %311, align 8
   store ptr %88, ptr %89, align 8
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %86)
-          to label %311 unwind label %284
+          to label %312 unwind label %285
 
-311:                                              ; preds = %289
+312:                                              ; preds = %290
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %86, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.2, i64 3)
-          to label %318 unwind label %313
+          to label %319 unwind label %314
 
-312:                                              ; preds = %328, %313
+313:                                              ; preds = %329, %314
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %86) #6
-          to label %281 unwind label %191
+          to label %282 unwind label %191
 
-313:                                              ; preds = %353, %352, %326, %325, %324, %323, %322, %321, %320, %319, %318, %311
-  %314 = landingpad { ptr, i32 }
+314:                                              ; preds = %354, %353, %327, %326, %325, %324, %323, %322, %321, %320, %319, %312
+  %315 = landingpad { ptr, i32 }
           cleanup
-  %315 = extractvalue { ptr, i32 } %314, 0
-  %316 = extractvalue { ptr, i32 } %314, 1
-  store ptr %315, ptr %5, align 8
-  %317 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %316, ptr %317, align 8
-  br label %312
+  %316 = extractvalue { ptr, i32 } %315, 0
+  %317 = extractvalue { ptr, i32 } %315, 1
+  store ptr %316, ptr %5, align 8
+  %318 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %317, ptr %318, align 8
+  br label %313
 
-318:                                              ; preds = %311
+319:                                              ; preds = %312
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %86, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.3, i64 5)
-          to label %319 unwind label %313
-
-319:                                              ; preds = %318
-  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %86)
-          to label %320 unwind label %313
+          to label %320 unwind label %314
 
 320:                                              ; preds = %319
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %86, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %321 unwind label %313
+  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %86)
+          to label %321 unwind label %314
 
 321:                                              ; preds = %320
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %86)
-          to label %322 unwind label %313
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %86, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
+          to label %322 unwind label %314
 
 322:                                              ; preds = %321
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %86, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
-          to label %323 unwind label %313
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %86)
+          to label %323 unwind label %314
 
 323:                                              ; preds = %322
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %86)
-          to label %324 unwind label %313
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %86, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
+          to label %324 unwind label %314
 
 324:                                              ; preds = %323
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %86, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.6, i64 4)
-          to label %325 unwind label %313
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %86)
+          to label %325 unwind label %314
 
 325:                                              ; preds = %324
-  invoke void @_ZN5quote9__private9push_bang17heb884422a3cf9cdcE(ptr align 8 %86)
-          to label %326 unwind label %313
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %86, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.6, i64 4)
+          to label %326 unwind label %314
 
 326:                                              ; preds = %325
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %84)
-          to label %327 unwind label %313
+  invoke void @_ZN5quote9__private9push_bang17heb884422a3cf9cdcE(ptr align 8 %86)
+          to label %327 unwind label %314
 
 327:                                              ; preds = %326
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %84)
+          to label %328 unwind label %314
+
+328:                                              ; preds = %327
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %84, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %334 unwind label %329
+          to label %335 unwind label %330
 
-328:                                              ; preds = %329
+329:                                              ; preds = %330
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %84) #6
-          to label %312 unwind label %191
+          to label %313 unwind label %191
 
-329:                                              ; preds = %350, %349, %348, %347, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %327
-  %330 = landingpad { ptr, i32 }
+330:                                              ; preds = %351, %350, %349, %348, %346, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %328
+  %331 = landingpad { ptr, i32 }
           cleanup
-  %331 = extractvalue { ptr, i32 } %330, 0
-  %332 = extractvalue { ptr, i32 } %330, 1
-  store ptr %331, ptr %5, align 8
-  %333 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %332, ptr %333, align 8
-  br label %328
+  %332 = extractvalue { ptr, i32 } %331, 0
+  %333 = extractvalue { ptr, i32 } %331, 1
+  store ptr %332, ptr %5, align 8
+  %334 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %333, ptr %334, align 8
+  br label %329
 
-334:                                              ; preds = %327
+335:                                              ; preds = %328
   invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %84)
-          to label %335 unwind label %329
-
-335:                                              ; preds = %334
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %84, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
-          to label %336 unwind label %329
+          to label %336 unwind label %330
 
 336:                                              ; preds = %335
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %84)
-          to label %337 unwind label %329
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %84, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
+          to label %337 unwind label %330
 
 337:                                              ; preds = %336
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %84, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.7, i64 5)
-          to label %338 unwind label %329
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %84)
+          to label %338 unwind label %330
 
 338:                                              ; preds = %337
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %84)
-          to label %339 unwind label %329
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %84, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.7, i64 5)
+          to label %339 unwind label %330
 
 339:                                              ; preds = %338
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %84, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.8, i64 5)
-          to label %340 unwind label %329
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %84)
+          to label %340 unwind label %330
 
 340:                                              ; preds = %339
-  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %84)
-          to label %341 unwind label %329
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %84, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.8, i64 5)
+          to label %341 unwind label %330
 
 341:                                              ; preds = %340
-  invoke void @_ZN5quote9__private5parse17h16e214f9b5f8ab03E(ptr align 8 %84, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.9, i64 12)
-          to label %342 unwind label %329
+  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %84)
+          to label %342 unwind label %330
 
 342:                                              ; preds = %341
-  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %84)
-          to label %343 unwind label %329
+  invoke void @_ZN5quote9__private5parse17h16e214f9b5f8ab03E(ptr align 8 %84, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.9, i64 12)
+          to label %343 unwind label %330
 
 343:                                              ; preds = %342
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %84, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.10, i64 6)
-          to label %344 unwind label %329
+  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %84)
+          to label %344 unwind label %330
 
 344:                                              ; preds = %343
-  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %84)
-          to label %345 unwind label %329
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %84, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.10, i64 6)
+          to label %345 unwind label %330
 
 345:                                              ; preds = %344
-  %346 = load ptr, ptr %91, align 8, !nonnull !3, !align !5, !noundef !3
-  invoke void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcf71cd51297a73bdE"(ptr align 8 %346, ptr align 8 %84)
-          to label %347 unwind label %329
+  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %84)
+          to label %346 unwind label %330
 
-347:                                              ; preds = %345
+346:                                              ; preds = %345
+  %347 = load ptr, ptr %91, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcf71cd51297a73bdE"(ptr align 8 %347, ptr align 8 %84)
+          to label %348 unwind label %330
+
+348:                                              ; preds = %346
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %84)
-          to label %348 unwind label %329
-
-348:                                              ; preds = %347
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %84, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.11, i64 8)
-          to label %349 unwind label %329
+          to label %349 unwind label %330
 
 349:                                              ; preds = %348
-  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %84)
-          to label %350 unwind label %329
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %84, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.11, i64 8)
+          to label %350 unwind label %330
 
 350:                                              ; preds = %349
-  %351 = load ptr, ptr %89, align 8, !nonnull !3, !align !5, !noundef !3
-  invoke void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcf71cd51297a73bdE"(ptr align 8 %351, ptr align 8 %84)
-          to label %352 unwind label %329
+  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %84)
+          to label %351 unwind label %330
 
-352:                                              ; preds = %350
+351:                                              ; preds = %350
+  %352 = load ptr, ptr %89, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcf71cd51297a73bdE"(ptr align 8 %352, ptr align 8 %84)
+          to label %353 unwind label %330
+
+353:                                              ; preds = %351
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %85, ptr align 8 %84, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %86, i8 0, ptr align 8 %85)
-          to label %353 unwind label %313
-
-353:                                              ; preds = %352
-  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %86)
-          to label %354 unwind label %313
+          to label %354 unwind label %314
 
 354:                                              ; preds = %353
+  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %86)
+          to label %355 unwind label %314
+
+355:                                              ; preds = %354
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %87, ptr align 8 %86, i64 32, i1 false)
-  %355 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [3 x i64] }, { ptr, [5 x i64] } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %3, i32 0, i32 4
-  %356 = load i8, ptr %355, align 1, !range !6, !noundef !3
-  %357 = trunc i8 %356 to i1
-  br i1 %357, label %359, label %358
+  %356 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [3 x i64] }, { ptr, [5 x i64] } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %3, i32 0, i32 4
+  %357 = load i8, ptr %356, align 1, !range !6, !noundef !3
+  %358 = trunc i8 %357 to i1
+  br i1 %358, label %360, label %359
 
-358:                                              ; preds = %354
+359:                                              ; preds = %355
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %81)
-          to label %366 unwind label %361
+          to label %367 unwind label %362
 
-359:                                              ; preds = %354
+360:                                              ; preds = %355
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %82)
-          to label %376 unwind label %361
+          to label %377 unwind label %362
 
-360:                                              ; preds = %386, %377, %367, %361
+361:                                              ; preds = %387, %378, %368, %362
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %87) #6
-          to label %281 unwind label %191
+          to label %282 unwind label %191
 
-361:                                              ; preds = %610, %359, %358
-  %362 = landingpad { ptr, i32 }
+362:                                              ; preds = %611, %360, %359
+  %363 = landingpad { ptr, i32 }
           cleanup
-  %363 = extractvalue { ptr, i32 } %362, 0
-  %364 = extractvalue { ptr, i32 } %362, 1
-  store ptr %363, ptr %5, align 8
-  %365 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %364, ptr %365, align 8
-  br label %360
+  %364 = extractvalue { ptr, i32 } %363, 0
+  %365 = extractvalue { ptr, i32 } %363, 1
+  store ptr %364, ptr %5, align 8
+  %366 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %365, ptr %366, align 8
+  br label %361
 
-366:                                              ; preds = %358
+367:                                              ; preds = %359
   invoke void @_ZN5quote9__private8push_and17h4ba1c3b1ad451414E(ptr align 8 %81)
-          to label %373 unwind label %368
+          to label %374 unwind label %369
 
-367:                                              ; preds = %368
+368:                                              ; preds = %369
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %81) #6
-          to label %360 unwind label %191
+          to label %361 unwind label %191
 
-368:                                              ; preds = %373, %366
-  %369 = landingpad { ptr, i32 }
+369:                                              ; preds = %374, %367
+  %370 = landingpad { ptr, i32 }
           cleanup
-  %370 = extractvalue { ptr, i32 } %369, 0
-  %371 = extractvalue { ptr, i32 } %369, 1
-  store ptr %370, ptr %5, align 8
-  %372 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %371, ptr %372, align 8
-  br label %367
+  %371 = extractvalue { ptr, i32 } %370, 0
+  %372 = extractvalue { ptr, i32 } %370, 1
+  store ptr %371, ptr %5, align 8
+  %373 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %372, ptr %373, align 8
+  br label %368
 
-373:                                              ; preds = %366
+374:                                              ; preds = %367
   invoke void @_ZN5quote9__private13push_lifetime17h353e297d8dcd0364E(ptr align 8 %81, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.12, i64 2)
-          to label %374 unwind label %368
+          to label %375 unwind label %369
 
-374:                                              ; preds = %373
+375:                                              ; preds = %374
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %83, ptr align 8 %81, i64 32, i1 false)
-  br label %375
+  br label %376
 
-375:                                              ; preds = %385, %374
+376:                                              ; preds = %386, %375
   invoke void @_ZN15wiggle_generate16codegen_settings15CodegenSettings9get_async17hcf1e16b36cb06e5eE(ptr sret({ i64, [3 x i64] }) align 8 %80, ptr align 8 %3, ptr align 8 %1, ptr align 8 %2)
-          to label %392 unwind label %387
+          to label %393 unwind label %388
 
-376:                                              ; preds = %359
+377:                                              ; preds = %360
   invoke void @_ZN5quote9__private8push_and17h4ba1c3b1ad451414E(ptr align 8 %82)
-          to label %383 unwind label %378
+          to label %384 unwind label %379
 
-377:                                              ; preds = %378
+378:                                              ; preds = %379
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %82) #6
-          to label %360 unwind label %191
+          to label %361 unwind label %191
 
-378:                                              ; preds = %384, %383, %376
-  %379 = landingpad { ptr, i32 }
+379:                                              ; preds = %385, %384, %377
+  %380 = landingpad { ptr, i32 }
           cleanup
-  %380 = extractvalue { ptr, i32 } %379, 0
-  %381 = extractvalue { ptr, i32 } %379, 1
-  store ptr %380, ptr %5, align 8
-  %382 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %381, ptr %382, align 8
-  br label %377
+  %381 = extractvalue { ptr, i32 } %380, 0
+  %382 = extractvalue { ptr, i32 } %380, 1
+  store ptr %381, ptr %5, align 8
+  %383 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %382, ptr %383, align 8
+  br label %378
 
-383:                                              ; preds = %376
+384:                                              ; preds = %377
   invoke void @_ZN5quote9__private13push_lifetime17h353e297d8dcd0364E(ptr align 8 %82, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.12, i64 2)
-          to label %384 unwind label %378
-
-384:                                              ; preds = %383
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %82, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.13, i64 3)
-          to label %385 unwind label %378
+          to label %385 unwind label %379
 
 385:                                              ; preds = %384
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %82, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.13, i64 3)
+          to label %386 unwind label %379
+
+386:                                              ; preds = %385
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %83, ptr align 8 %82, i64 32, i1 false)
-  br label %375
+  br label %376
 
-386:                                              ; preds = %682, %654, %645, %475, %437, %418, %394, %387
+387:                                              ; preds = %683, %655, %646, %476, %438, %419, %395, %388
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %83) #6
-          to label %360 unwind label %191
+          to label %361 unwind label %191
 
-387:                                              ; preds = %803, %643, %642, %630, %608, %416, %415, %403, %402, %401, %375
-  %388 = landingpad { ptr, i32 }
+388:                                              ; preds = %804, %644, %643, %631, %609, %417, %416, %404, %403, %402, %376
+  %389 = landingpad { ptr, i32 }
           cleanup
-  %389 = extractvalue { ptr, i32 } %388, 0
-  %390 = extractvalue { ptr, i32 } %388, 1
-  store ptr %389, ptr %5, align 8
-  %391 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %390, ptr %391, align 8
-  br label %386
+  %390 = extractvalue { ptr, i32 } %389, 0
+  %391 = extractvalue { ptr, i32 } %389, 1
+  store ptr %390, ptr %5, align 8
+  %392 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %391, ptr %392, align 8
+  br label %387
 
-392:                                              ; preds = %375
-  %393 = invoke zeroext i1 @_ZN15wiggle_generate6config9Asyncness7is_sync17h73e4ab8c390d74b4E(ptr align 8 %80)
-          to label %400 unwind label %395
+393:                                              ; preds = %376
+  %394 = invoke zeroext i1 @_ZN15wiggle_generate6config9Asyncness7is_sync17h73e4ab8c390d74b4E(ptr align 8 %80)
+          to label %401 unwind label %396
 
-394:                                              ; preds = %395
+395:                                              ; preds = %396
   invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr align 8 %80) #6
-          to label %386 unwind label %191
+          to label %387 unwind label %191
 
-395:                                              ; preds = %392
-  %396 = landingpad { ptr, i32 }
+396:                                              ; preds = %393
+  %397 = landingpad { ptr, i32 }
           cleanup
-  %397 = extractvalue { ptr, i32 } %396, 0
-  %398 = extractvalue { ptr, i32 } %396, 1
-  store ptr %397, ptr %5, align 8
-  %399 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %398, ptr %399, align 8
-  br label %394
+  %398 = extractvalue { ptr, i32 } %397, 0
+  %399 = extractvalue { ptr, i32 } %397, 1
+  store ptr %398, ptr %5, align 8
+  %400 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %399, ptr %400, align 8
+  br label %395
 
-400:                                              ; preds = %392
-  br i1 %393, label %402, label %401
+401:                                              ; preds = %393
+  br i1 %394, label %403, label %402
 
-401:                                              ; preds = %400
+402:                                              ; preds = %401
   invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr align 8 %80)
-          to label %403 unwind label %387
-
-402:                                              ; preds = %400
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr align 8 %80)
-          to label %630 unwind label %387
+          to label %404 unwind label %388
 
 403:                                              ; preds = %401
-  %404 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [3 x i64] }, { ptr, [5 x i64] } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %3, i32 0, i32 2
-  %405 = load ptr, ptr %91, align 8, !nonnull !3, !align !5, !noundef !3
-  %406 = load ptr, ptr %405, align 8, !nonnull !3, !align !7, !noundef !3
-  %407 = getelementptr inbounds i8, ptr %405, i64 8
-  %408 = load i64, ptr %407, align 8, !noundef !3
-  %409 = load ptr, ptr %89, align 8, !nonnull !3, !align !5, !noundef !3
-  %410 = load ptr, ptr %409, align 8, !nonnull !3, !align !7, !noundef !3
-  %411 = getelementptr inbounds i8, ptr %409, i64 8
-  %412 = load i64, ptr %411, align 8, !noundef !3
-  %413 = invoke zeroext i1 @_ZN15wiggle_generate6config11TracingConf11enabled_for17h13416e742c57b445E(ptr align 8 %404, ptr align 1 %406, i64 %408, ptr align 1 %410, i64 %412)
-          to label %414 unwind label %387
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr align 8 %80)
+          to label %631 unwind label %388
 
-414:                                              ; preds = %403
-  br i1 %413, label %416, label %415
+404:                                              ; preds = %402
+  %405 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [3 x i64] }, { ptr, [5 x i64] } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %3, i32 0, i32 2
+  %406 = load ptr, ptr %91, align 8, !nonnull !3, !align !5, !noundef !3
+  %407 = load ptr, ptr %406, align 8, !nonnull !3, !align !7, !noundef !3
+  %408 = getelementptr inbounds i8, ptr %406, i64 8
+  %409 = load i64, ptr %408, align 8, !noundef !3
+  %410 = load ptr, ptr %89, align 8, !nonnull !3, !align !5, !noundef !3
+  %411 = load ptr, ptr %410, align 8, !nonnull !3, !align !7, !noundef !3
+  %412 = getelementptr inbounds i8, ptr %410, i64 8
+  %413 = load i64, ptr %412, align 8, !noundef !3
+  %414 = invoke zeroext i1 @_ZN15wiggle_generate6config11TracingConf11enabled_for17h13416e742c57b445E(ptr align 8 %405, ptr align 1 %407, i64 %409, ptr align 1 %411, i64 %413)
+          to label %415 unwind label %388
 
-415:                                              ; preds = %414
+415:                                              ; preds = %404
+  br i1 %414, label %417, label %416
+
+416:                                              ; preds = %415
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %44)
-          to label %417 unwind label %387
-
-416:                                              ; preds = %414
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %49)
-          to label %436 unwind label %387
+          to label %418 unwind label %388
 
 417:                                              ; preds = %415
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %49)
+          to label %437 unwind label %388
+
+418:                                              ; preds = %416
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %44, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.14, i64 5)
-          to label %424 unwind label %419
+          to label %425 unwind label %420
 
-418:                                              ; preds = %427, %419
+419:                                              ; preds = %428, %420
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %44) #6
-          to label %386 unwind label %191
+          to label %387 unwind label %191
 
-419:                                              ; preds = %433, %425, %424, %417
-  %420 = landingpad { ptr, i32 }
+420:                                              ; preds = %434, %426, %425, %418
+  %421 = landingpad { ptr, i32 }
           cleanup
-  %421 = extractvalue { ptr, i32 } %420, 0
-  %422 = extractvalue { ptr, i32 } %420, 1
-  store ptr %421, ptr %5, align 8
-  %423 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %422, ptr %423, align 8
-  br label %418
+  %422 = extractvalue { ptr, i32 } %421, 0
+  %423 = extractvalue { ptr, i32 } %421, 1
+  store ptr %422, ptr %5, align 8
+  %424 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %423, ptr %424, align 8
+  br label %419
 
-424:                                              ; preds = %417
+425:                                              ; preds = %418
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %44, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.15, i64 4)
-          to label %425 unwind label %419
-
-425:                                              ; preds = %424
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %42)
-          to label %426 unwind label %419
+          to label %426 unwind label %420
 
 426:                                              ; preds = %425
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %42)
+          to label %427 unwind label %420
+
+427:                                              ; preds = %426
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %97, ptr align 8 %42)
-          to label %433 unwind label %428
+          to label %434 unwind label %429
 
-427:                                              ; preds = %428
+428:                                              ; preds = %429
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %42) #6
-          to label %418 unwind label %191
+          to label %419 unwind label %191
 
-428:                                              ; preds = %426
-  %429 = landingpad { ptr, i32 }
+429:                                              ; preds = %427
+  %430 = landingpad { ptr, i32 }
           cleanup
-  %430 = extractvalue { ptr, i32 } %429, 0
-  %431 = extractvalue { ptr, i32 } %429, 1
-  store ptr %430, ptr %5, align 8
-  %432 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %431, ptr %432, align 8
-  br label %427
+  %431 = extractvalue { ptr, i32 } %430, 0
+  %432 = extractvalue { ptr, i32 } %430, 1
+  store ptr %431, ptr %5, align 8
+  %433 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %432, ptr %433, align 8
+  br label %428
 
-433:                                              ; preds = %426
+434:                                              ; preds = %427
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %43, ptr align 8 %42, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %44, i8 1, ptr align 8 %43)
-          to label %434 unwind label %419
+          to label %435 unwind label %420
 
-434:                                              ; preds = %433
+435:                                              ; preds = %434
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr align 8 %44, i64 32, i1 false)
-  br label %435
+  br label %436
 
-435:                                              ; preds = %474, %434
+436:                                              ; preds = %475, %435
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %40)
-          to label %481 unwind label %476
+          to label %482 unwind label %477
 
-436:                                              ; preds = %416
+437:                                              ; preds = %417
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %49, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.16, i64 3)
-          to label %443 unwind label %438
+          to label %444 unwind label %439
 
-437:                                              ; preds = %467, %456, %438
+438:                                              ; preds = %468, %457, %439
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %49) #6
-          to label %386 unwind label %191
+          to label %387 unwind label %191
 
-438:                                              ; preds = %473, %465, %464, %463, %462, %454, %453, %452, %451, %450, %449, %448, %447, %446, %445, %444, %443, %436
-  %439 = landingpad { ptr, i32 }
+439:                                              ; preds = %474, %466, %465, %464, %463, %455, %454, %453, %452, %451, %450, %449, %448, %447, %446, %445, %444, %437
+  %440 = landingpad { ptr, i32 }
           cleanup
-  %440 = extractvalue { ptr, i32 } %439, 0
-  %441 = extractvalue { ptr, i32 } %439, 1
-  store ptr %440, ptr %5, align 8
-  %442 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %441, ptr %442, align 8
-  br label %437
+  %441 = extractvalue { ptr, i32 } %440, 0
+  %442 = extractvalue { ptr, i32 } %440, 1
+  store ptr %441, ptr %5, align 8
+  %443 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %442, ptr %443, align 8
+  br label %438
 
-443:                                              ; preds = %436
+444:                                              ; preds = %437
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %49, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %444 unwind label %438
-
-444:                                              ; preds = %443
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %49)
-          to label %445 unwind label %438
+          to label %445 unwind label %439
 
 445:                                              ; preds = %444
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %49, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
-          to label %446 unwind label %438
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %49)
+          to label %446 unwind label %439
 
 446:                                              ; preds = %445
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %49)
-          to label %447 unwind label %438
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %49, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
+          to label %447 unwind label %439
 
 447:                                              ; preds = %446
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %49, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.17, i64 10)
-          to label %448 unwind label %438
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %49)
+          to label %448 unwind label %439
 
 448:                                              ; preds = %447
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %49, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
-          to label %449 unwind label %438
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %49, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.17, i64 10)
+          to label %449 unwind label %439
 
 449:                                              ; preds = %448
-  invoke void @_ZN5quote9__private15push_underscore17hf79ad06a729e5388E(ptr align 8 %49)
-          to label %450 unwind label %438
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %49, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
+          to label %450 unwind label %439
 
 450:                                              ; preds = %449
-  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %49)
-          to label %451 unwind label %438
+  invoke void @_ZN5quote9__private15push_underscore17hf79ad06a729e5388E(ptr align 8 %49)
+          to label %451 unwind label %439
 
 451:                                              ; preds = %450
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %87, ptr align 8 %49)
-          to label %452 unwind label %438
+  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %49)
+          to label %452 unwind label %439
 
 452:                                              ; preds = %451
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %49, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.14, i64 5)
-          to label %453 unwind label %438
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %87, ptr align 8 %49)
+          to label %453 unwind label %439
 
 453:                                              ; preds = %452
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %49, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.15, i64 4)
-          to label %454 unwind label %438
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %49, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.14, i64 5)
+          to label %454 unwind label %439
 
 454:                                              ; preds = %453
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %47)
-          to label %455 unwind label %438
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %49, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.15, i64 4)
+          to label %455 unwind label %439
 
 455:                                              ; preds = %454
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %47)
+          to label %456 unwind label %439
+
+456:                                              ; preds = %455
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %97, ptr align 8 %47)
-          to label %462 unwind label %457
+          to label %463 unwind label %458
 
-456:                                              ; preds = %457
+457:                                              ; preds = %458
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %47) #6
-          to label %437 unwind label %191
+          to label %438 unwind label %191
 
-457:                                              ; preds = %455
-  %458 = landingpad { ptr, i32 }
+458:                                              ; preds = %456
+  %459 = landingpad { ptr, i32 }
           cleanup
-  %459 = extractvalue { ptr, i32 } %458, 0
-  %460 = extractvalue { ptr, i32 } %458, 1
-  store ptr %459, ptr %5, align 8
-  %461 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %460, ptr %461, align 8
-  br label %456
+  %460 = extractvalue { ptr, i32 } %459, 0
+  %461 = extractvalue { ptr, i32 } %459, 1
+  store ptr %460, ptr %5, align 8
+  %462 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %461, ptr %462, align 8
+  br label %457
 
-462:                                              ; preds = %455
+463:                                              ; preds = %456
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %47, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %49, i8 1, ptr align 8 %48)
-          to label %463 unwind label %438
-
-463:                                              ; preds = %462
-  invoke void @_ZN5quote9__private8push_dot17h03cdb31c440a1f9fE(ptr align 8 %49)
-          to label %464 unwind label %438
+          to label %464 unwind label %439
 
 464:                                              ; preds = %463
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %49, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.19, i64 10)
-          to label %465 unwind label %438
+  invoke void @_ZN5quote9__private8push_dot17h03cdb31c440a1f9fE(ptr align 8 %49)
+          to label %465 unwind label %439
 
 465:                                              ; preds = %464
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %45)
-          to label %466 unwind label %438
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %49, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.19, i64 10)
+          to label %466 unwind label %439
 
 466:                                              ; preds = %465
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %45)
+          to label %467 unwind label %439
+
+467:                                              ; preds = %466
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %45, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.3, i64 5)
-          to label %473 unwind label %468
+          to label %474 unwind label %469
 
-467:                                              ; preds = %468
+468:                                              ; preds = %469
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %45) #6
-          to label %437 unwind label %191
+          to label %438 unwind label %191
 
-468:                                              ; preds = %466
-  %469 = landingpad { ptr, i32 }
+469:                                              ; preds = %467
+  %470 = landingpad { ptr, i32 }
           cleanup
-  %470 = extractvalue { ptr, i32 } %469, 0
-  %471 = extractvalue { ptr, i32 } %469, 1
-  store ptr %470, ptr %5, align 8
-  %472 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %471, ptr %472, align 8
-  br label %467
+  %471 = extractvalue { ptr, i32 } %470, 0
+  %472 = extractvalue { ptr, i32 } %470, 1
+  store ptr %471, ptr %5, align 8
+  %473 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %472, ptr %473, align 8
+  br label %468
 
-473:                                              ; preds = %466
+474:                                              ; preds = %467
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %45, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %49, i8 0, ptr align 8 %46)
-          to label %474 unwind label %438
+          to label %475 unwind label %439
 
-474:                                              ; preds = %473
+475:                                              ; preds = %474
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr align 8 %49, i64 32, i1 false)
-  br label %435
+  br label %436
 
-475:                                              ; preds = %482, %476
+476:                                              ; preds = %483, %477
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %50) #6
-          to label %386 unwind label %191
+          to label %387 unwind label %191
 
-476:                                              ; preds = %435
-  %477 = landingpad { ptr, i32 }
+477:                                              ; preds = %436
+  %478 = landingpad { ptr, i32 }
           cleanup
-  %478 = extractvalue { ptr, i32 } %477, 0
-  %479 = extractvalue { ptr, i32 } %477, 1
-  store ptr %478, ptr %5, align 8
-  %480 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %479, ptr %480, align 8
-  br label %475
+  %479 = extractvalue { ptr, i32 } %478, 0
+  %480 = extractvalue { ptr, i32 } %478, 1
+  store ptr %479, ptr %5, align 8
+  %481 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %480, ptr %481, align 8
+  br label %476
 
-481:                                              ; preds = %435
+482:                                              ; preds = %436
   invoke void @_ZN5quote9__private10push_pound17h80f4b2bd107d24c3E(ptr align 8 %40)
-          to label %488 unwind label %483
+          to label %489 unwind label %484
 
-482:                                              ; preds = %592, %514, %490, %483
+483:                                              ; preds = %593, %515, %491, %484
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %40) #6
-          to label %475 unwind label %191
+          to label %476 unwind label %191
 
-483:                                              ; preds = %607, %590, %589, %588, %587, %586, %585, %584, %583, %582, %581, %580, %579, %578, %577, %576, %575, %574, %573, %572, %571, %570, %566, %512, %511, %510, %509, %508, %507, %506, %505, %488, %481
-  %484 = landingpad { ptr, i32 }
+484:                                              ; preds = %608, %591, %590, %589, %588, %587, %586, %585, %584, %583, %582, %581, %580, %579, %578, %577, %576, %575, %574, %573, %572, %571, %567, %513, %512, %511, %510, %509, %508, %507, %506, %489, %482
+  %485 = landingpad { ptr, i32 }
           cleanup
-  %485 = extractvalue { ptr, i32 } %484, 0
-  %486 = extractvalue { ptr, i32 } %484, 1
-  store ptr %485, ptr %5, align 8
-  %487 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %486, ptr %487, align 8
-  br label %482
+  %486 = extractvalue { ptr, i32 } %485, 0
+  %487 = extractvalue { ptr, i32 } %485, 1
+  store ptr %486, ptr %5, align 8
+  %488 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %487, ptr %488, align 8
+  br label %483
 
-488:                                              ; preds = %481
+489:                                              ; preds = %482
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %38)
-          to label %489 unwind label %483
+          to label %490 unwind label %484
 
-489:                                              ; preds = %488
+490:                                              ; preds = %489
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %38, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.20, i64 5)
-          to label %496 unwind label %491
+          to label %497 unwind label %492
 
-490:                                              ; preds = %498, %491
+491:                                              ; preds = %499, %492
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %38) #6
-          to label %482 unwind label %191
+          to label %483 unwind label %191
 
-491:                                              ; preds = %504, %496, %489
-  %492 = landingpad { ptr, i32 }
+492:                                              ; preds = %505, %497, %490
+  %493 = landingpad { ptr, i32 }
           cleanup
-  %493 = extractvalue { ptr, i32 } %492, 0
-  %494 = extractvalue { ptr, i32 } %492, 1
-  store ptr %493, ptr %5, align 8
-  %495 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %494, ptr %495, align 8
-  br label %490
+  %494 = extractvalue { ptr, i32 } %493, 0
+  %495 = extractvalue { ptr, i32 } %493, 1
+  store ptr %494, ptr %5, align 8
+  %496 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %495, ptr %496, align 8
+  br label %491
 
-496:                                              ; preds = %489
+497:                                              ; preds = %490
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %36)
-          to label %497 unwind label %491
+          to label %498 unwind label %492
 
-497:                                              ; preds = %496
+498:                                              ; preds = %497
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %36, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.21, i64 16)
-          to label %504 unwind label %499
+          to label %505 unwind label %500
 
-498:                                              ; preds = %499
+499:                                              ; preds = %500
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %36) #6
-          to label %490 unwind label %191
+          to label %491 unwind label %191
 
-499:                                              ; preds = %497
-  %500 = landingpad { ptr, i32 }
+500:                                              ; preds = %498
+  %501 = landingpad { ptr, i32 }
           cleanup
-  %501 = extractvalue { ptr, i32 } %500, 0
-  %502 = extractvalue { ptr, i32 } %500, 1
-  store ptr %501, ptr %5, align 8
-  %503 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %502, ptr %503, align 8
-  br label %498
+  %502 = extractvalue { ptr, i32 } %501, 0
+  %503 = extractvalue { ptr, i32 } %501, 1
+  store ptr %502, ptr %5, align 8
+  %504 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %503, ptr %504, align 8
+  br label %499
 
-504:                                              ; preds = %497
+505:                                              ; preds = %498
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %36, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %38, i8 0, ptr align 8 %37)
-          to label %505 unwind label %491
-
-505:                                              ; preds = %504
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %39, ptr align 8 %38, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %40, i8 2, ptr align 8 %39)
-          to label %506 unwind label %483
+          to label %506 unwind label %492
 
 506:                                              ; preds = %505
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.22, i64 3)
-          to label %507 unwind label %483
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %39, ptr align 8 %38, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %40, i8 2, ptr align 8 %39)
+          to label %507 unwind label %484
 
 507:                                              ; preds = %506
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.23, i64 2)
-          to label %508 unwind label %483
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.22, i64 3)
+          to label %508 unwind label %484
 
 508:                                              ; preds = %507
-  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %111, ptr align 8 %40)
-          to label %509 unwind label %483
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.23, i64 2)
+          to label %509 unwind label %484
 
 509:                                              ; preds = %508
-  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %40)
-          to label %510 unwind label %483
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %111, ptr align 8 %40)
+          to label %510 unwind label %484
 
 510:                                              ; preds = %509
-  invoke void @_ZN5quote9__private13push_lifetime17h353e297d8dcd0364E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.12, i64 2)
-          to label %511 unwind label %483
+  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %40)
+          to label %511 unwind label %484
 
 511:                                              ; preds = %510
-  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %40)
-          to label %512 unwind label %483
+  invoke void @_ZN5quote9__private13push_lifetime17h353e297d8dcd0364E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.12, i64 2)
+          to label %512 unwind label %484
 
 512:                                              ; preds = %511
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %34)
-          to label %513 unwind label %483
+  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %40)
+          to label %513 unwind label %484
 
 513:                                              ; preds = %512
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %34)
+          to label %514 unwind label %484
+
+514:                                              ; preds = %513
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %34, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.24, i64 3)
-          to label %520 unwind label %515
+          to label %521 unwind label %516
 
-514:                                              ; preds = %615, %524, %515
+515:                                              ; preds = %616, %525, %516
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %34) #6
-          to label %482 unwind label %191
+          to label %483 unwind label %191
 
-515:                                              ; preds = %622, %560, %558, %557, %556, %555, %554, %553, %552, %551, %550, %549, %544, %522, %521, %520, %513
-  %516 = landingpad { ptr, i32 }
+516:                                              ; preds = %623, %561, %559, %558, %557, %556, %555, %554, %553, %552, %551, %550, %545, %523, %522, %521, %514
+  %517 = landingpad { ptr, i32 }
           cleanup
-  %517 = extractvalue { ptr, i32 } %516, 0
-  %518 = extractvalue { ptr, i32 } %516, 1
-  store ptr %517, ptr %5, align 8
-  %519 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %518, ptr %519, align 8
-  br label %514
+  %518 = extractvalue { ptr, i32 } %517, 0
+  %519 = extractvalue { ptr, i32 } %517, 1
+  store ptr %518, ptr %5, align 8
+  %520 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %519, ptr %520, align 8
+  br label %515
 
-520:                                              ; preds = %513
+521:                                              ; preds = %514
   invoke void @_ZN5quote9__private10push_colon17h72cbb3c95548b4eeE(ptr align 8 %34)
-          to label %521 unwind label %515
-
-521:                                              ; preds = %520
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %83, ptr align 8 %34)
-          to label %522 unwind label %515
+          to label %522 unwind label %516
 
 522:                                              ; preds = %521
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %32)
-          to label %523 unwind label %515
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %83, ptr align 8 %34)
+          to label %523 unwind label %516
 
 523:                                              ; preds = %522
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %32)
+          to label %524 unwind label %516
+
+524:                                              ; preds = %523
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %32, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.25, i64 4)
-          to label %530 unwind label %525
+          to label %531 unwind label %526
 
-524:                                              ; preds = %525
+525:                                              ; preds = %526
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %32) #6
-          to label %514 unwind label %191
+          to label %515 unwind label %191
 
-525:                                              ; preds = %627, %623, %536, %530, %523
-  %526 = landingpad { ptr, i32 }
+526:                                              ; preds = %628, %624, %537, %531, %524
+  %527 = landingpad { ptr, i32 }
           cleanup
-  %527 = extractvalue { ptr, i32 } %526, 0
-  %528 = extractvalue { ptr, i32 } %526, 1
-  store ptr %527, ptr %5, align 8
-  %529 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %528, ptr %529, align 8
-  br label %524
+  %528 = extractvalue { ptr, i32 } %527, 0
+  %529 = extractvalue { ptr, i32 } %527, 1
+  store ptr %528, ptr %5, align 8
+  %530 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %529, ptr %530, align 8
+  br label %525
 
-530:                                              ; preds = %523
+531:                                              ; preds = %524
   store i64 0, ptr %31, align 8
-  %531 = invoke { ptr, ptr } @"_ZN84_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$quote..__private..ext..RepAsIteratorExt$GT$15quote_into_iter17h61fc5fcd2cffcc95E"(ptr align 8 %96)
-          to label %532 unwind label %525
+  %532 = invoke { ptr, ptr } @"_ZN84_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$quote..__private..ext..RepAsIteratorExt$GT$15quote_into_iter17h61fc5fcd2cffcc95E"(ptr align 8 %96)
+          to label %533 unwind label %526
 
-532:                                              ; preds = %530
-  %533 = extractvalue { ptr, ptr } %531, 0
-  %534 = extractvalue { ptr, ptr } %531, 1
-  store ptr %533, ptr %30, align 8
-  %535 = getelementptr inbounds i8, ptr %30, i64 8
-  store ptr %534, ptr %535, align 8
-  br label %536
+533:                                              ; preds = %531
+  %534 = extractvalue { ptr, ptr } %532, 0
+  %535 = extractvalue { ptr, ptr } %532, 1
+  store ptr %534, ptr %30, align 8
+  %536 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr %535, ptr %536, align 8
+  br label %537
 
-536:                                              ; preds = %629, %532
-  %537 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3e6ed44a06928cbE"(ptr align 8 %30)
-          to label %538 unwind label %525
+537:                                              ; preds = %630, %533
+  %538 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3e6ed44a06928cbE"(ptr align 8 %30)
+          to label %539 unwind label %526
 
-538:                                              ; preds = %536
-  store ptr %537, ptr %28, align 8
-  %539 = load ptr, ptr %28, align 8, !noundef !3
-  %540 = ptrtoint ptr %539 to i64
-  %541 = icmp eq i64 %540, 0
-  %542 = select i1 %541, i64 0, i64 1
-  %543 = icmp eq i64 %542, 0
-  br i1 %543, label %544, label %545
+539:                                              ; preds = %537
+  store ptr %538, ptr %28, align 8
+  %540 = load ptr, ptr %28, align 8, !noundef !3
+  %541 = ptrtoint ptr %540 to i64
+  %542 = icmp eq i64 %541, 0
+  %543 = select i1 %542, i64 0, i64 1
+  %544 = icmp eq i64 %543, 0
+  br i1 %544, label %545, label %546
 
-544:                                              ; preds = %538
+545:                                              ; preds = %539
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %32, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %34, i8 0, ptr align 8 %33)
-          to label %549 unwind label %515
+          to label %550 unwind label %516
 
-545:                                              ; preds = %538
-  %546 = load ptr, ptr %28, align 8, !nonnull !3, !align !5, !noundef !3
-  store ptr %546, ptr %29, align 8
-  %547 = load i64, ptr %31, align 8, !noundef !3
-  %548 = icmp ugt i64 %547, 0
-  br i1 %548, label %627, label %623
+546:                                              ; preds = %539
+  %547 = load ptr, ptr %28, align 8, !nonnull !3, !align !5, !noundef !3
+  store ptr %547, ptr %29, align 8
+  %548 = load i64, ptr %31, align 8, !noundef !3
+  %549 = icmp ugt i64 %548, 0
+  br i1 %549, label %628, label %624
 
-549:                                              ; preds = %544
+550:                                              ; preds = %545
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %34)
-          to label %550 unwind label %515
-
-550:                                              ; preds = %549
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %34, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.26, i64 6)
-          to label %551 unwind label %515
+          to label %551 unwind label %516
 
 551:                                              ; preds = %550
-  invoke void @_ZN5quote9__private10push_colon17h72cbb3c95548b4eeE(ptr align 8 %34)
-          to label %552 unwind label %515
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %34, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.26, i64 6)
+          to label %552 unwind label %516
 
 552:                                              ; preds = %551
-  invoke void @_ZN5quote9__private8push_and17h4ba1c3b1ad451414E(ptr align 8 %34)
-          to label %553 unwind label %515
+  invoke void @_ZN5quote9__private10push_colon17h72cbb3c95548b4eeE(ptr align 8 %34)
+          to label %553 unwind label %516
 
 553:                                              ; preds = %552
-  invoke void @_ZN5quote9__private13push_lifetime17h353e297d8dcd0364E(ptr align 8 %34, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.12, i64 2)
-          to label %554 unwind label %515
+  invoke void @_ZN5quote9__private8push_and17h4ba1c3b1ad451414E(ptr align 8 %34)
+          to label %554 unwind label %516
 
 554:                                              ; preds = %553
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %34, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.27, i64 3)
-          to label %555 unwind label %515
+  invoke void @_ZN5quote9__private13push_lifetime17h353e297d8dcd0364E(ptr align 8 %34, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.12, i64 2)
+          to label %555 unwind label %516
 
 555:                                              ; preds = %554
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %34, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %556 unwind label %515
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %34, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.27, i64 3)
+          to label %556 unwind label %516
 
 556:                                              ; preds = %555
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %34)
-          to label %557 unwind label %515
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %34, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
+          to label %557 unwind label %516
 
 557:                                              ; preds = %556
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %34, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.28, i64 11)
-          to label %558 unwind label %515
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %34)
+          to label %558 unwind label %516
 
 558:                                              ; preds = %557
-  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %34)
-          to label %559 unwind label %515
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %34, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.28, i64 11)
+          to label %559 unwind label %516
 
 559:                                              ; preds = %558
+  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %34)
+          to label %560 unwind label %516
+
+560:                                              ; preds = %559
   store i64 0, ptr %27, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %25, i64 56, i1 false)
-  br label %560
+  br label %561
 
-560:                                              ; preds = %622, %559
+561:                                              ; preds = %623, %560
   invoke void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e445b6a2cb9a74E"(ptr sret({ i64, [3 x i64] }) align 8 %23, ptr align 8 %26)
-          to label %561 unwind label %515
+          to label %562 unwind label %516
 
-561:                                              ; preds = %560
-  %562 = load i64, ptr %23, align 8, !range !8, !noundef !3
-  %563 = icmp eq i64 %562, -9223372036854775807
-  %564 = select i1 %563, i64 0, i64 1
-  %565 = icmp eq i64 %564, 0
-  br i1 %565, label %566, label %567
+562:                                              ; preds = %561
+  %563 = load i64, ptr %23, align 8, !range !8, !noundef !3
+  %564 = icmp eq i64 %563, -9223372036854775807
+  %565 = select i1 %564, i64 0, i64 1
+  %566 = icmp eq i64 %565, 0
+  br i1 %566, label %567, label %568
 
-566:                                              ; preds = %561
+567:                                              ; preds = %562
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 8 %34, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %40, i8 0, ptr align 8 %35)
-          to label %570 unwind label %483
+          to label %571 unwind label %484
 
-567:                                              ; preds = %561
+568:                                              ; preds = %562
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %23, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %22, i64 32, i1 false)
-  %568 = load i64, ptr %27, align 8, !noundef !3
-  %569 = icmp ugt i64 %568, 0
-  br i1 %569, label %614, label %611
+  %569 = load i64, ptr %27, align 8, !noundef !3
+  %570 = icmp ugt i64 %569, 0
+  br i1 %570, label %615, label %612
 
-570:                                              ; preds = %566
+571:                                              ; preds = %567
   invoke void @_ZN5quote9__private11push_rarrow17hed137298c0355b88E(ptr align 8 %40)
-          to label %571 unwind label %483
-
-571:                                              ; preds = %570
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.25, i64 4)
-          to label %572 unwind label %483
+          to label %572 unwind label %484
 
 572:                                              ; preds = %571
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.29, i64 3)
-          to label %573 unwind label %483
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.25, i64 4)
+          to label %573 unwind label %484
 
 573:                                              ; preds = %572
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %40)
-          to label %574 unwind label %483
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.29, i64 3)
+          to label %574 unwind label %484
 
 574:                                              ; preds = %573
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.30, i64 6)
-          to label %575 unwind label %483
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %40)
+          to label %575 unwind label %484
 
 575:                                              ; preds = %574
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %40)
-          to label %576 unwind label %483
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.30, i64 6)
+          to label %576 unwind label %484
 
 576:                                              ; preds = %575
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.31, i64 6)
-          to label %577 unwind label %483
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %40)
+          to label %577 unwind label %484
 
 577:                                              ; preds = %576
-  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %40)
-          to label %578 unwind label %483
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.31, i64 6)
+          to label %578 unwind label %484
 
 578:                                              ; preds = %577
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.32, i64 6)
-          to label %579 unwind label %483
+  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %40)
+          to label %579 unwind label %484
 
 579:                                              ; preds = %578
-  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %40)
-          to label %580 unwind label %483
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.32, i64 6)
+          to label %580 unwind label %484
 
 580:                                              ; preds = %579
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %581 unwind label %483
+  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %40)
+          to label %581 unwind label %484
 
 581:                                              ; preds = %580
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %40)
-          to label %582 unwind label %483
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
+          to label %582 unwind label %484
 
 582:                                              ; preds = %581
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.33, i64 6)
-          to label %583 unwind label %483
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %40)
+          to label %583 unwind label %484
 
 583:                                              ; preds = %582
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %40)
-          to label %584 unwind label %483
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.33, i64 6)
+          to label %584 unwind label %484
 
 584:                                              ; preds = %583
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.34, i64 6)
-          to label %585 unwind label %483
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %40)
+          to label %585 unwind label %484
 
 585:                                              ; preds = %584
-  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %40)
-          to label %586 unwind label %483
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.34, i64 6)
+          to label %586 unwind label %484
 
 586:                                              ; preds = %585
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %102, ptr align 8 %40)
-          to label %587 unwind label %483
+  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %40)
+          to label %587 unwind label %484
 
 587:                                              ; preds = %586
-  invoke void @_ZN5quote9__private8push_shr17h4dd561a8ec481fd1E(ptr align 8 %40)
-          to label %588 unwind label %483
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %102, ptr align 8 %40)
+          to label %588 unwind label %484
 
 588:                                              ; preds = %587
-  invoke void @_ZN5quote9__private8push_add17h7142d6c2d336a3d9E(ptr align 8 %40)
-          to label %589 unwind label %483
+  invoke void @_ZN5quote9__private8push_shr17h4dd561a8ec481fd1E(ptr align 8 %40)
+          to label %589 unwind label %484
 
 589:                                              ; preds = %588
-  invoke void @_ZN5quote9__private13push_lifetime17h353e297d8dcd0364E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.12, i64 2)
-          to label %590 unwind label %483
+  invoke void @_ZN5quote9__private8push_add17h7142d6c2d336a3d9E(ptr align 8 %40)
+          to label %590 unwind label %484
 
 590:                                              ; preds = %589
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %20)
-          to label %591 unwind label %483
+  invoke void @_ZN5quote9__private13push_lifetime17h353e297d8dcd0364E(ptr align 8 %40, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.12, i64 2)
+          to label %591 unwind label %484
 
 591:                                              ; preds = %590
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %20)
+          to label %592 unwind label %484
+
+592:                                              ; preds = %591
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %20, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.16, i64 3)
-          to label %598 unwind label %593
+          to label %599 unwind label %594
 
-592:                                              ; preds = %593
+593:                                              ; preds = %594
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %20) #6
-          to label %482 unwind label %191
+          to label %483 unwind label %191
 
-593:                                              ; preds = %606, %605, %604, %603, %602, %601, %600, %599, %598, %591
-  %594 = landingpad { ptr, i32 }
+594:                                              ; preds = %607, %606, %605, %604, %603, %602, %601, %600, %599, %592
+  %595 = landingpad { ptr, i32 }
           cleanup
-  %595 = extractvalue { ptr, i32 } %594, 0
-  %596 = extractvalue { ptr, i32 } %594, 1
-  store ptr %595, ptr %5, align 8
-  %597 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %596, ptr %597, align 8
-  br label %592
+  %596 = extractvalue { ptr, i32 } %595, 0
+  %597 = extractvalue { ptr, i32 } %595, 1
+  store ptr %596, ptr %5, align 8
+  %598 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %597, ptr %598, align 8
+  br label %593
 
-598:                                              ; preds = %591
+599:                                              ; preds = %592
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %20, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.29, i64 3)
-          to label %599 unwind label %593
-
-599:                                              ; preds = %598
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %20)
-          to label %600 unwind label %593
+          to label %600 unwind label %594
 
 600:                                              ; preds = %599
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %20, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.35, i64 7)
-          to label %601 unwind label %593
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %20)
+          to label %601 unwind label %594
 
 601:                                              ; preds = %600
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %20)
-          to label %602 unwind label %593
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %20, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.35, i64 7)
+          to label %602 unwind label %594
 
 602:                                              ; preds = %601
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %20, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.36, i64 7)
-          to label %603 unwind label %593
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %20)
+          to label %603 unwind label %594
 
 603:                                              ; preds = %602
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %20, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
-          to label %604 unwind label %593
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %20, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.36, i64 7)
+          to label %604 unwind label %594
 
 604:                                              ; preds = %603
-  invoke void @_ZN5quote9__private15push_underscore17hf79ad06a729e5388E(ptr align 8 %20)
-          to label %605 unwind label %593
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %20, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
+          to label %605 unwind label %594
 
 605:                                              ; preds = %604
-  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %20)
-          to label %606 unwind label %593
+  invoke void @_ZN5quote9__private15push_underscore17hf79ad06a729e5388E(ptr align 8 %20)
+          to label %606 unwind label %594
 
 606:                                              ; preds = %605
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %50, ptr align 8 %20)
-          to label %607 unwind label %593
+  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %20)
+          to label %607 unwind label %594
 
 607:                                              ; preds = %606
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %20, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %40, i8 1, ptr align 8 %21)
-          to label %608 unwind label %483
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %50, ptr align 8 %20)
+          to label %608 unwind label %594
 
 608:                                              ; preds = %607
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %20, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %40, i8 1, ptr align 8 %21)
+          to label %609 unwind label %484
+
+609:                                              ; preds = %608
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %40, i64 32, i1 false)
   store i8 0, ptr %18, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %96, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %41, i64 32, i1 false)
-  %609 = getelementptr inbounds { { { i64, [3 x i64] }, {} }, { { i64, ptr, {} }, i64 } }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %609, ptr align 8 %19, i64 24, i1 false)
+  %610 = getelementptr inbounds { { { i64, [3 x i64] }, {} }, { { i64, ptr, {} }, i64 } }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %610, ptr align 8 %19, i64 24, i1 false)
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %50)
-          to label %610 unwind label %387
+          to label %611 unwind label %388
 
-610:                                              ; preds = %803, %608
+611:                                              ; preds = %804, %609
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %83)
-          to label %805 unwind label %361
+          to label %806 unwind label %362
 
-611:                                              ; preds = %621, %567
-  %612 = load i64, ptr %27, align 8, !noundef !3
-  %613 = add i64 %612, 1
-  store i64 %613, ptr %27, align 8
+612:                                              ; preds = %622, %568
+  %613 = load i64, ptr %27, align 8, !noundef !3
+  %614 = add i64 %613, 1
+  store i64 %614, ptr %27, align 8
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %24, ptr align 8 %34)
-          to label %622 unwind label %616
+          to label %623 unwind label %617
 
-614:                                              ; preds = %567
+615:                                              ; preds = %568
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %34)
-          to label %621 unwind label %616
+          to label %622 unwind label %617
 
-615:                                              ; preds = %616
+616:                                              ; preds = %617
   invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr align 8 %24) #6
-          to label %514 unwind label %191
+          to label %515 unwind label %191
 
-616:                                              ; preds = %614, %611
-  %617 = landingpad { ptr, i32 }
+617:                                              ; preds = %615, %612
+  %618 = landingpad { ptr, i32 }
           cleanup
-  %618 = extractvalue { ptr, i32 } %617, 0
-  %619 = extractvalue { ptr, i32 } %617, 1
-  store ptr %618, ptr %5, align 8
-  %620 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %619, ptr %620, align 8
-  br label %615
+  %619 = extractvalue { ptr, i32 } %618, 0
+  %620 = extractvalue { ptr, i32 } %618, 1
+  store ptr %619, ptr %5, align 8
+  %621 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %620, ptr %621, align 8
+  br label %616
 
-621:                                              ; preds = %614
-  br label %611
+622:                                              ; preds = %615
+  br label %612
 
-622:                                              ; preds = %611
+623:                                              ; preds = %612
   invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr align 8 %24)
-          to label %560 unwind label %515
+          to label %561 unwind label %516
 
-623:                                              ; preds = %628, %545
-  %624 = load i64, ptr %31, align 8, !noundef !3
-  %625 = add i64 %624, 1
-  store i64 %625, ptr %31, align 8
-  %626 = load ptr, ptr %29, align 8, !nonnull !3, !align !5, !noundef !3
-  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %626, ptr align 8 %32)
-          to label %629 unwind label %525
+624:                                              ; preds = %629, %546
+  %625 = load i64, ptr %31, align 8, !noundef !3
+  %626 = add i64 %625, 1
+  store i64 %626, ptr %31, align 8
+  %627 = load ptr, ptr %29, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %627, ptr align 8 %32)
+          to label %630 unwind label %526
 
-627:                                              ; preds = %545
+628:                                              ; preds = %546
   invoke void @_ZN5quote9__private8push_add17h7142d6c2d336a3d9E(ptr align 8 %32)
-          to label %628 unwind label %525
+          to label %629 unwind label %526
 
-628:                                              ; preds = %627
-  br label %623
+629:                                              ; preds = %628
+  br label %624
 
-629:                                              ; preds = %623
-  br label %536
+630:                                              ; preds = %624
+  br label %537
 
-630:                                              ; preds = %402
-  %631 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [3 x i64] }, { ptr, [5 x i64] } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %3, i32 0, i32 2
-  %632 = load ptr, ptr %91, align 8, !nonnull !3, !align !5, !noundef !3
-  %633 = load ptr, ptr %632, align 8, !nonnull !3, !align !7, !noundef !3
-  %634 = getelementptr inbounds i8, ptr %632, i64 8
-  %635 = load i64, ptr %634, align 8, !noundef !3
-  %636 = load ptr, ptr %89, align 8, !nonnull !3, !align !5, !noundef !3
-  %637 = load ptr, ptr %636, align 8, !nonnull !3, !align !7, !noundef !3
-  %638 = getelementptr inbounds i8, ptr %636, i64 8
-  %639 = load i64, ptr %638, align 8, !noundef !3
-  %640 = invoke zeroext i1 @_ZN15wiggle_generate6config11TracingConf11enabled_for17h13416e742c57b445E(ptr align 8 %631, ptr align 1 %633, i64 %635, ptr align 1 %637, i64 %639)
-          to label %641 unwind label %387
+631:                                              ; preds = %403
+  %632 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [3 x i64] }, { ptr, [5 x i64] } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %3, i32 0, i32 2
+  %633 = load ptr, ptr %91, align 8, !nonnull !3, !align !5, !noundef !3
+  %634 = load ptr, ptr %633, align 8, !nonnull !3, !align !7, !noundef !3
+  %635 = getelementptr inbounds i8, ptr %633, i64 8
+  %636 = load i64, ptr %635, align 8, !noundef !3
+  %637 = load ptr, ptr %89, align 8, !nonnull !3, !align !5, !noundef !3
+  %638 = load ptr, ptr %637, align 8, !nonnull !3, !align !7, !noundef !3
+  %639 = getelementptr inbounds i8, ptr %637, i64 8
+  %640 = load i64, ptr %639, align 8, !noundef !3
+  %641 = invoke zeroext i1 @_ZN15wiggle_generate6config11TracingConf11enabled_for17h13416e742c57b445E(ptr align 8 %632, ptr align 1 %634, i64 %636, ptr align 1 %638, i64 %640)
+          to label %642 unwind label %388
 
-641:                                              ; preds = %630
-  br i1 %640, label %643, label %642
+642:                                              ; preds = %631
+  br i1 %641, label %644, label %643
 
-642:                                              ; preds = %641
+643:                                              ; preds = %642
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %73)
-          to label %644 unwind label %387
-
-643:                                              ; preds = %641
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %78)
-          to label %653 unwind label %387
+          to label %645 unwind label %388
 
 644:                                              ; preds = %642
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %78)
+          to label %654 unwind label %388
+
+645:                                              ; preds = %643
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %97, ptr align 8 %73)
-          to label %651 unwind label %646
+          to label %652 unwind label %647
 
-645:                                              ; preds = %646
+646:                                              ; preds = %647
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %73) #6
-          to label %386 unwind label %191
+          to label %387 unwind label %191
 
-646:                                              ; preds = %644
-  %647 = landingpad { ptr, i32 }
+647:                                              ; preds = %645
+  %648 = landingpad { ptr, i32 }
           cleanup
-  %648 = extractvalue { ptr, i32 } %647, 0
-  %649 = extractvalue { ptr, i32 } %647, 1
-  store ptr %648, ptr %5, align 8
-  %650 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %649, ptr %650, align 8
-  br label %645
+  %649 = extractvalue { ptr, i32 } %648, 0
+  %650 = extractvalue { ptr, i32 } %648, 1
+  store ptr %649, ptr %5, align 8
+  %651 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %650, ptr %651, align 8
+  br label %646
 
-651:                                              ; preds = %644
+652:                                              ; preds = %645
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %79, ptr align 8 %73, i64 32, i1 false)
-  br label %652
+  br label %653
 
-652:                                              ; preds = %681, %651
+653:                                              ; preds = %682, %652
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %71)
-          to label %688 unwind label %683
+          to label %689 unwind label %684
 
-653:                                              ; preds = %643
+654:                                              ; preds = %644
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %87, ptr align 8 %78)
-          to label %660 unwind label %655
+          to label %661 unwind label %656
 
-654:                                              ; preds = %665, %655
+655:                                              ; preds = %666, %656
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %78) #6
-          to label %386 unwind label %191
+          to label %387 unwind label %191
 
-655:                                              ; preds = %680, %663, %662, %661, %660, %653
-  %656 = landingpad { ptr, i32 }
+656:                                              ; preds = %681, %664, %663, %662, %661, %654
+  %657 = landingpad { ptr, i32 }
           cleanup
-  %657 = extractvalue { ptr, i32 } %656, 0
-  %658 = extractvalue { ptr, i32 } %656, 1
-  store ptr %657, ptr %5, align 8
-  %659 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %658, ptr %659, align 8
-  br label %654
+  %658 = extractvalue { ptr, i32 } %657, 0
+  %659 = extractvalue { ptr, i32 } %657, 1
+  store ptr %658, ptr %5, align 8
+  %660 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %659, ptr %660, align 8
+  br label %655
 
-660:                                              ; preds = %653
+661:                                              ; preds = %654
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %78, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.3, i64 5)
-          to label %661 unwind label %655
-
-661:                                              ; preds = %660
-  invoke void @_ZN5quote9__private8push_dot17h03cdb31c440a1f9fE(ptr align 8 %78)
-          to label %662 unwind label %655
+          to label %662 unwind label %656
 
 662:                                              ; preds = %661
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %78, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.37, i64 8)
-          to label %663 unwind label %655
+  invoke void @_ZN5quote9__private8push_dot17h03cdb31c440a1f9fE(ptr align 8 %78)
+          to label %663 unwind label %656
 
 663:                                              ; preds = %662
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %76)
-          to label %664 unwind label %655
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %78, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.37, i64 8)
+          to label %664 unwind label %656
 
 664:                                              ; preds = %663
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %76)
+          to label %665 unwind label %656
+
+665:                                              ; preds = %664
   invoke void @_ZN5quote9__private10push_or_or17h37182e872254c613E(ptr align 8 %76)
-          to label %671 unwind label %666
+          to label %672 unwind label %667
 
-665:                                              ; preds = %673, %666
+666:                                              ; preds = %674, %667
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %76) #6
-          to label %654 unwind label %191
+          to label %655 unwind label %191
 
-666:                                              ; preds = %679, %671, %664
-  %667 = landingpad { ptr, i32 }
+667:                                              ; preds = %680, %672, %665
+  %668 = landingpad { ptr, i32 }
           cleanup
-  %668 = extractvalue { ptr, i32 } %667, 0
-  %669 = extractvalue { ptr, i32 } %667, 1
-  store ptr %668, ptr %5, align 8
-  %670 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %669, ptr %670, align 8
-  br label %665
+  %669 = extractvalue { ptr, i32 } %668, 0
+  %670 = extractvalue { ptr, i32 } %668, 1
+  store ptr %669, ptr %5, align 8
+  %671 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %670, ptr %671, align 8
+  br label %666
 
-671:                                              ; preds = %664
+672:                                              ; preds = %665
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %74)
-          to label %672 unwind label %666
+          to label %673 unwind label %667
 
-672:                                              ; preds = %671
+673:                                              ; preds = %672
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %97, ptr align 8 %74)
-          to label %679 unwind label %674
+          to label %680 unwind label %675
 
-673:                                              ; preds = %674
+674:                                              ; preds = %675
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %74) #6
-          to label %665 unwind label %191
+          to label %666 unwind label %191
 
-674:                                              ; preds = %672
-  %675 = landingpad { ptr, i32 }
+675:                                              ; preds = %673
+  %676 = landingpad { ptr, i32 }
           cleanup
-  %676 = extractvalue { ptr, i32 } %675, 0
-  %677 = extractvalue { ptr, i32 } %675, 1
-  store ptr %676, ptr %5, align 8
-  %678 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %677, ptr %678, align 8
-  br label %673
+  %677 = extractvalue { ptr, i32 } %676, 0
+  %678 = extractvalue { ptr, i32 } %676, 1
+  store ptr %677, ptr %5, align 8
+  %679 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %678, ptr %679, align 8
+  br label %674
 
-679:                                              ; preds = %672
+680:                                              ; preds = %673
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %75, ptr align 8 %74, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %76, i8 1, ptr align 8 %75)
-          to label %680 unwind label %666
-
-680:                                              ; preds = %679
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %77, ptr align 8 %76, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %78, i8 0, ptr align 8 %77)
-          to label %681 unwind label %655
+          to label %681 unwind label %667
 
 681:                                              ; preds = %680
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %77, ptr align 8 %76, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %78, i8 0, ptr align 8 %77)
+          to label %682 unwind label %656
+
+682:                                              ; preds = %681
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %79, ptr align 8 %78, i64 32, i1 false)
-  br label %652
+  br label %653
 
-682:                                              ; preds = %689, %683
+683:                                              ; preds = %690, %684
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %79) #6
-          to label %386 unwind label %191
+          to label %387 unwind label %191
 
-683:                                              ; preds = %652
-  %684 = landingpad { ptr, i32 }
+684:                                              ; preds = %653
+  %685 = landingpad { ptr, i32 }
           cleanup
-  %685 = extractvalue { ptr, i32 } %684, 0
-  %686 = extractvalue { ptr, i32 } %684, 1
-  store ptr %685, ptr %5, align 8
-  %687 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %686, ptr %687, align 8
-  br label %682
+  %686 = extractvalue { ptr, i32 } %685, 0
+  %687 = extractvalue { ptr, i32 } %685, 1
+  store ptr %686, ptr %5, align 8
+  %688 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %687, ptr %688, align 8
+  br label %683
 
-688:                                              ; preds = %652
+689:                                              ; preds = %653
   invoke void @_ZN5quote9__private10push_pound17h80f4b2bd107d24c3E(ptr align 8 %71)
-          to label %695 unwind label %690
+          to label %696 unwind label %691
 
-689:                                              ; preds = %787, %721, %697, %690
+690:                                              ; preds = %788, %722, %698, %691
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %71) #6
-          to label %682 unwind label %191
+          to label %683 unwind label %191
 
-690:                                              ; preds = %802, %785, %784, %783, %782, %781, %780, %779, %778, %777, %776, %772, %719, %718, %717, %716, %715, %714, %713, %712, %695, %688
-  %691 = landingpad { ptr, i32 }
+691:                                              ; preds = %803, %786, %785, %784, %783, %782, %781, %780, %779, %778, %777, %773, %720, %719, %718, %717, %716, %715, %714, %713, %696, %689
+  %692 = landingpad { ptr, i32 }
           cleanup
-  %692 = extractvalue { ptr, i32 } %691, 0
-  %693 = extractvalue { ptr, i32 } %691, 1
-  store ptr %692, ptr %5, align 8
-  %694 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %693, ptr %694, align 8
-  br label %689
+  %693 = extractvalue { ptr, i32 } %692, 0
+  %694 = extractvalue { ptr, i32 } %692, 1
+  store ptr %693, ptr %5, align 8
+  %695 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %694, ptr %695, align 8
+  br label %690
 
-695:                                              ; preds = %688
+696:                                              ; preds = %689
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %69)
-          to label %696 unwind label %690
+          to label %697 unwind label %691
 
-696:                                              ; preds = %695
+697:                                              ; preds = %696
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %69, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.20, i64 5)
-          to label %703 unwind label %698
+          to label %704 unwind label %699
 
-697:                                              ; preds = %705, %698
+698:                                              ; preds = %706, %699
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %69) #6
-          to label %689 unwind label %191
+          to label %690 unwind label %191
 
-698:                                              ; preds = %711, %703, %696
-  %699 = landingpad { ptr, i32 }
+699:                                              ; preds = %712, %704, %697
+  %700 = landingpad { ptr, i32 }
           cleanup
-  %700 = extractvalue { ptr, i32 } %699, 0
-  %701 = extractvalue { ptr, i32 } %699, 1
-  store ptr %700, ptr %5, align 8
-  %702 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %701, ptr %702, align 8
-  br label %697
+  %701 = extractvalue { ptr, i32 } %700, 0
+  %702 = extractvalue { ptr, i32 } %700, 1
+  store ptr %701, ptr %5, align 8
+  %703 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %702, ptr %703, align 8
+  br label %698
 
-703:                                              ; preds = %696
+704:                                              ; preds = %697
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %67)
-          to label %704 unwind label %698
+          to label %705 unwind label %699
 
-704:                                              ; preds = %703
+705:                                              ; preds = %704
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %67, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.21, i64 16)
-          to label %711 unwind label %706
+          to label %712 unwind label %707
 
-705:                                              ; preds = %706
+706:                                              ; preds = %707
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %67) #6
-          to label %697 unwind label %191
+          to label %698 unwind label %191
 
-706:                                              ; preds = %704
-  %707 = landingpad { ptr, i32 }
+707:                                              ; preds = %705
+  %708 = landingpad { ptr, i32 }
           cleanup
-  %708 = extractvalue { ptr, i32 } %707, 0
-  %709 = extractvalue { ptr, i32 } %707, 1
-  store ptr %708, ptr %5, align 8
-  %710 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %709, ptr %710, align 8
-  br label %705
+  %709 = extractvalue { ptr, i32 } %708, 0
+  %710 = extractvalue { ptr, i32 } %708, 1
+  store ptr %709, ptr %5, align 8
+  %711 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %710, ptr %711, align 8
+  br label %706
 
-711:                                              ; preds = %704
+712:                                              ; preds = %705
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %68, ptr align 8 %67, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %69, i8 0, ptr align 8 %68)
-          to label %712 unwind label %698
-
-712:                                              ; preds = %711
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %70, ptr align 8 %69, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %71, i8 2, ptr align 8 %70)
-          to label %713 unwind label %690
+          to label %713 unwind label %699
 
 713:                                              ; preds = %712
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %71, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.22, i64 3)
-          to label %714 unwind label %690
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %70, ptr align 8 %69, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %71, i8 2, ptr align 8 %70)
+          to label %714 unwind label %691
 
 714:                                              ; preds = %713
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %71, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.23, i64 2)
-          to label %715 unwind label %690
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %71, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.22, i64 3)
+          to label %715 unwind label %691
 
 715:                                              ; preds = %714
-  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %111, ptr align 8 %71)
-          to label %716 unwind label %690
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %71, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.23, i64 2)
+          to label %716 unwind label %691
 
 716:                                              ; preds = %715
-  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %71)
-          to label %717 unwind label %690
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %111, ptr align 8 %71)
+          to label %717 unwind label %691
 
 717:                                              ; preds = %716
-  invoke void @_ZN5quote9__private13push_lifetime17h353e297d8dcd0364E(ptr align 8 %71, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.12, i64 2)
-          to label %718 unwind label %690
+  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %71)
+          to label %718 unwind label %691
 
 718:                                              ; preds = %717
-  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %71)
-          to label %719 unwind label %690
+  invoke void @_ZN5quote9__private13push_lifetime17h353e297d8dcd0364E(ptr align 8 %71, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.12, i64 2)
+          to label %719 unwind label %691
 
 719:                                              ; preds = %718
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %65)
-          to label %720 unwind label %690
+  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %71)
+          to label %720 unwind label %691
 
 720:                                              ; preds = %719
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %65)
+          to label %721 unwind label %691
+
+721:                                              ; preds = %720
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %65, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.24, i64 3)
-          to label %727 unwind label %722
+          to label %728 unwind label %723
 
-721:                                              ; preds = %822, %731, %722
+722:                                              ; preds = %823, %732, %723
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %65) #6
-          to label %689 unwind label %191
+          to label %690 unwind label %191
 
-722:                                              ; preds = %829, %766, %764, %763, %762, %761, %760, %759, %758, %757, %756, %751, %729, %728, %727, %720
-  %723 = landingpad { ptr, i32 }
+723:                                              ; preds = %830, %767, %765, %764, %763, %762, %761, %760, %759, %758, %757, %752, %730, %729, %728, %721
+  %724 = landingpad { ptr, i32 }
           cleanup
-  %724 = extractvalue { ptr, i32 } %723, 0
-  %725 = extractvalue { ptr, i32 } %723, 1
-  store ptr %724, ptr %5, align 8
-  %726 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %725, ptr %726, align 8
-  br label %721
+  %725 = extractvalue { ptr, i32 } %724, 0
+  %726 = extractvalue { ptr, i32 } %724, 1
+  store ptr %725, ptr %5, align 8
+  %727 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %726, ptr %727, align 8
+  br label %722
 
-727:                                              ; preds = %720
+728:                                              ; preds = %721
   invoke void @_ZN5quote9__private10push_colon17h72cbb3c95548b4eeE(ptr align 8 %65)
-          to label %728 unwind label %722
-
-728:                                              ; preds = %727
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %83, ptr align 8 %65)
-          to label %729 unwind label %722
+          to label %729 unwind label %723
 
 729:                                              ; preds = %728
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %63)
-          to label %730 unwind label %722
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %83, ptr align 8 %65)
+          to label %730 unwind label %723
 
 730:                                              ; preds = %729
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %63)
+          to label %731 unwind label %723
+
+731:                                              ; preds = %730
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %63, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.25, i64 4)
-          to label %737 unwind label %732
+          to label %738 unwind label %733
 
-731:                                              ; preds = %732
+732:                                              ; preds = %733
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %63) #6
-          to label %721 unwind label %191
+          to label %722 unwind label %191
 
-732:                                              ; preds = %834, %830, %743, %737, %730
-  %733 = landingpad { ptr, i32 }
+733:                                              ; preds = %835, %831, %744, %738, %731
+  %734 = landingpad { ptr, i32 }
           cleanup
-  %734 = extractvalue { ptr, i32 } %733, 0
-  %735 = extractvalue { ptr, i32 } %733, 1
-  store ptr %734, ptr %5, align 8
-  %736 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %735, ptr %736, align 8
-  br label %731
+  %735 = extractvalue { ptr, i32 } %734, 0
+  %736 = extractvalue { ptr, i32 } %734, 1
+  store ptr %735, ptr %5, align 8
+  %737 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %736, ptr %737, align 8
+  br label %732
 
-737:                                              ; preds = %730
+738:                                              ; preds = %731
   store i64 0, ptr %62, align 8
-  %738 = invoke { ptr, ptr } @"_ZN84_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$quote..__private..ext..RepAsIteratorExt$GT$15quote_into_iter17h61fc5fcd2cffcc95E"(ptr align 8 %96)
-          to label %739 unwind label %732
+  %739 = invoke { ptr, ptr } @"_ZN84_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$quote..__private..ext..RepAsIteratorExt$GT$15quote_into_iter17h61fc5fcd2cffcc95E"(ptr align 8 %96)
+          to label %740 unwind label %733
 
-739:                                              ; preds = %737
-  %740 = extractvalue { ptr, ptr } %738, 0
-  %741 = extractvalue { ptr, ptr } %738, 1
-  store ptr %740, ptr %61, align 8
-  %742 = getelementptr inbounds i8, ptr %61, i64 8
-  store ptr %741, ptr %742, align 8
-  br label %743
+740:                                              ; preds = %738
+  %741 = extractvalue { ptr, ptr } %739, 0
+  %742 = extractvalue { ptr, ptr } %739, 1
+  store ptr %741, ptr %61, align 8
+  %743 = getelementptr inbounds i8, ptr %61, i64 8
+  store ptr %742, ptr %743, align 8
+  br label %744
 
-743:                                              ; preds = %836, %739
-  %744 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3e6ed44a06928cbE"(ptr align 8 %61)
-          to label %745 unwind label %732
+744:                                              ; preds = %837, %740
+  %745 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3e6ed44a06928cbE"(ptr align 8 %61)
+          to label %746 unwind label %733
 
-745:                                              ; preds = %743
-  store ptr %744, ptr %59, align 8
-  %746 = load ptr, ptr %59, align 8, !noundef !3
-  %747 = ptrtoint ptr %746 to i64
-  %748 = icmp eq i64 %747, 0
-  %749 = select i1 %748, i64 0, i64 1
-  %750 = icmp eq i64 %749, 0
-  br i1 %750, label %751, label %752
+746:                                              ; preds = %744
+  store ptr %745, ptr %59, align 8
+  %747 = load ptr, ptr %59, align 8, !noundef !3
+  %748 = ptrtoint ptr %747 to i64
+  %749 = icmp eq i64 %748, 0
+  %750 = select i1 %749, i64 0, i64 1
+  %751 = icmp eq i64 %750, 0
+  br i1 %751, label %752, label %753
 
-751:                                              ; preds = %745
+752:                                              ; preds = %746
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %64, ptr align 8 %63, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %65, i8 0, ptr align 8 %64)
-          to label %756 unwind label %722
+          to label %757 unwind label %723
 
-752:                                              ; preds = %745
-  %753 = load ptr, ptr %59, align 8, !nonnull !3, !align !5, !noundef !3
-  store ptr %753, ptr %60, align 8
-  %754 = load i64, ptr %62, align 8, !noundef !3
-  %755 = icmp ugt i64 %754, 0
-  br i1 %755, label %834, label %830
+753:                                              ; preds = %746
+  %754 = load ptr, ptr %59, align 8, !nonnull !3, !align !5, !noundef !3
+  store ptr %754, ptr %60, align 8
+  %755 = load i64, ptr %62, align 8, !noundef !3
+  %756 = icmp ugt i64 %755, 0
+  br i1 %756, label %835, label %831
 
-756:                                              ; preds = %751
+757:                                              ; preds = %752
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %65)
-          to label %757 unwind label %722
-
-757:                                              ; preds = %756
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %65, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.26, i64 6)
-          to label %758 unwind label %722
+          to label %758 unwind label %723
 
 758:                                              ; preds = %757
-  invoke void @_ZN5quote9__private10push_colon17h72cbb3c95548b4eeE(ptr align 8 %65)
-          to label %759 unwind label %722
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %65, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.26, i64 6)
+          to label %759 unwind label %723
 
 759:                                              ; preds = %758
-  invoke void @_ZN5quote9__private8push_and17h4ba1c3b1ad451414E(ptr align 8 %65)
-          to label %760 unwind label %722
+  invoke void @_ZN5quote9__private10push_colon17h72cbb3c95548b4eeE(ptr align 8 %65)
+          to label %760 unwind label %723
 
 760:                                              ; preds = %759
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %65, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.27, i64 3)
-          to label %761 unwind label %722
+  invoke void @_ZN5quote9__private8push_and17h4ba1c3b1ad451414E(ptr align 8 %65)
+          to label %761 unwind label %723
 
 761:                                              ; preds = %760
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %65, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %762 unwind label %722
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %65, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.27, i64 3)
+          to label %762 unwind label %723
 
 762:                                              ; preds = %761
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %65)
-          to label %763 unwind label %722
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %65, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
+          to label %763 unwind label %723
 
 763:                                              ; preds = %762
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %65, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.28, i64 11)
-          to label %764 unwind label %722
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %65)
+          to label %764 unwind label %723
 
 764:                                              ; preds = %763
-  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %65)
-          to label %765 unwind label %722
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %65, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.28, i64 11)
+          to label %765 unwind label %723
 
 765:                                              ; preds = %764
+  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %65)
+          to label %766 unwind label %723
+
+766:                                              ; preds = %765
   store i64 0, ptr %58, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %57, ptr align 8 %25, i64 56, i1 false)
-  br label %766
+  br label %767
 
-766:                                              ; preds = %829, %765
+767:                                              ; preds = %830, %766
   invoke void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e445b6a2cb9a74E"(ptr sret({ i64, [3 x i64] }) align 8 %55, ptr align 8 %57)
-          to label %767 unwind label %722
+          to label %768 unwind label %723
 
-767:                                              ; preds = %766
-  %768 = load i64, ptr %55, align 8, !range !8, !noundef !3
-  %769 = icmp eq i64 %768, -9223372036854775807
-  %770 = select i1 %769, i64 0, i64 1
-  %771 = icmp eq i64 %770, 0
-  br i1 %771, label %772, label %773
+768:                                              ; preds = %767
+  %769 = load i64, ptr %55, align 8, !range !8, !noundef !3
+  %770 = icmp eq i64 %769, -9223372036854775807
+  %771 = select i1 %770, i64 0, i64 1
+  %772 = icmp eq i64 %771, 0
+  br i1 %772, label %773, label %774
 
-772:                                              ; preds = %767
+773:                                              ; preds = %768
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %66, ptr align 8 %65, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %71, i8 0, ptr align 8 %66)
-          to label %776 unwind label %690
+          to label %777 unwind label %691
 
-773:                                              ; preds = %767
+774:                                              ; preds = %768
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %54, ptr align 8 %55, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %56, ptr align 8 %54, i64 32, i1 false)
-  %774 = load i64, ptr %58, align 8, !noundef !3
-  %775 = icmp ugt i64 %774, 0
-  br i1 %775, label %821, label %818
+  %775 = load i64, ptr %58, align 8, !noundef !3
+  %776 = icmp ugt i64 %775, 0
+  br i1 %776, label %822, label %819
 
-776:                                              ; preds = %772
+777:                                              ; preds = %773
   invoke void @_ZN5quote9__private11push_rarrow17hed137298c0355b88E(ptr align 8 %71)
-          to label %777 unwind label %690
-
-777:                                              ; preds = %776
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %71, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %778 unwind label %690
+          to label %778 unwind label %691
 
 778:                                              ; preds = %777
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %71)
-          to label %779 unwind label %690
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %71, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
+          to label %779 unwind label %691
 
 779:                                              ; preds = %778
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %71, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.33, i64 6)
-          to label %780 unwind label %690
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %71)
+          to label %780 unwind label %691
 
 780:                                              ; preds = %779
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %71)
-          to label %781 unwind label %690
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %71, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.33, i64 6)
+          to label %781 unwind label %691
 
 781:                                              ; preds = %780
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %71, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.34, i64 6)
-          to label %782 unwind label %690
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %71)
+          to label %782 unwind label %691
 
 782:                                              ; preds = %781
-  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %71)
-          to label %783 unwind label %690
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %71, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.34, i64 6)
+          to label %783 unwind label %691
 
 783:                                              ; preds = %782
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %102, ptr align 8 %71)
-          to label %784 unwind label %690
+  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %71)
+          to label %784 unwind label %691
 
 784:                                              ; preds = %783
-  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %71)
-          to label %785 unwind label %690
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %102, ptr align 8 %71)
+          to label %785 unwind label %691
 
 785:                                              ; preds = %784
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %52)
-          to label %786 unwind label %690
+  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %71)
+          to label %786 unwind label %691
 
 786:                                              ; preds = %785
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %52)
+          to label %787 unwind label %691
+
+787:                                              ; preds = %786
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %52, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.16, i64 3)
-          to label %793 unwind label %788
+          to label %794 unwind label %789
 
-787:                                              ; preds = %788
+788:                                              ; preds = %789
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %52) #6
-          to label %689 unwind label %191
+          to label %690 unwind label %191
 
-788:                                              ; preds = %801, %800, %799, %798, %797, %796, %795, %794, %793, %786
-  %789 = landingpad { ptr, i32 }
+789:                                              ; preds = %802, %801, %800, %799, %798, %797, %796, %795, %794, %787
+  %790 = landingpad { ptr, i32 }
           cleanup
-  %790 = extractvalue { ptr, i32 } %789, 0
-  %791 = extractvalue { ptr, i32 } %789, 1
-  store ptr %790, ptr %5, align 8
-  %792 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %791, ptr %792, align 8
-  br label %787
+  %791 = extractvalue { ptr, i32 } %790, 0
+  %792 = extractvalue { ptr, i32 } %790, 1
+  store ptr %791, ptr %5, align 8
+  %793 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %792, ptr %793, align 8
+  br label %788
 
-793:                                              ; preds = %786
+794:                                              ; preds = %787
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %52, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.29, i64 3)
-          to label %794 unwind label %788
-
-794:                                              ; preds = %793
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %52)
-          to label %795 unwind label %788
+          to label %795 unwind label %789
 
 795:                                              ; preds = %794
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %52, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.35, i64 7)
-          to label %796 unwind label %788
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %52)
+          to label %796 unwind label %789
 
 796:                                              ; preds = %795
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %52)
-          to label %797 unwind label %788
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %52, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.35, i64 7)
+          to label %797 unwind label %789
 
 797:                                              ; preds = %796
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %52, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.36, i64 7)
-          to label %798 unwind label %788
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %52)
+          to label %798 unwind label %789
 
 798:                                              ; preds = %797
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %52, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
-          to label %799 unwind label %788
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %52, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.36, i64 7)
+          to label %799 unwind label %789
 
 799:                                              ; preds = %798
-  invoke void @_ZN5quote9__private15push_underscore17hf79ad06a729e5388E(ptr align 8 %52)
-          to label %800 unwind label %788
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %52, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
+          to label %800 unwind label %789
 
 800:                                              ; preds = %799
-  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %52)
-          to label %801 unwind label %788
+  invoke void @_ZN5quote9__private15push_underscore17hf79ad06a729e5388E(ptr align 8 %52)
+          to label %801 unwind label %789
 
 801:                                              ; preds = %800
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %79, ptr align 8 %52)
-          to label %802 unwind label %788
+  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %52)
+          to label %802 unwind label %789
 
 802:                                              ; preds = %801
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr align 8 %52, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %71, i8 1, ptr align 8 %53)
-          to label %803 unwind label %690
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %79, ptr align 8 %52)
+          to label %803 unwind label %789
 
 803:                                              ; preds = %802
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr align 8 %52, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %71, i8 1, ptr align 8 %53)
+          to label %804 unwind label %691
+
+804:                                              ; preds = %803
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %72, ptr align 8 %71, i64 32, i1 false)
   store i8 0, ptr %18, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %51, ptr align 8 %96, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %72, i64 32, i1 false)
-  %804 = getelementptr inbounds { { { i64, [3 x i64] }, {} }, { { i64, ptr, {} }, i64 } }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %804, ptr align 8 %51, i64 24, i1 false)
+  %805 = getelementptr inbounds { { { i64, [3 x i64] }, {} }, { { i64, ptr, {} }, i64 } }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %805, ptr align 8 %51, i64 24, i1 false)
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %79)
-          to label %610 unwind label %387
+          to label %611 unwind label %388
 
-805:                                              ; preds = %610
+806:                                              ; preds = %611
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %87)
-          to label %806 unwind label %284
-
-806:                                              ; preds = %805
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %97)
-          to label %807 unwind label %214
+          to label %807 unwind label %285
 
 807:                                              ; preds = %806
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %102)
-          to label %808 unwind label %156
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %97)
+          to label %808 unwind label %214
 
 808:                                              ; preds = %807
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr align 8 %107)
-          to label %809 unwind label %131
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %102)
+          to label %809 unwind label %156
 
 809:                                              ; preds = %808
-  invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$witx..abi..WasmType$GT$$GT$17h21cf68782e7ae3e4E"(ptr align 8 %109)
-          to label %816 unwind label %811
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr align 8 %107)
+          to label %810 unwind label %131
 
-810:                                              ; preds = %811, %130
+810:                                              ; preds = %809
+  invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$witx..abi..WasmType$GT$$GT$17h21cf68782e7ae3e4E"(ptr align 8 %109)
+          to label %817 unwind label %812
+
+811:                                              ; preds = %812, %130
   invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$witx..abi..WasmType$GT$$GT$17h21cf68782e7ae3e4E"(ptr align 8 %110) #6
           to label %112 unwind label %191
 
-811:                                              ; preds = %809
-  %812 = landingpad { ptr, i32 }
+812:                                              ; preds = %810
+  %813 = landingpad { ptr, i32 }
           cleanup
-  %813 = extractvalue { ptr, i32 } %812, 0
-  %814 = extractvalue { ptr, i32 } %812, 1
-  store ptr %813, ptr %5, align 8
-  %815 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %814, ptr %815, align 8
-  br label %810
+  %814 = extractvalue { ptr, i32 } %813, 0
+  %815 = extractvalue { ptr, i32 } %813, 1
+  store ptr %814, ptr %5, align 8
+  %816 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %815, ptr %816, align 8
+  br label %811
 
-816:                                              ; preds = %809
+817:                                              ; preds = %810
   invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$witx..abi..WasmType$GT$$GT$17h21cf68782e7ae3e4E"(ptr align 8 %110)
-          to label %817 unwind label %113
+          to label %818 unwind label %113
 
-817:                                              ; preds = %816
+818:                                              ; preds = %817
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %111)
   ret void
 
-818:                                              ; preds = %828, %773
-  %819 = load i64, ptr %58, align 8, !noundef !3
-  %820 = add i64 %819, 1
-  store i64 %820, ptr %58, align 8
+819:                                              ; preds = %829, %774
+  %820 = load i64, ptr %58, align 8, !noundef !3
+  %821 = add i64 %820, 1
+  store i64 %821, ptr %58, align 8
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %56, ptr align 8 %65)
-          to label %829 unwind label %823
+          to label %830 unwind label %824
 
-821:                                              ; preds = %773
+822:                                              ; preds = %774
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %65)
-          to label %828 unwind label %823
+          to label %829 unwind label %824
 
-822:                                              ; preds = %823
+823:                                              ; preds = %824
   invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr align 8 %56) #6
-          to label %721 unwind label %191
+          to label %722 unwind label %191
 
-823:                                              ; preds = %821, %818
-  %824 = landingpad { ptr, i32 }
+824:                                              ; preds = %822, %819
+  %825 = landingpad { ptr, i32 }
           cleanup
-  %825 = extractvalue { ptr, i32 } %824, 0
-  %826 = extractvalue { ptr, i32 } %824, 1
-  store ptr %825, ptr %5, align 8
-  %827 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %826, ptr %827, align 8
-  br label %822
+  %826 = extractvalue { ptr, i32 } %825, 0
+  %827 = extractvalue { ptr, i32 } %825, 1
+  store ptr %826, ptr %5, align 8
+  %828 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %827, ptr %828, align 8
+  br label %823
 
-828:                                              ; preds = %821
-  br label %818
+829:                                              ; preds = %822
+  br label %819
 
-829:                                              ; preds = %818
+830:                                              ; preds = %819
   invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr align 8 %56)
-          to label %766 unwind label %722
+          to label %767 unwind label %723
 
-830:                                              ; preds = %835, %752
-  %831 = load i64, ptr %62, align 8, !noundef !3
-  %832 = add i64 %831, 1
-  store i64 %832, ptr %62, align 8
-  %833 = load ptr, ptr %60, align 8, !nonnull !3, !align !5, !noundef !3
-  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %833, ptr align 8 %63)
-          to label %836 unwind label %732
+831:                                              ; preds = %836, %753
+  %832 = load i64, ptr %62, align 8, !noundef !3
+  %833 = add i64 %832, 1
+  store i64 %833, ptr %62, align 8
+  %834 = load ptr, ptr %60, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %834, ptr align 8 %63)
+          to label %837 unwind label %733
 
-834:                                              ; preds = %752
+835:                                              ; preds = %753
   invoke void @_ZN5quote9__private8push_add17h7142d6c2d336a3d9E(ptr align 8 %63)
-          to label %835 unwind label %732
+          to label %836 unwind label %733
 
-835:                                              ; preds = %834
-  br label %830
+836:                                              ; preds = %835
+  br label %831
 
-836:                                              ; preds = %830
-  br label %743
+837:                                              ; preds = %831
+  br label %744
 
-837:                                              ; No predecessors!
+838:                                              ; No predecessors!
   unreachable
 
-838:                                              ; preds = %281
+839:                                              ; preds = %282
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr align 8 %96) #6
           to label %221 unwind label %191
 
-839:                                              ; preds = %228
+840:                                              ; preds = %228
   br label %221
 
-840:                                              ; preds = %112
-  %841 = load ptr, ptr %5, align 8, !noundef !3
-  %842 = getelementptr inbounds i8, ptr %5, i64 8
-  %843 = load i32, ptr %842, align 8, !noundef !3
-  %844 = insertvalue { ptr, i32 } poison, ptr %841, 0
-  %845 = insertvalue { ptr, i32 } %844, i32 %843, 1
-  resume { ptr, i32 } %845
+841:                                              ; preds = %112
+  %842 = load ptr, ptr %5, align 8, !noundef !3
+  %843 = getelementptr inbounds i8, ptr %5, i64 8
+  %844 = load i32, ptr %843, align 8, !noundef !3
+  %845 = insertvalue { ptr, i32 } poison, ptr %842, 0
+  %846 = insertvalue { ptr, i32 } %845, i32 %844, 1
+  resume { ptr, i32 } %846
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2863,31 +2864,31 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
     i64 0, label %278
     i64 19, label %286
     i64 23, label %301
-    i64 24, label %328
-    i64 25, label %329
-    i64 26, label %330
-    i64 27, label %331
-    i64 28, label %332
-    i64 29, label %337
-    i64 30, label %332
-    i64 31, label %342
-    i64 33, label %347
-    i64 34, label %337
-    i64 35, label %332
-    i64 36, label %332
-    i64 37, label %348
-    i64 38, label %353
-    i64 39, label %355
-    i64 40, label %357
-    i64 41, label %359
-    i64 43, label %361
-    i64 44, label %366
-    i64 46, label %371
-    i64 47, label %377
-    i64 48, label %379
-    i64 50, label %384
-    i64 52, label %395
-    i64 53, label %398
+    i64 24, label %329
+    i64 25, label %330
+    i64 26, label %331
+    i64 27, label %332
+    i64 28, label %333
+    i64 29, label %338
+    i64 30, label %333
+    i64 31, label %343
+    i64 33, label %348
+    i64 34, label %338
+    i64 35, label %333
+    i64 36, label %333
+    i64 37, label %349
+    i64 38, label %354
+    i64 39, label %356
+    i64 40, label %358
+    i64 41, label %360
+    i64 43, label %362
+    i64 44, label %367
+    i64 46, label %372
+    i64 47, label %378
+    i64 48, label %380
+    i64 50, label %385
+    i64 52, label %396
+    i64 53, label %399
   ]
 
 271:                                              ; preds = %4
@@ -2914,7 +2915,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   %283 = load i64, ptr %282, align 8, !noundef !3
   %284 = icmp ult i64 %280, %283
   %285 = call i1 @llvm.expect.i1(i1 %284, i1 true)
-  br i1 %285, label %399, label %404
+  br i1 %285, label %400, label %405
 
 286:                                              ; preds = %4
   %287 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2935,3968 +2936,3971 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   %298 = load i64, ptr %297, align 8, !noundef !3
   %299 = icmp ult i64 0, %298
   %300 = call i1 @llvm.expect.i1(i1 %299, i1 true)
-  br i1 %300, label %421, label %437
+  br i1 %300, label %422, label %438
 
 301:                                              ; preds = %4
   store i64 0, ptr %234, align 8
   %302 = getelementptr inbounds i8, ptr %234, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %302, align 8
-  %303 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %234, i32 0, i32 1
-  store i64 0, ptr %303, align 8
-  %304 = getelementptr inbounds { [1 x i64], { ptr, i64 }, ptr }, ptr %1, i32 0, i32 2
-  %305 = load ptr, ptr %304, align 8, !nonnull !3, !align !5, !noundef !3
-  %306 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i8, {}, [7 x i8] }, ptr %305, i32 0, i32 1
-  %307 = getelementptr inbounds i8, ptr %306, i64 8
-  %308 = load ptr, ptr %307, align 8, !nonnull !3, !noundef !3
-  %309 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i8, {}, [7 x i8] }, ptr %305, i32 0, i32 1
-  %310 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %309, i32 0, i32 1
-  %311 = load i64, ptr %310, align 8, !noundef !3
-  store ptr %308, ptr %22, align 8
-  %312 = getelementptr inbounds i8, ptr %22, i64 8
-  store i64 %311, ptr %312, align 8
-  %313 = load ptr, ptr %22, align 8, !noundef !3
-  %314 = getelementptr inbounds i8, ptr %22, i64 8
-  %315 = load i64, ptr %314, align 8, !noundef !3
-  store ptr %313, ptr %29, align 8
-  %316 = getelementptr inbounds i8, ptr %29, i64 8
-  store i64 %315, ptr %316, align 8
-  %317 = load ptr, ptr %29, align 8, !noundef !3
-  %318 = getelementptr inbounds i8, ptr %29, i64 8
-  %319 = load i64, ptr %318, align 8, !noundef !3
-  %320 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %317, i64 %319
-  store ptr %317, ptr %28, align 8
-  %321 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
-  store ptr %321, ptr %232, align 8
-  %322 = getelementptr inbounds i8, ptr %232, i64 8
-  store ptr %320, ptr %322, align 8
-  %323 = load ptr, ptr %232, align 8, !nonnull !3, !noundef !3
-  %324 = getelementptr inbounds i8, ptr %232, i64 8
-  %325 = load ptr, ptr %324, align 8, !noundef !3
-  store ptr %323, ptr %233, align 8
-  %326 = getelementptr inbounds i8, ptr %233, i64 8
-  store ptr %325, ptr %326, align 8
-  %327 = getelementptr inbounds { { ptr, ptr, {} }, i64 }, ptr %233, i32 0, i32 1
-  store i64 0, ptr %327, align 8
+  %303 = inttoptr i64 8 to ptr
+  store ptr %303, ptr %302, align 8
+  %304 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %234, i32 0, i32 1
+  store i64 0, ptr %304, align 8
+  %305 = getelementptr inbounds { [1 x i64], { ptr, i64 }, ptr }, ptr %1, i32 0, i32 2
+  %306 = load ptr, ptr %305, align 8, !nonnull !3, !align !5, !noundef !3
+  %307 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i8, {}, [7 x i8] }, ptr %306, i32 0, i32 1
+  %308 = getelementptr inbounds i8, ptr %307, i64 8
+  %309 = load ptr, ptr %308, align 8, !nonnull !3, !noundef !3
+  %310 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i8, {}, [7 x i8] }, ptr %306, i32 0, i32 1
+  %311 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %310, i32 0, i32 1
+  %312 = load i64, ptr %311, align 8, !noundef !3
+  store ptr %309, ptr %22, align 8
+  %313 = getelementptr inbounds i8, ptr %22, i64 8
+  store i64 %312, ptr %313, align 8
+  %314 = load ptr, ptr %22, align 8, !noundef !3
+  %315 = getelementptr inbounds i8, ptr %22, i64 8
+  %316 = load i64, ptr %315, align 8, !noundef !3
+  store ptr %314, ptr %29, align 8
+  %317 = getelementptr inbounds i8, ptr %29, i64 8
+  store i64 %316, ptr %317, align 8
+  %318 = load ptr, ptr %29, align 8, !noundef !3
+  %319 = getelementptr inbounds i8, ptr %29, i64 8
+  %320 = load i64, ptr %319, align 8, !noundef !3
+  %321 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %318, i64 %320
+  store ptr %318, ptr %28, align 8
+  %322 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
+  store ptr %322, ptr %232, align 8
+  %323 = getelementptr inbounds i8, ptr %232, i64 8
+  store ptr %321, ptr %323, align 8
+  %324 = load ptr, ptr %232, align 8, !nonnull !3, !noundef !3
+  %325 = getelementptr inbounds i8, ptr %232, i64 8
+  %326 = load ptr, ptr %325, align 8, !noundef !3
+  store ptr %324, ptr %233, align 8
+  %327 = getelementptr inbounds i8, ptr %233, i64 8
+  store ptr %326, ptr %327, align 8
+  %328 = getelementptr inbounds { { ptr, ptr, {} }, i64 }, ptr %233, i32 0, i32 1
+  store i64 0, ptr %328, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %231, ptr align 8 %233, i64 24, i1 false)
-  br label %538
-
-328:                                              ; preds = %4
-  call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %63)
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %63, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.58, i64 2)
-          to label %1008 unwind label %1003
+  br label %539
 
 329:                                              ; preds = %4
-  call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %66)
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %66, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.59, i64 2)
-          to label %1015 unwind label %1010
+  call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %63)
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %63, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.58, i64 2)
+          to label %1009 unwind label %1004
 
 330:                                              ; preds = %4
-  call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %54)
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %54, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.60, i64 3)
-          to label %1022 unwind label %1017
+  call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %66)
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %66, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.59, i64 2)
+          to label %1016 unwind label %1011
 
 331:                                              ; preds = %4
+  call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %54)
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %54, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.60, i64 3)
+          to label %1023 unwind label %1018
+
+332:                                              ; preds = %4
   call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %57)
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %57, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.61, i64 3)
-          to label %1029 unwind label %1024
+          to label %1030 unwind label %1025
 
-332:                                              ; preds = %4, %4, %4, %4
+333:                                              ; preds = %4, %4, %4, %4
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %39, ptr align 8 %2)
-  %333 = load i64, ptr %39, align 8, !range !8, !noundef !3
-  %334 = icmp eq i64 %333, -9223372036854775807
-  %335 = select i1 %334, i64 0, i64 1
-  %336 = icmp eq i64 %335, 0
-  br i1 %336, label %1075, label %1076
+  %334 = load i64, ptr %39, align 8, !range !8, !noundef !3
+  %335 = icmp eq i64 %334, -9223372036854775807
+  %336 = select i1 %335, i64 0, i64 1
+  %337 = icmp eq i64 %336, 0
+  br i1 %337, label %1076, label %1077
 
-337:                                              ; preds = %4, %4
+338:                                              ; preds = %4, %4
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %52, ptr align 8 %2)
-  %338 = load i64, ptr %52, align 8, !range !8, !noundef !3
-  %339 = icmp eq i64 %338, -9223372036854775807
-  %340 = select i1 %339, i64 0, i64 1
-  %341 = icmp eq i64 %340, 0
-  br i1 %341, label %1056, label %1057
+  %339 = load i64, ptr %52, align 8, !range !8, !noundef !3
+  %340 = icmp eq i64 %339, -9223372036854775807
+  %341 = select i1 %340, i64 0, i64 1
+  %342 = icmp eq i64 %341, 0
+  br i1 %342, label %1057, label %1058
 
-342:                                              ; preds = %4
+343:                                              ; preds = %4
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %48, ptr align 8 %2)
-  %343 = load i64, ptr %48, align 8, !range !8, !noundef !3
-  %344 = icmp eq i64 %343, -9223372036854775807
-  %345 = select i1 %344, i64 0, i64 1
-  %346 = icmp eq i64 %345, 0
-  br i1 %346, label %1030, label %1031
-
-347:                                              ; preds = %4
-  call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %60)
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %60, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.59, i64 2)
-          to label %1055 unwind label %1050
+  %344 = load i64, ptr %48, align 8, !range !8, !noundef !3
+  %345 = icmp eq i64 %344, -9223372036854775807
+  %346 = select i1 %345, i64 0, i64 1
+  %347 = icmp eq i64 %346, 0
+  br i1 %347, label %1031, label %1032
 
 348:                                              ; preds = %4
+  call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %60)
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %60, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.59, i64 2)
+          to label %1056 unwind label %1051
+
+349:                                              ; preds = %4
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %74, ptr align 8 %2)
-  %349 = load i64, ptr %74, align 8, !range !8, !noundef !3
-  %350 = icmp eq i64 %349, -9223372036854775807
-  %351 = select i1 %350, i64 0, i64 1
-  %352 = icmp eq i64 %351, 0
-  br i1 %352, label %1077, label %1078
+  %350 = load i64, ptr %74, align 8, !range !8, !noundef !3
+  %351 = icmp eq i64 %350, -9223372036854775807
+  %352 = select i1 %351, i64 0, i64 1
+  %353 = icmp eq i64 %352, 0
+  br i1 %353, label %1078, label %1079
 
-353:                                              ; preds = %4
-  %354 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
-  store ptr %354, ptr %258, align 8
-  br label %1116
+354:                                              ; preds = %4
+  %355 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
+  store ptr %355, ptr %258, align 8
+  br label %1117
 
-355:                                              ; preds = %4
-  %356 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
-  store ptr %356, ptr %258, align 8
-  br label %1116
+356:                                              ; preds = %4
+  %357 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
+  store ptr %357, ptr %258, align 8
+  br label %1117
 
-357:                                              ; preds = %4
-  %358 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
-  store ptr %358, ptr %45, align 8
-  br label %1170
+358:                                              ; preds = %4
+  %359 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
+  store ptr %359, ptr %45, align 8
+  br label %1171
 
-359:                                              ; preds = %4
-  %360 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
-  store ptr %360, ptr %45, align 8
-  br label %1170
+360:                                              ; preds = %4
+  %361 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
+  store ptr %361, ptr %45, align 8
+  br label %1171
 
-361:                                              ; preds = %4
+362:                                              ; preds = %4
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %92, ptr align 8 %2)
-  %362 = load i64, ptr %92, align 8, !range !8, !noundef !3
-  %363 = icmp eq i64 %362, -9223372036854775807
-  %364 = select i1 %363, i64 0, i64 1
-  %365 = icmp eq i64 %364, 0
-  br i1 %365, label %1174, label %1175
+  %363 = load i64, ptr %92, align 8, !range !8, !noundef !3
+  %364 = icmp eq i64 %363, -9223372036854775807
+  %365 = select i1 %364, i64 0, i64 1
+  %366 = icmp eq i64 %365, 0
+  br i1 %366, label %1175, label %1176
 
-366:                                              ; preds = %4
+367:                                              ; preds = %4
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %113, ptr align 8 %2)
-  %367 = load i64, ptr %113, align 8, !range !8, !noundef !3
-  %368 = icmp eq i64 %367, -9223372036854775807
-  %369 = select i1 %368, i64 0, i64 1
-  %370 = icmp eq i64 %369, 0
-  br i1 %370, label %1293, label %1294
+  %368 = load i64, ptr %113, align 8, !range !8, !noundef !3
+  %369 = icmp eq i64 %368, -9223372036854775807
+  %370 = select i1 %369, i64 0, i64 1
+  %371 = icmp eq i64 %370, 0
+  br i1 %371, label %1294, label %1295
 
-371:                                              ; preds = %4
-  %372 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 1
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %162, ptr align 8 %372)
-  %373 = load i64, ptr %162, align 8, !range !8, !noundef !3
-  %374 = icmp eq i64 %373, -9223372036854775807
-  %375 = select i1 %374, i64 0, i64 1
-  %376 = icmp eq i64 %375, 0
-  br i1 %376, label %1436, label %1437
+372:                                              ; preds = %4
+  %373 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 1
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %162, ptr align 8 %373)
+  %374 = load i64, ptr %162, align 8, !range !8, !noundef !3
+  %375 = icmp eq i64 %374, -9223372036854775807
+  %376 = select i1 %375, i64 0, i64 1
+  %377 = icmp eq i64 %376, 0
+  br i1 %377, label %1437, label %1438
 
-377:                                              ; preds = %4
-  %378 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
-  store ptr %378, ptr %45, align 8
-  br label %1170
+378:                                              ; preds = %4
+  %379 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
+  store ptr %379, ptr %45, align 8
+  br label %1171
 
-379:                                              ; preds = %4
+380:                                              ; preds = %4
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %178, ptr align 8 %2)
-  %380 = load i64, ptr %178, align 8, !range !8, !noundef !3
-  %381 = icmp eq i64 %380, -9223372036854775807
-  %382 = select i1 %381, i64 0, i64 1
-  %383 = icmp eq i64 %382, 0
-  br i1 %383, label %1579, label %1580
+  %381 = load i64, ptr %178, align 8, !range !8, !noundef !3
+  %382 = icmp eq i64 %381, -9223372036854775807
+  %383 = select i1 %382, i64 0, i64 1
+  %384 = icmp eq i64 %383, 0
+  br i1 %384, label %1580, label %1581
 
-384:                                              ; preds = %4
-  %385 = getelementptr inbounds { [1 x i64], i64 }, ptr %1, i32 0, i32 1
-  %386 = load i64, ptr %385, align 8, !noundef !3
+385:                                              ; preds = %4
+  %386 = getelementptr inbounds { [1 x i64], i64 }, ptr %1, i32 0, i32 1
+  %387 = load i64, ptr %386, align 8, !noundef !3
   store i64 0, ptr %126, align 8
-  %387 = getelementptr inbounds i8, ptr %126, i64 8
-  store i64 %386, ptr %387, align 8
-  %388 = load i64, ptr %126, align 8, !noundef !3
-  %389 = getelementptr inbounds i8, ptr %126, i64 8
-  %390 = load i64, ptr %389, align 8, !noundef !3
-  store i64 %388, ptr %127, align 8
-  %391 = getelementptr inbounds i8, ptr %127, i64 8
-  store i64 %390, ptr %391, align 8
-  %392 = load i64, ptr %127, align 8, !noundef !3
-  %393 = getelementptr inbounds i8, ptr %127, i64 8
-  %394 = load i64, ptr %393, align 8, !noundef !3
-  call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hbc61eb3fda5f307aE"(ptr sret({ { i64, ptr, {} }, i64 }) align 8 %128, i64 %392, i64 %394)
+  %388 = getelementptr inbounds i8, ptr %126, i64 8
+  store i64 %387, ptr %388, align 8
+  %389 = load i64, ptr %126, align 8, !noundef !3
+  %390 = getelementptr inbounds i8, ptr %126, i64 8
+  %391 = load i64, ptr %390, align 8, !noundef !3
+  store i64 %389, ptr %127, align 8
+  %392 = getelementptr inbounds i8, ptr %127, i64 8
+  store i64 %391, ptr %392, align 8
+  %393 = load i64, ptr %127, align 8, !noundef !3
+  %394 = getelementptr inbounds i8, ptr %127, i64 8
+  %395 = load i64, ptr %394, align 8, !noundef !3
+  call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hbc61eb3fda5f307aE"(ptr sret({ { i64, ptr, {} }, i64 }) align 8 %128, i64 %393, i64 %395)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %124, ptr align 8 %2)
-          to label %1711 unwind label %1706
+          to label %1714 unwind label %1709
 
-395:                                              ; preds = %4
-  %396 = getelementptr inbounds { [1 x i64], i64 }, ptr %1, i32 0, i32 1
-  %397 = load i64, ptr %396, align 8, !noundef !3
-  switch i64 %397, label %1789 [
-    i64 0, label %1790
-    i64 1, label %1793
+396:                                              ; preds = %4
+  %397 = getelementptr inbounds { [1 x i64], i64 }, ptr %1, i32 0, i32 1
+  %398 = load i64, ptr %397, align 8, !noundef !3
+  switch i64 %398, label %1792 [
+    i64 0, label %1793
+    i64 1, label %1796
   ]
 
-398:                                              ; preds = %4
+399:                                              ; preds = %4
   call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %140)
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %140, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.85, i64 1)
-          to label %1852 unwind label %1847
+          to label %1855 unwind label %1850
 
-399:                                              ; preds = %278
-  %400 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 3
-  %401 = load ptr, ptr %400, align 8, !nonnull !3, !align !5, !noundef !3
-  %402 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %401, i64 0, i64 %280
-  store ptr %402, ptr %261, align 8
+400:                                              ; preds = %278
+  %401 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 3
+  %402 = load ptr, ptr %401, align 8, !nonnull !3, !align !5, !noundef !3
+  %403 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %402, i64 0, i64 %280
+  store ptr %403, ptr %261, align 8
   call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %259)
-  %403 = load ptr, ptr %261, align 8, !nonnull !3, !align !5, !noundef !3
-  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %403, ptr align 8 %259)
-          to label %411 unwind label %406
+  %404 = load ptr, ptr %261, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %404, ptr align 8 %259)
+          to label %412 unwind label %407
 
-404:                                              ; preds = %278
+405:                                              ; preds = %278
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %280, i64 %283, ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.42) #7
   unreachable
 
-405:                                              ; preds = %406
+406:                                              ; preds = %407
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %259) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-406:                                              ; preds = %399
-  %407 = landingpad { ptr, i32 }
+407:                                              ; preds = %400
+  %408 = landingpad { ptr, i32 }
           cleanup
-  %408 = extractvalue { ptr, i32 } %407, 0
-  %409 = extractvalue { ptr, i32 } %407, 1
-  store ptr %408, ptr %5, align 8
-  %410 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %409, ptr %410, align 8
-  br label %405
+  %409 = extractvalue { ptr, i32 } %408, 0
+  %410 = extractvalue { ptr, i32 } %408, 1
+  store ptr %409, ptr %5, align 8
+  %411 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %410, ptr %411, align 8
+  br label %406
 
-411:                                              ; preds = %399
+412:                                              ; preds = %400
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %260, ptr align 8 %259, i64 32, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %260)
-  br label %412
+  br label %413
 
-412:                                              ; preds = %1852, %1844, %1815, %1786, %1703, %1700, %1578, %1563, %1435, %1292, %1169, %1115, %1076, %1074, %1055, %1048, %1029, %1022, %1015, %1008, %918, %537, %411
+413:                                              ; preds = %1855, %1847, %1818, %1789, %1706, %1703, %1579, %1564, %1436, %1293, %1170, %1116, %1077, %1075, %1056, %1049, %1030, %1023, %1016, %1009, %919, %538, %412
   ret void
 
-413:                                              ; preds = %1846, %1836, %1827, %1820, %1807, %1798, %1736, %1727, %1720, %1705, %1704, %1690, %1683, %1671, %1659, %1649, %1639, %1618, %1571, %1564, %1551, %1541, %1517, %1507, %1499, %1490, %1483, %1475, %1452, %1439, %1422, %1411, %1396, %1380, %1373, %1362, %1355, %1331, %1295, %1281, %1262, %1246, %1239, %1230, %1223, %1199, %1156, %1140, %1133, %1125, %1106, %1096, %1089, %1082, %1065, %1058, %1049, %1039, %1032, %1023, %1016, %1009, %1002, %993, %983, %961, %953, %909, %898, %889, %866, %842, %829, %790, %777, %712, %699, %686, %678, %667, %631, %618, %611, %540, %520, %510, %494, %487, %479, %472, %465, %457, %405
-  %414 = landingpad { ptr, i32 }
+414:                                              ; preds = %1849, %1839, %1830, %1823, %1810, %1801, %1739, %1730, %1723, %1708, %1707, %1693, %1686, %1674, %1662, %1652, %1642, %1620, %1572, %1565, %1552, %1542, %1518, %1508, %1500, %1491, %1484, %1476, %1453, %1440, %1423, %1412, %1397, %1381, %1374, %1363, %1356, %1332, %1296, %1282, %1263, %1247, %1240, %1231, %1224, %1200, %1157, %1141, %1134, %1126, %1107, %1097, %1090, %1083, %1066, %1059, %1050, %1040, %1033, %1024, %1017, %1010, %1003, %994, %984, %962, %954, %910, %899, %890, %867, %843, %830, %791, %778, %713, %700, %687, %679, %668, %632, %619, %612, %541, %521, %511, %495, %488, %480, %473, %466, %458, %406
+  %415 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 
-415:                                              ; preds = %1846, %1820, %1798, %1705, %1704, %1586, %1564, %1439, %1295, %1199, %1125, %1082, %1058, %1049, %1032, %1023, %1016, %1009, %1002, %540, %487, %465, %457, %405
-  %416 = load ptr, ptr %5, align 8, !noundef !3
-  %417 = getelementptr inbounds i8, ptr %5, i64 8
-  %418 = load i32, ptr %417, align 8, !noundef !3
-  %419 = insertvalue { ptr, i32 } poison, ptr %416, 0
-  %420 = insertvalue { ptr, i32 } %419, i32 %418, 1
-  resume { ptr, i32 } %420
+416:                                              ; preds = %1849, %1823, %1801, %1708, %1707, %1587, %1565, %1440, %1296, %1200, %1126, %1083, %1059, %1050, %1033, %1024, %1017, %1010, %1003, %541, %488, %466, %458, %406
+  %417 = load ptr, ptr %5, align 8, !noundef !3
+  %418 = getelementptr inbounds i8, ptr %5, i64 8
+  %419 = load i32, ptr %418, align 8, !noundef !3
+  %420 = insertvalue { ptr, i32 } poison, ptr %417, 0
+  %421 = insertvalue { ptr, i32 } %420, i32 %419, 1
+  resume { ptr, i32 } %421
 
-421:                                              ; preds = %286
-  %422 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %296, i64 0, i64 0
-  store ptr %422, ptr %249, align 8
-  %423 = getelementptr inbounds i8, ptr %2, i64 8
-  %424 = load ptr, ptr %423, align 8, !nonnull !3, !noundef !3
-  %425 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %2, i32 0, i32 1
-  %426 = load i64, ptr %425, align 8, !noundef !3
-  store ptr %424, ptr %30, align 8
-  %427 = getelementptr inbounds i8, ptr %30, i64 8
-  store i64 %426, ptr %427, align 8
-  %428 = load ptr, ptr %30, align 8, !noundef !3
-  %429 = getelementptr inbounds i8, ptr %30, i64 8
-  %430 = load i64, ptr %429, align 8, !noundef !3
-  store ptr %428, ptr %31, align 8
-  %431 = getelementptr inbounds i8, ptr %31, i64 8
-  store i64 %430, ptr %431, align 8
-  %432 = load ptr, ptr %31, align 8, !noundef !3
-  %433 = getelementptr inbounds i8, ptr %31, i64 8
-  %434 = load i64, ptr %433, align 8, !noundef !3
-  %435 = icmp ult i64 1, %434
-  %436 = call i1 @llvm.expect.i1(i1 %435, i1 true)
-  br i1 %436, label %438, label %448
+422:                                              ; preds = %286
+  %423 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %296, i64 0, i64 0
+  store ptr %423, ptr %249, align 8
+  %424 = getelementptr inbounds i8, ptr %2, i64 8
+  %425 = load ptr, ptr %424, align 8, !nonnull !3, !noundef !3
+  %426 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %2, i32 0, i32 1
+  %427 = load i64, ptr %426, align 8, !noundef !3
+  store ptr %425, ptr %30, align 8
+  %428 = getelementptr inbounds i8, ptr %30, i64 8
+  store i64 %427, ptr %428, align 8
+  %429 = load ptr, ptr %30, align 8, !noundef !3
+  %430 = getelementptr inbounds i8, ptr %30, i64 8
+  %431 = load i64, ptr %430, align 8, !noundef !3
+  store ptr %429, ptr %31, align 8
+  %432 = getelementptr inbounds i8, ptr %31, i64 8
+  store i64 %431, ptr %432, align 8
+  %433 = load ptr, ptr %31, align 8, !noundef !3
+  %434 = getelementptr inbounds i8, ptr %31, i64 8
+  %435 = load i64, ptr %434, align 8, !noundef !3
+  %436 = icmp ult i64 1, %435
+  %437 = call i1 @llvm.expect.i1(i1 %436, i1 true)
+  br i1 %437, label %439, label %449
 
-437:                                              ; preds = %286
+438:                                              ; preds = %286
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 0, i64 %298, ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.43) #7
   unreachable
 
-438:                                              ; preds = %421
-  %439 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %432, i64 0, i64 1
-  store ptr %439, ptr %248, align 8
-  %440 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
-  %441 = load ptr, ptr %440, align 8, !nonnull !3, !align !5, !noundef !3
-  %442 = call align 8 ptr @_ZN4witx3ast7TypeRef5type_17ha6e3e5e2225256ffE(ptr align 8 %441)
-  %443 = load ptr, ptr %442, align 8, !nonnull !3, !noundef !3
-  %444 = getelementptr inbounds { i64, i64, { i8, [39 x i8] } }, ptr %443, i32 0, i32 2
-  %445 = load i8, ptr %444, align 8, !range !10, !noundef !3
-  %446 = zext i8 %445 to i64
-  %447 = icmp eq i64 %446, 6
-  br i1 %447, label %449, label %455
+439:                                              ; preds = %422
+  %440 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %433, i64 0, i64 1
+  store ptr %440, ptr %248, align 8
+  %441 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
+  %442 = load ptr, ptr %441, align 8, !nonnull !3, !align !5, !noundef !3
+  %443 = call align 8 ptr @_ZN4witx3ast7TypeRef5type_17ha6e3e5e2225256ffE(ptr align 8 %442)
+  %444 = load ptr, ptr %443, align 8, !nonnull !3, !noundef !3
+  %445 = getelementptr inbounds { i64, i64, { i8, [39 x i8] } }, ptr %444, i32 0, i32 2
+  %446 = load i8, ptr %445, align 8, !range !10, !noundef !3
+  %447 = zext i8 %446 to i64
+  %448 = icmp eq i64 %447, 6
+  br i1 %448, label %450, label %456
 
-448:                                              ; preds = %421
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 1, i64 %434, ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.44) #7
+449:                                              ; preds = %422
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 1, i64 %435, ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.44) #7
   unreachable
 
-449:                                              ; preds = %438
-  %450 = getelementptr inbounds { i64, i64, { i8, [39 x i8] } }, ptr %443, i32 0, i32 2
-  %451 = getelementptr inbounds { [1 x i8], { i8, [1 x i8] } }, ptr %450, i32 0, i32 1
-  %452 = load i8, ptr %451, align 1, !range !11, !noundef !3
-  %453 = zext i8 %452 to i64
-  %454 = icmp eq i64 %453, 0
-  br i1 %454, label %456, label %455
+450:                                              ; preds = %439
+  %451 = getelementptr inbounds { i64, i64, { i8, [39 x i8] } }, ptr %444, i32 0, i32 2
+  %452 = getelementptr inbounds { [1 x i8], { i8, [1 x i8] } }, ptr %451, i32 0, i32 1
+  %453 = load i8, ptr %452, align 1, !range !11, !noundef !3
+  %454 = zext i8 %453 to i64
+  %455 = icmp eq i64 %454, 0
+  br i1 %455, label %457, label %456
 
-455:                                              ; preds = %449, %438
+456:                                              ; preds = %450, %439
   call void @_ZN15wiggle_generate9lifetimes13anon_lifetime17h513aec478ec31ebdE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %244)
-  call void @_ZN15wiggle_generate5names8type_ref17h5caf44ab7596050bE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %245, ptr align 8 %441, ptr align 8 %244)
+  call void @_ZN15wiggle_generate5names8type_ref17h5caf44ab7596050bE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %245, ptr align 8 %442, ptr align 8 %244)
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %243)
-          to label %471 unwind label %466
+          to label %472 unwind label %467
 
-456:                                              ; preds = %449
+457:                                              ; preds = %450
   call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %246)
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %246, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.45, i64 3)
-          to label %463 unwind label %458
+          to label %464 unwind label %459
 
-457:                                              ; preds = %458
+458:                                              ; preds = %459
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %246) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-458:                                              ; preds = %456
-  %459 = landingpad { ptr, i32 }
+459:                                              ; preds = %457
+  %460 = landingpad { ptr, i32 }
           cleanup
-  %460 = extractvalue { ptr, i32 } %459, 0
-  %461 = extractvalue { ptr, i32 } %459, 1
-  store ptr %460, ptr %5, align 8
-  %462 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %461, ptr %462, align 8
-  br label %457
+  %461 = extractvalue { ptr, i32 } %460, 0
+  %462 = extractvalue { ptr, i32 } %460, 1
+  store ptr %461, ptr %5, align 8
+  %463 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %462, ptr %463, align 8
+  br label %458
 
-463:                                              ; preds = %456
+464:                                              ; preds = %457
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %247, ptr align 8 %246, i64 32, i1 false)
-  br label %464
-
-464:                                              ; preds = %486, %463
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %239)
-          to label %493 unwind label %488
-
-465:                                              ; preds = %472, %466
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %245) #6
-          to label %415 unwind label %413
-
-466:                                              ; preds = %455
-  %467 = landingpad { ptr, i32 }
-          cleanup
-  %468 = extractvalue { ptr, i32 } %467, 0
-  %469 = extractvalue { ptr, i32 } %467, 1
-  store ptr %468, ptr %5, align 8
-  %470 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %469, ptr %470, align 8
   br label %465
 
-471:                                              ; preds = %455
+465:                                              ; preds = %487, %464
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %239)
+          to label %494 unwind label %489
+
+466:                                              ; preds = %473, %467
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %245) #6
+          to label %416 unwind label %414
+
+467:                                              ; preds = %456
+  %468 = landingpad { ptr, i32 }
+          cleanup
+  %469 = extractvalue { ptr, i32 } %468, 0
+  %470 = extractvalue { ptr, i32 } %468, 1
+  store ptr %469, ptr %5, align 8
+  %471 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %470, ptr %471, align 8
+  br label %466
+
+472:                                              ; preds = %456
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %241)
-          to label %478 unwind label %473
+          to label %479 unwind label %474
 
-472:                                              ; preds = %479, %473
+473:                                              ; preds = %480, %474
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %243) #6
-          to label %465 unwind label %413
+          to label %466 unwind label %414
 
-473:                                              ; preds = %485, %471
-  %474 = landingpad { ptr, i32 }
+474:                                              ; preds = %486, %472
+  %475 = landingpad { ptr, i32 }
           cleanup
-  %475 = extractvalue { ptr, i32 } %474, 0
-  %476 = extractvalue { ptr, i32 } %474, 1
-  store ptr %475, ptr %5, align 8
-  %477 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %476, ptr %477, align 8
-  br label %472
+  %476 = extractvalue { ptr, i32 } %475, 0
+  %477 = extractvalue { ptr, i32 } %475, 1
+  store ptr %476, ptr %5, align 8
+  %478 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %477, ptr %478, align 8
+  br label %473
 
-478:                                              ; preds = %471
+479:                                              ; preds = %472
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %245, ptr align 8 %241)
-          to label %485 unwind label %480
+          to label %486 unwind label %481
 
-479:                                              ; preds = %480
+480:                                              ; preds = %481
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %241) #6
-          to label %472 unwind label %413
+          to label %473 unwind label %414
 
-480:                                              ; preds = %478
-  %481 = landingpad { ptr, i32 }
+481:                                              ; preds = %479
+  %482 = landingpad { ptr, i32 }
           cleanup
-  %482 = extractvalue { ptr, i32 } %481, 0
-  %483 = extractvalue { ptr, i32 } %481, 1
-  store ptr %482, ptr %5, align 8
-  %484 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %483, ptr %484, align 8
-  br label %479
+  %483 = extractvalue { ptr, i32 } %482, 0
+  %484 = extractvalue { ptr, i32 } %482, 1
+  store ptr %483, ptr %5, align 8
+  %485 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %484, ptr %485, align 8
+  br label %480
 
-485:                                              ; preds = %478
+486:                                              ; preds = %479
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %242, ptr align 8 %241, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %243, i8 2, ptr align 8 %242)
-          to label %486 unwind label %473
+          to label %487 unwind label %474
 
-486:                                              ; preds = %485
+487:                                              ; preds = %486
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %247, ptr align 8 %243, i64 32, i1 false)
   call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %245)
-  br label %464
+  br label %465
 
-487:                                              ; preds = %494, %488
+488:                                              ; preds = %495, %489
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %247) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-488:                                              ; preds = %536, %464
-  %489 = landingpad { ptr, i32 }
+489:                                              ; preds = %537, %465
+  %490 = landingpad { ptr, i32 }
           cleanup
-  %490 = extractvalue { ptr, i32 } %489, 0
-  %491 = extractvalue { ptr, i32 } %489, 1
-  store ptr %490, ptr %5, align 8
-  %492 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %491, ptr %492, align 8
-  br label %487
+  %491 = extractvalue { ptr, i32 } %490, 0
+  %492 = extractvalue { ptr, i32 } %490, 1
+  store ptr %491, ptr %5, align 8
+  %493 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %492, ptr %493, align 8
+  br label %488
 
-493:                                              ; preds = %464
+494:                                              ; preds = %465
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %239, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %500 unwind label %495
+          to label %501 unwind label %496
 
-494:                                              ; preds = %510, %495
+495:                                              ; preds = %511, %496
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %239) #6
-          to label %487 unwind label %413
+          to label %488 unwind label %414
 
-495:                                              ; preds = %535, %534, %508, %507, %506, %505, %504, %503, %502, %501, %500, %493
-  %496 = landingpad { ptr, i32 }
+496:                                              ; preds = %536, %535, %509, %508, %507, %506, %505, %504, %503, %502, %501, %494
+  %497 = landingpad { ptr, i32 }
           cleanup
-  %497 = extractvalue { ptr, i32 } %496, 0
-  %498 = extractvalue { ptr, i32 } %496, 1
-  store ptr %497, ptr %5, align 8
-  %499 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %498, ptr %499, align 8
-  br label %494
+  %498 = extractvalue { ptr, i32 } %497, 0
+  %499 = extractvalue { ptr, i32 } %497, 1
+  store ptr %498, ptr %5, align 8
+  %500 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %499, ptr %500, align 8
+  br label %495
 
-500:                                              ; preds = %493
+501:                                              ; preds = %494
   invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %239)
-          to label %501 unwind label %495
-
-501:                                              ; preds = %500
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %239, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.46, i64 8)
-          to label %502 unwind label %495
+          to label %502 unwind label %496
 
 502:                                              ; preds = %501
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %239)
-          to label %503 unwind label %495
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %239, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.46, i64 8)
+          to label %503 unwind label %496
 
 503:                                              ; preds = %502
-  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %239)
-          to label %504 unwind label %495
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %239)
+          to label %504 unwind label %496
 
 504:                                              ; preds = %503
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %247, ptr align 8 %239)
-          to label %505 unwind label %495
+  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %239)
+          to label %505 unwind label %496
 
 505:                                              ; preds = %504
-  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %239)
-          to label %506 unwind label %495
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %247, ptr align 8 %239)
+          to label %506 unwind label %496
 
 506:                                              ; preds = %505
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %239)
-          to label %507 unwind label %495
+  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %239)
+          to label %507 unwind label %496
 
 507:                                              ; preds = %506
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %239, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.47, i64 3)
-          to label %508 unwind label %495
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %239)
+          to label %508 unwind label %496
 
 508:                                              ; preds = %507
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %237)
-          to label %509 unwind label %495
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %239, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.47, i64 3)
+          to label %509 unwind label %496
 
 509:                                              ; preds = %508
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %237)
+          to label %510 unwind label %496
+
+510:                                              ; preds = %509
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %237, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.26, i64 6)
-          to label %516 unwind label %511
+          to label %517 unwind label %512
 
-510:                                              ; preds = %520, %511
+511:                                              ; preds = %521, %512
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %237) #6
-          to label %494 unwind label %413
+          to label %495 unwind label %414
 
-511:                                              ; preds = %533, %517, %516, %509
-  %512 = landingpad { ptr, i32 }
+512:                                              ; preds = %534, %518, %517, %510
+  %513 = landingpad { ptr, i32 }
           cleanup
-  %513 = extractvalue { ptr, i32 } %512, 0
-  %514 = extractvalue { ptr, i32 } %512, 1
-  store ptr %513, ptr %5, align 8
-  %515 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %514, ptr %515, align 8
-  br label %510
+  %514 = extractvalue { ptr, i32 } %513, 0
+  %515 = extractvalue { ptr, i32 } %513, 1
+  store ptr %514, ptr %5, align 8
+  %516 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %515, ptr %516, align 8
+  br label %511
 
-516:                                              ; preds = %509
+517:                                              ; preds = %510
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %237)
-          to label %517 unwind label %511
-
-517:                                              ; preds = %516
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %235)
-          to label %518 unwind label %511
+          to label %518 unwind label %512
 
 518:                                              ; preds = %517
-  %519 = load ptr, ptr %249, align 8, !nonnull !3, !align !5, !noundef !3
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %519, ptr align 8 %235)
-          to label %526 unwind label %521
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %235)
+          to label %519 unwind label %512
 
-520:                                              ; preds = %521
+519:                                              ; preds = %518
+  %520 = load ptr, ptr %249, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %520, ptr align 8 %235)
+          to label %527 unwind label %522
+
+521:                                              ; preds = %522
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %235) #6
-          to label %510 unwind label %413
+          to label %511 unwind label %414
 
-521:                                              ; preds = %532, %531, %529, %528, %527, %526, %518
-  %522 = landingpad { ptr, i32 }
+522:                                              ; preds = %533, %532, %530, %529, %528, %527, %519
+  %523 = landingpad { ptr, i32 }
           cleanup
-  %523 = extractvalue { ptr, i32 } %522, 0
-  %524 = extractvalue { ptr, i32 } %522, 1
-  store ptr %523, ptr %5, align 8
-  %525 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %524, ptr %525, align 8
-  br label %520
+  %524 = extractvalue { ptr, i32 } %523, 0
+  %525 = extractvalue { ptr, i32 } %523, 1
+  store ptr %524, ptr %5, align 8
+  %526 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %525, ptr %526, align 8
+  br label %521
 
-526:                                              ; preds = %518
+527:                                              ; preds = %519
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %235, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
-          to label %527 unwind label %521
-
-527:                                              ; preds = %526
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %235, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.48, i64 3)
-          to label %528 unwind label %521
+          to label %528 unwind label %522
 
 528:                                              ; preds = %527
-  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %235)
-          to label %529 unwind label %521
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %235, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.48, i64 3)
+          to label %529 unwind label %522
 
 529:                                              ; preds = %528
-  %530 = load ptr, ptr %248, align 8, !nonnull !3, !align !5, !noundef !3
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %530, ptr align 8 %235)
-          to label %531 unwind label %521
+  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %235)
+          to label %530 unwind label %522
 
-531:                                              ; preds = %529
+530:                                              ; preds = %529
+  %531 = load ptr, ptr %248, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %531, ptr align 8 %235)
+          to label %532 unwind label %522
+
+532:                                              ; preds = %530
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %235, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
-          to label %532 unwind label %521
-
-532:                                              ; preds = %531
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %235, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.48, i64 3)
-          to label %533 unwind label %521
+          to label %533 unwind label %522
 
 533:                                              ; preds = %532
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %236, ptr align 8 %235, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %237, i8 0, ptr align 8 %236)
-          to label %534 unwind label %511
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %235, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.48, i64 3)
+          to label %534 unwind label %522
 
 534:                                              ; preds = %533
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %238, ptr align 8 %237, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %239, i8 0, ptr align 8 %238)
-          to label %535 unwind label %495
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %236, ptr align 8 %235, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %237, i8 0, ptr align 8 %236)
+          to label %535 unwind label %512
 
 535:                                              ; preds = %534
-  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %239)
-          to label %536 unwind label %495
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %238, ptr align 8 %237, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %239, i8 0, ptr align 8 %238)
+          to label %536 unwind label %496
 
 536:                                              ; preds = %535
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %240, ptr align 8 %239, i64 32, i1 false)
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %240)
-          to label %537 unwind label %488
+  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %239)
+          to label %537 unwind label %496
 
 537:                                              ; preds = %536
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %240, ptr align 8 %239, i64 32, i1 false)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %240)
+          to label %538 unwind label %489
+
+538:                                              ; preds = %537
   call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %247)
-  br label %412
+  br label %413
 
-538:                                              ; preds = %991, %301
-  %539 = invoke { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha22321d123ebedddE"(ptr align 8 %231)
-          to label %546 unwind label %541
+539:                                              ; preds = %992, %301
+  %540 = invoke { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha22321d123ebedddE"(ptr align 8 %231)
+          to label %547 unwind label %542
 
-540:                                              ; preds = %953, %667, %611, %541
+541:                                              ; preds = %954, %668, %612, %542
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9ebc9b7807f19d85E"(ptr align 8 %234) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-541:                                              ; preds = %991, %917, %665, %590, %585, %579, %556, %538
-  %542 = landingpad { ptr, i32 }
+542:                                              ; preds = %992, %918, %666, %591, %586, %580, %557, %539
+  %543 = landingpad { ptr, i32 }
           cleanup
-  %543 = extractvalue { ptr, i32 } %542, 0
-  %544 = extractvalue { ptr, i32 } %542, 1
-  store ptr %543, ptr %5, align 8
-  %545 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %544, ptr %545, align 8
-  br label %540
+  %544 = extractvalue { ptr, i32 } %543, 0
+  %545 = extractvalue { ptr, i32 } %543, 1
+  store ptr %544, ptr %5, align 8
+  %546 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %545, ptr %546, align 8
+  br label %541
 
-546:                                              ; preds = %538
-  %547 = extractvalue { i64, ptr } %539, 0
-  %548 = extractvalue { i64, ptr } %539, 1
-  store i64 %547, ptr %230, align 8
-  %549 = getelementptr inbounds i8, ptr %230, i64 8
-  store ptr %548, ptr %549, align 8
+547:                                              ; preds = %539
+  %548 = extractvalue { i64, ptr } %540, 0
+  %549 = extractvalue { i64, ptr } %540, 1
+  store i64 %548, ptr %230, align 8
   %550 = getelementptr inbounds i8, ptr %230, i64 8
-  %551 = load ptr, ptr %550, align 8, !noundef !3
-  %552 = ptrtoint ptr %551 to i64
-  %553 = icmp eq i64 %552, 0
-  %554 = select i1 %553, i64 0, i64 1
-  %555 = icmp eq i64 %554, 0
-  br i1 %555, label %556, label %579
+  store ptr %549, ptr %550, align 8
+  %551 = getelementptr inbounds i8, ptr %230, i64 8
+  %552 = load ptr, ptr %551, align 8, !noundef !3
+  %553 = ptrtoint ptr %552 to i64
+  %554 = icmp eq i64 %553, 0
+  %555 = select i1 %554, i64 0, i64 1
+  %556 = icmp eq i64 %555, 0
+  br i1 %556, label %557, label %580
 
-556:                                              ; preds = %546
-  %557 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 6
-  %558 = load ptr, ptr %557, align 8, !nonnull !3, !align !5, !noundef !3
-  %559 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [3 x i64] }, { ptr, [5 x i64] } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %558, i32 0, i32 2
-  %560 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 4
-  %561 = load ptr, ptr %560, align 8, !nonnull !3, !align !5, !noundef !3
-  %562 = getelementptr inbounds i8, ptr %561, i64 8
-  %563 = load ptr, ptr %562, align 8, !nonnull !3, !noundef !3
-  %564 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %561, i32 0, i32 1
-  %565 = load i64, ptr %564, align 8, !noundef !3
-  store ptr %563, ptr %26, align 8
-  %566 = getelementptr inbounds i8, ptr %26, i64 8
-  store i64 %565, ptr %566, align 8
-  %567 = load ptr, ptr %26, align 8, !noundef !3
-  %568 = getelementptr inbounds i8, ptr %26, i64 8
-  %569 = load i64, ptr %568, align 8, !noundef !3
-  store ptr %567, ptr %27, align 8
-  %570 = getelementptr inbounds i8, ptr %27, i64 8
-  store i64 %569, ptr %570, align 8
-  %571 = load ptr, ptr %27, align 8, !noundef !3
-  %572 = getelementptr inbounds i8, ptr %27, i64 8
-  %573 = load i64, ptr %572, align 8, !noundef !3
-  %574 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 5
-  %575 = load ptr, ptr %574, align 8, !nonnull !3, !align !7, !noundef !3
-  %576 = getelementptr inbounds i8, ptr %574, i64 8
-  %577 = load i64, ptr %576, align 8, !noundef !3
-  %578 = invoke zeroext i1 @_ZN15wiggle_generate6config11TracingConf11enabled_for17h13416e742c57b445E(ptr align 8 %559, ptr align 1 %571, i64 %573, ptr align 1 %575, i64 %577)
-          to label %584 unwind label %541
+557:                                              ; preds = %547
+  %558 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 6
+  %559 = load ptr, ptr %558, align 8, !nonnull !3, !align !5, !noundef !3
+  %560 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [3 x i64] }, { ptr, [5 x i64] } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %559, i32 0, i32 2
+  %561 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 4
+  %562 = load ptr, ptr %561, align 8, !nonnull !3, !align !5, !noundef !3
+  %563 = getelementptr inbounds i8, ptr %562, i64 8
+  %564 = load ptr, ptr %563, align 8, !nonnull !3, !noundef !3
+  %565 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %562, i32 0, i32 1
+  %566 = load i64, ptr %565, align 8, !noundef !3
+  store ptr %564, ptr %26, align 8
+  %567 = getelementptr inbounds i8, ptr %26, i64 8
+  store i64 %566, ptr %567, align 8
+  %568 = load ptr, ptr %26, align 8, !noundef !3
+  %569 = getelementptr inbounds i8, ptr %26, i64 8
+  %570 = load i64, ptr %569, align 8, !noundef !3
+  store ptr %568, ptr %27, align 8
+  %571 = getelementptr inbounds i8, ptr %27, i64 8
+  store i64 %570, ptr %571, align 8
+  %572 = load ptr, ptr %27, align 8, !noundef !3
+  %573 = getelementptr inbounds i8, ptr %27, i64 8
+  %574 = load i64, ptr %573, align 8, !noundef !3
+  %575 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 5
+  %576 = load ptr, ptr %575, align 8, !nonnull !3, !align !7, !noundef !3
+  %577 = getelementptr inbounds i8, ptr %575, i64 8
+  %578 = load i64, ptr %577, align 8, !noundef !3
+  %579 = invoke zeroext i1 @_ZN15wiggle_generate6config11TracingConf11enabled_for17h13416e742c57b445E(ptr align 8 %560, ptr align 1 %572, i64 %574, ptr align 1 %576, i64 %578)
+          to label %585 unwind label %542
 
-579:                                              ; preds = %546
-  %580 = load i64, ptr %230, align 8, !noundef !3
-  %581 = getelementptr inbounds i8, ptr %230, i64 8
-  %582 = load ptr, ptr %581, align 8, !nonnull !3, !align !5, !noundef !3
-  %583 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %582, i32 0, i32 1
-  invoke void @_ZN15wiggle_generate5names10func_param17h402bb80375310d9cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %229, ptr align 8 %583)
-          to label %933 unwind label %541
+580:                                              ; preds = %547
+  %581 = load i64, ptr %230, align 8, !noundef !3
+  %582 = getelementptr inbounds i8, ptr %230, i64 8
+  %583 = load ptr, ptr %582, align 8, !nonnull !3, !align !5, !noundef !3
+  %584 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %583, i32 0, i32 1
+  invoke void @_ZN15wiggle_generate5names10func_param17h402bb80375310d9cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %229, ptr align 8 %584)
+          to label %934 unwind label %542
 
-584:                                              ; preds = %556
-  br i1 %578, label %588, label %585
+585:                                              ; preds = %557
+  br i1 %579, label %589, label %586
 
-585:                                              ; preds = %665, %588, %584
-  %586 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 4
-  %587 = load ptr, ptr %586, align 8, !nonnull !3, !align !5, !noundef !3
-  invoke void @_ZN15wiggle_generate5names10trait_name17hccac8be3402ee57fE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %210, ptr align 8 %587)
-          to label %666 unwind label %541
+586:                                              ; preds = %666, %589, %585
+  %587 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 4
+  %588 = load ptr, ptr %587, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @_ZN15wiggle_generate5names10trait_name17hccac8be3402ee57fE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %210, ptr align 8 %588)
+          to label %667 unwind label %542
 
-588:                                              ; preds = %584
-  %589 = icmp ugt i64 %311, 0
-  br i1 %589, label %590, label %585
+589:                                              ; preds = %585
+  %590 = icmp ugt i64 %312, 0
+  br i1 %590, label %591, label %586
 
-590:                                              ; preds = %588
-  %591 = load ptr, ptr %22, align 8, !noundef !3
-  %592 = getelementptr inbounds i8, ptr %22, i64 8
-  %593 = load i64, ptr %592, align 8, !noundef !3
-  store ptr %591, ptr %23, align 8
-  %594 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 %593, ptr %594, align 8
-  %595 = load ptr, ptr %23, align 8, !noundef !3
-  %596 = getelementptr inbounds i8, ptr %23, i64 8
-  %597 = load i64, ptr %596, align 8, !noundef !3
-  %598 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %595, i64 %597
-  store ptr %595, ptr %21, align 8
-  %599 = load ptr, ptr %21, align 8, !nonnull !3, !noundef !3
-  store ptr %599, ptr %219, align 8
-  %600 = getelementptr inbounds i8, ptr %219, i64 8
-  store ptr %598, ptr %600, align 8
-  %601 = load ptr, ptr %219, align 8, !nonnull !3, !noundef !3
-  %602 = getelementptr inbounds i8, ptr %219, i64 8
-  %603 = load ptr, ptr %602, align 8, !noundef !3
-  store ptr %601, ptr %220, align 8
-  %604 = getelementptr inbounds i8, ptr %220, i64 8
-  store ptr %603, ptr %604, align 8
-  %605 = load ptr, ptr %220, align 8, !nonnull !3, !noundef !3
-  %606 = getelementptr inbounds i8, ptr %220, i64 8
-  %607 = load ptr, ptr %606, align 8, !noundef !3
-  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hbcc96079944323e0E"(ptr sret({ { i64, ptr, {} }, i64 }) align 8 %221, ptr %605, ptr %607)
-          to label %608 unwind label %541
+591:                                              ; preds = %589
+  %592 = load ptr, ptr %22, align 8, !noundef !3
+  %593 = getelementptr inbounds i8, ptr %22, i64 8
+  %594 = load i64, ptr %593, align 8, !noundef !3
+  store ptr %592, ptr %23, align 8
+  %595 = getelementptr inbounds i8, ptr %23, i64 8
+  store i64 %594, ptr %595, align 8
+  %596 = load ptr, ptr %23, align 8, !noundef !3
+  %597 = getelementptr inbounds i8, ptr %23, i64 8
+  %598 = load i64, ptr %597, align 8, !noundef !3
+  %599 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %596, i64 %598
+  store ptr %596, ptr %21, align 8
+  %600 = load ptr, ptr %21, align 8, !nonnull !3, !noundef !3
+  store ptr %600, ptr %219, align 8
+  %601 = getelementptr inbounds i8, ptr %219, i64 8
+  store ptr %599, ptr %601, align 8
+  %602 = load ptr, ptr %219, align 8, !nonnull !3, !noundef !3
+  %603 = getelementptr inbounds i8, ptr %219, i64 8
+  %604 = load ptr, ptr %603, align 8, !noundef !3
+  store ptr %602, ptr %220, align 8
+  %605 = getelementptr inbounds i8, ptr %220, i64 8
+  store ptr %604, ptr %605, align 8
+  %606 = load ptr, ptr %220, align 8, !nonnull !3, !noundef !3
+  %607 = getelementptr inbounds i8, ptr %220, i64 8
+  %608 = load ptr, ptr %607, align 8, !noundef !3
+  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hbcc96079944323e0E"(ptr sret({ { i64, ptr, {} }, i64 }) align 8 %221, ptr %606, ptr %608)
+          to label %609 unwind label %542
 
-608:                                              ; preds = %590
-  %609 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
-  %610 = load ptr, ptr %609, align 8, !nonnull !3, !align !5, !noundef !3
+609:                                              ; preds = %591
+  %610 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
+  %611 = load ptr, ptr %610, align 8, !nonnull !3, !align !5, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %217)
-          to label %617 unwind label %612
+          to label %618 unwind label %613
 
-611:                                              ; preds = %618, %612
+612:                                              ; preds = %619, %613
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9ebc9b7807f19d85E"(ptr align 8 %221) #6
-          to label %540 unwind label %413
+          to label %541 unwind label %414
 
-612:                                              ; preds = %664, %608
-  %613 = landingpad { ptr, i32 }
+613:                                              ; preds = %665, %609
+  %614 = landingpad { ptr, i32 }
           cleanup
-  %614 = extractvalue { ptr, i32 } %613, 0
-  %615 = extractvalue { ptr, i32 } %613, 1
-  store ptr %614, ptr %5, align 8
-  %616 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %615, ptr %616, align 8
-  br label %611
+  %615 = extractvalue { ptr, i32 } %614, 0
+  %616 = extractvalue { ptr, i32 } %614, 1
+  store ptr %615, ptr %5, align 8
+  %617 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %616, ptr %617, align 8
+  br label %612
 
-617:                                              ; preds = %608
+618:                                              ; preds = %609
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %217, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %624 unwind label %619
+          to label %625 unwind label %620
 
-618:                                              ; preds = %631, %619
+619:                                              ; preds = %632, %620
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %217) #6
-          to label %611 unwind label %413
+          to label %612 unwind label %414
 
-619:                                              ; preds = %663, %658, %629, %628, %627, %626, %625, %624, %617
-  %620 = landingpad { ptr, i32 }
+620:                                              ; preds = %664, %659, %630, %629, %628, %627, %626, %625, %618
+  %621 = landingpad { ptr, i32 }
           cleanup
-  %621 = extractvalue { ptr, i32 } %620, 0
-  %622 = extractvalue { ptr, i32 } %620, 1
-  store ptr %621, ptr %5, align 8
-  %623 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %622, ptr %623, align 8
-  br label %618
+  %622 = extractvalue { ptr, i32 } %621, 0
+  %623 = extractvalue { ptr, i32 } %621, 1
+  store ptr %622, ptr %5, align 8
+  %624 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %623, ptr %624, align 8
+  br label %619
 
-624:                                              ; preds = %617
+625:                                              ; preds = %618
   invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %217)
-          to label %625 unwind label %619
-
-625:                                              ; preds = %624
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %217, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
-          to label %626 unwind label %619
+          to label %626 unwind label %620
 
 626:                                              ; preds = %625
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %217)
-          to label %627 unwind label %619
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %217, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
+          to label %627 unwind label %620
 
 627:                                              ; preds = %626
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %217, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.49, i64 5)
-          to label %628 unwind label %619
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %217)
+          to label %628 unwind label %620
 
 628:                                              ; preds = %627
-  invoke void @_ZN5quote9__private9push_bang17heb884422a3cf9cdcE(ptr align 8 %217)
-          to label %629 unwind label %619
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %217, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.49, i64 5)
+          to label %629 unwind label %620
 
 629:                                              ; preds = %628
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %215)
-          to label %630 unwind label %619
+  invoke void @_ZN5quote9__private9push_bang17heb884422a3cf9cdcE(ptr align 8 %217)
+          to label %630 unwind label %620
 
 630:                                              ; preds = %629
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %215)
+          to label %631 unwind label %620
+
+631:                                              ; preds = %630
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %215, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %637 unwind label %632
+          to label %638 unwind label %633
 
-631:                                              ; preds = %632
+632:                                              ; preds = %633
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %215) #6
-          to label %618 unwind label %413
+          to label %619 unwind label %414
 
-632:                                              ; preds = %930, %926, %650, %644, %643, %642, %641, %640, %639, %638, %637, %630
-  %633 = landingpad { ptr, i32 }
+633:                                              ; preds = %931, %927, %651, %645, %644, %643, %642, %641, %640, %639, %638, %631
+  %634 = landingpad { ptr, i32 }
           cleanup
-  %634 = extractvalue { ptr, i32 } %633, 0
-  %635 = extractvalue { ptr, i32 } %633, 1
-  store ptr %634, ptr %5, align 8
-  %636 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %635, ptr %636, align 8
-  br label %631
+  %635 = extractvalue { ptr, i32 } %634, 0
+  %636 = extractvalue { ptr, i32 } %634, 1
+  store ptr %635, ptr %5, align 8
+  %637 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %636, ptr %637, align 8
+  br label %632
 
-637:                                              ; preds = %630
+638:                                              ; preds = %631
   invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %215)
-          to label %638 unwind label %632
-
-638:                                              ; preds = %637
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %215, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
-          to label %639 unwind label %632
+          to label %639 unwind label %633
 
 639:                                              ; preds = %638
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %215)
-          to label %640 unwind label %632
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %215, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
+          to label %640 unwind label %633
 
 640:                                              ; preds = %639
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %215, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.7, i64 5)
-          to label %641 unwind label %632
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %215)
+          to label %641 unwind label %633
 
 641:                                              ; preds = %640
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %215)
-          to label %642 unwind label %632
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %215, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.7, i64 5)
+          to label %642 unwind label %633
 
 642:                                              ; preds = %641
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %215, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.8, i64 5)
-          to label %643 unwind label %632
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %215)
+          to label %643 unwind label %633
 
 643:                                              ; preds = %642
-  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %215)
-          to label %644 unwind label %632
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %215, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.8, i64 5)
+          to label %644 unwind label %633
 
 644:                                              ; preds = %643
+  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %215)
+          to label %645 unwind label %633
+
+645:                                              ; preds = %644
   store i64 0, ptr %214, align 8
-  %645 = invoke { ptr, ptr } @"_ZN84_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$quote..__private..ext..RepAsIteratorExt$GT$15quote_into_iter17had2c697009fab6d3E"(ptr align 8 %221)
-          to label %646 unwind label %632
+  %646 = invoke { ptr, ptr } @"_ZN84_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$quote..__private..ext..RepAsIteratorExt$GT$15quote_into_iter17had2c697009fab6d3E"(ptr align 8 %221)
+          to label %647 unwind label %633
 
-646:                                              ; preds = %644
-  %647 = extractvalue { ptr, ptr } %645, 0
-  %648 = extractvalue { ptr, ptr } %645, 1
-  store ptr %647, ptr %213, align 8
-  %649 = getelementptr inbounds i8, ptr %213, i64 8
-  store ptr %648, ptr %649, align 8
-  br label %650
+647:                                              ; preds = %645
+  %648 = extractvalue { ptr, ptr } %646, 0
+  %649 = extractvalue { ptr, ptr } %646, 1
+  store ptr %648, ptr %213, align 8
+  %650 = getelementptr inbounds i8, ptr %213, i64 8
+  store ptr %649, ptr %650, align 8
+  br label %651
 
-650:                                              ; preds = %932, %646
-  %651 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h041b5f64ede552a9E"(ptr align 8 %213)
-          to label %652 unwind label %632
+651:                                              ; preds = %933, %647
+  %652 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h041b5f64ede552a9E"(ptr align 8 %213)
+          to label %653 unwind label %633
 
-652:                                              ; preds = %650
-  store ptr %651, ptr %211, align 8
-  %653 = load ptr, ptr %211, align 8, !noundef !3
-  %654 = ptrtoint ptr %653 to i64
-  %655 = icmp eq i64 %654, 0
-  %656 = select i1 %655, i64 0, i64 1
-  %657 = icmp eq i64 %656, 0
-  br i1 %657, label %658, label %659
+653:                                              ; preds = %651
+  store ptr %652, ptr %211, align 8
+  %654 = load ptr, ptr %211, align 8, !noundef !3
+  %655 = ptrtoint ptr %654 to i64
+  %656 = icmp eq i64 %655, 0
+  %657 = select i1 %656, i64 0, i64 1
+  %658 = icmp eq i64 %657, 0
+  br i1 %658, label %659, label %660
 
-658:                                              ; preds = %652
+659:                                              ; preds = %653
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %216, ptr align 8 %215, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %217, i8 0, ptr align 8 %216)
-          to label %663 unwind label %619
+          to label %664 unwind label %620
 
-659:                                              ; preds = %652
-  %660 = load ptr, ptr %211, align 8, !nonnull !3, !align !5, !noundef !3
-  store ptr %660, ptr %212, align 8
-  %661 = load i64, ptr %214, align 8, !noundef !3
-  %662 = icmp ugt i64 %661, 0
-  br i1 %662, label %930, label %926
+660:                                              ; preds = %653
+  %661 = load ptr, ptr %211, align 8, !nonnull !3, !align !5, !noundef !3
+  store ptr %661, ptr %212, align 8
+  %662 = load i64, ptr %214, align 8, !noundef !3
+  %663 = icmp ugt i64 %662, 0
+  br i1 %663, label %931, label %927
 
-663:                                              ; preds = %658
+664:                                              ; preds = %659
   invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %217)
-          to label %664 unwind label %619
-
-664:                                              ; preds = %663
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %218, ptr align 8 %217, i64 32, i1 false)
-  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %610, ptr align 8 %218)
-          to label %665 unwind label %612
+          to label %665 unwind label %620
 
 665:                                              ; preds = %664
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %218, ptr align 8 %217, i64 32, i1 false)
+  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %611, ptr align 8 %218)
+          to label %666 unwind label %613
+
+666:                                              ; preds = %665
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9ebc9b7807f19d85E"(ptr align 8 %221)
-          to label %585 unwind label %541
+          to label %586 unwind label %542
 
-666:                                              ; preds = %585
-  invoke void @_ZN15wiggle_generate5names4func17hc9d161a8c7ebf812E(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %209, ptr align 8 %305)
-          to label %673 unwind label %668
+667:                                              ; preds = %586
+  invoke void @_ZN15wiggle_generate5names4func17hc9d161a8c7ebf812E(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %209, ptr align 8 %306)
+          to label %674 unwind label %669
 
-667:                                              ; preds = %678, %668
+668:                                              ; preds = %679, %669
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %210) #6
-          to label %540 unwind label %413
+          to label %541 unwind label %414
 
-668:                                              ; preds = %884, %666
-  %669 = landingpad { ptr, i32 }
+669:                                              ; preds = %885, %667
+  %670 = landingpad { ptr, i32 }
           cleanup
-  %670 = extractvalue { ptr, i32 } %669, 0
-  %671 = extractvalue { ptr, i32 } %669, 1
-  store ptr %670, ptr %5, align 8
-  %672 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %671, ptr %672, align 8
-  br label %667
+  %671 = extractvalue { ptr, i32 } %670, 0
+  %672 = extractvalue { ptr, i32 } %670, 1
+  store ptr %671, ptr %5, align 8
+  %673 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %672, ptr %673, align 8
+  br label %668
 
-673:                                              ; preds = %666
-  %674 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 6
-  %675 = load ptr, ptr %674, align 8, !nonnull !3, !align !5, !noundef !3
-  %676 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 4
-  %677 = load ptr, ptr %676, align 8, !nonnull !3, !align !5, !noundef !3
-  invoke void @_ZN15wiggle_generate16codegen_settings15CodegenSettings9get_async17hcf1e16b36cb06e5eE(ptr sret({ i64, [3 x i64] }) align 8 %208, ptr align 8 %675, ptr align 8 %677, ptr align 8 %305)
-          to label %684 unwind label %679
+674:                                              ; preds = %667
+  %675 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 6
+  %676 = load ptr, ptr %675, align 8, !nonnull !3, !align !5, !noundef !3
+  %677 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 4
+  %678 = load ptr, ptr %677, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @_ZN15wiggle_generate16codegen_settings15CodegenSettings9get_async17hcf1e16b36cb06e5eE(ptr sret({ i64, [3 x i64] }) align 8 %208, ptr align 8 %676, ptr align 8 %678, ptr align 8 %306)
+          to label %685 unwind label %680
 
-678:                                              ; preds = %909, %889, %829, %777, %699, %686, %679
+679:                                              ; preds = %910, %890, %830, %778, %700, %687, %680
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %209) #6
-          to label %667 unwind label %413
+          to label %668 unwind label %414
 
-679:                                              ; preds = %915, %906, %885, %883, %877, %825, %817, %773, %743, %741, %695, %694, %693, %673
-  %680 = landingpad { ptr, i32 }
+680:                                              ; preds = %916, %907, %886, %884, %878, %826, %818, %774, %744, %742, %696, %695, %694, %674
+  %681 = landingpad { ptr, i32 }
           cleanup
-  %681 = extractvalue { ptr, i32 } %680, 0
-  %682 = extractvalue { ptr, i32 } %680, 1
-  store ptr %681, ptr %5, align 8
-  %683 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %682, ptr %683, align 8
-  br label %678
+  %682 = extractvalue { ptr, i32 } %681, 0
+  %683 = extractvalue { ptr, i32 } %681, 1
+  store ptr %682, ptr %5, align 8
+  %684 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %683, ptr %684, align 8
+  br label %679
 
-684:                                              ; preds = %673
-  %685 = invoke zeroext i1 @_ZN15wiggle_generate6config9Asyncness7is_sync17h73e4ab8c390d74b4E(ptr align 8 %208)
-          to label %692 unwind label %687
+685:                                              ; preds = %674
+  %686 = invoke zeroext i1 @_ZN15wiggle_generate6config9Asyncness7is_sync17h73e4ab8c390d74b4E(ptr align 8 %208)
+          to label %693 unwind label %688
 
-686:                                              ; preds = %687
+687:                                              ; preds = %688
   invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr align 8 %208) #6
-          to label %678 unwind label %413
+          to label %679 unwind label %414
 
-687:                                              ; preds = %684
-  %688 = landingpad { ptr, i32 }
+688:                                              ; preds = %685
+  %689 = landingpad { ptr, i32 }
           cleanup
-  %689 = extractvalue { ptr, i32 } %688, 0
-  %690 = extractvalue { ptr, i32 } %688, 1
-  store ptr %689, ptr %5, align 8
-  %691 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %690, ptr %691, align 8
-  br label %686
+  %690 = extractvalue { ptr, i32 } %689, 0
+  %691 = extractvalue { ptr, i32 } %689, 1
+  store ptr %690, ptr %5, align 8
+  %692 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %691, ptr %692, align 8
+  br label %687
 
-692:                                              ; preds = %684
-  br i1 %685, label %694, label %693
+693:                                              ; preds = %685
+  br i1 %686, label %695, label %694
 
-693:                                              ; preds = %692
+694:                                              ; preds = %693
   invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr align 8 %208)
-          to label %695 unwind label %679
-
-694:                                              ; preds = %692
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr align 8 %208)
-          to label %773 unwind label %679
+          to label %696 unwind label %680
 
 695:                                              ; preds = %693
-  %696 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
-  %697 = load ptr, ptr %696, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr align 8 %208)
+          to label %774 unwind label %680
+
+696:                                              ; preds = %694
+  %697 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
+  %698 = load ptr, ptr %697, align 8, !nonnull !3, !align !5, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %198)
-          to label %698 unwind label %679
+          to label %699 unwind label %680
 
-698:                                              ; preds = %695
+699:                                              ; preds = %696
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %198, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.2, i64 3)
-          to label %705 unwind label %700
+          to label %706 unwind label %701
 
-699:                                              ; preds = %712, %700
+700:                                              ; preds = %713, %701
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %198) #6
-          to label %678 unwind label %413
+          to label %679 unwind label %414
 
-700:                                              ; preds = %740, %739, %738, %733, %710, %709, %708, %707, %706, %705, %698
-  %701 = landingpad { ptr, i32 }
+701:                                              ; preds = %741, %740, %739, %734, %711, %710, %709, %708, %707, %706, %699
+  %702 = landingpad { ptr, i32 }
           cleanup
-  %702 = extractvalue { ptr, i32 } %701, 0
-  %703 = extractvalue { ptr, i32 } %701, 1
-  store ptr %702, ptr %5, align 8
-  %704 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %703, ptr %704, align 8
-  br label %699
+  %703 = extractvalue { ptr, i32 } %702, 0
+  %704 = extractvalue { ptr, i32 } %702, 1
+  store ptr %703, ptr %5, align 8
+  %705 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %704, ptr %705, align 8
+  br label %700
 
-705:                                              ; preds = %698
+706:                                              ; preds = %699
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %198, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.50, i64 3)
-          to label %706 unwind label %700
-
-706:                                              ; preds = %705
-  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %198)
-          to label %707 unwind label %700
+          to label %707 unwind label %701
 
 707:                                              ; preds = %706
-  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %210, ptr align 8 %198)
-          to label %708 unwind label %700
+  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %198)
+          to label %708 unwind label %701
 
 708:                                              ; preds = %707
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %198)
-          to label %709 unwind label %700
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %210, ptr align 8 %198)
+          to label %709 unwind label %701
 
 709:                                              ; preds = %708
-  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %209, ptr align 8 %198)
-          to label %710 unwind label %700
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %198)
+          to label %710 unwind label %701
 
 710:                                              ; preds = %709
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %196)
-          to label %711 unwind label %700
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %209, ptr align 8 %198)
+          to label %711 unwind label %701
 
 711:                                              ; preds = %710
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %196)
+          to label %712 unwind label %701
+
+712:                                              ; preds = %711
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %196, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.24, i64 3)
-          to label %718 unwind label %713
+          to label %719 unwind label %714
 
-712:                                              ; preds = %713
+713:                                              ; preds = %714
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %196) #6
-          to label %699 unwind label %413
+          to label %700 unwind label %414
 
-713:                                              ; preds = %770, %766, %725, %719, %718, %711
-  %714 = landingpad { ptr, i32 }
+714:                                              ; preds = %771, %767, %726, %720, %719, %712
+  %715 = landingpad { ptr, i32 }
           cleanup
-  %715 = extractvalue { ptr, i32 } %714, 0
-  %716 = extractvalue { ptr, i32 } %714, 1
-  store ptr %715, ptr %5, align 8
-  %717 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %716, ptr %717, align 8
-  br label %712
+  %716 = extractvalue { ptr, i32 } %715, 0
+  %717 = extractvalue { ptr, i32 } %715, 1
+  store ptr %716, ptr %5, align 8
+  %718 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %717, ptr %718, align 8
+  br label %713
 
-718:                                              ; preds = %711
+719:                                              ; preds = %712
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %196)
-          to label %719 unwind label %713
+          to label %720 unwind label %714
 
-719:                                              ; preds = %718
+720:                                              ; preds = %719
   store i64 0, ptr %195, align 8
-  %720 = invoke { ptr, ptr } @"_ZN84_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$quote..__private..ext..RepAsIteratorExt$GT$15quote_into_iter17had2c697009fab6d3E"(ptr align 8 %234)
-          to label %721 unwind label %713
+  %721 = invoke { ptr, ptr } @"_ZN84_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$quote..__private..ext..RepAsIteratorExt$GT$15quote_into_iter17had2c697009fab6d3E"(ptr align 8 %234)
+          to label %722 unwind label %714
 
-721:                                              ; preds = %719
-  %722 = extractvalue { ptr, ptr } %720, 0
-  %723 = extractvalue { ptr, ptr } %720, 1
-  store ptr %722, ptr %194, align 8
-  %724 = getelementptr inbounds i8, ptr %194, i64 8
-  store ptr %723, ptr %724, align 8
-  br label %725
+722:                                              ; preds = %720
+  %723 = extractvalue { ptr, ptr } %721, 0
+  %724 = extractvalue { ptr, ptr } %721, 1
+  store ptr %723, ptr %194, align 8
+  %725 = getelementptr inbounds i8, ptr %194, i64 8
+  store ptr %724, ptr %725, align 8
+  br label %726
 
-725:                                              ; preds = %772, %721
-  %726 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h041b5f64ede552a9E"(ptr align 8 %194)
-          to label %727 unwind label %713
+726:                                              ; preds = %773, %722
+  %727 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h041b5f64ede552a9E"(ptr align 8 %194)
+          to label %728 unwind label %714
 
-727:                                              ; preds = %725
-  store ptr %726, ptr %192, align 8
-  %728 = load ptr, ptr %192, align 8, !noundef !3
-  %729 = ptrtoint ptr %728 to i64
-  %730 = icmp eq i64 %729, 0
-  %731 = select i1 %730, i64 0, i64 1
-  %732 = icmp eq i64 %731, 0
-  br i1 %732, label %733, label %734
+728:                                              ; preds = %726
+  store ptr %727, ptr %192, align 8
+  %729 = load ptr, ptr %192, align 8, !noundef !3
+  %730 = ptrtoint ptr %729 to i64
+  %731 = icmp eq i64 %730, 0
+  %732 = select i1 %731, i64 0, i64 1
+  %733 = icmp eq i64 %732, 0
+  br i1 %733, label %734, label %735
 
-733:                                              ; preds = %727
+734:                                              ; preds = %728
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %197, ptr align 8 %196, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %198, i8 0, ptr align 8 %197)
-          to label %738 unwind label %700
+          to label %739 unwind label %701
 
-734:                                              ; preds = %727
-  %735 = load ptr, ptr %192, align 8, !nonnull !3, !align !5, !noundef !3
-  store ptr %735, ptr %193, align 8
-  %736 = load i64, ptr %195, align 8, !noundef !3
-  %737 = icmp ugt i64 %736, 0
-  br i1 %737, label %770, label %766
+735:                                              ; preds = %728
+  %736 = load ptr, ptr %192, align 8, !nonnull !3, !align !5, !noundef !3
+  store ptr %736, ptr %193, align 8
+  %737 = load i64, ptr %195, align 8, !noundef !3
+  %738 = icmp ugt i64 %737, 0
+  br i1 %738, label %771, label %767
 
-738:                                              ; preds = %733
+739:                                              ; preds = %734
   invoke void @_ZN5quote9__private8push_dot17h03cdb31c440a1f9fE(ptr align 8 %198)
-          to label %739 unwind label %700
-
-739:                                              ; preds = %738
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %198, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.51, i64 5)
-          to label %740 unwind label %700
+          to label %740 unwind label %701
 
 740:                                              ; preds = %739
-  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %198)
-          to label %741 unwind label %700
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %198, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.51, i64 5)
+          to label %741 unwind label %701
 
 741:                                              ; preds = %740
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %199, ptr align 8 %198, i64 32, i1 false)
-  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %697, ptr align 8 %199)
-          to label %742 unwind label %679
+  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %198)
+          to label %742 unwind label %701
 
 742:                                              ; preds = %741
-  br label %743
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %199, ptr align 8 %198, i64 32, i1 false)
+  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %698, ptr align 8 %199)
+          to label %743 unwind label %680
 
-743:                                              ; preds = %818, %742
-  %744 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 6
-  %745 = load ptr, ptr %744, align 8, !nonnull !3, !align !5, !noundef !3
-  %746 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [3 x i64] }, { ptr, [5 x i64] } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %745, i32 0, i32 2
-  %747 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 4
-  %748 = load ptr, ptr %747, align 8, !nonnull !3, !align !5, !noundef !3
-  %749 = getelementptr inbounds i8, ptr %748, i64 8
-  %750 = load ptr, ptr %749, align 8, !nonnull !3, !noundef !3
-  %751 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %748, i32 0, i32 1
-  %752 = load i64, ptr %751, align 8, !noundef !3
-  store ptr %750, ptr %19, align 8
-  %753 = getelementptr inbounds i8, ptr %19, i64 8
-  store i64 %752, ptr %753, align 8
-  %754 = load ptr, ptr %19, align 8, !noundef !3
-  %755 = getelementptr inbounds i8, ptr %19, i64 8
-  %756 = load i64, ptr %755, align 8, !noundef !3
-  store ptr %754, ptr %20, align 8
-  %757 = getelementptr inbounds i8, ptr %20, i64 8
-  store i64 %756, ptr %757, align 8
-  %758 = load ptr, ptr %20, align 8, !noundef !3
-  %759 = getelementptr inbounds i8, ptr %20, i64 8
-  %760 = load i64, ptr %759, align 8, !noundef !3
-  %761 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 5
-  %762 = load ptr, ptr %761, align 8, !nonnull !3, !align !7, !noundef !3
-  %763 = getelementptr inbounds i8, ptr %761, i64 8
-  %764 = load i64, ptr %763, align 8, !noundef !3
-  %765 = invoke zeroext i1 @_ZN15wiggle_generate6config11TracingConf11enabled_for17h13416e742c57b445E(ptr align 8 %746, ptr align 1 %758, i64 %760, ptr align 1 %762, i64 %764)
-          to label %819 unwind label %679
+743:                                              ; preds = %742
+  br label %744
 
-766:                                              ; preds = %771, %734
-  %767 = load i64, ptr %195, align 8, !noundef !3
-  %768 = add i64 %767, 1
-  store i64 %768, ptr %195, align 8
-  %769 = load ptr, ptr %193, align 8, !nonnull !3, !align !5, !noundef !3
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %769, ptr align 8 %196)
-          to label %772 unwind label %713
+744:                                              ; preds = %819, %743
+  %745 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 6
+  %746 = load ptr, ptr %745, align 8, !nonnull !3, !align !5, !noundef !3
+  %747 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [3 x i64] }, { ptr, [5 x i64] } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %746, i32 0, i32 2
+  %748 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 4
+  %749 = load ptr, ptr %748, align 8, !nonnull !3, !align !5, !noundef !3
+  %750 = getelementptr inbounds i8, ptr %749, i64 8
+  %751 = load ptr, ptr %750, align 8, !nonnull !3, !noundef !3
+  %752 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %749, i32 0, i32 1
+  %753 = load i64, ptr %752, align 8, !noundef !3
+  store ptr %751, ptr %19, align 8
+  %754 = getelementptr inbounds i8, ptr %19, i64 8
+  store i64 %753, ptr %754, align 8
+  %755 = load ptr, ptr %19, align 8, !noundef !3
+  %756 = getelementptr inbounds i8, ptr %19, i64 8
+  %757 = load i64, ptr %756, align 8, !noundef !3
+  store ptr %755, ptr %20, align 8
+  %758 = getelementptr inbounds i8, ptr %20, i64 8
+  store i64 %757, ptr %758, align 8
+  %759 = load ptr, ptr %20, align 8, !noundef !3
+  %760 = getelementptr inbounds i8, ptr %20, i64 8
+  %761 = load i64, ptr %760, align 8, !noundef !3
+  %762 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 5
+  %763 = load ptr, ptr %762, align 8, !nonnull !3, !align !7, !noundef !3
+  %764 = getelementptr inbounds i8, ptr %762, i64 8
+  %765 = load i64, ptr %764, align 8, !noundef !3
+  %766 = invoke zeroext i1 @_ZN15wiggle_generate6config11TracingConf11enabled_for17h13416e742c57b445E(ptr align 8 %747, ptr align 1 %759, i64 %761, ptr align 1 %763, i64 %765)
+          to label %820 unwind label %680
 
-770:                                              ; preds = %734
+767:                                              ; preds = %772, %735
+  %768 = load i64, ptr %195, align 8, !noundef !3
+  %769 = add i64 %768, 1
+  store i64 %769, ptr %195, align 8
+  %770 = load ptr, ptr %193, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %770, ptr align 8 %196)
+          to label %773 unwind label %714
+
+771:                                              ; preds = %735
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %196)
-          to label %771 unwind label %713
+          to label %772 unwind label %714
 
-771:                                              ; preds = %770
-  br label %766
+772:                                              ; preds = %771
+  br label %767
 
-772:                                              ; preds = %766
-  br label %725
+773:                                              ; preds = %767
+  br label %726
 
-773:                                              ; preds = %694
-  %774 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
-  %775 = load ptr, ptr %774, align 8, !nonnull !3, !align !5, !noundef !3
+774:                                              ; preds = %695
+  %775 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
+  %776 = load ptr, ptr %775, align 8, !nonnull !3, !align !5, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %206)
-          to label %776 unwind label %679
+          to label %777 unwind label %680
 
-776:                                              ; preds = %773
+777:                                              ; preds = %774
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %206, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.2, i64 3)
-          to label %783 unwind label %778
+          to label %784 unwind label %779
 
-777:                                              ; preds = %790, %778
+778:                                              ; preds = %791, %779
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %206) #6
-          to label %678 unwind label %413
+          to label %679 unwind label %414
 
-778:                                              ; preds = %816, %811, %788, %787, %786, %785, %784, %783, %776
-  %779 = landingpad { ptr, i32 }
+779:                                              ; preds = %817, %812, %789, %788, %787, %786, %785, %784, %777
+  %780 = landingpad { ptr, i32 }
           cleanup
-  %780 = extractvalue { ptr, i32 } %779, 0
-  %781 = extractvalue { ptr, i32 } %779, 1
-  store ptr %780, ptr %5, align 8
-  %782 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %781, ptr %782, align 8
-  br label %777
+  %781 = extractvalue { ptr, i32 } %780, 0
+  %782 = extractvalue { ptr, i32 } %780, 1
+  store ptr %781, ptr %5, align 8
+  %783 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %782, ptr %783, align 8
+  br label %778
 
-783:                                              ; preds = %776
+784:                                              ; preds = %777
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %206, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.50, i64 3)
-          to label %784 unwind label %778
-
-784:                                              ; preds = %783
-  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %206)
-          to label %785 unwind label %778
+          to label %785 unwind label %779
 
 785:                                              ; preds = %784
-  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %210, ptr align 8 %206)
-          to label %786 unwind label %778
+  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %206)
+          to label %786 unwind label %779
 
 786:                                              ; preds = %785
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %206)
-          to label %787 unwind label %778
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %210, ptr align 8 %206)
+          to label %787 unwind label %779
 
 787:                                              ; preds = %786
-  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %209, ptr align 8 %206)
-          to label %788 unwind label %778
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %206)
+          to label %788 unwind label %779
 
 788:                                              ; preds = %787
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %204)
-          to label %789 unwind label %778
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %209, ptr align 8 %206)
+          to label %789 unwind label %779
 
 789:                                              ; preds = %788
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %204)
+          to label %790 unwind label %779
+
+790:                                              ; preds = %789
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %204, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.24, i64 3)
-          to label %796 unwind label %791
+          to label %797 unwind label %792
 
-790:                                              ; preds = %791
+791:                                              ; preds = %792
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %204) #6
-          to label %777 unwind label %413
+          to label %778 unwind label %414
 
-791:                                              ; preds = %923, %919, %803, %797, %796, %789
-  %792 = landingpad { ptr, i32 }
+792:                                              ; preds = %924, %920, %804, %798, %797, %790
+  %793 = landingpad { ptr, i32 }
           cleanup
-  %793 = extractvalue { ptr, i32 } %792, 0
-  %794 = extractvalue { ptr, i32 } %792, 1
-  store ptr %793, ptr %5, align 8
-  %795 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %794, ptr %795, align 8
-  br label %790
+  %794 = extractvalue { ptr, i32 } %793, 0
+  %795 = extractvalue { ptr, i32 } %793, 1
+  store ptr %794, ptr %5, align 8
+  %796 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %795, ptr %796, align 8
+  br label %791
 
-796:                                              ; preds = %789
+797:                                              ; preds = %790
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %204)
-          to label %797 unwind label %791
+          to label %798 unwind label %792
 
-797:                                              ; preds = %796
+798:                                              ; preds = %797
   store i64 0, ptr %203, align 8
-  %798 = invoke { ptr, ptr } @"_ZN84_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$quote..__private..ext..RepAsIteratorExt$GT$15quote_into_iter17had2c697009fab6d3E"(ptr align 8 %234)
-          to label %799 unwind label %791
+  %799 = invoke { ptr, ptr } @"_ZN84_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$quote..__private..ext..RepAsIteratorExt$GT$15quote_into_iter17had2c697009fab6d3E"(ptr align 8 %234)
+          to label %800 unwind label %792
 
-799:                                              ; preds = %797
-  %800 = extractvalue { ptr, ptr } %798, 0
-  %801 = extractvalue { ptr, ptr } %798, 1
-  store ptr %800, ptr %202, align 8
-  %802 = getelementptr inbounds i8, ptr %202, i64 8
-  store ptr %801, ptr %802, align 8
-  br label %803
+800:                                              ; preds = %798
+  %801 = extractvalue { ptr, ptr } %799, 0
+  %802 = extractvalue { ptr, ptr } %799, 1
+  store ptr %801, ptr %202, align 8
+  %803 = getelementptr inbounds i8, ptr %202, i64 8
+  store ptr %802, ptr %803, align 8
+  br label %804
 
-803:                                              ; preds = %925, %799
-  %804 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h041b5f64ede552a9E"(ptr align 8 %202)
-          to label %805 unwind label %791
+804:                                              ; preds = %926, %800
+  %805 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h041b5f64ede552a9E"(ptr align 8 %202)
+          to label %806 unwind label %792
 
-805:                                              ; preds = %803
-  store ptr %804, ptr %200, align 8
-  %806 = load ptr, ptr %200, align 8, !noundef !3
-  %807 = ptrtoint ptr %806 to i64
-  %808 = icmp eq i64 %807, 0
-  %809 = select i1 %808, i64 0, i64 1
-  %810 = icmp eq i64 %809, 0
-  br i1 %810, label %811, label %812
+806:                                              ; preds = %804
+  store ptr %805, ptr %200, align 8
+  %807 = load ptr, ptr %200, align 8, !noundef !3
+  %808 = ptrtoint ptr %807 to i64
+  %809 = icmp eq i64 %808, 0
+  %810 = select i1 %809, i64 0, i64 1
+  %811 = icmp eq i64 %810, 0
+  br i1 %811, label %812, label %813
 
-811:                                              ; preds = %805
+812:                                              ; preds = %806
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %205, ptr align 8 %204, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %206, i8 0, ptr align 8 %205)
-          to label %816 unwind label %778
+          to label %817 unwind label %779
 
-812:                                              ; preds = %805
-  %813 = load ptr, ptr %200, align 8, !nonnull !3, !align !5, !noundef !3
-  store ptr %813, ptr %201, align 8
-  %814 = load i64, ptr %203, align 8, !noundef !3
-  %815 = icmp ugt i64 %814, 0
-  br i1 %815, label %923, label %919
+813:                                              ; preds = %806
+  %814 = load ptr, ptr %200, align 8, !nonnull !3, !align !5, !noundef !3
+  store ptr %814, ptr %201, align 8
+  %815 = load i64, ptr %203, align 8, !noundef !3
+  %816 = icmp ugt i64 %815, 0
+  br i1 %816, label %924, label %920
 
-816:                                              ; preds = %811
+817:                                              ; preds = %812
   invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %206)
-          to label %817 unwind label %778
-
-817:                                              ; preds = %816
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %207, ptr align 8 %206, i64 32, i1 false)
-  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %775, ptr align 8 %207)
-          to label %818 unwind label %679
+          to label %818 unwind label %779
 
 818:                                              ; preds = %817
-  br label %743
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %207, ptr align 8 %206, i64 32, i1 false)
+  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %776, ptr align 8 %207)
+          to label %819 unwind label %680
 
-819:                                              ; preds = %743
-  br i1 %765, label %825, label %820
+819:                                              ; preds = %818
+  br label %744
 
-820:                                              ; preds = %878, %819
-  %821 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i8, {}, [7 x i8] }, ptr %305, i32 0, i32 2
-  %822 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %821, i32 0, i32 1
-  %823 = load i64, ptr %822, align 8, !noundef !3
-  %824 = icmp ugt i64 %823, 0
-  br i1 %824, label %883, label %879
+820:                                              ; preds = %744
+  br i1 %766, label %826, label %821
 
-825:                                              ; preds = %819
-  %826 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
-  %827 = load ptr, ptr %826, align 8, !nonnull !3, !align !5, !noundef !3
+821:                                              ; preds = %879, %820
+  %822 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i8, {}, [7 x i8] }, ptr %306, i32 0, i32 2
+  %823 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %822, i32 0, i32 1
+  %824 = load i64, ptr %823, align 8, !noundef !3
+  %825 = icmp ugt i64 %824, 0
+  br i1 %825, label %884, label %880
+
+826:                                              ; preds = %820
+  %827 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
+  %828 = load ptr, ptr %827, align 8, !nonnull !3, !align !5, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %190)
-          to label %828 unwind label %679
+          to label %829 unwind label %680
 
-828:                                              ; preds = %825
+829:                                              ; preds = %826
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %190, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %835 unwind label %830
+          to label %836 unwind label %831
 
-829:                                              ; preds = %842, %830
+830:                                              ; preds = %843, %831
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %190) #6
-          to label %678 unwind label %413
+          to label %679 unwind label %414
 
-830:                                              ; preds = %876, %875, %840, %839, %838, %837, %836, %835, %828
-  %831 = landingpad { ptr, i32 }
+831:                                              ; preds = %877, %876, %841, %840, %839, %838, %837, %836, %829
+  %832 = landingpad { ptr, i32 }
           cleanup
-  %832 = extractvalue { ptr, i32 } %831, 0
-  %833 = extractvalue { ptr, i32 } %831, 1
-  store ptr %832, ptr %5, align 8
-  %834 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %833, ptr %834, align 8
-  br label %829
+  %833 = extractvalue { ptr, i32 } %832, 0
+  %834 = extractvalue { ptr, i32 } %832, 1
+  store ptr %833, ptr %5, align 8
+  %835 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %834, ptr %835, align 8
+  br label %830
 
-835:                                              ; preds = %828
+836:                                              ; preds = %829
   invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %190)
-          to label %836 unwind label %830
-
-836:                                              ; preds = %835
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %190, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
-          to label %837 unwind label %830
+          to label %837 unwind label %831
 
 837:                                              ; preds = %836
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %190)
-          to label %838 unwind label %830
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %190, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
+          to label %838 unwind label %831
 
 838:                                              ; preds = %837
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %190, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.49, i64 5)
-          to label %839 unwind label %830
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %190)
+          to label %839 unwind label %831
 
 839:                                              ; preds = %838
-  invoke void @_ZN5quote9__private9push_bang17heb884422a3cf9cdcE(ptr align 8 %190)
-          to label %840 unwind label %830
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %190, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.49, i64 5)
+          to label %840 unwind label %831
 
 840:                                              ; preds = %839
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %188)
-          to label %841 unwind label %830
+  invoke void @_ZN5quote9__private9push_bang17heb884422a3cf9cdcE(ptr align 8 %190)
+          to label %841 unwind label %831
 
 841:                                              ; preds = %840
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %188)
+          to label %842 unwind label %831
+
+842:                                              ; preds = %841
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %848 unwind label %843
+          to label %849 unwind label %844
 
-842:                                              ; preds = %866, %843
+843:                                              ; preds = %867, %844
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %188) #6
-          to label %829 unwind label %413
+          to label %830 unwind label %414
 
-843:                                              ; preds = %874, %873, %864, %863, %862, %861, %860, %859, %858, %857, %856, %855, %854, %853, %852, %851, %850, %849, %848, %841
-  %844 = landingpad { ptr, i32 }
+844:                                              ; preds = %875, %874, %865, %864, %863, %862, %861, %860, %859, %858, %857, %856, %855, %854, %853, %852, %851, %850, %849, %842
+  %845 = landingpad { ptr, i32 }
           cleanup
-  %845 = extractvalue { ptr, i32 } %844, 0
-  %846 = extractvalue { ptr, i32 } %844, 1
-  store ptr %845, ptr %5, align 8
-  %847 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %846, ptr %847, align 8
-  br label %842
+  %846 = extractvalue { ptr, i32 } %845, 0
+  %847 = extractvalue { ptr, i32 } %845, 1
+  store ptr %846, ptr %5, align 8
+  %848 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %847, ptr %848, align 8
+  br label %843
 
-848:                                              ; preds = %841
+849:                                              ; preds = %842
   invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %188)
-          to label %849 unwind label %843
-
-849:                                              ; preds = %848
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
-          to label %850 unwind label %843
+          to label %850 unwind label %844
 
 850:                                              ; preds = %849
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %188)
-          to label %851 unwind label %843
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
+          to label %851 unwind label %844
 
 851:                                              ; preds = %850
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.7, i64 5)
-          to label %852 unwind label %843
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %188)
+          to label %852 unwind label %844
 
 852:                                              ; preds = %851
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %188)
-          to label %853 unwind label %843
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.7, i64 5)
+          to label %853 unwind label %844
 
 853:                                              ; preds = %852
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.8, i64 5)
-          to label %854 unwind label %843
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %188)
+          to label %854 unwind label %844
 
 854:                                              ; preds = %853
-  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %188)
-          to label %855 unwind label %843
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.8, i64 5)
+          to label %855 unwind label %844
 
 855:                                              ; preds = %854
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.52, i64 6)
-          to label %856 unwind label %843
+  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %188)
+          to label %856 unwind label %844
 
 856:                                              ; preds = %855
-  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %188)
-          to label %857 unwind label %843
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.52, i64 6)
+          to label %857 unwind label %844
 
 857:                                              ; preds = %856
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %858 unwind label %843
+  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %188)
+          to label %858 unwind label %844
 
 858:                                              ; preds = %857
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %188)
-          to label %859 unwind label %843
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
+          to label %859 unwind label %844
 
 859:                                              ; preds = %858
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
-          to label %860 unwind label %843
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %188)
+          to label %860 unwind label %844
 
 860:                                              ; preds = %859
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %188)
-          to label %861 unwind label %843
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.5, i64 7)
+          to label %861 unwind label %844
 
 861:                                              ; preds = %860
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.53, i64 5)
-          to label %862 unwind label %843
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %188)
+          to label %862 unwind label %844
 
 862:                                              ; preds = %861
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %188)
-          to label %863 unwind label %843
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.53, i64 5)
+          to label %863 unwind label %844
 
 863:                                              ; preds = %862
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.54, i64 5)
-          to label %864 unwind label %843
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %188)
+          to label %864 unwind label %844
 
 864:                                              ; preds = %863
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %186)
-          to label %865 unwind label %843
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %188, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.54, i64 5)
+          to label %865 unwind label %844
 
 865:                                              ; preds = %864
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %186)
+          to label %866 unwind label %844
+
+866:                                              ; preds = %865
   invoke void @_ZN5quote9__private8push_and17h4ba1c3b1ad451414E(ptr align 8 %186)
-          to label %872 unwind label %867
+          to label %873 unwind label %868
 
-866:                                              ; preds = %867
+867:                                              ; preds = %868
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %186) #6
-          to label %842 unwind label %413
+          to label %843 unwind label %414
 
-867:                                              ; preds = %872, %865
-  %868 = landingpad { ptr, i32 }
+868:                                              ; preds = %873, %866
+  %869 = landingpad { ptr, i32 }
           cleanup
-  %869 = extractvalue { ptr, i32 } %868, 0
-  %870 = extractvalue { ptr, i32 } %868, 1
-  store ptr %869, ptr %5, align 8
-  %871 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %870, ptr %871, align 8
-  br label %866
+  %870 = extractvalue { ptr, i32 } %869, 0
+  %871 = extractvalue { ptr, i32 } %869, 1
+  store ptr %870, ptr %5, align 8
+  %872 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %871, ptr %872, align 8
+  br label %867
 
-872:                                              ; preds = %865
+873:                                              ; preds = %866
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %186, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.50, i64 3)
-          to label %873 unwind label %867
-
-873:                                              ; preds = %872
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %187, ptr align 8 %186, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %188, i8 0, ptr align 8 %187)
-          to label %874 unwind label %843
+          to label %874 unwind label %868
 
 874:                                              ; preds = %873
-  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %188)
-          to label %875 unwind label %843
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %187, ptr align 8 %186, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %188, i8 0, ptr align 8 %187)
+          to label %875 unwind label %844
 
 875:                                              ; preds = %874
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %189, ptr align 8 %188, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %190, i8 0, ptr align 8 %189)
-          to label %876 unwind label %830
+  invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %188)
+          to label %876 unwind label %844
 
 876:                                              ; preds = %875
-  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %190)
-          to label %877 unwind label %830
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %189, ptr align 8 %188, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %190, i8 0, ptr align 8 %189)
+          to label %877 unwind label %831
 
 877:                                              ; preds = %876
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %191, ptr align 8 %190, i64 32, i1 false)
-  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %827, ptr align 8 %191)
-          to label %878 unwind label %679
+  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %190)
+          to label %878 unwind label %831
 
 878:                                              ; preds = %877
-  br label %820
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %191, ptr align 8 %190, i64 32, i1 false)
+  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %828, ptr align 8 %191)
+          to label %879 unwind label %680
 
-879:                                              ; preds = %820
-  %880 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i8, {}, [7 x i8] }, ptr %305, i32 0, i32 4
-  %881 = load i8, ptr %880, align 8, !range !6, !noundef !3
-  %882 = trunc i8 %881 to i1
-  br i1 %882, label %885, label %884
+879:                                              ; preds = %878
+  br label %821
 
-883:                                              ; preds = %820
+880:                                              ; preds = %821
+  %881 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i8, {}, [7 x i8] }, ptr %306, i32 0, i32 4
+  %882 = load i8, ptr %881, align 8, !range !6, !noundef !3
+  %883 = trunc i8 %882 to i1
+  br i1 %883, label %886, label %885
+
+884:                                              ; preds = %821
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %184)
-          to label %908 unwind label %679
+          to label %909 unwind label %680
 
-884:                                              ; preds = %916, %907, %879
+885:                                              ; preds = %917, %908, %880
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %209)
-          to label %917 unwind label %668
+          to label %918 unwind label %669
 
-885:                                              ; preds = %879
-  %886 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
-  %887 = load ptr, ptr %886, align 8, !nonnull !3, !align !5, !noundef !3
+886:                                              ; preds = %880
+  %887 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
+  %888 = load ptr, ptr %887, align 8, !nonnull !3, !align !5, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %182)
-          to label %888 unwind label %679
+          to label %889 unwind label %680
 
-888:                                              ; preds = %885
+889:                                              ; preds = %886
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %182, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.55, i64 6)
-          to label %895 unwind label %890
+          to label %896 unwind label %891
 
-889:                                              ; preds = %898, %890
+890:                                              ; preds = %899, %891
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %182) #6
-          to label %678 unwind label %413
+          to label %679 unwind label %414
 
-890:                                              ; preds = %905, %904, %896, %895, %888
-  %891 = landingpad { ptr, i32 }
+891:                                              ; preds = %906, %905, %897, %896, %889
+  %892 = landingpad { ptr, i32 }
           cleanup
-  %892 = extractvalue { ptr, i32 } %891, 0
-  %893 = extractvalue { ptr, i32 } %891, 1
-  store ptr %892, ptr %5, align 8
-  %894 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %893, ptr %894, align 8
-  br label %889
+  %893 = extractvalue { ptr, i32 } %892, 0
+  %894 = extractvalue { ptr, i32 } %892, 1
+  store ptr %893, ptr %5, align 8
+  %895 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %894, ptr %895, align 8
+  br label %890
 
-895:                                              ; preds = %888
+896:                                              ; preds = %889
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %182, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.56, i64 3)
-          to label %896 unwind label %890
-
-896:                                              ; preds = %895
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %180)
-          to label %897 unwind label %890
+          to label %897 unwind label %891
 
 897:                                              ; preds = %896
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %180)
+          to label %898 unwind label %891
+
+898:                                              ; preds = %897
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %180, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.50, i64 3)
-          to label %904 unwind label %899
+          to label %905 unwind label %900
 
-898:                                              ; preds = %899
+899:                                              ; preds = %900
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %180) #6
-          to label %889 unwind label %413
+          to label %890 unwind label %414
 
-899:                                              ; preds = %897
-  %900 = landingpad { ptr, i32 }
+900:                                              ; preds = %898
+  %901 = landingpad { ptr, i32 }
           cleanup
-  %901 = extractvalue { ptr, i32 } %900, 0
-  %902 = extractvalue { ptr, i32 } %900, 1
-  store ptr %901, ptr %5, align 8
-  %903 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %902, ptr %903, align 8
-  br label %898
+  %902 = extractvalue { ptr, i32 } %901, 0
+  %903 = extractvalue { ptr, i32 } %901, 1
+  store ptr %902, ptr %5, align 8
+  %904 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %903, ptr %904, align 8
+  br label %899
 
-904:                                              ; preds = %897
+905:                                              ; preds = %898
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %181, ptr align 8 %180, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %182, i8 0, ptr align 8 %181)
-          to label %905 unwind label %890
-
-905:                                              ; preds = %904
-  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %182)
-          to label %906 unwind label %890
+          to label %906 unwind label %891
 
 906:                                              ; preds = %905
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %183, ptr align 8 %182, i64 32, i1 false)
-  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %887, ptr align 8 %183)
-          to label %907 unwind label %679
+  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %182)
+          to label %907 unwind label %891
 
 907:                                              ; preds = %906
-  br label %884
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %183, ptr align 8 %182, i64 32, i1 false)
+  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %888, ptr align 8 %183)
+          to label %908 unwind label %680
 
-908:                                              ; preds = %883
+908:                                              ; preds = %907
+  br label %885
+
+909:                                              ; preds = %884
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %184, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.50, i64 3)
-          to label %915 unwind label %910
+          to label %916 unwind label %911
 
-909:                                              ; preds = %910
+910:                                              ; preds = %911
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %184) #6
-          to label %678 unwind label %413
+          to label %679 unwind label %414
 
-910:                                              ; preds = %908
-  %911 = landingpad { ptr, i32 }
+911:                                              ; preds = %909
+  %912 = landingpad { ptr, i32 }
           cleanup
-  %912 = extractvalue { ptr, i32 } %911, 0
-  %913 = extractvalue { ptr, i32 } %911, 1
-  store ptr %912, ptr %5, align 8
-  %914 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %913, ptr %914, align 8
-  br label %909
+  %913 = extractvalue { ptr, i32 } %912, 0
+  %914 = extractvalue { ptr, i32 } %912, 1
+  store ptr %913, ptr %5, align 8
+  %915 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %914, ptr %915, align 8
+  br label %910
 
-915:                                              ; preds = %908
+916:                                              ; preds = %909
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %185, ptr align 8 %184, i64 32, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %185)
-          to label %916 unwind label %679
+          to label %917 unwind label %680
 
-916:                                              ; preds = %915
-  br label %884
+917:                                              ; preds = %916
+  br label %885
 
-917:                                              ; preds = %884
+918:                                              ; preds = %885
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %210)
-          to label %918 unwind label %541
+          to label %919 unwind label %542
 
-918:                                              ; preds = %917
+919:                                              ; preds = %918
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9ebc9b7807f19d85E"(ptr align 8 %234)
-  br label %412
+  br label %413
 
-919:                                              ; preds = %924, %812
-  %920 = load i64, ptr %203, align 8, !noundef !3
-  %921 = add i64 %920, 1
-  store i64 %921, ptr %203, align 8
-  %922 = load ptr, ptr %201, align 8, !nonnull !3, !align !5, !noundef !3
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %922, ptr align 8 %204)
-          to label %925 unwind label %791
+920:                                              ; preds = %925, %813
+  %921 = load i64, ptr %203, align 8, !noundef !3
+  %922 = add i64 %921, 1
+  store i64 %922, ptr %203, align 8
+  %923 = load ptr, ptr %201, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %923, ptr align 8 %204)
+          to label %926 unwind label %792
 
-923:                                              ; preds = %812
+924:                                              ; preds = %813
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %204)
-          to label %924 unwind label %791
+          to label %925 unwind label %792
 
-924:                                              ; preds = %923
-  br label %919
+925:                                              ; preds = %924
+  br label %920
 
-925:                                              ; preds = %919
-  br label %803
+926:                                              ; preds = %920
+  br label %804
 
-926:                                              ; preds = %931, %659
-  %927 = load i64, ptr %214, align 8, !noundef !3
-  %928 = add i64 %927, 1
-  store i64 %928, ptr %214, align 8
-  %929 = load ptr, ptr %212, align 8, !nonnull !3, !align !5, !noundef !3
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %929, ptr align 8 %215)
-          to label %932 unwind label %632
+927:                                              ; preds = %932, %660
+  %928 = load i64, ptr %214, align 8, !noundef !3
+  %929 = add i64 %928, 1
+  store i64 %929, ptr %214, align 8
+  %930 = load ptr, ptr %212, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %930, ptr align 8 %215)
+          to label %933 unwind label %633
 
-930:                                              ; preds = %659
+931:                                              ; preds = %660
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %215)
-          to label %931 unwind label %632
+          to label %932 unwind label %633
 
-931:                                              ; preds = %930
-  br label %926
+932:                                              ; preds = %931
+  br label %927
 
-932:                                              ; preds = %926
-  br label %650
+933:                                              ; preds = %927
+  br label %651
 
-933:                                              ; preds = %579
-  %934 = getelementptr inbounds i8, ptr %2, i64 8
-  %935 = load ptr, ptr %934, align 8, !nonnull !3, !noundef !3
-  %936 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %2, i32 0, i32 1
-  %937 = load i64, ptr %936, align 8, !noundef !3
-  store ptr %935, ptr %24, align 8
-  %938 = getelementptr inbounds i8, ptr %24, i64 8
-  store i64 %937, ptr %938, align 8
-  %939 = load ptr, ptr %24, align 8, !noundef !3
-  %940 = getelementptr inbounds i8, ptr %24, i64 8
-  %941 = load i64, ptr %940, align 8, !noundef !3
-  store ptr %939, ptr %25, align 8
-  %942 = getelementptr inbounds i8, ptr %25, i64 8
-  store i64 %941, ptr %942, align 8
-  %943 = load ptr, ptr %25, align 8, !noundef !3
-  %944 = getelementptr inbounds i8, ptr %25, i64 8
-  %945 = load i64, ptr %944, align 8, !noundef !3
-  %946 = icmp ult i64 %580, %945
-  %947 = call i1 @llvm.expect.i1(i1 %946, i1 true)
-  br i1 %947, label %948, label %952
+934:                                              ; preds = %580
+  %935 = getelementptr inbounds i8, ptr %2, i64 8
+  %936 = load ptr, ptr %935, align 8, !nonnull !3, !noundef !3
+  %937 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %2, i32 0, i32 1
+  %938 = load i64, ptr %937, align 8, !noundef !3
+  store ptr %936, ptr %24, align 8
+  %939 = getelementptr inbounds i8, ptr %24, i64 8
+  store i64 %938, ptr %939, align 8
+  %940 = load ptr, ptr %24, align 8, !noundef !3
+  %941 = getelementptr inbounds i8, ptr %24, i64 8
+  %942 = load i64, ptr %941, align 8, !noundef !3
+  store ptr %940, ptr %25, align 8
+  %943 = getelementptr inbounds i8, ptr %25, i64 8
+  store i64 %942, ptr %943, align 8
+  %944 = load ptr, ptr %25, align 8, !noundef !3
+  %945 = getelementptr inbounds i8, ptr %25, i64 8
+  %946 = load i64, ptr %945, align 8, !noundef !3
+  %947 = icmp ult i64 %581, %946
+  %948 = call i1 @llvm.expect.i1(i1 %947, i1 true)
+  br i1 %948, label %949, label %953
 
-948:                                              ; preds = %933
-  %949 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %943, i64 0, i64 %580
-  store ptr %949, ptr %228, align 8
-  %950 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
-  %951 = load ptr, ptr %950, align 8, !nonnull !3, !align !5, !noundef !3
+949:                                              ; preds = %934
+  %950 = getelementptr inbounds [0 x { { i64, [3 x i64] }, {} }], ptr %944, i64 0, i64 %581
+  store ptr %950, ptr %228, align 8
+  %951 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
+  %952 = load ptr, ptr %951, align 8, !nonnull !3, !align !5, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %226)
-          to label %960 unwind label %954
+          to label %961 unwind label %955
 
-952:                                              ; preds = %933
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %580, i64 %945, ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.57) #7
-          to label %959 unwind label %954
+953:                                              ; preds = %934
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %581, i64 %946, ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.57) #7
+          to label %960 unwind label %955
 
-953:                                              ; preds = %993, %983, %961, %954
+954:                                              ; preds = %994, %984, %962, %955
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %229) #6
-          to label %540 unwind label %413
+          to label %541 unwind label %414
 
-954:                                              ; preds = %1000, %989, %981, %980, %975, %973, %972, %952, %948
-  %955 = landingpad { ptr, i32 }
+955:                                              ; preds = %1001, %990, %982, %981, %976, %974, %973, %953, %949
+  %956 = landingpad { ptr, i32 }
           cleanup
-  %956 = extractvalue { ptr, i32 } %955, 0
-  %957 = extractvalue { ptr, i32 } %955, 1
-  store ptr %956, ptr %5, align 8
-  %958 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %957, ptr %958, align 8
-  br label %953
+  %957 = extractvalue { ptr, i32 } %956, 0
+  %958 = extractvalue { ptr, i32 } %956, 1
+  store ptr %957, ptr %5, align 8
+  %959 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %958, ptr %959, align 8
+  br label %954
 
-959:                                              ; preds = %1716, %1472, %1463, %1450, %1306, %952
+960:                                              ; preds = %1719, %1473, %1464, %1451, %1307, %953
   unreachable
 
-960:                                              ; preds = %948
+961:                                              ; preds = %949
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %226, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.2, i64 3)
-          to label %967 unwind label %962
+          to label %968 unwind label %963
 
-961:                                              ; preds = %962
+962:                                              ; preds = %963
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %226) #6
-          to label %953 unwind label %413
+          to label %954 unwind label %414
 
-962:                                              ; preds = %971, %969, %968, %967, %960
-  %963 = landingpad { ptr, i32 }
+963:                                              ; preds = %972, %970, %969, %968, %961
+  %964 = landingpad { ptr, i32 }
           cleanup
-  %964 = extractvalue { ptr, i32 } %963, 0
-  %965 = extractvalue { ptr, i32 } %963, 1
-  store ptr %964, ptr %5, align 8
-  %966 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %965, ptr %966, align 8
-  br label %961
+  %965 = extractvalue { ptr, i32 } %964, 0
+  %966 = extractvalue { ptr, i32 } %964, 1
+  store ptr %965, ptr %5, align 8
+  %967 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %966, ptr %967, align 8
+  br label %962
 
-967:                                              ; preds = %960
+968:                                              ; preds = %961
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %229, ptr align 8 %226)
-          to label %968 unwind label %962
-
-968:                                              ; preds = %967
-  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %226)
-          to label %969 unwind label %962
+          to label %969 unwind label %963
 
 969:                                              ; preds = %968
-  %970 = load ptr, ptr %228, align 8, !nonnull !3, !align !5, !noundef !3
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %970, ptr align 8 %226)
-          to label %971 unwind label %962
+  invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %226)
+          to label %970 unwind label %963
 
-971:                                              ; preds = %969
+970:                                              ; preds = %969
+  %971 = load ptr, ptr %228, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %971, ptr align 8 %226)
+          to label %972 unwind label %963
+
+972:                                              ; preds = %970
   invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %226)
-          to label %972 unwind label %962
-
-972:                                              ; preds = %971
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %227, ptr align 8 %226, i64 32, i1 false)
-  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %951, ptr align 8 %227)
-          to label %973 unwind label %954
+          to label %973 unwind label %963
 
 973:                                              ; preds = %972
-  %974 = invoke align 8 ptr @_ZN4witx3ast7TypeRef5type_17ha6e3e5e2225256ffE(ptr align 8 %582)
-          to label %975 unwind label %954
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %227, ptr align 8 %226, i64 32, i1 false)
+  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %952, ptr align 8 %227)
+          to label %974 unwind label %955
 
-975:                                              ; preds = %973
-  %976 = load ptr, ptr %974, align 8, !nonnull !3, !noundef !3
-  %977 = getelementptr inbounds { i64, i64, { i8, [39 x i8] } }, ptr %976, i32 0, i32 2
-  %978 = invoke zeroext i1 @_ZN15wiggle_generate12module_trait19passed_by_reference17h3ef70ef85f9a4b1fE(ptr align 8 %977)
-          to label %979 unwind label %954
+974:                                              ; preds = %973
+  %975 = invoke align 8 ptr @_ZN4witx3ast7TypeRef5type_17ha6e3e5e2225256ffE(ptr align 8 %583)
+          to label %976 unwind label %955
 
-979:                                              ; preds = %975
-  br i1 %978, label %981, label %980
+976:                                              ; preds = %974
+  %977 = load ptr, ptr %975, align 8, !nonnull !3, !noundef !3
+  %978 = getelementptr inbounds { i64, i64, { i8, [39 x i8] } }, ptr %977, i32 0, i32 2
+  %979 = invoke zeroext i1 @_ZN15wiggle_generate12module_trait19passed_by_reference17h3ef70ef85f9a4b1fE(ptr align 8 %978)
+          to label %980 unwind label %955
 
-980:                                              ; preds = %979
+980:                                              ; preds = %976
+  br i1 %979, label %982, label %981
+
+981:                                              ; preds = %980
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %222)
-          to label %982 unwind label %954
-
-981:                                              ; preds = %979
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %224)
-          to label %992 unwind label %954
+          to label %983 unwind label %955
 
 982:                                              ; preds = %980
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %224)
+          to label %993 unwind label %955
+
+983:                                              ; preds = %981
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %229, ptr align 8 %222)
-          to label %989 unwind label %984
+          to label %990 unwind label %985
 
-983:                                              ; preds = %984
+984:                                              ; preds = %985
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %222) #6
-          to label %953 unwind label %413
+          to label %954 unwind label %414
 
-984:                                              ; preds = %982
-  %985 = landingpad { ptr, i32 }
+985:                                              ; preds = %983
+  %986 = landingpad { ptr, i32 }
           cleanup
-  %986 = extractvalue { ptr, i32 } %985, 0
-  %987 = extractvalue { ptr, i32 } %985, 1
-  store ptr %986, ptr %5, align 8
-  %988 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %987, ptr %988, align 8
-  br label %983
+  %987 = extractvalue { ptr, i32 } %986, 0
+  %988 = extractvalue { ptr, i32 } %986, 1
+  store ptr %987, ptr %5, align 8
+  %989 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %988, ptr %989, align 8
+  br label %984
 
-989:                                              ; preds = %982
+990:                                              ; preds = %983
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %223, ptr align 8 %222, i64 32, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %234, ptr align 8 %223)
-          to label %990 unwind label %954
+          to label %991 unwind label %955
 
-990:                                              ; preds = %989
-  br label %991
+991:                                              ; preds = %990
+  br label %992
 
-991:                                              ; preds = %1001, %990
+992:                                              ; preds = %1002, %991
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %229)
-          to label %538 unwind label %541
+          to label %539 unwind label %542
 
-992:                                              ; preds = %981
+993:                                              ; preds = %982
   invoke void @_ZN5quote9__private8push_and17h4ba1c3b1ad451414E(ptr align 8 %224)
-          to label %999 unwind label %994
+          to label %1000 unwind label %995
 
-993:                                              ; preds = %994
+994:                                              ; preds = %995
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %224) #6
-          to label %953 unwind label %413
+          to label %954 unwind label %414
 
-994:                                              ; preds = %999, %992
-  %995 = landingpad { ptr, i32 }
+995:                                              ; preds = %1000, %993
+  %996 = landingpad { ptr, i32 }
           cleanup
-  %996 = extractvalue { ptr, i32 } %995, 0
-  %997 = extractvalue { ptr, i32 } %995, 1
-  store ptr %996, ptr %5, align 8
-  %998 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %997, ptr %998, align 8
-  br label %993
+  %997 = extractvalue { ptr, i32 } %996, 0
+  %998 = extractvalue { ptr, i32 } %996, 1
+  store ptr %997, ptr %5, align 8
+  %999 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %998, ptr %999, align 8
+  br label %994
 
-999:                                              ; preds = %992
+1000:                                             ; preds = %993
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %229, ptr align 8 %224)
-          to label %1000 unwind label %994
-
-1000:                                             ; preds = %999
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %225, ptr align 8 %224, i64 32, i1 false)
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %234, ptr align 8 %225)
-          to label %1001 unwind label %954
+          to label %1001 unwind label %995
 
 1001:                                             ; preds = %1000
-  br label %991
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %225, ptr align 8 %224, i64 32, i1 false)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %234, ptr align 8 %225)
+          to label %1002 unwind label %955
 
-1002:                                             ; preds = %1003
+1002:                                             ; preds = %1001
+  br label %992
+
+1003:                                             ; preds = %1004
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %63) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1003:                                             ; preds = %328
-  %1004 = landingpad { ptr, i32 }
+1004:                                             ; preds = %329
+  %1005 = landingpad { ptr, i32 }
           cleanup
-  %1005 = extractvalue { ptr, i32 } %1004, 0
-  %1006 = extractvalue { ptr, i32 } %1004, 1
-  store ptr %1005, ptr %5, align 8
-  %1007 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1006, ptr %1007, align 8
-  br label %1002
+  %1006 = extractvalue { ptr, i32 } %1005, 0
+  %1007 = extractvalue { ptr, i32 } %1005, 1
+  store ptr %1006, ptr %5, align 8
+  %1008 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1007, ptr %1008, align 8
+  br label %1003
 
-1008:                                             ; preds = %328
+1009:                                             ; preds = %329
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %64, ptr align 8 %63, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %65, ptr align 8 %64, i64 32, i1 false)
   call void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$4emit28_$u7b$$u7b$closure$u7d$$u7d$17ha1f2821629e25593E"(ptr align 8 %262, ptr align 8 %65)
-  br label %412
+  br label %413
 
-1009:                                             ; preds = %1010
+1010:                                             ; preds = %1011
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %66) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1010:                                             ; preds = %329
-  %1011 = landingpad { ptr, i32 }
+1011:                                             ; preds = %330
+  %1012 = landingpad { ptr, i32 }
           cleanup
-  %1012 = extractvalue { ptr, i32 } %1011, 0
-  %1013 = extractvalue { ptr, i32 } %1011, 1
-  store ptr %1012, ptr %5, align 8
-  %1014 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1013, ptr %1014, align 8
-  br label %1009
+  %1013 = extractvalue { ptr, i32 } %1012, 0
+  %1014 = extractvalue { ptr, i32 } %1012, 1
+  store ptr %1013, ptr %5, align 8
+  %1015 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1014, ptr %1015, align 8
+  br label %1010
 
-1015:                                             ; preds = %329
+1016:                                             ; preds = %330
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %67, ptr align 8 %66, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %68, ptr align 8 %67, i64 32, i1 false)
   call void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$4emit28_$u7b$$u7b$closure$u7d$$u7d$17ha1f2821629e25593E"(ptr align 8 %262, ptr align 8 %68)
-  br label %412
+  br label %413
 
-1016:                                             ; preds = %1017
+1017:                                             ; preds = %1018
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %54) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1017:                                             ; preds = %330
-  %1018 = landingpad { ptr, i32 }
+1018:                                             ; preds = %331
+  %1019 = landingpad { ptr, i32 }
           cleanup
-  %1019 = extractvalue { ptr, i32 } %1018, 0
-  %1020 = extractvalue { ptr, i32 } %1018, 1
-  store ptr %1019, ptr %5, align 8
-  %1021 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1020, ptr %1021, align 8
-  br label %1016
+  %1020 = extractvalue { ptr, i32 } %1019, 0
+  %1021 = extractvalue { ptr, i32 } %1019, 1
+  store ptr %1020, ptr %5, align 8
+  %1022 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1021, ptr %1022, align 8
+  br label %1017
 
-1022:                                             ; preds = %330
+1023:                                             ; preds = %331
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %55, ptr align 8 %54, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %56, ptr align 8 %55, i64 32, i1 false)
   call void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$4emit28_$u7b$$u7b$closure$u7d$$u7d$17ha1f2821629e25593E"(ptr align 8 %262, ptr align 8 %56)
-  br label %412
+  br label %413
 
-1023:                                             ; preds = %1024
+1024:                                             ; preds = %1025
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %57) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1024:                                             ; preds = %331
-  %1025 = landingpad { ptr, i32 }
+1025:                                             ; preds = %332
+  %1026 = landingpad { ptr, i32 }
           cleanup
-  %1026 = extractvalue { ptr, i32 } %1025, 0
-  %1027 = extractvalue { ptr, i32 } %1025, 1
-  store ptr %1026, ptr %5, align 8
-  %1028 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1027, ptr %1028, align 8
-  br label %1023
+  %1027 = extractvalue { ptr, i32 } %1026, 0
+  %1028 = extractvalue { ptr, i32 } %1026, 1
+  store ptr %1027, ptr %5, align 8
+  %1029 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1028, ptr %1029, align 8
+  br label %1024
 
-1029:                                             ; preds = %331
+1030:                                             ; preds = %332
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %58, ptr align 8 %57, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %59, ptr align 8 %58, i64 32, i1 false)
   call void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$4emit28_$u7b$$u7b$closure$u7d$$u7d$17ha1f2821629e25593E"(ptr align 8 %262, ptr align 8 %59)
-  br label %412
+  br label %413
 
-1030:                                             ; preds = %342
+1031:                                             ; preds = %343
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.62) #7
   unreachable
 
-1031:                                             ; preds = %342
+1032:                                             ; preds = %343
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr align 8 %48, i64 32, i1 false)
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %46)
-          to label %1038 unwind label %1033
+          to label %1039 unwind label %1034
 
-1032:                                             ; preds = %1039, %1033
+1033:                                             ; preds = %1040, %1034
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %49) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1033:                                             ; preds = %1047, %1031
-  %1034 = landingpad { ptr, i32 }
+1034:                                             ; preds = %1048, %1032
+  %1035 = landingpad { ptr, i32 }
           cleanup
-  %1035 = extractvalue { ptr, i32 } %1034, 0
-  %1036 = extractvalue { ptr, i32 } %1034, 1
-  store ptr %1035, ptr %5, align 8
-  %1037 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1036, ptr %1037, align 8
-  br label %1032
+  %1036 = extractvalue { ptr, i32 } %1035, 0
+  %1037 = extractvalue { ptr, i32 } %1035, 1
+  store ptr %1036, ptr %5, align 8
+  %1038 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1037, ptr %1038, align 8
+  br label %1033
 
-1038:                                             ; preds = %1031
+1039:                                             ; preds = %1032
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %49, ptr align 8 %46)
-          to label %1045 unwind label %1040
+          to label %1046 unwind label %1041
 
-1039:                                             ; preds = %1040
+1040:                                             ; preds = %1041
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %46) #6
-          to label %1032 unwind label %413
+          to label %1033 unwind label %414
 
-1040:                                             ; preds = %1046, %1045, %1038
-  %1041 = landingpad { ptr, i32 }
+1041:                                             ; preds = %1047, %1046, %1039
+  %1042 = landingpad { ptr, i32 }
           cleanup
-  %1042 = extractvalue { ptr, i32 } %1041, 0
-  %1043 = extractvalue { ptr, i32 } %1041, 1
-  store ptr %1042, ptr %5, align 8
-  %1044 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1043, ptr %1044, align 8
-  br label %1039
+  %1043 = extractvalue { ptr, i32 } %1042, 0
+  %1044 = extractvalue { ptr, i32 } %1042, 1
+  store ptr %1043, ptr %5, align 8
+  %1045 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1044, ptr %1045, align 8
+  br label %1040
 
-1045:                                             ; preds = %1038
+1046:                                             ; preds = %1039
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %46, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
-          to label %1046 unwind label %1040
-
-1046:                                             ; preds = %1045
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %46, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.63, i64 3)
-          to label %1047 unwind label %1040
+          to label %1047 unwind label %1041
 
 1047:                                             ; preds = %1046
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr align 8 %46, i64 32, i1 false)
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %47)
-          to label %1048 unwind label %1033
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %46, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.63, i64 3)
+          to label %1048 unwind label %1041
 
 1048:                                             ; preds = %1047
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr align 8 %46, i64 32, i1 false)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %47)
+          to label %1049 unwind label %1034
+
+1049:                                             ; preds = %1048
   call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %49)
-  br label %412
+  br label %413
 
-1049:                                             ; preds = %1050
+1050:                                             ; preds = %1051
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %60) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1050:                                             ; preds = %347
-  %1051 = landingpad { ptr, i32 }
+1051:                                             ; preds = %348
+  %1052 = landingpad { ptr, i32 }
           cleanup
-  %1052 = extractvalue { ptr, i32 } %1051, 0
-  %1053 = extractvalue { ptr, i32 } %1051, 1
-  store ptr %1052, ptr %5, align 8
-  %1054 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1053, ptr %1054, align 8
-  br label %1049
+  %1053 = extractvalue { ptr, i32 } %1052, 0
+  %1054 = extractvalue { ptr, i32 } %1052, 1
+  store ptr %1053, ptr %5, align 8
+  %1055 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1054, ptr %1055, align 8
+  br label %1050
 
-1055:                                             ; preds = %347
+1056:                                             ; preds = %348
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %61, ptr align 8 %60, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %62, ptr align 8 %61, i64 32, i1 false)
   call void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$4emit28_$u7b$$u7b$closure$u7d$$u7d$17ha1f2821629e25593E"(ptr align 8 %262, ptr align 8 %62)
-  br label %412
+  br label %413
 
-1056:                                             ; preds = %337
+1057:                                             ; preds = %338
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.64) #7
   unreachable
 
-1057:                                             ; preds = %337
+1058:                                             ; preds = %338
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr align 8 %52, i64 32, i1 false)
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %50)
-          to label %1064 unwind label %1059
+          to label %1065 unwind label %1060
 
-1058:                                             ; preds = %1065, %1059
+1059:                                             ; preds = %1066, %1060
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %53) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1059:                                             ; preds = %1073, %1057
-  %1060 = landingpad { ptr, i32 }
+1060:                                             ; preds = %1074, %1058
+  %1061 = landingpad { ptr, i32 }
           cleanup
-  %1061 = extractvalue { ptr, i32 } %1060, 0
-  %1062 = extractvalue { ptr, i32 } %1060, 1
-  store ptr %1061, ptr %5, align 8
-  %1063 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1062, ptr %1063, align 8
-  br label %1058
+  %1062 = extractvalue { ptr, i32 } %1061, 0
+  %1063 = extractvalue { ptr, i32 } %1061, 1
+  store ptr %1062, ptr %5, align 8
+  %1064 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1063, ptr %1064, align 8
+  br label %1059
 
-1064:                                             ; preds = %1057
+1065:                                             ; preds = %1058
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %53, ptr align 8 %50)
-          to label %1071 unwind label %1066
+          to label %1072 unwind label %1067
 
-1065:                                             ; preds = %1066
+1066:                                             ; preds = %1067
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %50) #6
-          to label %1058 unwind label %413
+          to label %1059 unwind label %414
 
-1066:                                             ; preds = %1072, %1071, %1064
-  %1067 = landingpad { ptr, i32 }
+1067:                                             ; preds = %1073, %1072, %1065
+  %1068 = landingpad { ptr, i32 }
           cleanup
-  %1068 = extractvalue { ptr, i32 } %1067, 0
-  %1069 = extractvalue { ptr, i32 } %1067, 1
-  store ptr %1068, ptr %5, align 8
-  %1070 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1069, ptr %1070, align 8
-  br label %1065
+  %1069 = extractvalue { ptr, i32 } %1068, 0
+  %1070 = extractvalue { ptr, i32 } %1068, 1
+  store ptr %1069, ptr %5, align 8
+  %1071 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1070, ptr %1071, align 8
+  br label %1066
 
-1071:                                             ; preds = %1064
+1072:                                             ; preds = %1065
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %50, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
-          to label %1072 unwind label %1066
-
-1072:                                             ; preds = %1071
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %50, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.48, i64 3)
-          to label %1073 unwind label %1066
+          to label %1073 unwind label %1067
 
 1073:                                             ; preds = %1072
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %51, ptr align 8 %50, i64 32, i1 false)
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %51)
-          to label %1074 unwind label %1059
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %50, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.48, i64 3)
+          to label %1074 unwind label %1067
 
 1074:                                             ; preds = %1073
-  call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %53)
-  br label %412
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %51, ptr align 8 %50, i64 32, i1 false)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %51)
+          to label %1075 unwind label %1060
 
-1075:                                             ; preds = %332
+1075:                                             ; preds = %1074
+  call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %53)
+  br label %413
+
+1076:                                             ; preds = %333
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.65) #7
   unreachable
 
-1076:                                             ; preds = %332
+1077:                                             ; preds = %333
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %39, i64 32, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %40)
-  br label %412
+  br label %413
 
-1077:                                             ; preds = %348
+1078:                                             ; preds = %349
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.66) #7
   unreachable
 
-1078:                                             ; preds = %348
+1079:                                             ; preds = %349
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %75, ptr align 8 %74, i64 32, i1 false)
-  %1079 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
-  %1080 = load ptr, ptr %1079, align 8, !nonnull !3, !align !5, !noundef !3
-  %1081 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1080, i32 0, i32 1
-  invoke void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %73, ptr align 8 %1081)
-          to label %1088 unwind label %1083
+  %1080 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
+  %1081 = load ptr, ptr %1080, align 8, !nonnull !3, !align !5, !noundef !3
+  %1082 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1081, i32 0, i32 1
+  invoke void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %73, ptr align 8 %1082)
+          to label %1089 unwind label %1084
 
-1082:                                             ; preds = %1089, %1083
+1083:                                             ; preds = %1090, %1084
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %75) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1083:                                             ; preds = %1114, %1078
-  %1084 = landingpad { ptr, i32 }
+1084:                                             ; preds = %1115, %1079
+  %1085 = landingpad { ptr, i32 }
           cleanup
-  %1085 = extractvalue { ptr, i32 } %1084, 0
-  %1086 = extractvalue { ptr, i32 } %1084, 1
-  store ptr %1085, ptr %5, align 8
-  %1087 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1086, ptr %1087, align 8
-  br label %1082
+  %1086 = extractvalue { ptr, i32 } %1085, 0
+  %1087 = extractvalue { ptr, i32 } %1085, 1
+  store ptr %1086, ptr %5, align 8
+  %1088 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1087, ptr %1088, align 8
+  br label %1083
 
-1088:                                             ; preds = %1078
+1089:                                             ; preds = %1079
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %71)
-          to label %1095 unwind label %1090
+          to label %1096 unwind label %1091
 
-1089:                                             ; preds = %1096, %1090
+1090:                                             ; preds = %1097, %1091
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %73) #6
-          to label %1082 unwind label %413
+          to label %1083 unwind label %414
 
-1090:                                             ; preds = %1113, %1088
-  %1091 = landingpad { ptr, i32 }
+1091:                                             ; preds = %1114, %1089
+  %1092 = landingpad { ptr, i32 }
           cleanup
-  %1092 = extractvalue { ptr, i32 } %1091, 0
-  %1093 = extractvalue { ptr, i32 } %1091, 1
-  store ptr %1092, ptr %5, align 8
-  %1094 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1093, ptr %1094, align 8
-  br label %1089
+  %1093 = extractvalue { ptr, i32 } %1092, 0
+  %1094 = extractvalue { ptr, i32 } %1092, 1
+  store ptr %1093, ptr %5, align 8
+  %1095 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1094, ptr %1095, align 8
+  br label %1090
 
-1095:                                             ; preds = %1088
+1096:                                             ; preds = %1089
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %73, ptr align 8 %71)
-          to label %1102 unwind label %1097
+          to label %1103 unwind label %1098
 
-1096:                                             ; preds = %1106, %1097
+1097:                                             ; preds = %1107, %1098
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %71) #6
-          to label %1089 unwind label %413
+          to label %1090 unwind label %414
 
-1097:                                             ; preds = %1112, %1104, %1103, %1102, %1095
-  %1098 = landingpad { ptr, i32 }
+1098:                                             ; preds = %1113, %1105, %1104, %1103, %1096
+  %1099 = landingpad { ptr, i32 }
           cleanup
-  %1099 = extractvalue { ptr, i32 } %1098, 0
-  %1100 = extractvalue { ptr, i32 } %1098, 1
-  store ptr %1099, ptr %5, align 8
-  %1101 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1100, ptr %1101, align 8
-  br label %1096
+  %1100 = extractvalue { ptr, i32 } %1099, 0
+  %1101 = extractvalue { ptr, i32 } %1099, 1
+  store ptr %1100, ptr %5, align 8
+  %1102 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1101, ptr %1102, align 8
+  br label %1097
 
-1102:                                             ; preds = %1095
+1103:                                             ; preds = %1096
   invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %71)
-          to label %1103 unwind label %1097
-
-1103:                                             ; preds = %1102
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %71, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.67, i64 4)
-          to label %1104 unwind label %1097
+          to label %1104 unwind label %1098
 
 1104:                                             ; preds = %1103
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %69)
-          to label %1105 unwind label %1097
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %71, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.67, i64 4)
+          to label %1105 unwind label %1098
 
 1105:                                             ; preds = %1104
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %69)
+          to label %1106 unwind label %1098
+
+1106:                                             ; preds = %1105
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %75, ptr align 8 %69)
-          to label %1112 unwind label %1107
+          to label %1113 unwind label %1108
 
-1106:                                             ; preds = %1107
+1107:                                             ; preds = %1108
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %69) #6
-          to label %1096 unwind label %413
+          to label %1097 unwind label %414
 
-1107:                                             ; preds = %1105
-  %1108 = landingpad { ptr, i32 }
+1108:                                             ; preds = %1106
+  %1109 = landingpad { ptr, i32 }
           cleanup
-  %1109 = extractvalue { ptr, i32 } %1108, 0
-  %1110 = extractvalue { ptr, i32 } %1108, 1
-  store ptr %1109, ptr %5, align 8
-  %1111 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1110, ptr %1111, align 8
-  br label %1106
+  %1110 = extractvalue { ptr, i32 } %1109, 0
+  %1111 = extractvalue { ptr, i32 } %1109, 1
+  store ptr %1110, ptr %5, align 8
+  %1112 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1111, ptr %1112, align 8
+  br label %1107
 
-1112:                                             ; preds = %1105
+1113:                                             ; preds = %1106
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %70, ptr align 8 %69, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %71, i8 0, ptr align 8 %70)
-          to label %1113 unwind label %1097
-
-1113:                                             ; preds = %1112
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %72, ptr align 8 %71, i64 32, i1 false)
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %72)
-          to label %1114 unwind label %1090
+          to label %1114 unwind label %1098
 
 1114:                                             ; preds = %1113
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %73)
-          to label %1115 unwind label %1083
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %72, ptr align 8 %71, i64 32, i1 false)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %72)
+          to label %1115 unwind label %1091
 
 1115:                                             ; preds = %1114
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %73)
+          to label %1116 unwind label %1084
+
+1116:                                             ; preds = %1115
   call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %75)
-  br label %412
+  br label %413
 
-1116:                                             ; preds = %355, %353
+1117:                                             ; preds = %356, %354
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %256, ptr align 8 %2)
-  %1117 = load i64, ptr %256, align 8, !range !8, !noundef !3
-  %1118 = icmp eq i64 %1117, -9223372036854775807
-  %1119 = select i1 %1118, i64 0, i64 1
-  %1120 = icmp eq i64 %1119, 0
-  br i1 %1120, label %1121, label %1122
+  %1118 = load i64, ptr %256, align 8, !range !8, !noundef !3
+  %1119 = icmp eq i64 %1118, -9223372036854775807
+  %1120 = select i1 %1119, i64 0, i64 1
+  %1121 = icmp eq i64 %1120, 0
+  br i1 %1121, label %1122, label %1123
 
-1121:                                             ; preds = %1116
+1122:                                             ; preds = %1117
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.68) #7
   unreachable
 
-1122:                                             ; preds = %1116
+1123:                                             ; preds = %1117
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %257, ptr align 8 %256, i64 32, i1 false)
-  %1123 = load ptr, ptr %258, align 8, !nonnull !3, !align !5, !noundef !3
-  %1124 = load ptr, ptr %1123, align 8, !nonnull !3, !align !5, !noundef !3
+  %1124 = load ptr, ptr %258, align 8, !nonnull !3, !align !5, !noundef !3
+  %1125 = load ptr, ptr %1124, align 8, !nonnull !3, !align !5, !noundef !3
   invoke void @_ZN15wiggle_generate9lifetimes13anon_lifetime17h513aec478ec31ebdE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %254)
-          to label %1131 unwind label %1126
+          to label %1132 unwind label %1127
 
-1125:                                             ; preds = %1133, %1126
+1126:                                             ; preds = %1134, %1127
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %257) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1126:                                             ; preds = %1168, %1131, %1122
-  %1127 = landingpad { ptr, i32 }
+1127:                                             ; preds = %1169, %1132, %1123
+  %1128 = landingpad { ptr, i32 }
           cleanup
-  %1128 = extractvalue { ptr, i32 } %1127, 0
-  %1129 = extractvalue { ptr, i32 } %1127, 1
-  store ptr %1128, ptr %5, align 8
-  %1130 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1129, ptr %1130, align 8
-  br label %1125
+  %1129 = extractvalue { ptr, i32 } %1128, 0
+  %1130 = extractvalue { ptr, i32 } %1128, 1
+  store ptr %1129, ptr %5, align 8
+  %1131 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1130, ptr %1131, align 8
+  br label %1126
 
-1131:                                             ; preds = %1122
-  invoke void @_ZN15wiggle_generate5names8type_ref17h5caf44ab7596050bE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %255, ptr align 8 %1124, ptr align 8 %254)
-          to label %1132 unwind label %1126
+1132:                                             ; preds = %1123
+  invoke void @_ZN15wiggle_generate5names8type_ref17h5caf44ab7596050bE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %255, ptr align 8 %1125, ptr align 8 %254)
+          to label %1133 unwind label %1127
 
-1132:                                             ; preds = %1131
+1133:                                             ; preds = %1132
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %252)
-          to label %1139 unwind label %1134
+          to label %1140 unwind label %1135
 
-1133:                                             ; preds = %1140, %1134
+1134:                                             ; preds = %1141, %1135
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %255) #6
-          to label %1125 unwind label %413
+          to label %1126 unwind label %414
 
-1134:                                             ; preds = %1167, %1132
-  %1135 = landingpad { ptr, i32 }
+1135:                                             ; preds = %1168, %1133
+  %1136 = landingpad { ptr, i32 }
           cleanup
-  %1136 = extractvalue { ptr, i32 } %1135, 0
-  %1137 = extractvalue { ptr, i32 } %1135, 1
-  store ptr %1136, ptr %5, align 8
-  %1138 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1137, ptr %1138, align 8
-  br label %1133
+  %1137 = extractvalue { ptr, i32 } %1136, 0
+  %1138 = extractvalue { ptr, i32 } %1136, 1
+  store ptr %1137, ptr %5, align 8
+  %1139 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1138, ptr %1139, align 8
+  br label %1134
 
-1139:                                             ; preds = %1132
+1140:                                             ; preds = %1133
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %252, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %1146 unwind label %1141
+          to label %1147 unwind label %1142
 
-1140:                                             ; preds = %1156, %1141
+1141:                                             ; preds = %1157, %1142
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %252) #6
-          to label %1133 unwind label %413
+          to label %1134 unwind label %414
 
-1141:                                             ; preds = %1166, %1154, %1153, %1152, %1151, %1150, %1149, %1148, %1147, %1146, %1139
-  %1142 = landingpad { ptr, i32 }
+1142:                                             ; preds = %1167, %1155, %1154, %1153, %1152, %1151, %1150, %1149, %1148, %1147, %1140
+  %1143 = landingpad { ptr, i32 }
           cleanup
-  %1143 = extractvalue { ptr, i32 } %1142, 0
-  %1144 = extractvalue { ptr, i32 } %1142, 1
-  store ptr %1143, ptr %5, align 8
-  %1145 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1144, ptr %1145, align 8
-  br label %1140
+  %1144 = extractvalue { ptr, i32 } %1143, 0
+  %1145 = extractvalue { ptr, i32 } %1143, 1
+  store ptr %1144, ptr %5, align 8
+  %1146 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1145, ptr %1146, align 8
+  br label %1141
 
-1146:                                             ; preds = %1139
+1147:                                             ; preds = %1140
   invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %252)
-          to label %1147 unwind label %1141
-
-1147:                                             ; preds = %1146
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %252, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.46, i64 8)
-          to label %1148 unwind label %1141
+          to label %1148 unwind label %1142
 
 1148:                                             ; preds = %1147
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %252)
-          to label %1149 unwind label %1141
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %252, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.46, i64 8)
+          to label %1149 unwind label %1142
 
 1149:                                             ; preds = %1148
-  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %252)
-          to label %1150 unwind label %1141
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %252)
+          to label %1150 unwind label %1142
 
 1150:                                             ; preds = %1149
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %255, ptr align 8 %252)
-          to label %1151 unwind label %1141
+  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %252)
+          to label %1151 unwind label %1142
 
 1151:                                             ; preds = %1150
-  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %252)
-          to label %1152 unwind label %1141
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %255, ptr align 8 %252)
+          to label %1152 unwind label %1142
 
 1152:                                             ; preds = %1151
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %252)
-          to label %1153 unwind label %1141
+  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %252)
+          to label %1153 unwind label %1142
 
 1153:                                             ; preds = %1152
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %252, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.47, i64 3)
-          to label %1154 unwind label %1141
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %252)
+          to label %1154 unwind label %1142
 
 1154:                                             ; preds = %1153
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %250)
-          to label %1155 unwind label %1141
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %252, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.47, i64 3)
+          to label %1155 unwind label %1142
 
 1155:                                             ; preds = %1154
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %250)
+          to label %1156 unwind label %1142
+
+1156:                                             ; preds = %1155
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %250, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.26, i64 6)
-          to label %1162 unwind label %1157
+          to label %1163 unwind label %1158
 
-1156:                                             ; preds = %1157
+1157:                                             ; preds = %1158
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %250) #6
-          to label %1140 unwind label %413
+          to label %1141 unwind label %414
 
-1157:                                             ; preds = %1165, %1164, %1163, %1162, %1155
-  %1158 = landingpad { ptr, i32 }
+1158:                                             ; preds = %1166, %1165, %1164, %1163, %1156
+  %1159 = landingpad { ptr, i32 }
           cleanup
-  %1159 = extractvalue { ptr, i32 } %1158, 0
-  %1160 = extractvalue { ptr, i32 } %1158, 1
-  store ptr %1159, ptr %5, align 8
-  %1161 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1160, ptr %1161, align 8
-  br label %1156
+  %1160 = extractvalue { ptr, i32 } %1159, 0
+  %1161 = extractvalue { ptr, i32 } %1159, 1
+  store ptr %1160, ptr %5, align 8
+  %1162 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1161, ptr %1162, align 8
+  br label %1157
 
-1162:                                             ; preds = %1155
+1163:                                             ; preds = %1156
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %250)
-          to label %1163 unwind label %1157
-
-1163:                                             ; preds = %1162
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %257, ptr align 8 %250)
-          to label %1164 unwind label %1157
+          to label %1164 unwind label %1158
 
 1164:                                             ; preds = %1163
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %250, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
-          to label %1165 unwind label %1157
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %257, ptr align 8 %250)
+          to label %1165 unwind label %1158
 
 1165:                                             ; preds = %1164
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %250, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.48, i64 3)
-          to label %1166 unwind label %1157
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %250, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
+          to label %1166 unwind label %1158
 
 1166:                                             ; preds = %1165
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %251, ptr align 8 %250, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %252, i8 0, ptr align 8 %251)
-          to label %1167 unwind label %1141
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %250, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.48, i64 3)
+          to label %1167 unwind label %1158
 
 1167:                                             ; preds = %1166
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %253, ptr align 8 %252, i64 32, i1 false)
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %253)
-          to label %1168 unwind label %1134
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %251, ptr align 8 %250, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %252, i8 0, ptr align 8 %251)
+          to label %1168 unwind label %1142
 
 1168:                                             ; preds = %1167
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %255)
-          to label %1169 unwind label %1126
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %253, ptr align 8 %252, i64 32, i1 false)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %253)
+          to label %1169 unwind label %1135
 
 1169:                                             ; preds = %1168
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %255)
+          to label %1170 unwind label %1127
+
+1170:                                             ; preds = %1169
   call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %257)
-  br label %412
+  br label %413
 
-1170:                                             ; preds = %377, %359, %357
-  %1171 = load ptr, ptr %45, align 8, !nonnull !3, !align !5, !noundef !3
-  %1172 = load ptr, ptr %1171, align 8, !nonnull !3, !align !5, !noundef !3
-  %1173 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1172, i32 0, i32 1
-  call void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %44, ptr align 8 %1173)
+1171:                                             ; preds = %378, %360, %358
+  %1172 = load ptr, ptr %45, align 8, !nonnull !3, !align !5, !noundef !3
+  %1173 = load ptr, ptr %1172, align 8, !nonnull !3, !align !5, !noundef !3
+  %1174 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1173, i32 0, i32 1
+  call void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %44, ptr align 8 %1174)
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %41)
-          to label %1570 unwind label %1565
+          to label %1571 unwind label %1566
 
-1174:                                             ; preds = %361
+1175:                                             ; preds = %362
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.69) #7
   unreachable
 
-1175:                                             ; preds = %361
+1176:                                             ; preds = %362
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %93, ptr align 8 %92, i64 32, i1 false)
-  %1176 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
-  %1177 = load ptr, ptr %1176, align 8, !nonnull !3, !align !5, !noundef !3
-  %1178 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1177, i32 0, i32 1
-  %1179 = getelementptr inbounds i8, ptr %1178, i64 8
-  %1180 = load ptr, ptr %1179, align 8, !nonnull !3, !noundef !3
-  %1181 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1177, i32 0, i32 1
-  %1182 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %1181, i32 0, i32 1
-  %1183 = load i64, ptr %1182, align 8, !noundef !3
-  store ptr %1180, ptr %8, align 8
-  %1184 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %1183, ptr %1184, align 8
-  %1185 = load ptr, ptr %8, align 8, !noundef !3
-  %1186 = getelementptr inbounds i8, ptr %8, i64 8
-  %1187 = load i64, ptr %1186, align 8, !noundef !3
-  store ptr %1185, ptr %9, align 8
-  %1188 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %1187, ptr %1188, align 8
-  %1189 = load ptr, ptr %9, align 8, !noundef !3
-  %1190 = getelementptr inbounds i8, ptr %9, i64 8
-  %1191 = load i64, ptr %1190, align 8, !noundef !3
-  store ptr %1189, ptr %84, align 8
-  %1192 = getelementptr inbounds i8, ptr %84, i64 8
-  store i64 %1191, ptr %1192, align 8
+  %1177 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
+  %1178 = load ptr, ptr %1177, align 8, !nonnull !3, !align !5, !noundef !3
+  %1179 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1178, i32 0, i32 1
+  %1180 = getelementptr inbounds i8, ptr %1179, i64 8
+  %1181 = load ptr, ptr %1180, align 8, !nonnull !3, !noundef !3
+  %1182 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1178, i32 0, i32 1
+  %1183 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %1182, i32 0, i32 1
+  %1184 = load i64, ptr %1183, align 8, !noundef !3
+  store ptr %1181, ptr %8, align 8
+  %1185 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %1184, ptr %1185, align 8
+  %1186 = load ptr, ptr %8, align 8, !noundef !3
+  %1187 = getelementptr inbounds i8, ptr %8, i64 8
+  %1188 = load i64, ptr %1187, align 8, !noundef !3
+  store ptr %1186, ptr %9, align 8
+  %1189 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %1188, ptr %1189, align 8
+  %1190 = load ptr, ptr %9, align 8, !noundef !3
+  %1191 = getelementptr inbounds i8, ptr %9, i64 8
+  %1192 = load i64, ptr %1191, align 8, !noundef !3
+  store ptr %1190, ptr %84, align 8
+  %1193 = getelementptr inbounds i8, ptr %84, i64 8
+  store i64 %1192, ptr %1193, align 8
   store ptr %84, ptr %85, align 8
-  %1193 = getelementptr inbounds i8, ptr %85, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h59b4f1dc653afc44E", ptr %1193, align 8
-  %1194 = load ptr, ptr %85, align 8, !nonnull !3, !align !7, !noundef !3
-  %1195 = getelementptr inbounds i8, ptr %85, i64 8
-  %1196 = load ptr, ptr %1195, align 8, !nonnull !3, !noundef !3
-  %1197 = getelementptr inbounds [1 x { ptr, ptr }], ptr %86, i64 0, i64 0
-  store ptr %1194, ptr %1197, align 8
-  %1198 = getelementptr inbounds i8, ptr %1197, i64 8
-  store ptr %1196, ptr %1198, align 8
+  %1194 = getelementptr inbounds i8, ptr %85, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h59b4f1dc653afc44E", ptr %1194, align 8
+  %1195 = load ptr, ptr %85, align 8, !nonnull !3, !align !7, !noundef !3
+  %1196 = getelementptr inbounds i8, ptr %85, i64 8
+  %1197 = load ptr, ptr %1196, align 8, !nonnull !3, !noundef !3
+  %1198 = getelementptr inbounds [1 x { ptr, ptr }], ptr %86, i64 0, i64 0
+  store ptr %1195, ptr %1198, align 8
+  %1199 = getelementptr inbounds i8, ptr %1198, i64 8
+  store ptr %1197, ptr %1199, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %87, ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.71, i64 1, ptr align 8 %86, i64 1)
-          to label %1205 unwind label %1200
+          to label %1206 unwind label %1201
 
-1199:                                             ; preds = %1230, %1223, %1200
+1200:                                             ; preds = %1231, %1224, %1201
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %93) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1200:                                             ; preds = %1291, %1205, %1175
-  %1201 = landingpad { ptr, i32 }
+1201:                                             ; preds = %1292, %1206, %1176
+  %1202 = landingpad { ptr, i32 }
           cleanup
-  %1202 = extractvalue { ptr, i32 } %1201, 0
-  %1203 = extractvalue { ptr, i32 } %1201, 1
-  store ptr %1202, ptr %5, align 8
-  %1204 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1203, ptr %1204, align 8
-  br label %1199
+  %1203 = extractvalue { ptr, i32 } %1202, 0
+  %1204 = extractvalue { ptr, i32 } %1202, 1
+  store ptr %1203, ptr %5, align 8
+  %1205 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1204, ptr %1205, align 8
+  br label %1200
 
-1205:                                             ; preds = %1175
+1206:                                             ; preds = %1176
   invoke void @_ZN5alloc3fmt6format17h7750bf553f062d8cE(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %88, ptr align 8 %87)
-          to label %1206 unwind label %1200
+          to label %1207 unwind label %1201
 
-1206:                                             ; preds = %1205
+1207:                                             ; preds = %1206
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %89, ptr align 8 %88, i64 24, i1 false)
-  %1207 = getelementptr inbounds i8, ptr %89, i64 8
-  %1208 = load ptr, ptr %1207, align 8, !nonnull !3, !noundef !3
-  %1209 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %89, i32 0, i32 1
-  %1210 = load i64, ptr %1209, align 8, !noundef !3
-  store ptr %1208, ptr %6, align 8
-  %1211 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %1210, ptr %1211, align 8
-  %1212 = load ptr, ptr %6, align 8, !noundef !3
-  %1213 = getelementptr inbounds i8, ptr %6, i64 8
-  %1214 = load i64, ptr %1213, align 8, !noundef !3
-  store ptr %1212, ptr %7, align 8
-  %1215 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %1214, ptr %1215, align 8
-  %1216 = load ptr, ptr %7, align 8, !noundef !3
-  %1217 = getelementptr inbounds i8, ptr %7, i64 8
-  %1218 = load i64, ptr %1217, align 8, !noundef !3
-  store ptr %1216, ptr %90, align 8
-  %1219 = getelementptr inbounds i8, ptr %90, i64 8
-  store i64 %1218, ptr %1219, align 8
-  %1220 = load ptr, ptr %90, align 8, !nonnull !3, !align !7, !noundef !3
-  %1221 = getelementptr inbounds i8, ptr %90, i64 8
-  %1222 = load i64, ptr %1221, align 8, !noundef !3
-  invoke void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$4emit28_$u7b$$u7b$closure$u7d$$u7d$17h350157a90124a42aE"(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %91, ptr align 8 %263, ptr align 1 %1220, i64 %1222)
-          to label %1229 unwind label %1224
+  %1208 = getelementptr inbounds i8, ptr %89, i64 8
+  %1209 = load ptr, ptr %1208, align 8, !nonnull !3, !noundef !3
+  %1210 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %89, i32 0, i32 1
+  %1211 = load i64, ptr %1210, align 8, !noundef !3
+  store ptr %1209, ptr %6, align 8
+  %1212 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %1211, ptr %1212, align 8
+  %1213 = load ptr, ptr %6, align 8, !noundef !3
+  %1214 = getelementptr inbounds i8, ptr %6, i64 8
+  %1215 = load i64, ptr %1214, align 8, !noundef !3
+  store ptr %1213, ptr %7, align 8
+  %1216 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %1215, ptr %1216, align 8
+  %1217 = load ptr, ptr %7, align 8, !noundef !3
+  %1218 = getelementptr inbounds i8, ptr %7, i64 8
+  %1219 = load i64, ptr %1218, align 8, !noundef !3
+  store ptr %1217, ptr %90, align 8
+  %1220 = getelementptr inbounds i8, ptr %90, i64 8
+  store i64 %1219, ptr %1220, align 8
+  %1221 = load ptr, ptr %90, align 8, !nonnull !3, !align !7, !noundef !3
+  %1222 = getelementptr inbounds i8, ptr %90, i64 8
+  %1223 = load i64, ptr %1222, align 8, !noundef !3
+  invoke void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$4emit28_$u7b$$u7b$closure$u7d$$u7d$17h350157a90124a42aE"(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %91, ptr align 8 %263, ptr align 1 %1221, i64 %1223)
+          to label %1230 unwind label %1225
 
-1223:                                             ; preds = %1224
+1224:                                             ; preds = %1225
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr align 8 %89) #6
-          to label %1199 unwind label %413
+          to label %1200 unwind label %414
 
-1224:                                             ; preds = %1206
-  %1225 = landingpad { ptr, i32 }
+1225:                                             ; preds = %1207
+  %1226 = landingpad { ptr, i32 }
           cleanup
-  %1226 = extractvalue { ptr, i32 } %1225, 0
-  %1227 = extractvalue { ptr, i32 } %1225, 1
-  store ptr %1226, ptr %5, align 8
-  %1228 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1227, ptr %1228, align 8
-  br label %1223
+  %1227 = extractvalue { ptr, i32 } %1226, 0
+  %1228 = extractvalue { ptr, i32 } %1226, 1
+  store ptr %1227, ptr %5, align 8
+  %1229 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1228, ptr %1229, align 8
+  br label %1224
 
-1229:                                             ; preds = %1206
+1230:                                             ; preds = %1207
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr align 8 %89)
-          to label %1236 unwind label %1231
+          to label %1237 unwind label %1232
 
-1230:                                             ; preds = %1239, %1231
+1231:                                             ; preds = %1240, %1232
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %91) #6
-          to label %1199 unwind label %413
+          to label %1200 unwind label %414
 
-1231:                                             ; preds = %1290, %1236, %1229
-  %1232 = landingpad { ptr, i32 }
+1232:                                             ; preds = %1291, %1237, %1230
+  %1233 = landingpad { ptr, i32 }
           cleanup
-  %1233 = extractvalue { ptr, i32 } %1232, 0
-  %1234 = extractvalue { ptr, i32 } %1232, 1
-  store ptr %1233, ptr %5, align 8
-  %1235 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1234, ptr %1235, align 8
-  br label %1230
+  %1234 = extractvalue { ptr, i32 } %1233, 0
+  %1235 = extractvalue { ptr, i32 } %1233, 1
+  store ptr %1234, ptr %5, align 8
+  %1236 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1235, ptr %1236, align 8
+  br label %1231
 
-1236:                                             ; preds = %1229
-  %1237 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1177, i32 0, i32 1
-  invoke void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %83, ptr align 8 %1237)
-          to label %1238 unwind label %1231
+1237:                                             ; preds = %1230
+  %1238 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1178, i32 0, i32 1
+  invoke void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %83, ptr align 8 %1238)
+          to label %1239 unwind label %1232
 
-1238:                                             ; preds = %1236
+1239:                                             ; preds = %1237
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %81)
-          to label %1245 unwind label %1240
+          to label %1246 unwind label %1241
 
-1239:                                             ; preds = %1246, %1240
+1240:                                             ; preds = %1247, %1241
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %83) #6
-          to label %1230 unwind label %413
+          to label %1231 unwind label %414
 
-1240:                                             ; preds = %1289, %1238
-  %1241 = landingpad { ptr, i32 }
+1241:                                             ; preds = %1290, %1239
+  %1242 = landingpad { ptr, i32 }
           cleanup
-  %1242 = extractvalue { ptr, i32 } %1241, 0
-  %1243 = extractvalue { ptr, i32 } %1241, 1
-  store ptr %1242, ptr %5, align 8
-  %1244 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1243, ptr %1244, align 8
-  br label %1239
+  %1243 = extractvalue { ptr, i32 } %1242, 0
+  %1244 = extractvalue { ptr, i32 } %1242, 1
+  store ptr %1243, ptr %5, align 8
+  %1245 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1244, ptr %1245, align 8
+  br label %1240
 
-1245:                                             ; preds = %1238
+1246:                                             ; preds = %1239
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %81, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %1252 unwind label %1247
+          to label %1253 unwind label %1248
 
-1246:                                             ; preds = %1281, %1262, %1247
+1247:                                             ; preds = %1282, %1263, %1248
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %81) #6
-          to label %1239 unwind label %413
+          to label %1240 unwind label %414
 
-1247:                                             ; preds = %1288, %1287, %1279, %1278, %1277, %1276, %1275, %1274, %1273, %1272, %1260, %1259, %1258, %1257, %1256, %1255, %1254, %1253, %1252, %1245
-  %1248 = landingpad { ptr, i32 }
+1248:                                             ; preds = %1289, %1288, %1280, %1279, %1278, %1277, %1276, %1275, %1274, %1273, %1261, %1260, %1259, %1258, %1257, %1256, %1255, %1254, %1253, %1246
+  %1249 = landingpad { ptr, i32 }
           cleanup
-  %1249 = extractvalue { ptr, i32 } %1248, 0
-  %1250 = extractvalue { ptr, i32 } %1248, 1
-  store ptr %1249, ptr %5, align 8
-  %1251 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1250, ptr %1251, align 8
-  br label %1246
+  %1250 = extractvalue { ptr, i32 } %1249, 0
+  %1251 = extractvalue { ptr, i32 } %1249, 1
+  store ptr %1250, ptr %5, align 8
+  %1252 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1251, ptr %1252, align 8
+  br label %1247
 
-1252:                                             ; preds = %1245
+1253:                                             ; preds = %1246
   invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %81)
-          to label %1253 unwind label %1247
-
-1253:                                             ; preds = %1252
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %81, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.46, i64 8)
-          to label %1254 unwind label %1247
+          to label %1254 unwind label %1248
 
 1254:                                             ; preds = %1253
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %81)
-          to label %1255 unwind label %1247
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %81, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.46, i64 8)
+          to label %1255 unwind label %1248
 
 1255:                                             ; preds = %1254
-  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %81)
-          to label %1256 unwind label %1247
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %81)
+          to label %1256 unwind label %1248
 
 1256:                                             ; preds = %1255
-  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %83, ptr align 8 %81)
-          to label %1257 unwind label %1247
+  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %81)
+          to label %1257 unwind label %1248
 
 1257:                                             ; preds = %1256
-  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %81)
-          to label %1258 unwind label %1247
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %83, ptr align 8 %81)
+          to label %1258 unwind label %1248
 
 1258:                                             ; preds = %1257
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %81)
-          to label %1259 unwind label %1247
+  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %81)
+          to label %1259 unwind label %1248
 
 1259:                                             ; preds = %1258
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %81, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.47, i64 3)
-          to label %1260 unwind label %1247
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %81)
+          to label %1260 unwind label %1248
 
 1260:                                             ; preds = %1259
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %79)
-          to label %1261 unwind label %1247
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %81, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.47, i64 3)
+          to label %1261 unwind label %1248
 
 1261:                                             ; preds = %1260
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %79)
+          to label %1262 unwind label %1248
+
+1262:                                             ; preds = %1261
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %79, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.26, i64 6)
-          to label %1268 unwind label %1263
+          to label %1269 unwind label %1264
 
-1262:                                             ; preds = %1263
+1263:                                             ; preds = %1264
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %79) #6
-          to label %1246 unwind label %413
+          to label %1247 unwind label %414
 
-1263:                                             ; preds = %1271, %1270, %1269, %1268, %1261
-  %1264 = landingpad { ptr, i32 }
+1264:                                             ; preds = %1272, %1271, %1270, %1269, %1262
+  %1265 = landingpad { ptr, i32 }
           cleanup
-  %1265 = extractvalue { ptr, i32 } %1264, 0
-  %1266 = extractvalue { ptr, i32 } %1264, 1
-  store ptr %1265, ptr %5, align 8
-  %1267 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1266, ptr %1267, align 8
-  br label %1262
+  %1266 = extractvalue { ptr, i32 } %1265, 0
+  %1267 = extractvalue { ptr, i32 } %1265, 1
+  store ptr %1266, ptr %5, align 8
+  %1268 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1267, ptr %1268, align 8
+  br label %1263
 
-1268:                                             ; preds = %1261
+1269:                                             ; preds = %1262
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %79)
-          to label %1269 unwind label %1263
-
-1269:                                             ; preds = %1268
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %93, ptr align 8 %79)
-          to label %1270 unwind label %1263
+          to label %1270 unwind label %1264
 
 1270:                                             ; preds = %1269
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %79, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
-          to label %1271 unwind label %1263
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %93, ptr align 8 %79)
+          to label %1271 unwind label %1264
 
 1271:                                             ; preds = %1270
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %79, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.48, i64 3)
-          to label %1272 unwind label %1263
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %79, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
+          to label %1272 unwind label %1264
 
 1272:                                             ; preds = %1271
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %80, ptr align 8 %79, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %81, i8 0, ptr align 8 %80)
-          to label %1273 unwind label %1247
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %79, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.48, i64 3)
+          to label %1273 unwind label %1264
 
 1273:                                             ; preds = %1272
-  invoke void @_ZN5quote9__private8push_dot17h03cdb31c440a1f9fE(ptr align 8 %81)
-          to label %1274 unwind label %1247
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %80, ptr align 8 %79, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %81, i8 0, ptr align 8 %80)
+          to label %1274 unwind label %1248
 
 1274:                                             ; preds = %1273
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %81, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.72, i64 4)
-          to label %1275 unwind label %1247
+  invoke void @_ZN5quote9__private8push_dot17h03cdb31c440a1f9fE(ptr align 8 %81)
+          to label %1275 unwind label %1248
 
 1275:                                             ; preds = %1274
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %78)
-          to label %1276 unwind label %1247
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %81, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.72, i64 4)
+          to label %1276 unwind label %1248
 
 1276:                                             ; preds = %1275
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %81, i8 0, ptr align 8 %78)
-          to label %1277 unwind label %1247
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %78)
+          to label %1277 unwind label %1248
 
 1277:                                             ; preds = %1276
-  invoke void @_ZN5quote9__private8push_dot17h03cdb31c440a1f9fE(ptr align 8 %81)
-          to label %1278 unwind label %1247
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %81, i8 0, ptr align 8 %78)
+          to label %1278 unwind label %1248
 
 1278:                                             ; preds = %1277
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %81, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.73, i64 7)
-          to label %1279 unwind label %1247
+  invoke void @_ZN5quote9__private8push_dot17h03cdb31c440a1f9fE(ptr align 8 %81)
+          to label %1279 unwind label %1248
 
 1279:                                             ; preds = %1278
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %76)
-          to label %1280 unwind label %1247
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %81, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.73, i64 7)
+          to label %1280 unwind label %1248
 
 1280:                                             ; preds = %1279
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %76)
+          to label %1281 unwind label %1248
+
+1281:                                             ; preds = %1280
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %91, ptr align 8 %76)
-          to label %1287 unwind label %1282
+          to label %1288 unwind label %1283
 
-1281:                                             ; preds = %1282
+1282:                                             ; preds = %1283
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %76) #6
-          to label %1246 unwind label %413
+          to label %1247 unwind label %414
 
-1282:                                             ; preds = %1280
-  %1283 = landingpad { ptr, i32 }
+1283:                                             ; preds = %1281
+  %1284 = landingpad { ptr, i32 }
           cleanup
-  %1284 = extractvalue { ptr, i32 } %1283, 0
-  %1285 = extractvalue { ptr, i32 } %1283, 1
-  store ptr %1284, ptr %5, align 8
-  %1286 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1285, ptr %1286, align 8
-  br label %1281
+  %1285 = extractvalue { ptr, i32 } %1284, 0
+  %1286 = extractvalue { ptr, i32 } %1284, 1
+  store ptr %1285, ptr %5, align 8
+  %1287 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1286, ptr %1287, align 8
+  br label %1282
 
-1287:                                             ; preds = %1280
+1288:                                             ; preds = %1281
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %77, ptr align 8 %76, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %81, i8 0, ptr align 8 %77)
-          to label %1288 unwind label %1247
-
-1288:                                             ; preds = %1287
-  invoke void @_ZN5quote9__private13push_question17h9cde691f1a6b02eaE(ptr align 8 %81)
-          to label %1289 unwind label %1247
+          to label %1289 unwind label %1248
 
 1289:                                             ; preds = %1288
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %82, ptr align 8 %81, i64 32, i1 false)
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %82)
-          to label %1290 unwind label %1240
+  invoke void @_ZN5quote9__private13push_question17h9cde691f1a6b02eaE(ptr align 8 %81)
+          to label %1290 unwind label %1248
 
 1290:                                             ; preds = %1289
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %83)
-          to label %1291 unwind label %1231
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %82, ptr align 8 %81, i64 32, i1 false)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %82)
+          to label %1291 unwind label %1241
 
 1291:                                             ; preds = %1290
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %91)
-          to label %1292 unwind label %1200
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %83)
+          to label %1292 unwind label %1232
 
 1292:                                             ; preds = %1291
-  call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %93)
-  br label %412
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %91)
+          to label %1293 unwind label %1201
 
-1293:                                             ; preds = %366
+1293:                                             ; preds = %1292
+  call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %93)
+  br label %413
+
+1294:                                             ; preds = %367
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.74) #7
   unreachable
 
-1294:                                             ; preds = %366
+1295:                                             ; preds = %367
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %114, ptr align 8 %113, i64 32, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %111, ptr align 8 %2)
-          to label %1301 unwind label %1296
+          to label %1302 unwind label %1297
 
-1295:                                             ; preds = %1331, %1296
+1296:                                             ; preds = %1332, %1297
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %114) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1296:                                             ; preds = %1434, %1306, %1294
-  %1297 = landingpad { ptr, i32 }
+1297:                                             ; preds = %1435, %1307, %1295
+  %1298 = landingpad { ptr, i32 }
           cleanup
-  %1298 = extractvalue { ptr, i32 } %1297, 0
-  %1299 = extractvalue { ptr, i32 } %1297, 1
-  store ptr %1298, ptr %5, align 8
-  %1300 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1299, ptr %1300, align 8
-  br label %1295
+  %1299 = extractvalue { ptr, i32 } %1298, 0
+  %1300 = extractvalue { ptr, i32 } %1298, 1
+  store ptr %1299, ptr %5, align 8
+  %1301 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1300, ptr %1301, align 8
+  br label %1296
 
-1301:                                             ; preds = %1294
-  %1302 = load i64, ptr %111, align 8, !range !8, !noundef !3
-  %1303 = icmp eq i64 %1302, -9223372036854775807
-  %1304 = select i1 %1303, i64 0, i64 1
-  %1305 = icmp eq i64 %1304, 0
-  br i1 %1305, label %1306, label %1307
+1302:                                             ; preds = %1295
+  %1303 = load i64, ptr %111, align 8, !range !8, !noundef !3
+  %1304 = icmp eq i64 %1303, -9223372036854775807
+  %1305 = select i1 %1304, i64 0, i64 1
+  %1306 = icmp eq i64 %1305, 0
+  br i1 %1306, label %1307, label %1308
 
-1306:                                             ; preds = %1301
+1307:                                             ; preds = %1302
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.75) #7
-          to label %959 unwind label %1296
+          to label %960 unwind label %1297
 
-1307:                                             ; preds = %1301
+1308:                                             ; preds = %1302
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %112, ptr align 8 %111, i64 32, i1 false)
-  %1308 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
-  %1309 = load ptr, ptr %1308, align 8, !nonnull !3, !align !5, !noundef !3
-  %1310 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1309, i32 0, i32 1
-  %1311 = getelementptr inbounds i8, ptr %1310, i64 8
-  %1312 = load ptr, ptr %1311, align 8, !nonnull !3, !noundef !3
-  %1313 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1309, i32 0, i32 1
-  %1314 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %1313, i32 0, i32 1
-  %1315 = load i64, ptr %1314, align 8, !noundef !3
-  store ptr %1312, ptr %12, align 8
-  %1316 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %1315, ptr %1316, align 8
-  %1317 = load ptr, ptr %12, align 8, !noundef !3
-  %1318 = getelementptr inbounds i8, ptr %12, i64 8
-  %1319 = load i64, ptr %1318, align 8, !noundef !3
-  store ptr %1317, ptr %13, align 8
-  %1320 = getelementptr inbounds i8, ptr %13, i64 8
-  store i64 %1319, ptr %1320, align 8
-  %1321 = load ptr, ptr %13, align 8, !noundef !3
-  %1322 = getelementptr inbounds i8, ptr %13, i64 8
-  %1323 = load i64, ptr %1322, align 8, !noundef !3
-  store ptr %1321, ptr %103, align 8
-  %1324 = getelementptr inbounds i8, ptr %103, i64 8
-  store i64 %1323, ptr %1324, align 8
+  %1309 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
+  %1310 = load ptr, ptr %1309, align 8, !nonnull !3, !align !5, !noundef !3
+  %1311 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1310, i32 0, i32 1
+  %1312 = getelementptr inbounds i8, ptr %1311, i64 8
+  %1313 = load ptr, ptr %1312, align 8, !nonnull !3, !noundef !3
+  %1314 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1310, i32 0, i32 1
+  %1315 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %1314, i32 0, i32 1
+  %1316 = load i64, ptr %1315, align 8, !noundef !3
+  store ptr %1313, ptr %12, align 8
+  %1317 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 %1316, ptr %1317, align 8
+  %1318 = load ptr, ptr %12, align 8, !noundef !3
+  %1319 = getelementptr inbounds i8, ptr %12, i64 8
+  %1320 = load i64, ptr %1319, align 8, !noundef !3
+  store ptr %1318, ptr %13, align 8
+  %1321 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 %1320, ptr %1321, align 8
+  %1322 = load ptr, ptr %13, align 8, !noundef !3
+  %1323 = getelementptr inbounds i8, ptr %13, i64 8
+  %1324 = load i64, ptr %1323, align 8, !noundef !3
+  store ptr %1322, ptr %103, align 8
+  %1325 = getelementptr inbounds i8, ptr %103, i64 8
+  store i64 %1324, ptr %1325, align 8
   store ptr %103, ptr %104, align 8
-  %1325 = getelementptr inbounds i8, ptr %104, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h59b4f1dc653afc44E", ptr %1325, align 8
-  %1326 = load ptr, ptr %104, align 8, !nonnull !3, !align !7, !noundef !3
-  %1327 = getelementptr inbounds i8, ptr %104, i64 8
-  %1328 = load ptr, ptr %1327, align 8, !nonnull !3, !noundef !3
-  %1329 = getelementptr inbounds [1 x { ptr, ptr }], ptr %105, i64 0, i64 0
-  store ptr %1326, ptr %1329, align 8
-  %1330 = getelementptr inbounds i8, ptr %1329, i64 8
-  store ptr %1328, ptr %1330, align 8
+  %1326 = getelementptr inbounds i8, ptr %104, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h59b4f1dc653afc44E", ptr %1326, align 8
+  %1327 = load ptr, ptr %104, align 8, !nonnull !3, !align !7, !noundef !3
+  %1328 = getelementptr inbounds i8, ptr %104, i64 8
+  %1329 = load ptr, ptr %1328, align 8, !nonnull !3, !noundef !3
+  %1330 = getelementptr inbounds [1 x { ptr, ptr }], ptr %105, i64 0, i64 0
+  store ptr %1327, ptr %1330, align 8
+  %1331 = getelementptr inbounds i8, ptr %1330, i64 8
+  store ptr %1329, ptr %1331, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %106, ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.77, i64 1, ptr align 8 %105, i64 1)
-          to label %1337 unwind label %1332
+          to label %1338 unwind label %1333
 
-1331:                                             ; preds = %1362, %1355, %1332
+1332:                                             ; preds = %1363, %1356, %1333
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %112) #6
-          to label %1295 unwind label %413
+          to label %1296 unwind label %414
 
-1332:                                             ; preds = %1433, %1337, %1307
-  %1333 = landingpad { ptr, i32 }
+1333:                                             ; preds = %1434, %1338, %1308
+  %1334 = landingpad { ptr, i32 }
           cleanup
-  %1334 = extractvalue { ptr, i32 } %1333, 0
-  %1335 = extractvalue { ptr, i32 } %1333, 1
-  store ptr %1334, ptr %5, align 8
-  %1336 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1335, ptr %1336, align 8
-  br label %1331
+  %1335 = extractvalue { ptr, i32 } %1334, 0
+  %1336 = extractvalue { ptr, i32 } %1334, 1
+  store ptr %1335, ptr %5, align 8
+  %1337 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1336, ptr %1337, align 8
+  br label %1332
 
-1337:                                             ; preds = %1307
+1338:                                             ; preds = %1308
   invoke void @_ZN5alloc3fmt6format17h7750bf553f062d8cE(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %107, ptr align 8 %106)
-          to label %1338 unwind label %1332
+          to label %1339 unwind label %1333
 
-1338:                                             ; preds = %1337
+1339:                                             ; preds = %1338
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %108, ptr align 8 %107, i64 24, i1 false)
-  %1339 = getelementptr inbounds i8, ptr %108, i64 8
-  %1340 = load ptr, ptr %1339, align 8, !nonnull !3, !noundef !3
-  %1341 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %108, i32 0, i32 1
-  %1342 = load i64, ptr %1341, align 8, !noundef !3
-  store ptr %1340, ptr %10, align 8
-  %1343 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %1342, ptr %1343, align 8
-  %1344 = load ptr, ptr %10, align 8, !noundef !3
-  %1345 = getelementptr inbounds i8, ptr %10, i64 8
-  %1346 = load i64, ptr %1345, align 8, !noundef !3
-  store ptr %1344, ptr %11, align 8
-  %1347 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %1346, ptr %1347, align 8
-  %1348 = load ptr, ptr %11, align 8, !noundef !3
-  %1349 = getelementptr inbounds i8, ptr %11, i64 8
-  %1350 = load i64, ptr %1349, align 8, !noundef !3
-  store ptr %1348, ptr %109, align 8
-  %1351 = getelementptr inbounds i8, ptr %109, i64 8
-  store i64 %1350, ptr %1351, align 8
-  %1352 = load ptr, ptr %109, align 8, !nonnull !3, !align !7, !noundef !3
-  %1353 = getelementptr inbounds i8, ptr %109, i64 8
-  %1354 = load i64, ptr %1353, align 8, !noundef !3
-  invoke void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$4emit28_$u7b$$u7b$closure$u7d$$u7d$17h350157a90124a42aE"(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %110, ptr align 8 %263, ptr align 1 %1352, i64 %1354)
-          to label %1361 unwind label %1356
+  %1340 = getelementptr inbounds i8, ptr %108, i64 8
+  %1341 = load ptr, ptr %1340, align 8, !nonnull !3, !noundef !3
+  %1342 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %108, i32 0, i32 1
+  %1343 = load i64, ptr %1342, align 8, !noundef !3
+  store ptr %1341, ptr %10, align 8
+  %1344 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 %1343, ptr %1344, align 8
+  %1345 = load ptr, ptr %10, align 8, !noundef !3
+  %1346 = getelementptr inbounds i8, ptr %10, i64 8
+  %1347 = load i64, ptr %1346, align 8, !noundef !3
+  store ptr %1345, ptr %11, align 8
+  %1348 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %1347, ptr %1348, align 8
+  %1349 = load ptr, ptr %11, align 8, !noundef !3
+  %1350 = getelementptr inbounds i8, ptr %11, i64 8
+  %1351 = load i64, ptr %1350, align 8, !noundef !3
+  store ptr %1349, ptr %109, align 8
+  %1352 = getelementptr inbounds i8, ptr %109, i64 8
+  store i64 %1351, ptr %1352, align 8
+  %1353 = load ptr, ptr %109, align 8, !nonnull !3, !align !7, !noundef !3
+  %1354 = getelementptr inbounds i8, ptr %109, i64 8
+  %1355 = load i64, ptr %1354, align 8, !noundef !3
+  invoke void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$4emit28_$u7b$$u7b$closure$u7d$$u7d$17h350157a90124a42aE"(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %110, ptr align 8 %263, ptr align 1 %1353, i64 %1355)
+          to label %1362 unwind label %1357
 
-1355:                                             ; preds = %1356
+1356:                                             ; preds = %1357
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr align 8 %108) #6
-          to label %1331 unwind label %413
+          to label %1332 unwind label %414
 
-1356:                                             ; preds = %1338
-  %1357 = landingpad { ptr, i32 }
+1357:                                             ; preds = %1339
+  %1358 = landingpad { ptr, i32 }
           cleanup
-  %1358 = extractvalue { ptr, i32 } %1357, 0
-  %1359 = extractvalue { ptr, i32 } %1357, 1
-  store ptr %1358, ptr %5, align 8
-  %1360 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1359, ptr %1360, align 8
-  br label %1355
+  %1359 = extractvalue { ptr, i32 } %1358, 0
+  %1360 = extractvalue { ptr, i32 } %1358, 1
+  store ptr %1359, ptr %5, align 8
+  %1361 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1360, ptr %1361, align 8
+  br label %1356
 
-1361:                                             ; preds = %1338
+1362:                                             ; preds = %1339
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr align 8 %108)
-          to label %1368 unwind label %1363
+          to label %1369 unwind label %1364
 
-1362:                                             ; preds = %1373, %1363
+1363:                                             ; preds = %1374, %1364
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %110) #6
-          to label %1331 unwind label %413
+          to label %1332 unwind label %414
 
-1363:                                             ; preds = %1432, %1368, %1361
-  %1364 = landingpad { ptr, i32 }
+1364:                                             ; preds = %1433, %1369, %1362
+  %1365 = landingpad { ptr, i32 }
           cleanup
-  %1365 = extractvalue { ptr, i32 } %1364, 0
-  %1366 = extractvalue { ptr, i32 } %1364, 1
-  store ptr %1365, ptr %5, align 8
-  %1367 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1366, ptr %1367, align 8
-  br label %1362
+  %1366 = extractvalue { ptr, i32 } %1365, 0
+  %1367 = extractvalue { ptr, i32 } %1365, 1
+  store ptr %1366, ptr %5, align 8
+  %1368 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1367, ptr %1368, align 8
+  br label %1363
 
-1368:                                             ; preds = %1361
-  %1369 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1309, i32 0, i32 1
-  invoke void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %102, ptr align 8 %1369)
-          to label %1370 unwind label %1363
+1369:                                             ; preds = %1362
+  %1370 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %1310, i32 0, i32 1
+  invoke void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %102, ptr align 8 %1370)
+          to label %1371 unwind label %1364
 
-1370:                                             ; preds = %1368
-  %1371 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
-  %1372 = load ptr, ptr %1371, align 8, !nonnull !3, !align !5, !noundef !3
+1371:                                             ; preds = %1369
+  %1372 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
+  %1373 = load ptr, ptr %1372, align 8, !nonnull !3, !align !5, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %100)
-          to label %1379 unwind label %1374
+          to label %1380 unwind label %1375
 
-1373:                                             ; preds = %1380, %1374
+1374:                                             ; preds = %1381, %1375
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %102) #6
-          to label %1362 unwind label %413
+          to label %1363 unwind label %414
 
-1374:                                             ; preds = %1431, %1370
-  %1375 = landingpad { ptr, i32 }
+1375:                                             ; preds = %1432, %1371
+  %1376 = landingpad { ptr, i32 }
           cleanup
-  %1376 = extractvalue { ptr, i32 } %1375, 0
-  %1377 = extractvalue { ptr, i32 } %1375, 1
-  store ptr %1376, ptr %5, align 8
-  %1378 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1377, ptr %1378, align 8
-  br label %1373
+  %1377 = extractvalue { ptr, i32 } %1376, 0
+  %1378 = extractvalue { ptr, i32 } %1376, 1
+  store ptr %1377, ptr %5, align 8
+  %1379 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1378, ptr %1379, align 8
+  br label %1374
 
-1379:                                             ; preds = %1370
+1380:                                             ; preds = %1371
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %100, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %1386 unwind label %1381
+          to label %1387 unwind label %1382
 
-1380:                                             ; preds = %1422, %1411, %1396, %1381
+1381:                                             ; preds = %1423, %1412, %1397, %1382
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %100) #6
-          to label %1373 unwind label %413
+          to label %1374 unwind label %414
 
-1381:                                             ; preds = %1430, %1429, %1428, %1420, %1419, %1418, %1417, %1409, %1408, %1407, %1406, %1394, %1393, %1392, %1391, %1390, %1389, %1388, %1387, %1386, %1379
-  %1382 = landingpad { ptr, i32 }
+1382:                                             ; preds = %1431, %1430, %1429, %1421, %1420, %1419, %1418, %1410, %1409, %1408, %1407, %1395, %1394, %1393, %1392, %1391, %1390, %1389, %1388, %1387, %1380
+  %1383 = landingpad { ptr, i32 }
           cleanup
-  %1383 = extractvalue { ptr, i32 } %1382, 0
-  %1384 = extractvalue { ptr, i32 } %1382, 1
-  store ptr %1383, ptr %5, align 8
-  %1385 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1384, ptr %1385, align 8
-  br label %1380
+  %1384 = extractvalue { ptr, i32 } %1383, 0
+  %1385 = extractvalue { ptr, i32 } %1383, 1
+  store ptr %1384, ptr %5, align 8
+  %1386 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1385, ptr %1386, align 8
+  br label %1381
 
-1386:                                             ; preds = %1379
+1387:                                             ; preds = %1380
   invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %100)
-          to label %1387 unwind label %1381
-
-1387:                                             ; preds = %1386
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %100, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.46, i64 8)
-          to label %1388 unwind label %1381
+          to label %1388 unwind label %1382
 
 1388:                                             ; preds = %1387
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %100)
-          to label %1389 unwind label %1381
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %100, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.46, i64 8)
+          to label %1389 unwind label %1382
 
 1389:                                             ; preds = %1388
-  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %100)
-          to label %1390 unwind label %1381
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %100)
+          to label %1390 unwind label %1382
 
 1390:                                             ; preds = %1389
-  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %102, ptr align 8 %100)
-          to label %1391 unwind label %1381
+  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %100)
+          to label %1391 unwind label %1382
 
 1391:                                             ; preds = %1390
-  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %100)
-          to label %1392 unwind label %1381
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %102, ptr align 8 %100)
+          to label %1392 unwind label %1382
 
 1392:                                             ; preds = %1391
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %100)
-          to label %1393 unwind label %1381
+  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %100)
+          to label %1393 unwind label %1382
 
 1393:                                             ; preds = %1392
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %100, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.47, i64 3)
-          to label %1394 unwind label %1381
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %100)
+          to label %1394 unwind label %1382
 
 1394:                                             ; preds = %1393
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %98)
-          to label %1395 unwind label %1381
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %100, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.47, i64 3)
+          to label %1395 unwind label %1382
 
 1395:                                             ; preds = %1394
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %98)
+          to label %1396 unwind label %1382
+
+1396:                                             ; preds = %1395
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %98, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.26, i64 6)
-          to label %1402 unwind label %1397
+          to label %1403 unwind label %1398
 
-1396:                                             ; preds = %1397
+1397:                                             ; preds = %1398
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %98) #6
-          to label %1380 unwind label %413
+          to label %1381 unwind label %414
 
-1397:                                             ; preds = %1405, %1404, %1403, %1402, %1395
-  %1398 = landingpad { ptr, i32 }
+1398:                                             ; preds = %1406, %1405, %1404, %1403, %1396
+  %1399 = landingpad { ptr, i32 }
           cleanup
-  %1399 = extractvalue { ptr, i32 } %1398, 0
-  %1400 = extractvalue { ptr, i32 } %1398, 1
-  store ptr %1399, ptr %5, align 8
-  %1401 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1400, ptr %1401, align 8
-  br label %1396
+  %1400 = extractvalue { ptr, i32 } %1399, 0
+  %1401 = extractvalue { ptr, i32 } %1399, 1
+  store ptr %1400, ptr %5, align 8
+  %1402 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1401, ptr %1402, align 8
+  br label %1397
 
-1402:                                             ; preds = %1395
+1403:                                             ; preds = %1396
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %98)
-          to label %1403 unwind label %1397
-
-1403:                                             ; preds = %1402
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %114, ptr align 8 %98)
-          to label %1404 unwind label %1397
+          to label %1404 unwind label %1398
 
 1404:                                             ; preds = %1403
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %98, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
-          to label %1405 unwind label %1397
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %114, ptr align 8 %98)
+          to label %1405 unwind label %1398
 
 1405:                                             ; preds = %1404
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %98, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.48, i64 3)
-          to label %1406 unwind label %1397
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %98, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
+          to label %1406 unwind label %1398
 
 1406:                                             ; preds = %1405
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %99, ptr align 8 %98, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %100, i8 0, ptr align 8 %99)
-          to label %1407 unwind label %1381
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %98, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.48, i64 3)
+          to label %1407 unwind label %1398
 
 1407:                                             ; preds = %1406
-  invoke void @_ZN5quote9__private8push_dot17h03cdb31c440a1f9fE(ptr align 8 %100)
-          to label %1408 unwind label %1381
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %99, ptr align 8 %98, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %100, i8 0, ptr align 8 %99)
+          to label %1408 unwind label %1382
 
 1408:                                             ; preds = %1407
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %100, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.78, i64 5)
-          to label %1409 unwind label %1381
+  invoke void @_ZN5quote9__private8push_dot17h03cdb31c440a1f9fE(ptr align 8 %100)
+          to label %1409 unwind label %1382
 
 1409:                                             ; preds = %1408
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %96)
-          to label %1410 unwind label %1381
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %100, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.78, i64 5)
+          to label %1410 unwind label %1382
 
 1410:                                             ; preds = %1409
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %96)
+          to label %1411 unwind label %1382
+
+1411:                                             ; preds = %1410
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %112, ptr align 8 %96)
-          to label %1417 unwind label %1412
+          to label %1418 unwind label %1413
 
-1411:                                             ; preds = %1412
+1412:                                             ; preds = %1413
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %96) #6
-          to label %1380 unwind label %413
+          to label %1381 unwind label %414
 
-1412:                                             ; preds = %1410
-  %1413 = landingpad { ptr, i32 }
+1413:                                             ; preds = %1411
+  %1414 = landingpad { ptr, i32 }
           cleanup
-  %1414 = extractvalue { ptr, i32 } %1413, 0
-  %1415 = extractvalue { ptr, i32 } %1413, 1
-  store ptr %1414, ptr %5, align 8
-  %1416 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1415, ptr %1416, align 8
-  br label %1411
+  %1415 = extractvalue { ptr, i32 } %1414, 0
+  %1416 = extractvalue { ptr, i32 } %1414, 1
+  store ptr %1415, ptr %5, align 8
+  %1417 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1416, ptr %1417, align 8
+  br label %1412
 
-1417:                                             ; preds = %1410
+1418:                                             ; preds = %1411
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %97, ptr align 8 %96, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %100, i8 0, ptr align 8 %97)
-          to label %1418 unwind label %1381
-
-1418:                                             ; preds = %1417
-  invoke void @_ZN5quote9__private8push_dot17h03cdb31c440a1f9fE(ptr align 8 %100)
-          to label %1419 unwind label %1381
+          to label %1419 unwind label %1382
 
 1419:                                             ; preds = %1418
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %100, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.73, i64 7)
-          to label %1420 unwind label %1381
+  invoke void @_ZN5quote9__private8push_dot17h03cdb31c440a1f9fE(ptr align 8 %100)
+          to label %1420 unwind label %1382
 
 1420:                                             ; preds = %1419
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %94)
-          to label %1421 unwind label %1381
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %100, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.73, i64 7)
+          to label %1421 unwind label %1382
 
 1421:                                             ; preds = %1420
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %94)
+          to label %1422 unwind label %1382
+
+1422:                                             ; preds = %1421
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %110, ptr align 8 %94)
-          to label %1428 unwind label %1423
+          to label %1429 unwind label %1424
 
-1422:                                             ; preds = %1423
+1423:                                             ; preds = %1424
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %94) #6
-          to label %1380 unwind label %413
+          to label %1381 unwind label %414
 
-1423:                                             ; preds = %1421
-  %1424 = landingpad { ptr, i32 }
+1424:                                             ; preds = %1422
+  %1425 = landingpad { ptr, i32 }
           cleanup
-  %1425 = extractvalue { ptr, i32 } %1424, 0
-  %1426 = extractvalue { ptr, i32 } %1424, 1
-  store ptr %1425, ptr %5, align 8
-  %1427 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1426, ptr %1427, align 8
-  br label %1422
+  %1426 = extractvalue { ptr, i32 } %1425, 0
+  %1427 = extractvalue { ptr, i32 } %1425, 1
+  store ptr %1426, ptr %5, align 8
+  %1428 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1427, ptr %1428, align 8
+  br label %1423
 
-1428:                                             ; preds = %1421
+1429:                                             ; preds = %1422
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %95, ptr align 8 %94, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %100, i8 0, ptr align 8 %95)
-          to label %1429 unwind label %1381
-
-1429:                                             ; preds = %1428
-  invoke void @_ZN5quote9__private13push_question17h9cde691f1a6b02eaE(ptr align 8 %100)
-          to label %1430 unwind label %1381
+          to label %1430 unwind label %1382
 
 1430:                                             ; preds = %1429
-  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %100)
-          to label %1431 unwind label %1381
+  invoke void @_ZN5quote9__private13push_question17h9cde691f1a6b02eaE(ptr align 8 %100)
+          to label %1431 unwind label %1382
 
 1431:                                             ; preds = %1430
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %101, ptr align 8 %100, i64 32, i1 false)
-  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %1372, ptr align 8 %101)
-          to label %1432 unwind label %1374
+  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %100)
+          to label %1432 unwind label %1382
 
 1432:                                             ; preds = %1431
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %102)
-          to label %1433 unwind label %1363
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %101, ptr align 8 %100, i64 32, i1 false)
+  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %1373, ptr align 8 %101)
+          to label %1433 unwind label %1375
 
 1433:                                             ; preds = %1432
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %110)
-          to label %1434 unwind label %1332
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %102)
+          to label %1434 unwind label %1364
 
 1434:                                             ; preds = %1433
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %112)
-          to label %1435 unwind label %1296
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %110)
+          to label %1435 unwind label %1333
 
 1435:                                             ; preds = %1434
-  call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %114)
-  br label %412
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %112)
+          to label %1436 unwind label %1297
 
-1436:                                             ; preds = %371
+1436:                                             ; preds = %1435
+  call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %114)
+  br label %413
+
+1437:                                             ; preds = %372
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.79) #7
   unreachable
 
-1437:                                             ; preds = %371
+1438:                                             ; preds = %372
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %163, ptr align 8 %162, i64 32, i1 false)
-  %1438 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %160, ptr align 8 %1438)
-          to label %1445 unwind label %1440
+  %1439 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %160, ptr align 8 %1439)
+          to label %1446 unwind label %1441
 
-1439:                                             ; preds = %1452, %1440
+1440:                                             ; preds = %1453, %1441
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %163) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1440:                                             ; preds = %1562, %1450, %1437
-  %1441 = landingpad { ptr, i32 }
+1441:                                             ; preds = %1563, %1451, %1438
+  %1442 = landingpad { ptr, i32 }
           cleanup
-  %1442 = extractvalue { ptr, i32 } %1441, 0
-  %1443 = extractvalue { ptr, i32 } %1441, 1
-  store ptr %1442, ptr %5, align 8
-  %1444 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1443, ptr %1444, align 8
-  br label %1439
+  %1443 = extractvalue { ptr, i32 } %1442, 0
+  %1444 = extractvalue { ptr, i32 } %1442, 1
+  store ptr %1443, ptr %5, align 8
+  %1445 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1444, ptr %1445, align 8
+  br label %1440
 
-1445:                                             ; preds = %1437
-  %1446 = load i64, ptr %160, align 8, !range !8, !noundef !3
-  %1447 = icmp eq i64 %1446, -9223372036854775807
-  %1448 = select i1 %1447, i64 0, i64 1
-  %1449 = icmp eq i64 %1448, 0
-  br i1 %1449, label %1450, label %1451
+1446:                                             ; preds = %1438
+  %1447 = load i64, ptr %160, align 8, !range !8, !noundef !3
+  %1448 = icmp eq i64 %1447, -9223372036854775807
+  %1449 = select i1 %1448, i64 0, i64 1
+  %1450 = icmp eq i64 %1449, 0
+  br i1 %1450, label %1451, label %1452
 
-1450:                                             ; preds = %1445
+1451:                                             ; preds = %1446
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.80) #7
-          to label %959 unwind label %1440
+          to label %960 unwind label %1441
 
-1451:                                             ; preds = %1445
+1452:                                             ; preds = %1446
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %161, ptr align 8 %160, i64 32, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %158, ptr align 8 %2)
-          to label %1458 unwind label %1453
+          to label %1459 unwind label %1454
 
-1452:                                             ; preds = %1475, %1453
+1453:                                             ; preds = %1476, %1454
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %161) #6
-          to label %1439 unwind label %413
+          to label %1440 unwind label %414
 
-1453:                                             ; preds = %1561, %1463, %1451
-  %1454 = landingpad { ptr, i32 }
+1454:                                             ; preds = %1562, %1464, %1452
+  %1455 = landingpad { ptr, i32 }
           cleanup
-  %1455 = extractvalue { ptr, i32 } %1454, 0
-  %1456 = extractvalue { ptr, i32 } %1454, 1
-  store ptr %1455, ptr %5, align 8
-  %1457 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1456, ptr %1457, align 8
-  br label %1452
+  %1456 = extractvalue { ptr, i32 } %1455, 0
+  %1457 = extractvalue { ptr, i32 } %1455, 1
+  store ptr %1456, ptr %5, align 8
+  %1458 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1457, ptr %1458, align 8
+  br label %1453
 
-1458:                                             ; preds = %1451
-  %1459 = load i64, ptr %158, align 8, !range !8, !noundef !3
-  %1460 = icmp eq i64 %1459, -9223372036854775807
-  %1461 = select i1 %1460, i64 0, i64 1
-  %1462 = icmp eq i64 %1461, 0
-  br i1 %1462, label %1463, label %1464
+1459:                                             ; preds = %1452
+  %1460 = load i64, ptr %158, align 8, !range !8, !noundef !3
+  %1461 = icmp eq i64 %1460, -9223372036854775807
+  %1462 = select i1 %1461, i64 0, i64 1
+  %1463 = icmp eq i64 %1462, 0
+  br i1 %1463, label %1464, label %1465
 
-1463:                                             ; preds = %1458
+1464:                                             ; preds = %1459
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.81) #7
-          to label %959 unwind label %1453
+          to label %960 unwind label %1454
 
-1464:                                             ; preds = %1458
+1465:                                             ; preds = %1459
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %159, ptr align 8 %158, i64 32, i1 false)
-  %1465 = getelementptr inbounds { [1 x i64], ptr, ptr }, ptr %1, i32 0, i32 2
-  %1466 = load ptr, ptr %1465, align 8, !align !5, !noundef !3
-  store ptr %1466, ptr %156, align 8
-  %1467 = load ptr, ptr %156, align 8, !noundef !3
-  %1468 = ptrtoint ptr %1467 to i64
-  %1469 = icmp eq i64 %1468, 0
-  %1470 = select i1 %1469, i64 0, i64 1
-  %1471 = icmp eq i64 %1470, 0
-  br i1 %1471, label %1472, label %1473
+  %1466 = getelementptr inbounds { [1 x i64], ptr, ptr }, ptr %1, i32 0, i32 2
+  %1467 = load ptr, ptr %1466, align 8, !align !5, !noundef !3
+  store ptr %1467, ptr %156, align 8
+  %1468 = load ptr, ptr %156, align 8, !noundef !3
+  %1469 = ptrtoint ptr %1468 to i64
+  %1470 = icmp eq i64 %1469, 0
+  %1471 = select i1 %1470, i64 0, i64 1
+  %1472 = icmp eq i64 %1471, 0
+  br i1 %1472, label %1473, label %1474
 
-1472:                                             ; preds = %1464
+1473:                                             ; preds = %1465
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.82) #7
-          to label %959 unwind label %1476
+          to label %960 unwind label %1477
 
-1473:                                             ; preds = %1464
-  %1474 = load ptr, ptr %156, align 8, !nonnull !3, !align !5, !noundef !3
+1474:                                             ; preds = %1465
+  %1475 = load ptr, ptr %156, align 8, !nonnull !3, !align !5, !noundef !3
   invoke void @_ZN15wiggle_generate9lifetimes13anon_lifetime17h513aec478ec31ebdE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %155)
-          to label %1481 unwind label %1476
+          to label %1482 unwind label %1477
 
-1475:                                             ; preds = %1483, %1476
+1476:                                             ; preds = %1484, %1477
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %159) #6
-          to label %1452 unwind label %413
+          to label %1453 unwind label %414
 
-1476:                                             ; preds = %1560, %1481, %1473, %1472
-  %1477 = landingpad { ptr, i32 }
+1477:                                             ; preds = %1561, %1482, %1474, %1473
+  %1478 = landingpad { ptr, i32 }
           cleanup
-  %1478 = extractvalue { ptr, i32 } %1477, 0
-  %1479 = extractvalue { ptr, i32 } %1477, 1
-  store ptr %1478, ptr %5, align 8
-  %1480 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1479, ptr %1480, align 8
-  br label %1475
+  %1479 = extractvalue { ptr, i32 } %1478, 0
+  %1480 = extractvalue { ptr, i32 } %1478, 1
+  store ptr %1479, ptr %5, align 8
+  %1481 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1480, ptr %1481, align 8
+  br label %1476
 
-1481:                                             ; preds = %1473
-  invoke void @_ZN15wiggle_generate5names8type_ref17h5caf44ab7596050bE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %157, ptr align 8 %1474, ptr align 8 %155)
-          to label %1482 unwind label %1476
+1482:                                             ; preds = %1474
+  invoke void @_ZN15wiggle_generate5names8type_ref17h5caf44ab7596050bE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %157, ptr align 8 %1475, ptr align 8 %155)
+          to label %1483 unwind label %1477
 
-1482:                                             ; preds = %1481
+1483:                                             ; preds = %1482
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %153)
-          to label %1489 unwind label %1484
+          to label %1490 unwind label %1485
 
-1483:                                             ; preds = %1490, %1484
+1484:                                             ; preds = %1491, %1485
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %157) #6
-          to label %1475 unwind label %413
+          to label %1476 unwind label %414
 
-1484:                                             ; preds = %1559, %1482
-  %1485 = landingpad { ptr, i32 }
+1485:                                             ; preds = %1560, %1483
+  %1486 = landingpad { ptr, i32 }
           cleanup
-  %1486 = extractvalue { ptr, i32 } %1485, 0
-  %1487 = extractvalue { ptr, i32 } %1485, 1
-  store ptr %1486, ptr %5, align 8
-  %1488 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1487, ptr %1488, align 8
-  br label %1483
+  %1487 = extractvalue { ptr, i32 } %1486, 0
+  %1488 = extractvalue { ptr, i32 } %1486, 1
+  store ptr %1487, ptr %5, align 8
+  %1489 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1488, ptr %1489, align 8
+  br label %1484
 
-1489:                                             ; preds = %1482
+1490:                                             ; preds = %1483
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %153, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.83, i64 5)
-          to label %1496 unwind label %1491
+          to label %1497 unwind label %1492
 
-1490:                                             ; preds = %1499, %1491
+1491:                                             ; preds = %1500, %1492
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %153) #6
-          to label %1483 unwind label %413
+          to label %1484 unwind label %414
 
-1491:                                             ; preds = %1558, %1497, %1496, %1489
-  %1492 = landingpad { ptr, i32 }
+1492:                                             ; preds = %1559, %1498, %1497, %1490
+  %1493 = landingpad { ptr, i32 }
           cleanup
-  %1493 = extractvalue { ptr, i32 } %1492, 0
-  %1494 = extractvalue { ptr, i32 } %1492, 1
-  store ptr %1493, ptr %5, align 8
-  %1495 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1494, ptr %1495, align 8
-  br label %1490
+  %1494 = extractvalue { ptr, i32 } %1493, 0
+  %1495 = extractvalue { ptr, i32 } %1493, 1
+  store ptr %1494, ptr %5, align 8
+  %1496 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1495, ptr %1496, align 8
+  br label %1491
 
-1496:                                             ; preds = %1489
+1497:                                             ; preds = %1490
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %159, ptr align 8 %153)
-          to label %1497 unwind label %1491
-
-1497:                                             ; preds = %1496
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %151)
-          to label %1498 unwind label %1491
+          to label %1498 unwind label %1492
 
 1498:                                             ; preds = %1497
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %151)
+          to label %1499 unwind label %1492
+
+1499:                                             ; preds = %1498
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %151, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.84, i64 2)
-          to label %1505 unwind label %1500
+          to label %1506 unwind label %1501
 
-1499:                                             ; preds = %1551, %1541, %1517, %1507, %1500
+1500:                                             ; preds = %1552, %1542, %1518, %1508, %1501
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %151) #6
-          to label %1490 unwind label %413
+          to label %1491 unwind label %414
 
-1500:                                             ; preds = %1557, %1549, %1548, %1547, %1539, %1538, %1537, %1515, %1514, %1513, %1505, %1498
-  %1501 = landingpad { ptr, i32 }
+1501:                                             ; preds = %1558, %1550, %1549, %1548, %1540, %1539, %1538, %1516, %1515, %1514, %1506, %1499
+  %1502 = landingpad { ptr, i32 }
           cleanup
-  %1502 = extractvalue { ptr, i32 } %1501, 0
-  %1503 = extractvalue { ptr, i32 } %1501, 1
-  store ptr %1502, ptr %5, align 8
-  %1504 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1503, ptr %1504, align 8
-  br label %1499
+  %1503 = extractvalue { ptr, i32 } %1502, 0
+  %1504 = extractvalue { ptr, i32 } %1502, 1
+  store ptr %1503, ptr %5, align 8
+  %1505 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1504, ptr %1505, align 8
+  br label %1500
 
-1505:                                             ; preds = %1498
+1506:                                             ; preds = %1499
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %149)
-          to label %1506 unwind label %1500
+          to label %1507 unwind label %1501
 
-1506:                                             ; preds = %1505
+1507:                                             ; preds = %1506
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %149, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.85, i64 1)
-          to label %1513 unwind label %1508
+          to label %1514 unwind label %1509
 
-1507:                                             ; preds = %1508
+1508:                                             ; preds = %1509
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %149) #6
-          to label %1499 unwind label %413
+          to label %1500 unwind label %414
 
-1508:                                             ; preds = %1506
-  %1509 = landingpad { ptr, i32 }
+1509:                                             ; preds = %1507
+  %1510 = landingpad { ptr, i32 }
           cleanup
-  %1510 = extractvalue { ptr, i32 } %1509, 0
-  %1511 = extractvalue { ptr, i32 } %1509, 1
-  store ptr %1510, ptr %5, align 8
-  %1512 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1511, ptr %1512, align 8
-  br label %1507
+  %1511 = extractvalue { ptr, i32 } %1510, 0
+  %1512 = extractvalue { ptr, i32 } %1510, 1
+  store ptr %1511, ptr %5, align 8
+  %1513 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1512, ptr %1513, align 8
+  br label %1508
 
-1513:                                             ; preds = %1506
+1514:                                             ; preds = %1507
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %150, ptr align 8 %149, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %151, i8 0, ptr align 8 %150)
-          to label %1514 unwind label %1500
-
-1514:                                             ; preds = %1513
-  invoke void @_ZN5quote9__private14push_fat_arrow17h539bbbc405a668e3E(ptr align 8 %151)
-          to label %1515 unwind label %1500
+          to label %1515 unwind label %1501
 
 1515:                                             ; preds = %1514
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %147)
-          to label %1516 unwind label %1500
+  invoke void @_ZN5quote9__private14push_fat_arrow17h539bbbc405a668e3E(ptr align 8 %151)
+          to label %1516 unwind label %1501
 
 1516:                                             ; preds = %1515
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %147)
+          to label %1517 unwind label %1501
+
+1517:                                             ; preds = %1516
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %161, ptr align 8 %147)
-          to label %1523 unwind label %1518
+          to label %1524 unwind label %1519
 
-1517:                                             ; preds = %1518
+1518:                                             ; preds = %1519
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %147) #6
-          to label %1499 unwind label %413
+          to label %1500 unwind label %414
 
-1518:                                             ; preds = %1536, %1535, %1534, %1533, %1532, %1531, %1530, %1529, %1528, %1527, %1526, %1525, %1524, %1523, %1516
-  %1519 = landingpad { ptr, i32 }
+1519:                                             ; preds = %1537, %1536, %1535, %1534, %1533, %1532, %1531, %1530, %1529, %1528, %1527, %1526, %1525, %1524, %1517
+  %1520 = landingpad { ptr, i32 }
           cleanup
-  %1520 = extractvalue { ptr, i32 } %1519, 0
-  %1521 = extractvalue { ptr, i32 } %1519, 1
-  store ptr %1520, ptr %5, align 8
-  %1522 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1521, ptr %1522, align 8
-  br label %1517
+  %1521 = extractvalue { ptr, i32 } %1520, 0
+  %1522 = extractvalue { ptr, i32 } %1520, 1
+  store ptr %1521, ptr %5, align 8
+  %1523 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1522, ptr %1523, align 8
+  br label %1518
 
-1523:                                             ; preds = %1516
+1524:                                             ; preds = %1517
   invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %147)
-          to label %1524 unwind label %1518
-
-1524:                                             ; preds = %1523
-  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %147)
-          to label %1525 unwind label %1518
+          to label %1525 unwind label %1519
 
 1525:                                             ; preds = %1524
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %157, ptr align 8 %147)
-          to label %1526 unwind label %1518
+  invoke void @_ZN5quote9__private7push_lt17heac93d6e6047ed91E(ptr align 8 %147)
+          to label %1526 unwind label %1519
 
 1526:                                             ; preds = %1525
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %147, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
-          to label %1527 unwind label %1518
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %157, ptr align 8 %147)
+          to label %1527 unwind label %1519
 
 1527:                                             ; preds = %1526
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %147, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
-          to label %1528 unwind label %1518
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %147, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
+          to label %1528 unwind label %1519
 
 1528:                                             ; preds = %1527
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %147)
-          to label %1529 unwind label %1518
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %147, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.4, i64 6)
+          to label %1529 unwind label %1519
 
 1529:                                             ; preds = %1528
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %147, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.86, i64 14)
-          to label %1530 unwind label %1518
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %147)
+          to label %1530 unwind label %1519
 
 1530:                                             ; preds = %1529
-  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %147)
-          to label %1531 unwind label %1518
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %147, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.86, i64 14)
+          to label %1531 unwind label %1519
 
 1531:                                             ; preds = %1530
-  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %147)
-          to label %1532 unwind label %1518
+  invoke void @_ZN5quote9__private7push_gt17h74c78fda6ac651b9E(ptr align 8 %147)
+          to label %1532 unwind label %1519
 
 1532:                                             ; preds = %1531
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %147, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.87, i64 7)
-          to label %1533 unwind label %1518
+  invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %147)
+          to label %1533 unwind label %1519
 
 1533:                                             ; preds = %1532
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %146)
-          to label %1534 unwind label %1518
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %147, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.87, i64 7)
+          to label %1534 unwind label %1519
 
 1534:                                             ; preds = %1533
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %147, i8 0, ptr align 8 %146)
-          to label %1535 unwind label %1518
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %146)
+          to label %1535 unwind label %1519
 
 1535:                                             ; preds = %1534
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %147, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
-          to label %1536 unwind label %1518
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %147, i8 0, ptr align 8 %146)
+          to label %1536 unwind label %1519
 
 1536:                                             ; preds = %1535
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %147, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.88, i64 3)
-          to label %1537 unwind label %1518
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %147, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
+          to label %1537 unwind label %1519
 
 1537:                                             ; preds = %1536
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %148, ptr align 8 %147, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %151, i8 1, ptr align 8 %148)
-          to label %1538 unwind label %1500
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %147, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.88, i64 3)
+          to label %1538 unwind label %1519
 
 1538:                                             ; preds = %1537
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %151, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.56, i64 3)
-          to label %1539 unwind label %1500
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %148, ptr align 8 %147, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %151, i8 1, ptr align 8 %148)
+          to label %1539 unwind label %1501
 
 1539:                                             ; preds = %1538
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %144)
-          to label %1540 unwind label %1500
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %151, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.56, i64 3)
+          to label %1540 unwind label %1501
 
 1540:                                             ; preds = %1539
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %144)
+          to label %1541 unwind label %1501
+
+1541:                                             ; preds = %1540
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %144, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.85, i64 1)
-          to label %1547 unwind label %1542
+          to label %1548 unwind label %1543
 
-1541:                                             ; preds = %1542
+1542:                                             ; preds = %1543
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %144) #6
-          to label %1499 unwind label %413
+          to label %1500 unwind label %414
 
-1542:                                             ; preds = %1540
-  %1543 = landingpad { ptr, i32 }
+1543:                                             ; preds = %1541
+  %1544 = landingpad { ptr, i32 }
           cleanup
-  %1544 = extractvalue { ptr, i32 } %1543, 0
-  %1545 = extractvalue { ptr, i32 } %1543, 1
-  store ptr %1544, ptr %5, align 8
-  %1546 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1545, ptr %1546, align 8
-  br label %1541
+  %1545 = extractvalue { ptr, i32 } %1544, 0
+  %1546 = extractvalue { ptr, i32 } %1544, 1
+  store ptr %1545, ptr %5, align 8
+  %1547 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1546, ptr %1547, align 8
+  br label %1542
 
-1547:                                             ; preds = %1540
+1548:                                             ; preds = %1541
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %145, ptr align 8 %144, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %151, i8 0, ptr align 8 %145)
-          to label %1548 unwind label %1500
-
-1548:                                             ; preds = %1547
-  invoke void @_ZN5quote9__private14push_fat_arrow17h539bbbc405a668e3E(ptr align 8 %151)
-          to label %1549 unwind label %1500
+          to label %1549 unwind label %1501
 
 1549:                                             ; preds = %1548
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %142)
-          to label %1550 unwind label %1500
+  invoke void @_ZN5quote9__private14push_fat_arrow17h539bbbc405a668e3E(ptr align 8 %151)
+          to label %1550 unwind label %1501
 
 1550:                                             ; preds = %1549
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %142)
+          to label %1551 unwind label %1501
+
+1551:                                             ; preds = %1550
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %163, ptr align 8 %142)
-          to label %1557 unwind label %1552
+          to label %1558 unwind label %1553
 
-1551:                                             ; preds = %1552
+1552:                                             ; preds = %1553
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %142) #6
-          to label %1499 unwind label %413
+          to label %1500 unwind label %414
 
-1552:                                             ; preds = %1550
-  %1553 = landingpad { ptr, i32 }
+1553:                                             ; preds = %1551
+  %1554 = landingpad { ptr, i32 }
           cleanup
-  %1554 = extractvalue { ptr, i32 } %1553, 0
-  %1555 = extractvalue { ptr, i32 } %1553, 1
-  store ptr %1554, ptr %5, align 8
-  %1556 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1555, ptr %1556, align 8
-  br label %1551
+  %1555 = extractvalue { ptr, i32 } %1554, 0
+  %1556 = extractvalue { ptr, i32 } %1554, 1
+  store ptr %1555, ptr %5, align 8
+  %1557 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1556, ptr %1557, align 8
+  br label %1552
 
-1557:                                             ; preds = %1550
+1558:                                             ; preds = %1551
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %143, ptr align 8 %142, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %151, i8 1, ptr align 8 %143)
-          to label %1558 unwind label %1500
-
-1558:                                             ; preds = %1557
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %152, ptr align 8 %151, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %153, i8 1, ptr align 8 %152)
-          to label %1559 unwind label %1491
+          to label %1559 unwind label %1501
 
 1559:                                             ; preds = %1558
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %154, ptr align 8 %153, i64 32, i1 false)
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %154)
-          to label %1560 unwind label %1484
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %152, ptr align 8 %151, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %153, i8 1, ptr align 8 %152)
+          to label %1560 unwind label %1492
 
 1560:                                             ; preds = %1559
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %157)
-          to label %1561 unwind label %1476
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %154, ptr align 8 %153, i64 32, i1 false)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %154)
+          to label %1561 unwind label %1485
 
 1561:                                             ; preds = %1560
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %159)
-          to label %1562 unwind label %1453
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %157)
+          to label %1562 unwind label %1477
 
 1562:                                             ; preds = %1561
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %161)
-          to label %1563 unwind label %1440
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %159)
+          to label %1563 unwind label %1454
 
 1563:                                             ; preds = %1562
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %161)
+          to label %1564 unwind label %1441
+
+1564:                                             ; preds = %1563
   call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %163)
-  br label %412
+  br label %413
 
-1564:                                             ; preds = %1571, %1565
+1565:                                             ; preds = %1572, %1566
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %44) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1565:                                             ; preds = %1577, %1170
-  %1566 = landingpad { ptr, i32 }
+1566:                                             ; preds = %1578, %1171
+  %1567 = landingpad { ptr, i32 }
           cleanup
-  %1567 = extractvalue { ptr, i32 } %1566, 0
-  %1568 = extractvalue { ptr, i32 } %1566, 1
-  store ptr %1567, ptr %5, align 8
-  %1569 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1568, ptr %1569, align 8
-  br label %1564
+  %1568 = extractvalue { ptr, i32 } %1567, 0
+  %1569 = extractvalue { ptr, i32 } %1567, 1
+  store ptr %1568, ptr %5, align 8
+  %1570 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1569, ptr %1570, align 8
+  br label %1565
 
-1570:                                             ; preds = %1170
+1571:                                             ; preds = %1171
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %44, ptr align 8 %41)
-          to label %1577 unwind label %1572
+          to label %1578 unwind label %1573
 
-1571:                                             ; preds = %1572
+1572:                                             ; preds = %1573
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %41) #6
-          to label %1564 unwind label %413
+          to label %1565 unwind label %414
 
-1572:                                             ; preds = %1570
-  %1573 = landingpad { ptr, i32 }
+1573:                                             ; preds = %1571
+  %1574 = landingpad { ptr, i32 }
           cleanup
-  %1574 = extractvalue { ptr, i32 } %1573, 0
-  %1575 = extractvalue { ptr, i32 } %1573, 1
-  store ptr %1574, ptr %5, align 8
-  %1576 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1575, ptr %1576, align 8
-  br label %1571
+  %1575 = extractvalue { ptr, i32 } %1574, 0
+  %1576 = extractvalue { ptr, i32 } %1574, 1
+  store ptr %1575, ptr %5, align 8
+  %1577 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1576, ptr %1577, align 8
+  br label %1572
 
-1577:                                             ; preds = %1570
+1578:                                             ; preds = %1571
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %41, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %43, ptr align 8 %42, i64 32, i1 false)
   invoke void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$4emit28_$u7b$$u7b$closure$u7d$$u7d$17ha1f2821629e25593E"(ptr align 8 %262, ptr align 8 %43)
-          to label %1578 unwind label %1565
+          to label %1579 unwind label %1566
 
-1578:                                             ; preds = %1577
+1579:                                             ; preds = %1578
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %44)
-  br label %412
+  br label %413
 
-1579:                                             ; preds = %379
+1580:                                             ; preds = %380
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.89) #7
   unreachable
 
-1580:                                             ; preds = %379
+1581:                                             ; preds = %380
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %179, ptr align 8 %178, i64 32, i1 false)
   store i8 1, ptr %34, align 1
-  %1581 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 6
-  %1582 = load ptr, ptr %1581, align 8, !nonnull !3, !align !5, !noundef !3
-  %1583 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
-  %1584 = load ptr, ptr %1583, align 8, !nonnull !3, !align !5, !noundef !3
-  %1585 = invoke align 8 ptr @_ZN15wiggle_generate16codegen_settings14ErrorTransform8for_name17h24fa385e708be59eE(ptr align 8 %1582, ptr align 8 %1584)
-          to label %1594 unwind label %1589
+  %1582 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 6
+  %1583 = load ptr, ptr %1582, align 8, !nonnull !3, !align !5, !noundef !3
+  %1584 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i32 0, i32 1
+  %1585 = load ptr, ptr %1584, align 8, !nonnull !3, !align !5, !noundef !3
+  %1586 = invoke align 8 ptr @_ZN15wiggle_generate16codegen_settings14ErrorTransform8for_name17h24fa385e708be59eE(ptr align 8 %1583, ptr align 8 %1585)
+          to label %1595 unwind label %1590
 
-1586:                                             ; preds = %1683, %1671, %1618, %1589
-  %1587 = load i8, ptr %34, align 1, !range !6, !noundef !3
-  %1588 = trunc i8 %1587 to i1
-  br i1 %1588, label %1704, label %415
+1587:                                             ; preds = %1686, %1674, %1620, %1590
+  %1588 = load i8, ptr %34, align 1, !range !6, !noundef !3
+  %1589 = trunc i8 %1588 to i1
+  br i1 %1589, label %1707, label %416
 
-1589:                                             ; preds = %1699, %1669, %1609, %1608, %1580
-  %1590 = landingpad { ptr, i32 }
+1590:                                             ; preds = %1702, %1672, %1610, %1609, %1581
+  %1591 = landingpad { ptr, i32 }
           cleanup
-  %1591 = extractvalue { ptr, i32 } %1590, 0
-  %1592 = extractvalue { ptr, i32 } %1590, 1
-  store ptr %1591, ptr %5, align 8
-  %1593 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1592, ptr %1593, align 8
-  br label %1586
+  %1592 = extractvalue { ptr, i32 } %1591, 0
+  %1593 = extractvalue { ptr, i32 } %1591, 1
+  store ptr %1592, ptr %5, align 8
+  %1594 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1593, ptr %1594, align 8
+  br label %1587
 
-1594:                                             ; preds = %1580
-  store ptr %1585, ptr %176, align 8
-  %1595 = load ptr, ptr %176, align 8, !noundef !3
-  %1596 = ptrtoint ptr %1595 to i64
-  %1597 = icmp eq i64 %1596, 0
-  %1598 = select i1 %1597, i64 0, i64 1
-  %1599 = icmp eq i64 %1598, 0
-  br i1 %1599, label %1600, label %1601
+1595:                                             ; preds = %1581
+  store ptr %1586, ptr %176, align 8
+  %1596 = load ptr, ptr %176, align 8, !noundef !3
+  %1597 = ptrtoint ptr %1596 to i64
+  %1598 = icmp eq i64 %1597, 0
+  %1599 = select i1 %1598, i64 0, i64 1
+  %1600 = icmp eq i64 %1599, 0
+  br i1 %1600, label %1601, label %1602
 
-1600:                                             ; preds = %1594
+1601:                                             ; preds = %1595
   store i8 0, ptr %34, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %177, ptr align 8 %179, i64 32, i1 false)
-  br label %1607
+  br label %1608
 
-1601:                                             ; preds = %1594
-  %1602 = load ptr, ptr %176, align 8, !nonnull !3, !align !5, !noundef !3
-  %1603 = load i64, ptr %1602, align 8, !range !12, !noundef !3
-  %1604 = icmp eq i64 %1603, -9223372036854775808
-  %1605 = select i1 %1604, i64 1, i64 0
-  %1606 = icmp eq i64 %1605, 0
-  br i1 %1606, label %1608, label %1609
+1602:                                             ; preds = %1595
+  %1603 = load ptr, ptr %176, align 8, !nonnull !3, !align !5, !noundef !3
+  %1604 = load i64, ptr %1603, align 8, !range !12, !noundef !3
+  %1605 = icmp eq i64 %1604, -9223372036854775808
+  %1606 = select i1 %1605, i64 1, i64 0
+  %1607 = icmp eq i64 %1606, 0
+  br i1 %1607, label %1609, label %1610
 
-1607:                                             ; preds = %1682, %1669, %1600
+1608:                                             ; preds = %1685, %1672, %1601
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %164)
-          to label %1689 unwind label %1684
+          to label %1692 unwind label %1687
 
-1608:                                             ; preds = %1601
-  invoke void @_ZN15wiggle_generate5names28user_error_conversion_method17h52fa4528bab5d19cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %175, ptr align 8 %1602)
-          to label %1610 unwind label %1589
+1609:                                             ; preds = %1602
+  invoke void @_ZN15wiggle_generate5names28user_error_conversion_method17h52fa4528bab5d19cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %175, ptr align 8 %1603)
+          to label %1611 unwind label %1590
 
-1609:                                             ; preds = %1601
+1610:                                             ; preds = %1602
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %167)
-          to label %1670 unwind label %1589
+          to label %1673 unwind label %1590
 
-1610:                                             ; preds = %1608
+1611:                                             ; preds = %1609
   store ptr @anon.21253c77e3fc4844456cc94e3b0b613d.91, ptr %171, align 8
-  %1611 = getelementptr inbounds i8, ptr %171, i64 8
-  store i64 1, ptr %1611, align 8
-  %1612 = load ptr, ptr @anon.21253c77e3fc4844456cc94e3b0b613d.93, align 8, !align !5, !noundef !3
-  %1613 = load i64, ptr getelementptr inbounds (i8, ptr @anon.21253c77e3fc4844456cc94e3b0b613d.93, i64 8), align 8
-  %1614 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %171, i32 0, i32 2
-  store ptr %1612, ptr %1614, align 8
-  %1615 = getelementptr inbounds i8, ptr %1614, i64 8
-  store i64 %1613, ptr %1615, align 8
-  %1616 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %171, i32 0, i32 1
-  store ptr @anon.21253c77e3fc4844456cc94e3b0b613d.92, ptr %1616, align 8
+  %1612 = getelementptr inbounds i8, ptr %171, i64 8
+  store i64 1, ptr %1612, align 8
+  %1613 = load ptr, ptr @anon.21253c77e3fc4844456cc94e3b0b613d.93, align 8, !align !5, !noundef !3
+  %1614 = getelementptr inbounds i8, ptr @anon.21253c77e3fc4844456cc94e3b0b613d.93, i64 8
+  %1615 = load i64, ptr %1614, align 8
+  %1616 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %171, i32 0, i32 2
+  store ptr %1613, ptr %1616, align 8
   %1617 = getelementptr inbounds i8, ptr %1616, i64 8
-  store i64 0, ptr %1617, align 8
+  store i64 %1615, ptr %1617, align 8
+  %1618 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %171, i32 0, i32 1
+  store ptr @anon.21253c77e3fc4844456cc94e3b0b613d.92, ptr %1618, align 8
+  %1619 = getelementptr inbounds i8, ptr %1618, i64 8
+  store i64 0, ptr %1619, align 8
   invoke void @_ZN5alloc3fmt6format17h7750bf553f062d8cE(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %172, ptr align 8 %171)
-          to label %1624 unwind label %1619
+          to label %1626 unwind label %1621
 
-1618:                                             ; preds = %1649, %1639, %1619
+1620:                                             ; preds = %1652, %1642, %1621
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %175) #6
-          to label %1586 unwind label %413
+          to label %1587 unwind label %414
 
-1619:                                             ; preds = %1647, %1646, %1610
-  %1620 = landingpad { ptr, i32 }
+1621:                                             ; preds = %1650, %1649, %1611
+  %1622 = landingpad { ptr, i32 }
           cleanup
-  %1621 = extractvalue { ptr, i32 } %1620, 0
-  %1622 = extractvalue { ptr, i32 } %1620, 1
-  store ptr %1621, ptr %5, align 8
-  %1623 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1622, ptr %1623, align 8
-  br label %1618
+  %1623 = extractvalue { ptr, i32 } %1622, 0
+  %1624 = extractvalue { ptr, i32 } %1622, 1
+  store ptr %1623, ptr %5, align 8
+  %1625 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1624, ptr %1625, align 8
+  br label %1620
 
-1624:                                             ; preds = %1610
+1626:                                             ; preds = %1611
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %173, ptr align 8 %172, i64 24, i1 false)
-  %1625 = getelementptr inbounds i8, ptr %173, i64 8
-  %1626 = load ptr, ptr %1625, align 8, !nonnull !3, !noundef !3
-  %1627 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %173, i32 0, i32 1
-  %1628 = load i64, ptr %1627, align 8, !noundef !3
-  store ptr %1626, ptr %17, align 8
-  %1629 = getelementptr inbounds i8, ptr %17, i64 8
-  store i64 %1628, ptr %1629, align 8
-  %1630 = load ptr, ptr %17, align 8, !noundef !3
+  %1627 = getelementptr inbounds i8, ptr %173, i64 8
+  %1628 = load ptr, ptr %1627, align 8, !nonnull !3, !noundef !3
+  %1629 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %173, i32 0, i32 1
+  %1630 = load i64, ptr %1629, align 8, !noundef !3
+  store ptr %1628, ptr %17, align 8
   %1631 = getelementptr inbounds i8, ptr %17, i64 8
-  %1632 = load i64, ptr %1631, align 8, !noundef !3
-  store ptr %1630, ptr %18, align 8
-  %1633 = getelementptr inbounds i8, ptr %18, i64 8
-  store i64 %1632, ptr %1633, align 8
-  %1634 = load ptr, ptr %18, align 8, !noundef !3
+  store i64 %1630, ptr %1631, align 8
+  %1632 = load ptr, ptr %17, align 8, !noundef !3
+  %1633 = getelementptr inbounds i8, ptr %17, i64 8
+  %1634 = load i64, ptr %1633, align 8, !noundef !3
+  store ptr %1632, ptr %18, align 8
   %1635 = getelementptr inbounds i8, ptr %18, i64 8
-  %1636 = load i64, ptr %1635, align 8, !noundef !3
-  %1637 = load i32, ptr @anon.21253c77e3fc4844456cc94e3b0b613d.94, align 4, !range !13, !noundef !3
-  %1638 = load i32, ptr getelementptr inbounds (i8, ptr @anon.21253c77e3fc4844456cc94e3b0b613d.94, i64 4), align 4
-  invoke void @_ZN5quote9__private8mk_ident17hb1ba7cfb07b4c51cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %174, ptr align 1 %1634, i64 %1636, i32 %1637, i32 %1638)
-          to label %1645 unwind label %1640
+  store i64 %1634, ptr %1635, align 8
+  %1636 = load ptr, ptr %18, align 8, !noundef !3
+  %1637 = getelementptr inbounds i8, ptr %18, i64 8
+  %1638 = load i64, ptr %1637, align 8, !noundef !3
+  %1639 = load i32, ptr @anon.21253c77e3fc4844456cc94e3b0b613d.94, align 4, !range !13, !noundef !3
+  %1640 = getelementptr inbounds i8, ptr @anon.21253c77e3fc4844456cc94e3b0b613d.94, i64 4
+  %1641 = load i32, ptr %1640, align 4
+  invoke void @_ZN5quote9__private8mk_ident17hb1ba7cfb07b4c51cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %174, ptr align 1 %1636, i64 %1638, i32 %1639, i32 %1641)
+          to label %1648 unwind label %1643
 
-1639:                                             ; preds = %1640
+1642:                                             ; preds = %1643
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr align 8 %173) #6
-          to label %1618 unwind label %413
+          to label %1620 unwind label %414
 
-1640:                                             ; preds = %1645, %1624
-  %1641 = landingpad { ptr, i32 }
+1643:                                             ; preds = %1648, %1626
+  %1644 = landingpad { ptr, i32 }
           cleanup
-  %1642 = extractvalue { ptr, i32 } %1641, 0
-  %1643 = extractvalue { ptr, i32 } %1641, 1
-  store ptr %1642, ptr %5, align 8
-  %1644 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1643, ptr %1644, align 8
-  br label %1639
+  %1645 = extractvalue { ptr, i32 } %1644, 0
+  %1646 = extractvalue { ptr, i32 } %1644, 1
+  store ptr %1645, ptr %5, align 8
+  %1647 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1646, ptr %1647, align 8
+  br label %1642
 
-1645:                                             ; preds = %1624
+1648:                                             ; preds = %1626
   invoke void @_ZN15wiggle_generate5funcs4Rust5bound17h6d14fd03774ad632E(ptr align 8 %0, ptr align 8 %174)
-          to label %1646 unwind label %1640
+          to label %1649 unwind label %1643
 
-1646:                                             ; preds = %1645
+1649:                                             ; preds = %1648
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr align 8 %173)
-          to label %1647 unwind label %1619
+          to label %1650 unwind label %1621
 
-1647:                                             ; preds = %1646
+1650:                                             ; preds = %1649
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %170)
-          to label %1648 unwind label %1619
+          to label %1651 unwind label %1621
 
-1648:                                             ; preds = %1647
+1651:                                             ; preds = %1650
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %170, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.90, i64 19)
-          to label %1655 unwind label %1650
+          to label %1658 unwind label %1653
 
-1649:                                             ; preds = %1659, %1650
+1652:                                             ; preds = %1662, %1653
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %170) #6
-          to label %1618 unwind label %413
+          to label %1620 unwind label %414
 
-1650:                                             ; preds = %1668, %1667, %1657, %1656, %1655, %1648
-  %1651 = landingpad { ptr, i32 }
+1653:                                             ; preds = %1671, %1670, %1660, %1659, %1658, %1651
+  %1654 = landingpad { ptr, i32 }
           cleanup
-  %1652 = extractvalue { ptr, i32 } %1651, 0
-  %1653 = extractvalue { ptr, i32 } %1651, 1
-  store ptr %1652, ptr %5, align 8
-  %1654 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1653, ptr %1654, align 8
-  br label %1649
+  %1655 = extractvalue { ptr, i32 } %1654, 0
+  %1656 = extractvalue { ptr, i32 } %1654, 1
+  store ptr %1655, ptr %5, align 8
+  %1657 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1656, ptr %1657, align 8
+  br label %1652
 
-1655:                                             ; preds = %1648
+1658:                                             ; preds = %1651
   invoke void @_ZN5quote9__private11push_colon217h3e127fba4fb9e820E(ptr align 8 %170)
-          to label %1656 unwind label %1650
+          to label %1659 unwind label %1653
 
-1656:                                             ; preds = %1655
+1659:                                             ; preds = %1658
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %175, ptr align 8 %170)
-          to label %1657 unwind label %1650
+          to label %1660 unwind label %1653
 
-1657:                                             ; preds = %1656
+1660:                                             ; preds = %1659
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %168)
-          to label %1658 unwind label %1650
+          to label %1661 unwind label %1653
 
-1658:                                             ; preds = %1657
+1661:                                             ; preds = %1660
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %168, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.24, i64 3)
-          to label %1665 unwind label %1660
+          to label %1668 unwind label %1663
 
-1659:                                             ; preds = %1660
+1662:                                             ; preds = %1663
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %168) #6
-          to label %1649 unwind label %413
+          to label %1652 unwind label %414
 
-1660:                                             ; preds = %1666, %1665, %1658
-  %1661 = landingpad { ptr, i32 }
+1663:                                             ; preds = %1669, %1668, %1661
+  %1664 = landingpad { ptr, i32 }
           cleanup
-  %1662 = extractvalue { ptr, i32 } %1661, 0
-  %1663 = extractvalue { ptr, i32 } %1661, 1
-  store ptr %1662, ptr %5, align 8
-  %1664 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1663, ptr %1664, align 8
-  br label %1659
+  %1665 = extractvalue { ptr, i32 } %1664, 0
+  %1666 = extractvalue { ptr, i32 } %1664, 1
+  store ptr %1665, ptr %5, align 8
+  %1667 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1666, ptr %1667, align 8
+  br label %1662
 
-1665:                                             ; preds = %1658
+1668:                                             ; preds = %1661
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %168)
-          to label %1666 unwind label %1660
-
-1666:                                             ; preds = %1665
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %179, ptr align 8 %168)
-          to label %1667 unwind label %1660
-
-1667:                                             ; preds = %1666
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %169, ptr align 8 %168, i64 32, i1 false)
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %170, i8 0, ptr align 8 %169)
-          to label %1668 unwind label %1650
-
-1668:                                             ; preds = %1667
-  invoke void @_ZN5quote9__private13push_question17h9cde691f1a6b02eaE(ptr align 8 %170)
-          to label %1669 unwind label %1650
+          to label %1669 unwind label %1663
 
 1669:                                             ; preds = %1668
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %179, ptr align 8 %168)
+          to label %1670 unwind label %1663
+
+1670:                                             ; preds = %1669
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %169, ptr align 8 %168, i64 32, i1 false)
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %170, i8 0, ptr align 8 %169)
+          to label %1671 unwind label %1653
+
+1671:                                             ; preds = %1670
+  invoke void @_ZN5quote9__private13push_question17h9cde691f1a6b02eaE(ptr align 8 %170)
+          to label %1672 unwind label %1653
+
+1672:                                             ; preds = %1671
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %177, ptr align 8 %170, i64 32, i1 false)
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %175)
-          to label %1607 unwind label %1589
+          to label %1608 unwind label %1590
 
-1670:                                             ; preds = %1609
+1673:                                             ; preds = %1610
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %179, ptr align 8 %167)
-          to label %1677 unwind label %1672
+          to label %1680 unwind label %1675
 
-1671:                                             ; preds = %1672
+1674:                                             ; preds = %1675
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %167) #6
-          to label %1586 unwind label %413
+          to label %1587 unwind label %414
 
-1672:                                             ; preds = %1681, %1680, %1679, %1678, %1677, %1670
-  %1673 = landingpad { ptr, i32 }
+1675:                                             ; preds = %1684, %1683, %1682, %1681, %1680, %1673
+  %1676 = landingpad { ptr, i32 }
           cleanup
-  %1674 = extractvalue { ptr, i32 } %1673, 0
-  %1675 = extractvalue { ptr, i32 } %1673, 1
-  store ptr %1674, ptr %5, align 8
-  %1676 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1675, ptr %1676, align 8
-  br label %1671
+  %1677 = extractvalue { ptr, i32 } %1676, 0
+  %1678 = extractvalue { ptr, i32 } %1676, 1
+  store ptr %1677, ptr %5, align 8
+  %1679 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1678, ptr %1679, align 8
+  br label %1674
 
-1677:                                             ; preds = %1670
+1680:                                             ; preds = %1673
   invoke void @_ZN5quote9__private8push_dot17h03cdb31c440a1f9fE(ptr align 8 %167)
-          to label %1678 unwind label %1672
-
-1678:                                             ; preds = %1677
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %167, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.95, i64 8)
-          to label %1679 unwind label %1672
-
-1679:                                             ; preds = %1678
-  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %166)
-          to label %1680 unwind label %1672
-
-1680:                                             ; preds = %1679
-  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %167, i8 0, ptr align 8 %166)
-          to label %1681 unwind label %1672
+          to label %1681 unwind label %1675
 
 1681:                                             ; preds = %1680
-  invoke void @_ZN5quote9__private13push_question17h9cde691f1a6b02eaE(ptr align 8 %167)
-          to label %1682 unwind label %1672
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %167, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.95, i64 8)
+          to label %1682 unwind label %1675
 
 1682:                                             ; preds = %1681
+  invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %166)
+          to label %1683 unwind label %1675
+
+1683:                                             ; preds = %1682
+  invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %167, i8 0, ptr align 8 %166)
+          to label %1684 unwind label %1675
+
+1684:                                             ; preds = %1683
+  invoke void @_ZN5quote9__private13push_question17h9cde691f1a6b02eaE(ptr align 8 %167)
+          to label %1685 unwind label %1675
+
+1685:                                             ; preds = %1684
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %177, ptr align 8 %167, i64 32, i1 false)
-  br label %1607
+  br label %1608
 
-1683:                                             ; preds = %1690, %1684
+1686:                                             ; preds = %1693, %1687
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %177) #6
-          to label %1586 unwind label %413
+          to label %1587 unwind label %414
 
-1684:                                             ; preds = %1698, %1607
-  %1685 = landingpad { ptr, i32 }
+1687:                                             ; preds = %1701, %1608
+  %1688 = landingpad { ptr, i32 }
           cleanup
-  %1686 = extractvalue { ptr, i32 } %1685, 0
-  %1687 = extractvalue { ptr, i32 } %1685, 1
-  store ptr %1686, ptr %5, align 8
-  %1688 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1687, ptr %1688, align 8
-  br label %1683
+  %1689 = extractvalue { ptr, i32 } %1688, 0
+  %1690 = extractvalue { ptr, i32 } %1688, 1
+  store ptr %1689, ptr %5, align 8
+  %1691 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1690, ptr %1691, align 8
+  br label %1686
 
-1689:                                             ; preds = %1607
+1692:                                             ; preds = %1608
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %177, ptr align 8 %164)
-          to label %1696 unwind label %1691
+          to label %1699 unwind label %1694
 
-1690:                                             ; preds = %1691
+1693:                                             ; preds = %1694
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %164) #6
-          to label %1683 unwind label %413
+          to label %1686 unwind label %414
 
-1691:                                             ; preds = %1697, %1696, %1689
-  %1692 = landingpad { ptr, i32 }
+1694:                                             ; preds = %1700, %1699, %1692
+  %1695 = landingpad { ptr, i32 }
           cleanup
-  %1693 = extractvalue { ptr, i32 } %1692, 0
-  %1694 = extractvalue { ptr, i32 } %1692, 1
-  store ptr %1693, ptr %5, align 8
-  %1695 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1694, ptr %1695, align 8
-  br label %1690
+  %1696 = extractvalue { ptr, i32 } %1695, 0
+  %1697 = extractvalue { ptr, i32 } %1695, 1
+  store ptr %1696, ptr %5, align 8
+  %1698 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1697, ptr %1698, align 8
+  br label %1693
 
-1696:                                             ; preds = %1689
+1699:                                             ; preds = %1692
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %164, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.18, i64 2)
-          to label %1697 unwind label %1691
-
-1697:                                             ; preds = %1696
-  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %164, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.88, i64 3)
-          to label %1698 unwind label %1691
-
-1698:                                             ; preds = %1697
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %165, ptr align 8 %164, i64 32, i1 false)
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %165)
-          to label %1699 unwind label %1684
-
-1699:                                             ; preds = %1698
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %177)
-          to label %1700 unwind label %1589
+          to label %1700 unwind label %1694
 
 1700:                                             ; preds = %1699
-  %1701 = load i8, ptr %34, align 1, !range !6, !noundef !3
-  %1702 = trunc i8 %1701 to i1
-  br i1 %1702, label %1703, label %412
+  invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %164, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.88, i64 3)
+          to label %1701 unwind label %1694
 
-1703:                                             ; preds = %1700
+1701:                                             ; preds = %1700
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %165, ptr align 8 %164, i64 32, i1 false)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %165)
+          to label %1702 unwind label %1687
+
+1702:                                             ; preds = %1701
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %177)
+          to label %1703 unwind label %1590
+
+1703:                                             ; preds = %1702
+  %1704 = load i8, ptr %34, align 1, !range !6, !noundef !3
+  %1705 = trunc i8 %1704 to i1
+  br i1 %1705, label %1706, label %413
+
+1706:                                             ; preds = %1703
   call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %179)
-  br label %412
+  br label %413
 
-1704:                                             ; preds = %1586
+1707:                                             ; preds = %1587
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %179) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1705:                                             ; preds = %1720, %1706
+1708:                                             ; preds = %1723, %1709
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr align 8 %128) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1706:                                             ; preds = %1785, %1716, %384
-  %1707 = landingpad { ptr, i32 }
+1709:                                             ; preds = %1788, %1719, %385
+  %1710 = landingpad { ptr, i32 }
           cleanup
-  %1708 = extractvalue { ptr, i32 } %1707, 0
-  %1709 = extractvalue { ptr, i32 } %1707, 1
-  store ptr %1708, ptr %5, align 8
-  %1710 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1709, ptr %1710, align 8
-  br label %1705
+  %1711 = extractvalue { ptr, i32 } %1710, 0
+  %1712 = extractvalue { ptr, i32 } %1710, 1
+  store ptr %1711, ptr %5, align 8
+  %1713 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1712, ptr %1713, align 8
+  br label %1708
 
-1711:                                             ; preds = %384
-  %1712 = load i64, ptr %124, align 8, !range !8, !noundef !3
-  %1713 = icmp eq i64 %1712, -9223372036854775807
-  %1714 = select i1 %1713, i64 0, i64 1
-  %1715 = icmp eq i64 %1714, 0
-  br i1 %1715, label %1716, label %1717
+1714:                                             ; preds = %385
+  %1715 = load i64, ptr %124, align 8, !range !8, !noundef !3
+  %1716 = icmp eq i64 %1715, -9223372036854775807
+  %1717 = select i1 %1716, i64 0, i64 1
+  %1718 = icmp eq i64 %1717, 0
+  br i1 %1718, label %1719, label %1720
 
-1716:                                             ; preds = %1711
+1719:                                             ; preds = %1714
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.96) #7
-          to label %959 unwind label %1706
+          to label %960 unwind label %1709
 
-1717:                                             ; preds = %1711
+1720:                                             ; preds = %1714
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %125, ptr align 8 %124, i64 32, i1 false)
-  %1718 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
-  %1719 = load ptr, ptr %1718, align 8, !nonnull !3, !align !5, !noundef !3
+  %1721 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
+  %1722 = load ptr, ptr %1721, align 8, !nonnull !3, !align !5, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %122)
-          to label %1726 unwind label %1721
+          to label %1729 unwind label %1724
 
-1720:                                             ; preds = %1727, %1721
+1723:                                             ; preds = %1730, %1724
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %125) #6
-          to label %1705 unwind label %413
+          to label %1708 unwind label %414
 
-1721:                                             ; preds = %1762, %1761, %1717
-  %1722 = landingpad { ptr, i32 }
+1724:                                             ; preds = %1765, %1764, %1720
+  %1725 = landingpad { ptr, i32 }
           cleanup
-  %1723 = extractvalue { ptr, i32 } %1722, 0
-  %1724 = extractvalue { ptr, i32 } %1722, 1
-  store ptr %1723, ptr %5, align 8
-  %1725 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1724, ptr %1725, align 8
-  br label %1720
+  %1726 = extractvalue { ptr, i32 } %1725, 0
+  %1727 = extractvalue { ptr, i32 } %1725, 1
+  store ptr %1726, ptr %5, align 8
+  %1728 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1727, ptr %1728, align 8
+  br label %1723
 
-1726:                                             ; preds = %1717
+1729:                                             ; preds = %1720
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %122, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.2, i64 3)
-          to label %1733 unwind label %1728
+          to label %1736 unwind label %1731
 
-1727:                                             ; preds = %1736, %1728
+1730:                                             ; preds = %1739, %1731
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %122) #6
-          to label %1720 unwind label %413
+          to label %1723 unwind label %414
 
-1728:                                             ; preds = %1760, %1759, %1758, %1754, %1733, %1726
-  %1729 = landingpad { ptr, i32 }
+1731:                                             ; preds = %1763, %1762, %1761, %1757, %1736, %1729
+  %1732 = landingpad { ptr, i32 }
           cleanup
-  %1730 = extractvalue { ptr, i32 } %1729, 0
-  %1731 = extractvalue { ptr, i32 } %1729, 1
-  store ptr %1730, ptr %5, align 8
-  %1732 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1731, ptr %1732, align 8
-  br label %1727
+  %1733 = extractvalue { ptr, i32 } %1732, 0
+  %1734 = extractvalue { ptr, i32 } %1732, 1
+  store ptr %1733, ptr %5, align 8
+  %1735 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1734, ptr %1735, align 8
+  br label %1730
 
-1733:                                             ; preds = %1726
+1736:                                             ; preds = %1729
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %120)
-          to label %1734 unwind label %1728
+          to label %1737 unwind label %1731
 
-1734:                                             ; preds = %1733
-  %1735 = invoke { ptr, ptr } @"_ZN84_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$quote..__private..ext..RepAsIteratorExt$GT$15quote_into_iter17h61fc5fcd2cffcc95E"(ptr align 8 %128)
-          to label %1742 unwind label %1737
+1737:                                             ; preds = %1736
+  %1738 = invoke { ptr, ptr } @"_ZN84_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$quote..__private..ext..RepAsIteratorExt$GT$15quote_into_iter17h61fc5fcd2cffcc95E"(ptr align 8 %128)
+          to label %1745 unwind label %1740
 
-1736:                                             ; preds = %1737
+1739:                                             ; preds = %1740
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %120) #6
-          to label %1727 unwind label %413
+          to label %1730 unwind label %414
 
-1737:                                             ; preds = %1787, %1755, %1746, %1734
-  %1738 = landingpad { ptr, i32 }
+1740:                                             ; preds = %1790, %1758, %1749, %1737
+  %1741 = landingpad { ptr, i32 }
           cleanup
-  %1739 = extractvalue { ptr, i32 } %1738, 0
-  %1740 = extractvalue { ptr, i32 } %1738, 1
-  store ptr %1739, ptr %5, align 8
-  %1741 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1740, ptr %1741, align 8
-  br label %1736
+  %1742 = extractvalue { ptr, i32 } %1741, 0
+  %1743 = extractvalue { ptr, i32 } %1741, 1
+  store ptr %1742, ptr %5, align 8
+  %1744 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1743, ptr %1744, align 8
+  br label %1739
 
-1742:                                             ; preds = %1734
-  %1743 = extractvalue { ptr, ptr } %1735, 0
-  %1744 = extractvalue { ptr, ptr } %1735, 1
-  store ptr %1743, ptr %119, align 8
-  %1745 = getelementptr inbounds i8, ptr %119, i64 8
-  store ptr %1744, ptr %1745, align 8
-  br label %1746
+1745:                                             ; preds = %1737
+  %1746 = extractvalue { ptr, ptr } %1738, 0
+  %1747 = extractvalue { ptr, ptr } %1738, 1
+  store ptr %1746, ptr %119, align 8
+  %1748 = getelementptr inbounds i8, ptr %119, i64 8
+  store ptr %1747, ptr %1748, align 8
+  br label %1749
 
-1746:                                             ; preds = %1788, %1742
-  %1747 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3e6ed44a06928cbE"(ptr align 8 %119)
-          to label %1748 unwind label %1737
+1749:                                             ; preds = %1791, %1745
+  %1750 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3e6ed44a06928cbE"(ptr align 8 %119)
+          to label %1751 unwind label %1740
 
-1748:                                             ; preds = %1746
-  store ptr %1747, ptr %117, align 8
-  %1749 = load ptr, ptr %117, align 8, !noundef !3
-  %1750 = ptrtoint ptr %1749 to i64
-  %1751 = icmp eq i64 %1750, 0
-  %1752 = select i1 %1751, i64 0, i64 1
-  %1753 = icmp eq i64 %1752, 0
-  br i1 %1753, label %1754, label %1755
+1751:                                             ; preds = %1749
+  store ptr %1750, ptr %117, align 8
+  %1752 = load ptr, ptr %117, align 8, !noundef !3
+  %1753 = ptrtoint ptr %1752 to i64
+  %1754 = icmp eq i64 %1753, 0
+  %1755 = select i1 %1754, i64 0, i64 1
+  %1756 = icmp eq i64 %1755, 0
+  br i1 %1756, label %1757, label %1758
 
-1754:                                             ; preds = %1748
+1757:                                             ; preds = %1751
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %121, ptr align 8 %120, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %122, i8 0, ptr align 8 %121)
-          to label %1758 unwind label %1728
+          to label %1761 unwind label %1731
 
-1755:                                             ; preds = %1748
-  %1756 = load ptr, ptr %117, align 8, !nonnull !3, !align !5, !noundef !3
-  store ptr %1756, ptr %118, align 8
-  %1757 = load ptr, ptr %118, align 8, !nonnull !3, !align !5, !noundef !3
-  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %1757, ptr align 8 %120)
-          to label %1787 unwind label %1737
+1758:                                             ; preds = %1751
+  %1759 = load ptr, ptr %117, align 8, !nonnull !3, !align !5, !noundef !3
+  store ptr %1759, ptr %118, align 8
+  %1760 = load ptr, ptr %118, align 8, !nonnull !3, !align !5, !noundef !3
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr align 8 %1760, ptr align 8 %120)
+          to label %1790 unwind label %1740
 
-1758:                                             ; preds = %1754
+1761:                                             ; preds = %1757
   invoke void @_ZN5quote9__private7push_eq17h47e4d06b115708e9E(ptr align 8 %122)
-          to label %1759 unwind label %1728
-
-1759:                                             ; preds = %1758
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %125, ptr align 8 %122)
-          to label %1760 unwind label %1728
-
-1760:                                             ; preds = %1759
-  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %122)
-          to label %1761 unwind label %1728
-
-1761:                                             ; preds = %1760
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %123, ptr align 8 %122, i64 32, i1 false)
-  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %1719, ptr align 8 %123)
-          to label %1762 unwind label %1721
+          to label %1762 unwind label %1731
 
 1762:                                             ; preds = %1761
-  %1763 = getelementptr inbounds i8, ptr %128, i64 8
-  %1764 = load ptr, ptr %1763, align 8, !nonnull !3, !noundef !3
-  %1765 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %128, i32 0, i32 1
-  %1766 = load i64, ptr %1765, align 8, !noundef !3
-  store ptr %1764, ptr %15, align 8
-  %1767 = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 %1766, ptr %1767, align 8
-  %1768 = load ptr, ptr %15, align 8, !noundef !3
-  %1769 = getelementptr inbounds i8, ptr %15, i64 8
-  %1770 = load i64, ptr %1769, align 8, !noundef !3
-  store ptr %1768, ptr %16, align 8
-  %1771 = getelementptr inbounds i8, ptr %16, i64 8
-  store i64 %1770, ptr %1771, align 8
-  %1772 = load ptr, ptr %16, align 8, !noundef !3
-  %1773 = getelementptr inbounds i8, ptr %16, i64 8
-  %1774 = load i64, ptr %1773, align 8, !noundef !3
-  %1775 = getelementptr inbounds { { i64, [3 x i64] }, {} }, ptr %1772, i64 %1774
-  store ptr %1772, ptr %14, align 8
-  %1776 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  store ptr %1776, ptr %115, align 8
-  %1777 = getelementptr inbounds i8, ptr %115, i64 8
-  store ptr %1775, ptr %1777, align 8
-  %1778 = load ptr, ptr %115, align 8, !nonnull !3, !noundef !3
-  %1779 = getelementptr inbounds i8, ptr %115, i64 8
-  %1780 = load ptr, ptr %1779, align 8, !noundef !3
-  store ptr %1778, ptr %116, align 8
-  %1781 = getelementptr inbounds i8, ptr %116, i64 8
-  store ptr %1780, ptr %1781, align 8
-  %1782 = load ptr, ptr %116, align 8, !nonnull !3, !noundef !3
-  %1783 = getelementptr inbounds i8, ptr %116, i64 8
-  %1784 = load ptr, ptr %1783, align 8, !noundef !3
-  invoke void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h6b84ac854b9b93afE"(ptr align 8 %3, ptr %1782, ptr %1784)
-          to label %1785 unwind label %1721
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %125, ptr align 8 %122)
+          to label %1763 unwind label %1731
 
-1785:                                             ; preds = %1762
+1763:                                             ; preds = %1762
+  invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr align 8 %122)
+          to label %1764 unwind label %1731
+
+1764:                                             ; preds = %1763
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %123, ptr align 8 %122, i64 32, i1 false)
+  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %1722, ptr align 8 %123)
+          to label %1765 unwind label %1724
+
+1765:                                             ; preds = %1764
+  %1766 = getelementptr inbounds i8, ptr %128, i64 8
+  %1767 = load ptr, ptr %1766, align 8, !nonnull !3, !noundef !3
+  %1768 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %128, i32 0, i32 1
+  %1769 = load i64, ptr %1768, align 8, !noundef !3
+  store ptr %1767, ptr %15, align 8
+  %1770 = getelementptr inbounds i8, ptr %15, i64 8
+  store i64 %1769, ptr %1770, align 8
+  %1771 = load ptr, ptr %15, align 8, !noundef !3
+  %1772 = getelementptr inbounds i8, ptr %15, i64 8
+  %1773 = load i64, ptr %1772, align 8, !noundef !3
+  store ptr %1771, ptr %16, align 8
+  %1774 = getelementptr inbounds i8, ptr %16, i64 8
+  store i64 %1773, ptr %1774, align 8
+  %1775 = load ptr, ptr %16, align 8, !noundef !3
+  %1776 = getelementptr inbounds i8, ptr %16, i64 8
+  %1777 = load i64, ptr %1776, align 8, !noundef !3
+  %1778 = getelementptr inbounds { { i64, [3 x i64] }, {} }, ptr %1775, i64 %1777
+  store ptr %1775, ptr %14, align 8
+  %1779 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
+  store ptr %1779, ptr %115, align 8
+  %1780 = getelementptr inbounds i8, ptr %115, i64 8
+  store ptr %1778, ptr %1780, align 8
+  %1781 = load ptr, ptr %115, align 8, !nonnull !3, !noundef !3
+  %1782 = getelementptr inbounds i8, ptr %115, i64 8
+  %1783 = load ptr, ptr %1782, align 8, !noundef !3
+  store ptr %1781, ptr %116, align 8
+  %1784 = getelementptr inbounds i8, ptr %116, i64 8
+  store ptr %1783, ptr %1784, align 8
+  %1785 = load ptr, ptr %116, align 8, !nonnull !3, !noundef !3
+  %1786 = getelementptr inbounds i8, ptr %116, i64 8
+  %1787 = load ptr, ptr %1786, align 8, !noundef !3
+  invoke void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h6b84ac854b9b93afE"(ptr align 8 %3, ptr %1785, ptr %1787)
+          to label %1788 unwind label %1724
+
+1788:                                             ; preds = %1765
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %125)
-          to label %1786 unwind label %1706
+          to label %1789 unwind label %1709
 
-1786:                                             ; preds = %1785
+1789:                                             ; preds = %1788
   call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr align 8 %128)
-  br label %412
+  br label %413
 
-1787:                                             ; preds = %1755
+1790:                                             ; preds = %1758
   invoke void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8 %120)
-          to label %1788 unwind label %1737
+          to label %1791 unwind label %1740
 
-1788:                                             ; preds = %1787
-  br label %1746
+1791:                                             ; preds = %1790
+  br label %1749
 
-1789:                                             ; preds = %395
+1792:                                             ; preds = %396
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.38, i64 15, ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.98) #7
   unreachable
 
-1790:                                             ; preds = %395
-  %1791 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
-  %1792 = load ptr, ptr %1791, align 8, !nonnull !3, !align !5, !noundef !3
+1793:                                             ; preds = %396
+  %1794 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
+  %1795 = load ptr, ptr %1794, align 8, !nonnull !3, !align !5, !noundef !3
   call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %138)
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %138, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.55, i64 6)
-          to label %1804 unwind label %1799
+          to label %1807 unwind label %1802
 
-1793:                                             ; preds = %395
+1796:                                             ; preds = %396
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8 %133, ptr align 8 %2)
-  %1794 = load i64, ptr %133, align 8, !range !8, !noundef !3
-  %1795 = icmp eq i64 %1794, -9223372036854775807
-  %1796 = select i1 %1795, i64 0, i64 1
-  %1797 = icmp eq i64 %1796, 0
-  br i1 %1797, label %1816, label %1817
+  %1797 = load i64, ptr %133, align 8, !range !8, !noundef !3
+  %1798 = icmp eq i64 %1797, -9223372036854775807
+  %1799 = select i1 %1798, i64 0, i64 1
+  %1800 = icmp eq i64 %1799, 0
+  br i1 %1800, label %1819, label %1820
 
-1798:                                             ; preds = %1807, %1799
+1801:                                             ; preds = %1810, %1802
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %138) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1799:                                             ; preds = %1814, %1805, %1804, %1790
-  %1800 = landingpad { ptr, i32 }
+1802:                                             ; preds = %1817, %1808, %1807, %1793
+  %1803 = landingpad { ptr, i32 }
           cleanup
-  %1801 = extractvalue { ptr, i32 } %1800, 0
-  %1802 = extractvalue { ptr, i32 } %1800, 1
-  store ptr %1801, ptr %5, align 8
-  %1803 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1802, ptr %1803, align 8
-  br label %1798
+  %1804 = extractvalue { ptr, i32 } %1803, 0
+  %1805 = extractvalue { ptr, i32 } %1803, 1
+  store ptr %1804, ptr %5, align 8
+  %1806 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1805, ptr %1806, align 8
+  br label %1801
 
-1804:                                             ; preds = %1790
+1807:                                             ; preds = %1793
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %138, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.84, i64 2)
-          to label %1805 unwind label %1799
+          to label %1808 unwind label %1802
 
-1805:                                             ; preds = %1804
+1808:                                             ; preds = %1807
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %136)
-          to label %1806 unwind label %1799
+          to label %1809 unwind label %1802
 
-1806:                                             ; preds = %1805
+1809:                                             ; preds = %1808
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %135)
-          to label %1813 unwind label %1808
+          to label %1816 unwind label %1811
 
-1807:                                             ; preds = %1808
+1810:                                             ; preds = %1811
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %136) #6
-          to label %1798 unwind label %413
+          to label %1801 unwind label %414
 
-1808:                                             ; preds = %1813, %1806
-  %1809 = landingpad { ptr, i32 }
+1811:                                             ; preds = %1816, %1809
+  %1812 = landingpad { ptr, i32 }
           cleanup
-  %1810 = extractvalue { ptr, i32 } %1809, 0
-  %1811 = extractvalue { ptr, i32 } %1809, 1
-  store ptr %1810, ptr %5, align 8
-  %1812 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1811, ptr %1812, align 8
-  br label %1807
+  %1813 = extractvalue { ptr, i32 } %1812, 0
+  %1814 = extractvalue { ptr, i32 } %1812, 1
+  store ptr %1813, ptr %5, align 8
+  %1815 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1814, ptr %1815, align 8
+  br label %1810
 
-1813:                                             ; preds = %1806
+1816:                                             ; preds = %1809
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %136, i8 0, ptr align 8 %135)
-          to label %1814 unwind label %1808
+          to label %1817 unwind label %1811
 
-1814:                                             ; preds = %1813
+1817:                                             ; preds = %1816
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %137, ptr align 8 %136, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %138, i8 0, ptr align 8 %137)
-          to label %1815 unwind label %1799
+          to label %1818 unwind label %1802
 
-1815:                                             ; preds = %1814
+1818:                                             ; preds = %1817
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %139, ptr align 8 %138, i64 32, i1 false)
-  call void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %1792, ptr align 8 %139)
-  br label %412
+  call void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %1795, ptr align 8 %139)
+  br label %413
 
-1816:                                             ; preds = %1793
+1819:                                             ; preds = %1796
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.97) #7
   unreachable
 
-1817:                                             ; preds = %1793
+1820:                                             ; preds = %1796
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %134, ptr align 8 %133, i64 32, i1 false)
-  %1818 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
-  %1819 = load ptr, ptr %1818, align 8, !nonnull !3, !align !5, !noundef !3
+  %1821 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { ptr, i64 }, ptr, { ptr, i64 }, ptr, ptr }, ptr %0, i32 0, i32 2
+  %1822 = load ptr, ptr %1821, align 8, !nonnull !3, !align !5, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %131)
-          to label %1826 unwind label %1821
+          to label %1829 unwind label %1824
 
-1820:                                             ; preds = %1827, %1821
+1823:                                             ; preds = %1830, %1824
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %134) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1821:                                             ; preds = %1843, %1817
-  %1822 = landingpad { ptr, i32 }
+1824:                                             ; preds = %1846, %1820
+  %1825 = landingpad { ptr, i32 }
           cleanup
-  %1823 = extractvalue { ptr, i32 } %1822, 0
-  %1824 = extractvalue { ptr, i32 } %1822, 1
-  store ptr %1823, ptr %5, align 8
-  %1825 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1824, ptr %1825, align 8
-  br label %1820
+  %1826 = extractvalue { ptr, i32 } %1825, 0
+  %1827 = extractvalue { ptr, i32 } %1825, 1
+  store ptr %1826, ptr %5, align 8
+  %1828 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1827, ptr %1828, align 8
+  br label %1823
 
-1826:                                             ; preds = %1817
+1829:                                             ; preds = %1820
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %131, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.55, i64 6)
-          to label %1833 unwind label %1828
+          to label %1836 unwind label %1831
 
-1827:                                             ; preds = %1836, %1828
+1830:                                             ; preds = %1839, %1831
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %131) #6
-          to label %1820 unwind label %413
+          to label %1823 unwind label %414
 
-1828:                                             ; preds = %1842, %1834, %1833, %1826
-  %1829 = landingpad { ptr, i32 }
+1831:                                             ; preds = %1845, %1837, %1836, %1829
+  %1832 = landingpad { ptr, i32 }
           cleanup
-  %1830 = extractvalue { ptr, i32 } %1829, 0
-  %1831 = extractvalue { ptr, i32 } %1829, 1
-  store ptr %1830, ptr %5, align 8
-  %1832 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1831, ptr %1832, align 8
-  br label %1827
+  %1833 = extractvalue { ptr, i32 } %1832, 0
+  %1834 = extractvalue { ptr, i32 } %1832, 1
+  store ptr %1833, ptr %5, align 8
+  %1835 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1834, ptr %1835, align 8
+  br label %1830
 
-1833:                                             ; preds = %1826
+1836:                                             ; preds = %1829
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr align 8 %131, ptr align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.84, i64 2)
-          to label %1834 unwind label %1828
+          to label %1837 unwind label %1831
 
-1834:                                             ; preds = %1833
+1837:                                             ; preds = %1836
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %129)
-          to label %1835 unwind label %1828
+          to label %1838 unwind label %1831
 
-1835:                                             ; preds = %1834
+1838:                                             ; preds = %1837
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %134, ptr align 8 %129)
-          to label %1842 unwind label %1837
+          to label %1845 unwind label %1840
 
-1836:                                             ; preds = %1837
+1839:                                             ; preds = %1840
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %129) #6
-          to label %1827 unwind label %413
+          to label %1830 unwind label %414
 
-1837:                                             ; preds = %1835
-  %1838 = landingpad { ptr, i32 }
+1840:                                             ; preds = %1838
+  %1841 = landingpad { ptr, i32 }
           cleanup
-  %1839 = extractvalue { ptr, i32 } %1838, 0
-  %1840 = extractvalue { ptr, i32 } %1838, 1
-  store ptr %1839, ptr %5, align 8
-  %1841 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1840, ptr %1841, align 8
-  br label %1836
+  %1842 = extractvalue { ptr, i32 } %1841, 0
+  %1843 = extractvalue { ptr, i32 } %1841, 1
+  store ptr %1842, ptr %5, align 8
+  %1844 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1843, ptr %1844, align 8
+  br label %1839
 
-1842:                                             ; preds = %1835
+1845:                                             ; preds = %1838
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %130, ptr align 8 %129, i64 32, i1 false)
   invoke void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8 %131, i8 0, ptr align 8 %130)
-          to label %1843 unwind label %1828
+          to label %1846 unwind label %1831
 
-1843:                                             ; preds = %1842
+1846:                                             ; preds = %1845
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %132, ptr align 8 %131, i64 32, i1 false)
-  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %1819, ptr align 8 %132)
-          to label %1844 unwind label %1821
+  invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h49aec609c7650553E"(ptr align 8 %1822, ptr align 8 %132)
+          to label %1847 unwind label %1824
 
-1844:                                             ; preds = %1843
+1847:                                             ; preds = %1846
   call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %134)
-  br label %412
+  br label %413
 
-1845:                                             ; No predecessors!
+1848:                                             ; No predecessors!
   unreachable
 
-1846:                                             ; preds = %1847
+1849:                                             ; preds = %1850
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %140) #6
-          to label %415 unwind label %413
+          to label %416 unwind label %414
 
-1847:                                             ; preds = %398
-  %1848 = landingpad { ptr, i32 }
+1850:                                             ; preds = %399
+  %1851 = landingpad { ptr, i32 }
           cleanup
-  %1849 = extractvalue { ptr, i32 } %1848, 0
-  %1850 = extractvalue { ptr, i32 } %1848, 1
-  store ptr %1849, ptr %5, align 8
-  %1851 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %1850, ptr %1851, align 8
-  br label %1846
+  %1852 = extractvalue { ptr, i32 } %1851, 0
+  %1853 = extractvalue { ptr, i32 } %1851, 1
+  store ptr %1852, ptr %5, align 8
+  %1854 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %1853, ptr %1854, align 8
+  br label %1849
 
-1852:                                             ; preds = %398
+1855:                                             ; preds = %399
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %141, ptr align 8 %140, i64 32, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr align 8 %3, ptr align 8 %141)
-  br label %412
+  br label %413
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -140,7 +140,7 @@ define i32 @ompi_comm_failure_detector_init() #0 {
 
 9:                                                ; preds = %6, %0
   store i32 0, ptr %1, align 4
-  br label %61
+  br label %65
 
 10:                                               ; preds = %6
   %11 = call i32 @ompi_comm_rbcast_register_cb_type(ptr noundef @fd_heartbeat_recv_cb)
@@ -150,7 +150,7 @@ define i32 @ompi_comm_failure_detector_init() #0 {
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
-  br label %58
+  br label %62
 
 15:                                               ; preds = %10
   %16 = load i32, ptr %2, align 4
@@ -162,14 +162,14 @@ define i32 @ompi_comm_failure_detector_init() #0 {
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %15
-  br label %58
+  br label %62
 
 21:                                               ; preds = %15
   %22 = load i32, ptr %2, align 4
   store i32 %22, ptr @comm_heartbeat_request_cb_type, align 4
   %23 = load i8, ptr @comm_detector_use_thread, align 1
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %25, label %57
+  br i1 %24, label %25, label %61
 
 25:                                               ; preds = %21
   %26 = call ptr @opal_event_base_create()
@@ -182,7 +182,7 @@ define i32 @ompi_comm_failure_detector_init() #0 {
   %30 = load ptr, ptr @opal_sync_event_base, align 8
   store ptr %30, ptr @fd_event_base, align 8
   store i32 -2, ptr %2, align 4
-  br label %58
+  br label %62
 
 31:                                               ; preds = %25
   %32 = call i32 @evthread_use_pthreads()
@@ -194,70 +194,74 @@ define i32 @ompi_comm_failure_detector_init() #0 {
 
 35:                                               ; preds = %34
   %36 = load i32, ptr @opal_class_init_epoch, align 4
-  %37 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_thread_t_class, i32 0, i32 4), align 8
-  %38 = icmp ne i32 %36, %37
-  br i1 %38, label %39, label %40
+  %37 = getelementptr inbounds %struct.opal_class_t, ptr @opal_thread_t_class, i32 0, i32 4
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp ne i32 %36, %38
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %35
+40:                                               ; preds = %35
   call void @opal_class_initialize(ptr noundef @opal_thread_t_class)
-  br label %40
-
-40:                                               ; preds = %39, %35
-  store ptr @opal_thread_t_class, ptr @fd_thread, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @fd_thread, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @fd_thread)
   br label %41
 
-41:                                               ; preds = %40
-  br label %42
+41:                                               ; preds = %40, %35
+  store ptr @opal_thread_t_class, ptr @fd_thread, align 8
+  %42 = getelementptr inbounds %struct.opal_object_t, ptr @fd_thread, i32 0, i32 1
+  store volatile i32 1, ptr %42, align 8
+  call void @opal_obj_run_constructors(ptr noundef @fd_thread)
+  br label %43
 
-42:                                               ; preds = %41
-  store ptr @fd_progress, ptr getelementptr inbounds (%struct.opal_thread_t, ptr @fd_thread, i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.opal_thread_t, ptr @fd_thread, i32 0, i32 2), align 8
-  %43 = call i32 @opal_thread_start(ptr noundef @fd_thread)
-  store i32 %43, ptr %2, align 4
-  %44 = load i32, ptr %2, align 4
-  %45 = icmp ne i32 0, %44
-  br i1 %45, label %46, label %47
+43:                                               ; preds = %41
+  br label %44
 
-46:                                               ; preds = %42
-  br label %58
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds %struct.opal_thread_t, ptr @fd_thread, i32 0, i32 1
+  store ptr @fd_progress, ptr %45, align 8
+  %46 = getelementptr inbounds %struct.opal_thread_t, ptr @fd_thread, i32 0, i32 2
+  store ptr null, ptr %46, align 8
+  %47 = call i32 @opal_thread_start(ptr noundef @fd_thread)
+  store i32 %47, ptr %2, align 4
+  %48 = load i32, ptr %2, align 4
+  %49 = icmp ne i32 0, %48
+  br i1 %49, label %50, label %51
 
-47:                                               ; preds = %42
-  br label %48
+50:                                               ; preds = %44
+  br label %62
 
-48:                                               ; preds = %51, %47
-  %49 = load volatile i32, ptr @fd_thread_active, align 4
-  %50 = icmp eq i32 0, %49
-  br i1 %50, label %51, label %52
+51:                                               ; preds = %44
+  br label %52
 
-51:                                               ; preds = %48
-  br label %48, !llvm.loop !4
-
-52:                                               ; preds = %48
+52:                                               ; preds = %55, %51
   %53 = load volatile i32, ptr @fd_thread_active, align 4
-  %54 = icmp sgt i32 0, %53
+  %54 = icmp eq i32 0, %53
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %52
-  br label %58
+  br label %52, !llvm.loop !4
 
 56:                                               ; preds = %52
-  br label %57
+  %57 = load volatile i32, ptr @fd_thread_active, align 4
+  %58 = icmp sgt i32 0, %57
+  br i1 %58, label %59, label %60
 
-57:                                               ; preds = %56, %21
+59:                                               ; preds = %56
+  br label %62
+
+60:                                               ; preds = %56
+  br label %61
+
+61:                                               ; preds = %60, %21
   store i32 0, ptr %1, align 4
-  br label %61
+  br label %65
 
-58:                                               ; preds = %55, %46, %29, %20, %14
-  %59 = call i32 @ompi_comm_failure_detector_finalize()
-  %60 = load i32, ptr %2, align 4
-  store i32 %60, ptr %1, align 4
-  br label %61
+62:                                               ; preds = %59, %50, %29, %20, %14
+  %63 = call i32 @ompi_comm_failure_detector_finalize()
+  %64 = load i32, ptr %2, align 4
+  store i32 %64, ptr %1, align 4
+  br label %65
 
-61:                                               ; preds = %58, %57, %9
-  %62 = load i32, ptr %1, align 4
-  ret i32 %62
+65:                                               ; preds = %62, %61, %9
+  %66 = load i32, ptr %1, align 4
+  ret i32 %66
 }
 
 declare i32 @ompi_comm_rbcast_register_cb_type(ptr noundef) #1
@@ -687,58 +691,62 @@ define internal ptr @fd_progress(ptr noundef %0) #0 {
   store ptr %0, ptr %3, align 8
   %7 = call i32 @ompi_comm_start_detector(ptr noundef @ompi_mpi_comm_world)
   %8 = icmp ne i32 0, %7
-  br i1 %8, label %9, label %11
+  br i1 %8, label %9, label %12
 
 9:                                                ; preds = %1
   %10 = call i32 @opal_thread_add_fetch_32(ptr noundef @fd_thread_active, i32 noundef -1)
-  store ptr inttoptr (i64 1 to ptr), ptr %2, align 8
-  br label %33
+  %11 = inttoptr i64 1 to ptr
+  store ptr %11, ptr %2, align 8
+  br label %37
 
-11:                                               ; preds = %1
-  %12 = call i32 @opal_thread_add_fetch_32(ptr noundef @fd_thread_active, i32 noundef 1)
-  br label %13
+12:                                               ; preds = %1
+  %13 = call i32 @opal_thread_add_fetch_32(ptr noundef @fd_thread_active, i32 noundef 1)
+  br label %14
 
-13:                                               ; preds = %16, %11
-  %14 = load volatile i32, ptr @fd_thread_active, align 4
-  %15 = icmp eq i32 1, %14
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %17, %12
+  %15 = load volatile i32, ptr @fd_thread_active, align 4
+  %16 = icmp eq i32 1, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
-  br label %13, !llvm.loop !7
+17:                                               ; preds = %14
+  br label %14, !llvm.loop !7
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 8), align 8
-  %19 = call i32 %18(ptr noundef null, i64 noundef 0, ptr noundef @ompi_mpi_byte, i32 noundef 0, i32 noundef -30, ptr noundef @ompi_mpi_comm_self, ptr noundef %5)
-  store i32 %19, ptr %4, align 4
-  br label %20
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = call i32 %20(ptr noundef null, i64 noundef 0, ptr noundef @ompi_mpi_byte, i32 noundef 0, i32 noundef -30, ptr noundef @ompi_mpi_comm_self, ptr noundef %5)
+  store i32 %21, ptr %4, align 4
+  br label %22
 
-20:                                               ; preds = %23, %17
-  %21 = load volatile i32, ptr @fd_thread_active, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %28
+22:                                               ; preds = %25, %18
+  %23 = load volatile i32, ptr @fd_thread_active, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %30
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr @fd_event_base, align 8
-  %25 = call i32 @event_base_loop(ptr noundef %24, i32 noundef 1)
+25:                                               ; preds = %22
+  %26 = load ptr, ptr @fd_event_base, align 8
+  %27 = call i32 @event_base_loop(ptr noundef %26, i32 noundef 1)
   store i32 0, ptr %6, align 4
-  %26 = load ptr, ptr @ompi_request_functions, align 8
-  %27 = call i32 %26(ptr noundef %5, ptr noundef %6, ptr noundef null)
-  store i32 %27, ptr %4, align 4
-  br label %20, !llvm.loop !8
+  %28 = load ptr, ptr @ompi_request_functions, align 8
+  %29 = call i32 %28(ptr noundef %5, ptr noundef %6, ptr noundef null)
+  store i32 %29, ptr %4, align 4
+  br label %22, !llvm.loop !8
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %5, align 8
-  %30 = call i32 @ompi_request_cancel(ptr noundef %29)
-  store i32 %30, ptr %4, align 4
-  %31 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 4), align 8
-  %32 = call i32 %31(ptr noundef %5, ptr noundef null)
+30:                                               ; preds = %22
+  %31 = load ptr, ptr %5, align 8
+  %32 = call i32 @ompi_request_cancel(ptr noundef %31)
   store i32 %32, ptr %4, align 4
-  store ptr inttoptr (i64 1 to ptr), ptr %2, align 8
-  br label %33
+  %33 = getelementptr inbounds %struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 4
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 %34(ptr noundef %5, ptr noundef null)
+  store i32 %35, ptr %4, align 4
+  %36 = inttoptr i64 1 to ptr
+  store ptr %36, ptr %2, align 8
+  br label %37
 
-33:                                               ; preds = %28, %9
-  %34 = load ptr, ptr %2, align 8
-  ret ptr %34
+37:                                               ; preds = %30, %9
+  %38 = load ptr, ptr %2, align 8
+  ret ptr %38
 }
 
 declare i32 @opal_thread_start(ptr noundef) #1
@@ -986,7 +994,7 @@ define i32 @ompi_comm_start_detector(ptr noundef %0) #0 {
 
 10:                                               ; preds = %1
   store i32 -7, ptr %2, align 4
-  br label %141
+  br label %142
 
 11:                                               ; preds = %1
   store ptr @comm_world_detector, ptr %4, align 8
@@ -1089,95 +1097,96 @@ define i32 @ompi_comm_start_detector(ptr noundef %0) #0 {
 
 82:                                               ; preds = %81
   %83 = load i32, ptr @opal_class_init_epoch, align 4
-  %84 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %85 = icmp ne i32 %83, %84
-  br i1 %85, label %86, label %87
+  %84 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %85 = load i32, ptr %84, align 8
+  %86 = icmp ne i32 %83, %85
+  br i1 %86, label %87, label %88
 
-86:                                               ; preds = %82
+87:                                               ; preds = %82
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %87
+  br label %88
 
-87:                                               ; preds = %86, %82
-  %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds %struct.comm_detector_t, ptr %88, i32 0, i32 17
-  %90 = getelementptr inbounds %struct.opal_object_t, ptr %89, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %90, align 8
-  %91 = load ptr, ptr %4, align 8
-  %92 = getelementptr inbounds %struct.comm_detector_t, ptr %91, i32 0, i32 17
-  %93 = getelementptr inbounds %struct.opal_object_t, ptr %92, i32 0, i32 1
-  store volatile i32 1, ptr %93, align 8
-  %94 = load ptr, ptr %4, align 8
-  %95 = getelementptr inbounds %struct.comm_detector_t, ptr %94, i32 0, i32 17
-  call void @opal_obj_run_constructors(ptr noundef %95)
-  br label %96
-
-96:                                               ; preds = %87
+88:                                               ; preds = %87, %82
+  %89 = load ptr, ptr %4, align 8
+  %90 = getelementptr inbounds %struct.comm_detector_t, ptr %89, i32 0, i32 17
+  %91 = getelementptr inbounds %struct.opal_object_t, ptr %90, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %91, align 8
+  %92 = load ptr, ptr %4, align 8
+  %93 = getelementptr inbounds %struct.comm_detector_t, ptr %92, i32 0, i32 17
+  %94 = getelementptr inbounds %struct.opal_object_t, ptr %93, i32 0, i32 1
+  store volatile i32 1, ptr %94, align 8
+  %95 = load ptr, ptr %4, align 8
+  %96 = getelementptr inbounds %struct.comm_detector_t, ptr %95, i32 0, i32 17
+  call void @opal_obj_run_constructors(ptr noundef %96)
   br label %97
 
-97:                                               ; preds = %96
-  %98 = load ptr, ptr @fd_event_base, align 8
-  %99 = load ptr, ptr %4, align 8
-  %100 = call ptr @event_new(ptr noundef %98, i32 noundef -1, i16 noundef signext 17, ptr noundef @fd_event_cb, ptr noundef %99)
-  %101 = load ptr, ptr %4, align 8
-  %102 = getelementptr inbounds %struct.comm_detector_t, ptr %101, i32 0, i32 1
-  store ptr %100, ptr %102, align 8
-  %103 = load ptr, ptr %4, align 8
-  %104 = getelementptr inbounds %struct.comm_detector_t, ptr %103, i32 0, i32 7
-  %105 = load double, ptr %104, align 8
-  %106 = fdiv double %105, 1.000000e+01
-  %107 = fptosi double %106 to i32
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds %struct.timeval, ptr %7, i32 0, i32 0
-  store i64 %108, ptr %109, align 8
+97:                                               ; preds = %88
+  br label %98
+
+98:                                               ; preds = %97
+  %99 = load ptr, ptr @fd_event_base, align 8
+  %100 = load ptr, ptr %4, align 8
+  %101 = call ptr @event_new(ptr noundef %99, i32 noundef -1, i16 noundef signext 17, ptr noundef @fd_event_cb, ptr noundef %100)
+  %102 = load ptr, ptr %4, align 8
+  %103 = getelementptr inbounds %struct.comm_detector_t, ptr %102, i32 0, i32 1
+  store ptr %101, ptr %103, align 8
+  %104 = load ptr, ptr %4, align 8
+  %105 = getelementptr inbounds %struct.comm_detector_t, ptr %104, i32 0, i32 7
+  %106 = load double, ptr %105, align 8
+  %107 = fdiv double %106, 1.000000e+01
+  %108 = fptosi double %107 to i32
+  %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds %struct.timeval, ptr %7, i32 0, i32 0
-  %111 = load i64, ptr %110, align 8
-  %112 = sub nsw i64 0, %111
-  %113 = sitofp i64 %112 to double
-  %114 = load ptr, ptr %4, align 8
-  %115 = getelementptr inbounds %struct.comm_detector_t, ptr %114, i32 0, i32 7
-  %116 = load double, ptr %115, align 8
-  %117 = fdiv double %116, 1.000000e+01
-  %118 = fadd double %113, %117
-  %119 = fmul double %118, 1.000000e+06
-  %120 = fptosi double %119 to i64
-  %121 = getelementptr inbounds %struct.timeval, ptr %7, i32 0, i32 1
-  store i64 %120, ptr %121, align 8
-  %122 = load ptr, ptr %4, align 8
-  %123 = getelementptr inbounds %struct.comm_detector_t, ptr %122, i32 0, i32 1
-  %124 = load ptr, ptr %123, align 8
-  %125 = call i32 @event_add(ptr noundef %124, ptr noundef %7)
-  %126 = load ptr, ptr %4, align 8
-  %127 = getelementptr inbounds %struct.comm_detector_t, ptr %126, i32 0, i32 7
-  %128 = load double, ptr %127, align 8
-  %129 = fcmp ogt double 1.000000e-05, %128
-  br i1 %129, label %130, label %131
+  store i64 %109, ptr %110, align 8
+  %111 = getelementptr inbounds %struct.timeval, ptr %7, i32 0, i32 0
+  %112 = load i64, ptr %111, align 8
+  %113 = sub nsw i64 0, %112
+  %114 = sitofp i64 %113 to double
+  %115 = load ptr, ptr %4, align 8
+  %116 = getelementptr inbounds %struct.comm_detector_t, ptr %115, i32 0, i32 7
+  %117 = load double, ptr %116, align 8
+  %118 = fdiv double %117, 1.000000e+01
+  %119 = fadd double %114, %118
+  %120 = fmul double %119, 1.000000e+06
+  %121 = fptosi double %120 to i64
+  %122 = getelementptr inbounds %struct.timeval, ptr %7, i32 0, i32 1
+  store i64 %121, ptr %122, align 8
+  %123 = load ptr, ptr %4, align 8
+  %124 = getelementptr inbounds %struct.comm_detector_t, ptr %123, i32 0, i32 1
+  %125 = load ptr, ptr %124, align 8
+  %126 = call i32 @event_add(ptr noundef %125, ptr noundef %7)
+  %127 = load ptr, ptr %4, align 8
+  %128 = getelementptr inbounds %struct.comm_detector_t, ptr %127, i32 0, i32 7
+  %129 = load double, ptr %128, align 8
+  %130 = fcmp ogt double 1.000000e-05, %129
+  br i1 %130, label %131, label %132
 
-130:                                              ; preds = %97
+131:                                              ; preds = %98
   call void @opal_progress_event_users_increment()
-  br label %131
+  br label %132
 
-131:                                              ; preds = %130, %97
-  %132 = load i32, ptr @comm_detector_use_rdma_hb, align 4
-  %133 = icmp ne i32 %132, 0
-  br i1 %133, label %134, label %137
+132:                                              ; preds = %131, %98
+  %133 = load i32, ptr @comm_detector_use_rdma_hb, align 4
+  %134 = icmp ne i32 %133, 0
+  br i1 %134, label %135, label %138
 
-134:                                              ; preds = %131
-  %135 = load ptr, ptr %4, align 8
-  %136 = call i32 @fd_heartbeat_request(ptr noundef %135)
-  br label %140
-
-137:                                              ; preds = %131
-  %138 = load ptr, ptr %4, align 8
-  %139 = call i32 @fd_heartbeat_send(ptr noundef %138)
-  br label %140
-
-140:                                              ; preds = %137, %134
-  store i32 0, ptr %2, align 4
+135:                                              ; preds = %132
+  %136 = load ptr, ptr %4, align 8
+  %137 = call i32 @fd_heartbeat_request(ptr noundef %136)
   br label %141
 
-141:                                              ; preds = %140, %10
-  %142 = load i32, ptr %2, align 4
-  ret i32 %142
+138:                                              ; preds = %132
+  %139 = load ptr, ptr %4, align 8
+  %140 = call i32 @fd_heartbeat_send(ptr noundef %139)
+  br label %141
+
+141:                                              ; preds = %138, %135
+  store i32 0, ptr %2, align 4
+  br label %142
+
+142:                                              ; preds = %141, %10
+  %143 = load i32, ptr %2, align 4
+  ret i32 %143
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1957,7 +1966,7 @@ define internal ptr @mca_bml_base_get_endpoint(ptr noundef %0) #0 {
   %10 = zext i1 %9 to i32
   %11 = sext i32 %10 to i64
   %12 = icmp ne i64 %11, 0
-  br i1 %12, label %13, label %46
+  br i1 %12, label %13, label %47
 
 13:                                               ; preds = %1
   br label %14
@@ -1985,43 +1994,44 @@ define internal ptr @mca_bml_base_get_endpoint(ptr noundef %0) #0 {
   %27 = getelementptr inbounds [1 x ptr], ptr %26, i64 0, i64 0
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr null, %28
-  br i1 %29, label %30, label %34
+  br i1 %29, label %30, label %35
 
 30:                                               ; preds = %24
-  %31 = load ptr, ptr getelementptr inbounds (%struct.mca_bml_base_module_t, ptr @mca_bml, i32 0, i32 1), align 8
-  %32 = load ptr, ptr %2, align 8
-  %33 = call i32 %31(ptr noundef %32)
-  br label %34
-
-34:                                               ; preds = %30, %24
+  %31 = getelementptr inbounds %struct.mca_bml_base_module_t, ptr @mca_bml, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %2, align 8
+  %34 = call i32 %32(ptr noundef %33)
   br label %35
 
-35:                                               ; preds = %34
-  %36 = load i8, ptr @opal_uses_threads, align 1
-  %37 = trunc i8 %36 to i1
-  %38 = xor i1 %37, true
+35:                                               ; preds = %30, %24
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load i8, ptr @opal_uses_threads, align 1
+  %38 = trunc i8 %37 to i1
   %39 = xor i1 %38, true
-  %40 = zext i1 %39 to i32
-  %41 = sext i32 %40 to i64
-  %42 = icmp ne i64 %41, 0
-  br i1 %42, label %43, label %44
+  %40 = xor i1 %39, true
+  %41 = zext i1 %40 to i32
+  %42 = sext i32 %41 to i64
+  %43 = icmp ne i64 %42, 0
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %35
+44:                                               ; preds = %36
   call void @opal_mutex_unlock(ptr noundef @mca_bml_lock)
-  br label %44
-
-44:                                               ; preds = %43, %35
   br label %45
 
-45:                                               ; preds = %44
+45:                                               ; preds = %44, %36
   br label %46
 
-46:                                               ; preds = %45, %1
-  %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.ompi_proc_t, ptr %47, i32 0, i32 2
-  %49 = getelementptr inbounds [1 x ptr], ptr %48, i64 0, i64 0
-  %50 = load ptr, ptr %49, align 8
-  ret ptr %50
+46:                                               ; preds = %45
+  br label %47
+
+47:                                               ; preds = %46, %1
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds %struct.ompi_proc_t, ptr %48, i32 0, i32 2
+  %50 = getelementptr inbounds [1 x ptr], ptr %49, i64 0, i64 0
+  %51 = load ptr, ptr %50, align 8
+  ret ptr %51
 }
 
 ; Function Attrs: nounwind uwtable

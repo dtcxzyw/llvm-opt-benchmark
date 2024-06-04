@@ -1411,24 +1411,25 @@ define i32 @Cudd_IsNonConstant(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = icmp eq ptr %3, inttoptr (i64 1 to ptr)
-  br i1 %4, label %14, label %5
+  %4 = inttoptr i64 1 to ptr
+  %5 = icmp eq ptr %3, %4
+  br i1 %5, label %15, label %6
 
-5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
-  %7 = ptrtoint ptr %6 to i64
-  %8 = and i64 %7, -2
-  %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds %struct.DdNode, ptr %9, i32 0, i32 0
-  %11 = load i32, ptr %10, align 8
-  %12 = icmp eq i32 %11, 2147483647
-  %13 = xor i1 %12, true
-  br label %14
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %9 = and i64 %8, -2
+  %10 = inttoptr i64 %9 to ptr
+  %11 = getelementptr inbounds %struct.DdNode, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp eq i32 %12, 2147483647
+  %14 = xor i1 %13, true
+  br label %15
 
-14:                                               ; preds = %5, %1
-  %15 = phi i1 [ true, %1 ], [ %13, %5 ]
-  %16 = zext i1 %15 to i32
-  ret i32 %16
+15:                                               ; preds = %6, %1
+  %16 = phi i1 [ true, %1 ], [ %14, %6 ]
+  %17 = zext i1 %16 to i32
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable

@@ -40,7 +40,7 @@ define dso_local i32 @dns_query(ptr nocapture noundef readonly %0, ptr noundef %
   %18 = icmp eq ptr %2, null
   %19 = icmp eq i64 %3, 0
   %20 = or i1 %18, %19
-  br i1 %20, label %108, label %21
+  br i1 %20, label %109, label %21
 
 21:                                               ; preds = %17
   %22 = icmp eq ptr %1, null
@@ -49,7 +49,7 @@ define dso_local i32 @dns_query(ptr nocapture noundef readonly %0, ptr noundef %
 23:                                               ; preds = %21
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %108, label %26
+  br i1 %25, label %109, label %26
 
 26:                                               ; preds = %23
   %27 = add i64 %24, 1
@@ -60,14 +60,14 @@ define dso_local i32 @dns_query(ptr nocapture noundef readonly %0, ptr noundef %
   %30 = phi i64 [ %27, %26 ], [ 0, %21 ]
   %31 = add i64 %3, -256
   %32 = icmp ult i64 %31, -253
-  br i1 %32, label %108, label %33
+  br i1 %32, label %109, label %33
 
 33:                                               ; preds = %28
   %34 = add nuw nsw i64 %3, 1
   %35 = add i64 %34, %30
   %36 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %35, i32 noundef 3264) #9
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %108, label %38
+  br i1 %37, label %109, label %38
 
 38:                                               ; preds = %33
   br i1 %22, label %42, label %39
@@ -105,91 +105,92 @@ define dso_local i32 @dns_query(ptr nocapture noundef readonly %0, ptr noundef %
   %59 = tail call ptr @request_key_tag(ptr noundef nonnull @key_type_dns_resolver, ptr noundef nonnull %36, ptr noundef %58, ptr noundef nonnull %46) #8
   tail call void @revert_creds(ptr noundef %56) #8
   tail call void @kfree(ptr noundef nonnull %36) #8
-  %60 = icmp ugt ptr %59, inttoptr (i64 -4096 to ptr)
-  br i1 %60, label %61, label %64
+  %60 = inttoptr i64 -4096 to ptr
+  %61 = icmp ugt ptr %59, %60
+  br i1 %61, label %62, label %65
 
-61:                                               ; preds = %54
-  %62 = ptrtoint ptr %59 to i64
-  %63 = trunc i64 %62 to i32
-  br label %99
+62:                                               ; preds = %54
+  %63 = ptrtoint ptr %59 to i64
+  %64 = trunc i64 %63 to i32
+  br label %100
 
-64:                                               ; preds = %54
-  %65 = getelementptr inbounds i8, ptr %59, i64 32
-  tail call void @down_read(ptr noundef %65) #8
-  %66 = getelementptr inbounds i8, ptr %59, i64 128
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %66, i32 128, ptr elementtype(i8) %66) #8, !srcloc !7
-  %67 = getelementptr inbounds i8, ptr %59, i64 112
-  %68 = load i32, ptr %67, align 8
-  %69 = or i32 %68, 65536
-  store i32 %69, ptr %67, align 8
-  %70 = tail call i32 @key_validate(ptr noundef %59) #8
-  %71 = icmp slt i32 %70, 0
-  br i1 %71, label %95, label %72
+65:                                               ; preds = %54
+  %66 = getelementptr inbounds i8, ptr %59, i64 32
+  tail call void @down_read(ptr noundef %66) #8
+  %67 = getelementptr inbounds i8, ptr %59, i64 128
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %67, i32 128, ptr elementtype(i8) %67) #8, !srcloc !7
+  %68 = getelementptr inbounds i8, ptr %59, i64 112
+  %69 = load i32, ptr %68, align 8
+  %70 = or i32 %69, 65536
+  store i32 %70, ptr %68, align 8
+  %71 = tail call i32 @key_validate(ptr noundef %59) #8
+  %72 = icmp slt i32 %71, 0
+  br i1 %72, label %96, label %73
 
-72:                                               ; preds = %64
-  %73 = getelementptr i8, ptr %59, i64 184
-  %74 = load ptr, ptr %73, align 8
-  %75 = ptrtoint ptr %74 to i64
-  %76 = trunc i64 %75 to i32
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %95
+73:                                               ; preds = %65
+  %74 = getelementptr i8, ptr %59, i64 184
+  %75 = load ptr, ptr %74, align 8
+  %76 = ptrtoint ptr %75 to i64
+  %77 = trunc i64 %76 to i32
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %96
 
-78:                                               ; preds = %72
-  %79 = getelementptr inbounds i8, ptr %59, i64 176
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
-  %82 = load i16, ptr %81, align 8
-  %83 = zext i16 %82 to i32
-  %84 = icmp eq ptr %5, null
-  br i1 %84, label %90, label %85
+79:                                               ; preds = %73
+  %80 = getelementptr inbounds i8, ptr %59, i64 176
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %83 = load i16, ptr %82, align 8
+  %84 = zext i16 %83 to i32
+  %85 = icmp eq ptr %5, null
+  br i1 %85, label %91, label %86
 
-85:                                               ; preds = %78
-  %86 = getelementptr inbounds i8, ptr %80, i64 24
-  %87 = zext i16 %82 to i64
-  %88 = tail call ptr @kmemdup_nul(ptr noundef %86, i64 noundef %87, i32 noundef 3264) #8
-  store ptr %88, ptr %5, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %95, label %90
+86:                                               ; preds = %79
+  %87 = getelementptr inbounds i8, ptr %81, i64 24
+  %88 = zext i16 %83 to i64
+  %89 = tail call ptr @kmemdup_nul(ptr noundef %87, i64 noundef %88, i32 noundef 3264) #8
+  store ptr %89, ptr %5, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %96, label %91
 
-90:                                               ; preds = %85, %78
-  %91 = icmp eq ptr %6, null
-  br i1 %91, label %95, label %92
+91:                                               ; preds = %86, %79
+  %92 = icmp eq ptr %6, null
+  br i1 %92, label %96, label %93
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %59, i64 88
-  %94 = load i64, ptr %93, align 8
-  store i64 %94, ptr %6, align 8
-  br label %95
+93:                                               ; preds = %91
+  %94 = getelementptr inbounds i8, ptr %59, i64 88
+  %95 = load i64, ptr %94, align 8
+  store i64 %95, ptr %6, align 8
+  br label %96
 
-95:                                               ; preds = %92, %90, %85, %72, %64
-  %96 = phi i32 [ %70, %64 ], [ %76, %72 ], [ -12, %85 ], [ %83, %92 ], [ %83, %90 ]
-  tail call void @up_read(ptr noundef %65) #8
-  br i1 %7, label %97, label %98
+96:                                               ; preds = %93, %91, %86, %73, %65
+  %97 = phi i32 [ %71, %65 ], [ %77, %73 ], [ -12, %86 ], [ %84, %93 ], [ %84, %91 ]
+  tail call void @up_read(ptr noundef %66) #8
+  br i1 %7, label %98, label %99
 
-97:                                               ; preds = %95
+98:                                               ; preds = %96
   tail call void @key_invalidate(ptr noundef %59) #8
-  br label %98
-
-98:                                               ; preds = %97, %95
-  tail call void @key_put(ptr noundef %59) #8
   br label %99
 
-99:                                               ; preds = %98, %61
-  %100 = phi i32 [ %63, %61 ], [ %96, %98 ]
-  %101 = load i32, ptr @dns_resolver_debug, align 4
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %108, label %103, !prof !5
+99:                                               ; preds = %98, %96
+  tail call void @key_put(ptr noundef %59) #8
+  br label %100
 
-103:                                              ; preds = %99
-  %104 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !6
-  %105 = inttoptr i64 %104 to ptr
-  %106 = getelementptr inbounds i8, ptr %105, i64 1800
-  %107 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %106, ptr noundef nonnull @__func__.dns_query, i32 noundef %100) #7
-  br label %108
+100:                                              ; preds = %99, %62
+  %101 = phi i32 [ %64, %62 ], [ %97, %99 ]
+  %102 = load i32, ptr @dns_resolver_debug, align 4
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %109, label %104, !prof !5
 
-108:                                              ; preds = %103, %99, %33, %28, %23, %17
-  %109 = phi i32 [ -22, %17 ], [ -22, %23 ], [ -22, %28 ], [ -12, %33 ], [ %100, %103 ], [ %100, %99 ]
-  ret i32 %109
+104:                                              ; preds = %100
+  %105 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !6
+  %106 = inttoptr i64 %105 to ptr
+  %107 = getelementptr inbounds i8, ptr %106, i64 1800
+  %108 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %107, ptr noundef nonnull @__func__.dns_query, i32 noundef %101) #7
+  br label %109
+
+109:                                              ; preds = %104, %100, %33, %28, %23, %17
+  %110 = phi i32 [ -22, %17 ], [ -22, %23 ], [ -22, %28 ], [ -12, %33 ], [ %101, %104 ], [ %101, %100 ]
+  ret i32 %110
 }
 
 ; Function Attrs: cold null_pointer_is_valid

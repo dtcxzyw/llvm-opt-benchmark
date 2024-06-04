@@ -875,290 +875,314 @@ define hidden void @LoadFontDefault() #2 {
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca %struct.Image, align 8
-  store i32 224, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 2), align 8
+  %15 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 1
+  store i32 224, ptr %15, align 4
+  %16 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 2
+  store i32 0, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %1, ptr align 16 @__const.LoadFontDefault.defaultFontData, i64 2048, i1 false)
   store i32 10, ptr %2, align 4
   store i32 1, ptr %3, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %4, ptr align 16 @__const.LoadFontDefault.charsWidth, i64 896, i1 false)
-  %15 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 0
-  %16 = call noalias ptr @calloc(i64 noundef 16384, i64 noundef 2) #12
-  store ptr %16, ptr %15, align 8
-  %17 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 1
-  store i32 128, ptr %17, align 8
-  %18 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 2
-  store i32 128, ptr %18, align 4
-  %19 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 3
-  store i32 1, ptr %19, align 8
-  %20 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 4
-  store i32 2, ptr %20, align 4
+  %17 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 0
+  %18 = call noalias ptr @calloc(i64 noundef 16384, i64 noundef 2) #12
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 1
+  store i32 128, ptr %19, align 8
+  %20 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 2
+  store i32 128, ptr %20, align 4
+  %21 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 3
+  store i32 1, ptr %21, align 8
+  %22 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 4
+  store i32 2, ptr %22, align 4
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
-  br label %21
+  br label %23
 
-21:                                               ; preds = %65, %0
-  %22 = load i32, ptr %6, align 4
-  %23 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 1
-  %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 2
-  %26 = load i32, ptr %25, align 4
-  %27 = mul nsw i32 %24, %26
-  %28 = icmp slt i32 %22, %27
-  br i1 %28, label %29, label %68
+23:                                               ; preds = %67, %0
+  %24 = load i32, ptr %6, align 4
+  %25 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 1
+  %26 = load i32, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 2
+  %28 = load i32, ptr %27, align 4
+  %29 = mul nsw i32 %26, %28
+  %30 = icmp slt i32 %24, %29
+  br i1 %30, label %31, label %70
 
-29:                                               ; preds = %21
+31:                                               ; preds = %23
   store i32 31, ptr %8, align 4
-  br label %30
+  br label %32
 
-30:                                               ; preds = %59, %29
-  %31 = load i32, ptr %8, align 4
-  %32 = icmp sge i32 %31, 0
-  br i1 %32, label %33, label %62
+32:                                               ; preds = %61, %31
+  %33 = load i32, ptr %8, align 4
+  %34 = icmp sge i32 %33, 0
+  br i1 %34, label %35, label %64
 
-33:                                               ; preds = %30
-  %34 = load i32, ptr %7, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [512 x i32], ptr %1, i64 0, i64 %35
-  %37 = load i32, ptr %36, align 4
-  %38 = load i32, ptr %8, align 4
-  %39 = shl i32 1, %38
-  %40 = and i32 %37, %39
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %42, label %50
+35:                                               ; preds = %32
+  %36 = load i32, ptr %7, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds [512 x i32], ptr %1, i64 0, i64 %37
+  %39 = load i32, ptr %38, align 4
+  %40 = load i32, ptr %8, align 4
+  %41 = shl i32 1, %40
+  %42 = and i32 %39, %41
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %52
 
-42:                                               ; preds = %33
-  %43 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 0
-  %44 = load ptr, ptr %43, align 8
-  %45 = load i32, ptr %6, align 4
-  %46 = load i32, ptr %8, align 4
-  %47 = add nsw i32 %45, %46
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i16, ptr %44, i64 %48
-  store i16 -1, ptr %49, align 2
-  br label %58
+44:                                               ; preds = %35
+  %45 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8
+  %47 = load i32, ptr %6, align 4
+  %48 = load i32, ptr %8, align 4
+  %49 = add nsw i32 %47, %48
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i16, ptr %46, i64 %50
+  store i16 -1, ptr %51, align 2
+  br label %60
 
-50:                                               ; preds = %33
-  %51 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr %6, align 4
-  %54 = load i32, ptr %8, align 4
-  %55 = add nsw i32 %53, %54
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i16, ptr %52, i64 %56
-  store i16 255, ptr %57, align 2
-  br label %58
+52:                                               ; preds = %35
+  %53 = getelementptr inbounds %struct.Image, ptr %5, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8
+  %55 = load i32, ptr %6, align 4
+  %56 = load i32, ptr %8, align 4
+  %57 = add nsw i32 %55, %56
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i16, ptr %54, i64 %58
+  store i16 255, ptr %59, align 2
+  br label %60
 
-58:                                               ; preds = %50, %42
-  br label %59
+60:                                               ; preds = %52, %44
+  br label %61
 
-59:                                               ; preds = %58
-  %60 = load i32, ptr %8, align 4
-  %61 = add nsw i32 %60, -1
-  store i32 %61, ptr %8, align 4
-  br label %30
+61:                                               ; preds = %60
+  %62 = load i32, ptr %8, align 4
+  %63 = add nsw i32 %62, -1
+  store i32 %63, ptr %8, align 4
+  br label %32
 
-62:                                               ; preds = %30
-  %63 = load i32, ptr %7, align 4
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %7, align 4
-  br label %65
+64:                                               ; preds = %32
+  %65 = load i32, ptr %7, align 4
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %7, align 4
+  br label %67
 
-65:                                               ; preds = %62
-  %66 = load i32, ptr %6, align 4
-  %67 = add nsw i32 %66, 32
-  store i32 %67, ptr %6, align 4
-  br label %21
+67:                                               ; preds = %64
+  %68 = load i32, ptr %6, align 4
+  %69 = add nsw i32 %68, 32
+  store i32 %69, ptr %6, align 4
+  br label %23
 
-68:                                               ; preds = %21
+70:                                               ; preds = %23
   call void @LoadTextureFromImage(ptr dead_on_unwind writable sret(%struct.Texture) align 4 %9, ptr noundef byval(%struct.Image) align 8 %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 3), ptr align 4 %9, i64 20, i1 false)
-  %69 = load i32, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 1), align 4
-  %70 = sext i32 %69 to i64
-  %71 = mul i64 %70, 40
-  %72 = call noalias ptr @malloc(i64 noundef %71) #13
-  store ptr %72, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 5), align 8
-  %73 = load i32, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 1), align 4
+  %71 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %71, ptr align 4 %9, i64 20, i1 false)
+  %72 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 1
+  %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
-  %75 = mul i64 %74, 16
+  %75 = mul i64 %74, 40
   %76 = call noalias ptr @malloc(i64 noundef %75) #13
-  store ptr %76, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 4), align 8
+  %77 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 5
+  store ptr %76, ptr %77, align 8
+  %78 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 1
+  %79 = load i32, ptr %78, align 4
+  %80 = sext i32 %79 to i64
+  %81 = mul i64 %80, 16
+  %82 = call noalias ptr @malloc(i64 noundef %81) #13
+  %83 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 4
+  store ptr %82, ptr %83, align 8
   store i32 0, ptr %10, align 4
-  %77 = load i32, ptr %3, align 4
-  store i32 %77, ptr %11, align 4
-  %78 = load i32, ptr %3, align 4
-  store i32 %78, ptr %12, align 4
+  %84 = load i32, ptr %3, align 4
+  store i32 %84, ptr %11, align 4
+  %85 = load i32, ptr %3, align 4
+  store i32 %85, ptr %12, align 4
   store i32 0, ptr %13, align 4
-  br label %79
+  br label %86
 
-79:                                               ; preds = %205, %68
-  %80 = load i32, ptr %13, align 4
-  %81 = load i32, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 1), align 4
-  %82 = icmp slt i32 %80, %81
-  br i1 %82, label %83, label %208
-
-83:                                               ; preds = %79
-  %84 = load i32, ptr %13, align 4
-  %85 = add nsw i32 32, %84
-  %86 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 5), align 8
+86:                                               ; preds = %227, %70
   %87 = load i32, ptr %13, align 4
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds %struct.GlyphInfo, ptr %86, i64 %88
-  %90 = getelementptr inbounds %struct.GlyphInfo, ptr %89, i32 0, i32 0
-  store i32 %85, ptr %90, align 8
-  %91 = load i32, ptr %11, align 4
-  %92 = sitofp i32 %91 to float
-  %93 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 4), align 8
-  %94 = load i32, ptr %13, align 4
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds %struct.Rectangle, ptr %93, i64 %95
-  %97 = getelementptr inbounds %struct.Rectangle, ptr %96, i32 0, i32 0
-  store float %92, ptr %97, align 4
-  %98 = load i32, ptr %3, align 4
-  %99 = load i32, ptr %10, align 4
-  %100 = load i32, ptr %2, align 4
-  %101 = load i32, ptr %3, align 4
-  %102 = add nsw i32 %100, %101
-  %103 = mul nsw i32 %99, %102
-  %104 = add nsw i32 %98, %103
-  %105 = sitofp i32 %104 to float
-  %106 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 4), align 8
-  %107 = load i32, ptr %13, align 4
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds %struct.Rectangle, ptr %106, i64 %108
-  %110 = getelementptr inbounds %struct.Rectangle, ptr %109, i32 0, i32 1
-  store float %105, ptr %110, align 4
-  %111 = load i32, ptr %13, align 4
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds [224 x i32], ptr %4, i64 0, i64 %112
-  %114 = load i32, ptr %113, align 4
+  %88 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 1
+  %89 = load i32, ptr %88, align 4
+  %90 = icmp slt i32 %87, %89
+  br i1 %90, label %91, label %230
+
+91:                                               ; preds = %86
+  %92 = load i32, ptr %13, align 4
+  %93 = add nsw i32 32, %92
+  %94 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 5
+  %95 = load ptr, ptr %94, align 8
+  %96 = load i32, ptr %13, align 4
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds %struct.GlyphInfo, ptr %95, i64 %97
+  %99 = getelementptr inbounds %struct.GlyphInfo, ptr %98, i32 0, i32 0
+  store i32 %93, ptr %99, align 8
+  %100 = load i32, ptr %11, align 4
+  %101 = sitofp i32 %100 to float
+  %102 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 4
+  %103 = load ptr, ptr %102, align 8
+  %104 = load i32, ptr %13, align 4
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds %struct.Rectangle, ptr %103, i64 %105
+  %107 = getelementptr inbounds %struct.Rectangle, ptr %106, i32 0, i32 0
+  store float %101, ptr %107, align 4
+  %108 = load i32, ptr %3, align 4
+  %109 = load i32, ptr %10, align 4
+  %110 = load i32, ptr %2, align 4
+  %111 = load i32, ptr %3, align 4
+  %112 = add nsw i32 %110, %111
+  %113 = mul nsw i32 %109, %112
+  %114 = add nsw i32 %108, %113
   %115 = sitofp i32 %114 to float
-  %116 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 4), align 8
-  %117 = load i32, ptr %13, align 4
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds %struct.Rectangle, ptr %116, i64 %118
-  %120 = getelementptr inbounds %struct.Rectangle, ptr %119, i32 0, i32 2
-  store float %115, ptr %120, align 4
-  %121 = load i32, ptr %2, align 4
-  %122 = sitofp i32 %121 to float
-  %123 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 4), align 8
-  %124 = load i32, ptr %13, align 4
-  %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds %struct.Rectangle, ptr %123, i64 %125
-  %127 = getelementptr inbounds %struct.Rectangle, ptr %126, i32 0, i32 3
-  store float %122, ptr %127, align 4
-  %128 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 4), align 8
+  %116 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 4
+  %117 = load ptr, ptr %116, align 8
+  %118 = load i32, ptr %13, align 4
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds %struct.Rectangle, ptr %117, i64 %119
+  %121 = getelementptr inbounds %struct.Rectangle, ptr %120, i32 0, i32 1
+  store float %115, ptr %121, align 4
+  %122 = load i32, ptr %13, align 4
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds [224 x i32], ptr %4, i64 0, i64 %123
+  %125 = load i32, ptr %124, align 4
+  %126 = sitofp i32 %125 to float
+  %127 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 4
+  %128 = load ptr, ptr %127, align 8
   %129 = load i32, ptr %13, align 4
   %130 = sext i32 %129 to i64
   %131 = getelementptr inbounds %struct.Rectangle, ptr %128, i64 %130
   %132 = getelementptr inbounds %struct.Rectangle, ptr %131, i32 0, i32 2
-  %133 = load float, ptr %132, align 4
-  %134 = load i32, ptr %3, align 4
-  %135 = sitofp i32 %134 to float
-  %136 = fadd float %133, %135
-  %137 = fptosi float %136 to i32
-  %138 = load i32, ptr %12, align 4
-  %139 = add nsw i32 %138, %137
-  store i32 %139, ptr %12, align 4
-  %140 = load i32, ptr %12, align 4
-  %141 = load i32, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 3, i32 1), align 4
-  %142 = icmp sge i32 %140, %141
-  br i1 %142, label %143, label %174
-
-143:                                              ; preds = %83
-  %144 = load i32, ptr %10, align 4
-  %145 = add nsw i32 %144, 1
-  store i32 %145, ptr %10, align 4
-  %146 = load i32, ptr %3, align 4
-  %147 = mul nsw i32 2, %146
-  %148 = load i32, ptr %13, align 4
-  %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds [224 x i32], ptr %4, i64 0, i64 %149
-  %151 = load i32, ptr %150, align 4
-  %152 = add nsw i32 %147, %151
-  store i32 %152, ptr %11, align 4
-  %153 = load i32, ptr %11, align 4
+  store float %126, ptr %132, align 4
+  %133 = load i32, ptr %2, align 4
+  %134 = sitofp i32 %133 to float
+  %135 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 4
+  %136 = load ptr, ptr %135, align 8
+  %137 = load i32, ptr %13, align 4
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds %struct.Rectangle, ptr %136, i64 %138
+  %140 = getelementptr inbounds %struct.Rectangle, ptr %139, i32 0, i32 3
+  store float %134, ptr %140, align 4
+  %141 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 4
+  %142 = load ptr, ptr %141, align 8
+  %143 = load i32, ptr %13, align 4
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr inbounds %struct.Rectangle, ptr %142, i64 %144
+  %146 = getelementptr inbounds %struct.Rectangle, ptr %145, i32 0, i32 2
+  %147 = load float, ptr %146, align 4
+  %148 = load i32, ptr %3, align 4
+  %149 = sitofp i32 %148 to float
+  %150 = fadd float %147, %149
+  %151 = fptosi float %150 to i32
+  %152 = load i32, ptr %12, align 4
+  %153 = add nsw i32 %152, %151
   store i32 %153, ptr %12, align 4
-  %154 = load i32, ptr %3, align 4
-  %155 = sitofp i32 %154 to float
-  %156 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 4), align 8
-  %157 = load i32, ptr %13, align 4
-  %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds %struct.Rectangle, ptr %156, i64 %158
-  %160 = getelementptr inbounds %struct.Rectangle, ptr %159, i32 0, i32 0
-  store float %155, ptr %160, align 4
+  %154 = load i32, ptr %12, align 4
+  %155 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 3, i32 1
+  %156 = load i32, ptr %155, align 4
+  %157 = icmp sge i32 %154, %156
+  br i1 %157, label %158, label %191
+
+158:                                              ; preds = %91
+  %159 = load i32, ptr %10, align 4
+  %160 = add nsw i32 %159, 1
+  store i32 %160, ptr %10, align 4
   %161 = load i32, ptr %3, align 4
-  %162 = load i32, ptr %10, align 4
-  %163 = load i32, ptr %2, align 4
-  %164 = load i32, ptr %3, align 4
-  %165 = add nsw i32 %163, %164
-  %166 = mul nsw i32 %162, %165
-  %167 = add nsw i32 %161, %166
-  %168 = sitofp i32 %167 to float
-  %169 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 4), align 8
-  %170 = load i32, ptr %13, align 4
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds %struct.Rectangle, ptr %169, i64 %171
-  %173 = getelementptr inbounds %struct.Rectangle, ptr %172, i32 0, i32 1
-  store float %168, ptr %173, align 4
-  br label %176
+  %162 = mul nsw i32 2, %161
+  %163 = load i32, ptr %13, align 4
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr inbounds [224 x i32], ptr %4, i64 0, i64 %164
+  %166 = load i32, ptr %165, align 4
+  %167 = add nsw i32 %162, %166
+  store i32 %167, ptr %11, align 4
+  %168 = load i32, ptr %11, align 4
+  store i32 %168, ptr %12, align 4
+  %169 = load i32, ptr %3, align 4
+  %170 = sitofp i32 %169 to float
+  %171 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 4
+  %172 = load ptr, ptr %171, align 8
+  %173 = load i32, ptr %13, align 4
+  %174 = sext i32 %173 to i64
+  %175 = getelementptr inbounds %struct.Rectangle, ptr %172, i64 %174
+  %176 = getelementptr inbounds %struct.Rectangle, ptr %175, i32 0, i32 0
+  store float %170, ptr %176, align 4
+  %177 = load i32, ptr %3, align 4
+  %178 = load i32, ptr %10, align 4
+  %179 = load i32, ptr %2, align 4
+  %180 = load i32, ptr %3, align 4
+  %181 = add nsw i32 %179, %180
+  %182 = mul nsw i32 %178, %181
+  %183 = add nsw i32 %177, %182
+  %184 = sitofp i32 %183 to float
+  %185 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 4
+  %186 = load ptr, ptr %185, align 8
+  %187 = load i32, ptr %13, align 4
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds %struct.Rectangle, ptr %186, i64 %188
+  %190 = getelementptr inbounds %struct.Rectangle, ptr %189, i32 0, i32 1
+  store float %184, ptr %190, align 4
+  br label %193
 
-174:                                              ; preds = %83
-  %175 = load i32, ptr %12, align 4
-  store i32 %175, ptr %11, align 4
-  br label %176
+191:                                              ; preds = %91
+  %192 = load i32, ptr %12, align 4
+  store i32 %192, ptr %11, align 4
+  br label %193
 
-176:                                              ; preds = %174, %143
-  %177 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 5), align 8
-  %178 = load i32, ptr %13, align 4
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds %struct.GlyphInfo, ptr %177, i64 %179
-  %181 = getelementptr inbounds %struct.GlyphInfo, ptr %180, i32 0, i32 1
-  store i32 0, ptr %181, align 4
-  %182 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 5), align 8
-  %183 = load i32, ptr %13, align 4
-  %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds %struct.GlyphInfo, ptr %182, i64 %184
-  %186 = getelementptr inbounds %struct.GlyphInfo, ptr %185, i32 0, i32 2
-  store i32 0, ptr %186, align 8
-  %187 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 5), align 8
-  %188 = load i32, ptr %13, align 4
-  %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds %struct.GlyphInfo, ptr %187, i64 %189
-  %191 = getelementptr inbounds %struct.GlyphInfo, ptr %190, i32 0, i32 3
-  store i32 0, ptr %191, align 4
-  %192 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 5), align 8
-  %193 = load i32, ptr %13, align 4
-  %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds %struct.GlyphInfo, ptr %192, i64 %194
-  %196 = getelementptr inbounds %struct.GlyphInfo, ptr %195, i32 0, i32 4
-  %197 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 4), align 8
-  %198 = load i32, ptr %13, align 4
-  %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds %struct.Rectangle, ptr %197, i64 %199
-  %201 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %200, i32 0, i32 0
-  %202 = load <2 x float>, ptr %201, align 4
-  %203 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %200, i32 0, i32 1
-  %204 = load <2 x float>, ptr %203, align 4
-  call void @ImageFromImage(ptr dead_on_unwind writable sret(%struct.Image) align 8 %14, ptr noundef byval(%struct.Image) align 8 %5, <2 x float> %202, <2 x float> %204)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %196, ptr align 8 %14, i64 24, i1 false)
-  br label %205
+193:                                              ; preds = %191, %158
+  %194 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 5
+  %195 = load ptr, ptr %194, align 8
+  %196 = load i32, ptr %13, align 4
+  %197 = sext i32 %196 to i64
+  %198 = getelementptr inbounds %struct.GlyphInfo, ptr %195, i64 %197
+  %199 = getelementptr inbounds %struct.GlyphInfo, ptr %198, i32 0, i32 1
+  store i32 0, ptr %199, align 4
+  %200 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 5
+  %201 = load ptr, ptr %200, align 8
+  %202 = load i32, ptr %13, align 4
+  %203 = sext i32 %202 to i64
+  %204 = getelementptr inbounds %struct.GlyphInfo, ptr %201, i64 %203
+  %205 = getelementptr inbounds %struct.GlyphInfo, ptr %204, i32 0, i32 2
+  store i32 0, ptr %205, align 8
+  %206 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 5
+  %207 = load ptr, ptr %206, align 8
+  %208 = load i32, ptr %13, align 4
+  %209 = sext i32 %208 to i64
+  %210 = getelementptr inbounds %struct.GlyphInfo, ptr %207, i64 %209
+  %211 = getelementptr inbounds %struct.GlyphInfo, ptr %210, i32 0, i32 3
+  store i32 0, ptr %211, align 4
+  %212 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 5
+  %213 = load ptr, ptr %212, align 8
+  %214 = load i32, ptr %13, align 4
+  %215 = sext i32 %214 to i64
+  %216 = getelementptr inbounds %struct.GlyphInfo, ptr %213, i64 %215
+  %217 = getelementptr inbounds %struct.GlyphInfo, ptr %216, i32 0, i32 4
+  %218 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 4
+  %219 = load ptr, ptr %218, align 8
+  %220 = load i32, ptr %13, align 4
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds %struct.Rectangle, ptr %219, i64 %221
+  %223 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %222, i32 0, i32 0
+  %224 = load <2 x float>, ptr %223, align 4
+  %225 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %222, i32 0, i32 1
+  %226 = load <2 x float>, ptr %225, align 4
+  call void @ImageFromImage(ptr dead_on_unwind writable sret(%struct.Image) align 8 %14, ptr noundef byval(%struct.Image) align 8 %5, <2 x float> %224, <2 x float> %226)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %217, ptr align 8 %14, i64 24, i1 false)
+  br label %227
 
-205:                                              ; preds = %176
-  %206 = load i32, ptr %13, align 4
-  %207 = add nsw i32 %206, 1
-  store i32 %207, ptr %13, align 4
-  br label %79
+227:                                              ; preds = %193
+  %228 = load i32, ptr %13, align 4
+  %229 = add nsw i32 %228, 1
+  store i32 %229, ptr %13, align 4
+  br label %86
 
-208:                                              ; preds = %79
+230:                                              ; preds = %86
   call void @UnloadImage(ptr noundef byval(%struct.Image) align 8 %5)
-  %209 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 4), align 8
-  %210 = getelementptr inbounds %struct.Rectangle, ptr %209, i64 0
-  %211 = getelementptr inbounds %struct.Rectangle, ptr %210, i32 0, i32 3
-  %212 = load float, ptr %211, align 4
-  %213 = fptosi float %212 to i32
-  store i32 %213, ptr @defaultFont, align 8
-  %214 = load i32, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 1), align 4
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str, i32 noundef %214)
+  %231 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 4
+  %232 = load ptr, ptr %231, align 8
+  %233 = getelementptr inbounds %struct.Rectangle, ptr %232, i64 0
+  %234 = getelementptr inbounds %struct.Rectangle, ptr %233, i32 0, i32 3
+  %235 = load float, ptr %234, align 4
+  %236 = fptosi float %235 to i32
+  store i32 %236, ptr @defaultFont, align 8
+  %237 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 1
+  %238 = load i32, ptr %237, align 4
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef @.str, i32 noundef %238)
   ret void
 }
 
@@ -1186,34 +1210,39 @@ define hidden void @UnloadFontDefault() #0 {
   store i32 0, ptr %1, align 4
   br label %3
 
-3:                                                ; preds = %13, %0
+3:                                                ; preds = %15, %0
   %4 = load i32, ptr %1, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 1), align 4
-  %6 = icmp slt i32 %4, %5
-  br i1 %6, label %7, label %16
+  %5 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 1
+  %6 = load i32, ptr %5, align 4
+  %7 = icmp slt i32 %4, %6
+  br i1 %7, label %8, label %18
 
-7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 5), align 8
-  %9 = load i32, ptr %1, align 4
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.GlyphInfo, ptr %8, i64 %10
-  %12 = getelementptr inbounds %struct.GlyphInfo, ptr %11, i32 0, i32 4
-  call void @UnloadImage(ptr noundef byval(%struct.Image) align 8 %12)
-  br label %13
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %1, align 4
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds %struct.GlyphInfo, ptr %10, i64 %12
+  %14 = getelementptr inbounds %struct.GlyphInfo, ptr %13, i32 0, i32 4
+  call void @UnloadImage(ptr noundef byval(%struct.Image) align 8 %14)
+  br label %15
 
-13:                                               ; preds = %7
-  %14 = load i32, ptr %1, align 4
-  %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %1, align 4
+15:                                               ; preds = %8
+  %16 = load i32, ptr %1, align 4
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %1, align 4
   br label %3
 
-16:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 4 getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 3), i64 20, i1 false)
+18:                                               ; preds = %3
+  %19 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 4 %19, i64 20, i1 false)
   call void @UnloadTexture(ptr noundef byval(%struct.Texture) align 8 %2)
-  %17 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 5), align 8
-  call void @free(ptr noundef %17) #14
-  %18 = load ptr, ptr getelementptr inbounds (%struct.Font, ptr @defaultFont, i32 0, i32 4), align 8
-  call void @free(ptr noundef %18) #14
+  %20 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 5
+  %21 = load ptr, ptr %20, align 8
+  call void @free(ptr noundef %21) #14
+  %22 = getelementptr inbounds %struct.Font, ptr @defaultFont, i32 0, i32 4
+  %23 = load ptr, ptr %22, align 8
+  call void @free(ptr noundef %23) #14
   ret void
 }
 
@@ -7203,14 +7232,14 @@ define ptr @TextFormat(ptr noundef %0, ...) #0 {
   %11 = load ptr, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %11, i8 0, i64 1024, i1 false)
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
-  call void @llvm.va_start(ptr %12)
+  call void @llvm.va_start.p0(ptr %12)
   %13 = load ptr, ptr %3, align 8
   %14 = load ptr, ptr %2, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
   %16 = call i32 @vsnprintf(ptr noundef %13, i64 noundef 1024, ptr noundef %14, ptr noundef %15) #14
   store i32 %16, ptr %5, align 4
   %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %4, i64 0, i64 0
-  call void @llvm.va_end(ptr %17)
+  call void @llvm.va_end.p0(ptr %17)
   %18 = load i32, ptr %5, align 4
   %19 = icmp sge i32 %18, 1024
   br i1 %19, label %20, label %29
@@ -8446,14 +8475,8 @@ define { <2 x float>, <2 x float> } @GetGlyphAtlasRec(ptr noundef byval(%struct.
   ret { <2 x float>, <2 x float> } %11
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 ; Function Attrs: nounwind uwtable
 define i32 @TextToInteger(ptr noundef %0) #0 {
@@ -8777,7 +8800,7 @@ define i32 @TextCopy(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #10
+declare i32 @strcmp(ptr noundef, ptr noundef) #9
 
 ; Function Attrs: nounwind uwtable
 define ptr @TextSubtext(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -9022,7 +9045,7 @@ define ptr @TextReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strstr(ptr noundef, ptr noundef) #10
+declare ptr @strstr(ptr noundef, ptr noundef) #9
 
 ; Function Attrs: nounwind
 declare ptr @strcpy(ptr noundef, ptr noundef) #6
@@ -9523,12 +9546,12 @@ define ptr @CodepointToUTF8(i32 noundef %0, ptr noundef %1) #0 {
   %10 = trunc i32 %9 to i8
   store i8 %10, ptr @CodepointToUTF8.utf8, align 1
   store i32 1, ptr %5, align 4
-  br label %68
+  br label %74
 
 11:                                               ; preds = %2
   %12 = load i32, ptr %3, align 4
   %13 = icmp sle i32 %12, 2047
-  br i1 %13, label %14, label %24
+  br i1 %13, label %14, label %25
 
 14:                                               ; preds = %11
   %15 = load i32, ptr %3, align 4
@@ -9541,86 +9564,92 @@ define ptr @CodepointToUTF8(i32 noundef %0, ptr noundef %1) #0 {
   %21 = and i32 %20, 63
   %22 = or i32 %21, 128
   %23 = trunc i32 %22 to i8
-  store i8 %23, ptr getelementptr inbounds ([6 x i8], ptr @CodepointToUTF8.utf8, i64 0, i64 1), align 1
+  %24 = getelementptr inbounds [6 x i8], ptr @CodepointToUTF8.utf8, i64 0, i64 1
+  store i8 %23, ptr %24, align 1
   store i32 2, ptr %5, align 4
-  br label %67
+  br label %73
 
-24:                                               ; preds = %11
-  %25 = load i32, ptr %3, align 4
-  %26 = icmp sle i32 %25, 65535
-  br i1 %26, label %27, label %42
+25:                                               ; preds = %11
+  %26 = load i32, ptr %3, align 4
+  %27 = icmp sle i32 %26, 65535
+  br i1 %27, label %28, label %45
 
-27:                                               ; preds = %24
-  %28 = load i32, ptr %3, align 4
-  %29 = ashr i32 %28, 12
-  %30 = and i32 %29, 15
-  %31 = or i32 %30, 224
-  %32 = trunc i32 %31 to i8
-  store i8 %32, ptr @CodepointToUTF8.utf8, align 1
-  %33 = load i32, ptr %3, align 4
-  %34 = ashr i32 %33, 6
-  %35 = and i32 %34, 63
-  %36 = or i32 %35, 128
-  %37 = trunc i32 %36 to i8
-  store i8 %37, ptr getelementptr inbounds ([6 x i8], ptr @CodepointToUTF8.utf8, i64 0, i64 1), align 1
-  %38 = load i32, ptr %3, align 4
-  %39 = and i32 %38, 63
-  %40 = or i32 %39, 128
-  %41 = trunc i32 %40 to i8
-  store i8 %41, ptr getelementptr inbounds ([6 x i8], ptr @CodepointToUTF8.utf8, i64 0, i64 2), align 1
+28:                                               ; preds = %25
+  %29 = load i32, ptr %3, align 4
+  %30 = ashr i32 %29, 12
+  %31 = and i32 %30, 15
+  %32 = or i32 %31, 224
+  %33 = trunc i32 %32 to i8
+  store i8 %33, ptr @CodepointToUTF8.utf8, align 1
+  %34 = load i32, ptr %3, align 4
+  %35 = ashr i32 %34, 6
+  %36 = and i32 %35, 63
+  %37 = or i32 %36, 128
+  %38 = trunc i32 %37 to i8
+  %39 = getelementptr inbounds [6 x i8], ptr @CodepointToUTF8.utf8, i64 0, i64 1
+  store i8 %38, ptr %39, align 1
+  %40 = load i32, ptr %3, align 4
+  %41 = and i32 %40, 63
+  %42 = or i32 %41, 128
+  %43 = trunc i32 %42 to i8
+  %44 = getelementptr inbounds [6 x i8], ptr @CodepointToUTF8.utf8, i64 0, i64 2
+  store i8 %43, ptr %44, align 1
   store i32 3, ptr %5, align 4
-  br label %66
+  br label %72
 
-42:                                               ; preds = %24
-  %43 = load i32, ptr %3, align 4
-  %44 = icmp sle i32 %43, 1114111
-  br i1 %44, label %45, label %65
-
-45:                                               ; preds = %42
+45:                                               ; preds = %25
   %46 = load i32, ptr %3, align 4
-  %47 = ashr i32 %46, 18
-  %48 = and i32 %47, 7
-  %49 = or i32 %48, 240
-  %50 = trunc i32 %49 to i8
-  store i8 %50, ptr @CodepointToUTF8.utf8, align 1
-  %51 = load i32, ptr %3, align 4
-  %52 = ashr i32 %51, 12
-  %53 = and i32 %52, 63
-  %54 = or i32 %53, 128
-  %55 = trunc i32 %54 to i8
-  store i8 %55, ptr getelementptr inbounds ([6 x i8], ptr @CodepointToUTF8.utf8, i64 0, i64 1), align 1
-  %56 = load i32, ptr %3, align 4
-  %57 = ashr i32 %56, 6
-  %58 = and i32 %57, 63
-  %59 = or i32 %58, 128
-  %60 = trunc i32 %59 to i8
-  store i8 %60, ptr getelementptr inbounds ([6 x i8], ptr @CodepointToUTF8.utf8, i64 0, i64 2), align 1
-  %61 = load i32, ptr %3, align 4
+  %47 = icmp sle i32 %46, 1114111
+  br i1 %47, label %48, label %71
+
+48:                                               ; preds = %45
+  %49 = load i32, ptr %3, align 4
+  %50 = ashr i32 %49, 18
+  %51 = and i32 %50, 7
+  %52 = or i32 %51, 240
+  %53 = trunc i32 %52 to i8
+  store i8 %53, ptr @CodepointToUTF8.utf8, align 1
+  %54 = load i32, ptr %3, align 4
+  %55 = ashr i32 %54, 12
+  %56 = and i32 %55, 63
+  %57 = or i32 %56, 128
+  %58 = trunc i32 %57 to i8
+  %59 = getelementptr inbounds [6 x i8], ptr @CodepointToUTF8.utf8, i64 0, i64 1
+  store i8 %58, ptr %59, align 1
+  %60 = load i32, ptr %3, align 4
+  %61 = ashr i32 %60, 6
   %62 = and i32 %61, 63
   %63 = or i32 %62, 128
   %64 = trunc i32 %63 to i8
-  store i8 %64, ptr getelementptr inbounds ([6 x i8], ptr @CodepointToUTF8.utf8, i64 0, i64 3), align 1
+  %65 = getelementptr inbounds [6 x i8], ptr @CodepointToUTF8.utf8, i64 0, i64 2
+  store i8 %64, ptr %65, align 1
+  %66 = load i32, ptr %3, align 4
+  %67 = and i32 %66, 63
+  %68 = or i32 %67, 128
+  %69 = trunc i32 %68 to i8
+  %70 = getelementptr inbounds [6 x i8], ptr @CodepointToUTF8.utf8, i64 0, i64 3
+  store i8 %69, ptr %70, align 1
   store i32 4, ptr %5, align 4
-  br label %65
+  br label %71
 
-65:                                               ; preds = %45, %42
-  br label %66
+71:                                               ; preds = %48, %45
+  br label %72
 
-66:                                               ; preds = %65, %27
-  br label %67
+72:                                               ; preds = %71, %28
+  br label %73
 
-67:                                               ; preds = %66, %14
-  br label %68
+73:                                               ; preds = %72, %14
+  br label %74
 
-68:                                               ; preds = %67, %8
-  %69 = load i32, ptr %5, align 4
-  %70 = load ptr, ptr %4, align 8
-  store i32 %69, ptr %70, align 4
+74:                                               ; preds = %73, %8
+  %75 = load i32, ptr %5, align 4
+  %76 = load ptr, ptr %4, align 8
+  store i32 %75, ptr %76, align 4
   ret ptr @CodepointToUTF8.utf8
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #11
+declare ptr @realloc(ptr noundef, i64 noundef) #10
 
 ; Function Attrs: nounwind uwtable
 define void @UnloadUTF8(ptr noundef %0) #0 {
@@ -22977,6 +23006,12 @@ define internal zeroext i8 @HexToInt(i8 noundef signext %0) #0 {
   ret i8 %46
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -22986,9 +23021,9 @@ attributes #5 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn }
-attributes #10 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn }
 attributes #12 = { nounwind allocsize(0,1) }
 attributes #13 = { nounwind allocsize(0) }
 attributes #14 = { nounwind }

@@ -535,39 +535,40 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22btGenericPoolAllocator, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV22btGenericPoolAllocator, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %m_pool_count = getelementptr inbounds %class.btGenericPoolAllocator, ptr %this1, i32 0, i32 4
-  %1 = load i64, ptr %m_pool_count, align 8
-  %cmp = icmp ult i64 %0, %1
+  %2 = load i64, ptr %m_pool_count, align 8
+  %cmp = icmp ult i64 %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %m_pools = getelementptr inbounds %class.btGenericPoolAllocator, ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [16 x ptr], ptr %m_pools, i64 0, i64 %2
-  %3 = load ptr, ptr %arrayidx, align 8
-  invoke void @_ZN19btGenericMemoryPool8end_poolEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
+  %3 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds [16 x ptr], ptr %m_pools, i64 0, i64 %3
+  %4 = load ptr, ptr %arrayidx, align 8
+  invoke void @_ZN19btGenericMemoryPool8end_poolEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %for.body
   %m_pools2 = getelementptr inbounds %class.btGenericPoolAllocator, ptr %this1, i32 0, i32 3
-  %4 = load i64, ptr %i, align 8
-  %arrayidx3 = getelementptr inbounds [16 x ptr], ptr %m_pools2, i64 0, i64 %4
-  %5 = load ptr, ptr %arrayidx3, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %5)
+  %5 = load i64, ptr %i, align 8
+  %arrayidx3 = getelementptr inbounds [16 x ptr], ptr %m_pools2, i64 0, i64 %5
+  %6 = load ptr, ptr %arrayidx3, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %6)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont4
-  %6 = load i64, ptr %i, align 8
-  %inc = add i64 %6, 1
+  %7 = load i64, ptr %i, align 8
+  %inc = add i64 %7, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !8
 
@@ -575,10 +576,10 @@ for.end:                                          ; preds = %for.cond
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %for.body
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #8
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #8
   unreachable
 }
 
@@ -875,7 +876,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN22btGenericPoolAllocatorC2Emm(ptr noundef nonnull align 8 dereferenceable(160) %this1, i64 noundef 8, i64 noundef 32768)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22GIM_STANDARD_ALLOCATOR, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV22GIM_STANDARD_ALLOCATOR, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -965,15 +967,16 @@ entry:
   store i64 %pool_element_size, ptr %pool_element_size.addr, align 8
   store i64 %pool_element_count, ptr %pool_element_count.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22btGenericPoolAllocator, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV22btGenericPoolAllocator, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pool_count = getelementptr inbounds %class.btGenericPoolAllocator, ptr %this1, i32 0, i32 4
   store i64 0, ptr %m_pool_count, align 8
-  %0 = load i64, ptr %pool_element_size.addr, align 8
+  %1 = load i64, ptr %pool_element_size.addr, align 8
   %m_pool_element_size = getelementptr inbounds %class.btGenericPoolAllocator, ptr %this1, i32 0, i32 1
-  store i64 %0, ptr %m_pool_element_size, align 8
-  %1 = load i64, ptr %pool_element_count.addr, align 8
+  store i64 %1, ptr %m_pool_element_size, align 8
+  %2 = load i64, ptr %pool_element_count.addr, align 8
   %m_pool_element_count = getelementptr inbounds %class.btGenericPoolAllocator, ptr %this1, i32 0, i32 2
-  store i64 %1, ptr %m_pool_element_count, align 8
+  store i64 %2, ptr %m_pool_element_count, align 8
   ret void
 }
 

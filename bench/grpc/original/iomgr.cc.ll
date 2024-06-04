@@ -244,8 +244,10 @@ invoke.cont3:                                     ; preds = %invoke.cont2
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  store ptr @_ZL13g_root_object, ptr getelementptr inbounds (%struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 2), align 8
-  store ptr @_ZL13g_root_object, ptr getelementptr inbounds (%struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 1), align 8
+  %3 = getelementptr inbounds %struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 2
+  store ptr @_ZL13g_root_object, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 1
+  store ptr @_ZL13g_root_object, ptr %4, align 8
   store ptr @.str, ptr @_ZL13g_root_object, align 8
   invoke void @_Z24grpc_iomgr_platform_initv()
           to label %invoke.cont5 unwind label %lpad
@@ -274,7 +276,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %closure_list_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 1
   %head = getelementptr inbounds %struct.grpc_closure_list, ptr %closure_list_, i32 0, i32 0
   store ptr null, ptr %head, align 8
@@ -306,12 +309,12 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core15ScopedTimeCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %time_cache_) #3
   br label %eh.resume
 
@@ -345,24 +348,25 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flags_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 3
-  %0 = load i64, ptr %flags_, align 8
-  %or = or i64 %0, 1
+  %1 = load i64, ptr %flags_, align 8
+  %or = or i64 %1, 1
   store i64 %or, ptr %flags_, align 8
   %call = invoke noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull align 8 dereferenceable(88) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %last_exec_ctx_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %last_exec_ctx_, align 8
-  invoke void @_ZN9grpc_core7ExecCtx3SetEPS0_(ptr noundef %1)
+  %2 = load ptr, ptr %last_exec_ctx_, align 8
+  invoke void @_ZN9grpc_core7ExecCtx3SetEPS0_(ptr noundef %2)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %flags_3 = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %flags_3, align 8
-  %and = and i64 4, %2
+  %3 = load i64, ptr %flags_3, align 8
+  %and = and i64 4, %3
   %tobool = icmp ne i64 %and, 0
   br i1 %tobool, label %if.end, label %if.then
 
@@ -379,10 +383,10 @@ if.end:                                           ; preds = %invoke.cont4, %invo
   ret void
 
 terminate.lpad:                                   ; preds = %if.then, %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #11
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #11
   unreachable
 }
 
@@ -415,31 +419,32 @@ entry:
   %obj = alloca ptr, align 8
   %n = alloca i64, align 8
   store i64 0, ptr %n, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 1), align 8
-  store ptr %0, ptr %obj, align 8
+  %0 = getelementptr inbounds %struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  store ptr %1, ptr %obj, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr %obj, align 8
-  %cmp = icmp ne ptr %1, @_ZL13g_root_object
+  %2 = load ptr, ptr %obj, align 8
+  %cmp = icmp ne ptr %2, @_ZL13g_root_object
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load i64, ptr %n, align 8
-  %inc = add i64 %2, 1
+  %3 = load i64, ptr %n, align 8
+  %inc = add i64 %3, 1
   store i64 %inc, ptr %n, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %3 = load ptr, ptr %obj, align 8
-  %next = getelementptr inbounds %struct.grpc_iomgr_object, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %next, align 8
-  store ptr %4, ptr %obj, align 8
+  %4 = load ptr, ptr %obj, align 8
+  %next = getelementptr inbounds %struct.grpc_iomgr_object, ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %next, align 8
+  store ptr %5, ptr %obj, align 8
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
-  %5 = load i64, ptr %n, align 8
-  ret i64 %5
+  %6 = load i64, ptr %n, align 8
+  ret i64 %6
 }
 
 declare void @gpr_mu_unlock(ptr noundef) #1
@@ -505,56 +510,58 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end52, %if.then22, %entry
-  %24 = load ptr, ptr getelementptr inbounds (%struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 1), align 8
-  %cmp = icmp ne ptr %24, @_ZL13g_root_object
+  %24 = getelementptr inbounds %struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  %cmp = icmp ne ptr %25, @_ZL13g_root_object
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
   %call7 = call { i64, i64 } @gpr_now(i32 noundef 1)
-  %25 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp6, i32 0, i32 0
-  %26 = extractvalue { i64, i64 } %call7, 0
-  store i64 %26, ptr %25, align 8
-  %27 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp6, i32 0, i32 1
-  %28 = extractvalue { i64, i64 } %call7, 1
-  store i64 %28, ptr %27, align 8
+  %26 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp6, i32 0, i32 0
+  %27 = extractvalue { i64, i64 } %call7, 0
+  store i64 %27, ptr %26, align 8
+  %28 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp6, i32 0, i32 1
+  %29 = extractvalue { i64, i64 } %call7, 1
+  store i64 %29, ptr %28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp8, ptr align 8 %last_warning_time, i64 16, i1 false)
-  %29 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp6, i32 0, i32 0
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp6, i32 0, i32 1
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp8, i32 0, i32 0
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp8, i32 0, i32 1
-  %36 = load i64, ptr %35, align 8
-  %call9 = call { i64, i64 } @gpr_time_sub(i64 %30, i64 %32, i64 %34, i64 %36)
-  %37 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp5, i32 0, i32 0
-  %38 = extractvalue { i64, i64 } %call9, 0
-  store i64 %38, ptr %37, align 8
-  %39 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp5, i32 0, i32 1
-  %40 = extractvalue { i64, i64 } %call9, 1
-  store i64 %40, ptr %39, align 8
+  %30 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp6, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp6, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp8, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp8, i32 0, i32 1
+  %37 = load i64, ptr %36, align 8
+  %call9 = call { i64, i64 } @gpr_time_sub(i64 %31, i64 %33, i64 %35, i64 %37)
+  %38 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp5, i32 0, i32 0
+  %39 = extractvalue { i64, i64 } %call9, 0
+  store i64 %39, ptr %38, align 8
+  %40 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp5, i32 0, i32 1
+  %41 = extractvalue { i64, i64 } %call9, 1
+  store i64 %41, ptr %40, align 8
   %call11 = call { i64, i64 } @gpr_time_from_seconds(i64 noundef 1, i32 noundef 3)
-  %41 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 0
-  %42 = extractvalue { i64, i64 } %call11, 0
-  store i64 %42, ptr %41, align 8
-  %43 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 1
-  %44 = extractvalue { i64, i64 } %call11, 1
-  store i64 %44, ptr %43, align 8
-  %45 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp5, i32 0, i32 0
-  %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp5, i32 0, i32 1
-  %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 0
-  %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 1
-  %52 = load i64, ptr %51, align 8
-  %call12 = call i32 @gpr_time_cmp(i64 %46, i64 %48, i64 %50, i64 %52)
+  %42 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 0
+  %43 = extractvalue { i64, i64 } %call11, 0
+  store i64 %43, ptr %42, align 8
+  %44 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 1
+  %45 = extractvalue { i64, i64 } %call11, 1
+  store i64 %45, ptr %44, align 8
+  %46 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp5, i32 0, i32 0
+  %47 = load i64, ptr %46, align 8
+  %48 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp5, i32 0, i32 1
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 0
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 1
+  %53 = load i64, ptr %52, align 8
+  %call12 = call i32 @gpr_time_cmp(i64 %47, i64 %49, i64 %51, i64 %53)
   %cmp13 = icmp sge i32 %call12, 0
   br i1 %cmp13, label %if.then, label %if.end18
 
 if.then:                                          ; preds = %while.body
-  %53 = load ptr, ptr getelementptr inbounds (%struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 1), align 8
-  %cmp14 = icmp ne ptr %53, @_ZL13g_root_object
+  %54 = getelementptr inbounds %struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8
+  %cmp14 = icmp ne ptr %55, @_ZL13g_root_object
   br i1 %cmp14, label %if.then15, label %if.end
 
 if.then15:                                        ; preds = %if.then
@@ -564,12 +571,12 @@ if.then15:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then15, %if.then
   %call17 = call { i64, i64 } @gpr_now(i32 noundef 1)
-  %54 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 0
-  %55 = extractvalue { i64, i64 } %call17, 0
-  store i64 %55, ptr %54, align 8
-  %56 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 1
-  %57 = extractvalue { i64, i64 } %call17, 1
+  %56 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 0
+  %57 = extractvalue { i64, i64 } %call17, 0
   store i64 %57, ptr %56, align 8
+  %58 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 1
+  %59 = extractvalue { i64, i64 } %call17, 1
+  store i64 %59, ptr %58, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %last_warning_time, ptr align 8 %ref.tmp, i64 16, i1 false)
   br label %if.end18
 
@@ -589,8 +596,9 @@ if.then22:                                        ; preds = %if.end18
   br label %while.cond, !llvm.loop !6
 
 if.end25:                                         ; preds = %if.end18
-  %58 = load ptr, ptr getelementptr inbounds (%struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 1), align 8
-  %cmp26 = icmp ne ptr %58, @_ZL13g_root_object
+  %60 = getelementptr inbounds %struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  %cmp26 = icmp ne ptr %61, @_ZL13g_root_object
   br i1 %cmp26, label %if.then27, label %if.end52
 
 if.then27:                                        ; preds = %if.end25
@@ -606,67 +614,68 @@ if.then29:                                        ; preds = %if.then27
 
 if.end31:                                         ; preds = %if.then27
   %call33 = call { i64, i64 } @gpr_now(i32 noundef 0)
-  %59 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp32, i32 0, i32 0
-  %60 = extractvalue { i64, i64 } %call33, 0
-  store i64 %60, ptr %59, align 8
-  %61 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp32, i32 0, i32 1
-  %62 = extractvalue { i64, i64 } %call33, 1
-  store i64 %62, ptr %61, align 8
+  %62 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp32, i32 0, i32 0
+  %63 = extractvalue { i64, i64 } %call33, 0
+  store i64 %63, ptr %62, align 8
+  %64 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp32, i32 0, i32 1
+  %65 = extractvalue { i64, i64 } %call33, 1
+  store i64 %65, ptr %64, align 8
   %call35 = call { i64, i64 } @gpr_time_from_millis(i64 noundef 100, i32 noundef 3)
-  %63 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp34, i32 0, i32 0
-  %64 = extractvalue { i64, i64 } %call35, 0
-  store i64 %64, ptr %63, align 8
-  %65 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp34, i32 0, i32 1
-  %66 = extractvalue { i64, i64 } %call35, 1
-  store i64 %66, ptr %65, align 8
-  %67 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp32, i32 0, i32 0
-  %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp32, i32 0, i32 1
-  %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp34, i32 0, i32 0
-  %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp34, i32 0, i32 1
-  %74 = load i64, ptr %73, align 8
-  %call36 = call { i64, i64 } @gpr_time_add(i64 %68, i64 %70, i64 %72, i64 %74)
-  %75 = getelementptr inbounds { i64, i64 }, ptr %short_deadline, i32 0, i32 0
-  %76 = extractvalue { i64, i64 } %call36, 0
-  store i64 %76, ptr %75, align 8
-  %77 = getelementptr inbounds { i64, i64 }, ptr %short_deadline, i32 0, i32 1
-  %78 = extractvalue { i64, i64 } %call36, 1
-  store i64 %78, ptr %77, align 8
+  %66 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp34, i32 0, i32 0
+  %67 = extractvalue { i64, i64 } %call35, 0
+  store i64 %67, ptr %66, align 8
+  %68 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp34, i32 0, i32 1
+  %69 = extractvalue { i64, i64 } %call35, 1
+  store i64 %69, ptr %68, align 8
+  %70 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp32, i32 0, i32 0
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp32, i32 0, i32 1
+  %73 = load i64, ptr %72, align 8
+  %74 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp34, i32 0, i32 0
+  %75 = load i64, ptr %74, align 8
+  %76 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp34, i32 0, i32 1
+  %77 = load i64, ptr %76, align 8
+  %call36 = call { i64, i64 } @gpr_time_add(i64 %71, i64 %73, i64 %75, i64 %77)
+  %78 = getelementptr inbounds { i64, i64 }, ptr %short_deadline, i32 0, i32 0
+  %79 = extractvalue { i64, i64 } %call36, 0
+  store i64 %79, ptr %78, align 8
+  %80 = getelementptr inbounds { i64, i64 }, ptr %short_deadline, i32 0, i32 1
+  %81 = extractvalue { i64, i64 } %call36, 1
+  store i64 %81, ptr %80, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp37, ptr align 8 %short_deadline, i64 16, i1 false)
-  %79 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp37, i32 0, i32 0
-  %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp37, i32 0, i32 1
-  %82 = load i64, ptr %81, align 8
-  %call38 = call i32 @gpr_cv_wait(ptr noundef @_ZL5g_rcv, ptr noundef @_ZL4g_mu, i64 %80, i64 %82)
+  %82 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp37, i32 0, i32 0
+  %83 = load i64, ptr %82, align 8
+  %84 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp37, i32 0, i32 1
+  %85 = load i64, ptr %84, align 8
+  %call38 = call i32 @gpr_cv_wait(ptr noundef @_ZL5g_rcv, ptr noundef @_ZL4g_mu, i64 %83, i64 %85)
   %tobool = icmp ne i32 %call38, 0
   br i1 %tobool, label %if.then39, label %if.end51
 
 if.then39:                                        ; preds = %if.end31
   %call41 = call { i64, i64 } @gpr_now(i32 noundef 1)
-  %83 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp40, i32 0, i32 0
-  %84 = extractvalue { i64, i64 } %call41, 0
-  store i64 %84, ptr %83, align 8
-  %85 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp40, i32 0, i32 1
-  %86 = extractvalue { i64, i64 } %call41, 1
-  store i64 %86, ptr %85, align 8
+  %86 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp40, i32 0, i32 0
+  %87 = extractvalue { i64, i64 } %call41, 0
+  store i64 %87, ptr %86, align 8
+  %88 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp40, i32 0, i32 1
+  %89 = extractvalue { i64, i64 } %call41, 1
+  store i64 %89, ptr %88, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp42, ptr align 8 %shutdown_deadline, i64 16, i1 false)
-  %87 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp40, i32 0, i32 0
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp40, i32 0, i32 1
-  %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp42, i32 0, i32 0
-  %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp42, i32 0, i32 1
-  %94 = load i64, ptr %93, align 8
-  %call43 = call i32 @gpr_time_cmp(i64 %88, i64 %90, i64 %92, i64 %94)
+  %90 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp40, i32 0, i32 0
+  %91 = load i64, ptr %90, align 8
+  %92 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp40, i32 0, i32 1
+  %93 = load i64, ptr %92, align 8
+  %94 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp42, i32 0, i32 0
+  %95 = load i64, ptr %94, align 8
+  %96 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp42, i32 0, i32 1
+  %97 = load i64, ptr %96, align 8
+  %call43 = call i32 @gpr_time_cmp(i64 %91, i64 %93, i64 %95, i64 %97)
   %cmp44 = icmp sgt i32 %call43, 0
   br i1 %cmp44, label %if.then45, label %if.end50
 
 if.then45:                                        ; preds = %if.then39
-  %95 = load ptr, ptr getelementptr inbounds (%struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 1), align 8
-  %cmp46 = icmp ne ptr %95, @_ZL13g_root_object
+  %98 = getelementptr inbounds %struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 1
+  %99 = load ptr, ptr %98, align 8
+  %cmp46 = icmp ne ptr %99, @_ZL13g_root_object
   br i1 %cmp46, label %if.then47, label %if.end49
 
 if.then47:                                        ; preds = %if.then45
@@ -763,29 +772,30 @@ entry:
   %kind.addr = alloca ptr, align 8
   %obj = alloca ptr, align 8
   store ptr %kind, ptr %kind.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 1), align 8
-  store ptr %0, ptr %obj, align 8
+  %0 = getelementptr inbounds %struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  store ptr %1, ptr %obj, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr %obj, align 8
-  %cmp = icmp ne ptr %1, @_ZL13g_root_object
+  %2 = load ptr, ptr %obj, align 8
+  %cmp = icmp ne ptr %2, @_ZL13g_root_object
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %kind.addr, align 8
-  %3 = load ptr, ptr %obj, align 8
-  %name = getelementptr inbounds %struct.grpc_iomgr_object, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %name, align 8
-  %5 = load ptr, ptr %obj, align 8
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.1, i32 noundef 86, i32 noundef 0, ptr noundef @.str.5, ptr noundef %2, ptr noundef %4, ptr noundef %5)
+  %3 = load ptr, ptr %kind.addr, align 8
+  %4 = load ptr, ptr %obj, align 8
+  %name = getelementptr inbounds %struct.grpc_iomgr_object, ptr %4, i32 0, i32 0
+  %5 = load ptr, ptr %name, align 8
+  %6 = load ptr, ptr %obj, align 8
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.1, i32 noundef 86, i32 noundef 0, ptr noundef @.str.5, ptr noundef %3, ptr noundef %5, ptr noundef %6)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %6 = load ptr, ptr %obj, align 8
-  %next = getelementptr inbounds %struct.grpc_iomgr_object, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %next, align 8
-  store ptr %7, ptr %obj, align 8
+  %7 = load ptr, ptr %obj, align 8
+  %next = getelementptr inbounds %struct.grpc_iomgr_object, ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %next, align 8
+  store ptr %8, ptr %obj, align 8
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %for.cond
@@ -923,21 +933,22 @@ entry:
   %2 = load ptr, ptr %obj.addr, align 8
   %next = getelementptr inbounds %struct.grpc_iomgr_object, ptr %2, i32 0, i32 1
   store ptr @_ZL13g_root_object, ptr %next, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 2), align 8
-  %4 = load ptr, ptr %obj.addr, align 8
-  %prev = getelementptr inbounds %struct.grpc_iomgr_object, ptr %4, i32 0, i32 2
-  store ptr %3, ptr %prev, align 8
+  %3 = getelementptr inbounds %struct.grpc_iomgr_object, ptr @_ZL13g_root_object, i32 0, i32 2
+  %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %obj.addr, align 8
+  %prev = getelementptr inbounds %struct.grpc_iomgr_object, ptr %5, i32 0, i32 2
+  store ptr %4, ptr %prev, align 8
   %6 = load ptr, ptr %obj.addr, align 8
-  %prev2 = getelementptr inbounds %struct.grpc_iomgr_object, ptr %6, i32 0, i32 2
-  %7 = load ptr, ptr %prev2, align 8
-  %next3 = getelementptr inbounds %struct.grpc_iomgr_object, ptr %7, i32 0, i32 1
-  store ptr %5, ptr %next3, align 8
-  %8 = load ptr, ptr %obj.addr, align 8
-  %next4 = getelementptr inbounds %struct.grpc_iomgr_object, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %next4, align 8
-  %prev5 = getelementptr inbounds %struct.grpc_iomgr_object, ptr %9, i32 0, i32 2
-  store ptr %5, ptr %prev5, align 8
+  %7 = load ptr, ptr %obj.addr, align 8
+  %prev2 = getelementptr inbounds %struct.grpc_iomgr_object, ptr %7, i32 0, i32 2
+  %8 = load ptr, ptr %prev2, align 8
+  %next3 = getelementptr inbounds %struct.grpc_iomgr_object, ptr %8, i32 0, i32 1
+  store ptr %6, ptr %next3, align 8
+  %9 = load ptr, ptr %obj.addr, align 8
+  %next4 = getelementptr inbounds %struct.grpc_iomgr_object, ptr %9, i32 0, i32 1
+  %10 = load ptr, ptr %next4, align 8
+  %prev5 = getelementptr inbounds %struct.grpc_iomgr_object, ptr %10, i32 0, i32 2
+  store ptr %6, ptr %prev5, align 8
   call void @gpr_mu_unlock(ptr noundef @_ZL4g_mu)
   ret void
 }
@@ -1024,7 +1035,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core9Timestamp12ScopedSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cached_time_ = getelementptr inbounds %"class.grpc_core::ScopedTimeCache", ptr %this1, i32 0, i32 1
   call void @_ZNSt8optionalIN9grpc_core9TimestampEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cached_time_) #3
   ret void
@@ -1091,13 +1103,14 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core9Timestamp6SourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this1, i32 0, i32 1
-  %0 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %previous_, align 8
-  %2 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
-  store ptr %this1, ptr %2, align 8
+  %1 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
+  %2 = load ptr, ptr %1, align 8
+  store ptr %2, ptr %previous_, align 8
+  %3 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
+  store ptr %this1, ptr %3, align 8
   ret void
 }
 
@@ -1117,21 +1130,23 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp6SourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp6SourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E() #8 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
+  ret ptr %4
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
@@ -1287,15 +1302,16 @@ declare void @_ZSt9terminatev()
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core7ExecCtx9exec_ctx_E() #8 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core7ExecCtx9exec_ctx_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1304,11 +1320,12 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %previous_, align 8
-  %1 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
-  store ptr %0, ptr %1, align 8
+  %1 = load ptr, ptr %previous_, align 8
+  %2 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
+  store ptr %1, ptr %2, align 8
   ret void
 }
 

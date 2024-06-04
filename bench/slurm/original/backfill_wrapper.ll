@@ -41,200 +41,201 @@ define dso_local i32 @init() #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = load i8, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 9), align 1
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %0
-  store i32 0, ptr %1, align 4
-  br label %96
+  %9 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 9
+  %10 = load i8, ptr %9, align 1
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %0
+  store i32 0, ptr %1, align 4
+  br label %97
+
+13:                                               ; preds = %0
   call void (ptr, ...) @sched_verbose(ptr noundef @.str)
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12
-  %14 = call i32 @pthread_mutex_lock(ptr noundef @thread_flag_mutex) #5
-  store i32 %14, ptr %2, align 4
-  %15 = load i32, ptr %2, align 4
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %20
+14:                                               ; preds = %13
+  %15 = call i32 @pthread_mutex_lock(ptr noundef @thread_flag_mutex) #5
+  store i32 %15, ptr %2, align 4
+  %16 = load i32, ptr %2, align 4
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %21
 
-17:                                               ; preds = %13
-  %18 = load i32, ptr %2, align 4
-  %19 = call ptr @__errno_location() #6
-  store i32 %18, ptr %19, align 4
+18:                                               ; preds = %14
+  %19 = load i32, ptr %2, align 4
+  %20 = call ptr @__errno_location() #6
+  store i32 %19, ptr %20, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 67, ptr noundef @__func__.init) #7
   unreachable
 
-20:                                               ; preds = %13
-  br label %21
+21:                                               ; preds = %14
+  br label %22
 
-21:                                               ; preds = %20
-  %22 = load i64, ptr @backfill_thread, align 8
-  %23 = icmp ne i64 %22, 0
-  br i1 %23, label %24, label %42
+22:                                               ; preds = %21
+  %23 = load i64, ptr @backfill_thread, align 8
+  %24 = icmp ne i64 %23, 0
+  br i1 %24, label %25, label %43
 
-24:                                               ; preds = %21
-  br label %25
-
-25:                                               ; preds = %24
+25:                                               ; preds = %22
   br label %26
 
 26:                                               ; preds = %25
-  %27 = call i32 @get_log_level()
-  %28 = icmp sge i32 %27, 6
-  br i1 %28, label %29, label %30
+  br label %27
 
-29:                                               ; preds = %26
+27:                                               ; preds = %26
+  %28 = call i32 @get_log_level()
+  %29 = icmp sge i32 %28, 6
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %27
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.3, ptr noundef @plugin_type, ptr noundef @__func__.init)
-  br label %30
-
-30:                                               ; preds = %29, %26
   br label %31
 
-31:                                               ; preds = %30
+31:                                               ; preds = %30, %27
   br label %32
 
 32:                                               ; preds = %31
   br label %33
 
 33:                                               ; preds = %32
-  %34 = call i32 @pthread_mutex_unlock(ptr noundef @thread_flag_mutex) #5
-  store i32 %34, ptr %3, align 4
-  %35 = load i32, ptr %3, align 4
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %37, label %40
+  br label %34
 
-37:                                               ; preds = %33
-  %38 = load i32, ptr %3, align 4
-  %39 = call ptr @__errno_location() #6
-  store i32 %38, ptr %39, align 4
+34:                                               ; preds = %33
+  %35 = call i32 @pthread_mutex_unlock(ptr noundef @thread_flag_mutex) #5
+  store i32 %35, ptr %3, align 4
+  %36 = load i32, ptr %3, align 4
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %41
+
+38:                                               ; preds = %34
+  %39 = load i32, ptr %3, align 4
+  %40 = call ptr @__errno_location() #6
+  store i32 %39, ptr %40, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 70, ptr noundef @__func__.init) #7
   unreachable
 
-40:                                               ; preds = %33
-  br label %41
+41:                                               ; preds = %34
+  br label %42
 
-41:                                               ; preds = %40
+42:                                               ; preds = %41
   store i32 -1, ptr %1, align 4
-  br label %96
+  br label %97
 
-42:                                               ; preds = %21
-  br label %43
-
-43:                                               ; preds = %42
+43:                                               ; preds = %22
   br label %44
 
 44:                                               ; preds = %43
-  %45 = call i32 @pthread_attr_init(ptr noundef %4) #5
-  store i32 %45, ptr %6, align 4
-  %46 = load i32, ptr %6, align 4
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %51
+  br label %45
 
-48:                                               ; preds = %44
-  %49 = load i32, ptr %6, align 4
-  %50 = call ptr @__errno_location() #6
-  store i32 %49, ptr %50, align 4
+45:                                               ; preds = %44
+  %46 = call i32 @pthread_attr_init(ptr noundef %4) #5
+  store i32 %46, ptr %6, align 4
+  %47 = load i32, ptr %6, align 4
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %52
+
+49:                                               ; preds = %45
+  %50 = load i32, ptr %6, align 4
+  %51 = call ptr @__errno_location() #6
+  store i32 %50, ptr %51, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.5) #7
   unreachable
 
-51:                                               ; preds = %44
-  %52 = call i32 @pthread_attr_setscope(ptr noundef %4, i32 noundef 0) #5
-  store i32 %52, ptr %6, align 4
-  %53 = load i32, ptr %6, align 4
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %55, label %59
+52:                                               ; preds = %45
+  %53 = call i32 @pthread_attr_setscope(ptr noundef %4, i32 noundef 0) #5
+  store i32 %53, ptr %6, align 4
+  %54 = load i32, ptr %6, align 4
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %60
 
-55:                                               ; preds = %51
-  %56 = load i32, ptr %6, align 4
-  %57 = call ptr @__errno_location() #6
-  store i32 %56, ptr %57, align 4
-  %58 = call i32 (ptr, ...) @error(ptr noundef @.str.6)
-  br label %59
+56:                                               ; preds = %52
+  %57 = load i32, ptr %6, align 4
+  %58 = call ptr @__errno_location() #6
+  store i32 %57, ptr %58, align 4
+  %59 = call i32 (ptr, ...) @error(ptr noundef @.str.6)
+  br label %60
 
-59:                                               ; preds = %55, %51
-  %60 = call i32 @pthread_attr_setstacksize(ptr noundef %4, i64 noundef 1048576) #5
-  store i32 %60, ptr %6, align 4
-  %61 = load i32, ptr %6, align 4
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %63, label %67
+60:                                               ; preds = %56, %52
+  %61 = call i32 @pthread_attr_setstacksize(ptr noundef %4, i64 noundef 1048576) #5
+  store i32 %61, ptr %6, align 4
+  %62 = load i32, ptr %6, align 4
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %68
 
-63:                                               ; preds = %59
-  %64 = load i32, ptr %6, align 4
-  %65 = call ptr @__errno_location() #6
-  store i32 %64, ptr %65, align 4
-  %66 = call i32 (ptr, ...) @error(ptr noundef @.str.7)
-  br label %67
-
-67:                                               ; preds = %63, %59
+64:                                               ; preds = %60
+  %65 = load i32, ptr %6, align 4
+  %66 = call ptr @__errno_location() #6
+  store i32 %65, ptr %66, align 4
+  %67 = call i32 (ptr, ...) @error(ptr noundef @.str.7)
   br label %68
 
-68:                                               ; preds = %67
-  %69 = call i32 @pthread_create(ptr noundef @backfill_thread, ptr noundef %4, ptr noundef @backfill_agent, ptr noundef null) #5
-  store i32 %69, ptr %5, align 4
-  %70 = load i32, ptr %5, align 4
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %72, label %75
+68:                                               ; preds = %64, %60
+  br label %69
 
-72:                                               ; preds = %68
-  %73 = load i32, ptr %5, align 4
-  %74 = call ptr @__errno_location() #6
-  store i32 %73, ptr %74, align 4
+69:                                               ; preds = %68
+  %70 = call i32 @pthread_create(ptr noundef @backfill_thread, ptr noundef %4, ptr noundef @backfill_agent, ptr noundef null) #5
+  store i32 %70, ptr %5, align 4
+  %71 = load i32, ptr %5, align 4
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %76
+
+73:                                               ; preds = %69
+  %74 = load i32, ptr %5, align 4
+  %75 = call ptr @__errno_location() #6
+  store i32 %74, ptr %75, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.8, ptr noundef @__func__.init) #7
   unreachable
 
-75:                                               ; preds = %68
-  br label %76
+76:                                               ; preds = %69
+  br label %77
 
-76:                                               ; preds = %75
-  %77 = call i32 @pthread_attr_destroy(ptr noundef %4) #5
-  store i32 %77, ptr %7, align 4
-  %78 = load i32, ptr %7, align 4
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %84
+77:                                               ; preds = %76
+  %78 = call i32 @pthread_attr_destroy(ptr noundef %4) #5
+  store i32 %78, ptr %7, align 4
+  %79 = load i32, ptr %7, align 4
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %85
 
-80:                                               ; preds = %76
-  %81 = load i32, ptr %7, align 4
-  %82 = call ptr @__errno_location() #6
-  store i32 %81, ptr %82, align 4
-  %83 = call i32 (ptr, ...) @error(ptr noundef @.str.9)
-  br label %84
-
-84:                                               ; preds = %80, %76
+81:                                               ; preds = %77
+  %82 = load i32, ptr %7, align 4
+  %83 = call ptr @__errno_location() #6
+  store i32 %82, ptr %83, align 4
+  %84 = call i32 (ptr, ...) @error(ptr noundef @.str.9)
   br label %85
 
-85:                                               ; preds = %84
+85:                                               ; preds = %81, %77
   br label %86
 
 86:                                               ; preds = %85
   br label %87
 
 87:                                               ; preds = %86
-  %88 = call i32 @pthread_mutex_unlock(ptr noundef @thread_flag_mutex) #5
-  store i32 %88, ptr %8, align 4
-  %89 = load i32, ptr %8, align 4
-  %90 = icmp ne i32 %89, 0
-  br i1 %90, label %91, label %94
+  br label %88
 
-91:                                               ; preds = %87
-  %92 = load i32, ptr %8, align 4
-  %93 = call ptr @__errno_location() #6
-  store i32 %92, ptr %93, align 4
+88:                                               ; preds = %87
+  %89 = call i32 @pthread_mutex_unlock(ptr noundef @thread_flag_mutex) #5
+  store i32 %89, ptr %8, align 4
+  %90 = load i32, ptr %8, align 4
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %95
+
+92:                                               ; preds = %88
+  %93 = load i32, ptr %8, align 4
+  %94 = call ptr @__errno_location() #6
+  store i32 %93, ptr %94, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 77, ptr noundef @__func__.init) #7
   unreachable
 
-94:                                               ; preds = %87
-  br label %95
-
-95:                                               ; preds = %94
-  store i32 0, ptr %1, align 4
+95:                                               ; preds = %88
   br label %96
 
-96:                                               ; preds = %95, %41, %11
-  %97 = load i32, ptr %1, align 4
-  ret i32 %97
+96:                                               ; preds = %95
+  store i32 0, ptr %1, align 4
+  br label %97
+
+97:                                               ; preds = %96, %42, %12
+  %98 = load i32, ptr %1, align 4
+  ret i32 %98
 }
 
 declare void @sched_verbose(ptr noundef, ...) #1

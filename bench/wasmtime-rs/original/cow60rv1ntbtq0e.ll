@@ -170,29 +170,30 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 define internal { i64, i64 } @"_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$17h72f466329fd2bc74E"(ptr align 1 %0, i64 %1, ptr align 8 %2) unnamed_addr #1 {
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = call zeroext i1 @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8is_value17hc95b7a52fa88596cE(ptr align 8 %2)
-  br i1 %5, label %10, label %6
+  br i1 %5, label %11, label %6
 
 6:                                                ; preds = %3
   %7 = load i64, ptr @anon.ba9c420fc2a39022f420c8211c24efab.3, align 8, !range !7, !noundef !3
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @anon.ba9c420fc2a39022f420c8211c24efab.3, i64 8), align 8
+  %8 = getelementptr inbounds i8, ptr @anon.ba9c420fc2a39022f420c8211c24efab.3, i64 8
+  %9 = load i64, ptr %8, align 8
   store i64 %7, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %8, ptr %9, align 8
-  br label %12
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %9, ptr %10, align 8
+  br label %13
 
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %1, ptr %11, align 8
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %1, ptr %12, align 8
   store i64 1, ptr %4, align 8
-  br label %12
+  br label %13
 
-12:                                               ; preds = %10, %6
-  %13 = load i64, ptr %4, align 8, !range !7, !noundef !3
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = insertvalue { i64, i64 } poison, i64 %13, 0
-  %17 = insertvalue { i64, i64 } %16, i64 %15, 1
-  ret { i64, i64 } %17
+13:                                               ; preds = %11, %6
+  %14 = load i64, ptr %4, align 8, !range !7, !noundef !3
+  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = insertvalue { i64, i64 } poison, i64 %14, 0
+  %18 = insertvalue { i64, i64 } %17, i64 %16, 1
+  ret { i64, i64 } %18
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

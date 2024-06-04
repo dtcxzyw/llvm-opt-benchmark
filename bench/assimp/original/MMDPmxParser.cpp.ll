@@ -3011,16 +3011,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #3
   br label %eh.resume
 
@@ -6782,16 +6783,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #3
   br label %eh.resume
 
@@ -13754,10 +13756,11 @@ entry:
   store i16 %u, ptr %u.addr, align 2
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4utf89exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %u16 = getelementptr inbounds %"class.utf8::invalid_utf16", ptr %this1, i32 0, i32 1
-  %0 = load i16, ptr %u.addr, align 2
-  store i16 %0, ptr %u16, align 8
+  %1 = load i16, ptr %u.addr, align 2
+  store i16 %1, ptr %u16, align 8
   ret void
 }
 
@@ -13825,7 +13828,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf89exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4utf89exceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13854,7 +13858,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13914,10 +13919,11 @@ entry:
   store i32 %codepoint, ptr %codepoint.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4utf89exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf818invalid_code_pointE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4utf818invalid_code_pointE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cp = getelementptr inbounds %"class.utf8::invalid_code_point", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %codepoint.addr, align 4
-  store i32 %0, ptr %cp, align 8
+  %1 = load i32, ptr %codepoint.addr, align 4
+  store i32 %1, ptr %cp, align 8
   ret void
 }
 
@@ -14324,7 +14330,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx17PmxVertexSkinningC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF1E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF1E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %bone_index = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF1", ptr %this1, i32 0, i32 1
   store i32 0, ptr %bone_index, align 8
   ret void
@@ -14360,7 +14367,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx17PmxVertexSkinningE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3pmx17PmxVertexSkinningE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14691,7 +14699,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx17PmxVertexSkinningC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF2E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF2E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %bone_index1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF2", ptr %this1, i32 0, i32 1
   store i32 0, ptr %bone_index1, align 8
   %bone_index2 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF2", ptr %this1, i32 0, i32 2
@@ -14992,7 +15001,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx17PmxVertexSkinningC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF4E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF4E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %bone_index1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF4", ptr %this1, i32 0, i32 1
   store i32 0, ptr %bone_index1, align 8
   %bone_index2 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF4", ptr %this1, i32 0, i32 2
@@ -15304,7 +15314,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx17PmxVertexSkinningC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx21PmxVertexSkinningSDEFE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3pmx21PmxVertexSkinningSDEFE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %bone_index1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningSDEF", ptr %this1, i32 0, i32 1
   store i32 0, ptr %bone_index1, align 8
   %bone_index2 = getelementptr inbounds %"class.pmx::PmxVertexSkinningSDEF", ptr %this1, i32 0, i32 2
@@ -15315,31 +15326,31 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 3
+  %1 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %1, 3
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %sdef_c = getelementptr inbounds %"class.pmx::PmxVertexSkinningSDEF", ptr %this1, i32 0, i32 4
-  %1 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %1 to i64
+  %2 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr inbounds [3 x float], ptr %sdef_c, i64 0, i64 %idxprom
   store float 0.000000e+00, ptr %arrayidx, align 4
   %sdef_r0 = getelementptr inbounds %"class.pmx::PmxVertexSkinningSDEF", ptr %this1, i32 0, i32 5
-  %2 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %2 to i64
+  %3 = load i32, ptr %i, align 4
+  %idxprom2 = sext i32 %3 to i64
   %arrayidx3 = getelementptr inbounds [3 x float], ptr %sdef_r0, i64 0, i64 %idxprom2
   store float 0.000000e+00, ptr %arrayidx3, align 4
   %sdef_r1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningSDEF", ptr %this1, i32 0, i32 6
-  %3 = load i32, ptr %i, align 4
-  %idxprom4 = sext i32 %3 to i64
+  %4 = load i32, ptr %i, align 4
+  %idxprom4 = sext i32 %4 to i64
   %arrayidx5 = getelementptr inbounds [3 x float], ptr %sdef_r1, i64 0, i64 %idxprom4
   store float 0.000000e+00, ptr %arrayidx5, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %4 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %4, 1
+  %5 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %5, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !24
 
@@ -15638,7 +15649,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx17PmxVertexSkinningC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx21PmxVertexSkinningQDEFE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3pmx21PmxVertexSkinningQDEFE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %bone_index1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningQDEF", ptr %this1, i32 0, i32 1
   store i32 0, ptr %bone_index1, align 8
   %bone_index2 = getelementptr inbounds %"class.pmx::PmxVertexSkinningQDEF", ptr %this1, i32 0, i32 2
@@ -16236,7 +16248,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx14PmxMorphOffsetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx19PmxMorphGroupOffsetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3pmx19PmxMorphGroupOffsetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %morph_index = getelementptr inbounds %"class.pmx::PmxMorphGroupOffset", ptr %this1, i32 0, i32 1
   store i32 0, ptr %morph_index, align 8
   %morph_weight = getelementptr inbounds %"class.pmx::PmxMorphGroupOffset", ptr %this1, i32 0, i32 2
@@ -16274,7 +16287,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx14PmxMorphOffsetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3pmx14PmxMorphOffsetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16455,28 +16469,29 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx14PmxMorphOffsetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx20PmxMorphVertexOffsetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3pmx20PmxMorphVertexOffsetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vertex_index = getelementptr inbounds %"class.pmx::PmxMorphVertexOffset", ptr %this1, i32 0, i32 1
   store i32 0, ptr %vertex_index, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 3
+  %1 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %1, 3
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %position_offset = getelementptr inbounds %"class.pmx::PmxMorphVertexOffset", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %1 to i64
+  %2 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr inbounds [3 x float], ptr %position_offset, i64 0, i64 %idxprom
   store float 0.000000e+00, ptr %arrayidx, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %2 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %2, 1
+  %3 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !26
 
@@ -16669,28 +16684,29 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx14PmxMorphOffsetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx18PmxMorphBoneOffsetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3pmx18PmxMorphBoneOffsetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %bone_index = getelementptr inbounds %"class.pmx::PmxMorphBoneOffset", ptr %this1, i32 0, i32 1
   store i32 0, ptr %bone_index, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 3
+  %1 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %1, 3
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %translation = getelementptr inbounds %"class.pmx::PmxMorphBoneOffset", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %1 to i64
+  %2 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr inbounds [3 x float], ptr %translation, i64 0, i64 %idxprom
   store float 0.000000e+00, ptr %arrayidx, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %2 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %2, 1
+  %3 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !27
 
@@ -16699,21 +16715,21 @@ for.end:                                          ; preds = %for.cond
   br label %for.cond3
 
 for.cond3:                                        ; preds = %for.inc8, %for.end
-  %3 = load i32, ptr %i2, align 4
-  %cmp4 = icmp slt i32 %3, 4
+  %4 = load i32, ptr %i2, align 4
+  %cmp4 = icmp slt i32 %4, 4
   br i1 %cmp4, label %for.body5, label %for.end10
 
 for.body5:                                        ; preds = %for.cond3
   %rotation = getelementptr inbounds %"class.pmx::PmxMorphBoneOffset", ptr %this1, i32 0, i32 3
-  %4 = load i32, ptr %i2, align 4
-  %idxprom6 = sext i32 %4 to i64
+  %5 = load i32, ptr %i2, align 4
+  %idxprom6 = sext i32 %5 to i64
   %arrayidx7 = getelementptr inbounds [4 x float], ptr %rotation, i64 0, i64 %idxprom6
   store float 0.000000e+00, ptr %arrayidx7, align 4
   br label %for.inc8
 
 for.inc8:                                         ; preds = %for.body5
-  %5 = load i32, ptr %i2, align 4
-  %inc9 = add nsw i32 %5, 1
+  %6 = load i32, ptr %i2, align 4
+  %inc9 = add nsw i32 %6, 1
   store i32 %inc9, ptr %i2, align 4
   br label %for.cond3, !llvm.loop !28
 
@@ -16906,7 +16922,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx14PmxMorphOffsetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxMorphMaterialOffsetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3pmx22PmxMorphMaterialOffsetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %specularity = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this1, i32 0, i32 5
   store float 0.000000e+00, ptr %specularity, align 4
   %edge_size = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this1, i32 0, i32 8
@@ -16915,26 +16932,26 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 3
+  %1 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %1, 3
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %specular = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this1, i32 0, i32 4
-  %1 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %1 to i64
+  %2 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr inbounds [3 x float], ptr %specular, i64 0, i64 %idxprom
   store float 0.000000e+00, ptr %arrayidx, align 4
   %ambient = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this1, i32 0, i32 6
-  %2 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %2 to i64
+  %3 = load i32, ptr %i, align 4
+  %idxprom2 = sext i32 %3 to i64
   %arrayidx3 = getelementptr inbounds [3 x float], ptr %ambient, i64 0, i64 %idxprom2
   store float 0.000000e+00, ptr %arrayidx3, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
+  %4 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !29
 
@@ -16943,41 +16960,41 @@ for.end:                                          ; preds = %for.cond
   br label %for.cond5
 
 for.cond5:                                        ; preds = %for.inc18, %for.end
-  %4 = load i32, ptr %i4, align 4
-  %cmp6 = icmp slt i32 %4, 4
+  %5 = load i32, ptr %i4, align 4
+  %cmp6 = icmp slt i32 %5, 4
   br i1 %cmp6, label %for.body7, label %for.end20
 
 for.body7:                                        ; preds = %for.cond5
   %diffuse = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this1, i32 0, i32 3
-  %5 = load i32, ptr %i4, align 4
-  %idxprom8 = sext i32 %5 to i64
+  %6 = load i32, ptr %i4, align 4
+  %idxprom8 = sext i32 %6 to i64
   %arrayidx9 = getelementptr inbounds [4 x float], ptr %diffuse, i64 0, i64 %idxprom8
   store float 0.000000e+00, ptr %arrayidx9, align 4
   %edge_color = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this1, i32 0, i32 7
-  %6 = load i32, ptr %i4, align 4
-  %idxprom10 = sext i32 %6 to i64
+  %7 = load i32, ptr %i4, align 4
+  %idxprom10 = sext i32 %7 to i64
   %arrayidx11 = getelementptr inbounds [4 x float], ptr %edge_color, i64 0, i64 %idxprom10
   store float 0.000000e+00, ptr %arrayidx11, align 4
   %texture_argb = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this1, i32 0, i32 9
-  %7 = load i32, ptr %i4, align 4
-  %idxprom12 = sext i32 %7 to i64
+  %8 = load i32, ptr %i4, align 4
+  %idxprom12 = sext i32 %8 to i64
   %arrayidx13 = getelementptr inbounds [4 x float], ptr %texture_argb, i64 0, i64 %idxprom12
   store float 0.000000e+00, ptr %arrayidx13, align 4
   %sphere_texture_argb = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this1, i32 0, i32 10
-  %8 = load i32, ptr %i4, align 4
-  %idxprom14 = sext i32 %8 to i64
+  %9 = load i32, ptr %i4, align 4
+  %idxprom14 = sext i32 %9 to i64
   %arrayidx15 = getelementptr inbounds [4 x float], ptr %sphere_texture_argb, i64 0, i64 %idxprom14
   store float 0.000000e+00, ptr %arrayidx15, align 4
   %toon_texture_argb = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this1, i32 0, i32 11
-  %9 = load i32, ptr %i4, align 4
-  %idxprom16 = sext i32 %9 to i64
+  %10 = load i32, ptr %i4, align 4
+  %idxprom16 = sext i32 %10 to i64
   %arrayidx17 = getelementptr inbounds [4 x float], ptr %toon_texture_argb, i64 0, i64 %idxprom16
   store float 0.000000e+00, ptr %arrayidx17, align 4
   br label %for.inc18
 
 for.inc18:                                        ; preds = %for.body7
-  %10 = load i32, ptr %i4, align 4
-  %inc19 = add nsw i32 %10, 1
+  %11 = load i32, ptr %i4, align 4
+  %inc19 = add nsw i32 %11, 1
   store i32 %inc19, ptr %i4, align 4
   br label %for.cond5, !llvm.loop !30
 
@@ -17169,28 +17186,29 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx14PmxMorphOffsetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx16PmxMorphUVOffsetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3pmx16PmxMorphUVOffsetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vertex_index = getelementptr inbounds %"class.pmx::PmxMorphUVOffset", ptr %this1, i32 0, i32 1
   store i32 0, ptr %vertex_index, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 4
+  %1 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %1, 4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %uv_offset = getelementptr inbounds %"class.pmx::PmxMorphUVOffset", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %1 to i64
+  %2 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr inbounds [4 x float], ptr %uv_offset, i64 0, i64 %idxprom
   store float 0.000000e+00, ptr %arrayidx, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %2 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %2, 1
+  %3 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !31
 

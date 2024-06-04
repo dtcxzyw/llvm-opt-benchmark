@@ -283,32 +283,33 @@ define void @_ZN8RichMeshC2ERK7QStringjPK12MeshDocumentS2_S2_bS2_(ptr noundef no
   %27 = trunc i8 %26 to i1
   %28 = load ptr, ptr %16, align 8
   invoke void @_ZN13RichParameterC2ERK7QStringRK5ValueS2_S2_bS2_(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %25, i1 noundef zeroext %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
-          to label %29 unwind label %32
+          to label %29 unwind label %33
 
 29:                                               ; preds = %8
   call void @_ZN8IntValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %17) #5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichMesh, i32 0, i32 0, i32 2), ptr %21, align 8
-  %30 = getelementptr inbounds %class.RichMesh, ptr %21, i32 0, i32 1
-  %31 = load ptr, ptr %12, align 8
-  store ptr %31, ptr %30, align 8
+  %30 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV8RichMesh, i32 0, i32 0, i32 2
+  store ptr %30, ptr %21, align 8
+  %31 = getelementptr inbounds %class.RichMesh, ptr %21, i32 0, i32 1
+  %32 = load ptr, ptr %12, align 8
+  store ptr %32, ptr %31, align 8
   ret void
 
-32:                                               ; preds = %8
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %8
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %18, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %19, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %18, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %19, align 4
   call void @_ZN8IntValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %17) #5
-  br label %36
+  br label %37
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %18, align 8
-  %38 = load i32, ptr %19, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %18, align 8
+  %39 = load i32, ptr %19, align 4
+  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
+  resume { ptr, i32 } %41
 }
 
 declare void @_ZN8IntValueC1Ei(ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) unnamed_addr #1
@@ -394,12 +395,13 @@ define linkonce_odr void @_ZN8RichMeshC2ERKS_(ptr noundef nonnull align 8 derefe
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichMesh, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.RichMesh, ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %class.RichMesh, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %7, align 8
+  %7 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV8RichMesh, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.RichMesh, ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %class.RichMesh, ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %8, align 8
   ret void
 }
 

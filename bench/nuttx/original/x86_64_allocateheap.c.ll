@@ -11,18 +11,22 @@ define void @up_allocate_heap(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %6 = and i64 sub (i64 add (i64 ptrtoint (ptr getelementptr (i8, ptr @_ebss, i64 4194304) to i64), i64 4096), i64 1), -4096
-  store i64 %6, ptr %5, align 8
-  %7 = load i64, ptr %5, align 8
-  %8 = inttoptr i64 %7 to ptr
-  %9 = load ptr, ptr %3, align 8
-  store ptr %8, ptr %9, align 8
-  %10 = load i64, ptr %5, align 8
-  %11 = sub i64 %10, 4294967296
-  %12 = sub i64 %11, 1
-  %13 = sub i64 268435456, %12
-  %14 = load ptr, ptr %4, align 8
-  store i64 %13, ptr %14, align 8
+  %6 = getelementptr i8, ptr @_ebss, i64 4194304
+  %7 = ptrtoint ptr %6 to i64
+  %8 = add i64 %7, 4096
+  %9 = sub i64 %8, 1
+  %10 = and i64 %9, -4096
+  store i64 %10, ptr %5, align 8
+  %11 = load i64, ptr %5, align 8
+  %12 = inttoptr i64 %11 to ptr
+  %13 = load ptr, ptr %3, align 8
+  store ptr %12, ptr %13, align 8
+  %14 = load i64, ptr %5, align 8
+  %15 = sub i64 %14, 4294967296
+  %16 = sub i64 %15, 1
+  %17 = sub i64 268435456, %16
+  %18 = load ptr, ptr %4, align 8
+  store i64 %17, ptr %18, align 8
   ret void
 }
 

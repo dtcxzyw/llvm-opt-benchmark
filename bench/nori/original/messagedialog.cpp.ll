@@ -183,447 +183,448 @@ define hidden void @_ZN7nanogui13MessageDialogC2EPNS_6WidgetENS0_4TypeERKNSt7__c
   %40 = load ptr, ptr %10, align 8
   %41 = load ptr, ptr %12, align 8
   call void @_ZN7nanogui6WindowC2EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(186) %39, ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(32) %41)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui13MessageDialogE, i32 0, i32 0, i32 2), ptr %39, align 8
-  %42 = getelementptr inbounds %"class.nanogui::MessageDialog", ptr %39, i32 0, i32 1
-  call void @_ZNSt8functionIFviEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #10
-  %43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #11
-          to label %44 unwind label %57
+  %42 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7nanogui13MessageDialogE, i32 0, i32 0, i32 2
+  store ptr %42, ptr %39, align 8
+  %43 = getelementptr inbounds %"class.nanogui::MessageDialog", ptr %39, i32 0, i32 1
+  call void @_ZNSt8functionIFviEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #10
+  %44 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #11
+          to label %45 unwind label %58
 
-44:                                               ; preds = %8
-  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %43, i32 noundef 1, i8 noundef zeroext 1, i32 noundef 10, i32 noundef 10)
-          to label %45 unwind label %61
-
-45:                                               ; preds = %44
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(140) %39, ptr noundef %43)
-          to label %46 unwind label %57
+45:                                               ; preds = %8
+  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %44, i32 noundef 1, i8 noundef zeroext 1, i32 noundef 10, i32 noundef 10)
+          to label %46 unwind label %62
 
 46:                                               ; preds = %45
-  invoke void @_ZN7nanogui6Window9set_modalEb(ptr noundef nonnull align 8 dereferenceable(186) %39, i1 noundef zeroext true)
-          to label %47 unwind label %57
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(140) %39, ptr noundef %44)
+          to label %47 unwind label %58
 
 47:                                               ; preds = %46
-  %48 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 144) #11
-          to label %49 unwind label %57
+  invoke void @_ZN7nanogui6Window9set_modalEb(ptr noundef nonnull align 8 dereferenceable(186) %39, i1 noundef zeroext true)
+          to label %48 unwind label %58
 
-49:                                               ; preds = %47
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %48, ptr noundef %39)
-          to label %50 unwind label %65
+48:                                               ; preds = %47
+  %49 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 144) #11
+          to label %50 unwind label %58
 
-50:                                               ; preds = %49
-  store ptr %48, ptr %19, align 8
-  %51 = load ptr, ptr %19, align 8
-  %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #11
-          to label %53 unwind label %57
+50:                                               ; preds = %48
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %49, ptr noundef %39)
+          to label %51 unwind label %66
 
-53:                                               ; preds = %50
-  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %52, i32 noundef 0, i8 noundef zeroext 1, i32 noundef 10, i32 noundef 15)
-          to label %54 unwind label %69
+51:                                               ; preds = %50
+  store ptr %49, ptr %19, align 8
+  %52 = load ptr, ptr %19, align 8
+  %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #11
+          to label %54 unwind label %58
 
-54:                                               ; preds = %53
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(140) %51, ptr noundef %52)
-          to label %55 unwind label %57
+54:                                               ; preds = %51
+  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %53, i32 noundef 0, i8 noundef zeroext 1, i32 noundef 10, i32 noundef 15)
+          to label %55 unwind label %70
 
 55:                                               ; preds = %54
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(140) %52, ptr noundef %53)
+          to label %56 unwind label %58
+
+56:                                               ; preds = %55
   store i32 0, ptr %20, align 4
-  %56 = load i32, ptr %11, align 4
-  switch i32 %56, label %91 [
-    i32 0, label %73
-    i32 1, label %79
-    i32 2, label %85
+  %57 = load i32, ptr %11, align 4
+  switch i32 %57, label %92 [
+    i32 0, label %74
+    i32 1, label %80
+    i32 2, label %86
   ]
 
-57:                                               ; preds = %201, %200, %187, %123, %119, %115, %112, %108, %102, %100, %91, %85, %79, %73, %54, %50, %47, %46, %45, %8
-  %58 = landingpad { ptr, i32 }
+58:                                               ; preds = %202, %201, %188, %124, %120, %116, %113, %109, %103, %101, %92, %86, %80, %74, %55, %51, %48, %47, %46, %8
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %17, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %18, align 4
-  br label %211
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %17, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %18, align 4
+  br label %212
 
-61:                                               ; preds = %44
-  %62 = landingpad { ptr, i32 }
+62:                                               ; preds = %45
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %17, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %18, align 4
-  call void @_ZdlPv(ptr noundef %43) #12
-  br label %211
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %17, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %18, align 4
+  call void @_ZdlPv(ptr noundef %44) #12
+  br label %212
 
-65:                                               ; preds = %49
-  %66 = landingpad { ptr, i32 }
+66:                                               ; preds = %50
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %67 = extractvalue { ptr, i32 } %66, 0
-  store ptr %67, ptr %17, align 8
-  %68 = extractvalue { ptr, i32 } %66, 1
-  store i32 %68, ptr %18, align 4
-  call void @_ZdlPv(ptr noundef %48) #12
-  br label %211
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %17, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %18, align 4
+  call void @_ZdlPv(ptr noundef %49) #12
+  br label %212
 
-69:                                               ; preds = %53
-  %70 = landingpad { ptr, i32 }
+70:                                               ; preds = %54
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %17, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %18, align 4
-  call void @_ZdlPv(ptr noundef %52) #12
-  br label %211
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %17, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %18, align 4
+  call void @_ZdlPv(ptr noundef %53) #12
+  br label %212
 
-73:                                               ; preds = %55
-  %74 = getelementptr inbounds %"class.nanogui::Widget", ptr %39, i32 0, i32 3
-  %75 = invoke noundef ptr @_ZN7nanogui3refINS_5ThemeEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %74)
-          to label %76 unwind label %57
+74:                                               ; preds = %56
+  %75 = getelementptr inbounds %"class.nanogui::Widget", ptr %39, i32 0, i32 3
+  %76 = invoke noundef ptr @_ZN7nanogui3refINS_5ThemeEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %75)
+          to label %77 unwind label %58
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds %"class.nanogui::Theme", ptr %75, i32 0, i32 46
-  %78 = load i32, ptr %77, align 4
-  store i32 %78, ptr %20, align 4
-  br label %91
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds %"class.nanogui::Theme", ptr %76, i32 0, i32 46
+  %79 = load i32, ptr %78, align 4
+  store i32 %79, ptr %20, align 4
+  br label %92
 
-79:                                               ; preds = %55
-  %80 = getelementptr inbounds %"class.nanogui::Widget", ptr %39, i32 0, i32 3
-  %81 = invoke noundef ptr @_ZN7nanogui3refINS_5ThemeEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %80)
-          to label %82 unwind label %57
+80:                                               ; preds = %56
+  %81 = getelementptr inbounds %"class.nanogui::Widget", ptr %39, i32 0, i32 3
+  %82 = invoke noundef ptr @_ZN7nanogui3refINS_5ThemeEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %81)
+          to label %83 unwind label %58
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds %"class.nanogui::Theme", ptr %81, i32 0, i32 47
-  %84 = load i32, ptr %83, align 8
-  store i32 %84, ptr %20, align 4
-  br label %91
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds %"class.nanogui::Theme", ptr %82, i32 0, i32 47
+  %85 = load i32, ptr %84, align 8
+  store i32 %85, ptr %20, align 4
+  br label %92
 
-85:                                               ; preds = %55
-  %86 = getelementptr inbounds %"class.nanogui::Widget", ptr %39, i32 0, i32 3
-  %87 = invoke noundef ptr @_ZN7nanogui3refINS_5ThemeEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %86)
-          to label %88 unwind label %57
+86:                                               ; preds = %56
+  %87 = getelementptr inbounds %"class.nanogui::Widget", ptr %39, i32 0, i32 3
+  %88 = invoke noundef ptr @_ZN7nanogui3refINS_5ThemeEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %87)
+          to label %89 unwind label %58
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds %"class.nanogui::Theme", ptr %87, i32 0, i32 48
-  %90 = load i32, ptr %89, align 4
-  store i32 %90, ptr %20, align 4
-  br label %91
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds %"class.nanogui::Theme", ptr %88, i32 0, i32 48
+  %91 = load i32, ptr %90, align 4
+  store i32 %91, ptr %20, align 4
+  br label %92
 
-91:                                               ; preds = %88, %82, %76, %55
-  %92 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 224) #11
-          to label %93 unwind label %57
+92:                                               ; preds = %89, %83, %77, %56
+  %93 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 224) #11
+          to label %94 unwind label %58
 
-93:                                               ; preds = %91
+94:                                               ; preds = %92
   store i1 true, ptr %27, align 1
-  %94 = load ptr, ptr %19, align 8
-  %95 = load i32, ptr %20, align 4
-  invoke void @_ZN7nanogui4utf8B5cxx11Ej(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %23, i32 noundef %95)
-          to label %96 unwind label %137
+  %95 = load ptr, ptr %19, align 8
+  %96 = load i32, ptr %20, align 4
+  invoke void @_ZN7nanogui4utf8B5cxx11Ej(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %23, i32 noundef %96)
+          to label %97 unwind label %138
 
-96:                                               ; preds = %93
-  %97 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #10
+97:                                               ; preds = %94
+  %98 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #10
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %97, ptr noundef nonnull align 1 dereferenceable(1) %24)
-          to label %98 unwind label %141
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %98, ptr noundef nonnull align 1 dereferenceable(1) %24)
+          to label %99 unwind label %142
 
-98:                                               ; preds = %96
+99:                                               ; preds = %97
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %26)
-          to label %99 unwind label %145
-
-99:                                               ; preds = %98
-  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_i(ptr noundef nonnull align 8 dereferenceable(224) %92, ptr noundef %94, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef -1)
-          to label %100 unwind label %149
+          to label %100 unwind label %146
 
 100:                                              ; preds = %99
+  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_i(ptr noundef nonnull align 8 dereferenceable(224) %93, ptr noundef %95, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef -1)
+          to label %101 unwind label %150
+
+101:                                              ; preds = %100
   store i1 false, ptr %27, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #10
-  store ptr %92, ptr %21, align 8
-  %101 = load ptr, ptr %21, align 8
-  invoke void @_ZN7nanogui6Widget13set_font_sizeEi(ptr noundef nonnull align 8 dereferenceable(140) %101, i32 noundef 50)
-          to label %102 unwind label %57
+  store ptr %93, ptr %21, align 8
+  %102 = load ptr, ptr %21, align 8
+  invoke void @_ZN7nanogui6Widget13set_font_sizeEi(ptr noundef nonnull align 8 dereferenceable(140) %102, i32 noundef 50)
+          to label %103 unwind label %58
 
-102:                                              ; preds = %100
-  %103 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 224) #11
-          to label %104 unwind label %57
+103:                                              ; preds = %101
+  %104 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 224) #11
+          to label %105 unwind label %58
 
-104:                                              ; preds = %102
+105:                                              ; preds = %103
   store i1 true, ptr %30, align 1
-  %105 = load ptr, ptr %19, align 8
-  %106 = load ptr, ptr %13, align 8
+  %106 = load ptr, ptr %19, align 8
+  %107 = load ptr, ptr %13, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %29)
-          to label %107 unwind label %159
+          to label %108 unwind label %160
 
-107:                                              ; preds = %104
-  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_i(ptr noundef nonnull align 8 dereferenceable(224) %103, ptr noundef %105, ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef -1)
-          to label %108 unwind label %163
+108:                                              ; preds = %105
+  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_i(ptr noundef nonnull align 8 dereferenceable(224) %104, ptr noundef %106, ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef -1)
+          to label %109 unwind label %164
 
-108:                                              ; preds = %107
+109:                                              ; preds = %108
   store i1 false, ptr %30, align 1
-  %109 = getelementptr inbounds %"class.nanogui::MessageDialog", ptr %39, i32 0, i32 2
-  store ptr %103, ptr %109, align 8
+  %110 = getelementptr inbounds %"class.nanogui::MessageDialog", ptr %39, i32 0, i32 2
+  store ptr %104, ptr %110, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #10
-  %110 = getelementptr inbounds %"class.nanogui::MessageDialog", ptr %39, i32 0, i32 2
-  %111 = load ptr, ptr %110, align 8
-  invoke void @_ZN7nanogui6Widget15set_fixed_widthEi(ptr noundef nonnull align 8 dereferenceable(140) %111, i32 noundef 200)
-          to label %112 unwind label %57
+  %111 = getelementptr inbounds %"class.nanogui::MessageDialog", ptr %39, i32 0, i32 2
+  %112 = load ptr, ptr %111, align 8
+  invoke void @_ZN7nanogui6Widget15set_fixed_widthEi(ptr noundef nonnull align 8 dereferenceable(140) %112, i32 noundef 200)
+          to label %113 unwind label %58
 
-112:                                              ; preds = %108
-  %113 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 144) #11
-          to label %114 unwind label %57
+113:                                              ; preds = %109
+  %114 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 144) #11
+          to label %115 unwind label %58
 
-114:                                              ; preds = %112
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %113, ptr noundef %39)
-          to label %115 unwind label %171
+115:                                              ; preds = %113
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %114, ptr noundef %39)
+          to label %116 unwind label %172
 
-115:                                              ; preds = %114
-  store ptr %113, ptr %31, align 8
-  %116 = load ptr, ptr %31, align 8
-  %117 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #11
-          to label %118 unwind label %57
+116:                                              ; preds = %115
+  store ptr %114, ptr %31, align 8
+  %117 = load ptr, ptr %31, align 8
+  %118 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #11
+          to label %119 unwind label %58
 
-118:                                              ; preds = %115
-  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %117, i32 noundef 0, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 15)
-          to label %119 unwind label %175
-
-119:                                              ; preds = %118
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(140) %116, ptr noundef %117)
-          to label %120 unwind label %57
+119:                                              ; preds = %116
+  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %118, i32 noundef 0, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 15)
+          to label %120 unwind label %176
 
 120:                                              ; preds = %119
-  %121 = load i8, ptr %16, align 1
-  %122 = trunc i8 %121 to i1
-  br i1 %122, label %123, label %187
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(140) %117, ptr noundef %118)
+          to label %121 unwind label %58
 
-123:                                              ; preds = %120
-  %124 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 312) #11
-          to label %125 unwind label %57
+121:                                              ; preds = %120
+  %122 = load i8, ptr %16, align 1
+  %123 = trunc i8 %122 to i1
+  br i1 %123, label %124, label %188
 
-125:                                              ; preds = %123
-  %126 = load ptr, ptr %31, align 8
-  %127 = load ptr, ptr %15, align 8
-  %128 = getelementptr inbounds %"class.nanogui::Widget", ptr %39, i32 0, i32 3
-  %129 = invoke noundef ptr @_ZN7nanogui3refINS_5ThemeEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %128)
-          to label %130 unwind label %179
+124:                                              ; preds = %121
+  %125 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 312) #11
+          to label %126 unwind label %58
 
-130:                                              ; preds = %125
-  %131 = getelementptr inbounds %"class.nanogui::Theme", ptr %129, i32 0, i32 49
-  %132 = load i32, ptr %131, align 8
-  invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(312) %124, ptr noundef %126, ptr noundef nonnull align 8 dereferenceable(32) %127, i32 noundef %132)
-          to label %133 unwind label %179
+126:                                              ; preds = %124
+  %127 = load ptr, ptr %31, align 8
+  %128 = load ptr, ptr %15, align 8
+  %129 = getelementptr inbounds %"class.nanogui::Widget", ptr %39, i32 0, i32 3
+  %130 = invoke noundef ptr @_ZN7nanogui3refINS_5ThemeEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %129)
+          to label %131 unwind label %180
 
-133:                                              ; preds = %130
-  store ptr %124, ptr %32, align 8
-  %134 = load ptr, ptr %32, align 8
-  %135 = getelementptr inbounds %class.anon, ptr %34, i32 0, i32 0
-  store ptr %39, ptr %135, align 8
+131:                                              ; preds = %126
+  %132 = getelementptr inbounds %"class.nanogui::Theme", ptr %130, i32 0, i32 49
+  %133 = load i32, ptr %132, align 8
+  invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(312) %125, ptr noundef %127, ptr noundef nonnull align 8 dereferenceable(32) %128, i32 noundef %133)
+          to label %134 unwind label %180
+
+134:                                              ; preds = %131
+  store ptr %125, ptr %32, align 8
+  %135 = load ptr, ptr %32, align 8
+  %136 = getelementptr inbounds %class.anon, ptr %34, i32 0, i32 0
+  store ptr %39, ptr %136, align 8
   call void @"_ZNSt8functionIFvvEEC2IZN7nanogui13MessageDialogC1EPNS3_6WidgetENS4_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_SF_SF_bE3$_0vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(8) %34) #10
-  invoke void @_ZN7nanogui6Button12set_callbackERKSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(312) %134, ptr noundef nonnull align 8 dereferenceable(32) %33)
-          to label %136 unwind label %183
+  invoke void @_ZN7nanogui6Button12set_callbackERKSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(312) %135, ptr noundef nonnull align 8 dereferenceable(32) %33)
+          to label %137 unwind label %184
 
-136:                                              ; preds = %133
+137:                                              ; preds = %134
   call void @_ZNSt8functionIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #10
-  br label %187
+  br label %188
 
-137:                                              ; preds = %93
-  %138 = landingpad { ptr, i32 }
+138:                                              ; preds = %94
+  %139 = landingpad { ptr, i32 }
           cleanup
-  %139 = extractvalue { ptr, i32 } %138, 0
-  store ptr %139, ptr %17, align 8
-  %140 = extractvalue { ptr, i32 } %138, 1
-  store i32 %140, ptr %18, align 4
+  %140 = extractvalue { ptr, i32 } %139, 0
+  store ptr %140, ptr %17, align 8
+  %141 = extractvalue { ptr, i32 } %139, 1
+  store i32 %141, ptr %18, align 4
+  br label %156
+
+142:                                              ; preds = %97
+  %143 = landingpad { ptr, i32 }
+          cleanup
+  %144 = extractvalue { ptr, i32 } %143, 0
+  store ptr %144, ptr %17, align 8
+  %145 = extractvalue { ptr, i32 } %143, 1
+  store i32 %145, ptr %18, align 4
   br label %155
 
-141:                                              ; preds = %96
-  %142 = landingpad { ptr, i32 }
+146:                                              ; preds = %99
+  %147 = landingpad { ptr, i32 }
           cleanup
-  %143 = extractvalue { ptr, i32 } %142, 0
-  store ptr %143, ptr %17, align 8
-  %144 = extractvalue { ptr, i32 } %142, 1
-  store i32 %144, ptr %18, align 4
+  %148 = extractvalue { ptr, i32 } %147, 0
+  store ptr %148, ptr %17, align 8
+  %149 = extractvalue { ptr, i32 } %147, 1
+  store i32 %149, ptr %18, align 4
   br label %154
 
-145:                                              ; preds = %98
-  %146 = landingpad { ptr, i32 }
+150:                                              ; preds = %100
+  %151 = landingpad { ptr, i32 }
           cleanup
-  %147 = extractvalue { ptr, i32 } %146, 0
-  store ptr %147, ptr %17, align 8
-  %148 = extractvalue { ptr, i32 } %146, 1
-  store i32 %148, ptr %18, align 4
-  br label %153
-
-149:                                              ; preds = %99
-  %150 = landingpad { ptr, i32 }
-          cleanup
-  %151 = extractvalue { ptr, i32 } %150, 0
-  store ptr %151, ptr %17, align 8
-  %152 = extractvalue { ptr, i32 } %150, 1
-  store i32 %152, ptr %18, align 4
+  %152 = extractvalue { ptr, i32 } %151, 0
+  store ptr %152, ptr %17, align 8
+  %153 = extractvalue { ptr, i32 } %151, 1
+  store i32 %153, ptr %18, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #10
-  br label %153
+  br label %154
 
-153:                                              ; preds = %149, %145
+154:                                              ; preds = %150, %146
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #10
-  br label %154
-
-154:                                              ; preds = %153, %141
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #10
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #10
   br label %155
 
-155:                                              ; preds = %154, %137
-  %156 = load i1, ptr %27, align 1
-  br i1 %156, label %157, label %158
+155:                                              ; preds = %154, %142
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #10
+  br label %156
 
-157:                                              ; preds = %155
-  call void @_ZdlPv(ptr noundef %92) #12
-  br label %158
+156:                                              ; preds = %155, %138
+  %157 = load i1, ptr %27, align 1
+  br i1 %157, label %158, label %159
 
-158:                                              ; preds = %157, %155
-  br label %211
+158:                                              ; preds = %156
+  call void @_ZdlPv(ptr noundef %93) #12
+  br label %159
 
-159:                                              ; preds = %104
-  %160 = landingpad { ptr, i32 }
-          cleanup
-  %161 = extractvalue { ptr, i32 } %160, 0
-  store ptr %161, ptr %17, align 8
-  %162 = extractvalue { ptr, i32 } %160, 1
-  store i32 %162, ptr %18, align 4
-  br label %167
-
-163:                                              ; preds = %107
-  %164 = landingpad { ptr, i32 }
-          cleanup
-  %165 = extractvalue { ptr, i32 } %164, 0
-  store ptr %165, ptr %17, align 8
-  %166 = extractvalue { ptr, i32 } %164, 1
-  store i32 %166, ptr %18, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #10
-  br label %167
-
-167:                                              ; preds = %163, %159
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #10
-  %168 = load i1, ptr %30, align 1
-  br i1 %168, label %169, label %170
-
-169:                                              ; preds = %167
-  call void @_ZdlPv(ptr noundef %103) #12
-  br label %170
-
-170:                                              ; preds = %169, %167
-  br label %211
-
-171:                                              ; preds = %114
-  %172 = landingpad { ptr, i32 }
-          cleanup
-  %173 = extractvalue { ptr, i32 } %172, 0
-  store ptr %173, ptr %17, align 8
-  %174 = extractvalue { ptr, i32 } %172, 1
-  store i32 %174, ptr %18, align 4
-  call void @_ZdlPv(ptr noundef %113) #12
-  br label %211
-
-175:                                              ; preds = %118
-  %176 = landingpad { ptr, i32 }
-          cleanup
-  %177 = extractvalue { ptr, i32 } %176, 0
-  store ptr %177, ptr %17, align 8
-  %178 = extractvalue { ptr, i32 } %176, 1
-  store i32 %178, ptr %18, align 4
-  call void @_ZdlPv(ptr noundef %117) #12
-  br label %211
-
-179:                                              ; preds = %130, %125
-  %180 = landingpad { ptr, i32 }
-          cleanup
-  %181 = extractvalue { ptr, i32 } %180, 0
-  store ptr %181, ptr %17, align 8
-  %182 = extractvalue { ptr, i32 } %180, 1
-  store i32 %182, ptr %18, align 4
-  call void @_ZdlPv(ptr noundef %124) #12
-  br label %211
-
-183:                                              ; preds = %133
-  %184 = landingpad { ptr, i32 }
-          cleanup
-  %185 = extractvalue { ptr, i32 } %184, 0
-  store ptr %185, ptr %17, align 8
-  %186 = extractvalue { ptr, i32 } %184, 1
-  store i32 %186, ptr %18, align 4
-  call void @_ZNSt8functionIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #10
-  br label %211
-
-187:                                              ; preds = %136, %120
-  %188 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 312) #11
-          to label %189 unwind label %57
-
-189:                                              ; preds = %187
-  %190 = load ptr, ptr %31, align 8
-  %191 = load ptr, ptr %14, align 8
-  %192 = getelementptr inbounds %"class.nanogui::Widget", ptr %39, i32 0, i32 3
-  %193 = invoke noundef ptr @_ZN7nanogui3refINS_5ThemeEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %192)
-          to label %194 unwind label %203
-
-194:                                              ; preds = %189
-  %195 = getelementptr inbounds %"class.nanogui::Theme", ptr %193, i32 0, i32 50
-  %196 = load i32, ptr %195, align 4
-  invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(312) %188, ptr noundef %190, ptr noundef nonnull align 8 dereferenceable(32) %191, i32 noundef %196)
-          to label %197 unwind label %203
-
-197:                                              ; preds = %194
-  store ptr %188, ptr %35, align 8
-  %198 = load ptr, ptr %35, align 8
-  %199 = getelementptr inbounds %class.anon.15, ptr %37, i32 0, i32 0
-  store ptr %39, ptr %199, align 8
-  call void @"_ZNSt8functionIFvvEEC2IZN7nanogui13MessageDialogC1EPNS3_6WidgetENS4_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_SF_SF_bE3$_1vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %37) #10
-  invoke void @_ZN7nanogui6Button12set_callbackERKSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(312) %198, ptr noundef nonnull align 8 dereferenceable(32) %36)
-          to label %200 unwind label %207
-
-200:                                              ; preds = %197
-  call void @_ZNSt8functionIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #10
-  invoke void @_ZN7nanogui6Window6centerEv(ptr noundef nonnull align 8 dereferenceable(186) %39)
-          to label %201 unwind label %57
-
-201:                                              ; preds = %200
-  invoke void @_ZN7nanogui6Widget13request_focusEv(ptr noundef nonnull align 8 dereferenceable(140) %39)
-          to label %202 unwind label %57
-
-202:                                              ; preds = %201
-  ret void
-
-203:                                              ; preds = %194, %189
-  %204 = landingpad { ptr, i32 }
-          cleanup
-  %205 = extractvalue { ptr, i32 } %204, 0
-  store ptr %205, ptr %17, align 8
-  %206 = extractvalue { ptr, i32 } %204, 1
-  store i32 %206, ptr %18, align 4
-  call void @_ZdlPv(ptr noundef %188) #12
-  br label %211
-
-207:                                              ; preds = %197
-  %208 = landingpad { ptr, i32 }
-          cleanup
-  %209 = extractvalue { ptr, i32 } %208, 0
-  store ptr %209, ptr %17, align 8
-  %210 = extractvalue { ptr, i32 } %208, 1
-  store i32 %210, ptr %18, align 4
-  call void @_ZNSt8functionIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #10
-  br label %211
-
-211:                                              ; preds = %207, %203, %183, %179, %175, %171, %170, %158, %69, %65, %61, %57
-  call void @_ZNSt8functionIFviEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #10
-  call void @_ZN7nanogui6WindowD2Ev(ptr noundef nonnull align 8 dereferenceable(186) %39) #10
+159:                                              ; preds = %158, %156
   br label %212
 
-212:                                              ; preds = %211
-  %213 = load ptr, ptr %17, align 8
-  %214 = load i32, ptr %18, align 4
-  %215 = insertvalue { ptr, i32 } poison, ptr %213, 0
-  %216 = insertvalue { ptr, i32 } %215, i32 %214, 1
-  resume { ptr, i32 } %216
+160:                                              ; preds = %105
+  %161 = landingpad { ptr, i32 }
+          cleanup
+  %162 = extractvalue { ptr, i32 } %161, 0
+  store ptr %162, ptr %17, align 8
+  %163 = extractvalue { ptr, i32 } %161, 1
+  store i32 %163, ptr %18, align 4
+  br label %168
+
+164:                                              ; preds = %108
+  %165 = landingpad { ptr, i32 }
+          cleanup
+  %166 = extractvalue { ptr, i32 } %165, 0
+  store ptr %166, ptr %17, align 8
+  %167 = extractvalue { ptr, i32 } %165, 1
+  store i32 %167, ptr %18, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #10
+  br label %168
+
+168:                                              ; preds = %164, %160
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #10
+  %169 = load i1, ptr %30, align 1
+  br i1 %169, label %170, label %171
+
+170:                                              ; preds = %168
+  call void @_ZdlPv(ptr noundef %104) #12
+  br label %171
+
+171:                                              ; preds = %170, %168
+  br label %212
+
+172:                                              ; preds = %115
+  %173 = landingpad { ptr, i32 }
+          cleanup
+  %174 = extractvalue { ptr, i32 } %173, 0
+  store ptr %174, ptr %17, align 8
+  %175 = extractvalue { ptr, i32 } %173, 1
+  store i32 %175, ptr %18, align 4
+  call void @_ZdlPv(ptr noundef %114) #12
+  br label %212
+
+176:                                              ; preds = %119
+  %177 = landingpad { ptr, i32 }
+          cleanup
+  %178 = extractvalue { ptr, i32 } %177, 0
+  store ptr %178, ptr %17, align 8
+  %179 = extractvalue { ptr, i32 } %177, 1
+  store i32 %179, ptr %18, align 4
+  call void @_ZdlPv(ptr noundef %118) #12
+  br label %212
+
+180:                                              ; preds = %131, %126
+  %181 = landingpad { ptr, i32 }
+          cleanup
+  %182 = extractvalue { ptr, i32 } %181, 0
+  store ptr %182, ptr %17, align 8
+  %183 = extractvalue { ptr, i32 } %181, 1
+  store i32 %183, ptr %18, align 4
+  call void @_ZdlPv(ptr noundef %125) #12
+  br label %212
+
+184:                                              ; preds = %134
+  %185 = landingpad { ptr, i32 }
+          cleanup
+  %186 = extractvalue { ptr, i32 } %185, 0
+  store ptr %186, ptr %17, align 8
+  %187 = extractvalue { ptr, i32 } %185, 1
+  store i32 %187, ptr %18, align 4
+  call void @_ZNSt8functionIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #10
+  br label %212
+
+188:                                              ; preds = %137, %121
+  %189 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 312) #11
+          to label %190 unwind label %58
+
+190:                                              ; preds = %188
+  %191 = load ptr, ptr %31, align 8
+  %192 = load ptr, ptr %14, align 8
+  %193 = getelementptr inbounds %"class.nanogui::Widget", ptr %39, i32 0, i32 3
+  %194 = invoke noundef ptr @_ZN7nanogui3refINS_5ThemeEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %193)
+          to label %195 unwind label %204
+
+195:                                              ; preds = %190
+  %196 = getelementptr inbounds %"class.nanogui::Theme", ptr %194, i32 0, i32 50
+  %197 = load i32, ptr %196, align 4
+  invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(312) %189, ptr noundef %191, ptr noundef nonnull align 8 dereferenceable(32) %192, i32 noundef %197)
+          to label %198 unwind label %204
+
+198:                                              ; preds = %195
+  store ptr %189, ptr %35, align 8
+  %199 = load ptr, ptr %35, align 8
+  %200 = getelementptr inbounds %class.anon.15, ptr %37, i32 0, i32 0
+  store ptr %39, ptr %200, align 8
+  call void @"_ZNSt8functionIFvvEEC2IZN7nanogui13MessageDialogC1EPNS3_6WidgetENS4_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_SF_SF_bE3$_1vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %37) #10
+  invoke void @_ZN7nanogui6Button12set_callbackERKSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(312) %199, ptr noundef nonnull align 8 dereferenceable(32) %36)
+          to label %201 unwind label %208
+
+201:                                              ; preds = %198
+  call void @_ZNSt8functionIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #10
+  invoke void @_ZN7nanogui6Window6centerEv(ptr noundef nonnull align 8 dereferenceable(186) %39)
+          to label %202 unwind label %58
+
+202:                                              ; preds = %201
+  invoke void @_ZN7nanogui6Widget13request_focusEv(ptr noundef nonnull align 8 dereferenceable(140) %39)
+          to label %203 unwind label %58
+
+203:                                              ; preds = %202
+  ret void
+
+204:                                              ; preds = %195, %190
+  %205 = landingpad { ptr, i32 }
+          cleanup
+  %206 = extractvalue { ptr, i32 } %205, 0
+  store ptr %206, ptr %17, align 8
+  %207 = extractvalue { ptr, i32 } %205, 1
+  store i32 %207, ptr %18, align 4
+  call void @_ZdlPv(ptr noundef %189) #12
+  br label %212
+
+208:                                              ; preds = %198
+  %209 = landingpad { ptr, i32 }
+          cleanup
+  %210 = extractvalue { ptr, i32 } %209, 0
+  store ptr %210, ptr %17, align 8
+  %211 = extractvalue { ptr, i32 } %209, 1
+  store i32 %211, ptr %18, align 4
+  call void @_ZNSt8functionIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #10
+  br label %212
+
+212:                                              ; preds = %208, %204, %184, %180, %176, %172, %171, %159, %70, %66, %62, %58
+  call void @_ZNSt8functionIFviEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #10
+  call void @_ZN7nanogui6WindowD2Ev(ptr noundef nonnull align 8 dereferenceable(186) %39) #10
+  br label %213
+
+213:                                              ; preds = %212
+  %214 = load ptr, ptr %17, align 8
+  %215 = load i32, ptr %18, align 4
+  %216 = insertvalue { ptr, i32 } poison, ptr %214, 0
+  %217 = insertvalue { ptr, i32 } %216, i32 %215, 1
+  resume { ptr, i32 } %217
 }
 
 declare void @_ZN7nanogui6WindowC2EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(186), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -899,9 +900,10 @@ define linkonce_odr hidden void @_ZN7nanogui6WindowD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui6WindowE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::Window", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
+  %4 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7nanogui6WindowE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::Window", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #10
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %3) #10
   ret void
 }
@@ -911,9 +913,10 @@ define linkonce_odr hidden void @_ZN7nanogui13MessageDialogD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui13MessageDialogE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::MessageDialog", ptr %3, i32 0, i32 1
-  call void @_ZNSt8functionIFviEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
+  %4 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7nanogui13MessageDialogE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::MessageDialog", ptr %3, i32 0, i32 1
+  call void @_ZNSt8functionIFviEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #10
   call void @_ZN7nanogui6WindowD2Ev(ptr noundef nonnull align 8 dereferenceable(186) %3) #10
   ret void
 }

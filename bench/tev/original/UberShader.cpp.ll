@@ -3371,7 +3371,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v912format_errorD0Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3fmt2v912format_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  call void @_ZN3fmt2v912format_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   call void @_ZdlPv(ptr noundef %3) #19
   ret void
 }
@@ -3381,7 +3381,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v912format_errorD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   ret void
 }
 
@@ -3472,432 +3472,433 @@ define dso_local void @_ZN3tev10UberShaderC2EPN7nanogui10RenderPassE(ptr noundef
   store ptr %0, ptr %17, align 8
   store ptr %1, ptr %18, align 8
   %41 = load ptr, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3tev10UberShaderE, i32 0, i32 0, i32 2), ptr %41, align 8
-  %42 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 1
-  call void @_ZN7nanogui3refINS_6ShaderEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %42)
-  %43 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 2
-  invoke void @_ZN7nanogui3refINS_7TextureEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %43)
-          to label %44 unwind label %57
+  %42 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3tev10UberShaderE, i32 0, i32 0, i32 2
+  store ptr %42, ptr %41, align 8
+  %43 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 1
+  call void @_ZN7nanogui3refINS_6ShaderEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %43)
+  %44 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 2
+  invoke void @_ZN7nanogui3refINS_7TextureEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44)
+          to label %45 unwind label %58
 
-44:                                               ; preds = %2
-  %45 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 3
-  invoke void @_ZN7nanogui5ColorC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %45, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-          to label %46 unwind label %61
+45:                                               ; preds = %2
+  %46 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 3
+  invoke void @_ZN7nanogui5ColorC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %46, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+          to label %47 unwind label %62
 
-46:                                               ; preds = %44
+47:                                               ; preds = %45
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef @.str)
-          to label %47 unwind label %65
-
-47:                                               ; preds = %46
-  invoke void @_ZNSt3__1plB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12basic_stringIT_T0_T1_EERKS9_PKS6_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %22, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef @.str.3)
-          to label %48 unwind label %69
+          to label %48 unwind label %66
 
 48:                                               ; preds = %47
-  invoke void @_ZNSt3__1plB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12basic_stringIT_T0_T1_EERKS9_PKS6_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef @.str.4)
-          to label %49 unwind label %73
+  invoke void @_ZNSt3__1plB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12basic_stringIT_T0_T1_EERKS9_PKS6_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %22, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef @.str.3)
+          to label %49 unwind label %70
 
 49:                                               ; preds = %48
-  %50 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #20
-          to label %51 unwind label %77
+  invoke void @_ZNSt3__1plB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12basic_stringIT_T0_T1_EERKS9_PKS6_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef @.str.4)
+          to label %50 unwind label %74
 
-51:                                               ; preds = %49
+50:                                               ; preds = %49
+  %51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #20
+          to label %52 unwind label %78
+
+52:                                               ; preds = %50
   store i1 true, ptr %25, align 1
-  %52 = load ptr, ptr %18, align 8
+  %53 = load ptr, ptr %18, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef @.str.5)
-          to label %53 unwind label %81
+          to label %54 unwind label %82
 
-53:                                               ; preds = %51
-  invoke void @_ZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_SB_NS0_9BlendModeE(ptr noundef nonnull align 8 dereferenceable(101) %50, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef 0)
-          to label %54 unwind label %85
+54:                                               ; preds = %52
+  invoke void @_ZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_SB_NS0_9BlendModeE(ptr noundef nonnull align 8 dereferenceable(101) %51, ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef 0)
+          to label %55 unwind label %86
 
-54:                                               ; preds = %53
+55:                                               ; preds = %54
   store i1 false, ptr %25, align 1
-  %55 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 1
-  %56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7nanogui3refINS_6ShaderEEaSEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef %50) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #14
-  br label %145
+  %56 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 1
+  %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7nanogui3refINS_6ShaderEEaSEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef %51) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
+  br label %146
 
-57:                                               ; preds = %2
-  %58 = landingpad { ptr, i32 }
+58:                                               ; preds = %2
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %19, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %20, align 4
-  br label %221
-
-61:                                               ; preds = %189, %184, %176, %174, %162, %159, %148, %145, %143, %44
-  %62 = landingpad { ptr, i32 }
-          cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %19, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %20, align 4
-  br label %220
-
-65:                                               ; preds = %46
-  %66 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt13runtime_error
-  %67 = extractvalue { ptr, i32 } %66, 0
-  store ptr %67, ptr %19, align 8
-  %68 = extractvalue { ptr, i32 } %66, 1
-  store i32 %68, ptr %20, align 4
-  br label %96
-
-69:                                               ; preds = %47
-  %70 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt13runtime_error
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %19, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %20, align 4
-  br label %95
-
-73:                                               ; preds = %48
-  %74 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt13runtime_error
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %19, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %20, align 4
-  br label %94
-
-77:                                               ; preds = %49
-  %78 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt13runtime_error
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %19, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %20, align 4
-  br label %93
-
-81:                                               ; preds = %51
-  %82 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt13runtime_error
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %19, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %20, align 4
-  br label %89
-
-85:                                               ; preds = %53
-  %86 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt13runtime_error
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %19, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %20, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
-  br label %89
-
-89:                                               ; preds = %85, %81
-  %90 = load i1, ptr %25, align 1
-  br i1 %90, label %91, label %92
-
-91:                                               ; preds = %89
-  call void @_ZdlPv(ptr noundef %50) #19
-  br label %92
-
-92:                                               ; preds = %91, %89
-  br label %93
-
-93:                                               ; preds = %92, %77
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
-  br label %94
-
-94:                                               ; preds = %93, %73
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
-  br label %95
-
-95:                                               ; preds = %94, %69
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #14
-  br label %96
-
-96:                                               ; preds = %95, %65
-  %97 = load i32, ptr %20, align 4
-  %98 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt13runtime_error) #14
-  %99 = icmp eq i32 %97, %98
-  br i1 %99, label %100, label %220
-
-100:                                              ; preds = %96
-  %101 = load ptr, ptr %19, align 8
-  %102 = call ptr @__cxa_begin_catch(ptr %101) #14
-  store ptr %102, ptr %26, align 8
-  invoke void @_ZN4tlog5errorEv(ptr dead_on_unwind writable sret(%"class.tlog::Stream") align 8 %27)
-          to label %103 unwind label %193
-
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds %"class.fmt::v9::basic_format_string", ptr %29, i32 0, i32 0
-  store %"class.fmt::v9::basic_string_view" { ptr @.str.6, i64 28 }, ptr %104, align 8
-  %105 = load ptr, ptr %26, align 8
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds ptr, ptr %106, i64 2
-  %108 = load ptr, ptr %107, align 8
-  %109 = call noundef ptr %108(ptr noundef nonnull align 8 dereferenceable(16) %105) #14
-  store ptr %109, ptr %30, align 8
-  %110 = getelementptr inbounds { ptr, i64 }, ptr %29, i32 0, i32 0
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds { ptr, i64 }, ptr %29, i32 0, i32 1
-  %113 = load i64, ptr %112, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  store ptr %28, ptr %11, align 8, !noalias !5
-  store ptr %111, ptr %12, align 8, !noalias !5
-  %114 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 1
-  store i64 %113, ptr %114, align 8, !noalias !5
-  store ptr %30, ptr %13, align 8, !noalias !5
-  store ptr %12, ptr %10, align 8
-  %115 = load ptr, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %115, i64 16, i1 false)
-  %116 = load { ptr, i64 }, ptr %9, align 8
-  %117 = extractvalue { ptr, i64 } %116, 0
-  store ptr %117, ptr %14, align 8, !noalias !5
-  %118 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 1
-  %119 = extractvalue { ptr, i64 } %116, 1
-  store i64 %119, ptr %118, align 8, !noalias !5
-  %120 = load ptr, ptr %13, align 8, !noalias !5
-  %121 = invoke { i64, i64 } @_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRPKcEEENS0_16format_arg_storeIT_JDpNSt3__19remove_cvINSA_16remove_referenceIT0_E4typeEE4typeEEEEDpOSD_(ptr noundef nonnull align 8 dereferenceable(8) %120)
-          to label %122 unwind label %197
-
-122:                                              ; preds = %103
-  %123 = extractvalue { i64, i64 } %121, 0
-  store i64 %123, ptr %16, align 16, !noalias !5
-  %124 = getelementptr inbounds { i64, i64 }, ptr %16, i32 0, i32 1
-  %125 = extractvalue { i64, i64 } %121, 1
-  store i64 %125, ptr %124, align 8, !noalias !5
-  store ptr %15, ptr %7, align 8
-  store ptr %16, ptr %8, align 8
-  %126 = load ptr, ptr %7, align 8
-  %127 = load ptr, ptr %8, align 8
-  store ptr %127, ptr %6, align 8
-  %128 = load ptr, ptr %6, align 8
-  store ptr %126, ptr %3, align 8
-  store i64 12, ptr %4, align 8
-  store ptr %128, ptr %5, align 8
-  %129 = load ptr, ptr %3, align 8
-  %130 = load i64, ptr %4, align 8
-  store i64 %130, ptr %129, align 8
-  %131 = getelementptr inbounds %"class.fmt::v9::basic_format_args", ptr %129, i32 0, i32 1
-  %132 = load ptr, ptr %5, align 8
-  store ptr %132, ptr %131, align 8
-  br label %133
-
-133:                                              ; preds = %122
-  %134 = load ptr, ptr %14, align 8, !noalias !5
-  %135 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 1
-  %136 = load i64, ptr %135, align 8, !noalias !5
-  %137 = load i64, ptr %15, align 8, !noalias !5
-  %138 = getelementptr inbounds { i64, ptr }, ptr %15, i32 0, i32 1
-  %139 = load ptr, ptr %138, align 8, !noalias !5
-  invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %28, ptr %134, i64 %136, i64 %137, ptr %139)
-          to label %140 unwind label %197
-
-140:                                              ; preds = %133
-  br label %141
-
-141:                                              ; preds = %140
-  %142 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4tlog6StreamlsINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %28)
-          to label %143 unwind label %201
-
-143:                                              ; preds = %141
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #14
-  call void @_ZN4tlog6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #14
-  invoke void @__cxa_end_catch()
-          to label %144 unwind label %61
-
-144:                                              ; preds = %143
-  br label %145
-
-145:                                              ; preds = %144, %54
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %31, ptr align 16 @__const.UberShader.indices, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %32, ptr align 16 @__const.UberShader.positions, i64 32, i1 false)
-  %146 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 1
-  %147 = invoke noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %146)
-          to label %148 unwind label %61
-
-148:                                              ; preds = %145
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef @.str.7)
-          to label %149 unwind label %61
-
-149:                                              ; preds = %148
-  %150 = getelementptr inbounds [1 x i64], ptr %35, i64 0, i64 0
-  store i64 6, ptr %150, align 8
-  %151 = getelementptr inbounds %"class.std::initializer_list", ptr %34, i32 0, i32 0
-  %152 = getelementptr inbounds [1 x i64], ptr %35, i64 0, i64 0
-  store ptr %152, ptr %151, align 8
-  %153 = getelementptr inbounds %"class.std::initializer_list", ptr %34, i32 0, i32 1
-  store i64 1, ptr %153, align 8
-  %154 = getelementptr inbounds [6 x i32], ptr %31, i64 0, i64 0
-  %155 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 0
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 1
-  %158 = load i64, ptr %157, align 8
-  invoke void @_ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_12VariableTypeESt16initializer_listImEPKv(ptr noundef nonnull align 8 dereferenceable(101) %147, ptr noundef nonnull align 8 dereferenceable(24) %33, i32 noundef 6, ptr %156, i64 %158, ptr noundef %154)
-          to label %159 unwind label %208
-
-159:                                              ; preds = %149
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #14
-  %160 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 1
-  %161 = invoke noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %160)
-          to label %162 unwind label %61
-
-162:                                              ; preds = %159
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef @.str.8)
-          to label %163 unwind label %61
-
-163:                                              ; preds = %162
-  %164 = getelementptr inbounds [2 x i64], ptr %38, i64 0, i64 0
-  store i64 4, ptr %164, align 8
-  %165 = getelementptr inbounds i64, ptr %164, i64 1
-  store i64 2, ptr %165, align 8
-  %166 = getelementptr inbounds %"class.std::initializer_list", ptr %37, i32 0, i32 0
-  %167 = getelementptr inbounds [2 x i64], ptr %38, i64 0, i64 0
-  store ptr %167, ptr %166, align 8
-  %168 = getelementptr inbounds %"class.std::initializer_list", ptr %37, i32 0, i32 1
-  store i64 2, ptr %168, align 8
-  %169 = getelementptr inbounds [8 x float], ptr %32, i64 0, i64 0
-  %170 = getelementptr inbounds { ptr, i64 }, ptr %37, i32 0, i32 0
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds { ptr, i64 }, ptr %37, i32 0, i32 1
-  %173 = load i64, ptr %172, align 8
-  invoke void @_ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_12VariableTypeESt16initializer_listImEPKv(ptr noundef nonnull align 8 dereferenceable(101) %161, ptr noundef nonnull align 8 dereferenceable(24) %36, i32 noundef 10, ptr %171, i64 %173, ptr noundef %169)
-          to label %174 unwind label %212
-
-174:                                              ; preds = %163
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
-  %175 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tev8colormap5turboEv()
-          to label %176 unwind label %61
-
-176:                                              ; preds = %174
-  store ptr %175, ptr %39, align 8
-  %177 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
-          to label %178 unwind label %61
-
-178:                                              ; preds = %176
-  %179 = load ptr, ptr %39, align 8
-  %180 = call noundef i64 @_ZNKSt3__16vectorIfNS_9allocatorIfEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %179) #14
-  %181 = trunc i64 %180 to i32
-  %182 = sdiv i32 %181, 4
-  invoke void @_ZN7nanogui5ArrayIiLm2EEC2ILm2ETnNSt3__19enable_ifIXeqT_Li2EEiE4typeELi0EEEii(ptr noundef nonnull align 4 dereferenceable(8) %40, i32 noundef %182, i32 noundef 1)
-          to label %183 unwind label %216
-
-183:                                              ; preds = %178
-  invoke void @_ZN7nanogui7TextureC1ENS0_11PixelFormatENS0_15ComponentFormatERKNS_5ArrayIiLm2EEENS0_17InterpolationModeES7_NS0_8WrapModeEhhb(ptr noundef nonnull align 8 dereferenceable(40) %177, i8 noundef zeroext 3, i8 noundef zeroext 10, ptr noundef nonnull align 4 dereferenceable(8) %40, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 0, i8 noundef zeroext 1, i8 noundef zeroext 1, i1 noundef zeroext false)
-          to label %184 unwind label %216
-
-184:                                              ; preds = %183
-  %185 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 2
-  %186 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7nanogui3refINS_7TextureEEaSEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %185, ptr noundef %177) #14
-  %187 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 2
-  %188 = invoke noundef ptr @_ZN7nanogui3refINS_7TextureEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %187)
-          to label %189 unwind label %61
-
-189:                                              ; preds = %184
-  %190 = load ptr, ptr %39, align 8
-  %191 = call noundef ptr @_ZNKSt3__16vectorIfNS_9allocatorIfEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %190) #14
-  invoke void @_ZN7nanogui7Texture6uploadEPKh(ptr noundef nonnull align 8 dereferenceable(40) %188, ptr noundef %191)
-          to label %192 unwind label %61
-
-192:                                              ; preds = %189
-  ret void
-
-193:                                              ; preds = %100
-  %194 = landingpad { ptr, i32 }
-          cleanup
-  %195 = extractvalue { ptr, i32 } %194, 0
-  store ptr %195, ptr %19, align 8
-  %196 = extractvalue { ptr, i32 } %194, 1
-  store i32 %196, ptr %20, align 4
-  br label %206
-
-197:                                              ; preds = %133, %103
-  %198 = landingpad { ptr, i32 }
-          cleanup
-  %199 = extractvalue { ptr, i32 } %198, 0
-  store ptr %199, ptr %19, align 8
-  %200 = extractvalue { ptr, i32 } %198, 1
-  store i32 %200, ptr %20, align 4
-  br label %205
-
-201:                                              ; preds = %141
-  %202 = landingpad { ptr, i32 }
-          cleanup
-  %203 = extractvalue { ptr, i32 } %202, 0
-  store ptr %203, ptr %19, align 8
-  %204 = extractvalue { ptr, i32 } %202, 1
-  store i32 %204, ptr %20, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #14
-  br label %205
-
-205:                                              ; preds = %201, %197
-  call void @_ZN4tlog6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #14
-  br label %206
-
-206:                                              ; preds = %205, %193
-  invoke void @__cxa_end_catch()
-          to label %207 unwind label %227
-
-207:                                              ; preds = %206
-  br label %220
-
-208:                                              ; preds = %149
-  %209 = landingpad { ptr, i32 }
-          cleanup
-  %210 = extractvalue { ptr, i32 } %209, 0
-  store ptr %210, ptr %19, align 8
-  %211 = extractvalue { ptr, i32 } %209, 1
-  store i32 %211, ptr %20, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #14
-  br label %220
-
-212:                                              ; preds = %163
-  %213 = landingpad { ptr, i32 }
-          cleanup
-  %214 = extractvalue { ptr, i32 } %213, 0
-  store ptr %214, ptr %19, align 8
-  %215 = extractvalue { ptr, i32 } %213, 1
-  store i32 %215, ptr %20, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
-  br label %220
-
-216:                                              ; preds = %183, %178
-  %217 = landingpad { ptr, i32 }
-          cleanup
-  %218 = extractvalue { ptr, i32 } %217, 0
-  store ptr %218, ptr %19, align 8
-  %219 = extractvalue { ptr, i32 } %217, 1
-  store i32 %219, ptr %20, align 4
-  call void @_ZdlPv(ptr noundef %177) #19
-  br label %220
-
-220:                                              ; preds = %216, %212, %208, %207, %96, %61
-  call void @_ZN7nanogui3refINS_7TextureEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %43) #14
-  br label %221
-
-221:                                              ; preds = %220, %57
-  call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %42) #14
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %19, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %20, align 4
   br label %222
 
-222:                                              ; preds = %221
-  %223 = load ptr, ptr %19, align 8
-  %224 = load i32, ptr %20, align 4
-  %225 = insertvalue { ptr, i32 } poison, ptr %223, 0
-  %226 = insertvalue { ptr, i32 } %225, i32 %224, 1
-  resume { ptr, i32 } %226
+62:                                               ; preds = %190, %185, %177, %175, %163, %160, %149, %146, %144, %45
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %19, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %20, align 4
+  br label %221
 
-227:                                              ; preds = %206
-  %228 = landingpad { ptr, i32 }
+66:                                               ; preds = %47
+  %67 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt13runtime_error
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %19, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %20, align 4
+  br label %97
+
+70:                                               ; preds = %48
+  %71 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt13runtime_error
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %19, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %20, align 4
+  br label %96
+
+74:                                               ; preds = %49
+  %75 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt13runtime_error
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %19, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %20, align 4
+  br label %95
+
+78:                                               ; preds = %50
+  %79 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt13runtime_error
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %19, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %20, align 4
+  br label %94
+
+82:                                               ; preds = %52
+  %83 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt13runtime_error
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %19, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %20, align 4
+  br label %90
+
+86:                                               ; preds = %54
+  %87 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt13runtime_error
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %19, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %20, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
+  br label %90
+
+90:                                               ; preds = %86, %82
+  %91 = load i1, ptr %25, align 1
+  br i1 %91, label %92, label %93
+
+92:                                               ; preds = %90
+  call void @_ZdlPv(ptr noundef %51) #19
+  br label %93
+
+93:                                               ; preds = %92, %90
+  br label %94
+
+94:                                               ; preds = %93, %78
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
+  br label %95
+
+95:                                               ; preds = %94, %74
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
+  br label %96
+
+96:                                               ; preds = %95, %70
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
+  br label %97
+
+97:                                               ; preds = %96, %66
+  %98 = load i32, ptr %20, align 4
+  %99 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt13runtime_error) #13
+  %100 = icmp eq i32 %98, %99
+  br i1 %100, label %101, label %221
+
+101:                                              ; preds = %97
+  %102 = load ptr, ptr %19, align 8
+  %103 = call ptr @__cxa_begin_catch(ptr %102) #13
+  store ptr %103, ptr %26, align 8
+  invoke void @_ZN4tlog5errorEv(ptr dead_on_unwind writable sret(%"class.tlog::Stream") align 8 %27)
+          to label %104 unwind label %194
+
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds %"class.fmt::v9::basic_format_string", ptr %29, i32 0, i32 0
+  store %"class.fmt::v9::basic_string_view" { ptr @.str.6, i64 28 }, ptr %105, align 8
+  %106 = load ptr, ptr %26, align 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds ptr, ptr %107, i64 2
+  %109 = load ptr, ptr %108, align 8
+  %110 = call noundef ptr %109(ptr noundef nonnull align 8 dereferenceable(16) %106) #13
+  store ptr %110, ptr %30, align 8
+  %111 = getelementptr inbounds { ptr, i64 }, ptr %29, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds { ptr, i64 }, ptr %29, i32 0, i32 1
+  %114 = load i64, ptr %113, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !5)
+  store ptr %28, ptr %11, align 8, !noalias !5
+  store ptr %112, ptr %12, align 8, !noalias !5
+  %115 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 1
+  store i64 %114, ptr %115, align 8, !noalias !5
+  store ptr %30, ptr %13, align 8, !noalias !5
+  store ptr %12, ptr %10, align 8
+  %116 = load ptr, ptr %10, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %116, i64 16, i1 false)
+  %117 = load { ptr, i64 }, ptr %9, align 8
+  %118 = extractvalue { ptr, i64 } %117, 0
+  store ptr %118, ptr %14, align 8, !noalias !5
+  %119 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 1
+  %120 = extractvalue { ptr, i64 } %117, 1
+  store i64 %120, ptr %119, align 8, !noalias !5
+  %121 = load ptr, ptr %13, align 8, !noalias !5
+  %122 = invoke { i64, i64 } @_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRPKcEEENS0_16format_arg_storeIT_JDpNSt3__19remove_cvINSA_16remove_referenceIT0_E4typeEE4typeEEEEDpOSD_(ptr noundef nonnull align 8 dereferenceable(8) %121)
+          to label %123 unwind label %198
+
+123:                                              ; preds = %104
+  %124 = extractvalue { i64, i64 } %122, 0
+  store i64 %124, ptr %16, align 16, !noalias !5
+  %125 = getelementptr inbounds { i64, i64 }, ptr %16, i32 0, i32 1
+  %126 = extractvalue { i64, i64 } %122, 1
+  store i64 %126, ptr %125, align 8, !noalias !5
+  store ptr %15, ptr %7, align 8
+  store ptr %16, ptr %8, align 8
+  %127 = load ptr, ptr %7, align 8
+  %128 = load ptr, ptr %8, align 8
+  store ptr %128, ptr %6, align 8
+  %129 = load ptr, ptr %6, align 8
+  store ptr %127, ptr %3, align 8
+  store i64 12, ptr %4, align 8
+  store ptr %129, ptr %5, align 8
+  %130 = load ptr, ptr %3, align 8
+  %131 = load i64, ptr %4, align 8
+  store i64 %131, ptr %130, align 8
+  %132 = getelementptr inbounds %"class.fmt::v9::basic_format_args", ptr %130, i32 0, i32 1
+  %133 = load ptr, ptr %5, align 8
+  store ptr %133, ptr %132, align 8
+  br label %134
+
+134:                                              ; preds = %123
+  %135 = load ptr, ptr %14, align 8, !noalias !5
+  %136 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 1
+  %137 = load i64, ptr %136, align 8, !noalias !5
+  %138 = load i64, ptr %15, align 8, !noalias !5
+  %139 = getelementptr inbounds { i64, ptr }, ptr %15, i32 0, i32 1
+  %140 = load ptr, ptr %139, align 8, !noalias !5
+  invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %28, ptr %135, i64 %137, i64 %138, ptr %140)
+          to label %141 unwind label %198
+
+141:                                              ; preds = %134
+  br label %142
+
+142:                                              ; preds = %141
+  %143 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4tlog6StreamlsINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %28)
+          to label %144 unwind label %202
+
+144:                                              ; preds = %142
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #13
+  call void @_ZN4tlog6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
+  invoke void @__cxa_end_catch()
+          to label %145 unwind label %62
+
+145:                                              ; preds = %144
+  br label %146
+
+146:                                              ; preds = %145, %55
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %31, ptr align 16 @__const.UberShader.indices, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %32, ptr align 16 @__const.UberShader.positions, i64 32, i1 false)
+  %147 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 1
+  %148 = invoke noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %147)
+          to label %149 unwind label %62
+
+149:                                              ; preds = %146
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef @.str.7)
+          to label %150 unwind label %62
+
+150:                                              ; preds = %149
+  %151 = getelementptr inbounds [1 x i64], ptr %35, i64 0, i64 0
+  store i64 6, ptr %151, align 8
+  %152 = getelementptr inbounds %"class.std::initializer_list", ptr %34, i32 0, i32 0
+  %153 = getelementptr inbounds [1 x i64], ptr %35, i64 0, i64 0
+  store ptr %153, ptr %152, align 8
+  %154 = getelementptr inbounds %"class.std::initializer_list", ptr %34, i32 0, i32 1
+  store i64 1, ptr %154, align 8
+  %155 = getelementptr inbounds [6 x i32], ptr %31, i64 0, i64 0
+  %156 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 0
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 1
+  %159 = load i64, ptr %158, align 8
+  invoke void @_ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_12VariableTypeESt16initializer_listImEPKv(ptr noundef nonnull align 8 dereferenceable(101) %148, ptr noundef nonnull align 8 dereferenceable(24) %33, i32 noundef 6, ptr %157, i64 %159, ptr noundef %155)
+          to label %160 unwind label %209
+
+160:                                              ; preds = %150
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #13
+  %161 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 1
+  %162 = invoke noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %161)
+          to label %163 unwind label %62
+
+163:                                              ; preds = %160
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef @.str.8)
+          to label %164 unwind label %62
+
+164:                                              ; preds = %163
+  %165 = getelementptr inbounds [2 x i64], ptr %38, i64 0, i64 0
+  store i64 4, ptr %165, align 8
+  %166 = getelementptr inbounds i64, ptr %165, i64 1
+  store i64 2, ptr %166, align 8
+  %167 = getelementptr inbounds %"class.std::initializer_list", ptr %37, i32 0, i32 0
+  %168 = getelementptr inbounds [2 x i64], ptr %38, i64 0, i64 0
+  store ptr %168, ptr %167, align 8
+  %169 = getelementptr inbounds %"class.std::initializer_list", ptr %37, i32 0, i32 1
+  store i64 2, ptr %169, align 8
+  %170 = getelementptr inbounds [8 x float], ptr %32, i64 0, i64 0
+  %171 = getelementptr inbounds { ptr, i64 }, ptr %37, i32 0, i32 0
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds { ptr, i64 }, ptr %37, i32 0, i32 1
+  %174 = load i64, ptr %173, align 8
+  invoke void @_ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_12VariableTypeESt16initializer_listImEPKv(ptr noundef nonnull align 8 dereferenceable(101) %162, ptr noundef nonnull align 8 dereferenceable(24) %36, i32 noundef 10, ptr %172, i64 %174, ptr noundef %170)
+          to label %175 unwind label %213
+
+175:                                              ; preds = %164
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
+  %176 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tev8colormap5turboEv()
+          to label %177 unwind label %62
+
+177:                                              ; preds = %175
+  store ptr %176, ptr %39, align 8
+  %178 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
+          to label %179 unwind label %62
+
+179:                                              ; preds = %177
+  %180 = load ptr, ptr %39, align 8
+  %181 = call noundef i64 @_ZNKSt3__16vectorIfNS_9allocatorIfEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %180) #13
+  %182 = trunc i64 %181 to i32
+  %183 = sdiv i32 %182, 4
+  invoke void @_ZN7nanogui5ArrayIiLm2EEC2ILm2ETnNSt3__19enable_ifIXeqT_Li2EEiE4typeELi0EEEii(ptr noundef nonnull align 4 dereferenceable(8) %40, i32 noundef %183, i32 noundef 1)
+          to label %184 unwind label %217
+
+184:                                              ; preds = %179
+  invoke void @_ZN7nanogui7TextureC1ENS0_11PixelFormatENS0_15ComponentFormatERKNS_5ArrayIiLm2EEENS0_17InterpolationModeES7_NS0_8WrapModeEhhb(ptr noundef nonnull align 8 dereferenceable(40) %178, i8 noundef zeroext 3, i8 noundef zeroext 10, ptr noundef nonnull align 4 dereferenceable(8) %40, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 0, i8 noundef zeroext 1, i8 noundef zeroext 1, i1 noundef zeroext false)
+          to label %185 unwind label %217
+
+185:                                              ; preds = %184
+  %186 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 2
+  %187 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7nanogui3refINS_7TextureEEaSEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %186, ptr noundef %178) #13
+  %188 = getelementptr inbounds %"class.tev::UberShader", ptr %41, i32 0, i32 2
+  %189 = invoke noundef ptr @_ZN7nanogui3refINS_7TextureEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %188)
+          to label %190 unwind label %62
+
+190:                                              ; preds = %185
+  %191 = load ptr, ptr %39, align 8
+  %192 = call noundef ptr @_ZNKSt3__16vectorIfNS_9allocatorIfEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %191) #13
+  invoke void @_ZN7nanogui7Texture6uploadEPKh(ptr noundef nonnull align 8 dereferenceable(40) %189, ptr noundef %192)
+          to label %193 unwind label %62
+
+193:                                              ; preds = %190
+  ret void
+
+194:                                              ; preds = %101
+  %195 = landingpad { ptr, i32 }
+          cleanup
+  %196 = extractvalue { ptr, i32 } %195, 0
+  store ptr %196, ptr %19, align 8
+  %197 = extractvalue { ptr, i32 } %195, 1
+  store i32 %197, ptr %20, align 4
+  br label %207
+
+198:                                              ; preds = %134, %104
+  %199 = landingpad { ptr, i32 }
+          cleanup
+  %200 = extractvalue { ptr, i32 } %199, 0
+  store ptr %200, ptr %19, align 8
+  %201 = extractvalue { ptr, i32 } %199, 1
+  store i32 %201, ptr %20, align 4
+  br label %206
+
+202:                                              ; preds = %142
+  %203 = landingpad { ptr, i32 }
+          cleanup
+  %204 = extractvalue { ptr, i32 } %203, 0
+  store ptr %204, ptr %19, align 8
+  %205 = extractvalue { ptr, i32 } %203, 1
+  store i32 %205, ptr %20, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #13
+  br label %206
+
+206:                                              ; preds = %202, %198
+  call void @_ZN4tlog6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
+  br label %207
+
+207:                                              ; preds = %206, %194
+  invoke void @__cxa_end_catch()
+          to label %208 unwind label %228
+
+208:                                              ; preds = %207
+  br label %221
+
+209:                                              ; preds = %150
+  %210 = landingpad { ptr, i32 }
+          cleanup
+  %211 = extractvalue { ptr, i32 } %210, 0
+  store ptr %211, ptr %19, align 8
+  %212 = extractvalue { ptr, i32 } %210, 1
+  store i32 %212, ptr %20, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #13
+  br label %221
+
+213:                                              ; preds = %164
+  %214 = landingpad { ptr, i32 }
+          cleanup
+  %215 = extractvalue { ptr, i32 } %214, 0
+  store ptr %215, ptr %19, align 8
+  %216 = extractvalue { ptr, i32 } %214, 1
+  store i32 %216, ptr %20, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
+  br label %221
+
+217:                                              ; preds = %184, %179
+  %218 = landingpad { ptr, i32 }
+          cleanup
+  %219 = extractvalue { ptr, i32 } %218, 0
+  store ptr %219, ptr %19, align 8
+  %220 = extractvalue { ptr, i32 } %218, 1
+  store i32 %220, ptr %20, align 4
+  call void @_ZdlPv(ptr noundef %178) #19
+  br label %221
+
+221:                                              ; preds = %217, %213, %209, %208, %97, %62
+  call void @_ZN7nanogui3refINS_7TextureEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #13
+  br label %222
+
+222:                                              ; preds = %221, %58
+  call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %43) #13
+  br label %223
+
+223:                                              ; preds = %222
+  %224 = load ptr, ptr %19, align 8
+  %225 = load i32, ptr %20, align 4
+  %226 = insertvalue { ptr, i32 } poison, ptr %224, 0
+  %227 = insertvalue { ptr, i32 } %226, i32 %225, 1
+  resume { ptr, i32 } %227
+
+228:                                              ; preds = %207
+  %229 = landingpad { ptr, i32 }
           catch ptr null
-  %229 = extractvalue { ptr, i32 } %228, 0
-  call void @__clang_call_terminate(ptr %229) #21
+  %230 = extractvalue { ptr, i32 } %229, 0
+  call void @__clang_call_terminate(ptr %230) #21
   unreachable
 }
 
@@ -3974,7 +3975,7 @@ define linkonce_odr dso_local void @_ZNSt3__112basic_stringIcNS_11char_traitsIcE
   call void @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2B8ne190000INS_18__default_init_tagESA_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %4, align 8
-  %11 = call noundef i64 @_ZNSt3__111char_traitsIcE6lengthB8ne190000EPKc(ptr noundef %10) #14
+  %11 = call noundef i64 @_ZNSt3__111char_traitsIcE6lengthB8ne190000EPKc(ptr noundef %10) #13
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %9, i64 noundef %11)
   ret void
 }
@@ -3994,45 +3995,45 @@ define linkonce_odr hidden void @_ZNSt3__1plB8ne190000IcNS_11char_traitsIcEENS_9
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %13 = load ptr, ptr %5, align 8
-  %14 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  %14 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   store i64 %14, ptr %7, align 8
   %15 = load ptr, ptr %6, align 8
-  %16 = call noundef i64 @_ZNSt3__111char_traitsIcE6lengthB8ne190000EPKc(ptr noundef %15) #14
+  %16 = call noundef i64 @_ZNSt3__111char_traitsIcE6lengthB8ne190000EPKc(ptr noundef %15) #13
   store i64 %16, ptr %8, align 8
   store i1 false, ptr %9, align 1
   %17 = load i64, ptr %7, align 8
   %18 = load i64, ptr %8, align 8
   %19 = add i64 %17, %18
   %20 = load ptr, ptr %5, align 8
-  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13get_allocatorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #14
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13get_allocatorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
   call void @_ZNSt3__116allocator_traitsINS_9allocatorIcEEE37select_on_container_copy_constructionB8ne190000IS2_vTnNS_9enable_ifIXntsr43__has_select_on_container_copy_constructionIKT_EE5valueEiE4typeELi0EEES2_RKS2_(ptr noundef nonnull align 1 dereferenceable(1) %11)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %10)
-  %21 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
-  %22 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_(ptr noundef %21) #14
+  %21 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
+  %22 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_(ptr noundef %21) #13
   store ptr %22, ptr %12, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = load ptr, ptr %5, align 8
-  %25 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
+  %25 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
   %26 = load i64, ptr %7, align 8
-  %27 = call noundef ptr @_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm(ptr noundef %23, ptr noundef %25, i64 noundef %26) #14
+  %27 = call noundef ptr @_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm(ptr noundef %23, ptr noundef %25, i64 noundef %26) #13
   %28 = load ptr, ptr %12, align 8
   %29 = load i64, ptr %7, align 8
   %30 = getelementptr inbounds i8, ptr %28, i64 %29
   %31 = load ptr, ptr %6, align 8
   %32 = load i64, ptr %8, align 8
-  %33 = call noundef ptr @_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm(ptr noundef %30, ptr noundef %31, i64 noundef %32) #14
+  %33 = call noundef ptr @_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm(ptr noundef %30, ptr noundef %31, i64 noundef %32) #13
   %34 = load ptr, ptr %12, align 8
   %35 = load i64, ptr %7, align 8
   %36 = getelementptr inbounds i8, ptr %34, i64 %35
   %37 = load i64, ptr %8, align 8
   %38 = getelementptr inbounds i8, ptr %36, i64 %37
-  %39 = call noundef ptr @_ZNSt3__111char_traitsIcE6assignB8ne190000EPcmc(ptr noundef %38, i64 noundef 1, i8 noundef signext 0) #14
+  %39 = call noundef ptr @_ZNSt3__111char_traitsIcE6assignB8ne190000EPcmc(ptr noundef %38, i64 noundef 1, i8 noundef signext 0) #13
   store i1 true, ptr %9, align 1
   %40 = load i1, ptr %9, align 1
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %3
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   br label %42
 
 42:                                               ; preds = %41, %3
@@ -4079,7 +4080,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 20:                                               ; preds = %16
   %21 = getelementptr inbounds %"class.nanogui::ref", ptr %5, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
-  call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %22, i1 noundef zeroext true) #14
+  call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %22, i1 noundef zeroext true) #13
   br label %23
 
 23:                                               ; preds = %20, %16
@@ -4102,9 +4103,6 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 ; Function Attrs: nounwind
 declare void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #8
-
 declare ptr @__cxa_begin_catch(ptr)
 
 ; Function Attrs: mustprogress uwtable
@@ -4112,7 +4110,7 @@ define linkonce_odr dso_local void @_ZN4tlog5errorEv(ptr dead_on_unwind noalias 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4tlog6Logger6globalEv()
-  %4 = call noundef ptr @_ZNKSt3__110unique_ptrIN4tlog6LoggerENS_14default_deleteIS2_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef ptr @_ZNKSt3__110unique_ptrIN4tlog6LoggerENS_14default_deleteIS2_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   call void @_ZN4tlog6Logger5errorEv(ptr dead_on_unwind writable sret(%"class.tlog::Stream") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %4)
   ret void
 }
@@ -4138,7 +4136,7 @@ define linkonce_odr dso_local void @_ZN4tlog6StreamD2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds %"class.tlog::Stream", ptr %4, i32 0, i32 2
-  %6 = call noundef zeroext i1 @_ZNKSt3__110unique_ptrINS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEEcvbB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %6 = call noundef zeroext i1 @_ZNKSt3__110unique_ptrINS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEEcvbB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   br i1 %6, label %7, label %16
 
 7:                                                ; preds = %1
@@ -4147,7 +4145,7 @@ define linkonce_odr dso_local void @_ZN4tlog6StreamD2Ev(ptr noundef nonnull alig
   %10 = getelementptr inbounds %"class.tlog::Stream", ptr %4, i32 0, i32 1
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds %"class.tlog::Stream", ptr %4, i32 0, i32 2
-  %13 = call noundef ptr @_ZNKSt3__110unique_ptrINS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #14
+  %13 = call noundef ptr @_ZNKSt3__110unique_ptrINS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #13
   invoke void @_ZNKRSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne190000Ev(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(112) %13)
           to label %14 unwind label %18
 
@@ -4156,12 +4154,12 @@ define linkonce_odr dso_local void @_ZN4tlog6StreamD2Ev(ptr noundef nonnull alig
           to label %15 unwind label %18
 
 15:                                               ; preds = %14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br label %16
 
 16:                                               ; preds = %15, %1
   %17 = getelementptr inbounds %"class.tlog::Stream", ptr %4, i32 0, i32 2
-  call void @_ZNSt3__110unique_ptrINS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
+  call void @_ZNSt3__110unique_ptrINS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #13
   ret void
 
 18:                                               ; preds = %14, %7
@@ -4175,8 +4173,8 @@ define linkonce_odr dso_local void @_ZN4tlog6StreamD2Ev(ptr noundef nonnull alig
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #14
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #13
   call void @_ZSt9terminatev() #21
   unreachable
 }
@@ -4184,7 +4182,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comda
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
@@ -4214,13 +4212,13 @@ define linkonce_odr dso_local void @_ZN7nanogui6Shader10set_bufferERKNSt3__112ba
   %14 = load ptr, ptr %8, align 8
   %15 = load ptr, ptr %9, align 8
   %16 = load i32, ptr %10, align 4
-  %17 = call noundef ptr @_ZNKSt16initializer_listImE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  %18 = call noundef ptr @_ZNKSt16initializer_listImE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %17 = call noundef ptr @_ZNKSt16initializer_listImE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
+  %18 = call noundef ptr @_ZNKSt16initializer_listImE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 8
-  %23 = call noundef ptr @_ZNKSt16initializer_listImE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %23 = call noundef ptr @_ZNKSt16initializer_listImE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %24 = load ptr, ptr %11, align 8
   call void @_ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_12VariableTypeEmPKmPKv(ptr noundef nonnull align 8 dereferenceable(101) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i32 noundef %16, i64 noundef %22, ptr noundef %23, ptr noundef %24)
   ret void
@@ -4301,7 +4299,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 20:                                               ; preds = %16
   %21 = getelementptr inbounds %"class.nanogui::ref.0", ptr %5, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
-  call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %22, i1 noundef zeroext true) #14
+  call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %22, i1 noundef zeroext true) #13
   br label %23
 
 23:                                               ; preds = %20, %16
@@ -4340,7 +4338,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__16vectorIfNS_9allocatorIfEEE4da
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::vector", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IfEEPT_S2_(ptr noundef %5) #14
+  %6 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IfEEPT_S2_(ptr noundef %5) #13
   ret ptr %6
 }
 
@@ -4357,7 +4355,7 @@ define linkonce_odr dso_local void @_ZN7nanogui3refINS_7TextureEED2Ev(ptr nounde
 7:                                                ; preds = %1
   %8 = getelementptr inbounds %"class.nanogui::ref.0", ptr %3, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
-  call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %9, i1 noundef zeroext true) #14
+  call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %9, i1 noundef zeroext true) #13
   br label %10
 
 10:                                               ; preds = %7, %1
@@ -4377,7 +4375,7 @@ define linkonce_odr dso_local void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef
 7:                                                ; preds = %1
   %8 = getelementptr inbounds %"class.nanogui::ref", ptr %3, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
-  call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %9, i1 noundef zeroext true) #14
+  call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %9, i1 noundef zeroext true) #13
   br label %10
 
 10:                                               ; preds = %7, %1
@@ -4389,11 +4387,12 @@ define dso_local void @_ZN3tev10UberShaderD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3tev10UberShaderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.tev::UberShader", ptr %3, i32 0, i32 2
-  call void @_ZN7nanogui3refINS_7TextureEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
-  %5 = getelementptr inbounds %"class.tev::UberShader", ptr %3, i32 0, i32 1
-  call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3tev10UberShaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.tev::UberShader", ptr %3, i32 0, i32 2
+  call void @_ZN7nanogui3refINS_7TextureEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  %6 = getelementptr inbounds %"class.tev::UberShader", ptr %3, i32 0, i32 1
+  call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   ret void
 }
 
@@ -4402,7 +4401,7 @@ define dso_local void @_ZN3tev10UberShaderD0Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3tev10UberShaderD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #14
+  call void @_ZN3tev10UberShaderD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #13
   call void @_ZdlPv(ptr noundef %3) #19
   ret void
 }
@@ -4421,7 +4420,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_(ptr
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN7nanogui6MatrixIfLm3EEC2Ef(ptr noundef nonnull align 4 dereferenceable(36) %7, float noundef 0.000000e+00)
-  call void @_ZNSt3__18optionalIN3tev3BoxIiLj2EEEEC2B8ne190000ENS_9nullopt_tE(ptr noundef nonnull align 4 dereferenceable(17) %8) #14
+  call void @_ZNSt3__18optionalIN3tev3BoxIiLj2EEEEC2B8ne190000ENS_9nullopt_tE(ptr noundef nonnull align 4 dereferenceable(17) %8) #13
   call void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1_7TextureERKNS1_6MatrixIfLm3EEEfffbNS_8ETonemapERKNSt3__18optionalINS_3BoxIiLj2EEEEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(36) %7, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(17) %8)
   ret void
 }
@@ -4513,7 +4512,7 @@ define linkonce_odr hidden void @_ZNSt3__18optionalIN3tev3BoxIiLj2EEEEC2B8ne1900
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__127__optional_move_assign_baseIN3tev3BoxIiLj2EEELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(17) %3) #14
+  call void @_ZNSt3__127__optional_move_assign_baseIN3tev3BoxIiLj2EEELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(17) %3) #13
   ret void
 }
 
@@ -4618,7 +4617,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
           to label %80 unwind label %120
 
 80:                                               ; preds = %66
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
   %81 = getelementptr inbounds %"class.tev::UberShader", ptr %49, i32 0, i32 1
   %82 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %81)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef @.str.10)
@@ -4626,7 +4625,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
           to label %83 unwind label %124
 
 83:                                               ; preds = %80
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
   %84 = getelementptr inbounds %"class.tev::UberShader", ptr %49, i32 0, i32 1
   %85 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %84)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef @.str.11)
@@ -4634,9 +4633,9 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
           to label %86 unwind label %128
 
 86:                                               ; preds = %83
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #13
   %87 = load ptr, ptr %28, align 8
-  %88 = call noundef zeroext i1 @_ZNKSt3__123__optional_storage_baseIN3tev3BoxIiLj2EEELb0EE9has_valueB8ne190000Ev(ptr noundef nonnull align 4 dereferenceable(17) %87) #14
+  %88 = call noundef zeroext i1 @_ZNKSt3__123__optional_storage_baseIN3tev3BoxIiLj2EEELb0EE9has_valueB8ne190000Ev(ptr noundef nonnull align 4 dereferenceable(17) %87) #13
   br i1 %88, label %89, label %140
 
 89:                                               ; preds = %86
@@ -4672,7 +4671,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
           to label %104 unwind label %132
 
 104:                                              ; preds = %102
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
   %105 = getelementptr inbounds %"class.tev::UberShader", ptr %49, i32 0, i32 1
   %106 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %105)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef @.str.13)
@@ -4705,7 +4704,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
           to label %119 unwind label %136
 
 119:                                              ; preds = %117
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #13
   br label %160
 
 120:                                              ; preds = %66
@@ -4715,7 +4714,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
   store ptr %122, ptr %32, align 8
   %123 = extractvalue { ptr, i32 } %121, 1
   store i32 %123, ptr %33, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
   br label %167
 
 124:                                              ; preds = %80
@@ -4725,7 +4724,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
   store ptr %126, ptr %32, align 8
   %127 = extractvalue { ptr, i32 } %125, 1
   store i32 %127, ptr %33, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
   br label %167
 
 128:                                              ; preds = %83
@@ -4735,7 +4734,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
   store ptr %130, ptr %32, align 8
   %131 = extractvalue { ptr, i32 } %129, 1
   store i32 %131, ptr %33, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #13
   br label %167
 
 132:                                              ; preds = %102, %100, %99, %96, %94, %89
@@ -4745,7 +4744,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
   store ptr %134, ptr %32, align 8
   %135 = extractvalue { ptr, i32 } %133, 1
   store i32 %135, ptr %33, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
   br label %167
 
 136:                                              ; preds = %117, %115, %114, %111, %109, %104
@@ -4755,14 +4754,14 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
   store ptr %138, ptr %32, align 8
   %139 = extractvalue { ptr, i32 } %137, 1
   store i32 %139, ptr %33, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #13
   br label %167
 
 140:                                              ; preds = %86
   %141 = getelementptr inbounds %"class.tev::UberShader", ptr %49, i32 0, i32 1
   %142 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %141)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef @.str.12)
-  %143 = call noundef float @_ZNSt3__114numeric_limitsIfE8infinityB8ne190000Ev() #14
+  %143 = call noundef float @_ZNSt3__114numeric_limitsIfE8infinityB8ne190000Ev() #13
   %144 = fneg float %143
   invoke void @_ZN7nanogui5ArrayIfLm2EEC2Ef(ptr noundef nonnull align 4 dereferenceable(8) %45, float noundef %144)
           to label %145 unwind label %152
@@ -4772,11 +4771,11 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
           to label %146 unwind label %152
 
 146:                                              ; preds = %145
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #13
   %147 = getelementptr inbounds %"class.tev::UberShader", ptr %49, i32 0, i32 1
   %148 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %147)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef @.str.13)
-  %149 = call noundef float @_ZNSt3__114numeric_limitsIfE8infinityB8ne190000Ev() #14
+  %149 = call noundef float @_ZNSt3__114numeric_limitsIfE8infinityB8ne190000Ev() #13
   invoke void @_ZN7nanogui5ArrayIfLm2EEC2Ef(ptr noundef nonnull align 4 dereferenceable(8) %47, float noundef %149)
           to label %150 unwind label %156
 
@@ -4785,7 +4784,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
           to label %151 unwind label %156
 
 151:                                              ; preds = %150
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #13
   br label %160
 
 152:                                              ; preds = %145, %140
@@ -4795,7 +4794,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
   store ptr %154, ptr %32, align 8
   %155 = extractvalue { ptr, i32 } %153, 1
   store i32 %155, ptr %33, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #13
   br label %167
 
 156:                                              ; preds = %150, %146
@@ -4805,7 +4804,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
   store ptr %158, ptr %32, align 8
   %159 = extractvalue { ptr, i32 } %157, 1
   store i32 %159, ptr %33, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #13
   br label %167
 
 160:                                              ; preds = %151, %119
@@ -4860,7 +4859,7 @@ define dso_local void @_ZN3tev10UberShader20bindCheckerboardDataERKN7nanogui5Arr
           to label %16 unwind label %25
 
 16:                                               ; preds = %3
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   %17 = getelementptr inbounds %"class.tev::UberShader", ptr %12, i32 0, i32 1
   %18 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef @.str.15)
@@ -4869,7 +4868,7 @@ define dso_local void @_ZN3tev10UberShader20bindCheckerboardDataERKN7nanogui5Arr
           to label %20 unwind label %29
 
 20:                                               ; preds = %16
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   %21 = getelementptr inbounds %"class.tev::UberShader", ptr %12, i32 0, i32 1
   %22 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.16)
@@ -4878,7 +4877,7 @@ define dso_local void @_ZN3tev10UberShader20bindCheckerboardDataERKN7nanogui5Arr
           to label %24 unwind label %33
 
 24:                                               ; preds = %20
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   ret void
 
 25:                                               ; preds = %3
@@ -4888,7 +4887,7 @@ define dso_local void @_ZN3tev10UberShader20bindCheckerboardDataERKN7nanogui5Arr
   store ptr %27, ptr %8, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %9, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   br label %37
 
 29:                                               ; preds = %16
@@ -4898,7 +4897,7 @@ define dso_local void @_ZN3tev10UberShader20bindCheckerboardDataERKN7nanogui5Arr
   store ptr %31, ptr %8, align 8
   %32 = extractvalue { ptr, i32 } %30, 1
   store i32 %32, ptr %9, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   br label %37
 
 33:                                               ; preds = %20
@@ -4908,7 +4907,7 @@ define dso_local void @_ZN3tev10UberShader20bindCheckerboardDataERKN7nanogui5Arr
   store ptr %35, ptr %8, align 8
   %36 = extractvalue { ptr, i32 } %34, 1
   store i32 %36, ptr %9, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   br label %37
 
 37:                                               ; preds = %33, %29, %25
@@ -4957,7 +4956,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
           to label %32 unwind label %80
 
 32:                                               ; preds = %7
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   %33 = getelementptr inbounds %"class.tev::UberShader", ptr %28, i32 0, i32 1
   %34 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %33)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef @.str.18)
@@ -4979,7 +4978,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
           to label %46 unwind label %84
 
 46:                                               ; preds = %45
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   %47 = getelementptr inbounds %"class.tev::UberShader", ptr %28, i32 0, i32 1
   %48 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %47)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef @.str.19)
@@ -5001,7 +5000,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
           to label %60 unwind label %88
 
 60:                                               ; preds = %59
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
   %61 = getelementptr inbounds %"class.tev::UberShader", ptr %28, i32 0, i32 1
   %62 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %61)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef @.str.20)
@@ -5009,7 +5008,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
           to label %63 unwind label %92
 
 63:                                               ; preds = %60
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   %64 = getelementptr inbounds %"class.tev::UberShader", ptr %28, i32 0, i32 1
   %65 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %64)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef @.str.21)
@@ -5017,7 +5016,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
           to label %66 unwind label %96
 
 66:                                               ; preds = %63
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
   %67 = getelementptr inbounds %"class.tev::UberShader", ptr %28, i32 0, i32 1
   %68 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %67)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef @.str.22)
@@ -5025,7 +5024,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
           to label %69 unwind label %100
 
 69:                                               ; preds = %66
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
   %70 = getelementptr inbounds %"class.tev::UberShader", ptr %28, i32 0, i32 1
   %71 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %70)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef @.str.23)
@@ -5035,7 +5034,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
           to label %73 unwind label %104
 
 73:                                               ; preds = %69
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #13
   %74 = getelementptr inbounds %"class.tev::UberShader", ptr %28, i32 0, i32 1
   %75 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %74)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef @.str.24)
@@ -5048,7 +5047,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
           to label %79 unwind label %108
 
 79:                                               ; preds = %78
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
   ret void
 
 80:                                               ; preds = %7
@@ -5058,7 +5057,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
   store ptr %82, ptr %16, align 8
   %83 = extractvalue { ptr, i32 } %81, 1
   store i32 %83, ptr %17, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   br label %112
 
 84:                                               ; preds = %45, %32
@@ -5068,7 +5067,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
   store ptr %86, ptr %16, align 8
   %87 = extractvalue { ptr, i32 } %85, 1
   store i32 %87, ptr %17, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   br label %112
 
 88:                                               ; preds = %59, %46
@@ -5078,7 +5077,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
   store ptr %90, ptr %16, align 8
   %91 = extractvalue { ptr, i32 } %89, 1
   store i32 %91, ptr %17, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
   br label %112
 
 92:                                               ; preds = %60
@@ -5088,7 +5087,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
   store ptr %94, ptr %16, align 8
   %95 = extractvalue { ptr, i32 } %93, 1
   store i32 %95, ptr %17, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   br label %112
 
 96:                                               ; preds = %63
@@ -5098,7 +5097,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
   store ptr %98, ptr %16, align 8
   %99 = extractvalue { ptr, i32 } %97, 1
   store i32 %99, ptr %17, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
   br label %112
 
 100:                                              ; preds = %66
@@ -5108,7 +5107,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
   store ptr %102, ptr %16, align 8
   %103 = extractvalue { ptr, i32 } %101, 1
   store i32 %103, ptr %17, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
   br label %112
 
 104:                                              ; preds = %69
@@ -5118,7 +5117,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
   store ptr %106, ptr %16, align 8
   %107 = extractvalue { ptr, i32 } %105, 1
   store i32 %107, ptr %17, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #13
   br label %112
 
 108:                                              ; preds = %78, %73
@@ -5128,7 +5127,7 @@ define dso_local void @_ZN3tev10UberShader13bindImageDataEPN7nanogui7TextureERKN
   store ptr %110, ptr %16, align 8
   %111 = extractvalue { ptr, i32 } %109, 1
   store i32 %111, ptr %17, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
   br label %112
 
 112:                                              ; preds = %108, %104, %100, %96, %92, %88, %84, %80
@@ -5167,7 +5166,7 @@ define dso_local void @_ZN3tev10UberShader17bindReferenceDataEPN7nanogui7Texture
           to label %22 unwind label %55
 
 22:                                               ; preds = %4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %23 = getelementptr inbounds %"class.tev::UberShader", ptr %18, i32 0, i32 1
   %24 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef @.str.26)
@@ -5189,7 +5188,7 @@ define dso_local void @_ZN3tev10UberShader17bindReferenceDataEPN7nanogui7Texture
           to label %36 unwind label %59
 
 36:                                               ; preds = %35
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   %37 = getelementptr inbounds %"class.tev::UberShader", ptr %18, i32 0, i32 1
   %38 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %37)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef @.str.27)
@@ -5211,7 +5210,7 @@ define dso_local void @_ZN3tev10UberShader17bindReferenceDataEPN7nanogui7Texture
           to label %50 unwind label %63
 
 50:                                               ; preds = %49
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
   %51 = getelementptr inbounds %"class.tev::UberShader", ptr %18, i32 0, i32 1
   %52 = call noundef ptr @_ZN7nanogui3refINS_6ShaderEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %51)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef @.str.28)
@@ -5221,7 +5220,7 @@ define dso_local void @_ZN3tev10UberShader17bindReferenceDataEPN7nanogui7Texture
           to label %54 unwind label %67
 
 54:                                               ; preds = %50
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   ret void
 
 55:                                               ; preds = %4
@@ -5231,7 +5230,7 @@ define dso_local void @_ZN3tev10UberShader17bindReferenceDataEPN7nanogui7Texture
   store ptr %57, ptr %10, align 8
   %58 = extractvalue { ptr, i32 } %56, 1
   store i32 %58, ptr %11, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   br label %71
 
 59:                                               ; preds = %35, %22
@@ -5241,7 +5240,7 @@ define dso_local void @_ZN3tev10UberShader17bindReferenceDataEPN7nanogui7Texture
   store ptr %61, ptr %10, align 8
   %62 = extractvalue { ptr, i32 } %60, 1
   store i32 %62, ptr %11, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   br label %71
 
 63:                                               ; preds = %49, %36
@@ -5251,7 +5250,7 @@ define dso_local void @_ZN3tev10UberShader17bindReferenceDataEPN7nanogui7Texture
   store ptr %65, ptr %10, align 8
   %66 = extractvalue { ptr, i32 } %64, 1
   store i32 %66, ptr %11, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
   br label %71
 
 67:                                               ; preds = %50
@@ -5261,7 +5260,7 @@ define dso_local void @_ZN3tev10UberShader17bindReferenceDataEPN7nanogui7Texture
   store ptr %69, ptr %10, align 8
   %70 = extractvalue { ptr, i32 } %68, 1
   store i32 %70, ptr %11, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   br label %71
 
 71:                                               ; preds = %67, %63, %59, %55
@@ -5300,7 +5299,7 @@ define linkonce_odr dso_local void @_ZN7nanogui6Shader11set_uniformIbEEvRKNSt3__
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %3
-  %19 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %19 = call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef @.str.104)
           to label %20 unwind label %21
 
@@ -5315,7 +5314,7 @@ define linkonce_odr dso_local void @_ZN7nanogui6Shader11set_uniformIbEEvRKNSt3__
   store ptr %23, ptr %11, align 8
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %19) #14
+  call void @__cxa_free_exception(ptr %19) #13
   br label %31
 
 25:                                               ; preds = %3
@@ -5378,7 +5377,7 @@ define linkonce_odr dso_local void @_ZN7nanogui6Shader11set_uniformINS_5ArrayIfL
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %3
-  %22 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %22 = call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef @.str.104)
           to label %23 unwind label %24
 
@@ -5393,7 +5392,7 @@ define linkonce_odr dso_local void @_ZN7nanogui6Shader11set_uniformINS_5ArrayIfL
   store ptr %26, ptr %11, align 8
   %27 = extractvalue { ptr, i32 } %25, 1
   store i32 %27, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %22) #14
+  call void @__cxa_free_exception(ptr %22) #13
   br label %34
 
 28:                                               ; preds = %3
@@ -5464,7 +5463,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__18optionalIN3tev3BoxIiLj2EEEEpt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNKRSt3__123__optional_storage_baseIN3tev3BoxIiLj2EEELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 4 dereferenceable(17) %3) #14
+  %4 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNKRSt3__123__optional_storage_baseIN3tev3BoxIiLj2EEELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 4 dereferenceable(17) %3) #13
   ret ptr %4
 }
 
@@ -5518,7 +5517,7 @@ define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNSt3__114numeric_limitsIfE8infinityB8ne190000Ev() #1 comdat align 2 {
-  %1 = call noundef float @_ZNSt3__123__libcpp_numeric_limitsIfLb1EE8infinityB8ne190000Ev() #14
+  %1 = call noundef float @_ZNSt3__123__libcpp_numeric_limitsIfLb1EE8infinityB8ne190000Ev() #13
   ret float %1
 }
 
@@ -5594,7 +5593,7 @@ define linkonce_odr dso_local void @_ZN7nanogui6Shader11set_uniformINS_5ColorEEE
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %3
-  %22 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %22 = call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef @.str.104)
           to label %23 unwind label %24
 
@@ -5609,7 +5608,7 @@ define linkonce_odr dso_local void @_ZN7nanogui6Shader11set_uniformINS_5ColorEEE
   store ptr %26, ptr %11, align 8
   %27 = extractvalue { ptr, i32 } %25, 1
   store i32 %27, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %22) #14
+  call void @__cxa_free_exception(ptr %22) #13
   br label %34
 
 28:                                               ; preds = %3
@@ -5679,7 +5678,7 @@ define linkonce_odr dso_local void @_ZN7nanogui6Shader11set_uniformIfEEvRKNSt3__
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %3
-  %19 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %19 = call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef @.str.104)
           to label %20 unwind label %21
 
@@ -5694,7 +5693,7 @@ define linkonce_odr dso_local void @_ZN7nanogui6Shader11set_uniformIfEEvRKNSt3__
   store ptr %23, ptr %11, align 8
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %19) #14
+  call void @__cxa_free_exception(ptr %19) #13
   br label %31
 
 25:                                               ; preds = %3
@@ -5742,7 +5741,7 @@ define linkonce_odr dso_local void @_ZN7nanogui6Shader11set_uniformIiEEvRKNSt3__
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %3
-  %19 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %19 = call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef @.str.104)
           to label %20 unwind label %21
 
@@ -5757,7 +5756,7 @@ define linkonce_odr dso_local void @_ZN7nanogui6Shader11set_uniformIiEEvRKNSt3__
   store ptr %23, ptr %11, align 8
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %19) #14
+  call void @__cxa_free_exception(ptr %19) #13
   br label %31
 
 25:                                               ; preds = %3
@@ -5971,7 +5970,7 @@ define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemINS_9allocator
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -5987,7 +5986,7 @@ define linkonce_odr hidden noundef i64 @_ZNSt3__118__constexpr_strlenB8ne190000E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call i64 @strlen(ptr noundef %3) #14
+  %4 = call i64 @strlen(ptr noundef %3) #13
   ret i64 %4
 }
 
@@ -5999,15 +5998,15 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trai
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE15__get_long_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %6 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE15__get_long_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br label %9
 
 7:                                                ; preds = %1
-  %8 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__get_short_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %8 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__get_short_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -6027,7 +6026,7 @@ define linkonce_odr hidden void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEEN
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 }
 
@@ -6048,7 +6047,7 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
   %13 = load ptr, ptr %6, align 8
   call void @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2B8ne190000INS_18__default_init_tagERKS5_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %13)
   %14 = load i64, ptr %5, align 8
-  %15 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE8max_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
+  %15 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE8max_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   %16 = icmp ugt i64 %14, %15
   br i1 %16, label %17, label %18
 
@@ -6064,18 +6063,18 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
 21:                                               ; preds = %18
   call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 24, i1 false)
   %22 = getelementptr inbounds %"class.std::__1::basic_string", ptr %11, i32 0, i32 0
-  %23 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  %23 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %8, i64 24, i1 false)
   %24 = load i64, ptr %5, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__set_short_sizeB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %24) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__set_short_sizeB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %24) #13
   br label %37
 
 25:                                               ; preds = %18
   %26 = load i64, ptr %5, align 8
-  %27 = call noundef i64 @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE11__recommendB8ne190000Em(i64 noundef %26) #14
+  %27 = call noundef i64 @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE11__recommendB8ne190000Em(i64 noundef %26) #13
   %28 = add i64 %27, 1
   store i64 %28, ptr %9, align 8
-  %29 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
+  %29 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   %30 = load i64, ptr %9, align 8
   %31 = call noundef ptr @_ZNSt3__116allocator_traitsINS_9allocatorIcEEE8allocateB8ne190000ERS2_m(ptr noundef nonnull align 1 dereferenceable(1) %29, i64 noundef %30)
   store ptr %31, ptr %10, align 8
@@ -6083,16 +6082,16 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
   %33 = load i64, ptr %9, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__begin_lifetimeB8ne190000EPcm(ptr noundef %32, i64 noundef %33)
   %34 = load i64, ptr %9, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__set_long_capB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %34) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__set_long_capB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %34) #13
   %35 = load ptr, ptr %10, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__set_long_pointerB8ne190000EPc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %35) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__set_long_pointerB8ne190000EPc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %35) #13
   %36 = load i64, ptr %5, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE15__set_long_sizeB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %36) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE15__set_long_sizeB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %36) #13
   br label %37
 
 37:                                               ; preds = %25, %21
   %38 = load i64, ptr %5, align 8
-  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %38) #14
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %38) #13
   ret void
 }
 
@@ -6109,15 +6108,15 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__112basic_stringIcNS_11char_trait
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %6 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br label %9
 
 7:                                                ; preds = %1
-  %8 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %8 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -6156,8 +6155,8 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_trai
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
-  %5 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IKcEEPT_S3_(ptr noundef %4) #14
+  %4 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
+  %5 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IKcEEPT_S3_(ptr noundef %4) #13
   ret ptr %5
 }
 
@@ -6192,7 +6191,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11ch
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
   %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__short", ptr %6, i32 0, i32 0
   %8 = load i8, ptr %7, align 8
@@ -6207,7 +6206,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trai
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
   %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__long", ptr %6, i32 0, i32 1
   %8 = load i64, ptr %7, align 8
@@ -6220,7 +6219,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trai
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
   %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__short", ptr %6, i32 0, i32 0
   %8 = load i8, ptr %7, align 8
@@ -6234,7 +6233,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret ptr %4
 }
 
@@ -6253,7 +6252,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKS
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   ret ptr %5
 }
 
@@ -6262,7 +6261,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -6297,11 +6296,11 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trai
   %5 = alloca i8, align 1
   store ptr %0, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
-  %7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  %8 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIcEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  %7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  %8 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIcEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   store i64 %8, ptr %4, align 8
   %9 = load i64, ptr %4, align 8
-  %10 = call noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #14
+  %10 = call noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #13
   %11 = udiv i64 %10, 2
   %12 = icmp ule i64 %9, %11
   br i1 %12, label %13, label %16
@@ -6340,7 +6339,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trai
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #11 comdat align 2 {
+define linkonce_odr hidden void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #10 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   call void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef @.str.29) #22
@@ -6357,14 +6356,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__112basic_stringIcNS_11cha
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret ptr %4
 }
 
@@ -6378,7 +6377,7 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
   %6 = load i64, ptr %4, align 8
   %7 = trunc i64 %6 to i8
   %8 = getelementptr inbounds %"class.std::__1::basic_string", ptr %5, i32 0, i32 0
-  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   %10 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %9, i32 0, i32 0
   %11 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__short", ptr %10, i32 0, i32 0
   %12 = load i8, ptr %11, align 8
@@ -6388,7 +6387,7 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
   %16 = or i8 %15, %14
   store i8 %16, ptr %11, align 8
   %17 = getelementptr inbounds %"class.std::__1::basic_string", ptr %5, i32 0, i32 0
-  %18 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
+  %18 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   %19 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %18, i32 0, i32 0
   %20 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__short", ptr %19, i32 0, i32 0
   %21 = load i8, ptr %20, align 8
@@ -6417,7 +6416,7 @@ define linkonce_odr hidden noundef i64 @_ZNSt3__112basic_stringIcNS_11char_trait
   store i64 8, ptr %4, align 8
   %10 = load i64, ptr %3, align 8
   %11 = add i64 %10, 1
-  %12 = call noundef i64 @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__align_itB8ne190000ILm8EEEmm(i64 noundef %11) #14
+  %12 = call noundef i64 @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__align_itB8ne190000ILm8EEEmm(i64 noundef %11) #13
   %13 = sub i64 %12, 1
   store i64 %13, ptr %5, align 8
   %14 = load i64, ptr %5, align 8
@@ -6458,7 +6457,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   ret ptr %5
 }
 
@@ -6481,7 +6480,7 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
   %6 = load i64, ptr %4, align 8
   %7 = udiv i64 %6, 2
   %8 = getelementptr inbounds %"class.std::__1::basic_string", ptr %5, i32 0, i32 0
-  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   %10 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %9, i32 0, i32 0
   %11 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__long", ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
@@ -6491,7 +6490,7 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
   %16 = or i64 %15, %14
   store i64 %16, ptr %11, align 8
   %17 = getelementptr inbounds %"class.std::__1::basic_string", ptr %5, i32 0, i32 0
-  %18 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
+  %18 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   %19 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %18, i32 0, i32 0
   %20 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__long", ptr %19, i32 0, i32 0
   %21 = load i64, ptr %20, align 8
@@ -6510,7 +6509,7 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds %"class.std::__1::basic_string", ptr %5, i32 0, i32 0
-  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   %9 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %8, i32 0, i32 0
   %10 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__long", ptr %9, i32 0, i32 2
   store ptr %6, ptr %10, align 8
@@ -6526,7 +6525,7 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds %"class.std::__1::basic_string", ptr %5, i32 0, i32 0
-  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   %9 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %8, i32 0, i32 0
   %10 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__long", ptr %9, i32 0, i32 1
   store i64 %6, ptr %10, align 8
@@ -6555,14 +6554,14 @@ define linkonce_odr dso_local void @_ZNSt3__122__compressed_pair_elemINS_9alloca
 define linkonce_odr dso_local noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIcEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = call noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #14
+  %3 = call noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #13
   %4 = udiv i64 %3, 1
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #1 comdat align 2 {
-  %1 = call noundef i64 @_ZNSt3__123__libcpp_numeric_limitsImLb1EE3maxB8ne190000Ev() #14
+  %1 = call noundef i64 @_ZNSt3__123__libcpp_numeric_limitsImLb1EE3maxB8ne190000Ev() #13
   ret i64 %1
 }
 
@@ -6572,12 +6571,12 @@ define linkonce_odr hidden noundef i64 @_ZNSt3__123__libcpp_numeric_limitsImLb1E
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef %0) #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef %0) #10 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  %5 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %5 = call ptr @__cxa_allocate_exception(i64 16) #13
   %6 = load ptr, ptr %2, align 8
   invoke void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
           to label %7 unwind label %8
@@ -6593,7 +6592,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(p
   store ptr %10, ptr %3, align 8
   %11 = extractvalue { ptr, i32 } %9, 1
   store i32 %11, ptr %4, align 4
-  call void @__cxa_free_exception(ptr %5) #14
+  call void @__cxa_free_exception(ptr %5) #13
   br label %12
 
 12:                                               ; preds = %8
@@ -6615,7 +6614,8 @@ define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -6655,7 +6655,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__19allocatorIcE8allocateB8ne19000
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
-  %7 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIcEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  %7 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIcEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %9, label %10
 
@@ -6671,9 +6671,9 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__19allocatorIcE8allocateB8ne19000
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #11 comdat {
-  %1 = call ptr @__cxa_allocate_exception(i64 8) #14
-  call void @_ZNSt20bad_array_new_lengthC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #14
+define linkonce_odr hidden void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #10 comdat {
+  %1 = call ptr @__cxa_allocate_exception(i64 8) #13
+  call void @_ZNSt20bad_array_new_lengthC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
   call void @__cxa_throw(ptr %1, ptr @_ZTISt20bad_array_new_length, ptr @_ZNSt20bad_array_new_lengthD1Ev) #22
   unreachable
 }
@@ -6687,7 +6687,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__117__libcpp_allocateB8ne190000Em
   store i64 %0, ptr %4, align 8
   store i64 %1, ptr %5, align 8
   %7 = load i64, ptr %5, align 8
-  %8 = call noundef zeroext i1 @_ZNSt3__124__is_overaligned_for_newB8ne190000Em(i64 noundef %7) #14
+  %8 = call noundef zeroext i1 @_ZNSt3__124__is_overaligned_for_newB8ne190000Em(i64 noundef %7) #13
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %2
@@ -6751,14 +6751,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__121__libcpp_operator_newB8ne1900
 declare noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef, i64 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -6776,7 +6776,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__112basic_stringIcNS_11char_trait
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
   %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__long", ptr %6, i32 0, i32 2
   %8 = load ptr, ptr %7, align 8
@@ -6789,11 +6789,11 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__112basic_stringIcNS_11char_trait
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
   %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__short", ptr %6, i32 0, i32 2
   %8 = getelementptr inbounds [23 x i8], ptr %7, i64 0, i64 0
-  %9 = call noundef ptr @_ZNSt3__114pointer_traitsIPcE10pointer_toB8ne190000ERc(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  %9 = call noundef ptr @_ZNSt3__114pointer_traitsIPcE10pointer_toB8ne190000ERc(ptr noundef nonnull align 1 dereferenceable(1) %8) #13
   ret ptr %9
 }
 
@@ -6923,7 +6923,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__121__unwrap_and_dispatchB8ne190
   %22 = getelementptr inbounds %"struct.std::__1::pair.37", ptr %8, i32 0, i32 1
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %7, align 8
-  %25 = call noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPcNS_18__unwrap_iter_implIS1_Lb1EEETnNS_9enable_ifIXsr21is_copy_constructibleIT_EE5valueEiE4typeELi0EEEDTclsrT0_8__unwrapclsr3stdE7declvalIS5_EEEES5_(ptr noundef %24) #14
+  %25 = call noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPcNS_18__unwrap_iter_implIS1_Lb1EEETnNS_9enable_ifIXsr21is_copy_constructibleIT_EE5valueEiE4typeELi0EEEDTclsrT0_8__unwrapclsr3stdE7declvalIS5_EEEES5_(ptr noundef %24) #13
   %26 = call { ptr, ptr } @_ZNKSt3__114__copy_trivialclB8ne190000IKccTnNS_9enable_ifIXsr38__can_lower_copy_assignment_to_memmoveIT_T0_EE5valueEiE4typeELi0EEENS_4pairIPS4_PS5_EES9_S9_SA_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %21, ptr noundef %23, ptr noundef %25)
   %27 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
   %28 = extractvalue { ptr, ptr } %26, 0
@@ -6939,7 +6939,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__121__unwrap_and_dispatchB8ne190
   %35 = load ptr, ptr %7, align 8
   %36 = getelementptr inbounds %"struct.std::__1::pair", ptr %9, i32 0, i32 1
   %37 = load ptr, ptr %36, align 8
-  %38 = call noundef ptr @_ZNSt3__113__rewrap_iterB8ne190000IPcS1_NS_18__unwrap_iter_implIS1_Lb1EEEEET_S4_T0_(ptr noundef %35, ptr noundef %37) #14
+  %38 = call noundef ptr @_ZNSt3__113__rewrap_iterB8ne190000IPcS1_NS_18__unwrap_iter_implIS1_Lb1EEEEET_S4_T0_(ptr noundef %35, ptr noundef %37) #13
   store ptr %38, ptr %12, align 8
   %39 = call { ptr, ptr } @_ZNSt3__19make_pairB8ne190000IPKcPcEENS_4pairINS_18__unwrap_ref_decayIT_E4typeENS5_IT0_E4typeEEEOS6_OS9_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %40 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
@@ -7002,7 +7002,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPcNS_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNSt3__118__unwrap_iter_implIPcLb1EE8__unwrapB8ne190000ES1_(ptr noundef %3) #14
+  %4 = call noundef ptr @_ZNSt3__118__unwrap_iter_implIPcLb1EE8__unwrapB8ne190000ES1_(ptr noundef %3) #13
   ret ptr %4
 }
 
@@ -7015,7 +7015,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__19make_pairB8ne190000IPKcPcEENS
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
-  call void @_ZNSt3__14pairIPKcPcEC2B8ne190000IS2_S3_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS7_OS8_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  call void @_ZNSt3__14pairIPKcPcEC2B8ne190000IS2_S3_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS7_OS8_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   %8 = load { ptr, ptr }, ptr %3, align 8
   ret { ptr, ptr } %8
 }
@@ -7064,12 +7064,12 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__119__unwrap_range_implIPKcS2_E8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = call noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPKcNS_18__unwrap_iter_implIS2_Lb1EEETnNS_9enable_ifIXsr21is_copy_constructibleIT_EE5valueEiE4typeELi0EEEDTclsrT0_8__unwrapclsr3stdE7declvalIS6_EEEES6_(ptr noundef %8) #14
+  %9 = call noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPKcNS_18__unwrap_iter_implIS2_Lb1EEETnNS_9enable_ifIXsr21is_copy_constructibleIT_EE5valueEiE4typeELi0EEEDTclsrT0_8__unwrapclsr3stdE7declvalIS6_EEEES6_(ptr noundef %8) #13
   store ptr %9, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = call noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPKcNS_18__unwrap_iter_implIS2_Lb1EEETnNS_9enable_ifIXsr21is_copy_constructibleIT_EE5valueEiE4typeELi0EEEDTclsrT0_8__unwrapclsr3stdE7declvalIS6_EEEES6_(ptr noundef %10) #14
+  %11 = call noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPKcNS_18__unwrap_iter_implIS2_Lb1EEETnNS_9enable_ifIXsr21is_copy_constructibleIT_EE5valueEiE4typeELi0EEEDTclsrT0_8__unwrapclsr3stdE7declvalIS6_EEEES6_(ptr noundef %10) #13
   store ptr %11, ptr %7, align 8
-  call void @_ZNSt3__14pairIPKcS2_EC2B8ne190000IS2_S2_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  call void @_ZNSt3__14pairIPKcS2_EC2B8ne190000IS2_S2_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   %12 = load { ptr, ptr }, ptr %3, align 8
   ret { ptr, ptr } %12
 }
@@ -7079,7 +7079,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPKcNS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNSt3__118__unwrap_iter_implIPKcLb1EE8__unwrapB8ne190000ES2_(ptr noundef %3) #14
+  %4 = call noundef ptr @_ZNSt3__118__unwrap_iter_implIPKcLb1EE8__unwrapB8ne190000ES2_(ptr noundef %3) #13
   ret ptr %4
 }
 
@@ -7108,7 +7108,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__118__unwrap_iter_implIPKcLb1EE8_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IKcEEPT_S3_(ptr noundef %3) #14
+  %4 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IKcEEPT_S3_(ptr noundef %3) #13
   ret ptr %4
 }
 
@@ -7195,13 +7195,13 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__19make_pairB8ne190000IRPKcPcEEN
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
-  call void @_ZNSt3__14pairIPKcPcEC2B8ne190000IRS2_S3_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS8_OS9_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  call void @_ZNSt3__14pairIPKcPcEC2B8ne190000IRS2_S3_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS8_OS9_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   %8 = load { ptr, ptr }, ptr %3, align 8
   ret { ptr, ptr } %8
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__14pairIPKcPcEC2B8ne190000IRS2_S3_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS8_OS9_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 comdat align 2 {
@@ -7228,7 +7228,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__118__unwrap_iter_implIPcLb1EE8__
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_(ptr noundef %3) #14
+  %4 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_(ptr noundef %3) #13
   ret ptr %4
 }
 
@@ -7260,7 +7260,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__unwrap_range_implIPKcS2_E8_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = call noundef ptr @_ZNSt3__113__rewrap_iterB8ne190000IPKcS2_NS_18__unwrap_iter_implIS2_Lb1EEEEET_S5_T0_(ptr noundef %5, ptr noundef %6) #14
+  %7 = call noundef ptr @_ZNSt3__113__rewrap_iterB8ne190000IPKcS2_NS_18__unwrap_iter_implIS2_Lb1EEEEET_S5_T0_(ptr noundef %5, ptr noundef %6) #13
   ret ptr %7
 }
 
@@ -7295,7 +7295,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__118__unwrap_iter_implIPKcLb1EE8_
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  %8 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IKcEEPT_S3_(ptr noundef %7) #14
+  %8 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IKcEEPT_S3_(ptr noundef %7) #13
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -7312,7 +7312,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__118__unwrap_iter_implIPcLb1EE8__
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  %8 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_(ptr noundef %7) #14
+  %8 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_(ptr noundef %7) #13
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -7325,15 +7325,15 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_trai
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %6 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br label %9
 
 7:                                                ; preds = %1
-  %8 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %8 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -7347,7 +7347,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_trai
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
   %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__long", ptr %6, i32 0, i32 2
   %8 = load ptr, ptr %7, align 8
@@ -7360,11 +7360,11 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_trai
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
   %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__short", ptr %6, i32 0, i32 2
   %8 = getelementptr inbounds [23 x i8], ptr %7, i64 0, i64 0
-  %9 = call noundef ptr @_ZNSt3__114pointer_traitsIPKcE10pointer_toB8ne190000ERS1_(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  %9 = call noundef ptr @_ZNSt3__114pointer_traitsIPKcE10pointer_toB8ne190000ERS1_(ptr noundef nonnull align 1 dereferenceable(1) %8) #13
   ret ptr %9
 }
 
@@ -7451,7 +7451,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br i1 %10, label %11, label %37, !prof !16
 
 11:                                               ; preds = %0
-  %12 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4tlog6Logger6globalEvE6logger) #14
+  %12 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4tlog6Logger6globalEvE6logger) #13
   %13 = icmp ne i32 %12, 0
   br i1 %13, label %14, label %37
 
@@ -7467,7 +7467,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
           to label %19 unwind label %42
 
 19:                                               ; preds = %16
-  call void @_ZNSt3__110shared_ptrIN4tlog7IOutputEEC2B8ne190000INS1_13ConsoleOutputETnNS_9enable_ifIXsr17__compatible_withIT_S2_EE5valueEiE4typeELi0EEERKNS0_IS7_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %18) #14
+  call void @_ZNSt3__110shared_ptrIN4tlog7IOutputEEC2B8ne190000INS1_13ConsoleOutputETnNS_9enable_ifIXsr17__compatible_withIT_S2_EE5valueEiE4typeELi0EEERKNS0_IS7_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %18) #13
   %20 = getelementptr inbounds %"class.std::initializer_list.64", ptr %4, i32 0, i32 0
   %21 = getelementptr inbounds [1 x %"class.std::__1::shared_ptr"], ptr %5, i64 0, i64 0
   store ptr %21, ptr %20, align 8
@@ -7486,8 +7486,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 28:                                               ; preds = %27
   store i1 false, ptr %8, align 1
-  call void @_ZNSt3__110unique_ptrIN4tlog6LoggerENS_14default_deleteIS2_EEEC2B8ne190000ILb1EvEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4tlog6Logger6globalEvE6logger, ptr noundef %15) #14
-  call void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZNSt3__110unique_ptrIN4tlog6LoggerENS_14default_deleteIS2_EEEC2B8ne190000ILb1EvEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4tlog6Logger6globalEvE6logger, ptr noundef %15) #13
+  call void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   %29 = getelementptr inbounds [1 x %"class.std::__1::shared_ptr"], ptr %5, i32 0, i32 0
   %30 = getelementptr inbounds %"class.std::__1::shared_ptr", ptr %29, i64 1
   br label %31
@@ -7495,13 +7495,13 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 31:                                               ; preds = %31, %28
   %32 = phi ptr [ %30, %28 ], [ %33, %31 ]
   %33 = getelementptr inbounds %"class.std::__1::shared_ptr", ptr %32, i64 -1
-  call void @_ZNSt3__110shared_ptrIN4tlog7IOutputEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #14
+  call void @_ZNSt3__110shared_ptrIN4tlog7IOutputEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #13
   %34 = icmp eq ptr %33, %29
   br i1 %34, label %35, label %31
 
 35:                                               ; preds = %31
-  %36 = call i32 @__cxa_atexit(ptr @_ZNSt3__110unique_ptrIN4tlog6LoggerENS_14default_deleteIS2_EEED2B8ne190000Ev, ptr @_ZZN4tlog6Logger6globalEvE6logger, ptr @__dso_handle) #14
-  call void @__cxa_guard_release(ptr @_ZGVZN4tlog6Logger6globalEvE6logger) #14
+  %36 = call i32 @__cxa_atexit(ptr @_ZNSt3__110unique_ptrIN4tlog6LoggerENS_14default_deleteIS2_EEED2B8ne190000Ev, ptr @_ZZN4tlog6Logger6globalEvE6logger, ptr @__dso_handle) #13
+  call void @__cxa_guard_release(ptr @_ZGVZN4tlog6Logger6globalEvE6logger) #13
   br label %37
 
 37:                                               ; preds = %35, %11, %0
@@ -7530,7 +7530,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 48:                                               ; preds = %48, %42
   %49 = phi ptr [ %46, %42 ], [ %50, %48 ]
   %50 = getelementptr inbounds %"class.std::__1::shared_ptr", ptr %49, i64 -1
-  call void @_ZNSt3__110shared_ptrIN4tlog7IOutputEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %50) #14
+  call void @_ZNSt3__110shared_ptrIN4tlog7IOutputEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %50) #13
   %51 = icmp eq ptr %50, %17
   br i1 %51, label %52, label %48
 
@@ -7553,7 +7553,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store ptr %59, ptr %1, align 8
   %60 = extractvalue { ptr, i32 } %58, 1
   store i32 %60, ptr %2, align 4
-  call void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br label %61
 
 61:                                               ; preds = %57, %53
@@ -7564,7 +7564,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 64:                                               ; preds = %64, %61
   %65 = phi ptr [ %63, %61 ], [ %66, %64 ]
   %66 = getelementptr inbounds %"class.std::__1::shared_ptr", ptr %65, i64 -1
-  call void @_ZNSt3__110shared_ptrIN4tlog7IOutputEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %66) #14
+  call void @_ZNSt3__110shared_ptrIN4tlog7IOutputEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %66) #13
   %67 = icmp eq ptr %66, %62
   br i1 %67, label %68, label %64
 
@@ -7583,7 +7583,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br label %73
 
 73:                                               ; preds = %72, %38
-  call void @__cxa_guard_abort(ptr @_ZGVZN4tlog6Logger6globalEvE6logger) #14
+  call void @__cxa_guard_abort(ptr @_ZGVZN4tlog6Logger6globalEvE6logger) #13
   br label %74
 
 74:                                               ; preds = %73
@@ -7600,7 +7600,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__110unique_ptrIN4tlog6LoggerENS_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::unique_ptr.58", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPN4tlog6LoggerENS_14default_deleteIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPN4tlog6LoggerENS_14default_deleteIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -7617,7 +7617,7 @@ define linkonce_odr dso_local void @_ZN4tlog6Logger5errorEv(ptr dead_on_unwind n
 }
 
 ; Function Attrs: nounwind
-declare i32 @__cxa_guard_acquire(ptr) #14
+declare i32 @__cxa_guard_acquire(ptr) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4tlog13ConsoleOutput6globalEv() #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7628,7 +7628,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   br i1 %4, label %5, label %14, !prof !16
 
 5:                                                ; preds = %0
-  %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4tlog13ConsoleOutput6globalEvE13consoleOutput) #14
+  %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4tlog13ConsoleOutput6globalEvE13consoleOutput) #13
   %7 = icmp ne i32 %6, 0
   br i1 %7, label %8, label %14
 
@@ -7645,8 +7645,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
           to label %12 unwind label %15
 
 12:                                               ; preds = %11
-  %13 = call i32 @__cxa_atexit(ptr @_ZNSt3__110shared_ptrIN4tlog13ConsoleOutputEED2B8ne190000Ev, ptr @_ZZN4tlog13ConsoleOutput6globalEvE13consoleOutput, ptr @__dso_handle) #14
-  call void @__cxa_guard_release(ptr @_ZGVZN4tlog13ConsoleOutput6globalEvE13consoleOutput) #14
+  %13 = call i32 @__cxa_atexit(ptr @_ZNSt3__110shared_ptrIN4tlog13ConsoleOutputEED2B8ne190000Ev, ptr @_ZZN4tlog13ConsoleOutput6globalEvE13consoleOutput, ptr @__dso_handle) #13
+  call void @__cxa_guard_release(ptr @_ZGVZN4tlog13ConsoleOutput6globalEvE13consoleOutput) #13
   br label %14
 
 14:                                               ; preds = %12, %5, %0
@@ -7672,7 +7672,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   br label %23
 
 23:                                               ; preds = %19, %15
-  call void @__cxa_guard_abort(ptr @_ZGVZN4tlog13ConsoleOutput6globalEvE13consoleOutput) #14
+  call void @__cxa_guard_abort(ptr @_ZGVZN4tlog13ConsoleOutput6globalEvE13consoleOutput) #13
   br label %24
 
 24:                                               ; preds = %23
@@ -7708,7 +7708,7 @@ define linkonce_odr dso_local void @_ZNSt3__110shared_ptrIN4tlog7IOutputEEC2B8ne
 17:                                               ; preds = %2
   %18 = getelementptr inbounds %"class.std::__1::shared_ptr", ptr %5, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
-  call void @_ZNSt3__119__shared_weak_count12__add_sharedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
+  call void @_ZNSt3__119__shared_weak_count12__add_sharedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   br label %20
 
 20:                                               ; preds = %17, %2
@@ -7728,7 +7728,7 @@ define linkonce_odr hidden void @_ZNSt3__110shared_ptrIN4tlog7IOutputEED2B8ne190
 7:                                                ; preds = %1
   %8 = getelementptr inbounds %"class.std::__1::shared_ptr", ptr %3, i32 0, i32 1
   %9 = load ptr, ptr %8, align 8
-  call void @_ZNSt3__119__shared_weak_count16__release_sharedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__119__shared_weak_count16__release_sharedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   br label %10
 
 10:                                               ; preds = %7, %1
@@ -7751,9 +7751,9 @@ define linkonce_odr hidden void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEE
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds %"class.std::__1::set.47", ptr %12, i32 0, i32 0
   %14 = load ptr, ptr %7, align 8
-  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 1 dereferenceable(1) %14) #14
-  %15 = call noundef ptr @_ZNKSt16initializer_listINSt3__110shared_ptrIN4tlog7IOutputEEEE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  %16 = call noundef ptr @_ZNKSt16initializer_listINSt3__110shared_ptrIN4tlog7IOutputEEEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 1 dereferenceable(1) %14) #13
+  %15 = call noundef ptr @_ZNKSt16initializer_listINSt3__110shared_ptrIN4tlog7IOutputEEEE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  %16 = call noundef ptr @_ZNKSt16initializer_listINSt3__110shared_ptrIN4tlog7IOutputEEEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   invoke void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE6insertB8ne190000IPKS4_EEvT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %15, ptr noundef %16)
           to label %17 unwind label %18
 
@@ -7767,7 +7767,7 @@ define linkonce_odr hidden void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEE
   store ptr %20, ptr %8, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %9, align 4
-  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   br label %22
 
 22:                                               ; preds = %18
@@ -7798,8 +7798,8 @@ define linkonce_odr dso_local void @_ZN4tlog6LoggerC2ENSt3__13setINS1_10shared_p
           to label %11 unwind label %16
 
 11:                                               ; preds = %10
-  call void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  call void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   ret void
 
 12:                                               ; preds = %2
@@ -7818,11 +7818,11 @@ define linkonce_odr dso_local void @_ZN4tlog6LoggerC2ENSt3__13setINS1_10shared_p
   store ptr %18, ptr %7, align 8
   %19 = extractvalue { ptr, i32 } %17, 1
   store i32 %19, ptr %8, align 4
-  call void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  call void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   br label %20
 
 20:                                               ; preds = %16, %12
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   br label %21
 
 21:                                               ; preds = %20
@@ -7862,7 +7862,7 @@ define linkonce_odr hidden void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEE
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::set.47", ptr %3, i32 0, i32 0
-  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   ret void
 }
 
@@ -7871,40 +7871,41 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrIN4tlog6LoggerENS_14defaul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__110unique_ptrIN4tlog6LoggerENS_14default_deleteIS2_EEE5resetB8ne190000EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null) #14
+  call void @_ZNSt3__110unique_ptrIN4tlog6LoggerENS_14default_deleteIS2_EEE5resetB8ne190000EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null) #13
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) #14
+declare i32 @__cxa_atexit(ptr, ptr, ptr) #13
 
 ; Function Attrs: nounwind
-declare void @__cxa_guard_abort(ptr) #14
+declare void @__cxa_guard_abort(ptr) #13
 
 ; Function Attrs: nounwind
-declare void @__cxa_guard_release(ptr) #14
+declare void @__cxa_guard_release(ptr) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutputC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN4tlog7IOutputC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4tlog13ConsoleOutputE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = call noundef zeroext i1 @_ZN4tlog13ConsoleOutput26enableAnsiControlSequencesEv()
-  %5 = getelementptr inbounds %"class.tlog::ConsoleOutput", ptr %3, i32 0, i32 1
-  %6 = zext i1 %4 to i8
-  store i8 %6, ptr %5, align 8
-  %7 = getelementptr inbounds %"class.tlog::ConsoleOutput", ptr %3, i32 0, i32 1
-  %8 = load i8, ptr %7, align 8
-  %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %12
+  call void @_ZN4tlog7IOutputC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4tlog13ConsoleOutputE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = call noundef zeroext i1 @_ZN4tlog13ConsoleOutput26enableAnsiControlSequencesEv()
+  %6 = getelementptr inbounds %"class.tlog::ConsoleOutput", ptr %3, i32 0, i32 1
+  %7 = zext i1 %5 to i8
+  store i8 %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"class.tlog::ConsoleOutput", ptr %3, i32 0, i32 1
+  %9 = load i8, ptr %8, align 8
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %13
 
-10:                                               ; preds = %1
-  %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostreamIT_T0_EES9_RKNS_12basic_stringIS6_S7_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZNSt3__14coutE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN4tlog4ansiL5RESETE)
-  br label %12
+11:                                               ; preds = %1
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostreamIT_T0_EES9_RKNS_12basic_stringIS6_S7_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZNSt3__14coutE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN4tlog4ansiL5RESETE)
+  br label %13
 
-12:                                               ; preds = %10, %1
+13:                                               ; preds = %11, %1
   ret void
 }
 
@@ -7923,24 +7924,24 @@ define linkonce_odr dso_local void @_ZNSt3__110shared_ptrIN4tlog13ConsoleOutputE
   %11 = load ptr, ptr %4, align 8
   store ptr %11, ptr %10, align 8
   %12 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_14default_deleteIS2_EEEC2B8ne190000ILb1EvEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %12) #14
+  call void @_ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_14default_deleteIS2_EEEC2B8ne190000ILb1EvEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %12) #13
   %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #20
           to label %14 unwind label %21
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__19allocatorIN4tlog13ConsoleOutputEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  call void @_ZNSt3__19allocatorIN4tlog13ConsoleOutputEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #13
   invoke void @_ZNSt3__120__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EENS_9allocatorIS2_EEEC2B8ne190000ES3_S7_S9_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %15)
           to label %16 unwind label %25
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds %"class.std::__1::shared_ptr.65", ptr %9, i32 0, i32 1
   store ptr %13, ptr %17, align 8
-  %18 = call noundef ptr @_ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_14default_deleteIS2_EEE7releaseB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %18 = call noundef ptr @_ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_14default_deleteIS2_EEE7releaseB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   %19 = load ptr, ptr %4, align 8
   %20 = load ptr, ptr %4, align 8
-  call void (ptr, ...) @_ZNSt3__110shared_ptrIN4tlog13ConsoleOutputEE18__enable_weak_thisB8ne190000Ez(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %19, ptr noundef %20) #14
-  call void @_ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_14default_deleteIS2_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void (ptr, ...) @_ZNSt3__110shared_ptrIN4tlog13ConsoleOutputEE18__enable_weak_thisB8ne190000Ez(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %19, ptr noundef %20) #13
+  call void @_ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_14default_deleteIS2_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   ret void
 
 21:                                               ; preds = %2
@@ -7963,7 +7964,7 @@ define linkonce_odr dso_local void @_ZNSt3__110shared_ptrIN4tlog13ConsoleOutputE
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_14default_deleteIS2_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_14default_deleteIS2_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   br label %30
 
 30:                                               ; preds = %29
@@ -7987,7 +7988,7 @@ define linkonce_odr hidden void @_ZNSt3__110shared_ptrIN4tlog13ConsoleOutputEED2
 7:                                                ; preds = %1
   %8 = getelementptr inbounds %"class.std::__1::shared_ptr.65", ptr %3, i32 0, i32 1
   %9 = load ptr, ptr %8, align 8
-  call void @_ZNSt3__119__shared_weak_count16__release_sharedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__119__shared_weak_count16__release_sharedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   br label %10
 
 10:                                               ; preds = %7, %1
@@ -7999,7 +8000,8 @@ define linkonce_odr dso_local void @_ZN4tlog7IOutputC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4tlog7IOutputE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4tlog7IOutputE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8007,7 +8009,7 @@ define linkonce_odr dso_local void @_ZN4tlog7IOutputC2Ev(ptr noundef nonnull ali
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4tlog13ConsoleOutput26enableAnsiControlSequencesEv() #1 comdat align 2 {
   %1 = alloca i1, align 1
   %2 = alloca ptr, align 8
-  %3 = call ptr @getenv(ptr noundef @.str.30) #14
+  %3 = call ptr @getenv(ptr noundef @.str.30) #13
   store ptr %3, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
   %5 = icmp ne ptr %4, null
@@ -8042,9 +8044,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  %7 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   %8 = load ptr, ptr %4, align 8
-  %9 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  %9 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7, i64 noundef %9)
   ret ptr %10
 }
@@ -8075,7 +8077,7 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput9writeLineERKNSt3__11
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
   %24 = load ptr, ptr %5, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %25 = load i32, ptr %7, align 4
   %26 = icmp ne i32 %25, 0
   br i1 %26, label %27, label %45
@@ -8093,8 +8095,8 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput9writeLineERKNSt3__11
           to label %31 unwind label %40
 
 31:                                               ; preds = %29
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   br label %45
 
 32:                                               ; preds = %71, %66, %63, %60, %57, %54, %51, %27
@@ -8122,11 +8124,11 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput9writeLineERKNSt3__11
   store ptr %42, ptr %12, align 8
   %43 = extractvalue { ptr, i32 } %41, 1
   store i32 %43, ptr %13, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   br label %44
 
 44:                                               ; preds = %40, %36
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   br label %183
 
 45:                                               ; preds = %31, %4
@@ -8213,9 +8215,9 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput9writeLineERKNSt3__11
           to label %78 unwind label %84
 
 78:                                               ; preds = %77
-  %79 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  %79 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   br label %88
 
 80:                                               ; preds = %179, %175, %164, %161, %146, %139, %136, %100, %97, %88, %76
@@ -8234,7 +8236,7 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput9writeLineERKNSt3__11
   store ptr %86, ptr %12, align 8
   %87 = extractvalue { ptr, i32 } %85, 1
   store i32 %87, ptr %13, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   br label %182
 
 88:                                               ; preds = %78, %73
@@ -8243,7 +8245,7 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput9writeLineERKNSt3__11
 
 90:                                               ; preds = %88
   %91 = load ptr, ptr %6, align 8
-  %92 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5emptyB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %91) #14
+  %92 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5emptyB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %91) #13
   br i1 %92, label %129, label %93
 
 93:                                               ; preds = %90
@@ -8288,9 +8290,9 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput9writeLineERKNSt3__11
           to label %114 unwind label %123
 
 114:                                              ; preds = %112
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   br label %129
 
 115:                                              ; preds = %109
@@ -8318,15 +8320,15 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput9writeLineERKNSt3__11
   store ptr %125, ptr %12, align 8
   %126 = extractvalue { ptr, i32 } %124, 1
   store i32 %126, ptr %13, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   br label %127
 
 127:                                              ; preds = %123, %119
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   br label %128
 
 128:                                              ; preds = %127, %115
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   br label %182
 
 129:                                              ; preds = %114, %90
@@ -8367,7 +8369,7 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput9writeLineERKNSt3__11
           to label %149 unwind label %150
 
 149:                                              ; preds = %147
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   br label %154
 
 150:                                              ; preds = %147
@@ -8377,7 +8379,7 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput9writeLineERKNSt3__11
   store ptr %152, ptr %12, align 8
   %153 = extractvalue { ptr, i32 } %151, 1
   store i32 %153, ptr %13, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   br label %182
 
 154:                                              ; preds = %149, %142
@@ -8433,16 +8435,16 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput9writeLineERKNSt3__11
           to label %181 unwind label %80
 
 181:                                              ; preds = %179
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   ret void
 
 182:                                              ; preds = %150, %128, %84, %80
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
   br label %183
 
 183:                                              ; preds = %182, %44, %32
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   br label %184
 
 184:                                              ; preds = %183
@@ -8477,12 +8479,12 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput13writeProgressERKNSt
   %20 = sub nsw i32 %19, 18
   store i32 %20, ptr %11, align 4
   %21 = load ptr, ptr %8, align 8
-  %22 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5emptyB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #14
+  %22 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5emptyB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
   br i1 %22, label %30, label %23
 
 23:                                               ; preds = %5
   %24 = load ptr, ptr %8, align 8
-  %25 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
+  %25 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
   %26 = trunc i64 %25 to i32
   %27 = add nsw i32 3, %26
   %28 = load i32, ptr %11, align 4
@@ -8510,7 +8512,7 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput13writeProgressERKNSt
           to label %42 unwind label %43
 
 42:                                               ; preds = %30
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   ret void
 
 43:                                               ; preds = %30
@@ -8520,7 +8522,7 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutput13writeProgressERKNSt
   store ptr %45, ptr %15, align 8
   %46 = extractvalue { ptr, i32 } %44, 1
   store i32 %46, ptr %16, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   br label %47
 
 47:                                               ; preds = %43
@@ -8536,27 +8538,28 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutputD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4tlog13ConsoleOutputE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.tlog::ConsoleOutput", ptr %3, i32 0, i32 1
-  %5 = load i8, ptr %4, align 8
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %10
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4tlog13ConsoleOutputE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.tlog::ConsoleOutput", ptr %3, i32 0, i32 1
+  %6 = load i8, ptr %5, align 8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %1
-  %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostreamIT_T0_EES9_RKNS_12basic_stringIS6_S7_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZNSt3__14coutE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN4tlog4ansiL5RESETE)
-          to label %9 unwind label %11
+8:                                                ; preds = %1
+  %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostreamIT_T0_EES9_RKNS_12basic_stringIS6_S7_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZNSt3__14coutE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN4tlog4ansiL5RESETE)
+          to label %10 unwind label %12
 
-9:                                                ; preds = %7
-  br label %10
+10:                                               ; preds = %8
+  br label %11
 
-10:                                               ; preds = %9, %1
+11:                                               ; preds = %10, %1
   ret void
 
-11:                                               ; preds = %7
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %8
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #21
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
   unreachable
 }
 
@@ -8565,7 +8568,7 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutputD0Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN4tlog13ConsoleOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %3) #14
+  call void @_ZN4tlog13ConsoleOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %3) #13
   call void @_ZdlPv(ptr noundef %3) #19
   ret void
 }
@@ -8601,7 +8604,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEEC2B8ne190000ERNS_13basic_ostreamIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %17) #14
+  call void @_ZNSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEEC2B8ne190000ERNS_13basic_ostreamIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %17) #13
   %18 = load ptr, ptr %5, align 8
   %19 = load ptr, ptr %4, align 8
   %20 = load ptr, ptr %19, align 8
@@ -8653,7 +8656,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
 54:                                               ; preds = %50
   %55 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %10, i32 0, i32 0
   store ptr %53, ptr %55, align 8
-  %56 = call noundef zeroext i1 @_ZNKSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEE6failedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #14
+  %56 = call noundef zeroext i1 @_ZNKSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEE6failedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #13
   br i1 %56, label %57, label %83
 
 57:                                               ; preds = %54
@@ -8684,12 +8687,12 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   store ptr %70, ptr %8, align 8
   %71 = extractvalue { ptr, i32 } %69, 1
   store i32 %71, ptr %9, align 4
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   br label %72
 
 72:                                               ; preds = %68, %64
   %73 = load ptr, ptr %8, align 8
-  %74 = call ptr @__cxa_begin_catch(ptr %73) #14
+  %74 = call ptr @__cxa_begin_catch(ptr %73) #13
   %75 = load ptr, ptr %4, align 8
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr i8, ptr %76, i64 -24
@@ -8710,7 +8713,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   br label %84
 
 84:                                               ; preds = %83, %15
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   br label %81
 
 85:                                               ; preds = %72
@@ -8853,7 +8856,7 @@ define linkonce_odr hidden ptr @_ZNSt3__116__pad_and_outputB8ne190000IcNS_11char
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %65, i8 noundef signext %66)
   %67 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %8, i32 0, i32 0
   %68 = load ptr, ptr %67, align 8
-  %69 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
+  %69 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   %70 = load i64, ptr %15, align 8
   %71 = invoke noundef i64 @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl(ptr noundef nonnull align 8 dereferenceable(64) %68, ptr noundef %69, i64 noundef %70)
           to label %72 unwind label %77
@@ -8877,7 +8880,7 @@ define linkonce_odr hidden ptr @_ZNSt3__116__pad_and_outputB8ne190000IcNS_11char
   store ptr %79, ptr %18, align 8
   %80 = extractvalue { ptr, i32 } %78, 1
   store i32 %80, ptr %19, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   br label %110
 
 81:                                               ; preds = %72
@@ -8885,7 +8888,7 @@ define linkonce_odr hidden ptr @_ZNSt3__116__pad_and_outputB8ne190000IcNS_11char
   br label %82
 
 82:                                               ; preds = %81, %75
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   %83 = load i32, ptr %20, align 4
   switch i32 %83, label %115 [
     i32 0, label %84
@@ -8990,10 +8993,10 @@ define linkonce_odr hidden noundef signext i8 @_ZNKSt3__19basic_iosIcNS_11char_t
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i32 @_ZNSt3__111char_traitsIcE3eofB8ne190000Ev() #14
+  %4 = call noundef i32 @_ZNSt3__111char_traitsIcE3eofB8ne190000Ev() #13
   %5 = getelementptr inbounds %"class.std::__1::basic_ios", ptr %3, i32 0, i32 2
   %6 = load i32, ptr %5, align 8
-  %7 = call noundef zeroext i1 @_ZNSt3__111char_traitsIcE11eq_int_typeB8ne190000Eii(i32 noundef %4, i32 noundef %6) #14
+  %7 = call noundef zeroext i1 @_ZNSt3__111char_traitsIcE11eq_int_typeB8ne190000Eii(i32 noundef %4, i32 noundef %6) #13
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %1
@@ -9090,8 +9093,8 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__112basic_stringIcNS_11char_trait
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
-  %5 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_(ptr noundef %4) #14
+  %4 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
+  %5 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_(ptr noundef %4) #13
   ret ptr %5
 }
 
@@ -9171,7 +9174,7 @@ define linkonce_odr hidden noundef signext i8 @_ZNKSt3__19basic_iosIcNS_11char_t
           to label %13 unwind label %14
 
 13:                                               ; preds = %10
-  call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   ret i8 %12
 
 14:                                               ; preds = %10, %2
@@ -9181,7 +9184,7 @@ define linkonce_odr hidden noundef signext i8 @_ZNKSt3__19basic_iosIcNS_11char_t
   store ptr %16, ptr %6, align 8
   %17 = extractvalue { ptr, i32 } %15, 1
   store i32 %17, ptr %7, align 4
-  call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   br label %18
 
 18:                                               ; preds = %14
@@ -9252,7 +9255,7 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
           to label %7 unwind label %8
 
 7:                                                ; preds = %1
-  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0) #14
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0) #13
   ret void
 
 8:                                                ; preds = %1
@@ -9271,11 +9274,11 @@ define linkonce_odr dso_local void @_ZN4tlog11nowToStringERKNSt3__112basic_strin
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = call i64 @_ZNSt3__16chrono12system_clock3nowEv() #14
+  %7 = call i64 @_ZNSt3__16chrono12system_clock3nowEv() #13
   %8 = getelementptr inbounds %"class.std::__1::chrono::time_point", ptr %5, i32 0, i32 0
   %9 = getelementptr inbounds %"class.std::__1::chrono::duration", ptr %8, i32 0, i32 0
   store i64 %7, ptr %9, align 8
-  %10 = call noundef i64 @_ZNSt3__16chrono12system_clock9to_time_tERKNS0_10time_pointIS1_NS0_8durationIxNS_5ratioILl1ELl1000000EEEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %10 = call noundef i64 @_ZNSt3__16chrono12system_clock9to_time_tERKNS0_10time_pointIS1_NS0_8durationIxNS_5ratioILl1ELl1000000EEEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   call void @_ZN4tlog12timeToStringERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEl(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %10)
   ret void
 }
@@ -9351,7 +9354,7 @@ define linkonce_odr dso_local void @_ZN4tlog12padFromRightENSt3__112basic_string
   store i64 %2, ptr %7, align 8
   store i8 %3, ptr %8, align 1
   %9 = load i64, ptr %7, align 8
-  %10 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #14
+  %10 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #13
   %11 = icmp ugt i64 %9, %10
   br i1 %11, label %12, label %15
 
@@ -9362,7 +9365,7 @@ define linkonce_odr dso_local void @_ZN4tlog12padFromRightENSt3__112basic_string
   br label %15
 
 15:                                               ; preds = %12, %4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #13
   ret void
 }
 
@@ -9376,7 +9379,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__move_assignB8ne190000ERS5_NS_17integral_constantIbLb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__move_assignB8ne190000ERS5_NS_17integral_constantIbLb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   ret ptr %5
 }
 
@@ -9385,7 +9388,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11ch
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   %5 = icmp eq i64 %4, 0
   ret i1 %5
 }
@@ -9401,7 +9404,7 @@ define linkonce_odr hidden void @_ZNSt3__1plB8ne190000IcNS_11char_traitsIcEENS_9
   %7 = load ptr, ptr %5, align 8
   %8 = load ptr, ptr %6, align 8
   %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %8)
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   ret void
 }
 
@@ -9416,7 +9419,7 @@ define linkonce_odr hidden void @_ZNSt3__1plB8ne190000IcNS_11char_traitsIcEENS_9
   %7 = load ptr, ptr %5, align 8
   %8 = load ptr, ptr %6, align 8
   %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   ret void
 }
 
@@ -9434,8 +9437,8 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds %"class.std::__1::basic_string", ptr %10, i32 0, i32 0
   call void @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2B8ne190000INS_18__default_init_tagESA_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
-  %12 = call noundef ptr @_ZNKSt16initializer_listIcE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  %13 = call noundef ptr @_ZNKSt16initializer_listIcE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %12 = call noundef ptr @_ZNKSt16initializer_listIcE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  %13 = call noundef ptr @_ZNKSt16initializer_listIcE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initIPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEEvSA_SA_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %12, ptr noundef %13)
   ret void
 }
@@ -9455,46 +9458,46 @@ define linkonce_odr hidden void @_ZNSt3__1plB8ne190000IcNS_11char_traitsIcEENS_9
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %13 = load ptr, ptr %5, align 8
-  %14 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  %14 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   store i64 %14, ptr %7, align 8
   %15 = load ptr, ptr %6, align 8
-  %16 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  %16 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   store i64 %16, ptr %8, align 8
   store i1 false, ptr %9, align 1
   %17 = load i64, ptr %7, align 8
   %18 = load i64, ptr %8, align 8
   %19 = add i64 %17, %18
   %20 = load ptr, ptr %5, align 8
-  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13get_allocatorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #14
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13get_allocatorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
   call void @_ZNSt3__116allocator_traitsINS_9allocatorIcEEE37select_on_container_copy_constructionB8ne190000IS2_vTnNS_9enable_ifIXntsr43__has_select_on_container_copy_constructionIKT_EE5valueEiE4typeELi0EEES2_RKS2_(ptr noundef nonnull align 1 dereferenceable(1) %11)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %10)
-  %21 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
-  %22 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_(ptr noundef %21) #14
+  %21 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
+  %22 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_(ptr noundef %21) #13
   store ptr %22, ptr %12, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = load ptr, ptr %5, align 8
-  %25 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
+  %25 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
   %26 = load i64, ptr %7, align 8
-  %27 = call noundef ptr @_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm(ptr noundef %23, ptr noundef %25, i64 noundef %26) #14
+  %27 = call noundef ptr @_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm(ptr noundef %23, ptr noundef %25, i64 noundef %26) #13
   %28 = load ptr, ptr %12, align 8
   %29 = load i64, ptr %7, align 8
   %30 = getelementptr inbounds i8, ptr %28, i64 %29
   %31 = load ptr, ptr %6, align 8
-  %32 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #14
+  %32 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
   %33 = load i64, ptr %8, align 8
-  %34 = call noundef ptr @_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm(ptr noundef %30, ptr noundef %32, i64 noundef %33) #14
+  %34 = call noundef ptr @_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm(ptr noundef %30, ptr noundef %32, i64 noundef %33) #13
   %35 = load ptr, ptr %12, align 8
   %36 = load i64, ptr %7, align 8
   %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %38 = load i64, ptr %8, align 8
   %39 = getelementptr inbounds i8, ptr %37, i64 %38
-  %40 = call noundef ptr @_ZNSt3__111char_traitsIcE6assignB8ne190000EPcmc(ptr noundef %39, i64 noundef 1, i8 noundef signext 0) #14
+  %40 = call noundef ptr @_ZNSt3__111char_traitsIcE6assignB8ne190000EPcmc(ptr noundef %39, i64 noundef 1, i8 noundef signext 0) #13
   store i1 true, ptr %9, align 1
   %41 = load i1, ptr %9, align 1
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %3
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   br label %43
 
 43:                                               ; preds = %42, %3
@@ -9572,14 +9575,14 @@ define linkonce_odr dso_local void @_ZN4tlog12timeToStringERKNSt3__112basic_stri
   store i64 %2, ptr %6, align 8
   %10 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 0
   %11 = load ptr, ptr %5, align 8
-  %12 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5c_strB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
-  %13 = call ptr @localtime(ptr noundef %6) #14
-  %14 = call i64 @strftime(ptr noundef %10, i64 noundef 128, ptr noundef %12, ptr noundef %13) #14
+  %12 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5c_strB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
+  %13 = call ptr @localtime(ptr noundef %6) #13
+  %14 = call i64 @strftime(ptr noundef %10, i64 noundef 128, ptr noundef %12, ptr noundef %13) #13
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %3
-  %17 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %17 = call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef @.str.34)
           to label %18 unwind label %19
 
@@ -9594,7 +9597,7 @@ define linkonce_odr dso_local void @_ZN4tlog12timeToStringERKNSt3__112basic_stri
   store ptr %21, ptr %8, align 8
   %22 = extractvalue { ptr, i32 } %20, 1
   store i32 %22, ptr %9, align 4
-  call void @__cxa_free_exception(ptr %17) #14
+  call void @__cxa_free_exception(ptr %17) #13
   br label %25
 
 23:                                               ; preds = %3
@@ -9624,7 +9627,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_trai
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret ptr %4
 }
 
@@ -9644,9 +9647,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  %7 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   %8 = load ptr, ptr %4, align 8
-  %9 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  %9 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %7, i64 noundef %9)
   ret ptr %10
 }
@@ -9674,16 +9677,16 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
   call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 24, i1 false)
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"class.std::__1::basic_string", ptr %12, i32 0, i32 0
-  %14 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  %14 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %6, i64 24, i1 false)
   %15 = load ptr, ptr %4, align 8
-  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 0) #14
-  %16 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 0) #13
+  %16 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %11
-  %18 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
-  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %18) #14
+  %18 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %18) #13
   br label %19
 
 19:                                               ; preds = %17, %11
@@ -9704,12 +9707,12 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZZN
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %6 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %4, align 8
-  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__annotate_deleteB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__annotate_deleteB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   br label %9
 
 9:                                                ; preds = %7, %2
@@ -9735,41 +9738,41 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
-  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__annotate_deleteB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
-  %9 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__annotate_deleteB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
+  %9 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %2
-  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
-  %12 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
-  %13 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__get_long_capB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
-  call void @_ZNSt3__116allocator_traitsINS_9allocatorIcEEE10deallocateB8ne190000ERS2_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13) #14
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
+  %12 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
+  %13 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__get_long_capB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
+  call void @_ZNSt3__116allocator_traitsINS_9allocatorIcEEE10deallocateB8ne190000ERS2_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13) #13
   br label %14
 
 14:                                               ; preds = %10, %2
   %15 = load ptr, ptr %4, align 8
-  %16 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  %16 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   store i64 %16, ptr %5, align 8
   %17 = load ptr, ptr %4, align 8
-  %18 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
+  %18 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   %19 = xor i1 %18, true
   %20 = zext i1 %19 to i8
   store i8 %20, ptr %6, align 1
   %21 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__move_assign_allocB8ne190000ERS5_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %21) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__move_assign_allocB8ne190000ERS5_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %21) #13
   %22 = load ptr, ptr %4, align 8
   %23 = getelementptr inbounds %"class.std::__1::basic_string", ptr %22, i32 0, i32 0
-  %24 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
+  %24 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
   %25 = getelementptr inbounds %"class.std::__1::basic_string", ptr %8, i32 0, i32 0
-  %26 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
+  %26 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #13
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %24, i64 24, i1 false)
   %27 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__set_short_sizeB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef 0) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__set_short_sizeB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef 0) #13
   %28 = load ptr, ptr %4, align 8
-  %29 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #14
+  %29 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #13
   %30 = getelementptr inbounds i8, ptr %29, i64 0
   store i8 0, ptr %7, align 1
-  call void @_ZNSt3__111char_traitsIcE6assignB8ne190000ERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSt3__111char_traitsIcE6assignB8ne190000ERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   %31 = load i8, ptr %6, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %39
@@ -9782,16 +9785,16 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
 36:                                               ; preds = %33
   %37 = load ptr, ptr %4, align 8
   %38 = load i64, ptr %5, align 8
-  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__annotate_shrinkB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %38) #14
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__annotate_shrinkB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %38) #13
   br label %41
 
 39:                                               ; preds = %33, %14
   %40 = load ptr, ptr %4, align 8
-  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef 0) #14
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef 0) #13
   br label %41
 
 41:                                               ; preds = %39, %36
-  %42 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  %42 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   br i1 %42, label %48, label %43
 
 43:                                               ; preds = %41
@@ -9800,8 +9803,8 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %43
-  %47 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__get_short_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
-  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %47) #14
+  %47 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__get_short_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %47) #13
   br label %48
 
 48:                                               ; preds = %46, %43, %41
@@ -9819,7 +9822,7 @@ define linkonce_odr hidden void @_ZNSt3__116allocator_traitsINS_9allocatorIcEEE1
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
-  call void @_ZNSt3__19allocatorIcE10deallocateB8ne190000EPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #14
+  call void @_ZNSt3__19allocatorIcE10deallocateB8ne190000EPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #13
   ret void
 }
 
@@ -9829,7 +9832,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trai
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
   %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__long", ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
@@ -9846,7 +9849,7 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__move_assign_allocB8ne190000ERS5_NS_17integral_constantIbLb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__move_assign_allocB8ne190000ERS5_NS_17integral_constantIbLb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   ret void
 }
 
@@ -9907,7 +9910,7 @@ define linkonce_odr hidden void @_ZNSt3__119__libcpp_deallocateB8ne190000EPvmm(p
   store i64 %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
   %8 = load i64, ptr %6, align 8
-  %9 = call noundef zeroext i1 @_ZNSt3__124__is_overaligned_for_newB8ne190000Em(i64 noundef %8) #14
+  %9 = call noundef zeroext i1 @_ZNSt3__124__is_overaligned_for_newB8ne190000Em(i64 noundef %8) #13
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %3
@@ -9986,8 +9989,8 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   ret void
 }
 
@@ -10064,7 +10067,7 @@ define linkonce_odr dso_local void @_ZNSt3__112basic_stringIcNS_11char_traitsIcE
   store i64 %3, ptr %8, align 8
   %12 = load ptr, ptr %5, align 8
   %13 = load i64, ptr %8, align 8
-  %14 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE8max_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  %14 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE8max_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   %15 = icmp ugt i64 %13, %14
   br i1 %15, label %16, label %17
 
@@ -10079,15 +10082,15 @@ define linkonce_odr dso_local void @_ZNSt3__112basic_stringIcNS_11char_traitsIcE
 
 20:                                               ; preds = %17
   %21 = load i64, ptr %8, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__set_short_sizeB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %21) #14
-  %22 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__set_short_sizeB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %21) #13
+  %22 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   store ptr %22, ptr %9, align 8
   br label %42
 
 23:                                               ; preds = %17
-  %24 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  %24 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   %25 = load i64, ptr %8, align 8
-  %26 = call noundef i64 @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE11__recommendB8ne190000Em(i64 noundef %25) #14
+  %26 = call noundef i64 @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE11__recommendB8ne190000Em(i64 noundef %25) #13
   %27 = add i64 %26, 1
   %28 = call { ptr, i64 } @_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIcEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m(ptr noundef nonnull align 1 dereferenceable(1) %24, i64 noundef %27)
   %29 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
@@ -10104,12 +10107,12 @@ define linkonce_odr dso_local void @_ZNSt3__112basic_stringIcNS_11char_traitsIcE
   %37 = load i64, ptr %36, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__begin_lifetimeB8ne190000EPcm(ptr noundef %35, i64 noundef %37)
   %38 = load ptr, ptr %9, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__set_long_pointerB8ne190000EPc(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %38) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__set_long_pointerB8ne190000EPc(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %38) #13
   %39 = getelementptr inbounds %"struct.std::__1::__allocation_result", ptr %10, i32 0, i32 1
   %40 = load i64, ptr %39, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__set_long_capB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %40) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__set_long_capB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %40) #13
   %41 = load i64, ptr %8, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE15__set_long_sizeB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %41) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE15__set_long_sizeB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %41) #13
   br label %42
 
 42:                                               ; preds = %23, %20
@@ -10124,7 +10127,7 @@ define linkonce_odr dso_local void @_ZNSt3__112basic_stringIcNS_11char_traitsIcE
 47:                                               ; preds = %43
   %48 = load ptr, ptr %9, align 8
   %49 = load ptr, ptr %6, align 8
-  call void @_ZNSt3__111char_traitsIcE6assignB8ne190000ERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %48, ptr noundef nonnull align 1 dereferenceable(1) %49) #14
+  call void @_ZNSt3__111char_traitsIcE6assignB8ne190000ERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %48, ptr noundef nonnull align 1 dereferenceable(1) %49) #13
   br label %50
 
 50:                                               ; preds = %47
@@ -10139,9 +10142,9 @@ define linkonce_odr dso_local void @_ZNSt3__112basic_stringIcNS_11char_traitsIcE
 55:                                               ; preds = %43
   %56 = load ptr, ptr %9, align 8
   store i8 0, ptr %11, align 1
-  call void @_ZNSt3__111char_traitsIcE6assignB8ne190000ERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %56, ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  call void @_ZNSt3__111char_traitsIcE6assignB8ne190000ERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %56, ptr noundef nonnull align 1 dereferenceable(1) %11) #13
   %57 = load i64, ptr %8, align 8
-  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %57) #14
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %57) #13
   ret void
 }
 
@@ -10185,7 +10188,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostream
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4tlog13ConsoleOutput12consoleWidthEv() #1 comdat align 2 {
   %1 = alloca %struct.winsize, align 2
-  %2 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef %1) #14
+  %2 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef %1) #13
   %3 = getelementptr inbounds %struct.winsize, ptr %1, i32 0, i32 1
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
@@ -10257,7 +10260,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
   br i1 %48, label %49, label %56
 
 49:                                               ; preds = %5
-  %50 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %50 = call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt16invalid_argumentC2B8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef @.str.51)
           to label %51 unwind label %52
 
@@ -10272,7 +10275,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
   store ptr %54, ptr %11, align 8
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %50) #14
+  call void @__cxa_free_exception(ptr %50) #13
   br label %260
 
 56:                                               ; preds = %5
@@ -10282,7 +10285,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
   br i1 %59, label %60, label %67
 
 60:                                               ; preds = %56
-  %61 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %61 = call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt16invalid_argumentC2B8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef @.str.52)
           to label %62 unwind label %63
 
@@ -10297,7 +10300,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
   store ptr %65, ptr %11, align 8
   %66 = extractvalue { ptr, i32 } %64, 1
   store i32 %66, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %61) #14
+  call void @__cxa_free_exception(ptr %61) #13
   br label %260
 
 67:                                               ; preds = %56
@@ -10322,8 +10325,8 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
           to label %79 unwind label %99
 
 79:                                               ; preds = %78
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   %80 = load i64, ptr %9, align 8
   invoke void @_ZNSt3__19to_stringEm(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %18, i64 noundef %80)
           to label %81 unwind label %104
@@ -10342,17 +10345,17 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
           to label %85 unwind label %116
 
 85:                                               ; preds = %84
-  %86 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  %86 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   %87 = mul i64 %86, 2
   %88 = add i64 %87, 1
   invoke void @_ZN4tlog11padFromLeftENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEmc(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %19, ptr noundef %20, i64 noundef %88, i8 noundef signext 32)
           to label %89 unwind label %120
 
 89:                                               ; preds = %85
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
   %90 = load i64, ptr %8, align 8
   %91 = icmp eq i64 %90, 0
   br i1 %91, label %92, label %130
@@ -10380,11 +10383,11 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
   store ptr %101, ptr %11, align 8
   %102 = extractvalue { ptr, i32 } %100, 1
   store i32 %102, ptr %12, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   br label %103
 
 103:                                              ; preds = %99, %95
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   br label %260
 
 104:                                              ; preds = %79
@@ -10430,15 +10433,15 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
   store ptr %122, ptr %11, align 8
   %123 = extractvalue { ptr, i32 } %121, 1
   store i32 %123, ptr %12, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
   br label %124
 
 124:                                              ; preds = %120, %116
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
   br label %125
 
 125:                                              ; preds = %124, %112
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   br label %258
 
 126:                                              ; preds = %140, %134, %130, %92
@@ -10467,8 +10470,8 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
           to label %138 unwind label %126
 
 138:                                              ; preds = %134
-  %139 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %26) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #14
+  %139 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %26) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #13
   br label %140
 
 140:                                              ; preds = %138, %94
@@ -10487,16 +10490,16 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
           to label %145 unwind label %190
 
 145:                                              ; preds = %144
-  %146 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
+  %146 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
   %147 = mul i64 %146, 2
   %148 = add i64 %147, 1
   invoke void @_ZN4tlog11padFromLeftENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEmc(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %28, ptr noundef %29, i64 noundef %148, i8 noundef signext 32)
           to label %149 unwind label %194
 
 149:                                              ; preds = %145
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
   invoke void @_ZNSt3__1plB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12basic_stringIT_T0_T1_EERKS9_PKS6_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %36, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef @.str.56)
           to label %150 unwind label %200
 
@@ -10513,14 +10516,14 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
           to label %153 unwind label %212
 
 153:                                              ; preds = %152
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
   store i32 0, ptr %38, align 4
   %154 = load i32, ptr %10, align 4
   %155 = sub nsw i32 %154, 2
   %156 = sub nsw i32 %155, 1
-  %157 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #14
+  %157 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #13
   %158 = trunc i64 %157 to i32
   %159 = sub nsw i32 %156, %158
   store i32 %159, ptr %39, align 4
@@ -10560,7 +10563,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
 179:                                              ; preds = %175
   %180 = load i32, ptr %42, align 4
   %181 = sext i32 %180 to i64
-  %182 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %181) #14
+  %182 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %181) #13
   store i8 61, ptr %182, align 1
   br label %183
 
@@ -10595,15 +10598,15 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
   store ptr %196, ptr %11, align 8
   %197 = extractvalue { ptr, i32 } %195, 1
   store i32 %197, ptr %12, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
   br label %198
 
 198:                                              ; preds = %194, %190
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #13
   br label %199
 
 199:                                              ; preds = %198, %186
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
   br label %257
 
 200:                                              ; preds = %149
@@ -10640,15 +10643,15 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
   store ptr %214, ptr %11, align 8
   %215 = extractvalue { ptr, i32 } %213, 1
   store i32 %215, ptr %12, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
   br label %216
 
 216:                                              ; preds = %212, %208
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #13
   br label %217
 
 217:                                              ; preds = %216, %204
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
   br label %256
 
 218:                                              ; preds = %161, %153
@@ -10669,7 +10672,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
 226:                                              ; preds = %222
   %227 = load i32, ptr %40, align 4
   %228 = sext i32 %227 to i64
-  %229 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %228) #14
+  %229 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %228) #13
   store i8 62, ptr %229, align 1
   br label %230
 
@@ -10693,16 +10696,16 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
           to label %235 unwind label %248
 
 235:                                              ; preds = %234
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   ret void
 
 236:                                              ; preds = %231
@@ -10739,40 +10742,40 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
   store ptr %250, ptr %11, align 8
   %251 = extractvalue { ptr, i32 } %249, 1
   store i32 %251, ptr %12, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #13
   br label %252
 
 252:                                              ; preds = %248, %244
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #13
   br label %253
 
 253:                                              ; preds = %252, %240
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #13
   br label %254
 
 254:                                              ; preds = %253, %236
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #13
   br label %255
 
 255:                                              ; preds = %254, %218
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #13
   br label %256
 
 256:                                              ; preds = %255, %217, %200
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #13
   br label %257
 
 257:                                              ; preds = %256, %199, %126
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   br label %258
 
 258:                                              ; preds = %257, %125, %108
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   br label %259
 
 259:                                              ; preds = %258, %104
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   br label %260
 
 260:                                              ; preds = %259, %103, %63, %52
@@ -10836,7 +10839,8 @@ define linkonce_odr hidden void @_ZNSt16invalid_argumentC2B8ne190000EPKc(ptr nou
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt16invalid_argument, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt16invalid_argument, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -10844,7 +10848,7 @@ define linkonce_odr hidden void @_ZNSt16invalid_argumentC2B8ne190000EPKc(ptr nou
 declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.round.f64(double) #15
+declare double @llvm.round.f64(double) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4tlog11padFromLeftENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEmc(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef %1, i64 noundef %2, i8 noundef signext %3) #4 comdat {
@@ -10857,20 +10861,20 @@ define linkonce_odr dso_local void @_ZN4tlog11padFromLeftENSt3__112basic_stringI
   store i64 %2, ptr %7, align 8
   store i8 %3, ptr %8, align 1
   %9 = load i64, ptr %7, align 8
-  %10 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #14
+  %10 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #13
   %11 = icmp ugt i64 %9, %10
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %4
   %13 = load i64, ptr %7, align 8
-  %14 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #14
+  %14 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #13
   %15 = sub i64 %13, %14
   %16 = load i8, ptr %8, align 1
   %17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6insertEmmc(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 0, i64 noundef %15, i8 noundef signext %16)
   br label %18
 
 18:                                               ; preds = %12, %4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #13
   ret void
 }
 
@@ -11045,19 +11049,19 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
           to label %76 unwind label %125
 
 76:                                               ; preds = %75
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   br label %246
 
 77:                                               ; preds = %56
@@ -11175,55 +11179,55 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
   store ptr %127, ptr %19, align 8
   %128 = extractvalue { ptr, i32 } %126, 1
   store i32 %128, ptr %20, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   br label %129
 
 129:                                              ; preds = %125, %121
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #13
   br label %130
 
 130:                                              ; preds = %129, %117
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #13
   br label %131
 
 131:                                              ; preds = %130, %113
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   br label %132
 
 132:                                              ; preds = %131, %109
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
   br label %133
 
 133:                                              ; preds = %132, %105
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
   br label %134
 
 134:                                              ; preds = %133, %101
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
   br label %135
 
 135:                                              ; preds = %134, %97
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   br label %136
 
 136:                                              ; preds = %135, %93
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   br label %137
 
 137:                                              ; preds = %136, %89
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
   br label %138
 
 138:                                              ; preds = %137, %85
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   br label %139
 
 139:                                              ; preds = %138, %81
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   br label %140
 
 140:                                              ; preds = %139, %77
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   br label %247
 
 141:                                              ; preds = %2
@@ -11278,15 +11282,15 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
           to label %158 unwind label %191
 
 158:                                              ; preds = %157
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
   br label %246
 
 159:                                              ; preds = %144
@@ -11368,39 +11372,39 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
   store ptr %193, ptr %19, align 8
   %194 = extractvalue { ptr, i32 } %192, 1
   store i32 %194, ptr %20, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
   br label %195
 
 195:                                              ; preds = %191, %187
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
   br label %196
 
 196:                                              ; preds = %195, %183
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #13
   br label %197
 
 197:                                              ; preds = %196, %179
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #13
   br label %198
 
 198:                                              ; preds = %197, %175
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
   br label %199
 
 199:                                              ; preds = %198, %171
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #13
   br label %200
 
 200:                                              ; preds = %199, %167
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #13
   br label %201
 
 201:                                              ; preds = %200, %163
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #13
   br label %202
 
 202:                                              ; preds = %201, %159
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
   br label %247
 
 203:                                              ; preds = %141
@@ -11435,11 +11439,11 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
           to label %214 unwind label %231
 
 214:                                              ; preds = %213
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #13
   br label %246
 
 215:                                              ; preds = %206
@@ -11485,23 +11489,23 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
   store ptr %233, ptr %19, align 8
   %234 = extractvalue { ptr, i32 } %232, 1
   store i32 %234, ptr %20, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
   br label %235
 
 235:                                              ; preds = %231, %227
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #13
   br label %236
 
 236:                                              ; preds = %235, %223
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #13
   br label %237
 
 237:                                              ; preds = %236, %219
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #13
   br label %238
 
 238:                                              ; preds = %237, %215
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #13
   br label %247
 
 239:                                              ; preds = %203
@@ -11511,7 +11515,7 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
           to label %241 unwind label %242
 
 241:                                              ; preds = %239
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #13
   br label %246
 
 242:                                              ; preds = %239
@@ -11521,7 +11525,7 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
   store ptr %244, ptr %19, align 8
   %245 = extractvalue { ptr, i32 } %243, 1
   store i32 %245, ptr %20, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #13
   br label %247
 
 246:                                              ; preds = %241, %214, %158, %76
@@ -11659,19 +11663,19 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
           to label %73 unwind label %122
 
 73:                                               ; preds = %72
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   br label %240
 
 74:                                               ; preds = %56
@@ -11789,55 +11793,55 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
   store ptr %124, ptr %19, align 8
   %125 = extractvalue { ptr, i32 } %123, 1
   store i32 %125, ptr %20, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   br label %126
 
 126:                                              ; preds = %122, %118
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #13
   br label %127
 
 127:                                              ; preds = %126, %114
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #13
   br label %128
 
 128:                                              ; preds = %127, %110
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   br label %129
 
 129:                                              ; preds = %128, %106
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
   br label %130
 
 130:                                              ; preds = %129, %102
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
   br label %131
 
 131:                                              ; preds = %130, %98
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
   br label %132
 
 132:                                              ; preds = %131, %94
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   br label %133
 
 133:                                              ; preds = %132, %90
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   br label %134
 
 134:                                              ; preds = %133, %86
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
   br label %135
 
 135:                                              ; preds = %134, %82
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   br label %136
 
 136:                                              ; preds = %135, %78
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   br label %137
 
 137:                                              ; preds = %136, %74
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   br label %241
 
 138:                                              ; preds = %2
@@ -11886,15 +11890,15 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
           to label %153 unwind label %186
 
 153:                                              ; preds = %152
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
   br label %240
 
 154:                                              ; preds = %141
@@ -11976,39 +11980,39 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
   store ptr %188, ptr %19, align 8
   %189 = extractvalue { ptr, i32 } %187, 1
   store i32 %189, ptr %20, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
   br label %190
 
 190:                                              ; preds = %186, %182
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
   br label %191
 
 191:                                              ; preds = %190, %178
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #13
   br label %192
 
 192:                                              ; preds = %191, %174
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #13
   br label %193
 
 193:                                              ; preds = %192, %170
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
   br label %194
 
 194:                                              ; preds = %193, %166
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #13
   br label %195
 
 195:                                              ; preds = %194, %162
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #13
   br label %196
 
 196:                                              ; preds = %195, %158
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #13
   br label %197
 
 197:                                              ; preds = %196, %154
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
   br label %241
 
 198:                                              ; preds = %138
@@ -12040,11 +12044,11 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
           to label %208 unwind label %225
 
 208:                                              ; preds = %207
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #13
   br label %240
 
 209:                                              ; preds = %201
@@ -12090,23 +12094,23 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
   store ptr %227, ptr %19, align 8
   %228 = extractvalue { ptr, i32 } %226, 1
   store i32 %228, ptr %20, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
   br label %229
 
 229:                                              ; preds = %225, %221
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #13
   br label %230
 
 230:                                              ; preds = %229, %217
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #13
   br label %231
 
 231:                                              ; preds = %230, %213
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #13
   br label %232
 
 232:                                              ; preds = %231, %209
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #13
   br label %241
 
 233:                                              ; preds = %198
@@ -12116,7 +12120,7 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
           to label %235 unwind label %236
 
 235:                                              ; preds = %233
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #13
   br label %240
 
 236:                                              ; preds = %233
@@ -12126,7 +12130,7 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
   store ptr %238, ptr %19, align 8
   %239 = extractvalue { ptr, i32 } %237, 1
   store i32 %239, ptr %20, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #13
   br label %241
 
 240:                                              ; preds = %235, %208, %153, %73
@@ -12158,14 +12162,14 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
-  %13 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  %13 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   %14 = load i64, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 %14
   store ptr %15, ptr %3, align 8
   br label %20
 
 16:                                               ; preds = %9, %2
-  %17 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  %17 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   %18 = load i64, ptr %5, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
   store ptr %19, ptr %3, align 8
@@ -12417,7 +12421,7 @@ define linkonce_odr hidden void @_ZNSt3__1plB8ne190000IcNS_11char_traitsIcEENS_9
   %8 = load i8, ptr %6, align 1
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 noundef signext %8)
   %9 = load ptr, ptr %5, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   ret void
 }
 
@@ -12432,7 +12436,7 @@ define linkonce_odr hidden void @_ZNSt3__1plB8ne190000IcNS_11char_traitsIcEENS_9
   %7 = load ptr, ptr %5, align 8
   %8 = load ptr, ptr %6, align 8
   %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   ret void
 }
 
@@ -13020,7 +13024,7 @@ define linkonce_odr hidden i64 @_ZNKSt3__16chrono15__duration_castINS0_8duration
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #16
+declare i1 @llvm.is.constant.i64(i64) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_14default_deleteIS2_EEEC2B8ne190000ILb1EvEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13050,7 +13054,7 @@ define linkonce_odr hidden void @_ZNSt3__19allocatorIN4tlog13ConsoleOutputEEC2B8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIN4tlog13ConsoleOutputEEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIN4tlog13ConsoleOutputEEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -13066,35 +13070,36 @@ define linkonce_odr hidden void @_ZNSt3__120__shared_ptr_pointerIPN4tlog13Consol
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  call void @_ZNSt3__119__shared_weak_countC2B8ne190000El(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef 0) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVNSt3__120__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EENS_9allocatorIS2_EEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::__1::__shared_ptr_pointer", ptr %10, i32 0, i32 1
+  call void @_ZNSt3__119__shared_weak_countC2B8ne190000El(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef 0) #13
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVNSt3__120__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EENS_9allocatorIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.std::__1::__shared_ptr_pointer", ptr %10, i32 0, i32 1
   invoke void @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEC2B8ne190000IRS3_S7_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %12 unwind label %14
+          to label %13 unwind label %15
 
-12:                                               ; preds = %2
-  invoke void @_ZNSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEEC2B8ne190000IS8_SA_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %13 unwind label %14
+13:                                               ; preds = %2
+  invoke void @_ZNSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEEC2B8ne190000IS8_SA_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+          to label %14 unwind label %15
 
-13:                                               ; preds = %12
+14:                                               ; preds = %13
   ret void
 
-14:                                               ; preds = %12, %2
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %13, %2
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %8, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %9, align 4
-  call void @_ZNSt3__119__shared_weak_countD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
-  br label %18
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %8, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %9, align 4
+  call void @_ZNSt3__119__shared_weak_countD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
+  br label %19
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %8, align 8
-  %20 = load i32, ptr %9, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %8, align 8
+  %21 = load i32, ptr %9, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13104,11 +13109,11 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__110unique_ptrIN4tlog13ConsoleOut
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds %"class.std::__1::unique_ptr.86", ptr %4, i32 0, i32 0
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_14default_deleteIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_14default_deleteIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %3, align 8
   %8 = getelementptr inbounds %"class.std::__1::unique_ptr.86", ptr %4, i32 0, i32 0
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_14default_deleteIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #14
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_14default_deleteIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
   store ptr null, ptr %9, align 8
   %10 = load ptr, ptr %3, align 8
   ret ptr %10
@@ -13126,7 +13131,7 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_14default_deleteIS2_EEE5resetB8ne190000EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null) #14
+  call void @_ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_14default_deleteIS2_EEE5resetB8ne190000EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null) #13
   ret void
 }
 
@@ -13181,11 +13186,12 @@ define linkonce_odr hidden void @_ZNSt3__119__shared_weak_countC2B8ne190000El(pt
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
-  call void @_ZNSt3__114__shared_countC2B8ne190000El(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %6) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVNSt3__119__shared_weak_countE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.std::__1::__shared_weak_count", ptr %5, i32 0, i32 1
-  %8 = load i64, ptr %4, align 8
-  store i64 %8, ptr %7, align 8
+  call void @_ZNSt3__114__shared_countC2B8ne190000El(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %6) #13
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVNSt3__119__shared_weak_countE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.std::__1::__shared_weak_count", ptr %5, i32 0, i32 1
+  %9 = load i64, ptr %4, align 8
+  store i64 %9, ptr %8, align 8
   ret void
 }
 
@@ -13229,7 +13235,7 @@ define linkonce_odr dso_local void @_ZNSt3__120__shared_ptr_pointerIPN4tlog13Con
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__119__shared_weak_countD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZNSt3__119__shared_weak_countD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 }
 
@@ -13238,7 +13244,7 @@ define linkonce_odr dso_local void @_ZNSt3__120__shared_ptr_pointerIPN4tlog13Con
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__120__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EENS_9allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
+  call void @_ZNSt3__120__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EENS_9allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   call void @_ZdlPv(ptr noundef %3) #19
   ret void
 }
@@ -13249,16 +13255,16 @@ define linkonce_odr hidden void @_ZNSt3__120__shared_ptr_pointerIPN4tlog13Consol
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__shared_ptr_pointer", ptr %3, i32 0, i32 1
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
-  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   %7 = getelementptr inbounds %"class.std::__1::__shared_ptr_pointer", ptr %3, i32 0, i32 1
-  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #14
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
   %10 = load ptr, ptr %9, align 8
-  call void @_ZNKSt3__114default_deleteIN4tlog13ConsoleOutputEEclB8ne190000EPS2_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %10) #14
+  call void @_ZNKSt3__114default_deleteIN4tlog13ConsoleOutputEEclB8ne190000EPS2_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %10) #13
   %11 = getelementptr inbounds %"class.std::__1::__shared_ptr_pointer", ptr %3, i32 0, i32 1
-  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #14
-  %13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #14
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  %13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #13
   ret void
 }
 
@@ -13270,13 +13276,13 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__120__shared_ptr_pointerIPN4tlog
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = call noundef zeroext i1 @_ZNKSt9type_infoeqB8ne190000ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) @_ZTINSt3__110shared_ptrIN4tlog13ConsoleOutputEE27__shared_ptr_default_deleteIS2_S2_EE) #14
+  %7 = call noundef zeroext i1 @_ZNKSt9type_infoeqB8ne190000ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) @_ZTINSt3__110shared_ptrIN4tlog13ConsoleOutputEE27__shared_ptr_default_deleteIS2_S2_EE) #13
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds %"class.std::__1::__shared_ptr_pointer", ptr %5, i32 0, i32 1
-  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #14
-  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #14
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #13
   br label %13
 
 12:                                               ; preds = %2
@@ -13294,12 +13300,12 @@ define linkonce_odr hidden void @_ZNSt3__120__shared_ptr_pointerIPN4tlog13Consol
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds %"class.std::__1::__shared_ptr_pointer", ptr %4, i32 0, i32 1
-  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
-  call void @_ZNSt3__19allocatorINS_20__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS3_E27__shared_ptr_default_deleteIS3_S3_EENS0_IS3_EEEEEC2B8ne190000IS3_EERKNS0_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  call void @_ZNSt3__19allocatorINS_20__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS3_E27__shared_ptr_default_deleteIS3_S3_EENS0_IS3_EEEEEC2B8ne190000IS3_EERKNS0_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %6) #13
   %7 = getelementptr inbounds %"class.std::__1::__shared_ptr_pointer", ptr %4, i32 0, i32 1
-  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
-  %9 = call noundef ptr @_ZNSt3__114pointer_traitsIPNS_20__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS3_E27__shared_ptr_default_deleteIS3_S3_EENS_9allocatorIS3_EEEEE10pointer_toB8ne190000ERSB_(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
-  call void @_ZNSt3__19allocatorINS_20__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS3_E27__shared_ptr_default_deleteIS3_S3_EENS0_IS3_EEEEE10deallocateB8ne190000EPSA_m(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %9, i64 noundef 1) #14
+  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  %9 = call noundef ptr @_ZNSt3__114pointer_traitsIPNS_20__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS3_E27__shared_ptr_default_deleteIS3_S3_EENS_9allocatorIS3_EEEEE10pointer_toB8ne190000ERSB_(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  call void @_ZNSt3__19allocatorINS_20__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS3_E27__shared_ptr_default_deleteIS3_S3_EENS0_IS3_EEEEE10deallocateB8ne190000EPSA_m(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %9, i64 noundef 1) #13
   ret void
 }
 
@@ -13310,10 +13316,11 @@ define linkonce_odr hidden void @_ZNSt3__114__shared_countC2B8ne190000El(ptr nou
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt3__114__shared_countE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::__1::__shared_count", ptr %5, i32 0, i32 1
-  %7 = load i64, ptr %4, align 8
-  store i64 %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt3__114__shared_countE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::__1::__shared_count", ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %4, align 8
+  store i64 %8, ptr %7, align 8
   ret void
 }
 
@@ -13353,7 +13360,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemINS_17__compressed_pairIPN4tlog13ConsoleOutputENS_10shared_ptrIS3_E27__shared_ptr_default_deleteIS3_S3_EEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemINS_17__compressed_pairIPN4tlog13ConsoleOutputENS_10shared_ptrIS3_E27__shared_ptr_default_deleteIS3_S3_EEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -13362,7 +13369,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_10shared_ptrIN4tlog13ConsoleOutputEE27__shared_ptr_default_deleteIS3_S3_EELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_10shared_ptrIN4tlog13ConsoleOutputEE27__shared_ptr_default_deleteIS3_S3_EELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -13380,7 +13387,7 @@ define linkonce_odr hidden void @_ZNKSt3__114default_deleteIN4tlog13ConsoleOutpu
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(9) %5) #14
+  call void %10(ptr noundef nonnull align 8 dereferenceable(9) %5) #13
   br label %11
 
 11:                                               ; preds = %7, %2
@@ -13392,7 +13399,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemIPN4tlog13ConsoleOutputELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemIPN4tlog13ConsoleOutputELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -13449,7 +13456,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemINS_17__compressed_pairIPN4tlog13ConsoleOutputENS_10shared_ptrIS3_E27__shared_ptr_default_deleteIS3_S3_EEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemINS_17__compressed_pairIPN4tlog13ConsoleOutputENS_10shared_ptrIS3_E27__shared_ptr_default_deleteIS3_S3_EEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -13458,7 +13465,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__122__compressed_pair_elemINS_10shared_ptrIN4tlog13ConsoleOutputEE27__shared_ptr_default_deleteIS3_S3_EELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__122__compressed_pair_elemINS_10shared_ptrIN4tlog13ConsoleOutputEE27__shared_ptr_default_deleteIS3_S3_EELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -13484,7 +13491,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_9allocatorIN4tlog13ConsoleOutputEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_9allocatorIN4tlog13ConsoleOutputEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -13495,7 +13502,7 @@ define linkonce_odr dso_local void @_ZNSt3__19allocatorINS_20__shared_ptr_pointe
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorINS_20__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS4_E27__shared_ptr_default_deleteIS4_S4_EENS1_IS4_EEEEEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorINS_20__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS4_E27__shared_ptr_default_deleteIS4_S4_EENS1_IS4_EEEEEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   ret void
 }
 
@@ -13552,7 +13559,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemIPN4tlog13ConsoleOutputELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemIPN4tlog13ConsoleOutputELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -13565,12 +13572,12 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds %"class.std::__1::unique_ptr.86", ptr %6, i32 0, i32 0
-  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_14default_deleteIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_14default_deleteIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %5, align 8
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.std::__1::unique_ptr.86", ptr %6, i32 0, i32 0
-  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_14default_deleteIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #14
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_14default_deleteIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
   store ptr %10, ptr %12, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = icmp ne ptr %13, null
@@ -13578,9 +13585,9 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrIN4tlog13ConsoleOutputENS_
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds %"class.std::__1::unique_ptr.86", ptr %6, i32 0, i32 0
-  %17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_14default_deleteIS2_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #14
+  %17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_14default_deleteIS2_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #13
   %18 = load ptr, ptr %5, align 8
-  call void @_ZNKSt3__114default_deleteIN4tlog13ConsoleOutputEEclB8ne190000EPS2_(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef %18) #14
+  call void @_ZNKSt3__114default_deleteIN4tlog13ConsoleOutputEEclB8ne190000EPS2_(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef %18) #13
   br label %19
 
 19:                                               ; preds = %15, %2
@@ -13592,7 +13599,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_14default_deleteIN4tlog13ConsoleOutputEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_14default_deleteIN4tlog13ConsoleOutputEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -13609,11 +13616,11 @@ define linkonce_odr hidden void @_ZNSt3__119__shared_weak_count16__release_share
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef zeroext i1 @_ZNSt3__114__shared_count16__release_sharedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  %4 = call noundef zeroext i1 @_ZNSt3__114__shared_count16__release_sharedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  call void @_ZNSt3__119__shared_weak_count14__release_weakEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZNSt3__119__shared_weak_count14__release_weakEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -13627,7 +13634,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__114__shared_count16__rele
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds %"class.std::__1::__shared_count", ptr %4, i32 0, i32 1
-  %6 = call noundef i64 @_ZNSt3__134__libcpp_atomic_refcount_decrementB8ne190000IlEET_RS1_(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %6 = call noundef i64 @_ZNSt3__134__libcpp_atomic_refcount_decrementB8ne190000IlEET_RS1_(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   %7 = icmp eq i64 %6, -1
   br i1 %7, label %8, label %12
 
@@ -13635,7 +13642,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__114__shared_count16__rele
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 2
   %11 = load ptr, ptr %10, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  call void %11(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   store i1 true, ptr %2, align 1
   br label %13
 
@@ -13672,7 +13679,7 @@ define linkonce_odr hidden void @_ZNSt3__119__shared_weak_count12__add_sharedB8n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__114__shared_count12__add_sharedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  call void @_ZNSt3__114__shared_count12__add_sharedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   ret void
 }
 
@@ -13682,7 +13689,7 @@ define linkonce_odr hidden void @_ZNSt3__114__shared_count12__add_sharedB8ne1900
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__shared_count", ptr %3, i32 0, i32 1
-  %5 = call noundef i64 @_ZNSt3__134__libcpp_atomic_refcount_incrementB8ne190000IlEET_RS1_(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %5 = call noundef i64 @_ZNSt3__134__libcpp_atomic_refcount_incrementB8ne190000IlEET_RS1_(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret void
 }
 
@@ -13722,8 +13729,8 @@ define linkonce_odr hidden void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutput
           to label %11 unwind label %14
 
 11:                                               ; preds = %8
-  %12 = call noundef ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  %12 = call noundef ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   store ptr %12, ptr %13, align 8
   ret void
 
@@ -13747,7 +13754,7 @@ define linkonce_odr dso_local void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutput
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
-  %11 = call ptr @_ZNKSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE4cendB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  %11 = call ptr @_ZNKSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE4cendB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   %12 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %7, i32 0, i32 0
   store ptr %11, ptr %12, align 8
   br label %13
@@ -13807,8 +13814,8 @@ define linkonce_odr hidden void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutput
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE6__rootB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
-  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE7destroyEPNS_11__tree_nodeIS4_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %4) #14
+  %4 = call noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE6__rootB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
+  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE7destroyEPNS_11__tree_nodeIS4_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %4) #13
   ret void
 }
 
@@ -13844,8 +13851,8 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree.48", ptr %3, i32 0, i32 1
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEES3_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
-  %6 = call noundef ptr @_ZNSt3__114pointer_traitsIPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEEE10pointer_toB8ne190000ERS6_(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEES3_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  %6 = call noundef ptr @_ZNSt3__114pointer_traitsIPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEEE10pointer_toB8ne190000ERS6_(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   ret ptr %6
 }
 
@@ -13864,7 +13871,7 @@ define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemINS_15__tree_e
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::__1::__compressed_pair_elem.39", ptr %3, i32 0, i32 0
-  call void @_ZNSt3__115__tree_end_nodeIPNS_16__tree_node_baseIPvEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  call void @_ZNSt3__115__tree_end_nodeIPNS_16__tree_node_baseIPvEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret void
 }
 
@@ -13873,7 +13880,7 @@ define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemINS_9allocator
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__19allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt3__19allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -13892,7 +13899,7 @@ define linkonce_odr hidden void @_ZNSt3__19allocatorINS_11__tree_nodeINS_10share
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -13940,7 +13947,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -13959,7 +13966,7 @@ define linkonce_odr hidden ptr @_ZNKSt3__13setINS_10shared_ptrIN4tlog7IOutputEEE
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = call ptr @_ZNKSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call ptr @_ZNKSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %2, i32 0, i32 0
   store ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %2, i32 0, i32 0
@@ -14007,7 +14014,7 @@ define linkonce_odr hidden ptr @_ZNKSt3__13setINS_10shared_ptrIN4tlog7IOutputEEE
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds %"class.std::__1::set.47", ptr %4, i32 0, i32 0
-  %6 = call ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %6 = call ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %7 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %2, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %2, i32 0, i32 0
@@ -14021,8 +14028,8 @@ define linkonce_odr hidden ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutput
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = call noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
-  call void @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000EPNS_15__tree_end_nodeIPNS_16__tree_node_baseIS6_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5) #14
+  %5 = call noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
+  call void @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000EPNS_15__tree_end_nodeIPNS_16__tree_node_baseIS6_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5) #13
   %6 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %2, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
   ret ptr %7
@@ -14034,8 +14041,8 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree.48", ptr %3, i32 0, i32 1
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEES3_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
-  %6 = call noundef ptr @_ZNSt3__114pointer_traitsIPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEEE10pointer_toB8ne190000ERS6_(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEES3_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  %6 = call noundef ptr @_ZNSt3__114pointer_traitsIPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEEE10pointer_toB8ne190000ERS6_(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   ret ptr %6
 }
 
@@ -14057,7 +14064,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -14111,18 +14118,18 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt3__16__treeINS_10shared_ptrIN4tl
   call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE16__construct_nodeIJRKS4_EEENS_10unique_ptrINS_11__tree_nodeIS4_PvEENS_22__tree_node_destructorINS7_ISG_EEEEEEDpOT_(ptr dead_on_unwind writable sret(%"class.std::__1::unique_ptr.104") align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(16) %30)
   %31 = load ptr, ptr %10, align 8
   %32 = load ptr, ptr %12, align 8
-  %33 = call noundef ptr @_ZNKSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
-  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE16__insert_node_atEPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEERSE_SE_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33) #14
-  %34 = call noundef ptr @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE7releaseB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  %33 = call noundef ptr @_ZNKSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
+  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE16__insert_node_atEPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEERSE_SE_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33) #13
+  %34 = call noundef ptr @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE7releaseB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   store ptr %34, ptr %14, align 8
   store i8 1, ptr %15, align 1
-  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   br label %35
 
 35:                                               ; preds = %29, %4
   %36 = load ptr, ptr %14, align 8
-  call void @_ZNSt3__115__tree_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000ES8_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %36) #14
-  call void @_ZNSt3__14pairINS_15__tree_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS5_PvEElEEbEC2B8ne190000ISA_RbTnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(1) %15) #14
+  call void @_ZNSt3__115__tree_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000ES8_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %36) #13
+  call void @_ZNSt3__14pairINS_15__tree_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS5_PvEElEEbEC2B8ne190000ISA_RbTnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(1) %15) #13
   %37 = load { ptr, i8 }, ptr %5, align 8
   ret { ptr, i8 } %37
 }
@@ -14159,17 +14166,17 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   %22 = load ptr, ptr %8, align 8
-  %23 = call ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  %23 = call ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   %24 = getelementptr inbounds %"class.std::__1::__tree_iterator", ptr %13, i32 0, i32 0
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds %"class.std::__1::__tree_iterator", ptr %13, i32 0, i32 0
   %26 = load ptr, ptr %25, align 8
-  call void @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000ENS_15__tree_iteratorIS4_S8_lEE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr %26) #14
+  call void @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000ENS_15__tree_iteratorIS4_S8_lEE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr %26) #13
   %27 = call noundef zeroext i1 @_ZNSt3__1eqB8ne190000ERKNS_21__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEESB_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %12)
   br i1 %27, label %33, label %28
 
 28:                                               ; preds = %5
-  %29 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  %29 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   %30 = load ptr, ptr %11, align 8
   %31 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %32 = call noundef zeroext i1 @_ZNKSt3__14lessINS_10shared_ptrIN4tlog7IOutputEEEEclB8ne190000ERKS4_S7_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31)
@@ -14181,17 +14188,17 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 35:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %7, i64 8, i1 false)
-  %36 = call ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  %36 = call ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   %37 = getelementptr inbounds %"class.std::__1::__tree_iterator", ptr %16, i32 0, i32 0
   store ptr %36, ptr %37, align 8
   %38 = getelementptr inbounds %"class.std::__1::__tree_iterator", ptr %16, i32 0, i32 0
   %39 = load ptr, ptr %38, align 8
-  call void @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000ENS_15__tree_iteratorIS4_S8_lEE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr %39) #14
+  call void @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000ENS_15__tree_iteratorIS4_S8_lEE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr %39) #13
   %40 = call noundef zeroext i1 @_ZNSt3__1eqB8ne190000ERKNS_21__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEESB_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   br i1 %40, label %47, label %41
 
 41:                                               ; preds = %35
-  %42 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  %42 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEmmB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
   %44 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %43)
   %45 = load ptr, ptr %11, align 8
@@ -14240,7 +14247,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br label %127
 
 73:                                               ; preds = %33
-  %74 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  %74 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   %75 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %76 = load ptr, ptr %11, align 8
   %77 = call noundef zeroext i1 @_ZNKSt3__14lessINS_10shared_ptrIN4tlog7IOutputEEEEclB8ne190000ERKS4_S7_(ptr noundef nonnull align 1 dereferenceable(1) %74, ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %76)
@@ -14253,17 +14260,17 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %81 = call ptr @_ZNSt3__14nextB8ne190000INS_21__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS5_PvEElEETnNS_9enable_ifIXsr29__has_input_iterator_categoryIT_EE5valueEiE4typeELi0EEESC_SC_NS_15iterator_traitsISC_E15difference_typeE(ptr %80, i64 noundef 1)
   %82 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %17, i32 0, i32 0
   store ptr %81, ptr %82, align 8
-  %83 = call ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  %83 = call ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   %84 = getelementptr inbounds %"class.std::__1::__tree_iterator", ptr %20, i32 0, i32 0
   store ptr %83, ptr %84, align 8
   %85 = getelementptr inbounds %"class.std::__1::__tree_iterator", ptr %20, i32 0, i32 0
   %86 = load ptr, ptr %85, align 8
-  call void @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000ENS_15__tree_iteratorIS4_S8_lEE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr %86) #14
+  call void @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000ENS_15__tree_iteratorIS4_S8_lEE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr %86) #13
   %87 = call noundef zeroext i1 @_ZNSt3__1eqB8ne190000ERKNS_21__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEESB_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %19)
   br i1 %87, label %93, label %88
 
 88:                                               ; preds = %78
-  %89 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  %89 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   %90 = load ptr, ptr %11, align 8
   %91 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %17)
   %92 = call noundef zeroext i1 @_ZNKSt3__14lessINS_10shared_ptrIN4tlog7IOutputEEEEclB8ne190000ERKS4_S7_(ptr noundef nonnull align 1 dereferenceable(1) %89, ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %91)
@@ -14344,16 +14351,16 @@ define linkonce_odr dso_local void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOut
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %12 = load ptr, ptr %5, align 8
-  %13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__node_allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  %13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__node_allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   store ptr %13, ptr %7, align 8
   store i1 false, ptr %8, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = call noundef ptr @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEE8allocateB8ne190000ERS9_m(ptr noundef nonnull align 1 dereferenceable(1) %14, i64 noundef 1)
   %16 = load ptr, ptr %7, align 8
-  call void @_ZNSt3__122__tree_node_destructorINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEEC2B8ne190000ERS9_b(ptr noundef nonnull align 8 dereferenceable(9) %9, ptr noundef nonnull align 1 dereferenceable(1) %16, i1 noundef zeroext false) #14
-  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEEC2B8ne190000ILb1EvEEPS7_NS_16__dependent_typeINS_27__unique_ptr_deleter_sfinaeISB_EEXT_EE20__good_rval_ref_typeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(9) %9) #14
+  call void @_ZNSt3__122__tree_node_destructorINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEEC2B8ne190000ERS9_b(ptr noundef nonnull align 8 dereferenceable(9) %9, ptr noundef nonnull align 1 dereferenceable(1) %16, i1 noundef zeroext false) #13
+  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEEC2B8ne190000ILb1EvEEPS7_NS_16__dependent_typeINS_27__unique_ptr_deleter_sfinaeISB_EEXT_EE20__good_rval_ref_typeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(9) %9) #13
   %17 = load ptr, ptr %7, align 8
-  %18 = call noundef ptr @_ZNKSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
+  %18 = call noundef ptr @_ZNKSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   %19 = getelementptr inbounds %"class.std::__1::__tree_node", ptr %18, i32 0, i32 1
   %20 = invoke noundef ptr @_ZNSt3__122__tree_key_value_typesINS_10shared_ptrIN4tlog7IOutputEEEE9__get_ptrB8ne190000ERS4_(ptr noundef nonnull align 8 dereferenceable(16) %19)
           to label %21 unwind label %27
@@ -14364,7 +14371,7 @@ define linkonce_odr dso_local void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOut
           to label %23 unwind label %27
 
 23:                                               ; preds = %21
-  %24 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE11get_deleterB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
+  %24 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE11get_deleterB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   %25 = getelementptr inbounds %"class.std::__1::__tree_node_destructor", ptr %24, i32 0, i32 1
   store i8 1, ptr %25, align 8
   store i1 true, ptr %8, align 1
@@ -14378,11 +14385,11 @@ define linkonce_odr dso_local void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOut
   store ptr %29, ptr %10, align 8
   %30 = extractvalue { ptr, i32 } %28, 1
   store i32 %30, ptr %11, align 4
-  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
+  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   br label %33
 
 31:                                               ; preds = %23
-  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
+  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   br label %32
 
 32:                                               ; preds = %31, %23
@@ -14420,7 +14427,7 @@ define linkonce_odr hidden void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutput
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %7, align 8
   store ptr %17, ptr %18, align 8
-  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds %"class.std::__1::__tree_end_node", ptr %20, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
@@ -14428,22 +14435,22 @@ define linkonce_odr hidden void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutput
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %4
-  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds %"class.std::__1::__tree_end_node", ptr %26, i32 0, i32 0
   %28 = load ptr, ptr %27, align 8
-  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   store ptr %28, ptr %29, align 8
   br label %30
 
 30:                                               ; preds = %24, %4
-  %31 = call noundef ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  %31 = call noundef ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %32 = getelementptr inbounds %"class.std::__1::__tree_end_node", ptr %31, i32 0, i32 0
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %7, align 8
   %35 = load ptr, ptr %34, align 8
-  call void @_ZNSt3__127__tree_balance_after_insertB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_S5_(ptr noundef %33, ptr noundef %35) #14
-  %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__127__tree_balance_after_insertB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_S5_(ptr noundef %33, ptr noundef %35) #13
+  %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, 1
   store i64 %38, ptr %36, align 8
@@ -14456,7 +14463,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__110unique_ptrINS_11__tree_nodeI
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::unique_ptr.104", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -14468,11 +14475,11 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__110unique_ptrINS_11__tree_nodeIN
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds %"class.std::__1::unique_ptr.104", ptr %4, i32 0, i32 0
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %3, align 8
   %8 = getelementptr inbounds %"class.std::__1::unique_ptr.104", ptr %4, i32 0, i32 0
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   store ptr null, ptr %9, align 8
   %10 = load ptr, ptr %3, align 8
   ret ptr %10
@@ -14483,7 +14490,7 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10sha
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE5resetB8ne190000EPS7_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef null) #14
+  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE5resetB8ne190000EPS7_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef null) #13
   ret void
 }
 
@@ -14543,8 +14550,8 @@ define linkonce_odr hidden ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputE
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = call noundef ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
-  call void @_ZNSt3__115__tree_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000EPNS_15__tree_end_nodeIPNS_16__tree_node_baseIS6_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5) #14
+  %5 = call noundef ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
+  call void @_ZNSt3__115__tree_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000EPNS_15__tree_end_nodeIPNS_16__tree_node_baseIS6_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5) #13
   %6 = getelementptr inbounds %"class.std::__1::__tree_iterator", ptr %2, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
   ret ptr %7
@@ -14571,7 +14578,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree.48", ptr %3, i32 0, i32 2
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairImNS_4lessINS_10shared_ptrIN4tlog7IOutputEEEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairImNS_4lessINS_10shared_ptrIN4tlog7IOutputEEEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret ptr %5
 }
 
@@ -14587,13 +14594,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt3__14lessINS_10shared_ptrIN
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = call i8 @_ZNSt3__1ssB8ne190000IN4tlog7IOutputES2_EENS_15strong_orderingERKNS_10shared_ptrIT_EERKNS4_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10) #14
+  %11 = call i8 @_ZNSt3__1ssB8ne190000IN4tlog7IOutputES2_EENS_15strong_orderingERKNS_10shared_ptrIT_EERKNS4_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10) #13
   %12 = getelementptr inbounds %"class.std::__1::strong_ordering", ptr %7, i32 0, i32 0
   store i8 %11, ptr %12, align 1
-  call void @_ZNSt3__120_CmpUnspecifiedParamC2B8ne190000EMS0_i(ptr noundef nonnull align 1 dereferenceable(1) %8, i64 -1) #14
+  call void @_ZNSt3__120_CmpUnspecifiedParamC2B8ne190000EMS0_i(ptr noundef nonnull align 1 dereferenceable(1) %8, i64 -1) #13
   %13 = getelementptr inbounds %"class.std::__1::strong_ordering", ptr %7, i32 0, i32 0
   %14 = load i8, ptr %13, align 1
-  %15 = call noundef zeroext i1 @_ZNSt3__1ltB8ne190000ENS_15strong_orderingENS_20_CmpUnspecifiedParamE(i8 %14) #14
+  %15 = call noundef zeroext i1 @_ZNSt3__1ltB8ne190000ENS_15strong_orderingENS_20_CmpUnspecifiedParamE(i8 %14) #13
   ret i1 %15
 }
 
@@ -14613,9 +14620,9 @@ define linkonce_odr hidden ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputE
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = load ptr, ptr %5, align 8
-  call void @_ZNSt3__115__tree_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000EPNS_15__tree_end_nodeIPNS_16__tree_node_baseIS6_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6) #14
+  call void @_ZNSt3__115__tree_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000EPNS_15__tree_end_nodeIPNS_16__tree_node_baseIS6_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6) #13
   %7 = getelementptr inbounds %"class.std::__1::__tree_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -14628,7 +14635,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZNSt3__116__tree_prev_iterB8ne190000IPNS_16__tree_node_baseIPvEEPNS_15__tree_end_nodeIS4_EEEET_T0_(ptr noundef %5) #14
+  %6 = call noundef ptr @_ZNSt3__116__tree_prev_iterB8ne190000IPNS_16__tree_node_baseIPvEEPNS_15__tree_end_nodeIS4_EEEET_T0_(ptr noundef %5) #13
   %7 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -14646,9 +14653,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = call noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE6__rootB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  %11 = call noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE6__rootB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   store ptr %11, ptr %8, align 8
-  %12 = call noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__root_ptrB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  %12 = call noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__root_ptrB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   store ptr %12, ptr %9, align 8
   %13 = load ptr, ptr %8, align 8
   %14 = icmp ne ptr %13, null
@@ -14658,7 +14665,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br label %16
 
 16:                                               ; preds = %68, %15
-  %17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  %17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   %18 = load ptr, ptr %7, align 8
   %19 = load ptr, ptr %8, align 8
   %20 = getelementptr inbounds %"class.std::__1::__tree_node", ptr %19, i32 0, i32 1
@@ -14696,7 +14703,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br label %68
 
 40:                                               ; preds = %16
-  %41 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  %41 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   %42 = load ptr, ptr %8, align 8
   %43 = getelementptr inbounds %"class.std::__1::__tree_node", ptr %42, i32 0, i32 1
   %44 = load ptr, ptr %7, align 8
@@ -14747,7 +14754,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br label %16, !llvm.loop !20
 
 69:                                               ; preds = %3
-  %70 = call noundef ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  %70 = call noundef ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   %71 = load ptr, ptr %6, align 8
   store ptr %70, ptr %71, align 8
   %72 = load ptr, ptr %6, align 8
@@ -14805,7 +14812,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_4lessINS_10shared_ptrIN4tlog7IOutputEEEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_4lessINS_10shared_ptrIN4tlog7IOutputEEEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -14840,12 +14847,12 @@ define linkonce_odr hidden i8 @_ZNSt3__1ssB8ne190000IN4tlog7IOutputES2_EENS_15st
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef ptr @_ZNKSt3__110shared_ptrIN4tlog7IOutputEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #14
+  %10 = call noundef ptr @_ZNKSt3__110shared_ptrIN4tlog7IOutputEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #13
   store ptr %10, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = call noundef ptr @_ZNKSt3__110shared_ptrIN4tlog7IOutputEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #14
+  %12 = call noundef ptr @_ZNKSt3__110shared_ptrIN4tlog7IOutputEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #13
   store ptr %12, ptr %8, align 8
-  %13 = call i8 @_ZNKSt3__117compare_three_wayclB8ne190000IPN4tlog7IOutputES4_Q25three_way_comparable_withIT_T0_EEEDaOS5_OS6_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #14
+  %13 = call i8 @_ZNKSt3__117compare_three_wayclB8ne190000IPN4tlog7IOutputES4_Q25three_way_comparable_withIT_T0_EEEDaOS5_OS6_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #13
   %14 = getelementptr inbounds %"class.std::__1::strong_ordering", ptr %3, i32 0, i32 0
   store i8 %13, ptr %14, align 1
   %15 = getelementptr inbounds %"class.std::__1::strong_ordering", ptr %3, i32 0, i32 0
@@ -14912,7 +14919,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__116__tree_prev_iterB8ne190000IPN
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr inbounds %"class.std::__1::__tree_end_node", ptr %10, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
-  %13 = call noundef ptr @_ZNSt3__110__tree_maxB8ne190000IPNS_16__tree_node_baseIPvEEEET_S5_(ptr noundef %12) #14
+  %13 = call noundef ptr @_ZNSt3__110__tree_maxB8ne190000IPNS_16__tree_node_baseIPvEEEET_S5_(ptr noundef %12) #13
   store ptr %13, ptr %2, align 8
   br label %27
 
@@ -14923,7 +14930,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__116__tree_prev_iterB8ne190000IPN
 
 16:                                               ; preds = %22, %14
   %17 = load ptr, ptr %4, align 8
-  %18 = call noundef zeroext i1 @_ZNSt3__120__tree_is_left_childB8ne190000IPNS_16__tree_node_baseIPvEEEEbT_(ptr noundef %17) #14
+  %18 = call noundef zeroext i1 @_ZNSt3__120__tree_is_left_childB8ne190000IPNS_16__tree_node_baseIPvEEEEbT_(ptr noundef %17) #13
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %16
@@ -15010,7 +15017,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   %5 = getelementptr inbounds %"class.std::__1::__tree_end_node", ptr %4, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -15021,7 +15028,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   %5 = getelementptr inbounds %"class.std::__1::__tree_end_node", ptr %4, i32 0, i32 0
   ret ptr %5
 }
@@ -15115,7 +15122,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZNSt3__116__tree_next_iterB8ne190000IPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEES5_EET_T0_(ptr noundef %5) #14
+  %6 = call noundef ptr @_ZNSt3__116__tree_next_iterB8ne190000IPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEES5_EET_T0_(ptr noundef %5) #13
   %7 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -15136,7 +15143,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__116__tree_next_iterB8ne190000IPN
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds %"class.std::__1::__tree_node_base", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  %12 = call noundef ptr @_ZNSt3__110__tree_minB8ne190000IPNS_16__tree_node_baseIPvEEEET_S5_(ptr noundef %11) #14
+  %12 = call noundef ptr @_ZNSt3__110__tree_minB8ne190000IPNS_16__tree_node_baseIPvEEEET_S5_(ptr noundef %11) #13
   store ptr %12, ptr %2, align 8
   br label %25
 
@@ -15145,7 +15152,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__116__tree_next_iterB8ne190000IPN
 
 14:                                               ; preds = %18, %13
   %15 = load ptr, ptr %3, align 8
-  %16 = call noundef zeroext i1 @_ZNSt3__120__tree_is_left_childB8ne190000IPNS_16__tree_node_baseIPvEEEEbT_(ptr noundef %15) #14
+  %16 = call noundef zeroext i1 @_ZNSt3__120__tree_is_left_childB8ne190000IPNS_16__tree_node_baseIPvEEEEbT_(ptr noundef %15) #13
   %17 = xor i1 %16, true
   br i1 %17, label %18, label %21
 
@@ -15198,7 +15205,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree.48", ptr %3, i32 0, i32 1
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEES3_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEES3_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret ptr %5
 }
 
@@ -15288,7 +15295,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__110unique_ptrINS_11__tree_nodeI
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::unique_ptr.104", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -15299,7 +15306,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::unique_ptr.104", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   ret ptr %5
 }
 
@@ -15308,7 +15315,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -15328,7 +15335,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__19allocatorINS_11__tree_nodeINS_
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
-  %7 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEE8max_sizeB8ne190000IS9_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS9_(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  %7 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEE8max_sizeB8ne190000IS9_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS9_(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %9, label %10
 
@@ -15347,7 +15354,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__19allocatorINS_11__tree_nodeINS_
 define linkonce_odr dso_local noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEE8max_sizeB8ne190000IS9_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS9_(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = call noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #14
+  %3 = call noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #13
   %4 = udiv i64 %3, 48
   ret i64 %4
 }
@@ -15419,7 +15426,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__112construct_atB8ne190000INS_10s
   store ptr %6, ptr %3, align 8
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %5, align 8
-  call void @_ZNSt3__110shared_ptrIN4tlog7IOutputEEC2B8ne190000ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8) #14
+  call void @_ZNSt3__110shared_ptrIN4tlog7IOutputEEC2B8ne190000ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8) #13
   ret ptr %7
 }
 
@@ -15448,7 +15455,7 @@ define linkonce_odr hidden void @_ZNSt3__110shared_ptrIN4tlog7IOutputEEC2B8ne190
 17:                                               ; preds = %2
   %18 = getelementptr inbounds %"class.std::__1::shared_ptr", ptr %5, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
-  call void @_ZNSt3__119__shared_weak_count12__add_sharedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
+  call void @_ZNSt3__119__shared_weak_count12__add_sharedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   br label %20
 
 20:                                               ; preds = %17, %2
@@ -15460,7 +15467,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -15479,7 +15486,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__122__compressed_pair_elemINS_22__tree_node_destructorINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEEELi1ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__122__compressed_pair_elemINS_22__tree_node_destructorINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEEELi1ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   ret ptr %5
 }
 
@@ -15531,7 +15538,7 @@ define linkonce_odr hidden void @_ZNSt3__127__tree_balance_after_insertB8ne19000
 26:                                               ; preds = %24
   %27 = load ptr, ptr %4, align 8
   %28 = call noundef ptr @_ZNKSt3__116__tree_node_baseIPvE15__parent_unsafeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(25) %27)
-  %29 = call noundef zeroext i1 @_ZNSt3__120__tree_is_left_childB8ne190000IPNS_16__tree_node_baseIPvEEEEbT_(ptr noundef %28) #14
+  %29 = call noundef zeroext i1 @_ZNSt3__120__tree_is_left_childB8ne190000IPNS_16__tree_node_baseIPvEEEEbT_(ptr noundef %28) #13
   br i1 %29, label %30, label %76
 
 30:                                               ; preds = %26
@@ -15576,7 +15583,7 @@ define linkonce_odr hidden void @_ZNSt3__127__tree_balance_after_insertB8ne19000
 
 58:                                               ; preds = %38, %30
   %59 = load ptr, ptr %4, align 8
-  %60 = call noundef zeroext i1 @_ZNSt3__120__tree_is_left_childB8ne190000IPNS_16__tree_node_baseIPvEEEEbT_(ptr noundef %59) #14
+  %60 = call noundef zeroext i1 @_ZNSt3__120__tree_is_left_childB8ne190000IPNS_16__tree_node_baseIPvEEEEbT_(ptr noundef %59) #13
   br i1 %60, label %65, label %61
 
 61:                                               ; preds = %58
@@ -15584,7 +15591,7 @@ define linkonce_odr hidden void @_ZNSt3__127__tree_balance_after_insertB8ne19000
   %63 = call noundef ptr @_ZNKSt3__116__tree_node_baseIPvE15__parent_unsafeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(25) %62)
   store ptr %63, ptr %4, align 8
   %64 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_(ptr noundef %64) #14
+  call void @_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_(ptr noundef %64) #13
   br label %65
 
 65:                                               ; preds = %61, %58
@@ -15601,7 +15608,7 @@ define linkonce_odr hidden void @_ZNSt3__127__tree_balance_after_insertB8ne19000
   %73 = getelementptr inbounds %"class.std::__1::__tree_node_base", ptr %72, i32 0, i32 3
   store i8 0, ptr %73, align 8
   %74 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_(ptr noundef %74) #14
+  call void @_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_(ptr noundef %74) #13
   br label %124
 
 75:                                               ; preds = %43
@@ -15650,7 +15657,7 @@ define linkonce_odr hidden void @_ZNSt3__127__tree_balance_after_insertB8ne19000
 
 105:                                              ; preds = %85, %76
   %106 = load ptr, ptr %4, align 8
-  %107 = call noundef zeroext i1 @_ZNSt3__120__tree_is_left_childB8ne190000IPNS_16__tree_node_baseIPvEEEEbT_(ptr noundef %106) #14
+  %107 = call noundef zeroext i1 @_ZNSt3__120__tree_is_left_childB8ne190000IPNS_16__tree_node_baseIPvEEEEbT_(ptr noundef %106) #13
   br i1 %107, label %108, label %112
 
 108:                                              ; preds = %105
@@ -15658,7 +15665,7 @@ define linkonce_odr hidden void @_ZNSt3__127__tree_balance_after_insertB8ne19000
   %110 = call noundef ptr @_ZNKSt3__116__tree_node_baseIPvE15__parent_unsafeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(25) %109)
   store ptr %110, ptr %4, align 8
   %111 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_(ptr noundef %111) #14
+  call void @_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_(ptr noundef %111) #13
   br label %112
 
 112:                                              ; preds = %108, %105
@@ -15675,7 +15682,7 @@ define linkonce_odr hidden void @_ZNSt3__127__tree_balance_after_insertB8ne19000
   %120 = getelementptr inbounds %"class.std::__1::__tree_node_base", ptr %119, i32 0, i32 3
   store i8 0, ptr %120, align 8
   %121 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_(ptr noundef %121) #14
+  call void @_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_(ptr noundef %121) #13
   br label %124
 
 122:                                              ; preds = %90
@@ -15694,7 +15701,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree.48", ptr %3, i32 0, i32 2
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairImNS_4lessINS_10shared_ptrIN4tlog7IOutputEEEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairImNS_4lessINS_10shared_ptrIN4tlog7IOutputEEEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret ptr %5
 }
 
@@ -15738,7 +15745,7 @@ define linkonce_odr hidden void @_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16_
   %27 = getelementptr inbounds %"class.std::__1::__tree_node_base", ptr %26, i32 0, i32 2
   store ptr %25, ptr %27, align 8
   %28 = load ptr, ptr %2, align 8
-  %29 = call noundef zeroext i1 @_ZNSt3__120__tree_is_left_childB8ne190000IPNS_16__tree_node_baseIPvEEEEbT_(ptr noundef %28) #14
+  %29 = call noundef zeroext i1 @_ZNSt3__120__tree_is_left_childB8ne190000IPNS_16__tree_node_baseIPvEEEEbT_(ptr noundef %28) #13
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %22
@@ -15816,7 +15823,7 @@ define linkonce_odr hidden void @_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16
   %26 = getelementptr inbounds %"class.std::__1::__tree_node_base", ptr %25, i32 0, i32 2
   store ptr %24, ptr %26, align 8
   %27 = load ptr, ptr %2, align 8
-  %28 = call noundef zeroext i1 @_ZNSt3__120__tree_is_left_childB8ne190000IPNS_16__tree_node_baseIPvEEEEbT_(ptr noundef %27) #14
+  %28 = call noundef zeroext i1 @_ZNSt3__120__tree_is_left_childB8ne190000IPNS_16__tree_node_baseIPvEEEEbT_(ptr noundef %27) #13
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %21
@@ -15865,7 +15872,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemImLi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemImLi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -15883,7 +15890,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -15905,12 +15912,12 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10sha
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds %"class.std::__1::unique_ptr.104", ptr %6, i32 0, i32 0
-  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %5, align 8
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.std::__1::unique_ptr.104", ptr %6, i32 0, i32 0
-  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   store ptr %10, ptr %12, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = icmp ne ptr %13, null
@@ -15918,9 +15925,9 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_10sha
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds %"class.std::__1::unique_ptr.104", ptr %6, i32 0, i32 0
-  %17 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  %17 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEENS_22__tree_node_destructorINS_9allocatorIS7_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   %18 = load ptr, ptr %5, align 8
-  call void @_ZNSt3__122__tree_node_destructorINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEEclB8ne190000EPS8_(ptr noundef nonnull align 8 dereferenceable(9) %17, ptr noundef %18) #14
+  call void @_ZNSt3__122__tree_node_destructorINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEEclB8ne190000EPS8_(ptr noundef nonnull align 8 dereferenceable(9) %17, ptr noundef %18) #13
   br label %19
 
 19:                                               ; preds = %15, %2
@@ -15960,7 +15967,7 @@ define linkonce_odr hidden void @_ZNSt3__122__tree_node_destructorINS_9allocator
   %20 = getelementptr inbounds %"class.std::__1::__tree_node_destructor", ptr %5, i32 0, i32 0
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEE10deallocateB8ne190000ERS9_PS8_m(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef %22, i64 noundef 1) #14
+  call void @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEE10deallocateB8ne190000ERS9_PS8_m(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef %22, i64 noundef 1) #13
   br label %23
 
 23:                                               ; preds = %19, %16
@@ -15996,7 +16003,7 @@ define linkonce_odr hidden void @_ZNSt3__116allocator_traitsINS_9allocatorINS_11
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
-  call void @_ZNSt3__19allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEE10deallocateB8ne190000EPS7_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #14
+  call void @_ZNSt3__19allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEE10deallocateB8ne190000EPS7_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #13
   ret void
 }
 
@@ -16005,7 +16012,7 @@ define linkonce_odr hidden void @_ZNSt3__112__destroy_atB8ne190000INS_10shared_p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__110shared_ptrIN4tlog7IOutputEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  call void @_ZNSt3__110shared_ptrIN4tlog7IOutputEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   ret void
 }
 
@@ -16050,12 +16057,12 @@ define linkonce_odr hidden void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutput
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.std::__1::__tree_end_node", ptr %10, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
-  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE7destroyEPNS_11__tree_nodeIS4_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %12) #14
+  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE7destroyEPNS_11__tree_nodeIS4_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %12) #13
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds %"class.std::__1::__tree_node_base", ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %14, align 8
-  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE7destroyEPNS_11__tree_nodeIS4_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %15) #14
-  %16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__node_allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE7destroyEPNS_11__tree_nodeIS4_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %15) #13
+  %16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__node_allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   store ptr %16, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = load ptr, ptr %4, align 8
@@ -16067,7 +16074,7 @@ define linkonce_odr hidden void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutput
 21:                                               ; preds = %9
   %22 = load ptr, ptr %5, align 8
   %23 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEE10deallocateB8ne190000ERS9_PS8_m(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef %23, i64 noundef 1) #14
+  call void @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEE10deallocateB8ne190000ERS9_PS8_m(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef %23, i64 noundef 1) #13
   br label %24
 
 24:                                               ; preds = %21, %2
@@ -16097,11 +16104,11 @@ define linkonce_odr hidden void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEE
   %12 = getelementptr inbounds %"class.std::__1::set.47", ptr %11, i32 0, i32 0
   call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
   %13 = load ptr, ptr %4, align 8
-  %14 = call ptr @_ZNKSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  %14 = call ptr @_ZNKSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   %15 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %5, i32 0, i32 0
   store ptr %14, ptr %15, align 8
   %16 = load ptr, ptr %4, align 8
-  %17 = call ptr @_ZNKSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  %17 = call ptr @_ZNKSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   %18 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %6, i32 0, i32 0
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %5, i32 0, i32 0
@@ -16121,7 +16128,7 @@ define linkonce_odr hidden void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEE
   store ptr %26, ptr %7, align 8
   %27 = extractvalue { ptr, i32 } %25, 1
   store i32 %27, ptr %8, align 4
-  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  call void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   br label %28
 
 28:                                               ; preds = %24
@@ -16144,7 +16151,7 @@ define linkonce_odr dso_local void @_ZN4tlog6LoggerC2ENSt3__112basic_stringIcNS1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds %"class.tlog::Logger", ptr %9, i32 0, i32 0
-  call void @_ZNSt3__13setIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  call void @_ZNSt3__13setIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   %11 = getelementptr inbounds %"class.tlog::Logger", ptr %9, i32 0, i32 1
   invoke void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEEC2B8ne190000ERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %12 unwind label %16
@@ -16186,15 +16193,15 @@ define linkonce_odr dso_local void @_ZN4tlog6LoggerC2ENSt3__112basic_stringIcNS1
   store ptr %26, ptr %7, align 8
   %27 = extractvalue { ptr, i32 } %25, 1
   store i32 %27, ptr %8, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   br label %28
 
 28:                                               ; preds = %24, %20
-  call void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
+  call void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   br label %29
 
 29:                                               ; preds = %28, %16
-  call void @_ZNSt3__13setIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  call void @_ZNSt3__13setIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   br label %30
 
 30:                                               ; preds = %29
@@ -16219,16 +16226,16 @@ define linkonce_odr hidden void @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutput
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds %"class.std::__1::__tree.48", ptr %8, i32 0, i32 1
   %11 = load ptr, ptr %4, align 8
-  %12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__node_allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
+  %12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__node_allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   call void @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEEE37select_on_container_copy_constructionB8ne190000IS9_vTnNS_9enable_ifIXntsr43__has_select_on_container_copy_constructionIKT_EE5valueEiE4typeELi0EEES9_RKS9_(ptr noundef nonnull align 1 dereferenceable(1) %12)
   call void @_ZNSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEES3_EEEEEC2B8ne190000INS_18__default_init_tagESE_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   %13 = getelementptr inbounds %"class.std::__1::__tree.48", ptr %8, i32 0, i32 2
   store i32 0, ptr %7, align 4
   %14 = load ptr, ptr %4, align 8
-  %15 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
+  %15 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
   call void @_ZNSt3__117__compressed_pairImNS_4lessINS_10shared_ptrIN4tlog7IOutputEEEEEEC2B8ne190000IiRKS6_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 1 dereferenceable(1) %15)
-  %16 = call noundef ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
-  %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  %16 = call noundef ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
+  %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   store ptr %16, ptr %17, align 8
   ret void
 }
@@ -16247,7 +16254,7 @@ define linkonce_odr dso_local void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutput
   store ptr %2, ptr %11, align 8
   store ptr %0, ptr %6, align 8
   %12 = load ptr, ptr %6, align 8
-  %13 = call ptr @_ZNKSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE4cendB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  %13 = call ptr @_ZNKSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE4cendB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   %14 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %7, i32 0, i32 0
   store ptr %13, ptr %14, align 8
   br label %15
@@ -16282,7 +16289,7 @@ define linkonce_odr hidden ptr @_ZNKSt3__13setINS_10shared_ptrIN4tlog7IOutputEEE
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds %"class.std::__1::set.47", ptr %4, i32 0, i32 0
-  %6 = call ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %6 = call ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %7 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %2, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %2, i32 0, i32 0
@@ -16303,7 +16310,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKS
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree.48", ptr %3, i32 0, i32 1
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEES3_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEES3_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret ptr %5
 }
 
@@ -16328,7 +16335,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKS
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree.48", ptr %3, i32 0, i32 2
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__117__compressed_pairImNS_4lessINS_10shared_ptrIN4tlog7IOutputEEEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__117__compressed_pairImNS_4lessINS_10shared_ptrIN4tlog7IOutputEEEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret ptr %5
 }
 
@@ -16337,7 +16344,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__122__compressed_pair_elemINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__122__compressed_pair_elemINS_9allocatorINS_11__tree_nodeINS_10shared_ptrIN4tlog7IOutputEEEPvEEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -16355,7 +16362,7 @@ define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemINS_15__tree_e
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::__1::__compressed_pair_elem.39", ptr %3, i32 0, i32 0
-  call void @_ZNSt3__115__tree_end_nodeIPNS_16__tree_node_baseIPvEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  call void @_ZNSt3__115__tree_end_nodeIPNS_16__tree_node_baseIPvEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret void
 }
 
@@ -16373,7 +16380,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__122__compressed_pair_elemINS_4lessINS_10shared_ptrIN4tlog7IOutputEEEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__122__compressed_pair_elemINS_4lessINS_10shared_ptrIN4tlog7IOutputEEEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -16404,9 +16411,9 @@ define linkonce_odr hidden ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutput
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = load ptr, ptr %5, align 8
-  call void @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000EPNS_15__tree_end_nodeIPNS_16__tree_node_baseIS6_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6) #14
+  call void @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000EPNS_15__tree_end_nodeIPNS_16__tree_node_baseIS6_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6) #13
   %7 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -16428,7 +16435,7 @@ define linkonce_odr hidden void @_ZNSt3__13setIN4tlog9ESeverityENS_4lessIS2_EENS
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds %"class.std::__1::set", ptr %4, i32 0, i32 0
-  call void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -16457,7 +16464,7 @@ define linkonce_odr hidden void @_ZNSt3__13setIN4tlog9ESeverityENS_4lessIS2_EENS
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::set", ptr %3, i32 0, i32 0
-  call void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  call void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   ret void
 }
 
@@ -16481,8 +16488,8 @@ define linkonce_odr hidden void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_E
           to label %11 unwind label %14
 
 11:                                               ; preds = %8
-  %12 = call noundef ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  %12 = call noundef ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   store ptr %12, ptr %13, align 8
   ret void
 
@@ -16526,8 +16533,8 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4le
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree", ptr %3, i32 0, i32 1
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityES3_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
-  %6 = call noundef ptr @_ZNSt3__114pointer_traitsIPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEEE10pointer_toB8ne190000ERS6_(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityES3_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  %6 = call noundef ptr @_ZNSt3__114pointer_traitsIPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEEE10pointer_toB8ne190000ERS6_(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   ret ptr %6
 }
 
@@ -16545,7 +16552,7 @@ define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemINS_9allocator
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__19allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt3__19allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -16554,7 +16561,7 @@ define linkonce_odr hidden void @_ZNSt3__19allocatorINS_11__tree_nodeIN4tlog9ESe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -16579,7 +16586,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -16601,7 +16608,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__13setIN4tlog9ESeverityENS_4lessI
   %13 = getelementptr inbounds { ptr, i8 }, ptr %6, i32 0, i32 1
   %14 = extractvalue { ptr, i8 } %10, 1
   store i8 %14, ptr %13, align 8
-  call void @_ZNSt3__14pairINS_21__tree_const_iteratorIN4tlog9ESeverityEPNS_11__tree_nodeIS3_PvEElEEbEC2B8ne190000INS_15__tree_iteratorIS3_S7_lEEbTnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEONS0_ISE_SF_EE(ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(9) %6) #14
+  call void @_ZNSt3__14pairINS_21__tree_const_iteratorIN4tlog9ESeverityEPNS_11__tree_nodeIS3_PvEElEEbEC2B8ne190000INS_15__tree_iteratorIS3_S7_lEEbTnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEONS0_ISE_SF_EE(ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(9) %6) #13
   %15 = load { ptr, i8 }, ptr %3, align 8
   ret { ptr, i8 } %15
 }
@@ -16642,7 +16649,7 @@ define linkonce_odr dso_local void @_ZNSt3__14pairINS_21__tree_const_iteratorIN4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %9, i64 8, i1 false)
   %10 = getelementptr inbounds %"class.std::__1::__tree_iterator.112", ptr %5, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
-  call void @_ZNSt3__121__tree_const_iteratorIN4tlog9ESeverityEPNS_11__tree_nodeIS2_PvEElEC2B8ne190000ENS_15__tree_iteratorIS2_S6_lEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr %11) #14
+  call void @_ZNSt3__121__tree_const_iteratorIN4tlog9ESeverityEPNS_11__tree_nodeIS2_PvEElEC2B8ne190000ENS_15__tree_iteratorIS2_S6_lEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr %11) #13
   %12 = getelementptr inbounds %"struct.std::__1::pair.108", ptr %6, i32 0, i32 1
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds %"struct.std::__1::pair.111", ptr %13, i32 0, i32 1
@@ -16686,18 +16693,18 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt3__16__treeIN4tlog9ESeverityENS_
   call void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE16__construct_nodeIJRKS2_EEENS_10unique_ptrINS_11__tree_nodeIS2_PvEENS_22__tree_node_destructorINS5_ISE_EEEEEEDpOT_(ptr dead_on_unwind writable sret(%"class.std::__1::unique_ptr.115") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 4 dereferenceable(4) %23)
   %24 = load ptr, ptr %8, align 8
   %25 = load ptr, ptr %9, align 8
-  %26 = call noundef ptr @_ZNKSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
-  call void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE16__insert_node_atEPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEERSC_SC_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26) #14
-  %27 = call noundef ptr @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE7releaseB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  %26 = call noundef ptr @_ZNKSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
+  call void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE16__insert_node_atEPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEERSC_SC_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26) #13
+  %27 = call noundef ptr @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE7releaseB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   store ptr %27, ptr %10, align 8
   store i8 1, ptr %11, align 1
-  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   br label %28
 
 28:                                               ; preds = %22, %3
   %29 = load ptr, ptr %10, align 8
-  call void @_ZNSt3__115__tree_iteratorIN4tlog9ESeverityEPNS_11__tree_nodeIS2_PvEElEC2B8ne190000ES6_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %29) #14
-  call void @_ZNSt3__14pairINS_15__tree_iteratorIN4tlog9ESeverityEPNS_11__tree_nodeIS3_PvEElEEbEC2B8ne190000IS8_RbTnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOSD_OSE_(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  call void @_ZNSt3__115__tree_iteratorIN4tlog9ESeverityEPNS_11__tree_nodeIS2_PvEElEC2B8ne190000ES6_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %29) #13
+  call void @_ZNSt3__14pairINS_15__tree_iteratorIN4tlog9ESeverityEPNS_11__tree_nodeIS3_PvEElEEbEC2B8ne190000IS8_RbTnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOSD_OSE_(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 1 dereferenceable(1) %11) #13
   %30 = load { ptr, i8 }, ptr %4, align 8
   ret { ptr, i8 } %30
 }
@@ -16722,9 +16729,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = call noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE6__rootB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  %11 = call noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE6__rootB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   store ptr %11, ptr %8, align 8
-  %12 = call noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10__root_ptrB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  %12 = call noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10__root_ptrB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   store ptr %12, ptr %9, align 8
   %13 = load ptr, ptr %8, align 8
   %14 = icmp ne ptr %13, null
@@ -16734,7 +16741,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br label %16
 
 16:                                               ; preds = %68, %15
-  %17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  %17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   %18 = load ptr, ptr %7, align 8
   %19 = load ptr, ptr %8, align 8
   %20 = getelementptr inbounds %"class.std::__1::__tree_node.114", ptr %19, i32 0, i32 1
@@ -16772,7 +16779,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br label %68
 
 40:                                               ; preds = %16
-  %41 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  %41 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   %42 = load ptr, ptr %8, align 8
   %43 = getelementptr inbounds %"class.std::__1::__tree_node.114", ptr %42, i32 0, i32 1
   %44 = load ptr, ptr %7, align 8
@@ -16823,7 +16830,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br label %16, !llvm.loop !29
 
 69:                                               ; preds = %3
-  %70 = call noundef ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  %70 = call noundef ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   %71 = load ptr, ptr %6, align 8
   store ptr %70, ptr %71, align 8
   %72 = load ptr, ptr %6, align 8
@@ -16851,16 +16858,16 @@ define linkonce_odr dso_local void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %12 = load ptr, ptr %5, align 8
-  %13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE12__node_allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  %13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE12__node_allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   store ptr %13, ptr %7, align 8
   store i1 false, ptr %8, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = call noundef ptr @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEE8allocateB8ne190000ERS7_m(ptr noundef nonnull align 1 dereferenceable(1) %14, i64 noundef 1)
   %16 = load ptr, ptr %7, align 8
-  call void @_ZNSt3__122__tree_node_destructorINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEEC2B8ne190000ERS7_b(ptr noundef nonnull align 8 dereferenceable(9) %9, ptr noundef nonnull align 1 dereferenceable(1) %16, i1 noundef zeroext false) #14
-  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEEC2B8ne190000ILb1EvEEPS5_NS_16__dependent_typeINS_27__unique_ptr_deleter_sfinaeIS9_EEXT_EE20__good_rval_ref_typeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(9) %9) #14
+  call void @_ZNSt3__122__tree_node_destructorINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEEC2B8ne190000ERS7_b(ptr noundef nonnull align 8 dereferenceable(9) %9, ptr noundef nonnull align 1 dereferenceable(1) %16, i1 noundef zeroext false) #13
+  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEEC2B8ne190000ILb1EvEEPS5_NS_16__dependent_typeINS_27__unique_ptr_deleter_sfinaeIS9_EEXT_EE20__good_rval_ref_typeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(9) %9) #13
   %17 = load ptr, ptr %7, align 8
-  %18 = call noundef ptr @_ZNKSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
+  %18 = call noundef ptr @_ZNKSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   %19 = getelementptr inbounds %"class.std::__1::__tree_node.114", ptr %18, i32 0, i32 1
   %20 = invoke noundef ptr @_ZNSt3__122__tree_key_value_typesIN4tlog9ESeverityEE9__get_ptrB8ne190000ERS2_(ptr noundef nonnull align 4 dereferenceable(4) %19)
           to label %21 unwind label %27
@@ -16871,7 +16878,7 @@ define linkonce_odr dso_local void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS
           to label %23 unwind label %27
 
 23:                                               ; preds = %21
-  %24 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE11get_deleterB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
+  %24 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE11get_deleterB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   %25 = getelementptr inbounds %"class.std::__1::__tree_node_destructor.119", ptr %24, i32 0, i32 1
   store i8 1, ptr %25, align 8
   store i1 true, ptr %8, align 1
@@ -16885,11 +16892,11 @@ define linkonce_odr dso_local void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS
   store ptr %29, ptr %10, align 8
   %30 = extractvalue { ptr, i32 } %28, 1
   store i32 %30, ptr %11, align 4
-  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
+  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   br label %33
 
 31:                                               ; preds = %23
-  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
+  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   br label %32
 
 32:                                               ; preds = %31, %23
@@ -16927,7 +16934,7 @@ define linkonce_odr hidden void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_E
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %7, align 8
   store ptr %17, ptr %18, align 8
-  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds %"class.std::__1::__tree_end_node", ptr %20, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
@@ -16935,22 +16942,22 @@ define linkonce_odr hidden void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_E
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %4
-  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds %"class.std::__1::__tree_end_node", ptr %26, i32 0, i32 0
   %28 = load ptr, ptr %27, align 8
-  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE12__begin_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   store ptr %28, ptr %29, align 8
   br label %30
 
 30:                                               ; preds = %24, %4
-  %31 = call noundef ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  %31 = call noundef ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %32 = getelementptr inbounds %"class.std::__1::__tree_end_node", ptr %31, i32 0, i32 0
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %7, align 8
   %35 = load ptr, ptr %34, align 8
-  call void @_ZNSt3__127__tree_balance_after_insertB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_S5_(ptr noundef %33, ptr noundef %35) #14
-  %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__127__tree_balance_after_insertB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_S5_(ptr noundef %33, ptr noundef %35) #13
+  %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, 1
   store i64 %38, ptr %36, align 8
@@ -16963,7 +16970,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__110unique_ptrINS_11__tree_nodeI
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::unique_ptr.115", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -16975,11 +16982,11 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__110unique_ptrINS_11__tree_nodeIN
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds %"class.std::__1::unique_ptr.115", ptr %4, i32 0, i32 0
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %3, align 8
   %8 = getelementptr inbounds %"class.std::__1::unique_ptr.115", ptr %4, i32 0, i32 0
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   store ptr null, ptr %9, align 8
   %10 = load ptr, ptr %3, align 8
   ret ptr %10
@@ -16990,7 +16997,7 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE5resetB8ne190000EPS5_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef null) #14
+  call void @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE5resetB8ne190000EPS5_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef null) #13
   ret void
 }
 
@@ -17033,7 +17040,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4l
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   %5 = getelementptr inbounds %"class.std::__1::__tree_end_node", ptr %4, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -17044,7 +17051,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4l
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10__end_nodeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   %5 = getelementptr inbounds %"class.std::__1::__tree_end_node", ptr %4, i32 0, i32 0
   ret ptr %5
 }
@@ -17055,7 +17062,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree", ptr %3, i32 0, i32 2
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairImNS_4lessIN4tlog9ESeverityEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairImNS_4lessIN4tlog9ESeverityEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret ptr %5
 }
 
@@ -17081,8 +17088,8 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4l
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree", ptr %3, i32 0, i32 1
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityES3_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
-  %6 = call noundef ptr @_ZNSt3__114pointer_traitsIPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEEE10pointer_toB8ne190000ERS6_(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityES3_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  %6 = call noundef ptr @_ZNSt3__114pointer_traitsIPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEEE10pointer_toB8ne190000ERS6_(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   ret ptr %6
 }
 
@@ -17091,7 +17098,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -17100,7 +17107,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_4lessIN4tlog9ESeverityEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_4lessIN4tlog9ESeverityEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -17118,7 +17125,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree", ptr %3, i32 0, i32 1
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityES3_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairINS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEENS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityES3_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret ptr %5
 }
 
@@ -17208,7 +17215,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__110unique_ptrINS_11__tree_nodeI
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::unique_ptr.115", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -17219,7 +17226,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::unique_ptr.115", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   ret ptr %5
 }
 
@@ -17228,7 +17235,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -17248,7 +17255,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__19allocatorINS_11__tree_nodeIN4t
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
-  %7 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEE8max_sizeB8ne190000IS7_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS7_(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  %7 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEE8max_sizeB8ne190000IS7_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS7_(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %9, label %10
 
@@ -17267,7 +17274,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__19allocatorINS_11__tree_nodeIN4t
 define linkonce_odr dso_local noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEE8max_sizeB8ne190000IS7_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS7_(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = call noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #14
+  %3 = call noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #13
   %4 = udiv i64 %3, 32
   ret i64 %4
 }
@@ -17349,7 +17356,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemIPNS_11__tree_nodeIN4tlog9ESeverityEPvEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemIPNS_11__tree_nodeIN4tlog9ESeverityEPvEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -17368,7 +17375,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__122__compressed_pair_elemINS_22__tree_node_destructorINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEEELi1ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__122__compressed_pair_elemINS_22__tree_node_destructorINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEEELi1ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   ret ptr %5
 }
 
@@ -17387,7 +17394,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree", ptr %3, i32 0, i32 2
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairImNS_4lessIN4tlog9ESeverityEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairImNS_4lessIN4tlog9ESeverityEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret ptr %5
 }
 
@@ -17396,7 +17403,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemImLi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemImLi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -17405,7 +17412,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemIPNS_11__tree_nodeIN4tlog9ESeverityEPvEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemIPNS_11__tree_nodeIN4tlog9ESeverityEPvEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -17427,12 +17434,12 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9E
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds %"class.std::__1::unique_ptr.115", ptr %6, i32 0, i32 0
-  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %5, align 8
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.std::__1::unique_ptr.115", ptr %6, i32 0, i32 0
-  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   store ptr %10, ptr %12, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = icmp ne ptr %13, null
@@ -17440,9 +17447,9 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_11__tree_nodeIN4tlog9E
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds %"class.std::__1::unique_ptr.115", ptr %6, i32 0, i32 0
-  %17 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  %17 = call noundef nonnull align 8 dereferenceable(9) ptr @_ZNSt3__117__compressed_pairIPNS_11__tree_nodeIN4tlog9ESeverityEPvEENS_22__tree_node_destructorINS_9allocatorIS5_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   %18 = load ptr, ptr %5, align 8
-  call void @_ZNSt3__122__tree_node_destructorINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEEclB8ne190000EPS6_(ptr noundef nonnull align 8 dereferenceable(9) %17, ptr noundef %18) #14
+  call void @_ZNSt3__122__tree_node_destructorINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEEclB8ne190000EPS6_(ptr noundef nonnull align 8 dereferenceable(9) %17, ptr noundef %18) #13
   br label %19
 
 19:                                               ; preds = %15, %2
@@ -17482,7 +17489,7 @@ define linkonce_odr hidden void @_ZNSt3__122__tree_node_destructorINS_9allocator
   %20 = getelementptr inbounds %"class.std::__1::__tree_node_destructor.119", ptr %5, i32 0, i32 0
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEE10deallocateB8ne190000ERS7_PS6_m(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef %22, i64 noundef 1) #14
+  call void @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEE10deallocateB8ne190000ERS7_PS6_m(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef %22, i64 noundef 1) #13
   br label %23
 
 23:                                               ; preds = %19, %16
@@ -17518,7 +17525,7 @@ define linkonce_odr hidden void @_ZNSt3__116allocator_traitsINS_9allocatorINS_11
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
-  call void @_ZNSt3__19allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEE10deallocateB8ne190000EPS5_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #14
+  call void @_ZNSt3__19allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEE10deallocateB8ne190000EPS5_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #13
   ret void
 }
 
@@ -17574,8 +17581,8 @@ define linkonce_odr hidden void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE6__rootB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
-  call void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE7destroyEPNS_11__tree_nodeIS2_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %4) #14
+  %4 = call noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE6__rootB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
+  call void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE7destroyEPNS_11__tree_nodeIS2_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %4) #13
   ret void
 }
 
@@ -17595,12 +17602,12 @@ define linkonce_odr hidden void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_E
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.std::__1::__tree_end_node", ptr %10, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
-  call void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE7destroyEPNS_11__tree_nodeIS2_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %12) #14
+  call void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE7destroyEPNS_11__tree_nodeIS2_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %12) #13
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds %"class.std::__1::__tree_node_base", ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %14, align 8
-  call void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE7destroyEPNS_11__tree_nodeIS2_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %15) #14
-  %16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE12__node_allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  call void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE7destroyEPNS_11__tree_nodeIS2_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %15) #13
+  %16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE12__node_allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   store ptr %16, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = load ptr, ptr %4, align 8
@@ -17612,7 +17619,7 @@ define linkonce_odr hidden void @_ZNSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_E
 21:                                               ; preds = %9
   %22 = load ptr, ptr %5, align 8
   %23 = load ptr, ptr %4, align 8
-  call void @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEE10deallocateB8ne190000ERS7_PS6_m(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef %23, i64 noundef 1) #14
+  call void @_ZNSt3__116allocator_traitsINS_9allocatorINS_11__tree_nodeIN4tlog9ESeverityEPvEEEEE10deallocateB8ne190000ERS7_PS6_m(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef %23, i64 noundef 1) #13
   br label %24
 
 24:                                               ; preds = %21, %2
@@ -17671,12 +17678,12 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrIN4tlog6LoggerENS_14defaul
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds %"class.std::__1::unique_ptr.58", ptr %6, i32 0, i32 0
-  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPN4tlog6LoggerENS_14default_deleteIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPN4tlog6LoggerENS_14default_deleteIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %5, align 8
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.std::__1::unique_ptr.58", ptr %6, i32 0, i32 0
-  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPN4tlog6LoggerENS_14default_deleteIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #14
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPN4tlog6LoggerENS_14default_deleteIS2_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
   store ptr %10, ptr %12, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = icmp ne ptr %13, null
@@ -17684,9 +17691,9 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrIN4tlog6LoggerENS_14defaul
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds %"class.std::__1::unique_ptr.58", ptr %6, i32 0, i32 0
-  %17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairIPN4tlog6LoggerENS_14default_deleteIS2_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #14
+  %17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairIPN4tlog6LoggerENS_14default_deleteIS2_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #13
   %18 = load ptr, ptr %5, align 8
-  call void @_ZNKSt3__114default_deleteIN4tlog6LoggerEEclB8ne190000EPS2_(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef %18) #14
+  call void @_ZNKSt3__114default_deleteIN4tlog6LoggerEEclB8ne190000EPS2_(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef %18) #13
   br label %19
 
 19:                                               ; preds = %15, %2
@@ -17698,7 +17705,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemIPN4tlog6LoggerELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemIPN4tlog6LoggerELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -17707,7 +17714,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_14default_deleteIN4tlog6LoggerEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_14default_deleteIN4tlog6LoggerEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -17722,7 +17729,7 @@ define linkonce_odr hidden void @_ZNKSt3__114default_deleteIN4tlog6LoggerEEclB8n
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
-  call void @_ZN4tlog6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #14
+  call void @_ZN4tlog6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #13
   call void @_ZdlPv(ptr noundef %5) #19
   br label %8
 
@@ -17753,11 +17760,11 @@ define linkonce_odr dso_local void @_ZN4tlog6LoggerD2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tlog::Logger", ptr %3, i32 0, i32 2
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %5 = getelementptr inbounds %"class.tlog::Logger", ptr %3, i32 0, i32 1
-  call void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  call void @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %6 = getelementptr inbounds %"class.tlog::Logger", ptr %3, i32 0, i32 0
-  call void @_ZNSt3__13setIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  call void @_ZNSt3__13setIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   ret void
 }
 
@@ -17766,7 +17773,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemIPN4tlog6LoggerELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemIPN4tlog6LoggerELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -17816,7 +17823,7 @@ define linkonce_odr dso_local void @_ZN4tlog6StreamC2EPNS_6LoggerENS_9ESeverityE
           to label %16 unwind label %17
 
 16:                                               ; preds = %3
-  call void @_ZNSt3__110unique_ptrINS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEEC2B8ne190000ILb1EvEEPS6_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %15) #14
+  call void @_ZNSt3__110unique_ptrINS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEEC2B8ne190000ILb1EvEEPS6_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %15) #13
   ret void
 
 17:                                               ; preds = %3
@@ -17846,54 +17853,60 @@ define linkonce_odr hidden void @_ZNSt3__119basic_ostringstreamIcNS_11char_trait
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 112
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(148) %6)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 112
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
-  invoke void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1), ptr noundef %8)
-          to label %9 unwind label %13
+  %7 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 112
+  %9 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
+  %11 = getelementptr inbounds [4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1
+  invoke void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %11, ptr noundef %10)
+          to label %12 unwind label %18
 
-9:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 112
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
-  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(100) %11, i32 noundef 16)
-          to label %12 unwind label %17
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 112
+  %15 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
+  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(100) %16, i32 noundef 16)
+          to label %17 unwind label %22
 
-12:                                               ; preds = %9
+17:                                               ; preds = %12
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+18:                                               ; preds = %1
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %3, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %4, align 4
-  br label %21
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  br label %27
 
-17:                                               ; preds = %9
-  %18 = landingpad { ptr, i32 }
+22:                                               ; preds = %12
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1)) #14
-  br label %21
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
+  %26 = getelementptr inbounds [4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %26) #13
+  br label %27
 
-21:                                               ; preds = %17, %13
-  %22 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %22) #14
-  br label %23
+27:                                               ; preds = %22, %18
+  %28 = getelementptr inbounds i8, ptr %5, i64 112
+  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %28) #13
+  br label %29
 
-23:                                               ; preds = %21
-  %24 = load ptr, ptr %3, align 8
-  %25 = load i32, ptr %4, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -17925,7 +17938,8 @@ define linkonce_odr hidden void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt3__18ios_baseC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(136) %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVNSt3__19basic_iosIcNS_11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVNSt3__19basic_iosIcNS_11char_traitsIcEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -17965,14 +17979,15 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 1
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  %7 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 2
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 3
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 8
+  %6 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
+  %8 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 2
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 3
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 8
   ret void
 }
 
@@ -17987,7 +18002,8 @@ define linkonce_odr hidden void @_ZNSt3__18ios_baseC2B8ne190000Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVNSt3__18ios_baseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVNSt3__18ios_baseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -18002,7 +18018,7 @@ define linkonce_odr hidden void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4init
   call void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef %6)
   %7 = getelementptr inbounds %"class.std::__1::basic_ios", ptr %5, i32 0, i32 1
   store ptr null, ptr %7, align 8
-  %8 = call noundef i32 @_ZNSt3__111char_traitsIcE3eofB8ne190000Ev() #14
+  %8 = call noundef i32 @_ZNSt3__111char_traitsIcE3eofB8ne190000Ev() #13
   %9 = getelementptr inbounds %"class.std::__1::basic_ios", ptr %5, i32 0, i32 2
   store i32 %8, ptr %9, align 8
   ret void
@@ -18054,7 +18070,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt3__110unique_ptrINS_19basic
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::unique_ptr.24", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   ret i1 %7
@@ -18085,11 +18101,11 @@ define linkonce_odr dso_local void @_ZN4tlog6Logger3logENS_9ESeverityERKNSt3__11
   %17 = getelementptr inbounds %"class.tlog::Logger", ptr %11, i32 0, i32 1
   store ptr %17, ptr %7, align 8
   %18 = load ptr, ptr %7, align 8
-  %19 = call ptr @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  %19 = call ptr @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   %20 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %8, i32 0, i32 0
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %7, align 8
-  %22 = call ptr @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #14
+  %22 = call ptr @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
   %23 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %9, i32 0, i32 0
   store ptr %22, ptr %23, align 8
   br label %24
@@ -18102,7 +18118,7 @@ define linkonce_odr dso_local void @_ZN4tlog6Logger3logENS_9ESeverityERKNSt3__11
   %27 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
   store ptr %27, ptr %10, align 8
   %28 = load ptr, ptr %10, align 8
-  %29 = call noundef ptr @_ZNKSt3__110shared_ptrIN4tlog7IOutputEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #14
+  %29 = call noundef ptr @_ZNKSt3__110shared_ptrIN4tlog7IOutputEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #13
   %30 = getelementptr inbounds %"class.tlog::Logger", ptr %11, i32 0, i32 2
   %31 = load i32, ptr %5, align 4
   %32 = load ptr, ptr %6, align 8
@@ -18126,7 +18142,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__110unique_ptrINS_19basic_ostrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::unique_ptr.24", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -18148,7 +18164,7 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_19basic_ostringstreamI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__110unique_ptrINS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEE5resetB8ne190000EPS6_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null) #14
+  call void @_ZNSt3__110unique_ptrINS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEE5resetB8ne190000EPS6_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null) #13
   ret void
 }
 
@@ -18157,7 +18173,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -18191,12 +18207,12 @@ define linkonce_odr hidden ptr @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEEN
   store ptr %0, ptr %3, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds %"class.std::__1::set.47", ptr %5, i32 0, i32 0
-  %7 = call ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  %7 = call ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   %8 = getelementptr inbounds %"class.std::__1::__tree_iterator", ptr %4, i32 0, i32 0
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::__1::__tree_iterator", ptr %4, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
-  call void @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000ENS_15__tree_iteratorIS4_S8_lEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %10) #14
+  call void @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000ENS_15__tree_iteratorIS4_S8_lEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %10) #13
   %11 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %2, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   ret ptr %12
@@ -18210,12 +18226,12 @@ define linkonce_odr hidden ptr @_ZNSt3__13setINS_10shared_ptrIN4tlog7IOutputEEEN
   store ptr %0, ptr %3, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds %"class.std::__1::set.47", ptr %5, i32 0, i32 0
-  %7 = call ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  %7 = call ptr @_ZNSt3__16__treeINS_10shared_ptrIN4tlog7IOutputEEENS_4lessIS4_EENS_9allocatorIS4_EEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   %8 = getelementptr inbounds %"class.std::__1::__tree_iterator", ptr %4, i32 0, i32 0
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::__1::__tree_iterator", ptr %4, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
-  call void @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000ENS_15__tree_iteratorIS4_S8_lEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %10) #14
+  call void @_ZNSt3__121__tree_const_iteratorINS_10shared_ptrIN4tlog7IOutputEEEPNS_11__tree_nodeIS4_PvEElEC2B8ne190000ENS_15__tree_iteratorIS4_S8_lEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %10) #13
   %11 = getelementptr inbounds %"class.std::__1::__tree_const_iterator", ptr %2, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   ret ptr %12
@@ -18240,7 +18256,7 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt3__16__treeIN4tlog9ESeverityENS
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = call noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE6__rootB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %8 = call noundef ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE6__rootB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   store ptr %8, ptr %6, align 8
   br label %9
 
@@ -18250,7 +18266,7 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt3__16__treeIN4tlog9ESeverityENS
   br i1 %11, label %12, label %35
 
 12:                                               ; preds = %9
-  %13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   %14 = load ptr, ptr %5, align 8
   %15 = load ptr, ptr %6, align 8
   %16 = getelementptr inbounds %"class.std::__1::__tree_node.114", ptr %15, i32 0, i32 1
@@ -18265,7 +18281,7 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt3__16__treeIN4tlog9ESeverityENS
   br label %34
 
 22:                                               ; preds = %12
-  %23 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %23 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__16__treeIN4tlog9ESeverityENS_4lessIS2_EENS_9allocatorIS2_EEE10value_compB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   %24 = load ptr, ptr %6, align 8
   %25 = getelementptr inbounds %"class.std::__1::__tree_node.114", ptr %24, i32 0, i32 1
   %26 = load ptr, ptr %5, align 8
@@ -18304,7 +18320,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKS
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::__tree", ptr %3, i32 0, i32 2
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__117__compressed_pairImNS_4lessIN4tlog9ESeverityEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__117__compressed_pairImNS_4lessIN4tlog9ESeverityEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret ptr %5
 }
 
@@ -18313,7 +18329,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__122__compressed_pair_elemINS_4lessIN4tlog9ESeverityEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__122__compressed_pair_elemINS_4lessIN4tlog9ESeverityEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -18334,7 +18350,7 @@ define linkonce_odr hidden void @_ZNKRSt3__115basic_stringbufIcNS_11char_traitsI
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %6, i32 0, i32 1
-  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13get_allocatorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13get_allocatorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   call void @_ZNKSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne190000IS4_Qsr14__is_allocatorITL0__EE5valueEENS_12basic_stringIcS2_T_EERKS9_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(100) %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
   ret void
 }
@@ -18349,7 +18365,7 @@ define linkonce_odr dso_local void @_ZNKSt3__115basic_stringbufIcNS_11char_trait
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = call { ptr, i64 } @_ZNKSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE4viewB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(100) %8) #14
+  %9 = call { ptr, i64 } @_ZNKSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE4viewB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(100) %8) #13
   %10 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
   %11 = extractvalue { ptr, i64 } %9, 0
   store ptr %11, ptr %10, align 8
@@ -18431,7 +18447,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNKSt3__115basic_stringbufIcNS_11char_
   br label %37
 
 37:                                               ; preds = %36
-  call void @_ZNSt3__117basic_string_viewIcNS_11char_traitsIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
+  call void @_ZNSt3__117basic_string_viewIcNS_11char_traitsIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   br label %38
 
 38:                                               ; preds = %37, %35, %24
@@ -18462,8 +18478,8 @@ define linkonce_odr dso_local void @_ZNSt3__112basic_stringIcNS_11char_traitsIcE
   call void @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2B8ne190000INS_18__default_init_tagERKS5_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %11)
   %12 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %12, i64 16, i1 false)
-  %13 = call noundef ptr @_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
-  %14 = call noundef i64 @_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
+  %13 = call noundef ptr @_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
+  %14 = call noundef i64 @_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %13, i64 noundef %14)
   ret void
 }
@@ -18499,7 +18515,7 @@ define linkonce_odr dso_local void @_ZNSt3__117basic_string_viewIcNS_11char_trai
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %"class.std::__1::basic_string_view", ptr %7, i32 0, i32 0
   %9 = load ptr, ptr %5, align 8
-  %10 = call noundef ptr @_ZNSt3__110to_addressB8ne190000IcEEDaPT_(ptr noundef %9) #14
+  %10 = call noundef ptr @_ZNSt3__110to_addressB8ne190000IcEEDaPT_(ptr noundef %9) #13
   store ptr %10, ptr %8, align 8
   %11 = getelementptr inbounds %"class.std::__1::basic_string_view", ptr %7, i32 0, i32 1
   %12 = load ptr, ptr %6, align 8
@@ -18548,7 +18564,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__110to_addressB8ne190000IcEEDaPT_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_(ptr noundef %3) #14
+  %4 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_(ptr noundef %3) #13
   ret ptr %4
 }
 
@@ -18581,12 +18597,12 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_19basic_ostringstreamI
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds %"class.std::__1::unique_ptr.24", ptr %6, i32 0, i32 0
-  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %5, align 8
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.std::__1::unique_ptr.24", ptr %6, i32 0, i32 0
-  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #14
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
   store ptr %10, ptr %12, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = icmp ne ptr %13, null
@@ -18594,9 +18610,9 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_19basic_ostringstreamI
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds %"class.std::__1::unique_ptr.24", ptr %6, i32 0, i32 0
-  %17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #14
+  %17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #13
   %18 = load ptr, ptr %5, align 8
-  call void @_ZNKSt3__114default_deleteINS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEEEclB8ne190000EPS6_(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef %18) #14
+  call void @_ZNKSt3__114default_deleteINS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEEEclB8ne190000EPS6_(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef %18) #13
   br label %19
 
 19:                                               ; preds = %15, %2
@@ -18608,7 +18624,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
@@ -18617,7 +18633,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_14default_deleteINS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_14default_deleteINS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret ptr %4
 }
 
@@ -18635,7 +18651,7 @@ define linkonce_odr hidden void @_ZNKSt3__114default_deleteINS_19basic_ostringst
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 1
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(112) %5) #14
+  call void %10(ptr noundef nonnull align 8 dereferenceable(112) %5) #13
   br label %11
 
 11:                                               ; preds = %7, %2
@@ -18697,7 +18713,7 @@ define linkonce_odr dso_local void @_ZNSt3__127__optional_move_assign_baseIN3tev
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__127__optional_copy_assign_baseIN3tev3BoxIiLj2EEELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(17) %3) #14
+  call void @_ZNSt3__127__optional_copy_assign_baseIN3tev3BoxIiLj2EEELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(17) %3) #13
   ret void
 }
 
@@ -18706,7 +18722,7 @@ define linkonce_odr dso_local void @_ZNSt3__127__optional_copy_assign_baseIN3tev
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__120__optional_move_baseIN3tev3BoxIiLj2EEELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(17) %3) #14
+  call void @_ZNSt3__120__optional_move_baseIN3tev3BoxIiLj2EEELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(17) %3) #13
   ret void
 }
 
@@ -18715,7 +18731,7 @@ define linkonce_odr dso_local void @_ZNSt3__120__optional_move_baseIN3tev3BoxIiL
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__120__optional_copy_baseIN3tev3BoxIiLj2EEELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(17) %3) #14
+  call void @_ZNSt3__120__optional_copy_baseIN3tev3BoxIiLj2EEELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(17) %3) #13
   ret void
 }
 
@@ -18724,7 +18740,7 @@ define linkonce_odr dso_local void @_ZNSt3__120__optional_copy_baseIN3tev3BoxIiL
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__123__optional_storage_baseIN3tev3BoxIiLj2EEELb0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(17) %3) #14
+  call void @_ZNSt3__123__optional_storage_baseIN3tev3BoxIiLj2EEELb0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(17) %3) #13
   ret void
 }
 
@@ -18733,7 +18749,7 @@ define linkonce_odr dso_local void @_ZNSt3__123__optional_storage_baseIN3tev3Box
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__124__optional_destruct_baseIN3tev3BoxIiLj2EEELb1EEC2B8ne190000Ev(ptr noundef nonnull align 4 dereferenceable(17) %3) #14
+  call void @_ZNSt3__124__optional_destruct_baseIN3tev3BoxIiLj2EEELb1EEC2B8ne190000Ev(ptr noundef nonnull align 4 dereferenceable(17) %3) #13
   ret void
 }
 
@@ -18789,7 +18805,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v97vformatENS0_17basic_string_viewIc
   store i64 %3, ptr %18, align 8
   %19 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 1
   store ptr %4, ptr %19, align 8
-  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
+  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #13
   call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(536) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %7, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %8, i64 16, i1 false)
@@ -18815,7 +18831,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v97vformatENS0_17basic_string_viewIc
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %9) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %9) #13
   ret void
 
 33:                                               ; preds = %31, %20, %5
@@ -18825,7 +18841,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v97vformatENS0_17basic_string_viewIc
   store ptr %35, ptr %14, align 8
   %36 = extractvalue { ptr, i32 } %34, 1
   store i32 %36, ptr %15, align 4
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %9) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %9) #13
   br label %37
 
 37:                                               ; preds = %33
@@ -18926,7 +18942,7 @@ define linkonce_odr hidden void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -18937,11 +18953,12 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3_
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  call void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #14
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
-  %7 = getelementptr inbounds [500 x i8], ptr %6, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, i64 noundef 500) #14
+  call void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #13
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds [500 x i8], ptr %7, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %8, i64 noundef 500) #13
   ret void
 }
 
@@ -18996,18 +19013,18 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail10vformat_toIcEEvRNS1_6buff
   store ptr %0, ptr %31, align 8
   %48 = load ptr, ptr %31, align 8
   call void @_ZN3fmt2v98appenderCI2NSt3__120back_insert_iteratorINS0_6detail6bufferIcEEEEERS6_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(32) %48)
-  %49 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #14
+  %49 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #13
   %50 = icmp eq i64 %49, 2
   br i1 %50, label %51, label %181
 
 51:                                               ; preds = %6
-  %52 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #14
+  %52 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #13
   %53 = call noundef zeroext i1 @_ZN3fmt2v96detail6equal2EPKcS3_(ptr noundef %52, ptr noundef @.str.59)
   br i1 %53, label %54, label %181
 
 54:                                               ; preds = %51
   call void @_ZNK3fmt2v917basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi(ptr dead_on_unwind writable sret(%"class.fmt::v9::basic_format_arg") align 16 %33, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 0)
-  %55 = call noundef zeroext i1 @_ZNK3fmt2v916basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEcvbEv(ptr noundef nonnull align 16 dereferenceable(20) %33) #14
+  %55 = call noundef zeroext i1 @_ZNK3fmt2v916basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEcvbEv(ptr noundef nonnull align 16 dereferenceable(20) %33) #13
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %54
@@ -19182,7 +19199,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail10vformat_toIcEEvRNS1_6buff
   %152 = load ptr, ptr %17, align 8
   %153 = getelementptr inbounds %"struct.fmt::v9::detail::string_value", ptr %152, i32 0, i32 1
   %154 = load i64, ptr %153, align 8
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef %151, i64 noundef %154) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef %151, i64 noundef %154) #13
   %155 = load ptr, ptr %24, align 8
   %156 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 1
   %157 = load i64, ptr %156, align 8
@@ -19256,10 +19273,10 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail10vformat_toIcEEvRNS1_6buff
   %200 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
   store i64 %199, ptr %200, align 8
   store ptr %38, ptr %8, align 8
-  %201 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %201 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   store ptr %201, ptr %9, align 8
   %202 = load ptr, ptr %9, align 8
-  %203 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %203 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %204 = getelementptr inbounds i8, ptr %202, i64 %203
   store ptr %204, ptr %10, align 8
   %205 = load ptr, ptr %10, align 8
@@ -19428,11 +19445,11 @@ define linkonce_odr dso_local void @_ZN3fmt2v99to_stringIcLm500EEENSt3__112basic
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  %11 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   store i64 %11, ptr %6, align 8
   %12 = load i64, ptr %6, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
-  %13 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE8max_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
+  %13 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE8max_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   %14 = icmp ult i64 %12, %13
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %3, align 1
@@ -19442,9 +19459,9 @@ define linkonce_odr dso_local void @_ZN3fmt2v99to_stringIcLm500EEENSt3__112basic
   br label %18
 
 18:                                               ; preds = %2
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   %19 = load ptr, ptr %5, align 8
-  %20 = call noundef ptr @_ZNK3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #14
+  %20 = call noundef ptr @_ZNK3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #13
   %21 = load i64, ptr %6, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EPKcm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %20, i64 noundef %21)
   ret void
@@ -19456,7 +19473,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v99to_stringIcLm500EEENSt3__112basic
   store ptr %24, ptr %8, align 8
   %25 = extractvalue { ptr, i32 } %23, 1
   store i32 %25, ptr %9, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   br label %26
 
 26:                                               ; preds = %22
@@ -19497,16 +19514,17 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr nound
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -19544,9 +19562,9 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3_
   %12 = icmp ugt i64 %11, 5000
   call void @_ZN3fmt2v96detail16abort_fuzzing_ifEb(i1 noundef zeroext %12)
   %13 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %10, i32 0, i32 2
-  %14 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIcEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %13) #14
+  %14 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIcEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
   store i64 %14, ptr %5, align 8
-  %15 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  %15 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   store i64 %15, ptr %6, align 8
   %16 = load i64, ptr %6, align 8
   %17 = load i64, ptr %6, align 8
@@ -19592,7 +19610,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3_
   br label %40
 
 40:                                               ; preds = %39, %23
-  %41 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  %41 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   store ptr %41, ptr %8, align 8
   %42 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %10, i32 0, i32 2
   %43 = load i64, ptr %7, align 8
@@ -19600,7 +19618,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3_
   store ptr %44, ptr %9, align 8
   %45 = load ptr, ptr %8, align 8
   %46 = load ptr, ptr %8, align 8
-  %47 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  %47 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   %48 = getelementptr inbounds i8, ptr %46, i64 %47
   %49 = load ptr, ptr %9, align 8
   %50 = load i64, ptr %7, align 8
@@ -19608,7 +19626,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3_
   %52 = call noundef ptr @_ZNSt3__118uninitialized_copyB8ne190000IPcS1_EET0_T_S3_S2_(ptr noundef %45, ptr noundef %48, ptr noundef %51)
   %53 = load ptr, ptr %9, align 8
   %54 = load i64, ptr %7, align 8
-  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %53, i64 noundef %54) #14
+  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %53, i64 noundef %54) #13
   %55 = load ptr, ptr %8, align 8
   %56 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %10, i32 0, i32 1
   %57 = getelementptr inbounds [500 x i8], ptr %56, i64 0, i64 0
@@ -19619,7 +19637,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3_
   %60 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %10, i32 0, i32 2
   %61 = load ptr, ptr %8, align 8
   %62 = load i64, ptr %6, align 8
-  call void @_ZNSt3__19allocatorIcE10deallocateB8ne190000EPcm(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef %61, i64 noundef %62) #14
+  call void @_ZNSt3__19allocatorIcE10deallocateB8ne190000EPcm(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef %61, i64 noundef %62) #13
   br label %63
 
 63:                                               ; preds = %59, %40
@@ -19731,7 +19749,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__120__uninitialized_copyB8ne1900
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %14
-  %19 = call noundef zeroext i1 @_ZNKSt3__114__always_falseclB8ne190000IJRPcEEEbDpOT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %10) #14
+  %19 = call noundef zeroext i1 @_ZNKSt3__114__always_falseclB8ne190000IJRPcEEEbDpOT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %10) #13
   %20 = xor i1 %19, true
   br label %21
 
@@ -19771,7 +19789,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__120__uninitialized_copyB8ne1900
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %11, align 8
-  %40 = call ptr @__cxa_begin_catch(ptr %39) #14
+  %40 = call ptr @__cxa_begin_catch(ptr %39) #13
   %41 = load ptr, ptr %9, align 8
   %42 = load ptr, ptr %10, align 8
   %43 = invoke noundef ptr @_ZNSt3__19__destroyB8ne190000IPcEET_S2_S2_(ptr noundef %41, ptr noundef %42)
@@ -19798,7 +19816,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__120__uninitialized_copyB8ne1900
   br label %53
 
 51:                                               ; preds = %45
-  call void @_ZNSt3__14pairIPcS1_EC2B8ne190000IS1_S1_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS5_OS6_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %10) #14
+  call void @_ZNSt3__14pairIPcS1_EC2B8ne190000IS1_S1_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS5_OS6_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %10) #13
   %52 = load { ptr, ptr }, ptr %5, align 8
   ret { ptr, ptr } %52
 
@@ -20009,7 +20027,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3fmt2v916basic_format_argI
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr dso_local void @_ZN3fmt2v96detail13error_handler8on_errorEPKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #11 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3fmt2v96detail13error_handler8on_errorEPKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #10 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -20084,7 +20102,7 @@ define linkonce_odr hidden void @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #17
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3fmt2v916basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(20) %0) unnamed_addr #4 comdat align 2 {
@@ -20172,12 +20190,12 @@ define linkonce_odr dso_local void @_ZN3fmt2v99monostateC2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr dso_local void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef %0) #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef %0) #10 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  %5 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %5 = call ptr @__cxa_allocate_exception(i64 16) #13
   %6 = load ptr, ptr %2, align 8
   invoke void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
           to label %7 unwind label %8
@@ -20193,7 +20211,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18throw_format_errorEPKc(pt
   store ptr %10, ptr %3, align 8
   %11 = extractvalue { ptr, i32 } %9, 1
   store i32 %11, ptr %4, align 4
-  call void @__cxa_free_exception(ptr %5) #14
+  call void @__cxa_free_exception(ptr %5) #13
   br label %12
 
 12:                                               ; preds = %8
@@ -20213,7 +20231,8 @@ define linkonce_odr dso_local void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef n
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -20684,7 +20703,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail21default_arg_formatterIcEcl
   store ptr %2, ptr %14, align 8
   store ptr %0, ptr %6, align 8
   %15 = load ptr, ptr %6, align 8
-  call void @_ZN3fmt2v917basic_string_viewIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
   %16 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 0
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 1
@@ -20863,7 +20882,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEiTnNSt
 
 69:                                               ; preds = %66
   store i8 45, ptr %14, align 1
-  %70 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 0) #14
+  %70 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 0) #13
   %71 = getelementptr inbounds %"class.fmt::v9::appender", ptr %15, i32 0, i32 0
   %72 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %71, i32 0, i32 0
   store ptr %70, ptr %72, align 8
@@ -20970,10 +20989,10 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v96detail10to_pointerIcEEPT_N
   %13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN3fmt2v96detail13get_containerINS1_6bufferIcEEEERT_NSt3__120back_insert_iteratorIS5_EE(ptr %12)
   store ptr %13, ptr %6, align 8
   %14 = load ptr, ptr %6, align 8
-  %15 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
+  %15 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
   store i64 %15, ptr %8, align 8
   %16 = load ptr, ptr %6, align 8
-  %17 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
+  %17 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #13
   %18 = load i64, ptr %8, align 8
   %19 = load i64, ptr %5, align 8
   %20 = add i64 %18, %19
@@ -20991,7 +21010,7 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v96detail10to_pointerIcEEPT_N
   %27 = add i64 %25, %26
   call void @_ZN3fmt2v96detail6bufferIcE10try_resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef %27)
   %28 = load ptr, ptr %6, align 8
-  %29 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #14
+  %29 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #13
   %30 = load i64, ptr %8, align 8
   %31 = getelementptr inbounds i8, ptr %29, i64 %30
   store ptr %31, ptr %3, align 8
@@ -21205,7 +21224,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail13base_iteratorINS0_8appende
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #15
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3fmt2v96detail13get_containerINS1_6bufferIcEEEERT_NSt3__120back_insert_iteratorIS5_EE(ptr %0) #4 comdat {
@@ -21531,7 +21550,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__122__uninitialized_copy_nB8ne19
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = call noundef zeroext i1 @_ZNKSt3__114__always_falseclB8ne190000IJRPcEEEbDpOT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %10) #14
+  %16 = call noundef zeroext i1 @_ZNKSt3__114__always_falseclB8ne190000IJRPcEEEbDpOT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %10) #13
   %17 = xor i1 %16, true
   br label %18
 
@@ -21561,7 +21580,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__122__uninitialized_copy_nB8ne19
   br label %12, !llvm.loop !37
 
 32:                                               ; preds = %18
-  call void @_ZNSt3__14pairIPKcPcEC2B8ne190000IS2_S3_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS7_OS8_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %10) #14
+  call void @_ZNSt3__14pairIPKcPcEC2B8ne190000IS2_S3_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS7_OS8_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %10) #13
   %33 = load { ptr, ptr }, ptr %5, align 8
   ret { ptr, ptr } %33
 }
@@ -21665,7 +21684,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEjTnNSt
 
 69:                                               ; preds = %66
   store i8 45, ptr %14, align 1
-  %70 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 0) #14
+  %70 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 0) #13
   %71 = getelementptr inbounds %"class.fmt::v9::appender", ptr %15, i32 0, i32 0
   %72 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %71, i32 0, i32 0
   store ptr %70, ptr %72, align 8
@@ -21816,7 +21835,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderExTnNSt
 
 69:                                               ; preds = %66
   store i8 45, ptr %14, align 1
-  %70 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 0) #14
+  %70 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 0) #13
   %71 = getelementptr inbounds %"class.fmt::v9::appender", ptr %15, i32 0, i32 0
   %72 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %71, i32 0, i32 0
   store ptr %70, ptr %72, align 8
@@ -22052,7 +22071,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail15do_count_digitsEm(
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEyTnNSt3__19enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS6_bEE5valuentsr3std7is_sameIS6_T_EE5valueEiE4typeELi0EEET0_SA_S6_(ptr %0, i64 noundef %1) #4 comdat {
@@ -22153,7 +22172,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEyTnNSt
 
 69:                                               ; preds = %66
   store i8 45, ptr %14, align 1
-  %70 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 0) #14
+  %70 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 0) #13
   %71 = getelementptr inbounds %"class.fmt::v9::appender", ptr %15, i32 0, i32 0
   %72 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %71, i32 0, i32 0
   store ptr %70, ptr %72, align 8
@@ -22329,7 +22348,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEnTnNSt
 
 90:                                               ; preds = %87
   store i8 45, ptr %19, align 1
-  %91 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef 0) #14
+  %91 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef 0) #13
   %92 = getelementptr inbounds %"class.fmt::v9::appender", ptr %20, i32 0, i32 0
   %93 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %92, i32 0, i32 0
   store ptr %91, ptr %93, align 8
@@ -22782,7 +22801,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEoTnNSt
 
 90:                                               ; preds = %87
   store i8 45, ptr %19, align 1
-  %91 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef 0) #14
+  %91 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef 0) #13
   %92 = getelementptr inbounds %"class.fmt::v9::appender", ptr %20, i32 0, i32 0
   %93 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %92, i32 0, i32 0
   store ptr %91, ptr %93, align 8
@@ -22993,7 +23012,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v918basic_format_specsIcEC2Ev(ptr no
   %22 = or i16 %21, 0
   store i16 %22, ptr %19, align 1
   %23 = getelementptr inbounds %"struct.fmt::v9::basic_format_specs", ptr %3, i32 0, i32 4
-  call void @_ZN3fmt2v96detail6fill_tIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(5) %23) #14
+  call void @_ZN3fmt2v96detail6fill_tIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(5) %23) #13
   ret void
 }
 
@@ -23015,7 +23034,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail11write_bytesILNS0_5align4ty
   store ptr %3, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %6, i64 8, i1 false)
   %15 = load ptr, ptr %8, align 8
-  %16 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %16 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %17 = getelementptr inbounds %class.anon.144, ptr %10, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %7, i64 16, i1 false)
   %18 = getelementptr inbounds %"class.fmt::v9::appender", ptr %9, i32 0, i32 0
@@ -23252,7 +23271,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_int_noinlineIcNS0_8a
   %170 = and i32 %169, 255
   %171 = trunc i32 %170 to i8
   store i8 %171, ptr %62, align 1
-  %172 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %60, i32 noundef 0) #14
+  %172 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %60, i32 noundef 0) #13
   store ptr %172, ptr %63, align 8
   %173 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %63)
   %174 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull align 1 dereferenceable(1) %62)
@@ -23395,7 +23414,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_int_noinlineIcNS0_8a
   %260 = and i32 %259, 255
   %261 = trunc i32 %260 to i8
   store i8 %261, ptr %46, align 1
-  %262 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %44, i32 noundef 0) #14
+  %262 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %44, i32 noundef 0) #13
   store ptr %262, ptr %47, align 8
   %263 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %47)
   %264 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %263, ptr noundef nonnull align 1 dereferenceable(1) %46)
@@ -23527,7 +23546,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_int_noinlineIcNS0_8a
   %343 = and i32 %342, 255
   %344 = trunc i32 %343 to i8
   store i8 %344, ptr %29, align 1
-  %345 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef 0) #14
+  %345 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef 0) #13
   store ptr %345, ptr %30, align 8
   %346 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %30)
   %347 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %346, ptr noundef nonnull align 1 dereferenceable(1) %29)
@@ -23660,7 +23679,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_int_noinlineIcNS0_8a
   %424 = and i32 %423, 255
   %425 = trunc i32 %424 to i8
   store i8 %425, ptr %13, align 1
-  %426 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 0) #14
+  %426 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 0) #13
   store ptr %426, ptr %14, align 8
   %427 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
   %428 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %427, ptr noundef nonnull align 1 dereferenceable(1) %13)
@@ -23817,7 +23836,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3fmt2v96detail19write_int_l
   store ptr %27, ptr %30, align 8
   %31 = load ptr, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %13, i64 8, i1 false)
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #13
   ret i1 true
 
 32:                                               ; preds = %5
@@ -23827,7 +23846,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3fmt2v96detail19write_int_l
   store ptr %34, ptr %15, align 8
   %35 = extractvalue { ptr, i32 } %33, 1
   store i32 %35, ptr %16, align 4
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #13
   br label %36
 
 36:                                               ; preds = %32
@@ -23974,7 +23993,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail14digit_groupingIcEC2ENS1_1
   store i8 %12, ptr %6, align 1
   %13 = load ptr, ptr %5, align 8
   %14 = getelementptr inbounds %"class.fmt::v9::detail::digit_grouping", ptr %13, i32 0, i32 0
-  call void @_ZN3fmt2v96detail20thousands_sep_resultIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %14) #14
+  call void @_ZN3fmt2v96detail20thousands_sep_resultIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %14) #13
   %15 = load i8, ptr %6, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %27
@@ -23988,8 +24007,8 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail14digit_groupingIcEC2ENS1_1
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds %"class.fmt::v9::detail::digit_grouping", ptr %13, i32 0, i32 0
-  %22 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZN3fmt2v96detail20thousands_sep_resultIcEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(25) %21, ptr noundef nonnull align 8 dereferenceable(25) %7) #14
-  call void @_ZN3fmt2v96detail20thousands_sep_resultIcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #14
+  %22 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZN3fmt2v96detail20thousands_sep_resultIcEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(25) %21, ptr noundef nonnull align 8 dereferenceable(25) %7) #13
+  call void @_ZN3fmt2v96detail20thousands_sep_resultIcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #13
   br label %30
 
 23:                                               ; preds = %17
@@ -23999,7 +24018,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail14digit_groupingIcEC2ENS1_1
   store ptr %25, ptr %9, align 8
   %26 = extractvalue { ptr, i32 } %24, 1
   store i32 %26, ptr %10, align 4
-  call void @_ZN3fmt2v96detail20thousands_sep_resultIcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %14) #14
+  call void @_ZN3fmt2v96detail20thousands_sep_resultIcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %14) #13
   br label %31
 
 27:                                               ; preds = %3
@@ -24098,7 +24117,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.fmt::v9::detail::digit_grouping", ptr %3, i32 0, i32 0
-  call void @_ZN3fmt2v96detail20thousands_sep_resultIcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #14
+  call void @_ZN3fmt2v96detail20thousands_sep_resultIcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #13
   ret void
 }
 
@@ -24108,7 +24127,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail20thousands_sep_resultIcEC2
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.fmt::v9::detail::thousands_sep_result", ptr %3, i32 0, i32 0
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   ret void
 }
 
@@ -24137,7 +24156,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail13thousands_sepIcEENS1_20th
   %16 = getelementptr inbounds %"struct.fmt::v9::detail::thousands_sep_result", ptr %5, i32 0, i32 1
   %17 = load i8, ptr %16, align 8
   store i8 %17, ptr %15, align 8
-  call void @_ZN3fmt2v96detail20thousands_sep_resultIcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #14
+  call void @_ZN3fmt2v96detail20thousands_sep_resultIcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #13
   ret void
 
 18:                                               ; preds = %2
@@ -24147,7 +24166,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail13thousands_sepIcEENS1_20th
   store ptr %20, ptr %7, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %8, align 4
-  call void @_ZN3fmt2v96detail20thousands_sep_resultIcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #14
+  call void @_ZN3fmt2v96detail20thousands_sep_resultIcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #13
   br label %22
 
 22:                                               ; preds = %18
@@ -24168,7 +24187,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(25) ptr @_
   %6 = getelementptr inbounds %"struct.fmt::v9::detail::thousands_sep_result", ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %"struct.fmt::v9::detail::thousands_sep_result", ptr %7, i32 0, i32 0
-  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"struct.fmt::v9::detail::thousands_sep_result", ptr %10, i32 0, i32 1
   %12 = load i8, ptr %11, align 8
@@ -24183,7 +24202,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail20thousands_sep_resultIcED2
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.fmt::v9::detail::thousands_sep_result", ptr %3, i32 0, i32 0
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   ret void
 }
 
@@ -24205,11 +24224,11 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18thousands_sep_implIcEENS1
           to label %13 unwind label %26
 
 13:                                               ; preds = %2
-  call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   store ptr %12, ptr %5, align 8
   %14 = load ptr, ptr %5, align 8
   call void @_ZNKSt3__18numpunctIcE8groupingB8ne190000Ev(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %14)
-  %15 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5emptyB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  %15 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5emptyB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
@@ -24227,11 +24246,11 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18thousands_sep_implIcEENS1
   %22 = phi i8 [ 0, %16 ], [ %19, %20 ]
   store i8 %22, ptr %10, align 1
   %23 = getelementptr inbounds %"struct.fmt::v9::detail::thousands_sep_result", ptr %0, i32 0, i32 0
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %24 = getelementptr inbounds %"struct.fmt::v9::detail::thousands_sep_result", ptr %0, i32 0, i32 1
   %25 = load i8, ptr %10, align 1
   store i8 %25, ptr %24, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   ret void
 
 26:                                               ; preds = %2
@@ -24241,7 +24260,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18thousands_sep_implIcEENS1
   store ptr %28, ptr %7, align 8
   %29 = extractvalue { ptr, i32 } %27, 1
   store i32 %29, ptr %8, align 4
-  call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   br label %34
 
 30:                                               ; preds = %17
@@ -24251,7 +24270,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18thousands_sep_implIcEENS1
   store ptr %32, ptr %7, align 8
   %33 = extractvalue { ptr, i32 } %31, 1
   store i32 %33, ptr %8, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   br label %34
 
 34:                                               ; preds = %30, %26
@@ -24286,11 +24305,11 @@ define linkonce_odr dso_local void @_ZNK3fmt2v96detail10locale_ref3getINSt3__16l
 9:                                                ; preds = %2
   %10 = getelementptr inbounds %"class.fmt::v9::detail::locale_ref", ptr %5, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
-  call void @_ZNSt3__16localeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %11) #14
+  call void @_ZNSt3__16localeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %11) #13
   br label %13
 
 12:                                               ; preds = %2
-  call void @_ZNSt3__16localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  call void @_ZNSt3__16localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
   br label %13
 
 13:                                               ; preds = %12, %9
@@ -24537,7 +24556,7 @@ define linkonce_odr dso_local { ptr, i32 } @_ZNK3fmt2v96detail14digit_groupingIc
   %5 = getelementptr inbounds %"struct.fmt::v9::detail::digit_grouping<char>::next_state", ptr %2, i32 0, i32 0
   %6 = getelementptr inbounds %"class.fmt::v9::detail::digit_grouping", ptr %4, i32 0, i32 0
   %7 = getelementptr inbounds %"struct.fmt::v9::detail::thousands_sep_result", ptr %6, i32 0, i32 0
-  %8 = call ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %8 = call ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5beginB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   %9 = getelementptr inbounds %"class.std::__1::__wrap_iter", ptr %5, i32 0, i32 0
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds %"struct.fmt::v9::detail::digit_grouping<char>::next_state", ptr %2, i32 0, i32 1
@@ -24572,16 +24591,16 @@ define linkonce_odr dso_local noundef i32 @_ZNK3fmt2v96detail14digit_groupingIcE
   %17 = getelementptr inbounds %"struct.fmt::v9::detail::digit_grouping<char>::next_state", ptr %16, i32 0, i32 0
   %18 = getelementptr inbounds %"class.fmt::v9::detail::digit_grouping", ptr %8, i32 0, i32 0
   %19 = getelementptr inbounds %"struct.fmt::v9::detail::thousands_sep_result", ptr %18, i32 0, i32 0
-  %20 = call ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
+  %20 = call ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE3endB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   %21 = getelementptr inbounds %"class.std::__1::__wrap_iter", ptr %6, i32 0, i32 0
   store ptr %20, ptr %21, align 8
-  %22 = call noundef zeroext i1 @_ZNSt3__1eqB8ne190000IPKcEEbRKNS_11__wrap_iterIT_EES7_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  %22 = call noundef zeroext i1 @_ZNSt3__1eqB8ne190000IPKcEEbRKNS_11__wrap_iterIT_EES7_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   br i1 %22, label %23, label %33
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds %"class.fmt::v9::detail::digit_grouping", ptr %8, i32 0, i32 0
   %25 = getelementptr inbounds %"struct.fmt::v9::detail::thousands_sep_result", ptr %24, i32 0, i32 0
-  %26 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4backB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
+  %26 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4backB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #13
   %27 = load i8, ptr %26, align 1
   %28 = sext i8 %27 to i32
   %29 = load ptr, ptr %5, align 8
@@ -24595,7 +24614,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK3fmt2v96detail14digit_groupingIcE
 33:                                               ; preds = %15
   %34 = load ptr, ptr %5, align 8
   %35 = getelementptr inbounds %"struct.fmt::v9::detail::digit_grouping<char>::next_state", ptr %34, i32 0, i32 0
-  %36 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__111__wrap_iterIPKcEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #14
+  %36 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__111__wrap_iterIPKcEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #13
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
   %39 = icmp sle i32 %38, 0
@@ -24604,7 +24623,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK3fmt2v96detail14digit_groupingIcE
 40:                                               ; preds = %33
   %41 = load ptr, ptr %5, align 8
   %42 = getelementptr inbounds %"struct.fmt::v9::detail::digit_grouping<char>::next_state", ptr %41, i32 0, i32 0
-  %43 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__111__wrap_iterIPKcEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %42) #14
+  %43 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__111__wrap_iterIPKcEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %42) #13
   %44 = load i8, ptr %43, align 1
   %45 = sext i8 %44 to i32
   %46 = call noundef signext i8 @_ZN3fmt2v96detail9max_valueIcEET_v()
@@ -24620,10 +24639,10 @@ define linkonce_odr dso_local noundef i32 @_ZNK3fmt2v96detail14digit_groupingIcE
 51:                                               ; preds = %40
   %52 = load ptr, ptr %5, align 8
   %53 = getelementptr inbounds %"struct.fmt::v9::detail::digit_grouping<char>::next_state", ptr %52, i32 0, i32 0
-  %54 = call ptr @_ZNSt3__111__wrap_iterIPKcEppB8ne190000Ei(ptr noundef nonnull align 8 dereferenceable(8) %53, i32 noundef 0) #14
+  %54 = call ptr @_ZNSt3__111__wrap_iterIPKcEppB8ne190000Ei(ptr noundef nonnull align 8 dereferenceable(8) %53, i32 noundef 0) #13
   %55 = getelementptr inbounds %"class.std::__1::__wrap_iter", ptr %7, i32 0, i32 0
   store ptr %54, ptr %55, align 8
-  %56 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__111__wrap_iterIPKcEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  %56 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__111__wrap_iterIPKcEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   %57 = load i8, ptr %56, align 1
   %58 = sext i8 %57 to i32
   %59 = load ptr, ptr %5, align 8
@@ -24648,7 +24667,7 @@ define linkonce_odr hidden ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %6 = invoke ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__make_const_iteratorB8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %5)
           to label %7 unwind label %11
 
@@ -24675,7 +24694,7 @@ define linkonce_odr hidden ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %5, align 8
-  call void @_ZNSt3__111__wrap_iterIPKcEC2B8ne190000ES2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %6) #14
+  call void @_ZNSt3__111__wrap_iterIPKcEC2B8ne190000ES2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %6) #13
   %7 = getelementptr inbounds %"class.std::__1::__wrap_iter", ptr %3, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -24696,7 +24715,7 @@ define linkonce_odr hidden void @_ZNSt3__111__wrap_iterIPKcEC2B8ne190000ES2_(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail9max_valueIiEET_v() #1 comdat {
-  %1 = call noundef i32 @_ZNSt3__114numeric_limitsIiE3maxB8ne190000Ev() #14
+  %1 = call noundef i32 @_ZNSt3__114numeric_limitsIiE3maxB8ne190000Ev() #13
   ret i32 %1
 }
 
@@ -24707,9 +24726,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__1eqB8ne190000IPKcEEbRKNS_
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = call noundef ptr @_ZNKSt3__111__wrap_iterIPKcE4baseB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %6 = call noundef ptr @_ZNKSt3__111__wrap_iterIPKcE4baseB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   %7 = load ptr, ptr %4, align 8
-  %8 = call noundef ptr @_ZNKSt3__111__wrap_iterIPKcE4baseB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  %8 = call noundef ptr @_ZNKSt3__111__wrap_iterIPKcE4baseB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   %9 = icmp eq ptr %6, %8
   ret i1 %9
 }
@@ -24720,8 +24739,8 @@ define linkonce_odr hidden ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
-  %6 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %5 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
+  %6 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %7 = getelementptr inbounds i8, ptr %5, i64 %6
   %8 = call ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__make_const_iteratorB8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %7)
   %9 = getelementptr inbounds %"class.std::__1::__wrap_iter", ptr %2, i32 0, i32 0
@@ -24736,8 +24755,8 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
-  %5 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
+  %5 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -1
   ret ptr %7
@@ -24755,7 +24774,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef signext i8 @_ZN3fmt2v96detail9max_valueIcEET_v() #1 comdat {
-  %1 = call noundef signext i8 @_ZNSt3__114numeric_limitsIcE3maxB8ne190000Ev() #14
+  %1 = call noundef signext i8 @_ZNSt3__114numeric_limitsIcE3maxB8ne190000Ev() #13
   ret i8 %1
 }
 
@@ -24768,7 +24787,7 @@ define linkonce_odr hidden ptr @_ZNSt3__111__wrap_iterIPKcEppB8ne190000Ei(ptr no
   store i32 %1, ptr %5, align 4
   %6 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %6, i64 8, i1 false)
-  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__111__wrap_iterIPKcEppB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__111__wrap_iterIPKcEppB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %8 = getelementptr inbounds %"class.std::__1::__wrap_iter", ptr %3, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
   ret ptr %9
@@ -24776,7 +24795,7 @@ define linkonce_odr hidden ptr @_ZNSt3__111__wrap_iterIPKcEppB8ne190000Ei(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNSt3__114numeric_limitsIiE3maxB8ne190000Ev() #1 comdat align 2 {
-  %1 = call noundef i32 @_ZNSt3__123__libcpp_numeric_limitsIiLb1EE3maxB8ne190000Ev() #14
+  %1 = call noundef i32 @_ZNSt3__123__libcpp_numeric_limitsIiLb1EE3maxB8ne190000Ev() #13
   ret i32 %1
 }
 
@@ -24797,7 +24816,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt3__111__wrap_iterIPKcE4baseB8ne190
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef signext i8 @_ZNSt3__114numeric_limitsIcE3maxB8ne190000Ev() #1 comdat align 2 {
-  %1 = call noundef signext i8 @_ZNSt3__123__libcpp_numeric_limitsIcLb1EE3maxB8ne190000Ev() #14
+  %1 = call noundef signext i8 @_ZNSt3__123__libcpp_numeric_limitsIcLb1EE3maxB8ne190000Ev() #13
   ret i8 %1
 }
 
@@ -24939,7 +24958,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail19write_int_localizedINS0_8
   %20 = load i32, ptr %19, align 4
   %21 = trunc i32 %20 to i8
   store i8 %21, ptr %6, align 1
-  %22 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %22 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %23 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %24 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %23, i32 0, i32 0
   store ptr %22, ptr %24, align 8
@@ -24959,7 +24978,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail19write_int_localizedINS0_8
   %35 = load i32, ptr %34, align 4
   %36 = call noundef i32 @_ZN3fmt2v96detail11to_unsignedIiEENSt3__113make_unsignedIT_E4typeES5_(i32 noundef %35)
   %37 = zext i32 %36 to i64
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %32, i64 noundef %37) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %32, i64 noundef %37) #13
   %38 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %39 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %38, i32 0, i32 0
   %40 = load ptr, ptr %39, align 8
@@ -25001,7 +25020,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail6fill_nINS0_8appenderEmcEET_
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %7, align 8
-  %18 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #14
+  %18 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #13
   %19 = getelementptr inbounds %"class.fmt::v9::appender", ptr %9, i32 0, i32 0
   %20 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %19, i32 0, i32 0
   store ptr %18, ptr %20, align 8
@@ -25115,10 +25134,10 @@ define linkonce_odr dso_local ptr @_ZNK3fmt2v96detail14digit_groupingIcE5applyIN
   store i64 %3, ptr %26, align 8
   store ptr %0, ptr %8, align 8
   %27 = load ptr, ptr %8, align 8
-  %28 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %28 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %29 = trunc i64 %28 to i32
   store i32 %29, ptr %9, align 4
-  call void @_ZNSt3__19allocatorIiEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  call void @_ZNSt3__19allocatorIiEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
   call void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(2040) %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
   store i32 0, ptr %12, align 4
   invoke void @_ZN3fmt2v96detail6bufferIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(4) %12)
@@ -25160,7 +25179,7 @@ define linkonce_odr dso_local ptr @_ZNK3fmt2v96detail14digit_groupingIcE5applyIN
   store ptr %48, ptr %13, align 8
   %49 = extractvalue { ptr, i32 } %47, 1
   store i32 %49, ptr %14, align 4
-  call void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(2040) %10) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(2040) %10) #13
   br label %99
 
 50:                                               ; preds = %41
@@ -25172,7 +25191,7 @@ define linkonce_odr dso_local ptr @_ZNK3fmt2v96detail14digit_groupingIcE5applyIN
 
 52:                                               ; preds = %45, %38
   store i32 0, ptr %17, align 4
-  %53 = call noundef i64 @_ZNK3fmt2v96detail6bufferIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  %53 = call noundef i64 @_ZNK3fmt2v96detail6bufferIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   %54 = sub i64 %53, 1
   %55 = trunc i64 %54 to i32
   store i32 %55, ptr %18, align 4
@@ -25203,7 +25222,7 @@ define linkonce_odr dso_local ptr @_ZNK3fmt2v96detail14digit_groupingIcE5applyIN
 
 71:                                               ; preds = %69
   store i8 %70, ptr %19, align 1
-  %72 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 0) #14
+  %72 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 0) #13
   %73 = getelementptr inbounds %"class.fmt::v9::appender", ptr %20, i32 0, i32 0
   %74 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %73, i32 0, i32 0
   store ptr %72, ptr %74, align 8
@@ -25221,10 +25240,10 @@ define linkonce_odr dso_local ptr @_ZNK3fmt2v96detail14digit_groupingIcE5applyIN
   %81 = load i32, ptr %17, align 4
   %82 = call noundef i32 @_ZN3fmt2v96detail11to_unsignedIiEENSt3__113make_unsignedIT_E4typeES5_(i32 noundef %81)
   %83 = zext i32 %82 to i64
-  %84 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3fmt2v917basic_string_viewIcEixEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %83) #14
+  %84 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3fmt2v917basic_string_viewIcEixEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %83) #13
   %85 = load i8, ptr %84, align 1
   store i8 %85, ptr %21, align 1
-  %86 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 0) #14
+  %86 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 0) #13
   %87 = getelementptr inbounds %"class.fmt::v9::appender", ptr %22, i32 0, i32 0
   %88 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %87, i32 0, i32 0
   store ptr %86, ptr %88, align 8
@@ -25243,7 +25262,7 @@ define linkonce_odr dso_local ptr @_ZNK3fmt2v96detail14digit_groupingIcE5applyIN
 
 95:                                               ; preds = %56
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 8, i1 false)
-  call void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(2040) %10) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(2040) %10) #13
   %96 = getelementptr inbounds %"class.fmt::v9::appender", ptr %5, i32 0, i32 0
   %97 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %96, i32 0, i32 0
   %98 = load ptr, ptr %97, align 8
@@ -25262,7 +25281,7 @@ define linkonce_odr hidden void @_ZNSt3__19allocatorIiEC2B8ne190000Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIiEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIiEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -25273,11 +25292,12 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3_
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  call void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #14
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.131", ptr %5, i32 0, i32 1
-  %7 = getelementptr inbounds [500 x i32], ptr %6, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, i64 noundef 500) #14
+  call void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #13
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.131", ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds [500 x i32], ptr %7, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %8, i64 noundef 500) #13
   ret void
 }
 
@@ -25392,16 +25412,17 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr nound
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.132", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer.132", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer.132", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer.132", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer.132", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer.132", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -25439,9 +25460,9 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3_
   %12 = icmp ugt i64 %11, 5000
   call void @_ZN3fmt2v96detail16abort_fuzzing_ifEb(i1 noundef zeroext %12)
   %13 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.131", ptr %10, i32 0, i32 2
-  %14 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIiEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %13) #14
+  %14 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIiEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
   store i64 %14, ptr %5, align 8
-  %15 = call noundef i64 @_ZNK3fmt2v96detail6bufferIiE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  %15 = call noundef i64 @_ZNK3fmt2v96detail6bufferIiE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   store i64 %15, ptr %6, align 8
   %16 = load i64, ptr %6, align 8
   %17 = load i64, ptr %6, align 8
@@ -25487,7 +25508,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3_
   br label %40
 
 40:                                               ; preds = %39, %23
-  %41 = call noundef ptr @_ZN3fmt2v96detail6bufferIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  %41 = call noundef ptr @_ZN3fmt2v96detail6bufferIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   store ptr %41, ptr %8, align 8
   %42 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.131", ptr %10, i32 0, i32 2
   %43 = load i64, ptr %7, align 8
@@ -25495,7 +25516,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3_
   store ptr %44, ptr %9, align 8
   %45 = load ptr, ptr %8, align 8
   %46 = load ptr, ptr %8, align 8
-  %47 = call noundef i64 @_ZNK3fmt2v96detail6bufferIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  %47 = call noundef i64 @_ZNK3fmt2v96detail6bufferIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   %48 = getelementptr inbounds i32, ptr %46, i64 %47
   %49 = load ptr, ptr %9, align 8
   %50 = load i64, ptr %7, align 8
@@ -25503,7 +25524,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3_
   %52 = call noundef ptr @_ZNSt3__118uninitialized_copyB8ne190000IPiS1_EET0_T_S3_S2_(ptr noundef %45, ptr noundef %48, ptr noundef %51)
   %53 = load ptr, ptr %9, align 8
   %54 = load i64, ptr %7, align 8
-  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %53, i64 noundef %54) #14
+  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %53, i64 noundef %54) #13
   %55 = load ptr, ptr %8, align 8
   %56 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.131", ptr %10, i32 0, i32 1
   %57 = getelementptr inbounds [500 x i32], ptr %56, i64 0, i64 0
@@ -25514,7 +25535,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3_
   %60 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.131", ptr %10, i32 0, i32 2
   %61 = load ptr, ptr %8, align 8
   %62 = load i64, ptr %6, align 8
-  call void @_ZNSt3__19allocatorIiE10deallocateB8ne190000EPim(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef %61, i64 noundef %62) #14
+  call void @_ZNSt3__19allocatorIiE10deallocateB8ne190000EPim(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef %61, i64 noundef %62) #13
   br label %63
 
 63:                                               ; preds = %59, %40
@@ -25525,7 +25546,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3_
 define linkonce_odr dso_local noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIiEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = call noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #14
+  %3 = call noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #13
   %4 = udiv i64 %3, 4
   ret i64 %4
 }
@@ -25629,7 +25650,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__19allocatorIiE8allocateB8ne19000
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
-  %7 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIiEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  %7 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIiEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %9, label %10
 
@@ -25669,7 +25690,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__120__uninitialized_copyB8ne1900
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %14
-  %19 = call noundef zeroext i1 @_ZNKSt3__114__always_falseclB8ne190000IJRPiEEEbDpOT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %10) #14
+  %19 = call noundef zeroext i1 @_ZNKSt3__114__always_falseclB8ne190000IJRPiEEEbDpOT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %10) #13
   %20 = xor i1 %19, true
   br label %21
 
@@ -25709,7 +25730,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__120__uninitialized_copyB8ne1900
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %11, align 8
-  %40 = call ptr @__cxa_begin_catch(ptr %39) #14
+  %40 = call ptr @__cxa_begin_catch(ptr %39) #13
   %41 = load ptr, ptr %9, align 8
   %42 = load ptr, ptr %10, align 8
   %43 = invoke noundef ptr @_ZNSt3__19__destroyB8ne190000IPiEET_S2_S2_(ptr noundef %41, ptr noundef %42)
@@ -25736,7 +25757,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__120__uninitialized_copyB8ne1900
   br label %53
 
 51:                                               ; preds = %45
-  call void @_ZNSt3__14pairIPiS1_EC2B8ne190000IS1_S1_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS5_OS6_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %10) #14
+  call void @_ZNSt3__14pairIPiS1_EC2B8ne190000IS1_S1_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS5_OS6_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %10) #13
   %52 = load { ptr, ptr }, ptr %5, align 8
   ret { ptr, ptr } %52
 
@@ -25855,7 +25876,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3_
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  %5 = call noundef ptr @_ZN3fmt2v96detail6bufferIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
+  %5 = call noundef ptr @_ZN3fmt2v96detail6bufferIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   store ptr %5, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.131", ptr %4, i32 0, i32 1
@@ -25866,8 +25887,8 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3_
 10:                                               ; preds = %1
   %11 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.131", ptr %4, i32 0, i32 2
   %12 = load ptr, ptr %3, align 8
-  %13 = call noundef i64 @_ZNK3fmt2v96detail6bufferIiE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
-  call void @_ZNSt3__19allocatorIiE10deallocateB8ne190000EPim(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13) #14
+  %13 = call noundef i64 @_ZNK3fmt2v96detail6bufferIiE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  call void @_ZNSt3__19allocatorIiE10deallocateB8ne190000EPim(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13) #13
   br label %14
 
 14:                                               ; preds = %10, %1
@@ -26221,7 +26242,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail9write_intINS0_8appenderEcZ
   %24 = and i32 %23, 255
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %7, align 1
-  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %27 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %28 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %27, i32 0, i32 0
   store ptr %26, ptr %28, align 8
@@ -26644,7 +26665,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail9write_intINS0_8appenderEcZ
   %24 = and i32 %23, 255
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %7, align 1
-  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %27 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %28 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %27, i32 0, i32 0
   store ptr %26, ptr %28, align 8
@@ -27062,7 +27083,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail9write_intINS0_8appenderEcZ
   %24 = and i32 %23, 255
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %7, align 1
-  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %27 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %28 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %27, i32 0, i32 0
   store ptr %26, ptr %28, align 8
@@ -27480,7 +27501,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail9write_intINS0_8appenderEcZ
   %24 = and i32 %23, 255
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %7, align 1
-  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %27 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %28 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %27, i32 0, i32 0
   store ptr %26, ptr %28, align 8
@@ -27736,7 +27757,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail10write_charIcNS0_8appender
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds %class.anon.143, ptr %10, i32 0, i32 1
-  %25 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %25 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %26 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %27 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %26, i32 0, i32 0
   store ptr %25, ptr %27, align 8
@@ -27770,7 +27791,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_escaped_charIcNS0_8a
   store ptr %0, ptr %15, align 8
   store i8 %1, ptr %5, align 1
   store i8 39, ptr %6, align 1
-  %16 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %16 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %17 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %18 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %17, i32 0, i32 0
   store ptr %16, ptr %18, align 8
@@ -27815,7 +27836,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_escaped_charIcNS0_8a
   br label %51
 
 45:                                               ; preds = %28
-  %46 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %46 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %47 = getelementptr inbounds %"class.fmt::v9::appender", ptr %11, i32 0, i32 0
   %48 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %47, i32 0, i32 0
   store ptr %46, ptr %48, align 8
@@ -27825,7 +27846,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_escaped_charIcNS0_8a
 
 51:                                               ; preds = %45, %32
   store i8 39, ptr %12, align 1
-  %52 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %52 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %53 = getelementptr inbounds %"class.fmt::v9::appender", ptr %13, i32 0, i32 0
   %54 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %53, i32 0, i32 0
   store ptr %52, ptr %54, align 8
@@ -27920,7 +27941,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail16write_escaped_cpINS0_8appe
 
 35:                                               ; preds = %2
   store i8 92, ptr %7, align 1
-  %36 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %36 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %37 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %38 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %37, i32 0, i32 0
   store ptr %36, ptr %38, align 8
@@ -27931,7 +27952,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail16write_escaped_cpINS0_8appe
 
 41:                                               ; preds = %2
   store i8 92, ptr %9, align 1
-  %42 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %42 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %43 = getelementptr inbounds %"class.fmt::v9::appender", ptr %10, i32 0, i32 0
   %44 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %43, i32 0, i32 0
   store ptr %42, ptr %44, align 8
@@ -27942,7 +27963,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail16write_escaped_cpINS0_8appe
 
 47:                                               ; preds = %2
   store i8 92, ptr %11, align 1
-  %48 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %48 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %49 = getelementptr inbounds %"class.fmt::v9::appender", ptr %12, i32 0, i32 0
   %50 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %49, i32 0, i32 0
   store ptr %48, ptr %50, align 8
@@ -27959,7 +27980,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail16write_escaped_cpINS0_8appe
 
 55:                                               ; preds = %54, %2
   store i8 92, ptr %13, align 1
-  %56 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %56 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %57 = getelementptr inbounds %"class.fmt::v9::appender", ptr %14, i32 0, i32 0
   %58 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %57, i32 0, i32 0
   store ptr %56, ptr %58, align 8
@@ -28044,13 +28065,13 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail16write_escaped_cpINS0_8appe
   %117 = ptrtoint ptr %115 to i64
   %118 = sub i64 %116, %117
   %119 = call noundef i64 @_ZN3fmt2v96detail11to_unsignedIlEENSt3__113make_unsignedIT_E4typeES5_(i64 noundef %118)
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef %109, i64 noundef %119) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef %109, i64 noundef %119) #13
   store ptr %19, ptr %18, align 8
   %120 = load ptr, ptr %18, align 8
-  %121 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %120) #14
+  %121 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %120) #13
   store ptr %121, ptr %20, align 8
   %122 = load ptr, ptr %18, align 8
-  %123 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %122) #14
+  %123 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %122) #13
   store ptr %123, ptr %21, align 8
   br label %124
 
@@ -28089,7 +28110,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail16write_escaped_cpINS0_8appe
   br label %150
 
 144:                                              ; preds = %55, %47, %41, %35
-  %145 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %145 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %146 = getelementptr inbounds %"class.fmt::v9::appender", ptr %25, i32 0, i32 0
   %147 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %146, i32 0, i32 0
   store ptr %145, ptr %147, align 8
@@ -28479,7 +28500,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail15write_codepointILm2EcNS0_8
   store i8 %1, ptr %6, align 1
   store i32 %2, ptr %7, align 4
   store i8 92, ptr %8, align 1
-  %16 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #14
+  %16 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #13
   %17 = getelementptr inbounds %"class.fmt::v9::appender", ptr %9, i32 0, i32 0
   %18 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %17, i32 0, i32 0
   store ptr %16, ptr %18, align 8
@@ -28487,7 +28508,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail15write_codepointILm2EcNS0_8
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 1 dereferenceable(1) %8)
   %21 = load i8, ptr %6, align 1
   store i8 %21, ptr %10, align 1
-  %22 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #14
+  %22 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #13
   %23 = getelementptr inbounds %"class.fmt::v9::appender", ptr %11, i32 0, i32 0
   %24 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %23, i32 0, i32 0
   store ptr %22, ptr %24, align 8
@@ -28533,7 +28554,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail15write_codepointILm4EcNS0_8
   store i8 %1, ptr %6, align 1
   store i32 %2, ptr %7, align 4
   store i8 92, ptr %8, align 1
-  %16 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #14
+  %16 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #13
   %17 = getelementptr inbounds %"class.fmt::v9::appender", ptr %9, i32 0, i32 0
   %18 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %17, i32 0, i32 0
   store ptr %16, ptr %18, align 8
@@ -28541,7 +28562,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail15write_codepointILm4EcNS0_8
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 1 dereferenceable(1) %8)
   %21 = load i8, ptr %6, align 1
   store i8 %21, ptr %10, align 1
-  %22 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #14
+  %22 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #13
   %23 = getelementptr inbounds %"class.fmt::v9::appender", ptr %11, i32 0, i32 0
   %24 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %23, i32 0, i32 0
   store ptr %22, ptr %24, align 8
@@ -28587,7 +28608,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail15write_codepointILm8EcNS0_8
   store i8 %1, ptr %6, align 1
   store i32 %2, ptr %7, align 4
   store i8 92, ptr %8, align 1
-  %16 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #14
+  %16 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #13
   %17 = getelementptr inbounds %"class.fmt::v9::appender", ptr %9, i32 0, i32 0
   %18 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %17, i32 0, i32 0
   store ptr %16, ptr %18, align 8
@@ -28595,7 +28616,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail15write_codepointILm8EcNS0_8
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 1 dereferenceable(1) %8)
   %21 = load i8, ptr %6, align 1
   store i8 %21, ptr %10, align 1
-  %22 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #14
+  %22 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #13
   %23 = getelementptr inbounds %"class.fmt::v9::appender", ptr %11, i32 0, i32 0
   %24 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %23, i32 0, i32 0
   store ptr %22, ptr %24, align 8
@@ -28875,12 +28896,12 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail11write_bytesILNS0_5align4t
   store ptr %0, ptr %5, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds %class.anon.144, ptr %10, i32 0, i32 0
-  %12 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #14
+  %12 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #13
   store ptr %12, ptr %6, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr inbounds %class.anon.144, ptr %10, i32 0, i32 0
-  %16 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #14
+  %16 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #13
   %17 = getelementptr inbounds i8, ptr %14, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
   %18 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
@@ -28930,7 +28951,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S
   store i8 %1, ptr %5, align 1
   %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3fmt2v96detail7reserveINS0_8appenderEEERT_S5_m(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %12, i64 8, i1 false)
-  %13 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 0) #14
+  %13 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 0) #13
   %14 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %15 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %14, i32 0, i32 0
   store ptr %13, ptr %15, align 8
@@ -28993,7 +29014,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEfTnNSt
   store float %27, ptr %3, align 4
   %28 = load float, ptr %3, align 4
   %29 = fpext float %28 to double
-  %30 = call noundef zeroext i1 @_ZNSt3__16__math7signbitB8ne190000IdTnNS_9enable_ifIXsr17is_floating_pointIT_EE5valueEiE4typeELi0EEEbS3_(double noundef %29) #14
+  %30 = call noundef zeroext i1 @_ZNSt3__16__math7signbitB8ne190000IdTnNS_9enable_ifIXsr17is_floating_pointIT_EE5valueEiE4typeELi0EEEbS3_(double noundef %29) #13
   br i1 %30, label %31, label %38
 
 31:                                               ; preds = %26
@@ -29021,7 +29042,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEfTnNSt
 45:                                               ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %6, i64 8, i1 false)
   %46 = load float, ptr %7, align 4
-  %47 = call noundef zeroext i1 @_ZNSt3__16__math5isnanB8ne190000Ef(float noundef %46) #14
+  %47 = call noundef zeroext i1 @_ZNSt3__16__math5isnanB8ne190000Ef(float noundef %46) #13
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 4 %9, i64 16, i1 false)
   %48 = getelementptr inbounds %"class.fmt::v9::appender", ptr %11, i32 0, i32 0
   %49 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %48, i32 0, i32 0
@@ -29038,7 +29059,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEfTnNSt
 
 58:                                               ; preds = %38
   %59 = load float, ptr %7, align 4
-  %60 = call i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %59) #14
+  %60 = call i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %59) #13
   store i64 %60, ptr %13, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %6, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr align 4 %8, i64 8, i1 false)
@@ -29313,26 +29334,26 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
   %66 = load i32, ptr %28, align 4
   store i32 %66, ptr %17, align 4
   %67 = load i32, ptr %17, align 4
-  %68 = call noundef i32 @_ZN3fmt2v96detail9dragonbox37floor_log10_pow2_minus_log10_4_over_3Ei(i32 noundef %67) #14
+  %68 = call noundef i32 @_ZN3fmt2v96detail9dragonbox37floor_log10_pow2_minus_log10_4_over_3Ei(i32 noundef %67) #13
   store i32 %68, ptr %18, align 4
   %69 = load i32, ptr %17, align 4
   %70 = load i32, ptr %18, align 4
   %71 = sub nsw i32 0, %70
-  %72 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log2_pow10Ei(i32 noundef %71) #14
+  %72 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log2_pow10Ei(i32 noundef %71) #13
   %73 = add nsw i32 %69, %72
   store i32 %73, ptr %19, align 4
   %74 = load i32, ptr %18, align 4
   %75 = sub nsw i32 0, %74
-  %76 = call noundef i64 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE16get_cached_powerEi(i32 noundef %75) #14
+  %76 = call noundef i64 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE16get_cached_powerEi(i32 noundef %75) #13
   store i64 %76, ptr %20, align 8
   %77 = load i32, ptr %19, align 4
-  %78 = call noundef i32 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE47compute_left_endpoint_for_shorter_interval_caseERKmi(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef %77) #14
+  %78 = call noundef i32 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE47compute_left_endpoint_for_shorter_interval_caseERKmi(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef %77) #13
   store i32 %78, ptr %21, align 4
   %79 = load i32, ptr %19, align 4
-  %80 = call noundef i32 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE48compute_right_endpoint_for_shorter_interval_caseERKmi(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef %79) #14
+  %80 = call noundef i32 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE48compute_right_endpoint_for_shorter_interval_caseERKmi(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef %79) #13
   store i32 %80, ptr %22, align 4
   %81 = load i32, ptr %17, align 4
-  %82 = call noundef zeroext i1 @_ZN3fmt2v96detail9dragonbox41is_left_endpoint_integer_shorter_intervalIfEEbi(i32 noundef %81) #14
+  %82 = call noundef zeroext i1 @_ZN3fmt2v96detail9dragonbox41is_left_endpoint_integer_shorter_intervalIfEEbi(i32 noundef %81) #13
   br i1 %82, label %86, label %83
 
 83:                                               ; preds = %65
@@ -29372,7 +29393,7 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
   %102 = load ptr, ptr %9, align 8
   %103 = load i32, ptr %102, align 4
   %104 = mul i32 %103, -1030792151
-  %105 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %104, i32 noundef 2) #14
+  %105 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %104, i32 noundef 2) #13
   store i32 %105, ptr %14, align 4
   %106 = load i32, ptr %14, align 4
   %107 = invoke noundef i32 @_ZN3fmt2v96detail9max_valueIjEET_v()
@@ -29387,7 +29408,7 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
   %112 = load ptr, ptr %9, align 8
   %113 = load i32, ptr %112, align 4
   %114 = mul i32 %113, -858993459
-  %115 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %114, i32 noundef 1) #14
+  %115 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %114, i32 noundef 1) #13
   store i32 %115, ptr %15, align 4
   %116 = load i32, ptr %15, align 4
   %117 = invoke noundef i32 @_ZN3fmt2v96detail9max_valueIjEET_v()
@@ -29433,7 +29454,7 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
 
 139:                                              ; preds = %86
   %140 = load i32, ptr %19, align 4
-  %141 = call noundef i32 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE42compute_round_up_for_shorter_interval_caseERKmi(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef %140) #14
+  %141 = call noundef i32 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE42compute_round_up_for_shorter_interval_caseERKmi(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef %140) #13
   store i32 %141, ptr %16, align 4
   %142 = load i32, ptr %18, align 4
   %143 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::decimal_fp", ptr %16, i32 0, i32 1
@@ -29528,21 +29549,21 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
   %193 = zext i1 %192 to i8
   store i8 %193, ptr %30, align 1
   %194 = load i32, ptr %28, align 4
-  %195 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log10_pow2Ei(i32 noundef %194) #14
+  %195 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log10_pow2Ei(i32 noundef %194) #13
   %196 = sub nsw i32 %195, 1
   store i32 %196, ptr %31, align 4
   %197 = load i32, ptr %31, align 4
   %198 = sub nsw i32 0, %197
-  %199 = call noundef i64 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE16get_cached_powerEi(i32 noundef %198) #14
+  %199 = call noundef i64 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE16get_cached_powerEi(i32 noundef %198) #13
   store i64 %199, ptr %32, align 8
   %200 = load i32, ptr %28, align 4
   %201 = load i32, ptr %31, align 4
   %202 = sub nsw i32 0, %201
-  %203 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log2_pow10Ei(i32 noundef %202) #14
+  %203 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log2_pow10Ei(i32 noundef %202) #13
   %204 = add nsw i32 %200, %203
   store i32 %204, ptr %33, align 4
   %205 = load i32, ptr %33, align 4
-  %206 = call noundef i32 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE13compute_deltaERKmi(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %205) #14
+  %206 = call noundef i32 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE13compute_deltaERKmi(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %205) #13
   store i32 %206, ptr %34, align 4
   %207 = load i32, ptr %27, align 4
   %208 = shl i32 %207, 1
@@ -29551,11 +29572,11 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
   %210 = or i32 %209, 1
   %211 = load i32, ptr %33, align 4
   %212 = shl i32 %210, %211
-  %213 = call i64 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE11compute_mulEjRKm(i32 noundef %212, ptr noundef nonnull align 8 dereferenceable(8) %32) #14
+  %213 = call i64 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE11compute_mulEjRKm(i32 noundef %212, ptr noundef nonnull align 8 dereferenceable(8) %32) #13
   store i64 %213, ptr %36, align 4
   %214 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<float>::compute_mul_result", ptr %36, i32 0, i32 0
   %215 = load i32, ptr %214, align 4
-  %216 = call noundef i32 @_ZN3fmt2v96detail9dragonbox28divide_by_10_to_kappa_plus_1Ej(i32 noundef %215) #14
+  %216 = call noundef i32 @_ZN3fmt2v96detail9dragonbox28divide_by_10_to_kappa_plus_1Ej(i32 noundef %215) #13
   %217 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::decimal_fp", ptr %23, i32 0, i32 0
   store i32 %216, ptr %217, align 4
   %218 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<float>::compute_mul_result", ptr %36, i32 0, i32 0
@@ -29627,7 +29648,7 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
 258:                                              ; preds = %255, %252, %247
   %259 = load i32, ptr %38, align 4
   %260 = load i32, ptr %33, align 4
-  %261 = call i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE18compute_mul_parityEjRKmi(i32 noundef %259, ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %260) #14
+  %261 = call i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE18compute_mul_parityEjRKmi(i32 noundef %259, ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %260) #13
   store i16 %261, ptr %39, align 1
   %262 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<float>::compute_mul_parity_result", ptr %39, i32 0, i32 0
   %263 = load i8, ptr %262, align 1
@@ -29644,7 +29665,7 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
 268:                                              ; preds = %255
   %269 = load i32, ptr %38, align 4
   %270 = load i32, ptr %33, align 4
-  %271 = call i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE18compute_mul_parityEjRKmi(i32 noundef %269, ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %270) #14
+  %271 = call i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE18compute_mul_parityEjRKmi(i32 noundef %269, ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %270) #13
   store i16 %271, ptr %40, align 1
   %272 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<float>::compute_mul_parity_result", ptr %40, i32 0, i32 0
   %273 = load i8, ptr %272, align 1
@@ -29692,7 +29713,7 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
   %294 = load ptr, ptr %2, align 8
   %295 = load i32, ptr %294, align 4
   %296 = mul i32 %295, -1030792151
-  %297 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %296, i32 noundef 2) #14
+  %297 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %296, i32 noundef 2) #13
   store i32 %297, ptr %7, align 4
   %298 = load i32, ptr %7, align 4
   %299 = invoke noundef i32 @_ZN3fmt2v96detail9max_valueIjEET_v()
@@ -29707,7 +29728,7 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
   %304 = load ptr, ptr %2, align 8
   %305 = load i32, ptr %304, align 4
   %306 = mul i32 %305, -858993459
-  %307 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %306, i32 noundef 1) #14
+  %307 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %306, i32 noundef 1) #13
   store i32 %307, ptr %8, align 4
   %308 = load i32, ptr %8, align 4
   %309 = invoke noundef i32 @_ZN3fmt2v96detail9max_valueIjEET_v()
@@ -29772,7 +29793,7 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
   %346 = icmp ne i32 %345, 0
   %347 = zext i1 %346 to i8
   store i8 %347, ptr %42, align 1
-  %348 = call noundef zeroext i1 @_ZN3fmt2v96detail9dragonbox38check_divisibility_and_divide_by_pow10ILi1EEEbRj(ptr noundef nonnull align 4 dereferenceable(4) %41) #14
+  %348 = call noundef zeroext i1 @_ZN3fmt2v96detail9dragonbox38check_divisibility_and_divide_by_pow10ILi1EEEbRj(ptr noundef nonnull align 4 dereferenceable(4) %41) #13
   %349 = zext i1 %348 to i8
   store i8 %349, ptr %43, align 1
   %350 = load i32, ptr %41, align 4
@@ -29790,7 +29811,7 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
 357:                                              ; preds = %331
   %358 = load i32, ptr %35, align 4
   %359 = load i32, ptr %33, align 4
-  %360 = call i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE18compute_mul_parityEjRKmi(i32 noundef %358, ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %359) #14
+  %360 = call i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorIfE18compute_mul_parityEjRKmi(i32 noundef %358, ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %359) #13
   store i16 %360, ptr %44, align 1
   %361 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<float>::compute_mul_parity_result", ptr %44, i32 0, i32 0
   %362 = load i8, ptr %361, align 1
@@ -30119,7 +30140,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail15write_nonfiniteIcNS0_8app
   %17 = load i8, ptr %16, align 8
   %18 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %17)
   store i8 %18, ptr %6, align 1
-  %19 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %19 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %20 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %21 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %20, i32 0, i32 0
   store ptr %19, ptr %21, align 8
@@ -30159,7 +30180,7 @@ define linkonce_odr dso_local noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4s
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #15
+declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail13exponent_biasIfEEiv() #1 comdat {
@@ -30280,7 +30301,7 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox14cache_accessorIf
   %7 = load i32, ptr %4, align 4
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %8, align 8
-  %10 = call noundef i64 @_ZN3fmt2v96detail9dragonbox14umul96_upper64Ejm(i32 noundef %7, i64 noundef %9) #14
+  %10 = call noundef i64 @_ZN3fmt2v96detail9dragonbox14umul96_upper64Ejm(i32 noundef %7, i64 noundef %9) #13
   store i64 %10, ptr %6, align 8
   %11 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<float>::compute_mul_result", ptr %3, i32 0, i32 0
   %12 = load i64, ptr %6, align 8
@@ -30340,7 +30361,7 @@ define linkonce_odr dso_local i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorIf
   %19 = load i32, ptr %5, align 4
   %20 = load ptr, ptr %6, align 8
   %21 = load i64, ptr %20, align 8
-  %22 = call noundef i64 @_ZN3fmt2v96detail9dragonbox14umul96_lower64Ejm(i32 noundef %19, i64 noundef %21) #14
+  %22 = call noundef i64 @_ZN3fmt2v96detail9dragonbox14umul96_lower64Ejm(i32 noundef %19, i64 noundef %21) #13
   store i64 %22, ptr %10, align 8
   %23 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<float>::compute_mul_parity_result", ptr %4, i32 0, i32 0
   %24 = load i64, ptr %10, align 8
@@ -30569,7 +30590,7 @@ define linkonce_odr dso_local noundef i64 @_ZN3fmt2v96detail9dragonbox14umul96_u
   %6 = zext i32 %5 to i64
   %7 = shl i64 %6, 32
   %8 = load i64, ptr %4, align 8
-  %9 = call noundef i64 @_ZN3fmt2v96detail9dragonbox15umul128_upper64Emm(i64 noundef %7, i64 noundef %8) #14
+  %9 = call noundef i64 @_ZN3fmt2v96detail9dragonbox15umul128_upper64Emm(i64 noundef %7, i64 noundef %8) #13
   ret i64 %9
 }
 
@@ -30636,13 +30657,13 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail9max_valueIjEET_v() #1 comdat {
-  %1 = call noundef i32 @_ZNSt3__114numeric_limitsIjE3maxB8ne190000Ev() #14
+  %1 = call noundef i32 @_ZNSt3__114numeric_limitsIjE3maxB8ne190000Ev() #13
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNSt3__114numeric_limitsIjE3maxB8ne190000Ev() #1 comdat align 2 {
-  %1 = call noundef i32 @_ZNSt3__123__libcpp_numeric_limitsIjLb1EE3maxB8ne190000Ev() #14
+  %1 = call noundef i32 @_ZNSt3__123__libcpp_numeric_limitsIjLb1EE3maxB8ne190000Ev() #13
   ret i32 %1
 }
 
@@ -31046,7 +31067,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %277 = getelementptr inbounds %"class.fmt::v9::appender", ptr %6, i32 0, i32 0
   %278 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %277, i32 0, i32 0
   store ptr %275, ptr %278, align 8
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #13
   br label %405
 
 279:                                              ; preds = %255, %245
@@ -31056,7 +31077,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   store ptr %281, ptr %34, align 8
   %282 = extractvalue { ptr, i32 } %280, 1
   store i32 %282, ptr %35, align 4
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #13
   br label %409
 
 283:                                              ; preds = %194
@@ -31152,7 +31173,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %341 = getelementptr inbounds %"class.fmt::v9::appender", ptr %6, i32 0, i32 0
   %342 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %341, i32 0, i32 0
   store ptr %339, ptr %342, align 8
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #13
   br label %405
 
 343:                                              ; preds = %321, %305
@@ -31162,7 +31183,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   store ptr %345, ptr %34, align 8
   %346 = extractvalue { ptr, i32 } %344, 1
   store i32 %346, ptr %35, align 4
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #13
   br label %409
 
 347:                                              ; preds = %283
@@ -31427,7 +31448,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %23 = load i8, ptr %22, align 4
   %24 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %23)
   store i8 %24, ptr %6, align 1
-  %25 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %25 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %26 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %27 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %26, i32 0, i32 0
   store ptr %25, ptr %27, align 8
@@ -31475,7 +31496,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %57 = getelementptr inbounds %class.anon.148, ptr %17, i32 0, i32 6
   %58 = load i8, ptr %57, align 1
   store i8 %58, ptr %12, align 1
-  %59 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %59 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %60 = getelementptr inbounds %"class.fmt::v9::appender", ptr %13, i32 0, i32 0
   %61 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %60, i32 0, i32 0
   store ptr %59, ptr %61, align 8
@@ -31610,7 +31631,7 @@ define linkonce_odr dso_local noundef signext i8 @_ZN3fmt2v96detail18decimal_poi
           to label %10 unwind label %11
 
 10:                                               ; preds = %8
-  call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret i8 %9
 
 11:                                               ; preds = %8, %1
@@ -31620,7 +31641,7 @@ define linkonce_odr dso_local noundef signext i8 @_ZN3fmt2v96detail18decimal_poi
   store ptr %13, ptr %4, align 8
   %14 = extractvalue { ptr, i32 } %12, 1
   store i32 %14, ptr %5, align 4
-  call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   br label %15
 
 15:                                               ; preds = %11
@@ -31857,7 +31878,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail6fill_nINS0_8appenderEicEET_
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %7, align 8
-  %18 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #14
+  %18 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #13
   %19 = getelementptr inbounds %"class.fmt::v9::appender", ptr %9, i32 0, i32 0
   %20 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %19, i32 0, i32 0
   store ptr %18, ptr %20, align 8
@@ -31923,7 +31944,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14write_exponentIcNS0_8appen
 
 33:                                               ; preds = %28
   store i8 45, ptr %7, align 1
-  %34 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %34 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %35 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %36 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %35, i32 0, i32 0
   store ptr %34, ptr %36, align 8
@@ -31936,7 +31957,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14write_exponentIcNS0_8appen
 
 41:                                               ; preds = %28
   store i8 43, ptr %9, align 1
-  %42 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %42 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %43 = getelementptr inbounds %"class.fmt::v9::appender", ptr %10, i32 0, i32 0
   %44 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %43, i32 0, i32 0
   store ptr %42, ptr %44, align 8
@@ -31965,7 +31986,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14write_exponentIcNS0_8appen
   %60 = getelementptr inbounds i8, ptr %59, i64 0
   %61 = load i8, ptr %60, align 1
   store i8 %61, ptr %12, align 1
-  %62 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %62 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %63 = getelementptr inbounds %"class.fmt::v9::appender", ptr %13, i32 0, i32 0
   %64 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %63, i32 0, i32 0
   store ptr %62, ptr %64, align 8
@@ -31978,7 +31999,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14write_exponentIcNS0_8appen
   %69 = getelementptr inbounds i8, ptr %68, i64 1
   %70 = load i8, ptr %69, align 1
   store i8 %70, ptr %14, align 1
-  %71 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %71 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %72 = getelementptr inbounds %"class.fmt::v9::appender", ptr %15, i32 0, i32 0
   %73 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %72, i32 0, i32 0
   store ptr %71, ptr %73, align 8
@@ -31999,7 +32020,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14write_exponentIcNS0_8appen
   %84 = getelementptr inbounds i8, ptr %83, i64 0
   %85 = load i8, ptr %84, align 1
   store i8 %85, ptr %17, align 1
-  %86 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %86 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %87 = getelementptr inbounds %"class.fmt::v9::appender", ptr %18, i32 0, i32 0
   %88 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %87, i32 0, i32 0
   store ptr %86, ptr %88, align 8
@@ -32009,7 +32030,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14write_exponentIcNS0_8appen
   %92 = getelementptr inbounds i8, ptr %91, i64 1
   %93 = load i8, ptr %92, align 1
   store i8 %93, ptr %19, align 1
-  %94 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %94 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %95 = getelementptr inbounds %"class.fmt::v9::appender", ptr %20, i32 0, i32 0
   %96 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %95, i32 0, i32 0
   store ptr %94, ptr %96, align 8
@@ -32345,7 +32366,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %22 = load i8, ptr %21, align 1
   %23 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %22)
   store i8 %23, ptr %6, align 1
-  %24 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %24 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %25 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %26 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %25, i32 0, i32 0
   store ptr %24, ptr %26, align 8
@@ -32391,7 +32412,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
 56:                                               ; preds = %29
   %57 = getelementptr inbounds %class.anon.149, ptr %14, i32 0, i32 6
   %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %59 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %60 = getelementptr inbounds %"class.fmt::v9::appender", ptr %10, i32 0, i32 0
   %61 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %60, i32 0, i32 0
   store ptr %59, ptr %61, align 8
@@ -32493,7 +32514,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandIcNS0_8ap
   br label %86
 
 48:                                               ; preds = %5
-  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #14
+  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #13
   call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(536) %16, ptr noundef nonnull align 1 dereferenceable(1) %17)
   invoke void @_ZN3fmt2v98appenderCI2NSt3__120back_insert_iteratorINS0_6detail6bufferIcEEEEERS6_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %49 unwind label %82
@@ -32529,9 +32550,9 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandIcNS0_8ap
   store ptr %64, ptr %67, align 8
   %68 = load ptr, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %7, i64 8, i1 false)
-  %69 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
-  %70 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef %69, i64 noundef %70) #14
+  %69 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #13
+  %70 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #13
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef %69, i64 noundef %70) #13
   %71 = getelementptr inbounds %"class.fmt::v9::appender", ptr %25, i32 0, i32 0
   %72 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %71, i32 0, i32 0
   %73 = load ptr, ptr %72, align 8
@@ -32546,7 +32567,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandIcNS0_8ap
   %80 = getelementptr inbounds %"class.fmt::v9::appender", ptr %6, i32 0, i32 0
   %81 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %80, i32 0, i32 0
   store ptr %78, ptr %81, align 8
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %16) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %16) #13
   br label %86
 
 82:                                               ; preds = %65, %59, %56, %49, %48
@@ -32556,7 +32577,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandIcNS0_8ap
   store ptr %84, ptr %19, align 8
   %85 = extractvalue { ptr, i32 } %83, 1
   store i32 %85, ptr %20, align 4
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %16) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %16) #13
   br label %90
 
 86:                                               ; preds = %79, %32
@@ -32783,7 +32804,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %21 = load i8, ptr %20, align 1
   %22 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %21)
   store i8 %22, ptr %6, align 1
-  %23 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %23 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %24 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %25 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %24, i32 0, i32 0
   store ptr %23, ptr %25, align 8
@@ -32897,7 +32918,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   br label %86
 
 41:                                               ; preds = %6
-  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #14
+  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
   call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(536) %15, ptr noundef nonnull align 1 dereferenceable(1) %16)
   invoke void @_ZN3fmt2v98appenderCI2NSt3__120back_insert_iteratorINS0_6detail6bufferIcEEEEERS6_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %42 unwind label %82
@@ -32919,11 +32940,11 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   store ptr %50, ptr %53, align 8
   %54 = load ptr, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %8, i64 8, i1 false)
-  %55 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
+  %55 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
   %56 = load i32, ptr %11, align 4
   %57 = call noundef i32 @_ZN3fmt2v96detail11to_unsignedIiEENSt3__113make_unsignedIT_E4typeES5_(i32 noundef %56)
   %58 = zext i32 %57 to i64
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %55, i64 noundef %58) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %55, i64 noundef %58) #13
   %59 = getelementptr inbounds %"class.fmt::v9::appender", ptr %21, i32 0, i32 0
   %60 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %59, i32 0, i32 0
   %61 = load ptr, ptr %60, align 8
@@ -32938,11 +32959,11 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   %68 = getelementptr inbounds %"class.fmt::v9::appender", ptr %23, i32 0, i32 0
   %69 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %68, i32 0, i32 0
   store ptr %66, ptr %69, align 8
-  %70 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
+  %70 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
   %71 = load i32, ptr %11, align 4
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %70, i64 %72
-  %74 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
+  %74 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %8, i64 8, i1 false)
   %75 = getelementptr inbounds %"class.fmt::v9::appender", ptr %24, i32 0, i32 0
   %76 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %75, i32 0, i32 0
@@ -32954,7 +32975,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   %80 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %81 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %80, i32 0, i32 0
   store ptr %78, ptr %81, align 8
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %15) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %15) #13
   br label %86
 
 82:                                               ; preds = %67, %51, %42, %41
@@ -32964,7 +32985,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   store ptr %84, ptr %18, align 8
   %85 = extractvalue { ptr, i32 } %83, 1
   store i32 %85, ptr %19, align 4
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %15) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %15) #13
   br label %90
 
 86:                                               ; preds = %79, %30
@@ -33172,7 +33193,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %23 = load i8, ptr %22, align 1
   %24 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %23)
   store i8 %24, ptr %6, align 1
-  %25 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %25 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %26 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %27 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %26, i32 0, i32 0
   store ptr %25, ptr %27, align 8
@@ -33183,7 +33204,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
 30:                                               ; preds = %20, %2
   %31 = getelementptr inbounds %class.anon.151, ptr %15, i32 0, i32 1
   %32 = load ptr, ptr %31, align 8
-  %33 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %33 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %34 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %35 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %34, i32 0, i32 0
   store ptr %33, ptr %35, align 8
@@ -33202,7 +33223,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
 43:                                               ; preds = %30
   %44 = getelementptr inbounds %class.anon.151, ptr %15, i32 0, i32 3
   %45 = load ptr, ptr %44, align 8
-  %46 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %46 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %47 = getelementptr inbounds %"class.fmt::v9::appender", ptr %9, i32 0, i32 0
   %48 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %47, i32 0, i32 0
   store ptr %46, ptr %48, align 8
@@ -33283,7 +33304,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEdTnNSt
   %27 = load double, ptr %7, align 8
   store double %27, ptr %3, align 8
   %28 = load double, ptr %3, align 8
-  %29 = call noundef zeroext i1 @_ZNSt3__16__math7signbitB8ne190000IdTnNS_9enable_ifIXsr17is_floating_pointIT_EE5valueEiE4typeELi0EEEbS3_(double noundef %28) #14
+  %29 = call noundef zeroext i1 @_ZNSt3__16__math7signbitB8ne190000IdTnNS_9enable_ifIXsr17is_floating_pointIT_EE5valueEiE4typeELi0EEEbS3_(double noundef %28) #13
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %26
@@ -33311,7 +33332,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEdTnNSt
 44:                                               ; preds = %37
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %6, i64 8, i1 false)
   %45 = load double, ptr %7, align 8
-  %46 = call noundef zeroext i1 @_ZNSt3__16__math5isnanB8ne190000EUa9enable_ifILb1EEd(double noundef %45) #14
+  %46 = call noundef zeroext i1 @_ZNSt3__16__math5isnanB8ne190000EUa9enable_ifILb1EEd(double noundef %45) #13
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 4 %9, i64 16, i1 false)
   %47 = getelementptr inbounds %"class.fmt::v9::appender", ptr %11, i32 0, i32 0
   %48 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %47, i32 0, i32 0
@@ -33328,7 +33349,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEdTnNSt
 
 57:                                               ; preds = %37
   %58 = load double, ptr %7, align 8
-  %59 = call { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %58) #14
+  %59 = call { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %58) #13
   %60 = getelementptr inbounds { i64, i32 }, ptr %13, i32 0, i32 0
   %61 = extractvalue { i64, i32 } %59, 0
   store i64 %61, ptr %60, align 8
@@ -33496,30 +33517,30 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
   %86 = load i32, ptr %46, align 4
   store i32 %86, ptr %35, align 4
   %87 = load i32, ptr %35, align 4
-  %88 = call noundef i32 @_ZN3fmt2v96detail9dragonbox37floor_log10_pow2_minus_log10_4_over_3Ei(i32 noundef %87) #14
+  %88 = call noundef i32 @_ZN3fmt2v96detail9dragonbox37floor_log10_pow2_minus_log10_4_over_3Ei(i32 noundef %87) #13
   store i32 %88, ptr %36, align 4
   %89 = load i32, ptr %35, align 4
   %90 = load i32, ptr %36, align 4
   %91 = sub nsw i32 0, %90
-  %92 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log2_pow10Ei(i32 noundef %91) #14
+  %92 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log2_pow10Ei(i32 noundef %91) #13
   %93 = add nsw i32 %89, %92
   store i32 %93, ptr %37, align 4
   %94 = load i32, ptr %36, align 4
   %95 = sub nsw i32 0, %94
-  %96 = call { i64, i64 } @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi(i32 noundef %95) #14
+  %96 = call { i64, i64 } @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi(i32 noundef %95) #13
   %97 = extractvalue { i64, i64 } %96, 0
   store i64 %97, ptr %38, align 8
   %98 = getelementptr inbounds { i64, i64 }, ptr %38, i32 0, i32 1
   %99 = extractvalue { i64, i64 } %96, 1
   store i64 %99, ptr %98, align 8
   %100 = load i32, ptr %37, align 4
-  %101 = call noundef i64 @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE47compute_left_endpoint_for_shorter_interval_caseERKNS1_16uint128_fallbackEi(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %100) #14
+  %101 = call noundef i64 @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE47compute_left_endpoint_for_shorter_interval_caseERKNS1_16uint128_fallbackEi(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %100) #13
   store i64 %101, ptr %39, align 8
   %102 = load i32, ptr %37, align 4
-  %103 = call noundef i64 @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE48compute_right_endpoint_for_shorter_interval_caseERKNS1_16uint128_fallbackEi(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %102) #14
+  %103 = call noundef i64 @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE48compute_right_endpoint_for_shorter_interval_caseERKNS1_16uint128_fallbackEi(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %102) #13
   store i64 %103, ptr %40, align 8
   %104 = load i32, ptr %35, align 4
-  %105 = call noundef zeroext i1 @_ZN3fmt2v96detail9dragonbox41is_left_endpoint_integer_shorter_intervalIdEEbi(i32 noundef %104) #14
+  %105 = call noundef zeroext i1 @_ZN3fmt2v96detail9dragonbox41is_left_endpoint_integer_shorter_intervalIdEEbi(i32 noundef %104) #13
   br i1 %105, label %109, label %106
 
 106:                                              ; preds = %85
@@ -33553,24 +33574,24 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
   store i64 -6067343680855748867, ptr %21, align 8
   %124 = load ptr, ptr %19, align 8
   %125 = load i64, ptr %124, align 8
-  %126 = call { i64, i64 } @_ZN3fmt2v96detail7umul128Emm(i64 noundef %125, i64 noundef -6067343680855748867) #14
+  %126 = call { i64, i64 } @_ZN3fmt2v96detail7umul128Emm(i64 noundef %125, i64 noundef -6067343680855748867) #13
   %127 = extractvalue { i64, i64 } %126, 0
   store i64 %127, ptr %22, align 8
   %128 = getelementptr inbounds { i64, i64 }, ptr %22, i32 0, i32 1
   %129 = extractvalue { i64, i64 } %126, 1
   store i64 %129, ptr %128, align 8
-  %130 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #14
+  %130 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #13
   %131 = and i64 %130, 67108863
   %132 = icmp eq i64 %131, 0
   br i1 %132, label %133, label %169
 
 133:                                              ; preds = %116
-  %134 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #14
+  %134 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #13
   %135 = icmp ult i64 %134, -6067343680855748867
   br i1 %135, label %136, label %169
 
 136:                                              ; preds = %133
-  %137 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #14
+  %137 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #13
   %138 = lshr i64 %137, 26
   %139 = trunc i64 %138 to i32
   store i32 %139, ptr %23, align 4
@@ -33582,7 +33603,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
 140:                                              ; preds = %156, %136
   %141 = load i32, ptr %23, align 4
   %142 = mul i32 %141, -1030792151
-  %143 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %142, i32 noundef 2) #14
+  %143 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %142, i32 noundef 2) #13
   store i32 %143, ptr %27, align 4
   %144 = load i32, ptr %27, align 4
   %145 = call noundef i32 @_ZN3fmt2v96detail9max_valueIjEET_v()
@@ -33593,7 +33614,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
 148:                                              ; preds = %140
   %149 = load i32, ptr %23, align 4
   %150 = mul i32 %149, -858993459
-  %151 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %150, i32 noundef 1) #14
+  %151 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %150, i32 noundef 1) #13
   store i32 %151, ptr %28, align 4
   %152 = load i32, ptr %28, align 4
   %153 = call noundef i32 @_ZN3fmt2v96detail9max_valueIjEET_v()
@@ -33636,7 +33657,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
   %171 = load ptr, ptr %19, align 8
   %172 = load i64, ptr %171, align 8
   %173 = mul i64 %172, -8116567392432202711
-  %174 = call noundef i64 @_ZN3fmt2v96detail4rotrEmj(i64 noundef %173, i32 noundef 2) #14
+  %174 = call noundef i64 @_ZN3fmt2v96detail4rotrEmj(i64 noundef %173, i32 noundef 2) #13
   store i64 %174, ptr %32, align 8
   %175 = load i64, ptr %32, align 8
   %176 = invoke noundef i64 @_ZN3fmt2v96detail9max_valueImEET_v()
@@ -33651,7 +33672,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
   %181 = load ptr, ptr %19, align 8
   %182 = load i64, ptr %181, align 8
   %183 = mul i64 %182, -3689348814741910323
-  %184 = call noundef i64 @_ZN3fmt2v96detail4rotrEmj(i64 noundef %183, i32 noundef 1) #14
+  %184 = call noundef i64 @_ZN3fmt2v96detail4rotrEmj(i64 noundef %183, i32 noundef 1) #13
   store i64 %184, ptr %33, align 8
   %185 = load i64, ptr %33, align 8
   %186 = invoke noundef i64 @_ZN3fmt2v96detail9max_valueImEET_v()
@@ -33702,7 +33723,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
 
 210:                                              ; preds = %109
   %211 = load i32, ptr %37, align 4
-  %212 = call noundef i64 @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE42compute_round_up_for_shorter_interval_caseERKNS1_16uint128_fallbackEi(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %211) #14
+  %212 = call noundef i64 @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE42compute_round_up_for_shorter_interval_caseERKNS1_16uint128_fallbackEi(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %211) #13
   store i64 %212, ptr %34, align 8
   %213 = load i32, ptr %36, align 4
   %214 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::decimal_fp.152", ptr %34, i32 0, i32 1
@@ -33803,12 +33824,12 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
   %269 = zext i1 %268 to i8
   store i8 %269, ptr %48, align 1
   %270 = load i32, ptr %46, align 4
-  %271 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log10_pow2Ei(i32 noundef %270) #14
+  %271 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log10_pow2Ei(i32 noundef %270) #13
   %272 = sub nsw i32 %271, 2
   store i32 %272, ptr %49, align 4
   %273 = load i32, ptr %49, align 4
   %274 = sub nsw i32 0, %273
-  %275 = call { i64, i64 } @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi(i32 noundef %274) #14
+  %275 = call { i64, i64 } @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi(i32 noundef %274) #13
   %276 = getelementptr inbounds { i64, i64 }, ptr %50, i32 0, i32 0
   %277 = extractvalue { i64, i64 } %275, 0
   store i64 %277, ptr %276, align 8
@@ -33818,11 +33839,11 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
   %280 = load i32, ptr %46, align 4
   %281 = load i32, ptr %49, align 4
   %282 = sub nsw i32 0, %281
-  %283 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log2_pow10Ei(i32 noundef %282) #14
+  %283 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log2_pow10Ei(i32 noundef %282) #13
   %284 = add nsw i32 %280, %283
   store i32 %284, ptr %51, align 4
   %285 = load i32, ptr %51, align 4
-  %286 = call noundef i32 @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE13compute_deltaERKNS1_16uint128_fallbackEi(ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef %285) #14
+  %286 = call noundef i32 @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE13compute_deltaERKNS1_16uint128_fallbackEi(ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef %285) #13
   store i32 %286, ptr %52, align 4
   %287 = load i64, ptr %45, align 8
   %288 = shl i64 %287, 1
@@ -33832,7 +33853,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
   %291 = load i32, ptr %51, align 4
   %292 = zext i32 %291 to i64
   %293 = shl i64 %290, %292
-  %294 = call { i64, i8 } @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE11compute_mulEmRKNS1_16uint128_fallbackE(i64 noundef %293, ptr noundef nonnull align 8 dereferenceable(16) %50) #14
+  %294 = call { i64, i8 } @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE11compute_mulEmRKNS1_16uint128_fallbackE(i64 noundef %293, ptr noundef nonnull align 8 dereferenceable(16) %50) #13
   %295 = getelementptr inbounds { i64, i8 }, ptr %54, i32 0, i32 0
   %296 = extractvalue { i64, i8 } %294, 0
   store i64 %296, ptr %295, align 8
@@ -33841,7 +33862,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
   store i8 %298, ptr %297, align 8
   %299 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<double>::compute_mul_result", ptr %54, i32 0, i32 0
   %300 = load i64, ptr %299, align 8
-  %301 = call noundef i64 @_ZN3fmt2v96detail9dragonbox28divide_by_10_to_kappa_plus_1Em(i64 noundef %300) #14
+  %301 = call noundef i64 @_ZN3fmt2v96detail9dragonbox28divide_by_10_to_kappa_plus_1Em(i64 noundef %300) #13
   %302 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::decimal_fp.152", ptr %41, i32 0, i32 0
   store i64 %301, ptr %302, align 8
   %303 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<double>::compute_mul_result", ptr %54, i32 0, i32 0
@@ -33914,7 +33935,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
 344:                                              ; preds = %341, %338, %333
   %345 = load i64, ptr %56, align 8
   %346 = load i32, ptr %51, align 4
-  %347 = call i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE18compute_mul_parityEmRKNS1_16uint128_fallbackEi(i64 noundef %345, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef %346) #14
+  %347 = call i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE18compute_mul_parityEmRKNS1_16uint128_fallbackEi(i64 noundef %345, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef %346) #13
   store i16 %347, ptr %57, align 1
   %348 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<double>::compute_mul_parity_result", ptr %57, i32 0, i32 0
   %349 = load i8, ptr %348, align 1
@@ -33931,7 +33952,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
 354:                                              ; preds = %341
   %355 = load i64, ptr %56, align 8
   %356 = load i32, ptr %51, align 4
-  %357 = call i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE18compute_mul_parityEmRKNS1_16uint128_fallbackEi(i64 noundef %355, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef %356) #14
+  %357 = call i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE18compute_mul_parityEmRKNS1_16uint128_fallbackEi(i64 noundef %355, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef %356) #13
   store i16 %357, ptr %58, align 1
   %358 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<double>::compute_mul_parity_result", ptr %58, i32 0, i32 0
   %359 = load i8, ptr %358, align 1
@@ -33973,24 +33994,24 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
   store i64 -6067343680855748867, ptr %5, align 8
   %379 = load ptr, ptr %3, align 8
   %380 = load i64, ptr %379, align 8
-  %381 = call { i64, i64 } @_ZN3fmt2v96detail7umul128Emm(i64 noundef %380, i64 noundef -6067343680855748867) #14
+  %381 = call { i64, i64 } @_ZN3fmt2v96detail7umul128Emm(i64 noundef %380, i64 noundef -6067343680855748867) #13
   %382 = extractvalue { i64, i64 } %381, 0
   store i64 %382, ptr %6, align 8
   %383 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %384 = extractvalue { i64, i64 } %381, 1
   store i64 %384, ptr %383, align 8
-  %385 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %385 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   %386 = and i64 %385, 67108863
   %387 = icmp eq i64 %386, 0
   br i1 %387, label %388, label %424
 
 388:                                              ; preds = %369
-  %389 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %389 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   %390 = icmp ult i64 %389, -6067343680855748867
   br i1 %390, label %391, label %424
 
 391:                                              ; preds = %388
-  %392 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %392 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   %393 = lshr i64 %392, 26
   %394 = trunc i64 %393 to i32
   store i32 %394, ptr %7, align 4
@@ -34002,7 +34023,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
 395:                                              ; preds = %411, %391
   %396 = load i32, ptr %7, align 4
   %397 = mul i32 %396, -1030792151
-  %398 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %397, i32 noundef 2) #14
+  %398 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %397, i32 noundef 2) #13
   store i32 %398, ptr %11, align 4
   %399 = load i32, ptr %11, align 4
   %400 = call noundef i32 @_ZN3fmt2v96detail9max_valueIjEET_v()
@@ -34013,7 +34034,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
 403:                                              ; preds = %395
   %404 = load i32, ptr %7, align 4
   %405 = mul i32 %404, -858993459
-  %406 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %405, i32 noundef 1) #14
+  %406 = call noundef i32 @_ZN3fmt2v96detail4rotrEjj(i32 noundef %405, i32 noundef 1) #13
   store i32 %406, ptr %12, align 4
   %407 = load i32, ptr %12, align 4
   %408 = call noundef i32 @_ZN3fmt2v96detail9max_valueIjEET_v()
@@ -34056,7 +34077,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
   %426 = load ptr, ptr %3, align 8
   %427 = load i64, ptr %426, align 8
   %428 = mul i64 %427, -8116567392432202711
-  %429 = call noundef i64 @_ZN3fmt2v96detail4rotrEmj(i64 noundef %428, i32 noundef 2) #14
+  %429 = call noundef i64 @_ZN3fmt2v96detail4rotrEmj(i64 noundef %428, i32 noundef 2) #13
   store i64 %429, ptr %16, align 8
   %430 = load i64, ptr %16, align 8
   %431 = invoke noundef i64 @_ZN3fmt2v96detail9max_valueImEET_v()
@@ -34071,7 +34092,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
   %436 = load ptr, ptr %3, align 8
   %437 = load i64, ptr %436, align 8
   %438 = mul i64 %437, -3689348814741910323
-  %439 = call noundef i64 @_ZN3fmt2v96detail4rotrEmj(i64 noundef %438, i32 noundef 1) #14
+  %439 = call noundef i64 @_ZN3fmt2v96detail4rotrEmj(i64 noundef %438, i32 noundef 1) #13
   store i64 %439, ptr %17, align 8
   %440 = load i64, ptr %17, align 8
   %441 = invoke noundef i64 @_ZN3fmt2v96detail9max_valueImEET_v()
@@ -34141,7 +34162,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
   %480 = icmp ne i32 %479, 0
   %481 = zext i1 %480 to i8
   store i8 %481, ptr %60, align 1
-  %482 = call noundef zeroext i1 @_ZN3fmt2v96detail9dragonbox38check_divisibility_and_divide_by_pow10ILi2EEEbRj(ptr noundef nonnull align 4 dereferenceable(4) %59) #14
+  %482 = call noundef zeroext i1 @_ZN3fmt2v96detail9dragonbox38check_divisibility_and_divide_by_pow10ILi2EEEbRj(ptr noundef nonnull align 4 dereferenceable(4) %59) #13
   %483 = zext i1 %482 to i8
   store i8 %483, ptr %61, align 1
   %484 = load i32, ptr %59, align 4
@@ -34160,7 +34181,7 @@ define linkonce_odr dso_local { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_deci
 492:                                              ; preds = %465
   %493 = load i64, ptr %53, align 8
   %494 = load i32, ptr %51, align 4
-  %495 = call i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE18compute_mul_parityEmRKNS1_16uint128_fallbackEi(i64 noundef %493, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef %494) #14
+  %495 = call i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorIdE18compute_mul_parityEmRKNS1_16uint128_fallbackEi(i64 noundef %493, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef %494) #13
   store i16 %495, ptr %62, align 1
   %496 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<double>::compute_mul_parity_result", ptr %62, i32 0, i32 0
   %497 = load i8, ptr %496, align 1
@@ -34263,7 +34284,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail20num_significand_bi
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #15
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail13exponent_biasIdEEiv() #1 comdat {
@@ -34331,9 +34352,9 @@ define linkonce_odr dso_local { i64, i64 } @_ZN3fmt2v96detail9dragonbox14cache_a
   %42 = load i32, ptr %6, align 4
   %43 = load i32, ptr %7, align 4
   %44 = add nsw i32 %42, %43
-  %45 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log2_pow10Ei(i32 noundef %44) #14
+  %45 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log2_pow10Ei(i32 noundef %44) #13
   %46 = load i32, ptr %6, align 4
-  %47 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log2_pow10Ei(i32 noundef %46) #14
+  %47 = call noundef i32 @_ZN3fmt2v96detail9dragonbox16floor_log2_pow10Ei(i32 noundef %46) #13
   %48 = sub nsw i32 %45, %47
   %49 = load i32, ptr %7, align 4
   %50 = sub nsw i32 %48, %49
@@ -34360,45 +34381,45 @@ define linkonce_odr dso_local { i64, i64 } @_ZN3fmt2v96detail9dragonbox14cache_a
   %62 = getelementptr inbounds [27 x i64], ptr @_ZZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEiE14powers_of_5_64, i64 0, i64 %61
   %63 = load i64, ptr %62, align 8
   store i64 %63, ptr %11, align 8
-  %64 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
+  %64 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
   %65 = load i64, ptr %11, align 8
-  %66 = call { i64, i64 } @_ZN3fmt2v96detail7umul128Emm(i64 noundef %64, i64 noundef %65) #14
+  %66 = call { i64, i64 } @_ZN3fmt2v96detail7umul128Emm(i64 noundef %64, i64 noundef %65) #13
   %67 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 0
   %68 = extractvalue { i64, i64 } %66, 0
   store i64 %68, ptr %67, align 8
   %69 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 1
   %70 = extractvalue { i64, i64 } %66, 1
   store i64 %70, ptr %69, align 8
-  %71 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
+  %71 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
   %72 = load i64, ptr %11, align 8
-  %73 = call { i64, i64 } @_ZN3fmt2v96detail7umul128Emm(i64 noundef %71, i64 noundef %72) #14
+  %73 = call { i64, i64 } @_ZN3fmt2v96detail7umul128Emm(i64 noundef %71, i64 noundef %72) #13
   %74 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 0
   %75 = extractvalue { i64, i64 } %73, 0
   store i64 %75, ptr %74, align 8
   %76 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 1
   %77 = extractvalue { i64, i64 } %73, 1
   store i64 %77, ptr %76, align 8
-  %78 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #14
-  %79 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3fmt2v96detail16uint128_fallbackpLEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %78) #14
-  %80 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
+  %78 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #13
+  %79 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3fmt2v96detail16uint128_fallbackpLEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %78) #13
+  %80 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #13
   %81 = load i32, ptr %9, align 4
   %82 = sub nsw i32 64, %81
   %83 = zext i32 %82 to i64
   %84 = shl i64 %80, %83
   store i64 %84, ptr %14, align 8
-  %85 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
+  %85 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #13
   %86 = load i32, ptr %9, align 4
   %87 = sub nsw i32 64, %86
   %88 = zext i32 %87 to i64
   %89 = shl i64 %85, %88
   store i64 %89, ptr %15, align 8
-  %90 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
+  %90 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #13
   %91 = load i32, ptr %9, align 4
   %92 = zext i32 %91 to i64
   %93 = lshr i64 %90, %92
   %94 = load i64, ptr %14, align 8
   %95 = or i64 %93, %94
-  %96 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #14
+  %96 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #13
   %97 = load i32, ptr %9, align 4
   %98 = zext i32 %97 to i64
   %99 = lshr i64 %96, %98
@@ -34409,14 +34430,14 @@ define linkonce_odr dso_local { i64, i64 } @_ZN3fmt2v96detail9dragonbox14cache_a
 
 102:                                              ; preds = %59
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %16, i64 16, i1 false)
-  %103 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
+  %103 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #13
   %104 = add i64 %103, 1
   %105 = icmp ne i64 %104, 0
   %106 = zext i1 %105 to i8
   store i8 %106, ptr %17, align 1
   call void @_ZN3fmt2v96detail13ignore_unusedIJbA1_cEEEvDpRKT_(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) @.str.47)
-  %107 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
-  %108 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
+  %107 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #13
+  %108 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #13
   %109 = add i64 %108, 1
   invoke void @_ZN3fmt2v96detail16uint128_fallbackC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %107, i64 noundef %109)
           to label %110 unwind label %113
@@ -34443,7 +34464,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail9dragonbox14cache_ac
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  %6 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   %7 = load i32, ptr %4, align 4
   %8 = sub nsw i32 63, %7
   %9 = zext i32 %8 to i64
@@ -34468,7 +34489,7 @@ define linkonce_odr dso_local { i64, i8 } @_ZN3fmt2v96detail9dragonbox14cache_ac
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds { i64, i64 }, ptr %7, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
-  %14 = call { i64, i64 } @_ZN3fmt2v96detail9dragonbox16umul192_upper128EmNS1_16uint128_fallbackE(i64 noundef %8, i64 %11, i64 %13) #14
+  %14 = call { i64, i64 } @_ZN3fmt2v96detail9dragonbox16umul192_upper128EmNS1_16uint128_fallbackE(i64 noundef %8, i64 %11, i64 %13) #13
   %15 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 0
   %16 = extractvalue { i64, i64 } %14, 0
   store i64 %16, ptr %15, align 8
@@ -34476,10 +34497,10 @@ define linkonce_odr dso_local { i64, i8 } @_ZN3fmt2v96detail9dragonbox14cache_ac
   %18 = extractvalue { i64, i64 } %14, 1
   store i64 %18, ptr %17, align 8
   %19 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<double>::compute_mul_result", ptr %3, i32 0, i32 0
-  %20 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %20 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   store i64 %20, ptr %19, align 8
   %21 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<double>::compute_mul_result", ptr %3, i32 0, i32 1
-  %22 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %22 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   %23 = icmp eq i64 %22, 0
   %24 = zext i1 %23 to i8
   store i8 %24, ptr %21, align 8
@@ -34492,7 +34513,7 @@ define linkonce_odr dso_local noundef i64 @_ZN3fmt2v96detail9dragonbox28divide_b
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
-  %4 = call noundef i64 @_ZN3fmt2v96detail9dragonbox15umul128_upper64Emm(i64 noundef %3, i64 noundef 2361183241434822607) #14
+  %4 = call noundef i64 @_ZN3fmt2v96detail9dragonbox15umul128_upper64Emm(i64 noundef %3, i64 noundef 2361183241434822607) #13
   %5 = lshr i64 %4, 7
   ret i64 %5
 }
@@ -34527,7 +34548,7 @@ define linkonce_odr dso_local i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorId
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 1
   %23 = load i64, ptr %22, align 8
-  %24 = call { i64, i64 } @_ZN3fmt2v96detail9dragonbox16umul192_lower128EmNS1_16uint128_fallbackE(i64 noundef %18, i64 %21, i64 %23) #14
+  %24 = call { i64, i64 } @_ZN3fmt2v96detail9dragonbox16umul192_lower128EmNS1_16uint128_fallbackE(i64 noundef %18, i64 %21, i64 %23) #13
   %25 = getelementptr inbounds { i64, i64 }, ptr %10, i32 0, i32 0
   %26 = extractvalue { i64, i64 } %24, 0
   store i64 %26, ptr %25, align 8
@@ -34535,7 +34556,7 @@ define linkonce_odr dso_local i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorId
   %28 = extractvalue { i64, i64 } %24, 1
   store i64 %28, ptr %27, align 8
   %29 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<double>::compute_mul_parity_result", ptr %4, i32 0, i32 0
-  %30 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
+  %30 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #13
   %31 = load i32, ptr %7, align 4
   %32 = sub nsw i32 64, %31
   %33 = zext i32 %32 to i64
@@ -34545,11 +34566,11 @@ define linkonce_odr dso_local i16 @_ZN3fmt2v96detail9dragonbox14cache_accessorId
   %37 = zext i1 %36 to i8
   store i8 %37, ptr %29, align 1
   %38 = getelementptr inbounds %"struct.fmt::v9::detail::dragonbox::cache_accessor<double>::compute_mul_parity_result", ptr %4, i32 0, i32 1
-  %39 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
+  %39 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #13
   %40 = load i32, ptr %7, align 4
   %41 = zext i32 %40 to i64
   %42 = shl i64 %39, %41
-  %43 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
+  %43 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #13
   %44 = load i32, ptr %7, align 4
   %45 = sub nsw i32 64, %44
   %46 = zext i32 %45 to i64
@@ -34606,9 +34627,9 @@ define linkonce_odr dso_local noundef i64 @_ZN3fmt2v96detail9dragonbox14cache_ac
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  %6 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   %7 = load ptr, ptr %3, align 8
-  %8 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %8 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %9 = call noundef i32 @_ZN3fmt2v96detail20num_significand_bitsIdEEiv()
   %10 = add nsw i32 %9, 2
   %11 = zext i32 %10 to i64
@@ -34631,9 +34652,9 @@ define linkonce_odr dso_local noundef i64 @_ZN3fmt2v96detail9dragonbox14cache_ac
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  %6 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   %7 = load ptr, ptr %3, align 8
-  %8 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %8 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %9 = call noundef i32 @_ZN3fmt2v96detail20num_significand_bitsIdEEiv()
   %10 = add nsw i32 %9, 1
   %11 = zext i32 %10 to i64
@@ -34678,7 +34699,7 @@ define linkonce_odr dso_local noundef i64 @_ZN3fmt2v96detail9dragonbox14cache_ac
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  %6 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   %7 = call noundef i32 @_ZN3fmt2v96detail20num_significand_bitsIdEEiv()
   %8 = sub nsw i32 64, %7
   %9 = sub nsw i32 %8, 2
@@ -34803,7 +34824,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail16uint128_fallbackC2Emm(ptr
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #15
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i64, i64 } @_ZN3fmt2v96detail9dragonbox16umul192_upper128EmNS1_16uint128_fallbackE(i64 noundef %0, i64 %1, i64 %2) #1 comdat {
@@ -34816,8 +34837,8 @@ define linkonce_odr dso_local { i64, i64 } @_ZN3fmt2v96detail9dragonbox16umul192
   store i64 %2, ptr %8, align 8
   store i64 %0, ptr %6, align 8
   %9 = load i64, ptr %6, align 8
-  %10 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  %11 = call { i64, i64 } @_ZN3fmt2v96detail7umul128Emm(i64 noundef %9, i64 noundef %10) #14
+  %10 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  %11 = call { i64, i64 } @_ZN3fmt2v96detail7umul128Emm(i64 noundef %9, i64 noundef %10) #13
   %12 = getelementptr inbounds { i64, i64 }, ptr %4, i32 0, i32 0
   %13 = extractvalue { i64, i64 } %11, 0
   store i64 %13, ptr %12, align 8
@@ -34825,9 +34846,9 @@ define linkonce_odr dso_local { i64, i64 } @_ZN3fmt2v96detail9dragonbox16umul192
   %15 = extractvalue { i64, i64 } %11, 1
   store i64 %15, ptr %14, align 8
   %16 = load i64, ptr %6, align 8
-  %17 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  %18 = call noundef i64 @_ZN3fmt2v96detail9dragonbox15umul128_upper64Emm(i64 noundef %16, i64 noundef %17) #14
-  %19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3fmt2v96detail16uint128_fallbackpLEm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %18) #14
+  %17 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  %18 = call noundef i64 @_ZN3fmt2v96detail9dragonbox15umul128_upper64Emm(i64 noundef %16, i64 noundef %17) #13
+  %19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3fmt2v96detail16uint128_fallbackpLEm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %18) #13
   %20 = load { i64, i64 }, ptr %4, align 8
   ret { i64, i64 } %20
 }
@@ -34845,12 +34866,12 @@ define linkonce_odr dso_local { i64, i64 } @_ZN3fmt2v96detail9dragonbox16umul192
   store i64 %2, ptr %10, align 8
   store i64 %0, ptr %6, align 8
   %11 = load i64, ptr %6, align 8
-  %12 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  %12 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   %13 = mul i64 %11, %12
   store i64 %13, ptr %7, align 8
   %14 = load i64, ptr %6, align 8
-  %15 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  %16 = call { i64, i64 } @_ZN3fmt2v96detail7umul128Emm(i64 noundef %14, i64 noundef %15) #14
+  %15 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  %16 = call { i64, i64 } @_ZN3fmt2v96detail7umul128Emm(i64 noundef %14, i64 noundef %15) #13
   %17 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
   %18 = extractvalue { i64, i64 } %16, 0
   store i64 %18, ptr %17, align 8
@@ -34858,9 +34879,9 @@ define linkonce_odr dso_local { i64, i64 } @_ZN3fmt2v96detail9dragonbox16umul192
   %20 = extractvalue { i64, i64 } %16, 1
   store i64 %20, ptr %19, align 8
   %21 = load i64, ptr %7, align 8
-  %22 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
+  %22 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback4highEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
   %23 = add i64 %21, %22
-  %24 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
+  %24 = call noundef i64 @_ZNK3fmt2v96detail16uint128_fallback3lowEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
   invoke void @_ZN3fmt2v96detail16uint128_fallbackC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %23, i64 noundef %24)
           to label %25 unwind label %27
 
@@ -34900,7 +34921,7 @@ define linkonce_odr dso_local noundef i64 @_ZN3fmt2v96detail4rotrEmj(i64 noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZN3fmt2v96detail9max_valueImEET_v() #1 comdat {
-  %1 = call noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #14
+  %1 = call noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #13
   ret i64 %1
 }
 
@@ -35299,7 +35320,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %277 = getelementptr inbounds %"class.fmt::v9::appender", ptr %6, i32 0, i32 0
   %278 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %277, i32 0, i32 0
   store ptr %275, ptr %278, align 8
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #13
   br label %405
 
 279:                                              ; preds = %255, %245
@@ -35309,7 +35330,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   store ptr %281, ptr %34, align 8
   %282 = extractvalue { ptr, i32 } %280, 1
   store i32 %282, ptr %35, align 4
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #13
   br label %409
 
 283:                                              ; preds = %194
@@ -35405,7 +35426,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %341 = getelementptr inbounds %"class.fmt::v9::appender", ptr %6, i32 0, i32 0
   %342 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %341, i32 0, i32 0
   store ptr %339, ptr %342, align 8
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #13
   br label %405
 
 343:                                              ; preds = %321, %305
@@ -35415,7 +35436,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   store ptr %345, ptr %34, align 8
   %346 = extractvalue { ptr, i32 } %344, 1
   store i32 %346, ptr %35, align 4
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #13
   br label %409
 
 347:                                              ; preds = %283
@@ -35667,7 +35688,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %23 = load i8, ptr %22, align 8
   %24 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %23)
   store i8 %24, ptr %6, align 1
-  %25 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %25 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %26 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %27 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %26, i32 0, i32 0
   store ptr %25, ptr %27, align 8
@@ -35715,7 +35736,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %57 = getelementptr inbounds %class.anon.154, ptr %17, i32 0, i32 8
   %58 = load i8, ptr %57, align 1
   store i8 %58, ptr %12, align 1
-  %59 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %59 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %60 = getelementptr inbounds %"class.fmt::v9::appender", ptr %13, i32 0, i32 0
   %61 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %60, i32 0, i32 0
   store ptr %59, ptr %61, align 8
@@ -36336,7 +36357,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %22 = load i8, ptr %21, align 1
   %23 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %22)
   store i8 %23, ptr %6, align 1
-  %24 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %24 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %25 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %26 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %25, i32 0, i32 0
   store ptr %24, ptr %26, align 8
@@ -36382,7 +36403,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
 56:                                               ; preds = %29
   %57 = getelementptr inbounds %class.anon.156, ptr %14, i32 0, i32 6
   %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %59 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %60 = getelementptr inbounds %"class.fmt::v9::appender", ptr %10, i32 0, i32 0
   %61 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %60, i32 0, i32 0
   store ptr %59, ptr %61, align 8
@@ -36484,7 +36505,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandIcNS0_8ap
   br label %86
 
 48:                                               ; preds = %5
-  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #14
+  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #13
   call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(536) %16, ptr noundef nonnull align 1 dereferenceable(1) %17)
   invoke void @_ZN3fmt2v98appenderCI2NSt3__120back_insert_iteratorINS0_6detail6bufferIcEEEEERS6_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %49 unwind label %82
@@ -36520,9 +36541,9 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandIcNS0_8ap
   store ptr %64, ptr %67, align 8
   %68 = load ptr, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %7, i64 8, i1 false)
-  %69 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
-  %70 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef %69, i64 noundef %70) #14
+  %69 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #13
+  %70 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #13
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef %69, i64 noundef %70) #13
   %71 = getelementptr inbounds %"class.fmt::v9::appender", ptr %25, i32 0, i32 0
   %72 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %71, i32 0, i32 0
   %73 = load ptr, ptr %72, align 8
@@ -36537,7 +36558,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandIcNS0_8ap
   %80 = getelementptr inbounds %"class.fmt::v9::appender", ptr %6, i32 0, i32 0
   %81 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %80, i32 0, i32 0
   store ptr %78, ptr %81, align 8
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %16) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %16) #13
   br label %86
 
 82:                                               ; preds = %65, %59, %56, %49, %48
@@ -36547,7 +36568,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandIcNS0_8ap
   store ptr %84, ptr %19, align 8
   %85 = extractvalue { ptr, i32 } %83, 1
   store i32 %85, ptr %20, align 4
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %16) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %16) #13
   br label %90
 
 86:                                               ; preds = %79, %32
@@ -36774,7 +36795,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %21 = load i8, ptr %20, align 1
   %22 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %21)
   store i8 %22, ptr %6, align 1
-  %23 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %23 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %24 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %25 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %24, i32 0, i32 0
   store ptr %23, ptr %25, align 8
@@ -36888,7 +36909,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   br label %86
 
 41:                                               ; preds = %6
-  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #14
+  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
   call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(536) %15, ptr noundef nonnull align 1 dereferenceable(1) %16)
   invoke void @_ZN3fmt2v98appenderCI2NSt3__120back_insert_iteratorINS0_6detail6bufferIcEEEEERS6_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %42 unwind label %82
@@ -36910,11 +36931,11 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   store ptr %50, ptr %53, align 8
   %54 = load ptr, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %8, i64 8, i1 false)
-  %55 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
+  %55 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
   %56 = load i32, ptr %11, align 4
   %57 = call noundef i32 @_ZN3fmt2v96detail11to_unsignedIiEENSt3__113make_unsignedIT_E4typeES5_(i32 noundef %56)
   %58 = zext i32 %57 to i64
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %55, i64 noundef %58) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %55, i64 noundef %58) #13
   %59 = getelementptr inbounds %"class.fmt::v9::appender", ptr %21, i32 0, i32 0
   %60 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %59, i32 0, i32 0
   %61 = load ptr, ptr %60, align 8
@@ -36929,11 +36950,11 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   %68 = getelementptr inbounds %"class.fmt::v9::appender", ptr %23, i32 0, i32 0
   %69 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %68, i32 0, i32 0
   store ptr %66, ptr %69, align 8
-  %70 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
+  %70 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
   %71 = load i32, ptr %11, align 4
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %70, i64 %72
-  %74 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
+  %74 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %8, i64 8, i1 false)
   %75 = getelementptr inbounds %"class.fmt::v9::appender", ptr %24, i32 0, i32 0
   %76 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %75, i32 0, i32 0
@@ -36945,7 +36966,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   %80 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %81 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %80, i32 0, i32 0
   store ptr %78, ptr %81, align 8
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %15) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %15) #13
   br label %86
 
 82:                                               ; preds = %67, %51, %42, %41
@@ -36955,7 +36976,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   store ptr %84, ptr %18, align 8
   %85 = extractvalue { ptr, i32 } %83, 1
   store i32 %85, ptr %19, align 4
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %15) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %15) #13
   br label %90
 
 86:                                               ; preds = %79, %30
@@ -37150,7 +37171,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %23 = load i8, ptr %22, align 1
   %24 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %23)
   store i8 %24, ptr %6, align 1
-  %25 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %25 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %26 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %27 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %26, i32 0, i32 0
   store ptr %25, ptr %27, align 8
@@ -37161,7 +37182,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
 30:                                               ; preds = %20, %2
   %31 = getelementptr inbounds %class.anon.158, ptr %15, i32 0, i32 1
   %32 = load ptr, ptr %31, align 8
-  %33 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %33 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %34 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %35 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %34, i32 0, i32 0
   store ptr %33, ptr %35, align 8
@@ -37180,7 +37201,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
 43:                                               ; preds = %30
   %44 = getelementptr inbounds %class.anon.158, ptr %15, i32 0, i32 3
   %45 = load ptr, ptr %44, align 8
-  %46 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %46 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %47 = getelementptr inbounds %"class.fmt::v9::appender", ptr %9, i32 0, i32 0
   %48 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %47, i32 0, i32 0
   store ptr %46, ptr %48, align 8
@@ -37336,7 +37357,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEeTnNSt
   store x86_fp80 %65, ptr %6, align 16
   %66 = load x86_fp80, ptr %6, align 16
   %67 = fptrunc x86_fp80 %66 to double
-  %68 = call noundef zeroext i1 @_ZNSt3__16__math7signbitB8ne190000IdTnNS_9enable_ifIXsr17is_floating_pointIT_EE5valueEiE4typeELi0EEEbS3_(double noundef %67) #14
+  %68 = call noundef zeroext i1 @_ZNSt3__16__math7signbitB8ne190000IdTnNS_9enable_ifIXsr17is_floating_pointIT_EE5valueEiE4typeELi0EEEbS3_(double noundef %67) #13
   br i1 %68, label %69, label %76
 
 69:                                               ; preds = %51
@@ -37422,7 +37443,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEeTnNSt
   %126 = trunc i32 %125 to i8
   %127 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %126)
   store i8 %127, ptr %18, align 1
-  %128 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 0) #14
+  %128 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 0) #13
   %129 = getelementptr inbounds %"class.fmt::v9::appender", ptr %19, i32 0, i32 0
   %130 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %129, i32 0, i32 0
   store ptr %128, ptr %130, align 8
@@ -37462,7 +37483,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEeTnNSt
   br label %154
 
 154:                                              ; preds = %153, %113, %106
-  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #14
+  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #13
   call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(536) %23, ptr noundef nonnull align 1 dereferenceable(1) %24)
   %155 = getelementptr inbounds %"struct.fmt::v9::detail::float_specs", ptr %13, i32 0, i32 1
   %156 = load i32, ptr %155, align 4
@@ -37501,7 +37522,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEeTnNSt
   store ptr %177, ptr %26, align 8
   %178 = extractvalue { ptr, i32 } %176, 1
   store i32 %178, ptr %27, align 4
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %23) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %23) #13
   br label %273
 
 179:                                              ; preds = %174, %160
@@ -37519,9 +37540,9 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEeTnNSt
 
 187:                                              ; preds = %182
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %9, i64 8, i1 false)
-  %188 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
-  %189 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef %188, i64 noundef %189) #14
+  %188 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #13
+  %189 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #13
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef %188, i64 noundef %189) #13
   %190 = getelementptr inbounds %"class.fmt::v9::appender", ptr %29, i32 0, i32 0
   %191 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %190, i32 0, i32 0
   %192 = load ptr, ptr %191, align 8
@@ -37629,10 +37650,10 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEeTnNSt
   %250 = getelementptr inbounds %"struct.fmt::v9::detail::float_specs", ptr %13, i32 0, i32 0
   store i32 %249, ptr %250, align 4
   %251 = getelementptr inbounds %"struct.fmt::v9::detail::big_decimal_fp", ptr %35, i32 0, i32 0
-  %252 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
+  %252 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #13
   store ptr %252, ptr %251, align 8
   %253 = getelementptr inbounds %"struct.fmt::v9::detail::big_decimal_fp", ptr %35, i32 0, i32 1
-  %254 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
+  %254 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #13
   %255 = trunc i64 %254 to i32
   store i32 %255, ptr %253, align 8
   %256 = getelementptr inbounds %"struct.fmt::v9::detail::big_decimal_fp", ptr %35, i32 0, i32 2
@@ -37658,7 +37679,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEeTnNSt
   br label %268
 
 268:                                              ; preds = %265, %198
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %23) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %23) #13
   br label %269
 
 269:                                              ; preds = %268, %93, %50
@@ -37858,7 +37879,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3fmt2v96detail8isfiniteIeTn
   store x86_fp80 %0, ptr %2, align 16
   store x86_fp80 0xK7FFF8000000000000000, ptr %3, align 16
   %4 = load x86_fp80, ptr %2, align 16
-  %5 = call noundef zeroext i1 @_ZNSt3__16__math8isfiniteB8ne190000IeTnNS_9enable_ifIXaasr13is_arithmeticIT_EE5valuesr14numeric_limitsIS3_EE12has_infinityEiE4typeELi0EEEbS3_(x86_fp80 noundef %4) #14
+  %5 = call noundef zeroext i1 @_ZNSt3__16__math8isfiniteB8ne190000IeTnNS_9enable_ifIXaasr13is_arithmeticIT_EE5valuesr14numeric_limitsIS3_EE12has_infinityEiE4typeELi0EEEbS3_(x86_fp80 noundef %4) #13
   ret i1 %5
 }
 
@@ -37894,9 +37915,9 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail14snprintf_floatIeEE
   store i32 %1, ptr %7, align 4
   store ptr %3, ptr %8, align 8
   %19 = load ptr, ptr %8, align 8
-  %20 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #14
+  %20 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #13
   %21 = load ptr, ptr %8, align 8
-  %22 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #14
+  %22 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #13
   %23 = icmp ugt i64 %20, %22
   %24 = zext i1 %23 to i8
   store i8 %24, ptr %9, align 1
@@ -37963,18 +37984,18 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail14snprintf_floatIeEE
   %61 = load ptr, ptr %12, align 8
   store i8 0, ptr %61, align 1
   %62 = load ptr, ptr %8, align 8
-  %63 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %62) #14
+  %63 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %62) #13
   store i64 %63, ptr %13, align 8
   br label %64
 
 64:                                               ; preds = %114, %96, %50
   %65 = load ptr, ptr %8, align 8
-  %66 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %65) #14
+  %66 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %65) #13
   %67 = load i64, ptr %13, align 8
   %68 = getelementptr inbounds i8, ptr %66, i64 %67
   store ptr %68, ptr %14, align 8
   %69 = load ptr, ptr %8, align 8
-  %70 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %69) #14
+  %70 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %69) #13
   %71 = load i64, ptr %13, align 8
   %72 = sub i64 %70, %71
   store i64 %72, ptr %15, align 8
@@ -38015,7 +38036,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail14snprintf_floatIeEE
 96:                                               ; preds = %92
   %97 = load ptr, ptr %8, align 8
   %98 = load ptr, ptr %8, align 8
-  %99 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %98) #14
+  %99 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %98) #13
   %100 = add i64 %99, 1
   call void @_ZN3fmt2v96detail6bufferIcE11try_reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %97, i64 noundef %100)
   br label %64, !llvm.loop !68
@@ -38076,7 +38097,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail11write_bytesILNS0_5align4ty
   store ptr %3, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %6, i64 8, i1 false)
   %15 = load ptr, ptr %8, align 8
-  %16 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %16 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %17 = getelementptr inbounds %class.anon.159, ptr %10, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %7, i64 16, i1 false)
   %18 = getelementptr inbounds %"class.fmt::v9::appender", ptr %9, i32 0, i32 0
@@ -38161,7 +38182,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail12format_floatIeEEiT
   %50 = zext i32 %49 to i64
   call void @_ZN3fmt2v96detail6bufferIcE10try_resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef %50)
   %51 = load ptr, ptr %9, align 8
-  %52 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #14
+  %52 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #13
   %53 = load i32, ptr %8, align 4
   %54 = call noundef ptr @_ZN3fmt2v96detail6fill_nIciEEPT_S4_T0_c(ptr noundef %52, i32 noundef %53, i8 noundef signext 48)
   %55 = load i32, ptr %8, align 4
@@ -38276,7 +38297,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail12format_floatIeEEiT
 
 120:                                              ; preds = %114
   %121 = load ptr, ptr %9, align 8
-  %122 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %121) #14
+  %122 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %121) #13
   store i64 %122, ptr %24, align 8
   br label %123
 
@@ -38374,7 +38395,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__16__math8isfiniteB8ne1900
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f80(x86_fp80, i32 immarg) #15
+declare i1 @llvm.is.fpclass.f80(x86_fp80, i32 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3fmt2v96detail13ignore_unusedIJbA13_cEEEvDpRKT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(13) %1) #1 comdat {
@@ -38582,12 +38603,12 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail11write_bytesILNS0_5align4t
   store ptr %0, ptr %5, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds %class.anon.159, ptr %10, i32 0, i32 0
-  %12 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #14
+  %12 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #13
   store ptr %12, ptr %6, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr inbounds %class.anon.159, ptr %10, i32 0, i32 0
-  %16 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #14
+  %16 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #13
   %17 = getelementptr inbounds i8, ptr %14, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
   %18 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
@@ -38661,10 +38682,10 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail12count_digitsILi1Eo
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #15
+declare double @llvm.fmuladd.f64(double, double, double) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #15
+declare double @llvm.ceil.f64(double) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3fmt2v96detail8basic_fpIoEC2Ev(ptr noundef nonnull align 16 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 {
@@ -38979,7 +39000,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail13format_dragonENS1_8basic_
   store ptr %91, ptr %12, align 8
   %92 = extractvalue { ptr, i32 } %90, 1
   store i32 %92, ptr %13, align 4
-  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %15) #14
+  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %15) #13
   br label %437
 
 93:                                               ; preds = %76, %67
@@ -39211,7 +39232,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail13format_dragonENS1_8basic_
 216:                                              ; preds = %213
   store i32 0, ptr %7, align 4
   %217 = load ptr, ptr %8, align 8
-  %218 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %217) #14
+  %218 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %217) #13
   store ptr %218, ptr %23, align 8
   br label %219
 
@@ -39585,10 +39606,10 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail13format_dragonENS1_8basic_
   br label %434
 
 434:                                              ; preds = %433, %421, %327, %293
-  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %15) #14
-  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %14) #14
-  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %11) #14
-  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %10) #14
+  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %15) #13
+  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %14) #13
+  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %11) #13
+  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %10) #13
   %435 = load i32, ptr %28, align 4
   switch i32 %435, label %445 [
     i32 0, label %436
@@ -39599,15 +39620,15 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail13format_dragonENS1_8basic_
   ret void
 
 437:                                              ; preds = %89, %85
-  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %14) #14
+  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %14) #13
   br label %438
 
 438:                                              ; preds = %437, %81
-  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %11) #14
+  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %11) #13
   br label %439
 
 439:                                              ; preds = %438, %77
-  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %10) #14
+  call void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %10) #13
   br label %440
 
 440:                                              ; preds = %439
@@ -39712,7 +39733,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bigintC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %4, i32 0, i32 0
-  call void @_ZNSt3__19allocatorIjEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt3__19allocatorIjEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   call void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %6 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %4, i32 0, i32 1
   store i32 0, ptr %6, align 8
@@ -39788,7 +39809,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(172) ptr @
   store i32 0, ptr %7, align 4
   store i64 0, ptr %8, align 8
   %26 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %11, i32 0, i32 0
-  %27 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #14
+  %27 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #13
   store i64 %27, ptr %9, align 8
   br label %28
 
@@ -39958,21 +39979,21 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bigint6assignERKS2_(ptr no
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %8, i32 0, i32 0
-  %10 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
+  %10 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #13
   store i64 %10, ptr %5, align 8
   %11 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %7, i32 0, i32 0
   %12 = load i64, ptr %5, align 8
   call void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(168) %11, i64 noundef %12)
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %13, i32 0, i32 0
-  %15 = call noundef ptr @_ZNK3fmt2v96detail6bufferIjE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
+  %15 = call noundef ptr @_ZNK3fmt2v96detail6bufferIjE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
   store ptr %15, ptr %6, align 8
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %6, align 8
   %18 = load i64, ptr %5, align 8
   %19 = getelementptr inbounds i32, ptr %17, i64 %18
   %20 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %7, i32 0, i32 0
-  %21 = call noundef ptr @_ZN3fmt2v96detail6bufferIjE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #14
+  %21 = call noundef ptr @_ZN3fmt2v96detail6bufferIjE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #13
   %22 = load i64, ptr %5, align 8
   %23 = call noundef ptr @_ZN3fmt2v96detail12make_checkedIjEEPT_S4_m(ptr noundef %21, i64 noundef %22)
   %24 = call noundef ptr @_ZNSt3__14copyB8ne190000IPKjPjEET0_T_S5_S4_(ptr noundef %16, ptr noundef %19, ptr noundef %23)
@@ -40215,7 +40236,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail16adjust_precisionERii(ptr 
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %9
-  %17 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %17 = call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef @.str.80)
           to label %18 unwind label %19
 
@@ -40230,7 +40251,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail16adjust_precisionERii(ptr 
   store ptr %21, ptr %5, align 8
   %22 = extractvalue { ptr, i32 } %20, 1
   store i32 %22, ptr %6, align 4
-  call void @__cxa_free_exception(ptr %17) #14
+  call void @__cxa_free_exception(ptr %17) #13
   br label %28
 
 23:                                               ; preds = %9, %2
@@ -40279,7 +40300,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail6bigint13divmod_assi
   %19 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %18, i32 0, i32 0
   %20 = load ptr, ptr %5, align 8
   %21 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %20, i32 0, i32 0
-  %22 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #14
+  %22 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #13
   %23 = sub i64 %22, 1
   %24 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK3fmt2v96detail6bufferIjEixImEERKjT_(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %23)
   %25 = load i32, ptr %24, align 4
@@ -40352,13 +40373,13 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail7compareERKNS1_6bigi
 25:                                               ; preds = %2
   %26 = load ptr, ptr %4, align 8
   %27 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %26, i32 0, i32 0
-  %28 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #14
+  %28 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #13
   %29 = trunc i64 %28 to i32
   %30 = sub nsw i32 %29, 1
   store i32 %30, ptr %8, align 4
   %31 = load ptr, ptr %5, align 8
   %32 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %31, i32 0, i32 0
-  %33 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #14
+  %33 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #13
   %34 = trunc i64 %33 to i32
   %35 = sub nsw i32 %34, 1
   store i32 %35, ptr %9, align 4
@@ -40461,7 +40482,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bigintD2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %3, i32 0, i32 0
-  call void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #13
   ret void
 }
 
@@ -40470,7 +40491,7 @@ define linkonce_odr hidden void @_ZNSt3__19allocatorIjEC2B8ne190000Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIjEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIjEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -40481,11 +40502,12 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #14
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.162", ptr %5, i32 0, i32 1
-  %7 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, i64 noundef 32) #14
+  call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #13
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.162", ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %8, i64 noundef 32) #13
   ret void
 }
 
@@ -40507,16 +40529,17 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr nound
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.163", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer.163", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer.163", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer.163", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer.163", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer.163", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -40554,9 +40577,9 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   %12 = icmp ugt i64 %11, 5000
   call void @_ZN3fmt2v96detail16abort_fuzzing_ifEb(i1 noundef zeroext %12)
   %13 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.162", ptr %10, i32 0, i32 2
-  %14 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIjEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %13) #14
+  %14 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIjEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
   store i64 %14, ptr %5, align 8
-  %15 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  %15 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   store i64 %15, ptr %6, align 8
   %16 = load i64, ptr %6, align 8
   %17 = load i64, ptr %6, align 8
@@ -40602,7 +40625,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   br label %40
 
 40:                                               ; preds = %39, %23
-  %41 = call noundef ptr @_ZN3fmt2v96detail6bufferIjE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  %41 = call noundef ptr @_ZN3fmt2v96detail6bufferIjE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   store ptr %41, ptr %8, align 8
   %42 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.162", ptr %10, i32 0, i32 2
   %43 = load i64, ptr %7, align 8
@@ -40610,7 +40633,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   store ptr %44, ptr %9, align 8
   %45 = load ptr, ptr %8, align 8
   %46 = load ptr, ptr %8, align 8
-  %47 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  %47 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   %48 = getelementptr inbounds i32, ptr %46, i64 %47
   %49 = load ptr, ptr %9, align 8
   %50 = load i64, ptr %7, align 8
@@ -40618,7 +40641,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   %52 = call noundef ptr @_ZNSt3__118uninitialized_copyB8ne190000IPjS1_EET0_T_S3_S2_(ptr noundef %45, ptr noundef %48, ptr noundef %51)
   %53 = load ptr, ptr %9, align 8
   %54 = load i64, ptr %7, align 8
-  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %53, i64 noundef %54) #14
+  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %53, i64 noundef %54) #13
   %55 = load ptr, ptr %8, align 8
   %56 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.162", ptr %10, i32 0, i32 1
   %57 = getelementptr inbounds [32 x i32], ptr %56, i64 0, i64 0
@@ -40629,7 +40652,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   %60 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.162", ptr %10, i32 0, i32 2
   %61 = load ptr, ptr %8, align 8
   %62 = load i64, ptr %6, align 8
-  call void @_ZNSt3__19allocatorIjE10deallocateB8ne190000EPjm(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef %61, i64 noundef %62) #14
+  call void @_ZNSt3__19allocatorIjE10deallocateB8ne190000EPjm(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef %61, i64 noundef %62) #13
   br label %63
 
 63:                                               ; preds = %59, %40
@@ -40640,7 +40663,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
 define linkonce_odr dso_local noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIjEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = call noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #14
+  %3 = call noundef i64 @_ZNSt3__114numeric_limitsImE3maxB8ne190000Ev() #13
   %4 = udiv i64 %3, 4
   ret i64 %4
 }
@@ -40754,7 +40777,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__19allocatorIjE8allocateB8ne19000
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
-  %7 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIjEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  %7 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorIjEEE8max_sizeB8ne190000IS2_vTnNS_9enable_ifIXntsr14__has_max_sizeIKT_EE5valueEiE4typeELi0EEEmRKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %9, label %10
 
@@ -40794,7 +40817,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__120__uninitialized_copyB8ne1900
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %14
-  %19 = call noundef zeroext i1 @_ZNKSt3__114__always_falseclB8ne190000IJRPjEEEbDpOT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %10) #14
+  %19 = call noundef zeroext i1 @_ZNKSt3__114__always_falseclB8ne190000IJRPjEEEbDpOT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %10) #13
   %20 = xor i1 %19, true
   br label %21
 
@@ -40834,7 +40857,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__120__uninitialized_copyB8ne1900
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %11, align 8
-  %40 = call ptr @__cxa_begin_catch(ptr %39) #14
+  %40 = call ptr @__cxa_begin_catch(ptr %39) #13
   %41 = load ptr, ptr %9, align 8
   %42 = load ptr, ptr %10, align 8
   %43 = invoke noundef ptr @_ZNSt3__19__destroyB8ne190000IPjEET_S2_S2_(ptr noundef %41, ptr noundef %42)
@@ -40861,7 +40884,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__120__uninitialized_copyB8ne1900
   br label %53
 
 51:                                               ; preds = %45
-  call void @_ZNSt3__14pairIPjS1_EC2B8ne190000IS1_S1_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS5_OS6_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %10) #14
+  call void @_ZNSt3__14pairIPjS1_EC2B8ne190000IS1_S1_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS5_OS6_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %10) #13
   %52 = load { ptr, ptr }, ptr %5, align 8
   ret { ptr, ptr } %52
 
@@ -41157,14 +41180,14 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bigint6squareEv(ptr nounde
   store ptr %0, ptr %2, align 8
   %15 = load ptr, ptr %2, align 8
   %16 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %15, i32 0, i32 0
-  %17 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
+  %17 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #13
   %18 = trunc i64 %17 to i32
   store i32 %18, ptr %3, align 4
   %19 = load i32, ptr %3, align 4
   %20 = mul nsw i32 2, %19
   store i32 %20, ptr %4, align 4
   %21 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %15, i32 0, i32 0
-  call void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %21) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %21) #13
   %22 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %15, i32 0, i32 0
   %23 = load i32, ptr %4, align 4
   %24 = call noundef i32 @_ZN3fmt2v96detail11to_unsignedIiEENSt3__113make_unsignedIT_E4typeES5_(i32 noundef %23)
@@ -41232,7 +41255,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bigint6squareEv(ptr nounde
   store ptr %58, ptr %6, align 8
   %59 = extractvalue { ptr, i32 } %57, 1
   store i32 %59, ptr %7, align 4
-  call void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5) #13
   br label %126
 
 60:                                               ; preds = %33
@@ -41347,7 +41370,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bigint6squareEv(ptr nounde
   %124 = load i32, ptr %123, align 8
   %125 = mul nsw i32 %124, 2
   store i32 %125, ptr %123, align 8
-  call void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5) #13
   ret void
 
 126:                                              ; preds = %56
@@ -41365,22 +41388,23 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #14
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.162", ptr %5, i32 0, i32 2
-  call void @_ZNSt3__19allocatorIjEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
-  %7 = load ptr, ptr %4, align 8
-  invoke void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEE4moveERS5_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %7)
-          to label %8 unwind label %9
-
-8:                                                ; preds = %2
-  ret void
+  call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #13
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.162", ptr %5, i32 0, i32 2
+  call void @_ZNSt3__19allocatorIjEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
+  %8 = load ptr, ptr %4, align 8
+  invoke void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEE4moveERS5_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %8)
+          to label %9 unwind label %10
 
 9:                                                ; preds = %2
-  %10 = landingpad { ptr, i32 }
+  ret void
+
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #21
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #21
   unreachable
 }
 
@@ -41425,7 +41449,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bigint20remove_leading_zer
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %4, i32 0, i32 0
-  %6 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
+  %6 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   %7 = trunc i64 %6 to i32
   %8 = sub nsw i32 %7, 1
   store i32 %8, ptr %3, align 4
@@ -41493,13 +41517,13 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef ptr @_ZN3fmt2v96detail6bufferIjE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
+  %10 = call noundef ptr @_ZN3fmt2v96detail6bufferIjE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #13
   store ptr %10, ptr %5, align 8
   %11 = load ptr, ptr %4, align 8
-  %12 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
+  %12 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #13
   store i64 %12, ptr %6, align 8
   %13 = load ptr, ptr %4, align 8
-  %14 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #14
+  %14 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #13
   store i64 %14, ptr %7, align 8
   %15 = load ptr, ptr %5, align 8
   %16 = load ptr, ptr %4, align 8
@@ -41512,7 +41536,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   %21 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.162", ptr %8, i32 0, i32 1
   %22 = getelementptr inbounds [32 x i32], ptr %21, i64 0, i64 0
   %23 = load i64, ptr %7, align 8
-  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %22, i64 noundef %23) #14
+  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %22, i64 noundef %23) #13
   %24 = load ptr, ptr %4, align 8
   %25 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.162", ptr %24, i32 0, i32 1
   %26 = getelementptr inbounds [32 x i32], ptr %25, i64 0, i64 0
@@ -41531,12 +41555,12 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
 37:                                               ; preds = %2
   %38 = load ptr, ptr %5, align 8
   %39 = load i64, ptr %7, align 8
-  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %38, i64 noundef %39) #14
+  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %38, i64 noundef %39) #13
   %40 = load ptr, ptr %4, align 8
   %41 = load ptr, ptr %4, align 8
   %42 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.162", ptr %41, i32 0, i32 1
   %43 = getelementptr inbounds [32 x i32], ptr %42, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef %43, i64 noundef 0) #14
+  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef %43, i64 noundef 0) #13
   %44 = load ptr, ptr %4, align 8
   call void @_ZN3fmt2v96detail6bufferIjE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %44)
   br label %45
@@ -41610,7 +41634,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  %5 = call noundef ptr @_ZN3fmt2v96detail6bufferIjE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
+  %5 = call noundef ptr @_ZN3fmt2v96detail6bufferIjE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   store ptr %5, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.162", ptr %4, i32 0, i32 1
@@ -41621,8 +41645,8 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
 10:                                               ; preds = %1
   %11 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.162", ptr %4, i32 0, i32 2
   %12 = load ptr, ptr %3, align 8
-  %13 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
-  call void @_ZNSt3__19allocatorIjE10deallocateB8ne190000EPjm(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13) #14
+  %13 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  call void @_ZNSt3__19allocatorIjE10deallocateB8ne190000EPjm(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13) #13
   br label %14
 
 14:                                               ; preds = %10, %1
@@ -41737,7 +41761,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__121__unwrap_and_dispatchB8ne190
   %22 = getelementptr inbounds %"struct.std::__1::pair.170", ptr %8, i32 0, i32 1
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %7, align 8
-  %25 = call noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPjNS_18__unwrap_iter_implIS1_Lb1EEETnNS_9enable_ifIXsr21is_copy_constructibleIT_EE5valueEiE4typeELi0EEEDTclsrT0_8__unwrapclsr3stdE7declvalIS5_EEEES5_(ptr noundef %24) #14
+  %25 = call noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPjNS_18__unwrap_iter_implIS1_Lb1EEETnNS_9enable_ifIXsr21is_copy_constructibleIT_EE5valueEiE4typeELi0EEEDTclsrT0_8__unwrapclsr3stdE7declvalIS5_EEEES5_(ptr noundef %24) #13
   %26 = call { ptr, ptr } @_ZNKSt3__114__copy_trivialclB8ne190000IKjjTnNS_9enable_ifIXsr38__can_lower_copy_assignment_to_memmoveIT_T0_EE5valueEiE4typeELi0EEENS_4pairIPS4_PS5_EES9_S9_SA_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %21, ptr noundef %23, ptr noundef %25)
   %27 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
   %28 = extractvalue { ptr, ptr } %26, 0
@@ -41753,7 +41777,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__121__unwrap_and_dispatchB8ne190
   %35 = load ptr, ptr %7, align 8
   %36 = getelementptr inbounds %"struct.std::__1::pair.169", ptr %9, i32 0, i32 1
   %37 = load ptr, ptr %36, align 8
-  %38 = call noundef ptr @_ZNSt3__113__rewrap_iterB8ne190000IPjS1_NS_18__unwrap_iter_implIS1_Lb1EEEEET_S4_T0_(ptr noundef %35, ptr noundef %37) #14
+  %38 = call noundef ptr @_ZNSt3__113__rewrap_iterB8ne190000IPjS1_NS_18__unwrap_iter_implIS1_Lb1EEEEET_S4_T0_(ptr noundef %35, ptr noundef %37) #13
   store ptr %38, ptr %12, align 8
   %39 = call { ptr, ptr } @_ZNSt3__19make_pairB8ne190000IPKjPjEENS_4pairINS_18__unwrap_ref_decayIT_E4typeENS5_IT0_E4typeEEEOS6_OS9_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %40 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
@@ -41816,7 +41840,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPjNS_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNSt3__118__unwrap_iter_implIPjLb1EE8__unwrapB8ne190000ES1_(ptr noundef %3) #14
+  %4 = call noundef ptr @_ZNSt3__118__unwrap_iter_implIPjLb1EE8__unwrapB8ne190000ES1_(ptr noundef %3) #13
   ret ptr %4
 }
 
@@ -41829,7 +41853,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__19make_pairB8ne190000IPKjPjEENS
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
-  call void @_ZNSt3__14pairIPKjPjEC2B8ne190000IS2_S3_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS7_OS8_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  call void @_ZNSt3__14pairIPKjPjEC2B8ne190000IS2_S3_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS7_OS8_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   %8 = load { ptr, ptr }, ptr %3, align 8
   ret { ptr, ptr } %8
 }
@@ -41878,12 +41902,12 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__119__unwrap_range_implIPKjS2_E8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = call noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPKjNS_18__unwrap_iter_implIS2_Lb1EEETnNS_9enable_ifIXsr21is_copy_constructibleIT_EE5valueEiE4typeELi0EEEDTclsrT0_8__unwrapclsr3stdE7declvalIS6_EEEES6_(ptr noundef %8) #14
+  %9 = call noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPKjNS_18__unwrap_iter_implIS2_Lb1EEETnNS_9enable_ifIXsr21is_copy_constructibleIT_EE5valueEiE4typeELi0EEEDTclsrT0_8__unwrapclsr3stdE7declvalIS6_EEEES6_(ptr noundef %8) #13
   store ptr %9, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = call noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPKjNS_18__unwrap_iter_implIS2_Lb1EEETnNS_9enable_ifIXsr21is_copy_constructibleIT_EE5valueEiE4typeELi0EEEDTclsrT0_8__unwrapclsr3stdE7declvalIS6_EEEES6_(ptr noundef %10) #14
+  %11 = call noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPKjNS_18__unwrap_iter_implIS2_Lb1EEETnNS_9enable_ifIXsr21is_copy_constructibleIT_EE5valueEiE4typeELi0EEEDTclsrT0_8__unwrapclsr3stdE7declvalIS6_EEEES6_(ptr noundef %10) #13
   store ptr %11, ptr %7, align 8
-  call void @_ZNSt3__14pairIPKjS2_EC2B8ne190000IS2_S2_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  call void @_ZNSt3__14pairIPKjS2_EC2B8ne190000IS2_S2_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   %12 = load { ptr, ptr }, ptr %3, align 8
   ret { ptr, ptr } %12
 }
@@ -41893,7 +41917,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__113__unwrap_iterB8ne190000IPKjNS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNSt3__118__unwrap_iter_implIPKjLb1EE8__unwrapB8ne190000ES2_(ptr noundef %3) #14
+  %4 = call noundef ptr @_ZNSt3__118__unwrap_iter_implIPKjLb1EE8__unwrapB8ne190000ES2_(ptr noundef %3) #13
   ret ptr %4
 }
 
@@ -41922,7 +41946,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__118__unwrap_iter_implIPKjLb1EE8_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IKjEEPT_S3_(ptr noundef %3) #14
+  %4 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IKjEEPT_S3_(ptr noundef %3) #13
   ret ptr %4
 }
 
@@ -42010,7 +42034,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt3__19make_pairB8ne190000IRPKjPjEEN
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
-  call void @_ZNSt3__14pairIPKjPjEC2B8ne190000IRS2_S3_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS8_OS9_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  call void @_ZNSt3__14pairIPKjPjEC2B8ne190000IRS2_S3_TnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS8_OS9_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   %8 = load { ptr, ptr }, ptr %3, align 8
   ret { ptr, ptr } %8
 }
@@ -42040,7 +42064,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__118__unwrap_iter_implIPjLb1EE8__
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IjEEPT_S2_(ptr noundef %3) #14
+  %4 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IjEEPT_S2_(ptr noundef %3) #13
   ret ptr %4
 }
 
@@ -42080,7 +42104,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__unwrap_range_implIPKjS2_E8_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = call noundef ptr @_ZNSt3__113__rewrap_iterB8ne190000IPKjS2_NS_18__unwrap_iter_implIS2_Lb1EEEEET_S5_T0_(ptr noundef %5, ptr noundef %6) #14
+  %7 = call noundef ptr @_ZNSt3__113__rewrap_iterB8ne190000IPKjS2_NS_18__unwrap_iter_implIS2_Lb1EEEEET_S5_T0_(ptr noundef %5, ptr noundef %6) #13
   ret ptr %7
 }
 
@@ -42115,7 +42139,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__118__unwrap_iter_implIPKjLb1EE8_
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  %8 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IKjEEPT_S3_(ptr noundef %7) #14
+  %8 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IKjEEPT_S3_(ptr noundef %7) #13
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -42133,7 +42157,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__118__unwrap_iter_implIPjLb1EE8__
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  %8 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IjEEPT_S2_(ptr noundef %7) #14
+  %8 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IjEEPT_S2_(ptr noundef %7) #13
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -42176,7 +42200,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bigint8multiplyIoTnNSt3__1
   store i128 0, ptr %10, align 16
   store i64 0, ptr %11, align 8
   %26 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %18, i32 0, i32 0
-  %27 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #14
+  %27 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #13
   store i64 %27, ptr %12, align 8
   br label %28
 
@@ -42288,7 +42312,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK3fmt2v96detail6bigint10num_bigits
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %3, i32 0, i32 0
-  %5 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
+  %5 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %3, i32 0, i32 1
   %8 = load i32, ptr %7, align 8
@@ -42410,7 +42434,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bigint8multiplyEj(ptr noun
   store i32 0, ptr %6, align 4
   store i64 0, ptr %7, align 8
   %13 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %10, i32 0, i32 0
-  %14 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #14
+  %14 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #13
   store i64 %14, ptr %8, align 8
   br label %15
 
@@ -42506,7 +42530,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bigint5alignERKS2_(ptr nou
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %10, i32 0, i32 0
-  %22 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #14
+  %22 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #13
   %23 = trunc i64 %22 to i32
   store i32 %23, ptr %6, align 4
   %24 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %10, i32 0, i32 0
@@ -42552,7 +42576,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bigint5alignERKS2_(ptr nou
 
 51:                                               ; preds = %35
   %52 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %10, i32 0, i32 0
-  %53 = call noundef ptr @_ZN3fmt2v96detail6bufferIjE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #14
+  %53 = call noundef ptr @_ZN3fmt2v96detail6bufferIjE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #13
   %54 = load i32, ptr %5, align 4
   store i32 0, ptr %9, align 4
   %55 = call noundef ptr @_ZNSt3__120uninitialized_fill_nB8ne190000IPjiiEET_S2_T0_RKT1_(ptr noundef %53, i32 noundef %54, ptr noundef nonnull align 4 dereferenceable(4) %9)
@@ -42606,7 +42630,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bigint16subtract_alignedER
   store i64 0, ptr %9, align 8
   %29 = load ptr, ptr %4, align 8
   %30 = getelementptr inbounds %"class.fmt::v9::detail::bigint", ptr %29, i32 0, i32 0
-  %31 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #14
+  %31 = call noundef i64 @_ZNK3fmt2v96detail6bufferIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #13
   store i64 %31, ptr %10, align 8
   br label %32
 
@@ -43142,7 +43166,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %277 = getelementptr inbounds %"class.fmt::v9::appender", ptr %6, i32 0, i32 0
   %278 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %277, i32 0, i32 0
   store ptr %275, ptr %278, align 8
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #13
   br label %405
 
 279:                                              ; preds = %255, %245
@@ -43152,7 +43176,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   store ptr %281, ptr %34, align 8
   %282 = extractvalue { ptr, i32 } %280, 1
   store i32 %282, ptr %35, align 4
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #13
   br label %409
 
 283:                                              ; preds = %194
@@ -43248,7 +43272,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %341 = getelementptr inbounds %"class.fmt::v9::appender", ptr %6, i32 0, i32 0
   %342 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %341, i32 0, i32 0
   store ptr %339, ptr %342, align 8
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #13
   br label %405
 
 343:                                              ; preds = %321, %305
@@ -43258,7 +43282,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   store ptr %345, ptr %34, align 8
   %346 = extractvalue { ptr, i32 } %344, 1
   store i32 %346, ptr %35, align 4
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #13
   br label %409
 
 347:                                              ; preds = %283
@@ -43509,7 +43533,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %23 = load i8, ptr %22, align 8
   %24 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %23)
   store i8 %24, ptr %6, align 1
-  %25 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %25 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %26 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %27 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %26, i32 0, i32 0
   store ptr %25, ptr %27, align 8
@@ -43557,7 +43581,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %57 = getelementptr inbounds %class.anon.178, ptr %17, i32 0, i32 8
   %58 = load i8, ptr %57, align 1
   store i8 %58, ptr %12, align 1
-  %59 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %59 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %60 = getelementptr inbounds %"class.fmt::v9::appender", ptr %13, i32 0, i32 0
   %61 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %60, i32 0, i32 0
   store ptr %59, ptr %61, align 8
@@ -43866,7 +43890,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   br label %52
 
 32:                                               ; preds = %5
-  %33 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 0) #14
+  %33 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 0) #13
   %34 = getelementptr inbounds %"class.fmt::v9::appender", ptr %14, i32 0, i32 0
   %35 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %34, i32 0, i32 0
   store ptr %33, ptr %35, align 8
@@ -44102,7 +44126,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %22 = load i8, ptr %21, align 1
   %23 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %22)
   store i8 %23, ptr %6, align 1
-  %24 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %24 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %25 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %26 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %25, i32 0, i32 0
   store ptr %24, ptr %26, align 8
@@ -44148,7 +44172,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
 56:                                               ; preds = %29
   %57 = getelementptr inbounds %class.anon.180, ptr %14, i32 0, i32 6
   %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %59 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %60 = getelementptr inbounds %"class.fmt::v9::appender", ptr %10, i32 0, i32 0
   %61 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %60, i32 0, i32 0
   store ptr %59, ptr %61, align 8
@@ -44250,7 +44274,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandIcNS0_8ap
   br label %86
 
 48:                                               ; preds = %5
-  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #14
+  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #13
   call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(536) %16, ptr noundef nonnull align 1 dereferenceable(1) %17)
   invoke void @_ZN3fmt2v98appenderCI2NSt3__120back_insert_iteratorINS0_6detail6bufferIcEEEEERS6_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %49 unwind label %82
@@ -44286,9 +44310,9 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandIcNS0_8ap
   store ptr %64, ptr %67, align 8
   %68 = load ptr, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %7, i64 8, i1 false)
-  %69 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
-  %70 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef %69, i64 noundef %70) #14
+  %69 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #13
+  %70 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #13
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef %69, i64 noundef %70) #13
   %71 = getelementptr inbounds %"class.fmt::v9::appender", ptr %25, i32 0, i32 0
   %72 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %71, i32 0, i32 0
   %73 = load ptr, ptr %72, align 8
@@ -44303,7 +44327,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandIcNS0_8ap
   %80 = getelementptr inbounds %"class.fmt::v9::appender", ptr %6, i32 0, i32 0
   %81 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %80, i32 0, i32 0
   store ptr %78, ptr %81, align 8
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %16) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %16) #13
   br label %86
 
 82:                                               ; preds = %65, %59, %56, %49, %48
@@ -44313,7 +44337,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandIcNS0_8ap
   store ptr %84, ptr %19, align 8
   %85 = extractvalue { ptr, i32 } %83, 1
   store i32 %85, ptr %20, align 4
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %16) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %16) #13
   br label %90
 
 86:                                               ; preds = %79, %32
@@ -44537,7 +44561,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %21 = load i8, ptr %20, align 1
   %22 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %21)
   store i8 %22, ptr %6, align 1
-  %23 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %23 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %24 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %25 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %24, i32 0, i32 0
   store ptr %23, ptr %25, align 8
@@ -44651,7 +44675,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   br label %86
 
 41:                                               ; preds = %6
-  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #14
+  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
   call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(536) %15, ptr noundef nonnull align 1 dereferenceable(1) %16)
   invoke void @_ZN3fmt2v98appenderCI2NSt3__120back_insert_iteratorINS0_6detail6bufferIcEEEEERS6_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %42 unwind label %82
@@ -44673,11 +44697,11 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   store ptr %50, ptr %53, align 8
   %54 = load ptr, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %8, i64 8, i1 false)
-  %55 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
+  %55 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
   %56 = load i32, ptr %11, align 4
   %57 = call noundef i32 @_ZN3fmt2v96detail11to_unsignedIiEENSt3__113make_unsignedIT_E4typeES5_(i32 noundef %56)
   %58 = zext i32 %57 to i64
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %55, i64 noundef %58) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %55, i64 noundef %58) #13
   %59 = getelementptr inbounds %"class.fmt::v9::appender", ptr %21, i32 0, i32 0
   %60 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %59, i32 0, i32 0
   %61 = load ptr, ptr %60, align 8
@@ -44692,11 +44716,11 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   %68 = getelementptr inbounds %"class.fmt::v9::appender", ptr %23, i32 0, i32 0
   %69 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %68, i32 0, i32 0
   store ptr %66, ptr %69, align 8
-  %70 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
+  %70 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
   %71 = load i32, ptr %11, align 4
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %70, i64 %72
-  %74 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
+  %74 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %8, i64 8, i1 false)
   %75 = getelementptr inbounds %"class.fmt::v9::appender", ptr %24, i32 0, i32 0
   %76 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %75, i32 0, i32 0
@@ -44708,7 +44732,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   %80 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %81 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %80, i32 0, i32 0
   store ptr %78, ptr %81, align 8
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %15) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %15) #13
   br label %86
 
 82:                                               ; preds = %67, %51, %42, %41
@@ -44718,7 +44742,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   store ptr %84, ptr %18, align 8
   %85 = extractvalue { ptr, i32 } %83, 1
   store i32 %85, ptr %19, align 4
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %15) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %15) #13
   br label %90
 
 86:                                               ; preds = %79, %30
@@ -44913,7 +44937,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
   %23 = load i8, ptr %22, align 1
   %24 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %23)
   store i8 %24, ptr %6, align 1
-  %25 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %25 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %26 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %27 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %26, i32 0, i32 0
   store ptr %25, ptr %27, align 8
@@ -44924,7 +44948,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
 30:                                               ; preds = %20, %2
   %31 = getelementptr inbounds %class.anon.182, ptr %15, i32 0, i32 1
   %32 = load ptr, ptr %31, align 8
-  %33 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %33 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %34 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %35 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %34, i32 0, i32 0
   store ptr %33, ptr %35, align 8
@@ -44943,7 +44967,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail14do_write_floatINS0_8appen
 43:                                               ; preds = %30
   %44 = getelementptr inbounds %class.anon.182, ptr %15, i32 0, i32 3
   %45 = load ptr, ptr %44, align 8
-  %46 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %46 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %47 = getelementptr inbounds %"class.fmt::v9::appender", ptr %9, i32 0, i32 0
   %48 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %47, i32 0, i32 0
   store ptr %46, ptr %48, align 8
@@ -45059,11 +45083,11 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 1
   store i64 %2, ptr %15, align 8
-  %16 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %16 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3fmt2v96detail7reserveINS0_8appenderEEERT_S5_m(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %16)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %17, i64 8, i1 false)
-  %18 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
-  %19 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %18 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
+  %19 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %7, i64 8, i1 false)
   %20 = getelementptr inbounds %"class.fmt::v9::appender", ptr %9, i32 0, i32 0
   %21 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %20, i32 0, i32 0
@@ -45301,14 +45325,14 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail9write_ptrIcNS0_8appenderEm
   store ptr %0, ptr %5, align 8
   %13 = load ptr, ptr %5, align 8
   store i8 48, ptr %6, align 1
-  %14 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %14 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %15 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %16 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %15, i32 0, i32 0
   store ptr %14, ptr %16, align 8
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(1) %6)
   store i8 120, ptr %8, align 1
-  %19 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %19 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %20 = getelementptr inbounds %"class.fmt::v9::appender", ptr %9, i32 0, i32 0
   %21 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %20, i32 0, i32 0
   store ptr %19, ptr %21, align 8
@@ -45782,7 +45806,7 @@ define linkonce_odr dso_local void @_ZZN3fmt2v96detail10vformat_toIcEEvRNS1_6buf
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = call noundef i64 @_ZN3fmt2v96detail11to_unsignedIlEENSt3__113make_unsignedIT_E4typeES5_(i64 noundef %17)
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %12, i64 noundef %18) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %12, i64 noundef %18) #13
   %19 = getelementptr inbounds %struct.format_handler, ptr %11, i32 0, i32 2
   %20 = getelementptr inbounds %struct.format_handler, ptr %11, i32 0, i32 2
   %21 = call ptr @_ZN3fmt2v920basic_format_contextINS0_8appenderEcE3outEv(ptr noundef nonnull align 8 dereferenceable(32) %20)
@@ -46072,7 +46096,7 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v96detail23parse_replacement_
   %175 = load ptr, ptr %11, align 8
   %176 = getelementptr inbounds %"struct.fmt::v9::detail::string_value", ptr %175, i32 0, i32 1
   %177 = load i64, ptr %176, align 8
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %174, i64 noundef %177) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %174, i64 noundef %177) #13
   %178 = load ptr, ptr %18, align 8
   %179 = getelementptr inbounds { ptr, i64 }, ptr %18, i32 0, i32 1
   %180 = load i64, ptr %179, align 8
@@ -46381,7 +46405,7 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v96detail23parse_replacement_
   %358 = load ptr, ptr %30, align 8
   %359 = getelementptr inbounds %"struct.fmt::v9::detail::string_value", ptr %358, i32 0, i32 1
   %360 = load i64, ptr %359, align 8
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef %357, i64 noundef %360) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef %357, i64 noundef %360) #13
   %361 = load ptr, ptr %37, align 8
   %362 = getelementptr inbounds { ptr, i64 }, ptr %37, i32 0, i32 1
   %363 = load i64, ptr %362, align 8
@@ -46819,10 +46843,10 @@ define linkonce_odr dso_local noundef ptr @_ZZN3fmt2v96detail10vformat_toIcEEvRN
 188:                                              ; preds = %4
   %189 = getelementptr inbounds %struct.format_handler, ptr %183, i32 0, i32 1
   %190 = getelementptr inbounds %struct.format_handler, ptr %183, i32 0, i32 1
-  %191 = call noundef ptr @_ZNK3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE5beginEv(ptr noundef nonnull align 8 dereferenceable(20) %190) #14
+  %191 = call noundef ptr @_ZNK3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE5beginEv(ptr noundef nonnull align 8 dereferenceable(20) %190) #13
   %192 = load ptr, ptr %174, align 8
   %193 = getelementptr inbounds %struct.format_handler, ptr %183, i32 0, i32 1
-  %194 = call noundef ptr @_ZNK3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE5beginEv(ptr noundef nonnull align 8 dereferenceable(20) %193) #14
+  %194 = call noundef ptr @_ZNK3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE5beginEv(ptr noundef nonnull align 8 dereferenceable(20) %193) #13
   %195 = ptrtoint ptr %192 to i64
   %196 = ptrtoint ptr %194 to i64
   %197 = sub i64 %195, %196
@@ -46983,7 +47007,7 @@ define linkonce_odr dso_local noundef ptr @_ZZN3fmt2v96detail10vformat_toIcEEvRN
   %282 = load ptr, ptr %160, align 8
   %283 = getelementptr inbounds %"struct.fmt::v9::detail::string_value", ptr %282, i32 0, i32 1
   %284 = load i64, ptr %283, align 8
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %167, ptr noundef %281, i64 noundef %284) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %167, ptr noundef %281, i64 noundef %284) #13
   %285 = load ptr, ptr %167, align 8
   %286 = getelementptr inbounds { ptr, i64 }, ptr %167, i32 0, i32 1
   %287 = load i64, ptr %286, align 8
@@ -47019,7 +47043,7 @@ define linkonce_odr dso_local noundef ptr @_ZZN3fmt2v96detail10vformat_toIcEEvRN
 
 303:                                              ; preds = %301, %292, %288, %278, %274, %270, %266, %262, %258, %253, %238, %223, %219, %215, %211, %207
   %304 = getelementptr inbounds %struct.format_handler, ptr %183, i32 0, i32 1
-  %305 = call noundef ptr @_ZNK3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE5beginEv(ptr noundef nonnull align 8 dereferenceable(20) %304) #14
+  %305 = call noundef ptr @_ZNK3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE5beginEv(ptr noundef nonnull align 8 dereferenceable(20) %304) #13
   store ptr %305, ptr %171, align 8
   br label %859
 
@@ -47842,7 +47866,7 @@ define linkonce_odr dso_local noundef ptr @_ZZN3fmt2v96detail10vformat_toIcEEvRN
   %797 = load ptr, ptr %142, align 8
   %798 = getelementptr inbounds %"struct.fmt::v9::detail::string_value", ptr %797, i32 0, i32 1
   %799 = load i64, ptr %798, align 8
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef %796, i64 noundef %799) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef %796, i64 noundef %799) #13
   %800 = load ptr, ptr %149, align 8
   %801 = getelementptr inbounds { ptr, i64 }, ptr %149, i32 0, i32 1
   %802 = load i64, ptr %801, align 8
@@ -47953,7 +47977,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail7get_argINS0_20basic_format
   %6 = load ptr, ptr %4, align 8
   %7 = load i32, ptr %5, align 4
   call void @_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi(ptr dead_on_unwind writable sret(%"class.fmt::v9::basic_format_arg") align 16 %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %7)
-  %8 = call noundef zeroext i1 @_ZNK3fmt2v916basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEcvbEv(ptr noundef nonnull align 16 dereferenceable(20) %0) #14
+  %8 = call noundef zeroext i1 @_ZNK3fmt2v916basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEcvbEv(ptr noundef nonnull align 16 dereferenceable(20) %0) #13
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %3
@@ -48119,8 +48143,8 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v96detail15do_parse_arg_idIcR
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %6, align 8
-  %32 = call noundef i32 @_ZNSt3__114numeric_limitsIiE3maxB8ne190000Ev() #14
-  %33 = call noundef i32 @_ZN3fmt2v96detail21parse_nonnegative_intIcEEiRPKT_S5_i(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %31, i32 noundef %32) #14
+  %32 = call noundef i32 @_ZNSt3__114numeric_limitsIiE3maxB8ne190000Ev() #13
+  %33 = call noundef i32 @_ZN3fmt2v96detail21parse_nonnegative_intIcEEiRPKT_S5_i(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %31, i32 noundef %32) #13
   store i32 %33, ptr %10, align 4
   br label %37
 
@@ -48235,7 +48259,7 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v96detail15do_parse_arg_idIcR
   %97 = ptrtoint ptr %95 to i64
   %98 = sub i64 %96, %97
   %99 = call noundef i64 @_ZN3fmt2v96detail11to_unsignedIlEENSt3__113make_unsignedIT_E4typeES5_(i64 noundef %98)
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %93, i64 noundef %99) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %93, i64 noundef %99) #13
   %100 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 0
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 1
@@ -48791,7 +48815,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK3fmt2v917basic_string_viewIcE7com
   %26 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %4, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
   %28 = load i64, ptr %6, align 8
-  %29 = call noundef i32 @_ZNSt3__111char_traitsIcE7compareB8ne190000EPKcS3_m(ptr noundef %25, ptr noundef %27, i64 noundef %28) #14
+  %29 = call noundef i32 @_ZNSt3__111char_traitsIcE7compareB8ne190000EPKcS3_m(ptr noundef %25, ptr noundef %27, i64 noundef %28) #13
   store i32 %29, ptr %7, align 4
   %30 = load i32, ptr %7, align 4
   %31 = icmp eq i32 %30, 0
@@ -48838,7 +48862,7 @@ define linkonce_odr hidden noundef i32 @_ZNSt3__111char_traitsIcE7compareB8ne190
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
-  %10 = call i32 @memcmp(ptr noundef %7, ptr noundef %8, i64 noundef %9) #14
+  %10 = call i32 @memcmp(ptr noundef %7, ptr noundef %8, i64 noundef %9) #13
   ret i32 %10
 }
 
@@ -48861,12 +48885,12 @@ define linkonce_odr dso_local void @_ZN3fmt2v926basic_format_parse_contextIcNS0_
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds %"class.fmt::v9::basic_format_parse_context", ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  %8 = call noundef ptr @_ZNK3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE5beginEv(ptr noundef nonnull align 8 dereferenceable(20) %5) #14
+  %8 = call noundef ptr @_ZNK3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE5beginEv(ptr noundef nonnull align 8 dereferenceable(20) %5) #13
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = call noundef i64 @_ZN3fmt2v96detail11to_unsignedIlEENSt3__113make_unsignedIT_E4typeES5_(i64 noundef %11)
-  call void @_ZN3fmt2v917basic_string_viewIcE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %12) #14
+  call void @_ZN3fmt2v917basic_string_viewIcE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %12) #13
   ret void
 }
 
@@ -48876,7 +48900,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK3fmt2v926basic_format_parse_conte
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.fmt::v9::basic_format_parse_context", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %5 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   ret ptr %5
 }
 
@@ -49431,7 +49455,7 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v96detail11parse_alignIcRNS1_
   %63 = ptrtoint ptr %61 to i64
   %64 = sub i64 %62, %63
   %65 = call noundef i64 @_ZN3fmt2v96detail11to_unsignedIlEENSt3__113make_unsignedIT_E4typeES5_(i64 noundef %64)
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %59, i64 noundef %65) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %59, i64 noundef %65) #13
   %66 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 0
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 1
@@ -49594,7 +49618,7 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v96detail11parse_widthIcRNS1_
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %11, align 8
-  %31 = call noundef i32 @_ZN3fmt2v96detail21parse_nonnegative_intIcEEiRPKT_S5_i(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %30, i32 noundef -1) #14
+  %31 = call noundef i32 @_ZN3fmt2v96detail21parse_nonnegative_intIcEEiRPKT_S5_i(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %30, i32 noundef -1) #13
   store i32 %31, ptr %14, align 4
   %32 = load i32, ptr %14, align 4
   %33 = icmp ne i32 %32, -1
@@ -49761,7 +49785,7 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v96detail15parse_precisionIcR
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %11, align 8
-  %36 = call noundef i32 @_ZN3fmt2v96detail21parse_nonnegative_intIcEEiRPKT_S5_i(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %35, i32 noundef -1) #14
+  %36 = call noundef i32 @_ZN3fmt2v96detail21parse_nonnegative_intIcEEiRPKT_S5_i(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %35, i32 noundef -1) #13
   store i32 %36, ptr %14, align 4
   %37 = load i32, ptr %14, align 4
   %38 = icmp ne i32 %37, -1
@@ -49979,7 +50003,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6fill_tIcEaSENS0_17basic_st
   store i64 %2, ptr %9, align 8
   store ptr %0, ptr %5, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %11 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   store i64 %11, ptr %6, align 8
   %12 = load i64, ptr %6, align 8
   %13 = icmp ugt i64 %12, 4
@@ -50004,7 +50028,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6fill_tIcEaSENS0_17basic_st
 
 21:                                               ; preds = %17
   %22 = load i64, ptr %7, align 8
-  %23 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3fmt2v917basic_string_viewIcEixEm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %22) #14
+  %23 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3fmt2v917basic_string_viewIcEixEm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %22) #13
   %24 = load i8, ptr %23, align 1
   %25 = getelementptr inbounds %"struct.fmt::v9::detail::fill_t", ptr %10, i32 0, i32 0
   %26 = load i64, ptr %7, align 8
@@ -50231,8 +50255,8 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v96detail15do_parse_arg_idIcR
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %6, align 8
-  %32 = call noundef i32 @_ZNSt3__114numeric_limitsIiE3maxB8ne190000Ev() #14
-  %33 = call noundef i32 @_ZN3fmt2v96detail21parse_nonnegative_intIcEEiRPKT_S5_i(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %31, i32 noundef %32) #14
+  %32 = call noundef i32 @_ZNSt3__114numeric_limitsIiE3maxB8ne190000Ev() #13
+  %33 = call noundef i32 @_ZN3fmt2v96detail21parse_nonnegative_intIcEEiRPKT_S5_i(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %31, i32 noundef %32) #13
   store i32 %33, ptr %10, align 4
   br label %37
 
@@ -50347,7 +50371,7 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v96detail15do_parse_arg_idIcR
   %97 = ptrtoint ptr %95 to i64
   %98 = sub i64 %96, %97
   %99 = call noundef i64 @_ZN3fmt2v96detail11to_unsignedIlEENSt3__113make_unsignedIT_E4typeES5_(i64 noundef %98)
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %93, i64 noundef %99) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %93, i64 noundef %99) #13
   %100 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 0
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 1
@@ -50632,7 +50656,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail16get_dynamic_specIN
   %109 = load ptr, ptr %4, align 8
   %110 = getelementptr inbounds %"struct.fmt::v9::detail::string_value", ptr %109, i32 0, i32 1
   %111 = load i64, ptr %110, align 8
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %108, i64 noundef %111) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %108, i64 noundef %111) #13
   %112 = load ptr, ptr %11, align 8
   %113 = getelementptr inbounds { ptr, i64 }, ptr %11, i32 0, i32 1
   %114 = load i64, ptr %113, align 8
@@ -51105,7 +51129,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail7get_argINS0_20basic_format
   %13 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
   %14 = load i64, ptr %13, align 8
   call void @_ZN3fmt2v920basic_format_contextINS0_8appenderEcE3argENS0_17basic_string_viewIcEE(ptr dead_on_unwind writable sret(%"class.fmt::v9::basic_format_arg") align 16 %0, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr %12, i64 %14)
-  %15 = call noundef zeroext i1 @_ZNK3fmt2v916basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEcvbEv(ptr noundef nonnull align 16 dereferenceable(20) %0) #14
+  %15 = call noundef zeroext i1 @_ZNK3fmt2v916basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEcvbEv(ptr noundef nonnull align 16 dereferenceable(20) %0) #13
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %4
@@ -51288,8 +51312,8 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v96detail15do_parse_arg_idIcR
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %6, align 8
-  %32 = call noundef i32 @_ZNSt3__114numeric_limitsIiE3maxB8ne190000Ev() #14
-  %33 = call noundef i32 @_ZN3fmt2v96detail21parse_nonnegative_intIcEEiRPKT_S5_i(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %31, i32 noundef %32) #14
+  %32 = call noundef i32 @_ZNSt3__114numeric_limitsIiE3maxB8ne190000Ev() #13
+  %33 = call noundef i32 @_ZN3fmt2v96detail21parse_nonnegative_intIcEEiRPKT_S5_i(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %31, i32 noundef %32) #13
   store i32 %33, ptr %10, align 4
   br label %37
 
@@ -51404,7 +51428,7 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v96detail15do_parse_arg_idIcR
   %97 = ptrtoint ptr %95 to i64
   %98 = sub i64 %96, %97
   %99 = call noundef i64 @_ZN3fmt2v96detail11to_unsignedIlEENSt3__113make_unsignedIT_E4typeES5_(i64 noundef %98)
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %93, i64 noundef %99) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %93, i64 noundef %99) #13
   %100 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 0
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 1
@@ -51689,7 +51713,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail16get_dynamic_specIN
   %109 = load ptr, ptr %4, align 8
   %110 = getelementptr inbounds %"struct.fmt::v9::detail::string_value", ptr %109, i32 0, i32 1
   %111 = load i64, ptr %110, align 8
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %108, i64 noundef %111) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %108, i64 noundef %111) #13
   %112 = load ptr, ptr %11, align 8
   %113 = getelementptr inbounds { ptr, i64 }, ptr %11, i32 0, i32 1
   %114 = load i64, ptr %113, align 8
@@ -52410,7 +52434,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_int_noinlineIcNS0_8a
   %177 = and i32 %176, 255
   %178 = trunc i32 %177 to i8
   store i8 %178, ptr %62, align 1
-  %179 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %60, i32 noundef 0) #14
+  %179 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %60, i32 noundef 0) #13
   store ptr %179, ptr %63, align 8
   %180 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %63)
   %181 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %180, ptr noundef nonnull align 1 dereferenceable(1) %62)
@@ -52551,7 +52575,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_int_noinlineIcNS0_8a
   %267 = and i32 %266, 255
   %268 = trunc i32 %267 to i8
   store i8 %268, ptr %46, align 1
-  %269 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %44, i32 noundef 0) #14
+  %269 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %44, i32 noundef 0) #13
   store ptr %269, ptr %47, align 8
   %270 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %47)
   %271 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %270, ptr noundef nonnull align 1 dereferenceable(1) %46)
@@ -52687,7 +52711,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_int_noinlineIcNS0_8a
   %353 = and i32 %352, 255
   %354 = trunc i32 %353 to i8
   store i8 %354, ptr %30, align 1
-  %355 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %28, i32 noundef 0) #14
+  %355 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %28, i32 noundef 0) #13
   store ptr %355, ptr %31, align 8
   %356 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %31)
   %357 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %356, ptr noundef nonnull align 1 dereferenceable(1) %30)
@@ -52824,7 +52848,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_int_noinlineIcNS0_8a
   %437 = and i32 %436, 255
   %438 = trunc i32 %437 to i8
   store i8 %438, ptr %14, align 1
-  %439 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef 0) #14
+  %439 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef 0) #13
   store ptr %439, ptr %15, align 8
   %440 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
   %441 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %440, ptr noundef nonnull align 1 dereferenceable(1) %14)
@@ -53210,7 +53234,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail9write_intINS0_8appenderEcZ
   %24 = and i32 %23, 255
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %7, align 1
-  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %27 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %28 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %27, i32 0, i32 0
   store ptr %26, ptr %28, align 8
@@ -53499,7 +53523,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail9write_intINS0_8appenderEcZ
   %24 = and i32 %23, 255
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %7, align 1
-  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %27 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %28 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %27, i32 0, i32 0
   store ptr %26, ptr %28, align 8
@@ -53946,7 +53970,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail9write_intINS0_8appenderEcZ
   %24 = and i32 %23, 255
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %7, align 1
-  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %27 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %28 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %27, i32 0, i32 0
   store ptr %26, ptr %28, align 8
@@ -54393,7 +54417,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail9write_intINS0_8appenderEcZ
   %24 = and i32 %23, 255
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %7, align 1
-  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %27 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %28 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %27, i32 0, i32 0
   store ptr %26, ptr %28, align 8
@@ -54707,7 +54731,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_int_noinlineIcNS0_8a
   %175 = and i32 %174, 255
   %176 = trunc i32 %175 to i8
   store i8 %176, ptr %60, align 1
-  %177 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %58, i32 noundef 0) #14
+  %177 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %58, i32 noundef 0) #13
   store ptr %177, ptr %61, align 8
   %178 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %61)
   %179 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull align 1 dereferenceable(1) %60)
@@ -54847,7 +54871,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_int_noinlineIcNS0_8a
   %264 = and i32 %263, 255
   %265 = trunc i32 %264 to i8
   store i8 %265, ptr %44, align 1
-  %266 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %42, i32 noundef 0) #14
+  %266 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %42, i32 noundef 0) #13
   store ptr %266, ptr %45, align 8
   %267 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %45)
   %268 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %267, ptr noundef nonnull align 1 dereferenceable(1) %44)
@@ -54982,7 +55006,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_int_noinlineIcNS0_8a
   %349 = and i32 %348, 255
   %350 = trunc i32 %349 to i8
   store i8 %350, ptr %28, align 1
-  %351 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %26, i32 noundef 0) #14
+  %351 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %26, i32 noundef 0) #13
   store ptr %351, ptr %29, align 8
   %352 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %29)
   %353 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %352, ptr noundef nonnull align 1 dereferenceable(1) %28)
@@ -55118,7 +55142,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail18write_int_noinlineIcNS0_8a
   %432 = and i32 %431, 255
   %433 = trunc i32 %432 to i8
   store i8 %433, ptr %12, align 1
-  %434 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 0) #14
+  %434 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 0) #13
   store ptr %434, ptr %13, align 8
   %435 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %436 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %435, ptr noundef nonnull align 1 dereferenceable(1) %12)
@@ -55297,7 +55321,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3fmt2v96detail19write_int_l
   store ptr %37, ptr %40, align 8
   %41 = load ptr, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %15, i64 8, i1 false)
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #13
   ret i1 true
 
 42:                                               ; preds = %6
@@ -55307,7 +55331,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3fmt2v96detail19write_int_l
   store ptr %44, ptr %18, align 8
   %45 = extractvalue { ptr, i32 } %43, 1
   store i32 %45, ptr %19, align 4
-  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #14
+  call void @_ZN3fmt2v96detail14digit_groupingIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #13
   br label %46
 
 46:                                               ; preds = %42
@@ -55628,7 +55652,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail19write_int_localizedINS0_8
   %20 = load i32, ptr %19, align 4
   %21 = trunc i32 %20 to i8
   store i8 %21, ptr %6, align 1
-  %22 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %22 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %23 = getelementptr inbounds %"class.fmt::v9::appender", ptr %7, i32 0, i32 0
   %24 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %23, i32 0, i32 0
   store ptr %22, ptr %24, align 8
@@ -55648,7 +55672,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail19write_int_localizedINS0_8
   %35 = load i32, ptr %34, align 4
   %36 = call noundef i32 @_ZN3fmt2v96detail11to_unsignedIiEENSt3__113make_unsignedIT_E4typeES5_(i32 noundef %35)
   %37 = zext i32 %36 to i64
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %32, i64 noundef %37) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %32, i64 noundef %37) #13
   %38 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %39 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %38, i32 0, i32 0
   %40 = load ptr, ptr %39, align 8
@@ -55921,7 +55945,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail9write_intINS0_8appenderEcZ
   %24 = and i32 %23, 255
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %7, align 1
-  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %27 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %28 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %27, i32 0, i32 0
   store ptr %26, ptr %28, align 8
@@ -56409,7 +56433,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail9write_intINS0_8appenderEcZ
   %24 = and i32 %23, 255
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %7, align 1
-  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %27 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %28 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %27, i32 0, i32 0
   store ptr %26, ptr %28, align 8
@@ -56858,7 +56882,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail9write_intINS0_8appenderEcZ
   %24 = and i32 %23, 255
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %7, align 1
-  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %27 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %28 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %27, i32 0, i32 0
   store ptr %26, ptr %28, align 8
@@ -57341,7 +57365,7 @@ define linkonce_odr dso_local ptr @_ZZN3fmt2v96detail9write_intINS0_8appenderEcZ
   %24 = and i32 %23, 255
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %7, align 1
-  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #14
+  %26 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #13
   %27 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %28 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %27, i32 0, i32 0
   store ptr %26, ptr %28, align 8
@@ -57708,7 +57732,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEfTnNSt
   store float %65, ptr %6, align 4
   %66 = load float, ptr %6, align 4
   %67 = fpext float %66 to double
-  %68 = call noundef zeroext i1 @_ZNSt3__16__math7signbitB8ne190000IdTnNS_9enable_ifIXsr17is_floating_pointIT_EE5valueEiE4typeELi0EEEbS3_(double noundef %67) #14
+  %68 = call noundef zeroext i1 @_ZNSt3__16__math7signbitB8ne190000IdTnNS_9enable_ifIXsr17is_floating_pointIT_EE5valueEiE4typeELi0EEEbS3_(double noundef %67) #13
   br i1 %68, label %69, label %76
 
 69:                                               ; preds = %51
@@ -57794,7 +57818,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEfTnNSt
   %126 = trunc i32 %125 to i8
   %127 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %126)
   store i8 %127, ptr %18, align 1
-  %128 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 0) #14
+  %128 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 0) #13
   %129 = getelementptr inbounds %"class.fmt::v9::appender", ptr %19, i32 0, i32 0
   %130 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %129, i32 0, i32 0
   store ptr %128, ptr %130, align 8
@@ -57834,7 +57858,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEfTnNSt
   br label %154
 
 154:                                              ; preds = %153, %113, %106
-  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #14
+  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #13
   call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(536) %23, ptr noundef nonnull align 1 dereferenceable(1) %24)
   %155 = getelementptr inbounds %"struct.fmt::v9::detail::float_specs", ptr %13, i32 0, i32 1
   %156 = load i32, ptr %155, align 4
@@ -57873,7 +57897,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEfTnNSt
   store ptr %177, ptr %26, align 8
   %178 = extractvalue { ptr, i32 } %176, 1
   store i32 %178, ptr %27, align 4
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %23) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %23) #13
   br label %277
 
 179:                                              ; preds = %174, %160
@@ -57891,9 +57915,9 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEfTnNSt
 
 187:                                              ; preds = %182
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %9, i64 8, i1 false)
-  %188 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
-  %189 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef %188, i64 noundef %189) #14
+  %188 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #13
+  %189 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #13
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef %188, i64 noundef %189) #13
   %190 = getelementptr inbounds %"class.fmt::v9::appender", ptr %29, i32 0, i32 0
   %191 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %190, i32 0, i32 0
   %192 = load ptr, ptr %191, align 8
@@ -58006,10 +58030,10 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEfTnNSt
   %254 = getelementptr inbounds %"struct.fmt::v9::detail::float_specs", ptr %13, i32 0, i32 0
   store i32 %253, ptr %254, align 4
   %255 = getelementptr inbounds %"struct.fmt::v9::detail::big_decimal_fp", ptr %35, i32 0, i32 0
-  %256 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
+  %256 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #13
   store ptr %256, ptr %255, align 8
   %257 = getelementptr inbounds %"struct.fmt::v9::detail::big_decimal_fp", ptr %35, i32 0, i32 1
-  %258 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
+  %258 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #13
   %259 = trunc i64 %258 to i32
   store i32 %259, ptr %257, align 8
   %260 = getelementptr inbounds %"struct.fmt::v9::detail::big_decimal_fp", ptr %35, i32 0, i32 2
@@ -58035,7 +58059,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEfTnNSt
   br label %272
 
 272:                                              ; preds = %269, %198
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %23) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %23) #13
   br label %273
 
 273:                                              ; preds = %272, %93, %50
@@ -58059,7 +58083,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3fmt2v96detail8isfiniteIfTn
   store float %0, ptr %2, align 4
   store float 0x7FF0000000000000, ptr %3, align 4
   %4 = load float, ptr %2, align 4
-  %5 = call noundef zeroext i1 @_ZNSt3__16__math8isfiniteB8ne190000IfTnNS_9enable_ifIXaasr13is_arithmeticIT_EE5valuesr14numeric_limitsIS3_EE12has_infinityEiE4typeELi0EEEbS3_(float noundef %4) #14
+  %5 = call noundef zeroext i1 @_ZNSt3__16__math8isfiniteB8ne190000IfTnNS_9enable_ifIXaasr13is_arithmeticIT_EE5valuesr14numeric_limitsIS3_EE12has_infinityEiE4typeELi0EEEbS3_(float noundef %4) #13
   ret i1 %5
 }
 
@@ -58095,9 +58119,9 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail14snprintf_floatIdEE
   store i32 %1, ptr %7, align 4
   store ptr %3, ptr %8, align 8
   %19 = load ptr, ptr %8, align 8
-  %20 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #14
+  %20 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #13
   %21 = load ptr, ptr %8, align 8
-  %22 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #14
+  %22 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #13
   %23 = icmp ugt i64 %20, %22
   %24 = zext i1 %23 to i8
   store i8 %24, ptr %9, align 1
@@ -58160,18 +58184,18 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail14snprintf_floatIdEE
   %59 = load ptr, ptr %12, align 8
   store i8 0, ptr %59, align 1
   %60 = load ptr, ptr %8, align 8
-  %61 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #14
+  %61 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #13
   store i64 %61, ptr %13, align 8
   br label %62
 
 62:                                               ; preds = %112, %94, %50
   %63 = load ptr, ptr %8, align 8
-  %64 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %63) #14
+  %64 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %63) #13
   %65 = load i64, ptr %13, align 8
   %66 = getelementptr inbounds i8, ptr %64, i64 %65
   store ptr %66, ptr %14, align 8
   %67 = load ptr, ptr %8, align 8
-  %68 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %67) #14
+  %68 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %67) #13
   %69 = load i64, ptr %13, align 8
   %70 = sub i64 %68, %69
   store i64 %70, ptr %15, align 8
@@ -58212,7 +58236,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail14snprintf_floatIdEE
 94:                                               ; preds = %90
   %95 = load ptr, ptr %8, align 8
   %96 = load ptr, ptr %8, align 8
-  %97 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %96) #14
+  %97 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %96) #13
   %98 = add i64 %97, 1
   call void @_ZN3fmt2v96detail6bufferIcE11try_reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %95, i64 noundef %98)
   br label %62, !llvm.loop !132
@@ -58357,7 +58381,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail12format_floatIdEEiT
   %82 = zext i32 %81 to i64
   call void @_ZN3fmt2v96detail6bufferIcE10try_resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %79, i64 noundef %82)
   %83 = load ptr, ptr %28, align 8
-  %84 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #14
+  %84 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #13
   %85 = load i32, ptr %27, align 4
   %86 = call noundef ptr @_ZN3fmt2v96detail6fill_nIciEEPT_S4_T0_c(ptr noundef %84, i32 noundef %85, i8 noundef signext 48)
   %87 = load i32, ptr %27, align 4
@@ -58384,7 +58408,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail12format_floatIdEEiT
 98:                                               ; preds = %92
   %99 = load double, ptr %26, align 8
   %100 = fptrunc double %99 to float
-  %101 = call i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %100) #14
+  %101 = call i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %100) #13
   store i64 %101, ptr %36, align 4
   %102 = load ptr, ptr %28, align 8
   call void @_ZN3fmt2v98appenderCI2NSt3__120back_insert_iteratorINS0_6detail6bufferIcEEEEERS6_(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(32) %102)
@@ -58404,7 +58428,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail12format_floatIdEEiT
 
 113:                                              ; preds = %92
   %114 = load double, ptr %26, align 8
-  %115 = call { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %114) #14
+  %115 = call { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %114) #13
   %116 = getelementptr inbounds { i64, i32 }, ptr %39, i32 0, i32 0
   %117 = extractvalue { i64, i32 } %115, 0
   store i64 %117, ptr %116, align 8
@@ -58474,7 +58498,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail12format_floatIdEEiT
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %47, i64 12, i1 false)
   %164 = getelementptr inbounds %"struct.fmt::v9::detail::gen_digits_handler", ptr %50, i32 0, i32 0
   %165 = load ptr, ptr %28, align 8
-  %166 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %165) #14
+  %166 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %165) #13
   store ptr %166, ptr %164, align 8
   %167 = getelementptr inbounds %"struct.fmt::v9::detail::gen_digits_handler", ptr %50, i32 0, i32 1
   store i32 0, ptr %167, align 8
@@ -58909,7 +58933,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail12format_floatIdEEiT
 
 431:                                              ; preds = %425
   %432 = load ptr, ptr %28, align 8
-  %433 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %432) #14
+  %433 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %432) #13
   store i64 %433, ptr %56, align 8
   br label %434
 
@@ -59073,7 +59097,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEmTnNSt
 
 69:                                               ; preds = %66
   store i8 45, ptr %14, align 1
-  %70 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 0) #14
+  %70 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 0) #13
   %71 = getelementptr inbounds %"class.fmt::v9::appender", ptr %15, i32 0, i32 0
   %72 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %71, i32 0, i32 0
   store ptr %70, ptr %72, align 8
@@ -59887,7 +59911,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEdTnNSt
   %65 = load double, ptr %12, align 8
   store double %65, ptr %6, align 8
   %66 = load double, ptr %6, align 8
-  %67 = call noundef zeroext i1 @_ZNSt3__16__math7signbitB8ne190000IdTnNS_9enable_ifIXsr17is_floating_pointIT_EE5valueEiE4typeELi0EEEbS3_(double noundef %66) #14
+  %67 = call noundef zeroext i1 @_ZNSt3__16__math7signbitB8ne190000IdTnNS_9enable_ifIXsr17is_floating_pointIT_EE5valueEiE4typeELi0EEEbS3_(double noundef %66) #13
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %51
@@ -59973,7 +59997,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEdTnNSt
   %125 = trunc i32 %124 to i8
   %126 = call noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4sign4typeEEET_T0_(i8 noundef zeroext %125)
   store i8 %126, ptr %18, align 1
-  %127 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 0) #14
+  %127 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 0) #13
   %128 = getelementptr inbounds %"class.fmt::v9::appender", ptr %19, i32 0, i32 0
   %129 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %128, i32 0, i32 0
   store ptr %127, ptr %129, align 8
@@ -60013,7 +60037,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEdTnNSt
   br label %153
 
 153:                                              ; preds = %152, %112, %105
-  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #14
+  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #13
   call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(536) %23, ptr noundef nonnull align 1 dereferenceable(1) %24)
   %154 = getelementptr inbounds %"struct.fmt::v9::detail::float_specs", ptr %13, i32 0, i32 1
   %155 = load i32, ptr %154, align 4
@@ -60052,7 +60076,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEdTnNSt
   store ptr %176, ptr %26, align 8
   %177 = extractvalue { ptr, i32 } %175, 1
   store i32 %177, ptr %27, align 4
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %23) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %23) #13
   br label %270
 
 178:                                              ; preds = %173, %159
@@ -60067,9 +60091,9 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEdTnNSt
 
 185:                                              ; preds = %178
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %9, i64 8, i1 false)
-  %186 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
-  %187 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef %186, i64 noundef %187) #14
+  %186 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #13
+  %187 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #13
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef %186, i64 noundef %187) #13
   %188 = getelementptr inbounds %"class.fmt::v9::appender", ptr %29, i32 0, i32 0
   %189 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %188, i32 0, i32 0
   %190 = load ptr, ptr %189, align 8
@@ -60174,10 +60198,10 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEdTnNSt
   %247 = getelementptr inbounds %"struct.fmt::v9::detail::float_specs", ptr %13, i32 0, i32 0
   store i32 %246, ptr %247, align 4
   %248 = getelementptr inbounds %"struct.fmt::v9::detail::big_decimal_fp", ptr %35, i32 0, i32 0
-  %249 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
+  %249 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #13
   store ptr %249, ptr %248, align 8
   %250 = getelementptr inbounds %"struct.fmt::v9::detail::big_decimal_fp", ptr %35, i32 0, i32 1
-  %251 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
+  %251 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #13
   %252 = trunc i64 %251 to i32
   store i32 %252, ptr %250, align 8
   %253 = getelementptr inbounds %"struct.fmt::v9::detail::big_decimal_fp", ptr %35, i32 0, i32 2
@@ -60203,7 +60227,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEdTnNSt
   br label %265
 
 265:                                              ; preds = %262, %196
-  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %23) #14
+  call void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %23) #13
   br label %266
 
 266:                                              ; preds = %265, %92, %50
@@ -60227,7 +60251,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3fmt2v96detail8isfiniteIdTn
   store double %0, ptr %2, align 8
   store double 0x7FF0000000000000, ptr %3, align 8
   %4 = load double, ptr %2, align 8
-  %5 = call noundef zeroext i1 @_ZNSt3__16__math8isfiniteB8ne190000IdTnNS_9enable_ifIXaasr13is_arithmeticIT_EE5valuesr14numeric_limitsIS3_EE12has_infinityEiE4typeELi0EEEbS3_(double noundef %4) #14
+  %5 = call noundef zeroext i1 @_ZNSt3__16__math8isfiniteB8ne190000IdTnNS_9enable_ifIXaasr13is_arithmeticIT_EE5valuesr14numeric_limitsIS3_EE12has_infinityEiE4typeELi0EEEbS3_(double noundef %4) #13
   ret i1 %5
 }
 
@@ -60476,9 +60500,9 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S
   %23 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
   store i64 %2, ptr %23, align 8
   store ptr %3, ptr %8, align 8
-  %24 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %24 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   store ptr %24, ptr %9, align 8
-  %25 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %25 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   store i64 %25, ptr %10, align 8
   %26 = load ptr, ptr %8, align 8
   %27 = getelementptr inbounds %"struct.fmt::v9::basic_format_specs", ptr %26, i32 0, i32 1
@@ -60549,7 +60573,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S
 72:                                               ; preds = %59
   %73 = load ptr, ptr %9, align 8
   %74 = load i64, ptr %10, align 8
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %73, i64 noundef %74) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %73, i64 noundef %74) #13
   %75 = getelementptr inbounds { ptr, i64 }, ptr %17, i32 0, i32 0
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds { ptr, i64 }, ptr %17, i32 0, i32 1
@@ -60606,11 +60630,11 @@ define linkonce_odr dso_local noundef i64 @_ZN3fmt2v96detail16code_point_indexEN
   %12 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
   store i64 %1, ptr %12, align 8
   store i64 %2, ptr %6, align 8
-  %13 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  %13 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   store ptr %13, ptr %7, align 8
   store i64 0, ptr %8, align 8
   store i64 0, ptr %9, align 8
-  %14 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  %14 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   store i64 %14, ptr %10, align 8
   br label %15
 
@@ -60653,7 +60677,7 @@ define linkonce_odr dso_local noundef i64 @_ZN3fmt2v96detail16code_point_indexEN
   br label %15, !llvm.loop !138
 
 38:                                               ; preds = %15
-  %39 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  %39 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   store i64 %39, ptr %4, align 8
   br label %40
 
@@ -60692,9 +60716,9 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail20write_escaped_stringIcNS1_
   store i64 %23, ptr %24, align 8
   call void @_ZNK3fmt2v96detail17counting_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @_ZN3fmt2v96detail17counting_iterator10value_typeaSIcEEvRKT_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %7)
-  %25 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %25 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   store ptr %25, ptr %10, align 8
-  %26 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %26 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   store ptr %26, ptr %11, align 8
   br label %27
 
@@ -60998,7 +61022,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail11find_escapeEPKcS3_(ptr de
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = call noundef i64 @_ZN3fmt2v96detail11to_unsignedIlEENSt3__113make_unsignedIT_E4typeES5_(i64 noundef %17)
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %12, i64 noundef %18) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %12, i64 noundef %18) #13
   %19 = getelementptr inbounds %class.anon.226, ptr %7, i32 0, i32 0
   store ptr %0, ptr %19, align 8
   %20 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 0
@@ -61218,13 +61242,13 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail16write_escaped_cpINS1_17cou
   %103 = ptrtoint ptr %101 to i64
   %104 = sub i64 %102, %103
   %105 = call noundef i64 @_ZN3fmt2v96detail11to_unsignedIlEENSt3__113make_unsignedIT_E4typeES5_(i64 noundef %104)
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef %95, i64 noundef %105) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef %95, i64 noundef %105) #13
   store ptr %23, ptr %22, align 8
   %106 = load ptr, ptr %22, align 8
-  %107 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %106) #14
+  %107 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %106) #13
   store ptr %107, ptr %24, align 8
   %108 = load ptr, ptr %22, align 8
-  %109 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %108) #14
+  %109 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %108) #13
   store ptr %109, ptr %25, align 8
   br label %110
 
@@ -61307,16 +61331,16 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18for_each_codepointIZNS1_1
   store ptr %2, ptr %16, align 8
   %17 = getelementptr inbounds %class.anon.227, ptr %6, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %5, i64 8, i1 false)
-  %18 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %18 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   store ptr %18, ptr %7, align 8
   store i64 4, ptr %8, align 8
-  %19 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %19 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   %20 = icmp uge i64 %19, 4
   br i1 %20, label %21, label %40
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %7, align 8
-  %23 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %23 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -4
   %26 = getelementptr inbounds i8, ptr %25, i64 1
@@ -61348,8 +61372,8 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18for_each_codepointIZNS1_1
   br label %40
 
 40:                                               ; preds = %39, %3
-  %41 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  %42 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %41 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  %42 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   %43 = getelementptr inbounds i8, ptr %41, i64 %42
   %44 = load ptr, ptr %7, align 8
   %45 = ptrtoint ptr %43 to i64
@@ -61454,7 +61478,7 @@ define linkonce_odr dso_local noundef ptr @_ZZN3fmt2v96detail18for_each_codepoin
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = call noundef i64 @_ZN3fmt2v96detail11to_unsignedIlEENSt3__113make_unsignedIT_E4typeES5_(i64 noundef %28)
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %23, i64 noundef %29) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %23, i64 noundef %29) #13
   %30 = getelementptr inbounds { ptr, i64 }, ptr %11, i32 0, i32 0
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds { ptr, i64 }, ptr %11, i32 0, i32 1
@@ -61676,10 +61700,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN3fmt2v96detail11find_escap
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds %"struct.fmt::v9::detail::find_escape_result", ptr %9, i32 0, i32 0
-  %17 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %17 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   store ptr %17, ptr %16, align 8
   %18 = getelementptr inbounds %"struct.fmt::v9::detail::find_escape_result", ptr %9, i32 0, i32 1
-  %19 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %19 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   store ptr %19, ptr %18, align 8
   %20 = getelementptr inbounds %"struct.fmt::v9::detail::find_escape_result", ptr %9, i32 0, i32 2
   %21 = load i32, ptr %8, align 4
@@ -61910,16 +61934,16 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18for_each_codepointIZNS1_1
   store ptr %2, ptr %16, align 8
   %17 = getelementptr inbounds %class.anon.228, ptr %6, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %5, i64 8, i1 false)
-  %18 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %18 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   store ptr %18, ptr %7, align 8
   store i64 4, ptr %8, align 8
-  %19 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %19 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   %20 = icmp uge i64 %19, 4
   br i1 %20, label %21, label %40
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %7, align 8
-  %23 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %23 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -4
   %26 = getelementptr inbounds i8, ptr %25, i64 1
@@ -61951,8 +61975,8 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18for_each_codepointIZNS1_1
   br label %40
 
 40:                                               ; preds = %39, %3
-  %41 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  %42 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %41 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  %42 = call noundef i64 @_ZNK3fmt2v917basic_string_viewIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   %43 = getelementptr inbounds i8, ptr %41, i64 %42
   %44 = load ptr, ptr %7, align 8
   %45 = ptrtoint ptr %43 to i64
@@ -62057,7 +62081,7 @@ define linkonce_odr dso_local noundef ptr @_ZZN3fmt2v96detail18for_each_codepoin
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = call noundef i64 @_ZN3fmt2v96detail11to_unsignedIlEENSt3__113make_unsignedIT_E4typeES5_(i64 noundef %28)
-  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %23, i64 noundef %29) #14
+  call void @_ZN3fmt2v917basic_string_viewIcEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %23, i64 noundef %29) #13
   %30 = getelementptr inbounds { ptr, i64 }, ptr %11, i32 0, i32 0
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds { ptr, i64 }, ptr %11, i32 0, i32 1
@@ -62333,15 +62357,15 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail20write_escaped_stringIcNS0_
   %21 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 1
   store i64 %2, ptr %21, align 8
   store i8 34, ptr %7, align 1
-  %22 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #14
+  %22 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #13
   %23 = getelementptr inbounds %"class.fmt::v9::appender", ptr %8, i32 0, i32 0
   %24 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %23, i32 0, i32 0
   store ptr %22, ptr %24, align 8
   %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEdeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
   %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 1 dereferenceable(1) %7)
-  %27 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %27 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   store ptr %27, ptr %9, align 8
-  %28 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %28 = call noundef ptr @_ZNK3fmt2v917basic_string_viewIcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   store ptr %28, ptr %10, align 8
   br label %29
 
@@ -62391,7 +62415,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail20write_escaped_stringIcNS0_
 
 57:                                               ; preds = %53, %45
   store i8 34, ptr %16, align 1
-  %58 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #14
+  %58 = call ptr @_ZN3fmt2v98appenderppEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0) #13
   %59 = getelementptr inbounds %"class.fmt::v9::appender", ptr %17, i32 0, i32 0
   %60 = getelementptr inbounds %"class.std::__1::back_insert_iterator", ptr %59, i32 0, i32 0
   store ptr %58, ptr %60, align 8
@@ -62405,7 +62429,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail20write_escaped_stringIcNS0_
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) #17
+declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 comdat align 2 {
@@ -62442,7 +62466,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3_
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  %5 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
+  %5 = call noundef ptr @_ZN3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   store ptr %5, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %4, i32 0, i32 1
@@ -62453,8 +62477,8 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3_
 10:                                               ; preds = %1
   %11 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %4, i32 0, i32 2
   %12 = load ptr, ptr %3, align 8
-  %13 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
-  call void @_ZNSt3__19allocatorIcE10deallocateB8ne190000EPcm(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13) #14
+  %13 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  call void @_ZNSt3__19allocatorIcE10deallocateB8ne190000EPcm(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13) #13
   br label %14
 
 14:                                               ; preds = %10, %1
@@ -62467,7 +62491,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.std::__1::unique_ptr.24", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_19basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_14default_deleteIS6_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -62516,7 +62540,10 @@ define internal void @_GLOBAL__sub_I_UberShader.cpp() #3 section ".text.startup"
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #18
+declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
 
 attributes #0 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -62526,17 +62553,17 @@ attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind memory(none) }
-attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nounwind }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #17 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #16 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #18 = { nounwind memory(none) }
 attributes #19 = { builtin nounwind }
 attributes #20 = { builtin allocsize(0) }
 attributes #21 = { noreturn nounwind }

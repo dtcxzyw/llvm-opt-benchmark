@@ -135,7 +135,7 @@ define void @instrument_register(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
   %5 = icmp ne ptr %4, null
-  br i1 %5, label %6, label %23
+  br i1 %5, label %6, label %26
 
 6:                                                ; preds = %1
   br label %7
@@ -148,32 +148,35 @@ define void @instrument_register(ptr noundef %0) #0 {
   store ptr null, ptr %10, align 8
   %11 = load ptr, ptr @g_instrument_queue, align 8
   %12 = icmp ne ptr %11, null
-  br i1 %12, label %16, label %13
+  br i1 %12, label %17, label %13
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %3, align 8
   store ptr %14, ptr @g_instrument_queue, align 8
   %15 = load ptr, ptr %3, align 8
-  store ptr %15, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_instrument_queue, i32 0, i32 1), align 8
-  br label %21
+  %16 = getelementptr inbounds %struct.sq_queue_s, ptr @g_instrument_queue, i32 0, i32 1
+  store ptr %15, ptr %16, align 8
+  br label %24
 
-16:                                               ; preds = %7
-  %17 = load ptr, ptr %3, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_instrument_queue, i32 0, i32 1), align 8
-  %19 = getelementptr inbounds %struct.sq_entry_s, ptr %18, i32 0, i32 0
-  store ptr %17, ptr %19, align 8
-  %20 = load ptr, ptr %3, align 8
-  store ptr %20, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_instrument_queue, i32 0, i32 1), align 8
-  br label %21
+17:                                               ; preds = %7
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds %struct.sq_queue_s, ptr @g_instrument_queue, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.sq_entry_s, ptr %20, i32 0, i32 0
+  store ptr %18, ptr %21, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds %struct.sq_queue_s, ptr @g_instrument_queue, i32 0, i32 1
+  store ptr %22, ptr %23, align 8
+  br label %24
 
-21:                                               ; preds = %16, %13
-  br label %22
+24:                                               ; preds = %17, %13
+  br label %25
 
-22:                                               ; preds = %21
+25:                                               ; preds = %24
   store volatile i32 1515870810, ptr @g_magic, align 4
-  br label %23
+  br label %26
 
-23:                                               ; preds = %22, %1
+26:                                               ; preds = %25, %1
   ret void
 }
 

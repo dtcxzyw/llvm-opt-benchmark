@@ -1137,50 +1137,62 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i32 noundef 2080899750)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 1), i32 noundef 1117716485)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 2), i32 noundef 2103968422)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 3), i32 noundef 2080900006)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 4), i32 noundef 965541844)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 5), i32 noundef 2081120336)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 6), i32 noundef 2013327490)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 7), i32 noundef 1030422528)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 8), i32 noundef 963313664)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 9), i32 noundef -376766464)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 10), i32 noundef 2106131366)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 11), i32 noundef -378863608)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 12), i32 noundef 1317012512)
+  %2 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 1
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %2, i32 noundef 1117716485)
+  %3 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 2
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %3, i32 noundef 2103968422)
+  %4 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 3
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %4, i32 noundef 2080900006)
+  %5 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 4
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %5, i32 noundef 965541844)
+  %6 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 5
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %6, i32 noundef 2081120336)
+  %7 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 6
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %7, i32 noundef 2013327490)
+  %8 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 7
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %8, i32 noundef 1030422528)
+  %9 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 8
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %9, i32 noundef 963313664)
+  %10 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 9
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %10, i32 noundef -376766464)
+  %11 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 10
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %11, i32 noundef 2106131366)
+  %12 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 11
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %12, i32 noundef -378863608)
+  %13 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 12
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %13, i32 noundef 1317012512)
   call void @__cxa_guard_release(ptr @_ZGVZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn) #3
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
-  %2 = load ptr, ptr %buf.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 16 @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 52, i1 false)
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %gotplt = getelementptr inbounds %"struct.mold::elf::Context", ptr %3, i32 0, i32 49
-  %4 = load ptr, ptr %gotplt, align 8
-  %shdr = getelementptr inbounds %"class.mold::elf::Chunk", ptr %4, i32 0, i32 2
+  %14 = load ptr, ptr %buf.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 16 @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V2EEEvRNS0_7ContextIT_EEPhE4insn, i64 52, i1 false)
+  %15 = load ptr, ptr %ctx.addr, align 8
+  %gotplt = getelementptr inbounds %"struct.mold::elf::Context", ptr %15, i32 0, i32 49
+  %16 = load ptr, ptr %gotplt, align 8
+  %shdr = getelementptr inbounds %"class.mold::elf::Chunk", ptr %16, i32 0, i32 2
   %sh_addr = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %shdr, i32 0, i32 3
   %call = call noundef i64 @_ZNK4mold12LittleEndianImLi8EEcvmEv(ptr noundef nonnull align 1 dereferenceable(8) %sh_addr)
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %plt = getelementptr inbounds %"struct.mold::elf::Context", ptr %5, i32 0, i32 59
-  %6 = load ptr, ptr %plt, align 8
-  %shdr1 = getelementptr inbounds %"class.mold::elf::Chunk", ptr %6, i32 0, i32 2
+  %17 = load ptr, ptr %ctx.addr, align 8
+  %plt = getelementptr inbounds %"struct.mold::elf::Context", ptr %17, i32 0, i32 59
+  %18 = load ptr, ptr %plt, align 8
+  %shdr1 = getelementptr inbounds %"class.mold::elf::Chunk", ptr %18, i32 0, i32 2
   %sh_addr2 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %shdr1, i32 0, i32 3
   %call3 = call noundef i64 @_ZNK4mold12LittleEndianImLi8EEcvmEv(ptr noundef nonnull align 1 dereferenceable(8) %sh_addr2)
   %sub = sub i64 %call, %call3
   %sub4 = sub i64 %sub, 8
   store i64 %sub4, ptr %val, align 8
-  %7 = load i64, ptr %val, align 8
-  %call5 = call noundef i64 @_ZN4mold3elfL5highaEm(i64 noundef %7)
+  %19 = load i64, ptr %val, align 8
+  %call5 = call noundef i64 @_ZN4mold3elfL5highaEm(i64 noundef %19)
   %conv = trunc i64 %call5 to i32
-  %8 = load ptr, ptr %buf.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 28
+  %20 = load ptr, ptr %buf.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %20, i64 28
   %call6 = call noundef nonnull align 1 dereferenceable(4) ptr @_ZN4mold12LittleEndianIjLi4EEoREj(ptr noundef nonnull align 1 dereferenceable(4) %add.ptr, i32 noundef %conv)
-  %9 = load i64, ptr %val, align 8
-  %call7 = call noundef i64 @_ZN4mold3elfL2loEm(i64 noundef %9)
+  %21 = load i64, ptr %val, align 8
+  %call7 = call noundef i64 @_ZN4mold3elfL2loEm(i64 noundef %21)
   %conv8 = trunc i64 %call7 to i32
-  %10 = load ptr, ptr %buf.addr, align 8
-  %add.ptr9 = getelementptr inbounds i8, ptr %10, i64 32
+  %22 = load ptr, ptr %buf.addr, align 8
+  %add.ptr9 = getelementptr inbounds i8, ptr %22, i64 32
   %call10 = call noundef nonnull align 1 dereferenceable(4) ptr @_ZN4mold12LittleEndianIjLi4EEoREj(ptr noundef nonnull align 1 dereferenceable(4) %add.ptr9, i32 noundef %conv8)
   ret void
 }
@@ -4321,112 +4333,132 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i32 noundef -129957864)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 1), i32 noundef 1610612736)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 2), i32 noundef 1031929856)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 3), i32 noundef -376700928)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 4), i32 noundef 2106131366)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 5), i32 noundef 1317012512)
+  %2 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 1
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %2, i32 noundef 1610612736)
+  %3 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 2
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %3, i32 noundef 1031929856)
+  %4 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 3
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %4, i32 noundef -376700928)
+  %5 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 4
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %5, i32 noundef 2106131366)
+  %6 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 5
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %6, i32 noundef 1317012512)
   call void @__cxa_guard_release(ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk) #3
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
-  %2 = load atomic i8, ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10 acquire, align 8
-  %guard.uninitialized2 = icmp eq i8 %2, 0
+  %7 = load atomic i8, ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10 acquire, align 8
+  %guard.uninitialized2 = icmp eq i8 %7, 0
   br i1 %guard.uninitialized2, label %init.check3, label %init.end6, !prof !4
 
 init.check3:                                      ; preds = %init.end
-  %3 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10) #3
-  %tobool4 = icmp ne i32 %3, 0
+  %8 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10) #3
+  %tobool4 = icmp ne i32 %8, 0
   br i1 %tobool4, label %init5, label %init.end6
 
 init5:                                            ; preds = %init.check3
   call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i32 noundef -129957864)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 1), i32 noundef 1610612736)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 2), i32 noundef 68157440)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 3), i32 noundef -444596224)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 4), i32 noundef 2106131366)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 5), i32 noundef 1317012512)
+  %9 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 1
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %9, i32 noundef 1610612736)
+  %10 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 2
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %10, i32 noundef 68157440)
+  %11 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 3
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %11, i32 noundef -444596224)
+  %12 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 4
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %12, i32 noundef 2106131366)
+  %13 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 5
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %13, i32 noundef 1317012512)
   call void @__cxa_guard_release(ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10) #3
   br label %init.end6
 
 init.end6:                                        ; preds = %init5, %init.check3, %init.end
-  %4 = load atomic i8, ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk acquire, align 8
-  %guard.uninitialized7 = icmp eq i8 %4, 0
+  %14 = load atomic i8, ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk acquire, align 8
+  %guard.uninitialized7 = icmp eq i8 %14, 0
   br i1 %guard.uninitialized7, label %init.check8, label %init.end11, !prof !4
 
 init.check8:                                      ; preds = %init.end6
-  %5 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk) #3
-  %tobool9 = icmp ne i32 %5, 0
+  %15 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk) #3
+  %tobool9 = icmp ne i32 %15, 0
   br i1 %tobool9, label %init10, label %init.end11
 
 init10:                                           ; preds = %init.check8
   call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i32 noundef -129957864)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 1), i32 noundef 1610612736)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 2), i32 noundef 1031929856)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 3), i32 noundef 965476352)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 4), i32 noundef 2106131366)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 5), i32 noundef 1317012512)
+  %16 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 1
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %16, i32 noundef 1610612736)
+  %17 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 2
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %17, i32 noundef 1031929856)
+  %18 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 3
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %18, i32 noundef 965476352)
+  %19 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 4
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %19, i32 noundef 2106131366)
+  %20 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 5
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %20, i32 noundef 1317012512)
   call void @__cxa_guard_release(ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk) #3
   br label %init.end11
 
 init.end11:                                       ; preds = %init10, %init.check8, %init.end6
-  %6 = load atomic i8, ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10 acquire, align 8
-  %guard.uninitialized12 = icmp eq i8 %6, 0
+  %21 = load atomic i8, ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10 acquire, align 8
+  %guard.uninitialized12 = icmp eq i8 %21, 0
   br i1 %guard.uninitialized12, label %init.check13, label %init.end16, !prof !4
 
 init.check13:                                     ; preds = %init.end11
-  %7 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10) #3
-  %tobool14 = icmp ne i32 %7, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10) #3
+  %tobool14 = icmp ne i32 %22, 0
   br i1 %tobool14, label %init15, label %init.end16
 
 init15:                                           ; preds = %init.check13
   call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i32 noundef -129957864)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 1), i32 noundef 1610612736)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 2), i32 noundef 101711872)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 3), i32 noundef 964689920)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 4), i32 noundef 2106131366)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 5), i32 noundef 1317012512)
+  %23 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 1
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %23, i32 noundef 1610612736)
+  %24 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 2
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %24, i32 noundef 101711872)
+  %25 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 3
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %25, i32 noundef 964689920)
+  %26 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 4
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %26, i32 noundef 2106131366)
+  %27 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 5
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %27, i32 noundef 1317012512)
   call void @__cxa_guard_release(ptr @_ZGVZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10) #3
   br label %init.end16
 
 init.end16:                                       ; preds = %init15, %init.check13, %init.end11
-  %8 = load ptr, ptr %ctx.addr, align 8
-  %buf17 = getelementptr inbounds %"struct.mold::elf::Context", ptr %8, i32 0, i32 37
-  %9 = load ptr, ptr %buf17, align 8
+  %28 = load ptr, ptr %ctx.addr, align 8
+  %buf17 = getelementptr inbounds %"struct.mold::elf::Context", ptr %28, i32 0, i32 37
+  %29 = load ptr, ptr %buf17, align 8
   %output_section = getelementptr inbounds %"class.mold::elf::Thunk", ptr %this1, i32 0, i32 0
-  %10 = load ptr, ptr %output_section, align 8
-  %shdr = getelementptr inbounds %"class.mold::elf::Chunk", ptr %10, i32 0, i32 2
+  %30 = load ptr, ptr %output_section, align 8
+  %shdr = getelementptr inbounds %"class.mold::elf::Chunk", ptr %30, i32 0, i32 2
   %sh_offset = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %shdr, i32 0, i32 4
   %call = call noundef i64 @_ZNK4mold12LittleEndianImLi8EEcvmEv(ptr noundef nonnull align 1 dereferenceable(8) %sh_offset)
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %call
+  %add.ptr = getelementptr inbounds i8, ptr %29, i64 %call
   %offset = getelementptr inbounds %"class.mold::elf::Thunk", ptr %this1, i32 0, i32 1
-  %11 = load i64, ptr %offset, align 8
-  %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr, i64 %11
+  %31 = load i64, ptr %offset, align 8
+  %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr, i64 %31
   store ptr %add.ptr18, ptr %buf, align 8
   %output_section19 = getelementptr inbounds %"class.mold::elf::Thunk", ptr %this1, i32 0, i32 0
-  %12 = load ptr, ptr %output_section19, align 8
-  %shdr20 = getelementptr inbounds %"class.mold::elf::Chunk", ptr %12, i32 0, i32 2
+  %32 = load ptr, ptr %output_section19, align 8
+  %shdr20 = getelementptr inbounds %"class.mold::elf::Chunk", ptr %32, i32 0, i32 2
   %sh_addr = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %shdr20, i32 0, i32 3
   %call21 = call noundef i64 @_ZNK4mold12LittleEndianImLi8EEcvmEv(ptr noundef nonnull align 1 dereferenceable(8) %sh_addr)
   %offset22 = getelementptr inbounds %"class.mold::elf::Thunk", ptr %this1, i32 0, i32 1
-  %13 = load i64, ptr %offset22, align 8
-  %add = add i64 %call21, %13
+  %33 = load i64, ptr %offset22, align 8
+  %add = add i64 %call21, %33
   store i64 %add, ptr %P, align 8
-  %14 = load ptr, ptr %ctx.addr, align 8
-  %extra = getelementptr inbounds %"struct.mold::elf::Context", ptr %14, i32 0, i32 77
+  %34 = load ptr, ptr %ctx.addr, align 8
+  %extra = getelementptr inbounds %"struct.mold::elf::Context", ptr %34, i32 0, i32 77
   %TOC23 = getelementptr inbounds %"struct.mold::elf::ContextExtras", ptr %extra, i32 0, i32 0
-  %15 = load ptr, ptr %TOC23, align 8
-  %value = getelementptr inbounds %"class.mold::elf::Symbol", ptr %15, i32 0, i32 2
-  %16 = load i64, ptr %value, align 8
-  store i64 %16, ptr %TOC, align 8
+  %35 = load ptr, ptr %TOC23, align 8
+  %value = getelementptr inbounds %"class.mold::elf::Symbol", ptr %35, i32 0, i32 2
+  %36 = load i64, ptr %value, align 8
+  store i64 %36, ptr %TOC, align 8
   %symbols = getelementptr inbounds %"class.mold::elf::Thunk", ptr %this1, i32 0, i32 3
   store ptr %symbols, ptr %__range2, align 8
-  %17 = load ptr, ptr %__range2, align 8
-  %call24 = call ptr @_ZNSt6vectorIPN4mold3elf6SymbolINS1_7PPC64V2EEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %37 = load ptr, ptr %__range2, align 8
+  %call24 = call ptr @_ZNSt6vectorIPN4mold3elf6SymbolINS1_7PPC64V2EEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %37) #3
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__begin2, i32 0, i32 0
   store ptr %call24, ptr %coerce.dive, align 8
-  %18 = load ptr, ptr %__range2, align 8
-  %call25 = call ptr @_ZNSt6vectorIPN4mold3elf6SymbolINS1_7PPC64V2EEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  %38 = load ptr, ptr %__range2, align 8
+  %call25 = call ptr @_ZNSt6vectorIPN4mold3elf6SymbolINS1_7PPC64V2EEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %38) #3
   %coerce.dive26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end2, i32 0, i32 0
   store ptr %call25, ptr %coerce.dive26, align 8
   br label %for.cond
@@ -4438,70 +4470,70 @@ for.cond:                                         ; preds = %for.inc, %init.end1
 
 for.body:                                         ; preds = %for.cond
   %call28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS2_7PPC64V2EEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #3
-  %19 = load ptr, ptr %call28, align 8
-  store ptr %19, ptr %sym, align 8
-  %20 = load ptr, ptr %sym, align 8
-  %21 = load ptr, ptr %ctx.addr, align 8
-  %call29 = call noundef zeroext i1 @_ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_pltERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(4584) %21)
+  %39 = load ptr, ptr %call28, align 8
+  store ptr %39, ptr %sym, align 8
+  %40 = load ptr, ptr %sym, align 8
+  %41 = load ptr, ptr %ctx.addr, align 8
+  %call29 = call noundef zeroext i1 @_ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_pltERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef nonnull align 8 dereferenceable(4584) %41)
   br i1 %call29, label %if.then, label %if.else47
 
 if.then:                                          ; preds = %for.body
-  %22 = load ptr, ptr %sym, align 8
-  %23 = load ptr, ptr %ctx.addr, align 8
-  %call30 = call noundef zeroext i1 @_ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_gotERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(4584) %23)
+  %42 = load ptr, ptr %sym, align 8
+  %43 = load ptr, ptr %ctx.addr, align 8
+  %call30 = call noundef zeroext i1 @_ZNK4mold3elf6SymbolINS0_7PPC64V2EE7has_gotERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(4584) %43)
   br i1 %call30, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then
-  %24 = load ptr, ptr %sym, align 8
-  %25 = load ptr, ptr %ctx.addr, align 8
-  %call31 = call noundef i64 @_ZNK4mold3elf6SymbolINS0_7PPC64V2EE12get_got_addrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(4584) %25)
+  %44 = load ptr, ptr %sym, align 8
+  %45 = load ptr, ptr %ctx.addr, align 8
+  %call31 = call noundef i64 @_ZNK4mold3elf6SymbolINS0_7PPC64V2EE12get_got_addrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %44, ptr noundef nonnull align 8 dereferenceable(4584) %45)
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then
-  %26 = load ptr, ptr %sym, align 8
-  %27 = load ptr, ptr %ctx.addr, align 8
-  %call32 = call noundef i64 @_ZNK4mold3elf6SymbolINS0_7PPC64V2EE15get_gotplt_addrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(4584) %27)
+  %46 = load ptr, ptr %sym, align 8
+  %47 = load ptr, ptr %ctx.addr, align 8
+  %call32 = call noundef i64 @_ZNK4mold3elf6SymbolINS0_7PPC64V2EE15get_gotplt_addrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef nonnull align 8 dereferenceable(4584) %47)
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i64 [ %call31, %cond.true ], [ %call32, %cond.false ]
   store i64 %cond, ptr %got, align 8
-  %28 = load ptr, ptr %ctx.addr, align 8
-  %extra33 = getelementptr inbounds %"struct.mold::elf::Context", ptr %28, i32 0, i32 77
+  %48 = load ptr, ptr %ctx.addr, align 8
+  %extra33 = getelementptr inbounds %"struct.mold::elf::Context", ptr %48, i32 0, i32 77
   %is_power10 = getelementptr inbounds %"struct.mold::elf::ContextExtras", ptr %extra33, i32 0, i32 1
   %call34 = call noundef zeroext i1 @_ZNK4mold6AtomicIbEcvbEv(ptr noundef nonnull align 1 dereferenceable(1) %is_power10)
   br i1 %call34, label %if.then35, label %if.else
 
 if.then35:                                        ; preds = %cond.end
-  %29 = load ptr, ptr %buf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 16 @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 24, i1 false)
-  %30 = load ptr, ptr %buf, align 8
-  %add.ptr36 = getelementptr inbounds i8, ptr %30, i64 8
-  %31 = load i64, ptr %got, align 8
-  %32 = load i64, ptr %P, align 8
-  %sub = sub i64 %31, %32
+  %49 = load ptr, ptr %buf, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %49, ptr align 16 @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE17plt_thunk_power10, i64 24, i1 false)
+  %50 = load ptr, ptr %buf, align 8
+  %add.ptr36 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = load i64, ptr %got, align 8
+  %52 = load i64, ptr %P, align 8
+  %sub = sub i64 %51, %52
   %sub37 = sub i64 %sub, 8
   call void @_ZN4mold3elfL7write34EPhm(ptr noundef %add.ptr36, i64 noundef %sub37)
   br label %if.end
 
 if.else:                                          ; preds = %cond.end
-  %33 = load ptr, ptr %buf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 16 @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 24, i1 false)
-  %34 = load i64, ptr %got, align 8
-  %35 = load i64, ptr %TOC, align 8
-  %sub38 = sub i64 %34, %35
+  %53 = load ptr, ptr %buf, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 16 @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 24, i1 false)
+  %54 = load i64, ptr %got, align 8
+  %55 = load i64, ptr %TOC, align 8
+  %sub38 = sub i64 %54, %55
   %call39 = call noundef i64 @_ZN4mold3elfL5highaEm(i64 noundef %sub38)
   %conv = trunc i64 %call39 to i32
-  %36 = load ptr, ptr %buf, align 8
-  %add.ptr40 = getelementptr inbounds i8, ptr %36, i64 8
+  %56 = load ptr, ptr %buf, align 8
+  %add.ptr40 = getelementptr inbounds i8, ptr %56, i64 8
   %call41 = call noundef nonnull align 1 dereferenceable(4) ptr @_ZN4mold12LittleEndianIjLi4EEoREj(ptr noundef nonnull align 1 dereferenceable(4) %add.ptr40, i32 noundef %conv)
-  %37 = load i64, ptr %got, align 8
-  %38 = load i64, ptr %TOC, align 8
-  %sub42 = sub i64 %37, %38
+  %57 = load i64, ptr %got, align 8
+  %58 = load i64, ptr %TOC, align 8
+  %sub42 = sub i64 %57, %58
   %call43 = call noundef i64 @_ZN4mold3elfL2loEm(i64 noundef %sub42)
   %conv44 = trunc i64 %call43 to i32
-  %39 = load ptr, ptr %buf, align 8
-  %add.ptr45 = getelementptr inbounds i8, ptr %39, i64 12
+  %59 = load ptr, ptr %buf, align 8
+  %add.ptr45 = getelementptr inbounds i8, ptr %59, i64 12
   %call46 = call noundef nonnull align 1 dereferenceable(4) ptr @_ZN4mold12LittleEndianIjLi4EEoREj(ptr noundef nonnull align 1 dereferenceable(4) %add.ptr45, i32 noundef %conv44)
   br label %if.end
 
@@ -4509,46 +4541,46 @@ if.end:                                           ; preds = %if.else, %if.then35
   br label %if.end68
 
 if.else47:                                        ; preds = %for.body
-  %40 = load ptr, ptr %sym, align 8
-  %41 = load ptr, ptr %ctx.addr, align 8
-  %call48 = call noundef i64 @_ZNK4mold3elf6SymbolINS0_7PPC64V2EE8get_addrERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef nonnull align 8 dereferenceable(4584) %41, i64 noundef 0)
+  %60 = load ptr, ptr %sym, align 8
+  %61 = load ptr, ptr %ctx.addr, align 8
+  %call48 = call noundef i64 @_ZNK4mold3elf6SymbolINS0_7PPC64V2EE8get_addrERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull align 8 dereferenceable(4584) %61, i64 noundef 0)
   store i64 %call48, ptr %S, align 8
-  %42 = load ptr, ptr %ctx.addr, align 8
-  %extra49 = getelementptr inbounds %"struct.mold::elf::Context", ptr %42, i32 0, i32 77
+  %62 = load ptr, ptr %ctx.addr, align 8
+  %extra49 = getelementptr inbounds %"struct.mold::elf::Context", ptr %62, i32 0, i32 77
   %is_power1050 = getelementptr inbounds %"struct.mold::elf::ContextExtras", ptr %extra49, i32 0, i32 1
   %call51 = call noundef zeroext i1 @_ZNK4mold6AtomicIbEcvbEv(ptr noundef nonnull align 1 dereferenceable(1) %is_power1050)
   br i1 %call51, label %if.then52, label %if.else56
 
 if.then52:                                        ; preds = %if.else47
-  %43 = load ptr, ptr %buf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 16 @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 24, i1 false)
-  %44 = load ptr, ptr %buf, align 8
-  %add.ptr53 = getelementptr inbounds i8, ptr %44, i64 8
-  %45 = load i64, ptr %S, align 8
-  %46 = load i64, ptr %P, align 8
-  %sub54 = sub i64 %45, %46
+  %63 = load ptr, ptr %buf, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %63, ptr align 16 @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE19local_thunk_power10, i64 24, i1 false)
+  %64 = load ptr, ptr %buf, align 8
+  %add.ptr53 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = load i64, ptr %S, align 8
+  %66 = load i64, ptr %P, align 8
+  %sub54 = sub i64 %65, %66
   %sub55 = sub i64 %sub54, 8
   call void @_ZN4mold3elfL7write34EPhm(ptr noundef %add.ptr53, i64 noundef %sub55)
   br label %if.end67
 
 if.else56:                                        ; preds = %if.else47
-  %47 = load ptr, ptr %buf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 16 @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 24, i1 false)
-  %48 = load i64, ptr %S, align 8
-  %49 = load i64, ptr %TOC, align 8
-  %sub57 = sub i64 %48, %49
+  %67 = load ptr, ptr %buf, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 16 @_ZZN4mold3elf5ThunkINS0_7PPC64V2EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 24, i1 false)
+  %68 = load i64, ptr %S, align 8
+  %69 = load i64, ptr %TOC, align 8
+  %sub57 = sub i64 %68, %69
   %call58 = call noundef i64 @_ZN4mold3elfL5highaEm(i64 noundef %sub57)
   %conv59 = trunc i64 %call58 to i32
-  %50 = load ptr, ptr %buf, align 8
-  %add.ptr60 = getelementptr inbounds i8, ptr %50, i64 8
+  %70 = load ptr, ptr %buf, align 8
+  %add.ptr60 = getelementptr inbounds i8, ptr %70, i64 8
   %call61 = call noundef nonnull align 1 dereferenceable(4) ptr @_ZN4mold12LittleEndianIjLi4EEoREj(ptr noundef nonnull align 1 dereferenceable(4) %add.ptr60, i32 noundef %conv59)
-  %51 = load i64, ptr %S, align 8
-  %52 = load i64, ptr %TOC, align 8
-  %sub62 = sub i64 %51, %52
+  %71 = load i64, ptr %S, align 8
+  %72 = load i64, ptr %TOC, align 8
+  %sub62 = sub i64 %71, %72
   %call63 = call noundef i64 @_ZN4mold3elfL2loEm(i64 noundef %sub62)
   %conv64 = trunc i64 %call63 to i32
-  %53 = load ptr, ptr %buf, align 8
-  %add.ptr65 = getelementptr inbounds i8, ptr %53, i64 12
+  %73 = load ptr, ptr %buf, align 8
+  %add.ptr65 = getelementptr inbounds i8, ptr %73, i64 12
   %call66 = call noundef nonnull align 1 dereferenceable(4) ptr @_ZN4mold12LittleEndianIjLi4EEoREj(ptr noundef nonnull align 1 dereferenceable(4) %add.ptr65, i32 noundef %conv64)
   br label %if.end67
 
@@ -4556,11 +4588,11 @@ if.end67:                                         ; preds = %if.else56, %if.then
   br label %if.end68
 
 if.end68:                                         ; preds = %if.end67, %if.end
-  %54 = load ptr, ptr %buf, align 8
-  %add.ptr69 = getelementptr inbounds i8, ptr %54, i64 24
+  %74 = load ptr, ptr %buf, align 8
+  %add.ptr69 = getelementptr inbounds i8, ptr %74, i64 24
   store ptr %add.ptr69, ptr %buf, align 8
-  %55 = load i64, ptr %P, align 8
-  %add70 = add i64 %55, 24
+  %75 = load i64, ptr %P, align 8
+  %add70 = add i64 %75, 24
   store i64 %add70, ptr %P, align 8
   br label %for.inc
 

@@ -443,7 +443,8 @@ entry:
   store ptr %filename, ptr %filename.addr, align 8
   store ptr %headerString, ptr %headerString.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mOwnsBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 2
   store i8 1, ptr %mOwnsBuffer, align 1
   %mFileBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 3
@@ -491,144 +492,144 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont9
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 7
+  %1 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %1, 7
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %headerString.addr, align 8
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %idxprom
-  %3 = load i8, ptr %arrayidx, align 1
+  %2 = load ptr, ptr %headerString.addr, align 8
+  %3 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %3 to i64
+  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %idxprom
+  %4 = load i8, ptr %arrayidx, align 1
   %m_headerString = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 1
-  %4 = load i32, ptr %i, align 4
-  %idxprom10 = sext i32 %4 to i64
+  %5 = load i32, ptr %i, align 4
+  %idxprom10 = sext i32 %5 to i64
   %arrayidx11 = getelementptr inbounds [7 x i8], ptr %m_headerString, i64 0, i64 %idxprom10
-  store i8 %3, ptr %arrayidx11, align 1
+  store i8 %4, ptr %arrayidx11, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
+  %6 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !7
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup37
 
 lpad2:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup36
 
 lpad4:                                            ; preds = %invoke.cont3
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup35
 
 lpad6:                                            ; preds = %invoke.cont5
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup34
 
 lpad8:                                            ; preds = %invoke.cont7
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.cond
-  %21 = load ptr, ptr %filename.addr, align 8
-  %call = invoke noalias ptr @fopen(ptr noundef %21, ptr noundef @.str)
+  %22 = load ptr, ptr %filename.addr, align 8
+  %call = invoke noalias ptr @fopen(ptr noundef %22, ptr noundef @.str)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %for.end
   store ptr %call, ptr %fp, align 8
-  %22 = load ptr, ptr %fp, align 8
-  %tobool = icmp ne ptr %22, null
+  %23 = load ptr, ptr %fp, align 8
+  %tobool = icmp ne ptr %23, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont13
-  %23 = load ptr, ptr %fp, align 8
-  %call15 = invoke i32 @fseek(ptr noundef %23, i64 noundef 0, i32 noundef 2)
+  %24 = load ptr, ptr %fp, align 8
+  %call15 = invoke i32 @fseek(ptr noundef %24, i64 noundef 0, i32 noundef 2)
           to label %invoke.cont14 unwind label %lpad12
 
 invoke.cont14:                                    ; preds = %if.then
-  %24 = load ptr, ptr %fp, align 8
-  %call17 = invoke i64 @ftell(ptr noundef %24)
+  %25 = load ptr, ptr %fp, align 8
+  %call17 = invoke i64 @ftell(ptr noundef %25)
           to label %invoke.cont16 unwind label %lpad12
 
 invoke.cont16:                                    ; preds = %invoke.cont14
   %conv = trunc i64 %call17 to i32
   %mFileLen18 = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 4
   store i32 %conv, ptr %mFileLen18, align 8
-  %25 = load ptr, ptr %fp, align 8
-  %call20 = invoke i32 @fseek(ptr noundef %25, i64 noundef 0, i32 noundef 0)
+  %26 = load ptr, ptr %fp, align 8
+  %call20 = invoke i32 @fseek(ptr noundef %26, i64 noundef 0, i32 noundef 0)
           to label %invoke.cont19 unwind label %lpad12
 
 invoke.cont19:                                    ; preds = %invoke.cont16
   %mFileLen21 = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 4
-  %26 = load i32, ptr %mFileLen21, align 8
-  %add = add nsw i32 %26, 1
+  %27 = load i32, ptr %mFileLen21, align 8
+  %add = add nsw i32 %27, 1
   %conv22 = sext i32 %add to i64
   %call23 = call noalias ptr @malloc(i64 noundef %conv22) #13
   %mFileBuffer24 = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 3
   store ptr %call23, ptr %mFileBuffer24, align 8
   %mFileBuffer25 = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 3
-  %27 = load ptr, ptr %mFileBuffer25, align 8
+  %28 = load ptr, ptr %mFileBuffer25, align 8
   %mFileLen26 = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 4
-  %28 = load i32, ptr %mFileLen26, align 8
-  %conv27 = sext i32 %28 to i64
-  %29 = load ptr, ptr %fp, align 8
-  %call29 = invoke i64 @fread(ptr noundef %27, i64 noundef %conv27, i64 noundef 1, ptr noundef %29)
+  %29 = load i32, ptr %mFileLen26, align 8
+  %conv27 = sext i32 %29 to i64
+  %30 = load ptr, ptr %fp, align 8
+  %call29 = invoke i64 @fread(ptr noundef %28, i64 noundef %conv27, i64 noundef 1, ptr noundef %30)
           to label %invoke.cont28 unwind label %lpad12
 
 invoke.cont28:                                    ; preds = %invoke.cont19
   %conv30 = trunc i64 %call29 to i32
   store i32 %conv30, ptr %bytesRead, align 4
-  %30 = load ptr, ptr %fp, align 8
-  %call32 = invoke i32 @fclose(ptr noundef %30)
+  %31 = load ptr, ptr %fp, align 8
+  %call32 = invoke i32 @fclose(ptr noundef %31)
           to label %invoke.cont31 unwind label %lpad12
 
 invoke.cont31:                                    ; preds = %invoke.cont28
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 0
-  %31 = load ptr, ptr %vfn, align 8
-  invoke void %31(ptr noundef nonnull align 8 dereferenceable(540) %this1)
+  %32 = load ptr, ptr %vfn, align 8
+  invoke void %32(ptr noundef nonnull align 8 dereferenceable(540) %this1)
           to label %invoke.cont33 unwind label %lpad12
 
 invoke.cont33:                                    ; preds = %invoke.cont31
   br label %if.end
 
 lpad12:                                           ; preds = %invoke.cont31, %invoke.cont28, %invoke.cont19, %invoke.cont16, %invoke.cont14, %if.then, %for.end
-  %32 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %exn.slot, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %ehselector.slot, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %exn.slot, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %ehselector.slot, align 4
   call void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %mDataPointers) #14
   br label %ehcleanup
 
@@ -933,7 +934,8 @@ entry:
   store i32 %len, ptr %len.addr, align 4
   store ptr %headerString, ptr %headerString.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mOwnsBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 2
   store i8 0, ptr %mOwnsBuffer, align 1
   %mFileBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 3
@@ -981,97 +983,97 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont9
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 7
+  %1 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %1, 7
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %headerString.addr, align 8
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %idxprom
-  %3 = load i8, ptr %arrayidx, align 1
+  %2 = load ptr, ptr %headerString.addr, align 8
+  %3 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %3 to i64
+  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %idxprom
+  %4 = load i8, ptr %arrayidx, align 1
   %m_headerString = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 1
-  %4 = load i32, ptr %i, align 4
-  %idxprom10 = sext i32 %4 to i64
+  %5 = load i32, ptr %i, align 4
+  %idxprom10 = sext i32 %5 to i64
   %arrayidx11 = getelementptr inbounds [7 x i8], ptr %m_headerString, i64 0, i64 %idxprom10
-  store i8 %3, ptr %arrayidx11, align 1
+  store i8 %4, ptr %arrayidx11, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
+  %6 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !8
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup19
 
 lpad2:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup18
 
 lpad4:                                            ; preds = %invoke.cont3
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup17
 
 lpad6:                                            ; preds = %invoke.cont5
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup16
 
 lpad8:                                            ; preds = %invoke.cont7
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.cond
-  %21 = load ptr, ptr %memoryBuffer.addr, align 8
+  %22 = load ptr, ptr %memoryBuffer.addr, align 8
   %mFileBuffer12 = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 3
-  store ptr %21, ptr %mFileBuffer12, align 8
-  %22 = load i32, ptr %len.addr, align 4
+  store ptr %22, ptr %mFileBuffer12, align 8
+  %23 = load i32, ptr %len.addr, align 4
   %mFileLen13 = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 4
-  store i32 %22, ptr %mFileLen13, align 8
+  store i32 %23, ptr %mFileLen13, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 0
-  %23 = load ptr, ptr %vfn, align 8
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(540) %this1)
+  %24 = load ptr, ptr %vfn, align 8
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(540) %this1)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %for.end
   ret void
 
 lpad14:                                           ; preds = %for.end
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   call void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %mDataPointers) #14
   br label %ehcleanup
 
@@ -1109,46 +1111,47 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mOwnsBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 2
-  %0 = load i8, ptr %mOwnsBuffer, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %mOwnsBuffer, align 1
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %mFileBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %mFileBuffer, align 8
-  %tobool2 = icmp ne ptr %1, null
+  %2 = load ptr, ptr %mFileBuffer, align 8
+  %tobool2 = icmp ne ptr %2, null
   br i1 %tobool2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   %mFileBuffer3 = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %mFileBuffer3, align 8
-  call void @free(ptr noundef %2) #14
+  %3 = load ptr, ptr %mFileBuffer3, align 8
+  call void @free(ptr noundef %3) #14
   %mFileBuffer4 = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 3
   store ptr null, ptr %mFileBuffer4, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %mMemoryDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 10
-  %3 = load ptr, ptr %mMemoryDNA, align 8
-  %isnull = icmp eq ptr %3, null
+  %4 = load ptr, ptr %mMemoryDNA, align 8
+  %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end
-  call void @_ZN6bParse4bDNAD1Ev(ptr noundef nonnull align 8 dereferenceable(420) %3) #14
-  call void @_ZdlPv(ptr noundef %3) #16
+  call void @_ZN6bParse4bDNAD1Ev(ptr noundef nonnull align 8 dereferenceable(420) %4) #14
+  call void @_ZdlPv(ptr noundef %4) #16
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end
   %mFileDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this1, i32 0, i32 9
-  %4 = load ptr, ptr %mFileDNA, align 8
-  %isnull5 = icmp eq ptr %4, null
+  %5 = load ptr, ptr %mFileDNA, align 8
+  %isnull5 = icmp eq ptr %5, null
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
 
 delete.notnull6:                                  ; preds = %delete.end
-  call void @_ZN6bParse4bDNAD1Ev(ptr noundef nonnull align 8 dereferenceable(420) %4) #14
-  call void @_ZdlPv(ptr noundef %4) #16
+  call void @_ZN6bParse4bDNAD1Ev(ptr noundef nonnull align 8 dereferenceable(420) %5) #14
+  call void @_ZdlPv(ptr noundef %5) #16
   br label %delete.end7
 
 delete.end7:                                      ; preds = %delete.notnull6, %delete.end

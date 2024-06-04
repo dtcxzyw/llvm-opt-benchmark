@@ -1975,167 +1975,169 @@ define internal i32 @hwloc_linux_set_thread_cpubind(ptr noundef %0, i64 noundef 
   %22 = call ptr @__errno_location() #16
   store i32 38, ptr %22, align 4
   store i32 -1, ptr %5, align 4
-  br label %109
+  br label %111
 
 23:                                               ; preds = %4
-  br i1 icmp ne (ptr @pthread_self, ptr null), label %26, label %24
+  %24 = icmp ne ptr @pthread_self, null
+  br i1 %24, label %27, label %25
 
-24:                                               ; preds = %23
-  %25 = call ptr @__errno_location() #16
-  store i32 38, ptr %25, align 4
+25:                                               ; preds = %23
+  %26 = call ptr @__errno_location() #16
+  store i32 38, ptr %26, align 4
   store i32 -1, ptr %5, align 4
-  br label %109
+  br label %111
 
-26:                                               ; preds = %23
-  %27 = load i64, ptr %7, align 8
-  %28 = call i64 @pthread_self() #16
-  %29 = icmp eq i64 %27, %28
-  br i1 %29, label %30, label %34
+27:                                               ; preds = %23
+  %28 = load i64, ptr %7, align 8
+  %29 = call i64 @pthread_self() #16
+  %30 = icmp eq i64 %28, %29
+  br i1 %30, label %31, label %35
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %6, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = call i32 @hwloc_linux_set_tid_cpubind(ptr noundef %31, i32 noundef 0, ptr noundef %32)
-  store i32 %33, ptr %5, align 4
-  br label %109
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %6, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = call i32 @hwloc_linux_set_tid_cpubind(ptr noundef %32, i32 noundef 0, ptr noundef %33)
+  store i32 %34, ptr %5, align 4
+  br label %111
 
-34:                                               ; preds = %26
-  br i1 icmp ne (ptr @pthread_setaffinity_np, ptr null), label %37, label %35
+35:                                               ; preds = %27
+  %36 = icmp ne ptr @pthread_setaffinity_np, null
+  br i1 %36, label %39, label %37
 
-35:                                               ; preds = %34
-  %36 = call ptr @__errno_location() #16
-  store i32 38, ptr %36, align 4
+37:                                               ; preds = %35
+  %38 = call ptr @__errno_location() #16
+  store i32 38, ptr %38, align 4
   store i32 -1, ptr %5, align 4
-  br label %109
+  br label %111
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %8, align 8
-  %39 = call i32 @hwloc_bitmap_last(ptr noundef %38) #15
-  store i32 %39, ptr %13, align 4
-  %40 = load i32, ptr %13, align 4
-  %41 = icmp eq i32 %40, -1
-  br i1 %41, label %42, label %44
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %8, align 8
+  %41 = call i32 @hwloc_bitmap_last(ptr noundef %40) #15
+  store i32 %41, ptr %13, align 4
+  %42 = load i32, ptr %13, align 4
+  %43 = icmp eq i32 %42, -1
+  br i1 %43, label %44, label %46
 
-42:                                               ; preds = %37
-  %43 = call ptr @__errno_location() #16
-  store i32 22, ptr %43, align 4
+44:                                               ; preds = %39
+  %45 = call ptr @__errno_location() #16
+  store i32 22, ptr %45, align 4
   store i32 -1, ptr %5, align 4
-  br label %109
+  br label %111
 
-44:                                               ; preds = %37
-  %45 = load i32, ptr %13, align 4
-  %46 = add nsw i32 %45, 1
-  %47 = sext i32 %46 to i64
-  %48 = add i64 %47, 64
-  %49 = sub i64 %48, 1
-  %50 = udiv i64 %49, 64
-  %51 = mul i64 %50, 8
-  store i64 %51, ptr %14, align 8
-  %52 = load i32, ptr %13, align 4
-  %53 = add nsw i32 %52, 1
-  %54 = sext i32 %53 to i64
-  %55 = call ptr @__sched_cpualloc(i64 noundef %54) #12
-  store ptr %55, ptr %11, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %59, label %58
+46:                                               ; preds = %39
+  %47 = load i32, ptr %13, align 4
+  %48 = add nsw i32 %47, 1
+  %49 = sext i32 %48 to i64
+  %50 = add i64 %49, 64
+  %51 = sub i64 %50, 1
+  %52 = udiv i64 %51, 64
+  %53 = mul i64 %52, 8
+  store i64 %53, ptr %14, align 8
+  %54 = load i32, ptr %13, align 4
+  %55 = add nsw i32 %54, 1
+  %56 = sext i32 %55 to i64
+  %57 = call ptr @__sched_cpualloc(i64 noundef %56) #12
+  store ptr %57, ptr %11, align 8
+  %58 = load ptr, ptr %11, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %61, label %60
 
-58:                                               ; preds = %44
+60:                                               ; preds = %46
   store i32 -1, ptr %5, align 4
-  br label %109
+  br label %111
 
-59:                                               ; preds = %44
-  br label %60
+61:                                               ; preds = %46
+  br label %62
 
-60:                                               ; preds = %59
-  %61 = load ptr, ptr %11, align 8
-  %62 = load i64, ptr %14, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %61, i8 0, i64 %62, i1 false)
-  br label %63
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %11, align 8
+  %64 = load i64, ptr %14, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %63, i8 0, i64 %64, i1 false)
+  br label %65
 
-63:                                               ; preds = %60
-  br label %64
+65:                                               ; preds = %62
+  br label %66
 
-64:                                               ; preds = %63
-  %65 = load ptr, ptr %8, align 8
-  %66 = call i32 @hwloc_bitmap_first(ptr noundef %65) #15
-  store i32 %66, ptr %12, align 4
-  br label %67
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %8, align 8
+  %68 = call i32 @hwloc_bitmap_first(ptr noundef %67) #15
+  store i32 %68, ptr %12, align 4
+  br label %69
 
-67:                                               ; preds = %92, %64
-  %68 = load i32, ptr %12, align 4
-  %69 = icmp ne i32 %68, -1
-  br i1 %69, label %70, label %96
+69:                                               ; preds = %94, %66
+  %70 = load i32, ptr %12, align 4
+  %71 = icmp ne i32 %70, -1
+  br i1 %71, label %72, label %98
 
-70:                                               ; preds = %67
-  %71 = load i32, ptr %12, align 4
-  %72 = zext i32 %71 to i64
-  store i64 %72, ptr %15, align 8
-  %73 = load i64, ptr %15, align 8
-  %74 = udiv i64 %73, 8
-  %75 = load i64, ptr %14, align 8
-  %76 = icmp ult i64 %74, %75
-  br i1 %76, label %77, label %89
+72:                                               ; preds = %69
+  %73 = load i32, ptr %12, align 4
+  %74 = zext i32 %73 to i64
+  store i64 %74, ptr %15, align 8
+  %75 = load i64, ptr %15, align 8
+  %76 = udiv i64 %75, 8
+  %77 = load i64, ptr %14, align 8
+  %78 = icmp ult i64 %76, %77
+  br i1 %78, label %79, label %91
 
-77:                                               ; preds = %70
-  %78 = load i64, ptr %15, align 8
-  %79 = urem i64 %78, 64
-  %80 = shl i64 1, %79
-  %81 = load ptr, ptr %11, align 8
-  %82 = getelementptr inbounds %struct.cpu_set_t, ptr %81, i32 0, i32 0
-  %83 = getelementptr inbounds [16 x i64], ptr %82, i64 0, i64 0
-  %84 = load i64, ptr %15, align 8
-  %85 = udiv i64 %84, 64
-  %86 = getelementptr inbounds i64, ptr %83, i64 %85
-  %87 = load i64, ptr %86, align 8
-  %88 = or i64 %87, %80
-  store i64 %88, ptr %86, align 8
-  br label %90
-
-89:                                               ; preds = %70
-  br label %90
-
-90:                                               ; preds = %89, %77
-  %91 = phi i64 [ %88, %77 ], [ 0, %89 ]
-  store i64 %91, ptr %16, align 8
+79:                                               ; preds = %72
+  %80 = load i64, ptr %15, align 8
+  %81 = urem i64 %80, 64
+  %82 = shl i64 1, %81
+  %83 = load ptr, ptr %11, align 8
+  %84 = getelementptr inbounds %struct.cpu_set_t, ptr %83, i32 0, i32 0
+  %85 = getelementptr inbounds [16 x i64], ptr %84, i64 0, i64 0
+  %86 = load i64, ptr %15, align 8
+  %87 = udiv i64 %86, 64
+  %88 = getelementptr inbounds i64, ptr %85, i64 %87
+  %89 = load i64, ptr %88, align 8
+  %90 = or i64 %89, %82
+  store i64 %90, ptr %88, align 8
   br label %92
 
-92:                                               ; preds = %90
-  %93 = load ptr, ptr %8, align 8
-  %94 = load i32, ptr %12, align 4
-  %95 = call i32 @hwloc_bitmap_next(ptr noundef %93, i32 noundef %94) #15
-  store i32 %95, ptr %12, align 4
-  br label %67, !llvm.loop !10
+91:                                               ; preds = %72
+  br label %92
 
-96:                                               ; preds = %67
-  br label %97
+92:                                               ; preds = %91, %79
+  %93 = phi i64 [ %90, %79 ], [ 0, %91 ]
+  store i64 %93, ptr %16, align 8
+  br label %94
 
-97:                                               ; preds = %96
-  %98 = load i64, ptr %7, align 8
-  %99 = load i64, ptr %14, align 8
-  %100 = load ptr, ptr %11, align 8
-  %101 = call i32 @pthread_setaffinity_np(i64 noundef %98, i64 noundef %99, ptr noundef %100) #12
-  store i32 %101, ptr %10, align 4
+94:                                               ; preds = %92
+  %95 = load ptr, ptr %8, align 8
+  %96 = load i32, ptr %12, align 4
+  %97 = call i32 @hwloc_bitmap_next(ptr noundef %95, i32 noundef %96) #15
+  store i32 %97, ptr %12, align 4
+  br label %69, !llvm.loop !10
+
+98:                                               ; preds = %69
+  br label %99
+
+99:                                               ; preds = %98
+  %100 = load i64, ptr %7, align 8
+  %101 = load i64, ptr %14, align 8
   %102 = load ptr, ptr %11, align 8
-  call void @__sched_cpufree(ptr noundef %102) #12
-  %103 = load i32, ptr %10, align 4
-  %104 = icmp ne i32 %103, 0
-  br i1 %104, label %105, label %108
+  %103 = call i32 @pthread_setaffinity_np(i64 noundef %100, i64 noundef %101, ptr noundef %102) #12
+  store i32 %103, ptr %10, align 4
+  %104 = load ptr, ptr %11, align 8
+  call void @__sched_cpufree(ptr noundef %104) #12
+  %105 = load i32, ptr %10, align 4
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %107, label %110
 
-105:                                              ; preds = %97
-  %106 = load i32, ptr %10, align 4
-  %107 = call ptr @__errno_location() #16
-  store i32 %106, ptr %107, align 4
+107:                                              ; preds = %99
+  %108 = load i32, ptr %10, align 4
+  %109 = call ptr @__errno_location() #16
+  store i32 %108, ptr %109, align 4
   store i32 -1, ptr %5, align 4
-  br label %109
+  br label %111
 
-108:                                              ; preds = %97
+110:                                              ; preds = %99
   store i32 0, ptr %5, align 4
-  br label %109
+  br label %111
 
-109:                                              ; preds = %108, %105, %58, %42, %35, %30, %24, %21
-  %110 = load i32, ptr %5, align 4
-  ret i32 %110
+111:                                              ; preds = %110, %107, %60, %44, %37, %31, %25, %21
+  %112 = load i32, ptr %5, align 4
+  ret i32 %112
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2166,163 +2168,165 @@ define internal i32 @hwloc_linux_get_thread_cpubind(ptr noundef %0, i64 noundef 
   %22 = call ptr @__errno_location() #16
   store i32 38, ptr %22, align 4
   store i32 -1, ptr %5, align 4
-  br label %115
+  br label %117
 
 23:                                               ; preds = %4
-  br i1 icmp ne (ptr @pthread_self, ptr null), label %26, label %24
+  %24 = icmp ne ptr @pthread_self, null
+  br i1 %24, label %27, label %25
 
-24:                                               ; preds = %23
-  %25 = call ptr @__errno_location() #16
-  store i32 38, ptr %25, align 4
+25:                                               ; preds = %23
+  %26 = call ptr @__errno_location() #16
+  store i32 38, ptr %26, align 4
   store i32 -1, ptr %5, align 4
-  br label %115
+  br label %117
 
-26:                                               ; preds = %23
-  %27 = load i64, ptr %7, align 8
-  %28 = call i64 @pthread_self() #16
-  %29 = icmp eq i64 %27, %28
-  br i1 %29, label %30, label %34
+27:                                               ; preds = %23
+  %28 = load i64, ptr %7, align 8
+  %29 = call i64 @pthread_self() #16
+  %30 = icmp eq i64 %28, %29
+  br i1 %30, label %31, label %35
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %6, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = call i32 @hwloc_linux_get_tid_cpubind(ptr noundef %31, i32 noundef 0, ptr noundef %32)
-  store i32 %33, ptr %5, align 4
-  br label %115
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %6, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = call i32 @hwloc_linux_get_tid_cpubind(ptr noundef %32, i32 noundef 0, ptr noundef %33)
+  store i32 %34, ptr %5, align 4
+  br label %117
 
-34:                                               ; preds = %26
-  br i1 icmp ne (ptr @pthread_getaffinity_np, ptr null), label %37, label %35
+35:                                               ; preds = %27
+  %36 = icmp ne ptr @pthread_getaffinity_np, null
+  br i1 %36, label %39, label %37
 
-35:                                               ; preds = %34
-  %36 = call ptr @__errno_location() #16
-  store i32 38, ptr %36, align 4
+37:                                               ; preds = %35
+  %38 = call ptr @__errno_location() #16
+  store i32 38, ptr %38, align 4
   store i32 -1, ptr %5, align 4
-  br label %115
+  br label %117
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.hwloc_topology, ptr %38, i32 0, i32 4
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 0
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds %struct.hwloc_topology, ptr %40, i32 0, i32 4
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds ptr, ptr %42, i64 0
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.hwloc_obj, ptr %44, i32 0, i32 26
+  %45 = getelementptr inbounds ptr, ptr %44, i64 0
   %46 = load ptr, ptr %45, align 8
-  %47 = call i32 @hwloc_bitmap_last(ptr noundef %46) #15
-  store i32 %47, ptr %13, align 4
-  %48 = load i32, ptr %13, align 4
-  %49 = add nsw i32 %48, 1
-  %50 = sext i32 %49 to i64
-  %51 = add i64 %50, 64
-  %52 = sub i64 %51, 1
-  %53 = udiv i64 %52, 64
-  %54 = mul i64 %53, 8
-  store i64 %54, ptr %14, align 8
-  %55 = load i32, ptr %13, align 4
-  %56 = add nsw i32 %55, 1
-  %57 = sext i32 %56 to i64
-  %58 = call ptr @__sched_cpualloc(i64 noundef %57) #12
-  store ptr %58, ptr %11, align 8
-  %59 = load ptr, ptr %11, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %62, label %61
+  %47 = getelementptr inbounds %struct.hwloc_obj, ptr %46, i32 0, i32 26
+  %48 = load ptr, ptr %47, align 8
+  %49 = call i32 @hwloc_bitmap_last(ptr noundef %48) #15
+  store i32 %49, ptr %13, align 4
+  %50 = load i32, ptr %13, align 4
+  %51 = add nsw i32 %50, 1
+  %52 = sext i32 %51 to i64
+  %53 = add i64 %52, 64
+  %54 = sub i64 %53, 1
+  %55 = udiv i64 %54, 64
+  %56 = mul i64 %55, 8
+  store i64 %56, ptr %14, align 8
+  %57 = load i32, ptr %13, align 4
+  %58 = add nsw i32 %57, 1
+  %59 = sext i32 %58 to i64
+  %60 = call ptr @__sched_cpualloc(i64 noundef %59) #12
+  store ptr %60, ptr %11, align 8
+  %61 = load ptr, ptr %11, align 8
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %64, label %63
 
-61:                                               ; preds = %37
+63:                                               ; preds = %39
   store i32 -1, ptr %5, align 4
-  br label %115
+  br label %117
 
-62:                                               ; preds = %37
-  %63 = load i64, ptr %7, align 8
-  %64 = load i64, ptr %14, align 8
-  %65 = load ptr, ptr %11, align 8
-  %66 = call i32 @pthread_getaffinity_np(i64 noundef %63, i64 noundef %64, ptr noundef %65) #12
-  store i32 %66, ptr %10, align 4
-  %67 = load i32, ptr %10, align 4
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %73
+64:                                               ; preds = %39
+  %65 = load i64, ptr %7, align 8
+  %66 = load i64, ptr %14, align 8
+  %67 = load ptr, ptr %11, align 8
+  %68 = call i32 @pthread_getaffinity_np(i64 noundef %65, i64 noundef %66, ptr noundef %67) #12
+  store i32 %68, ptr %10, align 4
+  %69 = load i32, ptr %10, align 4
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %75
 
-69:                                               ; preds = %62
-  %70 = load ptr, ptr %11, align 8
-  call void @__sched_cpufree(ptr noundef %70) #12
-  %71 = load i32, ptr %10, align 4
-  %72 = call ptr @__errno_location() #16
-  store i32 %71, ptr %72, align 4
+71:                                               ; preds = %64
+  %72 = load ptr, ptr %11, align 8
+  call void @__sched_cpufree(ptr noundef %72) #12
+  %73 = load i32, ptr %10, align 4
+  %74 = call ptr @__errno_location() #16
+  store i32 %73, ptr %74, align 4
   store i32 -1, ptr %5, align 4
-  br label %115
+  br label %117
 
-73:                                               ; preds = %62
-  %74 = load ptr, ptr %8, align 8
-  call void @hwloc_bitmap_zero(ptr noundef %74)
+75:                                               ; preds = %64
+  %76 = load ptr, ptr %8, align 8
+  call void @hwloc_bitmap_zero(ptr noundef %76)
   store i32 0, ptr %12, align 4
-  br label %75
+  br label %77
 
-75:                                               ; preds = %110, %73
-  %76 = load i32, ptr %12, align 4
-  %77 = load i32, ptr %13, align 4
-  %78 = icmp ule i32 %76, %77
-  br i1 %78, label %79, label %113
+77:                                               ; preds = %112, %75
+  %78 = load i32, ptr %12, align 4
+  %79 = load i32, ptr %13, align 4
+  %80 = icmp ule i32 %78, %79
+  br i1 %80, label %81, label %115
 
-79:                                               ; preds = %75
-  %80 = load i32, ptr %12, align 4
-  %81 = zext i32 %80 to i64
-  store i64 %81, ptr %15, align 8
-  %82 = load i64, ptr %15, align 8
-  %83 = udiv i64 %82, 8
-  %84 = load i64, ptr %14, align 8
-  %85 = icmp ult i64 %83, %84
-  br i1 %85, label %86, label %100
+81:                                               ; preds = %77
+  %82 = load i32, ptr %12, align 4
+  %83 = zext i32 %82 to i64
+  store i64 %83, ptr %15, align 8
+  %84 = load i64, ptr %15, align 8
+  %85 = udiv i64 %84, 8
+  %86 = load i64, ptr %14, align 8
+  %87 = icmp ult i64 %85, %86
+  br i1 %87, label %88, label %102
 
-86:                                               ; preds = %79
-  %87 = load ptr, ptr %11, align 8
-  %88 = getelementptr inbounds %struct.cpu_set_t, ptr %87, i32 0, i32 0
-  %89 = getelementptr inbounds [16 x i64], ptr %88, i64 0, i64 0
-  %90 = load i64, ptr %15, align 8
-  %91 = udiv i64 %90, 64
-  %92 = getelementptr inbounds i64, ptr %89, i64 %91
-  %93 = load i64, ptr %92, align 8
-  %94 = load i64, ptr %15, align 8
-  %95 = urem i64 %94, 64
-  %96 = shl i64 1, %95
-  %97 = and i64 %93, %96
-  %98 = icmp ne i64 %97, 0
-  %99 = zext i1 %98 to i32
-  br label %101
+88:                                               ; preds = %81
+  %89 = load ptr, ptr %11, align 8
+  %90 = getelementptr inbounds %struct.cpu_set_t, ptr %89, i32 0, i32 0
+  %91 = getelementptr inbounds [16 x i64], ptr %90, i64 0, i64 0
+  %92 = load i64, ptr %15, align 8
+  %93 = udiv i64 %92, 64
+  %94 = getelementptr inbounds i64, ptr %91, i64 %93
+  %95 = load i64, ptr %94, align 8
+  %96 = load i64, ptr %15, align 8
+  %97 = urem i64 %96, 64
+  %98 = shl i64 1, %97
+  %99 = and i64 %95, %98
+  %100 = icmp ne i64 %99, 0
+  %101 = zext i1 %100 to i32
+  br label %103
 
-100:                                              ; preds = %79
-  br label %101
+102:                                              ; preds = %81
+  br label %103
 
-101:                                              ; preds = %100, %86
-  %102 = phi i32 [ %99, %86 ], [ 0, %100 ]
-  store i32 %102, ptr %16, align 4
-  %103 = load i32, ptr %16, align 4
-  %104 = icmp ne i32 %103, 0
-  br i1 %104, label %105, label %109
+103:                                              ; preds = %102, %88
+  %104 = phi i32 [ %101, %88 ], [ 0, %102 ]
+  store i32 %104, ptr %16, align 4
+  %105 = load i32, ptr %16, align 4
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %107, label %111
 
-105:                                              ; preds = %101
-  %106 = load ptr, ptr %8, align 8
-  %107 = load i32, ptr %12, align 4
-  %108 = call i32 @hwloc_bitmap_set(ptr noundef %106, i32 noundef %107)
-  br label %109
+107:                                              ; preds = %103
+  %108 = load ptr, ptr %8, align 8
+  %109 = load i32, ptr %12, align 4
+  %110 = call i32 @hwloc_bitmap_set(ptr noundef %108, i32 noundef %109)
+  br label %111
 
-109:                                              ; preds = %105, %101
-  br label %110
+111:                                              ; preds = %107, %103
+  br label %112
 
-110:                                              ; preds = %109
-  %111 = load i32, ptr %12, align 4
-  %112 = add i32 %111, 1
-  store i32 %112, ptr %12, align 4
-  br label %75, !llvm.loop !11
+112:                                              ; preds = %111
+  %113 = load i32, ptr %12, align 4
+  %114 = add i32 %113, 1
+  store i32 %114, ptr %12, align 4
+  br label %77, !llvm.loop !11
 
-113:                                              ; preds = %75
-  %114 = load ptr, ptr %11, align 8
-  call void @__sched_cpufree(ptr noundef %114) #12
+115:                                              ; preds = %77
+  %116 = load ptr, ptr %11, align 8
+  call void @__sched_cpufree(ptr noundef %116) #12
   store i32 0, ptr %5, align 4
-  br label %115
+  br label %117
 
-115:                                              ; preds = %113, %69, %61, %35, %30, %24, %21
-  %116 = load i32, ptr %5, align 4
-  ret i32 %116
+117:                                              ; preds = %115, %71, %63, %37, %31, %25, %21
+  %118 = load i32, ptr %5, align 4
+  ret i32 %118
 }
 
 ; Function Attrs: nounwind uwtable

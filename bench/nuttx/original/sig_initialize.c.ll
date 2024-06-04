@@ -26,50 +26,55 @@ define void @nxsig_initialize() #0 {
 
 1:                                                ; preds = %0
   store ptr null, ptr @g_sigfreeaction, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigfreeaction, i32 0, i32 1), align 8
-  br label %2
-
-2:                                                ; preds = %1
+  %2 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigfreeaction, i32 0, i32 1
+  store ptr null, ptr %2, align 8
   br label %3
 
-3:                                                ; preds = %2
-  store ptr null, ptr @g_sigpendingaction, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingaction, i32 0, i32 1), align 8
+3:                                                ; preds = %1
   br label %4
 
 4:                                                ; preds = %3
-  br label %5
-
-5:                                                ; preds = %4
-  store ptr null, ptr @g_sigpendingirqaction, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingirqaction, i32 0, i32 1), align 8
+  store ptr null, ptr @g_sigpendingaction, align 8
+  %5 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigpendingaction, i32 0, i32 1
+  store ptr null, ptr %5, align 8
   br label %6
 
-6:                                                ; preds = %5
+6:                                                ; preds = %4
   br label %7
 
 7:                                                ; preds = %6
-  store ptr null, ptr @g_sigpendingsignal, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingsignal, i32 0, i32 1), align 8
-  br label %8
-
-8:                                                ; preds = %7
+  store ptr null, ptr @g_sigpendingirqaction, align 8
+  %8 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigpendingirqaction, i32 0, i32 1
+  store ptr null, ptr %8, align 8
   br label %9
 
-9:                                                ; preds = %8
-  store ptr null, ptr @g_sigpendingirqsignal, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingirqsignal, i32 0, i32 1), align 8
+9:                                                ; preds = %7
   br label %10
 
 10:                                               ; preds = %9
-  %11 = call ptr @nxsig_alloc_block(ptr noundef @g_sigpendingaction, i16 noundef zeroext 4, i8 noundef zeroext 0)
-  store ptr %11, ptr @g_sigpendingactionalloc, align 8
-  %12 = call ptr @nxsig_alloc_block(ptr noundef @g_sigpendingirqaction, i16 noundef zeroext 8, i8 noundef zeroext 2)
-  store ptr %12, ptr @g_sigpendingirqactionalloc, align 8
-  %13 = call ptr @nxsig_alloc_pendingsignalblock(ptr noundef @g_sigpendingsignal, i16 noundef zeroext 4, i8 noundef zeroext 0)
-  store ptr %13, ptr @g_sigpendingsignalalloc, align 8
-  %14 = call ptr @nxsig_alloc_pendingsignalblock(ptr noundef @g_sigpendingirqsignal, i16 noundef zeroext 8, i8 noundef zeroext 2)
-  store ptr %14, ptr @g_sigpendingirqsignalalloc, align 8
+  store ptr null, ptr @g_sigpendingsignal, align 8
+  %11 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigpendingsignal, i32 0, i32 1
+  store ptr null, ptr %11, align 8
+  br label %12
+
+12:                                               ; preds = %10
+  br label %13
+
+13:                                               ; preds = %12
+  store ptr null, ptr @g_sigpendingirqsignal, align 8
+  %14 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigpendingirqsignal, i32 0, i32 1
+  store ptr null, ptr %14, align 8
+  br label %15
+
+15:                                               ; preds = %13
+  %16 = call ptr @nxsig_alloc_block(ptr noundef @g_sigpendingaction, i16 noundef zeroext 4, i8 noundef zeroext 0)
+  store ptr %16, ptr @g_sigpendingactionalloc, align 8
+  %17 = call ptr @nxsig_alloc_block(ptr noundef @g_sigpendingirqaction, i16 noundef zeroext 8, i8 noundef zeroext 2)
+  store ptr %17, ptr @g_sigpendingirqactionalloc, align 8
+  %18 = call ptr @nxsig_alloc_pendingsignalblock(ptr noundef @g_sigpendingsignal, i16 noundef zeroext 4, i8 noundef zeroext 0)
+  store ptr %18, ptr @g_sigpendingsignalalloc, align 8
+  %19 = call ptr @nxsig_alloc_pendingsignalblock(ptr noundef @g_sigpendingirqsignal, i16 noundef zeroext 8, i8 noundef zeroext 2)
+  store ptr %19, ptr @g_sigpendingirqsignalalloc, align 8
   ret void
 }
 

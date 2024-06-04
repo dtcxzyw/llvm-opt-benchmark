@@ -242,7 +242,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6cineon5CodecE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6cineon5CodecE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %scanline = getelementptr inbounds %"class.cineon::Codec", ptr %this1, i32 0, i32 1
   store ptr null, ptr %scanline, align 8
   ret void
@@ -254,20 +255,21 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6cineon5CodecE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6cineon5CodecE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %scanline = getelementptr inbounds %"class.cineon::Codec", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %scanline, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %scanline, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %scanline2 = getelementptr inbounds %"class.cineon::Codec", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %scanline2, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %scanline2, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  call void @_ZdaPv(ptr noundef %1) #9
+  call void @_ZdaPv(ptr noundef %2) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then

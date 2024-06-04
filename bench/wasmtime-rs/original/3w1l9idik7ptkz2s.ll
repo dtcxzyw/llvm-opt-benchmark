@@ -140,10 +140,10 @@ define hidden i64 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..trai
   store i64 0, ptr %15, align 8
   br label %26
 
-25:                                               ; preds = %100, %20
-  br label %113
+25:                                               ; preds = %101, %20
+  br label %114
 
-26:                                               ; preds = %66, %21
+26:                                               ; preds = %67, %21
   %27 = load i64, ptr %17, align 8, !noundef !3
   %28 = icmp ugt i64 %27, 32
   br i1 %28, label %30, label %29
@@ -170,7 +170,7 @@ define hidden i64 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..trai
   %42 = select i1 %41, i64 0, i64 1
   %43 = icmp eq i64 %42, 0
   call void @llvm.assume(i1 %43)
-  br label %90
+  br label %91
 
 44:                                               ; preds = %30
   %45 = load ptr, ptr %14, align 8, !nonnull !3, !align !4, !noundef !3
@@ -184,198 +184,199 @@ define hidden i64 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..trai
   store i64 32, ptr %49, align 8
   br label %50
 
-50:                                               ; preds = %84, %44
+50:                                               ; preds = %85, %44
   %51 = load i64, ptr %12, align 8, !noundef !3
   %52 = getelementptr inbounds i8, ptr %12, i64 8
   %53 = load i64, ptr %52, align 8, !noundef !3
   %54 = icmp ult i64 %51, %53
-  br i1 %54, label %59, label %55
+  br i1 %54, label %60, label %55
 
 55:                                               ; preds = %50
   %56 = load i64, ptr @anon.d8346f50d7b625c87f95c5e87b3f17fb.5, align 8, !range !5, !noundef !3
-  %57 = load i64, ptr getelementptr inbounds (i8, ptr @anon.d8346f50d7b625c87f95c5e87b3f17fb.5, i64 8), align 8
+  %57 = getelementptr inbounds i8, ptr @anon.d8346f50d7b625c87f95c5e87b3f17fb.5, i64 8
+  %58 = load i64, ptr %57, align 8
   store i64 %56, ptr %11, align 8
-  %58 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %57, ptr %58, align 8
-  br label %63
+  %59 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %58, ptr %59, align 8
+  br label %64
 
-59:                                               ; preds = %50
-  %60 = load i64, ptr %12, align 8, !noundef !3
-  %61 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 %60, i64 1)
-  store i64 %61, ptr %12, align 8
-  %62 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %60, ptr %62, align 8
+60:                                               ; preds = %50
+  %61 = load i64, ptr %12, align 8, !noundef !3
+  %62 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 %61, i64 1)
+  store i64 %62, ptr %12, align 8
+  %63 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %61, ptr %63, align 8
   store i64 1, ptr %11, align 8
-  br label %63
+  br label %64
 
-63:                                               ; preds = %59, %55
-  %64 = load i64, ptr %11, align 8, !range !5, !noundef !3
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %66, label %73
+64:                                               ; preds = %60, %55
+  %65 = load i64, ptr %11, align 8, !range !5, !noundef !3
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %67, label %74
 
-66:                                               ; preds = %63
+67:                                               ; preds = %64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %13, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %9, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 1 %4, i64 32, i1 false)
-  %67 = getelementptr inbounds { [32 x i8], { i64, i64 } }, ptr %10, i32 0, i32 1
-  store i64 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
-  store i64 32, ptr %68, align 8
-  %69 = call i8 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h42129b1059bd6d39E"(ptr align 8 %10, i8 0)
-  %70 = zext i8 %69 to i64
-  %71 = load i64, ptr %17, align 8, !noundef !3
-  %72 = sub i64 %71, %70
-  store i64 %72, ptr %17, align 8
+  %68 = getelementptr inbounds { [32 x i8], { i64, i64 } }, ptr %10, i32 0, i32 1
+  store i64 0, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  store i64 32, ptr %69, align 8
+  %70 = call i8 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h42129b1059bd6d39E"(ptr align 8 %10, i8 0)
+  %71 = zext i8 %70 to i64
+  %72 = load i64, ptr %17, align 8, !noundef !3
+  %73 = sub i64 %72, %71
+  store i64 %73, ptr %17, align 8
   br label %26
 
-73:                                               ; preds = %63
-  %74 = getelementptr inbounds i8, ptr %11, i64 8
-  %75 = load i64, ptr %74, align 8, !noundef !3
-  %76 = icmp ult i64 %75, 32
-  %77 = call i1 @llvm.expect.i1(i1 %76, i1 true)
-  br i1 %77, label %78, label %83
+74:                                               ; preds = %64
+  %75 = getelementptr inbounds i8, ptr %11, i64 8
+  %76 = load i64, ptr %75, align 8, !noundef !3
+  %77 = icmp ult i64 %76, 32
+  %78 = call i1 @llvm.expect.i1(i1 %77, i1 true)
+  br i1 %78, label %79, label %84
 
-78:                                               ; preds = %73
-  %79 = getelementptr inbounds [32 x i8], ptr %45, i64 0, i64 %75
-  %80 = load i8, ptr %79, align 1, !noundef !3
-  %81 = icmp slt i8 %80, -64
-  %82 = call i1 @llvm.expect.i1(i1 %76, i1 true)
-  br i1 %82, label %84, label %88
+79:                                               ; preds = %74
+  %80 = getelementptr inbounds [32 x i8], ptr %45, i64 0, i64 %76
+  %81 = load i8, ptr %80, align 1, !noundef !3
+  %82 = icmp slt i8 %81, -64
+  %83 = call i1 @llvm.expect.i1(i1 %77, i1 true)
+  br i1 %83, label %85, label %89
 
-83:                                               ; preds = %73
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %75, i64 32, ptr align 8 @anon.d8346f50d7b625c87f95c5e87b3f17fb.6) #7
+84:                                               ; preds = %74
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %76, i64 32, ptr align 8 @anon.d8346f50d7b625c87f95c5e87b3f17fb.6) #7
   unreachable
 
-84:                                               ; preds = %78
-  %85 = getelementptr inbounds [32 x i8], ptr %13, i64 0, i64 %75
-  %86 = xor i1 %81, true
-  %87 = zext i1 %86 to i8
-  store i8 %87, ptr %85, align 1
+85:                                               ; preds = %79
+  %86 = getelementptr inbounds [32 x i8], ptr %13, i64 0, i64 %76
+  %87 = xor i1 %82, true
+  %88 = zext i1 %87 to i8
+  store i8 %88, ptr %86, align 1
   br label %50
 
-88:                                               ; preds = %78
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %75, i64 32, ptr align 8 @anon.d8346f50d7b625c87f95c5e87b3f17fb.7) #7
+89:                                               ; preds = %79
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %76, i64 32, ptr align 8 @anon.d8346f50d7b625c87f95c5e87b3f17fb.7) #7
   unreachable
 
-89:                                               ; No predecessors!
+90:                                               ; No predecessors!
   unreachable
 
-90:                                               ; preds = %107, %37
-  %91 = call i64 @"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17hffb3cfb126b69274E"(ptr align 8 %0)
-  %92 = icmp ugt i64 %91, 0
-  br i1 %92, label %94, label %93
+91:                                               ; preds = %108, %37
+  %92 = call i64 @"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17hffb3cfb126b69274E"(ptr align 8 %0)
+  %93 = icmp ugt i64 %92, 0
+  br i1 %93, label %95, label %94
 
-93:                                               ; preds = %90
-  br label %100
+94:                                               ; preds = %91
+  br label %101
 
-94:                                               ; preds = %90
-  %95 = call { ptr, i64 } @"_ZN4core5slice4iter13Iter$LT$T$GT$10make_slice17hdd968c57332ce326E"(ptr align 8 %0)
-  %96 = extractvalue { ptr, i64 } %95, 0
-  %97 = extractvalue { ptr, i64 } %95, 1
-  %98 = icmp ult i64 0, %97
-  %99 = call i1 @llvm.expect.i1(i1 %98, i1 true)
-  br i1 %99, label %101, label %105
+95:                                               ; preds = %91
+  %96 = call { ptr, i64 } @"_ZN4core5slice4iter13Iter$LT$T$GT$10make_slice17hdd968c57332ce326E"(ptr align 8 %0)
+  %97 = extractvalue { ptr, i64 } %96, 0
+  %98 = extractvalue { ptr, i64 } %96, 1
+  %99 = icmp ult i64 0, %98
+  %100 = call i1 @llvm.expect.i1(i1 %99, i1 true)
+  br i1 %100, label %102, label %106
 
-100:                                              ; preds = %106, %93
+101:                                              ; preds = %107, %94
   br label %25
 
-101:                                              ; preds = %94
-  %102 = getelementptr inbounds [0 x i8], ptr %96, i64 0, i64 0
-  %103 = load i8, ptr %102, align 1, !noundef !3
-  %104 = icmp slt i8 %103, -64
-  br i1 %104, label %107, label %106
+102:                                              ; preds = %95
+  %103 = getelementptr inbounds [0 x i8], ptr %97, i64 0, i64 0
+  %104 = load i8, ptr %103, align 1, !noundef !3
+  %105 = icmp slt i8 %104, -64
+  br i1 %105, label %108, label %107
 
-105:                                              ; preds = %94
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 0, i64 %97, ptr align 8 @anon.d8346f50d7b625c87f95c5e87b3f17fb.8) #7
+106:                                              ; preds = %95
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 0, i64 %98, ptr align 8 @anon.d8346f50d7b625c87f95c5e87b3f17fb.8) #7
   unreachable
 
-106:                                              ; preds = %101
-  br label %100
+107:                                              ; preds = %102
+  br label %101
 
-107:                                              ; preds = %101
-  %108 = call i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h31c2bac4a74c0e90E"(ptr align 8 %0, i64 1)
-  store i64 %108, ptr %7, align 8
-  %109 = load i64, ptr %7, align 8, !noundef !3
-  %110 = icmp eq i64 %109, 0
-  %111 = select i1 %110, i64 0, i64 1
-  %112 = icmp eq i64 %111, 0
-  call void @llvm.assume(i1 %112)
-  br label %90
+108:                                              ; preds = %102
+  %109 = call i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h31c2bac4a74c0e90E"(ptr align 8 %0, i64 1)
+  store i64 %109, ptr %7, align 8
+  %110 = load i64, ptr %7, align 8, !noundef !3
+  %111 = icmp eq i64 %110, 0
+  %112 = select i1 %111, i64 0, i64 1
+  %113 = icmp eq i64 %112, 0
+  call void @llvm.assume(i1 %113)
+  br label %91
 
-113:                                              ; preds = %145, %25
-  %114 = load i64, ptr %17, align 8, !noundef !3
-  %115 = icmp ugt i64 %114, 0
-  br i1 %115, label %117, label %116
+114:                                              ; preds = %146, %25
+  %115 = load i64, ptr %17, align 8, !noundef !3
+  %116 = icmp ugt i64 %115, 0
+  br i1 %116, label %118, label %117
 
-116:                                              ; preds = %113
-  br label %120
+117:                                              ; preds = %114
+  br label %121
 
-117:                                              ; preds = %113
-  %118 = call i64 @"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17hffb3cfb126b69274E"(ptr align 8 %0)
-  %119 = icmp ugt i64 %118, 0
-  br i1 %119, label %124, label %123
+118:                                              ; preds = %114
+  %119 = call i64 @"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17hffb3cfb126b69274E"(ptr align 8 %0)
+  %120 = icmp ugt i64 %119, 0
+  br i1 %120, label %125, label %124
 
-120:                                              ; preds = %123, %116
-  %121 = load i64, ptr %17, align 8, !noundef !3
-  %122 = icmp eq i64 %121, 0
-  br i1 %122, label %132, label %133
+121:                                              ; preds = %124, %117
+  %122 = load i64, ptr %17, align 8, !noundef !3
+  %123 = icmp eq i64 %122, 0
+  br i1 %123, label %133, label %134
 
-123:                                              ; preds = %117
-  br label %120
+124:                                              ; preds = %118
+  br label %121
 
-124:                                              ; preds = %117
-  %125 = load i64, ptr %17, align 8, !noundef !3
-  %126 = sub i64 %125, 1
-  store i64 %126, ptr %17, align 8
-  %127 = call { ptr, i64 } @"_ZN4core5slice4iter13Iter$LT$T$GT$10make_slice17hdd968c57332ce326E"(ptr align 8 %0)
-  %128 = extractvalue { ptr, i64 } %127, 0
-  %129 = extractvalue { ptr, i64 } %127, 1
-  %130 = icmp ult i64 0, %129
-  %131 = call i1 @llvm.expect.i1(i1 %130, i1 true)
-  br i1 %131, label %138, label %144
+125:                                              ; preds = %118
+  %126 = load i64, ptr %17, align 8, !noundef !3
+  %127 = sub i64 %126, 1
+  store i64 %127, ptr %17, align 8
+  %128 = call { ptr, i64 } @"_ZN4core5slice4iter13Iter$LT$T$GT$10make_slice17hdd968c57332ce326E"(ptr align 8 %0)
+  %129 = extractvalue { ptr, i64 } %128, 0
+  %130 = extractvalue { ptr, i64 } %128, 1
+  %131 = icmp ult i64 0, %130
+  %132 = call i1 @llvm.expect.i1(i1 %131, i1 true)
+  br i1 %132, label %139, label %145
 
-132:                                              ; preds = %120
+133:                                              ; preds = %121
   store i64 0, ptr %5, align 8
-  br label %135
+  br label %136
 
-133:                                              ; preds = %120
-  store i64 %121, ptr %3, align 8
-  %134 = load i64, ptr %3, align 8, !range !6, !noundef !3
-  store i64 %134, ptr %5, align 8
-  br label %135
+134:                                              ; preds = %121
+  store i64 %122, ptr %3, align 8
+  %135 = load i64, ptr %3, align 8, !range !6, !noundef !3
+  store i64 %135, ptr %5, align 8
+  br label %136
 
-135:                                              ; preds = %133, %132
-  %136 = load i64, ptr %5, align 8, !noundef !3
-  %137 = call i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f46feac98048b74E"(i64 %136, i64 0)
-  ret i64 %137
+136:                                              ; preds = %134, %133
+  %137 = load i64, ptr %5, align 8, !noundef !3
+  %138 = call i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f46feac98048b74E"(i64 %137, i64 0)
+  ret i64 %138
 
-138:                                              ; preds = %124
-  %139 = getelementptr inbounds [0 x i8], ptr %128, i64 0, i64 0
-  %140 = load i8, ptr %139, align 1, !noundef !3
-  %141 = zext i8 %140 to i64
-  %142 = icmp ult i64 %141, 256
-  %143 = call i1 @llvm.expect.i1(i1 %142, i1 true)
-  br i1 %143, label %145, label %154
+139:                                              ; preds = %125
+  %140 = getelementptr inbounds [0 x i8], ptr %129, i64 0, i64 0
+  %141 = load i8, ptr %140, align 1, !noundef !3
+  %142 = zext i8 %141 to i64
+  %143 = icmp ult i64 %142, 256
+  %144 = call i1 @llvm.expect.i1(i1 %143, i1 true)
+  br i1 %144, label %146, label %155
 
-144:                                              ; preds = %124
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 0, i64 %129, ptr align 8 @anon.d8346f50d7b625c87f95c5e87b3f17fb.9) #7
+145:                                              ; preds = %125
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 0, i64 %130, ptr align 8 @anon.d8346f50d7b625c87f95c5e87b3f17fb.9) #7
   unreachable
 
-145:                                              ; preds = %138
-  %146 = getelementptr inbounds [256 x i8], ptr @anon.d8346f50d7b625c87f95c5e87b3f17fb.10, i64 0, i64 %141
-  %147 = load i8, ptr %146, align 1, !noundef !3
-  %148 = zext i8 %147 to i64
-  %149 = call i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h31c2bac4a74c0e90E"(ptr align 8 %0, i64 %148)
-  store i64 %149, ptr %6, align 8
-  %150 = load i64, ptr %6, align 8, !noundef !3
-  %151 = icmp eq i64 %150, 0
-  %152 = select i1 %151, i64 0, i64 1
-  %153 = icmp eq i64 %152, 0
-  call void @llvm.assume(i1 %153)
-  br label %113
+146:                                              ; preds = %139
+  %147 = getelementptr inbounds [256 x i8], ptr @anon.d8346f50d7b625c87f95c5e87b3f17fb.10, i64 0, i64 %142
+  %148 = load i8, ptr %147, align 1, !noundef !3
+  %149 = zext i8 %148 to i64
+  %150 = call i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h31c2bac4a74c0e90E"(ptr align 8 %0, i64 %149)
+  store i64 %150, ptr %6, align 8
+  %151 = load i64, ptr %6, align 8, !noundef !3
+  %152 = icmp eq i64 %151, 0
+  %153 = select i1 %152, i64 0, i64 1
+  %154 = icmp eq i64 %153, 0
+  call void @llvm.assume(i1 %154)
+  br label %114
 
-154:                                              ; preds = %138
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %141, i64 256, ptr align 8 @anon.d8346f50d7b625c87f95c5e87b3f17fb.12) #7
+155:                                              ; preds = %139
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %142, i64 256, ptr align 8 @anon.d8346f50d7b625c87f95c5e87b3f17fb.12) #7
   unreachable
 }
 

@@ -68,7 +68,8 @@ define internal i64 @thread_runnable_sleep(i64 noundef %0, i64 noundef %1) #0 {
   %17 = extractvalue { i64, i64 } %13, 1
   store i64 %17, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 16, i1 false)
-  %18 = call ptr @rb_thread_call_without_gvl(ptr noundef @native_sleep_callback, ptr noundef %5, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
+  %18 = inttoptr i64 -1 to ptr
+  %19 = call ptr @rb_thread_call_without_gvl(ptr noundef @native_sleep_callback, ptr noundef %5, ptr noundef %18, ptr noundef null)
   ret i64 4
 }
 

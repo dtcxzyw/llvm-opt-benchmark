@@ -385,22 +385,23 @@ if.end4:                                          ; preds = %if.end
 if.then7:                                         ; preds = %if.end4
   store ptr @_ZN3net12_GLOBAL__N_116kAllowedFtpPortsE, ptr %__range2, align 8
   store ptr @_ZN3net12_GLOBAL__N_116kAllowedFtpPortsE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (i32, ptr @_ZN3net12_GLOBAL__N_116kAllowedFtpPortsE, i64 2), ptr %__end2, align 8
+  %10 = getelementptr inbounds i32, ptr @_ZN3net12_GLOBAL__N_116kAllowedFtpPortsE, i64 2
+  store ptr %10, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then7
-  %10 = load ptr, ptr %__begin2, align 8
-  %11 = load ptr, ptr %__end2, align 8
-  %cmp8 = icmp ne ptr %10, %11
+  %11 = load ptr, ptr %__begin2, align 8
+  %12 = load ptr, ptr %__end2, align 8
+  %cmp8 = icmp ne ptr %11, %12
   br i1 %cmp8, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %12 = load ptr, ptr %__begin2, align 8
-  %13 = load i32, ptr %12, align 4
-  store i32 %13, ptr %allowed_ftp_port, align 4
-  %14 = load i32, ptr %allowed_ftp_port, align 4
-  %15 = load i32, ptr %port.addr, align 4
-  %cmp9 = icmp eq i32 %14, %15
+  %13 = load ptr, ptr %__begin2, align 8
+  %14 = load i32, ptr %13, align 4
+  store i32 %14, ptr %allowed_ftp_port, align 4
+  %15 = load i32, ptr %allowed_ftp_port, align 4
+  %16 = load i32, ptr %port.addr, align 4
+  %cmp9 = icmp eq i32 %15, %16
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %for.body
@@ -411,8 +412,8 @@ if.end11:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end11
-  %16 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %16, i32 1
+  %17 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds i32, ptr %17, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
@@ -422,22 +423,23 @@ for.end:                                          ; preds = %for.cond
 if.end12:                                         ; preds = %for.end, %if.end4
   store ptr @_ZN3net12_GLOBAL__N_116kRestrictedPortsE, ptr %__range1, align 8
   store ptr @_ZN3net12_GLOBAL__N_116kRestrictedPortsE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (i32, ptr @_ZN3net12_GLOBAL__N_116kRestrictedPortsE, i64 65), ptr %__end1, align 8
+  %18 = getelementptr inbounds i32, ptr @_ZN3net12_GLOBAL__N_116kRestrictedPortsE, i64 65
+  store ptr %18, ptr %__end1, align 8
   br label %for.cond13
 
 for.cond13:                                       ; preds = %for.inc19, %if.end12
-  %17 = load ptr, ptr %__begin1, align 8
-  %18 = load ptr, ptr %__end1, align 8
-  %cmp14 = icmp ne ptr %17, %18
+  %19 = load ptr, ptr %__begin1, align 8
+  %20 = load ptr, ptr %__end1, align 8
+  %cmp14 = icmp ne ptr %19, %20
   br i1 %cmp14, label %for.body15, label %for.end21
 
 for.body15:                                       ; preds = %for.cond13
-  %19 = load ptr, ptr %__begin1, align 8
-  %20 = load i32, ptr %19, align 4
-  store i32 %20, ptr %restricted_port, align 4
-  %21 = load i32, ptr %restricted_port, align 4
-  %22 = load i32, ptr %port.addr, align 4
-  %cmp16 = icmp eq i32 %21, %22
+  %21 = load ptr, ptr %__begin1, align 8
+  %22 = load i32, ptr %21, align 4
+  store i32 %22, ptr %restricted_port, align 4
+  %23 = load i32, ptr %restricted_port, align 4
+  %24 = load i32, ptr %port.addr, align 4
+  %cmp16 = icmp eq i32 %23, %24
   br i1 %cmp16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %for.body15
@@ -448,8 +450,8 @@ if.end18:                                         ; preds = %for.body15
   br label %for.inc19
 
 for.inc19:                                        ; preds = %if.end18
-  %23 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr20 = getelementptr inbounds i32, ptr %23, i32 1
+  %25 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr20 = getelementptr inbounds i32, ptr %25, i32 1
   store ptr %incdec.ptr20, ptr %__begin1, align 8
   br label %for.cond13
 
@@ -458,8 +460,8 @@ for.end21:                                        ; preds = %for.cond13
   br label %return
 
 return:                                           ; preds = %for.end21, %if.then17, %if.then10, %if.then3, %if.then
-  %24 = load i1, ptr %retval, align 1
-  ret i1 %24
+  %26 = load i1, ptr %retval, align 1
+  ret i1 %26
 }
 
 ; Function Attrs: mustprogress uwtable

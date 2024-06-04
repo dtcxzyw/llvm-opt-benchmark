@@ -2226,67 +2226,114 @@ declare ptr @u_austrncpy_75(ptr noundef, ptr noundef, i32 noundef) #5
 define internal void @__cxx_global_var_init() #10 section ".text.startup" {
 entry:
   store ptr @.str.12, ptr @_ZL14gResourceTypes, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i32 0, i32 2), align 8
-  store ptr @.str, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 1), align 8
-  %0 = load ptr, ptr @_ZL13k_type_string, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 1, i32 1), align 8
-  store ptr @_ZL11parseStringP10ParseStatePcjPK7UStringP10UErrorCode, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 1, i32 2), align 8
-  store ptr @.str.13, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 2), align 8
-  %1 = load ptr, ptr @_ZL13k_type_binary, align 8
-  store ptr %1, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 2, i32 1), align 8
-  store ptr @_ZL11parseBinaryP10ParseStatePcjPK7UStringP10UErrorCode, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 2, i32 2), align 8
-  store ptr @.str.14, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 3), align 8
-  %2 = load ptr, ptr @_ZL12k_type_table, align 8
-  store ptr %2, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 3, i32 1), align 8
-  store ptr @_ZL10parseTableP10ParseStatePcjPK7UStringP10UErrorCode, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 3, i32 2), align 8
-  store ptr @.str.15, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 4), align 8
-  %3 = load ptr, ptr @_ZL24k_type_table_no_fallback, align 8
-  store ptr %3, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 4, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 4, i32 2), align 8
-  store ptr @.str.16, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 5), align 8
-  %4 = load ptr, ptr @_ZL14k_type_integer, align 8
-  store ptr %4, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 5, i32 1), align 8
-  store ptr @_ZL12parseIntegerP10ParseStatePcjPK7UStringP10UErrorCode, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 5, i32 2), align 8
-  store ptr @.str.17, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 6), align 8
-  %5 = load ptr, ptr @_ZL12k_type_array, align 8
-  store ptr %5, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 6, i32 1), align 8
-  store ptr @_ZL10parseArrayP10ParseStatePcjPK7UStringP10UErrorCode, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 6, i32 2), align 8
-  store ptr @.str.18, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 7), align 8
-  %6 = load ptr, ptr @_ZL12k_type_alias, align 8
-  store ptr %6, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 7, i32 1), align 8
-  store ptr @_ZL10parseAliasP10ParseStatePcjPK7UStringP10UErrorCode, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 7, i32 2), align 8
-  store ptr @.str.19, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 8), align 8
-  %7 = load ptr, ptr @_ZL16k_type_intvector, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 8, i32 1), align 8
-  store ptr @_ZL14parseIntVectorP10ParseStatePcjPK7UStringP10UErrorCode, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 8, i32 2), align 8
-  store ptr @.str.20, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 9), align 8
-  %8 = load ptr, ptr @_ZL13k_type_import, align 8
-  store ptr %8, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 9, i32 1), align 8
-  store ptr @_ZL11parseImportP10ParseStatePcjPK7UStringP10UErrorCode, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 9, i32 2), align 8
-  store ptr @.str.21, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 10), align 8
-  %9 = load ptr, ptr @_ZL14k_type_include, align 8
-  store ptr %9, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 10, i32 1), align 8
-  store ptr @_ZL12parseIncludeP10ParseStatePcjPK7UStringP10UErrorCode, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 10, i32 2), align 8
-  store ptr @.str.22, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 11), align 8
-  %10 = load ptr, ptr @_ZL23k_type_plugin_uca_rules, align 8
-  store ptr %10, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 11, i32 1), align 8
-  store ptr @_ZL13parseUCARulesP10ParseStatePcjPK7UStringP10UErrorCode, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 11, i32 2), align 8
-  store ptr @.str.23, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 12), align 8
-  %11 = load ptr, ptr @_ZL23k_type_plugin_collation, align 8
-  store ptr %11, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 12, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 12, i32 2), align 8
-  store ptr @.str.24, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 13), align 8
-  %12 = load ptr, ptr @_ZL28k_type_plugin_transliterator, align 8
-  store ptr %12, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 13, i32 1), align 8
-  store ptr @_ZL19parseTransliteratorP10ParseStatePcjPK7UStringP10UErrorCode, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 13, i32 2), align 8
-  store ptr @.str.25, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 14), align 8
-  %13 = load ptr, ptr @_ZL24k_type_plugin_dependency, align 8
-  store ptr %13, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 14, i32 1), align 8
-  store ptr @_ZL15parseDependencyP10ParseStatePcjPK7UStringP10UErrorCode, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 14, i32 2), align 8
-  store ptr @.str.26, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 15), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 15, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.anon.1, ptr @_ZL14gResourceTypes, i64 15, i32 2), align 8
+  %0 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i32 0, i32 1
+  store ptr null, ptr %0, align 8
+  %1 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i32 0, i32 2
+  store ptr null, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 1
+  store ptr @.str, ptr %2, align 8
+  %3 = load ptr, ptr @_ZL13k_type_string, align 8
+  %4 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 1, i32 1
+  store ptr %3, ptr %4, align 8
+  %5 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 1, i32 2
+  store ptr @_ZL11parseStringP10ParseStatePcjPK7UStringP10UErrorCode, ptr %5, align 8
+  %6 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 2
+  store ptr @.str.13, ptr %6, align 8
+  %7 = load ptr, ptr @_ZL13k_type_binary, align 8
+  %8 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 2, i32 1
+  store ptr %7, ptr %8, align 8
+  %9 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 2, i32 2
+  store ptr @_ZL11parseBinaryP10ParseStatePcjPK7UStringP10UErrorCode, ptr %9, align 8
+  %10 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 3
+  store ptr @.str.14, ptr %10, align 8
+  %11 = load ptr, ptr @_ZL12k_type_table, align 8
+  %12 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 3, i32 1
+  store ptr %11, ptr %12, align 8
+  %13 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 3, i32 2
+  store ptr @_ZL10parseTableP10ParseStatePcjPK7UStringP10UErrorCode, ptr %13, align 8
+  %14 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 4
+  store ptr @.str.15, ptr %14, align 8
+  %15 = load ptr, ptr @_ZL24k_type_table_no_fallback, align 8
+  %16 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 4, i32 1
+  store ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 4, i32 2
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 5
+  store ptr @.str.16, ptr %18, align 8
+  %19 = load ptr, ptr @_ZL14k_type_integer, align 8
+  %20 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 5, i32 1
+  store ptr %19, ptr %20, align 8
+  %21 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 5, i32 2
+  store ptr @_ZL12parseIntegerP10ParseStatePcjPK7UStringP10UErrorCode, ptr %21, align 8
+  %22 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 6
+  store ptr @.str.17, ptr %22, align 8
+  %23 = load ptr, ptr @_ZL12k_type_array, align 8
+  %24 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 6, i32 1
+  store ptr %23, ptr %24, align 8
+  %25 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 6, i32 2
+  store ptr @_ZL10parseArrayP10ParseStatePcjPK7UStringP10UErrorCode, ptr %25, align 8
+  %26 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 7
+  store ptr @.str.18, ptr %26, align 8
+  %27 = load ptr, ptr @_ZL12k_type_alias, align 8
+  %28 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 7, i32 1
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 7, i32 2
+  store ptr @_ZL10parseAliasP10ParseStatePcjPK7UStringP10UErrorCode, ptr %29, align 8
+  %30 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 8
+  store ptr @.str.19, ptr %30, align 8
+  %31 = load ptr, ptr @_ZL16k_type_intvector, align 8
+  %32 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 8, i32 1
+  store ptr %31, ptr %32, align 8
+  %33 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 8, i32 2
+  store ptr @_ZL14parseIntVectorP10ParseStatePcjPK7UStringP10UErrorCode, ptr %33, align 8
+  %34 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 9
+  store ptr @.str.20, ptr %34, align 8
+  %35 = load ptr, ptr @_ZL13k_type_import, align 8
+  %36 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 9, i32 1
+  store ptr %35, ptr %36, align 8
+  %37 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 9, i32 2
+  store ptr @_ZL11parseImportP10ParseStatePcjPK7UStringP10UErrorCode, ptr %37, align 8
+  %38 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 10
+  store ptr @.str.21, ptr %38, align 8
+  %39 = load ptr, ptr @_ZL14k_type_include, align 8
+  %40 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 10, i32 1
+  store ptr %39, ptr %40, align 8
+  %41 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 10, i32 2
+  store ptr @_ZL12parseIncludeP10ParseStatePcjPK7UStringP10UErrorCode, ptr %41, align 8
+  %42 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 11
+  store ptr @.str.22, ptr %42, align 8
+  %43 = load ptr, ptr @_ZL23k_type_plugin_uca_rules, align 8
+  %44 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 11, i32 1
+  store ptr %43, ptr %44, align 8
+  %45 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 11, i32 2
+  store ptr @_ZL13parseUCARulesP10ParseStatePcjPK7UStringP10UErrorCode, ptr %45, align 8
+  %46 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 12
+  store ptr @.str.23, ptr %46, align 8
+  %47 = load ptr, ptr @_ZL23k_type_plugin_collation, align 8
+  %48 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 12, i32 1
+  store ptr %47, ptr %48, align 8
+  %49 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 12, i32 2
+  store ptr null, ptr %49, align 8
+  %50 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 13
+  store ptr @.str.24, ptr %50, align 8
+  %51 = load ptr, ptr @_ZL28k_type_plugin_transliterator, align 8
+  %52 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 13, i32 1
+  store ptr %51, ptr %52, align 8
+  %53 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 13, i32 2
+  store ptr @_ZL19parseTransliteratorP10ParseStatePcjPK7UStringP10UErrorCode, ptr %53, align 8
+  %54 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 14
+  store ptr @.str.25, ptr %54, align 8
+  %55 = load ptr, ptr @_ZL24k_type_plugin_dependency, align 8
+  %56 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 14, i32 1
+  store ptr %55, ptr %56, align 8
+  %57 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 14, i32 2
+  store ptr @_ZL15parseDependencyP10ParseStatePcjPK7UStringP10UErrorCode, ptr %57, align 8
+  %58 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 15
+  store ptr @.str.26, ptr %58, align 8
+  %59 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 15, i32 1
+  store ptr null, ptr %59, align 8
+  %60 = getelementptr inbounds %struct.anon.1, ptr @_ZL14gResourceTypes, i64 15, i32 2
+  store ptr null, ptr %60, align 8
   ret void
 }
 
@@ -7003,7 +7050,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -7055,13 +7103,14 @@ entry:
   store ptr %out, ptr %out.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7519CollationRuleParser8ImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113GenrbImporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113GenrbImporterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %inputDir = getelementptr inbounds %"class.(anonymous namespace)::GenrbImporter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %in.addr, align 8
-  store ptr %0, ptr %inputDir, align 8
+  %1 = load ptr, ptr %in.addr, align 8
+  store ptr %1, ptr %inputDir, align 8
   %outputDir = getelementptr inbounds %"class.(anonymous namespace)::GenrbImporter", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %out.addr, align 8
-  store ptr %1, ptr %outputDir, align 8
+  %2 = load ptr, ptr %out.addr, align 8
+  store ptr %2, ptr %outputDir, align 8
   ret void
 }
 
@@ -7744,7 +7793,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7754,7 +7804,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7819,7 +7870,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7519CollationRuleParser8ImporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7519CollationRuleParser8ImporterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10486,10 +10538,11 @@ entry:
   store ptr %loc, ptr %loc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_759ErrorCodeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %location = getelementptr inbounds %"class.icu_75::IcuToolErrorCode", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %loc.addr, align 8
-  store ptr %0, ptr %location, align 8
+  %1 = load ptr, ptr %loc.addr, align 8
+  store ptr %1, ptr %location, align 8
   ret void
 }
 
@@ -10514,7 +10567,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %errorCode = getelementptr inbounds %"class.icu_75::ErrorCode", ptr %this1, i32 0, i32 1
   store i32 0, ptr %errorCode, align 8
   ret void

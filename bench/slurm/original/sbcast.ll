@@ -24,24 +24,26 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
   %9 = load i32, ptr %4, align 4
   %10 = load ptr, ptr %5, align 8
   call void @parse_command_line(i32 noundef %9, ptr noundef %10)
-  %11 = load i32, ptr getelementptr inbounds (%struct.bcast_parameters, ptr @params, i32 0, i32 11), align 4
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %13, label %19
+  %11 = getelementptr inbounds %struct.bcast_parameters, ptr @params, i32 0, i32 11
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %21
 
-13:                                               ; preds = %2
-  %14 = load i32, ptr getelementptr inbounds (%struct.bcast_parameters, ptr @params, i32 0, i32 11), align 4
-  %15 = getelementptr inbounds %struct.log_options_t, ptr %7, i32 0, i32 0
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds %struct.bcast_parameters, ptr @params, i32 0, i32 11
   %16 = load i32, ptr %15, align 4
-  %17 = add i32 %16, %14
-  store i32 %17, ptr %15, align 4
-  %18 = call i32 @log_alter(ptr noundef byval(%struct.log_options_t) align 8 %7, i32 noundef 24, ptr noundef null)
-  br label %19
+  %17 = getelementptr inbounds %struct.log_options_t, ptr %7, i32 0, i32 0
+  %18 = load i32, ptr %17, align 4
+  %19 = add i32 %18, %16
+  store i32 %19, ptr %17, align 4
+  %20 = call i32 @log_alter(ptr noundef byval(%struct.log_options_t) align 8 %7, i32 noundef 24, ptr noundef null)
+  br label %21
 
-19:                                               ; preds = %13, %2
-  %20 = call i32 @bcast_file(ptr noundef @params)
-  store i32 %20, ptr %6, align 4
-  %21 = load i32, ptr %6, align 4
-  ret i32 %21
+21:                                               ; preds = %14, %2
+  %22 = call i32 @bcast_file(ptr noundef @params)
+  store i32 %22, ptr %6, align 4
+  %23 = load i32, ptr %6, align 4
+  ret i32 %23
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

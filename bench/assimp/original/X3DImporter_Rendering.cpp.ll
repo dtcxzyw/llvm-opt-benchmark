@@ -1840,7 +1840,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %pParent.addr, align 8
   call void @_ZN18X3DNodeElementBaseC2E11X3DElemTypePS_(ptr noundef nonnull align 8 dereferenceable(76) %this1, i32 noundef 34, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19X3DNodeElementColor, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV19X3DNodeElementColor, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %Value = getelementptr inbounds %struct.X3DNodeElementColor, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx114listI9aiColor3DSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Value) #5
   ret void
@@ -2200,7 +2201,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %pParent.addr, align 8
   call void @_ZN18X3DNodeElementBaseC2E11X3DElemTypePS_(ptr noundef nonnull align 8 dereferenceable(76) %this1, i32 noundef 35, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV23X3DNodeElementColorRGBA, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV23X3DNodeElementColorRGBA, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %Value = getelementptr inbounds %struct.X3DNodeElementColorRGBA, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx114listI9aiColor4tIfESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Value) #5
   ret void
@@ -2463,7 +2465,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %pParent.addr, align 8
   call void @_ZN18X3DNodeElementBaseC2E11X3DElemTypePS_(ptr noundef nonnull align 8 dereferenceable(76) %this1, i32 noundef 21, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV24X3DNodeElementCoordinate, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV24X3DNodeElementCoordinate, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %Value = getelementptr inbounds %struct.X3DNodeElementCoordinate, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx114listI10aiVector3tIfESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Value) #5
   ret void
@@ -3044,16 +3047,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #5
   br label %eh.resume
 
@@ -3092,7 +3096,8 @@ entry:
   %0 = load i32, ptr %pType.addr, align 4
   %1 = load ptr, ptr %pParent.addr, align 8
   call void @_ZN24X3DNodeElementGeometry3DC2E11X3DElemTypeP18X3DNodeElementBase(ptr noundef nonnull align 8 dereferenceable(113) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV24X3DNodeElementIndexedSet, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV24X3DNodeElementIndexedSet, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %ColorIndex = getelementptr inbounds %struct.X3DNodeElementIndexedSet, ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ColorIndex) #5
   %CoordIndex = getelementptr inbounds %struct.X3DNodeElementIndexedSet, ptr %this1, i32 0, i32 5
@@ -6136,7 +6141,8 @@ entry:
   %0 = load i32, ptr %type.addr, align 4
   %1 = load ptr, ptr %pParent.addr, align 8
   call void @_ZN24X3DNodeElementGeometry3DC2E11X3DElemTypeP18X3DNodeElementBase(ptr noundef nonnull align 8 dereferenceable(113) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV17X3DNodeElementSet, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV17X3DNodeElementSet, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %CoordIndex = getelementptr inbounds %struct.X3DNodeElementSet, ptr %this1, i32 0, i32 4
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %CoordIndex) #5
   %NormalIndex = getelementptr inbounds %struct.X3DNodeElementSet, ptr %this1, i32 0, i32 5
@@ -8257,7 +8263,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %pParent.addr, align 8
   call void @_ZN18X3DNodeElementBaseC2E11X3DElemTypePS_(ptr noundef nonnull align 8 dereferenceable(76) %this1, i32 noundef 22, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV20X3DNodeElementNormal, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV20X3DNodeElementNormal, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %Value = getelementptr inbounds %struct.X3DNodeElementNormal, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx114listI10aiVector3tIfESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Value) #5
   ret void
@@ -8834,16 +8841,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #5
   br label %eh.resume
 
@@ -9113,17 +9121,18 @@ entry:
   store i32 %type, ptr %type.addr, align 4
   store ptr %pParent, ptr %pParent.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18X3DNodeElementBase, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV18X3DNodeElementBase, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Parent = getelementptr inbounds %struct.X3DNodeElementBase, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pParent.addr, align 8
-  store ptr %0, ptr %Parent, align 8
+  %1 = load ptr, ptr %pParent.addr, align 8
+  store ptr %1, ptr %Parent, align 8
   %ID = getelementptr inbounds %struct.X3DNodeElementBase, ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID) #5
   %Children = getelementptr inbounds %struct.X3DNodeElementBase, ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Children) #5
   %Type = getelementptr inbounds %struct.X3DNodeElementBase, ptr %this1, i32 0, i32 4
-  %1 = load i32, ptr %type.addr, align 4
-  store i32 %1, ptr %Type, align 8
+  %2 = load i32, ptr %type.addr, align 4
+  store i32 %2, ptr %Type, align 8
   ret void
 }
 
@@ -9133,7 +9142,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19X3DNodeElementColor, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV19X3DNodeElementColor, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Value = getelementptr inbounds %struct.X3DNodeElementColor, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx114listI9aiColor3DSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Value) #5
   call void @_ZN18X3DNodeElementBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this1) #5
@@ -9167,7 +9177,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18X3DNodeElementBase, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV18X3DNodeElementBase, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Children = getelementptr inbounds %struct.X3DNodeElementBase, ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Children) #5
   %ID = getelementptr inbounds %struct.X3DNodeElementBase, ptr %this1, i32 0, i32 2
@@ -9698,7 +9709,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV23X3DNodeElementColorRGBA, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV23X3DNodeElementColorRGBA, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Value = getelementptr inbounds %struct.X3DNodeElementColorRGBA, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx114listI9aiColor4tIfESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Value) #5
   call void @_ZN18X3DNodeElementBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this1) #5
@@ -9965,7 +9977,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV24X3DNodeElementCoordinate, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV24X3DNodeElementCoordinate, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Value = getelementptr inbounds %struct.X3DNodeElementCoordinate, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx114listI10aiVector3tIfESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Value) #5
   call void @_ZN18X3DNodeElementBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this1) #5
@@ -10324,7 +10337,8 @@ entry:
   %0 = load i32, ptr %pType.addr, align 4
   %1 = load ptr, ptr %pParent.addr, align 8
   call void @_ZN18X3DNodeElementBaseC2E11X3DElemTypePS_(ptr noundef nonnull align 8 dereferenceable(76) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV24X3DNodeElementGeometry3D, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV24X3DNodeElementGeometry3D, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Vertices = getelementptr inbounds %struct.X3DNodeElementGeometry3D, ptr %this1, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr align 8 %Vertices, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx114listI10aiVector3tIfESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Vertices) #5
@@ -10341,7 +10355,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV24X3DNodeElementIndexedSet, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV24X3DNodeElementIndexedSet, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %TexCoordIndex = getelementptr inbounds %struct.X3DNodeElementIndexedSet, ptr %this1, i32 0, i32 9
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %TexCoordIndex) #5
   %NormalIndex = getelementptr inbounds %struct.X3DNodeElementIndexedSet, ptr %this1, i32 0, i32 7
@@ -10374,7 +10389,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV24X3DNodeElementGeometry3D, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV24X3DNodeElementGeometry3D, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Vertices = getelementptr inbounds %struct.X3DNodeElementGeometry3D, ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx114listI10aiVector3tIfESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Vertices) #5
   call void @_ZN18X3DNodeElementBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this1) #5
@@ -10500,7 +10516,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV17X3DNodeElementSet, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV17X3DNodeElementSet, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %VertexCount = getelementptr inbounds %struct.X3DNodeElementSet, ptr %this1, i32 0, i32 7
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %VertexCount) #5
   %TexCoordIndex = getelementptr inbounds %struct.X3DNodeElementSet, ptr %this1, i32 0, i32 6
@@ -10530,7 +10547,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV20X3DNodeElementNormal, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV20X3DNodeElementNormal, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Value = getelementptr inbounds %struct.X3DNodeElementNormal, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx114listI10aiVector3tIfESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Value) #5
   call void @_ZN18X3DNodeElementBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this1) #5

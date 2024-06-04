@@ -2965,28 +2965,29 @@ if.then18:                                        ; preds = %if.end17
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %if.end17
-  call void @preconfig_copy(ptr noundef %save_runtime_config, ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 28))
+  %9 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 28
+  call void @preconfig_copy(ptr noundef %save_runtime_config, ptr noundef %9)
   call void @llvm.memset.p0.i64(ptr align 8 %cmdline, i8 0, i64 48, i1 false)
-  %9 = getelementptr inbounds %struct._PyPreCmdline, ptr %cmdline, i32 0, i32 2
-  store i32 -1, ptr %9, align 8
-  %10 = getelementptr inbounds %struct._PyPreCmdline, ptr %cmdline, i32 0, i32 3
-  store i32 -1, ptr %10, align 4
-  %11 = getelementptr inbounds %struct._PyPreCmdline, ptr %cmdline, i32 0, i32 4
-  store i32 -1, ptr %11, align 8
+  %10 = getelementptr inbounds %struct._PyPreCmdline, ptr %cmdline, i32 0, i32 2
+  store i32 -1, ptr %10, align 8
+  %11 = getelementptr inbounds %struct._PyPreCmdline, ptr %cmdline, i32 0, i32 3
+  store i32 -1, ptr %11, align 4
+  %12 = getelementptr inbounds %struct._PyPreCmdline, ptr %cmdline, i32 0, i32 4
+  store i32 -1, ptr %12, align 8
   store i32 0, ptr %locale_coerced, align 4
   store i32 0, ptr %loops, align 4
   br label %while.body
 
 while.body:                                       ; preds = %if.end60, %if.end20
-  %12 = load ptr, ptr %config.addr, align 8
-  %utf8_mode21 = getelementptr inbounds %struct.PyPreConfig, ptr %12, i32 0, i32 7
-  %13 = load i32, ptr %utf8_mode21, align 4
-  store i32 %13, ptr %utf8_mode, align 4
-  %14 = load i32, ptr %loops, align 4
-  %inc = add i32 %14, 1
-  store i32 %inc, ptr %loops, align 4
+  %13 = load ptr, ptr %config.addr, align 8
+  %utf8_mode21 = getelementptr inbounds %struct.PyPreConfig, ptr %13, i32 0, i32 7
+  %14 = load i32, ptr %utf8_mode21, align 4
+  store i32 %14, ptr %utf8_mode, align 4
   %15 = load i32, ptr %loops, align 4
-  %cmp22 = icmp eq i32 %15, 3
+  %inc = add i32 %15, 1
+  store i32 %inc, ptr %loops, align 4
+  %16 = load i32, ptr %loops, align 4
+  %cmp22 = icmp eq i32 %16, 3
   br i1 %cmp22, label %if.then23, label %if.end28
 
 if.then23:                                        ; preds = %while.body
@@ -3002,19 +3003,20 @@ if.then23:                                        ; preds = %while.body
   br label %done
 
 if.end28:                                         ; preds = %while.body
-  %16 = load ptr, ptr %config.addr, align 8
-  call void @preconfig_copy(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 28), ptr noundef %16)
-  %17 = load ptr, ptr %args.addr, align 8
-  %tobool29 = icmp ne ptr %17, null
+  %17 = load ptr, ptr %config.addr, align 8
+  %18 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 28
+  call void @preconfig_copy(ptr noundef %18, ptr noundef %17)
+  %19 = load ptr, ptr %args.addr, align 8
+  %tobool29 = icmp ne ptr %19, null
   br i1 %tobool29, label %if.then30, label %if.end36
 
 if.then30:                                        ; preds = %if.end28
-  %18 = load ptr, ptr %args.addr, align 8
-  call void @_PyPreCmdline_SetArgv(ptr sret(%struct.PyStatus) align 8 %tmp31, ptr noundef %cmdline, ptr noundef %18)
+  %20 = load ptr, ptr %args.addr, align 8
+  call void @_PyPreCmdline_SetArgv(ptr sret(%struct.PyStatus) align 8 %tmp31, ptr noundef %cmdline, ptr noundef %20)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %status, ptr align 8 %tmp31, i64 32, i1 false)
   %_type32 = getelementptr inbounds %struct.PyStatus, ptr %status, i32 0, i32 0
-  %19 = load i32, ptr %_type32, align 8
-  %cmp33 = icmp ne i32 %19, 0
+  %21 = load i32, ptr %_type32, align 8
+  %cmp33 = icmp ne i32 %21, 0
   br i1 %cmp33, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.then30
@@ -3024,12 +3026,12 @@ if.end35:                                         ; preds = %if.then30
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end35, %if.end28
-  %20 = load ptr, ptr %config.addr, align 8
-  call void @preconfig_read(ptr sret(%struct.PyStatus) align 8 %tmp37, ptr noundef %20, ptr noundef %cmdline)
+  %22 = load ptr, ptr %config.addr, align 8
+  call void @preconfig_read(ptr sret(%struct.PyStatus) align 8 %tmp37, ptr noundef %22, ptr noundef %cmdline)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %status, ptr align 8 %tmp37, i64 32, i1 false)
   %_type38 = getelementptr inbounds %struct.PyStatus, ptr %status, i32 0, i32 0
-  %21 = load i32, ptr %_type38, align 8
-  %cmp39 = icmp ne i32 %21, 0
+  %23 = load i32, ptr %_type38, align 8
+  %cmp39 = icmp ne i32 %23, 0
   br i1 %cmp39, label %if.then40, label %if.end41
 
 if.then40:                                        ; preds = %if.end36
@@ -3037,15 +3039,15 @@ if.then40:                                        ; preds = %if.end36
 
 if.end41:                                         ; preds = %if.end36
   store i32 0, ptr %encoding_changed, align 4
-  %22 = load ptr, ptr %config.addr, align 8
-  %coerce_c_locale = getelementptr inbounds %struct.PyPreConfig, ptr %22, i32 0, i32 5
-  %23 = load i32, ptr %coerce_c_locale, align 4
-  %tobool42 = icmp ne i32 %23, 0
+  %24 = load ptr, ptr %config.addr, align 8
+  %coerce_c_locale = getelementptr inbounds %struct.PyPreConfig, ptr %24, i32 0, i32 5
+  %25 = load i32, ptr %coerce_c_locale, align 4
+  %tobool42 = icmp ne i32 %25, 0
   br i1 %tobool42, label %land.lhs.true, label %if.end46
 
 land.lhs.true:                                    ; preds = %if.end41
-  %24 = load i32, ptr %locale_coerced, align 4
-  %tobool43 = icmp ne i32 %24, 0
+  %26 = load i32, ptr %locale_coerced, align 4
+  %tobool43 = icmp ne i32 %26, 0
   br i1 %tobool43, label %if.end46, label %if.then44
 
 if.then44:                                        ; preds = %land.lhs.true
@@ -3055,15 +3057,15 @@ if.then44:                                        ; preds = %land.lhs.true
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then44, %land.lhs.true, %if.end41
-  %25 = load i32, ptr %utf8_mode, align 4
-  %cmp47 = icmp eq i32 %25, -1
+  %27 = load i32, ptr %utf8_mode, align 4
+  %cmp47 = icmp eq i32 %27, -1
   br i1 %cmp47, label %if.then48, label %if.else
 
 if.then48:                                        ; preds = %if.end46
-  %26 = load ptr, ptr %config.addr, align 8
-  %utf8_mode49 = getelementptr inbounds %struct.PyPreConfig, ptr %26, i32 0, i32 7
-  %27 = load i32, ptr %utf8_mode49, align 4
-  %cmp50 = icmp eq i32 %27, 1
+  %28 = load ptr, ptr %config.addr, align 8
+  %utf8_mode49 = getelementptr inbounds %struct.PyPreConfig, ptr %28, i32 0, i32 7
+  %29 = load i32, ptr %utf8_mode49, align 4
+  %cmp50 = icmp eq i32 %29, 1
   br i1 %cmp50, label %if.then51, label %if.end52
 
 if.then51:                                        ; preds = %if.then48
@@ -3074,11 +3076,11 @@ if.end52:                                         ; preds = %if.then51, %if.then
   br label %if.end57
 
 if.else:                                          ; preds = %if.end46
-  %28 = load ptr, ptr %config.addr, align 8
-  %utf8_mode53 = getelementptr inbounds %struct.PyPreConfig, ptr %28, i32 0, i32 7
-  %29 = load i32, ptr %utf8_mode53, align 4
-  %30 = load i32, ptr %utf8_mode, align 4
-  %cmp54 = icmp ne i32 %29, %30
+  %30 = load ptr, ptr %config.addr, align 8
+  %utf8_mode53 = getelementptr inbounds %struct.PyPreConfig, ptr %30, i32 0, i32 7
+  %31 = load i32, ptr %utf8_mode53, align 4
+  %32 = load i32, ptr %utf8_mode, align 4
+  %cmp54 = icmp ne i32 %31, %32
   br i1 %cmp54, label %if.then55, label %if.end56
 
 if.then55:                                        ; preds = %if.else
@@ -3089,32 +3091,32 @@ if.end56:                                         ; preds = %if.then55, %if.else
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end56, %if.end52
-  %31 = load i32, ptr %encoding_changed, align 4
-  %tobool58 = icmp ne i32 %31, 0
+  %33 = load i32, ptr %encoding_changed, align 4
+  %tobool58 = icmp ne i32 %33, 0
   br i1 %tobool58, label %if.end60, label %if.then59
 
 if.then59:                                        ; preds = %if.end57
   br label %while.end
 
 if.end60:                                         ; preds = %if.end57
-  %32 = load ptr, ptr %config.addr, align 8
-  %utf8_mode61 = getelementptr inbounds %struct.PyPreConfig, ptr %32, i32 0, i32 7
-  %33 = load i32, ptr %utf8_mode61, align 4
-  store i32 %33, ptr %new_utf8_mode, align 4
   %34 = load ptr, ptr %config.addr, align 8
-  %coerce_c_locale62 = getelementptr inbounds %struct.PyPreConfig, ptr %34, i32 0, i32 5
-  %35 = load i32, ptr %coerce_c_locale62, align 4
-  store i32 %35, ptr %new_coerce_c_locale, align 4
+  %utf8_mode61 = getelementptr inbounds %struct.PyPreConfig, ptr %34, i32 0, i32 7
+  %35 = load i32, ptr %utf8_mode61, align 4
+  store i32 %35, ptr %new_utf8_mode, align 4
   %36 = load ptr, ptr %config.addr, align 8
-  call void @preconfig_copy(ptr noundef %36, ptr noundef %save_config)
-  %37 = load i32, ptr %new_utf8_mode, align 4
+  %coerce_c_locale62 = getelementptr inbounds %struct.PyPreConfig, ptr %36, i32 0, i32 5
+  %37 = load i32, ptr %coerce_c_locale62, align 4
+  store i32 %37, ptr %new_coerce_c_locale, align 4
   %38 = load ptr, ptr %config.addr, align 8
-  %utf8_mode63 = getelementptr inbounds %struct.PyPreConfig, ptr %38, i32 0, i32 7
-  store i32 %37, ptr %utf8_mode63, align 4
-  %39 = load i32, ptr %new_coerce_c_locale, align 4
+  call void @preconfig_copy(ptr noundef %38, ptr noundef %save_config)
+  %39 = load i32, ptr %new_utf8_mode, align 4
   %40 = load ptr, ptr %config.addr, align 8
-  %coerce_c_locale64 = getelementptr inbounds %struct.PyPreConfig, ptr %40, i32 0, i32 5
-  store i32 %39, ptr %coerce_c_locale64, align 4
+  %utf8_mode63 = getelementptr inbounds %struct.PyPreConfig, ptr %40, i32 0, i32 7
+  store i32 %39, ptr %utf8_mode63, align 4
+  %41 = load i32, ptr %new_coerce_c_locale, align 4
+  %42 = load ptr, ptr %config.addr, align 8
+  %coerce_c_locale64 = getelementptr inbounds %struct.PyPreConfig, ptr %42, i32 0, i32 5
+  store i32 %41, ptr %coerce_c_locale64, align 4
   br label %while.body
 
 while.end:                                        ; preds = %if.then59
@@ -3125,11 +3127,12 @@ while.end:                                        ; preds = %if.then59
   br label %done
 
 done:                                             ; preds = %while.end, %if.then40, %if.then34, %if.then23
-  %41 = load ptr, ptr %init_ctype_locale, align 8
-  %call70 = call ptr @setlocale(i32 noundef 0, ptr noundef %41) #8
-  %42 = load ptr, ptr %init_ctype_locale, align 8
-  call void @PyMem_RawFree(ptr noundef %42)
-  call void @preconfig_copy(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 28), ptr noundef %save_runtime_config)
+  %43 = load ptr, ptr %init_ctype_locale, align 8
+  %call70 = call ptr @setlocale(i32 noundef 0, ptr noundef %43) #8
+  %44 = load ptr, ptr %init_ctype_locale, align 8
+  call void @PyMem_RawFree(ptr noundef %44)
+  %45 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 28
+  call void @preconfig_copy(ptr noundef %45, ptr noundef %save_runtime_config)
   call void @_PyPreCmdline_Clear(ptr noundef %cmdline)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %status, i64 32, i1 false)
   br label %return
@@ -3294,8 +3297,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 4), align 4
-  %tobool = icmp ne i32 %2, 0
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 4
+  %3 = load i32, ptr %2, align 4
+  %tobool = icmp ne i32 %3, 0
   br i1 %tobool, label %if.then1, label %if.end3
 
 if.then1:                                         ; preds = %if.end
@@ -3306,15 +3310,15 @@ if.then1:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %allocator = getelementptr inbounds %struct.PyPreConfig, ptr %config, i32 0, i32 9
-  %3 = load i32, ptr %allocator, align 4
-  store i32 %3, ptr %name, align 4
-  %4 = load i32, ptr %name, align 4
-  %cmp4 = icmp ne i32 %4, 0
+  %4 = load i32, ptr %allocator, align 4
+  store i32 %4, ptr %name, align 4
+  %5 = load i32, ptr %name, align 4
+  %cmp4 = icmp ne i32 %5, 0
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.end3
-  %5 = load i32, ptr %name, align 4
-  %call = call i32 @_PyMem_SetupAllocators(i32 noundef %5)
+  %6 = load i32, ptr %name, align 4
+  %call = call i32 @_PyMem_SetupAllocators(i32 noundef %6)
   %cmp6 = icmp slt i32 %call, 0
   br i1 %cmp6, label %if.then7, label %if.end9
 
@@ -3335,20 +3339,20 @@ if.end9:                                          ; preds = %if.then5
 if.end10:                                         ; preds = %if.end9, %if.end3
   call void @preconfig_set_global_vars(ptr noundef %config)
   %configure_locale = getelementptr inbounds %struct.PyPreConfig, ptr %config, i32 0, i32 4
-  %6 = load i32, ptr %configure_locale, align 4
-  %tobool11 = icmp ne i32 %6, 0
+  %7 = load i32, ptr %configure_locale, align 4
+  %tobool11 = icmp ne i32 %7, 0
   br i1 %tobool11, label %if.then12, label %if.end22
 
 if.then12:                                        ; preds = %if.end10
   %coerce_c_locale = getelementptr inbounds %struct.PyPreConfig, ptr %config, i32 0, i32 5
-  %7 = load i32, ptr %coerce_c_locale, align 4
-  %tobool13 = icmp ne i32 %7, 0
+  %8 = load i32, ptr %coerce_c_locale, align 4
+  %tobool13 = icmp ne i32 %8, 0
   br i1 %tobool13, label %if.then14, label %if.end20
 
 if.then14:                                        ; preds = %if.then12
   %coerce_c_locale_warn = getelementptr inbounds %struct.PyPreConfig, ptr %config, i32 0, i32 6
-  %8 = load i32, ptr %coerce_c_locale_warn, align 4
-  %call15 = call i32 @_Py_CoerceLegacyLocale(i32 noundef %8)
+  %9 = load i32, ptr %coerce_c_locale_warn, align 4
+  %call15 = call i32 @_Py_CoerceLegacyLocale(i32 noundef %9)
   %tobool16 = icmp ne i32 %call15, 0
   br i1 %tobool16, label %if.end19, label %if.then17
 
@@ -3365,7 +3369,8 @@ if.end20:                                         ; preds = %if.end19, %if.then1
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end20, %if.end10
-  call void @preconfig_copy(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 28), ptr noundef %config)
+  %10 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 28
+  call void @preconfig_copy(ptr noundef %10, ptr noundef %config)
   call void @llvm.memset.p0.i64(ptr align 8 %agg.result, i8 0, i64 32, i1 false)
   %_type23 = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i32 0, i32 0
   store i32 0, ptr %_type23, align 8

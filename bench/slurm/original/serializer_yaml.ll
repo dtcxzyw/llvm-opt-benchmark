@@ -108,33 +108,34 @@ define i32 @serializer_p_init() #0 {
   br label %1
 
 1:                                                ; preds = %0
-  %2 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %3 = and i64 %2, 256
-  %4 = icmp ne i64 %3, 0
-  br i1 %4, label %5, label %12
+  %2 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %3 = load i64, ptr %2, align 8
+  %4 = and i64 %3, 256
+  %5 = icmp ne i64 %4, 0
+  br i1 %5, label %6, label %13
 
-5:                                                ; preds = %1
-  br label %6
+6:                                                ; preds = %1
+  br label %7
 
-6:                                                ; preds = %5
-  %7 = call i32 @slurm_get_log_level()
-  %8 = icmp sge i32 %7, 4
-  br i1 %8, label %9, label %10
+7:                                                ; preds = %6
+  %8 = call i32 @slurm_get_log_level()
+  %9 = icmp sge i32 %8, 4
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %6
+10:                                               ; preds = %7
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.2, ptr noundef @plugin_type, ptr noundef @__func__.serializer_p_init)
-  br label %10
-
-10:                                               ; preds = %9, %6
   br label %11
 
-11:                                               ; preds = %10
+11:                                               ; preds = %10, %7
   br label %12
 
-12:                                               ; preds = %11, %1
+12:                                               ; preds = %11
   br label %13
 
-13:                                               ; preds = %12
+13:                                               ; preds = %12, %1
+  br label %14
+
+14:                                               ; preds = %13
   ret i32 0
 }
 
@@ -147,33 +148,34 @@ define i32 @serializer_p_fini() #0 {
   br label %1
 
 1:                                                ; preds = %0
-  %2 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %3 = and i64 %2, 256
-  %4 = icmp ne i64 %3, 0
-  br i1 %4, label %5, label %12
+  %2 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %3 = load i64, ptr %2, align 8
+  %4 = and i64 %3, 256
+  %5 = icmp ne i64 %4, 0
+  br i1 %5, label %6, label %13
 
-5:                                                ; preds = %1
-  br label %6
+6:                                                ; preds = %1
+  br label %7
 
-6:                                                ; preds = %5
-  %7 = call i32 @slurm_get_log_level()
-  %8 = icmp sge i32 %7, 4
-  br i1 %8, label %9, label %10
+7:                                                ; preds = %6
+  %8 = call i32 @slurm_get_log_level()
+  %9 = icmp sge i32 %8, 4
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %6
+10:                                               ; preds = %7
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.3, ptr noundef @plugin_type, ptr noundef @__func__.serializer_p_fini)
-  br label %10
-
-10:                                               ; preds = %9, %6
   br label %11
 
-11:                                               ; preds = %10
+11:                                               ; preds = %10, %7
   br label %12
 
-12:                                               ; preds = %11, %1
+12:                                               ; preds = %11
   br label %13
 
-13:                                               ; preds = %12
+13:                                               ; preds = %12, %1
+  br label %14
+
+14:                                               ; preds = %13
   ret i32 0
 }
 
@@ -1418,15 +1420,15 @@ define internal i32 @_yaml_to_data(i32 noundef %0, ptr noundef %1, ptr noundef %
   %18 = load ptr, ptr %9, align 8
   store i32 9214, ptr %18, align 4
   store i32 5, ptr %5, align 4
-  br label %94
+  br label %96
 
 19:                                               ; preds = %4
   br label %20
 
-20:                                               ; preds = %92, %19
+20:                                               ; preds = %94, %19
   %21 = load i32, ptr %10, align 4
   %22 = icmp ult i32 %21, 4
-  br i1 %22, label %23, label %93
+  br i1 %22, label %23, label %95
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %7, align 8
@@ -1443,109 +1445,111 @@ define internal i32 @_yaml_to_data(i32 noundef %0, ptr noundef %1, ptr noundef %
   %32 = load ptr, ptr %9, align 8
   store i32 9215, ptr %32, align 4
   store i32 5, ptr %5, align 4
-  br label %94
+  br label %96
 
 33:                                               ; preds = %23
   br label %34
 
 34:                                               ; preds = %33
-  %35 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %36 = and i64 %35, 256
-  %37 = icmp ne i64 %36, 0
-  br i1 %37, label %38, label %66
+  %35 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %36 = load i64, ptr %35, align 8
+  %37 = and i64 %36, 256
+  %38 = icmp ne i64 %37, 0
+  br i1 %38, label %39, label %67
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %struct.yaml_parser_s, ptr %39, i32 0, i32 11
-  %41 = getelementptr inbounds %struct.anon.11, ptr %40, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %struct.yaml_parser_s, ptr %43, i32 0, i32 11
-  %45 = getelementptr inbounds %struct.anon.11, ptr %44, i32 0, i32 3
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct.yaml_parser_s, ptr %47, i32 0, i32 11
-  %49 = getelementptr inbounds %struct.anon.11, ptr %48, i32 0, i32 0
-  %50 = load ptr, ptr %49, align 8
-  %51 = ptrtoint ptr %46 to i64
-  %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  %54 = getelementptr inbounds %struct.yaml_event_s, ptr %11, i32 0, i32 2
-  %55 = getelementptr inbounds %struct.yaml_mark_s, ptr %54, i32 0, i32 0
-  %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds %struct.yaml_event_s, ptr %11, i32 0, i32 2
-  %58 = getelementptr inbounds %struct.yaml_mark_s, ptr %57, i32 0, i32 0
-  %59 = load i64, ptr %58, align 8
-  %60 = add i64 %59, 16
-  %61 = load ptr, ptr %8, align 8
-  %62 = load i32, ptr %6, align 4
-  %63 = getelementptr inbounds %struct.yaml_event_s, ptr %11, i32 0, i32 0
-  %64 = load i32, ptr %63, align 8
-  %65 = call ptr @_yaml_event_type_string(i32 noundef %64)
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %42, i64 noundef %53, i64 noundef %56, i64 noundef %60, ptr noundef @.str.24, ptr noundef @__func__._yaml_to_data, ptr noundef %61, i32 noundef %62, ptr noundef %65)
-  br label %66
-
-66:                                               ; preds = %38, %34
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %7, align 8
+  %41 = getelementptr inbounds %struct.yaml_parser_s, ptr %40, i32 0, i32 11
+  %42 = getelementptr inbounds %struct.anon.11, ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds %struct.yaml_parser_s, ptr %44, i32 0, i32 11
+  %46 = getelementptr inbounds %struct.anon.11, ptr %45, i32 0, i32 3
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds %struct.yaml_parser_s, ptr %48, i32 0, i32 11
+  %50 = getelementptr inbounds %struct.anon.11, ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8
+  %52 = ptrtoint ptr %47 to i64
+  %53 = ptrtoint ptr %51 to i64
+  %54 = sub i64 %52, %53
+  %55 = getelementptr inbounds %struct.yaml_event_s, ptr %11, i32 0, i32 2
+  %56 = getelementptr inbounds %struct.yaml_mark_s, ptr %55, i32 0, i32 0
+  %57 = load i64, ptr %56, align 8
+  %58 = getelementptr inbounds %struct.yaml_event_s, ptr %11, i32 0, i32 2
+  %59 = getelementptr inbounds %struct.yaml_mark_s, ptr %58, i32 0, i32 0
+  %60 = load i64, ptr %59, align 8
+  %61 = add i64 %60, 16
+  %62 = load ptr, ptr %8, align 8
+  %63 = load i32, ptr %6, align 4
+  %64 = getelementptr inbounds %struct.yaml_event_s, ptr %11, i32 0, i32 0
+  %65 = load i32, ptr %64, align 8
+  %66 = call ptr @_yaml_event_type_string(i32 noundef %65)
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %43, i64 noundef %54, i64 noundef %57, i64 noundef %61, ptr noundef @.str.24, ptr noundef @__func__._yaml_to_data, ptr noundef %62, i32 noundef %63, ptr noundef %66)
   br label %67
 
-67:                                               ; preds = %66
-  %68 = load i32, ptr %6, align 4
-  %69 = load ptr, ptr %7, align 8
-  %70 = load ptr, ptr %8, align 8
-  %71 = load ptr, ptr %9, align 8
-  %72 = load i32, ptr %10, align 4
-  %73 = call i32 @_on_parse_event(i32 noundef %68, ptr noundef %69, ptr noundef %11, ptr noundef %70, ptr noundef %71, i32 noundef %72)
-  store i32 %73, ptr %10, align 4
-  %74 = load i32, ptr %10, align 4
-  %75 = icmp eq i32 %74, 3
-  br i1 %75, label %76, label %92
+67:                                               ; preds = %39, %34
+  br label %68
 
-76:                                               ; preds = %67
-  br label %77
+68:                                               ; preds = %67
+  %69 = load i32, ptr %6, align 4
+  %70 = load ptr, ptr %7, align 8
+  %71 = load ptr, ptr %8, align 8
+  %72 = load ptr, ptr %9, align 8
+  %73 = load i32, ptr %10, align 4
+  %74 = call i32 @_on_parse_event(i32 noundef %69, ptr noundef %70, ptr noundef %11, ptr noundef %71, ptr noundef %72, i32 noundef %73)
+  store i32 %74, ptr %10, align 4
+  %75 = load i32, ptr %10, align 4
+  %76 = icmp eq i32 %75, 3
+  br i1 %76, label %77, label %94
 
-77:                                               ; preds = %76
-  %78 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %79 = and i64 %78, 256
-  %80 = icmp ne i64 %79, 0
-  br i1 %80, label %81, label %90
+77:                                               ; preds = %68
+  br label %78
 
-81:                                               ; preds = %77
-  br label %82
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %80 = load i64, ptr %79, align 8
+  %81 = and i64 %80, 256
+  %82 = icmp ne i64 %81, 0
+  br i1 %82, label %83, label %92
 
-82:                                               ; preds = %81
-  %83 = call i32 @slurm_get_log_level()
-  %84 = icmp sge i32 %83, 4
-  br i1 %84, label %85, label %88
+83:                                               ; preds = %78
+  br label %84
 
-85:                                               ; preds = %82
-  %86 = load ptr, ptr %8, align 8
-  %87 = load i32, ptr %6, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.25, ptr noundef @plugin_type, ptr noundef @__func__._yaml_to_data, ptr noundef %86, i32 noundef %87)
-  br label %88
+84:                                               ; preds = %83
+  %85 = call i32 @slurm_get_log_level()
+  %86 = icmp sge i32 %85, 4
+  br i1 %86, label %87, label %90
 
-88:                                               ; preds = %85, %82
-  br label %89
-
-89:                                               ; preds = %88
+87:                                               ; preds = %84
+  %88 = load ptr, ptr %8, align 8
+  %89 = load i32, ptr %6, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.25, ptr noundef @plugin_type, ptr noundef @__func__._yaml_to_data, ptr noundef %88, i32 noundef %89)
   br label %90
 
-90:                                               ; preds = %89, %77
+90:                                               ; preds = %87, %84
   br label %91
 
 91:                                               ; preds = %90
-  store i32 2, ptr %10, align 4
+  br label %92
+
+92:                                               ; preds = %91, %78
   br label %93
 
-92:                                               ; preds = %67
+93:                                               ; preds = %92
+  store i32 2, ptr %10, align 4
+  br label %95
+
+94:                                               ; preds = %68
   br label %20, !llvm.loop !6
 
-93:                                               ; preds = %91, %20
+95:                                               ; preds = %93, %20
   store i32 2, ptr %5, align 4
-  br label %94
+  br label %96
 
-94:                                               ; preds = %93, %27, %14
-  %95 = load i32, ptr %5, align 4
-  ret i32 %95
+96:                                               ; preds = %95, %27, %14
+  %97 = load i32, ptr %5, align 4
+  ret i32 %97
 }
 
 declare i32 @yaml_parser_parse(ptr noundef, ptr noundef) #1
@@ -1619,7 +1623,7 @@ define internal i32 @_on_parse_event(i32 noundef %0, ptr noundef %1, ptr noundef
   %15 = load ptr, ptr %11, align 8
   %16 = call i32 @data_get_type(ptr noundef %15)
   %17 = icmp eq i32 %16, 2
-  br i1 %17, label %18, label %66
+  br i1 %17, label %18, label %67
 
 18:                                               ; preds = %6
   %19 = load ptr, ptr %10, align 8
@@ -1640,7 +1644,7 @@ define internal i32 @_on_parse_event(i32 noundef %0, ptr noundef %1, ptr noundef
   %30 = getelementptr inbounds %struct.yaml_event_s, ptr %29, i32 0, i32 0
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 9
-  br i1 %32, label %33, label %66
+  br i1 %32, label %33, label %67
 
 33:                                               ; preds = %28, %23, %18
   %34 = load ptr, ptr %11, align 8
@@ -1649,183 +1653,184 @@ define internal i32 @_on_parse_event(i32 noundef %0, ptr noundef %1, ptr noundef
   br label %36
 
 36:                                               ; preds = %33
-  %37 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %38 = and i64 %37, 256
-  %39 = icmp ne i64 %38, 0
-  br i1 %39, label %40, label %49
+  %37 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %38 = load i64, ptr %37, align 8
+  %39 = and i64 %38, 256
+  %40 = icmp ne i64 %39, 0
+  br i1 %40, label %41, label %50
 
-40:                                               ; preds = %36
-  br label %41
+41:                                               ; preds = %36
+  br label %42
 
-41:                                               ; preds = %40
-  %42 = call i32 @slurm_get_log_level()
-  %43 = icmp sge i32 %42, 4
-  br i1 %43, label %44, label %47
+42:                                               ; preds = %41
+  %43 = call i32 @slurm_get_log_level()
+  %44 = icmp sge i32 %43, 4
+  br i1 %44, label %45, label %48
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %11, align 8
-  %46 = load ptr, ptr %14, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.38, ptr noundef @plugin_type, ptr noundef @__func__._on_parse_event, ptr noundef %45, ptr noundef %46)
-  br label %47
-
-47:                                               ; preds = %44, %41
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %11, align 8
+  %47 = load ptr, ptr %14, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.38, ptr noundef @plugin_type, ptr noundef @__func__._on_parse_event, ptr noundef %46, ptr noundef %47)
   br label %48
 
-48:                                               ; preds = %47
+48:                                               ; preds = %45, %42
   br label %49
 
-49:                                               ; preds = %48, %36
+49:                                               ; preds = %48
   br label %50
 
-50:                                               ; preds = %49
-  %51 = load i32, ptr %8, align 4
-  %52 = add nsw i32 %51, 1
-  %53 = load ptr, ptr %9, align 8
-  %54 = load ptr, ptr %10, align 8
-  %55 = load ptr, ptr %14, align 8
-  %56 = load ptr, ptr %12, align 8
-  %57 = load i32, ptr %13, align 4
-  %58 = call i32 @_on_parse_event(i32 noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56, i32 noundef %57)
-  store i32 %58, ptr %13, align 4
-  %59 = load i32, ptr %13, align 4
-  %60 = icmp eq i32 %59, 3
-  br i1 %60, label %61, label %62
+50:                                               ; preds = %49, %36
+  br label %51
 
-61:                                               ; preds = %50
-  br label %64
+51:                                               ; preds = %50
+  %52 = load i32, ptr %8, align 4
+  %53 = add nsw i32 %52, 1
+  %54 = load ptr, ptr %9, align 8
+  %55 = load ptr, ptr %10, align 8
+  %56 = load ptr, ptr %14, align 8
+  %57 = load ptr, ptr %12, align 8
+  %58 = load i32, ptr %13, align 4
+  %59 = call i32 @_on_parse_event(i32 noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56, ptr noundef %57, i32 noundef %58)
+  store i32 %59, ptr %13, align 4
+  %60 = load i32, ptr %13, align 4
+  %61 = icmp eq i32 %60, 3
+  br i1 %61, label %62, label %63
 
-62:                                               ; preds = %50
-  %63 = load i32, ptr %13, align 4
-  br label %64
+62:                                               ; preds = %51
+  br label %65
 
-64:                                               ; preds = %62, %61
-  %65 = phi i32 [ 2, %61 ], [ %63, %62 ]
-  store i32 %65, ptr %7, align 4
-  br label %121
+63:                                               ; preds = %51
+  %64 = load i32, ptr %13, align 4
+  br label %65
 
-66:                                               ; preds = %28, %6
-  %67 = load ptr, ptr %10, align 8
-  %68 = getelementptr inbounds %struct.yaml_event_s, ptr %67, i32 0, i32 0
-  %69 = load i32, ptr %68, align 8
-  switch i32 %69, label %120 [
-    i32 0, label %70
-    i32 3, label %71
-    i32 1, label %72
-    i32 4, label %73
-    i32 2, label %74
-    i32 5, label %75
-    i32 6, label %78
-    i32 7, label %86
-    i32 8, label %102
-    i32 9, label %103
-    i32 10, label %119
+65:                                               ; preds = %63, %62
+  %66 = phi i32 [ 2, %62 ], [ %64, %63 ]
+  store i32 %66, ptr %7, align 4
+  br label %122
+
+67:                                               ; preds = %28, %6
+  %68 = load ptr, ptr %10, align 8
+  %69 = getelementptr inbounds %struct.yaml_event_s, ptr %68, i32 0, i32 0
+  %70 = load i32, ptr %69, align 8
+  switch i32 %70, label %121 [
+    i32 0, label %71
+    i32 3, label %72
+    i32 1, label %73
+    i32 4, label %74
+    i32 2, label %75
+    i32 5, label %76
+    i32 6, label %79
+    i32 7, label %87
+    i32 8, label %103
+    i32 9, label %104
+    i32 10, label %120
   ]
 
-70:                                               ; preds = %66
+71:                                               ; preds = %67
   store i32 4, ptr %7, align 4
-  br label %121
+  br label %122
 
-71:                                               ; preds = %66
+72:                                               ; preds = %67
   store i32 2, ptr %7, align 4
-  br label %121
+  br label %122
 
-72:                                               ; preds = %66
+73:                                               ; preds = %67
   store i32 2, ptr %7, align 4
-  br label %121
+  br label %122
 
-73:                                               ; preds = %66
+74:                                               ; preds = %67
   store i32 2, ptr %7, align 4
-  br label %121
+  br label %122
 
-74:                                               ; preds = %66
+75:                                               ; preds = %67
   store i32 4, ptr %7, align 4
-  br label %121
+  br label %122
 
-75:                                               ; preds = %66
-  %76 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.39, ptr noundef @__func__._on_parse_event)
-  %77 = load ptr, ptr %12, align 8
-  store i32 2036, ptr %77, align 4
+76:                                               ; preds = %67
+  %77 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.39, ptr noundef @__func__._on_parse_event)
+  %78 = load ptr, ptr %12, align 8
+  store i32 2036, ptr %78, align 4
   store i32 5, ptr %7, align 4
-  br label %121
+  br label %122
 
-78:                                               ; preds = %66
-  %79 = load i32, ptr %8, align 4
-  %80 = load ptr, ptr %9, align 8
-  %81 = load ptr, ptr %10, align 8
-  %82 = load ptr, ptr %11, align 8
-  %83 = load ptr, ptr %12, align 8
-  %84 = load i32, ptr %13, align 4
-  %85 = call i32 @_on_parse_scalar(i32 noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef %83, i32 noundef %84)
-  store i32 %85, ptr %7, align 4
-  br label %121
+79:                                               ; preds = %67
+  %80 = load i32, ptr %8, align 4
+  %81 = load ptr, ptr %9, align 8
+  %82 = load ptr, ptr %10, align 8
+  %83 = load ptr, ptr %11, align 8
+  %84 = load ptr, ptr %12, align 8
+  %85 = load i32, ptr %13, align 4
+  %86 = call i32 @_on_parse_scalar(i32 noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84, i32 noundef %85)
+  store i32 %86, ptr %7, align 4
+  br label %122
 
-86:                                               ; preds = %66
-  %87 = load ptr, ptr %11, align 8
-  %88 = call ptr @data_set_list(ptr noundef %87)
-  %89 = load i32, ptr %8, align 4
-  %90 = add nsw i32 %89, 1
-  %91 = load ptr, ptr %9, align 8
-  %92 = load ptr, ptr %11, align 8
-  %93 = load ptr, ptr %12, align 8
-  %94 = call i32 @_yaml_to_data(i32 noundef %90, ptr noundef %91, ptr noundef %92, ptr noundef %93)
-  store i32 %94, ptr %13, align 4
-  %95 = load i32, ptr %13, align 4
-  %96 = icmp eq i32 %95, 2
-  br i1 %96, label %97, label %98
+87:                                               ; preds = %67
+  %88 = load ptr, ptr %11, align 8
+  %89 = call ptr @data_set_list(ptr noundef %88)
+  %90 = load i32, ptr %8, align 4
+  %91 = add nsw i32 %90, 1
+  %92 = load ptr, ptr %9, align 8
+  %93 = load ptr, ptr %11, align 8
+  %94 = load ptr, ptr %12, align 8
+  %95 = call i32 @_yaml_to_data(i32 noundef %91, ptr noundef %92, ptr noundef %93, ptr noundef %94)
+  store i32 %95, ptr %13, align 4
+  %96 = load i32, ptr %13, align 4
+  %97 = icmp eq i32 %96, 2
+  br i1 %97, label %98, label %99
 
-97:                                               ; preds = %86
-  br label %100
+98:                                               ; preds = %87
+  br label %101
 
-98:                                               ; preds = %86
-  %99 = load i32, ptr %13, align 4
-  br label %100
+99:                                               ; preds = %87
+  %100 = load i32, ptr %13, align 4
+  br label %101
 
-100:                                              ; preds = %98, %97
-  %101 = phi i32 [ 3, %97 ], [ %99, %98 ]
-  store i32 %101, ptr %7, align 4
-  br label %121
+101:                                              ; preds = %99, %98
+  %102 = phi i32 [ 3, %98 ], [ %100, %99 ]
+  store i32 %102, ptr %7, align 4
+  br label %122
 
-102:                                              ; preds = %66
+103:                                              ; preds = %67
   store i32 3, ptr %7, align 4
-  br label %121
+  br label %122
 
-103:                                              ; preds = %66
-  %104 = load ptr, ptr %11, align 8
-  %105 = call ptr @data_set_dict(ptr noundef %104)
-  %106 = load i32, ptr %8, align 4
-  %107 = add nsw i32 %106, 1
-  %108 = load ptr, ptr %9, align 8
-  %109 = load ptr, ptr %11, align 8
-  %110 = load ptr, ptr %12, align 8
-  %111 = call i32 @_yaml_to_data(i32 noundef %107, ptr noundef %108, ptr noundef %109, ptr noundef %110)
-  store i32 %111, ptr %13, align 4
-  %112 = load i32, ptr %13, align 4
-  %113 = icmp eq i32 %112, 2
-  br i1 %113, label %114, label %115
+104:                                              ; preds = %67
+  %105 = load ptr, ptr %11, align 8
+  %106 = call ptr @data_set_dict(ptr noundef %105)
+  %107 = load i32, ptr %8, align 4
+  %108 = add nsw i32 %107, 1
+  %109 = load ptr, ptr %9, align 8
+  %110 = load ptr, ptr %11, align 8
+  %111 = load ptr, ptr %12, align 8
+  %112 = call i32 @_yaml_to_data(i32 noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef %111)
+  store i32 %112, ptr %13, align 4
+  %113 = load i32, ptr %13, align 4
+  %114 = icmp eq i32 %113, 2
+  br i1 %114, label %115, label %116
 
-114:                                              ; preds = %103
-  br label %117
+115:                                              ; preds = %104
+  br label %118
 
-115:                                              ; preds = %103
-  %116 = load i32, ptr %13, align 4
-  br label %117
+116:                                              ; preds = %104
+  %117 = load i32, ptr %13, align 4
+  br label %118
 
-117:                                              ; preds = %115, %114
-  %118 = phi i32 [ 3, %114 ], [ %116, %115 ]
-  store i32 %118, ptr %7, align 4
-  br label %121
+118:                                              ; preds = %116, %115
+  %119 = phi i32 [ 3, %115 ], [ %117, %116 ]
+  store i32 %119, ptr %7, align 4
+  br label %122
 
-119:                                              ; preds = %66
+120:                                              ; preds = %67
   store i32 3, ptr %7, align 4
-  br label %121
+  br label %122
 
-120:                                              ; preds = %66
+121:                                              ; preds = %67
   call void (ptr, ...) @slurm_fatal_abort(ptr noundef @.str.40) #6
   unreachable
 
-121:                                              ; preds = %119, %117, %102, %100, %78, %75, %74, %73, %72, %71, %70, %64
-  %122 = load i32, ptr %7, align 4
-  ret i32 %122
+122:                                              ; preds = %120, %118, %103, %101, %79, %76, %75, %74, %73, %72, %71, %65
+  %123 = load i32, ptr %7, align 4
+  ret i32 %123
 }
 
 ; Function Attrs: noreturn
@@ -1859,7 +1864,7 @@ define internal i32 @_on_parse_scalar(i32 noundef %0, ptr noundef %1, ptr nounde
   %21 = load ptr, ptr %11, align 8
   %22 = call i32 @data_get_type(ptr noundef %21)
   %23 = icmp eq i32 %22, 3
-  br i1 %23, label %24, label %50
+  br i1 %23, label %24, label %51
 
 24:                                               ; preds = %6
   %25 = load ptr, ptr %11, align 8
@@ -1869,77 +1874,78 @@ define internal i32 @_on_parse_scalar(i32 noundef %0, ptr noundef %1, ptr nounde
   br label %28
 
 28:                                               ; preds = %24
-  %29 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %30 = and i64 %29, 256
-  %31 = icmp ne i64 %30, 0
-  br i1 %31, label %32, label %42
+  %29 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %30 = load i64, ptr %29, align 8
+  %31 = and i64 %30, 256
+  %32 = icmp ne i64 %31, 0
+  br i1 %32, label %33, label %43
 
-32:                                               ; preds = %28
-  br label %33
+33:                                               ; preds = %28
+  br label %34
 
-33:                                               ; preds = %32
-  %34 = call i32 @slurm_get_log_level()
-  %35 = icmp sge i32 %34, 4
-  br i1 %35, label %36, label %40
+34:                                               ; preds = %33
+  %35 = call i32 @slurm_get_log_level()
+  %36 = icmp sge i32 %35, 4
+  br i1 %36, label %37, label %41
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %11, align 8
-  %38 = load ptr, ptr %15, align 8
-  %39 = load ptr, ptr %16, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.41, ptr noundef @plugin_type, ptr noundef @__func__._on_parse_scalar, ptr noundef %37, ptr noundef %38, ptr noundef %39)
-  br label %40
-
-40:                                               ; preds = %36, %33
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %11, align 8
+  %39 = load ptr, ptr %15, align 8
+  %40 = load ptr, ptr %16, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.41, ptr noundef @plugin_type, ptr noundef @__func__._on_parse_scalar, ptr noundef %38, ptr noundef %39, ptr noundef %40)
   br label %41
 
-41:                                               ; preds = %40
+41:                                               ; preds = %37, %34
   br label %42
 
-42:                                               ; preds = %41, %28
+42:                                               ; preds = %41
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load i32, ptr %8, align 4
-  %45 = add nsw i32 %44, 1
-  %46 = load ptr, ptr %9, align 8
-  %47 = load ptr, ptr %16, align 8
-  %48 = load ptr, ptr %12, align 8
-  %49 = call i32 @_yaml_to_data(i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
-  store i32 %49, ptr %7, align 4
-  br label %67
+43:                                               ; preds = %42, %28
+  br label %44
 
-50:                                               ; preds = %6
-  %51 = load ptr, ptr %10, align 8
-  %52 = call i32 @_yaml_tag_to_type(ptr noundef %51, ptr noundef @__func__._on_parse_scalar)
-  store i32 %52, ptr %14, align 4
-  %53 = load ptr, ptr %11, align 8
-  %54 = load ptr, ptr %15, align 8
-  %55 = call ptr @data_set_string(ptr noundef %53, ptr noundef %54)
-  %56 = load i32, ptr %14, align 4
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %58, label %66
+44:                                               ; preds = %43
+  %45 = load i32, ptr %8, align 4
+  %46 = add nsw i32 %45, 1
+  %47 = load ptr, ptr %9, align 8
+  %48 = load ptr, ptr %16, align 8
+  %49 = load ptr, ptr %12, align 8
+  %50 = call i32 @_yaml_to_data(i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  store i32 %50, ptr %7, align 4
+  br label %68
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr %11, align 8
-  %60 = load i32, ptr %14, align 4
-  %61 = call i32 @data_convert_type(ptr noundef %59, i32 noundef %60)
-  %62 = load i32, ptr %14, align 4
-  %63 = icmp ne i32 %61, %62
-  br i1 %63, label %64, label %66
+51:                                               ; preds = %6
+  %52 = load ptr, ptr %10, align 8
+  %53 = call i32 @_yaml_tag_to_type(ptr noundef %52, ptr noundef @__func__._on_parse_scalar)
+  store i32 %53, ptr %14, align 4
+  %54 = load ptr, ptr %11, align 8
+  %55 = load ptr, ptr %15, align 8
+  %56 = call ptr @data_set_string(ptr noundef %54, ptr noundef %55)
+  %57 = load i32, ptr %14, align 4
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %59, label %67
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %12, align 8
-  store i32 9202, ptr %65, align 4
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %11, align 8
+  %61 = load i32, ptr %14, align 4
+  %62 = call i32 @data_convert_type(ptr noundef %60, i32 noundef %61)
+  %63 = load i32, ptr %14, align 4
+  %64 = icmp ne i32 %62, %63
+  br i1 %64, label %65, label %67
+
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %12, align 8
+  store i32 9202, ptr %66, align 4
   store i32 5, ptr %7, align 4
-  br label %67
+  br label %68
 
-66:                                               ; preds = %58, %50
+67:                                               ; preds = %59, %51
   store i32 3, ptr %7, align 4
-  br label %67
+  br label %68
 
-67:                                               ; preds = %66, %64, %43
-  %68 = load i32, ptr %7, align 4
-  ret i32 %68
+68:                                               ; preds = %67, %65, %44
+  %69 = load i32, ptr %7, align 4
+  ret i32 %69
 }
 
 declare ptr @data_set_list(ptr noundef) #1
@@ -1975,74 +1981,75 @@ define internal i32 @_yaml_tag_to_type(ptr noundef %0, ptr noundef %1) #0 {
 
 19:                                               ; preds = %14, %2
   store i32 0, ptr %3, align 4
-  br label %56
+  br label %57
 
 20:                                               ; preds = %14
   br label %21
 
 21:                                               ; preds = %20
-  %22 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %23 = and i64 %22, 256
-  %24 = icmp ne i64 %23, 0
-  br i1 %24, label %25, label %30
+  %22 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %23 = load i64, ptr %22, align 8
+  %24 = and i64 %23, 256
+  %25 = icmp ne i64 %24, 0
+  br i1 %25, label %26, label %31
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %6, align 8
+26:                                               ; preds = %21
   %27 = load ptr, ptr %6, align 8
-  %28 = call i64 @strlen(ptr noundef %27) #5
-  %29 = load ptr, ptr %5, align 8
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %26, i64 noundef %28, i64 noundef -1, i64 noundef -1, ptr noundef @.str.42, ptr noundef %29)
-  br label %30
-
-30:                                               ; preds = %25, %21
+  %28 = load ptr, ptr %6, align 8
+  %29 = call i64 @strlen(ptr noundef %28) #5
+  %30 = load ptr, ptr %5, align 8
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %27, i64 noundef %29, i64 noundef -1, i64 noundef -1, ptr noundef @.str.42, ptr noundef %30)
   br label %31
 
-31:                                               ; preds = %30
-  store i32 0, ptr %7, align 4
+31:                                               ; preds = %26, %21
   br label %32
 
-32:                                               ; preds = %52, %31
-  %33 = load i32, ptr %7, align 4
-  %34 = sext i32 %33 to i64
-  %35 = icmp ult i64 %34, 7
-  br i1 %35, label %36, label %55
+32:                                               ; preds = %31
+  store i32 0, ptr %7, align 4
+  br label %33
 
-36:                                               ; preds = %32
-  %37 = load i32, ptr %7, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [7 x %struct.anon.30], ptr @tags, i64 0, i64 %38
-  %40 = getelementptr inbounds %struct.anon.30, ptr %39, i32 0, i32 2
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %6, align 8
-  %43 = call i32 @slurm_xstrcmp(ptr noundef %41, ptr noundef %42)
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %51, label %45
+33:                                               ; preds = %53, %32
+  %34 = load i32, ptr %7, align 4
+  %35 = sext i32 %34 to i64
+  %36 = icmp ult i64 %35, 7
+  br i1 %36, label %37, label %56
 
-45:                                               ; preds = %36
-  %46 = load i32, ptr %7, align 4
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [7 x %struct.anon.30], ptr @tags, i64 0, i64 %47
-  %49 = getelementptr inbounds %struct.anon.30, ptr %48, i32 0, i32 0
-  %50 = load i32, ptr %49, align 8
-  store i32 %50, ptr %3, align 4
-  br label %56
+37:                                               ; preds = %33
+  %38 = load i32, ptr %7, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds [7 x %struct.anon.30], ptr @tags, i64 0, i64 %39
+  %41 = getelementptr inbounds %struct.anon.30, ptr %40, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %6, align 8
+  %44 = call i32 @slurm_xstrcmp(ptr noundef %42, ptr noundef %43)
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %52, label %46
 
-51:                                               ; preds = %36
-  br label %52
+46:                                               ; preds = %37
+  %47 = load i32, ptr %7, align 4
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds [7 x %struct.anon.30], ptr @tags, i64 0, i64 %48
+  %50 = getelementptr inbounds %struct.anon.30, ptr %49, i32 0, i32 0
+  %51 = load i32, ptr %50, align 8
+  store i32 %51, ptr %3, align 4
+  br label %57
 
-52:                                               ; preds = %51
-  %53 = load i32, ptr %7, align 4
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %7, align 4
-  br label %32, !llvm.loop !9
+52:                                               ; preds = %37
+  br label %53
 
-55:                                               ; preds = %32
+53:                                               ; preds = %52
+  %54 = load i32, ptr %7, align 4
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %7, align 4
+  br label %33, !llvm.loop !9
+
+56:                                               ; preds = %33
   store i32 0, ptr %3, align 4
-  br label %56
+  br label %57
 
-56:                                               ; preds = %55, %45, %19
-  %57 = load i32, ptr %3, align 4
-  ret i32 %57
+57:                                               ; preds = %56, %46, %19
+  %58 = load i32, ptr %3, align 4
+  ret i32 %58
 }
 
 declare ptr @data_set_string(ptr noundef, ptr noundef) #1

@@ -3367,7 +3367,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_129ThrowingValueTest_Throws_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_129ThrowingValueTest_Throws_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3502,7 +3503,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3617,7 +3619,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3732,7 +3735,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_142ThrowingValueTest_ThrowingComparisons_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_142ThrowingValueTest_ThrowingComparisons_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3847,7 +3851,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3962,7 +3967,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_141ThrowingValueTest_ThrowingLogicalOps_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_141ThrowingValueTest_ThrowingLogicalOps_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4077,7 +4083,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4192,7 +4199,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4307,7 +4315,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_140ThrowingValueTest_ThrowingStreamOps_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_140ThrowingValueTest_ThrowingStreamOps_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4422,7 +4431,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_138ThrowingValueTest_StreamOpsOutput_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_138ThrowingValueTest_StreamOpsOutput_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4537,7 +4547,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4652,7 +4663,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_142ThrowingValueTest_NonThrowingMoveCtor_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_142ThrowingValueTest_NonThrowingMoveCtor_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4767,7 +4779,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_144ThrowingValueTest_NonThrowingMoveAssign_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_144ThrowingValueTest_NonThrowingMoveAssign_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4882,7 +4895,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4997,7 +5011,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5112,7 +5127,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_142ThrowingValueTest_NonThrowingCopyCtor_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_142ThrowingValueTest_NonThrowingCopyCtor_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5227,7 +5243,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_144ThrowingValueTest_NonThrowingCopyAssign_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_144ThrowingValueTest_NonThrowingCopyAssign_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5342,7 +5359,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_135ThrowingValueTest_ThrowingSwap_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_135ThrowingValueTest_ThrowingSwap_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5457,7 +5475,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_138ThrowingValueTest_NonThrowingSwap_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_138ThrowingValueTest_NonThrowingSwap_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5572,7 +5591,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_144ThrowingValueTest_NonThrowingAllocation_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_144ThrowingValueTest_NonThrowingAllocation_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5687,7 +5707,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_140ThrowingValueTest_NonThrowingDelete_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_140ThrowingValueTest_NonThrowingDelete_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5802,7 +5823,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_149ThrowingValueTest_NonThrowingPlacementDelete_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_149ThrowingValueTest_NonThrowingPlacementDelete_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5917,7 +5939,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_144ThrowingValueTest_NonThrowingDestructor_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_144ThrowingValueTest_NonThrowingDestructor_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6032,7 +6055,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_134ThrowingBoolTest_ThrowingBool_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_134ThrowingBoolTest_ThrowingBool_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6147,7 +6171,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_143ThrowingAllocatorTest_MemoryManagement_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_143ThrowingAllocatorTest_MemoryManagement_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6262,7 +6287,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_141ThrowingAllocatorTest_CallsGlobalNew_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_141ThrowingAllocatorTest_CallsGlobalNew_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6377,7 +6403,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_147ThrowingAllocatorTest_ThrowingConstructors_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_147ThrowingAllocatorTest_ThrowingConstructors_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6492,7 +6519,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_150ThrowingAllocatorTest_NonThrowingConstruction_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_150ThrowingAllocatorTest_NonThrowingConstruction_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6607,7 +6635,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6722,7 +6751,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_132ThrowingAllocatorTest_State_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_132ThrowingAllocatorTest_State_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6837,7 +6867,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_135ThrowingAllocatorTest_InVector_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_135ThrowingAllocatorTest_InVector_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6952,7 +6983,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_133ThrowingAllocatorTest_InList_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_133ThrowingAllocatorTest_InList_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7067,7 +7099,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_160ExceptionSafetyTesterTest_IncompleteTypesAreNotTestable_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_160ExceptionSafetyTesterTest_IncompleteTypesAreNotTestable_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7182,7 +7215,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_149ExceptionSafetyTesterTest_MixedFunctionTypes_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_149ExceptionSafetyTesterTest_MixedFunctionTypes_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7439,7 +7473,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_145ExceptionCheckTest_BasicGuaranteeFailure_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_145ExceptionCheckTest_BasicGuaranteeFailure_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7554,7 +7589,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_138ExceptionCheckTest_BasicGuarantee_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_138ExceptionCheckTest_BasicGuarantee_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7669,7 +7705,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_146ExceptionCheckTest_StrongGuaranteeFailure_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_146ExceptionCheckTest_StrongGuaranteeFailure_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7784,7 +7821,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_156ExceptionCheckTest_BasicGuaranteeWithExtraContracts_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_156ExceptionCheckTest_BasicGuaranteeWithExtraContracts_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7899,7 +7937,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_139ExceptionCheckTest_StrongGuarantee_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_139ExceptionCheckTest_StrongGuarantee_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8014,7 +8053,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8129,7 +8169,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8244,7 +8285,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8359,7 +8401,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_145ExceptionCheckTest_NonEqualityComparable_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_145ExceptionCheckTest_NonEqualityComparable_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8474,7 +8517,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_138ExceptionCheckTest_Exhaustiveness_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_138ExceptionCheckTest_Exhaustiveness_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8589,7 +8633,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_137ExceptionCheckTest_TestLeakyCtor_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_137ExceptionCheckTest_TestLeakyCtor_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8704,7 +8749,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_141ConstructorTrackerTest_CreatedBefore_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_141ConstructorTrackerTest_CreatedBefore_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8819,7 +8865,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_140ConstructorTrackerTest_CreatedAfter_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_140ConstructorTrackerTest_CreatedAfter_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8934,7 +8981,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_145ConstructorTrackerTest_NotDestroyedAfter_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_145ConstructorTrackerTest_NotDestroyedAfter_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9049,7 +9097,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_142ConstructorTrackerTest_DestroyedTwice_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_142ConstructorTrackerTest_DestroyedTwice_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9164,7 +9213,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_144ConstructorTrackerTest_ConstructedTwice_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_144ConstructorTrackerTest_ConstructedTwice_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9279,7 +9329,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_148ThrowingValueTraitsTest_RelationalOperators_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_148ThrowingValueTraitsTest_RelationalOperators_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9394,7 +9445,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_147ThrowingAllocatorTraitsTest_Assignablility_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplINS_12_GLOBAL__N_147ThrowingAllocatorTraitsTest_Assignablility_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9406,7 +9458,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9492,7 +9545,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9596,7 +9650,7 @@ lpad2:                                            ; preds = %if.then5, %if.then
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %8
   br i1 %matches, label %catch37, label %catch.fallthrough
 
@@ -9625,7 +9679,7 @@ invoke.cont42:                                    ; preds = %if.then40
   br label %gtest_label_testthrow_50
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %11 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches7 = icmp eq i32 %sel, %11
   br i1 %matches7, label %catch13, label %catch
 
@@ -9842,7 +9896,7 @@ lpad68:                                           ; preds = %if.then71, %if.then
 
 catch.dispatch76:                                 ; preds = %lpad68
   %sel77 = load i32, ptr %ehselector.slot, align 4
-  %40 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %40 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches78 = icmp eq i32 %sel77, %40
   br i1 %matches78, label %catch120, label %catch.fallthrough79
 
@@ -9871,7 +9925,7 @@ invoke.cont127:                                   ; preds = %if.then125
   br label %gtest_label_testthrow_58
 
 catch.fallthrough79:                              ; preds = %catch.dispatch76
-  %43 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches80 = icmp eq i32 %sel77, %43
   br i1 %matches80, label %catch90, label %catch81
 
@@ -10169,9 +10223,6 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #10
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #1
@@ -10179,7 +10230,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #19
   unreachable
@@ -10351,7 +10402,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -10476,7 +10527,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -10875,7 +10926,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i64, ptr } @_ZN4absl18NullSafeStringViewEPKc(ptr noundef %p) #7 comdat {
@@ -12245,10 +12296,10 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #13
+declare void @_ZSt28__throw_bad_array_new_lengthv() #12
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #13
+declare void @_ZSt17__throw_bad_allocv() #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKPvN7testing19exceptions_internal14TrackedAddressEELb0EEEELb1EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #7 comdat align 2 {
@@ -14283,7 +14334,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14409,7 +14461,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -14438,7 +14490,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -14685,7 +14737,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -14714,7 +14766,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -14961,7 +15013,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -14990,7 +15042,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -15214,7 +15266,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -15411,7 +15463,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -15615,7 +15667,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -15850,7 +15902,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16023,7 +16076,7 @@ lpad11:                                           ; preds = %if.then14, %if.then
 
 catch.dispatch:                                   ; preds = %lpad11
   %sel = load i32, ptr %ehselector.slot, align 4
-  %21 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %21
   br i1 %matches, label %catch49, label %catch.fallthrough
 
@@ -16052,7 +16105,7 @@ invoke.cont54:                                    ; preds = %if.then52
   br label %gtest_label_testthrow_95
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches17 = icmp eq i32 %sel, %24
   br i1 %matches17, label %catch24, label %catch
 
@@ -16475,7 +16528,7 @@ lpad129:                                          ; preds = %if.then132, %if.the
 
 catch.dispatch137:                                ; preds = %lpad129
   %sel138 = load i32, ptr %ehselector.slot, align 4
-  %83 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %83 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches139 = icmp eq i32 %sel138, %83
   br i1 %matches139, label %catch182, label %catch.fallthrough140
 
@@ -16504,7 +16557,7 @@ invoke.cont189:                                   ; preds = %if.then187
   br label %gtest_label_testthrow_104
 
 catch.fallthrough140:                             ; preds = %catch.dispatch137
-  %86 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %86 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches141 = icmp eq i32 %sel138, %86
   br i1 %matches141, label %catch152, label %catch142
 
@@ -16934,7 +16987,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -16963,7 +17016,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -17210,7 +17263,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -17239,7 +17292,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -17584,7 +17637,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -17723,7 +17776,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -19134,7 +19187,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_142ThrowingValueTest_ThrowingComparisons_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_142ThrowingValueTest_ThrowingComparisons_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19317,7 +19371,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch36, label %catch.fallthrough
 
@@ -19346,7 +19400,7 @@ invoke.cont41:                                    ; preds = %if.then39
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches5 = icmp eq i32 %sel, %9
   br i1 %matches5, label %catch12, label %catch
 
@@ -19596,7 +19650,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch36, label %catch.fallthrough
 
@@ -19625,7 +19679,7 @@ invoke.cont41:                                    ; preds = %if.then39
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches5 = icmp eq i32 %sel, %9
   br i1 %matches5, label %catch12, label %catch
 
@@ -19875,7 +19929,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch36, label %catch.fallthrough
 
@@ -19904,7 +19958,7 @@ invoke.cont41:                                    ; preds = %if.then39
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches5 = icmp eq i32 %sel, %9
   br i1 %matches5, label %catch12, label %catch
 
@@ -20154,7 +20208,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch36, label %catch.fallthrough
 
@@ -20183,7 +20237,7 @@ invoke.cont41:                                    ; preds = %if.then39
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches5 = icmp eq i32 %sel, %9
   br i1 %matches5, label %catch12, label %catch
 
@@ -20433,7 +20487,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch36, label %catch.fallthrough
 
@@ -20462,7 +20516,7 @@ invoke.cont41:                                    ; preds = %if.then39
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches5 = icmp eq i32 %sel, %9
   br i1 %matches5, label %catch12, label %catch
 
@@ -20712,7 +20766,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch36, label %catch.fallthrough
 
@@ -20741,7 +20795,7 @@ invoke.cont41:                                    ; preds = %if.then39
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches5 = icmp eq i32 %sel, %9
   br i1 %matches5, label %catch12, label %catch
 
@@ -20968,7 +21022,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -21143,7 +21197,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -21290,7 +21344,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -21465,7 +21519,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -21640,7 +21694,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -21815,7 +21869,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -22018,7 +22072,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22236,7 +22291,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -22265,7 +22320,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -22512,7 +22567,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -22541,7 +22596,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -22788,7 +22843,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -22817,7 +22872,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -23064,7 +23119,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -23093,7 +23148,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -23340,7 +23395,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -23369,7 +23424,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -23616,7 +23671,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -23645,7 +23700,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -23892,7 +23947,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -23921,7 +23976,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -24168,7 +24223,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -24197,7 +24252,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -24444,7 +24499,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -24473,7 +24528,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -24720,7 +24775,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -24749,7 +24804,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -24996,7 +25051,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -25025,7 +25080,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -25272,7 +25327,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -25301,7 +25356,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -25525,7 +25580,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -25717,7 +25772,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -25878,7 +25933,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -26035,7 +26090,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -26212,7 +26267,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -26369,7 +26424,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -26546,7 +26601,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -26714,7 +26769,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -26882,7 +26937,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -27050,7 +27105,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -27218,7 +27273,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -27382,7 +27437,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -27577,7 +27632,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingLogicalOps_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingLogicalOps_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -27728,7 +27784,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -27757,7 +27813,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -28004,7 +28060,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -28033,7 +28089,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -28280,7 +28336,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -28309,7 +28365,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -28533,7 +28589,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -28697,7 +28753,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -28875,7 +28931,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -29084,7 +29140,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29244,7 +29301,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -29273,7 +29330,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -29520,7 +29577,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -29549,7 +29606,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -29796,7 +29853,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -29825,7 +29882,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -30072,7 +30129,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -30101,7 +30158,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -30325,7 +30382,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -30486,7 +30543,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -30654,7 +30711,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -30822,7 +30879,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -31021,7 +31078,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -31228,7 +31286,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -31257,7 +31315,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -31504,7 +31562,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -31533,7 +31591,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -31780,7 +31838,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -31809,7 +31867,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -32056,7 +32114,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -32085,7 +32143,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -32332,7 +32390,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -32361,7 +32419,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -32608,7 +32666,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -32637,7 +32695,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -32884,7 +32942,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -32913,7 +32971,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -33160,7 +33218,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -33189,7 +33247,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -33436,7 +33494,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -33465,7 +33523,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -33689,7 +33747,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -33853,7 +33911,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -34017,7 +34075,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -34181,7 +34239,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -34345,7 +34403,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -34509,7 +34567,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -34673,7 +34731,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -34837,7 +34895,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -35001,7 +35059,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -35171,7 +35229,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_140ThrowingValueTest_ThrowingStreamOps_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_140ThrowingValueTest_ThrowingStreamOps_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -35292,7 +35351,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -35321,7 +35380,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -35568,7 +35627,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -35597,7 +35656,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -35821,7 +35880,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -36006,7 +36065,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -36200,7 +36259,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_138ThrowingValueTest_StreamOpsOutput_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_138ThrowingValueTest_StreamOpsOutput_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -37897,7 +37957,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -37988,7 +38049,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal21TestBadAllocExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal21TestBadAllocExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -38017,7 +38078,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_232
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -38266,7 +38327,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal21TestBadAllocExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal21TestBadAllocExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -38295,7 +38356,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_232
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -38521,7 +38582,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -39008,7 +39069,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -39225,10 +39286,10 @@ eh.resume:                                        ; preds = %arraydestroy.done1
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #14
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #14
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEnaEm(i64 noundef %s) #4 comdat align 2 {
@@ -39560,7 +39621,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_142ThrowingValueTest_NonThrowingMoveCtor_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_142ThrowingValueTest_NonThrowingMoveCtor_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -39710,7 +39772,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -39985,7 +40047,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingMoveAssign_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingMoveAssign_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -40099,7 +40162,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -40287,7 +40350,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -40401,7 +40465,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -40430,7 +40494,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -40654,7 +40718,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -40824,7 +40888,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -40959,7 +41024,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -40988,7 +41053,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -41212,7 +41277,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -41382,7 +41447,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_142ThrowingValueTest_NonThrowingCopyCtor_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_142ThrowingValueTest_NonThrowingCopyCtor_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -41532,7 +41598,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -41738,7 +41804,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingCopyAssign_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingCopyAssign_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -41852,7 +41919,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -42040,7 +42107,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_135ThrowingValueTest_ThrowingSwap_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_135ThrowingValueTest_ThrowingSwap_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -42175,7 +42243,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -42204,7 +42272,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -42428,7 +42496,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -42642,7 +42710,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_138ThrowingValueTest_NonThrowingSwap_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_138ThrowingValueTest_NonThrowingSwap_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -42754,7 +42823,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -42943,7 +43012,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingAllocation_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingAllocation_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -43015,7 +43085,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -43140,7 +43210,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -43727,7 +43797,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_140ThrowingValueTest_NonThrowingDelete_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_140ThrowingValueTest_NonThrowingDelete_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -43868,7 +43939,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -43993,7 +44064,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -44202,7 +44273,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_149ThrowingValueTest_NonThrowingPlacementDelete_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_149ThrowingValueTest_NonThrowingPlacementDelete_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -44540,7 +44612,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -44665,7 +44737,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -45245,7 +45317,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingDestructor_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingDestructor_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -45340,7 +45413,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -45516,7 +45589,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_134ThrowingBoolTest_ThrowingBool_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_134ThrowingBoolTest_ThrowingBool_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -45730,7 +45804,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -45759,7 +45833,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -46016,7 +46090,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -46184,7 +46258,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_143ThrowingAllocatorTest_MemoryManagement_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_143ThrowingAllocatorTest_MemoryManagement_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -46874,12 +46949,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIKiJiEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %0) #3
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIKiJiEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %1) #3
   ret void
 }
 
@@ -47049,7 +47125,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -48029,7 +48106,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #15
+declare void @abort() #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE17GetInstanceStringB5cxx11Ei(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 noundef %dummy) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -48241,7 +48318,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_141ThrowingAllocatorTest_CallsGlobalNew_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_141ThrowingAllocatorTest_CallsGlobalNew_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -48411,7 +48489,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -48746,7 +48824,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_147ThrowingAllocatorTest_ThrowingConstructors_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_147ThrowingAllocatorTest_ThrowingConstructors_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -48838,7 +48917,7 @@ lpad:                                             ; preds = %if.then3, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %5 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %5
   br i1 %matches, label %catch37, label %catch.fallthrough
 
@@ -48867,7 +48946,7 @@ invoke.cont42:                                    ; preds = %if.then40
   br label %gtest_label_testthrow_413
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches6 = icmp eq i32 %sel, %8
   br i1 %matches6, label %catch13, label %catch
 
@@ -49099,7 +49178,7 @@ lpad67:                                           ; preds = %if.then70, %if.then
 
 catch.dispatch75:                                 ; preds = %lpad67
   %sel76 = load i32, ptr %ehselector.slot, align 4
-  %44 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches77 = icmp eq i32 %sel76, %44
   br i1 %matches77, label %catch120, label %catch.fallthrough78
 
@@ -49128,7 +49207,7 @@ invoke.cont127:                                   ; preds = %if.then125
   br label %gtest_label_testthrow_418
 
 catch.fallthrough78:                              ; preds = %catch.dispatch75
-  %47 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %47 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches79 = icmp eq i32 %sel76, %47
   br i1 %matches79, label %catch90, label %catch80
 
@@ -49430,7 +49509,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -49908,7 +49987,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_150ThrowingAllocatorTest_NonThrowingConstruction_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_150ThrowingAllocatorTest_NonThrowingConstruction_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -50428,7 +50508,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -50553,7 +50633,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -50716,7 +50796,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -50841,7 +50921,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -50966,7 +51046,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -51091,7 +51171,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -51240,7 +51320,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -51365,7 +51445,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -52130,7 +52210,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -52249,7 +52330,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -52278,7 +52359,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -52525,7 +52606,7 @@ lpad:                                             ; preds = %if.then2, %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch35, label %catch.fallthrough
 
@@ -52554,7 +52635,7 @@ invoke.cont40:                                    ; preds = %if.then38
   br label %gtest_label_testthrow_71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches4 = icmp eq i32 %sel, %9
   br i1 %matches4, label %catch11, label %catch
 
@@ -52778,7 +52859,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -52914,7 +52995,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -53139,7 +53220,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_132ThrowingAllocatorTest_State_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_132ThrowingAllocatorTest_State_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -54086,7 +54168,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_135ThrowingAllocatorTest_InVector_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_135ThrowingAllocatorTest_InVector_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -54895,7 +54978,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #7 comdat {
@@ -55423,7 +55506,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_133ThrowingAllocatorTest_InList_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_133ThrowingAllocatorTest_InList_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -56604,7 +56688,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_160ExceptionSafetyTesterTest_IncompleteTypesAreNotTestable_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_160ExceptionSafetyTesterTest_IncompleteTypesAreNotTestable_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -57793,7 +57878,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_149ExceptionSafetyTesterTest_MixedFunctionTypes_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_149ExceptionSafetyTesterTest_MixedFunctionTypes_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -59323,7 +59409,7 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
 
 catch.dispatch:                                   ; preds = %lpad8
   %sel = load i32, ptr %ehselector.slot, align 4
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %10
   br i1 %matches, label %catch, label %ehcleanup34
 
@@ -61722,7 +61808,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() #13
+declare void @_ZSt25__throw_bad_function_callv() #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef ptr @_ZNKSt15__uniq_ptr_implIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #7 align 2 {
@@ -64858,7 +64944,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_145ExceptionCheckTest_BasicGuaranteeFailure_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_145ExceptionCheckTest_BasicGuaranteeFailure_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -65460,7 +65547,7 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
 
 catch.dispatch:                                   ; preds = %lpad8
   %sel = load i32, ptr %ehselector.slot, align 4
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %10
   br i1 %matches, label %catch, label %ehcleanup34
 
@@ -68160,7 +68247,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_138ExceptionCheckTest_BasicGuarantee_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_138ExceptionCheckTest_BasicGuarantee_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -68736,7 +68824,7 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
 
 catch.dispatch:                                   ; preds = %lpad8
   %sel = load i32, ptr %ehselector.slot, align 4
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %10
   br i1 %matches, label %catch, label %ehcleanup34
 
@@ -71224,7 +71312,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_146ExceptionCheckTest_StrongGuaranteeFailure_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_146ExceptionCheckTest_StrongGuaranteeFailure_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -72961,7 +73050,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_156ExceptionCheckTest_BasicGuaranteeWithExtraContracts_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_156ExceptionCheckTest_BasicGuaranteeWithExtraContracts_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -73660,7 +73750,7 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
 
 catch.dispatch:                                   ; preds = %lpad8
   %sel = load i32, ptr %ehselector.slot, align 4
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %10
   br i1 %matches, label %catch, label %ehcleanup34
 
@@ -77209,7 +77299,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_139ExceptionCheckTest_StrongGuarantee_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_139ExceptionCheckTest_StrongGuarantee_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -77905,7 +77996,7 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
 
 catch.dispatch:                                   ; preds = %lpad8
   %sel = load i32, ptr %ehselector.slot, align 4
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %10
   br i1 %matches, label %catch, label %ehcleanup34
 
@@ -81025,7 +81116,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -84476,7 +84568,7 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
 
 catch.dispatch:                                   ; preds = %lpad8
   %sel = load i32, ptr %ehselector.slot, align 4
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %10
   br i1 %matches, label %catch, label %ehcleanup34
 
@@ -86994,7 +87086,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -88127,7 +88220,7 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
 
 catch.dispatch:                                   ; preds = %lpad8
   %sel = load i32, ptr %ehselector.slot, align 4
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %10
   br i1 %matches, label %catch, label %ehcleanup34
 
@@ -90564,7 +90657,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -91221,7 +91315,7 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
 
 catch.dispatch:                                   ; preds = %lpad8
   %sel = load i32, ptr %ehselector.slot, align 4
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %10
   br i1 %matches, label %catch, label %ehcleanup34
 
@@ -94347,7 +94441,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_145ExceptionCheckTest_NonEqualityComparable_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_145ExceptionCheckTest_NonEqualityComparable_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -95329,7 +95424,7 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
 
 catch.dispatch:                                   ; preds = %lpad8
   %sel = load i32, ptr %ehselector.slot, align 4
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %10
   br i1 %matches, label %catch, label %ehcleanup34
 
@@ -98601,7 +98696,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_138ExceptionCheckTest_Exhaustiveness_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_138ExceptionCheckTest_Exhaustiveness_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -99741,7 +99837,7 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
 
 catch.dispatch:                                   ; preds = %lpad8
   %sel = load i32, ptr %ehselector.slot, align 4
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %10
   br i1 %matches, label %catch, label %ehcleanup34
 
@@ -103109,7 +103205,7 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
 
 catch.dispatch:                                   ; preds = %lpad8
   %sel = load i32, ptr %ehselector.slot, align 4
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %10
   br i1 %matches, label %catch, label %ehcleanup34
 
@@ -106077,7 +106173,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_137ExceptionCheckTest_TestLeakyCtor_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_137ExceptionCheckTest_TestLeakyCtor_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -106243,7 +106340,7 @@ lpad1:                                            ; preds = %invoke.cont
 
 catch.dispatch:                                   ; preds = %lpad1
   %sel = load i32, ptr %ehselector.slot, align 4
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7testing19exceptions_internal13TestExceptionE) #3
   %matches = icmp eq i32 %sel, %9
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -106465,7 +106562,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_141ConstructorTrackerTest_CreatedBefore_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_141ConstructorTrackerTest_CreatedBefore_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -106689,7 +106787,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_140ConstructorTrackerTest_CreatedAfter_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_140ConstructorTrackerTest_CreatedAfter_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -106849,7 +106948,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_145ConstructorTrackerTest_NotDestroyedAfter_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_145ConstructorTrackerTest_NotDestroyedAfter_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -107070,7 +107170,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_142ConstructorTrackerTest_DestroyedTwice_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_142ConstructorTrackerTest_DestroyedTwice_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -107293,7 +107394,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_144ConstructorTrackerTest_ConstructedTwice_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_144ConstructorTrackerTest_ConstructedTwice_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -107519,7 +107621,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_148ThrowingValueTraitsTest_RelationalOperators_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_148ThrowingValueTraitsTest_RelationalOperators_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -108184,7 +108287,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_147ThrowingAllocatorTraitsTest_Assignablility_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7testing12_GLOBAL__N_147ThrowingAllocatorTraitsTest_Assignablility_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -108571,7 +108675,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #13
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -109226,6 +109330,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -109236,12 +109343,12 @@ attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind memory(none) }
-attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind memory(none) }
 attributes #16 = { builtin allocsize(0) }
 attributes #17 = { builtin nounwind }
 attributes #18 = { noreturn }

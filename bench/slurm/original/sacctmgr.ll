@@ -729,25 +729,28 @@ define internal void @_usage() #0 {
   br label %4
 
 4:                                                ; preds = %0
-  store i64 sub (i64 ptrtoint (ptr @_binary_usage_txt_end to i64), i64 ptrtoint (ptr @_binary_usage_txt_start to i64)), ptr %2, align 8
-  %5 = load i64, ptr %2, align 8
-  %6 = add i64 %5, 1
-  %7 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %6, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.27, i32 noundef 926, ptr noundef @__func__._usage)
-  store ptr %7, ptr %3, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = load i64, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 8 @_binary_usage_txt_start, i64 %9, i1 false)
-  %10 = load ptr, ptr %3, align 8
-  %11 = load i64, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 %11
-  store i8 0, ptr %12, align 1
+  %5 = ptrtoint ptr @_binary_usage_txt_end to i64
+  %6 = ptrtoint ptr @_binary_usage_txt_start to i64
+  %7 = sub i64 %5, %6
+  store i64 %7, ptr %2, align 8
+  %8 = load i64, ptr %2, align 8
+  %9 = add i64 %8, 1
+  %10 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %9, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.27, i32 noundef 926, ptr noundef @__func__._usage)
+  store ptr %10, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8
+  %12 = load i64, ptr %2, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 8 @_binary_usage_txt_start, i64 %12, i1 false)
   %13 = load ptr, ptr %3, align 8
-  store ptr %13, ptr %1, align 8
-  br label %14
+  %14 = load i64, ptr %2, align 8
+  %15 = getelementptr inbounds i8, ptr %13, i64 %14
+  store i8 0, ptr %15, align 1
+  %16 = load ptr, ptr %3, align 8
+  store ptr %16, ptr %1, align 8
+  br label %17
 
-14:                                               ; preds = %4
-  %15 = load ptr, ptr %1, align 8
-  %16 = call i32 (ptr, ...) @printf(ptr noundef @.str.104, ptr noundef %15)
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %1, align 8
+  %19 = call i32 (ptr, ...) @printf(ptr noundef @.str.104, ptr noundef %18)
   call void @slurm_xfree(ptr noundef %1)
   ret void
 }

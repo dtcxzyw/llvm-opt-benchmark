@@ -1064,47 +1064,48 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  store ptr inttoptr (i64 1 to ptr), ptr %dummy, align 8
+  %2 = inttoptr i64 1 to ptr
+  store ptr %2, ptr %dummy, align 8
   %m_table = getelementptr inbounds %class.act_cache, ptr %this1, i32 0, i32 1
   %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cmapISt4pairIP4exprjES2_N9act_cache10entry_hashE10default_eqIS3_EE19insert_if_not_thereERKS3_RKS2_(ptr noundef nonnull align 8 dereferenceable(64) %m_table, ptr noundef nonnull align 8 dereferenceable(12) %e, ptr noundef nonnull align 8 dereferenceable(8) %dummy)
   store ptr %call, ptr %entry2, align 8
-  %2 = load ptr, ptr %entry2, align 8
-  %m_value = getelementptr inbounds %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value", ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %m_value, align 8
-  %4 = load ptr, ptr %dummy, align 8
-  %cmp3 = icmp eq ptr %3, %4
+  %3 = load ptr, ptr %entry2, align 8
+  %m_value = getelementptr inbounds %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value", ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %m_value, align 8
+  %5 = load ptr, ptr %dummy, align 8
+  %cmp3 = icmp eq ptr %4, %5
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end
   %m_manager = getelementptr inbounds %class.act_cache, ptr %this1, i32 0, i32 0
-  %5 = load ptr, ptr %m_manager, align 8
-  %6 = load ptr, ptr %k.addr, align 8
-  call void @_ZN11ast_manager7inc_refEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %5, ptr noundef %6)
+  %6 = load ptr, ptr %m_manager, align 8
+  %7 = load ptr, ptr %k.addr, align 8
+  call void @_ZN11ast_manager7inc_refEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %6, ptr noundef %7)
   %m_manager5 = getelementptr inbounds %class.act_cache, ptr %this1, i32 0, i32 0
-  %7 = load ptr, ptr %m_manager5, align 8
-  %8 = load ptr, ptr %v.addr, align 8
-  call void @_ZN11ast_manager7inc_refEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %7, ptr noundef %8)
+  %8 = load ptr, ptr %m_manager5, align 8
   %9 = load ptr, ptr %v.addr, align 8
-  %10 = load ptr, ptr %entry2, align 8
-  %m_value6 = getelementptr inbounds %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value", ptr %10, i32 0, i32 1
-  store ptr %9, ptr %m_value6, align 8
+  call void @_ZN11ast_manager7inc_refEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %8, ptr noundef %9)
+  %10 = load ptr, ptr %v.addr, align 8
+  %11 = load ptr, ptr %entry2, align 8
+  %m_value6 = getelementptr inbounds %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value", ptr %11, i32 0, i32 1
+  store ptr %10, ptr %m_value6, align 8
   %m_queue = getelementptr inbounds %class.act_cache, ptr %this1, i32 0, i32 2
   %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6vectorISt4pairIP4exprjELb0EjE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %m_queue, ptr noundef nonnull align 8 dereferenceable(12) %e)
   %m_unused8 = getelementptr inbounds %class.act_cache, ptr %this1, i32 0, i32 4
-  %11 = load i32, ptr %m_unused8, align 4
-  %inc = add i32 %11, 1
+  %12 = load i32, ptr %m_unused8, align 4
+  %inc = add i32 %12, 1
   store i32 %inc, ptr %m_unused8, align 4
   br label %if.end19
 
 if.else:                                          ; preds = %if.end
-  %12 = load ptr, ptr %entry2, align 8
-  %m_value9 = getelementptr inbounds %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value", ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %m_value9, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %and = and i64 %14, -8
-  %15 = inttoptr i64 %and to ptr
-  %16 = load ptr, ptr %v.addr, align 8
-  %cmp10 = icmp eq ptr %15, %16
+  %13 = load ptr, ptr %entry2, align 8
+  %m_value9 = getelementptr inbounds %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value", ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %m_value9, align 8
+  %15 = ptrtoint ptr %14 to i64
+  %and = and i64 %15, -8
+  %16 = inttoptr i64 %and to ptr
+  %17 = load ptr, ptr %v.addr, align 8
+  %cmp10 = icmp eq ptr %16, %17
   br i1 %cmp10, label %if.then11, label %if.else12
 
 if.then11:                                        ; preds = %if.else
@@ -1112,22 +1113,22 @@ if.then11:                                        ; preds = %if.else
 
 if.else12:                                        ; preds = %if.else
   %m_manager13 = getelementptr inbounds %class.act_cache, ptr %this1, i32 0, i32 0
-  %17 = load ptr, ptr %m_manager13, align 8
-  %18 = load ptr, ptr %v.addr, align 8
-  call void @_ZN11ast_manager7inc_refEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %17, ptr noundef %18)
+  %18 = load ptr, ptr %m_manager13, align 8
+  %19 = load ptr, ptr %v.addr, align 8
+  call void @_ZN11ast_manager7inc_refEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %18, ptr noundef %19)
   %m_manager14 = getelementptr inbounds %class.act_cache, ptr %this1, i32 0, i32 0
-  %19 = load ptr, ptr %m_manager14, align 8
-  %20 = load ptr, ptr %entry2, align 8
-  %m_value15 = getelementptr inbounds %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value", ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %m_value15, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %and16 = and i64 %22, -8
-  %23 = inttoptr i64 %and16 to ptr
-  call void @_ZN11ast_manager7dec_refEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %19, ptr noundef %23)
-  %24 = load ptr, ptr %v.addr, align 8
-  %25 = load ptr, ptr %entry2, align 8
-  %m_value17 = getelementptr inbounds %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value", ptr %25, i32 0, i32 1
-  store ptr %24, ptr %m_value17, align 8
+  %20 = load ptr, ptr %m_manager14, align 8
+  %21 = load ptr, ptr %entry2, align 8
+  %m_value15 = getelementptr inbounds %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value", ptr %21, i32 0, i32 1
+  %22 = load ptr, ptr %m_value15, align 8
+  %23 = ptrtoint ptr %22 to i64
+  %and16 = and i64 %23, -8
+  %24 = inttoptr i64 %and16 to ptr
+  call void @_ZN11ast_manager7dec_refEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef %24)
+  %25 = load ptr, ptr %v.addr, align 8
+  %26 = load ptr, ptr %entry2, align 8
+  %m_value17 = getelementptr inbounds %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value", ptr %26, i32 0, i32 1
+  store ptr %25, ptr %m_value17, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.else12, %if.then11
@@ -1850,7 +1851,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %m_next = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_next, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %m_next, align 8
   %m_data = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %this1, i32 0, i32 1
   call void @_ZN4cmapISt4pairIP4exprjES2_N9act_cache10entry_hashE10default_eqIS3_EE9key_valueC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_data)
   ret void
@@ -3050,10 +3052,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -3063,7 +3066,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -3336,7 +3340,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

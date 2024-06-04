@@ -39,15 +39,16 @@ define dso_local ptr @intel_context_create(ptr noundef %0) local_unnamed_addr #0
   %2 = load ptr, ptr @slab_ce, align 8
   %3 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %2, i32 noundef 3520) #11
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %6, label %5
+  %5 = inttoptr i64 -12 to ptr
+  br i1 %4, label %7, label %6
 
-5:                                                ; preds = %1
+6:                                                ; preds = %1
   tail call void @intel_context_init(ptr noundef nonnull %3, ptr noundef %0)
-  br label %6
+  br label %7
 
-6:                                                ; preds = %5, %1
-  %7 = phi ptr [ %3, %5 ], [ inttoptr (i64 -12 to ptr), %1 ]
-  ret ptr %7
+7:                                                ; preds = %6, %1
+  %8 = phi ptr [ %3, %6 ], [ %5, %1 ]
+  ret ptr %8
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -211,7 +211,7 @@ define internal fastcc i32 @platform_msi_alloc_priv_data(ptr noundef %0, i32 nou
   %9 = add i32 %1, -1
   %10 = icmp ult i32 %9, 2048
   %11 = and i1 %10, %8
-  br i1 %11, label %12, label %39
+  br i1 %11, label %12, label %40
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %5, i64 96
@@ -221,12 +221,12 @@ define internal fastcc i32 @platform_msi_alloc_priv_data(ptr noundef %0, i32 nou
 
 16:                                               ; preds = %12
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.1) #6
-  br label %39
+  br label %40
 
 17:                                               ; preds = %12
   %18 = tail call i32 @msi_setup_device_data(ptr noundef %0) #5
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %39
+  br i1 %19, label %20, label %40
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %0, i64 544
@@ -234,37 +234,38 @@ define internal fastcc i32 @platform_msi_alloc_priv_data(ptr noundef %0, i32 nou
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %39
+  br i1 %25, label %26, label %40
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
-  %28 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 3520, i64 noundef 104) #7
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %39, label %30
+  %27 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3520, i64 noundef 104) #7
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %40, label %31
 
-30:                                               ; preds = %26
-  %31 = tail call i32 @ida_alloc_range(ptr noundef nonnull @platform_msi_devid_ida, i32 noundef 0, i32 noundef 2097151, i32 noundef 3264) #5
-  %32 = getelementptr inbounds i8, ptr %28, i64 96
-  store i32 %31, ptr %32, align 8
-  %33 = icmp slt i32 %31, 0
-  br i1 %33, label %34, label %35
+31:                                               ; preds = %26
+  %32 = tail call i32 @ida_alloc_range(ptr noundef nonnull @platform_msi_devid_ida, i32 noundef 0, i32 noundef 2097151, i32 noundef 3264) #5
+  %33 = getelementptr inbounds i8, ptr %29, i64 96
+  store i32 %32, ptr %33, align 8
+  %34 = icmp slt i32 %32, 0
+  br i1 %34, label %35, label %36
 
-34:                                               ; preds = %30
-  tail call void @kfree(ptr noundef nonnull %28) #5
-  br label %39
+35:                                               ; preds = %31
+  tail call void @kfree(ptr noundef nonnull %29) #5
+  br label %40
 
-35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %28, i64 88
-  store ptr %2, ptr %36, align 8
-  store ptr %0, ptr %28, align 8
-  %37 = load ptr, ptr %21, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr %28, ptr %38, align 8
-  br label %39
+36:                                               ; preds = %31
+  %37 = getelementptr inbounds i8, ptr %29, i64 88
+  store ptr %2, ptr %37, align 8
+  store ptr %0, ptr %29, align 8
+  %38 = load ptr, ptr %21, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  store ptr %29, ptr %39, align 8
+  br label %40
 
-39:                                               ; preds = %35, %34, %26, %20, %17, %16, %3
-  %40 = phi i32 [ -22, %16 ], [ %31, %34 ], [ 0, %35 ], [ -22, %3 ], [ %18, %17 ], [ -16, %20 ], [ -12, %26 ]
-  ret i32 %40
+40:                                               ; preds = %36, %35, %26, %20, %17, %16, %3
+  %41 = phi i32 [ -22, %16 ], [ %32, %35 ], [ 0, %36 ], [ -22, %3 ], [ %18, %17 ], [ -16, %20 ], [ -12, %26 ]
+  ret i32 %41
 }
 
 ; Function Attrs: null_pointer_is_valid

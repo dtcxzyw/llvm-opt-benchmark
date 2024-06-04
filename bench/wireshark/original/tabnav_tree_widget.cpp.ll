@@ -52,9 +52,11 @@ define void @_ZN16TabnavTreeWidgetC2EP7QWidget(ptr noundef nonnull align 8 deref
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN11QTreeWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [104 x ptr], [10 x ptr] }, ptr @_ZTV16TabnavTreeWidget, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [104 x ptr], [10 x ptr] }, ptr @_ZTV16TabnavTreeWidget, i32 0, i32 1, i32 2), ptr %7, align 8
+  %7 = getelementptr inbounds { [104 x ptr], [10 x ptr] }, ptr @_ZTV16TabnavTreeWidget, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds { [104 x ptr], [10 x ptr] }, ptr @_ZTV16TabnavTreeWidget, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
   ret void
 }
 

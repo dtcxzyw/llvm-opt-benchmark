@@ -183,17 +183,18 @@ if.end8:                                          ; preds = %if.end
   %call11 = call ptr @mmap64(ptr noundef null, i64 noundef %3, i32 noundef 5, i32 noundef 2, i32 noundef %call10, i64 noundef 0) #8
   store ptr %call11, ptr @perf_marker, align 8
   %5 = load ptr, ptr @perf_marker, align 8
-  %cmp12 = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
+  %6 = inttoptr i64 -1 to ptr
+  %cmp12 = icmp eq ptr %5, %6
   br i1 %cmp12, label %if.then13, label %if.end18
 
 if.then13:                                        ; preds = %if.end8
   %arraydecay14 = getelementptr inbounds [32 x i8], ptr %jitdump_file, i64 0, i64 0
   %call15 = call ptr @__errno_location() #9
-  %6 = load i32, ptr %call15, align 4
-  %call16 = call ptr @strerror(i32 noundef %6) #8
+  %7 = load i32, ptr %call15, align 4
+  %call16 = call ptr @strerror(i32 noundef %7) #8
   call void (ptr, ...) @warn_report(ptr noundef @.str.5, ptr noundef %arraydecay14, ptr noundef %call16)
-  %7 = load ptr, ptr @jitdump, align 8
-  %call17 = call i32 @fclose(ptr noundef %7)
+  %8 = load ptr, ptr @jitdump, align 8
+  %call17 = call i32 @fclose(ptr noundef %8)
   store ptr null, ptr @jitdump, align 8
   br label %return
 
@@ -217,8 +218,8 @@ if.end18:                                         ; preds = %if.end8
   store i64 %call21, ptr %timestamp, align 8
   %flags = getelementptr inbounds %struct.jitheader, ptr %header, i32 0, i32 7
   store i64 0, ptr %flags, align 8
-  %8 = load ptr, ptr @jitdump, align 8
-  %call22 = call i64 @fwrite(ptr noundef %header, i64 noundef 40, i64 noundef 1, ptr noundef %8)
+  %9 = load ptr, ptr @jitdump, align 8
+  %call22 = call i64 @fwrite(ptr noundef %header, i64 noundef 40, i64 noundef 1, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %if.end18, %if.then13, %if.then4, %if.then
@@ -899,24 +900,26 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %2 = load ptr, ptr @perf_marker, align 8
-  %cmp = icmp ne ptr %2, inttoptr (i64 -1 to ptr)
+  %3 = inttoptr i64 -1 to ptr
+  %cmp = icmp ne ptr %2, %3
   br i1 %cmp, label %if.then1, label %if.end3
 
 if.then1:                                         ; preds = %if.end
-  %3 = load ptr, ptr @perf_marker, align 8
-  %4 = load i64, ptr @perf_marker_size, align 8
-  %call2 = call i32 @munmap(ptr noundef %3, i64 noundef %4) #8
-  store ptr inttoptr (i64 -1 to ptr), ptr @perf_marker, align 8
+  %4 = load ptr, ptr @perf_marker, align 8
+  %5 = load i64, ptr @perf_marker_size, align 8
+  %call2 = call i32 @munmap(ptr noundef %4, i64 noundef %5) #8
+  %6 = inttoptr i64 -1 to ptr
+  store ptr %6, ptr @perf_marker, align 8
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then1, %if.end
-  %5 = load ptr, ptr @jitdump, align 8
-  %tobool4 = icmp ne ptr %5, null
+  %7 = load ptr, ptr @jitdump, align 8
+  %tobool4 = icmp ne ptr %7, null
   br i1 %tobool4, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end3
-  %6 = load ptr, ptr @jitdump, align 8
-  %call6 = call i32 @fclose(ptr noundef %6)
+  %8 = load ptr, ptr @jitdump, align 8
+  %call6 = call i32 @fclose(ptr noundef %8)
   store ptr null, ptr @jitdump, align 8
   br label %if.end7
 

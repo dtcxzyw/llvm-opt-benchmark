@@ -186,27 +186,28 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @ttm_agp_tt_create(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %5 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 64) #7
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %13, label %7
+  %4 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %5 = load ptr, ptr %4, align 16
+  %6 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3264, i64 noundef 64) #7
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %14, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr %1, ptr %9, align 8
-  %10 = tail call i32 @ttm_tt_init(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %2, i32 noundef 1, i64 noundef 0) #5
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %13, label %12
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %6, i64 48
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 56
+  store ptr %1, ptr %10, align 8
+  %11 = tail call i32 @ttm_tt_init(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %2, i32 noundef 1, i64 noundef 0) #5
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %14, label %13
 
-12:                                               ; preds = %7
-  tail call void @kfree(ptr noundef nonnull %5) #5
-  br label %13
+13:                                               ; preds = %8
+  tail call void @kfree(ptr noundef nonnull %6) #5
+  br label %14
 
-13:                                               ; preds = %12, %7, %3
-  %14 = phi ptr [ null, %12 ], [ null, %3 ], [ %5, %7 ]
-  ret ptr %14
+14:                                               ; preds = %13, %8, %3
+  %15 = phi ptr [ null, %13 ], [ null, %3 ], [ %6, %8 ]
+  ret ptr %15
 }
 
 ; Function Attrs: null_pointer_is_valid

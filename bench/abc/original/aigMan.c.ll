@@ -1283,7 +1283,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -1311,7 +1311,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -2538,16 +2538,10 @@ declare i32 @Abc_FrameIsBridgeMode(...) #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
 
 ; Function Attrs: nounwind uwtable
 define internal void @Vec_VecFree(ptr noundef %0) #0 {
@@ -2638,13 +2632,13 @@ define internal void @Vec_PtrFreeData(ptr noundef %0) #0 {
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  br label %37
+  br label %39
 
 8:                                                ; preds = %1
   store i32 0, ptr %4, align 4
   br label %9
 
-9:                                                ; preds = %34, %8
+9:                                                ; preds = %36, %8
   %10 = load i32, ptr %4, align 4
   %11 = load ptr, ptr %2, align 8
   %12 = call i32 @Vec_PtrSize(ptr noundef %11)
@@ -2660,45 +2654,47 @@ define internal void @Vec_PtrFreeData(ptr noundef %0) #0 {
 
 18:                                               ; preds = %14, %9
   %19 = phi i1 [ false, %9 ], [ true, %14 ]
-  br i1 %19, label %20, label %37
+  br i1 %19, label %20, label %39
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %3, align 8
-  %22 = icmp ne ptr %21, inttoptr (i64 1 to ptr)
-  br i1 %22, label %23, label %33
+  %22 = inttoptr i64 1 to ptr
+  %23 = icmp ne ptr %21, %22
+  br i1 %23, label %24, label %35
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %3, align 8
-  %25 = icmp ne ptr %24, inttoptr (i64 2 to ptr)
-  br i1 %25, label %26, label %33
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %3, align 8
+  %26 = inttoptr i64 2 to ptr
+  %27 = icmp ne ptr %25, %26
+  br i1 %27, label %28, label %35
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %3, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %31
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %3, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %33
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %30) #10
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %32) #10
   store ptr null, ptr %3, align 8
-  br label %32
-
-31:                                               ; preds = %26
-  br label %32
-
-32:                                               ; preds = %31, %29
-  br label %33
-
-33:                                               ; preds = %32, %23, %20
   br label %34
 
-34:                                               ; preds = %33
-  %35 = load i32, ptr %4, align 4
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %4, align 4
+33:                                               ; preds = %28
+  br label %34
+
+34:                                               ; preds = %33, %31
+  br label %35
+
+35:                                               ; preds = %34, %24, %20
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load i32, ptr %4, align 4
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %4, align 4
   br label %9, !llvm.loop !16
 
-37:                                               ; preds = %18, %7
+39:                                               ; preds = %18, %7
   ret void
 }
 
@@ -2758,7 +2754,7 @@ define internal void @Vec_PtrGrow(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #7
+declare ptr @realloc(ptr noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @Aig_Not(ptr noundef %0) #0 {
@@ -2771,14 +2767,20 @@ define internal ptr @Aig_Not(ptr noundef %0) #0 {
   ret ptr %6
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nounwind allocsize(0) }
 attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { nounwind }

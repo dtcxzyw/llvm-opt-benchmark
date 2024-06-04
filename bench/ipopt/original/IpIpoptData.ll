@@ -394,159 +394,160 @@ define void @_ZN5Ipopt9IpoptDataC2ENS_8SmartPtrINS_19IpoptAdditionalDataEEE(ptr 
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt9IpoptDataE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 1
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %9 unwind label %25
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt9IpoptDataE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 1
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %10 unwind label %26
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 2
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %11 unwind label %29
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 2
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %12 unwind label %30
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 3
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %33
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 3
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %34
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 4
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %15 unwind label %37
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 4
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %16 unwind label %38
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 6
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %17 unwind label %41
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 6
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %18 unwind label %42
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
-  %19 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 27
-  invoke void @_ZN5Ipopt8SmartPtrINS_19IteratesVectorSpaceEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %20 unwind label %45
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
+  %20 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 27
+  invoke void @_ZN5Ipopt8SmartPtrINS_19IteratesVectorSpaceEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20)
+          to label %21 unwind label %46
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 28
-  invoke void @_ZN5Ipopt16TimingStatisticsC2Ev(ptr noundef nonnull align 8 dereferenceable(1976) %21)
-          to label %22 unwind label %49
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 28
+  invoke void @_ZN5Ipopt16TimingStatisticsC2Ev(ptr noundef nonnull align 8 dereferenceable(1976) %22)
+          to label %23 unwind label %50
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 29
-  invoke void @_ZN5Ipopt8SmartPtrINS_19IpoptAdditionalDataEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %24 unwind label %53
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %7, i32 0, i32 29
+  invoke void @_ZN5Ipopt8SmartPtrINS_19IpoptAdditionalDataEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %1)
+          to label %25 unwind label %54
 
-24:                                               ; preds = %22
+25:                                               ; preds = %23
   ret void
 
-25:                                               ; preds = %2
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %2
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  br label %63
-
-29:                                               ; preds = %9
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %5, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %6, align 4
-  br label %62
-
-33:                                               ; preds = %11
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %5, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %6, align 4
-  br label %61
-
-37:                                               ; preds = %13
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %5, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %6, align 4
-  br label %60
-
-41:                                               ; preds = %15
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %5, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %6, align 4
-  br label %59
-
-45:                                               ; preds = %17
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %5, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %6, align 4
-  br label %58
-
-49:                                               ; preds = %20
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %5, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %6, align 4
-  br label %57
-
-53:                                               ; preds = %22
-  %54 = landingpad { ptr, i32 }
-          cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %5, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %6, align 4
-  call void @_ZN5Ipopt16TimingStatisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(1976) %21) #3
-  br label %57
-
-57:                                               ; preds = %53, %49
-  call void @_ZN5Ipopt8SmartPtrINS_19IteratesVectorSpaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
-  br label %58
-
-58:                                               ; preds = %57, %45
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
-  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  br label %59
-
-59:                                               ; preds = %58, %41
-  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  br label %60
-
-60:                                               ; preds = %59, %37
-  call void @_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  br label %61
-
-61:                                               ; preds = %60, %33
-  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %62
-
-62:                                               ; preds = %61, %29
-  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  br label %63
-
-63:                                               ; preds = %62, %25
-  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #3
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
   br label %64
 
-64:                                               ; preds = %63
-  %65 = load ptr, ptr %5, align 8
-  %66 = load i32, ptr %6, align 4
-  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
-  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
-  resume { ptr, i32 } %68
+30:                                               ; preds = %10
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %5, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %6, align 4
+  br label %63
+
+34:                                               ; preds = %12
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %5, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %6, align 4
+  br label %62
+
+38:                                               ; preds = %14
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %5, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %6, align 4
+  br label %61
+
+42:                                               ; preds = %16
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %5, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %6, align 4
+  br label %60
+
+46:                                               ; preds = %18
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %5, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %6, align 4
+  br label %59
+
+50:                                               ; preds = %21
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %5, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %6, align 4
+  br label %58
+
+54:                                               ; preds = %23
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %5, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %6, align 4
+  call void @_ZN5Ipopt16TimingStatisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(1976) %22) #3
+  br label %58
+
+58:                                               ; preds = %54, %50
+  call void @_ZN5Ipopt8SmartPtrINS_19IteratesVectorSpaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
+  br label %59
+
+59:                                               ; preds = %58, %46
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
+  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  br label %60
+
+60:                                               ; preds = %59, %42
+  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  br label %61
+
+61:                                               ; preds = %60, %38
+  call void @_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  br label %62
+
+62:                                               ; preds = %61, %34
+  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  br label %63
+
+63:                                               ; preds = %62, %30
+  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %64
+
+64:                                               ; preds = %63, %26
+  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #3
+  br label %65
+
+65:                                               ; preds = %64
+  %66 = load ptr, ptr %5, align 8
+  %67 = load i32, ptr %6, align 4
+  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
+  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
+  resume { ptr, i32 } %69
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -554,9 +555,10 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
   ret void
 }
 
@@ -603,642 +605,643 @@ define linkonce_odr void @_ZN5Ipopt16TimingStatisticsC2Ev(ptr noundef nonnull al
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16TimingStatisticsE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 2
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %6)
-          to label %7 unwind label %76
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16TimingStatisticsE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 2
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %7)
+          to label %8 unwind label %77
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 3
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %8)
-          to label %9 unwind label %80
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 3
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %9)
+          to label %10 unwind label %81
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 4
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %10)
-          to label %11 unwind label %84
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 4
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %11)
+          to label %12 unwind label %85
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 5
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %12)
-          to label %13 unwind label %88
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 5
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %13)
+          to label %14 unwind label %89
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 6
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %14)
-          to label %15 unwind label %92
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 6
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %15)
+          to label %16 unwind label %93
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 7
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %16)
-          to label %17 unwind label %96
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 7
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %17)
+          to label %18 unwind label %97
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 8
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %18)
-          to label %19 unwind label %100
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 8
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %19)
+          to label %20 unwind label %101
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 9
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %20)
-          to label %21 unwind label %104
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 9
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %21)
+          to label %22 unwind label %105
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 10
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %22)
-          to label %23 unwind label %108
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 10
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %23)
+          to label %24 unwind label %109
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 11
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %24)
-          to label %25 unwind label %112
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 11
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %25)
+          to label %26 unwind label %113
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 12
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %26)
-          to label %27 unwind label %116
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 12
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %27)
+          to label %28 unwind label %117
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 13
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %28)
-          to label %29 unwind label %120
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 13
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %29)
+          to label %30 unwind label %121
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 14
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %30)
-          to label %31 unwind label %124
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 14
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %31)
+          to label %32 unwind label %125
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 15
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %32)
-          to label %33 unwind label %128
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 15
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %33)
+          to label %34 unwind label %129
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 16
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %34)
-          to label %35 unwind label %132
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 16
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %35)
+          to label %36 unwind label %133
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 17
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %36)
-          to label %37 unwind label %136
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 17
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %37)
+          to label %38 unwind label %137
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 18
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %38)
-          to label %39 unwind label %140
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 18
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %39)
+          to label %40 unwind label %141
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 19
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %40)
-          to label %41 unwind label %144
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 19
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %41)
+          to label %42 unwind label %145
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 20
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %42)
-          to label %43 unwind label %148
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 20
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %43)
+          to label %44 unwind label %149
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 21
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %44)
-          to label %45 unwind label %152
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 21
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %45)
+          to label %46 unwind label %153
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 22
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %46)
-          to label %47 unwind label %156
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 22
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %47)
+          to label %48 unwind label %157
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 23
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %48)
-          to label %49 unwind label %160
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 23
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %49)
+          to label %50 unwind label %161
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 24
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %50)
-          to label %51 unwind label %164
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 24
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %51)
+          to label %52 unwind label %165
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 25
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %52)
-          to label %53 unwind label %168
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 25
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %53)
+          to label %54 unwind label %169
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 26
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %54)
-          to label %55 unwind label %172
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 26
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %55)
+          to label %56 unwind label %173
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 27
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %56)
-          to label %57 unwind label %176
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 27
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %57)
+          to label %58 unwind label %177
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 28
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %58)
-          to label %59 unwind label %180
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 28
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %59)
+          to label %60 unwind label %181
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 29
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %60)
-          to label %61 unwind label %184
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 29
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %61)
+          to label %62 unwind label %185
 
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 30
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %62)
-          to label %63 unwind label %188
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 30
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %63)
+          to label %64 unwind label %189
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 31
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %64)
-          to label %65 unwind label %192
+64:                                               ; preds = %62
+  %65 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 31
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %65)
+          to label %66 unwind label %193
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 32
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %66)
-          to label %67 unwind label %196
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 32
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %67)
+          to label %68 unwind label %197
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 33
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %68)
-          to label %69 unwind label %200
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 33
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %69)
+          to label %70 unwind label %201
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 34
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %70)
-          to label %71 unwind label %204
+70:                                               ; preds = %68
+  %71 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 34
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %71)
+          to label %72 unwind label %205
 
-71:                                               ; preds = %69
-  %72 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 35
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %72)
-          to label %73 unwind label %208
+72:                                               ; preds = %70
+  %73 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 35
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %73)
+          to label %74 unwind label %209
 
-73:                                               ; preds = %71
-  %74 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 36
-  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %74)
-          to label %75 unwind label %212
+74:                                               ; preds = %72
+  %75 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %5, i32 0, i32 36
+  invoke void @_ZN5Ipopt9TimedTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %75)
+          to label %76 unwind label %213
 
-75:                                               ; preds = %73
+76:                                               ; preds = %74
   ret void
 
-76:                                               ; preds = %1
-  %77 = landingpad { ptr, i32 }
+77:                                               ; preds = %1
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %3, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %4, align 4
-  br label %249
-
-80:                                               ; preds = %7
-  %81 = landingpad { ptr, i32 }
-          cleanup
-  %82 = extractvalue { ptr, i32 } %81, 0
-  store ptr %82, ptr %3, align 8
-  %83 = extractvalue { ptr, i32 } %81, 1
-  store i32 %83, ptr %4, align 4
-  br label %248
-
-84:                                               ; preds = %9
-  %85 = landingpad { ptr, i32 }
-          cleanup
-  %86 = extractvalue { ptr, i32 } %85, 0
-  store ptr %86, ptr %3, align 8
-  %87 = extractvalue { ptr, i32 } %85, 1
-  store i32 %87, ptr %4, align 4
-  br label %247
-
-88:                                               ; preds = %11
-  %89 = landingpad { ptr, i32 }
-          cleanup
-  %90 = extractvalue { ptr, i32 } %89, 0
-  store ptr %90, ptr %3, align 8
-  %91 = extractvalue { ptr, i32 } %89, 1
-  store i32 %91, ptr %4, align 4
-  br label %246
-
-92:                                               ; preds = %13
-  %93 = landingpad { ptr, i32 }
-          cleanup
-  %94 = extractvalue { ptr, i32 } %93, 0
-  store ptr %94, ptr %3, align 8
-  %95 = extractvalue { ptr, i32 } %93, 1
-  store i32 %95, ptr %4, align 4
-  br label %245
-
-96:                                               ; preds = %15
-  %97 = landingpad { ptr, i32 }
-          cleanup
-  %98 = extractvalue { ptr, i32 } %97, 0
-  store ptr %98, ptr %3, align 8
-  %99 = extractvalue { ptr, i32 } %97, 1
-  store i32 %99, ptr %4, align 4
-  br label %244
-
-100:                                              ; preds = %17
-  %101 = landingpad { ptr, i32 }
-          cleanup
-  %102 = extractvalue { ptr, i32 } %101, 0
-  store ptr %102, ptr %3, align 8
-  %103 = extractvalue { ptr, i32 } %101, 1
-  store i32 %103, ptr %4, align 4
-  br label %243
-
-104:                                              ; preds = %19
-  %105 = landingpad { ptr, i32 }
-          cleanup
-  %106 = extractvalue { ptr, i32 } %105, 0
-  store ptr %106, ptr %3, align 8
-  %107 = extractvalue { ptr, i32 } %105, 1
-  store i32 %107, ptr %4, align 4
-  br label %242
-
-108:                                              ; preds = %21
-  %109 = landingpad { ptr, i32 }
-          cleanup
-  %110 = extractvalue { ptr, i32 } %109, 0
-  store ptr %110, ptr %3, align 8
-  %111 = extractvalue { ptr, i32 } %109, 1
-  store i32 %111, ptr %4, align 4
-  br label %241
-
-112:                                              ; preds = %23
-  %113 = landingpad { ptr, i32 }
-          cleanup
-  %114 = extractvalue { ptr, i32 } %113, 0
-  store ptr %114, ptr %3, align 8
-  %115 = extractvalue { ptr, i32 } %113, 1
-  store i32 %115, ptr %4, align 4
-  br label %240
-
-116:                                              ; preds = %25
-  %117 = landingpad { ptr, i32 }
-          cleanup
-  %118 = extractvalue { ptr, i32 } %117, 0
-  store ptr %118, ptr %3, align 8
-  %119 = extractvalue { ptr, i32 } %117, 1
-  store i32 %119, ptr %4, align 4
-  br label %239
-
-120:                                              ; preds = %27
-  %121 = landingpad { ptr, i32 }
-          cleanup
-  %122 = extractvalue { ptr, i32 } %121, 0
-  store ptr %122, ptr %3, align 8
-  %123 = extractvalue { ptr, i32 } %121, 1
-  store i32 %123, ptr %4, align 4
-  br label %238
-
-124:                                              ; preds = %29
-  %125 = landingpad { ptr, i32 }
-          cleanup
-  %126 = extractvalue { ptr, i32 } %125, 0
-  store ptr %126, ptr %3, align 8
-  %127 = extractvalue { ptr, i32 } %125, 1
-  store i32 %127, ptr %4, align 4
-  br label %237
-
-128:                                              ; preds = %31
-  %129 = landingpad { ptr, i32 }
-          cleanup
-  %130 = extractvalue { ptr, i32 } %129, 0
-  store ptr %130, ptr %3, align 8
-  %131 = extractvalue { ptr, i32 } %129, 1
-  store i32 %131, ptr %4, align 4
-  br label %236
-
-132:                                              ; preds = %33
-  %133 = landingpad { ptr, i32 }
-          cleanup
-  %134 = extractvalue { ptr, i32 } %133, 0
-  store ptr %134, ptr %3, align 8
-  %135 = extractvalue { ptr, i32 } %133, 1
-  store i32 %135, ptr %4, align 4
-  br label %235
-
-136:                                              ; preds = %35
-  %137 = landingpad { ptr, i32 }
-          cleanup
-  %138 = extractvalue { ptr, i32 } %137, 0
-  store ptr %138, ptr %3, align 8
-  %139 = extractvalue { ptr, i32 } %137, 1
-  store i32 %139, ptr %4, align 4
-  br label %234
-
-140:                                              ; preds = %37
-  %141 = landingpad { ptr, i32 }
-          cleanup
-  %142 = extractvalue { ptr, i32 } %141, 0
-  store ptr %142, ptr %3, align 8
-  %143 = extractvalue { ptr, i32 } %141, 1
-  store i32 %143, ptr %4, align 4
-  br label %233
-
-144:                                              ; preds = %39
-  %145 = landingpad { ptr, i32 }
-          cleanup
-  %146 = extractvalue { ptr, i32 } %145, 0
-  store ptr %146, ptr %3, align 8
-  %147 = extractvalue { ptr, i32 } %145, 1
-  store i32 %147, ptr %4, align 4
-  br label %232
-
-148:                                              ; preds = %41
-  %149 = landingpad { ptr, i32 }
-          cleanup
-  %150 = extractvalue { ptr, i32 } %149, 0
-  store ptr %150, ptr %3, align 8
-  %151 = extractvalue { ptr, i32 } %149, 1
-  store i32 %151, ptr %4, align 4
-  br label %231
-
-152:                                              ; preds = %43
-  %153 = landingpad { ptr, i32 }
-          cleanup
-  %154 = extractvalue { ptr, i32 } %153, 0
-  store ptr %154, ptr %3, align 8
-  %155 = extractvalue { ptr, i32 } %153, 1
-  store i32 %155, ptr %4, align 4
-  br label %230
-
-156:                                              ; preds = %45
-  %157 = landingpad { ptr, i32 }
-          cleanup
-  %158 = extractvalue { ptr, i32 } %157, 0
-  store ptr %158, ptr %3, align 8
-  %159 = extractvalue { ptr, i32 } %157, 1
-  store i32 %159, ptr %4, align 4
-  br label %229
-
-160:                                              ; preds = %47
-  %161 = landingpad { ptr, i32 }
-          cleanup
-  %162 = extractvalue { ptr, i32 } %161, 0
-  store ptr %162, ptr %3, align 8
-  %163 = extractvalue { ptr, i32 } %161, 1
-  store i32 %163, ptr %4, align 4
-  br label %228
-
-164:                                              ; preds = %49
-  %165 = landingpad { ptr, i32 }
-          cleanup
-  %166 = extractvalue { ptr, i32 } %165, 0
-  store ptr %166, ptr %3, align 8
-  %167 = extractvalue { ptr, i32 } %165, 1
-  store i32 %167, ptr %4, align 4
-  br label %227
-
-168:                                              ; preds = %51
-  %169 = landingpad { ptr, i32 }
-          cleanup
-  %170 = extractvalue { ptr, i32 } %169, 0
-  store ptr %170, ptr %3, align 8
-  %171 = extractvalue { ptr, i32 } %169, 1
-  store i32 %171, ptr %4, align 4
-  br label %226
-
-172:                                              ; preds = %53
-  %173 = landingpad { ptr, i32 }
-          cleanup
-  %174 = extractvalue { ptr, i32 } %173, 0
-  store ptr %174, ptr %3, align 8
-  %175 = extractvalue { ptr, i32 } %173, 1
-  store i32 %175, ptr %4, align 4
-  br label %225
-
-176:                                              ; preds = %55
-  %177 = landingpad { ptr, i32 }
-          cleanup
-  %178 = extractvalue { ptr, i32 } %177, 0
-  store ptr %178, ptr %3, align 8
-  %179 = extractvalue { ptr, i32 } %177, 1
-  store i32 %179, ptr %4, align 4
-  br label %224
-
-180:                                              ; preds = %57
-  %181 = landingpad { ptr, i32 }
-          cleanup
-  %182 = extractvalue { ptr, i32 } %181, 0
-  store ptr %182, ptr %3, align 8
-  %183 = extractvalue { ptr, i32 } %181, 1
-  store i32 %183, ptr %4, align 4
-  br label %223
-
-184:                                              ; preds = %59
-  %185 = landingpad { ptr, i32 }
-          cleanup
-  %186 = extractvalue { ptr, i32 } %185, 0
-  store ptr %186, ptr %3, align 8
-  %187 = extractvalue { ptr, i32 } %185, 1
-  store i32 %187, ptr %4, align 4
-  br label %222
-
-188:                                              ; preds = %61
-  %189 = landingpad { ptr, i32 }
-          cleanup
-  %190 = extractvalue { ptr, i32 } %189, 0
-  store ptr %190, ptr %3, align 8
-  %191 = extractvalue { ptr, i32 } %189, 1
-  store i32 %191, ptr %4, align 4
-  br label %221
-
-192:                                              ; preds = %63
-  %193 = landingpad { ptr, i32 }
-          cleanup
-  %194 = extractvalue { ptr, i32 } %193, 0
-  store ptr %194, ptr %3, align 8
-  %195 = extractvalue { ptr, i32 } %193, 1
-  store i32 %195, ptr %4, align 4
-  br label %220
-
-196:                                              ; preds = %65
-  %197 = landingpad { ptr, i32 }
-          cleanup
-  %198 = extractvalue { ptr, i32 } %197, 0
-  store ptr %198, ptr %3, align 8
-  %199 = extractvalue { ptr, i32 } %197, 1
-  store i32 %199, ptr %4, align 4
-  br label %219
-
-200:                                              ; preds = %67
-  %201 = landingpad { ptr, i32 }
-          cleanup
-  %202 = extractvalue { ptr, i32 } %201, 0
-  store ptr %202, ptr %3, align 8
-  %203 = extractvalue { ptr, i32 } %201, 1
-  store i32 %203, ptr %4, align 4
-  br label %218
-
-204:                                              ; preds = %69
-  %205 = landingpad { ptr, i32 }
-          cleanup
-  %206 = extractvalue { ptr, i32 } %205, 0
-  store ptr %206, ptr %3, align 8
-  %207 = extractvalue { ptr, i32 } %205, 1
-  store i32 %207, ptr %4, align 4
-  br label %217
-
-208:                                              ; preds = %71
-  %209 = landingpad { ptr, i32 }
-          cleanup
-  %210 = extractvalue { ptr, i32 } %209, 0
-  store ptr %210, ptr %3, align 8
-  %211 = extractvalue { ptr, i32 } %209, 1
-  store i32 %211, ptr %4, align 4
-  br label %216
-
-212:                                              ; preds = %73
-  %213 = landingpad { ptr, i32 }
-          cleanup
-  %214 = extractvalue { ptr, i32 } %213, 0
-  store ptr %214, ptr %3, align 8
-  %215 = extractvalue { ptr, i32 } %213, 1
-  store i32 %215, ptr %4, align 4
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %72) #3
-  br label %216
-
-216:                                              ; preds = %212, %208
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %70) #3
-  br label %217
-
-217:                                              ; preds = %216, %204
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %68) #3
-  br label %218
-
-218:                                              ; preds = %217, %200
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %66) #3
-  br label %219
-
-219:                                              ; preds = %218, %196
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %64) #3
-  br label %220
-
-220:                                              ; preds = %219, %192
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %62) #3
-  br label %221
-
-221:                                              ; preds = %220, %188
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %60) #3
-  br label %222
-
-222:                                              ; preds = %221, %184
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %58) #3
-  br label %223
-
-223:                                              ; preds = %222, %180
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %56) #3
-  br label %224
-
-224:                                              ; preds = %223, %176
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %54) #3
-  br label %225
-
-225:                                              ; preds = %224, %172
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %52) #3
-  br label %226
-
-226:                                              ; preds = %225, %168
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %50) #3
-  br label %227
-
-227:                                              ; preds = %226, %164
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %48) #3
-  br label %228
-
-228:                                              ; preds = %227, %160
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %46) #3
-  br label %229
-
-229:                                              ; preds = %228, %156
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %44) #3
-  br label %230
-
-230:                                              ; preds = %229, %152
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %42) #3
-  br label %231
-
-231:                                              ; preds = %230, %148
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %40) #3
-  br label %232
-
-232:                                              ; preds = %231, %144
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %38) #3
-  br label %233
-
-233:                                              ; preds = %232, %140
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %36) #3
-  br label %234
-
-234:                                              ; preds = %233, %136
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %34) #3
-  br label %235
-
-235:                                              ; preds = %234, %132
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %32) #3
-  br label %236
-
-236:                                              ; preds = %235, %128
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %30) #3
-  br label %237
-
-237:                                              ; preds = %236, %124
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %28) #3
-  br label %238
-
-238:                                              ; preds = %237, %120
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %26) #3
-  br label %239
-
-239:                                              ; preds = %238, %116
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %24) #3
-  br label %240
-
-240:                                              ; preds = %239, %112
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %22) #3
-  br label %241
-
-241:                                              ; preds = %240, %108
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %20) #3
-  br label %242
-
-242:                                              ; preds = %241, %104
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %18) #3
-  br label %243
-
-243:                                              ; preds = %242, %100
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %16) #3
-  br label %244
-
-244:                                              ; preds = %243, %96
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %14) #3
-  br label %245
-
-245:                                              ; preds = %244, %92
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %12) #3
-  br label %246
-
-246:                                              ; preds = %245, %88
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %10) #3
-  br label %247
-
-247:                                              ; preds = %246, %84
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %8) #3
-  br label %248
-
-248:                                              ; preds = %247, %80
-  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %6) #3
-  br label %249
-
-249:                                              ; preds = %248, %76
-  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #3
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %3, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %4, align 4
   br label %250
 
-250:                                              ; preds = %249
-  %251 = load ptr, ptr %3, align 8
-  %252 = load i32, ptr %4, align 4
-  %253 = insertvalue { ptr, i32 } poison, ptr %251, 0
-  %254 = insertvalue { ptr, i32 } %253, i32 %252, 1
-  resume { ptr, i32 } %254
+81:                                               ; preds = %8
+  %82 = landingpad { ptr, i32 }
+          cleanup
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %3, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %4, align 4
+  br label %249
+
+85:                                               ; preds = %10
+  %86 = landingpad { ptr, i32 }
+          cleanup
+  %87 = extractvalue { ptr, i32 } %86, 0
+  store ptr %87, ptr %3, align 8
+  %88 = extractvalue { ptr, i32 } %86, 1
+  store i32 %88, ptr %4, align 4
+  br label %248
+
+89:                                               ; preds = %12
+  %90 = landingpad { ptr, i32 }
+          cleanup
+  %91 = extractvalue { ptr, i32 } %90, 0
+  store ptr %91, ptr %3, align 8
+  %92 = extractvalue { ptr, i32 } %90, 1
+  store i32 %92, ptr %4, align 4
+  br label %247
+
+93:                                               ; preds = %14
+  %94 = landingpad { ptr, i32 }
+          cleanup
+  %95 = extractvalue { ptr, i32 } %94, 0
+  store ptr %95, ptr %3, align 8
+  %96 = extractvalue { ptr, i32 } %94, 1
+  store i32 %96, ptr %4, align 4
+  br label %246
+
+97:                                               ; preds = %16
+  %98 = landingpad { ptr, i32 }
+          cleanup
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %3, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %4, align 4
+  br label %245
+
+101:                                              ; preds = %18
+  %102 = landingpad { ptr, i32 }
+          cleanup
+  %103 = extractvalue { ptr, i32 } %102, 0
+  store ptr %103, ptr %3, align 8
+  %104 = extractvalue { ptr, i32 } %102, 1
+  store i32 %104, ptr %4, align 4
+  br label %244
+
+105:                                              ; preds = %20
+  %106 = landingpad { ptr, i32 }
+          cleanup
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %3, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %4, align 4
+  br label %243
+
+109:                                              ; preds = %22
+  %110 = landingpad { ptr, i32 }
+          cleanup
+  %111 = extractvalue { ptr, i32 } %110, 0
+  store ptr %111, ptr %3, align 8
+  %112 = extractvalue { ptr, i32 } %110, 1
+  store i32 %112, ptr %4, align 4
+  br label %242
+
+113:                                              ; preds = %24
+  %114 = landingpad { ptr, i32 }
+          cleanup
+  %115 = extractvalue { ptr, i32 } %114, 0
+  store ptr %115, ptr %3, align 8
+  %116 = extractvalue { ptr, i32 } %114, 1
+  store i32 %116, ptr %4, align 4
+  br label %241
+
+117:                                              ; preds = %26
+  %118 = landingpad { ptr, i32 }
+          cleanup
+  %119 = extractvalue { ptr, i32 } %118, 0
+  store ptr %119, ptr %3, align 8
+  %120 = extractvalue { ptr, i32 } %118, 1
+  store i32 %120, ptr %4, align 4
+  br label %240
+
+121:                                              ; preds = %28
+  %122 = landingpad { ptr, i32 }
+          cleanup
+  %123 = extractvalue { ptr, i32 } %122, 0
+  store ptr %123, ptr %3, align 8
+  %124 = extractvalue { ptr, i32 } %122, 1
+  store i32 %124, ptr %4, align 4
+  br label %239
+
+125:                                              ; preds = %30
+  %126 = landingpad { ptr, i32 }
+          cleanup
+  %127 = extractvalue { ptr, i32 } %126, 0
+  store ptr %127, ptr %3, align 8
+  %128 = extractvalue { ptr, i32 } %126, 1
+  store i32 %128, ptr %4, align 4
+  br label %238
+
+129:                                              ; preds = %32
+  %130 = landingpad { ptr, i32 }
+          cleanup
+  %131 = extractvalue { ptr, i32 } %130, 0
+  store ptr %131, ptr %3, align 8
+  %132 = extractvalue { ptr, i32 } %130, 1
+  store i32 %132, ptr %4, align 4
+  br label %237
+
+133:                                              ; preds = %34
+  %134 = landingpad { ptr, i32 }
+          cleanup
+  %135 = extractvalue { ptr, i32 } %134, 0
+  store ptr %135, ptr %3, align 8
+  %136 = extractvalue { ptr, i32 } %134, 1
+  store i32 %136, ptr %4, align 4
+  br label %236
+
+137:                                              ; preds = %36
+  %138 = landingpad { ptr, i32 }
+          cleanup
+  %139 = extractvalue { ptr, i32 } %138, 0
+  store ptr %139, ptr %3, align 8
+  %140 = extractvalue { ptr, i32 } %138, 1
+  store i32 %140, ptr %4, align 4
+  br label %235
+
+141:                                              ; preds = %38
+  %142 = landingpad { ptr, i32 }
+          cleanup
+  %143 = extractvalue { ptr, i32 } %142, 0
+  store ptr %143, ptr %3, align 8
+  %144 = extractvalue { ptr, i32 } %142, 1
+  store i32 %144, ptr %4, align 4
+  br label %234
+
+145:                                              ; preds = %40
+  %146 = landingpad { ptr, i32 }
+          cleanup
+  %147 = extractvalue { ptr, i32 } %146, 0
+  store ptr %147, ptr %3, align 8
+  %148 = extractvalue { ptr, i32 } %146, 1
+  store i32 %148, ptr %4, align 4
+  br label %233
+
+149:                                              ; preds = %42
+  %150 = landingpad { ptr, i32 }
+          cleanup
+  %151 = extractvalue { ptr, i32 } %150, 0
+  store ptr %151, ptr %3, align 8
+  %152 = extractvalue { ptr, i32 } %150, 1
+  store i32 %152, ptr %4, align 4
+  br label %232
+
+153:                                              ; preds = %44
+  %154 = landingpad { ptr, i32 }
+          cleanup
+  %155 = extractvalue { ptr, i32 } %154, 0
+  store ptr %155, ptr %3, align 8
+  %156 = extractvalue { ptr, i32 } %154, 1
+  store i32 %156, ptr %4, align 4
+  br label %231
+
+157:                                              ; preds = %46
+  %158 = landingpad { ptr, i32 }
+          cleanup
+  %159 = extractvalue { ptr, i32 } %158, 0
+  store ptr %159, ptr %3, align 8
+  %160 = extractvalue { ptr, i32 } %158, 1
+  store i32 %160, ptr %4, align 4
+  br label %230
+
+161:                                              ; preds = %48
+  %162 = landingpad { ptr, i32 }
+          cleanup
+  %163 = extractvalue { ptr, i32 } %162, 0
+  store ptr %163, ptr %3, align 8
+  %164 = extractvalue { ptr, i32 } %162, 1
+  store i32 %164, ptr %4, align 4
+  br label %229
+
+165:                                              ; preds = %50
+  %166 = landingpad { ptr, i32 }
+          cleanup
+  %167 = extractvalue { ptr, i32 } %166, 0
+  store ptr %167, ptr %3, align 8
+  %168 = extractvalue { ptr, i32 } %166, 1
+  store i32 %168, ptr %4, align 4
+  br label %228
+
+169:                                              ; preds = %52
+  %170 = landingpad { ptr, i32 }
+          cleanup
+  %171 = extractvalue { ptr, i32 } %170, 0
+  store ptr %171, ptr %3, align 8
+  %172 = extractvalue { ptr, i32 } %170, 1
+  store i32 %172, ptr %4, align 4
+  br label %227
+
+173:                                              ; preds = %54
+  %174 = landingpad { ptr, i32 }
+          cleanup
+  %175 = extractvalue { ptr, i32 } %174, 0
+  store ptr %175, ptr %3, align 8
+  %176 = extractvalue { ptr, i32 } %174, 1
+  store i32 %176, ptr %4, align 4
+  br label %226
+
+177:                                              ; preds = %56
+  %178 = landingpad { ptr, i32 }
+          cleanup
+  %179 = extractvalue { ptr, i32 } %178, 0
+  store ptr %179, ptr %3, align 8
+  %180 = extractvalue { ptr, i32 } %178, 1
+  store i32 %180, ptr %4, align 4
+  br label %225
+
+181:                                              ; preds = %58
+  %182 = landingpad { ptr, i32 }
+          cleanup
+  %183 = extractvalue { ptr, i32 } %182, 0
+  store ptr %183, ptr %3, align 8
+  %184 = extractvalue { ptr, i32 } %182, 1
+  store i32 %184, ptr %4, align 4
+  br label %224
+
+185:                                              ; preds = %60
+  %186 = landingpad { ptr, i32 }
+          cleanup
+  %187 = extractvalue { ptr, i32 } %186, 0
+  store ptr %187, ptr %3, align 8
+  %188 = extractvalue { ptr, i32 } %186, 1
+  store i32 %188, ptr %4, align 4
+  br label %223
+
+189:                                              ; preds = %62
+  %190 = landingpad { ptr, i32 }
+          cleanup
+  %191 = extractvalue { ptr, i32 } %190, 0
+  store ptr %191, ptr %3, align 8
+  %192 = extractvalue { ptr, i32 } %190, 1
+  store i32 %192, ptr %4, align 4
+  br label %222
+
+193:                                              ; preds = %64
+  %194 = landingpad { ptr, i32 }
+          cleanup
+  %195 = extractvalue { ptr, i32 } %194, 0
+  store ptr %195, ptr %3, align 8
+  %196 = extractvalue { ptr, i32 } %194, 1
+  store i32 %196, ptr %4, align 4
+  br label %221
+
+197:                                              ; preds = %66
+  %198 = landingpad { ptr, i32 }
+          cleanup
+  %199 = extractvalue { ptr, i32 } %198, 0
+  store ptr %199, ptr %3, align 8
+  %200 = extractvalue { ptr, i32 } %198, 1
+  store i32 %200, ptr %4, align 4
+  br label %220
+
+201:                                              ; preds = %68
+  %202 = landingpad { ptr, i32 }
+          cleanup
+  %203 = extractvalue { ptr, i32 } %202, 0
+  store ptr %203, ptr %3, align 8
+  %204 = extractvalue { ptr, i32 } %202, 1
+  store i32 %204, ptr %4, align 4
+  br label %219
+
+205:                                              ; preds = %70
+  %206 = landingpad { ptr, i32 }
+          cleanup
+  %207 = extractvalue { ptr, i32 } %206, 0
+  store ptr %207, ptr %3, align 8
+  %208 = extractvalue { ptr, i32 } %206, 1
+  store i32 %208, ptr %4, align 4
+  br label %218
+
+209:                                              ; preds = %72
+  %210 = landingpad { ptr, i32 }
+          cleanup
+  %211 = extractvalue { ptr, i32 } %210, 0
+  store ptr %211, ptr %3, align 8
+  %212 = extractvalue { ptr, i32 } %210, 1
+  store i32 %212, ptr %4, align 4
+  br label %217
+
+213:                                              ; preds = %74
+  %214 = landingpad { ptr, i32 }
+          cleanup
+  %215 = extractvalue { ptr, i32 } %214, 0
+  store ptr %215, ptr %3, align 8
+  %216 = extractvalue { ptr, i32 } %214, 1
+  store i32 %216, ptr %4, align 4
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %73) #3
+  br label %217
+
+217:                                              ; preds = %213, %209
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %71) #3
+  br label %218
+
+218:                                              ; preds = %217, %205
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %69) #3
+  br label %219
+
+219:                                              ; preds = %218, %201
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %67) #3
+  br label %220
+
+220:                                              ; preds = %219, %197
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %65) #3
+  br label %221
+
+221:                                              ; preds = %220, %193
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %63) #3
+  br label %222
+
+222:                                              ; preds = %221, %189
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %61) #3
+  br label %223
+
+223:                                              ; preds = %222, %185
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %59) #3
+  br label %224
+
+224:                                              ; preds = %223, %181
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %57) #3
+  br label %225
+
+225:                                              ; preds = %224, %177
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %55) #3
+  br label %226
+
+226:                                              ; preds = %225, %173
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %53) #3
+  br label %227
+
+227:                                              ; preds = %226, %169
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %51) #3
+  br label %228
+
+228:                                              ; preds = %227, %165
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %49) #3
+  br label %229
+
+229:                                              ; preds = %228, %161
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %47) #3
+  br label %230
+
+230:                                              ; preds = %229, %157
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %45) #3
+  br label %231
+
+231:                                              ; preds = %230, %153
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %43) #3
+  br label %232
+
+232:                                              ; preds = %231, %149
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %41) #3
+  br label %233
+
+233:                                              ; preds = %232, %145
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %39) #3
+  br label %234
+
+234:                                              ; preds = %233, %141
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %37) #3
+  br label %235
+
+235:                                              ; preds = %234, %137
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %35) #3
+  br label %236
+
+236:                                              ; preds = %235, %133
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %33) #3
+  br label %237
+
+237:                                              ; preds = %236, %129
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %31) #3
+  br label %238
+
+238:                                              ; preds = %237, %125
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %29) #3
+  br label %239
+
+239:                                              ; preds = %238, %121
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %27) #3
+  br label %240
+
+240:                                              ; preds = %239, %117
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %25) #3
+  br label %241
+
+241:                                              ; preds = %240, %113
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %23) #3
+  br label %242
+
+242:                                              ; preds = %241, %109
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %21) #3
+  br label %243
+
+243:                                              ; preds = %242, %105
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %19) #3
+  br label %244
+
+244:                                              ; preds = %243, %101
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %17) #3
+  br label %245
+
+245:                                              ; preds = %244, %97
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %15) #3
+  br label %246
+
+246:                                              ; preds = %245, %93
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %13) #3
+  br label %247
+
+247:                                              ; preds = %246, %89
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %11) #3
+  br label %248
+
+248:                                              ; preds = %247, %85
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %9) #3
+  br label %249
+
+249:                                              ; preds = %248, %81
+  call void @_ZN5Ipopt9TimedTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %7) #3
+  br label %250
+
+250:                                              ; preds = %249, %77
+  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #3
+  br label %251
+
+251:                                              ; preds = %250
+  %252 = load ptr, ptr %3, align 8
+  %253 = load i32, ptr %4, align 4
+  %254 = insertvalue { ptr, i32 } poison, ptr %252, 0
+  %255 = insertvalue { ptr, i32 } %254, i32 %253, 1
+  resume { ptr, i32 } %255
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1389,25 +1392,26 @@ define void @_ZN5Ipopt9IpoptDataD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt9IpoptDataE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 29
-  call void @_ZN5Ipopt8SmartPtrINS_19IpoptAdditionalDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 28
-  call void @_ZN5Ipopt16TimingStatisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(1976) %5) #3
-  %6 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 27
-  call void @_ZN5Ipopt8SmartPtrINS_19IteratesVectorSpaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  %8 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 6
-  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  %9 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt9IpoptDataE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 29
+  call void @_ZN5Ipopt8SmartPtrINS_19IpoptAdditionalDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 28
+  call void @_ZN5Ipopt16TimingStatisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(1976) %6) #3
+  %7 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 27
+  call void @_ZN5Ipopt8SmartPtrINS_19IteratesVectorSpaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %8 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  %9 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 6
   call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %10 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 3
-  call void @_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  %11 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 2
-  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  %12 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 1
+  %10 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 4
+  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  %11 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 3
+  call void @_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  %12 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 2
   call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  %13 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 1
+  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
   call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #3
   ret void
 }
@@ -4294,7 +4298,8 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

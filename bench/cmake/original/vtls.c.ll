@@ -6793,110 +6793,112 @@ define internal i64 @multissl_version(ptr noundef %0, i64 noundef %1) #0 {
   %19 = load ptr, ptr %5, align 8
   %20 = load ptr, ptr @multissl_version.selected, align 8
   %21 = icmp ne ptr %19, %20
-  br i1 %21, label %22, label %76
+  br i1 %21, label %22, label %78
 
 22:                                               ; preds = %17
   store ptr @multissl_version.backends, ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @multissl_version.backends, i64 200), ptr %7, align 8
-  %23 = load ptr, ptr %5, align 8
-  store ptr %23, ptr @multissl_version.selected, align 8
+  %23 = getelementptr inbounds i8, ptr @multissl_version.backends, i64 200
+  store ptr %23, ptr %7, align 8
+  %24 = load ptr, ptr %5, align 8
+  store ptr %24, ptr @multissl_version.selected, align 8
   store i8 0, ptr @multissl_version.backends, align 16
   store i32 0, ptr %8, align 4
-  br label %24
+  br label %25
 
-24:                                               ; preds = %69, %22
-  %25 = load i32, ptr %8, align 4
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %26
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %72
+25:                                               ; preds = %70, %22
+  %26 = load i32, ptr %8, align 4
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %73
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr @multissl_version.selected, align 8
-  %32 = load i32, ptr %8, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %33
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp ne ptr %31, %35
-  %37 = zext i1 %36 to i8
-  store i8 %37, ptr %10, align 1
-  %38 = load i32, ptr %8, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %39
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.Curl_ssl, ptr %41, i32 0, i32 5
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds [200 x i8], ptr %9, i64 0, i64 0
-  %45 = call i64 %43(ptr noundef %44, i64 noundef 200)
-  %46 = icmp ne i64 %45, 0
-  br i1 %46, label %47, label %68
+31:                                               ; preds = %25
+  %32 = load ptr, ptr @multissl_version.selected, align 8
+  %33 = load i32, ptr %8, align 4
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %34
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %32, %36
+  %38 = zext i1 %37 to i8
+  store i8 %38, ptr %10, align 1
+  %39 = load i32, ptr %8, align 4
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %40
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds %struct.Curl_ssl, ptr %42, i32 0, i32 5
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds [200 x i8], ptr %9, i64 0, i64 0
+  %46 = call i64 %44(ptr noundef %45, i64 noundef 200)
+  %47 = icmp ne i64 %46, 0
+  br i1 %47, label %48, label %69
 
-47:                                               ; preds = %30
-  %48 = load ptr, ptr %6, align 8
-  %49 = load ptr, ptr %7, align 8
-  %50 = load ptr, ptr %6, align 8
-  %51 = ptrtoint ptr %49 to i64
+48:                                               ; preds = %31
+  %49 = load ptr, ptr %6, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %6, align 8
   %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  %54 = load ptr, ptr %6, align 8
-  %55 = icmp ne ptr %54, @multissl_version.backends
-  %56 = select i1 %55, ptr @.str.17, ptr @.str.18
-  %57 = load i8, ptr %10, align 1
-  %58 = trunc i8 %57 to i1
-  %59 = select i1 %58, ptr @.str.19, ptr @.str.18
-  %60 = getelementptr inbounds [200 x i8], ptr %9, i64 0, i64 0
-  %61 = load i8, ptr %10, align 1
-  %62 = trunc i8 %61 to i1
-  %63 = select i1 %62, ptr @.str.20, ptr @.str.18
-  %64 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %48, i64 noundef %53, ptr noundef @.str.16, ptr noundef %56, ptr noundef %59, ptr noundef %60, ptr noundef %63)
-  %65 = load ptr, ptr %6, align 8
-  %66 = sext i32 %64 to i64
-  %67 = getelementptr inbounds i8, ptr %65, i64 %66
-  store ptr %67, ptr %6, align 8
-  br label %68
-
-68:                                               ; preds = %47, %30
+  %53 = ptrtoint ptr %51 to i64
+  %54 = sub i64 %52, %53
+  %55 = load ptr, ptr %6, align 8
+  %56 = icmp ne ptr %55, @multissl_version.backends
+  %57 = select i1 %56, ptr @.str.17, ptr @.str.18
+  %58 = load i8, ptr %10, align 1
+  %59 = trunc i8 %58 to i1
+  %60 = select i1 %59, ptr @.str.19, ptr @.str.18
+  %61 = getelementptr inbounds [200 x i8], ptr %9, i64 0, i64 0
+  %62 = load i8, ptr %10, align 1
+  %63 = trunc i8 %62 to i1
+  %64 = select i1 %63, ptr @.str.20, ptr @.str.18
+  %65 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %49, i64 noundef %54, ptr noundef @.str.16, ptr noundef %57, ptr noundef %60, ptr noundef %61, ptr noundef %64)
+  %66 = load ptr, ptr %6, align 8
+  %67 = sext i32 %65 to i64
+  %68 = getelementptr inbounds i8, ptr %66, i64 %67
+  store ptr %68, ptr %6, align 8
   br label %69
 
-69:                                               ; preds = %68
-  %70 = load i32, ptr %8, align 4
-  %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %8, align 4
-  br label %24, !llvm.loop !20
+69:                                               ; preds = %48, %31
+  br label %70
 
-72:                                               ; preds = %24
-  %73 = load ptr, ptr %6, align 8
-  %74 = ptrtoint ptr %73 to i64
-  %75 = sub i64 %74, ptrtoint (ptr @multissl_version.backends to i64)
-  store i64 %75, ptr @multissl_version.backends_len, align 8
-  br label %76
+70:                                               ; preds = %69
+  %71 = load i32, ptr %8, align 4
+  %72 = add nsw i32 %71, 1
+  store i32 %72, ptr %8, align 4
+  br label %25, !llvm.loop !20
 
-76:                                               ; preds = %72, %17
-  %77 = load i64, ptr %4, align 8
-  %78 = icmp ne i64 %77, 0
-  br i1 %78, label %79, label %89
+73:                                               ; preds = %25
+  %74 = load ptr, ptr %6, align 8
+  %75 = ptrtoint ptr %74 to i64
+  %76 = ptrtoint ptr @multissl_version.backends to i64
+  %77 = sub i64 %75, %76
+  store i64 %77, ptr @multissl_version.backends_len, align 8
+  br label %78
 
-79:                                               ; preds = %76
-  %80 = load i64, ptr @multissl_version.backends_len, align 8
-  %81 = load i64, ptr %4, align 8
-  %82 = icmp ult i64 %80, %81
-  br i1 %82, label %83, label %86
+78:                                               ; preds = %73, %17
+  %79 = load i64, ptr %4, align 8
+  %80 = icmp ne i64 %79, 0
+  br i1 %80, label %81, label %91
 
-83:                                               ; preds = %79
-  %84 = load ptr, ptr %3, align 8
-  %85 = call ptr @strcpy(ptr noundef %84, ptr noundef @multissl_version.backends) #7
-  br label %88
+81:                                               ; preds = %78
+  %82 = load i64, ptr @multissl_version.backends_len, align 8
+  %83 = load i64, ptr %4, align 8
+  %84 = icmp ult i64 %82, %83
+  br i1 %84, label %85, label %88
 
-86:                                               ; preds = %79
-  %87 = load ptr, ptr %3, align 8
-  store i8 0, ptr %87, align 1
-  br label %88
+85:                                               ; preds = %81
+  %86 = load ptr, ptr %3, align 8
+  %87 = call ptr @strcpy(ptr noundef %86, ptr noundef @multissl_version.backends) #7
+  br label %90
 
-88:                                               ; preds = %86, %83
-  br label %89
+88:                                               ; preds = %81
+  %89 = load ptr, ptr %3, align 8
+  store i8 0, ptr %89, align 1
+  br label %90
 
-89:                                               ; preds = %88, %76
+90:                                               ; preds = %88, %85
+  br label %91
+
+91:                                               ; preds = %90, %78
   ret i64 0
 }
 

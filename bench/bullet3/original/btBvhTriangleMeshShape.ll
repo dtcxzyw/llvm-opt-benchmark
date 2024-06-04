@@ -247,22 +247,23 @@ entry:
   %this2 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %meshInterface.addr, align 8
   call void @_ZN19btTriangleMeshShapeC2EP23btStridingMeshInterface(ptr noundef nonnull align 8 dereferenceable(80) %this2, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV22btBvhTriangleMeshShape, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %1 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTV22btBvhTriangleMeshShape, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this2, align 8
   %m_bvh = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 1
   store ptr null, ptr %m_bvh, align 8
   %m_triangleInfoMap = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 2
   store ptr null, ptr %m_triangleInfoMap, align 8
   %m_useQuantizedAabbCompression = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 3
-  %1 = load i8, ptr %useQuantizedAabbCompression.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %useQuantizedAabbCompression.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool3 = zext i1 %tobool to i8
   store i8 %frombool3, ptr %m_useQuantizedAabbCompression, align 8
   %m_ownsBvh = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 4
   store i8 0, ptr %m_ownsBvh, align 1
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this2, i32 0, i32 1
   store i32 21, ptr %m_shapeType, align 8
-  %2 = load i8, ptr %buildBvh.addr, align 1
-  %tobool4 = trunc i8 %2 to i1
+  %3 = load i8, ptr %buildBvh.addr, align 1
+  %tobool4 = trunc i8 %3 to i1
   br i1 %tobool4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -273,12 +274,12 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN19btTriangleMeshShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this2) #12
   br label %eh.resume
 
@@ -392,22 +393,23 @@ entry:
   %this2 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %meshInterface.addr, align 8
   call void @_ZN19btTriangleMeshShapeC2EP23btStridingMeshInterface(ptr noundef nonnull align 8 dereferenceable(80) %this2, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV22btBvhTriangleMeshShape, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %1 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTV22btBvhTriangleMeshShape, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this2, align 8
   %m_bvh = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 1
   store ptr null, ptr %m_bvh, align 8
   %m_triangleInfoMap = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 2
   store ptr null, ptr %m_triangleInfoMap, align 8
   %m_useQuantizedAabbCompression = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 3
-  %1 = load i8, ptr %useQuantizedAabbCompression.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %useQuantizedAabbCompression.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool3 = zext i1 %tobool to i8
   store i8 %frombool3, ptr %m_useQuantizedAabbCompression, align 8
   %m_ownsBvh = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 4
   store i8 0, ptr %m_ownsBvh, align 1
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this2, i32 0, i32 1
   store i32 21, ptr %m_shapeType, align 8
-  %2 = load i8, ptr %buildBvh.addr, align 1
-  %tobool4 = trunc i8 %2 to i1
+  %3 = load i8, ptr %buildBvh.addr, align 1
+  %tobool4 = trunc i8 %3 to i1
   br i1 %tobool4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -416,8 +418,8 @@ if.then:                                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then
   store ptr %call, ptr %mem, align 8
-  %3 = load ptr, ptr %mem, align 8
-  %call6 = invoke noundef ptr @_ZN14btOptimizedBvhnwEmPv(i64 noundef 248, ptr noundef %3)
+  %4 = load ptr, ptr %mem, align 8
+  %call6 = invoke noundef ptr @_ZN14btOptimizedBvhnwEmPv(i64 noundef 248, ptr noundef %4)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -428,14 +430,14 @@ invoke.cont8:                                     ; preds = %invoke.cont5
   %m_bvh9 = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 1
   store ptr %call6, ptr %m_bvh9, align 8
   %m_bvh10 = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 1
-  %4 = load ptr, ptr %m_bvh10, align 8
-  %5 = load ptr, ptr %meshInterface.addr, align 8
+  %5 = load ptr, ptr %m_bvh10, align 8
+  %6 = load ptr, ptr %meshInterface.addr, align 8
   %m_useQuantizedAabbCompression11 = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 3
-  %6 = load i8, ptr %m_useQuantizedAabbCompression11, align 8
-  %tobool12 = trunc i8 %6 to i1
-  %7 = load ptr, ptr %bvhAabbMin.addr, align 8
-  %8 = load ptr, ptr %bvhAabbMax.addr, align 8
-  invoke void @_ZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(244) %4, ptr noundef %5, i1 noundef zeroext %tobool12, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8)
+  %7 = load i8, ptr %m_useQuantizedAabbCompression11, align 8
+  %tobool12 = trunc i8 %7 to i1
+  %8 = load ptr, ptr %bvhAabbMin.addr, align 8
+  %9 = load ptr, ptr %bvhAabbMax.addr, align 8
+  invoke void @_ZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(244) %5, ptr noundef %6, i1 noundef zeroext %tobool12, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %9)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont8
@@ -444,22 +446,22 @@ invoke.cont13:                                    ; preds = %invoke.cont8
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont8, %invoke.cont, %if.then
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont5
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
-  call void @_ZN14btOptimizedBvhdlEPvS0_(ptr noundef %call6, ptr noundef %3) #12
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
+  call void @_ZN14btOptimizedBvhdlEPvS0_(ptr noundef %call6, ptr noundef %4) #12
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont13, %entry
@@ -631,22 +633,23 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV22btBvhTriangleMeshShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTV22btBvhTriangleMeshShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ownsBvh = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this1, i32 0, i32 4
-  %0 = load i8, ptr %m_ownsBvh, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %m_ownsBvh, align 1
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_bvh = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m_bvh, align 8
-  %vtable = load ptr, ptr %1, align 8
+  %2 = load ptr, ptr %m_bvh, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 0
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(244) %1) #12
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(244) %2) #12
   %m_bvh2 = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %m_bvh2, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
+  %4 = load ptr, ptr %m_bvh2, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %4)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -657,10 +660,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #13
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #13
   unreachable
 }
 
@@ -767,13 +770,14 @@ entry:
   store ptr %meshInterface, ptr %meshInterface.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btNodeOverlapCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN22btBvhTriangleMeshShape14performRaycastEP18btTriangleCallbackRK9btVector3S4_E21MyNodeOverlapCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZN22btBvhTriangleMeshShape14performRaycastEP18btTriangleCallbackRK9btVector3S4_E21MyNodeOverlapCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_meshInterface = getelementptr inbounds %struct.MyNodeOverlapCallback, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %meshInterface.addr, align 8
-  store ptr %0, ptr %m_meshInterface, align 8
+  %1 = load ptr, ptr %meshInterface.addr, align 8
+  store ptr %1, ptr %m_meshInterface, align 8
   %m_callback = getelementptr inbounds %struct.MyNodeOverlapCallback, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %callback.addr, align 8
-  store ptr %1, ptr %m_callback, align 8
+  %2 = load ptr, ptr %callback.addr, align 8
+  store ptr %2, ptr %m_callback, align 8
   ret void
 }
 
@@ -854,13 +858,14 @@ entry:
   store ptr %meshInterface, ptr %meshInterface.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btNodeOverlapCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN22btBvhTriangleMeshShape17performConvexcastEP18btTriangleCallbackRK9btVector3S4_S4_S4_E21MyNodeOverlapCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZN22btBvhTriangleMeshShape17performConvexcastEP18btTriangleCallbackRK9btVector3S4_S4_S4_E21MyNodeOverlapCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_meshInterface = getelementptr inbounds %struct.MyNodeOverlapCallback.8, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %meshInterface.addr, align 8
-  store ptr %0, ptr %m_meshInterface, align 8
+  %1 = load ptr, ptr %meshInterface.addr, align 8
+  store ptr %1, ptr %m_meshInterface, align 8
   %m_callback = getelementptr inbounds %struct.MyNodeOverlapCallback.8, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %callback.addr, align 8
-  store ptr %1, ptr %m_callback, align 8
+  %2 = load ptr, ptr %callback.addr, align 8
+  store ptr %2, ptr %m_callback, align 8
   ret void
 }
 
@@ -937,13 +942,14 @@ entry:
   store ptr %meshInterface, ptr %meshInterface.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btNodeOverlapCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_E21MyNodeOverlapCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_E21MyNodeOverlapCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_meshInterface = getelementptr inbounds %struct.MyNodeOverlapCallback.9, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %meshInterface.addr, align 8
-  store ptr %0, ptr %m_meshInterface, align 8
+  %1 = load ptr, ptr %meshInterface.addr, align 8
+  store ptr %1, ptr %m_meshInterface, align 8
   %m_callback = getelementptr inbounds %struct.MyNodeOverlapCallback.9, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %callback.addr, align 8
-  store ptr %1, ptr %m_callback, align 8
+  %2 = load ptr, ptr %callback.addr, align 8
+  store ptr %2, ptr %m_callback, align 8
   %m_triangle = getelementptr inbounds %struct.MyNodeOverlapCallback.9, ptr %this1, i32 0, i32 3
   %array.begin = getelementptr inbounds [3 x %class.btVector3], ptr %m_triangle, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %class.btVector3, ptr %array.begin, i64 3
@@ -965,12 +971,12 @@ arrayctor.cont:                                   ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %arrayctor.loop
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN21btNodeOverlapCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
   br label %eh.resume
 
@@ -2177,7 +2183,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV21btNodeOverlapCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV21btNodeOverlapCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

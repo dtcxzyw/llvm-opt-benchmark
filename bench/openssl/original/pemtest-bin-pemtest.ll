@@ -222,17 +222,18 @@ entry:
   store ptr null, ptr %name, align 8
   store ptr null, ptr %header, align 8
   store ptr null, ptr %data, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.TESTDATA, ptr @b64_pem_data, i32 0, i32 1), align 8
-  store ptr %0, ptr %encoded, align 8
-  %1 = load ptr, ptr %b, align 8
-  %call2 = call i32 @test_ptr(ptr noundef @.str, i32 noundef 71, ptr noundef @.str.7, ptr noundef %1)
+  %0 = getelementptr inbounds %struct.TESTDATA, ptr @b64_pem_data, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  store ptr %1, ptr %encoded, align 8
+  %2 = load ptr, ptr %b, align 8
+  %call2 = call i32 @test_ptr(ptr noundef @.str, i32 noundef 71, ptr noundef @.str.7, ptr noundef %2)
   %tobool = icmp ne i32 %call2, 0
   br i1 %tobool, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %b, align 8
-  %3 = load ptr, ptr @pemtype, align 8
-  %call3 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef @.str.9, ptr noundef %3)
+  %3 = load ptr, ptr %b, align 8
+  %4 = load ptr, ptr @pemtype, align 8
+  %call3 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef @.str.9, ptr noundef %4)
   %cmp = icmp ne i32 %call3, 0
   %conv = zext i1 %cmp to i32
   %call4 = call i32 @test_true(ptr noundef @.str, i32 noundef 72, ptr noundef @.str.8, i32 noundef %conv)
@@ -240,9 +241,9 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool5, label %lor.lhs.false6, label %if.then
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %b, align 8
-  %5 = load ptr, ptr %encoded, align 8
-  %call7 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %4, ptr noundef @.str.26, i32 noundef 9, ptr noundef %5)
+  %5 = load ptr, ptr %b, align 8
+  %6 = load ptr, ptr %encoded, align 8
+  %call7 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %5, ptr noundef @.str.26, i32 noundef 9, ptr noundef %6)
   %cmp8 = icmp ne i32 %call7, 0
   %conv9 = zext i1 %cmp8 to i32
   %call10 = call i32 @test_true(ptr noundef @.str, i32 noundef 73, ptr noundef @.str.25, i32 noundef %conv9)
@@ -250,9 +251,9 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false
   br i1 %tobool11, label %lor.lhs.false12, label %if.then
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false6
-  %6 = load ptr, ptr %b, align 8
-  %7 = load ptr, ptr @pemtype, align 8
-  %call13 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef @.str.13, ptr noundef %7)
+  %7 = load ptr, ptr %b, align 8
+  %8 = load ptr, ptr @pemtype, align 8
+  %call13 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef @.str.13, ptr noundef %8)
   %cmp14 = icmp ne i32 %call13, 0
   %conv15 = zext i1 %cmp14 to i32
   %call16 = call i32 @test_true(ptr noundef @.str, i32 noundef 74, ptr noundef @.str.12, i32 noundef %conv15)
@@ -260,8 +261,8 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false6
   br i1 %tobool17, label %lor.lhs.false18, label %if.then
 
 lor.lhs.false18:                                  ; preds = %lor.lhs.false12
-  %8 = load ptr, ptr %b, align 8
-  %call19 = call i32 @PEM_read_bio_ex(ptr noundef %8, ptr noundef %name, ptr noundef %header, ptr noundef %data, ptr noundef %len, i32 noundef 4)
+  %9 = load ptr, ptr %b, align 8
+  %call19 = call i32 @PEM_read_bio_ex(ptr noundef %9, ptr noundef %name, ptr noundef %header, ptr noundef %data, ptr noundef %len, i32 noundef 4)
   %cmp20 = icmp ne i32 %call19, 0
   %conv21 = zext i1 %cmp20 to i32
   %call22 = call i32 @test_true(ptr noundef @.str, i32 noundef 77, ptr noundef @.str.14, i32 noundef %conv21)
@@ -269,26 +270,26 @@ lor.lhs.false18:                                  ; preds = %lor.lhs.false12
   br i1 %tobool23, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false18, %lor.lhs.false12, %lor.lhs.false6, %lor.lhs.false, %entry
-  %9 = load ptr, ptr %b, align 8
-  %call24 = call i32 @BIO_free(ptr noundef %9)
+  %10 = load ptr, ptr %b, align 8
+  %call24 = call i32 @BIO_free(ptr noundef %10)
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false18
-  %10 = load ptr, ptr %b, align 8
-  %call25 = call i32 @BIO_free(ptr noundef %10)
-  %11 = load ptr, ptr %name, align 8
-  call void @CRYPTO_free(ptr noundef %11, ptr noundef @.str, i32 noundef 82)
-  %12 = load ptr, ptr %header, align 8
-  call void @CRYPTO_free(ptr noundef %12, ptr noundef @.str, i32 noundef 83)
-  %13 = load ptr, ptr %data, align 8
-  call void @CRYPTO_free(ptr noundef %13, ptr noundef @.str, i32 noundef 84)
+  %11 = load ptr, ptr %b, align 8
+  %call25 = call i32 @BIO_free(ptr noundef %11)
+  %12 = load ptr, ptr %name, align 8
+  call void @CRYPTO_free(ptr noundef %12, ptr noundef @.str, i32 noundef 82)
+  %13 = load ptr, ptr %header, align 8
+  call void @CRYPTO_free(ptr noundef %13, ptr noundef @.str, i32 noundef 83)
+  %14 = load ptr, ptr %data, align 8
+  call void @CRYPTO_free(ptr noundef %14, ptr noundef @.str, i32 noundef 84)
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %14 = load i32, ptr %retval, align 4
-  ret i32 %14
+  %15 = load i32, ptr %retval, align 4
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable

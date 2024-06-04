@@ -56,42 +56,45 @@ define dso_local ptr @codegen_create_asm(ptr noundef %0) #0 {
   %7 = getelementptr inbounds %struct.AstAsmBlock, ptr %6, i32 0, i32 1
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %4, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %10 = icmp eq i32 %9, 32
-  br i1 %10, label %14, label %11
+  %9 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp eq i32 %10, 32
+  br i1 %11, label %16, label %12
 
-11:                                               ; preds = %1
-  %12 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %13 = icmp eq i32 %12, 31
-  br i1 %13, label %14, label %17
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp eq i32 %14, 31
+  br i1 %15, label %16, label %19
 
-14:                                               ; preds = %11, %1
-  %15 = load ptr, ptr %4, align 8
-  %16 = call ptr @codegen_create_x86_att_asm(ptr noundef %15)
-  store ptr %16, ptr %2, align 8
-  br label %25
+16:                                               ; preds = %12, %1
+  %17 = load ptr, ptr %4, align 8
+  %18 = call ptr @codegen_create_x86_att_asm(ptr noundef %17)
+  store ptr %18, ptr %2, align 8
+  br label %28
 
-17:                                               ; preds = %11
-  %18 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %19 = icmp eq i32 %18, 3
-  br i1 %19, label %20, label %23
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp eq i32 %21, 3
+  br i1 %22, label %23, label %26
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %4, align 8
-  %22 = call ptr @codegen_create_aarch64_asm(ptr noundef %21)
-  store ptr %22, ptr %2, align 8
-  br label %25
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %4, align 8
+  %25 = call ptr @codegen_create_aarch64_asm(ptr noundef %24)
+  store ptr %25, ptr %2, align 8
+  br label %28
 
-23:                                               ; preds = %17
-  br label %24
+26:                                               ; preds = %19
+  br label %27
 
-24:                                               ; preds = %23
+27:                                               ; preds = %26
   call void (ptr, ...) @error_exit(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @__func__.codegen_create_asm, ptr noundef @.str.2, i32 noundef 177) #3
   unreachable
 
-25:                                               ; preds = %20, %14
-  %26 = load ptr, ptr %2, align 8
-  ret ptr %26
+28:                                               ; preds = %23, %16
+  %29 = load ptr, ptr %2, align 8
+  ret ptr %29
 }
 
 declare void @scratch_buffer_clear() #1

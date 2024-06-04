@@ -136,7 +136,8 @@ define internal void @pgstat_end_changecount_write(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pgstat_fetch_stat_archiver() #0 {
   call void @pgstat_snapshot_fixed(i32 noundef 6)
-  ret ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 3)
+  %1 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 3
+  ret ptr %1
 }
 
 declare void @pgstat_snapshot_fixed(i32 noundef) #1
@@ -217,76 +218,77 @@ define dso_local void @pgstat_archiver_snapshot_cb() #0 {
   %5 = load ptr, ptr @pgStatLocal, align 8
   %6 = getelementptr inbounds %struct.PgStat_ShmemControl, ptr %5, i32 0, i32 4
   store ptr %6, ptr %1, align 8
-  store ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 3), ptr %2, align 8
-  %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds %struct.PgStatShared_Archiver, ptr %7, i32 0, i32 3
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %2, align 8
-  %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds %struct.PgStatShared_Archiver, ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds %struct.PgStatShared_Archiver, ptr %12, i32 0, i32 1
-  call void @pgstat_copy_changecounted_stats(ptr noundef %9, ptr noundef %11, i64 noundef 136, ptr noundef %13)
-  %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds %struct.PgStatShared_Archiver, ptr %14, i32 0, i32 0
-  %16 = call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 1)
-  %17 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %17, i64 136, i1 false)
-  %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds %struct.PgStatShared_Archiver, ptr %18, i32 0, i32 0
-  call void @LWLockRelease(ptr noundef %19)
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %20, i32 0, i32 0
-  %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %4, i32 0, i32 0
-  %24 = load i64, ptr %23, align 8
-  %25 = icmp eq i64 %22, %24
-  br i1 %25, label %26, label %32
+  %7 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 3
+  store ptr %7, ptr %2, align 8
+  %8 = load ptr, ptr %1, align 8
+  %9 = getelementptr inbounds %struct.PgStatShared_Archiver, ptr %8, i32 0, i32 3
+  store ptr %9, ptr %3, align 8
+  %10 = load ptr, ptr %2, align 8
+  %11 = load ptr, ptr %1, align 8
+  %12 = getelementptr inbounds %struct.PgStatShared_Archiver, ptr %11, i32 0, i32 2
+  %13 = load ptr, ptr %1, align 8
+  %14 = getelementptr inbounds %struct.PgStatShared_Archiver, ptr %13, i32 0, i32 1
+  call void @pgstat_copy_changecounted_stats(ptr noundef %10, ptr noundef %12, i64 noundef 136, ptr noundef %14)
+  %15 = load ptr, ptr %1, align 8
+  %16 = getelementptr inbounds %struct.PgStatShared_Archiver, ptr %15, i32 0, i32 0
+  %17 = call zeroext i1 @LWLockAcquire(ptr noundef %16, i32 noundef 1)
+  %18 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %18, i64 136, i1 false)
+  %19 = load ptr, ptr %1, align 8
+  %20 = getelementptr inbounds %struct.PgStatShared_Archiver, ptr %19, i32 0, i32 0
+  call void @LWLockRelease(ptr noundef %20)
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %21, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %4, i32 0, i32 0
+  %25 = load i64, ptr %24, align 8
+  %26 = icmp eq i64 %23, %25
+  br i1 %26, label %27, label %33
 
-26:                                               ; preds = %0
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %27, i32 0, i32 1
-  %29 = getelementptr [41 x i8], ptr %28, i64 0, i64 0
-  store i8 0, ptr %29, align 8
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %30, i32 0, i32 2
-  store i64 0, ptr %31, align 8
-  br label %32
+27:                                               ; preds = %0
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %28, i32 0, i32 1
+  %30 = getelementptr [41 x i8], ptr %29, i64 0, i64 0
+  store i8 0, ptr %30, align 8
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %31, i32 0, i32 2
+  store i64 0, ptr %32, align 8
+  br label %33
 
-32:                                               ; preds = %26, %0
-  %33 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %4, i32 0, i32 0
-  %34 = load i64, ptr %33, align 8
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %35, i32 0, i32 0
-  %37 = load i64, ptr %36, align 8
-  %38 = sub i64 %37, %34
-  store i64 %38, ptr %36, align 8
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %39, i32 0, i32 3
-  %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %4, i32 0, i32 3
-  %43 = load i64, ptr %42, align 8
-  %44 = icmp eq i64 %41, %43
-  br i1 %44, label %45, label %51
+33:                                               ; preds = %27, %0
+  %34 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %4, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8
+  %36 = load ptr, ptr %2, align 8
+  %37 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %36, i32 0, i32 0
+  %38 = load i64, ptr %37, align 8
+  %39 = sub i64 %38, %35
+  store i64 %39, ptr %37, align 8
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %40, i32 0, i32 3
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %4, i32 0, i32 3
+  %44 = load i64, ptr %43, align 8
+  %45 = icmp eq i64 %42, %44
+  br i1 %45, label %46, label %52
 
-45:                                               ; preds = %32
-  %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %46, i32 0, i32 4
-  %48 = getelementptr [41 x i8], ptr %47, i64 0, i64 0
-  store i8 0, ptr %48, align 8
-  %49 = load ptr, ptr %2, align 8
-  %50 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %49, i32 0, i32 5
-  store i64 0, ptr %50, align 8
-  br label %51
+46:                                               ; preds = %33
+  %47 = load ptr, ptr %2, align 8
+  %48 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %47, i32 0, i32 4
+  %49 = getelementptr [41 x i8], ptr %48, i64 0, i64 0
+  store i8 0, ptr %49, align 8
+  %50 = load ptr, ptr %2, align 8
+  %51 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %50, i32 0, i32 5
+  store i64 0, ptr %51, align 8
+  br label %52
 
-51:                                               ; preds = %45, %32
-  %52 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %4, i32 0, i32 3
-  %53 = load i64, ptr %52, align 8
-  %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %54, i32 0, i32 3
-  %56 = load i64, ptr %55, align 8
-  %57 = sub i64 %56, %53
-  store i64 %57, ptr %55, align 8
+52:                                               ; preds = %46, %33
+  %53 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %4, i32 0, i32 3
+  %54 = load i64, ptr %53, align 8
+  %55 = load ptr, ptr %2, align 8
+  %56 = getelementptr inbounds %struct.PgStat_ArchiverStats, ptr %55, i32 0, i32 3
+  %57 = load i64, ptr %56, align 8
+  %58 = sub i64 %57, %54
+  store i64 %58, ptr %56, align 8
   ret void
 }
 

@@ -21,99 +21,100 @@ define dso_local noundef i32 @acpi_ut_evaluate_object(ptr noundef %0, ptr nounde
   %7 = and i64 %6, 512
   %8 = icmp eq i64 %7, 0
   %9 = select i1 %8, i32 2336, i32 3520
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %11 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %10, i32 noundef %9, i64 noundef 88) #5
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %48, label %13
+  %10 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %11, i32 noundef %9, i64 noundef 88) #5
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %49, label %14
 
-13:                                               ; preds = %4
-  store ptr %0, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %1, ptr %14, align 8
-  %15 = call i32 @acpi_ns_evaluate(ptr noundef nonnull %11) #4
-  switch i32 %15, label %16 [
-    i32 0, label %17
-    i32 5, label %46
+14:                                               ; preds = %4
+  store ptr %0, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %1, ptr %15, align 8
+  %16 = call i32 @acpi_ns_evaluate(ptr noundef nonnull %12) #4
+  switch i32 %16, label %17 [
+    i32 0, label %18
+    i32 5, label %47
   ]
 
-16:                                               ; preds = %13
-  call void @acpi_ut_method_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 69, ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %1, i32 noundef %15) #4
-  br label %46
+17:                                               ; preds = %14
+  call void @acpi_ut_method_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 69, ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %1, i32 noundef %16) #4
+  br label %47
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %11, i64 56
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %24
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %12, i64 56
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %25
 
-21:                                               ; preds = %17
-  %22 = icmp eq i32 %2, 0
-  br i1 %22, label %46, label %23
+22:                                               ; preds = %18
+  %23 = icmp eq i32 %2, 0
+  br i1 %23, label %47, label %24
 
-23:                                               ; preds = %21
+24:                                               ; preds = %22
   call void @acpi_ut_method_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 80, ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef %1, i32 noundef 6) #4
-  br label %46
+  br label %47
 
-24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %19, i64 9
-  %26 = load i8, ptr %25, align 1
-  switch i8 %26, label %30 [
-    i8 1, label %31
-    i8 3, label %27
-    i8 2, label %28
-    i8 4, label %29
+25:                                               ; preds = %18
+  %26 = getelementptr inbounds i8, ptr %20, i64 9
+  %27 = load i8, ptr %26, align 1
+  switch i8 %27, label %31 [
+    i8 1, label %32
+    i8 3, label %28
+    i8 2, label %29
+    i8 4, label %30
   ]
 
-27:                                               ; preds = %24
-  br label %31
+28:                                               ; preds = %25
+  br label %32
 
-28:                                               ; preds = %24
-  br label %31
+29:                                               ; preds = %25
+  br label %32
 
-29:                                               ; preds = %24
-  br label %31
+30:                                               ; preds = %25
+  br label %32
 
-30:                                               ; preds = %24
-  br label %31
+31:                                               ; preds = %25
+  br label %32
 
-31:                                               ; preds = %30, %29, %28, %27, %24
-  %32 = phi i32 [ 0, %30 ], [ 8, %29 ], [ 2, %28 ], [ 4, %27 ], [ 1, %24 ]
-  %33 = load i8, ptr @acpi_gbl_enable_interpreter_slack, align 1
-  %34 = icmp eq i8 %33, 0
-  %35 = icmp ne i32 %2, 0
-  %36 = or i1 %35, %34
-  br i1 %36, label %38, label %37
+32:                                               ; preds = %31, %30, %29, %28, %25
+  %33 = phi i32 [ 0, %31 ], [ 8, %30 ], [ 2, %29 ], [ 4, %28 ], [ 1, %25 ]
+  %34 = load i8, ptr @acpi_gbl_enable_interpreter_slack, align 1
+  %35 = icmp eq i8 %34, 0
+  %36 = icmp ne i32 %2, 0
+  %37 = or i1 %36, %35
+  br i1 %37, label %39, label %38
 
-37:                                               ; preds = %31
-  call void @acpi_ut_remove_reference(ptr noundef nonnull %19) #4
-  br label %46
+38:                                               ; preds = %32
+  call void @acpi_ut_remove_reference(ptr noundef nonnull %20) #4
+  br label %47
 
-38:                                               ; preds = %31
-  %39 = and i32 %32, %2
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %45
+39:                                               ; preds = %32
+  %40 = and i32 %33, %2
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %46
 
-41:                                               ; preds = %38
+42:                                               ; preds = %39
   call void @acpi_ut_method_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 131, ptr noundef nonnull @.str.2, ptr noundef %0, ptr noundef %1, i32 noundef 8) #4
-  %42 = load ptr, ptr %18, align 8
-  %43 = call ptr @acpi_ut_get_object_type_name(ptr noundef %42) #4
-  call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 133, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef %43, i32 noundef %2) #4
-  %44 = load ptr, ptr %18, align 8
-  call void @acpi_ut_remove_reference(ptr noundef %44) #4
-  br label %46
+  %43 = load ptr, ptr %19, align 8
+  %44 = call ptr @acpi_ut_get_object_type_name(ptr noundef %43) #4
+  call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 133, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef %44, i32 noundef %2) #4
+  %45 = load ptr, ptr %19, align 8
+  call void @acpi_ut_remove_reference(ptr noundef %45) #4
+  br label %47
 
-45:                                               ; preds = %38
-  store ptr %19, ptr %3, align 8
-  br label %46
+46:                                               ; preds = %39
+  store ptr %20, ptr %3, align 8
+  br label %47
 
-46:                                               ; preds = %45, %41, %37, %23, %21, %16, %13
-  %47 = phi i32 [ %15, %16 ], [ 0, %45 ], [ 8, %41 ], [ 0, %37 ], [ 6, %23 ], [ 0, %21 ], [ %15, %13 ]
-  call void @kfree(ptr noundef nonnull %11) #4
-  br label %48
+47:                                               ; preds = %46, %42, %38, %24, %22, %17, %14
+  %48 = phi i32 [ %16, %17 ], [ 0, %46 ], [ 8, %42 ], [ 0, %38 ], [ 6, %24 ], [ 0, %22 ], [ %16, %14 ]
+  call void @kfree(ptr noundef nonnull %12) #4
+  br label %49
 
-48:                                               ; preds = %46, %4
-  %49 = phi i32 [ %47, %46 ], [ 4, %4 ]
-  ret i32 %49
+49:                                               ; preds = %47, %4
+  %50 = phi i32 [ %48, %47 ], [ 4, %4 ]
+  ret i32 %50
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

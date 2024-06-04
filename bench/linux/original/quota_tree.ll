@@ -113,7 +113,7 @@ define dso_local i32 @qtree_write_dquot(ptr nocapture noundef %0, ptr noundef %1
   %10 = zext i32 %9 to i64
   %11 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %10, i32 noundef 3136) #7
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %55, label %13
+  br i1 %12, label %56, label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %1, i64 120
@@ -147,7 +147,7 @@ define dso_local i32 @qtree_write_dquot(ptr nocapture noundef %0, ptr noundef %1
 28:                                               ; preds = %25
   %29 = sext i32 %26 to i64
   tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %7, ptr noundef nonnull @__func__.qtree_write_dquot, ptr noundef nonnull @.str, i64 noundef %29) #8
-  br label %53
+  br label %54
 
 30:                                               ; preds = %25, %13
   %31 = getelementptr inbounds i8, ptr %1, i64 96
@@ -180,17 +180,18 @@ define dso_local i32 @qtree_write_dquot(ptr nocapture noundef %0, ptr noundef %1
 50:                                               ; preds = %46, %30
   %51 = phi i32 [ %49, %46 ], [ 0, %30 ]
   %52 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (%struct.dqstats, ptr @dqstats, i64 0, i32 1, i64 3), i64 noundef 1, i32 noundef %52) #8
-  br label %53
+  %53 = getelementptr inbounds %struct.dqstats, ptr @dqstats, i64 0, i32 1, i64 3
+  tail call void @percpu_counter_add_batch(ptr noundef nonnull %53, i64 noundef 1, i32 noundef %52) #8
+  br label %54
 
-53:                                               ; preds = %50, %28
-  %54 = phi i32 [ %26, %28 ], [ %51, %50 ]
+54:                                               ; preds = %50, %28
+  %55 = phi i32 [ %26, %28 ], [ %51, %50 ]
   tail call void @kfree(ptr noundef nonnull %11) #8
-  br label %55
+  br label %56
 
-55:                                               ; preds = %53, %2
-  %56 = phi i32 [ -12, %2 ], [ %54, %53 ]
-  ret i32 %56
+56:                                               ; preds = %54, %2
+  %57 = phi i32 [ -12, %2 ], [ %55, %54 ]
+  ret i32 %57
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -714,7 +715,7 @@ define dso_local i32 @qtree_read_dquot(ptr nocapture noundef readonly %0, ptr no
 
 13:                                               ; preds = %2
   tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %7, ptr noundef nonnull @__func__.qtree_read_dquot, ptr noundef nonnull @.str.2) #8
-  br label %82
+  br label %83
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %1, i64 120
@@ -756,7 +757,7 @@ define dso_local i32 @qtree_read_dquot(ptr nocapture noundef readonly %0, ptr no
   %34 = zext i32 %33 to i64
   %35 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %34, i32 noundef 3136) #7
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %82, label %37
+  br i1 %36, label %83, label %37
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds i8, ptr %7, i64 48
@@ -828,12 +829,13 @@ define dso_local i32 @qtree_read_dquot(ptr nocapture noundef readonly %0, ptr no
 79:                                               ; preds = %78, %50, %26
   %80 = phi i32 [ %52, %50 ], [ %46, %78 ], [ %29, %26 ]
   %81 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (%struct.dqstats, ptr @dqstats, i64 0, i32 1, i64 2), i64 noundef 1, i32 noundef %81) #8
-  br label %82
+  %82 = getelementptr inbounds %struct.dqstats, ptr @dqstats, i64 0, i32 1, i64 2
+  tail call void @percpu_counter_add_batch(ptr noundef nonnull %82, i64 noundef 1, i32 noundef %81) #8
+  br label %83
 
-82:                                               ; preds = %79, %31, %13
-  %83 = phi i32 [ %80, %79 ], [ -5, %13 ], [ -12, %31 ]
-  ret i32 %83
+83:                                               ; preds = %79, %31, %13
+  %84 = phi i32 [ %80, %79 ], [ -5, %13 ], [ -12, %31 ]
+  ret i32 %84
 }
 
 ; Function Attrs: null_pointer_is_valid

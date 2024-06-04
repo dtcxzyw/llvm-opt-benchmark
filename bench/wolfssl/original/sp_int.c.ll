@@ -17594,50 +17594,51 @@ land.lhs.true27:                                  ; preds = %land.lhs.true24
   %dp28 = getelementptr inbounds %struct.sp_int, ptr %20, i32 0, i32 2
   %arrayidx29 = getelementptr inbounds [129 x i64], ptr %dp28, i64 0, i64 0
   %21 = load i64, ptr %arrayidx29, align 8
-  %22 = load i16, ptr getelementptr inbounds ([256 x i16], ptr @sp_primes, i64 0, i64 255), align 2
-  %conv = zext i16 %22 to i64
+  %22 = getelementptr inbounds [256 x i16], ptr @sp_primes, i64 0, i64 255
+  %23 = load i16, ptr %22, align 2
+  %conv = zext i16 %23 to i64
   %cmp30 = icmp ule i64 %21, %conv
   br i1 %cmp30, label %if.then32, label %if.end33
 
 if.then32:                                        ; preds = %land.lhs.true27
-  %23 = load ptr, ptr %a.addr, align 8
-  %24 = load ptr, ptr %result.addr, align 8
-  %call = call i32 @sp_cmp_primes(ptr noundef %23, ptr noundef %24)
+  %24 = load ptr, ptr %a.addr, align 8
+  %25 = load ptr, ptr %result.addr, align 8
+  %call = call i32 @sp_cmp_primes(ptr noundef %24, ptr noundef %25)
   store i32 %call, ptr %haveRes, align 4
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then32, %land.lhs.true27, %land.lhs.true24, %land.lhs.true23, %do.end
-  %25 = load i32, ptr %err, align 4
-  %cmp34 = icmp eq i32 %25, 0
+  %26 = load i32, ptr %err, align 4
+  %cmp34 = icmp eq i32 %26, 0
   br i1 %cmp34, label %land.lhs.true36, label %if.end40
 
 land.lhs.true36:                                  ; preds = %if.end33
-  %26 = load i32, ptr %haveRes, align 4
-  %tobool37 = icmp ne i32 %26, 0
+  %27 = load i32, ptr %haveRes, align 4
+  %tobool37 = icmp ne i32 %27, 0
   br i1 %tobool37, label %if.end40, label %if.then38
 
 if.then38:                                        ; preds = %land.lhs.true36
-  %27 = load ptr, ptr %a.addr, align 8
-  %28 = load ptr, ptr %result.addr, align 8
-  %call39 = call i32 @sp_div_primes(ptr noundef %27, ptr noundef %haveRes, ptr noundef %28)
+  %28 = load ptr, ptr %a.addr, align 8
+  %29 = load ptr, ptr %result.addr, align 8
+  %call39 = call i32 @sp_div_primes(ptr noundef %28, ptr noundef %haveRes, ptr noundef %29)
   store i32 %call39, ptr %err, align 4
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then38, %land.lhs.true36, %if.end33
-  %29 = load i32, ptr %err, align 4
-  %cmp41 = icmp eq i32 %29, 0
+  %30 = load i32, ptr %err, align 4
+  %cmp41 = icmp eq i32 %30, 0
   br i1 %cmp41, label %land.lhs.true43, label %if.end47
 
 land.lhs.true43:                                  ; preds = %if.end40
-  %30 = load i32, ptr %haveRes, align 4
-  %tobool44 = icmp ne i32 %30, 0
+  %31 = load i32, ptr %haveRes, align 4
+  %tobool44 = icmp ne i32 %31, 0
   br i1 %tobool44, label %if.end47, label %if.then45
 
 if.then45:                                        ; preds = %land.lhs.true43
-  %31 = load ptr, ptr %a.addr, align 8
-  %32 = load i32, ptr %trials.addr, align 4
-  %33 = load ptr, ptr %result.addr, align 8
-  %call46 = call i32 @_sp_prime_trials(ptr noundef %31, i32 noundef %32, ptr noundef %33)
+  %32 = load ptr, ptr %a.addr, align 8
+  %33 = load i32, ptr %trials.addr, align 4
+  %34 = load ptr, ptr %result.addr, align 8
+  %call46 = call i32 @_sp_prime_trials(ptr noundef %32, i32 noundef %33, ptr noundef %34)
   store i32 %call46, ptr %err, align 4
   br label %if.end47
 
@@ -17648,8 +17649,8 @@ do.body48:                                        ; preds = %if.end47
   br label %do.end49
 
 do.end49:                                         ; preds = %do.body48
-  %34 = load i32, ptr %err, align 4
-  ret i32 %34
+  %35 = load i32, ptr %err, align 4
+  ret i32 %35
 }
 
 ; Function Attrs: nounwind uwtable
@@ -18256,60 +18257,61 @@ land.lhs.true28:                                  ; preds = %land.lhs.true25
   %dp29 = getelementptr inbounds %struct.sp_int, ptr %18, i32 0, i32 2
   %arrayidx30 = getelementptr inbounds [129 x i64], ptr %dp29, i64 0, i64 0
   %19 = load i64, ptr %arrayidx30, align 8
-  %20 = load i16, ptr getelementptr inbounds ([256 x i16], ptr @sp_primes, i64 0, i64 255), align 2
-  %conv = zext i16 %20 to i64
+  %20 = getelementptr inbounds [256 x i16], ptr @sp_primes, i64 0, i64 255
+  %21 = load i16, ptr %20, align 2
+  %conv = zext i16 %21 to i64
   %cmp31 = icmp ule i64 %19, %conv
   br i1 %cmp31, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %land.lhs.true28
-  %21 = load ptr, ptr %a.addr, align 8
-  %call = call i32 @sp_cmp_primes(ptr noundef %21, ptr noundef %ret)
+  %22 = load ptr, ptr %a.addr, align 8
+  %call = call i32 @sp_cmp_primes(ptr noundef %22, ptr noundef %ret)
   store i32 %call, ptr %haveRes, align 4
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then33, %land.lhs.true28, %land.lhs.true25, %land.lhs.true24, %do.end
-  %22 = load i32, ptr %err, align 4
-  %cmp35 = icmp eq i32 %22, 0
+  %23 = load i32, ptr %err, align 4
+  %cmp35 = icmp eq i32 %23, 0
   br i1 %cmp35, label %land.lhs.true37, label %if.end41
 
 land.lhs.true37:                                  ; preds = %if.end34
-  %23 = load i32, ptr %haveRes, align 4
-  %tobool38 = icmp ne i32 %23, 0
+  %24 = load i32, ptr %haveRes, align 4
+  %tobool38 = icmp ne i32 %24, 0
   br i1 %tobool38, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %land.lhs.true37
-  %24 = load ptr, ptr %a.addr, align 8
-  %call40 = call i32 @sp_div_primes(ptr noundef %24, ptr noundef %haveRes, ptr noundef %ret)
+  %25 = load ptr, ptr %a.addr, align 8
+  %call40 = call i32 @sp_div_primes(ptr noundef %25, ptr noundef %haveRes, ptr noundef %ret)
   store i32 %call40, ptr %err, align 4
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then39, %land.lhs.true37, %if.end34
-  %25 = load i32, ptr %err, align 4
-  %cmp42 = icmp eq i32 %25, 0
+  %26 = load i32, ptr %err, align 4
+  %cmp42 = icmp eq i32 %26, 0
   br i1 %cmp42, label %land.lhs.true44, label %if.end48
 
 land.lhs.true44:                                  ; preds = %if.end41
-  %26 = load i32, ptr %haveRes, align 4
-  %tobool45 = icmp ne i32 %26, 0
+  %27 = load i32, ptr %haveRes, align 4
+  %tobool45 = icmp ne i32 %27, 0
   br i1 %tobool45, label %if.end48, label %if.then46
 
 if.then46:                                        ; preds = %land.lhs.true44
-  %27 = load ptr, ptr %a.addr, align 8
-  %28 = load i32, ptr %trials.addr, align 4
-  %29 = load ptr, ptr %rng.addr, align 8
-  %call47 = call i32 @_sp_prime_random_trials(ptr noundef %27, i32 noundef %28, ptr noundef %ret, ptr noundef %29)
+  %28 = load ptr, ptr %a.addr, align 8
+  %29 = load i32, ptr %trials.addr, align 4
+  %30 = load ptr, ptr %rng.addr, align 8
+  %call47 = call i32 @_sp_prime_random_trials(ptr noundef %28, i32 noundef %29, ptr noundef %ret, ptr noundef %30)
   store i32 %call47, ptr %err, align 4
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then46, %land.lhs.true44, %if.end41
-  %30 = load ptr, ptr %result.addr, align 8
-  %cmp49 = icmp ne ptr %30, null
+  %31 = load ptr, ptr %result.addr, align 8
+  %cmp49 = icmp ne ptr %31, null
   br i1 %cmp49, label %if.then51, label %if.end52
 
 if.then51:                                        ; preds = %if.end48
-  %31 = load i32, ptr %ret, align 4
-  %32 = load ptr, ptr %result.addr, align 8
-  store i32 %31, ptr %32, align 4
+  %32 = load i32, ptr %ret, align 4
+  %33 = load ptr, ptr %result.addr, align 8
+  store i32 %32, ptr %33, align 4
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then51, %if.end48
@@ -18319,8 +18321,8 @@ do.body53:                                        ; preds = %if.end52
   br label %do.end54
 
 do.end54:                                         ; preds = %do.body53
-  %33 = load i32, ptr %err, align 4
-  ret i32 %33
+  %34 = load i32, ptr %err, align 4
+  ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable

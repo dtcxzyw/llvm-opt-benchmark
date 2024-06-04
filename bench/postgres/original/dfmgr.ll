@@ -1051,176 +1051,178 @@ define internal void @incompatible_module_error(ptr noundef %0, ptr noundef %1) 
   %48 = load ptr, ptr %4, align 8
   %49 = getelementptr inbounds %struct.Pg_magic_struct, ptr %48, i32 0, i32 6
   %50 = getelementptr inbounds [32 x i8], ptr %49, i64 0, i64 0
-  %51 = call i32 @strcmp(ptr noundef %50, ptr noundef getelementptr inbounds (%struct.Pg_magic_struct, ptr @magic_data, i32 0, i32 6)) #11
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %68
+  %51 = getelementptr inbounds %struct.Pg_magic_struct, ptr @magic_data, i32 0, i32 6
+  %52 = call i32 @strcmp(ptr noundef %50, ptr noundef %51) #11
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %70
 
-53:                                               ; preds = %47
-  br label %54
-
-54:                                               ; preds = %53
-  br i1 true, label %55, label %57
+54:                                               ; preds = %47
+  br label %55
 
 55:                                               ; preds = %54
-  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  br i1 %56, label %59, label %66
+  br i1 true, label %56, label %58
 
-57:                                               ; preds = %54
-  %58 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %58, label %59, label %66
+56:                                               ; preds = %55
+  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %57, label %60, label %68
 
-59:                                               ; preds = %57, %55
-  %60 = load ptr, ptr %3, align 8
-  %61 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.14, ptr noundef %60)
-  %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.Pg_magic_struct, ptr %62, i32 0, i32 6
-  %64 = getelementptr inbounds [32 x i8], ptr %63, i64 0, i64 0
-  %65 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.15, ptr noundef getelementptr inbounds (%struct.Pg_magic_struct, ptr @magic_data, i32 0, i32 6), ptr noundef %64)
+58:                                               ; preds = %55
+  %59 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %59, label %60, label %68
+
+60:                                               ; preds = %58, %56
+  %61 = load ptr, ptr %3, align 8
+  %62 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.14, ptr noundef %61)
+  %63 = load ptr, ptr %4, align 8
+  %64 = getelementptr inbounds %struct.Pg_magic_struct, ptr %63, i32 0, i32 6
+  %65 = getelementptr inbounds [32 x i8], ptr %64, i64 0, i64 0
+  %66 = getelementptr inbounds %struct.Pg_magic_struct, ptr @magic_data, i32 0, i32 6
+  %67 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.15, ptr noundef %66, ptr noundef %65)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 345, ptr noundef @__func__.incompatible_module_error)
-  br label %66
-
-66:                                               ; preds = %59, %57, %55
-  unreachable
-
-67:                                               ; No predecessors!
   br label %68
 
-68:                                               ; preds = %67, %47
-  call void @initStringInfo(ptr noundef %5)
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct.Pg_magic_struct, ptr %69, i32 0, i32 2
-  %71 = load i32, ptr %70, align 4
-  %72 = icmp ne i32 %71, 100
-  br i1 %72, label %73, label %82
-
-73:                                               ; preds = %68
-  %74 = getelementptr inbounds %struct.StringInfoData, ptr %5, i32 0, i32 1
-  %75 = load i32, ptr %74, align 8
-  %76 = icmp ne i32 %75, 0
-  br i1 %76, label %77, label %78
-
-77:                                               ; preds = %73
-  call void @appendStringInfoChar(ptr noundef %5, i8 noundef signext 10)
-  br label %78
-
-78:                                               ; preds = %77, %73
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.Pg_magic_struct, ptr %79, i32 0, i32 2
-  %81 = load i32, ptr %80, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %5, ptr noundef @.str.16, i32 noundef 100, i32 noundef %81)
-  br label %82
-
-82:                                               ; preds = %78, %68
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %struct.Pg_magic_struct, ptr %83, i32 0, i32 3
-  %85 = load i32, ptr %84, align 4
-  %86 = icmp ne i32 %85, 32
-  br i1 %86, label %87, label %96
-
-87:                                               ; preds = %82
-  %88 = getelementptr inbounds %struct.StringInfoData, ptr %5, i32 0, i32 1
-  %89 = load i32, ptr %88, align 8
-  %90 = icmp ne i32 %89, 0
-  br i1 %90, label %91, label %92
-
-91:                                               ; preds = %87
-  call void @appendStringInfoChar(ptr noundef %5, i8 noundef signext 10)
-  br label %92
-
-92:                                               ; preds = %91, %87
-  %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds %struct.Pg_magic_struct, ptr %93, i32 0, i32 3
-  %95 = load i32, ptr %94, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %5, ptr noundef @.str.17, i32 noundef 32, i32 noundef %95)
-  br label %96
-
-96:                                               ; preds = %92, %82
-  %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds %struct.Pg_magic_struct, ptr %97, i32 0, i32 4
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp ne i32 %99, 64
-  br i1 %100, label %101, label %110
-
-101:                                              ; preds = %96
-  %102 = getelementptr inbounds %struct.StringInfoData, ptr %5, i32 0, i32 1
-  %103 = load i32, ptr %102, align 8
-  %104 = icmp ne i32 %103, 0
-  br i1 %104, label %105, label %106
-
-105:                                              ; preds = %101
-  call void @appendStringInfoChar(ptr noundef %5, i8 noundef signext 10)
-  br label %106
-
-106:                                              ; preds = %105, %101
-  %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.Pg_magic_struct, ptr %107, i32 0, i32 4
-  %109 = load i32, ptr %108, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %5, ptr noundef @.str.18, i32 noundef 64, i32 noundef %109)
-  br label %110
-
-110:                                              ; preds = %106, %96
-  %111 = load ptr, ptr %4, align 8
-  %112 = getelementptr inbounds %struct.Pg_magic_struct, ptr %111, i32 0, i32 5
-  %113 = load i32, ptr %112, align 4
-  %114 = icmp ne i32 %113, 1
-  br i1 %114, label %115, label %126
-
-115:                                              ; preds = %110
-  %116 = getelementptr inbounds %struct.StringInfoData, ptr %5, i32 0, i32 1
-  %117 = load i32, ptr %116, align 8
-  %118 = icmp ne i32 %117, 0
-  br i1 %118, label %119, label %120
-
-119:                                              ; preds = %115
-  call void @appendStringInfoChar(ptr noundef %5, i8 noundef signext 10)
-  br label %120
-
-120:                                              ; preds = %119, %115
-  %121 = load ptr, ptr %4, align 8
-  %122 = getelementptr inbounds %struct.Pg_magic_struct, ptr %121, i32 0, i32 5
-  %123 = load i32, ptr %122, align 4
-  %124 = icmp ne i32 %123, 0
-  %125 = select i1 %124, ptr @.str.20, ptr @.str.21
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %5, ptr noundef @.str.19, ptr noundef @.str.20, ptr noundef %125)
-  br label %126
-
-126:                                              ; preds = %120, %110
-  %127 = getelementptr inbounds %struct.StringInfoData, ptr %5, i32 0, i32 1
-  %128 = load i32, ptr %127, align 8
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %131
-
-130:                                              ; preds = %126
-  call void @appendStringInfoString(ptr noundef %5, ptr noundef @.str.22)
-  br label %131
-
-131:                                              ; preds = %130, %126
-  br label %132
-
-132:                                              ; preds = %131
-  br i1 true, label %133, label %135
-
-133:                                              ; preds = %132
-  %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  br i1 %134, label %137, label %143
-
-135:                                              ; preds = %132
-  %136 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %136, label %137, label %143
-
-137:                                              ; preds = %135, %133
-  %138 = load ptr, ptr %3, align 8
-  %139 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.23, ptr noundef %138)
-  %140 = getelementptr inbounds %struct.StringInfoData, ptr %5, i32 0, i32 0
-  %141 = load ptr, ptr %140, align 8
-  %142 = call i32 (ptr, ...) @errdetail_internal(ptr noundef @.str.24, ptr noundef %141)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 400, ptr noundef @__func__.incompatible_module_error)
-  br label %143
-
-143:                                              ; preds = %137, %135, %133
+68:                                               ; preds = %60, %58, %56
   unreachable
 
-144:                                              ; No predecessors!
+69:                                               ; No predecessors!
+  br label %70
+
+70:                                               ; preds = %69, %47
+  call void @initStringInfo(ptr noundef %5)
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds %struct.Pg_magic_struct, ptr %71, i32 0, i32 2
+  %73 = load i32, ptr %72, align 4
+  %74 = icmp ne i32 %73, 100
+  br i1 %74, label %75, label %84
+
+75:                                               ; preds = %70
+  %76 = getelementptr inbounds %struct.StringInfoData, ptr %5, i32 0, i32 1
+  %77 = load i32, ptr %76, align 8
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %80
+
+79:                                               ; preds = %75
+  call void @appendStringInfoChar(ptr noundef %5, i8 noundef signext 10)
+  br label %80
+
+80:                                               ; preds = %79, %75
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds %struct.Pg_magic_struct, ptr %81, i32 0, i32 2
+  %83 = load i32, ptr %82, align 4
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %5, ptr noundef @.str.16, i32 noundef 100, i32 noundef %83)
+  br label %84
+
+84:                                               ; preds = %80, %70
+  %85 = load ptr, ptr %4, align 8
+  %86 = getelementptr inbounds %struct.Pg_magic_struct, ptr %85, i32 0, i32 3
+  %87 = load i32, ptr %86, align 4
+  %88 = icmp ne i32 %87, 32
+  br i1 %88, label %89, label %98
+
+89:                                               ; preds = %84
+  %90 = getelementptr inbounds %struct.StringInfoData, ptr %5, i32 0, i32 1
+  %91 = load i32, ptr %90, align 8
+  %92 = icmp ne i32 %91, 0
+  br i1 %92, label %93, label %94
+
+93:                                               ; preds = %89
+  call void @appendStringInfoChar(ptr noundef %5, i8 noundef signext 10)
+  br label %94
+
+94:                                               ; preds = %93, %89
+  %95 = load ptr, ptr %4, align 8
+  %96 = getelementptr inbounds %struct.Pg_magic_struct, ptr %95, i32 0, i32 3
+  %97 = load i32, ptr %96, align 4
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %5, ptr noundef @.str.17, i32 noundef 32, i32 noundef %97)
+  br label %98
+
+98:                                               ; preds = %94, %84
+  %99 = load ptr, ptr %4, align 8
+  %100 = getelementptr inbounds %struct.Pg_magic_struct, ptr %99, i32 0, i32 4
+  %101 = load i32, ptr %100, align 4
+  %102 = icmp ne i32 %101, 64
+  br i1 %102, label %103, label %112
+
+103:                                              ; preds = %98
+  %104 = getelementptr inbounds %struct.StringInfoData, ptr %5, i32 0, i32 1
+  %105 = load i32, ptr %104, align 8
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %107, label %108
+
+107:                                              ; preds = %103
+  call void @appendStringInfoChar(ptr noundef %5, i8 noundef signext 10)
+  br label %108
+
+108:                                              ; preds = %107, %103
+  %109 = load ptr, ptr %4, align 8
+  %110 = getelementptr inbounds %struct.Pg_magic_struct, ptr %109, i32 0, i32 4
+  %111 = load i32, ptr %110, align 4
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %5, ptr noundef @.str.18, i32 noundef 64, i32 noundef %111)
+  br label %112
+
+112:                                              ; preds = %108, %98
+  %113 = load ptr, ptr %4, align 8
+  %114 = getelementptr inbounds %struct.Pg_magic_struct, ptr %113, i32 0, i32 5
+  %115 = load i32, ptr %114, align 4
+  %116 = icmp ne i32 %115, 1
+  br i1 %116, label %117, label %128
+
+117:                                              ; preds = %112
+  %118 = getelementptr inbounds %struct.StringInfoData, ptr %5, i32 0, i32 1
+  %119 = load i32, ptr %118, align 8
+  %120 = icmp ne i32 %119, 0
+  br i1 %120, label %121, label %122
+
+121:                                              ; preds = %117
+  call void @appendStringInfoChar(ptr noundef %5, i8 noundef signext 10)
+  br label %122
+
+122:                                              ; preds = %121, %117
+  %123 = load ptr, ptr %4, align 8
+  %124 = getelementptr inbounds %struct.Pg_magic_struct, ptr %123, i32 0, i32 5
+  %125 = load i32, ptr %124, align 4
+  %126 = icmp ne i32 %125, 0
+  %127 = select i1 %126, ptr @.str.20, ptr @.str.21
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %5, ptr noundef @.str.19, ptr noundef @.str.20, ptr noundef %127)
+  br label %128
+
+128:                                              ; preds = %122, %112
+  %129 = getelementptr inbounds %struct.StringInfoData, ptr %5, i32 0, i32 1
+  %130 = load i32, ptr %129, align 8
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %132, label %133
+
+132:                                              ; preds = %128
+  call void @appendStringInfoString(ptr noundef %5, ptr noundef @.str.22)
+  br label %133
+
+133:                                              ; preds = %132, %128
+  br label %134
+
+134:                                              ; preds = %133
+  br i1 true, label %135, label %137
+
+135:                                              ; preds = %134
+  %136 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  br i1 %136, label %139, label %145
+
+137:                                              ; preds = %134
+  %138 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %138, label %139, label %145
+
+139:                                              ; preds = %137, %135
+  %140 = load ptr, ptr %3, align 8
+  %141 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.23, ptr noundef %140)
+  %142 = getelementptr inbounds %struct.StringInfoData, ptr %5, i32 0, i32 0
+  %143 = load ptr, ptr %142, align 8
+  %144 = call i32 (ptr, ...) @errdetail_internal(ptr noundef @.str.24, ptr noundef %143)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 400, ptr noundef @__func__.incompatible_module_error)
+  br label %145
+
+145:                                              ; preds = %139, %137, %135
+  unreachable
+
+146:                                              ; No predecessors!
   unreachable
 }
 

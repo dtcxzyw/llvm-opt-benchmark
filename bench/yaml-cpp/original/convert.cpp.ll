@@ -213,46 +213,56 @@ init:                                             ; preds = %init.check
 invoke.cont:                                      ; preds = %init
   store i1 true, ptr %cleanup.isactive, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i32 0, i32 1), ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  %3 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store i1 false, ptr %cleanup.isactive, align 1
-  store ptr getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 1), ptr %arrayinit.endOfInit, align 8
+  %4 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 1
+  store ptr %4, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 1), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  %5 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont3
   store i1 true, ptr %cleanup.isactive10, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 1, i32 1), ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
+  %6 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 1, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont6
   store i1 false, ptr %cleanup.isactive10, align 1
-  store ptr getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 2), ptr %arrayinit.endOfInit, align 8
+  %7 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 2
+  store ptr %7, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 2), ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
+  %8 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont9
   store i1 true, ptr %cleanup.isactive17, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 2, i32 1), ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14)
+  %9 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 2, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
   store i1 false, ptr %cleanup.isactive17, align 1
-  store ptr getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 3), ptr %arrayinit.endOfInit, align 8
+  %10 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 3
+  store ptr %10, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 3), ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  %11 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont16
   store i1 true, ptr %cleanup.isactive24, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21) #1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 3, i32 1), ptr noundef @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21)
+  %12 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 3, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont20
@@ -266,13 +276,13 @@ invoke.cont23:                                    ; preds = %invoke.cont20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #1
-  %3 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #1
+  %13 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #1
   call void @__cxa_guard_release(ptr @_ZGVZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names) #1
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont23, %init.check, %if.end
-  %4 = load ptr, ptr %node.addr, align 8
-  %call50 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4YAML4Node6ScalarB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(64) %4)
+  %14 = load ptr, ptr %node.addr, align 8
+  %call50 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4YAML4Node6ScalarB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(64) %14)
   %call51 = call noundef zeroext i1 @_ZN12_GLOBAL__N_114IsFlexibleCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %call50)
   br i1 %call51, label %if.end53, label %if.then52
 
@@ -281,81 +291,82 @@ if.then52:                                        ; preds = %init.end
   br label %return
 
 lpad:                                             ; preds = %init
-  %5 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup43
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   br label %ehcleanup38
 
 lpad5:                                            ; preds = %invoke.cont3
-  %11 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   br label %ehcleanup37
 
 lpad8:                                            ; preds = %invoke.cont6
-  %14 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   br label %ehcleanup32
 
 lpad12:                                           ; preds = %invoke.cont9
-  %17 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   br label %ehcleanup31
 
 lpad15:                                           ; preds = %invoke.cont13
-  %20 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %exn.slot, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %ehselector.slot, align 4
   br label %ehcleanup26
 
 lpad19:                                           ; preds = %invoke.cont16
-  %23 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %exn.slot, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad22:                                           ; preds = %invoke.cont20
-  %26 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %exn.slot, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21) #1
   %cleanup.is_active = load i1, ptr %cleanup.isactive24, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 3)) #1
+  %39 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #1
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad22
@@ -371,7 +382,8 @@ ehcleanup26:                                      ; preds = %ehcleanup, %lpad15
   br i1 %cleanup.is_active28, label %cleanup.action29, label %cleanup.done30
 
 cleanup.action29:                                 ; preds = %ehcleanup26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 2)) #1
+  %40 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #1
   br label %cleanup.done30
 
 cleanup.done30:                                   ; preds = %cleanup.action29, %ehcleanup26
@@ -387,7 +399,8 @@ ehcleanup32:                                      ; preds = %ehcleanup31, %lpad8
   br i1 %cleanup.is_active34, label %cleanup.action35, label %cleanup.done36
 
 cleanup.action35:                                 ; preds = %ehcleanup32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 1)) #1
+  %41 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #1
   br label %cleanup.done36
 
 cleanup.done36:                                   ; preds = %cleanup.action35, %ehcleanup32
@@ -415,12 +428,12 @@ ehcleanup43:                                      ; preds = %cleanup.done42, %lp
   br i1 %cleanup.is_active45, label %cleanup.action46, label %cleanup.done48
 
 cleanup.action46:                                 ; preds = %ehcleanup43
-  %29 = load ptr, ptr %arrayinit.endOfInit, align 8
-  %arraydestroy.isempty = icmp eq ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, %29
+  %42 = load ptr, ptr %arrayinit.endOfInit, align 8
+  %arraydestroy.isempty = icmp eq ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, %42
   br i1 %arraydestroy.isempty, label %arraydestroy.done47, label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %cleanup.action46
-  %arraydestroy.elementPast = phi ptr [ %29, %cleanup.action46 ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %42, %cleanup.action46 ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %struct.anon, ptr %arraydestroy.elementPast, i64 -1
   call void @"_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbEN3$_0D2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #1
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names
@@ -436,46 +449,47 @@ cleanup.done48:                                   ; preds = %arraydestroy.done47
 if.end53:                                         ; preds = %init.end
   store ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, ptr %__range1, align 8
   store ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 4), ptr %__end1, align 8
+  %43 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 4
+  store ptr %43, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end53
-  %30 = load ptr, ptr %__begin1, align 8
-  %31 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %30, %31
+  %44 = load ptr, ptr %__begin1, align 8
+  %45 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %44, %45
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %32 = load ptr, ptr %__begin1, align 8
-  store ptr %32, ptr %name, align 8
-  %33 = load ptr, ptr %name, align 8
-  %truename = getelementptr inbounds %struct.anon, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %node.addr, align 8
-  %call55 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4YAML4Node6ScalarB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(64) %34)
+  %46 = load ptr, ptr %__begin1, align 8
+  store ptr %46, ptr %name, align 8
+  %47 = load ptr, ptr %name, align 8
+  %truename = getelementptr inbounds %struct.anon, ptr %47, i32 0, i32 0
+  %48 = load ptr, ptr %node.addr, align 8
+  %call55 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4YAML4Node6ScalarB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(64) %48)
   call void @_ZN12_GLOBAL__N_17tolowerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(32) %call55)
   %call56 = call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %truename, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54) #1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54) #1
   br i1 %call56, label %if.then57, label %if.end58
 
 if.then57:                                        ; preds = %for.body
-  %35 = load ptr, ptr %rhs.addr, align 8
-  store i8 1, ptr %35, align 1
+  %49 = load ptr, ptr %rhs.addr, align 8
+  store i8 1, ptr %49, align 1
   store i1 true, ptr %retval, align 1
   br label %return
 
 if.end58:                                         ; preds = %for.body
-  %36 = load ptr, ptr %name, align 8
-  %falsename = getelementptr inbounds %struct.anon, ptr %36, i32 0, i32 1
-  %37 = load ptr, ptr %node.addr, align 8
-  %call60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4YAML4Node6ScalarB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(64) %37)
+  %50 = load ptr, ptr %name, align 8
+  %falsename = getelementptr inbounds %struct.anon, ptr %50, i32 0, i32 1
+  %51 = load ptr, ptr %node.addr, align 8
+  %call60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4YAML4Node6ScalarB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(64) %51)
   call void @_ZN12_GLOBAL__N_17tolowerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp59, ptr noundef nonnull align 8 dereferenceable(32) %call60)
   %call61 = call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %falsename, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp59) #1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp59) #1
   br i1 %call61, label %if.then62, label %if.end63
 
 if.then62:                                        ; preds = %if.end58
-  %38 = load ptr, ptr %rhs.addr, align 8
-  store i8 0, ptr %38, align 1
+  %52 = load ptr, ptr %rhs.addr, align 8
+  store i8 0, ptr %52, align 1
   store i1 true, ptr %retval, align 1
   br label %return
 
@@ -483,8 +497,8 @@ if.end63:                                         ; preds = %if.end58
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end63
-  %39 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.anon, ptr %39, i32 1
+  %53 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.anon, ptr %53, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -493,8 +507,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then62, %if.then57, %if.then52, %if.then
-  %40 = load i1, ptr %retval, align 1
-  ret i1 %40
+  %54 = load i1, ptr %retval, align 1
+  ret i1 %54
 
 eh.resume:                                        ; preds = %cleanup.done48
   %exn = load ptr, ptr %exn.slot, align 8
@@ -549,10 +563,11 @@ define internal void @__cxx_global_array_dtor(ptr noundef %0) #5 section ".text.
 entry:
   %.addr = alloca ptr, align 8
   store ptr %0, ptr %.addr, align 8
+  %1 = getelementptr inbounds %struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 4
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds (%struct.anon, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 4), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %struct.anon, ptr %arraydestroy.elementPast, i64 -1
   call void @"_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbEN3$_0D2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #1
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names
@@ -911,16 +926,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4YAML11InvalidNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4YAML11InvalidNodeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #1
   br label %eh.resume
 
@@ -1062,7 +1078,8 @@ entry:
   %0 = load ptr, ptr %mark_.addr, align 8
   %1 = load ptr, ptr %msg_.addr, align 8
   call void @_ZN4YAML9ExceptionC2ERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4YAML23RepresentationExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4YAML23RepresentationExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -1125,35 +1142,36 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4YAML9ExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4YAML9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %mark = getelementptr inbounds %"class.YAML::Exception", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %mark_.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %mark, ptr align 4 %2, i64 12, i1 false)
+  %3 = load ptr, ptr %mark_.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %mark, ptr align 4 %3, i64 12, i1 false)
   %msg = getelementptr inbounds %"class.YAML::Exception", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %msg_.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %4 = load ptr, ptr %msg_.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #1
   br label %eh.resume
 
 lpad2:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #1
   br label %eh.resume
 

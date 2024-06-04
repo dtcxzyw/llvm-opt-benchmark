@@ -445,12 +445,12 @@ define dso_local i32 @acpi_map_cpu(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 6:                                                ; preds = %4
   %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #19
-  br label %24
+  br label %25
 
 8:                                                ; preds = %4
   %9 = tail call i32 @generic_processor_info(i32 noundef %1) #18
   %10 = icmp sgt i32 %9, -1
-  br i1 %10, label %11, label %24
+  br i1 %10, label %11, label %25
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @x86_cpu_to_acpiid_early_ptr, align 8
@@ -460,50 +460,51 @@ define dso_local i32 @acpi_map_cpu(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 15:                                               ; preds = %11
   %16 = getelementptr i32, ptr %12, i64 %14
-  br label %22
+  br label %23
 
 17:                                               ; preds = %11
   %18 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %14
   %19 = load i64, ptr %18, align 8
-  %20 = add i64 %19, ptrtoint (ptr @x86_cpu_to_acpiid to i64)
-  %21 = inttoptr i64 %20 to ptr
-  br label %22
+  %20 = ptrtoint ptr @x86_cpu_to_acpiid to i64
+  %21 = add i64 %19, %20
+  %22 = inttoptr i64 %21 to ptr
+  br label %23
 
-22:                                               ; preds = %17, %15
-  %23 = phi ptr [ %16, %15 ], [ %21, %17 ]
-  store i32 %2, ptr %23, align 4
-  br label %24
+23:                                               ; preds = %17, %15
+  %24 = phi ptr [ %16, %15 ], [ %22, %17 ]
+  store i32 %2, ptr %24, align 4
+  br label %25
 
-24:                                               ; preds = %22, %8, %6
-  %25 = phi i32 [ -22, %6 ], [ %9, %22 ], [ %9, %8 ]
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %29
+25:                                               ; preds = %23, %8, %6
+  %26 = phi i32 [ -22, %6 ], [ %9, %23 ], [ %9, %8 ]
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %30
 
-27:                                               ; preds = %24
-  %28 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #19
-  br label %37
+28:                                               ; preds = %25
+  %29 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #19
+  br label %38
 
-29:                                               ; preds = %24
+30:                                               ; preds = %25
   tail call void @acpi_processor_set_pdc(ptr noundef %0) #18
-  %30 = tail call i32 @acpi_get_node(ptr noundef %0) #18
-  %31 = icmp eq i32 %30, -1
-  br i1 %31, label %36, label %32
+  %31 = tail call i32 @acpi_get_node(ptr noundef %0) #18
+  %32 = icmp eq i32 %31, -1
+  br i1 %32, label %37, label %33
 
-32:                                               ; preds = %29
-  %33 = trunc i32 %30 to i16
-  %34 = sext i32 %1 to i64
-  %35 = getelementptr [32768 x i16], ptr @__apicid_to_node, i64 0, i64 %34
-  store i16 %33, ptr %35, align 2
-  tail call void @numa_set_node(i32 noundef %25, i32 noundef %30) #18
-  br label %36
-
-36:                                               ; preds = %32, %29
-  store i32 %25, ptr %3, align 4
+33:                                               ; preds = %30
+  %34 = trunc i32 %31 to i16
+  %35 = sext i32 %1 to i64
+  %36 = getelementptr [32768 x i16], ptr @__apicid_to_node, i64 0, i64 %35
+  store i16 %34, ptr %36, align 2
+  tail call void @numa_set_node(i32 noundef %26, i32 noundef %31) #18
   br label %37
 
-37:                                               ; preds = %36, %27
-  %38 = phi i32 [ %25, %27 ], [ 0, %36 ]
-  ret i32 %38
+37:                                               ; preds = %33, %30
+  store i32 %26, ptr %3, align 4
+  br label %38
+
+38:                                               ; preds = %37, %28
+  %39 = phi i32 [ %26, %28 ], [ 0, %37 ]
+  ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -513,7 +514,7 @@ define internal fastcc void @acpi_register_lapic(i32 noundef %0, i32 noundef %1,
 
 5:                                                ; preds = %3
   %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #19
-  br label %28
+  br label %29
 
 7:                                                ; preds = %3
   %8 = icmp eq i8 %2, 0
@@ -523,12 +524,12 @@ define internal fastcc void @acpi_register_lapic(i32 noundef %0, i32 noundef %1,
   %10 = load i32, ptr @disabled_cpus, align 4
   %11 = add i32 %10, 1
   store i32 %11, ptr @disabled_cpus, align 4
-  br label %28
+  br label %29
 
 12:                                               ; preds = %7
   %13 = tail call i32 @generic_processor_info(i32 noundef %0) #18
   %14 = icmp sgt i32 %13, -1
-  br i1 %14, label %15, label %28
+  br i1 %14, label %15, label %29
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @x86_cpu_to_acpiid_early_ptr, align 8
@@ -538,21 +539,22 @@ define internal fastcc void @acpi_register_lapic(i32 noundef %0, i32 noundef %1,
 
 19:                                               ; preds = %15
   %20 = getelementptr i32, ptr %16, i64 %18
-  br label %26
+  br label %27
 
 21:                                               ; preds = %15
   %22 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %18
   %23 = load i64, ptr %22, align 8
-  %24 = add i64 %23, ptrtoint (ptr @x86_cpu_to_acpiid to i64)
-  %25 = inttoptr i64 %24 to ptr
-  br label %26
+  %24 = ptrtoint ptr @x86_cpu_to_acpiid to i64
+  %25 = add i64 %23, %24
+  %26 = inttoptr i64 %25 to ptr
+  br label %27
 
-26:                                               ; preds = %21, %19
-  %27 = phi ptr [ %20, %19 ], [ %25, %21 ]
-  store i32 %1, ptr %27, align 4
-  br label %28
+27:                                               ; preds = %21, %19
+  %28 = phi ptr [ %20, %19 ], [ %26, %21 ]
+  store i32 %1, ptr %28, align 4
+  br label %29
 
-28:                                               ; preds = %26, %12, %9, %5
+29:                                               ; preds = %27, %12, %9, %5
   ret void
 }
 
@@ -564,18 +566,19 @@ define dso_local noundef i32 @acpi_unmap_cpu(i32 noundef %0) #4 align 16 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
-  %5 = add i64 %4, ptrtoint (ptr @x86_cpu_to_apicid to i64)
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load i32, ptr %6, align 4
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr [32768 x i16], ptr @__apicid_to_node, i64 0, i64 %8
-  store i16 -1, ptr %9, align 2
-  store i32 65535, ptr %6, align 4
-  %10 = zext i32 %0 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_present_mask, i64 %10) #18, !srcloc !8
-  %11 = load i32, ptr @num_processors, align 4
-  %12 = add i32 %11, -1
-  store i32 %12, ptr @num_processors, align 4
+  %5 = ptrtoint ptr @x86_cpu_to_apicid to i64
+  %6 = add i64 %4, %5
+  %7 = inttoptr i64 %6 to ptr
+  %8 = load i32, ptr %7, align 4
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr [32768 x i16], ptr @__apicid_to_node, i64 0, i64 %9
+  store i16 -1, ptr %10, align 2
+  store i32 65535, ptr %7, align 4
+  %11 = zext i32 %0 to i64
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_present_mask, i64 %11) #18, !srcloc !8
+  %12 = load i32, ptr @num_processors, align 4
+  %13 = add i32 %12, -1
+  store i32 %13, ptr @num_processors, align 4
   ret i32 0
 }
 
@@ -694,8 +697,10 @@ define internal i32 @hpet_insert_resource() #0 section ".init.text" align 16 {
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
 define dso_local void @acpi_generic_reduced_hw_init() local_unnamed_addr #7 section ".init.text" align 16 {
-  store ptr @x86_init_noop, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 5, i32 1), align 8
-  store ptr @x86_init_noop, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 2), align 8
+  %1 = getelementptr inbounds %struct.x86_init_ops, ptr @x86_init, i64 0, i32 5, i32 1
+  store ptr @x86_init_noop, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.x86_init_ops, ptr @x86_init, i64 0, i32 2
+  store ptr @x86_init_noop, ptr %2, align 8
   store ptr @null_legacy_pic, ptr @legacy_pic, align 8
   ret void
 }
@@ -742,7 +747,7 @@ declare dso_local void @acpi_reserve_initial_tables() local_unnamed_addr #1
 define dso_local noundef i32 @early_acpi_boot_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i32, ptr @acpi_disabled, align 4
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %3, label %18
+  br i1 %2, label %3, label %19
 
 3:                                                ; preds = %0
   tail call void @acpi_table_init_complete() #18
@@ -764,22 +769,23 @@ define dso_local noundef i32 @early_acpi_boot_init() local_unnamed_addr #0 secti
   store i32 1, ptr @acpi_disabled, align 4
   store i32 1, ptr @acpi_pci_disabled, align 4
   store i32 1, ptr @acpi_noirq, align 4
-  br label %18
+  br label %19
 
 13:                                               ; preds = %9, %3
   tail call fastcc void @early_acpi_process_madt() #20
   %14 = load i8, ptr @acpi_gbl_reduced_hardware, align 1
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %18, label %16
+  br i1 %15, label %19, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 9, i32 2), align 8
-  tail call void %17() #18
-  br label %18
+  %17 = getelementptr inbounds %struct.x86_init_ops, ptr @x86_init, i64 0, i32 9, i32 2
+  %18 = load ptr, ptr %17, align 8
+  tail call void %18() #18
+  br label %19
 
-18:                                               ; preds = %16, %13, %11, %0
-  %19 = phi i32 [ 1, %11 ], [ 1, %0 ], [ 0, %13 ], [ 0, %16 ]
-  ret i32 %19
+19:                                               ; preds = %16, %13, %11, %0
+  %20 = phi i32 [ 1, %11 ], [ 1, %0 ], [ 0, %13 ], [ 0, %16 ]
+  ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -834,7 +840,7 @@ define dso_local noundef i32 @acpi_boot_init() local_unnamed_addr #0 section ".i
   %1 = tail call i32 @dmi_check_system(ptr noundef nonnull @acpi_dmi_table_late) #18
   %2 = load i32, ptr @acpi_disabled, align 4
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %19
+  br i1 %3, label %4, label %20
 
 4:                                                ; preds = %0
   %5 = tail call i32 @acpi_table_parse(ptr noundef nonnull @.str.5, ptr noundef nonnull @acpi_parse_sbf) #18
@@ -851,99 +857,110 @@ define dso_local noundef i32 @acpi_boot_init() local_unnamed_addr #0 section ".i
 11:                                               ; preds = %9, %4
   %12 = load i32, ptr @acpi_noirq, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %15
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  store ptr @pci_acpi_init, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 7, i32 1), align 8
-  br label %15
+  %15 = getelementptr inbounds %struct.x86_init_ops, ptr @x86_init, i64 0, i32 7, i32 1
+  store ptr @pci_acpi_init, ptr %15, align 8
+  br label %16
 
-15:                                               ; preds = %14, %11
-  %16 = load i8, ptr @earlycon_acpi_spcr_enable, align 1, !range !9, !noundef !10
-  %17 = icmp ne i8 %16, 0
-  %18 = tail call i32 @acpi_parse_spcr(i1 noundef zeroext %17, i1 noundef zeroext false) #18
-  br label %19
+16:                                               ; preds = %14, %11
+  %17 = load i8, ptr @earlycon_acpi_spcr_enable, align 1, !range !9, !noundef !10
+  %18 = icmp ne i8 %17, 0
+  %19 = tail call i32 @acpi_parse_spcr(i1 noundef zeroext %18, i1 noundef zeroext false) #18
+  br label %20
 
-19:                                               ; preds = %15, %0
-  %20 = phi i32 [ 0, %15 ], [ 1, %0 ]
-  ret i32 %20
+20:                                               ; preds = %16, %0
+  %21 = phi i32 [ 0, %16 ], [ 1, %0 ]
+  ret i32 %21
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @acpi_parse_fadt(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
-  %2 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 36), align 1
-  %3 = and i16 %2, 1
-  %4 = icmp eq i16 %3, 0
-  br i1 %4, label %5, label %6
+  %2 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 36
+  %3 = load i16, ptr %2, align 1
+  %4 = and i16 %3, 1
+  %5 = icmp eq i16 %4, 0
+  br i1 %5, label %6, label %8
 
-5:                                                ; preds = %1
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5), align 4
-  br label %6
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 5
+  store i32 0, ptr %7, align 4
+  br label %8
 
-6:                                                ; preds = %5, %1
-  %7 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2), align 1
-  %8 = icmp ugt i8 %7, 2
-  br i1 %8, label %9, label %16
+8:                                                ; preds = %6, %1
+  %9 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2
+  %10 = load i8, ptr %9, align 1
+  %11 = icmp ugt i8 %10, 2
+  br i1 %11, label %12, label %21
 
-9:                                                ; preds = %6
-  %10 = and i16 %2, 2
-  %11 = icmp eq i16 %10, 0
-  %12 = load i32, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11), align 8
-  %13 = icmp ne i32 %12, 0
-  %14 = select i1 %11, i1 %13, i1 false
-  br i1 %14, label %15, label %16
+12:                                               ; preds = %8
+  %13 = and i16 %3, 2
+  %14 = icmp eq i16 %13, 0
+  %15 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp ne i32 %16, 0
+  %18 = select i1 %14, i1 %17, i1 false
+  br i1 %18, label %19, label %21
 
-15:                                               ; preds = %9
-  store i32 1, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11), align 8
-  br label %16
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11
+  store i32 1, ptr %20, align 8
+  br label %21
 
-16:                                               ; preds = %15, %9, %6
-  %17 = and i16 %2, 32
-  %18 = icmp eq i16 %17, 0
-  br i1 %18, label %20, label %19
+21:                                               ; preds = %19, %12, %8
+  %22 = and i16 %3, 32
+  %23 = icmp eq i16 %22, 0
+  br i1 %23, label %26, label %24
 
-19:                                               ; preds = %16
-  store i32 0, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1), align 4
-  br label %20
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1
+  store i32 0, ptr %25, align 4
+  br label %26
 
-20:                                               ; preds = %19, %16
-  %21 = and i16 %2, 4
-  %22 = icmp eq i16 %21, 0
-  br i1 %22, label %24, label %23
+26:                                               ; preds = %24, %21
+  %27 = and i16 %3, 4
+  %28 = icmp eq i16 %27, 0
+  br i1 %28, label %31, label %29
 
-23:                                               ; preds = %20
-  store i32 1, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 3), align 4
-  br label %24
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 3
+  store i32 1, ptr %30, align 4
+  br label %31
 
-24:                                               ; preds = %23, %20
-  br i1 %8, label %25, label %32
+31:                                               ; preds = %29, %26
+  br i1 %11, label %32, label %41
 
-25:                                               ; preds = %24
-  %26 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 50), align 1
-  %27 = icmp eq i8 %26, 1
-  br i1 %27, label %28, label %39
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 50
+  %34 = load i8, ptr %33, align 1
+  %35 = icmp eq i8 %34, 1
+  br i1 %35, label %36, label %49
 
-28:                                               ; preds = %25
-  %29 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 50, i32 4), align 1
-  %30 = trunc i64 %29 to i32
-  store i32 %30, ptr @pmtmr_ioport, align 4
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %34
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 50, i32 4
+  %38 = load i64, ptr %37, align 1
+  %39 = trunc i64 %38 to i32
+  store i32 %39, ptr @pmtmr_ioport, align 4
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %44
 
-32:                                               ; preds = %28, %24
-  %33 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 16), align 1
-  store i32 %33, ptr @pmtmr_ioport, align 4
-  br label %34
+41:                                               ; preds = %36, %31
+  %42 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 16
+  %43 = load i32, ptr %42, align 1
+  store i32 %43, ptr @pmtmr_ioport, align 4
+  br label %44
 
-34:                                               ; preds = %32, %28
-  %35 = load i32, ptr @pmtmr_ioport, align 4
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %39, label %37
+44:                                               ; preds = %41, %36
+  %45 = load i32, ptr @pmtmr_ioport, align 4
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %49, label %47
 
-37:                                               ; preds = %34
-  %38 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, i32 noundef %35) #19
-  br label %39
+47:                                               ; preds = %44
+  %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, i32 noundef %45) #19
+  br label %49
 
-39:                                               ; preds = %37, %34, %25
+49:                                               ; preds = %47, %44, %32
   ret i32 0
 }
 
@@ -1367,14 +1384,16 @@ declare dso_local void @e820__update_table_print() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
 define dso_local void @x86_default_set_root_pointer(i64 noundef %0) local_unnamed_addr #13 align 16 {
-  store i64 %0, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 5), align 1
+  %2 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 5
+  store i64 %0, ptr %2, align 1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local i64 @x86_default_get_root_pointer() local_unnamed_addr #14 align 16 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 5), align 1
-  ret i64 %1
+  %1 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 5
+  %2 = load i64, ptr %1, align 1
+  ret i64 %2
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1469,92 +1488,96 @@ define internal noundef i32 @disable_acpi_xsdt(ptr nocapture noundef readonly %0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @acpi_parse_madt(ptr noundef %0) #0 section ".init.text" align 16 {
-  %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
-  %3 = and i64 %2, 512
-  %4 = icmp eq i64 %3, 0
-  br i1 %4, label %34, label %5
+  %2 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0
+  %3 = load volatile i64, ptr %2, align 8
+  %4 = and i64 %3, 512
+  %5 = icmp eq i64 %4, 0
+  br i1 %5, label %37, label %6
 
-5:                                                ; preds = %1
-  %6 = icmp eq ptr %0, null
-  br i1 %6, label %7, label %9
+6:                                                ; preds = %1
+  %7 = icmp eq ptr %0, null
+  br i1 %7, label %8, label %10
 
-7:                                                ; preds = %5
-  %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.27) #19
-  br label %34
+8:                                                ; preds = %6
+  %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.27) #19
+  br label %37
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
-  %11 = load i32, ptr %10, align 1
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %13
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %0, i64 36
+  %12 = load i32, ptr %11, align 1
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %14
 
-13:                                               ; preds = %9
-  %14 = zext i32 %11 to i64
-  store i64 %14, ptr @acpi_lapic_addr, align 8
-  br label %15
+14:                                               ; preds = %10
+  %15 = zext i32 %12 to i64
+  store i64 %15, ptr @acpi_lapic_addr, align 8
+  br label %16
 
-15:                                               ; preds = %13, %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
-  %17 = load i32, ptr %16, align 1
-  %18 = and i32 %17, 1
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %21, label %20
+16:                                               ; preds = %14, %10
+  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = load i32, ptr %17, align 1
+  %19 = and i32 %18, 1
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %22, label %21
 
-20:                                               ; preds = %15
+21:                                               ; preds = %16
   tail call void @legacy_pic_pcat_compat() #18
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %15
-  %22 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2), align 1
-  %23 = icmp ugt i8 %22, 6
-  br i1 %23, label %29, label %24
+22:                                               ; preds = %21, %16
+  %23 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp ugt i8 %24, 6
+  br i1 %25, label %32, label %26
 
-24:                                               ; preds = %21
-  %25 = icmp eq i8 %22, 6
-  %26 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 42), align 1
-  %27 = icmp ugt i8 %26, 2
-  %28 = select i1 %25, i1 %27, i1 false
-  br i1 %28, label %29, label %30
+26:                                               ; preds = %22
+  %27 = icmp eq i8 %24, 6
+  %28 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 42
+  %29 = load i8, ptr %28, align 1
+  %30 = icmp ugt i8 %29, 2
+  %31 = select i1 %27, i1 %30, i1 false
+  br i1 %31, label %32, label %33
 
-29:                                               ; preds = %24, %21
+32:                                               ; preds = %26, %22
   store i1 true, ptr @acpi_support_online_capable, align 1
-  br label %30
+  br label %33
 
-30:                                               ; preds = %29, %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 10
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = tail call i32 @default_acpi_madt_oem_check(ptr noundef %31, ptr noundef %32) #18
-  br label %34
+33:                                               ; preds = %32, %26
+  %34 = getelementptr inbounds i8, ptr %0, i64 10
+  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = tail call i32 @default_acpi_madt_oem_check(ptr noundef %34, ptr noundef %35) #18
+  br label %37
 
-34:                                               ; preds = %30, %7, %1
-  %35 = phi i32 [ 0, %30 ], [ -19, %7 ], [ -22, %1 ]
-  ret i32 %35
+37:                                               ; preds = %33, %8, %1
+  %38 = phi i32 [ 0, %33 ], [ -19, %8 ], [ -22, %1 ]
+  ret i32 %38
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc i32 @early_acpi_parse_madt_lapic_addr_ovr() unnamed_addr #0 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
-  %2 = and i64 %1, 512
-  %3 = icmp eq i64 %2, 0
-  br i1 %3, label %11, label %4
+  %1 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0
+  %2 = load volatile i64, ptr %1, align 8
+  %3 = and i64 %2, 512
+  %4 = icmp eq i64 %3, 0
+  br i1 %4, label %12, label %5
 
-4:                                                ; preds = %0
-  %5 = tail call i32 @acpi_table_parse_madt(i32 noundef 5, ptr noundef nonnull @acpi_parse_lapic_addr_ovr, i32 noundef 0) #18
-  %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %9
+5:                                                ; preds = %0
+  %6 = tail call i32 @acpi_table_parse_madt(i32 noundef 5, ptr noundef nonnull @acpi_parse_lapic_addr_ovr, i32 noundef 0) #18
+  %7 = icmp slt i32 %6, 0
+  br i1 %7, label %8, label %10
 
-7:                                                ; preds = %4
-  %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.28) #19
-  br label %11
+8:                                                ; preds = %5
+  %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.28) #19
+  br label %12
 
-9:                                                ; preds = %4
-  %10 = load i64, ptr @acpi_lapic_addr, align 8
-  tail call void @register_lapic_address(i64 noundef %10) #18
-  br label %11
+10:                                               ; preds = %5
+  %11 = load i64, ptr @acpi_lapic_addr, align 8
+  tail call void @register_lapic_address(i64 noundef %11) #18
+  br label %12
 
-11:                                               ; preds = %9, %7, %0
-  %12 = phi i32 [ %5, %7 ], [ %5, %9 ], [ -19, %0 ]
-  ret i32 %12
+12:                                               ; preds = %10, %8, %0
+  %13 = phi i32 [ %6, %8 ], [ %6, %10 ], [ -19, %0 ]
+  ret i32 %13
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1618,52 +1641,53 @@ define internal noundef i32 @dmi_ignore_irq0_timer_override(ptr nocapture nounde
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc i32 @acpi_parse_madt_lapic_entries() unnamed_addr #0 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
-  %2 = and i64 %1, 512
-  %3 = icmp eq i64 %2, 0
-  br i1 %3, label %30, label %4
+  %1 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0
+  %2 = load volatile i64, ptr %1, align 8
+  %3 = and i64 %2, 512
+  %4 = icmp eq i64 %3, 0
+  br i1 %4, label %31, label %5
 
-4:                                                ; preds = %0
-  %5 = tail call i32 @acpi_table_parse_madt(i32 noundef 7, ptr noundef nonnull @acpi_parse_sapic, i32 noundef 32768) #18
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %10
+5:                                                ; preds = %0
+  %6 = tail call i32 @acpi_table_parse_madt(i32 noundef 7, ptr noundef nonnull @acpi_parse_sapic, i32 noundef 32768) #18
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %4
-  %8 = tail call i32 @acpi_table_parse_madt(i32 noundef 0, ptr noundef nonnull @acpi_parse_lapic, i32 noundef 32768) #18
-  %9 = tail call i32 @acpi_table_parse_madt(i32 noundef 9, ptr noundef nonnull @acpi_parse_x2apic, i32 noundef 32768) #18
-  br label %10
+8:                                                ; preds = %5
+  %9 = tail call i32 @acpi_table_parse_madt(i32 noundef 0, ptr noundef nonnull @acpi_parse_lapic, i32 noundef 32768) #18
+  %10 = tail call i32 @acpi_table_parse_madt(i32 noundef 9, ptr noundef nonnull @acpi_parse_x2apic, i32 noundef 32768) #18
+  br label %11
 
-10:                                               ; preds = %7, %4
-  %11 = phi i32 [ 0, %4 ], [ %9, %7 ]
-  %12 = phi i32 [ %5, %4 ], [ %8, %7 ]
-  %13 = icmp ne i32 %12, 0
-  %14 = icmp ne i32 %11, 0
-  %15 = select i1 %13, i1 true, i1 %14
-  br i1 %15, label %16, label %26
+11:                                               ; preds = %8, %5
+  %12 = phi i32 [ 0, %5 ], [ %10, %8 ]
+  %13 = phi i32 [ %6, %5 ], [ %9, %8 ]
+  %14 = icmp ne i32 %13, 0
+  %15 = icmp ne i32 %12, 0
+  %16 = select i1 %14, i1 true, i1 %15
+  br i1 %16, label %17, label %27
 
-16:                                               ; preds = %10
-  %17 = icmp slt i32 %12, 0
-  %18 = icmp slt i32 %11, 0
-  %19 = select i1 %17, i1 true, i1 %18
-  br i1 %19, label %26, label %20
+17:                                               ; preds = %11
+  %18 = icmp slt i32 %13, 0
+  %19 = icmp slt i32 %12, 0
+  %20 = select i1 %18, i1 true, i1 %19
+  br i1 %20, label %27, label %21
 
-20:                                               ; preds = %16
-  %21 = tail call i32 @acpi_table_parse_madt(i32 noundef 10, ptr noundef nonnull @acpi_parse_x2apic_nmi, i32 noundef 0) #18
-  %22 = tail call i32 @acpi_table_parse_madt(i32 noundef 4, ptr noundef nonnull @acpi_parse_lapic_nmi, i32 noundef 0) #18
-  %23 = icmp slt i32 %22, 0
-  %24 = icmp slt i32 %21, 0
-  %25 = select i1 %23, i1 true, i1 %24
-  br i1 %25, label %26, label %30
+21:                                               ; preds = %17
+  %22 = tail call i32 @acpi_table_parse_madt(i32 noundef 10, ptr noundef nonnull @acpi_parse_x2apic_nmi, i32 noundef 0) #18
+  %23 = tail call i32 @acpi_table_parse_madt(i32 noundef 4, ptr noundef nonnull @acpi_parse_lapic_nmi, i32 noundef 0) #18
+  %24 = icmp slt i32 %23, 0
+  %25 = icmp slt i32 %22, 0
+  %26 = select i1 %24, i1 true, i1 %25
+  br i1 %26, label %27, label %31
 
-26:                                               ; preds = %20, %16, %10
-  %27 = phi ptr [ @.str.39, %10 ], [ @.str.40, %16 ], [ @.str.41, %20 ]
-  %28 = phi i32 [ -19, %10 ], [ %12, %16 ], [ %22, %20 ]
-  %29 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %27) #19
-  br label %30
+27:                                               ; preds = %21, %17, %11
+  %28 = phi ptr [ @.str.39, %11 ], [ @.str.40, %17 ], [ @.str.41, %21 ]
+  %29 = phi i32 [ -19, %11 ], [ %13, %17 ], [ %23, %21 ]
+  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %28) #19
+  br label %31
 
-30:                                               ; preds = %26, %20, %0
-  %31 = phi i32 [ -19, %0 ], [ 0, %20 ], [ %28, %26 ]
-  ret i32 %31
+31:                                               ; preds = %27, %21, %0
+  %32 = phi i32 [ -19, %0 ], [ 0, %21 ], [ %29, %27 ]
+  ret i32 %32
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -1673,65 +1697,67 @@ define internal fastcc i32 @acpi_parse_madt_ioapic_entries() unnamed_addr #0 sec
   %3 = load i32, ptr @acpi_noirq, align 4
   %4 = icmp ne i32 %3, 0
   %5 = select i1 %2, i1 true, i1 %4
-  br i1 %5, label %40, label %6
+  br i1 %5, label %42, label %6
 
 6:                                                ; preds = %0
-  %7 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
-  %8 = and i64 %7, 512
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %40, label %10
+  %7 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0
+  %8 = load volatile i64, ptr %7, align 8
+  %9 = and i64 %8, 512
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %42, label %11
 
-10:                                               ; preds = %6
-  %11 = load i8, ptr @ioapic_is_disabled, align 1, !range !9, !noundef !10
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %36
+11:                                               ; preds = %6
+  %12 = load i8, ptr @ioapic_is_disabled, align 1, !range !9, !noundef !10
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %14, label %38
 
-13:                                               ; preds = %10
-  %14 = tail call i32 @acpi_table_parse_madt(i32 noundef 1, ptr noundef nonnull @acpi_parse_ioapic, i32 noundef 128) #18
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %36, label %16
+14:                                               ; preds = %11
+  %15 = tail call i32 @acpi_table_parse_madt(i32 noundef 1, ptr noundef nonnull @acpi_parse_ioapic, i32 noundef 128) #18
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %38, label %17
 
-16:                                               ; preds = %13
-  %17 = icmp slt i32 %14, 0
-  br i1 %17, label %36, label %18
+17:                                               ; preds = %14
+  %18 = icmp slt i32 %15, 0
+  br i1 %18, label %38, label %19
 
-18:                                               ; preds = %16
-  %19 = load i32, ptr @nr_irqs, align 4
-  %20 = tail call i32 @acpi_table_parse_madt(i32 noundef 2, ptr noundef nonnull @acpi_parse_int_src_ovr, i32 noundef %19) #18
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %36, label %22
+19:                                               ; preds = %17
+  %20 = load i32, ptr @nr_irqs, align 4
+  %21 = tail call i32 @acpi_table_parse_madt(i32 noundef 2, ptr noundef nonnull @acpi_parse_int_src_ovr, i32 noundef %20) #18
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %38, label %23
 
-22:                                               ; preds = %18
-  %23 = load i32, ptr @acpi_sci_override_gsi, align 4
-  %24 = icmp ne i32 %23, -1
-  %25 = load i8, ptr @acpi_gbl_reduced_hardware, align 1
-  %26 = icmp ne i8 %25, 0
-  %27 = select i1 %24, i1 true, i1 %26
-  br i1 %27, label %32, label %28
+23:                                               ; preds = %19
+  %24 = load i32, ptr @acpi_sci_override_gsi, align 4
+  %25 = icmp ne i32 %24, -1
+  %26 = load i8, ptr @acpi_gbl_reduced_hardware, align 1
+  %27 = icmp ne i8 %26, 0
+  %28 = select i1 %25, i1 true, i1 %27
+  br i1 %28, label %34, label %29
 
-28:                                               ; preds = %22
-  %29 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
-  %30 = trunc i16 %29 to i8
-  %31 = zext i16 %29 to i32
-  tail call fastcc void @acpi_sci_ioapic_setup(i8 noundef zeroext %30, i16 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef %31) #20
-  br label %32
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5
+  %31 = load i16, ptr %30, align 1
+  %32 = trunc i16 %31 to i8
+  %33 = zext i16 %31 to i32
+  tail call fastcc void @acpi_sci_ioapic_setup(i8 noundef zeroext %32, i16 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef %33) #20
+  br label %34
 
-32:                                               ; preds = %28, %22
+34:                                               ; preds = %29, %23
   tail call fastcc void @mp_config_acpi_legacy_irqs() #20
-  %33 = load i32, ptr @nr_irqs, align 4
-  %34 = tail call i32 @acpi_table_parse_madt(i32 noundef 3, ptr noundef nonnull @acpi_parse_nmi_src, i32 noundef %33) #18
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %40
+  %35 = load i32, ptr @nr_irqs, align 4
+  %36 = tail call i32 @acpi_table_parse_madt(i32 noundef 3, ptr noundef nonnull @acpi_parse_nmi_src, i32 noundef %35) #18
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %38, label %42
 
-36:                                               ; preds = %32, %18, %16, %13, %10
-  %37 = phi ptr [ @.str.44, %10 ], [ @.str.45, %13 ], [ @.str.46, %16 ], [ @.str.47, %18 ], [ @.str.48, %32 ]
-  %38 = phi i32 [ -19, %10 ], [ -19, %13 ], [ %14, %16 ], [ %20, %18 ], [ %34, %32 ]
-  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %37) #19
-  br label %40
+38:                                               ; preds = %34, %19, %17, %14, %11
+  %39 = phi ptr [ @.str.44, %11 ], [ @.str.45, %14 ], [ @.str.46, %17 ], [ @.str.47, %19 ], [ @.str.48, %34 ]
+  %40 = phi i32 [ -19, %11 ], [ -19, %14 ], [ %15, %17 ], [ %21, %19 ], [ %36, %34 ]
+  %41 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %39) #19
+  br label %42
 
-40:                                               ; preds = %36, %32, %6, %0
-  %41 = phi i32 [ -19, %0 ], [ -19, %6 ], [ 0, %32 ], [ %38, %36 ]
-  ret i32 %41
+42:                                               ; preds = %38, %34, %6, %0
+  %43 = phi i32 [ -19, %0 ], [ -19, %6 ], [ 0, %34 ], [ %40, %38 ]
+  ret i32 %43
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -1741,30 +1767,31 @@ define internal noundef i32 @acpi_parse_mp_wake(ptr noundef %0, i64 noundef %1) 
   %5 = add i64 %4, 16
   %6 = icmp ugt i64 %5, %1
   %7 = or i1 %3, %6
-  br i1 %7, label %18, label %8
+  br i1 %7, label %19, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp ult i8 %10, 16
-  br i1 %11, label %18, label %12
+  br i1 %11, label %19, label %12
 
 12:                                               ; preds = %8
   tail call void @acpi_table_print_madt_entry(ptr noundef nonnull %0) #18
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 1
   store i64 %14, ptr @acpi_mp_wake_mailbox_paddr, align 8
-  store ptr @acpi_wakeup_cpu, ptr getelementptr inbounds (%struct.apic_override, ptr @__x86_apic_override, i64 0, i32 13), align 8
-  %15 = load ptr, ptr @apic, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 224
-  store ptr @acpi_wakeup_cpu, ptr %16, align 8
+  %15 = getelementptr inbounds %struct.apic_override, ptr @__x86_apic_override, i64 0, i32 13
+  store ptr @acpi_wakeup_cpu, ptr %15, align 8
+  %16 = load ptr, ptr @apic, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 224
+  store ptr @acpi_wakeup_cpu, ptr %17, align 8
   tail call void @__static_call_update(ptr noundef nonnull @__SCK__apic_call_wakeup_secondary_cpu_64, ptr noundef nonnull @__SCT__apic_call_wakeup_secondary_cpu_64, ptr noundef nonnull @acpi_wakeup_cpu) #18
-  %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @acpi_wakeup_cpu) #19
-  br label %18
+  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @acpi_wakeup_cpu) #19
+  br label %19
 
-18:                                               ; preds = %12, %8, %2
-  %19 = phi i32 [ 0, %12 ], [ -22, %8 ], [ -22, %2 ]
-  ret i32 %19
+19:                                               ; preds = %12, %8, %2
+  %20 = phi i32 [ 0, %12 ], [ -22, %8 ], [ -22, %2 ]
+  ret i32 %20
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -2004,13 +2031,13 @@ define internal noundef i32 @acpi_parse_int_src_ovr(ptr noundef %0, i64 noundef 
   %5 = add i64 %4, 10
   %6 = icmp ugt i64 %5, %1
   %7 = or i1 %3, %6
-  br i1 %7, label %64, label %8
+  br i1 %7, label %65, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp ult i8 %10, 10
-  br i1 %11, label %64, label %12
+  br i1 %11, label %65, label %12
 
 12:                                               ; preds = %8
   tail call void @acpi_table_print_madt_entry(ptr noundef nonnull %0) #18
@@ -2027,73 +2054,74 @@ define internal noundef i32 @acpi_parse_int_src_ovr(ptr noundef %0, i64 noundef 
 
 19:                                               ; preds = %16, %12
   %20 = load i8, ptr %13, align 1
-  %21 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
-  %22 = zext i8 %20 to i16
-  %23 = icmp eq i16 %21, %22
-  br i1 %23, label %24, label %32
+  %21 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5
+  %22 = load i16, ptr %21, align 1
+  %23 = zext i8 %20 to i16
+  %24 = icmp eq i16 %22, %23
+  br i1 %24, label %25, label %33
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = load i16, ptr %25, align 1
-  %27 = and i16 %26, 3
-  %28 = lshr i16 %26, 2
-  %29 = and i16 %28, 3
-  %30 = getelementptr inbounds i8, ptr %0, i64 4
-  %31 = load i32, ptr %30, align 1
-  tail call fastcc void @acpi_sci_ioapic_setup(i8 noundef zeroext %20, i16 noundef zeroext %27, i16 noundef zeroext %29, i32 noundef %31) #20
-  br label %64
+25:                                               ; preds = %19
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = load i16, ptr %26, align 1
+  %28 = and i16 %27, 3
+  %29 = lshr i16 %27, 2
+  %30 = and i16 %29, 3
+  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  %32 = load i32, ptr %31, align 1
+  tail call fastcc void @acpi_sci_ioapic_setup(i8 noundef zeroext %20, i16 noundef zeroext %28, i16 noundef zeroext %30, i32 noundef %32) #20
+  br label %65
 
-32:                                               ; preds = %19
-  %33 = icmp eq i8 %20, 0
-  br i1 %33, label %34, label %54
+33:                                               ; preds = %19
+  %34 = icmp eq i8 %20, 0
+  br i1 %34, label %35, label %55
 
-34:                                               ; preds = %32
-  %35 = load i32, ptr @acpi_skip_timer_override, align 4
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %39, label %37
+35:                                               ; preds = %33
+  %36 = load i32, ptr @acpi_skip_timer_override, align 4
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %40, label %38
 
-37:                                               ; preds = %34
-  %38 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49) #19
-  br label %64
+38:                                               ; preds = %35
+  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49) #19
+  br label %65
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 4
-  %41 = load i32, ptr %40, align 1
-  %42 = icmp eq i32 %41, 2
-  %43 = load i32, ptr @acpi_fix_pin2_polarity, align 4
-  %44 = icmp ne i32 %43, 0
-  %45 = select i1 %42, i1 %44, i1 false
-  br i1 %45, label %46, label %54
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds i8, ptr %0, i64 4
+  %42 = load i32, ptr %41, align 1
+  %43 = icmp eq i32 %42, 2
+  %44 = load i32, ptr @acpi_fix_pin2_polarity, align 4
+  %45 = icmp ne i32 %44, 0
+  %46 = select i1 %43, i1 %45, i1 false
+  br i1 %46, label %47, label %55
 
-46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
-  %48 = load i16, ptr %47, align 1
-  %49 = and i16 %48, 3
-  %50 = icmp eq i16 %49, 0
-  br i1 %50, label %54, label %51
+47:                                               ; preds = %40
+  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = load i16, ptr %48, align 1
+  %50 = and i16 %49, 3
+  %51 = icmp eq i16 %50, 0
+  br i1 %51, label %55, label %52
 
-51:                                               ; preds = %46
-  %52 = and i16 %48, -4
-  store i16 %52, ptr %47, align 1
-  %53 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.50) #19
-  br label %54
+52:                                               ; preds = %47
+  %53 = and i16 %49, -4
+  store i16 %53, ptr %48, align 1
+  %54 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.50) #19
+  br label %55
 
-54:                                               ; preds = %51, %46, %39, %32
-  %55 = load i8, ptr %13, align 1
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
-  %57 = load i16, ptr %56, align 1
-  %58 = trunc i16 %57 to i8
-  %59 = and i8 %58, 3
-  %60 = lshr i8 %58, 2
-  %61 = and i8 %60, 3
-  %62 = getelementptr inbounds i8, ptr %0, i64 4
-  %63 = load i32, ptr %62, align 1
-  tail call fastcc void @mp_override_legacy_irq(i8 noundef zeroext %55, i8 noundef zeroext %59, i8 noundef zeroext %61, i32 noundef %63) #20
-  br label %64
+55:                                               ; preds = %52, %47, %40, %33
+  %56 = load i8, ptr %13, align 1
+  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = load i16, ptr %57, align 1
+  %59 = trunc i16 %58 to i8
+  %60 = and i8 %59, 3
+  %61 = lshr i8 %59, 2
+  %62 = and i8 %61, 3
+  %63 = getelementptr inbounds i8, ptr %0, i64 4
+  %64 = load i32, ptr %63, align 1
+  tail call fastcc void @mp_override_legacy_irq(i8 noundef zeroext %56, i8 noundef zeroext %60, i8 noundef zeroext %62, i32 noundef %64) #20
+  br label %65
 
-64:                                               ; preds = %54, %37, %24, %8, %2
-  %65 = phi i32 [ 0, %24 ], [ 0, %37 ], [ 0, %54 ], [ -22, %8 ], [ -22, %2 ]
-  ret i32 %65
+65:                                               ; preds = %55, %38, %25, %8, %2
+  %66 = phi i32 [ 0, %25 ], [ 0, %38 ], [ 0, %55 ], [ -22, %8 ], [ -22, %2 ]
+  ret i32 %66
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -2421,70 +2449,71 @@ define internal i32 @acpi_register_gsi_ioapic(ptr noundef readonly %0, i32 nound
   %19 = load i32, ptr @enable_update_mptable, align 4
   %20 = icmp eq i32 %19, 0
   %21 = select i1 %18, i1 true, i1 %20
-  %22 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
-  %23 = zext i16 %22 to i32
-  %24 = icmp eq i32 %23, %1
-  %25 = select i1 %21, i1 true, i1 %24
-  br i1 %25, label %64, label %26
+  %22 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5
+  %23 = load i16, ptr %22, align 1
+  %24 = zext i16 %23 to i32
+  %25 = icmp eq i32 %24, %1
+  %26 = select i1 %21, i1 true, i1 %25
+  br i1 %26, label %65, label %27
 
-26:                                               ; preds = %11
+27:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   store i64 0, ptr %5, align 8, !annotation !7
-  %27 = load i32, ptr @acpi_ioapic, align 4
-  %28 = icmp eq i32 %27, 0
-  %29 = or i1 %7, %28
-  br i1 %29, label %63, label %30
+  %28 = load i32, ptr @acpi_ioapic, align 4
+  %29 = icmp eq i32 %28, 0
+  %30 = or i1 %7, %29
+  br i1 %30, label %64, label %31
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 96
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, @pci_bus_type
-  br i1 %33, label %34, label %63
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %0, i64 96
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, @pci_bus_type
+  br i1 %34, label %35, label %64
 
-34:                                               ; preds = %30
-  %35 = getelementptr i8, ptr %0, i64 -168
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 216
-  %38 = load i8, ptr %37, align 8
-  %39 = getelementptr i8, ptr %0, i64 -128
-  %40 = load i32, ptr %39, align 8
-  %41 = getelementptr i8, ptr %0, i64 -79
-  %42 = load i8, ptr %41, align 1
+35:                                               ; preds = %31
+  %36 = getelementptr i8, ptr %0, i64 -168
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 216
+  %39 = load i8, ptr %38, align 8
+  %40 = getelementptr i8, ptr %0, i64 -128
+  %41 = load i32, ptr %40, align 8
+  %42 = getelementptr i8, ptr %0, i64 -79
+  %43 = load i8, ptr %42, align 1
   store i8 3, ptr %5, align 8
-  %43 = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 0, ptr %43, align 1
-  %44 = select i1 %13, i16 4, i16 12
-  %45 = select i1 %15, i16 3, i16 1
-  %46 = or disjoint i16 %45, %44
-  %47 = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %46, ptr %47, align 2
-  %48 = getelementptr inbounds i8, ptr %5, i64 4
-  store i8 %38, ptr %48, align 4
-  %49 = add i8 %42, 3
-  %50 = and i8 %49, 3
-  %51 = trunc i32 %40 to i8
-  %52 = lshr i8 %51, 1
-  %53 = and i8 %52, 124
-  %54 = or disjoint i8 %53, %50
-  %55 = getelementptr inbounds i8, ptr %5, i64 5
-  store i8 %54, ptr %55, align 1
-  %56 = call i32 @mp_find_ioapic(i32 noundef %1) #18
-  %57 = call i32 @mpc_ioapic_id(i32 noundef %56) #18
-  %58 = trunc i32 %57 to i8
-  %59 = getelementptr inbounds i8, ptr %5, i64 6
-  store i8 %58, ptr %59, align 2
-  %60 = call i32 @mp_find_ioapic_pin(i32 noundef %56, i32 noundef %1) #18
-  %61 = trunc i32 %60 to i8
-  %62 = getelementptr inbounds i8, ptr %5, i64 7
-  store i8 %61, ptr %62, align 1
+  %44 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 0, ptr %44, align 1
+  %45 = select i1 %13, i16 4, i16 12
+  %46 = select i1 %15, i16 3, i16 1
+  %47 = or disjoint i16 %46, %45
+  %48 = getelementptr inbounds i8, ptr %5, i64 2
+  store i16 %47, ptr %48, align 2
+  %49 = getelementptr inbounds i8, ptr %5, i64 4
+  store i8 %39, ptr %49, align 4
+  %50 = add i8 %43, 3
+  %51 = and i8 %50, 3
+  %52 = trunc i32 %41 to i8
+  %53 = lshr i8 %52, 1
+  %54 = and i8 %53, 124
+  %55 = or disjoint i8 %54, %51
+  %56 = getelementptr inbounds i8, ptr %5, i64 5
+  store i8 %55, ptr %56, align 1
+  %57 = call i32 @mp_find_ioapic(i32 noundef %1) #18
+  %58 = call i32 @mpc_ioapic_id(i32 noundef %57) #18
+  %59 = trunc i32 %58 to i8
+  %60 = getelementptr inbounds i8, ptr %5, i64 6
+  store i8 %59, ptr %60, align 2
+  %61 = call i32 @mp_find_ioapic_pin(i32 noundef %57, i32 noundef %1) #18
+  %62 = trunc i32 %61 to i8
+  %63 = getelementptr inbounds i8, ptr %5, i64 7
+  store i8 %62, ptr %63, align 1
   call void @mp_save_irq(ptr noundef nonnull %5) #18
-  br label %63
-
-63:                                               ; preds = %34, %30, %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   br label %64
 
-64:                                               ; preds = %63, %11
+64:                                               ; preds = %35, %31, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  br label %65
+
+65:                                               ; preds = %64, %11
   call void @mutex_unlock(ptr noundef nonnull @acpi_ioapic_lock) #18
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #18
   ret i32 %17

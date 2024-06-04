@@ -38,41 +38,43 @@ define i32 @mca_vprotocol_pessimist_iprobe(i32 noundef %0, i32 noundef %1, ptr n
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
-  %12 = load i8, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 9), align 16
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %21
+  %12 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 9
+  %13 = load i8, ptr %12, align 16
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %22
 
-14:                                               ; preds = %5
-  %15 = load i32, ptr %6, align 4
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = call i32 @replay_iprobe(i32 noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19)
-  store i32 %20, ptr %11, align 4
-  br label %35
+15:                                               ; preds = %5
+  %16 = load i32, ptr %6, align 4
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = call i32 @replay_iprobe(i32 noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20)
+  store i32 %21, ptr %11, align 4
+  br label %37
 
-21:                                               ; preds = %5
-  %22 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 13), align 8
-  %23 = load i32, ptr %6, align 4
-  %24 = load i32, ptr %7, align 4
-  %25 = load ptr, ptr %8, align 8
-  %26 = load ptr, ptr %9, align 8
-  %27 = load ptr, ptr %10, align 8
-  %28 = call i32 %22(i32 noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27)
-  store i32 %28, ptr %11, align 4
-  %29 = load i32, ptr %11, align 4
-  %30 = load i32, ptr %6, align 4
-  %31 = load i32, ptr %7, align 4
-  %32 = load ptr, ptr %8, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = load ptr, ptr %10, align 8
-  call void @log_iprobe(i32 noundef %29, i32 noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34)
-  br label %35
+22:                                               ; preds = %5
+  %23 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 13
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i32, ptr %6, align 4
+  %26 = load i32, ptr %7, align 4
+  %27 = load ptr, ptr %8, align 8
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = call i32 %24(i32 noundef %25, i32 noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29)
+  store i32 %30, ptr %11, align 4
+  %31 = load i32, ptr %11, align 4
+  %32 = load i32, ptr %6, align 4
+  %33 = load i32, ptr %7, align 4
+  %34 = load ptr, ptr %8, align 8
+  %35 = load ptr, ptr %9, align 8
+  %36 = load ptr, ptr %10, align 8
+  call void @log_iprobe(i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36)
+  br label %37
 
-35:                                               ; preds = %21, %14
-  %36 = load i32, ptr %11, align 4
-  ret i32 %36
+37:                                               ; preds = %22, %15
+  %38 = load i32, ptr %11, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind uwtable
@@ -118,38 +120,40 @@ define i32 @mca_vprotocol_pessimist_probe(i32 noundef %0, i32 noundef %1, ptr no
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  %10 = load i8, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 9), align 16
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %18
+  %10 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 9
+  %11 = load i8, ptr %10, align 16
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %19
 
-12:                                               ; preds = %4
-  %13 = load i32, ptr %5, align 4
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = call i32 @replay_probe(i32 noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16)
-  store i32 %17, ptr %9, align 4
-  br label %30
+13:                                               ; preds = %4
+  %14 = load i32, ptr %5, align 4
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = load ptr, ptr %8, align 8
+  %18 = call i32 @replay_probe(i32 noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17)
+  store i32 %18, ptr %9, align 4
+  br label %32
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 14), align 8
-  %20 = load i32, ptr %5, align 4
-  %21 = load i32, ptr %6, align 4
-  %22 = load ptr, ptr %7, align 8
-  %23 = load ptr, ptr %8, align 8
-  %24 = call i32 %19(i32 noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23)
-  store i32 %24, ptr %9, align 4
-  %25 = load i32, ptr %9, align 4
-  %26 = load i32, ptr %5, align 4
-  %27 = load i32, ptr %6, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load ptr, ptr %8, align 8
-  call void @log_probe(i32 noundef %25, i32 noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29)
-  br label %30
+19:                                               ; preds = %4
+  %20 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 14
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i32, ptr %5, align 4
+  %23 = load i32, ptr %6, align 4
+  %24 = load ptr, ptr %7, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = call i32 %21(i32 noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25)
+  store i32 %26, ptr %9, align 4
+  %27 = load i32, ptr %9, align 4
+  %28 = load i32, ptr %5, align 4
+  %29 = load i32, ptr %6, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load ptr, ptr %8, align 8
+  call void @log_probe(i32 noundef %27, i32 noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31)
+  br label %32
 
-30:                                               ; preds = %18, %12
-  %31 = load i32, ptr %9, align 4
-  ret i32 %31
+32:                                               ; preds = %19, %13
+  %33 = load i32, ptr %9, align 4
+  ret i32 %33
 }
 
 ; Function Attrs: nounwind uwtable

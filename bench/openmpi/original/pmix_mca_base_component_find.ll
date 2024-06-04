@@ -121,7 +121,7 @@ define i32 @pmix_mca_base_component_find(ptr noundef %0, ptr noundef %1, i1 noun
 63:                                               ; preds = %56
   %64 = load i32, ptr %14, align 4
   store i32 %64, ptr %5, align 4
-  br label %146
+  br label %147
 
 65:                                               ; preds = %56
   br label %66
@@ -167,7 +167,7 @@ define i32 @pmix_mca_base_component_find(ptr noundef %0, ptr noundef %1, i1 noun
 
 93:                                               ; preds = %89
   store i32 -29, ptr %14, align 4
-  br label %139
+  br label %140
 
 94:                                               ; preds = %89
   %95 = load ptr, ptr %10, align 8
@@ -213,60 +213,61 @@ define i32 @pmix_mca_base_component_find(ptr noundef %0, ptr noundef %1, i1 noun
   %120 = load i8, ptr %13, align 1
   %121 = trunc i8 %120 to i1
   call void @find_dyn_components(ptr noundef %117, ptr noundef %118, ptr noundef %119, i1 noundef zeroext %121)
-  br label %130
+  br label %131
 
 122:                                              ; preds = %113, %110
-  %123 = load i32, ptr getelementptr inbounds (%struct.pmix_output_desc_t, ptr @pmix_output_info, i32 0, i32 2), align 4
-  %124 = icmp sge i32 %123, 40
-  br i1 %124, label %125, label %129
+  %123 = getelementptr inbounds %struct.pmix_output_desc_t, ptr @pmix_output_info, i32 0, i32 2
+  %124 = load i32, ptr %123, align 4
+  %125 = icmp sge i32 %124, 40
+  br i1 %125, label %126, label %130
 
-125:                                              ; preds = %122
-  %126 = load ptr, ptr %7, align 8
-  %127 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr %126, i32 0, i32 1
-  %128 = load ptr, ptr %127, align 8
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str.2, ptr noundef %128)
-  br label %129
-
-129:                                              ; preds = %125, %122
+126:                                              ; preds = %122
+  %127 = load ptr, ptr %7, align 8
+  %128 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr %127, i32 0, i32 1
+  %129 = load ptr, ptr %128, align 8
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str.2, ptr noundef %129)
   br label %130
 
-130:                                              ; preds = %129, %116
-  %131 = load i8, ptr %13, align 1
-  %132 = trunc i8 %131 to i1
-  br i1 %132, label %133, label %137
+130:                                              ; preds = %126, %122
+  br label %131
 
-133:                                              ; preds = %130
-  %134 = load ptr, ptr %7, align 8
-  %135 = load ptr, ptr %11, align 8
-  %136 = call i32 @component_find_check(ptr noundef %134, ptr noundef %135)
-  store i32 %136, ptr %14, align 4
-  br label %138
+131:                                              ; preds = %130, %116
+  %132 = load i8, ptr %13, align 1
+  %133 = trunc i8 %132 to i1
+  br i1 %133, label %134, label %138
 
-137:                                              ; preds = %130
-  store i32 0, ptr %14, align 4
-  br label %138
-
-138:                                              ; preds = %137, %133
+134:                                              ; preds = %131
+  %135 = load ptr, ptr %7, align 8
+  %136 = load ptr, ptr %11, align 8
+  %137 = call i32 @component_find_check(ptr noundef %135, ptr noundef %136)
+  store i32 %137, ptr %14, align 4
   br label %139
 
-139:                                              ; preds = %138, %93
-  %140 = load ptr, ptr %11, align 8
-  %141 = icmp ne ptr null, %140
-  br i1 %141, label %142, label %144
+138:                                              ; preds = %131
+  store i32 0, ptr %14, align 4
+  br label %139
 
-142:                                              ; preds = %139
-  %143 = load ptr, ptr %11, align 8
-  call void @PMIx_Argv_free(ptr noundef %143)
-  br label %144
+139:                                              ; preds = %138, %134
+  br label %140
 
-144:                                              ; preds = %142, %139
-  %145 = load i32, ptr %14, align 4
-  store i32 %145, ptr %5, align 4
-  br label %146
+140:                                              ; preds = %139, %93
+  %141 = load ptr, ptr %11, align 8
+  %142 = icmp ne ptr null, %141
+  br i1 %142, label %143, label %145
 
-146:                                              ; preds = %144, %63
-  %147 = load i32, ptr %5, align 4
-  ret i32 %147
+143:                                              ; preds = %140
+  %144 = load ptr, ptr %11, align 8
+  call void @PMIx_Argv_free(ptr noundef %144)
+  br label %145
+
+145:                                              ; preds = %143, %140
+  %146 = load i32, ptr %14, align 4
+  store i32 %146, ptr %5, align 4
+  br label %147
+
+147:                                              ; preds = %145, %63
+  %148 = load i32, ptr %5, align 4
+  ret i32 %148
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) #1

@@ -86,34 +86,35 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_class_de
 define dso_local i32 @drm_sysfs_init() local_unnamed_addr #0 align 16 {
   %1 = tail call ptr @class_create(ptr noundef nonnull @.str) #9
   store ptr %1, ptr @drm_class, align 8
-  %2 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
-  br i1 %2, label %3, label %6
+  %2 = inttoptr i64 -4096 to ptr
+  %3 = icmp ugt ptr %1, %2
+  br i1 %3, label %4, label %7
 
-3:                                                ; preds = %0
-  %4 = ptrtoint ptr %1 to i64
-  %5 = trunc i64 %4 to i32
-  br label %14
+4:                                                ; preds = %0
+  %5 = ptrtoint ptr %1 to i64
+  %6 = trunc i64 %5 to i32
+  br label %15
 
-6:                                                ; preds = %0
-  %7 = tail call i32 @class_create_file_ns(ptr noundef %1, ptr noundef nonnull @class_attr_version, ptr noundef null) #9
-  %8 = icmp eq i32 %7, 0
-  %9 = load ptr, ptr @drm_class, align 8
-  br i1 %8, label %11, label %10
+7:                                                ; preds = %0
+  %8 = tail call i32 @class_create_file_ns(ptr noundef %1, ptr noundef nonnull @class_attr_version, ptr noundef null) #9
+  %9 = icmp eq i32 %8, 0
+  %10 = load ptr, ptr @drm_class, align 8
+  br i1 %9, label %12, label %11
 
-10:                                               ; preds = %6
-  tail call void @class_destroy(ptr noundef %9) #9
+11:                                               ; preds = %7
+  tail call void @class_destroy(ptr noundef %10) #9
   store ptr null, ptr @drm_class, align 8
-  br label %14
+  br label %15
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr @drm_devnode, ptr %12, align 8
-  %13 = tail call i32 @register_acpi_bus_type(ptr noundef nonnull @drm_connector_acpi_bus) #9
-  br label %14
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr @drm_devnode, ptr %13, align 8
+  %14 = tail call i32 @register_acpi_bus_type(ptr noundef nonnull @drm_connector_acpi_bus) #9
+  br label %15
 
-14:                                               ; preds = %11, %10, %3
-  %15 = phi i32 [ %5, %3 ], [ %7, %10 ], [ 0, %11 ]
-  ret i32 %15
+15:                                               ; preds = %12, %11, %4
+  %16 = phi i32 [ %6, %4 ], [ %8, %11 ], [ 0, %12 ]
+  ret i32 %16
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -149,20 +150,21 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local void @drm_sysfs_destroy() local_unnamed_addr #0 align 16 {
   %1 = load ptr, ptr @drm_class, align 8
   %2 = icmp eq ptr %1, null
-  %3 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
-  %4 = or i1 %2, %3
-  br i1 %4, label %9, label %5
+  %3 = inttoptr i64 -4096 to ptr
+  %4 = icmp ugt ptr %1, %3
+  %5 = or i1 %2, %4
+  br i1 %5, label %10, label %6
 
-5:                                                ; preds = %0
-  %6 = tail call i32 @unregister_acpi_bus_type(ptr noundef nonnull @drm_connector_acpi_bus) #9
-  %7 = load ptr, ptr @drm_class, align 8
-  tail call void @class_remove_file_ns(ptr noundef %7, ptr noundef nonnull @class_attr_version, ptr noundef null) #9
+6:                                                ; preds = %0
+  %7 = tail call i32 @unregister_acpi_bus_type(ptr noundef nonnull @drm_connector_acpi_bus) #9
   %8 = load ptr, ptr @drm_class, align 8
-  tail call void @class_destroy(ptr noundef %8) #9
+  tail call void @class_remove_file_ns(ptr noundef %8, ptr noundef nonnull @class_attr_version, ptr noundef null) #9
+  %9 = load ptr, ptr @drm_class, align 8
+  tail call void @class_destroy(ptr noundef %9) #9
   store ptr null, ptr @drm_class, align 8
-  br label %9
+  br label %10
 
-9:                                                ; preds = %5, %0
+10:                                               ; preds = %6, %0
   ret void
 }
 
@@ -172,95 +174,96 @@ define dso_local i32 @drm_sysfs_connector_add(ptr noundef %0) local_unnamed_addr
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %54
+  br i1 %5, label %6, label %55
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %8 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 728) #10
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %54, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %8 = load ptr, ptr %7, align 16
+  %9 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 728) #10
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %55, label %11
 
-10:                                               ; preds = %6
-  tail call void @device_initialize(ptr noundef nonnull %8) #9
-  %11 = load ptr, ptr @drm_class, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 672
-  store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 88
-  store ptr @drm_sysfs_device_connector, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 64
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 64
-  store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 680
-  store ptr @connector_dev_groups, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 688
-  store ptr @drm_sysfs_release, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 120
-  store ptr %0, ptr %21, align 8
-  %22 = load ptr, ptr %14, align 8
-  %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %8, ptr noundef nonnull @.str.1, i32 noundef %23, ptr noundef %25) #9
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %52
+11:                                               ; preds = %6
+  tail call void @device_initialize(ptr noundef nonnull %9) #9
+  %12 = load ptr, ptr @drm_class, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 672
+  store ptr %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 88
+  store ptr @drm_sysfs_device_connector, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %2, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %9, i64 64
+  store ptr %18, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %9, i64 680
+  store ptr @connector_dev_groups, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %9, i64 688
+  store ptr @drm_sysfs_release, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %9, i64 120
+  store ptr %0, ptr %22, align 8
+  %23 = load ptr, ptr %15, align 8
+  %24 = load i32, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %9, ptr noundef nonnull @.str.1, i32 noundef %24, ptr noundef %26) #9
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %53
 
-28:                                               ; preds = %10
-  %29 = load ptr, ptr %24, align 8
-  tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %29) #9
-  %30 = tail call i32 @device_add(ptr noundef nonnull %8) #9
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %39, label %32
+29:                                               ; preds = %11
+  %30 = load ptr, ptr %25, align 8
+  tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %30) #9
+  %31 = tail call i32 @device_add(ptr noundef nonnull %9) #9
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %40, label %33
 
-32:                                               ; preds = %28
-  %33 = icmp eq ptr %2, null
-  br i1 %33, label %37, label %34
+33:                                               ; preds = %29
+  %34 = icmp eq ptr %2, null
+  br i1 %34, label %38, label %35
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
-  %36 = load ptr, ptr %35, align 8
-  br label %37
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = load ptr, ptr %36, align 8
+  br label %38
 
-37:                                               ; preds = %34, %32
-  %38 = phi ptr [ %36, %34 ], [ null, %32 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %38, ptr noundef nonnull @.str.3, i32 noundef %30) #11
-  br label %52
+38:                                               ; preds = %35, %33
+  %39 = phi ptr [ %37, %35 ], [ null, %33 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %39, ptr noundef nonnull @.str.3, i32 noundef %31) #11
+  br label %53
 
-39:                                               ; preds = %28
-  store ptr %8, ptr %3, align 8
-  %40 = tail call ptr @__dev_fwnode(ptr noundef nonnull %8) #9
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %54, label %42
+40:                                               ; preds = %29
+  store ptr %9, ptr %3, align 8
+  %41 = tail call ptr @__dev_fwnode(ptr noundef nonnull %9) #9
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %55, label %43
 
-42:                                               ; preds = %39
-  %43 = tail call i32 @component_add(ptr noundef nonnull %8, ptr noundef nonnull @typec_connector_ops) #9
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %54, label %45
+43:                                               ; preds = %40
+  %44 = tail call i32 @component_add(ptr noundef nonnull %9, ptr noundef nonnull @typec_connector_ops) #9
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %55, label %46
 
-45:                                               ; preds = %42
-  %46 = icmp eq ptr %2, null
-  br i1 %46, label %50, label %47
+46:                                               ; preds = %43
+  %47 = icmp eq ptr %2, null
+  br i1 %47, label %51, label %48
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %2, i64 8
-  %49 = load ptr, ptr %48, align 8
-  br label %50
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %50 = load ptr, ptr %49, align 8
+  br label %51
 
-50:                                               ; preds = %47, %45
-  %51 = phi ptr [ %49, %47 ], [ null, %45 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %51, ptr noundef nonnull @.str.4) #11
-  br label %54
+51:                                               ; preds = %48, %46
+  %52 = phi ptr [ %50, %48 ], [ null, %46 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %52, ptr noundef nonnull @.str.4) #11
+  br label %55
 
-52:                                               ; preds = %37, %10
-  %53 = phi i32 [ %26, %10 ], [ %30, %37 ]
-  tail call void @put_device(ptr noundef nonnull %8) #9
-  br label %54
+53:                                               ; preds = %38, %11
+  %54 = phi i32 [ %27, %11 ], [ %31, %38 ]
+  tail call void @put_device(ptr noundef nonnull %9) #9
+  br label %55
 
-54:                                               ; preds = %52, %50, %42, %39, %6, %1
-  %55 = phi i32 [ %53, %52 ], [ 0, %1 ], [ -12, %6 ], [ 0, %42 ], [ 0, %50 ], [ 0, %39 ]
-  ret i32 %55
+55:                                               ; preds = %53, %51, %43, %40, %6, %1
+  %56 = phi i32 [ %54, %53 ], [ 0, %1 ], [ -12, %6 ], [ 0, %43 ], [ 0, %51 ], [ 0, %40 ]
+  ret i32 %56
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -575,81 +578,84 @@ declare dso_local ptr @drm_mode_obj_find_prop_id(ptr noundef, i32 noundef) local
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @drm_sysfs_minor_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %3 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 728) #10
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %32, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %3 = load ptr, ptr %2, align 16
+  %4 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 728) #10
+  %5 = icmp eq ptr %4, null
+  %6 = inttoptr i64 -12 to ptr
+  br i1 %5, label %34, label %7
 
-5:                                                ; preds = %1
-  tail call void @device_initialize(ptr noundef nonnull %3) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
-  switch i32 %7, label %8 [
-    i32 32, label %17
-    i32 2, label %9
+7:                                                ; preds = %1
+  tail call void @device_initialize(ptr noundef nonnull %4) #9
+  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = load i32, ptr %8, align 4
+  switch i32 %9, label %10 [
+    i32 32, label %19
+    i32 2, label %11
   ]
 
-8:                                                ; preds = %5
-  br label %9
+10:                                               ; preds = %7
+  br label %11
 
-9:                                                ; preds = %8, %5
-  %10 = phi ptr [ @.str.18, %8 ], [ @.str.17, %5 ]
-  %11 = load i32, ptr %0, align 8
-  %12 = or i32 %11, 236978176
-  %13 = getelementptr inbounds i8, ptr %3, i64 644
-  store i32 %12, ptr %13, align 4
-  %14 = load ptr, ptr @drm_class, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 672
-  store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 88
-  store ptr @drm_sysfs_device_minor, ptr %16, align 8
-  br label %17
+11:                                               ; preds = %10, %7
+  %12 = phi ptr [ @.str.18, %10 ], [ @.str.17, %7 ]
+  %13 = load i32, ptr %0, align 8
+  %14 = or i32 %13, 236978176
+  %15 = getelementptr inbounds i8, ptr %4, i64 644
+  store i32 %14, ptr %15, align 4
+  %16 = load ptr, ptr @drm_class, align 8
+  %17 = getelementptr inbounds i8, ptr %4, i64 672
+  store ptr %16, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %4, i64 88
+  store ptr @drm_sysfs_device_minor, ptr %18, align 8
+  br label %19
 
-17:                                               ; preds = %9, %5
-  %18 = phi ptr [ %10, %9 ], [ @.str.16, %5 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+19:                                               ; preds = %11, %7
+  %20 = phi ptr [ %12, %11 ], [ @.str.16, %7 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 688
-  store ptr @drm_sysfs_release, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 120
-  store ptr %0, ptr %25, align 8
-  %26 = load i32, ptr %0, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %3, ptr noundef nonnull %18, i32 noundef %26) #9
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %32
+  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 64
+  store ptr %24, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %4, i64 688
+  store ptr @drm_sysfs_release, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %4, i64 120
+  store ptr %0, ptr %27, align 8
+  %28 = load i32, ptr %0, align 8
+  %29 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %4, ptr noundef nonnull %20, i32 noundef %28) #9
+  %30 = icmp slt i32 %29, 0
+  br i1 %30, label %31, label %34
 
-29:                                               ; preds = %17
-  tail call void @put_device(ptr noundef nonnull %3) #9
-  %30 = sext i32 %27 to i64
-  %31 = inttoptr i64 %30 to ptr
-  br label %32
+31:                                               ; preds = %19
+  tail call void @put_device(ptr noundef nonnull %4) #9
+  %32 = sext i32 %29 to i64
+  %33 = inttoptr i64 %32 to ptr
+  br label %34
 
-32:                                               ; preds = %29, %17, %1
-  %33 = phi ptr [ %31, %29 ], [ %3, %17 ], [ inttoptr (i64 -12 to ptr), %1 ]
-  ret ptr %33
+34:                                               ; preds = %31, %19, %1
+  %35 = phi ptr [ %33, %31 ], [ %4, %19 ], [ %6, %1 ]
+  ret ptr %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_class_device_register(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr @drm_class, align 8
   %3 = icmp eq ptr %2, null
-  %4 = icmp ugt ptr %2, inttoptr (i64 -4096 to ptr)
-  %5 = or i1 %3, %4
-  br i1 %5, label %9, label %6
+  %4 = inttoptr i64 -4096 to ptr
+  %5 = icmp ugt ptr %2, %4
+  %6 = or i1 %3, %5
+  br i1 %6, label %10, label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 672
-  store ptr %2, ptr %7, align 8
-  %8 = tail call i32 @device_register(ptr noundef %0) #9
-  br label %9
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %0, i64 672
+  store ptr %2, ptr %8, align 8
+  %9 = tail call i32 @device_register(ptr noundef %0) #9
+  br label %10
 
-9:                                                ; preds = %6, %1
-  %10 = phi i32 [ %8, %6 ], [ -2, %1 ]
-  ret i32 %10
+10:                                               ; preds = %7, %1
+  %11 = phi i32 [ %9, %7 ], [ -2, %1 ]
+  ret i32 %11
 }
 
 ; Function Attrs: null_pointer_is_valid

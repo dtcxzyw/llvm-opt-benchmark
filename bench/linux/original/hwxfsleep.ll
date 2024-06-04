@@ -70,48 +70,50 @@ define dso_local i32 @acpi_enter_sleep_state_s4bios() #1 align 16 {
   store i32 0, ptr %1, align 4, !annotation !5
   %2 = tail call i32 @acpi_write_bit_register(i32 noundef 6, i32 noundef 1) #5
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %26
+  br i1 %3, label %4, label %28
 
 4:                                                ; preds = %0
   %5 = tail call i32 @acpi_hw_clear_acpi_status() #5
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %26
+  br i1 %6, label %7, label %28
 
 7:                                                ; preds = %4
   %8 = tail call i32 @acpi_hw_disable_all_gpes() #5
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %26
+  br i1 %9, label %10, label %28
 
 10:                                               ; preds = %7
   store i8 0, ptr @acpi_gbl_system_awake_and_running, align 1
   %11 = tail call i32 @acpi_hw_enable_all_wakeup_gpes() #5
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %26
+  br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
-  %14 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6), align 1
-  %15 = zext i32 %14 to i64
-  %16 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 9), align 1
-  %17 = zext i8 %16 to i32
-  %18 = tail call i32 @acpi_hw_write_port(i64 noundef %15, i32 noundef %17, i32 noundef 8) #5
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %26
+  %14 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6
+  %15 = load i32, ptr %14, align 1
+  %16 = zext i32 %15 to i64
+  %17 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 9
+  %18 = load i8, ptr %17, align 1
+  %19 = zext i8 %18 to i32
+  %20 = tail call i32 @acpi_hw_write_port(i64 noundef %16, i32 noundef %19, i32 noundef 8) #5
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %28
 
-20:                                               ; preds = %23, %13
+22:                                               ; preds = %25, %13
   call void @acpi_os_stall(i32 noundef 1000) #5
-  %21 = call i32 @acpi_read_bit_register(i32 noundef 6, ptr noundef nonnull %1) #5
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %26
+  %23 = call i32 @acpi_read_bit_register(i32 noundef 6, ptr noundef nonnull %1) #5
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %28
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr %1, align 4
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %20, label %26, !llvm.loop !6
+25:                                               ; preds = %22
+  %26 = load i32, ptr %1, align 4
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %22, label %28, !llvm.loop !6
 
-26:                                               ; preds = %23, %20, %13, %10, %7, %4, %0
-  %27 = phi i32 [ %2, %0 ], [ %5, %4 ], [ %8, %7 ], [ %11, %10 ], [ %18, %13 ], [ %21, %20 ], [ 0, %23 ]
+28:                                               ; preds = %25, %22, %13, %10, %7, %4, %0
+  %29 = phi i32 [ %2, %0 ], [ %5, %4 ], [ %8, %7 ], [ %11, %10 ], [ %20, %13 ], [ %23, %22 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #5
-  ret i32 %27
+  ret i32 %29
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

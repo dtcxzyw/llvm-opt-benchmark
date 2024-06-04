@@ -10450,7 +10450,7 @@ define internal ptr @parse_ct_sizeof(ptr noundef %0, ptr noundef %1) #0 {
 51:                                               ; preds = %49
   %52 = load ptr, ptr @poisoned_expr, align 8
   store ptr %52, ptr %17, align 8
-  br label %168
+  br label %169
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr %18, align 8
@@ -10483,7 +10483,7 @@ define internal ptr @parse_ct_sizeof(ptr noundef %0, ptr noundef %1) #0 {
 70:                                               ; preds = %68
   %71 = load ptr, ptr @poisoned_expr, align 8
   store ptr %71, ptr %17, align 8
-  br label %168
+  br label %169
 
 72:                                               ; preds = %68
   %73 = load ptr, ptr %21, align 8
@@ -10526,7 +10526,7 @@ define internal ptr @parse_ct_sizeof(ptr noundef %0, ptr noundef %1) #0 {
 92:                                               ; preds = %90
   %93 = load ptr, ptr @poisoned_expr, align 8
   store ptr %93, ptr %17, align 8
-  br label %168
+  br label %169
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr %18, align 8
@@ -10594,44 +10594,45 @@ define internal ptr @parse_ct_sizeof(ptr noundef %0, ptr noundef %1) #0 {
   %142 = load i64, ptr %141, align 8
   %143 = call ptr @expr_new(i32 noundef 34, i64 %142)
   store ptr %143, ptr %25, align 8
-  %144 = load ptr, ptr getelementptr inbounds ([22 x ptr], ptr @type_property_list, i64 0, i64 20), align 16
-  %145 = load ptr, ptr %25, align 8
-  %146 = getelementptr inbounds %struct.Expr_, ptr %145, i32 0, i32 3
-  %147 = getelementptr inbounds %struct.ExprIdentifier, ptr %146, i32 0, i32 0
-  %148 = getelementptr inbounds %struct.anon.51, ptr %147, i32 0, i32 1
-  store ptr %144, ptr %148, align 8
-  %149 = load ptr, ptr %25, align 8
-  %150 = load ptr, ptr %20, align 8
-  %151 = getelementptr inbounds %struct.Expr_, ptr %150, i32 0, i32 3
-  %152 = getelementptr inbounds %struct.ExprAccess, ptr %151, i32 0, i32 1
-  store ptr %149, ptr %152, align 8
-  br label %153
+  %144 = getelementptr inbounds [22 x ptr], ptr @type_property_list, i64 0, i64 20
+  %145 = load ptr, ptr %144, align 16
+  %146 = load ptr, ptr %25, align 8
+  %147 = getelementptr inbounds %struct.Expr_, ptr %146, i32 0, i32 3
+  %148 = getelementptr inbounds %struct.ExprIdentifier, ptr %147, i32 0, i32 0
+  %149 = getelementptr inbounds %struct.anon.51, ptr %148, i32 0, i32 1
+  store ptr %145, ptr %149, align 8
+  %150 = load ptr, ptr %25, align 8
+  %151 = load ptr, ptr %20, align 8
+  %152 = getelementptr inbounds %struct.Expr_, ptr %151, i32 0, i32 3
+  %153 = getelementptr inbounds %struct.ExprAccess, ptr %152, i32 0, i32 1
+  store ptr %150, ptr %153, align 8
+  br label %154
 
-153:                                              ; preds = %96
-  %154 = load ptr, ptr %20, align 8
-  %155 = getelementptr inbounds %struct.Expr_, ptr %154, i32 0, i32 1
-  %156 = load ptr, ptr %20, align 8
-  %157 = getelementptr inbounds %struct.Expr_, ptr %156, i32 0, i32 1
-  %158 = load ptr, ptr %18, align 8
-  %159 = getelementptr inbounds %struct.ParseContext_, ptr %158, i32 0, i32 3
-  %160 = getelementptr inbounds %union.SourceSpan, ptr %157, i32 0, i32 0
-  %161 = load i64, ptr %160, align 8
-  %162 = getelementptr inbounds %union.SourceSpan, ptr %159, i32 0, i32 0
-  %163 = load i64, ptr %162, align 8
-  %164 = call i64 @extend_span_with_token(i64 %161, i64 %163)
-  %165 = getelementptr inbounds %union.SourceSpan, ptr %26, i32 0, i32 0
-  store i64 %164, ptr %165, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %155, ptr align 8 %26, i64 8, i1 false)
-  br label %166
+154:                                              ; preds = %96
+  %155 = load ptr, ptr %20, align 8
+  %156 = getelementptr inbounds %struct.Expr_, ptr %155, i32 0, i32 1
+  %157 = load ptr, ptr %20, align 8
+  %158 = getelementptr inbounds %struct.Expr_, ptr %157, i32 0, i32 1
+  %159 = load ptr, ptr %18, align 8
+  %160 = getelementptr inbounds %struct.ParseContext_, ptr %159, i32 0, i32 3
+  %161 = getelementptr inbounds %union.SourceSpan, ptr %158, i32 0, i32 0
+  %162 = load i64, ptr %161, align 8
+  %163 = getelementptr inbounds %union.SourceSpan, ptr %160, i32 0, i32 0
+  %164 = load i64, ptr %163, align 8
+  %165 = call i64 @extend_span_with_token(i64 %162, i64 %164)
+  %166 = getelementptr inbounds %union.SourceSpan, ptr %26, i32 0, i32 0
+  store i64 %165, ptr %166, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %156, ptr align 8 %26, i64 8, i1 false)
+  br label %167
 
-166:                                              ; preds = %153
-  %167 = load ptr, ptr %20, align 8
-  store ptr %167, ptr %17, align 8
-  br label %168
+167:                                              ; preds = %154
+  %168 = load ptr, ptr %20, align 8
+  store ptr %168, ptr %17, align 8
+  br label %169
 
-168:                                              ; preds = %166, %92, %70, %51
-  %169 = load ptr, ptr %17, align 8
-  ret ptr %169
+169:                                              ; preds = %167, %92, %70, %51
+  %170 = load ptr, ptr %17, align 8
+  ret ptr %170
 }
 
 ; Function Attrs: nounwind uwtable

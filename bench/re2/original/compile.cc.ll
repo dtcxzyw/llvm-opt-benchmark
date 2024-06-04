@@ -1084,7 +1084,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3re26Regexp6WalkerINS_4FragEEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re28CompilerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3re28CompilerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %inst_ = getelementptr inbounds %"class.re2::Compiler", ptr %this1, i32 0, i32 7
   invoke void @_ZN3re28PODArrayINS_4Prog4InstEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %inst_)
           to label %invoke.cont unwind label %lpad
@@ -1128,8 +1129,8 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 invoke.cont9:                                     ; preds = %invoke.cont8
   store i32 %call10, ptr %fail, align 4
   %inst_11 = getelementptr inbounds %"class.re2::Compiler", ptr %this1, i32 0, i32 7
-  %0 = load i32, ptr %fail, align 4
-  %call13 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNK3re28PODArrayINS_4Prog4InstEEixEi(ptr noundef nonnull align 8 dereferenceable(16) %inst_11, i32 noundef %0)
+  %1 = load i32, ptr %fail, align 4
+  %call13 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNK3re28PODArrayINS_4Prog4InstEEixEi(ptr noundef nonnull align 8 dereferenceable(16) %inst_11, i32 noundef %1)
           to label %invoke.cont12 unwind label %lpad4
 
 invoke.cont12:                                    ; preds = %invoke.cont9
@@ -1142,39 +1143,39 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup17
 
 lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup16
 
 lpad4:                                            ; preds = %invoke.cont12, %invoke.cont9, %invoke.cont8, %invoke.cont5, %invoke.cont3
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #16
   br label %ehcleanup
 
@@ -1204,7 +1205,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stack_ = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this1, i32 0, i32 1
   call void @_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEEC2IS6_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %stack_)
   %stopped_early_ = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this1, i32 0, i32 2
@@ -1461,15 +1463,16 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re28CompilerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3re28CompilerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %prog_ = getelementptr inbounds %"class.re2::Compiler", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %prog_, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %prog_, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZN3re24ProgD1Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) #17
-  call void @_ZdlPv(ptr noundef %0) #16
+  call void @_ZN3re24ProgD1Ev(ptr noundef nonnull align 8 dereferenceable(432) %1) #17
+  call void @_ZdlPv(ptr noundef %1) #16
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -9070,7 +9073,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN3re26Regexp6WalkerINS_4FragEE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -9080,10 +9084,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #18
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #18
   unreachable
 }
 
@@ -12334,20 +12338,21 @@ entry:
   %value.addr = alloca i64, align 8
   store i64 %value, ptr %value.addr, align 8
   %0 = load i64, ptr %value.addr, align 8
-  store i64 ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), ptr %state.addr.i, align 8
+  %1 = ptrtoint ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64
+  store i64 %1, ptr %state.addr.i, align 8
   store i64 %0, ptr %v.addr.i, align 8
-  %1 = load i64, ptr %state.addr.i, align 8
-  %2 = load i64, ptr %v.addr.i, align 8
-  %add.i = add i64 %1, %2
+  %2 = load i64, ptr %state.addr.i, align 8
+  %3 = load i64, ptr %v.addr.i, align 8
+  %add.i = add i64 %2, %3
   %conv.i = zext i64 %add.i to i128
   store i128 %conv.i, ptr %m.i, align 16
-  %3 = load i128, ptr %m.i, align 16
-  %mul.i = mul i128 %3, 11376068507788127593
-  store i128 %mul.i, ptr %m.i, align 16
   %4 = load i128, ptr %m.i, align 16
+  %mul.i = mul i128 %4, 11376068507788127593
+  store i128 %mul.i, ptr %m.i, align 16
   %5 = load i128, ptr %m.i, align 16
-  %shr.i = lshr i128 %5, 64
-  %xor.i = xor i128 %4, %shr.i
+  %6 = load i128, ptr %m.i, align 16
+  %shr.i = lshr i128 %6, 64
+  %xor.i = xor i128 %5, %shr.i
   %conv1.i = trunc i128 %xor.i to i64
   ret i64 %conv1.i
 }

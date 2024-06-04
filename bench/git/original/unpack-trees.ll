@@ -5602,25 +5602,26 @@ cond.true13:                                      ; preds = %land.lhs.true9
   br label %cond.end
 
 cond.false17:                                     ; preds = %land.lhs.true9, %cond.false
-  %17 = load ptr, ptr getelementptr inbounds ([12 x ptr], ptr @unpack_plumbing_errors, i64 0, i64 6), align 16
+  %17 = getelementptr inbounds [12 x ptr], ptr @unpack_plumbing_errors, i64 0, i64 6
+  %18 = load ptr, ptr %17, align 16
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false17, %cond.true13
-  %cond = phi ptr [ %16, %cond.true13 ], [ %17, %cond.false17 ]
-  %18 = load ptr, ptr %a, align 8
-  %name = getelementptr inbounds %struct.cache_entry, ptr %18, i32 0, i32 8
+  %cond = phi ptr [ %16, %cond.true13 ], [ %18, %cond.false17 ]
+  %19 = load ptr, ptr %a, align 8
+  %name = getelementptr inbounds %struct.cache_entry, ptr %19, i32 0, i32 8
   %arraydecay = getelementptr inbounds [0 x i8], ptr %name, i64 0, i64 0
-  %19 = load ptr, ptr %o.addr, align 8
-  %super_prefix = getelementptr inbounds %struct.unpack_trees_options, ptr %19, i32 0, i32 18
-  %20 = load ptr, ptr %super_prefix, align 8
-  %call18 = call ptr @super_prefixed(ptr noundef %arraydecay, ptr noundef %20)
-  %21 = load ptr, ptr %old, align 8
-  %name19 = getelementptr inbounds %struct.cache_entry, ptr %21, i32 0, i32 8
+  %20 = load ptr, ptr %o.addr, align 8
+  %super_prefix = getelementptr inbounds %struct.unpack_trees_options, ptr %20, i32 0, i32 18
+  %21 = load ptr, ptr %super_prefix, align 8
+  %call18 = call ptr @super_prefixed(ptr noundef %arraydecay, ptr noundef %21)
+  %22 = load ptr, ptr %old, align 8
+  %name19 = getelementptr inbounds %struct.cache_entry, ptr %22, i32 0, i32 8
   %arraydecay20 = getelementptr inbounds [0 x i8], ptr %name19, i64 0, i64 0
-  %22 = load ptr, ptr %o.addr, align 8
-  %super_prefix21 = getelementptr inbounds %struct.unpack_trees_options, ptr %22, i32 0, i32 18
-  %23 = load ptr, ptr %super_prefix21, align 8
-  %call22 = call ptr @super_prefixed(ptr noundef %arraydecay20, ptr noundef %23)
+  %23 = load ptr, ptr %o.addr, align 8
+  %super_prefix21 = getelementptr inbounds %struct.unpack_trees_options, ptr %23, i32 0, i32 18
+  %24 = load ptr, ptr %super_prefix21, align 8
+  %call22 = call ptr @super_prefixed(ptr noundef %arraydecay20, ptr noundef %24)
   %call23 = call i32 (ptr, ...) @error(ptr noundef %cond, ptr noundef %call18, ptr noundef %call22)
   %call24 = call i32 @const_error()
   br label %cond.end25
@@ -5631,27 +5632,27 @@ cond.end25:                                       ; preds = %cond.end, %cond.tru
   br label %return
 
 if.end27:                                         ; preds = %land.lhs.true, %if.end
-  %24 = load ptr, ptr %a, align 8
-  %tobool28 = icmp ne ptr %24, null
+  %25 = load ptr, ptr %a, align 8
+  %tobool28 = icmp ne ptr %25, null
   br i1 %tobool28, label %if.else, label %if.then29
 
 if.then29:                                        ; preds = %if.end27
-  %25 = load ptr, ptr %old, align 8
-  %26 = load ptr, ptr %o.addr, align 8
-  %call30 = call i32 @keep_entry(ptr noundef %25, ptr noundef %26)
+  %26 = load ptr, ptr %old, align 8
+  %27 = load ptr, ptr %o.addr, align 8
+  %call30 = call i32 @keep_entry(ptr noundef %26, ptr noundef %27)
   store i32 %call30, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %if.end27
-  %27 = load ptr, ptr %a, align 8
-  %28 = load ptr, ptr %o.addr, align 8
-  %call31 = call i32 @merged_entry(ptr noundef %27, ptr noundef null, ptr noundef %28)
+  %28 = load ptr, ptr %a, align 8
+  %29 = load ptr, ptr %o.addr, align 8
+  %call31 = call i32 @merged_entry(ptr noundef %28, ptr noundef null, ptr noundef %29)
   store i32 %call31, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.else, %if.then29, %cond.end25, %if.then
-  %29 = load i32, ptr %retval, align 4
-  ret i32 %29
+  %30 = load i32, ptr %retval, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5701,8 +5702,9 @@ for.inc:                                          ; preds = %for.body
   br label %for.cond, !llvm.loop !27
 
 for.end:                                          ; preds = %for.cond
-  %6 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @super_prefixed.buf, i32 0, i32 1), align 8
-  %conv4 = trunc i64 %6 to i32
+  %6 = getelementptr inbounds %struct.strbuf, ptr @super_prefixed.buf, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  %conv4 = trunc i64 %7 to i32
   store i32 %conv4, ptr @super_prefixed.super_prefix_len, align 4
   br label %if.end
 
@@ -5710,18 +5712,18 @@ if.end:                                           ; preds = %for.end, %if.then1
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %entry
-  %7 = load i32, ptr @super_prefixed.super_prefix_len, align 4
-  %tobool6 = icmp ne i32 %7, 0
+  %8 = load i32, ptr @super_prefixed.super_prefix_len, align 4
+  %tobool6 = icmp ne i32 %8, 0
   br i1 %tobool6, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %8 = load ptr, ptr %path.addr, align 8
-  store ptr %8, ptr %retval, align 8
+  %9 = load ptr, ptr %path.addr, align 8
+  store ptr %9, ptr %retval, align 8
   br label %return
 
 if.end8:                                          ; preds = %if.end5
-  %9 = load i32, ptr @super_prefixed.idx, align 4
-  %inc9 = add i32 %9, 1
+  %10 = load i32, ptr @super_prefixed.idx, align 4
+  %inc9 = add i32 %10, 1
   store i32 %inc9, ptr @super_prefixed.idx, align 4
   %conv10 = zext i32 %inc9 to i64
   %cmp11 = icmp uge i64 %conv10, 2
@@ -5732,28 +5734,28 @@ if.then13:                                        ; preds = %if.end8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then13, %if.end8
-  %10 = load i32, ptr @super_prefixed.idx, align 4
-  %idxprom15 = zext i32 %10 to i64
+  %11 = load i32, ptr @super_prefixed.idx, align 4
+  %idxprom15 = zext i32 %11 to i64
   %arrayidx16 = getelementptr inbounds [2 x %struct.strbuf], ptr @super_prefixed.buf, i64 0, i64 %idxprom15
-  %11 = load i32, ptr @super_prefixed.super_prefix_len, align 4
-  %conv17 = sext i32 %11 to i64
+  %12 = load i32, ptr @super_prefixed.super_prefix_len, align 4
+  %conv17 = sext i32 %12 to i64
   call void @strbuf_setlen(ptr noundef %arrayidx16, i64 noundef %conv17)
-  %12 = load i32, ptr @super_prefixed.idx, align 4
-  %idxprom18 = zext i32 %12 to i64
+  %13 = load i32, ptr @super_prefixed.idx, align 4
+  %idxprom18 = zext i32 %13 to i64
   %arrayidx19 = getelementptr inbounds [2 x %struct.strbuf], ptr @super_prefixed.buf, i64 0, i64 %idxprom18
-  %13 = load ptr, ptr %path.addr, align 8
-  call void @strbuf_addstr(ptr noundef %arrayidx19, ptr noundef %13)
-  %14 = load i32, ptr @super_prefixed.idx, align 4
-  %idxprom20 = zext i32 %14 to i64
+  %14 = load ptr, ptr %path.addr, align 8
+  call void @strbuf_addstr(ptr noundef %arrayidx19, ptr noundef %14)
+  %15 = load i32, ptr @super_prefixed.idx, align 4
+  %idxprom20 = zext i32 %15 to i64
   %arrayidx21 = getelementptr inbounds [2 x %struct.strbuf], ptr @super_prefixed.buf, i64 0, i64 %idxprom20
   %buf = getelementptr inbounds %struct.strbuf, ptr %arrayidx21, i32 0, i32 2
-  %15 = load ptr, ptr %buf, align 8
-  store ptr %15, ptr %retval, align 8
+  %16 = load ptr, ptr %buf, align 8
+  store ptr %16, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end14, %if.then7
-  %16 = load ptr, ptr %retval, align 8
-  ret ptr %16
+  %17 = load ptr, ptr %retval, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: nounwind uwtable

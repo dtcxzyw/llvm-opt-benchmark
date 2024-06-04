@@ -424,10 +424,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %id.addr, align 4
   call void @_ZN4cvc58internal6theory15TheoryInferenceC2ENS1_11InferenceIdE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory4bags9InferInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory4bags9InferInfoE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_im = getelementptr inbounds %"class.cvc5::internal::theory::bags::InferInfo", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %im.addr, align 8
-  store ptr %1, ptr %d_im, align 8
+  %2 = load ptr, ptr %im.addr, align 8
+  store ptr %2, ptr %d_im, align 8
   %d_conclusion = getelementptr inbounds %"class.cvc5::internal::theory::bags::InferInfo", ptr %this1, i32 0, i32 2
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_conclusion)
           to label %invoke.cont unwind label %lpad
@@ -440,12 +441,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6theory15TheoryInferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #3
   br label %eh.resume
 
@@ -465,10 +466,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %id, ptr %id.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory15TheoryInferenceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory15TheoryInferenceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_id = getelementptr inbounds %"class.cvc5::internal::theory::TheoryInference", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %id.addr, align 4
-  store i32 %0, ptr %d_id, align 8
+  %1 = load i32, ptr %id.addr, align 4
+  store i32 %1, ptr %d_id, align 8
   ret void
 }
 
@@ -1806,7 +1808,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory4bags9InferInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory4bags9InferInfoE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_skolems = getelementptr inbounds %"class.cvc5::internal::theory::bags::InferInfo", ptr %this1, i32 0, i32 4
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_skolems) #3
   %d_premises = getelementptr inbounds %"class.cvc5::internal::theory::bags::InferInfo", ptr %this1, i32 0, i32 3

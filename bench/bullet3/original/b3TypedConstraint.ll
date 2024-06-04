@@ -55,11 +55,13 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   %1 = load i32, ptr %type.addr, align 4
   call void @_ZN13b3TypedObjectC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 16
   %m_userConstraintType = getelementptr inbounds %class.b3TypedConstraint, ptr %this1, i32 0, i32 2
   store i32 -1, ptr %m_userConstraintType, align 4
-  %2 = getelementptr inbounds %class.b3TypedConstraint, ptr %this1, i32 0, i32 3
-  store ptr inttoptr (i64 -1 to ptr), ptr %2, align 16
+  %3 = getelementptr inbounds %class.b3TypedConstraint, ptr %this1, i32 0, i32 3
+  %4 = inttoptr i64 -1 to ptr
+  store ptr %4, ptr %3, align 16
   %m_breakingImpulseThreshold = getelementptr inbounds %class.b3TypedConstraint, ptr %this1, i32 0, i32 4
   store float 0x47EFFFFFE0000000, ptr %m_breakingImpulseThreshold, align 8
   %m_isEnabled = getelementptr inbounds %class.b3TypedConstraint, ptr %this1, i32 0, i32 5
@@ -69,11 +71,11 @@ entry:
   %m_overrideNumSolverIterations = getelementptr inbounds %class.b3TypedConstraint, ptr %this1, i32 0, i32 7
   store i32 -1, ptr %m_overrideNumSolverIterations, align 16
   %m_rbA = getelementptr inbounds %class.b3TypedConstraint, ptr %this1, i32 0, i32 8
-  %3 = load i32, ptr %rbA.addr, align 4
-  store i32 %3, ptr %m_rbA, align 4
+  %5 = load i32, ptr %rbA.addr, align 4
+  store i32 %5, ptr %m_rbA, align 4
   %m_rbB = getelementptr inbounds %class.b3TypedConstraint, ptr %this1, i32 0, i32 9
-  %4 = load i32, ptr %rbB.addr, align 4
-  store i32 %4, ptr %m_rbB, align 8
+  %6 = load i32, ptr %rbB.addr, align 4
+  store i32 %6, ptr %m_rbB, align 8
   %m_appliedImpulse = getelementptr inbounds %class.b3TypedConstraint, ptr %this1, i32 0, i32 10
   store float 0.000000e+00, ptr %m_appliedImpulse, align 4
   %m_dbgDrawSize = getelementptr inbounds %class.b3TypedConstraint, ptr %this1, i32 0, i32 11
@@ -544,7 +546,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   ret void
 }
 

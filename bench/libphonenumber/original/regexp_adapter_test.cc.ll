@@ -1444,7 +1444,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41RegExpAdapterTest_TestConsumeNoMatch_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41RegExpAdapterTest_TestConsumeNoMatch_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2719,7 +2720,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers42RegExpAdapterTest_TestConsumeWithNull_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers42RegExpAdapterTest_TestConsumeWithNull_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3324,7 +3326,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48RegExpAdapterTest_TestConsumeRetainsMatches_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48RegExpAdapterTest_TestConsumeRetainsMatches_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4095,7 +4098,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41RegExpAdapterTest_TestFindAndConsume_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41RegExpAdapterTest_TestFindAndConsume_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6742,7 +6746,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39RegExpAdapterTest_TestPartialMatch_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39RegExpAdapterTest_TestPartialMatch_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7947,7 +7952,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers36RegExpAdapterTest_TestFullMatch_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers36RegExpAdapterTest_TestFullMatch_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9111,7 +9117,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34RegExpAdapterTest_TestReplace_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34RegExpAdapterTest_TestReplace_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -10250,7 +10257,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43RegExpAdapterTest_TestReplaceWithGroup_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43RegExpAdapterTest_TestReplaceWithGroup_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11603,7 +11611,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48RegExpAdapterTest_TestReplaceWithDollarSign_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48RegExpAdapterTest_TestReplaceWithDollarSign_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -12108,7 +12117,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers40RegExpAdapterTest_TestGlobalReplace_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers40RegExpAdapterTest_TestGlobalReplace_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -12890,7 +12900,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31RegExpAdapterTest_TestUtf8_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31RegExpAdapterTest_TestUtf8_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13649,7 +13660,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryBaseC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13729,7 +13741,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41RegExpAdapterTest_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers17RegExpAdapterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41RegExpAdapterTest_TestConsumeNoMatch_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41RegExpAdapterTest_TestConsumeNoMatch_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13745,91 +13758,92 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers17RegExpAdapterTestC2E
   store ptr %0, ptr %2, align 8
   %9 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.i18n::phonenumbers::RegExpAdapterTest", ptr %9, i32 0, i32 1
-  call void @_ZNSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
   %11 = getelementptr inbounds %"class.i18n::phonenumbers::RegExpAdapterTest", ptr %9, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #13
-          to label %13 unwind label %19
+  call void @_ZNSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = getelementptr inbounds %"class.i18n::phonenumbers::RegExpAdapterTest", ptr %9, i32 0, i32 1
+  %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #13
+          to label %14 unwind label %20
 
-13:                                               ; preds = %1
+14:                                               ; preds = %1
   store i1 true, ptr %8, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.132, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %14 unwind label %23
+          to label %15 unwind label %24
 
-14:                                               ; preds = %13
-  %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #13
-          to label %16 unwind label %27
+15:                                               ; preds = %14
+  %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #13
+          to label %17 unwind label %28
 
-16:                                               ; preds = %14
-  call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 8, i1 false)
-  call void @_ZN4i18n12phonenumbers16ICURegExpFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  invoke void @_ZN4i18n12phonenumbers17RegExpTestContextC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_21AbstractRegExpFactoryE(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %15)
-          to label %17 unwind label %27
-
-17:                                               ; preds = %16
-  store i1 false, ptr %8, align 1
-  store ptr %12, ptr %3, align 8
-  invoke void @_ZNSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %18 unwind label %27
+17:                                               ; preds = %15
+  call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 8, i1 false)
+  call void @_ZN4i18n12phonenumbers16ICURegExpFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+  invoke void @_ZN4i18n12phonenumbers17RegExpTestContextC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_21AbstractRegExpFactoryE(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %16)
+          to label %18 unwind label %28
 
 18:                                               ; preds = %17
+  store i1 false, ptr %8, align 1
+  store ptr %13, ptr %3, align 8
+  invoke void @_ZNSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %19 unwind label %28
+
+19:                                               ; preds = %18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
   ret void
 
-19:                                               ; preds = %1
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %1
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %4, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %5, align 4
-  br label %35
-
-23:                                               ; preds = %13
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %4, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %5, align 4
-  br label %31
-
-27:                                               ; preds = %17, %16, %14
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %4, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %5, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  br label %31
-
-31:                                               ; preds = %27, %23
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  %32 = load i1, ptr %8, align 1
-  br i1 %32, label %33, label %34
-
-33:                                               ; preds = %31
-  call void @_ZdlPv(ptr noundef %12) #14
-  br label %34
-
-34:                                               ; preds = %33, %31
-  br label %35
-
-35:                                               ; preds = %34, %19
-  call void @_ZNSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %4, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %5, align 4
   br label %36
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %4, align 8
-  %38 = load i32, ptr %5, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+24:                                               ; preds = %14
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %4, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %5, align 4
+  br label %32
+
+28:                                               ; preds = %18, %17, %15
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %4, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %5, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  br label %32
+
+32:                                               ; preds = %28, %24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %33 = load i1, ptr %8, align 1
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %32
+  call void @_ZdlPv(ptr noundef %13) #14
+  br label %35
+
+35:                                               ; preds = %34, %32
+  br label %36
+
+36:                                               ; preds = %35, %20
+  call void @_ZNSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %4, align 8
+  %39 = load i32, ptr %5, align 4
+  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
+  resume { ptr, i32 } %41
 }
 
 declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -13864,7 +13878,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers16ICURegExpFactoryC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers21AbstractRegExpFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers16ICURegExpFactoryE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers16ICURegExpFactoryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -14158,22 +14173,23 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers17RegExpAdapterTestD2E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::RegExpAdapterTest", ptr %3, i32 0, i32 1
-  invoke void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef %4)
-          to label %5 unwind label %7
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.i18n::phonenumbers::RegExpAdapterTest", ptr %3, i32 0, i32 1
+  invoke void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef %5)
+          to label %6 unwind label %8
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds %"class.i18n::phonenumbers::RegExpAdapterTest", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %"class.i18n::phonenumbers::RegExpAdapterTest", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 
-7:                                                ; preds = %1
-  %8 = landingpad { ptr, i32 }
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #16
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #16
   unreachable
 }
 
@@ -14933,7 +14949,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers21AbstractRegExpFactor
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers21AbstractRegExpFactoryE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers21AbstractRegExpFactoryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -15652,7 +15669,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers42RegExpAdapterTest_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers17RegExpAdapterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers42RegExpAdapterTest_TestConsumeWithNull_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers42RegExpAdapterTest_TestConsumeWithNull_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -15712,7 +15730,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers48RegExpAdapterTest_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers17RegExpAdapterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48RegExpAdapterTest_TestConsumeRetainsMatches_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48RegExpAdapterTest_TestConsumeRetainsMatches_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -15772,7 +15791,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41RegExpAdapterTest_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers17RegExpAdapterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41RegExpAdapterTest_TestFindAndConsume_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41RegExpAdapterTest_TestFindAndConsume_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -15832,7 +15852,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers39RegExpAdapterTest_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers17RegExpAdapterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39RegExpAdapterTest_TestPartialMatch_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39RegExpAdapterTest_TestPartialMatch_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -15892,7 +15913,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers36RegExpAdapterTest_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers17RegExpAdapterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers36RegExpAdapterTest_TestFullMatch_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers36RegExpAdapterTest_TestFullMatch_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -15952,7 +15974,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34RegExpAdapterTest_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers17RegExpAdapterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers34RegExpAdapterTest_TestReplace_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers34RegExpAdapterTest_TestReplace_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -16012,7 +16035,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43RegExpAdapterTest_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers17RegExpAdapterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43RegExpAdapterTest_TestReplaceWithGroup_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43RegExpAdapterTest_TestReplaceWithGroup_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -16072,7 +16096,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers48RegExpAdapterTest_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers17RegExpAdapterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48RegExpAdapterTest_TestReplaceWithDollarSign_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48RegExpAdapterTest_TestReplaceWithDollarSign_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -16132,7 +16157,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers40RegExpAdapterTest_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers17RegExpAdapterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers40RegExpAdapterTest_TestGlobalReplace_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers40RegExpAdapterTest_TestGlobalReplace_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -16192,7 +16218,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers31RegExpAdapterTest_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers17RegExpAdapterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers31RegExpAdapterTest_TestUtf8_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers31RegExpAdapterTest_TestUtf8_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

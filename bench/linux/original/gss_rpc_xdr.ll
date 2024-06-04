@@ -1114,242 +1114,244 @@ define internal fastcc noundef i32 @gssx_dec_buffer(ptr noundef %0, ptr nocaptur
 define internal fastcc i32 @gssx_dec_option_array(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %141, label %5, !prof !5
+  br i1 %4, label %143, label %5, !prof !5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %3, align 4
   %7 = tail call i32 @llvm.bswap.i32(i32 %6)
   %8 = icmp eq i32 %6, 0
-  br i1 %8, label %141, label %9
+  br i1 %8, label %143, label %9
 
 9:                                                ; preds = %5
   store i32 1, ptr %1, align 8
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %11 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3264, i64 noundef 32) #11
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %11, ptr %12, align 8
-  %13 = icmp eq ptr %11, null
-  br i1 %13, label %141, label %14
+  %10 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3264, i64 noundef 32) #11
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %12, ptr %13, align 8
+  %14 = icmp eq ptr %12, null
+  br i1 %14, label %143, label %15
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 56) #11
-  %17 = icmp eq ptr %16, null
-  %18 = load ptr, ptr %12, align 8
-  br i1 %17, label %19, label %20
+15:                                               ; preds = %9
+  %16 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %17 = load ptr, ptr %16, align 16
+  %18 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 56) #11
+  %19 = icmp eq ptr %18, null
+  %20 = load ptr, ptr %13, align 8
+  br i1 %19, label %21, label %22
 
-19:                                               ; preds = %14
-  tail call void @kfree(ptr noundef %18) #9
-  br label %141
+21:                                               ; preds = %15
+  tail call void @kfree(ptr noundef %20) #9
+  br label %143
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
-  store ptr @.str.3, ptr %21, align 8
-  %22 = load ptr, ptr %12, align 8
-  store i32 15, ptr %22, align 8
-  %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
-  store ptr %16, ptr %24, align 8
-  %25 = load ptr, ptr %12, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
-  store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %16, i64 4
-  %28 = getelementptr inbounds i8, ptr %16, i64 8
-  %29 = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
-  br label %33
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  store ptr @.str.3, ptr %23, align 8
+  %24 = load ptr, ptr %13, align 8
+  store i32 15, ptr %24, align 8
+  %25 = load ptr, ptr %13, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  store ptr %18, ptr %26, align 8
+  %27 = load ptr, ptr %13, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  store i32 0, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %18, i64 4
+  %30 = getelementptr inbounds i8, ptr %18, i64 8
+  %31 = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
+  br label %35
 
-30:                                               ; preds = %138
-  %31 = add nuw i32 %34, 1
-  %32 = icmp eq i32 %31, %29
-  br i1 %32, label %141, label %33, !llvm.loop !7
+32:                                               ; preds = %140
+  %33 = add nuw i32 %36, 1
+  %34 = icmp eq i32 %33, %31
+  br i1 %34, label %143, label %35, !llvm.loop !7
 
-33:                                               ; preds = %30, %20
-  %34 = phi i32 [ 0, %20 ], [ %31, %30 ]
-  %35 = phi i32 [ undef, %20 ], [ %139, %30 ]
-  %36 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %138, label %38, !prof !5
+35:                                               ; preds = %32, %22
+  %36 = phi i32 [ 0, %22 ], [ %33, %32 ]
+  %37 = phi i32 [ undef, %22 ], [ %141, %32 ]
+  %38 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %140, label %40, !prof !5
 
-38:                                               ; preds = %33
-  %39 = load i32, ptr %36, align 4
-  %40 = tail call i32 @llvm.bswap.i32(i32 %39)
-  %41 = zext i32 %40 to i64
-  %42 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef %41) #9
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %138, label %44, !prof !5
+40:                                               ; preds = %35
+  %41 = load i32, ptr %38, align 4
+  %42 = tail call i32 @llvm.bswap.i32(i32 %41)
+  %43 = zext i32 %42 to i64
+  %44 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef %43) #9
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %140, label %46, !prof !5
 
-44:                                               ; preds = %38
-  %45 = icmp eq i32 %39, 251658240
-  br i1 %45, label %46, label %124
+46:                                               ; preds = %40
+  %47 = icmp eq i32 %41, 251658240
+  br i1 %47, label %48, label %126
 
-46:                                               ; preds = %44
-  %47 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %42, ptr noundef nonnull dereferenceable(15) @.str.3, i64 15)
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %124
+48:                                               ; preds = %46
+  %49 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %44, ptr noundef nonnull dereferenceable(15) @.str.3, i64 15)
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %126
 
-49:                                               ; preds = %46
-  %50 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %118, label %52, !prof !5
+51:                                               ; preds = %48
+  %52 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %120, label %54, !prof !5
 
-52:                                               ; preds = %49
-  %53 = load i32, ptr %50, align 4
-  %54 = tail call i32 @llvm.bswap.i32(i32 %53)
-  %55 = zext i32 %54 to i64
-  %56 = icmp ugt i32 %54, 262156
-  br i1 %56, label %118, label %57
+54:                                               ; preds = %51
+  %55 = load i32, ptr %52, align 4
+  %56 = tail call i32 @llvm.bswap.i32(i32 %55)
+  %57 = zext i32 %56 to i64
+  %58 = icmp ugt i32 %56, 262156
+  br i1 %58, label %120, label %59
 
-57:                                               ; preds = %52
-  %58 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %62, label %60
+59:                                               ; preds = %54
+  %60 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %64, label %62
 
-60:                                               ; preds = %57
-  %61 = load i32, ptr %58, align 4
-  br label %62
+62:                                               ; preds = %59
+  %63 = load i32, ptr %60, align 4
+  br label %64
 
-62:                                               ; preds = %60, %57
-  %63 = phi i32 [ 0, %57 ], [ %61, %60 ]
-  %64 = phi i32 [ -22, %57 ], [ 0, %60 ]
-  br i1 %59, label %118, label %65
+64:                                               ; preds = %62, %59
+  %65 = phi i32 [ 0, %59 ], [ %63, %62 ]
+  %66 = phi i32 [ -22, %59 ], [ 0, %62 ]
+  br i1 %61, label %120, label %67
 
-65:                                               ; preds = %62
-  store i32 %63, ptr %16, align 8
-  %66 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %70, label %68
+67:                                               ; preds = %64
+  store i32 %65, ptr %18, align 8
+  %68 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %72, label %70
 
-68:                                               ; preds = %65
-  %69 = load i32, ptr %66, align 4
-  br label %70
+70:                                               ; preds = %67
+  %71 = load i32, ptr %68, align 4
+  br label %72
 
-70:                                               ; preds = %68, %65
-  %71 = phi i32 [ %63, %65 ], [ %69, %68 ]
-  %72 = phi i32 [ -22, %65 ], [ 0, %68 ]
-  br i1 %67, label %118, label %73
+72:                                               ; preds = %70, %67
+  %73 = phi i32 [ %65, %67 ], [ %71, %70 ]
+  %74 = phi i32 [ -22, %67 ], [ 0, %70 ]
+  br i1 %69, label %120, label %75
 
-73:                                               ; preds = %70
-  store i32 %71, ptr %27, align 4
-  %74 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %78, label %76
+75:                                               ; preds = %72
+  store i32 %73, ptr %29, align 4
+  %76 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %80, label %78
 
-76:                                               ; preds = %73
-  %77 = load i32, ptr %74, align 4
-  br label %78
+78:                                               ; preds = %75
+  %79 = load i32, ptr %76, align 4
+  br label %80
 
-78:                                               ; preds = %76, %73
-  %79 = phi i32 [ %71, %73 ], [ %77, %76 ]
-  %80 = phi i32 [ -22, %73 ], [ 0, %76 ]
-  br i1 %75, label %118, label %81
+80:                                               ; preds = %78, %75
+  %81 = phi i32 [ %73, %75 ], [ %79, %78 ]
+  %82 = phi i32 [ -22, %75 ], [ 0, %78 ]
+  br i1 %77, label %120, label %83
 
-81:                                               ; preds = %78
-  %82 = add i32 %79, 3
-  %83 = zext i32 %82 to i64
-  %84 = shl nuw nsw i64 %83, 2
-  %85 = icmp eq i64 %84, %55
-  br i1 %85, label %86, label %118
+83:                                               ; preds = %80
+  %84 = add i32 %81, 3
+  %85 = zext i32 %84 to i64
+  %86 = shl nuw nsw i64 %85, 2
+  %87 = icmp eq i64 %86, %57
+  br i1 %87, label %88, label %120
 
-86:                                               ; preds = %81
-  %87 = tail call ptr @groups_alloc(i32 noundef %79) #9
-  store ptr %87, ptr %28, align 8
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %118, label %89
+88:                                               ; preds = %83
+  %89 = tail call ptr @groups_alloc(i32 noundef %81) #9
+  store ptr %89, ptr %30, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %120, label %91
 
-89:                                               ; preds = %86
-  %90 = icmp eq i32 %79, 0
-  br i1 %90, label %114, label %91
+91:                                               ; preds = %88
+  %92 = icmp eq i32 %81, 0
+  br i1 %92, label %116, label %93
 
-91:                                               ; preds = %111, %89
-  %92 = phi i32 [ %112, %111 ], [ 0, %89 ]
-  %93 = phi i32 [ %99, %111 ], [ %79, %89 ]
-  %94 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %98, label %96
+93:                                               ; preds = %113, %91
+  %94 = phi i32 [ %114, %113 ], [ 0, %91 ]
+  %95 = phi i32 [ %101, %113 ], [ %81, %91 ]
+  %96 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %100, label %98
 
-96:                                               ; preds = %91
-  %97 = load i32, ptr %94, align 4
-  br label %98
+98:                                               ; preds = %93
+  %99 = load i32, ptr %96, align 4
+  br label %100
 
-98:                                               ; preds = %96, %91
-  %99 = phi i32 [ %93, %91 ], [ %97, %96 ]
-  %100 = phi i32 [ -22, %91 ], [ 0, %96 ]
-  br i1 %95, label %108, label %101
+100:                                              ; preds = %98, %93
+  %101 = phi i32 [ %95, %93 ], [ %99, %98 ]
+  %102 = phi i32 [ -22, %93 ], [ 0, %98 ]
+  br i1 %97, label %110, label %103
 
-101:                                              ; preds = %98
-  %102 = icmp eq i32 %99, -1
-  br i1 %102, label %108, label %103
+103:                                              ; preds = %100
+  %104 = icmp eq i32 %101, -1
+  br i1 %104, label %110, label %105
 
-103:                                              ; preds = %101
-  %104 = load ptr, ptr %28, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
-  %106 = sext i32 %92 to i64
-  %107 = getelementptr [0 x %struct.kgid_t], ptr %105, i64 0, i64 %106
-  store i32 %99, ptr %107, align 4
-  br label %108
+105:                                              ; preds = %103
+  %106 = load ptr, ptr %30, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 8
+  %108 = sext i32 %94 to i64
+  %109 = getelementptr [0 x %struct.kgid_t], ptr %107, i64 0, i64 %108
+  store i32 %101, ptr %109, align 4
+  br label %110
 
-108:                                              ; preds = %103, %101, %98
-  %109 = phi i32 [ -22, %103 ], [ %100, %98 ], [ -22, %101 ]
-  %110 = phi i32 [ 0, %103 ], [ 5, %98 ], [ 5, %101 ]
-  switch i32 %110, label %118 [
-    i32 0, label %111
-    i32 5, label %116
+110:                                              ; preds = %105, %103, %100
+  %111 = phi i32 [ -22, %105 ], [ %102, %100 ], [ -22, %103 ]
+  %112 = phi i32 [ 0, %105 ], [ 5, %100 ], [ 5, %103 ]
+  switch i32 %112, label %120 [
+    i32 0, label %113
+    i32 5, label %118
   ]
 
-111:                                              ; preds = %108
-  %112 = add nuw i32 %92, 1
-  %113 = icmp eq i32 %112, %79
-  br i1 %113, label %114, label %91, !llvm.loop !10
+113:                                              ; preds = %110
+  %114 = add nuw i32 %94, 1
+  %115 = icmp eq i32 %114, %81
+  br i1 %115, label %116, label %93, !llvm.loop !10
 
-114:                                              ; preds = %111, %89
-  %115 = load ptr, ptr %28, align 8
-  tail call void @groups_sort(ptr noundef %115) #9
-  br label %118
+116:                                              ; preds = %113, %91
+  %117 = load ptr, ptr %30, align 8
+  tail call void @groups_sort(ptr noundef %117) #9
+  br label %120
 
-116:                                              ; preds = %108
-  %117 = load ptr, ptr %28, align 8
-  tail call void @groups_free(ptr noundef %117) #9
-  br label %118
+118:                                              ; preds = %110
+  %119 = load ptr, ptr %30, align 8
+  tail call void @groups_free(ptr noundef %119) #9
+  br label %120
 
-118:                                              ; preds = %116, %114, %108, %86, %81, %78, %70, %62, %52, %49
-  %119 = phi i32 [ %109, %116 ], [ 0, %114 ], [ -28, %49 ], [ -28, %52 ], [ %64, %62 ], [ %72, %70 ], [ %80, %78 ], [ -22, %81 ], [ -12, %86 ], [ undef, %108 ]
-  %120 = icmp eq i32 %119, 0
-  br i1 %120, label %121, label %138
+120:                                              ; preds = %118, %116, %110, %88, %83, %80, %72, %64, %54, %51
+  %121 = phi i32 [ %111, %118 ], [ 0, %116 ], [ -28, %51 ], [ -28, %54 ], [ %66, %64 ], [ %74, %72 ], [ %82, %80 ], [ -22, %83 ], [ -12, %88 ], [ undef, %110 ]
+  %122 = icmp eq i32 %121, 0
+  br i1 %122, label %123, label %140
 
-121:                                              ; preds = %118
-  %122 = load ptr, ptr %12, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 16
-  store i32 1, ptr %123, align 8
-  br label %138
+123:                                              ; preds = %120
+  %124 = load ptr, ptr %13, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 16
+  store i32 1, ptr %125, align 8
+  br label %140
 
-124:                                              ; preds = %46, %44
-  %125 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %134, label %127, !prof !5
+126:                                              ; preds = %48, %46
+  %127 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %136, label %129, !prof !5
 
-127:                                              ; preds = %124
-  %128 = load i32, ptr %125, align 4
-  %129 = tail call i32 @llvm.bswap.i32(i32 %128)
-  %130 = zext i32 %129 to i64
-  %131 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef %130) #9
-  %132 = icmp eq ptr %131, null
-  %133 = select i1 %132, i32 -28, i32 0, !prof !5
-  br label %134
+129:                                              ; preds = %126
+  %130 = load i32, ptr %127, align 4
+  %131 = tail call i32 @llvm.bswap.i32(i32 %130)
+  %132 = zext i32 %131 to i64
+  %133 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef %132) #9
+  %134 = icmp eq ptr %133, null
+  %135 = select i1 %134, i32 -28, i32 0, !prof !5
+  br label %136
 
-134:                                              ; preds = %127, %124
-  %135 = phi i32 [ -28, %124 ], [ %133, %127 ]
-  %136 = icmp eq i32 %135, 0
-  %137 = select i1 %136, i32 %35, i32 %135
-  br label %138
+136:                                              ; preds = %129, %126
+  %137 = phi i32 [ -28, %126 ], [ %135, %129 ]
+  %138 = icmp eq i32 %137, 0
+  %139 = select i1 %138, i32 %37, i32 %137
+  br label %140
 
-138:                                              ; preds = %134, %121, %118, %38, %33
-  %139 = phi i32 [ -28, %33 ], [ -28, %38 ], [ %119, %118 ], [ %35, %121 ], [ %137, %134 ]
-  %140 = phi i1 [ false, %33 ], [ false, %38 ], [ false, %118 ], [ true, %121 ], [ %136, %134 ]
-  br i1 %140, label %30, label %141
+140:                                              ; preds = %136, %123, %120, %40, %35
+  %141 = phi i32 [ -28, %35 ], [ -28, %40 ], [ %121, %120 ], [ %37, %123 ], [ %139, %136 ]
+  %142 = phi i1 [ false, %35 ], [ false, %40 ], [ false, %120 ], [ true, %123 ], [ %138, %136 ]
+  br i1 %142, label %32, label %143
 
-141:                                              ; preds = %138, %30, %19, %9, %5, %2
-  %142 = phi i32 [ -12, %19 ], [ -28, %2 ], [ 0, %5 ], [ -12, %9 ], [ %139, %138 ], [ 0, %30 ]
-  ret i32 %142
+143:                                              ; preds = %140, %32, %21, %9, %5, %2
+  %144 = phi i32 [ -12, %21 ], [ -28, %2 ], [ 0, %5 ], [ -12, %9 ], [ %141, %140 ], [ 0, %32 ]
+  ret i32 %144
 }
 
 ; Function Attrs: null_pointer_is_valid

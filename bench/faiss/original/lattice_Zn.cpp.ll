@@ -1214,12 +1214,13 @@ define linkonce_odr void @_ZN5faiss13ZnSphereCodecD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss13ZnSphereCodecE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss13ZnSphereCodecE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN5faiss17EnumeratedVectorsD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %3) #3
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @_ZN5faiss14ZnSphereSearchD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
+  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  call void @_ZN5faiss14ZnSphereSearchD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #3
   ret void
 }
 
@@ -1640,13 +1641,14 @@ define linkonce_odr void @_ZN5faiss16ZnSphereCodecRecD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16ZnSphereCodecRecE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss16ZnSphereCodecRecE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %3, i32 0, i32 5
   call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   call void @_ZN5faiss17EnumeratedVectorsD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %3) #3
   ret void
 }
@@ -1779,9 +1781,10 @@ define linkonce_odr void @_ZN5faiss16ZnSphereCodecAltD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16ZnSphereCodecAltE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::ZnSphereCodecAlt", ptr %3, i32 0, i32 2
-  call void @_ZN5faiss16ZnSphereCodecRecD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss16ZnSphereCodecAltE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::ZnSphereCodecAlt", ptr %3, i32 0, i32 2
+  call void @_ZN5faiss16ZnSphereCodecRecD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #3
   call void @_ZN5faiss13ZnSphereCodecD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #3
   ret void
 }
@@ -11438,181 +11441,182 @@ define void @_ZN5faiss13ZnSphereCodecC2Eii(ptr noundef nonnull align 8 dereferen
   call void @_ZN5faiss14ZnSphereSearchC2Eii(ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef %16, i32 noundef %17)
   %18 = load i32, ptr %5, align 4
   invoke void @_ZN5faiss17EnumeratedVectorsC2Ei(ptr noundef nonnull align 8 dereferenceable(20) %14, i32 noundef %18)
-          to label %19 unwind label %73
+          to label %19 unwind label %74
 
 19:                                               ; preds = %3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss13ZnSphereCodecE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %20 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 2
-  call void @_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
-  %21 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 3
-  store i64 0, ptr %21, align 8
+  %20 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss13ZnSphereCodecE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %14, align 8
+  %21 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 2
+  call void @_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
+  %22 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 3
+  store i64 0, ptr %22, align 8
   store i32 0, ptr %9, align 4
-  br label %22
+  br label %23
 
-22:                                               ; preds = %70, %19
-  %23 = load i32, ptr %9, align 4
-  %24 = getelementptr inbounds i8, ptr %14, i64 24
-  %25 = getelementptr inbounds %"struct.faiss::ZnSphereSearch", ptr %24, i32 0, i32 2
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp slt i32 %23, %26
-  br i1 %27, label %28, label %90
+23:                                               ; preds = %71, %19
+  %24 = load i32, ptr %9, align 4
+  %25 = getelementptr inbounds i8, ptr %14, i64 24
+  %26 = getelementptr inbounds %"struct.faiss::ZnSphereSearch", ptr %25, i32 0, i32 2
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp slt i32 %24, %27
+  br i1 %28, label %29, label %91
 
-28:                                               ; preds = %22
-  %29 = load i32, ptr %5, align 4
-  %30 = getelementptr inbounds i8, ptr %14, i64 24
-  %31 = getelementptr inbounds %"struct.faiss::ZnSphereSearch", ptr %30, i32 0, i32 3
-  %32 = load i32, ptr %9, align 4
-  %33 = load i32, ptr %5, align 4
-  %34 = mul nsw i32 %32, %33
-  %35 = sext i32 %34 to i64
-  %36 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIfSaIfEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %35) #3
-  invoke void @_ZN5faiss7RepeatsC1EiPKf(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %29, ptr noundef %36)
-          to label %37 unwind label %77
+29:                                               ; preds = %23
+  %30 = load i32, ptr %5, align 4
+  %31 = getelementptr inbounds i8, ptr %14, i64 24
+  %32 = getelementptr inbounds %"struct.faiss::ZnSphereSearch", ptr %31, i32 0, i32 3
+  %33 = load i32, ptr %9, align 4
+  %34 = load i32, ptr %5, align 4
+  %35 = mul nsw i32 %33, %34
+  %36 = sext i32 %35 to i64
+  %37 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIfSaIfEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %36) #3
+  invoke void @_ZN5faiss7RepeatsC1EiPKf(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %30, ptr noundef %37)
+          to label %38 unwind label %78
 
-37:                                               ; preds = %28
+38:                                               ; preds = %29
   invoke void @_ZN5faiss13ZnSphereCodec11CodeSegmentC2ERKNS_7RepeatsE(ptr noundef nonnull align 8 dereferenceable(44) %11, ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %38 unwind label %81
+          to label %39 unwind label %82
 
-38:                                               ; preds = %37
-  %39 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 3
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds %"struct.faiss::ZnSphereCodec::CodeSegment", ptr %11, i32 0, i32 1
-  store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds %"struct.faiss::Repeats", ptr %10, i32 0, i32 1
-  %43 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt6vectorIN5faiss6RepeatESaIS1_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #3
-  store ptr %43, ptr %12, align 8
-  %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds %"struct.faiss::Repeat", ptr %44, i32 0, i32 0
-  %46 = load float, ptr %45, align 4
-  %47 = fcmp oeq float %46, 0.000000e+00
-  br i1 %47, label %48, label %54
+39:                                               ; preds = %38
+  %40 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 3
+  %41 = load i64, ptr %40, align 8
+  %42 = getelementptr inbounds %"struct.faiss::ZnSphereCodec::CodeSegment", ptr %11, i32 0, i32 1
+  store i64 %41, ptr %42, align 8
+  %43 = getelementptr inbounds %"struct.faiss::Repeats", ptr %10, i32 0, i32 1
+  %44 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt6vectorIN5faiss6RepeatESaIS1_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %43) #3
+  store ptr %44, ptr %12, align 8
+  %45 = load ptr, ptr %12, align 8
+  %46 = getelementptr inbounds %"struct.faiss::Repeat", ptr %45, i32 0, i32 0
+  %47 = load float, ptr %46, align 4
+  %48 = fcmp oeq float %47, 0.000000e+00
+  br i1 %48, label %49, label %55
 
-48:                                               ; preds = %38
-  %49 = load i32, ptr %5, align 4
-  %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds %"struct.faiss::Repeat", ptr %50, i32 0, i32 1
-  %52 = load i32, ptr %51, align 4
-  %53 = sub nsw i32 %49, %52
-  br label %56
+49:                                               ; preds = %39
+  %50 = load i32, ptr %5, align 4
+  %51 = load ptr, ptr %12, align 8
+  %52 = getelementptr inbounds %"struct.faiss::Repeat", ptr %51, i32 0, i32 1
+  %53 = load i32, ptr %52, align 4
+  %54 = sub nsw i32 %50, %53
+  br label %57
 
-54:                                               ; preds = %38
-  %55 = load i32, ptr %5, align 4
-  br label %56
+55:                                               ; preds = %39
+  %56 = load i32, ptr %5, align 4
+  br label %57
 
-56:                                               ; preds = %54, %48
-  %57 = phi i32 [ %53, %48 ], [ %55, %54 ]
-  %58 = getelementptr inbounds %"struct.faiss::ZnSphereCodec::CodeSegment", ptr %11, i32 0, i32 2
-  store i32 %57, ptr %58, align 8
-  %59 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 2
-  invoke void @_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(44) %11)
-          to label %60 unwind label %85
+57:                                               ; preds = %55, %49
+  %58 = phi i32 [ %54, %49 ], [ %56, %55 ]
+  %59 = getelementptr inbounds %"struct.faiss::ZnSphereCodec::CodeSegment", ptr %11, i32 0, i32 2
+  store i32 %58, ptr %59, align 8
+  %60 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 2
+  invoke void @_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(44) %11)
+          to label %61 unwind label %86
 
-60:                                               ; preds = %56
-  %61 = invoke noundef i64 @_ZNK5faiss7Repeats5countEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %62 unwind label %85
+61:                                               ; preds = %57
+  %62 = invoke noundef i64 @_ZNK5faiss7Repeats5countEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %63 unwind label %86
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds %"struct.faiss::ZnSphereCodec::CodeSegment", ptr %11, i32 0, i32 2
-  %64 = load i32, ptr %63, align 8
-  %65 = zext i32 %64 to i64
-  %66 = shl i64 %61, %65
-  %67 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 3
-  %68 = load i64, ptr %67, align 8
-  %69 = add i64 %68, %66
-  store i64 %69, ptr %67, align 8
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds %"struct.faiss::ZnSphereCodec::CodeSegment", ptr %11, i32 0, i32 2
+  %65 = load i32, ptr %64, align 8
+  %66 = zext i32 %65 to i64
+  %67 = shl i64 %62, %66
+  %68 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 3
+  %69 = load i64, ptr %68, align 8
+  %70 = add i64 %69, %67
+  store i64 %70, ptr %68, align 8
   call void @_ZN5faiss13ZnSphereCodec11CodeSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %11) #3
   call void @_ZN5faiss7RepeatsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  br label %70
+  br label %71
 
-70:                                               ; preds = %62
-  %71 = load i32, ptr %9, align 4
-  %72 = add nsw i32 %71, 1
-  store i32 %72, ptr %9, align 4
-  br label %22, !llvm.loop !55
+71:                                               ; preds = %63
+  %72 = load i32, ptr %9, align 4
+  %73 = add nsw i32 %72, 1
+  store i32 %73, ptr %9, align 4
+  br label %23, !llvm.loop !55
 
-73:                                               ; preds = %3
-  %74 = landingpad { ptr, i32 }
+74:                                               ; preds = %3
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %7, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %8, align 4
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %7, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %8, align 4
+  br label %106
+
+78:                                               ; preds = %29
+  %79 = landingpad { ptr, i32 }
+          cleanup
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %7, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %8, align 4
   br label %105
 
-77:                                               ; preds = %28
-  %78 = landingpad { ptr, i32 }
+82:                                               ; preds = %38
+  %83 = landingpad { ptr, i32 }
           cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %7, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %8, align 4
-  br label %104
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %7, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %8, align 4
+  br label %90
 
-81:                                               ; preds = %37
-  %82 = landingpad { ptr, i32 }
+86:                                               ; preds = %61, %57
+  %87 = landingpad { ptr, i32 }
           cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %7, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %8, align 4
-  br label %89
-
-85:                                               ; preds = %60, %56
-  %86 = landingpad { ptr, i32 }
-          cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %7, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %8, align 4
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %7, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %8, align 4
   call void @_ZN5faiss13ZnSphereCodec11CodeSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %11) #3
-  br label %89
+  br label %90
 
-89:                                               ; preds = %85, %81
+90:                                               ; preds = %86, %82
   call void @_ZN5faiss7RepeatsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  br label %104
+  br label %105
 
-90:                                               ; preds = %22
-  %91 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 3
-  %92 = load i64, ptr %91, align 8
-  store i64 %92, ptr %13, align 8
-  %93 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 4
-  store i64 0, ptr %93, align 8
-  br label %94
+91:                                               ; preds = %23
+  %92 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 3
+  %93 = load i64, ptr %92, align 8
+  store i64 %93, ptr %13, align 8
+  %94 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 4
+  store i64 0, ptr %94, align 8
+  br label %95
 
-94:                                               ; preds = %97, %90
-  %95 = load i64, ptr %13, align 8
-  %96 = icmp ugt i64 %95, 0
-  br i1 %96, label %97, label %103
+95:                                               ; preds = %98, %91
+  %96 = load i64, ptr %13, align 8
+  %97 = icmp ugt i64 %96, 0
+  br i1 %97, label %98, label %104
 
-97:                                               ; preds = %94
-  %98 = load i64, ptr %13, align 8
-  %99 = lshr i64 %98, 8
-  store i64 %99, ptr %13, align 8
-  %100 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 4
-  %101 = load i64, ptr %100, align 8
-  %102 = add i64 %101, 1
-  store i64 %102, ptr %100, align 8
-  br label %94, !llvm.loop !56
+98:                                               ; preds = %95
+  %99 = load i64, ptr %13, align 8
+  %100 = lshr i64 %99, 8
+  store i64 %100, ptr %13, align 8
+  %101 = getelementptr inbounds %"struct.faiss::ZnSphereCodec", ptr %14, i32 0, i32 4
+  %102 = load i64, ptr %101, align 8
+  %103 = add i64 %102, 1
+  store i64 %103, ptr %101, align 8
+  br label %95, !llvm.loop !56
 
-103:                                              ; preds = %94
+104:                                              ; preds = %95
   ret void
 
-104:                                              ; preds = %89, %77
-  call void @_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
+105:                                              ; preds = %90, %78
+  call void @_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
   call void @_ZN5faiss17EnumeratedVectorsD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %14) #3
-  br label %105
+  br label %106
 
-105:                                              ; preds = %104, %73
-  %106 = getelementptr inbounds i8, ptr %14, i64 24
-  call void @_ZN5faiss14ZnSphereSearchD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %106) #3
-  br label %107
+106:                                              ; preds = %105, %74
+  %107 = getelementptr inbounds i8, ptr %14, i64 24
+  call void @_ZN5faiss14ZnSphereSearchD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %107) #3
+  br label %108
 
-107:                                              ; preds = %105
-  %108 = load ptr, ptr %7, align 8
-  %109 = load i32, ptr %8, align 4
-  %110 = insertvalue { ptr, i32 } poison, ptr %108, 0
-  %111 = insertvalue { ptr, i32 } %110, i32 %109, 1
-  resume { ptr, i32 } %111
+108:                                              ; preds = %106
+  %109 = load ptr, ptr %7, align 8
+  %110 = load i32, ptr %8, align 4
+  %111 = insertvalue { ptr, i32 } poison, ptr %109, 0
+  %112 = insertvalue { ptr, i32 } %111, i32 %110, 1
+  resume { ptr, i32 } %112
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11622,12 +11626,13 @@ define linkonce_odr void @_ZN5faiss17EnumeratedVectorsC2Ei(ptr noundef nonnull a
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss17EnumeratedVectorsE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::EnumeratedVectors", ptr %5, i32 0, i32 1
-  store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"struct.faiss::EnumeratedVectors", ptr %5, i32 0, i32 2
-  %8 = load i32, ptr %4, align 4
-  store i32 %8, ptr %7, align 8
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss17EnumeratedVectorsE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::EnumeratedVectors", ptr %5, i32 0, i32 1
+  store i64 0, ptr %7, align 8
+  %8 = getelementptr inbounds %"struct.faiss::EnumeratedVectors", ptr %5, i32 0, i32 2
+  %9 = load i32, ptr %4, align 4
+  store i32 %9, ptr %8, align 8
   ret void
 }
 
@@ -13607,412 +13612,413 @@ define void @_ZN5faiss16ZnSphereCodecRecC2Eii(ptr noundef nonnull align 8 derefe
   %29 = load ptr, ptr %4, align 8
   %30 = load i32, ptr %5, align 4
   call void @_ZN5faiss17EnumeratedVectorsC2Ei(ptr noundef nonnull align 8 dereferenceable(20) %29, i32 noundef %30)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16ZnSphereCodecRecE, i32 0, i32 0, i32 2), ptr %29, align 8
-  %31 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 1
-  %32 = load i32, ptr %6, align 4
-  store i32 %32, ptr %31, align 4
-  %33 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 4
-  call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #3
-  %34 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 5
+  %31 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss16ZnSphereCodecRecE, i32 0, i32 0, i32 2
+  store ptr %31, ptr %29, align 8
+  %32 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 1
+  %33 = load i32, ptr %6, align 4
+  store i32 %33, ptr %32, align 4
+  %34 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 4
   call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #3
-  %35 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 7
-  call void @_ZNSt6vectorIS_IfSaIfEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #3
-  %36 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
-  store i32 0, ptr %36, align 8
-  br label %37
+  %35 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 5
+  call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #3
+  %36 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 7
+  call void @_ZNSt6vectorIS_IfSaIfEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #3
+  %37 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
+  store i32 0, ptr %37, align 8
+  br label %38
 
-37:                                               ; preds = %43, %3
-  %38 = load i32, ptr %5, align 4
-  %39 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
-  %40 = load i32, ptr %39, align 8
-  %41 = shl i32 1, %40
-  %42 = icmp sgt i32 %38, %41
-  br i1 %42, label %43, label %47
+38:                                               ; preds = %44, %3
+  %39 = load i32, ptr %5, align 4
+  %40 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
+  %41 = load i32, ptr %40, align 8
+  %42 = shl i32 1, %41
+  %43 = icmp sgt i32 %39, %42
+  br i1 %43, label %44, label %48
 
-43:                                               ; preds = %37
-  %44 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
-  %45 = load i32, ptr %44, align 8
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %44, align 8
-  br label %37, !llvm.loop !60
+44:                                               ; preds = %38
+  %45 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
+  %46 = load i32, ptr %45, align 8
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %45, align 8
+  br label %38, !llvm.loop !60
 
-47:                                               ; preds = %37
-  %48 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 4
-  %49 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
-  %50 = load i32, ptr %49, align 8
-  %51 = add nsw i32 %50, 1
-  %52 = load i32, ptr %6, align 4
-  %53 = add nsw i32 %52, 1
-  %54 = mul nsw i32 %51, %53
-  %55 = sext i32 %54 to i64
-  invoke void @_ZNSt6vectorImSaImEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %48, i64 noundef %55)
-          to label %56 unwind label %92
+48:                                               ; preds = %38
+  %49 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 4
+  %50 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
+  %51 = load i32, ptr %50, align 8
+  %52 = add nsw i32 %51, 1
+  %53 = load i32, ptr %6, align 4
+  %54 = add nsw i32 %53, 1
+  %55 = mul nsw i32 %52, %54
+  %56 = sext i32 %55 to i64
+  invoke void @_ZNSt6vectorImSaImEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %49, i64 noundef %56)
+          to label %57 unwind label %93
 
-56:                                               ; preds = %47
-  %57 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 5
-  %58 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
-  %59 = load i32, ptr %58, align 8
-  %60 = add nsw i32 %59, 1
-  %61 = load i32, ptr %6, align 4
-  %62 = add nsw i32 %61, 1
-  %63 = mul nsw i32 %60, %62
-  %64 = load i32, ptr %6, align 4
-  %65 = add nsw i32 %64, 1
-  %66 = mul nsw i32 %63, %65
-  %67 = sext i32 %66 to i64
-  invoke void @_ZNSt6vectorImSaImEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %57, i64 noundef %67)
-          to label %68 unwind label %92
+57:                                               ; preds = %48
+  %58 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 5
+  %59 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
+  %60 = load i32, ptr %59, align 8
+  %61 = add nsw i32 %60, 1
+  %62 = load i32, ptr %6, align 4
+  %63 = add nsw i32 %62, 1
+  %64 = mul nsw i32 %61, %63
+  %65 = load i32, ptr %6, align 4
+  %66 = add nsw i32 %65, 1
+  %67 = mul nsw i32 %64, %66
+  %68 = sext i32 %67 to i64
+  invoke void @_ZNSt6vectorImSaImEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %58, i64 noundef %68)
+          to label %69 unwind label %93
 
-68:                                               ; preds = %56
+69:                                               ; preds = %57
   store i32 0, ptr %9, align 4
-  br label %69
+  br label %70
 
-69:                                               ; preds = %102, %68
-  %70 = load i32, ptr %9, align 4
-  %71 = load i32, ptr %6, align 4
-  %72 = icmp sle i32 %70, %71
-  br i1 %72, label %73, label %105
+70:                                               ; preds = %103, %69
+  %71 = load i32, ptr %9, align 4
+  %72 = load i32, ptr %6, align 4
+  %73 = icmp sle i32 %71, %72
+  br i1 %73, label %74, label %106
 
-73:                                               ; preds = %69
-  %74 = load i32, ptr %9, align 4
-  %75 = sitofp i32 %74 to double
-  %76 = call double @sqrt(double noundef %75) #3
-  %77 = fptosi double %76 to i32
-  store i32 %77, ptr %10, align 4
-  %78 = load i32, ptr %10, align 4
+74:                                               ; preds = %70
+  %75 = load i32, ptr %9, align 4
+  %76 = sitofp i32 %75 to double
+  %77 = call double @sqrt(double noundef %76) #3
+  %78 = fptosi double %77 to i32
+  store i32 %78, ptr %10, align 4
   %79 = load i32, ptr %10, align 4
-  %80 = mul nsw i32 %78, %79
-  %81 = load i32, ptr %9, align 4
-  %82 = icmp eq i32 %80, %81
-  br i1 %82, label %83, label %96
+  %80 = load i32, ptr %10, align 4
+  %81 = mul nsw i32 %79, %80
+  %82 = load i32, ptr %9, align 4
+  %83 = icmp eq i32 %81, %82
+  br i1 %83, label %84, label %97
 
-83:                                               ; preds = %73
-  %84 = load i32, ptr %10, align 4
-  %85 = icmp eq i32 %84, 0
-  %86 = select i1 %85, i32 1, i32 2
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 4
-  %89 = load i32, ptr %9, align 4
-  %90 = sext i32 %89 to i64
-  %91 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorImSaImEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %90) #3
-  store i64 %87, ptr %91, align 8
-  br label %101
-
-92:                                               ; preds = %196, %184, %179, %56, %47
-  %93 = landingpad { ptr, i32 }
-          cleanup
-  %94 = extractvalue { ptr, i32 } %93, 0
-  store ptr %94, ptr %7, align 8
-  %95 = extractvalue { ptr, i32 } %93, 1
-  store i32 %95, ptr %8, align 4
-  br label %273
-
-96:                                               ; preds = %73
-  %97 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 4
-  %98 = load i32, ptr %9, align 4
-  %99 = sext i32 %98 to i64
-  %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorImSaImEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %97, i64 noundef %99) #3
-  store i64 0, ptr %100, align 8
-  br label %101
-
-101:                                              ; preds = %96, %83
+84:                                               ; preds = %74
+  %85 = load i32, ptr %10, align 4
+  %86 = icmp eq i32 %85, 0
+  %87 = select i1 %86, i32 1, i32 2
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 4
+  %90 = load i32, ptr %9, align 4
+  %91 = sext i32 %90 to i64
+  %92 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorImSaImEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %89, i64 noundef %91) #3
+  store i64 %88, ptr %92, align 8
   br label %102
 
-102:                                              ; preds = %101
-  %103 = load i32, ptr %9, align 4
-  %104 = add nsw i32 %103, 1
-  store i32 %104, ptr %9, align 4
-  br label %69, !llvm.loop !61
-
-105:                                              ; preds = %69
-  store i32 1, ptr %11, align 4
-  br label %106
-
-106:                                              ; preds = %158, %105
-  %107 = load i32, ptr %11, align 4
-  %108 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
-  %109 = load i32, ptr %108, align 8
-  %110 = icmp sle i32 %107, %109
-  br i1 %110, label %111, label %161
-
-111:                                              ; preds = %106
-  store i32 0, ptr %12, align 4
-  br label %112
-
-112:                                              ; preds = %154, %111
-  %113 = load i32, ptr %12, align 4
-  %114 = load i32, ptr %6, align 4
-  %115 = icmp sle i32 %113, %114
-  br i1 %115, label %116, label %157
-
-116:                                              ; preds = %112
-  store i64 0, ptr %13, align 8
-  store i32 0, ptr %14, align 4
-  br label %117
-
-117:                                              ; preds = %140, %116
-  %118 = load i32, ptr %14, align 4
-  %119 = load i32, ptr %12, align 4
-  %120 = icmp sle i32 %118, %119
-  br i1 %120, label %121, label %143
-
-121:                                              ; preds = %117
-  %122 = load i32, ptr %12, align 4
-  %123 = load i32, ptr %14, align 4
-  %124 = sub nsw i32 %122, %123
-  store i32 %124, ptr %15, align 4
-  %125 = load i32, ptr %11, align 4
-  %126 = load i32, ptr %12, align 4
-  %127 = load i32, ptr %14, align 4
-  %128 = load i64, ptr %13, align 8
-  call void @_ZN5faiss16ZnSphereCodecRec10set_nv_cumEiiim(ptr noundef nonnull align 8 dereferenceable(112) %29, i32 noundef %125, i32 noundef %126, i32 noundef %127, i64 noundef %128)
-  %129 = load i32, ptr %11, align 4
-  %130 = sub nsw i32 %129, 1
-  %131 = load i32, ptr %14, align 4
-  %132 = call noundef i64 @_ZNK5faiss16ZnSphereCodecRec6get_nvEii(ptr noundef nonnull align 8 dereferenceable(112) %29, i32 noundef %130, i32 noundef %131)
-  %133 = load i32, ptr %11, align 4
-  %134 = sub nsw i32 %133, 1
-  %135 = load i32, ptr %15, align 4
-  %136 = call noundef i64 @_ZNK5faiss16ZnSphereCodecRec6get_nvEii(ptr noundef nonnull align 8 dereferenceable(112) %29, i32 noundef %134, i32 noundef %135)
-  %137 = mul i64 %132, %136
-  %138 = load i64, ptr %13, align 8
-  %139 = add i64 %138, %137
-  store i64 %139, ptr %13, align 8
-  br label %140
-
-140:                                              ; preds = %121
-  %141 = load i32, ptr %14, align 4
-  %142 = add nsw i32 %141, 1
-  store i32 %142, ptr %14, align 4
-  br label %117, !llvm.loop !62
-
-143:                                              ; preds = %117
-  %144 = load i64, ptr %13, align 8
-  %145 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 4
-  %146 = load i32, ptr %11, align 4
-  %147 = load i32, ptr %6, align 4
-  %148 = add nsw i32 %147, 1
-  %149 = mul nsw i32 %146, %148
-  %150 = load i32, ptr %12, align 4
-  %151 = add nsw i32 %149, %150
-  %152 = sext i32 %151 to i64
-  %153 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorImSaImEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %145, i64 noundef %152) #3
-  store i64 %144, ptr %153, align 8
-  br label %154
-
-154:                                              ; preds = %143
-  %155 = load i32, ptr %12, align 4
-  %156 = add nsw i32 %155, 1
-  store i32 %156, ptr %12, align 4
-  br label %112, !llvm.loop !63
-
-157:                                              ; preds = %112
-  br label %158
-
-158:                                              ; preds = %157
-  %159 = load i32, ptr %11, align 4
-  %160 = add nsw i32 %159, 1
-  store i32 %160, ptr %11, align 4
-  br label %106, !llvm.loop !64
-
-161:                                              ; preds = %106
-  %162 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
-  %163 = load i32, ptr %162, align 8
-  %164 = load i32, ptr %6, align 4
-  %165 = call noundef i64 @_ZNK5faiss16ZnSphereCodecRec6get_nvEii(ptr noundef nonnull align 8 dereferenceable(112) %29, i32 noundef %163, i32 noundef %164)
-  %166 = getelementptr inbounds %"struct.faiss::EnumeratedVectors", ptr %29, i32 0, i32 1
-  store i64 %165, ptr %166, align 8
-  %167 = getelementptr inbounds %"struct.faiss::EnumeratedVectors", ptr %29, i32 0, i32 1
-  %168 = load i64, ptr %167, align 8
-  store i64 %168, ptr %16, align 8
-  %169 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 3
-  store i32 0, ptr %169, align 4
-  br label %170
-
-170:                                              ; preds = %173, %161
-  %171 = load i64, ptr %16, align 8
-  %172 = icmp ugt i64 %171, 0
-  br i1 %172, label %173, label %179
-
-173:                                              ; preds = %170
-  %174 = load i64, ptr %16, align 8
-  %175 = lshr i64 %174, 8
-  store i64 %175, ptr %16, align 8
-  %176 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 3
-  %177 = load i32, ptr %176, align 4
-  %178 = add nsw i32 %177, 1
-  store i32 %178, ptr %176, align 4
-  br label %170, !llvm.loop !65
-
-179:                                              ; preds = %170
-  store i32 3, ptr %18, align 4
-  %180 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
-  %181 = load i32, ptr %180, align 8
-  %182 = sub nsw i32 %181, 1
-  store i32 %182, ptr %19, align 4
-  %183 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
-          to label %184 unwind label %92
-
-184:                                              ; preds = %179
-  %185 = load i32, ptr %183, align 4
-  store i32 %185, ptr %17, align 4
-  %186 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 6
-  store i32 0, ptr %186, align 8
-  %187 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 7
-  %188 = load i32, ptr %6, align 4
-  %189 = add nsw i32 %188, 1
-  %190 = sext i32 %189 to i64
-  invoke void @_ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %187, i64 noundef %190)
-          to label %191 unwind label %92
-
-191:                                              ; preds = %184
-  store i32 0, ptr %20, align 4
-  br label %192
-
-192:                                              ; preds = %267, %191
-  %193 = load i32, ptr %20, align 4
-  %194 = load i32, ptr %6, align 4
-  %195 = icmp sle i32 %193, %194
-  br i1 %195, label %196, label %270
-
-196:                                              ; preds = %192
-  %197 = load i32, ptr %17, align 4
-  store i32 %197, ptr %21, align 4
-  %198 = load i32, ptr %21, align 4
-  %199 = load i32, ptr %20, align 4
-  %200 = call noundef i64 @_ZNK5faiss16ZnSphereCodecRec6get_nvEii(ptr noundef nonnull align 8 dereferenceable(112) %29, i32 noundef %198, i32 noundef %199)
-  store i64 %200, ptr %22, align 8
-  %201 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 7
-  %202 = load i32, ptr %20, align 4
-  %203 = sext i32 %202 to i64
-  %204 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIS_IfSaIfEESaIS1_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %201, i64 noundef %203) #3
-  store ptr %204, ptr %23, align 8
-  %205 = load i32, ptr %17, align 4
-  %206 = shl i32 1, %205
-  store i32 %206, ptr %24, align 4
-  %207 = load ptr, ptr %23, align 8
-  %208 = load i64, ptr %22, align 8
-  %209 = load i32, ptr %24, align 4
-  %210 = sext i32 %209 to i64
-  %211 = mul i64 %208, %210
-  invoke void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %207, i64 noundef %211)
-          to label %212 unwind label %92
-
-212:                                              ; preds = %196
-  %213 = load i32, ptr %5, align 4
-  %214 = sext i32 %213 to i64
-  call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %214, ptr noundef nonnull align 1 dereferenceable(1) %26)
-          to label %215 unwind label %258
-
-215:                                              ; preds = %212
-  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
-  %216 = load i32, ptr %17, align 4
-  %217 = add nsw i32 %216, 1
-  %218 = load i32, ptr %6, align 4
-  %219 = load i32, ptr %6, align 4
-  %220 = load i32, ptr %20, align 4
-  %221 = sub nsw i32 %219, %220
-  %222 = call noundef i64 @_ZNK5faiss16ZnSphereCodecRec10get_nv_cumEiii(ptr noundef nonnull align 8 dereferenceable(112) %29, i32 noundef %217, i32 noundef %218, i32 noundef %221)
-  store i64 %222, ptr %27, align 8
-  store i32 0, ptr %28, align 4
-  br label %223
-
-223:                                              ; preds = %255, %215
-  %224 = load i32, ptr %28, align 4
-  %225 = sext i32 %224 to i64
-  %226 = load i64, ptr %22, align 8
-  %227 = icmp ult i64 %225, %226
-  br i1 %227, label %228, label %266
-
-228:                                              ; preds = %223
-  %229 = load i32, ptr %28, align 4
-  %230 = sext i32 %229 to i64
-  %231 = load i64, ptr %27, align 8
-  %232 = add i64 %230, %231
-  %233 = call noundef ptr @_ZNSt6vectorIfSaIfEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
-  %234 = load ptr, ptr %29, align 8
-  %235 = getelementptr inbounds ptr, ptr %234, i64 1
-  %236 = load ptr, ptr %235, align 8
-  invoke void %236(ptr noundef nonnull align 8 dereferenceable(112) %29, i64 noundef %232, ptr noundef %233)
-          to label %237 unwind label %262
-
-237:                                              ; preds = %228
-  %238 = load ptr, ptr %23, align 8
-  %239 = load i32, ptr %28, align 4
-  %240 = load i32, ptr %24, align 4
-  %241 = mul nsw i32 %239, %240
-  %242 = sext i32 %241 to i64
-  %243 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIfSaIfEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %238, i64 noundef %242) #3
-  %244 = call noundef ptr @_ZNSt6vectorIfSaIfEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
-  %245 = load i32, ptr %5, align 4
-  %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds float, ptr %244, i64 %246
-  %248 = load i32, ptr %24, align 4
-  %249 = sext i32 %248 to i64
-  %250 = sub i64 0, %249
-  %251 = getelementptr inbounds float, ptr %247, i64 %250
-  %252 = load i32, ptr %24, align 4
-  %253 = sext i32 %252 to i64
-  %254 = mul i64 %253, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %243, ptr align 4 %251, i64 %254, i1 false)
-  br label %255
-
-255:                                              ; preds = %237
-  %256 = load i32, ptr %28, align 4
-  %257 = add nsw i32 %256, 1
-  store i32 %257, ptr %28, align 4
-  br label %223, !llvm.loop !66
-
-258:                                              ; preds = %212
-  %259 = landingpad { ptr, i32 }
+93:                                               ; preds = %197, %185, %180, %57, %48
+  %94 = landingpad { ptr, i32 }
           cleanup
-  %260 = extractvalue { ptr, i32 } %259, 0
-  store ptr %260, ptr %7, align 8
-  %261 = extractvalue { ptr, i32 } %259, 1
-  store i32 %261, ptr %8, align 4
-  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
-  br label %273
-
-262:                                              ; preds = %228
-  %263 = landingpad { ptr, i32 }
-          cleanup
-  %264 = extractvalue { ptr, i32 } %263, 0
-  store ptr %264, ptr %7, align 8
-  %265 = extractvalue { ptr, i32 } %263, 1
-  store i32 %265, ptr %8, align 4
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
-  br label %273
-
-266:                                              ; preds = %223
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
-  br label %267
-
-267:                                              ; preds = %266
-  %268 = load i32, ptr %20, align 4
-  %269 = add nsw i32 %268, 1
-  store i32 %269, ptr %20, align 4
-  br label %192, !llvm.loop !67
-
-270:                                              ; preds = %192
-  %271 = load i32, ptr %17, align 4
-  %272 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 6
-  store i32 %271, ptr %272, align 8
-  ret void
-
-273:                                              ; preds = %262, %258, %92
-  call void @_ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #3
-  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #3
-  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #3
-  call void @_ZN5faiss17EnumeratedVectorsD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %29) #3
+  %95 = extractvalue { ptr, i32 } %94, 0
+  store ptr %95, ptr %7, align 8
+  %96 = extractvalue { ptr, i32 } %94, 1
+  store i32 %96, ptr %8, align 4
   br label %274
 
-274:                                              ; preds = %273
-  %275 = load ptr, ptr %7, align 8
-  %276 = load i32, ptr %8, align 4
-  %277 = insertvalue { ptr, i32 } poison, ptr %275, 0
-  %278 = insertvalue { ptr, i32 } %277, i32 %276, 1
-  resume { ptr, i32 } %278
+97:                                               ; preds = %74
+  %98 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 4
+  %99 = load i32, ptr %9, align 4
+  %100 = sext i32 %99 to i64
+  %101 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorImSaImEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %98, i64 noundef %100) #3
+  store i64 0, ptr %101, align 8
+  br label %102
+
+102:                                              ; preds = %97, %84
+  br label %103
+
+103:                                              ; preds = %102
+  %104 = load i32, ptr %9, align 4
+  %105 = add nsw i32 %104, 1
+  store i32 %105, ptr %9, align 4
+  br label %70, !llvm.loop !61
+
+106:                                              ; preds = %70
+  store i32 1, ptr %11, align 4
+  br label %107
+
+107:                                              ; preds = %159, %106
+  %108 = load i32, ptr %11, align 4
+  %109 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
+  %110 = load i32, ptr %109, align 8
+  %111 = icmp sle i32 %108, %110
+  br i1 %111, label %112, label %162
+
+112:                                              ; preds = %107
+  store i32 0, ptr %12, align 4
+  br label %113
+
+113:                                              ; preds = %155, %112
+  %114 = load i32, ptr %12, align 4
+  %115 = load i32, ptr %6, align 4
+  %116 = icmp sle i32 %114, %115
+  br i1 %116, label %117, label %158
+
+117:                                              ; preds = %113
+  store i64 0, ptr %13, align 8
+  store i32 0, ptr %14, align 4
+  br label %118
+
+118:                                              ; preds = %141, %117
+  %119 = load i32, ptr %14, align 4
+  %120 = load i32, ptr %12, align 4
+  %121 = icmp sle i32 %119, %120
+  br i1 %121, label %122, label %144
+
+122:                                              ; preds = %118
+  %123 = load i32, ptr %12, align 4
+  %124 = load i32, ptr %14, align 4
+  %125 = sub nsw i32 %123, %124
+  store i32 %125, ptr %15, align 4
+  %126 = load i32, ptr %11, align 4
+  %127 = load i32, ptr %12, align 4
+  %128 = load i32, ptr %14, align 4
+  %129 = load i64, ptr %13, align 8
+  call void @_ZN5faiss16ZnSphereCodecRec10set_nv_cumEiiim(ptr noundef nonnull align 8 dereferenceable(112) %29, i32 noundef %126, i32 noundef %127, i32 noundef %128, i64 noundef %129)
+  %130 = load i32, ptr %11, align 4
+  %131 = sub nsw i32 %130, 1
+  %132 = load i32, ptr %14, align 4
+  %133 = call noundef i64 @_ZNK5faiss16ZnSphereCodecRec6get_nvEii(ptr noundef nonnull align 8 dereferenceable(112) %29, i32 noundef %131, i32 noundef %132)
+  %134 = load i32, ptr %11, align 4
+  %135 = sub nsw i32 %134, 1
+  %136 = load i32, ptr %15, align 4
+  %137 = call noundef i64 @_ZNK5faiss16ZnSphereCodecRec6get_nvEii(ptr noundef nonnull align 8 dereferenceable(112) %29, i32 noundef %135, i32 noundef %136)
+  %138 = mul i64 %133, %137
+  %139 = load i64, ptr %13, align 8
+  %140 = add i64 %139, %138
+  store i64 %140, ptr %13, align 8
+  br label %141
+
+141:                                              ; preds = %122
+  %142 = load i32, ptr %14, align 4
+  %143 = add nsw i32 %142, 1
+  store i32 %143, ptr %14, align 4
+  br label %118, !llvm.loop !62
+
+144:                                              ; preds = %118
+  %145 = load i64, ptr %13, align 8
+  %146 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 4
+  %147 = load i32, ptr %11, align 4
+  %148 = load i32, ptr %6, align 4
+  %149 = add nsw i32 %148, 1
+  %150 = mul nsw i32 %147, %149
+  %151 = load i32, ptr %12, align 4
+  %152 = add nsw i32 %150, %151
+  %153 = sext i32 %152 to i64
+  %154 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorImSaImEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %146, i64 noundef %153) #3
+  store i64 %145, ptr %154, align 8
+  br label %155
+
+155:                                              ; preds = %144
+  %156 = load i32, ptr %12, align 4
+  %157 = add nsw i32 %156, 1
+  store i32 %157, ptr %12, align 4
+  br label %113, !llvm.loop !63
+
+158:                                              ; preds = %113
+  br label %159
+
+159:                                              ; preds = %158
+  %160 = load i32, ptr %11, align 4
+  %161 = add nsw i32 %160, 1
+  store i32 %161, ptr %11, align 4
+  br label %107, !llvm.loop !64
+
+162:                                              ; preds = %107
+  %163 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
+  %164 = load i32, ptr %163, align 8
+  %165 = load i32, ptr %6, align 4
+  %166 = call noundef i64 @_ZNK5faiss16ZnSphereCodecRec6get_nvEii(ptr noundef nonnull align 8 dereferenceable(112) %29, i32 noundef %164, i32 noundef %165)
+  %167 = getelementptr inbounds %"struct.faiss::EnumeratedVectors", ptr %29, i32 0, i32 1
+  store i64 %166, ptr %167, align 8
+  %168 = getelementptr inbounds %"struct.faiss::EnumeratedVectors", ptr %29, i32 0, i32 1
+  %169 = load i64, ptr %168, align 8
+  store i64 %169, ptr %16, align 8
+  %170 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 3
+  store i32 0, ptr %170, align 4
+  br label %171
+
+171:                                              ; preds = %174, %162
+  %172 = load i64, ptr %16, align 8
+  %173 = icmp ugt i64 %172, 0
+  br i1 %173, label %174, label %180
+
+174:                                              ; preds = %171
+  %175 = load i64, ptr %16, align 8
+  %176 = lshr i64 %175, 8
+  store i64 %176, ptr %16, align 8
+  %177 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 3
+  %178 = load i32, ptr %177, align 4
+  %179 = add nsw i32 %178, 1
+  store i32 %179, ptr %177, align 4
+  br label %171, !llvm.loop !65
+
+180:                                              ; preds = %171
+  store i32 3, ptr %18, align 4
+  %181 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 2
+  %182 = load i32, ptr %181, align 8
+  %183 = sub nsw i32 %182, 1
+  store i32 %183, ptr %19, align 4
+  %184 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
+          to label %185 unwind label %93
+
+185:                                              ; preds = %180
+  %186 = load i32, ptr %184, align 4
+  store i32 %186, ptr %17, align 4
+  %187 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 6
+  store i32 0, ptr %187, align 8
+  %188 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 7
+  %189 = load i32, ptr %6, align 4
+  %190 = add nsw i32 %189, 1
+  %191 = sext i32 %190 to i64
+  invoke void @_ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %188, i64 noundef %191)
+          to label %192 unwind label %93
+
+192:                                              ; preds = %185
+  store i32 0, ptr %20, align 4
+  br label %193
+
+193:                                              ; preds = %268, %192
+  %194 = load i32, ptr %20, align 4
+  %195 = load i32, ptr %6, align 4
+  %196 = icmp sle i32 %194, %195
+  br i1 %196, label %197, label %271
+
+197:                                              ; preds = %193
+  %198 = load i32, ptr %17, align 4
+  store i32 %198, ptr %21, align 4
+  %199 = load i32, ptr %21, align 4
+  %200 = load i32, ptr %20, align 4
+  %201 = call noundef i64 @_ZNK5faiss16ZnSphereCodecRec6get_nvEii(ptr noundef nonnull align 8 dereferenceable(112) %29, i32 noundef %199, i32 noundef %200)
+  store i64 %201, ptr %22, align 8
+  %202 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 7
+  %203 = load i32, ptr %20, align 4
+  %204 = sext i32 %203 to i64
+  %205 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIS_IfSaIfEESaIS1_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %202, i64 noundef %204) #3
+  store ptr %205, ptr %23, align 8
+  %206 = load i32, ptr %17, align 4
+  %207 = shl i32 1, %206
+  store i32 %207, ptr %24, align 4
+  %208 = load ptr, ptr %23, align 8
+  %209 = load i64, ptr %22, align 8
+  %210 = load i32, ptr %24, align 4
+  %211 = sext i32 %210 to i64
+  %212 = mul i64 %209, %211
+  invoke void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %208, i64 noundef %212)
+          to label %213 unwind label %93
+
+213:                                              ; preds = %197
+  %214 = load i32, ptr %5, align 4
+  %215 = sext i32 %214 to i64
+  call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %215, ptr noundef nonnull align 1 dereferenceable(1) %26)
+          to label %216 unwind label %259
+
+216:                                              ; preds = %213
+  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
+  %217 = load i32, ptr %17, align 4
+  %218 = add nsw i32 %217, 1
+  %219 = load i32, ptr %6, align 4
+  %220 = load i32, ptr %6, align 4
+  %221 = load i32, ptr %20, align 4
+  %222 = sub nsw i32 %220, %221
+  %223 = call noundef i64 @_ZNK5faiss16ZnSphereCodecRec10get_nv_cumEiii(ptr noundef nonnull align 8 dereferenceable(112) %29, i32 noundef %218, i32 noundef %219, i32 noundef %222)
+  store i64 %223, ptr %27, align 8
+  store i32 0, ptr %28, align 4
+  br label %224
+
+224:                                              ; preds = %256, %216
+  %225 = load i32, ptr %28, align 4
+  %226 = sext i32 %225 to i64
+  %227 = load i64, ptr %22, align 8
+  %228 = icmp ult i64 %226, %227
+  br i1 %228, label %229, label %267
+
+229:                                              ; preds = %224
+  %230 = load i32, ptr %28, align 4
+  %231 = sext i32 %230 to i64
+  %232 = load i64, ptr %27, align 8
+  %233 = add i64 %231, %232
+  %234 = call noundef ptr @_ZNSt6vectorIfSaIfEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  %235 = load ptr, ptr %29, align 8
+  %236 = getelementptr inbounds ptr, ptr %235, i64 1
+  %237 = load ptr, ptr %236, align 8
+  invoke void %237(ptr noundef nonnull align 8 dereferenceable(112) %29, i64 noundef %233, ptr noundef %234)
+          to label %238 unwind label %263
+
+238:                                              ; preds = %229
+  %239 = load ptr, ptr %23, align 8
+  %240 = load i32, ptr %28, align 4
+  %241 = load i32, ptr %24, align 4
+  %242 = mul nsw i32 %240, %241
+  %243 = sext i32 %242 to i64
+  %244 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIfSaIfEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %239, i64 noundef %243) #3
+  %245 = call noundef ptr @_ZNSt6vectorIfSaIfEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  %246 = load i32, ptr %5, align 4
+  %247 = sext i32 %246 to i64
+  %248 = getelementptr inbounds float, ptr %245, i64 %247
+  %249 = load i32, ptr %24, align 4
+  %250 = sext i32 %249 to i64
+  %251 = sub i64 0, %250
+  %252 = getelementptr inbounds float, ptr %248, i64 %251
+  %253 = load i32, ptr %24, align 4
+  %254 = sext i32 %253 to i64
+  %255 = mul i64 %254, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %244, ptr align 4 %252, i64 %255, i1 false)
+  br label %256
+
+256:                                              ; preds = %238
+  %257 = load i32, ptr %28, align 4
+  %258 = add nsw i32 %257, 1
+  store i32 %258, ptr %28, align 4
+  br label %224, !llvm.loop !66
+
+259:                                              ; preds = %213
+  %260 = landingpad { ptr, i32 }
+          cleanup
+  %261 = extractvalue { ptr, i32 } %260, 0
+  store ptr %261, ptr %7, align 8
+  %262 = extractvalue { ptr, i32 } %260, 1
+  store i32 %262, ptr %8, align 4
+  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
+  br label %274
+
+263:                                              ; preds = %229
+  %264 = landingpad { ptr, i32 }
+          cleanup
+  %265 = extractvalue { ptr, i32 } %264, 0
+  store ptr %265, ptr %7, align 8
+  %266 = extractvalue { ptr, i32 } %264, 1
+  store i32 %266, ptr %8, align 4
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  br label %274
+
+267:                                              ; preds = %224
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  br label %268
+
+268:                                              ; preds = %267
+  %269 = load i32, ptr %20, align 4
+  %270 = add nsw i32 %269, 1
+  store i32 %270, ptr %20, align 4
+  br label %193, !llvm.loop !67
+
+271:                                              ; preds = %193
+  %272 = load i32, ptr %17, align 4
+  %273 = getelementptr inbounds %"struct.faiss::ZnSphereCodecRec", ptr %29, i32 0, i32 6
+  store i32 %272, ptr %273, align 8
+  ret void
+
+274:                                              ; preds = %263, %259, %93
+  call void @_ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #3
+  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #3
+  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #3
+  call void @_ZN5faiss17EnumeratedVectorsD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %29) #3
+  br label %275
+
+275:                                              ; preds = %274
+  %276 = load ptr, ptr %7, align 8
+  %277 = load i32, ptr %8, align 4
+  %278 = insertvalue { ptr, i32 } poison, ptr %276, 0
+  %279 = insertvalue { ptr, i32 } %278, i32 %277, 1
+  resume { ptr, i32 } %279
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -16314,66 +16320,67 @@ define void @_ZN5faiss16ZnSphereCodecAltC2Eii(ptr noundef nonnull align 8 derefe
   %10 = load i32, ptr %5, align 4
   %11 = load i32, ptr %6, align 4
   call void @_ZN5faiss13ZnSphereCodecC2Eii(ptr noundef nonnull align 8 dereferenceable(104) %9, i32 noundef %10, i32 noundef %11)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16ZnSphereCodecAltE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"struct.faiss::ZnSphereCodecAlt", ptr %9, i32 0, i32 1
-  %13 = load i32, ptr %5, align 4
+  %12 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss16ZnSphereCodecAltE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"struct.faiss::ZnSphereCodecAlt", ptr %9, i32 0, i32 1
   %14 = load i32, ptr %5, align 4
-  %15 = sub nsw i32 %14, 1
-  %16 = and i32 %13, %15
-  %17 = icmp eq i32 %16, 0
-  %18 = zext i1 %17 to i8
-  store i8 %18, ptr %12, align 8
-  %19 = getelementptr inbounds %"struct.faiss::ZnSphereCodecAlt", ptr %9, i32 0, i32 2
-  %20 = getelementptr inbounds %"struct.faiss::ZnSphereCodecAlt", ptr %9, i32 0, i32 1
-  %21 = load i8, ptr %20, align 8
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %25
+  %15 = load i32, ptr %5, align 4
+  %16 = sub nsw i32 %15, 1
+  %17 = and i32 %14, %16
+  %18 = icmp eq i32 %17, 0
+  %19 = zext i1 %18 to i8
+  store i8 %19, ptr %13, align 8
+  %20 = getelementptr inbounds %"struct.faiss::ZnSphereCodecAlt", ptr %9, i32 0, i32 2
+  %21 = getelementptr inbounds %"struct.faiss::ZnSphereCodecAlt", ptr %9, i32 0, i32 1
+  %22 = load i8, ptr %21, align 8
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %3
-  %24 = load i32, ptr %5, align 4
-  br label %26
+24:                                               ; preds = %3
+  %25 = load i32, ptr %5, align 4
+  br label %27
 
-25:                                               ; preds = %3
-  br label %26
+26:                                               ; preds = %3
+  br label %27
 
-26:                                               ; preds = %25, %23
-  %27 = phi i32 [ %24, %23 ], [ 8, %25 ]
-  %28 = getelementptr inbounds %"struct.faiss::ZnSphereCodecAlt", ptr %9, i32 0, i32 1
-  %29 = load i8, ptr %28, align 8
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %33
+27:                                               ; preds = %26, %24
+  %28 = phi i32 [ %25, %24 ], [ 8, %26 ]
+  %29 = getelementptr inbounds %"struct.faiss::ZnSphereCodecAlt", ptr %9, i32 0, i32 1
+  %30 = load i8, ptr %29, align 8
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %34
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr %6, align 4
-  br label %34
+32:                                               ; preds = %27
+  %33 = load i32, ptr %6, align 4
+  br label %35
 
-33:                                               ; preds = %26
-  br label %34
+34:                                               ; preds = %27
+  br label %35
 
-34:                                               ; preds = %33, %31
-  %35 = phi i32 [ %32, %31 ], [ 14, %33 ]
-  invoke void @_ZN5faiss16ZnSphereCodecRecC1Eii(ptr noundef nonnull align 8 dereferenceable(112) %19, i32 noundef %27, i32 noundef %35)
-          to label %36 unwind label %37
+35:                                               ; preds = %34, %32
+  %36 = phi i32 [ %33, %32 ], [ 14, %34 ]
+  invoke void @_ZN5faiss16ZnSphereCodecRecC1Eii(ptr noundef nonnull align 8 dereferenceable(112) %20, i32 noundef %28, i32 noundef %36)
+          to label %37 unwind label %38
 
-36:                                               ; preds = %34
+37:                                               ; preds = %35
   ret void
 
-37:                                               ; preds = %34
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %35
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %7, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %8, align 4
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %7, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %8, align 4
   call void @_ZN5faiss13ZnSphereCodecD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %9) #3
-  br label %41
+  br label %42
 
-41:                                               ; preds = %37
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
-  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
-  resume { ptr, i32 } %45
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %7, align 8
+  %44 = load i32, ptr %8, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: uwtable

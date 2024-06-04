@@ -457,7 +457,8 @@ entry:
   store ptr %log_file_pattern, ptr %log_file_pattern.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node7tracing16AsyncTraceWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tracing_loop_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this1, i32 0, i32 1
   store ptr null, ptr %tracing_loop_, align 8
   %stream_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this1, i32 0, i32 4
@@ -481,8 +482,8 @@ entry:
   %file_num_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this1, i32 0, i32 15
   store i32 0, ptr %file_num_, align 4
   %log_file_pattern_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this1, i32 0, i32 16
-  %0 = load ptr, ptr %log_file_pattern.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %log_file_pattern_, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %log_file_pattern.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %log_file_pattern_, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %stream_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this1, i32 0, i32 17
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %stream_)
   %json_trace_writer_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this1, i32 0, i32 18
@@ -498,7 +499,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing16AsyncTraceWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4node7tracing16AsyncTraceWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -823,11 +825,12 @@ entry:
   %scoped_lock = alloca %"class.node::MutexBase<node::LibuvMutexTraits>::ScopedLock", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   call void @_ZN4node7tracing15NodeTraceWriter11WriteSuffixEv(ptr noundef nonnull align 8 dereferenceable(1409) %this1)
   %fd_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this1, i32 0, i32 8
-  %0 = load i32, ptr %fd_, align 8
-  %cmp = icmp ne i32 %0, -1
+  %1 = load i32, ptr %fd_, align 8
+  %cmp = icmp ne i32 %1, -1
   br i1 %cmp, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %entry
@@ -835,8 +838,8 @@ if.then:                                          ; preds = %entry
 
 do.body:                                          ; preds = %if.then
   %fd_2 = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this1, i32 0, i32 8
-  %1 = load i32, ptr %fd_2, align 8
-  %call = call i32 @uv_fs_close(ptr noundef null, ptr noundef %req, i32 noundef %1, ptr noundef null)
+  %2 = load i32, ptr %fd_2, align 8
+  %call = call i32 @uv_fs_close(ptr noundef null, ptr noundef %req, i32 noundef %2, ptr noundef null)
   %cmp3 = icmp eq i32 0, %call
   %lnot = xor i1 %cmp3, true
   %lnot4 = xor i1 %lnot, true
@@ -876,8 +879,8 @@ if.end10:                                         ; preds = %do.end9, %entry
 
 while.cond:                                       ; preds = %while.body, %if.end10
   %exited_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this1, i32 0, i32 19
-  %2 = load i8, ptr %exited_, align 8
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %exited_, align 8
+  %tobool = trunc i8 %3 to i1
   %lnot12 = xor i1 %tobool, true
   br i1 %lnot12, label %while.body, label %while.end
 

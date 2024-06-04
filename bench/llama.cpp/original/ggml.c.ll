@@ -1072,46 +1072,49 @@ entry:
   %c = alloca i32, align 4
   %fptr = alloca ptr, align 8
   %buf = alloca [42 x i8], align 16
-  %0 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1), align 8
-  %cmp = icmp ugt i32 %0, 0
+  %0 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1
+  %1 = load i32, ptr %0, align 8
+  %cmp = icmp ugt i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr @stderr, align 8
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef @.str.11)
+  %2 = load ptr, ptr @stderr, align 8
+  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef @.str.11)
   br label %if.end100
 
 if.end:                                           ; preds = %entry
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end15, %if.end
-  %2 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1), align 8
-  %cmp1 = icmp ult i32 %2, 8
+  %3 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1
+  %4 = load i32, ptr %3, align 8
+  %cmp1 = icmp ult i32 %4, 8
   br i1 %cmp1, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
   %arraydecay = getelementptr inbounds [256 x i8], ptr %path, i64 0, i64 0
-  %3 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1), align 8
-  %call2 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 256, ptr noundef @.str.12, i32 noundef %3) #16
+  %5 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1
+  %6 = load i32, ptr %5, align 8
+  %call2 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 256, ptr noundef @.str.12, i32 noundef %6) #16
   store i32 %call2, ptr %rv, align 4
   br label %do.body
 
 do.body:                                          ; preds = %while.body
-  %4 = load i32, ptr %rv, align 4
-  %cmp3 = icmp sgt i32 %4, 0
+  %7 = load i32, ptr %rv, align 4
+  %cmp3 = icmp sgt i32 %7, 0
   br i1 %cmp3, label %land.lhs.true, label %if.then6
 
 land.lhs.true:                                    ; preds = %do.body
-  %5 = load i32, ptr %rv, align 4
-  %conv = zext i32 %5 to i64
+  %8 = load i32, ptr %rv, align 4
+  %conv = zext i32 %8 to i64
   %cmp4 = icmp ult i64 %conv, 256
   br i1 %cmp4, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true, %do.body
-  %6 = load ptr, ptr @stdout, align 8
-  %call7 = call i32 @fflush(ptr noundef %6)
-  %7 = load ptr, ptr @stderr, align 8
-  %call8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 1891, ptr noundef @.str.13)
+  %9 = load ptr, ptr @stdout, align 8
+  %call7 = call i32 @fflush(ptr noundef %9)
+  %10 = load ptr, ptr @stderr, align 8
+  %call8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 1891, ptr noundef @.str.13)
   call void @ggml_print_backtrace()
   call void @abort() #17
   unreachable
@@ -1129,42 +1132,46 @@ if.then14:                                        ; preds = %do.end
   br label %while.end
 
 if.end15:                                         ; preds = %do.end
-  %8 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1), align 8
-  %inc = add i32 %8, 1
-  store i32 %inc, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1), align 8
+  %11 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1
+  %12 = load i32, ptr %11, align 8
+  %inc = add i32 %12, 1
+  %13 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1
+  store i32 %inc, ptr %13, align 8
   br label %while.cond, !llvm.loop !9
 
 while.end:                                        ; preds = %if.then14, %while.cond
   br label %while.cond16
 
 while.cond16:                                     ; preds = %if.end39, %while.end
-  %9 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2), align 4
-  %cmp17 = icmp ult i32 %9, 512
+  %14 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2
+  %15 = load i32, ptr %14, align 4
+  %cmp17 = icmp ult i32 %15, 512
   br i1 %cmp17, label %while.body19, label %while.end41
 
 while.body19:                                     ; preds = %while.cond16
   %arraydecay20 = getelementptr inbounds [256 x i8], ptr %path, i64 0, i64 0
-  %10 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2), align 4
-  %call21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay20, i64 noundef 256, ptr noundef @.str.14, i32 noundef %10) #16
+  %16 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2
+  %17 = load i32, ptr %16, align 4
+  %call21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay20, i64 noundef 256, ptr noundef @.str.14, i32 noundef %17) #16
   store i32 %call21, ptr %rv, align 4
   br label %do.body22
 
 do.body22:                                        ; preds = %while.body19
-  %11 = load i32, ptr %rv, align 4
-  %cmp23 = icmp sgt i32 %11, 0
+  %18 = load i32, ptr %rv, align 4
+  %cmp23 = icmp sgt i32 %18, 0
   br i1 %cmp23, label %land.lhs.true25, label %if.then29
 
 land.lhs.true25:                                  ; preds = %do.body22
-  %12 = load i32, ptr %rv, align 4
-  %conv26 = zext i32 %12 to i64
+  %19 = load i32, ptr %rv, align 4
+  %conv26 = zext i32 %19 to i64
   %cmp27 = icmp ult i64 %conv26, 256
   br i1 %cmp27, label %if.end32, label %if.then29
 
 if.then29:                                        ; preds = %land.lhs.true25, %do.body22
-  %13 = load ptr, ptr @stdout, align 8
-  %call30 = call i32 @fflush(ptr noundef %13)
-  %14 = load ptr, ptr @stderr, align 8
-  %call31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 1899, ptr noundef @.str.13)
+  %20 = load ptr, ptr @stdout, align 8
+  %call30 = call i32 @fflush(ptr noundef %20)
+  %21 = load ptr, ptr @stderr, align 8
+  %call31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 1899, ptr noundef @.str.13)
   call void @ggml_print_backtrace()
   call void @abort() #17
   unreachable
@@ -1182,23 +1189,28 @@ if.then38:                                        ; preds = %do.end33
   br label %while.end41
 
 if.end39:                                         ; preds = %do.end33
-  %15 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2), align 4
-  %inc40 = add i32 %15, 1
-  store i32 %inc40, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2), align 4
+  %22 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2
+  %23 = load i32, ptr %22, align 4
+  %inc40 = add i32 %23, 1
+  %24 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2
+  store i32 %inc40, ptr %24, align 4
   br label %while.cond16, !llvm.loop !10
 
 while.end41:                                      ; preds = %if.then38, %while.cond16
-  %16 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1), align 8
-  %cmp42 = icmp ult i32 %16, 1
+  %25 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1
+  %26 = load i32, ptr %25, align 8
+  %cmp42 = icmp ult i32 %26, 1
   br i1 %cmp42, label %if.then46, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.end41
-  %17 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2), align 4
-  %cmp44 = icmp ult i32 %17, 1
+  %27 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2
+  %28 = load i32, ptr %27, align 4
+  %cmp44 = icmp ult i32 %28, 1
   br i1 %cmp44, label %if.then46, label %if.end47
 
 if.then46:                                        ; preds = %lor.lhs.false, %while.end41
-  store i32 0, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1), align 8
+  %29 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1
+  store i32 0, ptr %29, align 8
   br label %if.end100
 
 if.end47:                                         ; preds = %lor.lhs.false
@@ -1206,52 +1218,55 @@ if.end47:                                         ; preds = %lor.lhs.false
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc79, %if.end47
-  %18 = load i32, ptr %n, align 4
-  %19 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1), align 8
-  %cmp48 = icmp ult i32 %18, %19
+  %30 = load i32, ptr %n, align 4
+  %31 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1
+  %32 = load i32, ptr %31, align 8
+  %cmp48 = icmp ult i32 %30, %32
   br i1 %cmp48, label %for.body, label %for.end81
 
 for.body:                                         ; preds = %for.cond
-  %20 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %20 to i64
-  %arrayidx = getelementptr inbounds [8 x %struct.ggml_numa_node], ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1), i64 0, i64 %idxprom
+  %33 = load i32, ptr %n, align 4
+  %idxprom = zext i32 %33 to i64
+  %34 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1
+  %arrayidx = getelementptr inbounds [8 x %struct.ggml_numa_node], ptr %34, i64 0, i64 %idxprom
   store ptr %arrayidx, ptr %node, align 8
-  %21 = load ptr, ptr %node, align 8
-  %n_cpus = getelementptr inbounds %struct.ggml_numa_node, ptr %21, i32 0, i32 1
+  %35 = load ptr, ptr %node, align 8
+  %n_cpus = getelementptr inbounds %struct.ggml_numa_node, ptr %35, i32 0, i32 1
   store i32 0, ptr %n_cpus, align 4
   store i32 0, ptr %c, align 4
   br label %for.cond50
 
 for.cond50:                                       ; preds = %for.inc, %for.body
-  %22 = load i32, ptr %c, align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2), align 4
-  %cmp51 = icmp ult i32 %22, %23
+  %36 = load i32, ptr %c, align 4
+  %37 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2
+  %38 = load i32, ptr %37, align 4
+  %cmp51 = icmp ult i32 %36, %38
   br i1 %cmp51, label %for.body53, label %for.end
 
 for.body53:                                       ; preds = %for.cond50
   %arraydecay54 = getelementptr inbounds [256 x i8], ptr %path, i64 0, i64 0
-  %24 = load i32, ptr %n, align 4
-  %25 = load i32, ptr %c, align 4
-  %call55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay54, i64 noundef 256, ptr noundef @.str.15, i32 noundef %24, i32 noundef %25) #16
+  %39 = load i32, ptr %n, align 4
+  %40 = load i32, ptr %c, align 4
+  %call55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay54, i64 noundef 256, ptr noundef @.str.15, i32 noundef %39, i32 noundef %40) #16
   store i32 %call55, ptr %rv, align 4
   br label %do.body56
 
 do.body56:                                        ; preds = %for.body53
-  %26 = load i32, ptr %rv, align 4
-  %cmp57 = icmp sgt i32 %26, 0
+  %41 = load i32, ptr %rv, align 4
+  %cmp57 = icmp sgt i32 %41, 0
   br i1 %cmp57, label %land.lhs.true59, label %if.then63
 
 land.lhs.true59:                                  ; preds = %do.body56
-  %27 = load i32, ptr %rv, align 4
-  %conv60 = zext i32 %27 to i64
+  %42 = load i32, ptr %rv, align 4
+  %conv60 = zext i32 %42 to i64
   %cmp61 = icmp ult i64 %conv60, 256
   br i1 %cmp61, label %if.end66, label %if.then63
 
 if.then63:                                        ; preds = %land.lhs.true59, %do.body56
-  %28 = load ptr, ptr @stdout, align 8
-  %call64 = call i32 @fflush(ptr noundef %28)
-  %29 = load ptr, ptr @stderr, align 8
-  %call65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 1917, ptr noundef @.str.13)
+  %43 = load ptr, ptr @stdout, align 8
+  %call64 = call i32 @fflush(ptr noundef %43)
+  %44 = load ptr, ptr @stderr, align 8
+  %call65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 1917, ptr noundef @.str.13)
   call void @ggml_print_backtrace()
   call void @abort() #17
   unreachable
@@ -1266,25 +1281,25 @@ do.end67:                                         ; preds = %if.end66
   br i1 %cmp70, label %if.then72, label %if.end77
 
 if.then72:                                        ; preds = %do.end67
-  %30 = load i32, ptr %c, align 4
-  %31 = load ptr, ptr %node, align 8
-  %cpus = getelementptr inbounds %struct.ggml_numa_node, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %node, align 8
-  %n_cpus73 = getelementptr inbounds %struct.ggml_numa_node, ptr %32, i32 0, i32 1
-  %33 = load i32, ptr %n_cpus73, align 4
-  %inc74 = add i32 %33, 1
+  %45 = load i32, ptr %c, align 4
+  %46 = load ptr, ptr %node, align 8
+  %cpus = getelementptr inbounds %struct.ggml_numa_node, ptr %46, i32 0, i32 0
+  %47 = load ptr, ptr %node, align 8
+  %n_cpus73 = getelementptr inbounds %struct.ggml_numa_node, ptr %47, i32 0, i32 1
+  %48 = load i32, ptr %n_cpus73, align 4
+  %inc74 = add i32 %48, 1
   store i32 %inc74, ptr %n_cpus73, align 4
-  %idxprom75 = zext i32 %33 to i64
+  %idxprom75 = zext i32 %48 to i64
   %arrayidx76 = getelementptr inbounds [512 x i32], ptr %cpus, i64 0, i64 %idxprom75
-  store i32 %30, ptr %arrayidx76, align 4
+  store i32 %45, ptr %arrayidx76, align 4
   br label %if.end77
 
 if.end77:                                         ; preds = %if.then72, %do.end67
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end77
-  %34 = load i32, ptr %c, align 4
-  %inc78 = add i32 %34, 1
+  %49 = load i32, ptr %c, align 4
+  %inc78 = add i32 %49, 1
   store i32 %inc78, ptr %c, align 4
   br label %for.cond50, !llvm.loop !11
 
@@ -1292,8 +1307,8 @@ for.end:                                          ; preds = %for.cond50
   br label %for.inc79
 
 for.inc79:                                        ; preds = %for.end
-  %35 = load i32, ptr %n, align 4
-  %inc80 = add i32 %35, 1
+  %50 = load i32, ptr %n, align 4
+  %inc80 = add i32 %50, 1
   store i32 %inc80, ptr %n, align 4
   br label %for.cond, !llvm.loop !12
 
@@ -1304,14 +1319,14 @@ for.end81:                                        ; preds = %for.cond
 if.then83:                                        ; preds = %for.end81
   %call84 = call noalias ptr @fopen(ptr noundef @.str.16, ptr noundef @.str.17)
   store ptr %call84, ptr %fptr, align 8
-  %36 = load ptr, ptr %fptr, align 8
-  %cmp85 = icmp ne ptr %36, null
+  %51 = load ptr, ptr %fptr, align 8
+  %cmp85 = icmp ne ptr %51, null
   br i1 %cmp85, label %if.then87, label %if.end99
 
 if.then87:                                        ; preds = %if.then83
   %arraydecay88 = getelementptr inbounds [42 x i8], ptr %buf, i64 0, i64 0
-  %37 = load ptr, ptr %fptr, align 8
-  %call89 = call ptr @fgets(ptr noundef %arraydecay88, i32 noundef 42, ptr noundef %37)
+  %52 = load ptr, ptr %fptr, align 8
+  %call89 = call ptr @fgets(ptr noundef %arraydecay88, i32 noundef 42, ptr noundef %52)
   %tobool = icmp ne ptr %call89, null
   br i1 %tobool, label %land.lhs.true90, label %if.end97
 
@@ -1326,8 +1341,8 @@ if.then95:                                        ; preds = %land.lhs.true90
   br label %if.end97
 
 if.end97:                                         ; preds = %if.then95, %land.lhs.true90, %if.then87
-  %38 = load ptr, ptr %fptr, align 8
-  %call98 = call i32 @fclose(ptr noundef %38)
+  %53 = load ptr, ptr %fptr, align 8
+  %call98 = call i32 @fclose(ptr noundef %53)
   br label %if.end99
 
 if.end99:                                         ; preds = %if.end97, %if.then83
@@ -1343,8 +1358,9 @@ declare i32 @stat(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @ggml_is_numa() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1), align 8
-  %cmp = icmp ugt i32 %0, 1
+  %0 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1
+  %1 = load i32, ptr %0, align 8
+  %cmp = icmp ugt i32 %1, 1
   ret i1 %cmp
 }
 
@@ -6167,7 +6183,7 @@ entry:
   store ptr %tensor, ptr %tensor.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %tensor.addr, align 8
   %name = getelementptr inbounds %struct.ggml_tensor, ptr %0, i32 0, i32 16
   %arraydecay1 = getelementptr inbounds [64 x i8], ptr %name, i64 0, i64 0
@@ -6175,19 +6191,13 @@ entry:
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   %call = call i32 @vsnprintf(ptr noundef %arraydecay1, i64 noundef 64, ptr noundef %1, ptr noundef %arraydecay2) #16
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %2 = load ptr, ptr %tensor.addr, align 8
   ret ptr %2
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
 
 ; Function Attrs: nounwind uwtable
 define ptr @ggml_view_tensor(ptr noundef %ctx, ptr noundef %src) #0 {
@@ -19593,10 +19603,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #11
+declare float @llvm.floor.f32(float) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #11
+declare float @llvm.ceil.f32(float) #10
 
 ; Function Attrs: nounwind uwtable
 define i64 @ggml_hash_find(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef %key) #0 {
@@ -26770,20 +26780,21 @@ if.then:                                          ; preds = %land.lhs.true
   %20 = load ptr, ptr %shared7, align 8
   %node_n8 = getelementptr inbounds %struct.ggml_compute_state_shared, ptr %20, i32 0, i32 6
   %21 = atomicrmw add ptr %node_n8, i32 1 seq_cst, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %retval, align 8
+  %22 = inttoptr i64 1 to ptr
+  store ptr %22, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %while.body
-  %22 = load ptr, ptr %state, align 8
-  %shared9 = getelementptr inbounds %struct.ggml_compute_state, ptr %22, i32 0, i32 2
-  %23 = load ptr, ptr %shared9, align 8
-  %n_active = getelementptr inbounds %struct.ggml_compute_state_shared, ptr %23, i32 0, i32 5
+  %23 = load ptr, ptr %state, align 8
+  %shared9 = getelementptr inbounds %struct.ggml_compute_state, ptr %23, i32 0, i32 2
+  %24 = load ptr, ptr %shared9, align 8
+  %n_active = getelementptr inbounds %struct.ggml_compute_state_shared, ptr %24, i32 0, i32 5
   store i32 1, ptr %.atomictmp, align 4
-  %24 = load i32, ptr %.atomictmp, align 4
-  %25 = atomicrmw sub ptr %n_active, i32 %24 seq_cst, align 4
-  store i32 %25, ptr %atomic-temp, align 4
-  %26 = load i32, ptr %atomic-temp, align 4
-  %cmp = icmp eq i32 %26, 1
+  %25 = load i32, ptr %.atomictmp, align 4
+  %26 = atomicrmw sub ptr %n_active, i32 %25 seq_cst, align 4
+  store i32 %26, ptr %atomic-temp, align 4
+  %27 = load i32, ptr %atomic-temp, align 4
+  %cmp = icmp eq i32 %27, 1
   br i1 %cmp, label %if.then10, label %if.else67
 
 if.then10:                                        ; preds = %if.end
@@ -26794,162 +26805,162 @@ if.then10:                                        ; preds = %if.end
   %nth = getelementptr inbounds %struct.ggml_compute_params, ptr %params, i32 0, i32 2
   store i32 0, ptr %nth, align 8
   %wsize = getelementptr inbounds %struct.ggml_compute_params, ptr %params, i32 0, i32 3
-  %27 = load ptr, ptr %cplan, align 8
-  %work_size = getelementptr inbounds %struct.ggml_cplan, ptr %27, i32 0, i32 0
-  %28 = load i64, ptr %work_size, align 8
-  store i64 %28, ptr %wsize, align 8
+  %28 = load ptr, ptr %cplan, align 8
+  %work_size = getelementptr inbounds %struct.ggml_cplan, ptr %28, i32 0, i32 0
+  %29 = load i64, ptr %work_size, align 8
+  store i64 %29, ptr %wsize, align 8
   %wdata = getelementptr inbounds %struct.ggml_compute_params, ptr %params, i32 0, i32 4
-  %29 = load ptr, ptr %cplan, align 8
-  %work_data = getelementptr inbounds %struct.ggml_cplan, ptr %29, i32 0, i32 1
-  %30 = load ptr, ptr %work_data, align 8
-  store ptr %30, ptr %wdata, align 8
-  %31 = load i32, ptr %node_n, align 4
-  %cmp12 = icmp ne i32 %31, -1
+  %30 = load ptr, ptr %cplan, align 8
+  %work_data = getelementptr inbounds %struct.ggml_cplan, ptr %30, i32 0, i32 1
+  %31 = load ptr, ptr %work_data, align 8
+  store ptr %31, ptr %wdata, align 8
+  %32 = load i32, ptr %node_n, align 4
+  %cmp12 = icmp ne i32 %32, -1
   br i1 %cmp12, label %if.then13, label %if.end22
 
 if.then13:                                        ; preds = %if.then10
-  %32 = load ptr, ptr %cgraph, align 8
-  %nodes = getelementptr inbounds %struct.ggml_cgraph, ptr %32, i32 0, i32 3
-  %33 = load ptr, ptr %nodes, align 8
-  %34 = load i32, ptr %node_n, align 4
-  %idxprom = sext i32 %34 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %33, i64 %idxprom
-  %35 = load ptr, ptr %arrayidx, align 8
-  store ptr %35, ptr %node, align 8
-  %36 = load ptr, ptr %node, align 8
-  %op = getelementptr inbounds %struct.ggml_tensor, ptr %36, i32 0, i32 5
-  %37 = load i32, ptr %op, align 8
-  %idxprom14 = zext i32 %37 to i64
+  %33 = load ptr, ptr %cgraph, align 8
+  %nodes = getelementptr inbounds %struct.ggml_cgraph, ptr %33, i32 0, i32 3
+  %34 = load ptr, ptr %nodes, align 8
+  %35 = load i32, ptr %node_n, align 4
+  %idxprom = sext i32 %35 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %34, i64 %idxprom
+  %36 = load ptr, ptr %arrayidx, align 8
+  store ptr %36, ptr %node, align 8
+  %37 = load ptr, ptr %node, align 8
+  %op = getelementptr inbounds %struct.ggml_tensor, ptr %37, i32 0, i32 5
+  %38 = load i32, ptr %op, align 8
+  %idxprom14 = zext i32 %38 to i64
   %arrayidx15 = getelementptr inbounds [72 x i8], ptr @GGML_OP_HAS_FINALIZE, i64 0, i64 %idxprom14
-  %38 = load i8, ptr %arrayidx15, align 1
-  %tobool16 = trunc i8 %38 to i1
+  %39 = load i8, ptr %arrayidx15, align 1
+  %tobool16 = trunc i8 %39 to i1
   br i1 %tobool16, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %if.then13
-  %39 = load ptr, ptr %node, align 8
-  %40 = load i32, ptr %n_threads, align 4
-  %call18 = call i32 @ggml_get_n_tasks(ptr noundef %39, i32 noundef %40)
+  %40 = load ptr, ptr %node, align 8
+  %41 = load i32, ptr %n_threads, align 4
+  %call18 = call i32 @ggml_get_n_tasks(ptr noundef %40, i32 noundef %41)
   %nth19 = getelementptr inbounds %struct.ggml_compute_params, ptr %params, i32 0, i32 2
   store i32 %call18, ptr %nth19, align 8
-  %41 = load ptr, ptr %node, align 8
-  call void @ggml_compute_forward(ptr noundef %params, ptr noundef %41)
+  %42 = load ptr, ptr %node, align 8
+  call void @ggml_compute_forward(ptr noundef %params, ptr noundef %42)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then17, %if.then13
-  %42 = load ptr, ptr %node, align 8
-  %43 = load ptr, ptr %state, align 8
-  %shared21 = getelementptr inbounds %struct.ggml_compute_state, ptr %43, i32 0, i32 2
-  %44 = load ptr, ptr %shared21, align 8
-  call void @ggml_graph_compute_perf_stats_node(ptr noundef %42, ptr noundef %44)
+  %43 = load ptr, ptr %node, align 8
+  %44 = load ptr, ptr %state, align 8
+  %shared21 = getelementptr inbounds %struct.ggml_compute_state, ptr %44, i32 0, i32 2
+  %45 = load ptr, ptr %shared21, align 8
+  call void @ggml_graph_compute_perf_stats_node(ptr noundef %43, ptr noundef %45)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end20, %if.then10
   br label %while.cond23
 
 while.cond23:                                     ; preds = %if.end60, %if.end22
-  %45 = load i32, ptr %node_n, align 4
-  %inc = add nsw i32 %45, 1
+  %46 = load i32, ptr %node_n, align 4
+  %inc = add nsw i32 %46, 1
   store i32 %inc, ptr %node_n, align 4
-  %46 = load ptr, ptr %cgraph, align 8
-  %n_nodes = getelementptr inbounds %struct.ggml_cgraph, ptr %46, i32 0, i32 1
-  %47 = load i32, ptr %n_nodes, align 4
-  %cmp24 = icmp slt i32 %inc, %47
+  %47 = load ptr, ptr %cgraph, align 8
+  %n_nodes = getelementptr inbounds %struct.ggml_cgraph, ptr %47, i32 0, i32 1
+  %48 = load i32, ptr %n_nodes, align 4
+  %cmp24 = icmp slt i32 %inc, %48
   br i1 %cmp24, label %while.body25, label %while.end
 
 while.body25:                                     ; preds = %while.cond23
-  %48 = load ptr, ptr %cgraph, align 8
-  %nodes27 = getelementptr inbounds %struct.ggml_cgraph, ptr %48, i32 0, i32 3
-  %49 = load ptr, ptr %nodes27, align 8
-  %50 = load i32, ptr %node_n, align 4
-  %idxprom28 = sext i32 %50 to i64
-  %arrayidx29 = getelementptr inbounds ptr, ptr %49, i64 %idxprom28
-  %51 = load ptr, ptr %arrayidx29, align 8
-  store ptr %51, ptr %node26, align 8
-  %52 = load ptr, ptr %node26, align 8
-  %53 = load i32, ptr %n_threads, align 4
-  %call30 = call i32 @ggml_get_n_tasks(ptr noundef %52, i32 noundef %53)
+  %49 = load ptr, ptr %cgraph, align 8
+  %nodes27 = getelementptr inbounds %struct.ggml_cgraph, ptr %49, i32 0, i32 3
+  %50 = load ptr, ptr %nodes27, align 8
+  %51 = load i32, ptr %node_n, align 4
+  %idxprom28 = sext i32 %51 to i64
+  %arrayidx29 = getelementptr inbounds ptr, ptr %50, i64 %idxprom28
+  %52 = load ptr, ptr %arrayidx29, align 8
+  store ptr %52, ptr %node26, align 8
+  %53 = load ptr, ptr %node26, align 8
+  %54 = load i32, ptr %n_threads, align 4
+  %call30 = call i32 @ggml_get_n_tasks(ptr noundef %53, i32 noundef %54)
   store i32 %call30, ptr %n_tasks, align 4
-  %54 = load ptr, ptr %state, align 8
-  %shared31 = getelementptr inbounds %struct.ggml_compute_state, ptr %54, i32 0, i32 2
-  %55 = load ptr, ptr %shared31, align 8
-  %perf_node_start_cycles = getelementptr inbounds %struct.ggml_compute_state_shared, ptr %55, i32 0, i32 2
+  %55 = load ptr, ptr %state, align 8
+  %shared31 = getelementptr inbounds %struct.ggml_compute_state, ptr %55, i32 0, i32 2
+  %56 = load ptr, ptr %shared31, align 8
+  %perf_node_start_cycles = getelementptr inbounds %struct.ggml_compute_state_shared, ptr %56, i32 0, i32 2
   store i64 0, ptr %perf_node_start_cycles, align 8
-  %56 = load ptr, ptr %state, align 8
-  %shared32 = getelementptr inbounds %struct.ggml_compute_state, ptr %56, i32 0, i32 2
-  %57 = load ptr, ptr %shared32, align 8
-  %perf_node_start_time_us = getelementptr inbounds %struct.ggml_compute_state_shared, ptr %57, i32 0, i32 3
+  %57 = load ptr, ptr %state, align 8
+  %shared32 = getelementptr inbounds %struct.ggml_compute_state, ptr %57, i32 0, i32 2
+  %58 = load ptr, ptr %shared32, align 8
+  %perf_node_start_time_us = getelementptr inbounds %struct.ggml_compute_state_shared, ptr %58, i32 0, i32 3
   store i64 0, ptr %perf_node_start_time_us, align 8
-  %58 = load i32, ptr %n_tasks, align 4
+  %59 = load i32, ptr %n_tasks, align 4
   %nth33 = getelementptr inbounds %struct.ggml_compute_params, ptr %params, i32 0, i32 2
-  store i32 %58, ptr %nth33, align 8
-  %59 = load ptr, ptr %node26, align 8
-  %op34 = getelementptr inbounds %struct.ggml_tensor, ptr %59, i32 0, i32 5
-  %60 = load i32, ptr %op34, align 8
-  %idxprom35 = zext i32 %60 to i64
+  store i32 %59, ptr %nth33, align 8
+  %60 = load ptr, ptr %node26, align 8
+  %op34 = getelementptr inbounds %struct.ggml_tensor, ptr %60, i32 0, i32 5
+  %61 = load i32, ptr %op34, align 8
+  %idxprom35 = zext i32 %61 to i64
   %arrayidx36 = getelementptr inbounds [72 x i8], ptr @GGML_OP_HAS_INIT, i64 0, i64 %idxprom35
-  %61 = load i8, ptr %arrayidx36, align 1
-  %tobool37 = trunc i8 %61 to i1
+  %62 = load i8, ptr %arrayidx36, align 1
+  %tobool37 = trunc i8 %62 to i1
   br i1 %tobool37, label %if.then38, label %if.end40
 
 if.then38:                                        ; preds = %while.body25
   %type39 = getelementptr inbounds %struct.ggml_compute_params, ptr %params, i32 0, i32 0
   store i32 0, ptr %type39, align 8
-  %62 = load ptr, ptr %node26, align 8
-  call void @ggml_compute_forward(ptr noundef %params, ptr noundef %62)
+  %63 = load ptr, ptr %node26, align 8
+  call void @ggml_compute_forward(ptr noundef %params, ptr noundef %63)
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then38, %while.body25
-  %63 = load i32, ptr %n_tasks, align 4
-  %cmp41 = icmp eq i32 %63, 1
+  %64 = load i32, ptr %n_tasks, align 4
+  %cmp41 = icmp eq i32 %64, 1
   br i1 %cmp41, label %if.then42, label %if.else
 
 if.then42:                                        ; preds = %if.end40
   %type43 = getelementptr inbounds %struct.ggml_compute_params, ptr %params, i32 0, i32 0
   store i32 1, ptr %type43, align 8
-  %64 = load ptr, ptr %node26, align 8
-  call void @ggml_compute_forward(ptr noundef %params, ptr noundef %64)
   %65 = load ptr, ptr %node26, align 8
-  %op44 = getelementptr inbounds %struct.ggml_tensor, ptr %65, i32 0, i32 5
-  %66 = load i32, ptr %op44, align 8
-  %idxprom45 = zext i32 %66 to i64
+  call void @ggml_compute_forward(ptr noundef %params, ptr noundef %65)
+  %66 = load ptr, ptr %node26, align 8
+  %op44 = getelementptr inbounds %struct.ggml_tensor, ptr %66, i32 0, i32 5
+  %67 = load i32, ptr %op44, align 8
+  %idxprom45 = zext i32 %67 to i64
   %arrayidx46 = getelementptr inbounds [72 x i8], ptr @GGML_OP_HAS_FINALIZE, i64 0, i64 %idxprom45
-  %67 = load i8, ptr %arrayidx46, align 1
-  %tobool47 = trunc i8 %67 to i1
+  %68 = load i8, ptr %arrayidx46, align 1
+  %tobool47 = trunc i8 %68 to i1
   br i1 %tobool47, label %if.then48, label %if.end50
 
 if.then48:                                        ; preds = %if.then42
   %type49 = getelementptr inbounds %struct.ggml_compute_params, ptr %params, i32 0, i32 0
   store i32 2, ptr %type49, align 8
-  %68 = load ptr, ptr %node26, align 8
-  call void @ggml_compute_forward(ptr noundef %params, ptr noundef %68)
+  %69 = load ptr, ptr %node26, align 8
+  call void @ggml_compute_forward(ptr noundef %params, ptr noundef %69)
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then48, %if.then42
-  %69 = load ptr, ptr %node26, align 8
-  %70 = load ptr, ptr %state, align 8
-  %shared51 = getelementptr inbounds %struct.ggml_compute_state, ptr %70, i32 0, i32 2
-  %71 = load ptr, ptr %shared51, align 8
-  call void @ggml_graph_compute_perf_stats_node(ptr noundef %69, ptr noundef %71)
+  %70 = load ptr, ptr %node26, align 8
+  %71 = load ptr, ptr %state, align 8
+  %shared51 = getelementptr inbounds %struct.ggml_compute_state, ptr %71, i32 0, i32 2
+  %72 = load ptr, ptr %shared51, align 8
+  call void @ggml_graph_compute_perf_stats_node(ptr noundef %70, ptr noundef %72)
   br label %if.end52
 
 if.else:                                          ; preds = %if.end40
   br label %while.end
 
 if.end52:                                         ; preds = %if.end50
-  %72 = load ptr, ptr %cplan, align 8
-  %abort_callback53 = getelementptr inbounds %struct.ggml_cplan, ptr %72, i32 0, i32 3
-  %73 = load ptr, ptr %abort_callback53, align 8
-  %tobool54 = icmp ne ptr %73, null
+  %73 = load ptr, ptr %cplan, align 8
+  %abort_callback53 = getelementptr inbounds %struct.ggml_cplan, ptr %73, i32 0, i32 3
+  %74 = load ptr, ptr %abort_callback53, align 8
+  %tobool54 = icmp ne ptr %74, null
   br i1 %tobool54, label %land.lhs.true55, label %if.end60
 
 land.lhs.true55:                                  ; preds = %if.end52
-  %74 = load ptr, ptr %cplan, align 8
-  %abort_callback56 = getelementptr inbounds %struct.ggml_cplan, ptr %74, i32 0, i32 3
-  %75 = load ptr, ptr %abort_callback56, align 8
-  %76 = load ptr, ptr %cplan, align 8
-  %abort_callback_data57 = getelementptr inbounds %struct.ggml_cplan, ptr %76, i32 0, i32 4
-  %77 = load ptr, ptr %abort_callback_data57, align 8
-  %call58 = call zeroext i1 %75(ptr noundef %77)
+  %75 = load ptr, ptr %cplan, align 8
+  %abort_callback56 = getelementptr inbounds %struct.ggml_cplan, ptr %75, i32 0, i32 3
+  %76 = load ptr, ptr %abort_callback56, align 8
+  %77 = load ptr, ptr %cplan, align 8
+  %abort_callback_data57 = getelementptr inbounds %struct.ggml_cplan, ptr %77, i32 0, i32 4
+  %78 = load ptr, ptr %abort_callback_data57, align 8
+  %call58 = call zeroext i1 %76(ptr noundef %78)
   br i1 %call58, label %if.then59, label %if.end60
 
 if.then59:                                        ; preds = %land.lhs.true55
@@ -26959,41 +26970,41 @@ if.end60:                                         ; preds = %land.lhs.true55, %i
   br label %while.cond23, !llvm.loop !68
 
 while.end:                                        ; preds = %if.then59, %if.else, %while.cond23
-  %78 = load ptr, ptr %state, align 8
-  %shared61 = getelementptr inbounds %struct.ggml_compute_state, ptr %78, i32 0, i32 2
-  %79 = load ptr, ptr %shared61, align 8
-  %n_active62 = getelementptr inbounds %struct.ggml_compute_state_shared, ptr %79, i32 0, i32 5
-  %80 = load i32, ptr %n_threads, align 4
-  store i32 %80, ptr %.atomictmp63, align 4
-  %81 = load i32, ptr %.atomictmp63, align 4
-  store atomic i32 %81, ptr %n_active62 seq_cst, align 4
-  %82 = load ptr, ptr %state, align 8
-  %shared64 = getelementptr inbounds %struct.ggml_compute_state, ptr %82, i32 0, i32 2
-  %83 = load ptr, ptr %shared64, align 8
-  %node_n65 = getelementptr inbounds %struct.ggml_compute_state_shared, ptr %83, i32 0, i32 6
-  %84 = load i32, ptr %node_n, align 4
-  store i32 %84, ptr %.atomictmp66, align 4
-  %85 = load i32, ptr %.atomictmp66, align 4
-  store atomic i32 %85, ptr %node_n65 seq_cst, align 8
+  %79 = load ptr, ptr %state, align 8
+  %shared61 = getelementptr inbounds %struct.ggml_compute_state, ptr %79, i32 0, i32 2
+  %80 = load ptr, ptr %shared61, align 8
+  %n_active62 = getelementptr inbounds %struct.ggml_compute_state_shared, ptr %80, i32 0, i32 5
+  %81 = load i32, ptr %n_threads, align 4
+  store i32 %81, ptr %.atomictmp63, align 4
+  %82 = load i32, ptr %.atomictmp63, align 4
+  store atomic i32 %82, ptr %n_active62 seq_cst, align 4
+  %83 = load ptr, ptr %state, align 8
+  %shared64 = getelementptr inbounds %struct.ggml_compute_state, ptr %83, i32 0, i32 2
+  %84 = load ptr, ptr %shared64, align 8
+  %node_n65 = getelementptr inbounds %struct.ggml_compute_state_shared, ptr %84, i32 0, i32 6
+  %85 = load i32, ptr %node_n, align 4
+  store i32 %85, ptr %.atomictmp66, align 4
+  %86 = load i32, ptr %.atomictmp66, align 4
+  store atomic i32 %86, ptr %node_n65 seq_cst, align 8
   br label %if.end77
 
 if.else67:                                        ; preds = %if.end
-  %86 = load i32, ptr %node_n, align 4
-  store i32 %86, ptr %last, align 4
+  %87 = load i32, ptr %node_n, align 4
+  store i32 %87, ptr %last, align 4
   br label %while.body69
 
 while.body69:                                     ; preds = %if.end75, %if.else67
-  %87 = load ptr, ptr %state, align 8
-  %shared70 = getelementptr inbounds %struct.ggml_compute_state, ptr %87, i32 0, i32 2
-  %88 = load ptr, ptr %shared70, align 8
-  %node_n71 = getelementptr inbounds %struct.ggml_compute_state_shared, ptr %88, i32 0, i32 6
-  %89 = load atomic i32, ptr %node_n71 seq_cst, align 8
-  store i32 %89, ptr %atomic-temp72, align 4
-  %90 = load i32, ptr %atomic-temp72, align 4
-  store i32 %90, ptr %node_n, align 4
-  %91 = load i32, ptr %node_n, align 4
-  %92 = load i32, ptr %last, align 4
-  %cmp73 = icmp ne i32 %91, %92
+  %88 = load ptr, ptr %state, align 8
+  %shared70 = getelementptr inbounds %struct.ggml_compute_state, ptr %88, i32 0, i32 2
+  %89 = load ptr, ptr %shared70, align 8
+  %node_n71 = getelementptr inbounds %struct.ggml_compute_state_shared, ptr %89, i32 0, i32 6
+  %90 = load atomic i32, ptr %node_n71 seq_cst, align 8
+  store i32 %90, ptr %atomic-temp72, align 4
+  %91 = load i32, ptr %atomic-temp72, align 4
+  store i32 %91, ptr %node_n, align 4
+  %92 = load i32, ptr %node_n, align 4
+  %93 = load i32, ptr %last, align 4
+  %cmp73 = icmp ne i32 %92, %93
   br i1 %cmp73, label %if.then74, label %if.end75
 
 if.then74:                                        ; preds = %while.body69
@@ -27006,59 +27017,59 @@ while.end76:                                      ; preds = %if.then74
   br label %if.end77
 
 if.end77:                                         ; preds = %while.end76, %while.end
-  %93 = load i32, ptr %node_n, align 4
-  %94 = load ptr, ptr %cgraph, align 8
-  %n_nodes78 = getelementptr inbounds %struct.ggml_cgraph, ptr %94, i32 0, i32 1
-  %95 = load i32, ptr %n_nodes78, align 4
-  %cmp79 = icmp sge i32 %93, %95
+  %94 = load i32, ptr %node_n, align 4
+  %95 = load ptr, ptr %cgraph, align 8
+  %n_nodes78 = getelementptr inbounds %struct.ggml_cgraph, ptr %95, i32 0, i32 1
+  %96 = load i32, ptr %n_nodes78, align 4
+  %cmp79 = icmp sge i32 %94, %96
   br i1 %cmp79, label %if.then80, label %if.end81
 
 if.then80:                                        ; preds = %if.end77
   br label %while.end101
 
 if.end81:                                         ; preds = %if.end77
-  %96 = load ptr, ptr %cgraph, align 8
-  %nodes83 = getelementptr inbounds %struct.ggml_cgraph, ptr %96, i32 0, i32 3
-  %97 = load ptr, ptr %nodes83, align 8
-  %98 = load i32, ptr %node_n, align 4
-  %idxprom84 = sext i32 %98 to i64
-  %arrayidx85 = getelementptr inbounds ptr, ptr %97, i64 %idxprom84
-  %99 = load ptr, ptr %arrayidx85, align 8
-  store ptr %99, ptr %node82, align 8
-  %100 = load ptr, ptr %node82, align 8
-  %101 = load i32, ptr %n_threads, align 4
-  %call87 = call i32 @ggml_get_n_tasks(ptr noundef %100, i32 noundef %101)
+  %97 = load ptr, ptr %cgraph, align 8
+  %nodes83 = getelementptr inbounds %struct.ggml_cgraph, ptr %97, i32 0, i32 3
+  %98 = load ptr, ptr %nodes83, align 8
+  %99 = load i32, ptr %node_n, align 4
+  %idxprom84 = sext i32 %99 to i64
+  %arrayidx85 = getelementptr inbounds ptr, ptr %98, i64 %idxprom84
+  %100 = load ptr, ptr %arrayidx85, align 8
+  store ptr %100, ptr %node82, align 8
+  %101 = load ptr, ptr %node82, align 8
+  %102 = load i32, ptr %n_threads, align 4
+  %call87 = call i32 @ggml_get_n_tasks(ptr noundef %101, i32 noundef %102)
   store i32 %call87, ptr %n_tasks86, align 4
   %type89 = getelementptr inbounds %struct.ggml_compute_params, ptr %params88, i32 0, i32 0
   store i32 1, ptr %type89, align 8
   %ith90 = getelementptr inbounds %struct.ggml_compute_params, ptr %params88, i32 0, i32 1
-  %102 = load ptr, ptr %state, align 8
-  %ith91 = getelementptr inbounds %struct.ggml_compute_state, ptr %102, i32 0, i32 1
-  %103 = load i32, ptr %ith91, align 8
-  store i32 %103, ptr %ith90, align 4
+  %103 = load ptr, ptr %state, align 8
+  %ith91 = getelementptr inbounds %struct.ggml_compute_state, ptr %103, i32 0, i32 1
+  %104 = load i32, ptr %ith91, align 8
+  store i32 %104, ptr %ith90, align 4
   %nth92 = getelementptr inbounds %struct.ggml_compute_params, ptr %params88, i32 0, i32 2
-  %104 = load i32, ptr %n_tasks86, align 4
-  store i32 %104, ptr %nth92, align 8
+  %105 = load i32, ptr %n_tasks86, align 4
+  store i32 %105, ptr %nth92, align 8
   %wsize93 = getelementptr inbounds %struct.ggml_compute_params, ptr %params88, i32 0, i32 3
-  %105 = load ptr, ptr %cplan, align 8
-  %work_size94 = getelementptr inbounds %struct.ggml_cplan, ptr %105, i32 0, i32 0
-  %106 = load i64, ptr %work_size94, align 8
-  store i64 %106, ptr %wsize93, align 8
+  %106 = load ptr, ptr %cplan, align 8
+  %work_size94 = getelementptr inbounds %struct.ggml_cplan, ptr %106, i32 0, i32 0
+  %107 = load i64, ptr %work_size94, align 8
+  store i64 %107, ptr %wsize93, align 8
   %wdata95 = getelementptr inbounds %struct.ggml_compute_params, ptr %params88, i32 0, i32 4
-  %107 = load ptr, ptr %cplan, align 8
-  %work_data96 = getelementptr inbounds %struct.ggml_cplan, ptr %107, i32 0, i32 1
-  %108 = load ptr, ptr %work_data96, align 8
-  store ptr %108, ptr %wdata95, align 8
-  %109 = load ptr, ptr %state, align 8
-  %ith97 = getelementptr inbounds %struct.ggml_compute_state, ptr %109, i32 0, i32 1
-  %110 = load i32, ptr %ith97, align 8
-  %111 = load i32, ptr %n_tasks86, align 4
-  %cmp98 = icmp slt i32 %110, %111
+  %108 = load ptr, ptr %cplan, align 8
+  %work_data96 = getelementptr inbounds %struct.ggml_cplan, ptr %108, i32 0, i32 1
+  %109 = load ptr, ptr %work_data96, align 8
+  store ptr %109, ptr %wdata95, align 8
+  %110 = load ptr, ptr %state, align 8
+  %ith97 = getelementptr inbounds %struct.ggml_compute_state, ptr %110, i32 0, i32 1
+  %111 = load i32, ptr %ith97, align 8
+  %112 = load i32, ptr %n_tasks86, align 4
+  %cmp98 = icmp slt i32 %111, %112
   br i1 %cmp98, label %if.then99, label %if.end100
 
 if.then99:                                        ; preds = %if.end81
-  %112 = load ptr, ptr %node82, align 8
-  call void @ggml_compute_forward(ptr noundef %params88, ptr noundef %112)
+  %113 = load ptr, ptr %node82, align 8
+  call void @ggml_compute_forward(ptr noundef %params88, ptr noundef %113)
   br label %if.end100
 
 if.end100:                                        ; preds = %if.then99, %if.end81
@@ -27069,8 +27080,8 @@ while.end101:                                     ; preds = %if.then80
   br label %return
 
 return:                                           ; preds = %while.end101, %if.then
-  %113 = load ptr, ptr %retval, align 8
-  ret ptr %113
+  %114 = load ptr, ptr %retval, align 8
+  ret ptr %114
 }
 
 ; Function Attrs: nounwind uwtable
@@ -27089,23 +27100,25 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2), align 4
-  %conv = zext i32 %0 to i64
+  %0 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2
+  %1 = load i32, ptr %0, align 4
+  %conv = zext i32 %1 to i64
   %add = add i64 %conv, 64
   %sub = sub i64 %add, 1
   %div = udiv i64 %sub, 64
   %mul = mul i64 %div, 8
   store i64 %mul, ptr %setsize, align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2), align 4
-  %conv1 = zext i32 %1 to i64
+  %2 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2
+  %3 = load i32, ptr %2, align 4
+  %conv1 = zext i32 %3 to i64
   %call2 = call ptr @__sched_cpualloc(i64 noundef %conv1) #16
   store ptr %call2, ptr %cpus, align 8
   br label %do.body
 
 do.body:                                          ; preds = %if.end
-  %2 = load ptr, ptr %cpus, align 8
-  %3 = load i64, ptr %setsize, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %3, i1 false)
+  %4 = load ptr, ptr %cpus, align 8
+  %5 = load i64, ptr %setsize, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %5, i1 false)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -27113,33 +27126,34 @@ do.end:                                           ; preds = %do.body
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.end
-  %4 = load i32, ptr %i, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2), align 4
-  %cmp = icmp ult i32 %4, %5
+  %6 = load i32, ptr %i, align 4
+  %7 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2
+  %8 = load i32, ptr %7, align 4
+  %cmp = icmp ult i32 %6, %8
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %6 = load i32, ptr %i, align 4
-  %conv4 = zext i32 %6 to i64
+  %9 = load i32, ptr %i, align 4
+  %conv4 = zext i32 %9 to i64
   store i64 %conv4, ptr %__cpu, align 8
-  %7 = load i64, ptr %__cpu, align 8
-  %div5 = udiv i64 %7, 8
-  %8 = load i64, ptr %setsize, align 8
-  %cmp6 = icmp ult i64 %div5, %8
+  %10 = load i64, ptr %__cpu, align 8
+  %div5 = udiv i64 %10, 8
+  %11 = load i64, ptr %setsize, align 8
+  %cmp6 = icmp ult i64 %div5, %11
   br i1 %cmp6, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %for.body
-  %9 = load i64, ptr %__cpu, align 8
-  %rem = urem i64 %9, 64
+  %12 = load i64, ptr %__cpu, align 8
+  %rem = urem i64 %12, 64
   %shl = shl i64 1, %rem
-  %10 = load ptr, ptr %cpus, align 8
-  %__bits = getelementptr inbounds %struct.cpu_set_t, ptr %10, i32 0, i32 0
+  %13 = load ptr, ptr %cpus, align 8
+  %__bits = getelementptr inbounds %struct.cpu_set_t, ptr %13, i32 0, i32 0
   %arraydecay = getelementptr inbounds [16 x i64], ptr %__bits, i64 0, i64 0
-  %11 = load i64, ptr %__cpu, align 8
-  %div8 = udiv i64 %11, 64
+  %14 = load i64, ptr %__cpu, align 8
+  %div8 = udiv i64 %14, 64
   %arrayidx = getelementptr inbounds i64, ptr %arraydecay, i64 %div8
-  %12 = load i64, ptr %arrayidx, align 8
-  %or = or i64 %12, %shl
+  %15 = load i64, ptr %arrayidx, align 8
+  %or = or i64 %15, %shl
   store i64 %or, ptr %arrayidx, align 8
   br label %cond.end
 
@@ -27152,31 +27166,31 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br label %for.inc
 
 for.inc:                                          ; preds = %cond.end
-  %13 = load i32, ptr %i, align 4
-  %inc = add i32 %13, 1
+  %16 = load i32, ptr %i, align 4
+  %inc = add i32 %16, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !69
 
 for.end:                                          ; preds = %for.cond
   %call9 = call i64 @pthread_self() #20
-  %14 = load i64, ptr %setsize, align 8
-  %15 = load ptr, ptr %cpus, align 8
-  %call10 = call i32 @pthread_setaffinity_np(i64 noundef %call9, i64 noundef %14, ptr noundef %15) #16
+  %17 = load i64, ptr %setsize, align 8
+  %18 = load ptr, ptr %cpus, align 8
+  %call10 = call i32 @pthread_setaffinity_np(i64 noundef %call9, i64 noundef %17, ptr noundef %18) #16
   store i32 %call10, ptr %rv, align 4
-  %16 = load i32, ptr %rv, align 4
-  %tobool = icmp ne i32 %16, 0
+  %19 = load i32, ptr %rv, align 4
+  %tobool = icmp ne i32 %19, 0
   br i1 %tobool, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %for.end
-  %17 = load ptr, ptr @stderr, align 8
-  %18 = load i32, ptr %rv, align 4
-  %call12 = call ptr @strerror(i32 noundef %18) #16
-  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.470, ptr noundef %call12)
+  %20 = load ptr, ptr @stderr, align 8
+  %21 = load i32, ptr %rv, align 4
+  %call12 = call ptr @strerror(i32 noundef %21) #16
+  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef @.str.470, ptr noundef %call12)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %for.end
-  %19 = load ptr, ptr %cpus, align 8
-  call void @__sched_cpufree(ptr noundef %19) #16
+  %22 = load ptr, ptr %cpus, align 8
+  call void @__sched_cpufree(ptr noundef %22) #16
   br label %return
 
 return:                                           ; preds = %if.end14, %if.then
@@ -35687,7 +35701,7 @@ return:                                           ; preds = %if.end81, %if.then
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #12
+declare noalias ptr @malloc(i64 noundef) #11
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @gguf_fread_str(ptr noundef %file, ptr noundef %p, ptr noundef %offset) #0 {
@@ -38789,7 +38803,7 @@ if.end:                                           ; preds = %if.then, %for.end43
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #13
+declare ptr @realloc(ptr noundef, i64 noundef) #12
 
 ; Function Attrs: nounwind uwtable
 define void @gguf_set_tensor_type(ptr noundef %ctx, ptr noundef %name, i32 noundef %type) #0 {
@@ -40561,10 +40575,10 @@ declare void @ggml_vec_dot_q6_K_q8_K(i32 noundef, ptr noundef, ptr noundef, ptr 
 declare void @quantize_row_q8_K(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #11
+declare float @llvm.fmuladd.f32(float, float, float) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #11
+declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
 declare <4 x float> @llvm.x86.sse3.hadd.ps(<4 x float>, <4 x float>) #4
@@ -41152,34 +41166,39 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %thread_n.addr, align 4
   %1 = load i32, ptr %n_threads.addr, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1), align 8
-  %add = add i32 %1, %2
+  %2 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1
+  %3 = load i32, ptr %2, align 8
+  %add = add i32 %1, %3
   %sub = sub i32 %add, 1
-  %3 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1), align 8
-  %div = udiv i32 %sub, %3
+  %4 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 1
+  %5 = load i32, ptr %4, align 8
+  %div = udiv i32 %sub, %5
   %div1 = udiv i32 %0, %div
   store i32 %div1, ptr %node_num, align 4
-  %4 = load i32, ptr %node_num, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds [8 x %struct.ggml_numa_node], ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1), i64 0, i64 %idxprom
+  %6 = load i32, ptr %node_num, align 4
+  %idxprom = sext i32 %6 to i64
+  %7 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1
+  %arrayidx = getelementptr inbounds [8 x %struct.ggml_numa_node], ptr %7, i64 0, i64 %idxprom
   store ptr %arrayidx, ptr %node, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2), align 4
-  %conv = zext i32 %5 to i64
+  %8 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2
+  %9 = load i32, ptr %8, align 4
+  %conv = zext i32 %9 to i64
   %add2 = add i64 %conv, 64
   %sub3 = sub i64 %add2, 1
   %div4 = udiv i64 %sub3, 64
   %mul = mul i64 %div4, 8
   store i64 %mul, ptr %setsize, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2), align 4
-  %conv5 = zext i32 %6 to i64
+  %10 = getelementptr inbounds %struct.ggml_state, ptr @g_state, i32 0, i32 1, i32 2
+  %11 = load i32, ptr %10, align 4
+  %conv5 = zext i32 %11 to i64
   %call6 = call ptr @__sched_cpualloc(i64 noundef %conv5) #16
   store ptr %call6, ptr %cpus, align 8
   br label %do.body
 
 do.body:                                          ; preds = %if.end
-  %7 = load ptr, ptr %cpus, align 8
-  %8 = load i64, ptr %setsize, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %8, i1 false)
+  %12 = load ptr, ptr %cpus, align 8
+  %13 = load i64, ptr %setsize, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 %13, i1 false)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -41187,40 +41206,40 @@ do.end:                                           ; preds = %do.body
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.end
-  %9 = load i64, ptr %i, align 8
-  %10 = load ptr, ptr %node, align 8
-  %n_cpus = getelementptr inbounds %struct.ggml_numa_node, ptr %10, i32 0, i32 1
-  %11 = load i32, ptr %n_cpus, align 4
-  %conv7 = zext i32 %11 to i64
-  %cmp = icmp ult i64 %9, %conv7
+  %14 = load i64, ptr %i, align 8
+  %15 = load ptr, ptr %node, align 8
+  %n_cpus = getelementptr inbounds %struct.ggml_numa_node, ptr %15, i32 0, i32 1
+  %16 = load i32, ptr %n_cpus, align 4
+  %conv7 = zext i32 %16 to i64
+  %cmp = icmp ult i64 %14, %conv7
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %12 = load ptr, ptr %node, align 8
-  %cpus9 = getelementptr inbounds %struct.ggml_numa_node, ptr %12, i32 0, i32 0
-  %13 = load i64, ptr %i, align 8
-  %arrayidx10 = getelementptr inbounds [512 x i32], ptr %cpus9, i64 0, i64 %13
-  %14 = load i32, ptr %arrayidx10, align 4
-  %conv11 = zext i32 %14 to i64
+  %17 = load ptr, ptr %node, align 8
+  %cpus9 = getelementptr inbounds %struct.ggml_numa_node, ptr %17, i32 0, i32 0
+  %18 = load i64, ptr %i, align 8
+  %arrayidx10 = getelementptr inbounds [512 x i32], ptr %cpus9, i64 0, i64 %18
+  %19 = load i32, ptr %arrayidx10, align 4
+  %conv11 = zext i32 %19 to i64
   store i64 %conv11, ptr %__cpu, align 8
-  %15 = load i64, ptr %__cpu, align 8
-  %div12 = udiv i64 %15, 8
-  %16 = load i64, ptr %setsize, align 8
-  %cmp13 = icmp ult i64 %div12, %16
+  %20 = load i64, ptr %__cpu, align 8
+  %div12 = udiv i64 %20, 8
+  %21 = load i64, ptr %setsize, align 8
+  %cmp13 = icmp ult i64 %div12, %21
   br i1 %cmp13, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %for.body
-  %17 = load i64, ptr %__cpu, align 8
-  %rem = urem i64 %17, 64
+  %22 = load i64, ptr %__cpu, align 8
+  %rem = urem i64 %22, 64
   %shl = shl i64 1, %rem
-  %18 = load ptr, ptr %cpus, align 8
-  %__bits = getelementptr inbounds %struct.cpu_set_t, ptr %18, i32 0, i32 0
+  %23 = load ptr, ptr %cpus, align 8
+  %__bits = getelementptr inbounds %struct.cpu_set_t, ptr %23, i32 0, i32 0
   %arraydecay = getelementptr inbounds [16 x i64], ptr %__bits, i64 0, i64 0
-  %19 = load i64, ptr %__cpu, align 8
-  %div15 = udiv i64 %19, 64
+  %24 = load i64, ptr %__cpu, align 8
+  %div15 = udiv i64 %24, 64
   %arrayidx16 = getelementptr inbounds i64, ptr %arraydecay, i64 %div15
-  %20 = load i64, ptr %arrayidx16, align 8
-  %or = or i64 %20, %shl
+  %25 = load i64, ptr %arrayidx16, align 8
+  %or = or i64 %25, %shl
   store i64 %or, ptr %arrayidx16, align 8
   br label %cond.end
 
@@ -41233,31 +41252,31 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br label %for.inc
 
 for.inc:                                          ; preds = %cond.end
-  %21 = load i64, ptr %i, align 8
-  %inc = add i64 %21, 1
+  %26 = load i64, ptr %i, align 8
+  %inc = add i64 %26, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !170
 
 for.end:                                          ; preds = %for.cond
   %call17 = call i64 @pthread_self() #20
-  %22 = load i64, ptr %setsize, align 8
-  %23 = load ptr, ptr %cpus, align 8
-  %call18 = call i32 @pthread_setaffinity_np(i64 noundef %call17, i64 noundef %22, ptr noundef %23) #16
+  %27 = load i64, ptr %setsize, align 8
+  %28 = load ptr, ptr %cpus, align 8
+  %call18 = call i32 @pthread_setaffinity_np(i64 noundef %call17, i64 noundef %27, ptr noundef %28) #16
   store i32 %call18, ptr %rv, align 4
-  %24 = load i32, ptr %rv, align 4
-  %tobool = icmp ne i32 %24, 0
+  %29 = load i32, ptr %rv, align 4
+  %tobool = icmp ne i32 %29, 0
   br i1 %tobool, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %for.end
-  %25 = load ptr, ptr @stderr, align 8
-  %26 = load i32, ptr %rv, align 4
-  %call20 = call ptr @strerror(i32 noundef %26) #16
-  %call21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.470, ptr noundef %call20)
+  %30 = load ptr, ptr @stderr, align 8
+  %31 = load i32, ptr %rv, align 4
+  %call20 = call ptr @strerror(i32 noundef %31) #16
+  %call21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef @.str.470, ptr noundef %call20)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then19, %for.end
-  %27 = load ptr, ptr %cpus, align 8
-  call void @__sched_cpufree(ptr noundef %27) #16
+  %32 = load ptr, ptr %cpus, align 8
+  call void @__sched_cpufree(ptr noundef %32) #16
   br label %return
 
 return:                                           ; preds = %if.end22, %if.then
@@ -42433,7 +42452,7 @@ declare ptr @__sched_cpualloc(i64 noundef) #1
 declare i32 @pthread_setaffinity_np(i64 noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare i64 @pthread_self() #14
+declare i64 @pthread_self() #13
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) #1
@@ -74257,7 +74276,7 @@ for.end82:                                        ; preds = %for.cond, %if.then
 declare double @log2(double noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #11
+declare double @llvm.floor.f64(double) #10
 
 ; Function Attrs: nounwind uwtable
 define internal void @ggml_compute_forward_clamp_f32(ptr noundef %params, ptr noundef %src0, ptr noundef %dst) #0 {
@@ -84931,7 +84950,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #11
+declare float @llvm.fabs.f32(float) #10
 
 ; Function Attrs: nounwind uwtable
 define internal void @ggml_compute_forward_sgn_f32(ptr noundef %params, ptr noundef %src0, ptr noundef %dst) #0 {
@@ -88688,7 +88707,7 @@ return:                                           ; preds = %if.then66, %if.then
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #15
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #14
 
 ; Function Attrs: nounwind uwtable
 define internal void @gguf_bwrite_el(ptr noundef %buf, ptr noundef %val, i64 noundef %el_size) #0 {
@@ -88860,6 +88879,12 @@ if.end10:                                         ; preds = %if.end, %entry
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -88870,12 +88895,12 @@ attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #13 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #14 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #15 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #12 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #13 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #14 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #15 = { nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nounwind }
 attributes #17 = { noreturn nounwind }
 attributes #18 = { nounwind willreturn memory(read) }

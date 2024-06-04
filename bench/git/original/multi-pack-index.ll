@@ -264,42 +264,46 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
-  %or = or i32 %2, 1
-  store i32 %or, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
+  %2 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  %3 = load i32, ptr %2, align 8
+  %or = or i32 %3, 1
+  %4 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  store i32 %or, ptr %4, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %3 = load i32, ptr %argc.addr, align 4
-  %4 = load ptr, ptr %argv.addr, align 8
-  %5 = load ptr, ptr %prefix.addr, align 8
-  %6 = load ptr, ptr %options, align 8
-  %call2 = call i32 @parse_options(i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef @builtin_multi_pack_index_repack_usage, i32 noundef 0)
+  %5 = load i32, ptr %argc.addr, align 4
+  %6 = load ptr, ptr %argv.addr, align 8
+  %7 = load ptr, ptr %prefix.addr, align 8
+  %8 = load ptr, ptr %options, align 8
+  %call2 = call i32 @parse_options(i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef @builtin_multi_pack_index_repack_usage, i32 noundef 0)
   store i32 %call2, ptr %argc.addr, align 4
-  %7 = load i32, ptr %argc.addr, align 4
-  %tobool3 = icmp ne i32 %7, 0
+  %9 = load i32, ptr %argc.addr, align 4
+  %tobool3 = icmp ne i32 %9, 0
   br i1 %tobool3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  %8 = load ptr, ptr %options, align 8
-  call void @usage_with_options(ptr noundef @builtin_multi_pack_index_repack_usage, ptr noundef %8) #8
+  %10 = load ptr, ptr %options, align 8
+  call void @usage_with_options(ptr noundef @builtin_multi_pack_index_repack_usage, ptr noundef %10) #8
   unreachable
 
 if.end5:                                          ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %if.end5
-  %9 = load ptr, ptr %options, align 8
-  call void @free(ptr noundef %9) #7
+  %11 = load ptr, ptr %options, align 8
+  call void @free(ptr noundef %11) #7
   store ptr null, ptr %options, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %10 = load ptr, ptr @the_repository, align 8
-  %11 = load ptr, ptr @opts, align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 3), align 8
-  %13 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
-  %call6 = call i32 @midx_repack(ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13)
+  %12 = load ptr, ptr @the_repository, align 8
+  %13 = load ptr, ptr @opts, align 8
+  %14 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 3
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  %17 = load i32, ptr %16, align 8
+  %call6 = call i32 @midx_repack(ptr noundef %12, ptr noundef %13, i64 noundef %15, i32 noundef %17)
   ret i32 %call6
 }
 
@@ -316,84 +320,95 @@ entry:
   store i32 %argc, ptr %argc.addr, align 4
   store ptr %argv, ptr %argv.addr, align 8
   store ptr %prefix, ptr %prefix.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
-  %or = or i32 %0, 8
-  store i32 %or, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
+  %0 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  %1 = load i32, ptr %0, align 8
+  %or = or i32 %1, 8
+  %2 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  store i32 %or, ptr %2, align 8
   call void @git_config(ptr noundef @git_multi_pack_index_write_config, ptr noundef null)
   %call = call ptr @add_common_options(ptr noundef @cmd_multi_pack_index_write.builtin_multi_pack_index_write_options)
   store ptr %call, ptr %options, align 8
-  %1 = load ptr, ptr %argv.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 0
-  %2 = load ptr, ptr %arrayidx, align 8
-  call void @trace2_cmd_mode_fl(ptr noundef @.str.9, i32 noundef 144, ptr noundef %2)
+  %3 = load ptr, ptr %argv.addr, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 0
+  %4 = load ptr, ptr %arrayidx, align 8
+  call void @trace2_cmd_mode_fl(ptr noundef @.str.9, i32 noundef 144, ptr noundef %4)
   %call1 = call i32 @isatty(i32 noundef 2) #7
   %tobool = icmp ne i32 %call1, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
-  %or2 = or i32 %3, 1
-  store i32 %or2, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
+  %5 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  %6 = load i32, ptr %5, align 8
+  %or2 = or i32 %6, 1
+  %7 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  store i32 %or2, ptr %7, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i32, ptr %argc.addr, align 4
-  %5 = load ptr, ptr %argv.addr, align 8
-  %6 = load ptr, ptr %prefix.addr, align 8
-  %7 = load ptr, ptr %options, align 8
-  %call3 = call i32 @parse_options(i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef @builtin_multi_pack_index_write_usage, i32 noundef 0)
-  store i32 %call3, ptr %argc.addr, align 4
   %8 = load i32, ptr %argc.addr, align 4
-  %tobool4 = icmp ne i32 %8, 0
+  %9 = load ptr, ptr %argv.addr, align 8
+  %10 = load ptr, ptr %prefix.addr, align 8
+  %11 = load ptr, ptr %options, align 8
+  %call3 = call i32 @parse_options(i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef @builtin_multi_pack_index_write_usage, i32 noundef 0)
+  store i32 %call3, ptr %argc.addr, align 4
+  %12 = load i32, ptr %argc.addr, align 4
+  %tobool4 = icmp ne i32 %12, 0
   br i1 %tobool4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
-  %9 = load ptr, ptr %options, align 8
-  call void @usage_with_options(ptr noundef @builtin_multi_pack_index_write_usage, ptr noundef %9) #8
+  %13 = load ptr, ptr %options, align 8
+  call void @usage_with_options(ptr noundef @builtin_multi_pack_index_write_usage, ptr noundef %13) #8
   unreachable
 
 if.end6:                                          ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %if.end6
-  %10 = load ptr, ptr %options, align 8
-  call void @free(ptr noundef %10) #7
+  %14 = load ptr, ptr %options, align 8
+  call void @free(ptr noundef %14) #7
   store ptr null, ptr %options, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %11 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 5), align 4
-  %tobool7 = icmp ne i32 %11, 0
+  %15 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 5
+  %16 = load i32, ptr %15, align 4
+  %tobool7 = icmp ne i32 %16, 0
   br i1 %tobool7, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %do.end
   call void @llvm.memset.p0.i64(ptr align 8 %packs, i8 0, i64 40, i1 false)
-  %12 = getelementptr inbounds %struct.string_list, ptr %packs, i32 0, i32 3
-  store i8 1, ptr %12, align 8
+  %17 = getelementptr inbounds %struct.string_list, ptr %packs, i32 0, i32 3
+  store i8 1, ptr %17, align 8
   call void @read_packs_from_stdin(ptr noundef %packs)
-  %13 = load ptr, ptr @opts, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 1), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 2), align 8
-  %16 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
-  %call9 = call i32 @write_midx_file_only(ptr noundef %13, ptr noundef %packs, ptr noundef %14, ptr noundef %15, i32 noundef %16)
+  %18 = load ptr, ptr @opts, align 8
+  %19 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 2
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  %24 = load i32, ptr %23, align 8
+  %call9 = call i32 @write_midx_file_only(ptr noundef %18, ptr noundef %packs, ptr noundef %20, ptr noundef %22, i32 noundef %24)
   store i32 %call9, ptr %ret, align 4
   call void @string_list_clear(ptr noundef %packs, i32 noundef 0)
-  %17 = load i32, ptr %ret, align 4
-  store i32 %17, ptr %retval, align 4
+  %25 = load i32, ptr %ret, align 4
+  store i32 %25, ptr %retval, align 4
   br label %return
 
 if.end10:                                         ; preds = %do.end
-  %18 = load ptr, ptr @opts, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 1), align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 2), align 8
-  %21 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
-  %call11 = call i32 @write_midx_file(ptr noundef %18, ptr noundef %19, ptr noundef %20, i32 noundef %21)
+  %26 = load ptr, ptr @opts, align 8
+  %27 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  %32 = load i32, ptr %31, align 8
+  %call11 = call i32 @write_midx_file(ptr noundef %26, ptr noundef %28, ptr noundef %30, i32 noundef %32)
   store i32 %call11, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end10, %if.then8
-  %22 = load i32, ptr %retval, align 4
-  ret i32 %22
+  %33 = load i32, ptr %retval, align 4
+  ret i32 %33
 }
 
 ; Function Attrs: nounwind uwtable
@@ -417,41 +432,44 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
-  %or = or i32 %2, 1
-  store i32 %or, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
+  %2 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  %3 = load i32, ptr %2, align 8
+  %or = or i32 %3, 1
+  %4 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  store i32 %or, ptr %4, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %3 = load i32, ptr %argc.addr, align 4
-  %4 = load ptr, ptr %argv.addr, align 8
-  %5 = load ptr, ptr %prefix.addr, align 8
-  %6 = load ptr, ptr %options, align 8
-  %call2 = call i32 @parse_options(i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef @builtin_multi_pack_index_verify_usage, i32 noundef 0)
+  %5 = load i32, ptr %argc.addr, align 4
+  %6 = load ptr, ptr %argv.addr, align 8
+  %7 = load ptr, ptr %prefix.addr, align 8
+  %8 = load ptr, ptr %options, align 8
+  %call2 = call i32 @parse_options(i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef @builtin_multi_pack_index_verify_usage, i32 noundef 0)
   store i32 %call2, ptr %argc.addr, align 4
-  %7 = load i32, ptr %argc.addr, align 4
-  %tobool3 = icmp ne i32 %7, 0
+  %9 = load i32, ptr %argc.addr, align 4
+  %tobool3 = icmp ne i32 %9, 0
   br i1 %tobool3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  %8 = load ptr, ptr %options, align 8
-  call void @usage_with_options(ptr noundef @builtin_multi_pack_index_verify_usage, ptr noundef %8) #8
+  %10 = load ptr, ptr %options, align 8
+  call void @usage_with_options(ptr noundef @builtin_multi_pack_index_verify_usage, ptr noundef %10) #8
   unreachable
 
 if.end5:                                          ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %if.end5
-  %9 = load ptr, ptr %options, align 8
-  call void @free(ptr noundef %9) #7
+  %11 = load ptr, ptr %options, align 8
+  call void @free(ptr noundef %11) #7
   store ptr null, ptr %options, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %10 = load ptr, ptr @the_repository, align 8
-  %11 = load ptr, ptr @opts, align 8
-  %12 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
-  %call6 = call i32 @verify_midx_file(ptr noundef %10, ptr noundef %11, i32 noundef %12)
+  %12 = load ptr, ptr @the_repository, align 8
+  %13 = load ptr, ptr @opts, align 8
+  %14 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  %15 = load i32, ptr %14, align 8
+  %call6 = call i32 @verify_midx_file(ptr noundef %12, ptr noundef %13, i32 noundef %15)
   ret i32 %call6
 }
 
@@ -476,41 +494,44 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
-  %or = or i32 %2, 1
-  store i32 %or, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
+  %2 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  %3 = load i32, ptr %2, align 8
+  %or = or i32 %3, 1
+  %4 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  store i32 %or, ptr %4, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %3 = load i32, ptr %argc.addr, align 4
-  %4 = load ptr, ptr %argv.addr, align 8
-  %5 = load ptr, ptr %prefix.addr, align 8
-  %6 = load ptr, ptr %options, align 8
-  %call2 = call i32 @parse_options(i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef @builtin_multi_pack_index_expire_usage, i32 noundef 0)
+  %5 = load i32, ptr %argc.addr, align 4
+  %6 = load ptr, ptr %argv.addr, align 8
+  %7 = load ptr, ptr %prefix.addr, align 8
+  %8 = load ptr, ptr %options, align 8
+  %call2 = call i32 @parse_options(i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef @builtin_multi_pack_index_expire_usage, i32 noundef 0)
   store i32 %call2, ptr %argc.addr, align 4
-  %7 = load i32, ptr %argc.addr, align 4
-  %tobool3 = icmp ne i32 %7, 0
+  %9 = load i32, ptr %argc.addr, align 4
+  %tobool3 = icmp ne i32 %9, 0
   br i1 %tobool3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  %8 = load ptr, ptr %options, align 8
-  call void @usage_with_options(ptr noundef @builtin_multi_pack_index_expire_usage, ptr noundef %8) #8
+  %10 = load ptr, ptr %options, align 8
+  call void @usage_with_options(ptr noundef @builtin_multi_pack_index_expire_usage, ptr noundef %10) #8
   unreachable
 
 if.end5:                                          ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %if.end5
-  %9 = load ptr, ptr %options, align 8
-  call void @free(ptr noundef %9) #7
+  %11 = load ptr, ptr %options, align 8
+  call void @free(ptr noundef %11) #7
   store ptr null, ptr %options, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %10 = load ptr, ptr @the_repository, align 8
-  %11 = load ptr, ptr @opts, align 8
-  %12 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
-  %call6 = call i32 @expire_midx_packs(ptr noundef %10, ptr noundef %11, i32 noundef %12)
+  %12 = load ptr, ptr @the_repository, align 8
+  %13 = load ptr, ptr @opts, align 8
+  %14 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  %15 = load i32, ptr %14, align 8
+  %call6 = call i32 @expire_midx_packs(ptr noundef %12, ptr noundef %13, i32 noundef %15)
   ret i32 %call6
 }
 
@@ -574,43 +595,51 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %3 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
-  %or = or i32 %3, 8
-  store i32 %or, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
+  %3 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  %4 = load i32, ptr %3, align 8
+  %or = or i32 %4, 8
+  %5 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  store i32 %or, ptr %5, align 8
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %4 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
-  %and = and i32 %4, -9
-  store i32 %and, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
+  %6 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %and = and i32 %7, -9
+  %8 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  store i32 %and, ptr %8, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then3
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end, %entry
-  %5 = load ptr, ptr %var.addr, align 8
-  %call5 = call i32 @strcmp(ptr noundef %5, ptr noundef @.str.21) #9
+  %9 = load ptr, ptr %var.addr, align 8
+  %call5 = call i32 @strcmp(ptr noundef %9, ptr noundef @.str.21) #9
   %tobool6 = icmp ne i32 %call5, 0
   br i1 %tobool6, label %if.end15, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %6 = load ptr, ptr %var.addr, align 8
-  %7 = load ptr, ptr %value.addr, align 8
-  %call8 = call i32 @git_config_bool(ptr noundef %6, ptr noundef %7)
+  %10 = load ptr, ptr %var.addr, align 8
+  %11 = load ptr, ptr %value.addr, align 8
+  %call8 = call i32 @git_config_bool(ptr noundef %10, ptr noundef %11)
   %tobool9 = icmp ne i32 %call8, 0
   br i1 %tobool9, label %if.then10, label %if.else12
 
 if.then10:                                        ; preds = %if.then7
-  %8 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
-  %or11 = or i32 %8, 16
-  store i32 %or11, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
+  %12 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  %13 = load i32, ptr %12, align 8
+  %or11 = or i32 %13, 16
+  %14 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  store i32 %or11, ptr %14, align 8
   br label %if.end14
 
 if.else12:                                        ; preds = %if.then7
-  %9 = load i32, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
-  %and13 = and i32 %9, -17
-  store i32 %and13, ptr getelementptr inbounds (%struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4), align 8
+  %15 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  %16 = load i32, ptr %15, align 8
+  %and13 = and i32 %16, -17
+  %17 = getelementptr inbounds %struct.opts_multi_pack_index, ptr @opts, i32 0, i32 4
+  store i32 %and13, ptr %17, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else12, %if.then10

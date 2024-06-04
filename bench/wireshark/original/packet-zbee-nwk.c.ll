@@ -656,11 +656,12 @@ declare void @register_init_routine(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal void @proto_init_zbee_nwk() #0 {
   %1 = call ptr @g_hash_table_new(ptr noundef @ieee802154_short_addr_hash, ptr noundef @ieee802154_short_addr_equal)
-  store ptr %1, ptr getelementptr inbounds (%struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1), align 8
-  %2 = call ptr @g_hash_table_new(ptr noundef @ieee802154_long_addr_hash, ptr noundef @ieee802154_long_addr_equal)
-  store ptr %2, ptr @zbee_nwk_map, align 8
-  %3 = call ptr @g_hash_table_new_full(ptr noundef @g_int_hash, ptr noundef @g_int_equal, ptr noundef @free_keyring_key, ptr noundef @free_keyring_val)
-  store ptr %3, ptr @zbee_table_nwk_keyring, align 8
+  %2 = getelementptr inbounds %struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1
+  store ptr %1, ptr %2, align 8
+  %3 = call ptr @g_hash_table_new(ptr noundef @ieee802154_long_addr_hash, ptr noundef @ieee802154_long_addr_equal)
+  store ptr %3, ptr @zbee_nwk_map, align 8
+  %4 = call ptr @g_hash_table_new_full(ptr noundef @g_int_hash, ptr noundef @g_int_equal, ptr noundef @free_keyring_key, ptr noundef @free_keyring_val)
+  store ptr %4, ptr @zbee_table_nwk_keyring, align 8
   ret void
 }
 
@@ -668,12 +669,13 @@ declare void @register_cleanup_routine(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @proto_cleanup_zbee_nwk() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1), align 8
-  call void @g_hash_table_destroy(ptr noundef %1)
-  %2 = load ptr, ptr @zbee_nwk_map, align 8
+  %1 = getelementptr inbounds %struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
   call void @g_hash_table_destroy(ptr noundef %2)
-  %3 = load ptr, ptr @zbee_table_nwk_keyring, align 8
+  %3 = load ptr, ptr @zbee_nwk_map, align 8
   call void @g_hash_table_destroy(ptr noundef %3)
+  %4 = load ptr, ptr @zbee_table_nwk_keyring, align 8
+  call void @g_hash_table_destroy(ptr noundef %4)
   ret void
 }
 
@@ -1724,7 +1726,7 @@ define internal i32 @dissect_zbee_nwk_full(ptr noundef %0, ptr noundef %1, ptr n
 
 32:                                               ; preds = %4
   store i32 0, ptr %5, align 4
-  br label %718
+  br label %720
 
 33:                                               ; preds = %4
   %34 = load ptr, ptr %9, align 8
@@ -1884,7 +1886,7 @@ define internal i32 @dissect_zbee_nwk_full(ptr noundef %0, ptr noundef %1, ptr n
   %151 = load i16, ptr %150, align 8
   %152 = zext i16 %151 to i32
   %153 = icmp ne i32 %152, 3
-  br i1 %153, label %154, label %650
+  br i1 %153, label %154, label %652
 
 154:                                              ; preds = %130
   %155 = load ptr, ptr %6, align 8
@@ -2117,7 +2119,7 @@ define internal i32 @dissect_zbee_nwk_full(ptr noundef %0, ptr noundef %1, ptr n
   %330 = load i8, ptr %329, align 2
   %331 = zext i8 %330 to i32
   %332 = icmp sge i32 %331, 2
-  br i1 %332, label %333, label %545
+  br i1 %332, label %333, label %547
 
 333:                                              ; preds = %328
   %334 = load ptr, ptr %15, align 8
@@ -2207,7 +2209,7 @@ define internal i32 @dissect_zbee_nwk_full(ptr noundef %0, ptr noundef %1, ptr n
   br label %400
 
 400:                                              ; preds = %399, %371, %341
-  br label %502
+  br label %503
 
 401:                                              ; preds = %333
   %402 = load ptr, ptr %7, align 8
@@ -2219,12 +2221,12 @@ define internal i32 @dissect_zbee_nwk_full(ptr noundef %0, ptr noundef %1, ptr n
   %408 = and i16 %407, 1
   %409 = zext i16 %408 to i32
   %410 = icmp ne i32 %409, 0
-  br i1 %410, label %445, label %411
+  br i1 %410, label %446, label %411
 
 411:                                              ; preds = %401
   %412 = load ptr, ptr %23, align 8
   %413 = icmp ne ptr %412, null
-  br i1 %413, label %414, label %445
+  br i1 %413, label %414, label %446
 
 414:                                              ; preds = %411
   %415 = load ptr, ptr %15, align 8
@@ -2238,441 +2240,443 @@ define internal i32 @dissect_zbee_nwk_full(ptr noundef %0, ptr noundef %1, ptr n
   %422 = load i16, ptr %421, align 2
   %423 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %20, i32 0, i32 1
   store i16 %422, ptr %423, align 2
-  %424 = load ptr, ptr getelementptr inbounds (%struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1), align 8
-  %425 = call ptr @g_hash_table_lookup(ptr noundef %424, ptr noundef %20)
-  store ptr %425, ptr %21, align 8
-  %426 = load ptr, ptr %21, align 8
-  %427 = icmp ne ptr %426, null
-  br i1 %427, label %428, label %432
+  %424 = getelementptr inbounds %struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1
+  %425 = load ptr, ptr %424, align 8
+  %426 = call ptr @g_hash_table_lookup(ptr noundef %425, ptr noundef %20)
+  store ptr %426, ptr %21, align 8
+  %427 = load ptr, ptr %21, align 8
+  %428 = icmp ne ptr %427, null
+  br i1 %428, label %429, label %433
 
-428:                                              ; preds = %414
-  %429 = load ptr, ptr %21, align 8
-  %430 = load ptr, ptr %23, align 8
-  %431 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %430, i32 0, i32 2
-  store ptr %429, ptr %431, align 8
+429:                                              ; preds = %414
+  %430 = load ptr, ptr %21, align 8
+  %431 = load ptr, ptr %23, align 8
+  %432 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %431, i32 0, i32 2
+  store ptr %430, ptr %432, align 8
+  br label %445
+
+433:                                              ; preds = %414
+  %434 = load ptr, ptr %15, align 8
+  %435 = getelementptr inbounds %struct.ieee802154_packet, ptr %434, i32 0, i32 31
+  %436 = load ptr, ptr %435, align 8
+  %437 = call ptr @g_hash_table_lookup(ptr noundef %436, ptr noundef %20)
+  store ptr %437, ptr %21, align 8
+  %438 = load ptr, ptr %21, align 8
+  %439 = icmp ne ptr %438, null
+  br i1 %439, label %440, label %444
+
+440:                                              ; preds = %433
+  %441 = load ptr, ptr %21, align 8
+  %442 = load ptr, ptr %23, align 8
+  %443 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %442, i32 0, i32 2
+  store ptr %441, ptr %443, align 8
   br label %444
 
-432:                                              ; preds = %414
-  %433 = load ptr, ptr %15, align 8
-  %434 = getelementptr inbounds %struct.ieee802154_packet, ptr %433, i32 0, i32 31
-  %435 = load ptr, ptr %434, align 8
-  %436 = call ptr @g_hash_table_lookup(ptr noundef %435, ptr noundef %20)
-  store ptr %436, ptr %21, align 8
-  %437 = load ptr, ptr %21, align 8
-  %438 = icmp ne ptr %437, null
-  br i1 %438, label %439, label %443
+444:                                              ; preds = %440, %433
+  br label %445
 
-439:                                              ; preds = %432
-  %440 = load ptr, ptr %21, align 8
-  %441 = load ptr, ptr %23, align 8
-  %442 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %441, i32 0, i32 2
-  store ptr %440, ptr %442, align 8
-  br label %443
-
-443:                                              ; preds = %439, %432
-  br label %444
-
-444:                                              ; preds = %443, %428
-  br label %501
-
-445:                                              ; preds = %411, %401
-  %446 = load ptr, ptr %23, align 8
-  %447 = icmp ne ptr %446, null
-  br i1 %447, label %448, label %500
-
-448:                                              ; preds = %445
-  %449 = load ptr, ptr %23, align 8
-  %450 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %449, i32 0, i32 2
-  %451 = load ptr, ptr %450, align 8
-  %452 = icmp ne ptr %451, null
-  br i1 %452, label %453, label %500
-
-453:                                              ; preds = %448
-  %454 = load ptr, ptr %13, align 8
-  %455 = load i32, ptr @hf_zbee_nwk_src64, align 4
-  %456 = load ptr, ptr %6, align 8
-  %457 = load i32, ptr %16, align 4
-  %458 = load ptr, ptr %23, align 8
-  %459 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %458, i32 0, i32 2
-  %460 = load ptr, ptr %459, align 8
-  %461 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %460, i32 0, i32 3
-  %462 = load i64, ptr %461, align 8
-  %463 = call ptr @proto_tree_add_eui64(ptr noundef %454, i32 noundef %455, ptr noundef %456, i32 noundef %457, i32 noundef 0, i64 noundef %462)
-  store ptr %463, ptr %12, align 8
-  %464 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %464)
-  %465 = load ptr, ptr %13, align 8
-  %466 = load i32, ptr @hf_zbee_nwk_addr64, align 4
-  %467 = load ptr, ptr %6, align 8
-  %468 = load i32, ptr %16, align 4
-  %469 = load ptr, ptr %23, align 8
-  %470 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %469, i32 0, i32 2
-  %471 = load ptr, ptr %470, align 8
-  %472 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %471, i32 0, i32 3
-  %473 = load i64, ptr %472, align 8
-  %474 = call ptr @proto_tree_add_eui64(ptr noundef %465, i32 noundef %466, ptr noundef %467, i32 noundef %468, i32 noundef 0, i64 noundef %473)
-  store ptr %474, ptr %12, align 8
-  %475 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %475)
-  %476 = load ptr, ptr %12, align 8
-  call void @proto_item_set_hidden(ptr noundef %476)
-  %477 = load ptr, ptr %23, align 8
-  %478 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %477, i32 0, i32 2
-  %479 = load ptr, ptr %478, align 8
-  %480 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %479, i32 0, i32 1
-  %481 = load i32, ptr %480, align 8
-  %482 = icmp ne i32 %481, 0
-  br i1 %482, label %483, label %493
-
-483:                                              ; preds = %453
-  %484 = load ptr, ptr %13, align 8
-  %485 = load i32, ptr @hf_zbee_nwk_src64_origin, align 4
-  %486 = load ptr, ptr %6, align 8
-  %487 = load ptr, ptr %23, align 8
-  %488 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %487, i32 0, i32 2
-  %489 = load ptr, ptr %488, align 8
-  %490 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %489, i32 0, i32 1
-  %491 = load i32, ptr %490, align 8
-  %492 = call ptr @proto_tree_add_uint(ptr noundef %484, i32 noundef %485, ptr noundef %486, i32 noundef 0, i32 noundef 0, i32 noundef %491)
-  store ptr %492, ptr %12, align 8
-  br label %498
-
-493:                                              ; preds = %453
-  %494 = load ptr, ptr %13, align 8
-  %495 = load i32, ptr @hf_zbee_nwk_src64_origin, align 4
-  %496 = load ptr, ptr %6, align 8
-  %497 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %494, i32 noundef %495, ptr noundef %496, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef @.str.327)
-  store ptr %497, ptr %12, align 8
-  br label %498
-
-498:                                              ; preds = %493, %483
-  %499 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %499)
-  br label %500
-
-500:                                              ; preds = %498, %448, %445
-  br label %501
-
-501:                                              ; preds = %500, %444
+445:                                              ; preds = %444, %429
   br label %502
 
-502:                                              ; preds = %501, %400
-  %503 = load ptr, ptr %7, align 8
-  %504 = getelementptr inbounds %struct._packet_info, ptr %503, i32 0, i32 8
-  %505 = load ptr, ptr %504, align 8
-  %506 = getelementptr inbounds %struct._frame_data, ptr %505, i32 0, i32 9
-  %507 = load i16, ptr %506, align 2
-  %508 = lshr i16 %507, 3
-  %509 = and i16 %508, 1
-  %510 = zext i16 %509 to i32
-  %511 = icmp ne i32 %510, 0
-  br i1 %511, label %544, label %512
+446:                                              ; preds = %411, %401
+  %447 = load ptr, ptr %23, align 8
+  %448 = icmp ne ptr %447, null
+  br i1 %448, label %449, label %501
 
-512:                                              ; preds = %502
-  %513 = load ptr, ptr %15, align 8
-  %514 = getelementptr inbounds %struct.ieee802154_packet, ptr %513, i32 0, i32 3
-  %515 = load i32, ptr %514, align 4
-  %516 = icmp eq i32 %515, 2
-  br i1 %516, label %517, label %543
+449:                                              ; preds = %446
+  %450 = load ptr, ptr %23, align 8
+  %451 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %450, i32 0, i32 2
+  %452 = load ptr, ptr %451, align 8
+  %453 = icmp ne ptr %452, null
+  br i1 %453, label %454, label %501
 
-517:                                              ; preds = %512
-  %518 = load ptr, ptr %22, align 8
-  %519 = icmp ne ptr %518, null
-  br i1 %519, label %520, label %543
+454:                                              ; preds = %449
+  %455 = load ptr, ptr %13, align 8
+  %456 = load i32, ptr @hf_zbee_nwk_src64, align 4
+  %457 = load ptr, ptr %6, align 8
+  %458 = load i32, ptr %16, align 4
+  %459 = load ptr, ptr %23, align 8
+  %460 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %459, i32 0, i32 2
+  %461 = load ptr, ptr %460, align 8
+  %462 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %461, i32 0, i32 3
+  %463 = load i64, ptr %462, align 8
+  %464 = call ptr @proto_tree_add_eui64(ptr noundef %455, i32 noundef %456, ptr noundef %457, i32 noundef %458, i32 noundef 0, i64 noundef %463)
+  store ptr %464, ptr %12, align 8
+  %465 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %465)
+  %466 = load ptr, ptr %13, align 8
+  %467 = load i32, ptr @hf_zbee_nwk_addr64, align 4
+  %468 = load ptr, ptr %6, align 8
+  %469 = load i32, ptr %16, align 4
+  %470 = load ptr, ptr %23, align 8
+  %471 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %470, i32 0, i32 2
+  %472 = load ptr, ptr %471, align 8
+  %473 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %472, i32 0, i32 3
+  %474 = load i64, ptr %473, align 8
+  %475 = call ptr @proto_tree_add_eui64(ptr noundef %466, i32 noundef %467, ptr noundef %468, i32 noundef %469, i32 noundef 0, i64 noundef %474)
+  store ptr %475, ptr %12, align 8
+  %476 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %476)
+  %477 = load ptr, ptr %12, align 8
+  call void @proto_item_set_hidden(ptr noundef %477)
+  %478 = load ptr, ptr %23, align 8
+  %479 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %478, i32 0, i32 2
+  %480 = load ptr, ptr %479, align 8
+  %481 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %480, i32 0, i32 1
+  %482 = load i32, ptr %481, align 8
+  %483 = icmp ne i32 %482, 0
+  br i1 %483, label %484, label %494
 
-520:                                              ; preds = %517
-  %521 = load ptr, ptr %22, align 8
-  %522 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %521, i32 0, i32 3
-  %523 = load ptr, ptr %522, align 8
-  %524 = icmp ne ptr %523, null
-  br i1 %524, label %543, label %525
+484:                                              ; preds = %454
+  %485 = load ptr, ptr %13, align 8
+  %486 = load i32, ptr @hf_zbee_nwk_src64_origin, align 4
+  %487 = load ptr, ptr %6, align 8
+  %488 = load ptr, ptr %23, align 8
+  %489 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %488, i32 0, i32 2
+  %490 = load ptr, ptr %489, align 8
+  %491 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %490, i32 0, i32 1
+  %492 = load i32, ptr %491, align 8
+  %493 = call ptr @proto_tree_add_uint(ptr noundef %485, i32 noundef %486, ptr noundef %487, i32 noundef 0, i32 noundef 0, i32 noundef %492)
+  store ptr %493, ptr %12, align 8
+  br label %499
 
-525:                                              ; preds = %520
-  %526 = load ptr, ptr %15, align 8
-  %527 = getelementptr inbounds %struct.ieee802154_packet, ptr %526, i32 0, i32 17
-  %528 = load i16, ptr %527, align 2
-  %529 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %20, i32 0, i32 0
-  store i16 %528, ptr %529, align 2
-  %530 = load ptr, ptr %15, align 8
-  %531 = getelementptr inbounds %struct.ieee802154_packet, ptr %530, i32 0, i32 20
-  %532 = load i16, ptr %531, align 8
-  %533 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %20, i32 0, i32 1
-  store i16 %532, ptr %533, align 2
-  %534 = load ptr, ptr getelementptr inbounds (%struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1), align 8
-  %535 = call ptr @g_hash_table_lookup(ptr noundef %534, ptr noundef %20)
-  store ptr %535, ptr %21, align 8
-  %536 = load ptr, ptr %21, align 8
-  %537 = icmp ne ptr %536, null
-  br i1 %537, label %538, label %542
+494:                                              ; preds = %454
+  %495 = load ptr, ptr %13, align 8
+  %496 = load i32, ptr @hf_zbee_nwk_src64_origin, align 4
+  %497 = load ptr, ptr %6, align 8
+  %498 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %495, i32 noundef %496, ptr noundef %497, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef @.str.327)
+  store ptr %498, ptr %12, align 8
+  br label %499
 
-538:                                              ; preds = %525
-  %539 = load ptr, ptr %21, align 8
-  %540 = load ptr, ptr %22, align 8
-  %541 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %540, i32 0, i32 3
-  store ptr %539, ptr %541, align 8
-  br label %542
+499:                                              ; preds = %494, %484
+  %500 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %500)
+  br label %501
 
-542:                                              ; preds = %538, %525
-  br label %543
+501:                                              ; preds = %499, %449, %446
+  br label %502
 
-543:                                              ; preds = %542, %520, %517, %512
+502:                                              ; preds = %501, %445
+  br label %503
+
+503:                                              ; preds = %502, %400
+  %504 = load ptr, ptr %7, align 8
+  %505 = getelementptr inbounds %struct._packet_info, ptr %504, i32 0, i32 8
+  %506 = load ptr, ptr %505, align 8
+  %507 = getelementptr inbounds %struct._frame_data, ptr %506, i32 0, i32 9
+  %508 = load i16, ptr %507, align 2
+  %509 = lshr i16 %508, 3
+  %510 = and i16 %509, 1
+  %511 = zext i16 %510 to i32
+  %512 = icmp ne i32 %511, 0
+  br i1 %512, label %546, label %513
+
+513:                                              ; preds = %503
+  %514 = load ptr, ptr %15, align 8
+  %515 = getelementptr inbounds %struct.ieee802154_packet, ptr %514, i32 0, i32 3
+  %516 = load i32, ptr %515, align 4
+  %517 = icmp eq i32 %516, 2
+  br i1 %517, label %518, label %545
+
+518:                                              ; preds = %513
+  %519 = load ptr, ptr %22, align 8
+  %520 = icmp ne ptr %519, null
+  br i1 %520, label %521, label %545
+
+521:                                              ; preds = %518
+  %522 = load ptr, ptr %22, align 8
+  %523 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %522, i32 0, i32 3
+  %524 = load ptr, ptr %523, align 8
+  %525 = icmp ne ptr %524, null
+  br i1 %525, label %545, label %526
+
+526:                                              ; preds = %521
+  %527 = load ptr, ptr %15, align 8
+  %528 = getelementptr inbounds %struct.ieee802154_packet, ptr %527, i32 0, i32 17
+  %529 = load i16, ptr %528, align 2
+  %530 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %20, i32 0, i32 0
+  store i16 %529, ptr %530, align 2
+  %531 = load ptr, ptr %15, align 8
+  %532 = getelementptr inbounds %struct.ieee802154_packet, ptr %531, i32 0, i32 20
+  %533 = load i16, ptr %532, align 8
+  %534 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %20, i32 0, i32 1
+  store i16 %533, ptr %534, align 2
+  %535 = getelementptr inbounds %struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1
+  %536 = load ptr, ptr %535, align 8
+  %537 = call ptr @g_hash_table_lookup(ptr noundef %536, ptr noundef %20)
+  store ptr %537, ptr %21, align 8
+  %538 = load ptr, ptr %21, align 8
+  %539 = icmp ne ptr %538, null
+  br i1 %539, label %540, label %544
+
+540:                                              ; preds = %526
+  %541 = load ptr, ptr %21, align 8
+  %542 = load ptr, ptr %22, align 8
+  %543 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %542, i32 0, i32 3
+  store ptr %541, ptr %543, align 8
   br label %544
 
-544:                                              ; preds = %543, %502
+544:                                              ; preds = %540, %526
   br label %545
 
-545:                                              ; preds = %544, %328
-  %546 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
-  %547 = load i8, ptr %546, align 2
-  %548 = zext i8 %547 to i32
-  %549 = icmp sge i32 %548, 2
-  br i1 %549, label %550, label %581
+545:                                              ; preds = %544, %521, %518, %513
+  br label %546
 
-550:                                              ; preds = %545
-  %551 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 2
-  %552 = load i32, ptr %551, align 8
-  %553 = icmp ne i32 %552, 0
-  br i1 %553, label %554, label %581
+546:                                              ; preds = %545, %503
+  br label %547
 
-554:                                              ; preds = %550
-  %555 = load ptr, ptr %6, align 8
-  %556 = load i32, ptr %16, align 4
-  %557 = call zeroext i8 @tvb_get_guint8(ptr noundef %555, i32 noundef %556)
-  store i8 %557, ptr %25, align 1
-  %558 = load i8, ptr %25, align 1
-  %559 = zext i8 %558 to i32
-  %560 = call i32 @zbee_get_bit_field(i32 noundef %559, i32 noundef 3)
-  %561 = trunc i32 %560 to i8
-  %562 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 14
-  store i8 %561, ptr %562, align 2
-  %563 = load i8, ptr %25, align 1
-  %564 = zext i8 %563 to i32
-  %565 = call i32 @zbee_get_bit_field(i32 noundef %564, i32 noundef 28)
-  %566 = trunc i32 %565 to i8
-  %567 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 15
-  store i8 %566, ptr %567, align 1
-  %568 = load i8, ptr %25, align 1
-  %569 = zext i8 %568 to i32
-  %570 = call i32 @zbee_get_bit_field(i32 noundef %569, i32 noundef 224)
-  %571 = trunc i32 %570 to i8
-  %572 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 16
-  store i8 %571, ptr %572, align 4
-  %573 = load ptr, ptr %13, align 8
-  %574 = load ptr, ptr %6, align 8
-  %575 = load i32, ptr %16, align 4
-  %576 = load i32, ptr @hf_zbee_nwk_mcast, align 4
-  %577 = load i32, ptr @ett_zbee_nwk_mcast, align 4
-  %578 = call ptr @proto_tree_add_bitmask(ptr noundef %573, ptr noundef %574, i32 noundef %575, i32 noundef %576, i32 noundef %577, ptr noundef @dissect_zbee_nwk_full.multicast_flags, i32 noundef 0)
-  %579 = load i32, ptr %16, align 4
-  %580 = add i32 %579, 1
-  store i32 %580, ptr %16, align 4
-  br label %581
+547:                                              ; preds = %546, %328
+  %548 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
+  %549 = load i8, ptr %548, align 2
+  %550 = zext i8 %549 to i32
+  %551 = icmp sge i32 %550, 2
+  br i1 %551, label %552, label %583
 
-581:                                              ; preds = %554, %550, %545
-  %582 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
-  %583 = load i8, ptr %582, align 2
-  %584 = zext i8 %583 to i32
-  %585 = icmp sge i32 %584, 2
-  br i1 %585, label %586, label %649
+552:                                              ; preds = %547
+  %553 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 2
+  %554 = load i32, ptr %553, align 8
+  %555 = icmp ne i32 %554, 0
+  br i1 %555, label %556, label %583
 
-586:                                              ; preds = %581
-  %587 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 3
-  %588 = load i32, ptr %587, align 4
-  %589 = icmp ne i32 %588, 0
-  br i1 %589, label %590, label %649
+556:                                              ; preds = %552
+  %557 = load ptr, ptr %6, align 8
+  %558 = load i32, ptr %16, align 4
+  %559 = call zeroext i8 @tvb_get_guint8(ptr noundef %557, i32 noundef %558)
+  store i8 %559, ptr %25, align 1
+  %560 = load i8, ptr %25, align 1
+  %561 = zext i8 %560 to i32
+  %562 = call i32 @zbee_get_bit_field(i32 noundef %561, i32 noundef 3)
+  %563 = trunc i32 %562 to i8
+  %564 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 14
+  store i8 %563, ptr %564, align 2
+  %565 = load i8, ptr %25, align 1
+  %566 = zext i8 %565 to i32
+  %567 = call i32 @zbee_get_bit_field(i32 noundef %566, i32 noundef 28)
+  %568 = trunc i32 %567 to i8
+  %569 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 15
+  store i8 %568, ptr %569, align 1
+  %570 = load i8, ptr %25, align 1
+  %571 = zext i8 %570 to i32
+  %572 = call i32 @zbee_get_bit_field(i32 noundef %571, i32 noundef 224)
+  %573 = trunc i32 %572 to i8
+  %574 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 16
+  store i8 %573, ptr %574, align 4
+  %575 = load ptr, ptr %13, align 8
+  %576 = load ptr, ptr %6, align 8
+  %577 = load i32, ptr %16, align 4
+  %578 = load i32, ptr @hf_zbee_nwk_mcast, align 4
+  %579 = load i32, ptr @ett_zbee_nwk_mcast, align 4
+  %580 = call ptr @proto_tree_add_bitmask(ptr noundef %575, ptr noundef %576, i32 noundef %577, i32 noundef %578, i32 noundef %579, ptr noundef @dissect_zbee_nwk_full.multicast_flags, i32 noundef 0)
+  %581 = load i32, ptr %16, align 4
+  %582 = add i32 %581, 1
+  store i32 %582, ptr %16, align 4
+  br label %583
 
-590:                                              ; preds = %586
-  %591 = load ptr, ptr %13, align 8
-  %592 = load ptr, ptr %6, align 8
-  %593 = load i32, ptr %16, align 4
-  %594 = load i32, ptr @ett_zbee_nwk_route, align 4
-  %595 = call ptr @proto_tree_add_subtree(ptr noundef %591, ptr noundef %592, i32 noundef %593, i32 noundef 1, i32 noundef %594, ptr noundef %12, ptr noundef @.str.14)
-  store ptr %595, ptr %26, align 8
-  %596 = load ptr, ptr %6, align 8
-  %597 = load i32, ptr %16, align 4
-  %598 = call zeroext i8 @tvb_get_guint8(ptr noundef %596, i32 noundef %597)
-  store i8 %598, ptr %27, align 1
-  %599 = load ptr, ptr %26, align 8
-  %600 = load i32, ptr @hf_zbee_nwk_relay_count, align 4
-  %601 = load ptr, ptr %6, align 8
-  %602 = load i32, ptr %16, align 4
-  %603 = load i8, ptr %27, align 1
-  %604 = zext i8 %603 to i32
-  %605 = call ptr @proto_tree_add_uint(ptr noundef %599, i32 noundef %600, ptr noundef %601, i32 noundef %602, i32 noundef 1, i32 noundef %604)
-  %606 = load ptr, ptr %12, align 8
-  %607 = load i8, ptr %27, align 1
-  %608 = zext i8 %607 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %606, ptr noundef @.str.328, i32 noundef %608)
-  %609 = load i32, ptr %16, align 4
-  %610 = add i32 %609, 1
-  store i32 %610, ptr %16, align 4
-  %611 = load ptr, ptr %12, align 8
-  %612 = load i8, ptr %27, align 1
-  %613 = zext i8 %612 to i32
-  %614 = mul i32 %613, 2
-  %615 = add i32 1, %614
-  call void @proto_item_set_len(ptr noundef %611, i32 noundef %615)
-  %616 = load ptr, ptr %26, align 8
-  %617 = load i32, ptr @hf_zbee_nwk_relay_index, align 4
-  %618 = load ptr, ptr %6, align 8
-  %619 = load i32, ptr %16, align 4
-  %620 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %617, ptr noundef %618, i32 noundef %619, i32 noundef 1, i32 noundef 0)
+583:                                              ; preds = %556, %552, %547
+  %584 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
+  %585 = load i8, ptr %584, align 2
+  %586 = zext i8 %585 to i32
+  %587 = icmp sge i32 %586, 2
+  br i1 %587, label %588, label %651
+
+588:                                              ; preds = %583
+  %589 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 3
+  %590 = load i32, ptr %589, align 4
+  %591 = icmp ne i32 %590, 0
+  br i1 %591, label %592, label %651
+
+592:                                              ; preds = %588
+  %593 = load ptr, ptr %13, align 8
+  %594 = load ptr, ptr %6, align 8
+  %595 = load i32, ptr %16, align 4
+  %596 = load i32, ptr @ett_zbee_nwk_route, align 4
+  %597 = call ptr @proto_tree_add_subtree(ptr noundef %593, ptr noundef %594, i32 noundef %595, i32 noundef 1, i32 noundef %596, ptr noundef %12, ptr noundef @.str.14)
+  store ptr %597, ptr %26, align 8
+  %598 = load ptr, ptr %6, align 8
+  %599 = load i32, ptr %16, align 4
+  %600 = call zeroext i8 @tvb_get_guint8(ptr noundef %598, i32 noundef %599)
+  store i8 %600, ptr %27, align 1
+  %601 = load ptr, ptr %26, align 8
+  %602 = load i32, ptr @hf_zbee_nwk_relay_count, align 4
+  %603 = load ptr, ptr %6, align 8
+  %604 = load i32, ptr %16, align 4
+  %605 = load i8, ptr %27, align 1
+  %606 = zext i8 %605 to i32
+  %607 = call ptr @proto_tree_add_uint(ptr noundef %601, i32 noundef %602, ptr noundef %603, i32 noundef %604, i32 noundef 1, i32 noundef %606)
+  %608 = load ptr, ptr %12, align 8
+  %609 = load i8, ptr %27, align 1
+  %610 = zext i8 %609 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %608, ptr noundef @.str.328, i32 noundef %610)
+  %611 = load i32, ptr %16, align 4
+  %612 = add i32 %611, 1
+  store i32 %612, ptr %16, align 4
+  %613 = load ptr, ptr %12, align 8
+  %614 = load i8, ptr %27, align 1
+  %615 = zext i8 %614 to i32
+  %616 = mul i32 %615, 2
+  %617 = add i32 1, %616
+  call void @proto_item_set_len(ptr noundef %613, i32 noundef %617)
+  %618 = load ptr, ptr %26, align 8
+  %619 = load i32, ptr @hf_zbee_nwk_relay_index, align 4
+  %620 = load ptr, ptr %6, align 8
   %621 = load i32, ptr %16, align 4
-  %622 = add i32 %621, 1
-  store i32 %622, ptr %16, align 4
+  %622 = call ptr @proto_tree_add_item(ptr noundef %618, i32 noundef %619, ptr noundef %620, i32 noundef %621, i32 noundef 1, i32 noundef 0)
+  %623 = load i32, ptr %16, align 4
+  %624 = add i32 %623, 1
+  store i32 %624, ptr %16, align 4
   store i32 0, ptr %29, align 4
-  br label %623
+  br label %625
 
-623:                                              ; preds = %645, %590
-  %624 = load i32, ptr %29, align 4
-  %625 = load i8, ptr %27, align 1
-  %626 = zext i8 %625 to i32
-  %627 = icmp ult i32 %624, %626
-  br i1 %627, label %628, label %648
+625:                                              ; preds = %647, %592
+  %626 = load i32, ptr %29, align 4
+  %627 = load i8, ptr %27, align 1
+  %628 = zext i8 %627 to i32
+  %629 = icmp ult i32 %626, %628
+  br i1 %629, label %630, label %650
 
-628:                                              ; preds = %623
-  %629 = load ptr, ptr %6, align 8
-  %630 = load i32, ptr %16, align 4
-  %631 = call zeroext i16 @tvb_get_letohs(ptr noundef %629, i32 noundef %630)
-  store i16 %631, ptr %28, align 2
-  %632 = load ptr, ptr %26, align 8
-  %633 = load i32, ptr @hf_zbee_nwk_relay, align 4
-  %634 = load ptr, ptr %6, align 8
-  %635 = load i32, ptr %16, align 4
-  %636 = load i16, ptr %28, align 2
-  %637 = zext i16 %636 to i32
-  %638 = load i32, ptr %29, align 4
-  %639 = add i32 %638, 1
-  %640 = load i16, ptr %28, align 2
-  %641 = zext i16 %640 to i32
-  %642 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %632, i32 noundef %633, ptr noundef %634, i32 noundef %635, i32 noundef 2, i32 noundef %637, ptr noundef @.str.329, i32 noundef %639, i32 noundef %641)
-  %643 = load i32, ptr %16, align 4
-  %644 = add i32 %643, 2
-  store i32 %644, ptr %16, align 4
-  br label %645
+630:                                              ; preds = %625
+  %631 = load ptr, ptr %6, align 8
+  %632 = load i32, ptr %16, align 4
+  %633 = call zeroext i16 @tvb_get_letohs(ptr noundef %631, i32 noundef %632)
+  store i16 %633, ptr %28, align 2
+  %634 = load ptr, ptr %26, align 8
+  %635 = load i32, ptr @hf_zbee_nwk_relay, align 4
+  %636 = load ptr, ptr %6, align 8
+  %637 = load i32, ptr %16, align 4
+  %638 = load i16, ptr %28, align 2
+  %639 = zext i16 %638 to i32
+  %640 = load i32, ptr %29, align 4
+  %641 = add i32 %640, 1
+  %642 = load i16, ptr %28, align 2
+  %643 = zext i16 %642 to i32
+  %644 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %634, i32 noundef %635, ptr noundef %636, i32 noundef %637, i32 noundef 2, i32 noundef %639, ptr noundef @.str.329, i32 noundef %641, i32 noundef %643)
+  %645 = load i32, ptr %16, align 4
+  %646 = add i32 %645, 2
+  store i32 %646, ptr %16, align 4
+  br label %647
 
-645:                                              ; preds = %628
-  %646 = load i32, ptr %29, align 4
-  %647 = add i32 %646, 1
-  store i32 %647, ptr %29, align 4
-  br label %623, !llvm.loop !7
+647:                                              ; preds = %630
+  %648 = load i32, ptr %29, align 4
+  %649 = add i32 %648, 1
+  store i32 %649, ptr %29, align 4
+  br label %625, !llvm.loop !7
 
-648:                                              ; preds = %623
-  br label %649
+650:                                              ; preds = %625
+  br label %651
 
-649:                                              ; preds = %648, %586, %581
-  br label %650
+651:                                              ; preds = %650, %588, %583
+  br label %652
 
-650:                                              ; preds = %649, %130
-  %651 = load i32, ptr %16, align 4
-  %652 = load ptr, ptr %6, align 8
-  %653 = call i32 @tvb_captured_length(ptr noundef %652)
-  %654 = icmp uge i32 %651, %653
-  br i1 %654, label %655, label %661
+652:                                              ; preds = %651, %130
+  %653 = load i32, ptr %16, align 4
+  %654 = load ptr, ptr %6, align 8
+  %655 = call i32 @tvb_captured_length(ptr noundef %654)
+  %656 = icmp uge i32 %653, %655
+  br i1 %656, label %657, label %663
 
-655:                                              ; preds = %650
-  %656 = load ptr, ptr %7, align 8
-  %657 = load ptr, ptr %11, align 8
-  %658 = call ptr @expert_add_info(ptr noundef %656, ptr noundef %657, ptr noundef @ei_zbee_nwk_missing_payload)
-  %659 = load ptr, ptr %6, align 8
-  %660 = call i32 @tvb_captured_length(ptr noundef %659)
-  store i32 %660, ptr %5, align 4
-  br label %718
+657:                                              ; preds = %652
+  %658 = load ptr, ptr %7, align 8
+  %659 = load ptr, ptr %11, align 8
+  %660 = call ptr @expert_add_info(ptr noundef %658, ptr noundef %659, ptr noundef @ei_zbee_nwk_missing_payload)
+  %661 = load ptr, ptr %6, align 8
+  %662 = call i32 @tvb_captured_length(ptr noundef %661)
+  store i32 %662, ptr %5, align 4
+  br label %720
 
-661:                                              ; preds = %650
-  %662 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 0
-  %663 = load i32, ptr %662, align 8
-  %664 = icmp ne i32 %663, 0
-  br i1 %664, label %665, label %677
+663:                                              ; preds = %652
+  %664 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 0
+  %665 = load i32, ptr %664, align 8
+  %666 = icmp ne i32 %665, 0
+  br i1 %666, label %667, label %679
 
-665:                                              ; preds = %661
-  %666 = load ptr, ptr %6, align 8
-  %667 = load ptr, ptr %7, align 8
-  %668 = load ptr, ptr %13, align 8
-  %669 = load i32, ptr %16, align 4
-  %670 = call ptr @dissect_zbee_secure(ptr noundef %666, ptr noundef %667, ptr noundef %668, i32 noundef %669)
-  store ptr %670, ptr %10, align 8
-  %671 = load ptr, ptr %10, align 8
-  %672 = icmp eq ptr %671, null
-  br i1 %672, label %673, label %676
+667:                                              ; preds = %663
+  %668 = load ptr, ptr %6, align 8
+  %669 = load ptr, ptr %7, align 8
+  %670 = load ptr, ptr %13, align 8
+  %671 = load i32, ptr %16, align 4
+  %672 = call ptr @dissect_zbee_secure(ptr noundef %668, ptr noundef %669, ptr noundef %670, i32 noundef %671)
+  store ptr %672, ptr %10, align 8
+  %673 = load ptr, ptr %10, align 8
+  %674 = icmp eq ptr %673, null
+  br i1 %674, label %675, label %678
 
-673:                                              ; preds = %665
-  %674 = load ptr, ptr %6, align 8
-  %675 = call i32 @tvb_captured_length(ptr noundef %674)
-  store i32 %675, ptr %5, align 4
-  br label %718
+675:                                              ; preds = %667
+  %676 = load ptr, ptr %6, align 8
+  %677 = call i32 @tvb_captured_length(ptr noundef %676)
+  store i32 %677, ptr %5, align 4
+  br label %720
 
-676:                                              ; preds = %665
-  br label %681
+678:                                              ; preds = %667
+  br label %683
 
-677:                                              ; preds = %661
-  %678 = load ptr, ptr %6, align 8
-  %679 = load i32, ptr %16, align 4
-  %680 = call ptr @tvb_new_subset_remaining(ptr noundef %678, i32 noundef %679)
-  store ptr %680, ptr %10, align 8
-  br label %681
+679:                                              ; preds = %663
+  %680 = load ptr, ptr %6, align 8
+  %681 = load i32, ptr %16, align 4
+  %682 = call ptr @tvb_new_subset_remaining(ptr noundef %680, i32 noundef %681)
+  store ptr %682, ptr %10, align 8
+  br label %683
 
-681:                                              ; preds = %677, %676
-  br label %682
+683:                                              ; preds = %679, %678
+  br label %684
 
-682:                                              ; preds = %681
-  %683 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
-  %684 = load i16, ptr %683, align 8
-  %685 = zext i16 %684 to i32
-  %686 = icmp eq i32 %685, 1
-  br i1 %686, label %687, label %691
+684:                                              ; preds = %683
+  %685 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
+  %686 = load i16, ptr %685, align 8
+  %687 = zext i16 %686 to i32
+  %688 = icmp eq i32 %687, 1
+  br i1 %688, label %689, label %693
 
-687:                                              ; preds = %682
-  %688 = load ptr, ptr %10, align 8
-  %689 = load ptr, ptr %7, align 8
-  %690 = load ptr, ptr %13, align 8
-  call void @dissect_zbee_nwk_cmd(ptr noundef %688, ptr noundef %689, ptr noundef %690, ptr noundef %14)
-  br label %713
+689:                                              ; preds = %684
+  %690 = load ptr, ptr %10, align 8
+  %691 = load ptr, ptr %7, align 8
+  %692 = load ptr, ptr %13, align 8
+  call void @dissect_zbee_nwk_cmd(ptr noundef %690, ptr noundef %691, ptr noundef %692, ptr noundef %14)
+  br label %715
 
-691:                                              ; preds = %682
-  %692 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
-  %693 = load i16, ptr %692, align 8
-  %694 = zext i16 %693 to i32
-  %695 = icmp eq i32 %694, 0
-  br i1 %695, label %701, label %696
+693:                                              ; preds = %684
+  %694 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
+  %695 = load i16, ptr %694, align 8
+  %696 = zext i16 %695 to i32
+  %697 = icmp eq i32 %696, 0
+  br i1 %697, label %703, label %698
 
-696:                                              ; preds = %691
-  %697 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
-  %698 = load i16, ptr %697, align 8
-  %699 = zext i16 %698 to i32
-  %700 = icmp eq i32 %699, 3
-  br i1 %700, label %701, label %707
+698:                                              ; preds = %693
+  %699 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
+  %700 = load i16, ptr %699, align 8
+  %701 = zext i16 %700 to i32
+  %702 = icmp eq i32 %701, 3
+  br i1 %702, label %703, label %709
 
-701:                                              ; preds = %696, %691
-  %702 = load ptr, ptr @aps_handle, align 8
-  %703 = load ptr, ptr %10, align 8
-  %704 = load ptr, ptr %7, align 8
-  %705 = load ptr, ptr %8, align 8
-  %706 = call i32 @call_dissector_with_data(ptr noundef %702, ptr noundef %703, ptr noundef %704, ptr noundef %705, ptr noundef %14)
-  br label %712
+703:                                              ; preds = %698, %693
+  %704 = load ptr, ptr @aps_handle, align 8
+  %705 = load ptr, ptr %10, align 8
+  %706 = load ptr, ptr %7, align 8
+  %707 = load ptr, ptr %8, align 8
+  %708 = call i32 @call_dissector_with_data(ptr noundef %704, ptr noundef %705, ptr noundef %706, ptr noundef %707, ptr noundef %14)
+  br label %714
 
-707:                                              ; preds = %696
-  %708 = load ptr, ptr %10, align 8
-  %709 = load ptr, ptr %7, align 8
-  %710 = load ptr, ptr %8, align 8
-  %711 = call i32 @call_data_dissector(ptr noundef %708, ptr noundef %709, ptr noundef %710)
-  br label %712
+709:                                              ; preds = %698
+  %710 = load ptr, ptr %10, align 8
+  %711 = load ptr, ptr %7, align 8
+  %712 = load ptr, ptr %8, align 8
+  %713 = call i32 @call_data_dissector(ptr noundef %710, ptr noundef %711, ptr noundef %712)
+  br label %714
 
-712:                                              ; preds = %707, %701
-  br label %713
+714:                                              ; preds = %709, %703
+  br label %715
 
-713:                                              ; preds = %712, %687
-  %714 = load i32, ptr @zbee_nwk_tap, align 4
-  %715 = load ptr, ptr %7, align 8
-  call void @tap_queue_packet(i32 noundef %714, ptr noundef %715, ptr noundef null)
-  %716 = load ptr, ptr %6, align 8
-  %717 = call i32 @tvb_captured_length(ptr noundef %716)
-  store i32 %717, ptr %5, align 4
-  br label %718
+715:                                              ; preds = %714, %689
+  %716 = load i32, ptr @zbee_nwk_tap, align 4
+  %717 = load ptr, ptr %7, align 8
+  call void @tap_queue_packet(i32 noundef %716, ptr noundef %717, ptr noundef null)
+  %718 = load ptr, ptr %6, align 8
+  %719 = call i32 @tvb_captured_length(ptr noundef %718)
+  store i32 %719, ptr %5, align 4
+  br label %720
 
-718:                                              ; preds = %713, %673, %655, %32
-  %719 = load i32, ptr %5, align 4
-  ret i32 %719
+720:                                              ; preds = %715, %675, %657, %32
+  %721 = load i32, ptr %5, align 4
+  ret i32 %721
 }
 
 declare i32 @tvb_captured_length(ptr noundef) #1

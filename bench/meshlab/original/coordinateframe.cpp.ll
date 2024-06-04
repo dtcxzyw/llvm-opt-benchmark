@@ -696,9 +696,10 @@ define linkonce_odr void @_ZN3vcg15CoordinateFrameD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg15CoordinateFrameE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %3, i32 0, i32 7
-  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #7
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3vcg15CoordinateFrameE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %3, i32 0, i32 7
+  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #7
   ret void
 }
 
@@ -2621,69 +2622,70 @@ define void @_ZN3vcg15CoordinateFrameC2Ef(ptr noundef nonnull align 8 dereferenc
   store ptr %0, ptr %3, align 8
   store float %1, ptr %4, align 4
   %8 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg15CoordinateFrameE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 1
-  call void @_ZN3vcg6Color4IhEC2ENS1_13ColorConstantE(ptr noundef nonnull align 1 dereferenceable(4) %9, i32 noundef -1)
-  %10 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 2
-  call void @_ZN3vcg6Color4IhEC2ENS1_13ColorConstantE(ptr noundef nonnull align 1 dereferenceable(4) %10, i32 noundef -16776961)
-  %11 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 3
-  call void @_ZN3vcg6Color4IhEC2ENS1_13ColorConstantE(ptr noundef nonnull align 1 dereferenceable(4) %11, i32 noundef -16711936)
-  %12 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 4
-  call void @_ZN3vcg6Color4IhEC2ENS1_13ColorConstantE(ptr noundef nonnull align 1 dereferenceable(4) %12, i32 noundef -65536)
-  %13 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 5
-  %14 = load float, ptr %4, align 4
-  store float %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 6
-  store float 2.000000e+00, ptr %15, align 4
-  %16 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 7
-  call void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %16)
-  %17 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 8
-  store i8 1, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 9
-  store i8 1, ptr %18, align 1
-  %19 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 10
-  store i8 0, ptr %19, align 2
-  %20 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 7
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3vcg15CoordinateFrameE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 1
+  call void @_ZN3vcg6Color4IhEC2ENS1_13ColorConstantE(ptr noundef nonnull align 1 dereferenceable(4) %10, i32 noundef -1)
+  %11 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 2
+  call void @_ZN3vcg6Color4IhEC2ENS1_13ColorConstantE(ptr noundef nonnull align 1 dereferenceable(4) %11, i32 noundef -16776961)
+  %12 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 3
+  call void @_ZN3vcg6Color4IhEC2ENS1_13ColorConstantE(ptr noundef nonnull align 1 dereferenceable(4) %12, i32 noundef -16711936)
+  %13 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 4
+  call void @_ZN3vcg6Color4IhEC2ENS1_13ColorConstantE(ptr noundef nonnull align 1 dereferenceable(4) %13, i32 noundef -65536)
+  %14 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 5
+  %15 = load float, ptr %4, align 4
+  store float %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 6
+  store float 2.000000e+00, ptr %16, align 4
+  %17 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 7
+  call void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %17)
+  %18 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 8
+  store i8 1, ptr %18, align 8
+  %19 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 9
+  store i8 1, ptr %19, align 1
+  %20 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 10
+  store i8 0, ptr %20, align 2
+  %21 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 7
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str)
-          to label %21 unwind label %23
+          to label %22 unwind label %24
 
-21:                                               ; preds = %2
-  invoke void @_ZN5QFont9setFamilyERK7QString(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %22 unwind label %27
+22:                                               ; preds = %2
+  invoke void @_ZN5QFont9setFamilyERK7QString(ptr noundef nonnull align 8 dereferenceable(12) %21, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %23 unwind label %28
 
-22:                                               ; preds = %21
+23:                                               ; preds = %22
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %6, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %7, align 4
-  br label %31
-
-27:                                               ; preds = %21
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %6, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %7, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  br label %31
-
-31:                                               ; preds = %27, %23
-  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %16) #7
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %6, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %7, align 4
   br label %32
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %6, align 8
-  %34 = load i32, ptr %7, align 4
-  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
-  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
-  resume { ptr, i32 } %36
+28:                                               ; preds = %22
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %6, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %7, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
+  br label %32
+
+32:                                               ; preds = %28, %24
+  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %17) #7
+  br label %33
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %6, align 8
+  %35 = load i32, ptr %7, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6393,39 +6395,40 @@ define void @_ZN3vcg22MovableCoordinateFrameC2Ef(ptr noundef nonnull align 8 der
   %8 = load ptr, ptr %3, align 8
   %9 = load float, ptr %4, align 4
   call void @_ZN3vcg15CoordinateFrameC2Ef(ptr noundef nonnull align 8 dereferenceable(51) %8, float noundef %9)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg22MovableCoordinateFrameE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %10 = getelementptr inbounds %"class.vcg::MovableCoordinateFrame", ptr %8, i32 0, i32 1
-  invoke void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %10, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-          to label %11 unwind label %15
+  %10 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN3vcg22MovableCoordinateFrameE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds %"class.vcg::MovableCoordinateFrame", ptr %8, i32 0, i32 1
+  invoke void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %11, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+          to label %12 unwind label %16
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds %"class.vcg::MovableCoordinateFrame", ptr %8, i32 0, i32 2
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds %"class.vcg::MovableCoordinateFrame", ptr %8, i32 0, i32 2
   invoke void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %7, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-          to label %13 unwind label %15
+          to label %14 unwind label %16
 
-13:                                               ; preds = %11
-  invoke void @_ZN3vcg10QuaternionIfEC2EfRKNS_6Point3IfEE(ptr noundef nonnull align 4 dereferenceable(16) %12, float noundef 0.000000e+00, ptr noundef nonnull align 4 dereferenceable(12) %7)
-          to label %14 unwind label %15
+14:                                               ; preds = %12
+  invoke void @_ZN3vcg10QuaternionIfEC2EfRKNS_6Point3IfEE(ptr noundef nonnull align 4 dereferenceable(16) %13, float noundef 0.000000e+00, ptr noundef nonnull align 4 dereferenceable(12) %7)
+          to label %15 unwind label %16
 
-14:                                               ; preds = %13
+15:                                               ; preds = %14
   ret void
 
-15:                                               ; preds = %13, %11, %2
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %14, %12, %2
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %5, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %6, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %5, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %6, align 4
   call void @_ZN3vcg15CoordinateFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(51) %8) #7
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %5, align 8
-  %21 = load i32, ptr %6, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %5, align 8
+  %22 = load i32, ptr %6, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress uwtable

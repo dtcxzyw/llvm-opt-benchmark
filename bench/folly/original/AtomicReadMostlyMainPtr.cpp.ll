@@ -197,7 +197,8 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #13
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !14
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2
+  store ptr %0, ptr %ref.tmp, align 8, !tbaa !14
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #15
           to label %invoke.cont unwind label %lpad
 
@@ -205,18 +206,19 @@ invoke.cont:                                      ; preds = %entry
   unreachable
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt17bad_function_callD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #13
-  resume { ptr, i32 } %0
+  resume { ptr, i32 } %1
 }
 
 ; Function Attrs: cold mustprogress noreturn optsize uwtable
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #10 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #13
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !14
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2
+  store ptr %0, ptr %exception, align 8, !tbaa !14
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #16
   unreachable
 }
@@ -233,15 +235,23 @@ define internal void @_GLOBAL__sub_I_AtomicReadMostlyMainPtr.cpp() #11 section "
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5folly6detail18atomicReadMostlyMuE, i8 0, i64 40, i1 false)
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5folly6detail12_GLOBAL__N_115FailingExecutorE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !14
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5folly6detail12_GLOBAL__N_115FailingExecutorE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %call.i, align 8, !tbaa !14
   store i64 0, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, align 8, !tbaa !16
-  store i32 0, ptr getelementptr inbounds (%"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 8), align 8, !tbaa !19
-  store i32 -1, ptr getelementptr inbounds (%"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 12), align 4, !tbaa !19
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 16), i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) getelementptr inbounds (%"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 40), i8 0, i64 68, i1 false)
-  store i32 -1, ptr getelementptr inbounds (%"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 112), align 8, !tbaa !19
-  store ptr %call.i, ptr getelementptr inbounds (%"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 120), align 8, !tbaa !22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 128), i8 0, i64 32, i1 false), !tbaa !40
+  %1 = getelementptr inbounds %"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 8
+  store i32 0, ptr %1, align 8, !tbaa !19
+  %2 = getelementptr inbounds %"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 12
+  store i32 -1, ptr %2, align 4, !tbaa !19
+  %3 = getelementptr inbounds %"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
+  %4 = getelementptr inbounds %"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %4, i8 0, i64 68, i1 false)
+  %5 = getelementptr inbounds %"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 112
+  store i32 -1, ptr %5, align 8, !tbaa !19
+  %6 = getelementptr inbounds %"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 120
+  store ptr %call.i, ptr %6, align 8, !tbaa !22
+  %7 = getelementptr inbounds %"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !tbaa !40
   ret void
 }
 

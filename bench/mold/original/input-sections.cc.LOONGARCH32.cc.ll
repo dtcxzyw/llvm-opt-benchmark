@@ -8542,12 +8542,13 @@ land.lhs.true:                                    ; preds = %if.then
   %my_table4 = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base.296", ptr %this1, i32 0, i32 4
   %6 = load i64, ptr %new_seg, align 8
   %arrayidx5 = getelementptr inbounds [64 x %"struct.std::atomic.299"], ptr %my_table4, i64 0, i64 %6
-  %call6 = call noundef zeroext i1 @_ZNSt6atomicIPN3tbb6detail2d213hash_map_baseINS1_2d113tbb_allocatorISt4pairIKPN4mold3elf6SymbolINS8_11LOONGARCH32EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEEEENS4_13spin_rw_mutexEE6bucketEE23compare_exchange_strongERSS_SS_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx5, ptr noundef nonnull align 8 dereferenceable(8) %disabled, ptr noundef inttoptr (i64 2 to ptr), i32 noundef 5) #3
+  %7 = inttoptr i64 2 to ptr
+  %call6 = call noundef zeroext i1 @_ZNSt6atomicIPN3tbb6detail2d213hash_map_baseINS1_2d113tbb_allocatorISt4pairIKPN4mold3elf6SymbolINS8_11LOONGARCH32EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEEEENS4_13spin_rw_mutexEE6bucketEE23compare_exchange_strongERSS_SS_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx5, ptr noundef nonnull align 8 dereferenceable(8) %disabled, ptr noundef %7, i32 noundef 5) #3
   br i1 %call6, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %land.lhs.true
-  %7 = load i64, ptr %new_seg, align 8
-  store i64 %7, ptr %retval, align 8
+  %8 = load i64, ptr %new_seg, align 8
+  store i64 %8, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %if.then
@@ -8558,8 +8559,8 @@ if.end8:                                          ; preds = %if.end, %entry
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then7
-  %8 = load i64, ptr %retval, align 8
-  ret i64 %8
+  %9 = load i64, ptr %retval, align 8
+  ret i64 %9
 }
 
 ; Function Attrs: mustprogress nounwind
@@ -8986,7 +8987,8 @@ entry:
   %node_ptr.addr = alloca ptr, align 8
   store ptr %node_ptr, ptr %node_ptr.addr, align 8
   %0 = load ptr, ptr %node_ptr.addr, align 8
-  %cmp = icmp eq ptr %0, inttoptr (i64 3 to ptr)
+  %1 = inttoptr i64 3 to ptr
+  %cmp = icmp eq ptr %0, %1
   ret i1 %cmp
 }
 
@@ -11799,7 +11801,8 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %3 = load ptr, ptr %ptr.addr, align 8
   %4 = load i64, ptr %sz.addr, align 8
-  store ptr inttoptr (i64 3 to ptr), ptr %ref.tmp, align 8
+  %5 = inttoptr i64 3 to ptr
+  store ptr %5, ptr %ref.tmp, align 8
   call void @_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold3elf6SymbolINS7_11LOONGARCH32EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEEEENS3_13spin_rw_mutexEE17init_buckets_implIJPNS1_18hash_map_node_baseISO_EEEEEvPNSP_6bucketEmDpRKT_(ptr noundef nonnull align 8 dereferenceable(568) %this1, ptr noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   br label %if.end
 

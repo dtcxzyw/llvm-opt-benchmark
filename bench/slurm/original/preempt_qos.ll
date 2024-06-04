@@ -95,7 +95,7 @@ define zeroext i1 @preempt_p_preemptable(ptr noundef %0, ptr noundef %1) #0 {
 
 19:                                               ; preds = %16, %2
   store i1 false, ptr %3, align 1
-  br label %68
+  br label %69
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %7, align 8
@@ -105,7 +105,7 @@ define zeroext i1 @preempt_p_preemptable(ptr noundef %0, ptr noundef %1) #0 {
   %25 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %24, i32 0, i32 1
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %23, %26
-  br i1 %27, label %28, label %49
+  br i1 %27, label %28, label %50
 
 28:                                               ; preds = %20
   %29 = load ptr, ptr %7, align 8
@@ -114,66 +114,67 @@ define zeroext i1 @preempt_p_preemptable(ptr noundef %0, ptr noundef %1) #0 {
   %32 = zext i16 %31 to i32
   %33 = and i32 %32, 16384
   %34 = icmp ne i32 %33, 0
-  br i1 %34, label %40, label %35
+  br i1 %34, label %41, label %35
 
 35:                                               ; preds = %28
-  %36 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 116), align 4
-  %37 = zext i16 %36 to i32
-  %38 = and i32 %37, 16384
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %48
+  %36 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 116
+  %37 = load i16, ptr %36, align 4
+  %38 = zext i16 %37 to i32
+  %39 = and i32 %38, 16384
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %49
 
-40:                                               ; preds = %35, %28
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct.job_record, ptr %41, i32 0, i32 96
-  %43 = load i32, ptr %42, align 8
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.job_record, ptr %44, i32 0, i32 96
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp ugt i32 %43, %46
-  store i1 %47, ptr %3, align 1
-  br label %68
+41:                                               ; preds = %35, %28
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %struct.job_record, ptr %42, i32 0, i32 96
+  %44 = load i32, ptr %43, align 8
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds %struct.job_record, ptr %45, i32 0, i32 96
+  %47 = load i32, ptr %46, align 8
+  %48 = icmp ugt i32 %44, %47
+  store i1 %48, ptr %3, align 1
+  br label %69
 
-48:                                               ; preds = %35
+49:                                               ; preds = %35
   store i1 false, ptr %3, align 1
-  br label %68
+  br label %69
 
-49:                                               ; preds = %20
-  %50 = load ptr, ptr %7, align 8
-  %51 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %50, i32 0, i32 40
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %64
+50:                                               ; preds = %20
+  %51 = load ptr, ptr %7, align 8
+  %52 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %51, i32 0, i32 40
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %65
 
-54:                                               ; preds = %49
-  %55 = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %55, i32 0, i32 40
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %58, i32 0, i32 1
-  %60 = load i32, ptr %59, align 8
-  %61 = zext i32 %60 to i64
-  %62 = call i32 @bit_test(ptr noundef %57, i64 noundef %61)
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %65, label %64
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %7, align 8
+  %57 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %56, i32 0, i32 40
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %6, align 8
+  %60 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %59, i32 0, i32 1
+  %61 = load i32, ptr %60, align 8
+  %62 = zext i32 %61 to i64
+  %63 = call i32 @bit_test(ptr noundef %58, i64 noundef %62)
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %66, label %65
 
-64:                                               ; preds = %54, %49
+65:                                               ; preds = %55, %50
   store i1 false, ptr %3, align 1
-  br label %68
+  br label %69
 
-65:                                               ; preds = %54
-  br label %66
-
-66:                                               ; preds = %65
+66:                                               ; preds = %55
   br label %67
 
 67:                                               ; preds = %66
-  store i1 true, ptr %3, align 1
   br label %68
 
-68:                                               ; preds = %67, %64, %48, %40, %19
-  %69 = load i1, ptr %3, align 1
-  ret i1 %69
+68:                                               ; preds = %67
+  store i1 true, ptr %3, align 1
+  br label %69
+
+69:                                               ; preds = %68, %65, %49, %41, %19
+  %70 = load i1, ptr %3, align 1
+  ret i1 %70
 }
 
 declare i32 @bit_test(ptr noundef, i64 noundef) #1
@@ -189,52 +190,53 @@ define i32 @preempt_p_get_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) #
   store ptr %2, ptr %6, align 8
   store i32 0, ptr %7, align 4
   %8 = load i32, ptr %5, align 4
-  switch i32 %8, label %27 [
+  switch i32 %8, label %28 [
     i32 0, label %9
-    i32 1, label %15
-    i32 2, label %19
-    i32 3, label %23
+    i32 1, label %16
+    i32 2, label %20
+    i32 3, label %24
   ]
 
 9:                                                ; preds = %3
-  %10 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 116), align 4
-  %11 = zext i16 %10 to i32
-  %12 = icmp ne i32 %11, 0
-  %13 = load ptr, ptr %6, align 8
-  %14 = zext i1 %12 to i8
-  store i8 %14, ptr %13, align 1
-  br label %30
+  %10 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 116
+  %11 = load i16, ptr %10, align 4
+  %12 = zext i16 %11 to i32
+  %13 = icmp ne i32 %12, 0
+  %14 = load ptr, ptr %6, align 8
+  %15 = zext i1 %13 to i8
+  store i8 %15, ptr %14, align 1
+  br label %31
 
-15:                                               ; preds = %3
-  %16 = load ptr, ptr %4, align 8
-  %17 = call zeroext i16 @_job_preempt_mode(ptr noundef %16)
-  %18 = load ptr, ptr %6, align 8
-  store i16 %17, ptr %18, align 2
-  br label %30
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %4, align 8
+  %18 = call zeroext i16 @_job_preempt_mode(ptr noundef %17)
+  %19 = load ptr, ptr %6, align 8
+  store i16 %18, ptr %19, align 2
+  br label %31
 
-19:                                               ; preds = %3
-  %20 = load ptr, ptr %4, align 8
-  %21 = call i32 @_gen_job_prio(ptr noundef %20)
-  %22 = load ptr, ptr %6, align 8
-  store i32 %21, ptr %22, align 4
-  br label %30
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %4, align 8
+  %22 = call i32 @_gen_job_prio(ptr noundef %21)
+  %23 = load ptr, ptr %6, align 8
+  store i32 %22, ptr %23, align 4
+  br label %31
 
-23:                                               ; preds = %3
-  %24 = load ptr, ptr %4, align 8
-  %25 = call i32 @_get_grace_time(ptr noundef %24)
-  %26 = load ptr, ptr %6, align 8
-  store i32 %25, ptr %26, align 4
-  br label %30
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %4, align 8
+  %26 = call i32 @_get_grace_time(ptr noundef %25)
+  %27 = load ptr, ptr %6, align 8
+  store i32 %26, ptr %27, align 4
+  br label %31
 
-27:                                               ; preds = %3
-  %28 = load i32, ptr %5, align 4
-  %29 = call i32 (ptr, ...) @error(ptr noundef @.str.1, ptr noundef @__func__.preempt_p_get_data, i32 noundef %28)
+28:                                               ; preds = %3
+  %29 = load i32, ptr %5, align 4
+  %30 = call i32 (ptr, ...) @error(ptr noundef @.str.1, ptr noundef @__func__.preempt_p_get_data, i32 noundef %29)
   store i32 -1, ptr %7, align 4
-  br label %30
+  br label %31
 
-30:                                               ; preds = %27, %23, %19, %15, %9
-  %31 = load i32, ptr %7, align 4
-  ret i32 %31
+31:                                               ; preds = %28, %24, %20, %16, %9
+  %32 = load i32, ptr %7, align 4
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable
@@ -265,26 +267,27 @@ define internal zeroext i16 @_job_preempt_mode(ptr noundef %0) #0 {
   %20 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %19, i32 0, i32 42
   %21 = load i16, ptr %20, align 8
   store i16 %21, ptr %3, align 2
-  br label %24
+  br label %25
 
 22:                                               ; preds = %8, %1
-  %23 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 116), align 4
-  store i16 %23, ptr %3, align 2
-  br label %24
+  %23 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 116
+  %24 = load i16, ptr %23, align 4
+  store i16 %24, ptr %3, align 2
+  br label %25
 
-24:                                               ; preds = %22, %16
-  %25 = load i16, ptr %3, align 2
-  %26 = zext i16 %25 to i32
-  %27 = and i32 %26, -32769
-  %28 = trunc i32 %27 to i16
-  store i16 %28, ptr %3, align 2
-  %29 = load i16, ptr %3, align 2
-  %30 = zext i16 %29 to i32
-  %31 = and i32 %30, -16385
-  %32 = trunc i32 %31 to i16
-  store i16 %32, ptr %3, align 2
-  %33 = load i16, ptr %3, align 2
-  ret i16 %33
+25:                                               ; preds = %22, %16
+  %26 = load i16, ptr %3, align 2
+  %27 = zext i16 %26 to i32
+  %28 = and i32 %27, -32769
+  %29 = trunc i32 %28 to i16
+  store i16 %29, ptr %3, align 2
+  %30 = load i16, ptr %3, align 2
+  %31 = zext i16 %30 to i32
+  %32 = and i32 %31, -16385
+  %33 = trunc i32 %32 to i16
+  store i16 %33, ptr %3, align 2
+  %34 = load i16, ptr %3, align 2
+  ret i16 %34
 }
 
 ; Function Attrs: nounwind uwtable

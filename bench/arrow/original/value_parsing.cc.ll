@@ -12081,24 +12081,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(48) %_M_impl) #13
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(64) %this1) #13
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
 
@@ -12285,7 +12286,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -12517,7 +12519,8 @@ entry:
   store ptr %format, ptr %format.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15TimestampParserC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %format_ = getelementptr inbounds %"class.arrow::internal::(anonymous namespace)::StrptimeTimestampParser", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %format_, ptr noundef nonnull align 8 dereferenceable(32) %format) #13
   %have_zone_offset_ = getelementptr inbounds %"class.arrow::internal::(anonymous namespace)::StrptimeTimestampParser", ptr %this1, i32 0, i32 2
@@ -12526,27 +12529,27 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end17, %entry
-  %0 = load i64, ptr %cur, align 8
+  %1 = load i64, ptr %cur, align 8
   %format_2 = getelementptr inbounds %"class.arrow::internal::(anonymous namespace)::StrptimeTimestampParser", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %format_2) #13
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
   %format_3 = getelementptr inbounds %"class.arrow::internal::(anonymous namespace)::StrptimeTimestampParser", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %cur, align 8
-  %call4 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %format_3, i64 noundef %1)
+  %2 = load i64, ptr %cur, align 8
+  %call4 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %format_3, i64 noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body
-  %2 = load i8, ptr %call4, align 1
-  %conv = sext i8 %2 to i32
+  %3 = load i8, ptr %call4, align 1
+  %conv = sext i8 %3 to i32
   %cmp5 = icmp eq i32 %conv, 37
   br i1 %cmp5, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %invoke.cont
-  %3 = load i64, ptr %cur, align 8
-  %add = add i64 %3, 1
+  %4 = load i64, ptr %cur, align 8
+  %add = add i64 %4, 1
   %format_6 = getelementptr inbounds %"class.arrow::internal::(anonymous namespace)::StrptimeTimestampParser", ptr %this1, i32 0, i32 1
   %call7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %format_6) #13
   %cmp8 = icmp ult i64 %add, %call7
@@ -12554,14 +12557,14 @@ if.then:                                          ; preds = %invoke.cont
 
 land.lhs.true:                                    ; preds = %if.then
   %format_9 = getelementptr inbounds %"class.arrow::internal::(anonymous namespace)::StrptimeTimestampParser", ptr %this1, i32 0, i32 1
-  %4 = load i64, ptr %cur, align 8
-  %add10 = add i64 %4, 1
+  %5 = load i64, ptr %cur, align 8
+  %add10 = add i64 %5, 1
   %call12 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %format_9, i64 noundef %add10)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %land.lhs.true
-  %5 = load i8, ptr %call12, align 1
-  %conv13 = sext i8 %5 to i32
+  %6 = load i8, ptr %call12, align 1
+  %conv13 = sext i8 %6 to i32
   %cmp14 = icmp eq i32 %conv13, 122
   br i1 %cmp14, label %if.then15, label %if.end
 
@@ -12571,25 +12574,25 @@ if.then15:                                        ; preds = %invoke.cont11
   br label %while.end
 
 lpad:                                             ; preds = %land.lhs.true, %while.body
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %format_) #13
   call void @_ZN5arrow15TimestampParserD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont11, %if.then
-  %9 = load i64, ptr %cur, align 8
-  %inc = add i64 %9, 1
+  %10 = load i64, ptr %cur, align 8
+  %inc = add i64 %10, 1
   store i64 %inc, ptr %cur, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end, %invoke.cont
-  %10 = load i64, ptr %cur, align 8
-  %inc18 = add i64 %10, 1
+  %11 = load i64, ptr %cur, align 8
+  %inc18 = add i64 %11, 1
   store i64 %inc18, ptr %cur, align 8
   br label %while.cond, !llvm.loop !46
 
@@ -12613,7 +12616,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15TimestampParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5arrow15TimestampParserE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12628,7 +12632,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %format_ = getelementptr inbounds %"class.arrow::internal::(anonymous namespace)::StrptimeTimestampParser", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %format_) #13
   call void @_ZN5arrow15TimestampParserD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
@@ -14638,7 +14643,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_113ISO8601ParserESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_113ISO8601ParserESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.32", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_113ISO8601ParserESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl) #13
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_113ISO8601ParserESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
@@ -14649,12 +14655,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
   br label %eh.resume
 
@@ -14954,7 +14960,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15TimestampParserC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow8internal12_GLOBAL__N_113ISO8601ParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5arrow8internal12_GLOBAL__N_113ISO8601ParserE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

@@ -68,8 +68,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body2
 
 do.body2:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str.3, i64 123), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str.3, i64 123), i32 noundef 186, ptr noundef @.str.4, ptr noundef @.str.7, ptr noundef @.str.8)
+  %1 = getelementptr i8, ptr @.str.3, i64 123
+  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
+  %2 = getelementptr i8, ptr @.str.3, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %2, i32 noundef 186, ptr noundef @.str.4, ptr noundef @.str.7, ptr noundef @.str.8)
   br label %do.body3
 
 do.body3:                                         ; preds = %do.body2
@@ -85,11 +87,11 @@ if.end:                                           ; preds = %do.end4, %do.body
   br label %do.end5
 
 do.end5:                                          ; preds = %if.end
-  %1 = load ptr, ptr %fn, align 8
-  %2 = load ptr, ptr %cpu.addr, align 8
-  %3 = load ptr, ptr %x.addr, align 8
-  %4 = load ptr, ptr %y.addr, align 8
-  %call6 = call noundef i64 %1(ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %3 = load ptr, ptr %fn, align 8
+  %4 = load ptr, ptr %cpu.addr, align 8
+  %5 = load ptr, ptr %x.addr, align 8
+  %6 = load ptr, ptr %y.addr, align 8
+  %call6 = call noundef i64 %3(ptr noundef %4, ptr noundef %5, ptr noundef %6)
   ret i64 %call6
 }
 
@@ -476,8 +478,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body2
 
 do.body2:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str.3, i64 123), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str.3, i64 123), i32 noundef 147, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef @.str.6)
+  %1 = getelementptr i8, ptr @.str.3, i64 123
+  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
+  %2 = getelementptr i8, ptr @.str.3, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %2, i32 noundef 147, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef @.str.6)
   br label %do.body3
 
 do.body3:                                         ; preds = %do.body2
@@ -495,14 +499,14 @@ if.end:                                           ; preds = %do.end4, %do.body
 do.end5:                                          ; preds = %if.end
   %call = call noundef ptr @_ZNKSt6atomicIPKvE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4absl18debugging_internal11VDSOSupport10vdso_base_E, i32 noundef 0) #6
   store ptr %call, ptr %old_base, align 8
-  %1 = load ptr, ptr %base.addr, align 8
-  call void @_ZNSt6atomicIPKvE5storeES1_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4absl18debugging_internal11VDSOSupport10vdso_base_E, ptr noundef %1, i32 noundef 0) #6
+  %3 = load ptr, ptr %base.addr, align 8
+  call void @_ZNSt6atomicIPKvE5storeES1_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4absl18debugging_internal11VDSOSupport10vdso_base_E, ptr noundef %3, i32 noundef 0) #6
   %image_ = getelementptr inbounds %"class.absl::debugging_internal::VDSOSupport", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %base.addr, align 8
-  call void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr noundef nonnull align 8 dereferenceable(72) %image_, ptr noundef %2)
+  %4 = load ptr, ptr %base.addr, align 8
+  call void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr noundef nonnull align 8 dereferenceable(72) %image_, ptr noundef %4)
   call void @_ZNSt6atomicIPFlPjPvS1_EE5storeES3_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4absl18debugging_internal11VDSOSupport10getcpu_fn_E, ptr noundef @_ZN4absl18debugging_internal11VDSOSupport13InitAndGetCPUEPjPvS3_, i32 noundef 0) #6
-  %3 = load ptr, ptr %old_base, align 8
-  ret ptr %3
+  %5 = load ptr, ptr %old_base, align 8
+  ret ptr %5
 }
 
 declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) #2

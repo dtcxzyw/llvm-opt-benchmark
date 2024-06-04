@@ -108,27 +108,28 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %31 = tail call ptr @g_type_check_instance_cast(ptr noundef %30, i64 noundef %11) #7
   %32 = load ptr, ptr %27, align 8, !tbaa !17
   tail call void @gtk_box_pack_start(ptr noundef %31, ptr noundef %32, i32 noundef 1, i32 noundef 0, i32 noundef 0) #7
-  %33 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !18
-  %34 = getelementptr inbounds i8, ptr %33, i64 304
-  store ptr %0, ptr %34, align 8, !tbaa !28
-  %35 = getelementptr inbounds i8, ptr %33, i64 312
-  store ptr @_lib_filter_get_filter_box, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds i8, ptr %33, i64 320
-  store ptr @_lib_filter_get_sort_box, ptr %36, align 8, !tbaa !43
-  %37 = getelementptr inbounds i8, ptr %33, i64 328
-  store ptr @_lib_filter_get_count, ptr %37, align 8, !tbaa !44
-  %38 = getelementptr inbounds i8, ptr %33, i64 376
-  %39 = load ptr, ptr %38, align 8, !tbaa !45
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %44, label %41
+  %33 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %34 = load ptr, ptr %33, align 8, !tbaa !18
+  %35 = getelementptr inbounds i8, ptr %34, i64 304
+  store ptr %0, ptr %35, align 8, !tbaa !28
+  %36 = getelementptr inbounds i8, ptr %34, i64 312
+  store ptr @_lib_filter_get_filter_box, ptr %36, align 8, !tbaa !42
+  %37 = getelementptr inbounds i8, ptr %34, i64 320
+  store ptr @_lib_filter_get_sort_box, ptr %37, align 8, !tbaa !43
+  %38 = getelementptr inbounds i8, ptr %34, i64 328
+  store ptr @_lib_filter_get_count, ptr %38, align 8, !tbaa !44
+  %39 = getelementptr inbounds i8, ptr %34, i64 376
+  %40 = load ptr, ptr %39, align 8, !tbaa !45
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %45, label %42
 
-41:                                               ; preds = %1
-  %42 = getelementptr inbounds i8, ptr %33, i64 384
-  %43 = load ptr, ptr %42, align 8, !tbaa !46
-  tail call void %43(ptr noundef nonnull %39) #7
-  br label %44
+42:                                               ; preds = %1
+  %43 = getelementptr inbounds i8, ptr %34, i64 384
+  %44 = load ptr, ptr %43, align 8, !tbaa !46
+  tail call void %44(ptr noundef nonnull %40) #7
+  br label %45
 
-44:                                               ; preds = %41, %1
+45:                                               ; preds = %42, %1
   ret void
 }
 
@@ -151,8 +152,9 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_pref_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !18
-  tail call void @dt_view_filtering_show_pref_menu(ptr noundef %4, ptr noundef %0) #7
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  tail call void @dt_view_filtering_show_pref_menu(ptr noundef %5, ptr noundef %0) #7
   ret i32 1
 }
 

@@ -524,344 +524,357 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
   call void @pg_free(ptr noundef %190)
   %191 = load i8, ptr %18, align 1
   %192 = trunc i8 %191 to i1
-  br i1 %192, label %208, label %193
+  br i1 %192, label %210, label %193
 
 193:                                              ; preds = %185
-  %194 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 3), align 8
-  %195 = icmp ne i32 %194, 1
-  br i1 %195, label %196, label %208
+  %194 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 3
+  %195 = load i32, ptr %194, align 8
+  %196 = icmp ne i32 %195, 1
+  br i1 %196, label %197, label %210
 
-196:                                              ; preds = %193
-  %197 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 3), align 8
-  %198 = icmp ne i32 %197, 2
-  br i1 %198, label %199, label %208
+197:                                              ; preds = %193
+  %198 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 3
+  %199 = load i32, ptr %198, align 8
+  %200 = icmp ne i32 %199, 2
+  br i1 %200, label %201, label %210
 
-199:                                              ; preds = %196
-  %200 = load ptr, ptr %5, align 8
-  %201 = getelementptr ptr, ptr %200, i64 0
-  %202 = load ptr, ptr %201, align 8
-  call void @ensureCleanShutdown(ptr noundef %202)
-  %203 = load ptr, ptr @datadir_target, align 8
-  %204 = call ptr @slurpFile(ptr noundef %203, ptr noundef @.str.32, ptr noundef %16)
-  store ptr %204, ptr %17, align 8
-  %205 = load ptr, ptr %17, align 8
-  %206 = load i64, ptr %16, align 8
-  call void @digestControlFile(ptr noundef @ControlFile_target, ptr noundef %205, i64 noundef %206)
+201:                                              ; preds = %197
+  %202 = load ptr, ptr %5, align 8
+  %203 = getelementptr ptr, ptr %202, i64 0
+  %204 = load ptr, ptr %203, align 8
+  call void @ensureCleanShutdown(ptr noundef %204)
+  %205 = load ptr, ptr @datadir_target, align 8
+  %206 = call ptr @slurpFile(ptr noundef %205, ptr noundef @.str.32, ptr noundef %16)
+  store ptr %206, ptr %17, align 8
   %207 = load ptr, ptr %17, align 8
-  call void @pg_free(ptr noundef %207)
-  br label %208
+  %208 = load i64, ptr %16, align 8
+  call void @digestControlFile(ptr noundef @ControlFile_target, ptr noundef %207, i64 noundef %208)
+  %209 = load ptr, ptr %17, align 8
+  call void @pg_free(ptr noundef %209)
+  br label %210
 
-208:                                              ; preds = %199, %196, %193, %185
-  %209 = load ptr, ptr @source, align 8
-  %210 = getelementptr inbounds %struct.rewind_source, ptr %209, i32 0, i32 1
-  %211 = load ptr, ptr %210, align 8
-  %212 = load ptr, ptr @source, align 8
-  %213 = call ptr %211(ptr noundef %212, ptr noundef @.str.32, ptr noundef %16)
-  store ptr %213, ptr %17, align 8
-  %214 = load ptr, ptr %17, align 8
-  %215 = load i64, ptr %16, align 8
-  call void @digestControlFile(ptr noundef @ControlFile_source, ptr noundef %214, i64 noundef %215)
+210:                                              ; preds = %201, %197, %193, %185
+  %211 = load ptr, ptr @source, align 8
+  %212 = getelementptr inbounds %struct.rewind_source, ptr %211, i32 0, i32 1
+  %213 = load ptr, ptr %212, align 8
+  %214 = load ptr, ptr @source, align 8
+  %215 = call ptr %213(ptr noundef %214, ptr noundef @.str.32, ptr noundef %16)
+  store ptr %215, ptr %17, align 8
   %216 = load ptr, ptr %17, align 8
-  call void @pg_free(ptr noundef %216)
+  %217 = load i64, ptr %16, align 8
+  call void @digestControlFile(ptr noundef @ControlFile_source, ptr noundef %216, i64 noundef %217)
+  %218 = load ptr, ptr %17, align 8
+  call void @pg_free(ptr noundef %218)
   call void @sanityChecks()
-  %217 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 9), align 8
-  %218 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 6, i32 1), align 8
-  %219 = icmp ugt i32 %217, %218
-  br i1 %219, label %220, label %222
+  %219 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 9
+  %220 = load i32, ptr %219, align 8
+  %221 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 6, i32 1
+  %222 = load i32, ptr %221, align 8
+  %223 = icmp ugt i32 %220, %222
+  br i1 %223, label %224, label %227
 
-220:                                              ; preds = %208
-  %221 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 9), align 8
-  br label %224
+224:                                              ; preds = %210
+  %225 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 9
+  %226 = load i32, ptr %225, align 8
+  br label %230
 
-222:                                              ; preds = %208
-  %223 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 6, i32 1), align 8
-  br label %224
+227:                                              ; preds = %210
+  %228 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 6, i32 1
+  %229 = load i32, ptr %228, align 8
+  br label %230
 
-224:                                              ; preds = %222, %220
-  %225 = phi i32 [ %221, %220 ], [ %223, %222 ]
-  store i32 %225, ptr %13, align 4
-  %226 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 9), align 8
-  %227 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 6, i32 1), align 8
-  %228 = icmp ugt i32 %226, %227
-  br i1 %228, label %229, label %231
+230:                                              ; preds = %227, %224
+  %231 = phi i32 [ %226, %224 ], [ %229, %227 ]
+  store i32 %231, ptr %13, align 4
+  %232 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 9
+  %233 = load i32, ptr %232, align 8
+  %234 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 6, i32 1
+  %235 = load i32, ptr %234, align 8
+  %236 = icmp ugt i32 %233, %235
+  br i1 %236, label %237, label %240
 
-229:                                              ; preds = %224
-  %230 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 9), align 8
-  br label %233
+237:                                              ; preds = %230
+  %238 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 9
+  %239 = load i32, ptr %238, align 8
+  br label %243
 
-231:                                              ; preds = %224
-  %232 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 6, i32 1), align 8
-  br label %233
+240:                                              ; preds = %230
+  %241 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 6, i32 1
+  %242 = load i32, ptr %241, align 8
+  br label %243
 
-233:                                              ; preds = %231, %229
-  %234 = phi i32 [ %230, %229 ], [ %232, %231 ]
-  store i32 %234, ptr %14, align 4
-  %235 = load i32, ptr %14, align 4
-  %236 = load i32, ptr %13, align 4
-  %237 = icmp eq i32 %235, %236
-  br i1 %237, label %238, label %239
+243:                                              ; preds = %240, %237
+  %244 = phi i32 [ %239, %237 ], [ %242, %240 ]
+  store i32 %244, ptr %14, align 4
+  %245 = load i32, ptr %14, align 4
+  %246 = load i32, ptr %13, align 4
+  %247 = icmp eq i32 %245, %246
+  br i1 %247, label %248, label %249
 
-238:                                              ; preds = %233
+248:                                              ; preds = %243
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.33)
   store i8 0, ptr %19, align 1
   store i64 0, ptr %15, align 8
-  br label %282
+  br label %295
 
-239:                                              ; preds = %233
-  %240 = load i32, ptr %13, align 4
-  %241 = call ptr @getTimelineHistory(i32 noundef %240, i1 noundef zeroext true, ptr noundef %24)
-  store ptr %241, ptr %23, align 8
-  %242 = load i32, ptr %14, align 4
-  %243 = call ptr @getTimelineHistory(i32 noundef %242, i1 noundef zeroext false, ptr noundef @targetNentries)
-  store ptr %243, ptr @targetHistory, align 8
-  %244 = load ptr, ptr %23, align 8
-  %245 = load i32, ptr %24, align 4
-  %246 = load ptr, ptr @targetHistory, align 8
-  %247 = load i32, ptr @targetNentries, align 4
-  call void @findCommonAncestorTimeline(ptr noundef %244, i32 noundef %245, ptr noundef %246, i32 noundef %247, ptr noundef %8, ptr noundef %9)
-  br label %248
+249:                                              ; preds = %243
+  %250 = load i32, ptr %13, align 4
+  %251 = call ptr @getTimelineHistory(i32 noundef %250, i1 noundef zeroext true, ptr noundef %24)
+  store ptr %251, ptr %23, align 8
+  %252 = load i32, ptr %14, align 4
+  %253 = call ptr @getTimelineHistory(i32 noundef %252, i1 noundef zeroext false, ptr noundef @targetNentries)
+  store ptr %253, ptr @targetHistory, align 8
+  %254 = load ptr, ptr %23, align 8
+  %255 = load i32, ptr %24, align 4
+  %256 = load ptr, ptr @targetHistory, align 8
+  %257 = load i32, ptr @targetNentries, align 4
+  call void @findCommonAncestorTimeline(ptr noundef %254, i32 noundef %255, ptr noundef %256, i32 noundef %257, ptr noundef %8, ptr noundef %9)
+  br label %258
 
-248:                                              ; preds = %239
-  br label %249
+258:                                              ; preds = %249
+  br label %259
 
-249:                                              ; preds = %248
+259:                                              ; preds = %258
   store i32 1, ptr %25, align 4
-  %250 = load i64, ptr %8, align 8
-  %251 = lshr i64 %250, 32
-  %252 = trunc i64 %251 to i32
-  %253 = load i64, ptr %8, align 8
-  %254 = trunc i64 %253 to i32
-  %255 = load ptr, ptr @targetHistory, align 8
-  %256 = load i32, ptr %9, align 4
-  %257 = sext i32 %256 to i64
-  %258 = getelementptr %struct.TimeLineHistoryEntry, ptr %255, i64 %257
-  %259 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %258, i32 0, i32 0
-  %260 = load i32, ptr %259, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.34, i32 noundef %252, i32 noundef %254, i32 noundef %260)
-  %261 = load ptr, ptr %23, align 8
-  call void @pfree(ptr noundef %261)
-  %262 = load ptr, ptr @datadir_target, align 8
-  %263 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 5), align 8
-  %264 = load i32, ptr @targetNentries, align 4
-  %265 = sub i32 %264, 1
-  %266 = load ptr, ptr @restore_command, align 8
-  %267 = call i64 @readOneRecord(ptr noundef %262, i64 noundef %263, i32 noundef %265, ptr noundef %266)
-  store i64 %267, ptr %22, align 8
-  %268 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 8), align 8
-  %269 = load i64, ptr %22, align 8
-  %270 = icmp ugt i64 %268, %269
-  br i1 %270, label %271, label %273
+  %260 = load i64, ptr %8, align 8
+  %261 = lshr i64 %260, 32
+  %262 = trunc i64 %261 to i32
+  %263 = load i64, ptr %8, align 8
+  %264 = trunc i64 %263 to i32
+  %265 = load ptr, ptr @targetHistory, align 8
+  %266 = load i32, ptr %9, align 4
+  %267 = sext i32 %266 to i64
+  %268 = getelementptr %struct.TimeLineHistoryEntry, ptr %265, i64 %267
+  %269 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %268, i32 0, i32 0
+  %270 = load i32, ptr %269, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.34, i32 noundef %262, i32 noundef %264, i32 noundef %270)
+  %271 = load ptr, ptr %23, align 8
+  call void @pfree(ptr noundef %271)
+  %272 = load ptr, ptr @datadir_target, align 8
+  %273 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 5
+  %274 = load i64, ptr %273, align 8
+  %275 = load i32, ptr @targetNentries, align 4
+  %276 = sub i32 %275, 1
+  %277 = load ptr, ptr @restore_command, align 8
+  %278 = call i64 @readOneRecord(ptr noundef %272, i64 noundef %274, i32 noundef %276, ptr noundef %277)
+  store i64 %278, ptr %22, align 8
+  %279 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 8
+  %280 = load i64, ptr %279, align 8
+  %281 = load i64, ptr %22, align 8
+  %282 = icmp ugt i64 %280, %281
+  br i1 %282, label %283, label %286
 
-271:                                              ; preds = %249
-  %272 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 8), align 8
-  store i64 %272, ptr %15, align 8
-  br label %275
+283:                                              ; preds = %259
+  %284 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 8
+  %285 = load i64, ptr %284, align 8
+  store i64 %285, ptr %15, align 8
+  br label %288
 
-273:                                              ; preds = %249
-  %274 = load i64, ptr %22, align 8
-  store i64 %274, ptr %15, align 8
-  br label %275
+286:                                              ; preds = %259
+  %287 = load i64, ptr %22, align 8
+  store i64 %287, ptr %15, align 8
+  br label %288
 
-275:                                              ; preds = %273, %271
-  %276 = load i64, ptr %15, align 8
-  %277 = load i64, ptr %8, align 8
-  %278 = icmp ugt i64 %276, %277
-  br i1 %278, label %279, label %280
+288:                                              ; preds = %286, %283
+  %289 = load i64, ptr %15, align 8
+  %290 = load i64, ptr %8, align 8
+  %291 = icmp ugt i64 %289, %290
+  br i1 %291, label %292, label %293
 
-279:                                              ; preds = %275
+292:                                              ; preds = %288
   store i8 1, ptr %19, align 1
-  br label %281
+  br label %294
 
-280:                                              ; preds = %275
+293:                                              ; preds = %288
   store i8 0, ptr %19, align 1
-  br label %281
+  br label %294
 
-281:                                              ; preds = %280, %279
-  br label %282
+294:                                              ; preds = %293, %292
+  br label %295
 
-282:                                              ; preds = %281, %238
-  %283 = load i8, ptr %19, align 1
-  %284 = trunc i8 %283 to i1
-  br i1 %284, label %297, label %285
+295:                                              ; preds = %294, %248
+  %296 = load i8, ptr %19, align 1
+  %297 = trunc i8 %296 to i1
+  br i1 %297, label %310, label %298
 
-285:                                              ; preds = %282
+298:                                              ; preds = %295
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.35)
-  %286 = load i8, ptr %20, align 1
-  %287 = trunc i8 %286 to i1
-  br i1 %287, label %288, label %296
+  %299 = load i8, ptr %20, align 1
+  %300 = trunc i8 %299 to i1
+  br i1 %300, label %301, label %309
 
-288:                                              ; preds = %285
-  %289 = load i8, ptr @dry_run, align 1
-  %290 = trunc i8 %289 to i1
-  br i1 %290, label %296, label %291
+301:                                              ; preds = %298
+  %302 = load i8, ptr @dry_run, align 1
+  %303 = trunc i8 %302 to i1
+  br i1 %303, label %309, label %304
 
-291:                                              ; preds = %288
-  %292 = load ptr, ptr @conn, align 8
-  %293 = load ptr, ptr @datadir_target, align 8
-  %294 = load ptr, ptr @conn, align 8
-  %295 = call ptr @GenerateRecoveryConfig(ptr noundef %294, ptr noundef null)
-  call void @WriteRecoveryConfig(ptr noundef %292, ptr noundef %293, ptr noundef %295)
-  br label %296
+304:                                              ; preds = %301
+  %305 = load ptr, ptr @conn, align 8
+  %306 = load ptr, ptr @datadir_target, align 8
+  %307 = load ptr, ptr @conn, align 8
+  %308 = call ptr @GenerateRecoveryConfig(ptr noundef %307, ptr noundef null)
+  call void @WriteRecoveryConfig(ptr noundef %305, ptr noundef %306, ptr noundef %308)
+  br label %309
 
-296:                                              ; preds = %291, %288, %285
+309:                                              ; preds = %304, %301, %298
   call void @exit(i32 noundef 0) #7
   unreachable
 
-297:                                              ; preds = %282
-  %298 = load ptr, ptr @datadir_target, align 8
-  %299 = load i64, ptr %8, align 8
-  %300 = load i32, ptr %9, align 4
-  %301 = load ptr, ptr @restore_command, align 8
-  call void @findLastCheckpoint(ptr noundef %298, i64 noundef %299, i32 noundef %300, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %301)
-  br label %302
+310:                                              ; preds = %295
+  %311 = load ptr, ptr @datadir_target, align 8
+  %312 = load i64, ptr %8, align 8
+  %313 = load i32, ptr %9, align 4
+  %314 = load ptr, ptr @restore_command, align 8
+  call void @findLastCheckpoint(ptr noundef %311, i64 noundef %312, i32 noundef %313, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %314)
+  br label %315
 
-302:                                              ; preds = %297
-  br label %303
+315:                                              ; preds = %310
+  br label %316
 
-303:                                              ; preds = %302
+316:                                              ; preds = %315
   store i32 1, ptr %26, align 4
-  %304 = load i64, ptr %10, align 8
-  %305 = lshr i64 %304, 32
-  %306 = trunc i64 %305 to i32
-  %307 = load i64, ptr %10, align 8
-  %308 = trunc i64 %307 to i32
-  %309 = load i32, ptr %11, align 4
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.36, i32 noundef %306, i32 noundef %308, i32 noundef %309)
+  %317 = load i64, ptr %10, align 8
+  %318 = lshr i64 %317, 32
+  %319 = trunc i64 %318 to i32
+  %320 = load i64, ptr %10, align 8
+  %321 = trunc i64 %320 to i32
+  %322 = load i32, ptr %11, align 4
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.36, i32 noundef %319, i32 noundef %321, i32 noundef %322)
   call void @filehash_init()
-  %310 = load i8, ptr @showprogress, align 1
-  %311 = trunc i8 %310 to i1
-  br i1 %311, label %312, label %313
-
-312:                                              ; preds = %303
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.37)
-  br label %313
-
-313:                                              ; preds = %312, %303
-  %314 = load ptr, ptr @source, align 8
-  %315 = getelementptr inbounds %struct.rewind_source, ptr %314, i32 0, i32 0
-  %316 = load ptr, ptr %315, align 8
-  %317 = load ptr, ptr @source, align 8
-  call void %316(ptr noundef %317, ptr noundef @process_source_file)
-  %318 = load i8, ptr @showprogress, align 1
-  %319 = trunc i8 %318 to i1
-  br i1 %319, label %320, label %321
-
-320:                                              ; preds = %313
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.38)
-  br label %321
-
-321:                                              ; preds = %320, %313
-  %322 = load ptr, ptr @datadir_target, align 8
-  call void @traverse_datadir(ptr noundef %322, ptr noundef @process_target_file)
   %323 = load i8, ptr @showprogress, align 1
   %324 = trunc i8 %323 to i1
   br i1 %324, label %325, label %326
 
-325:                                              ; preds = %321
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.39)
+325:                                              ; preds = %316
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.37)
   br label %326
 
-326:                                              ; preds = %325, %321
-  %327 = load ptr, ptr @datadir_target, align 8
-  %328 = load i64, ptr %10, align 8
-  %329 = load i32, ptr %9, align 4
-  %330 = load i64, ptr %15, align 8
-  %331 = load ptr, ptr @restore_command, align 8
-  call void @extractPageMap(ptr noundef %327, i64 noundef %328, i32 noundef %329, i64 noundef %330, ptr noundef %331)
-  %332 = call ptr @decide_file_actions()
-  store ptr %332, ptr %21, align 8
-  %333 = load i8, ptr @showprogress, align 1
-  %334 = trunc i8 %333 to i1
-  br i1 %334, label %335, label %337
+326:                                              ; preds = %325, %316
+  %327 = load ptr, ptr @source, align 8
+  %328 = getelementptr inbounds %struct.rewind_source, ptr %327, i32 0, i32 0
+  %329 = load ptr, ptr %328, align 8
+  %330 = load ptr, ptr @source, align 8
+  call void %329(ptr noundef %330, ptr noundef @process_source_file)
+  %331 = load i8, ptr @showprogress, align 1
+  %332 = trunc i8 %331 to i1
+  br i1 %332, label %333, label %334
 
-335:                                              ; preds = %326
-  %336 = load ptr, ptr %21, align 8
-  call void @calculate_totals(ptr noundef %336)
-  br label %337
+333:                                              ; preds = %326
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.38)
+  br label %334
 
-337:                                              ; preds = %335, %326
-  %338 = load i8, ptr @debug, align 1
-  %339 = trunc i8 %338 to i1
-  br i1 %339, label %340, label %342
+334:                                              ; preds = %333, %326
+  %335 = load ptr, ptr @datadir_target, align 8
+  call void @traverse_datadir(ptr noundef %335, ptr noundef @process_target_file)
+  %336 = load i8, ptr @showprogress, align 1
+  %337 = trunc i8 %336 to i1
+  br i1 %337, label %338, label %339
 
-340:                                              ; preds = %337
-  %341 = load ptr, ptr %21, align 8
-  call void @print_filemap(ptr noundef %341)
-  br label %342
+338:                                              ; preds = %334
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.39)
+  br label %339
 
-342:                                              ; preds = %340, %337
-  %343 = load i8, ptr @showprogress, align 1
-  %344 = trunc i8 %343 to i1
-  br i1 %344, label %345, label %357
+339:                                              ; preds = %338, %334
+  %340 = load ptr, ptr @datadir_target, align 8
+  %341 = load i64, ptr %10, align 8
+  %342 = load i32, ptr %9, align 4
+  %343 = load i64, ptr %15, align 8
+  %344 = load ptr, ptr @restore_command, align 8
+  call void @extractPageMap(ptr noundef %340, i64 noundef %341, i32 noundef %342, i64 noundef %343, ptr noundef %344)
+  %345 = call ptr @decide_file_actions()
+  store ptr %345, ptr %21, align 8
+  %346 = load i8, ptr @showprogress, align 1
+  %347 = trunc i8 %346 to i1
+  br i1 %347, label %348, label %350
 
-345:                                              ; preds = %342
-  %346 = load ptr, ptr %21, align 8
-  %347 = getelementptr inbounds %struct.filemap_t, ptr %346, i32 0, i32 1
-  %348 = load i64, ptr %347, align 8
-  %349 = udiv i64 %348, 1048576
-  %350 = load ptr, ptr %21, align 8
-  %351 = getelementptr inbounds %struct.filemap_t, ptr %350, i32 0, i32 0
-  %352 = load i64, ptr %351, align 8
-  %353 = udiv i64 %352, 1048576
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.40, i64 noundef %349, i64 noundef %353)
+348:                                              ; preds = %339
+  %349 = load ptr, ptr %21, align 8
+  call void @calculate_totals(ptr noundef %349)
+  br label %350
+
+350:                                              ; preds = %348, %339
+  %351 = load i8, ptr @debug, align 1
+  %352 = trunc i8 %351 to i1
+  br i1 %352, label %353, label %355
+
+353:                                              ; preds = %350
   %354 = load ptr, ptr %21, align 8
-  %355 = getelementptr inbounds %struct.filemap_t, ptr %354, i32 0, i32 1
-  %356 = load i64, ptr %355, align 8
-  store i64 %356, ptr @fetch_size, align 8
+  call void @print_filemap(ptr noundef %354)
+  br label %355
+
+355:                                              ; preds = %353, %350
+  %356 = load i8, ptr @showprogress, align 1
+  %357 = trunc i8 %356 to i1
+  br i1 %357, label %358, label %370
+
+358:                                              ; preds = %355
+  %359 = load ptr, ptr %21, align 8
+  %360 = getelementptr inbounds %struct.filemap_t, ptr %359, i32 0, i32 1
+  %361 = load i64, ptr %360, align 8
+  %362 = udiv i64 %361, 1048576
+  %363 = load ptr, ptr %21, align 8
+  %364 = getelementptr inbounds %struct.filemap_t, ptr %363, i32 0, i32 0
+  %365 = load i64, ptr %364, align 8
+  %366 = udiv i64 %365, 1048576
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.40, i64 noundef %362, i64 noundef %366)
+  %367 = load ptr, ptr %21, align 8
+  %368 = getelementptr inbounds %struct.filemap_t, ptr %367, i32 0, i32 1
+  %369 = load i64, ptr %368, align 8
+  store i64 %369, ptr @fetch_size, align 8
   store i64 0, ptr @fetch_done, align 8
-  br label %357
+  br label %370
 
-357:                                              ; preds = %345, %342
-  %358 = load ptr, ptr %21, align 8
-  %359 = load ptr, ptr @source, align 8
-  %360 = load i64, ptr %10, align 8
-  %361 = load i32, ptr %11, align 4
-  %362 = load i64, ptr %12, align 8
-  call void @perform_rewind(ptr noundef %358, ptr noundef %359, i64 noundef %360, i32 noundef %361, i64 noundef %362)
-  %363 = load i8, ptr @showprogress, align 1
-  %364 = trunc i8 %363 to i1
-  br i1 %364, label %365, label %366
+370:                                              ; preds = %358, %355
+  %371 = load ptr, ptr %21, align 8
+  %372 = load ptr, ptr @source, align 8
+  %373 = load i64, ptr %10, align 8
+  %374 = load i32, ptr %11, align 4
+  %375 = load i64, ptr %12, align 8
+  call void @perform_rewind(ptr noundef %371, ptr noundef %372, i64 noundef %373, i32 noundef %374, i64 noundef %375)
+  %376 = load i8, ptr @showprogress, align 1
+  %377 = trunc i8 %376 to i1
+  br i1 %377, label %378, label %379
 
-365:                                              ; preds = %357
+378:                                              ; preds = %370
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.41)
-  br label %366
+  br label %379
 
-366:                                              ; preds = %365, %357
+379:                                              ; preds = %378, %370
   call void @sync_target_dir()
-  %367 = load i8, ptr %20, align 1
-  %368 = trunc i8 %367 to i1
-  br i1 %368, label %369, label %377
+  %380 = load i8, ptr %20, align 1
+  %381 = trunc i8 %380 to i1
+  br i1 %381, label %382, label %390
 
-369:                                              ; preds = %366
-  %370 = load i8, ptr @dry_run, align 1
-  %371 = trunc i8 %370 to i1
-  br i1 %371, label %377, label %372
+382:                                              ; preds = %379
+  %383 = load i8, ptr @dry_run, align 1
+  %384 = trunc i8 %383 to i1
+  br i1 %384, label %390, label %385
 
-372:                                              ; preds = %369
-  %373 = load ptr, ptr @conn, align 8
-  %374 = load ptr, ptr @datadir_target, align 8
-  %375 = load ptr, ptr @conn, align 8
-  %376 = call ptr @GenerateRecoveryConfig(ptr noundef %375, ptr noundef null)
-  call void @WriteRecoveryConfig(ptr noundef %373, ptr noundef %374, ptr noundef %376)
-  br label %377
+385:                                              ; preds = %382
+  %386 = load ptr, ptr @conn, align 8
+  %387 = load ptr, ptr @datadir_target, align 8
+  %388 = load ptr, ptr @conn, align 8
+  %389 = call ptr @GenerateRecoveryConfig(ptr noundef %388, ptr noundef null)
+  call void @WriteRecoveryConfig(ptr noundef %386, ptr noundef %387, ptr noundef %389)
+  br label %390
 
-377:                                              ; preds = %372, %369, %366
-  %378 = load ptr, ptr @source, align 8
-  %379 = getelementptr inbounds %struct.rewind_source, ptr %378, i32 0, i32 6
-  %380 = load ptr, ptr %379, align 8
-  %381 = load ptr, ptr @source, align 8
-  call void %380(ptr noundef %381)
-  %382 = load ptr, ptr @conn, align 8
-  %383 = icmp ne ptr %382, null
-  br i1 %383, label %384, label %386
+390:                                              ; preds = %385, %382, %379
+  %391 = load ptr, ptr @source, align 8
+  %392 = getelementptr inbounds %struct.rewind_source, ptr %391, i32 0, i32 6
+  %393 = load ptr, ptr %392, align 8
+  %394 = load ptr, ptr @source, align 8
+  call void %393(ptr noundef %394)
+  %395 = load ptr, ptr @conn, align 8
+  %396 = icmp ne ptr %395, null
+  br i1 %396, label %397, label %399
 
-384:                                              ; preds = %377
-  %385 = load ptr, ptr @conn, align 8
-  call void @PQfinish(ptr noundef %385)
+397:                                              ; preds = %390
+  %398 = load ptr, ptr @conn, align 8
+  call void @PQfinish(ptr noundef %398)
   store ptr null, ptr @conn, align 8
-  br label %386
+  br label %399
 
-386:                                              ; preds = %384, %377
+399:                                              ; preds = %397, %390
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef @.str.42)
   ret i32 0
 }
@@ -1343,105 +1356,115 @@ define internal void @sanityChecks() #0 {
   br label %7
 
 7:                                                ; preds = %6, %0
-  %8 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 1), align 8
-  %9 = icmp ne i32 %8, 1300
-  br i1 %9, label %19, label %10
+  %8 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 1
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp ne i32 %9, 1300
+  br i1 %10, label %23, label %11
 
-10:                                               ; preds = %7
-  %11 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 1), align 8
-  %12 = icmp ne i32 %11, 1300
-  br i1 %12, label %19, label %13
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 1
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp ne i32 %13, 1300
+  br i1 %14, label %23, label %15
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 2), align 4
-  %15 = icmp ne i32 %14, 202402291
-  br i1 %15, label %19, label %16
-
-16:                                               ; preds = %13
-  %17 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 2), align 4
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 2
+  %17 = load i32, ptr %16, align 4
   %18 = icmp ne i32 %17, 202402291
-  br i1 %18, label %19, label %22
+  br i1 %18, label %23, label %19
 
-19:                                               ; preds = %16, %13, %10, %7
-  br label %20
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 2
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp ne i32 %21, 202402291
+  br i1 %22, label %23, label %26
 
-20:                                               ; preds = %19
+23:                                               ; preds = %19, %15, %11, %7
+  br label %24
+
+24:                                               ; preds = %23
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.77)
   call void @exit(i32 noundef 1) #7
   unreachable
 
-21:                                               ; No predecessors!
-  br label %22
+25:                                               ; No predecessors!
+  br label %26
 
-22:                                               ; preds = %21, %16
-  %23 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 32), align 4
-  %24 = icmp ne i32 %23, 1
-  br i1 %24, label %25, label %31
+26:                                               ; preds = %25, %19
+  %27 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 32
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp ne i32 %28, 1
+  br i1 %29, label %30, label %37
 
-25:                                               ; preds = %22
-  %26 = load i8, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 14), align 8
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %31, label %28
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 14
+  %32 = load i8, ptr %31, align 8
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %37, label %34
 
-28:                                               ; preds = %25
-  br label %29
+34:                                               ; preds = %30
+  br label %35
 
-29:                                               ; preds = %28
+35:                                               ; preds = %34
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.78)
   call void @exit(i32 noundef 1) #7
   unreachable
 
-30:                                               ; No predecessors!
-  br label %31
+36:                                               ; No predecessors!
+  br label %37
 
-31:                                               ; preds = %30, %25, %22
-  %32 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 3), align 8
-  %33 = icmp ne i32 %32, 1
-  br i1 %33, label %34, label %40
+37:                                               ; preds = %36, %30, %26
+  %38 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 3
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp ne i32 %39, 1
+  br i1 %40, label %41, label %48
 
-34:                                               ; preds = %31
-  %35 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 3), align 8
-  %36 = icmp ne i32 %35, 2
-  br i1 %36, label %37, label %40
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_target, i32 0, i32 3
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp ne i32 %43, 2
+  br i1 %44, label %45, label %48
 
-37:                                               ; preds = %34
-  br label %38
+45:                                               ; preds = %41
+  br label %46
 
-38:                                               ; preds = %37
+46:                                               ; preds = %45
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.79)
   call void @exit(i32 noundef 1) #7
   unreachable
 
-39:                                               ; No predecessors!
-  br label %40
+47:                                               ; No predecessors!
+  br label %48
 
-40:                                               ; preds = %39, %34, %31
-  %41 = load ptr, ptr @datadir_source, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %52
+48:                                               ; preds = %47, %41, %37
+  %49 = load ptr, ptr @datadir_source, align 8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %62
 
-43:                                               ; preds = %40
-  %44 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 3), align 8
-  %45 = icmp ne i32 %44, 1
-  br i1 %45, label %46, label %52
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 3
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp ne i32 %53, 1
+  br i1 %54, label %55, label %62
 
-46:                                               ; preds = %43
-  %47 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 3), align 8
-  %48 = icmp ne i32 %47, 2
-  br i1 %48, label %49, label %52
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 3
+  %57 = load i32, ptr %56, align 8
+  %58 = icmp ne i32 %57, 2
+  br i1 %58, label %59, label %62
 
-49:                                               ; preds = %46
-  br label %50
+59:                                               ; preds = %55
+  br label %60
 
-50:                                               ; preds = %49
+60:                                               ; preds = %59
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.80)
   call void @exit(i32 noundef 1) #7
   unreachable
 
-51:                                               ; No predecessors!
-  br label %52
+61:                                               ; No predecessors!
+  br label %62
 
-52:                                               ; preds = %51, %46, %43, %40
+62:                                               ; preds = %61, %55, %51, %48
   ret void
 }
 
@@ -2040,114 +2063,128 @@ define internal void @perform_rewind(ptr noundef %0, ptr noundef %1, i64 noundef
   br label %140
 
 140:                                              ; preds = %139, %136
-  %141 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 6), align 8
-  %142 = load i64, ptr %10, align 8
-  %143 = icmp ult i64 %141, %142
-  br i1 %143, label %144, label %148
+  %141 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 6
+  %142 = load i64, ptr %141, align 8
+  %143 = load i64, ptr %10, align 8
+  %144 = icmp ult i64 %142, %143
+  br i1 %144, label %145, label %152
 
-144:                                              ; preds = %140
-  %145 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 6), align 8
-  store i64 %145, ptr %10, align 8
-  %146 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 6, i32 1), align 8
-  store i32 %146, ptr %9, align 4
-  %147 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 5), align 8
-  store i64 %147, ptr %8, align 8
-  br label %148
+145:                                              ; preds = %140
+  %146 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 6
+  %147 = load i64, ptr %146, align 8
+  store i64 %147, ptr %10, align 8
+  %148 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 6, i32 1
+  %149 = load i32, ptr %148, align 8
+  store i32 %149, ptr %9, align 4
+  %150 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source, i32 0, i32 5
+  %151 = load i64, ptr %150, align 8
+  store i64 %151, ptr %8, align 8
+  br label %152
 
-148:                                              ; preds = %144, %140
-  %149 = load i64, ptr %10, align 8
-  %150 = load i32, ptr %9, align 4
-  %151 = load i64, ptr %8, align 8
-  call void @createBackupLabel(i64 noundef %149, i32 noundef %150, i64 noundef %151)
-  %152 = load ptr, ptr @connstr_source, align 8
-  %153 = icmp ne ptr %152, null
-  br i1 %153, label %154, label %182
+152:                                              ; preds = %145, %140
+  %153 = load i64, ptr %10, align 8
+  %154 = load i32, ptr %9, align 4
+  %155 = load i64, ptr %8, align 8
+  call void @createBackupLabel(i64 noundef %153, i32 noundef %154, i64 noundef %155)
+  %156 = load ptr, ptr @connstr_source, align 8
+  %157 = icmp ne ptr %156, null
+  br i1 %157, label %158, label %194
 
-154:                                              ; preds = %148
-  %155 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 3), align 8
-  %156 = icmp eq i32 %155, 5
-  br i1 %156, label %157, label %160
+158:                                              ; preds = %152
+  %159 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 3
+  %160 = load i32, ptr %159, align 8
+  %161 = icmp eq i32 %160, 5
+  br i1 %161, label %162, label %167
 
-157:                                              ; preds = %154
-  %158 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 8), align 8
-  store i64 %158, ptr %11, align 8
-  %159 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 9), align 8
-  store i32 %159, ptr %12, align 4
-  br label %181
+162:                                              ; preds = %158
+  %163 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 8
+  %164 = load i64, ptr %163, align 8
+  store i64 %164, ptr %11, align 8
+  %165 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 9
+  %166 = load i32, ptr %165, align 8
+  store i32 %166, ptr %12, align 4
+  br label %193
 
-160:                                              ; preds = %154
-  %161 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 3), align 8
-  %162 = icmp ne i32 %161, 6
-  br i1 %162, label %163, label %166
+167:                                              ; preds = %158
+  %168 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 3
+  %169 = load i32, ptr %168, align 8
+  %170 = icmp ne i32 %169, 6
+  br i1 %170, label %171, label %174
 
-163:                                              ; preds = %160
-  br label %164
+171:                                              ; preds = %167
+  br label %172
 
-164:                                              ; preds = %163
+172:                                              ; preds = %171
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.70)
   call void @exit(i32 noundef 1) #7
   unreachable
 
-165:                                              ; No predecessors!
-  br label %166
+173:                                              ; No predecessors!
+  br label %174
 
-166:                                              ; preds = %165, %160
-  %167 = load ptr, ptr %7, align 8
-  %168 = getelementptr inbounds %struct.rewind_source, ptr %167, i32 0, i32 5
-  %169 = load ptr, ptr %168, align 8
-  %170 = load ptr, ptr %7, align 8
-  %171 = call i64 %169(ptr noundef %170)
-  store i64 %171, ptr %11, align 8
-  %172 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 6, i32 1), align 8
-  %173 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 9), align 8
-  %174 = icmp ugt i32 %172, %173
-  br i1 %174, label %175, label %177
+174:                                              ; preds = %173, %167
+  %175 = load ptr, ptr %7, align 8
+  %176 = getelementptr inbounds %struct.rewind_source, ptr %175, i32 0, i32 5
+  %177 = load ptr, ptr %176, align 8
+  %178 = load ptr, ptr %7, align 8
+  %179 = call i64 %177(ptr noundef %178)
+  store i64 %179, ptr %11, align 8
+  %180 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 6, i32 1
+  %181 = load i32, ptr %180, align 8
+  %182 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 9
+  %183 = load i32, ptr %182, align 8
+  %184 = icmp ugt i32 %181, %183
+  br i1 %184, label %185, label %188
 
-175:                                              ; preds = %166
-  %176 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 6, i32 1), align 8
-  br label %179
+185:                                              ; preds = %174
+  %186 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 6, i32 1
+  %187 = load i32, ptr %186, align 8
+  br label %191
 
-177:                                              ; preds = %166
-  %178 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 9), align 8
-  br label %179
+188:                                              ; preds = %174
+  %189 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 9
+  %190 = load i32, ptr %189, align 8
+  br label %191
 
-179:                                              ; preds = %177, %175
-  %180 = phi i32 [ %176, %175 ], [ %178, %177 ]
-  store i32 %180, ptr %12, align 4
-  br label %181
+191:                                              ; preds = %188, %185
+  %192 = phi i32 [ %187, %185 ], [ %190, %188 ]
+  store i32 %192, ptr %12, align 4
+  br label %193
 
-181:                                              ; preds = %179, %157
-  br label %185
+193:                                              ; preds = %191, %162
+  br label %199
 
-182:                                              ; preds = %148
-  %183 = load i64, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 5), align 8
-  store i64 %183, ptr %11, align 8
-  %184 = load i32, ptr getelementptr inbounds (%struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 6, i32 1), align 8
-  store i32 %184, ptr %12, align 4
-  br label %185
+194:                                              ; preds = %152
+  %195 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 5
+  %196 = load i64, ptr %195, align 8
+  store i64 %196, ptr %11, align 8
+  %197 = getelementptr inbounds %struct.ControlFileData, ptr @ControlFile_source_after, i32 0, i32 6, i32 1
+  %198 = load i32, ptr %197, align 8
+  store i32 %198, ptr %12, align 4
+  br label %199
 
-185:                                              ; preds = %182, %181
+199:                                              ; preds = %194, %193
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 @ControlFile_source_after, i64 296, i1 false)
-  %186 = load i64, ptr %11, align 8
-  %187 = getelementptr inbounds %struct.ControlFileData, ptr %13, i32 0, i32 8
-  store i64 %186, ptr %187, align 8
-  %188 = load i32, ptr %12, align 4
-  %189 = getelementptr inbounds %struct.ControlFileData, ptr %13, i32 0, i32 9
-  store i32 %188, ptr %189, align 8
-  %190 = getelementptr inbounds %struct.ControlFileData, ptr %13, i32 0, i32 3
-  store i32 5, ptr %190, align 8
-  %191 = load i8, ptr @dry_run, align 1
-  %192 = trunc i8 %191 to i1
-  br i1 %192, label %197, label %193
+  %200 = load i64, ptr %11, align 8
+  %201 = getelementptr inbounds %struct.ControlFileData, ptr %13, i32 0, i32 8
+  store i64 %200, ptr %201, align 8
+  %202 = load i32, ptr %12, align 4
+  %203 = getelementptr inbounds %struct.ControlFileData, ptr %13, i32 0, i32 9
+  store i32 %202, ptr %203, align 8
+  %204 = getelementptr inbounds %struct.ControlFileData, ptr %13, i32 0, i32 3
+  store i32 5, ptr %204, align 8
+  %205 = load i8, ptr @dry_run, align 1
+  %206 = trunc i8 %205 to i1
+  br i1 %206, label %211, label %207
 
-193:                                              ; preds = %185
-  %194 = load ptr, ptr @datadir_target, align 8
-  %195 = load i8, ptr @do_sync, align 1
-  %196 = trunc i8 %195 to i1
-  call void @update_controlfile(ptr noundef %194, ptr noundef %13, i1 noundef zeroext %196)
-  br label %197
+207:                                              ; preds = %199
+  %208 = load ptr, ptr @datadir_target, align 8
+  %209 = load i8, ptr @do_sync, align 1
+  %210 = trunc i8 %209 to i1
+  call void @update_controlfile(ptr noundef %208, ptr noundef %13, i1 noundef zeroext %210)
+  br label %211
 
-197:                                              ; preds = %193, %185
+211:                                              ; preds = %207, %199
   ret void
 }
 

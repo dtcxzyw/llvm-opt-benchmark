@@ -3041,28 +3041,30 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %env, ptr %env.addr, align 8
   %this3 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110SignalWrapE, i32 0, i32 0, i32 2), ptr %this3, align 8
-  %0 = load ptr, ptr %env.addr, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110SignalWrapE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
+  %1 = load ptr, ptr %env.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %object, i64 8, i1 false)
   %handle_ = getelementptr inbounds %"class.node::(anonymous namespace)::SignalWrap", ptr %this3, i32 0, i32 1
   %coerce.dive4 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive5 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive4, i32 0, i32 0
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive6, align 8
-  call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %this3, ptr noundef %0, ptr %1, ptr noundef %handle_, i32 noundef 35)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110SignalWrapE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = load ptr, ptr %coerce.dive6, align 8
+  call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %this3, ptr noundef %1, ptr %2, ptr noundef %handle_, i32 noundef 35)
+  %3 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110SignalWrapE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this3, align 8
   %active_ = getelementptr inbounds %"class.node::(anonymous namespace)::SignalWrap", ptr %this3, i32 0, i32 2
   store i8 0, ptr %active_, align 8
-  %2 = load ptr, ptr %env.addr, align 8
-  %call = call noundef ptr @_ZNK4node11Environment10event_loopEv(ptr noundef nonnull align 8 dereferenceable(2872) %2)
+  %4 = load ptr, ptr %env.addr, align 8
+  %call = call noundef ptr @_ZNK4node11Environment10event_loopEv(ptr noundef nonnull align 8 dereferenceable(2872) %4)
   %handle_8 = getelementptr inbounds %"class.node::(anonymous namespace)::SignalWrap", ptr %this3, i32 0, i32 1
   %call9 = call i32 @uv_signal_init(ptr noundef %call, ptr noundef %handle_8)
   store i32 %call9, ptr %r, align 4
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %3 = load i32, ptr %r, align 4
-  %cmp = icmp eq i32 %3, 0
+  %5 = load i32, ptr %r, align 4
+  %cmp = icmp eq i32 %5, 0
   %lnot = xor i1 %cmp, true
   %lnot10 = xor i1 %lnot, true
   %lnot11 = xor i1 %lnot10, true
@@ -3263,7 +3265,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %handle_wrap_queue_ = getelementptr inbounds %"class.node::HandleWrap", ptr %this1, i32 0, i32 2
   call void @_ZN4node8ListNodeINS_10HandleWrapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %handle_wrap_queue_) #3
   call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3

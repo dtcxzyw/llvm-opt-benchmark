@@ -182,13 +182,14 @@ define dso_local void @_ZN16NavMeshPruneToolC2Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10SampleToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16NavMeshPruneTool, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.NavMeshPruneTool, ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %class.NavMeshPruneTool, ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV16NavMeshPruneTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.NavMeshPruneTool, ptr %3, i32 0, i32 1
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %class.NavMeshPruneTool, ptr %3, i32 0, i32 4
-  store i8 0, ptr %6, align 4
+  %6 = getelementptr inbounds %class.NavMeshPruneTool, ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8
+  %7 = getelementptr inbounds %class.NavMeshPruneTool, ptr %3, i32 0, i32 4
+  store i8 0, ptr %7, align 4
   ret void
 }
 
@@ -197,7 +198,8 @@ define linkonce_odr dso_local void @_ZN10SampleToolC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -206,18 +208,19 @@ define dso_local void @_ZN16NavMeshPruneToolD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16NavMeshPruneTool, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.NavMeshPruneTool, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV16NavMeshPruneTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.NavMeshPruneTool, ptr %3, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZN12NavmeshFlagsD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %5) #10
-  call void @_ZdlPv(ptr noundef %5) #11
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZN12NavmeshFlagsD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %6) #10
+  call void @_ZdlPv(ptr noundef %6) #11
+  br label %9
 
-8:                                                ; preds = %7, %1
+9:                                                ; preds = %8, %1
   call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret void
 }

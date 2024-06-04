@@ -16,26 +16,26 @@ define dso_local i32 @acpi_ns_execute_table(i32 noundef %0, ptr noundef %1) loca
   store i16 0, ptr %5, align 2, !annotation !5
   %6 = call i32 @acpi_get_table_by_index(i32 noundef %0, ptr noundef nonnull %4) #4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %54
+  br i1 %7, label %8, label %55
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 1
   %12 = icmp ult i32 %11, 36
-  br i1 %12, label %54, label %13
+  br i1 %12, label %55, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr i8, ptr %9, i64 36
   %15 = add i32 %11, -36
   %16 = call i32 @acpi_tb_get_owner_id(i32 noundef %0, ptr noundef nonnull %5) #4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %54
+  br i1 %17, label %18, label %55
 
 18:                                               ; preds = %13
   %19 = call ptr @acpi_ut_create_internal_object_dbg(ptr noundef nonnull @_acpi_module_name, i32 noundef 77, i32 noundef 16, i32 noundef 8) #4
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %54, label %21
+  br i1 %20, label %55, label %21
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
@@ -46,64 +46,65 @@ define dso_local i32 @acpi_ns_execute_table(i32 noundef %0, ptr noundef %1) loca
   %23 = and i64 %22, 512
   %24 = icmp eq i64 %23, 0
   %25 = select i1 %24, i32 2336, i32 3520
-  %26 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %27 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %26, i32 noundef %25, i64 noundef 88) #5
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %48, label %29
+  %26 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %27 = load ptr, ptr %26, align 8
+  %28 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %27, i32 noundef %25, i64 noundef 88) #5
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %49, label %30
 
-29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %19, i64 32
-  store ptr %14, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %19, i64 48
-  store i32 %15, ptr %31, align 8
-  %32 = load i16, ptr %5, align 2
-  %33 = getelementptr inbounds i8, ptr %19, i64 52
-  store i16 %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %19, i64 13
-  %35 = load i8, ptr %34, align 1
-  %36 = or i8 %35, 1
-  store i8 %36, ptr %34, align 1
-  %37 = getelementptr inbounds i8, ptr %27, i64 84
-  store i8 3, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %27, i64 24
-  store ptr %1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %27, i64 32
-  store ptr %19, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 10
-  %41 = load i16, ptr %40, align 2
-  %42 = getelementptr inbounds i8, ptr %27, i64 82
-  store i16 %41, ptr %42, align 2
-  %43 = call ptr @acpi_ns_get_normalized_pathname(ptr noundef %1, i8 noundef zeroext 1) #4
-  %44 = getelementptr inbounds i8, ptr %27, i64 40
-  store ptr %43, ptr %44, align 8
-  %45 = icmp eq ptr %43, null
-  br i1 %45, label %48, label %46
+30:                                               ; preds = %21
+  %31 = getelementptr inbounds i8, ptr %19, i64 32
+  store ptr %14, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %19, i64 48
+  store i32 %15, ptr %32, align 8
+  %33 = load i16, ptr %5, align 2
+  %34 = getelementptr inbounds i8, ptr %19, i64 52
+  store i16 %33, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %19, i64 13
+  %36 = load i8, ptr %35, align 1
+  %37 = or i8 %36, 1
+  store i8 %37, ptr %35, align 1
+  %38 = getelementptr inbounds i8, ptr %28, i64 84
+  store i8 3, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %28, i64 24
+  store ptr %1, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %28, i64 32
+  store ptr %19, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %1, i64 10
+  %42 = load i16, ptr %41, align 2
+  %43 = getelementptr inbounds i8, ptr %28, i64 82
+  store i16 %42, ptr %43, align 2
+  %44 = call ptr @acpi_ns_get_normalized_pathname(ptr noundef %1, i8 noundef zeroext 1) #4
+  %45 = getelementptr inbounds i8, ptr %28, i64 40
+  store ptr %44, ptr %45, align 8
+  %46 = icmp eq ptr %44, null
+  br i1 %46, label %49, label %47
 
-46:                                               ; preds = %29
-  %47 = call i32 @acpi_ps_execute_table(ptr noundef nonnull %27) #4
-  br label %48
+47:                                               ; preds = %30
+  %48 = call i32 @acpi_ps_execute_table(ptr noundef nonnull %28) #4
+  br label %49
 
-48:                                               ; preds = %46, %29, %21
-  %49 = phi i32 [ %47, %46 ], [ 4, %21 ], [ 4, %29 ]
-  br i1 %28, label %53, label %50
+49:                                               ; preds = %47, %30, %21
+  %50 = phi i32 [ %48, %47 ], [ 4, %21 ], [ 4, %30 ]
+  br i1 %29, label %54, label %51
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %27, i64 40
-  %52 = load ptr, ptr %51, align 8
-  call void @kfree(ptr noundef %52) #4
-  store ptr null, ptr %51, align 8
-  br label %53
-
-53:                                               ; preds = %50, %48
-  call void @kfree(ptr noundef %27) #4
-  call void @acpi_ut_remove_reference(ptr noundef nonnull %19) #4
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds i8, ptr %28, i64 40
+  %53 = load ptr, ptr %52, align 8
+  call void @kfree(ptr noundef %53) #4
+  store ptr null, ptr %52, align 8
   br label %54
 
-54:                                               ; preds = %53, %18, %13, %8, %2
-  %55 = phi i32 [ %49, %53 ], [ %6, %2 ], [ 8194, %8 ], [ %16, %13 ], [ 4, %18 ]
+54:                                               ; preds = %51, %49
+  call void @kfree(ptr noundef %28) #4
+  call void @acpi_ut_remove_reference(ptr noundef nonnull %19) #4
+  br label %55
+
+55:                                               ; preds = %54, %18, %13, %8, %2
+  %56 = phi i32 [ %50, %54 ], [ %6, %2 ], [ 8194, %8 ], [ %16, %13 ], [ 4, %18 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  ret i32 %55
+  ret i32 %56
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

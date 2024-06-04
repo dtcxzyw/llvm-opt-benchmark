@@ -984,71 +984,72 @@ define internal void @dissect_dereg_req(ptr noundef %0, ptr noundef %1, ptr noun
   %49 = select i1 %48, ptr @.str.261, ptr @.str.266
   %50 = load ptr, ptr @dissect_dereg_req.fstr, align 16
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %46, ptr noundef @.str.265, ptr noundef %49, ptr noundef %50)
-  br label %57
+  br label %58
 
 51:                                               ; preds = %4
   %52 = load ptr, ptr %13, align 8
   %53 = load i32, ptr @dissect_dereg_req.first_flag, align 4
   %54 = icmp ne i32 %53, 0
   %55 = select i1 %54, ptr @.str.261, ptr @.str.266
-  %56 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @dissect_dereg_req.fstr, i64 0, i64 1), align 8
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %52, ptr noundef @.str.265, ptr noundef %55, ptr noundef %56)
-  br label %57
+  %56 = getelementptr inbounds [2 x ptr], ptr @dissect_dereg_req.fstr, i64 0, i64 1
+  %57 = load ptr, ptr %56, align 8
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %52, ptr noundef @.str.265, ptr noundef %55, ptr noundef %57)
+  br label %58
 
-57:                                               ; preds = %51, %45
+58:                                               ; preds = %51, %45
   store i32 0, ptr @dissect_dereg_req.first_flag, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = load i32, ptr @hf_dereg_req_reason_flag, align 4
-  %60 = load ptr, ptr %5, align 8
-  %61 = load i32, ptr %8, align 4
-  %62 = load i8, ptr %12, align 1
-  %63 = zext i8 %62 to i32
-  %64 = load i8, ptr %12, align 1
-  %65 = zext i8 %64 to i32
-  %66 = load ptr, ptr %13, align 8
-  %67 = call ptr @wmem_strbuf_get_str(ptr noundef %66)
-  %68 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef 1, i32 noundef %63, ptr noundef @.str.267, i32 noundef %65, ptr noundef %67)
-  %69 = load i32, ptr %8, align 4
-  %70 = add i32 %69, 1
-  store i32 %70, ptr %8, align 4
-  %71 = load ptr, ptr %5, align 8
-  %72 = load i32, ptr %8, align 4
-  %73 = call zeroext i16 @tvb_get_ntohs(ptr noundef %71, i32 noundef %72)
-  store i16 %73, ptr %9, align 2
-  %74 = load ptr, ptr %11, align 8
-  %75 = load i32, ptr @hf_sasp_gmd_cnt, align 4
-  %76 = load ptr, ptr %5, align 8
-  %77 = load i32, ptr %8, align 4
-  %78 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 2, i32 noundef 0)
-  %79 = load i32, ptr %8, align 4
-  %80 = add i32 %79, 2
-  store i32 %80, ptr %8, align 4
+  %59 = load ptr, ptr %11, align 8
+  %60 = load i32, ptr @hf_dereg_req_reason_flag, align 4
+  %61 = load ptr, ptr %5, align 8
+  %62 = load i32, ptr %8, align 4
+  %63 = load i8, ptr %12, align 1
+  %64 = zext i8 %63 to i32
+  %65 = load i8, ptr %12, align 1
+  %66 = zext i8 %65 to i32
+  %67 = load ptr, ptr %13, align 8
+  %68 = call ptr @wmem_strbuf_get_str(ptr noundef %67)
+  %69 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %59, i32 noundef %60, ptr noundef %61, i32 noundef %62, i32 noundef 1, i32 noundef %64, ptr noundef @.str.267, i32 noundef %66, ptr noundef %68)
+  %70 = load i32, ptr %8, align 4
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %8, align 4
+  %72 = load ptr, ptr %5, align 8
+  %73 = load i32, ptr %8, align 4
+  %74 = call zeroext i16 @tvb_get_ntohs(ptr noundef %72, i32 noundef %73)
+  store i16 %74, ptr %9, align 2
+  %75 = load ptr, ptr %11, align 8
+  %76 = load i32, ptr @hf_sasp_gmd_cnt, align 4
+  %77 = load ptr, ptr %5, align 8
+  %78 = load i32, ptr %8, align 4
+  %79 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef 2, i32 noundef 0)
+  %80 = load i32, ptr %8, align 4
+  %81 = add i32 %80, 2
+  store i32 %81, ptr %8, align 4
   store i16 0, ptr %10, align 2
-  br label %81
+  br label %82
 
-81:                                               ; preds = %92, %57
-  %82 = load i16, ptr %10, align 2
-  %83 = zext i16 %82 to i32
-  %84 = load i16, ptr %9, align 2
-  %85 = zext i16 %84 to i32
-  %86 = icmp slt i32 %83, %85
-  br i1 %86, label %87, label %95
+82:                                               ; preds = %93, %58
+  %83 = load i16, ptr %10, align 2
+  %84 = zext i16 %83 to i32
+  %85 = load i16, ptr %9, align 2
+  %86 = zext i16 %85 to i32
+  %87 = icmp slt i32 %84, %86
+  br i1 %87, label %88, label %96
 
-87:                                               ; preds = %81
-  %88 = load ptr, ptr %5, align 8
-  %89 = load ptr, ptr %11, align 8
-  %90 = load i32, ptr %8, align 4
-  %91 = call i32 @dissect_grp_memdatacomp(ptr noundef %88, ptr noundef %89, i32 noundef %90)
-  store i32 %91, ptr %8, align 4
-  br label %92
+88:                                               ; preds = %82
+  %89 = load ptr, ptr %5, align 8
+  %90 = load ptr, ptr %11, align 8
+  %91 = load i32, ptr %8, align 4
+  %92 = call i32 @dissect_grp_memdatacomp(ptr noundef %89, ptr noundef %90, i32 noundef %91)
+  store i32 %92, ptr %8, align 4
+  br label %93
 
-92:                                               ; preds = %87
-  %93 = load i16, ptr %10, align 2
-  %94 = add i16 %93, 1
-  store i16 %94, ptr %10, align 2
-  br label %81, !llvm.loop !6
+93:                                               ; preds = %88
+  %94 = load i16, ptr %10, align 2
+  %95 = add i16 %94, 1
+  store i16 %95, ptr %10, align 2
+  br label %82, !llvm.loop !6
 
-95:                                               ; preds = %81
+96:                                               ; preds = %82
   ret void
 }
 

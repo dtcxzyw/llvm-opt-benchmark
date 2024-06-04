@@ -105,90 +105,92 @@ define internal i32 @index_decoder_init(ptr noundef %0, ptr noundef %1, ptr noun
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %12, i32 0, i32 2
   %14 = load i64, ptr %13, align 8
-  %15 = icmp ne i64 ptrtoint (ptr @index_decoder_init to i64), %14
-  br i1 %15, label %16, label %19
+  %15 = ptrtoint ptr @index_decoder_init to i64
+  %16 = icmp ne i64 %15, %14
+  br i1 %16, label %17, label %20
 
-16:                                               ; preds = %11
-  %17 = load ptr, ptr %6, align 8
-  %18 = load ptr, ptr %7, align 8
-  call void @lzma_next_end(ptr noundef %17, ptr noundef %18)
-  br label %19
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %6, align 8
+  %19 = load ptr, ptr %7, align 8
+  call void @lzma_next_end(ptr noundef %18, ptr noundef %19)
+  br label %20
 
-19:                                               ; preds = %16, %11
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %20, i32 0, i32 2
-  store i64 ptrtoint (ptr @index_decoder_init to i64), ptr %21, align 8
-  br label %22
+20:                                               ; preds = %17, %11
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %21, i32 0, i32 2
+  %23 = ptrtoint ptr @index_decoder_init to i64
+  store i64 %23, ptr %22, align 8
+  br label %24
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %8, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %26
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %8, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %28
 
-25:                                               ; preds = %22
+27:                                               ; preds = %24
   store i32 11, ptr %5, align 4
-  br label %61
+  br label %63
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %10, align 8
-  %30 = load ptr, ptr %10, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %50
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %10, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %52
 
-32:                                               ; preds = %26
-  %33 = load ptr, ptr %7, align 8
-  %34 = call noalias ptr @lzma_alloc(i64 noundef 72, ptr noundef %33)
-  store ptr %34, ptr %10, align 8
-  %35 = load ptr, ptr %10, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %38
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %7, align 8
+  %36 = call noalias ptr @lzma_alloc(i64 noundef 72, ptr noundef %35)
+  store ptr %36, ptr %10, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %40
 
-37:                                               ; preds = %32
+39:                                               ; preds = %34
   store i32 5, ptr %5, align 4
-  br label %61
+  br label %63
 
-38:                                               ; preds = %32
-  %39 = load ptr, ptr %10, align 8
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %40, i32 0, i32 0
-  store ptr %39, ptr %41, align 8
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %10, align 8
   %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %42, i32 0, i32 3
-  store ptr @index_decode, ptr %43, align 8
+  %43 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %42, i32 0, i32 0
+  store ptr %41, ptr %43, align 8
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %44, i32 0, i32 4
-  store ptr @index_decoder_end, ptr %45, align 8
+  %45 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %44, i32 0, i32 3
+  store ptr @index_decode, ptr %45, align 8
   %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %46, i32 0, i32 7
-  store ptr @index_decoder_memconfig, ptr %47, align 8
-  %48 = load ptr, ptr %10, align 8
-  %49 = getelementptr inbounds %struct.lzma_index_coder, ptr %48, i32 0, i32 2
-  store ptr null, ptr %49, align 8
-  br label %55
+  %47 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %46, i32 0, i32 4
+  store ptr @index_decoder_end, ptr %47, align 8
+  %48 = load ptr, ptr %6, align 8
+  %49 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %48, i32 0, i32 7
+  store ptr @index_decoder_memconfig, ptr %49, align 8
+  %50 = load ptr, ptr %10, align 8
+  %51 = getelementptr inbounds %struct.lzma_index_coder, ptr %50, i32 0, i32 2
+  store ptr null, ptr %51, align 8
+  br label %57
 
-50:                                               ; preds = %26
-  %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds %struct.lzma_index_coder, ptr %51, i32 0, i32 2
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %7, align 8
-  call void @lzma_index_end(ptr noundef %53, ptr noundef %54) #4
-  br label %55
+52:                                               ; preds = %28
+  %53 = load ptr, ptr %10, align 8
+  %54 = getelementptr inbounds %struct.lzma_index_coder, ptr %53, i32 0, i32 2
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %7, align 8
+  call void @lzma_index_end(ptr noundef %55, ptr noundef %56) #4
+  br label %57
 
-55:                                               ; preds = %50, %38
-  %56 = load ptr, ptr %10, align 8
-  %57 = load ptr, ptr %7, align 8
-  %58 = load ptr, ptr %8, align 8
-  %59 = load i64, ptr %9, align 8
-  %60 = call i32 @index_decoder_reset(ptr noundef %56, ptr noundef %57, ptr noundef %58, i64 noundef %59)
-  store i32 %60, ptr %5, align 4
-  br label %61
+57:                                               ; preds = %52, %40
+  %58 = load ptr, ptr %10, align 8
+  %59 = load ptr, ptr %7, align 8
+  %60 = load ptr, ptr %8, align 8
+  %61 = load i64, ptr %9, align 8
+  %62 = call i32 @index_decoder_reset(ptr noundef %58, ptr noundef %59, ptr noundef %60, i64 noundef %61)
+  store i32 %62, ptr %5, align 4
+  br label %63
 
-61:                                               ; preds = %55, %37, %25
-  %62 = load i32, ptr %5, align 4
-  ret i32 %62
+63:                                               ; preds = %57, %39, %27
+  %64 = load i32, ptr %5, align 4
+  ret i32 %64
 }
 
 ; Function Attrs: nounwind

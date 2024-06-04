@@ -1646,31 +1646,36 @@ if.end16:                                         ; preds = %if.end7
   store ptr %arraydecay18, ptr %p, align 8
   %11 = load i32, ptr %len, align 4
   %conv19 = sext i32 %11 to i64
-  %12 = load ptr, ptr getelementptr inbounds ([29 x ptr], ptr @cmd_names, i64 0, i64 27), align 8
-  %call20 = call i64 @strlen(ptr noundef %12) #6
+  %12 = getelementptr inbounds [29 x ptr], ptr @cmd_names, i64 0, i64 27
+  %13 = load ptr, ptr %12, align 8
+  %call20 = call i64 @strlen(ptr noundef %13) #6
   %cmp21 = icmp uge i64 %conv19, %call20
   br i1 %cmp21, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end16
-  %13 = load ptr, ptr %p, align 8
-  %14 = load ptr, ptr getelementptr inbounds ([29 x ptr], ptr @cmd_names, i64 0, i64 27), align 8
-  %15 = load ptr, ptr getelementptr inbounds ([29 x ptr], ptr @cmd_names, i64 0, i64 27), align 8
-  %call23 = call i64 @strlen(ptr noundef %15) #6
-  %call24 = call i32 @memcmp(ptr noundef %13, ptr noundef %14, i64 noundef %call23) #6
+  %14 = load ptr, ptr %p, align 8
+  %15 = getelementptr inbounds [29 x ptr], ptr @cmd_names, i64 0, i64 27
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds [29 x ptr], ptr @cmd_names, i64 0, i64 27
+  %18 = load ptr, ptr %17, align 8
+  %call23 = call i64 @strlen(ptr noundef %18) #6
+  %call24 = call i32 @memcmp(ptr noundef %14, ptr noundef %16, i64 noundef %call23) #6
   %cmp25 = icmp eq i32 %call24, 0
   br i1 %cmp25, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %land.lhs.true
   store i32 27, ptr %cmd, align 4
-  %16 = load ptr, ptr getelementptr inbounds ([29 x ptr], ptr @cmd_names, i64 0, i64 27), align 8
-  %call28 = call i64 @strlen(ptr noundef %16) #6
-  %17 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr i8, ptr %17, i64 %call28
+  %19 = getelementptr inbounds [29 x ptr], ptr @cmd_names, i64 0, i64 27
+  %20 = load ptr, ptr %19, align 8
+  %call28 = call i64 @strlen(ptr noundef %20) #6
+  %21 = load ptr, ptr %p, align 8
+  %add.ptr = getelementptr i8, ptr %21, i64 %call28
   store ptr %add.ptr, ptr %p, align 8
-  %18 = load ptr, ptr getelementptr inbounds ([29 x ptr], ptr @cmd_names, i64 0, i64 27), align 8
-  %call29 = call i64 @strlen(ptr noundef %18) #6
-  %19 = load i32, ptr %len, align 4
-  %conv30 = sext i32 %19 to i64
+  %22 = getelementptr inbounds [29 x ptr], ptr @cmd_names, i64 0, i64 27
+  %23 = load ptr, ptr %22, align 8
+  %call29 = call i64 @strlen(ptr noundef %23) #6
+  %24 = load i32, ptr %len, align 4
+  %conv30 = sext i32 %24 to i64
   %sub = sub i64 %conv30, %call29
   %conv31 = trunc i64 %sub to i32
   store i32 %conv31, ptr %len, align 4
@@ -1681,19 +1686,19 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.else
-  %20 = load i32, ptr %cmd, align 4
-  %cmp32 = icmp ult i32 %20, 27
+  %25 = load i32, ptr %cmd, align 4
+  %cmp32 = icmp ult i32 %25, 27
   br i1 %cmp32, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %21 = load ptr, ptr %ib.addr, align 8
-  %buffer34 = getelementptr inbounds %struct.InputBarrier, ptr %21, i32 0, i32 9
+  %26 = load ptr, ptr %ib.addr, align 8
+  %buffer34 = getelementptr inbounds %struct.InputBarrier, ptr %26, i32 0, i32 9
   %arraydecay35 = getelementptr inbounds [1024 x i8], ptr %buffer34, i64 0, i64 0
-  %22 = load i32, ptr %cmd, align 4
-  %idxprom = zext i32 %22 to i64
+  %27 = load i32, ptr %cmd, align 4
+  %idxprom = zext i32 %27 to i64
   %arrayidx = getelementptr [29 x ptr], ptr @cmd_names, i64 0, i64 %idxprom
-  %23 = load ptr, ptr %arrayidx, align 8
-  %call36 = call i32 @memcmp(ptr noundef %arraydecay35, ptr noundef %23, i64 noundef 4) #6
+  %28 = load ptr, ptr %arrayidx, align 8
+  %call36 = call i32 @memcmp(ptr noundef %arraydecay35, ptr noundef %28, i64 noundef 4) #6
   %cmp37 = icmp eq i32 %call36, 0
   br i1 %cmp37, label %if.then39, label %if.end40
 
@@ -1704,14 +1709,14 @@ if.end40:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end40
-  %24 = load i32, ptr %cmd, align 4
-  %inc = add i32 %24, 1
+  %29 = load i32, ptr %cmd, align 4
+  %inc = add i32 %29, 1
   store i32 %inc, ptr %cmd, align 4
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %if.then39, %for.cond
-  %25 = load i32, ptr %cmd, align 4
-  %cmp41 = icmp eq i32 %25, 27
+  %30 = load i32, ptr %cmd, align 4
+  %cmp41 = icmp eq i32 %30, 27
   br i1 %cmp41, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %for.end
@@ -1719,21 +1724,21 @@ if.then43:                                        ; preds = %for.end
   br label %return
 
 if.end44:                                         ; preds = %for.end
-  %26 = load ptr, ptr %p, align 8
-  %add.ptr45 = getelementptr i8, ptr %26, i64 4
+  %31 = load ptr, ptr %p, align 8
+  %add.ptr45 = getelementptr i8, ptr %31, i64 4
   store ptr %add.ptr45, ptr %p, align 8
-  %27 = load i32, ptr %len, align 4
-  %sub46 = sub i32 %27, 4
+  %32 = load i32, ptr %len, align 4
+  %sub46 = sub i32 %32, 4
   store i32 %sub46, ptr %len, align 4
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end44, %if.then27
-  %28 = load i32, ptr %cmd, align 4
-  %29 = load ptr, ptr %msg.addr, align 8
-  %cmd48 = getelementptr inbounds %struct.barrierMsg, ptr %29, i32 0, i32 0
-  store i32 %28, ptr %cmd48, align 4
-  %30 = load i32, ptr %cmd, align 4
-  switch i32 %30, label %sw.default [
+  %33 = load i32, ptr %cmd, align 4
+  %34 = load ptr, ptr %msg.addr, align 8
+  %cmd48 = getelementptr inbounds %struct.barrierMsg, ptr %34, i32 0, i32 0
+  store i32 %33, ptr %cmd48, align 4
+  %35 = load i32, ptr %cmd, align 4
+  switch i32 %35, label %sw.default [
     i32 27, label %sw.bb
     i32 19, label %sw.bb67
     i32 22, label %sw.bb129
@@ -1766,9 +1771,9 @@ sw.bb:                                            ; preds = %if.end47
 
 do.body:                                          ; preds = %sw.bb
   store i32 2, ptr %size, align 4
-  %31 = load i32, ptr %len, align 4
-  %32 = load i32, ptr %size, align 4
-  %cmp49 = icmp slt i32 %31, %32
+  %36 = load i32, ptr %len, align 4
+  %37 = load i32, ptr %size, align 4
+  %cmp49 = icmp slt i32 %36, %37
   br i1 %cmp49, label %if.then51, label %if.end52
 
 if.then51:                                        ; preds = %do.body
@@ -1776,21 +1781,21 @@ if.then51:                                        ; preds = %do.body
   br label %return
 
 if.end52:                                         ; preds = %do.body
-  %33 = load ptr, ptr %p, align 8
-  %34 = load i16, ptr %33, align 2
-  %call53 = call zeroext i16 @ntohs(i16 noundef zeroext %34) #5
-  %35 = load ptr, ptr %msg.addr, align 8
-  %36 = getelementptr inbounds %struct.barrierMsg, ptr %35, i32 0, i32 1
-  %major = getelementptr inbounds %struct.barrierVersion, ptr %36, i32 0, i32 0
-  store i16 %call53, ptr %major, align 4
-  %37 = load i32, ptr %size, align 4
   %38 = load ptr, ptr %p, align 8
-  %idx.ext = sext i32 %37 to i64
-  %add.ptr54 = getelementptr i8, ptr %38, i64 %idx.ext
+  %39 = load i16, ptr %38, align 2
+  %call53 = call zeroext i16 @ntohs(i16 noundef zeroext %39) #5
+  %40 = load ptr, ptr %msg.addr, align 8
+  %41 = getelementptr inbounds %struct.barrierMsg, ptr %40, i32 0, i32 1
+  %major = getelementptr inbounds %struct.barrierVersion, ptr %41, i32 0, i32 0
+  store i16 %call53, ptr %major, align 4
+  %42 = load i32, ptr %size, align 4
+  %43 = load ptr, ptr %p, align 8
+  %idx.ext = sext i32 %42 to i64
+  %add.ptr54 = getelementptr i8, ptr %43, i64 %idx.ext
   store ptr %add.ptr54, ptr %p, align 8
-  %39 = load i32, ptr %size, align 4
-  %40 = load i32, ptr %len, align 4
-  %sub55 = sub i32 %40, %39
+  %44 = load i32, ptr %size, align 4
+  %45 = load i32, ptr %len, align 4
+  %sub55 = sub i32 %45, %44
   store i32 %sub55, ptr %len, align 4
   br label %do.end
 
@@ -1799,9 +1804,9 @@ do.end:                                           ; preds = %if.end52
 
 do.body56:                                        ; preds = %do.end
   store i32 2, ptr %size57, align 4
-  %41 = load i32, ptr %len, align 4
-  %42 = load i32, ptr %size57, align 4
-  %cmp58 = icmp slt i32 %41, %42
+  %46 = load i32, ptr %len, align 4
+  %47 = load i32, ptr %size57, align 4
+  %cmp58 = icmp slt i32 %46, %47
   br i1 %cmp58, label %if.then60, label %if.end61
 
 if.then60:                                        ; preds = %do.body56
@@ -1809,21 +1814,21 @@ if.then60:                                        ; preds = %do.body56
   br label %return
 
 if.end61:                                         ; preds = %do.body56
-  %43 = load ptr, ptr %p, align 8
-  %44 = load i16, ptr %43, align 2
-  %call62 = call zeroext i16 @ntohs(i16 noundef zeroext %44) #5
-  %45 = load ptr, ptr %msg.addr, align 8
-  %46 = getelementptr inbounds %struct.barrierMsg, ptr %45, i32 0, i32 1
-  %minor = getelementptr inbounds %struct.barrierVersion, ptr %46, i32 0, i32 1
-  store i16 %call62, ptr %minor, align 2
-  %47 = load i32, ptr %size57, align 4
   %48 = load ptr, ptr %p, align 8
-  %idx.ext63 = sext i32 %47 to i64
-  %add.ptr64 = getelementptr i8, ptr %48, i64 %idx.ext63
+  %49 = load i16, ptr %48, align 2
+  %call62 = call zeroext i16 @ntohs(i16 noundef zeroext %49) #5
+  %50 = load ptr, ptr %msg.addr, align 8
+  %51 = getelementptr inbounds %struct.barrierMsg, ptr %50, i32 0, i32 1
+  %minor = getelementptr inbounds %struct.barrierVersion, ptr %51, i32 0, i32 1
+  store i16 %call62, ptr %minor, align 2
+  %52 = load i32, ptr %size57, align 4
+  %53 = load ptr, ptr %p, align 8
+  %idx.ext63 = sext i32 %52 to i64
+  %add.ptr64 = getelementptr i8, ptr %53, i64 %idx.ext63
   store ptr %add.ptr64, ptr %p, align 8
-  %49 = load i32, ptr %size57, align 4
-  %50 = load i32, ptr %len, align 4
-  %sub65 = sub i32 %50, %49
+  %54 = load i32, ptr %size57, align 4
+  %55 = load i32, ptr %len, align 4
+  %sub65 = sub i32 %55, %54
   store i32 %sub65, ptr %len, align 4
   br label %do.end66
 
@@ -1835,9 +1840,9 @@ sw.bb67:                                          ; preds = %if.end47
 
 do.body68:                                        ; preds = %sw.bb67
   store i32 4, ptr %size69, align 4
-  %51 = load i32, ptr %len, align 4
-  %52 = load i32, ptr %size69, align 4
-  %cmp70 = icmp slt i32 %51, %52
+  %56 = load i32, ptr %len, align 4
+  %57 = load i32, ptr %size69, align 4
+  %cmp70 = icmp slt i32 %56, %57
   br i1 %cmp70, label %if.then72, label %if.end73
 
 if.then72:                                        ; preds = %do.body68
@@ -1845,42 +1850,42 @@ if.then72:                                        ; preds = %do.body68
   br label %return
 
 if.end73:                                         ; preds = %do.body68
-  %53 = load ptr, ptr %p, align 8
-  %54 = load i32, ptr %53, align 4
-  %call74 = call i32 @ntohl(i32 noundef %54) #5
-  %55 = load ptr, ptr %msg.addr, align 8
-  %56 = getelementptr inbounds %struct.barrierMsg, ptr %55, i32 0, i32 1
-  %nb = getelementptr inbounds %struct.barrierSet, ptr %56, i32 0, i32 0
-  store i32 %call74, ptr %nb, align 4
-  %57 = load i32, ptr %size69, align 4
   %58 = load ptr, ptr %p, align 8
-  %idx.ext75 = sext i32 %57 to i64
-  %add.ptr76 = getelementptr i8, ptr %58, i64 %idx.ext75
+  %59 = load i32, ptr %58, align 4
+  %call74 = call i32 @ntohl(i32 noundef %59) #5
+  %60 = load ptr, ptr %msg.addr, align 8
+  %61 = getelementptr inbounds %struct.barrierMsg, ptr %60, i32 0, i32 1
+  %nb = getelementptr inbounds %struct.barrierSet, ptr %61, i32 0, i32 0
+  store i32 %call74, ptr %nb, align 4
+  %62 = load i32, ptr %size69, align 4
+  %63 = load ptr, ptr %p, align 8
+  %idx.ext75 = sext i32 %62 to i64
+  %add.ptr76 = getelementptr i8, ptr %63, i64 %idx.ext75
   store ptr %add.ptr76, ptr %p, align 8
-  %59 = load i32, ptr %size69, align 4
-  %60 = load i32, ptr %len, align 4
-  %sub77 = sub i32 %60, %59
+  %64 = load i32, ptr %size69, align 4
+  %65 = load i32, ptr %len, align 4
+  %sub77 = sub i32 %65, %64
   store i32 %sub77, ptr %len, align 4
   br label %do.end78
 
 do.end78:                                         ; preds = %if.end73
-  %61 = load ptr, ptr %msg.addr, align 8
-  %62 = getelementptr inbounds %struct.barrierMsg, ptr %61, i32 0, i32 1
-  %nb79 = getelementptr inbounds %struct.barrierSet, ptr %62, i32 0, i32 0
-  %63 = load i32, ptr %nb79, align 4
-  %div = sdiv i32 %63, 2
+  %66 = load ptr, ptr %msg.addr, align 8
+  %67 = getelementptr inbounds %struct.barrierMsg, ptr %66, i32 0, i32 1
+  %nb79 = getelementptr inbounds %struct.barrierSet, ptr %67, i32 0, i32 0
+  %68 = load i32, ptr %nb79, align 4
+  %div = sdiv i32 %68, 2
   store i32 %div, ptr %nb79, align 4
-  %64 = load ptr, ptr %msg.addr, align 8
-  %65 = getelementptr inbounds %struct.barrierMsg, ptr %64, i32 0, i32 1
-  %nb80 = getelementptr inbounds %struct.barrierSet, ptr %65, i32 0, i32 0
-  %66 = load i32, ptr %nb80, align 4
-  %cmp81 = icmp sgt i32 %66, 32
+  %69 = load ptr, ptr %msg.addr, align 8
+  %70 = getelementptr inbounds %struct.barrierMsg, ptr %69, i32 0, i32 1
+  %nb80 = getelementptr inbounds %struct.barrierSet, ptr %70, i32 0, i32 0
+  %71 = load i32, ptr %nb80, align 4
+  %cmp81 = icmp sgt i32 %71, 32
   br i1 %cmp81, label %if.then83, label %if.end85
 
 if.then83:                                        ; preds = %do.end78
-  %67 = load ptr, ptr %msg.addr, align 8
-  %68 = getelementptr inbounds %struct.barrierMsg, ptr %67, i32 0, i32 1
-  %nb84 = getelementptr inbounds %struct.barrierSet, ptr %68, i32 0, i32 0
+  %72 = load ptr, ptr %msg.addr, align 8
+  %73 = getelementptr inbounds %struct.barrierMsg, ptr %72, i32 0, i32 1
+  %nb84 = getelementptr inbounds %struct.barrierSet, ptr %73, i32 0, i32 0
   store i32 32, ptr %nb84, align 4
   br label %if.end85
 
@@ -1889,31 +1894,31 @@ if.end85:                                         ; preds = %if.then83, %do.end7
   br label %while.cond
 
 while.cond:                                       ; preds = %do.end127, %if.end85
-  %69 = load i32, ptr %len, align 4
-  %tobool = icmp ne i32 %69, 0
+  %74 = load i32, ptr %len, align 4
+  %tobool = icmp ne i32 %74, 0
   br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond
-  %70 = load i32, ptr %i, align 4
-  %71 = load ptr, ptr %msg.addr, align 8
-  %72 = getelementptr inbounds %struct.barrierMsg, ptr %71, i32 0, i32 1
-  %nb86 = getelementptr inbounds %struct.barrierSet, ptr %72, i32 0, i32 0
-  %73 = load i32, ptr %nb86, align 4
-  %cmp87 = icmp slt i32 %70, %73
+  %75 = load i32, ptr %i, align 4
+  %76 = load ptr, ptr %msg.addr, align 8
+  %77 = getelementptr inbounds %struct.barrierMsg, ptr %76, i32 0, i32 1
+  %nb86 = getelementptr inbounds %struct.barrierSet, ptr %77, i32 0, i32 0
+  %78 = load i32, ptr %nb86, align 4
+  %cmp87 = icmp slt i32 %75, %78
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond
-  %74 = phi i1 [ false, %while.cond ], [ %cmp87, %land.rhs ]
-  br i1 %74, label %while.body, label %while.end
+  %79 = phi i1 [ false, %while.cond ], [ %cmp87, %land.rhs ]
+  br i1 %79, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.end
   br label %do.body89
 
 do.body89:                                        ; preds = %while.body
   store i32 4, ptr %size90, align 4
-  %75 = load i32, ptr %len, align 4
-  %76 = load i32, ptr %size90, align 4
-  %cmp91 = icmp slt i32 %75, %76
+  %80 = load i32, ptr %len, align 4
+  %81 = load i32, ptr %size90, align 4
+  %cmp91 = icmp slt i32 %80, %81
   br i1 %cmp91, label %if.then93, label %if.end94
 
 if.then93:                                        ; preds = %do.body89
@@ -1921,51 +1926,51 @@ if.then93:                                        ; preds = %do.body89
   br label %return
 
 if.end94:                                         ; preds = %do.body89
-  %77 = load ptr, ptr %p, align 8
-  %78 = load i32, ptr %77, align 4
-  %call95 = call i32 @ntohl(i32 noundef %78) #5
-  %79 = load ptr, ptr %msg.addr, align 8
-  %80 = getelementptr inbounds %struct.barrierMsg, ptr %79, i32 0, i32 1
-  %option = getelementptr inbounds %struct.barrierSet, ptr %80, i32 0, i32 1
-  %81 = load i32, ptr %i, align 4
-  %idxprom96 = sext i32 %81 to i64
+  %82 = load ptr, ptr %p, align 8
+  %83 = load i32, ptr %82, align 4
+  %call95 = call i32 @ntohl(i32 noundef %83) #5
+  %84 = load ptr, ptr %msg.addr, align 8
+  %85 = getelementptr inbounds %struct.barrierMsg, ptr %84, i32 0, i32 1
+  %option = getelementptr inbounds %struct.barrierSet, ptr %85, i32 0, i32 1
+  %86 = load i32, ptr %i, align 4
+  %idxprom96 = sext i32 %86 to i64
   %arrayidx97 = getelementptr [32 x %struct.anon], ptr %option, i64 0, i64 %idxprom96
   %id = getelementptr inbounds %struct.anon, ptr %arrayidx97, i32 0, i32 0
   store i32 %call95, ptr %id, align 4
-  %82 = load i32, ptr %size90, align 4
-  %83 = load ptr, ptr %p, align 8
-  %idx.ext98 = sext i32 %82 to i64
-  %add.ptr99 = getelementptr i8, ptr %83, i64 %idx.ext98
+  %87 = load i32, ptr %size90, align 4
+  %88 = load ptr, ptr %p, align 8
+  %idx.ext98 = sext i32 %87 to i64
+  %add.ptr99 = getelementptr i8, ptr %88, i64 %idx.ext98
   store ptr %add.ptr99, ptr %p, align 8
-  %84 = load i32, ptr %size90, align 4
-  %85 = load i32, ptr %len, align 4
-  %sub100 = sub i32 %85, %84
+  %89 = load i32, ptr %size90, align 4
+  %90 = load i32, ptr %len, align 4
+  %sub100 = sub i32 %90, %89
   store i32 %sub100, ptr %len, align 4
   br label %do.end101
 
 do.end101:                                        ; preds = %if.end94
-  %86 = load ptr, ptr %msg.addr, align 8
-  %87 = getelementptr inbounds %struct.barrierMsg, ptr %86, i32 0, i32 1
-  %option102 = getelementptr inbounds %struct.barrierSet, ptr %87, i32 0, i32 1
-  %88 = load i32, ptr %i, align 4
-  %idxprom103 = sext i32 %88 to i64
+  %91 = load ptr, ptr %msg.addr, align 8
+  %92 = getelementptr inbounds %struct.barrierMsg, ptr %91, i32 0, i32 1
+  %option102 = getelementptr inbounds %struct.barrierSet, ptr %92, i32 0, i32 1
+  %93 = load i32, ptr %i, align 4
+  %idxprom103 = sext i32 %93 to i64
   %arrayidx104 = getelementptr [32 x %struct.anon], ptr %option102, i64 0, i64 %idxprom103
   %id105 = getelementptr inbounds %struct.anon, ptr %arrayidx104, i32 0, i32 0
-  %89 = load i32, ptr %id105, align 4
-  %call106 = call i32 @htonl(i32 noundef %89) #5
-  %90 = load ptr, ptr %msg.addr, align 8
-  %91 = getelementptr inbounds %struct.barrierMsg, ptr %90, i32 0, i32 1
-  %option107 = getelementptr inbounds %struct.barrierSet, ptr %91, i32 0, i32 1
-  %92 = load i32, ptr %i, align 4
-  %idxprom108 = sext i32 %92 to i64
+  %94 = load i32, ptr %id105, align 4
+  %call106 = call i32 @htonl(i32 noundef %94) #5
+  %95 = load ptr, ptr %msg.addr, align 8
+  %96 = getelementptr inbounds %struct.barrierMsg, ptr %95, i32 0, i32 1
+  %option107 = getelementptr inbounds %struct.barrierSet, ptr %96, i32 0, i32 1
+  %97 = load i32, ptr %i, align 4
+  %idxprom108 = sext i32 %97 to i64
   %arrayidx109 = getelementptr [32 x %struct.anon], ptr %option107, i64 0, i64 %idxprom108
   %id110 = getelementptr inbounds %struct.anon, ptr %arrayidx109, i32 0, i32 0
   store i32 %call106, ptr %id110, align 4
-  %93 = load ptr, ptr %msg.addr, align 8
-  %94 = getelementptr inbounds %struct.barrierMsg, ptr %93, i32 0, i32 1
-  %option111 = getelementptr inbounds %struct.barrierSet, ptr %94, i32 0, i32 1
-  %95 = load i32, ptr %i, align 4
-  %idxprom112 = sext i32 %95 to i64
+  %98 = load ptr, ptr %msg.addr, align 8
+  %99 = getelementptr inbounds %struct.barrierMsg, ptr %98, i32 0, i32 1
+  %option111 = getelementptr inbounds %struct.barrierSet, ptr %99, i32 0, i32 1
+  %100 = load i32, ptr %i, align 4
+  %idxprom112 = sext i32 %100 to i64
   %arrayidx113 = getelementptr [32 x %struct.anon], ptr %option111, i64 0, i64 %idxprom112
   %nul = getelementptr inbounds %struct.anon, ptr %arrayidx113, i32 0, i32 1
   store i8 0, ptr %nul, align 4
@@ -1973,9 +1978,9 @@ do.end101:                                        ; preds = %if.end94
 
 do.body114:                                       ; preds = %do.end101
   store i32 4, ptr %size115, align 4
-  %96 = load i32, ptr %len, align 4
-  %97 = load i32, ptr %size115, align 4
-  %cmp116 = icmp slt i32 %96, %97
+  %101 = load i32, ptr %len, align 4
+  %102 = load i32, ptr %size115, align 4
+  %cmp116 = icmp slt i32 %101, %102
   br i1 %cmp116, label %if.then118, label %if.end119
 
 if.then118:                                       ; preds = %do.body114
@@ -1983,31 +1988,31 @@ if.then118:                                       ; preds = %do.body114
   br label %return
 
 if.end119:                                        ; preds = %do.body114
-  %98 = load ptr, ptr %p, align 8
-  %99 = load i32, ptr %98, align 4
-  %call120 = call i32 @ntohl(i32 noundef %99) #5
-  %100 = load ptr, ptr %msg.addr, align 8
-  %101 = getelementptr inbounds %struct.barrierMsg, ptr %100, i32 0, i32 1
-  %option121 = getelementptr inbounds %struct.barrierSet, ptr %101, i32 0, i32 1
-  %102 = load i32, ptr %i, align 4
-  %idxprom122 = sext i32 %102 to i64
+  %103 = load ptr, ptr %p, align 8
+  %104 = load i32, ptr %103, align 4
+  %call120 = call i32 @ntohl(i32 noundef %104) #5
+  %105 = load ptr, ptr %msg.addr, align 8
+  %106 = getelementptr inbounds %struct.barrierMsg, ptr %105, i32 0, i32 1
+  %option121 = getelementptr inbounds %struct.barrierSet, ptr %106, i32 0, i32 1
+  %107 = load i32, ptr %i, align 4
+  %idxprom122 = sext i32 %107 to i64
   %arrayidx123 = getelementptr [32 x %struct.anon], ptr %option121, i64 0, i64 %idxprom122
   %value = getelementptr inbounds %struct.anon, ptr %arrayidx123, i32 0, i32 2
   store i32 %call120, ptr %value, align 4
-  %103 = load i32, ptr %size115, align 4
-  %104 = load ptr, ptr %p, align 8
-  %idx.ext124 = sext i32 %103 to i64
-  %add.ptr125 = getelementptr i8, ptr %104, i64 %idx.ext124
+  %108 = load i32, ptr %size115, align 4
+  %109 = load ptr, ptr %p, align 8
+  %idx.ext124 = sext i32 %108 to i64
+  %add.ptr125 = getelementptr i8, ptr %109, i64 %idx.ext124
   store ptr %add.ptr125, ptr %p, align 8
-  %105 = load i32, ptr %size115, align 4
-  %106 = load i32, ptr %len, align 4
-  %sub126 = sub i32 %106, %105
+  %110 = load i32, ptr %size115, align 4
+  %111 = load i32, ptr %len, align 4
+  %sub126 = sub i32 %111, %110
   store i32 %sub126, ptr %len, align 4
   br label %do.end127
 
 do.end127:                                        ; preds = %if.end119
-  %107 = load i32, ptr %i, align 4
-  %inc128 = add i32 %107, 1
+  %112 = load i32, ptr %i, align 4
+  %inc128 = add i32 %112, 1
   store i32 %inc128, ptr %i, align 4
   br label %while.cond, !llvm.loop !7
 
@@ -2022,9 +2027,9 @@ sw.bb130:                                         ; preds = %if.end47, %if.end47
 
 do.body131:                                       ; preds = %sw.bb130
   store i32 2, ptr %size132, align 4
-  %108 = load i32, ptr %len, align 4
-  %109 = load i32, ptr %size132, align 4
-  %cmp133 = icmp slt i32 %108, %109
+  %113 = load i32, ptr %len, align 4
+  %114 = load i32, ptr %size132, align 4
+  %cmp133 = icmp slt i32 %113, %114
   br i1 %cmp133, label %if.then135, label %if.end136
 
 if.then135:                                       ; preds = %do.body131
@@ -2032,21 +2037,21 @@ if.then135:                                       ; preds = %do.body131
   br label %return
 
 if.end136:                                        ; preds = %do.body131
-  %110 = load ptr, ptr %p, align 8
-  %111 = load i16, ptr %110, align 2
-  %call137 = call zeroext i16 @ntohs(i16 noundef zeroext %111) #5
-  %112 = load ptr, ptr %msg.addr, align 8
-  %113 = getelementptr inbounds %struct.barrierMsg, ptr %112, i32 0, i32 1
-  %x = getelementptr inbounds %struct.barrierMousePos, ptr %113, i32 0, i32 0
-  store i16 %call137, ptr %x, align 4
-  %114 = load i32, ptr %size132, align 4
   %115 = load ptr, ptr %p, align 8
-  %idx.ext138 = sext i32 %114 to i64
-  %add.ptr139 = getelementptr i8, ptr %115, i64 %idx.ext138
+  %116 = load i16, ptr %115, align 2
+  %call137 = call zeroext i16 @ntohs(i16 noundef zeroext %116) #5
+  %117 = load ptr, ptr %msg.addr, align 8
+  %118 = getelementptr inbounds %struct.barrierMsg, ptr %117, i32 0, i32 1
+  %x = getelementptr inbounds %struct.barrierMousePos, ptr %118, i32 0, i32 0
+  store i16 %call137, ptr %x, align 4
+  %119 = load i32, ptr %size132, align 4
+  %120 = load ptr, ptr %p, align 8
+  %idx.ext138 = sext i32 %119 to i64
+  %add.ptr139 = getelementptr i8, ptr %120, i64 %idx.ext138
   store ptr %add.ptr139, ptr %p, align 8
-  %116 = load i32, ptr %size132, align 4
-  %117 = load i32, ptr %len, align 4
-  %sub140 = sub i32 %117, %116
+  %121 = load i32, ptr %size132, align 4
+  %122 = load i32, ptr %len, align 4
+  %sub140 = sub i32 %122, %121
   store i32 %sub140, ptr %len, align 4
   br label %do.end141
 
@@ -2055,9 +2060,9 @@ do.end141:                                        ; preds = %if.end136
 
 do.body142:                                       ; preds = %do.end141
   store i32 2, ptr %size143, align 4
-  %118 = load i32, ptr %len, align 4
-  %119 = load i32, ptr %size143, align 4
-  %cmp144 = icmp slt i32 %118, %119
+  %123 = load i32, ptr %len, align 4
+  %124 = load i32, ptr %size143, align 4
+  %cmp144 = icmp slt i32 %123, %124
   br i1 %cmp144, label %if.then146, label %if.end147
 
 if.then146:                                       ; preds = %do.body142
@@ -2065,21 +2070,21 @@ if.then146:                                       ; preds = %do.body142
   br label %return
 
 if.end147:                                        ; preds = %do.body142
-  %120 = load ptr, ptr %p, align 8
-  %121 = load i16, ptr %120, align 2
-  %call148 = call zeroext i16 @ntohs(i16 noundef zeroext %121) #5
-  %122 = load ptr, ptr %msg.addr, align 8
-  %123 = getelementptr inbounds %struct.barrierMsg, ptr %122, i32 0, i32 1
-  %y = getelementptr inbounds %struct.barrierMousePos, ptr %123, i32 0, i32 1
-  store i16 %call148, ptr %y, align 2
-  %124 = load i32, ptr %size143, align 4
   %125 = load ptr, ptr %p, align 8
-  %idx.ext149 = sext i32 %124 to i64
-  %add.ptr150 = getelementptr i8, ptr %125, i64 %idx.ext149
+  %126 = load i16, ptr %125, align 2
+  %call148 = call zeroext i16 @ntohs(i16 noundef zeroext %126) #5
+  %127 = load ptr, ptr %msg.addr, align 8
+  %128 = getelementptr inbounds %struct.barrierMsg, ptr %127, i32 0, i32 1
+  %y = getelementptr inbounds %struct.barrierMousePos, ptr %128, i32 0, i32 1
+  store i16 %call148, ptr %y, align 2
+  %129 = load i32, ptr %size143, align 4
+  %130 = load ptr, ptr %p, align 8
+  %idx.ext149 = sext i32 %129 to i64
+  %add.ptr150 = getelementptr i8, ptr %130, i64 %idx.ext149
   store ptr %add.ptr150, ptr %p, align 8
-  %126 = load i32, ptr %size143, align 4
-  %127 = load i32, ptr %len, align 4
-  %sub151 = sub i32 %127, %126
+  %131 = load i32, ptr %size143, align 4
+  %132 = load i32, ptr %len, align 4
+  %sub151 = sub i32 %132, %131
   store i32 %sub151, ptr %len, align 4
   br label %do.end152
 
@@ -2091,9 +2096,9 @@ sw.bb153:                                         ; preds = %if.end47, %if.end47
 
 do.body154:                                       ; preds = %sw.bb153
   store i32 1, ptr %size155, align 4
-  %128 = load i32, ptr %len, align 4
-  %129 = load i32, ptr %size155, align 4
-  %cmp156 = icmp slt i32 %128, %129
+  %133 = load i32, ptr %len, align 4
+  %134 = load i32, ptr %size155, align 4
+  %cmp156 = icmp slt i32 %133, %134
   br i1 %cmp156, label %if.then158, label %if.end159
 
 if.then158:                                       ; preds = %do.body154
@@ -2101,20 +2106,20 @@ if.then158:                                       ; preds = %do.body154
   br label %return
 
 if.end159:                                        ; preds = %do.body154
-  %130 = load ptr, ptr %p, align 8
-  %131 = load i8, ptr %130, align 1
-  %132 = load ptr, ptr %msg.addr, align 8
-  %133 = getelementptr inbounds %struct.barrierMsg, ptr %132, i32 0, i32 1
-  %buttonid = getelementptr inbounds %struct.barrierMouseButton, ptr %133, i32 0, i32 0
-  store i8 %131, ptr %buttonid, align 4
-  %134 = load i32, ptr %size155, align 4
   %135 = load ptr, ptr %p, align 8
-  %idx.ext160 = sext i32 %134 to i64
-  %add.ptr161 = getelementptr i8, ptr %135, i64 %idx.ext160
+  %136 = load i8, ptr %135, align 1
+  %137 = load ptr, ptr %msg.addr, align 8
+  %138 = getelementptr inbounds %struct.barrierMsg, ptr %137, i32 0, i32 1
+  %buttonid = getelementptr inbounds %struct.barrierMouseButton, ptr %138, i32 0, i32 0
+  store i8 %136, ptr %buttonid, align 4
+  %139 = load i32, ptr %size155, align 4
+  %140 = load ptr, ptr %p, align 8
+  %idx.ext160 = sext i32 %139 to i64
+  %add.ptr161 = getelementptr i8, ptr %140, i64 %idx.ext160
   store ptr %add.ptr161, ptr %p, align 8
-  %136 = load i32, ptr %size155, align 4
-  %137 = load i32, ptr %len, align 4
-  %sub162 = sub i32 %137, %136
+  %141 = load i32, ptr %size155, align 4
+  %142 = load i32, ptr %len, align 4
+  %sub162 = sub i32 %142, %141
   store i32 %sub162, ptr %len, align 4
   br label %do.end163
 
@@ -2126,9 +2131,9 @@ sw.bb164:                                         ; preds = %if.end47
 
 do.body165:                                       ; preds = %sw.bb164
   store i32 2, ptr %size166, align 4
-  %138 = load i32, ptr %len, align 4
-  %139 = load i32, ptr %size166, align 4
-  %cmp167 = icmp slt i32 %138, %139
+  %143 = load i32, ptr %len, align 4
+  %144 = load i32, ptr %size166, align 4
+  %cmp167 = icmp slt i32 %143, %144
   br i1 %cmp167, label %if.then169, label %if.end170
 
 if.then169:                                       ; preds = %do.body165
@@ -2136,49 +2141,49 @@ if.then169:                                       ; preds = %do.body165
   br label %return
 
 if.end170:                                        ; preds = %do.body165
-  %140 = load ptr, ptr %p, align 8
-  %141 = load i16, ptr %140, align 2
-  %call171 = call zeroext i16 @ntohs(i16 noundef zeroext %141) #5
-  %142 = load ptr, ptr %msg.addr, align 8
-  %143 = getelementptr inbounds %struct.barrierMsg, ptr %142, i32 0, i32 1
-  %y172 = getelementptr inbounds %struct.barrierMousePos, ptr %143, i32 0, i32 1
-  store i16 %call171, ptr %y172, align 2
-  %144 = load i32, ptr %size166, align 4
   %145 = load ptr, ptr %p, align 8
-  %idx.ext173 = sext i32 %144 to i64
-  %add.ptr174 = getelementptr i8, ptr %145, i64 %idx.ext173
+  %146 = load i16, ptr %145, align 2
+  %call171 = call zeroext i16 @ntohs(i16 noundef zeroext %146) #5
+  %147 = load ptr, ptr %msg.addr, align 8
+  %148 = getelementptr inbounds %struct.barrierMsg, ptr %147, i32 0, i32 1
+  %y172 = getelementptr inbounds %struct.barrierMousePos, ptr %148, i32 0, i32 1
+  store i16 %call171, ptr %y172, align 2
+  %149 = load i32, ptr %size166, align 4
+  %150 = load ptr, ptr %p, align 8
+  %idx.ext173 = sext i32 %149 to i64
+  %add.ptr174 = getelementptr i8, ptr %150, i64 %idx.ext173
   store ptr %add.ptr174, ptr %p, align 8
-  %146 = load i32, ptr %size166, align 4
-  %147 = load i32, ptr %len, align 4
-  %sub175 = sub i32 %147, %146
+  %151 = load i32, ptr %size166, align 4
+  %152 = load i32, ptr %len, align 4
+  %sub175 = sub i32 %152, %151
   store i32 %sub175, ptr %len, align 4
   br label %do.end176
 
 do.end176:                                        ; preds = %if.end170
-  %148 = load ptr, ptr %msg.addr, align 8
-  %149 = getelementptr inbounds %struct.barrierMsg, ptr %148, i32 0, i32 1
-  %x177 = getelementptr inbounds %struct.barrierMousePos, ptr %149, i32 0, i32 0
+  %153 = load ptr, ptr %msg.addr, align 8
+  %154 = getelementptr inbounds %struct.barrierMsg, ptr %153, i32 0, i32 1
+  %x177 = getelementptr inbounds %struct.barrierMousePos, ptr %154, i32 0, i32 0
   store i16 0, ptr %x177, align 4
-  %150 = load i32, ptr %len, align 4
-  %tobool178 = icmp ne i32 %150, 0
+  %155 = load i32, ptr %len, align 4
+  %tobool178 = icmp ne i32 %155, 0
   br i1 %tobool178, label %if.then179, label %if.end194
 
 if.then179:                                       ; preds = %do.end176
-  %151 = load ptr, ptr %msg.addr, align 8
-  %152 = getelementptr inbounds %struct.barrierMsg, ptr %151, i32 0, i32 1
-  %y180 = getelementptr inbounds %struct.barrierMousePos, ptr %152, i32 0, i32 1
-  %153 = load i16, ptr %y180, align 2
-  %154 = load ptr, ptr %msg.addr, align 8
-  %155 = getelementptr inbounds %struct.barrierMsg, ptr %154, i32 0, i32 1
-  %x181 = getelementptr inbounds %struct.barrierMousePos, ptr %155, i32 0, i32 0
-  store i16 %153, ptr %x181, align 4
+  %156 = load ptr, ptr %msg.addr, align 8
+  %157 = getelementptr inbounds %struct.barrierMsg, ptr %156, i32 0, i32 1
+  %y180 = getelementptr inbounds %struct.barrierMousePos, ptr %157, i32 0, i32 1
+  %158 = load i16, ptr %y180, align 2
+  %159 = load ptr, ptr %msg.addr, align 8
+  %160 = getelementptr inbounds %struct.barrierMsg, ptr %159, i32 0, i32 1
+  %x181 = getelementptr inbounds %struct.barrierMousePos, ptr %160, i32 0, i32 0
+  store i16 %158, ptr %x181, align 4
   br label %do.body182
 
 do.body182:                                       ; preds = %if.then179
   store i32 2, ptr %size183, align 4
-  %156 = load i32, ptr %len, align 4
-  %157 = load i32, ptr %size183, align 4
-  %cmp184 = icmp slt i32 %156, %157
+  %161 = load i32, ptr %len, align 4
+  %162 = load i32, ptr %size183, align 4
+  %cmp184 = icmp slt i32 %161, %162
   br i1 %cmp184, label %if.then186, label %if.end187
 
 if.then186:                                       ; preds = %do.body182
@@ -2186,21 +2191,21 @@ if.then186:                                       ; preds = %do.body182
   br label %return
 
 if.end187:                                        ; preds = %do.body182
-  %158 = load ptr, ptr %p, align 8
-  %159 = load i16, ptr %158, align 2
-  %call188 = call zeroext i16 @ntohs(i16 noundef zeroext %159) #5
-  %160 = load ptr, ptr %msg.addr, align 8
-  %161 = getelementptr inbounds %struct.barrierMsg, ptr %160, i32 0, i32 1
-  %y189 = getelementptr inbounds %struct.barrierMousePos, ptr %161, i32 0, i32 1
-  store i16 %call188, ptr %y189, align 2
-  %162 = load i32, ptr %size183, align 4
   %163 = load ptr, ptr %p, align 8
-  %idx.ext190 = sext i32 %162 to i64
-  %add.ptr191 = getelementptr i8, ptr %163, i64 %idx.ext190
+  %164 = load i16, ptr %163, align 2
+  %call188 = call zeroext i16 @ntohs(i16 noundef zeroext %164) #5
+  %165 = load ptr, ptr %msg.addr, align 8
+  %166 = getelementptr inbounds %struct.barrierMsg, ptr %165, i32 0, i32 1
+  %y189 = getelementptr inbounds %struct.barrierMousePos, ptr %166, i32 0, i32 1
+  store i16 %call188, ptr %y189, align 2
+  %167 = load i32, ptr %size183, align 4
+  %168 = load ptr, ptr %p, align 8
+  %idx.ext190 = sext i32 %167 to i64
+  %add.ptr191 = getelementptr i8, ptr %168, i64 %idx.ext190
   store ptr %add.ptr191, ptr %p, align 8
-  %164 = load i32, ptr %size183, align 4
-  %165 = load i32, ptr %len, align 4
-  %sub192 = sub i32 %165, %164
+  %169 = load i32, ptr %size183, align 4
+  %170 = load i32, ptr %len, align 4
+  %sub192 = sub i32 %170, %169
   store i32 %sub192, ptr %len, align 4
   br label %do.end193
 
@@ -2215,9 +2220,9 @@ sw.bb195:                                         ; preds = %if.end47, %if.end47
 
 do.body196:                                       ; preds = %sw.bb195
   store i32 2, ptr %size197, align 4
-  %166 = load i32, ptr %len, align 4
-  %167 = load i32, ptr %size197, align 4
-  %cmp198 = icmp slt i32 %166, %167
+  %171 = load i32, ptr %len, align 4
+  %172 = load i32, ptr %size197, align 4
+  %cmp198 = icmp slt i32 %171, %172
   br i1 %cmp198, label %if.then200, label %if.end201
 
 if.then200:                                       ; preds = %do.body196
@@ -2225,21 +2230,21 @@ if.then200:                                       ; preds = %do.body196
   br label %return
 
 if.end201:                                        ; preds = %do.body196
-  %168 = load ptr, ptr %p, align 8
-  %169 = load i16, ptr %168, align 2
-  %call202 = call zeroext i16 @ntohs(i16 noundef zeroext %169) #5
-  %170 = load ptr, ptr %msg.addr, align 8
-  %171 = getelementptr inbounds %struct.barrierMsg, ptr %170, i32 0, i32 1
-  %keyid = getelementptr inbounds %struct.barrierKey, ptr %171, i32 0, i32 0
-  store i16 %call202, ptr %keyid, align 4
-  %172 = load i32, ptr %size197, align 4
   %173 = load ptr, ptr %p, align 8
-  %idx.ext203 = sext i32 %172 to i64
-  %add.ptr204 = getelementptr i8, ptr %173, i64 %idx.ext203
+  %174 = load i16, ptr %173, align 2
+  %call202 = call zeroext i16 @ntohs(i16 noundef zeroext %174) #5
+  %175 = load ptr, ptr %msg.addr, align 8
+  %176 = getelementptr inbounds %struct.barrierMsg, ptr %175, i32 0, i32 1
+  %keyid = getelementptr inbounds %struct.barrierKey, ptr %176, i32 0, i32 0
+  store i16 %call202, ptr %keyid, align 4
+  %177 = load i32, ptr %size197, align 4
+  %178 = load ptr, ptr %p, align 8
+  %idx.ext203 = sext i32 %177 to i64
+  %add.ptr204 = getelementptr i8, ptr %178, i64 %idx.ext203
   store ptr %add.ptr204, ptr %p, align 8
-  %174 = load i32, ptr %size197, align 4
-  %175 = load i32, ptr %len, align 4
-  %sub205 = sub i32 %175, %174
+  %179 = load i32, ptr %size197, align 4
+  %180 = load i32, ptr %len, align 4
+  %sub205 = sub i32 %180, %179
   store i32 %sub205, ptr %len, align 4
   br label %do.end206
 
@@ -2248,9 +2253,9 @@ do.end206:                                        ; preds = %if.end201
 
 do.body207:                                       ; preds = %do.end206
   store i32 2, ptr %size208, align 4
-  %176 = load i32, ptr %len, align 4
-  %177 = load i32, ptr %size208, align 4
-  %cmp209 = icmp slt i32 %176, %177
+  %181 = load i32, ptr %len, align 4
+  %182 = load i32, ptr %size208, align 4
+  %cmp209 = icmp slt i32 %181, %182
   br i1 %cmp209, label %if.then211, label %if.end212
 
 if.then211:                                       ; preds = %do.body207
@@ -2258,31 +2263,31 @@ if.then211:                                       ; preds = %do.body207
   br label %return
 
 if.end212:                                        ; preds = %do.body207
-  %178 = load ptr, ptr %p, align 8
-  %179 = load i16, ptr %178, align 2
-  %call213 = call zeroext i16 @ntohs(i16 noundef zeroext %179) #5
-  %180 = load ptr, ptr %msg.addr, align 8
-  %181 = getelementptr inbounds %struct.barrierMsg, ptr %180, i32 0, i32 1
-  %modifier = getelementptr inbounds %struct.barrierKey, ptr %181, i32 0, i32 1
-  store i16 %call213, ptr %modifier, align 2
-  %182 = load i32, ptr %size208, align 4
   %183 = load ptr, ptr %p, align 8
-  %idx.ext214 = sext i32 %182 to i64
-  %add.ptr215 = getelementptr i8, ptr %183, i64 %idx.ext214
+  %184 = load i16, ptr %183, align 2
+  %call213 = call zeroext i16 @ntohs(i16 noundef zeroext %184) #5
+  %185 = load ptr, ptr %msg.addr, align 8
+  %186 = getelementptr inbounds %struct.barrierMsg, ptr %185, i32 0, i32 1
+  %modifier = getelementptr inbounds %struct.barrierKey, ptr %186, i32 0, i32 1
+  store i16 %call213, ptr %modifier, align 2
+  %187 = load i32, ptr %size208, align 4
+  %188 = load ptr, ptr %p, align 8
+  %idx.ext214 = sext i32 %187 to i64
+  %add.ptr215 = getelementptr i8, ptr %188, i64 %idx.ext214
   store ptr %add.ptr215, ptr %p, align 8
-  %184 = load i32, ptr %size208, align 4
-  %185 = load i32, ptr %len, align 4
-  %sub216 = sub i32 %185, %184
+  %189 = load i32, ptr %size208, align 4
+  %190 = load i32, ptr %len, align 4
+  %sub216 = sub i32 %190, %189
   store i32 %sub216, ptr %len, align 4
   br label %do.end217
 
 do.end217:                                        ; preds = %if.end212
-  %186 = load ptr, ptr %msg.addr, align 8
-  %187 = getelementptr inbounds %struct.barrierMsg, ptr %186, i32 0, i32 1
-  %button = getelementptr inbounds %struct.barrierKey, ptr %187, i32 0, i32 2
+  %191 = load ptr, ptr %msg.addr, align 8
+  %192 = getelementptr inbounds %struct.barrierMsg, ptr %191, i32 0, i32 1
+  %button = getelementptr inbounds %struct.barrierKey, ptr %192, i32 0, i32 2
   store i16 0, ptr %button, align 4
-  %188 = load i32, ptr %len, align 4
-  %tobool218 = icmp ne i32 %188, 0
+  %193 = load i32, ptr %len, align 4
+  %tobool218 = icmp ne i32 %193, 0
   br i1 %tobool218, label %if.then219, label %if.end232
 
 if.then219:                                       ; preds = %do.end217
@@ -2290,9 +2295,9 @@ if.then219:                                       ; preds = %do.end217
 
 do.body220:                                       ; preds = %if.then219
   store i32 2, ptr %size221, align 4
-  %189 = load i32, ptr %len, align 4
-  %190 = load i32, ptr %size221, align 4
-  %cmp222 = icmp slt i32 %189, %190
+  %194 = load i32, ptr %len, align 4
+  %195 = load i32, ptr %size221, align 4
+  %cmp222 = icmp slt i32 %194, %195
   br i1 %cmp222, label %if.then224, label %if.end225
 
 if.then224:                                       ; preds = %do.body220
@@ -2300,21 +2305,21 @@ if.then224:                                       ; preds = %do.body220
   br label %return
 
 if.end225:                                        ; preds = %do.body220
-  %191 = load ptr, ptr %p, align 8
-  %192 = load i16, ptr %191, align 2
-  %call226 = call zeroext i16 @ntohs(i16 noundef zeroext %192) #5
-  %193 = load ptr, ptr %msg.addr, align 8
-  %194 = getelementptr inbounds %struct.barrierMsg, ptr %193, i32 0, i32 1
-  %button227 = getelementptr inbounds %struct.barrierKey, ptr %194, i32 0, i32 2
-  store i16 %call226, ptr %button227, align 4
-  %195 = load i32, ptr %size221, align 4
   %196 = load ptr, ptr %p, align 8
-  %idx.ext228 = sext i32 %195 to i64
-  %add.ptr229 = getelementptr i8, ptr %196, i64 %idx.ext228
+  %197 = load i16, ptr %196, align 2
+  %call226 = call zeroext i16 @ntohs(i16 noundef zeroext %197) #5
+  %198 = load ptr, ptr %msg.addr, align 8
+  %199 = getelementptr inbounds %struct.barrierMsg, ptr %198, i32 0, i32 1
+  %button227 = getelementptr inbounds %struct.barrierKey, ptr %199, i32 0, i32 2
+  store i16 %call226, ptr %button227, align 4
+  %200 = load i32, ptr %size221, align 4
+  %201 = load ptr, ptr %p, align 8
+  %idx.ext228 = sext i32 %200 to i64
+  %add.ptr229 = getelementptr i8, ptr %201, i64 %idx.ext228
   store ptr %add.ptr229, ptr %p, align 8
-  %197 = load i32, ptr %size221, align 4
-  %198 = load i32, ptr %len, align 4
-  %sub230 = sub i32 %198, %197
+  %202 = load i32, ptr %size221, align 4
+  %203 = load i32, ptr %len, align 4
+  %sub230 = sub i32 %203, %202
   store i32 %sub230, ptr %len, align 4
   br label %do.end231
 
@@ -2329,9 +2334,9 @@ sw.bb233:                                         ; preds = %if.end47
 
 do.body234:                                       ; preds = %sw.bb233
   store i32 2, ptr %size235, align 4
-  %199 = load i32, ptr %len, align 4
-  %200 = load i32, ptr %size235, align 4
-  %cmp236 = icmp slt i32 %199, %200
+  %204 = load i32, ptr %len, align 4
+  %205 = load i32, ptr %size235, align 4
+  %cmp236 = icmp slt i32 %204, %205
   br i1 %cmp236, label %if.then238, label %if.end239
 
 if.then238:                                       ; preds = %do.body234
@@ -2339,21 +2344,21 @@ if.then238:                                       ; preds = %do.body234
   br label %return
 
 if.end239:                                        ; preds = %do.body234
-  %201 = load ptr, ptr %p, align 8
-  %202 = load i16, ptr %201, align 2
-  %call240 = call zeroext i16 @ntohs(i16 noundef zeroext %202) #5
-  %203 = load ptr, ptr %msg.addr, align 8
-  %204 = getelementptr inbounds %struct.barrierMsg, ptr %203, i32 0, i32 1
-  %keyid241 = getelementptr inbounds %struct.barrierRepeat, ptr %204, i32 0, i32 0
-  store i16 %call240, ptr %keyid241, align 4
-  %205 = load i32, ptr %size235, align 4
   %206 = load ptr, ptr %p, align 8
-  %idx.ext242 = sext i32 %205 to i64
-  %add.ptr243 = getelementptr i8, ptr %206, i64 %idx.ext242
+  %207 = load i16, ptr %206, align 2
+  %call240 = call zeroext i16 @ntohs(i16 noundef zeroext %207) #5
+  %208 = load ptr, ptr %msg.addr, align 8
+  %209 = getelementptr inbounds %struct.barrierMsg, ptr %208, i32 0, i32 1
+  %keyid241 = getelementptr inbounds %struct.barrierRepeat, ptr %209, i32 0, i32 0
+  store i16 %call240, ptr %keyid241, align 4
+  %210 = load i32, ptr %size235, align 4
+  %211 = load ptr, ptr %p, align 8
+  %idx.ext242 = sext i32 %210 to i64
+  %add.ptr243 = getelementptr i8, ptr %211, i64 %idx.ext242
   store ptr %add.ptr243, ptr %p, align 8
-  %207 = load i32, ptr %size235, align 4
-  %208 = load i32, ptr %len, align 4
-  %sub244 = sub i32 %208, %207
+  %212 = load i32, ptr %size235, align 4
+  %213 = load i32, ptr %len, align 4
+  %sub244 = sub i32 %213, %212
   store i32 %sub244, ptr %len, align 4
   br label %do.end245
 
@@ -2362,9 +2367,9 @@ do.end245:                                        ; preds = %if.end239
 
 do.body246:                                       ; preds = %do.end245
   store i32 2, ptr %size247, align 4
-  %209 = load i32, ptr %len, align 4
-  %210 = load i32, ptr %size247, align 4
-  %cmp248 = icmp slt i32 %209, %210
+  %214 = load i32, ptr %len, align 4
+  %215 = load i32, ptr %size247, align 4
+  %cmp248 = icmp slt i32 %214, %215
   br i1 %cmp248, label %if.then250, label %if.end251
 
 if.then250:                                       ; preds = %do.body246
@@ -2372,21 +2377,21 @@ if.then250:                                       ; preds = %do.body246
   br label %return
 
 if.end251:                                        ; preds = %do.body246
-  %211 = load ptr, ptr %p, align 8
-  %212 = load i16, ptr %211, align 2
-  %call252 = call zeroext i16 @ntohs(i16 noundef zeroext %212) #5
-  %213 = load ptr, ptr %msg.addr, align 8
-  %214 = getelementptr inbounds %struct.barrierMsg, ptr %213, i32 0, i32 1
-  %modifier253 = getelementptr inbounds %struct.barrierRepeat, ptr %214, i32 0, i32 1
-  store i16 %call252, ptr %modifier253, align 2
-  %215 = load i32, ptr %size247, align 4
   %216 = load ptr, ptr %p, align 8
-  %idx.ext254 = sext i32 %215 to i64
-  %add.ptr255 = getelementptr i8, ptr %216, i64 %idx.ext254
+  %217 = load i16, ptr %216, align 2
+  %call252 = call zeroext i16 @ntohs(i16 noundef zeroext %217) #5
+  %218 = load ptr, ptr %msg.addr, align 8
+  %219 = getelementptr inbounds %struct.barrierMsg, ptr %218, i32 0, i32 1
+  %modifier253 = getelementptr inbounds %struct.barrierRepeat, ptr %219, i32 0, i32 1
+  store i16 %call252, ptr %modifier253, align 2
+  %220 = load i32, ptr %size247, align 4
+  %221 = load ptr, ptr %p, align 8
+  %idx.ext254 = sext i32 %220 to i64
+  %add.ptr255 = getelementptr i8, ptr %221, i64 %idx.ext254
   store ptr %add.ptr255, ptr %p, align 8
-  %217 = load i32, ptr %size247, align 4
-  %218 = load i32, ptr %len, align 4
-  %sub256 = sub i32 %218, %217
+  %222 = load i32, ptr %size247, align 4
+  %223 = load i32, ptr %len, align 4
+  %sub256 = sub i32 %223, %222
   store i32 %sub256, ptr %len, align 4
   br label %do.end257
 
@@ -2395,9 +2400,9 @@ do.end257:                                        ; preds = %if.end251
 
 do.body258:                                       ; preds = %do.end257
   store i32 2, ptr %size259, align 4
-  %219 = load i32, ptr %len, align 4
-  %220 = load i32, ptr %size259, align 4
-  %cmp260 = icmp slt i32 %219, %220
+  %224 = load i32, ptr %len, align 4
+  %225 = load i32, ptr %size259, align 4
+  %cmp260 = icmp slt i32 %224, %225
   br i1 %cmp260, label %if.then262, label %if.end263
 
 if.then262:                                       ; preds = %do.body258
@@ -2405,31 +2410,31 @@ if.then262:                                       ; preds = %do.body258
   br label %return
 
 if.end263:                                        ; preds = %do.body258
-  %221 = load ptr, ptr %p, align 8
-  %222 = load i16, ptr %221, align 2
-  %call264 = call zeroext i16 @ntohs(i16 noundef zeroext %222) #5
-  %223 = load ptr, ptr %msg.addr, align 8
-  %224 = getelementptr inbounds %struct.barrierMsg, ptr %223, i32 0, i32 1
-  %repeat = getelementptr inbounds %struct.barrierRepeat, ptr %224, i32 0, i32 2
-  store i16 %call264, ptr %repeat, align 4
-  %225 = load i32, ptr %size259, align 4
   %226 = load ptr, ptr %p, align 8
-  %idx.ext265 = sext i32 %225 to i64
-  %add.ptr266 = getelementptr i8, ptr %226, i64 %idx.ext265
+  %227 = load i16, ptr %226, align 2
+  %call264 = call zeroext i16 @ntohs(i16 noundef zeroext %227) #5
+  %228 = load ptr, ptr %msg.addr, align 8
+  %229 = getelementptr inbounds %struct.barrierMsg, ptr %228, i32 0, i32 1
+  %repeat = getelementptr inbounds %struct.barrierRepeat, ptr %229, i32 0, i32 2
+  store i16 %call264, ptr %repeat, align 4
+  %230 = load i32, ptr %size259, align 4
+  %231 = load ptr, ptr %p, align 8
+  %idx.ext265 = sext i32 %230 to i64
+  %add.ptr266 = getelementptr i8, ptr %231, i64 %idx.ext265
   store ptr %add.ptr266, ptr %p, align 8
-  %227 = load i32, ptr %size259, align 4
-  %228 = load i32, ptr %len, align 4
-  %sub267 = sub i32 %228, %227
+  %232 = load i32, ptr %size259, align 4
+  %233 = load i32, ptr %len, align 4
+  %sub267 = sub i32 %233, %232
   store i32 %sub267, ptr %len, align 4
   br label %do.end268
 
 do.end268:                                        ; preds = %if.end263
-  %229 = load ptr, ptr %msg.addr, align 8
-  %230 = getelementptr inbounds %struct.barrierMsg, ptr %229, i32 0, i32 1
-  %button269 = getelementptr inbounds %struct.barrierRepeat, ptr %230, i32 0, i32 3
+  %234 = load ptr, ptr %msg.addr, align 8
+  %235 = getelementptr inbounds %struct.barrierMsg, ptr %234, i32 0, i32 1
+  %button269 = getelementptr inbounds %struct.barrierRepeat, ptr %235, i32 0, i32 3
   store i16 0, ptr %button269, align 2
-  %231 = load i32, ptr %len, align 4
-  %tobool270 = icmp ne i32 %231, 0
+  %236 = load i32, ptr %len, align 4
+  %tobool270 = icmp ne i32 %236, 0
   br i1 %tobool270, label %if.then271, label %if.end284
 
 if.then271:                                       ; preds = %do.end268
@@ -2437,9 +2442,9 @@ if.then271:                                       ; preds = %do.end268
 
 do.body272:                                       ; preds = %if.then271
   store i32 2, ptr %size273, align 4
-  %232 = load i32, ptr %len, align 4
-  %233 = load i32, ptr %size273, align 4
-  %cmp274 = icmp slt i32 %232, %233
+  %237 = load i32, ptr %len, align 4
+  %238 = load i32, ptr %size273, align 4
+  %cmp274 = icmp slt i32 %237, %238
   br i1 %cmp274, label %if.then276, label %if.end277
 
 if.then276:                                       ; preds = %do.body272
@@ -2447,21 +2452,21 @@ if.then276:                                       ; preds = %do.body272
   br label %return
 
 if.end277:                                        ; preds = %do.body272
-  %234 = load ptr, ptr %p, align 8
-  %235 = load i16, ptr %234, align 2
-  %call278 = call zeroext i16 @ntohs(i16 noundef zeroext %235) #5
-  %236 = load ptr, ptr %msg.addr, align 8
-  %237 = getelementptr inbounds %struct.barrierMsg, ptr %236, i32 0, i32 1
-  %button279 = getelementptr inbounds %struct.barrierRepeat, ptr %237, i32 0, i32 3
-  store i16 %call278, ptr %button279, align 2
-  %238 = load i32, ptr %size273, align 4
   %239 = load ptr, ptr %p, align 8
-  %idx.ext280 = sext i32 %238 to i64
-  %add.ptr281 = getelementptr i8, ptr %239, i64 %idx.ext280
+  %240 = load i16, ptr %239, align 2
+  %call278 = call zeroext i16 @ntohs(i16 noundef zeroext %240) #5
+  %241 = load ptr, ptr %msg.addr, align 8
+  %242 = getelementptr inbounds %struct.barrierMsg, ptr %241, i32 0, i32 1
+  %button279 = getelementptr inbounds %struct.barrierRepeat, ptr %242, i32 0, i32 3
+  store i16 %call278, ptr %button279, align 2
+  %243 = load i32, ptr %size273, align 4
+  %244 = load ptr, ptr %p, align 8
+  %idx.ext280 = sext i32 %243 to i64
+  %add.ptr281 = getelementptr i8, ptr %244, i64 %idx.ext280
   store ptr %add.ptr281, ptr %p, align 8
-  %240 = load i32, ptr %size273, align 4
-  %241 = load i32, ptr %len, align 4
-  %sub282 = sub i32 %241, %240
+  %245 = load i32, ptr %size273, align 4
+  %246 = load i32, ptr %len, align 4
+  %sub282 = sub i32 %246, %245
   store i32 %sub282, ptr %len, align 4
   br label %do.end283
 
@@ -2482,9 +2487,9 @@ sw.bb287:                                         ; preds = %if.end47
 
 do.body288:                                       ; preds = %sw.bb287
   store i32 2, ptr %size289, align 4
-  %242 = load i32, ptr %len, align 4
-  %243 = load i32, ptr %size289, align 4
-  %cmp290 = icmp slt i32 %242, %243
+  %247 = load i32, ptr %len, align 4
+  %248 = load i32, ptr %size289, align 4
+  %cmp290 = icmp slt i32 %247, %248
   br i1 %cmp290, label %if.then292, label %if.end293
 
 if.then292:                                       ; preds = %do.body288
@@ -2492,21 +2497,21 @@ if.then292:                                       ; preds = %do.body288
   br label %return
 
 if.end293:                                        ; preds = %do.body288
-  %244 = load ptr, ptr %p, align 8
-  %245 = load i16, ptr %244, align 2
-  %call294 = call zeroext i16 @ntohs(i16 noundef zeroext %245) #5
-  %246 = load ptr, ptr %msg.addr, align 8
-  %247 = getelementptr inbounds %struct.barrierMsg, ptr %246, i32 0, i32 1
-  %major295 = getelementptr inbounds %struct.barrierVersion, ptr %247, i32 0, i32 0
-  store i16 %call294, ptr %major295, align 4
-  %248 = load i32, ptr %size289, align 4
   %249 = load ptr, ptr %p, align 8
-  %idx.ext296 = sext i32 %248 to i64
-  %add.ptr297 = getelementptr i8, ptr %249, i64 %idx.ext296
+  %250 = load i16, ptr %249, align 2
+  %call294 = call zeroext i16 @ntohs(i16 noundef zeroext %250) #5
+  %251 = load ptr, ptr %msg.addr, align 8
+  %252 = getelementptr inbounds %struct.barrierMsg, ptr %251, i32 0, i32 1
+  %major295 = getelementptr inbounds %struct.barrierVersion, ptr %252, i32 0, i32 0
+  store i16 %call294, ptr %major295, align 4
+  %253 = load i32, ptr %size289, align 4
+  %254 = load ptr, ptr %p, align 8
+  %idx.ext296 = sext i32 %253 to i64
+  %add.ptr297 = getelementptr i8, ptr %254, i64 %idx.ext296
   store ptr %add.ptr297, ptr %p, align 8
-  %250 = load i32, ptr %size289, align 4
-  %251 = load i32, ptr %len, align 4
-  %sub298 = sub i32 %251, %250
+  %255 = load i32, ptr %size289, align 4
+  %256 = load i32, ptr %len, align 4
+  %sub298 = sub i32 %256, %255
   store i32 %sub298, ptr %len, align 4
   br label %do.end299
 
@@ -2515,9 +2520,9 @@ do.end299:                                        ; preds = %if.end293
 
 do.body300:                                       ; preds = %do.end299
   store i32 2, ptr %size301, align 4
-  %252 = load i32, ptr %len, align 4
-  %253 = load i32, ptr %size301, align 4
-  %cmp302 = icmp slt i32 %252, %253
+  %257 = load i32, ptr %len, align 4
+  %258 = load i32, ptr %size301, align 4
+  %cmp302 = icmp slt i32 %257, %258
   br i1 %cmp302, label %if.then304, label %if.end305
 
 if.then304:                                       ; preds = %do.body300
@@ -2525,21 +2530,21 @@ if.then304:                                       ; preds = %do.body300
   br label %return
 
 if.end305:                                        ; preds = %do.body300
-  %254 = load ptr, ptr %p, align 8
-  %255 = load i16, ptr %254, align 2
-  %call306 = call zeroext i16 @ntohs(i16 noundef zeroext %255) #5
-  %256 = load ptr, ptr %msg.addr, align 8
-  %257 = getelementptr inbounds %struct.barrierMsg, ptr %256, i32 0, i32 1
-  %minor307 = getelementptr inbounds %struct.barrierVersion, ptr %257, i32 0, i32 1
-  store i16 %call306, ptr %minor307, align 2
-  %258 = load i32, ptr %size301, align 4
   %259 = load ptr, ptr %p, align 8
-  %idx.ext308 = sext i32 %258 to i64
-  %add.ptr309 = getelementptr i8, ptr %259, i64 %idx.ext308
+  %260 = load i16, ptr %259, align 2
+  %call306 = call zeroext i16 @ntohs(i16 noundef zeroext %260) #5
+  %261 = load ptr, ptr %msg.addr, align 8
+  %262 = getelementptr inbounds %struct.barrierMsg, ptr %261, i32 0, i32 1
+  %minor307 = getelementptr inbounds %struct.barrierVersion, ptr %262, i32 0, i32 1
+  store i16 %call306, ptr %minor307, align 2
+  %263 = load i32, ptr %size301, align 4
+  %264 = load ptr, ptr %p, align 8
+  %idx.ext308 = sext i32 %263 to i64
+  %add.ptr309 = getelementptr i8, ptr %264, i64 %idx.ext308
   store ptr %add.ptr309, ptr %p, align 8
-  %260 = load i32, ptr %size301, align 4
-  %261 = load i32, ptr %len, align 4
-  %sub310 = sub i32 %261, %260
+  %265 = load i32, ptr %size301, align 4
+  %266 = load i32, ptr %len, align 4
+  %sub310 = sub i32 %266, %265
   store i32 %sub310, ptr %len, align 4
   br label %do.end311
 
@@ -2558,8 +2563,8 @@ sw.epilog:                                        ; preds = %sw.bb312, %do.end31
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.default, %if.then304, %if.then292, %if.then276, %if.then262, %if.then250, %if.then238, %if.then224, %if.then211, %if.then200, %if.then186, %if.then169, %if.then158, %if.then146, %if.then135, %if.then118, %if.then93, %if.then72, %if.then60, %if.then51, %if.then43, %if.then15, %if.then6, %if.then
-  %262 = load i32, ptr %retval, align 4
-  ret i32 %262
+  %267 = load i32, ptr %retval, align 4
+  ret i32 %267
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2665,13 +2670,14 @@ if.end:                                           ; preds = %land.lhs.true, %lor
   br label %do.body
 
 do.body:                                          ; preds = %if.end
-  %15 = load ptr, ptr getelementptr inbounds ([29 x ptr], ptr @cmd_names, i64 0, i64 28), align 16
-  %call = call i64 @strlen(ptr noundef %15) #6
+  %15 = getelementptr inbounds [29 x ptr], ptr @cmd_names, i64 0, i64 28
+  %16 = load ptr, ptr %15, align 16
+  %call = call i64 @strlen(ptr noundef %16) #6
   %conv11 = trunc i64 %call to i32
   store i32 %conv11, ptr %size, align 4
-  %16 = load i32, ptr %avail, align 4
-  %17 = load i32, ptr %size, align 4
-  %cmp12 = icmp slt i32 %16, %17
+  %17 = load i32, ptr %avail, align 4
+  %18 = load i32, ptr %size, align 4
+  %cmp12 = icmp slt i32 %17, %18
   br i1 %cmp12, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %do.body
@@ -2679,19 +2685,20 @@ if.then14:                                        ; preds = %do.body
   br label %return
 
 if.end15:                                         ; preds = %do.body
-  %18 = load ptr, ptr %p, align 8
-  %19 = load ptr, ptr getelementptr inbounds ([29 x ptr], ptr @cmd_names, i64 0, i64 28), align 16
-  %20 = load i32, ptr %size, align 4
-  %conv16 = sext i32 %20 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %19, i64 %conv16, i1 false)
-  %21 = load i32, ptr %size, align 4
-  %22 = load ptr, ptr %p, align 8
-  %idx.ext = sext i32 %21 to i64
-  %add.ptr17 = getelementptr i8, ptr %22, i64 %idx.ext
-  store ptr %add.ptr17, ptr %p, align 8
+  %19 = load ptr, ptr %p, align 8
+  %20 = getelementptr inbounds [29 x ptr], ptr @cmd_names, i64 0, i64 28
+  %21 = load ptr, ptr %20, align 16
+  %22 = load i32, ptr %size, align 4
+  %conv16 = sext i32 %22 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %21, i64 %conv16, i1 false)
   %23 = load i32, ptr %size, align 4
-  %24 = load i32, ptr %avail, align 4
-  %sub18 = sub i32 %24, %23
+  %24 = load ptr, ptr %p, align 8
+  %idx.ext = sext i32 %23 to i64
+  %add.ptr17 = getelementptr i8, ptr %24, i64 %idx.ext
+  store ptr %add.ptr17, ptr %p, align 8
+  %25 = load i32, ptr %size, align 4
+  %26 = load i32, ptr %avail, align 4
+  %sub18 = sub i32 %26, %25
   store i32 %sub18, ptr %avail, align 4
   br label %do.end
 
@@ -2700,9 +2707,9 @@ do.end:                                           ; preds = %if.end15
 
 do.body19:                                        ; preds = %do.end
   store i32 2, ptr %size20, align 4
-  %25 = load i32, ptr %avail, align 4
-  %26 = load i32, ptr %size20, align 4
-  %cmp21 = icmp slt i32 %25, %26
+  %27 = load i32, ptr %avail, align 4
+  %28 = load i32, ptr %size20, align 4
+  %cmp21 = icmp slt i32 %27, %28
   br i1 %cmp21, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %do.body19
@@ -2711,16 +2718,16 @@ if.then23:                                        ; preds = %do.body19
 
 if.end24:                                         ; preds = %do.body19
   %call25 = call zeroext i16 @htons(i16 noundef zeroext 1) #5
-  %27 = load ptr, ptr %p, align 8
-  store i16 %call25, ptr %27, align 2
-  %28 = load i32, ptr %size20, align 4
   %29 = load ptr, ptr %p, align 8
-  %idx.ext26 = sext i32 %28 to i64
-  %add.ptr27 = getelementptr i8, ptr %29, i64 %idx.ext26
-  store ptr %add.ptr27, ptr %p, align 8
+  store i16 %call25, ptr %29, align 2
   %30 = load i32, ptr %size20, align 4
-  %31 = load i32, ptr %avail, align 4
-  %sub28 = sub i32 %31, %30
+  %31 = load ptr, ptr %p, align 8
+  %idx.ext26 = sext i32 %30 to i64
+  %add.ptr27 = getelementptr i8, ptr %31, i64 %idx.ext26
+  store ptr %add.ptr27, ptr %p, align 8
+  %32 = load i32, ptr %size20, align 4
+  %33 = load i32, ptr %avail, align 4
+  %sub28 = sub i32 %33, %32
   store i32 %sub28, ptr %avail, align 4
   br label %do.end29
 
@@ -2729,9 +2736,9 @@ do.end29:                                         ; preds = %if.end24
 
 do.body30:                                        ; preds = %do.end29
   store i32 2, ptr %size31, align 4
-  %32 = load i32, ptr %avail, align 4
-  %33 = load i32, ptr %size31, align 4
-  %cmp32 = icmp slt i32 %32, %33
+  %34 = load i32, ptr %avail, align 4
+  %35 = load i32, ptr %size31, align 4
+  %cmp32 = icmp slt i32 %34, %35
   br i1 %cmp32, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %do.body30
@@ -2740,16 +2747,16 @@ if.then34:                                        ; preds = %do.body30
 
 if.end35:                                         ; preds = %do.body30
   %call36 = call zeroext i16 @htons(i16 noundef zeroext 6) #5
-  %34 = load ptr, ptr %p, align 8
-  store i16 %call36, ptr %34, align 2
-  %35 = load i32, ptr %size31, align 4
   %36 = load ptr, ptr %p, align 8
-  %idx.ext37 = sext i32 %35 to i64
-  %add.ptr38 = getelementptr i8, ptr %36, i64 %idx.ext37
-  store ptr %add.ptr38, ptr %p, align 8
+  store i16 %call36, ptr %36, align 2
   %37 = load i32, ptr %size31, align 4
-  %38 = load i32, ptr %avail, align 4
-  %sub39 = sub i32 %38, %37
+  %38 = load ptr, ptr %p, align 8
+  %idx.ext37 = sext i32 %37 to i64
+  %add.ptr38 = getelementptr i8, ptr %38, i64 %idx.ext37
+  store ptr %add.ptr38, ptr %p, align 8
+  %39 = load i32, ptr %size31, align 4
+  %40 = load i32, ptr %avail, align 4
+  %sub39 = sub i32 %40, %39
   store i32 %sub39, ptr %avail, align 4
   br label %do.end40
 
@@ -2757,16 +2764,16 @@ do.end40:                                         ; preds = %if.end35
   br label %do.body41
 
 do.body41:                                        ; preds = %do.end40
-  %39 = load ptr, ptr %ib.addr, align 8
-  %name = getelementptr inbounds %struct.InputBarrier, ptr %39, i32 0, i32 3
-  %40 = load ptr, ptr %name, align 8
-  %call43 = call i64 @strlen(ptr noundef %40) #6
+  %41 = load ptr, ptr %ib.addr, align 8
+  %name = getelementptr inbounds %struct.InputBarrier, ptr %41, i32 0, i32 3
+  %42 = load ptr, ptr %name, align 8
+  %call43 = call i64 @strlen(ptr noundef %42) #6
   %conv44 = trunc i64 %call43 to i32
   store i32 %conv44, ptr %size42, align 4
-  %41 = load i32, ptr %avail, align 4
-  %conv45 = sext i32 %41 to i64
-  %42 = load i32, ptr %size42, align 4
-  %conv46 = sext i32 %42 to i64
+  %43 = load i32, ptr %avail, align 4
+  %conv45 = sext i32 %43 to i64
+  %44 = load i32, ptr %size42, align 4
+  %conv46 = sext i32 %44 to i64
   %add = add i64 %conv46, 4
   %cmp47 = icmp ult i64 %conv45, %add
   br i1 %cmp47, label %if.then49, label %if.end50
@@ -2776,33 +2783,33 @@ if.then49:                                        ; preds = %do.body41
   br label %return
 
 if.end50:                                         ; preds = %do.body41
-  %43 = load i32, ptr %size42, align 4
-  %call51 = call i32 @htonl(i32 noundef %43) #5
-  %44 = load ptr, ptr %p, align 8
-  store i32 %call51, ptr %44, align 4
-  %45 = load ptr, ptr %p, align 8
-  %add.ptr52 = getelementptr i8, ptr %45, i64 4
+  %45 = load i32, ptr %size42, align 4
+  %call51 = call i32 @htonl(i32 noundef %45) #5
+  %46 = load ptr, ptr %p, align 8
+  store i32 %call51, ptr %46, align 4
+  %47 = load ptr, ptr %p, align 8
+  %add.ptr52 = getelementptr i8, ptr %47, i64 4
   store ptr %add.ptr52, ptr %p, align 8
-  %46 = load i32, ptr %avail, align 4
-  %conv53 = sext i32 %46 to i64
+  %48 = load i32, ptr %avail, align 4
+  %conv53 = sext i32 %48 to i64
   %sub54 = sub i64 %conv53, 4
   %conv55 = trunc i64 %sub54 to i32
   store i32 %conv55, ptr %avail, align 4
-  %47 = load ptr, ptr %p, align 8
-  %48 = load ptr, ptr %ib.addr, align 8
-  %name56 = getelementptr inbounds %struct.InputBarrier, ptr %48, i32 0, i32 3
-  %49 = load ptr, ptr %name56, align 8
-  %50 = load i32, ptr %size42, align 4
-  %conv57 = sext i32 %50 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %49, i64 %conv57, i1 false)
-  %51 = load i32, ptr %size42, align 4
-  %52 = load ptr, ptr %p, align 8
-  %idx.ext58 = sext i32 %51 to i64
-  %add.ptr59 = getelementptr i8, ptr %52, i64 %idx.ext58
-  store ptr %add.ptr59, ptr %p, align 8
+  %49 = load ptr, ptr %p, align 8
+  %50 = load ptr, ptr %ib.addr, align 8
+  %name56 = getelementptr inbounds %struct.InputBarrier, ptr %50, i32 0, i32 3
+  %51 = load ptr, ptr %name56, align 8
+  %52 = load i32, ptr %size42, align 4
+  %conv57 = sext i32 %52 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %49, ptr align 1 %51, i64 %conv57, i1 false)
   %53 = load i32, ptr %size42, align 4
-  %54 = load i32, ptr %avail, align 4
-  %sub60 = sub i32 %54, %53
+  %54 = load ptr, ptr %p, align 8
+  %idx.ext58 = sext i32 %53 to i64
+  %add.ptr59 = getelementptr i8, ptr %54, i64 %idx.ext58
+  store ptr %add.ptr59, ptr %p, align 8
+  %55 = load i32, ptr %size42, align 4
+  %56 = load i32, ptr %avail, align 4
+  %sub60 = sub i32 %56, %55
   store i32 %sub60, ptr %avail, align 4
   br label %do.end61
 
@@ -2810,8 +2817,8 @@ do.end61:                                         ; preds = %if.end50
   br label %sw.epilog
 
 sw.bb62:                                          ; preds = %entry
-  %55 = load ptr, ptr %ib.addr, align 8
-  %ioc_tag63 = getelementptr inbounds %struct.InputBarrier, ptr %55, i32 0, i32 2
+  %57 = load ptr, ptr %ib.addr, align 8
+  %ioc_tag63 = getelementptr inbounds %struct.InputBarrier, ptr %57, i32 0, i32 2
   store i32 0, ptr %ioc_tag63, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -2820,13 +2827,14 @@ sw.bb64:                                          ; preds = %entry
   br label %do.body65
 
 do.body65:                                        ; preds = %sw.bb64
-  %56 = load ptr, ptr getelementptr inbounds ([29 x ptr], ptr @cmd_names, i64 0, i64 18), align 16
-  %call67 = call i64 @strlen(ptr noundef %56) #6
+  %58 = getelementptr inbounds [29 x ptr], ptr @cmd_names, i64 0, i64 18
+  %59 = load ptr, ptr %58, align 16
+  %call67 = call i64 @strlen(ptr noundef %59) #6
   %conv68 = trunc i64 %call67 to i32
   store i32 %conv68, ptr %size66, align 4
-  %57 = load i32, ptr %avail, align 4
-  %58 = load i32, ptr %size66, align 4
-  %cmp69 = icmp slt i32 %57, %58
+  %60 = load i32, ptr %avail, align 4
+  %61 = load i32, ptr %size66, align 4
+  %cmp69 = icmp slt i32 %60, %61
   br i1 %cmp69, label %if.then71, label %if.end72
 
 if.then71:                                        ; preds = %do.body65
@@ -2834,19 +2842,20 @@ if.then71:                                        ; preds = %do.body65
   br label %return
 
 if.end72:                                         ; preds = %do.body65
-  %59 = load ptr, ptr %p, align 8
-  %60 = load ptr, ptr getelementptr inbounds ([29 x ptr], ptr @cmd_names, i64 0, i64 18), align 16
-  %61 = load i32, ptr %size66, align 4
-  %conv73 = sext i32 %61 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 1 %60, i64 %conv73, i1 false)
-  %62 = load i32, ptr %size66, align 4
-  %63 = load ptr, ptr %p, align 8
-  %idx.ext74 = sext i32 %62 to i64
-  %add.ptr75 = getelementptr i8, ptr %63, i64 %idx.ext74
+  %62 = load ptr, ptr %p, align 8
+  %63 = getelementptr inbounds [29 x ptr], ptr @cmd_names, i64 0, i64 18
+  %64 = load ptr, ptr %63, align 16
+  %65 = load i32, ptr %size66, align 4
+  %conv73 = sext i32 %65 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %64, i64 %conv73, i1 false)
+  %66 = load i32, ptr %size66, align 4
+  %67 = load ptr, ptr %p, align 8
+  %idx.ext74 = sext i32 %66 to i64
+  %add.ptr75 = getelementptr i8, ptr %67, i64 %idx.ext74
   store ptr %add.ptr75, ptr %p, align 8
-  %64 = load i32, ptr %size66, align 4
-  %65 = load i32, ptr %avail, align 4
-  %sub76 = sub i32 %65, %64
+  %68 = load i32, ptr %size66, align 4
+  %69 = load i32, ptr %avail, align 4
+  %sub76 = sub i32 %69, %68
   store i32 %sub76, ptr %avail, align 4
   br label %do.end77
 
@@ -2855,9 +2864,9 @@ do.end77:                                         ; preds = %if.end72
 
 do.body78:                                        ; preds = %do.end77
   store i32 2, ptr %size79, align 4
-  %66 = load i32, ptr %avail, align 4
-  %67 = load i32, ptr %size79, align 4
-  %cmp80 = icmp slt i32 %66, %67
+  %70 = load i32, ptr %avail, align 4
+  %71 = load i32, ptr %size79, align 4
+  %cmp80 = icmp slt i32 %70, %71
   br i1 %cmp80, label %if.then82, label %if.end83
 
 if.then82:                                        ; preds = %do.body78
@@ -2865,20 +2874,20 @@ if.then82:                                        ; preds = %do.body78
   br label %return
 
 if.end83:                                         ; preds = %do.body78
-  %68 = load ptr, ptr %ib.addr, align 8
-  %x_origin = getelementptr inbounds %struct.InputBarrier, ptr %68, i32 0, i32 4
-  %69 = load i16, ptr %x_origin, align 8
-  %call84 = call zeroext i16 @htons(i16 noundef zeroext %69) #5
-  %70 = load ptr, ptr %p, align 8
-  store i16 %call84, ptr %70, align 2
-  %71 = load i32, ptr %size79, align 4
-  %72 = load ptr, ptr %p, align 8
-  %idx.ext85 = sext i32 %71 to i64
-  %add.ptr86 = getelementptr i8, ptr %72, i64 %idx.ext85
+  %72 = load ptr, ptr %ib.addr, align 8
+  %x_origin = getelementptr inbounds %struct.InputBarrier, ptr %72, i32 0, i32 4
+  %73 = load i16, ptr %x_origin, align 8
+  %call84 = call zeroext i16 @htons(i16 noundef zeroext %73) #5
+  %74 = load ptr, ptr %p, align 8
+  store i16 %call84, ptr %74, align 2
+  %75 = load i32, ptr %size79, align 4
+  %76 = load ptr, ptr %p, align 8
+  %idx.ext85 = sext i32 %75 to i64
+  %add.ptr86 = getelementptr i8, ptr %76, i64 %idx.ext85
   store ptr %add.ptr86, ptr %p, align 8
-  %73 = load i32, ptr %size79, align 4
-  %74 = load i32, ptr %avail, align 4
-  %sub87 = sub i32 %74, %73
+  %77 = load i32, ptr %size79, align 4
+  %78 = load i32, ptr %avail, align 4
+  %sub87 = sub i32 %78, %77
   store i32 %sub87, ptr %avail, align 4
   br label %do.end88
 
@@ -2887,9 +2896,9 @@ do.end88:                                         ; preds = %if.end83
 
 do.body89:                                        ; preds = %do.end88
   store i32 2, ptr %size90, align 4
-  %75 = load i32, ptr %avail, align 4
-  %76 = load i32, ptr %size90, align 4
-  %cmp91 = icmp slt i32 %75, %76
+  %79 = load i32, ptr %avail, align 4
+  %80 = load i32, ptr %size90, align 4
+  %cmp91 = icmp slt i32 %79, %80
   br i1 %cmp91, label %if.then93, label %if.end94
 
 if.then93:                                        ; preds = %do.body89
@@ -2897,20 +2906,20 @@ if.then93:                                        ; preds = %do.body89
   br label %return
 
 if.end94:                                         ; preds = %do.body89
-  %77 = load ptr, ptr %ib.addr, align 8
-  %y_origin = getelementptr inbounds %struct.InputBarrier, ptr %77, i32 0, i32 5
-  %78 = load i16, ptr %y_origin, align 2
-  %call95 = call zeroext i16 @htons(i16 noundef zeroext %78) #5
-  %79 = load ptr, ptr %p, align 8
-  store i16 %call95, ptr %79, align 2
-  %80 = load i32, ptr %size90, align 4
-  %81 = load ptr, ptr %p, align 8
-  %idx.ext96 = sext i32 %80 to i64
-  %add.ptr97 = getelementptr i8, ptr %81, i64 %idx.ext96
+  %81 = load ptr, ptr %ib.addr, align 8
+  %y_origin = getelementptr inbounds %struct.InputBarrier, ptr %81, i32 0, i32 5
+  %82 = load i16, ptr %y_origin, align 2
+  %call95 = call zeroext i16 @htons(i16 noundef zeroext %82) #5
+  %83 = load ptr, ptr %p, align 8
+  store i16 %call95, ptr %83, align 2
+  %84 = load i32, ptr %size90, align 4
+  %85 = load ptr, ptr %p, align 8
+  %idx.ext96 = sext i32 %84 to i64
+  %add.ptr97 = getelementptr i8, ptr %85, i64 %idx.ext96
   store ptr %add.ptr97, ptr %p, align 8
-  %82 = load i32, ptr %size90, align 4
-  %83 = load i32, ptr %avail, align 4
-  %sub98 = sub i32 %83, %82
+  %86 = load i32, ptr %size90, align 4
+  %87 = load i32, ptr %avail, align 4
+  %sub98 = sub i32 %87, %86
   store i32 %sub98, ptr %avail, align 4
   br label %do.end99
 
@@ -2919,9 +2928,9 @@ do.end99:                                         ; preds = %if.end94
 
 do.body100:                                       ; preds = %do.end99
   store i32 2, ptr %size101, align 4
-  %84 = load i32, ptr %avail, align 4
-  %85 = load i32, ptr %size101, align 4
-  %cmp102 = icmp slt i32 %84, %85
+  %88 = load i32, ptr %avail, align 4
+  %89 = load i32, ptr %size101, align 4
+  %cmp102 = icmp slt i32 %88, %89
   br i1 %cmp102, label %if.then104, label %if.end105
 
 if.then104:                                       ; preds = %do.body100
@@ -2929,20 +2938,20 @@ if.then104:                                       ; preds = %do.body100
   br label %return
 
 if.end105:                                        ; preds = %do.body100
-  %86 = load ptr, ptr %ib.addr, align 8
-  %width = getelementptr inbounds %struct.InputBarrier, ptr %86, i32 0, i32 6
-  %87 = load i16, ptr %width, align 4
-  %call106 = call zeroext i16 @htons(i16 noundef zeroext %87) #5
-  %88 = load ptr, ptr %p, align 8
-  store i16 %call106, ptr %88, align 2
-  %89 = load i32, ptr %size101, align 4
-  %90 = load ptr, ptr %p, align 8
-  %idx.ext107 = sext i32 %89 to i64
-  %add.ptr108 = getelementptr i8, ptr %90, i64 %idx.ext107
+  %90 = load ptr, ptr %ib.addr, align 8
+  %width = getelementptr inbounds %struct.InputBarrier, ptr %90, i32 0, i32 6
+  %91 = load i16, ptr %width, align 4
+  %call106 = call zeroext i16 @htons(i16 noundef zeroext %91) #5
+  %92 = load ptr, ptr %p, align 8
+  store i16 %call106, ptr %92, align 2
+  %93 = load i32, ptr %size101, align 4
+  %94 = load ptr, ptr %p, align 8
+  %idx.ext107 = sext i32 %93 to i64
+  %add.ptr108 = getelementptr i8, ptr %94, i64 %idx.ext107
   store ptr %add.ptr108, ptr %p, align 8
-  %91 = load i32, ptr %size101, align 4
-  %92 = load i32, ptr %avail, align 4
-  %sub109 = sub i32 %92, %91
+  %95 = load i32, ptr %size101, align 4
+  %96 = load i32, ptr %avail, align 4
+  %sub109 = sub i32 %96, %95
   store i32 %sub109, ptr %avail, align 4
   br label %do.end110
 
@@ -2951,9 +2960,9 @@ do.end110:                                        ; preds = %if.end105
 
 do.body111:                                       ; preds = %do.end110
   store i32 2, ptr %size112, align 4
-  %93 = load i32, ptr %avail, align 4
-  %94 = load i32, ptr %size112, align 4
-  %cmp113 = icmp slt i32 %93, %94
+  %97 = load i32, ptr %avail, align 4
+  %98 = load i32, ptr %size112, align 4
+  %cmp113 = icmp slt i32 %97, %98
   br i1 %cmp113, label %if.then115, label %if.end116
 
 if.then115:                                       ; preds = %do.body111
@@ -2961,20 +2970,20 @@ if.then115:                                       ; preds = %do.body111
   br label %return
 
 if.end116:                                        ; preds = %do.body111
-  %95 = load ptr, ptr %ib.addr, align 8
-  %height = getelementptr inbounds %struct.InputBarrier, ptr %95, i32 0, i32 7
-  %96 = load i16, ptr %height, align 2
-  %call117 = call zeroext i16 @htons(i16 noundef zeroext %96) #5
-  %97 = load ptr, ptr %p, align 8
-  store i16 %call117, ptr %97, align 2
-  %98 = load i32, ptr %size112, align 4
-  %99 = load ptr, ptr %p, align 8
-  %idx.ext118 = sext i32 %98 to i64
-  %add.ptr119 = getelementptr i8, ptr %99, i64 %idx.ext118
+  %99 = load ptr, ptr %ib.addr, align 8
+  %height = getelementptr inbounds %struct.InputBarrier, ptr %99, i32 0, i32 7
+  %100 = load i16, ptr %height, align 2
+  %call117 = call zeroext i16 @htons(i16 noundef zeroext %100) #5
+  %101 = load ptr, ptr %p, align 8
+  store i16 %call117, ptr %101, align 2
+  %102 = load i32, ptr %size112, align 4
+  %103 = load ptr, ptr %p, align 8
+  %idx.ext118 = sext i32 %102 to i64
+  %add.ptr119 = getelementptr i8, ptr %103, i64 %idx.ext118
   store ptr %add.ptr119, ptr %p, align 8
-  %100 = load i32, ptr %size112, align 4
-  %101 = load i32, ptr %avail, align 4
-  %sub120 = sub i32 %101, %100
+  %104 = load i32, ptr %size112, align 4
+  %105 = load i32, ptr %avail, align 4
+  %sub120 = sub i32 %105, %104
   store i32 %sub120, ptr %avail, align 4
   br label %do.end121
 
@@ -2983,9 +2992,9 @@ do.end121:                                        ; preds = %if.end116
 
 do.body122:                                       ; preds = %do.end121
   store i32 2, ptr %size123, align 4
-  %102 = load i32, ptr %avail, align 4
-  %103 = load i32, ptr %size123, align 4
-  %cmp124 = icmp slt i32 %102, %103
+  %106 = load i32, ptr %avail, align 4
+  %107 = load i32, ptr %size123, align 4
+  %cmp124 = icmp slt i32 %106, %107
   br i1 %cmp124, label %if.then126, label %if.end127
 
 if.then126:                                       ; preds = %do.body122
@@ -2994,16 +3003,16 @@ if.then126:                                       ; preds = %do.body122
 
 if.end127:                                        ; preds = %do.body122
   %call128 = call zeroext i16 @htons(i16 noundef zeroext 0) #5
-  %104 = load ptr, ptr %p, align 8
-  store i16 %call128, ptr %104, align 2
-  %105 = load i32, ptr %size123, align 4
-  %106 = load ptr, ptr %p, align 8
-  %idx.ext129 = sext i32 %105 to i64
-  %add.ptr130 = getelementptr i8, ptr %106, i64 %idx.ext129
+  %108 = load ptr, ptr %p, align 8
+  store i16 %call128, ptr %108, align 2
+  %109 = load i32, ptr %size123, align 4
+  %110 = load ptr, ptr %p, align 8
+  %idx.ext129 = sext i32 %109 to i64
+  %add.ptr130 = getelementptr i8, ptr %110, i64 %idx.ext129
   store ptr %add.ptr130, ptr %p, align 8
-  %107 = load i32, ptr %size123, align 4
-  %108 = load i32, ptr %avail, align 4
-  %sub131 = sub i32 %108, %107
+  %111 = load i32, ptr %size123, align 4
+  %112 = load i32, ptr %avail, align 4
+  %sub131 = sub i32 %112, %111
   store i32 %sub131, ptr %avail, align 4
   br label %do.end132
 
@@ -3012,9 +3021,9 @@ do.end132:                                        ; preds = %if.end127
 
 do.body133:                                       ; preds = %do.end132
   store i32 2, ptr %size134, align 4
-  %109 = load i32, ptr %avail, align 4
-  %110 = load i32, ptr %size134, align 4
-  %cmp135 = icmp slt i32 %109, %110
+  %113 = load i32, ptr %avail, align 4
+  %114 = load i32, ptr %size134, align 4
+  %cmp135 = icmp slt i32 %113, %114
   br i1 %cmp135, label %if.then137, label %if.end138
 
 if.then137:                                       ; preds = %do.body133
@@ -3023,16 +3032,16 @@ if.then137:                                       ; preds = %do.body133
 
 if.end138:                                        ; preds = %do.body133
   %call139 = call zeroext i16 @htons(i16 noundef zeroext 0) #5
-  %111 = load ptr, ptr %p, align 8
-  store i16 %call139, ptr %111, align 2
-  %112 = load i32, ptr %size134, align 4
-  %113 = load ptr, ptr %p, align 8
-  %idx.ext140 = sext i32 %112 to i64
-  %add.ptr141 = getelementptr i8, ptr %113, i64 %idx.ext140
+  %115 = load ptr, ptr %p, align 8
+  store i16 %call139, ptr %115, align 2
+  %116 = load i32, ptr %size134, align 4
+  %117 = load ptr, ptr %p, align 8
+  %idx.ext140 = sext i32 %116 to i64
+  %add.ptr141 = getelementptr i8, ptr %117, i64 %idx.ext140
   store ptr %add.ptr141, ptr %p, align 8
-  %114 = load i32, ptr %size134, align 4
-  %115 = load i32, ptr %avail, align 4
-  %sub142 = sub i32 %115, %114
+  %118 = load i32, ptr %size134, align 4
+  %119 = load i32, ptr %avail, align 4
+  %sub142 = sub i32 %119, %118
   store i32 %sub142, ptr %avail, align 4
   br label %do.end143
 
@@ -3041,9 +3050,9 @@ do.end143:                                        ; preds = %if.end138
 
 do.body144:                                       ; preds = %do.end143
   store i32 2, ptr %size145, align 4
-  %116 = load i32, ptr %avail, align 4
-  %117 = load i32, ptr %size145, align 4
-  %cmp146 = icmp slt i32 %116, %117
+  %120 = load i32, ptr %avail, align 4
+  %121 = load i32, ptr %size145, align 4
+  %cmp146 = icmp slt i32 %120, %121
   br i1 %cmp146, label %if.then148, label %if.end149
 
 if.then148:                                       ; preds = %do.body144
@@ -3052,16 +3061,16 @@ if.then148:                                       ; preds = %do.body144
 
 if.end149:                                        ; preds = %do.body144
   %call150 = call zeroext i16 @htons(i16 noundef zeroext 0) #5
-  %118 = load ptr, ptr %p, align 8
-  store i16 %call150, ptr %118, align 2
-  %119 = load i32, ptr %size145, align 4
-  %120 = load ptr, ptr %p, align 8
-  %idx.ext151 = sext i32 %119 to i64
-  %add.ptr152 = getelementptr i8, ptr %120, i64 %idx.ext151
+  %122 = load ptr, ptr %p, align 8
+  store i16 %call150, ptr %122, align 2
+  %123 = load i32, ptr %size145, align 4
+  %124 = load ptr, ptr %p, align 8
+  %idx.ext151 = sext i32 %123 to i64
+  %add.ptr152 = getelementptr i8, ptr %124, i64 %idx.ext151
   store ptr %add.ptr152, ptr %p, align 8
-  %121 = load i32, ptr %size145, align 4
-  %122 = load i32, ptr %avail, align 4
-  %sub153 = sub i32 %122, %121
+  %125 = load i32, ptr %size145, align 4
+  %126 = load i32, ptr %avail, align 4
+  %sub153 = sub i32 %126, %125
   store i32 %sub153, ptr %avail, align 4
   br label %do.end154
 
@@ -3087,13 +3096,14 @@ sw.bb160:                                         ; preds = %entry
   br label %do.body161
 
 do.body161:                                       ; preds = %sw.bb160
-  %123 = load ptr, ptr getelementptr inbounds ([29 x ptr], ptr @cmd_names, i64 0, i64 8), align 16
-  %call163 = call i64 @strlen(ptr noundef %123) #6
+  %127 = getelementptr inbounds [29 x ptr], ptr @cmd_names, i64 0, i64 8
+  %128 = load ptr, ptr %127, align 16
+  %call163 = call i64 @strlen(ptr noundef %128) #6
   %conv164 = trunc i64 %call163 to i32
   store i32 %conv164, ptr %size162, align 4
-  %124 = load i32, ptr %avail, align 4
-  %125 = load i32, ptr %size162, align 4
-  %cmp165 = icmp slt i32 %124, %125
+  %129 = load i32, ptr %avail, align 4
+  %130 = load i32, ptr %size162, align 4
+  %cmp165 = icmp slt i32 %129, %130
   br i1 %cmp165, label %if.then167, label %if.end168
 
 if.then167:                                       ; preds = %do.body161
@@ -3101,19 +3111,20 @@ if.then167:                                       ; preds = %do.body161
   br label %return
 
 if.end168:                                        ; preds = %do.body161
-  %126 = load ptr, ptr %p, align 8
-  %127 = load ptr, ptr getelementptr inbounds ([29 x ptr], ptr @cmd_names, i64 0, i64 8), align 16
-  %128 = load i32, ptr %size162, align 4
-  %conv169 = sext i32 %128 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %126, ptr align 1 %127, i64 %conv169, i1 false)
-  %129 = load i32, ptr %size162, align 4
-  %130 = load ptr, ptr %p, align 8
-  %idx.ext170 = sext i32 %129 to i64
-  %add.ptr171 = getelementptr i8, ptr %130, i64 %idx.ext170
+  %131 = load ptr, ptr %p, align 8
+  %132 = getelementptr inbounds [29 x ptr], ptr @cmd_names, i64 0, i64 8
+  %133 = load ptr, ptr %132, align 16
+  %134 = load i32, ptr %size162, align 4
+  %conv169 = sext i32 %134 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr align 1 %133, i64 %conv169, i1 false)
+  %135 = load i32, ptr %size162, align 4
+  %136 = load ptr, ptr %p, align 8
+  %idx.ext170 = sext i32 %135 to i64
+  %add.ptr171 = getelementptr i8, ptr %136, i64 %idx.ext170
   store ptr %add.ptr171, ptr %p, align 8
-  %131 = load i32, ptr %size162, align 4
-  %132 = load i32, ptr %avail, align 4
-  %sub172 = sub i32 %132, %131
+  %137 = load i32, ptr %size162, align 4
+  %138 = load i32, ptr %avail, align 4
+  %sub172 = sub i32 %138, %137
   store i32 %sub172, ptr %avail, align 4
   br label %do.end173
 
@@ -3124,88 +3135,88 @@ sw.bb174:                                         ; preds = %entry
   br label %sw.epilog
 
 sw.bb175:                                         ; preds = %entry
-  %133 = load ptr, ptr %msg.addr, align 8
-  %134 = getelementptr inbounds %struct.barrierMsg, ptr %133, i32 0, i32 1
-  %x = getelementptr inbounds %struct.barrierMousePos, ptr %134, i32 0, i32 0
-  %135 = load i16, ptr %x, align 4
-  %conv176 = sext i16 %135 to i32
-  %136 = load ptr, ptr %ib.addr, align 8
-  %x_origin177 = getelementptr inbounds %struct.InputBarrier, ptr %136, i32 0, i32 4
-  %137 = load i16, ptr %x_origin177, align 8
-  %conv178 = sext i16 %137 to i32
-  %138 = load ptr, ptr %ib.addr, align 8
-  %width179 = getelementptr inbounds %struct.InputBarrier, ptr %138, i32 0, i32 6
-  %139 = load i16, ptr %width179, align 4
-  %conv180 = sext i16 %139 to i32
+  %139 = load ptr, ptr %msg.addr, align 8
+  %140 = getelementptr inbounds %struct.barrierMsg, ptr %139, i32 0, i32 1
+  %x = getelementptr inbounds %struct.barrierMousePos, ptr %140, i32 0, i32 0
+  %141 = load i16, ptr %x, align 4
+  %conv176 = sext i16 %141 to i32
+  %142 = load ptr, ptr %ib.addr, align 8
+  %x_origin177 = getelementptr inbounds %struct.InputBarrier, ptr %142, i32 0, i32 4
+  %143 = load i16, ptr %x_origin177, align 8
+  %conv178 = sext i16 %143 to i32
+  %144 = load ptr, ptr %ib.addr, align 8
+  %width179 = getelementptr inbounds %struct.InputBarrier, ptr %144, i32 0, i32 6
+  %145 = load i16, ptr %width179, align 4
+  %conv180 = sext i16 %145 to i32
   call void @qemu_input_queue_abs(ptr noundef null, i32 noundef 0, i32 noundef %conv176, i32 noundef %conv178, i32 noundef %conv180)
-  %140 = load ptr, ptr %msg.addr, align 8
-  %141 = getelementptr inbounds %struct.barrierMsg, ptr %140, i32 0, i32 1
-  %y = getelementptr inbounds %struct.barrierMousePos, ptr %141, i32 0, i32 1
-  %142 = load i16, ptr %y, align 2
-  %conv181 = sext i16 %142 to i32
-  %143 = load ptr, ptr %ib.addr, align 8
-  %y_origin182 = getelementptr inbounds %struct.InputBarrier, ptr %143, i32 0, i32 5
-  %144 = load i16, ptr %y_origin182, align 2
-  %conv183 = sext i16 %144 to i32
-  %145 = load ptr, ptr %ib.addr, align 8
-  %height184 = getelementptr inbounds %struct.InputBarrier, ptr %145, i32 0, i32 7
-  %146 = load i16, ptr %height184, align 2
-  %conv185 = sext i16 %146 to i32
+  %146 = load ptr, ptr %msg.addr, align 8
+  %147 = getelementptr inbounds %struct.barrierMsg, ptr %146, i32 0, i32 1
+  %y = getelementptr inbounds %struct.barrierMousePos, ptr %147, i32 0, i32 1
+  %148 = load i16, ptr %y, align 2
+  %conv181 = sext i16 %148 to i32
+  %149 = load ptr, ptr %ib.addr, align 8
+  %y_origin182 = getelementptr inbounds %struct.InputBarrier, ptr %149, i32 0, i32 5
+  %150 = load i16, ptr %y_origin182, align 2
+  %conv183 = sext i16 %150 to i32
+  %151 = load ptr, ptr %ib.addr, align 8
+  %height184 = getelementptr inbounds %struct.InputBarrier, ptr %151, i32 0, i32 7
+  %152 = load i16, ptr %height184, align 2
+  %conv185 = sext i16 %152 to i32
   call void @qemu_input_queue_abs(ptr noundef null, i32 noundef 1, i32 noundef %conv181, i32 noundef %conv183, i32 noundef %conv185)
   call void @qemu_input_event_sync()
   br label %sw.epilog
 
 sw.bb186:                                         ; preds = %entry
-  %147 = load ptr, ptr %msg.addr, align 8
-  %148 = getelementptr inbounds %struct.barrierMsg, ptr %147, i32 0, i32 1
-  %x187 = getelementptr inbounds %struct.barrierMousePos, ptr %148, i32 0, i32 0
-  %149 = load i16, ptr %x187, align 4
-  %conv188 = sext i16 %149 to i32
+  %153 = load ptr, ptr %msg.addr, align 8
+  %154 = getelementptr inbounds %struct.barrierMsg, ptr %153, i32 0, i32 1
+  %x187 = getelementptr inbounds %struct.barrierMousePos, ptr %154, i32 0, i32 0
+  %155 = load i16, ptr %x187, align 4
+  %conv188 = sext i16 %155 to i32
   call void @qemu_input_queue_rel(ptr noundef null, i32 noundef 0, i32 noundef %conv188)
-  %150 = load ptr, ptr %msg.addr, align 8
-  %151 = getelementptr inbounds %struct.barrierMsg, ptr %150, i32 0, i32 1
-  %y189 = getelementptr inbounds %struct.barrierMousePos, ptr %151, i32 0, i32 1
-  %152 = load i16, ptr %y189, align 2
-  %conv190 = sext i16 %152 to i32
+  %156 = load ptr, ptr %msg.addr, align 8
+  %157 = getelementptr inbounds %struct.barrierMsg, ptr %156, i32 0, i32 1
+  %y189 = getelementptr inbounds %struct.barrierMousePos, ptr %157, i32 0, i32 1
+  %158 = load i16, ptr %y189, align 2
+  %conv190 = sext i16 %158 to i32
   call void @qemu_input_queue_rel(ptr noundef null, i32 noundef 1, i32 noundef %conv190)
   call void @qemu_input_event_sync()
   br label %sw.epilog
 
 sw.bb191:                                         ; preds = %entry
-  %153 = load ptr, ptr %msg.addr, align 8
-  %154 = getelementptr inbounds %struct.barrierMsg, ptr %153, i32 0, i32 1
-  %buttonid = getelementptr inbounds %struct.barrierMouseButton, ptr %154, i32 0, i32 0
-  %155 = load i8, ptr %buttonid, align 4
-  %call192 = call i32 @input_barrier_to_mouse(i8 noundef zeroext %155)
+  %159 = load ptr, ptr %msg.addr, align 8
+  %160 = getelementptr inbounds %struct.barrierMsg, ptr %159, i32 0, i32 1
+  %buttonid = getelementptr inbounds %struct.barrierMouseButton, ptr %160, i32 0, i32 0
+  %161 = load i8, ptr %buttonid, align 4
+  %call192 = call i32 @input_barrier_to_mouse(i8 noundef zeroext %161)
   call void @qemu_input_queue_btn(ptr noundef null, i32 noundef %call192, i1 noundef zeroext true)
   call void @qemu_input_event_sync()
   br label %sw.epilog
 
 sw.bb193:                                         ; preds = %entry
-  %156 = load ptr, ptr %msg.addr, align 8
-  %157 = getelementptr inbounds %struct.barrierMsg, ptr %156, i32 0, i32 1
-  %buttonid194 = getelementptr inbounds %struct.barrierMouseButton, ptr %157, i32 0, i32 0
-  %158 = load i8, ptr %buttonid194, align 4
-  %call195 = call i32 @input_barrier_to_mouse(i8 noundef zeroext %158)
+  %162 = load ptr, ptr %msg.addr, align 8
+  %163 = getelementptr inbounds %struct.barrierMsg, ptr %162, i32 0, i32 1
+  %buttonid194 = getelementptr inbounds %struct.barrierMouseButton, ptr %163, i32 0, i32 0
+  %164 = load i8, ptr %buttonid194, align 4
+  %call195 = call i32 @input_barrier_to_mouse(i8 noundef zeroext %164)
   call void @qemu_input_queue_btn(ptr noundef null, i32 noundef %call195, i1 noundef zeroext false)
   call void @qemu_input_event_sync()
   br label %sw.epilog
 
 sw.bb196:                                         ; preds = %entry
-  %159 = load ptr, ptr %msg.addr, align 8
-  %160 = getelementptr inbounds %struct.barrierMsg, ptr %159, i32 0, i32 1
-  %y197 = getelementptr inbounds %struct.barrierMousePos, ptr %160, i32 0, i32 1
-  %161 = load i16, ptr %y197, align 2
-  %conv198 = sext i16 %161 to i32
+  %165 = load ptr, ptr %msg.addr, align 8
+  %166 = getelementptr inbounds %struct.barrierMsg, ptr %165, i32 0, i32 1
+  %y197 = getelementptr inbounds %struct.barrierMousePos, ptr %166, i32 0, i32 1
+  %167 = load i16, ptr %y197, align 2
+  %conv198 = sext i16 %167 to i32
   %cmp199 = icmp sgt i32 %conv198, 0
   %cond = select i1 %cmp199, i32 3, i32 4
   call void @qemu_input_queue_btn(ptr noundef null, i32 noundef %cond, i1 noundef zeroext true)
   call void @qemu_input_event_sync()
-  %162 = load ptr, ptr %msg.addr, align 8
-  %163 = getelementptr inbounds %struct.barrierMsg, ptr %162, i32 0, i32 1
-  %y201 = getelementptr inbounds %struct.barrierMousePos, ptr %163, i32 0, i32 1
-  %164 = load i16, ptr %y201, align 2
-  %conv202 = sext i16 %164 to i32
+  %168 = load ptr, ptr %msg.addr, align 8
+  %169 = getelementptr inbounds %struct.barrierMsg, ptr %168, i32 0, i32 1
+  %y201 = getelementptr inbounds %struct.barrierMousePos, ptr %169, i32 0, i32 1
+  %170 = load i16, ptr %y201, align 2
+  %conv202 = sext i16 %170 to i32
   %cmp203 = icmp sgt i32 %conv202, 0
   %cond205 = select i1 %cmp203, i32 3, i32 4
   call void @qemu_input_queue_btn(ptr noundef null, i32 noundef %cond205, i1 noundef zeroext false)
@@ -3213,15 +3224,15 @@ sw.bb196:                                         ; preds = %entry
   br label %sw.epilog
 
 sw.bb206:                                         ; preds = %entry
-  %165 = load ptr, ptr %msg.addr, align 8
-  %166 = getelementptr inbounds %struct.barrierMsg, ptr %165, i32 0, i32 1
-  %keyid = getelementptr inbounds %struct.barrierKey, ptr %166, i32 0, i32 0
-  %167 = load i16, ptr %keyid, align 4
-  %168 = load ptr, ptr %msg.addr, align 8
-  %169 = getelementptr inbounds %struct.barrierMsg, ptr %168, i32 0, i32 1
-  %button = getelementptr inbounds %struct.barrierKey, ptr %169, i32 0, i32 2
-  %170 = load i16, ptr %button, align 4
-  %call207 = call i32 @input_barrier_to_qcode(i16 noundef zeroext %167, i16 noundef zeroext %170)
+  %171 = load ptr, ptr %msg.addr, align 8
+  %172 = getelementptr inbounds %struct.barrierMsg, ptr %171, i32 0, i32 1
+  %keyid = getelementptr inbounds %struct.barrierKey, ptr %172, i32 0, i32 0
+  %173 = load i16, ptr %keyid, align 4
+  %174 = load ptr, ptr %msg.addr, align 8
+  %175 = getelementptr inbounds %struct.barrierMsg, ptr %174, i32 0, i32 1
+  %button = getelementptr inbounds %struct.barrierKey, ptr %175, i32 0, i32 2
+  %176 = load i16, ptr %button, align 4
+  %call207 = call i32 @input_barrier_to_qcode(i16 noundef zeroext %173, i16 noundef zeroext %176)
   call void @qemu_input_event_send_key_qcode(ptr noundef null, i32 noundef %call207, i1 noundef zeroext true)
   br label %sw.epilog
 
@@ -3230,41 +3241,41 @@ sw.bb208:                                         ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %sw.bb208
-  %171 = load i32, ptr %i, align 4
-  %172 = load ptr, ptr %msg.addr, align 8
-  %173 = getelementptr inbounds %struct.barrierMsg, ptr %172, i32 0, i32 1
-  %repeat = getelementptr inbounds %struct.barrierRepeat, ptr %173, i32 0, i32 2
-  %174 = load i16, ptr %repeat, align 4
-  %conv209 = sext i16 %174 to i32
-  %cmp210 = icmp slt i32 %171, %conv209
+  %177 = load i32, ptr %i, align 4
+  %178 = load ptr, ptr %msg.addr, align 8
+  %179 = getelementptr inbounds %struct.barrierMsg, ptr %178, i32 0, i32 1
+  %repeat = getelementptr inbounds %struct.barrierRepeat, ptr %179, i32 0, i32 2
+  %180 = load i16, ptr %repeat, align 4
+  %conv209 = sext i16 %180 to i32
+  %cmp210 = icmp slt i32 %177, %conv209
   br i1 %cmp210, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %175 = load ptr, ptr %msg.addr, align 8
-  %176 = getelementptr inbounds %struct.barrierMsg, ptr %175, i32 0, i32 1
-  %keyid212 = getelementptr inbounds %struct.barrierRepeat, ptr %176, i32 0, i32 0
-  %177 = load i16, ptr %keyid212, align 4
-  %178 = load ptr, ptr %msg.addr, align 8
-  %179 = getelementptr inbounds %struct.barrierMsg, ptr %178, i32 0, i32 1
-  %button213 = getelementptr inbounds %struct.barrierRepeat, ptr %179, i32 0, i32 3
-  %180 = load i16, ptr %button213, align 2
-  %call214 = call i32 @input_barrier_to_qcode(i16 noundef zeroext %177, i16 noundef zeroext %180)
-  call void @qemu_input_event_send_key_qcode(ptr noundef null, i32 noundef %call214, i1 noundef zeroext false)
   %181 = load ptr, ptr %msg.addr, align 8
   %182 = getelementptr inbounds %struct.barrierMsg, ptr %181, i32 0, i32 1
-  %keyid215 = getelementptr inbounds %struct.barrierRepeat, ptr %182, i32 0, i32 0
-  %183 = load i16, ptr %keyid215, align 4
+  %keyid212 = getelementptr inbounds %struct.barrierRepeat, ptr %182, i32 0, i32 0
+  %183 = load i16, ptr %keyid212, align 4
   %184 = load ptr, ptr %msg.addr, align 8
   %185 = getelementptr inbounds %struct.barrierMsg, ptr %184, i32 0, i32 1
-  %button216 = getelementptr inbounds %struct.barrierRepeat, ptr %185, i32 0, i32 3
-  %186 = load i16, ptr %button216, align 2
-  %call217 = call i32 @input_barrier_to_qcode(i16 noundef zeroext %183, i16 noundef zeroext %186)
+  %button213 = getelementptr inbounds %struct.barrierRepeat, ptr %185, i32 0, i32 3
+  %186 = load i16, ptr %button213, align 2
+  %call214 = call i32 @input_barrier_to_qcode(i16 noundef zeroext %183, i16 noundef zeroext %186)
+  call void @qemu_input_event_send_key_qcode(ptr noundef null, i32 noundef %call214, i1 noundef zeroext false)
+  %187 = load ptr, ptr %msg.addr, align 8
+  %188 = getelementptr inbounds %struct.barrierMsg, ptr %187, i32 0, i32 1
+  %keyid215 = getelementptr inbounds %struct.barrierRepeat, ptr %188, i32 0, i32 0
+  %189 = load i16, ptr %keyid215, align 4
+  %190 = load ptr, ptr %msg.addr, align 8
+  %191 = getelementptr inbounds %struct.barrierMsg, ptr %190, i32 0, i32 1
+  %button216 = getelementptr inbounds %struct.barrierRepeat, ptr %191, i32 0, i32 3
+  %192 = load i16, ptr %button216, align 2
+  %call217 = call i32 @input_barrier_to_qcode(i16 noundef zeroext %189, i16 noundef zeroext %192)
   call void @qemu_input_event_send_key_qcode(ptr noundef null, i32 noundef %call217, i1 noundef zeroext true)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %187 = load i32, ptr %i, align 4
-  %inc = add i32 %187, 1
+  %193 = load i32, ptr %i, align 4
+  %inc = add i32 %193, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !8
 
@@ -3272,15 +3283,15 @@ for.end:                                          ; preds = %for.cond
   br label %sw.epilog
 
 sw.bb218:                                         ; preds = %entry
-  %188 = load ptr, ptr %msg.addr, align 8
-  %189 = getelementptr inbounds %struct.barrierMsg, ptr %188, i32 0, i32 1
-  %keyid219 = getelementptr inbounds %struct.barrierKey, ptr %189, i32 0, i32 0
-  %190 = load i16, ptr %keyid219, align 4
-  %191 = load ptr, ptr %msg.addr, align 8
-  %192 = getelementptr inbounds %struct.barrierMsg, ptr %191, i32 0, i32 1
-  %button220 = getelementptr inbounds %struct.barrierKey, ptr %192, i32 0, i32 2
-  %193 = load i16, ptr %button220, align 4
-  %call221 = call i32 @input_barrier_to_qcode(i16 noundef zeroext %190, i16 noundef zeroext %193)
+  %194 = load ptr, ptr %msg.addr, align 8
+  %195 = getelementptr inbounds %struct.barrierMsg, ptr %194, i32 0, i32 1
+  %keyid219 = getelementptr inbounds %struct.barrierKey, ptr %195, i32 0, i32 0
+  %196 = load i16, ptr %keyid219, align 4
+  %197 = load ptr, ptr %msg.addr, align 8
+  %198 = getelementptr inbounds %struct.barrierMsg, ptr %197, i32 0, i32 1
+  %button220 = getelementptr inbounds %struct.barrierKey, ptr %198, i32 0, i32 2
+  %199 = load i16, ptr %button220, align 4
+  %call221 = call i32 @input_barrier_to_qcode(i16 noundef zeroext %196, i16 noundef zeroext %199)
   call void @qemu_input_event_send_key_qcode(ptr noundef null, i32 noundef %call221, i1 noundef zeroext false)
   br label %sw.epilog
 
@@ -3288,13 +3299,14 @@ sw.default:                                       ; preds = %entry
   br label %do.body222
 
 do.body222:                                       ; preds = %sw.default
-  %194 = load ptr, ptr getelementptr inbounds ([29 x ptr], ptr @cmd_names, i64 0, i64 25), align 8
-  %call224 = call i64 @strlen(ptr noundef %194) #6
+  %200 = getelementptr inbounds [29 x ptr], ptr @cmd_names, i64 0, i64 25
+  %201 = load ptr, ptr %200, align 8
+  %call224 = call i64 @strlen(ptr noundef %201) #6
   %conv225 = trunc i64 %call224 to i32
   store i32 %conv225, ptr %size223, align 4
-  %195 = load i32, ptr %avail, align 4
-  %196 = load i32, ptr %size223, align 4
-  %cmp226 = icmp slt i32 %195, %196
+  %202 = load i32, ptr %avail, align 4
+  %203 = load i32, ptr %size223, align 4
+  %cmp226 = icmp slt i32 %202, %203
   br i1 %cmp226, label %if.then228, label %if.end229
 
 if.then228:                                       ; preds = %do.body222
@@ -3302,19 +3314,20 @@ if.then228:                                       ; preds = %do.body222
   br label %return
 
 if.end229:                                        ; preds = %do.body222
-  %197 = load ptr, ptr %p, align 8
-  %198 = load ptr, ptr getelementptr inbounds ([29 x ptr], ptr @cmd_names, i64 0, i64 25), align 8
-  %199 = load i32, ptr %size223, align 4
-  %conv230 = sext i32 %199 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %197, ptr align 1 %198, i64 %conv230, i1 false)
-  %200 = load i32, ptr %size223, align 4
-  %201 = load ptr, ptr %p, align 8
-  %idx.ext231 = sext i32 %200 to i64
-  %add.ptr232 = getelementptr i8, ptr %201, i64 %idx.ext231
+  %204 = load ptr, ptr %p, align 8
+  %205 = getelementptr inbounds [29 x ptr], ptr @cmd_names, i64 0, i64 25
+  %206 = load ptr, ptr %205, align 8
+  %207 = load i32, ptr %size223, align 4
+  %conv230 = sext i32 %207 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %204, ptr align 1 %206, i64 %conv230, i1 false)
+  %208 = load i32, ptr %size223, align 4
+  %209 = load ptr, ptr %p, align 8
+  %idx.ext231 = sext i32 %208 to i64
+  %add.ptr232 = getelementptr i8, ptr %209, i64 %idx.ext231
   store ptr %add.ptr232, ptr %p, align 8
-  %202 = load i32, ptr %size223, align 4
-  %203 = load i32, ptr %avail, align 4
-  %sub233 = sub i32 %203, %202
+  %210 = load i32, ptr %size223, align 4
+  %211 = load i32, ptr %avail, align 4
+  %sub233 = sub i32 %211, %210
   store i32 %sub233, ptr %avail, align 4
   br label %do.end234
 
@@ -3322,19 +3335,19 @@ do.end234:                                        ; preds = %if.end229
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %do.end234, %sw.bb218, %for.end, %sw.bb206, %sw.bb196, %sw.bb193, %sw.bb191, %sw.bb186, %sw.bb175, %sw.bb174, %do.end173, %sw.bb159, %sw.bb158, %sw.bb157, %sw.bb156, %sw.bb155, %do.end154, %do.end61
-  %204 = load i32, ptr %avail, align 4
-  %sub235 = sub i32 1024, %204
+  %212 = load i32, ptr %avail, align 4
+  %sub235 = sub i32 1024, %212
   %conv236 = sext i32 %sub235 to i64
   %sub237 = sub i64 %conv236, 4
   %conv238 = trunc i64 %sub237 to i32
   store i32 %conv238, ptr %len, align 4
-  %205 = load i32, ptr %len, align 4
-  %tobool = icmp ne i32 %205, 0
+  %213 = load i32, ptr %len, align 4
+  %tobool = icmp ne i32 %213, 0
   br i1 %tobool, label %if.then239, label %if.end265
 
 if.then239:                                       ; preds = %sw.epilog
-  %206 = load ptr, ptr %ib.addr, align 8
-  %buffer240 = getelementptr inbounds %struct.InputBarrier, ptr %206, i32 0, i32 9
+  %214 = load ptr, ptr %ib.addr, align 8
+  %buffer240 = getelementptr inbounds %struct.InputBarrier, ptr %214, i32 0, i32 9
   %arraydecay241 = getelementptr inbounds [1024 x i8], ptr %buffer240, i64 0, i64 0
   store ptr %arraydecay241, ptr %p, align 8
   store i32 4, ptr %avail, align 4
@@ -3342,9 +3355,9 @@ if.then239:                                       ; preds = %sw.epilog
 
 do.body242:                                       ; preds = %if.then239
   store i32 4, ptr %size243, align 4
-  %207 = load i32, ptr %avail, align 4
-  %208 = load i32, ptr %size243, align 4
-  %cmp244 = icmp slt i32 %207, %208
+  %215 = load i32, ptr %avail, align 4
+  %216 = load i32, ptr %size243, align 4
+  %cmp244 = icmp slt i32 %215, %216
   br i1 %cmp244, label %if.then246, label %if.end247
 
 if.then246:                                       ; preds = %do.body242
@@ -3352,42 +3365,42 @@ if.then246:                                       ; preds = %do.body242
   br label %return
 
 if.end247:                                        ; preds = %do.body242
-  %209 = load i32, ptr %len, align 4
-  %call248 = call i32 @htonl(i32 noundef %209) #5
-  %210 = load ptr, ptr %p, align 8
-  store i32 %call248, ptr %210, align 4
-  %211 = load i32, ptr %size243, align 4
-  %212 = load ptr, ptr %p, align 8
-  %idx.ext249 = sext i32 %211 to i64
-  %add.ptr250 = getelementptr i8, ptr %212, i64 %idx.ext249
+  %217 = load i32, ptr %len, align 4
+  %call248 = call i32 @htonl(i32 noundef %217) #5
+  %218 = load ptr, ptr %p, align 8
+  store i32 %call248, ptr %218, align 4
+  %219 = load i32, ptr %size243, align 4
+  %220 = load ptr, ptr %p, align 8
+  %idx.ext249 = sext i32 %219 to i64
+  %add.ptr250 = getelementptr i8, ptr %220, i64 %idx.ext249
   store ptr %add.ptr250, ptr %p, align 8
-  %213 = load i32, ptr %size243, align 4
-  %214 = load i32, ptr %avail, align 4
-  %sub251 = sub i32 %214, %213
+  %221 = load i32, ptr %size243, align 4
+  %222 = load i32, ptr %avail, align 4
+  %sub251 = sub i32 %222, %221
   store i32 %sub251, ptr %avail, align 4
   br label %do.end252
 
 do.end252:                                        ; preds = %if.end247
-  %215 = load ptr, ptr %ib.addr, align 8
-  %sioc = getelementptr inbounds %struct.InputBarrier, ptr %215, i32 0, i32 1
-  %216 = load ptr, ptr %sioc, align 8
-  %call253 = call ptr @QIO_CHANNEL(ptr noundef %216)
-  %217 = load ptr, ptr %ib.addr, align 8
-  %buffer254 = getelementptr inbounds %struct.InputBarrier, ptr %217, i32 0, i32 9
+  %223 = load ptr, ptr %ib.addr, align 8
+  %sioc = getelementptr inbounds %struct.InputBarrier, ptr %223, i32 0, i32 1
+  %224 = load ptr, ptr %sioc, align 8
+  %call253 = call ptr @QIO_CHANNEL(ptr noundef %224)
+  %225 = load ptr, ptr %ib.addr, align 8
+  %buffer254 = getelementptr inbounds %struct.InputBarrier, ptr %225, i32 0, i32 9
   %arraydecay255 = getelementptr inbounds [1024 x i8], ptr %buffer254, i64 0, i64 0
-  %218 = load i32, ptr %len, align 4
-  %conv256 = sext i32 %218 to i64
+  %226 = load i32, ptr %len, align 4
+  %conv256 = sext i32 %226 to i64
   %add257 = add i64 %conv256, 4
   %call258 = call i64 @qio_channel_write(ptr noundef %call253, ptr noundef %arraydecay255, i64 noundef %add257, ptr noundef null)
   %conv259 = trunc i64 %call258 to i32
   store i32 %conv259, ptr %ret, align 4
-  %219 = load i32, ptr %ret, align 4
-  %cmp260 = icmp slt i32 %219, 0
+  %227 = load i32, ptr %ret, align 4
+  %cmp260 = icmp slt i32 %227, 0
   br i1 %cmp260, label %if.then262, label %if.end264
 
 if.then262:                                       ; preds = %do.end252
-  %220 = load ptr, ptr %ib.addr, align 8
-  %ioc_tag263 = getelementptr inbounds %struct.InputBarrier, ptr %220, i32 0, i32 2
+  %228 = load ptr, ptr %ib.addr, align 8
+  %ioc_tag263 = getelementptr inbounds %struct.InputBarrier, ptr %228, i32 0, i32 2
   store i32 0, ptr %ioc_tag263, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -3400,8 +3413,8 @@ if.end265:                                        ; preds = %if.end264, %sw.epil
   br label %return
 
 return:                                           ; preds = %if.end265, %if.then262, %if.then246, %if.then228, %if.then167, %if.then148, %if.then137, %if.then126, %if.then115, %if.then104, %if.then93, %if.then82, %if.then71, %sw.bb62, %if.then49, %if.then34, %if.then23, %if.then14, %if.then
-  %221 = load i32, ptr %retval, align 4
-  ret i32 %221
+  %229 = load i32, ptr %retval, align 4
+  ret i32 %229
 }
 
 declare i64 @qio_channel_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1

@@ -108,7 +108,7 @@ define internal i32 @nf_conntrack_irc_init() #0 section ".init.text" align 16 {
 
 3:                                                ; preds = %0
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #12
-  br label %37
+  br label %39
 
 5:                                                ; preds = %0
   %6 = icmp ugt i32 %1, 255
@@ -116,60 +116,62 @@ define internal i32 @nf_conntrack_irc_init() #0 section ".init.text" align 16 {
 
 7:                                                ; preds = %5
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef 255) #12
-  br label %37
+  br label %39
 
 9:                                                ; preds = %5
   store i32 %1, ptr @irc_exp_policy, align 4
   %10 = load i32, ptr @dcc_timeout, align 4
-  store i32 %10, ptr getelementptr inbounds (%struct.nf_conntrack_expect_policy, ptr @irc_exp_policy, i64 0, i32 1), align 4
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
-  %12 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3264, i64 noundef 4096) #13
-  store ptr %12, ptr @irc_buffer, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %37, label %14
+  %11 = getelementptr inbounds %struct.nf_conntrack_expect_policy, ptr @irc_exp_policy, i64 0, i32 1
+  store i32 %10, ptr %11, align 4
+  %12 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12
+  %13 = load ptr, ptr %12, align 16
+  %14 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3264, i64 noundef 4096) #13
+  store ptr %14, ptr @irc_buffer, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %39, label %16
 
-14:                                               ; preds = %9
-  %15 = load i32, ptr @ports_c, align 4
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %18
+16:                                               ; preds = %9
+  %17 = load i32, ptr @ports_c, align 4
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %20
 
-17:                                               ; preds = %14
+19:                                               ; preds = %16
   store i32 1, ptr @ports_c, align 4
   store i16 6667, ptr @ports, align 16
-  br label %18
+  br label %20
 
-18:                                               ; preds = %17, %14
-  %19 = load i32, ptr @ports_c, align 4
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %30, label %21
+20:                                               ; preds = %19, %16
+  %21 = load i32, ptr @ports_c, align 4
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %32, label %23
 
-21:                                               ; preds = %21, %18
-  %22 = phi i32 [ %27, %21 ], [ 0, %18 ]
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr [8 x %struct.nf_conntrack_helper], ptr @irc, i64 0, i64 %23
-  %25 = getelementptr [8 x i16], ptr @ports, i64 0, i64 %23
-  %26 = load i16, ptr %25, align 2
-  tail call void @nf_ct_helper_init(ptr noundef %24, i16 noundef zeroext 2, i16 noundef zeroext 6, ptr noundef nonnull @.str.2, i16 noundef zeroext 6667, i16 noundef zeroext %26, i32 noundef %22, ptr noundef nonnull @irc_exp_policy, i32 noundef 0, ptr noundef nonnull @help, ptr noundef null, ptr noundef null) #11
-  %27 = add nuw i32 %22, 1
-  %28 = load i32, ptr @ports_c, align 4
-  %29 = icmp ult i32 %27, %28
-  br i1 %29, label %21, label %30, !llvm.loop !5
+23:                                               ; preds = %23, %20
+  %24 = phi i32 [ %29, %23 ], [ 0, %20 ]
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr [8 x %struct.nf_conntrack_helper], ptr @irc, i64 0, i64 %25
+  %27 = getelementptr [8 x i16], ptr @ports, i64 0, i64 %25
+  %28 = load i16, ptr %27, align 2
+  tail call void @nf_ct_helper_init(ptr noundef %26, i16 noundef zeroext 2, i16 noundef zeroext 6, ptr noundef nonnull @.str.2, i16 noundef zeroext 6667, i16 noundef zeroext %28, i32 noundef %24, ptr noundef nonnull @irc_exp_policy, i32 noundef 0, ptr noundef nonnull @help, ptr noundef null, ptr noundef null) #11
+  %29 = add nuw i32 %24, 1
+  %30 = load i32, ptr @ports_c, align 4
+  %31 = icmp ult i32 %29, %30
+  br i1 %31, label %23, label %32, !llvm.loop !5
 
-30:                                               ; preds = %21, %18
-  %31 = phi i32 [ %19, %18 ], [ %28, %21 ]
-  %32 = tail call i32 @nf_conntrack_helpers_register(ptr noundef nonnull @irc, i32 noundef %31) #11
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %37, label %34
+32:                                               ; preds = %23, %20
+  %33 = phi i32 [ %21, %20 ], [ %30, %23 ]
+  %34 = tail call i32 @nf_conntrack_helpers_register(ptr noundef nonnull @irc, i32 noundef %33) #11
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %39, label %36
 
-34:                                               ; preds = %30
-  %35 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #12
-  %36 = load ptr, ptr @irc_buffer, align 8
-  tail call void @kfree(ptr noundef %36) #11
-  br label %37
+36:                                               ; preds = %32
+  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #12
+  %38 = load ptr, ptr @irc_buffer, align 8
+  tail call void @kfree(ptr noundef %38) #11
+  br label %39
 
-37:                                               ; preds = %34, %30, %9, %7, %3
-  %38 = phi i32 [ -22, %3 ], [ -22, %7 ], [ %32, %34 ], [ -12, %9 ], [ 0, %30 ]
-  ret i32 %38
+39:                                               ; preds = %36, %32, %9, %7, %3
+  %40 = phi i32 [ -22, %3 ], [ -22, %7 ], [ %34, %36 ], [ -12, %9 ], [ 0, %32 ]
+  ret i32 %40
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

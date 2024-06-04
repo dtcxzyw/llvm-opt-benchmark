@@ -150,35 +150,36 @@ define i32 @pmix20_bfrop_print(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 13:                                               ; preds = %4
   store i32 -27, ptr %5, align 4
-  br label %29
+  br label %30
 
 14:                                               ; preds = %4
   %15 = load i16, ptr %9, align 2
   %16 = zext i16 %15 to i32
-  %17 = call ptr @pmix_pointer_array_get_item(ptr noundef getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i32 0, i32 2), i32 noundef %16)
-  store ptr %17, ptr %10, align 8
-  %18 = icmp eq ptr null, %17
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %14
-  store i32 -16, ptr %5, align 4
-  br label %29
+  %17 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v20_component, i32 0, i32 2
+  %18 = call ptr @pmix_pointer_array_get_item(ptr noundef %17, i32 noundef %16)
+  store ptr %18, ptr %10, align 8
+  %19 = icmp eq ptr null, %18
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %14
-  %21 = load ptr, ptr %10, align 8
-  %22 = getelementptr inbounds %struct.pmix_bfrop_type_info_t, ptr %21, i32 0, i32 6
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %7, align 8
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i16, ptr %9, align 2
-  %28 = call i32 %23(ptr noundef %24, ptr noundef %25, ptr noundef %26, i16 noundef zeroext %27)
-  store i32 %28, ptr %5, align 4
-  br label %29
+  store i32 -16, ptr %5, align 4
+  br label %30
 
-29:                                               ; preds = %20, %19, %13
-  %30 = load i32, ptr %5, align 4
-  ret i32 %30
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr inbounds %struct.pmix_bfrop_type_info_t, ptr %22, i32 0, i32 6
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = load ptr, ptr %8, align 8
+  %28 = load i16, ptr %9, align 2
+  %29 = call i32 %24(ptr noundef %25, ptr noundef %26, ptr noundef %27, i16 noundef zeroext %28)
+  store i32 %29, ptr %5, align 4
+  br label %30
+
+30:                                               ; preds = %21, %20, %13
+  %31 = load i32, ptr %5, align 4
+  ret i32 %31
 }
 
 ; Function Attrs: nounwind uwtable

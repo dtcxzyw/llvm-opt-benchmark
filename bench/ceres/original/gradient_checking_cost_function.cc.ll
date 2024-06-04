@@ -1089,13 +1089,14 @@ define hidden void @_ZN5ceres8internal33GradientCheckingIterationCallbackC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ceres17IterationCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal33GradientCheckingIterationCallbackE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.ceres::internal::GradientCheckingIterationCallback", ptr %3, i32 0, i32 1
-  store i8 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.ceres::internal::GradientCheckingIterationCallback", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
-  %6 = getelementptr inbounds %"class.ceres::internal::GradientCheckingIterationCallback", ptr %3, i32 0, i32 3
-  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #14
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres8internal33GradientCheckingIterationCallbackE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.ceres::internal::GradientCheckingIterationCallback", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.ceres::internal::GradientCheckingIterationCallback", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
+  %7 = getelementptr inbounds %"class.ceres::internal::GradientCheckingIterationCallback", ptr %3, i32 0, i32 3
+  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #14
   ret void
 }
 
@@ -1104,7 +1105,8 @@ define linkonce_odr hidden void @_ZN5ceres17IterationCallbackC2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres17IterationCallbackE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres17IterationCallbackE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2677,145 +2679,146 @@ define internal void @_ZN5ceres8internal12_GLOBAL__N_128GradientCheckingCostFunc
   store ptr %6, ptr %14, align 8
   %21 = load ptr, ptr %8, align 8
   call void @_ZN5ceres12CostFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %21)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal12_GLOBAL__N_128GradientCheckingCostFunctionE, i32 0, i32 0, i32 2), ptr %21, align 8
-  %22 = getelementptr inbounds %"class.ceres::internal::(anonymous namespace)::GradientCheckingCostFunction", ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %9, align 8
-  store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds %"class.ceres::internal::(anonymous namespace)::GradientCheckingCostFunction", ptr %21, i32 0, i32 2
-  %25 = load ptr, ptr %9, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = load ptr, ptr %11, align 8
-  invoke void @_ZN5ceres15GradientCheckerC1EPKNS_12CostFunctionEPKSt6vectorIPKNS_8ManifoldESaIS7_EERKNS_18NumericDiffOptionsE(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef %25, ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(40) %27)
-          to label %28 unwind label %49
+  %22 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres8internal12_GLOBAL__N_128GradientCheckingCostFunctionE, i32 0, i32 0, i32 2
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"class.ceres::internal::(anonymous namespace)::GradientCheckingCostFunction", ptr %21, i32 0, i32 1
+  %24 = load ptr, ptr %9, align 8
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds %"class.ceres::internal::(anonymous namespace)::GradientCheckingCostFunction", ptr %21, i32 0, i32 2
+  %26 = load ptr, ptr %9, align 8
+  %27 = load ptr, ptr %10, align 8
+  %28 = load ptr, ptr %11, align 8
+  invoke void @_ZN5ceres15GradientCheckerC1EPKNS_12CostFunctionEPKSt6vectorIPKNS_8ManifoldESaIS7_EERKNS_18NumericDiffOptionsE(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef %26, ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(40) %28)
+          to label %29 unwind label %50
 
-28:                                               ; preds = %7
-  %29 = getelementptr inbounds %"class.ceres::internal::(anonymous namespace)::GradientCheckingCostFunction", ptr %21, i32 0, i32 3
-  %30 = load double, ptr %12, align 8
-  store double %30, ptr %29, align 8
-  %31 = getelementptr inbounds %"class.ceres::internal::(anonymous namespace)::GradientCheckingCostFunction", ptr %21, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %5) #14
-  %32 = getelementptr inbounds %"class.ceres::internal::(anonymous namespace)::GradientCheckingCostFunction", ptr %21, i32 0, i32 5
-  %33 = load ptr, ptr %14, align 8
-  store ptr %33, ptr %32, align 8
-  %34 = getelementptr inbounds %"class.ceres::internal::(anonymous namespace)::GradientCheckingCostFunction", ptr %21, i32 0, i32 5
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp ne ptr %35, null
-  %37 = xor i1 %36, true
+29:                                               ; preds = %7
+  %30 = getelementptr inbounds %"class.ceres::internal::(anonymous namespace)::GradientCheckingCostFunction", ptr %21, i32 0, i32 3
+  %31 = load double, ptr %12, align 8
+  store double %31, ptr %30, align 8
+  %32 = getelementptr inbounds %"class.ceres::internal::(anonymous namespace)::GradientCheckingCostFunction", ptr %21, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %5) #14
+  %33 = getelementptr inbounds %"class.ceres::internal::(anonymous namespace)::GradientCheckingCostFunction", ptr %21, i32 0, i32 5
+  %34 = load ptr, ptr %14, align 8
+  store ptr %34, ptr %33, align 8
+  %35 = getelementptr inbounds %"class.ceres::internal::(anonymous namespace)::GradientCheckingCostFunction", ptr %21, i32 0, i32 5
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  %38 = xor i1 %37, true
   store i1 false, ptr %19, align 1
-  br i1 %37, label %39, label %38
+  br i1 %38, label %40, label %39
 
-38:                                               ; preds = %28
-  br label %46
+39:                                               ; preds = %29
+  br label %47
 
-39:                                               ; preds = %28
+40:                                               ; preds = %29
   invoke void @_ZN6google17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17)
-          to label %40 unwind label %53
-
-40:                                               ; preds = %39
-  invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef @.str, i32 noundef 72)
-          to label %41 unwind label %53
+          to label %41 unwind label %54
 
 41:                                               ; preds = %40
+  invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef @.str, i32 noundef 72)
+          to label %42 unwind label %54
+
+42:                                               ; preds = %41
   store i1 true, ptr %19, align 1
-  %42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %18)
-          to label %43 unwind label %57
+  %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %18)
+          to label %44 unwind label %58
 
-43:                                               ; preds = %41
-  %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef @.str.11)
-          to label %45 unwind label %57
+44:                                               ; preds = %42
+  %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef @.str.11)
+          to label %46 unwind label %58
 
-45:                                               ; preds = %43
-  call void @_ZN6google17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(8) %44)
-  br label %46
+46:                                               ; preds = %44
+  call void @_ZN6google17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(8) %45)
+  br label %47
 
-46:                                               ; preds = %45, %38
-  %47 = load i1, ptr %19, align 1
-  br i1 %47, label %48, label %63
+47:                                               ; preds = %46, %39
+  %48 = load i1, ptr %19, align 1
+  br i1 %48, label %49, label %64
 
-48:                                               ; preds = %46
+49:                                               ; preds = %47
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #15
   unreachable
 
-49:                                               ; preds = %7
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %7
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %15, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %16, align 4
-  br label %79
-
-53:                                               ; preds = %73, %70, %68, %63, %40, %39
-  %54 = landingpad { ptr, i32 }
-          cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %15, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %16, align 4
-  br label %78
-
-57:                                               ; preds = %43, %41
-  %58 = landingpad { ptr, i32 }
-          cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %15, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %16, align 4
-  %61 = load i1, ptr %19, align 1
-  br i1 %61, label %75, label %77
-
-62:                                               ; No predecessors!
-  br label %63
-
-63:                                               ; preds = %62, %46
-  %64 = load ptr, ptr %9, align 8
-  %65 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5ceres12CostFunction21parameter_block_sizesEv(ptr noundef nonnull align 8 dereferenceable(36) %64)
-  store ptr %65, ptr %20, align 8
-  %66 = load ptr, ptr %20, align 8
-  %67 = invoke noundef ptr @_ZN5ceres12CostFunction29mutable_parameter_block_sizesEv(ptr noundef nonnull align 8 dereferenceable(36) %21)
-          to label %68 unwind label %53
-
-68:                                               ; preds = %63
-  %69 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %66)
-          to label %70 unwind label %53
-
-70:                                               ; preds = %68
-  %71 = load ptr, ptr %9, align 8
-  %72 = invoke noundef i32 @_ZNK5ceres12CostFunction13num_residualsEv(ptr noundef nonnull align 8 dereferenceable(36) %71)
-          to label %73 unwind label %53
-
-73:                                               ; preds = %70
-  invoke void @_ZN5ceres12CostFunction17set_num_residualsEi(ptr noundef nonnull align 8 dereferenceable(36) %21, i32 noundef %72)
-          to label %74 unwind label %53
-
-74:                                               ; preds = %73
-  ret void
-
-75:                                               ; preds = %57
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #15
-  unreachable
-
-76:                                               ; No predecessors!
-  br label %77
-
-77:                                               ; preds = %76, %57
-  br label %78
-
-78:                                               ; preds = %77, %53
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #14
-  call void @_ZN5ceres15GradientCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %24) #14
-  br label %79
-
-79:                                               ; preds = %78, %49
-  call void @_ZN5ceres12CostFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %21) #14
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %15, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %16, align 4
   br label %80
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %15, align 8
-  %82 = load i32, ptr %16, align 4
-  %83 = insertvalue { ptr, i32 } poison, ptr %81, 0
-  %84 = insertvalue { ptr, i32 } %83, i32 %82, 1
-  resume { ptr, i32 } %84
+54:                                               ; preds = %74, %71, %69, %64, %41, %40
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %15, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %16, align 4
+  br label %79
+
+58:                                               ; preds = %44, %42
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %15, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %16, align 4
+  %62 = load i1, ptr %19, align 1
+  br i1 %62, label %76, label %78
+
+63:                                               ; No predecessors!
+  br label %64
+
+64:                                               ; preds = %63, %47
+  %65 = load ptr, ptr %9, align 8
+  %66 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5ceres12CostFunction21parameter_block_sizesEv(ptr noundef nonnull align 8 dereferenceable(36) %65)
+  store ptr %66, ptr %20, align 8
+  %67 = load ptr, ptr %20, align 8
+  %68 = invoke noundef ptr @_ZN5ceres12CostFunction29mutable_parameter_block_sizesEv(ptr noundef nonnull align 8 dereferenceable(36) %21)
+          to label %69 unwind label %54
+
+69:                                               ; preds = %64
+  %70 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %67)
+          to label %71 unwind label %54
+
+71:                                               ; preds = %69
+  %72 = load ptr, ptr %9, align 8
+  %73 = invoke noundef i32 @_ZNK5ceres12CostFunction13num_residualsEv(ptr noundef nonnull align 8 dereferenceable(36) %72)
+          to label %74 unwind label %54
+
+74:                                               ; preds = %71
+  invoke void @_ZN5ceres12CostFunction17set_num_residualsEi(ptr noundef nonnull align 8 dereferenceable(36) %21, i32 noundef %73)
+          to label %75 unwind label %54
+
+75:                                               ; preds = %74
+  ret void
+
+76:                                               ; preds = %58
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #15
+  unreachable
+
+77:                                               ; No predecessors!
+  br label %78
+
+78:                                               ; preds = %77, %58
+  br label %79
+
+79:                                               ; preds = %78, %54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #14
+  call void @_ZN5ceres15GradientCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #14
+  br label %80
+
+80:                                               ; preds = %79, %50
+  call void @_ZN5ceres12CostFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %21) #14
+  br label %81
+
+81:                                               ; preds = %80
+  %82 = load ptr, ptr %15, align 8
+  %83 = load i32, ptr %16, align 4
+  %84 = insertvalue { ptr, i32 } poison, ptr %82, 0
+  %85 = insertvalue { ptr, i32 } %84, i32 %83, 1
+  resume { ptr, i32 } %85
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -2961,9 +2964,10 @@ define linkonce_odr hidden void @_ZN5ceres8internal33GradientCheckingIterationCa
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal33GradientCheckingIterationCallbackE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.ceres::internal::GradientCheckingIterationCallback", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres8internal33GradientCheckingIterationCallbackE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.ceres::internal::GradientCheckingIterationCallback", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   call void @_ZN5ceres17IterationCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   ret void
 }

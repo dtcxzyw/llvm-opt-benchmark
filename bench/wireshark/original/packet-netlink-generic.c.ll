@@ -528,7 +528,8 @@ declare void @register_init_routine(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal void @genl_init() #0 {
   %1 = load ptr, ptr @genl_family_map, align 8
-  %2 = call ptr @wmem_map_insert(ptr noundef %1, ptr noundef inttoptr (i64 16 to ptr), ptr noundef @.str.50)
+  %2 = inttoptr i64 16 to ptr
+  %3 = call ptr @wmem_map_insert(ptr noundef %1, ptr noundef %2, ptr noundef @.str.50)
   ret void
 }
 

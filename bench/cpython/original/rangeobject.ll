@@ -2179,7 +2179,9 @@ return:                                           ; preds = %Py_DECREF.exit, %Py
 ; Function Attrs: nounwind uwtable
 define internal ptr @_PyLong_GetZero() #0 {
 entry:
-  ret ptr getelementptr ([262 x %struct._longobject], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i64 0, i64 5)
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %1 = getelementptr [262 x %struct._longobject], ptr %0, i64 0, i64 5
+  ret ptr %1
 }
 
 declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) #1
@@ -2316,7 +2318,9 @@ return:                                           ; preds = %if.end7, %if.then4
 ; Function Attrs: nounwind uwtable
 define internal ptr @_PyLong_GetOne() #0 {
 entry:
-  ret ptr getelementptr ([262 x %struct._longobject], ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i64 0, i64 6)
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %1 = getelementptr [262 x %struct._longobject], ptr %0, i64 0, i64 6
+  ret ptr %1
 }
 
 declare ptr @PyNumber_Multiply(ptr noundef, ptr noundef) #1
@@ -4946,25 +4950,27 @@ if.then15:                                        ; preds = %if.end12
   br label %err
 
 if.end16:                                         ; preds = %if.end12
-  %call17 = call ptr @_PyEval_GetBuiltin(ptr noundef getelementptr inbounds (%struct.anon.39, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 434))
-  %17 = load ptr, ptr %range, align 8
-  %call18 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.21, ptr noundef %call17, ptr noundef %17, ptr noundef @_Py_NoneStruct)
+  %17 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %18 = getelementptr inbounds %struct.anon.39, ptr %17, i32 0, i32 3, i32 1, i32 434
+  %call17 = call ptr @_PyEval_GetBuiltin(ptr noundef %18)
+  %19 = load ptr, ptr %range, align 8
+  %call18 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.21, ptr noundef %call17, ptr noundef %19, ptr noundef @_Py_NoneStruct)
   store ptr %call18, ptr %retval, align 8
   br label %return
 
 err:                                              ; preds = %if.then15, %if.then11, %if.then6, %if.then
-  %18 = load ptr, ptr %start, align 8
-  call void @Py_XDECREF(ptr noundef %18)
-  %19 = load ptr, ptr %stop, align 8
-  call void @Py_XDECREF(ptr noundef %19)
-  %20 = load ptr, ptr %step, align 8
+  %20 = load ptr, ptr %start, align 8
   call void @Py_XDECREF(ptr noundef %20)
+  %21 = load ptr, ptr %stop, align 8
+  call void @Py_XDECREF(ptr noundef %21)
+  %22 = load ptr, ptr %step, align 8
+  call void @Py_XDECREF(ptr noundef %22)
   store ptr null, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %err, %if.end16
-  %21 = load ptr, ptr %retval, align 8
-  ret ptr %21
+  %23 = load ptr, ptr %retval, align 8
+  ret ptr %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5278,15 +5284,17 @@ Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end
   br label %return
 
 if.end14:                                         ; preds = %if.end4
-  %call15 = call ptr @_PyEval_GetBuiltin(ptr noundef getelementptr inbounds (%struct.anon.39, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 434))
-  %45 = load ptr, ptr %range, align 8
-  %call16 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.21, ptr noundef %call15, ptr noundef %45, ptr noundef @_Py_NoneStruct)
+  %45 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %46 = getelementptr inbounds %struct.anon.39, ptr %45, i32 0, i32 3, i32 1, i32 434
+  %call15 = call ptr @_PyEval_GetBuiltin(ptr noundef %46)
+  %47 = load ptr, ptr %range, align 8
+  %call16 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.21, ptr noundef %call15, ptr noundef %47, ptr noundef @_Py_NoneStruct)
   store ptr %call16, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end14, %Py_DECREF.exit, %if.then3, %if.then
-  %46 = load ptr, ptr %retval, align 8
-  ret ptr %46
+  %48 = load ptr, ptr %retval, align 8
+  ret ptr %48
 }
 
 ; Function Attrs: nounwind uwtable

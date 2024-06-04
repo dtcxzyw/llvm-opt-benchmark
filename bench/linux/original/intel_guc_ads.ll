@@ -112,7 +112,7 @@ define dso_local i32 @intel_guc_global_policies_update(ptr noundef %0) local_unn
   %5 = getelementptr inbounds i8, ptr %0, i64 1296
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %97, label %8
+  br i1 %7, label %98, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 1304
@@ -199,20 +199,20 @@ define dso_local i32 @intel_guc_global_policies_update(ptr noundef %0) local_unn
   %52 = getelementptr inbounds i8, ptr %0, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 10
-  br i1 %54, label %55, label %97
+  br i1 %54, label %55, label %98
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds i8, ptr %0, i64 624
   %57 = load i8, ptr %56, align 8, !range !6, !noundef !7
   %58 = icmp eq i8 %57, 0
-  br i1 %58, label %97, label %59
+  br i1 %58, label %98, label %59
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr %4, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 8928
   %62 = tail call i64 @intel_runtime_pm_get(ptr noundef %61) #10
   %63 = icmp eq i64 %62, 0
-  br i1 %63, label %97, label %64
+  br i1 %63, label %98, label %64
 
 64:                                               ; preds = %59
   %65 = getelementptr inbounds i8, ptr %3, i64 4
@@ -221,68 +221,69 @@ define dso_local i32 @intel_guc_global_policies_update(ptr noundef %0) local_unn
   store i64 0, ptr %3, align 8, !annotation !10
   store i32 1286, ptr %3, align 8
   store i32 %18, ptr %65, align 4
-  %67 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !11
-  %68 = and i32 %67, 2147483647
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %74
+  %67 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %68 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %67) #11, !srcloc !11
+  %69 = and i32 %68, 2147483647
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %75
 
-70:                                               ; preds = %64
+71:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   store i64 0, ptr %2, align 8, !annotation !10
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #10, !srcloc !12
-  %71 = load i64, ptr %2, align 8
+  %72 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
-  %72 = and i64 %71, 512
-  %73 = icmp ne i64 %72, 0
-  br label %74
+  %73 = and i64 %72, 512
+  %74 = icmp ne i64 %73, 0
+  br label %75
 
-74:                                               ; preds = %70, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %70 ]
-  br i1 %75, label %76, label %78
+75:                                               ; preds = %71, %64
+  %76 = phi i1 [ false, %64 ], [ %74, %71 ]
+  br i1 %76, label %77, label %79
 
-76:                                               ; preds = %74
-  %77 = call i32 @__SCT__might_resched() #10
-  br label %78
+77:                                               ; preds = %75
+  %78 = call i32 @__SCT__might_resched() #10
+  br label %79
 
-78:                                               ; preds = %76, %74
-  %79 = call i32 @intel_guc_ct_send(ptr noundef %66, ptr noundef nonnull %3, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef -2147483648) #10
-  %80 = icmp eq i32 %79, -16
-  br i1 %80, label %81, label %93, !prof !13
+79:                                               ; preds = %77, %75
+  %80 = call i32 @intel_guc_ct_send(ptr noundef %66, ptr noundef nonnull %3, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef -2147483648) #10
+  %81 = icmp eq i32 %80, -16
+  br i1 %81, label %82, label %94, !prof !13
 
-81:                                               ; preds = %89, %78
-  %82 = phi i32 [ %90, %89 ], [ 1, %78 ]
-  br i1 %75, label %83, label %88, !prof !14
+82:                                               ; preds = %90, %79
+  %83 = phi i32 [ %91, %90 ], [ 1, %79 ]
+  br i1 %76, label %84, label %89, !prof !14
 
-83:                                               ; preds = %81
-  %84 = call i64 @msleep_interruptible(i32 noundef %82) #10
-  %85 = icmp eq i64 %84, 0
-  br i1 %85, label %86, label %93
+84:                                               ; preds = %82
+  %85 = call i64 @msleep_interruptible(i32 noundef %83) #10
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %87, label %94
 
-86:                                               ; preds = %83
-  %87 = shl i32 %82, 1
-  br label %89
+87:                                               ; preds = %84
+  %88 = shl i32 %83, 1
+  br label %90
 
-88:                                               ; preds = %81
+89:                                               ; preds = %82
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
-  br label %89
+  br label %90
 
-89:                                               ; preds = %88, %86
-  %90 = phi i32 [ %87, %86 ], [ %82, %88 ]
-  %91 = call i32 @intel_guc_ct_send(ptr noundef %66, ptr noundef nonnull %3, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef -2147483648) #10
-  %92 = icmp eq i32 %91, -16
-  br i1 %92, label %81, label %93, !prof !16
+90:                                               ; preds = %89, %87
+  %91 = phi i32 [ %88, %87 ], [ %83, %89 ]
+  %92 = call i32 @intel_guc_ct_send(ptr noundef %66, ptr noundef nonnull %3, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef -2147483648) #10
+  %93 = icmp eq i32 %92, -16
+  br i1 %93, label %82, label %94, !prof !16
 
-93:                                               ; preds = %89, %83, %78
-  %94 = phi i32 [ %79, %78 ], [ -4, %83 ], [ %91, %89 ]
+94:                                               ; preds = %90, %84, %79
+  %95 = phi i32 [ %80, %79 ], [ -4, %84 ], [ %92, %90 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  %95 = load ptr, ptr %4, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8928
-  call void @intel_runtime_pm_put_unchecked(ptr noundef %96) #10
-  br label %97
+  %96 = load ptr, ptr %4, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 8928
+  call void @intel_runtime_pm_put_unchecked(ptr noundef %97) #10
+  br label %98
 
-97:                                               ; preds = %93, %59, %55, %51, %1
-  %98 = phi i32 [ -95, %1 ], [ 0, %55 ], [ 0, %51 ], [ %94, %93 ], [ 0, %59 ]
-  ret i32 %98
+98:                                               ; preds = %94, %59, %55, %51, %1
+  %99 = phi i32 [ -95, %1 ], [ 0, %55 ], [ 0, %51 ], [ %95, %94 ], [ 0, %59 ]
+  ret i32 %99
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2225,14 +2226,14 @@ define internal fastcc noundef i64 @guc_mmio_reg_add(ptr nocapture noundef %0, i
   %20 = zext i32 %16 to i64
   %21 = call ptr @bsearch(ptr noundef nonnull %4, ptr noundef %8, i64 noundef %20, i64 noundef 16, ptr noundef nonnull @guc_mmio_reg_cmp) #10
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %73
+  br i1 %22, label %23, label %75
 
 23:                                               ; preds = %3
   %24 = load i32, ptr %6, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 20
   %26 = load i32, ptr %25, align 4
   %27 = icmp ult i32 %24, %26
-  br i1 %27, label %50, label %28
+  br i1 %27, label %51, label %28
 
 28:                                               ; preds = %23
   %29 = add i32 %24, 1
@@ -2274,54 +2275,56 @@ define internal fastcc noundef i64 @guc_mmio_reg_add(ptr nocapture noundef %0, i
   br label %49
 
 49:                                               ; preds = %40, %39, %37
-  br i1 %36, label %56, label %50
+  %50 = inttoptr i64 -12 to ptr
+  br i1 %36, label %57, label %51
 
-50:                                               ; preds = %49, %23
-  %51 = load ptr, ptr %9, align 8
-  %52 = zext i32 %24 to i64
-  %53 = getelementptr %struct.guc_mmio_reg, ptr %51, i64 %52
-  %54 = load i32, ptr %6, align 8
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %53, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
-  br label %56
+51:                                               ; preds = %49, %23
+  %52 = load ptr, ptr %9, align 8
+  %53 = zext i32 %24 to i64
+  %54 = getelementptr %struct.guc_mmio_reg, ptr %52, i64 %53
+  %55 = load i32, ptr %6, align 8
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %54, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  br label %57
 
-56:                                               ; preds = %50, %49
-  %57 = phi ptr [ %53, %50 ], [ inttoptr (i64 -12 to ptr), %49 ]
-  %58 = icmp ugt ptr %57, inttoptr (i64 -4096 to ptr)
-  br i1 %58, label %62, label %59
+57:                                               ; preds = %51, %49
+  %58 = phi ptr [ %54, %51 ], [ %50, %49 ]
+  %59 = inttoptr i64 -4096 to ptr
+  %60 = icmp ugt ptr %58, %59
+  br i1 %60, label %64, label %61
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %0, align 8
-  %61 = icmp ugt ptr %57, %60
-  br i1 %61, label %64, label %73
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %0, align 8
+  %63 = icmp ugt ptr %58, %62
+  br i1 %63, label %66, label %75
 
-62:                                               ; preds = %56
-  %63 = ptrtoint ptr %57 to i64
-  br label %73
+64:                                               ; preds = %57
+  %65 = ptrtoint ptr %58 to i64
+  br label %75
 
-64:                                               ; preds = %70, %59
-  %65 = phi ptr [ %66, %70 ], [ %57, %59 ]
-  %66 = getelementptr i8, ptr %65, i64 -16
-  %67 = load i32, ptr %65, align 1
-  %68 = load i32, ptr %66, align 1
-  %69 = icmp ugt i32 %67, %68
-  br i1 %69, label %73, label %70
+66:                                               ; preds = %72, %61
+  %67 = phi ptr [ %68, %72 ], [ %58, %61 ]
+  %68 = getelementptr i8, ptr %67, i64 -16
+  %69 = load i32, ptr %67, align 1
+  %70 = load i32, ptr %68, align 1
+  %71 = icmp ugt i32 %69, %70
+  br i1 %71, label %75, label %72
 
-70:                                               ; preds = %64
+72:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %65, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %65, ptr noundef align 1 dereferenceable(16) %66, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %66, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %67, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %67, ptr noundef align 1 dereferenceable(16) %68, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %68, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %71 = load ptr, ptr %0, align 8
-  %72 = icmp ugt ptr %66, %71
-  br i1 %72, label %64, label %73, !llvm.loop !42
+  %73 = load ptr, ptr %0, align 8
+  %74 = icmp ugt ptr %68, %73
+  br i1 %74, label %66, label %75, !llvm.loop !42
 
-73:                                               ; preds = %70, %64, %62, %59, %3
-  %74 = phi i64 [ %63, %62 ], [ 0, %3 ], [ 0, %59 ], [ 0, %70 ], [ 0, %64 ]
+75:                                               ; preds = %72, %66, %64, %61, %3
+  %76 = phi i64 [ %65, %64 ], [ 0, %3 ], [ 0, %61 ], [ 0, %72 ], [ 0, %66 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  ret i64 %74
+  ret i64 %76
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -48,21 +48,22 @@ define ptr @pqsignal(i32 noundef %0, ptr noundef %1) #0 {
   %27 = load i32, ptr %4, align 4
   %28 = call i32 @sigaction(i32 noundef %27, ptr noundef %6, ptr noundef %7) #2
   %29 = icmp slt i32 %28, 0
-  br i1 %29, label %30, label %31
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26
-  store ptr inttoptr (i64 -1 to ptr), ptr %3, align 8
-  br label %34
+  %31 = inttoptr i64 -1 to ptr
+  store ptr %31, ptr %3, align 8
+  br label %35
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %3, align 8
-  br label %34
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %3, align 8
+  br label %35
 
-34:                                               ; preds = %31, %30
-  %35 = load ptr, ptr %3, align 8
-  ret ptr %35
+35:                                               ; preds = %32, %30
+  %36 = load ptr, ptr %3, align 8
+  ret ptr %36
 }
 
 ; Function Attrs: nounwind

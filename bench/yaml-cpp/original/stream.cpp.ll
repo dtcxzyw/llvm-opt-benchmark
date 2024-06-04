@@ -1328,13 +1328,14 @@ entry:
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
+  %1 = getelementptr inbounds [2 x [4 x i32]], ptr @_ZZNK4YAML6Stream13StreamInUtf32EvE7indexes, i64 0, i64 1
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond-lvalue = phi ptr [ getelementptr inbounds ([2 x [4 x i32]], ptr @_ZZNK4YAML6Stream13StreamInUtf32EvE7indexes, i64 0, i64 1), %cond.true ], [ @_ZZNK4YAML6Stream13StreamInUtf32EvE7indexes, %cond.false ]
+  %cond-lvalue = phi ptr [ %1, %cond.true ], [ @_ZZNK4YAML6Stream13StreamInUtf32EvE7indexes, %cond.false ]
   %arraydecay = getelementptr inbounds [4 x i32], ptr %cond-lvalue, i64 0, i64 0
   store ptr %arraydecay, ptr %pIndexes, align 8
   %call = call noundef zeroext i8 @_ZNK4YAML6Stream11GetNextByteEv(ptr noundef nonnull align 8 dereferenceable(128) %this1)
@@ -1350,11 +1351,11 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %arrayidx7 = getelementptr inbounds [4 x i8], ptr %bytes, i64 0, i64 3
   store i8 %call6, ptr %arrayidx7, align 1
   %m_input = getelementptr inbounds %"class.YAML::Stream", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %m_input, align 8
-  %vtable = load ptr, ptr %1, align 8
+  %2 = load ptr, ptr %m_input, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
   %call8 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
   br i1 %call8, label %if.end, label %if.then
 
@@ -1366,38 +1367,38 @@ if.end:                                           ; preds = %cond.end
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %2 = load i32, ptr %i, align 4
-  %cmp9 = icmp slt i32 %2, 4
+  %3 = load i32, ptr %i, align 4
+  %cmp9 = icmp slt i32 %3, 4
   br i1 %cmp9, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %3 = load i64, ptr %ch, align 8
-  %shl = shl i64 %3, 8
+  %4 = load i64, ptr %ch, align 8
+  %shl = shl i64 %4, 8
   store i64 %shl, ptr %ch, align 8
-  %4 = load ptr, ptr %pIndexes, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx10 = getelementptr inbounds i32, ptr %4, i64 %idxprom
-  %6 = load i32, ptr %arrayidx10, align 4
-  %idxprom11 = sext i32 %6 to i64
+  %5 = load ptr, ptr %pIndexes, align 8
+  %6 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %6 to i64
+  %arrayidx10 = getelementptr inbounds i32, ptr %5, i64 %idxprom
+  %7 = load i32, ptr %arrayidx10, align 4
+  %idxprom11 = sext i32 %7 to i64
   %arrayidx12 = getelementptr inbounds [4 x i8], ptr %bytes, i64 0, i64 %idxprom11
-  %7 = load i8, ptr %arrayidx12, align 1
-  %conv = zext i8 %7 to i64
-  %8 = load i64, ptr %ch, align 8
-  %or = or i64 %8, %conv
+  %8 = load i8, ptr %arrayidx12, align 1
+  %conv = zext i8 %8 to i64
+  %9 = load i64, ptr %ch, align 8
+  %or = or i64 %9, %conv
   store i64 %or, ptr %ch, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %9 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %9, 1
+  %10 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %10, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !11
 
 for.end:                                          ; preds = %for.cond
   %m_readahead = getelementptr inbounds %"class.YAML::Stream", ptr %this1, i32 0, i32 3
-  %10 = load i64, ptr %ch, align 8
-  call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %m_readahead, i64 noundef %10)
+  %11 = load i64, ptr %ch, align 8
+  call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %m_readahead, i64 noundef %11)
   br label %return
 
 return:                                           ; preds = %for.end, %if.then

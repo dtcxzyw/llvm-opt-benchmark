@@ -660,7 +660,8 @@ entry:
   store ptr %up, ptr %up.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN30btCharacterControllerInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV30btKinematicCharacterController, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTV30btKinematicCharacterController, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_walkDirection = getelementptr inbounds %class.btKinematicCharacterController, ptr %this1, i32 0, i32 18
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_walkDirection)
           to label %invoke.cont unwind label %lpad
@@ -721,9 +722,9 @@ invoke.cont12:                                    ; preds = %invoke.cont11
           to label %invoke.cont13 unwind label %lpad10
 
 invoke.cont13:                                    ; preds = %invoke.cont12
-  %0 = load ptr, ptr %ghostObject.addr, align 8
+  %1 = load ptr, ptr %ghostObject.addr, align 8
   %m_ghostObject = getelementptr inbounds %class.btKinematicCharacterController, ptr %this1, i32 0, i32 3
-  store ptr %0, ptr %m_ghostObject, align 8
+  store ptr %1, ptr %m_ghostObject, align 8
   %m_up14 = getelementptr inbounds %class.btKinematicCharacterController, ptr %this1, i32 0, i32 38
   store float 0.000000e+00, ptr %ref.tmp, align 4
   store float 0.000000e+00, ptr %ref.tmp15, align 4
@@ -762,9 +763,9 @@ invoke.cont32:                                    ; preds = %invoke.cont27
   store i8 1, ptr %m_useGhostObjectSweepTest, align 2
   %m_turnAngle = getelementptr inbounds %class.btKinematicCharacterController, ptr %this1, i32 0, i32 15
   store float 0.000000e+00, ptr %m_turnAngle, align 8
-  %1 = load ptr, ptr %convexShape.addr, align 8
+  %2 = load ptr, ptr %convexShape.addr, align 8
   %m_convexShape = getelementptr inbounds %class.btKinematicCharacterController, ptr %this1, i32 0, i32 4
-  store ptr %1, ptr %m_convexShape, align 8
+  store ptr %2, ptr %m_convexShape, align 8
   %m_useWalkDirection = getelementptr inbounds %class.btKinematicCharacterController, ptr %this1, i32 0, i32 36
   store i8 1, ptr %m_useWalkDirection, align 1
   %m_velocityTimeInterval = getelementptr inbounds %class.btKinematicCharacterController, ptr %this1, i32 0, i32 37
@@ -780,9 +781,9 @@ invoke.cont32:                                    ; preds = %invoke.cont27
   %m_jumpSpeed = getelementptr inbounds %class.btKinematicCharacterController, ptr %this1, i32 0, i32 9
   store float 1.000000e+01, ptr %m_jumpSpeed, align 8
   %m_jumpSpeed33 = getelementptr inbounds %class.btKinematicCharacterController, ptr %this1, i32 0, i32 9
-  %2 = load float, ptr %m_jumpSpeed33, align 8
+  %3 = load float, ptr %m_jumpSpeed33, align 8
   %m_SetjumpSpeed = getelementptr inbounds %class.btKinematicCharacterController, ptr %this1, i32 0, i32 10
-  store float %2, ptr %m_SetjumpSpeed, align 4
+  store float %3, ptr %m_SetjumpSpeed, align 4
   %m_wasOnGround = getelementptr inbounds %class.btKinematicCharacterController, ptr %this1, i32 0, i32 33
   store i8 0, ptr %m_wasOnGround, align 4
   %m_wasJumping = getelementptr inbounds %class.btKinematicCharacterController, ptr %this1, i32 0, i32 34
@@ -801,13 +802,13 @@ invoke.cont32:                                    ; preds = %invoke.cont27
   store float 0.000000e+00, ptr %m_linearDamping, align 4
   %m_angularDamping = getelementptr inbounds %class.btKinematicCharacterController, ptr %this1, i32 0, i32 32
   store float 0.000000e+00, ptr %m_angularDamping, align 8
-  %3 = load ptr, ptr %up.addr, align 8
-  invoke void @_ZN30btKinematicCharacterController5setUpERK9btVector3(ptr noundef nonnull align 8 dereferenceable(319) %this1, ptr noundef nonnull align 4 dereferenceable(16) %3)
+  %4 = load ptr, ptr %up.addr, align 8
+  invoke void @_ZN30btKinematicCharacterController5setUpERK9btVector3(ptr noundef nonnull align 8 dereferenceable(319) %this1, ptr noundef nonnull align 4 dereferenceable(16) %4)
           to label %invoke.cont34 unwind label %lpad10
 
 invoke.cont34:                                    ; preds = %invoke.cont32
-  %4 = load float, ptr %stepHeight.addr, align 4
-  invoke void @_ZN30btKinematicCharacterController13setStepHeightEf(ptr noundef nonnull align 8 dereferenceable(319) %this1, float noundef %4)
+  %5 = load float, ptr %stepHeight.addr, align 4
+  invoke void @_ZN30btKinematicCharacterController13setStepHeightEf(ptr noundef nonnull align 8 dereferenceable(319) %this1, float noundef %5)
           to label %invoke.cont35 unwind label %lpad10
 
 invoke.cont35:                                    ; preds = %invoke.cont34
@@ -822,21 +823,21 @@ invoke.cont37:                                    ; preds = %invoke.cont36
   ret void
 
 lpad:                                             ; preds = %invoke.cont8, %invoke.cont7, %invoke.cont6, %invoke.cont5, %invoke.cont4, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont36, %invoke.cont35, %invoke.cont34, %invoke.cont32, %invoke.cont27, %invoke.cont22, %invoke.cont17, %invoke.cont13, %invoke.cont12, %invoke.cont11, %invoke.cont9
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_manifoldArray) #7
   br label %ehcleanup
 
@@ -859,7 +860,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN17btActionInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV30btCharacterControllerInterface, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV30btCharacterControllerInterface, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1052,7 +1054,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV30btKinematicCharacterController, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTV30btKinematicCharacterController, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_manifoldArray = getelementptr inbounds %class.btKinematicCharacterController, ptr %this1, i32 0, i32 27
   call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_manifoldArray) #7
   call void @_ZN30btCharacterControllerInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
@@ -2275,16 +2278,17 @@ entry:
   store float 0.000000e+00, ptr %ref.tmp8, align 4
   call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp5, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8)
   call void @_ZN16btCollisionWorld27ClosestConvexResultCallbackC2ERK9btVector3S3_(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp5)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV43btKinematicClosestNotMeConvexResultCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV43btKinematicClosestNotMeConvexResultCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_me = getelementptr inbounds %class.btKinematicClosestNotMeConvexResultCallback, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %me.addr, align 8
-  store ptr %0, ptr %m_me, align 8
+  %1 = load ptr, ptr %me.addr, align 8
+  store ptr %1, ptr %m_me, align 8
   %m_up = getelementptr inbounds %class.btKinematicClosestNotMeConvexResultCallback, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %up.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_up, ptr align 4 %1, i64 16, i1 false)
+  %2 = load ptr, ptr %up.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_up, ptr align 4 %2, i64 16, i1 false)
   %m_minSlopeDot = getelementptr inbounds %class.btKinematicClosestNotMeConvexResultCallback, ptr %this1, i32 0, i32 3
-  %2 = load float, ptr %minSlopeDot.addr, align 4
-  store float %2, ptr %m_minSlopeDot, align 8
+  %3 = load float, ptr %minSlopeDot.addr, align 4
+  store float %3, ptr %m_minSlopeDot, align 8
   ret void
 }
 
@@ -5205,14 +5209,16 @@ invoke.cont:                                      ; preds = %init
   store float 0.000000e+00, ptr %ref.tmp3, align 4
   store float 1.000000e+00, ptr %ref.tmp4, align 4
   store float 0.000000e+00, ptr %ref.tmp5, align 4
-  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 1), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
+  %2 = getelementptr inbounds %class.btVector3, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 1
+  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
   store float 0.000000e+00, ptr %ref.tmp7, align 4
   store float 0.000000e+00, ptr %ref.tmp8, align 4
   store float 1.000000e+00, ptr %ref.tmp9, align 4
-  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 2), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9)
+  %3 = getelementptr inbounds %class.btVector3, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 2
+  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont6
@@ -5223,12 +5229,12 @@ init.end:                                         ; preds = %invoke.cont10, %ini
   ret ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection
 
 lpad:                                             ; preds = %invoke.cont6, %invoke.cont, %init
-  %2 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection) #7
   br label %eh.resume
 
@@ -5504,7 +5510,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17btActionInterface, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17btActionInterface, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5966,13 +5973,14 @@ entry:
   store ptr %convexToWorld, ptr %convexToWorld.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN16btCollisionWorld20ConvexResultCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN16btCollisionWorld27ClosestConvexResultCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN16btCollisionWorld27ClosestConvexResultCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_convexFromWorld = getelementptr inbounds %"struct.btCollisionWorld::ClosestConvexResultCallback", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %convexFromWorld.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_convexFromWorld, ptr align 4 %0, i64 16, i1 false)
+  %1 = load ptr, ptr %convexFromWorld.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_convexFromWorld, ptr align 4 %1, i64 16, i1 false)
   %m_convexToWorld = getelementptr inbounds %"struct.btCollisionWorld::ClosestConvexResultCallback", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %convexToWorld.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_convexToWorld, ptr align 4 %1, i64 16, i1 false)
+  %2 = load ptr, ptr %convexToWorld.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_convexToWorld, ptr align 4 %2, i64 16, i1 false)
   %m_hitNormalWorld = getelementptr inbounds %"struct.btCollisionWorld::ClosestConvexResultCallback", ptr %this1, i32 0, i32 3
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_hitNormalWorld)
           to label %invoke.cont unwind label %lpad
@@ -5988,12 +5996,12 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN16btCollisionWorld20ConvexResultCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this1) #7
   br label %eh.resume
 
@@ -6159,7 +6167,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN16btCollisionWorld20ConvexResultCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN16btCollisionWorld20ConvexResultCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_closestHitFraction = getelementptr inbounds %"struct.btCollisionWorld::ConvexResultCallback", ptr %this1, i32 0, i32 1
   store float 1.000000e+00, ptr %m_closestHitFraction, align 8
   %m_collisionFilterGroup = getelementptr inbounds %"struct.btCollisionWorld::ConvexResultCallback", ptr %this1, i32 0, i32 2

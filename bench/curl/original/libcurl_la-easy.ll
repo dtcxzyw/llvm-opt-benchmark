@@ -708,13 +708,14 @@ entry:
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %ig.addr, align 8
   %old_pipe_act = getelementptr inbounds %struct.sigpipe_ignore, ptr %3, i32 0, i32 0
-  %call = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef %old_pipe_act) #8
+  %call = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef %old_pipe_act) #7
   %4 = load ptr, ptr %ig.addr, align 8
   %old_pipe_act9 = getelementptr inbounds %struct.sigpipe_ignore, ptr %4, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %action, ptr align 8 %old_pipe_act9, i64 152, i1 false)
   %__sigaction_handler = getelementptr inbounds %struct.sigaction, ptr %action, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %__sigaction_handler, align 8
-  %call10 = call i32 @sigaction(i32 noundef 13, ptr noundef %action, ptr noundef null) #8
+  %5 = inttoptr i64 1 to ptr
+  store ptr %5, ptr %__sigaction_handler, align 8
+  %call10 = call i32 @sigaction(i32 noundef 13, ptr noundef %action, ptr noundef null) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -737,7 +738,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %ig.addr, align 8
   %old_pipe_act = getelementptr inbounds %struct.sigpipe_ignore, ptr %2, i32 0, i32 0
-  %call = call i32 @sigaction(i32 noundef 13, ptr noundef %old_pipe_act, ptr noundef null) #8
+  %call = call i32 @sigaction(i32 noundef 13, ptr noundef %old_pipe_act, ptr noundef null) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -755,7 +756,7 @@ entry:
   store ptr %data, ptr %data.addr, align 8
   store i32 %info, ptr %info.addr, align 4
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arg, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arg, i64 0, i64 0
   %gp_offset_p = getelementptr inbounds %struct.__va_list_tag, ptr %arraydecay1, i32 0, i32 0
   %gp_offset = load i32, ptr %gp_offset_p, align 16
@@ -787,18 +788,12 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %call = call i32 (ptr, i32, ...) @Curl_getinfo(ptr noundef %4, i32 noundef %5, ptr noundef %6)
   store i32 %call, ptr %result, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arg, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %7 = load i32, ptr %result, align 4
   ret i32 %7
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare i32 @Curl_getinfo(ptr noundef, i32 noundef, ...) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
 
 ; Function Attrs: nounwind uwtable
 define ptr @curl_easy_duphandle(ptr noundef %data) #4 {
@@ -1553,7 +1548,7 @@ entry:
 declare void @Curl_free_request_state(ptr noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 declare i32 @Curl_init_userdefined(ptr noundef) #5
 
@@ -2165,7 +2160,7 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare void @llvm.x86.sse2.pause() #8
+declare void @llvm.x86.sse2.pause() #7
 
 declare i32 @Curl_trc_init() #5
 
@@ -2290,7 +2285,7 @@ declare ptr @curl_multi_info_read(ptr noundef, ptr noundef) #5
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 declare void @Curl_mime_initpart(ptr noundef) #5
 
@@ -2396,16 +2391,22 @@ declare i32 @Curl_conn_keep_alive(ptr noundef, ptr noundef, i32 noundef) #5
 
 declare void @Curl_detach_connection(ptr noundef) #5
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
+
 attributes #0 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -659,19 +659,20 @@ for.cond:                                         ; preds = %for.inc, %entry
 for.body:                                         ; preds = %for.cond
   %4 = load ptr, ptr %dp, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE to i64)
+  %5 = ptrtoint ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %5
   %conv1 = trunc i64 %sub.ptr.sub to i32
   store i32 %conv1, ptr %d, align 4
-  %5 = load i32, ptr %d, align 4
-  %cmp = icmp sge i32 %5, 10
+  %6 = load i32, ptr %d, align 4
+  %cmp = icmp sge i32 %6, 10
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
   br label %for.end
 
 if.end:                                           ; preds = %for.body
-  %6 = load i32, ptr %value, align 4
-  %cmp2 = icmp sgt i32 %6, 214748364
+  %7 = load i32, ptr %value, align 4
+  %cmp2 = icmp sgt i32 %7, 214748364
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -679,13 +680,13 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %7 = load i32, ptr %value, align 4
-  %mul = mul nsw i32 %7, 10
-  store i32 %mul, ptr %value, align 4
   %8 = load i32, ptr %value, align 4
-  %9 = load i32, ptr %d, align 4
-  %sub = sub nsw i32 2147483647, %9
-  %cmp5 = icmp sgt i32 %8, %sub
+  %mul = mul nsw i32 %8, 10
+  store i32 %mul, ptr %value, align 4
+  %9 = load i32, ptr %value, align 4
+  %10 = load i32, ptr %d, align 4
+  %sub = sub nsw i32 2147483647, %10
+  %cmp5 = icmp sgt i32 %9, %sub
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
@@ -693,34 +694,34 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %10 = load i32, ptr %d, align 4
-  %11 = load i32, ptr %value, align 4
-  %add = add nsw i32 %11, %10
+  %11 = load i32, ptr %d, align 4
+  %12 = load i32, ptr %value, align 4
+  %add = add nsw i32 %12, %11
   store i32 %add, ptr %value, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end7
-  %12 = load ptr, ptr %p.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %12, i32 1
+  %13 = load ptr, ptr %p.addr, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %13, i32 1
   store ptr %incdec.ptr, ptr %p.addr, align 8
   br label %for.cond, !llvm.loop !8
 
 for.end:                                          ; preds = %if.then, %for.cond
-  %13 = load ptr, ptr %p.addr, align 8
-  %14 = load ptr, ptr %op, align 8
-  %cmp8 = icmp eq ptr %13, %14
+  %14 = load ptr, ptr %p.addr, align 8
+  %15 = load ptr, ptr %op, align 8
+  %cmp8 = icmp eq ptr %14, %15
   br i1 %cmp8, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.end
-  %15 = load i32, ptr %value, align 4
-  %16 = load i32, ptr %min.addr, align 4
-  %cmp9 = icmp slt i32 %15, %16
+  %16 = load i32, ptr %value, align 4
+  %17 = load i32, ptr %min.addr, align 4
+  %cmp9 = icmp slt i32 %16, %17
   br i1 %cmp9, label %if.then12, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false
-  %17 = load i32, ptr %value, align 4
-  %18 = load i32, ptr %max.addr, align 4
-  %cmp11 = icmp sgt i32 %17, %18
+  %18 = load i32, ptr %value, align 4
+  %19 = load i32, ptr %max.addr, align 4
+  %cmp11 = icmp sgt i32 %18, %19
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %lor.lhs.false10, %lor.lhs.false, %for.end
@@ -728,16 +729,16 @@ if.then12:                                        ; preds = %lor.lhs.false10, %l
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false10
-  %19 = load i32, ptr %value, align 4
-  %20 = load ptr, ptr %vp.addr, align 8
-  store i32 %19, ptr %20, align 4
-  %21 = load ptr, ptr %p.addr, align 8
-  store ptr %21, ptr %retval, align 8
+  %20 = load i32, ptr %value, align 4
+  %21 = load ptr, ptr %vp.addr, align 8
+  store i32 %20, ptr %21, align 4
+  %22 = load ptr, ptr %p.addr, align 8
+  store ptr %22, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then12, %if.then6, %if.then3
-  %22 = load ptr, ptr %retval, align 8
-  ret ptr %22
+  %23 = load ptr, ptr %retval, align 8
+  ret ptr %23
 }
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

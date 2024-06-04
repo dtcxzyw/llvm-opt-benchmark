@@ -238,10 +238,10 @@ define void @WriteTableIntoFile(ptr noundef %0) #0 {
   store ptr %10, ptr %5, align 8
   br label %11
 
-11:                                               ; preds = %95, %1
+11:                                               ; preds = %97, %1
   %12 = load ptr, ptr %5, align 8
   %13 = icmp ne ptr %12, null
-  br i1 %13, label %14, label %97
+  br i1 %13, label %14, label %99
 
 14:                                               ; preds = %11
   store i32 0, ptr %3, align 4
@@ -309,92 +309,94 @@ define void @WriteTableIntoFile(ptr noundef %0) #0 {
   %48 = load ptr, ptr %2, align 8
   %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str.4) #3
   store i32 0, ptr %6, align 4
-  %50 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 1), align 4
-  store i32 %50, ptr %7, align 4
+  %50 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 1
+  %51 = load i32, ptr %50, align 4
+  store i32 %51, ptr %7, align 4
   store i32 32, ptr %8, align 4
   store i32 0, ptr %4, align 4
-  br label %51
+  br label %52
 
-51:                                               ; preds = %89, %47
-  %52 = load i32, ptr %4, align 4
-  %53 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3), align 4
-  %54 = icmp slt i32 %52, %53
-  br i1 %54, label %55, label %92
+52:                                               ; preds = %91, %47
+  %53 = load i32, ptr %4, align 4
+  %54 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp slt i32 %53, %55
+  br i1 %56, label %57, label %94
 
-55:                                               ; preds = %51
+57:                                               ; preds = %52
   store i32 0, ptr %3, align 4
-  br label %56
+  br label %58
 
-56:                                               ; preds = %85, %55
-  %57 = load i32, ptr %3, align 4
-  %58 = load i32, ptr %8, align 4
-  %59 = icmp slt i32 %57, %58
-  br i1 %59, label %60, label %88
+58:                                               ; preds = %87, %57
+  %59 = load i32, ptr %3, align 4
+  %60 = load i32, ptr %8, align 4
+  %61 = icmp slt i32 %59, %60
+  br i1 %61, label %62, label %90
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %struct.cube, ptr %61, i32 0, i32 6
-  %63 = load ptr, ptr %62, align 8
-  %64 = load i32, ptr %4, align 4
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i32, ptr %63, i64 %65
-  %67 = load i32, ptr %66, align 4
-  %68 = load i32, ptr %3, align 4
-  %69 = shl i32 1, %68
-  %70 = and i32 %67, %69
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %72, label %75
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %5, align 8
+  %64 = getelementptr inbounds %struct.cube, ptr %63, i32 0, i32 6
+  %65 = load ptr, ptr %64, align 8
+  %66 = load i32, ptr %4, align 4
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds i32, ptr %65, i64 %67
+  %69 = load i32, ptr %68, align 4
+  %70 = load i32, ptr %3, align 4
+  %71 = shl i32 1, %70
+  %72 = and i32 %69, %71
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %77
 
-72:                                               ; preds = %60
-  %73 = load ptr, ptr %2, align 8
-  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef @.str.2) #3
-  br label %78
+74:                                               ; preds = %62
+  %75 = load ptr, ptr %2, align 8
+  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef @.str.2) #3
+  br label %80
 
-75:                                               ; preds = %60
-  %76 = load ptr, ptr %2, align 8
-  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef @.str.1) #3
-  br label %78
+77:                                               ; preds = %62
+  %78 = load ptr, ptr %2, align 8
+  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef @.str.1) #3
+  br label %80
 
-78:                                               ; preds = %75, %72
-  %79 = load i32, ptr %6, align 4
-  %80 = add nsw i32 %79, 1
-  store i32 %80, ptr %6, align 4
-  %81 = load i32, ptr %7, align 4
-  %82 = icmp eq i32 %80, %81
-  br i1 %82, label %83, label %84
+80:                                               ; preds = %77, %74
+  %81 = load i32, ptr %6, align 4
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %6, align 4
+  %83 = load i32, ptr %7, align 4
+  %84 = icmp eq i32 %82, %83
+  br i1 %84, label %85, label %86
 
-83:                                               ; preds = %78
-  br label %88
+85:                                               ; preds = %80
+  br label %90
 
-84:                                               ; preds = %78
-  br label %85
+86:                                               ; preds = %80
+  br label %87
 
-85:                                               ; preds = %84
-  %86 = load i32, ptr %3, align 4
-  %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %3, align 4
-  br label %56, !llvm.loop !10
+87:                                               ; preds = %86
+  %88 = load i32, ptr %3, align 4
+  %89 = add nsw i32 %88, 1
+  store i32 %89, ptr %3, align 4
+  br label %58, !llvm.loop !10
 
-88:                                               ; preds = %83, %56
-  br label %89
+90:                                               ; preds = %85, %58
+  br label %91
 
-89:                                               ; preds = %88
-  %90 = load i32, ptr %4, align 4
-  %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %4, align 4
-  br label %51, !llvm.loop !11
+91:                                               ; preds = %90
+  %92 = load i32, ptr %4, align 4
+  %93 = add nsw i32 %92, 1
+  store i32 %93, ptr %4, align 4
+  br label %52, !llvm.loop !11
 
-92:                                               ; preds = %51
-  %93 = load ptr, ptr %2, align 8
-  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef @.str.5) #3
-  br label %95
+94:                                               ; preds = %52
+  %95 = load ptr, ptr %2, align 8
+  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef @.str.5) #3
+  br label %97
 
-95:                                               ; preds = %92
-  %96 = call ptr (...) @IterCubeSetNext()
-  store ptr %96, ptr %5, align 8
+97:                                               ; preds = %94
+  %98 = call ptr (...) @IterCubeSetNext()
+  store ptr %98, ptr %5, align 8
   br label %11, !llvm.loop !12
 
-97:                                               ; preds = %11
+99:                                               ; preds = %11
   ret void
 }
 
@@ -420,7 +422,7 @@ define i32 @WriteResultIntoFile(ptr noundef %0) #0 {
   %12 = load ptr, ptr @stderr, align 8
   %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.7) #3
   store i32 1, ptr %2, align 4
-  br label %77
+  br label %92
 
 14:                                               ; preds = %1
   %15 = call i64 @time(ptr noundef %5) #3
@@ -428,73 +430,88 @@ define i32 @WriteResultIntoFile(ptr noundef %0) #0 {
   %17 = call ptr @asctime(ptr noundef %16) #3
   store ptr %17, ptr %6, align 8
   %18 = call i32 @CountLiteralsCheck()
-  store i32 %18, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 9), align 4
-  %19 = call i32 @CountQCost()
-  store i32 %19, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 11), align 4
-  %20 = load ptr, ptr %4, align 8
-  %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef @.str.8) #3
+  %19 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 9
+  store i32 %18, ptr %19, align 4
+  %20 = call i32 @CountQCost()
+  %21 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 11
+  store i32 %20, ptr %21, align 4
   %22 = load ptr, ptr %4, align 8
-  %23 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 14), align 8
-  %24 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13), align 4
-  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.9, i32 noundef %23, i32 noundef %24) #3
-  %26 = load ptr, ptr %4, align 8
-  %27 = load ptr, ptr %6, align 8
-  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.10, ptr noundef %27) #3
-  %29 = load ptr, ptr %4, align 8
-  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef @.str.11) #3
-  %31 = load ptr, ptr %4, align 8
-  %32 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 5), align 4
-  %33 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 8), align 8
-  %34 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 10), align 8
-  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.12, i32 noundef %32, i32 noundef %33, i32 noundef %34) #3
-  %36 = load ptr, ptr %4, align 8
-  %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef @.str.13) #3
-  %38 = load ptr, ptr %4, align 8
-  %39 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 6), align 8
-  %40 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 9), align 4
-  %41 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 11), align 4
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef @.str.12, i32 noundef %39, i32 noundef %40, i32 noundef %41) #3
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.8) #3
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 14
+  %26 = load i32, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 13
+  %28 = load i32, ptr %27, align 4
+  %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.9, i32 noundef %26, i32 noundef %28) #3
+  %30 = load ptr, ptr %4, align 8
+  %31 = load ptr, ptr %6, align 8
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef @.str.10, ptr noundef %31) #3
+  %33 = load ptr, ptr %4, align 8
+  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef @.str.11) #3
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 5
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 8
+  %39 = load i32, ptr %38, align 8
+  %40 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 10
+  %41 = load i32, ptr %40, align 8
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.12, i32 noundef %37, i32 noundef %39, i32 noundef %41) #3
   %43 = load ptr, ptr %4, align 8
-  %44 = load i64, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 17), align 8
-  %45 = sitofp i64 %44 to float
-  %46 = fdiv float %45, 1.000000e+06
-  %47 = fpext float %46 to double
-  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef @.str.14, double noundef %47) #3
-  %49 = load ptr, ptr %4, align 8
-  %50 = load i64, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 18), align 8
-  %51 = sitofp i64 %50 to float
-  %52 = fdiv float %51, 1.000000e+06
-  %53 = fpext float %52 to double
-  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef @.str.15, double noundef %53) #3
-  %55 = load ptr, ptr %4, align 8
-  %56 = load i64, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 19), align 8
-  %57 = sitofp i64 %56 to float
-  %58 = fdiv float %57, 1.000000e+06
-  %59 = fpext float %58 to double
-  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef @.str.16, double noundef %59) #3
-  %61 = load ptr, ptr %4, align 8
-  %62 = load i32, ptr @g_CoverInfo, align 8
-  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef @.str.17, i32 noundef %62) #3
-  %64 = load ptr, ptr %4, align 8
-  %65 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 1), align 4
-  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef @.str.18, i32 noundef %65) #3
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef @.str.13) #3
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 6
+  %47 = load i32, ptr %46, align 8
+  %48 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 9
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 11
+  %51 = load i32, ptr %50, align 4
+  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef @.str.12, i32 noundef %47, i32 noundef %49, i32 noundef %51) #3
+  %53 = load ptr, ptr %4, align 8
+  %54 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 17
+  %55 = load i64, ptr %54, align 8
+  %56 = sitofp i64 %55 to float
+  %57 = fdiv float %56, 1.000000e+06
+  %58 = fpext float %57 to double
+  %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef @.str.14, double noundef %58) #3
+  %60 = load ptr, ptr %4, align 8
+  %61 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 18
+  %62 = load i64, ptr %61, align 8
+  %63 = sitofp i64 %62 to float
+  %64 = fdiv float %63, 1.000000e+06
+  %65 = fpext float %64 to double
+  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef @.str.15, double noundef %65) #3
   %67 = load ptr, ptr %4, align 8
-  %68 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 6), align 8
-  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef @.str.19, i32 noundef %68) #3
-  %70 = load ptr, ptr %4, align 8
-  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef @.str.20) #3
-  %72 = load ptr, ptr %4, align 8
-  call void @WriteTableIntoFile(ptr noundef %72)
-  %73 = load ptr, ptr %4, align 8
-  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef @.str.21) #3
-  %75 = load ptr, ptr %4, align 8
-  %76 = call i32 @fclose(ptr noundef %75)
+  %68 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 19
+  %69 = load i64, ptr %68, align 8
+  %70 = sitofp i64 %69 to float
+  %71 = fdiv float %70, 1.000000e+06
+  %72 = fpext float %71 to double
+  %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef @.str.16, double noundef %72) #3
+  %74 = load ptr, ptr %4, align 8
+  %75 = load i32, ptr @g_CoverInfo, align 8
+  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef @.str.17, i32 noundef %75) #3
+  %77 = load ptr, ptr %4, align 8
+  %78 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 1
+  %79 = load i32, ptr %78, align 4
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef @.str.18, i32 noundef %79) #3
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 6
+  %83 = load i32, ptr %82, align 8
+  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef @.str.19, i32 noundef %83) #3
+  %85 = load ptr, ptr %4, align 8
+  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef @.str.20) #3
+  %87 = load ptr, ptr %4, align 8
+  call void @WriteTableIntoFile(ptr noundef %87)
+  %88 = load ptr, ptr %4, align 8
+  %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef @.str.21) #3
+  %90 = load ptr, ptr %4, align 8
+  %91 = call i32 @fclose(ptr noundef %90)
   store i32 0, ptr %2, align 4
-  br label %77
+  br label %92
 
-77:                                               ; preds = %14, %11
-  %78 = load i32, ptr %2, align 4
-  ret i32 %78
+92:                                               ; preds = %14, %11
+  %93 = load i32, ptr %2, align 4
+  ret i32 %93
 }
 
 declare noalias ptr @fopen(ptr noundef, ptr noundef) #1

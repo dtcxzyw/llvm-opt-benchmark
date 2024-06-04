@@ -6219,35 +6219,36 @@ define void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(6
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.casadi::MXNode", ptr %5, i32 0, i32 2
-  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
-  %7 = getelementptr inbounds %"class.casadi::MXNode", ptr %5, i32 0, i32 3
-  invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
-          to label %8 unwind label %10
+  %6 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.casadi::MXNode", ptr %5, i32 0, i32 2
+  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %8 = getelementptr inbounds %"class.casadi::MXNode", ptr %5, i32 0, i32 3
+  invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0)
+          to label %9 unwind label %11
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"class.casadi::MXNode", ptr %5, i32 0, i32 1
-  store i64 0, ptr %9, align 8
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %"class.casadi::MXNode", ptr %5, i32 0, i32 1
+  store i64 0, ptr %10, align 8
   ret void
 
-10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %3, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %4, align 4
+  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   call void @_ZN6casadi20SharedObjectInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  br label %14
+  br label %15
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %3, align 8
+  %17 = load i32, ptr %4, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 declare void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
@@ -6308,206 +6309,207 @@ define void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(6
   %10 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %11 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 2
-  %13 = call ptr @_ZNSt6vectorIN6casadi2MXESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
-  store ptr %13, ptr %14, align 8
-  br label %15
+  %12 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 2
+  %14 = call ptr @_ZNSt6vectorIN6casadi2MXESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  br label %16
 
-15:                                               ; preds = %93, %1
-  %16 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 2
-  %17 = call ptr @_ZNSt6vectorIN6casadi2MXESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
-  store ptr %17, ptr %18, align 8
-  %19 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN6casadi2MXESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  br i1 %19, label %20, label %95
+16:                                               ; preds = %94, %1
+  %17 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 2
+  %18 = call ptr @_ZNSt6vectorIN6casadi2MXESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %19 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %18, ptr %19, align 8
+  %20 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN6casadi2MXESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  br i1 %20, label %21, label %96
 
-20:                                               ; preds = %15
-  %21 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %22 = invoke noundef zeroext i1 @_ZNK6casadi2MX11is_constantEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %23 unwind label %98
+21:                                               ; preds = %16
+  %22 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  %23 = invoke noundef zeroext i1 @_ZNK6casadi2MX11is_constantEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
+          to label %24 unwind label %99
 
-23:                                               ; preds = %20
-  br i1 %22, label %24, label %25
+24:                                               ; preds = %21
+  br i1 %23, label %25, label %26
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
+  br label %94
+
+26:                                               ; preds = %24
+  %27 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  %28 = invoke noundef i64 @_ZNK6casadi12SharedObject8getCountEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
+          to label %29 unwind label %99
+
+29:                                               ; preds = %26
+  %30 = icmp ne i64 %28, 1
+  br i1 %30, label %31, label %36
+
+31:                                               ; preds = %29
+  invoke void @_ZN6casadi2MXC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %32 unwind label %99
+
+32:                                               ; preds = %31
+  %33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi2MXaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %35 unwind label %99
+
+35:                                               ; preds = %32
+  call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   br label %93
 
-25:                                               ; preds = %23
-  %26 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %27 = invoke noundef i64 @_ZNK6casadi12SharedObject8getCountEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
-          to label %28 unwind label %98
-
-28:                                               ; preds = %25
-  %29 = icmp ne i64 %27, 1
-  br i1 %29, label %30, label %35
-
-30:                                               ; preds = %28
-  invoke void @_ZN6casadi2MXC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %31 unwind label %98
-
-31:                                               ; preds = %30
-  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi2MXaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %34 unwind label %98
-
-34:                                               ; preds = %31
-  call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  br label %92
-
-35:                                               ; preds = %28
+36:                                               ; preds = %29
   invoke void @_ZNSt5stackIN6casadi2MXESt5dequeIS1_SaIS1_EEEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %6)
-          to label %36 unwind label %98
+          to label %37 unwind label %99
 
-36:                                               ; preds = %35
-  %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  invoke void @_ZNSt5stackIN6casadi2MXESt5dequeIS1_SaIS1_EEE4pushERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(8) %37)
-          to label %38 unwind label %98
+37:                                               ; preds = %36
+  %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  invoke void @_ZNSt5stackIN6casadi2MXESt5dequeIS1_SaIS1_EEE4pushERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(8) %38)
+          to label %39 unwind label %99
 
-38:                                               ; preds = %36
+39:                                               ; preds = %37
   invoke void @_ZN6casadi2MXC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %39 unwind label %98
+          to label %40 unwind label %99
 
-39:                                               ; preds = %38
-  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi2MXaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %42 unwind label %98
+40:                                               ; preds = %39
+  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  %42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi2MXaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %43 unwind label %99
 
-42:                                               ; preds = %39
+43:                                               ; preds = %40
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %43
+  br label %44
 
-43:                                               ; preds = %90, %42
-  %44 = invoke noundef zeroext i1 @_ZNKSt5stackIN6casadi2MXESt5dequeIS1_SaIS1_EEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %6)
-          to label %45 unwind label %98
+44:                                               ; preds = %91, %43
+  %45 = invoke noundef zeroext i1 @_ZNKSt5stackIN6casadi2MXESt5dequeIS1_SaIS1_EEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %6)
+          to label %46 unwind label %99
 
-45:                                               ; preds = %43
-  %46 = xor i1 %44, true
-  br i1 %46, label %47, label %91
+46:                                               ; preds = %44
+  %47 = xor i1 %45, true
+  br i1 %47, label %48, label %92
 
-47:                                               ; preds = %45
-  %48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5stackIN6casadi2MXESt5dequeIS1_SaIS1_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %6)
-          to label %49 unwind label %98
+48:                                               ; preds = %46
+  %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5stackIN6casadi2MXESt5dequeIS1_SaIS1_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %6)
+          to label %50 unwind label %99
 
-49:                                               ; preds = %47
-  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %48)
-          to label %50 unwind label %98
+50:                                               ; preds = %48
+  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %49)
+          to label %51 unwind label %99
 
-50:                                               ; preds = %49
+51:                                               ; preds = %50
   store i8 0, ptr %9, align 1
-  br label %51
+  br label %52
 
-51:                                               ; preds = %84, %67, %50
-  %52 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %53 unwind label %98
+52:                                               ; preds = %85, %68, %51
+  %53 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %54 unwind label %99
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds %"class.casadi::MXNode", ptr %52, i32 0, i32 2
-  %55 = call noundef zeroext i1 @_ZNKSt6vectorIN6casadi2MXESaIS1_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %54) #3
-  %56 = xor i1 %55, true
-  br i1 %56, label %57, label %85
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds %"class.casadi::MXNode", ptr %53, i32 0, i32 2
+  %56 = call noundef zeroext i1 @_ZNKSt6vectorIN6casadi2MXESaIS1_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %55) #3
+  %57 = xor i1 %56, true
+  br i1 %57, label %58, label %86
 
-57:                                               ; preds = %53
-  %58 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %59 unwind label %98
+58:                                               ; preds = %54
+  %59 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %60 unwind label %99
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds %"class.casadi::MXNode", ptr %58, i32 0, i32 2
-  %61 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIN6casadi2MXESaIS1_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %60) #3
-  store ptr %61, ptr %10, align 8
-  %62 = load ptr, ptr %10, align 8
-  %63 = invoke noundef zeroext i1 @_ZNK6casadi2MX11is_constantEv(ptr noundef nonnull align 8 dereferenceable(8) %62)
-          to label %64 unwind label %98
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds %"class.casadi::MXNode", ptr %59, i32 0, i32 2
+  %62 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIN6casadi2MXESaIS1_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %61) #3
+  store ptr %62, ptr %10, align 8
+  %63 = load ptr, ptr %10, align 8
+  %64 = invoke noundef zeroext i1 @_ZNK6casadi2MX11is_constantEv(ptr noundef nonnull align 8 dereferenceable(8) %63)
+          to label %65 unwind label %99
 
-64:                                               ; preds = %59
-  br i1 %63, label %65, label %69
+65:                                               ; preds = %60
+  br i1 %64, label %66, label %70
 
-65:                                               ; preds = %64
-  %66 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %67 unwind label %98
+66:                                               ; preds = %65
+  %67 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %68 unwind label %99
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds %"class.casadi::MXNode", ptr %66, i32 0, i32 2
-  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %68) #3
-  br label %51, !llvm.loop !4
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds %"class.casadi::MXNode", ptr %67, i32 0, i32 2
+  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %69) #3
+  br label %52, !llvm.loop !4
 
-69:                                               ; preds = %64
-  %70 = load ptr, ptr %10, align 8
-  %71 = invoke noundef i64 @_ZNK6casadi12SharedObject8getCountEv(ptr noundef nonnull align 8 dereferenceable(8) %70)
-          to label %72 unwind label %98
+70:                                               ; preds = %65
+  %71 = load ptr, ptr %10, align 8
+  %72 = invoke noundef i64 @_ZNK6casadi12SharedObject8getCountEv(ptr noundef nonnull align 8 dereferenceable(8) %71)
+          to label %73 unwind label %99
 
-72:                                               ; preds = %69
-  %73 = icmp eq i64 %71, 1
-  br i1 %73, label %74, label %80
+73:                                               ; preds = %70
+  %74 = icmp eq i64 %72, 1
+  br i1 %74, label %75, label %81
 
-74:                                               ; preds = %72
-  %75 = load ptr, ptr %10, align 8
-  invoke void @_ZNSt5stackIN6casadi2MXESt5dequeIS1_SaIS1_EEE4pushERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(8) %75)
-          to label %76 unwind label %98
+75:                                               ; preds = %73
+  %76 = load ptr, ptr %10, align 8
+  invoke void @_ZNSt5stackIN6casadi2MXESt5dequeIS1_SaIS1_EEE4pushERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(8) %76)
+          to label %77 unwind label %99
 
-76:                                               ; preds = %74
-  %77 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %78 unwind label %98
+77:                                               ; preds = %75
+  %78 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %79 unwind label %99
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds %"class.casadi::MXNode", ptr %77, i32 0, i32 2
-  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %79) #3
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds %"class.casadi::MXNode", ptr %78, i32 0, i32 2
+  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %80) #3
   store i8 1, ptr %9, align 1
+  br label %86
+
+81:                                               ; preds = %73
+  %82 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %83 unwind label %99
+
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds %"class.casadi::MXNode", ptr %82, i32 0, i32 2
+  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %84) #3
   br label %85
 
-80:                                               ; preds = %72
-  %81 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %82 unwind label %98
+85:                                               ; preds = %83
+  br label %52, !llvm.loop !4
 
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds %"class.casadi::MXNode", ptr %81, i32 0, i32 2
-  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %83) #3
-  br label %84
+86:                                               ; preds = %79, %54
+  %87 = load i8, ptr %9, align 1
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %91, label %89
 
-84:                                               ; preds = %82
-  br label %51, !llvm.loop !4
-
-85:                                               ; preds = %78, %53
-  %86 = load i8, ptr %9, align 1
-  %87 = trunc i8 %86 to i1
-  br i1 %87, label %90, label %88
-
-88:                                               ; preds = %85
+89:                                               ; preds = %86
   invoke void @_ZNSt5stackIN6casadi2MXESt5dequeIS1_SaIS1_EEE3popEv(ptr noundef nonnull align 8 dereferenceable(80) %6)
-          to label %89 unwind label %98
+          to label %90 unwind label %99
 
-89:                                               ; preds = %88
-  br label %90
+90:                                               ; preds = %89
+  br label %91
 
-90:                                               ; preds = %89, %85
+91:                                               ; preds = %90, %86
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  br label %43, !llvm.loop !6
+  br label %44, !llvm.loop !6
 
-91:                                               ; preds = %45
+92:                                               ; preds = %46
   call void @_ZNSt5stackIN6casadi2MXESt5dequeIS1_SaIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #3
-  br label %92
-
-92:                                               ; preds = %91, %34
   br label %93
 
-93:                                               ; preds = %92, %24
-  %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  br label %15, !llvm.loop !7
+93:                                               ; preds = %92, %35
+  br label %94
 
-95:                                               ; preds = %15
-  %96 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 3
-  call void @_ZN6casadi8SparsityD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %96) #3
-  %97 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 2
-  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %97) #3
+94:                                               ; preds = %93, %25
+  %95 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  br label %16, !llvm.loop !7
+
+96:                                               ; preds = %16
+  %97 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 3
+  call void @_ZN6casadi8SparsityD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %97) #3
+  %98 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 2
+  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %98) #3
   call void @_ZN6casadi20SharedObjectInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
   ret void
 
-98:                                               ; preds = %88, %80, %76, %74, %69, %65, %59, %57, %51, %49, %47, %43, %39, %38, %36, %35, %31, %30, %25, %20
-  %99 = landingpad { ptr, i32 }
+99:                                               ; preds = %89, %81, %77, %75, %70, %66, %60, %58, %52, %50, %48, %44, %40, %39, %37, %36, %32, %31, %26, %21
+  %100 = landingpad { ptr, i32 }
           catch ptr null
-  %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #17
+  %101 = extractvalue { ptr, i32 } %100, 0
+  call void @__clang_call_terminate(ptr %101) #17
   unreachable
 }
 
@@ -7298,31 +7300,32 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7330,9 +7333,10 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -13832,7 +13836,8 @@ define linkonce_odr hidden void @_ZN6casadi14DenseTransposeC2ERKNS_2MXE(ptr noun
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi9TransposeC2ERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi14DenseTransposeE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi14DenseTransposeE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -14763,114 +14768,115 @@ define void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull 
   store ptr %1, ptr %4, align 8
   %11 = load ptr, ptr %3, align 8
   call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 2
-  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  %13 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 3
-  invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 0)
-          to label %14 unwind label %24
+  %12 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 2
+  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %14 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 3
+  invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 0)
+          to label %15 unwind label %25
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 1
-  store i64 0, ptr %15, align 8
-  %16 = load ptr, ptr %4, align 8
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 1
+  store i64 0, ptr %16, align 8
+  %17 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.56, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %17 unwind label %28
+          to label %18 unwind label %29
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 2
-  invoke void @_ZN6casadi19DeserializingStream6unpackISt6vectorINS_2MXESaIS3_EEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %16, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %18)
-          to label %19 unwind label %32
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 2
+  invoke void @_ZN6casadi19DeserializingStream6unpackISt6vectorINS_2MXESaIS3_EEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %17, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %33
 
-19:                                               ; preds = %17
+20:                                               ; preds = %18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  %20 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.57, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %21 unwind label %37
+          to label %22 unwind label %38
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 3
-  invoke void @_ZN6casadi19DeserializingStream6unpackINS_8SparsityEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %20, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %23 unwind label %41
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds %"class.casadi::MXNode", ptr %11, i32 0, i32 3
+  invoke void @_ZN6casadi19DeserializingStream6unpackINS_8SparsityEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %21, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %24 unwind label %42
 
-23:                                               ; preds = %21
+24:                                               ; preds = %22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
   ret void
 
-24:                                               ; preds = %2
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %2
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %5, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %6, align 4
-  br label %47
-
-28:                                               ; preds = %14
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %5, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %6, align 4
-  br label %36
-
-32:                                               ; preds = %17
-  %33 = landingpad { ptr, i32 }
-          cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %5, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %36
-
-36:                                               ; preds = %32, %28
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  br label %46
-
-37:                                               ; preds = %19
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %5, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %6, align 4
-  br label %45
-
-41:                                               ; preds = %21
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %5, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %45
-
-45:                                               ; preds = %41, %37
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  br label %46
-
-46:                                               ; preds = %45, %36
-  call void @_ZN6casadi8SparsityD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  br label %47
-
-47:                                               ; preds = %46, %24
-  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  call void @_ZN6casadi20SharedObjectInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %5, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %6, align 4
   br label %48
 
-48:                                               ; preds = %47
-  %49 = load ptr, ptr %5, align 8
-  %50 = load i32, ptr %6, align 4
-  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
-  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
-  resume { ptr, i32 } %52
+29:                                               ; preds = %15
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %5, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %6, align 4
+  br label %37
+
+33:                                               ; preds = %18
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %5, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %37
+
+37:                                               ; preds = %33, %29
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  br label %47
+
+38:                                               ; preds = %20
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %5, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %6, align 4
+  br label %46
+
+42:                                               ; preds = %22
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %5, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  br label %46
+
+46:                                               ; preds = %42, %38
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  br label %47
+
+47:                                               ; preds = %46, %37
+  call void @_ZN6casadi8SparsityD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %48
+
+48:                                               ; preds = %47, %25
+  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  call void @_ZN6casadi20SharedObjectInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  br label %49
+
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %5, align 8
+  %51 = load i32, ptr %6, align 4
+  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17705,7 +17711,8 @@ define linkonce_odr hidden void @_ZN6casadi19DenseMultiplicationC2ERKNS_2MXES3_S
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN6casadi14MultiplicationC2ERKNS_2MXES3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi19DenseMultiplicationE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %13 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi19DenseMultiplicationE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
   ret void
 }
 
@@ -18639,7 +18646,8 @@ define linkonce_odr void @_ZN6casadi9TriuSolveILb1EEC2ERKNS_2MXES4_(ptr noundef 
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN6casadi5SolveILb1EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi9TriuSolveILb1EEE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi9TriuSolveILb1EEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -18655,7 +18663,8 @@ define linkonce_odr void @_ZN6casadi9TriuSolveILb0EEC2ERKNS_2MXES4_(ptr noundef 
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN6casadi5SolveILb0EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi9TriuSolveILb0EEE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi9TriuSolveILb0EEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -18842,7 +18851,8 @@ define linkonce_odr void @_ZN6casadi9TrilSolveILb1EEC2ERKNS_2MXES4_(ptr noundef 
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN6casadi5SolveILb1EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi9TrilSolveILb1EEE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi9TrilSolveILb1EEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -18858,7 +18868,8 @@ define linkonce_odr void @_ZN6casadi9TrilSolveILb0EEC2ERKNS_2MXES4_(ptr noundef 
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN6casadi5SolveILb0EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi9TrilSolveILb0EEE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi9TrilSolveILb0EEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -19045,7 +19056,8 @@ define linkonce_odr void @_ZN6casadi14TriuSolveUnityILb1EEC2ERKNS_2MXES4_(ptr no
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN6casadi10SolveUnityILb1EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi14TriuSolveUnityILb1EEE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi14TriuSolveUnityILb1EEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -19061,7 +19073,8 @@ define linkonce_odr void @_ZN6casadi14TriuSolveUnityILb0EEC2ERKNS_2MXES4_(ptr no
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN6casadi10SolveUnityILb0EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi14TriuSolveUnityILb0EEE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi14TriuSolveUnityILb0EEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -19248,7 +19261,8 @@ define linkonce_odr void @_ZN6casadi14TrilSolveUnityILb1EEC2ERKNS_2MXES4_(ptr no
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN6casadi10SolveUnityILb1EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi14TrilSolveUnityILb1EEE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi14TrilSolveUnityILb1EEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -19264,7 +19278,8 @@ define linkonce_odr void @_ZN6casadi14TrilSolveUnityILb0EEC2ERKNS_2MXES4_(ptr no
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN6casadi10SolveUnityILb0EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi14TrilSolveUnityILb0EEE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi14TrilSolveUnityILb0EEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -19459,31 +19474,32 @@ define linkonce_odr void @_ZN6casadi10LinsolCallILb1EEC2ERKNS_2MXES4_RKNS_6Linso
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr %7, align 8
   call void @_ZN6casadi5SolveILb1EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb1EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %14 = getelementptr inbounds %"class.casadi::LinsolCall", ptr %11, i32 0, i32 1
-  %15 = load ptr, ptr %8, align 8
-  invoke void @_ZN6casadi6LinsolC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %16 unwind label %17
-
-16:                                               ; preds = %4
-  ret void
+  %14 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb1EEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"class.casadi::LinsolCall", ptr %11, i32 0, i32 1
+  %16 = load ptr, ptr %8, align 8
+  invoke void @_ZN6casadi6LinsolC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %17 unwind label %18
 
 17:                                               ; preds = %4
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %9, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %10, align 4
-  call void @_ZN6casadi5SolveILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
-  br label %21
+  ret void
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %9, align 8
-  %23 = load i32, ptr %10, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+18:                                               ; preds = %4
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %9, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %10, align 4
+  call void @_ZN6casadi5SolveILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i32, ptr %10, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -19502,31 +19518,32 @@ define linkonce_odr void @_ZN6casadi10LinsolCallILb0EEC2ERKNS_2MXES4_RKNS_6Linso
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr %7, align 8
   call void @_ZN6casadi5SolveILb0EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb0EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %14 = getelementptr inbounds %"class.casadi::LinsolCall.131", ptr %11, i32 0, i32 1
-  %15 = load ptr, ptr %8, align 8
-  invoke void @_ZN6casadi6LinsolC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %16 unwind label %17
-
-16:                                               ; preds = %4
-  ret void
+  %14 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb0EEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"class.casadi::LinsolCall.131", ptr %11, i32 0, i32 1
+  %16 = load ptr, ptr %8, align 8
+  invoke void @_ZN6casadi6LinsolC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %17 unwind label %18
 
 17:                                               ; preds = %4
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %9, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %10, align 4
-  call void @_ZN6casadi5SolveILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
-  br label %21
+  ret void
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %9, align 8
-  %23 = load i32, ptr %10, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+18:                                               ; preds = %4
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %9, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %10, align 4
+  call void @_ZN6casadi5SolveILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i32, ptr %10, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -22851,7 +22868,8 @@ define linkonce_odr hidden void @_ZN6casadi7DensifyC2ERKNS_2MXERKNS_8SparsityE(p
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN6casadi7ProjectC2ERKNS_2MXERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7DensifyE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi7DensifyE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -22867,7 +22885,8 @@ define linkonce_odr hidden void @_ZN6casadi8SparsifyC2ERKNS_2MXERKNS_8SparsityE(
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN6casadi7ProjectC2ERKNS_2MXERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8SparsifyE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi8SparsifyE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -25465,43 +25484,44 @@ define linkonce_odr void @_ZN6casadi8BinaryMXILb1ELb0EEC2ENS_9OperationERKNS_2MX
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb1ELb0EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.casadi::BinaryMX", ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %6, align 4
-  store i32 %13, ptr %12, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %16 unwind label %21
+  %12 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb1ELb0EEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.casadi::BinaryMX", ptr %11, i32 0, i32 1
+  %14 = load i32, ptr %6, align 4
+  store i32 %14, ptr %13, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %17 unwind label %22
 
-16:                                               ; preds = %4
-  %17 = load ptr, ptr %8, align 8
-  %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %19 unwind label %21
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %8, align 8
+  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
+          to label %20 unwind label %22
 
-19:                                               ; preds = %16
-  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %20 unwind label %21
+20:                                               ; preds = %17
+  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %21 unwind label %22
 
-20:                                               ; preds = %19
+21:                                               ; preds = %20
   ret void
 
-21:                                               ; preds = %19, %16, %4
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %20, %17, %4
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %9, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %10, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %9, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %10, align 4
   call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
-  br label %25
+  br label %26
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %9, align 8
-  %27 = load i32, ptr %10, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %9, align 8
+  %28 = load i32, ptr %10, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25518,43 +25538,44 @@ define linkonce_odr void @_ZN6casadi8BinaryMXILb0ELb1EEC2ENS_9OperationERKNS_2MX
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb1EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.casadi::BinaryMX.134", ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %6, align 4
-  store i32 %13, ptr %12, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %16 unwind label %21
+  %12 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb1EEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.casadi::BinaryMX.134", ptr %11, i32 0, i32 1
+  %14 = load i32, ptr %6, align 4
+  store i32 %14, ptr %13, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %17 unwind label %22
 
-16:                                               ; preds = %4
-  %17 = load ptr, ptr %7, align 8
-  %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %19 unwind label %21
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %7, align 8
+  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
+          to label %20 unwind label %22
 
-19:                                               ; preds = %16
-  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %20 unwind label %21
+20:                                               ; preds = %17
+  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %21 unwind label %22
 
-20:                                               ; preds = %19
+21:                                               ; preds = %20
   ret void
 
-21:                                               ; preds = %19, %16, %4
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %20, %17, %4
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %9, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %10, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %9, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %10, align 4
   call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
-  br label %25
+  br label %26
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %9, align 8
-  %27 = load i32, ptr %10, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %9, align 8
+  %28 = load i32, ptr %10, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25571,43 +25592,44 @@ define linkonce_odr void @_ZN6casadi8BinaryMXILb0ELb0EEC2ENS_9OperationERKNS_2MX
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb0EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.casadi::BinaryMX.136", ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %6, align 4
-  store i32 %13, ptr %12, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %16 unwind label %21
+  %12 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb0EEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.casadi::BinaryMX.136", ptr %11, i32 0, i32 1
+  %14 = load i32, ptr %6, align 4
+  store i32 %14, ptr %13, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %17 unwind label %22
 
-16:                                               ; preds = %4
-  %17 = load ptr, ptr %7, align 8
-  %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %19 unwind label %21
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %7, align 8
+  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
+          to label %20 unwind label %22
 
-19:                                               ; preds = %16
-  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %20 unwind label %21
+20:                                               ; preds = %17
+  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %21 unwind label %22
 
-20:                                               ; preds = %19
+21:                                               ; preds = %20
   ret void
 
-21:                                               ; preds = %19, %16, %4
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %20, %17, %4
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %9, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %10, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %9, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %10, align 4
   call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
-  br label %25
+  br label %26
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %9, align 8
-  %27 = load i32, ptr %10, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %9, align 8
+  %28 = load i32, ptr %10, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -27995,7 +28017,8 @@ define linkonce_odr hidden void @_ZN6casadi5NormFC2ERKNS_2MXE(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi4NormC2ERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5NormFE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi5NormFE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -28075,7 +28098,8 @@ define linkonce_odr hidden void @_ZN6casadi5Norm2C2ERKNS_2MXE(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi4NormC2ERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Norm2E, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi5Norm2E, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -28155,7 +28179,8 @@ define linkonce_odr hidden void @_ZN6casadi7NormInfC2ERKNS_2MXE(ptr noundef nonn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi4NormC2ERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7NormInfE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi7NormInfE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -28235,7 +28260,8 @@ define linkonce_odr hidden void @_ZN6casadi5Norm1C2ERKNS_2MXE(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi4NormC2ERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Norm1E, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi5Norm1E, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -34606,7 +34632,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -35518,7 +35545,8 @@ define linkonce_odr hidden void @_ZN6casadi5InputC2ERNS_19DeserializingStreamE(p
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi13IOInstructionC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5InputE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi5InputE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35533,7 +35561,8 @@ define linkonce_odr hidden void @_ZN6casadi6OutputC2ERNS_19DeserializingStreamE(
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi13IOInstructionC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6OutputE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi6OutputE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35550,7 +35579,8 @@ define linkonce_odr hidden void @_ZN6casadi4FindC2ERNS_19DeserializingStreamE(pt
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi4FindE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi4FindE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35565,7 +35595,8 @@ define linkonce_odr hidden void @_ZN6casadi11DeterminantC2ERNS_19DeserializingSt
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi11DeterminantE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi11DeterminantE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35578,7 +35609,8 @@ define linkonce_odr hidden void @_ZN6casadi7InverseC2ERNS_19DeserializingStreamE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7InverseE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi7InverseE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35591,7 +35623,8 @@ define linkonce_odr hidden void @_ZN6casadi3DotC2ERNS_19DeserializingStreamE(ptr
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi3DotE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi3DotE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35604,7 +35637,8 @@ define linkonce_odr hidden void @_ZN6casadi5BilinC2ERNS_19DeserializingStreamE(p
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5BilinE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi5BilinE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35617,7 +35651,8 @@ define linkonce_odr hidden void @_ZN6casadi5Rank1C2ERNS_19DeserializingStreamE(p
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Rank1E, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi5Rank1E, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35630,7 +35665,8 @@ define linkonce_odr hidden void @_ZN6casadi7HorzcatC2ERNS_19DeserializingStreamE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6ConcatC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7HorzcatE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi7HorzcatE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35643,7 +35679,8 @@ define linkonce_odr hidden void @_ZN6casadi6ConcatC2ERNS_19DeserializingStreamE(
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6ConcatE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi6ConcatE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35656,7 +35693,8 @@ define linkonce_odr hidden void @_ZN6casadi7VertcatC2ERNS_19DeserializingStreamE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6ConcatC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7VertcatE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi7VertcatE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35669,7 +35707,8 @@ define linkonce_odr hidden void @_ZN6casadi7DiagcatC2ERNS_19DeserializingStreamE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6ConcatC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7DiagcatE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi7DiagcatE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35682,7 +35721,8 @@ define linkonce_odr hidden void @_ZN6casadi9HorzsplitC2ERNS_19DeserializingStrea
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi5SplitC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi9HorzsplitE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi9HorzsplitE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35697,7 +35737,8 @@ define linkonce_odr hidden void @_ZN6casadi9VertsplitC2ERNS_19DeserializingStrea
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi5SplitC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi9VertsplitE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi9VertsplitE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35710,7 +35751,8 @@ define linkonce_odr hidden void @_ZN6casadi9DiagsplitC2ERNS_19DeserializingStrea
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi5SplitC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi9DiagsplitE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi9DiagsplitE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35723,7 +35765,8 @@ define linkonce_odr hidden void @_ZN6casadi7ReshapeC2ERNS_19DeserializingStreamE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7ReshapeE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi7ReshapeE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35736,7 +35779,8 @@ define linkonce_odr hidden void @_ZN6casadi12SparsityCastC2ERNS_19DeserializingS
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi12SparsityCastE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi12SparsityCastE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35753,7 +35797,8 @@ define linkonce_odr hidden void @_ZN6casadi5Norm1C2ERNS_19DeserializingStreamE(p
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi4NormC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Norm1E, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi5Norm1E, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35766,7 +35811,8 @@ define linkonce_odr hidden void @_ZN6casadi4NormC2ERNS_19DeserializingStreamE(pt
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi4NormE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi4NormE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35796,7 +35842,8 @@ define linkonce_odr hidden void @_ZN6casadi5Norm2C2ERNS_19DeserializingStreamE(p
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi4NormC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Norm2E, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi5Norm2E, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35809,7 +35856,8 @@ define linkonce_odr hidden void @_ZN6casadi7NormInfC2ERNS_19DeserializingStreamE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi4NormC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7NormInfE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi7NormInfE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35822,7 +35870,8 @@ define linkonce_odr hidden void @_ZN6casadi5NormFC2ERNS_19DeserializingStreamE(p
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi4NormC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5NormFE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi5NormFE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35835,7 +35884,8 @@ define linkonce_odr hidden void @_ZN6casadi4MMinC2ERNS_19DeserializingStreamE(pt
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi4MMinE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi4MMinE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35848,7 +35898,8 @@ define linkonce_odr hidden void @_ZN6casadi4MMaxC2ERNS_19DeserializingStreamE(pt
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi4MMaxE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi4MMaxE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35867,7 +35918,8 @@ define linkonce_odr hidden void @_ZN6casadi9LogSumExpC2ERNS_19DeserializingStrea
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi9LogSumExpE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi9LogSumExpE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -46158,54 +46210,55 @@ define linkonce_odr void @_ZN6casadi8BinaryMXILb1ELb1EEC2ERNS_19DeserializingStr
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(41) %11)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb1ELb1EEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb1ELb1EEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.112, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %13 unwind label %17
+          to label %14 unwind label %18
 
-13:                                               ; preds = %2
-  invoke void @_ZN6casadi19DeserializingStream6unpackIiEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %12, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %14 unwind label %21
+14:                                               ; preds = %2
+  invoke void @_ZN6casadi19DeserializingStream6unpackIiEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %15 unwind label %22
 
-14:                                               ; preds = %13
+15:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  %15 = load i32, ptr %5, align 4
-  %16 = getelementptr inbounds %"class.casadi::BinaryMX.165", ptr %10, i32 0, i32 1
-  store i32 %15, ptr %16, align 8
+  %16 = load i32, ptr %5, align 4
+  %17 = getelementptr inbounds %"class.casadi::BinaryMX.165", ptr %10, i32 0, i32 1
+  store i32 %16, ptr %17, align 8
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %8, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %9, align 4
-  br label %25
-
-21:                                               ; preds = %13
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %8, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  br label %25
-
-25:                                               ; preds = %21, %17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #3
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %8, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %9, align 4
   br label %26
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %8, align 8
-  %28 = load i32, ptr %9, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+22:                                               ; preds = %14
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %8, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %9, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  br label %26
+
+26:                                               ; preds = %22, %18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #3
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %8, align 8
+  %29 = load i32, ptr %9, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -46222,54 +46275,55 @@ define linkonce_odr void @_ZN6casadi8BinaryMXILb1ELb0EEC2ERNS_19DeserializingStr
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(41) %11)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb1ELb0EEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb1ELb0EEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.112, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %13 unwind label %17
+          to label %14 unwind label %18
 
-13:                                               ; preds = %2
-  invoke void @_ZN6casadi19DeserializingStream6unpackIiEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %12, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %14 unwind label %21
+14:                                               ; preds = %2
+  invoke void @_ZN6casadi19DeserializingStream6unpackIiEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %15 unwind label %22
 
-14:                                               ; preds = %13
+15:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  %15 = load i32, ptr %5, align 4
-  %16 = getelementptr inbounds %"class.casadi::BinaryMX", ptr %10, i32 0, i32 1
-  store i32 %15, ptr %16, align 8
+  %16 = load i32, ptr %5, align 4
+  %17 = getelementptr inbounds %"class.casadi::BinaryMX", ptr %10, i32 0, i32 1
+  store i32 %16, ptr %17, align 8
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %8, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %9, align 4
-  br label %25
-
-21:                                               ; preds = %13
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %8, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  br label %25
-
-25:                                               ; preds = %21, %17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #3
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %8, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %9, align 4
   br label %26
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %8, align 8
-  %28 = load i32, ptr %9, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+22:                                               ; preds = %14
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %8, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %9, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  br label %26
+
+26:                                               ; preds = %22, %18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #3
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %8, align 8
+  %29 = load i32, ptr %9, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -46286,54 +46340,55 @@ define linkonce_odr void @_ZN6casadi8BinaryMXILb0ELb1EEC2ERNS_19DeserializingStr
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(41) %11)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb1EEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb1EEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.112, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %13 unwind label %17
+          to label %14 unwind label %18
 
-13:                                               ; preds = %2
-  invoke void @_ZN6casadi19DeserializingStream6unpackIiEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %12, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %14 unwind label %21
+14:                                               ; preds = %2
+  invoke void @_ZN6casadi19DeserializingStream6unpackIiEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %15 unwind label %22
 
-14:                                               ; preds = %13
+15:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  %15 = load i32, ptr %5, align 4
-  %16 = getelementptr inbounds %"class.casadi::BinaryMX.134", ptr %10, i32 0, i32 1
-  store i32 %15, ptr %16, align 8
+  %16 = load i32, ptr %5, align 4
+  %17 = getelementptr inbounds %"class.casadi::BinaryMX.134", ptr %10, i32 0, i32 1
+  store i32 %16, ptr %17, align 8
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %8, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %9, align 4
-  br label %25
-
-21:                                               ; preds = %13
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %8, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  br label %25
-
-25:                                               ; preds = %21, %17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #3
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %8, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %9, align 4
   br label %26
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %8, align 8
-  %28 = load i32, ptr %9, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+22:                                               ; preds = %14
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %8, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %9, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  br label %26
+
+26:                                               ; preds = %22, %18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #3
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %8, align 8
+  %29 = load i32, ptr %9, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -46350,54 +46405,55 @@ define linkonce_odr void @_ZN6casadi8BinaryMXILb0ELb0EEC2ERNS_19DeserializingStr
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(41) %11)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb0EEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb0EEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.112, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %13 unwind label %17
+          to label %14 unwind label %18
 
-13:                                               ; preds = %2
-  invoke void @_ZN6casadi19DeserializingStream6unpackIiEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %12, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %14 unwind label %21
+14:                                               ; preds = %2
+  invoke void @_ZN6casadi19DeserializingStream6unpackIiEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %15 unwind label %22
 
-14:                                               ; preds = %13
+15:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  %15 = load i32, ptr %5, align 4
-  %16 = getelementptr inbounds %"class.casadi::BinaryMX.136", ptr %10, i32 0, i32 1
-  store i32 %15, ptr %16, align 8
+  %16 = load i32, ptr %5, align 4
+  %17 = getelementptr inbounds %"class.casadi::BinaryMX.136", ptr %10, i32 0, i32 1
+  store i32 %16, ptr %17, align 8
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %8, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %9, align 4
-  br label %25
-
-21:                                               ; preds = %13
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %8, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  br label %25
-
-25:                                               ; preds = %21, %17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #3
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %8, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %9, align 4
   br label %26
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %8, align 8
-  %28 = load i32, ptr %9, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+22:                                               ; preds = %14
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %8, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %9, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  br label %26
+
+26:                                               ; preds = %22, %18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #3
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %8, align 8
+  %29 = load i32, ptr %9, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 declare void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41), ptr noundef nonnull align 1 dereferenceable(1)) #1
@@ -88116,280 +88172,281 @@ define linkonce_odr void @_ZN6casadi5SolveILb1EEC2ERKNS_2MXES4_(ptr noundef nonn
   store ptr %2, ptr %6, align 8
   %23 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %23)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi5SolveILb1EEE, i32 0, i32 0, i32 2), ptr %23, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = invoke noundef i64 @_ZNK6casadi13GenericMatrixINS_2MXEE5size1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24)
-          to label %26 unwind label %47
+  %24 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi5SolveILb1EEE, i32 0, i32 0, i32 2
+  store ptr %24, ptr %23, align 8
+  %25 = load ptr, ptr %5, align 8
+  %26 = invoke noundef i64 @_ZNK6casadi13GenericMatrixINS_2MXEE5size1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25)
+          to label %27 unwind label %48
 
-26:                                               ; preds = %3
-  %27 = load ptr, ptr %6, align 8
-  %28 = invoke noundef i64 @_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev(ptr noundef nonnull align 1 dereferenceable(1) %27)
-          to label %29 unwind label %47
+27:                                               ; preds = %3
+  %28 = load ptr, ptr %6, align 8
+  %29 = invoke noundef i64 @_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev(ptr noundef nonnull align 1 dereferenceable(1) %28)
+          to label %30 unwind label %48
 
-29:                                               ; preds = %26
-  %30 = icmp eq i64 %25, %28
-  br i1 %30, label %113, label %31
+30:                                               ; preds = %27
+  %31 = icmp eq i64 %26, %29
+  br i1 %31, label %114, label %32
 
-31:                                               ; preds = %29
+32:                                               ; preds = %30
   store i1 true, ptr %22, align 1
-  %32 = call ptr @__cxa_allocate_exception(i64 40) #3
+  %33 = call ptr @__cxa_allocate_exception(i64 40) #3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef @.str.245, ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %33 unwind label %51
+          to label %34 unwind label %52
 
-33:                                               ; preds = %31
+34:                                               ; preds = %32
   invoke void @_ZN6casadi9trim_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %34 unwind label %55
-
-34:                                               ; preds = %33
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef @.str.1)
-          to label %35 unwind label %59
+          to label %35 unwind label %56
 
 35:                                               ; preds = %34
-  %36 = load ptr, ptr %5, align 8
-  invoke void @_ZNK6casadi13GenericMatrixINS_2MXEE3dimB5cxx11Eb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 1 dereferenceable(1) %36, i1 noundef zeroext false)
-          to label %37 unwind label %63
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef @.str.1)
+          to label %36 unwind label %60
 
-37:                                               ; preds = %35
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %5, align 8
+  invoke void @_ZNK6casadi13GenericMatrixINS_2MXEE3dimB5cxx11Eb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 1 dereferenceable(1) %37, i1 noundef zeroext false)
+          to label %38 unwind label %64
+
+38:                                               ; preds = %36
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %18, ptr noundef @.str.247, ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %38 unwind label %67
-
-38:                                               ; preds = %37
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef @.str.248)
-          to label %39 unwind label %71
+          to label %39 unwind label %68
 
 39:                                               ; preds = %38
-  %40 = load ptr, ptr %6, align 8
-  invoke void @_ZNK6casadi13GenericMatrixINS_2MXEE3dimB5cxx11Eb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef nonnull align 1 dereferenceable(1) %40, i1 noundef zeroext false)
-          to label %41 unwind label %75
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef @.str.248)
+          to label %40 unwind label %72
 
-41:                                               ; preds = %39
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %6, align 8
+  invoke void @_ZNK6casadi13GenericMatrixINS_2MXEE3dimB5cxx11Eb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef nonnull align 1 dereferenceable(1) %41, i1 noundef zeroext false)
+          to label %42 unwind label %76
+
+42:                                               ; preds = %40
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %20)
-          to label %42 unwind label %79
-
-42:                                               ; preds = %41
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef @.str.246, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %43 unwind label %83
+          to label %43 unwind label %80
 
 43:                                               ; preds = %42
-  call void @_ZN6casadi6strvecB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::vector.5") align 8 %21)
-  invoke void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(24) %21)
-          to label %44 unwind label %87
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef @.str.246, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %44 unwind label %84
 
 44:                                               ; preds = %43
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %45 unwind label %91
+  call void @_ZN6casadi6strvecB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::vector.5") align 8 %21)
+  invoke void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(24) %21)
+          to label %45 unwind label %88
 
 45:                                               ; preds = %44
-  invoke void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %46 unwind label %95
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %14)
+          to label %46 unwind label %92
 
 46:                                               ; preds = %45
+  invoke void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %47 unwind label %96
+
+47:                                               ; preds = %46
   store i1 false, ptr %22, align 1
-  invoke void @__cxa_throw(ptr %32, ptr @_ZTIN6casadi15CasadiExceptionE, ptr @_ZN6casadi15CasadiExceptionD2Ev) #18
-          to label %127 unwind label %95
+  invoke void @__cxa_throw(ptr %33, ptr @_ZTIN6casadi15CasadiExceptionE, ptr @_ZN6casadi15CasadiExceptionD2Ev) #18
+          to label %128 unwind label %96
 
-47:                                               ; preds = %119, %116, %113, %26, %3
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %120, %117, %114, %27, %3
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %7, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %8, align 4
-  br label %121
-
-51:                                               ; preds = %31
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %7, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %8, align 4
-  br label %109
-
-55:                                               ; preds = %33
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %7, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %8, align 4
-  br label %108
-
-59:                                               ; preds = %34
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %7, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %8, align 4
-  br label %107
-
-63:                                               ; preds = %35
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %7, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %8, align 4
-  br label %106
-
-67:                                               ; preds = %37
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %7, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %8, align 4
-  br label %105
-
-71:                                               ; preds = %38
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %7, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %8, align 4
-  br label %104
-
-75:                                               ; preds = %39
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %7, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %8, align 4
-  br label %103
-
-79:                                               ; preds = %41
-  %80 = landingpad { ptr, i32 }
-          cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %7, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %8, align 4
-  br label %102
-
-83:                                               ; preds = %42
-  %84 = landingpad { ptr, i32 }
-          cleanup
-  %85 = extractvalue { ptr, i32 } %84, 0
-  store ptr %85, ptr %7, align 8
-  %86 = extractvalue { ptr, i32 } %84, 1
-  store i32 %86, ptr %8, align 4
-  br label %101
-
-87:                                               ; preds = %43
-  %88 = landingpad { ptr, i32 }
-          cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %7, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %8, align 4
-  br label %100
-
-91:                                               ; preds = %44
-  %92 = landingpad { ptr, i32 }
-          cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  store ptr %93, ptr %7, align 8
-  %94 = extractvalue { ptr, i32 } %92, 1
-  store i32 %94, ptr %8, align 4
-  br label %99
-
-95:                                               ; preds = %46, %45
-  %96 = landingpad { ptr, i32 }
-          cleanup
-  %97 = extractvalue { ptr, i32 } %96, 0
-  store ptr %97, ptr %7, align 8
-  %98 = extractvalue { ptr, i32 } %96, 1
-  store i32 %98, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %99
-
-99:                                               ; preds = %95, %91
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
-  br label %100
-
-100:                                              ; preds = %99, %87
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  br label %101
-
-101:                                              ; preds = %100, %83
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
-  br label %102
-
-102:                                              ; preds = %101, %79
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  br label %103
-
-103:                                              ; preds = %102, %75
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
-  br label %104
-
-104:                                              ; preds = %103, %71
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
-  br label %105
-
-105:                                              ; preds = %104, %67
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
-  br label %106
-
-106:                                              ; preds = %105, %63
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  br label %107
-
-107:                                              ; preds = %106, %59
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  br label %108
-
-108:                                              ; preds = %107, %55
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  br label %109
-
-109:                                              ; preds = %108, %51
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
-  %110 = load i1, ptr %22, align 1
-  br i1 %110, label %111, label %112
-
-111:                                              ; preds = %109
-  call void @__cxa_free_exception(ptr %32) #3
-  br label %112
-
-112:                                              ; preds = %111, %109
-  br label %121
-
-113:                                              ; preds = %29
-  %114 = load ptr, ptr %5, align 8
-  %115 = load ptr, ptr %6, align 8
-  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull align 8 dereferenceable(8) %115)
-          to label %116 unwind label %47
-
-116:                                              ; preds = %113
-  %117 = load ptr, ptr %5, align 8
-  %118 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %117)
-          to label %119 unwind label %47
-
-119:                                              ; preds = %116
-  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(8) %118)
-          to label %120 unwind label %47
-
-120:                                              ; preds = %119
-  ret void
-
-121:                                              ; preds = %112, %47
-  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %23) #3
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %7, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %8, align 4
   br label %122
 
-122:                                              ; preds = %121
-  %123 = load ptr, ptr %7, align 8
-  %124 = load i32, ptr %8, align 4
-  %125 = insertvalue { ptr, i32 } poison, ptr %123, 0
-  %126 = insertvalue { ptr, i32 } %125, i32 %124, 1
-  resume { ptr, i32 } %126
+52:                                               ; preds = %32
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %7, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %8, align 4
+  br label %110
 
-127:                                              ; preds = %46
+56:                                               ; preds = %34
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %7, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %8, align 4
+  br label %109
+
+60:                                               ; preds = %35
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %7, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %8, align 4
+  br label %108
+
+64:                                               ; preds = %36
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %7, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %8, align 4
+  br label %107
+
+68:                                               ; preds = %38
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %7, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %8, align 4
+  br label %106
+
+72:                                               ; preds = %39
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %7, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %8, align 4
+  br label %105
+
+76:                                               ; preds = %40
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %7, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %8, align 4
+  br label %104
+
+80:                                               ; preds = %42
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %7, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %8, align 4
+  br label %103
+
+84:                                               ; preds = %43
+  %85 = landingpad { ptr, i32 }
+          cleanup
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %7, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %8, align 4
+  br label %102
+
+88:                                               ; preds = %44
+  %89 = landingpad { ptr, i32 }
+          cleanup
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %7, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %8, align 4
+  br label %101
+
+92:                                               ; preds = %45
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  %94 = extractvalue { ptr, i32 } %93, 0
+  store ptr %94, ptr %7, align 8
+  %95 = extractvalue { ptr, i32 } %93, 1
+  store i32 %95, ptr %8, align 4
+  br label %100
+
+96:                                               ; preds = %47, %46
+  %97 = landingpad { ptr, i32 }
+          cleanup
+  %98 = extractvalue { ptr, i32 } %97, 0
+  store ptr %98, ptr %7, align 8
+  %99 = extractvalue { ptr, i32 } %97, 1
+  store i32 %99, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  br label %100
+
+100:                                              ; preds = %96, %92
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  br label %101
+
+101:                                              ; preds = %100, %88
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  br label %102
+
+102:                                              ; preds = %101, %84
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  br label %103
+
+103:                                              ; preds = %102, %80
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
+  br label %104
+
+104:                                              ; preds = %103, %76
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  br label %105
+
+105:                                              ; preds = %104, %72
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
+  br label %106
+
+106:                                              ; preds = %105, %68
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
+  br label %107
+
+107:                                              ; preds = %106, %64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  br label %108
+
+108:                                              ; preds = %107, %60
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %109
+
+109:                                              ; preds = %108, %56
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  br label %110
+
+110:                                              ; preds = %109, %52
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
+  %111 = load i1, ptr %22, align 1
+  br i1 %111, label %112, label %113
+
+112:                                              ; preds = %110
+  call void @__cxa_free_exception(ptr %33) #3
+  br label %113
+
+113:                                              ; preds = %112, %110
+  br label %122
+
+114:                                              ; preds = %30
+  %115 = load ptr, ptr %5, align 8
+  %116 = load ptr, ptr %6, align 8
+  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef nonnull align 8 dereferenceable(8) %116)
+          to label %117 unwind label %48
+
+117:                                              ; preds = %114
+  %118 = load ptr, ptr %5, align 8
+  %119 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %118)
+          to label %120 unwind label %48
+
+120:                                              ; preds = %117
+  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(8) %119)
+          to label %121 unwind label %48
+
+121:                                              ; preds = %120
+  ret void
+
+122:                                              ; preds = %113, %48
+  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %23) #3
+  br label %123
+
+123:                                              ; preds = %122
+  %124 = load ptr, ptr %7, align 8
+  %125 = load i32, ptr %8, align 4
+  %126 = insertvalue { ptr, i32 } poison, ptr %124, 0
+  %127 = insertvalue { ptr, i32 } %126, i32 %125, 1
+  resume { ptr, i32 } %127
+
+128:                                              ; preds = %47
   unreachable
 }
 
@@ -95305,280 +95362,281 @@ define linkonce_odr void @_ZN6casadi5SolveILb0EEC2ERKNS_2MXES4_(ptr noundef nonn
   store ptr %2, ptr %6, align 8
   %23 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %23)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi5SolveILb0EEE, i32 0, i32 0, i32 2), ptr %23, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = invoke noundef i64 @_ZNK6casadi13GenericMatrixINS_2MXEE5size1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24)
-          to label %26 unwind label %47
+  %24 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi5SolveILb0EEE, i32 0, i32 0, i32 2
+  store ptr %24, ptr %23, align 8
+  %25 = load ptr, ptr %5, align 8
+  %26 = invoke noundef i64 @_ZNK6casadi13GenericMatrixINS_2MXEE5size1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25)
+          to label %27 unwind label %48
 
-26:                                               ; preds = %3
-  %27 = load ptr, ptr %6, align 8
-  %28 = invoke noundef i64 @_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev(ptr noundef nonnull align 1 dereferenceable(1) %27)
-          to label %29 unwind label %47
+27:                                               ; preds = %3
+  %28 = load ptr, ptr %6, align 8
+  %29 = invoke noundef i64 @_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev(ptr noundef nonnull align 1 dereferenceable(1) %28)
+          to label %30 unwind label %48
 
-29:                                               ; preds = %26
-  %30 = icmp eq i64 %25, %28
-  br i1 %30, label %113, label %31
+30:                                               ; preds = %27
+  %31 = icmp eq i64 %26, %29
+  br i1 %31, label %114, label %32
 
-31:                                               ; preds = %29
+32:                                               ; preds = %30
   store i1 true, ptr %22, align 1
-  %32 = call ptr @__cxa_allocate_exception(i64 40) #3
+  %33 = call ptr @__cxa_allocate_exception(i64 40) #3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef @.str.245, ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %33 unwind label %51
+          to label %34 unwind label %52
 
-33:                                               ; preds = %31
+34:                                               ; preds = %32
   invoke void @_ZN6casadi9trim_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %34 unwind label %55
-
-34:                                               ; preds = %33
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef @.str.1)
-          to label %35 unwind label %59
+          to label %35 unwind label %56
 
 35:                                               ; preds = %34
-  %36 = load ptr, ptr %5, align 8
-  invoke void @_ZNK6casadi13GenericMatrixINS_2MXEE3dimB5cxx11Eb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 1 dereferenceable(1) %36, i1 noundef zeroext false)
-          to label %37 unwind label %63
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef @.str.1)
+          to label %36 unwind label %60
 
-37:                                               ; preds = %35
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %5, align 8
+  invoke void @_ZNK6casadi13GenericMatrixINS_2MXEE3dimB5cxx11Eb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 1 dereferenceable(1) %37, i1 noundef zeroext false)
+          to label %38 unwind label %64
+
+38:                                               ; preds = %36
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %18, ptr noundef @.str.247, ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %38 unwind label %67
-
-38:                                               ; preds = %37
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef @.str.248)
-          to label %39 unwind label %71
+          to label %39 unwind label %68
 
 39:                                               ; preds = %38
-  %40 = load ptr, ptr %6, align 8
-  invoke void @_ZNK6casadi13GenericMatrixINS_2MXEE3dimB5cxx11Eb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef nonnull align 1 dereferenceable(1) %40, i1 noundef zeroext false)
-          to label %41 unwind label %75
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef @.str.248)
+          to label %40 unwind label %72
 
-41:                                               ; preds = %39
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %6, align 8
+  invoke void @_ZNK6casadi13GenericMatrixINS_2MXEE3dimB5cxx11Eb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef nonnull align 1 dereferenceable(1) %41, i1 noundef zeroext false)
+          to label %42 unwind label %76
+
+42:                                               ; preds = %40
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %20)
-          to label %42 unwind label %79
-
-42:                                               ; preds = %41
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef @.str.246, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %43 unwind label %83
+          to label %43 unwind label %80
 
 43:                                               ; preds = %42
-  call void @_ZN6casadi6strvecB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::vector.5") align 8 %21)
-  invoke void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(24) %21)
-          to label %44 unwind label %87
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef @.str.246, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %44 unwind label %84
 
 44:                                               ; preds = %43
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %45 unwind label %91
+  call void @_ZN6casadi6strvecB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::vector.5") align 8 %21)
+  invoke void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(24) %21)
+          to label %45 unwind label %88
 
 45:                                               ; preds = %44
-  invoke void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %46 unwind label %95
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %14)
+          to label %46 unwind label %92
 
 46:                                               ; preds = %45
+  invoke void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %47 unwind label %96
+
+47:                                               ; preds = %46
   store i1 false, ptr %22, align 1
-  invoke void @__cxa_throw(ptr %32, ptr @_ZTIN6casadi15CasadiExceptionE, ptr @_ZN6casadi15CasadiExceptionD2Ev) #18
-          to label %127 unwind label %95
+  invoke void @__cxa_throw(ptr %33, ptr @_ZTIN6casadi15CasadiExceptionE, ptr @_ZN6casadi15CasadiExceptionD2Ev) #18
+          to label %128 unwind label %96
 
-47:                                               ; preds = %119, %116, %113, %26, %3
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %120, %117, %114, %27, %3
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %7, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %8, align 4
-  br label %121
-
-51:                                               ; preds = %31
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %7, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %8, align 4
-  br label %109
-
-55:                                               ; preds = %33
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %7, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %8, align 4
-  br label %108
-
-59:                                               ; preds = %34
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %7, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %8, align 4
-  br label %107
-
-63:                                               ; preds = %35
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %7, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %8, align 4
-  br label %106
-
-67:                                               ; preds = %37
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %7, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %8, align 4
-  br label %105
-
-71:                                               ; preds = %38
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %7, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %8, align 4
-  br label %104
-
-75:                                               ; preds = %39
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %7, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %8, align 4
-  br label %103
-
-79:                                               ; preds = %41
-  %80 = landingpad { ptr, i32 }
-          cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %7, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %8, align 4
-  br label %102
-
-83:                                               ; preds = %42
-  %84 = landingpad { ptr, i32 }
-          cleanup
-  %85 = extractvalue { ptr, i32 } %84, 0
-  store ptr %85, ptr %7, align 8
-  %86 = extractvalue { ptr, i32 } %84, 1
-  store i32 %86, ptr %8, align 4
-  br label %101
-
-87:                                               ; preds = %43
-  %88 = landingpad { ptr, i32 }
-          cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %7, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %8, align 4
-  br label %100
-
-91:                                               ; preds = %44
-  %92 = landingpad { ptr, i32 }
-          cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  store ptr %93, ptr %7, align 8
-  %94 = extractvalue { ptr, i32 } %92, 1
-  store i32 %94, ptr %8, align 4
-  br label %99
-
-95:                                               ; preds = %46, %45
-  %96 = landingpad { ptr, i32 }
-          cleanup
-  %97 = extractvalue { ptr, i32 } %96, 0
-  store ptr %97, ptr %7, align 8
-  %98 = extractvalue { ptr, i32 } %96, 1
-  store i32 %98, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %99
-
-99:                                               ; preds = %95, %91
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
-  br label %100
-
-100:                                              ; preds = %99, %87
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  br label %101
-
-101:                                              ; preds = %100, %83
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
-  br label %102
-
-102:                                              ; preds = %101, %79
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  br label %103
-
-103:                                              ; preds = %102, %75
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
-  br label %104
-
-104:                                              ; preds = %103, %71
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
-  br label %105
-
-105:                                              ; preds = %104, %67
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
-  br label %106
-
-106:                                              ; preds = %105, %63
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  br label %107
-
-107:                                              ; preds = %106, %59
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  br label %108
-
-108:                                              ; preds = %107, %55
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  br label %109
-
-109:                                              ; preds = %108, %51
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
-  %110 = load i1, ptr %22, align 1
-  br i1 %110, label %111, label %112
-
-111:                                              ; preds = %109
-  call void @__cxa_free_exception(ptr %32) #3
-  br label %112
-
-112:                                              ; preds = %111, %109
-  br label %121
-
-113:                                              ; preds = %29
-  %114 = load ptr, ptr %5, align 8
-  %115 = load ptr, ptr %6, align 8
-  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull align 8 dereferenceable(8) %115)
-          to label %116 unwind label %47
-
-116:                                              ; preds = %113
-  %117 = load ptr, ptr %5, align 8
-  %118 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %117)
-          to label %119 unwind label %47
-
-119:                                              ; preds = %116
-  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(8) %118)
-          to label %120 unwind label %47
-
-120:                                              ; preds = %119
-  ret void
-
-121:                                              ; preds = %112, %47
-  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %23) #3
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %7, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %8, align 4
   br label %122
 
-122:                                              ; preds = %121
-  %123 = load ptr, ptr %7, align 8
-  %124 = load i32, ptr %8, align 4
-  %125 = insertvalue { ptr, i32 } poison, ptr %123, 0
-  %126 = insertvalue { ptr, i32 } %125, i32 %124, 1
-  resume { ptr, i32 } %126
+52:                                               ; preds = %32
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %7, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %8, align 4
+  br label %110
 
-127:                                              ; preds = %46
+56:                                               ; preds = %34
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %7, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %8, align 4
+  br label %109
+
+60:                                               ; preds = %35
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %7, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %8, align 4
+  br label %108
+
+64:                                               ; preds = %36
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %7, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %8, align 4
+  br label %107
+
+68:                                               ; preds = %38
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %7, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %8, align 4
+  br label %106
+
+72:                                               ; preds = %39
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %7, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %8, align 4
+  br label %105
+
+76:                                               ; preds = %40
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %7, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %8, align 4
+  br label %104
+
+80:                                               ; preds = %42
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %7, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %8, align 4
+  br label %103
+
+84:                                               ; preds = %43
+  %85 = landingpad { ptr, i32 }
+          cleanup
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %7, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %8, align 4
+  br label %102
+
+88:                                               ; preds = %44
+  %89 = landingpad { ptr, i32 }
+          cleanup
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %7, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %8, align 4
+  br label %101
+
+92:                                               ; preds = %45
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  %94 = extractvalue { ptr, i32 } %93, 0
+  store ptr %94, ptr %7, align 8
+  %95 = extractvalue { ptr, i32 } %93, 1
+  store i32 %95, ptr %8, align 4
+  br label %100
+
+96:                                               ; preds = %47, %46
+  %97 = landingpad { ptr, i32 }
+          cleanup
+  %98 = extractvalue { ptr, i32 } %97, 0
+  store ptr %98, ptr %7, align 8
+  %99 = extractvalue { ptr, i32 } %97, 1
+  store i32 %99, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  br label %100
+
+100:                                              ; preds = %96, %92
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  br label %101
+
+101:                                              ; preds = %100, %88
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  br label %102
+
+102:                                              ; preds = %101, %84
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  br label %103
+
+103:                                              ; preds = %102, %80
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
+  br label %104
+
+104:                                              ; preds = %103, %76
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  br label %105
+
+105:                                              ; preds = %104, %72
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
+  br label %106
+
+106:                                              ; preds = %105, %68
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
+  br label %107
+
+107:                                              ; preds = %106, %64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  br label %108
+
+108:                                              ; preds = %107, %60
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %109
+
+109:                                              ; preds = %108, %56
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  br label %110
+
+110:                                              ; preds = %109, %52
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
+  %111 = load i1, ptr %22, align 1
+  br i1 %111, label %112, label %113
+
+112:                                              ; preds = %110
+  call void @__cxa_free_exception(ptr %33) #3
+  br label %113
+
+113:                                              ; preds = %112, %110
+  br label %122
+
+114:                                              ; preds = %30
+  %115 = load ptr, ptr %5, align 8
+  %116 = load ptr, ptr %6, align 8
+  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef nonnull align 8 dereferenceable(8) %116)
+          to label %117 unwind label %48
+
+117:                                              ; preds = %114
+  %118 = load ptr, ptr %5, align 8
+  %119 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %118)
+          to label %120 unwind label %48
+
+120:                                              ; preds = %117
+  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(8) %119)
+          to label %121 unwind label %48
+
+121:                                              ; preds = %120
+  ret void
+
+122:                                              ; preds = %113, %48
+  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %23) #3
+  br label %123
+
+123:                                              ; preds = %122
+  %124 = load ptr, ptr %7, align 8
+  %125 = load i32, ptr %8, align 4
+  %126 = insertvalue { ptr, i32 } poison, ptr %124, 0
+  %127 = insertvalue { ptr, i32 } %126, i32 %125, 1
+  resume { ptr, i32 } %127
+
+128:                                              ; preds = %47
   unreachable
 }
 
@@ -99385,30 +99443,31 @@ define linkonce_odr void @_ZN6casadi10SolveUnityILb1EEC2ERKNS_2MXES4_(ptr nounde
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN6casadi5SolveILb1EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"class.casadi::SolveUnity", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 0)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %12 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"class.casadi::SolveUnity", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 0)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZN6casadi5SolveILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZN6casadi5SolveILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -99908,9 +99967,10 @@ define linkonce_odr hidden void @_ZN6casadi10SolveUnityILb1EED2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.casadi::SolveUnity", ptr %3, i32 0, i32 1
-  call void @_ZN6casadi8SparsityD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.casadi::SolveUnity", ptr %3, i32 0, i32 1
+  call void @_ZN6casadi8SparsityD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN6casadi5SolveILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #3
   ret void
 }
@@ -99967,30 +100027,31 @@ define linkonce_odr void @_ZN6casadi10SolveUnityILb0EEC2ERKNS_2MXES4_(ptr nounde
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN6casadi5SolveILb0EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"class.casadi::SolveUnity.128", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 0)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %12 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"class.casadi::SolveUnity.128", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 0)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZN6casadi5SolveILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZN6casadi5SolveILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -100490,9 +100551,10 @@ define linkonce_odr hidden void @_ZN6casadi10SolveUnityILb0EED2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.casadi::SolveUnity.128", ptr %3, i32 0, i32 1
-  call void @_ZN6casadi8SparsityD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.casadi::SolveUnity.128", ptr %3, i32 0, i32 1
+  call void @_ZN6casadi8SparsityD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN6casadi5SolveILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #3
   ret void
 }
@@ -101226,9 +101288,10 @@ define linkonce_odr hidden void @_ZN6casadi10LinsolCallILb1EED2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb1EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.casadi::LinsolCall", ptr %3, i32 0, i32 1
-  call void @_ZN6casadi6LinsolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb1EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.casadi::LinsolCall", ptr %3, i32 0, i32 1
+  call void @_ZN6casadi6LinsolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN6casadi5SolveILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #3
   ret void
 }
@@ -102302,9 +102365,10 @@ define linkonce_odr hidden void @_ZN6casadi10LinsolCallILb0EED2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb0EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.casadi::LinsolCall.131", ptr %3, i32 0, i32 1
-  call void @_ZN6casadi6LinsolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb0EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.casadi::LinsolCall.131", ptr %3, i32 0, i32 1
+  call void @_ZN6casadi6LinsolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN6casadi5SolveILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #3
   ret void
 }
@@ -103611,161 +103675,162 @@ define linkonce_odr void @_ZN6casadi17SetNonzerosVectorILb0EEC2ERKNS_2MXES4_RKSt
   %19 = load ptr, ptr %6, align 8
   %20 = load ptr, ptr %7, align 8
   call void @_ZN6casadi11SetNonzerosILb0EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb0EEE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %21 = getelementptr inbounds %"class.casadi::SetNonzerosVector", ptr %18, i32 0, i32 1
-  %22 = load ptr, ptr %8, align 8
-  invoke void @_ZNSt6vectorIxSaIxEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22)
-          to label %23 unwind label %51
+  %21 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb0EEE, i32 0, i32 0, i32 2
+  store ptr %21, ptr %18, align 8
+  %22 = getelementptr inbounds %"class.casadi::SetNonzerosVector", ptr %18, i32 0, i32 1
+  %23 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt6vectorIxSaIxEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23)
+          to label %24 unwind label %52
 
-23:                                               ; preds = %4
-  %24 = invoke noundef i64 @_ZNK6casadi6MXNode3nnzEx(ptr noundef nonnull align 8 dereferenceable(64) %18, i64 noundef 0)
-          to label %25 unwind label %55
+24:                                               ; preds = %4
+  %25 = invoke noundef i64 @_ZNK6casadi6MXNode3nnzEx(ptr noundef nonnull align 8 dereferenceable(64) %18, i64 noundef 0)
+          to label %26 unwind label %56
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   store i8 0, ptr %12, align 1
   call void @_ZNSaIbEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
-  invoke void @_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %26 unwind label %59
+  invoke void @_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %25, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %27 unwind label %60
 
-26:                                               ; preds = %25
+27:                                               ; preds = %26
   call void @_ZNSaIbED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
-  %27 = getelementptr inbounds %"class.casadi::SetNonzerosVector", ptr %18, i32 0, i32 1
-  call void @_ZNSt6vectorIxSaIxEE6rbeginEv(ptr dead_on_unwind writable sret(%"class.std::reverse_iterator") align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %27) #3
-  br label %28
+  %28 = getelementptr inbounds %"class.casadi::SetNonzerosVector", ptr %18, i32 0, i32 1
+  call void @_ZNSt6vectorIxSaIxEE6rbeginEv(ptr dead_on_unwind writable sret(%"class.std::reverse_iterator") align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %28) #3
+  br label %29
 
-28:                                               ; preds = %82, %26
-  %29 = getelementptr inbounds %"class.casadi::SetNonzerosVector", ptr %18, i32 0, i32 1
-  call void @_ZNSt6vectorIxSaIxEE4rendEv(ptr dead_on_unwind writable sret(%"class.std::reverse_iterator") align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %29) #3
-  %30 = invoke noundef zeroext i1 @_ZStneIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEEbRKSt16reverse_iteratorIT_ESB_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %31 unwind label %63
+29:                                               ; preds = %83, %27
+  %30 = getelementptr inbounds %"class.casadi::SetNonzerosVector", ptr %18, i32 0, i32 1
+  call void @_ZNSt6vectorIxSaIxEE4rendEv(ptr dead_on_unwind writable sret(%"class.std::reverse_iterator") align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %30) #3
+  %31 = invoke noundef zeroext i1 @_ZStneIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEEbRKSt16reverse_iteratorIT_ESB_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %32 unwind label %64
 
-31:                                               ; preds = %28
-  br i1 %30, label %32, label %83
+32:                                               ; preds = %29
+  br i1 %31, label %33, label %84
 
-32:                                               ; preds = %31
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %34 unwind label %63
+33:                                               ; preds = %32
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %35 unwind label %64
 
-34:                                               ; preds = %32
-  %35 = load i64, ptr %33, align 8
-  %36 = icmp sge i64 %35, 0
-  br i1 %36, label %37, label %79
+35:                                               ; preds = %33
+  %36 = load i64, ptr %34, align 8
+  %37 = icmp sge i64 %36, 0
+  br i1 %37, label %38, label %80
 
-37:                                               ; preds = %34
-  %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %39 unwind label %63
+38:                                               ; preds = %35
+  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %40 unwind label %64
 
-39:                                               ; preds = %37
-  %40 = load i64, ptr %38, align 8
-  %41 = invoke { ptr, i64 } @_ZNSt6vectorIbSaIbEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %40)
-          to label %42 unwind label %63
+40:                                               ; preds = %38
+  %41 = load i64, ptr %39, align 8
+  %42 = invoke { ptr, i64 } @_ZNSt6vectorIbSaIbEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %41)
+          to label %43 unwind label %64
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds { ptr, i64 }, ptr %16, i32 0, i32 0
-  %44 = extractvalue { ptr, i64 } %41, 0
-  store ptr %44, ptr %43, align 8
-  %45 = getelementptr inbounds { ptr, i64 }, ptr %16, i32 0, i32 1
-  %46 = extractvalue { ptr, i64 } %41, 1
-  store i64 %46, ptr %45, align 8
-  %47 = call noundef zeroext i1 @_ZNKSt14_Bit_referencecvbEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
-  br i1 %47, label %48, label %67
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds { ptr, i64 }, ptr %16, i32 0, i32 0
+  %45 = extractvalue { ptr, i64 } %42, 0
+  store ptr %45, ptr %44, align 8
+  %46 = getelementptr inbounds { ptr, i64 }, ptr %16, i32 0, i32 1
+  %47 = extractvalue { ptr, i64 } %42, 1
+  store i64 %47, ptr %46, align 8
+  %48 = call noundef zeroext i1 @_ZNKSt14_Bit_referencecvbEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br i1 %48, label %49, label %68
 
-48:                                               ; preds = %42
-  %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %50 unwind label %63
+49:                                               ; preds = %43
+  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %51 unwind label %64
 
-50:                                               ; preds = %48
-  store i64 -1, ptr %49, align 8
-  br label %78
-
-51:                                               ; preds = %4
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %9, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %10, align 4
-  br label %85
-
-55:                                               ; preds = %23
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %9, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %10, align 4
-  br label %84
-
-59:                                               ; preds = %25
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %9, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %10, align 4
-  call void @_ZNSaIbED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
-  br label %84
-
-63:                                               ; preds = %80, %69, %67, %48, %39, %37, %32, %28
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %9, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %10, align 4
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #3
-  br label %84
-
-67:                                               ; preds = %42
-  %68 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %69 unwind label %63
-
-69:                                               ; preds = %67
-  %70 = load i64, ptr %68, align 8
-  %71 = invoke { ptr, i64 } @_ZNSt6vectorIbSaIbEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %70)
-          to label %72 unwind label %63
-
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds { ptr, i64 }, ptr %17, i32 0, i32 0
-  %74 = extractvalue { ptr, i64 } %71, 0
-  store ptr %74, ptr %73, align 8
-  %75 = getelementptr inbounds { ptr, i64 }, ptr %17, i32 0, i32 1
-  %76 = extractvalue { ptr, i64 } %71, 1
-  store i64 %76, ptr %75, align 8
-  %77 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt14_Bit_referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %17, i1 noundef zeroext true) #3
-  br label %78
-
-78:                                               ; preds = %72, %50
+51:                                               ; preds = %49
+  store i64 -1, ptr %50, align 8
   br label %79
 
-79:                                               ; preds = %78, %34
+52:                                               ; preds = %4
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %9, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %10, align 4
+  br label %86
+
+56:                                               ; preds = %24
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %9, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %10, align 4
+  br label %85
+
+60:                                               ; preds = %26
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %9, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %10, align 4
+  call void @_ZNSaIbED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
+  br label %85
+
+64:                                               ; preds = %81, %70, %68, %49, %40, %38, %33, %29
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %9, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %10, align 4
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #3
+  br label %85
+
+68:                                               ; preds = %43
+  %69 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %70 unwind label %64
+
+70:                                               ; preds = %68
+  %71 = load i64, ptr %69, align 8
+  %72 = invoke { ptr, i64 } @_ZNSt6vectorIbSaIbEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %71)
+          to label %73 unwind label %64
+
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds { ptr, i64 }, ptr %17, i32 0, i32 0
+  %75 = extractvalue { ptr, i64 } %72, 0
+  store ptr %75, ptr %74, align 8
+  %76 = getelementptr inbounds { ptr, i64 }, ptr %17, i32 0, i32 1
+  %77 = extractvalue { ptr, i64 } %72, 1
+  store i64 %77, ptr %76, align 8
+  %78 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt14_Bit_referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %17, i1 noundef zeroext true) #3
+  br label %79
+
+79:                                               ; preds = %73, %51
   br label %80
 
-80:                                               ; preds = %79
-  %81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %82 unwind label %63
+80:                                               ; preds = %79, %35
+  br label %81
 
-82:                                               ; preds = %80
-  br label %28, !llvm.loop !456
+81:                                               ; preds = %80
+  %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %83 unwind label %64
 
-83:                                               ; preds = %31
+83:                                               ; preds = %81
+  br label %29, !llvm.loop !456
+
+84:                                               ; preds = %32
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #3
   ret void
 
-84:                                               ; preds = %63, %59, %55
-  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
-  br label %85
-
-85:                                               ; preds = %84, %51
-  call void @_ZN6casadi11SetNonzerosILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %18) #3
+85:                                               ; preds = %64, %60, %56
+  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
   br label %86
 
-86:                                               ; preds = %85
-  %87 = load ptr, ptr %9, align 8
-  %88 = load i32, ptr %10, align 4
-  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
-  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
-  resume { ptr, i32 } %90
+86:                                               ; preds = %85, %52
+  call void @_ZN6casadi11SetNonzerosILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %18) #3
+  br label %87
+
+87:                                               ; preds = %86
+  %88 = load ptr, ptr %9, align 8
+  %89 = load i32, ptr %10, align 4
+  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
+  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
+  resume { ptr, i32 } %91
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -103782,10 +103847,11 @@ define linkonce_odr hidden void @_ZN6casadi16SetNonzerosSliceILb0EEC2ERKNS_2MXES
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   call void @_ZN6casadi11SetNonzerosILb0EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb0EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"class.casadi::SetNonzerosSlice", ptr %9, i32 0, i32 1
-  %13 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %13, i64 24, i1 false)
+  %12 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb0EEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"class.casadi::SetNonzerosSlice", ptr %9, i32 0, i32 1
+  %14 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %14, i64 24, i1 false)
   ret void
 }
 
@@ -103801,40 +103867,41 @@ define linkonce_odr void @_ZN6casadi11SetNonzerosILb0EEC2ERKNS_2MXES4_(ptr nound
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi11SetNonzerosILb0EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %12 unwind label %17
+  %10 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi11SetNonzerosILb0EEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %13 unwind label %18
 
-12:                                               ; preds = %3
-  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %13 unwind label %17
+13:                                               ; preds = %3
+  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %14 unwind label %18
 
-13:                                               ; preds = %12
-  %14 = load ptr, ptr %5, align 8
-  %15 = load ptr, ptr %6, align 8
-  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %16 unwind label %17
+14:                                               ; preds = %13
+  %15 = load ptr, ptr %5, align 8
+  %16 = load ptr, ptr %6, align 8
+  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %17 unwind label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   ret void
 
-17:                                               ; preds = %13, %12, %3
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %14, %13, %3
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %7, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %8, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
   call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i32, ptr %8, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -110522,13 +110589,14 @@ define linkonce_odr hidden void @_ZN6casadi17SetNonzerosSlice2ILb0EEC2ERKNS_2MXE
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %8, align 8
   call void @_ZN6casadi11SetNonzerosILb0EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb0EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %14 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2", ptr %11, i32 0, i32 1
-  %15 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %15, i64 24, i1 false)
-  %16 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2", ptr %11, i32 0, i32 2
-  %17 = load ptr, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %17, i64 24, i1 false)
+  %14 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb0EEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2", ptr %11, i32 0, i32 1
+  %16 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %16, i64 24, i1 false)
+  %17 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2", ptr %11, i32 0, i32 2
+  %18 = load ptr, ptr %10, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 24, i1 false)
   ret void
 }
 
@@ -112405,9 +112473,10 @@ define linkonce_odr hidden void @_ZN6casadi17SetNonzerosVectorILb0EED2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb0EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.casadi::SetNonzerosVector", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb0EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.casadi::SetNonzerosVector", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN6casadi11SetNonzerosILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #3
   ret void
 }
@@ -114936,31 +115005,32 @@ define linkonce_odr void @_ZN6casadi17SetNonzerosVectorILb1EEC2ERKNS_2MXES4_RKSt
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr %7, align 8
   call void @_ZN6casadi11SetNonzerosILb1EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb1EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %14 = getelementptr inbounds %"class.casadi::SetNonzerosVector.222", ptr %11, i32 0, i32 1
-  %15 = load ptr, ptr %8, align 8
-  invoke void @_ZNSt6vectorIxSaIxEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %16 unwind label %17
-
-16:                                               ; preds = %4
-  ret void
+  %14 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb1EEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"class.casadi::SetNonzerosVector.222", ptr %11, i32 0, i32 1
+  %16 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt6vectorIxSaIxEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %18
 
 17:                                               ; preds = %4
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %9, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %10, align 4
-  call void @_ZN6casadi11SetNonzerosILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
-  br label %21
+  ret void
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %9, align 8
-  %23 = load i32, ptr %10, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+18:                                               ; preds = %4
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %9, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %10, align 4
+  call void @_ZN6casadi11SetNonzerosILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i32, ptr %10, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -114977,10 +115047,11 @@ define linkonce_odr hidden void @_ZN6casadi16SetNonzerosSliceILb1EEC2ERKNS_2MXES
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   call void @_ZN6casadi11SetNonzerosILb1EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb1EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"class.casadi::SetNonzerosSlice.224", ptr %9, i32 0, i32 1
-  %13 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %13, i64 24, i1 false)
+  %12 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb1EEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"class.casadi::SetNonzerosSlice.224", ptr %9, i32 0, i32 1
+  %14 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %14, i64 24, i1 false)
   ret void
 }
 
@@ -114996,40 +115067,41 @@ define linkonce_odr void @_ZN6casadi11SetNonzerosILb1EEC2ERKNS_2MXES4_(ptr nound
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi11SetNonzerosILb1EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %12 unwind label %17
+  %10 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi11SetNonzerosILb1EEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %13 unwind label %18
 
-12:                                               ; preds = %3
-  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %13 unwind label %17
+13:                                               ; preds = %3
+  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %14 unwind label %18
 
-13:                                               ; preds = %12
-  %14 = load ptr, ptr %5, align 8
-  %15 = load ptr, ptr %6, align 8
-  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %16 unwind label %17
+14:                                               ; preds = %13
+  %15 = load ptr, ptr %5, align 8
+  %16 = load ptr, ptr %6, align 8
+  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %17 unwind label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   ret void
 
-17:                                               ; preds = %13, %12, %3
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %14, %13, %3
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %7, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %8, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
   call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i32, ptr %8, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -118606,13 +118678,14 @@ define linkonce_odr hidden void @_ZN6casadi17SetNonzerosSlice2ILb1EEC2ERKNS_2MXE
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %8, align 8
   call void @_ZN6casadi11SetNonzerosILb1EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb1EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %14 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2.225", ptr %11, i32 0, i32 1
-  %15 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %15, i64 24, i1 false)
-  %16 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2.225", ptr %11, i32 0, i32 2
-  %17 = load ptr, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %17, i64 24, i1 false)
+  %14 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb1EEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2.225", ptr %11, i32 0, i32 1
+  %16 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %16, i64 24, i1 false)
+  %17 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2.225", ptr %11, i32 0, i32 2
+  %18 = load ptr, ptr %10, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 24, i1 false)
   ret void
 }
 
@@ -120264,9 +120337,10 @@ define linkonce_odr hidden void @_ZN6casadi17SetNonzerosVectorILb1EED2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb1EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.casadi::SetNonzerosVector.222", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb1EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.casadi::SetNonzerosVector.222", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN6casadi11SetNonzerosILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #3
   ret void
 }
@@ -121683,7 +121757,8 @@ define linkonce_odr void @_ZN6casadi22SetNonzerosParamVectorILb0EEC2ERKNS_2MXES4
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN6casadi16SetNonzerosParamILb0EEC2ERKNS_2MXES4_S4_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb0EEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %13 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb0EEE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
   ret void
 }
 
@@ -121701,41 +121776,42 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosParamILb0EEC2ERKNS_2MXES4_S4_(p
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb0EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %14 unwind label %20
+  %12 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb0EEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %15 unwind label %21
 
-14:                                               ; preds = %4
-  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %15 unwind label %20
+15:                                               ; preds = %4
+  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %21
 
-15:                                               ; preds = %14
-  %16 = load ptr, ptr %6, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %8, align 8
-  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %19 unwind label %20
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load ptr, ptr %8, align 8
+  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %20 unwind label %21
 
-19:                                               ; preds = %15
+20:                                               ; preds = %16
   ret void
 
-20:                                               ; preds = %15, %14, %4
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %16, %15, %4
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %9, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %10, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %9, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %10, align 4
   call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
-  br label %24
+  br label %25
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %9, align 8
-  %26 = load i32, ptr %10, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %9, align 8
+  %27 = load i32, ptr %10, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -123251,10 +123327,11 @@ define linkonce_odr hidden void @_ZN6casadi21SetNonzerosParamSliceILb0EEC2ERKNS_
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   call void @_ZN6casadi16SetNonzerosParamILb0EEC2ERKNS_2MXES4_S4_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb0EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"class.casadi::SetNonzerosParamSlice", ptr %11, i32 0, i32 1
-  %16 = load ptr, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %16, i64 24, i1 false)
+  %15 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb0EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"class.casadi::SetNonzerosParamSlice", ptr %11, i32 0, i32 1
+  %17 = load ptr, ptr %10, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %17, i64 24, i1 false)
   ret void
 }
 
@@ -124619,10 +124696,11 @@ define linkonce_odr hidden void @_ZN6casadi21SetNonzerosSliceParamILb0EEC2ERKNS_
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %10, align 8
   call void @_ZN6casadi16SetNonzerosParamILb0EEC2ERKNS_2MXES4_S4_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb0EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"class.casadi::SetNonzerosSliceParam", ptr %11, i32 0, i32 1
-  %16 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %16, i64 24, i1 false)
+  %15 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb0EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"class.casadi::SetNonzerosSliceParam", ptr %11, i32 0, i32 1
+  %17 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %17, i64 24, i1 false)
   ret void
 }
 
@@ -126048,7 +126126,8 @@ define linkonce_odr hidden void @_ZN6casadi21SetNonzerosParamParamILb0EEC2ERKNS_
   %14 = load ptr, ptr %9, align 8
   %15 = load ptr, ptr %10, align 8
   call void @_ZN6casadi16SetNonzerosParamILb0EEC2ERKNS_2MXES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb0EEE, i32 0, i32 0, i32 2), ptr %11, align 8
+  %16 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb0EEE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %11, align 8
   ret void
 }
 
@@ -126073,153 +126152,154 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosParamILb0EEC2ERKNS_2MXES4_S4_S4
   store ptr %4, ptr %10, align 8
   %18 = load ptr, ptr %6, align 8
   call void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %18)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb0EEE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %21 unwind label %51
+  %19 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb0EEE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %20)
+          to label %22 unwind label %52
 
-21:                                               ; preds = %5
-  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(8) %20)
-          to label %22 unwind label %51
+22:                                               ; preds = %5
+  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(8) %21)
+          to label %23 unwind label %52
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i64 0, i64 0
-  store ptr %23, ptr %16, align 8
-  %24 = load ptr, ptr %7, align 8
-  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24)
-          to label %25 unwind label %55
+23:                                               ; preds = %22
+  %24 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i64 0, i64 0
+  store ptr %24, ptr %16, align 8
+  %25 = load ptr, ptr %7, align 8
+  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %25)
+          to label %26 unwind label %56
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds %"class.casadi::MX", ptr %23, i64 1
-  store ptr %26, ptr %16, align 8
-  %27 = load ptr, ptr %8, align 8
-  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27)
-          to label %28 unwind label %55
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds %"class.casadi::MX", ptr %24, i64 1
+  store ptr %27, ptr %16, align 8
+  %28 = load ptr, ptr %8, align 8
+  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
+          to label %29 unwind label %56
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds %"class.casadi::MX", ptr %26, i64 1
-  store ptr %29, ptr %16, align 8
-  %30 = load ptr, ptr %9, align 8
-  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %30)
-          to label %31 unwind label %55
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds %"class.casadi::MX", ptr %27, i64 1
+  store ptr %30, ptr %16, align 8
+  %31 = load ptr, ptr %9, align 8
+  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %31)
+          to label %32 unwind label %56
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds %"class.casadi::MX", ptr %29, i64 1
-  store ptr %32, ptr %16, align 8
-  %33 = load ptr, ptr %10, align 8
-  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %33)
-          to label %34 unwind label %55
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds %"class.casadi::MX", ptr %30, i64 1
+  store ptr %33, ptr %16, align 8
+  %34 = load ptr, ptr %10, align 8
+  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %34)
+          to label %35 unwind label %56
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds %"class.std::initializer_list.226", ptr %14, i32 0, i32 0
-  %36 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i64 0, i64 0
-  store ptr %36, ptr %35, align 8
-  %37 = getelementptr inbounds %"class.std::initializer_list.226", ptr %14, i32 0, i32 1
-  store i64 4, ptr %37, align 8
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds %"class.std::initializer_list.226", ptr %14, i32 0, i32 0
+  %37 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i64 0, i64 0
+  store ptr %37, ptr %36, align 8
+  %38 = getelementptr inbounds %"class.std::initializer_list.226", ptr %14, i32 0, i32 1
+  store i64 4, ptr %38, align 8
   call void @_ZNSaIN6casadi2MXEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
-  %38 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 1
-  %41 = load i64, ptr %40, align 8
-  invoke void @_ZNSt6vectorIN6casadi2MXESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr %39, i64 %41, ptr noundef nonnull align 1 dereferenceable(1) %17)
-          to label %42 unwind label %66
+  %39 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 1
+  %42 = load i64, ptr %41, align 8
+  invoke void @_ZNSt6vectorIN6casadi2MXESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr %40, i64 %42, ptr noundef nonnull align 1 dereferenceable(1) %17)
+          to label %43 unwind label %67
 
-42:                                               ; preds = %34
+43:                                               ; preds = %35
   invoke void @_ZN6casadi6MXNode7set_depERKSt6vectorINS_2MXESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %43 unwind label %70
+          to label %44 unwind label %71
 
-43:                                               ; preds = %42
+44:                                               ; preds = %43
   call void @_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
   call void @_ZNSaIN6casadi2MXEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
-  %44 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i32 0, i32 0
-  %45 = getelementptr inbounds %"class.casadi::MX", ptr %44, i64 4
-  br label %46
+  %45 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i32 0, i32 0
+  %46 = getelementptr inbounds %"class.casadi::MX", ptr %45, i64 4
+  br label %47
 
-46:                                               ; preds = %46, %43
-  %47 = phi ptr [ %45, %43 ], [ %48, %46 ]
-  %48 = getelementptr inbounds %"class.casadi::MX", ptr %47, i64 -1
-  call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #3
-  %49 = icmp eq ptr %48, %44
-  br i1 %49, label %50, label %46
+47:                                               ; preds = %47, %44
+  %48 = phi ptr [ %46, %44 ], [ %49, %47 ]
+  %49 = getelementptr inbounds %"class.casadi::MX", ptr %48, i64 -1
+  call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #3
+  %50 = icmp eq ptr %49, %45
+  br i1 %50, label %51, label %47
 
-50:                                               ; preds = %46
+51:                                               ; preds = %47
   ret void
 
-51:                                               ; preds = %21, %5
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %22, %5
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %11, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %12, align 4
-  br label %82
-
-55:                                               ; preds = %31, %28, %25, %22
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %11, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %12, align 4
-  %59 = load ptr, ptr %16, align 8
-  %60 = icmp eq ptr %23, %59
-  br i1 %60, label %65, label %61
-
-61:                                               ; preds = %61, %55
-  %62 = phi ptr [ %59, %55 ], [ %63, %61 ]
-  %63 = getelementptr inbounds %"class.casadi::MX", ptr %62, i64 -1
-  call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #3
-  %64 = icmp eq ptr %63, %23
-  br i1 %64, label %65, label %61
-
-65:                                               ; preds = %61, %55
-  br label %82
-
-66:                                               ; preds = %34
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %11, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %12, align 4
-  br label %74
-
-70:                                               ; preds = %42
-  %71 = landingpad { ptr, i32 }
-          cleanup
-  %72 = extractvalue { ptr, i32 } %71, 0
-  store ptr %72, ptr %11, align 8
-  %73 = extractvalue { ptr, i32 } %71, 1
-  store i32 %73, ptr %12, align 4
-  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  br label %74
-
-74:                                               ; preds = %70, %66
-  call void @_ZNSaIN6casadi2MXEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
-  %75 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i32 0, i32 0
-  %76 = getelementptr inbounds %"class.casadi::MX", ptr %75, i64 4
-  br label %77
-
-77:                                               ; preds = %77, %74
-  %78 = phi ptr [ %76, %74 ], [ %79, %77 ]
-  %79 = getelementptr inbounds %"class.casadi::MX", ptr %78, i64 -1
-  call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %79) #3
-  %80 = icmp eq ptr %79, %75
-  br i1 %80, label %81, label %77
-
-81:                                               ; preds = %77
-  br label %82
-
-82:                                               ; preds = %81, %65, %51
-  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %18) #3
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %11, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %12, align 4
   br label %83
 
-83:                                               ; preds = %82
-  %84 = load ptr, ptr %11, align 8
-  %85 = load i32, ptr %12, align 4
-  %86 = insertvalue { ptr, i32 } poison, ptr %84, 0
-  %87 = insertvalue { ptr, i32 } %86, i32 %85, 1
-  resume { ptr, i32 } %87
+56:                                               ; preds = %32, %29, %26, %23
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %11, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %12, align 4
+  %60 = load ptr, ptr %16, align 8
+  %61 = icmp eq ptr %24, %60
+  br i1 %61, label %66, label %62
+
+62:                                               ; preds = %62, %56
+  %63 = phi ptr [ %60, %56 ], [ %64, %62 ]
+  %64 = getelementptr inbounds %"class.casadi::MX", ptr %63, i64 -1
+  call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %64) #3
+  %65 = icmp eq ptr %64, %24
+  br i1 %65, label %66, label %62
+
+66:                                               ; preds = %62, %56
+  br label %83
+
+67:                                               ; preds = %35
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %11, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %12, align 4
+  br label %75
+
+71:                                               ; preds = %43
+  %72 = landingpad { ptr, i32 }
+          cleanup
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %11, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %12, align 4
+  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  br label %75
+
+75:                                               ; preds = %71, %67
+  call void @_ZNSaIN6casadi2MXEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
+  %76 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i32 0, i32 0
+  %77 = getelementptr inbounds %"class.casadi::MX", ptr %76, i64 4
+  br label %78
+
+78:                                               ; preds = %78, %75
+  %79 = phi ptr [ %77, %75 ], [ %80, %78 ]
+  %80 = getelementptr inbounds %"class.casadi::MX", ptr %79, i64 -1
+  call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %80) #3
+  %81 = icmp eq ptr %80, %76
+  br i1 %81, label %82, label %78
+
+82:                                               ; preds = %78
+  br label %83
+
+83:                                               ; preds = %82, %66, %52
+  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %18) #3
+  br label %84
+
+84:                                               ; preds = %83
+  %85 = load ptr, ptr %11, align 8
+  %86 = load i32, ptr %12, align 4
+  %87 = insertvalue { ptr, i32 } poison, ptr %85, 0
+  %88 = insertvalue { ptr, i32 } %87, i32 %86, 1
+  resume { ptr, i32 } %88
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -127836,7 +127916,8 @@ define linkonce_odr void @_ZN6casadi22SetNonzerosParamVectorILb1EEC2ERKNS_2MXES4
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN6casadi16SetNonzerosParamILb1EEC2ERKNS_2MXES4_S4_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb1EEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %13 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb1EEE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
   ret void
 }
 
@@ -127854,41 +127935,42 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosParamILb1EEC2ERKNS_2MXES4_S4_(p
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb1EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %14 unwind label %20
+  %12 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb1EEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %15 unwind label %21
 
-14:                                               ; preds = %4
-  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %15 unwind label %20
+15:                                               ; preds = %4
+  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %21
 
-15:                                               ; preds = %14
-  %16 = load ptr, ptr %6, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %8, align 8
-  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %19 unwind label %20
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load ptr, ptr %8, align 8
+  invoke void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %20 unwind label %21
 
-19:                                               ; preds = %15
+20:                                               ; preds = %16
   ret void
 
-20:                                               ; preds = %15, %14, %4
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %16, %15, %4
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %9, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %10, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %9, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %10, align 4
   call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
-  br label %24
+  br label %25
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %9, align 8
-  %26 = load i32, ptr %10, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %9, align 8
+  %27 = load i32, ptr %10, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -129287,10 +129369,11 @@ define linkonce_odr hidden void @_ZN6casadi21SetNonzerosParamSliceILb1EEC2ERKNS_
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   call void @_ZN6casadi16SetNonzerosParamILb1EEC2ERKNS_2MXES4_S4_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb1EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"class.casadi::SetNonzerosParamSlice.229", ptr %11, i32 0, i32 1
-  %16 = load ptr, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %16, i64 24, i1 false)
+  %15 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb1EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"class.casadi::SetNonzerosParamSlice.229", ptr %11, i32 0, i32 1
+  %17 = load ptr, ptr %10, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %17, i64 24, i1 false)
   ret void
 }
 
@@ -130605,10 +130688,11 @@ define linkonce_odr hidden void @_ZN6casadi21SetNonzerosSliceParamILb1EEC2ERKNS_
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %10, align 8
   call void @_ZN6casadi16SetNonzerosParamILb1EEC2ERKNS_2MXES4_S4_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb1EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"class.casadi::SetNonzerosSliceParam.230", ptr %11, i32 0, i32 1
-  %16 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %16, i64 24, i1 false)
+  %15 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb1EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"class.casadi::SetNonzerosSliceParam.230", ptr %11, i32 0, i32 1
+  %17 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %17, i64 24, i1 false)
   ret void
 }
 
@@ -131984,7 +132068,8 @@ define linkonce_odr hidden void @_ZN6casadi21SetNonzerosParamParamILb1EEC2ERKNS_
   %14 = load ptr, ptr %9, align 8
   %15 = load ptr, ptr %10, align 8
   call void @_ZN6casadi16SetNonzerosParamILb1EEC2ERKNS_2MXES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb1EEE, i32 0, i32 0, i32 2), ptr %11, align 8
+  %16 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb1EEE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %11, align 8
   ret void
 }
 
@@ -132009,153 +132094,154 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosParamILb1EEC2ERKNS_2MXES4_S4_S4
   store ptr %4, ptr %10, align 8
   %18 = load ptr, ptr %6, align 8
   call void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %18)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb1EEE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %21 unwind label %51
+  %19 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb1EEE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %20)
+          to label %22 unwind label %52
 
-21:                                               ; preds = %5
-  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(8) %20)
-          to label %22 unwind label %51
+22:                                               ; preds = %5
+  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(8) %21)
+          to label %23 unwind label %52
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i64 0, i64 0
-  store ptr %23, ptr %16, align 8
-  %24 = load ptr, ptr %7, align 8
-  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24)
-          to label %25 unwind label %55
+23:                                               ; preds = %22
+  %24 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i64 0, i64 0
+  store ptr %24, ptr %16, align 8
+  %25 = load ptr, ptr %7, align 8
+  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %25)
+          to label %26 unwind label %56
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds %"class.casadi::MX", ptr %23, i64 1
-  store ptr %26, ptr %16, align 8
-  %27 = load ptr, ptr %8, align 8
-  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27)
-          to label %28 unwind label %55
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds %"class.casadi::MX", ptr %24, i64 1
+  store ptr %27, ptr %16, align 8
+  %28 = load ptr, ptr %8, align 8
+  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
+          to label %29 unwind label %56
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds %"class.casadi::MX", ptr %26, i64 1
-  store ptr %29, ptr %16, align 8
-  %30 = load ptr, ptr %9, align 8
-  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %30)
-          to label %31 unwind label %55
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds %"class.casadi::MX", ptr %27, i64 1
+  store ptr %30, ptr %16, align 8
+  %31 = load ptr, ptr %9, align 8
+  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %31)
+          to label %32 unwind label %56
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds %"class.casadi::MX", ptr %29, i64 1
-  store ptr %32, ptr %16, align 8
-  %33 = load ptr, ptr %10, align 8
-  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %33)
-          to label %34 unwind label %55
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds %"class.casadi::MX", ptr %30, i64 1
+  store ptr %33, ptr %16, align 8
+  %34 = load ptr, ptr %10, align 8
+  invoke void @_ZN6casadi2MXC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %34)
+          to label %35 unwind label %56
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds %"class.std::initializer_list.226", ptr %14, i32 0, i32 0
-  %36 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i64 0, i64 0
-  store ptr %36, ptr %35, align 8
-  %37 = getelementptr inbounds %"class.std::initializer_list.226", ptr %14, i32 0, i32 1
-  store i64 4, ptr %37, align 8
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds %"class.std::initializer_list.226", ptr %14, i32 0, i32 0
+  %37 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i64 0, i64 0
+  store ptr %37, ptr %36, align 8
+  %38 = getelementptr inbounds %"class.std::initializer_list.226", ptr %14, i32 0, i32 1
+  store i64 4, ptr %38, align 8
   call void @_ZNSaIN6casadi2MXEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
-  %38 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 1
-  %41 = load i64, ptr %40, align 8
-  invoke void @_ZNSt6vectorIN6casadi2MXESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr %39, i64 %41, ptr noundef nonnull align 1 dereferenceable(1) %17)
-          to label %42 unwind label %66
+  %39 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 1
+  %42 = load i64, ptr %41, align 8
+  invoke void @_ZNSt6vectorIN6casadi2MXESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr %40, i64 %42, ptr noundef nonnull align 1 dereferenceable(1) %17)
+          to label %43 unwind label %67
 
-42:                                               ; preds = %34
+43:                                               ; preds = %35
   invoke void @_ZN6casadi6MXNode7set_depERKSt6vectorINS_2MXESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %43 unwind label %70
+          to label %44 unwind label %71
 
-43:                                               ; preds = %42
+44:                                               ; preds = %43
   call void @_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
   call void @_ZNSaIN6casadi2MXEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
-  %44 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i32 0, i32 0
-  %45 = getelementptr inbounds %"class.casadi::MX", ptr %44, i64 4
-  br label %46
+  %45 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i32 0, i32 0
+  %46 = getelementptr inbounds %"class.casadi::MX", ptr %45, i64 4
+  br label %47
 
-46:                                               ; preds = %46, %43
-  %47 = phi ptr [ %45, %43 ], [ %48, %46 ]
-  %48 = getelementptr inbounds %"class.casadi::MX", ptr %47, i64 -1
-  call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #3
-  %49 = icmp eq ptr %48, %44
-  br i1 %49, label %50, label %46
+47:                                               ; preds = %47, %44
+  %48 = phi ptr [ %46, %44 ], [ %49, %47 ]
+  %49 = getelementptr inbounds %"class.casadi::MX", ptr %48, i64 -1
+  call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #3
+  %50 = icmp eq ptr %49, %45
+  br i1 %50, label %51, label %47
 
-50:                                               ; preds = %46
+51:                                               ; preds = %47
   ret void
 
-51:                                               ; preds = %21, %5
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %22, %5
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %11, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %12, align 4
-  br label %82
-
-55:                                               ; preds = %31, %28, %25, %22
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %11, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %12, align 4
-  %59 = load ptr, ptr %16, align 8
-  %60 = icmp eq ptr %23, %59
-  br i1 %60, label %65, label %61
-
-61:                                               ; preds = %61, %55
-  %62 = phi ptr [ %59, %55 ], [ %63, %61 ]
-  %63 = getelementptr inbounds %"class.casadi::MX", ptr %62, i64 -1
-  call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #3
-  %64 = icmp eq ptr %63, %23
-  br i1 %64, label %65, label %61
-
-65:                                               ; preds = %61, %55
-  br label %82
-
-66:                                               ; preds = %34
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %11, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %12, align 4
-  br label %74
-
-70:                                               ; preds = %42
-  %71 = landingpad { ptr, i32 }
-          cleanup
-  %72 = extractvalue { ptr, i32 } %71, 0
-  store ptr %72, ptr %11, align 8
-  %73 = extractvalue { ptr, i32 } %71, 1
-  store i32 %73, ptr %12, align 4
-  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  br label %74
-
-74:                                               ; preds = %70, %66
-  call void @_ZNSaIN6casadi2MXEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
-  %75 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i32 0, i32 0
-  %76 = getelementptr inbounds %"class.casadi::MX", ptr %75, i64 4
-  br label %77
-
-77:                                               ; preds = %77, %74
-  %78 = phi ptr [ %76, %74 ], [ %79, %77 ]
-  %79 = getelementptr inbounds %"class.casadi::MX", ptr %78, i64 -1
-  call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %79) #3
-  %80 = icmp eq ptr %79, %75
-  br i1 %80, label %81, label %77
-
-81:                                               ; preds = %77
-  br label %82
-
-82:                                               ; preds = %81, %65, %51
-  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %18) #3
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %11, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %12, align 4
   br label %83
 
-83:                                               ; preds = %82
-  %84 = load ptr, ptr %11, align 8
-  %85 = load i32, ptr %12, align 4
-  %86 = insertvalue { ptr, i32 } poison, ptr %84, 0
-  %87 = insertvalue { ptr, i32 } %86, i32 %85, 1
-  resume { ptr, i32 } %87
+56:                                               ; preds = %32, %29, %26, %23
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %11, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %12, align 4
+  %60 = load ptr, ptr %16, align 8
+  %61 = icmp eq ptr %24, %60
+  br i1 %61, label %66, label %62
+
+62:                                               ; preds = %62, %56
+  %63 = phi ptr [ %60, %56 ], [ %64, %62 ]
+  %64 = getelementptr inbounds %"class.casadi::MX", ptr %63, i64 -1
+  call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %64) #3
+  %65 = icmp eq ptr %64, %24
+  br i1 %65, label %66, label %62
+
+66:                                               ; preds = %62, %56
+  br label %83
+
+67:                                               ; preds = %35
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %11, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %12, align 4
+  br label %75
+
+71:                                               ; preds = %43
+  %72 = landingpad { ptr, i32 }
+          cleanup
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %11, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %12, align 4
+  call void @_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  br label %75
+
+75:                                               ; preds = %71, %67
+  call void @_ZNSaIN6casadi2MXEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
+  %76 = getelementptr inbounds [4 x %"class.casadi::MX"], ptr %15, i32 0, i32 0
+  %77 = getelementptr inbounds %"class.casadi::MX", ptr %76, i64 4
+  br label %78
+
+78:                                               ; preds = %78, %75
+  %79 = phi ptr [ %77, %75 ], [ %80, %78 ]
+  %80 = getelementptr inbounds %"class.casadi::MX", ptr %79, i64 -1
+  call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %80) #3
+  %81 = icmp eq ptr %80, %76
+  br i1 %81, label %82, label %78
+
+82:                                               ; preds = %78
+  br label %83
+
+83:                                               ; preds = %82, %66, %52
+  call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %18) #3
+  br label %84
+
+84:                                               ; preds = %83
+  %85 = load ptr, ptr %11, align 8
+  %86 = load i32, ptr %12, align 4
+  %87 = insertvalue { ptr, i32 } poison, ptr %85, 0
+  %88 = insertvalue { ptr, i32 } %87, i32 %86, 1
+  resume { ptr, i32 } %88
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -138433,70 +138519,71 @@ define linkonce_odr void @_ZN6casadi10LinsolCallILb1EEC2ERNS_19DeserializingStre
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN6casadi5SolveILb1EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb1EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.casadi::LinsolCall", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi6LinsolC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %17
+  %11 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb1EEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.casadi::LinsolCall", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi6LinsolC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %18
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.257, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %14 unwind label %21
+          to label %15 unwind label %22
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %"class.casadi::LinsolCall", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi19DeserializingStream6unpackINS_6LinsolEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %16 unwind label %25
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %"class.casadi::LinsolCall", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi19DeserializingStream6unpackINS_6LinsolEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %14, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %17 unwind label %26
 
-16:                                               ; preds = %14
+17:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
-  br label %30
-
-21:                                               ; preds = %12
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  br label %29
-
-25:                                               ; preds = %14
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %29
-
-29:                                               ; preds = %25, %21
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  call void @_ZN6casadi6LinsolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  br label %30
-
-30:                                               ; preds = %29, %17
-  call void @_ZN6casadi5SolveILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+22:                                               ; preds = %13
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  br label %30
+
+26:                                               ; preds = %15
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %30
+
+30:                                               ; preds = %26, %22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  call void @_ZN6casadi6LinsolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZN6casadi5SolveILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -138512,70 +138599,71 @@ define linkonce_odr void @_ZN6casadi10LinsolCallILb0EEC2ERNS_19DeserializingStre
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN6casadi5SolveILb0EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb0EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.casadi::LinsolCall.131", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi6LinsolC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %17
+  %11 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb0EEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.casadi::LinsolCall.131", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi6LinsolC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %18
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.257, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %14 unwind label %21
+          to label %15 unwind label %22
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %"class.casadi::LinsolCall.131", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi19DeserializingStream6unpackINS_6LinsolEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %16 unwind label %25
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %"class.casadi::LinsolCall.131", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi19DeserializingStream6unpackINS_6LinsolEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %14, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %17 unwind label %26
 
-16:                                               ; preds = %14
+17:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
-  br label %30
-
-21:                                               ; preds = %12
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  br label %29
-
-25:                                               ; preds = %14
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %29
-
-29:                                               ; preds = %25, %21
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  call void @_ZN6casadi6LinsolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  br label %30
-
-30:                                               ; preds = %29, %17
-  call void @_ZN6casadi5SolveILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+22:                                               ; preds = %13
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  br label %30
+
+26:                                               ; preds = %15
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %30
+
+30:                                               ; preds = %26, %22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  call void @_ZN6casadi6LinsolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZN6casadi5SolveILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 declare void @_ZN6casadi19DeserializingStream6unpackERb(ptr noundef nonnull align 8 dereferenceable(41), ptr noundef nonnull align 1 dereferenceable(1)) #1
@@ -138589,7 +138677,8 @@ define linkonce_odr void @_ZN6casadi5SolveILb1EEC2ERNS_19DeserializingStreamE(pt
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi5SolveILb1EEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi5SolveILb1EEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -138882,7 +138971,8 @@ define linkonce_odr void @_ZN6casadi5SolveILb0EEC2ERNS_19DeserializingStreamE(pt
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi5SolveILb0EEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi5SolveILb0EEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -138899,55 +138989,56 @@ define linkonce_odr void @_ZN6casadi17SetNonzerosVectorILb1EEC2ERNS_19Deserializ
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN6casadi11SetNonzerosILb1EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb1EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.casadi::SetNonzerosVector.222", ptr %9, i32 0, i32 1
-  call void @_ZNSt6vectorIxSaIxEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %12 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb1EEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.casadi::SetNonzerosVector.222", ptr %9, i32 0, i32 1
+  call void @_ZNSt6vectorIxSaIxEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %13 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef @.str.292, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %13 unwind label %16
+          to label %14 unwind label %17
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds %"class.casadi::SetNonzerosVector.222", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi19DeserializingStream6unpackISt6vectorIxSaIxEEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %12, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %15 unwind label %20
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds %"class.casadi::SetNonzerosVector.222", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi19DeserializingStream6unpackISt6vectorIxSaIxEEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %13, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %15)
+          to label %16 unwind label %21
 
-15:                                               ; preds = %13
+16:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   ret void
 
-16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %2
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %7, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %8, align 4
-  br label %24
-
-20:                                               ; preds = %13
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %7, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  br label %24
-
-24:                                               ; preds = %20, %16
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  call void @_ZN6casadi11SetNonzerosILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %7, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %8, align 4
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %7, align 8
-  %27 = load i32, ptr %8, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+21:                                               ; preds = %14
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %7, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  br label %25
+
+25:                                               ; preds = %21, %17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  call void @_ZN6casadi11SetNonzerosILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -138963,69 +139054,70 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosSliceILb1EEC2ERNS_19Deserializi
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN6casadi11SetNonzerosILb1EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb1EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.casadi::SetNonzerosSlice.224", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %17
+  %11 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb1EEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.casadi::SetNonzerosSlice.224", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %18
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.269, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %14 unwind label %21
+          to label %15 unwind label %22
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %"class.casadi::SetNonzerosSlice.224", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %16 unwind label %25
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %"class.casadi::SetNonzerosSlice.224", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %14, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %26
 
-16:                                               ; preds = %14
+17:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
-  br label %30
-
-21:                                               ; preds = %12
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  br label %29
-
-25:                                               ; preds = %14
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %29
-
-29:                                               ; preds = %25, %21
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  br label %30
-
-30:                                               ; preds = %29, %17
-  call void @_ZN6casadi11SetNonzerosILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+22:                                               ; preds = %13
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  br label %30
+
+26:                                               ; preds = %15
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %30
+
+30:                                               ; preds = %26, %22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZN6casadi11SetNonzerosILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -139043,110 +139135,111 @@ define linkonce_odr void @_ZN6casadi17SetNonzerosSlice2ILb1EEC2ERNS_19Deserializ
   %11 = load ptr, ptr %3, align 8
   %12 = load ptr, ptr %4, align 8
   call void @_ZN6casadi11SetNonzerosILb1EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(41) %12)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb1EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %13 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2.225", ptr %11, i32 0, i32 1
-  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %14 unwind label %25
+  %13 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb1EEE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2.225", ptr %11, i32 0, i32 1
+  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14)
+          to label %15 unwind label %26
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2.225", ptr %11, i32 0, i32 2
-  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %16 unwind label %25
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2.225", ptr %11, i32 0, i32 2
+  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %26
 
-16:                                               ; preds = %14
-  %17 = load ptr, ptr %4, align 8
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.279, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %18 unwind label %29
+          to label %19 unwind label %30
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2.225", ptr %11, i32 0, i32 1
-  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %17, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %19)
-          to label %20 unwind label %33
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2.225", ptr %11, i32 0, i32 1
+  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %20)
+          to label %21 unwind label %34
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  %21 = load ptr, ptr %4, align 8
+  %22 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.280, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %22 unwind label %38
+          to label %23 unwind label %39
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2.225", ptr %11, i32 0, i32 2
-  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %21, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(24) %23)
-          to label %24 unwind label %42
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2.225", ptr %11, i32 0, i32 2
+  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %22, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(24) %24)
+          to label %25 unwind label %43
 
-24:                                               ; preds = %22
+25:                                               ; preds = %23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
   ret void
 
-25:                                               ; preds = %14, %2
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %15, %2
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  br label %47
-
-29:                                               ; preds = %16
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %5, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %6, align 4
-  br label %37
-
-33:                                               ; preds = %18
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %5, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %37
-
-37:                                               ; preds = %33, %29
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  br label %47
-
-38:                                               ; preds = %20
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %5, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %6, align 4
-  br label %46
-
-42:                                               ; preds = %22
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %5, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %46
-
-46:                                               ; preds = %42, %38
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  br label %47
-
-47:                                               ; preds = %46, %37, %25
-  call void @_ZN6casadi11SetNonzerosILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
   br label %48
 
-48:                                               ; preds = %47
-  %49 = load ptr, ptr %5, align 8
-  %50 = load i32, ptr %6, align 4
-  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
-  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
-  resume { ptr, i32 } %52
+30:                                               ; preds = %17
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %5, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %6, align 4
+  br label %38
+
+34:                                               ; preds = %19
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %5, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %38
+
+38:                                               ; preds = %34, %30
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  br label %48
+
+39:                                               ; preds = %21
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %5, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %6, align 4
+  br label %47
+
+43:                                               ; preds = %23
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %5, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  br label %47
+
+47:                                               ; preds = %43, %39
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  br label %48
+
+48:                                               ; preds = %47, %38, %26
+  call void @_ZN6casadi11SetNonzerosILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
+  br label %49
+
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %5, align 8
+  %51 = load i32, ptr %6, align 4
+  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -139158,7 +139251,8 @@ define linkonce_odr hidden void @_ZN6casadi11SetNonzerosILb1EEC2ERNS_19Deseriali
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi11SetNonzerosILb1EEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi11SetNonzerosILb1EEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -139775,7 +139869,8 @@ define linkonce_odr void @_ZN6casadi22SetNonzerosParamVectorILb1EEC2ERNS_19Deser
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi16SetNonzerosParamILb1EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb1EEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb1EEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -139792,69 +139887,70 @@ define linkonce_odr void @_ZN6casadi21SetNonzerosParamSliceILb1EEC2ERNS_19Deseri
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN6casadi16SetNonzerosParamILb1EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb1EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.casadi::SetNonzerosParamSlice.229", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %17
+  %11 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb1EEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.casadi::SetNonzerosParamSlice.229", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %18
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.318, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %14 unwind label %21
+          to label %15 unwind label %22
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %"class.casadi::SetNonzerosParamSlice.229", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %16 unwind label %25
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %"class.casadi::SetNonzerosParamSlice.229", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %14, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %26
 
-16:                                               ; preds = %14
+17:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
-  br label %30
-
-21:                                               ; preds = %12
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  br label %29
-
-25:                                               ; preds = %14
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %29
-
-29:                                               ; preds = %25, %21
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  br label %30
-
-30:                                               ; preds = %29, %17
-  call void @_ZN6casadi16SetNonzerosParamILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+22:                                               ; preds = %13
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  br label %30
+
+26:                                               ; preds = %15
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %30
+
+30:                                               ; preds = %26, %22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZN6casadi16SetNonzerosParamILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -139870,69 +139966,70 @@ define linkonce_odr void @_ZN6casadi21SetNonzerosSliceParamILb1EEC2ERNS_19Deseri
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN6casadi16SetNonzerosParamILb1EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb1EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.casadi::SetNonzerosSliceParam.230", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %17
+  %11 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb1EEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.casadi::SetNonzerosSliceParam.230", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %18
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.329, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %14 unwind label %21
+          to label %15 unwind label %22
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %"class.casadi::SetNonzerosSliceParam.230", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %16 unwind label %25
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %"class.casadi::SetNonzerosSliceParam.230", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %14, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %26
 
-16:                                               ; preds = %14
+17:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
-  br label %30
-
-21:                                               ; preds = %12
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  br label %29
-
-25:                                               ; preds = %14
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %29
-
-29:                                               ; preds = %25, %21
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  br label %30
-
-30:                                               ; preds = %29, %17
-  call void @_ZN6casadi16SetNonzerosParamILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+22:                                               ; preds = %13
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  br label %30
+
+26:                                               ; preds = %15
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %30
+
+30:                                               ; preds = %26, %22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZN6casadi16SetNonzerosParamILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -139944,7 +140041,8 @@ define linkonce_odr void @_ZN6casadi21SetNonzerosParamParamILb1EEC2ERNS_19Deseri
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi16SetNonzerosParamILb1EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb1EEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb1EEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -139957,7 +140055,8 @@ define linkonce_odr hidden void @_ZN6casadi16SetNonzerosParamILb1EEC2ERNS_19Dese
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb1EEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb1EEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -139974,55 +140073,56 @@ define linkonce_odr void @_ZN6casadi17SetNonzerosVectorILb0EEC2ERNS_19Deserializ
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN6casadi11SetNonzerosILb0EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb0EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.casadi::SetNonzerosVector", ptr %9, i32 0, i32 1
-  call void @_ZNSt6vectorIxSaIxEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %12 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb0EEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.casadi::SetNonzerosVector", ptr %9, i32 0, i32 1
+  call void @_ZNSt6vectorIxSaIxEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %13 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef @.str.292, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %13 unwind label %16
+          to label %14 unwind label %17
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds %"class.casadi::SetNonzerosVector", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi19DeserializingStream6unpackISt6vectorIxSaIxEEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %12, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %15 unwind label %20
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds %"class.casadi::SetNonzerosVector", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi19DeserializingStream6unpackISt6vectorIxSaIxEEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %13, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %15)
+          to label %16 unwind label %21
 
-15:                                               ; preds = %13
+16:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   ret void
 
-16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %2
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %7, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %8, align 4
-  br label %24
-
-20:                                               ; preds = %13
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %7, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  br label %24
-
-24:                                               ; preds = %20, %16
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  call void @_ZN6casadi11SetNonzerosILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %7, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %8, align 4
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %7, align 8
-  %27 = load i32, ptr %8, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+21:                                               ; preds = %14
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %7, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  br label %25
+
+25:                                               ; preds = %21, %17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  call void @_ZN6casadi11SetNonzerosILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -140038,69 +140138,70 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosSliceILb0EEC2ERNS_19Deserializi
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN6casadi11SetNonzerosILb0EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb0EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.casadi::SetNonzerosSlice", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %17
+  %11 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb0EEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.casadi::SetNonzerosSlice", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %18
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.269, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %14 unwind label %21
+          to label %15 unwind label %22
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %"class.casadi::SetNonzerosSlice", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %16 unwind label %25
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %"class.casadi::SetNonzerosSlice", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %14, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %26
 
-16:                                               ; preds = %14
+17:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
-  br label %30
-
-21:                                               ; preds = %12
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  br label %29
-
-25:                                               ; preds = %14
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %29
-
-29:                                               ; preds = %25, %21
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  br label %30
-
-30:                                               ; preds = %29, %17
-  call void @_ZN6casadi11SetNonzerosILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+22:                                               ; preds = %13
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  br label %30
+
+26:                                               ; preds = %15
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %30
+
+30:                                               ; preds = %26, %22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZN6casadi11SetNonzerosILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -140118,110 +140219,111 @@ define linkonce_odr void @_ZN6casadi17SetNonzerosSlice2ILb0EEC2ERNS_19Deserializ
   %11 = load ptr, ptr %3, align 8
   %12 = load ptr, ptr %4, align 8
   call void @_ZN6casadi11SetNonzerosILb0EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(41) %12)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb0EEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %13 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2", ptr %11, i32 0, i32 1
-  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %14 unwind label %25
+  %13 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb0EEE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2", ptr %11, i32 0, i32 1
+  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14)
+          to label %15 unwind label %26
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2", ptr %11, i32 0, i32 2
-  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %16 unwind label %25
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2", ptr %11, i32 0, i32 2
+  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %26
 
-16:                                               ; preds = %14
-  %17 = load ptr, ptr %4, align 8
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.279, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %18 unwind label %29
+          to label %19 unwind label %30
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2", ptr %11, i32 0, i32 1
-  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %17, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %19)
-          to label %20 unwind label %33
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2", ptr %11, i32 0, i32 1
+  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %20)
+          to label %21 unwind label %34
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  %21 = load ptr, ptr %4, align 8
+  %22 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.280, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %22 unwind label %38
+          to label %23 unwind label %39
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2", ptr %11, i32 0, i32 2
-  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %21, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(24) %23)
-          to label %24 unwind label %42
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds %"class.casadi::SetNonzerosSlice2", ptr %11, i32 0, i32 2
+  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %22, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(24) %24)
+          to label %25 unwind label %43
 
-24:                                               ; preds = %22
+25:                                               ; preds = %23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
   ret void
 
-25:                                               ; preds = %14, %2
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %15, %2
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  br label %47
-
-29:                                               ; preds = %16
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %5, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %6, align 4
-  br label %37
-
-33:                                               ; preds = %18
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %5, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %37
-
-37:                                               ; preds = %33, %29
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  br label %47
-
-38:                                               ; preds = %20
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %5, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %6, align 4
-  br label %46
-
-42:                                               ; preds = %22
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %5, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %46
-
-46:                                               ; preds = %42, %38
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  br label %47
-
-47:                                               ; preds = %46, %37, %25
-  call void @_ZN6casadi11SetNonzerosILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
   br label %48
 
-48:                                               ; preds = %47
-  %49 = load ptr, ptr %5, align 8
-  %50 = load i32, ptr %6, align 4
-  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
-  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
-  resume { ptr, i32 } %52
+30:                                               ; preds = %17
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %5, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %6, align 4
+  br label %38
+
+34:                                               ; preds = %19
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %5, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %38
+
+38:                                               ; preds = %34, %30
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  br label %48
+
+39:                                               ; preds = %21
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %5, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %6, align 4
+  br label %47
+
+43:                                               ; preds = %23
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %5, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  br label %47
+
+47:                                               ; preds = %43, %39
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  br label %48
+
+48:                                               ; preds = %47, %38, %26
+  call void @_ZN6casadi11SetNonzerosILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
+  br label %49
+
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %5, align 8
+  %51 = load i32, ptr %6, align 4
+  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -140233,7 +140335,8 @@ define linkonce_odr hidden void @_ZN6casadi11SetNonzerosILb0EEC2ERNS_19Deseriali
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi11SetNonzerosILb0EEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [109 x ptr] }, ptr @_ZTVN6casadi11SetNonzerosILb0EEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -140246,7 +140349,8 @@ define linkonce_odr void @_ZN6casadi22SetNonzerosParamVectorILb0EEC2ERNS_19Deser
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi16SetNonzerosParamILb0EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb0EEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb0EEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -140263,69 +140367,70 @@ define linkonce_odr void @_ZN6casadi21SetNonzerosParamSliceILb0EEC2ERNS_19Deseri
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN6casadi16SetNonzerosParamILb0EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb0EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.casadi::SetNonzerosParamSlice", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %17
+  %11 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb0EEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.casadi::SetNonzerosParamSlice", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %18
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.318, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %14 unwind label %21
+          to label %15 unwind label %22
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %"class.casadi::SetNonzerosParamSlice", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %16 unwind label %25
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %"class.casadi::SetNonzerosParamSlice", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %14, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %26
 
-16:                                               ; preds = %14
+17:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
-  br label %30
-
-21:                                               ; preds = %12
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  br label %29
-
-25:                                               ; preds = %14
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %29
-
-29:                                               ; preds = %25, %21
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  br label %30
-
-30:                                               ; preds = %29, %17
-  call void @_ZN6casadi16SetNonzerosParamILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+22:                                               ; preds = %13
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  br label %30
+
+26:                                               ; preds = %15
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %30
+
+30:                                               ; preds = %26, %22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZN6casadi16SetNonzerosParamILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -140341,69 +140446,70 @@ define linkonce_odr void @_ZN6casadi21SetNonzerosSliceParamILb0EEC2ERNS_19Deseri
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN6casadi16SetNonzerosParamILb0EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb0EEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.casadi::SetNonzerosSliceParam", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %17
+  %11 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb0EEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.casadi::SetNonzerosSliceParam", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %18
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.329, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %14 unwind label %21
+          to label %15 unwind label %22
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %"class.casadi::SetNonzerosSliceParam", ptr %9, i32 0, i32 1
-  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %16 unwind label %25
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %"class.casadi::SetNonzerosSliceParam", ptr %9, i32 0, i32 1
+  invoke void @_ZN6casadi19DeserializingStream6unpackINS_5SliceEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %14, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %26
 
-16:                                               ; preds = %14
+17:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
-  br label %30
-
-21:                                               ; preds = %12
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  br label %29
-
-25:                                               ; preds = %14
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %29
-
-29:                                               ; preds = %25, %21
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  br label %30
-
-30:                                               ; preds = %29, %17
-  call void @_ZN6casadi16SetNonzerosParamILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+22:                                               ; preds = %13
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  br label %30
+
+26:                                               ; preds = %15
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %30
+
+30:                                               ; preds = %26, %22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZN6casadi16SetNonzerosParamILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -140415,7 +140521,8 @@ define linkonce_odr void @_ZN6casadi21SetNonzerosParamParamILb0EEC2ERNS_19Deseri
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi16SetNonzerosParamILb0EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb0EEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb0EEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -140428,7 +140535,8 @@ define linkonce_odr hidden void @_ZN6casadi16SetNonzerosParamILb0EEC2ERNS_19Dese
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb0EEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb0EEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 

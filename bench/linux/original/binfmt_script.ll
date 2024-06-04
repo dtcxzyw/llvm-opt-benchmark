@@ -36,13 +36,13 @@ define internal i32 @load_script(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 35
-  br i1 %4, label %5, label %120
+  br i1 %4, label %5, label %121
 
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %0, i64 161
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 33
-  br i1 %8, label %9, label %120
+  br i1 %8, label %9, label %121
 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %0, i64 415
@@ -73,7 +73,7 @@ define internal i32 @load_script(ptr noundef %0) #2 align 16 {
   %24 = icmp eq ptr %23, null
   %25 = icmp ugt ptr %23, %10
   %26 = or i1 %24, %25
-  br i1 %26, label %120, label %27
+  br i1 %26, label %121, label %27
 
 27:                                               ; preds = %30, %22
   %28 = phi ptr [ %31, %30 ], [ %23, %22 ]
@@ -92,7 +92,7 @@ define internal i32 @load_script(ptr noundef %0) #2 align 16 {
 33:                                               ; preds = %30, %27, %27, %27
   %34 = phi ptr [ null, %30 ], [ %28, %27 ], [ %28, %27 ], [ %28, %27 ]
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %120, label %36
+  br i1 %35, label %121, label %36
 
 36:                                               ; preds = %33, %9
   %37 = phi ptr [ %10, %33 ], [ %11, %9 ]
@@ -133,7 +133,7 @@ define internal i32 @load_script(ptr noundef %0) #2 align 16 {
   %54 = icmp eq ptr %53, null
   %55 = icmp eq ptr %53, %39
   %56 = or i1 %54, %55
-  br i1 %56, label %120, label %57
+  br i1 %56, label %121, label %57
 
 57:                                               ; preds = %52
   %58 = icmp ugt ptr %53, %39
@@ -184,19 +184,19 @@ define internal i32 @load_script(ptr noundef %0) #2 align 16 {
   %82 = load i32, ptr %81, align 8
   %83 = and i32 %82, 4
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %120
+  br i1 %84, label %85, label %121
 
 85:                                               ; preds = %79
   %86 = tail call i32 @remove_arg_zero(ptr noundef %0) #3
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %120
+  br i1 %87, label %88, label %121
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds i8, ptr %0, i64 104
   %90 = load ptr, ptr %89, align 8
   %91 = tail call i32 @copy_string_kernel(ptr noundef %90, ptr noundef %0) #3
   %92 = icmp slt i32 %91, 0
-  br i1 %92, label %120, label %93
+  br i1 %92, label %121, label %93
 
 93:                                               ; preds = %88
   %94 = getelementptr inbounds i8, ptr %0, i64 88
@@ -211,7 +211,7 @@ define internal i32 @load_script(ptr noundef %0) #2 align 16 {
   store i8 0, ptr %66, align 1
   %99 = tail call i32 @copy_string_kernel(ptr noundef nonnull %80, ptr noundef %0) #3
   %100 = icmp slt i32 %99, 0
-  br i1 %100, label %120, label %101
+  br i1 %100, label %121, label %101
 
 101:                                              ; preds = %98
   %102 = load i32, ptr %94, align 8
@@ -222,7 +222,7 @@ define internal i32 @load_script(ptr noundef %0) #2 align 16 {
 104:                                              ; preds = %101, %93
   %105 = tail call i32 @copy_string_kernel(ptr noundef nonnull %53, ptr noundef %0) #3
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %120
+  br i1 %106, label %107, label %121
 
 107:                                              ; preds = %104
   %108 = load i32, ptr %94, align 8
@@ -230,26 +230,27 @@ define internal i32 @load_script(ptr noundef %0) #2 align 16 {
   store i32 %109, ptr %94, align 8
   %110 = tail call i32 @bprm_change_interp(ptr noundef nonnull %53, ptr noundef %0) #3
   %111 = icmp slt i32 %110, 0
-  br i1 %111, label %120, label %112
+  br i1 %111, label %121, label %112
 
 112:                                              ; preds = %107
   %113 = tail call ptr @open_exec(ptr noundef nonnull %53) #3
-  %114 = icmp ugt ptr %113, inttoptr (i64 -4096 to ptr)
-  br i1 %114, label %115, label %118
+  %114 = inttoptr i64 -4096 to ptr
+  %115 = icmp ugt ptr %113, %114
+  br i1 %115, label %116, label %119
 
-115:                                              ; preds = %112
-  %116 = ptrtoint ptr %113 to i64
-  %117 = trunc i64 %116 to i32
-  br label %120
+116:                                              ; preds = %112
+  %117 = ptrtoint ptr %113 to i64
+  %118 = trunc i64 %117 to i32
+  br label %121
 
-118:                                              ; preds = %112
-  %119 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %113, ptr %119, align 8
-  br label %120
+119:                                              ; preds = %112
+  %120 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %113, ptr %120, align 8
+  br label %121
 
-120:                                              ; preds = %118, %115, %107, %104, %98, %88, %85, %79, %52, %33, %22, %5, %1
-  %121 = phi i32 [ %117, %115 ], [ 0, %118 ], [ -8, %5 ], [ -8, %1 ], [ -8, %22 ], [ -8, %33 ], [ -8, %52 ], [ -2, %79 ], [ %86, %85 ], [ %91, %88 ], [ %99, %98 ], [ %105, %104 ], [ %110, %107 ]
-  ret i32 %121
+121:                                              ; preds = %119, %116, %107, %104, %98, %88, %85, %79, %52, %33, %22, %5, %1
+  %122 = phi i32 [ %118, %116 ], [ 0, %119 ], [ -8, %5 ], [ -8, %1 ], [ -8, %22 ], [ -8, %33 ], [ -8, %52 ], [ -2, %79 ], [ %86, %85 ], [ %91, %88 ], [ %99, %98 ], [ %105, %104 ], [ %110, %107 ]
+  ret i32 %122
 }
 
 ; Function Attrs: null_pointer_is_valid

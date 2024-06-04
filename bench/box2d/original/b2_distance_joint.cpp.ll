@@ -258,54 +258,55 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %def.addr, align 8
   call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15b2DistanceJoint, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %def.addr, align 8
-  %localAnchorA = getelementptr inbounds %struct.b2DistanceJointDef, ptr %1, i32 0, i32 1
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV15b2DistanceJoint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %def.addr, align 8
+  %localAnchorA = getelementptr inbounds %struct.b2DistanceJointDef, ptr %2, i32 0, i32 1
   %m_localAnchorA2 = getelementptr inbounds %class.b2DistanceJoint, ptr %this1, i32 0, i32 7
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorA2, ptr align 4 %localAnchorA, i64 8, i1 false)
-  %2 = load ptr, ptr %def.addr, align 8
-  %localAnchorB = getelementptr inbounds %struct.b2DistanceJointDef, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %def.addr, align 8
+  %localAnchorB = getelementptr inbounds %struct.b2DistanceJointDef, ptr %3, i32 0, i32 2
   %m_localAnchorB3 = getelementptr inbounds %class.b2DistanceJoint, ptr %this1, i32 0, i32 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorB3, ptr align 4 %localAnchorB, i64 8, i1 false)
-  %3 = load ptr, ptr %def.addr, align 8
-  %length = getelementptr inbounds %struct.b2DistanceJointDef, ptr %3, i32 0, i32 3
-  %4 = load float, ptr %length, align 4
-  %call = invoke noundef float @_Z5b2MaxIfET_S0_S0_(float noundef %4, float noundef 0x3F747AE140000000)
+  %4 = load ptr, ptr %def.addr, align 8
+  %length = getelementptr inbounds %struct.b2DistanceJointDef, ptr %4, i32 0, i32 3
+  %5 = load float, ptr %length, align 4
+  %call = invoke noundef float @_Z5b2MaxIfET_S0_S0_(float noundef %5, float noundef 0x3F747AE140000000)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_length = getelementptr inbounds %class.b2DistanceJoint, ptr %this1, i32 0, i32 4
   store float %call, ptr %m_length, align 4
-  %5 = load ptr, ptr %def.addr, align 8
-  %minLength = getelementptr inbounds %struct.b2DistanceJointDef, ptr %5, i32 0, i32 4
-  %6 = load float, ptr %minLength, align 8
-  %call5 = invoke noundef float @_Z5b2MaxIfET_S0_S0_(float noundef %6, float noundef 0x3F747AE140000000)
+  %6 = load ptr, ptr %def.addr, align 8
+  %minLength = getelementptr inbounds %struct.b2DistanceJointDef, ptr %6, i32 0, i32 4
+  %7 = load float, ptr %minLength, align 8
+  %call5 = invoke noundef float @_Z5b2MaxIfET_S0_S0_(float noundef %7, float noundef 0x3F747AE140000000)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %m_minLength = getelementptr inbounds %class.b2DistanceJoint, ptr %this1, i32 0, i32 5
   store float %call5, ptr %m_minLength, align 8
-  %7 = load ptr, ptr %def.addr, align 8
-  %maxLength = getelementptr inbounds %struct.b2DistanceJointDef, ptr %7, i32 0, i32 5
-  %8 = load float, ptr %maxLength, align 4
+  %8 = load ptr, ptr %def.addr, align 8
+  %maxLength = getelementptr inbounds %struct.b2DistanceJointDef, ptr %8, i32 0, i32 5
+  %9 = load float, ptr %maxLength, align 4
   %m_minLength6 = getelementptr inbounds %class.b2DistanceJoint, ptr %this1, i32 0, i32 5
-  %9 = load float, ptr %m_minLength6, align 8
-  %call8 = invoke noundef float @_Z5b2MaxIfET_S0_S0_(float noundef %8, float noundef %9)
+  %10 = load float, ptr %m_minLength6, align 8
+  %call8 = invoke noundef float @_Z5b2MaxIfET_S0_S0_(float noundef %9, float noundef %10)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont4
   %m_maxLength = getelementptr inbounds %class.b2DistanceJoint, ptr %this1, i32 0, i32 6
   store float %call8, ptr %m_maxLength, align 4
-  %10 = load ptr, ptr %def.addr, align 8
-  %stiffness = getelementptr inbounds %struct.b2DistanceJointDef, ptr %10, i32 0, i32 6
-  %11 = load float, ptr %stiffness, align 8
+  %11 = load ptr, ptr %def.addr, align 8
+  %stiffness = getelementptr inbounds %struct.b2DistanceJointDef, ptr %11, i32 0, i32 6
+  %12 = load float, ptr %stiffness, align 8
   %m_stiffness = getelementptr inbounds %class.b2DistanceJoint, ptr %this1, i32 0, i32 1
-  store float %11, ptr %m_stiffness, align 8
-  %12 = load ptr, ptr %def.addr, align 8
-  %damping = getelementptr inbounds %struct.b2DistanceJointDef, ptr %12, i32 0, i32 7
-  %13 = load float, ptr %damping, align 4
+  store float %12, ptr %m_stiffness, align 8
+  %13 = load ptr, ptr %def.addr, align 8
+  %damping = getelementptr inbounds %struct.b2DistanceJointDef, ptr %13, i32 0, i32 7
+  %14 = load float, ptr %damping, align 4
   %m_damping = getelementptr inbounds %class.b2DistanceJoint, ptr %this1, i32 0, i32 2
-  store float %13, ptr %m_damping, align 4
+  store float %14, ptr %m_damping, align 4
   %m_gamma = getelementptr inbounds %class.b2DistanceJoint, ptr %this1, i32 0, i32 9
   store float 0.000000e+00, ptr %m_gamma, align 8
   %m_bias = getelementptr inbounds %class.b2DistanceJoint, ptr %this1, i32 0, i32 3
@@ -321,12 +322,12 @@ invoke.cont7:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont, %entry
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZN7b2JointD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this1) #8
   br label %eh.resume
 

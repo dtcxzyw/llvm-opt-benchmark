@@ -369,7 +369,8 @@ entry:
   store ptr %broadphaseDbvt, ptr %broadphaseDbvt.addr, align 8
   store ptr %config, ptr %config.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22b3CpuRigidBodyPipeline, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV22b3CpuRigidBodyPipeline, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #11
   invoke void @_ZN34b3CpuRigidBodyPipelineInternalDataC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %call)
           to label %invoke.cont unwind label %lpad
@@ -377,30 +378,30 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %m_data = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this1, i32 0, i32 1
   store ptr %call, ptr %m_data, align 8
-  %0 = load ptr, ptr %narrowphase.addr, align 8
+  %1 = load ptr, ptr %narrowphase.addr, align 8
   %m_data2 = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m_data2, align 8
-  %m_np = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %1, i32 0, i32 4
-  store ptr %0, ptr %m_np, align 8
-  %2 = load ptr, ptr %broadphaseDbvt.addr, align 8
+  %2 = load ptr, ptr %m_data2, align 8
+  %m_np = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %2, i32 0, i32 4
+  store ptr %1, ptr %m_np, align 8
+  %3 = load ptr, ptr %broadphaseDbvt.addr, align 8
   %m_data3 = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %m_data3, align 8
-  %m_bp = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %3, i32 0, i32 3
-  store ptr %2, ptr %m_bp, align 8
-  %4 = load ptr, ptr %config.addr, align 8
+  %4 = load ptr, ptr %m_data3, align 8
+  %m_bp = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %4, i32 0, i32 3
+  store ptr %3, ptr %m_bp, align 8
+  %5 = load ptr, ptr %config.addr, align 8
   %m_data4 = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %m_data4, align 8
-  %m_config = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %5, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_config, ptr align 4 %4, i64 48, i1 false)
+  %6 = load ptr, ptr %m_data4, align 8
+  %m_config = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %6, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_config, ptr align 4 %5, i64 48, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #12
   br label %eh.resume
 
@@ -500,15 +501,16 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22b3CpuRigidBodyPipeline, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV22b3CpuRigidBodyPipeline, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_data = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_data, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %m_data, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZN34b3CpuRigidBodyPipelineInternalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #13
-  call void @_ZdlPv(ptr noundef %0) #12
+  call void @_ZN34b3CpuRigidBodyPipelineInternalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %1) #13
+  call void @_ZdlPv(ptr noundef %1) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry

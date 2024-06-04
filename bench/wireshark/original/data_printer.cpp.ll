@@ -333,9 +333,10 @@ define void @_ZN11DataPrinterC2EP7QObject(ptr noundef nonnull align 8 dereferenc
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11DataPrinter, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.DataPrinter, ptr %5, i32 0, i32 1
-  store i32 16, ptr %7, align 8
+  %7 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV11DataPrinter, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.DataPrinter, ptr %5, i32 0, i32 1
+  store i32 16, ptr %8, align 8
   ret void
 }
 
@@ -1915,43 +1916,44 @@ define noundef i32 @_ZNK11DataPrinter14byteLineLengthEv(ptr noundef nonnull alig
 define noundef i32 @_ZN11DataPrinter8hexCharsEv() #0 align 2 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i32 0, i32 14), align 8
-  switch i32 %3, label %7 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
-    i32 3, label %6
+  %3 = getelementptr inbounds %struct.recent_settings_tag, ptr @recent, i32 0, i32 14
+  %4 = load i32, ptr %3, align 8
+  switch i32 %4, label %8 [
+    i32 0, label %5
+    i32 1, label %6
+    i32 2, label %7
+    i32 3, label %7
   ]
 
-4:                                                ; preds = %0
+5:                                                ; preds = %0
   store i32 16, ptr %1, align 4
   store i32 3, ptr %2, align 4
-  br label %8
+  br label %9
 
-5:                                                ; preds = %0
+6:                                                ; preds = %0
   store i32 8, ptr %1, align 4
   store i32 9, ptr %2, align 4
-  br label %8
+  br label %9
 
-6:                                                ; preds = %0, %0
+7:                                                ; preds = %0, %0
   store i32 16, ptr %1, align 4
   store i32 4, ptr %2, align 4
-  br label %8
+  br label %9
 
-7:                                                ; preds = %0
+8:                                                ; preds = %0
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str.10, i32 noundef 7, ptr noundef @.str.11, i64 noundef 153, ptr noundef @__func__._ZN11DataPrinter8hexCharsEv, ptr noundef @.str.12) #16
   unreachable
 
-8:                                                ; preds = %6, %5, %4
-  %9 = load i32, ptr %1, align 4
-  %10 = load i32, ptr %2, align 4
-  %11 = mul i32 %9, %10
-  %12 = load i32, ptr %1, align 4
-  %13 = sub i32 %12, 1
-  %14 = call noundef i32 @_ZN11DataPrinter17separatorIntervalEv()
-  %15 = sdiv i32 %13, %14
-  %16 = add i32 %11, %15
-  ret i32 %16
+9:                                                ; preds = %7, %6, %5
+  %10 = load i32, ptr %1, align 4
+  %11 = load i32, ptr %2, align 4
+  %12 = mul i32 %10, %11
+  %13 = load i32, ptr %1, align 4
+  %14 = sub i32 %13, 1
+  %15 = call noundef i32 @_ZN11DataPrinter17separatorIntervalEv()
+  %16 = sdiv i32 %14, %15
+  %17 = add i32 %12, %16
+  ret i32 %17
 }
 
 ; Function Attrs: noreturn

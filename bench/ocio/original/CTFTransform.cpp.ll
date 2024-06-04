@@ -4751,12 +4751,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %formatter.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev16XmlElementWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15TransformWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15TransformWriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_transform = getelementptr inbounds %"class.OpenColorIO_v2_4dev::TransformWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev18CTFReaderTransformEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %m_transform, ptr noundef nonnull align 8 dereferenceable(16) %transform) #3
   %m_isCLF = getelementptr inbounds %"class.OpenColorIO_v2_4dev::TransformWriter", ptr %this1, i32 0, i32 2
-  %1 = load i8, ptr %isCLF.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %isCLF.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %m_isCLF, align 8
   ret void
@@ -4783,7 +4784,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15TransformWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15TransformWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_transform = getelementptr inbounds %"class.OpenColorIO_v2_4dev::TransformWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev18CTFReaderTransformEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_transform) #3
   call void @_ZN19OpenColorIO_v2_4dev16XmlElementWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -8681,7 +8683,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %formatter.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_cdl = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::CDLWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9CDLOpDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %m_cdl, ptr noundef nonnull align 8 dereferenceable(16) %cdl) #3
   ret void
@@ -8891,7 +8894,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_cdl = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::CDLWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9CDLOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_cdl) #3
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -9198,10 +9202,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %formatter.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_version = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GammaWriter", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %version.addr, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev10CTFVersionC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(12) %m_version, ptr noundef nonnull align 4 dereferenceable(12) %1)
+  %2 = load ptr, ptr %version.addr, align 8
+  invoke void @_ZN19OpenColorIO_v2_4dev10CTFVersionC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(12) %m_version, ptr noundef nonnull align 4 dereferenceable(12) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -9210,12 +9215,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
   br label %eh.resume
 
@@ -9243,7 +9248,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_gamma = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GammaWriter", ptr %this1, i32 0, i32 2
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_gamma) #3
   %m_version = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GammaWriter", ptr %this1, i32 0, i32 1
@@ -9366,7 +9372,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %formatter.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_ec = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ExposureContrastWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev22ExposureContrastOpDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %m_ec, ptr noundef nonnull align 8 dereferenceable(16) %ec) #3
   ret void
@@ -9388,7 +9395,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ec = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ExposureContrastWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev22ExposureContrastOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_ec) #3
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -9461,7 +9469,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %formatter.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_ff = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::FixedFunctionWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19FixedFunctionOpDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %m_ff, ptr noundef nonnull align 8 dereferenceable(16) %ff) #3
   ret void
@@ -9483,7 +9492,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ff = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::FixedFunctionWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19FixedFunctionOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_ff) #3
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -9620,7 +9630,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %formatter.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_primary = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %m_primary, ptr noundef nonnull align 8 dereferenceable(16) %primary) #3
   ret void
@@ -9642,7 +9653,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_primary = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_primary) #3
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -9715,7 +9727,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %formatter.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_curves = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingRGBCurveWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %m_curves, ptr noundef nonnull align 8 dereferenceable(16) %curves) #3
   ret void
@@ -9737,7 +9750,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_curves = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingRGBCurveWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_curves) #3
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -9810,7 +9824,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %formatter.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_tone = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingToneWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev17GradingToneOpDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %m_tone, ptr noundef nonnull align 8 dereferenceable(16) %tone) #3
   ret void
@@ -9832,7 +9847,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_tone = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingToneWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev17GradingToneOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_tone) #3
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -9905,7 +9921,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %formatter.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_log = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::LogWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9LogOpDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %m_log, ptr noundef nonnull align 8 dereferenceable(16) %log) #3
   ret void
@@ -9927,7 +9944,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_log = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::LogWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9LogOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_log) #3
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -10021,7 +10039,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %formatter.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_lut = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::Lut1DWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %m_lut, ptr noundef nonnull align 8 dereferenceable(16) %lut) #3
   ret void
@@ -10242,7 +10261,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_lut = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::Lut1DWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_lut) #3
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -10336,7 +10356,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %formatter.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_lut = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::Lut3DWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut3DOpDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %m_lut, ptr noundef nonnull align 8 dereferenceable(16) %lut) #3
   ret void
@@ -10369,7 +10390,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_lut = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::Lut3DWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut3DOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_lut) #3
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -10481,10 +10503,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %formatter.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_version = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWriter", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %version.addr, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev10CTFVersionC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(12) %m_version, ptr noundef nonnull align 4 dereferenceable(12) %1)
+  %2 = load ptr, ptr %version.addr, align 8
+  invoke void @_ZN19OpenColorIO_v2_4dev10CTFVersionC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(12) %m_version, ptr noundef nonnull align 4 dereferenceable(12) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -10493,12 +10516,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
   br label %eh.resume
 
@@ -10526,7 +10549,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_matrix = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWriter", ptr %this1, i32 0, i32 2
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12MatrixOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_matrix) #3
   %m_version = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWriter", ptr %this1, i32 0, i32 1
@@ -10644,7 +10668,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %formatter.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_range = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::RangeWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %m_range, ptr noundef nonnull align 8 dereferenceable(16) %range) #3
   ret void
@@ -10666,7 +10691,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_range = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::RangeWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_range) #3
   call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -12128,7 +12154,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %formatter.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev16XmlElementWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_inBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::OpWriter", ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_inBitDepth, align 8
   %m_outBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::OpWriter", ptr %this1, i32 0, i32 2
@@ -35179,28 +35206,29 @@ entry:
   store ptr %__args7, ptr %__args.addr8, align 8
   %this9 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this9) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11GammaOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this9, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11GammaOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this9, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this9, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11GammaOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(272) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11GammaOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(288) %this9) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  %3 = load ptr, ptr %__args.addr6, align 8
-  %4 = load ptr, ptr %__args.addr8, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev11GammaOpDataEJNS4_5StyleERSt6vectorIdSaIdEES9_S9_S9_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  %4 = load ptr, ptr %__args.addr6, align 8
+  %5 = load ptr, ptr %__args.addr8, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev11GammaOpDataEJNS4_5StyleERSt6vectorIdSaIdEES9_S9_S9_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this9) #3
   br label %eh.resume
 
@@ -35378,7 +35406,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -36342,7 +36371,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.154", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(264) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(280) %this1) #3
@@ -36353,12 +36383,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 

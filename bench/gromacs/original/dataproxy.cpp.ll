@@ -559,85 +559,87 @@ define void @_ZN3gmx17AnalysisDataProxyC2EiiPNS_20AbstractAnalysisDataE(ptr noun
   call void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13)
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   call void @_ZN3gmx19IAnalysisDataModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #10
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx17AnalysisDataProxyE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr getelementptr inbounds inrange(-16, 80) ({ [15 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx17AnalysisDataProxyE, i32 0, i32 1, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 2
-  %17 = load ptr, ptr %8, align 8
+  %15 = getelementptr inbounds { [15 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx17AnalysisDataProxyE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %17 = getelementptr inbounds { [15 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx17AnalysisDataProxyE, i32 0, i32 1, i32 2
   store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 3
-  %19 = load i32, ptr %6, align 4
-  store i32 %19, ptr %18, align 8
-  %20 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 4
-  %21 = load i32, ptr %7, align 4
-  store i32 %21, ptr %20, align 4
-  %22 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 5
-  store i8 0, ptr %22, align 8
-  %23 = load ptr, ptr %8, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %26
+  %18 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 2
+  %19 = load ptr, ptr %8, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 3
+  %21 = load i32, ptr %6, align 4
+  store i32 %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 4
+  %23 = load i32, ptr %7, align 4
+  store i32 %23, ptr %22, align 4
+  %24 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 5
+  store i8 0, ptr %24, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %28
 
-25:                                               ; preds = %4
-  br label %28
+27:                                               ; preds = %4
+  br label %30
 
-26:                                               ; preds = %4
+28:                                               ; preds = %4
   invoke void @"_ZZN3gmx17AnalysisDataProxyC1EiiPNS_20AbstractAnalysisDataEENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %27 unwind label %43
+          to label %29 unwind label %45
 
-27:                                               ; preds = %26
-  br label %28
+29:                                               ; preds = %28
+  br label %30
 
-28:                                               ; preds = %27, %25
-  %29 = load i32, ptr %6, align 4
-  %30 = icmp sge i32 %29, 0
-  br i1 %30, label %31, label %35
+30:                                               ; preds = %29, %27
+  %31 = load i32, ptr %6, align 4
+  %32 = icmp sge i32 %31, 0
+  br i1 %32, label %33, label %37
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr %7, align 4
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %35
+33:                                               ; preds = %30
+  %34 = load i32, ptr %7, align 4
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %36, label %37
 
-34:                                               ; preds = %31
-  br label %37
+36:                                               ; preds = %33
+  br label %39
 
-35:                                               ; preds = %31, %28
+37:                                               ; preds = %33, %30
   invoke void @"_ZZN3gmx17AnalysisDataProxyC1EiiPNS_20AbstractAnalysisDataEENK3$_1clEv"(ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %36 unwind label %43
+          to label %38 unwind label %45
 
-36:                                               ; preds = %35
-  br label %37
+38:                                               ; preds = %37
+  br label %39
 
-37:                                               ; preds = %36, %34
-  %38 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 2
-  %39 = load ptr, ptr %38, align 8
-  %40 = invoke noundef zeroext i1 @_ZNK3gmx20AbstractAnalysisData12isMultipointEv(ptr noundef nonnull align 8 dereferenceable(16) %39)
-          to label %41 unwind label %43
+39:                                               ; preds = %38, %36
+  %40 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 2
+  %41 = load ptr, ptr %40, align 8
+  %42 = invoke noundef zeroext i1 @_ZNK3gmx20AbstractAnalysisData12isMultipointEv(ptr noundef nonnull align 8 dereferenceable(16) %41)
+          to label %43 unwind label %45
 
-41:                                               ; preds = %37
-  invoke void @_ZN3gmx20AbstractAnalysisData13setMultipointEb(ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext %40)
-          to label %42 unwind label %43
+43:                                               ; preds = %39
+  invoke void @_ZN3gmx20AbstractAnalysisData13setMultipointEb(ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext %42)
+          to label %44 unwind label %45
 
-42:                                               ; preds = %41
+44:                                               ; preds = %43
   ret void
 
-43:                                               ; preds = %41, %37, %35, %26
-  %44 = landingpad { ptr, i32 }
+45:                                               ; preds = %43, %39, %37, %28
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %10, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %11, align 4
-  %47 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @_ZN3gmx19IAnalysisDataModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #10
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %10, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %11, align 4
+  %49 = getelementptr inbounds i8, ptr %13, i64 16
+  call void @_ZN3gmx19IAnalysisDataModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #10
   call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #10
-  br label %48
+  br label %50
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %10, align 8
-  %50 = load i32, ptr %11, align 4
-  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
-  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
-  resume { ptr, i32 } %52
+50:                                               ; preds = %45
+  %51 = load ptr, ptr %10, align 8
+  %52 = load i32, ptr %11, align 4
+  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
+  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
+  resume { ptr, i32 } %54
 }
 
 declare void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
@@ -647,7 +649,8 @@ define linkonce_odr void @_ZN3gmx19IAnalysisDataModuleC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) ({ [12 x ptr] }, ptr @_ZTVN3gmx19IAnalysisDataModuleE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3gmx19IAnalysisDataModuleE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

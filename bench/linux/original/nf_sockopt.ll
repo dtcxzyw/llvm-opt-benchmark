@@ -106,8 +106,10 @@ define dso_local void @nf_unregister_sockopt(ptr nocapture noundef %0) #0 align 
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
   store volatile ptr %4, ptr %3, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %2, align 8
+  %6 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %6, ptr %0, align 8
+  %7 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %7, ptr %2, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @nf_sockopt_mutex) #2
   ret void
 }
@@ -117,66 +119,70 @@ define dso_local i32 @nf_setsockopt(ptr noundef %0, i8 noundef zeroext %1, i32 n
   tail call void @mutex_lock(ptr noundef nonnull @nf_sockopt_mutex) #2
   %7 = load ptr, ptr @nf_sockopts, align 8
   %8 = icmp eq ptr %7, @nf_sockopts
-  br i1 %8, label %31, label %9
+  %9 = inttoptr i64 -92 to ptr
+  br i1 %8, label %34, label %10
 
-9:                                                ; preds = %28, %6
-  %10 = phi ptr [ %29, %28 ], [ %7, %6 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
-  %12 = load i8, ptr %11, align 8
-  %13 = icmp eq i8 %12, %1
-  br i1 %13, label %14, label %28
+10:                                               ; preds = %30, %6
+  %11 = phi ptr [ %31, %30 ], [ %7, %6 ]
+  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = load i8, ptr %12, align 8
+  %14 = icmp eq i8 %13, %1
+  br i1 %14, label %15, label %30
 
-14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %10, i64 56
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call zeroext i1 @try_module_get(ptr noundef %16) #2
-  br i1 %17, label %18, label %31
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds i8, ptr %11, i64 56
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call zeroext i1 @try_module_get(ptr noundef %17) #2
+  %19 = inttoptr i64 -92 to ptr
+  br i1 %18, label %20, label %34
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %10, i64 20
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp sgt i32 %20, %2
-  br i1 %21, label %26, label %22
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds i8, ptr %11, i64 20
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp sgt i32 %22, %2
+  br i1 %23, label %28, label %24
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %10, i64 24
-  %24 = load i32, ptr %23, align 8
-  %25 = icmp sgt i32 %24, %2
-  br i1 %25, label %31, label %26
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %11, i64 24
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp sgt i32 %26, %2
+  br i1 %27, label %34, label %28
 
-26:                                               ; preds = %22, %18
-  %27 = load ptr, ptr %15, align 8
-  tail call void @module_put(ptr noundef %27) #2
-  br label %28
+28:                                               ; preds = %24, %20
+  %29 = load ptr, ptr %16, align 8
+  tail call void @module_put(ptr noundef %29) #2
+  br label %30
 
-28:                                               ; preds = %26, %9
-  %29 = load ptr, ptr %10, align 8
-  %30 = icmp eq ptr %29, @nf_sockopts
-  br i1 %30, label %31, label %9, !llvm.loop !8
+30:                                               ; preds = %28, %10
+  %31 = load ptr, ptr %11, align 8
+  %32 = icmp eq ptr %31, @nf_sockopts
+  %33 = inttoptr i64 -92 to ptr
+  br i1 %32, label %34, label %10, !llvm.loop !8
 
-31:                                               ; preds = %28, %22, %14, %6
-  %32 = phi ptr [ inttoptr (i64 -92 to ptr), %6 ], [ %10, %22 ], [ inttoptr (i64 -92 to ptr), %28 ], [ inttoptr (i64 -92 to ptr), %14 ]
+34:                                               ; preds = %30, %24, %15, %6
+  %35 = phi ptr [ %9, %6 ], [ %11, %24 ], [ %33, %30 ], [ %19, %15 ]
   tail call void @mutex_unlock(ptr noundef nonnull @nf_sockopt_mutex) #2
-  %33 = icmp ugt ptr %32, inttoptr (i64 -4096 to ptr)
-  br i1 %33, label %34, label %37
+  %36 = inttoptr i64 -4096 to ptr
+  %37 = icmp ugt ptr %35, %36
+  br i1 %37, label %38, label %41
 
-34:                                               ; preds = %31
-  %35 = ptrtoint ptr %32 to i64
-  %36 = trunc i64 %35 to i32
-  br label %43
+38:                                               ; preds = %34
+  %39 = ptrtoint ptr %35 to i64
+  %40 = trunc i64 %39 to i32
+  br label %47
 
-37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %32, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 %39(ptr noundef %0, i32 noundef %2, ptr %3, i8 %4, i32 noundef %5) #2
-  %41 = getelementptr inbounds i8, ptr %32, i64 56
-  %42 = load ptr, ptr %41, align 8
-  tail call void @module_put(ptr noundef %42) #2
-  br label %43
+41:                                               ; preds = %34
+  %42 = getelementptr inbounds i8, ptr %35, i64 32
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call i32 %43(ptr noundef %0, i32 noundef %2, ptr %3, i8 %4, i32 noundef %5) #2
+  %45 = getelementptr inbounds i8, ptr %35, i64 56
+  %46 = load ptr, ptr %45, align 8
+  tail call void @module_put(ptr noundef %46) #2
+  br label %47
 
-43:                                               ; preds = %37, %34
-  %44 = phi i32 [ %36, %34 ], [ %40, %37 ]
-  ret i32 %44
+47:                                               ; preds = %41, %38
+  %48 = phi i32 [ %40, %38 ], [ %44, %41 ]
+  ret i32 %48
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -187,66 +193,70 @@ define dso_local i32 @nf_getsockopt(ptr noundef %0, i8 noundef zeroext %1, i32 n
   tail call void @mutex_lock(ptr noundef nonnull @nf_sockopt_mutex) #2
   %6 = load ptr, ptr @nf_sockopts, align 8
   %7 = icmp eq ptr %6, @nf_sockopts
-  br i1 %7, label %30, label %8
+  %8 = inttoptr i64 -92 to ptr
+  br i1 %7, label %33, label %9
 
-8:                                                ; preds = %27, %5
-  %9 = phi ptr [ %28, %27 ], [ %6, %5 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
-  %11 = load i8, ptr %10, align 8
-  %12 = icmp eq i8 %11, %1
-  br i1 %12, label %13, label %27
+9:                                                ; preds = %29, %5
+  %10 = phi ptr [ %30, %29 ], [ %6, %5 ]
+  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = load i8, ptr %11, align 8
+  %13 = icmp eq i8 %12, %1
+  br i1 %13, label %14, label %29
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %9, i64 56
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call zeroext i1 @try_module_get(ptr noundef %15) #2
-  br i1 %16, label %17, label %30
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds i8, ptr %10, i64 56
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call zeroext i1 @try_module_get(ptr noundef %16) #2
+  %18 = inttoptr i64 -92 to ptr
+  br i1 %17, label %19, label %33
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %9, i64 40
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp sgt i32 %19, %2
-  br i1 %20, label %25, label %21
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %10, i64 40
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp sgt i32 %21, %2
+  br i1 %22, label %27, label %23
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %9, i64 44
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp sgt i32 %23, %2
-  br i1 %24, label %30, label %25
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %10, i64 44
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp sgt i32 %25, %2
+  br i1 %26, label %33, label %27
 
-25:                                               ; preds = %21, %17
-  %26 = load ptr, ptr %14, align 8
-  tail call void @module_put(ptr noundef %26) #2
-  br label %27
+27:                                               ; preds = %23, %19
+  %28 = load ptr, ptr %15, align 8
+  tail call void @module_put(ptr noundef %28) #2
+  br label %29
 
-27:                                               ; preds = %25, %8
-  %28 = load ptr, ptr %9, align 8
-  %29 = icmp eq ptr %28, @nf_sockopts
-  br i1 %29, label %30, label %8, !llvm.loop !8
+29:                                               ; preds = %27, %9
+  %30 = load ptr, ptr %10, align 8
+  %31 = icmp eq ptr %30, @nf_sockopts
+  %32 = inttoptr i64 -92 to ptr
+  br i1 %31, label %33, label %9, !llvm.loop !8
 
-30:                                               ; preds = %27, %21, %13, %5
-  %31 = phi ptr [ inttoptr (i64 -92 to ptr), %5 ], [ %9, %21 ], [ inttoptr (i64 -92 to ptr), %27 ], [ inttoptr (i64 -92 to ptr), %13 ]
+33:                                               ; preds = %29, %23, %14, %5
+  %34 = phi ptr [ %8, %5 ], [ %10, %23 ], [ %32, %29 ], [ %18, %14 ]
   tail call void @mutex_unlock(ptr noundef nonnull @nf_sockopt_mutex) #2
-  %32 = icmp ugt ptr %31, inttoptr (i64 -4096 to ptr)
-  br i1 %32, label %33, label %36
+  %35 = inttoptr i64 -4096 to ptr
+  %36 = icmp ugt ptr %34, %35
+  br i1 %36, label %37, label %40
 
-33:                                               ; preds = %30
-  %34 = ptrtoint ptr %31 to i64
-  %35 = trunc i64 %34 to i32
-  br label %42
+37:                                               ; preds = %33
+  %38 = ptrtoint ptr %34 to i64
+  %39 = trunc i64 %38 to i32
+  br label %46
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %31, i64 48
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 %38(ptr noundef %0, i32 noundef %2, ptr noundef %3, ptr noundef %4) #2
-  %40 = getelementptr inbounds i8, ptr %31, i64 56
-  %41 = load ptr, ptr %40, align 8
-  tail call void @module_put(ptr noundef %41) #2
-  br label %42
+40:                                               ; preds = %33
+  %41 = getelementptr inbounds i8, ptr %34, i64 48
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call i32 %42(ptr noundef %0, i32 noundef %2, ptr noundef %3, ptr noundef %4) #2
+  %44 = getelementptr inbounds i8, ptr %34, i64 56
+  %45 = load ptr, ptr %44, align 8
+  tail call void @module_put(ptr noundef %45) #2
+  br label %46
 
-42:                                               ; preds = %36, %33
-  %43 = phi i32 [ %35, %33 ], [ %39, %36 ]
-  ret i32 %43
+46:                                               ; preds = %40, %37
+  %47 = phi i32 [ %39, %37 ], [ %43, %40 ]
+  ret i32 %47
 }
 
 ; Function Attrs: null_pointer_is_valid

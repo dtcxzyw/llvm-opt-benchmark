@@ -688,28 +688,33 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @nf_ct_frag6_init() local_unnamed_addr #0 align 16 {
-  store ptr @ip6frag_init, ptr getelementptr inbounds (%struct.inet_frags, ptr @nf_frags, i64 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.inet_frags, ptr @nf_frags, i64 0, i32 2), align 8
+  %1 = getelementptr inbounds %struct.inet_frags, ptr @nf_frags, i64 0, i32 1
+  store ptr @ip6frag_init, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.inet_frags, ptr @nf_frags, i64 0, i32 2
+  store ptr null, ptr %2, align 8
   store i32 184, ptr @nf_frags, align 8
-  store ptr @nf_ct_frag6_expire, ptr getelementptr inbounds (%struct.inet_frags, ptr @nf_frags, i64 0, i32 3), align 8
-  store ptr @nf_frags_cache_name, ptr getelementptr inbounds (%struct.inet_frags, ptr @nf_frags, i64 0, i32 5), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.inet_frags, ptr @nf_frags, i64 0, i32 6), ptr noundef nonnull align 8 dereferenceable(40) @nfct_rhash_params, i64 40, i1 false)
-  %1 = tail call i32 @inet_frags_init(ptr noundef nonnull @nf_frags) #11
-  %2 = icmp eq i32 %1, 0
-  br i1 %2, label %3, label %7
+  %3 = getelementptr inbounds %struct.inet_frags, ptr @nf_frags, i64 0, i32 3
+  store ptr @nf_ct_frag6_expire, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.inet_frags, ptr @nf_frags, i64 0, i32 5
+  store ptr @nf_frags_cache_name, ptr %4, align 8
+  %5 = getelementptr inbounds %struct.inet_frags, ptr @nf_frags, i64 0, i32 6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @nfct_rhash_params, i64 40, i1 false)
+  %6 = tail call i32 @inet_frags_init(ptr noundef nonnull @nf_frags) #11
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %12
 
-3:                                                ; preds = %0
-  %4 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @nf_ct_net_ops) #11
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %7, label %6
+8:                                                ; preds = %0
+  %9 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @nf_ct_net_ops) #11
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %12, label %11
 
-6:                                                ; preds = %3
+11:                                               ; preds = %8
   tail call void @inet_frags_fini(ptr noundef nonnull @nf_frags) #11
-  br label %7
+  br label %12
 
-7:                                                ; preds = %6, %3, %0
-  %8 = phi i32 [ %1, %0 ], [ %4, %6 ], [ 0, %3 ]
-  ret i32 %8
+12:                                               ; preds = %11, %8, %0
+  %13 = phi i32 [ %6, %0 ], [ %9, %11 ], [ 0, %8 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)

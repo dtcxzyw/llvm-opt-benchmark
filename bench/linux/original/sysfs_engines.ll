@@ -61,7 +61,7 @@ define dso_local void @intel_engines_add_sysfs(ptr noundef %0) local_unnamed_add
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @kobject_create_and_add(ptr noundef nonnull @.str, ptr noundef %5) #6
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %88, label %8
+  br i1 %7, label %90, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 7896
@@ -70,130 +70,132 @@ define dso_local void @intel_engines_add_sysfs(ptr noundef %0) local_unnamed_add
   %12 = getelementptr i8, ptr %10, i64 -112
   %13 = icmp eq ptr %12, null
   %14 = or i1 %11, %13
-  br i1 %14, label %88, label %15
+  br i1 %14, label %90, label %15
 
-15:                                               ; preds = %81, %8
-  %16 = phi ptr [ %86, %81 ], [ %12, %8 ]
-  %17 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %18 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 72) #7
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %26, label %20
+15:                                               ; preds = %83, %8
+  %16 = phi ptr [ %88, %83 ], [ %12, %8 ]
+  %17 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3520, i64 noundef 72) #7
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %27, label %21
 
-20:                                               ; preds = %15
-  tail call void @kobject_init(ptr noundef nonnull %18, ptr noundef nonnull @kobj_engine_type) #6
-  %21 = getelementptr inbounds i8, ptr %18, i64 64
-  store ptr %16, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 24
-  %23 = tail call i32 (ptr, ptr, ptr, ...) @kobject_add(ptr noundef nonnull %18, ptr noundef nonnull %6, ptr noundef nonnull @.str.19, ptr noundef %22) #6
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %26, label %25
+21:                                               ; preds = %15
+  tail call void @kobject_init(ptr noundef nonnull %19, ptr noundef nonnull @kobj_engine_type) #6
+  %22 = getelementptr inbounds i8, ptr %19, i64 64
+  store ptr %16, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %16, i64 24
+  %24 = tail call i32 (ptr, ptr, ptr, ...) @kobject_add(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull @.str.19, ptr noundef %23) #6
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %27, label %26
 
-25:                                               ; preds = %20
-  tail call void @kobject_put(ptr noundef nonnull %18) #6
-  br label %26
+26:                                               ; preds = %21
+  tail call void @kobject_put(ptr noundef nonnull %19) #6
+  br label %27
 
-26:                                               ; preds = %25, %20, %15
-  %27 = phi ptr [ null, %25 ], [ null, %15 ], [ %18, %20 ]
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %79, label %29
+27:                                               ; preds = %26, %21, %15
+  %28 = phi ptr [ null, %26 ], [ null, %15 ], [ %19, %21 ]
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %81, label %30
 
-29:                                               ; preds = %26
-  %30 = tail call i32 @sysfs_create_files(ptr noundef nonnull %27, ptr noundef nonnull @intel_engines_add_sysfs.files) #6
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %78
+30:                                               ; preds = %27
+  %31 = tail call i32 @sysfs_create_files(ptr noundef nonnull %28, ptr noundef nonnull @intel_engines_add_sysfs.files) #6
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %80
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %16, i64 1248
-  %34 = load i32, ptr %33, align 8
-  %35 = and i32 %34, 16
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %40, label %37
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %16, i64 1248
+  %35 = load i32, ptr %34, align 8
+  %36 = and i32 %35, 16
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %41, label %38
 
-37:                                               ; preds = %32
-  %38 = tail call i32 @sysfs_create_file_ns(ptr noundef nonnull %27, ptr noundef nonnull @timeslice_duration_attr, ptr noundef null) #6
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %79
+38:                                               ; preds = %33
+  %39 = tail call i32 @sysfs_create_file_ns(ptr noundef nonnull %28, ptr noundef nonnull @timeslice_duration_attr, ptr noundef null) #6
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %81
 
-40:                                               ; preds = %37, %32
-  %41 = load i32, ptr %33, align 8
-  %42 = and i32 %41, 4
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %47, label %44
+41:                                               ; preds = %38, %33
+  %42 = load i32, ptr %34, align 8
+  %43 = and i32 %42, 4
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %48, label %45
 
-44:                                               ; preds = %40
-  %45 = tail call i32 @sysfs_create_file_ns(ptr noundef nonnull %27, ptr noundef nonnull @preempt_timeout_attr, ptr noundef null) #6
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %79
+45:                                               ; preds = %41
+  %46 = tail call i32 @sysfs_create_file_ns(ptr noundef nonnull %28, ptr noundef nonnull @preempt_timeout_attr, ptr noundef null) #6
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %81
 
-47:                                               ; preds = %44, %40
-  %48 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %49 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %48, i32 noundef 3520, i64 noundef 72) #7
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %81, label %51
+48:                                               ; preds = %45, %41
+  %49 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %50, i32 noundef 3520, i64 noundef 72) #7
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %83, label %53
 
-51:                                               ; preds = %47
-  tail call void @kobject_init(ptr noundef nonnull %49, ptr noundef nonnull @kobj_engine_type) #6
-  %52 = getelementptr inbounds i8, ptr %27, i64 64
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %49, i64 64
-  store ptr %53, ptr %54, align 8
-  %55 = tail call i32 (ptr, ptr, ptr, ...) @kobject_add(ptr noundef nonnull %49, ptr noundef nonnull %27, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.23) #6
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %58, label %57
+53:                                               ; preds = %48
+  tail call void @kobject_init(ptr noundef nonnull %51, ptr noundef nonnull @kobj_engine_type) #6
+  %54 = getelementptr inbounds i8, ptr %28, i64 64
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %51, i64 64
+  store ptr %55, ptr %56, align 8
+  %57 = tail call i32 (ptr, ptr, ptr, ...) @kobject_add(ptr noundef nonnull %51, ptr noundef nonnull %28, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.23) #6
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %60, label %59
 
-57:                                               ; preds = %51
-  tail call void @kobject_put(ptr noundef nonnull %49) #6
+59:                                               ; preds = %53
+  tail call void @kobject_put(ptr noundef nonnull %51) #6
+  br label %83
+
+60:                                               ; preds = %53
+  %61 = tail call i32 @sysfs_create_files(ptr noundef nonnull %51, ptr noundef nonnull @add_defaults.files) #6
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %83
+
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %56, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 1248
+  %66 = load i32, ptr %65, align 8
+  %67 = and i32 %66, 16
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %72, label %69
+
+69:                                               ; preds = %63
+  %70 = tail call i32 @sysfs_create_file_ns(ptr noundef nonnull %51, ptr noundef nonnull @timeslice_duration_def, ptr noundef null) #6
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %83
+
+72:                                               ; preds = %69, %63
+  %73 = load ptr, ptr %56, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 1248
+  %75 = load i32, ptr %74, align 8
+  %76 = and i32 %75, 4
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %83, label %78
+
+78:                                               ; preds = %72
+  %79 = tail call i32 @sysfs_create_file_ns(ptr noundef nonnull %51, ptr noundef nonnull @preempt_timeout_def, ptr noundef null) #6
+  br label %83
+
+80:                                               ; preds = %30
+  tail call void @kobject_put(ptr noundef nonnull %28) #6
   br label %81
 
-58:                                               ; preds = %51
-  %59 = tail call i32 @sysfs_create_files(ptr noundef nonnull %49, ptr noundef nonnull @add_defaults.files) #6
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %81
+81:                                               ; preds = %80, %45, %38, %27
+  %82 = getelementptr inbounds i8, ptr %16, i64 24
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.1, ptr noundef %82) #8
+  br label %90
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %54, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1248
-  %64 = load i32, ptr %63, align 8
-  %65 = and i32 %64, 16
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %70, label %67
+83:                                               ; preds = %78, %72, %69, %60, %59, %48
+  %84 = getelementptr inbounds i8, ptr %16, i64 112
+  %85 = tail call ptr @rb_next(ptr noundef %84) #6
+  %86 = icmp eq ptr %85, null
+  %87 = getelementptr i8, ptr %85, i64 -112
+  %88 = select i1 %86, ptr null, ptr %87
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %90, label %15, !llvm.loop !5
 
-67:                                               ; preds = %61
-  %68 = tail call i32 @sysfs_create_file_ns(ptr noundef nonnull %49, ptr noundef nonnull @timeslice_duration_def, ptr noundef null) #6
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %81
-
-70:                                               ; preds = %67, %61
-  %71 = load ptr, ptr %54, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 1248
-  %73 = load i32, ptr %72, align 8
-  %74 = and i32 %73, 4
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %81, label %76
-
-76:                                               ; preds = %70
-  %77 = tail call i32 @sysfs_create_file_ns(ptr noundef nonnull %49, ptr noundef nonnull @preempt_timeout_def, ptr noundef null) #6
-  br label %81
-
-78:                                               ; preds = %29
-  tail call void @kobject_put(ptr noundef nonnull %27) #6
-  br label %79
-
-79:                                               ; preds = %78, %44, %37, %26
-  %80 = getelementptr inbounds i8, ptr %16, i64 24
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.1, ptr noundef %80) #8
-  br label %88
-
-81:                                               ; preds = %76, %70, %67, %58, %57, %47
-  %82 = getelementptr inbounds i8, ptr %16, i64 112
-  %83 = tail call ptr @rb_next(ptr noundef %82) #6
-  %84 = icmp eq ptr %83, null
-  %85 = getelementptr i8, ptr %83, i64 -112
-  %86 = select i1 %84, ptr null, ptr %85
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %88, label %15, !llvm.loop !5
-
-88:                                               ; preds = %81, %79, %8, %1
+90:                                               ; preds = %83, %81, %8, %1
   ret void
 }
 

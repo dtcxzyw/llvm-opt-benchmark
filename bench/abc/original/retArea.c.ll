@@ -221,42 +221,43 @@ define internal ptr @Abc_NtkRetimeMinAreaOne(ptr noundef %0, i32 noundef %1, i32
   %19 = load ptr, ptr %5, align 8
   %20 = call i32 @Abc_NtkLatchNum(ptr noundef %19)
   %21 = icmp slt i32 %18, %20
-  br i1 %21, label %22, label %37
+  br i1 %21, label %22, label %38
 
 22:                                               ; preds = %4
-  store ptr inttoptr (i64 1 to ptr), ptr %9, align 8
-  %23 = load i32, ptr %6, align 4
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %28
+  %23 = inttoptr i64 1 to ptr
+  store ptr %23, ptr %9, align 8
+  %24 = load i32, ptr %6, align 4
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %29
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %5, align 8
-  %27 = load ptr, ptr %10, align 8
-  call void @Abc_NtkRetimeMinAreaInitValues(ptr noundef %26, ptr noundef %27)
-  br label %32
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %5, align 8
+  %28 = load ptr, ptr %10, align 8
+  call void @Abc_NtkRetimeMinAreaInitValues(ptr noundef %27, ptr noundef %28)
+  br label %33
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr %5, align 8
-  %30 = load ptr, ptr %10, align 8
-  %31 = call ptr @Abc_NtkRetimeMinAreaConstructNtk(ptr noundef %29, ptr noundef %30)
-  store ptr %31, ptr %9, align 8
-  br label %32
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %5, align 8
+  %31 = load ptr, ptr %10, align 8
+  %32 = call ptr @Abc_NtkRetimeMinAreaConstructNtk(ptr noundef %30, ptr noundef %31)
+  store ptr %32, ptr %9, align 8
+  br label %33
 
-32:                                               ; preds = %28, %25
-  %33 = load ptr, ptr %5, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = load i32, ptr %7, align 4
-  call void @Abc_NtkRetimeMinAreaUpdateLatches(ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36)
-  br label %37
+33:                                               ; preds = %29, %26
+  %34 = load ptr, ptr %5, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = load i32, ptr %6, align 4
+  %37 = load i32, ptr %7, align 4
+  call void @Abc_NtkRetimeMinAreaUpdateLatches(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37)
+  br label %38
 
-37:                                               ; preds = %32, %4
-  %38 = load ptr, ptr %10, align 8
-  call void @Vec_PtrFree(ptr noundef %38)
-  %39 = load ptr, ptr %5, align 8
-  call void @Abc_NtkCleanMarkA(ptr noundef %39)
-  %40 = load ptr, ptr %9, align 8
-  ret ptr %40
+38:                                               ; preds = %33, %4
+  %39 = load ptr, ptr %10, align 8
+  call void @Vec_PtrFree(ptr noundef %39)
+  %40 = load ptr, ptr %5, align 8
+  call void @Abc_NtkCleanMarkA(ptr noundef %40)
+  %41 = load ptr, ptr %9, align 8
+  ret ptr %41
 }
 
 declare ptr @Abc_NtkCollectLatchValues(ptr noundef) #1
@@ -2725,9 +2726,10 @@ define internal i32 @Abc_LatchIsInit1(ptr noundef %0) #0 {
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.Abc_Obj_t_, ptr %3, i32 0, i32 6
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, inttoptr (i64 2 to ptr)
-  %7 = zext i1 %6 to i32
-  ret i32 %7
+  %6 = inttoptr i64 2 to ptr
+  %7 = icmp eq ptr %5, %6
+  %8 = zext i1 %7 to i32
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable

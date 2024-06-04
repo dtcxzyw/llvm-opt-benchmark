@@ -7463,7 +7463,8 @@ entry:
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %bcProvider) #12
   call void @_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE(ptr noundef nonnull align 8 dereferenceable(28) %this1, ptr noundef %agg.tmp)
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #12
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %funcId_ = getelementptr inbounds %"class.hermes::hbc::JumpTargetsVisitor", ptr %this1, i32 0, i32 1
   store i32 0, ptr %funcId_, align 4
   %bytecodeStart_ = getelementptr inbounds %"class.hermes::hbc::JumpTargetsVisitor", ptr %this1, i32 0, i32 2
@@ -7497,17 +7498,18 @@ entry:
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %bcProvider) #12
   call void @_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE(ptr noundef nonnull align 8 dereferenceable(28) %this1, ptr noundef %agg.tmp)
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #12
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes44BasicBlockRuntimeInstructionFrequencyVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6hermes44BasicBlockRuntimeInstructionFrequencyVisitorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %curProfileIndex_ = getelementptr inbounds %"class.hermes::BasicBlockRuntimeInstructionFrequencyVisitor", ptr %this1, i32 0, i32 1
   store i16 0, ptr %curProfileIndex_, align 4
   %curBlockStaticInstCount_ = getelementptr inbounds %"class.hermes::BasicBlockRuntimeInstructionFrequencyVisitor", ptr %this1, i32 0, i32 2
   store i32 0, ptr %curBlockStaticInstCount_, align 8
   %funcLogData_ = getelementptr inbounds %"class.hermes::BasicBlockRuntimeInstructionFrequencyVisitor", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %funcLogData.addr, align 8
-  store ptr %0, ptr %funcLogData_, align 8
+  %1 = load ptr, ptr %funcLogData.addr, align 8
+  store ptr %1, ptr %funcLogData_, align 8
   %profileIndexMap_ = getelementptr inbounds %"class.hermes::BasicBlockRuntimeInstructionFrequencyVisitor", ptr %this1, i32 0, i32 4
-  %1 = load ptr, ptr %profileIndexMap.addr, align 8
-  store ptr %1, ptr %profileIndexMap_, align 8
+  %2 = load ptr, ptr %profileIndexMap.addr, align 8
+  store ptr %2, ptr %profileIndexMap_, align 8
   %basicBlockRuntimeInstCountMap_ = getelementptr inbounds %"class.hermes::BasicBlockRuntimeInstructionFrequencyVisitor", ptr %this1, i32 0, i32 5
   call void @_ZNSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %basicBlockRuntimeInstCountMap_) #12
   ret void
@@ -7563,19 +7565,20 @@ entry:
   %1 = load ptr, ptr %os.addr, align 8
   call void @_ZN6hermes3hbc24PrettyDisassembleVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEERSt13unordered_mapIPKvjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEERN4llvh11raw_ostreamENS0_18DisassemblyOptionsE(ptr noundef nonnull align 8 dereferenceable(68) %this1, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 0)
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #12
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes30FunctionBasicBlockStatsVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6hermes30FunctionBasicBlockStatsVisitorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %profileIndexMap_ = getelementptr inbounds %"class.hermes::FunctionBasicBlockStatsVisitor", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %profileIndexMap.addr, align 8
-  store ptr %2, ptr %profileIndexMap_, align 8
+  %3 = load ptr, ptr %profileIndexMap.addr, align 8
+  store ptr %3, ptr %profileIndexMap_, align 8
   %totalProfileRuntimeInstructionCount_ = getelementptr inbounds %"class.hermes::FunctionBasicBlockStatsVisitor", ptr %this1, i32 0, i32 2
-  %3 = load i64, ptr %totalProfileRuntimeInstructionCount.addr, align 8
-  store i64 %3, ptr %totalProfileRuntimeInstructionCount_, align 8
+  %4 = load i64, ptr %totalProfileRuntimeInstructionCount.addr, align 8
+  store i64 %4, ptr %totalProfileRuntimeInstructionCount_, align 8
   %funcStat_ = getelementptr inbounds %"class.hermes::FunctionBasicBlockStatsVisitor", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %funcStat.addr, align 8
-  store ptr %4, ptr %funcStat_, align 8
+  %5 = load ptr, ptr %funcStat.addr, align 8
+  store ptr %5, ptr %funcStat_, align 8
   %funcExecInfo_ = getelementptr inbounds %"class.hermes::FunctionBasicBlockStatsVisitor", ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %funcExecInfo.addr, align 8
-  store ptr %5, ptr %funcExecInfo_, align 8
+  %6 = load ptr, ptr %funcExecInfo.addr, align 8
+  store ptr %6, ptr %funcExecInfo_, align 8
   %bytecodeStart_ = getelementptr inbounds %"class.hermes::FunctionBasicBlockStatsVisitor", ptr %this1, i32 0, i32 5
   store ptr null, ptr %bytecodeStart_, align 8
   ret void
@@ -7597,7 +7600,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes44BasicBlockRuntimeInstructionFrequencyVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6hermes44BasicBlockRuntimeInstructionFrequencyVisitorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %basicBlockRuntimeInstCountMap_ = getelementptr inbounds %"class.hermes::BasicBlockRuntimeInstructionFrequencyVisitor", ptr %this1, i32 0, i32 5
   call void @_ZNSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %basicBlockRuntimeInstCountMap_) #12
   call void @_ZN6hermes3hbc15BytecodeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this1) #12
@@ -7610,7 +7614,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %jumpTargets_ = getelementptr inbounds %"class.hermes::hbc::JumpTargetsVisitor", ptr %this1, i32 0, i32 5
   call void @_ZNSt13unordered_mapIPKvjSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %jumpTargets_) #12
   %switchInsts_ = getelementptr inbounds %"class.hermes::hbc::JumpTargetsVisitor", ptr %this1, i32 0, i32 4
@@ -16397,16 +16402,17 @@ entry:
   %length.addr.i = alloca i64, align 8
   %retval = alloca %"class.llvh::StringRef", align 8
   store ptr %retval, ptr %this.addr.i, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %data.addr.i, align 8
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %data.addr.i, align 8
   store i64 0, ptr %length.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load ptr, ptr %data.addr.i, align 8
-  store ptr %0, ptr %this1.i, align 8
+  %1 = load ptr, ptr %data.addr.i, align 8
+  store ptr %1, ptr %this1.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %1 = load i64, ptr %length.addr.i, align 8
-  store i64 %1, ptr %Length.i, align 8
-  %2 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %2
+  %2 = load i64, ptr %length.addr.i, align 8
+  store i64 %2, ptr %Length.i, align 8
+  %3 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -16417,16 +16423,17 @@ entry:
   %length.addr.i = alloca i64, align 8
   %retval = alloca %"class.llvh::StringRef", align 8
   store ptr %retval, ptr %this.addr.i, align 8
-  store ptr inttoptr (i64 -2 to ptr), ptr %data.addr.i, align 8
+  %0 = inttoptr i64 -2 to ptr
+  store ptr %0, ptr %data.addr.i, align 8
   store i64 0, ptr %length.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load ptr, ptr %data.addr.i, align 8
-  store ptr %0, ptr %this1.i, align 8
+  %1 = load ptr, ptr %data.addr.i, align 8
+  store ptr %1, ptr %this1.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %1 = load i64, ptr %length.addr.i, align 8
-  store i64 %1, ptr %Length.i, align 8
-  %2 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %2
+  %2 = load i64, ptr %length.addr.i, align 8
+  store i64 %2, ptr %Length.i, align 8
+  %3 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -22756,7 +22763,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %bcProvider, ptr %bcProvider.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %bcProvider_ = getelementptr inbounds %"class.hermes::hbc::BytecodeVisitor", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %bcProvider_, ptr noundef nonnull align 8 dereferenceable(16) %bcProvider) #12
   %funcId_ = getelementptr inbounds %"class.hermes::hbc::BytecodeVisitor", ptr %this1, i32 0, i32 2
@@ -22869,7 +22877,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %bcProvider_ = getelementptr inbounds %"class.hermes::hbc::BytecodeVisitor", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %bcProvider_) #12
   ret void
@@ -25780,20 +25789,21 @@ entry:
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %bcProvider) #12
   call void @_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE(ptr noundef nonnull align 8 dereferenceable(28) %this1, ptr noundef %agg.tmp)
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #12
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes3hbc24PrettyDisassembleVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6hermes3hbc24PrettyDisassembleVisitorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %jumpTargets_ = getelementptr inbounds %"class.hermes::hbc::PrettyDisassembleVisitor", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %jumpTargets.addr, align 8
-  store ptr %0, ptr %jumpTargets_, align 8
+  %1 = load ptr, ptr %jumpTargets.addr, align 8
+  store ptr %1, ptr %jumpTargets_, align 8
   %bytecodeStart_ = getelementptr inbounds %"class.hermes::hbc::PrettyDisassembleVisitor", ptr %this1, i32 0, i32 4
   store ptr null, ptr %bytecodeStart_, align 8
   %funcVirtualOffset_ = getelementptr inbounds %"class.hermes::hbc::PrettyDisassembleVisitor", ptr %this1, i32 0, i32 5
   store i32 0, ptr %funcVirtualOffset_, align 8
   %os_ = getelementptr inbounds %"class.hermes::hbc::PrettyDisassembleVisitor", ptr %this1, i32 0, i32 7
-  %1 = load ptr, ptr %os.addr, align 8
-  store ptr %1, ptr %os_, align 8
+  %2 = load ptr, ptr %os.addr, align 8
+  store ptr %2, ptr %os_, align 8
   %options_ = getelementptr inbounds %"class.hermes::hbc::PrettyDisassembleVisitor", ptr %this1, i32 0, i32 8
-  %2 = load i32, ptr %options.addr, align 4
-  store i32 %2, ptr %options_, align 8
+  %3 = load i32, ptr %options.addr, align 4
+  store i32 %3, ptr %options_, align 8
   ret void
 }
 
@@ -34047,18 +34057,19 @@ entry:
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %bcProvider) #12
   call void @_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE(ptr noundef nonnull align 8 dereferenceable(28) %this1, ptr noundef %agg.tmp)
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #12
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes25InstructionSummaryVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6hermes25InstructionSummaryVisitorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %curProfileIndex_ = getelementptr inbounds %"class.hermes::InstructionSummaryVisitor", ptr %this1, i32 0, i32 1
   store i16 0, ptr %curProfileIndex_, align 4
   %funcLogData_ = getelementptr inbounds %"class.hermes::InstructionSummaryVisitor", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %funcLogData.addr, align 8
-  store ptr %0, ptr %funcLogData_, align 8
+  %1 = load ptr, ptr %funcLogData.addr, align 8
+  store ptr %1, ptr %funcLogData_, align 8
   %profileIndexMap_ = getelementptr inbounds %"class.hermes::InstructionSummaryVisitor", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %profileIndexMap.addr, align 8
-  store ptr %1, ptr %profileIndexMap_, align 8
+  %2 = load ptr, ptr %profileIndexMap.addr, align 8
+  store ptr %2, ptr %profileIndexMap_, align 8
   %instFrequencies_ = getelementptr inbounds %"class.hermes::InstructionSummaryVisitor", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %instFrequencies.addr, align 8
-  store ptr %2, ptr %instFrequencies_, align 8
+  %3 = load ptr, ptr %instFrequencies.addr, align 8
+  store ptr %3, ptr %instFrequencies_, align 8
   ret void
 }
 
@@ -45500,10 +45511,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %vals.addr, align 8
-  call void @_ZNSt5tupleIJdEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKdEEEbE4typeELb1EEES4_(ptr noundef nonnull align 8 dereferenceable(8) %Vals, ptr noundef nonnull align 8 dereferenceable(8) %1) #12
+  %2 = load ptr, ptr %vals.addr, align 8
+  call void @_ZNSt5tupleIJdEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKdEEEbE4typeELb1EEES4_(ptr noundef nonnull align 8 dereferenceable(8) %Vals, ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   call void @_ZN4llvh26validate_format_parametersIJdEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.ensured)
   ret void
 }
@@ -45516,10 +45528,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh18format_object_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh18format_object_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Fmt = getelementptr inbounds %"class.llvh::format_object_base", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %fmt.addr, align 8
-  store ptr %0, ptr %Fmt, align 8
+  %1 = load ptr, ptr %fmt.addr, align 8
+  store ptr %1, ptr %Fmt, align 8
   ret void
 }
 

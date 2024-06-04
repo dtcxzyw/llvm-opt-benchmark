@@ -90,7 +90,8 @@ define internal fastcc void @init_ohci1394_controller(i32 noundef %0, i32 nounde
   %14 = load i64, ptr @__default_kernel_pte_mask, align 8
   %15 = and i64 %13, %14
   tail call void @native_set_fixmap(i32 noundef 514, i64 noundef %11, i64 %15) #7
-  store ptr inttoptr (i64 -10498048 to ptr), ptr %4, align 8
+  %16 = inttoptr i64 -10498048 to ptr
+  store ptr %16, ptr %4, align 8
   call fastcc void @init_ohci1394_reset_and_init_dma(ptr noundef nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   ret void

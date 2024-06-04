@@ -33,147 +33,161 @@ define ptr @php_get_temporary_directory() #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 59), align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %10
+  %6 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 59
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %12
 
-8:                                                ; preds = %0
-  %9 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 59), align 8
-  store ptr %9, ptr %1, align 8
-  br label %88
+9:                                                ; preds = %0
+  %10 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 59
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %1, align 8
+  br label %102
 
-10:                                               ; preds = %0
-  %11 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 22), align 8
-  store ptr %11, ptr %2, align 8
-  %12 = load ptr, ptr %2, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %14, label %51
-
-14:                                               ; preds = %10
+12:                                               ; preds = %0
+  %13 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 22
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %2, align 8
   %15 = load ptr, ptr %2, align 8
-  %16 = call i64 @strlen(ptr noundef %15) #7
-  store i64 %16, ptr %3, align 8
-  %17 = load i64, ptr %3, align 8
-  %18 = icmp uge i64 %17, 2
-  br i1 %18, label %19, label %33
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %58
 
-19:                                               ; preds = %14
-  %20 = load ptr, ptr %2, align 8
-  %21 = load i64, ptr %3, align 8
-  %22 = sub i64 %21, 1
-  %23 = getelementptr inbounds i8, ptr %20, i64 %22
-  %24 = load i8, ptr %23, align 1
-  %25 = sext i8 %24 to i32
-  %26 = icmp eq i32 %25, 47
-  br i1 %26, label %27, label %33
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %2, align 8
+  %19 = call i64 @strlen(ptr noundef %18) #7
+  store i64 %19, ptr %3, align 8
+  %20 = load i64, ptr %3, align 8
+  %21 = icmp uge i64 %20, 2
+  br i1 %21, label %22, label %38
 
-27:                                               ; preds = %19
-  %28 = load ptr, ptr %2, align 8
-  %29 = load i64, ptr %3, align 8
-  %30 = sub i64 %29, 1
-  %31 = call noalias ptr @_estrndup(ptr noundef %28, i64 noundef %30)
-  store ptr %31, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 59), align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 59), align 8
-  store ptr %32, ptr %1, align 8
-  br label %88
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %2, align 8
+  %24 = load i64, ptr %3, align 8
+  %25 = sub i64 %24, 1
+  %26 = getelementptr inbounds i8, ptr %23, i64 %25
+  %27 = load i8, ptr %26, align 1
+  %28 = sext i8 %27 to i32
+  %29 = icmp eq i32 %28, 47
+  br i1 %29, label %30, label %38
 
-33:                                               ; preds = %19, %14
-  %34 = load i64, ptr %3, align 8
-  %35 = icmp uge i64 %34, 1
-  br i1 %35, label %36, label %49
+30:                                               ; preds = %22
+  %31 = load ptr, ptr %2, align 8
+  %32 = load i64, ptr %3, align 8
+  %33 = sub i64 %32, 1
+  %34 = call noalias ptr @_estrndup(ptr noundef %31, i64 noundef %33)
+  %35 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 59
+  store ptr %34, ptr %35, align 8
+  %36 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 59
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %1, align 8
+  br label %102
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %2, align 8
-  %38 = load i64, ptr %3, align 8
-  %39 = sub i64 %38, 1
-  %40 = getelementptr inbounds i8, ptr %37, i64 %39
-  %41 = load i8, ptr %40, align 1
-  %42 = sext i8 %41 to i32
-  %43 = icmp ne i32 %42, 47
-  br i1 %43, label %44, label %49
+38:                                               ; preds = %22, %17
+  %39 = load i64, ptr %3, align 8
+  %40 = icmp uge i64 %39, 1
+  br i1 %40, label %41, label %56
 
-44:                                               ; preds = %36
-  %45 = load ptr, ptr %2, align 8
-  %46 = load i64, ptr %3, align 8
-  %47 = call noalias ptr @_estrndup(ptr noundef %45, i64 noundef %46)
-  store ptr %47, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 59), align 8
-  %48 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 59), align 8
-  store ptr %48, ptr %1, align 8
-  br label %88
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %2, align 8
+  %43 = load i64, ptr %3, align 8
+  %44 = sub i64 %43, 1
+  %45 = getelementptr inbounds i8, ptr %42, i64 %44
+  %46 = load i8, ptr %45, align 1
+  %47 = sext i8 %46 to i32
+  %48 = icmp ne i32 %47, 47
+  br i1 %48, label %49, label %56
 
-49:                                               ; preds = %36, %33
-  br label %50
+49:                                               ; preds = %41
+  %50 = load ptr, ptr %2, align 8
+  %51 = load i64, ptr %3, align 8
+  %52 = call noalias ptr @_estrndup(ptr noundef %50, i64 noundef %51)
+  %53 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 59
+  store ptr %52, ptr %53, align 8
+  %54 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 59
+  %55 = load ptr, ptr %54, align 8
+  store ptr %55, ptr %1, align 8
+  br label %102
 
-50:                                               ; preds = %49
-  br label %51
+56:                                               ; preds = %41, %38
+  br label %57
 
-51:                                               ; preds = %50, %10
-  %52 = call ptr @getenv(ptr noundef @.str) #8
-  store ptr %52, ptr %4, align 8
-  %53 = load ptr, ptr %4, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %81
+57:                                               ; preds = %56
+  br label %58
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %4, align 8
-  %57 = load i8, ptr %56, align 1
-  %58 = sext i8 %57 to i32
-  %59 = icmp ne i32 %58, 0
-  br i1 %59, label %60, label %81
+58:                                               ; preds = %57, %12
+  %59 = call ptr @getenv(ptr noundef @.str) #8
+  store ptr %59, ptr %4, align 8
+  %60 = load ptr, ptr %4, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %91
 
-60:                                               ; preds = %55
-  %61 = load ptr, ptr %4, align 8
-  %62 = call i64 @strlen(ptr noundef %61) #7
-  store i64 %62, ptr %5, align 8
+62:                                               ; preds = %58
   %63 = load ptr, ptr %4, align 8
-  %64 = load i64, ptr %5, align 8
-  %65 = sub i64 %64, 1
-  %66 = getelementptr inbounds i8, ptr %63, i64 %65
-  %67 = load i8, ptr %66, align 1
-  %68 = sext i8 %67 to i32
-  %69 = icmp eq i32 %68, 47
-  br i1 %69, label %70, label %75
+  %64 = load i8, ptr %63, align 1
+  %65 = sext i8 %64 to i32
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %91
 
-70:                                               ; preds = %60
-  %71 = load ptr, ptr %4, align 8
-  %72 = load i64, ptr %5, align 8
-  %73 = sub i64 %72, 1
-  %74 = call noalias ptr @_estrndup(ptr noundef %71, i64 noundef %73)
-  store ptr %74, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 59), align 8
-  br label %79
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %4, align 8
+  %69 = call i64 @strlen(ptr noundef %68) #7
+  store i64 %69, ptr %5, align 8
+  %70 = load ptr, ptr %4, align 8
+  %71 = load i64, ptr %5, align 8
+  %72 = sub i64 %71, 1
+  %73 = getelementptr inbounds i8, ptr %70, i64 %72
+  %74 = load i8, ptr %73, align 1
+  %75 = sext i8 %74 to i32
+  %76 = icmp eq i32 %75, 47
+  br i1 %76, label %77, label %83
 
-75:                                               ; preds = %60
-  %76 = load ptr, ptr %4, align 8
-  %77 = load i64, ptr %5, align 8
-  %78 = call noalias ptr @_estrndup(ptr noundef %76, i64 noundef %77)
-  store ptr %78, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 59), align 8
-  br label %79
-
-79:                                               ; preds = %75, %70
-  %80 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 59), align 8
-  store ptr %80, ptr %1, align 8
+77:                                               ; preds = %67
+  %78 = load ptr, ptr %4, align 8
+  %79 = load i64, ptr %5, align 8
+  %80 = sub i64 %79, 1
+  %81 = call noalias ptr @_estrndup(ptr noundef %78, i64 noundef %80)
+  %82 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 59
+  store ptr %81, ptr %82, align 8
   br label %88
 
-81:                                               ; preds = %55, %51
-  br i1 true, label %82, label %85
-
-82:                                               ; preds = %81
-  %83 = call noalias ptr @_estrdup(ptr noundef @.str.1)
-  store ptr %83, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 59), align 8
-  %84 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 59), align 8
-  store ptr %84, ptr %1, align 8
+83:                                               ; preds = %67
+  %84 = load ptr, ptr %4, align 8
+  %85 = load i64, ptr %5, align 8
+  %86 = call noalias ptr @_estrndup(ptr noundef %84, i64 noundef %85)
+  %87 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 59
+  store ptr %86, ptr %87, align 8
   br label %88
 
-85:                                               ; preds = %81
-  %86 = call noalias ptr @_estrdup(ptr noundef @.str.1)
-  store ptr %86, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 59), align 8
-  %87 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 59), align 8
-  store ptr %87, ptr %1, align 8
-  br label %88
+88:                                               ; preds = %83, %77
+  %89 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 59
+  %90 = load ptr, ptr %89, align 8
+  store ptr %90, ptr %1, align 8
+  br label %102
 
-88:                                               ; preds = %85, %82, %79, %44, %27, %8
-  %89 = load ptr, ptr %1, align 8
-  ret ptr %89
+91:                                               ; preds = %62, %58
+  br i1 true, label %92, label %97
+
+92:                                               ; preds = %91
+  %93 = call noalias ptr @_estrdup(ptr noundef @.str.1)
+  %94 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 59
+  store ptr %93, ptr %94, align 8
+  %95 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 59
+  %96 = load ptr, ptr %95, align 8
+  store ptr %96, ptr %1, align 8
+  br label %102
+
+97:                                               ; preds = %91
+  %98 = call noalias ptr @_estrdup(ptr noundef @.str.1)
+  %99 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 59
+  store ptr %98, ptr %99, align 8
+  %100 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 59
+  %101 = load ptr, ptr %100, align 8
+  store ptr %101, ptr %1, align 8
+  br label %102
+
+102:                                              ; preds = %97, %92, %88, %49, %30, %9
+  %103 = load ptr, ptr %1, align 8
+  ret ptr %103
 }
 
 ; Function Attrs: nounwind willreturn memory(read)

@@ -5536,7 +5536,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %vector.addr, align 8
   call void @_ZN8facebook5velox12_GLOBAL__N_113VectorPrinterC2ERKNS0_10BaseVectorE(ptr noundef nonnull align 8 dereferenceable(152) %this1, ptr noundef nonnull align 8 dereferenceable(99) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox12_GLOBAL__N_118ArrayVectorPrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8facebook5velox12_GLOBAL__N_118ArrayVectorPrinterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %decoded_ = getelementptr inbounds %"class.facebook::velox::(anonymous namespace)::VectorPrinter", ptr %this1, i32 0, i32 1
   %call = invoke noundef ptr @_ZNK8facebook5velox13DecodedVector4baseEv(ptr noundef nonnull align 8 dereferenceable(120) %decoded_)
           to label %invoke.cont unwind label %lpad
@@ -5548,8 +5549,8 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont2:                                     ; preds = %invoke.cont
   store ptr %call3, ptr %arrayVector, align 8
   %children_ = getelementptr inbounds %"class.facebook::velox::(anonymous namespace)::VectorPrinter", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %arrayVector, align 8
-  %call5 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8facebook5velox11ArrayVector8elementsEv(ptr noundef nonnull align 8 dereferenceable(152) %1)
+  %2 = load ptr, ptr %arrayVector, align 8
+  %call5 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8facebook5velox11ArrayVector8elementsEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -5566,21 +5567,21 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont7
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   br label %ehcleanup
 
@@ -5628,10 +5629,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %vector, ptr %vector.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %decoded_ = getelementptr inbounds %"class.facebook::velox::(anonymous namespace)::VectorPrinter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %vector.addr, align 8
-  call void @_ZN8facebook5velox13DecodedVectorC2ERKNS0_10BaseVectorEb(ptr noundef nonnull align 8 dereferenceable(120) %decoded_, ptr noundef nonnull align 8 dereferenceable(99) %0, i1 noundef zeroext true)
+  %1 = load ptr, ptr %vector.addr, align 8
+  call void @_ZN8facebook5velox13DecodedVectorC2ERKNS0_10BaseVectorEb(ptr noundef nonnull align 8 dereferenceable(120) %decoded_, ptr noundef nonnull align 8 dereferenceable(99) %1, i1 noundef zeroext true)
   %children_ = getelementptr inbounds %"class.facebook::velox::(anonymous namespace)::VectorPrinter", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children_) #3
   ret void
@@ -6280,7 +6282,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %children_ = getelementptr inbounds %"class.facebook::velox::(anonymous namespace)::VectorPrinter", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children_) #3
   %decoded_ = getelementptr inbounds %"class.facebook::velox::(anonymous namespace)::VectorPrinter", ptr %this1, i32 0, i32 1
@@ -9085,7 +9088,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %vector.addr, align 8
   call void @_ZN8facebook5velox12_GLOBAL__N_113VectorPrinterC2ERKNS0_10BaseVectorE(ptr noundef nonnull align 8 dereferenceable(152) %this1, ptr noundef nonnull align 8 dereferenceable(99) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox12_GLOBAL__N_116MapVectorPrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8facebook5velox12_GLOBAL__N_116MapVectorPrinterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %decoded_ = getelementptr inbounds %"class.facebook::velox::(anonymous namespace)::VectorPrinter", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZNK8facebook5velox13DecodedVector4baseEv(ptr noundef nonnull align 8 dereferenceable(120) %decoded_)
   %call2 = invoke noundef ptr @_ZNK8facebook5velox10BaseVector2asINS0_9MapVectorEEEPKT_v(ptr noundef nonnull align 8 dereferenceable(99) %call)
@@ -9094,8 +9098,8 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr %call2, ptr %mapVector, align 8
   %children_ = getelementptr inbounds %"class.facebook::velox::(anonymous namespace)::VectorPrinter", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %mapVector, align 8
-  %call4 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8facebook5velox9MapVector7mapKeysEv(ptr noundef nonnull align 8 dereferenceable(169) %1)
+  %2 = load ptr, ptr %mapVector, align 8
+  %call4 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8facebook5velox9MapVector7mapKeysEv(ptr noundef nonnull align 8 dereferenceable(169) %2)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -9110,8 +9114,8 @@ invoke.cont6:                                     ; preds = %invoke.cont3
 invoke.cont8:                                     ; preds = %invoke.cont6
   call void @_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   %children_10 = getelementptr inbounds %"class.facebook::velox::(anonymous namespace)::VectorPrinter", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %mapVector, align 8
-  %call13 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8facebook5velox9MapVector9mapValuesEv(ptr noundef nonnull align 8 dereferenceable(169) %2)
+  %3 = load ptr, ptr %mapVector, align 8
+  %call13 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8facebook5velox9MapVector9mapValuesEv(ptr noundef nonnull align 8 dereferenceable(169) %3)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont8
@@ -9128,31 +9132,31 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   ret void
 
 lpad:                                             ; preds = %invoke.cont12, %invoke.cont8, %invoke.cont3, %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont6
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   br label %ehcleanup
 
 lpad16:                                           ; preds = %invoke.cont15
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11) #3
   br label %ehcleanup
 
@@ -10204,7 +10208,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %vector.addr, align 8
   call void @_ZN8facebook5velox12_GLOBAL__N_113VectorPrinterC2ERKNS0_10BaseVectorE(ptr noundef nonnull align 8 dereferenceable(152) %this1, ptr noundef nonnull align 8 dereferenceable(99) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox12_GLOBAL__N_116RowVectorPrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8facebook5velox12_GLOBAL__N_116RowVectorPrinterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %decoded_ = getelementptr inbounds %"class.facebook::velox::(anonymous namespace)::VectorPrinter", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZNK8facebook5velox13DecodedVector4baseEv(ptr noundef nonnull align 8 dereferenceable(120) %decoded_)
   %call2 = invoke noundef ptr @_ZNK8facebook5velox10BaseVector2asINS0_9RowVectorEEEPKT_v(ptr noundef nonnull align 8 dereferenceable(99) %call)
@@ -10212,18 +10217,18 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call2, ptr %rowVector, align 8
-  %1 = load ptr, ptr %rowVector, align 8
-  %call4 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8facebook5velox9RowVector8childrenEv(ptr noundef nonnull align 8 dereferenceable(138) %1)
+  %2 = load ptr, ptr %rowVector, align 8
+  %call4 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8facebook5velox9RowVector8childrenEv(ptr noundef nonnull align 8 dereferenceable(138) %2)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %call4, ptr %__range3, align 8
-  %2 = load ptr, ptr %__range3, align 8
-  %call5 = call ptr @_ZNKSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #3
+  %3 = load ptr, ptr %__range3, align 8
+  %call5 = call ptr @_ZNKSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.88", ptr %__begin3, i32 0, i32 0
   store ptr %call5, ptr %coerce.dive, align 8
-  %3 = load ptr, ptr %__range3, align 8
-  %call6 = call ptr @_ZNKSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  %4 = load ptr, ptr %__range3, align 8
+  %call6 = call ptr @_ZNKSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %coerce.dive7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.88", ptr %__end3, i32 0, i32 0
   store ptr %call6, ptr %coerce.dive7, align 8
   br label %for.cond
@@ -10236,8 +10241,8 @@ for.body:                                         ; preds = %for.cond
   %call9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN8facebook5velox10BaseVectorEESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin3) #3
   store ptr %call9, ptr %child, align 8
   %children_ = getelementptr inbounds %"class.facebook::velox::(anonymous namespace)::VectorPrinter", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %child, align 8
-  %call10 = call noundef nonnull align 8 dereferenceable(99) ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
+  %5 = load ptr, ptr %child, align 8
+  %call10 = call noundef nonnull align 8 dereferenceable(99) ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
   invoke void @_ZN8facebook5velox12_GLOBAL__N_119createVectorPrinterERKNS0_10BaseVectorE(ptr sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(99) %call10)
           to label %invoke.cont11 unwind label %lpad
 
@@ -10254,21 +10259,21 @@ for.inc:                                          ; preds = %invoke.cont13
   br label %for.cond
 
 lpad:                                             ; preds = %for.body, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad12:                                           ; preds = %invoke.cont11
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   br label %ehcleanup
 
@@ -11159,7 +11164,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %vector.addr, align 8
   call void @_ZN8facebook5velox12_GLOBAL__N_113VectorPrinterC2ERKNS0_10BaseVectorE(ptr noundef nonnull align 8 dereferenceable(152) %this1, ptr noundef nonnull align 8 dereferenceable(99) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox12_GLOBAL__N_122PrimitiveVectorPrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8facebook5velox12_GLOBAL__N_122PrimitiveVectorPrinterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13334,7 +13340,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13356,7 +13363,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

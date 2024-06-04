@@ -602,11 +602,12 @@ entry:
   store ptr %cmd, ptr %cmd.addr, align 8
   %0 = load ptr, ptr %cmd.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @ssl_conf_cmds to i64)
+  %1 = ptrtoint ptr @ssl_conf_cmds to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 32
   store i64 %sub.ptr.div, ptr %idx, align 8
-  %1 = load i64, ptr %idx, align 8
-  %cmp = icmp uge i64 %1, 30
+  %2 = load i64, ptr %idx, align 8
+  %cmp = icmp uge i64 %2, 30
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -614,23 +615,23 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load i64, ptr %idx, align 8
-  %add.ptr = getelementptr inbounds %struct.ssl_switch_tbl, ptr @ssl_cmd_switches, i64 %2
+  %3 = load i64, ptr %idx, align 8
+  %add.ptr = getelementptr inbounds %struct.ssl_switch_tbl, ptr @ssl_cmd_switches, i64 %3
   store ptr %add.ptr, ptr %scmd, align 8
-  %3 = load ptr, ptr %cctx.addr, align 8
-  %4 = load ptr, ptr %scmd, align 8
-  %name_flags = getelementptr inbounds %struct.ssl_switch_tbl, ptr %4, i32 0, i32 1
-  %5 = load i32, ptr %name_flags, align 8
-  %6 = load ptr, ptr %scmd, align 8
-  %option_value = getelementptr inbounds %struct.ssl_switch_tbl, ptr %6, i32 0, i32 0
-  %7 = load i64, ptr %option_value, align 8
-  call void @ssl_set_option(ptr noundef %3, i32 noundef %5, i64 noundef %7, i32 noundef 1)
+  %4 = load ptr, ptr %cctx.addr, align 8
+  %5 = load ptr, ptr %scmd, align 8
+  %name_flags = getelementptr inbounds %struct.ssl_switch_tbl, ptr %5, i32 0, i32 1
+  %6 = load i32, ptr %name_flags, align 8
+  %7 = load ptr, ptr %scmd, align 8
+  %option_value = getelementptr inbounds %struct.ssl_switch_tbl, ptr %7, i32 0, i32 0
+  %8 = load i64, ptr %option_value, align 8
+  call void @ssl_set_option(ptr noundef %4, i32 noundef %6, i64 noundef %8, i32 noundef 1)
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+  %9 = load i32, ptr %retval, align 4
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable

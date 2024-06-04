@@ -349,21 +349,15 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %v, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %s.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %v, i64 0, i64 0
   call void @stbiw__writefv(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %v, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define void @stbiw__write_flush(ptr noundef %s) #0 {
@@ -698,7 +692,7 @@ if.end47:                                         ; preds = %if.then43, %sw.epil
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define void @stbiw__write_pixels(ptr noundef %s, i32 noundef %rgb_dir, i32 noundef %vdir, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef %data, i32 noundef %write_alpha, i32 noundef %scanline_pad, i32 noundef %expand_mono) #0 {
@@ -877,13 +871,13 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 if.else:                                          ; preds = %lor.lhs.false
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %v, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %2 = load ptr, ptr %s.addr, align 8
   %3 = load ptr, ptr %fmt.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %v, i64 0, i64 0
   call void @stbiw__writefv(ptr noundef %2, ptr noundef %3, ptr noundef %arraydecay2)
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %v, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %4 = load ptr, ptr %s.addr, align 8
   %5 = load i32, ptr %rgb_dir.addr, align 4
   %6 = load i32, ptr %vdir.addr, align 4
@@ -998,7 +992,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @stbi_write_bmp(ptr noundef %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef %data) #0 {
@@ -1460,7 +1454,7 @@ return:                                           ; preds = %if.end108, %if.then
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @stbi_write_tga_to_func(ptr noundef %func, ptr noundef %context, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef %data) #0 {
@@ -1675,7 +1669,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind
-declare double @frexp(double noundef, ptr noundef) #6
+declare double @frexp(double noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define void @stbiw__write_run_data(ptr noundef %s, i32 noundef %length, i8 noundef zeroext %databyte) #0 {
@@ -2357,13 +2351,13 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #7
+declare noalias ptr @malloc(i64 noundef) #6
 
 ; Function Attrs: nounwind
-declare i32 @sprintf(ptr noundef, ptr noundef, ...) #6
+declare i32 @sprintf(ptr noundef, ptr noundef, ...) #5
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #6
+declare void @free(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @stbi_write_hdr_to_func(ptr noundef %func, ptr noundef %context, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef %data) #0 {
@@ -2530,7 +2524,7 @@ if.end17:                                         ; preds = %if.end, %cond.end6
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #8
+declare ptr @realloc(ptr noundef, i64 noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define ptr @stbiw__zlib_flushf(ptr noundef %data, ptr noundef %bitbuffer, ptr noundef %bitcount) #0 {
@@ -4240,7 +4234,7 @@ return:                                           ; preds = %cond.end648, %if.th
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @stbiw__crc32(ptr noundef %buffer, i32 noundef %len) #0 {
@@ -4430,7 +4424,7 @@ return:                                           ; preds = %if.end10, %if.then7
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define void @stbiw__encode_png_line(ptr noundef %pixels, i32 noundef %stride_bytes, i32 noundef %width, i32 noundef %height, i32 noundef %y, i32 noundef %n, i32 noundef %filter_type, ptr noundef %line_buffer) #0 {
@@ -5329,246 +5323,255 @@ if.end70:                                         ; preds = %if.end63
   %93 = load ptr, ptr %o, align 8
   %arrayidx81 = getelementptr inbounds i8, ptr %93, i64 0
   store i8 %conv80, ptr %arrayidx81, align 1
-  %94 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 1), align 1
-  %conv82 = sext i8 %94 to i32
+  %94 = getelementptr inbounds [5 x i8], ptr @.str.5, i64 0, i64 1
+  %95 = load i8, ptr %94, align 1
+  %conv82 = sext i8 %95 to i32
   %and83 = and i32 %conv82, 255
   %conv84 = trunc i32 %and83 to i8
-  %95 = load ptr, ptr %o, align 8
-  %arrayidx85 = getelementptr inbounds i8, ptr %95, i64 1
+  %96 = load ptr, ptr %o, align 8
+  %arrayidx85 = getelementptr inbounds i8, ptr %96, i64 1
   store i8 %conv84, ptr %arrayidx85, align 1
-  %96 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 2), align 1
-  %conv86 = sext i8 %96 to i32
+  %97 = getelementptr inbounds [5 x i8], ptr @.str.5, i64 0, i64 2
+  %98 = load i8, ptr %97, align 1
+  %conv86 = sext i8 %98 to i32
   %and87 = and i32 %conv86, 255
   %conv88 = trunc i32 %and87 to i8
-  %97 = load ptr, ptr %o, align 8
-  %arrayidx89 = getelementptr inbounds i8, ptr %97, i64 2
+  %99 = load ptr, ptr %o, align 8
+  %arrayidx89 = getelementptr inbounds i8, ptr %99, i64 2
   store i8 %conv88, ptr %arrayidx89, align 1
-  %98 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 3), align 1
-  %conv90 = sext i8 %98 to i32
+  %100 = getelementptr inbounds [5 x i8], ptr @.str.5, i64 0, i64 3
+  %101 = load i8, ptr %100, align 1
+  %conv90 = sext i8 %101 to i32
   %and91 = and i32 %conv90, 255
   %conv92 = trunc i32 %and91 to i8
-  %99 = load ptr, ptr %o, align 8
-  %arrayidx93 = getelementptr inbounds i8, ptr %99, i64 3
+  %102 = load ptr, ptr %o, align 8
+  %arrayidx93 = getelementptr inbounds i8, ptr %102, i64 3
   store i8 %conv92, ptr %arrayidx93, align 1
-  %100 = load ptr, ptr %o, align 8
-  %add.ptr94 = getelementptr inbounds i8, ptr %100, i64 4
+  %103 = load ptr, ptr %o, align 8
+  %add.ptr94 = getelementptr inbounds i8, ptr %103, i64 4
   store ptr %add.ptr94, ptr %o, align 8
-  %101 = load i32, ptr %x.addr, align 4
-  %shr = ashr i32 %101, 24
+  %104 = load i32, ptr %x.addr, align 4
+  %shr = ashr i32 %104, 24
   %and95 = and i32 %shr, 255
   %conv96 = trunc i32 %and95 to i8
-  %102 = load ptr, ptr %o, align 8
-  %arrayidx97 = getelementptr inbounds i8, ptr %102, i64 0
+  %105 = load ptr, ptr %o, align 8
+  %arrayidx97 = getelementptr inbounds i8, ptr %105, i64 0
   store i8 %conv96, ptr %arrayidx97, align 1
-  %103 = load i32, ptr %x.addr, align 4
-  %shr98 = ashr i32 %103, 16
+  %106 = load i32, ptr %x.addr, align 4
+  %shr98 = ashr i32 %106, 16
   %and99 = and i32 %shr98, 255
   %conv100 = trunc i32 %and99 to i8
-  %104 = load ptr, ptr %o, align 8
-  %arrayidx101 = getelementptr inbounds i8, ptr %104, i64 1
+  %107 = load ptr, ptr %o, align 8
+  %arrayidx101 = getelementptr inbounds i8, ptr %107, i64 1
   store i8 %conv100, ptr %arrayidx101, align 1
-  %105 = load i32, ptr %x.addr, align 4
-  %shr102 = ashr i32 %105, 8
+  %108 = load i32, ptr %x.addr, align 4
+  %shr102 = ashr i32 %108, 8
   %and103 = and i32 %shr102, 255
   %conv104 = trunc i32 %and103 to i8
-  %106 = load ptr, ptr %o, align 8
-  %arrayidx105 = getelementptr inbounds i8, ptr %106, i64 2
-  store i8 %conv104, ptr %arrayidx105, align 1
-  %107 = load i32, ptr %x.addr, align 4
-  %and106 = and i32 %107, 255
-  %conv107 = trunc i32 %and106 to i8
-  %108 = load ptr, ptr %o, align 8
-  %arrayidx108 = getelementptr inbounds i8, ptr %108, i64 3
-  store i8 %conv107, ptr %arrayidx108, align 1
   %109 = load ptr, ptr %o, align 8
-  %add.ptr109 = getelementptr inbounds i8, ptr %109, i64 4
+  %arrayidx105 = getelementptr inbounds i8, ptr %109, i64 2
+  store i8 %conv104, ptr %arrayidx105, align 1
+  %110 = load i32, ptr %x.addr, align 4
+  %and106 = and i32 %110, 255
+  %conv107 = trunc i32 %and106 to i8
+  %111 = load ptr, ptr %o, align 8
+  %arrayidx108 = getelementptr inbounds i8, ptr %111, i64 3
+  store i8 %conv107, ptr %arrayidx108, align 1
+  %112 = load ptr, ptr %o, align 8
+  %add.ptr109 = getelementptr inbounds i8, ptr %112, i64 4
   store ptr %add.ptr109, ptr %o, align 8
-  %110 = load i32, ptr %y.addr, align 4
-  %shr110 = ashr i32 %110, 24
+  %113 = load i32, ptr %y.addr, align 4
+  %shr110 = ashr i32 %113, 24
   %and111 = and i32 %shr110, 255
   %conv112 = trunc i32 %and111 to i8
-  %111 = load ptr, ptr %o, align 8
-  %arrayidx113 = getelementptr inbounds i8, ptr %111, i64 0
+  %114 = load ptr, ptr %o, align 8
+  %arrayidx113 = getelementptr inbounds i8, ptr %114, i64 0
   store i8 %conv112, ptr %arrayidx113, align 1
-  %112 = load i32, ptr %y.addr, align 4
-  %shr114 = ashr i32 %112, 16
+  %115 = load i32, ptr %y.addr, align 4
+  %shr114 = ashr i32 %115, 16
   %and115 = and i32 %shr114, 255
   %conv116 = trunc i32 %and115 to i8
-  %113 = load ptr, ptr %o, align 8
-  %arrayidx117 = getelementptr inbounds i8, ptr %113, i64 1
+  %116 = load ptr, ptr %o, align 8
+  %arrayidx117 = getelementptr inbounds i8, ptr %116, i64 1
   store i8 %conv116, ptr %arrayidx117, align 1
-  %114 = load i32, ptr %y.addr, align 4
-  %shr118 = ashr i32 %114, 8
+  %117 = load i32, ptr %y.addr, align 4
+  %shr118 = ashr i32 %117, 8
   %and119 = and i32 %shr118, 255
   %conv120 = trunc i32 %and119 to i8
-  %115 = load ptr, ptr %o, align 8
-  %arrayidx121 = getelementptr inbounds i8, ptr %115, i64 2
-  store i8 %conv120, ptr %arrayidx121, align 1
-  %116 = load i32, ptr %y.addr, align 4
-  %and122 = and i32 %116, 255
-  %conv123 = trunc i32 %and122 to i8
-  %117 = load ptr, ptr %o, align 8
-  %arrayidx124 = getelementptr inbounds i8, ptr %117, i64 3
-  store i8 %conv123, ptr %arrayidx124, align 1
   %118 = load ptr, ptr %o, align 8
-  %add.ptr125 = getelementptr inbounds i8, ptr %118, i64 4
+  %arrayidx121 = getelementptr inbounds i8, ptr %118, i64 2
+  store i8 %conv120, ptr %arrayidx121, align 1
+  %119 = load i32, ptr %y.addr, align 4
+  %and122 = and i32 %119, 255
+  %conv123 = trunc i32 %and122 to i8
+  %120 = load ptr, ptr %o, align 8
+  %arrayidx124 = getelementptr inbounds i8, ptr %120, i64 3
+  store i8 %conv123, ptr %arrayidx124, align 1
+  %121 = load ptr, ptr %o, align 8
+  %add.ptr125 = getelementptr inbounds i8, ptr %121, i64 4
   store ptr %add.ptr125, ptr %o, align 8
-  %119 = load ptr, ptr %o, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %119, i32 1
-  store ptr %incdec.ptr, ptr %o, align 8
-  store i8 8, ptr %119, align 1
-  %120 = load i32, ptr %n.addr, align 4
-  %idxprom126 = sext i32 %120 to i64
-  %arrayidx127 = getelementptr inbounds [5 x i32], ptr %ctype, i64 0, i64 %idxprom126
-  %121 = load i32, ptr %arrayidx127, align 4
-  %and128 = and i32 %121, 255
-  %conv129 = trunc i32 %and128 to i8
   %122 = load ptr, ptr %o, align 8
-  %incdec.ptr130 = getelementptr inbounds i8, ptr %122, i32 1
-  store ptr %incdec.ptr130, ptr %o, align 8
-  store i8 %conv129, ptr %122, align 1
-  %123 = load ptr, ptr %o, align 8
-  %incdec.ptr131 = getelementptr inbounds i8, ptr %123, i32 1
-  store ptr %incdec.ptr131, ptr %o, align 8
-  store i8 0, ptr %123, align 1
-  %124 = load ptr, ptr %o, align 8
-  %incdec.ptr132 = getelementptr inbounds i8, ptr %124, i32 1
-  store ptr %incdec.ptr132, ptr %o, align 8
-  store i8 0, ptr %124, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %122, i32 1
+  store ptr %incdec.ptr, ptr %o, align 8
+  store i8 8, ptr %122, align 1
+  %123 = load i32, ptr %n.addr, align 4
+  %idxprom126 = sext i32 %123 to i64
+  %arrayidx127 = getelementptr inbounds [5 x i32], ptr %ctype, i64 0, i64 %idxprom126
+  %124 = load i32, ptr %arrayidx127, align 4
+  %and128 = and i32 %124, 255
+  %conv129 = trunc i32 %and128 to i8
   %125 = load ptr, ptr %o, align 8
-  %incdec.ptr133 = getelementptr inbounds i8, ptr %125, i32 1
+  %incdec.ptr130 = getelementptr inbounds i8, ptr %125, i32 1
+  store ptr %incdec.ptr130, ptr %o, align 8
+  store i8 %conv129, ptr %125, align 1
+  %126 = load ptr, ptr %o, align 8
+  %incdec.ptr131 = getelementptr inbounds i8, ptr %126, i32 1
+  store ptr %incdec.ptr131, ptr %o, align 8
+  store i8 0, ptr %126, align 1
+  %127 = load ptr, ptr %o, align 8
+  %incdec.ptr132 = getelementptr inbounds i8, ptr %127, i32 1
+  store ptr %incdec.ptr132, ptr %o, align 8
+  store i8 0, ptr %127, align 1
+  %128 = load ptr, ptr %o, align 8
+  %incdec.ptr133 = getelementptr inbounds i8, ptr %128, i32 1
   store ptr %incdec.ptr133, ptr %o, align 8
-  store i8 0, ptr %125, align 1
+  store i8 0, ptr %128, align 1
   call void @stbiw__wpcrc(ptr noundef %o, i32 noundef 13)
-  %126 = load i32, ptr %zlen, align 4
-  %shr134 = ashr i32 %126, 24
+  %129 = load i32, ptr %zlen, align 4
+  %shr134 = ashr i32 %129, 24
   %and135 = and i32 %shr134, 255
   %conv136 = trunc i32 %and135 to i8
-  %127 = load ptr, ptr %o, align 8
-  %arrayidx137 = getelementptr inbounds i8, ptr %127, i64 0
+  %130 = load ptr, ptr %o, align 8
+  %arrayidx137 = getelementptr inbounds i8, ptr %130, i64 0
   store i8 %conv136, ptr %arrayidx137, align 1
-  %128 = load i32, ptr %zlen, align 4
-  %shr138 = ashr i32 %128, 16
+  %131 = load i32, ptr %zlen, align 4
+  %shr138 = ashr i32 %131, 16
   %and139 = and i32 %shr138, 255
   %conv140 = trunc i32 %and139 to i8
-  %129 = load ptr, ptr %o, align 8
-  %arrayidx141 = getelementptr inbounds i8, ptr %129, i64 1
+  %132 = load ptr, ptr %o, align 8
+  %arrayidx141 = getelementptr inbounds i8, ptr %132, i64 1
   store i8 %conv140, ptr %arrayidx141, align 1
-  %130 = load i32, ptr %zlen, align 4
-  %shr142 = ashr i32 %130, 8
+  %133 = load i32, ptr %zlen, align 4
+  %shr142 = ashr i32 %133, 8
   %and143 = and i32 %shr142, 255
   %conv144 = trunc i32 %and143 to i8
-  %131 = load ptr, ptr %o, align 8
-  %arrayidx145 = getelementptr inbounds i8, ptr %131, i64 2
-  store i8 %conv144, ptr %arrayidx145, align 1
-  %132 = load i32, ptr %zlen, align 4
-  %and146 = and i32 %132, 255
-  %conv147 = trunc i32 %and146 to i8
-  %133 = load ptr, ptr %o, align 8
-  %arrayidx148 = getelementptr inbounds i8, ptr %133, i64 3
-  store i8 %conv147, ptr %arrayidx148, align 1
   %134 = load ptr, ptr %o, align 8
-  %add.ptr149 = getelementptr inbounds i8, ptr %134, i64 4
+  %arrayidx145 = getelementptr inbounds i8, ptr %134, i64 2
+  store i8 %conv144, ptr %arrayidx145, align 1
+  %135 = load i32, ptr %zlen, align 4
+  %and146 = and i32 %135, 255
+  %conv147 = trunc i32 %and146 to i8
+  %136 = load ptr, ptr %o, align 8
+  %arrayidx148 = getelementptr inbounds i8, ptr %136, i64 3
+  store i8 %conv147, ptr %arrayidx148, align 1
+  %137 = load ptr, ptr %o, align 8
+  %add.ptr149 = getelementptr inbounds i8, ptr %137, i64 4
   store ptr %add.ptr149, ptr %o, align 8
-  %135 = load i8, ptr @.str.6, align 1
-  %conv150 = sext i8 %135 to i32
+  %138 = load i8, ptr @.str.6, align 1
+  %conv150 = sext i8 %138 to i32
   %and151 = and i32 %conv150, 255
   %conv152 = trunc i32 %and151 to i8
-  %136 = load ptr, ptr %o, align 8
-  %arrayidx153 = getelementptr inbounds i8, ptr %136, i64 0
+  %139 = load ptr, ptr %o, align 8
+  %arrayidx153 = getelementptr inbounds i8, ptr %139, i64 0
   store i8 %conv152, ptr %arrayidx153, align 1
-  %137 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.6, i64 0, i64 1), align 1
-  %conv154 = sext i8 %137 to i32
+  %140 = getelementptr inbounds [5 x i8], ptr @.str.6, i64 0, i64 1
+  %141 = load i8, ptr %140, align 1
+  %conv154 = sext i8 %141 to i32
   %and155 = and i32 %conv154, 255
   %conv156 = trunc i32 %and155 to i8
-  %138 = load ptr, ptr %o, align 8
-  %arrayidx157 = getelementptr inbounds i8, ptr %138, i64 1
+  %142 = load ptr, ptr %o, align 8
+  %arrayidx157 = getelementptr inbounds i8, ptr %142, i64 1
   store i8 %conv156, ptr %arrayidx157, align 1
-  %139 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.6, i64 0, i64 2), align 1
-  %conv158 = sext i8 %139 to i32
+  %143 = getelementptr inbounds [5 x i8], ptr @.str.6, i64 0, i64 2
+  %144 = load i8, ptr %143, align 1
+  %conv158 = sext i8 %144 to i32
   %and159 = and i32 %conv158, 255
   %conv160 = trunc i32 %and159 to i8
-  %140 = load ptr, ptr %o, align 8
-  %arrayidx161 = getelementptr inbounds i8, ptr %140, i64 2
+  %145 = load ptr, ptr %o, align 8
+  %arrayidx161 = getelementptr inbounds i8, ptr %145, i64 2
   store i8 %conv160, ptr %arrayidx161, align 1
-  %141 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.6, i64 0, i64 3), align 1
-  %conv162 = sext i8 %141 to i32
+  %146 = getelementptr inbounds [5 x i8], ptr @.str.6, i64 0, i64 3
+  %147 = load i8, ptr %146, align 1
+  %conv162 = sext i8 %147 to i32
   %and163 = and i32 %conv162, 255
   %conv164 = trunc i32 %and163 to i8
-  %142 = load ptr, ptr %o, align 8
-  %arrayidx165 = getelementptr inbounds i8, ptr %142, i64 3
-  store i8 %conv164, ptr %arrayidx165, align 1
-  %143 = load ptr, ptr %o, align 8
-  %add.ptr166 = getelementptr inbounds i8, ptr %143, i64 4
-  store ptr %add.ptr166, ptr %o, align 8
-  %144 = load ptr, ptr %o, align 8
-  %145 = load ptr, ptr %zlib, align 8
-  %146 = load i32, ptr %zlen, align 4
-  %conv167 = sext i32 %146 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %144, ptr align 1 %145, i64 %conv167, i1 false)
-  %147 = load i32, ptr %zlen, align 4
   %148 = load ptr, ptr %o, align 8
-  %idx.ext168 = sext i32 %147 to i64
-  %add.ptr169 = getelementptr inbounds i8, ptr %148, i64 %idx.ext168
-  store ptr %add.ptr169, ptr %o, align 8
-  %149 = load ptr, ptr %zlib, align 8
-  call void @free(ptr noundef %149) #11
-  %150 = load i32, ptr %zlen, align 4
-  call void @stbiw__wpcrc(ptr noundef %o, i32 noundef %150)
-  %151 = load ptr, ptr %o, align 8
-  %arrayidx170 = getelementptr inbounds i8, ptr %151, i64 0
-  store i8 0, ptr %arrayidx170, align 1
-  %152 = load ptr, ptr %o, align 8
-  %arrayidx171 = getelementptr inbounds i8, ptr %152, i64 1
-  store i8 0, ptr %arrayidx171, align 1
-  %153 = load ptr, ptr %o, align 8
-  %arrayidx172 = getelementptr inbounds i8, ptr %153, i64 2
-  store i8 0, ptr %arrayidx172, align 1
+  %arrayidx165 = getelementptr inbounds i8, ptr %148, i64 3
+  store i8 %conv164, ptr %arrayidx165, align 1
+  %149 = load ptr, ptr %o, align 8
+  %add.ptr166 = getelementptr inbounds i8, ptr %149, i64 4
+  store ptr %add.ptr166, ptr %o, align 8
+  %150 = load ptr, ptr %o, align 8
+  %151 = load ptr, ptr %zlib, align 8
+  %152 = load i32, ptr %zlen, align 4
+  %conv167 = sext i32 %152 to i64
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %150, ptr align 1 %151, i64 %conv167, i1 false)
+  %153 = load i32, ptr %zlen, align 4
   %154 = load ptr, ptr %o, align 8
-  %arrayidx173 = getelementptr inbounds i8, ptr %154, i64 3
+  %idx.ext168 = sext i32 %153 to i64
+  %add.ptr169 = getelementptr inbounds i8, ptr %154, i64 %idx.ext168
+  store ptr %add.ptr169, ptr %o, align 8
+  %155 = load ptr, ptr %zlib, align 8
+  call void @free(ptr noundef %155) #11
+  %156 = load i32, ptr %zlen, align 4
+  call void @stbiw__wpcrc(ptr noundef %o, i32 noundef %156)
+  %157 = load ptr, ptr %o, align 8
+  %arrayidx170 = getelementptr inbounds i8, ptr %157, i64 0
+  store i8 0, ptr %arrayidx170, align 1
+  %158 = load ptr, ptr %o, align 8
+  %arrayidx171 = getelementptr inbounds i8, ptr %158, i64 1
+  store i8 0, ptr %arrayidx171, align 1
+  %159 = load ptr, ptr %o, align 8
+  %arrayidx172 = getelementptr inbounds i8, ptr %159, i64 2
+  store i8 0, ptr %arrayidx172, align 1
+  %160 = load ptr, ptr %o, align 8
+  %arrayidx173 = getelementptr inbounds i8, ptr %160, i64 3
   store i8 0, ptr %arrayidx173, align 1
-  %155 = load ptr, ptr %o, align 8
-  %add.ptr174 = getelementptr inbounds i8, ptr %155, i64 4
+  %161 = load ptr, ptr %o, align 8
+  %add.ptr174 = getelementptr inbounds i8, ptr %161, i64 4
   store ptr %add.ptr174, ptr %o, align 8
-  %156 = load i8, ptr @.str.7, align 1
-  %conv175 = sext i8 %156 to i32
+  %162 = load i8, ptr @.str.7, align 1
+  %conv175 = sext i8 %162 to i32
   %and176 = and i32 %conv175, 255
   %conv177 = trunc i32 %and176 to i8
-  %157 = load ptr, ptr %o, align 8
-  %arrayidx178 = getelementptr inbounds i8, ptr %157, i64 0
+  %163 = load ptr, ptr %o, align 8
+  %arrayidx178 = getelementptr inbounds i8, ptr %163, i64 0
   store i8 %conv177, ptr %arrayidx178, align 1
-  %158 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.7, i64 0, i64 1), align 1
-  %conv179 = sext i8 %158 to i32
+  %164 = getelementptr inbounds [5 x i8], ptr @.str.7, i64 0, i64 1
+  %165 = load i8, ptr %164, align 1
+  %conv179 = sext i8 %165 to i32
   %and180 = and i32 %conv179, 255
   %conv181 = trunc i32 %and180 to i8
-  %159 = load ptr, ptr %o, align 8
-  %arrayidx182 = getelementptr inbounds i8, ptr %159, i64 1
+  %166 = load ptr, ptr %o, align 8
+  %arrayidx182 = getelementptr inbounds i8, ptr %166, i64 1
   store i8 %conv181, ptr %arrayidx182, align 1
-  %160 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.7, i64 0, i64 2), align 1
-  %conv183 = sext i8 %160 to i32
+  %167 = getelementptr inbounds [5 x i8], ptr @.str.7, i64 0, i64 2
+  %168 = load i8, ptr %167, align 1
+  %conv183 = sext i8 %168 to i32
   %and184 = and i32 %conv183, 255
   %conv185 = trunc i32 %and184 to i8
-  %161 = load ptr, ptr %o, align 8
-  %arrayidx186 = getelementptr inbounds i8, ptr %161, i64 2
+  %169 = load ptr, ptr %o, align 8
+  %arrayidx186 = getelementptr inbounds i8, ptr %169, i64 2
   store i8 %conv185, ptr %arrayidx186, align 1
-  %162 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.7, i64 0, i64 3), align 1
-  %conv187 = sext i8 %162 to i32
+  %170 = getelementptr inbounds [5 x i8], ptr @.str.7, i64 0, i64 3
+  %171 = load i8, ptr %170, align 1
+  %conv187 = sext i8 %171 to i32
   %and188 = and i32 %conv187, 255
   %conv189 = trunc i32 %and188 to i8
-  %163 = load ptr, ptr %o, align 8
-  %arrayidx190 = getelementptr inbounds i8, ptr %163, i64 3
+  %172 = load ptr, ptr %o, align 8
+  %arrayidx190 = getelementptr inbounds i8, ptr %172, i64 3
   store i8 %conv189, ptr %arrayidx190, align 1
-  %164 = load ptr, ptr %o, align 8
-  %add.ptr191 = getelementptr inbounds i8, ptr %164, i64 4
+  %173 = load ptr, ptr %o, align 8
+  %add.ptr191 = getelementptr inbounds i8, ptr %173, i64 4
   store ptr %add.ptr191, ptr %o, align 8
   call void @stbiw__wpcrc(ptr noundef %o, i32 noundef 0)
-  %165 = load ptr, ptr %out, align 8
-  store ptr %165, ptr %retval, align 8
+  %174 = load ptr, ptr %out, align 8
+  store ptr %174, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end70, %if.then69, %if.then62, %if.then12, %if.then6
-  %166 = load ptr, ptr %retval, align 8
-  ret ptr %166
+  %175 = load ptr, ptr %retval, align 8
+  ret ptr %175
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5981,7 +5984,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #9
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: nounwind uwtable
 define void @stbiw__jpg_calcBits(i32 noundef %val, ptr noundef %bits) #0 {
@@ -7830,16 +7833,22 @@ return:                                           ; preds = %if.else, %if.then
   ret i32 %7
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(0) }

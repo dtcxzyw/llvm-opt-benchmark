@@ -45,7 +45,8 @@ init:                                             ; preds = %init.check
 init.end:                                         ; preds = %init, %init.check, %entry
   %key = getelementptr inbounds i8, ptr %arg, i64 8
   %2 = load ptr, ptr %key, align 8, !tbaa !8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 56)) #10
+  %3 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 56
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #10
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i.i
 
@@ -54,38 +55,41 @@ if.then.i.i.i.i:                                  ; preds = %init.end
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %init.end
-  %3 = load ptr, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 24), align 8, !tbaa !15
-  %cmp.not1.i.i.i.i.i = icmp eq ptr %3, null
+  %4 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 24
+  %5 = load ptr, ptr %4, align 8, !tbaa !15
+  %cmp.not1.i.i.i.i.i = icmp eq ptr %5, null
+  %6 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16
   br i1 %cmp.not1.i.i.i.i.i, label %if.then.i.i, label %while.body.lr.ph.i.i.i.i.i
 
 while.body.lr.ph.i.i.i.i.i:                       ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
   %__name2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = load ptr, ptr %__name2.i.i.i.i.i.i.i.i, align 8, !tbaa !20
+  %7 = load ptr, ptr %__name2.i.i.i.i.i.i.i.i, align 8, !tbaa !20
+  %8 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16
   br label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i
-  %__x.addr.03.i.i.i.i.i = phi ptr [ %3, %while.body.lr.ph.i.i.i.i.i ], [ %__x.addr.1.i.i.i.i.i, %if.end.i.i.i.i.i ]
-  %__y.addr.02.i.i.i.i.i = phi ptr [ getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16), %while.body.lr.ph.i.i.i.i.i ], [ %__y.addr.1.i.i.i.i.i, %if.end.i.i.i.i.i ]
+  %__x.addr.03.i.i.i.i.i = phi ptr [ %5, %while.body.lr.ph.i.i.i.i.i ], [ %__x.addr.1.i.i.i.i.i, %if.end.i.i.i.i.i ]
+  %__y.addr.02.i.i.i.i.i = phi ptr [ %8, %while.body.lr.ph.i.i.i.i.i ], [ %__y.addr.1.i.i.i.i.i, %if.end.i.i.i.i.i ]
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.03.i.i.i.i.i, i64 32
-  %5 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i, align 8, !tbaa !22
-  %__name.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load ptr, ptr %__name.i.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %7 = load i8, ptr %6, align 1, !tbaa !24
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 42
+  %9 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i, align 8, !tbaa !22
+  %__name.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %__name.i.i.i.i.i.i.i.i, align 8, !tbaa !20
+  %11 = load i8, ptr %10, align 1, !tbaa !24
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq i8 %11, 42
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i:                    ; preds = %while.body.i.i.i.i.i
-  %8 = load i8, ptr %4, align 1, !tbaa !24
-  %cmp5.not.i.i.i.i.i.i.i.i = icmp eq i8 %8, 42
+  %12 = load i8, ptr %7, align 1, !tbaa !24
+  %cmp5.not.i.i.i.i.i.i.i.i = icmp eq i8 %12, 42
   br i1 %cmp5.not.i.i.i.i.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %4) #10
+  %call.i.i.i.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %7) #10
   %cmp8.i.i.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i.i.i, 0
   br i1 %cmp8.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i
-  %cmp11.i.i.i.i.i.i.i.i = icmp ult ptr %6, %4
+  %cmp11.i.i.i.i.i.i.i.i = icmp ult ptr %10, %7
   br i1 %cmp11.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
@@ -94,213 +98,221 @@ if.else.i.i.i.i.i:                                ; preds = %_ZNKSt4lessISt10typ
 if.end.i.i.i.i.i:                                 ; preds = %if.else.i.i.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %.sink.i.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i.i ], [ 16, %if.then.i.i.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i.i ]
   %__y.addr.1.i.i.i.i.i = phi ptr [ %__y.addr.02.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %__x.addr.03.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %__x.addr.03.i.i.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i.i ]
-  %9 = getelementptr i8, ptr %__x.addr.03.i.i.i.i.i, i64 %.sink.i.i.i.i.i
-  %__x.addr.1.i.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !25
+  %13 = getelementptr i8, ptr %__x.addr.03.i.i.i.i.i, i64 %.sink.i.i.i.i.i
+  %__x.addr.1.i.i.i.i.i = load ptr, ptr %13, align 8, !tbaa !25
   %cmp.not.i.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt3mapISt10type_indexN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryESt4lessIS0_ENS1_19reentrant_allocatorISt4pairIKS0_S5_EEEE11lower_boundERSA_.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !26
 
 _ZNSt3mapISt10type_indexN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryESt4lessIS0_ENS1_19reentrant_allocatorISt4pairIKS0_S5_EEEE11lower_boundERSA_.exit.i.i: ; preds = %if.end.i.i.i.i.i
-  %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i.i, getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16)
+  %14 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16
+  %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i.i, %14
+  %15 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16
   br i1 %cmp.i.i.i, label %if.then.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %_ZNSt3mapISt10type_indexN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryESt4lessIS0_ENS1_19reentrant_allocatorISt4pairIKS0_S5_EEEE11lower_boundERSA_.exit.i.i
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
-  %10 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !tbaa !22
-  %11 = load i8, ptr %4, align 1, !tbaa !24
-  %cmp.not.i.i.i20.i.i = icmp eq i8 %11, 42
-  %__name2.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %12 = load ptr, ptr %__name2.i.i.i.i.i, align 8, !tbaa !20
+  %16 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !tbaa !22
+  %17 = load i8, ptr %7, align 1, !tbaa !24
+  %cmp.not.i.i.i20.i.i = icmp eq i8 %17, 42
+  %__name2.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = load ptr, ptr %__name2.i.i.i.i.i, align 8, !tbaa !20
   br i1 %cmp.not.i.i.i20.i.i, label %lor.lhs.false.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %lor.rhs.i.i
-  %13 = load i8, ptr %12, align 1, !tbaa !24
-  %cmp5.not.i.i.i.i.i = icmp eq i8 %13, 42
+  %19 = load i8, ptr %18, align 1, !tbaa !24
+  %cmp5.not.i.i.i.i.i = icmp eq i8 %19, 42
   br i1 %cmp5.not.i.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %lor.lhs.false.i.i.i.i.i, %lor.rhs.i.i
-  %call.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %12) #10
+  %call.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %18) #10
   %cmp8.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
   br i1 %cmp8.i.i.i.i.i, label %if.then.i.i, label %_ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5entryERKSt9type_info.exit
 
 _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i:  ; preds = %lor.lhs.false.i.i.i.i.i
-  %cmp11.i.i.i.i.i = icmp ult ptr %4, %12
+  %cmp11.i.i.i.i.i = icmp ult ptr %7, %18
   br i1 %cmp11.i.i.i.i.i, label %if.then.i.i, label %_ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5entryERKSt9type_info.exit
 
 if.then.i.i:                                      ; preds = %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i, %if.then.i.i.i.i.i, %_ZNSt3mapISt10type_indexN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryESt4lessIS0_ENS1_19reentrant_allocatorISt4pairIKS0_S5_EEEE11lower_boundERSA_.exit.i.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
   %cmp.i5.i.i = phi i1 [ false, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i ], [ false, %if.then.i.i.i.i.i ], [ true, %_ZNSt3mapISt10type_indexN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryESt4lessIS0_ENS1_19reentrant_allocatorISt4pairIKS0_S5_EEEE11lower_boundERSA_.exit.i.i ], [ true, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i ]
-  %__y.addr.0.lcssa.i.i.i3.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i ], [ %__y.addr.1.i.i.i.i.i, %if.then.i.i.i.i.i ], [ getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16), %_ZNSt3mapISt10type_indexN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryESt4lessIS0_ENS1_19reentrant_allocatorISt4pairIKS0_S5_EEEE11lower_boundERSA_.exit.i.i ], [ getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16), %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i ]
+  %__y.addr.0.lcssa.i.i.i3.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i ], [ %__y.addr.1.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %15, %_ZNSt3mapISt10type_indexN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryESt4lessIS0_ENS1_19reentrant_allocatorISt4pairIKS0_S5_EEEE11lower_boundERSA_.exit.i.i ], [ %6, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i ]
   %call.i.i.i.i.i.i22.i.i = tail call noundef ptr @_ZN5folly6detail24reentrant_allocator_base8allocateEmm(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 noundef 88, i64 noundef 8) #10
   %_M_storage.i.i.i.i.i23.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i22.i.i, i64 32
-  %14 = ptrtoint ptr %2 to i64
-  store i64 %14, ptr %_M_storage.i.i.i.i.i23.i.i, align 8, !tbaa !25
+  %20 = ptrtoint ptr %2 to i64
+  store i64 %20, ptr %_M_storage.i.i.i.i.i23.i.i, align 8, !tbaa !25
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i22.i.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i.i.i.i.i.i, i8 0, i64 48, i1 false)
   br i1 %cmp.i5.i.i, label %if.then.i.i.i3.i, label %if.else12.i.i.i.i
 
 if.then.i.i.i3.i:                                 ; preds = %if.then.i.i
-  %15 = load i64, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 48), align 8, !tbaa !28
-  %cmp5.not.i.i.i.i = icmp eq i64 %15, 0
+  %21 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 48
+  %22 = load i64, ptr %21, align 8, !tbaa !28
+  %cmp5.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %cmp5.not.i.i.i.i, label %invoke.cont7.i.i.i, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.then.i.i.i3.i
-  %16 = load ptr, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 40), align 8, !tbaa !25
-  %_M_storage.i.i.i.i21.i.i.i = getelementptr inbounds i8, ptr %16, i64 32
-  %17 = load ptr, ptr %_M_storage.i.i.i.i21.i.i.i, align 8, !tbaa !22
-  %__name.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load ptr, ptr %__name.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %19 = load i8, ptr %18, align 1, !tbaa !24
-  %cmp.not.i.i.i.i.i.i.i = icmp eq i8 %19, 42
+  %23 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 40
+  %24 = load ptr, ptr %23, align 8, !tbaa !25
+  %_M_storage.i.i.i.i21.i.i.i = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = load ptr, ptr %_M_storage.i.i.i.i21.i.i.i, align 8, !tbaa !22
+  %__name.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = load ptr, ptr %__name.i.i.i.i.i.i.i, align 8, !tbaa !20
+  %27 = load i8, ptr %26, align 1, !tbaa !24
+  %cmp.not.i.i.i.i.i.i.i = icmp eq i8 %27, 42
   %__name2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %20 = load ptr, ptr %__name2.i.i.i.i.i.i.i, align 8, !tbaa !20
+  %28 = load ptr, ptr %__name2.i.i.i.i.i.i.i, align 8, !tbaa !20
   br i1 %cmp.not.i.i.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i:                      ; preds = %land.lhs.true.i.i.i.i
-  %21 = load i8, ptr %20, align 1, !tbaa !24
-  %cmp5.not.i.i.i.i.i.i.i = icmp eq i8 %21, 42
+  %29 = load i8, ptr %28, align 1, !tbaa !24
+  %cmp5.not.i.i.i.i.i.i.i = icmp eq i8 %29, 42
   br i1 %cmp5.not.i.i.i.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %lor.lhs.false.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i
-  %call.i.i.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %20) #10
+  %call.i.i.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %28) #10
   %cmp8.i.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i.i, 0
   br i1 %cmp8.i.i.i.i.i.i.i, label %if.then.i.i.i, label %invoke.cont7.i.i.i
 
 _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i.i.i
-  %cmp11.i.i.i.i.i.i.i = icmp ult ptr %18, %20
+  %cmp11.i.i.i.i.i.i.i = icmp ult ptr %26, %28
   br i1 %cmp11.i.i.i.i.i.i.i, label %if.then.i.i.i, label %invoke.cont7.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.then.i.i
   %_M_storage.i.i.i96.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i3.i.i, i64 32
-  %22 = load ptr, ptr %_M_storage.i.i.i96.i.i.i.i, align 8, !tbaa !22
+  %30 = load ptr, ptr %_M_storage.i.i.i96.i.i.i.i, align 8, !tbaa !22
   %__name.i.i.i97.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %23 = load ptr, ptr %__name.i.i.i97.i.i.i.i, align 8, !tbaa !20
-  %24 = load i8, ptr %23, align 1, !tbaa !24
-  %cmp.not.i.i.i98.i.i.i.i = icmp ne i8 %24, 42
-  %__name2.i.i.i99.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
-  %25 = load ptr, ptr %__name2.i.i.i99.i.i.i.i, align 8, !tbaa !20
+  %31 = load ptr, ptr %__name.i.i.i97.i.i.i.i, align 8, !tbaa !20
+  %32 = load i8, ptr %31, align 1, !tbaa !24
+  %cmp.not.i.i.i98.i.i.i.i = icmp ne i8 %32, 42
+  %__name2.i.i.i99.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = load ptr, ptr %__name2.i.i.i99.i.i.i.i, align 8, !tbaa !20
   br i1 %cmp.not.i.i.i98.i.i.i.i, label %if.then.i.i.i100.i.i.i.i, label %lor.lhs.false.i.i.i104.i.i.i.i
 
 lor.lhs.false.i.i.i104.i.i.i.i:                   ; preds = %if.else12.i.i.i.i
-  %26 = load i8, ptr %25, align 1, !tbaa !24
-  %cmp5.not.i.i.i105.i.i.i.i = icmp eq i8 %26, 42
+  %34 = load i8, ptr %33, align 1, !tbaa !24
+  %cmp5.not.i.i.i105.i.i.i.i = icmp eq i8 %34, 42
   br i1 %cmp5.not.i.i.i105.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit108.i.i.i.i, label %if.then.i.i.i100.i.i.i.i
 
 if.then.i.i.i100.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i104.i.i.i.i, %if.else12.i.i.i.i
-  %call.i.i.i101.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %25) #10
+  %call.i.i.i101.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %33) #10
   %cmp8.i.i.i102.i.i.i.i = icmp slt i32 %call.i.i.i101.i.i.i.i, 0
   br i1 %cmp8.i.i.i102.i.i.i.i, label %if.then19.i.i.i.i, label %if.else46.i.i.i.i
 
 _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit108.i.i.i.i: ; preds = %lor.lhs.false.i.i.i104.i.i.i.i
-  %cmp11.i.i.i107.i.i.i.i = icmp ult ptr %23, %25
+  %cmp11.i.i.i107.i.i.i.i = icmp ult ptr %31, %33
   br i1 %cmp11.i.i.i107.i.i.i.i, label %if.then19.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit137.i.i.i.i
 
 if.then19.i.i.i.i:                                ; preds = %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit108.i.i.i.i, %if.then.i.i.i100.i.i.i.i
-  %27 = load ptr, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 32), align 8, !tbaa !25
-  %cmp22.i.i.i.i = icmp eq ptr %27, %__y.addr.0.lcssa.i.i.i3.i.i
+  %35 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 32
+  %36 = load ptr, ptr %35, align 8, !tbaa !25
+  %cmp22.i.i.i.i = icmp eq ptr %36, %__y.addr.0.lcssa.i.i.i3.i.i
   br i1 %cmp22.i.i.i.i, label %cleanup.i.i.i, label %if.else26.i.i.i.i
 
 if.else26.i.i.i.i:                                ; preds = %if.then19.i.i.i.i
   %call.i.i.i33.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.addr.0.lcssa.i.i.i3.i.i) #12
   %_M_storage.i.i.i110.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i33.i.i, i64 32
-  %28 = load ptr, ptr %_M_storage.i.i.i110.i.i.i.i, align 8, !tbaa !22
-  %__name.i.i.i111.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
-  %29 = load ptr, ptr %__name.i.i.i111.i.i.i.i, align 8, !tbaa !20
-  %30 = load i8, ptr %29, align 1, !tbaa !24
-  %cmp.not.i.i.i112.i.i.i.i = icmp ne i8 %30, 42
+  %37 = load ptr, ptr %_M_storage.i.i.i110.i.i.i.i, align 8, !tbaa !22
+  %__name.i.i.i111.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = load ptr, ptr %__name.i.i.i111.i.i.i.i, align 8, !tbaa !20
+  %39 = load i8, ptr %38, align 1, !tbaa !24
+  %cmp.not.i.i.i112.i.i.i.i = icmp ne i8 %39, 42
   %brmerge.i.i.i.i = or i1 %cmp.not.i.i.i98.i.i.i.i, %cmp.not.i.i.i112.i.i.i.i
   br i1 %brmerge.i.i.i.i, label %if.then.i.i.i114.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit122.i.i.i.i
 
 if.then.i.i.i114.i.i.i.i:                         ; preds = %if.else26.i.i.i.i
-  %call.i.i.i115.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %23) #10
+  %call.i.i.i115.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %31) #10
   %cmp8.i.i.i116.i.i.i.i = icmp slt i32 %call.i.i.i115.i.i.i.i, 0
   br i1 %cmp8.i.i.i116.i.i.i.i, label %if.then34.i.i.i.i, label %invoke.cont7.i.i.i
 
 _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit122.i.i.i.i: ; preds = %if.else26.i.i.i.i
-  %cmp11.i.i.i121.i.i.i.i = icmp ult ptr %29, %23
+  %cmp11.i.i.i121.i.i.i.i = icmp ult ptr %38, %31
   br i1 %cmp11.i.i.i121.i.i.i.i, label %if.then34.i.i.i.i, label %invoke.cont7.i.i.i
 
 if.then34.i.i.i.i:                                ; preds = %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit122.i.i.i.i, %if.then.i.i.i114.i.i.i.i
-  %31 = getelementptr i8, ptr %call.i.i.i33.i.i, i64 24
-  %.val93.i.i.i.i = load ptr, ptr %31, align 8, !tbaa !29
+  %40 = getelementptr i8, ptr %call.i.i.i33.i.i, i64 24
+  %.val93.i.i.i.i = load ptr, ptr %40, align 8, !tbaa !29
   %cmp37.i.i.i.i = icmp eq ptr %.val93.i.i.i.i, null
   br i1 %cmp37.i.i.i.i, label %if.then.i.i.i, label %cleanup.i.i.i
 
 if.else46.i.i.i.i:                                ; preds = %if.then.i.i.i100.i.i.i.i
-  %.pr.i.i.i.i = load i8, ptr %25, align 1, !tbaa !24
+  %.pr.i.i.i.i = load i8, ptr %33, align 1, !tbaa !24
   %cmp.not.i.i.i127.i.i.i.i = icmp ne i8 %.pr.i.i.i.i, 42
   %brmerge17.i.i.i.i = or i1 %cmp.not.i.i.i98.i.i.i.i, %cmp.not.i.i.i127.i.i.i.i
   br i1 %brmerge17.i.i.i.i, label %if.then.i.i.i129.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit137.i.i.i.i
 
 if.then.i.i.i129.i.i.i.i:                         ; preds = %if.else46.i.i.i.i
-  %call.i.i.i130.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %23) #10
+  %call.i.i.i130.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %31) #10
   %cmp8.i.i.i131.i.i.i.i = icmp slt i32 %call.i.i.i130.i.i.i.i, 0
   br i1 %cmp8.i.i.i131.i.i.i.i, label %if.then53.i.i.i.i, label %if.then.i27.i.i.i
 
 _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit137.i.i.i.i: ; preds = %if.else46.i.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit108.i.i.i.i
-  %cmp11.i.i.i136.i.i.i.i = icmp ult ptr %25, %23
+  %cmp11.i.i.i136.i.i.i.i = icmp ult ptr %33, %31
   br i1 %cmp11.i.i.i136.i.i.i.i, label %if.then53.i.i.i.i, label %if.then.i27.i.i.i
 
 if.then53.i.i.i.i:                                ; preds = %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit137.i.i.i.i, %if.then.i.i.i129.i.i.i.i
-  %32 = load ptr, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 40), align 8, !tbaa !25
-  %cmp56.i.i.i.i = icmp eq ptr %32, %__y.addr.0.lcssa.i.i.i3.i.i
+  %41 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 40
+  %42 = load ptr, ptr %41, align 8, !tbaa !25
+  %cmp56.i.i.i.i = icmp eq ptr %42, %__y.addr.0.lcssa.i.i.i3.i.i
   br i1 %cmp56.i.i.i.i, label %if.then.i.i.i, label %if.else60.i.i.i.i
 
 if.else60.i.i.i.i:                                ; preds = %if.then53.i.i.i.i
   %call.i139.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.addr.0.lcssa.i.i.i3.i.i) #12
   %_M_storage.i.i.i140.i.i.i.i = getelementptr inbounds i8, ptr %call.i139.i.i.i.i, i64 32
-  %33 = load ptr, ptr %_M_storage.i.i.i140.i.i.i.i, align 8, !tbaa !22
-  %__name2.i.i.i143.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
-  %34 = load ptr, ptr %__name2.i.i.i143.i.i.i.i, align 8, !tbaa !20
+  %43 = load ptr, ptr %_M_storage.i.i.i140.i.i.i.i, align 8, !tbaa !22
+  %__name2.i.i.i143.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = load ptr, ptr %__name2.i.i.i143.i.i.i.i, align 8, !tbaa !20
   br i1 %cmp.not.i.i.i98.i.i.i.i, label %if.then.i.i.i144.i.i.i.i, label %lor.lhs.false.i.i.i148.i.i.i.i
 
 lor.lhs.false.i.i.i148.i.i.i.i:                   ; preds = %if.else60.i.i.i.i
-  %35 = load i8, ptr %34, align 1, !tbaa !24
-  %cmp5.not.i.i.i149.i.i.i.i = icmp eq i8 %35, 42
+  %45 = load i8, ptr %44, align 1, !tbaa !24
+  %cmp5.not.i.i.i149.i.i.i.i = icmp eq i8 %45, 42
   br i1 %cmp5.not.i.i.i149.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit152.i.i.i.i, label %if.then.i.i.i144.i.i.i.i
 
 if.then.i.i.i144.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i148.i.i.i.i, %if.else60.i.i.i.i
-  %call.i.i.i145.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %34) #10
+  %call.i.i.i145.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %44) #10
   %cmp8.i.i.i146.i.i.i.i = icmp slt i32 %call.i.i.i145.i.i.i.i, 0
   br i1 %cmp8.i.i.i146.i.i.i.i, label %if.then68.i.i.i.i, label %invoke.cont7.i.i.i
 
 _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit152.i.i.i.i: ; preds = %lor.lhs.false.i.i.i148.i.i.i.i
-  %cmp11.i.i.i151.i.i.i.i = icmp ult ptr %23, %34
+  %cmp11.i.i.i151.i.i.i.i = icmp ult ptr %31, %44
   br i1 %cmp11.i.i.i151.i.i.i.i, label %if.then68.i.i.i.i, label %invoke.cont7.i.i.i
 
 if.then68.i.i.i.i:                                ; preds = %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit152.i.i.i.i, %if.then.i.i.i144.i.i.i.i
-  %36 = getelementptr i8, ptr %__y.addr.0.lcssa.i.i.i3.i.i, i64 24
-  %.val.i.i.i.i = load ptr, ptr %36, align 8, !tbaa !29
+  %46 = getelementptr i8, ptr %__y.addr.0.lcssa.i.i.i3.i.i, i64 24
+  %.val.i.i.i.i = load ptr, ptr %46, align 8, !tbaa !29
   %cmp71.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
   br i1 %cmp71.i.i.i.i, label %if.then.i.i.i, label %cleanup.i.i.i
 
 invoke.cont7.i.i.i:                               ; preds = %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit152.i.i.i.i, %if.then.i.i.i144.i.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit122.i.i.i.i, %if.then.i.i.i114.i.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i3.i
-  %__x.011.i = load ptr, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 24), align 8, !tbaa !25
+  %47 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 24
+  %__x.011.i = load ptr, ptr %47, align 8, !tbaa !25
   %cmp.not12.i = icmp eq ptr %__x.011.i, null
+  %48 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16
   br i1 %cmp.not12.i, label %if.then.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %invoke.cont7.i.i.i
   %__name.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %37 = load ptr, ptr %__name.i.i.i.i, align 8, !tbaa !20
-  %38 = load i8, ptr %37, align 1, !tbaa !24
-  %cmp.not.i.i.i.i = icmp eq i8 %38, 42
+  %49 = load ptr, ptr %__name.i.i.i.i, align 8, !tbaa !20
+  %50 = load i8, ptr %49, align 1, !tbaa !24
+  %cmp.not.i.i.i.i = icmp eq i8 %50, 42
   br i1 %cmp.not.i.i.i.i, label %while.body.us.i, label %while.body.i
 
 while.body.us.i:                                  ; preds = %cond.end.us.i, %while.body.lr.ph.i
   %__x.013.us.i = phi ptr [ %__x.0.us.i, %cond.end.us.i ], [ %__x.011.i, %while.body.lr.ph.i ]
   %_M_storage.i.i.us.i = getelementptr inbounds i8, ptr %__x.013.us.i, i64 32
-  %39 = load ptr, ptr %_M_storage.i.i.us.i, align 8, !tbaa !22
-  %__name2.i.i.i.us.i = getelementptr inbounds i8, ptr %39, i64 8
-  %40 = load ptr, ptr %__name2.i.i.i.us.i, align 8, !tbaa !20
-  %41 = load i8, ptr %40, align 1, !tbaa !24
-  %cmp5.not.i.i.i.us.i = icmp eq i8 %41, 42
+  %51 = load ptr, ptr %_M_storage.i.i.us.i, align 8, !tbaa !22
+  %__name2.i.i.i.us.i = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = load ptr, ptr %__name2.i.i.i.us.i, align 8, !tbaa !20
+  %53 = load i8, ptr %52, align 1, !tbaa !24
+  %cmp5.not.i.i.i.us.i = icmp eq i8 %53, 42
   br i1 %cmp5.not.i.i.i.us.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.us.i, label %if.then.i.i.i.us.i
 
 if.then.i.i.i.us.i:                               ; preds = %while.body.us.i
-  %call.i.i.i.us.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %40) #10
+  %call.i.i.i.us.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %52) #10
   %cmp8.i.i.i.us.i = icmp slt i32 %call.i.i.i.us.i, 0
   br i1 %cmp8.i.i.i.us.i, label %cond.true.us.i, label %cond.end.us.i
 
 _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.us.i: ; preds = %while.body.us.i
-  %cmp11.i.i.i.us.i = icmp ult ptr %37, %40
+  %cmp11.i.i.i.us.i = icmp ult ptr %49, %52
   br i1 %cmp11.i.i.i.us.i, label %cond.true.us.i, label %cond.end.us.i
 
 cond.true.us.i:                                   ; preds = %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.us.i, %if.then.i.i.i.us.i
@@ -309,18 +321,18 @@ cond.true.us.i:                                   ; preds = %_ZNKSt4lessISt10typ
 cond.end.us.i:                                    ; preds = %cond.true.us.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.us.i, %if.then.i.i.i.us.i
   %.sink.i = phi i64 [ 16, %cond.true.us.i ], [ 24, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.us.i ], [ 24, %if.then.i.i.i.us.i ]
   %retval.0.i.i.i8.us.i = phi i1 [ true, %cond.true.us.i ], [ false, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.us.i ], [ false, %if.then.i.i.i.us.i ]
-  %42 = getelementptr i8, ptr %__x.013.us.i, i64 %.sink.i
-  %__x.0.us.i = load ptr, ptr %42, align 8, !tbaa !25
+  %54 = getelementptr i8, ptr %__x.013.us.i, i64 %.sink.i
+  %__x.0.us.i = load ptr, ptr %54, align 8, !tbaa !25
   %cmp.not.us.i = icmp eq ptr %__x.0.us.i, null
   br i1 %cmp.not.us.i, label %while.end.i, label %while.body.us.i, !llvm.loop !30
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.013.i = phi ptr [ %__x.0.i, %while.body.i ], [ %__x.011.i, %while.body.lr.ph.i ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.013.i, i64 32
-  %43 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !22
-  %__name2.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 8
-  %44 = load ptr, ptr %__name2.i.i.i.i, align 8, !tbaa !20
-  %call.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %44) #10
+  %55 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !22
+  %__name2.i.i.i.i = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = load ptr, ptr %__name2.i.i.i.i, align 8, !tbaa !20
+  %call.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %56) #10
   %cmp8.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   %cond.in.v.i = select i1 %cmp8.i.i.i.i, i64 16, i64 24
   %cond.in.i = getelementptr i8, ptr %__x.013.i, i64 %cond.in.v.i
@@ -334,9 +346,10 @@ while.end.i:                                      ; preds = %while.body.i, %cond
   br i1 %__comp.0.lcssa.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %invoke.cont7.i.i.i
-  %__y.0.lcssa20.i = phi ptr [ %__y.0.lcssa.i, %while.end.i ], [ getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16), %invoke.cont7.i.i.i ]
-  %45 = load ptr, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 32), align 8, !tbaa !32
-  %cmp.i.i = icmp eq ptr %__y.0.lcssa20.i, %45
+  %__y.0.lcssa20.i = phi ptr [ %__y.0.lcssa.i, %while.end.i ], [ %48, %invoke.cont7.i.i.i ]
+  %57 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 32
+  %58 = load ptr, ptr %57, align 8, !tbaa !32
+  %cmp.i.i = icmp eq ptr %__y.0.lcssa20.i, %58
   br i1 %cmp.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryEESt10_Select1stIS8_ESt4lessIS0_ENS3_19reentrant_allocatorIS8_EEE24_M_get_insert_unique_posERS2_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
@@ -346,29 +359,29 @@ if.else.i:                                        ; preds = %if.then.i
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %46 = phi ptr [ %.pre, %if.else.i ], [ %37, %while.end.i ]
+  %59 = phi ptr [ %.pre, %if.else.i ], [ %49, %while.end.i ]
   %__y.0.lcssa19.i = phi ptr [ %__y.0.lcssa20.i, %if.else.i ], [ %__y.0.lcssa.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__y.0.lcssa.i, %while.end.i ]
   %_M_storage.i.i.i.i12 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 32
-  %47 = load ptr, ptr %_M_storage.i.i.i.i12, align 8, !tbaa !22
-  %__name.i.i.i29.i = getelementptr inbounds i8, ptr %47, i64 8
-  %48 = load ptr, ptr %__name.i.i.i29.i, align 8, !tbaa !20
-  %49 = load i8, ptr %48, align 1, !tbaa !24
-  %cmp.not.i.i.i30.i = icmp eq i8 %49, 42
+  %60 = load ptr, ptr %_M_storage.i.i.i.i12, align 8, !tbaa !22
+  %__name.i.i.i29.i = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = load ptr, ptr %__name.i.i.i29.i, align 8, !tbaa !20
+  %62 = load i8, ptr %61, align 1, !tbaa !24
+  %cmp.not.i.i.i30.i = icmp eq i8 %62, 42
   br i1 %cmp.not.i.i.i30.i, label %lor.lhs.false.i.i.i36.i, label %if.then.i.i.i32.i
 
 lor.lhs.false.i.i.i36.i:                          ; preds = %if.end12.i
-  %50 = load i8, ptr %46, align 1, !tbaa !24
-  %cmp5.not.i.i.i37.i = icmp eq i8 %50, 42
+  %63 = load i8, ptr %59, align 1, !tbaa !24
+  %cmp5.not.i.i.i37.i = icmp eq i8 %63, 42
   br i1 %cmp5.not.i.i.i37.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit40.i, label %if.then.i.i.i32.i
 
 if.then.i.i.i32.i:                                ; preds = %lor.lhs.false.i.i.i36.i, %if.end12.i
-  %call.i.i.i33.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %46) #10
+  %call.i.i.i33.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %59) #10
   %cmp8.i.i.i34.i = icmp slt i32 %call.i.i.i33.i, 0
   br i1 %cmp8.i.i.i34.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryEESt10_Select1stIS8_ESt4lessIS0_ENS3_19reentrant_allocatorIS8_EEE24_M_get_insert_unique_posERS2_.exit, label %if.then.i27.i.i.i
 
 _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit40.i:  ; preds = %lor.lhs.false.i.i.i36.i
-  %cmp11.i.i.i39.i = icmp ult ptr %48, %46
+  %cmp11.i.i.i39.i = icmp ult ptr %61, %59
   br i1 %cmp11.i.i.i39.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryEESt10_Select1stIS8_ESt4lessIS0_ENS3_19reentrant_allocatorIS8_EEE24_M_get_insert_unique_posERS2_.exit, label %if.then.i27.i.i.i
 
 _ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryEESt10_Select1stIS8_ESt4lessIS0_ENS3_19reentrant_allocatorIS8_EEE24_M_get_insert_unique_posERS2_.exit: ; preds = %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit40.i, %if.then.i.i.i32.i, %if.then.i
@@ -377,42 +390,47 @@ _ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N5folly6detail12_GLOBAL__N_134StaticSin
   br i1 %tobool.not.i.i.i, label %if.then.i27.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryEESt10_Select1stIS8_ESt4lessIS0_ENS3_19reentrant_allocatorIS8_EEE24_M_get_insert_unique_posERS2_.exit, %if.then68.i.i.i.i, %if.then53.i.i.i.i, %if.then34.i.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.sroa.12.2.i8.i.i.i = phi ptr [ %retval.sroa.4.0.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryEESt10_Select1stIS8_ESt4lessIS0_ENS3_19reentrant_allocatorIS8_EEE24_M_get_insert_unique_posERS2_.exit ], [ %16, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i ], [ %16, %if.then.i.i.i.i.i.i.i ], [ %call.i.i.i33.i.i, %if.then34.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i3.i.i, %if.then53.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i3.i.i, %if.then68.i.i.i.i ]
-  %cmp2.i.i.i.i.i = icmp eq ptr %retval.sroa.12.2.i8.i.i.i, getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16)
+  %retval.sroa.12.2.i8.i.i.i = phi ptr [ %retval.sroa.4.0.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryEESt10_Select1stIS8_ESt4lessIS0_ENS3_19reentrant_allocatorIS8_EEE24_M_get_insert_unique_posERS2_.exit ], [ %24, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i ], [ %24, %if.then.i.i.i.i.i.i.i ], [ %call.i.i.i33.i.i, %if.then34.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i3.i.i, %if.then53.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i3.i.i, %if.then68.i.i.i.i ]
+  %64 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16
+  %cmp2.i.i.i.i.i = icmp eq ptr %retval.sroa.12.2.i8.i.i.i, %64
+  %65 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16
   br i1 %cmp2.i.i.i.i.i, label %cleanup.i.i.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.12.2.i8.i.i.i, i64 32
-  %51 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i, align 8, !tbaa !22
+  %66 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i, align 8, !tbaa !22
   %__name.i.i.i.i.i.i25.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %52 = load ptr, ptr %__name.i.i.i.i.i.i25.i.i, align 8, !tbaa !20
-  %53 = load i8, ptr %52, align 1, !tbaa !24
-  %cmp.not.i.i.i.i.i.i26.i.i = icmp eq i8 %53, 42
-  %__name2.i.i.i.i.i.i27.i.i = getelementptr inbounds i8, ptr %51, i64 8
-  %54 = load ptr, ptr %__name2.i.i.i.i.i.i27.i.i, align 8, !tbaa !20
+  %67 = load ptr, ptr %__name.i.i.i.i.i.i25.i.i, align 8, !tbaa !20
+  %68 = load i8, ptr %67, align 1, !tbaa !24
+  %cmp.not.i.i.i.i.i.i26.i.i = icmp eq i8 %68, 42
+  %__name2.i.i.i.i.i.i27.i.i = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = load ptr, ptr %__name2.i.i.i.i.i.i27.i.i, align 8, !tbaa !20
   br i1 %cmp.not.i.i.i.i.i.i26.i.i, label %lor.lhs.false.i.i.i.i.i.i30.i.i, label %if.then.i.i.i.i.i.i28.i.i
 
 lor.lhs.false.i.i.i.i.i.i30.i.i:                  ; preds = %lor.rhs.i.i.i.i.i
-  %55 = load i8, ptr %54, align 1, !tbaa !24
-  %cmp5.not.i.i.i.i.i.i31.i.i = icmp eq i8 %55, 42
+  %70 = load i8, ptr %69, align 1, !tbaa !24
+  %cmp5.not.i.i.i.i.i.i31.i.i = icmp eq i8 %70, 42
   br i1 %cmp5.not.i.i.i.i.i.i31.i.i, label %if.end.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i28.i.i
 
 if.then.i.i.i.i.i.i28.i.i:                        ; preds = %lor.lhs.false.i.i.i.i.i.i30.i.i, %lor.rhs.i.i.i.i.i
-  %call.i.i.i.i.i24.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %54) #10
+  %call.i.i.i.i.i24.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %69) #10
   %cmp8.i.i.i.i.i.i29.i.i = icmp slt i32 %call.i.i.i.i.i24.i.i.i, 0
   br label %cleanup.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %lor.lhs.false.i.i.i.i.i.i30.i.i
-  %cmp11.i.i.i.i.i.i32.i.i = icmp ult ptr %52, %54
+  %cmp11.i.i.i.i.i.i32.i.i = icmp ult ptr %67, %69
   br label %cleanup.i.i.i
 
 cleanup.i.i.i:                                    ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i28.i.i, %if.then.i.i.i, %if.then68.i.i.i.i, %if.then34.i.i.i.i, %if.then19.i.i.i.i
-  %retval.sroa.12.2.i828.i.i.i = phi ptr [ getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16), %if.then.i.i.i ], [ %retval.sroa.12.2.i8.i.i.i, %if.then.i.i.i.i.i.i28.i.i ], [ %retval.sroa.12.2.i8.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ %call.i139.i.i.i.i, %if.then68.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i3.i.i, %if.then19.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i3.i.i, %if.then34.i.i.i.i ]
-  %56 = phi i1 [ true, %if.then.i.i.i ], [ %cmp8.i.i.i.i.i.i29.i.i, %if.then.i.i.i.i.i.i28.i.i ], [ %cmp11.i.i.i.i.i.i32.i.i, %if.end.i.i.i.i.i.i.i.i ], [ true, %if.then68.i.i.i.i ], [ true, %if.then19.i.i.i.i ], [ true, %if.then34.i.i.i.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %56, ptr noundef nonnull %call.i.i.i.i.i.i22.i.i, ptr noundef nonnull %retval.sroa.12.2.i828.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16)) #10
-  %57 = load i64, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 48), align 8, !tbaa !28
-  %inc.i.i.i.i.i = add i64 %57, 1
-  store i64 %inc.i.i.i.i.i, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 48), align 8, !tbaa !28
+  %retval.sroa.12.2.i828.i.i.i = phi ptr [ %65, %if.then.i.i.i ], [ %retval.sroa.12.2.i8.i.i.i, %if.then.i.i.i.i.i.i28.i.i ], [ %retval.sroa.12.2.i8.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ %call.i139.i.i.i.i, %if.then68.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i3.i.i, %if.then19.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i3.i.i, %if.then34.i.i.i.i ]
+  %71 = phi i1 [ true, %if.then.i.i.i ], [ %cmp8.i.i.i.i.i.i29.i.i, %if.then.i.i.i.i.i.i28.i.i ], [ %cmp11.i.i.i.i.i.i32.i.i, %if.end.i.i.i.i.i.i.i.i ], [ true, %if.then68.i.i.i.i ], [ true, %if.then19.i.i.i.i ], [ true, %if.then34.i.i.i.i ]
+  %72 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %71, ptr noundef nonnull %call.i.i.i.i.i.i22.i.i, ptr noundef nonnull %retval.sroa.12.2.i828.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %72) #10
+  %73 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 48
+  %74 = load i64, ptr %73, align 8, !tbaa !28
+  %inc.i.i.i.i.i = add i64 %74, 1
+  %75 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 48
+  store i64 %inc.i.i.i.i.i, ptr %75, align 8, !tbaa !28
   br label %_ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5entryERKSt9type_info.exit
 
 if.then.i27.i.i.i:                                ; preds = %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryEESt10_Select1stIS8_ESt4lessIS0_ENS3_19reentrant_allocatorIS8_EEE24_M_get_insert_unique_posERS2_.exit, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit40.i, %if.then.i.i.i32.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit137.i.i.i.i, %if.then.i.i.i129.i.i.i.i
@@ -423,11 +441,12 @@ if.then.i27.i.i.i:                                ; preds = %_ZNSt8_Rb_treeISt10
 _ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5entryERKSt9type_info.exit: ; preds = %if.then.i27.i.i.i, %cleanup.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i, %if.then.i.i.i.i.i
   %__i.sroa.0.0.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i ], [ %__y.addr.1.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call.i.i.i.i.i.i22.i.i, %cleanup.i.i.i ], [ %retval.sroa.0.0.ph.i.i.i, %if.then.i27.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i.i, i64 40
-  %call1.i.i.i.i5.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 56)) #10
+  %76 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 56
+  %call1.i.i.i.i5.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %76) #10
   %make = getelementptr inbounds i8, ptr %arg, i64 16
-  %58 = load ptr, ptr %make, align 8, !tbaa !33
+  %77 = load ptr, ptr %make, align 8, !tbaa !33
   %debug = getelementptr inbounds i8, ptr %arg, i64 24
-  %59 = load ptr, ptr %debug, align 8, !tbaa !34
+  %78 = load ptr, ptr %debug, align 8, !tbaa !34
   %mutex.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i.i, i64 48
   %call1.i.i.i.i.i8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #10
   %tobool.not.i.i.i.i9 = icmp eq i32 %call1.i.i.i.i.i8, 0
@@ -438,30 +457,30 @@ if.then.i.i.i.i10:                                ; preds = %_ZN5folly6detail12_
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i11:     ; preds = %_ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5entryERKSt9type_info.exit
-  %60 = load ptr, ptr %second.i.i, align 8, !tbaa !35
-  %tobool.not.i = icmp eq ptr %60, null
+  %79 = load ptr, ptr %second.i.i, align 8, !tbaa !35
+  %tobool.not.i = icmp eq ptr %79, null
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5Entry3getERFPvvEPS4_.exit
 
 cond.false.i:                                     ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i11
-  %call.i = invoke noundef ptr %58()
+  %call.i = invoke noundef ptr %77()
           to label %invoke.cont.i unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit13.i
 
 invoke.cont.i:                                    ; preds = %cond.false.i
   store ptr %call.i, ptr %second.i.i, align 8, !tbaa !35
-  store ptr %call.i, ptr %59, align 8, !tbaa !25
+  store ptr %call.i, ptr %78, align 8, !tbaa !25
   br label %_ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5Entry3getERFPvvEPS4_.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit13.i:        ; preds = %cond.false.i
-  %61 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i.i12.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #10
-  resume { ptr, i32 } %61
+  resume { ptr, i32 } %80
 
 _ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5Entry3getERFPvvEPS4_.exit: ; preds = %invoke.cont.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i11
-  %cond.i = phi ptr [ %call.i, %invoke.cont.i ], [ %60, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i11 ]
+  %cond.i = phi ptr [ %call.i, %invoke.cont.i ], [ %79, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i11 ]
   %call1.i.i.i.i6.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #10
-  %62 = ptrtoint ptr %cond.i to i64
-  store atomic i64 %62, ptr %arg release, align 8
+  %81 = ptrtoint ptr %cond.i to i64
+  store atomic i64 %81, ptr %arg release, align 8
   ret ptr %cond.i
 }
 
@@ -487,11 +506,18 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i) #10
   call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i) #10
   call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i) #10
-  store i32 0, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16), align 8, !tbaa !42
-  store ptr null, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 24), align 8, !tbaa !15
-  store ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16), ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 32), align 8, !tbaa !32
-  store ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16), ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 40), align 8, !tbaa !43
-  store i64 0, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 48), align 8, !tbaa !28
+  %0 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16
+  store i32 0, ptr %0, align 8, !tbaa !42
+  %1 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 24
+  store ptr null, ptr %1, align 8, !tbaa !15
+  %2 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16
+  %3 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 32
+  store ptr %2, ptr %3, align 8, !tbaa !32
+  %4 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16
+  %5 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 40
+  store ptr %4, ptr %5, align 8, !tbaa !43
+  %6 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 48
+  store i64 0, ptr %6, align 8, !tbaa !28
   call void @_ZN5folly6detail24reentrant_allocator_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i) #10
   call void @_ZN5folly6detail24reentrant_allocator_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i) #10
@@ -499,7 +525,8 @@ entry:
   call void @_ZN5folly6detail24reentrant_allocator_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 56), i8 0, i64 40, i1 false)
+  %7 = getelementptr inbounds %"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   ret void
 }
 

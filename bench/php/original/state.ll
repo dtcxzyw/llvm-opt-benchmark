@@ -1931,106 +1931,107 @@ define internal ptr @_lxb_html_tokenizer_state_char_ref(ptr noundef %0, ptr noun
   %11 = getelementptr inbounds [256 x i64], ptr @lexbor_str_res_alphanumeric_character, i64 0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = icmp ne i64 %12, 255
-  br i1 %13, label %14, label %34
+  br i1 %13, label %14, label %35
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %15, i32 0, i32 23
-  store ptr getelementptr inbounds ([9854 x %struct.lexbor_sbst_entry_static_t], ptr @lxb_html_tokenizer_res_entities_sbst, i64 0, i64 1), ptr %16, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %17, i32 0, i32 24
-  store ptr null, ptr %18, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %19, i32 0, i32 17
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 -1
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %23, i32 0, i32 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = ptrtoint ptr %22 to i64
-  %27 = ptrtoint ptr %25 to i64
-  %28 = sub i64 %26, %27
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %29, i32 0, i32 25
-  store i64 %28, ptr %30, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %31, i32 0, i32 0
-  store ptr @lxb_html_tokenizer_state_char_ref_named, ptr %32, align 8
-  %33 = load ptr, ptr %6, align 8
-  store ptr %33, ptr %4, align 8
-  br label %77
+  %17 = getelementptr inbounds [9854 x %struct.lexbor_sbst_entry_static_t], ptr @lxb_html_tokenizer_res_entities_sbst, i64 0, i64 1
+  store ptr %17, ptr %16, align 8
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %18, i32 0, i32 24
+  store ptr null, ptr %19, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %20, i32 0, i32 17
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 -1
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %24, i32 0, i32 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = ptrtoint ptr %23 to i64
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %30, i32 0, i32 25
+  store i64 %29, ptr %31, align 8
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %32, i32 0, i32 0
+  store ptr @lxb_html_tokenizer_state_char_ref_named, ptr %33, align 8
+  %34 = load ptr, ptr %6, align 8
+  store ptr %34, ptr %4, align 8
+  br label %78
 
-34:                                               ; preds = %3
-  %35 = load ptr, ptr %6, align 8
-  %36 = load i8, ptr %35, align 1
-  %37 = zext i8 %36 to i32
-  %38 = icmp eq i32 %37, 35
-  br i1 %38, label %39, label %68
+35:                                               ; preds = %3
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i8, ptr %36, align 1
+  %38 = zext i8 %37 to i32
+  %39 = icmp eq i32 %38, 35
+  br i1 %39, label %40, label %69
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %6, align 8
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %41, i32 0, i32 13
-  store ptr %40, ptr %42, align 8
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %43, i32 0, i32 17
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 -1
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %47, i32 0, i32 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = ptrtoint ptr %46 to i64
-  %51 = ptrtoint ptr %49 to i64
-  %52 = sub i64 %50, %51
-  %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %53, i32 0, i32 25
-  store i64 %52, ptr %54, align 8
-  br label %55
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %6, align 8
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %42, i32 0, i32 13
+  store ptr %41, ptr %43, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %44, i32 0, i32 17
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 -1
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %48, i32 0, i32 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = ptrtoint ptr %47 to i64
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %51, %52
+  %54 = load ptr, ptr %5, align 8
+  %55 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %54, i32 0, i32 25
+  store i64 %53, ptr %55, align 8
+  br label %56
 
-55:                                               ; preds = %39
-  %56 = load ptr, ptr %5, align 8
-  %57 = load ptr, ptr %6, align 8
-  %58 = call i32 @lxb_html_tokenizer_temp_append(ptr noundef %56, ptr noundef %57, i64 noundef 1)
-  %59 = icmp ne i32 %58, 0
-  br i1 %59, label %60, label %62
+56:                                               ; preds = %40
+  %57 = load ptr, ptr %5, align 8
+  %58 = load ptr, ptr %6, align 8
+  %59 = call i32 @lxb_html_tokenizer_temp_append(ptr noundef %57, ptr noundef %58, i64 noundef 1)
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %55
-  %61 = load ptr, ptr %7, align 8
-  store ptr %61, ptr %4, align 8
-  br label %77
+61:                                               ; preds = %56
+  %62 = load ptr, ptr %7, align 8
+  store ptr %62, ptr %4, align 8
+  br label %78
 
-62:                                               ; preds = %55
-  br label %63
+63:                                               ; preds = %56
+  br label %64
 
-63:                                               ; preds = %62
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %64, i32 0, i32 0
-  store ptr @lxb_html_tokenizer_state_char_ref_numeric, ptr %65, align 8
-  %66 = load ptr, ptr %6, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
-  store ptr %67, ptr %4, align 8
-  br label %77
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %5, align 8
+  %66 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %65, i32 0, i32 0
+  store ptr @lxb_html_tokenizer_state_char_ref_numeric, ptr %66, align 8
+  %67 = load ptr, ptr %6, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 1
+  store ptr %68, ptr %4, align 8
+  br label %78
 
-68:                                               ; preds = %34
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %69, i32 0, i32 1
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %72, i32 0, i32 0
-  store ptr %71, ptr %73, align 8
-  br label %74
-
-74:                                               ; preds = %68
+69:                                               ; preds = %35
+  %70 = load ptr, ptr %5, align 8
+  %71 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %70, i32 0, i32 1
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %5, align 8
+  %74 = getelementptr inbounds %struct.lxb_html_tokenizer, ptr %73, i32 0, i32 0
+  store ptr %72, ptr %74, align 8
   br label %75
 
-75:                                               ; preds = %74
-  %76 = load ptr, ptr %6, align 8
-  store ptr %76, ptr %4, align 8
-  br label %77
+75:                                               ; preds = %69
+  br label %76
 
-77:                                               ; preds = %75, %63, %60, %14
-  %78 = load ptr, ptr %4, align 8
-  ret ptr %78
+76:                                               ; preds = %75
+  %77 = load ptr, ptr %6, align 8
+  store ptr %77, ptr %4, align 8
+  br label %78
+
+78:                                               ; preds = %76, %64, %61, %14
+  %79 = load ptr, ptr %4, align 8
+  ret ptr %79
 }
 
 ; Function Attrs: nounwind uwtable

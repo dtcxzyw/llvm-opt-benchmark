@@ -1972,40 +1972,42 @@ define internal void @__cxx_global_var_init.3() #0 section ".text.startup" perso
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_119cmDocumentationNameE) #3
   store i1 true, ptr %4, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_119cmDocumentationNameE, i32 0, i32 1), ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %1)
-          to label %5 unwind label %7
+  %5 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_119cmDocumentationNameE, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %1)
+          to label %6 unwind label %9
 
-5:                                                ; preds = %0
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_119cmDocumentationNameE, i32 0, i32 2), align 8
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_119cmDocumentationNameE, i32 0, i32 2
+  store i8 32, ptr %7, align 8
   store i1 false, ptr %4, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
-  %6 = call i32 @__cxa_atexit(ptr @_ZN20cmDocumentationEntryD2Ev, ptr @_ZN12_GLOBAL__N_119cmDocumentationNameE, ptr @__dso_handle) #3
+  %8 = call i32 @__cxa_atexit(ptr @_ZN20cmDocumentationEntryD2Ev, ptr @_ZN12_GLOBAL__N_119cmDocumentationNameE, ptr @__dso_handle) #3
   ret void
 
-7:                                                ; preds = %0
-  %8 = landingpad { ptr, i32 }
+9:                                                ; preds = %0
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %2, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %3, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %2, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %3, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
-  %11 = load i1, ptr %4, align 1
-  br i1 %11, label %12, label %13
+  %13 = load i1, ptr %4, align 1
+  br i1 %13, label %14, label %15
 
-12:                                               ; preds = %7
+14:                                               ; preds = %9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_119cmDocumentationNameE) #3
-  br label %13
+  br label %15
 
-13:                                               ; preds = %12, %7
-  br label %14
+15:                                               ; preds = %14, %9
+  br label %16
 
-14:                                               ; preds = %13
-  %15 = load ptr, ptr %2, align 8
-  %16 = load i32, ptr %3, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %2, align 8
+  %18 = load i32, ptr %3, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: nounwind
@@ -2102,108 +2104,116 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" perso
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_120cmDocumentationUsageE) #3
   store i1 true, ptr %5, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i32 0, i32 1), ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %2)
-          to label %9 unwind label %12
+  %9 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %2)
+          to label %10 unwind label %18
 
-9:                                                ; preds = %0
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i32 0, i32 2), align 8
+10:                                               ; preds = %0
+  %11 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i32 0, i32 2
+  store i8 32, ptr %11, align 8
   store i1 false, ptr %5, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i64 1), ptr %1, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i64 1)) #3
+  %12 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i64 1
+  store ptr %12, ptr %1, align 8
+  %13 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
   store i1 true, ptr %7, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i64 1, i32 1), ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %10 unwind label %16
+  %14 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i64 1, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %6)
+          to label %15 unwind label %22
 
-10:                                               ; preds = %9
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i64 1, i32 2), align 8
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i64 1, i32 2
+  store i8 32, ptr %16, align 8
   store i1 false, ptr %7, align 1
   store i1 false, ptr %8, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
-  %11 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #3
+  %17 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #3
   ret void
 
-12:                                               ; preds = %0
-  %13 = landingpad { ptr, i32 }
+18:                                               ; preds = %0
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %3, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %4, align 4
-  br label %23
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  br label %30
 
-16:                                               ; preds = %9
-  %17 = landingpad { ptr, i32 }
+22:                                               ; preds = %10
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %3, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %4, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  %20 = load i1, ptr %7, align 1
-  br i1 %20, label %21, label %22
+  %26 = load i1, ptr %7, align 1
+  br i1 %26, label %27, label %29
 
-21:                                               ; preds = %16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i64 1)) #3
-  br label %22
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #3
+  br label %29
 
-22:                                               ; preds = %21, %16
-  br label %23
+29:                                               ; preds = %27, %22
+  br label %30
 
-23:                                               ; preds = %22, %12
+30:                                               ; preds = %29, %18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
-  %24 = load i1, ptr %5, align 1
-  br i1 %24, label %25, label %26
+  %31 = load i1, ptr %5, align 1
+  br i1 %31, label %32, label %33
 
-25:                                               ; preds = %23
+32:                                               ; preds = %30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_120cmDocumentationUsageE) #3
-  br label %26
+  br label %33
 
-26:                                               ; preds = %25, %23
-  %27 = load i1, ptr %8, align 1
-  br i1 %27, label %28, label %36
+33:                                               ; preds = %32, %30
+  %34 = load i1, ptr %8, align 1
+  br i1 %34, label %35, label %43
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr %1, align 8
-  %30 = icmp eq ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, %29
-  br i1 %30, label %35, label %31
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %1, align 8
+  %37 = icmp eq ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, %36
+  br i1 %37, label %42, label %38
 
-31:                                               ; preds = %31, %28
-  %32 = phi ptr [ %29, %28 ], [ %33, %31 ]
-  %33 = getelementptr inbounds %struct.cmDocumentationEntry, ptr %32, i64 -1
-  call void @_ZN20cmDocumentationEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %33) #3
-  %34 = icmp eq ptr %33, @_ZN12_GLOBAL__N_120cmDocumentationUsageE
-  br i1 %34, label %35, label %31
+38:                                               ; preds = %38, %35
+  %39 = phi ptr [ %36, %35 ], [ %40, %38 ]
+  %40 = getelementptr inbounds %struct.cmDocumentationEntry, ptr %39, i64 -1
+  call void @_ZN20cmDocumentationEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %40) #3
+  %41 = icmp eq ptr %40, @_ZN12_GLOBAL__N_120cmDocumentationUsageE
+  br i1 %41, label %42, label %38
 
-35:                                               ; preds = %31, %28
-  br label %36
+42:                                               ; preds = %38, %35
+  br label %43
 
-36:                                               ; preds = %35, %26
-  br label %37
+43:                                               ; preds = %42, %33
+  br label %44
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %3, align 8
-  %39 = load i32, ptr %4, align 4
-  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
-  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
-  resume { ptr, i32 } %41
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %3, align 8
+  %46 = load i32, ptr %4, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_array_dtor(ptr noundef %0) #0 section ".text.startup" {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  br label %3
+  %3 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i64 2
+  br label %4
 
-3:                                                ; preds = %3, %1
-  %4 = phi ptr [ getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_120cmDocumentationUsageE, i64 2), %1 ], [ %5, %3 ]
-  %5 = getelementptr inbounds %struct.cmDocumentationEntry, ptr %4, i64 -1
-  call void @_ZN20cmDocumentationEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %5) #3
-  %6 = icmp eq ptr %5, @_ZN12_GLOBAL__N_120cmDocumentationUsageE
-  br i1 %6, label %7, label %3
+4:                                                ; preds = %4, %1
+  %5 = phi ptr [ %3, %1 ], [ %6, %4 ]
+  %6 = getelementptr inbounds %struct.cmDocumentationEntry, ptr %5, i64 -1
+  call void @_ZN20cmDocumentationEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %6) #3
+  %7 = icmp eq ptr %6, @_ZN12_GLOBAL__N_120cmDocumentationUsageE
+  br i1 %7, label %8, label %4
 
-7:                                                ; preds = %3
+8:                                                ; preds = %4
   ret void
 }
 
@@ -2216,40 +2226,42 @@ define internal void @__cxx_global_var_init.7() #0 section ".text.startup" perso
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_124cmDocumentationUsageNoteE) #3
   store i1 true, ptr %4, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_124cmDocumentationUsageNoteE, i32 0, i32 1), ptr noundef @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %1)
-          to label %5 unwind label %7
+  %5 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_124cmDocumentationUsageNoteE, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %1)
+          to label %6 unwind label %9
 
-5:                                                ; preds = %0
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_124cmDocumentationUsageNoteE, i32 0, i32 2), align 8
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_124cmDocumentationUsageNoteE, i32 0, i32 2
+  store i8 32, ptr %7, align 8
   store i1 false, ptr %4, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
-  %6 = call i32 @__cxa_atexit(ptr @_ZN20cmDocumentationEntryD2Ev, ptr @_ZN12_GLOBAL__N_124cmDocumentationUsageNoteE, ptr @__dso_handle) #3
+  %8 = call i32 @__cxa_atexit(ptr @_ZN20cmDocumentationEntryD2Ev, ptr @_ZN12_GLOBAL__N_124cmDocumentationUsageNoteE, ptr @__dso_handle) #3
   ret void
 
-7:                                                ; preds = %0
-  %8 = landingpad { ptr, i32 }
+9:                                                ; preds = %0
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %2, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %3, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %2, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %3, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
-  %11 = load i1, ptr %4, align 1
-  br i1 %11, label %12, label %13
+  %13 = load i1, ptr %4, align 1
+  br i1 %13, label %14, label %15
 
-12:                                               ; preds = %7
+14:                                               ; preds = %9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_124cmDocumentationUsageNoteE) #3
-  br label %13
+  br label %15
 
-13:                                               ; preds = %12, %7
-  br label %14
+15:                                               ; preds = %14, %9
+  br label %16
 
-14:                                               ; preds = %13
-  %15 = load ptr, ptr %2, align 8
-  %16 = load i32, ptr %3, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %2, align 8
+  %18 = load i32, ptr %3, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: uwtable
@@ -2355,436 +2367,558 @@ define internal void @__cxx_global_var_init.9() #0 section ".text.startup" perso
   store ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, ptr noundef @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %2)
-          to label %98 unwind label %161
+          to label %98 unwind label %283
 
 98:                                               ; preds = %0
   store i1 true, ptr %6, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i32 0, i32 1), ptr noundef @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %99 unwind label %165
+  %99 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %100 unwind label %287
 
-99:                                               ; preds = %98
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i32 0, i32 2), align 8
+100:                                              ; preds = %98
+  %101 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i32 0, i32 2
+  store i8 32, ptr %101, align 8
   store i1 false, ptr %6, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 1), ptr %1, align 8
+  %102 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 1
+  store ptr %102, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 1), ptr noundef @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %100 unwind label %169
+  %103 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %104 unwind label %291
 
-100:                                              ; preds = %99
+104:                                              ; preds = %100
   store i1 true, ptr %9, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 1, i32 1), ptr noundef @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %101 unwind label %173
+  %105 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 1, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %8)
+          to label %106 unwind label %295
 
-101:                                              ; preds = %100
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 1, i32 2), align 8
+106:                                              ; preds = %104
+  %107 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 1, i32 2
+  store i8 32, ptr %107, align 8
   store i1 false, ptr %9, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 2), ptr %1, align 8
+  %108 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 2
+  store ptr %108, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 2), ptr noundef @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %102 unwind label %177
+  %109 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %110 unwind label %299
 
-102:                                              ; preds = %101
+110:                                              ; preds = %106
   store i1 true, ptr %12, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 2, i32 1), ptr noundef @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %103 unwind label %181
+  %111 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 2, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %112 unwind label %303
 
-103:                                              ; preds = %102
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 2, i32 2), align 8
+112:                                              ; preds = %110
+  %113 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 2, i32 2
+  store i8 32, ptr %113, align 8
   store i1 false, ptr %12, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 3), ptr %1, align 8
+  %114 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 3
+  store ptr %114, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 3), ptr noundef @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %104 unwind label %185
+  %115 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %115, ptr noundef @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %116 unwind label %307
 
-104:                                              ; preds = %103
+116:                                              ; preds = %112
   store i1 true, ptr %15, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 3, i32 1), ptr noundef @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %14)
-          to label %105 unwind label %189
+  %117 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 3, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %14)
+          to label %118 unwind label %311
 
-105:                                              ; preds = %104
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 3, i32 2), align 8
+118:                                              ; preds = %116
+  %119 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 3, i32 2
+  store i8 32, ptr %119, align 8
   store i1 false, ptr %15, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 4), ptr %1, align 8
+  %120 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 4
+  store ptr %120, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 4), ptr noundef @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %106 unwind label %193
+  %121 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 4
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %122 unwind label %315
 
-106:                                              ; preds = %105
+122:                                              ; preds = %118
   store i1 true, ptr %18, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 4, i32 1), ptr noundef @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %17)
-          to label %107 unwind label %197
+  %123 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 4, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %17)
+          to label %124 unwind label %319
 
-107:                                              ; preds = %106
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 4, i32 2), align 8
+124:                                              ; preds = %122
+  %125 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 4, i32 2
+  store i8 32, ptr %125, align 8
   store i1 false, ptr %18, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 5), ptr %1, align 8
+  %126 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 5
+  store ptr %126, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 5), ptr noundef @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %19)
-          to label %108 unwind label %201
+  %127 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 5
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %19)
+          to label %128 unwind label %323
 
-108:                                              ; preds = %107
+128:                                              ; preds = %124
   store i1 true, ptr %21, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 5, i32 1), ptr noundef @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %20)
-          to label %109 unwind label %205
+  %129 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 5, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %20)
+          to label %130 unwind label %327
 
-109:                                              ; preds = %108
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 5, i32 2), align 8
+130:                                              ; preds = %128
+  %131 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 5, i32 2
+  store i8 32, ptr %131, align 8
   store i1 false, ptr %21, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 6), ptr %1, align 8
+  %132 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 6
+  store ptr %132, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 6), ptr noundef @.str.22, ptr noundef nonnull align 1 dereferenceable(1) %22)
-          to label %110 unwind label %209
+  %133 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 6
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef @.str.22, ptr noundef nonnull align 1 dereferenceable(1) %22)
+          to label %134 unwind label %331
 
-110:                                              ; preds = %109
+134:                                              ; preds = %130
   store i1 true, ptr %24, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 6, i32 1), ptr noundef @.str.23, ptr noundef nonnull align 1 dereferenceable(1) %23)
-          to label %111 unwind label %213
+  %135 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 6, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef @.str.23, ptr noundef nonnull align 1 dereferenceable(1) %23)
+          to label %136 unwind label %335
 
-111:                                              ; preds = %110
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 6, i32 2), align 8
+136:                                              ; preds = %134
+  %137 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 6, i32 2
+  store i8 32, ptr %137, align 8
   store i1 false, ptr %24, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 7), ptr %1, align 8
+  %138 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 7
+  store ptr %138, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 7), ptr noundef @.str.24, ptr noundef nonnull align 1 dereferenceable(1) %25)
-          to label %112 unwind label %217
+  %139 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 7
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef @.str.24, ptr noundef nonnull align 1 dereferenceable(1) %25)
+          to label %140 unwind label %339
 
-112:                                              ; preds = %111
+140:                                              ; preds = %136
   store i1 true, ptr %27, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 7, i32 1), ptr noundef @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %26)
-          to label %113 unwind label %221
+  %141 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 7, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %26)
+          to label %142 unwind label %343
 
-113:                                              ; preds = %112
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 7, i32 2), align 8
+142:                                              ; preds = %140
+  %143 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 7, i32 2
+  store i8 32, ptr %143, align 8
   store i1 false, ptr %27, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 8), ptr %1, align 8
+  %144 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 8
+  store ptr %144, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 8), ptr noundef @.str.26, ptr noundef nonnull align 1 dereferenceable(1) %28)
-          to label %114 unwind label %225
+  %145 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef @.str.26, ptr noundef nonnull align 1 dereferenceable(1) %28)
+          to label %146 unwind label %347
 
-114:                                              ; preds = %113
+146:                                              ; preds = %142
   store i1 true, ptr %30, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 8, i32 1), ptr noundef @.str.27, ptr noundef nonnull align 1 dereferenceable(1) %29)
-          to label %115 unwind label %229
+  %147 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 8, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef @.str.27, ptr noundef nonnull align 1 dereferenceable(1) %29)
+          to label %148 unwind label %351
 
-115:                                              ; preds = %114
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 8, i32 2), align 8
+148:                                              ; preds = %146
+  %149 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 8, i32 2
+  store i8 32, ptr %149, align 8
   store i1 false, ptr %30, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 9), ptr %1, align 8
+  %150 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 9
+  store ptr %150, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 9), ptr noundef @.str.28, ptr noundef nonnull align 1 dereferenceable(1) %31)
-          to label %116 unwind label %233
+  %151 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 9
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %151, ptr noundef @.str.28, ptr noundef nonnull align 1 dereferenceable(1) %31)
+          to label %152 unwind label %355
 
-116:                                              ; preds = %115
+152:                                              ; preds = %148
   store i1 true, ptr %33, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 9, i32 1), ptr noundef @.str.29, ptr noundef nonnull align 1 dereferenceable(1) %32)
-          to label %117 unwind label %237
+  %153 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 9, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %153, ptr noundef @.str.29, ptr noundef nonnull align 1 dereferenceable(1) %32)
+          to label %154 unwind label %359
 
-117:                                              ; preds = %116
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 9, i32 2), align 8
+154:                                              ; preds = %152
+  %155 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 9, i32 2
+  store i8 32, ptr %155, align 8
   store i1 false, ptr %33, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 10), ptr %1, align 8
+  %156 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 10
+  store ptr %156, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 10), ptr noundef @.str.30, ptr noundef nonnull align 1 dereferenceable(1) %34)
-          to label %118 unwind label %241
+  %157 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 10
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef @.str.30, ptr noundef nonnull align 1 dereferenceable(1) %34)
+          to label %158 unwind label %363
 
-118:                                              ; preds = %117
+158:                                              ; preds = %154
   store i1 true, ptr %36, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 10, i32 1), ptr noundef @.str.31, ptr noundef nonnull align 1 dereferenceable(1) %35)
-          to label %119 unwind label %245
+  %159 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 10, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef @.str.31, ptr noundef nonnull align 1 dereferenceable(1) %35)
+          to label %160 unwind label %367
 
-119:                                              ; preds = %118
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 10, i32 2), align 8
+160:                                              ; preds = %158
+  %161 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 10, i32 2
+  store i8 32, ptr %161, align 8
   store i1 false, ptr %36, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 11), ptr %1, align 8
+  %162 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 11
+  store ptr %162, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 11), ptr noundef @.str.32, ptr noundef nonnull align 1 dereferenceable(1) %37)
-          to label %120 unwind label %249
+  %163 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 11
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %163, ptr noundef @.str.32, ptr noundef nonnull align 1 dereferenceable(1) %37)
+          to label %164 unwind label %371
 
-120:                                              ; preds = %119
+164:                                              ; preds = %160
   store i1 true, ptr %39, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 11, i32 1), ptr noundef @.str.33, ptr noundef nonnull align 1 dereferenceable(1) %38)
-          to label %121 unwind label %253
+  %165 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 11, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %165, ptr noundef @.str.33, ptr noundef nonnull align 1 dereferenceable(1) %38)
+          to label %166 unwind label %375
 
-121:                                              ; preds = %120
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 11, i32 2), align 8
+166:                                              ; preds = %164
+  %167 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 11, i32 2
+  store i8 32, ptr %167, align 8
   store i1 false, ptr %39, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 12), ptr %1, align 8
+  %168 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 12
+  store ptr %168, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 12), ptr noundef @.str.34, ptr noundef nonnull align 1 dereferenceable(1) %40)
-          to label %122 unwind label %257
+  %169 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %169, ptr noundef @.str.34, ptr noundef nonnull align 1 dereferenceable(1) %40)
+          to label %170 unwind label %379
 
-122:                                              ; preds = %121
+170:                                              ; preds = %166
   store i1 true, ptr %42, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 12, i32 1), ptr noundef @.str.35, ptr noundef nonnull align 1 dereferenceable(1) %41)
-          to label %123 unwind label %261
+  %171 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 12, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef @.str.35, ptr noundef nonnull align 1 dereferenceable(1) %41)
+          to label %172 unwind label %383
 
-123:                                              ; preds = %122
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 12, i32 2), align 8
+172:                                              ; preds = %170
+  %173 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 12, i32 2
+  store i8 32, ptr %173, align 8
   store i1 false, ptr %42, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 13), ptr %1, align 8
+  %174 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 13
+  store ptr %174, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 13), ptr noundef @.str.36, ptr noundef nonnull align 1 dereferenceable(1) %43)
-          to label %124 unwind label %265
+  %175 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef @.str.36, ptr noundef nonnull align 1 dereferenceable(1) %43)
+          to label %176 unwind label %387
 
-124:                                              ; preds = %123
+176:                                              ; preds = %172
   store i1 true, ptr %45, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 13, i32 1), ptr noundef @.str.37, ptr noundef nonnull align 1 dereferenceable(1) %44)
-          to label %125 unwind label %269
+  %177 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 13, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %177, ptr noundef @.str.37, ptr noundef nonnull align 1 dereferenceable(1) %44)
+          to label %178 unwind label %391
 
-125:                                              ; preds = %124
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 13, i32 2), align 8
+178:                                              ; preds = %176
+  %179 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 13, i32 2
+  store i8 32, ptr %179, align 8
   store i1 false, ptr %45, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 14), ptr %1, align 8
+  %180 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 14
+  store ptr %180, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 14), ptr noundef @.str.38, ptr noundef nonnull align 1 dereferenceable(1) %46)
-          to label %126 unwind label %273
+  %181 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 14
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %181, ptr noundef @.str.38, ptr noundef nonnull align 1 dereferenceable(1) %46)
+          to label %182 unwind label %395
 
-126:                                              ; preds = %125
+182:                                              ; preds = %178
   store i1 true, ptr %48, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 14, i32 1), ptr noundef @.str.39, ptr noundef nonnull align 1 dereferenceable(1) %47)
-          to label %127 unwind label %277
+  %183 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 14, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %183, ptr noundef @.str.39, ptr noundef nonnull align 1 dereferenceable(1) %47)
+          to label %184 unwind label %399
 
-127:                                              ; preds = %126
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 14, i32 2), align 8
+184:                                              ; preds = %182
+  %185 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 14, i32 2
+  store i8 32, ptr %185, align 8
   store i1 false, ptr %48, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 15), ptr %1, align 8
+  %186 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 15
+  store ptr %186, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 15), ptr noundef @.str.40, ptr noundef nonnull align 1 dereferenceable(1) %49)
-          to label %128 unwind label %281
+  %187 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 15
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef @.str.40, ptr noundef nonnull align 1 dereferenceable(1) %49)
+          to label %188 unwind label %403
 
-128:                                              ; preds = %127
+188:                                              ; preds = %184
   store i1 true, ptr %51, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 15, i32 1), ptr noundef @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %50)
-          to label %129 unwind label %285
+  %189 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 15, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %189, ptr noundef @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %50)
+          to label %190 unwind label %407
 
-129:                                              ; preds = %128
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 15, i32 2), align 8
+190:                                              ; preds = %188
+  %191 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 15, i32 2
+  store i8 32, ptr %191, align 8
   store i1 false, ptr %51, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 16), ptr %1, align 8
+  %192 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 16
+  store ptr %192, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 16), ptr noundef @.str.42, ptr noundef nonnull align 1 dereferenceable(1) %52)
-          to label %130 unwind label %289
+  %193 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 16
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %193, ptr noundef @.str.42, ptr noundef nonnull align 1 dereferenceable(1) %52)
+          to label %194 unwind label %411
 
-130:                                              ; preds = %129
+194:                                              ; preds = %190
   store i1 true, ptr %54, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 16, i32 1), ptr noundef @.str.43, ptr noundef nonnull align 1 dereferenceable(1) %53)
-          to label %131 unwind label %293
+  %195 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 16, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %195, ptr noundef @.str.43, ptr noundef nonnull align 1 dereferenceable(1) %53)
+          to label %196 unwind label %415
 
-131:                                              ; preds = %130
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 16, i32 2), align 8
+196:                                              ; preds = %194
+  %197 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 16, i32 2
+  store i8 32, ptr %197, align 8
   store i1 false, ptr %54, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 17), ptr %1, align 8
+  %198 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 17
+  store ptr %198, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 17), ptr noundef @.str.44, ptr noundef nonnull align 1 dereferenceable(1) %55)
-          to label %132 unwind label %297
+  %199 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %199, ptr noundef @.str.44, ptr noundef nonnull align 1 dereferenceable(1) %55)
+          to label %200 unwind label %419
 
-132:                                              ; preds = %131
+200:                                              ; preds = %196
   store i1 true, ptr %57, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 17, i32 1), ptr noundef @.str.45, ptr noundef nonnull align 1 dereferenceable(1) %56)
-          to label %133 unwind label %301
+  %201 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 17, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %201, ptr noundef @.str.45, ptr noundef nonnull align 1 dereferenceable(1) %56)
+          to label %202 unwind label %423
 
-133:                                              ; preds = %132
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 17, i32 2), align 8
+202:                                              ; preds = %200
+  %203 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 17, i32 2
+  store i8 32, ptr %203, align 8
   store i1 false, ptr %57, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 18), ptr %1, align 8
+  %204 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 18
+  store ptr %204, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 18), ptr noundef @.str.46, ptr noundef nonnull align 1 dereferenceable(1) %58)
-          to label %134 unwind label %305
+  %205 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %205, ptr noundef @.str.46, ptr noundef nonnull align 1 dereferenceable(1) %58)
+          to label %206 unwind label %427
 
-134:                                              ; preds = %133
+206:                                              ; preds = %202
   store i1 true, ptr %60, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 18, i32 1), ptr noundef @.str.47, ptr noundef nonnull align 1 dereferenceable(1) %59)
-          to label %135 unwind label %309
+  %207 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 18, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %207, ptr noundef @.str.47, ptr noundef nonnull align 1 dereferenceable(1) %59)
+          to label %208 unwind label %431
 
-135:                                              ; preds = %134
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 18, i32 2), align 8
+208:                                              ; preds = %206
+  %209 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 18, i32 2
+  store i8 32, ptr %209, align 8
   store i1 false, ptr %60, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 19), ptr %1, align 8
+  %210 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 19
+  store ptr %210, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 19), ptr noundef @.str.48, ptr noundef nonnull align 1 dereferenceable(1) %61)
-          to label %136 unwind label %313
+  %211 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 19
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %211, ptr noundef @.str.48, ptr noundef nonnull align 1 dereferenceable(1) %61)
+          to label %212 unwind label %435
 
-136:                                              ; preds = %135
+212:                                              ; preds = %208
   store i1 true, ptr %63, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 19, i32 1), ptr noundef @.str.49, ptr noundef nonnull align 1 dereferenceable(1) %62)
-          to label %137 unwind label %317
+  %213 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 19, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %213, ptr noundef @.str.49, ptr noundef nonnull align 1 dereferenceable(1) %62)
+          to label %214 unwind label %439
 
-137:                                              ; preds = %136
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 19, i32 2), align 8
+214:                                              ; preds = %212
+  %215 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 19, i32 2
+  store i8 32, ptr %215, align 8
   store i1 false, ptr %63, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 20), ptr %1, align 8
+  %216 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 20
+  store ptr %216, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %64) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 20), ptr noundef @.str.50, ptr noundef nonnull align 1 dereferenceable(1) %64)
-          to label %138 unwind label %321
+  %217 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 20
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef @.str.50, ptr noundef nonnull align 1 dereferenceable(1) %64)
+          to label %218 unwind label %443
 
-138:                                              ; preds = %137
+218:                                              ; preds = %214
   store i1 true, ptr %66, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 20, i32 1), ptr noundef @.str.51, ptr noundef nonnull align 1 dereferenceable(1) %65)
-          to label %139 unwind label %325
+  %219 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 20, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %219, ptr noundef @.str.51, ptr noundef nonnull align 1 dereferenceable(1) %65)
+          to label %220 unwind label %447
 
-139:                                              ; preds = %138
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 20, i32 2), align 8
+220:                                              ; preds = %218
+  %221 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 20, i32 2
+  store i8 32, ptr %221, align 8
   store i1 false, ptr %66, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 21), ptr %1, align 8
+  %222 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 21
+  store ptr %222, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 21), ptr noundef @.str.52, ptr noundef nonnull align 1 dereferenceable(1) %67)
-          to label %140 unwind label %329
+  %223 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 21
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %223, ptr noundef @.str.52, ptr noundef nonnull align 1 dereferenceable(1) %67)
+          to label %224 unwind label %451
 
-140:                                              ; preds = %139
+224:                                              ; preds = %220
   store i1 true, ptr %69, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 21, i32 1), ptr noundef @.str.53, ptr noundef nonnull align 1 dereferenceable(1) %68)
-          to label %141 unwind label %333
+  %225 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 21, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %225, ptr noundef @.str.53, ptr noundef nonnull align 1 dereferenceable(1) %68)
+          to label %226 unwind label %455
 
-141:                                              ; preds = %140
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 21, i32 2), align 8
+226:                                              ; preds = %224
+  %227 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 21, i32 2
+  store i8 32, ptr %227, align 8
   store i1 false, ptr %69, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 22), ptr %1, align 8
+  %228 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 22
+  store ptr %228, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 22), ptr noundef @.str.54, ptr noundef nonnull align 1 dereferenceable(1) %70)
-          to label %142 unwind label %337
+  %229 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 22
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %229, ptr noundef @.str.54, ptr noundef nonnull align 1 dereferenceable(1) %70)
+          to label %230 unwind label %459
 
-142:                                              ; preds = %141
+230:                                              ; preds = %226
   store i1 true, ptr %72, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 22, i32 1), ptr noundef @.str.55, ptr noundef nonnull align 1 dereferenceable(1) %71)
-          to label %143 unwind label %341
+  %231 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 22, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %231, ptr noundef @.str.55, ptr noundef nonnull align 1 dereferenceable(1) %71)
+          to label %232 unwind label %463
 
-143:                                              ; preds = %142
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 22, i32 2), align 8
+232:                                              ; preds = %230
+  %233 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 22, i32 2
+  store i8 32, ptr %233, align 8
   store i1 false, ptr %72, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 23), ptr %1, align 8
+  %234 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 23
+  store ptr %234, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 23), ptr noundef @.str.56, ptr noundef nonnull align 1 dereferenceable(1) %73)
-          to label %144 unwind label %345
+  %235 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 23
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %235, ptr noundef @.str.56, ptr noundef nonnull align 1 dereferenceable(1) %73)
+          to label %236 unwind label %467
 
-144:                                              ; preds = %143
+236:                                              ; preds = %232
   store i1 true, ptr %75, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 23, i32 1), ptr noundef @.str.57, ptr noundef nonnull align 1 dereferenceable(1) %74)
-          to label %145 unwind label %349
+  %237 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 23, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %237, ptr noundef @.str.57, ptr noundef nonnull align 1 dereferenceable(1) %74)
+          to label %238 unwind label %471
 
-145:                                              ; preds = %144
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 23, i32 2), align 8
+238:                                              ; preds = %236
+  %239 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 23, i32 2
+  store i8 32, ptr %239, align 8
   store i1 false, ptr %75, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 24), ptr %1, align 8
+  %240 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 24
+  store ptr %240, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 24), ptr noundef @.str.58, ptr noundef nonnull align 1 dereferenceable(1) %76)
-          to label %146 unwind label %353
+  %241 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 24
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %241, ptr noundef @.str.58, ptr noundef nonnull align 1 dereferenceable(1) %76)
+          to label %242 unwind label %475
 
-146:                                              ; preds = %145
+242:                                              ; preds = %238
   store i1 true, ptr %78, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 24, i32 1), ptr noundef @.str.59, ptr noundef nonnull align 1 dereferenceable(1) %77)
-          to label %147 unwind label %357
+  %243 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 24, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %243, ptr noundef @.str.59, ptr noundef nonnull align 1 dereferenceable(1) %77)
+          to label %244 unwind label %479
 
-147:                                              ; preds = %146
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 24, i32 2), align 8
+244:                                              ; preds = %242
+  %245 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 24, i32 2
+  store i8 32, ptr %245, align 8
   store i1 false, ptr %78, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 25), ptr %1, align 8
+  %246 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 25
+  store ptr %246, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 25), ptr noundef @.str.60, ptr noundef nonnull align 1 dereferenceable(1) %79)
-          to label %148 unwind label %361
+  %247 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 25
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %247, ptr noundef @.str.60, ptr noundef nonnull align 1 dereferenceable(1) %79)
+          to label %248 unwind label %483
 
-148:                                              ; preds = %147
+248:                                              ; preds = %244
   store i1 true, ptr %81, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 25, i32 1), ptr noundef @.str.61, ptr noundef nonnull align 1 dereferenceable(1) %80)
-          to label %149 unwind label %365
+  %249 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 25, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %249, ptr noundef @.str.61, ptr noundef nonnull align 1 dereferenceable(1) %80)
+          to label %250 unwind label %487
 
-149:                                              ; preds = %148
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 25, i32 2), align 8
+250:                                              ; preds = %248
+  %251 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 25, i32 2
+  store i8 32, ptr %251, align 8
   store i1 false, ptr %81, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 26), ptr %1, align 8
+  %252 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 26
+  store ptr %252, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 26), ptr noundef @.str.62, ptr noundef nonnull align 1 dereferenceable(1) %82)
-          to label %150 unwind label %369
+  %253 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 26
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %253, ptr noundef @.str.62, ptr noundef nonnull align 1 dereferenceable(1) %82)
+          to label %254 unwind label %491
 
-150:                                              ; preds = %149
+254:                                              ; preds = %250
   store i1 true, ptr %84, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 26, i32 1), ptr noundef @.str.63, ptr noundef nonnull align 1 dereferenceable(1) %83)
-          to label %151 unwind label %373
+  %255 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 26, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %255, ptr noundef @.str.63, ptr noundef nonnull align 1 dereferenceable(1) %83)
+          to label %256 unwind label %495
 
-151:                                              ; preds = %150
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 26, i32 2), align 8
+256:                                              ; preds = %254
+  %257 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 26, i32 2
+  store i8 32, ptr %257, align 8
   store i1 false, ptr %84, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 27), ptr %1, align 8
+  %258 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 27
+  store ptr %258, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 27), ptr noundef @.str.64, ptr noundef nonnull align 1 dereferenceable(1) %85)
-          to label %152 unwind label %377
+  %259 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 27
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %259, ptr noundef @.str.64, ptr noundef nonnull align 1 dereferenceable(1) %85)
+          to label %260 unwind label %499
 
-152:                                              ; preds = %151
+260:                                              ; preds = %256
   store i1 true, ptr %87, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 27, i32 1), ptr noundef @.str.65, ptr noundef nonnull align 1 dereferenceable(1) %86)
-          to label %153 unwind label %381
+  %261 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 27, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %261, ptr noundef @.str.65, ptr noundef nonnull align 1 dereferenceable(1) %86)
+          to label %262 unwind label %503
 
-153:                                              ; preds = %152
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 27, i32 2), align 8
+262:                                              ; preds = %260
+  %263 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 27, i32 2
+  store i8 32, ptr %263, align 8
   store i1 false, ptr %87, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 28), ptr %1, align 8
+  %264 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 28
+  store ptr %264, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %88) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 28), ptr noundef @.str.66, ptr noundef nonnull align 1 dereferenceable(1) %88)
-          to label %154 unwind label %385
+  %265 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 28
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %265, ptr noundef @.str.66, ptr noundef nonnull align 1 dereferenceable(1) %88)
+          to label %266 unwind label %507
 
-154:                                              ; preds = %153
+266:                                              ; preds = %262
   store i1 true, ptr %90, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 28, i32 1), ptr noundef @.str.67, ptr noundef nonnull align 1 dereferenceable(1) %89)
-          to label %155 unwind label %389
+  %267 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 28, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %267, ptr noundef @.str.67, ptr noundef nonnull align 1 dereferenceable(1) %89)
+          to label %268 unwind label %511
 
-155:                                              ; preds = %154
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 28, i32 2), align 8
+268:                                              ; preds = %266
+  %269 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 28, i32 2
+  store i8 32, ptr %269, align 8
   store i1 false, ptr %90, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 29), ptr %1, align 8
+  %270 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 29
+  store ptr %270, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 29), ptr noundef @.str.68, ptr noundef nonnull align 1 dereferenceable(1) %91)
-          to label %156 unwind label %393
+  %271 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 29
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %271, ptr noundef @.str.68, ptr noundef nonnull align 1 dereferenceable(1) %91)
+          to label %272 unwind label %515
 
-156:                                              ; preds = %155
+272:                                              ; preds = %268
   store i1 true, ptr %93, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 29, i32 1), ptr noundef @.str.69, ptr noundef nonnull align 1 dereferenceable(1) %92)
-          to label %157 unwind label %397
+  %273 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 29, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %273, ptr noundef @.str.69, ptr noundef nonnull align 1 dereferenceable(1) %92)
+          to label %274 unwind label %519
 
-157:                                              ; preds = %156
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 29, i32 2), align 8
+274:                                              ; preds = %272
+  %275 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 29, i32 2
+  store i8 32, ptr %275, align 8
   store i1 false, ptr %93, align 1
-  store ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 30), ptr %1, align 8
+  %276 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 30
+  store ptr %276, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %94) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 30), ptr noundef @.str.70, ptr noundef nonnull align 1 dereferenceable(1) %94)
-          to label %158 unwind label %401
+  %277 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 30
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %277, ptr noundef @.str.70, ptr noundef nonnull align 1 dereferenceable(1) %94)
+          to label %278 unwind label %523
 
-158:                                              ; preds = %157
+278:                                              ; preds = %274
   store i1 true, ptr %96, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 30, i32 1), ptr noundef @.str.71, ptr noundef nonnull align 1 dereferenceable(1) %95)
-          to label %159 unwind label %405
+  %279 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 30, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %279, ptr noundef @.str.71, ptr noundef nonnull align 1 dereferenceable(1) %95)
+          to label %280 unwind label %527
 
-159:                                              ; preds = %158
-  store i8 32, ptr getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 30, i32 2), align 8
+280:                                              ; preds = %278
+  %281 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 30, i32 2
+  store i8 32, ptr %281, align 8
   store i1 false, ptr %96, align 1
   store i1 false, ptr %97, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #3
@@ -2849,1101 +2983,1132 @@ define internal void @__cxx_global_var_init.9() #0 section ".text.startup" perso
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
-  %160 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor.72, ptr null, ptr @__dso_handle) #3
+  %282 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor.72, ptr null, ptr @__dso_handle) #3
   ret void
 
-161:                                              ; preds = %0
-  %162 = landingpad { ptr, i32 }
+283:                                              ; preds = %0
+  %284 = landingpad { ptr, i32 }
           cleanup
-  %163 = extractvalue { ptr, i32 } %162, 0
-  store ptr %163, ptr %3, align 8
-  %164 = extractvalue { ptr, i32 } %162, 1
-  store i32 %164, ptr %4, align 4
-  br label %562
+  %285 = extractvalue { ptr, i32 } %284, 0
+  store ptr %285, ptr %3, align 8
+  %286 = extractvalue { ptr, i32 } %284, 1
+  store i32 %286, ptr %4, align 4
+  br label %714
 
-165:                                              ; preds = %98
-  %166 = landingpad { ptr, i32 }
+287:                                              ; preds = %98
+  %288 = landingpad { ptr, i32 }
           cleanup
-  %167 = extractvalue { ptr, i32 } %166, 0
-  store ptr %167, ptr %3, align 8
-  %168 = extractvalue { ptr, i32 } %166, 1
-  store i32 %168, ptr %4, align 4
-  br label %558
+  %289 = extractvalue { ptr, i32 } %288, 0
+  store ptr %289, ptr %3, align 8
+  %290 = extractvalue { ptr, i32 } %288, 1
+  store i32 %290, ptr %4, align 4
+  br label %710
 
-169:                                              ; preds = %99
-  %170 = landingpad { ptr, i32 }
+291:                                              ; preds = %100
+  %292 = landingpad { ptr, i32 }
           cleanup
-  %171 = extractvalue { ptr, i32 } %170, 0
-  store ptr %171, ptr %3, align 8
-  %172 = extractvalue { ptr, i32 } %170, 1
-  store i32 %172, ptr %4, align 4
-  br label %557
+  %293 = extractvalue { ptr, i32 } %292, 0
+  store ptr %293, ptr %3, align 8
+  %294 = extractvalue { ptr, i32 } %292, 1
+  store i32 %294, ptr %4, align 4
+  br label %709
 
-173:                                              ; preds = %100
-  %174 = landingpad { ptr, i32 }
+295:                                              ; preds = %104
+  %296 = landingpad { ptr, i32 }
           cleanup
-  %175 = extractvalue { ptr, i32 } %174, 0
-  store ptr %175, ptr %3, align 8
-  %176 = extractvalue { ptr, i32 } %174, 1
-  store i32 %176, ptr %4, align 4
-  br label %553
+  %297 = extractvalue { ptr, i32 } %296, 0
+  store ptr %297, ptr %3, align 8
+  %298 = extractvalue { ptr, i32 } %296, 1
+  store i32 %298, ptr %4, align 4
+  br label %704
 
-177:                                              ; preds = %101
-  %178 = landingpad { ptr, i32 }
+299:                                              ; preds = %106
+  %300 = landingpad { ptr, i32 }
           cleanup
-  %179 = extractvalue { ptr, i32 } %178, 0
-  store ptr %179, ptr %3, align 8
-  %180 = extractvalue { ptr, i32 } %178, 1
-  store i32 %180, ptr %4, align 4
-  br label %552
+  %301 = extractvalue { ptr, i32 } %300, 0
+  store ptr %301, ptr %3, align 8
+  %302 = extractvalue { ptr, i32 } %300, 1
+  store i32 %302, ptr %4, align 4
+  br label %703
 
-181:                                              ; preds = %102
-  %182 = landingpad { ptr, i32 }
+303:                                              ; preds = %110
+  %304 = landingpad { ptr, i32 }
           cleanup
-  %183 = extractvalue { ptr, i32 } %182, 0
-  store ptr %183, ptr %3, align 8
-  %184 = extractvalue { ptr, i32 } %182, 1
-  store i32 %184, ptr %4, align 4
-  br label %548
+  %305 = extractvalue { ptr, i32 } %304, 0
+  store ptr %305, ptr %3, align 8
+  %306 = extractvalue { ptr, i32 } %304, 1
+  store i32 %306, ptr %4, align 4
+  br label %698
 
-185:                                              ; preds = %103
-  %186 = landingpad { ptr, i32 }
+307:                                              ; preds = %112
+  %308 = landingpad { ptr, i32 }
           cleanup
-  %187 = extractvalue { ptr, i32 } %186, 0
-  store ptr %187, ptr %3, align 8
-  %188 = extractvalue { ptr, i32 } %186, 1
-  store i32 %188, ptr %4, align 4
-  br label %547
+  %309 = extractvalue { ptr, i32 } %308, 0
+  store ptr %309, ptr %3, align 8
+  %310 = extractvalue { ptr, i32 } %308, 1
+  store i32 %310, ptr %4, align 4
+  br label %697
 
-189:                                              ; preds = %104
-  %190 = landingpad { ptr, i32 }
+311:                                              ; preds = %116
+  %312 = landingpad { ptr, i32 }
           cleanup
-  %191 = extractvalue { ptr, i32 } %190, 0
-  store ptr %191, ptr %3, align 8
-  %192 = extractvalue { ptr, i32 } %190, 1
-  store i32 %192, ptr %4, align 4
-  br label %543
+  %313 = extractvalue { ptr, i32 } %312, 0
+  store ptr %313, ptr %3, align 8
+  %314 = extractvalue { ptr, i32 } %312, 1
+  store i32 %314, ptr %4, align 4
+  br label %692
 
-193:                                              ; preds = %105
-  %194 = landingpad { ptr, i32 }
+315:                                              ; preds = %118
+  %316 = landingpad { ptr, i32 }
           cleanup
-  %195 = extractvalue { ptr, i32 } %194, 0
-  store ptr %195, ptr %3, align 8
-  %196 = extractvalue { ptr, i32 } %194, 1
-  store i32 %196, ptr %4, align 4
-  br label %542
+  %317 = extractvalue { ptr, i32 } %316, 0
+  store ptr %317, ptr %3, align 8
+  %318 = extractvalue { ptr, i32 } %316, 1
+  store i32 %318, ptr %4, align 4
+  br label %691
 
-197:                                              ; preds = %106
-  %198 = landingpad { ptr, i32 }
+319:                                              ; preds = %122
+  %320 = landingpad { ptr, i32 }
           cleanup
-  %199 = extractvalue { ptr, i32 } %198, 0
-  store ptr %199, ptr %3, align 8
-  %200 = extractvalue { ptr, i32 } %198, 1
-  store i32 %200, ptr %4, align 4
-  br label %538
+  %321 = extractvalue { ptr, i32 } %320, 0
+  store ptr %321, ptr %3, align 8
+  %322 = extractvalue { ptr, i32 } %320, 1
+  store i32 %322, ptr %4, align 4
+  br label %686
 
-201:                                              ; preds = %107
-  %202 = landingpad { ptr, i32 }
+323:                                              ; preds = %124
+  %324 = landingpad { ptr, i32 }
           cleanup
-  %203 = extractvalue { ptr, i32 } %202, 0
-  store ptr %203, ptr %3, align 8
-  %204 = extractvalue { ptr, i32 } %202, 1
-  store i32 %204, ptr %4, align 4
-  br label %537
+  %325 = extractvalue { ptr, i32 } %324, 0
+  store ptr %325, ptr %3, align 8
+  %326 = extractvalue { ptr, i32 } %324, 1
+  store i32 %326, ptr %4, align 4
+  br label %685
 
-205:                                              ; preds = %108
-  %206 = landingpad { ptr, i32 }
+327:                                              ; preds = %128
+  %328 = landingpad { ptr, i32 }
           cleanup
-  %207 = extractvalue { ptr, i32 } %206, 0
-  store ptr %207, ptr %3, align 8
-  %208 = extractvalue { ptr, i32 } %206, 1
-  store i32 %208, ptr %4, align 4
-  br label %533
+  %329 = extractvalue { ptr, i32 } %328, 0
+  store ptr %329, ptr %3, align 8
+  %330 = extractvalue { ptr, i32 } %328, 1
+  store i32 %330, ptr %4, align 4
+  br label %680
 
-209:                                              ; preds = %109
-  %210 = landingpad { ptr, i32 }
+331:                                              ; preds = %130
+  %332 = landingpad { ptr, i32 }
           cleanup
-  %211 = extractvalue { ptr, i32 } %210, 0
-  store ptr %211, ptr %3, align 8
-  %212 = extractvalue { ptr, i32 } %210, 1
-  store i32 %212, ptr %4, align 4
-  br label %532
+  %333 = extractvalue { ptr, i32 } %332, 0
+  store ptr %333, ptr %3, align 8
+  %334 = extractvalue { ptr, i32 } %332, 1
+  store i32 %334, ptr %4, align 4
+  br label %679
 
-213:                                              ; preds = %110
-  %214 = landingpad { ptr, i32 }
+335:                                              ; preds = %134
+  %336 = landingpad { ptr, i32 }
           cleanup
-  %215 = extractvalue { ptr, i32 } %214, 0
-  store ptr %215, ptr %3, align 8
-  %216 = extractvalue { ptr, i32 } %214, 1
-  store i32 %216, ptr %4, align 4
-  br label %528
+  %337 = extractvalue { ptr, i32 } %336, 0
+  store ptr %337, ptr %3, align 8
+  %338 = extractvalue { ptr, i32 } %336, 1
+  store i32 %338, ptr %4, align 4
+  br label %674
 
-217:                                              ; preds = %111
-  %218 = landingpad { ptr, i32 }
+339:                                              ; preds = %136
+  %340 = landingpad { ptr, i32 }
           cleanup
-  %219 = extractvalue { ptr, i32 } %218, 0
-  store ptr %219, ptr %3, align 8
-  %220 = extractvalue { ptr, i32 } %218, 1
-  store i32 %220, ptr %4, align 4
-  br label %527
+  %341 = extractvalue { ptr, i32 } %340, 0
+  store ptr %341, ptr %3, align 8
+  %342 = extractvalue { ptr, i32 } %340, 1
+  store i32 %342, ptr %4, align 4
+  br label %673
 
-221:                                              ; preds = %112
-  %222 = landingpad { ptr, i32 }
+343:                                              ; preds = %140
+  %344 = landingpad { ptr, i32 }
           cleanup
-  %223 = extractvalue { ptr, i32 } %222, 0
-  store ptr %223, ptr %3, align 8
-  %224 = extractvalue { ptr, i32 } %222, 1
-  store i32 %224, ptr %4, align 4
-  br label %523
+  %345 = extractvalue { ptr, i32 } %344, 0
+  store ptr %345, ptr %3, align 8
+  %346 = extractvalue { ptr, i32 } %344, 1
+  store i32 %346, ptr %4, align 4
+  br label %668
 
-225:                                              ; preds = %113
-  %226 = landingpad { ptr, i32 }
+347:                                              ; preds = %142
+  %348 = landingpad { ptr, i32 }
           cleanup
-  %227 = extractvalue { ptr, i32 } %226, 0
-  store ptr %227, ptr %3, align 8
-  %228 = extractvalue { ptr, i32 } %226, 1
-  store i32 %228, ptr %4, align 4
-  br label %522
+  %349 = extractvalue { ptr, i32 } %348, 0
+  store ptr %349, ptr %3, align 8
+  %350 = extractvalue { ptr, i32 } %348, 1
+  store i32 %350, ptr %4, align 4
+  br label %667
 
-229:                                              ; preds = %114
-  %230 = landingpad { ptr, i32 }
+351:                                              ; preds = %146
+  %352 = landingpad { ptr, i32 }
           cleanup
-  %231 = extractvalue { ptr, i32 } %230, 0
-  store ptr %231, ptr %3, align 8
-  %232 = extractvalue { ptr, i32 } %230, 1
-  store i32 %232, ptr %4, align 4
-  br label %518
+  %353 = extractvalue { ptr, i32 } %352, 0
+  store ptr %353, ptr %3, align 8
+  %354 = extractvalue { ptr, i32 } %352, 1
+  store i32 %354, ptr %4, align 4
+  br label %662
 
-233:                                              ; preds = %115
-  %234 = landingpad { ptr, i32 }
+355:                                              ; preds = %148
+  %356 = landingpad { ptr, i32 }
           cleanup
-  %235 = extractvalue { ptr, i32 } %234, 0
-  store ptr %235, ptr %3, align 8
-  %236 = extractvalue { ptr, i32 } %234, 1
-  store i32 %236, ptr %4, align 4
-  br label %517
+  %357 = extractvalue { ptr, i32 } %356, 0
+  store ptr %357, ptr %3, align 8
+  %358 = extractvalue { ptr, i32 } %356, 1
+  store i32 %358, ptr %4, align 4
+  br label %661
 
-237:                                              ; preds = %116
-  %238 = landingpad { ptr, i32 }
+359:                                              ; preds = %152
+  %360 = landingpad { ptr, i32 }
           cleanup
-  %239 = extractvalue { ptr, i32 } %238, 0
-  store ptr %239, ptr %3, align 8
-  %240 = extractvalue { ptr, i32 } %238, 1
-  store i32 %240, ptr %4, align 4
-  br label %513
+  %361 = extractvalue { ptr, i32 } %360, 0
+  store ptr %361, ptr %3, align 8
+  %362 = extractvalue { ptr, i32 } %360, 1
+  store i32 %362, ptr %4, align 4
+  br label %656
 
-241:                                              ; preds = %117
-  %242 = landingpad { ptr, i32 }
+363:                                              ; preds = %154
+  %364 = landingpad { ptr, i32 }
           cleanup
-  %243 = extractvalue { ptr, i32 } %242, 0
-  store ptr %243, ptr %3, align 8
-  %244 = extractvalue { ptr, i32 } %242, 1
-  store i32 %244, ptr %4, align 4
-  br label %512
+  %365 = extractvalue { ptr, i32 } %364, 0
+  store ptr %365, ptr %3, align 8
+  %366 = extractvalue { ptr, i32 } %364, 1
+  store i32 %366, ptr %4, align 4
+  br label %655
 
-245:                                              ; preds = %118
-  %246 = landingpad { ptr, i32 }
+367:                                              ; preds = %158
+  %368 = landingpad { ptr, i32 }
           cleanup
-  %247 = extractvalue { ptr, i32 } %246, 0
-  store ptr %247, ptr %3, align 8
-  %248 = extractvalue { ptr, i32 } %246, 1
-  store i32 %248, ptr %4, align 4
-  br label %508
+  %369 = extractvalue { ptr, i32 } %368, 0
+  store ptr %369, ptr %3, align 8
+  %370 = extractvalue { ptr, i32 } %368, 1
+  store i32 %370, ptr %4, align 4
+  br label %650
 
-249:                                              ; preds = %119
-  %250 = landingpad { ptr, i32 }
+371:                                              ; preds = %160
+  %372 = landingpad { ptr, i32 }
           cleanup
-  %251 = extractvalue { ptr, i32 } %250, 0
-  store ptr %251, ptr %3, align 8
-  %252 = extractvalue { ptr, i32 } %250, 1
-  store i32 %252, ptr %4, align 4
-  br label %507
+  %373 = extractvalue { ptr, i32 } %372, 0
+  store ptr %373, ptr %3, align 8
+  %374 = extractvalue { ptr, i32 } %372, 1
+  store i32 %374, ptr %4, align 4
+  br label %649
 
-253:                                              ; preds = %120
-  %254 = landingpad { ptr, i32 }
+375:                                              ; preds = %164
+  %376 = landingpad { ptr, i32 }
           cleanup
-  %255 = extractvalue { ptr, i32 } %254, 0
-  store ptr %255, ptr %3, align 8
-  %256 = extractvalue { ptr, i32 } %254, 1
-  store i32 %256, ptr %4, align 4
-  br label %503
+  %377 = extractvalue { ptr, i32 } %376, 0
+  store ptr %377, ptr %3, align 8
+  %378 = extractvalue { ptr, i32 } %376, 1
+  store i32 %378, ptr %4, align 4
+  br label %644
 
-257:                                              ; preds = %121
-  %258 = landingpad { ptr, i32 }
+379:                                              ; preds = %166
+  %380 = landingpad { ptr, i32 }
           cleanup
-  %259 = extractvalue { ptr, i32 } %258, 0
-  store ptr %259, ptr %3, align 8
-  %260 = extractvalue { ptr, i32 } %258, 1
-  store i32 %260, ptr %4, align 4
-  br label %502
+  %381 = extractvalue { ptr, i32 } %380, 0
+  store ptr %381, ptr %3, align 8
+  %382 = extractvalue { ptr, i32 } %380, 1
+  store i32 %382, ptr %4, align 4
+  br label %643
 
-261:                                              ; preds = %122
-  %262 = landingpad { ptr, i32 }
+383:                                              ; preds = %170
+  %384 = landingpad { ptr, i32 }
           cleanup
-  %263 = extractvalue { ptr, i32 } %262, 0
-  store ptr %263, ptr %3, align 8
-  %264 = extractvalue { ptr, i32 } %262, 1
-  store i32 %264, ptr %4, align 4
-  br label %498
+  %385 = extractvalue { ptr, i32 } %384, 0
+  store ptr %385, ptr %3, align 8
+  %386 = extractvalue { ptr, i32 } %384, 1
+  store i32 %386, ptr %4, align 4
+  br label %638
 
-265:                                              ; preds = %123
-  %266 = landingpad { ptr, i32 }
+387:                                              ; preds = %172
+  %388 = landingpad { ptr, i32 }
           cleanup
-  %267 = extractvalue { ptr, i32 } %266, 0
-  store ptr %267, ptr %3, align 8
-  %268 = extractvalue { ptr, i32 } %266, 1
-  store i32 %268, ptr %4, align 4
-  br label %497
+  %389 = extractvalue { ptr, i32 } %388, 0
+  store ptr %389, ptr %3, align 8
+  %390 = extractvalue { ptr, i32 } %388, 1
+  store i32 %390, ptr %4, align 4
+  br label %637
 
-269:                                              ; preds = %124
-  %270 = landingpad { ptr, i32 }
+391:                                              ; preds = %176
+  %392 = landingpad { ptr, i32 }
           cleanup
-  %271 = extractvalue { ptr, i32 } %270, 0
-  store ptr %271, ptr %3, align 8
-  %272 = extractvalue { ptr, i32 } %270, 1
-  store i32 %272, ptr %4, align 4
-  br label %493
+  %393 = extractvalue { ptr, i32 } %392, 0
+  store ptr %393, ptr %3, align 8
+  %394 = extractvalue { ptr, i32 } %392, 1
+  store i32 %394, ptr %4, align 4
+  br label %632
 
-273:                                              ; preds = %125
-  %274 = landingpad { ptr, i32 }
+395:                                              ; preds = %178
+  %396 = landingpad { ptr, i32 }
           cleanup
-  %275 = extractvalue { ptr, i32 } %274, 0
-  store ptr %275, ptr %3, align 8
-  %276 = extractvalue { ptr, i32 } %274, 1
-  store i32 %276, ptr %4, align 4
-  br label %492
+  %397 = extractvalue { ptr, i32 } %396, 0
+  store ptr %397, ptr %3, align 8
+  %398 = extractvalue { ptr, i32 } %396, 1
+  store i32 %398, ptr %4, align 4
+  br label %631
 
-277:                                              ; preds = %126
-  %278 = landingpad { ptr, i32 }
+399:                                              ; preds = %182
+  %400 = landingpad { ptr, i32 }
           cleanup
-  %279 = extractvalue { ptr, i32 } %278, 0
-  store ptr %279, ptr %3, align 8
-  %280 = extractvalue { ptr, i32 } %278, 1
-  store i32 %280, ptr %4, align 4
-  br label %488
+  %401 = extractvalue { ptr, i32 } %400, 0
+  store ptr %401, ptr %3, align 8
+  %402 = extractvalue { ptr, i32 } %400, 1
+  store i32 %402, ptr %4, align 4
+  br label %626
 
-281:                                              ; preds = %127
-  %282 = landingpad { ptr, i32 }
+403:                                              ; preds = %184
+  %404 = landingpad { ptr, i32 }
           cleanup
-  %283 = extractvalue { ptr, i32 } %282, 0
-  store ptr %283, ptr %3, align 8
-  %284 = extractvalue { ptr, i32 } %282, 1
-  store i32 %284, ptr %4, align 4
-  br label %487
+  %405 = extractvalue { ptr, i32 } %404, 0
+  store ptr %405, ptr %3, align 8
+  %406 = extractvalue { ptr, i32 } %404, 1
+  store i32 %406, ptr %4, align 4
+  br label %625
 
-285:                                              ; preds = %128
-  %286 = landingpad { ptr, i32 }
+407:                                              ; preds = %188
+  %408 = landingpad { ptr, i32 }
           cleanup
-  %287 = extractvalue { ptr, i32 } %286, 0
-  store ptr %287, ptr %3, align 8
-  %288 = extractvalue { ptr, i32 } %286, 1
-  store i32 %288, ptr %4, align 4
-  br label %483
+  %409 = extractvalue { ptr, i32 } %408, 0
+  store ptr %409, ptr %3, align 8
+  %410 = extractvalue { ptr, i32 } %408, 1
+  store i32 %410, ptr %4, align 4
+  br label %620
 
-289:                                              ; preds = %129
-  %290 = landingpad { ptr, i32 }
+411:                                              ; preds = %190
+  %412 = landingpad { ptr, i32 }
           cleanup
-  %291 = extractvalue { ptr, i32 } %290, 0
-  store ptr %291, ptr %3, align 8
-  %292 = extractvalue { ptr, i32 } %290, 1
-  store i32 %292, ptr %4, align 4
-  br label %482
+  %413 = extractvalue { ptr, i32 } %412, 0
+  store ptr %413, ptr %3, align 8
+  %414 = extractvalue { ptr, i32 } %412, 1
+  store i32 %414, ptr %4, align 4
+  br label %619
 
-293:                                              ; preds = %130
-  %294 = landingpad { ptr, i32 }
+415:                                              ; preds = %194
+  %416 = landingpad { ptr, i32 }
           cleanup
-  %295 = extractvalue { ptr, i32 } %294, 0
-  store ptr %295, ptr %3, align 8
-  %296 = extractvalue { ptr, i32 } %294, 1
-  store i32 %296, ptr %4, align 4
-  br label %478
+  %417 = extractvalue { ptr, i32 } %416, 0
+  store ptr %417, ptr %3, align 8
+  %418 = extractvalue { ptr, i32 } %416, 1
+  store i32 %418, ptr %4, align 4
+  br label %614
 
-297:                                              ; preds = %131
-  %298 = landingpad { ptr, i32 }
+419:                                              ; preds = %196
+  %420 = landingpad { ptr, i32 }
           cleanup
-  %299 = extractvalue { ptr, i32 } %298, 0
-  store ptr %299, ptr %3, align 8
-  %300 = extractvalue { ptr, i32 } %298, 1
-  store i32 %300, ptr %4, align 4
-  br label %477
+  %421 = extractvalue { ptr, i32 } %420, 0
+  store ptr %421, ptr %3, align 8
+  %422 = extractvalue { ptr, i32 } %420, 1
+  store i32 %422, ptr %4, align 4
+  br label %613
 
-301:                                              ; preds = %132
-  %302 = landingpad { ptr, i32 }
+423:                                              ; preds = %200
+  %424 = landingpad { ptr, i32 }
           cleanup
-  %303 = extractvalue { ptr, i32 } %302, 0
-  store ptr %303, ptr %3, align 8
-  %304 = extractvalue { ptr, i32 } %302, 1
-  store i32 %304, ptr %4, align 4
-  br label %473
+  %425 = extractvalue { ptr, i32 } %424, 0
+  store ptr %425, ptr %3, align 8
+  %426 = extractvalue { ptr, i32 } %424, 1
+  store i32 %426, ptr %4, align 4
+  br label %608
 
-305:                                              ; preds = %133
-  %306 = landingpad { ptr, i32 }
+427:                                              ; preds = %202
+  %428 = landingpad { ptr, i32 }
           cleanup
-  %307 = extractvalue { ptr, i32 } %306, 0
-  store ptr %307, ptr %3, align 8
-  %308 = extractvalue { ptr, i32 } %306, 1
-  store i32 %308, ptr %4, align 4
-  br label %472
+  %429 = extractvalue { ptr, i32 } %428, 0
+  store ptr %429, ptr %3, align 8
+  %430 = extractvalue { ptr, i32 } %428, 1
+  store i32 %430, ptr %4, align 4
+  br label %607
 
-309:                                              ; preds = %134
-  %310 = landingpad { ptr, i32 }
+431:                                              ; preds = %206
+  %432 = landingpad { ptr, i32 }
           cleanup
-  %311 = extractvalue { ptr, i32 } %310, 0
-  store ptr %311, ptr %3, align 8
-  %312 = extractvalue { ptr, i32 } %310, 1
-  store i32 %312, ptr %4, align 4
-  br label %468
+  %433 = extractvalue { ptr, i32 } %432, 0
+  store ptr %433, ptr %3, align 8
+  %434 = extractvalue { ptr, i32 } %432, 1
+  store i32 %434, ptr %4, align 4
+  br label %602
 
-313:                                              ; preds = %135
-  %314 = landingpad { ptr, i32 }
+435:                                              ; preds = %208
+  %436 = landingpad { ptr, i32 }
           cleanup
-  %315 = extractvalue { ptr, i32 } %314, 0
-  store ptr %315, ptr %3, align 8
-  %316 = extractvalue { ptr, i32 } %314, 1
-  store i32 %316, ptr %4, align 4
-  br label %467
+  %437 = extractvalue { ptr, i32 } %436, 0
+  store ptr %437, ptr %3, align 8
+  %438 = extractvalue { ptr, i32 } %436, 1
+  store i32 %438, ptr %4, align 4
+  br label %601
 
-317:                                              ; preds = %136
-  %318 = landingpad { ptr, i32 }
+439:                                              ; preds = %212
+  %440 = landingpad { ptr, i32 }
           cleanup
-  %319 = extractvalue { ptr, i32 } %318, 0
-  store ptr %319, ptr %3, align 8
-  %320 = extractvalue { ptr, i32 } %318, 1
-  store i32 %320, ptr %4, align 4
-  br label %463
+  %441 = extractvalue { ptr, i32 } %440, 0
+  store ptr %441, ptr %3, align 8
+  %442 = extractvalue { ptr, i32 } %440, 1
+  store i32 %442, ptr %4, align 4
+  br label %596
 
-321:                                              ; preds = %137
-  %322 = landingpad { ptr, i32 }
+443:                                              ; preds = %214
+  %444 = landingpad { ptr, i32 }
           cleanup
-  %323 = extractvalue { ptr, i32 } %322, 0
-  store ptr %323, ptr %3, align 8
-  %324 = extractvalue { ptr, i32 } %322, 1
-  store i32 %324, ptr %4, align 4
-  br label %462
+  %445 = extractvalue { ptr, i32 } %444, 0
+  store ptr %445, ptr %3, align 8
+  %446 = extractvalue { ptr, i32 } %444, 1
+  store i32 %446, ptr %4, align 4
+  br label %595
 
-325:                                              ; preds = %138
-  %326 = landingpad { ptr, i32 }
+447:                                              ; preds = %218
+  %448 = landingpad { ptr, i32 }
           cleanup
-  %327 = extractvalue { ptr, i32 } %326, 0
-  store ptr %327, ptr %3, align 8
-  %328 = extractvalue { ptr, i32 } %326, 1
-  store i32 %328, ptr %4, align 4
-  br label %458
+  %449 = extractvalue { ptr, i32 } %448, 0
+  store ptr %449, ptr %3, align 8
+  %450 = extractvalue { ptr, i32 } %448, 1
+  store i32 %450, ptr %4, align 4
+  br label %590
 
-329:                                              ; preds = %139
-  %330 = landingpad { ptr, i32 }
+451:                                              ; preds = %220
+  %452 = landingpad { ptr, i32 }
           cleanup
-  %331 = extractvalue { ptr, i32 } %330, 0
-  store ptr %331, ptr %3, align 8
-  %332 = extractvalue { ptr, i32 } %330, 1
-  store i32 %332, ptr %4, align 4
-  br label %457
+  %453 = extractvalue { ptr, i32 } %452, 0
+  store ptr %453, ptr %3, align 8
+  %454 = extractvalue { ptr, i32 } %452, 1
+  store i32 %454, ptr %4, align 4
+  br label %589
 
-333:                                              ; preds = %140
-  %334 = landingpad { ptr, i32 }
+455:                                              ; preds = %224
+  %456 = landingpad { ptr, i32 }
           cleanup
-  %335 = extractvalue { ptr, i32 } %334, 0
-  store ptr %335, ptr %3, align 8
-  %336 = extractvalue { ptr, i32 } %334, 1
-  store i32 %336, ptr %4, align 4
-  br label %453
+  %457 = extractvalue { ptr, i32 } %456, 0
+  store ptr %457, ptr %3, align 8
+  %458 = extractvalue { ptr, i32 } %456, 1
+  store i32 %458, ptr %4, align 4
+  br label %584
 
-337:                                              ; preds = %141
-  %338 = landingpad { ptr, i32 }
+459:                                              ; preds = %226
+  %460 = landingpad { ptr, i32 }
           cleanup
-  %339 = extractvalue { ptr, i32 } %338, 0
-  store ptr %339, ptr %3, align 8
-  %340 = extractvalue { ptr, i32 } %338, 1
-  store i32 %340, ptr %4, align 4
-  br label %452
+  %461 = extractvalue { ptr, i32 } %460, 0
+  store ptr %461, ptr %3, align 8
+  %462 = extractvalue { ptr, i32 } %460, 1
+  store i32 %462, ptr %4, align 4
+  br label %583
 
-341:                                              ; preds = %142
-  %342 = landingpad { ptr, i32 }
+463:                                              ; preds = %230
+  %464 = landingpad { ptr, i32 }
           cleanup
-  %343 = extractvalue { ptr, i32 } %342, 0
-  store ptr %343, ptr %3, align 8
-  %344 = extractvalue { ptr, i32 } %342, 1
-  store i32 %344, ptr %4, align 4
-  br label %448
+  %465 = extractvalue { ptr, i32 } %464, 0
+  store ptr %465, ptr %3, align 8
+  %466 = extractvalue { ptr, i32 } %464, 1
+  store i32 %466, ptr %4, align 4
+  br label %578
 
-345:                                              ; preds = %143
-  %346 = landingpad { ptr, i32 }
+467:                                              ; preds = %232
+  %468 = landingpad { ptr, i32 }
           cleanup
-  %347 = extractvalue { ptr, i32 } %346, 0
-  store ptr %347, ptr %3, align 8
-  %348 = extractvalue { ptr, i32 } %346, 1
-  store i32 %348, ptr %4, align 4
-  br label %447
+  %469 = extractvalue { ptr, i32 } %468, 0
+  store ptr %469, ptr %3, align 8
+  %470 = extractvalue { ptr, i32 } %468, 1
+  store i32 %470, ptr %4, align 4
+  br label %577
 
-349:                                              ; preds = %144
-  %350 = landingpad { ptr, i32 }
+471:                                              ; preds = %236
+  %472 = landingpad { ptr, i32 }
           cleanup
-  %351 = extractvalue { ptr, i32 } %350, 0
-  store ptr %351, ptr %3, align 8
-  %352 = extractvalue { ptr, i32 } %350, 1
-  store i32 %352, ptr %4, align 4
-  br label %443
-
-353:                                              ; preds = %145
-  %354 = landingpad { ptr, i32 }
-          cleanup
-  %355 = extractvalue { ptr, i32 } %354, 0
-  store ptr %355, ptr %3, align 8
-  %356 = extractvalue { ptr, i32 } %354, 1
-  store i32 %356, ptr %4, align 4
-  br label %442
-
-357:                                              ; preds = %146
-  %358 = landingpad { ptr, i32 }
-          cleanup
-  %359 = extractvalue { ptr, i32 } %358, 0
-  store ptr %359, ptr %3, align 8
-  %360 = extractvalue { ptr, i32 } %358, 1
-  store i32 %360, ptr %4, align 4
-  br label %438
-
-361:                                              ; preds = %147
-  %362 = landingpad { ptr, i32 }
-          cleanup
-  %363 = extractvalue { ptr, i32 } %362, 0
-  store ptr %363, ptr %3, align 8
-  %364 = extractvalue { ptr, i32 } %362, 1
-  store i32 %364, ptr %4, align 4
-  br label %437
-
-365:                                              ; preds = %148
-  %366 = landingpad { ptr, i32 }
-          cleanup
-  %367 = extractvalue { ptr, i32 } %366, 0
-  store ptr %367, ptr %3, align 8
-  %368 = extractvalue { ptr, i32 } %366, 1
-  store i32 %368, ptr %4, align 4
-  br label %433
-
-369:                                              ; preds = %149
-  %370 = landingpad { ptr, i32 }
-          cleanup
-  %371 = extractvalue { ptr, i32 } %370, 0
-  store ptr %371, ptr %3, align 8
-  %372 = extractvalue { ptr, i32 } %370, 1
-  store i32 %372, ptr %4, align 4
-  br label %432
-
-373:                                              ; preds = %150
-  %374 = landingpad { ptr, i32 }
-          cleanup
-  %375 = extractvalue { ptr, i32 } %374, 0
-  store ptr %375, ptr %3, align 8
-  %376 = extractvalue { ptr, i32 } %374, 1
-  store i32 %376, ptr %4, align 4
-  br label %428
-
-377:                                              ; preds = %151
-  %378 = landingpad { ptr, i32 }
-          cleanup
-  %379 = extractvalue { ptr, i32 } %378, 0
-  store ptr %379, ptr %3, align 8
-  %380 = extractvalue { ptr, i32 } %378, 1
-  store i32 %380, ptr %4, align 4
-  br label %427
-
-381:                                              ; preds = %152
-  %382 = landingpad { ptr, i32 }
-          cleanup
-  %383 = extractvalue { ptr, i32 } %382, 0
-  store ptr %383, ptr %3, align 8
-  %384 = extractvalue { ptr, i32 } %382, 1
-  store i32 %384, ptr %4, align 4
-  br label %423
-
-385:                                              ; preds = %153
-  %386 = landingpad { ptr, i32 }
-          cleanup
-  %387 = extractvalue { ptr, i32 } %386, 0
-  store ptr %387, ptr %3, align 8
-  %388 = extractvalue { ptr, i32 } %386, 1
-  store i32 %388, ptr %4, align 4
-  br label %422
-
-389:                                              ; preds = %154
-  %390 = landingpad { ptr, i32 }
-          cleanup
-  %391 = extractvalue { ptr, i32 } %390, 0
-  store ptr %391, ptr %3, align 8
-  %392 = extractvalue { ptr, i32 } %390, 1
-  store i32 %392, ptr %4, align 4
-  br label %418
-
-393:                                              ; preds = %155
-  %394 = landingpad { ptr, i32 }
-          cleanup
-  %395 = extractvalue { ptr, i32 } %394, 0
-  store ptr %395, ptr %3, align 8
-  %396 = extractvalue { ptr, i32 } %394, 1
-  store i32 %396, ptr %4, align 4
-  br label %417
-
-397:                                              ; preds = %156
-  %398 = landingpad { ptr, i32 }
-          cleanup
-  %399 = extractvalue { ptr, i32 } %398, 0
-  store ptr %399, ptr %3, align 8
-  %400 = extractvalue { ptr, i32 } %398, 1
-  store i32 %400, ptr %4, align 4
-  br label %413
-
-401:                                              ; preds = %157
-  %402 = landingpad { ptr, i32 }
-          cleanup
-  %403 = extractvalue { ptr, i32 } %402, 0
-  store ptr %403, ptr %3, align 8
-  %404 = extractvalue { ptr, i32 } %402, 1
-  store i32 %404, ptr %4, align 4
-  br label %412
-
-405:                                              ; preds = %158
-  %406 = landingpad { ptr, i32 }
-          cleanup
-  %407 = extractvalue { ptr, i32 } %406, 0
-  store ptr %407, ptr %3, align 8
-  %408 = extractvalue { ptr, i32 } %406, 1
-  store i32 %408, ptr %4, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #3
-  %409 = load i1, ptr %96, align 1
-  br i1 %409, label %410, label %411
-
-410:                                              ; preds = %405
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 30)) #3
-  br label %411
-
-411:                                              ; preds = %410, %405
-  br label %412
-
-412:                                              ; preds = %411, %401
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %94) #3
-  br label %413
-
-413:                                              ; preds = %412, %397
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #3
-  %414 = load i1, ptr %93, align 1
-  br i1 %414, label %415, label %416
-
-415:                                              ; preds = %413
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 29)) #3
-  br label %416
-
-416:                                              ; preds = %415, %413
-  br label %417
-
-417:                                              ; preds = %416, %393
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #3
-  br label %418
-
-418:                                              ; preds = %417, %389
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #3
-  %419 = load i1, ptr %90, align 1
-  br i1 %419, label %420, label %421
-
-420:                                              ; preds = %418
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 28)) #3
-  br label %421
-
-421:                                              ; preds = %420, %418
-  br label %422
-
-422:                                              ; preds = %421, %385
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %88) #3
-  br label %423
-
-423:                                              ; preds = %422, %381
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #3
-  %424 = load i1, ptr %87, align 1
-  br i1 %424, label %425, label %426
-
-425:                                              ; preds = %423
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 27)) #3
-  br label %426
-
-426:                                              ; preds = %425, %423
-  br label %427
-
-427:                                              ; preds = %426, %377
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #3
-  br label %428
-
-428:                                              ; preds = %427, %373
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #3
-  %429 = load i1, ptr %84, align 1
-  br i1 %429, label %430, label %431
-
-430:                                              ; preds = %428
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 26)) #3
-  br label %431
-
-431:                                              ; preds = %430, %428
-  br label %432
-
-432:                                              ; preds = %431, %369
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #3
-  br label %433
-
-433:                                              ; preds = %432, %365
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #3
-  %434 = load i1, ptr %81, align 1
-  br i1 %434, label %435, label %436
-
-435:                                              ; preds = %433
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 25)) #3
-  br label %436
-
-436:                                              ; preds = %435, %433
-  br label %437
-
-437:                                              ; preds = %436, %361
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #3
-  br label %438
-
-438:                                              ; preds = %437, %357
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #3
-  %439 = load i1, ptr %78, align 1
-  br i1 %439, label %440, label %441
-
-440:                                              ; preds = %438
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 24)) #3
-  br label %441
-
-441:                                              ; preds = %440, %438
-  br label %442
-
-442:                                              ; preds = %441, %353
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #3
-  br label %443
-
-443:                                              ; preds = %442, %349
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #3
-  %444 = load i1, ptr %75, align 1
-  br i1 %444, label %445, label %446
-
-445:                                              ; preds = %443
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 23)) #3
-  br label %446
-
-446:                                              ; preds = %445, %443
-  br label %447
-
-447:                                              ; preds = %446, %345
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #3
-  br label %448
-
-448:                                              ; preds = %447, %341
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #3
-  %449 = load i1, ptr %72, align 1
-  br i1 %449, label %450, label %451
-
-450:                                              ; preds = %448
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 22)) #3
-  br label %451
-
-451:                                              ; preds = %450, %448
-  br label %452
-
-452:                                              ; preds = %451, %337
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #3
-  br label %453
-
-453:                                              ; preds = %452, %333
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #3
-  %454 = load i1, ptr %69, align 1
-  br i1 %454, label %455, label %456
-
-455:                                              ; preds = %453
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 21)) #3
-  br label %456
-
-456:                                              ; preds = %455, %453
-  br label %457
-
-457:                                              ; preds = %456, %329
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #3
-  br label %458
-
-458:                                              ; preds = %457, %325
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #3
-  %459 = load i1, ptr %66, align 1
-  br i1 %459, label %460, label %461
-
-460:                                              ; preds = %458
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 20)) #3
-  br label %461
-
-461:                                              ; preds = %460, %458
-  br label %462
-
-462:                                              ; preds = %461, %321
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %64) #3
-  br label %463
-
-463:                                              ; preds = %462, %317
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #3
-  %464 = load i1, ptr %63, align 1
-  br i1 %464, label %465, label %466
-
-465:                                              ; preds = %463
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 19)) #3
-  br label %466
-
-466:                                              ; preds = %465, %463
-  br label %467
-
-467:                                              ; preds = %466, %313
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #3
-  br label %468
-
-468:                                              ; preds = %467, %309
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #3
-  %469 = load i1, ptr %60, align 1
-  br i1 %469, label %470, label %471
-
-470:                                              ; preds = %468
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 18)) #3
-  br label %471
-
-471:                                              ; preds = %470, %468
-  br label %472
-
-472:                                              ; preds = %471, %305
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #3
-  br label %473
-
-473:                                              ; preds = %472, %301
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #3
-  %474 = load i1, ptr %57, align 1
-  br i1 %474, label %475, label %476
-
-475:                                              ; preds = %473
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 17)) #3
-  br label %476
-
-476:                                              ; preds = %475, %473
-  br label %477
-
-477:                                              ; preds = %476, %297
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #3
-  br label %478
-
-478:                                              ; preds = %477, %293
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #3
-  %479 = load i1, ptr %54, align 1
-  br i1 %479, label %480, label %481
-
-480:                                              ; preds = %478
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 16)) #3
-  br label %481
-
-481:                                              ; preds = %480, %478
-  br label %482
-
-482:                                              ; preds = %481, %289
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #3
-  br label %483
-
-483:                                              ; preds = %482, %285
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #3
-  %484 = load i1, ptr %51, align 1
-  br i1 %484, label %485, label %486
-
-485:                                              ; preds = %483
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 15)) #3
-  br label %486
-
-486:                                              ; preds = %485, %483
-  br label %487
-
-487:                                              ; preds = %486, %281
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #3
-  br label %488
-
-488:                                              ; preds = %487, %277
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #3
-  %489 = load i1, ptr %48, align 1
-  br i1 %489, label %490, label %491
-
-490:                                              ; preds = %488
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 14)) #3
-  br label %491
-
-491:                                              ; preds = %490, %488
-  br label %492
-
-492:                                              ; preds = %491, %273
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #3
-  br label %493
-
-493:                                              ; preds = %492, %269
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #3
-  %494 = load i1, ptr %45, align 1
-  br i1 %494, label %495, label %496
-
-495:                                              ; preds = %493
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 13)) #3
-  br label %496
-
-496:                                              ; preds = %495, %493
-  br label %497
-
-497:                                              ; preds = %496, %265
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #3
-  br label %498
-
-498:                                              ; preds = %497, %261
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #3
-  %499 = load i1, ptr %42, align 1
-  br i1 %499, label %500, label %501
-
-500:                                              ; preds = %498
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 12)) #3
-  br label %501
-
-501:                                              ; preds = %500, %498
-  br label %502
-
-502:                                              ; preds = %501, %257
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #3
-  br label %503
-
-503:                                              ; preds = %502, %253
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
-  %504 = load i1, ptr %39, align 1
-  br i1 %504, label %505, label %506
-
-505:                                              ; preds = %503
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 11)) #3
-  br label %506
-
-506:                                              ; preds = %505, %503
-  br label %507
-
-507:                                              ; preds = %506, %249
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #3
-  br label %508
-
-508:                                              ; preds = %507, %245
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #3
-  %509 = load i1, ptr %36, align 1
-  br i1 %509, label %510, label %511
-
-510:                                              ; preds = %508
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 10)) #3
-  br label %511
-
-511:                                              ; preds = %510, %508
-  br label %512
-
-512:                                              ; preds = %511, %241
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
-  br label %513
-
-513:                                              ; preds = %512, %237
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #3
-  %514 = load i1, ptr %33, align 1
-  br i1 %514, label %515, label %516
-
-515:                                              ; preds = %513
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 9)) #3
-  br label %516
-
-516:                                              ; preds = %515, %513
-  br label %517
-
-517:                                              ; preds = %516, %233
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #3
-  br label %518
-
-518:                                              ; preds = %517, %229
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #3
-  %519 = load i1, ptr %30, align 1
-  br i1 %519, label %520, label %521
-
-520:                                              ; preds = %518
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 8)) #3
-  br label %521
-
-521:                                              ; preds = %520, %518
-  br label %522
-
-522:                                              ; preds = %521, %225
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #3
-  br label %523
-
-523:                                              ; preds = %522, %221
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
-  %524 = load i1, ptr %27, align 1
-  br i1 %524, label %525, label %526
-
-525:                                              ; preds = %523
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 7)) #3
-  br label %526
-
-526:                                              ; preds = %525, %523
-  br label %527
-
-527:                                              ; preds = %526, %217
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
-  br label %528
-
-528:                                              ; preds = %527, %213
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #3
-  %529 = load i1, ptr %24, align 1
-  br i1 %529, label %530, label %531
-
-530:                                              ; preds = %528
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 6)) #3
-  br label %531
-
-531:                                              ; preds = %530, %528
-  br label %532
-
-532:                                              ; preds = %531, %209
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #3
-  br label %533
-
-533:                                              ; preds = %532, %205
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #3
-  %534 = load i1, ptr %21, align 1
-  br i1 %534, label %535, label %536
-
-535:                                              ; preds = %533
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 5)) #3
-  br label %536
-
-536:                                              ; preds = %535, %533
-  br label %537
-
-537:                                              ; preds = %536, %201
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #3
-  br label %538
-
-538:                                              ; preds = %537, %197
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
-  %539 = load i1, ptr %18, align 1
-  br i1 %539, label %540, label %541
-
-540:                                              ; preds = %538
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 4)) #3
-  br label %541
-
-541:                                              ; preds = %540, %538
-  br label %542
-
-542:                                              ; preds = %541, %193
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  br label %543
-
-543:                                              ; preds = %542, %189
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #3
-  %544 = load i1, ptr %15, align 1
-  br i1 %544, label %545, label %546
-
-545:                                              ; preds = %543
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 3)) #3
-  br label %546
-
-546:                                              ; preds = %545, %543
-  br label %547
-
-547:                                              ; preds = %546, %185
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
-  br label %548
-
-548:                                              ; preds = %547, %181
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  %549 = load i1, ptr %12, align 1
-  br i1 %549, label %550, label %551
-
-550:                                              ; preds = %548
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 2)) #3
-  br label %551
-
-551:                                              ; preds = %550, %548
-  br label %552
-
-552:                                              ; preds = %551, %177
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  br label %553
-
-553:                                              ; preds = %552, %173
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  %554 = load i1, ptr %9, align 1
-  br i1 %554, label %555, label %556
-
-555:                                              ; preds = %553
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 1)) #3
-  br label %556
-
-556:                                              ; preds = %555, %553
-  br label %557
-
-557:                                              ; preds = %556, %169
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  br label %558
-
-558:                                              ; preds = %557, %165
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
-  %559 = load i1, ptr %6, align 1
-  br i1 %559, label %560, label %561
-
-560:                                              ; preds = %558
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_122cmDocumentationOptionsE) #3
-  br label %561
-
-561:                                              ; preds = %560, %558
-  br label %562
-
-562:                                              ; preds = %561, %161
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
-  %563 = load i1, ptr %97, align 1
-  br i1 %563, label %564, label %572
-
-564:                                              ; preds = %562
-  %565 = load ptr, ptr %1, align 8
-  %566 = icmp eq ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, %565
-  br i1 %566, label %571, label %567
-
-567:                                              ; preds = %567, %564
-  %568 = phi ptr [ %565, %564 ], [ %569, %567 ]
-  %569 = getelementptr inbounds %struct.cmDocumentationEntry, ptr %568, i64 -1
-  call void @_ZN20cmDocumentationEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %569) #3
-  %570 = icmp eq ptr %569, @_ZN12_GLOBAL__N_122cmDocumentationOptionsE
-  br i1 %570, label %571, label %567
-
-571:                                              ; preds = %567, %564
+  %473 = extractvalue { ptr, i32 } %472, 0
+  store ptr %473, ptr %3, align 8
+  %474 = extractvalue { ptr, i32 } %472, 1
+  store i32 %474, ptr %4, align 4
   br label %572
 
-572:                                              ; preds = %571, %562
-  br label %573
+475:                                              ; preds = %238
+  %476 = landingpad { ptr, i32 }
+          cleanup
+  %477 = extractvalue { ptr, i32 } %476, 0
+  store ptr %477, ptr %3, align 8
+  %478 = extractvalue { ptr, i32 } %476, 1
+  store i32 %478, ptr %4, align 4
+  br label %571
 
-573:                                              ; preds = %572
-  %574 = load ptr, ptr %3, align 8
-  %575 = load i32, ptr %4, align 4
-  %576 = insertvalue { ptr, i32 } poison, ptr %574, 0
-  %577 = insertvalue { ptr, i32 } %576, i32 %575, 1
-  resume { ptr, i32 } %577
+479:                                              ; preds = %242
+  %480 = landingpad { ptr, i32 }
+          cleanup
+  %481 = extractvalue { ptr, i32 } %480, 0
+  store ptr %481, ptr %3, align 8
+  %482 = extractvalue { ptr, i32 } %480, 1
+  store i32 %482, ptr %4, align 4
+  br label %566
+
+483:                                              ; preds = %244
+  %484 = landingpad { ptr, i32 }
+          cleanup
+  %485 = extractvalue { ptr, i32 } %484, 0
+  store ptr %485, ptr %3, align 8
+  %486 = extractvalue { ptr, i32 } %484, 1
+  store i32 %486, ptr %4, align 4
+  br label %565
+
+487:                                              ; preds = %248
+  %488 = landingpad { ptr, i32 }
+          cleanup
+  %489 = extractvalue { ptr, i32 } %488, 0
+  store ptr %489, ptr %3, align 8
+  %490 = extractvalue { ptr, i32 } %488, 1
+  store i32 %490, ptr %4, align 4
+  br label %560
+
+491:                                              ; preds = %250
+  %492 = landingpad { ptr, i32 }
+          cleanup
+  %493 = extractvalue { ptr, i32 } %492, 0
+  store ptr %493, ptr %3, align 8
+  %494 = extractvalue { ptr, i32 } %492, 1
+  store i32 %494, ptr %4, align 4
+  br label %559
+
+495:                                              ; preds = %254
+  %496 = landingpad { ptr, i32 }
+          cleanup
+  %497 = extractvalue { ptr, i32 } %496, 0
+  store ptr %497, ptr %3, align 8
+  %498 = extractvalue { ptr, i32 } %496, 1
+  store i32 %498, ptr %4, align 4
+  br label %554
+
+499:                                              ; preds = %256
+  %500 = landingpad { ptr, i32 }
+          cleanup
+  %501 = extractvalue { ptr, i32 } %500, 0
+  store ptr %501, ptr %3, align 8
+  %502 = extractvalue { ptr, i32 } %500, 1
+  store i32 %502, ptr %4, align 4
+  br label %553
+
+503:                                              ; preds = %260
+  %504 = landingpad { ptr, i32 }
+          cleanup
+  %505 = extractvalue { ptr, i32 } %504, 0
+  store ptr %505, ptr %3, align 8
+  %506 = extractvalue { ptr, i32 } %504, 1
+  store i32 %506, ptr %4, align 4
+  br label %548
+
+507:                                              ; preds = %262
+  %508 = landingpad { ptr, i32 }
+          cleanup
+  %509 = extractvalue { ptr, i32 } %508, 0
+  store ptr %509, ptr %3, align 8
+  %510 = extractvalue { ptr, i32 } %508, 1
+  store i32 %510, ptr %4, align 4
+  br label %547
+
+511:                                              ; preds = %266
+  %512 = landingpad { ptr, i32 }
+          cleanup
+  %513 = extractvalue { ptr, i32 } %512, 0
+  store ptr %513, ptr %3, align 8
+  %514 = extractvalue { ptr, i32 } %512, 1
+  store i32 %514, ptr %4, align 4
+  br label %542
+
+515:                                              ; preds = %268
+  %516 = landingpad { ptr, i32 }
+          cleanup
+  %517 = extractvalue { ptr, i32 } %516, 0
+  store ptr %517, ptr %3, align 8
+  %518 = extractvalue { ptr, i32 } %516, 1
+  store i32 %518, ptr %4, align 4
+  br label %541
+
+519:                                              ; preds = %272
+  %520 = landingpad { ptr, i32 }
+          cleanup
+  %521 = extractvalue { ptr, i32 } %520, 0
+  store ptr %521, ptr %3, align 8
+  %522 = extractvalue { ptr, i32 } %520, 1
+  store i32 %522, ptr %4, align 4
+  br label %536
+
+523:                                              ; preds = %274
+  %524 = landingpad { ptr, i32 }
+          cleanup
+  %525 = extractvalue { ptr, i32 } %524, 0
+  store ptr %525, ptr %3, align 8
+  %526 = extractvalue { ptr, i32 } %524, 1
+  store i32 %526, ptr %4, align 4
+  br label %535
+
+527:                                              ; preds = %278
+  %528 = landingpad { ptr, i32 }
+          cleanup
+  %529 = extractvalue { ptr, i32 } %528, 0
+  store ptr %529, ptr %3, align 8
+  %530 = extractvalue { ptr, i32 } %528, 1
+  store i32 %530, ptr %4, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #3
+  %531 = load i1, ptr %96, align 1
+  br i1 %531, label %532, label %534
+
+532:                                              ; preds = %527
+  %533 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 30
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %533) #3
+  br label %534
+
+534:                                              ; preds = %532, %527
+  br label %535
+
+535:                                              ; preds = %534, %523
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %94) #3
+  br label %536
+
+536:                                              ; preds = %535, %519
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #3
+  %537 = load i1, ptr %93, align 1
+  br i1 %537, label %538, label %540
+
+538:                                              ; preds = %536
+  %539 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %539) #3
+  br label %540
+
+540:                                              ; preds = %538, %536
+  br label %541
+
+541:                                              ; preds = %540, %515
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #3
+  br label %542
+
+542:                                              ; preds = %541, %511
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #3
+  %543 = load i1, ptr %90, align 1
+  br i1 %543, label %544, label %546
+
+544:                                              ; preds = %542
+  %545 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %545) #3
+  br label %546
+
+546:                                              ; preds = %544, %542
+  br label %547
+
+547:                                              ; preds = %546, %507
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %88) #3
+  br label %548
+
+548:                                              ; preds = %547, %503
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #3
+  %549 = load i1, ptr %87, align 1
+  br i1 %549, label %550, label %552
+
+550:                                              ; preds = %548
+  %551 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %551) #3
+  br label %552
+
+552:                                              ; preds = %550, %548
+  br label %553
+
+553:                                              ; preds = %552, %499
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #3
+  br label %554
+
+554:                                              ; preds = %553, %495
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #3
+  %555 = load i1, ptr %84, align 1
+  br i1 %555, label %556, label %558
+
+556:                                              ; preds = %554
+  %557 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %557) #3
+  br label %558
+
+558:                                              ; preds = %556, %554
+  br label %559
+
+559:                                              ; preds = %558, %491
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #3
+  br label %560
+
+560:                                              ; preds = %559, %487
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #3
+  %561 = load i1, ptr %81, align 1
+  br i1 %561, label %562, label %564
+
+562:                                              ; preds = %560
+  %563 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %563) #3
+  br label %564
+
+564:                                              ; preds = %562, %560
+  br label %565
+
+565:                                              ; preds = %564, %483
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #3
+  br label %566
+
+566:                                              ; preds = %565, %479
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #3
+  %567 = load i1, ptr %78, align 1
+  br i1 %567, label %568, label %570
+
+568:                                              ; preds = %566
+  %569 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %569) #3
+  br label %570
+
+570:                                              ; preds = %568, %566
+  br label %571
+
+571:                                              ; preds = %570, %475
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #3
+  br label %572
+
+572:                                              ; preds = %571, %471
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #3
+  %573 = load i1, ptr %75, align 1
+  br i1 %573, label %574, label %576
+
+574:                                              ; preds = %572
+  %575 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %575) #3
+  br label %576
+
+576:                                              ; preds = %574, %572
+  br label %577
+
+577:                                              ; preds = %576, %467
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #3
+  br label %578
+
+578:                                              ; preds = %577, %463
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #3
+  %579 = load i1, ptr %72, align 1
+  br i1 %579, label %580, label %582
+
+580:                                              ; preds = %578
+  %581 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %581) #3
+  br label %582
+
+582:                                              ; preds = %580, %578
+  br label %583
+
+583:                                              ; preds = %582, %459
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #3
+  br label %584
+
+584:                                              ; preds = %583, %455
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #3
+  %585 = load i1, ptr %69, align 1
+  br i1 %585, label %586, label %588
+
+586:                                              ; preds = %584
+  %587 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %587) #3
+  br label %588
+
+588:                                              ; preds = %586, %584
+  br label %589
+
+589:                                              ; preds = %588, %451
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #3
+  br label %590
+
+590:                                              ; preds = %589, %447
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #3
+  %591 = load i1, ptr %66, align 1
+  br i1 %591, label %592, label %594
+
+592:                                              ; preds = %590
+  %593 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %593) #3
+  br label %594
+
+594:                                              ; preds = %592, %590
+  br label %595
+
+595:                                              ; preds = %594, %443
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %64) #3
+  br label %596
+
+596:                                              ; preds = %595, %439
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #3
+  %597 = load i1, ptr %63, align 1
+  br i1 %597, label %598, label %600
+
+598:                                              ; preds = %596
+  %599 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %599) #3
+  br label %600
+
+600:                                              ; preds = %598, %596
+  br label %601
+
+601:                                              ; preds = %600, %435
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #3
+  br label %602
+
+602:                                              ; preds = %601, %431
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #3
+  %603 = load i1, ptr %60, align 1
+  br i1 %603, label %604, label %606
+
+604:                                              ; preds = %602
+  %605 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %605) #3
+  br label %606
+
+606:                                              ; preds = %604, %602
+  br label %607
+
+607:                                              ; preds = %606, %427
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #3
+  br label %608
+
+608:                                              ; preds = %607, %423
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #3
+  %609 = load i1, ptr %57, align 1
+  br i1 %609, label %610, label %612
+
+610:                                              ; preds = %608
+  %611 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %611) #3
+  br label %612
+
+612:                                              ; preds = %610, %608
+  br label %613
+
+613:                                              ; preds = %612, %419
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #3
+  br label %614
+
+614:                                              ; preds = %613, %415
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #3
+  %615 = load i1, ptr %54, align 1
+  br i1 %615, label %616, label %618
+
+616:                                              ; preds = %614
+  %617 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %617) #3
+  br label %618
+
+618:                                              ; preds = %616, %614
+  br label %619
+
+619:                                              ; preds = %618, %411
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #3
+  br label %620
+
+620:                                              ; preds = %619, %407
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #3
+  %621 = load i1, ptr %51, align 1
+  br i1 %621, label %622, label %624
+
+622:                                              ; preds = %620
+  %623 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %623) #3
+  br label %624
+
+624:                                              ; preds = %622, %620
+  br label %625
+
+625:                                              ; preds = %624, %403
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #3
+  br label %626
+
+626:                                              ; preds = %625, %399
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #3
+  %627 = load i1, ptr %48, align 1
+  br i1 %627, label %628, label %630
+
+628:                                              ; preds = %626
+  %629 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %629) #3
+  br label %630
+
+630:                                              ; preds = %628, %626
+  br label %631
+
+631:                                              ; preds = %630, %395
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #3
+  br label %632
+
+632:                                              ; preds = %631, %391
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #3
+  %633 = load i1, ptr %45, align 1
+  br i1 %633, label %634, label %636
+
+634:                                              ; preds = %632
+  %635 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %635) #3
+  br label %636
+
+636:                                              ; preds = %634, %632
+  br label %637
+
+637:                                              ; preds = %636, %387
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #3
+  br label %638
+
+638:                                              ; preds = %637, %383
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #3
+  %639 = load i1, ptr %42, align 1
+  br i1 %639, label %640, label %642
+
+640:                                              ; preds = %638
+  %641 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %641) #3
+  br label %642
+
+642:                                              ; preds = %640, %638
+  br label %643
+
+643:                                              ; preds = %642, %379
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #3
+  br label %644
+
+644:                                              ; preds = %643, %375
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
+  %645 = load i1, ptr %39, align 1
+  br i1 %645, label %646, label %648
+
+646:                                              ; preds = %644
+  %647 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %647) #3
+  br label %648
+
+648:                                              ; preds = %646, %644
+  br label %649
+
+649:                                              ; preds = %648, %371
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #3
+  br label %650
+
+650:                                              ; preds = %649, %367
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #3
+  %651 = load i1, ptr %36, align 1
+  br i1 %651, label %652, label %654
+
+652:                                              ; preds = %650
+  %653 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %653) #3
+  br label %654
+
+654:                                              ; preds = %652, %650
+  br label %655
+
+655:                                              ; preds = %654, %363
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
+  br label %656
+
+656:                                              ; preds = %655, %359
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #3
+  %657 = load i1, ptr %33, align 1
+  br i1 %657, label %658, label %660
+
+658:                                              ; preds = %656
+  %659 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %659) #3
+  br label %660
+
+660:                                              ; preds = %658, %656
+  br label %661
+
+661:                                              ; preds = %660, %355
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #3
+  br label %662
+
+662:                                              ; preds = %661, %351
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #3
+  %663 = load i1, ptr %30, align 1
+  br i1 %663, label %664, label %666
+
+664:                                              ; preds = %662
+  %665 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %665) #3
+  br label %666
+
+666:                                              ; preds = %664, %662
+  br label %667
+
+667:                                              ; preds = %666, %347
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #3
+  br label %668
+
+668:                                              ; preds = %667, %343
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
+  %669 = load i1, ptr %27, align 1
+  br i1 %669, label %670, label %672
+
+670:                                              ; preds = %668
+  %671 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %671) #3
+  br label %672
+
+672:                                              ; preds = %670, %668
+  br label %673
+
+673:                                              ; preds = %672, %339
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
+  br label %674
+
+674:                                              ; preds = %673, %335
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #3
+  %675 = load i1, ptr %24, align 1
+  br i1 %675, label %676, label %678
+
+676:                                              ; preds = %674
+  %677 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %677) #3
+  br label %678
+
+678:                                              ; preds = %676, %674
+  br label %679
+
+679:                                              ; preds = %678, %331
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #3
+  br label %680
+
+680:                                              ; preds = %679, %327
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #3
+  %681 = load i1, ptr %21, align 1
+  br i1 %681, label %682, label %684
+
+682:                                              ; preds = %680
+  %683 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %683) #3
+  br label %684
+
+684:                                              ; preds = %682, %680
+  br label %685
+
+685:                                              ; preds = %684, %323
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #3
+  br label %686
+
+686:                                              ; preds = %685, %319
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
+  %687 = load i1, ptr %18, align 1
+  br i1 %687, label %688, label %690
+
+688:                                              ; preds = %686
+  %689 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %689) #3
+  br label %690
+
+690:                                              ; preds = %688, %686
+  br label %691
+
+691:                                              ; preds = %690, %315
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
+  br label %692
+
+692:                                              ; preds = %691, %311
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #3
+  %693 = load i1, ptr %15, align 1
+  br i1 %693, label %694, label %696
+
+694:                                              ; preds = %692
+  %695 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %695) #3
+  br label %696
+
+696:                                              ; preds = %694, %692
+  br label %697
+
+697:                                              ; preds = %696, %307
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
+  br label %698
+
+698:                                              ; preds = %697, %303
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
+  %699 = load i1, ptr %12, align 1
+  br i1 %699, label %700, label %702
+
+700:                                              ; preds = %698
+  %701 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %701) #3
+  br label %702
+
+702:                                              ; preds = %700, %698
+  br label %703
+
+703:                                              ; preds = %702, %299
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  br label %704
+
+704:                                              ; preds = %703, %295
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  %705 = load i1, ptr %9, align 1
+  br i1 %705, label %706, label %708
+
+706:                                              ; preds = %704
+  %707 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %707) #3
+  br label %708
+
+708:                                              ; preds = %706, %704
+  br label %709
+
+709:                                              ; preds = %708, %291
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  br label %710
+
+710:                                              ; preds = %709, %287
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  %711 = load i1, ptr %6, align 1
+  br i1 %711, label %712, label %713
+
+712:                                              ; preds = %710
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_122cmDocumentationOptionsE) #3
+  br label %713
+
+713:                                              ; preds = %712, %710
+  br label %714
+
+714:                                              ; preds = %713, %283
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  %715 = load i1, ptr %97, align 1
+  br i1 %715, label %716, label %724
+
+716:                                              ; preds = %714
+  %717 = load ptr, ptr %1, align 8
+  %718 = icmp eq ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, %717
+  br i1 %718, label %723, label %719
+
+719:                                              ; preds = %719, %716
+  %720 = phi ptr [ %717, %716 ], [ %721, %719 ]
+  %721 = getelementptr inbounds %struct.cmDocumentationEntry, ptr %720, i64 -1
+  call void @_ZN20cmDocumentationEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %721) #3
+  %722 = icmp eq ptr %721, @_ZN12_GLOBAL__N_122cmDocumentationOptionsE
+  br i1 %722, label %723, label %719
+
+723:                                              ; preds = %719, %716
+  br label %724
+
+724:                                              ; preds = %723, %714
+  br label %725
+
+725:                                              ; preds = %724
+  %726 = load ptr, ptr %3, align 8
+  %727 = load i32, ptr %4, align 4
+  %728 = insertvalue { ptr, i32 } poison, ptr %726, 0
+  %729 = insertvalue { ptr, i32 } %728, i32 %727, 1
+  resume { ptr, i32 } %729
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_array_dtor.72(ptr noundef %0) #0 section ".text.startup" {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  br label %3
+  %3 = getelementptr inbounds %struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 31
+  br label %4
 
-3:                                                ; preds = %3, %1
-  %4 = phi ptr [ getelementptr inbounds (%struct.cmDocumentationEntry, ptr @_ZN12_GLOBAL__N_122cmDocumentationOptionsE, i64 31), %1 ], [ %5, %3 ]
-  %5 = getelementptr inbounds %struct.cmDocumentationEntry, ptr %4, i64 -1
-  call void @_ZN20cmDocumentationEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %5) #3
-  %6 = icmp eq ptr %5, @_ZN12_GLOBAL__N_122cmDocumentationOptionsE
-  br i1 %6, label %7, label %3
+4:                                                ; preds = %4, %1
+  %5 = phi ptr [ %3, %1 ], [ %6, %4 ]
+  %6 = getelementptr inbounds %struct.cmDocumentationEntry, ptr %5, i64 -1
+  call void @_ZN20cmDocumentationEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %6) #3
+  %7 = icmp eq ptr %6, @_ZN12_GLOBAL__N_122cmDocumentationOptionsE
+  br i1 %7, label %8, label %4
 
-7:                                                ; preds = %3
+8:                                                ; preds = %4
   ret void
 }
 

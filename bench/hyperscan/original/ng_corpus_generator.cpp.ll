@@ -298,7 +298,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119CorpusGeneratorUtf8E, i64 0, i32 0, i64 2), ptr %call.i6, align 8, !noalias !7
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119CorpusGeneratorUtf8E, i64 0, i32 0, i64 2
+  store ptr %1, ptr %call.i6, align 8, !noalias !7
   %expr.i.i = getelementptr inbounds %"class.(anonymous namespace)::CorpusGeneratorUtf8", ptr %call.i6, i64 0, i32 1
   store ptr %expr, ptr %expr.i.i, align 8, !noalias !7
   %graph.i.i = getelementptr inbounds %"class.(anonymous namespace)::CorpusGeneratorUtf8", ptr %call.i6, i64 0, i32 2
@@ -306,8 +307,8 @@ if.then:                                          ; preds = %entry
   %cProps.i.i = getelementptr inbounds %"class.(anonymous namespace)::CorpusGeneratorUtf8", ptr %call.i6, i64 0, i32 3
   store ptr %props, ptr %cProps.i.i, align 8, !noalias !7
   %edit_distance.i.i = getelementptr inbounds %"class.ue2::ExpressionInfo", ptr %expr, i64 0, i32 10
-  %1 = load i32, ptr %edit_distance.i.i, align 8, !noalias !7
-  %tobool.not.i.i = icmp eq i32 %1, 0
+  %2 = load i32, ptr %edit_distance.i.i, align 8, !noalias !7
+  %tobool.not.i.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_119CorpusGeneratorUtf8ESt14default_deleteIS1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -325,35 +326,35 @@ invoke.cont4.i.i:                                 ; preds = %invoke.cont.i.i
           to label %unreachable.i.i unwind label %lpad3.i.i, !noalias !7
 
 ehcleanup.thread.i.i:                             ; preds = %if.then.i.i
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i) #24, !noalias !7
   br label %cleanup.action.i.i
 
 lpad3.i.i:                                        ; preds = %invoke.cont4.i.i, %invoke.cont.i.i
   %cleanup.isactive.0.i.i = phi i1 [ false, %invoke.cont4.i.i ], [ true, %invoke.cont.i.i ]
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !7
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i, i64 0, i32 2
-  %cmp.i.i.i.i.i = icmp eq ptr %4, %5
+  %5 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !7
+  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i, i64 0, i32 2
+  %cmp.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %ehcleanup.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %lpad3.i.i
   %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i, i64 0, i32 1
-  %6 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !noalias !7
-  %cmp3.i.i.i.i.i = icmp ult i64 %6, 16
+  %7 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !noalias !7
+  %cmp3.i.i.i.i.i = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i) #24, !noalias !7
   br i1 %cleanup.isactive.0.i.i, label %cleanup.action.i.i, label %lpad.body.i
 
 ehcleanup.i.i:                                    ; preds = %lpad3.i.i
-  call void @_ZdlPv(ptr noundef %4) #26, !noalias !7
+  call void @_ZdlPv(ptr noundef %5) #26, !noalias !7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i) #24, !noalias !7
   br i1 %cleanup.isactive.0.i.i, label %cleanup.action.i.i, label %lpad.body.i
 
 cleanup.action.i.i:                               ; preds = %ehcleanup.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %ehcleanup.thread.i.i
-  %.pn13.i.i = phi { ptr, i32 } [ %2, %ehcleanup.thread.i.i ], [ %3, %ehcleanup.i.i ], [ %3, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
+  %.pn13.i.i = phi { ptr, i32 } [ %3, %ehcleanup.thread.i.i ], [ %4, %ehcleanup.i.i ], [ %4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
   call void @__cxa_free_exception(ptr %exception.i.i) #24, !noalias !7
   br label %lpad.body.i
 
@@ -361,11 +362,11 @@ unreachable.i.i:                                  ; preds = %invoke.cont4.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad.i, %lpad.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body.i ], [ %10, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body.i ], [ %12, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.body.i:                                      ; preds = %cleanup.action.i.i, %ehcleanup.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn13.i.i, %cleanup.action.i.i ], [ %3, %ehcleanup.i.i ], [ %3, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn13.i.i, %cleanup.action.i.i ], [ %4, %ehcleanup.i.i ], [ %4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %call.i6) #26, !noalias !7
   br label %common.resume
 
@@ -374,7 +375,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119CorpusGeneratorUtf8ESt14default_deleteIS1_EED
   br label %return
 
 if.else:                                          ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119CorpusGeneratorImplE, i64 0, i32 0, i64 2), ptr %call.i6, align 8, !noalias !10
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119CorpusGeneratorImplE, i64 0, i32 0, i64 2
+  store ptr %8, ptr %call.i6, align 8, !noalias !10
   %expr.i.i7 = getelementptr inbounds %"class.(anonymous namespace)::CorpusGeneratorImpl", ptr %call.i6, i64 0, i32 1
   store ptr %expr, ptr %expr.i.i7, align 8, !noalias !10
   %graph.i.i8 = getelementptr inbounds %"class.(anonymous namespace)::CorpusGeneratorImpl", ptr %call.i6, i64 0, i32 2
@@ -382,23 +384,23 @@ if.else:                                          ; preds = %entry
   %cProps.i.i9 = getelementptr inbounds %"class.(anonymous namespace)::CorpusGeneratorImpl", ptr %call.i6, i64 0, i32 3
   store ptr %props, ptr %cProps.i.i9, align 8, !noalias !10
   %edit_distance.i.i10 = getelementptr inbounds %"class.ue2::ExpressionInfo", ptr %expr, i64 0, i32 10
-  %7 = load i32, ptr %edit_distance.i.i10, align 8, !noalias !10
-  %tobool.not.i.i11 = icmp eq i32 %7, 0
+  %9 = load i32, ptr %edit_distance.i.i10, align 8, !noalias !10
+  %tobool.not.i.i11 = icmp eq i32 %9, 0
   %hamm_distance.i.i = getelementptr inbounds %"class.ue2::ExpressionInfo", ptr %expr, i64 0, i32 11
-  %8 = load i32, ptr %hamm_distance.i.i, align 4, !noalias !10
-  %tobool4.not.i.i = icmp eq i32 %8, 0
+  %10 = load i32, ptr %hamm_distance.i.i, align 4, !noalias !10
+  %tobool4.not.i.i = icmp eq i32 %10, 0
   %or.cond.i.i = select i1 %tobool.not.i.i11, i1 %tobool4.not.i.i, i1 false
   br i1 %or.cond.i.i, label %return, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.else
   %editDistance.i.i = getelementptr inbounds %class.CorpusProperties, ptr %props, i64 0, i32 8
-  %9 = load i32, ptr %editDistance.i.i, align 8, !noalias !10
-  %tobool5.not.i.i = icmp eq i32 %9, 0
+  %11 = load i32, ptr %editDistance.i.i, align 8, !noalias !10
+  %tobool5.not.i.i = icmp eq i32 %11, 0
   br i1 %tobool5.not.i.i, label %if.then.i.i12, label %return
 
 if.then.i.i12:                                    ; preds = %land.lhs.true.i.i
-  %add.i.i = add i32 %7, 1
-  %add10.i.i = add i32 %add.i.i, %8
+  %add.i.i = add i32 %9, 1
+  %add10.i.i = add i32 %add.i.i, %10
   %call.i6.i = invoke noundef i32 @_ZN16CorpusProperties4randEjj(ptr noundef nonnull align 8 dereferenceable(2556) %props, i32 noundef 0, i32 noundef %add10.i.i)
           to label %call.i.noexc.i unwind label %lpad.i, !noalias !10
 
@@ -407,7 +409,7 @@ call.i.noexc.i:                                   ; preds = %if.then.i.i12
   br label %return
 
 lpad.i:                                           ; preds = %if.then.i.i12
-  %10 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call.i6) #26, !noalias !10
   br label %common.resume
@@ -5610,7 +5612,8 @@ invoke.cont.i.i:                                  ; preds = %init.check.i.i
   %5 = load i32, ptr @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value, align 4
   %inc.i.i.i.i.i = add i32 %5, 1
   store i32 %inc.i.i.i.i.i, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, align 4
-  store i32 %5, ptr getelementptr inbounds (%"class.boost::icl::closed_interval", ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 0, i32 1), align 4
+  %6 = getelementptr inbounds %"class.boost::icl::closed_interval", ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 0, i32 1
+  store i32 %5, ptr %6, align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #24
   br label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i
 
@@ -5628,43 +5631,44 @@ if.end4.i:                                        ; preds = %if.else.i
   br label %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit
 
 _ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit: ; preds = %if.end4.i, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i, %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit
-  %6 = phi i32 [ %.pre, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i ], [ %.pre84.pre, %if.end4.i ], [ %.pre84.pre, %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit ], [ %.pre84.pre, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i ]
+  %7 = phi i32 [ %.pre, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i ], [ %.pre84.pre, %if.end4.i ], [ %.pre84.pre, %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit ], [ %.pre84.pre, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i ]
   %retval.sroa.0.0.i = phi i64 [ %retval.sroa.0.0.copyload.i.i, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i ], [ %retval.sroa.0.0.insert.insert.i.i.i, %if.end4.i ], [ %agg.tmp9.sroa.0.0.copyload, %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit ], [ %agg.tmp9.sroa.0.0.copyload, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i ]
   %_M_storage.i.i.i36 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %last_.coerce, i64 0, i32 1
   %agg.tmp14.sroa.0.0.copyload = load i64, ptr %_M_storage.i.i.i36, align 4
   %right.sroa.3.0.extract.shift.i = lshr i64 %agg.tmp14.sroa.0.0.copyload, 32
   %right.sroa.3.0.extract.trunc.i = trunc i64 %right.sroa.3.0.extract.shift.i to i32
   %_upb.i.i.i.i.i.i = getelementptr inbounds %"class.boost::icl::closed_interval", ptr %addend, i64 0, i32 1
-  %7 = load i32, ptr %_upb.i.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i37 = icmp ult i32 %7, %6
+  %8 = load i32, ptr %_upb.i.i.i.i.i.i, align 4
+  %cmp.i.i.i.i.i37 = icmp ult i32 %8, %7
   br i1 %cmp.i.i.i.i.i37, label %_ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit, label %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i38
 
 _ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i38: ; preds = %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit
   %right.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp14.sroa.0.0.copyload to i32
   %cmp.i.i.i9.i.i39 = icmp ult i32 %right.sroa.3.0.extract.trunc.i, %right.sroa.0.0.extract.trunc.i
-  %cmp.i.i.i.i40 = icmp ult i32 %7, %right.sroa.0.0.extract.trunc.i
+  %cmp.i.i.i.i40 = icmp ult i32 %8, %right.sroa.0.0.extract.trunc.i
   %spec.select.i.i41 = or i1 %cmp.i.i.i.i40, %cmp.i.i.i9.i.i39
   br i1 %spec.select.i.i41, label %_ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit, label %if.else.i42
 
 if.else.i42:                                      ; preds = %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i38
-  %spec.select.i13.not.i = icmp ult i32 %7, %right.sroa.3.0.extract.trunc.i
+  %spec.select.i13.not.i = icmp ult i32 %8, %right.sroa.3.0.extract.trunc.i
   br i1 %spec.select.i13.not.i, label %if.end4.i52, label %if.then2.i43
 
 if.then2.i43:                                     ; preds = %if.else.i42
-  %8 = load atomic i8, ptr @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value acquire, align 8
-  %guard.uninitialized.i.i44 = icmp eq i8 %8, 0
+  %9 = load atomic i8, ptr @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value acquire, align 8
+  %guard.uninitialized.i.i44 = icmp eq i8 %9, 0
   br i1 %guard.uninitialized.i.i44, label %init.check.i.i48, label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i45, !prof !106
 
 init.check.i.i48:                                 ; preds = %if.then2.i43
-  %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #24
-  %tobool.not.i.i49 = icmp eq i32 %9, 0
+  %10 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #24
+  %tobool.not.i.i49 = icmp eq i32 %10, 0
   br i1 %tobool.not.i.i49, label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i45, label %invoke.cont.i.i50
 
 invoke.cont.i.i50:                                ; preds = %init.check.i.i48
-  %10 = load i32, ptr @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value, align 4
-  %inc.i.i.i.i.i51 = add i32 %10, 1
+  %11 = load i32, ptr @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value, align 4
+  %inc.i.i.i.i.i51 = add i32 %11, 1
   store i32 %inc.i.i.i.i.i51, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, align 4
-  store i32 %10, ptr getelementptr inbounds (%"class.boost::icl::closed_interval", ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 0, i32 1), align 4
+  %12 = getelementptr inbounds %"class.boost::icl::closed_interval", ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 0, i32 1
+  store i32 %11, ptr %12, align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #24
   br label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i45
 
@@ -5673,7 +5677,7 @@ _ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i
   br label %_ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit
 
 if.end4.i52:                                      ; preds = %if.else.i42
-  %inc.i.i.i.i = add nuw i32 %7, 1
+  %inc.i.i.i.i = add nuw i32 %8, 1
   %retval.sroa.2.0.insert.shift.i.i.i53 = and i64 %agg.tmp14.sroa.0.0.copyload, -4294967296
   %retval.sroa.0.0.insert.ext.i.i.i54 = zext i32 %inc.i.i.i.i to i64
   %retval.sroa.0.0.insert.insert.i.i.i55 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i53, %retval.sroa.0.0.insert.ext.i.i.i54
@@ -5688,9 +5692,9 @@ _ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0
   %left.sroa.0.0.extract.trunc.i56 = trunc i64 %retval.sroa.0.0.i to i32
   %left.sroa.4.0.extract.shift.i = lshr i64 %retval.sroa.0.0.i, 32
   %left.sroa.4.0.extract.trunc.i = trunc i64 %left.sroa.4.0.extract.shift.i to i32
-  %11 = load i32, ptr %_upb.i.i.i.i.i.i, align 4
-  %12 = load i32, ptr %addend, align 4
-  %cmp.i.i.i.i57 = icmp ult i32 %11, %12
+  %13 = load i32, ptr %_upb.i.i.i.i.i.i, align 4
+  %14 = load i32, ptr %addend, align 4
+  %cmp.i.i.i.i57 = icmp ult i32 %13, %14
   br i1 %cmp.i.i.i.i57, label %_ZN5boost3icl4hullINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_17has_static_boundsIT_EES7_E4typeES7_RKS7_.exit, label %if.else.i58
 
 if.else.i58:                                      ; preds = %_ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit
@@ -5702,8 +5706,8 @@ if.then2.i64:                                     ; preds = %if.else.i58
   br label %_ZN5boost3icl4hullINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_17has_static_boundsIT_EES7_E4typeES7_RKS7_.exit
 
 if.end3.i:                                        ; preds = %if.else.i58
-  %.sroa.speculated26.i = tail call i32 @llvm.umin.i32(i32 %12, i32 %left.sroa.0.0.extract.trunc.i56)
-  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %11, i32 %left.sroa.4.0.extract.trunc.i)
+  %.sroa.speculated26.i = tail call i32 @llvm.umin.i32(i32 %14, i32 %left.sroa.0.0.extract.trunc.i56)
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %13, i32 %left.sroa.4.0.extract.trunc.i)
   %retval.sroa.2.0.insert.ext.i.i.i59 = zext i32 %.sroa.speculated.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i60 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i59, 32
   %retval.sroa.0.0.insert.ext.i.i.i61 = zext i32 %.sroa.speculated26.i to i64
@@ -6093,7 +6097,8 @@ invoke.cont.i.i:                                  ; preds = %init.check.i.i
   %7 = load i32, ptr @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value, align 4
   %inc.i.i.i.i.i = add i32 %7, 1
   store i32 %inc.i.i.i.i.i, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, align 4
-  store i32 %7, ptr getelementptr inbounds (%"class.boost::icl::closed_interval", ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 0, i32 1), align 4
+  %8 = getelementptr inbounds %"class.boost::icl::closed_interval", ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 0, i32 1
+  store i32 %7, ptr %8, align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #24
   br label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i
 
@@ -6118,37 +6123,38 @@ if.then16:                                        ; preds = %if.end4.i, %_ZN5boo
   %agg.tmp17.sroa.0.0.copyload = load i64, ptr %_M_storage.i.i44, align 4
   %right.sroa.3.0.extract.shift.i = lshr i64 %agg.tmp17.sroa.0.0.copyload, 32
   %right.sroa.3.0.extract.trunc.i = trunc i64 %right.sroa.3.0.extract.shift.i to i32
-  %8 = load i32, ptr %_upb.i.i.i.i, align 4
-  %9 = load i32, ptr %minuend, align 4
-  %cmp.i.i.i.i.i45 = icmp ult i32 %8, %9
+  %9 = load i32, ptr %_upb.i.i.i.i, align 4
+  %10 = load i32, ptr %minuend, align 4
+  %cmp.i.i.i.i.i45 = icmp ult i32 %9, %10
   br i1 %cmp.i.i.i.i.i45, label %if.end20, label %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i46
 
 _ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i46: ; preds = %if.then16
   %right.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp17.sroa.0.0.copyload to i32
   %cmp.i.i.i9.i.i47 = icmp ult i32 %right.sroa.3.0.extract.trunc.i, %right.sroa.0.0.extract.trunc.i
-  %cmp.i.i.i.i48 = icmp ult i32 %8, %right.sroa.0.0.extract.trunc.i
+  %cmp.i.i.i.i48 = icmp ult i32 %9, %right.sroa.0.0.extract.trunc.i
   %spec.select.i.i49 = or i1 %cmp.i.i.i.i48, %cmp.i.i.i9.i.i47
   br i1 %spec.select.i.i49, label %if.end20, label %if.else.i50
 
 if.else.i50:                                      ; preds = %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i46
-  %spec.select.i13.not.i = icmp ult i32 %8, %right.sroa.3.0.extract.trunc.i
+  %spec.select.i13.not.i = icmp ult i32 %9, %right.sroa.3.0.extract.trunc.i
   br i1 %spec.select.i13.not.i, label %if.end4.i60, label %if.then2.i51
 
 if.then2.i51:                                     ; preds = %if.else.i50
-  %10 = load atomic i8, ptr @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value acquire, align 8
-  %guard.uninitialized.i.i52 = icmp eq i8 %10, 0
+  %11 = load atomic i8, ptr @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value acquire, align 8
+  %guard.uninitialized.i.i52 = icmp eq i8 %11, 0
   br i1 %guard.uninitialized.i.i52, label %init.check.i.i56, label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i53, !prof !106
 
 init.check.i.i56:                                 ; preds = %if.then2.i51
-  %11 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #24
-  %tobool.not.i.i57 = icmp eq i32 %11, 0
+  %12 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #24
+  %tobool.not.i.i57 = icmp eq i32 %12, 0
   br i1 %tobool.not.i.i57, label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i53, label %invoke.cont.i.i58
 
 invoke.cont.i.i58:                                ; preds = %init.check.i.i56
-  %12 = load i32, ptr @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value, align 4
-  %inc.i.i.i.i.i59 = add i32 %12, 1
+  %13 = load i32, ptr @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value, align 4
+  %inc.i.i.i.i.i59 = add i32 %13, 1
   store i32 %inc.i.i.i.i.i59, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, align 4
-  store i32 %12, ptr getelementptr inbounds (%"class.boost::icl::closed_interval", ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 0, i32 1), align 4
+  %14 = getelementptr inbounds %"class.boost::icl::closed_interval", ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 0, i32 1
+  store i32 %13, ptr %14, align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #24
   br label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i53
 
@@ -6157,7 +6163,7 @@ _ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i
   br label %if.end20
 
 if.end4.i60:                                      ; preds = %if.else.i50
-  %inc.i.i.i.i = add nuw i32 %8, 1
+  %inc.i.i.i.i = add nuw i32 %9, 1
   %retval.sroa.2.0.insert.shift.i.i.i61 = and i64 %agg.tmp17.sroa.0.0.copyload, -4294967296
   %retval.sroa.0.0.insert.ext.i.i.i62 = zext i32 %inc.i.i.i.i to i64
   %retval.sroa.0.0.insert.insert.i.i.i63 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i61, %retval.sroa.0.0.insert.ext.i.i.i62
@@ -6180,8 +6186,8 @@ if.then28:                                        ; preds = %if.end20
 while.body.i.i:                                   ; preds = %while.body.i.i, %if.then28
   %__x.044.i.i = phi ptr [ %__x.0.i.i, %while.body.i.i ], [ %__x.042.i.i, %if.then28 ]
   %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.044.i.i, i64 0, i32 1
-  %13 = load i32, ptr %_M_storage.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %13, %left_resid.sroa.6.0.extract.trunc
+  %15 = load i32, ptr %_M_storage.i.i.i.i, align 4
+  %cmp.i.i.i.i.i.i = icmp ugt i32 %15, %left_resid.sroa.6.0.extract.trunc
   %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.044.i.i, i64 0, i32 2
   %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.044.i.i, i64 0, i32 3
   %cond.in.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %_M_left.i.i.i, ptr %_M_right.i.i.i
@@ -6195,8 +6201,8 @@ while.end.i.i:                                    ; preds = %while.body.i.i
 if.then.i.i:                                      ; preds = %while.end.i.i, %if.then28
   %__y.0.lcssa48.i.i = phi ptr [ %__x.044.i.i, %while.end.i.i ], [ %add.ptr.i.i.i.i, %if.then28 ]
   %_M_left.i26.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %_M_left.i26.i.i, align 8
-  %cmp.i.i.i73 = icmp eq ptr %__y.0.lcssa48.i.i, %14
+  %16 = load ptr, ptr %_M_left.i26.i.i, align 8
+  %cmp.i.i.i73 = icmp eq ptr %__y.0.lcssa48.i.i, %16
   br i1 %cmp.i.i.i73, label %if.then.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -6207,8 +6213,8 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
   %__y.0.lcssa49.i.i = phi ptr [ %__y.0.lcssa48.i.i, %if.else.i.i ], [ %__x.044.i.i, %while.end.i.i ]
   %__j.sroa.0.0.i.i = phi ptr [ %call.i.i.i, %if.else.i.i ], [ %__x.044.i.i, %while.end.i.i ]
   %_upb.i.i.i.i.i.i27.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0.i.i, i64 0, i32 1, i32 0, i64 4
-  %15 = load i32, ptr %_upb.i.i.i.i.i.i27.i.i, align 4
-  %cmp.i.i.i.i28.i.i = icmp ult i32 %15, %left_resid.sroa.0.0.extract.trunc
+  %17 = load i32, ptr %_upb.i.i.i.i.i.i27.i.i, align 4
+  %cmp.i.i.i.i28.i.i = icmp ult i32 %17, %left_resid.sroa.0.0.extract.trunc
   br i1 %cmp.i.i.i.i28.i.i, label %if.then.i, label %if.end32
 
 if.then.i:                                        ; preds = %if.end12.i.i, %if.then.i.i
@@ -6218,19 +6224,19 @@ if.then.i:                                        ; preds = %if.end12.i.i, %if.t
 
 lor.rhs.i.i:                                      ; preds = %if.then.i
   %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.4.0.i.ph.i, i64 0, i32 1
-  %16 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i16.i = icmp ugt i32 %16, %left_resid.sroa.6.0.extract.trunc
+  %18 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
+  %cmp.i.i.i.i.i16.i = icmp ugt i32 %18, %left_resid.sroa.6.0.extract.trunc
   br label %_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i
 
 _ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i: ; preds = %lor.rhs.i.i, %if.then.i
-  %17 = phi i1 [ true, %if.then.i ], [ %cmp.i.i.i.i.i16.i, %lor.rhs.i.i ]
+  %19 = phi i1 [ true, %if.then.i ], [ %cmp.i.i.i.i.i16.i, %lor.rhs.i.i ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %_M_storage.i.i.i.i.i.i72 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1
   store i64 %retval.sroa.0.0.i, ptr %_M_storage.i.i.i.i.i.i72, align 4
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %17, ptr noundef nonnull %call5.i.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #24
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %19, ptr noundef nonnull %call5.i.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #24
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %18 = load i64, ptr %_M_node_count.i.i, align 8
-  %inc.i.i = add i64 %18, 1
+  %20 = load i64, ptr %_M_node_count.i.i, align 8
+  %inc.i.i = add i64 %20, 1
   store i64 %inc.i.i, ptr %_M_node_count.i.i, align 8
   br label %if.end32
 
@@ -6246,8 +6252,8 @@ if.then34:                                        ; preds = %if.end32
 while.body.i.i80:                                 ; preds = %while.body.i.i80, %if.then34
   %__x.044.i.i81 = phi ptr [ %__x.0.i.i87, %while.body.i.i80 ], [ %__x.042.i.i76, %if.then34 ]
   %_M_storage.i.i.i.i82 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.044.i.i81, i64 0, i32 1
-  %19 = load i32, ptr %_M_storage.i.i.i.i82, align 4
-  %cmp.i.i.i.i.i.i83 = icmp ugt i32 %19, %right_resid.sroa.7.0.extract.trunc
+  %21 = load i32, ptr %_M_storage.i.i.i.i82, align 4
+  %cmp.i.i.i.i.i.i83 = icmp ugt i32 %21, %right_resid.sroa.7.0.extract.trunc
   %_M_left.i.i.i84 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.044.i.i81, i64 0, i32 2
   %_M_right.i.i.i85 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.044.i.i81, i64 0, i32 3
   %cond.in.i.i86 = select i1 %cmp.i.i.i.i.i.i83, ptr %_M_left.i.i.i84, ptr %_M_right.i.i.i85
@@ -6261,8 +6267,8 @@ while.end.i.i89:                                  ; preds = %while.body.i.i80
 if.then.i.i111:                                   ; preds = %while.end.i.i89, %if.then34
   %__y.0.lcssa48.i.i112 = phi ptr [ %__x.044.i.i81, %while.end.i.i89 ], [ %add.ptr.i.i.i.i, %if.then34 ]
   %_M_left.i26.i.i113 = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load ptr, ptr %_M_left.i26.i.i113, align 8
-  %cmp.i.i.i114 = icmp eq ptr %__y.0.lcssa48.i.i112, %20
+  %22 = load ptr, ptr %_M_left.i26.i.i113, align 8
+  %cmp.i.i.i114 = icmp eq ptr %__y.0.lcssa48.i.i112, %22
   br i1 %cmp.i.i.i114, label %if.then.i99, label %if.else.i.i115
 
 if.else.i.i115:                                   ; preds = %if.then.i.i111
@@ -6273,8 +6279,8 @@ if.end12.i.i90:                                   ; preds = %if.else.i.i115, %wh
   %__y.0.lcssa49.i.i91 = phi ptr [ %__y.0.lcssa48.i.i112, %if.else.i.i115 ], [ %__x.044.i.i81, %while.end.i.i89 ]
   %__j.sroa.0.0.i.i92 = phi ptr [ %call.i.i.i116, %if.else.i.i115 ], [ %__x.044.i.i81, %while.end.i.i89 ]
   %_upb.i.i.i.i.i.i27.i.i93 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0.i.i92, i64 0, i32 1, i32 0, i64 4
-  %21 = load i32, ptr %_upb.i.i.i.i.i.i27.i.i93, align 4
-  %cmp.i.i.i.i28.i.i94 = icmp ult i32 %21, %right_resid.sroa.0.0.extract.trunc
+  %23 = load i32, ptr %_upb.i.i.i.i.i.i27.i.i93, align 4
+  %cmp.i.i.i.i28.i.i94 = icmp ult i32 %23, %right_resid.sroa.0.0.extract.trunc
   br i1 %cmp.i.i.i.i28.i.i94, label %if.then.i99, label %return
 
 if.then.i99:                                      ; preds = %if.end12.i.i90, %if.then.i.i111
@@ -6284,19 +6290,19 @@ if.then.i99:                                      ; preds = %if.end12.i.i90, %if
 
 lor.rhs.i.i102:                                   ; preds = %if.then.i99
   %_M_storage.i.i.i.i.i103 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.4.0.i.ph.i100, i64 0, i32 1
-  %22 = load i32, ptr %_M_storage.i.i.i.i.i103, align 4
-  %cmp.i.i.i.i.i16.i105 = icmp ugt i32 %22, %right_resid.sroa.7.0.extract.trunc
+  %24 = load i32, ptr %_M_storage.i.i.i.i.i103, align 4
+  %cmp.i.i.i.i.i16.i105 = icmp ugt i32 %24, %right_resid.sroa.7.0.extract.trunc
   br label %_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i106
 
 _ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i106: ; preds = %lor.rhs.i.i102, %if.then.i99
-  %23 = phi i1 [ true, %if.then.i99 ], [ %cmp.i.i.i.i.i16.i105, %lor.rhs.i.i102 ]
+  %25 = phi i1 [ true, %if.then.i99 ], [ %cmp.i.i.i.i.i16.i105, %lor.rhs.i.i102 ]
   %call5.i.i.i.i.i.i.i107 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %_M_storage.i.i.i.i.i.i108 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i107, i64 0, i32 1
   store i64 %retval.sroa.0.0.i55, ptr %_M_storage.i.i.i.i.i.i108, align 4
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %23, ptr noundef nonnull %call5.i.i.i.i.i.i.i107, ptr noundef nonnull %retval.sroa.4.0.i.ph.i100, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #24
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %25, ptr noundef nonnull %call5.i.i.i.i.i.i.i107, ptr noundef nonnull %retval.sroa.4.0.i.ph.i100, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #24
   %_M_node_count.i.i109 = getelementptr inbounds i8, ptr %this, i64 40
-  %24 = load i64, ptr %_M_node_count.i.i109, align 8
-  %inc.i.i110 = add i64 %24, 1
+  %26 = load i64, ptr %_M_node_count.i.i109, align 8
+  %inc.i.i110 = add i64 %26, 1
   store i64 %inc.i.i110, ptr %_M_node_count.i.i109, align 8
   br label %return
 

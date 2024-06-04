@@ -71,130 +71,131 @@ define ptr @proj_context_errno_string(ptr noundef %0, i32 noundef %1) #0 {
 
 18:                                               ; preds = %15
   store ptr null, ptr %3, align 8
-  br label %90
+  br label %91
 
 19:                                               ; preds = %15
   store ptr null, ptr %6, align 8
   store ptr @_ZL13error_strings, ptr %7, align 8
   store ptr @_ZL13error_strings, ptr %8, align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @_ZL13error_strings, i64 14), ptr %9, align 8
-  br label %20
+  %20 = getelementptr inbounds %struct.anon, ptr @_ZL13error_strings, i64 14
+  store ptr %20, ptr %9, align 8
+  br label %21
 
-20:                                               ; preds = %36, %19
-  %21 = load ptr, ptr %8, align 8
-  %22 = load ptr, ptr %9, align 8
-  %23 = icmp ne ptr %21, %22
-  br i1 %23, label %24, label %39
+21:                                               ; preds = %37, %19
+  %22 = load ptr, ptr %8, align 8
+  %23 = load ptr, ptr %9, align 8
+  %24 = icmp ne ptr %22, %23
+  br i1 %24, label %25, label %40
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %8, align 8
-  store ptr %25, ptr %10, align 8
-  %26 = load i32, ptr %5, align 4
-  %27 = load ptr, ptr %10, align 8
-  %28 = getelementptr inbounds %struct.anon, ptr %27, i32 0, i32 0
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp eq i32 %26, %29
-  br i1 %30, label %31, label %35
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %8, align 8
+  store ptr %26, ptr %10, align 8
+  %27 = load i32, ptr %5, align 4
+  %28 = load ptr, ptr %10, align 8
+  %29 = getelementptr inbounds %struct.anon, ptr %28, i32 0, i32 0
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %27, %30
+  br i1 %31, label %32, label %36
 
-31:                                               ; preds = %24
-  %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds %struct.anon, ptr %32, i32 0, i32 1
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %6, align 8
-  br label %39
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %10, align 8
+  %34 = getelementptr inbounds %struct.anon, ptr %33, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %6, align 8
+  br label %40
 
-35:                                               ; preds = %24
-  br label %36
+36:                                               ; preds = %25
+  br label %37
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds %struct.anon, ptr %37, i32 1
-  store ptr %38, ptr %8, align 8
-  br label %20
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %8, align 8
+  %39 = getelementptr inbounds %struct.anon, ptr %38, i32 1
+  store ptr %39, ptr %8, align 8
+  br label %21
 
-39:                                               ; preds = %31, %20
-  %40 = load ptr, ptr %6, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %50
+40:                                               ; preds = %32, %21
+  %41 = load ptr, ptr %6, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %51
 
-42:                                               ; preds = %39
-  %43 = load i32, ptr %5, align 4
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %45, label %50
+43:                                               ; preds = %40
+  %44 = load i32, ptr %5, align 4
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %46, label %51
 
-45:                                               ; preds = %42
-  %46 = load i32, ptr %5, align 4
-  %47 = and i32 %46, 1024
-  %48 = icmp ne i32 %47, 0
-  br i1 %48, label %49, label %50
+46:                                               ; preds = %43
+  %47 = load i32, ptr %5, align 4
+  %48 = and i32 %47, 1024
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %51
 
-49:                                               ; preds = %45
+50:                                               ; preds = %46
   store ptr @.str, ptr %6, align 8
-  br label %50
+  br label %51
 
-50:                                               ; preds = %49, %45, %42, %39
-  %51 = load ptr, ptr %6, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %61
+51:                                               ; preds = %50, %46, %43, %40
+  %52 = load ptr, ptr %6, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %62
 
-53:                                               ; preds = %50
-  %54 = load i32, ptr %5, align 4
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %56, label %61
+54:                                               ; preds = %51
+  %55 = load i32, ptr %5, align 4
+  %56 = icmp sgt i32 %55, 0
+  br i1 %56, label %57, label %62
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr %5, align 4
-  %58 = and i32 %57, 2048
-  %59 = icmp ne i32 %58, 0
-  br i1 %59, label %60, label %61
+57:                                               ; preds = %54
+  %58 = load i32, ptr %5, align 4
+  %59 = and i32 %58, 2048
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %61, label %62
 
-60:                                               ; preds = %56
+61:                                               ; preds = %57
   store ptr @.str.1, ptr %6, align 8
-  br label %61
+  br label %62
 
-61:                                               ; preds = %60, %56, %53, %50
-  %62 = load ptr, ptr %6, align 8
-  %63 = icmp ne ptr %62, null
-  br i1 %63, label %64, label %69
+62:                                               ; preds = %61, %57, %54, %51
+  %63 = load ptr, ptr %6, align 8
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %70
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %6, align 8
-  %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds %struct.pj_ctx, ptr %66, i32 0, i32 0
-  %68 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef %65)
-  br label %86
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %6, align 8
+  %67 = load ptr, ptr %4, align 8
+  %68 = getelementptr inbounds %struct.pj_ctx, ptr %67, i32 0, i32 0
+  %69 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef %66)
+  br label %87
 
-69:                                               ; preds = %61
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct.pj_ctx, ptr %70, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %71, i64 noundef 50)
-  %72 = load ptr, ptr %4, align 8
-  %73 = getelementptr inbounds %struct.pj_ctx, ptr %72, i32 0, i32 0
-  %74 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %73, i64 noundef 0)
-  %75 = load ptr, ptr %4, align 8
-  %76 = getelementptr inbounds %struct.pj_ctx, ptr %75, i32 0, i32 0
-  %77 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %76) #4
-  %78 = load i32, ptr %5, align 4
-  %79 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %74, i64 noundef %77, ptr noundef @.str.2, i32 noundef %78) #4
-  %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds %struct.pj_ctx, ptr %80, i32 0, i32 0
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct.pj_ctx, ptr %82, i32 0, i32 0
-  %84 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #4
-  %85 = call i64 @strlen(ptr noundef %84) #5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %81, i64 noundef %85)
-  br label %86
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds %struct.pj_ctx, ptr %71, i32 0, i32 0
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %72, i64 noundef 50)
+  %73 = load ptr, ptr %4, align 8
+  %74 = getelementptr inbounds %struct.pj_ctx, ptr %73, i32 0, i32 0
+  %75 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %74, i64 noundef 0)
+  %76 = load ptr, ptr %4, align 8
+  %77 = getelementptr inbounds %struct.pj_ctx, ptr %76, i32 0, i32 0
+  %78 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %77) #4
+  %79 = load i32, ptr %5, align 4
+  %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %75, i64 noundef %78, ptr noundef @.str.2, i32 noundef %79) #4
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds %struct.pj_ctx, ptr %81, i32 0, i32 0
+  %83 = load ptr, ptr %4, align 8
+  %84 = getelementptr inbounds %struct.pj_ctx, ptr %83, i32 0, i32 0
+  %85 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %84) #4
+  %86 = call i64 @strlen(ptr noundef %85) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %82, i64 noundef %86)
+  br label %87
 
-86:                                               ; preds = %69, %64
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds %struct.pj_ctx, ptr %87, i32 0, i32 0
-  %89 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %88) #4
-  store ptr %89, ptr %3, align 8
-  br label %90
+87:                                               ; preds = %70, %65
+  %88 = load ptr, ptr %4, align 8
+  %89 = getelementptr inbounds %struct.pj_ctx, ptr %88, i32 0, i32 0
+  %90 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %89) #4
+  store ptr %90, ptr %3, align 8
+  br label %91
 
-90:                                               ; preds = %86, %18
-  %91 = load ptr, ptr %3, align 8
-  ret ptr %91
+91:                                               ; preds = %87, %18
+  %92 = load ptr, ptr %3, align 8
+  ret ptr %92
 }
 
 declare noundef ptr @_Z18pj_get_default_ctxv() #1

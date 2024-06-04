@@ -36,29 +36,37 @@ define internal i32 @component_open() #0 {
 
 3:                                                ; preds = %2
   %4 = load i32, ptr @pmix_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i32 0, i32 4), align 8
-  %6 = icmp ne i32 %4, %5
-  br i1 %6, label %7, label %8
+  %5 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i32 0, i32 4
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp ne i32 %4, %6
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   call void @pmix_class_initialize(ptr noundef @pmix_pointer_array_t_class)
-  br label %8
-
-8:                                                ; preds = %7, %3
-  store ptr @pmix_pointer_array_t_class, ptr getelementptr inbounds (%struct.pmix_object_t, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v51_component, i32 0, i32 2), i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pmix_object_t, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v51_component, i32 0, i32 2), i32 0, i32 2), align 8
-  call void @pmix_obj_construct_tma(ptr noundef getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v51_component, i32 0, i32 2), ptr noundef null)
-  call void @pmix_obj_run_constructors(ptr noundef getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v51_component, i32 0, i32 2))
   br label %9
 
-9:                                                ; preds = %8
-  br label %10
+9:                                                ; preds = %8, %3
+  %10 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v51_component, i32 0, i32 2
+  %11 = getelementptr inbounds %struct.pmix_object_t, ptr %10, i32 0, i32 1
+  store ptr @pmix_pointer_array_t_class, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v51_component, i32 0, i32 2
+  %13 = getelementptr inbounds %struct.pmix_object_t, ptr %12, i32 0, i32 2
+  store i32 1, ptr %13, align 8
+  %14 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v51_component, i32 0, i32 2
+  call void @pmix_obj_construct_tma(ptr noundef %14, ptr noundef null)
+  %15 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v51_component, i32 0, i32 2
+  call void @pmix_obj_run_constructors(ptr noundef %15)
+  br label %16
 
-10:                                               ; preds = %9
-  br label %11
+16:                                               ; preds = %9
+  br label %17
 
-11:                                               ; preds = %10
-  %12 = call i32 @pmix_pointer_array_init(ptr noundef getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v51_component, i32 0, i32 2), i32 noundef 50, i32 noundef 2147483647, i32 noundef 16)
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
+  %19 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v51_component, i32 0, i32 2
+  %20 = call i32 @pmix_pointer_array_init(ptr noundef %19, i32 noundef 50, i32 noundef 2147483647, i32 noundef 16)
   ret i32 0
 }
 
@@ -67,10 +75,11 @@ define internal i32 @component_close() #0 {
   br label %1
 
 1:                                                ; preds = %0
-  call void @pmix_obj_run_destructors(ptr noundef getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v51_component, i32 0, i32 2))
-  br label %2
+  %2 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v51_component, i32 0, i32 2
+  call void @pmix_obj_run_destructors(ptr noundef %2)
+  br label %3
 
-2:                                                ; preds = %1
+3:                                                ; preds = %1
   ret i32 0
 }
 
@@ -80,40 +89,45 @@ define internal i32 @component_query(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v51_component, i32 0, i32 1), align 8
-  %6 = load ptr, ptr %4, align 8
-  store i32 %5, ptr %6, align 4
-  %7 = load ptr, ptr %3, align 8
-  store ptr @pmix_bfrops_pmix51_module, ptr %7, align 8
+  %5 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v51_component, i32 0, i32 1
+  %6 = load i32, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  store i32 %6, ptr %7, align 4
+  %8 = load ptr, ptr %3, align 8
+  store ptr @pmix_bfrops_pmix51_module, ptr %8, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @assign_module() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i32 0, i32 11), align 4
-  %2 = icmp sge i32 %1, 0
-  br i1 %2, label %3, label %15
+  %1 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i32 0, i32 11
+  %2 = load i32, ptr %1, align 4
+  %3 = icmp sge i32 %2, 0
+  br i1 %3, label %4, label %19
 
-3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i32 0, i32 11), align 4
-  %5 = icmp slt i32 %4, 64
-  br i1 %5, label %6, label %15
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i32 0, i32 11
+  %6 = load i32, ptr %5, align 4
+  %7 = icmp slt i32 %6, 64
+  br i1 %7, label %8, label %19
 
-6:                                                ; preds = %3
-  %7 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i32 0, i32 11), align 4
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8
-  %10 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %9, i32 0, i32 2
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp sge i32 %11, 10
-  br i1 %12, label %13, label %15
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i32 0, i32 11
+  %10 = load i32, ptr %9, align 4
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %11
+  %13 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %12, i32 0, i32 2
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp sge i32 %14, 10
+  br i1 %15, label %16, label %19
 
-13:                                               ; preds = %6
-  %14 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %14, ptr noundef @.str)
-  br label %15
+16:                                               ; preds = %8
+  %17 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_bfrops_base_framework, i32 0, i32 11
+  %18 = load i32, ptr %17, align 4
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %18, ptr noundef @.str)
+  br label %19
 
-15:                                               ; preds = %13, %6, %3, %0
+19:                                               ; preds = %16, %8, %4, %0
   ret ptr @pmix_bfrops_pmix51_module
 }
 

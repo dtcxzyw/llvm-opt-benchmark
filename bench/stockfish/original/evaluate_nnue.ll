@@ -2116,16 +2116,17 @@ define internal void @__cxx_global_var_init.5() #0 section ".text.startup" {
 define internal void @__cxx_global_array_dtor(ptr noundef %0) #0 section ".text.startup" {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  br label %3
+  %3 = getelementptr inbounds %"class.std::unique_ptr.4", ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 8
+  br label %4
 
-3:                                                ; preds = %3, %1
-  %4 = phi ptr [ getelementptr inbounds (%"class.std::unique_ptr.4", ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 8), %1 ], [ %5, %3 ]
-  %5 = getelementptr inbounds %"class.std::unique_ptr.4", ptr %4, i64 -1
-  call void @_ZNSt10unique_ptrIN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EEENS2_14AlignedDeleterIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %6 = icmp eq ptr %5, @_ZN9Stockfish4Eval4NNUE10networkBigE
-  br i1 %6, label %7, label %3
+4:                                                ; preds = %4, %1
+  %5 = phi ptr [ %3, %1 ], [ %6, %4 ]
+  %6 = getelementptr inbounds %"class.std::unique_ptr.4", ptr %5, i64 -1
+  call void @_ZNSt10unique_ptrIN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EEENS2_14AlignedDeleterIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = icmp eq ptr %6, @_ZN9Stockfish4Eval4NNUE10networkBigE
+  br i1 %7, label %8, label %4
 
-7:                                                ; preds = %3
+8:                                                ; preds = %4
   ret void
 }
 
@@ -2166,16 +2167,17 @@ define internal void @__cxx_global_var_init.6() #0 section ".text.startup" {
 define internal void @__cxx_global_array_dtor.7(ptr noundef %0) #0 section ".text.startup" {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  br label %3
+  %3 = getelementptr inbounds %"class.std::unique_ptr.23", ptr @_ZN9Stockfish4Eval4NNUE12networkSmallE, i64 8
+  br label %4
 
-3:                                                ; preds = %3, %1
-  %4 = phi ptr [ getelementptr inbounds (%"class.std::unique_ptr.23", ptr @_ZN9Stockfish4Eval4NNUE12networkSmallE, i64 8), %1 ], [ %5, %3 ]
-  %5 = getelementptr inbounds %"class.std::unique_ptr.23", ptr %4, i64 -1
-  call void @_ZNSt10unique_ptrIN9Stockfish4Eval4NNUE7NetworkILj128ELi15ELi32EEENS2_14AlignedDeleterIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %6 = icmp eq ptr %5, @_ZN9Stockfish4Eval4NNUE12networkSmallE
-  br i1 %6, label %7, label %3
+4:                                                ; preds = %4, %1
+  %5 = phi ptr [ %3, %1 ], [ %6, %4 ]
+  %6 = getelementptr inbounds %"class.std::unique_ptr.23", ptr %5, i64 -1
+  call void @_ZNSt10unique_ptrIN9Stockfish4Eval4NNUE7NetworkILj128ELi15ELi32EEENS2_14AlignedDeleterIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = icmp eq ptr %6, @_ZN9Stockfish4Eval4NNUE12networkSmallE
+  br i1 %7, label %8, label %4
 
-7:                                                ; preds = %3
+8:                                                ; preds = %4
   ret void
 }
 

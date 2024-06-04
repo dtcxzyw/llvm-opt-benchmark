@@ -907,7 +907,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %max_size.addr, align 8
   call void @_ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEEC2Em(ptr noundef nonnull align 8 dereferenceable(88) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base8MRUCacheImN3net24QuicCompressedCertsCache11CachedCertsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4base8MRUCacheImN3net24QuicCompressedCertsCache11CachedCertsEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -1670,14 +1671,15 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i64 %max_size, ptr %max_size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ordering_ = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx114listISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ordering_) #11
   %index_ = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this1, i32 0, i32 2
   call void @_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %index_) #11
   %max_size_ = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this1, i32 0, i32 3
-  %0 = load i64, ptr %max_size.addr, align 8
-  store i64 %0, ptr %max_size_, align 8
+  %1 = load i64, ptr %max_size.addr, align 8
+  store i64 %1, ptr %max_size_, align 8
   ret void
 }
 
@@ -1719,7 +1721,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %index_ = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this1, i32 0, i32 2
   call void @_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %index_) #11
   %ordering_ = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this1, i32 0, i32 1

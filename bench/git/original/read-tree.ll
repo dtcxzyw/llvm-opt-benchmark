@@ -951,47 +951,48 @@ if.then370:                                       ; preds = %land.lhs.true367
   br label %if.end371
 
 if.end371:                                        ; preds = %if.then370, %land.lhs.true367, %if.end364
-  call void @cache_tree_free(ptr noundef getelementptr inbounds (%struct.index_state, ptr @the_index, i32 0, i32 6))
+  %55 = getelementptr inbounds %struct.index_state, ptr @the_index, i32 0, i32 6
+  call void @cache_tree_free(ptr noundef %55)
   store i32 0, ptr %i, align 4
   br label %for.cond372
 
 for.cond372:                                      ; preds = %for.inc380, %if.end371
-  %55 = load i32, ptr %i, align 4
-  %56 = load i32, ptr @nr_trees, align 4
-  %cmp373 = icmp slt i32 %55, %56
+  %56 = load i32, ptr %i, align 4
+  %57 = load i32, ptr @nr_trees, align 4
+  %cmp373 = icmp slt i32 %56, %57
   br i1 %cmp373, label %for.body375, label %for.end382
 
 for.body375:                                      ; preds = %for.cond372
-  %57 = load i32, ptr %i, align 4
-  %idxprom376 = sext i32 %57 to i64
+  %58 = load i32, ptr %i, align 4
+  %idxprom376 = sext i32 %58 to i64
   %arrayidx377 = getelementptr inbounds [8 x ptr], ptr @trees, i64 0, i64 %idxprom376
-  %58 = load ptr, ptr %arrayidx377, align 8
-  store ptr %58, ptr %tree, align 8
-  %59 = load ptr, ptr %tree, align 8
-  %call378 = call i32 @parse_tree(ptr noundef %59)
+  %59 = load ptr, ptr %arrayidx377, align 8
+  store ptr %59, ptr %tree, align 8
+  %60 = load ptr, ptr %tree, align 8
+  %call378 = call i32 @parse_tree(ptr noundef %60)
   %arraydecay379 = getelementptr inbounds [8 x %struct.tree_desc], ptr %t, i64 0, i64 0
-  %60 = load i32, ptr %i, align 4
-  %idx.ext = sext i32 %60 to i64
+  %61 = load i32, ptr %i, align 4
+  %idx.ext = sext i32 %61 to i64
   %add.ptr = getelementptr inbounds %struct.tree_desc, ptr %arraydecay379, i64 %idx.ext
-  %61 = load ptr, ptr %tree, align 8
-  %buffer = getelementptr inbounds %struct.tree, ptr %61, i32 0, i32 1
-  %62 = load ptr, ptr %buffer, align 8
-  %63 = load ptr, ptr %tree, align 8
-  %size = getelementptr inbounds %struct.tree, ptr %63, i32 0, i32 2
-  %64 = load i64, ptr %size, align 8
-  call void @init_tree_desc(ptr noundef %add.ptr, ptr noundef %62, i64 noundef %64)
+  %62 = load ptr, ptr %tree, align 8
+  %buffer = getelementptr inbounds %struct.tree, ptr %62, i32 0, i32 1
+  %63 = load ptr, ptr %buffer, align 8
+  %64 = load ptr, ptr %tree, align 8
+  %size = getelementptr inbounds %struct.tree, ptr %64, i32 0, i32 2
+  %65 = load i64, ptr %size, align 8
+  call void @init_tree_desc(ptr noundef %add.ptr, ptr noundef %63, i64 noundef %65)
   br label %for.inc380
 
 for.inc380:                                       ; preds = %for.body375
-  %65 = load i32, ptr %i, align 4
-  %inc381 = add nsw i32 %65, 1
+  %66 = load i32, ptr %i, align 4
+  %inc381 = add nsw i32 %66, 1
   store i32 %inc381, ptr %i, align 4
   br label %for.cond372, !llvm.loop !7
 
 for.end382:                                       ; preds = %for.cond372
-  %66 = load i32, ptr @nr_trees, align 4
+  %67 = load i32, ptr @nr_trees, align 4
   %arraydecay383 = getelementptr inbounds [8 x %struct.tree_desc], ptr %t, i64 0, i64 0
-  %call384 = call i32 @unpack_trees(i32 noundef %66, ptr noundef %arraydecay383, ptr noundef %opts)
+  %call384 = call i32 @unpack_trees(i32 noundef %67, ptr noundef %arraydecay383, ptr noundef %opts)
   %tobool385 = icmp ne i32 %call384, 0
   br i1 %tobool385, label %if.then386, label %if.end387
 
@@ -1002,14 +1003,14 @@ if.then386:                                       ; preds = %for.end382
 if.end387:                                        ; preds = %for.end382
   %internal388 = getelementptr inbounds %struct.unpack_trees_options, ptr %opts, i32 0, i32 27
   %debug_unpack389 = getelementptr inbounds %struct.unpack_trees_options_internal, ptr %internal388, i32 0, i32 2
-  %67 = load i32, ptr %debug_unpack389, align 8
-  %tobool390 = icmp ne i32 %67, 0
+  %68 = load i32, ptr %debug_unpack389, align 8
+  %tobool390 = icmp ne i32 %68, 0
   br i1 %tobool390, label %if.then394, label %lor.lhs.false391
 
 lor.lhs.false391:                                 ; preds = %if.end387
   %dry_run392 = getelementptr inbounds %struct.unpack_trees_options, ptr %opts, i32 0, i32 14
-  %68 = load i32, ptr %dry_run392, align 8
-  %tobool393 = icmp ne i32 %68, 0
+  %69 = load i32, ptr %dry_run392, align 8
+  %tobool393 = icmp ne i32 %69, 0
   br i1 %tobool393, label %if.then394, label %if.end395
 
 if.then394:                                       ; preds = %lor.lhs.false391, %if.end387
@@ -1017,23 +1018,23 @@ if.then394:                                       ; preds = %lor.lhs.false391, %
   br label %return
 
 if.end395:                                        ; preds = %lor.lhs.false391
-  %69 = load i32, ptr @nr_trees, align 4
-  %cmp396 = icmp eq i32 %69, 1
+  %70 = load i32, ptr @nr_trees, align 4
+  %cmp396 = icmp eq i32 %70, 1
   br i1 %cmp396, label %land.lhs.true398, label %if.end402
 
 land.lhs.true398:                                 ; preds = %if.end395
   %prefix399 = getelementptr inbounds %struct.unpack_trees_options, ptr %opts, i32 0, i32 17
-  %70 = load ptr, ptr %prefix399, align 8
-  %tobool400 = icmp ne ptr %70, null
+  %71 = load ptr, ptr %prefix399, align 8
+  %tobool400 = icmp ne ptr %71, null
   br i1 %tobool400, label %if.end402, label %if.then401
 
 if.then401:                                       ; preds = %land.lhs.true398
-  %71 = load ptr, ptr @the_repository, align 8
   %72 = load ptr, ptr @the_repository, align 8
-  %index = getelementptr inbounds %struct.repository, ptr %72, i32 0, i32 13
-  %73 = load ptr, ptr %index, align 8
-  %74 = load ptr, ptr @trees, align 16
-  call void @prime_cache_tree(ptr noundef %71, ptr noundef %73, ptr noundef %74)
+  %73 = load ptr, ptr @the_repository, align 8
+  %index = getelementptr inbounds %struct.repository, ptr %73, i32 0, i32 13
+  %74 = load ptr, ptr %index, align 8
+  %75 = load ptr, ptr @trees, align 16
+  call void @prime_cache_tree(ptr noundef %72, ptr noundef %74, ptr noundef %75)
   br label %if.end402
 
 if.end402:                                        ; preds = %if.then401, %land.lhs.true398, %if.end395
@@ -1050,8 +1051,8 @@ if.end406:                                        ; preds = %if.end402
   br label %return
 
 return:                                           ; preds = %if.end406, %if.then394, %if.then386
-  %75 = load i32, ptr %retval, align 4
-  ret i32 %75
+  %76 = load i32, ptr %retval, align 4
+  ret i32 %76
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

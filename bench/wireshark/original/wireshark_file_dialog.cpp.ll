@@ -80,9 +80,11 @@ define void @_ZN19WiresharkFileDialogC2EP7QWidgetRK7QStringS4_S4_(ptr noundef no
   %14 = load ptr, ptr %9, align 8
   %15 = load ptr, ptr %10, align 8
   call void @_ZN11QFileDialogC2EP7QWidgetRK7QStringS4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19WiresharkFileDialog, i32 0, i32 0, i32 2), ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19WiresharkFileDialog, i32 0, i32 1, i32 2), ptr %16, align 8
+  %16 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19WiresharkFileDialog, i32 0, i32 0, i32 2
+  store ptr %16, ptr %11, align 8
+  %17 = getelementptr inbounds i8, ptr %11, i64 16
+  %18 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19WiresharkFileDialog, i32 0, i32 1, i32 2
+  store ptr %18, ptr %17, align 8
   ret void
 }
 

@@ -87,7 +87,7 @@ define void @ompi_mpi_errors_are_fatal_comm_handler(ptr noundef %0, ptr noundef 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %3, align 8
   %10 = icmp ne ptr null, %9
   br i1 %10, label %11, label %22
@@ -121,12 +121,9 @@ define void @ompi_mpi_errors_are_fatal_comm_handler(ptr noundef %0, ptr noundef 
   %27 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   call void @backend_abort(i32 noundef 1, ptr noundef @.str, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27)
   %28 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %28)
+  call void @llvm.va_end.p0(ptr %28)
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @backend_abort(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -207,9 +204,6 @@ define internal void @backend_abort(i32 noundef %0, ptr noundef %1, ptr noundef 
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
 ; Function Attrs: nounwind uwtable
 define void @ompi_mpi_errors_are_fatal_file_handler(ptr noundef %0, ptr noundef %1, ...) #0 {
   %3 = alloca ptr, align 8
@@ -220,7 +214,7 @@ define void @ompi_mpi_errors_are_fatal_file_handler(ptr noundef %0, ptr noundef 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %3, align 8
   %10 = icmp ne ptr null, %9
   br i1 %10, label %11, label %20
@@ -250,7 +244,7 @@ define void @ompi_mpi_errors_are_fatal_file_handler(ptr noundef %0, ptr noundef 
   %25 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   call void @backend_abort(i32 noundef 1, ptr noundef @.str.1, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25)
   %26 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %26)
+  call void @llvm.va_end.p0(ptr %26)
   ret void
 }
 
@@ -265,7 +259,7 @@ define void @ompi_mpi_errors_are_fatal_win_handler(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %4, align 8
   store ptr null, ptr %6, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %3, align 8
   %10 = icmp ne ptr null, %9
   br i1 %10, label %11, label %16
@@ -289,7 +283,7 @@ define void @ompi_mpi_errors_are_fatal_win_handler(ptr noundef %0, ptr noundef %
   %21 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   call void @backend_abort(i32 noundef 1, ptr noundef @.str.2, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21)
   %22 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %22)
+  call void @llvm.va_end.p0(ptr %22)
   ret void
 }
 
@@ -303,7 +297,7 @@ define void @ompi_mpi_errors_abort_comm_handler(ptr noundef %0, ptr noundef %1, 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %3, align 8
   %10 = icmp ne ptr null, %9
   br i1 %10, label %11, label %22
@@ -337,7 +331,7 @@ define void @ompi_mpi_errors_abort_comm_handler(ptr noundef %0, ptr noundef %1, 
   %27 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   call void @backend_abort(i32 noundef 0, ptr noundef @.str, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27)
   %28 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %28)
+  call void @llvm.va_end.p0(ptr %28)
   ret void
 }
 
@@ -351,7 +345,7 @@ define void @ompi_mpi_errors_abort_file_handler(ptr noundef %0, ptr noundef %1, 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %3, align 8
   %10 = icmp ne ptr null, %9
   br i1 %10, label %11, label %20
@@ -381,7 +375,7 @@ define void @ompi_mpi_errors_abort_file_handler(ptr noundef %0, ptr noundef %1, 
   %25 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   call void @backend_abort(i32 noundef 0, ptr noundef @.str.1, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25)
   %26 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %26)
+  call void @llvm.va_end.p0(ptr %26)
   ret void
 }
 
@@ -396,7 +390,7 @@ define void @ompi_mpi_errors_abort_win_handler(ptr noundef %0, ptr noundef %1, .
   store ptr %1, ptr %4, align 8
   store ptr null, ptr %6, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %3, align 8
   %10 = icmp ne ptr null, %9
   br i1 %10, label %11, label %16
@@ -420,7 +414,7 @@ define void @ompi_mpi_errors_abort_win_handler(ptr noundef %0, ptr noundef %1, .
   %21 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   call void @backend_abort(i32 noundef 0, ptr noundef @.str.2, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21)
   %22 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %22)
+  call void @llvm.va_end.p0(ptr %22)
   ret void
 }
 
@@ -435,7 +429,7 @@ define void @ompi_mpi_errors_are_fatal_instance_handler(ptr noundef %0, ptr noun
   store ptr %1, ptr %4, align 8
   store i32 14, ptr %7, align 4
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %3, align 8
   %10 = icmp ne ptr null, %9
   br i1 %10, label %11, label %16
@@ -484,7 +478,7 @@ define void @ompi_mpi_errors_are_fatal_instance_handler(ptr noundef %0, ptr noun
 
 34:                                               ; preds = %30, %26
   %35 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %35)
+  call void @llvm.va_end.p0(ptr %35)
   %36 = load i32, ptr %7, align 4
   %37 = call i32 @ompi_mpi_abort(ptr noundef null, i32 noundef %36)
   ret void
@@ -548,175 +542,181 @@ define internal void @backend_abort_aggregate(i32 noundef %0, ptr noundef %1, pt
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %13, align 8
   %38 = load ptr, ptr %12, align 8
-  call void @llvm.va_end(ptr %38)
-  %39 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %40 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 13), align 8
-  %41 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %14, ptr noundef @.str.7, ptr noundef %39, i32 noundef %40)
-  %42 = icmp eq i32 %41, -1
-  br i1 %42, label %43, label %46
+  call void @llvm.va_end.p0(ptr %38)
+  %39 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 13
+  %42 = load i32, ptr %41, align 8
+  %43 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %14, ptr noundef @.str.7, ptr noundef %40, i32 noundef %42)
+  %44 = icmp eq i32 %43, -1
+  br i1 %44, label %45, label %50
 
-43:                                               ; preds = %35
+45:                                               ; preds = %35
   store ptr null, ptr %14, align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.8, ptr noundef @.str.9)
-  %44 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.10, ptr noundef %44)
-  %45 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 13), align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.11, i32 noundef %45)
-  br label %46
+  %46 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %47 = load ptr, ptr %46, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.10, ptr noundef %47)
+  %48 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 13
+  %49 = load i32, ptr %48, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.11, i32 noundef %49)
+  br label %50
 
-46:                                               ; preds = %43, %35
-  %47 = load ptr, ptr %11, align 8
-  %48 = icmp ne ptr null, %47
-  br i1 %48, label %49, label %66
+50:                                               ; preds = %45, %35
+  %51 = load ptr, ptr %11, align 8
+  %52 = icmp ne ptr null, %51
+  br i1 %52, label %53, label %70
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %11, align 8
-  %51 = load i32, ptr %50, align 4
-  %52 = call ptr @ompi_mpi_errnum_get_string(i32 noundef %51)
-  store ptr %52, ptr %15, align 8
-  %53 = load ptr, ptr %15, align 8
-  %54 = icmp eq ptr null, %53
-  br i1 %54, label %55, label %65
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %11, align 8
+  %55 = load i32, ptr %54, align 4
+  %56 = call ptr @ompi_mpi_errnum_get_string(i32 noundef %55)
+  store ptr %56, ptr %15, align 8
+  %57 = load ptr, ptr %15, align 8
+  %58 = icmp eq ptr null, %57
+  br i1 %58, label %59, label %69
 
-55:                                               ; preds = %49
-  %56 = load ptr, ptr %11, align 8
-  %57 = load i32, ptr %56, align 4
-  %58 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %15, ptr noundef @.str.4, i32 noundef %57)
-  %59 = icmp eq i32 %58, -1
-  br i1 %59, label %60, label %63
+59:                                               ; preds = %53
+  %60 = load ptr, ptr %11, align 8
+  %61 = load i32, ptr %60, align 4
+  %62 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %15, ptr noundef @.str.4, i32 noundef %61)
+  %63 = icmp eq i32 %62, -1
+  br i1 %63, label %64, label %67
 
-60:                                               ; preds = %55
+64:                                               ; preds = %59
   store ptr null, ptr %15, align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.8, ptr noundef @.str.12)
-  %61 = load ptr, ptr %11, align 8
-  %62 = load i32, ptr %61, align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.4, i32 noundef %62)
-  br label %64
+  %65 = load ptr, ptr %11, align 8
+  %66 = load i32, ptr %65, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.4, i32 noundef %66)
+  br label %68
 
-63:                                               ; preds = %55
+67:                                               ; preds = %59
   store i8 1, ptr %19, align 1
-  br label %64
+  br label %68
 
-64:                                               ; preds = %63, %60
-  br label %65
+68:                                               ; preds = %67, %64
+  br label %69
 
-65:                                               ; preds = %64, %49
-  br label %66
+69:                                               ; preds = %68, %53
+  br label %70
 
-66:                                               ; preds = %65, %46
-  %67 = load ptr, ptr %14, align 8
-  %68 = icmp eq ptr null, %67
-  br i1 %68, label %69, label %70
-
-69:                                               ; preds = %66
-  br label %72
-
-70:                                               ; preds = %66
+70:                                               ; preds = %69, %50
   %71 = load ptr, ptr %14, align 8
-  br label %72
+  %72 = icmp eq ptr null, %71
+  br i1 %72, label %73, label %74
 
-72:                                               ; preds = %70, %69
-  %73 = phi ptr [ @.str.6, %69 ], [ %71, %70 ]
-  store ptr %73, ptr %20, align 8
-  %74 = load ptr, ptr %15, align 8
-  %75 = icmp eq ptr null, %74
-  br i1 %75, label %76, label %77
+73:                                               ; preds = %70
+  br label %76
 
-76:                                               ; preds = %72
-  br label %79
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %14, align 8
+  br label %76
 
-77:                                               ; preds = %72
+76:                                               ; preds = %74, %73
+  %77 = phi ptr [ @.str.6, %73 ], [ %75, %74 ]
+  store ptr %77, ptr %20, align 8
   %78 = load ptr, ptr %15, align 8
-  br label %79
+  %79 = icmp eq ptr null, %78
+  br i1 %79, label %80, label %81
 
-79:                                               ; preds = %77, %76
-  %80 = phi ptr [ @.str.5, %76 ], [ %78, %77 ]
-  store ptr %80, ptr %21, align 8
-  %81 = load ptr, ptr %10, align 8
-  %82 = icmp ne ptr null, %81
-  br i1 %82, label %83, label %111
+80:                                               ; preds = %76
+  br label %83
 
-83:                                               ; preds = %79
-  %84 = load ptr, ptr @opal_show_help, align 8
-  %85 = load i32, ptr %7, align 4
-  %86 = icmp ne i32 %85, 0
-  %87 = select i1 %86, ptr @.str.14, ptr @.str.15
-  %88 = load ptr, ptr %20, align 8
-  %89 = load ptr, ptr %13, align 8
-  %90 = icmp eq ptr null, %89
-  %91 = select i1 %90, ptr @.str.16, ptr @.str.17
-  %92 = load ptr, ptr %13, align 8
-  %93 = icmp eq ptr null, %92
-  br i1 %93, label %94, label %95
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %15, align 8
+  br label %83
 
-94:                                               ; preds = %83
-  br label %97
+83:                                               ; preds = %81, %80
+  %84 = phi ptr [ @.str.5, %80 ], [ %82, %81 ]
+  store ptr %84, ptr %21, align 8
+  %85 = load ptr, ptr %10, align 8
+  %86 = icmp ne ptr null, %85
+  br i1 %86, label %87, label %116
 
-95:                                               ; preds = %83
+87:                                               ; preds = %83
+  %88 = load ptr, ptr @opal_show_help, align 8
+  %89 = load i32, ptr %7, align 4
+  %90 = icmp ne i32 %89, 0
+  %91 = select i1 %90, ptr @.str.14, ptr @.str.15
+  %92 = load ptr, ptr %20, align 8
+  %93 = load ptr, ptr %13, align 8
+  %94 = icmp eq ptr null, %93
+  %95 = select i1 %94, ptr @.str.16, ptr @.str.17
   %96 = load ptr, ptr %13, align 8
-  br label %97
+  %97 = icmp eq ptr null, %96
+  br i1 %97, label %98, label %99
 
-97:                                               ; preds = %95, %94
-  %98 = phi ptr [ @.str.16, %94 ], [ %96, %95 ]
-  %99 = load ptr, ptr %20, align 8
-  %100 = load i32, ptr @opal_process_info, align 8
-  %101 = load i32, ptr getelementptr inbounds (%struct.opal_process_name_t, ptr @opal_process_info, i32 0, i32 1), align 4
-  %102 = load ptr, ptr %20, align 8
-  %103 = load ptr, ptr %8, align 8
-  %104 = load ptr, ptr %10, align 8
-  %105 = load ptr, ptr %20, align 8
-  %106 = load ptr, ptr %21, align 8
+98:                                               ; preds = %87
+  br label %101
+
+99:                                               ; preds = %87
+  %100 = load ptr, ptr %13, align 8
+  br label %101
+
+101:                                              ; preds = %99, %98
+  %102 = phi ptr [ @.str.16, %98 ], [ %100, %99 ]
+  %103 = load ptr, ptr %20, align 8
+  %104 = load i32, ptr @opal_process_info, align 8
+  %105 = getelementptr inbounds %struct.opal_process_name_t, ptr @opal_process_info, i32 0, i32 1
+  %106 = load i32, ptr %105, align 4
   %107 = load ptr, ptr %20, align 8
   %108 = load ptr, ptr %8, align 8
-  %109 = load ptr, ptr %20, align 8
-  %110 = call i32 (ptr, ptr, i32, ...) %84(ptr noundef @.str.13, ptr noundef %87, i32 noundef 0, ptr noundef %88, ptr noundef %91, ptr noundef %98, ptr noundef %99, i32 noundef %100, i32 noundef %101, ptr noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef %105, ptr noundef %106, ptr noundef %107, ptr noundef %108, ptr noundef %109)
-  br label %135
-
-111:                                              ; preds = %79
-  %112 = load ptr, ptr @opal_show_help, align 8
-  %113 = load ptr, ptr %20, align 8
-  %114 = load ptr, ptr %13, align 8
-  %115 = icmp eq ptr null, %114
-  %116 = select i1 %115, ptr @.str.16, ptr @.str.17
-  %117 = load ptr, ptr %13, align 8
-  %118 = icmp eq ptr null, %117
-  br i1 %118, label %119, label %120
-
-119:                                              ; preds = %111
-  br label %122
-
-120:                                              ; preds = %111
-  %121 = load ptr, ptr %13, align 8
-  br label %122
-
-122:                                              ; preds = %120, %119
-  %123 = phi ptr [ @.str.16, %119 ], [ %121, %120 ]
-  %124 = load ptr, ptr %20, align 8
-  %125 = load i32, ptr @opal_process_info, align 8
-  %126 = load i32, ptr getelementptr inbounds (%struct.opal_process_name_t, ptr @opal_process_info, i32 0, i32 1), align 4
-  %127 = load ptr, ptr %20, align 8
-  %128 = load ptr, ptr %8, align 8
-  %129 = load ptr, ptr %20, align 8
-  %130 = load ptr, ptr %21, align 8
-  %131 = load ptr, ptr %20, align 8
-  %132 = load ptr, ptr %8, align 8
-  %133 = load ptr, ptr %20, align 8
-  %134 = call i32 (ptr, ptr, i32, ...) %112(ptr noundef @.str.13, ptr noundef @.str.18, i32 noundef 0, ptr noundef %113, ptr noundef %116, ptr noundef %123, ptr noundef %124, i32 noundef %125, i32 noundef %126, ptr noundef %127, ptr noundef %128, ptr noundef %129, ptr noundef %130, ptr noundef %131, ptr noundef %132, ptr noundef %133)
-  br label %135
-
-135:                                              ; preds = %122, %97
-  %136 = load ptr, ptr %14, align 8
-  call void @free(ptr noundef %136) #5
-  %137 = load i8, ptr %19, align 1
-  %138 = trunc i8 %137 to i1
-  br i1 %138, label %139, label %141
-
-139:                                              ; preds = %135
-  %140 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %140) #5
+  %109 = load ptr, ptr %10, align 8
+  %110 = load ptr, ptr %20, align 8
+  %111 = load ptr, ptr %21, align 8
+  %112 = load ptr, ptr %20, align 8
+  %113 = load ptr, ptr %8, align 8
+  %114 = load ptr, ptr %20, align 8
+  %115 = call i32 (ptr, ptr, i32, ...) %88(ptr noundef @.str.13, ptr noundef %91, i32 noundef 0, ptr noundef %92, ptr noundef %95, ptr noundef %102, ptr noundef %103, i32 noundef %104, i32 noundef %106, ptr noundef %107, ptr noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef %113, ptr noundef %114)
   br label %141
 
-141:                                              ; preds = %139, %135
+116:                                              ; preds = %83
+  %117 = load ptr, ptr @opal_show_help, align 8
+  %118 = load ptr, ptr %20, align 8
+  %119 = load ptr, ptr %13, align 8
+  %120 = icmp eq ptr null, %119
+  %121 = select i1 %120, ptr @.str.16, ptr @.str.17
+  %122 = load ptr, ptr %13, align 8
+  %123 = icmp eq ptr null, %122
+  br i1 %123, label %124, label %125
+
+124:                                              ; preds = %116
+  br label %127
+
+125:                                              ; preds = %116
+  %126 = load ptr, ptr %13, align 8
+  br label %127
+
+127:                                              ; preds = %125, %124
+  %128 = phi ptr [ @.str.16, %124 ], [ %126, %125 ]
+  %129 = load ptr, ptr %20, align 8
+  %130 = load i32, ptr @opal_process_info, align 8
+  %131 = getelementptr inbounds %struct.opal_process_name_t, ptr @opal_process_info, i32 0, i32 1
+  %132 = load i32, ptr %131, align 4
+  %133 = load ptr, ptr %20, align 8
+  %134 = load ptr, ptr %8, align 8
+  %135 = load ptr, ptr %20, align 8
+  %136 = load ptr, ptr %21, align 8
+  %137 = load ptr, ptr %20, align 8
+  %138 = load ptr, ptr %8, align 8
+  %139 = load ptr, ptr %20, align 8
+  %140 = call i32 (ptr, ptr, i32, ...) %117(ptr noundef @.str.13, ptr noundef @.str.18, i32 noundef 0, ptr noundef %118, ptr noundef %121, ptr noundef %128, ptr noundef %129, i32 noundef %130, i32 noundef %132, ptr noundef %133, ptr noundef %134, ptr noundef %135, ptr noundef %136, ptr noundef %137, ptr noundef %138, ptr noundef %139)
+  br label %141
+
+141:                                              ; preds = %127, %101
+  %142 = load ptr, ptr %14, align 8
+  call void @free(ptr noundef %142) #5
+  %143 = load i8, ptr %19, align 1
+  %144 = trunc i8 %143 to i1
+  br i1 %144, label %145, label %147
+
+145:                                              ; preds = %141
+  %146 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %146) #5
+  br label %147
+
+147:                                              ; preds = %145, %141
   ret void
 }
 
@@ -970,11 +970,11 @@ define internal void @backend_abort_no_aggregate(i32 noundef %0, ptr noundef %1,
 
 144:                                              ; preds = %143, %52
   %145 = load ptr, ptr %12, align 8
-  call void @llvm.va_end(ptr %145)
+  call void @llvm.va_end.p0(ptr %145)
   ret void
 }
 
-declare i32 @ompi_mpi_abort(ptr noundef, i32 noundef) #2
+declare i32 @ompi_mpi_abort(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define void @ompi_mpi_errors_return_comm_handler(ptr noundef %0, ptr noundef %1, ...) #0 {
@@ -984,9 +984,9 @@ define void @ompi_mpi_errors_return_comm_handler(ptr noundef %0, ptr noundef %1,
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %7)
+  call void @llvm.va_end.p0(ptr %7)
   ret void
 }
 
@@ -998,9 +998,9 @@ define void @ompi_mpi_errors_return_file_handler(ptr noundef %0, ptr noundef %1,
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %7)
+  call void @llvm.va_end.p0(ptr %7)
   ret void
 }
 
@@ -1012,9 +1012,9 @@ define void @ompi_mpi_errors_return_win_handler(ptr noundef %0, ptr noundef %1, 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %7)
+  call void @llvm.va_end.p0(ptr %7)
   ret void
 }
 
@@ -1026,15 +1026,15 @@ define void @ompi_mpi_errors_return_instance_handler(ptr noundef %0, ptr noundef
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %7)
+  call void @llvm.va_end.p0(ptr %7)
   ret void
 }
 
-declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) #2
+declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) #1
 
-declare void @opal_output(i32 noundef, ptr noundef, ...) #2
+declare void @opal_output(i32 noundef, ptr noundef, ...) #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ompi_mpi_errnum_get_string(i32 noundef %0) #0 {
@@ -1089,9 +1089,9 @@ define internal ptr @ompi_mpi_errnum_get_string(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #2
 
-declare i32 @ompi_mpi_errcode_init() #2
+declare i32 @ompi_mpi_errcode_init() #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @opal_pointer_array_get_item(ptr noundef %0, i32 noundef %1) #0 {
@@ -1218,7 +1218,7 @@ define internal void @opal_thread_internal_mutex_lock(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) #3
+declare i32 @pthread_mutex_lock(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @opal_thread_internal_mutex_unlock(ptr noundef %0) #0 {
@@ -1230,9 +1230,9 @@ define internal void @opal_thread_internal_mutex_unlock(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) #3
+declare i32 @pthread_mutex_unlock(ptr noundef) #2
 
-declare i32 @fflush(ptr noundef) #2
+declare i32 @fflush(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @out(ptr noundef %0, ptr noundef %1) #0 {
@@ -1294,22 +1294,28 @@ define internal void @out(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind
-declare ptr @strncat(ptr noundef, ptr noundef, i64 noundef) #3
+declare ptr @strncat(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #3
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind willreturn }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }
 

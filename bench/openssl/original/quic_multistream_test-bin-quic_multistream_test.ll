@@ -9256,7 +9256,8 @@ entry:
   store ptr %hl, ptr %hl.addr, align 8
   call void @llvm.memset.p0.i64(ptr align 16 @long_reason, i8 126, i64 2048, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 @long_reason, ptr align 1 @.str.244, i64 29, i1 false)
-  store i8 0, ptr getelementptr inbounds ([2048 x i8], ptr @long_reason, i64 0, i64 2047), align 1
+  %0 = getelementptr inbounds [2048 x i8], ptr @long_reason, i64 0, i64 2047
+  store i8 0, ptr %0, align 1
   ret i32 1
 }
 

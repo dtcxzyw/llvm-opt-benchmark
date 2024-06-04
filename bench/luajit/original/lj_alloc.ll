@@ -26,16 +26,17 @@ entry:
   %call = call ptr @mmap_probe(ptr noundef %0, i64 noundef %1)
   store ptr %call, ptr %tbase, align 8
   %2 = load ptr, ptr %tbase, align 8
-  %cmp = icmp ne ptr %2, inttoptr (i64 -1 to ptr)
+  %3 = inttoptr i64 -1 to ptr
+  %cmp = icmp ne ptr %2, %3
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store i64 880, ptr %msize, align 8
-  %3 = load ptr, ptr %tbase, align 8
   %4 = load ptr, ptr %tbase, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 16
-  %5 = ptrtoint ptr %add.ptr to i64
-  %and = and i64 %5, 7
+  %5 = load ptr, ptr %tbase, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = ptrtoint ptr %add.ptr to i64
+  %and = and i64 %6, 7
   %cmp1 = icmp eq i64 %and, 0
   br i1 %cmp1, label %cond.true, label %cond.false
 
@@ -43,67 +44,67 @@ cond.true:                                        ; preds = %if.then
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then
-  %6 = load ptr, ptr %tbase, align 8
-  %add.ptr2 = getelementptr inbounds i8, ptr %6, i64 16
-  %7 = ptrtoint ptr %add.ptr2 to i64
-  %and3 = and i64 %7, 7
+  %7 = load ptr, ptr %tbase, align 8
+  %add.ptr2 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = ptrtoint ptr %add.ptr2 to i64
+  %and3 = and i64 %8, 7
   %sub = sub i64 8, %and3
   %and4 = and i64 %sub, 7
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i64 [ 0, %cond.true ], [ %and4, %cond.false ]
-  %add.ptr5 = getelementptr inbounds i8, ptr %3, i64 %cond
+  %add.ptr5 = getelementptr inbounds i8, ptr %4, i64 %cond
   store ptr %add.ptr5, ptr %msp, align 8
-  %8 = load ptr, ptr %msp, align 8
-  %add.ptr6 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = load ptr, ptr %msp, align 8
+  %add.ptr6 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %add.ptr6, ptr %m, align 8
-  %9 = load ptr, ptr %m, align 8
-  %10 = load i64, ptr %msize, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %10, i1 false)
+  %10 = load ptr, ptr %m, align 8
   %11 = load i64, ptr %msize, align 8
-  %or = or i64 %11, 1
+  call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 %11, i1 false)
+  %12 = load i64, ptr %msize, align 8
+  %or = or i64 %12, 1
   %or7 = or i64 %or, 2
-  %12 = load ptr, ptr %msp, align 8
-  %head = getelementptr inbounds %struct.malloc_chunk, ptr %12, i32 0, i32 1
+  %13 = load ptr, ptr %msp, align 8
+  %head = getelementptr inbounds %struct.malloc_chunk, ptr %13, i32 0, i32 1
   store i64 %or7, ptr %head, align 8
-  %13 = load ptr, ptr %tbase, align 8
-  %14 = load ptr, ptr %m, align 8
-  %seg = getelementptr inbounds %struct.malloc_state, ptr %14, i32 0, i32 10
+  %14 = load ptr, ptr %tbase, align 8
+  %15 = load ptr, ptr %m, align 8
+  %seg = getelementptr inbounds %struct.malloc_state, ptr %15, i32 0, i32 10
   %base = getelementptr inbounds %struct.malloc_segment, ptr %seg, i32 0, i32 0
-  store ptr %13, ptr %base, align 8
-  %15 = load i64, ptr %tsize, align 8
-  %16 = load ptr, ptr %m, align 8
-  %seg8 = getelementptr inbounds %struct.malloc_state, ptr %16, i32 0, i32 10
-  %size = getelementptr inbounds %struct.malloc_segment, ptr %seg8, i32 0, i32 1
-  store i64 %15, ptr %size, align 8
+  store ptr %14, ptr %base, align 8
+  %16 = load i64, ptr %tsize, align 8
   %17 = load ptr, ptr %m, align 8
-  %release_checks = getelementptr inbounds %struct.malloc_state, ptr %17, i32 0, i32 7
-  store i64 255, ptr %release_checks, align 8
+  %seg8 = getelementptr inbounds %struct.malloc_state, ptr %17, i32 0, i32 10
+  %size = getelementptr inbounds %struct.malloc_segment, ptr %seg8, i32 0, i32 1
+  store i64 %16, ptr %size, align 8
   %18 = load ptr, ptr %m, align 8
-  call void @init_bins(ptr noundef %18)
+  %release_checks = getelementptr inbounds %struct.malloc_state, ptr %18, i32 0, i32 7
+  store i64 255, ptr %release_checks, align 8
   %19 = load ptr, ptr %m, align 8
-  %add.ptr9 = getelementptr inbounds i8, ptr %19, i64 -16
+  call void @init_bins(ptr noundef %19)
   %20 = load ptr, ptr %m, align 8
-  %add.ptr10 = getelementptr inbounds i8, ptr %20, i64 -16
+  %add.ptr9 = getelementptr inbounds i8, ptr %20, i64 -16
+  %21 = load ptr, ptr %m, align 8
+  %add.ptr10 = getelementptr inbounds i8, ptr %21, i64 -16
   %head11 = getelementptr inbounds %struct.malloc_chunk, ptr %add.ptr10, i32 0, i32 1
-  %21 = load i64, ptr %head11, align 8
-  %and12 = and i64 %21, -4
+  %22 = load i64, ptr %head11, align 8
+  %and12 = and i64 %22, -4
   %add.ptr13 = getelementptr inbounds i8, ptr %add.ptr9, i64 %and12
   store ptr %add.ptr13, ptr %mn, align 8
-  %22 = load ptr, ptr %m, align 8
-  %23 = load ptr, ptr %mn, align 8
-  %24 = load ptr, ptr %tbase, align 8
-  %25 = load i64, ptr %tsize, align 8
-  %add.ptr14 = getelementptr inbounds i8, ptr %24, i64 %25
-  %26 = load ptr, ptr %mn, align 8
+  %23 = load ptr, ptr %m, align 8
+  %24 = load ptr, ptr %mn, align 8
+  %25 = load ptr, ptr %tbase, align 8
+  %26 = load i64, ptr %tsize, align 8
+  %add.ptr14 = getelementptr inbounds i8, ptr %25, i64 %26
+  %27 = load ptr, ptr %mn, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr14 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %27 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub15 = sub i64 %sub.ptr.sub, 64
-  call void @init_top(ptr noundef %22, ptr noundef %23, i64 noundef %sub15)
-  %27 = load ptr, ptr %m, align 8
-  store ptr %27, ptr %retval, align 8
+  call void @init_top(ptr noundef %23, ptr noundef %24, i64 noundef %sub15)
+  %28 = load ptr, ptr %m, align 8
+  store ptr %28, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -111,8 +112,8 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %cond.end
-  %28 = load ptr, ptr %retval, align 8
-  ret ptr %28
+  %29 = load ptr, ptr %retval, align 8
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -179,45 +180,47 @@ if.then:                                          ; preds = %land.lhs.true4
 
 if.end:                                           ; preds = %land.lhs.true4, %land.lhs.true, %for.body
   %15 = load ptr, ptr %p, align 8
-  %cmp9 = icmp ne ptr %15, inttoptr (i64 -1 to ptr)
+  %16 = inttoptr i64 -1 to ptr
+  %cmp9 = icmp ne ptr %15, %16
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.end
-  %16 = load ptr, ptr %p, align 8
-  %17 = load i64, ptr %size.addr, align 8
-  %call11 = call i32 @munmap(ptr noundef %16, i64 noundef %17) #8
+  %17 = load ptr, ptr %p, align 8
+  %18 = load i64, ptr %size.addr, align 8
+  %call11 = call i32 @munmap(ptr noundef %17, i64 noundef %18) #8
   br label %if.end16
 
 if.else:                                          ; preds = %if.end
   %call12 = call ptr @__errno_location() #7
-  %18 = load i32, ptr %call12, align 4
-  %cmp13 = icmp eq i32 %18, 12
+  %19 = load i32, ptr %call12, align 4
+  %cmp13 = icmp eq i32 %19, 12
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.else
-  store ptr inttoptr (i64 -1 to ptr), ptr %retval, align 8
+  %20 = inttoptr i64 -1 to ptr
+  store ptr %20, ptr %retval, align 8
   br label %return
 
 if.end15:                                         ; preds = %if.else
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end15, %if.then10
-  %19 = load i64, ptr @mmap_probe.hint_addr, align 8
-  %tobool = icmp ne i64 %19, 0
+  %21 = load i64, ptr @mmap_probe.hint_addr, align 8
+  %tobool = icmp ne i64 %21, 0
   br i1 %tobool, label %if.then17, label %if.end31
 
 if.then17:                                        ; preds = %if.end16
-  %20 = load i32, ptr %retry, align 4
-  %cmp18 = icmp slt i32 %20, 5
+  %22 = load i32, ptr %retry, align 4
+  %cmp18 = icmp slt i32 %22, 5
   br i1 %cmp18, label %if.then19, label %if.else26
 
 if.then19:                                        ; preds = %if.then17
-  %21 = load i64, ptr @mmap_probe.hint_addr, align 8
-  %add20 = add i64 %21, 16777216
+  %23 = load i64, ptr @mmap_probe.hint_addr, align 8
+  %add20 = add i64 %23, 16777216
   store i64 %add20, ptr @mmap_probe.hint_addr, align 8
-  %22 = load i64, ptr @mmap_probe.hint_addr, align 8
-  %23 = load i64, ptr %size.addr, align 8
-  %add21 = add i64 %22, %23
+  %24 = load i64, ptr @mmap_probe.hint_addr, align 8
+  %25 = load i64, ptr %size.addr, align 8
+  %add21 = add i64 %24, %25
   %shr22 = lshr i64 %add21, 47
   %cmp23 = icmp ne i64 %shr22, 0
   br i1 %cmp23, label %if.then24, label %if.end25
@@ -230,8 +233,8 @@ if.end25:                                         ; preds = %if.then24, %if.then
   br label %for.inc
 
 if.else26:                                        ; preds = %if.then17
-  %24 = load i32, ptr %retry, align 4
-  %cmp27 = icmp eq i32 %24, 5
+  %26 = load i32, ptr %retry, align 4
+  %cmp27 = icmp eq i32 %26, 5
   br i1 %cmp27, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.else26
@@ -248,36 +251,37 @@ if.end31:                                         ; preds = %if.end30, %if.end16
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end31
-  %25 = load ptr, ptr %rs.addr, align 8
-  %call32 = call i64 @lj_prng_u64(ptr noundef %25)
+  %27 = load ptr, ptr %rs.addr, align 8
+  %call32 = call i64 @lj_prng_u64(ptr noundef %27)
   %and = and i64 %call32, 140737488351232
   store i64 %and, ptr @mmap_probe.hint_addr, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %26 = load i64, ptr @mmap_probe.hint_addr, align 8
-  %cmp33 = icmp ult i64 %26, 16384
+  %28 = load i64, ptr @mmap_probe.hint_addr, align 8
+  %cmp33 = icmp ult i64 %28, 16384
   br i1 %cmp33, label %do.body, label %do.end, !llvm.loop !4
 
 do.end:                                           ; preds = %do.cond
   br label %for.inc
 
 for.inc:                                          ; preds = %do.end, %if.then28, %if.end25
-  %27 = load i32, ptr %retry, align 4
-  %inc = add nsw i32 %27, 1
+  %29 = load i32, ptr %retry, align 4
+  %inc = add nsw i32 %29, 1
   store i32 %inc, ptr %retry, align 4
   br label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond
-  %28 = load i32, ptr %olderr, align 4
+  %30 = load i32, ptr %olderr, align 4
   %call34 = call ptr @__errno_location() #7
-  store i32 %28, ptr %call34, align 4
-  store ptr inttoptr (i64 -1 to ptr), ptr %retval, align 8
+  store i32 %30, ptr %call34, align 4
+  %31 = inttoptr i64 -1 to ptr
+  store ptr %31, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %for.end, %if.then14, %if.then
-  %29 = load ptr, ptr %retval, align 8
-  ret ptr %29
+  %32 = load ptr, ptr %retval, align 8
+  ret ptr %32
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2679,78 +2683,79 @@ if.then12:                                        ; preds = %land.lhs.true10
   %27 = load i64, ptr %size15, align 8
   %28 = load i64, ptr %newsize, align 8
   %call16 = call ptr @CALL_MREMAP_(ptr noundef %25, i64 noundef %27, i64 noundef %28, i32 noundef 0)
-  %cmp17 = icmp ne ptr %call16, inttoptr (i64 -1 to ptr)
+  %29 = inttoptr i64 -1 to ptr
+  %cmp17 = icmp ne ptr %call16, %29
   br i1 %cmp17, label %if.then21, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then12
-  %29 = load ptr, ptr %sp, align 8
-  %base18 = getelementptr inbounds %struct.malloc_segment, ptr %29, i32 0, i32 0
-  %30 = load ptr, ptr %base18, align 8
-  %31 = load i64, ptr %newsize, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %30, i64 %31
-  %32 = load i64, ptr %extra, align 8
-  %call19 = call i32 @CALL_MUNMAP(ptr noundef %add.ptr, i64 noundef %32)
+  %30 = load ptr, ptr %sp, align 8
+  %base18 = getelementptr inbounds %struct.malloc_segment, ptr %30, i32 0, i32 0
+  %31 = load ptr, ptr %base18, align 8
+  %32 = load i64, ptr %newsize, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %31, i64 %32
+  %33 = load i64, ptr %extra, align 8
+  %call19 = call i32 @CALL_MUNMAP(ptr noundef %add.ptr, i64 noundef %33)
   %cmp20 = icmp eq i32 %call19, 0
   br i1 %cmp20, label %if.then21, label %if.end
 
 if.then21:                                        ; preds = %lor.lhs.false, %if.then12
-  %33 = load i64, ptr %extra, align 8
-  store i64 %33, ptr %released, align 8
+  %34 = load i64, ptr %extra, align 8
+  store i64 %34, ptr %released, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then21, %lor.lhs.false
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end, %land.lhs.true10, %if.then3
-  %34 = load i64, ptr %released, align 8
-  %cmp23 = icmp ne i64 %34, 0
+  %35 = load i64, ptr %released, align 8
+  %cmp23 = icmp ne i64 %35, 0
   br i1 %cmp23, label %if.then24, label %if.end30
 
 if.then24:                                        ; preds = %if.end22
-  %35 = load i64, ptr %released, align 8
-  %36 = load ptr, ptr %sp, align 8
-  %size25 = getelementptr inbounds %struct.malloc_segment, ptr %36, i32 0, i32 1
-  %37 = load i64, ptr %size25, align 8
-  %sub26 = sub i64 %37, %35
+  %36 = load i64, ptr %released, align 8
+  %37 = load ptr, ptr %sp, align 8
+  %size25 = getelementptr inbounds %struct.malloc_segment, ptr %37, i32 0, i32 1
+  %38 = load i64, ptr %size25, align 8
+  %sub26 = sub i64 %38, %36
   store i64 %sub26, ptr %size25, align 8
-  %38 = load ptr, ptr %m.addr, align 8
   %39 = load ptr, ptr %m.addr, align 8
-  %top27 = getelementptr inbounds %struct.malloc_state, ptr %39, i32 0, i32 5
-  %40 = load ptr, ptr %top27, align 8
-  %41 = load ptr, ptr %m.addr, align 8
-  %topsize28 = getelementptr inbounds %struct.malloc_state, ptr %41, i32 0, i32 3
-  %42 = load i64, ptr %topsize28, align 8
-  %43 = load i64, ptr %released, align 8
-  %sub29 = sub i64 %42, %43
-  call void @init_top(ptr noundef %38, ptr noundef %40, i64 noundef %sub29)
+  %40 = load ptr, ptr %m.addr, align 8
+  %top27 = getelementptr inbounds %struct.malloc_state, ptr %40, i32 0, i32 5
+  %41 = load ptr, ptr %top27, align 8
+  %42 = load ptr, ptr %m.addr, align 8
+  %topsize28 = getelementptr inbounds %struct.malloc_state, ptr %42, i32 0, i32 3
+  %43 = load i64, ptr %topsize28, align 8
+  %44 = load i64, ptr %released, align 8
+  %sub29 = sub i64 %43, %44
+  call void @init_top(ptr noundef %39, ptr noundef %41, i64 noundef %sub29)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then24, %if.end22
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end30, %if.then
-  %44 = load ptr, ptr %m.addr, align 8
-  %call32 = call i64 @release_unused_segments(ptr noundef %44)
-  %45 = load i64, ptr %released, align 8
-  %add33 = add i64 %45, %call32
-  store i64 %add33, ptr %released, align 8
+  %45 = load ptr, ptr %m.addr, align 8
+  %call32 = call i64 @release_unused_segments(ptr noundef %45)
   %46 = load i64, ptr %released, align 8
-  %cmp34 = icmp eq i64 %46, 0
+  %add33 = add i64 %46, %call32
+  store i64 %add33, ptr %released, align 8
+  %47 = load i64, ptr %released, align 8
+  %cmp34 = icmp eq i64 %47, 0
   br i1 %cmp34, label %land.lhs.true35, label %if.end40
 
 land.lhs.true35:                                  ; preds = %if.end31
-  %47 = load ptr, ptr %m.addr, align 8
-  %topsize36 = getelementptr inbounds %struct.malloc_state, ptr %47, i32 0, i32 3
-  %48 = load i64, ptr %topsize36, align 8
-  %49 = load ptr, ptr %m.addr, align 8
-  %trim_check = getelementptr inbounds %struct.malloc_state, ptr %49, i32 0, i32 6
-  %50 = load i64, ptr %trim_check, align 8
-  %cmp37 = icmp ugt i64 %48, %50
+  %48 = load ptr, ptr %m.addr, align 8
+  %topsize36 = getelementptr inbounds %struct.malloc_state, ptr %48, i32 0, i32 3
+  %49 = load i64, ptr %topsize36, align 8
+  %50 = load ptr, ptr %m.addr, align 8
+  %trim_check = getelementptr inbounds %struct.malloc_state, ptr %50, i32 0, i32 6
+  %51 = load i64, ptr %trim_check, align 8
+  %cmp37 = icmp ugt i64 %49, %51
   br i1 %cmp37, label %if.then38, label %if.end40
 
 if.then38:                                        ; preds = %land.lhs.true35
-  %51 = load ptr, ptr %m.addr, align 8
-  %trim_check39 = getelementptr inbounds %struct.malloc_state, ptr %51, i32 0, i32 6
+  %52 = load ptr, ptr %m.addr, align 8
+  %trim_check39 = getelementptr inbounds %struct.malloc_state, ptr %52, i32 0, i32 6
   store i64 -1, ptr %trim_check39, align 8
   br label %if.end40
 
@@ -2758,8 +2763,8 @@ if.end40:                                         ; preds = %if.then38, %land.lh
   br label %if.end41
 
 if.end41:                                         ; preds = %if.end40, %land.lhs.true, %entry
-  %52 = load i64, ptr %released, align 8
-  %cmp42 = icmp ne i64 %52, 0
+  %53 = load i64, ptr %released, align 8
+  %cmp42 = icmp ne i64 %53, 0
   %cond = select i1 %cmp42, i32 1, i32 0
   ret i32 %cond
 }
@@ -4868,10 +4873,11 @@ entry:
   %r = alloca ptr, align 8
   store ptr %m, ptr %m.addr, align 8
   store i64 %nb, ptr %nb.addr, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %tbase, align 8
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %tbase, align 8
   store i64 0, ptr %tsize, align 8
-  %0 = load i64, ptr %nb.addr, align 8
-  %cmp = icmp uge i64 %0, 131072
+  %1 = load i64, ptr %nb.addr, align 8
+  %cmp = icmp uge i64 %1, 131072
   %lnot = xor i1 %cmp, true
   %lnot1 = xor i1 %lnot, true
   %lnot.ext = zext i1 %lnot1 to i32
@@ -4880,34 +4886,34 @@ entry:
   br i1 %tobool, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %m.addr, align 8
-  %2 = load i64, ptr %nb.addr, align 8
-  %call = call ptr @direct_alloc(ptr noundef %1, i64 noundef %2)
+  %2 = load ptr, ptr %m.addr, align 8
+  %3 = load i64, ptr %nb.addr, align 8
+  %call = call ptr @direct_alloc(ptr noundef %2, i64 noundef %3)
   store ptr %call, ptr %mem, align 8
-  %3 = load ptr, ptr %mem, align 8
-  %cmp2 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %mem, align 8
+  %cmp2 = icmp ne ptr %4, null
   br i1 %cmp2, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  %4 = load ptr, ptr %mem, align 8
-  store ptr %4, ptr %retval, align 8
+  %5 = load ptr, ptr %mem, align 8
+  store ptr %5, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %if.then
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %entry
-  %5 = load i64, ptr %nb.addr, align 8
-  %add = add i64 %5, 64
+  %6 = load i64, ptr %nb.addr, align 8
+  %add = add i64 %6, 64
   %add6 = add i64 %add, 1
   store i64 %add6, ptr %req, align 8
-  %6 = load i64, ptr %req, align 8
-  %add7 = add i64 %6, 131071
+  %7 = load i64, ptr %req, align 8
+  %add7 = add i64 %7, 131071
   %and = and i64 %add7, -131072
   store i64 %and, ptr %rsize, align 8
-  %7 = load i64, ptr %rsize, align 8
-  %8 = load i64, ptr %nb.addr, align 8
-  %cmp8 = icmp ugt i64 %7, %8
+  %8 = load i64, ptr %rsize, align 8
+  %9 = load i64, ptr %nb.addr, align 8
+  %cmp8 = icmp ugt i64 %8, %9
   %lnot10 = xor i1 %cmp8, true
   %lnot12 = xor i1 %lnot10, true
   %lnot.ext13 = zext i1 %lnot12 to i32
@@ -4916,223 +4922,225 @@ if.end5:                                          ; preds = %if.end, %entry
   br i1 %tobool15, label %if.then16, label %if.end22
 
 if.then16:                                        ; preds = %if.end5
-  %9 = load ptr, ptr %m.addr, align 8
-  %prng = getelementptr inbounds %struct.malloc_state, ptr %9, i32 0, i32 11
-  %10 = load ptr, ptr %prng, align 8
-  %11 = load i64, ptr %rsize, align 8
-  %call17 = call ptr @mmap_probe(ptr noundef %10, i64 noundef %11)
+  %10 = load ptr, ptr %m.addr, align 8
+  %prng = getelementptr inbounds %struct.malloc_state, ptr %10, i32 0, i32 11
+  %11 = load ptr, ptr %prng, align 8
+  %12 = load i64, ptr %rsize, align 8
+  %call17 = call ptr @mmap_probe(ptr noundef %11, i64 noundef %12)
   store ptr %call17, ptr %mp, align 8
-  %12 = load ptr, ptr %mp, align 8
-  %cmp18 = icmp ne ptr %12, inttoptr (i64 -1 to ptr)
+  %13 = load ptr, ptr %mp, align 8
+  %14 = inttoptr i64 -1 to ptr
+  %cmp18 = icmp ne ptr %13, %14
   br i1 %cmp18, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.then16
-  %13 = load ptr, ptr %mp, align 8
-  store ptr %13, ptr %tbase, align 8
-  %14 = load i64, ptr %rsize, align 8
-  store i64 %14, ptr %tsize, align 8
+  %15 = load ptr, ptr %mp, align 8
+  store ptr %15, ptr %tbase, align 8
+  %16 = load i64, ptr %rsize, align 8
+  store i64 %16, ptr %tsize, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then20, %if.then16
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end21, %if.end5
-  %15 = load ptr, ptr %tbase, align 8
-  %cmp23 = icmp ne ptr %15, inttoptr (i64 -1 to ptr)
+  %17 = load ptr, ptr %tbase, align 8
+  %18 = inttoptr i64 -1 to ptr
+  %cmp23 = icmp ne ptr %17, %18
   br i1 %cmp23, label %if.then25, label %if.end85
 
 if.then25:                                        ; preds = %if.end22
-  %16 = load ptr, ptr %m.addr, align 8
-  %seg = getelementptr inbounds %struct.malloc_state, ptr %16, i32 0, i32 10
+  %19 = load ptr, ptr %m.addr, align 8
+  %seg = getelementptr inbounds %struct.malloc_state, ptr %19, i32 0, i32 10
   store ptr %seg, ptr %sp, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.then25
-  %17 = load ptr, ptr %sp, align 8
-  %cmp26 = icmp ne ptr %17, null
+  %20 = load ptr, ptr %sp, align 8
+  %cmp26 = icmp ne ptr %20, null
   br i1 %cmp26, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond
-  %18 = load ptr, ptr %tbase, align 8
-  %19 = load ptr, ptr %sp, align 8
-  %base = getelementptr inbounds %struct.malloc_segment, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %base, align 8
-  %21 = load ptr, ptr %sp, align 8
-  %size = getelementptr inbounds %struct.malloc_segment, ptr %21, i32 0, i32 1
-  %22 = load i64, ptr %size, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %20, i64 %22
-  %cmp28 = icmp ne ptr %18, %add.ptr
+  %21 = load ptr, ptr %tbase, align 8
+  %22 = load ptr, ptr %sp, align 8
+  %base = getelementptr inbounds %struct.malloc_segment, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %base, align 8
+  %24 = load ptr, ptr %sp, align 8
+  %size = getelementptr inbounds %struct.malloc_segment, ptr %24, i32 0, i32 1
+  %25 = load i64, ptr %size, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %23, i64 %25
+  %cmp28 = icmp ne ptr %21, %add.ptr
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond
-  %23 = phi i1 [ false, %while.cond ], [ %cmp28, %land.rhs ]
-  br i1 %23, label %while.body, label %while.end
+  %26 = phi i1 [ false, %while.cond ], [ %cmp28, %land.rhs ]
+  br i1 %26, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.end
-  %24 = load ptr, ptr %sp, align 8
-  %next = getelementptr inbounds %struct.malloc_segment, ptr %24, i32 0, i32 2
-  %25 = load ptr, ptr %next, align 8
-  store ptr %25, ptr %sp, align 8
+  %27 = load ptr, ptr %sp, align 8
+  %next = getelementptr inbounds %struct.malloc_segment, ptr %27, i32 0, i32 2
+  %28 = load ptr, ptr %next, align 8
+  store ptr %28, ptr %sp, align 8
   br label %while.cond, !llvm.loop !17
 
 while.end:                                        ; preds = %land.end
-  %26 = load ptr, ptr %sp, align 8
-  %cmp30 = icmp ne ptr %26, null
+  %29 = load ptr, ptr %sp, align 8
+  %cmp30 = icmp ne ptr %29, null
   br i1 %cmp30, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %while.end
-  %27 = load ptr, ptr %m.addr, align 8
-  %top = getelementptr inbounds %struct.malloc_state, ptr %27, i32 0, i32 5
-  %28 = load ptr, ptr %top, align 8
-  %29 = load ptr, ptr %sp, align 8
-  %base32 = getelementptr inbounds %struct.malloc_segment, ptr %29, i32 0, i32 0
-  %30 = load ptr, ptr %base32, align 8
-  %cmp33 = icmp uge ptr %28, %30
+  %30 = load ptr, ptr %m.addr, align 8
+  %top = getelementptr inbounds %struct.malloc_state, ptr %30, i32 0, i32 5
+  %31 = load ptr, ptr %top, align 8
+  %32 = load ptr, ptr %sp, align 8
+  %base32 = getelementptr inbounds %struct.malloc_segment, ptr %32, i32 0, i32 0
+  %33 = load ptr, ptr %base32, align 8
+  %cmp33 = icmp uge ptr %31, %33
   br i1 %cmp33, label %land.lhs.true35, label %if.else
 
 land.lhs.true35:                                  ; preds = %land.lhs.true
-  %31 = load ptr, ptr %m.addr, align 8
-  %top36 = getelementptr inbounds %struct.malloc_state, ptr %31, i32 0, i32 5
-  %32 = load ptr, ptr %top36, align 8
-  %33 = load ptr, ptr %sp, align 8
-  %base37 = getelementptr inbounds %struct.malloc_segment, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %base37, align 8
-  %35 = load ptr, ptr %sp, align 8
-  %size38 = getelementptr inbounds %struct.malloc_segment, ptr %35, i32 0, i32 1
-  %36 = load i64, ptr %size38, align 8
-  %add.ptr39 = getelementptr inbounds i8, ptr %34, i64 %36
-  %cmp40 = icmp ult ptr %32, %add.ptr39
+  %34 = load ptr, ptr %m.addr, align 8
+  %top36 = getelementptr inbounds %struct.malloc_state, ptr %34, i32 0, i32 5
+  %35 = load ptr, ptr %top36, align 8
+  %36 = load ptr, ptr %sp, align 8
+  %base37 = getelementptr inbounds %struct.malloc_segment, ptr %36, i32 0, i32 0
+  %37 = load ptr, ptr %base37, align 8
+  %38 = load ptr, ptr %sp, align 8
+  %size38 = getelementptr inbounds %struct.malloc_segment, ptr %38, i32 0, i32 1
+  %39 = load i64, ptr %size38, align 8
+  %add.ptr39 = getelementptr inbounds i8, ptr %37, i64 %39
+  %cmp40 = icmp ult ptr %35, %add.ptr39
   br i1 %cmp40, label %if.then42, label %if.else
 
 if.then42:                                        ; preds = %land.lhs.true35
-  %37 = load i64, ptr %tsize, align 8
-  %38 = load ptr, ptr %sp, align 8
-  %size43 = getelementptr inbounds %struct.malloc_segment, ptr %38, i32 0, i32 1
-  %39 = load i64, ptr %size43, align 8
-  %add44 = add i64 %39, %37
+  %40 = load i64, ptr %tsize, align 8
+  %41 = load ptr, ptr %sp, align 8
+  %size43 = getelementptr inbounds %struct.malloc_segment, ptr %41, i32 0, i32 1
+  %42 = load i64, ptr %size43, align 8
+  %add44 = add i64 %42, %40
   store i64 %add44, ptr %size43, align 8
-  %40 = load ptr, ptr %m.addr, align 8
-  %41 = load ptr, ptr %m.addr, align 8
-  %top45 = getelementptr inbounds %struct.malloc_state, ptr %41, i32 0, i32 5
-  %42 = load ptr, ptr %top45, align 8
   %43 = load ptr, ptr %m.addr, align 8
-  %topsize = getelementptr inbounds %struct.malloc_state, ptr %43, i32 0, i32 3
-  %44 = load i64, ptr %topsize, align 8
-  %45 = load i64, ptr %tsize, align 8
-  %add46 = add i64 %44, %45
-  call void @init_top(ptr noundef %40, ptr noundef %42, i64 noundef %add46)
+  %44 = load ptr, ptr %m.addr, align 8
+  %top45 = getelementptr inbounds %struct.malloc_state, ptr %44, i32 0, i32 5
+  %45 = load ptr, ptr %top45, align 8
+  %46 = load ptr, ptr %m.addr, align 8
+  %topsize = getelementptr inbounds %struct.malloc_state, ptr %46, i32 0, i32 3
+  %47 = load i64, ptr %topsize, align 8
+  %48 = load i64, ptr %tsize, align 8
+  %add46 = add i64 %47, %48
+  call void @init_top(ptr noundef %43, ptr noundef %45, i64 noundef %add46)
   br label %if.end70
 
 if.else:                                          ; preds = %land.lhs.true35, %land.lhs.true, %while.end
-  %46 = load ptr, ptr %m.addr, align 8
-  %seg47 = getelementptr inbounds %struct.malloc_state, ptr %46, i32 0, i32 10
+  %49 = load ptr, ptr %m.addr, align 8
+  %seg47 = getelementptr inbounds %struct.malloc_state, ptr %49, i32 0, i32 10
   store ptr %seg47, ptr %sp, align 8
   br label %while.cond48
 
 while.cond48:                                     ; preds = %while.body57, %if.else
-  %47 = load ptr, ptr %sp, align 8
-  %cmp49 = icmp ne ptr %47, null
+  %50 = load ptr, ptr %sp, align 8
+  %cmp49 = icmp ne ptr %50, null
   br i1 %cmp49, label %land.rhs51, label %land.end56
 
 land.rhs51:                                       ; preds = %while.cond48
-  %48 = load ptr, ptr %sp, align 8
-  %base52 = getelementptr inbounds %struct.malloc_segment, ptr %48, i32 0, i32 0
-  %49 = load ptr, ptr %base52, align 8
-  %50 = load ptr, ptr %tbase, align 8
-  %51 = load i64, ptr %tsize, align 8
-  %add.ptr53 = getelementptr inbounds i8, ptr %50, i64 %51
-  %cmp54 = icmp ne ptr %49, %add.ptr53
+  %51 = load ptr, ptr %sp, align 8
+  %base52 = getelementptr inbounds %struct.malloc_segment, ptr %51, i32 0, i32 0
+  %52 = load ptr, ptr %base52, align 8
+  %53 = load ptr, ptr %tbase, align 8
+  %54 = load i64, ptr %tsize, align 8
+  %add.ptr53 = getelementptr inbounds i8, ptr %53, i64 %54
+  %cmp54 = icmp ne ptr %52, %add.ptr53
   br label %land.end56
 
 land.end56:                                       ; preds = %land.rhs51, %while.cond48
-  %52 = phi i1 [ false, %while.cond48 ], [ %cmp54, %land.rhs51 ]
-  br i1 %52, label %while.body57, label %while.end59
+  %55 = phi i1 [ false, %while.cond48 ], [ %cmp54, %land.rhs51 ]
+  br i1 %55, label %while.body57, label %while.end59
 
 while.body57:                                     ; preds = %land.end56
-  %53 = load ptr, ptr %sp, align 8
-  %next58 = getelementptr inbounds %struct.malloc_segment, ptr %53, i32 0, i32 2
-  %54 = load ptr, ptr %next58, align 8
-  store ptr %54, ptr %sp, align 8
+  %56 = load ptr, ptr %sp, align 8
+  %next58 = getelementptr inbounds %struct.malloc_segment, ptr %56, i32 0, i32 2
+  %57 = load ptr, ptr %next58, align 8
+  store ptr %57, ptr %sp, align 8
   br label %while.cond48, !llvm.loop !18
 
 while.end59:                                      ; preds = %land.end56
-  %55 = load ptr, ptr %sp, align 8
-  %cmp60 = icmp ne ptr %55, null
+  %58 = load ptr, ptr %sp, align 8
+  %cmp60 = icmp ne ptr %58, null
   br i1 %cmp60, label %if.then62, label %if.else68
 
 if.then62:                                        ; preds = %while.end59
-  %56 = load ptr, ptr %sp, align 8
-  %base63 = getelementptr inbounds %struct.malloc_segment, ptr %56, i32 0, i32 0
-  %57 = load ptr, ptr %base63, align 8
-  store ptr %57, ptr %oldbase, align 8
-  %58 = load ptr, ptr %tbase, align 8
   %59 = load ptr, ptr %sp, align 8
-  %base64 = getelementptr inbounds %struct.malloc_segment, ptr %59, i32 0, i32 0
-  store ptr %58, ptr %base64, align 8
-  %60 = load i64, ptr %tsize, align 8
-  %61 = load ptr, ptr %sp, align 8
-  %size65 = getelementptr inbounds %struct.malloc_segment, ptr %61, i32 0, i32 1
-  %62 = load i64, ptr %size65, align 8
-  %add66 = add i64 %62, %60
+  %base63 = getelementptr inbounds %struct.malloc_segment, ptr %59, i32 0, i32 0
+  %60 = load ptr, ptr %base63, align 8
+  store ptr %60, ptr %oldbase, align 8
+  %61 = load ptr, ptr %tbase, align 8
+  %62 = load ptr, ptr %sp, align 8
+  %base64 = getelementptr inbounds %struct.malloc_segment, ptr %62, i32 0, i32 0
+  store ptr %61, ptr %base64, align 8
+  %63 = load i64, ptr %tsize, align 8
+  %64 = load ptr, ptr %sp, align 8
+  %size65 = getelementptr inbounds %struct.malloc_segment, ptr %64, i32 0, i32 1
+  %65 = load i64, ptr %size65, align 8
+  %add66 = add i64 %65, %63
   store i64 %add66, ptr %size65, align 8
-  %63 = load ptr, ptr %m.addr, align 8
-  %64 = load ptr, ptr %tbase, align 8
-  %65 = load ptr, ptr %oldbase, align 8
-  %66 = load i64, ptr %nb.addr, align 8
-  %call67 = call ptr @prepend_alloc(ptr noundef %63, ptr noundef %64, ptr noundef %65, i64 noundef %66)
+  %66 = load ptr, ptr %m.addr, align 8
+  %67 = load ptr, ptr %tbase, align 8
+  %68 = load ptr, ptr %oldbase, align 8
+  %69 = load i64, ptr %nb.addr, align 8
+  %call67 = call ptr @prepend_alloc(ptr noundef %66, ptr noundef %67, ptr noundef %68, i64 noundef %69)
   store ptr %call67, ptr %retval, align 8
   br label %return
 
 if.else68:                                        ; preds = %while.end59
-  %67 = load ptr, ptr %m.addr, align 8
-  %68 = load ptr, ptr %tbase, align 8
-  %69 = load i64, ptr %tsize, align 8
-  call void @add_segment(ptr noundef %67, ptr noundef %68, i64 noundef %69)
+  %70 = load ptr, ptr %m.addr, align 8
+  %71 = load ptr, ptr %tbase, align 8
+  %72 = load i64, ptr %tsize, align 8
+  call void @add_segment(ptr noundef %70, ptr noundef %71, i64 noundef %72)
   br label %if.end69
 
 if.end69:                                         ; preds = %if.else68
   br label %if.end70
 
 if.end70:                                         ; preds = %if.end69, %if.then42
-  %70 = load i64, ptr %nb.addr, align 8
-  %71 = load ptr, ptr %m.addr, align 8
-  %topsize71 = getelementptr inbounds %struct.malloc_state, ptr %71, i32 0, i32 3
-  %72 = load i64, ptr %topsize71, align 8
-  %cmp72 = icmp ult i64 %70, %72
+  %73 = load i64, ptr %nb.addr, align 8
+  %74 = load ptr, ptr %m.addr, align 8
+  %topsize71 = getelementptr inbounds %struct.malloc_state, ptr %74, i32 0, i32 3
+  %75 = load i64, ptr %topsize71, align 8
+  %cmp72 = icmp ult i64 %73, %75
   br i1 %cmp72, label %if.then74, label %if.end84
 
 if.then74:                                        ; preds = %if.end70
-  %73 = load i64, ptr %nb.addr, align 8
-  %74 = load ptr, ptr %m.addr, align 8
-  %topsize76 = getelementptr inbounds %struct.malloc_state, ptr %74, i32 0, i32 3
-  %75 = load i64, ptr %topsize76, align 8
-  %sub = sub i64 %75, %73
+  %76 = load i64, ptr %nb.addr, align 8
+  %77 = load ptr, ptr %m.addr, align 8
+  %topsize76 = getelementptr inbounds %struct.malloc_state, ptr %77, i32 0, i32 3
+  %78 = load i64, ptr %topsize76, align 8
+  %sub = sub i64 %78, %76
   store i64 %sub, ptr %topsize76, align 8
   store i64 %sub, ptr %rsize75, align 8
-  %76 = load ptr, ptr %m.addr, align 8
-  %top77 = getelementptr inbounds %struct.malloc_state, ptr %76, i32 0, i32 5
-  %77 = load ptr, ptr %top77, align 8
-  store ptr %77, ptr %p, align 8
-  %78 = load ptr, ptr %p, align 8
-  %79 = load i64, ptr %nb.addr, align 8
-  %add.ptr78 = getelementptr inbounds i8, ptr %78, i64 %79
-  %80 = load ptr, ptr %m.addr, align 8
-  %top79 = getelementptr inbounds %struct.malloc_state, ptr %80, i32 0, i32 5
+  %79 = load ptr, ptr %m.addr, align 8
+  %top77 = getelementptr inbounds %struct.malloc_state, ptr %79, i32 0, i32 5
+  %80 = load ptr, ptr %top77, align 8
+  store ptr %80, ptr %p, align 8
+  %81 = load ptr, ptr %p, align 8
+  %82 = load i64, ptr %nb.addr, align 8
+  %add.ptr78 = getelementptr inbounds i8, ptr %81, i64 %82
+  %83 = load ptr, ptr %m.addr, align 8
+  %top79 = getelementptr inbounds %struct.malloc_state, ptr %83, i32 0, i32 5
   store ptr %add.ptr78, ptr %top79, align 8
   store ptr %add.ptr78, ptr %r, align 8
-  %81 = load i64, ptr %rsize75, align 8
-  %or = or i64 %81, 1
-  %82 = load ptr, ptr %r, align 8
-  %head = getelementptr inbounds %struct.malloc_chunk, ptr %82, i32 0, i32 1
+  %84 = load i64, ptr %rsize75, align 8
+  %or = or i64 %84, 1
+  %85 = load ptr, ptr %r, align 8
+  %head = getelementptr inbounds %struct.malloc_chunk, ptr %85, i32 0, i32 1
   store i64 %or, ptr %head, align 8
-  %83 = load i64, ptr %nb.addr, align 8
-  %or80 = or i64 %83, 1
+  %86 = load i64, ptr %nb.addr, align 8
+  %or80 = or i64 %86, 1
   %or81 = or i64 %or80, 2
-  %84 = load ptr, ptr %p, align 8
-  %head82 = getelementptr inbounds %struct.malloc_chunk, ptr %84, i32 0, i32 1
+  %87 = load ptr, ptr %p, align 8
+  %head82 = getelementptr inbounds %struct.malloc_chunk, ptr %87, i32 0, i32 1
   store i64 %or81, ptr %head82, align 8
-  %85 = load ptr, ptr %p, align 8
-  %add.ptr83 = getelementptr inbounds i8, ptr %85, i64 16
+  %88 = load ptr, ptr %p, align 8
+  %add.ptr83 = getelementptr inbounds i8, ptr %88, i64 16
   store ptr %add.ptr83, ptr %retval, align 8
   br label %return
 
@@ -5144,8 +5152,8 @@ if.end85:                                         ; preds = %if.end84, %if.end22
   br label %return
 
 return:                                           ; preds = %if.end85, %if.then74, %if.then62, %if.then4
-  %86 = load ptr, ptr %retval, align 8
-  ret ptr %86
+  %89 = load ptr, ptr %retval, align 8
+  ret ptr %89
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5185,14 +5193,15 @@ if.then:                                          ; preds = %entry
   %call = call ptr @mmap_probe(ptr noundef %4, i64 noundef %5)
   store ptr %call, ptr %mm, align 8
   %6 = load ptr, ptr %mm, align 8
-  %cmp4 = icmp ne ptr %6, inttoptr (i64 -1 to ptr)
+  %7 = inttoptr i64 -1 to ptr
+  %cmp4 = icmp ne ptr %6, %7
   br i1 %cmp4, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  %7 = load ptr, ptr %mm, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %7, i64 16
-  %8 = ptrtoint ptr %add.ptr to i64
-  %and7 = and i64 %8, 7
+  %8 = load ptr, ptr %mm, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = ptrtoint ptr %add.ptr to i64
+  %and7 = and i64 %9, 7
   %cmp8 = icmp eq i64 %and7, 0
   br i1 %cmp8, label %cond.true, label %cond.false
 
@@ -5200,10 +5209,10 @@ cond.true:                                        ; preds = %if.then6
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then6
-  %9 = load ptr, ptr %mm, align 8
-  %add.ptr10 = getelementptr inbounds i8, ptr %9, i64 16
-  %10 = ptrtoint ptr %add.ptr10 to i64
-  %and11 = and i64 %10, 7
+  %10 = load ptr, ptr %mm, align 8
+  %add.ptr10 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = ptrtoint ptr %add.ptr10 to i64
+  %and11 = and i64 %11, 7
   %sub = sub i64 8, %and11
   %and12 = and i64 %sub, 7
   br label %cond.end
@@ -5211,38 +5220,38 @@ cond.false:                                       ; preds = %if.then6
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i64 [ 0, %cond.true ], [ %and12, %cond.false ]
   store i64 %cond, ptr %offset, align 8
-  %11 = load i64, ptr %mmsize, align 8
-  %12 = load i64, ptr %offset, align 8
-  %sub13 = sub i64 %11, %12
+  %12 = load i64, ptr %mmsize, align 8
+  %13 = load i64, ptr %offset, align 8
+  %sub13 = sub i64 %12, %13
   %sub14 = sub i64 %sub13, 32
   store i64 %sub14, ptr %psize, align 8
-  %13 = load ptr, ptr %mm, align 8
-  %14 = load i64, ptr %offset, align 8
-  %add.ptr15 = getelementptr inbounds i8, ptr %13, i64 %14
-  store ptr %add.ptr15, ptr %p, align 8
+  %14 = load ptr, ptr %mm, align 8
   %15 = load i64, ptr %offset, align 8
-  %or = or i64 %15, 1
-  %16 = load ptr, ptr %p, align 8
-  %prev_foot = getelementptr inbounds %struct.malloc_chunk, ptr %16, i32 0, i32 0
+  %add.ptr15 = getelementptr inbounds i8, ptr %14, i64 %15
+  store ptr %add.ptr15, ptr %p, align 8
+  %16 = load i64, ptr %offset, align 8
+  %or = or i64 %16, 1
+  %17 = load ptr, ptr %p, align 8
+  %prev_foot = getelementptr inbounds %struct.malloc_chunk, ptr %17, i32 0, i32 0
   store i64 %or, ptr %prev_foot, align 8
-  %17 = load i64, ptr %psize, align 8
-  %or16 = or i64 %17, 2
-  %18 = load ptr, ptr %p, align 8
-  %head = getelementptr inbounds %struct.malloc_chunk, ptr %18, i32 0, i32 1
-  store i64 %or16, ptr %head, align 8
+  %18 = load i64, ptr %psize, align 8
+  %or16 = or i64 %18, 2
   %19 = load ptr, ptr %p, align 8
-  %20 = load i64, ptr %psize, align 8
-  %add.ptr17 = getelementptr inbounds i8, ptr %19, i64 %20
+  %head = getelementptr inbounds %struct.malloc_chunk, ptr %19, i32 0, i32 1
+  store i64 %or16, ptr %head, align 8
+  %20 = load ptr, ptr %p, align 8
+  %21 = load i64, ptr %psize, align 8
+  %add.ptr17 = getelementptr inbounds i8, ptr %20, i64 %21
   %head18 = getelementptr inbounds %struct.malloc_chunk, ptr %add.ptr17, i32 0, i32 1
   store i64 11, ptr %head18, align 8
-  %21 = load ptr, ptr %p, align 8
-  %22 = load i64, ptr %psize, align 8
-  %add19 = add i64 %22, 8
-  %add.ptr20 = getelementptr inbounds i8, ptr %21, i64 %add19
+  %22 = load ptr, ptr %p, align 8
+  %23 = load i64, ptr %psize, align 8
+  %add19 = add i64 %23, 8
+  %add.ptr20 = getelementptr inbounds i8, ptr %22, i64 %add19
   %head21 = getelementptr inbounds %struct.malloc_chunk, ptr %add.ptr20, i32 0, i32 1
   store i64 0, ptr %head21, align 8
-  %23 = load ptr, ptr %p, align 8
-  %add.ptr22 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = load ptr, ptr %p, align 8
+  %add.ptr22 = getelementptr inbounds i8, ptr %24, i64 16
   store ptr %add.ptr22, ptr %retval, align 8
   br label %return
 
@@ -5254,8 +5263,8 @@ if.end23:                                         ; preds = %if.end, %entry
   br label %return
 
 return:                                           ; preds = %if.end23, %cond.end
-  %24 = load ptr, ptr %retval, align 8
-  ret ptr %24
+  %25 = load ptr, ptr %retval, align 8
+  ret ptr %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6590,37 +6599,38 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   %call = call ptr @CALL_MREMAP_(ptr noundef %add.ptr, i64 noundef %15, i64 noundef %16, i32 noundef 1)
   store ptr %call, ptr %cp, align 8
   %17 = load ptr, ptr %cp, align 8
-  %cmp11 = icmp ne ptr %17, inttoptr (i64 -1 to ptr)
+  %18 = inttoptr i64 -1 to ptr
+  %cmp11 = icmp ne ptr %17, %18
   br i1 %cmp11, label %if.then12, label %if.end22
 
 if.then12:                                        ; preds = %if.else
-  %18 = load ptr, ptr %cp, align 8
-  %19 = load i64, ptr %offset, align 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %18, i64 %19
+  %19 = load ptr, ptr %cp, align 8
+  %20 = load i64, ptr %offset, align 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %19, i64 %20
   store ptr %add.ptr13, ptr %newp, align 8
-  %20 = load i64, ptr %newmmsize, align 8
-  %21 = load i64, ptr %offset, align 8
-  %sub14 = sub i64 %20, %21
+  %21 = load i64, ptr %newmmsize, align 8
+  %22 = load i64, ptr %offset, align 8
+  %sub14 = sub i64 %21, %22
   %sub15 = sub i64 %sub14, 32
   store i64 %sub15, ptr %psize, align 8
-  %22 = load i64, ptr %psize, align 8
-  %or = or i64 %22, 2
-  %23 = load ptr, ptr %newp, align 8
-  %head16 = getelementptr inbounds %struct.malloc_chunk, ptr %23, i32 0, i32 1
-  store i64 %or, ptr %head16, align 8
+  %23 = load i64, ptr %psize, align 8
+  %or = or i64 %23, 2
   %24 = load ptr, ptr %newp, align 8
-  %25 = load i64, ptr %psize, align 8
-  %add.ptr17 = getelementptr inbounds i8, ptr %24, i64 %25
+  %head16 = getelementptr inbounds %struct.malloc_chunk, ptr %24, i32 0, i32 1
+  store i64 %or, ptr %head16, align 8
+  %25 = load ptr, ptr %newp, align 8
+  %26 = load i64, ptr %psize, align 8
+  %add.ptr17 = getelementptr inbounds i8, ptr %25, i64 %26
   %head18 = getelementptr inbounds %struct.malloc_chunk, ptr %add.ptr17, i32 0, i32 1
   store i64 11, ptr %head18, align 8
-  %26 = load ptr, ptr %newp, align 8
-  %27 = load i64, ptr %psize, align 8
-  %add19 = add i64 %27, 8
-  %add.ptr20 = getelementptr inbounds i8, ptr %26, i64 %add19
+  %27 = load ptr, ptr %newp, align 8
+  %28 = load i64, ptr %psize, align 8
+  %add19 = add i64 %28, 8
+  %add.ptr20 = getelementptr inbounds i8, ptr %27, i64 %add19
   %head21 = getelementptr inbounds %struct.malloc_chunk, ptr %add.ptr20, i32 0, i32 1
   store i64 0, ptr %head21, align 8
-  %28 = load ptr, ptr %newp, align 8
-  store ptr %28, ptr %retval, align 8
+  %29 = load ptr, ptr %newp, align 8
+  store ptr %29, ptr %retval, align 8
   br label %return
 
 if.end22:                                         ; preds = %if.else
@@ -6631,8 +6641,8 @@ if.end23:                                         ; preds = %if.end22
   br label %return
 
 return:                                           ; preds = %if.end23, %if.then12, %if.then3, %if.then
-  %29 = load ptr, ptr %retval, align 8
-  ret ptr %29
+  %30 = load ptr, ptr %retval, align 8
+  ret ptr %30
 }
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

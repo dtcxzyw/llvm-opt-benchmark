@@ -427,13 +427,13 @@ define void @Fra_ManClean(ptr noundef %0, i32 noundef %1) #0 {
   store i32 0, ptr %5, align 4
   br label %7
 
-7:                                                ; preds = %40, %2
+7:                                                ; preds = %41, %2
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds %struct.Fra_Man_t_, ptr %9, i32 0, i32 20
   %11 = load i32, ptr %10, align 8
   %12 = icmp slt i32 %8, %11
-  br i1 %12, label %13, label %43
+  br i1 %12, label %13, label %44
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %3, align 8
@@ -444,7 +444,7 @@ define void @Fra_ManClean(ptr noundef %0, i32 noundef %1) #0 {
   %19 = getelementptr inbounds ptr, ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %39
+  br i1 %21, label %22, label %40
 
 22:                                               ; preds = %13
   %23 = load ptr, ptr %3, align 8
@@ -454,122 +454,123 @@ define void @Fra_ManClean(ptr noundef %0, i32 noundef %1) #0 {
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp ne ptr %29, inttoptr (i64 1 to ptr)
-  br i1 %30, label %31, label %39
+  %30 = inttoptr i64 1 to ptr
+  %31 = icmp ne ptr %29, %30
+  br i1 %31, label %32, label %40
 
-31:                                               ; preds = %22
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.Fra_Man_t_, ptr %32, i32 0, i32 18
-  %34 = load ptr, ptr %33, align 8
-  %35 = load i32, ptr %5, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %34, i64 %36
-  %38 = load ptr, ptr %37, align 8
-  call void @Vec_PtrFree(ptr noundef %38)
-  br label %39
-
-39:                                               ; preds = %31, %22, %13
+32:                                               ; preds = %22
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds %struct.Fra_Man_t_, ptr %33, i32 0, i32 18
+  %35 = load ptr, ptr %34, align 8
+  %36 = load i32, ptr %5, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds ptr, ptr %35, i64 %37
+  %39 = load ptr, ptr %38, align 8
+  call void @Vec_PtrFree(ptr noundef %39)
   br label %40
 
-40:                                               ; preds = %39
-  %41 = load i32, ptr %5, align 4
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %5, align 4
+40:                                               ; preds = %32, %22, %13
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i32, ptr %5, align 4
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %5, align 4
   br label %7, !llvm.loop !6
 
-43:                                               ; preds = %7
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.Fra_Man_t_, ptr %44, i32 0, i32 20
-  %46 = load i32, ptr %45, align 8
-  %47 = load i32, ptr %4, align 4
-  %48 = icmp slt i32 %46, %47
-  br i1 %48, label %49, label %97
+44:                                               ; preds = %7
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds %struct.Fra_Man_t_, ptr %45, i32 0, i32 20
+  %47 = load i32, ptr %46, align 8
+  %48 = load i32, ptr %4, align 4
+  %49 = icmp slt i32 %47, %48
+  br i1 %49, label %50, label %98
 
-49:                                               ; preds = %43
-  %50 = load i32, ptr %4, align 4
-  %51 = add nsw i32 %50, 5000
-  store i32 %51, ptr %6, align 4
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.Fra_Man_t_, ptr %52, i32 0, i32 18
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp ne ptr %54, null
-  br i1 %55, label %56, label %64
+50:                                               ; preds = %44
+  %51 = load i32, ptr %4, align 4
+  %52 = add nsw i32 %51, 5000
+  store i32 %52, ptr %6, align 4
+  %53 = load ptr, ptr %3, align 8
+  %54 = getelementptr inbounds %struct.Fra_Man_t_, ptr %53, i32 0, i32 18
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp ne ptr %55, null
+  br i1 %56, label %57, label %65
 
-56:                                               ; preds = %49
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.Fra_Man_t_, ptr %57, i32 0, i32 18
-  %59 = load ptr, ptr %58, align 8
-  %60 = load i32, ptr %6, align 4
-  %61 = sext i32 %60 to i64
-  %62 = mul i64 8, %61
-  %63 = call ptr @realloc(ptr noundef %59, i64 noundef %62) #9
-  br label %69
+57:                                               ; preds = %50
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds %struct.Fra_Man_t_, ptr %58, i32 0, i32 18
+  %60 = load ptr, ptr %59, align 8
+  %61 = load i32, ptr %6, align 4
+  %62 = sext i32 %61 to i64
+  %63 = mul i64 8, %62
+  %64 = call ptr @realloc(ptr noundef %60, i64 noundef %63) #9
+  br label %70
 
-64:                                               ; preds = %49
-  %65 = load i32, ptr %6, align 4
-  %66 = sext i32 %65 to i64
-  %67 = mul i64 8, %66
-  %68 = call noalias ptr @malloc(i64 noundef %67) #8
-  br label %69
+65:                                               ; preds = %50
+  %66 = load i32, ptr %6, align 4
+  %67 = sext i32 %66 to i64
+  %68 = mul i64 8, %67
+  %69 = call noalias ptr @malloc(i64 noundef %68) #8
+  br label %70
 
-69:                                               ; preds = %64, %56
-  %70 = phi ptr [ %63, %56 ], [ %68, %64 ]
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.Fra_Man_t_, ptr %71, i32 0, i32 18
-  store ptr %70, ptr %72, align 8
-  %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds %struct.Fra_Man_t_, ptr %73, i32 0, i32 19
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp ne ptr %75, null
-  br i1 %76, label %77, label %85
+70:                                               ; preds = %65, %57
+  %71 = phi ptr [ %64, %57 ], [ %69, %65 ]
+  %72 = load ptr, ptr %3, align 8
+  %73 = getelementptr inbounds %struct.Fra_Man_t_, ptr %72, i32 0, i32 18
+  store ptr %71, ptr %73, align 8
+  %74 = load ptr, ptr %3, align 8
+  %75 = getelementptr inbounds %struct.Fra_Man_t_, ptr %74, i32 0, i32 19
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %78, label %86
 
-77:                                               ; preds = %69
-  %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds %struct.Fra_Man_t_, ptr %78, i32 0, i32 19
-  %80 = load ptr, ptr %79, align 8
-  %81 = load i32, ptr %6, align 4
-  %82 = sext i32 %81 to i64
-  %83 = mul i64 4, %82
-  %84 = call ptr @realloc(ptr noundef %80, i64 noundef %83) #9
-  br label %90
+78:                                               ; preds = %70
+  %79 = load ptr, ptr %3, align 8
+  %80 = getelementptr inbounds %struct.Fra_Man_t_, ptr %79, i32 0, i32 19
+  %81 = load ptr, ptr %80, align 8
+  %82 = load i32, ptr %6, align 4
+  %83 = sext i32 %82 to i64
+  %84 = mul i64 4, %83
+  %85 = call ptr @realloc(ptr noundef %81, i64 noundef %84) #9
+  br label %91
 
-85:                                               ; preds = %69
-  %86 = load i32, ptr %6, align 4
-  %87 = sext i32 %86 to i64
-  %88 = mul i64 4, %87
-  %89 = call noalias ptr @malloc(i64 noundef %88) #8
-  br label %90
+86:                                               ; preds = %70
+  %87 = load i32, ptr %6, align 4
+  %88 = sext i32 %87 to i64
+  %89 = mul i64 4, %88
+  %90 = call noalias ptr @malloc(i64 noundef %89) #8
+  br label %91
 
-90:                                               ; preds = %85, %77
-  %91 = phi ptr [ %84, %77 ], [ %89, %85 ]
-  %92 = load ptr, ptr %3, align 8
-  %93 = getelementptr inbounds %struct.Fra_Man_t_, ptr %92, i32 0, i32 19
-  store ptr %91, ptr %93, align 8
-  %94 = load i32, ptr %6, align 4
-  %95 = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds %struct.Fra_Man_t_, ptr %95, i32 0, i32 20
-  store i32 %94, ptr %96, align 8
-  br label %97
+91:                                               ; preds = %86, %78
+  %92 = phi ptr [ %85, %78 ], [ %90, %86 ]
+  %93 = load ptr, ptr %3, align 8
+  %94 = getelementptr inbounds %struct.Fra_Man_t_, ptr %93, i32 0, i32 19
+  store ptr %92, ptr %94, align 8
+  %95 = load i32, ptr %6, align 4
+  %96 = load ptr, ptr %3, align 8
+  %97 = getelementptr inbounds %struct.Fra_Man_t_, ptr %96, i32 0, i32 20
+  store i32 %95, ptr %97, align 8
+  br label %98
 
-97:                                               ; preds = %90, %43
-  %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds %struct.Fra_Man_t_, ptr %98, i32 0, i32 18
-  %100 = load ptr, ptr %99, align 8
-  %101 = load ptr, ptr %3, align 8
-  %102 = getelementptr inbounds %struct.Fra_Man_t_, ptr %101, i32 0, i32 20
-  %103 = load i32, ptr %102, align 8
-  %104 = sext i32 %103 to i64
-  %105 = mul i64 8, %104
-  call void @llvm.memset.p0.i64(ptr align 8 %100, i8 0, i64 %105, i1 false)
-  %106 = load ptr, ptr %3, align 8
-  %107 = getelementptr inbounds %struct.Fra_Man_t_, ptr %106, i32 0, i32 19
-  %108 = load ptr, ptr %107, align 8
-  %109 = load ptr, ptr %3, align 8
-  %110 = getelementptr inbounds %struct.Fra_Man_t_, ptr %109, i32 0, i32 20
-  %111 = load i32, ptr %110, align 8
-  %112 = sext i32 %111 to i64
-  %113 = mul i64 4, %112
-  call void @llvm.memset.p0.i64(ptr align 4 %108, i8 0, i64 %113, i1 false)
+98:                                               ; preds = %91, %44
+  %99 = load ptr, ptr %3, align 8
+  %100 = getelementptr inbounds %struct.Fra_Man_t_, ptr %99, i32 0, i32 18
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %3, align 8
+  %103 = getelementptr inbounds %struct.Fra_Man_t_, ptr %102, i32 0, i32 20
+  %104 = load i32, ptr %103, align 8
+  %105 = sext i32 %104 to i64
+  %106 = mul i64 8, %105
+  call void @llvm.memset.p0.i64(ptr align 8 %101, i8 0, i64 %106, i1 false)
+  %107 = load ptr, ptr %3, align 8
+  %108 = getelementptr inbounds %struct.Fra_Man_t_, ptr %107, i32 0, i32 19
+  %109 = load ptr, ptr %108, align 8
+  %110 = load ptr, ptr %3, align 8
+  %111 = getelementptr inbounds %struct.Fra_Man_t_, ptr %110, i32 0, i32 20
+  %112 = load i32, ptr %111, align 8
+  %113 = sext i32 %112 to i64
+  %114 = mul i64 4, %113
+  call void @llvm.memset.p0.i64(ptr align 4 %109, i8 0, i64 %114, i1 false)
   ret void
 }
 
@@ -1683,7 +1684,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -1711,7 +1712,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -1817,16 +1818,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }

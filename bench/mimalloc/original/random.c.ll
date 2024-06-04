@@ -139,16 +139,17 @@ entry:
   %i = alloca i64, align 8
   store i64 %extra_seed, ptr %extra_seed.addr, align 8
   %0 = load i64, ptr %extra_seed.addr, align 8
-  %xor = xor i64 ptrtoint (ptr @_mi_os_random_weak to i64), %0
+  %1 = ptrtoint ptr @_mi_os_random_weak to i64
+  %xor = xor i64 %1, %0
   store i64 %xor, ptr %x, align 8
   %call = call i64 @_mi_prim_clock_now() #4
-  %1 = load i64, ptr %x, align 8
-  %xor1 = xor i64 %1, %call
-  store i64 %xor1, ptr %x, align 8
   %2 = load i64, ptr %x, align 8
+  %xor1 = xor i64 %2, %call
+  store i64 %xor1, ptr %x, align 8
   %3 = load i64, ptr %x, align 8
-  %shr = lshr i64 %3, 17
-  %xor2 = xor i64 %2, %shr
+  %4 = load i64, ptr %x, align 8
+  %shr = lshr i64 %4, 17
+  %xor2 = xor i64 %3, %shr
   %and = and i64 %xor2, 15
   %add = add i64 %and, 1
   store i64 %add, ptr %max, align 8
@@ -156,26 +157,26 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %4 = load i64, ptr %i, align 8
-  %5 = load i64, ptr %max, align 8
-  %cmp = icmp ult i64 %4, %5
+  %5 = load i64, ptr %i, align 8
+  %6 = load i64, ptr %max, align 8
+  %cmp = icmp ult i64 %5, %6
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %6 = load i64, ptr %x, align 8
-  %call3 = call i64 @_mi_random_shuffle(i64 noundef %6) #4
+  %7 = load i64, ptr %x, align 8
+  %call3 = call i64 @_mi_random_shuffle(i64 noundef %7) #4
   store i64 %call3, ptr %x, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %7 = load i64, ptr %i, align 8
-  %inc = add i64 %7, 1
+  %8 = load i64, ptr %i, align 8
+  %inc = add i64 %8, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
-  %8 = load i64, ptr %x, align 8
-  ret i64 %8
+  %9 = load i64, ptr %x, align 8
+  ret i64 %9
 }
 
 declare i64 @_mi_prim_clock_now() #1

@@ -28,9 +28,10 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_GetErrorPtr() #0 {
   %1 = load ptr, ptr @global_error, align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.error, ptr @global_error, i32 0, i32 1), align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 %2
-  ret ptr %3
+  %2 = getelementptr inbounds %struct.error, ptr @global_error, i32 0, i32 1
+  %3 = load i64, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %1, i64 %3
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -156,60 +157,67 @@ define void @cJSON_InitHooks(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %6
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   store ptr @malloc, ptr @global_hooks, align 8
-  store ptr @free, ptr getelementptr inbounds (%struct.internal_hooks, ptr @global_hooks, i32 0, i32 1), align 8
-  store ptr @realloc, ptr getelementptr inbounds (%struct.internal_hooks, ptr @global_hooks, i32 0, i32 2), align 8
-  br label %31
+  %6 = getelementptr inbounds %struct.internal_hooks, ptr @global_hooks, i32 0, i32 1
+  store ptr @free, ptr %6, align 8
+  %7 = getelementptr inbounds %struct.internal_hooks, ptr @global_hooks, i32 0, i32 2
+  store ptr @realloc, ptr %7, align 8
+  br label %38
 
-6:                                                ; preds = %1
+8:                                                ; preds = %1
   store ptr @malloc, ptr @global_hooks, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.cJSON_Hooks, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %15
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds %struct.cJSON_Hooks, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %17
 
-11:                                               ; preds = %6
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.cJSON_Hooks, ptr %12, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr @global_hooks, align 8
-  br label %15
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.cJSON_Hooks, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr @global_hooks, align 8
+  br label %17
 
-15:                                               ; preds = %11, %6
-  store ptr @free, ptr getelementptr inbounds (%struct.internal_hooks, ptr @global_hooks, i32 0, i32 1), align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.cJSON_Hooks, ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %24
+17:                                               ; preds = %13, %8
+  %18 = getelementptr inbounds %struct.internal_hooks, ptr @global_hooks, i32 0, i32 1
+  store ptr @free, ptr %18, align 8
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds %struct.cJSON_Hooks, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %28
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.cJSON_Hooks, ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr getelementptr inbounds (%struct.internal_hooks, ptr @global_hooks, i32 0, i32 1), align 8
-  br label %24
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds %struct.cJSON_Hooks, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.internal_hooks, ptr @global_hooks, i32 0, i32 1
+  store ptr %26, ptr %27, align 8
+  br label %28
 
-24:                                               ; preds = %20, %15
-  store ptr null, ptr getelementptr inbounds (%struct.internal_hooks, ptr @global_hooks, i32 0, i32 2), align 8
-  %25 = load ptr, ptr @global_hooks, align 8
-  %26 = icmp eq ptr %25, @malloc
-  br i1 %26, label %27, label %31
+28:                                               ; preds = %23, %17
+  %29 = getelementptr inbounds %struct.internal_hooks, ptr @global_hooks, i32 0, i32 2
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr @global_hooks, align 8
+  %31 = icmp eq ptr %30, @malloc
+  br i1 %31, label %32, label %38
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr getelementptr inbounds (%struct.internal_hooks, ptr @global_hooks, i32 0, i32 1), align 8
-  %29 = icmp eq ptr %28, @free
-  br i1 %29, label %30, label %31
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds %struct.internal_hooks, ptr @global_hooks, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, @free
+  br i1 %35, label %36, label %38
 
-30:                                               ; preds = %27
-  store ptr @realloc, ptr getelementptr inbounds (%struct.internal_hooks, ptr @global_hooks, i32 0, i32 2), align 8
-  br label %31
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds %struct.internal_hooks, ptr @global_hooks, i32 0, i32 2
+  store ptr @realloc, ptr %37, align 8
+  br label %38
 
-31:                                               ; preds = %30, %27, %24, %5
+38:                                               ; preds = %36, %32, %28, %5
   ret void
 }
 
@@ -230,10 +238,10 @@ define void @cJSON_Delete(ptr noundef %0) #0 {
   store ptr null, ptr %3, align 8
   br label %4
 
-4:                                                ; preds = %57, %1
+4:                                                ; preds = %59, %1
   %5 = load ptr, ptr %2, align 8
   %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %61
+  br i1 %6, label %7, label %64
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %2, align 8
@@ -267,55 +275,58 @@ define void @cJSON_Delete(ptr noundef %0) #0 {
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 256
   %30 = icmp ne i32 %29, 0
-  br i1 %30, label %41, label %31
+  br i1 %30, label %42, label %31
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr %2, align 8
   %33 = getelementptr inbounds %struct.cJSON, ptr %32, i32 0, i32 4
   %34 = load ptr, ptr %33, align 8
   %35 = icmp ne ptr %34, null
-  br i1 %35, label %36, label %41
+  br i1 %35, label %36, label %42
 
 36:                                               ; preds = %31
-  %37 = load ptr, ptr getelementptr inbounds (%struct.internal_hooks, ptr @global_hooks, i32 0, i32 1), align 8
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.cJSON, ptr %38, i32 0, i32 4
-  %40 = load ptr, ptr %39, align 8
-  call void %37(ptr noundef %40)
-  br label %41
+  %37 = getelementptr inbounds %struct.internal_hooks, ptr @global_hooks, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds %struct.cJSON, ptr %39, i32 0, i32 4
+  %41 = load ptr, ptr %40, align 8
+  call void %38(ptr noundef %41)
+  br label %42
 
-41:                                               ; preds = %36, %31, %25
-  %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds %struct.cJSON, ptr %42, i32 0, i32 3
-  %44 = load i32, ptr %43, align 8
-  %45 = and i32 %44, 512
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %57, label %47
+42:                                               ; preds = %36, %31, %25
+  %43 = load ptr, ptr %2, align 8
+  %44 = getelementptr inbounds %struct.cJSON, ptr %43, i32 0, i32 3
+  %45 = load i32, ptr %44, align 8
+  %46 = and i32 %45, 512
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %59, label %48
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds %struct.cJSON, ptr %48, i32 0, i32 7
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %57
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %2, align 8
+  %50 = getelementptr inbounds %struct.cJSON, ptr %49, i32 0, i32 7
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %59
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr getelementptr inbounds (%struct.internal_hooks, ptr @global_hooks, i32 0, i32 1), align 8
-  %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds %struct.cJSON, ptr %54, i32 0, i32 7
-  %56 = load ptr, ptr %55, align 8
-  call void %53(ptr noundef %56)
-  br label %57
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds %struct.internal_hooks, ptr @global_hooks, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %2, align 8
+  %57 = getelementptr inbounds %struct.cJSON, ptr %56, i32 0, i32 7
+  %58 = load ptr, ptr %57, align 8
+  call void %55(ptr noundef %58)
+  br label %59
 
-57:                                               ; preds = %52, %47, %41
-  %58 = load ptr, ptr getelementptr inbounds (%struct.internal_hooks, ptr @global_hooks, i32 0, i32 1), align 8
-  %59 = load ptr, ptr %2, align 8
-  call void %58(ptr noundef %59)
-  %60 = load ptr, ptr %3, align 8
-  store ptr %60, ptr %2, align 8
+59:                                               ; preds = %53, %48, %42
+  %60 = getelementptr inbounds %struct.internal_hooks, ptr @global_hooks, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %2, align 8
+  call void %61(ptr noundef %62)
+  %63 = load ptr, ptr %3, align 8
+  store ptr %63, ptr %2, align 8
   br label %4
 
-61:                                               ; preds = %4
+64:                                               ; preds = %4
   ret void
 }
 
@@ -533,9 +544,10 @@ define internal ptr @cJSON_strdup(ptr noundef %0, ptr noundef %1) #0 {
 define void @cJSON_free(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.internal_hooks, ptr @global_hooks, i32 0, i32 1), align 8
-  %4 = load ptr, ptr %2, align 8
-  call void %3(ptr noundef %4)
+  %3 = getelementptr inbounds %struct.internal_hooks, ptr @global_hooks, i32 0, i32 1
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  call void %4(ptr noundef %5)
   ret void
 }
 
@@ -592,180 +604,181 @@ define ptr @cJSON_ParseWithLengthOpts(ptr noundef %0, i64 noundef %1, ptr nounde
   call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 56, i1 false)
   store ptr null, ptr %11, align 8
   store ptr null, ptr @global_error, align 8
-  store i64 0, ptr getelementptr inbounds (%struct.error, ptr @global_error, i32 0, i32 1), align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %18, label %15
+  %13 = getelementptr inbounds %struct.error, ptr @global_error, i32 0, i32 1
+  store i64 0, ptr %13, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %19, label %16
 
-15:                                               ; preds = %4
-  %16 = load i64, ptr %7, align 8
-  %17 = icmp eq i64 0, %16
-  br i1 %17, label %18, label %19
+16:                                               ; preds = %4
+  %17 = load i64, ptr %7, align 8
+  %18 = icmp eq i64 0, %17
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %15, %4
-  br label %71
+19:                                               ; preds = %16, %4
+  br label %72
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 0
-  store ptr %20, ptr %21, align 8
-  %22 = load i64, ptr %7, align 8
-  %23 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 1
-  store i64 %22, ptr %23, align 8
-  %24 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 2
-  store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 @global_hooks, i64 24, i1 false)
-  %26 = call ptr @cJSON_New_Item(ptr noundef @global_hooks)
-  store ptr %26, ptr %11, align 8
-  %27 = load ptr, ptr %11, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %30
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 0
+  store ptr %21, ptr %22, align 8
+  %23 = load i64, ptr %7, align 8
+  %24 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 1
+  store i64 %23, ptr %24, align 8
+  %25 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 2
+  store i64 0, ptr %25, align 8
+  %26 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 @global_hooks, i64 24, i1 false)
+  %27 = call ptr @cJSON_New_Item(ptr noundef @global_hooks)
+  store ptr %27, ptr %11, align 8
+  %28 = load ptr, ptr %11, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %31
 
-29:                                               ; preds = %19
-  br label %71
+30:                                               ; preds = %20
+  br label %72
 
-30:                                               ; preds = %19
-  %31 = load ptr, ptr %11, align 8
-  %32 = call ptr @skip_utf8_bom(ptr noundef %10)
-  %33 = call ptr @buffer_skip_whitespace(ptr noundef %32)
-  %34 = call i32 @parse_value(ptr noundef %31, ptr noundef %33)
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %37, label %36
+31:                                               ; preds = %20
+  %32 = load ptr, ptr %11, align 8
+  %33 = call ptr @skip_utf8_bom(ptr noundef %10)
+  %34 = call ptr @buffer_skip_whitespace(ptr noundef %33)
+  %35 = call i32 @parse_value(ptr noundef %32, ptr noundef %34)
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %38, label %37
 
-36:                                               ; preds = %30
-  br label %71
+37:                                               ; preds = %31
+  br label %72
 
-37:                                               ; preds = %30
-  %38 = load i32, ptr %9, align 4
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %59
+38:                                               ; preds = %31
+  %39 = load i32, ptr %9, align 4
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %60
 
-40:                                               ; preds = %37
-  %41 = call ptr @buffer_skip_whitespace(ptr noundef %10)
-  %42 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 2
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 1
-  %45 = load i64, ptr %44, align 8
-  %46 = icmp uge i64 %43, %45
-  br i1 %46, label %57, label %47
+41:                                               ; preds = %38
+  %42 = call ptr @buffer_skip_whitespace(ptr noundef %10)
+  %43 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 2
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
+  %47 = icmp uge i64 %44, %46
+  br i1 %47, label %58, label %48
 
-47:                                               ; preds = %40
-  %48 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 2
-  %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 %51
-  %53 = getelementptr inbounds i8, ptr %52, i64 0
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i32
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %57, label %58
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 2
+  %52 = load i64, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %50, i64 %52
+  %54 = getelementptr inbounds i8, ptr %53, i64 0
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i32
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %59
 
-57:                                               ; preds = %47, %40
-  br label %71
+58:                                               ; preds = %48, %41
+  br label %72
 
-58:                                               ; preds = %47
-  br label %59
+59:                                               ; preds = %48
+  br label %60
 
-59:                                               ; preds = %58, %37
-  %60 = load ptr, ptr %8, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %69
+60:                                               ; preds = %59, %38
+  %61 = load ptr, ptr %8, align 8
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %63, label %70
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 2
-  %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %64, i64 %66
-  %68 = load ptr, ptr %8, align 8
-  store ptr %67, ptr %68, align 8
-  br label %69
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 2
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %65, i64 %67
+  %69 = load ptr, ptr %8, align 8
+  store ptr %68, ptr %69, align 8
+  br label %70
 
-69:                                               ; preds = %62, %59
-  %70 = load ptr, ptr %11, align 8
-  store ptr %70, ptr %5, align 8
-  br label %114
+70:                                               ; preds = %63, %60
+  %71 = load ptr, ptr %11, align 8
+  store ptr %71, ptr %5, align 8
+  br label %115
 
-71:                                               ; preds = %57, %36, %29, %18
-  %72 = load ptr, ptr %11, align 8
-  %73 = icmp ne ptr %72, null
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %58, %37, %30, %19
+  %73 = load ptr, ptr %11, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %77
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %11, align 8
-  call void @cJSON_Delete(ptr noundef %75)
-  br label %76
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %11, align 8
+  call void @cJSON_Delete(ptr noundef %76)
+  br label %77
 
-76:                                               ; preds = %74, %71
-  %77 = load ptr, ptr %6, align 8
-  %78 = icmp ne ptr %77, null
-  br i1 %78, label %79, label %113
+77:                                               ; preds = %75, %72
+  %78 = load ptr, ptr %6, align 8
+  %79 = icmp ne ptr %78, null
+  br i1 %79, label %80, label %114
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %6, align 8
-  %81 = getelementptr inbounds %struct.error, ptr %12, i32 0, i32 0
-  store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds %struct.error, ptr %12, i32 0, i32 1
-  store i64 0, ptr %82, align 8
-  %83 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 2
-  %84 = load i64, ptr %83, align 8
-  %85 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 1
-  %86 = load i64, ptr %85, align 8
-  %87 = icmp ult i64 %84, %86
-  br i1 %87, label %88, label %92
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %6, align 8
+  %82 = getelementptr inbounds %struct.error, ptr %12, i32 0, i32 0
+  store ptr %81, ptr %82, align 8
+  %83 = getelementptr inbounds %struct.error, ptr %12, i32 0, i32 1
+  store i64 0, ptr %83, align 8
+  %84 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 2
+  %85 = load i64, ptr %84, align 8
+  %86 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 1
+  %87 = load i64, ptr %86, align 8
+  %88 = icmp ult i64 %85, %87
+  br i1 %88, label %89, label %93
 
-88:                                               ; preds = %79
-  %89 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 2
-  %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds %struct.error, ptr %12, i32 0, i32 1
-  store i64 %90, ptr %91, align 8
+89:                                               ; preds = %80
+  %90 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 2
+  %91 = load i64, ptr %90, align 8
+  %92 = getelementptr inbounds %struct.error, ptr %12, i32 0, i32 1
+  store i64 %91, ptr %92, align 8
+  br label %103
+
+93:                                               ; preds = %80
+  %94 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 1
+  %95 = load i64, ptr %94, align 8
+  %96 = icmp ugt i64 %95, 0
+  br i1 %96, label %97, label %102
+
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 1
+  %99 = load i64, ptr %98, align 8
+  %100 = sub i64 %99, 1
+  %101 = getelementptr inbounds %struct.error, ptr %12, i32 0, i32 1
+  store i64 %100, ptr %101, align 8
   br label %102
 
-92:                                               ; preds = %79
-  %93 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 1
-  %94 = load i64, ptr %93, align 8
-  %95 = icmp ugt i64 %94, 0
-  br i1 %95, label %96, label %101
+102:                                              ; preds = %97, %93
+  br label %103
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds %struct.parse_buffer, ptr %10, i32 0, i32 1
-  %98 = load i64, ptr %97, align 8
-  %99 = sub i64 %98, 1
-  %100 = getelementptr inbounds %struct.error, ptr %12, i32 0, i32 1
-  store i64 %99, ptr %100, align 8
-  br label %101
+103:                                              ; preds = %102, %89
+  %104 = load ptr, ptr %8, align 8
+  %105 = icmp ne ptr %104, null
+  br i1 %105, label %106, label %113
 
-101:                                              ; preds = %96, %92
-  br label %102
-
-102:                                              ; preds = %101, %88
-  %103 = load ptr, ptr %8, align 8
-  %104 = icmp ne ptr %103, null
-  br i1 %104, label %105, label %112
-
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds %struct.error, ptr %12, i32 0, i32 0
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds %struct.error, ptr %12, i32 0, i32 1
-  %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %107, i64 %109
-  %111 = load ptr, ptr %8, align 8
-  store ptr %110, ptr %111, align 8
-  br label %112
-
-112:                                              ; preds = %105, %102
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @global_error, ptr align 8 %12, i64 16, i1 false)
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds %struct.error, ptr %12, i32 0, i32 0
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds %struct.error, ptr %12, i32 0, i32 1
+  %110 = load i64, ptr %109, align 8
+  %111 = getelementptr inbounds i8, ptr %108, i64 %110
+  %112 = load ptr, ptr %8, align 8
+  store ptr %111, ptr %112, align 8
   br label %113
 
-113:                                              ; preds = %112, %76
-  store ptr null, ptr %5, align 8
+113:                                              ; preds = %106, %103
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @global_error, ptr align 8 %12, i64 16, i1 false)
   br label %114
 
-114:                                              ; preds = %113, %69
-  %115 = load ptr, ptr %5, align 8
-  ret ptr %115
+114:                                              ; preds = %113, %77
+  store ptr null, ptr %5, align 8
+  br label %115
+
+115:                                              ; preds = %114, %70
+  %116 = load ptr, ptr %5, align 8
+  ret ptr %116
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1564,7 +1577,7 @@ define ptr @cJSON_PrintBuffered(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
 
 11:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %41
+  br label %42
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr @global_hooks, align 8
@@ -1580,7 +1593,7 @@ define ptr @cJSON_PrintBuffered(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
 
 21:                                               ; preds = %12
   store ptr null, ptr %4, align 8
-  br label %41
+  br label %42
 
 22:                                               ; preds = %12
   %23 = load i32, ptr %6, align 4
@@ -1599,25 +1612,26 @@ define ptr @cJSON_PrintBuffered(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %31 = load ptr, ptr %5, align 8
   %32 = call i32 @print_value(ptr noundef %31, ptr noundef %8)
   %33 = icmp ne i32 %32, 0
-  br i1 %33, label %38, label %34
+  br i1 %33, label %39, label %34
 
 34:                                               ; preds = %22
-  %35 = load ptr, ptr getelementptr inbounds (%struct.internal_hooks, ptr @global_hooks, i32 0, i32 1), align 8
-  %36 = getelementptr inbounds %struct.printbuffer, ptr %8, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  call void %35(ptr noundef %37)
+  %35 = getelementptr inbounds %struct.internal_hooks, ptr @global_hooks, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %struct.printbuffer, ptr %8, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  call void %36(ptr noundef %38)
   store ptr null, ptr %4, align 8
-  br label %41
+  br label %42
 
-38:                                               ; preds = %22
-  %39 = getelementptr inbounds %struct.printbuffer, ptr %8, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %4, align 8
-  br label %41
+39:                                               ; preds = %22
+  %40 = getelementptr inbounds %struct.printbuffer, ptr %8, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  store ptr %41, ptr %4, align 8
+  br label %42
 
-41:                                               ; preds = %38, %34, %21, %11
-  %42 = load ptr, ptr %4, align 8
-  ret ptr %42
+42:                                               ; preds = %39, %34, %21, %11
+  %43 = load ptr, ptr %4, align 8
+  ret ptr %43
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

@@ -5378,62 +5378,63 @@ define ptr @_php_stream_sock_open_from_socket(i32 noundef %0, ptr noundef %1) #0
   %18 = load ptr, ptr %6, align 8
   %19 = getelementptr inbounds %struct._php_netstream_data_t, ptr %18, i32 0, i32 1
   store i8 1, ptr %19, align 4
-  %20 = load i64, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i32 0, i32 3), align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct._php_netstream_data_t, ptr %21, i32 0, i32 2
-  %23 = getelementptr inbounds %struct.timeval, ptr %22, i32 0, i32 0
-  store i64 %20, ptr %23, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct._php_netstream_data_t, ptr %24, i32 0, i32 2
-  %26 = getelementptr inbounds %struct.timeval, ptr %25, i32 0, i32 1
-  store i64 0, ptr %26, align 8
-  %27 = load i32, ptr %3, align 4
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct._php_netstream_data_t, ptr %28, i32 0, i32 0
-  store i32 %27, ptr %29, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = call ptr @_php_stream_alloc(ptr noundef @php_stream_generic_socket_ops, ptr noundef %30, ptr noundef %31, ptr noundef @.str.10)
-  store ptr %32, ptr %5, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %45
+  %20 = getelementptr inbounds %struct.php_file_globals, ptr @file_globals, i32 0, i32 3
+  %21 = load i64, ptr %20, align 8
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds %struct._php_netstream_data_t, ptr %22, i32 0, i32 2
+  %24 = getelementptr inbounds %struct.timeval, ptr %23, i32 0, i32 0
+  store i64 %21, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds %struct._php_netstream_data_t, ptr %25, i32 0, i32 2
+  %27 = getelementptr inbounds %struct.timeval, ptr %26, i32 0, i32 1
+  store i64 0, ptr %27, align 8
+  %28 = load i32, ptr %3, align 4
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr inbounds %struct._php_netstream_data_t, ptr %29, i32 0, i32 0
+  store i32 %28, ptr %30, align 8
+  %31 = load ptr, ptr %6, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = call ptr @_php_stream_alloc(ptr noundef @php_stream_generic_socket_ops, ptr noundef %31, ptr noundef %32, ptr noundef @.str.10)
+  store ptr %33, ptr %5, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %46
 
-35:                                               ; preds = %15
-  %36 = load ptr, ptr %4, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %39
+36:                                               ; preds = %15
+  %37 = load ptr, ptr %4, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %35
-  br i1 true, label %40, label %42
+39:                                               ; preds = %36
+  br i1 true, label %41, label %43
 
-39:                                               ; preds = %35
-  br i1 false, label %40, label %42
+40:                                               ; preds = %36
+  br i1 false, label %41, label %43
 
-40:                                               ; preds = %39, %38
-  %41 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %41) #12
-  br label %44
+41:                                               ; preds = %40, %39
+  %42 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %42) #12
+  br label %45
 
-42:                                               ; preds = %39, %38
-  %43 = load ptr, ptr %6, align 8
-  call void @_efree(ptr noundef %43)
-  br label %44
+43:                                               ; preds = %40, %39
+  %44 = load ptr, ptr %6, align 8
+  call void @_efree(ptr noundef %44)
+  br label %45
 
-44:                                               ; preds = %42, %40
-  br label %50
+45:                                               ; preds = %43, %41
+  br label %51
 
-45:                                               ; preds = %15
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds %struct._php_stream, ptr %46, i32 0, i32 9
-  %48 = load i32, ptr %47, align 4
-  %49 = or i32 %48, 16
-  store i32 %49, ptr %47, align 4
-  br label %50
+46:                                               ; preds = %15
+  %47 = load ptr, ptr %5, align 8
+  %48 = getelementptr inbounds %struct._php_stream, ptr %47, i32 0, i32 9
+  %49 = load i32, ptr %48, align 4
+  %50 = or i32 %49, 16
+  store i32 %50, ptr %48, align 4
+  br label %51
 
-50:                                               ; preds = %45, %44
-  %51 = load ptr, ptr %5, align 8
-  ret ptr %51
+51:                                               ; preds = %46, %45
+  %52 = load ptr, ptr %5, align 8
+  ret ptr %52
 }
 
 ; Function Attrs: allocsize(0)
@@ -5641,22 +5642,30 @@ declare ptr @realloc(ptr noundef, i64 noundef) #10
 define ptr @php_network_gethostbyname(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i32 0, i32 13), align 8
-  %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %7
+  %3 = getelementptr inbounds %struct.php_file_globals, ptr @file_globals, i32 0, i32 13
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %6, label %9
 
-5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i32 0, i32 13), align 8
-  call void @free(ptr noundef %6) #12
-  br label %7
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %struct.php_file_globals, ptr @file_globals, i32 0, i32 13
+  %8 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %8) #12
+  br label %9
 
-7:                                                ; preds = %5, %1
-  store ptr null, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i32 0, i32 13), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i32 0, i32 14), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i32 0, i32 12), i8 0, i64 32, i1 false)
-  %8 = load ptr, ptr %2, align 8
-  %9 = call ptr @gethostname_re(ptr noundef %8, ptr noundef getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i32 0, i32 12), ptr noundef getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i32 0, i32 13), ptr noundef getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i32 0, i32 14))
-  ret ptr %9
+9:                                                ; preds = %6, %1
+  %10 = getelementptr inbounds %struct.php_file_globals, ptr @file_globals, i32 0, i32 13
+  store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds %struct.php_file_globals, ptr @file_globals, i32 0, i32 14
+  store i64 0, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.php_file_globals, ptr @file_globals, i32 0, i32 12
+  call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 32, i1 false)
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds %struct.php_file_globals, ptr @file_globals, i32 0, i32 12
+  %15 = getelementptr inbounds %struct.php_file_globals, ptr @file_globals, i32 0, i32 13
+  %16 = getelementptr inbounds %struct.php_file_globals, ptr @file_globals, i32 0, i32 14
+  %17 = call ptr @gethostname_re(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
+  ret ptr %17
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

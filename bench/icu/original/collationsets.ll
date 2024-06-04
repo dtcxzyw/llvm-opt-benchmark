@@ -3627,16 +3627,17 @@ entry:
   %0 = load ptr, ptr %d.addr, align 8
   %1 = load i8, ptr %numeric.addr, align 1
   call void @_ZN6icu_7517CollationIteratorC2EPKNS_13CollationDataEa(ptr noundef nonnull align 8 dereferenceable(389) %this1, ptr noundef %0, i8 noundef signext %1)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7522UTF16CollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN6icu_7522UTF16CollationIteratorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %start = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %s.addr, align 8
-  store ptr %2, ptr %start, align 8
+  %3 = load ptr, ptr %s.addr, align 8
+  store ptr %3, ptr %start, align 8
   %pos = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %p.addr, align 8
-  store ptr %3, ptr %pos, align 8
+  %4 = load ptr, ptr %p.addr, align 8
+  store ptr %4, ptr %pos, align 8
   %limit = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %lim.addr, align 8
-  store ptr %4, ptr %limit, align 8
+  %5 = load ptr, ptr %lim.addr, align 8
+  store ptr %5, ptr %limit, align 8
   ret void
 }
 
@@ -4188,15 +4189,16 @@ entry:
   store i8 %numeric, ptr %numeric.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517CollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN6icu_7517CollationIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %trie = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %d.addr, align 8
-  %trie2 = getelementptr inbounds %"struct.icu_75::CollationData", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %trie2, align 8
-  store ptr %1, ptr %trie, align 8
+  %1 = load ptr, ptr %d.addr, align 8
+  %trie2 = getelementptr inbounds %"struct.icu_75::CollationData", ptr %1, i32 0, i32 0
+  %2 = load ptr, ptr %trie2, align 8
+  store ptr %2, ptr %trie, align 8
   %data = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %d.addr, align 8
-  store ptr %2, ptr %data, align 8
+  %3 = load ptr, ptr %d.addr, align 8
+  store ptr %3, ptr %data, align 8
   %ceBuffer = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 3
   invoke void @_ZN6icu_7517CollationIterator8CEBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(344) %ceBuffer)
           to label %invoke.cont unwind label %lpad
@@ -4209,17 +4211,17 @@ invoke.cont:                                      ; preds = %entry
   %numCpFwd = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 7
   store i32 -1, ptr %numCpFwd, align 8
   %isNumeric = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 8
-  %3 = load i8, ptr %numeric.addr, align 1
-  store i8 %3, ptr %isNumeric, align 4
+  %4 = load i8, ptr %numeric.addr, align 1
+  store i8 %4, ptr %isNumeric, align 4
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
   br label %eh.resume
 
@@ -4237,7 +4239,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

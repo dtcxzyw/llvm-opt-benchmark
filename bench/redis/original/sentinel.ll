@@ -646,34 +646,52 @@ declare void @dictSdsDestructor(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @initSentinelConfig() #0 {
 entry:
-  store i32 26379, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 44), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 73), align 8
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 44
+  store i32 26379, ptr %0, align 8
+  %1 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 73
+  store i32 0, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @initSentinel() #0 {
 entry:
-  store i64 0, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  store i64 0, ptr %0, align 8
   %call = call ptr @dictCreate(ptr noundef @instancesDictType)
-  store ptr %call, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 5), align 8
+  %1 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  store ptr %call, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 3
+  store i32 0, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 5
+  store i64 0, ptr %3, align 8
   %call1 = call i64 @mstime()
-  store i64 %call1, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 6), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 4), align 4
+  %4 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 6
+  store i64 %call1, ptr %4, align 8
+  %5 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 4
+  store i32 0, ptr %5, align 4
   %call2 = call ptr @listCreate()
-  store ptr %call2, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 7), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 8), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 9), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 10), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 11), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 12), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 13), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 14), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 15), align 4
+  %6 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 7
+  store ptr %call2, ptr %6, align 8
+  %7 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 8
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 9
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 10
+  store i64 0, ptr %9, align 8
+  %10 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 11
+  store i32 1, ptr %10, align 8
+  %11 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 12
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 13
+  store ptr null, ptr %12, align 8
+  %13 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 14
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 15
+  store i32 0, ptr %14, align 4
   call void @llvm.memset.p0.i64(ptr align 8 @sentinel, i8 0, i64 41, i1 false)
-  store ptr null, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
+  %15 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  store ptr null, ptr %15, align 8
   ret void
 }
 
@@ -689,16 +707,18 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @sentinelCheckConfigFile() #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 2), align 8
-  %cmp = icmp eq ptr %0, null
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 2
+  %1 = load ptr, ptr %0, align 8
+  %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp1 = icmp slt i32 3, %1
+  %2 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %3 = load i32, ptr %2, align 8
+  %cmp1 = icmp slt i32 3, %3
   br i1 %cmp1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %do.body
@@ -713,8 +733,9 @@ do.end:                                           ; preds = %if.end, %if.then2
   unreachable
 
 if.else:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 2), align 8
-  %call = call i32 @access(ptr noundef %2, i32 noundef 2) #12
+  %4 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  %call = call i32 @access(ptr noundef %5, i32 noundef 2) #12
   %cmp3 = icmp eq i32 %call, -1
   br i1 %cmp3, label %if.then4, label %if.end12
 
@@ -722,19 +743,21 @@ if.then4:                                         ; preds = %if.else
   br label %do.body5
 
 do.body5:                                         ; preds = %if.then4
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp6 = icmp slt i32 3, %3
+  %6 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %7 = load i32, ptr %6, align 8
+  %cmp6 = icmp slt i32 3, %7
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %do.body5
   br label %do.end11
 
 if.end8:                                          ; preds = %do.body5
-  %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 2), align 8
+  %8 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
   %call9 = call ptr @__errno_location() #13
-  %5 = load i32, ptr %call9, align 4
-  %call10 = call ptr @strerror(i32 noundef %5) #12
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.10, ptr noundef %4, ptr noundef %call10)
+  %10 = load i32, ptr %call9, align 4
+  %call10 = call ptr @strerror(i32 noundef %10) #12
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.10, ptr noundef %9, ptr noundef %call10)
   br label %do.end11
 
 do.end11:                                         ; preds = %if.end8, %if.then7
@@ -809,8 +832,9 @@ if.end6:                                          ; preds = %if.then5, %for.end
   br label %do.body
 
 do.body:                                          ; preds = %if.end6
-  %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp7 = icmp slt i32 2, %5
+  %5 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %6 = load i32, ptr %5, align 8
+  %cmp7 = icmp slt i32 2, %6
   br i1 %cmp7, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %do.body
@@ -833,24 +857,29 @@ entry:
   %retval = alloca i32, align 4
   %saved_hz = alloca i32, align 4
   %rewrite_status = alloca i32, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 8), align 4
-  store i32 %0, ptr %saved_hz, align 4
-  store i32 10, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 8), align 4
-  %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 2), align 8
-  %call = call i32 @rewriteConfig(ptr noundef %1, i32 noundef 0)
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 8
+  %1 = load i32, ptr %0, align 4
+  store i32 %1, ptr %saved_hz, align 4
+  %2 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 8
+  store i32 10, ptr %2, align 4
+  %3 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 2
+  %4 = load ptr, ptr %3, align 8
+  %call = call i32 @rewriteConfig(ptr noundef %4, i32 noundef 0)
   store i32 %call, ptr %rewrite_status, align 4
-  %2 = load i32, ptr %saved_hz, align 4
-  store i32 %2, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 8), align 4
-  %3 = load i32, ptr %rewrite_status, align 4
-  %cmp = icmp eq i32 %3, -1
+  %5 = load i32, ptr %saved_hz, align 4
+  %6 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 8
+  store i32 %5, ptr %6, align 4
+  %7 = load i32, ptr %rewrite_status, align 4
+  %cmp = icmp eq i32 %7, -1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp1 = icmp slt i32 3, %4
+  %8 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %9 = load i32, ptr %8, align 8
+  %cmp1 = icmp slt i32 3, %9
   br i1 %cmp1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %do.body
@@ -858,8 +887,8 @@ if.then2:                                         ; preds = %do.body
 
 if.end:                                           ; preds = %do.body
   %call3 = call ptr @__errno_location() #13
-  %5 = load i32, ptr %call3, align 4
-  %call4 = call ptr @strerror(i32 noundef %5) #12
+  %10 = load i32, ptr %call3, align 4
+  %call4 = call ptr @strerror(i32 noundef %10) #12
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.144, ptr noundef %call4)
   br label %do.end
 
@@ -871,8 +900,9 @@ if.else:                                          ; preds = %entry
   br label %do.body5
 
 do.body5:                                         ; preds = %if.else
-  %6 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp6 = icmp slt i32 2, %6
+  %11 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %12 = load i32, ptr %11, align 8
+  %cmp6 = icmp slt i32 2, %12
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %do.body5
@@ -887,8 +917,8 @@ do.end9:                                          ; preds = %if.end8, %if.then7
   br label %return
 
 return:                                           ; preds = %do.end9, %do.end
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
+  %13 = load i32, ptr %retval, align 4
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -897,32 +927,33 @@ entry:
   %di = alloca ptr, align 8
   %de = alloca ptr, align 8
   %ri = alloca ptr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %call = call ptr @dictGetIterator(ptr noundef %0)
+  %0 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %1 = load ptr, ptr %0, align 8
+  %call = call ptr @dictGetIterator(ptr noundef %1)
   store ptr %call, ptr %di, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
-  %1 = load ptr, ptr %di, align 8
-  %call1 = call ptr @dictNext(ptr noundef %1)
+  %2 = load ptr, ptr %di, align 8
+  %call1 = call ptr @dictNext(ptr noundef %2)
   store ptr %call1, ptr %de, align 8
   %cmp = icmp ne ptr %call1, null
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %de, align 8
-  %call2 = call ptr @dictGetVal(ptr noundef %2)
+  %3 = load ptr, ptr %de, align 8
+  %call2 = call ptr @dictGetVal(ptr noundef %3)
   store ptr %call2, ptr %ri, align 8
-  %3 = load ptr, ptr %ri, align 8
   %4 = load ptr, ptr %ri, align 8
-  %quorum = getelementptr inbounds %struct.sentinelRedisInstance, ptr %4, i32 0, i32 21
-  %5 = load i32, ptr %quorum, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.18, ptr noundef %3, ptr noundef @.str.19, i32 noundef %5)
+  %5 = load ptr, ptr %ri, align 8
+  %quorum = getelementptr inbounds %struct.sentinelRedisInstance, ptr %5, i32 0, i32 21
+  %6 = load i32, ptr %quorum, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.18, ptr noundef %4, ptr noundef @.str.19, i32 noundef %6)
   br label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
-  %6 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %6)
+  %7 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %7)
   ret void
 }
 
@@ -956,8 +987,9 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.end:                                           ; preds = %lor.lhs.false
   %2 = load ptr, ptr %hostname.addr, align 8
   %arraydecay = getelementptr inbounds [46 x i8], ptr %ip, i64 0, i64 0
-  %3 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 14), align 8
-  %tobool = icmp ne i32 %3, 0
+  %3 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 14
+  %4 = load i32, ptr %3, align 8
+  %tobool = icmp ne i32 %4, 0
   %cond = select i1 %tobool, i32 0, i32 1
   %call2 = call i32 @anetResolve(ptr noundef null, ptr noundef %2, ptr noundef %arraydecay, i64 noundef 46, i32 noundef %cond)
   %cmp3 = icmp eq i32 %call2, -1
@@ -967,26 +999,28 @@ if.then4:                                         ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %if.then4
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp5 = icmp slt i32 3, %4
+  %5 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %6 = load i32, ptr %5, align 8
+  %cmp5 = icmp slt i32 3, %6
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %do.body
   br label %do.end
 
 if.end7:                                          ; preds = %do.body
-  %5 = load ptr, ptr %hostname.addr, align 8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.12, ptr noundef %5)
+  %7 = load ptr, ptr %hostname.addr, align 8
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.12, ptr noundef %7)
   br label %do.end
 
 do.end:                                           ; preds = %if.end7, %if.then6
-  %6 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 14), align 8
-  %tobool8 = icmp ne i32 %6, 0
+  %8 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 14
+  %9 = load i32, ptr %8, align 8
+  %tobool8 = icmp ne i32 %9, 0
   br i1 %tobool8, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %do.end
-  %7 = load i32, ptr %is_accept_unresolved.addr, align 4
-  %tobool9 = icmp ne i32 %7, 0
+  %10 = load i32, ptr %is_accept_unresolved.addr, align 4
+  %tobool9 = icmp ne i32 %10, 0
   br i1 %tobool9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %land.lhs.true
@@ -1006,27 +1040,27 @@ if.end12:                                         ; preds = %if.then10
 if.end13:                                         ; preds = %if.end12, %if.end
   %call14 = call noalias ptr @zmalloc(i64 noundef 24) #14
   store ptr %call14, ptr %sa, align 8
-  %8 = load ptr, ptr %hostname.addr, align 8
-  %call15 = call ptr @sdsnew(ptr noundef %8)
-  %9 = load ptr, ptr %sa, align 8
-  %hostname16 = getelementptr inbounds %struct.sentinelAddr, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %hostname.addr, align 8
+  %call15 = call ptr @sdsnew(ptr noundef %11)
+  %12 = load ptr, ptr %sa, align 8
+  %hostname16 = getelementptr inbounds %struct.sentinelAddr, ptr %12, i32 0, i32 0
   store ptr %call15, ptr %hostname16, align 8
   %arraydecay17 = getelementptr inbounds [46 x i8], ptr %ip, i64 0, i64 0
   %call18 = call ptr @sdsnew(ptr noundef %arraydecay17)
-  %10 = load ptr, ptr %sa, align 8
-  %ip19 = getelementptr inbounds %struct.sentinelAddr, ptr %10, i32 0, i32 1
-  store ptr %call18, ptr %ip19, align 8
-  %11 = load i32, ptr %port.addr, align 4
-  %12 = load ptr, ptr %sa, align 8
-  %port20 = getelementptr inbounds %struct.sentinelAddr, ptr %12, i32 0, i32 2
-  store i32 %11, ptr %port20, align 8
   %13 = load ptr, ptr %sa, align 8
-  store ptr %13, ptr %retval, align 8
+  %ip19 = getelementptr inbounds %struct.sentinelAddr, ptr %13, i32 0, i32 1
+  store ptr %call18, ptr %ip19, align 8
+  %14 = load i32, ptr %port.addr, align 4
+  %15 = load ptr, ptr %sa, align 8
+  %port20 = getelementptr inbounds %struct.sentinelAddr, ptr %15, i32 0, i32 2
+  store i32 %14, ptr %port20, align 8
+  %16 = load ptr, ptr %sa, align 8
+  store ptr %16, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end13, %if.else, %if.then
-  %14 = load ptr, ptr %retval, align 8
-  ret ptr %14
+  %17 = load ptr, ptr %retval, align 8
+  ret ptr %17
 }
 
 declare i32 @anetResolve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
@@ -1156,34 +1190,36 @@ entry:
   store ptr %hostname, ptr %hostname.addr, align 8
   %0 = load ptr, ptr %hostname.addr, align 8
   %arraydecay = getelementptr inbounds [46 x i8], ptr %ip, i64 0, i64 0
-  %1 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 14), align 8
-  %tobool = icmp ne i32 %1, 0
+  %1 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 14
+  %2 = load i32, ptr %1, align 8
+  %tobool = icmp ne i32 %2, 0
   %cond = select i1 %tobool, i32 0, i32 1
   %call = call i32 @anetResolve(ptr noundef null, ptr noundef %0, ptr noundef %arraydecay, i64 noundef 46, i32 noundef %cond)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 14), align 8
-  %tobool1 = icmp ne i32 %2, 0
+  %3 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 14
+  %4 = load i32, ptr %3, align 8
+  %tobool1 = icmp ne i32 %4, 0
   br i1 %tobool1, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then
-  %3 = load ptr, ptr %a.addr, align 8
-  %hostname2 = getelementptr inbounds %struct.sentinelAddr, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %hostname2, align 8
+  %5 = load ptr, ptr %a.addr, align 8
+  %hostname2 = getelementptr inbounds %struct.sentinelAddr, ptr %5, i32 0, i32 0
+  %6 = load ptr, ptr %hostname2, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then
-  %5 = load ptr, ptr %a.addr, align 8
-  %ip3 = getelementptr inbounds %struct.sentinelAddr, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %ip3, align 8
+  %7 = load ptr, ptr %a.addr, align 8
+  %ip3 = getelementptr inbounds %struct.sentinelAddr, ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %ip3, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond4 = phi ptr [ %4, %cond.true ], [ %6, %cond.false ]
-  %7 = load ptr, ptr %hostname.addr, align 8
-  %call5 = call i32 @strcasecmp(ptr noundef %cond4, ptr noundef %7) #15
+  %cond4 = phi ptr [ %6, %cond.true ], [ %8, %cond.false ]
+  %9 = load ptr, ptr %hostname.addr, align 8
+  %call5 = call i32 @strcasecmp(ptr noundef %cond4, ptr noundef %9) #15
   %tobool6 = icmp ne i32 %call5, 0
   %lnot = xor i1 %tobool6, true
   %lnot.ext = zext i1 %lnot to i32
@@ -1191,11 +1227,11 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br label %return
 
 if.end:                                           ; preds = %entry
-  %8 = load ptr, ptr %a.addr, align 8
-  %ip7 = getelementptr inbounds %struct.sentinelAddr, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %ip7, align 8
+  %10 = load ptr, ptr %a.addr, align 8
+  %ip7 = getelementptr inbounds %struct.sentinelAddr, ptr %10, i32 0, i32 1
+  %11 = load ptr, ptr %ip7, align 8
   %arraydecay8 = getelementptr inbounds [46 x i8], ptr %ip, i64 0, i64 0
-  %call9 = call i32 @strcasecmp(ptr noundef %9, ptr noundef %arraydecay8) #15
+  %call9 = call i32 @strcasecmp(ptr noundef %11, ptr noundef %arraydecay8) #15
   %tobool10 = icmp ne i32 %call9, 0
   %lnot11 = xor i1 %tobool10, true
   %lnot.ext12 = zext i1 %lnot11 to i32
@@ -1203,8 +1239,8 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %cond.end
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+  %12 = load i32, ptr %retval, align 4
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1212,24 +1248,25 @@ define dso_local ptr @announceSentinelAddr(ptr noundef %a) #0 {
 entry:
   %a.addr = alloca ptr, align 8
   store ptr %a, ptr %a.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 15), align 4
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 15
+  %1 = load i32, ptr %0, align 4
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %1 = load ptr, ptr %a.addr, align 8
-  %hostname = getelementptr inbounds %struct.sentinelAddr, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %hostname, align 8
+  %2 = load ptr, ptr %a.addr, align 8
+  %hostname = getelementptr inbounds %struct.sentinelAddr, ptr %2, i32 0, i32 0
+  %3 = load ptr, ptr %hostname, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %3 = load ptr, ptr %a.addr, align 8
-  %ip = getelementptr inbounds %struct.sentinelAddr, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %ip, align 8
+  %4 = load ptr, ptr %a.addr, align 8
+  %ip = getelementptr inbounds %struct.sentinelAddr, ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %ip, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %2, %cond.true ], [ %4, %cond.false ]
+  %cond = phi ptr [ %3, %cond.true ], [ %5, %cond.false ]
   ret ptr %cond
 }
 
@@ -1424,107 +1461,109 @@ if.then32:                                        ; preds = %if.end27
 
 if.end43:                                         ; preds = %if.then32, %if.end27
   %36 = load i32, ptr %level.addr, align 4
-  %37 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp44 = icmp sge i32 %36, %37
+  %37 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %38 = load i32, ptr %37, align 8
+  %cmp44 = icmp sge i32 %36, %38
   br i1 %cmp44, label %if.then46, label %if.end53
 
 if.then46:                                        ; preds = %if.end43
   br label %do.body
 
 do.body:                                          ; preds = %if.then46
-  %38 = load i32, ptr %level.addr, align 4
-  %and47 = and i32 %38, 255
-  %39 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp48 = icmp slt i32 %and47, %39
+  %39 = load i32, ptr %level.addr, align 4
+  %and47 = and i32 %39, 255
+  %40 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %41 = load i32, ptr %40, align 8
+  %cmp48 = icmp slt i32 %and47, %41
   br i1 %cmp48, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %do.body
   br label %do.end
 
 if.end51:                                         ; preds = %do.body
-  %40 = load i32, ptr %level.addr, align 4
-  %41 = load ptr, ptr %type.addr, align 8
+  %42 = load i32, ptr %level.addr, align 4
+  %43 = load ptr, ptr %type.addr, align 8
   %arraydecay52 = getelementptr inbounds [1024 x i8], ptr %msg, i64 0, i64 0
-  call void (i32, ptr, ...) @_serverLog(i32 noundef %40, ptr noundef @.str.17, ptr noundef %41, ptr noundef %arraydecay52)
+  call void (i32, ptr, ...) @_serverLog(i32 noundef %42, ptr noundef @.str.17, ptr noundef %43, ptr noundef %arraydecay52)
   br label %do.end
 
 do.end:                                           ; preds = %if.end51, %if.then50
   br label %if.end53
 
 if.end53:                                         ; preds = %do.end, %if.end43
-  %42 = load i32, ptr %level.addr, align 4
-  %cmp54 = icmp ne i32 %42, 0
+  %44 = load i32, ptr %level.addr, align 4
+  %cmp54 = icmp ne i32 %44, 0
   br i1 %cmp54, label %if.then56, label %if.end64
 
 if.then56:                                        ; preds = %if.end53
-  %43 = load ptr, ptr %type.addr, align 8
-  %44 = load ptr, ptr %type.addr, align 8
-  %call57 = call i64 @strlen(ptr noundef %44) #15
-  %call58 = call ptr @createStringObject(ptr noundef %43, i64 noundef %call57)
+  %45 = load ptr, ptr %type.addr, align 8
+  %46 = load ptr, ptr %type.addr, align 8
+  %call57 = call i64 @strlen(ptr noundef %46) #15
+  %call58 = call ptr @createStringObject(ptr noundef %45, i64 noundef %call57)
   store ptr %call58, ptr %channel, align 8
   %arraydecay59 = getelementptr inbounds [1024 x i8], ptr %msg, i64 0, i64 0
   %arraydecay60 = getelementptr inbounds [1024 x i8], ptr %msg, i64 0, i64 0
   %call61 = call i64 @strlen(ptr noundef %arraydecay60) #15
   %call62 = call ptr @createStringObject(ptr noundef %arraydecay59, i64 noundef %call61)
   store ptr %call62, ptr %payload, align 8
-  %45 = load ptr, ptr %channel, align 8
-  %46 = load ptr, ptr %payload, align 8
-  %call63 = call i32 @pubsubPublishMessage(ptr noundef %45, ptr noundef %46, i32 noundef 0)
   %47 = load ptr, ptr %channel, align 8
-  call void @decrRefCount(ptr noundef %47)
   %48 = load ptr, ptr %payload, align 8
-  call void @decrRefCount(ptr noundef %48)
+  %call63 = call i32 @pubsubPublishMessage(ptr noundef %47, ptr noundef %48, i32 noundef 0)
+  %49 = load ptr, ptr %channel, align 8
+  call void @decrRefCount(ptr noundef %49)
+  %50 = load ptr, ptr %payload, align 8
+  call void @decrRefCount(ptr noundef %50)
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then56, %if.end53
-  %49 = load i32, ptr %level.addr, align 4
-  %cmp65 = icmp eq i32 %49, 3
+  %51 = load i32, ptr %level.addr, align 4
+  %cmp65 = icmp eq i32 %51, 3
   br i1 %cmp65, label %land.lhs.true67, label %if.end87
 
 land.lhs.true67:                                  ; preds = %if.end64
-  %50 = load ptr, ptr %ri.addr, align 8
-  %cmp68 = icmp ne ptr %50, null
+  %52 = load ptr, ptr %ri.addr, align 8
+  %cmp68 = icmp ne ptr %52, null
   br i1 %cmp68, label %if.then70, label %if.end87
 
 if.then70:                                        ; preds = %land.lhs.true67
-  %51 = load ptr, ptr %ri.addr, align 8
-  %flags72 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %51, i32 0, i32 0
-  %52 = load i32, ptr %flags72, align 8
-  %and73 = and i32 %52, 1
+  %53 = load ptr, ptr %ri.addr, align 8
+  %flags72 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %53, i32 0, i32 0
+  %54 = load i32, ptr %flags72, align 8
+  %and73 = and i32 %54, 1
   %tobool74 = icmp ne i32 %and73, 0
   br i1 %tobool74, label %cond.true75, label %cond.false76
 
 cond.true75:                                      ; preds = %if.then70
-  %53 = load ptr, ptr %ri.addr, align 8
+  %55 = load ptr, ptr %ri.addr, align 8
   br label %cond.end78
 
 cond.false76:                                     ; preds = %if.then70
-  %54 = load ptr, ptr %ri.addr, align 8
-  %master77 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %54, i32 0, i32 29
-  %55 = load ptr, ptr %master77, align 8
+  %56 = load ptr, ptr %ri.addr, align 8
+  %master77 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %56, i32 0, i32 29
+  %57 = load ptr, ptr %master77, align 8
   br label %cond.end78
 
 cond.end78:                                       ; preds = %cond.false76, %cond.true75
-  %cond79 = phi ptr [ %53, %cond.true75 ], [ %55, %cond.false76 ]
+  %cond79 = phi ptr [ %55, %cond.true75 ], [ %57, %cond.false76 ]
   store ptr %cond79, ptr %master71, align 8
-  %56 = load ptr, ptr %master71, align 8
-  %tobool80 = icmp ne ptr %56, null
+  %58 = load ptr, ptr %master71, align 8
+  %tobool80 = icmp ne ptr %58, null
   br i1 %tobool80, label %land.lhs.true81, label %if.end86
 
 land.lhs.true81:                                  ; preds = %cond.end78
-  %57 = load ptr, ptr %master71, align 8
-  %notification_script = getelementptr inbounds %struct.sentinelRedisInstance, ptr %57, i32 0, i32 43
-  %58 = load ptr, ptr %notification_script, align 8
-  %tobool82 = icmp ne ptr %58, null
+  %59 = load ptr, ptr %master71, align 8
+  %notification_script = getelementptr inbounds %struct.sentinelRedisInstance, ptr %59, i32 0, i32 43
+  %60 = load ptr, ptr %notification_script, align 8
+  %tobool82 = icmp ne ptr %60, null
   br i1 %tobool82, label %if.then83, label %if.end86
 
 if.then83:                                        ; preds = %land.lhs.true81
-  %59 = load ptr, ptr %master71, align 8
-  %notification_script84 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %59, i32 0, i32 43
-  %60 = load ptr, ptr %notification_script84, align 8
-  %61 = load ptr, ptr %type.addr, align 8
+  %61 = load ptr, ptr %master71, align 8
+  %notification_script84 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %61, i32 0, i32 43
+  %62 = load ptr, ptr %notification_script84, align 8
+  %63 = load ptr, ptr %type.addr, align 8
   %arraydecay85 = getelementptr inbounds [1024 x i8], ptr %msg, i64 0, i64 0
-  call void (ptr, ...) @sentinelScheduleScriptExecution(ptr noundef %60, ptr noundef %61, ptr noundef %arraydecay85, ptr noundef null)
+  call void (ptr, ...) @sentinelScheduleScriptExecution(ptr noundef %62, ptr noundef %63, ptr noundef %arraydecay85, ptr noundef null)
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then83, %land.lhs.true81, %cond.end78
@@ -1718,18 +1757,21 @@ while.end:                                        ; preds = %if.then, %while.con
   %conv17 = sext i32 %add16 to i64
   %mul18 = mul i64 8, %conv17
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 16 %arraydecay15, i64 %mul18, i1 false)
-  %22 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 7), align 8
-  %23 = load ptr, ptr %sj, align 8
-  %call19 = call ptr @listAddNodeTail(ptr noundef %22, ptr noundef %23)
-  %24 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 7), align 8
-  %len = getelementptr inbounds %struct.list, ptr %24, i32 0, i32 5
-  %25 = load i64, ptr %len, align 8
-  %cmp20 = icmp ugt i64 %25, 256
+  %22 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 7
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %sj, align 8
+  %call19 = call ptr @listAddNodeTail(ptr noundef %23, ptr noundef %24)
+  %25 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 7
+  %26 = load ptr, ptr %25, align 8
+  %len = getelementptr inbounds %struct.list, ptr %26, i32 0, i32 5
+  %27 = load i64, ptr %len, align 8
+  %cmp20 = icmp ugt i64 %27, 256
   br i1 %cmp20, label %if.then22, label %if.end39
 
 if.then22:                                        ; preds = %while.end
-  %26 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 7), align 8
-  call void @listRewind(ptr noundef %26, ptr noundef %li)
+  %28 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 7
+  %29 = load ptr, ptr %28, align 8
+  call void @listRewind(ptr noundef %29, ptr noundef %li)
   br label %while.cond23
 
 while.cond23:                                     ; preds = %if.then30, %if.then22
@@ -1739,14 +1781,14 @@ while.cond23:                                     ; preds = %if.then30, %if.then
   br i1 %cmp25, label %while.body27, label %while.end32
 
 while.body27:                                     ; preds = %while.cond23
-  %27 = load ptr, ptr %ln, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %27, i32 0, i32 2
-  %28 = load ptr, ptr %value, align 8
-  store ptr %28, ptr %sj, align 8
-  %29 = load ptr, ptr %sj, align 8
-  %flags28 = getelementptr inbounds %struct.sentinelScriptJob, ptr %29, i32 0, i32 0
-  %30 = load i32, ptr %flags28, align 8
-  %and = and i32 %30, 1
+  %30 = load ptr, ptr %ln, align 8
+  %value = getelementptr inbounds %struct.listNode, ptr %30, i32 0, i32 2
+  %31 = load ptr, ptr %value, align 8
+  store ptr %31, ptr %sj, align 8
+  %32 = load ptr, ptr %sj, align 8
+  %flags28 = getelementptr inbounds %struct.sentinelScriptJob, ptr %32, i32 0, i32 0
+  %33 = load i32, ptr %flags28, align 8
+  %and = and i32 %33, 1
   %tobool29 = icmp ne i32 %and, 0
   br i1 %tobool29, label %if.then30, label %if.end31
 
@@ -1754,18 +1796,20 @@ if.then30:                                        ; preds = %while.body27
   br label %while.cond23, !llvm.loop !9
 
 if.end31:                                         ; preds = %while.body27
-  %31 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 7), align 8
-  %32 = load ptr, ptr %ln, align 8
-  call void @listDelNode(ptr noundef %31, ptr noundef %32)
-  %33 = load ptr, ptr %sj, align 8
-  call void @sentinelReleaseScriptJob(ptr noundef %33)
+  %34 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 7
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %ln, align 8
+  call void @listDelNode(ptr noundef %35, ptr noundef %36)
+  %37 = load ptr, ptr %sj, align 8
+  call void @sentinelReleaseScriptJob(ptr noundef %37)
   br label %while.end32
 
 while.end32:                                      ; preds = %if.end31, %while.cond23
-  %34 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 7), align 8
-  %len33 = getelementptr inbounds %struct.list, ptr %34, i32 0, i32 5
-  %35 = load i64, ptr %len33, align 8
-  %cmp34 = icmp ule i64 %35, 256
+  %38 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 7
+  %39 = load ptr, ptr %38, align 8
+  %len33 = getelementptr inbounds %struct.list, ptr %39, i32 0, i32 5
+  %40 = load i64, ptr %len33, align 8
+  %cmp34 = icmp ule i64 %40, 256
   %lnot = xor i1 %cmp34, true
   %lnot36 = xor i1 %lnot, true
   %lnot.ext = zext i1 %lnot36 to i32
@@ -1781,10 +1825,10 @@ cond.false:                                       ; preds = %while.end32
   call void @abort() #11
   unreachable
 
-36:                                               ; No predecessors!
+41:                                               ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %36, %cond.true
+cond.end:                                         ; preds = %41, %cond.true
   br label %if.end39
 
 if.end39:                                         ; preds = %cond.end, %while.end
@@ -1867,8 +1911,9 @@ entry:
   %li = alloca %struct.listIter, align 8
   %sj = alloca ptr, align 8
   store i32 %pid, ptr %pid.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 7), align 8
-  call void @listRewind(ptr noundef %0, ptr noundef %li)
+  %0 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 7
+  %1 = load ptr, ptr %0, align 8
+  call void @listRewind(ptr noundef %1, ptr noundef %li)
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end, %entry
@@ -1878,28 +1923,28 @@ while.cond:                                       ; preds = %if.end, %entry
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %1 = load ptr, ptr %ln, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %value, align 8
-  store ptr %2, ptr %sj, align 8
-  %3 = load ptr, ptr %sj, align 8
-  %flags = getelementptr inbounds %struct.sentinelScriptJob, ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %flags, align 8
-  %and = and i32 %4, 1
+  %2 = load ptr, ptr %ln, align 8
+  %value = getelementptr inbounds %struct.listNode, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %value, align 8
+  store ptr %3, ptr %sj, align 8
+  %4 = load ptr, ptr %sj, align 8
+  %flags = getelementptr inbounds %struct.sentinelScriptJob, ptr %4, i32 0, i32 0
+  %5 = load i32, ptr %flags, align 8
+  %and = and i32 %5, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %while.body
-  %5 = load ptr, ptr %sj, align 8
-  %pid1 = getelementptr inbounds %struct.sentinelScriptJob, ptr %5, i32 0, i32 4
-  %6 = load i32, ptr %pid1, align 8
-  %7 = load i32, ptr %pid.addr, align 4
-  %cmp2 = icmp eq i32 %6, %7
+  %6 = load ptr, ptr %sj, align 8
+  %pid1 = getelementptr inbounds %struct.sentinelScriptJob, ptr %6, i32 0, i32 4
+  %7 = load i32, ptr %pid1, align 8
+  %8 = load i32, ptr %pid.addr, align 4
+  %cmp2 = icmp eq i32 %7, %8
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %8 = load ptr, ptr %ln, align 8
-  store ptr %8, ptr %retval, align 8
+  %9 = load ptr, ptr %ln, align 8
+  store ptr %9, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %while.body
@@ -1910,8 +1955,8 @@ while.end:                                        ; preds = %while.cond
   br label %return
 
 return:                                           ; preds = %while.end, %if.then
-  %9 = load ptr, ptr %retval, align 8
-  ret ptr %9
+  %10 = load ptr, ptr %retval, align 8
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1924,13 +1969,15 @@ entry:
   %pid = alloca i32, align 4
   %call = call i64 @mstime()
   store i64 %call, ptr %now, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 7), align 8
-  call void @listRewind(ptr noundef %0, ptr noundef %li)
+  %0 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 7
+  %1 = load ptr, ptr %0, align 8
+  call void @listRewind(ptr noundef %1, ptr noundef %li)
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end27, %if.then6, %if.then, %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 4), align 4
-  %cmp = icmp slt i32 %1, 16
+  %2 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 4
+  %3 = load i32, ptr %2, align 4
+  %cmp = icmp slt i32 %3, 16
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond
@@ -1940,18 +1987,18 @@ land.rhs:                                         ; preds = %while.cond
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond
-  %2 = phi i1 [ false, %while.cond ], [ %cmp2, %land.rhs ]
-  br i1 %2, label %while.body, label %while.end
+  %4 = phi i1 [ false, %while.cond ], [ %cmp2, %land.rhs ]
+  br i1 %4, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.end
-  %3 = load ptr, ptr %ln, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %value, align 8
-  store ptr %4, ptr %sj, align 8
-  %5 = load ptr, ptr %sj, align 8
-  %flags = getelementptr inbounds %struct.sentinelScriptJob, ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %flags, align 8
-  %and = and i32 %6, 1
+  %5 = load ptr, ptr %ln, align 8
+  %value = getelementptr inbounds %struct.listNode, ptr %5, i32 0, i32 2
+  %6 = load ptr, ptr %value, align 8
+  store ptr %6, ptr %sj, align 8
+  %7 = load ptr, ptr %sj, align 8
+  %flags = getelementptr inbounds %struct.sentinelScriptJob, ptr %7, i32 0, i32 0
+  %8 = load i32, ptr %flags, align 8
+  %and = and i32 %8, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end
 
@@ -1959,91 +2006,93 @@ if.then:                                          ; preds = %while.body
   br label %while.cond, !llvm.loop !12
 
 if.end:                                           ; preds = %while.body
-  %7 = load ptr, ptr %sj, align 8
-  %start_time = getelementptr inbounds %struct.sentinelScriptJob, ptr %7, i32 0, i32 3
-  %8 = load i64, ptr %start_time, align 8
-  %tobool3 = icmp ne i64 %8, 0
+  %9 = load ptr, ptr %sj, align 8
+  %start_time = getelementptr inbounds %struct.sentinelScriptJob, ptr %9, i32 0, i32 3
+  %10 = load i64, ptr %start_time, align 8
+  %tobool3 = icmp ne i64 %10, 0
   br i1 %tobool3, label %land.lhs.true, label %if.end7
 
 land.lhs.true:                                    ; preds = %if.end
-  %9 = load ptr, ptr %sj, align 8
-  %start_time4 = getelementptr inbounds %struct.sentinelScriptJob, ptr %9, i32 0, i32 3
-  %10 = load i64, ptr %start_time4, align 8
-  %11 = load i64, ptr %now, align 8
-  %cmp5 = icmp sgt i64 %10, %11
+  %11 = load ptr, ptr %sj, align 8
+  %start_time4 = getelementptr inbounds %struct.sentinelScriptJob, ptr %11, i32 0, i32 3
+  %12 = load i64, ptr %start_time4, align 8
+  %13 = load i64, ptr %now, align 8
+  %cmp5 = icmp sgt i64 %12, %13
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %land.lhs.true
   br label %while.cond, !llvm.loop !12
 
 if.end7:                                          ; preds = %land.lhs.true, %if.end
-  %12 = load ptr, ptr %sj, align 8
-  %flags8 = getelementptr inbounds %struct.sentinelScriptJob, ptr %12, i32 0, i32 0
-  %13 = load i32, ptr %flags8, align 8
-  %or = or i32 %13, 1
+  %14 = load ptr, ptr %sj, align 8
+  %flags8 = getelementptr inbounds %struct.sentinelScriptJob, ptr %14, i32 0, i32 0
+  %15 = load i32, ptr %flags8, align 8
+  %or = or i32 %15, 1
   store i32 %or, ptr %flags8, align 8
   %call9 = call i64 @mstime()
-  %14 = load ptr, ptr %sj, align 8
-  %start_time10 = getelementptr inbounds %struct.sentinelScriptJob, ptr %14, i32 0, i32 3
+  %16 = load ptr, ptr %sj, align 8
+  %start_time10 = getelementptr inbounds %struct.sentinelScriptJob, ptr %16, i32 0, i32 3
   store i64 %call9, ptr %start_time10, align 8
-  %15 = load ptr, ptr %sj, align 8
-  %retry_num = getelementptr inbounds %struct.sentinelScriptJob, ptr %15, i32 0, i32 1
-  %16 = load i32, ptr %retry_num, align 4
-  %inc = add nsw i32 %16, 1
+  %17 = load ptr, ptr %sj, align 8
+  %retry_num = getelementptr inbounds %struct.sentinelScriptJob, ptr %17, i32 0, i32 1
+  %18 = load i32, ptr %retry_num, align 4
+  %inc = add nsw i32 %18, 1
   store i32 %inc, ptr %retry_num, align 4
   %call11 = call i32 @fork() #12
   store i32 %call11, ptr %pid, align 4
-  %17 = load i32, ptr %pid, align 4
-  %cmp12 = icmp eq i32 %17, -1
+  %19 = load i32, ptr %pid, align 4
+  %cmp12 = icmp eq i32 %19, -1
   br i1 %cmp12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.end7
-  %18 = load ptr, ptr %sj, align 8
-  %argv = getelementptr inbounds %struct.sentinelScriptJob, ptr %18, i32 0, i32 2
-  %19 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %19, i64 0
-  %20 = load ptr, ptr %arrayidx, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.22, ptr noundef null, ptr noundef @.str.23, ptr noundef %20, i32 noundef 99, i32 noundef 0)
-  %21 = load ptr, ptr %sj, align 8
-  %flags14 = getelementptr inbounds %struct.sentinelScriptJob, ptr %21, i32 0, i32 0
-  %22 = load i32, ptr %flags14, align 8
-  %and15 = and i32 %22, -2
-  store i32 %and15, ptr %flags14, align 8
+  %20 = load ptr, ptr %sj, align 8
+  %argv = getelementptr inbounds %struct.sentinelScriptJob, ptr %20, i32 0, i32 2
+  %21 = load ptr, ptr %argv, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %21, i64 0
+  %22 = load ptr, ptr %arrayidx, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.22, ptr noundef null, ptr noundef @.str.23, ptr noundef %22, i32 noundef 99, i32 noundef 0)
   %23 = load ptr, ptr %sj, align 8
-  %pid16 = getelementptr inbounds %struct.sentinelScriptJob, ptr %23, i32 0, i32 4
+  %flags14 = getelementptr inbounds %struct.sentinelScriptJob, ptr %23, i32 0, i32 0
+  %24 = load i32, ptr %flags14, align 8
+  %and15 = and i32 %24, -2
+  store i32 %and15, ptr %flags14, align 8
+  %25 = load ptr, ptr %sj, align 8
+  %pid16 = getelementptr inbounds %struct.sentinelScriptJob, ptr %25, i32 0, i32 4
   store i32 0, ptr %pid16, align 8
   br label %if.end27
 
 if.else:                                          ; preds = %if.end7
-  %24 = load i32, ptr %pid, align 4
-  %cmp17 = icmp eq i32 %24, 0
+  %26 = load i32, ptr %pid, align 4
+  %cmp17 = icmp eq i32 %26, 0
   br i1 %cmp17, label %if.then18, label %if.else23
 
 if.then18:                                        ; preds = %if.else
   call void @connTypeCleanupAll()
-  %25 = load ptr, ptr %sj, align 8
-  %argv19 = getelementptr inbounds %struct.sentinelScriptJob, ptr %25, i32 0, i32 2
-  %26 = load ptr, ptr %argv19, align 8
-  %arrayidx20 = getelementptr inbounds ptr, ptr %26, i64 0
-  %27 = load ptr, ptr %arrayidx20, align 8
-  %28 = load ptr, ptr %sj, align 8
-  %argv21 = getelementptr inbounds %struct.sentinelScriptJob, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %argv21, align 8
-  %30 = load ptr, ptr @environ, align 8
-  %call22 = call i32 @execve(ptr noundef %27, ptr noundef %29, ptr noundef %30) #12
+  %27 = load ptr, ptr %sj, align 8
+  %argv19 = getelementptr inbounds %struct.sentinelScriptJob, ptr %27, i32 0, i32 2
+  %28 = load ptr, ptr %argv19, align 8
+  %arrayidx20 = getelementptr inbounds ptr, ptr %28, i64 0
+  %29 = load ptr, ptr %arrayidx20, align 8
+  %30 = load ptr, ptr %sj, align 8
+  %argv21 = getelementptr inbounds %struct.sentinelScriptJob, ptr %30, i32 0, i32 2
+  %31 = load ptr, ptr %argv21, align 8
+  %32 = load ptr, ptr @environ, align 8
+  %call22 = call i32 @execve(ptr noundef %29, ptr noundef %31, ptr noundef %32) #12
   call void @_exit(i32 noundef 2) #16
   unreachable
 
 if.else23:                                        ; preds = %if.else
-  %31 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 4), align 4
-  %inc24 = add nsw i32 %31, 1
-  store i32 %inc24, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 4), align 4
-  %32 = load i32, ptr %pid, align 4
-  %33 = load ptr, ptr %sj, align 8
-  %pid25 = getelementptr inbounds %struct.sentinelScriptJob, ptr %33, i32 0, i32 4
-  store i32 %32, ptr %pid25, align 8
-  %34 = load i32, ptr %pid, align 4
-  %conv = sext i32 %34 to i64
+  %33 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 4
+  %34 = load i32, ptr %33, align 4
+  %inc24 = add nsw i32 %34, 1
+  %35 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 4
+  store i32 %inc24, ptr %35, align 4
+  %36 = load i32, ptr %pid, align 4
+  %37 = load ptr, ptr %sj, align 8
+  %pid25 = getelementptr inbounds %struct.sentinelScriptJob, ptr %37, i32 0, i32 4
+  store i32 %36, ptr %pid25, align 8
+  %38 = load i32, ptr %pid, align 4
+  %conv = sext i32 %38 to i64
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef @.str.24, ptr noundef null, ptr noundef @.str.25, i64 noundef %conv)
   br label %if.end26
 
@@ -2151,16 +2200,17 @@ if.then11:                                        ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %if.then11
-  %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp12 = icmp slt i32 3, %8
+  %8 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %9 = load i32, ptr %8, align 8
+  %cmp12 = icmp slt i32 3, %9
   br i1 %cmp12, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %do.body
   br label %do.end
 
 if.end15:                                         ; preds = %do.body
-  %9 = load i32, ptr %pid, align 4
-  %conv16 = sext i32 %9 to i64
+  %10 = load i32, ptr %pid, align 4
+  %conv16 = sext i32 %10 to i64
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.28, i64 noundef %conv16)
   br label %do.end
 
@@ -2168,79 +2218,82 @@ do.end:                                           ; preds = %if.end15, %if.then1
   br label %while.cond, !llvm.loop !14
 
 if.end17:                                         ; preds = %if.end
-  %10 = load ptr, ptr %ln, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %value, align 8
-  store ptr %11, ptr %sj, align 8
-  %12 = load i32, ptr %bysignal, align 4
-  %tobool = icmp ne i32 %12, 0
+  %11 = load ptr, ptr %ln, align 8
+  %value = getelementptr inbounds %struct.listNode, ptr %11, i32 0, i32 2
+  %12 = load ptr, ptr %value, align 8
+  store ptr %12, ptr %sj, align 8
+  %13 = load i32, ptr %bysignal, align 4
+  %tobool = icmp ne i32 %13, 0
   br i1 %tobool, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end17
-  %13 = load i32, ptr %exitcode, align 4
-  %cmp18 = icmp eq i32 %13, 1
+  %14 = load i32, ptr %exitcode, align 4
+  %cmp18 = icmp eq i32 %14, 1
   br i1 %cmp18, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.end17
-  %14 = load ptr, ptr %sj, align 8
-  %retry_num = getelementptr inbounds %struct.sentinelScriptJob, ptr %14, i32 0, i32 1
-  %15 = load i32, ptr %retry_num, align 4
-  %cmp20 = icmp ne i32 %15, 10
+  %15 = load ptr, ptr %sj, align 8
+  %retry_num = getelementptr inbounds %struct.sentinelScriptJob, ptr %15, i32 0, i32 1
+  %16 = load i32, ptr %retry_num, align 4
+  %cmp20 = icmp ne i32 %16, 10
   br i1 %cmp20, label %if.then22, label %if.else
 
 if.then22:                                        ; preds = %land.lhs.true
-  %16 = load ptr, ptr %sj, align 8
-  %flags = getelementptr inbounds %struct.sentinelScriptJob, ptr %16, i32 0, i32 0
-  %17 = load i32, ptr %flags, align 8
-  %and23 = and i32 %17, -2
+  %17 = load ptr, ptr %sj, align 8
+  %flags = getelementptr inbounds %struct.sentinelScriptJob, ptr %17, i32 0, i32 0
+  %18 = load i32, ptr %flags, align 8
+  %and23 = and i32 %18, -2
   store i32 %and23, ptr %flags, align 8
-  %18 = load ptr, ptr %sj, align 8
-  %pid24 = getelementptr inbounds %struct.sentinelScriptJob, ptr %18, i32 0, i32 4
+  %19 = load ptr, ptr %sj, align 8
+  %pid24 = getelementptr inbounds %struct.sentinelScriptJob, ptr %19, i32 0, i32 4
   store i32 0, ptr %pid24, align 8
   %call25 = call i64 @mstime()
-  %19 = load ptr, ptr %sj, align 8
-  %retry_num26 = getelementptr inbounds %struct.sentinelScriptJob, ptr %19, i32 0, i32 1
-  %20 = load i32, ptr %retry_num26, align 4
-  %call27 = call i64 @sentinelScriptRetryDelay(i32 noundef %20)
+  %20 = load ptr, ptr %sj, align 8
+  %retry_num26 = getelementptr inbounds %struct.sentinelScriptJob, ptr %20, i32 0, i32 1
+  %21 = load i32, ptr %retry_num26, align 4
+  %call27 = call i64 @sentinelScriptRetryDelay(i32 noundef %21)
   %add28 = add nsw i64 %call25, %call27
-  %21 = load ptr, ptr %sj, align 8
-  %start_time = getelementptr inbounds %struct.sentinelScriptJob, ptr %21, i32 0, i32 3
+  %22 = load ptr, ptr %sj, align 8
+  %start_time = getelementptr inbounds %struct.sentinelScriptJob, ptr %22, i32 0, i32 3
   store i64 %add28, ptr %start_time, align 8
   br label %if.end35
 
 if.else:                                          ; preds = %land.lhs.true, %lor.lhs.false
-  %22 = load i32, ptr %bysignal, align 4
-  %tobool29 = icmp ne i32 %22, 0
+  %23 = load i32, ptr %bysignal, align 4
+  %tobool29 = icmp ne i32 %23, 0
   br i1 %tobool29, label %if.then33, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %if.else
-  %23 = load i32, ptr %exitcode, align 4
-  %cmp31 = icmp ne i32 %23, 0
+  %24 = load i32, ptr %exitcode, align 4
+  %cmp31 = icmp ne i32 %24, 0
   br i1 %cmp31, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %lor.lhs.false30, %if.else
-  %24 = load ptr, ptr %sj, align 8
-  %argv = getelementptr inbounds %struct.sentinelScriptJob, ptr %24, i32 0, i32 2
-  %25 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %25, i64 0
-  %26 = load ptr, ptr %arrayidx, align 8
-  %27 = load i32, ptr %bysignal, align 4
-  %28 = load i32, ptr %exitcode, align 4
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.22, ptr noundef null, ptr noundef @.str.23, ptr noundef %26, i32 noundef %27, i32 noundef %28)
+  %25 = load ptr, ptr %sj, align 8
+  %argv = getelementptr inbounds %struct.sentinelScriptJob, ptr %25, i32 0, i32 2
+  %26 = load ptr, ptr %argv, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %26, i64 0
+  %27 = load ptr, ptr %arrayidx, align 8
+  %28 = load i32, ptr %bysignal, align 4
+  %29 = load i32, ptr %exitcode, align 4
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.22, ptr noundef null, ptr noundef @.str.23, ptr noundef %27, i32 noundef %28, i32 noundef %29)
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then33, %lor.lhs.false30
-  %29 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 7), align 8
-  %30 = load ptr, ptr %ln, align 8
-  call void @listDelNode(ptr noundef %29, ptr noundef %30)
-  %31 = load ptr, ptr %sj, align 8
-  call void @sentinelReleaseScriptJob(ptr noundef %31)
+  %30 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 7
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %ln, align 8
+  call void @listDelNode(ptr noundef %31, ptr noundef %32)
+  %33 = load ptr, ptr %sj, align 8
+  call void @sentinelReleaseScriptJob(ptr noundef %33)
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end34, %if.then22
-  %32 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 4), align 4
-  %dec = add nsw i32 %32, -1
-  store i32 %dec, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 4), align 4
+  %34 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 4
+  %35 = load i32, ptr %34, align 4
+  %dec = add nsw i32 %35, -1
+  %36 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 4
+  store i32 %dec, ptr %36, align 4
   br label %while.cond, !llvm.loop !14
 
 while.end:                                        ; preds = %while.cond
@@ -2258,8 +2311,9 @@ entry:
   %sj = alloca ptr, align 8
   %call = call i64 @mstime()
   store i64 %call, ptr %now, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 7), align 8
-  call void @listRewind(ptr noundef %0, ptr noundef %li)
+  %0 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 7
+  %1 = load ptr, ptr %0, align 8
+  call void @listRewind(ptr noundef %1, ptr noundef %li)
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end, %entry
@@ -2269,42 +2323,42 @@ while.cond:                                       ; preds = %if.end, %entry
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %1 = load ptr, ptr %ln, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %value, align 8
-  store ptr %2, ptr %sj, align 8
-  %3 = load ptr, ptr %sj, align 8
-  %flags = getelementptr inbounds %struct.sentinelScriptJob, ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %flags, align 8
-  %and = and i32 %4, 1
+  %2 = load ptr, ptr %ln, align 8
+  %value = getelementptr inbounds %struct.listNode, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %value, align 8
+  store ptr %3, ptr %sj, align 8
+  %4 = load ptr, ptr %sj, align 8
+  %flags = getelementptr inbounds %struct.sentinelScriptJob, ptr %4, i32 0, i32 0
+  %5 = load i32, ptr %flags, align 8
+  %and = and i32 %5, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %while.body
-  %5 = load i64, ptr %now, align 8
-  %6 = load ptr, ptr %sj, align 8
-  %start_time = getelementptr inbounds %struct.sentinelScriptJob, ptr %6, i32 0, i32 3
-  %7 = load i64, ptr %start_time, align 8
-  %sub = sub nsw i64 %5, %7
-  %8 = load i64, ptr @sentinel_script_max_runtime, align 8
-  %cmp2 = icmp sgt i64 %sub, %8
+  %6 = load i64, ptr %now, align 8
+  %7 = load ptr, ptr %sj, align 8
+  %start_time = getelementptr inbounds %struct.sentinelScriptJob, ptr %7, i32 0, i32 3
+  %8 = load i64, ptr %start_time, align 8
+  %sub = sub nsw i64 %6, %8
+  %9 = load i64, ptr @sentinel_script_max_runtime, align 8
+  %cmp2 = icmp sgt i64 %sub, %9
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %9 = load ptr, ptr %sj, align 8
-  %argv = getelementptr inbounds %struct.sentinelScriptJob, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %10, i64 0
-  %11 = load ptr, ptr %arrayidx, align 8
-  %12 = load ptr, ptr %sj, align 8
-  %pid = getelementptr inbounds %struct.sentinelScriptJob, ptr %12, i32 0, i32 4
-  %13 = load i32, ptr %pid, align 8
-  %conv = sext i32 %13 to i64
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.29, ptr noundef null, ptr noundef @.str.30, ptr noundef %11, i64 noundef %conv)
-  %14 = load ptr, ptr %sj, align 8
-  %pid3 = getelementptr inbounds %struct.sentinelScriptJob, ptr %14, i32 0, i32 4
-  %15 = load i32, ptr %pid3, align 8
-  %call4 = call i32 @kill(i32 noundef %15, i32 noundef 9) #12
+  %10 = load ptr, ptr %sj, align 8
+  %argv = getelementptr inbounds %struct.sentinelScriptJob, ptr %10, i32 0, i32 2
+  %11 = load ptr, ptr %argv, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 0
+  %12 = load ptr, ptr %arrayidx, align 8
+  %13 = load ptr, ptr %sj, align 8
+  %pid = getelementptr inbounds %struct.sentinelScriptJob, ptr %13, i32 0, i32 4
+  %14 = load i32, ptr %pid, align 8
+  %conv = sext i32 %14 to i64
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.29, ptr noundef null, ptr noundef @.str.30, ptr noundef %12, i64 noundef %conv)
+  %15 = load ptr, ptr %sj, align 8
+  %pid3 = getelementptr inbounds %struct.sentinelScriptJob, ptr %15, i32 0, i32 4
+  %16 = load i32, ptr %pid3, align 8
+  %call4 = call i32 @kill(i32 noundef %16, i32 noundef 9) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %while.body
@@ -2328,12 +2382,14 @@ entry:
   %delay = alloca i64, align 8
   store ptr %c, ptr %c.addr, align 8
   %0 = load ptr, ptr %c.addr, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 7), align 8
-  %len = getelementptr inbounds %struct.list, ptr %1, i32 0, i32 5
-  %2 = load i64, ptr %len, align 8
-  call void @addReplyArrayLen(ptr noundef %0, i64 noundef %2)
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 7), align 8
-  call void @listRewind(ptr noundef %3, ptr noundef %li)
+  %1 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 7
+  %2 = load ptr, ptr %1, align 8
+  %len = getelementptr inbounds %struct.list, ptr %2, i32 0, i32 5
+  %3 = load i64, ptr %len, align 8
+  call void @addReplyArrayLen(ptr noundef %0, i64 noundef %3)
+  %4 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 7
+  %5 = load ptr, ptr %4, align 8
+  call void @listRewind(ptr noundef %5, ptr noundef %li)
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end29, %entry
@@ -2343,118 +2399,118 @@ while.cond:                                       ; preds = %if.end29, %entry
   br i1 %cmp, label %while.body, label %while.end31
 
 while.body:                                       ; preds = %while.cond
-  %4 = load ptr, ptr %ln, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %value, align 8
-  store ptr %5, ptr %sj, align 8
+  %6 = load ptr, ptr %ln, align 8
+  %value = getelementptr inbounds %struct.listNode, ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %value, align 8
+  store ptr %7, ptr %sj, align 8
   store i32 0, ptr %j, align 4
-  %6 = load ptr, ptr %c.addr, align 8
-  call void @addReplyMapLen(ptr noundef %6, i64 noundef 5)
-  %7 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %7, ptr noundef @.str.31)
+  %8 = load ptr, ptr %c.addr, align 8
+  call void @addReplyMapLen(ptr noundef %8, i64 noundef 5)
+  %9 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %9, ptr noundef @.str.31)
   br label %while.cond1
 
 while.cond1:                                      ; preds = %while.body2, %while.body
-  %8 = load ptr, ptr %sj, align 8
-  %argv = getelementptr inbounds %struct.sentinelScriptJob, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %argv, align 8
-  %10 = load i32, ptr %j, align 4
-  %idxprom = sext i32 %10 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %idxprom
-  %11 = load ptr, ptr %arrayidx, align 8
-  %tobool = icmp ne ptr %11, null
+  %10 = load ptr, ptr %sj, align 8
+  %argv = getelementptr inbounds %struct.sentinelScriptJob, ptr %10, i32 0, i32 2
+  %11 = load ptr, ptr %argv, align 8
+  %12 = load i32, ptr %j, align 4
+  %idxprom = sext i32 %12 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
+  %13 = load ptr, ptr %arrayidx, align 8
+  %tobool = icmp ne ptr %13, null
   br i1 %tobool, label %while.body2, label %while.end
 
 while.body2:                                      ; preds = %while.cond1
-  %12 = load i32, ptr %j, align 4
-  %inc = add nsw i32 %12, 1
+  %14 = load i32, ptr %j, align 4
+  %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %j, align 4
   br label %while.cond1, !llvm.loop !16
 
 while.end:                                        ; preds = %while.cond1
-  %13 = load ptr, ptr %c.addr, align 8
-  %14 = load i32, ptr %j, align 4
-  %conv = sext i32 %14 to i64
-  call void @addReplyArrayLen(ptr noundef %13, i64 noundef %conv)
+  %15 = load ptr, ptr %c.addr, align 8
+  %16 = load i32, ptr %j, align 4
+  %conv = sext i32 %16 to i64
+  call void @addReplyArrayLen(ptr noundef %15, i64 noundef %conv)
   store i32 0, ptr %j, align 4
   br label %while.cond3
 
 while.cond3:                                      ; preds = %while.body8, %while.end
-  %15 = load ptr, ptr %sj, align 8
-  %argv4 = getelementptr inbounds %struct.sentinelScriptJob, ptr %15, i32 0, i32 2
-  %16 = load ptr, ptr %argv4, align 8
-  %17 = load i32, ptr %j, align 4
-  %idxprom5 = sext i32 %17 to i64
-  %arrayidx6 = getelementptr inbounds ptr, ptr %16, i64 %idxprom5
-  %18 = load ptr, ptr %arrayidx6, align 8
-  %tobool7 = icmp ne ptr %18, null
+  %17 = load ptr, ptr %sj, align 8
+  %argv4 = getelementptr inbounds %struct.sentinelScriptJob, ptr %17, i32 0, i32 2
+  %18 = load ptr, ptr %argv4, align 8
+  %19 = load i32, ptr %j, align 4
+  %idxprom5 = sext i32 %19 to i64
+  %arrayidx6 = getelementptr inbounds ptr, ptr %18, i64 %idxprom5
+  %20 = load ptr, ptr %arrayidx6, align 8
+  %tobool7 = icmp ne ptr %20, null
   br i1 %tobool7, label %while.body8, label %while.end13
 
 while.body8:                                      ; preds = %while.cond3
-  %19 = load ptr, ptr %c.addr, align 8
-  %20 = load ptr, ptr %sj, align 8
-  %argv9 = getelementptr inbounds %struct.sentinelScriptJob, ptr %20, i32 0, i32 2
-  %21 = load ptr, ptr %argv9, align 8
-  %22 = load i32, ptr %j, align 4
-  %inc10 = add nsw i32 %22, 1
+  %21 = load ptr, ptr %c.addr, align 8
+  %22 = load ptr, ptr %sj, align 8
+  %argv9 = getelementptr inbounds %struct.sentinelScriptJob, ptr %22, i32 0, i32 2
+  %23 = load ptr, ptr %argv9, align 8
+  %24 = load i32, ptr %j, align 4
+  %inc10 = add nsw i32 %24, 1
   store i32 %inc10, ptr %j, align 4
-  %idxprom11 = sext i32 %22 to i64
-  %arrayidx12 = getelementptr inbounds ptr, ptr %21, i64 %idxprom11
-  %23 = load ptr, ptr %arrayidx12, align 8
-  call void @addReplyBulkCString(ptr noundef %19, ptr noundef %23)
+  %idxprom11 = sext i32 %24 to i64
+  %arrayidx12 = getelementptr inbounds ptr, ptr %23, i64 %idxprom11
+  %25 = load ptr, ptr %arrayidx12, align 8
+  call void @addReplyBulkCString(ptr noundef %21, ptr noundef %25)
   br label %while.cond3, !llvm.loop !17
 
 while.end13:                                      ; preds = %while.cond3
-  %24 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %24, ptr noundef @.str.32)
-  %25 = load ptr, ptr %c.addr, align 8
-  %26 = load ptr, ptr %sj, align 8
-  %flags = getelementptr inbounds %struct.sentinelScriptJob, ptr %26, i32 0, i32 0
-  %27 = load i32, ptr %flags, align 8
-  %and = and i32 %27, 1
+  %26 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %26, ptr noundef @.str.32)
+  %27 = load ptr, ptr %c.addr, align 8
+  %28 = load ptr, ptr %sj, align 8
+  %flags = getelementptr inbounds %struct.sentinelScriptJob, ptr %28, i32 0, i32 0
+  %29 = load i32, ptr %flags, align 8
+  %and = and i32 %29, 1
   %tobool14 = icmp ne i32 %and, 0
   %cond = select i1 %tobool14, ptr @.str.33, ptr @.str.34
-  call void @addReplyBulkCString(ptr noundef %25, ptr noundef %cond)
-  %28 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %28, ptr noundef @.str.35)
-  %29 = load ptr, ptr %c.addr, align 8
-  %30 = load ptr, ptr %sj, align 8
-  %pid = getelementptr inbounds %struct.sentinelScriptJob, ptr %30, i32 0, i32 4
-  %31 = load i32, ptr %pid, align 8
-  %conv15 = sext i32 %31 to i64
-  call void @addReplyBulkLongLong(ptr noundef %29, i64 noundef %conv15)
+  call void @addReplyBulkCString(ptr noundef %27, ptr noundef %cond)
+  %30 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %30, ptr noundef @.str.35)
+  %31 = load ptr, ptr %c.addr, align 8
   %32 = load ptr, ptr %sj, align 8
-  %flags16 = getelementptr inbounds %struct.sentinelScriptJob, ptr %32, i32 0, i32 0
-  %33 = load i32, ptr %flags16, align 8
-  %and17 = and i32 %33, 1
+  %pid = getelementptr inbounds %struct.sentinelScriptJob, ptr %32, i32 0, i32 4
+  %33 = load i32, ptr %pid, align 8
+  %conv15 = sext i32 %33 to i64
+  call void @addReplyBulkLongLong(ptr noundef %31, i64 noundef %conv15)
+  %34 = load ptr, ptr %sj, align 8
+  %flags16 = getelementptr inbounds %struct.sentinelScriptJob, ptr %34, i32 0, i32 0
+  %35 = load i32, ptr %flags16, align 8
+  %and17 = and i32 %35, 1
   %tobool18 = icmp ne i32 %and17, 0
   br i1 %tobool18, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.end13
-  %34 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %34, ptr noundef @.str.36)
-  %35 = load ptr, ptr %c.addr, align 8
+  %36 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %36, ptr noundef @.str.36)
+  %37 = load ptr, ptr %c.addr, align 8
   %call19 = call i64 @mstime()
-  %36 = load ptr, ptr %sj, align 8
-  %start_time = getelementptr inbounds %struct.sentinelScriptJob, ptr %36, i32 0, i32 3
-  %37 = load i64, ptr %start_time, align 8
-  %sub = sub nsw i64 %call19, %37
-  call void @addReplyBulkLongLong(ptr noundef %35, i64 noundef %sub)
+  %38 = load ptr, ptr %sj, align 8
+  %start_time = getelementptr inbounds %struct.sentinelScriptJob, ptr %38, i32 0, i32 3
+  %39 = load i64, ptr %start_time, align 8
+  %sub = sub nsw i64 %call19, %39
+  call void @addReplyBulkLongLong(ptr noundef %37, i64 noundef %sub)
   br label %if.end29
 
 if.else:                                          ; preds = %while.end13
-  %38 = load ptr, ptr %sj, align 8
-  %start_time20 = getelementptr inbounds %struct.sentinelScriptJob, ptr %38, i32 0, i32 3
-  %39 = load i64, ptr %start_time20, align 8
-  %tobool21 = icmp ne i64 %39, 0
+  %40 = load ptr, ptr %sj, align 8
+  %start_time20 = getelementptr inbounds %struct.sentinelScriptJob, ptr %40, i32 0, i32 3
+  %41 = load i64, ptr %start_time20, align 8
+  %tobool21 = icmp ne i64 %41, 0
   br i1 %tobool21, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.else
-  %40 = load ptr, ptr %sj, align 8
-  %start_time22 = getelementptr inbounds %struct.sentinelScriptJob, ptr %40, i32 0, i32 3
-  %41 = load i64, ptr %start_time22, align 8
+  %42 = load ptr, ptr %sj, align 8
+  %start_time22 = getelementptr inbounds %struct.sentinelScriptJob, ptr %42, i32 0, i32 3
+  %43 = load i64, ptr %start_time22, align 8
   %call23 = call i64 @mstime()
-  %sub24 = sub nsw i64 %41, %call23
+  %sub24 = sub nsw i64 %43, %call23
   br label %cond.end
 
 cond.false:                                       ; preds = %if.else
@@ -2463,8 +2519,8 @@ cond.false:                                       ; preds = %if.else
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond25 = phi i64 [ %sub24, %cond.true ], [ 0, %cond.false ]
   store i64 %cond25, ptr %delay, align 8
-  %42 = load i64, ptr %delay, align 8
-  %cmp26 = icmp slt i64 %42, 0
+  %44 = load i64, ptr %delay, align 8
+  %cmp26 = icmp slt i64 %44, 0
   br i1 %cmp26, label %if.then28, label %if.end
 
 if.then28:                                        ; preds = %cond.end
@@ -2472,22 +2528,22 @@ if.then28:                                        ; preds = %cond.end
   br label %if.end
 
 if.end:                                           ; preds = %if.then28, %cond.end
-  %43 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %43, ptr noundef @.str.37)
-  %44 = load ptr, ptr %c.addr, align 8
-  %45 = load i64, ptr %delay, align 8
-  call void @addReplyBulkLongLong(ptr noundef %44, i64 noundef %45)
+  %45 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %45, ptr noundef @.str.37)
+  %46 = load ptr, ptr %c.addr, align 8
+  %47 = load i64, ptr %delay, align 8
+  call void @addReplyBulkLongLong(ptr noundef %46, i64 noundef %47)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end, %if.then
-  %46 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %46, ptr noundef @.str.38)
-  %47 = load ptr, ptr %c.addr, align 8
-  %48 = load ptr, ptr %sj, align 8
-  %retry_num = getelementptr inbounds %struct.sentinelScriptJob, ptr %48, i32 0, i32 1
-  %49 = load i32, ptr %retry_num, align 4
-  %conv30 = sext i32 %49 to i64
-  call void @addReplyBulkLongLong(ptr noundef %47, i64 noundef %conv30)
+  %48 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %48, ptr noundef @.str.38)
+  %49 = load ptr, ptr %c.addr, align 8
+  %50 = load ptr, ptr %sj, align 8
+  %retry_num = getelementptr inbounds %struct.sentinelScriptJob, ptr %50, i32 0, i32 1
+  %51 = load i32, ptr %retry_num, align 4
+  %conv30 = sext i32 %51 to i64
+  call void @addReplyBulkLongLong(ptr noundef %49, i64 noundef %conv30)
   br label %while.cond, !llvm.loop !18
 
 while.end31:                                      ; preds = %while.cond
@@ -2894,89 +2950,90 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %8 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %call = call ptr @dictGetIterator(ptr noundef %8)
+  %8 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  %call = call ptr @dictGetIterator(ptr noundef %9)
   store ptr %call, ptr %di, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.then25, %if.then21, %if.then15, %if.end7
-  %9 = load ptr, ptr %di, align 8
-  %call8 = call ptr @dictNext(ptr noundef %9)
+  %10 = load ptr, ptr %di, align 8
+  %call8 = call ptr @dictNext(ptr noundef %10)
   store ptr %call8, ptr %de, align 8
   %cmp9 = icmp ne ptr %call8, null
   br i1 %cmp9, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %10 = load ptr, ptr %de, align 8
-  %call11 = call ptr @dictGetVal(ptr noundef %10)
+  %11 = load ptr, ptr %de, align 8
+  %call11 = call ptr @dictGetVal(ptr noundef %11)
   store ptr %call11, ptr %master, align 8
-  %11 = load ptr, ptr %master, align 8
-  %12 = load ptr, ptr %ri.addr, align 8
-  %master12 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %12, i32 0, i32 29
-  %13 = load ptr, ptr %master12, align 8
-  %cmp13 = icmp eq ptr %11, %13
+  %12 = load ptr, ptr %master, align 8
+  %13 = load ptr, ptr %ri.addr, align 8
+  %master12 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %13, i32 0, i32 29
+  %14 = load ptr, ptr %master12, align 8
+  %cmp13 = icmp eq ptr %12, %14
   br i1 %cmp13, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %while.body
   br label %while.cond, !llvm.loop !20
 
 if.end16:                                         ; preds = %while.body
-  %14 = load ptr, ptr %master, align 8
-  %sentinels = getelementptr inbounds %struct.sentinelRedisInstance, ptr %14, i32 0, i32 19
-  %15 = load ptr, ptr %sentinels, align 8
-  %16 = load ptr, ptr %ri.addr, align 8
-  %runid17 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %runid17, align 8
-  %call18 = call ptr @getSentinelRedisInstanceByAddrAndRunID(ptr noundef %15, ptr noundef null, i32 noundef 0, ptr noundef %17)
+  %15 = load ptr, ptr %master, align 8
+  %sentinels = getelementptr inbounds %struct.sentinelRedisInstance, ptr %15, i32 0, i32 19
+  %16 = load ptr, ptr %sentinels, align 8
+  %17 = load ptr, ptr %ri.addr, align 8
+  %runid17 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %17, i32 0, i32 2
+  %18 = load ptr, ptr %runid17, align 8
+  %call18 = call ptr @getSentinelRedisInstanceByAddrAndRunID(ptr noundef %16, ptr noundef null, i32 noundef 0, ptr noundef %18)
   store ptr %call18, ptr %match, align 8
-  %18 = load ptr, ptr %match, align 8
-  %cmp19 = icmp eq ptr %18, null
+  %19 = load ptr, ptr %match, align 8
+  %cmp19 = icmp eq ptr %19, null
   br i1 %cmp19, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end16
   br label %while.cond, !llvm.loop !20
 
 if.end22:                                         ; preds = %if.end16
-  %19 = load ptr, ptr %match, align 8
-  %20 = load ptr, ptr %ri.addr, align 8
-  %cmp23 = icmp eq ptr %19, %20
+  %20 = load ptr, ptr %match, align 8
+  %21 = load ptr, ptr %ri.addr, align 8
+  %cmp23 = icmp eq ptr %20, %21
   br i1 %cmp23, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %if.end22
   br label %while.cond, !llvm.loop !20
 
 if.end26:                                         ; preds = %if.end22
-  %21 = load ptr, ptr %ri.addr, align 8
-  %link27 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %21, i32 0, i32 5
-  %22 = load ptr, ptr %link27, align 8
-  %call28 = call ptr @releaseInstanceLink(ptr noundef %22, ptr noundef null)
-  %23 = load ptr, ptr %match, align 8
-  %link29 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %23, i32 0, i32 5
-  %24 = load ptr, ptr %link29, align 8
-  %25 = load ptr, ptr %ri.addr, align 8
-  %link30 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %25, i32 0, i32 5
-  store ptr %24, ptr %link30, align 8
-  %26 = load ptr, ptr %match, align 8
-  %link31 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %26, i32 0, i32 5
-  %27 = load ptr, ptr %link31, align 8
-  %refcount32 = getelementptr inbounds %struct.instanceLink, ptr %27, i32 0, i32 0
-  %28 = load i32, ptr %refcount32, align 8
-  %inc = add nsw i32 %28, 1
+  %22 = load ptr, ptr %ri.addr, align 8
+  %link27 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %22, i32 0, i32 5
+  %23 = load ptr, ptr %link27, align 8
+  %call28 = call ptr @releaseInstanceLink(ptr noundef %23, ptr noundef null)
+  %24 = load ptr, ptr %match, align 8
+  %link29 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %24, i32 0, i32 5
+  %25 = load ptr, ptr %link29, align 8
+  %26 = load ptr, ptr %ri.addr, align 8
+  %link30 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %26, i32 0, i32 5
+  store ptr %25, ptr %link30, align 8
+  %27 = load ptr, ptr %match, align 8
+  %link31 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %27, i32 0, i32 5
+  %28 = load ptr, ptr %link31, align 8
+  %refcount32 = getelementptr inbounds %struct.instanceLink, ptr %28, i32 0, i32 0
+  %29 = load i32, ptr %refcount32, align 8
+  %inc = add nsw i32 %29, 1
   store i32 %inc, ptr %refcount32, align 8
-  %29 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %29)
+  %30 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %30)
   store i32 0, ptr %retval, align 4
   br label %return
 
 while.end:                                        ; preds = %while.cond
-  %30 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %30)
+  %31 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %31)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %while.end, %if.end26, %if.then6, %if.then
-  %31 = load i32, ptr %retval, align 4
-  ret i32 %31
+  %32 = load i32, ptr %retval, align 4
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3242,69 +3299,70 @@ entry:
   %ri = alloca ptr, align 8
   %si = alloca ptr, align 8
   store i32 0, ptr %dropped, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %call = call ptr @dictGetIterator(ptr noundef %0)
+  %0 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %1 = load ptr, ptr %0, align 8
+  %call = call ptr @dictGetIterator(ptr noundef %1)
   store ptr %call, ptr %di, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.end, %entry
-  %1 = load ptr, ptr %di, align 8
-  %call1 = call ptr @dictNext(ptr noundef %1)
+  %2 = load ptr, ptr %di, align 8
+  %call1 = call ptr @dictNext(ptr noundef %2)
   store ptr %call1, ptr %de, align 8
   %cmp = icmp ne ptr %call1, null
   br i1 %cmp, label %while.body, label %while.end13
 
 while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %de, align 8
-  %call2 = call ptr @dictGetVal(ptr noundef %2)
+  %3 = load ptr, ptr %de, align 8
+  %call2 = call ptr @dictGetVal(ptr noundef %3)
   store ptr %call2, ptr %ri, align 8
-  %3 = load ptr, ptr %ri, align 8
-  %sentinels = getelementptr inbounds %struct.sentinelRedisInstance, ptr %3, i32 0, i32 19
-  %4 = load ptr, ptr %sentinels, align 8
-  %call3 = call ptr @dictGetIterator(ptr noundef %4)
+  %4 = load ptr, ptr %ri, align 8
+  %sentinels = getelementptr inbounds %struct.sentinelRedisInstance, ptr %4, i32 0, i32 19
+  %5 = load ptr, ptr %sentinels, align 8
+  %call3 = call ptr @dictGetIterator(ptr noundef %5)
   store ptr %call3, ptr %sdi, align 8
   br label %while.cond4
 
 while.cond4:                                      ; preds = %if.end, %while.body
-  %5 = load ptr, ptr %sdi, align 8
-  %call5 = call ptr @dictNext(ptr noundef %5)
+  %6 = load ptr, ptr %sdi, align 8
+  %call5 = call ptr @dictNext(ptr noundef %6)
   store ptr %call5, ptr %sde, align 8
   %cmp6 = icmp ne ptr %call5, null
   br i1 %cmp6, label %while.body7, label %while.end
 
 while.body7:                                      ; preds = %while.cond4
-  %6 = load ptr, ptr %sde, align 8
-  %call8 = call ptr @dictGetVal(ptr noundef %6)
+  %7 = load ptr, ptr %sde, align 8
+  %call8 = call ptr @dictGetVal(ptr noundef %7)
   store ptr %call8, ptr %si, align 8
-  %7 = load ptr, ptr %si, align 8
-  %link = getelementptr inbounds %struct.sentinelRedisInstance, ptr %7, i32 0, i32 5
-  %8 = load ptr, ptr %link, align 8
-  %disconnected = getelementptr inbounds %struct.instanceLink, ptr %8, i32 0, i32 1
-  %9 = load i32, ptr %disconnected, align 4
-  %tobool = icmp ne i32 %9, 0
+  %8 = load ptr, ptr %si, align 8
+  %link = getelementptr inbounds %struct.sentinelRedisInstance, ptr %8, i32 0, i32 5
+  %9 = load ptr, ptr %link, align 8
+  %disconnected = getelementptr inbounds %struct.instanceLink, ptr %9, i32 0, i32 1
+  %10 = load i32, ptr %disconnected, align 4
+  %tobool = icmp ne i32 %10, 0
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body7
-  %10 = load ptr, ptr %si, align 8
-  %link9 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %10, i32 0, i32 5
-  %11 = load ptr, ptr %link9, align 8
-  %12 = load ptr, ptr %si, align 8
-  %link10 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %12, i32 0, i32 5
-  %13 = load ptr, ptr %link10, align 8
-  %pc = getelementptr inbounds %struct.instanceLink, ptr %13, i32 0, i32 4
-  %14 = load ptr, ptr %pc, align 8
-  call void @instanceLinkCloseConnection(ptr noundef %11, ptr noundef %14)
-  %15 = load ptr, ptr %si, align 8
-  %link11 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %15, i32 0, i32 5
-  %16 = load ptr, ptr %link11, align 8
-  %17 = load ptr, ptr %si, align 8
-  %link12 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %17, i32 0, i32 5
-  %18 = load ptr, ptr %link12, align 8
-  %cc = getelementptr inbounds %struct.instanceLink, ptr %18, i32 0, i32 3
-  %19 = load ptr, ptr %cc, align 8
-  call void @instanceLinkCloseConnection(ptr noundef %16, ptr noundef %19)
-  %20 = load i32, ptr %dropped, align 4
-  %inc = add nsw i32 %20, 1
+  %11 = load ptr, ptr %si, align 8
+  %link9 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %11, i32 0, i32 5
+  %12 = load ptr, ptr %link9, align 8
+  %13 = load ptr, ptr %si, align 8
+  %link10 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %13, i32 0, i32 5
+  %14 = load ptr, ptr %link10, align 8
+  %pc = getelementptr inbounds %struct.instanceLink, ptr %14, i32 0, i32 4
+  %15 = load ptr, ptr %pc, align 8
+  call void @instanceLinkCloseConnection(ptr noundef %12, ptr noundef %15)
+  %16 = load ptr, ptr %si, align 8
+  %link11 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %16, i32 0, i32 5
+  %17 = load ptr, ptr %link11, align 8
+  %18 = load ptr, ptr %si, align 8
+  %link12 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %18, i32 0, i32 5
+  %19 = load ptr, ptr %link12, align 8
+  %cc = getelementptr inbounds %struct.instanceLink, ptr %19, i32 0, i32 3
+  %20 = load ptr, ptr %cc, align 8
+  call void @instanceLinkCloseConnection(ptr noundef %17, ptr noundef %20)
+  %21 = load i32, ptr %dropped, align 4
+  %inc = add nsw i32 %21, 1
   store i32 %inc, ptr %dropped, align 4
   br label %if.end
 
@@ -3312,15 +3370,15 @@ if.end:                                           ; preds = %if.then, %while.bod
   br label %while.cond4, !llvm.loop !23
 
 while.end:                                        ; preds = %while.cond4
-  %21 = load ptr, ptr %sdi, align 8
-  call void @dictReleaseIterator(ptr noundef %21)
+  %22 = load ptr, ptr %sdi, align 8
+  call void @dictReleaseIterator(ptr noundef %22)
   br label %while.cond, !llvm.loop !24
 
 while.end13:                                      ; preds = %while.cond
-  %22 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %22)
-  %23 = load i32, ptr %dropped, align 4
-  ret i32 %23
+  %23 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %23)
+  %24 = load i32, ptr %dropped, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3358,121 +3416,122 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %2, %cond.true
   store i32 0, ptr %reconfigured, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %call = call ptr @dictGetIterator(ptr noundef %3)
+  %3 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %4 = load ptr, ptr %3, align 8
+  %call = call ptr @dictGetIterator(ptr noundef %4)
   store ptr %call, ptr %di, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end27, %if.then26, %if.then, %cond.end
-  %4 = load ptr, ptr %di, align 8
-  %call3 = call ptr @dictNext(ptr noundef %4)
+  %5 = load ptr, ptr %di, align 8
+  %call3 = call ptr @dictNext(ptr noundef %5)
   store ptr %call3, ptr %de, align 8
   %cmp = icmp ne ptr %call3, null
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %5 = load ptr, ptr %de, align 8
-  %call5 = call ptr @dictGetVal(ptr noundef %5)
+  %6 = load ptr, ptr %de, align 8
+  %call5 = call ptr @dictGetVal(ptr noundef %6)
   store ptr %call5, ptr %master, align 8
-  %6 = load ptr, ptr %master, align 8
-  %sentinels = getelementptr inbounds %struct.sentinelRedisInstance, ptr %6, i32 0, i32 19
-  %7 = load ptr, ptr %sentinels, align 8
-  %8 = load ptr, ptr %ri.addr, align 8
-  %runid = getelementptr inbounds %struct.sentinelRedisInstance, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %runid, align 8
-  %call6 = call ptr @getSentinelRedisInstanceByAddrAndRunID(ptr noundef %7, ptr noundef null, i32 noundef 0, ptr noundef %9)
+  %7 = load ptr, ptr %master, align 8
+  %sentinels = getelementptr inbounds %struct.sentinelRedisInstance, ptr %7, i32 0, i32 19
+  %8 = load ptr, ptr %sentinels, align 8
+  %9 = load ptr, ptr %ri.addr, align 8
+  %runid = getelementptr inbounds %struct.sentinelRedisInstance, ptr %9, i32 0, i32 2
+  %10 = load ptr, ptr %runid, align 8
+  %call6 = call ptr @getSentinelRedisInstanceByAddrAndRunID(ptr noundef %8, ptr noundef null, i32 noundef 0, ptr noundef %10)
   store ptr %call6, ptr %match, align 8
-  %10 = load ptr, ptr %match, align 8
-  %cmp7 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %match, align 8
+  %cmp7 = icmp eq ptr %11, null
   br i1 %cmp7, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   br label %while.cond, !llvm.loop !25
 
 if.end:                                           ; preds = %while.body
-  %11 = load ptr, ptr %match, align 8
-  %link = getelementptr inbounds %struct.sentinelRedisInstance, ptr %11, i32 0, i32 5
-  %12 = load ptr, ptr %link, align 8
-  %cc = getelementptr inbounds %struct.instanceLink, ptr %12, i32 0, i32 3
-  %13 = load ptr, ptr %cc, align 8
-  %cmp9 = icmp ne ptr %13, null
+  %12 = load ptr, ptr %match, align 8
+  %link = getelementptr inbounds %struct.sentinelRedisInstance, ptr %12, i32 0, i32 5
+  %13 = load ptr, ptr %link, align 8
+  %cc = getelementptr inbounds %struct.instanceLink, ptr %13, i32 0, i32 3
+  %14 = load ptr, ptr %cc, align 8
+  %cmp9 = icmp ne ptr %14, null
   br i1 %cmp9, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end
-  %14 = load ptr, ptr %match, align 8
-  %link12 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %14, i32 0, i32 5
-  %15 = load ptr, ptr %link12, align 8
-  %16 = load ptr, ptr %match, align 8
-  %link13 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %16, i32 0, i32 5
-  %17 = load ptr, ptr %link13, align 8
-  %cc14 = getelementptr inbounds %struct.instanceLink, ptr %17, i32 0, i32 3
-  %18 = load ptr, ptr %cc14, align 8
-  call void @instanceLinkCloseConnection(ptr noundef %15, ptr noundef %18)
+  %15 = load ptr, ptr %match, align 8
+  %link12 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %15, i32 0, i32 5
+  %16 = load ptr, ptr %link12, align 8
+  %17 = load ptr, ptr %match, align 8
+  %link13 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %17, i32 0, i32 5
+  %18 = load ptr, ptr %link13, align 8
+  %cc14 = getelementptr inbounds %struct.instanceLink, ptr %18, i32 0, i32 3
+  %19 = load ptr, ptr %cc14, align 8
+  call void @instanceLinkCloseConnection(ptr noundef %16, ptr noundef %19)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then11, %if.end
-  %19 = load ptr, ptr %match, align 8
-  %link16 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %19, i32 0, i32 5
-  %20 = load ptr, ptr %link16, align 8
-  %pc = getelementptr inbounds %struct.instanceLink, ptr %20, i32 0, i32 4
-  %21 = load ptr, ptr %pc, align 8
-  %cmp17 = icmp ne ptr %21, null
+  %20 = load ptr, ptr %match, align 8
+  %link16 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %20, i32 0, i32 5
+  %21 = load ptr, ptr %link16, align 8
+  %pc = getelementptr inbounds %struct.instanceLink, ptr %21, i32 0, i32 4
+  %22 = load ptr, ptr %pc, align 8
+  %cmp17 = icmp ne ptr %22, null
   br i1 %cmp17, label %if.then19, label %if.end23
 
 if.then19:                                        ; preds = %if.end15
-  %22 = load ptr, ptr %match, align 8
-  %link20 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %22, i32 0, i32 5
-  %23 = load ptr, ptr %link20, align 8
-  %24 = load ptr, ptr %match, align 8
-  %link21 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %24, i32 0, i32 5
-  %25 = load ptr, ptr %link21, align 8
-  %pc22 = getelementptr inbounds %struct.instanceLink, ptr %25, i32 0, i32 4
-  %26 = load ptr, ptr %pc22, align 8
-  call void @instanceLinkCloseConnection(ptr noundef %23, ptr noundef %26)
+  %23 = load ptr, ptr %match, align 8
+  %link20 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %23, i32 0, i32 5
+  %24 = load ptr, ptr %link20, align 8
+  %25 = load ptr, ptr %match, align 8
+  %link21 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %25, i32 0, i32 5
+  %26 = load ptr, ptr %link21, align 8
+  %pc22 = getelementptr inbounds %struct.instanceLink, ptr %26, i32 0, i32 4
+  %27 = load ptr, ptr %pc22, align 8
+  call void @instanceLinkCloseConnection(ptr noundef %24, ptr noundef %27)
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then19, %if.end15
-  %27 = load ptr, ptr %match, align 8
-  %28 = load ptr, ptr %ri.addr, align 8
-  %cmp24 = icmp eq ptr %27, %28
+  %28 = load ptr, ptr %match, align 8
+  %29 = load ptr, ptr %ri.addr, align 8
+  %cmp24 = icmp eq ptr %28, %29
   br i1 %cmp24, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end23
   br label %while.cond, !llvm.loop !25
 
 if.end27:                                         ; preds = %if.end23
-  %29 = load ptr, ptr %match, align 8
-  %addr = getelementptr inbounds %struct.sentinelRedisInstance, ptr %29, i32 0, i32 4
-  %30 = load ptr, ptr %addr, align 8
-  call void @releaseSentinelAddr(ptr noundef %30)
-  %31 = load ptr, ptr %ri.addr, align 8
-  %addr28 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %31, i32 0, i32 4
-  %32 = load ptr, ptr %addr28, align 8
-  %call29 = call ptr @dupSentinelAddr(ptr noundef %32)
-  %33 = load ptr, ptr %match, align 8
-  %addr30 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %33, i32 0, i32 4
+  %30 = load ptr, ptr %match, align 8
+  %addr = getelementptr inbounds %struct.sentinelRedisInstance, ptr %30, i32 0, i32 4
+  %31 = load ptr, ptr %addr, align 8
+  call void @releaseSentinelAddr(ptr noundef %31)
+  %32 = load ptr, ptr %ri.addr, align 8
+  %addr28 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %32, i32 0, i32 4
+  %33 = load ptr, ptr %addr28, align 8
+  %call29 = call ptr @dupSentinelAddr(ptr noundef %33)
+  %34 = load ptr, ptr %match, align 8
+  %addr30 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %34, i32 0, i32 4
   store ptr %call29, ptr %addr30, align 8
-  %34 = load i32, ptr %reconfigured, align 4
-  %inc = add nsw i32 %34, 1
+  %35 = load i32, ptr %reconfigured, align 4
+  %inc = add nsw i32 %35, 1
   store i32 %inc, ptr %reconfigured, align 4
   br label %while.cond, !llvm.loop !25
 
 while.end:                                        ; preds = %while.cond
-  %35 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %35)
-  %36 = load i32, ptr %reconfigured, align 4
-  %tobool31 = icmp ne i32 %36, 0
+  %36 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %36)
+  %37 = load i32, ptr %reconfigured, align 4
+  %tobool31 = icmp ne i32 %37, 0
   br i1 %tobool31, label %if.then32, label %if.end33
 
 if.then32:                                        ; preds = %while.end
-  %37 = load ptr, ptr %ri.addr, align 8
-  %38 = load i32, ptr %reconfigured, align 4
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef @.str.44, ptr noundef %37, ptr noundef @.str.45, i32 noundef %38)
+  %38 = load ptr, ptr %ri.addr, align 8
+  %39 = load i32, ptr %reconfigured, align 4
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef @.str.44, ptr noundef %38, ptr noundef @.str.45, i32 noundef %39)
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then32, %while.end
-  %39 = load i32, ptr %reconfigured, align 4
-  ret i32 %39
+  %40 = load i32, ptr %reconfigured, align 4
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3670,34 +3729,35 @@ if.end22:                                         ; preds = %if.else, %if.then19
   br i1 %tobool24, label %if.then25, label %if.else26
 
 if.then25:                                        ; preds = %if.end22
-  %13 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  store ptr %13, ptr %table, align 8
+  %13 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %table, align 8
   br label %if.end36
 
 if.else26:                                        ; preds = %if.end22
-  %14 = load i32, ptr %flags.addr, align 4
-  %and27 = and i32 %14, 2
+  %15 = load i32, ptr %flags.addr, align 4
+  %and27 = and i32 %15, 2
   %tobool28 = icmp ne i32 %and27, 0
   br i1 %tobool28, label %if.then29, label %if.else30
 
 if.then29:                                        ; preds = %if.else26
-  %15 = load ptr, ptr %master.addr, align 8
-  %slaves = getelementptr inbounds %struct.sentinelRedisInstance, ptr %15, i32 0, i32 20
-  %16 = load ptr, ptr %slaves, align 8
-  store ptr %16, ptr %table, align 8
+  %16 = load ptr, ptr %master.addr, align 8
+  %slaves = getelementptr inbounds %struct.sentinelRedisInstance, ptr %16, i32 0, i32 20
+  %17 = load ptr, ptr %slaves, align 8
+  store ptr %17, ptr %table, align 8
   br label %if.end35
 
 if.else30:                                        ; preds = %if.else26
-  %17 = load i32, ptr %flags.addr, align 4
-  %and31 = and i32 %17, 4
+  %18 = load i32, ptr %flags.addr, align 4
+  %and31 = and i32 %18, 4
   %tobool32 = icmp ne i32 %and31, 0
   br i1 %tobool32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.else30
-  %18 = load ptr, ptr %master.addr, align 8
-  %sentinels = getelementptr inbounds %struct.sentinelRedisInstance, ptr %18, i32 0, i32 19
-  %19 = load ptr, ptr %sentinels, align 8
-  store ptr %19, ptr %table, align 8
+  %19 = load ptr, ptr %master.addr, align 8
+  %sentinels = getelementptr inbounds %struct.sentinelRedisInstance, ptr %19, i32 0, i32 19
+  %20 = load ptr, ptr %sentinels, align 8
+  store ptr %20, ptr %table, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then33, %if.else30
@@ -3707,17 +3767,17 @@ if.end35:                                         ; preds = %if.end34, %if.then2
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end35, %if.then25
-  %20 = load ptr, ptr %table, align 8
-  %21 = load ptr, ptr %sdsname, align 8
-  %call37 = call ptr @dictFind(ptr noundef %20, ptr noundef %21)
+  %21 = load ptr, ptr %table, align 8
+  %22 = load ptr, ptr %sdsname, align 8
+  %call37 = call ptr @dictFind(ptr noundef %21, ptr noundef %22)
   %tobool38 = icmp ne ptr %call37, null
   br i1 %tobool38, label %if.then39, label %if.end41
 
 if.then39:                                        ; preds = %if.end36
-  %22 = load ptr, ptr %addr, align 8
-  call void @releaseSentinelAddr(ptr noundef %22)
-  %23 = load ptr, ptr %sdsname, align 8
-  call void @sdsfree(ptr noundef %23)
+  %23 = load ptr, ptr %addr, align 8
+  call void @releaseSentinelAddr(ptr noundef %23)
+  %24 = load ptr, ptr %sdsname, align 8
+  call void @sdsfree(ptr noundef %24)
   %call40 = call ptr @__errno_location() #13
   store i32 16, ptr %call40, align 4
   store ptr null, ptr %retval, align 8
@@ -3726,189 +3786,189 @@ if.then39:                                        ; preds = %if.end36
 if.end41:                                         ; preds = %if.end36
   %call42 = call noalias ptr @zmalloc(i64 noundef 344) #14
   store ptr %call42, ptr %ri, align 8
-  %24 = load i32, ptr %flags.addr, align 4
-  %25 = load ptr, ptr %ri, align 8
-  %flags43 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %25, i32 0, i32 0
-  store i32 %24, ptr %flags43, align 8
-  %26 = load ptr, ptr %sdsname, align 8
-  %27 = load ptr, ptr %ri, align 8
-  %name44 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %27, i32 0, i32 1
-  store ptr %26, ptr %name44, align 8
+  %25 = load i32, ptr %flags.addr, align 4
+  %26 = load ptr, ptr %ri, align 8
+  %flags43 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %26, i32 0, i32 0
+  store i32 %25, ptr %flags43, align 8
+  %27 = load ptr, ptr %sdsname, align 8
   %28 = load ptr, ptr %ri, align 8
-  %runid = getelementptr inbounds %struct.sentinelRedisInstance, ptr %28, i32 0, i32 2
-  store ptr null, ptr %runid, align 8
+  %name44 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %28, i32 0, i32 1
+  store ptr %27, ptr %name44, align 8
   %29 = load ptr, ptr %ri, align 8
-  %config_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %29, i32 0, i32 3
+  %runid = getelementptr inbounds %struct.sentinelRedisInstance, ptr %29, i32 0, i32 2
+  store ptr null, ptr %runid, align 8
+  %30 = load ptr, ptr %ri, align 8
+  %config_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %30, i32 0, i32 3
   store i64 0, ptr %config_epoch, align 8
-  %30 = load ptr, ptr %addr, align 8
-  %31 = load ptr, ptr %ri, align 8
-  %addr45 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %31, i32 0, i32 4
-  store ptr %30, ptr %addr45, align 8
-  %call46 = call ptr @createInstanceLink()
+  %31 = load ptr, ptr %addr, align 8
   %32 = load ptr, ptr %ri, align 8
-  %link = getelementptr inbounds %struct.sentinelRedisInstance, ptr %32, i32 0, i32 5
+  %addr45 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %32, i32 0, i32 4
+  store ptr %31, ptr %addr45, align 8
+  %call46 = call ptr @createInstanceLink()
+  %33 = load ptr, ptr %ri, align 8
+  %link = getelementptr inbounds %struct.sentinelRedisInstance, ptr %33, i32 0, i32 5
   store ptr %call46, ptr %link, align 8
   %call47 = call i64 @mstime()
-  %33 = load ptr, ptr %ri, align 8
-  %last_pub_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %33, i32 0, i32 6
+  %34 = load ptr, ptr %ri, align 8
+  %last_pub_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %34, i32 0, i32 6
   store i64 %call47, ptr %last_pub_time, align 8
   %call48 = call i64 @mstime()
-  %34 = load ptr, ptr %ri, align 8
-  %last_hello_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %34, i32 0, i32 7
+  %35 = load ptr, ptr %ri, align 8
+  %last_hello_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %35, i32 0, i32 7
   store i64 %call48, ptr %last_hello_time, align 8
   %call49 = call i64 @mstime()
-  %35 = load ptr, ptr %ri, align 8
-  %last_master_down_reply_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %35, i32 0, i32 8
-  store i64 %call49, ptr %last_master_down_reply_time, align 8
   %36 = load ptr, ptr %ri, align 8
-  %s_down_since_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %36, i32 0, i32 9
-  store i64 0, ptr %s_down_since_time, align 8
+  %last_master_down_reply_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %36, i32 0, i32 8
+  store i64 %call49, ptr %last_master_down_reply_time, align 8
   %37 = load ptr, ptr %ri, align 8
-  %o_down_since_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %37, i32 0, i32 10
+  %s_down_since_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %37, i32 0, i32 9
+  store i64 0, ptr %s_down_since_time, align 8
+  %38 = load ptr, ptr %ri, align 8
+  %o_down_since_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %38, i32 0, i32 10
   store i64 0, ptr %o_down_since_time, align 8
-  %38 = load ptr, ptr %master.addr, align 8
-  %tobool50 = icmp ne ptr %38, null
+  %39 = load ptr, ptr %master.addr, align 8
+  %tobool50 = icmp ne ptr %39, null
   br i1 %tobool50, label %cond.true51, label %cond.false52
 
 cond.true51:                                      ; preds = %if.end41
-  %39 = load ptr, ptr %master.addr, align 8
-  %down_after_period = getelementptr inbounds %struct.sentinelRedisInstance, ptr %39, i32 0, i32 11
-  %40 = load i64, ptr %down_after_period, align 8
+  %40 = load ptr, ptr %master.addr, align 8
+  %down_after_period = getelementptr inbounds %struct.sentinelRedisInstance, ptr %40, i32 0, i32 11
+  %41 = load i64, ptr %down_after_period, align 8
   br label %cond.end53
 
 cond.false52:                                     ; preds = %if.end41
-  %41 = load i64, ptr @sentinel_default_down_after, align 8
+  %42 = load i64, ptr @sentinel_default_down_after, align 8
   br label %cond.end53
 
 cond.end53:                                       ; preds = %cond.false52, %cond.true51
-  %cond = phi i64 [ %40, %cond.true51 ], [ %41, %cond.false52 ]
-  %42 = load ptr, ptr %ri, align 8
-  %down_after_period54 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %42, i32 0, i32 11
-  store i64 %cond, ptr %down_after_period54, align 8
+  %cond = phi i64 [ %41, %cond.true51 ], [ %42, %cond.false52 ]
   %43 = load ptr, ptr %ri, align 8
-  %master_reboot_down_after_period = getelementptr inbounds %struct.sentinelRedisInstance, ptr %43, i32 0, i32 12
-  store i64 0, ptr %master_reboot_down_after_period, align 8
+  %down_after_period54 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %43, i32 0, i32 11
+  store i64 %cond, ptr %down_after_period54, align 8
   %44 = load ptr, ptr %ri, align 8
-  %master_link_down_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %44, i32 0, i32 25
-  store i64 0, ptr %master_link_down_time, align 8
+  %master_reboot_down_after_period = getelementptr inbounds %struct.sentinelRedisInstance, ptr %44, i32 0, i32 12
+  store i64 0, ptr %master_reboot_down_after_period, align 8
   %45 = load ptr, ptr %ri, align 8
-  %auth_pass = getelementptr inbounds %struct.sentinelRedisInstance, ptr %45, i32 0, i32 23
-  store ptr null, ptr %auth_pass, align 8
+  %master_link_down_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %45, i32 0, i32 25
+  store i64 0, ptr %master_link_down_time, align 8
   %46 = load ptr, ptr %ri, align 8
-  %auth_user = getelementptr inbounds %struct.sentinelRedisInstance, ptr %46, i32 0, i32 24
-  store ptr null, ptr %auth_user, align 8
+  %auth_pass = getelementptr inbounds %struct.sentinelRedisInstance, ptr %46, i32 0, i32 23
+  store ptr null, ptr %auth_pass, align 8
   %47 = load ptr, ptr %ri, align 8
-  %slave_priority = getelementptr inbounds %struct.sentinelRedisInstance, ptr %47, i32 0, i32 26
-  store i32 100, ptr %slave_priority, align 8
+  %auth_user = getelementptr inbounds %struct.sentinelRedisInstance, ptr %47, i32 0, i32 24
+  store ptr null, ptr %auth_user, align 8
   %48 = load ptr, ptr %ri, align 8
-  %replica_announced = getelementptr inbounds %struct.sentinelRedisInstance, ptr %48, i32 0, i32 27
-  store i32 1, ptr %replica_announced, align 4
+  %slave_priority = getelementptr inbounds %struct.sentinelRedisInstance, ptr %48, i32 0, i32 26
+  store i32 100, ptr %slave_priority, align 8
   %49 = load ptr, ptr %ri, align 8
-  %slave_reconf_sent_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %49, i32 0, i32 28
-  store i64 0, ptr %slave_reconf_sent_time, align 8
+  %replica_announced = getelementptr inbounds %struct.sentinelRedisInstance, ptr %49, i32 0, i32 27
+  store i32 1, ptr %replica_announced, align 4
   %50 = load ptr, ptr %ri, align 8
-  %slave_master_host = getelementptr inbounds %struct.sentinelRedisInstance, ptr %50, i32 0, i32 30
-  store ptr null, ptr %slave_master_host, align 8
+  %slave_reconf_sent_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %50, i32 0, i32 28
+  store i64 0, ptr %slave_reconf_sent_time, align 8
   %51 = load ptr, ptr %ri, align 8
-  %slave_master_port = getelementptr inbounds %struct.sentinelRedisInstance, ptr %51, i32 0, i32 31
-  store i32 0, ptr %slave_master_port, align 8
+  %slave_master_host = getelementptr inbounds %struct.sentinelRedisInstance, ptr %51, i32 0, i32 30
+  store ptr null, ptr %slave_master_host, align 8
   %52 = load ptr, ptr %ri, align 8
-  %slave_master_link_status = getelementptr inbounds %struct.sentinelRedisInstance, ptr %52, i32 0, i32 32
-  store i32 1, ptr %slave_master_link_status, align 4
+  %slave_master_port = getelementptr inbounds %struct.sentinelRedisInstance, ptr %52, i32 0, i32 31
+  store i32 0, ptr %slave_master_port, align 8
   %53 = load ptr, ptr %ri, align 8
-  %slave_repl_offset = getelementptr inbounds %struct.sentinelRedisInstance, ptr %53, i32 0, i32 33
+  %slave_master_link_status = getelementptr inbounds %struct.sentinelRedisInstance, ptr %53, i32 0, i32 32
+  store i32 1, ptr %slave_master_link_status, align 4
+  %54 = load ptr, ptr %ri, align 8
+  %slave_repl_offset = getelementptr inbounds %struct.sentinelRedisInstance, ptr %54, i32 0, i32 33
   store i64 0, ptr %slave_repl_offset, align 8
   %call55 = call ptr @dictCreate(ptr noundef @instancesDictType)
-  %54 = load ptr, ptr %ri, align 8
-  %sentinels56 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %54, i32 0, i32 19
+  %55 = load ptr, ptr %ri, align 8
+  %sentinels56 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %55, i32 0, i32 19
   store ptr %call55, ptr %sentinels56, align 8
-  %55 = load i32, ptr %quorum.addr, align 4
-  %56 = load ptr, ptr %ri, align 8
-  %quorum57 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %56, i32 0, i32 21
-  store i32 %55, ptr %quorum57, align 8
+  %56 = load i32, ptr %quorum.addr, align 4
   %57 = load ptr, ptr %ri, align 8
-  %parallel_syncs = getelementptr inbounds %struct.sentinelRedisInstance, ptr %57, i32 0, i32 22
+  %quorum57 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %57, i32 0, i32 21
+  store i32 %56, ptr %quorum57, align 8
+  %58 = load ptr, ptr %ri, align 8
+  %parallel_syncs = getelementptr inbounds %struct.sentinelRedisInstance, ptr %58, i32 0, i32 22
   store i32 1, ptr %parallel_syncs, align 4
-  %58 = load ptr, ptr %master.addr, align 8
-  %59 = load ptr, ptr %ri, align 8
-  %master58 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %59, i32 0, i32 29
-  store ptr %58, ptr %master58, align 8
-  %call59 = call ptr @dictCreate(ptr noundef @instancesDictType)
+  %59 = load ptr, ptr %master.addr, align 8
   %60 = load ptr, ptr %ri, align 8
-  %slaves60 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %60, i32 0, i32 20
-  store ptr %call59, ptr %slaves60, align 8
+  %master58 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %60, i32 0, i32 29
+  store ptr %59, ptr %master58, align 8
+  %call59 = call ptr @dictCreate(ptr noundef @instancesDictType)
   %61 = load ptr, ptr %ri, align 8
-  %info_refresh = getelementptr inbounds %struct.sentinelRedisInstance, ptr %61, i32 0, i32 14
+  %slaves60 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %61, i32 0, i32 20
+  store ptr %call59, ptr %slaves60, align 8
+  %62 = load ptr, ptr %ri, align 8
+  %info_refresh = getelementptr inbounds %struct.sentinelRedisInstance, ptr %62, i32 0, i32 14
   store i64 0, ptr %info_refresh, align 8
   %call61 = call ptr @dictCreate(ptr noundef @renamedCommandsDictType)
-  %62 = load ptr, ptr %ri, align 8
-  %renamed_commands = getelementptr inbounds %struct.sentinelRedisInstance, ptr %62, i32 0, i32 15
-  store ptr %call61, ptr %renamed_commands, align 8
   %63 = load ptr, ptr %ri, align 8
-  %leader = getelementptr inbounds %struct.sentinelRedisInstance, ptr %63, i32 0, i32 34
-  store ptr null, ptr %leader, align 8
+  %renamed_commands = getelementptr inbounds %struct.sentinelRedisInstance, ptr %63, i32 0, i32 15
+  store ptr %call61, ptr %renamed_commands, align 8
   %64 = load ptr, ptr %ri, align 8
-  %leader_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %64, i32 0, i32 35
-  store i64 0, ptr %leader_epoch, align 8
+  %leader = getelementptr inbounds %struct.sentinelRedisInstance, ptr %64, i32 0, i32 34
+  store ptr null, ptr %leader, align 8
   %65 = load ptr, ptr %ri, align 8
-  %failover_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %65, i32 0, i32 36
-  store i64 0, ptr %failover_epoch, align 8
+  %leader_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %65, i32 0, i32 35
+  store i64 0, ptr %leader_epoch, align 8
   %66 = load ptr, ptr %ri, align 8
-  %failover_state = getelementptr inbounds %struct.sentinelRedisInstance, ptr %66, i32 0, i32 37
-  store i32 0, ptr %failover_state, align 8
+  %failover_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %66, i32 0, i32 36
+  store i64 0, ptr %failover_epoch, align 8
   %67 = load ptr, ptr %ri, align 8
-  %failover_state_change_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %67, i32 0, i32 38
-  store i64 0, ptr %failover_state_change_time, align 8
+  %failover_state = getelementptr inbounds %struct.sentinelRedisInstance, ptr %67, i32 0, i32 37
+  store i32 0, ptr %failover_state, align 8
   %68 = load ptr, ptr %ri, align 8
-  %failover_start_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %68, i32 0, i32 39
+  %failover_state_change_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %68, i32 0, i32 38
+  store i64 0, ptr %failover_state_change_time, align 8
+  %69 = load ptr, ptr %ri, align 8
+  %failover_start_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %69, i32 0, i32 39
   store i64 0, ptr %failover_start_time, align 8
-  %69 = load i64, ptr @sentinel_default_failover_timeout, align 8
-  %70 = load ptr, ptr %ri, align 8
-  %failover_timeout = getelementptr inbounds %struct.sentinelRedisInstance, ptr %70, i32 0, i32 40
-  store i64 %69, ptr %failover_timeout, align 8
+  %70 = load i64, ptr @sentinel_default_failover_timeout, align 8
   %71 = load ptr, ptr %ri, align 8
-  %failover_delay_logged = getelementptr inbounds %struct.sentinelRedisInstance, ptr %71, i32 0, i32 41
-  store i64 0, ptr %failover_delay_logged, align 8
+  %failover_timeout = getelementptr inbounds %struct.sentinelRedisInstance, ptr %71, i32 0, i32 40
+  store i64 %70, ptr %failover_timeout, align 8
   %72 = load ptr, ptr %ri, align 8
-  %promoted_slave = getelementptr inbounds %struct.sentinelRedisInstance, ptr %72, i32 0, i32 42
-  store ptr null, ptr %promoted_slave, align 8
+  %failover_delay_logged = getelementptr inbounds %struct.sentinelRedisInstance, ptr %72, i32 0, i32 41
+  store i64 0, ptr %failover_delay_logged, align 8
   %73 = load ptr, ptr %ri, align 8
-  %notification_script = getelementptr inbounds %struct.sentinelRedisInstance, ptr %73, i32 0, i32 43
-  store ptr null, ptr %notification_script, align 8
+  %promoted_slave = getelementptr inbounds %struct.sentinelRedisInstance, ptr %73, i32 0, i32 42
+  store ptr null, ptr %promoted_slave, align 8
   %74 = load ptr, ptr %ri, align 8
-  %client_reconfig_script = getelementptr inbounds %struct.sentinelRedisInstance, ptr %74, i32 0, i32 44
-  store ptr null, ptr %client_reconfig_script, align 8
+  %notification_script = getelementptr inbounds %struct.sentinelRedisInstance, ptr %74, i32 0, i32 43
+  store ptr null, ptr %notification_script, align 8
   %75 = load ptr, ptr %ri, align 8
-  %info = getelementptr inbounds %struct.sentinelRedisInstance, ptr %75, i32 0, i32 45
-  store ptr null, ptr %info, align 8
+  %client_reconfig_script = getelementptr inbounds %struct.sentinelRedisInstance, ptr %75, i32 0, i32 44
+  store ptr null, ptr %client_reconfig_script, align 8
   %76 = load ptr, ptr %ri, align 8
-  %flags62 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %76, i32 0, i32 0
-  %77 = load i32, ptr %flags62, align 8
-  %and63 = and i32 %77, 3
-  %78 = load ptr, ptr %ri, align 8
-  %role_reported = getelementptr inbounds %struct.sentinelRedisInstance, ptr %78, i32 0, i32 16
+  %info = getelementptr inbounds %struct.sentinelRedisInstance, ptr %76, i32 0, i32 45
+  store ptr null, ptr %info, align 8
+  %77 = load ptr, ptr %ri, align 8
+  %flags62 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %77, i32 0, i32 0
+  %78 = load i32, ptr %flags62, align 8
+  %and63 = and i32 %78, 3
+  %79 = load ptr, ptr %ri, align 8
+  %role_reported = getelementptr inbounds %struct.sentinelRedisInstance, ptr %79, i32 0, i32 16
   store i32 %and63, ptr %role_reported, align 8
   %call64 = call i64 @mstime()
-  %79 = load ptr, ptr %ri, align 8
-  %role_reported_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %79, i32 0, i32 17
+  %80 = load ptr, ptr %ri, align 8
+  %role_reported_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %80, i32 0, i32 17
   store i64 %call64, ptr %role_reported_time, align 8
   %call65 = call i64 @mstime()
-  %80 = load ptr, ptr %ri, align 8
-  %slave_conf_change_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %80, i32 0, i32 18
+  %81 = load ptr, ptr %ri, align 8
+  %slave_conf_change_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %81, i32 0, i32 18
   store i64 %call65, ptr %slave_conf_change_time, align 8
-  %81 = load ptr, ptr %table, align 8
-  %82 = load ptr, ptr %ri, align 8
-  %name66 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %82, i32 0, i32 1
-  %83 = load ptr, ptr %name66, align 8
-  %84 = load ptr, ptr %ri, align 8
-  %call67 = call i32 @dictAdd(ptr noundef %81, ptr noundef %83, ptr noundef %84)
+  %82 = load ptr, ptr %table, align 8
+  %83 = load ptr, ptr %ri, align 8
+  %name66 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %83, i32 0, i32 1
+  %84 = load ptr, ptr %name66, align 8
   %85 = load ptr, ptr %ri, align 8
-  store ptr %85, ptr %retval, align 8
+  %call67 = call i32 @dictAdd(ptr noundef %82, ptr noundef %84, ptr noundef %85)
+  %86 = load ptr, ptr %ri, align 8
+  store ptr %86, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %cond.end53, %if.then39, %if.then
-  %86 = load ptr, ptr %retval, align 8
-  ret ptr %86
+  %87 = load ptr, ptr %retval, align 8
+  ret ptr %87
 }
 
 declare ptr @dictFind(ptr noundef, ptr noundef) #1
@@ -4088,14 +4148,15 @@ entry:
   %0 = load ptr, ptr %name.addr, align 8
   %call = call ptr @sdsnew(ptr noundef %0)
   store ptr %call, ptr %sdsname, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %2 = load ptr, ptr %sdsname, align 8
-  %call1 = call ptr @dictFetchValue(ptr noundef %1, ptr noundef %2)
-  store ptr %call1, ptr %ri, align 8
+  %1 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %sdsname, align 8
-  call void @sdsfree(ptr noundef %3)
-  %4 = load ptr, ptr %ri, align 8
-  ret ptr %4
+  %call1 = call ptr @dictFetchValue(ptr noundef %2, ptr noundef %3)
+  store ptr %call1, ptr %ri, align 8
+  %4 = load ptr, ptr %sdsname, align 8
+  call void @sdsfree(ptr noundef %4)
+  %5 = load ptr, ptr %ri, align 8
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4276,43 +4337,44 @@ entry:
   store ptr %pattern, ptr %pattern.addr, align 8
   store i32 %flags, ptr %flags.addr, align 4
   store i32 0, ptr %reset, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %call = call ptr @dictGetIterator(ptr noundef %0)
+  %0 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %1 = load ptr, ptr %0, align 8
+  %call = call ptr @dictGetIterator(ptr noundef %1)
   store ptr %call, ptr %di, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end7, %entry
-  %1 = load ptr, ptr %di, align 8
-  %call1 = call ptr @dictNext(ptr noundef %1)
+  %2 = load ptr, ptr %di, align 8
+  %call1 = call ptr @dictNext(ptr noundef %2)
   store ptr %call1, ptr %de, align 8
   %cmp = icmp ne ptr %call1, null
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %de, align 8
-  %call2 = call ptr @dictGetVal(ptr noundef %2)
+  %3 = load ptr, ptr %de, align 8
+  %call2 = call ptr @dictGetVal(ptr noundef %3)
   store ptr %call2, ptr %ri, align 8
-  %3 = load ptr, ptr %ri, align 8
-  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %name, align 8
-  %tobool = icmp ne ptr %4, null
+  %4 = load ptr, ptr %ri, align 8
+  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %name, align 8
+  %tobool = icmp ne ptr %5, null
   br i1 %tobool, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %while.body
-  %5 = load ptr, ptr %pattern.addr, align 8
-  %6 = load ptr, ptr %ri, align 8
-  %name3 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %name3, align 8
-  %call4 = call i32 @stringmatch(ptr noundef %5, ptr noundef %7, i32 noundef 0)
+  %6 = load ptr, ptr %pattern.addr, align 8
+  %7 = load ptr, ptr %ri, align 8
+  %name3 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %name3, align 8
+  %call4 = call i32 @stringmatch(ptr noundef %6, ptr noundef %8, i32 noundef 0)
   %tobool5 = icmp ne i32 %call4, 0
   br i1 %tobool5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  %8 = load ptr, ptr %ri, align 8
-  %9 = load i32, ptr %flags.addr, align 4
-  call void @sentinelResetMaster(ptr noundef %8, i32 noundef %9)
-  %10 = load i32, ptr %reset, align 4
-  %inc = add nsw i32 %10, 1
+  %9 = load ptr, ptr %ri, align 8
+  %10 = load i32, ptr %flags.addr, align 4
+  call void @sentinelResetMaster(ptr noundef %9, i32 noundef %10)
+  %11 = load i32, ptr %reset, align 4
+  %inc = add nsw i32 %11, 1
   store i32 %inc, ptr %reset, align 4
   br label %if.end
 
@@ -4323,10 +4385,10 @@ if.end7:                                          ; preds = %if.end, %while.body
   br label %while.cond, !llvm.loop !27
 
 while.end:                                        ; preds = %while.cond
-  %11 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %11)
-  %12 = load i32, ptr %reset, align 4
-  ret i32 %12
+  %12 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %12)
+  %13 = load i32, ptr %reset, align 4
+  ret i32 %13
 }
 
 declare i32 @stringmatch(ptr noundef, ptr noundef, i32 noundef) #1
@@ -4815,33 +4877,40 @@ return:                                           ; preds = %sw.default6, %sw.bb
 define dso_local void @initializeSentinelConfig() #0 {
 entry:
   %call = call noalias ptr @zmalloc(i64 noundef 24) #14
-  store ptr %call, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  store ptr %call, ptr %0, align 8
   %call1 = call ptr @listCreate()
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %0, i32 0, i32 1
+  %1 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %2 = load ptr, ptr %1, align 8
+  %monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %2, i32 0, i32 1
   store ptr %call1, ptr %monitor_cfg, align 8
   %call2 = call ptr @listCreate()
-  %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %pre_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %1, i32 0, i32 0
+  %3 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %4 = load ptr, ptr %3, align 8
+  %pre_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %4, i32 0, i32 0
   store ptr %call2, ptr %pre_monitor_cfg, align 8
   %call3 = call ptr @listCreate()
-  %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %post_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %2, i32 0, i32 2
+  %5 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %6 = load ptr, ptr %5, align 8
+  %post_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %6, i32 0, i32 2
   store ptr %call3, ptr %post_monitor_cfg, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %monitor_cfg4 = getelementptr inbounds %struct.sentinelConfig, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %monitor_cfg4, align 8
-  %free = getelementptr inbounds %struct.list, ptr %4, i32 0, i32 3
+  %7 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %8 = load ptr, ptr %7, align 8
+  %monitor_cfg4 = getelementptr inbounds %struct.sentinelConfig, ptr %8, i32 0, i32 1
+  %9 = load ptr, ptr %monitor_cfg4, align 8
+  %free = getelementptr inbounds %struct.list, ptr %9, i32 0, i32 3
   store ptr @freeSentinelLoadQueueEntry, ptr %free, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %pre_monitor_cfg5 = getelementptr inbounds %struct.sentinelConfig, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %pre_monitor_cfg5, align 8
-  %free6 = getelementptr inbounds %struct.list, ptr %6, i32 0, i32 3
+  %10 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %11 = load ptr, ptr %10, align 8
+  %pre_monitor_cfg5 = getelementptr inbounds %struct.sentinelConfig, ptr %11, i32 0, i32 0
+  %12 = load ptr, ptr %pre_monitor_cfg5, align 8
+  %free6 = getelementptr inbounds %struct.list, ptr %12, i32 0, i32 3
   store ptr @freeSentinelLoadQueueEntry, ptr %free6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %post_monitor_cfg7 = getelementptr inbounds %struct.sentinelConfig, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %post_monitor_cfg7, align 8
-  %free8 = getelementptr inbounds %struct.list, ptr %8, i32 0, i32 3
+  %13 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %14 = load ptr, ptr %13, align 8
+  %post_monitor_cfg7 = getelementptr inbounds %struct.sentinelConfig, ptr %14, i32 0, i32 2
+  %15 = load ptr, ptr %post_monitor_cfg7, align 8
+  %free8 = getelementptr inbounds %struct.list, ptr %15, i32 0, i32 3
   store ptr @freeSentinelLoadQueueEntry, ptr %free8, align 8
   ret void
 }
@@ -4873,21 +4942,26 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeSentinelConfig() #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %pre_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %pre_monitor_cfg, align 8
-  call void @listRelease(ptr noundef %1)
-  %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %monitor_cfg, align 8
-  call void @listRelease(ptr noundef %3)
-  %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %post_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %post_monitor_cfg, align 8
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %1 = load ptr, ptr %0, align 8
+  %pre_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %1, i32 0, i32 0
+  %2 = load ptr, ptr %pre_monitor_cfg, align 8
+  call void @listRelease(ptr noundef %2)
+  %3 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %4 = load ptr, ptr %3, align 8
+  %monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %monitor_cfg, align 8
   call void @listRelease(ptr noundef %5)
-  %6 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  call void @zfree(ptr noundef %6)
-  store ptr null, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
+  %6 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %7 = load ptr, ptr %6, align 8
+  %post_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %7, i32 0, i32 2
+  %8 = load ptr, ptr %post_monitor_cfg, align 8
+  call void @listRelease(ptr noundef %8)
+  %9 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %10 = load ptr, ptr %9, align 8
+  call void @zfree(ptr noundef %10)
+  %11 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  store ptr null, ptr %11, align 8
   ret void
 }
 
@@ -4956,8 +5030,9 @@ entry:
   store i32 %argc, ptr %argc.addr, align 4
   store i32 %linenum, ptr %linenum.addr, align 4
   store ptr %line, ptr %line.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %cmp = icmp eq ptr %0, null
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %1 = load ptr, ptr %0, align 8
+  %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -4967,95 +5042,98 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %call = call noalias ptr @zmalloc(i64 noundef 32) #14
   store ptr %call, ptr %entry1, align 8
-  %1 = load i32, ptr %argc.addr, align 4
-  %conv = sext i32 %1 to i64
+  %2 = load i32, ptr %argc.addr, align 4
+  %conv = sext i32 %2 to i64
   %mul = mul i64 8, %conv
   %call2 = call noalias ptr @zmalloc(i64 noundef %mul) #14
-  %2 = load ptr, ptr %entry1, align 8
-  %argv3 = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %entry1, align 8
+  %argv3 = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %3, i32 0, i32 1
   store ptr %call2, ptr %argv3, align 8
-  %3 = load i32, ptr %argc.addr, align 4
-  %4 = load ptr, ptr %entry1, align 8
-  %argc4 = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %4, i32 0, i32 0
-  store i32 %3, ptr %argc4, align 8
-  %5 = load i32, ptr %linenum.addr, align 4
-  %6 = load ptr, ptr %entry1, align 8
-  %linenum5 = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %6, i32 0, i32 2
-  store i32 %5, ptr %linenum5, align 8
-  %7 = load ptr, ptr %line.addr, align 8
-  %call6 = call ptr @sdsdup(ptr noundef %7)
-  %8 = load ptr, ptr %entry1, align 8
-  %line7 = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %8, i32 0, i32 3
+  %4 = load i32, ptr %argc.addr, align 4
+  %5 = load ptr, ptr %entry1, align 8
+  %argc4 = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %5, i32 0, i32 0
+  store i32 %4, ptr %argc4, align 8
+  %6 = load i32, ptr %linenum.addr, align 4
+  %7 = load ptr, ptr %entry1, align 8
+  %linenum5 = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %7, i32 0, i32 2
+  store i32 %6, ptr %linenum5, align 8
+  %8 = load ptr, ptr %line.addr, align 8
+  %call6 = call ptr @sdsdup(ptr noundef %8)
+  %9 = load ptr, ptr %entry1, align 8
+  %line7 = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %9, i32 0, i32 3
   store ptr %call6, ptr %line7, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %9 = load i32, ptr %i, align 4
-  %10 = load i32, ptr %argc.addr, align 4
-  %cmp8 = icmp slt i32 %9, %10
+  %10 = load i32, ptr %i, align 4
+  %11 = load i32, ptr %argc.addr, align 4
+  %cmp8 = icmp slt i32 %10, %11
   br i1 %cmp8, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %11 = load ptr, ptr %argv.addr, align 8
-  %12 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %12 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
-  %13 = load ptr, ptr %arrayidx, align 8
-  %call10 = call ptr @sdsdup(ptr noundef %13)
-  %14 = load ptr, ptr %entry1, align 8
-  %argv11 = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %argv11, align 8
-  %16 = load i32, ptr %i, align 4
-  %idxprom12 = sext i32 %16 to i64
-  %arrayidx13 = getelementptr inbounds ptr, ptr %15, i64 %idxprom12
+  %12 = load ptr, ptr %argv.addr, align 8
+  %13 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %13 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %idxprom
+  %14 = load ptr, ptr %arrayidx, align 8
+  %call10 = call ptr @sdsdup(ptr noundef %14)
+  %15 = load ptr, ptr %entry1, align 8
+  %argv11 = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %15, i32 0, i32 1
+  %16 = load ptr, ptr %argv11, align 8
+  %17 = load i32, ptr %i, align 4
+  %idxprom12 = sext i32 %17 to i64
+  %arrayidx13 = getelementptr inbounds ptr, ptr %16, i64 %idxprom12
   store ptr %call10, ptr %arrayidx13, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %17 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %17, 1
+  %18 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %18, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !33
 
 for.end:                                          ; preds = %for.cond
-  %18 = load ptr, ptr %argv.addr, align 8
-  %arrayidx14 = getelementptr inbounds ptr, ptr %18, i64 0
-  %19 = load ptr, ptr %arrayidx14, align 8
-  %call15 = call i32 @strcasecmp(ptr noundef %19, ptr noundef @.str.63) #15
+  %19 = load ptr, ptr %argv.addr, align 8
+  %arrayidx14 = getelementptr inbounds ptr, ptr %19, i64 0
+  %20 = load ptr, ptr %arrayidx14, align 8
+  %call15 = call i32 @strcasecmp(ptr noundef %20, ptr noundef @.str.63) #15
   %tobool = icmp ne i32 %call15, 0
   br i1 %tobool, label %if.else, label %if.then16
 
 if.then16:                                        ; preds = %for.end
-  %20 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %monitor_cfg, align 8
-  %22 = load ptr, ptr %entry1, align 8
-  %call17 = call ptr @listAddNodeTail(ptr noundef %21, ptr noundef %22)
+  %21 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %22 = load ptr, ptr %21, align 8
+  %monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %22, i32 0, i32 1
+  %23 = load ptr, ptr %monitor_cfg, align 8
+  %24 = load ptr, ptr %entry1, align 8
+  %call17 = call ptr @listAddNodeTail(ptr noundef %23, ptr noundef %24)
   br label %if.end26
 
 if.else:                                          ; preds = %for.end
-  %23 = load ptr, ptr %argv.addr, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %23, i64 0
-  %24 = load ptr, ptr %arrayidx18, align 8
-  %call19 = call i32 @searchPreMonitorCfgName(ptr noundef %24)
+  %25 = load ptr, ptr %argv.addr, align 8
+  %arrayidx18 = getelementptr inbounds ptr, ptr %25, i64 0
+  %26 = load ptr, ptr %arrayidx18, align 8
+  %call19 = call i32 @searchPreMonitorCfgName(ptr noundef %26)
   %tobool20 = icmp ne i32 %call19, 0
   br i1 %tobool20, label %if.then21, label %if.else23
 
 if.then21:                                        ; preds = %if.else
-  %25 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %pre_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %25, i32 0, i32 0
-  %26 = load ptr, ptr %pre_monitor_cfg, align 8
-  %27 = load ptr, ptr %entry1, align 8
-  %call22 = call ptr @listAddNodeTail(ptr noundef %26, ptr noundef %27)
+  %27 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %28 = load ptr, ptr %27, align 8
+  %pre_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %28, i32 0, i32 0
+  %29 = load ptr, ptr %pre_monitor_cfg, align 8
+  %30 = load ptr, ptr %entry1, align 8
+  %call22 = call ptr @listAddNodeTail(ptr noundef %29, ptr noundef %30)
   br label %if.end25
 
 if.else23:                                        ; preds = %if.else
-  %28 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %post_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %post_monitor_cfg, align 8
-  %30 = load ptr, ptr %entry1, align 8
-  %call24 = call ptr @listAddNodeTail(ptr noundef %29, ptr noundef %30)
+  %31 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %32 = load ptr, ptr %31, align 8
+  %post_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %32, i32 0, i32 2
+  %33 = load ptr, ptr %post_monitor_cfg, align 8
+  %34 = load ptr, ptr %entry1, align 8
+  %call24 = call ptr @listAddNodeTail(ptr noundef %33, ptr noundef %34)
   br label %if.end25
 
 if.end25:                                         ; preds = %if.else23, %if.then21
@@ -5081,8 +5159,9 @@ entry:
   store ptr null, ptr %err, align 8
   store i32 0, ptr %linenum, align 4
   store ptr null, ptr %line, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %cmp = icmp eq ptr %0, null
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %1 = load ptr, ptr %0, align 8
+  %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -5090,35 +5169,38 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %arrayinit.begin = getelementptr inbounds [3 x ptr], ptr %sentinel_configs, i64 0, i64 0
-  %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %pre_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %pre_monitor_cfg, align 8
-  store ptr %2, ptr %arrayinit.begin, align 8
+  %2 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %3 = load ptr, ptr %2, align 8
+  %pre_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %pre_monitor_cfg, align 8
+  store ptr %4, ptr %arrayinit.begin, align 8
   %arrayinit.element = getelementptr inbounds ptr, ptr %arrayinit.begin, i64 1
-  %3 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %monitor_cfg, align 8
-  store ptr %4, ptr %arrayinit.element, align 8
+  %5 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %6 = load ptr, ptr %5, align 8
+  %monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %6, i32 0, i32 1
+  %7 = load ptr, ptr %monitor_cfg, align 8
+  store ptr %7, ptr %arrayinit.element, align 8
   %arrayinit.element1 = getelementptr inbounds ptr, ptr %arrayinit.element, i64 1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 410), align 8
-  %post_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %post_monitor_cfg, align 8
-  store ptr %6, ptr %arrayinit.element1, align 8
+  %8 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 410
+  %9 = load ptr, ptr %8, align 8
+  %post_monitor_cfg = getelementptr inbounds %struct.sentinelConfig, ptr %9, i32 0, i32 2
+  %10 = load ptr, ptr %post_monitor_cfg, align 8
+  store ptr %10, ptr %arrayinit.element1, align 8
   store i32 0, ptr %j, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %7 = load i32, ptr %j, align 4
-  %conv = zext i32 %7 to i64
+  %11 = load i32, ptr %j, align 4
+  %conv = zext i32 %11 to i64
   %cmp2 = icmp ult i64 %conv, 3
   br i1 %cmp2, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %8 = load i32, ptr %j, align 4
-  %idxprom = zext i32 %8 to i64
+  %12 = load i32, ptr %j, align 4
+  %idxprom = zext i32 %12 to i64
   %arrayidx = getelementptr inbounds [3 x ptr], ptr %sentinel_configs, i64 0, i64 %idxprom
-  %9 = load ptr, ptr %arrayidx, align 8
-  call void @listRewind(ptr noundef %9, ptr noundef %li)
+  %13 = load ptr, ptr %arrayidx, align 8
+  call void @listRewind(ptr noundef %13, ptr noundef %li)
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end10, %for.body
@@ -5128,31 +5210,31 @@ while.cond:                                       ; preds = %if.end10, %for.body
   br i1 %tobool, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %10 = load ptr, ptr %ln, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %value, align 8
-  store ptr %11, ptr %entry4, align 8
-  %12 = load ptr, ptr %entry4, align 8
-  %argv = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %argv, align 8
-  %14 = load ptr, ptr %entry4, align 8
-  %argc = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %14, i32 0, i32 0
-  %15 = load i32, ptr %argc, align 8
-  %call5 = call ptr @sentinelHandleConfiguration(ptr noundef %13, i32 noundef %15)
+  %14 = load ptr, ptr %ln, align 8
+  %value = getelementptr inbounds %struct.listNode, ptr %14, i32 0, i32 2
+  %15 = load ptr, ptr %value, align 8
+  store ptr %15, ptr %entry4, align 8
+  %16 = load ptr, ptr %entry4, align 8
+  %argv = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %16, i32 0, i32 1
+  %17 = load ptr, ptr %argv, align 8
+  %18 = load ptr, ptr %entry4, align 8
+  %argc = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %18, i32 0, i32 0
+  %19 = load i32, ptr %argc, align 8
+  %call5 = call ptr @sentinelHandleConfiguration(ptr noundef %17, i32 noundef %19)
   store ptr %call5, ptr %err, align 8
-  %16 = load ptr, ptr %err, align 8
-  %tobool6 = icmp ne ptr %16, null
+  %20 = load ptr, ptr %err, align 8
+  %tobool6 = icmp ne ptr %20, null
   br i1 %tobool6, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %while.body
-  %17 = load ptr, ptr %entry4, align 8
-  %linenum8 = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %17, i32 0, i32 2
-  %18 = load i32, ptr %linenum8, align 8
-  store i32 %18, ptr %linenum, align 4
-  %19 = load ptr, ptr %entry4, align 8
-  %line9 = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %19, i32 0, i32 3
-  %20 = load ptr, ptr %line9, align 8
-  store ptr %20, ptr %line, align 8
+  %21 = load ptr, ptr %entry4, align 8
+  %linenum8 = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %21, i32 0, i32 2
+  %22 = load i32, ptr %linenum8, align 8
+  store i32 %22, ptr %linenum, align 4
+  %23 = load ptr, ptr %entry4, align 8
+  %line9 = getelementptr inbounds %struct.sentinelLoadQueueEntry, ptr %23, i32 0, i32 3
+  %24 = load ptr, ptr %line9, align 8
+  store ptr %24, ptr %line, align 8
   br label %loaderr
 
 if.end10:                                         ; preds = %while.body
@@ -5162,8 +5244,8 @@ while.end:                                        ; preds = %while.cond
   br label %for.inc
 
 for.inc:                                          ; preds = %while.end
-  %21 = load i32, ptr %j, align 4
-  %inc = add i32 %21, 1
+  %25 = load i32, ptr %j, align 4
+  %inc = add i32 %25, 1
   store i32 %inc, ptr %j, align 4
   br label %for.cond, !llvm.loop !35
 
@@ -5172,17 +5254,17 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 loaderr:                                          ; preds = %if.then7
-  %22 = load ptr, ptr @stderr, align 8
-  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.64, ptr noundef @.str.65) #12
-  %23 = load ptr, ptr @stderr, align 8
-  %24 = load i32, ptr %linenum, align 4
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.66, i32 noundef %24) #12
-  %25 = load ptr, ptr @stderr, align 8
-  %26 = load ptr, ptr %line, align 8
-  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.67, ptr noundef %26) #12
+  %26 = load ptr, ptr @stderr, align 8
+  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.64, ptr noundef @.str.65) #12
   %27 = load ptr, ptr @stderr, align 8
-  %28 = load ptr, ptr %err, align 8
-  %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str.68, ptr noundef %28) #12
+  %28 = load i32, ptr %linenum, align 4
+  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str.66, i32 noundef %28) #12
+  %29 = load ptr, ptr @stderr, align 8
+  %30 = load ptr, ptr %line, align 8
+  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef @.str.67, ptr noundef %30) #12
+  %31 = load ptr, ptr @stderr, align 8
+  %32 = load ptr, ptr %err, align 8
+  %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.68, ptr noundef %32) #12
   call void @exit(i32 noundef 1) #11
   unreachable
 
@@ -5584,36 +5666,38 @@ if.then147:                                       ; preds = %land.lhs.true144
   %call149 = call i64 @strtoull(ptr noundef %89, ptr noundef null, i32 noundef 10) #12
   store i64 %call149, ptr %current_epoch, align 8
   %90 = load i64, ptr %current_epoch, align 8
-  %91 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  %cmp150 = icmp ugt i64 %90, %91
+  %91 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  %92 = load i64, ptr %91, align 8
+  %cmp150 = icmp ugt i64 %90, %92
   br i1 %cmp150, label %if.then152, label %if.end153
 
 if.then152:                                       ; preds = %if.then147
-  %92 = load i64, ptr %current_epoch, align 8
-  store i64 %92, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
+  %93 = load i64, ptr %current_epoch, align 8
+  %94 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  store i64 %93, ptr %94, align 8
   br label %if.end153
 
 if.end153:                                        ; preds = %if.then152, %if.then147
   br label %if.end420
 
 if.else154:                                       ; preds = %land.lhs.true144, %if.else140
-  %93 = load ptr, ptr %argv.addr, align 8
-  %arrayidx155 = getelementptr inbounds ptr, ptr %93, i64 0
-  %94 = load ptr, ptr %arrayidx155, align 8
-  %call156 = call i32 @strcasecmp(ptr noundef %94, ptr noundef @.str.6) #15
+  %95 = load ptr, ptr %argv.addr, align 8
+  %arrayidx155 = getelementptr inbounds ptr, ptr %95, i64 0
+  %96 = load ptr, ptr %arrayidx155, align 8
+  %call156 = call i32 @strcasecmp(ptr noundef %96, ptr noundef @.str.6) #15
   %tobool157 = icmp ne i32 %call156, 0
   br i1 %tobool157, label %if.else169, label %land.lhs.true158
 
 land.lhs.true158:                                 ; preds = %if.else154
-  %95 = load i32, ptr %argc.addr, align 4
-  %cmp159 = icmp eq i32 %95, 2
+  %97 = load i32, ptr %argc.addr, align 4
+  %cmp159 = icmp eq i32 %97, 2
   br i1 %cmp159, label %if.then161, label %if.else169
 
 if.then161:                                       ; preds = %land.lhs.true158
-  %96 = load ptr, ptr %argv.addr, align 8
-  %arrayidx162 = getelementptr inbounds ptr, ptr %96, i64 1
-  %97 = load ptr, ptr %arrayidx162, align 8
-  %call163 = call i64 @strlen(ptr noundef %97) #15
+  %98 = load ptr, ptr %argv.addr, align 8
+  %arrayidx162 = getelementptr inbounds ptr, ptr %98, i64 1
+  %99 = load ptr, ptr %arrayidx162, align 8
+  %call163 = call i64 @strlen(ptr noundef %99) #15
   %cmp164 = icmp ne i64 %call163, 40
   br i1 %cmp164, label %if.then166, label %if.end167
 
@@ -5622,33 +5706,33 @@ if.then166:                                       ; preds = %if.then161
   br label %return
 
 if.end167:                                        ; preds = %if.then161
-  %98 = load ptr, ptr %argv.addr, align 8
-  %arrayidx168 = getelementptr inbounds ptr, ptr %98, i64 1
-  %99 = load ptr, ptr %arrayidx168, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @sentinel, ptr align 1 %99, i64 40, i1 false)
+  %100 = load ptr, ptr %argv.addr, align 8
+  %arrayidx168 = getelementptr inbounds ptr, ptr %100, i64 1
+  %101 = load ptr, ptr %arrayidx168, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @sentinel, ptr align 1 %101, i64 40, i1 false)
   br label %if.end419
 
 if.else169:                                       ; preds = %land.lhs.true158, %if.else154
-  %100 = load ptr, ptr %argv.addr, align 8
-  %arrayidx170 = getelementptr inbounds ptr, ptr %100, i64 0
-  %101 = load ptr, ptr %arrayidx170, align 8
-  %call171 = call i32 @strcasecmp(ptr noundef %101, ptr noundef @.str.82) #15
+  %102 = load ptr, ptr %argv.addr, align 8
+  %arrayidx170 = getelementptr inbounds ptr, ptr %102, i64 0
+  %103 = load ptr, ptr %arrayidx170, align 8
+  %call171 = call i32 @strcasecmp(ptr noundef %103, ptr noundef @.str.82) #15
   %tobool172 = icmp ne i32 %call171, 0
   br i1 %tobool172, label %if.else190, label %land.lhs.true173
 
 land.lhs.true173:                                 ; preds = %if.else169
-  %102 = load i32, ptr %argc.addr, align 4
-  %cmp174 = icmp eq i32 %102, 3
+  %104 = load i32, ptr %argc.addr, align 4
+  %cmp174 = icmp eq i32 %104, 3
   br i1 %cmp174, label %if.then176, label %if.else190
 
 if.then176:                                       ; preds = %land.lhs.true173
-  %103 = load ptr, ptr %argv.addr, align 8
-  %arrayidx177 = getelementptr inbounds ptr, ptr %103, i64 1
-  %104 = load ptr, ptr %arrayidx177, align 8
-  %call178 = call ptr @sentinelGetMasterByName(ptr noundef %104)
+  %105 = load ptr, ptr %argv.addr, align 8
+  %arrayidx177 = getelementptr inbounds ptr, ptr %105, i64 1
+  %106 = load ptr, ptr %arrayidx177, align 8
+  %call178 = call ptr @sentinelGetMasterByName(ptr noundef %106)
   store ptr %call178, ptr %ri, align 8
-  %105 = load ptr, ptr %ri, align 8
-  %tobool179 = icmp ne ptr %105, null
+  %107 = load ptr, ptr %ri, align 8
+  %tobool179 = icmp ne ptr %107, null
   br i1 %tobool179, label %if.end181, label %if.then180
 
 if.then180:                                       ; preds = %if.then176
@@ -5656,51 +5740,53 @@ if.then180:                                       ; preds = %if.then176
   br label %return
 
 if.end181:                                        ; preds = %if.then176
-  %106 = load ptr, ptr %argv.addr, align 8
-  %arrayidx182 = getelementptr inbounds ptr, ptr %106, i64 2
-  %107 = load ptr, ptr %arrayidx182, align 8
-  %call183 = call i64 @strtoull(ptr noundef %107, ptr noundef null, i32 noundef 10) #12
-  %108 = load ptr, ptr %ri, align 8
-  %config_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %108, i32 0, i32 3
+  %108 = load ptr, ptr %argv.addr, align 8
+  %arrayidx182 = getelementptr inbounds ptr, ptr %108, i64 2
+  %109 = load ptr, ptr %arrayidx182, align 8
+  %call183 = call i64 @strtoull(ptr noundef %109, ptr noundef null, i32 noundef 10) #12
+  %110 = load ptr, ptr %ri, align 8
+  %config_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %110, i32 0, i32 3
   store i64 %call183, ptr %config_epoch, align 8
-  %109 = load ptr, ptr %ri, align 8
-  %config_epoch184 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %109, i32 0, i32 3
-  %110 = load i64, ptr %config_epoch184, align 8
-  %111 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  %cmp185 = icmp ugt i64 %110, %111
+  %111 = load ptr, ptr %ri, align 8
+  %config_epoch184 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %111, i32 0, i32 3
+  %112 = load i64, ptr %config_epoch184, align 8
+  %113 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  %114 = load i64, ptr %113, align 8
+  %cmp185 = icmp ugt i64 %112, %114
   br i1 %cmp185, label %if.then187, label %if.end189
 
 if.then187:                                       ; preds = %if.end181
-  %112 = load ptr, ptr %ri, align 8
-  %config_epoch188 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %112, i32 0, i32 3
-  %113 = load i64, ptr %config_epoch188, align 8
-  store i64 %113, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
+  %115 = load ptr, ptr %ri, align 8
+  %config_epoch188 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %115, i32 0, i32 3
+  %116 = load i64, ptr %config_epoch188, align 8
+  %117 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  store i64 %116, ptr %117, align 8
   br label %if.end189
 
 if.end189:                                        ; preds = %if.then187, %if.end181
   br label %if.end418
 
 if.else190:                                       ; preds = %land.lhs.true173, %if.else169
-  %114 = load ptr, ptr %argv.addr, align 8
-  %arrayidx191 = getelementptr inbounds ptr, ptr %114, i64 0
-  %115 = load ptr, ptr %arrayidx191, align 8
-  %call192 = call i32 @strcasecmp(ptr noundef %115, ptr noundef @.str.83) #15
+  %118 = load ptr, ptr %argv.addr, align 8
+  %arrayidx191 = getelementptr inbounds ptr, ptr %118, i64 0
+  %119 = load ptr, ptr %arrayidx191, align 8
+  %call192 = call i32 @strcasecmp(ptr noundef %119, ptr noundef @.str.83) #15
   %tobool193 = icmp ne i32 %call192, 0
   br i1 %tobool193, label %if.else205, label %land.lhs.true194
 
 land.lhs.true194:                                 ; preds = %if.else190
-  %116 = load i32, ptr %argc.addr, align 4
-  %cmp195 = icmp eq i32 %116, 3
+  %120 = load i32, ptr %argc.addr, align 4
+  %cmp195 = icmp eq i32 %120, 3
   br i1 %cmp195, label %if.then197, label %if.else205
 
 if.then197:                                       ; preds = %land.lhs.true194
-  %117 = load ptr, ptr %argv.addr, align 8
-  %arrayidx198 = getelementptr inbounds ptr, ptr %117, i64 1
-  %118 = load ptr, ptr %arrayidx198, align 8
-  %call199 = call ptr @sentinelGetMasterByName(ptr noundef %118)
+  %121 = load ptr, ptr %argv.addr, align 8
+  %arrayidx198 = getelementptr inbounds ptr, ptr %121, i64 1
+  %122 = load ptr, ptr %arrayidx198, align 8
+  %call199 = call ptr @sentinelGetMasterByName(ptr noundef %122)
   store ptr %call199, ptr %ri, align 8
-  %119 = load ptr, ptr %ri, align 8
-  %tobool200 = icmp ne ptr %119, null
+  %123 = load ptr, ptr %ri, align 8
+  %tobool200 = icmp ne ptr %123, null
   br i1 %tobool200, label %if.end202, label %if.then201
 
 if.then201:                                       ; preds = %if.then197
@@ -5708,44 +5794,44 @@ if.then201:                                       ; preds = %if.then197
   br label %return
 
 if.end202:                                        ; preds = %if.then197
-  %120 = load ptr, ptr %argv.addr, align 8
-  %arrayidx203 = getelementptr inbounds ptr, ptr %120, i64 2
-  %121 = load ptr, ptr %arrayidx203, align 8
-  %call204 = call i64 @strtoull(ptr noundef %121, ptr noundef null, i32 noundef 10) #12
-  %122 = load ptr, ptr %ri, align 8
-  %leader_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %122, i32 0, i32 35
+  %124 = load ptr, ptr %argv.addr, align 8
+  %arrayidx203 = getelementptr inbounds ptr, ptr %124, i64 2
+  %125 = load ptr, ptr %arrayidx203, align 8
+  %call204 = call i64 @strtoull(ptr noundef %125, ptr noundef null, i32 noundef 10) #12
+  %126 = load ptr, ptr %ri, align 8
+  %leader_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %126, i32 0, i32 35
   store i64 %call204, ptr %leader_epoch, align 8
   br label %if.end417
 
 if.else205:                                       ; preds = %land.lhs.true194, %if.else190
-  %123 = load ptr, ptr %argv.addr, align 8
-  %arrayidx206 = getelementptr inbounds ptr, ptr %123, i64 0
-  %124 = load ptr, ptr %arrayidx206, align 8
-  %call207 = call i32 @strcasecmp(ptr noundef %124, ptr noundef @.str.84) #15
+  %127 = load ptr, ptr %argv.addr, align 8
+  %arrayidx206 = getelementptr inbounds ptr, ptr %127, i64 0
+  %128 = load ptr, ptr %arrayidx206, align 8
+  %call207 = call i32 @strcasecmp(ptr noundef %128, ptr noundef @.str.84) #15
   %tobool208 = icmp ne i32 %call207, 0
   br i1 %tobool208, label %lor.lhs.false, label %land.lhs.true212
 
 lor.lhs.false:                                    ; preds = %if.else205
-  %125 = load ptr, ptr %argv.addr, align 8
-  %arrayidx209 = getelementptr inbounds ptr, ptr %125, i64 0
-  %126 = load ptr, ptr %arrayidx209, align 8
-  %call210 = call i32 @strcasecmp(ptr noundef %126, ptr noundef @.str.85) #15
+  %129 = load ptr, ptr %argv.addr, align 8
+  %arrayidx209 = getelementptr inbounds ptr, ptr %129, i64 0
+  %130 = load ptr, ptr %arrayidx209, align 8
+  %call210 = call i32 @strcasecmp(ptr noundef %130, ptr noundef @.str.85) #15
   %tobool211 = icmp ne i32 %call210, 0
   br i1 %tobool211, label %if.else231, label %land.lhs.true212
 
 land.lhs.true212:                                 ; preds = %lor.lhs.false, %if.else205
-  %127 = load i32, ptr %argc.addr, align 4
-  %cmp213 = icmp eq i32 %127, 4
+  %131 = load i32, ptr %argc.addr, align 4
+  %cmp213 = icmp eq i32 %131, 4
   br i1 %cmp213, label %if.then215, label %if.else231
 
 if.then215:                                       ; preds = %land.lhs.true212
-  %128 = load ptr, ptr %argv.addr, align 8
-  %arrayidx216 = getelementptr inbounds ptr, ptr %128, i64 1
-  %129 = load ptr, ptr %arrayidx216, align 8
-  %call217 = call ptr @sentinelGetMasterByName(ptr noundef %129)
+  %132 = load ptr, ptr %argv.addr, align 8
+  %arrayidx216 = getelementptr inbounds ptr, ptr %132, i64 1
+  %133 = load ptr, ptr %arrayidx216, align 8
+  %call217 = call ptr @sentinelGetMasterByName(ptr noundef %133)
   store ptr %call217, ptr %ri, align 8
-  %130 = load ptr, ptr %ri, align 8
-  %tobool218 = icmp ne ptr %130, null
+  %134 = load ptr, ptr %ri, align 8
+  %tobool218 = icmp ne ptr %134, null
   br i1 %tobool218, label %if.end220, label %if.then219
 
 if.then219:                                       ; preds = %if.then215
@@ -5753,18 +5839,18 @@ if.then219:                                       ; preds = %if.then215
   br label %return
 
 if.end220:                                        ; preds = %if.then215
-  %131 = load ptr, ptr %argv.addr, align 8
-  %arrayidx221 = getelementptr inbounds ptr, ptr %131, i64 2
-  %132 = load ptr, ptr %arrayidx221, align 8
-  %133 = load ptr, ptr %argv.addr, align 8
-  %arrayidx222 = getelementptr inbounds ptr, ptr %133, i64 3
-  %134 = load ptr, ptr %arrayidx222, align 8
-  %call223 = call i32 @atoi(ptr noundef %134) #15
-  %135 = load ptr, ptr %ri, align 8
-  %quorum224 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %135, i32 0, i32 21
-  %136 = load i32, ptr %quorum224, align 8
-  %137 = load ptr, ptr %ri, align 8
-  %call225 = call ptr @createSentinelRedisInstance(ptr noundef null, i32 noundef 2, ptr noundef %132, i32 noundef %call223, i32 noundef %136, ptr noundef %137)
+  %135 = load ptr, ptr %argv.addr, align 8
+  %arrayidx221 = getelementptr inbounds ptr, ptr %135, i64 2
+  %136 = load ptr, ptr %arrayidx221, align 8
+  %137 = load ptr, ptr %argv.addr, align 8
+  %arrayidx222 = getelementptr inbounds ptr, ptr %137, i64 3
+  %138 = load ptr, ptr %arrayidx222, align 8
+  %call223 = call i32 @atoi(ptr noundef %138) #15
+  %139 = load ptr, ptr %ri, align 8
+  %quorum224 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %139, i32 0, i32 21
+  %140 = load i32, ptr %quorum224, align 8
+  %141 = load ptr, ptr %ri, align 8
+  %call225 = call ptr @createSentinelRedisInstance(ptr noundef null, i32 noundef 2, ptr noundef %136, i32 noundef %call223, i32 noundef %140, ptr noundef %141)
   store ptr %call225, ptr %slave, align 8
   %cmp226 = icmp eq ptr %call225, null
   br i1 %cmp226, label %if.then228, label %if.end230
@@ -5778,36 +5864,36 @@ if.end230:                                        ; preds = %if.end220
   br label %if.end416
 
 if.else231:                                       ; preds = %land.lhs.true212, %lor.lhs.false
-  %138 = load ptr, ptr %argv.addr, align 8
-  %arrayidx232 = getelementptr inbounds ptr, ptr %138, i64 0
-  %139 = load ptr, ptr %arrayidx232, align 8
-  %call233 = call i32 @strcasecmp(ptr noundef %139, ptr noundef @.str.86) #15
+  %142 = load ptr, ptr %argv.addr, align 8
+  %arrayidx232 = getelementptr inbounds ptr, ptr %142, i64 0
+  %143 = load ptr, ptr %arrayidx232, align 8
+  %call233 = call i32 @strcasecmp(ptr noundef %143, ptr noundef @.str.86) #15
   %tobool234 = icmp ne i32 %call233, 0
   br i1 %tobool234, label %if.else265, label %land.lhs.true235
 
 land.lhs.true235:                                 ; preds = %if.else231
-  %140 = load i32, ptr %argc.addr, align 4
-  %cmp236 = icmp eq i32 %140, 4
+  %144 = load i32, ptr %argc.addr, align 4
+  %cmp236 = icmp eq i32 %144, 4
   br i1 %cmp236, label %if.then241, label %lor.lhs.false238
 
 lor.lhs.false238:                                 ; preds = %land.lhs.true235
-  %141 = load i32, ptr %argc.addr, align 4
-  %cmp239 = icmp eq i32 %141, 5
+  %145 = load i32, ptr %argc.addr, align 4
+  %cmp239 = icmp eq i32 %145, 5
   br i1 %cmp239, label %if.then241, label %if.else265
 
 if.then241:                                       ; preds = %lor.lhs.false238, %land.lhs.true235
-  %142 = load i32, ptr %argc.addr, align 4
-  %cmp242 = icmp eq i32 %142, 5
+  %146 = load i32, ptr %argc.addr, align 4
+  %cmp242 = icmp eq i32 %146, 5
   br i1 %cmp242, label %if.then244, label %if.end264
 
 if.then244:                                       ; preds = %if.then241
-  %143 = load ptr, ptr %argv.addr, align 8
-  %arrayidx245 = getelementptr inbounds ptr, ptr %143, i64 1
-  %144 = load ptr, ptr %arrayidx245, align 8
-  %call246 = call ptr @sentinelGetMasterByName(ptr noundef %144)
+  %147 = load ptr, ptr %argv.addr, align 8
+  %arrayidx245 = getelementptr inbounds ptr, ptr %147, i64 1
+  %148 = load ptr, ptr %arrayidx245, align 8
+  %call246 = call ptr @sentinelGetMasterByName(ptr noundef %148)
   store ptr %call246, ptr %ri, align 8
-  %145 = load ptr, ptr %ri, align 8
-  %tobool247 = icmp ne ptr %145, null
+  %149 = load ptr, ptr %ri, align 8
+  %tobool247 = icmp ne ptr %149, null
   br i1 %tobool247, label %if.end249, label %if.then248
 
 if.then248:                                       ; preds = %if.then244
@@ -5815,21 +5901,21 @@ if.then248:                                       ; preds = %if.then244
   br label %return
 
 if.end249:                                        ; preds = %if.then244
-  %146 = load ptr, ptr %argv.addr, align 8
-  %arrayidx250 = getelementptr inbounds ptr, ptr %146, i64 4
-  %147 = load ptr, ptr %arrayidx250, align 8
-  %148 = load ptr, ptr %argv.addr, align 8
-  %arrayidx251 = getelementptr inbounds ptr, ptr %148, i64 2
-  %149 = load ptr, ptr %arrayidx251, align 8
   %150 = load ptr, ptr %argv.addr, align 8
-  %arrayidx252 = getelementptr inbounds ptr, ptr %150, i64 3
-  %151 = load ptr, ptr %arrayidx252, align 8
-  %call253 = call i32 @atoi(ptr noundef %151) #15
-  %152 = load ptr, ptr %ri, align 8
-  %quorum254 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %152, i32 0, i32 21
-  %153 = load i32, ptr %quorum254, align 8
-  %154 = load ptr, ptr %ri, align 8
-  %call255 = call ptr @createSentinelRedisInstance(ptr noundef %147, i32 noundef 4, ptr noundef %149, i32 noundef %call253, i32 noundef %153, ptr noundef %154)
+  %arrayidx250 = getelementptr inbounds ptr, ptr %150, i64 4
+  %151 = load ptr, ptr %arrayidx250, align 8
+  %152 = load ptr, ptr %argv.addr, align 8
+  %arrayidx251 = getelementptr inbounds ptr, ptr %152, i64 2
+  %153 = load ptr, ptr %arrayidx251, align 8
+  %154 = load ptr, ptr %argv.addr, align 8
+  %arrayidx252 = getelementptr inbounds ptr, ptr %154, i64 3
+  %155 = load ptr, ptr %arrayidx252, align 8
+  %call253 = call i32 @atoi(ptr noundef %155) #15
+  %156 = load ptr, ptr %ri, align 8
+  %quorum254 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %156, i32 0, i32 21
+  %157 = load i32, ptr %quorum254, align 8
+  %158 = load ptr, ptr %ri, align 8
+  %call255 = call ptr @createSentinelRedisInstance(ptr noundef %151, i32 noundef 4, ptr noundef %153, i32 noundef %call253, i32 noundef %157, ptr noundef %158)
   store ptr %call255, ptr %si, align 8
   %cmp256 = icmp eq ptr %call255, null
   br i1 %cmp256, label %if.then258, label %if.end260
@@ -5840,41 +5926,41 @@ if.then258:                                       ; preds = %if.end249
   br label %return
 
 if.end260:                                        ; preds = %if.end249
-  %155 = load ptr, ptr %argv.addr, align 8
-  %arrayidx261 = getelementptr inbounds ptr, ptr %155, i64 4
-  %156 = load ptr, ptr %arrayidx261, align 8
-  %call262 = call ptr @sdsnew(ptr noundef %156)
-  %157 = load ptr, ptr %si, align 8
-  %runid = getelementptr inbounds %struct.sentinelRedisInstance, ptr %157, i32 0, i32 2
+  %159 = load ptr, ptr %argv.addr, align 8
+  %arrayidx261 = getelementptr inbounds ptr, ptr %159, i64 4
+  %160 = load ptr, ptr %arrayidx261, align 8
+  %call262 = call ptr @sdsnew(ptr noundef %160)
+  %161 = load ptr, ptr %si, align 8
+  %runid = getelementptr inbounds %struct.sentinelRedisInstance, ptr %161, i32 0, i32 2
   store ptr %call262, ptr %runid, align 8
-  %158 = load ptr, ptr %si, align 8
-  %call263 = call i32 @sentinelTryConnectionSharing(ptr noundef %158)
+  %162 = load ptr, ptr %si, align 8
+  %call263 = call i32 @sentinelTryConnectionSharing(ptr noundef %162)
   br label %if.end264
 
 if.end264:                                        ; preds = %if.end260, %if.then241
   br label %if.end415
 
 if.else265:                                       ; preds = %lor.lhs.false238, %if.else231
-  %159 = load ptr, ptr %argv.addr, align 8
-  %arrayidx266 = getelementptr inbounds ptr, ptr %159, i64 0
-  %160 = load ptr, ptr %arrayidx266, align 8
-  %call267 = call i32 @strcasecmp(ptr noundef %160, ptr noundef @.str.87) #15
+  %163 = load ptr, ptr %argv.addr, align 8
+  %arrayidx266 = getelementptr inbounds ptr, ptr %163, i64 0
+  %164 = load ptr, ptr %arrayidx266, align 8
+  %call267 = call i32 @strcasecmp(ptr noundef %164, ptr noundef @.str.87) #15
   %tobool268 = icmp ne i32 %call267, 0
   br i1 %tobool268, label %if.else287, label %land.lhs.true269
 
 land.lhs.true269:                                 ; preds = %if.else265
-  %161 = load i32, ptr %argc.addr, align 4
-  %cmp270 = icmp eq i32 %161, 4
+  %165 = load i32, ptr %argc.addr, align 4
+  %cmp270 = icmp eq i32 %165, 4
   br i1 %cmp270, label %if.then272, label %if.else287
 
 if.then272:                                       ; preds = %land.lhs.true269
-  %162 = load ptr, ptr %argv.addr, align 8
-  %arrayidx273 = getelementptr inbounds ptr, ptr %162, i64 1
-  %163 = load ptr, ptr %arrayidx273, align 8
-  %call274 = call ptr @sentinelGetMasterByName(ptr noundef %163)
+  %166 = load ptr, ptr %argv.addr, align 8
+  %arrayidx273 = getelementptr inbounds ptr, ptr %166, i64 1
+  %167 = load ptr, ptr %arrayidx273, align 8
+  %call274 = call ptr @sentinelGetMasterByName(ptr noundef %167)
   store ptr %call274, ptr %ri, align 8
-  %164 = load ptr, ptr %ri, align 8
-  %tobool275 = icmp ne ptr %164, null
+  %168 = load ptr, ptr %ri, align 8
+  %tobool275 = icmp ne ptr %168, null
   br i1 %tobool275, label %if.end277, label %if.then276
 
 if.then276:                                       ; preds = %if.then272
@@ -5882,30 +5968,30 @@ if.then276:                                       ; preds = %if.then272
   br label %return
 
 if.end277:                                        ; preds = %if.then272
-  %165 = load ptr, ptr %argv.addr, align 8
-  %arrayidx278 = getelementptr inbounds ptr, ptr %165, i64 2
-  %166 = load ptr, ptr %arrayidx278, align 8
-  %call279 = call ptr @sdsnew(ptr noundef %166)
+  %169 = load ptr, ptr %argv.addr, align 8
+  %arrayidx278 = getelementptr inbounds ptr, ptr %169, i64 2
+  %170 = load ptr, ptr %arrayidx278, align 8
+  %call279 = call ptr @sdsnew(ptr noundef %170)
   store ptr %call279, ptr %oldcmd, align 8
-  %167 = load ptr, ptr %argv.addr, align 8
-  %arrayidx280 = getelementptr inbounds ptr, ptr %167, i64 3
-  %168 = load ptr, ptr %arrayidx280, align 8
-  %call281 = call ptr @sdsnew(ptr noundef %168)
+  %171 = load ptr, ptr %argv.addr, align 8
+  %arrayidx280 = getelementptr inbounds ptr, ptr %171, i64 3
+  %172 = load ptr, ptr %arrayidx280, align 8
+  %call281 = call ptr @sdsnew(ptr noundef %172)
   store ptr %call281, ptr %newcmd, align 8
-  %169 = load ptr, ptr %ri, align 8
-  %renamed_commands = getelementptr inbounds %struct.sentinelRedisInstance, ptr %169, i32 0, i32 15
-  %170 = load ptr, ptr %renamed_commands, align 8
-  %171 = load ptr, ptr %oldcmd, align 8
-  %172 = load ptr, ptr %newcmd, align 8
-  %call282 = call i32 @dictAdd(ptr noundef %170, ptr noundef %171, ptr noundef %172)
+  %173 = load ptr, ptr %ri, align 8
+  %renamed_commands = getelementptr inbounds %struct.sentinelRedisInstance, ptr %173, i32 0, i32 15
+  %174 = load ptr, ptr %renamed_commands, align 8
+  %175 = load ptr, ptr %oldcmd, align 8
+  %176 = load ptr, ptr %newcmd, align 8
+  %call282 = call i32 @dictAdd(ptr noundef %174, ptr noundef %175, ptr noundef %176)
   %cmp283 = icmp ne i32 %call282, 0
   br i1 %cmp283, label %if.then285, label %if.end286
 
 if.then285:                                       ; preds = %if.end277
-  %173 = load ptr, ptr %oldcmd, align 8
-  call void @sdsfree(ptr noundef %173)
-  %174 = load ptr, ptr %newcmd, align 8
-  call void @sdsfree(ptr noundef %174)
+  %177 = load ptr, ptr %oldcmd, align 8
+  call void @sdsfree(ptr noundef %177)
+  %178 = load ptr, ptr %newcmd, align 8
+  call void @sdsfree(ptr noundef %178)
   store ptr @.str.88, ptr %retval, align 8
   br label %return
 
@@ -5913,77 +5999,80 @@ if.end286:                                        ; preds = %if.end277
   br label %if.end414
 
 if.else287:                                       ; preds = %land.lhs.true269, %if.else265
-  %175 = load ptr, ptr %argv.addr, align 8
-  %arrayidx288 = getelementptr inbounds ptr, ptr %175, i64 0
-  %176 = load ptr, ptr %arrayidx288, align 8
-  %call289 = call i32 @strcasecmp(ptr noundef %176, ptr noundef @.str) #15
+  %179 = load ptr, ptr %argv.addr, align 8
+  %arrayidx288 = getelementptr inbounds ptr, ptr %179, i64 0
+  %180 = load ptr, ptr %arrayidx288, align 8
+  %call289 = call i32 @strcasecmp(ptr noundef %180, ptr noundef @.str) #15
   %tobool290 = icmp ne i32 %call289, 0
   br i1 %tobool290, label %if.else302, label %land.lhs.true291
 
 land.lhs.true291:                                 ; preds = %if.else287
-  %177 = load i32, ptr %argc.addr, align 4
-  %cmp292 = icmp eq i32 %177, 2
+  %181 = load i32, ptr %argc.addr, align 4
+  %cmp292 = icmp eq i32 %181, 2
   br i1 %cmp292, label %if.then294, label %if.else302
 
 if.then294:                                       ; preds = %land.lhs.true291
-  %178 = load ptr, ptr %argv.addr, align 8
-  %arrayidx295 = getelementptr inbounds ptr, ptr %178, i64 1
-  %179 = load ptr, ptr %arrayidx295, align 8
-  %call296 = call i64 @strlen(ptr noundef %179) #15
+  %182 = load ptr, ptr %argv.addr, align 8
+  %arrayidx295 = getelementptr inbounds ptr, ptr %182, i64 1
+  %183 = load ptr, ptr %arrayidx295, align 8
+  %call296 = call i64 @strlen(ptr noundef %183) #15
   %tobool297 = icmp ne i64 %call296, 0
   br i1 %tobool297, label %if.then298, label %if.end301
 
 if.then298:                                       ; preds = %if.then294
-  %180 = load ptr, ptr %argv.addr, align 8
-  %arrayidx299 = getelementptr inbounds ptr, ptr %180, i64 1
-  %181 = load ptr, ptr %arrayidx299, align 8
-  %call300 = call ptr @sdsnew(ptr noundef %181)
-  store ptr %call300, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 8), align 8
+  %184 = load ptr, ptr %argv.addr, align 8
+  %arrayidx299 = getelementptr inbounds ptr, ptr %184, i64 1
+  %185 = load ptr, ptr %arrayidx299, align 8
+  %call300 = call ptr @sdsnew(ptr noundef %185)
+  %186 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 8
+  store ptr %call300, ptr %186, align 8
   br label %if.end301
 
 if.end301:                                        ; preds = %if.then298, %if.then294
   br label %if.end413
 
 if.else302:                                       ; preds = %land.lhs.true291, %if.else287
-  %182 = load ptr, ptr %argv.addr, align 8
-  %arrayidx303 = getelementptr inbounds ptr, ptr %182, i64 0
-  %183 = load ptr, ptr %arrayidx303, align 8
-  %call304 = call i32 @strcasecmp(ptr noundef %183, ptr noundef @.str.1) #15
+  %187 = load ptr, ptr %argv.addr, align 8
+  %arrayidx303 = getelementptr inbounds ptr, ptr %187, i64 0
+  %188 = load ptr, ptr %arrayidx303, align 8
+  %call304 = call i32 @strcasecmp(ptr noundef %188, ptr noundef @.str.1) #15
   %tobool305 = icmp ne i32 %call304, 0
   br i1 %tobool305, label %if.else312, label %land.lhs.true306
 
 land.lhs.true306:                                 ; preds = %if.else302
-  %184 = load i32, ptr %argc.addr, align 4
-  %cmp307 = icmp eq i32 %184, 2
+  %189 = load i32, ptr %argc.addr, align 4
+  %cmp307 = icmp eq i32 %189, 2
   br i1 %cmp307, label %if.then309, label %if.else312
 
 if.then309:                                       ; preds = %land.lhs.true306
-  %185 = load ptr, ptr %argv.addr, align 8
-  %arrayidx310 = getelementptr inbounds ptr, ptr %185, i64 1
-  %186 = load ptr, ptr %arrayidx310, align 8
-  %call311 = call i32 @atoi(ptr noundef %186) #15
-  store i32 %call311, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 9), align 8
+  %190 = load ptr, ptr %argv.addr, align 8
+  %arrayidx310 = getelementptr inbounds ptr, ptr %190, i64 1
+  %191 = load ptr, ptr %arrayidx310, align 8
+  %call311 = call i32 @atoi(ptr noundef %191) #15
+  %192 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 9
+  store i32 %call311, ptr %192, align 8
   br label %if.end412
 
 if.else312:                                       ; preds = %land.lhs.true306, %if.else302
-  %187 = load ptr, ptr %argv.addr, align 8
-  %arrayidx313 = getelementptr inbounds ptr, ptr %187, i64 0
-  %188 = load ptr, ptr %arrayidx313, align 8
-  %call314 = call i32 @strcasecmp(ptr noundef %188, ptr noundef @.str.2) #15
+  %193 = load ptr, ptr %argv.addr, align 8
+  %arrayidx313 = getelementptr inbounds ptr, ptr %193, i64 0
+  %194 = load ptr, ptr %arrayidx313, align 8
+  %call314 = call i32 @strcasecmp(ptr noundef %194, ptr noundef @.str.2) #15
   %tobool315 = icmp ne i32 %call314, 0
   br i1 %tobool315, label %if.else326, label %land.lhs.true316
 
 land.lhs.true316:                                 ; preds = %if.else312
-  %189 = load i32, ptr %argc.addr, align 4
-  %cmp317 = icmp eq i32 %189, 2
+  %195 = load i32, ptr %argc.addr, align 4
+  %cmp317 = icmp eq i32 %195, 2
   br i1 %cmp317, label %if.then319, label %if.else326
 
 if.then319:                                       ; preds = %land.lhs.true316
-  %190 = load ptr, ptr %argv.addr, align 8
-  %arrayidx320 = getelementptr inbounds ptr, ptr %190, i64 1
-  %191 = load ptr, ptr %arrayidx320, align 8
-  %call321 = call i32 @yesnotoi(ptr noundef %191)
-  store i32 %call321, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 11), align 8
+  %196 = load ptr, ptr %argv.addr, align 8
+  %arrayidx320 = getelementptr inbounds ptr, ptr %196, i64 1
+  %197 = load ptr, ptr %arrayidx320, align 8
+  %call321 = call i32 @yesnotoi(ptr noundef %197)
+  %198 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 11
+  store i32 %call321, ptr %198, align 8
   %cmp322 = icmp eq i32 %call321, -1
   br i1 %cmp322, label %if.then324, label %if.end325
 
@@ -5995,88 +6084,91 @@ if.end325:                                        ; preds = %if.then319
   br label %if.end411
 
 if.else326:                                       ; preds = %land.lhs.true316, %if.else312
-  %192 = load ptr, ptr %argv.addr, align 8
-  %arrayidx327 = getelementptr inbounds ptr, ptr %192, i64 0
-  %193 = load ptr, ptr %arrayidx327, align 8
-  %call328 = call i32 @strcasecmp(ptr noundef %193, ptr noundef @.str.3) #15
+  %199 = load ptr, ptr %argv.addr, align 8
+  %arrayidx327 = getelementptr inbounds ptr, ptr %199, i64 0
+  %200 = load ptr, ptr %arrayidx327, align 8
+  %call328 = call i32 @strcasecmp(ptr noundef %200, ptr noundef @.str.3) #15
   %tobool329 = icmp ne i32 %call328, 0
   br i1 %tobool329, label %if.else341, label %land.lhs.true330
 
 land.lhs.true330:                                 ; preds = %if.else326
-  %194 = load i32, ptr %argc.addr, align 4
-  %cmp331 = icmp eq i32 %194, 2
+  %201 = load i32, ptr %argc.addr, align 4
+  %cmp331 = icmp eq i32 %201, 2
   br i1 %cmp331, label %if.then333, label %if.else341
 
 if.then333:                                       ; preds = %land.lhs.true330
-  %195 = load ptr, ptr %argv.addr, align 8
-  %arrayidx334 = getelementptr inbounds ptr, ptr %195, i64 1
-  %196 = load ptr, ptr %arrayidx334, align 8
-  %call335 = call i64 @strlen(ptr noundef %196) #15
+  %202 = load ptr, ptr %argv.addr, align 8
+  %arrayidx334 = getelementptr inbounds ptr, ptr %202, i64 1
+  %203 = load ptr, ptr %arrayidx334, align 8
+  %call335 = call i64 @strlen(ptr noundef %203) #15
   %tobool336 = icmp ne i64 %call335, 0
   br i1 %tobool336, label %if.then337, label %if.end340
 
 if.then337:                                       ; preds = %if.then333
-  %197 = load ptr, ptr %argv.addr, align 8
-  %arrayidx338 = getelementptr inbounds ptr, ptr %197, i64 1
-  %198 = load ptr, ptr %arrayidx338, align 8
-  %call339 = call ptr @sdsnew(ptr noundef %198)
-  store ptr %call339, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 13), align 8
+  %204 = load ptr, ptr %argv.addr, align 8
+  %arrayidx338 = getelementptr inbounds ptr, ptr %204, i64 1
+  %205 = load ptr, ptr %arrayidx338, align 8
+  %call339 = call ptr @sdsnew(ptr noundef %205)
+  %206 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 13
+  store ptr %call339, ptr %206, align 8
   br label %if.end340
 
 if.end340:                                        ; preds = %if.then337, %if.then333
   br label %if.end410
 
 if.else341:                                       ; preds = %land.lhs.true330, %if.else326
-  %199 = load ptr, ptr %argv.addr, align 8
-  %arrayidx342 = getelementptr inbounds ptr, ptr %199, i64 0
-  %200 = load ptr, ptr %arrayidx342, align 8
-  %call343 = call i32 @strcasecmp(ptr noundef %200, ptr noundef @.str.4) #15
+  %207 = load ptr, ptr %argv.addr, align 8
+  %arrayidx342 = getelementptr inbounds ptr, ptr %207, i64 0
+  %208 = load ptr, ptr %arrayidx342, align 8
+  %call343 = call i32 @strcasecmp(ptr noundef %208, ptr noundef @.str.4) #15
   %tobool344 = icmp ne i32 %call343, 0
   br i1 %tobool344, label %if.else356, label %land.lhs.true345
 
 land.lhs.true345:                                 ; preds = %if.else341
-  %201 = load i32, ptr %argc.addr, align 4
-  %cmp346 = icmp eq i32 %201, 2
+  %209 = load i32, ptr %argc.addr, align 4
+  %cmp346 = icmp eq i32 %209, 2
   br i1 %cmp346, label %if.then348, label %if.else356
 
 if.then348:                                       ; preds = %land.lhs.true345
-  %202 = load ptr, ptr %argv.addr, align 8
-  %arrayidx349 = getelementptr inbounds ptr, ptr %202, i64 1
-  %203 = load ptr, ptr %arrayidx349, align 8
-  %call350 = call i64 @strlen(ptr noundef %203) #15
+  %210 = load ptr, ptr %argv.addr, align 8
+  %arrayidx349 = getelementptr inbounds ptr, ptr %210, i64 1
+  %211 = load ptr, ptr %arrayidx349, align 8
+  %call350 = call i64 @strlen(ptr noundef %211) #15
   %tobool351 = icmp ne i64 %call350, 0
   br i1 %tobool351, label %if.then352, label %if.end355
 
 if.then352:                                       ; preds = %if.then348
-  %204 = load ptr, ptr %argv.addr, align 8
-  %arrayidx353 = getelementptr inbounds ptr, ptr %204, i64 1
-  %205 = load ptr, ptr %arrayidx353, align 8
-  %call354 = call ptr @sdsnew(ptr noundef %205)
-  store ptr %call354, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 12), align 8
+  %212 = load ptr, ptr %argv.addr, align 8
+  %arrayidx353 = getelementptr inbounds ptr, ptr %212, i64 1
+  %213 = load ptr, ptr %arrayidx353, align 8
+  %call354 = call ptr @sdsnew(ptr noundef %213)
+  %214 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 12
+  store ptr %call354, ptr %214, align 8
   br label %if.end355
 
 if.end355:                                        ; preds = %if.then352, %if.then348
   br label %if.end409
 
 if.else356:                                       ; preds = %land.lhs.true345, %if.else341
-  %206 = load ptr, ptr %argv.addr, align 8
-  %arrayidx357 = getelementptr inbounds ptr, ptr %206, i64 0
-  %207 = load ptr, ptr %arrayidx357, align 8
-  %call358 = call i32 @strcasecmp(ptr noundef %207, ptr noundef @.str.7) #15
+  %215 = load ptr, ptr %argv.addr, align 8
+  %arrayidx357 = getelementptr inbounds ptr, ptr %215, i64 0
+  %216 = load ptr, ptr %arrayidx357, align 8
+  %call358 = call i32 @strcasecmp(ptr noundef %216, ptr noundef @.str.7) #15
   %tobool359 = icmp ne i32 %call358, 0
   br i1 %tobool359, label %if.else370, label %land.lhs.true360
 
 land.lhs.true360:                                 ; preds = %if.else356
-  %208 = load i32, ptr %argc.addr, align 4
-  %cmp361 = icmp eq i32 %208, 2
+  %217 = load i32, ptr %argc.addr, align 4
+  %cmp361 = icmp eq i32 %217, 2
   br i1 %cmp361, label %if.then363, label %if.else370
 
 if.then363:                                       ; preds = %land.lhs.true360
-  %209 = load ptr, ptr %argv.addr, align 8
-  %arrayidx364 = getelementptr inbounds ptr, ptr %209, i64 1
-  %210 = load ptr, ptr %arrayidx364, align 8
-  %call365 = call i32 @yesnotoi(ptr noundef %210)
-  store i32 %call365, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 14), align 8
+  %218 = load ptr, ptr %argv.addr, align 8
+  %arrayidx364 = getelementptr inbounds ptr, ptr %218, i64 1
+  %219 = load ptr, ptr %arrayidx364, align 8
+  %call365 = call i32 @yesnotoi(ptr noundef %219)
+  %220 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 14
+  store i32 %call365, ptr %220, align 8
   %cmp366 = icmp eq i32 %call365, -1
   br i1 %cmp366, label %if.then368, label %if.end369
 
@@ -6088,24 +6180,25 @@ if.end369:                                        ; preds = %if.then363
   br label %if.end408
 
 if.else370:                                       ; preds = %land.lhs.true360, %if.else356
-  %211 = load ptr, ptr %argv.addr, align 8
-  %arrayidx371 = getelementptr inbounds ptr, ptr %211, i64 0
-  %212 = load ptr, ptr %arrayidx371, align 8
-  %call372 = call i32 @strcasecmp(ptr noundef %212, ptr noundef @.str.8) #15
+  %221 = load ptr, ptr %argv.addr, align 8
+  %arrayidx371 = getelementptr inbounds ptr, ptr %221, i64 0
+  %222 = load ptr, ptr %arrayidx371, align 8
+  %call372 = call i32 @strcasecmp(ptr noundef %222, ptr noundef @.str.8) #15
   %tobool373 = icmp ne i32 %call372, 0
   br i1 %tobool373, label %if.else384, label %land.lhs.true374
 
 land.lhs.true374:                                 ; preds = %if.else370
-  %213 = load i32, ptr %argc.addr, align 4
-  %cmp375 = icmp eq i32 %213, 2
+  %223 = load i32, ptr %argc.addr, align 4
+  %cmp375 = icmp eq i32 %223, 2
   br i1 %cmp375, label %if.then377, label %if.else384
 
 if.then377:                                       ; preds = %land.lhs.true374
-  %214 = load ptr, ptr %argv.addr, align 8
-  %arrayidx378 = getelementptr inbounds ptr, ptr %214, i64 1
-  %215 = load ptr, ptr %arrayidx378, align 8
-  %call379 = call i32 @yesnotoi(ptr noundef %215)
-  store i32 %call379, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 15), align 4
+  %224 = load ptr, ptr %argv.addr, align 8
+  %arrayidx378 = getelementptr inbounds ptr, ptr %224, i64 1
+  %225 = load ptr, ptr %arrayidx378, align 8
+  %call379 = call i32 @yesnotoi(ptr noundef %225)
+  %226 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 15
+  store i32 %call379, ptr %226, align 4
   %cmp380 = icmp eq i32 %call379, -1
   br i1 %cmp380, label %if.then382, label %if.end383
 
@@ -6117,26 +6210,26 @@ if.end383:                                        ; preds = %if.then377
   br label %if.end407
 
 if.else384:                                       ; preds = %land.lhs.true374, %if.else370
-  %216 = load ptr, ptr %argv.addr, align 8
-  %arrayidx385 = getelementptr inbounds ptr, ptr %216, i64 0
-  %217 = load ptr, ptr %arrayidx385, align 8
-  %call386 = call i32 @strcasecmp(ptr noundef %217, ptr noundef @.str.92) #15
+  %227 = load ptr, ptr %argv.addr, align 8
+  %arrayidx385 = getelementptr inbounds ptr, ptr %227, i64 0
+  %228 = load ptr, ptr %arrayidx385, align 8
+  %call386 = call i32 @strcasecmp(ptr noundef %228, ptr noundef @.str.92) #15
   %tobool387 = icmp ne i32 %call386, 0
   br i1 %tobool387, label %if.else405, label %land.lhs.true388
 
 land.lhs.true388:                                 ; preds = %if.else384
-  %218 = load i32, ptr %argc.addr, align 4
-  %cmp389 = icmp eq i32 %218, 3
+  %229 = load i32, ptr %argc.addr, align 4
+  %cmp389 = icmp eq i32 %229, 3
   br i1 %cmp389, label %if.then391, label %if.else405
 
 if.then391:                                       ; preds = %land.lhs.true388
-  %219 = load ptr, ptr %argv.addr, align 8
-  %arrayidx392 = getelementptr inbounds ptr, ptr %219, i64 1
-  %220 = load ptr, ptr %arrayidx392, align 8
-  %call393 = call ptr @sentinelGetMasterByName(ptr noundef %220)
+  %230 = load ptr, ptr %argv.addr, align 8
+  %arrayidx392 = getelementptr inbounds ptr, ptr %230, i64 1
+  %231 = load ptr, ptr %arrayidx392, align 8
+  %call393 = call ptr @sentinelGetMasterByName(ptr noundef %231)
   store ptr %call393, ptr %ri, align 8
-  %221 = load ptr, ptr %ri, align 8
-  %tobool394 = icmp ne ptr %221, null
+  %232 = load ptr, ptr %ri, align 8
+  %tobool394 = icmp ne ptr %232, null
   br i1 %tobool394, label %if.end396, label %if.then395
 
 if.then395:                                       ; preds = %if.then391
@@ -6144,18 +6237,18 @@ if.then395:                                       ; preds = %if.then391
   br label %return
 
 if.end396:                                        ; preds = %if.then391
-  %222 = load ptr, ptr %argv.addr, align 8
-  %arrayidx397 = getelementptr inbounds ptr, ptr %222, i64 2
-  %223 = load ptr, ptr %arrayidx397, align 8
-  %call398 = call i32 @atoi(ptr noundef %223) #15
+  %233 = load ptr, ptr %argv.addr, align 8
+  %arrayidx397 = getelementptr inbounds ptr, ptr %233, i64 2
+  %234 = load ptr, ptr %arrayidx397, align 8
+  %call398 = call i32 @atoi(ptr noundef %234) #15
   %conv399 = sext i32 %call398 to i64
-  %224 = load ptr, ptr %ri, align 8
-  %master_reboot_down_after_period = getelementptr inbounds %struct.sentinelRedisInstance, ptr %224, i32 0, i32 12
+  %235 = load ptr, ptr %ri, align 8
+  %master_reboot_down_after_period = getelementptr inbounds %struct.sentinelRedisInstance, ptr %235, i32 0, i32 12
   store i64 %conv399, ptr %master_reboot_down_after_period, align 8
-  %225 = load ptr, ptr %ri, align 8
-  %master_reboot_down_after_period400 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %225, i32 0, i32 12
-  %226 = load i64, ptr %master_reboot_down_after_period400, align 8
-  %cmp401 = icmp slt i64 %226, 0
+  %236 = load ptr, ptr %ri, align 8
+  %master_reboot_down_after_period400 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %236, i32 0, i32 12
+  %237 = load i64, ptr %master_reboot_down_after_period400, align 8
+  %cmp401 = icmp slt i64 %237, 0
   br i1 %cmp401, label %if.then403, label %if.end404
 
 if.then403:                                       ; preds = %if.end396
@@ -6240,8 +6333,8 @@ if.end428:                                        ; preds = %if.end427, %if.end1
   br label %return
 
 return:                                           ; preds = %if.end428, %if.else405, %if.then403, %if.then395, %if.then382, %if.then368, %if.then324, %if.then285, %if.then276, %if.then258, %if.then248, %if.then228, %if.then219, %if.then201, %if.then180, %if.then166, %if.then136, %if.then121, %if.then106, %if.then100, %if.then85, %if.then79, %if.then64, %if.then51, %if.then43, %if.then30, %if.then23, %if.then11, %if.then4
-  %227 = load ptr, ptr %retval, align 8
-  ret ptr %227
+  %238 = load ptr, ptr %retval, align 8
+  ret ptr %238
 }
 
 ; Function Attrs: nounwind
@@ -6277,372 +6370,379 @@ entry:
   %1 = load ptr, ptr %line, align 8
   %call2 = call i32 @rewriteConfigRewriteLine(ptr noundef %0, ptr noundef @.str.96, ptr noundef %1, i32 noundef 1)
   %call3 = call ptr @sdsempty()
-  %2 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 11), align 8
-  %tobool = icmp ne i32 %2, 0
+  %2 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 11
+  %3 = load i32, ptr %2, align 8
+  %tobool = icmp ne i32 %3, 0
   %cond = select i1 %tobool, ptr @.str.98, ptr @.str.99
   %call4 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call3, ptr noundef @.str.97, ptr noundef %cond)
   store ptr %call4, ptr %line, align 8
-  %3 = load ptr, ptr %state.addr, align 8
-  %4 = load ptr, ptr %line, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 11), align 8
-  %cmp = icmp ne i32 %5, 1
+  %4 = load ptr, ptr %state.addr, align 8
+  %5 = load ptr, ptr %line, align 8
+  %6 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 11
+  %7 = load i32, ptr %6, align 8
+  %cmp = icmp ne i32 %7, 1
   %conv = zext i1 %cmp to i32
-  %call5 = call i32 @rewriteConfigRewriteLine(ptr noundef %3, ptr noundef @.str.100, ptr noundef %4, i32 noundef %conv)
+  %call5 = call i32 @rewriteConfigRewriteLine(ptr noundef %4, ptr noundef @.str.100, ptr noundef %5, i32 noundef %conv)
   %call6 = call ptr @sdsempty()
-  %6 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 14), align 8
-  %tobool7 = icmp ne i32 %6, 0
+  %8 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 14
+  %9 = load i32, ptr %8, align 8
+  %tobool7 = icmp ne i32 %9, 0
   %cond8 = select i1 %tobool7, ptr @.str.98, ptr @.str.99
   %call9 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call6, ptr noundef @.str.101, ptr noundef %cond8)
   store ptr %call9, ptr %line, align 8
-  %7 = load ptr, ptr %state.addr, align 8
-  %8 = load ptr, ptr %line, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 14), align 8
-  %cmp10 = icmp ne i32 %9, 0
+  %10 = load ptr, ptr %state.addr, align 8
+  %11 = load ptr, ptr %line, align 8
+  %12 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 14
+  %13 = load i32, ptr %12, align 8
+  %cmp10 = icmp ne i32 %13, 0
   %conv11 = zext i1 %cmp10 to i32
-  %call12 = call i32 @rewriteConfigRewriteLine(ptr noundef %7, ptr noundef @.str.102, ptr noundef %8, i32 noundef %conv11)
+  %call12 = call i32 @rewriteConfigRewriteLine(ptr noundef %10, ptr noundef @.str.102, ptr noundef %11, i32 noundef %conv11)
   %call13 = call ptr @sdsempty()
-  %10 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 15), align 4
-  %tobool14 = icmp ne i32 %10, 0
+  %14 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 15
+  %15 = load i32, ptr %14, align 4
+  %tobool14 = icmp ne i32 %15, 0
   %cond15 = select i1 %tobool14, ptr @.str.98, ptr @.str.99
   %call16 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call13, ptr noundef @.str.103, ptr noundef %cond15)
   store ptr %call16, ptr %line, align 8
-  %11 = load ptr, ptr %state.addr, align 8
-  %12 = load ptr, ptr %line, align 8
-  %13 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 15), align 4
-  %cmp17 = icmp ne i32 %13, 0
+  %16 = load ptr, ptr %state.addr, align 8
+  %17 = load ptr, ptr %line, align 8
+  %18 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 15
+  %19 = load i32, ptr %18, align 4
+  %cmp17 = icmp ne i32 %19, 0
   %conv18 = zext i1 %cmp17 to i32
-  %call19 = call i32 @rewriteConfigRewriteLine(ptr noundef %11, ptr noundef @.str.104, ptr noundef %12, i32 noundef %conv18)
-  %14 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %call20 = call ptr @dictGetIterator(ptr noundef %14)
+  %call19 = call i32 @rewriteConfigRewriteLine(ptr noundef %16, ptr noundef @.str.104, ptr noundef %17, i32 noundef %conv18)
+  %20 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8
+  %call20 = call ptr @dictGetIterator(ptr noundef %21)
   store ptr %call20, ptr %di, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.end161, %entry
-  %15 = load ptr, ptr %di, align 8
-  %call21 = call ptr @dictNext(ptr noundef %15)
+  %22 = load ptr, ptr %di, align 8
+  %call21 = call ptr @dictNext(ptr noundef %22)
   store ptr %call21, ptr %de, align 8
   %cmp22 = icmp ne ptr %call21, null
   br i1 %cmp22, label %while.body, label %while.end162
 
 while.body:                                       ; preds = %while.cond
-  %16 = load ptr, ptr %de, align 8
-  %call24 = call ptr @dictGetVal(ptr noundef %16)
+  %23 = load ptr, ptr %de, align 8
+  %call24 = call ptr @dictGetVal(ptr noundef %23)
   store ptr %call24, ptr %master, align 8
-  %17 = load ptr, ptr %master, align 8
-  %call25 = call ptr @sentinelGetCurrentMasterAddress(ptr noundef %17)
+  %24 = load ptr, ptr %master, align 8
+  %call25 = call ptr @sentinelGetCurrentMasterAddress(ptr noundef %24)
   store ptr %call25, ptr %master_addr, align 8
   %call26 = call ptr @sdsempty()
-  %18 = load ptr, ptr %master, align 8
-  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %name, align 8
-  %20 = load ptr, ptr %master_addr, align 8
-  %call27 = call ptr @announceSentinelAddr(ptr noundef %20)
-  %21 = load ptr, ptr %master_addr, align 8
-  %port = getelementptr inbounds %struct.sentinelAddr, ptr %21, i32 0, i32 2
-  %22 = load i32, ptr %port, align 8
-  %23 = load ptr, ptr %master, align 8
-  %quorum = getelementptr inbounds %struct.sentinelRedisInstance, ptr %23, i32 0, i32 21
-  %24 = load i32, ptr %quorum, align 8
-  %call28 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call26, ptr noundef @.str.105, ptr noundef %19, ptr noundef %call27, i32 noundef %22, i32 noundef %24)
+  %25 = load ptr, ptr %master, align 8
+  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %25, i32 0, i32 1
+  %26 = load ptr, ptr %name, align 8
+  %27 = load ptr, ptr %master_addr, align 8
+  %call27 = call ptr @announceSentinelAddr(ptr noundef %27)
+  %28 = load ptr, ptr %master_addr, align 8
+  %port = getelementptr inbounds %struct.sentinelAddr, ptr %28, i32 0, i32 2
+  %29 = load i32, ptr %port, align 8
+  %30 = load ptr, ptr %master, align 8
+  %quorum = getelementptr inbounds %struct.sentinelRedisInstance, ptr %30, i32 0, i32 21
+  %31 = load i32, ptr %quorum, align 8
+  %call28 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call26, ptr noundef @.str.105, ptr noundef %26, ptr noundef %call27, i32 noundef %29, i32 noundef %31)
   store ptr %call28, ptr %line, align 8
-  %25 = load ptr, ptr %state.addr, align 8
-  %26 = load ptr, ptr %line, align 8
-  %call29 = call i32 @rewriteConfigRewriteLine(ptr noundef %25, ptr noundef @.str.106, ptr noundef %26, i32 noundef 1)
-  %27 = load ptr, ptr %master, align 8
-  %down_after_period = getelementptr inbounds %struct.sentinelRedisInstance, ptr %27, i32 0, i32 11
-  %28 = load i64, ptr %down_after_period, align 8
-  %29 = load i64, ptr @sentinel_default_down_after, align 8
-  %cmp30 = icmp ne i64 %28, %29
+  %32 = load ptr, ptr %state.addr, align 8
+  %33 = load ptr, ptr %line, align 8
+  %call29 = call i32 @rewriteConfigRewriteLine(ptr noundef %32, ptr noundef @.str.106, ptr noundef %33, i32 noundef 1)
+  %34 = load ptr, ptr %master, align 8
+  %down_after_period = getelementptr inbounds %struct.sentinelRedisInstance, ptr %34, i32 0, i32 11
+  %35 = load i64, ptr %down_after_period, align 8
+  %36 = load i64, ptr @sentinel_default_down_after, align 8
+  %cmp30 = icmp ne i64 %35, %36
   br i1 %cmp30, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   %call32 = call ptr @sdsempty()
-  %30 = load ptr, ptr %master, align 8
-  %name33 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %30, i32 0, i32 1
-  %31 = load ptr, ptr %name33, align 8
-  %32 = load ptr, ptr %master, align 8
-  %down_after_period34 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %32, i32 0, i32 11
-  %33 = load i64, ptr %down_after_period34, align 8
-  %call35 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call32, ptr noundef @.str.107, ptr noundef %31, i64 noundef %33)
+  %37 = load ptr, ptr %master, align 8
+  %name33 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %37, i32 0, i32 1
+  %38 = load ptr, ptr %name33, align 8
+  %39 = load ptr, ptr %master, align 8
+  %down_after_period34 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %39, i32 0, i32 11
+  %40 = load i64, ptr %down_after_period34, align 8
+  %call35 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call32, ptr noundef @.str.107, ptr noundef %38, i64 noundef %40)
   store ptr %call35, ptr %line, align 8
-  %34 = load ptr, ptr %state.addr, align 8
-  %35 = load ptr, ptr %line, align 8
-  %call36 = call i32 @rewriteConfigRewriteLine(ptr noundef %34, ptr noundef @.str.108, ptr noundef %35, i32 noundef 1)
+  %41 = load ptr, ptr %state.addr, align 8
+  %42 = load ptr, ptr %line, align 8
+  %call36 = call i32 @rewriteConfigRewriteLine(ptr noundef %41, ptr noundef @.str.108, ptr noundef %42, i32 noundef 1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body
-  %36 = load ptr, ptr %master, align 8
-  %failover_timeout = getelementptr inbounds %struct.sentinelRedisInstance, ptr %36, i32 0, i32 40
-  %37 = load i64, ptr %failover_timeout, align 8
-  %38 = load i64, ptr @sentinel_default_failover_timeout, align 8
-  %cmp37 = icmp ne i64 %37, %38
+  %43 = load ptr, ptr %master, align 8
+  %failover_timeout = getelementptr inbounds %struct.sentinelRedisInstance, ptr %43, i32 0, i32 40
+  %44 = load i64, ptr %failover_timeout, align 8
+  %45 = load i64, ptr @sentinel_default_failover_timeout, align 8
+  %cmp37 = icmp ne i64 %44, %45
   br i1 %cmp37, label %if.then39, label %if.end45
 
 if.then39:                                        ; preds = %if.end
   %call40 = call ptr @sdsempty()
-  %39 = load ptr, ptr %master, align 8
-  %name41 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %39, i32 0, i32 1
-  %40 = load ptr, ptr %name41, align 8
-  %41 = load ptr, ptr %master, align 8
-  %failover_timeout42 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %41, i32 0, i32 40
-  %42 = load i64, ptr %failover_timeout42, align 8
-  %call43 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call40, ptr noundef @.str.109, ptr noundef %40, i64 noundef %42)
+  %46 = load ptr, ptr %master, align 8
+  %name41 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %46, i32 0, i32 1
+  %47 = load ptr, ptr %name41, align 8
+  %48 = load ptr, ptr %master, align 8
+  %failover_timeout42 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %48, i32 0, i32 40
+  %49 = load i64, ptr %failover_timeout42, align 8
+  %call43 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call40, ptr noundef @.str.109, ptr noundef %47, i64 noundef %49)
   store ptr %call43, ptr %line, align 8
-  %43 = load ptr, ptr %state.addr, align 8
-  %44 = load ptr, ptr %line, align 8
-  %call44 = call i32 @rewriteConfigRewriteLine(ptr noundef %43, ptr noundef @.str.110, ptr noundef %44, i32 noundef 1)
+  %50 = load ptr, ptr %state.addr, align 8
+  %51 = load ptr, ptr %line, align 8
+  %call44 = call i32 @rewriteConfigRewriteLine(ptr noundef %50, ptr noundef @.str.110, ptr noundef %51, i32 noundef 1)
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then39, %if.end
-  %45 = load ptr, ptr %master, align 8
-  %parallel_syncs = getelementptr inbounds %struct.sentinelRedisInstance, ptr %45, i32 0, i32 22
-  %46 = load i32, ptr %parallel_syncs, align 4
-  %cmp46 = icmp ne i32 %46, 1
+  %52 = load ptr, ptr %master, align 8
+  %parallel_syncs = getelementptr inbounds %struct.sentinelRedisInstance, ptr %52, i32 0, i32 22
+  %53 = load i32, ptr %parallel_syncs, align 4
+  %cmp46 = icmp ne i32 %53, 1
   br i1 %cmp46, label %if.then48, label %if.end54
 
 if.then48:                                        ; preds = %if.end45
   %call49 = call ptr @sdsempty()
-  %47 = load ptr, ptr %master, align 8
-  %name50 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %47, i32 0, i32 1
-  %48 = load ptr, ptr %name50, align 8
-  %49 = load ptr, ptr %master, align 8
-  %parallel_syncs51 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %49, i32 0, i32 22
-  %50 = load i32, ptr %parallel_syncs51, align 4
-  %call52 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call49, ptr noundef @.str.111, ptr noundef %48, i32 noundef %50)
+  %54 = load ptr, ptr %master, align 8
+  %name50 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %54, i32 0, i32 1
+  %55 = load ptr, ptr %name50, align 8
+  %56 = load ptr, ptr %master, align 8
+  %parallel_syncs51 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %56, i32 0, i32 22
+  %57 = load i32, ptr %parallel_syncs51, align 4
+  %call52 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call49, ptr noundef @.str.111, ptr noundef %55, i32 noundef %57)
   store ptr %call52, ptr %line, align 8
-  %51 = load ptr, ptr %state.addr, align 8
-  %52 = load ptr, ptr %line, align 8
-  %call53 = call i32 @rewriteConfigRewriteLine(ptr noundef %51, ptr noundef @.str.112, ptr noundef %52, i32 noundef 1)
+  %58 = load ptr, ptr %state.addr, align 8
+  %59 = load ptr, ptr %line, align 8
+  %call53 = call i32 @rewriteConfigRewriteLine(ptr noundef %58, ptr noundef @.str.112, ptr noundef %59, i32 noundef 1)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then48, %if.end45
-  %53 = load ptr, ptr %master, align 8
-  %notification_script = getelementptr inbounds %struct.sentinelRedisInstance, ptr %53, i32 0, i32 43
-  %54 = load ptr, ptr %notification_script, align 8
-  %tobool55 = icmp ne ptr %54, null
+  %60 = load ptr, ptr %master, align 8
+  %notification_script = getelementptr inbounds %struct.sentinelRedisInstance, ptr %60, i32 0, i32 43
+  %61 = load ptr, ptr %notification_script, align 8
+  %tobool55 = icmp ne ptr %61, null
   br i1 %tobool55, label %if.then56, label %if.end62
 
 if.then56:                                        ; preds = %if.end54
   %call57 = call ptr @sdsempty()
-  %55 = load ptr, ptr %master, align 8
-  %name58 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %55, i32 0, i32 1
-  %56 = load ptr, ptr %name58, align 8
-  %57 = load ptr, ptr %master, align 8
-  %notification_script59 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %57, i32 0, i32 43
-  %58 = load ptr, ptr %notification_script59, align 8
-  %call60 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call57, ptr noundef @.str.113, ptr noundef %56, ptr noundef %58)
+  %62 = load ptr, ptr %master, align 8
+  %name58 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %62, i32 0, i32 1
+  %63 = load ptr, ptr %name58, align 8
+  %64 = load ptr, ptr %master, align 8
+  %notification_script59 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %64, i32 0, i32 43
+  %65 = load ptr, ptr %notification_script59, align 8
+  %call60 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call57, ptr noundef @.str.113, ptr noundef %63, ptr noundef %65)
   store ptr %call60, ptr %line, align 8
-  %59 = load ptr, ptr %state.addr, align 8
-  %60 = load ptr, ptr %line, align 8
-  %call61 = call i32 @rewriteConfigRewriteLine(ptr noundef %59, ptr noundef @.str.114, ptr noundef %60, i32 noundef 1)
+  %66 = load ptr, ptr %state.addr, align 8
+  %67 = load ptr, ptr %line, align 8
+  %call61 = call i32 @rewriteConfigRewriteLine(ptr noundef %66, ptr noundef @.str.114, ptr noundef %67, i32 noundef 1)
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then56, %if.end54
-  %61 = load ptr, ptr %master, align 8
-  %client_reconfig_script = getelementptr inbounds %struct.sentinelRedisInstance, ptr %61, i32 0, i32 44
-  %62 = load ptr, ptr %client_reconfig_script, align 8
-  %tobool63 = icmp ne ptr %62, null
+  %68 = load ptr, ptr %master, align 8
+  %client_reconfig_script = getelementptr inbounds %struct.sentinelRedisInstance, ptr %68, i32 0, i32 44
+  %69 = load ptr, ptr %client_reconfig_script, align 8
+  %tobool63 = icmp ne ptr %69, null
   br i1 %tobool63, label %if.then64, label %if.end70
 
 if.then64:                                        ; preds = %if.end62
   %call65 = call ptr @sdsempty()
-  %63 = load ptr, ptr %master, align 8
-  %name66 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %63, i32 0, i32 1
-  %64 = load ptr, ptr %name66, align 8
-  %65 = load ptr, ptr %master, align 8
-  %client_reconfig_script67 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %65, i32 0, i32 44
-  %66 = load ptr, ptr %client_reconfig_script67, align 8
-  %call68 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call65, ptr noundef @.str.115, ptr noundef %64, ptr noundef %66)
+  %70 = load ptr, ptr %master, align 8
+  %name66 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %70, i32 0, i32 1
+  %71 = load ptr, ptr %name66, align 8
+  %72 = load ptr, ptr %master, align 8
+  %client_reconfig_script67 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %72, i32 0, i32 44
+  %73 = load ptr, ptr %client_reconfig_script67, align 8
+  %call68 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call65, ptr noundef @.str.115, ptr noundef %71, ptr noundef %73)
   store ptr %call68, ptr %line, align 8
-  %67 = load ptr, ptr %state.addr, align 8
-  %68 = load ptr, ptr %line, align 8
-  %call69 = call i32 @rewriteConfigRewriteLine(ptr noundef %67, ptr noundef @.str.116, ptr noundef %68, i32 noundef 1)
+  %74 = load ptr, ptr %state.addr, align 8
+  %75 = load ptr, ptr %line, align 8
+  %call69 = call i32 @rewriteConfigRewriteLine(ptr noundef %74, ptr noundef @.str.116, ptr noundef %75, i32 noundef 1)
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then64, %if.end62
-  %69 = load ptr, ptr %master, align 8
-  %auth_pass = getelementptr inbounds %struct.sentinelRedisInstance, ptr %69, i32 0, i32 23
-  %70 = load ptr, ptr %auth_pass, align 8
-  %tobool71 = icmp ne ptr %70, null
+  %76 = load ptr, ptr %master, align 8
+  %auth_pass = getelementptr inbounds %struct.sentinelRedisInstance, ptr %76, i32 0, i32 23
+  %77 = load ptr, ptr %auth_pass, align 8
+  %tobool71 = icmp ne ptr %77, null
   br i1 %tobool71, label %if.then72, label %if.end78
 
 if.then72:                                        ; preds = %if.end70
   %call73 = call ptr @sdsempty()
-  %71 = load ptr, ptr %master, align 8
-  %name74 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %71, i32 0, i32 1
-  %72 = load ptr, ptr %name74, align 8
-  %73 = load ptr, ptr %master, align 8
-  %auth_pass75 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %73, i32 0, i32 23
-  %74 = load ptr, ptr %auth_pass75, align 8
-  %call76 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call73, ptr noundef @.str.117, ptr noundef %72, ptr noundef %74)
+  %78 = load ptr, ptr %master, align 8
+  %name74 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %78, i32 0, i32 1
+  %79 = load ptr, ptr %name74, align 8
+  %80 = load ptr, ptr %master, align 8
+  %auth_pass75 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %80, i32 0, i32 23
+  %81 = load ptr, ptr %auth_pass75, align 8
+  %call76 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call73, ptr noundef @.str.117, ptr noundef %79, ptr noundef %81)
   store ptr %call76, ptr %line, align 8
-  %75 = load ptr, ptr %state.addr, align 8
-  %76 = load ptr, ptr %line, align 8
-  %call77 = call i32 @rewriteConfigRewriteLine(ptr noundef %75, ptr noundef @.str.118, ptr noundef %76, i32 noundef 1)
+  %82 = load ptr, ptr %state.addr, align 8
+  %83 = load ptr, ptr %line, align 8
+  %call77 = call i32 @rewriteConfigRewriteLine(ptr noundef %82, ptr noundef @.str.118, ptr noundef %83, i32 noundef 1)
   br label %if.end78
 
 if.end78:                                         ; preds = %if.then72, %if.end70
-  %77 = load ptr, ptr %master, align 8
-  %auth_user = getelementptr inbounds %struct.sentinelRedisInstance, ptr %77, i32 0, i32 24
-  %78 = load ptr, ptr %auth_user, align 8
-  %tobool79 = icmp ne ptr %78, null
+  %84 = load ptr, ptr %master, align 8
+  %auth_user = getelementptr inbounds %struct.sentinelRedisInstance, ptr %84, i32 0, i32 24
+  %85 = load ptr, ptr %auth_user, align 8
+  %tobool79 = icmp ne ptr %85, null
   br i1 %tobool79, label %if.then80, label %if.end86
 
 if.then80:                                        ; preds = %if.end78
   %call81 = call ptr @sdsempty()
-  %79 = load ptr, ptr %master, align 8
-  %name82 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %79, i32 0, i32 1
-  %80 = load ptr, ptr %name82, align 8
-  %81 = load ptr, ptr %master, align 8
-  %auth_user83 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %81, i32 0, i32 24
-  %82 = load ptr, ptr %auth_user83, align 8
-  %call84 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call81, ptr noundef @.str.119, ptr noundef %80, ptr noundef %82)
+  %86 = load ptr, ptr %master, align 8
+  %name82 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %86, i32 0, i32 1
+  %87 = load ptr, ptr %name82, align 8
+  %88 = load ptr, ptr %master, align 8
+  %auth_user83 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %88, i32 0, i32 24
+  %89 = load ptr, ptr %auth_user83, align 8
+  %call84 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call81, ptr noundef @.str.119, ptr noundef %87, ptr noundef %89)
   store ptr %call84, ptr %line, align 8
-  %83 = load ptr, ptr %state.addr, align 8
-  %84 = load ptr, ptr %line, align 8
-  %call85 = call i32 @rewriteConfigRewriteLine(ptr noundef %83, ptr noundef @.str.120, ptr noundef %84, i32 noundef 1)
+  %90 = load ptr, ptr %state.addr, align 8
+  %91 = load ptr, ptr %line, align 8
+  %call85 = call i32 @rewriteConfigRewriteLine(ptr noundef %90, ptr noundef @.str.120, ptr noundef %91, i32 noundef 1)
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then80, %if.end78
-  %85 = load ptr, ptr %master, align 8
-  %master_reboot_down_after_period = getelementptr inbounds %struct.sentinelRedisInstance, ptr %85, i32 0, i32 12
-  %86 = load i64, ptr %master_reboot_down_after_period, align 8
-  %cmp87 = icmp ne i64 %86, 0
+  %92 = load ptr, ptr %master, align 8
+  %master_reboot_down_after_period = getelementptr inbounds %struct.sentinelRedisInstance, ptr %92, i32 0, i32 12
+  %93 = load i64, ptr %master_reboot_down_after_period, align 8
+  %cmp87 = icmp ne i64 %93, 0
   br i1 %cmp87, label %if.then89, label %if.end95
 
 if.then89:                                        ; preds = %if.end86
   %call90 = call ptr @sdsempty()
-  %87 = load ptr, ptr %master, align 8
-  %name91 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %87, i32 0, i32 1
-  %88 = load ptr, ptr %name91, align 8
-  %89 = load ptr, ptr %master, align 8
-  %master_reboot_down_after_period92 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %89, i32 0, i32 12
-  %90 = load i64, ptr %master_reboot_down_after_period92, align 8
-  %call93 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call90, ptr noundef @.str.121, ptr noundef %88, i64 noundef %90)
+  %94 = load ptr, ptr %master, align 8
+  %name91 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %94, i32 0, i32 1
+  %95 = load ptr, ptr %name91, align 8
+  %96 = load ptr, ptr %master, align 8
+  %master_reboot_down_after_period92 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %96, i32 0, i32 12
+  %97 = load i64, ptr %master_reboot_down_after_period92, align 8
+  %call93 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call90, ptr noundef @.str.121, ptr noundef %95, i64 noundef %97)
   store ptr %call93, ptr %line, align 8
-  %91 = load ptr, ptr %state.addr, align 8
-  %92 = load ptr, ptr %line, align 8
-  %call94 = call i32 @rewriteConfigRewriteLine(ptr noundef %91, ptr noundef @.str.122, ptr noundef %92, i32 noundef 1)
+  %98 = load ptr, ptr %state.addr, align 8
+  %99 = load ptr, ptr %line, align 8
+  %call94 = call i32 @rewriteConfigRewriteLine(ptr noundef %98, ptr noundef @.str.122, ptr noundef %99, i32 noundef 1)
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then89, %if.end86
   %call96 = call ptr @sdsempty()
-  %93 = load ptr, ptr %master, align 8
-  %name97 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %93, i32 0, i32 1
-  %94 = load ptr, ptr %name97, align 8
-  %95 = load ptr, ptr %master, align 8
-  %config_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %95, i32 0, i32 3
-  %96 = load i64, ptr %config_epoch, align 8
-  %call98 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call96, ptr noundef @.str.123, ptr noundef %94, i64 noundef %96)
+  %100 = load ptr, ptr %master, align 8
+  %name97 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %100, i32 0, i32 1
+  %101 = load ptr, ptr %name97, align 8
+  %102 = load ptr, ptr %master, align 8
+  %config_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %102, i32 0, i32 3
+  %103 = load i64, ptr %config_epoch, align 8
+  %call98 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call96, ptr noundef @.str.123, ptr noundef %101, i64 noundef %103)
   store ptr %call98, ptr %line, align 8
-  %97 = load ptr, ptr %state.addr, align 8
-  %98 = load ptr, ptr %line, align 8
-  %call99 = call i32 @rewriteConfigRewriteLine(ptr noundef %97, ptr noundef @.str.124, ptr noundef %98, i32 noundef 1)
+  %104 = load ptr, ptr %state.addr, align 8
+  %105 = load ptr, ptr %line, align 8
+  %call99 = call i32 @rewriteConfigRewriteLine(ptr noundef %104, ptr noundef @.str.124, ptr noundef %105, i32 noundef 1)
   %call100 = call ptr @sdsempty()
-  %99 = load ptr, ptr %master, align 8
-  %name101 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %99, i32 0, i32 1
-  %100 = load ptr, ptr %name101, align 8
-  %101 = load ptr, ptr %master, align 8
-  %leader_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %101, i32 0, i32 35
-  %102 = load i64, ptr %leader_epoch, align 8
-  %call102 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call100, ptr noundef @.str.125, ptr noundef %100, i64 noundef %102)
+  %106 = load ptr, ptr %master, align 8
+  %name101 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %106, i32 0, i32 1
+  %107 = load ptr, ptr %name101, align 8
+  %108 = load ptr, ptr %master, align 8
+  %leader_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %108, i32 0, i32 35
+  %109 = load i64, ptr %leader_epoch, align 8
+  %call102 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call100, ptr noundef @.str.125, ptr noundef %107, i64 noundef %109)
   store ptr %call102, ptr %line, align 8
-  %103 = load ptr, ptr %state.addr, align 8
-  %104 = load ptr, ptr %line, align 8
-  %call103 = call i32 @rewriteConfigRewriteLine(ptr noundef %103, ptr noundef @.str.126, ptr noundef %104, i32 noundef 1)
-  %105 = load ptr, ptr %master, align 8
-  %slaves = getelementptr inbounds %struct.sentinelRedisInstance, ptr %105, i32 0, i32 20
-  %106 = load ptr, ptr %slaves, align 8
-  %call104 = call ptr @dictGetIterator(ptr noundef %106)
+  %110 = load ptr, ptr %state.addr, align 8
+  %111 = load ptr, ptr %line, align 8
+  %call103 = call i32 @rewriteConfigRewriteLine(ptr noundef %110, ptr noundef @.str.126, ptr noundef %111, i32 noundef 1)
+  %112 = load ptr, ptr %master, align 8
+  %slaves = getelementptr inbounds %struct.sentinelRedisInstance, ptr %112, i32 0, i32 20
+  %113 = load ptr, ptr %slaves, align 8
+  %call104 = call ptr @dictGetIterator(ptr noundef %113)
   store ptr %call104, ptr %di2, align 8
   br label %while.cond105
 
 while.cond105:                                    ; preds = %if.end127, %if.end95
-  %107 = load ptr, ptr %di2, align 8
-  %call106 = call ptr @dictNext(ptr noundef %107)
+  %114 = load ptr, ptr %di2, align 8
+  %call106 = call ptr @dictNext(ptr noundef %114)
   store ptr %call106, ptr %de, align 8
   %cmp107 = icmp ne ptr %call106, null
   br i1 %cmp107, label %while.body109, label %while.end
 
 while.body109:                                    ; preds = %while.cond105
-  %108 = load ptr, ptr %de, align 8
-  %call110 = call ptr @dictGetVal(ptr noundef %108)
+  %115 = load ptr, ptr %de, align 8
+  %call110 = call ptr @dictGetVal(ptr noundef %115)
   store ptr %call110, ptr %ri, align 8
-  %109 = load ptr, ptr %ri, align 8
-  %addr = getelementptr inbounds %struct.sentinelRedisInstance, ptr %109, i32 0, i32 4
-  %110 = load ptr, ptr %addr, align 8
-  store ptr %110, ptr %slave_addr, align 8
-  %111 = load ptr, ptr %slave_addr, align 8
-  %112 = load ptr, ptr %master_addr, align 8
-  %call111 = call i32 @sentinelAddrOrHostnameEqual(ptr noundef %111, ptr noundef %112)
+  %116 = load ptr, ptr %ri, align 8
+  %addr = getelementptr inbounds %struct.sentinelRedisInstance, ptr %116, i32 0, i32 4
+  %117 = load ptr, ptr %addr, align 8
+  store ptr %117, ptr %slave_addr, align 8
+  %118 = load ptr, ptr %slave_addr, align 8
+  %119 = load ptr, ptr %master_addr, align 8
+  %call111 = call i32 @sentinelAddrOrHostnameEqual(ptr noundef %118, ptr noundef %119)
   %tobool112 = icmp ne i32 %call111, 0
   br i1 %tobool112, label %if.then113, label %if.end115
 
 if.then113:                                       ; preds = %while.body109
-  %113 = load ptr, ptr %master, align 8
-  %addr114 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %113, i32 0, i32 4
-  %114 = load ptr, ptr %addr114, align 8
-  store ptr %114, ptr %slave_addr, align 8
+  %120 = load ptr, ptr %master, align 8
+  %addr114 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %120, i32 0, i32 4
+  %121 = load ptr, ptr %addr114, align 8
+  store ptr %121, ptr %slave_addr, align 8
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then113, %while.body109
   %call116 = call ptr @sdsempty()
-  %115 = load ptr, ptr %master, align 8
-  %name117 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %115, i32 0, i32 1
-  %116 = load ptr, ptr %name117, align 8
-  %117 = load ptr, ptr %slave_addr, align 8
-  %call118 = call ptr @announceSentinelAddr(ptr noundef %117)
-  %118 = load ptr, ptr %slave_addr, align 8
-  %port119 = getelementptr inbounds %struct.sentinelAddr, ptr %118, i32 0, i32 2
-  %119 = load i32, ptr %port119, align 8
-  %call120 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call116, ptr noundef @.str.127, ptr noundef %116, ptr noundef %call118, i32 noundef %119)
+  %122 = load ptr, ptr %master, align 8
+  %name117 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %122, i32 0, i32 1
+  %123 = load ptr, ptr %name117, align 8
+  %124 = load ptr, ptr %slave_addr, align 8
+  %call118 = call ptr @announceSentinelAddr(ptr noundef %124)
+  %125 = load ptr, ptr %slave_addr, align 8
+  %port119 = getelementptr inbounds %struct.sentinelAddr, ptr %125, i32 0, i32 2
+  %126 = load i32, ptr %port119, align 8
+  %call120 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call116, ptr noundef @.str.127, ptr noundef %123, ptr noundef %call118, i32 noundef %126)
   store ptr %call120, ptr %line, align 8
-  %120 = load ptr, ptr %state.addr, align 8
-  %121 = load ptr, ptr %line, align 8
-  %call121 = call ptr @sdsdup(ptr noundef %121)
-  %call122 = call i32 @rewriteConfigRewriteLine(ptr noundef %120, ptr noundef @.str.128, ptr noundef %call121, i32 noundef 0)
+  %127 = load ptr, ptr %state.addr, align 8
+  %128 = load ptr, ptr %line, align 8
+  %call121 = call ptr @sdsdup(ptr noundef %128)
+  %call122 = call i32 @rewriteConfigRewriteLine(ptr noundef %127, ptr noundef @.str.128, ptr noundef %call121, i32 noundef 0)
   %cmp123 = icmp eq i32 %call122, 0
   br i1 %cmp123, label %if.then125, label %if.else
 
 if.then125:                                       ; preds = %if.end115
-  %122 = load ptr, ptr %state.addr, align 8
-  %123 = load ptr, ptr %line, align 8
-  %call126 = call i32 @rewriteConfigRewriteLine(ptr noundef %122, ptr noundef @.str.129, ptr noundef %123, i32 noundef 1)
+  %129 = load ptr, ptr %state.addr, align 8
+  %130 = load ptr, ptr %line, align 8
+  %call126 = call i32 @rewriteConfigRewriteLine(ptr noundef %129, ptr noundef @.str.129, ptr noundef %130, i32 noundef 1)
   br label %if.end127
 
 if.else:                                          ; preds = %if.end115
-  %124 = load ptr, ptr %line, align 8
-  call void @sdsfree(ptr noundef %124)
+  %131 = load ptr, ptr %line, align 8
+  call void @sdsfree(ptr noundef %131)
   br label %if.end127
 
 if.end127:                                        ; preds = %if.else, %if.then125
   br label %while.cond105, !llvm.loop !36
 
 while.end:                                        ; preds = %while.cond105
-  %125 = load ptr, ptr %di2, align 8
-  call void @dictReleaseIterator(ptr noundef %125)
-  %126 = load ptr, ptr %master, align 8
-  %sentinels = getelementptr inbounds %struct.sentinelRedisInstance, ptr %126, i32 0, i32 19
-  %127 = load ptr, ptr %sentinels, align 8
-  %call128 = call ptr @dictGetIterator(ptr noundef %127)
+  %132 = load ptr, ptr %di2, align 8
+  call void @dictReleaseIterator(ptr noundef %132)
+  %133 = load ptr, ptr %master, align 8
+  %sentinels = getelementptr inbounds %struct.sentinelRedisInstance, ptr %133, i32 0, i32 19
+  %134 = load ptr, ptr %sentinels, align 8
+  %call128 = call ptr @dictGetIterator(ptr noundef %134)
   store ptr %call128, ptr %di2, align 8
   br label %while.cond129
 
 while.cond129:                                    ; preds = %if.end138, %if.then137, %while.end
-  %128 = load ptr, ptr %di2, align 8
-  %call130 = call ptr @dictNext(ptr noundef %128)
+  %135 = load ptr, ptr %di2, align 8
+  %call130 = call ptr @dictNext(ptr noundef %135)
   store ptr %call130, ptr %de, align 8
   %cmp131 = icmp ne ptr %call130, null
   br i1 %cmp131, label %while.body133, label %while.end148
 
 while.body133:                                    ; preds = %while.cond129
-  %129 = load ptr, ptr %de, align 8
-  %call134 = call ptr @dictGetVal(ptr noundef %129)
+  %136 = load ptr, ptr %de, align 8
+  %call134 = call ptr @dictGetVal(ptr noundef %136)
   store ptr %call134, ptr %ri, align 8
-  %130 = load ptr, ptr %ri, align 8
-  %runid = getelementptr inbounds %struct.sentinelRedisInstance, ptr %130, i32 0, i32 2
-  %131 = load ptr, ptr %runid, align 8
-  %cmp135 = icmp eq ptr %131, null
+  %137 = load ptr, ptr %ri, align 8
+  %runid = getelementptr inbounds %struct.sentinelRedisInstance, ptr %137, i32 0, i32 2
+  %138 = load ptr, ptr %runid, align 8
+  %cmp135 = icmp eq ptr %138, null
   br i1 %cmp135, label %if.then137, label %if.end138
 
 if.then137:                                       ; preds = %while.body133
@@ -6650,192 +6750,202 @@ if.then137:                                       ; preds = %while.body133
 
 if.end138:                                        ; preds = %while.body133
   %call139 = call ptr @sdsempty()
-  %132 = load ptr, ptr %master, align 8
-  %name140 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %132, i32 0, i32 1
-  %133 = load ptr, ptr %name140, align 8
-  %134 = load ptr, ptr %ri, align 8
-  %addr141 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %134, i32 0, i32 4
-  %135 = load ptr, ptr %addr141, align 8
-  %call142 = call ptr @announceSentinelAddr(ptr noundef %135)
-  %136 = load ptr, ptr %ri, align 8
-  %addr143 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %136, i32 0, i32 4
-  %137 = load ptr, ptr %addr143, align 8
-  %port144 = getelementptr inbounds %struct.sentinelAddr, ptr %137, i32 0, i32 2
-  %138 = load i32, ptr %port144, align 8
-  %139 = load ptr, ptr %ri, align 8
-  %runid145 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %139, i32 0, i32 2
-  %140 = load ptr, ptr %runid145, align 8
-  %call146 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call139, ptr noundef @.str.130, ptr noundef %133, ptr noundef %call142, i32 noundef %138, ptr noundef %140)
+  %139 = load ptr, ptr %master, align 8
+  %name140 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %139, i32 0, i32 1
+  %140 = load ptr, ptr %name140, align 8
+  %141 = load ptr, ptr %ri, align 8
+  %addr141 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %141, i32 0, i32 4
+  %142 = load ptr, ptr %addr141, align 8
+  %call142 = call ptr @announceSentinelAddr(ptr noundef %142)
+  %143 = load ptr, ptr %ri, align 8
+  %addr143 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %143, i32 0, i32 4
+  %144 = load ptr, ptr %addr143, align 8
+  %port144 = getelementptr inbounds %struct.sentinelAddr, ptr %144, i32 0, i32 2
+  %145 = load i32, ptr %port144, align 8
+  %146 = load ptr, ptr %ri, align 8
+  %runid145 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %146, i32 0, i32 2
+  %147 = load ptr, ptr %runid145, align 8
+  %call146 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call139, ptr noundef @.str.130, ptr noundef %140, ptr noundef %call142, i32 noundef %145, ptr noundef %147)
   store ptr %call146, ptr %line, align 8
-  %141 = load ptr, ptr %state.addr, align 8
-  %142 = load ptr, ptr %line, align 8
-  %call147 = call i32 @rewriteConfigRewriteLine(ptr noundef %141, ptr noundef @.str.131, ptr noundef %142, i32 noundef 1)
+  %148 = load ptr, ptr %state.addr, align 8
+  %149 = load ptr, ptr %line, align 8
+  %call147 = call i32 @rewriteConfigRewriteLine(ptr noundef %148, ptr noundef @.str.131, ptr noundef %149, i32 noundef 1)
   br label %while.cond129, !llvm.loop !37
 
 while.end148:                                     ; preds = %while.cond129
-  %143 = load ptr, ptr %di2, align 8
-  call void @dictReleaseIterator(ptr noundef %143)
-  %144 = load ptr, ptr %master, align 8
-  %renamed_commands = getelementptr inbounds %struct.sentinelRedisInstance, ptr %144, i32 0, i32 15
-  %145 = load ptr, ptr %renamed_commands, align 8
-  %call149 = call ptr @dictGetIterator(ptr noundef %145)
+  %150 = load ptr, ptr %di2, align 8
+  call void @dictReleaseIterator(ptr noundef %150)
+  %151 = load ptr, ptr %master, align 8
+  %renamed_commands = getelementptr inbounds %struct.sentinelRedisInstance, ptr %151, i32 0, i32 15
+  %152 = load ptr, ptr %renamed_commands, align 8
+  %call149 = call ptr @dictGetIterator(ptr noundef %152)
   store ptr %call149, ptr %di2, align 8
   br label %while.cond150
 
 while.cond150:                                    ; preds = %while.body154, %while.end148
-  %146 = load ptr, ptr %di2, align 8
-  %call151 = call ptr @dictNext(ptr noundef %146)
+  %153 = load ptr, ptr %di2, align 8
+  %call151 = call ptr @dictNext(ptr noundef %153)
   store ptr %call151, ptr %de, align 8
   %cmp152 = icmp ne ptr %call151, null
   br i1 %cmp152, label %while.body154, label %while.end161
 
 while.body154:                                    ; preds = %while.cond150
-  %147 = load ptr, ptr %de, align 8
-  %call155 = call ptr @dictGetKey(ptr noundef %147)
+  %154 = load ptr, ptr %de, align 8
+  %call155 = call ptr @dictGetKey(ptr noundef %154)
   store ptr %call155, ptr %oldname, align 8
-  %148 = load ptr, ptr %de, align 8
-  %call156 = call ptr @dictGetVal(ptr noundef %148)
+  %155 = load ptr, ptr %de, align 8
+  %call156 = call ptr @dictGetVal(ptr noundef %155)
   store ptr %call156, ptr %newname, align 8
   %call157 = call ptr @sdsempty()
-  %149 = load ptr, ptr %master, align 8
-  %name158 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %149, i32 0, i32 1
-  %150 = load ptr, ptr %name158, align 8
-  %151 = load ptr, ptr %oldname, align 8
-  %152 = load ptr, ptr %newname, align 8
-  %call159 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call157, ptr noundef @.str.132, ptr noundef %150, ptr noundef %151, ptr noundef %152)
+  %156 = load ptr, ptr %master, align 8
+  %name158 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %156, i32 0, i32 1
+  %157 = load ptr, ptr %name158, align 8
+  %158 = load ptr, ptr %oldname, align 8
+  %159 = load ptr, ptr %newname, align 8
+  %call159 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call157, ptr noundef @.str.132, ptr noundef %157, ptr noundef %158, ptr noundef %159)
   store ptr %call159, ptr %line, align 8
-  %153 = load ptr, ptr %state.addr, align 8
-  %154 = load ptr, ptr %line, align 8
-  %call160 = call i32 @rewriteConfigRewriteLine(ptr noundef %153, ptr noundef @.str.133, ptr noundef %154, i32 noundef 1)
+  %160 = load ptr, ptr %state.addr, align 8
+  %161 = load ptr, ptr %line, align 8
+  %call160 = call i32 @rewriteConfigRewriteLine(ptr noundef %160, ptr noundef @.str.133, ptr noundef %161, i32 noundef 1)
   br label %while.cond150, !llvm.loop !38
 
 while.end161:                                     ; preds = %while.cond150
-  %155 = load ptr, ptr %di2, align 8
-  call void @dictReleaseIterator(ptr noundef %155)
+  %162 = load ptr, ptr %di2, align 8
+  call void @dictReleaseIterator(ptr noundef %162)
   br label %while.cond, !llvm.loop !39
 
 while.end162:                                     ; preds = %while.cond
   %call163 = call ptr @sdsempty()
-  %156 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  %call164 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call163, ptr noundef @.str.134, i64 noundef %156)
+  %163 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  %164 = load i64, ptr %163, align 8
+  %call164 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call163, ptr noundef @.str.134, i64 noundef %164)
   store ptr %call164, ptr %line, align 8
-  %157 = load ptr, ptr %state.addr, align 8
-  %158 = load ptr, ptr %line, align 8
-  %call165 = call i32 @rewriteConfigRewriteLine(ptr noundef %157, ptr noundef @.str.135, ptr noundef %158, i32 noundef 1)
-  %159 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 8), align 8
-  %tobool166 = icmp ne ptr %159, null
+  %165 = load ptr, ptr %state.addr, align 8
+  %166 = load ptr, ptr %line, align 8
+  %call165 = call i32 @rewriteConfigRewriteLine(ptr noundef %165, ptr noundef @.str.135, ptr noundef %166, i32 noundef 1)
+  %167 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 8
+  %168 = load ptr, ptr %167, align 8
+  %tobool166 = icmp ne ptr %168, null
   br i1 %tobool166, label %if.then167, label %if.else172
 
 if.then167:                                       ; preds = %while.end162
   %call168 = call ptr @sdsnew(ptr noundef @.str.136)
   store ptr %call168, ptr %line, align 8
-  %160 = load ptr, ptr %line, align 8
-  %161 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 8), align 8
-  %162 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 8), align 8
-  %call169 = call i64 @sdslen(ptr noundef %162)
-  %call170 = call ptr @sdscatrepr(ptr noundef %160, ptr noundef %161, i64 noundef %call169)
+  %169 = load ptr, ptr %line, align 8
+  %170 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 8
+  %171 = load ptr, ptr %170, align 8
+  %172 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 8
+  %173 = load ptr, ptr %172, align 8
+  %call169 = call i64 @sdslen(ptr noundef %173)
+  %call170 = call ptr @sdscatrepr(ptr noundef %169, ptr noundef %171, i64 noundef %call169)
   store ptr %call170, ptr %line, align 8
-  %163 = load ptr, ptr %state.addr, align 8
-  %164 = load ptr, ptr %line, align 8
-  %call171 = call i32 @rewriteConfigRewriteLine(ptr noundef %163, ptr noundef @.str.137, ptr noundef %164, i32 noundef 1)
+  %174 = load ptr, ptr %state.addr, align 8
+  %175 = load ptr, ptr %line, align 8
+  %call171 = call i32 @rewriteConfigRewriteLine(ptr noundef %174, ptr noundef @.str.137, ptr noundef %175, i32 noundef 1)
   br label %if.end173
 
 if.else172:                                       ; preds = %while.end162
-  %165 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %165, ptr noundef @.str.137)
+  %176 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %176, ptr noundef @.str.137)
   br label %if.end173
 
 if.end173:                                        ; preds = %if.else172, %if.then167
-  %166 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 9), align 8
-  %tobool174 = icmp ne i32 %166, 0
+  %177 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 9
+  %178 = load i32, ptr %177, align 8
+  %tobool174 = icmp ne i32 %178, 0
   br i1 %tobool174, label %if.then175, label %if.else179
 
 if.then175:                                       ; preds = %if.end173
   %call176 = call ptr @sdsempty()
-  %167 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 9), align 8
-  %call177 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call176, ptr noundef @.str.138, i32 noundef %167)
+  %179 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 9
+  %180 = load i32, ptr %179, align 8
+  %call177 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call176, ptr noundef @.str.138, i32 noundef %180)
   store ptr %call177, ptr %line, align 8
-  %168 = load ptr, ptr %state.addr, align 8
-  %169 = load ptr, ptr %line, align 8
-  %call178 = call i32 @rewriteConfigRewriteLine(ptr noundef %168, ptr noundef @.str.139, ptr noundef %169, i32 noundef 1)
+  %181 = load ptr, ptr %state.addr, align 8
+  %182 = load ptr, ptr %line, align 8
+  %call178 = call i32 @rewriteConfigRewriteLine(ptr noundef %181, ptr noundef @.str.139, ptr noundef %182, i32 noundef 1)
   br label %if.end180
 
 if.else179:                                       ; preds = %if.end173
-  %170 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %170, ptr noundef @.str.139)
+  %183 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %183, ptr noundef @.str.139)
   br label %if.end180
 
 if.end180:                                        ; preds = %if.else179, %if.then175
-  %171 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 13), align 8
-  %tobool181 = icmp ne ptr %171, null
+  %184 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 13
+  %185 = load ptr, ptr %184, align 8
+  %tobool181 = icmp ne ptr %185, null
   br i1 %tobool181, label %if.then182, label %if.else186
 
 if.then182:                                       ; preds = %if.end180
   %call183 = call ptr @sdsempty()
-  %172 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 13), align 8
-  %call184 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call183, ptr noundef @.str.140, ptr noundef %172)
+  %186 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 13
+  %187 = load ptr, ptr %186, align 8
+  %call184 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call183, ptr noundef @.str.140, ptr noundef %187)
   store ptr %call184, ptr %line, align 8
-  %173 = load ptr, ptr %state.addr, align 8
-  %174 = load ptr, ptr %line, align 8
-  %call185 = call i32 @rewriteConfigRewriteLine(ptr noundef %173, ptr noundef @.str.141, ptr noundef %174, i32 noundef 1)
+  %188 = load ptr, ptr %state.addr, align 8
+  %189 = load ptr, ptr %line, align 8
+  %call185 = call i32 @rewriteConfigRewriteLine(ptr noundef %188, ptr noundef @.str.141, ptr noundef %189, i32 noundef 1)
   br label %if.end187
 
 if.else186:                                       ; preds = %if.end180
-  %175 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %175, ptr noundef @.str.141)
+  %190 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %190, ptr noundef @.str.141)
   br label %if.end187
 
 if.end187:                                        ; preds = %if.else186, %if.then182
-  %176 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 12), align 8
-  %tobool188 = icmp ne ptr %176, null
+  %191 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 12
+  %192 = load ptr, ptr %191, align 8
+  %tobool188 = icmp ne ptr %192, null
   br i1 %tobool188, label %if.then189, label %if.else193
 
 if.then189:                                       ; preds = %if.end187
   %call190 = call ptr @sdsempty()
-  %177 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 12), align 8
-  %call191 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call190, ptr noundef @.str.142, ptr noundef %177)
+  %193 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 12
+  %194 = load ptr, ptr %193, align 8
+  %call191 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call190, ptr noundef @.str.142, ptr noundef %194)
   store ptr %call191, ptr %line, align 8
-  %178 = load ptr, ptr %state.addr, align 8
-  %179 = load ptr, ptr %line, align 8
-  %call192 = call i32 @rewriteConfigRewriteLine(ptr noundef %178, ptr noundef @.str.143, ptr noundef %179, i32 noundef 1)
+  %195 = load ptr, ptr %state.addr, align 8
+  %196 = load ptr, ptr %line, align 8
+  %call192 = call i32 @rewriteConfigRewriteLine(ptr noundef %195, ptr noundef @.str.143, ptr noundef %196, i32 noundef 1)
   br label %if.end194
 
 if.else193:                                       ; preds = %if.end187
-  %180 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %180, ptr noundef @.str.143)
+  %197 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %197, ptr noundef @.str.143)
   br label %if.end194
 
 if.end194:                                        ; preds = %if.else193, %if.then189
-  %181 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %181)
-  %182 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %182, ptr noundef @.str.106)
-  %183 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %183, ptr noundef @.str.108)
-  %184 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %184, ptr noundef @.str.110)
-  %185 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %185, ptr noundef @.str.112)
-  %186 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %186, ptr noundef @.str.114)
-  %187 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %187, ptr noundef @.str.116)
-  %188 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %188, ptr noundef @.str.118)
-  %189 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %189, ptr noundef @.str.120)
-  %190 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %190, ptr noundef @.str.124)
-  %191 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %191, ptr noundef @.str.126)
-  %192 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %192, ptr noundef @.str.129)
-  %193 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %193, ptr noundef @.str.131)
-  %194 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %194, ptr noundef @.str.133)
-  %195 = load ptr, ptr %state.addr, align 8
-  call void @rewriteConfigMarkAsProcessed(ptr noundef %195, ptr noundef @.str.122)
+  %198 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %198)
+  %199 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %199, ptr noundef @.str.106)
+  %200 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %200, ptr noundef @.str.108)
+  %201 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %201, ptr noundef @.str.110)
+  %202 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %202, ptr noundef @.str.112)
+  %203 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %203, ptr noundef @.str.114)
+  %204 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %204, ptr noundef @.str.116)
+  %205 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %205, ptr noundef @.str.118)
+  %206 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %206, ptr noundef @.str.120)
+  %207 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %207, ptr noundef @.str.124)
+  %208 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %208, ptr noundef @.str.126)
+  %209 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %209, ptr noundef @.str.129)
+  %210 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %210, ptr noundef @.str.131)
+  %211 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %211, ptr noundef @.str.133)
+  %212 = load ptr, ptr %state.addr, align 8
+  call void @rewriteConfigMarkAsProcessed(ptr noundef %212, ptr noundef @.str.122)
   ret void
 }
 
@@ -6984,20 +7094,24 @@ if.else10:                                        ; preds = %if.else
   br i1 %tobool13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.else10
-  %16 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 12), align 8
-  %tobool15 = icmp ne ptr %16, null
+  %16 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 12
+  %17 = load ptr, ptr %16, align 8
+  %tobool15 = icmp ne ptr %17, null
   br i1 %tobool15, label %if.then16, label %if.else17
 
 if.then16:                                        ; preds = %if.then14
-  %17 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 12), align 8
-  store ptr %17, ptr %auth_pass, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 13), align 8
-  store ptr %18, ptr %auth_user, align 8
+  %18 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 12
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %auth_pass, align 8
+  %20 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 13
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %auth_user, align 8
   br label %if.end
 
 if.else17:                                        ; preds = %if.then14
-  %19 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 397), align 8
-  store ptr %19, ptr %auth_pass, align 8
+  %22 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 397
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %auth_pass, align 8
   store ptr null, ptr %auth_user, align 8
   br label %if.end
 
@@ -7011,32 +7125,32 @@ if.end19:                                         ; preds = %if.end18, %if.then6
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end19, %if.then
-  %20 = load ptr, ptr %auth_pass, align 8
-  %tobool21 = icmp ne ptr %20, null
+  %24 = load ptr, ptr %auth_pass, align 8
+  %tobool21 = icmp ne ptr %24, null
   br i1 %tobool21, label %land.lhs.true, label %if.else27
 
 land.lhs.true:                                    ; preds = %if.end20
-  %21 = load ptr, ptr %auth_user, align 8
-  %cmp = icmp eq ptr %21, null
+  %25 = load ptr, ptr %auth_user, align 8
+  %cmp = icmp eq ptr %25, null
   br i1 %cmp, label %if.then22, label %if.else27
 
 if.then22:                                        ; preds = %land.lhs.true
-  %22 = load ptr, ptr %c.addr, align 8
-  %23 = load ptr, ptr %ri.addr, align 8
-  %24 = load ptr, ptr %ri.addr, align 8
-  %call = call ptr @sentinelInstanceMapCommand(ptr noundef %24, ptr noundef @.str.146)
-  %25 = load ptr, ptr %auth_pass, align 8
-  %call23 = call i32 (ptr, ptr, ptr, ptr, ...) @redisAsyncCommand(ptr noundef %22, ptr noundef @sentinelDiscardReplyCallback, ptr noundef %23, ptr noundef @.str.17, ptr noundef %call, ptr noundef %25)
+  %26 = load ptr, ptr %c.addr, align 8
+  %27 = load ptr, ptr %ri.addr, align 8
+  %28 = load ptr, ptr %ri.addr, align 8
+  %call = call ptr @sentinelInstanceMapCommand(ptr noundef %28, ptr noundef @.str.146)
+  %29 = load ptr, ptr %auth_pass, align 8
+  %call23 = call i32 (ptr, ptr, ptr, ptr, ...) @redisAsyncCommand(ptr noundef %26, ptr noundef @sentinelDiscardReplyCallback, ptr noundef %27, ptr noundef @.str.17, ptr noundef %call, ptr noundef %29)
   %cmp24 = icmp eq i32 %call23, 0
   br i1 %cmp24, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %if.then22
-  %26 = load ptr, ptr %ri.addr, align 8
-  %link = getelementptr inbounds %struct.sentinelRedisInstance, ptr %26, i32 0, i32 5
-  %27 = load ptr, ptr %link, align 8
-  %pending_commands = getelementptr inbounds %struct.instanceLink, ptr %27, i32 0, i32 2
-  %28 = load i32, ptr %pending_commands, align 8
-  %inc = add nsw i32 %28, 1
+  %30 = load ptr, ptr %ri.addr, align 8
+  %link = getelementptr inbounds %struct.sentinelRedisInstance, ptr %30, i32 0, i32 5
+  %31 = load ptr, ptr %link, align 8
+  %pending_commands = getelementptr inbounds %struct.instanceLink, ptr %31, i32 0, i32 2
+  %32 = load i32, ptr %pending_commands, align 8
+  %inc = add nsw i32 %32, 1
   store i32 %inc, ptr %pending_commands, align 8
   br label %if.end26
 
@@ -7044,33 +7158,33 @@ if.end26:                                         ; preds = %if.then25, %if.then
   br label %if.end41
 
 if.else27:                                        ; preds = %land.lhs.true, %if.end20
-  %29 = load ptr, ptr %auth_pass, align 8
-  %tobool28 = icmp ne ptr %29, null
+  %33 = load ptr, ptr %auth_pass, align 8
+  %tobool28 = icmp ne ptr %33, null
   br i1 %tobool28, label %land.lhs.true29, label %if.end40
 
 land.lhs.true29:                                  ; preds = %if.else27
-  %30 = load ptr, ptr %auth_user, align 8
-  %tobool30 = icmp ne ptr %30, null
+  %34 = load ptr, ptr %auth_user, align 8
+  %tobool30 = icmp ne ptr %34, null
   br i1 %tobool30, label %if.then31, label %if.end40
 
 if.then31:                                        ; preds = %land.lhs.true29
-  %31 = load ptr, ptr %c.addr, align 8
-  %32 = load ptr, ptr %ri.addr, align 8
-  %33 = load ptr, ptr %ri.addr, align 8
-  %call32 = call ptr @sentinelInstanceMapCommand(ptr noundef %33, ptr noundef @.str.146)
-  %34 = load ptr, ptr %auth_user, align 8
-  %35 = load ptr, ptr %auth_pass, align 8
-  %call33 = call i32 (ptr, ptr, ptr, ptr, ...) @redisAsyncCommand(ptr noundef %31, ptr noundef @sentinelDiscardReplyCallback, ptr noundef %32, ptr noundef @.str.147, ptr noundef %call32, ptr noundef %34, ptr noundef %35)
+  %35 = load ptr, ptr %c.addr, align 8
+  %36 = load ptr, ptr %ri.addr, align 8
+  %37 = load ptr, ptr %ri.addr, align 8
+  %call32 = call ptr @sentinelInstanceMapCommand(ptr noundef %37, ptr noundef @.str.146)
+  %38 = load ptr, ptr %auth_user, align 8
+  %39 = load ptr, ptr %auth_pass, align 8
+  %call33 = call i32 (ptr, ptr, ptr, ptr, ...) @redisAsyncCommand(ptr noundef %35, ptr noundef @sentinelDiscardReplyCallback, ptr noundef %36, ptr noundef @.str.147, ptr noundef %call32, ptr noundef %38, ptr noundef %39)
   %cmp34 = icmp eq i32 %call33, 0
   br i1 %cmp34, label %if.then35, label %if.end39
 
 if.then35:                                        ; preds = %if.then31
-  %36 = load ptr, ptr %ri.addr, align 8
-  %link36 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %36, i32 0, i32 5
-  %37 = load ptr, ptr %link36, align 8
-  %pending_commands37 = getelementptr inbounds %struct.instanceLink, ptr %37, i32 0, i32 2
-  %38 = load i32, ptr %pending_commands37, align 8
-  %inc38 = add nsw i32 %38, 1
+  %40 = load ptr, ptr %ri.addr, align 8
+  %link36 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %40, i32 0, i32 5
+  %41 = load ptr, ptr %link36, align 8
+  %pending_commands37 = getelementptr inbounds %struct.instanceLink, ptr %41, i32 0, i32 2
+  %42 = load i32, ptr %pending_commands37, align 8
+  %inc38 = add nsw i32 %42, 1
   store i32 %inc38, ptr %pending_commands37, align 8
   br label %if.end39
 
@@ -7189,189 +7303,193 @@ if.end9:                                          ; preds = %if.end3
   br i1 %cmp12, label %if.then13, label %if.end74
 
 if.then13:                                        ; preds = %if.end9
-  %18 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 14), align 8
-  %tobool = icmp ne i32 %18, 0
+  %18 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 14
+  %19 = load i32, ptr %18, align 8
+  %tobool = icmp ne i32 %19, 0
   br i1 %tobool, label %if.then14, label %if.end24
 
 if.then14:                                        ; preds = %if.then13
-  %19 = load ptr, ptr %ri.addr, align 8
-  %addr15 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %19, i32 0, i32 4
-  %20 = load ptr, ptr %addr15, align 8
-  %hostname = getelementptr inbounds %struct.sentinelAddr, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %hostname, align 8
-  %22 = load ptr, ptr %ri.addr, align 8
-  %addr16 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %22, i32 0, i32 4
-  %23 = load ptr, ptr %addr16, align 8
-  %port17 = getelementptr inbounds %struct.sentinelAddr, ptr %23, i32 0, i32 2
-  %24 = load i32, ptr %port17, align 8
-  %call18 = call ptr @createSentinelAddr(ptr noundef %21, i32 noundef %24, i32 noundef 0)
+  %20 = load ptr, ptr %ri.addr, align 8
+  %addr15 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %20, i32 0, i32 4
+  %21 = load ptr, ptr %addr15, align 8
+  %hostname = getelementptr inbounds %struct.sentinelAddr, ptr %21, i32 0, i32 0
+  %22 = load ptr, ptr %hostname, align 8
+  %23 = load ptr, ptr %ri.addr, align 8
+  %addr16 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %23, i32 0, i32 4
+  %24 = load ptr, ptr %addr16, align 8
+  %port17 = getelementptr inbounds %struct.sentinelAddr, ptr %24, i32 0, i32 2
+  %25 = load i32, ptr %port17, align 8
+  %call18 = call ptr @createSentinelAddr(ptr noundef %22, i32 noundef %25, i32 noundef 0)
   store ptr %call18, ptr %tryResolveAddr, align 8
-  %25 = load ptr, ptr %tryResolveAddr, align 8
-  %cmp19 = icmp ne ptr %25, null
+  %26 = load ptr, ptr %tryResolveAddr, align 8
+  %cmp19 = icmp ne ptr %26, null
   br i1 %cmp19, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %if.then14
-  %26 = load ptr, ptr %ri.addr, align 8
-  %addr21 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %26, i32 0, i32 4
-  %27 = load ptr, ptr %addr21, align 8
-  call void @releaseSentinelAddr(ptr noundef %27)
-  %28 = load ptr, ptr %tryResolveAddr, align 8
-  %29 = load ptr, ptr %ri.addr, align 8
-  %addr22 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %29, i32 0, i32 4
-  store ptr %28, ptr %addr22, align 8
+  %27 = load ptr, ptr %ri.addr, align 8
+  %addr21 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %27, i32 0, i32 4
+  %28 = load ptr, ptr %addr21, align 8
+  call void @releaseSentinelAddr(ptr noundef %28)
+  %29 = load ptr, ptr %tryResolveAddr, align 8
+  %30 = load ptr, ptr %ri.addr, align 8
+  %addr22 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %30, i32 0, i32 4
+  store ptr %29, ptr %addr22, align 8
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then20, %if.then14
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end23, %if.then13
-  %30 = load ptr, ptr %ri.addr, align 8
-  %addr25 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %30, i32 0, i32 4
-  %31 = load ptr, ptr %addr25, align 8
-  %ip = getelementptr inbounds %struct.sentinelAddr, ptr %31, i32 0, i32 1
-  %32 = load ptr, ptr %ip, align 8
-  %33 = load ptr, ptr %ri.addr, align 8
-  %addr26 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %33, i32 0, i32 4
-  %34 = load ptr, ptr %addr26, align 8
-  %port27 = getelementptr inbounds %struct.sentinelAddr, ptr %34, i32 0, i32 2
-  %35 = load i32, ptr %port27, align 8
-  %36 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 49), align 8
-  %call28 = call ptr @redisAsyncConnectBind(ptr noundef %32, i32 noundef %35, ptr noundef %36)
-  %37 = load ptr, ptr %link4, align 8
-  %cc29 = getelementptr inbounds %struct.instanceLink, ptr %37, i32 0, i32 3
+  %31 = load ptr, ptr %ri.addr, align 8
+  %addr25 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %31, i32 0, i32 4
+  %32 = load ptr, ptr %addr25, align 8
+  %ip = getelementptr inbounds %struct.sentinelAddr, ptr %32, i32 0, i32 1
+  %33 = load ptr, ptr %ip, align 8
+  %34 = load ptr, ptr %ri.addr, align 8
+  %addr26 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %34, i32 0, i32 4
+  %35 = load ptr, ptr %addr26, align 8
+  %port27 = getelementptr inbounds %struct.sentinelAddr, ptr %35, i32 0, i32 2
+  %36 = load i32, ptr %port27, align 8
+  %37 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 49
+  %38 = load ptr, ptr %37, align 8
+  %call28 = call ptr @redisAsyncConnectBind(ptr noundef %33, i32 noundef %36, ptr noundef %38)
+  %39 = load ptr, ptr %link4, align 8
+  %cc29 = getelementptr inbounds %struct.instanceLink, ptr %39, i32 0, i32 3
   store ptr %call28, ptr %cc29, align 8
-  %38 = load ptr, ptr %link4, align 8
-  %cc30 = getelementptr inbounds %struct.instanceLink, ptr %38, i32 0, i32 3
-  %39 = load ptr, ptr %cc30, align 8
-  %tobool31 = icmp ne ptr %39, null
+  %40 = load ptr, ptr %link4, align 8
+  %cc30 = getelementptr inbounds %struct.instanceLink, ptr %40, i32 0, i32 3
+  %41 = load ptr, ptr %cc30, align 8
+  %tobool31 = icmp ne ptr %41, null
   br i1 %tobool31, label %land.lhs.true, label %if.end37
 
 land.lhs.true:                                    ; preds = %if.end24
-  %40 = load ptr, ptr %link4, align 8
-  %cc32 = getelementptr inbounds %struct.instanceLink, ptr %40, i32 0, i32 3
-  %41 = load ptr, ptr %cc32, align 8
-  %err = getelementptr inbounds %struct.redisAsyncContext, ptr %41, i32 0, i32 1
-  %42 = load i32, ptr %err, align 8
-  %tobool33 = icmp ne i32 %42, 0
+  %42 = load ptr, ptr %link4, align 8
+  %cc32 = getelementptr inbounds %struct.instanceLink, ptr %42, i32 0, i32 3
+  %43 = load ptr, ptr %cc32, align 8
+  %err = getelementptr inbounds %struct.redisAsyncContext, ptr %43, i32 0, i32 1
+  %44 = load i32, ptr %err, align 8
+  %tobool33 = icmp ne i32 %44, 0
   br i1 %tobool33, label %if.end37, label %if.then34
 
 if.then34:                                        ; preds = %land.lhs.true
-  %43 = load ptr, ptr %link4, align 8
-  %cc35 = getelementptr inbounds %struct.instanceLink, ptr %43, i32 0, i32 3
-  %44 = load ptr, ptr %cc35, align 8
-  %c = getelementptr inbounds %struct.redisAsyncContext, ptr %44, i32 0, i32 0
+  %45 = load ptr, ptr %link4, align 8
+  %cc35 = getelementptr inbounds %struct.instanceLink, ptr %45, i32 0, i32 3
+  %46 = load ptr, ptr %cc35, align 8
+  %c = getelementptr inbounds %struct.redisAsyncContext, ptr %46, i32 0, i32 0
   %fd = getelementptr inbounds %struct.redisContext, ptr %c, i32 0, i32 3
-  %45 = load i32, ptr %fd, align 4
-  %call36 = call i32 @anetCloexec(i32 noundef %45)
+  %47 = load i32, ptr %fd, align 4
+  %call36 = call i32 @anetCloexec(i32 noundef %47)
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then34, %land.lhs.true, %if.end24
-  %46 = load ptr, ptr %link4, align 8
-  %cc38 = getelementptr inbounds %struct.instanceLink, ptr %46, i32 0, i32 3
-  %47 = load ptr, ptr %cc38, align 8
-  %tobool39 = icmp ne ptr %47, null
+  %48 = load ptr, ptr %link4, align 8
+  %cc38 = getelementptr inbounds %struct.instanceLink, ptr %48, i32 0, i32 3
+  %49 = load ptr, ptr %cc38, align 8
+  %tobool39 = icmp ne ptr %49, null
   br i1 %tobool39, label %if.else, label %if.then40
 
 if.then40:                                        ; preds = %if.end37
-  %48 = load ptr, ptr %ri.addr, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef @.str.151, ptr noundef %48, ptr noundef @.str.152)
+  %50 = load ptr, ptr %ri.addr, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef @.str.151, ptr noundef %50, ptr noundef @.str.152)
   br label %if.end73
 
 if.else:                                          ; preds = %if.end37
-  %49 = load ptr, ptr %link4, align 8
-  %cc41 = getelementptr inbounds %struct.instanceLink, ptr %49, i32 0, i32 3
-  %50 = load ptr, ptr %cc41, align 8
-  %err42 = getelementptr inbounds %struct.redisAsyncContext, ptr %50, i32 0, i32 1
-  %51 = load i32, ptr %err42, align 8
-  %tobool43 = icmp ne i32 %51, 0
+  %51 = load ptr, ptr %link4, align 8
+  %cc41 = getelementptr inbounds %struct.instanceLink, ptr %51, i32 0, i32 3
+  %52 = load ptr, ptr %cc41, align 8
+  %err42 = getelementptr inbounds %struct.redisAsyncContext, ptr %52, i32 0, i32 1
+  %53 = load i32, ptr %err42, align 8
+  %tobool43 = icmp ne i32 %53, 0
   br i1 %tobool43, label %if.else52, label %land.lhs.true44
 
 land.lhs.true44:                                  ; preds = %if.else
-  %52 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 403), align 4
-  %tobool45 = icmp ne i32 %52, 0
+  %54 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 403
+  %55 = load i32, ptr %54, align 4
+  %tobool45 = icmp ne i32 %55, 0
   br i1 %tobool45, label %land.lhs.true46, label %if.else52
 
 land.lhs.true46:                                  ; preds = %land.lhs.true44
-  %53 = load ptr, ptr %link4, align 8
-  %cc47 = getelementptr inbounds %struct.instanceLink, ptr %53, i32 0, i32 3
-  %54 = load ptr, ptr %cc47, align 8
-  %call48 = call i32 @instanceLinkNegotiateTLS(ptr noundef %54)
+  %56 = load ptr, ptr %link4, align 8
+  %cc47 = getelementptr inbounds %struct.instanceLink, ptr %56, i32 0, i32 3
+  %57 = load ptr, ptr %cc47, align 8
+  %call48 = call i32 @instanceLinkNegotiateTLS(ptr noundef %57)
   %cmp49 = icmp eq i32 %call48, -1
   br i1 %cmp49, label %if.then50, label %if.else52
 
 if.then50:                                        ; preds = %land.lhs.true46
-  %55 = load ptr, ptr %ri.addr, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef @.str.151, ptr noundef %55, ptr noundef @.str.153)
-  %56 = load ptr, ptr %link4, align 8
-  %57 = load ptr, ptr %link4, align 8
-  %cc51 = getelementptr inbounds %struct.instanceLink, ptr %57, i32 0, i32 3
-  %58 = load ptr, ptr %cc51, align 8
-  call void @instanceLinkCloseConnection(ptr noundef %56, ptr noundef %58)
+  %58 = load ptr, ptr %ri.addr, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef @.str.151, ptr noundef %58, ptr noundef @.str.153)
+  %59 = load ptr, ptr %link4, align 8
+  %60 = load ptr, ptr %link4, align 8
+  %cc51 = getelementptr inbounds %struct.instanceLink, ptr %60, i32 0, i32 3
+  %61 = load ptr, ptr %cc51, align 8
+  call void @instanceLinkCloseConnection(ptr noundef %59, ptr noundef %61)
   br label %if.end72
 
 if.else52:                                        ; preds = %land.lhs.true46, %land.lhs.true44, %if.else
-  %59 = load ptr, ptr %link4, align 8
-  %cc53 = getelementptr inbounds %struct.instanceLink, ptr %59, i32 0, i32 3
-  %60 = load ptr, ptr %cc53, align 8
-  %err54 = getelementptr inbounds %struct.redisAsyncContext, ptr %60, i32 0, i32 1
-  %61 = load i32, ptr %err54, align 8
-  %tobool55 = icmp ne i32 %61, 0
+  %62 = load ptr, ptr %link4, align 8
+  %cc53 = getelementptr inbounds %struct.instanceLink, ptr %62, i32 0, i32 3
+  %63 = load ptr, ptr %cc53, align 8
+  %err54 = getelementptr inbounds %struct.redisAsyncContext, ptr %63, i32 0, i32 1
+  %64 = load i32, ptr %err54, align 8
+  %tobool55 = icmp ne i32 %64, 0
   br i1 %tobool55, label %if.then56, label %if.else59
 
 if.then56:                                        ; preds = %if.else52
-  %62 = load ptr, ptr %ri.addr, align 8
-  %63 = load ptr, ptr %link4, align 8
-  %cc57 = getelementptr inbounds %struct.instanceLink, ptr %63, i32 0, i32 3
-  %64 = load ptr, ptr %cc57, align 8
-  %errstr = getelementptr inbounds %struct.redisAsyncContext, ptr %64, i32 0, i32 2
-  %65 = load ptr, ptr %errstr, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef @.str.151, ptr noundef %62, ptr noundef @.str.154, ptr noundef %65)
+  %65 = load ptr, ptr %ri.addr, align 8
   %66 = load ptr, ptr %link4, align 8
-  %67 = load ptr, ptr %link4, align 8
-  %cc58 = getelementptr inbounds %struct.instanceLink, ptr %67, i32 0, i32 3
-  %68 = load ptr, ptr %cc58, align 8
-  call void @instanceLinkCloseConnection(ptr noundef %66, ptr noundef %68)
+  %cc57 = getelementptr inbounds %struct.instanceLink, ptr %66, i32 0, i32 3
+  %67 = load ptr, ptr %cc57, align 8
+  %errstr = getelementptr inbounds %struct.redisAsyncContext, ptr %67, i32 0, i32 2
+  %68 = load ptr, ptr %errstr, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef @.str.151, ptr noundef %65, ptr noundef @.str.154, ptr noundef %68)
+  %69 = load ptr, ptr %link4, align 8
+  %70 = load ptr, ptr %link4, align 8
+  %cc58 = getelementptr inbounds %struct.instanceLink, ptr %70, i32 0, i32 3
+  %71 = load ptr, ptr %cc58, align 8
+  call void @instanceLinkCloseConnection(ptr noundef %69, ptr noundef %71)
   br label %if.end71
 
 if.else59:                                        ; preds = %if.else52
-  %69 = load ptr, ptr %link4, align 8
-  %pending_commands = getelementptr inbounds %struct.instanceLink, ptr %69, i32 0, i32 2
+  %72 = load ptr, ptr %link4, align 8
+  %pending_commands = getelementptr inbounds %struct.instanceLink, ptr %72, i32 0, i32 2
   store i32 0, ptr %pending_commands, align 8
   %call60 = call i64 @mstime()
-  %70 = load ptr, ptr %link4, align 8
-  %cc_conn_time = getelementptr inbounds %struct.instanceLink, ptr %70, i32 0, i32 5
+  %73 = load ptr, ptr %link4, align 8
+  %cc_conn_time = getelementptr inbounds %struct.instanceLink, ptr %73, i32 0, i32 5
   store i64 %call60, ptr %cc_conn_time, align 8
-  %71 = load ptr, ptr %link4, align 8
-  %72 = load ptr, ptr %link4, align 8
-  %cc61 = getelementptr inbounds %struct.instanceLink, ptr %72, i32 0, i32 3
-  %73 = load ptr, ptr %cc61, align 8
-  %data = getelementptr inbounds %struct.redisAsyncContext, ptr %73, i32 0, i32 3
-  store ptr %71, ptr %data, align 8
-  %74 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 14), align 8
+  %74 = load ptr, ptr %link4, align 8
   %75 = load ptr, ptr %link4, align 8
-  %cc62 = getelementptr inbounds %struct.instanceLink, ptr %75, i32 0, i32 3
-  %76 = load ptr, ptr %cc62, align 8
-  %call63 = call i32 @redisAeAttach(ptr noundef %74, ptr noundef %76)
-  %77 = load ptr, ptr %link4, align 8
-  %cc64 = getelementptr inbounds %struct.instanceLink, ptr %77, i32 0, i32 3
-  %78 = load ptr, ptr %cc64, align 8
-  %call65 = call i32 @redisAsyncSetConnectCallback(ptr noundef %78, ptr noundef @sentinelLinkEstablishedCallback)
+  %cc61 = getelementptr inbounds %struct.instanceLink, ptr %75, i32 0, i32 3
+  %76 = load ptr, ptr %cc61, align 8
+  %data = getelementptr inbounds %struct.redisAsyncContext, ptr %76, i32 0, i32 3
+  store ptr %74, ptr %data, align 8
+  %77 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 14
+  %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %link4, align 8
-  %cc66 = getelementptr inbounds %struct.instanceLink, ptr %79, i32 0, i32 3
-  %80 = load ptr, ptr %cc66, align 8
-  %call67 = call i32 @redisAsyncSetDisconnectCallback(ptr noundef %80, ptr noundef @sentinelDisconnectCallback)
-  %81 = load ptr, ptr %ri.addr, align 8
-  %82 = load ptr, ptr %link4, align 8
-  %cc68 = getelementptr inbounds %struct.instanceLink, ptr %82, i32 0, i32 3
-  %83 = load ptr, ptr %cc68, align 8
-  call void @sentinelSendAuthIfNeeded(ptr noundef %81, ptr noundef %83)
-  %84 = load ptr, ptr %ri.addr, align 8
-  %85 = load ptr, ptr %link4, align 8
-  %cc69 = getelementptr inbounds %struct.instanceLink, ptr %85, i32 0, i32 3
-  %86 = load ptr, ptr %cc69, align 8
-  call void @sentinelSetClientName(ptr noundef %84, ptr noundef %86, ptr noundef @.str.155)
-  %87 = load ptr, ptr %ri.addr, align 8
-  %call70 = call i32 @sentinelSendPing(ptr noundef %87)
+  %cc62 = getelementptr inbounds %struct.instanceLink, ptr %79, i32 0, i32 3
+  %80 = load ptr, ptr %cc62, align 8
+  %call63 = call i32 @redisAeAttach(ptr noundef %78, ptr noundef %80)
+  %81 = load ptr, ptr %link4, align 8
+  %cc64 = getelementptr inbounds %struct.instanceLink, ptr %81, i32 0, i32 3
+  %82 = load ptr, ptr %cc64, align 8
+  %call65 = call i32 @redisAsyncSetConnectCallback(ptr noundef %82, ptr noundef @sentinelLinkEstablishedCallback)
+  %83 = load ptr, ptr %link4, align 8
+  %cc66 = getelementptr inbounds %struct.instanceLink, ptr %83, i32 0, i32 3
+  %84 = load ptr, ptr %cc66, align 8
+  %call67 = call i32 @redisAsyncSetDisconnectCallback(ptr noundef %84, ptr noundef @sentinelDisconnectCallback)
+  %85 = load ptr, ptr %ri.addr, align 8
+  %86 = load ptr, ptr %link4, align 8
+  %cc68 = getelementptr inbounds %struct.instanceLink, ptr %86, i32 0, i32 3
+  %87 = load ptr, ptr %cc68, align 8
+  call void @sentinelSendAuthIfNeeded(ptr noundef %85, ptr noundef %87)
+  %88 = load ptr, ptr %ri.addr, align 8
+  %89 = load ptr, ptr %link4, align 8
+  %cc69 = getelementptr inbounds %struct.instanceLink, ptr %89, i32 0, i32 3
+  %90 = load ptr, ptr %cc69, align 8
+  call void @sentinelSetClientName(ptr noundef %88, ptr noundef %90, ptr noundef @.str.155)
+  %91 = load ptr, ptr %ri.addr, align 8
+  %call70 = call i32 @sentinelSendPing(ptr noundef %91)
   br label %if.end71
 
 if.end71:                                         ; preds = %if.else59, %if.then56
@@ -7384,176 +7502,179 @@ if.end73:                                         ; preds = %if.end72, %if.then4
   br label %if.end74
 
 if.end74:                                         ; preds = %if.end73, %if.end9
-  %88 = load ptr, ptr %ri.addr, align 8
-  %flags = getelementptr inbounds %struct.sentinelRedisInstance, ptr %88, i32 0, i32 0
-  %89 = load i32, ptr %flags, align 8
-  %and = and i32 %89, 3
+  %92 = load ptr, ptr %ri.addr, align 8
+  %flags = getelementptr inbounds %struct.sentinelRedisInstance, ptr %92, i32 0, i32 0
+  %93 = load i32, ptr %flags, align 8
+  %and = and i32 %93, 3
   %tobool75 = icmp ne i32 %and, 0
   br i1 %tobool75, label %land.lhs.true76, label %if.end141
 
 land.lhs.true76:                                  ; preds = %if.end74
-  %90 = load ptr, ptr %link4, align 8
-  %pc = getelementptr inbounds %struct.instanceLink, ptr %90, i32 0, i32 4
-  %91 = load ptr, ptr %pc, align 8
-  %cmp77 = icmp eq ptr %91, null
+  %94 = load ptr, ptr %link4, align 8
+  %pc = getelementptr inbounds %struct.instanceLink, ptr %94, i32 0, i32 4
+  %95 = load ptr, ptr %pc, align 8
+  %cmp77 = icmp eq ptr %95, null
   br i1 %cmp77, label %if.then78, label %if.end141
 
 if.then78:                                        ; preds = %land.lhs.true76
-  %92 = load ptr, ptr %ri.addr, align 8
-  %addr79 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %92, i32 0, i32 4
-  %93 = load ptr, ptr %addr79, align 8
-  %ip80 = getelementptr inbounds %struct.sentinelAddr, ptr %93, i32 0, i32 1
-  %94 = load ptr, ptr %ip80, align 8
-  %95 = load ptr, ptr %ri.addr, align 8
-  %addr81 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %95, i32 0, i32 4
-  %96 = load ptr, ptr %addr81, align 8
-  %port82 = getelementptr inbounds %struct.sentinelAddr, ptr %96, i32 0, i32 2
-  %97 = load i32, ptr %port82, align 8
-  %98 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 49), align 8
-  %call83 = call ptr @redisAsyncConnectBind(ptr noundef %94, i32 noundef %97, ptr noundef %98)
-  %99 = load ptr, ptr %link4, align 8
-  %pc84 = getelementptr inbounds %struct.instanceLink, ptr %99, i32 0, i32 4
+  %96 = load ptr, ptr %ri.addr, align 8
+  %addr79 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %96, i32 0, i32 4
+  %97 = load ptr, ptr %addr79, align 8
+  %ip80 = getelementptr inbounds %struct.sentinelAddr, ptr %97, i32 0, i32 1
+  %98 = load ptr, ptr %ip80, align 8
+  %99 = load ptr, ptr %ri.addr, align 8
+  %addr81 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %99, i32 0, i32 4
+  %100 = load ptr, ptr %addr81, align 8
+  %port82 = getelementptr inbounds %struct.sentinelAddr, ptr %100, i32 0, i32 2
+  %101 = load i32, ptr %port82, align 8
+  %102 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 49
+  %103 = load ptr, ptr %102, align 8
+  %call83 = call ptr @redisAsyncConnectBind(ptr noundef %98, i32 noundef %101, ptr noundef %103)
+  %104 = load ptr, ptr %link4, align 8
+  %pc84 = getelementptr inbounds %struct.instanceLink, ptr %104, i32 0, i32 4
   store ptr %call83, ptr %pc84, align 8
-  %100 = load ptr, ptr %link4, align 8
-  %pc85 = getelementptr inbounds %struct.instanceLink, ptr %100, i32 0, i32 4
-  %101 = load ptr, ptr %pc85, align 8
-  %tobool86 = icmp ne ptr %101, null
+  %105 = load ptr, ptr %link4, align 8
+  %pc85 = getelementptr inbounds %struct.instanceLink, ptr %105, i32 0, i32 4
+  %106 = load ptr, ptr %pc85, align 8
+  %tobool86 = icmp ne ptr %106, null
   br i1 %tobool86, label %land.lhs.true87, label %if.end96
 
 land.lhs.true87:                                  ; preds = %if.then78
-  %102 = load ptr, ptr %link4, align 8
-  %pc88 = getelementptr inbounds %struct.instanceLink, ptr %102, i32 0, i32 4
-  %103 = load ptr, ptr %pc88, align 8
-  %err89 = getelementptr inbounds %struct.redisAsyncContext, ptr %103, i32 0, i32 1
-  %104 = load i32, ptr %err89, align 8
-  %tobool90 = icmp ne i32 %104, 0
+  %107 = load ptr, ptr %link4, align 8
+  %pc88 = getelementptr inbounds %struct.instanceLink, ptr %107, i32 0, i32 4
+  %108 = load ptr, ptr %pc88, align 8
+  %err89 = getelementptr inbounds %struct.redisAsyncContext, ptr %108, i32 0, i32 1
+  %109 = load i32, ptr %err89, align 8
+  %tobool90 = icmp ne i32 %109, 0
   br i1 %tobool90, label %if.end96, label %if.then91
 
 if.then91:                                        ; preds = %land.lhs.true87
-  %105 = load ptr, ptr %link4, align 8
-  %pc92 = getelementptr inbounds %struct.instanceLink, ptr %105, i32 0, i32 4
-  %106 = load ptr, ptr %pc92, align 8
-  %c93 = getelementptr inbounds %struct.redisAsyncContext, ptr %106, i32 0, i32 0
+  %110 = load ptr, ptr %link4, align 8
+  %pc92 = getelementptr inbounds %struct.instanceLink, ptr %110, i32 0, i32 4
+  %111 = load ptr, ptr %pc92, align 8
+  %c93 = getelementptr inbounds %struct.redisAsyncContext, ptr %111, i32 0, i32 0
   %fd94 = getelementptr inbounds %struct.redisContext, ptr %c93, i32 0, i32 3
-  %107 = load i32, ptr %fd94, align 4
-  %call95 = call i32 @anetCloexec(i32 noundef %107)
+  %112 = load i32, ptr %fd94, align 4
+  %call95 = call i32 @anetCloexec(i32 noundef %112)
   br label %if.end96
 
 if.end96:                                         ; preds = %if.then91, %land.lhs.true87, %if.then78
-  %108 = load ptr, ptr %link4, align 8
-  %pc97 = getelementptr inbounds %struct.instanceLink, ptr %108, i32 0, i32 4
-  %109 = load ptr, ptr %pc97, align 8
-  %tobool98 = icmp ne ptr %109, null
+  %113 = load ptr, ptr %link4, align 8
+  %pc97 = getelementptr inbounds %struct.instanceLink, ptr %113, i32 0, i32 4
+  %114 = load ptr, ptr %pc97, align 8
+  %tobool98 = icmp ne ptr %114, null
   br i1 %tobool98, label %if.else100, label %if.then99
 
 if.then99:                                        ; preds = %if.end96
-  %110 = load ptr, ptr %ri.addr, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef @.str.156, ptr noundef %110, ptr noundef @.str.152)
+  %115 = load ptr, ptr %ri.addr, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef @.str.156, ptr noundef %115, ptr noundef @.str.152)
   br label %if.end140
 
 if.else100:                                       ; preds = %if.end96
-  %111 = load ptr, ptr %link4, align 8
-  %pc101 = getelementptr inbounds %struct.instanceLink, ptr %111, i32 0, i32 4
-  %112 = load ptr, ptr %pc101, align 8
-  %err102 = getelementptr inbounds %struct.redisAsyncContext, ptr %112, i32 0, i32 1
-  %113 = load i32, ptr %err102, align 8
-  %tobool103 = icmp ne i32 %113, 0
+  %116 = load ptr, ptr %link4, align 8
+  %pc101 = getelementptr inbounds %struct.instanceLink, ptr %116, i32 0, i32 4
+  %117 = load ptr, ptr %pc101, align 8
+  %err102 = getelementptr inbounds %struct.redisAsyncContext, ptr %117, i32 0, i32 1
+  %118 = load i32, ptr %err102, align 8
+  %tobool103 = icmp ne i32 %118, 0
   br i1 %tobool103, label %if.else111, label %land.lhs.true104
 
 land.lhs.true104:                                 ; preds = %if.else100
-  %114 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 403), align 4
-  %tobool105 = icmp ne i32 %114, 0
+  %119 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 403
+  %120 = load i32, ptr %119, align 4
+  %tobool105 = icmp ne i32 %120, 0
   br i1 %tobool105, label %land.lhs.true106, label %if.else111
 
 land.lhs.true106:                                 ; preds = %land.lhs.true104
-  %115 = load ptr, ptr %link4, align 8
-  %pc107 = getelementptr inbounds %struct.instanceLink, ptr %115, i32 0, i32 4
-  %116 = load ptr, ptr %pc107, align 8
-  %call108 = call i32 @instanceLinkNegotiateTLS(ptr noundef %116)
+  %121 = load ptr, ptr %link4, align 8
+  %pc107 = getelementptr inbounds %struct.instanceLink, ptr %121, i32 0, i32 4
+  %122 = load ptr, ptr %pc107, align 8
+  %call108 = call i32 @instanceLinkNegotiateTLS(ptr noundef %122)
   %cmp109 = icmp eq i32 %call108, -1
   br i1 %cmp109, label %if.then110, label %if.else111
 
 if.then110:                                       ; preds = %land.lhs.true106
-  %117 = load ptr, ptr %ri.addr, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef @.str.156, ptr noundef %117, ptr noundef @.str.153)
+  %123 = load ptr, ptr %ri.addr, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef @.str.156, ptr noundef %123, ptr noundef @.str.153)
   br label %if.end139
 
 if.else111:                                       ; preds = %land.lhs.true106, %land.lhs.true104, %if.else100
-  %118 = load ptr, ptr %link4, align 8
-  %pc112 = getelementptr inbounds %struct.instanceLink, ptr %118, i32 0, i32 4
-  %119 = load ptr, ptr %pc112, align 8
-  %err113 = getelementptr inbounds %struct.redisAsyncContext, ptr %119, i32 0, i32 1
-  %120 = load i32, ptr %err113, align 8
-  %tobool114 = icmp ne i32 %120, 0
+  %124 = load ptr, ptr %link4, align 8
+  %pc112 = getelementptr inbounds %struct.instanceLink, ptr %124, i32 0, i32 4
+  %125 = load ptr, ptr %pc112, align 8
+  %err113 = getelementptr inbounds %struct.redisAsyncContext, ptr %125, i32 0, i32 1
+  %126 = load i32, ptr %err113, align 8
+  %tobool114 = icmp ne i32 %126, 0
   br i1 %tobool114, label %if.then115, label %if.else119
 
 if.then115:                                       ; preds = %if.else111
-  %121 = load ptr, ptr %ri.addr, align 8
-  %122 = load ptr, ptr %link4, align 8
-  %pc116 = getelementptr inbounds %struct.instanceLink, ptr %122, i32 0, i32 4
-  %123 = load ptr, ptr %pc116, align 8
-  %errstr117 = getelementptr inbounds %struct.redisAsyncContext, ptr %123, i32 0, i32 2
-  %124 = load ptr, ptr %errstr117, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef @.str.156, ptr noundef %121, ptr noundef @.str.154, ptr noundef %124)
-  %125 = load ptr, ptr %link4, align 8
-  %126 = load ptr, ptr %link4, align 8
-  %pc118 = getelementptr inbounds %struct.instanceLink, ptr %126, i32 0, i32 4
-  %127 = load ptr, ptr %pc118, align 8
-  call void @instanceLinkCloseConnection(ptr noundef %125, ptr noundef %127)
+  %127 = load ptr, ptr %ri.addr, align 8
+  %128 = load ptr, ptr %link4, align 8
+  %pc116 = getelementptr inbounds %struct.instanceLink, ptr %128, i32 0, i32 4
+  %129 = load ptr, ptr %pc116, align 8
+  %errstr117 = getelementptr inbounds %struct.redisAsyncContext, ptr %129, i32 0, i32 2
+  %130 = load ptr, ptr %errstr117, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef @.str.156, ptr noundef %127, ptr noundef @.str.154, ptr noundef %130)
+  %131 = load ptr, ptr %link4, align 8
+  %132 = load ptr, ptr %link4, align 8
+  %pc118 = getelementptr inbounds %struct.instanceLink, ptr %132, i32 0, i32 4
+  %133 = load ptr, ptr %pc118, align 8
+  call void @instanceLinkCloseConnection(ptr noundef %131, ptr noundef %133)
   br label %if.end138
 
 if.else119:                                       ; preds = %if.else111
   %call120 = call i64 @mstime()
-  %128 = load ptr, ptr %link4, align 8
-  %pc_conn_time = getelementptr inbounds %struct.instanceLink, ptr %128, i32 0, i32 6
+  %134 = load ptr, ptr %link4, align 8
+  %pc_conn_time = getelementptr inbounds %struct.instanceLink, ptr %134, i32 0, i32 6
   store i64 %call120, ptr %pc_conn_time, align 8
-  %129 = load ptr, ptr %link4, align 8
-  %130 = load ptr, ptr %link4, align 8
-  %pc121 = getelementptr inbounds %struct.instanceLink, ptr %130, i32 0, i32 4
-  %131 = load ptr, ptr %pc121, align 8
-  %data122 = getelementptr inbounds %struct.redisAsyncContext, ptr %131, i32 0, i32 3
-  store ptr %129, ptr %data122, align 8
-  %132 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 14), align 8
-  %133 = load ptr, ptr %link4, align 8
-  %pc123 = getelementptr inbounds %struct.instanceLink, ptr %133, i32 0, i32 4
-  %134 = load ptr, ptr %pc123, align 8
-  %call124 = call i32 @redisAeAttach(ptr noundef %132, ptr noundef %134)
   %135 = load ptr, ptr %link4, align 8
-  %pc125 = getelementptr inbounds %struct.instanceLink, ptr %135, i32 0, i32 4
-  %136 = load ptr, ptr %pc125, align 8
-  %call126 = call i32 @redisAsyncSetConnectCallback(ptr noundef %136, ptr noundef @sentinelLinkEstablishedCallback)
-  %137 = load ptr, ptr %link4, align 8
-  %pc127 = getelementptr inbounds %struct.instanceLink, ptr %137, i32 0, i32 4
-  %138 = load ptr, ptr %pc127, align 8
-  %call128 = call i32 @redisAsyncSetDisconnectCallback(ptr noundef %138, ptr noundef @sentinelDisconnectCallback)
-  %139 = load ptr, ptr %ri.addr, align 8
+  %136 = load ptr, ptr %link4, align 8
+  %pc121 = getelementptr inbounds %struct.instanceLink, ptr %136, i32 0, i32 4
+  %137 = load ptr, ptr %pc121, align 8
+  %data122 = getelementptr inbounds %struct.redisAsyncContext, ptr %137, i32 0, i32 3
+  store ptr %135, ptr %data122, align 8
+  %138 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 14
+  %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %link4, align 8
-  %pc129 = getelementptr inbounds %struct.instanceLink, ptr %140, i32 0, i32 4
-  %141 = load ptr, ptr %pc129, align 8
-  call void @sentinelSendAuthIfNeeded(ptr noundef %139, ptr noundef %141)
-  %142 = load ptr, ptr %ri.addr, align 8
-  %143 = load ptr, ptr %link4, align 8
-  %pc130 = getelementptr inbounds %struct.instanceLink, ptr %143, i32 0, i32 4
-  %144 = load ptr, ptr %pc130, align 8
-  call void @sentinelSetClientName(ptr noundef %142, ptr noundef %144, ptr noundef @.str.157)
-  %145 = load ptr, ptr %link4, align 8
-  %pc131 = getelementptr inbounds %struct.instanceLink, ptr %145, i32 0, i32 4
-  %146 = load ptr, ptr %pc131, align 8
-  %147 = load ptr, ptr %ri.addr, align 8
-  %148 = load ptr, ptr %ri.addr, align 8
-  %call132 = call ptr @sentinelInstanceMapCommand(ptr noundef %148, ptr noundef @.str.158)
-  %call133 = call i32 (ptr, ptr, ptr, ptr, ...) @redisAsyncCommand(ptr noundef %146, ptr noundef @sentinelReceiveHelloMessages, ptr noundef %147, ptr noundef @.str.17, ptr noundef %call132, ptr noundef @.str.159)
+  %pc123 = getelementptr inbounds %struct.instanceLink, ptr %140, i32 0, i32 4
+  %141 = load ptr, ptr %pc123, align 8
+  %call124 = call i32 @redisAeAttach(ptr noundef %139, ptr noundef %141)
+  %142 = load ptr, ptr %link4, align 8
+  %pc125 = getelementptr inbounds %struct.instanceLink, ptr %142, i32 0, i32 4
+  %143 = load ptr, ptr %pc125, align 8
+  %call126 = call i32 @redisAsyncSetConnectCallback(ptr noundef %143, ptr noundef @sentinelLinkEstablishedCallback)
+  %144 = load ptr, ptr %link4, align 8
+  %pc127 = getelementptr inbounds %struct.instanceLink, ptr %144, i32 0, i32 4
+  %145 = load ptr, ptr %pc127, align 8
+  %call128 = call i32 @redisAsyncSetDisconnectCallback(ptr noundef %145, ptr noundef @sentinelDisconnectCallback)
+  %146 = load ptr, ptr %ri.addr, align 8
+  %147 = load ptr, ptr %link4, align 8
+  %pc129 = getelementptr inbounds %struct.instanceLink, ptr %147, i32 0, i32 4
+  %148 = load ptr, ptr %pc129, align 8
+  call void @sentinelSendAuthIfNeeded(ptr noundef %146, ptr noundef %148)
+  %149 = load ptr, ptr %ri.addr, align 8
+  %150 = load ptr, ptr %link4, align 8
+  %pc130 = getelementptr inbounds %struct.instanceLink, ptr %150, i32 0, i32 4
+  %151 = load ptr, ptr %pc130, align 8
+  call void @sentinelSetClientName(ptr noundef %149, ptr noundef %151, ptr noundef @.str.157)
+  %152 = load ptr, ptr %link4, align 8
+  %pc131 = getelementptr inbounds %struct.instanceLink, ptr %152, i32 0, i32 4
+  %153 = load ptr, ptr %pc131, align 8
+  %154 = load ptr, ptr %ri.addr, align 8
+  %155 = load ptr, ptr %ri.addr, align 8
+  %call132 = call ptr @sentinelInstanceMapCommand(ptr noundef %155, ptr noundef @.str.158)
+  %call133 = call i32 (ptr, ptr, ptr, ptr, ...) @redisAsyncCommand(ptr noundef %153, ptr noundef @sentinelReceiveHelloMessages, ptr noundef %154, ptr noundef @.str.17, ptr noundef %call132, ptr noundef @.str.159)
   store i32 %call133, ptr %retval, align 4
-  %149 = load i32, ptr %retval, align 4
-  %cmp134 = icmp ne i32 %149, 0
+  %156 = load i32, ptr %retval, align 4
+  %cmp134 = icmp ne i32 %156, 0
   br i1 %cmp134, label %if.then135, label %if.end137
 
 if.then135:                                       ; preds = %if.else119
-  %150 = load ptr, ptr %link4, align 8
-  %151 = load ptr, ptr %link4, align 8
-  %pc136 = getelementptr inbounds %struct.instanceLink, ptr %151, i32 0, i32 4
-  %152 = load ptr, ptr %pc136, align 8
-  call void @instanceLinkCloseConnection(ptr noundef %150, ptr noundef %152)
+  %157 = load ptr, ptr %link4, align 8
+  %158 = load ptr, ptr %link4, align 8
+  %pc136 = getelementptr inbounds %struct.instanceLink, ptr %158, i32 0, i32 4
+  %159 = load ptr, ptr %pc136, align 8
+  call void @instanceLinkCloseConnection(ptr noundef %157, ptr noundef %159)
   br label %if.end152
 
 if.end137:                                        ; preds = %if.else119
@@ -7569,30 +7690,30 @@ if.end140:                                        ; preds = %if.end139, %if.then
   br label %if.end141
 
 if.end141:                                        ; preds = %if.end140, %land.lhs.true76, %if.end74
-  %153 = load ptr, ptr %link4, align 8
-  %cc142 = getelementptr inbounds %struct.instanceLink, ptr %153, i32 0, i32 3
-  %154 = load ptr, ptr %cc142, align 8
-  %tobool143 = icmp ne ptr %154, null
+  %160 = load ptr, ptr %link4, align 8
+  %cc142 = getelementptr inbounds %struct.instanceLink, ptr %160, i32 0, i32 3
+  %161 = load ptr, ptr %cc142, align 8
+  %tobool143 = icmp ne ptr %161, null
   br i1 %tobool143, label %land.lhs.true144, label %if.end152
 
 land.lhs.true144:                                 ; preds = %if.end141
-  %155 = load ptr, ptr %ri.addr, align 8
-  %flags145 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %155, i32 0, i32 0
-  %156 = load i32, ptr %flags145, align 8
-  %and146 = and i32 %156, 4
+  %162 = load ptr, ptr %ri.addr, align 8
+  %flags145 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %162, i32 0, i32 0
+  %163 = load i32, ptr %flags145, align 8
+  %and146 = and i32 %163, 4
   %tobool147 = icmp ne i32 %and146, 0
   br i1 %tobool147, label %if.then150, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true144
-  %157 = load ptr, ptr %link4, align 8
-  %pc148 = getelementptr inbounds %struct.instanceLink, ptr %157, i32 0, i32 4
-  %158 = load ptr, ptr %pc148, align 8
-  %tobool149 = icmp ne ptr %158, null
+  %164 = load ptr, ptr %link4, align 8
+  %pc148 = getelementptr inbounds %struct.instanceLink, ptr %164, i32 0, i32 4
+  %165 = load ptr, ptr %pc148, align 8
+  %tobool149 = icmp ne ptr %165, null
   br i1 %tobool149, label %if.then150, label %if.end152
 
 if.then150:                                       ; preds = %lor.lhs.false, %land.lhs.true144
-  %159 = load ptr, ptr %link4, align 8
-  %disconnected151 = getelementptr inbounds %struct.instanceLink, ptr %159, i32 0, i32 1
+  %166 = load ptr, ptr %link4, align 8
+  %disconnected151 = getelementptr inbounds %struct.instanceLink, ptr %166, i32 0, i32 1
   store i32 0, ptr %disconnected151, align 4
   br label %if.end152
 
@@ -8565,96 +8686,98 @@ if.end223:                                        ; preds = %if.then220, %if.the
   br label %if.end232
 
 if.end232:                                        ; preds = %if.end223, %for.end
-  %136 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 3), align 8
-  %tobool233 = icmp ne i32 %136, 0
+  %136 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 3
+  %137 = load i32, ptr %136, align 8
+  %tobool233 = icmp ne i32 %137, 0
   br i1 %tobool233, label %if.then234, label %if.end235
 
 if.then234:                                       ; preds = %if.end232
   br label %if.end403
 
 if.end235:                                        ; preds = %if.end232
-  %137 = load ptr, ptr %ri.addr, align 8
-  %flags236 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %137, i32 0, i32 0
-  %138 = load i32, ptr %flags236, align 8
-  %and237 = and i32 %138, 1
+  %138 = load ptr, ptr %ri.addr, align 8
+  %flags236 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %138, i32 0, i32 0
+  %139 = load i32, ptr %flags236, align 8
+  %and237 = and i32 %139, 1
   %tobool238 = icmp ne i32 %and237, 0
   br i1 %tobool238, label %land.lhs.true239, label %if.end243
 
 land.lhs.true239:                                 ; preds = %if.end235
-  %139 = load i32, ptr %role, align 4
-  %cmp240 = icmp eq i32 %139, 2
+  %140 = load i32, ptr %role, align 4
+  %cmp240 = icmp eq i32 %140, 2
   br i1 %cmp240, label %if.then242, label %if.end243
 
 if.then242:                                       ; preds = %land.lhs.true239
   br label %if.end243
 
 if.end243:                                        ; preds = %if.then242, %land.lhs.true239, %if.end235
-  %140 = load ptr, ptr %ri.addr, align 8
-  %flags244 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %140, i32 0, i32 0
-  %141 = load i32, ptr %flags244, align 8
-  %and245 = and i32 %141, 2
+  %141 = load ptr, ptr %ri.addr, align 8
+  %flags244 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %141, i32 0, i32 0
+  %142 = load i32, ptr %flags244, align 8
+  %and245 = and i32 %142, 2
   %tobool246 = icmp ne i32 %and245, 0
   br i1 %tobool246, label %land.lhs.true247, label %if.end307
 
 land.lhs.true247:                                 ; preds = %if.end243
-  %142 = load i32, ptr %role, align 4
-  %cmp248 = icmp eq i32 %142, 1
+  %143 = load i32, ptr %role, align 4
+  %cmp248 = icmp eq i32 %143, 1
   br i1 %cmp248, label %if.then250, label %if.end307
 
 if.then250:                                       ; preds = %land.lhs.true247
-  %143 = load ptr, ptr %ri.addr, align 8
-  %flags251 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %143, i32 0, i32 0
-  %144 = load i32, ptr %flags251, align 8
-  %and252 = and i32 %144, 128
+  %144 = load ptr, ptr %ri.addr, align 8
+  %flags251 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %144, i32 0, i32 0
+  %145 = load i32, ptr %flags251, align 8
+  %and252 = and i32 %145, 128
   %tobool253 = icmp ne i32 %and252, 0
   br i1 %tobool253, label %land.lhs.true254, label %if.else280
 
 land.lhs.true254:                                 ; preds = %if.then250
-  %145 = load ptr, ptr %ri.addr, align 8
-  %master = getelementptr inbounds %struct.sentinelRedisInstance, ptr %145, i32 0, i32 29
-  %146 = load ptr, ptr %master, align 8
-  %flags255 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %146, i32 0, i32 0
-  %147 = load i32, ptr %flags255, align 8
-  %and256 = and i32 %147, 64
+  %146 = load ptr, ptr %ri.addr, align 8
+  %master = getelementptr inbounds %struct.sentinelRedisInstance, ptr %146, i32 0, i32 29
+  %147 = load ptr, ptr %master, align 8
+  %flags255 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %147, i32 0, i32 0
+  %148 = load i32, ptr %flags255, align 8
+  %and256 = and i32 %148, 64
   %tobool257 = icmp ne i32 %and256, 0
   br i1 %tobool257, label %land.lhs.true258, label %if.else280
 
 land.lhs.true258:                                 ; preds = %land.lhs.true254
-  %148 = load ptr, ptr %ri.addr, align 8
-  %master259 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %148, i32 0, i32 29
-  %149 = load ptr, ptr %master259, align 8
-  %failover_state = getelementptr inbounds %struct.sentinelRedisInstance, ptr %149, i32 0, i32 37
-  %150 = load i32, ptr %failover_state, align 8
-  %cmp260 = icmp eq i32 %150, 4
+  %149 = load ptr, ptr %ri.addr, align 8
+  %master259 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %149, i32 0, i32 29
+  %150 = load ptr, ptr %master259, align 8
+  %failover_state = getelementptr inbounds %struct.sentinelRedisInstance, ptr %150, i32 0, i32 37
+  %151 = load i32, ptr %failover_state, align 8
+  %cmp260 = icmp eq i32 %151, 4
   br i1 %cmp260, label %if.then262, label %if.else280
 
 if.then262:                                       ; preds = %land.lhs.true258
-  %151 = load ptr, ptr %ri.addr, align 8
-  %master263 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %151, i32 0, i32 29
-  %152 = load ptr, ptr %master263, align 8
-  %failover_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %152, i32 0, i32 36
-  %153 = load i64, ptr %failover_epoch, align 8
-  %154 = load ptr, ptr %ri.addr, align 8
-  %master264 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %154, i32 0, i32 29
-  %155 = load ptr, ptr %master264, align 8
-  %config_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %155, i32 0, i32 3
-  store i64 %153, ptr %config_epoch, align 8
-  %156 = load ptr, ptr %ri.addr, align 8
-  %master265 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %156, i32 0, i32 29
-  %157 = load ptr, ptr %master265, align 8
-  %failover_state266 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %157, i32 0, i32 37
+  %152 = load ptr, ptr %ri.addr, align 8
+  %master263 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %152, i32 0, i32 29
+  %153 = load ptr, ptr %master263, align 8
+  %failover_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %153, i32 0, i32 36
+  %154 = load i64, ptr %failover_epoch, align 8
+  %155 = load ptr, ptr %ri.addr, align 8
+  %master264 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %155, i32 0, i32 29
+  %156 = load ptr, ptr %master264, align 8
+  %config_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %156, i32 0, i32 3
+  store i64 %154, ptr %config_epoch, align 8
+  %157 = load ptr, ptr %ri.addr, align 8
+  %master265 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %157, i32 0, i32 29
+  %158 = load ptr, ptr %master265, align 8
+  %failover_state266 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %158, i32 0, i32 37
   store i32 5, ptr %failover_state266, align 8
   %call267 = call i64 @mstime()
-  %158 = load ptr, ptr %ri.addr, align 8
-  %master268 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %158, i32 0, i32 29
-  %159 = load ptr, ptr %master268, align 8
-  %failover_state_change_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %159, i32 0, i32 38
+  %159 = load ptr, ptr %ri.addr, align 8
+  %master268 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %159, i32 0, i32 29
+  %160 = load ptr, ptr %master268, align 8
+  %failover_state_change_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %160, i32 0, i32 38
   store i64 %call267, ptr %failover_state_change_time, align 8
   %call269 = call i32 @sentinelFlushConfig()
-  %160 = load ptr, ptr %ri.addr, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.178, ptr noundef %160, ptr noundef @.str.54)
-  %161 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 10), align 8
-  %and270 = and i64 %161, 2
+  %161 = load ptr, ptr %ri.addr, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.178, ptr noundef %161, ptr noundef @.str.54)
+  %162 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 10
+  %163 = load i64, ptr %162, align 8
+  %and270 = and i64 %163, 2
   %tobool271 = icmp ne i64 %and270, 0
   br i1 %tobool271, label %if.then272, label %if.end273
 
@@ -8663,80 +8786,80 @@ if.then272:                                       ; preds = %if.then262
   br label %if.end273
 
 if.end273:                                        ; preds = %if.then272, %if.then262
-  %162 = load ptr, ptr %ri.addr, align 8
-  %master274 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %162, i32 0, i32 29
-  %163 = load ptr, ptr %master274, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.179, ptr noundef %163, ptr noundef @.str.54)
   %164 = load ptr, ptr %ri.addr, align 8
-  %master275 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %164, i32 0, i32 29
-  %165 = load ptr, ptr %master275, align 8
+  %master274 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %164, i32 0, i32 29
+  %165 = load ptr, ptr %master274, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.179, ptr noundef %165, ptr noundef @.str.54)
   %166 = load ptr, ptr %ri.addr, align 8
-  %master276 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %166, i32 0, i32 29
-  %167 = load ptr, ptr %master276, align 8
-  %addr = getelementptr inbounds %struct.sentinelRedisInstance, ptr %167, i32 0, i32 4
-  %168 = load ptr, ptr %addr, align 8
-  %169 = load ptr, ptr %ri.addr, align 8
-  %addr277 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %169, i32 0, i32 4
-  %170 = load ptr, ptr %addr277, align 8
-  call void @sentinelCallClientReconfScript(ptr noundef %165, i32 noundef 131072, ptr noundef @.str.180, ptr noundef %168, ptr noundef %170)
+  %master275 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %166, i32 0, i32 29
+  %167 = load ptr, ptr %master275, align 8
+  %168 = load ptr, ptr %ri.addr, align 8
+  %master276 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %168, i32 0, i32 29
+  %169 = load ptr, ptr %master276, align 8
+  %addr = getelementptr inbounds %struct.sentinelRedisInstance, ptr %169, i32 0, i32 4
+  %170 = load ptr, ptr %addr, align 8
   %171 = load ptr, ptr %ri.addr, align 8
-  %master278 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %171, i32 0, i32 29
-  %172 = load ptr, ptr %master278, align 8
-  %call279 = call i32 @sentinelForceHelloUpdateForMaster(ptr noundef %172)
+  %addr277 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %171, i32 0, i32 4
+  %172 = load ptr, ptr %addr277, align 8
+  call void @sentinelCallClientReconfScript(ptr noundef %167, i32 noundef 131072, ptr noundef @.str.180, ptr noundef %170, ptr noundef %172)
+  %173 = load ptr, ptr %ri.addr, align 8
+  %master278 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %173, i32 0, i32 29
+  %174 = load ptr, ptr %master278, align 8
+  %call279 = call i32 @sentinelForceHelloUpdateForMaster(ptr noundef %174)
   br label %if.end306
 
 if.else280:                                       ; preds = %land.lhs.true258, %land.lhs.true254, %if.then250
-  %173 = load i64, ptr @sentinel_publish_period, align 8
-  %mul281 = mul nsw i64 %173, 4
+  %175 = load i64, ptr @sentinel_publish_period, align 8
+  %mul281 = mul nsw i64 %175, 4
   store i64 %mul281, ptr %wait_time, align 8
-  %174 = load ptr, ptr %ri.addr, align 8
-  %flags282 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %174, i32 0, i32 0
-  %175 = load i32, ptr %flags282, align 8
-  %and283 = and i32 %175, 128
+  %176 = load ptr, ptr %ri.addr, align 8
+  %flags282 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %176, i32 0, i32 0
+  %177 = load i32, ptr %flags282, align 8
+  %and283 = and i32 %177, 128
   %tobool284 = icmp ne i32 %and283, 0
   br i1 %tobool284, label %if.end305, label %land.lhs.true285
 
 land.lhs.true285:                                 ; preds = %if.else280
-  %176 = load ptr, ptr %ri.addr, align 8
-  %master286 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %176, i32 0, i32 29
-  %177 = load ptr, ptr %master286, align 8
-  %call287 = call i32 @sentinelMasterLooksSane(ptr noundef %177)
+  %178 = load ptr, ptr %ri.addr, align 8
+  %master286 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %178, i32 0, i32 29
+  %179 = load ptr, ptr %master286, align 8
+  %call287 = call i32 @sentinelMasterLooksSane(ptr noundef %179)
   %tobool288 = icmp ne i32 %call287, 0
   br i1 %tobool288, label %land.lhs.true289, label %if.end305
 
 land.lhs.true289:                                 ; preds = %land.lhs.true285
-  %178 = load ptr, ptr %ri.addr, align 8
-  %179 = load i64, ptr %wait_time, align 8
-  %call290 = call i32 @sentinelRedisInstanceNoDownFor(ptr noundef %178, i64 noundef %179)
+  %180 = load ptr, ptr %ri.addr, align 8
+  %181 = load i64, ptr %wait_time, align 8
+  %call290 = call i32 @sentinelRedisInstanceNoDownFor(ptr noundef %180, i64 noundef %181)
   %tobool291 = icmp ne i32 %call290, 0
   br i1 %tobool291, label %land.lhs.true292, label %if.end305
 
 land.lhs.true292:                                 ; preds = %land.lhs.true289
   %call293 = call i64 @mstime()
-  %180 = load ptr, ptr %ri.addr, align 8
-  %role_reported_time294 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %180, i32 0, i32 17
-  %181 = load i64, ptr %role_reported_time294, align 8
-  %sub = sub nsw i64 %call293, %181
-  %182 = load i64, ptr %wait_time, align 8
-  %cmp295 = icmp sgt i64 %sub, %182
+  %182 = load ptr, ptr %ri.addr, align 8
+  %role_reported_time294 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %182, i32 0, i32 17
+  %183 = load i64, ptr %role_reported_time294, align 8
+  %sub = sub nsw i64 %call293, %183
+  %184 = load i64, ptr %wait_time, align 8
+  %cmp295 = icmp sgt i64 %sub, %184
   br i1 %cmp295, label %if.then297, label %if.end305
 
 if.then297:                                       ; preds = %land.lhs.true292
-  %183 = load ptr, ptr %ri.addr, align 8
-  %184 = load ptr, ptr %ri.addr, align 8
-  %master298 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %184, i32 0, i32 29
-  %185 = load ptr, ptr %master298, align 8
-  %addr299 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %185, i32 0, i32 4
-  %186 = load ptr, ptr %addr299, align 8
-  %call300 = call i32 @sentinelSendSlaveOf(ptr noundef %183, ptr noundef %186)
+  %185 = load ptr, ptr %ri.addr, align 8
+  %186 = load ptr, ptr %ri.addr, align 8
+  %master298 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %186, i32 0, i32 29
+  %187 = load ptr, ptr %master298, align 8
+  %addr299 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %187, i32 0, i32 4
+  %188 = load ptr, ptr %addr299, align 8
+  %call300 = call i32 @sentinelSendSlaveOf(ptr noundef %185, ptr noundef %188)
   store i32 %call300, ptr %retval, align 4
-  %187 = load i32, ptr %retval, align 4
-  %cmp301 = icmp eq i32 %187, 0
+  %189 = load i32, ptr %retval, align 4
+  %cmp301 = icmp eq i32 %189, 0
   br i1 %cmp301, label %if.then303, label %if.end304
 
 if.then303:                                       ; preds = %if.then297
-  %188 = load ptr, ptr %ri.addr, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef @.str.181, ptr noundef %188, ptr noundef @.str.54)
+  %190 = load ptr, ptr %ri.addr, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef @.str.181, ptr noundef %190, ptr noundef @.str.54)
   br label %if.end304
 
 if.end304:                                        ; preds = %if.then303, %if.then297
@@ -8749,92 +8872,92 @@ if.end306:                                        ; preds = %if.end305, %if.end2
   br label %if.end307
 
 if.end307:                                        ; preds = %if.end306, %land.lhs.true247, %if.end243
-  %189 = load ptr, ptr %ri.addr, align 8
-  %flags308 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %189, i32 0, i32 0
-  %190 = load i32, ptr %flags308, align 8
-  %and309 = and i32 %190, 2
+  %191 = load ptr, ptr %ri.addr, align 8
+  %flags308 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %191, i32 0, i32 0
+  %192 = load i32, ptr %flags308, align 8
+  %and309 = and i32 %192, 2
   %tobool310 = icmp ne i32 %and309, 0
   br i1 %tobool310, label %land.lhs.true311, label %if.end352
 
 land.lhs.true311:                                 ; preds = %if.end307
-  %191 = load i32, ptr %role, align 4
-  %cmp312 = icmp eq i32 %191, 2
+  %193 = load i32, ptr %role, align 4
+  %cmp312 = icmp eq i32 %193, 2
   br i1 %cmp312, label %land.lhs.true314, label %if.end352
 
 land.lhs.true314:                                 ; preds = %land.lhs.true311
-  %192 = load ptr, ptr %ri.addr, align 8
-  %slave_master_port315 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %192, i32 0, i32 31
-  %193 = load i32, ptr %slave_master_port315, align 8
   %194 = load ptr, ptr %ri.addr, align 8
-  %master316 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %194, i32 0, i32 29
-  %195 = load ptr, ptr %master316, align 8
-  %addr317 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %195, i32 0, i32 4
-  %196 = load ptr, ptr %addr317, align 8
-  %port318 = getelementptr inbounds %struct.sentinelAddr, ptr %196, i32 0, i32 2
-  %197 = load i32, ptr %port318, align 8
-  %cmp319 = icmp ne i32 %193, %197
+  %slave_master_port315 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %194, i32 0, i32 31
+  %195 = load i32, ptr %slave_master_port315, align 8
+  %196 = load ptr, ptr %ri.addr, align 8
+  %master316 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %196, i32 0, i32 29
+  %197 = load ptr, ptr %master316, align 8
+  %addr317 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %197, i32 0, i32 4
+  %198 = load ptr, ptr %addr317, align 8
+  %port318 = getelementptr inbounds %struct.sentinelAddr, ptr %198, i32 0, i32 2
+  %199 = load i32, ptr %port318, align 8
+  %cmp319 = icmp ne i32 %195, %199
   br i1 %cmp319, label %if.then327, label %lor.lhs.false321
 
 lor.lhs.false321:                                 ; preds = %land.lhs.true314
-  %198 = load ptr, ptr %ri.addr, align 8
-  %master322 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %198, i32 0, i32 29
-  %199 = load ptr, ptr %master322, align 8
-  %addr323 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %199, i32 0, i32 4
-  %200 = load ptr, ptr %addr323, align 8
-  %201 = load ptr, ptr %ri.addr, align 8
-  %slave_master_host324 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %201, i32 0, i32 30
-  %202 = load ptr, ptr %slave_master_host324, align 8
-  %call325 = call i32 @sentinelAddrEqualsHostname(ptr noundef %200, ptr noundef %202)
+  %200 = load ptr, ptr %ri.addr, align 8
+  %master322 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %200, i32 0, i32 29
+  %201 = load ptr, ptr %master322, align 8
+  %addr323 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %201, i32 0, i32 4
+  %202 = load ptr, ptr %addr323, align 8
+  %203 = load ptr, ptr %ri.addr, align 8
+  %slave_master_host324 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %203, i32 0, i32 30
+  %204 = load ptr, ptr %slave_master_host324, align 8
+  %call325 = call i32 @sentinelAddrEqualsHostname(ptr noundef %202, ptr noundef %204)
   %tobool326 = icmp ne i32 %call325, 0
   br i1 %tobool326, label %if.end352, label %if.then327
 
 if.then327:                                       ; preds = %lor.lhs.false321, %land.lhs.true314
-  %203 = load ptr, ptr %ri.addr, align 8
-  %master329 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %203, i32 0, i32 29
-  %204 = load ptr, ptr %master329, align 8
-  %failover_timeout = getelementptr inbounds %struct.sentinelRedisInstance, ptr %204, i32 0, i32 40
-  %205 = load i64, ptr %failover_timeout, align 8
-  store i64 %205, ptr %wait_time328, align 8
-  %206 = load ptr, ptr %ri.addr, align 8
-  %master330 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %206, i32 0, i32 29
-  %207 = load ptr, ptr %master330, align 8
-  %call331 = call i32 @sentinelMasterLooksSane(ptr noundef %207)
+  %205 = load ptr, ptr %ri.addr, align 8
+  %master329 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %205, i32 0, i32 29
+  %206 = load ptr, ptr %master329, align 8
+  %failover_timeout = getelementptr inbounds %struct.sentinelRedisInstance, ptr %206, i32 0, i32 40
+  %207 = load i64, ptr %failover_timeout, align 8
+  store i64 %207, ptr %wait_time328, align 8
+  %208 = load ptr, ptr %ri.addr, align 8
+  %master330 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %208, i32 0, i32 29
+  %209 = load ptr, ptr %master330, align 8
+  %call331 = call i32 @sentinelMasterLooksSane(ptr noundef %209)
   %tobool332 = icmp ne i32 %call331, 0
   br i1 %tobool332, label %land.lhs.true333, label %if.end351
 
 land.lhs.true333:                                 ; preds = %if.then327
-  %208 = load ptr, ptr %ri.addr, align 8
-  %209 = load i64, ptr %wait_time328, align 8
-  %call334 = call i32 @sentinelRedisInstanceNoDownFor(ptr noundef %208, i64 noundef %209)
+  %210 = load ptr, ptr %ri.addr, align 8
+  %211 = load i64, ptr %wait_time328, align 8
+  %call334 = call i32 @sentinelRedisInstanceNoDownFor(ptr noundef %210, i64 noundef %211)
   %tobool335 = icmp ne i32 %call334, 0
   br i1 %tobool335, label %land.lhs.true336, label %if.end351
 
 land.lhs.true336:                                 ; preds = %land.lhs.true333
   %call337 = call i64 @mstime()
-  %210 = load ptr, ptr %ri.addr, align 8
-  %slave_conf_change_time338 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %210, i32 0, i32 18
-  %211 = load i64, ptr %slave_conf_change_time338, align 8
-  %sub339 = sub nsw i64 %call337, %211
-  %212 = load i64, ptr %wait_time328, align 8
-  %cmp340 = icmp sgt i64 %sub339, %212
+  %212 = load ptr, ptr %ri.addr, align 8
+  %slave_conf_change_time338 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %212, i32 0, i32 18
+  %213 = load i64, ptr %slave_conf_change_time338, align 8
+  %sub339 = sub nsw i64 %call337, %213
+  %214 = load i64, ptr %wait_time328, align 8
+  %cmp340 = icmp sgt i64 %sub339, %214
   br i1 %cmp340, label %if.then342, label %if.end351
 
 if.then342:                                       ; preds = %land.lhs.true336
-  %213 = load ptr, ptr %ri.addr, align 8
-  %214 = load ptr, ptr %ri.addr, align 8
-  %master344 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %214, i32 0, i32 29
-  %215 = load ptr, ptr %master344, align 8
-  %addr345 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %215, i32 0, i32 4
-  %216 = load ptr, ptr %addr345, align 8
-  %call346 = call i32 @sentinelSendSlaveOf(ptr noundef %213, ptr noundef %216)
+  %215 = load ptr, ptr %ri.addr, align 8
+  %216 = load ptr, ptr %ri.addr, align 8
+  %master344 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %216, i32 0, i32 29
+  %217 = load ptr, ptr %master344, align 8
+  %addr345 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %217, i32 0, i32 4
+  %218 = load ptr, ptr %addr345, align 8
+  %call346 = call i32 @sentinelSendSlaveOf(ptr noundef %215, ptr noundef %218)
   store i32 %call346, ptr %retval343, align 4
-  %217 = load i32, ptr %retval343, align 4
-  %cmp347 = icmp eq i32 %217, 0
+  %219 = load i32, ptr %retval343, align 4
+  %cmp347 = icmp eq i32 %219, 0
   br i1 %cmp347, label %if.then349, label %if.end350
 
 if.then349:                                       ; preds = %if.then342
-  %218 = load ptr, ptr %ri.addr, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef @.str.182, ptr noundef %218, ptr noundef @.str.54)
+  %220 = load ptr, ptr %ri.addr, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef @.str.182, ptr noundef %220, ptr noundef @.str.54)
   br label %if.end350
 
 if.end350:                                        ; preds = %if.then349, %if.then342
@@ -8844,115 +8967,115 @@ if.end351:                                        ; preds = %if.end350, %land.lh
   br label %if.end352
 
 if.end352:                                        ; preds = %if.end351, %lor.lhs.false321, %land.lhs.true311, %if.end307
-  %219 = load ptr, ptr %ri.addr, align 8
-  %flags353 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %219, i32 0, i32 0
-  %220 = load i32, ptr %flags353, align 8
-  %and354 = and i32 %220, 2
+  %221 = load ptr, ptr %ri.addr, align 8
+  %flags353 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %221, i32 0, i32 0
+  %222 = load i32, ptr %flags353, align 8
+  %and354 = and i32 %222, 2
   %tobool355 = icmp ne i32 %and354, 0
   br i1 %tobool355, label %land.lhs.true356, label %if.end403
 
 land.lhs.true356:                                 ; preds = %if.end352
-  %221 = load i32, ptr %role, align 4
-  %cmp357 = icmp eq i32 %221, 2
+  %223 = load i32, ptr %role, align 4
+  %cmp357 = icmp eq i32 %223, 2
   br i1 %cmp357, label %land.lhs.true359, label %if.end403
 
 land.lhs.true359:                                 ; preds = %land.lhs.true356
-  %222 = load ptr, ptr %ri.addr, align 8
-  %flags360 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %222, i32 0, i32 0
-  %223 = load i32, ptr %flags360, align 8
-  %and361 = and i32 %223, 768
+  %224 = load ptr, ptr %ri.addr, align 8
+  %flags360 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %224, i32 0, i32 0
+  %225 = load i32, ptr %flags360, align 8
+  %and361 = and i32 %225, 768
   %tobool362 = icmp ne i32 %and361, 0
   br i1 %tobool362, label %if.then363, label %if.end403
 
 if.then363:                                       ; preds = %land.lhs.true359
-  %224 = load ptr, ptr %ri.addr, align 8
-  %flags364 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %224, i32 0, i32 0
-  %225 = load i32, ptr %flags364, align 8
-  %and365 = and i32 %225, 256
+  %226 = load ptr, ptr %ri.addr, align 8
+  %flags364 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %226, i32 0, i32 0
+  %227 = load i32, ptr %flags364, align 8
+  %and365 = and i32 %227, 256
   %tobool366 = icmp ne i32 %and365, 0
   br i1 %tobool366, label %land.lhs.true367, label %if.end389
 
 land.lhs.true367:                                 ; preds = %if.then363
-  %226 = load ptr, ptr %ri.addr, align 8
-  %slave_master_host368 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %226, i32 0, i32 30
-  %227 = load ptr, ptr %slave_master_host368, align 8
-  %tobool369 = icmp ne ptr %227, null
+  %228 = load ptr, ptr %ri.addr, align 8
+  %slave_master_host368 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %228, i32 0, i32 30
+  %229 = load ptr, ptr %slave_master_host368, align 8
+  %tobool369 = icmp ne ptr %229, null
   br i1 %tobool369, label %land.lhs.true370, label %if.end389
 
 land.lhs.true370:                                 ; preds = %land.lhs.true367
-  %228 = load ptr, ptr %ri.addr, align 8
-  %master371 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %228, i32 0, i32 29
-  %229 = load ptr, ptr %master371, align 8
-  %promoted_slave = getelementptr inbounds %struct.sentinelRedisInstance, ptr %229, i32 0, i32 42
-  %230 = load ptr, ptr %promoted_slave, align 8
-  %addr372 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %230, i32 0, i32 4
-  %231 = load ptr, ptr %addr372, align 8
-  %232 = load ptr, ptr %ri.addr, align 8
-  %slave_master_host373 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %232, i32 0, i32 30
-  %233 = load ptr, ptr %slave_master_host373, align 8
-  %call374 = call i32 @sentinelAddrEqualsHostname(ptr noundef %231, ptr noundef %233)
+  %230 = load ptr, ptr %ri.addr, align 8
+  %master371 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %230, i32 0, i32 29
+  %231 = load ptr, ptr %master371, align 8
+  %promoted_slave = getelementptr inbounds %struct.sentinelRedisInstance, ptr %231, i32 0, i32 42
+  %232 = load ptr, ptr %promoted_slave, align 8
+  %addr372 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %232, i32 0, i32 4
+  %233 = load ptr, ptr %addr372, align 8
+  %234 = load ptr, ptr %ri.addr, align 8
+  %slave_master_host373 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %234, i32 0, i32 30
+  %235 = load ptr, ptr %slave_master_host373, align 8
+  %call374 = call i32 @sentinelAddrEqualsHostname(ptr noundef %233, ptr noundef %235)
   %tobool375 = icmp ne i32 %call374, 0
   br i1 %tobool375, label %land.lhs.true376, label %if.end389
 
 land.lhs.true376:                                 ; preds = %land.lhs.true370
-  %234 = load ptr, ptr %ri.addr, align 8
-  %slave_master_port377 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %234, i32 0, i32 31
-  %235 = load i32, ptr %slave_master_port377, align 8
   %236 = load ptr, ptr %ri.addr, align 8
-  %master378 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %236, i32 0, i32 29
-  %237 = load ptr, ptr %master378, align 8
-  %promoted_slave379 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %237, i32 0, i32 42
-  %238 = load ptr, ptr %promoted_slave379, align 8
-  %addr380 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %238, i32 0, i32 4
-  %239 = load ptr, ptr %addr380, align 8
-  %port381 = getelementptr inbounds %struct.sentinelAddr, ptr %239, i32 0, i32 2
-  %240 = load i32, ptr %port381, align 8
-  %cmp382 = icmp eq i32 %235, %240
+  %slave_master_port377 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %236, i32 0, i32 31
+  %237 = load i32, ptr %slave_master_port377, align 8
+  %238 = load ptr, ptr %ri.addr, align 8
+  %master378 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %238, i32 0, i32 29
+  %239 = load ptr, ptr %master378, align 8
+  %promoted_slave379 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %239, i32 0, i32 42
+  %240 = load ptr, ptr %promoted_slave379, align 8
+  %addr380 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %240, i32 0, i32 4
+  %241 = load ptr, ptr %addr380, align 8
+  %port381 = getelementptr inbounds %struct.sentinelAddr, ptr %241, i32 0, i32 2
+  %242 = load i32, ptr %port381, align 8
+  %cmp382 = icmp eq i32 %237, %242
   br i1 %cmp382, label %if.then384, label %if.end389
 
 if.then384:                                       ; preds = %land.lhs.true376
-  %241 = load ptr, ptr %ri.addr, align 8
-  %flags385 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %241, i32 0, i32 0
-  %242 = load i32, ptr %flags385, align 8
-  %and386 = and i32 %242, -257
-  store i32 %and386, ptr %flags385, align 8
   %243 = load ptr, ptr %ri.addr, align 8
-  %flags387 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %243, i32 0, i32 0
-  %244 = load i32, ptr %flags387, align 8
-  %or388 = or i32 %244, 512
-  store i32 %or388, ptr %flags387, align 8
+  %flags385 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %243, i32 0, i32 0
+  %244 = load i32, ptr %flags385, align 8
+  %and386 = and i32 %244, -257
+  store i32 %and386, ptr %flags385, align 8
   %245 = load ptr, ptr %ri.addr, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef @.str.183, ptr noundef %245, ptr noundef @.str.54)
+  %flags387 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %245, i32 0, i32 0
+  %246 = load i32, ptr %flags387, align 8
+  %or388 = or i32 %246, 512
+  store i32 %or388, ptr %flags387, align 8
+  %247 = load ptr, ptr %ri.addr, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef @.str.183, ptr noundef %247, ptr noundef @.str.54)
   br label %if.end389
 
 if.end389:                                        ; preds = %if.then384, %land.lhs.true376, %land.lhs.true370, %land.lhs.true367, %if.then363
-  %246 = load ptr, ptr %ri.addr, align 8
-  %flags390 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %246, i32 0, i32 0
-  %247 = load i32, ptr %flags390, align 8
-  %and391 = and i32 %247, 512
+  %248 = load ptr, ptr %ri.addr, align 8
+  %flags390 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %248, i32 0, i32 0
+  %249 = load i32, ptr %flags390, align 8
+  %and391 = and i32 %249, 512
   %tobool392 = icmp ne i32 %and391, 0
   br i1 %tobool392, label %land.lhs.true393, label %if.end402
 
 land.lhs.true393:                                 ; preds = %if.end389
-  %248 = load ptr, ptr %ri.addr, align 8
-  %slave_master_link_status394 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %248, i32 0, i32 32
-  %249 = load i32, ptr %slave_master_link_status394, align 4
-  %cmp395 = icmp eq i32 %249, 0
+  %250 = load ptr, ptr %ri.addr, align 8
+  %slave_master_link_status394 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %250, i32 0, i32 32
+  %251 = load i32, ptr %slave_master_link_status394, align 4
+  %cmp395 = icmp eq i32 %251, 0
   br i1 %cmp395, label %if.then397, label %if.end402
 
 if.then397:                                       ; preds = %land.lhs.true393
-  %250 = load ptr, ptr %ri.addr, align 8
-  %flags398 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %250, i32 0, i32 0
-  %251 = load i32, ptr %flags398, align 8
-  %and399 = and i32 %251, -513
-  store i32 %and399, ptr %flags398, align 8
   %252 = load ptr, ptr %ri.addr, align 8
-  %flags400 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %252, i32 0, i32 0
-  %253 = load i32, ptr %flags400, align 8
-  %or401 = or i32 %253, 1024
-  store i32 %or401, ptr %flags400, align 8
+  %flags398 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %252, i32 0, i32 0
+  %253 = load i32, ptr %flags398, align 8
+  %and399 = and i32 %253, -513
+  store i32 %and399, ptr %flags398, align 8
   %254 = load ptr, ptr %ri.addr, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef @.str.184, ptr noundef %254, ptr noundef @.str.54)
+  %flags400 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %254, i32 0, i32 0
+  %255 = load i32, ptr %flags400, align 8
+  %or401 = or i32 %255, 1024
+  store i32 %or401, ptr %flags400, align 8
+  %256 = load ptr, ptr %ri.addr, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef @.str.184, ptr noundef %256, ptr noundef @.str.54)
   br label %if.end402
 
 if.end402:                                        ; preds = %if.then397, %land.lhs.true393, %if.end389
@@ -8987,8 +9110,9 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp = icmp slt i32 3, %0
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %1 = load i32, ptr %0, align 8
+  %cmp = icmp slt i32 3, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
@@ -9682,82 +9806,83 @@ if.then27:                                        ; preds = %if.else
   %40 = load ptr, ptr %runid, align 8
   %call28 = call ptr @sdsnew(ptr noundef %40)
   store ptr %call28, ptr %runid_obsolete, align 8
-  %41 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %call29 = call ptr @dictGetIterator(ptr noundef %41)
+  %41 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8
+  %call29 = call ptr @dictGetIterator(ptr noundef %42)
   store ptr %call29, ptr %di, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.then27
-  %42 = load ptr, ptr %di, align 8
-  %call30 = call ptr @dictNext(ptr noundef %42)
+  %43 = load ptr, ptr %di, align 8
+  %call30 = call ptr @dictNext(ptr noundef %43)
   store ptr %call30, ptr %de, align 8
   %cmp31 = icmp ne ptr %call30, null
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %43 = load ptr, ptr %de, align 8
-  %call34 = call ptr @dictGetVal(ptr noundef %43)
+  %44 = load ptr, ptr %de, align 8
+  %call34 = call ptr @dictGetVal(ptr noundef %44)
   store ptr %call34, ptr %master33, align 8
-  %44 = load ptr, ptr %master33, align 8
-  %45 = load ptr, ptr %runid_obsolete, align 8
-  %call35 = call i32 @removeMatchingSentinelFromMaster(ptr noundef %44, ptr noundef %45)
+  %45 = load ptr, ptr %master33, align 8
+  %46 = load ptr, ptr %runid_obsolete, align 8
+  %call35 = call i32 @removeMatchingSentinelFromMaster(ptr noundef %45, ptr noundef %46)
   br label %while.cond, !llvm.loop !42
 
 while.end:                                        ; preds = %while.cond
-  %46 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %46)
-  %47 = load ptr, ptr %runid_obsolete, align 8
-  call void @sdsfree(ptr noundef %47)
+  %47 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %47)
+  %48 = load ptr, ptr %runid_obsolete, align 8
+  call void @sdsfree(ptr noundef %48)
   br label %if.end36
 
 if.end36:                                         ; preds = %while.end, %if.else
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end36, %if.then20
-  %48 = load ptr, ptr %token, align 8
-  %arrayidx38 = getelementptr inbounds ptr, ptr %48, i64 2
-  %49 = load ptr, ptr %arrayidx38, align 8
-  %50 = load ptr, ptr %token, align 8
-  %arrayidx39 = getelementptr inbounds ptr, ptr %50, i64 0
-  %51 = load ptr, ptr %arrayidx39, align 8
-  %52 = load i32, ptr %port, align 4
-  %53 = load ptr, ptr %master, align 8
-  %quorum = getelementptr inbounds %struct.sentinelRedisInstance, ptr %53, i32 0, i32 21
-  %54 = load i32, ptr %quorum, align 8
-  %55 = load ptr, ptr %master, align 8
-  %call40 = call ptr @createSentinelRedisInstance(ptr noundef %49, i32 noundef 4, ptr noundef %51, i32 noundef %52, i32 noundef %54, ptr noundef %55)
+  %49 = load ptr, ptr %token, align 8
+  %arrayidx38 = getelementptr inbounds ptr, ptr %49, i64 2
+  %50 = load ptr, ptr %arrayidx38, align 8
+  %51 = load ptr, ptr %token, align 8
+  %arrayidx39 = getelementptr inbounds ptr, ptr %51, i64 0
+  %52 = load ptr, ptr %arrayidx39, align 8
+  %53 = load i32, ptr %port, align 4
+  %54 = load ptr, ptr %master, align 8
+  %quorum = getelementptr inbounds %struct.sentinelRedisInstance, ptr %54, i32 0, i32 21
+  %55 = load i32, ptr %quorum, align 8
+  %56 = load ptr, ptr %master, align 8
+  %call40 = call ptr @createSentinelRedisInstance(ptr noundef %50, i32 noundef 4, ptr noundef %52, i32 noundef %53, i32 noundef %55, ptr noundef %56)
   store ptr %call40, ptr %si, align 8
-  %56 = load ptr, ptr %si, align 8
-  %tobool41 = icmp ne ptr %56, null
+  %57 = load ptr, ptr %si, align 8
+  %tobool41 = icmp ne ptr %57, null
   br i1 %tobool41, label %if.then42, label %if.end55
 
 if.then42:                                        ; preds = %if.end37
-  %57 = load i32, ptr %removed, align 4
-  %tobool43 = icmp ne i32 %57, 0
+  %58 = load i32, ptr %removed, align 4
+  %tobool43 = icmp ne i32 %58, 0
   br i1 %tobool43, label %if.end45, label %if.then44
 
 if.then44:                                        ; preds = %if.then42
-  %58 = load ptr, ptr %si, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef @.str.195, ptr noundef %58, ptr noundef @.str.54)
+  %59 = load ptr, ptr %si, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef @.str.195, ptr noundef %59, ptr noundef @.str.54)
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then44, %if.then42
-  %59 = load ptr, ptr %token, align 8
-  %arrayidx46 = getelementptr inbounds ptr, ptr %59, i64 2
-  %60 = load ptr, ptr %arrayidx46, align 8
-  %call47 = call ptr @sdsnew(ptr noundef %60)
-  %61 = load ptr, ptr %si, align 8
-  %runid48 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %61, i32 0, i32 2
-  store ptr %call47, ptr %runid48, align 8
+  %60 = load ptr, ptr %token, align 8
+  %arrayidx46 = getelementptr inbounds ptr, ptr %60, i64 2
+  %61 = load ptr, ptr %arrayidx46, align 8
+  %call47 = call ptr @sdsnew(ptr noundef %61)
   %62 = load ptr, ptr %si, align 8
-  %call49 = call i32 @sentinelTryConnectionSharing(ptr noundef %62)
-  %63 = load i32, ptr %removed, align 4
-  %tobool50 = icmp ne i32 %63, 0
+  %runid48 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %62, i32 0, i32 2
+  store ptr %call47, ptr %runid48, align 8
+  %63 = load ptr, ptr %si, align 8
+  %call49 = call i32 @sentinelTryConnectionSharing(ptr noundef %63)
+  %64 = load i32, ptr %removed, align 4
+  %tobool50 = icmp ne i32 %64, 0
   br i1 %tobool50, label %if.then51, label %if.end53
 
 if.then51:                                        ; preds = %if.end45
-  %64 = load ptr, ptr %si, align 8
-  %call52 = call i32 @sentinelUpdateSentinelAddressInAllMasters(ptr noundef %64)
+  %65 = load ptr, ptr %si, align 8
+  %call52 = call i32 @sentinelUpdateSentinelAddressInAllMasters(ptr noundef %65)
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then51, %if.end45
@@ -9768,112 +9893,115 @@ if.end55:                                         ; preds = %if.end53, %if.end37
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end55, %if.end
-  %65 = load i64, ptr %current_epoch, align 8
-  %66 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  %cmp57 = icmp ugt i64 %65, %66
+  %66 = load i64, ptr %current_epoch, align 8
+  %67 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  %68 = load i64, ptr %67, align 8
+  %cmp57 = icmp ugt i64 %66, %68
   br i1 %cmp57, label %if.then59, label %if.end61
 
 if.then59:                                        ; preds = %if.end56
-  %67 = load i64, ptr %current_epoch, align 8
-  store i64 %67, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
+  %69 = load i64, ptr %current_epoch, align 8
+  %70 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  store i64 %69, ptr %70, align 8
   %call60 = call i32 @sentinelFlushConfig()
-  %68 = load ptr, ptr %master, align 8
-  %69 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.196, ptr noundef %68, ptr noundef @.str.197, i64 noundef %69)
+  %71 = load ptr, ptr %master, align 8
+  %72 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  %73 = load i64, ptr %72, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.196, ptr noundef %71, ptr noundef @.str.197, i64 noundef %73)
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then59, %if.end56
-  %70 = load ptr, ptr %si, align 8
-  %tobool62 = icmp ne ptr %70, null
+  %74 = load ptr, ptr %si, align 8
+  %tobool62 = icmp ne ptr %74, null
   br i1 %tobool62, label %land.lhs.true, label %if.end86
 
 land.lhs.true:                                    ; preds = %if.end61
-  %71 = load ptr, ptr %master, align 8
-  %config_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %71, i32 0, i32 3
-  %72 = load i64, ptr %config_epoch, align 8
-  %73 = load i64, ptr %master_config_epoch, align 8
-  %cmp63 = icmp ult i64 %72, %73
+  %75 = load ptr, ptr %master, align 8
+  %config_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %75, i32 0, i32 3
+  %76 = load i64, ptr %config_epoch, align 8
+  %77 = load i64, ptr %master_config_epoch, align 8
+  %cmp63 = icmp ult i64 %76, %77
   br i1 %cmp63, label %if.then65, label %if.end86
 
 if.then65:                                        ; preds = %land.lhs.true
-  %74 = load i64, ptr %master_config_epoch, align 8
-  %75 = load ptr, ptr %master, align 8
-  %config_epoch66 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %75, i32 0, i32 3
-  store i64 %74, ptr %config_epoch66, align 8
-  %76 = load i32, ptr %master_port, align 4
-  %77 = load ptr, ptr %master, align 8
-  %addr = getelementptr inbounds %struct.sentinelRedisInstance, ptr %77, i32 0, i32 4
-  %78 = load ptr, ptr %addr, align 8
-  %port67 = getelementptr inbounds %struct.sentinelAddr, ptr %78, i32 0, i32 2
-  %79 = load i32, ptr %port67, align 8
-  %cmp68 = icmp ne i32 %76, %79
+  %78 = load i64, ptr %master_config_epoch, align 8
+  %79 = load ptr, ptr %master, align 8
+  %config_epoch66 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %79, i32 0, i32 3
+  store i64 %78, ptr %config_epoch66, align 8
+  %80 = load i32, ptr %master_port, align 4
+  %81 = load ptr, ptr %master, align 8
+  %addr = getelementptr inbounds %struct.sentinelRedisInstance, ptr %81, i32 0, i32 4
+  %82 = load ptr, ptr %addr, align 8
+  %port67 = getelementptr inbounds %struct.sentinelAddr, ptr %82, i32 0, i32 2
+  %83 = load i32, ptr %port67, align 8
+  %cmp68 = icmp ne i32 %80, %83
   br i1 %cmp68, label %if.then74, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then65
-  %80 = load ptr, ptr %master, align 8
-  %addr70 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %80, i32 0, i32 4
-  %81 = load ptr, ptr %addr70, align 8
-  %82 = load ptr, ptr %token, align 8
-  %arrayidx71 = getelementptr inbounds ptr, ptr %82, i64 5
-  %83 = load ptr, ptr %arrayidx71, align 8
-  %call72 = call i32 @sentinelAddrEqualsHostname(ptr noundef %81, ptr noundef %83)
+  %84 = load ptr, ptr %master, align 8
+  %addr70 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %84, i32 0, i32 4
+  %85 = load ptr, ptr %addr70, align 8
+  %86 = load ptr, ptr %token, align 8
+  %arrayidx71 = getelementptr inbounds ptr, ptr %86, i64 5
+  %87 = load ptr, ptr %arrayidx71, align 8
+  %call72 = call i32 @sentinelAddrEqualsHostname(ptr noundef %85, ptr noundef %87)
   %tobool73 = icmp ne i32 %call72, 0
   br i1 %tobool73, label %if.end85, label %if.then74
 
 if.then74:                                        ; preds = %lor.lhs.false, %if.then65
-  %84 = load ptr, ptr %si, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.198, ptr noundef %84, ptr noundef @.str.54)
-  %85 = load ptr, ptr %master, align 8
-  %86 = load ptr, ptr %master, align 8
-  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %86, i32 0, i32 1
-  %87 = load ptr, ptr %name, align 8
-  %88 = load ptr, ptr %master, align 8
-  %addr75 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %88, i32 0, i32 4
-  %89 = load ptr, ptr %addr75, align 8
-  %call76 = call ptr @announceSentinelAddr(ptr noundef %89)
+  %88 = load ptr, ptr %si, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.198, ptr noundef %88, ptr noundef @.str.54)
+  %89 = load ptr, ptr %master, align 8
   %90 = load ptr, ptr %master, align 8
-  %addr77 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %90, i32 0, i32 4
-  %91 = load ptr, ptr %addr77, align 8
-  %port78 = getelementptr inbounds %struct.sentinelAddr, ptr %91, i32 0, i32 2
-  %92 = load i32, ptr %port78, align 8
-  %93 = load ptr, ptr %token, align 8
-  %arrayidx79 = getelementptr inbounds ptr, ptr %93, i64 5
-  %94 = load ptr, ptr %arrayidx79, align 8
-  %95 = load i32, ptr %master_port, align 4
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.199, ptr noundef %85, ptr noundef @.str.200, ptr noundef %87, ptr noundef %call76, i32 noundef %92, ptr noundef %94, i32 noundef %95)
-  %96 = load ptr, ptr %master, align 8
-  %addr80 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %96, i32 0, i32 4
-  %97 = load ptr, ptr %addr80, align 8
-  %call81 = call ptr @dupSentinelAddr(ptr noundef %97)
+  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %90, i32 0, i32 1
+  %91 = load ptr, ptr %name, align 8
+  %92 = load ptr, ptr %master, align 8
+  %addr75 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %92, i32 0, i32 4
+  %93 = load ptr, ptr %addr75, align 8
+  %call76 = call ptr @announceSentinelAddr(ptr noundef %93)
+  %94 = load ptr, ptr %master, align 8
+  %addr77 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %94, i32 0, i32 4
+  %95 = load ptr, ptr %addr77, align 8
+  %port78 = getelementptr inbounds %struct.sentinelAddr, ptr %95, i32 0, i32 2
+  %96 = load i32, ptr %port78, align 8
+  %97 = load ptr, ptr %token, align 8
+  %arrayidx79 = getelementptr inbounds ptr, ptr %97, i64 5
+  %98 = load ptr, ptr %arrayidx79, align 8
+  %99 = load i32, ptr %master_port, align 4
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.199, ptr noundef %89, ptr noundef @.str.200, ptr noundef %91, ptr noundef %call76, i32 noundef %96, ptr noundef %98, i32 noundef %99)
+  %100 = load ptr, ptr %master, align 8
+  %addr80 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %100, i32 0, i32 4
+  %101 = load ptr, ptr %addr80, align 8
+  %call81 = call ptr @dupSentinelAddr(ptr noundef %101)
   store ptr %call81, ptr %old_addr, align 8
-  %98 = load ptr, ptr %master, align 8
-  %99 = load ptr, ptr %token, align 8
-  %arrayidx82 = getelementptr inbounds ptr, ptr %99, i64 5
-  %100 = load ptr, ptr %arrayidx82, align 8
-  %101 = load i32, ptr %master_port, align 4
-  %call83 = call i32 @sentinelResetMasterAndChangeAddress(ptr noundef %98, ptr noundef %100, i32 noundef %101)
   %102 = load ptr, ptr %master, align 8
-  %103 = load ptr, ptr %old_addr, align 8
-  %104 = load ptr, ptr %master, align 8
-  %addr84 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %104, i32 0, i32 4
-  %105 = load ptr, ptr %addr84, align 8
-  call void @sentinelCallClientReconfScript(ptr noundef %102, i32 noundef 262144, ptr noundef @.str.180, ptr noundef %103, ptr noundef %105)
-  %106 = load ptr, ptr %old_addr, align 8
-  call void @releaseSentinelAddr(ptr noundef %106)
+  %103 = load ptr, ptr %token, align 8
+  %arrayidx82 = getelementptr inbounds ptr, ptr %103, i64 5
+  %104 = load ptr, ptr %arrayidx82, align 8
+  %105 = load i32, ptr %master_port, align 4
+  %call83 = call i32 @sentinelResetMasterAndChangeAddress(ptr noundef %102, ptr noundef %104, i32 noundef %105)
+  %106 = load ptr, ptr %master, align 8
+  %107 = load ptr, ptr %old_addr, align 8
+  %108 = load ptr, ptr %master, align 8
+  %addr84 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %108, i32 0, i32 4
+  %109 = load ptr, ptr %addr84, align 8
+  call void @sentinelCallClientReconfScript(ptr noundef %106, i32 noundef 262144, ptr noundef @.str.180, ptr noundef %107, ptr noundef %109)
+  %110 = load ptr, ptr %old_addr, align 8
+  call void @releaseSentinelAddr(ptr noundef %110)
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then74, %lor.lhs.false
   br label %if.end86
 
 if.end86:                                         ; preds = %if.end85, %land.lhs.true, %if.end61
-  %107 = load ptr, ptr %si, align 8
-  %tobool87 = icmp ne ptr %107, null
+  %111 = load ptr, ptr %si, align 8
+  %tobool87 = icmp ne ptr %111, null
   br i1 %tobool87, label %if.then88, label %if.end90
 
 if.then88:                                        ; preds = %if.end86
   %call89 = call i64 @mstime()
-  %108 = load ptr, ptr %si, align 8
-  %last_hello_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %108, i32 0, i32 7
+  %112 = load ptr, ptr %si, align 8
+  %last_hello_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %112, i32 0, i32 7
   store i64 %call89, ptr %last_hello_time, align 8
   br label %if.end90
 
@@ -9884,9 +10012,9 @@ if.end91:                                         ; preds = %if.end90, %entry
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end91, %if.then3
-  %109 = load ptr, ptr %token, align 8
-  %110 = load i32, ptr %numtokens, align 4
-  call void @sdsfreesplitres(ptr noundef %109, i32 noundef %110)
+  %113 = load ptr, ptr %token, align 8
+  %114 = load i32, ptr %numtokens, align 4
+  call void @sdsfreesplitres(ptr noundef %113, i32 noundef %114)
   ret void
 }
 
@@ -9939,26 +10067,28 @@ if.then:                                          ; preds = %cond.end
   br label %return
 
 if.end:                                           ; preds = %cond.end
-  %9 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 8), align 8
-  %tobool4 = icmp ne ptr %9, null
+  %9 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 8
+  %10 = load ptr, ptr %9, align 8
+  %tobool4 = icmp ne ptr %10, null
   br i1 %tobool4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end
-  %10 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 8), align 8
-  store ptr %10, ptr %announce_ip, align 8
+  %11 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 8
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %announce_ip, align 8
   br label %if.end11
 
 if.else:                                          ; preds = %if.end
-  %11 = load ptr, ptr %ri.addr, align 8
-  %link6 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %11, i32 0, i32 5
-  %12 = load ptr, ptr %link6, align 8
-  %cc = getelementptr inbounds %struct.instanceLink, ptr %12, i32 0, i32 3
-  %13 = load ptr, ptr %cc, align 8
-  %c = getelementptr inbounds %struct.redisAsyncContext, ptr %13, i32 0, i32 0
+  %13 = load ptr, ptr %ri.addr, align 8
+  %link6 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %13, i32 0, i32 5
+  %14 = load ptr, ptr %link6, align 8
+  %cc = getelementptr inbounds %struct.instanceLink, ptr %14, i32 0, i32 3
+  %15 = load ptr, ptr %cc, align 8
+  %c = getelementptr inbounds %struct.redisAsyncContext, ptr %15, i32 0, i32 0
   %fd = getelementptr inbounds %struct.redisContext, ptr %c, i32 0, i32 3
-  %14 = load i32, ptr %fd, align 4
+  %16 = load i32, ptr %fd, align 4
   %arraydecay = getelementptr inbounds [46 x i8], ptr %ip, i64 0, i64 0
-  %call7 = call i32 @anetFdToString(i32 noundef %14, ptr noundef %arraydecay, i64 noundef 46, ptr noundef null, i32 noundef 0)
+  %call7 = call i32 @anetFdToString(i32 noundef %16, ptr noundef %arraydecay, i64 noundef 46, ptr noundef null, i32 noundef 0)
   %cmp = icmp eq i32 %call7, -1
   br i1 %cmp, label %if.then8, label %if.end9
 
@@ -9972,33 +10102,39 @@ if.end9:                                          ; preds = %if.else
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end9, %if.then5
-  %15 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 9), align 8
-  %tobool12 = icmp ne i32 %15, 0
+  %17 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 9
+  %18 = load i32, ptr %17, align 8
+  %tobool12 = icmp ne i32 %18, 0
   br i1 %tobool12, label %if.then13, label %if.else14
 
 if.then13:                                        ; preds = %if.end11
-  %16 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 9), align 8
-  store i32 %16, ptr %announce_port, align 4
+  %19 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 9
+  %20 = load i32, ptr %19, align 8
+  store i32 %20, ptr %announce_port, align 4
   br label %if.end20
 
 if.else14:                                        ; preds = %if.end11
-  %17 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 403), align 4
-  %tobool15 = icmp ne i32 %17, 0
+  %21 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 403
+  %22 = load i32, ptr %21, align 4
+  %tobool15 = icmp ne i32 %22, 0
   br i1 %tobool15, label %land.lhs.true, label %if.else18
 
 land.lhs.true:                                    ; preds = %if.else14
-  %18 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 45), align 4
-  %tobool16 = icmp ne i32 %18, 0
+  %23 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 45
+  %24 = load i32, ptr %23, align 4
+  %tobool16 = icmp ne i32 %24, 0
   br i1 %tobool16, label %if.then17, label %if.else18
 
 if.then17:                                        ; preds = %land.lhs.true
-  %19 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 45), align 4
-  store i32 %19, ptr %announce_port, align 4
+  %25 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 45
+  %26 = load i32, ptr %25, align 4
+  store i32 %26, ptr %announce_port, align 4
   br label %if.end19
 
 if.else18:                                        ; preds = %land.lhs.true, %if.else14
-  %20 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 44), align 8
-  store i32 %20, ptr %announce_port, align 4
+  %27 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 44
+  %28 = load i32, ptr %27, align 8
+  store i32 %28, ptr %announce_port, align 4
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else18, %if.then17
@@ -10006,34 +10142,35 @@ if.end19:                                         ; preds = %if.else18, %if.then
 
 if.end20:                                         ; preds = %if.end19, %if.then13
   %arraydecay21 = getelementptr inbounds [1070 x i8], ptr %payload, i64 0, i64 0
-  %21 = load ptr, ptr %announce_ip, align 8
-  %22 = load i32, ptr %announce_port, align 4
-  %23 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  %24 = load ptr, ptr %master, align 8
-  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %name, align 8
-  %26 = load ptr, ptr %master_addr, align 8
-  %call22 = call ptr @announceSentinelAddr(ptr noundef %26)
-  %27 = load ptr, ptr %master_addr, align 8
-  %port = getelementptr inbounds %struct.sentinelAddr, ptr %27, i32 0, i32 2
-  %28 = load i32, ptr %port, align 8
-  %29 = load ptr, ptr %master, align 8
-  %config_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %29, i32 0, i32 3
-  %30 = load i64, ptr %config_epoch, align 8
-  %call23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay21, i64 noundef 1070, ptr noundef @.str.202, ptr noundef %21, i32 noundef %22, ptr noundef @sentinel, i64 noundef %23, ptr noundef %25, ptr noundef %call22, i32 noundef %28, i64 noundef %30) #12
-  %31 = load ptr, ptr %ri.addr, align 8
-  %link24 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %31, i32 0, i32 5
-  %32 = load ptr, ptr %link24, align 8
-  %cc25 = getelementptr inbounds %struct.instanceLink, ptr %32, i32 0, i32 3
-  %33 = load ptr, ptr %cc25, align 8
-  %34 = load ptr, ptr %ri.addr, align 8
-  %35 = load ptr, ptr %ri.addr, align 8
-  %call26 = call ptr @sentinelInstanceMapCommand(ptr noundef %35, ptr noundef @.str.203)
+  %29 = load ptr, ptr %announce_ip, align 8
+  %30 = load i32, ptr %announce_port, align 4
+  %31 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8
+  %33 = load ptr, ptr %master, align 8
+  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %33, i32 0, i32 1
+  %34 = load ptr, ptr %name, align 8
+  %35 = load ptr, ptr %master_addr, align 8
+  %call22 = call ptr @announceSentinelAddr(ptr noundef %35)
+  %36 = load ptr, ptr %master_addr, align 8
+  %port = getelementptr inbounds %struct.sentinelAddr, ptr %36, i32 0, i32 2
+  %37 = load i32, ptr %port, align 8
+  %38 = load ptr, ptr %master, align 8
+  %config_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %38, i32 0, i32 3
+  %39 = load i64, ptr %config_epoch, align 8
+  %call23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay21, i64 noundef 1070, ptr noundef @.str.202, ptr noundef %29, i32 noundef %30, ptr noundef @sentinel, i64 noundef %32, ptr noundef %34, ptr noundef %call22, i32 noundef %37, i64 noundef %39) #12
+  %40 = load ptr, ptr %ri.addr, align 8
+  %link24 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %40, i32 0, i32 5
+  %41 = load ptr, ptr %link24, align 8
+  %cc25 = getelementptr inbounds %struct.instanceLink, ptr %41, i32 0, i32 3
+  %42 = load ptr, ptr %cc25, align 8
+  %43 = load ptr, ptr %ri.addr, align 8
+  %44 = load ptr, ptr %ri.addr, align 8
+  %call26 = call ptr @sentinelInstanceMapCommand(ptr noundef %44, ptr noundef @.str.203)
   %arraydecay27 = getelementptr inbounds [1070 x i8], ptr %payload, i64 0, i64 0
-  %call28 = call i32 (ptr, ptr, ptr, ptr, ...) @redisAsyncCommand(ptr noundef %33, ptr noundef @sentinelPublishReplyCallback, ptr noundef %34, ptr noundef @.str.147, ptr noundef %call26, ptr noundef @.str.159, ptr noundef %arraydecay27)
+  %call28 = call i32 (ptr, ptr, ptr, ptr, ...) @redisAsyncCommand(ptr noundef %42, ptr noundef @sentinelPublishReplyCallback, ptr noundef %43, ptr noundef @.str.147, ptr noundef %call26, ptr noundef @.str.159, ptr noundef %arraydecay27)
   store i32 %call28, ptr %retval1, align 4
-  %36 = load i32, ptr %retval1, align 4
-  %cmp29 = icmp ne i32 %36, 0
+  %45 = load i32, ptr %retval1, align 4
+  %cmp29 = icmp ne i32 %45, 0
   br i1 %cmp29, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %if.end20
@@ -10041,19 +10178,19 @@ if.then30:                                        ; preds = %if.end20
   br label %return
 
 if.end31:                                         ; preds = %if.end20
-  %37 = load ptr, ptr %ri.addr, align 8
-  %link32 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %37, i32 0, i32 5
-  %38 = load ptr, ptr %link32, align 8
-  %pending_commands = getelementptr inbounds %struct.instanceLink, ptr %38, i32 0, i32 2
-  %39 = load i32, ptr %pending_commands, align 8
-  %inc = add nsw i32 %39, 1
+  %46 = load ptr, ptr %ri.addr, align 8
+  %link32 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %46, i32 0, i32 5
+  %47 = load ptr, ptr %link32, align 8
+  %pending_commands = getelementptr inbounds %struct.instanceLink, ptr %47, i32 0, i32 2
+  %48 = load i32, ptr %pending_commands, align 8
+  %inc = add nsw i32 %48, 1
   store i32 %inc, ptr %pending_commands, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end31, %if.then30, %if.then8, %if.then
-  %40 = load i32, ptr %retval, align 4
-  ret i32 %40
+  %49 = load i32, ptr %retval, align 4
+  ret i32 %49
 }
 
 declare i32 @anetFdToString(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) #1
@@ -10304,8 +10441,9 @@ if.end47:                                         ; preds = %if.then45, %if.end4
 define dso_local ptr @getLogLevel() #0 {
 entry:
   %retval = alloca ptr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  switch i32 %0, label %sw.epilog [
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %1 = load i32, ptr %0, align 8
+  switch i32 %1, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb1
     i32 2, label %sw.bb2
@@ -10338,8 +10476,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %1 = load ptr, ptr %retval, align 8
-  ret ptr %1
+  %2 = load ptr, ptr %retval, align 8
+  ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10666,55 +10804,60 @@ if.then101:                                       ; preds = %land.lhs.true
   br i1 %tobool108, label %if.else110, label %if.then109
 
 if.then109:                                       ; preds = %if.then101
-  store i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
+  %71 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  store i32 0, ptr %71, align 8
   br label %if.end134
 
 if.else110:                                       ; preds = %if.then101
-  %71 = load ptr, ptr %val, align 8
-  %ptr111 = getelementptr inbounds %struct.redisObject, ptr %71, i32 0, i32 2
-  %72 = load ptr, ptr %ptr111, align 8
-  %call112 = call i32 @strcasecmp(ptr noundef %72, ptr noundef @.str.208) #15
+  %72 = load ptr, ptr %val, align 8
+  %ptr111 = getelementptr inbounds %struct.redisObject, ptr %72, i32 0, i32 2
+  %73 = load ptr, ptr %ptr111, align 8
+  %call112 = call i32 @strcasecmp(ptr noundef %73, ptr noundef @.str.208) #15
   %tobool113 = icmp ne i32 %call112, 0
   br i1 %tobool113, label %if.else115, label %if.then114
 
 if.then114:                                       ; preds = %if.else110
-  store i32 1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
+  %74 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  store i32 1, ptr %74, align 8
   br label %if.end133
 
 if.else115:                                       ; preds = %if.else110
-  %73 = load ptr, ptr %val, align 8
-  %ptr116 = getelementptr inbounds %struct.redisObject, ptr %73, i32 0, i32 2
-  %74 = load ptr, ptr %ptr116, align 8
-  %call117 = call i32 @strcasecmp(ptr noundef %74, ptr noundef @.str.209) #15
+  %75 = load ptr, ptr %val, align 8
+  %ptr116 = getelementptr inbounds %struct.redisObject, ptr %75, i32 0, i32 2
+  %76 = load ptr, ptr %ptr116, align 8
+  %call117 = call i32 @strcasecmp(ptr noundef %76, ptr noundef @.str.209) #15
   %tobool118 = icmp ne i32 %call117, 0
   br i1 %tobool118, label %if.else120, label %if.then119
 
 if.then119:                                       ; preds = %if.else115
-  store i32 2, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
+  %77 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  store i32 2, ptr %77, align 8
   br label %if.end132
 
 if.else120:                                       ; preds = %if.else115
-  %75 = load ptr, ptr %val, align 8
-  %ptr121 = getelementptr inbounds %struct.redisObject, ptr %75, i32 0, i32 2
-  %76 = load ptr, ptr %ptr121, align 8
-  %call122 = call i32 @strcasecmp(ptr noundef %76, ptr noundef @.str.210) #15
+  %78 = load ptr, ptr %val, align 8
+  %ptr121 = getelementptr inbounds %struct.redisObject, ptr %78, i32 0, i32 2
+  %79 = load ptr, ptr %ptr121, align 8
+  %call122 = call i32 @strcasecmp(ptr noundef %79, ptr noundef @.str.210) #15
   %tobool123 = icmp ne i32 %call122, 0
   br i1 %tobool123, label %if.else125, label %if.then124
 
 if.then124:                                       ; preds = %if.else120
-  store i32 3, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
+  %80 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  store i32 3, ptr %80, align 8
   br label %if.end131
 
 if.else125:                                       ; preds = %if.else120
-  %77 = load ptr, ptr %val, align 8
-  %ptr126 = getelementptr inbounds %struct.redisObject, ptr %77, i32 0, i32 2
-  %78 = load ptr, ptr %ptr126, align 8
-  %call127 = call i32 @strcasecmp(ptr noundef %78, ptr noundef @.str.211) #15
+  %81 = load ptr, ptr %val, align 8
+  %ptr126 = getelementptr inbounds %struct.redisObject, ptr %81, i32 0, i32 2
+  %82 = load ptr, ptr %ptr126, align 8
+  %call127 = call i32 @strcasecmp(ptr noundef %82, ptr noundef @.str.211) #15
   %tobool128 = icmp ne i32 %call127, 0
   br i1 %tobool128, label %if.end130, label %if.then129
 
 if.then129:                                       ; preds = %if.else125
-  store i32 4, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
+  %83 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  store i32 4, ptr %83, align 8
   br label %if.end130
 
 if.end130:                                        ; preds = %if.then129, %if.else125
@@ -10733,167 +10876,174 @@ if.end134:                                        ; preds = %if.end133, %if.then
   br label %if.end242
 
 if.else135:                                       ; preds = %land.lhs.true, %for.body90
-  %79 = load ptr, ptr %option, align 8
-  %call136 = call i32 @strcasecmp(ptr noundef %79, ptr noundef @.str.7) #15
+  %84 = load ptr, ptr %option, align 8
+  %call136 = call i32 @strcasecmp(ptr noundef %84, ptr noundef @.str.7) #15
   %tobool137 = icmp ne i32 %call136, 0
   br i1 %tobool137, label %if.else150, label %land.lhs.true138
 
 land.lhs.true138:                                 ; preds = %if.else135
-  %80 = load i32, ptr %moreargs, align 4
-  %cmp139 = icmp sgt i32 %80, 0
+  %85 = load i32, ptr %moreargs, align 4
+  %cmp139 = icmp sgt i32 %85, 0
   br i1 %cmp139, label %if.then141, label %if.else150
 
 if.then141:                                       ; preds = %land.lhs.true138
-  %81 = load ptr, ptr %c.addr, align 8
-  %argv142 = getelementptr inbounds %struct.client, ptr %81, i32 0, i32 12
-  %82 = load ptr, ptr %argv142, align 8
-  %83 = load i32, ptr %i85, align 4
-  %inc143 = add nsw i32 %83, 1
+  %86 = load ptr, ptr %c.addr, align 8
+  %argv142 = getelementptr inbounds %struct.client, ptr %86, i32 0, i32 12
+  %87 = load ptr, ptr %argv142, align 8
+  %88 = load i32, ptr %i85, align 4
+  %inc143 = add nsw i32 %88, 1
   store i32 %inc143, ptr %i85, align 4
   %idxprom144 = sext i32 %inc143 to i64
-  %arrayidx145 = getelementptr inbounds ptr, ptr %82, i64 %idxprom144
-  %84 = load ptr, ptr %arrayidx145, align 8
-  store ptr %84, ptr %val, align 8
-  %85 = load ptr, ptr %val, align 8
-  %ptr146 = getelementptr inbounds %struct.redisObject, ptr %85, i32 0, i32 2
-  %86 = load ptr, ptr %ptr146, align 8
-  %call147 = call i32 @yesnotoi(ptr noundef %86)
+  %arrayidx145 = getelementptr inbounds ptr, ptr %87, i64 %idxprom144
+  %89 = load ptr, ptr %arrayidx145, align 8
+  store ptr %89, ptr %val, align 8
+  %90 = load ptr, ptr %val, align 8
+  %ptr146 = getelementptr inbounds %struct.redisObject, ptr %90, i32 0, i32 2
+  %91 = load ptr, ptr %ptr146, align 8
+  %call147 = call i32 @yesnotoi(ptr noundef %91)
   %conv148 = sext i32 %call147 to i64
   store i64 %conv148, ptr %numval, align 8
-  %87 = load i64, ptr %numval, align 8
-  %conv149 = trunc i64 %87 to i32
-  store i32 %conv149, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 14), align 8
+  %92 = load i64, ptr %numval, align 8
+  %conv149 = trunc i64 %92 to i32
+  %93 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 14
+  store i32 %conv149, ptr %93, align 8
   br label %if.end241
 
 if.else150:                                       ; preds = %land.lhs.true138, %if.else135
-  %88 = load ptr, ptr %option, align 8
-  %call151 = call i32 @strcasecmp(ptr noundef %88, ptr noundef @.str.8) #15
+  %94 = load ptr, ptr %option, align 8
+  %call151 = call i32 @strcasecmp(ptr noundef %94, ptr noundef @.str.8) #15
   %tobool152 = icmp ne i32 %call151, 0
   br i1 %tobool152, label %if.else165, label %land.lhs.true153
 
 land.lhs.true153:                                 ; preds = %if.else150
-  %89 = load i32, ptr %moreargs, align 4
-  %cmp154 = icmp sgt i32 %89, 0
+  %95 = load i32, ptr %moreargs, align 4
+  %cmp154 = icmp sgt i32 %95, 0
   br i1 %cmp154, label %if.then156, label %if.else165
 
 if.then156:                                       ; preds = %land.lhs.true153
-  %90 = load ptr, ptr %c.addr, align 8
-  %argv157 = getelementptr inbounds %struct.client, ptr %90, i32 0, i32 12
-  %91 = load ptr, ptr %argv157, align 8
-  %92 = load i32, ptr %i85, align 4
-  %inc158 = add nsw i32 %92, 1
+  %96 = load ptr, ptr %c.addr, align 8
+  %argv157 = getelementptr inbounds %struct.client, ptr %96, i32 0, i32 12
+  %97 = load ptr, ptr %argv157, align 8
+  %98 = load i32, ptr %i85, align 4
+  %inc158 = add nsw i32 %98, 1
   store i32 %inc158, ptr %i85, align 4
   %idxprom159 = sext i32 %inc158 to i64
-  %arrayidx160 = getelementptr inbounds ptr, ptr %91, i64 %idxprom159
-  %93 = load ptr, ptr %arrayidx160, align 8
-  store ptr %93, ptr %val, align 8
-  %94 = load ptr, ptr %val, align 8
-  %ptr161 = getelementptr inbounds %struct.redisObject, ptr %94, i32 0, i32 2
-  %95 = load ptr, ptr %ptr161, align 8
-  %call162 = call i32 @yesnotoi(ptr noundef %95)
+  %arrayidx160 = getelementptr inbounds ptr, ptr %97, i64 %idxprom159
+  %99 = load ptr, ptr %arrayidx160, align 8
+  store ptr %99, ptr %val, align 8
+  %100 = load ptr, ptr %val, align 8
+  %ptr161 = getelementptr inbounds %struct.redisObject, ptr %100, i32 0, i32 2
+  %101 = load ptr, ptr %ptr161, align 8
+  %call162 = call i32 @yesnotoi(ptr noundef %101)
   %conv163 = sext i32 %call162 to i64
   store i64 %conv163, ptr %numval, align 8
-  %96 = load i64, ptr %numval, align 8
-  %conv164 = trunc i64 %96 to i32
-  store i32 %conv164, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 15), align 4
+  %102 = load i64, ptr %numval, align 8
+  %conv164 = trunc i64 %102 to i32
+  %103 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 15
+  store i32 %conv164, ptr %103, align 4
   br label %if.end240
 
 if.else165:                                       ; preds = %land.lhs.true153, %if.else150
-  %97 = load ptr, ptr %option, align 8
-  %call166 = call i32 @strcasecmp(ptr noundef %97, ptr noundef @.str) #15
+  %104 = load ptr, ptr %option, align 8
+  %call166 = call i32 @strcasecmp(ptr noundef %104, ptr noundef @.str) #15
   %tobool167 = icmp ne i32 %call166, 0
   br i1 %tobool167, label %if.else181, label %land.lhs.true168
 
 land.lhs.true168:                                 ; preds = %if.else165
-  %98 = load i32, ptr %moreargs, align 4
-  %cmp169 = icmp sgt i32 %98, 0
+  %105 = load i32, ptr %moreargs, align 4
+  %cmp169 = icmp sgt i32 %105, 0
   br i1 %cmp169, label %if.then171, label %if.else181
 
 if.then171:                                       ; preds = %land.lhs.true168
-  %99 = load ptr, ptr %c.addr, align 8
-  %argv172 = getelementptr inbounds %struct.client, ptr %99, i32 0, i32 12
-  %100 = load ptr, ptr %argv172, align 8
-  %101 = load i32, ptr %i85, align 4
-  %inc173 = add nsw i32 %101, 1
+  %106 = load ptr, ptr %c.addr, align 8
+  %argv172 = getelementptr inbounds %struct.client, ptr %106, i32 0, i32 12
+  %107 = load ptr, ptr %argv172, align 8
+  %108 = load i32, ptr %i85, align 4
+  %inc173 = add nsw i32 %108, 1
   store i32 %inc173, ptr %i85, align 4
   %idxprom174 = sext i32 %inc173 to i64
-  %arrayidx175 = getelementptr inbounds ptr, ptr %100, i64 %idxprom174
-  %102 = load ptr, ptr %arrayidx175, align 8
-  store ptr %102, ptr %val, align 8
-  %103 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 8), align 8
-  %tobool176 = icmp ne ptr %103, null
+  %arrayidx175 = getelementptr inbounds ptr, ptr %107, i64 %idxprom174
+  %109 = load ptr, ptr %arrayidx175, align 8
+  store ptr %109, ptr %val, align 8
+  %110 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 8
+  %111 = load ptr, ptr %110, align 8
+  %tobool176 = icmp ne ptr %111, null
   br i1 %tobool176, label %if.then177, label %if.end178
 
 if.then177:                                       ; preds = %if.then171
-  %104 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 8), align 8
-  call void @sdsfree(ptr noundef %104)
+  %112 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 8
+  %113 = load ptr, ptr %112, align 8
+  call void @sdsfree(ptr noundef %113)
   br label %if.end178
 
 if.end178:                                        ; preds = %if.then177, %if.then171
-  %105 = load ptr, ptr %val, align 8
-  %ptr179 = getelementptr inbounds %struct.redisObject, ptr %105, i32 0, i32 2
-  %106 = load ptr, ptr %ptr179, align 8
-  %call180 = call ptr @sdsnew(ptr noundef %106)
-  store ptr %call180, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 8), align 8
+  %114 = load ptr, ptr %val, align 8
+  %ptr179 = getelementptr inbounds %struct.redisObject, ptr %114, i32 0, i32 2
+  %115 = load ptr, ptr %ptr179, align 8
+  %call180 = call ptr @sdsnew(ptr noundef %115)
+  %116 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 8
+  store ptr %call180, ptr %116, align 8
   br label %if.end239
 
 if.else181:                                       ; preds = %land.lhs.true168, %if.else165
-  %107 = load ptr, ptr %option, align 8
-  %call182 = call i32 @strcasecmp(ptr noundef %107, ptr noundef @.str.1) #15
+  %117 = load ptr, ptr %option, align 8
+  %call182 = call i32 @strcasecmp(ptr noundef %117, ptr noundef @.str.1) #15
   %tobool183 = icmp ne i32 %call182, 0
   br i1 %tobool183, label %if.else194, label %land.lhs.true184
 
 land.lhs.true184:                                 ; preds = %if.else181
-  %108 = load i32, ptr %moreargs, align 4
-  %cmp185 = icmp sgt i32 %108, 0
+  %118 = load i32, ptr %moreargs, align 4
+  %cmp185 = icmp sgt i32 %118, 0
   br i1 %cmp185, label %if.then187, label %if.else194
 
 if.then187:                                       ; preds = %land.lhs.true184
-  %109 = load ptr, ptr %c.addr, align 8
-  %argv188 = getelementptr inbounds %struct.client, ptr %109, i32 0, i32 12
-  %110 = load ptr, ptr %argv188, align 8
-  %111 = load i32, ptr %i85, align 4
-  %inc189 = add nsw i32 %111, 1
+  %119 = load ptr, ptr %c.addr, align 8
+  %argv188 = getelementptr inbounds %struct.client, ptr %119, i32 0, i32 12
+  %120 = load ptr, ptr %argv188, align 8
+  %121 = load i32, ptr %i85, align 4
+  %inc189 = add nsw i32 %121, 1
   store i32 %inc189, ptr %i85, align 4
   %idxprom190 = sext i32 %inc189 to i64
-  %arrayidx191 = getelementptr inbounds ptr, ptr %110, i64 %idxprom190
-  %112 = load ptr, ptr %arrayidx191, align 8
-  store ptr %112, ptr %val, align 8
-  %113 = load ptr, ptr %val, align 8
-  %call192 = call i32 @getLongLongFromObject(ptr noundef %113, ptr noundef %numval)
-  %114 = load i64, ptr %numval, align 8
-  %conv193 = trunc i64 %114 to i32
-  store i32 %conv193, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 9), align 8
+  %arrayidx191 = getelementptr inbounds ptr, ptr %120, i64 %idxprom190
+  %122 = load ptr, ptr %arrayidx191, align 8
+  store ptr %122, ptr %val, align 8
+  %123 = load ptr, ptr %val, align 8
+  %call192 = call i32 @getLongLongFromObject(ptr noundef %123, ptr noundef %numval)
+  %124 = load i64, ptr %numval, align 8
+  %conv193 = trunc i64 %124 to i32
+  %125 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 9
+  store i32 %conv193, ptr %125, align 8
   br label %if.end238
 
 if.else194:                                       ; preds = %land.lhs.true184, %if.else181
-  %115 = load ptr, ptr %option, align 8
-  %call195 = call i32 @strcasecmp(ptr noundef %115, ptr noundef @.str.3) #15
+  %126 = load ptr, ptr %option, align 8
+  %call195 = call i32 @strcasecmp(ptr noundef %126, ptr noundef @.str.3) #15
   %tobool196 = icmp ne i32 %call195, 0
   br i1 %tobool196, label %if.else214, label %land.lhs.true197
 
 land.lhs.true197:                                 ; preds = %if.else194
-  %116 = load i32, ptr %moreargs, align 4
-  %cmp198 = icmp sgt i32 %116, 0
+  %127 = load i32, ptr %moreargs, align 4
+  %cmp198 = icmp sgt i32 %127, 0
   br i1 %cmp198, label %if.then200, label %if.else214
 
 if.then200:                                       ; preds = %land.lhs.true197
-  %117 = load ptr, ptr %c.addr, align 8
-  %argv201 = getelementptr inbounds %struct.client, ptr %117, i32 0, i32 12
-  %118 = load ptr, ptr %argv201, align 8
-  %119 = load i32, ptr %i85, align 4
-  %inc202 = add nsw i32 %119, 1
+  %128 = load ptr, ptr %c.addr, align 8
+  %argv201 = getelementptr inbounds %struct.client, ptr %128, i32 0, i32 12
+  %129 = load ptr, ptr %argv201, align 8
+  %130 = load i32, ptr %i85, align 4
+  %inc202 = add nsw i32 %130, 1
   store i32 %inc202, ptr %i85, align 4
   %idxprom203 = sext i32 %inc202 to i64
-  %arrayidx204 = getelementptr inbounds ptr, ptr %118, i64 %idxprom203
-  %120 = load ptr, ptr %arrayidx204, align 8
-  store ptr %120, ptr %val, align 8
-  %121 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 13), align 8
-  call void @sdsfree(ptr noundef %121)
-  %122 = load ptr, ptr %val, align 8
-  %ptr205 = getelementptr inbounds %struct.redisObject, ptr %122, i32 0, i32 2
-  %123 = load ptr, ptr %ptr205, align 8
-  %call206 = call i64 @sdslen(ptr noundef %123)
+  %arrayidx204 = getelementptr inbounds ptr, ptr %129, i64 %idxprom203
+  %131 = load ptr, ptr %arrayidx204, align 8
+  store ptr %131, ptr %val, align 8
+  %132 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 13
+  %133 = load ptr, ptr %132, align 8
+  call void @sdsfree(ptr noundef %133)
+  %134 = load ptr, ptr %val, align 8
+  %ptr205 = getelementptr inbounds %struct.redisObject, ptr %134, i32 0, i32 2
+  %135 = load ptr, ptr %ptr205, align 8
+  %call206 = call i64 @sdslen(ptr noundef %135)
   %cmp207 = icmp eq i64 %call206, 0
   br i1 %cmp207, label %cond.true209, label %cond.false210
 
@@ -10901,46 +11051,48 @@ cond.true209:                                     ; preds = %if.then200
   br label %cond.end213
 
 cond.false210:                                    ; preds = %if.then200
-  %124 = load ptr, ptr %val, align 8
-  %ptr211 = getelementptr inbounds %struct.redisObject, ptr %124, i32 0, i32 2
-  %125 = load ptr, ptr %ptr211, align 8
-  %call212 = call ptr @sdsdup(ptr noundef %125)
+  %136 = load ptr, ptr %val, align 8
+  %ptr211 = getelementptr inbounds %struct.redisObject, ptr %136, i32 0, i32 2
+  %137 = load ptr, ptr %ptr211, align 8
+  %call212 = call ptr @sdsdup(ptr noundef %137)
   br label %cond.end213
 
 cond.end213:                                      ; preds = %cond.false210, %cond.true209
   %cond = phi ptr [ null, %cond.true209 ], [ %call212, %cond.false210 ]
-  store ptr %cond, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 13), align 8
+  %138 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 13
+  store ptr %cond, ptr %138, align 8
   store i32 1, ptr %drop_conns, align 4
   br label %if.end237
 
 if.else214:                                       ; preds = %land.lhs.true197, %if.else194
-  %126 = load ptr, ptr %option, align 8
-  %call215 = call i32 @strcasecmp(ptr noundef %126, ptr noundef @.str.4) #15
+  %139 = load ptr, ptr %option, align 8
+  %call215 = call i32 @strcasecmp(ptr noundef %139, ptr noundef @.str.4) #15
   %tobool216 = icmp ne i32 %call215, 0
   br i1 %tobool216, label %if.else235, label %land.lhs.true217
 
 land.lhs.true217:                                 ; preds = %if.else214
-  %127 = load i32, ptr %moreargs, align 4
-  %cmp218 = icmp sgt i32 %127, 0
+  %140 = load i32, ptr %moreargs, align 4
+  %cmp218 = icmp sgt i32 %140, 0
   br i1 %cmp218, label %if.then220, label %if.else235
 
 if.then220:                                       ; preds = %land.lhs.true217
-  %128 = load ptr, ptr %c.addr, align 8
-  %argv221 = getelementptr inbounds %struct.client, ptr %128, i32 0, i32 12
-  %129 = load ptr, ptr %argv221, align 8
-  %130 = load i32, ptr %i85, align 4
-  %inc222 = add nsw i32 %130, 1
+  %141 = load ptr, ptr %c.addr, align 8
+  %argv221 = getelementptr inbounds %struct.client, ptr %141, i32 0, i32 12
+  %142 = load ptr, ptr %argv221, align 8
+  %143 = load i32, ptr %i85, align 4
+  %inc222 = add nsw i32 %143, 1
   store i32 %inc222, ptr %i85, align 4
   %idxprom223 = sext i32 %inc222 to i64
-  %arrayidx224 = getelementptr inbounds ptr, ptr %129, i64 %idxprom223
-  %131 = load ptr, ptr %arrayidx224, align 8
-  store ptr %131, ptr %val, align 8
-  %132 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 12), align 8
-  call void @sdsfree(ptr noundef %132)
-  %133 = load ptr, ptr %val, align 8
-  %ptr225 = getelementptr inbounds %struct.redisObject, ptr %133, i32 0, i32 2
-  %134 = load ptr, ptr %ptr225, align 8
-  %call226 = call i64 @sdslen(ptr noundef %134)
+  %arrayidx224 = getelementptr inbounds ptr, ptr %142, i64 %idxprom223
+  %144 = load ptr, ptr %arrayidx224, align 8
+  store ptr %144, ptr %val, align 8
+  %145 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 12
+  %146 = load ptr, ptr %145, align 8
+  call void @sdsfree(ptr noundef %146)
+  %147 = load ptr, ptr %val, align 8
+  %ptr225 = getelementptr inbounds %struct.redisObject, ptr %147, i32 0, i32 2
+  %148 = load ptr, ptr %ptr225, align 8
+  %call226 = call i64 @sdslen(ptr noundef %148)
   %cmp227 = icmp eq i64 %call226, 0
   br i1 %cmp227, label %cond.true229, label %cond.false230
 
@@ -10948,15 +11100,16 @@ cond.true229:                                     ; preds = %if.then220
   br label %cond.end233
 
 cond.false230:                                    ; preds = %if.then220
-  %135 = load ptr, ptr %val, align 8
-  %ptr231 = getelementptr inbounds %struct.redisObject, ptr %135, i32 0, i32 2
-  %136 = load ptr, ptr %ptr231, align 8
-  %call232 = call ptr @sdsdup(ptr noundef %136)
+  %149 = load ptr, ptr %val, align 8
+  %ptr231 = getelementptr inbounds %struct.redisObject, ptr %149, i32 0, i32 2
+  %150 = load ptr, ptr %ptr231, align 8
+  %call232 = call ptr @sdsdup(ptr noundef %150)
   br label %cond.end233
 
 cond.end233:                                      ; preds = %cond.false230, %cond.true229
   %cond234 = phi ptr [ null, %cond.true229 ], [ %call232, %cond.false230 ]
-  store ptr %cond234, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 12), align 8
+  %151 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 12
+  store ptr %cond234, ptr %151, align 8
   store i32 1, ptr %drop_conns, align 4
   br label %if.end236
 
@@ -10987,16 +11140,16 @@ if.end242:                                        ; preds = %if.end241, %if.end1
   br label %for.inc243
 
 for.inc243:                                       ; preds = %if.end242
-  %137 = load i32, ptr %i85, align 4
-  %inc244 = add nsw i32 %137, 1
+  %152 = load i32, ptr %i85, align 4
+  %inc244 = add nsw i32 %152, 1
   store i32 %inc244, ptr %i85, align 4
   br label %for.cond86, !llvm.loop !45
 
 for.end245:                                       ; preds = %for.cond86
-  %138 = load ptr, ptr %c.addr, align 8
-  call void @sentinelFlushConfigAndReply(ptr noundef %138)
-  %139 = load i32, ptr %drop_conns, align 4
-  %tobool246 = icmp ne i32 %139, 0
+  %153 = load ptr, ptr %c.addr, align 8
+  call void @sentinelFlushConfigAndReply(ptr noundef %153)
+  %154 = load i32, ptr %drop_conns, align 4
+  %tobool246 = icmp ne i32 %154, 0
   br i1 %tobool246, label %if.then247, label %if.end249
 
 if.then247:                                       ; preds = %for.end245
@@ -11007,19 +11160,19 @@ if.end249:                                        ; preds = %if.then247, %for.en
   br label %exit
 
 exit:                                             ; preds = %if.end249, %if.then18, %if.then8, %if.then4
-  %140 = load ptr, ptr %set_configs, align 8
-  call void @dictRelease(ptr noundef %140)
+  %155 = load ptr, ptr %set_configs, align 8
+  call void @dictRelease(ptr noundef %155)
   br label %return
 
 badfmt:                                           ; preds = %if.then78, %if.then53, %if.then39, %if.then30
-  %141 = load ptr, ptr %c.addr, align 8
-  %142 = load ptr, ptr %val, align 8
-  %ptr250 = getelementptr inbounds %struct.redisObject, ptr %142, i32 0, i32 2
-  %143 = load ptr, ptr %ptr250, align 8
-  %144 = load ptr, ptr %option, align 8
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %141, ptr noundef @.str.217, ptr noundef %143, ptr noundef %144)
-  %145 = load ptr, ptr %set_configs, align 8
-  call void @dictRelease(ptr noundef %145)
+  %156 = load ptr, ptr %c.addr, align 8
+  %157 = load ptr, ptr %val, align 8
+  %ptr250 = getelementptr inbounds %struct.redisObject, ptr %157, i32 0, i32 2
+  %158 = load ptr, ptr %ptr250, align 8
+  %159 = load ptr, ptr %option, align 8
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %156, ptr noundef @.str.217, ptr noundef %158, ptr noundef %159)
+  %160 = load ptr, ptr %set_configs, align 8
+  call void @dictRelease(ptr noundef %160)
   br label %return
 
 return:                                           ; preds = %badfmt, %exit
@@ -11176,203 +11329,212 @@ if.then10:                                        ; preds = %land.lhs.true7
   %14 = load ptr, ptr %c.addr, align 8
   call void @addReplyBulkCString(ptr noundef %14, ptr noundef @.str.7)
   %15 = load ptr, ptr %c.addr, align 8
-  %16 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 14), align 8
-  %tobool11 = icmp ne i32 %16, 0
+  %16 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 14
+  %17 = load i32, ptr %16, align 8
+  %tobool11 = icmp ne i32 %17, 0
   %cond = select i1 %tobool11, ptr @.str.98, ptr @.str.99
   call void @addReplyBulkCString(ptr noundef %15, ptr noundef %cond)
-  %17 = load ptr, ptr %d, align 8
-  %call12 = call i32 @dictAdd(ptr noundef %17, ptr noundef @.str.7, ptr noundef null)
-  %18 = load i32, ptr %matches, align 4
-  %inc = add nsw i32 %18, 1
+  %18 = load ptr, ptr %d, align 8
+  %call12 = call i32 @dictAdd(ptr noundef %18, ptr noundef @.str.7, ptr noundef null)
+  %19 = load i32, ptr %matches, align 4
+  %inc = add nsw i32 %19, 1
   store i32 %inc, ptr %matches, align 4
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %land.lhs.true7, %if.end
-  %19 = load ptr, ptr %pattern, align 8
-  %call14 = call i32 @stringmatch(ptr noundef %19, ptr noundef @.str.8, i32 noundef 1)
+  %20 = load ptr, ptr %pattern, align 8
+  %call14 = call i32 @stringmatch(ptr noundef %20, ptr noundef @.str.8, i32 noundef 1)
   %tobool15 = icmp ne i32 %call14, 0
   br i1 %tobool15, label %land.lhs.true16, label %if.end24
 
 land.lhs.true16:                                  ; preds = %if.end13
-  %20 = load ptr, ptr %d, align 8
-  %call17 = call ptr @dictFind(ptr noundef %20, ptr noundef @.str.8)
+  %21 = load ptr, ptr %d, align 8
+  %call17 = call ptr @dictFind(ptr noundef %21, ptr noundef @.str.8)
   %tobool18 = icmp ne ptr %call17, null
   br i1 %tobool18, label %if.end24, label %if.then19
 
 if.then19:                                        ; preds = %land.lhs.true16
-  %21 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %21, ptr noundef @.str.8)
   %22 = load ptr, ptr %c.addr, align 8
-  %23 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 15), align 4
-  %tobool20 = icmp ne i32 %23, 0
+  call void @addReplyBulkCString(ptr noundef %22, ptr noundef @.str.8)
+  %23 = load ptr, ptr %c.addr, align 8
+  %24 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 15
+  %25 = load i32, ptr %24, align 4
+  %tobool20 = icmp ne i32 %25, 0
   %cond21 = select i1 %tobool20, ptr @.str.98, ptr @.str.99
-  call void @addReplyBulkCString(ptr noundef %22, ptr noundef %cond21)
-  %24 = load ptr, ptr %d, align 8
-  %call22 = call i32 @dictAdd(ptr noundef %24, ptr noundef @.str.8, ptr noundef null)
-  %25 = load i32, ptr %matches, align 4
-  %inc23 = add nsw i32 %25, 1
+  call void @addReplyBulkCString(ptr noundef %23, ptr noundef %cond21)
+  %26 = load ptr, ptr %d, align 8
+  %call22 = call i32 @dictAdd(ptr noundef %26, ptr noundef @.str.8, ptr noundef null)
+  %27 = load i32, ptr %matches, align 4
+  %inc23 = add nsw i32 %27, 1
   store i32 %inc23, ptr %matches, align 4
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then19, %land.lhs.true16, %if.end13
-  %26 = load ptr, ptr %pattern, align 8
-  %call25 = call i32 @stringmatch(ptr noundef %26, ptr noundef @.str, i32 noundef 1)
+  %28 = load ptr, ptr %pattern, align 8
+  %call25 = call i32 @stringmatch(ptr noundef %28, ptr noundef @.str, i32 noundef 1)
   %tobool26 = icmp ne i32 %call25, 0
   br i1 %tobool26, label %land.lhs.true27, label %if.end35
 
 land.lhs.true27:                                  ; preds = %if.end24
-  %27 = load ptr, ptr %d, align 8
-  %call28 = call ptr @dictFind(ptr noundef %27, ptr noundef @.str)
+  %29 = load ptr, ptr %d, align 8
+  %call28 = call ptr @dictFind(ptr noundef %29, ptr noundef @.str)
   %tobool29 = icmp ne ptr %call28, null
   br i1 %tobool29, label %if.end35, label %if.then30
 
 if.then30:                                        ; preds = %land.lhs.true27
-  %28 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %28, ptr noundef @.str)
-  %29 = load ptr, ptr %c.addr, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 8), align 8
-  %tobool31 = icmp ne ptr %30, null
+  %30 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %30, ptr noundef @.str)
+  %31 = load ptr, ptr %c.addr, align 8
+  %32 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 8
+  %33 = load ptr, ptr %32, align 8
+  %tobool31 = icmp ne ptr %33, null
   br i1 %tobool31, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then30
-  %31 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 8), align 8
+  %34 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 8
+  %35 = load ptr, ptr %34, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then30
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond32 = phi ptr [ %31, %cond.true ], [ @.str.219, %cond.false ]
-  call void @addReplyBulkCString(ptr noundef %29, ptr noundef %cond32)
-  %32 = load ptr, ptr %d, align 8
-  %call33 = call i32 @dictAdd(ptr noundef %32, ptr noundef @.str, ptr noundef null)
-  %33 = load i32, ptr %matches, align 4
-  %inc34 = add nsw i32 %33, 1
+  %cond32 = phi ptr [ %35, %cond.true ], [ @.str.219, %cond.false ]
+  call void @addReplyBulkCString(ptr noundef %31, ptr noundef %cond32)
+  %36 = load ptr, ptr %d, align 8
+  %call33 = call i32 @dictAdd(ptr noundef %36, ptr noundef @.str, ptr noundef null)
+  %37 = load i32, ptr %matches, align 4
+  %inc34 = add nsw i32 %37, 1
   store i32 %inc34, ptr %matches, align 4
   br label %if.end35
 
 if.end35:                                         ; preds = %cond.end, %land.lhs.true27, %if.end24
-  %34 = load ptr, ptr %pattern, align 8
-  %call36 = call i32 @stringmatch(ptr noundef %34, ptr noundef @.str.1, i32 noundef 1)
+  %38 = load ptr, ptr %pattern, align 8
+  %call36 = call i32 @stringmatch(ptr noundef %38, ptr noundef @.str.1, i32 noundef 1)
   %tobool37 = icmp ne i32 %call36, 0
   br i1 %tobool37, label %land.lhs.true38, label %if.end44
 
 land.lhs.true38:                                  ; preds = %if.end35
-  %35 = load ptr, ptr %d, align 8
-  %call39 = call ptr @dictFind(ptr noundef %35, ptr noundef @.str.1)
+  %39 = load ptr, ptr %d, align 8
+  %call39 = call ptr @dictFind(ptr noundef %39, ptr noundef @.str.1)
   %tobool40 = icmp ne ptr %call39, null
   br i1 %tobool40, label %if.end44, label %if.then41
 
 if.then41:                                        ; preds = %land.lhs.true38
-  %36 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %36, ptr noundef @.str.1)
-  %37 = load ptr, ptr %c.addr, align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 9), align 8
-  %conv = sext i32 %38 to i64
-  call void @addReplyBulkLongLong(ptr noundef %37, i64 noundef %conv)
-  %39 = load ptr, ptr %d, align 8
-  %call42 = call i32 @dictAdd(ptr noundef %39, ptr noundef @.str.1, ptr noundef null)
-  %40 = load i32, ptr %matches, align 4
-  %inc43 = add nsw i32 %40, 1
+  %40 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %40, ptr noundef @.str.1)
+  %41 = load ptr, ptr %c.addr, align 8
+  %42 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 9
+  %43 = load i32, ptr %42, align 8
+  %conv = sext i32 %43 to i64
+  call void @addReplyBulkLongLong(ptr noundef %41, i64 noundef %conv)
+  %44 = load ptr, ptr %d, align 8
+  %call42 = call i32 @dictAdd(ptr noundef %44, ptr noundef @.str.1, ptr noundef null)
+  %45 = load i32, ptr %matches, align 4
+  %inc43 = add nsw i32 %45, 1
   store i32 %inc43, ptr %matches, align 4
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then41, %land.lhs.true38, %if.end35
-  %41 = load ptr, ptr %pattern, align 8
-  %call45 = call i32 @stringmatch(ptr noundef %41, ptr noundef @.str.3, i32 noundef 1)
+  %46 = load ptr, ptr %pattern, align 8
+  %call45 = call i32 @stringmatch(ptr noundef %46, ptr noundef @.str.3, i32 noundef 1)
   %tobool46 = icmp ne i32 %call45, 0
   br i1 %tobool46, label %land.lhs.true47, label %if.end58
 
 land.lhs.true47:                                  ; preds = %if.end44
-  %42 = load ptr, ptr %d, align 8
-  %call48 = call ptr @dictFind(ptr noundef %42, ptr noundef @.str.3)
+  %47 = load ptr, ptr %d, align 8
+  %call48 = call ptr @dictFind(ptr noundef %47, ptr noundef @.str.3)
   %tobool49 = icmp ne ptr %call48, null
   br i1 %tobool49, label %if.end58, label %if.then50
 
 if.then50:                                        ; preds = %land.lhs.true47
-  %43 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %43, ptr noundef @.str.3)
-  %44 = load ptr, ptr %c.addr, align 8
-  %45 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 13), align 8
-  %tobool51 = icmp ne ptr %45, null
+  %48 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %48, ptr noundef @.str.3)
+  %49 = load ptr, ptr %c.addr, align 8
+  %50 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 13
+  %51 = load ptr, ptr %50, align 8
+  %tobool51 = icmp ne ptr %51, null
   br i1 %tobool51, label %cond.true52, label %cond.false53
 
 cond.true52:                                      ; preds = %if.then50
-  %46 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 13), align 8
+  %52 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 13
+  %53 = load ptr, ptr %52, align 8
   br label %cond.end54
 
 cond.false53:                                     ; preds = %if.then50
   br label %cond.end54
 
 cond.end54:                                       ; preds = %cond.false53, %cond.true52
-  %cond55 = phi ptr [ %46, %cond.true52 ], [ @.str.219, %cond.false53 ]
-  call void @addReplyBulkCString(ptr noundef %44, ptr noundef %cond55)
-  %47 = load ptr, ptr %d, align 8
-  %call56 = call i32 @dictAdd(ptr noundef %47, ptr noundef @.str.3, ptr noundef null)
-  %48 = load i32, ptr %matches, align 4
-  %inc57 = add nsw i32 %48, 1
+  %cond55 = phi ptr [ %53, %cond.true52 ], [ @.str.219, %cond.false53 ]
+  call void @addReplyBulkCString(ptr noundef %49, ptr noundef %cond55)
+  %54 = load ptr, ptr %d, align 8
+  %call56 = call i32 @dictAdd(ptr noundef %54, ptr noundef @.str.3, ptr noundef null)
+  %55 = load i32, ptr %matches, align 4
+  %inc57 = add nsw i32 %55, 1
   store i32 %inc57, ptr %matches, align 4
   br label %if.end58
 
 if.end58:                                         ; preds = %cond.end54, %land.lhs.true47, %if.end44
-  %49 = load ptr, ptr %pattern, align 8
-  %call59 = call i32 @stringmatch(ptr noundef %49, ptr noundef @.str.4, i32 noundef 1)
+  %56 = load ptr, ptr %pattern, align 8
+  %call59 = call i32 @stringmatch(ptr noundef %56, ptr noundef @.str.4, i32 noundef 1)
   %tobool60 = icmp ne i32 %call59, 0
   br i1 %tobool60, label %land.lhs.true61, label %if.end72
 
 land.lhs.true61:                                  ; preds = %if.end58
-  %50 = load ptr, ptr %d, align 8
-  %call62 = call ptr @dictFind(ptr noundef %50, ptr noundef @.str.4)
+  %57 = load ptr, ptr %d, align 8
+  %call62 = call ptr @dictFind(ptr noundef %57, ptr noundef @.str.4)
   %tobool63 = icmp ne ptr %call62, null
   br i1 %tobool63, label %if.end72, label %if.then64
 
 if.then64:                                        ; preds = %land.lhs.true61
-  %51 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %51, ptr noundef @.str.4)
-  %52 = load ptr, ptr %c.addr, align 8
-  %53 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 12), align 8
-  %tobool65 = icmp ne ptr %53, null
+  %58 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %58, ptr noundef @.str.4)
+  %59 = load ptr, ptr %c.addr, align 8
+  %60 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 12
+  %61 = load ptr, ptr %60, align 8
+  %tobool65 = icmp ne ptr %61, null
   br i1 %tobool65, label %cond.true66, label %cond.false67
 
 cond.true66:                                      ; preds = %if.then64
-  %54 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 12), align 8
+  %62 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 12
+  %63 = load ptr, ptr %62, align 8
   br label %cond.end68
 
 cond.false67:                                     ; preds = %if.then64
   br label %cond.end68
 
 cond.end68:                                       ; preds = %cond.false67, %cond.true66
-  %cond69 = phi ptr [ %54, %cond.true66 ], [ @.str.219, %cond.false67 ]
-  call void @addReplyBulkCString(ptr noundef %52, ptr noundef %cond69)
-  %55 = load ptr, ptr %d, align 8
-  %call70 = call i32 @dictAdd(ptr noundef %55, ptr noundef @.str.4, ptr noundef null)
-  %56 = load i32, ptr %matches, align 4
-  %inc71 = add nsw i32 %56, 1
+  %cond69 = phi ptr [ %63, %cond.true66 ], [ @.str.219, %cond.false67 ]
+  call void @addReplyBulkCString(ptr noundef %59, ptr noundef %cond69)
+  %64 = load ptr, ptr %d, align 8
+  %call70 = call i32 @dictAdd(ptr noundef %64, ptr noundef @.str.4, ptr noundef null)
+  %65 = load i32, ptr %matches, align 4
+  %inc71 = add nsw i32 %65, 1
   store i32 %inc71, ptr %matches, align 4
   br label %if.end72
 
 if.end72:                                         ; preds = %cond.end68, %land.lhs.true61, %if.end58
-  %57 = load ptr, ptr %pattern, align 8
-  %call73 = call i32 @stringmatch(ptr noundef %57, ptr noundef @.str.212, i32 noundef 1)
+  %66 = load ptr, ptr %pattern, align 8
+  %call73 = call i32 @stringmatch(ptr noundef %66, ptr noundef @.str.212, i32 noundef 1)
   %tobool74 = icmp ne i32 %call73, 0
   br i1 %tobool74, label %land.lhs.true75, label %if.end82
 
 land.lhs.true75:                                  ; preds = %if.end72
-  %58 = load ptr, ptr %d, align 8
-  %call76 = call ptr @dictFind(ptr noundef %58, ptr noundef @.str.212)
+  %67 = load ptr, ptr %d, align 8
+  %call76 = call ptr @dictFind(ptr noundef %67, ptr noundef @.str.212)
   %tobool77 = icmp ne ptr %call76, null
   br i1 %tobool77, label %if.end82, label %if.then78
 
 if.then78:                                        ; preds = %land.lhs.true75
-  %59 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %59, ptr noundef @.str.212)
-  %60 = load ptr, ptr %c.addr, align 8
+  %68 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %68, ptr noundef @.str.212)
+  %69 = load ptr, ptr %c.addr, align 8
   %call79 = call ptr @getLogLevel()
-  call void @addReplyBulkCString(ptr noundef %60, ptr noundef %call79)
-  %61 = load ptr, ptr %d, align 8
-  %call80 = call i32 @dictAdd(ptr noundef %61, ptr noundef @.str.212, ptr noundef null)
-  %62 = load i32, ptr %matches, align 4
-  %inc81 = add nsw i32 %62, 1
+  call void @addReplyBulkCString(ptr noundef %69, ptr noundef %call79)
+  %70 = load ptr, ptr %d, align 8
+  %call80 = call i32 @dictAdd(ptr noundef %70, ptr noundef @.str.212, ptr noundef null)
+  %71 = load i32, ptr %matches, align 4
+  %inc81 = add nsw i32 %71, 1
   store i32 %inc81, ptr %matches, align 4
   br label %if.end82
 
@@ -11380,19 +11542,19 @@ if.end82:                                         ; preds = %if.then78, %land.lh
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end82, %if.then
-  %63 = load i32, ptr %i, align 4
-  %inc83 = add nsw i32 %63, 1
+  %72 = load i32, ptr %i, align 4
+  %inc83 = add nsw i32 %72, 1
   store i32 %inc83, ptr %i, align 4
   br label %for.cond, !llvm.loop !47
 
 for.end:                                          ; preds = %for.cond
-  %64 = load ptr, ptr %d, align 8
-  call void @dictRelease(ptr noundef %64)
-  %65 = load ptr, ptr %c.addr, align 8
-  %66 = load ptr, ptr %replylen, align 8
-  %67 = load i32, ptr %matches, align 4
-  %conv84 = sext i32 %67 to i64
-  call void @setDeferredMapLen(ptr noundef %65, ptr noundef %66, i64 noundef %conv84)
+  %73 = load ptr, ptr %d, align 8
+  call void @dictRelease(ptr noundef %73)
+  %74 = load ptr, ptr %c.addr, align 8
+  %75 = load ptr, ptr %replylen, align 8
+  %76 = load i32, ptr %matches, align 4
+  %conv84 = sext i32 %76 to i64
+  call void @setDeferredMapLen(ptr noundef %74, ptr noundef %75, i64 noundef %conv84)
   ret void
 }
 
@@ -13166,30 +13328,31 @@ entry:
   %ri = alloca ptr, align 8
   store ptr %c, ptr %c.addr, align 8
   store ptr %name, ptr %name.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %1 = load ptr, ptr %name.addr, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %ptr, align 8
-  %call = call ptr @dictFetchValue(ptr noundef %0, ptr noundef %2)
+  %0 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %name.addr, align 8
+  %ptr = getelementptr inbounds %struct.redisObject, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %ptr, align 8
+  %call = call ptr @dictFetchValue(ptr noundef %1, ptr noundef %3)
   store ptr %call, ptr %ri, align 8
-  %3 = load ptr, ptr %ri, align 8
-  %tobool = icmp ne ptr %3, null
+  %4 = load ptr, ptr %ri, align 8
+  %tobool = icmp ne ptr %4, null
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %4, ptr noundef @.str.301)
+  %5 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %5, ptr noundef @.str.301)
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %ri, align 8
-  store ptr %5, ptr %retval, align 8
+  %6 = load ptr, ptr %ri, align 8
+  store ptr %6, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+  %7 = load ptr, ptr %retval, align 8
+  ret ptr %7
 }
 
 declare void @addReplyError(ptr noundef, ptr noundef) #1
@@ -13393,40 +13556,41 @@ if.then9:                                         ; preds = %if.then6
 
 if.end:                                           ; preds = %if.then6
   %13 = load ptr, ptr %c.addr, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  call void @addReplyDictOfRedisInstances(ptr noundef %13, ptr noundef %14)
+  %14 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  call void @addReplyDictOfRedisInstances(ptr noundef %13, ptr noundef %15)
   br label %if.end596
 
 if.else10:                                        ; preds = %if.else
-  %15 = load ptr, ptr %c.addr, align 8
-  %argv11 = getelementptr inbounds %struct.client, ptr %15, i32 0, i32 12
-  %16 = load ptr, ptr %argv11, align 8
-  %arrayidx12 = getelementptr inbounds ptr, ptr %16, i64 1
-  %17 = load ptr, ptr %arrayidx12, align 8
-  %ptr13 = getelementptr inbounds %struct.redisObject, ptr %17, i32 0, i32 2
-  %18 = load ptr, ptr %ptr13, align 8
-  %call14 = call i32 @strcasecmp(ptr noundef %18, ptr noundef @.str.48) #15
+  %16 = load ptr, ptr %c.addr, align 8
+  %argv11 = getelementptr inbounds %struct.client, ptr %16, i32 0, i32 12
+  %17 = load ptr, ptr %argv11, align 8
+  %arrayidx12 = getelementptr inbounds ptr, ptr %17, i64 1
+  %18 = load ptr, ptr %arrayidx12, align 8
+  %ptr13 = getelementptr inbounds %struct.redisObject, ptr %18, i32 0, i32 2
+  %19 = load ptr, ptr %ptr13, align 8
+  %call14 = call i32 @strcasecmp(ptr noundef %19, ptr noundef @.str.48) #15
   %tobool15 = icmp ne i32 %call14, 0
   br i1 %tobool15, label %if.else27, label %if.then16
 
 if.then16:                                        ; preds = %if.else10
-  %19 = load ptr, ptr %c.addr, align 8
-  %argc17 = getelementptr inbounds %struct.client, ptr %19, i32 0, i32 11
-  %20 = load i32, ptr %argc17, align 8
-  %cmp18 = icmp ne i32 %20, 3
+  %20 = load ptr, ptr %c.addr, align 8
+  %argc17 = getelementptr inbounds %struct.client, ptr %20, i32 0, i32 11
+  %21 = load i32, ptr %argc17, align 8
+  %cmp18 = icmp ne i32 %21, 3
   br i1 %cmp18, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.then16
   br label %numargserr
 
 if.end20:                                         ; preds = %if.then16
-  %21 = load ptr, ptr %c.addr, align 8
   %22 = load ptr, ptr %c.addr, align 8
-  %argv21 = getelementptr inbounds %struct.client, ptr %22, i32 0, i32 12
-  %23 = load ptr, ptr %argv21, align 8
-  %arrayidx22 = getelementptr inbounds ptr, ptr %23, i64 2
-  %24 = load ptr, ptr %arrayidx22, align 8
-  %call23 = call ptr @sentinelGetMasterByNameOrReplyError(ptr noundef %21, ptr noundef %24)
+  %23 = load ptr, ptr %c.addr, align 8
+  %argv21 = getelementptr inbounds %struct.client, ptr %23, i32 0, i32 12
+  %24 = load ptr, ptr %argv21, align 8
+  %arrayidx22 = getelementptr inbounds ptr, ptr %24, i64 2
+  %25 = load ptr, ptr %arrayidx22, align 8
+  %call23 = call ptr @sentinelGetMasterByNameOrReplyError(ptr noundef %22, ptr noundef %25)
   store ptr %call23, ptr %ri, align 8
   %cmp24 = icmp eq ptr %call23, null
   br i1 %cmp24, label %if.then25, label %if.end26
@@ -13435,53 +13599,53 @@ if.then25:                                        ; preds = %if.end20
   br label %return
 
 if.end26:                                         ; preds = %if.end20
-  %25 = load ptr, ptr %c.addr, align 8
-  %26 = load ptr, ptr %ri, align 8
-  call void @addReplySentinelRedisInstance(ptr noundef %25, ptr noundef %26)
+  %26 = load ptr, ptr %c.addr, align 8
+  %27 = load ptr, ptr %ri, align 8
+  call void @addReplySentinelRedisInstance(ptr noundef %26, ptr noundef %27)
   br label %if.end595
 
 if.else27:                                        ; preds = %if.else10
-  %27 = load ptr, ptr %c.addr, align 8
-  %argv28 = getelementptr inbounds %struct.client, ptr %27, i32 0, i32 12
-  %28 = load ptr, ptr %argv28, align 8
-  %arrayidx29 = getelementptr inbounds ptr, ptr %28, i64 1
-  %29 = load ptr, ptr %arrayidx29, align 8
-  %ptr30 = getelementptr inbounds %struct.redisObject, ptr %29, i32 0, i32 2
-  %30 = load ptr, ptr %ptr30, align 8
-  %call31 = call i32 @strcasecmp(ptr noundef %30, ptr noundef @.str.350) #15
+  %28 = load ptr, ptr %c.addr, align 8
+  %argv28 = getelementptr inbounds %struct.client, ptr %28, i32 0, i32 12
+  %29 = load ptr, ptr %argv28, align 8
+  %arrayidx29 = getelementptr inbounds ptr, ptr %29, i64 1
+  %30 = load ptr, ptr %arrayidx29, align 8
+  %ptr30 = getelementptr inbounds %struct.redisObject, ptr %30, i32 0, i32 2
+  %31 = load ptr, ptr %ptr30, align 8
+  %call31 = call i32 @strcasecmp(ptr noundef %31, ptr noundef @.str.350) #15
   %tobool32 = icmp ne i32 %call31, 0
   br i1 %tobool32, label %lor.lhs.false, label %if.then38
 
 lor.lhs.false:                                    ; preds = %if.else27
-  %31 = load ptr, ptr %c.addr, align 8
-  %argv33 = getelementptr inbounds %struct.client, ptr %31, i32 0, i32 12
-  %32 = load ptr, ptr %argv33, align 8
-  %arrayidx34 = getelementptr inbounds ptr, ptr %32, i64 1
-  %33 = load ptr, ptr %arrayidx34, align 8
-  %ptr35 = getelementptr inbounds %struct.redisObject, ptr %33, i32 0, i32 2
-  %34 = load ptr, ptr %ptr35, align 8
-  %call36 = call i32 @strcasecmp(ptr noundef %34, ptr noundef @.str.351) #15
+  %32 = load ptr, ptr %c.addr, align 8
+  %argv33 = getelementptr inbounds %struct.client, ptr %32, i32 0, i32 12
+  %33 = load ptr, ptr %argv33, align 8
+  %arrayidx34 = getelementptr inbounds ptr, ptr %33, i64 1
+  %34 = load ptr, ptr %arrayidx34, align 8
+  %ptr35 = getelementptr inbounds %struct.redisObject, ptr %34, i32 0, i32 2
+  %35 = load ptr, ptr %ptr35, align 8
+  %call36 = call i32 @strcasecmp(ptr noundef %35, ptr noundef @.str.351) #15
   %tobool37 = icmp ne i32 %call36, 0
   br i1 %tobool37, label %if.else50, label %if.then38
 
 if.then38:                                        ; preds = %lor.lhs.false, %if.else27
-  %35 = load ptr, ptr %c.addr, align 8
-  %argc40 = getelementptr inbounds %struct.client, ptr %35, i32 0, i32 11
-  %36 = load i32, ptr %argc40, align 8
-  %cmp41 = icmp ne i32 %36, 3
+  %36 = load ptr, ptr %c.addr, align 8
+  %argc40 = getelementptr inbounds %struct.client, ptr %36, i32 0, i32 11
+  %37 = load i32, ptr %argc40, align 8
+  %cmp41 = icmp ne i32 %37, 3
   br i1 %cmp41, label %if.then42, label %if.end43
 
 if.then42:                                        ; preds = %if.then38
   br label %numargserr
 
 if.end43:                                         ; preds = %if.then38
-  %37 = load ptr, ptr %c.addr, align 8
   %38 = load ptr, ptr %c.addr, align 8
-  %argv44 = getelementptr inbounds %struct.client, ptr %38, i32 0, i32 12
-  %39 = load ptr, ptr %argv44, align 8
-  %arrayidx45 = getelementptr inbounds ptr, ptr %39, i64 2
-  %40 = load ptr, ptr %arrayidx45, align 8
-  %call46 = call ptr @sentinelGetMasterByNameOrReplyError(ptr noundef %37, ptr noundef %40)
+  %39 = load ptr, ptr %c.addr, align 8
+  %argv44 = getelementptr inbounds %struct.client, ptr %39, i32 0, i32 12
+  %40 = load ptr, ptr %argv44, align 8
+  %arrayidx45 = getelementptr inbounds ptr, ptr %40, i64 2
+  %41 = load ptr, ptr %arrayidx45, align 8
+  %call46 = call ptr @sentinelGetMasterByNameOrReplyError(ptr noundef %38, ptr noundef %41)
   store ptr %call46, ptr %ri39, align 8
   %cmp47 = icmp eq ptr %call46, null
   br i1 %cmp47, label %if.then48, label %if.end49
@@ -13490,43 +13654,43 @@ if.then48:                                        ; preds = %if.end43
   br label %return
 
 if.end49:                                         ; preds = %if.end43
-  %41 = load ptr, ptr %c.addr, align 8
-  %42 = load ptr, ptr %ri39, align 8
-  %slaves = getelementptr inbounds %struct.sentinelRedisInstance, ptr %42, i32 0, i32 20
-  %43 = load ptr, ptr %slaves, align 8
-  call void @addReplyDictOfRedisInstances(ptr noundef %41, ptr noundef %43)
+  %42 = load ptr, ptr %c.addr, align 8
+  %43 = load ptr, ptr %ri39, align 8
+  %slaves = getelementptr inbounds %struct.sentinelRedisInstance, ptr %43, i32 0, i32 20
+  %44 = load ptr, ptr %slaves, align 8
+  call void @addReplyDictOfRedisInstances(ptr noundef %42, ptr noundef %44)
   br label %if.end594
 
 if.else50:                                        ; preds = %lor.lhs.false
-  %44 = load ptr, ptr %c.addr, align 8
-  %argv51 = getelementptr inbounds %struct.client, ptr %44, i32 0, i32 12
-  %45 = load ptr, ptr %argv51, align 8
-  %arrayidx52 = getelementptr inbounds ptr, ptr %45, i64 1
-  %46 = load ptr, ptr %arrayidx52, align 8
-  %ptr53 = getelementptr inbounds %struct.redisObject, ptr %46, i32 0, i32 2
-  %47 = load ptr, ptr %ptr53, align 8
-  %call54 = call i32 @strcasecmp(ptr noundef %47, ptr noundef @.str.352) #15
+  %45 = load ptr, ptr %c.addr, align 8
+  %argv51 = getelementptr inbounds %struct.client, ptr %45, i32 0, i32 12
+  %46 = load ptr, ptr %argv51, align 8
+  %arrayidx52 = getelementptr inbounds ptr, ptr %46, i64 1
+  %47 = load ptr, ptr %arrayidx52, align 8
+  %ptr53 = getelementptr inbounds %struct.redisObject, ptr %47, i32 0, i32 2
+  %48 = load ptr, ptr %ptr53, align 8
+  %call54 = call i32 @strcasecmp(ptr noundef %48, ptr noundef @.str.352) #15
   %tobool55 = icmp ne i32 %call54, 0
   br i1 %tobool55, label %if.else68, label %if.then56
 
 if.then56:                                        ; preds = %if.else50
-  %48 = load ptr, ptr %c.addr, align 8
-  %argc58 = getelementptr inbounds %struct.client, ptr %48, i32 0, i32 11
-  %49 = load i32, ptr %argc58, align 8
-  %cmp59 = icmp ne i32 %49, 3
+  %49 = load ptr, ptr %c.addr, align 8
+  %argc58 = getelementptr inbounds %struct.client, ptr %49, i32 0, i32 11
+  %50 = load i32, ptr %argc58, align 8
+  %cmp59 = icmp ne i32 %50, 3
   br i1 %cmp59, label %if.then60, label %if.end61
 
 if.then60:                                        ; preds = %if.then56
   br label %numargserr
 
 if.end61:                                         ; preds = %if.then56
-  %50 = load ptr, ptr %c.addr, align 8
   %51 = load ptr, ptr %c.addr, align 8
-  %argv62 = getelementptr inbounds %struct.client, ptr %51, i32 0, i32 12
-  %52 = load ptr, ptr %argv62, align 8
-  %arrayidx63 = getelementptr inbounds ptr, ptr %52, i64 2
-  %53 = load ptr, ptr %arrayidx63, align 8
-  %call64 = call ptr @sentinelGetMasterByNameOrReplyError(ptr noundef %50, ptr noundef %53)
+  %52 = load ptr, ptr %c.addr, align 8
+  %argv62 = getelementptr inbounds %struct.client, ptr %52, i32 0, i32 12
+  %53 = load ptr, ptr %argv62, align 8
+  %arrayidx63 = getelementptr inbounds ptr, ptr %53, i64 2
+  %54 = load ptr, ptr %arrayidx63, align 8
+  %call64 = call ptr @sentinelGetMasterByNameOrReplyError(ptr noundef %51, ptr noundef %54)
   store ptr %call64, ptr %ri57, align 8
   %cmp65 = icmp eq ptr %call64, null
   br i1 %cmp65, label %if.then66, label %if.end67
@@ -13535,46 +13699,46 @@ if.then66:                                        ; preds = %if.end61
   br label %return
 
 if.end67:                                         ; preds = %if.end61
-  %54 = load ptr, ptr %c.addr, align 8
-  %55 = load ptr, ptr %ri57, align 8
-  %sentinels = getelementptr inbounds %struct.sentinelRedisInstance, ptr %55, i32 0, i32 19
-  %56 = load ptr, ptr %sentinels, align 8
-  call void @addReplyDictOfRedisInstances(ptr noundef %54, ptr noundef %56)
+  %55 = load ptr, ptr %c.addr, align 8
+  %56 = load ptr, ptr %ri57, align 8
+  %sentinels = getelementptr inbounds %struct.sentinelRedisInstance, ptr %56, i32 0, i32 19
+  %57 = load ptr, ptr %sentinels, align 8
+  call void @addReplyDictOfRedisInstances(ptr noundef %55, ptr noundef %57)
   br label %if.end593
 
 if.else68:                                        ; preds = %if.else50
-  %57 = load ptr, ptr %c.addr, align 8
-  %argv69 = getelementptr inbounds %struct.client, ptr %57, i32 0, i32 12
-  %58 = load ptr, ptr %argv69, align 8
-  %arrayidx70 = getelementptr inbounds ptr, ptr %58, i64 1
-  %59 = load ptr, ptr %arrayidx70, align 8
-  %ptr71 = getelementptr inbounds %struct.redisObject, ptr %59, i32 0, i32 2
-  %60 = load ptr, ptr %ptr71, align 8
-  %call72 = call i32 @strcasecmp(ptr noundef %60, ptr noundef @.str.6) #15
+  %58 = load ptr, ptr %c.addr, align 8
+  %argv69 = getelementptr inbounds %struct.client, ptr %58, i32 0, i32 12
+  %59 = load ptr, ptr %argv69, align 8
+  %arrayidx70 = getelementptr inbounds ptr, ptr %59, i64 1
+  %60 = load ptr, ptr %arrayidx70, align 8
+  %ptr71 = getelementptr inbounds %struct.redisObject, ptr %60, i32 0, i32 2
+  %61 = load ptr, ptr %ptr71, align 8
+  %call72 = call i32 @strcasecmp(ptr noundef %61, ptr noundef @.str.6) #15
   %tobool73 = icmp ne i32 %call72, 0
   br i1 %tobool73, label %if.else78, label %land.lhs.true74
 
 land.lhs.true74:                                  ; preds = %if.else68
-  %61 = load ptr, ptr %c.addr, align 8
-  %argc75 = getelementptr inbounds %struct.client, ptr %61, i32 0, i32 11
-  %62 = load i32, ptr %argc75, align 8
-  %cmp76 = icmp eq i32 %62, 2
+  %62 = load ptr, ptr %c.addr, align 8
+  %argc75 = getelementptr inbounds %struct.client, ptr %62, i32 0, i32 11
+  %63 = load i32, ptr %argc75, align 8
+  %cmp76 = icmp eq i32 %63, 2
   br i1 %cmp76, label %if.then77, label %if.else78
 
 if.then77:                                        ; preds = %land.lhs.true74
-  %63 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCBuffer(ptr noundef %63, ptr noundef @sentinel, i64 noundef 40)
+  %64 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCBuffer(ptr noundef %64, ptr noundef @sentinel, i64 noundef 40)
   br label %if.end592
 
 if.else78:                                        ; preds = %land.lhs.true74, %if.else68
-  %64 = load ptr, ptr %c.addr, align 8
-  %argv79 = getelementptr inbounds %struct.client, ptr %64, i32 0, i32 12
-  %65 = load ptr, ptr %argv79, align 8
-  %arrayidx80 = getelementptr inbounds ptr, ptr %65, i64 1
-  %66 = load ptr, ptr %arrayidx80, align 8
-  %ptr81 = getelementptr inbounds %struct.redisObject, ptr %66, i32 0, i32 2
-  %67 = load ptr, ptr %ptr81, align 8
-  %call82 = call i32 @strcasecmp(ptr noundef %67, ptr noundef @.str.353) #15
+  %65 = load ptr, ptr %c.addr, align 8
+  %argv79 = getelementptr inbounds %struct.client, ptr %65, i32 0, i32 12
+  %66 = load ptr, ptr %argv79, align 8
+  %arrayidx80 = getelementptr inbounds ptr, ptr %66, i64 1
+  %67 = load ptr, ptr %arrayidx80, align 8
+  %ptr81 = getelementptr inbounds %struct.redisObject, ptr %67, i32 0, i32 2
+  %68 = load ptr, ptr %ptr81, align 8
+  %call82 = call i32 @strcasecmp(ptr noundef %68, ptr noundef @.str.353) #15
   %tobool83 = icmp ne i32 %call82, 0
   br i1 %tobool83, label %if.else142, label %if.then84
 
@@ -13582,34 +13746,34 @@ if.then84:                                        ; preds = %if.else78
   store i64 0, ptr %leader_epoch, align 8
   store ptr null, ptr %leader, align 8
   store i32 0, ptr %isdown, align 4
-  %68 = load ptr, ptr %c.addr, align 8
-  %argc86 = getelementptr inbounds %struct.client, ptr %68, i32 0, i32 11
-  %69 = load i32, ptr %argc86, align 8
-  %cmp87 = icmp ne i32 %69, 6
+  %69 = load ptr, ptr %c.addr, align 8
+  %argc86 = getelementptr inbounds %struct.client, ptr %69, i32 0, i32 11
+  %70 = load i32, ptr %argc86, align 8
+  %cmp87 = icmp ne i32 %70, 6
   br i1 %cmp87, label %if.then88, label %if.end89
 
 if.then88:                                        ; preds = %if.then84
   br label %numargserr
 
 if.end89:                                         ; preds = %if.then84
-  %70 = load ptr, ptr %c.addr, align 8
   %71 = load ptr, ptr %c.addr, align 8
-  %argv90 = getelementptr inbounds %struct.client, ptr %71, i32 0, i32 12
-  %72 = load ptr, ptr %argv90, align 8
-  %arrayidx91 = getelementptr inbounds ptr, ptr %72, i64 3
-  %73 = load ptr, ptr %arrayidx91, align 8
-  %call92 = call i32 @getLongFromObjectOrReply(ptr noundef %70, ptr noundef %73, ptr noundef %port, ptr noundef null)
+  %72 = load ptr, ptr %c.addr, align 8
+  %argv90 = getelementptr inbounds %struct.client, ptr %72, i32 0, i32 12
+  %73 = load ptr, ptr %argv90, align 8
+  %arrayidx91 = getelementptr inbounds ptr, ptr %73, i64 3
+  %74 = load ptr, ptr %arrayidx91, align 8
+  %call92 = call i32 @getLongFromObjectOrReply(ptr noundef %71, ptr noundef %74, ptr noundef %port, ptr noundef null)
   %cmp93 = icmp ne i32 %call92, 0
   br i1 %cmp93, label %if.then99, label %lor.lhs.false94
 
 lor.lhs.false94:                                  ; preds = %if.end89
-  %74 = load ptr, ptr %c.addr, align 8
   %75 = load ptr, ptr %c.addr, align 8
-  %argv95 = getelementptr inbounds %struct.client, ptr %75, i32 0, i32 12
-  %76 = load ptr, ptr %argv95, align 8
-  %arrayidx96 = getelementptr inbounds ptr, ptr %76, i64 4
-  %77 = load ptr, ptr %arrayidx96, align 8
-  %call97 = call i32 @getLongLongFromObjectOrReply(ptr noundef %74, ptr noundef %77, ptr noundef %req_epoch, ptr noundef null)
+  %76 = load ptr, ptr %c.addr, align 8
+  %argv95 = getelementptr inbounds %struct.client, ptr %76, i32 0, i32 12
+  %77 = load ptr, ptr %argv95, align 8
+  %arrayidx96 = getelementptr inbounds ptr, ptr %77, i64 4
+  %78 = load ptr, ptr %arrayidx96, align 8
+  %call97 = call i32 @getLongLongFromObjectOrReply(ptr noundef %75, ptr noundef %78, ptr noundef %req_epoch, ptr noundef null)
   %cmp98 = icmp ne i32 %call97, 0
   br i1 %cmp98, label %if.then99, label %if.end100
 
@@ -13617,40 +13781,42 @@ if.then99:                                        ; preds = %lor.lhs.false94, %i
   br label %return
 
 if.end100:                                        ; preds = %lor.lhs.false94
-  %78 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %79 = load ptr, ptr %c.addr, align 8
-  %argv101 = getelementptr inbounds %struct.client, ptr %79, i32 0, i32 12
-  %80 = load ptr, ptr %argv101, align 8
-  %arrayidx102 = getelementptr inbounds ptr, ptr %80, i64 2
-  %81 = load ptr, ptr %arrayidx102, align 8
-  %ptr103 = getelementptr inbounds %struct.redisObject, ptr %81, i32 0, i32 2
-  %82 = load ptr, ptr %ptr103, align 8
-  %83 = load i64, ptr %port, align 8
-  %conv = trunc i64 %83 to i32
-  %call104 = call ptr @getSentinelRedisInstanceByAddrAndRunID(ptr noundef %78, ptr noundef %82, i32 noundef %conv, ptr noundef null)
+  %79 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %c.addr, align 8
+  %argv101 = getelementptr inbounds %struct.client, ptr %81, i32 0, i32 12
+  %82 = load ptr, ptr %argv101, align 8
+  %arrayidx102 = getelementptr inbounds ptr, ptr %82, i64 2
+  %83 = load ptr, ptr %arrayidx102, align 8
+  %ptr103 = getelementptr inbounds %struct.redisObject, ptr %83, i32 0, i32 2
+  %84 = load ptr, ptr %ptr103, align 8
+  %85 = load i64, ptr %port, align 8
+  %conv = trunc i64 %85 to i32
+  %call104 = call ptr @getSentinelRedisInstanceByAddrAndRunID(ptr noundef %80, ptr noundef %84, i32 noundef %conv, ptr noundef null)
   store ptr %call104, ptr %ri85, align 8
-  %84 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 3), align 8
-  %tobool105 = icmp ne i32 %84, 0
+  %86 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 3
+  %87 = load i32, ptr %86, align 8
+  %tobool105 = icmp ne i32 %87, 0
   br i1 %tobool105, label %if.end115, label %land.lhs.true106
 
 land.lhs.true106:                                 ; preds = %if.end100
-  %85 = load ptr, ptr %ri85, align 8
-  %tobool107 = icmp ne ptr %85, null
+  %88 = load ptr, ptr %ri85, align 8
+  %tobool107 = icmp ne ptr %88, null
   br i1 %tobool107, label %land.lhs.true108, label %if.end115
 
 land.lhs.true108:                                 ; preds = %land.lhs.true106
-  %86 = load ptr, ptr %ri85, align 8
-  %flags = getelementptr inbounds %struct.sentinelRedisInstance, ptr %86, i32 0, i32 0
-  %87 = load i32, ptr %flags, align 8
-  %and = and i32 %87, 8
+  %89 = load ptr, ptr %ri85, align 8
+  %flags = getelementptr inbounds %struct.sentinelRedisInstance, ptr %89, i32 0, i32 0
+  %90 = load i32, ptr %flags, align 8
+  %and = and i32 %90, 8
   %tobool109 = icmp ne i32 %and, 0
   br i1 %tobool109, label %land.lhs.true110, label %if.end115
 
 land.lhs.true110:                                 ; preds = %land.lhs.true108
-  %88 = load ptr, ptr %ri85, align 8
-  %flags111 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %88, i32 0, i32 0
-  %89 = load i32, ptr %flags111, align 8
-  %and112 = and i32 %89, 1
+  %91 = load ptr, ptr %ri85, align 8
+  %flags111 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %91, i32 0, i32 0
+  %92 = load i32, ptr %flags111, align 8
+  %and112 = and i32 %92, 1
   %tobool113 = icmp ne i32 %and112, 0
   br i1 %tobool113, label %if.then114, label %if.end115
 
@@ -13659,221 +13825,223 @@ if.then114:                                       ; preds = %land.lhs.true110
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then114, %land.lhs.true110, %land.lhs.true108, %land.lhs.true106, %if.end100
-  %90 = load ptr, ptr %ri85, align 8
-  %tobool116 = icmp ne ptr %90, null
+  %93 = load ptr, ptr %ri85, align 8
+  %tobool116 = icmp ne ptr %93, null
   br i1 %tobool116, label %land.lhs.true117, label %if.end132
 
 land.lhs.true117:                                 ; preds = %if.end115
-  %91 = load ptr, ptr %ri85, align 8
-  %flags118 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %91, i32 0, i32 0
-  %92 = load i32, ptr %flags118, align 8
-  %and119 = and i32 %92, 1
+  %94 = load ptr, ptr %ri85, align 8
+  %flags118 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %94, i32 0, i32 0
+  %95 = load i32, ptr %flags118, align 8
+  %and119 = and i32 %95, 1
   %tobool120 = icmp ne i32 %and119, 0
   br i1 %tobool120, label %land.lhs.true121, label %if.end132
 
 land.lhs.true121:                                 ; preds = %land.lhs.true117
-  %93 = load ptr, ptr %c.addr, align 8
-  %argv122 = getelementptr inbounds %struct.client, ptr %93, i32 0, i32 12
-  %94 = load ptr, ptr %argv122, align 8
-  %arrayidx123 = getelementptr inbounds ptr, ptr %94, i64 5
-  %95 = load ptr, ptr %arrayidx123, align 8
-  %ptr124 = getelementptr inbounds %struct.redisObject, ptr %95, i32 0, i32 2
-  %96 = load ptr, ptr %ptr124, align 8
-  %call125 = call i32 @strcasecmp(ptr noundef %96, ptr noundef @.str.354) #15
+  %96 = load ptr, ptr %c.addr, align 8
+  %argv122 = getelementptr inbounds %struct.client, ptr %96, i32 0, i32 12
+  %97 = load ptr, ptr %argv122, align 8
+  %arrayidx123 = getelementptr inbounds ptr, ptr %97, i64 5
+  %98 = load ptr, ptr %arrayidx123, align 8
+  %ptr124 = getelementptr inbounds %struct.redisObject, ptr %98, i32 0, i32 2
+  %99 = load ptr, ptr %ptr124, align 8
+  %call125 = call i32 @strcasecmp(ptr noundef %99, ptr noundef @.str.354) #15
   %tobool126 = icmp ne i32 %call125, 0
   br i1 %tobool126, label %if.then127, label %if.end132
 
 if.then127:                                       ; preds = %land.lhs.true121
-  %97 = load ptr, ptr %ri85, align 8
-  %98 = load i64, ptr %req_epoch, align 8
-  %99 = load ptr, ptr %c.addr, align 8
-  %argv128 = getelementptr inbounds %struct.client, ptr %99, i32 0, i32 12
-  %100 = load ptr, ptr %argv128, align 8
-  %arrayidx129 = getelementptr inbounds ptr, ptr %100, i64 5
-  %101 = load ptr, ptr %arrayidx129, align 8
-  %ptr130 = getelementptr inbounds %struct.redisObject, ptr %101, i32 0, i32 2
-  %102 = load ptr, ptr %ptr130, align 8
-  %call131 = call ptr @sentinelVoteLeader(ptr noundef %97, i64 noundef %98, ptr noundef %102, ptr noundef %leader_epoch)
+  %100 = load ptr, ptr %ri85, align 8
+  %101 = load i64, ptr %req_epoch, align 8
+  %102 = load ptr, ptr %c.addr, align 8
+  %argv128 = getelementptr inbounds %struct.client, ptr %102, i32 0, i32 12
+  %103 = load ptr, ptr %argv128, align 8
+  %arrayidx129 = getelementptr inbounds ptr, ptr %103, i64 5
+  %104 = load ptr, ptr %arrayidx129, align 8
+  %ptr130 = getelementptr inbounds %struct.redisObject, ptr %104, i32 0, i32 2
+  %105 = load ptr, ptr %ptr130, align 8
+  %call131 = call ptr @sentinelVoteLeader(ptr noundef %100, i64 noundef %101, ptr noundef %105, ptr noundef %leader_epoch)
   store ptr %call131, ptr %leader, align 8
   br label %if.end132
 
 if.end132:                                        ; preds = %if.then127, %land.lhs.true121, %land.lhs.true117, %if.end115
-  %103 = load ptr, ptr %c.addr, align 8
-  call void @addReplyArrayLen(ptr noundef %103, i64 noundef 3)
-  %104 = load ptr, ptr %c.addr, align 8
-  %105 = load i32, ptr %isdown, align 4
-  %tobool133 = icmp ne i32 %105, 0
+  %106 = load ptr, ptr %c.addr, align 8
+  call void @addReplyArrayLen(ptr noundef %106, i64 noundef 3)
+  %107 = load ptr, ptr %c.addr, align 8
+  %108 = load i32, ptr %isdown, align 4
+  %tobool133 = icmp ne i32 %108, 0
   br i1 %tobool133, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end132
-  %106 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i32 0, i32 4), align 8
+  %109 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i32 0, i32 4
+  %110 = load ptr, ptr %109, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end132
-  %107 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i32 0, i32 3), align 8
+  %111 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i32 0, i32 3
+  %112 = load ptr, ptr %111, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %106, %cond.true ], [ %107, %cond.false ]
-  call void @addReply(ptr noundef %104, ptr noundef %cond)
-  %108 = load ptr, ptr %c.addr, align 8
-  %109 = load ptr, ptr %leader, align 8
-  %tobool134 = icmp ne ptr %109, null
+  %cond = phi ptr [ %110, %cond.true ], [ %112, %cond.false ]
+  call void @addReply(ptr noundef %107, ptr noundef %cond)
+  %113 = load ptr, ptr %c.addr, align 8
+  %114 = load ptr, ptr %leader, align 8
+  %tobool134 = icmp ne ptr %114, null
   br i1 %tobool134, label %cond.true135, label %cond.false136
 
 cond.true135:                                     ; preds = %cond.end
-  %110 = load ptr, ptr %leader, align 8
+  %115 = load ptr, ptr %leader, align 8
   br label %cond.end137
 
 cond.false136:                                    ; preds = %cond.end
   br label %cond.end137
 
 cond.end137:                                      ; preds = %cond.false136, %cond.true135
-  %cond138 = phi ptr [ %110, %cond.true135 ], [ @.str.354, %cond.false136 ]
-  call void @addReplyBulkCString(ptr noundef %108, ptr noundef %cond138)
-  %111 = load ptr, ptr %c.addr, align 8
-  %112 = load i64, ptr %leader_epoch, align 8
-  call void @addReplyLongLong(ptr noundef %111, i64 noundef %112)
-  %113 = load ptr, ptr %leader, align 8
-  %tobool139 = icmp ne ptr %113, null
+  %cond138 = phi ptr [ %115, %cond.true135 ], [ @.str.354, %cond.false136 ]
+  call void @addReplyBulkCString(ptr noundef %113, ptr noundef %cond138)
+  %116 = load ptr, ptr %c.addr, align 8
+  %117 = load i64, ptr %leader_epoch, align 8
+  call void @addReplyLongLong(ptr noundef %116, i64 noundef %117)
+  %118 = load ptr, ptr %leader, align 8
+  %tobool139 = icmp ne ptr %118, null
   br i1 %tobool139, label %if.then140, label %if.end141
 
 if.then140:                                       ; preds = %cond.end137
-  %114 = load ptr, ptr %leader, align 8
-  call void @sdsfree(ptr noundef %114)
+  %119 = load ptr, ptr %leader, align 8
+  call void @sdsfree(ptr noundef %119)
   br label %if.end141
 
 if.end141:                                        ; preds = %if.then140, %cond.end137
   br label %if.end591
 
 if.else142:                                       ; preds = %if.else78
-  %115 = load ptr, ptr %c.addr, align 8
-  %argv143 = getelementptr inbounds %struct.client, ptr %115, i32 0, i32 12
-  %116 = load ptr, ptr %argv143, align 8
-  %arrayidx144 = getelementptr inbounds ptr, ptr %116, i64 1
-  %117 = load ptr, ptr %arrayidx144, align 8
-  %ptr145 = getelementptr inbounds %struct.redisObject, ptr %117, i32 0, i32 2
-  %118 = load ptr, ptr %ptr145, align 8
-  %call146 = call i32 @strcasecmp(ptr noundef %118, ptr noundef @.str.355) #15
+  %120 = load ptr, ptr %c.addr, align 8
+  %argv143 = getelementptr inbounds %struct.client, ptr %120, i32 0, i32 12
+  %121 = load ptr, ptr %argv143, align 8
+  %arrayidx144 = getelementptr inbounds ptr, ptr %121, i64 1
+  %122 = load ptr, ptr %arrayidx144, align 8
+  %ptr145 = getelementptr inbounds %struct.redisObject, ptr %122, i32 0, i32 2
+  %123 = load ptr, ptr %ptr145, align 8
+  %call146 = call i32 @strcasecmp(ptr noundef %123, ptr noundef @.str.355) #15
   %tobool147 = icmp ne i32 %call146, 0
   br i1 %tobool147, label %if.else159, label %if.then148
 
 if.then148:                                       ; preds = %if.else142
-  %119 = load ptr, ptr %c.addr, align 8
-  %argc149 = getelementptr inbounds %struct.client, ptr %119, i32 0, i32 11
-  %120 = load i32, ptr %argc149, align 8
-  %cmp150 = icmp ne i32 %120, 3
+  %124 = load ptr, ptr %c.addr, align 8
+  %argc149 = getelementptr inbounds %struct.client, ptr %124, i32 0, i32 11
+  %125 = load i32, ptr %argc149, align 8
+  %cmp150 = icmp ne i32 %125, 3
   br i1 %cmp150, label %if.then152, label %if.end153
 
 if.then152:                                       ; preds = %if.then148
   br label %numargserr
 
 if.end153:                                        ; preds = %if.then148
-  %121 = load ptr, ptr %c.addr, align 8
-  %122 = load ptr, ptr %c.addr, align 8
-  %argv154 = getelementptr inbounds %struct.client, ptr %122, i32 0, i32 12
-  %123 = load ptr, ptr %argv154, align 8
-  %arrayidx155 = getelementptr inbounds ptr, ptr %123, i64 2
-  %124 = load ptr, ptr %arrayidx155, align 8
-  %ptr156 = getelementptr inbounds %struct.redisObject, ptr %124, i32 0, i32 2
-  %125 = load ptr, ptr %ptr156, align 8
-  %call157 = call i32 @sentinelResetMastersByPattern(ptr noundef %125, i32 noundef 65536)
+  %126 = load ptr, ptr %c.addr, align 8
+  %127 = load ptr, ptr %c.addr, align 8
+  %argv154 = getelementptr inbounds %struct.client, ptr %127, i32 0, i32 12
+  %128 = load ptr, ptr %argv154, align 8
+  %arrayidx155 = getelementptr inbounds ptr, ptr %128, i64 2
+  %129 = load ptr, ptr %arrayidx155, align 8
+  %ptr156 = getelementptr inbounds %struct.redisObject, ptr %129, i32 0, i32 2
+  %130 = load ptr, ptr %ptr156, align 8
+  %call157 = call i32 @sentinelResetMastersByPattern(ptr noundef %130, i32 noundef 65536)
   %conv158 = sext i32 %call157 to i64
-  call void @addReplyLongLong(ptr noundef %121, i64 noundef %conv158)
+  call void @addReplyLongLong(ptr noundef %126, i64 noundef %conv158)
   br label %if.end590
 
 if.else159:                                       ; preds = %if.else142
-  %126 = load ptr, ptr %c.addr, align 8
-  %argv160 = getelementptr inbounds %struct.client, ptr %126, i32 0, i32 12
-  %127 = load ptr, ptr %argv160, align 8
-  %arrayidx161 = getelementptr inbounds ptr, ptr %127, i64 1
-  %128 = load ptr, ptr %arrayidx161, align 8
-  %ptr162 = getelementptr inbounds %struct.redisObject, ptr %128, i32 0, i32 2
-  %129 = load ptr, ptr %ptr162, align 8
-  %call163 = call i32 @strcasecmp(ptr noundef %129, ptr noundef @.str.356) #15
+  %131 = load ptr, ptr %c.addr, align 8
+  %argv160 = getelementptr inbounds %struct.client, ptr %131, i32 0, i32 12
+  %132 = load ptr, ptr %argv160, align 8
+  %arrayidx161 = getelementptr inbounds ptr, ptr %132, i64 1
+  %133 = load ptr, ptr %arrayidx161, align 8
+  %ptr162 = getelementptr inbounds %struct.redisObject, ptr %133, i32 0, i32 2
+  %134 = load ptr, ptr %ptr162, align 8
+  %call163 = call i32 @strcasecmp(ptr noundef %134, ptr noundef @.str.356) #15
   %tobool164 = icmp ne i32 %call163, 0
   br i1 %tobool164, label %if.else185, label %if.then165
 
 if.then165:                                       ; preds = %if.else159
-  %130 = load ptr, ptr %c.addr, align 8
-  %argc167 = getelementptr inbounds %struct.client, ptr %130, i32 0, i32 11
-  %131 = load i32, ptr %argc167, align 8
-  %cmp168 = icmp ne i32 %131, 3
+  %135 = load ptr, ptr %c.addr, align 8
+  %argc167 = getelementptr inbounds %struct.client, ptr %135, i32 0, i32 11
+  %136 = load i32, ptr %argc167, align 8
+  %cmp168 = icmp ne i32 %136, 3
   br i1 %cmp168, label %if.then170, label %if.end171
 
 if.then170:                                       ; preds = %if.then165
   br label %numargserr
 
 if.end171:                                        ; preds = %if.then165
-  %132 = load ptr, ptr %c.addr, align 8
-  %argv172 = getelementptr inbounds %struct.client, ptr %132, i32 0, i32 12
-  %133 = load ptr, ptr %argv172, align 8
-  %arrayidx173 = getelementptr inbounds ptr, ptr %133, i64 2
-  %134 = load ptr, ptr %arrayidx173, align 8
-  %ptr174 = getelementptr inbounds %struct.redisObject, ptr %134, i32 0, i32 2
-  %135 = load ptr, ptr %ptr174, align 8
-  %call175 = call ptr @sentinelGetMasterByName(ptr noundef %135)
+  %137 = load ptr, ptr %c.addr, align 8
+  %argv172 = getelementptr inbounds %struct.client, ptr %137, i32 0, i32 12
+  %138 = load ptr, ptr %argv172, align 8
+  %arrayidx173 = getelementptr inbounds ptr, ptr %138, i64 2
+  %139 = load ptr, ptr %arrayidx173, align 8
+  %ptr174 = getelementptr inbounds %struct.redisObject, ptr %139, i32 0, i32 2
+  %140 = load ptr, ptr %ptr174, align 8
+  %call175 = call ptr @sentinelGetMasterByName(ptr noundef %140)
   store ptr %call175, ptr %ri166, align 8
-  %136 = load ptr, ptr %ri166, align 8
-  %cmp176 = icmp eq ptr %136, null
+  %141 = load ptr, ptr %ri166, align 8
+  %cmp176 = icmp eq ptr %141, null
   br i1 %cmp176, label %if.then178, label %if.else179
 
 if.then178:                                       ; preds = %if.end171
-  %137 = load ptr, ptr %c.addr, align 8
-  call void @addReplyNullArray(ptr noundef %137)
+  %142 = load ptr, ptr %c.addr, align 8
+  call void @addReplyNullArray(ptr noundef %142)
   br label %if.end184
 
 if.else179:                                       ; preds = %if.end171
-  %138 = load ptr, ptr %ri166, align 8
-  %call180 = call ptr @sentinelGetCurrentMasterAddress(ptr noundef %138)
+  %143 = load ptr, ptr %ri166, align 8
+  %call180 = call ptr @sentinelGetCurrentMasterAddress(ptr noundef %143)
   store ptr %call180, ptr %addr, align 8
-  %139 = load ptr, ptr %c.addr, align 8
-  call void @addReplyArrayLen(ptr noundef %139, i64 noundef 2)
-  %140 = load ptr, ptr %c.addr, align 8
-  %141 = load ptr, ptr %addr, align 8
-  %call181 = call ptr @announceSentinelAddr(ptr noundef %141)
-  call void @addReplyBulkCString(ptr noundef %140, ptr noundef %call181)
-  %142 = load ptr, ptr %c.addr, align 8
-  %143 = load ptr, ptr %addr, align 8
-  %port182 = getelementptr inbounds %struct.sentinelAddr, ptr %143, i32 0, i32 2
-  %144 = load i32, ptr %port182, align 8
-  %conv183 = sext i32 %144 to i64
-  call void @addReplyBulkLongLong(ptr noundef %142, i64 noundef %conv183)
+  %144 = load ptr, ptr %c.addr, align 8
+  call void @addReplyArrayLen(ptr noundef %144, i64 noundef 2)
+  %145 = load ptr, ptr %c.addr, align 8
+  %146 = load ptr, ptr %addr, align 8
+  %call181 = call ptr @announceSentinelAddr(ptr noundef %146)
+  call void @addReplyBulkCString(ptr noundef %145, ptr noundef %call181)
+  %147 = load ptr, ptr %c.addr, align 8
+  %148 = load ptr, ptr %addr, align 8
+  %port182 = getelementptr inbounds %struct.sentinelAddr, ptr %148, i32 0, i32 2
+  %149 = load i32, ptr %port182, align 8
+  %conv183 = sext i32 %149 to i64
+  call void @addReplyBulkLongLong(ptr noundef %147, i64 noundef %conv183)
   br label %if.end184
 
 if.end184:                                        ; preds = %if.else179, %if.then178
   br label %if.end589
 
 if.else185:                                       ; preds = %if.else159
-  %145 = load ptr, ptr %c.addr, align 8
-  %argv186 = getelementptr inbounds %struct.client, ptr %145, i32 0, i32 12
-  %146 = load ptr, ptr %argv186, align 8
-  %arrayidx187 = getelementptr inbounds ptr, ptr %146, i64 1
-  %147 = load ptr, ptr %arrayidx187, align 8
-  %ptr188 = getelementptr inbounds %struct.redisObject, ptr %147, i32 0, i32 2
-  %148 = load ptr, ptr %ptr188, align 8
-  %call189 = call i32 @strcasecmp(ptr noundef %148, ptr noundef @.str.357) #15
+  %150 = load ptr, ptr %c.addr, align 8
+  %argv186 = getelementptr inbounds %struct.client, ptr %150, i32 0, i32 12
+  %151 = load ptr, ptr %argv186, align 8
+  %arrayidx187 = getelementptr inbounds ptr, ptr %151, i64 1
+  %152 = load ptr, ptr %arrayidx187, align 8
+  %ptr188 = getelementptr inbounds %struct.redisObject, ptr %152, i32 0, i32 2
+  %153 = load ptr, ptr %ptr188, align 8
+  %call189 = call i32 @strcasecmp(ptr noundef %153, ptr noundef @.str.357) #15
   %tobool190 = icmp ne i32 %call189, 0
   br i1 %tobool190, label %if.else220, label %if.then191
 
 if.then191:                                       ; preds = %if.else185
-  %149 = load ptr, ptr %c.addr, align 8
-  %argc193 = getelementptr inbounds %struct.client, ptr %149, i32 0, i32 11
-  %150 = load i32, ptr %argc193, align 8
-  %cmp194 = icmp ne i32 %150, 3
+  %154 = load ptr, ptr %c.addr, align 8
+  %argc193 = getelementptr inbounds %struct.client, ptr %154, i32 0, i32 11
+  %155 = load i32, ptr %argc193, align 8
+  %cmp194 = icmp ne i32 %155, 3
   br i1 %cmp194, label %if.then196, label %if.end197
 
 if.then196:                                       ; preds = %if.then191
   br label %numargserr
 
 if.end197:                                        ; preds = %if.then191
-  %151 = load ptr, ptr %c.addr, align 8
-  %152 = load ptr, ptr %c.addr, align 8
-  %argv198 = getelementptr inbounds %struct.client, ptr %152, i32 0, i32 12
-  %153 = load ptr, ptr %argv198, align 8
-  %arrayidx199 = getelementptr inbounds ptr, ptr %153, i64 2
-  %154 = load ptr, ptr %arrayidx199, align 8
-  %call200 = call ptr @sentinelGetMasterByNameOrReplyError(ptr noundef %151, ptr noundef %154)
+  %156 = load ptr, ptr %c.addr, align 8
+  %157 = load ptr, ptr %c.addr, align 8
+  %argv198 = getelementptr inbounds %struct.client, ptr %157, i32 0, i32 12
+  %158 = load ptr, ptr %argv198, align 8
+  %arrayidx199 = getelementptr inbounds ptr, ptr %158, i64 2
+  %159 = load ptr, ptr %arrayidx199, align 8
+  %call200 = call ptr @sentinelGetMasterByNameOrReplyError(ptr noundef %156, ptr noundef %159)
   store ptr %call200, ptr %ri192, align 8
   %cmp201 = icmp eq ptr %call200, null
   br i1 %cmp201, label %if.then203, label %if.end204
@@ -13882,117 +14050,118 @@ if.then203:                                       ; preds = %if.end197
   br label %return
 
 if.end204:                                        ; preds = %if.end197
-  %155 = load ptr, ptr %ri192, align 8
-  %flags205 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %155, i32 0, i32 0
-  %156 = load i32, ptr %flags205, align 8
-  %and206 = and i32 %156, 64
+  %160 = load ptr, ptr %ri192, align 8
+  %flags205 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %160, i32 0, i32 0
+  %161 = load i32, ptr %flags205, align 8
+  %and206 = and i32 %161, 64
   %tobool207 = icmp ne i32 %and206, 0
   br i1 %tobool207, label %if.then208, label %if.end209
 
 if.then208:                                       ; preds = %if.end204
-  %157 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %157, ptr noundef @.str.358)
+  %162 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %162, ptr noundef @.str.358)
   br label %return
 
 if.end209:                                        ; preds = %if.end204
-  %158 = load ptr, ptr %ri192, align 8
-  %call210 = call ptr @sentinelSelectSlave(ptr noundef %158)
+  %163 = load ptr, ptr %ri192, align 8
+  %call210 = call ptr @sentinelSelectSlave(ptr noundef %163)
   %cmp211 = icmp eq ptr %call210, null
   br i1 %cmp211, label %if.then213, label %if.end214
 
 if.then213:                                       ; preds = %if.end209
-  %159 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %159, ptr noundef @.str.359)
+  %164 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %164, ptr noundef @.str.359)
   br label %return
 
 if.end214:                                        ; preds = %if.end209
   br label %do.body
 
 do.body:                                          ; preds = %if.end214
-  %160 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp215 = icmp slt i32 2, %160
+  %165 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %166 = load i32, ptr %165, align 8
+  %cmp215 = icmp slt i32 2, %166
   br i1 %cmp215, label %if.then217, label %if.end218
 
 if.then217:                                       ; preds = %do.body
   br label %do.end
 
 if.end218:                                        ; preds = %do.body
-  %161 = load ptr, ptr %ri192, align 8
-  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %161, i32 0, i32 1
-  %162 = load ptr, ptr %name, align 8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef @.str.360, ptr noundef %162)
+  %167 = load ptr, ptr %ri192, align 8
+  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %167, i32 0, i32 1
+  %168 = load ptr, ptr %name, align 8
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef @.str.360, ptr noundef %168)
   br label %do.end
 
 do.end:                                           ; preds = %if.end218, %if.then217
-  %163 = load ptr, ptr %ri192, align 8
-  call void @sentinelStartFailover(ptr noundef %163)
-  %164 = load ptr, ptr %ri192, align 8
-  %flags219 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %164, i32 0, i32 0
-  %165 = load i32, ptr %flags219, align 8
-  %or = or i32 %165, 2048
+  %169 = load ptr, ptr %ri192, align 8
+  call void @sentinelStartFailover(ptr noundef %169)
+  %170 = load ptr, ptr %ri192, align 8
+  %flags219 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %170, i32 0, i32 0
+  %171 = load i32, ptr %flags219, align 8
+  %or = or i32 %171, 2048
   store i32 %or, ptr %flags219, align 8
-  %166 = load ptr, ptr %c.addr, align 8
-  %167 = load ptr, ptr @shared, align 8
-  call void @addReply(ptr noundef %166, ptr noundef %167)
+  %172 = load ptr, ptr %c.addr, align 8
+  %173 = load ptr, ptr @shared, align 8
+  call void @addReply(ptr noundef %172, ptr noundef %173)
   br label %if.end588
 
 if.else220:                                       ; preds = %if.else185
-  %168 = load ptr, ptr %c.addr, align 8
-  %argv221 = getelementptr inbounds %struct.client, ptr %168, i32 0, i32 12
-  %169 = load ptr, ptr %argv221, align 8
-  %arrayidx222 = getelementptr inbounds ptr, ptr %169, i64 1
-  %170 = load ptr, ptr %arrayidx222, align 8
-  %ptr223 = getelementptr inbounds %struct.redisObject, ptr %170, i32 0, i32 2
-  %171 = load ptr, ptr %ptr223, align 8
-  %call224 = call i32 @strcasecmp(ptr noundef %171, ptr noundef @.str.361) #15
+  %174 = load ptr, ptr %c.addr, align 8
+  %argv221 = getelementptr inbounds %struct.client, ptr %174, i32 0, i32 12
+  %175 = load ptr, ptr %argv221, align 8
+  %arrayidx222 = getelementptr inbounds ptr, ptr %175, i64 1
+  %176 = load ptr, ptr %arrayidx222, align 8
+  %ptr223 = getelementptr inbounds %struct.redisObject, ptr %176, i32 0, i32 2
+  %177 = load ptr, ptr %ptr223, align 8
+  %call224 = call i32 @strcasecmp(ptr noundef %177, ptr noundef @.str.361) #15
   %tobool225 = icmp ne i32 %call224, 0
   br i1 %tobool225, label %if.else232, label %if.then226
 
 if.then226:                                       ; preds = %if.else220
-  %172 = load ptr, ptr %c.addr, align 8
-  %argc227 = getelementptr inbounds %struct.client, ptr %172, i32 0, i32 11
-  %173 = load i32, ptr %argc227, align 8
-  %cmp228 = icmp ne i32 %173, 2
+  %178 = load ptr, ptr %c.addr, align 8
+  %argc227 = getelementptr inbounds %struct.client, ptr %178, i32 0, i32 11
+  %179 = load i32, ptr %argc227, align 8
+  %cmp228 = icmp ne i32 %179, 2
   br i1 %cmp228, label %if.then230, label %if.end231
 
 if.then230:                                       ; preds = %if.then226
   br label %numargserr
 
 if.end231:                                        ; preds = %if.then226
-  %174 = load ptr, ptr %c.addr, align 8
-  call void @sentinelPendingScriptsCommand(ptr noundef %174)
+  %180 = load ptr, ptr %c.addr, align 8
+  call void @sentinelPendingScriptsCommand(ptr noundef %180)
   br label %if.end587
 
 if.else232:                                       ; preds = %if.else220
-  %175 = load ptr, ptr %c.addr, align 8
-  %argv233 = getelementptr inbounds %struct.client, ptr %175, i32 0, i32 12
-  %176 = load ptr, ptr %argv233, align 8
-  %arrayidx234 = getelementptr inbounds ptr, ptr %176, i64 1
-  %177 = load ptr, ptr %arrayidx234, align 8
-  %ptr235 = getelementptr inbounds %struct.redisObject, ptr %177, i32 0, i32 2
-  %178 = load ptr, ptr %ptr235, align 8
-  %call236 = call i32 @strcasecmp(ptr noundef %178, ptr noundef @.str.63) #15
+  %181 = load ptr, ptr %c.addr, align 8
+  %argv233 = getelementptr inbounds %struct.client, ptr %181, i32 0, i32 12
+  %182 = load ptr, ptr %argv233, align 8
+  %arrayidx234 = getelementptr inbounds ptr, ptr %182, i64 1
+  %183 = load ptr, ptr %arrayidx234, align 8
+  %ptr235 = getelementptr inbounds %struct.redisObject, ptr %183, i32 0, i32 2
+  %184 = load ptr, ptr %ptr235, align 8
+  %call236 = call i32 @strcasecmp(ptr noundef %184, ptr noundef @.str.63) #15
   %tobool237 = icmp ne i32 %call236, 0
   br i1 %tobool237, label %if.else291, label %if.then238
 
 if.then238:                                       ; preds = %if.else232
-  %179 = load ptr, ptr %c.addr, align 8
-  %argc241 = getelementptr inbounds %struct.client, ptr %179, i32 0, i32 11
-  %180 = load i32, ptr %argc241, align 8
-  %cmp242 = icmp ne i32 %180, 6
+  %185 = load ptr, ptr %c.addr, align 8
+  %argc241 = getelementptr inbounds %struct.client, ptr %185, i32 0, i32 11
+  %186 = load i32, ptr %argc241, align 8
+  %cmp242 = icmp ne i32 %186, 6
   br i1 %cmp242, label %if.then244, label %if.end245
 
 if.then244:                                       ; preds = %if.then238
   br label %numargserr
 
 if.end245:                                        ; preds = %if.then238
-  %181 = load ptr, ptr %c.addr, align 8
-  %182 = load ptr, ptr %c.addr, align 8
-  %argv246 = getelementptr inbounds %struct.client, ptr %182, i32 0, i32 12
-  %183 = load ptr, ptr %argv246, align 8
-  %arrayidx247 = getelementptr inbounds ptr, ptr %183, i64 5
-  %184 = load ptr, ptr %arrayidx247, align 8
-  %call248 = call i32 @getLongFromObjectOrReply(ptr noundef %181, ptr noundef %184, ptr noundef %quorum, ptr noundef @.str.362)
+  %187 = load ptr, ptr %c.addr, align 8
+  %188 = load ptr, ptr %c.addr, align 8
+  %argv246 = getelementptr inbounds %struct.client, ptr %188, i32 0, i32 12
+  %189 = load ptr, ptr %argv246, align 8
+  %arrayidx247 = getelementptr inbounds ptr, ptr %189, i64 5
+  %190 = load ptr, ptr %arrayidx247, align 8
+  %call248 = call i32 @getLongFromObjectOrReply(ptr noundef %187, ptr noundef %190, ptr noundef %quorum, ptr noundef @.str.362)
   %cmp249 = icmp ne i32 %call248, 0
   br i1 %cmp249, label %if.then251, label %if.end252
 
@@ -14000,13 +14169,13 @@ if.then251:                                       ; preds = %if.end245
   br label %return
 
 if.end252:                                        ; preds = %if.end245
-  %185 = load ptr, ptr %c.addr, align 8
-  %186 = load ptr, ptr %c.addr, align 8
-  %argv253 = getelementptr inbounds %struct.client, ptr %186, i32 0, i32 12
-  %187 = load ptr, ptr %argv253, align 8
-  %arrayidx254 = getelementptr inbounds ptr, ptr %187, i64 4
-  %188 = load ptr, ptr %arrayidx254, align 8
-  %call255 = call i32 @getLongFromObjectOrReply(ptr noundef %185, ptr noundef %188, ptr noundef %port240, ptr noundef @.str.363)
+  %191 = load ptr, ptr %c.addr, align 8
+  %192 = load ptr, ptr %c.addr, align 8
+  %argv253 = getelementptr inbounds %struct.client, ptr %192, i32 0, i32 12
+  %193 = load ptr, ptr %argv253, align 8
+  %arrayidx254 = getelementptr inbounds ptr, ptr %193, i64 4
+  %194 = load ptr, ptr %arrayidx254, align 8
+  %call255 = call i32 @getLongFromObjectOrReply(ptr noundef %191, ptr noundef %194, ptr noundef %port240, ptr noundef @.str.363)
   %cmp256 = icmp ne i32 %call255, 0
   br i1 %cmp256, label %if.then258, label %if.end259
 
@@ -14014,137 +14183,138 @@ if.then258:                                       ; preds = %if.end252
   br label %return
 
 if.end259:                                        ; preds = %if.end252
-  %189 = load i64, ptr %quorum, align 8
-  %cmp260 = icmp sle i64 %189, 0
+  %195 = load i64, ptr %quorum, align 8
+  %cmp260 = icmp sle i64 %195, 0
   br i1 %cmp260, label %if.then262, label %if.end263
 
 if.then262:                                       ; preds = %if.end259
-  %190 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %190, ptr noundef @.str.69)
+  %196 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %196, ptr noundef @.str.69)
   br label %return
 
 if.end263:                                        ; preds = %if.end259
-  %191 = load ptr, ptr %c.addr, align 8
-  %argv264 = getelementptr inbounds %struct.client, ptr %191, i32 0, i32 12
-  %192 = load ptr, ptr %argv264, align 8
-  %arrayidx265 = getelementptr inbounds ptr, ptr %192, i64 3
-  %193 = load ptr, ptr %arrayidx265, align 8
-  %ptr266 = getelementptr inbounds %struct.redisObject, ptr %193, i32 0, i32 2
-  %194 = load ptr, ptr %ptr266, align 8
+  %197 = load ptr, ptr %c.addr, align 8
+  %argv264 = getelementptr inbounds %struct.client, ptr %197, i32 0, i32 12
+  %198 = load ptr, ptr %argv264, align 8
+  %arrayidx265 = getelementptr inbounds ptr, ptr %198, i64 3
+  %199 = load ptr, ptr %arrayidx265, align 8
+  %ptr266 = getelementptr inbounds %struct.redisObject, ptr %199, i32 0, i32 2
+  %200 = load ptr, ptr %ptr266, align 8
   %arraydecay267 = getelementptr inbounds [46 x i8], ptr %ip, i64 0, i64 0
-  %195 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 14), align 8
-  %tobool268 = icmp ne i32 %195, 0
+  %201 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 14
+  %202 = load i32, ptr %201, align 8
+  %tobool268 = icmp ne i32 %202, 0
   %cond269 = select i1 %tobool268, i32 0, i32 1
-  %call270 = call i32 @anetResolve(ptr noundef null, ptr noundef %194, ptr noundef %arraydecay267, i64 noundef 46, i32 noundef %cond269)
+  %call270 = call i32 @anetResolve(ptr noundef null, ptr noundef %200, ptr noundef %arraydecay267, i64 noundef 46, i32 noundef %cond269)
   %cmp271 = icmp eq i32 %call270, -1
   br i1 %cmp271, label %if.then273, label %if.end274
 
 if.then273:                                       ; preds = %if.end263
-  %196 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %196, ptr noundef @.str.364)
+  %203 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %203, ptr noundef @.str.364)
   br label %return
 
 if.end274:                                        ; preds = %if.end263
-  %197 = load ptr, ptr %c.addr, align 8
-  %argv275 = getelementptr inbounds %struct.client, ptr %197, i32 0, i32 12
-  %198 = load ptr, ptr %argv275, align 8
-  %arrayidx276 = getelementptr inbounds ptr, ptr %198, i64 2
-  %199 = load ptr, ptr %arrayidx276, align 8
-  %ptr277 = getelementptr inbounds %struct.redisObject, ptr %199, i32 0, i32 2
-  %200 = load ptr, ptr %ptr277, align 8
-  %201 = load ptr, ptr %c.addr, align 8
-  %argv278 = getelementptr inbounds %struct.client, ptr %201, i32 0, i32 12
-  %202 = load ptr, ptr %argv278, align 8
-  %arrayidx279 = getelementptr inbounds ptr, ptr %202, i64 3
-  %203 = load ptr, ptr %arrayidx279, align 8
-  %ptr280 = getelementptr inbounds %struct.redisObject, ptr %203, i32 0, i32 2
-  %204 = load ptr, ptr %ptr280, align 8
-  %205 = load i64, ptr %port240, align 8
-  %conv281 = trunc i64 %205 to i32
-  %206 = load i64, ptr %quorum, align 8
-  %conv282 = trunc i64 %206 to i32
-  %call283 = call ptr @createSentinelRedisInstance(ptr noundef %200, i32 noundef 1, ptr noundef %204, i32 noundef %conv281, i32 noundef %conv282, ptr noundef null)
+  %204 = load ptr, ptr %c.addr, align 8
+  %argv275 = getelementptr inbounds %struct.client, ptr %204, i32 0, i32 12
+  %205 = load ptr, ptr %argv275, align 8
+  %arrayidx276 = getelementptr inbounds ptr, ptr %205, i64 2
+  %206 = load ptr, ptr %arrayidx276, align 8
+  %ptr277 = getelementptr inbounds %struct.redisObject, ptr %206, i32 0, i32 2
+  %207 = load ptr, ptr %ptr277, align 8
+  %208 = load ptr, ptr %c.addr, align 8
+  %argv278 = getelementptr inbounds %struct.client, ptr %208, i32 0, i32 12
+  %209 = load ptr, ptr %argv278, align 8
+  %arrayidx279 = getelementptr inbounds ptr, ptr %209, i64 3
+  %210 = load ptr, ptr %arrayidx279, align 8
+  %ptr280 = getelementptr inbounds %struct.redisObject, ptr %210, i32 0, i32 2
+  %211 = load ptr, ptr %ptr280, align 8
+  %212 = load i64, ptr %port240, align 8
+  %conv281 = trunc i64 %212 to i32
+  %213 = load i64, ptr %quorum, align 8
+  %conv282 = trunc i64 %213 to i32
+  %call283 = call ptr @createSentinelRedisInstance(ptr noundef %207, i32 noundef 1, ptr noundef %211, i32 noundef %conv281, i32 noundef %conv282, ptr noundef null)
   store ptr %call283, ptr %ri239, align 8
-  %207 = load ptr, ptr %ri239, align 8
-  %cmp284 = icmp eq ptr %207, null
+  %214 = load ptr, ptr %ri239, align 8
+  %cmp284 = icmp eq ptr %214, null
   br i1 %cmp284, label %if.then286, label %if.else288
 
 if.then286:                                       ; preds = %if.end274
-  %208 = load ptr, ptr %c.addr, align 8
+  %215 = load ptr, ptr %c.addr, align 8
   %call287 = call ptr @sentinelCheckCreateInstanceErrors(i32 noundef 1)
-  call void @addReplyError(ptr noundef %208, ptr noundef %call287)
+  call void @addReplyError(ptr noundef %215, ptr noundef %call287)
   br label %if.end290
 
 if.else288:                                       ; preds = %if.end274
-  %209 = load ptr, ptr %c.addr, align 8
-  call void @sentinelFlushConfigAndReply(ptr noundef %209)
-  %210 = load ptr, ptr %ri239, align 8
-  %211 = load ptr, ptr %ri239, align 8
-  %quorum289 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %211, i32 0, i32 21
-  %212 = load i32, ptr %quorum289, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.18, ptr noundef %210, ptr noundef @.str.19, i32 noundef %212)
+  %216 = load ptr, ptr %c.addr, align 8
+  call void @sentinelFlushConfigAndReply(ptr noundef %216)
+  %217 = load ptr, ptr %ri239, align 8
+  %218 = load ptr, ptr %ri239, align 8
+  %quorum289 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %218, i32 0, i32 21
+  %219 = load i32, ptr %quorum289, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.18, ptr noundef %217, ptr noundef @.str.19, i32 noundef %219)
   br label %if.end290
 
 if.end290:                                        ; preds = %if.else288, %if.then286
   br label %if.end586
 
 if.else291:                                       ; preds = %if.else232
-  %213 = load ptr, ptr %c.addr, align 8
-  %argv292 = getelementptr inbounds %struct.client, ptr %213, i32 0, i32 12
-  %214 = load ptr, ptr %argv292, align 8
-  %arrayidx293 = getelementptr inbounds ptr, ptr %214, i64 1
-  %215 = load ptr, ptr %arrayidx293, align 8
-  %ptr294 = getelementptr inbounds %struct.redisObject, ptr %215, i32 0, i32 2
-  %216 = load ptr, ptr %ptr294, align 8
-  %call295 = call i32 @strcasecmp(ptr noundef %216, ptr noundef @.str.365) #15
+  %220 = load ptr, ptr %c.addr, align 8
+  %argv292 = getelementptr inbounds %struct.client, ptr %220, i32 0, i32 12
+  %221 = load ptr, ptr %argv292, align 8
+  %arrayidx293 = getelementptr inbounds ptr, ptr %221, i64 1
+  %222 = load ptr, ptr %arrayidx293, align 8
+  %ptr294 = getelementptr inbounds %struct.redisObject, ptr %222, i32 0, i32 2
+  %223 = load ptr, ptr %ptr294, align 8
+  %call295 = call i32 @strcasecmp(ptr noundef %223, ptr noundef @.str.365) #15
   %tobool296 = icmp ne i32 %call295, 0
   br i1 %tobool296, label %if.else303, label %if.then297
 
 if.then297:                                       ; preds = %if.else291
-  %217 = load ptr, ptr %c.addr, align 8
-  %argc298 = getelementptr inbounds %struct.client, ptr %217, i32 0, i32 11
-  %218 = load i32, ptr %argc298, align 8
-  %cmp299 = icmp ne i32 %218, 2
+  %224 = load ptr, ptr %c.addr, align 8
+  %argc298 = getelementptr inbounds %struct.client, ptr %224, i32 0, i32 11
+  %225 = load i32, ptr %argc298, align 8
+  %cmp299 = icmp ne i32 %225, 2
   br i1 %cmp299, label %if.then301, label %if.end302
 
 if.then301:                                       ; preds = %if.then297
   br label %numargserr
 
 if.end302:                                        ; preds = %if.then297
-  %219 = load ptr, ptr %c.addr, align 8
-  call void @sentinelFlushConfigAndReply(ptr noundef %219)
+  %226 = load ptr, ptr %c.addr, align 8
+  call void @sentinelFlushConfigAndReply(ptr noundef %226)
   br label %return
 
 if.else303:                                       ; preds = %if.else291
-  %220 = load ptr, ptr %c.addr, align 8
-  %argv304 = getelementptr inbounds %struct.client, ptr %220, i32 0, i32 12
-  %221 = load ptr, ptr %argv304, align 8
-  %arrayidx305 = getelementptr inbounds ptr, ptr %221, i64 1
-  %222 = load ptr, ptr %arrayidx305, align 8
-  %ptr306 = getelementptr inbounds %struct.redisObject, ptr %222, i32 0, i32 2
-  %223 = load ptr, ptr %ptr306, align 8
-  %call307 = call i32 @strcasecmp(ptr noundef %223, ptr noundef @.str.366) #15
+  %227 = load ptr, ptr %c.addr, align 8
+  %argv304 = getelementptr inbounds %struct.client, ptr %227, i32 0, i32 12
+  %228 = load ptr, ptr %argv304, align 8
+  %arrayidx305 = getelementptr inbounds ptr, ptr %228, i64 1
+  %229 = load ptr, ptr %arrayidx305, align 8
+  %ptr306 = getelementptr inbounds %struct.redisObject, ptr %229, i32 0, i32 2
+  %230 = load ptr, ptr %ptr306, align 8
+  %call307 = call i32 @strcasecmp(ptr noundef %230, ptr noundef @.str.366) #15
   %tobool308 = icmp ne i32 %call307, 0
   br i1 %tobool308, label %if.else327, label %if.then309
 
 if.then309:                                       ; preds = %if.else303
-  %224 = load ptr, ptr %c.addr, align 8
-  %argc311 = getelementptr inbounds %struct.client, ptr %224, i32 0, i32 11
-  %225 = load i32, ptr %argc311, align 8
-  %cmp312 = icmp ne i32 %225, 3
+  %231 = load ptr, ptr %c.addr, align 8
+  %argc311 = getelementptr inbounds %struct.client, ptr %231, i32 0, i32 11
+  %232 = load i32, ptr %argc311, align 8
+  %cmp312 = icmp ne i32 %232, 3
   br i1 %cmp312, label %if.then314, label %if.end315
 
 if.then314:                                       ; preds = %if.then309
   br label %numargserr
 
 if.end315:                                        ; preds = %if.then309
-  %226 = load ptr, ptr %c.addr, align 8
-  %227 = load ptr, ptr %c.addr, align 8
-  %argv316 = getelementptr inbounds %struct.client, ptr %227, i32 0, i32 12
-  %228 = load ptr, ptr %argv316, align 8
-  %arrayidx317 = getelementptr inbounds ptr, ptr %228, i64 2
-  %229 = load ptr, ptr %arrayidx317, align 8
-  %call318 = call ptr @sentinelGetMasterByNameOrReplyError(ptr noundef %226, ptr noundef %229)
+  %233 = load ptr, ptr %c.addr, align 8
+  %234 = load ptr, ptr %c.addr, align 8
+  %argv316 = getelementptr inbounds %struct.client, ptr %234, i32 0, i32 12
+  %235 = load ptr, ptr %argv316, align 8
+  %arrayidx317 = getelementptr inbounds ptr, ptr %235, i64 2
+  %236 = load ptr, ptr %arrayidx317, align 8
+  %call318 = call ptr @sentinelGetMasterByNameOrReplyError(ptr noundef %233, ptr noundef %236)
   store ptr %call318, ptr %ri310, align 8
   %cmp319 = icmp eq ptr %call318, null
   br i1 %cmp319, label %if.then321, label %if.end322
@@ -14153,51 +14323,52 @@ if.then321:                                       ; preds = %if.end315
   br label %return
 
 if.end322:                                        ; preds = %if.end315
-  %230 = load ptr, ptr %ri310, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.367, ptr noundef %230, ptr noundef @.str.54)
-  %231 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %232 = load ptr, ptr %c.addr, align 8
-  %argv323 = getelementptr inbounds %struct.client, ptr %232, i32 0, i32 12
-  %233 = load ptr, ptr %argv323, align 8
-  %arrayidx324 = getelementptr inbounds ptr, ptr %233, i64 2
-  %234 = load ptr, ptr %arrayidx324, align 8
-  %ptr325 = getelementptr inbounds %struct.redisObject, ptr %234, i32 0, i32 2
-  %235 = load ptr, ptr %ptr325, align 8
-  %call326 = call i32 @dictDelete(ptr noundef %231, ptr noundef %235)
-  %236 = load ptr, ptr %c.addr, align 8
-  call void @sentinelFlushConfigAndReply(ptr noundef %236)
+  %237 = load ptr, ptr %ri310, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.367, ptr noundef %237, ptr noundef @.str.54)
+  %238 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %239 = load ptr, ptr %238, align 8
+  %240 = load ptr, ptr %c.addr, align 8
+  %argv323 = getelementptr inbounds %struct.client, ptr %240, i32 0, i32 12
+  %241 = load ptr, ptr %argv323, align 8
+  %arrayidx324 = getelementptr inbounds ptr, ptr %241, i64 2
+  %242 = load ptr, ptr %arrayidx324, align 8
+  %ptr325 = getelementptr inbounds %struct.redisObject, ptr %242, i32 0, i32 2
+  %243 = load ptr, ptr %ptr325, align 8
+  %call326 = call i32 @dictDelete(ptr noundef %239, ptr noundef %243)
+  %244 = load ptr, ptr %c.addr, align 8
+  call void @sentinelFlushConfigAndReply(ptr noundef %244)
   br label %if.end584
 
 if.else327:                                       ; preds = %if.else303
-  %237 = load ptr, ptr %c.addr, align 8
-  %argv328 = getelementptr inbounds %struct.client, ptr %237, i32 0, i32 12
-  %238 = load ptr, ptr %argv328, align 8
-  %arrayidx329 = getelementptr inbounds ptr, ptr %238, i64 1
-  %239 = load ptr, ptr %arrayidx329, align 8
-  %ptr330 = getelementptr inbounds %struct.redisObject, ptr %239, i32 0, i32 2
-  %240 = load ptr, ptr %ptr330, align 8
-  %call331 = call i32 @strcasecmp(ptr noundef %240, ptr noundef @.str.368) #15
+  %245 = load ptr, ptr %c.addr, align 8
+  %argv328 = getelementptr inbounds %struct.client, ptr %245, i32 0, i32 12
+  %246 = load ptr, ptr %argv328, align 8
+  %arrayidx329 = getelementptr inbounds ptr, ptr %246, i64 1
+  %247 = load ptr, ptr %arrayidx329, align 8
+  %ptr330 = getelementptr inbounds %struct.redisObject, ptr %247, i32 0, i32 2
+  %248 = load ptr, ptr %ptr330, align 8
+  %call331 = call i32 @strcasecmp(ptr noundef %248, ptr noundef @.str.368) #15
   %tobool332 = icmp ne i32 %call331, 0
   br i1 %tobool332, label %if.else372, label %if.then333
 
 if.then333:                                       ; preds = %if.else327
-  %241 = load ptr, ptr %c.addr, align 8
-  %argc335 = getelementptr inbounds %struct.client, ptr %241, i32 0, i32 11
-  %242 = load i32, ptr %argc335, align 8
-  %cmp336 = icmp ne i32 %242, 3
+  %249 = load ptr, ptr %c.addr, align 8
+  %argc335 = getelementptr inbounds %struct.client, ptr %249, i32 0, i32 11
+  %250 = load i32, ptr %argc335, align 8
+  %cmp336 = icmp ne i32 %250, 3
   br i1 %cmp336, label %if.then338, label %if.end339
 
 if.then338:                                       ; preds = %if.then333
   br label %numargserr
 
 if.end339:                                        ; preds = %if.then333
-  %243 = load ptr, ptr %c.addr, align 8
-  %244 = load ptr, ptr %c.addr, align 8
-  %argv340 = getelementptr inbounds %struct.client, ptr %244, i32 0, i32 12
-  %245 = load ptr, ptr %argv340, align 8
-  %arrayidx341 = getelementptr inbounds ptr, ptr %245, i64 2
-  %246 = load ptr, ptr %arrayidx341, align 8
-  %call342 = call ptr @sentinelGetMasterByNameOrReplyError(ptr noundef %243, ptr noundef %246)
+  %251 = load ptr, ptr %c.addr, align 8
+  %252 = load ptr, ptr %c.addr, align 8
+  %argv340 = getelementptr inbounds %struct.client, ptr %252, i32 0, i32 12
+  %253 = load ptr, ptr %argv340, align 8
+  %arrayidx341 = getelementptr inbounds ptr, ptr %253, i64 2
+  %254 = load ptr, ptr %arrayidx341, align 8
+  %call342 = call ptr @sentinelGetMasterByNameOrReplyError(ptr noundef %251, ptr noundef %254)
   store ptr %call342, ptr %ri334, align 8
   %cmp343 = icmp eq ptr %call342, null
   br i1 %cmp343, label %if.then345, label %if.end346
@@ -14206,160 +14377,160 @@ if.then345:                                       ; preds = %if.end339
   br label %return
 
 if.end346:                                        ; preds = %if.end339
-  %247 = load ptr, ptr %ri334, align 8
-  %call347 = call i32 @sentinelIsQuorumReachable(ptr noundef %247, ptr noundef %usable)
+  %255 = load ptr, ptr %ri334, align 8
+  %call347 = call i32 @sentinelIsQuorumReachable(ptr noundef %255, ptr noundef %usable)
   store i32 %call347, ptr %result, align 4
-  %248 = load i32, ptr %result, align 4
-  %cmp348 = icmp eq i32 %248, 0
+  %256 = load i32, ptr %result, align 4
+  %cmp348 = icmp eq i32 %256, 0
   br i1 %cmp348, label %if.then350, label %if.else353
 
 if.then350:                                       ; preds = %if.end346
-  %249 = load ptr, ptr %c.addr, align 8
+  %257 = load ptr, ptr %c.addr, align 8
   %call351 = call ptr @sdsempty()
-  %250 = load i32, ptr %usable, align 4
-  %call352 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call351, ptr noundef @.str.369, i32 noundef %250)
-  call void @addReplySds(ptr noundef %249, ptr noundef %call352)
+  %258 = load i32, ptr %usable, align 4
+  %call352 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call351, ptr noundef @.str.369, i32 noundef %258)
+  call void @addReplySds(ptr noundef %257, ptr noundef %call352)
   br label %if.end371
 
 if.else353:                                       ; preds = %if.end346
   %call354 = call ptr @sdsempty()
-  %251 = load i32, ptr %usable, align 4
-  %call355 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call354, ptr noundef @.str.370, i32 noundef %251)
+  %259 = load i32, ptr %usable, align 4
+  %call355 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call354, ptr noundef @.str.370, i32 noundef %259)
   store ptr %call355, ptr %e, align 8
-  %252 = load i32, ptr %result, align 4
-  %and356 = and i32 %252, 1
+  %260 = load i32, ptr %result, align 4
+  %and356 = and i32 %260, 1
   %tobool357 = icmp ne i32 %and356, 0
   br i1 %tobool357, label %if.then358, label %if.end360
 
 if.then358:                                       ; preds = %if.else353
-  %253 = load ptr, ptr %e, align 8
-  %call359 = call ptr @sdscat(ptr noundef %253, ptr noundef @.str.371)
+  %261 = load ptr, ptr %e, align 8
+  %call359 = call ptr @sdscat(ptr noundef %261, ptr noundef @.str.371)
   store ptr %call359, ptr %e, align 8
   br label %if.end360
 
 if.end360:                                        ; preds = %if.then358, %if.else353
-  %254 = load i32, ptr %result, align 4
-  %and361 = and i32 %254, 2
+  %262 = load i32, ptr %result, align 4
+  %and361 = and i32 %262, 2
   %tobool362 = icmp ne i32 %and361, 0
   br i1 %tobool362, label %if.then363, label %if.end370
 
 if.then363:                                       ; preds = %if.end360
-  %255 = load i32, ptr %result, align 4
-  %and364 = and i32 %255, 1
+  %263 = load i32, ptr %result, align 4
+  %and364 = and i32 %263, 1
   %tobool365 = icmp ne i32 %and364, 0
   br i1 %tobool365, label %if.then366, label %if.end368
 
 if.then366:                                       ; preds = %if.then363
-  %256 = load ptr, ptr %e, align 8
-  %call367 = call ptr @sdscat(ptr noundef %256, ptr noundef @.str.372)
+  %264 = load ptr, ptr %e, align 8
+  %call367 = call ptr @sdscat(ptr noundef %264, ptr noundef @.str.372)
   store ptr %call367, ptr %e, align 8
   br label %if.end368
 
 if.end368:                                        ; preds = %if.then366, %if.then363
-  %257 = load ptr, ptr %e, align 8
-  %call369 = call ptr @sdscat(ptr noundef %257, ptr noundef @.str.373)
+  %265 = load ptr, ptr %e, align 8
+  %call369 = call ptr @sdscat(ptr noundef %265, ptr noundef @.str.373)
   store ptr %call369, ptr %e, align 8
   br label %if.end370
 
 if.end370:                                        ; preds = %if.end368, %if.end360
-  %258 = load ptr, ptr %c.addr, align 8
-  %259 = load ptr, ptr %e, align 8
-  call void @addReplyErrorSds(ptr noundef %258, ptr noundef %259)
+  %266 = load ptr, ptr %c.addr, align 8
+  %267 = load ptr, ptr %e, align 8
+  call void @addReplyErrorSds(ptr noundef %266, ptr noundef %267)
   br label %if.end371
 
 if.end371:                                        ; preds = %if.end370, %if.then350
   br label %if.end583
 
 if.else372:                                       ; preds = %if.else327
-  %260 = load ptr, ptr %c.addr, align 8
-  %argv373 = getelementptr inbounds %struct.client, ptr %260, i32 0, i32 12
-  %261 = load ptr, ptr %argv373, align 8
-  %arrayidx374 = getelementptr inbounds ptr, ptr %261, i64 1
-  %262 = load ptr, ptr %arrayidx374, align 8
-  %ptr375 = getelementptr inbounds %struct.redisObject, ptr %262, i32 0, i32 2
-  %263 = load ptr, ptr %ptr375, align 8
-  %call376 = call i32 @strcasecmp(ptr noundef %263, ptr noundef @.str.374) #15
+  %268 = load ptr, ptr %c.addr, align 8
+  %argv373 = getelementptr inbounds %struct.client, ptr %268, i32 0, i32 12
+  %269 = load ptr, ptr %argv373, align 8
+  %arrayidx374 = getelementptr inbounds ptr, ptr %269, i64 1
+  %270 = load ptr, ptr %arrayidx374, align 8
+  %ptr375 = getelementptr inbounds %struct.redisObject, ptr %270, i32 0, i32 2
+  %271 = load ptr, ptr %ptr375, align 8
+  %call376 = call i32 @strcasecmp(ptr noundef %271, ptr noundef @.str.374) #15
   %tobool377 = icmp ne i32 %call376, 0
   br i1 %tobool377, label %if.else379, label %if.then378
 
 if.then378:                                       ; preds = %if.else372
-  %264 = load ptr, ptr %c.addr, align 8
-  call void @sentinelSetCommand(ptr noundef %264)
+  %272 = load ptr, ptr %c.addr, align 8
+  call void @sentinelSetCommand(ptr noundef %272)
   br label %if.end582
 
 if.else379:                                       ; preds = %if.else372
-  %265 = load ptr, ptr %c.addr, align 8
-  %argv380 = getelementptr inbounds %struct.client, ptr %265, i32 0, i32 12
-  %266 = load ptr, ptr %argv380, align 8
-  %arrayidx381 = getelementptr inbounds ptr, ptr %266, i64 1
-  %267 = load ptr, ptr %arrayidx381, align 8
-  %ptr382 = getelementptr inbounds %struct.redisObject, ptr %267, i32 0, i32 2
-  %268 = load ptr, ptr %ptr382, align 8
-  %call383 = call i32 @strcasecmp(ptr noundef %268, ptr noundef @.str.375) #15
+  %273 = load ptr, ptr %c.addr, align 8
+  %argv380 = getelementptr inbounds %struct.client, ptr %273, i32 0, i32 12
+  %274 = load ptr, ptr %argv380, align 8
+  %arrayidx381 = getelementptr inbounds ptr, ptr %274, i64 1
+  %275 = load ptr, ptr %arrayidx381, align 8
+  %ptr382 = getelementptr inbounds %struct.redisObject, ptr %275, i32 0, i32 2
+  %276 = load ptr, ptr %ptr382, align 8
+  %call383 = call i32 @strcasecmp(ptr noundef %276, ptr noundef @.str.375) #15
   %tobool384 = icmp ne i32 %call383, 0
   br i1 %tobool384, label %if.else415, label %if.then385
 
 if.then385:                                       ; preds = %if.else379
-  %269 = load ptr, ptr %c.addr, align 8
-  %argc386 = getelementptr inbounds %struct.client, ptr %269, i32 0, i32 11
-  %270 = load i32, ptr %argc386, align 8
-  %cmp387 = icmp slt i32 %270, 4
+  %277 = load ptr, ptr %c.addr, align 8
+  %argc386 = getelementptr inbounds %struct.client, ptr %277, i32 0, i32 11
+  %278 = load i32, ptr %argc386, align 8
+  %cmp387 = icmp slt i32 %278, 4
   br i1 %cmp387, label %if.then389, label %if.end390
 
 if.then389:                                       ; preds = %if.then385
   br label %numargserr
 
 if.end390:                                        ; preds = %if.then385
-  %271 = load ptr, ptr %c.addr, align 8
-  %argv391 = getelementptr inbounds %struct.client, ptr %271, i32 0, i32 12
-  %272 = load ptr, ptr %argv391, align 8
-  %arrayidx392 = getelementptr inbounds ptr, ptr %272, i64 2
-  %273 = load ptr, ptr %arrayidx392, align 8
-  %ptr393 = getelementptr inbounds %struct.redisObject, ptr %273, i32 0, i32 2
-  %274 = load ptr, ptr %ptr393, align 8
-  %call394 = call i32 @strcasecmp(ptr noundef %274, ptr noundef @.str.374) #15
+  %279 = load ptr, ptr %c.addr, align 8
+  %argv391 = getelementptr inbounds %struct.client, ptr %279, i32 0, i32 12
+  %280 = load ptr, ptr %argv391, align 8
+  %arrayidx392 = getelementptr inbounds ptr, ptr %280, i64 2
+  %281 = load ptr, ptr %arrayidx392, align 8
+  %ptr393 = getelementptr inbounds %struct.redisObject, ptr %281, i32 0, i32 2
+  %282 = load ptr, ptr %ptr393, align 8
+  %call394 = call i32 @strcasecmp(ptr noundef %282, ptr noundef @.str.374) #15
   %tobool395 = icmp ne i32 %call394, 0
   br i1 %tobool395, label %if.else401, label %land.lhs.true396
 
 land.lhs.true396:                                 ; preds = %if.end390
-  %275 = load ptr, ptr %c.addr, align 8
-  %argc397 = getelementptr inbounds %struct.client, ptr %275, i32 0, i32 11
-  %276 = load i32, ptr %argc397, align 8
-  %cmp398 = icmp sge i32 %276, 5
+  %283 = load ptr, ptr %c.addr, align 8
+  %argc397 = getelementptr inbounds %struct.client, ptr %283, i32 0, i32 11
+  %284 = load i32, ptr %argc397, align 8
+  %cmp398 = icmp sge i32 %284, 5
   br i1 %cmp398, label %if.then400, label %if.else401
 
 if.then400:                                       ; preds = %land.lhs.true396
-  %277 = load ptr, ptr %c.addr, align 8
-  call void @sentinelConfigSetCommand(ptr noundef %277)
+  %285 = load ptr, ptr %c.addr, align 8
+  call void @sentinelConfigSetCommand(ptr noundef %285)
   br label %if.end414
 
 if.else401:                                       ; preds = %land.lhs.true396, %if.end390
-  %278 = load ptr, ptr %c.addr, align 8
-  %argv402 = getelementptr inbounds %struct.client, ptr %278, i32 0, i32 12
-  %279 = load ptr, ptr %argv402, align 8
-  %arrayidx403 = getelementptr inbounds ptr, ptr %279, i64 2
-  %280 = load ptr, ptr %arrayidx403, align 8
-  %ptr404 = getelementptr inbounds %struct.redisObject, ptr %280, i32 0, i32 2
-  %281 = load ptr, ptr %ptr404, align 8
-  %call405 = call i32 @strcasecmp(ptr noundef %281, ptr noundef @.str.376) #15
+  %286 = load ptr, ptr %c.addr, align 8
+  %argv402 = getelementptr inbounds %struct.client, ptr %286, i32 0, i32 12
+  %287 = load ptr, ptr %argv402, align 8
+  %arrayidx403 = getelementptr inbounds ptr, ptr %287, i64 2
+  %288 = load ptr, ptr %arrayidx403, align 8
+  %ptr404 = getelementptr inbounds %struct.redisObject, ptr %288, i32 0, i32 2
+  %289 = load ptr, ptr %ptr404, align 8
+  %call405 = call i32 @strcasecmp(ptr noundef %289, ptr noundef @.str.376) #15
   %tobool406 = icmp ne i32 %call405, 0
   br i1 %tobool406, label %if.else412, label %land.lhs.true407
 
 land.lhs.true407:                                 ; preds = %if.else401
-  %282 = load ptr, ptr %c.addr, align 8
-  %argc408 = getelementptr inbounds %struct.client, ptr %282, i32 0, i32 11
-  %283 = load i32, ptr %argc408, align 8
-  %cmp409 = icmp sge i32 %283, 4
+  %290 = load ptr, ptr %c.addr, align 8
+  %argc408 = getelementptr inbounds %struct.client, ptr %290, i32 0, i32 11
+  %291 = load i32, ptr %argc408, align 8
+  %cmp409 = icmp sge i32 %291, 4
   br i1 %cmp409, label %if.then411, label %if.else412
 
 if.then411:                                       ; preds = %land.lhs.true407
-  %284 = load ptr, ptr %c.addr, align 8
-  call void @sentinelConfigGetCommand(ptr noundef %284)
+  %292 = load ptr, ptr %c.addr, align 8
+  call void @sentinelConfigGetCommand(ptr noundef %292)
   br label %if.end413
 
 if.else412:                                       ; preds = %land.lhs.true407, %if.else401
-  %285 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %285, ptr noundef @.str.377)
+  %293 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %293, ptr noundef @.str.377)
   br label %if.end413
 
 if.end413:                                        ; preds = %if.else412, %if.then411
@@ -14369,22 +14540,22 @@ if.end414:                                        ; preds = %if.end413, %if.then
   br label %if.end581
 
 if.else415:                                       ; preds = %if.else379
-  %286 = load ptr, ptr %c.addr, align 8
-  %argv416 = getelementptr inbounds %struct.client, ptr %286, i32 0, i32 12
-  %287 = load ptr, ptr %argv416, align 8
-  %arrayidx417 = getelementptr inbounds ptr, ptr %287, i64 1
-  %288 = load ptr, ptr %arrayidx417, align 8
-  %ptr418 = getelementptr inbounds %struct.redisObject, ptr %288, i32 0, i32 2
-  %289 = load ptr, ptr %ptr418, align 8
-  %call419 = call i32 @strcasecmp(ptr noundef %289, ptr noundef @.str.378) #15
+  %294 = load ptr, ptr %c.addr, align 8
+  %argv416 = getelementptr inbounds %struct.client, ptr %294, i32 0, i32 12
+  %295 = load ptr, ptr %argv416, align 8
+  %arrayidx417 = getelementptr inbounds ptr, ptr %295, i64 1
+  %296 = load ptr, ptr %arrayidx417, align 8
+  %ptr418 = getelementptr inbounds %struct.redisObject, ptr %296, i32 0, i32 2
+  %297 = load ptr, ptr %ptr418, align 8
+  %call419 = call i32 @strcasecmp(ptr noundef %297, ptr noundef @.str.378) #15
   %tobool420 = icmp ne i32 %call419, 0
   br i1 %tobool420, label %if.else509, label %if.then421
 
 if.then421:                                       ; preds = %if.else415
-  %290 = load ptr, ptr %c.addr, align 8
-  %argc422 = getelementptr inbounds %struct.client, ptr %290, i32 0, i32 11
-  %291 = load i32, ptr %argc422, align 8
-  %cmp423 = icmp slt i32 %291, 2
+  %298 = load ptr, ptr %c.addr, align 8
+  %argc422 = getelementptr inbounds %struct.client, ptr %298, i32 0, i32 11
+  %299 = load i32, ptr %argc422, align 8
+  %cmp423 = icmp slt i32 %299, 2
   br i1 %cmp423, label %if.then425, label %if.end426
 
 if.then425:                                       ; preds = %if.then421
@@ -14396,12 +14567,13 @@ if.end426:                                        ; preds = %if.then421
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %copy_keeper, ptr align 8 @instancesDictType, i64 88, i1 false)
   %valDestructor = getelementptr inbounds %struct.dictType, ptr %copy_keeper, i32 0, i32 5
   store ptr null, ptr %valDestructor, align 8
-  %292 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  store ptr %292, ptr %masters_local, align 8
-  %293 = load ptr, ptr %c.addr, align 8
-  %argc428 = getelementptr inbounds %struct.client, ptr %293, i32 0, i32 11
-  %294 = load i32, ptr %argc428, align 8
-  %cmp429 = icmp sgt i32 %294, 2
+  %300 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %301 = load ptr, ptr %300, align 8
+  store ptr %301, ptr %masters_local, align 8
+  %302 = load ptr, ptr %c.addr, align 8
+  %argc428 = getelementptr inbounds %struct.client, ptr %302, i32 0, i32 11
+  %303 = load i32, ptr %argc428, align 8
+  %cmp429 = icmp sgt i32 %303, 2
   br i1 %cmp429, label %if.then431, label %if.end446
 
 if.then431:                                       ; preds = %if.end426
@@ -14411,44 +14583,44 @@ if.then431:                                       ; preds = %if.end426
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then431
-  %295 = load i32, ptr %i, align 4
-  %296 = load ptr, ptr %c.addr, align 8
-  %argc433 = getelementptr inbounds %struct.client, ptr %296, i32 0, i32 11
-  %297 = load i32, ptr %argc433, align 8
-  %cmp434 = icmp slt i32 %295, %297
+  %304 = load i32, ptr %i, align 4
+  %305 = load ptr, ptr %c.addr, align 8
+  %argc433 = getelementptr inbounds %struct.client, ptr %305, i32 0, i32 11
+  %306 = load i32, ptr %argc433, align 8
+  %cmp434 = icmp slt i32 %304, %306
   br i1 %cmp434, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %298 = load ptr, ptr %c.addr, align 8
-  %argv437 = getelementptr inbounds %struct.client, ptr %298, i32 0, i32 12
-  %299 = load ptr, ptr %argv437, align 8
-  %300 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %300 to i64
-  %arrayidx438 = getelementptr inbounds ptr, ptr %299, i64 %idxprom
-  %301 = load ptr, ptr %arrayidx438, align 8
-  %ptr439 = getelementptr inbounds %struct.redisObject, ptr %301, i32 0, i32 2
-  %302 = load ptr, ptr %ptr439, align 8
-  %call440 = call ptr @sentinelGetMasterByName(ptr noundef %302)
+  %307 = load ptr, ptr %c.addr, align 8
+  %argv437 = getelementptr inbounds %struct.client, ptr %307, i32 0, i32 12
+  %308 = load ptr, ptr %argv437, align 8
+  %309 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %309 to i64
+  %arrayidx438 = getelementptr inbounds ptr, ptr %308, i64 %idxprom
+  %310 = load ptr, ptr %arrayidx438, align 8
+  %ptr439 = getelementptr inbounds %struct.redisObject, ptr %310, i32 0, i32 2
+  %311 = load ptr, ptr %ptr439, align 8
+  %call440 = call ptr @sentinelGetMasterByName(ptr noundef %311)
   store ptr %call440, ptr %ri436, align 8
-  %303 = load ptr, ptr %ri436, align 8
-  %tobool441 = icmp ne ptr %303, null
+  %312 = load ptr, ptr %ri436, align 8
+  %tobool441 = icmp ne ptr %312, null
   br i1 %tobool441, label %if.end443, label %if.then442
 
 if.then442:                                       ; preds = %for.body
   br label %for.inc
 
 if.end443:                                        ; preds = %for.body
-  %304 = load ptr, ptr %masters_local, align 8
-  %305 = load ptr, ptr %ri436, align 8
-  %name444 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %305, i32 0, i32 1
-  %306 = load ptr, ptr %name444, align 8
-  %307 = load ptr, ptr %ri436, align 8
-  %call445 = call i32 @dictAdd(ptr noundef %304, ptr noundef %306, ptr noundef %307)
+  %313 = load ptr, ptr %masters_local, align 8
+  %314 = load ptr, ptr %ri436, align 8
+  %name444 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %314, i32 0, i32 1
+  %315 = load ptr, ptr %name444, align 8
+  %316 = load ptr, ptr %ri436, align 8
+  %call445 = call i32 @dictAdd(ptr noundef %313, ptr noundef %315, ptr noundef %316)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end443, %if.then442
-  %308 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %308, 1
+  %317 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %317, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !51
 
@@ -14456,74 +14628,74 @@ for.end:                                          ; preds = %for.cond
   br label %if.end446
 
 if.end446:                                        ; preds = %for.end, %if.end426
-  %309 = load ptr, ptr %c.addr, align 8
-  %310 = load ptr, ptr %masters_local, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %310, i32 0, i32 2
+  %318 = load ptr, ptr %c.addr, align 8
+  %319 = load ptr, ptr %masters_local, align 8
+  %ht_used = getelementptr inbounds %struct.dict, ptr %319, i32 0, i32 2
   %arrayidx447 = getelementptr inbounds [2 x i64], ptr %ht_used, i64 0, i64 0
-  %311 = load i64, ptr %arrayidx447, align 8
-  %312 = load ptr, ptr %masters_local, align 8
-  %ht_used448 = getelementptr inbounds %struct.dict, ptr %312, i32 0, i32 2
+  %320 = load i64, ptr %arrayidx447, align 8
+  %321 = load ptr, ptr %masters_local, align 8
+  %ht_used448 = getelementptr inbounds %struct.dict, ptr %321, i32 0, i32 2
   %arrayidx449 = getelementptr inbounds [2 x i64], ptr %ht_used448, i64 0, i64 1
-  %313 = load i64, ptr %arrayidx449, align 8
-  %add = add i64 %311, %313
+  %322 = load i64, ptr %arrayidx449, align 8
+  %add = add i64 %320, %322
   %mul = mul i64 %add, 2
-  call void @addReplyArrayLen(ptr noundef %309, i64 noundef %mul)
-  %314 = load ptr, ptr %masters_local, align 8
-  %call450 = call ptr @dictGetIterator(ptr noundef %314)
+  call void @addReplyArrayLen(ptr noundef %318, i64 noundef %mul)
+  %323 = load ptr, ptr %masters_local, align 8
+  %call450 = call ptr @dictGetIterator(ptr noundef %323)
   store ptr %call450, ptr %di, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.end, %if.end446
-  %315 = load ptr, ptr %di, align 8
-  %call451 = call ptr @dictNext(ptr noundef %315)
+  %324 = load ptr, ptr %di, align 8
+  %call451 = call ptr @dictNext(ptr noundef %324)
   store ptr %call451, ptr %de, align 8
   %cmp452 = icmp ne ptr %call451, null
   br i1 %cmp452, label %while.body, label %while.end504
 
 while.body:                                       ; preds = %while.cond
-  %316 = load ptr, ptr %de, align 8
-  %call455 = call ptr @dictGetVal(ptr noundef %316)
+  %325 = load ptr, ptr %de, align 8
+  %call455 = call ptr @dictGetVal(ptr noundef %325)
   store ptr %call455, ptr %ri454, align 8
-  %317 = load ptr, ptr %c.addr, align 8
-  %318 = load ptr, ptr %ri454, align 8
-  %name456 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %318, i32 0, i32 1
-  %319 = load ptr, ptr %name456, align 8
-  %320 = load ptr, ptr %ri454, align 8
-  %name457 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %320, i32 0, i32 1
-  %321 = load ptr, ptr %name457, align 8
-  %call458 = call i64 @strlen(ptr noundef %321) #15
-  call void @addReplyBulkCBuffer(ptr noundef %317, ptr noundef %319, i64 noundef %call458)
-  %322 = load ptr, ptr %c.addr, align 8
-  %323 = load ptr, ptr %ri454, align 8
-  %slaves459 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %323, i32 0, i32 20
-  %324 = load ptr, ptr %slaves459, align 8
-  %ht_used460 = getelementptr inbounds %struct.dict, ptr %324, i32 0, i32 2
+  %326 = load ptr, ptr %c.addr, align 8
+  %327 = load ptr, ptr %ri454, align 8
+  %name456 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %327, i32 0, i32 1
+  %328 = load ptr, ptr %name456, align 8
+  %329 = load ptr, ptr %ri454, align 8
+  %name457 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %329, i32 0, i32 1
+  %330 = load ptr, ptr %name457, align 8
+  %call458 = call i64 @strlen(ptr noundef %330) #15
+  call void @addReplyBulkCBuffer(ptr noundef %326, ptr noundef %328, i64 noundef %call458)
+  %331 = load ptr, ptr %c.addr, align 8
+  %332 = load ptr, ptr %ri454, align 8
+  %slaves459 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %332, i32 0, i32 20
+  %333 = load ptr, ptr %slaves459, align 8
+  %ht_used460 = getelementptr inbounds %struct.dict, ptr %333, i32 0, i32 2
   %arrayidx461 = getelementptr inbounds [2 x i64], ptr %ht_used460, i64 0, i64 0
-  %325 = load i64, ptr %arrayidx461, align 8
-  %326 = load ptr, ptr %ri454, align 8
-  %slaves462 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %326, i32 0, i32 20
-  %327 = load ptr, ptr %slaves462, align 8
-  %ht_used463 = getelementptr inbounds %struct.dict, ptr %327, i32 0, i32 2
+  %334 = load i64, ptr %arrayidx461, align 8
+  %335 = load ptr, ptr %ri454, align 8
+  %slaves462 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %335, i32 0, i32 20
+  %336 = load ptr, ptr %slaves462, align 8
+  %ht_used463 = getelementptr inbounds %struct.dict, ptr %336, i32 0, i32 2
   %arrayidx464 = getelementptr inbounds [2 x i64], ptr %ht_used463, i64 0, i64 1
-  %328 = load i64, ptr %arrayidx464, align 8
-  %add465 = add i64 %325, %328
+  %337 = load i64, ptr %arrayidx464, align 8
+  %add465 = add i64 %334, %337
   %add466 = add i64 %add465, 1
-  call void @addReplyArrayLen(ptr noundef %322, i64 noundef %add466)
-  %329 = load ptr, ptr %c.addr, align 8
-  call void @addReplyArrayLen(ptr noundef %329, i64 noundef 2)
-  %330 = load ptr, ptr %c.addr, align 8
-  %331 = load ptr, ptr %ri454, align 8
-  %info_refresh = getelementptr inbounds %struct.sentinelRedisInstance, ptr %331, i32 0, i32 14
-  %332 = load i64, ptr %info_refresh, align 8
-  %tobool467 = icmp ne i64 %332, 0
+  call void @addReplyArrayLen(ptr noundef %331, i64 noundef %add466)
+  %338 = load ptr, ptr %c.addr, align 8
+  call void @addReplyArrayLen(ptr noundef %338, i64 noundef 2)
+  %339 = load ptr, ptr %c.addr, align 8
+  %340 = load ptr, ptr %ri454, align 8
+  %info_refresh = getelementptr inbounds %struct.sentinelRedisInstance, ptr %340, i32 0, i32 14
+  %341 = load i64, ptr %info_refresh, align 8
+  %tobool467 = icmp ne i64 %341, 0
   br i1 %tobool467, label %cond.true468, label %cond.false470
 
 cond.true468:                                     ; preds = %while.body
-  %333 = load i64, ptr %now, align 8
-  %334 = load ptr, ptr %ri454, align 8
-  %info_refresh469 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %334, i32 0, i32 14
-  %335 = load i64, ptr %info_refresh469, align 8
-  %sub = sub nsw i64 %333, %335
+  %342 = load i64, ptr %now, align 8
+  %343 = load ptr, ptr %ri454, align 8
+  %info_refresh469 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %343, i32 0, i32 14
+  %344 = load i64, ptr %info_refresh469, align 8
+  %sub = sub nsw i64 %342, %344
   br label %cond.end471
 
 cond.false470:                                    ; preds = %while.body
@@ -14531,64 +14703,64 @@ cond.false470:                                    ; preds = %while.body
 
 cond.end471:                                      ; preds = %cond.false470, %cond.true468
   %cond472 = phi i64 [ %sub, %cond.true468 ], [ 0, %cond.false470 ]
-  call void @addReplyLongLong(ptr noundef %330, i64 noundef %cond472)
-  %336 = load ptr, ptr %ri454, align 8
-  %info = getelementptr inbounds %struct.sentinelRedisInstance, ptr %336, i32 0, i32 45
-  %337 = load ptr, ptr %info, align 8
-  %tobool473 = icmp ne ptr %337, null
+  call void @addReplyLongLong(ptr noundef %339, i64 noundef %cond472)
+  %345 = load ptr, ptr %ri454, align 8
+  %info = getelementptr inbounds %struct.sentinelRedisInstance, ptr %345, i32 0, i32 45
+  %346 = load ptr, ptr %info, align 8
+  %tobool473 = icmp ne ptr %346, null
   br i1 %tobool473, label %if.then474, label %if.else478
 
 if.then474:                                       ; preds = %cond.end471
-  %338 = load ptr, ptr %c.addr, align 8
-  %339 = load ptr, ptr %ri454, align 8
-  %info475 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %339, i32 0, i32 45
-  %340 = load ptr, ptr %info475, align 8
-  %341 = load ptr, ptr %ri454, align 8
-  %info476 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %341, i32 0, i32 45
-  %342 = load ptr, ptr %info476, align 8
-  %call477 = call i64 @sdslen(ptr noundef %342)
-  call void @addReplyBulkCBuffer(ptr noundef %338, ptr noundef %340, i64 noundef %call477)
+  %347 = load ptr, ptr %c.addr, align 8
+  %348 = load ptr, ptr %ri454, align 8
+  %info475 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %348, i32 0, i32 45
+  %349 = load ptr, ptr %info475, align 8
+  %350 = load ptr, ptr %ri454, align 8
+  %info476 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %350, i32 0, i32 45
+  %351 = load ptr, ptr %info476, align 8
+  %call477 = call i64 @sdslen(ptr noundef %351)
+  call void @addReplyBulkCBuffer(ptr noundef %347, ptr noundef %349, i64 noundef %call477)
   br label %if.end479
 
 if.else478:                                       ; preds = %cond.end471
-  %343 = load ptr, ptr %c.addr, align 8
-  call void @addReplyNull(ptr noundef %343)
+  %352 = load ptr, ptr %c.addr, align 8
+  call void @addReplyNull(ptr noundef %352)
   br label %if.end479
 
 if.end479:                                        ; preds = %if.else478, %if.then474
-  %344 = load ptr, ptr %ri454, align 8
-  %slaves480 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %344, i32 0, i32 20
-  %345 = load ptr, ptr %slaves480, align 8
-  %call481 = call ptr @dictGetIterator(ptr noundef %345)
+  %353 = load ptr, ptr %ri454, align 8
+  %slaves480 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %353, i32 0, i32 20
+  %354 = load ptr, ptr %slaves480, align 8
+  %call481 = call ptr @dictGetIterator(ptr noundef %354)
   store ptr %call481, ptr %sdi, align 8
   br label %while.cond482
 
 while.cond482:                                    ; preds = %if.end503, %if.end479
-  %346 = load ptr, ptr %sdi, align 8
-  %call483 = call ptr @dictNext(ptr noundef %346)
+  %355 = load ptr, ptr %sdi, align 8
+  %call483 = call ptr @dictNext(ptr noundef %355)
   store ptr %call483, ptr %sde, align 8
   %cmp484 = icmp ne ptr %call483, null
   br i1 %cmp484, label %while.body486, label %while.end
 
 while.body486:                                    ; preds = %while.cond482
-  %347 = load ptr, ptr %sde, align 8
-  %call487 = call ptr @dictGetVal(ptr noundef %347)
+  %356 = load ptr, ptr %sde, align 8
+  %call487 = call ptr @dictGetVal(ptr noundef %356)
   store ptr %call487, ptr %sri, align 8
-  %348 = load ptr, ptr %c.addr, align 8
-  call void @addReplyArrayLen(ptr noundef %348, i64 noundef 2)
-  %349 = load ptr, ptr %c.addr, align 8
-  %350 = load ptr, ptr %ri454, align 8
-  %info_refresh488 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %350, i32 0, i32 14
-  %351 = load i64, ptr %info_refresh488, align 8
-  %tobool489 = icmp ne i64 %351, 0
+  %357 = load ptr, ptr %c.addr, align 8
+  call void @addReplyArrayLen(ptr noundef %357, i64 noundef 2)
+  %358 = load ptr, ptr %c.addr, align 8
+  %359 = load ptr, ptr %ri454, align 8
+  %info_refresh488 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %359, i32 0, i32 14
+  %360 = load i64, ptr %info_refresh488, align 8
+  %tobool489 = icmp ne i64 %360, 0
   br i1 %tobool489, label %cond.true490, label %cond.false493
 
 cond.true490:                                     ; preds = %while.body486
-  %352 = load i64, ptr %now, align 8
-  %353 = load ptr, ptr %sri, align 8
-  %info_refresh491 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %353, i32 0, i32 14
-  %354 = load i64, ptr %info_refresh491, align 8
-  %sub492 = sub nsw i64 %352, %354
+  %361 = load i64, ptr %now, align 8
+  %362 = load ptr, ptr %sri, align 8
+  %info_refresh491 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %362, i32 0, i32 14
+  %363 = load i64, ptr %info_refresh491, align 8
+  %sub492 = sub nsw i64 %361, %363
   br label %cond.end494
 
 cond.false493:                                    ; preds = %while.body486
@@ -14596,102 +14768,107 @@ cond.false493:                                    ; preds = %while.body486
 
 cond.end494:                                      ; preds = %cond.false493, %cond.true490
   %cond495 = phi i64 [ %sub492, %cond.true490 ], [ 0, %cond.false493 ]
-  call void @addReplyLongLong(ptr noundef %349, i64 noundef %cond495)
-  %355 = load ptr, ptr %sri, align 8
-  %info496 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %355, i32 0, i32 45
-  %356 = load ptr, ptr %info496, align 8
-  %tobool497 = icmp ne ptr %356, null
+  call void @addReplyLongLong(ptr noundef %358, i64 noundef %cond495)
+  %364 = load ptr, ptr %sri, align 8
+  %info496 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %364, i32 0, i32 45
+  %365 = load ptr, ptr %info496, align 8
+  %tobool497 = icmp ne ptr %365, null
   br i1 %tobool497, label %if.then498, label %if.else502
 
 if.then498:                                       ; preds = %cond.end494
-  %357 = load ptr, ptr %c.addr, align 8
-  %358 = load ptr, ptr %sri, align 8
-  %info499 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %358, i32 0, i32 45
-  %359 = load ptr, ptr %info499, align 8
-  %360 = load ptr, ptr %sri, align 8
-  %info500 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %360, i32 0, i32 45
-  %361 = load ptr, ptr %info500, align 8
-  %call501 = call i64 @sdslen(ptr noundef %361)
-  call void @addReplyBulkCBuffer(ptr noundef %357, ptr noundef %359, i64 noundef %call501)
+  %366 = load ptr, ptr %c.addr, align 8
+  %367 = load ptr, ptr %sri, align 8
+  %info499 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %367, i32 0, i32 45
+  %368 = load ptr, ptr %info499, align 8
+  %369 = load ptr, ptr %sri, align 8
+  %info500 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %369, i32 0, i32 45
+  %370 = load ptr, ptr %info500, align 8
+  %call501 = call i64 @sdslen(ptr noundef %370)
+  call void @addReplyBulkCBuffer(ptr noundef %366, ptr noundef %368, i64 noundef %call501)
   br label %if.end503
 
 if.else502:                                       ; preds = %cond.end494
-  %362 = load ptr, ptr %c.addr, align 8
-  call void @addReplyNull(ptr noundef %362)
+  %371 = load ptr, ptr %c.addr, align 8
+  call void @addReplyNull(ptr noundef %371)
   br label %if.end503
 
 if.end503:                                        ; preds = %if.else502, %if.then498
   br label %while.cond482, !llvm.loop !52
 
 while.end:                                        ; preds = %while.cond482
-  %363 = load ptr, ptr %sdi, align 8
-  call void @dictReleaseIterator(ptr noundef %363)
+  %372 = load ptr, ptr %sdi, align 8
+  call void @dictReleaseIterator(ptr noundef %372)
   br label %while.cond, !llvm.loop !53
 
 while.end504:                                     ; preds = %while.cond
-  %364 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %364)
-  %365 = load ptr, ptr %masters_local, align 8
-  %366 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %cmp505 = icmp ne ptr %365, %366
+  %373 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %373)
+  %374 = load ptr, ptr %masters_local, align 8
+  %375 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %376 = load ptr, ptr %375, align 8
+  %cmp505 = icmp ne ptr %374, %376
   br i1 %cmp505, label %if.then507, label %if.end508
 
 if.then507:                                       ; preds = %while.end504
-  %367 = load ptr, ptr %masters_local, align 8
-  call void @dictRelease(ptr noundef %367)
+  %377 = load ptr, ptr %masters_local, align 8
+  call void @dictRelease(ptr noundef %377)
   br label %if.end508
 
 if.end508:                                        ; preds = %if.then507, %while.end504
   br label %if.end580
 
 if.else509:                                       ; preds = %if.else415
-  %368 = load ptr, ptr %c.addr, align 8
-  %argv510 = getelementptr inbounds %struct.client, ptr %368, i32 0, i32 12
-  %369 = load ptr, ptr %argv510, align 8
-  %arrayidx511 = getelementptr inbounds ptr, ptr %369, i64 1
-  %370 = load ptr, ptr %arrayidx511, align 8
-  %ptr512 = getelementptr inbounds %struct.redisObject, ptr %370, i32 0, i32 2
-  %371 = load ptr, ptr %ptr512, align 8
-  %call513 = call i32 @strcasecmp(ptr noundef %371, ptr noundef @.str.379) #15
+  %378 = load ptr, ptr %c.addr, align 8
+  %argv510 = getelementptr inbounds %struct.client, ptr %378, i32 0, i32 12
+  %379 = load ptr, ptr %argv510, align 8
+  %arrayidx511 = getelementptr inbounds ptr, ptr %379, i64 1
+  %380 = load ptr, ptr %arrayidx511, align 8
+  %ptr512 = getelementptr inbounds %struct.redisObject, ptr %380, i32 0, i32 2
+  %381 = load ptr, ptr %ptr512, align 8
+  %call513 = call i32 @strcasecmp(ptr noundef %381, ptr noundef @.str.379) #15
   %tobool514 = icmp ne i32 %call513, 0
   br i1 %tobool514, label %if.else564, label %if.then515
 
 if.then515:                                       ; preds = %if.else509
-  store i64 0, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 10), align 8
+  %382 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 10
+  store i64 0, ptr %382, align 8
   store i32 2, ptr %j, align 4
   br label %for.cond516
 
 for.cond516:                                      ; preds = %for.inc561, %if.then515
-  %372 = load i32, ptr %j, align 4
-  %373 = load ptr, ptr %c.addr, align 8
-  %argc517 = getelementptr inbounds %struct.client, ptr %373, i32 0, i32 11
-  %374 = load i32, ptr %argc517, align 8
-  %cmp518 = icmp slt i32 %372, %374
+  %383 = load i32, ptr %j, align 4
+  %384 = load ptr, ptr %c.addr, align 8
+  %argc517 = getelementptr inbounds %struct.client, ptr %384, i32 0, i32 11
+  %385 = load i32, ptr %argc517, align 8
+  %cmp518 = icmp slt i32 %383, %385
   br i1 %cmp518, label %for.body520, label %for.end563
 
 for.body520:                                      ; preds = %for.cond516
-  %375 = load ptr, ptr %c.addr, align 8
-  %argv521 = getelementptr inbounds %struct.client, ptr %375, i32 0, i32 12
-  %376 = load ptr, ptr %argv521, align 8
-  %377 = load i32, ptr %j, align 4
-  %idxprom522 = sext i32 %377 to i64
-  %arrayidx523 = getelementptr inbounds ptr, ptr %376, i64 %idxprom522
-  %378 = load ptr, ptr %arrayidx523, align 8
-  %ptr524 = getelementptr inbounds %struct.redisObject, ptr %378, i32 0, i32 2
-  %379 = load ptr, ptr %ptr524, align 8
-  %call525 = call i32 @strcasecmp(ptr noundef %379, ptr noundef @.str.380) #15
+  %386 = load ptr, ptr %c.addr, align 8
+  %argv521 = getelementptr inbounds %struct.client, ptr %386, i32 0, i32 12
+  %387 = load ptr, ptr %argv521, align 8
+  %388 = load i32, ptr %j, align 4
+  %idxprom522 = sext i32 %388 to i64
+  %arrayidx523 = getelementptr inbounds ptr, ptr %387, i64 %idxprom522
+  %389 = load ptr, ptr %arrayidx523, align 8
+  %ptr524 = getelementptr inbounds %struct.redisObject, ptr %389, i32 0, i32 2
+  %390 = load ptr, ptr %ptr524, align 8
+  %call525 = call i32 @strcasecmp(ptr noundef %390, ptr noundef @.str.380) #15
   %tobool526 = icmp ne i32 %call525, 0
   br i1 %tobool526, label %if.else535, label %if.then527
 
 if.then527:                                       ; preds = %for.body520
-  %380 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 10), align 8
-  %or528 = or i64 %380, 1
-  store i64 %or528, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 10), align 8
+  %391 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 10
+  %392 = load i64, ptr %391, align 8
+  %or528 = or i64 %392, 1
+  %393 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 10
+  store i64 %or528, ptr %393, align 8
   br label %do.body529
 
 do.body529:                                       ; preds = %if.then527
-  %381 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp530 = icmp slt i32 3, %381
+  %394 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %395 = load i32, ptr %394, align 8
+  %cmp530 = icmp slt i32 3, %395
   br i1 %cmp530, label %if.then532, label %if.end533
 
 if.then532:                                       ; preds = %do.body529
@@ -14705,28 +14882,31 @@ do.end534:                                        ; preds = %if.end533, %if.then
   br label %if.end560
 
 if.else535:                                       ; preds = %for.body520
-  %382 = load ptr, ptr %c.addr, align 8
-  %argv536 = getelementptr inbounds %struct.client, ptr %382, i32 0, i32 12
-  %383 = load ptr, ptr %argv536, align 8
-  %384 = load i32, ptr %j, align 4
-  %idxprom537 = sext i32 %384 to i64
-  %arrayidx538 = getelementptr inbounds ptr, ptr %383, i64 %idxprom537
-  %385 = load ptr, ptr %arrayidx538, align 8
-  %ptr539 = getelementptr inbounds %struct.redisObject, ptr %385, i32 0, i32 2
-  %386 = load ptr, ptr %ptr539, align 8
-  %call540 = call i32 @strcasecmp(ptr noundef %386, ptr noundef @.str.382) #15
+  %396 = load ptr, ptr %c.addr, align 8
+  %argv536 = getelementptr inbounds %struct.client, ptr %396, i32 0, i32 12
+  %397 = load ptr, ptr %argv536, align 8
+  %398 = load i32, ptr %j, align 4
+  %idxprom537 = sext i32 %398 to i64
+  %arrayidx538 = getelementptr inbounds ptr, ptr %397, i64 %idxprom537
+  %399 = load ptr, ptr %arrayidx538, align 8
+  %ptr539 = getelementptr inbounds %struct.redisObject, ptr %399, i32 0, i32 2
+  %400 = load ptr, ptr %ptr539, align 8
+  %call540 = call i32 @strcasecmp(ptr noundef %400, ptr noundef @.str.382) #15
   %tobool541 = icmp ne i32 %call540, 0
   br i1 %tobool541, label %if.else550, label %if.then542
 
 if.then542:                                       ; preds = %if.else535
-  %387 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 10), align 8
-  %or543 = or i64 %387, 2
-  store i64 %or543, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 10), align 8
+  %401 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 10
+  %402 = load i64, ptr %401, align 8
+  %or543 = or i64 %402, 2
+  %403 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 10
+  store i64 %or543, ptr %403, align 8
   br label %do.body544
 
 do.body544:                                       ; preds = %if.then542
-  %388 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp545 = icmp slt i32 3, %388
+  %404 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %405 = load i32, ptr %404, align 8
+  %cmp545 = icmp slt i32 3, %405
   br i1 %cmp545, label %if.then547, label %if.end548
 
 if.then547:                                       ; preds = %do.body544
@@ -14740,31 +14920,31 @@ do.end549:                                        ; preds = %if.end548, %if.then
   br label %if.end559
 
 if.else550:                                       ; preds = %if.else535
-  %389 = load ptr, ptr %c.addr, align 8
-  %argv551 = getelementptr inbounds %struct.client, ptr %389, i32 0, i32 12
-  %390 = load ptr, ptr %argv551, align 8
-  %391 = load i32, ptr %j, align 4
-  %idxprom552 = sext i32 %391 to i64
-  %arrayidx553 = getelementptr inbounds ptr, ptr %390, i64 %idxprom552
-  %392 = load ptr, ptr %arrayidx553, align 8
-  %ptr554 = getelementptr inbounds %struct.redisObject, ptr %392, i32 0, i32 2
-  %393 = load ptr, ptr %ptr554, align 8
-  %call555 = call i32 @strcasecmp(ptr noundef %393, ptr noundef @.str.302) #15
+  %406 = load ptr, ptr %c.addr, align 8
+  %argv551 = getelementptr inbounds %struct.client, ptr %406, i32 0, i32 12
+  %407 = load ptr, ptr %argv551, align 8
+  %408 = load i32, ptr %j, align 4
+  %idxprom552 = sext i32 %408 to i64
+  %arrayidx553 = getelementptr inbounds ptr, ptr %407, i64 %idxprom552
+  %409 = load ptr, ptr %arrayidx553, align 8
+  %ptr554 = getelementptr inbounds %struct.redisObject, ptr %409, i32 0, i32 2
+  %410 = load ptr, ptr %ptr554, align 8
+  %call555 = call i32 @strcasecmp(ptr noundef %410, ptr noundef @.str.302) #15
   %tobool556 = icmp ne i32 %call555, 0
   br i1 %tobool556, label %if.else558, label %if.then557
 
 if.then557:                                       ; preds = %if.else550
-  %394 = load ptr, ptr %c.addr, align 8
-  call void @addReplyArrayLen(ptr noundef %394, i64 noundef 2)
-  %395 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %395, ptr noundef @.str.380)
-  %396 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %396, ptr noundef @.str.382)
+  %411 = load ptr, ptr %c.addr, align 8
+  call void @addReplyArrayLen(ptr noundef %411, i64 noundef 2)
+  %412 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %412, ptr noundef @.str.380)
+  %413 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %413, ptr noundef @.str.382)
   br label %return
 
 if.else558:                                       ; preds = %if.else550
-  %397 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %397, ptr noundef @.str.384)
+  %414 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %414, ptr noundef @.str.384)
   br label %return
 
 if.end559:                                        ; preds = %do.end549
@@ -14774,52 +14954,52 @@ if.end560:                                        ; preds = %if.end559, %do.end5
   br label %for.inc561
 
 for.inc561:                                       ; preds = %if.end560
-  %398 = load i32, ptr %j, align 4
-  %inc562 = add nsw i32 %398, 1
+  %415 = load i32, ptr %j, align 4
+  %inc562 = add nsw i32 %415, 1
   store i32 %inc562, ptr %j, align 4
   br label %for.cond516, !llvm.loop !54
 
 for.end563:                                       ; preds = %for.cond516
-  %399 = load ptr, ptr %c.addr, align 8
-  %400 = load ptr, ptr @shared, align 8
-  call void @addReply(ptr noundef %399, ptr noundef %400)
+  %416 = load ptr, ptr %c.addr, align 8
+  %417 = load ptr, ptr @shared, align 8
+  call void @addReply(ptr noundef %416, ptr noundef %417)
   br label %if.end579
 
 if.else564:                                       ; preds = %if.else509
-  %401 = load ptr, ptr %c.addr, align 8
-  %argv565 = getelementptr inbounds %struct.client, ptr %401, i32 0, i32 12
-  %402 = load ptr, ptr %argv565, align 8
-  %arrayidx566 = getelementptr inbounds ptr, ptr %402, i64 1
-  %403 = load ptr, ptr %arrayidx566, align 8
-  %ptr567 = getelementptr inbounds %struct.redisObject, ptr %403, i32 0, i32 2
-  %404 = load ptr, ptr %ptr567, align 8
-  %call568 = call i32 @strcasecmp(ptr noundef %404, ptr noundef @.str.207) #15
+  %418 = load ptr, ptr %c.addr, align 8
+  %argv565 = getelementptr inbounds %struct.client, ptr %418, i32 0, i32 12
+  %419 = load ptr, ptr %argv565, align 8
+  %arrayidx566 = getelementptr inbounds ptr, ptr %419, i64 1
+  %420 = load ptr, ptr %arrayidx566, align 8
+  %ptr567 = getelementptr inbounds %struct.redisObject, ptr %420, i32 0, i32 2
+  %421 = load ptr, ptr %ptr567, align 8
+  %call568 = call i32 @strcasecmp(ptr noundef %421, ptr noundef @.str.207) #15
   %tobool569 = icmp ne i32 %call568, 0
   br i1 %tobool569, label %if.else577, label %if.then570
 
 if.then570:                                       ; preds = %if.else564
-  %405 = load ptr, ptr %c.addr, align 8
-  %argc571 = getelementptr inbounds %struct.client, ptr %405, i32 0, i32 11
-  %406 = load i32, ptr %argc571, align 8
-  %cmp572 = icmp eq i32 %406, 2
+  %422 = load ptr, ptr %c.addr, align 8
+  %argc571 = getelementptr inbounds %struct.client, ptr %422, i32 0, i32 11
+  %423 = load i32, ptr %argc571, align 8
+  %cmp572 = icmp eq i32 %423, 2
   br i1 %cmp572, label %if.then574, label %if.else575
 
 if.then574:                                       ; preds = %if.then570
-  %407 = load ptr, ptr %c.addr, align 8
-  call void @addReplySentinelDebugInfo(ptr noundef %407)
+  %424 = load ptr, ptr %c.addr, align 8
+  call void @addReplySentinelDebugInfo(ptr noundef %424)
   br label %if.end576
 
 if.else575:                                       ; preds = %if.then570
-  %408 = load ptr, ptr %c.addr, align 8
-  call void @sentinelSetDebugConfigParameters(ptr noundef %408)
+  %425 = load ptr, ptr %c.addr, align 8
+  call void @sentinelSetDebugConfigParameters(ptr noundef %425)
   br label %if.end576
 
 if.end576:                                        ; preds = %if.else575, %if.then574
   br label %if.end578
 
 if.else577:                                       ; preds = %if.else564
-  %409 = load ptr, ptr %c.addr, align 8
-  call void @addReplySubcommandSyntaxError(ptr noundef %409)
+  %426 = load ptr, ptr %c.addr, align 8
+  call void @addReplySubcommandSyntaxError(ptr noundef %426)
   br label %if.end578
 
 if.end578:                                        ; preds = %if.else577, %if.end576
@@ -14883,8 +15063,8 @@ if.end597:                                        ; preds = %if.end596, %if.then
   br label %return
 
 numargserr:                                       ; preds = %if.then425, %if.then389, %if.then338, %if.then314, %if.then301, %if.then244, %if.then230, %if.then196, %if.then170, %if.then152, %if.then88, %if.then60, %if.then42, %if.then19, %if.then9
-  %410 = load ptr, ptr %c.addr, align 8
-  call void @addReplyErrorArity(ptr noundef %410)
+  %427 = load ptr, ptr %c.addr, align 8
+  call void @addReplyErrorArity(ptr noundef %427)
   br label %return
 
 return:                                           ; preds = %numargserr, %if.end597, %if.else558, %if.then557, %if.then345, %if.then321, %if.end302, %if.then273, %if.then262, %if.then258, %if.then251, %if.then213, %if.then208, %if.then203, %if.then99, %if.then66, %if.then48, %if.then25
@@ -14911,60 +15091,65 @@ entry:
   store ptr %req_runid, ptr %req_runid.addr, align 8
   store ptr %leader_epoch, ptr %leader_epoch.addr, align 8
   %0 = load i64, ptr %req_epoch.addr, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  %cmp = icmp ugt i64 %0, %1
+  %1 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  %2 = load i64, ptr %1, align 8
+  %cmp = icmp ugt i64 %0, %2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %req_epoch.addr, align 8
-  store i64 %2, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
+  %3 = load i64, ptr %req_epoch.addr, align 8
+  %4 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  store i64 %3, ptr %4, align 8
   %call = call i32 @sentinelFlushConfig()
-  %3 = load ptr, ptr %master.addr, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.196, ptr noundef %3, ptr noundef @.str.197, i64 noundef %4)
+  %5 = load ptr, ptr %master.addr, align 8
+  %6 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.196, ptr noundef %5, ptr noundef @.str.197, i64 noundef %7)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %5 = load ptr, ptr %master.addr, align 8
-  %leader_epoch1 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %5, i32 0, i32 35
-  %6 = load i64, ptr %leader_epoch1, align 8
-  %7 = load i64, ptr %req_epoch.addr, align 8
-  %cmp2 = icmp ult i64 %6, %7
+  %8 = load ptr, ptr %master.addr, align 8
+  %leader_epoch1 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %8, i32 0, i32 35
+  %9 = load i64, ptr %leader_epoch1, align 8
+  %10 = load i64, ptr %req_epoch.addr, align 8
+  %cmp2 = icmp ult i64 %9, %10
   br i1 %cmp2, label %land.lhs.true, label %if.end17
 
 land.lhs.true:                                    ; preds = %if.end
-  %8 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  %9 = load i64, ptr %req_epoch.addr, align 8
-  %cmp3 = icmp ule i64 %8, %9
+  %11 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8
+  %13 = load i64, ptr %req_epoch.addr, align 8
+  %cmp3 = icmp ule i64 %12, %13
   br i1 %cmp3, label %if.then4, label %if.end17
 
 if.then4:                                         ; preds = %land.lhs.true
-  %10 = load ptr, ptr %master.addr, align 8
-  %leader = getelementptr inbounds %struct.sentinelRedisInstance, ptr %10, i32 0, i32 34
-  %11 = load ptr, ptr %leader, align 8
-  call void @sdsfree(ptr noundef %11)
-  %12 = load ptr, ptr %req_runid.addr, align 8
-  %call5 = call ptr @sdsnew(ptr noundef %12)
-  %13 = load ptr, ptr %master.addr, align 8
-  %leader6 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %13, i32 0, i32 34
-  store ptr %call5, ptr %leader6, align 8
-  %14 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  %15 = load ptr, ptr %master.addr, align 8
-  %leader_epoch7 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %15, i32 0, i32 35
-  store i64 %14, ptr %leader_epoch7, align 8
-  %call8 = call i32 @sentinelFlushConfig()
-  %16 = load ptr, ptr %master.addr, align 8
+  %14 = load ptr, ptr %master.addr, align 8
+  %leader = getelementptr inbounds %struct.sentinelRedisInstance, ptr %14, i32 0, i32 34
+  %15 = load ptr, ptr %leader, align 8
+  call void @sdsfree(ptr noundef %15)
+  %16 = load ptr, ptr %req_runid.addr, align 8
+  %call5 = call ptr @sdsnew(ptr noundef %16)
   %17 = load ptr, ptr %master.addr, align 8
-  %leader9 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %17, i32 0, i32 34
-  %18 = load ptr, ptr %leader9, align 8
-  %19 = load ptr, ptr %master.addr, align 8
-  %leader_epoch10 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %19, i32 0, i32 35
-  %20 = load i64, ptr %leader_epoch10, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.413, ptr noundef %16, ptr noundef @.str.414, ptr noundef %18, i64 noundef %20)
+  %leader6 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %17, i32 0, i32 34
+  store ptr %call5, ptr %leader6, align 8
+  %18 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8
+  %20 = load ptr, ptr %master.addr, align 8
+  %leader_epoch7 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %20, i32 0, i32 35
+  store i64 %19, ptr %leader_epoch7, align 8
+  %call8 = call i32 @sentinelFlushConfig()
   %21 = load ptr, ptr %master.addr, align 8
-  %leader11 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %21, i32 0, i32 34
-  %22 = load ptr, ptr %leader11, align 8
-  %call12 = call i32 @strcasecmp(ptr noundef %22, ptr noundef @sentinel) #15
+  %22 = load ptr, ptr %master.addr, align 8
+  %leader9 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %22, i32 0, i32 34
+  %23 = load ptr, ptr %leader9, align 8
+  %24 = load ptr, ptr %master.addr, align 8
+  %leader_epoch10 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %24, i32 0, i32 35
+  %25 = load i64, ptr %leader_epoch10, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.413, ptr noundef %21, ptr noundef @.str.414, ptr noundef %23, i64 noundef %25)
+  %26 = load ptr, ptr %master.addr, align 8
+  %leader11 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %26, i32 0, i32 34
+  %27 = load ptr, ptr %leader11, align 8
+  %call12 = call i32 @strcasecmp(ptr noundef %27, ptr noundef @sentinel) #15
   %tobool = icmp ne i32 %call12, 0
   br i1 %tobool, label %if.then13, label %if.end16
 
@@ -14974,8 +15159,8 @@ if.then13:                                        ; preds = %if.then4
   %rem = srem i32 %call15, 1000
   %conv = sext i32 %rem to i64
   %add = add nsw i64 %call14, %conv
-  %23 = load ptr, ptr %master.addr, align 8
-  %failover_start_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %23, i32 0, i32 39
+  %28 = load ptr, ptr %master.addr, align 8
+  %failover_start_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %28, i32 0, i32 39
   store i64 %add, ptr %failover_start_time, align 8
   br label %if.end16
 
@@ -14983,22 +15168,22 @@ if.end16:                                         ; preds = %if.then13, %if.then
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end16, %land.lhs.true, %if.end
-  %24 = load ptr, ptr %master.addr, align 8
-  %leader_epoch18 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %24, i32 0, i32 35
-  %25 = load i64, ptr %leader_epoch18, align 8
-  %26 = load ptr, ptr %leader_epoch.addr, align 8
-  store i64 %25, ptr %26, align 8
-  %27 = load ptr, ptr %master.addr, align 8
-  %leader19 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %27, i32 0, i32 34
-  %28 = load ptr, ptr %leader19, align 8
-  %tobool20 = icmp ne ptr %28, null
+  %29 = load ptr, ptr %master.addr, align 8
+  %leader_epoch18 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %29, i32 0, i32 35
+  %30 = load i64, ptr %leader_epoch18, align 8
+  %31 = load ptr, ptr %leader_epoch.addr, align 8
+  store i64 %30, ptr %31, align 8
+  %32 = load ptr, ptr %master.addr, align 8
+  %leader19 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %32, i32 0, i32 34
+  %33 = load ptr, ptr %leader19, align 8
+  %tobool20 = icmp ne ptr %33, null
   br i1 %tobool20, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end17
-  %29 = load ptr, ptr %master.addr, align 8
-  %leader21 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %29, i32 0, i32 34
-  %30 = load ptr, ptr %leader21, align 8
-  %call22 = call ptr @sdsnew(ptr noundef %30)
+  %34 = load ptr, ptr %master.addr, align 8
+  %leader21 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %34, i32 0, i32 34
+  %35 = load ptr, ptr %leader21, align 8
+  %call22 = call ptr @sdsnew(ptr noundef %35)
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end17
@@ -15254,28 +15439,31 @@ cond.end:                                         ; preds = %2, %cond.true
   %5 = load i32, ptr %flags3, align 8
   %or = or i32 %5, 64
   store i32 %or, ptr %flags3, align 8
-  %6 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  %inc = add i64 %6, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  %7 = load ptr, ptr %master.addr, align 8
-  %failover_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %7, i32 0, i32 36
+  %6 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  %inc = add i64 %7, 1
+  %8 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  store i64 %inc, ptr %8, align 8
+  %9 = load ptr, ptr %master.addr, align 8
+  %failover_epoch = getelementptr inbounds %struct.sentinelRedisInstance, ptr %9, i32 0, i32 36
   store i64 %inc, ptr %failover_epoch, align 8
-  %8 = load ptr, ptr %master.addr, align 8
-  %9 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.196, ptr noundef %8, ptr noundef @.str.197, i64 noundef %9)
   %10 = load ptr, ptr %master.addr, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.427, ptr noundef %10, ptr noundef @.str.54)
+  %11 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.196, ptr noundef %10, ptr noundef @.str.197, i64 noundef %12)
+  %13 = load ptr, ptr %master.addr, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.427, ptr noundef %13, ptr noundef @.str.54)
   %call = call i64 @mstime()
   %call4 = call i32 @rand() #12
   %rem = srem i32 %call4, 1000
   %conv5 = sext i32 %rem to i64
   %add = add nsw i64 %call, %conv5
-  %11 = load ptr, ptr %master.addr, align 8
-  %failover_start_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %11, i32 0, i32 39
+  %14 = load ptr, ptr %master.addr, align 8
+  %failover_start_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %14, i32 0, i32 39
   store i64 %add, ptr %failover_start_time, align 8
   %call6 = call i64 @mstime()
-  %12 = load ptr, ptr %master.addr, align 8
-  %failover_state_change_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %12, i32 0, i32 38
+  %15 = load ptr, ptr %master.addr, align 8
+  %failover_state_change_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %15, i32 0, i32 38
   store i64 %call6, ptr %failover_state_change_time, align 8
   ret void
 }
@@ -15528,45 +15716,46 @@ if.then59:                                        ; preds = %land.lhs.true56
   %ptr64 = getelementptr inbounds %struct.redisObject, ptr %58, i32 0, i32 2
   %59 = load ptr, ptr %ptr64, align 8
   store ptr %59, ptr %value, align 8
-  %60 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 11), align 8
-  %tobool65 = icmp ne i32 %60, 0
+  %60 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 11
+  %61 = load i32, ptr %60, align 8
+  %tobool65 = icmp ne i32 %61, 0
   br i1 %tobool65, label %if.then66, label %if.end67
 
 if.then66:                                        ; preds = %if.then59
-  %61 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %61, ptr noundef @.str.393)
+  %62 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %62, ptr noundef @.str.393)
   br label %seterr
 
 if.end67:                                         ; preds = %if.then59
-  %62 = load ptr, ptr %value, align 8
-  %call68 = call i64 @strlen(ptr noundef %62) #15
+  %63 = load ptr, ptr %value, align 8
+  %call68 = call i64 @strlen(ptr noundef %63) #15
   %tobool69 = icmp ne i64 %call68, 0
   br i1 %tobool69, label %land.lhs.true70, label %if.end75
 
 land.lhs.true70:                                  ; preds = %if.end67
-  %63 = load ptr, ptr %value, align 8
-  %call71 = call i32 @access(ptr noundef %63, i32 noundef 1) #12
+  %64 = load ptr, ptr %value, align 8
+  %call71 = call i32 @access(ptr noundef %64, i32 noundef 1) #12
   %cmp72 = icmp eq i32 %call71, -1
   br i1 %cmp72, label %if.then74, label %if.end75
 
 if.then74:                                        ; preds = %land.lhs.true70
-  %64 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %64, ptr noundef @.str.394)
+  %65 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %65, ptr noundef @.str.394)
   br label %seterr
 
 if.end75:                                         ; preds = %land.lhs.true70, %if.end67
-  %65 = load ptr, ptr %ri, align 8
-  %notification_script = getelementptr inbounds %struct.sentinelRedisInstance, ptr %65, i32 0, i32 43
-  %66 = load ptr, ptr %notification_script, align 8
-  call void @sdsfree(ptr noundef %66)
-  %67 = load ptr, ptr %value, align 8
-  %call76 = call i64 @strlen(ptr noundef %67) #15
+  %66 = load ptr, ptr %ri, align 8
+  %notification_script = getelementptr inbounds %struct.sentinelRedisInstance, ptr %66, i32 0, i32 43
+  %67 = load ptr, ptr %notification_script, align 8
+  call void @sdsfree(ptr noundef %67)
+  %68 = load ptr, ptr %value, align 8
+  %call76 = call i64 @strlen(ptr noundef %68) #15
   %tobool77 = icmp ne i64 %call76, 0
   br i1 %tobool77, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end75
-  %68 = load ptr, ptr %value, align 8
-  %call78 = call ptr @sdsnew(ptr noundef %68)
+  %69 = load ptr, ptr %value, align 8
+  %call78 = call ptr @sdsnew(ptr noundef %69)
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end75
@@ -15574,77 +15763,78 @@ cond.false:                                       ; preds = %if.end75
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %call78, %cond.true ], [ null, %cond.false ]
-  %69 = load ptr, ptr %ri, align 8
-  %notification_script79 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %69, i32 0, i32 43
+  %70 = load ptr, ptr %ri, align 8
+  %notification_script79 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %70, i32 0, i32 43
   store ptr %cond, ptr %notification_script79, align 8
-  %70 = load i32, ptr %changes, align 4
-  %inc80 = add nsw i32 %70, 1
+  %71 = load i32, ptr %changes, align 4
+  %inc80 = add nsw i32 %71, 1
   store i32 %inc80, ptr %changes, align 4
   br label %if.end252
 
 if.else81:                                        ; preds = %land.lhs.true56, %if.else53
-  %71 = load ptr, ptr %option, align 8
-  %call82 = call i32 @strcasecmp(ptr noundef %71, ptr noundef @.str.77) #15
+  %72 = load ptr, ptr %option, align 8
+  %call82 = call i32 @strcasecmp(ptr noundef %72, ptr noundef @.str.77) #15
   %tobool83 = icmp ne i32 %call82, 0
   br i1 %tobool83, label %if.else114, label %land.lhs.true84
 
 land.lhs.true84:                                  ; preds = %if.else81
-  %72 = load i32, ptr %moreargs, align 4
-  %cmp85 = icmp sgt i32 %72, 0
+  %73 = load i32, ptr %moreargs, align 4
+  %cmp85 = icmp sgt i32 %73, 0
   br i1 %cmp85, label %if.then87, label %if.else114
 
 if.then87:                                        ; preds = %land.lhs.true84
-  %73 = load ptr, ptr %c.addr, align 8
-  %argv89 = getelementptr inbounds %struct.client, ptr %73, i32 0, i32 12
-  %74 = load ptr, ptr %argv89, align 8
-  %75 = load i32, ptr %j, align 4
-  %inc90 = add nsw i32 %75, 1
+  %74 = load ptr, ptr %c.addr, align 8
+  %argv89 = getelementptr inbounds %struct.client, ptr %74, i32 0, i32 12
+  %75 = load ptr, ptr %argv89, align 8
+  %76 = load i32, ptr %j, align 4
+  %inc90 = add nsw i32 %76, 1
   store i32 %inc90, ptr %j, align 4
   %idxprom91 = sext i32 %inc90 to i64
-  %arrayidx92 = getelementptr inbounds ptr, ptr %74, i64 %idxprom91
-  %76 = load ptr, ptr %arrayidx92, align 8
-  %ptr93 = getelementptr inbounds %struct.redisObject, ptr %76, i32 0, i32 2
-  %77 = load ptr, ptr %ptr93, align 8
-  store ptr %77, ptr %value88, align 8
-  %78 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 11), align 8
-  %tobool94 = icmp ne i32 %78, 0
+  %arrayidx92 = getelementptr inbounds ptr, ptr %75, i64 %idxprom91
+  %77 = load ptr, ptr %arrayidx92, align 8
+  %ptr93 = getelementptr inbounds %struct.redisObject, ptr %77, i32 0, i32 2
+  %78 = load ptr, ptr %ptr93, align 8
+  store ptr %78, ptr %value88, align 8
+  %79 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 11
+  %80 = load i32, ptr %79, align 8
+  %tobool94 = icmp ne i32 %80, 0
   br i1 %tobool94, label %if.then95, label %if.end96
 
 if.then95:                                        ; preds = %if.then87
-  %79 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %79, ptr noundef @.str.393)
+  %81 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %81, ptr noundef @.str.393)
   br label %seterr
 
 if.end96:                                         ; preds = %if.then87
-  %80 = load ptr, ptr %value88, align 8
-  %call97 = call i64 @strlen(ptr noundef %80) #15
+  %82 = load ptr, ptr %value88, align 8
+  %call97 = call i64 @strlen(ptr noundef %82) #15
   %tobool98 = icmp ne i64 %call97, 0
   br i1 %tobool98, label %land.lhs.true99, label %if.end104
 
 land.lhs.true99:                                  ; preds = %if.end96
-  %81 = load ptr, ptr %value88, align 8
-  %call100 = call i32 @access(ptr noundef %81, i32 noundef 1) #12
+  %83 = load ptr, ptr %value88, align 8
+  %call100 = call i32 @access(ptr noundef %83, i32 noundef 1) #12
   %cmp101 = icmp eq i32 %call100, -1
   br i1 %cmp101, label %if.then103, label %if.end104
 
 if.then103:                                       ; preds = %land.lhs.true99
-  %82 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %82, ptr noundef @.str.395)
+  %84 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %84, ptr noundef @.str.395)
   br label %seterr
 
 if.end104:                                        ; preds = %land.lhs.true99, %if.end96
-  %83 = load ptr, ptr %ri, align 8
-  %client_reconfig_script = getelementptr inbounds %struct.sentinelRedisInstance, ptr %83, i32 0, i32 44
-  %84 = load ptr, ptr %client_reconfig_script, align 8
-  call void @sdsfree(ptr noundef %84)
-  %85 = load ptr, ptr %value88, align 8
-  %call105 = call i64 @strlen(ptr noundef %85) #15
+  %85 = load ptr, ptr %ri, align 8
+  %client_reconfig_script = getelementptr inbounds %struct.sentinelRedisInstance, ptr %85, i32 0, i32 44
+  %86 = load ptr, ptr %client_reconfig_script, align 8
+  call void @sdsfree(ptr noundef %86)
+  %87 = load ptr, ptr %value88, align 8
+  %call105 = call i64 @strlen(ptr noundef %87) #15
   %tobool106 = icmp ne i64 %call105, 0
   br i1 %tobool106, label %cond.true107, label %cond.false109
 
 cond.true107:                                     ; preds = %if.end104
-  %86 = load ptr, ptr %value88, align 8
-  %call108 = call ptr @sdsnew(ptr noundef %86)
+  %88 = load ptr, ptr %value88, align 8
+  %call108 = call ptr @sdsnew(ptr noundef %88)
   br label %cond.end110
 
 cond.false109:                                    ; preds = %if.end104
@@ -15652,50 +15842,50 @@ cond.false109:                                    ; preds = %if.end104
 
 cond.end110:                                      ; preds = %cond.false109, %cond.true107
   %cond111 = phi ptr [ %call108, %cond.true107 ], [ null, %cond.false109 ]
-  %87 = load ptr, ptr %ri, align 8
-  %client_reconfig_script112 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %87, i32 0, i32 44
+  %89 = load ptr, ptr %ri, align 8
+  %client_reconfig_script112 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %89, i32 0, i32 44
   store ptr %cond111, ptr %client_reconfig_script112, align 8
-  %88 = load i32, ptr %changes, align 4
-  %inc113 = add nsw i32 %88, 1
+  %90 = load i32, ptr %changes, align 4
+  %inc113 = add nsw i32 %90, 1
   store i32 %inc113, ptr %changes, align 4
   br label %if.end251
 
 if.else114:                                       ; preds = %land.lhs.true84, %if.else81
-  %89 = load ptr, ptr %option, align 8
-  %call115 = call i32 @strcasecmp(ptr noundef %89, ptr noundef @.str.79) #15
+  %91 = load ptr, ptr %option, align 8
+  %call115 = call i32 @strcasecmp(ptr noundef %91, ptr noundef @.str.79) #15
   %tobool116 = icmp ne i32 %call115, 0
   br i1 %tobool116, label %if.else136, label %land.lhs.true117
 
 land.lhs.true117:                                 ; preds = %if.else114
-  %90 = load i32, ptr %moreargs, align 4
-  %cmp118 = icmp sgt i32 %90, 0
+  %92 = load i32, ptr %moreargs, align 4
+  %cmp118 = icmp sgt i32 %92, 0
   br i1 %cmp118, label %if.then120, label %if.else136
 
 if.then120:                                       ; preds = %land.lhs.true117
-  %91 = load ptr, ptr %c.addr, align 8
-  %argv122 = getelementptr inbounds %struct.client, ptr %91, i32 0, i32 12
-  %92 = load ptr, ptr %argv122, align 8
-  %93 = load i32, ptr %j, align 4
-  %inc123 = add nsw i32 %93, 1
+  %93 = load ptr, ptr %c.addr, align 8
+  %argv122 = getelementptr inbounds %struct.client, ptr %93, i32 0, i32 12
+  %94 = load ptr, ptr %argv122, align 8
+  %95 = load i32, ptr %j, align 4
+  %inc123 = add nsw i32 %95, 1
   store i32 %inc123, ptr %j, align 4
   %idxprom124 = sext i32 %inc123 to i64
-  %arrayidx125 = getelementptr inbounds ptr, ptr %92, i64 %idxprom124
-  %94 = load ptr, ptr %arrayidx125, align 8
-  %ptr126 = getelementptr inbounds %struct.redisObject, ptr %94, i32 0, i32 2
-  %95 = load ptr, ptr %ptr126, align 8
-  store ptr %95, ptr %value121, align 8
-  %96 = load ptr, ptr %ri, align 8
-  %auth_pass = getelementptr inbounds %struct.sentinelRedisInstance, ptr %96, i32 0, i32 23
-  %97 = load ptr, ptr %auth_pass, align 8
-  call void @sdsfree(ptr noundef %97)
-  %98 = load ptr, ptr %value121, align 8
-  %call127 = call i64 @strlen(ptr noundef %98) #15
+  %arrayidx125 = getelementptr inbounds ptr, ptr %94, i64 %idxprom124
+  %96 = load ptr, ptr %arrayidx125, align 8
+  %ptr126 = getelementptr inbounds %struct.redisObject, ptr %96, i32 0, i32 2
+  %97 = load ptr, ptr %ptr126, align 8
+  store ptr %97, ptr %value121, align 8
+  %98 = load ptr, ptr %ri, align 8
+  %auth_pass = getelementptr inbounds %struct.sentinelRedisInstance, ptr %98, i32 0, i32 23
+  %99 = load ptr, ptr %auth_pass, align 8
+  call void @sdsfree(ptr noundef %99)
+  %100 = load ptr, ptr %value121, align 8
+  %call127 = call i64 @strlen(ptr noundef %100) #15
   %tobool128 = icmp ne i64 %call127, 0
   br i1 %tobool128, label %cond.true129, label %cond.false131
 
 cond.true129:                                     ; preds = %if.then120
-  %99 = load ptr, ptr %value121, align 8
-  %call130 = call ptr @sdsnew(ptr noundef %99)
+  %101 = load ptr, ptr %value121, align 8
+  %call130 = call ptr @sdsnew(ptr noundef %101)
   br label %cond.end132
 
 cond.false131:                                    ; preds = %if.then120
@@ -15703,53 +15893,53 @@ cond.false131:                                    ; preds = %if.then120
 
 cond.end132:                                      ; preds = %cond.false131, %cond.true129
   %cond133 = phi ptr [ %call130, %cond.true129 ], [ null, %cond.false131 ]
-  %100 = load ptr, ptr %ri, align 8
-  %auth_pass134 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %100, i32 0, i32 23
+  %102 = load ptr, ptr %ri, align 8
+  %auth_pass134 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %102, i32 0, i32 23
   store ptr %cond133, ptr %auth_pass134, align 8
-  %101 = load ptr, ptr %ri, align 8
-  call void @dropInstanceConnections(ptr noundef %101)
-  %102 = load i32, ptr %changes, align 4
-  %inc135 = add nsw i32 %102, 1
+  %103 = load ptr, ptr %ri, align 8
+  call void @dropInstanceConnections(ptr noundef %103)
+  %104 = load i32, ptr %changes, align 4
+  %inc135 = add nsw i32 %104, 1
   store i32 %inc135, ptr %changes, align 4
   store i32 1, ptr %redacted, align 4
   br label %if.end250
 
 if.else136:                                       ; preds = %land.lhs.true117, %if.else114
-  %103 = load ptr, ptr %option, align 8
-  %call137 = call i32 @strcasecmp(ptr noundef %103, ptr noundef @.str.80) #15
+  %105 = load ptr, ptr %option, align 8
+  %call137 = call i32 @strcasecmp(ptr noundef %105, ptr noundef @.str.80) #15
   %tobool138 = icmp ne i32 %call137, 0
   br i1 %tobool138, label %if.else158, label %land.lhs.true139
 
 land.lhs.true139:                                 ; preds = %if.else136
-  %104 = load i32, ptr %moreargs, align 4
-  %cmp140 = icmp sgt i32 %104, 0
+  %106 = load i32, ptr %moreargs, align 4
+  %cmp140 = icmp sgt i32 %106, 0
   br i1 %cmp140, label %if.then142, label %if.else158
 
 if.then142:                                       ; preds = %land.lhs.true139
-  %105 = load ptr, ptr %c.addr, align 8
-  %argv144 = getelementptr inbounds %struct.client, ptr %105, i32 0, i32 12
-  %106 = load ptr, ptr %argv144, align 8
-  %107 = load i32, ptr %j, align 4
-  %inc145 = add nsw i32 %107, 1
+  %107 = load ptr, ptr %c.addr, align 8
+  %argv144 = getelementptr inbounds %struct.client, ptr %107, i32 0, i32 12
+  %108 = load ptr, ptr %argv144, align 8
+  %109 = load i32, ptr %j, align 4
+  %inc145 = add nsw i32 %109, 1
   store i32 %inc145, ptr %j, align 4
   %idxprom146 = sext i32 %inc145 to i64
-  %arrayidx147 = getelementptr inbounds ptr, ptr %106, i64 %idxprom146
-  %108 = load ptr, ptr %arrayidx147, align 8
-  %ptr148 = getelementptr inbounds %struct.redisObject, ptr %108, i32 0, i32 2
-  %109 = load ptr, ptr %ptr148, align 8
-  store ptr %109, ptr %value143, align 8
-  %110 = load ptr, ptr %ri, align 8
-  %auth_user = getelementptr inbounds %struct.sentinelRedisInstance, ptr %110, i32 0, i32 24
-  %111 = load ptr, ptr %auth_user, align 8
-  call void @sdsfree(ptr noundef %111)
-  %112 = load ptr, ptr %value143, align 8
-  %call149 = call i64 @strlen(ptr noundef %112) #15
+  %arrayidx147 = getelementptr inbounds ptr, ptr %108, i64 %idxprom146
+  %110 = load ptr, ptr %arrayidx147, align 8
+  %ptr148 = getelementptr inbounds %struct.redisObject, ptr %110, i32 0, i32 2
+  %111 = load ptr, ptr %ptr148, align 8
+  store ptr %111, ptr %value143, align 8
+  %112 = load ptr, ptr %ri, align 8
+  %auth_user = getelementptr inbounds %struct.sentinelRedisInstance, ptr %112, i32 0, i32 24
+  %113 = load ptr, ptr %auth_user, align 8
+  call void @sdsfree(ptr noundef %113)
+  %114 = load ptr, ptr %value143, align 8
+  %call149 = call i64 @strlen(ptr noundef %114) #15
   %tobool150 = icmp ne i64 %call149, 0
   br i1 %tobool150, label %cond.true151, label %cond.false153
 
 cond.true151:                                     ; preds = %if.then142
-  %113 = load ptr, ptr %value143, align 8
-  %call152 = call ptr @sdsnew(ptr noundef %113)
+  %115 = load ptr, ptr %value143, align 8
+  %call152 = call ptr @sdsnew(ptr noundef %115)
   br label %cond.end154
 
 cond.false153:                                    ; preds = %if.then142
@@ -15757,218 +15947,218 @@ cond.false153:                                    ; preds = %if.then142
 
 cond.end154:                                      ; preds = %cond.false153, %cond.true151
   %cond155 = phi ptr [ %call152, %cond.true151 ], [ null, %cond.false153 ]
-  %114 = load ptr, ptr %ri, align 8
-  %auth_user156 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %114, i32 0, i32 24
+  %116 = load ptr, ptr %ri, align 8
+  %auth_user156 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %116, i32 0, i32 24
   store ptr %cond155, ptr %auth_user156, align 8
-  %115 = load ptr, ptr %ri, align 8
-  call void @dropInstanceConnections(ptr noundef %115)
-  %116 = load i32, ptr %changes, align 4
-  %inc157 = add nsw i32 %116, 1
+  %117 = load ptr, ptr %ri, align 8
+  call void @dropInstanceConnections(ptr noundef %117)
+  %118 = load i32, ptr %changes, align 4
+  %inc157 = add nsw i32 %118, 1
   store i32 %inc157, ptr %changes, align 4
   br label %if.end249
 
 if.else158:                                       ; preds = %land.lhs.true139, %if.else136
-  %117 = load ptr, ptr %option, align 8
-  %call159 = call i32 @strcasecmp(ptr noundef %117, ptr noundef @.str.259) #15
+  %119 = load ptr, ptr %option, align 8
+  %call159 = call i32 @strcasecmp(ptr noundef %119, ptr noundef @.str.259) #15
   %tobool160 = icmp ne i32 %call159, 0
   br i1 %tobool160, label %if.else180, label %land.lhs.true161
 
 land.lhs.true161:                                 ; preds = %if.else158
-  %118 = load i32, ptr %moreargs, align 4
-  %cmp162 = icmp sgt i32 %118, 0
+  %120 = load i32, ptr %moreargs, align 4
+  %cmp162 = icmp sgt i32 %120, 0
   br i1 %cmp162, label %if.then164, label %if.else180
 
 if.then164:                                       ; preds = %land.lhs.true161
-  %119 = load ptr, ptr %c.addr, align 8
-  %argv166 = getelementptr inbounds %struct.client, ptr %119, i32 0, i32 12
-  %120 = load ptr, ptr %argv166, align 8
-  %121 = load i32, ptr %j, align 4
-  %inc167 = add nsw i32 %121, 1
+  %121 = load ptr, ptr %c.addr, align 8
+  %argv166 = getelementptr inbounds %struct.client, ptr %121, i32 0, i32 12
+  %122 = load ptr, ptr %argv166, align 8
+  %123 = load i32, ptr %j, align 4
+  %inc167 = add nsw i32 %123, 1
   store i32 %inc167, ptr %j, align 4
   %idxprom168 = sext i32 %inc167 to i64
-  %arrayidx169 = getelementptr inbounds ptr, ptr %120, i64 %idxprom168
-  %122 = load ptr, ptr %arrayidx169, align 8
-  store ptr %122, ptr %o165, align 8
-  %123 = load ptr, ptr %o165, align 8
-  %call170 = call i32 @getLongLongFromObject(ptr noundef %123, ptr noundef %ll)
+  %arrayidx169 = getelementptr inbounds ptr, ptr %122, i64 %idxprom168
+  %124 = load ptr, ptr %arrayidx169, align 8
+  store ptr %124, ptr %o165, align 8
+  %125 = load ptr, ptr %o165, align 8
+  %call170 = call i32 @getLongLongFromObject(ptr noundef %125, ptr noundef %ll)
   %cmp171 = icmp eq i32 %call170, -1
   br i1 %cmp171, label %if.then176, label %lor.lhs.false173
 
 lor.lhs.false173:                                 ; preds = %if.then164
-  %124 = load i64, ptr %ll, align 8
-  %cmp174 = icmp sle i64 %124, 0
+  %126 = load i64, ptr %ll, align 8
+  %cmp174 = icmp sle i64 %126, 0
   br i1 %cmp174, label %if.then176, label %if.end177
 
 if.then176:                                       ; preds = %lor.lhs.false173, %if.then164
-  %125 = load i32, ptr %j, align 4
-  store i32 %125, ptr %badarg, align 4
+  %127 = load i32, ptr %j, align 4
+  store i32 %127, ptr %badarg, align 4
   br label %badfmt
 
 if.end177:                                        ; preds = %lor.lhs.false173
-  %126 = load i64, ptr %ll, align 8
-  %conv178 = trunc i64 %126 to i32
-  %127 = load ptr, ptr %ri, align 8
-  %quorum = getelementptr inbounds %struct.sentinelRedisInstance, ptr %127, i32 0, i32 21
+  %128 = load i64, ptr %ll, align 8
+  %conv178 = trunc i64 %128 to i32
+  %129 = load ptr, ptr %ri, align 8
+  %quorum = getelementptr inbounds %struct.sentinelRedisInstance, ptr %129, i32 0, i32 21
   store i32 %conv178, ptr %quorum, align 8
-  %128 = load i32, ptr %changes, align 4
-  %inc179 = add nsw i32 %128, 1
+  %130 = load i32, ptr %changes, align 4
+  %inc179 = add nsw i32 %130, 1
   store i32 %inc179, ptr %changes, align 4
   br label %if.end248
 
 if.else180:                                       ; preds = %land.lhs.true161, %if.else158
-  %129 = load ptr, ptr %option, align 8
-  %call181 = call i32 @strcasecmp(ptr noundef %129, ptr noundef @.str.87) #15
+  %131 = load ptr, ptr %option, align 8
+  %call181 = call i32 @strcasecmp(ptr noundef %131, ptr noundef @.str.87) #15
   %tobool182 = icmp ne i32 %call181, 0
   br i1 %tobool182, label %if.else224, label %land.lhs.true183
 
 land.lhs.true183:                                 ; preds = %if.else180
-  %130 = load i32, ptr %moreargs, align 4
-  %cmp184 = icmp sgt i32 %130, 1
+  %132 = load i32, ptr %moreargs, align 4
+  %cmp184 = icmp sgt i32 %132, 1
   br i1 %cmp184, label %if.then186, label %if.else224
 
 if.then186:                                       ; preds = %land.lhs.true183
-  %131 = load ptr, ptr %c.addr, align 8
-  %argv187 = getelementptr inbounds %struct.client, ptr %131, i32 0, i32 12
-  %132 = load ptr, ptr %argv187, align 8
-  %133 = load i32, ptr %j, align 4
-  %inc188 = add nsw i32 %133, 1
+  %133 = load ptr, ptr %c.addr, align 8
+  %argv187 = getelementptr inbounds %struct.client, ptr %133, i32 0, i32 12
+  %134 = load ptr, ptr %argv187, align 8
+  %135 = load i32, ptr %j, align 4
+  %inc188 = add nsw i32 %135, 1
   store i32 %inc188, ptr %j, align 4
   %idxprom189 = sext i32 %inc188 to i64
-  %arrayidx190 = getelementptr inbounds ptr, ptr %132, i64 %idxprom189
-  %134 = load ptr, ptr %arrayidx190, align 8
-  %ptr191 = getelementptr inbounds %struct.redisObject, ptr %134, i32 0, i32 2
-  %135 = load ptr, ptr %ptr191, align 8
-  store ptr %135, ptr %oldname, align 8
-  %136 = load ptr, ptr %c.addr, align 8
-  %argv192 = getelementptr inbounds %struct.client, ptr %136, i32 0, i32 12
-  %137 = load ptr, ptr %argv192, align 8
-  %138 = load i32, ptr %j, align 4
-  %inc193 = add nsw i32 %138, 1
+  %arrayidx190 = getelementptr inbounds ptr, ptr %134, i64 %idxprom189
+  %136 = load ptr, ptr %arrayidx190, align 8
+  %ptr191 = getelementptr inbounds %struct.redisObject, ptr %136, i32 0, i32 2
+  %137 = load ptr, ptr %ptr191, align 8
+  store ptr %137, ptr %oldname, align 8
+  %138 = load ptr, ptr %c.addr, align 8
+  %argv192 = getelementptr inbounds %struct.client, ptr %138, i32 0, i32 12
+  %139 = load ptr, ptr %argv192, align 8
+  %140 = load i32, ptr %j, align 4
+  %inc193 = add nsw i32 %140, 1
   store i32 %inc193, ptr %j, align 4
   %idxprom194 = sext i32 %inc193 to i64
-  %arrayidx195 = getelementptr inbounds ptr, ptr %137, i64 %idxprom194
-  %139 = load ptr, ptr %arrayidx195, align 8
-  %ptr196 = getelementptr inbounds %struct.redisObject, ptr %139, i32 0, i32 2
-  %140 = load ptr, ptr %ptr196, align 8
-  store ptr %140, ptr %newname, align 8
-  %141 = load ptr, ptr %oldname, align 8
-  %call197 = call i64 @sdslen(ptr noundef %141)
+  %arrayidx195 = getelementptr inbounds ptr, ptr %139, i64 %idxprom194
+  %141 = load ptr, ptr %arrayidx195, align 8
+  %ptr196 = getelementptr inbounds %struct.redisObject, ptr %141, i32 0, i32 2
+  %142 = load ptr, ptr %ptr196, align 8
+  store ptr %142, ptr %newname, align 8
+  %143 = load ptr, ptr %oldname, align 8
+  %call197 = call i64 @sdslen(ptr noundef %143)
   %cmp198 = icmp eq i64 %call197, 0
   br i1 %cmp198, label %if.then204, label %lor.lhs.false200
 
 lor.lhs.false200:                                 ; preds = %if.then186
-  %142 = load ptr, ptr %newname, align 8
-  %call201 = call i64 @sdslen(ptr noundef %142)
+  %144 = load ptr, ptr %newname, align 8
+  %call201 = call i64 @sdslen(ptr noundef %144)
   %cmp202 = icmp eq i64 %call201, 0
   br i1 %cmp202, label %if.then204, label %if.end212
 
 if.then204:                                       ; preds = %lor.lhs.false200, %if.then186
-  %143 = load ptr, ptr %newname, align 8
-  %call205 = call i64 @sdslen(ptr noundef %143)
+  %145 = load ptr, ptr %newname, align 8
+  %call205 = call i64 @sdslen(ptr noundef %145)
   %tobool206 = icmp ne i64 %call205, 0
   br i1 %tobool206, label %cond.true207, label %cond.false209
 
 cond.true207:                                     ; preds = %if.then204
-  %144 = load i32, ptr %j, align 4
-  %sub208 = sub nsw i32 %144, 1
+  %146 = load i32, ptr %j, align 4
+  %sub208 = sub nsw i32 %146, 1
   br label %cond.end210
 
 cond.false209:                                    ; preds = %if.then204
-  %145 = load i32, ptr %j, align 4
+  %147 = load i32, ptr %j, align 4
   br label %cond.end210
 
 cond.end210:                                      ; preds = %cond.false209, %cond.true207
-  %cond211 = phi i32 [ %sub208, %cond.true207 ], [ %145, %cond.false209 ]
+  %cond211 = phi i32 [ %sub208, %cond.true207 ], [ %147, %cond.false209 ]
   store i32 %cond211, ptr %badarg, align 4
   br label %badfmt
 
 if.end212:                                        ; preds = %lor.lhs.false200
-  %146 = load ptr, ptr %ri, align 8
-  %renamed_commands = getelementptr inbounds %struct.sentinelRedisInstance, ptr %146, i32 0, i32 15
-  %147 = load ptr, ptr %renamed_commands, align 8
-  %148 = load ptr, ptr %oldname, align 8
-  %call213 = call i32 @dictDelete(ptr noundef %147, ptr noundef %148)
-  %149 = load ptr, ptr %ri, align 8
-  %renamed_commands214 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %149, i32 0, i32 15
-  %150 = load ptr, ptr %renamed_commands214, align 8
-  %151 = load ptr, ptr %oldname, align 8
-  %152 = load ptr, ptr %newname, align 8
-  %call215 = call i32 @dictSdsKeyCaseCompare(ptr noundef %150, ptr noundef %151, ptr noundef %152)
+  %148 = load ptr, ptr %ri, align 8
+  %renamed_commands = getelementptr inbounds %struct.sentinelRedisInstance, ptr %148, i32 0, i32 15
+  %149 = load ptr, ptr %renamed_commands, align 8
+  %150 = load ptr, ptr %oldname, align 8
+  %call213 = call i32 @dictDelete(ptr noundef %149, ptr noundef %150)
+  %151 = load ptr, ptr %ri, align 8
+  %renamed_commands214 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %151, i32 0, i32 15
+  %152 = load ptr, ptr %renamed_commands214, align 8
+  %153 = load ptr, ptr %oldname, align 8
+  %154 = load ptr, ptr %newname, align 8
+  %call215 = call i32 @dictSdsKeyCaseCompare(ptr noundef %152, ptr noundef %153, ptr noundef %154)
   %tobool216 = icmp ne i32 %call215, 0
   br i1 %tobool216, label %if.end222, label %if.then217
 
 if.then217:                                       ; preds = %if.end212
-  %153 = load ptr, ptr %oldname, align 8
-  %call218 = call ptr @sdsdup(ptr noundef %153)
+  %155 = load ptr, ptr %oldname, align 8
+  %call218 = call ptr @sdsdup(ptr noundef %155)
   store ptr %call218, ptr %oldname, align 8
-  %154 = load ptr, ptr %newname, align 8
-  %call219 = call ptr @sdsdup(ptr noundef %154)
+  %156 = load ptr, ptr %newname, align 8
+  %call219 = call ptr @sdsdup(ptr noundef %156)
   store ptr %call219, ptr %newname, align 8
-  %155 = load ptr, ptr %ri, align 8
-  %renamed_commands220 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %155, i32 0, i32 15
-  %156 = load ptr, ptr %renamed_commands220, align 8
-  %157 = load ptr, ptr %oldname, align 8
-  %158 = load ptr, ptr %newname, align 8
-  %call221 = call i32 @dictAdd(ptr noundef %156, ptr noundef %157, ptr noundef %158)
+  %157 = load ptr, ptr %ri, align 8
+  %renamed_commands220 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %157, i32 0, i32 15
+  %158 = load ptr, ptr %renamed_commands220, align 8
+  %159 = load ptr, ptr %oldname, align 8
+  %160 = load ptr, ptr %newname, align 8
+  %call221 = call i32 @dictAdd(ptr noundef %158, ptr noundef %159, ptr noundef %160)
   br label %if.end222
 
 if.end222:                                        ; preds = %if.then217, %if.end212
-  %159 = load i32, ptr %changes, align 4
-  %inc223 = add nsw i32 %159, 1
+  %161 = load i32, ptr %changes, align 4
+  %inc223 = add nsw i32 %161, 1
   store i32 %inc223, ptr %changes, align 4
   br label %if.end247
 
 if.else224:                                       ; preds = %land.lhs.true183, %if.else180
-  %160 = load ptr, ptr %option, align 8
-  %call225 = call i32 @strcasecmp(ptr noundef %160, ptr noundef @.str.92) #15
+  %162 = load ptr, ptr %option, align 8
+  %call225 = call i32 @strcasecmp(ptr noundef %162, ptr noundef @.str.92) #15
   %tobool226 = icmp ne i32 %call225, 0
   br i1 %tobool226, label %if.else245, label %land.lhs.true227
 
 land.lhs.true227:                                 ; preds = %if.else224
-  %161 = load i32, ptr %moreargs, align 4
-  %cmp228 = icmp sgt i32 %161, 0
+  %163 = load i32, ptr %moreargs, align 4
+  %cmp228 = icmp sgt i32 %163, 0
   br i1 %cmp228, label %if.then230, label %if.else245
 
 if.then230:                                       ; preds = %land.lhs.true227
-  %162 = load ptr, ptr %c.addr, align 8
-  %argv232 = getelementptr inbounds %struct.client, ptr %162, i32 0, i32 12
-  %163 = load ptr, ptr %argv232, align 8
-  %164 = load i32, ptr %j, align 4
-  %inc233 = add nsw i32 %164, 1
+  %164 = load ptr, ptr %c.addr, align 8
+  %argv232 = getelementptr inbounds %struct.client, ptr %164, i32 0, i32 12
+  %165 = load ptr, ptr %argv232, align 8
+  %166 = load i32, ptr %j, align 4
+  %inc233 = add nsw i32 %166, 1
   store i32 %inc233, ptr %j, align 4
   %idxprom234 = sext i32 %inc233 to i64
-  %arrayidx235 = getelementptr inbounds ptr, ptr %163, i64 %idxprom234
-  %165 = load ptr, ptr %arrayidx235, align 8
-  store ptr %165, ptr %o231, align 8
-  %166 = load ptr, ptr %o231, align 8
-  %call236 = call i32 @getLongLongFromObject(ptr noundef %166, ptr noundef %ll)
+  %arrayidx235 = getelementptr inbounds ptr, ptr %165, i64 %idxprom234
+  %167 = load ptr, ptr %arrayidx235, align 8
+  store ptr %167, ptr %o231, align 8
+  %168 = load ptr, ptr %o231, align 8
+  %call236 = call i32 @getLongLongFromObject(ptr noundef %168, ptr noundef %ll)
   %cmp237 = icmp eq i32 %call236, -1
   br i1 %cmp237, label %if.then242, label %lor.lhs.false239
 
 lor.lhs.false239:                                 ; preds = %if.then230
-  %167 = load i64, ptr %ll, align 8
-  %cmp240 = icmp slt i64 %167, 0
+  %169 = load i64, ptr %ll, align 8
+  %cmp240 = icmp slt i64 %169, 0
   br i1 %cmp240, label %if.then242, label %if.end243
 
 if.then242:                                       ; preds = %lor.lhs.false239, %if.then230
-  %168 = load i32, ptr %j, align 4
-  store i32 %168, ptr %badarg, align 4
+  %170 = load i32, ptr %j, align 4
+  store i32 %170, ptr %badarg, align 4
   br label %badfmt
 
 if.end243:                                        ; preds = %lor.lhs.false239
-  %169 = load i64, ptr %ll, align 8
-  %170 = load ptr, ptr %ri, align 8
-  %master_reboot_down_after_period = getelementptr inbounds %struct.sentinelRedisInstance, ptr %170, i32 0, i32 12
-  store i64 %169, ptr %master_reboot_down_after_period, align 8
-  %171 = load i32, ptr %changes, align 4
-  %inc244 = add nsw i32 %171, 1
+  %171 = load i64, ptr %ll, align 8
+  %172 = load ptr, ptr %ri, align 8
+  %master_reboot_down_after_period = getelementptr inbounds %struct.sentinelRedisInstance, ptr %172, i32 0, i32 12
+  store i64 %171, ptr %master_reboot_down_after_period, align 8
+  %173 = load i32, ptr %changes, align 4
+  %inc244 = add nsw i32 %173, 1
   store i32 %inc244, ptr %changes, align 4
   br label %if.end246
 
 if.else245:                                       ; preds = %land.lhs.true227, %if.else224
-  %172 = load ptr, ptr %c.addr, align 8
-  %173 = load ptr, ptr %option, align 8
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %172, ptr noundef @.str.396, ptr noundef %173)
+  %174 = load ptr, ptr %c.addr, align 8
+  %175 = load ptr, ptr %option, align 8
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %174, ptr noundef @.str.396, ptr noundef %175)
   br label %seterr
 
 if.end246:                                        ; preds = %if.end243
@@ -15999,141 +16189,141 @@ if.end254:                                        ; preds = %if.end253, %if.end3
   br label %if.end255
 
 if.end255:                                        ; preds = %if.end254, %if.end16
-  %174 = load i32, ptr %j, align 4
-  %175 = load i32, ptr %old_j, align 4
-  %sub256 = sub nsw i32 %174, %175
+  %176 = load i32, ptr %j, align 4
+  %177 = load i32, ptr %old_j, align 4
+  %sub256 = sub nsw i32 %176, %177
   %add = add nsw i32 %sub256, 1
   store i32 %add, ptr %numargs, align 4
-  %176 = load i32, ptr %numargs, align 4
-  switch i32 %176, label %sw.default [
+  %178 = load i32, ptr %numargs, align 4
+  switch i32 %178, label %sw.default [
     i32 2, label %sw.bb
     i32 3, label %sw.bb271
   ]
 
 sw.bb:                                            ; preds = %if.end255
-  %177 = load ptr, ptr %ri, align 8
-  %178 = load ptr, ptr %c.addr, align 8
-  %argv257 = getelementptr inbounds %struct.client, ptr %178, i32 0, i32 12
-  %179 = load ptr, ptr %argv257, align 8
-  %180 = load i32, ptr %old_j, align 4
-  %idxprom258 = sext i32 %180 to i64
-  %arrayidx259 = getelementptr inbounds ptr, ptr %179, i64 %idxprom258
-  %181 = load ptr, ptr %arrayidx259, align 8
-  %ptr260 = getelementptr inbounds %struct.redisObject, ptr %181, i32 0, i32 2
-  %182 = load ptr, ptr %ptr260, align 8
-  %183 = load i32, ptr %redacted, align 4
-  %tobool261 = icmp ne i32 %183, 0
+  %179 = load ptr, ptr %ri, align 8
+  %180 = load ptr, ptr %c.addr, align 8
+  %argv257 = getelementptr inbounds %struct.client, ptr %180, i32 0, i32 12
+  %181 = load ptr, ptr %argv257, align 8
+  %182 = load i32, ptr %old_j, align 4
+  %idxprom258 = sext i32 %182 to i64
+  %arrayidx259 = getelementptr inbounds ptr, ptr %181, i64 %idxprom258
+  %183 = load ptr, ptr %arrayidx259, align 8
+  %ptr260 = getelementptr inbounds %struct.redisObject, ptr %183, i32 0, i32 2
+  %184 = load ptr, ptr %ptr260, align 8
+  %185 = load i32, ptr %redacted, align 4
+  %tobool261 = icmp ne i32 %185, 0
   br i1 %tobool261, label %cond.true262, label %cond.false263
 
 cond.true262:                                     ; preds = %sw.bb
   br label %cond.end269
 
 cond.false263:                                    ; preds = %sw.bb
-  %184 = load ptr, ptr %c.addr, align 8
-  %argv264 = getelementptr inbounds %struct.client, ptr %184, i32 0, i32 12
-  %185 = load ptr, ptr %argv264, align 8
-  %186 = load i32, ptr %old_j, align 4
-  %add265 = add nsw i32 %186, 1
+  %186 = load ptr, ptr %c.addr, align 8
+  %argv264 = getelementptr inbounds %struct.client, ptr %186, i32 0, i32 12
+  %187 = load ptr, ptr %argv264, align 8
+  %188 = load i32, ptr %old_j, align 4
+  %add265 = add nsw i32 %188, 1
   %idxprom266 = sext i32 %add265 to i64
-  %arrayidx267 = getelementptr inbounds ptr, ptr %185, i64 %idxprom266
-  %187 = load ptr, ptr %arrayidx267, align 8
-  %ptr268 = getelementptr inbounds %struct.redisObject, ptr %187, i32 0, i32 2
-  %188 = load ptr, ptr %ptr268, align 8
+  %arrayidx267 = getelementptr inbounds ptr, ptr %187, i64 %idxprom266
+  %189 = load ptr, ptr %arrayidx267, align 8
+  %ptr268 = getelementptr inbounds %struct.redisObject, ptr %189, i32 0, i32 2
+  %190 = load ptr, ptr %ptr268, align 8
   br label %cond.end269
 
 cond.end269:                                      ; preds = %cond.false263, %cond.true262
-  %cond270 = phi ptr [ @.str.399, %cond.true262 ], [ %188, %cond.false263 ]
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.397, ptr noundef %177, ptr noundef @.str.398, ptr noundef %182, ptr noundef %cond270)
+  %cond270 = phi ptr [ @.str.399, %cond.true262 ], [ %190, %cond.false263 ]
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.397, ptr noundef %179, ptr noundef @.str.398, ptr noundef %184, ptr noundef %cond270)
   br label %sw.epilog
 
 sw.bb271:                                         ; preds = %if.end255
-  %189 = load ptr, ptr %ri, align 8
-  %190 = load ptr, ptr %c.addr, align 8
-  %argv272 = getelementptr inbounds %struct.client, ptr %190, i32 0, i32 12
-  %191 = load ptr, ptr %argv272, align 8
-  %192 = load i32, ptr %old_j, align 4
-  %idxprom273 = sext i32 %192 to i64
-  %arrayidx274 = getelementptr inbounds ptr, ptr %191, i64 %idxprom273
-  %193 = load ptr, ptr %arrayidx274, align 8
-  %ptr275 = getelementptr inbounds %struct.redisObject, ptr %193, i32 0, i32 2
-  %194 = load ptr, ptr %ptr275, align 8
-  %195 = load ptr, ptr %c.addr, align 8
-  %argv276 = getelementptr inbounds %struct.client, ptr %195, i32 0, i32 12
-  %196 = load ptr, ptr %argv276, align 8
-  %197 = load i32, ptr %old_j, align 4
-  %add277 = add nsw i32 %197, 1
+  %191 = load ptr, ptr %ri, align 8
+  %192 = load ptr, ptr %c.addr, align 8
+  %argv272 = getelementptr inbounds %struct.client, ptr %192, i32 0, i32 12
+  %193 = load ptr, ptr %argv272, align 8
+  %194 = load i32, ptr %old_j, align 4
+  %idxprom273 = sext i32 %194 to i64
+  %arrayidx274 = getelementptr inbounds ptr, ptr %193, i64 %idxprom273
+  %195 = load ptr, ptr %arrayidx274, align 8
+  %ptr275 = getelementptr inbounds %struct.redisObject, ptr %195, i32 0, i32 2
+  %196 = load ptr, ptr %ptr275, align 8
+  %197 = load ptr, ptr %c.addr, align 8
+  %argv276 = getelementptr inbounds %struct.client, ptr %197, i32 0, i32 12
+  %198 = load ptr, ptr %argv276, align 8
+  %199 = load i32, ptr %old_j, align 4
+  %add277 = add nsw i32 %199, 1
   %idxprom278 = sext i32 %add277 to i64
-  %arrayidx279 = getelementptr inbounds ptr, ptr %196, i64 %idxprom278
-  %198 = load ptr, ptr %arrayidx279, align 8
-  %ptr280 = getelementptr inbounds %struct.redisObject, ptr %198, i32 0, i32 2
-  %199 = load ptr, ptr %ptr280, align 8
-  %200 = load ptr, ptr %c.addr, align 8
-  %argv281 = getelementptr inbounds %struct.client, ptr %200, i32 0, i32 12
-  %201 = load ptr, ptr %argv281, align 8
-  %202 = load i32, ptr %old_j, align 4
-  %add282 = add nsw i32 %202, 2
+  %arrayidx279 = getelementptr inbounds ptr, ptr %198, i64 %idxprom278
+  %200 = load ptr, ptr %arrayidx279, align 8
+  %ptr280 = getelementptr inbounds %struct.redisObject, ptr %200, i32 0, i32 2
+  %201 = load ptr, ptr %ptr280, align 8
+  %202 = load ptr, ptr %c.addr, align 8
+  %argv281 = getelementptr inbounds %struct.client, ptr %202, i32 0, i32 12
+  %203 = load ptr, ptr %argv281, align 8
+  %204 = load i32, ptr %old_j, align 4
+  %add282 = add nsw i32 %204, 2
   %idxprom283 = sext i32 %add282 to i64
-  %arrayidx284 = getelementptr inbounds ptr, ptr %201, i64 %idxprom283
-  %203 = load ptr, ptr %arrayidx284, align 8
-  %ptr285 = getelementptr inbounds %struct.redisObject, ptr %203, i32 0, i32 2
-  %204 = load ptr, ptr %ptr285, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.397, ptr noundef %189, ptr noundef @.str.400, ptr noundef %194, ptr noundef %199, ptr noundef %204)
+  %arrayidx284 = getelementptr inbounds ptr, ptr %203, i64 %idxprom283
+  %205 = load ptr, ptr %arrayidx284, align 8
+  %ptr285 = getelementptr inbounds %struct.redisObject, ptr %205, i32 0, i32 2
+  %206 = load ptr, ptr %ptr285, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.397, ptr noundef %191, ptr noundef @.str.400, ptr noundef %196, ptr noundef %201, ptr noundef %206)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end255
-  %205 = load ptr, ptr %ri, align 8
-  %206 = load ptr, ptr %c.addr, align 8
-  %argv286 = getelementptr inbounds %struct.client, ptr %206, i32 0, i32 12
-  %207 = load ptr, ptr %argv286, align 8
-  %208 = load i32, ptr %old_j, align 4
-  %idxprom287 = sext i32 %208 to i64
-  %arrayidx288 = getelementptr inbounds ptr, ptr %207, i64 %idxprom287
-  %209 = load ptr, ptr %arrayidx288, align 8
-  %ptr289 = getelementptr inbounds %struct.redisObject, ptr %209, i32 0, i32 2
-  %210 = load ptr, ptr %ptr289, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.397, ptr noundef %205, ptr noundef @.str.401, ptr noundef %210)
+  %207 = load ptr, ptr %ri, align 8
+  %208 = load ptr, ptr %c.addr, align 8
+  %argv286 = getelementptr inbounds %struct.client, ptr %208, i32 0, i32 12
+  %209 = load ptr, ptr %argv286, align 8
+  %210 = load i32, ptr %old_j, align 4
+  %idxprom287 = sext i32 %210 to i64
+  %arrayidx288 = getelementptr inbounds ptr, ptr %209, i64 %idxprom287
+  %211 = load ptr, ptr %arrayidx288, align 8
+  %ptr289 = getelementptr inbounds %struct.redisObject, ptr %211, i32 0, i32 2
+  %212 = load ptr, ptr %ptr289, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.397, ptr noundef %207, ptr noundef @.str.401, ptr noundef %212)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb271, %cond.end269
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.epilog
-  %211 = load i32, ptr %j, align 4
-  %inc290 = add nsw i32 %211, 1
+  %213 = load i32, ptr %j, align 4
+  %inc290 = add nsw i32 %213, 1
   store i32 %inc290, ptr %j, align 4
   br label %for.cond, !llvm.loop !56
 
 for.end:                                          ; preds = %for.cond
-  %212 = load i32, ptr %changes, align 4
-  %tobool291 = icmp ne i32 %212, 0
+  %214 = load i32, ptr %changes, align 4
+  %tobool291 = icmp ne i32 %214, 0
   br i1 %tobool291, label %if.then292, label %if.end293
 
 if.then292:                                       ; preds = %for.end
-  %213 = load ptr, ptr %c.addr, align 8
-  call void @sentinelFlushConfigAndReply(ptr noundef %213)
+  %215 = load ptr, ptr %c.addr, align 8
+  call void @sentinelFlushConfigAndReply(ptr noundef %215)
   br label %if.end293
 
 if.end293:                                        ; preds = %if.then292, %for.end
   br label %if.end301
 
 badfmt:                                           ; preds = %if.then242, %cond.end210, %if.then176, %if.then50, %if.then32, %if.then15
-  %214 = load ptr, ptr %c.addr, align 8
-  %215 = load ptr, ptr %c.addr, align 8
-  %argv294 = getelementptr inbounds %struct.client, ptr %215, i32 0, i32 12
-  %216 = load ptr, ptr %argv294, align 8
-  %217 = load i32, ptr %badarg, align 4
-  %idxprom295 = sext i32 %217 to i64
-  %arrayidx296 = getelementptr inbounds ptr, ptr %216, i64 %idxprom295
-  %218 = load ptr, ptr %arrayidx296, align 8
-  %ptr297 = getelementptr inbounds %struct.redisObject, ptr %218, i32 0, i32 2
-  %219 = load ptr, ptr %ptr297, align 8
-  %220 = load ptr, ptr %option, align 8
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %214, ptr noundef @.str.402, ptr noundef %219, ptr noundef %220)
+  %216 = load ptr, ptr %c.addr, align 8
+  %217 = load ptr, ptr %c.addr, align 8
+  %argv294 = getelementptr inbounds %struct.client, ptr %217, i32 0, i32 12
+  %218 = load ptr, ptr %argv294, align 8
+  %219 = load i32, ptr %badarg, align 4
+  %idxprom295 = sext i32 %219 to i64
+  %arrayidx296 = getelementptr inbounds ptr, ptr %218, i64 %idxprom295
+  %220 = load ptr, ptr %arrayidx296, align 8
+  %ptr297 = getelementptr inbounds %struct.redisObject, ptr %220, i32 0, i32 2
+  %221 = load ptr, ptr %ptr297, align 8
+  %222 = load ptr, ptr %option, align 8
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %216, ptr noundef @.str.402, ptr noundef %221, ptr noundef %222)
   br label %seterr
 
 seterr:                                           ; preds = %badfmt, %if.else245, %if.then103, %if.then95, %if.then74, %if.then66
-  %221 = load i32, ptr %changes, align 4
-  %tobool298 = icmp ne i32 %221, 0
+  %223 = load i32, ptr %changes, align 4
+  %tobool298 = icmp ne i32 %223, 0
   br i1 %tobool298, label %if.then299, label %if.end301
 
 if.then299:                                       ; preds = %seterr
@@ -16310,24 +16500,29 @@ if.then33:                                        ; preds = %if.then28
 
 if.end35:                                         ; preds = %if.then33, %if.then28
   %29 = load ptr, ptr %info, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %30, i32 0, i32 2
+  %30 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8
+  %ht_used = getelementptr inbounds %struct.dict, ptr %31, i32 0, i32 2
   %arrayidx36 = getelementptr inbounds [2 x i64], ptr %ht_used, i64 0, i64 0
-  %31 = load i64, ptr %arrayidx36, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %ht_used37 = getelementptr inbounds %struct.dict, ptr %32, i32 0, i32 2
+  %32 = load i64, ptr %arrayidx36, align 8
+  %33 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8
+  %ht_used37 = getelementptr inbounds %struct.dict, ptr %34, i32 0, i32 2
   %arrayidx38 = getelementptr inbounds [2 x i64], ptr %ht_used37, i64 0, i64 1
-  %33 = load i64, ptr %arrayidx38, align 8
-  %add = add i64 %31, %33
-  %34 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 3), align 8
-  %35 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 3), align 8
-  %tobool39 = icmp ne i32 %35, 0
+  %35 = load i64, ptr %arrayidx38, align 8
+  %add = add i64 %32, %35
+  %36 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 3
+  %37 = load i32, ptr %36, align 8
+  %38 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 3
+  %39 = load i32, ptr %38, align 8
+  %tobool39 = icmp ne i32 %39, 0
   br i1 %tobool39, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end35
   %call40 = call i64 @mstime()
-  %36 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 5), align 8
-  %sub41 = sub nsw i64 %call40, %36
+  %40 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 5
+  %41 = load i64, ptr %40, align 8
+  %sub41 = sub nsw i64 %call40, %41
   %div = sdiv i64 %sub41, 1000
   br label %cond.end
 
@@ -16336,34 +16531,38 @@ cond.false:                                       ; preds = %if.end35
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i64 [ %div, %cond.true ], [ -1, %cond.false ]
-  %37 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 4), align 4
-  %38 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 7), align 8
-  %len = getelementptr inbounds %struct.list, ptr %38, i32 0, i32 5
-  %39 = load i64, ptr %len, align 8
-  %40 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 10), align 8
-  %call42 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %29, ptr noundef @.str.389, i64 noundef %add, i32 noundef %34, i64 noundef %cond, i32 noundef %37, i64 noundef %39, i64 noundef %40)
+  %42 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 4
+  %43 = load i32, ptr %42, align 4
+  %44 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 7
+  %45 = load ptr, ptr %44, align 8
+  %len = getelementptr inbounds %struct.list, ptr %45, i32 0, i32 5
+  %46 = load i64, ptr %len, align 8
+  %47 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 10
+  %48 = load i64, ptr %47, align 8
+  %call42 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %29, ptr noundef @.str.389, i64 noundef %add, i32 noundef %37, i64 noundef %cond, i32 noundef %43, i64 noundef %46, i64 noundef %48)
   store ptr %call42, ptr %info, align 8
-  %41 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %call43 = call ptr @dictGetIterator(ptr noundef %41)
+  %49 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %50 = load ptr, ptr %49, align 8
+  %call43 = call ptr @dictGetIterator(ptr noundef %50)
   store ptr %call43, ptr %di29, align 8
   br label %while.cond44
 
 while.cond44:                                     ; preds = %if.end56, %cond.end
-  %42 = load ptr, ptr %di29, align 8
-  %call45 = call ptr @dictNext(ptr noundef %42)
+  %51 = load ptr, ptr %di29, align 8
+  %call45 = call ptr @dictNext(ptr noundef %51)
   store ptr %call45, ptr %de30, align 8
   %cmp46 = icmp ne ptr %call45, null
   br i1 %cmp46, label %while.body47, label %while.end74
 
 while.body47:                                     ; preds = %while.cond44
-  %43 = load ptr, ptr %de30, align 8
-  %call48 = call ptr @dictGetVal(ptr noundef %43)
+  %52 = load ptr, ptr %de30, align 8
+  %call48 = call ptr @dictGetVal(ptr noundef %52)
   store ptr %call48, ptr %ri, align 8
   store ptr @.str.262, ptr %status, align 8
-  %44 = load ptr, ptr %ri, align 8
-  %flags = getelementptr inbounds %struct.sentinelRedisInstance, ptr %44, i32 0, i32 0
-  %45 = load i32, ptr %flags, align 8
-  %and = and i32 %45, 16
+  %53 = load ptr, ptr %ri, align 8
+  %flags = getelementptr inbounds %struct.sentinelRedisInstance, ptr %53, i32 0, i32 0
+  %54 = load i32, ptr %flags, align 8
+  %and = and i32 %54, 16
   %tobool49 = icmp ne i32 %and, 0
   br i1 %tobool49, label %if.then50, label %if.else
 
@@ -16372,10 +16571,10 @@ if.then50:                                        ; preds = %while.body47
   br label %if.end56
 
 if.else:                                          ; preds = %while.body47
-  %46 = load ptr, ptr %ri, align 8
-  %flags51 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %46, i32 0, i32 0
-  %47 = load i32, ptr %flags51, align 8
-  %and52 = and i32 %47, 8
+  %55 = load ptr, ptr %ri, align 8
+  %flags51 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %55, i32 0, i32 0
+  %56 = load i32, ptr %flags51, align 8
+  %and52 = and i32 %56, 8
   %tobool53 = icmp ne i32 %and52, 0
   br i1 %tobool53, label %if.then54, label %if.end55
 
@@ -16387,74 +16586,74 @@ if.end55:                                         ; preds = %if.then54, %if.else
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end55, %if.then50
-  %48 = load ptr, ptr %info, align 8
-  %49 = load i32, ptr %master_id, align 4
-  %inc57 = add nsw i32 %49, 1
+  %57 = load ptr, ptr %info, align 8
+  %58 = load i32, ptr %master_id, align 4
+  %inc57 = add nsw i32 %58, 1
   store i32 %inc57, ptr %master_id, align 4
-  %50 = load ptr, ptr %ri, align 8
-  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %50, i32 0, i32 1
-  %51 = load ptr, ptr %name, align 8
-  %52 = load ptr, ptr %status, align 8
-  %53 = load ptr, ptr %ri, align 8
-  %addr = getelementptr inbounds %struct.sentinelRedisInstance, ptr %53, i32 0, i32 4
-  %54 = load ptr, ptr %addr, align 8
-  %call58 = call ptr @announceSentinelAddr(ptr noundef %54)
-  %55 = load ptr, ptr %ri, align 8
-  %addr59 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %55, i32 0, i32 4
-  %56 = load ptr, ptr %addr59, align 8
-  %port = getelementptr inbounds %struct.sentinelAddr, ptr %56, i32 0, i32 2
-  %57 = load i32, ptr %port, align 8
-  %58 = load ptr, ptr %ri, align 8
-  %slaves = getelementptr inbounds %struct.sentinelRedisInstance, ptr %58, i32 0, i32 20
-  %59 = load ptr, ptr %slaves, align 8
-  %ht_used60 = getelementptr inbounds %struct.dict, ptr %59, i32 0, i32 2
-  %arrayidx61 = getelementptr inbounds [2 x i64], ptr %ht_used60, i64 0, i64 0
-  %60 = load i64, ptr %arrayidx61, align 8
-  %61 = load ptr, ptr %ri, align 8
-  %slaves62 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %61, i32 0, i32 20
-  %62 = load ptr, ptr %slaves62, align 8
-  %ht_used63 = getelementptr inbounds %struct.dict, ptr %62, i32 0, i32 2
-  %arrayidx64 = getelementptr inbounds [2 x i64], ptr %ht_used63, i64 0, i64 1
-  %63 = load i64, ptr %arrayidx64, align 8
-  %add65 = add i64 %60, %63
+  %59 = load ptr, ptr %ri, align 8
+  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %59, i32 0, i32 1
+  %60 = load ptr, ptr %name, align 8
+  %61 = load ptr, ptr %status, align 8
+  %62 = load ptr, ptr %ri, align 8
+  %addr = getelementptr inbounds %struct.sentinelRedisInstance, ptr %62, i32 0, i32 4
+  %63 = load ptr, ptr %addr, align 8
+  %call58 = call ptr @announceSentinelAddr(ptr noundef %63)
   %64 = load ptr, ptr %ri, align 8
-  %sentinels = getelementptr inbounds %struct.sentinelRedisInstance, ptr %64, i32 0, i32 19
-  %65 = load ptr, ptr %sentinels, align 8
-  %ht_used66 = getelementptr inbounds %struct.dict, ptr %65, i32 0, i32 2
-  %arrayidx67 = getelementptr inbounds [2 x i64], ptr %ht_used66, i64 0, i64 0
-  %66 = load i64, ptr %arrayidx67, align 8
+  %addr59 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %64, i32 0, i32 4
+  %65 = load ptr, ptr %addr59, align 8
+  %port = getelementptr inbounds %struct.sentinelAddr, ptr %65, i32 0, i32 2
+  %66 = load i32, ptr %port, align 8
   %67 = load ptr, ptr %ri, align 8
-  %sentinels68 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %67, i32 0, i32 19
-  %68 = load ptr, ptr %sentinels68, align 8
-  %ht_used69 = getelementptr inbounds %struct.dict, ptr %68, i32 0, i32 2
+  %slaves = getelementptr inbounds %struct.sentinelRedisInstance, ptr %67, i32 0, i32 20
+  %68 = load ptr, ptr %slaves, align 8
+  %ht_used60 = getelementptr inbounds %struct.dict, ptr %68, i32 0, i32 2
+  %arrayidx61 = getelementptr inbounds [2 x i64], ptr %ht_used60, i64 0, i64 0
+  %69 = load i64, ptr %arrayidx61, align 8
+  %70 = load ptr, ptr %ri, align 8
+  %slaves62 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %70, i32 0, i32 20
+  %71 = load ptr, ptr %slaves62, align 8
+  %ht_used63 = getelementptr inbounds %struct.dict, ptr %71, i32 0, i32 2
+  %arrayidx64 = getelementptr inbounds [2 x i64], ptr %ht_used63, i64 0, i64 1
+  %72 = load i64, ptr %arrayidx64, align 8
+  %add65 = add i64 %69, %72
+  %73 = load ptr, ptr %ri, align 8
+  %sentinels = getelementptr inbounds %struct.sentinelRedisInstance, ptr %73, i32 0, i32 19
+  %74 = load ptr, ptr %sentinels, align 8
+  %ht_used66 = getelementptr inbounds %struct.dict, ptr %74, i32 0, i32 2
+  %arrayidx67 = getelementptr inbounds [2 x i64], ptr %ht_used66, i64 0, i64 0
+  %75 = load i64, ptr %arrayidx67, align 8
+  %76 = load ptr, ptr %ri, align 8
+  %sentinels68 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %76, i32 0, i32 19
+  %77 = load ptr, ptr %sentinels68, align 8
+  %ht_used69 = getelementptr inbounds %struct.dict, ptr %77, i32 0, i32 2
   %arrayidx70 = getelementptr inbounds [2 x i64], ptr %ht_used69, i64 0, i64 1
-  %69 = load i64, ptr %arrayidx70, align 8
-  %add71 = add i64 %66, %69
+  %78 = load i64, ptr %arrayidx70, align 8
+  %add71 = add i64 %75, %78
   %add72 = add i64 %add71, 1
-  %call73 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %48, ptr noundef @.str.392, i32 noundef %49, ptr noundef %51, ptr noundef %52, ptr noundef %call58, i32 noundef %57, i64 noundef %add65, i64 noundef %add72)
+  %call73 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %57, ptr noundef @.str.392, i32 noundef %58, ptr noundef %60, ptr noundef %61, ptr noundef %call58, i32 noundef %66, i64 noundef %add65, i64 noundef %add72)
   store ptr %call73, ptr %info, align 8
   br label %while.cond44, !llvm.loop !59
 
 while.end74:                                      ; preds = %while.cond44
-  %70 = load ptr, ptr %di29, align 8
-  call void @dictReleaseIterator(ptr noundef %70)
+  %79 = load ptr, ptr %di29, align 8
+  call void @dictReleaseIterator(ptr noundef %79)
   br label %if.end75
 
 if.end75:                                         ; preds = %while.end74, %lor.lhs.false25
-  %71 = load ptr, ptr %sections_dict, align 8
-  %72 = load ptr, ptr @sentinelInfoCommand.cached_all_info_sections, align 8
-  %cmp76 = icmp ne ptr %71, %72
+  %80 = load ptr, ptr %sections_dict, align 8
+  %81 = load ptr, ptr @sentinelInfoCommand.cached_all_info_sections, align 8
+  %cmp76 = icmp ne ptr %80, %81
   br i1 %cmp76, label %if.then77, label %if.end78
 
 if.then77:                                        ; preds = %if.end75
-  %73 = load ptr, ptr %sections_dict, align 8
-  call void @releaseInfoSectionDict(ptr noundef %73)
+  %82 = load ptr, ptr %sections_dict, align 8
+  call void @releaseInfoSectionDict(ptr noundef %82)
   br label %if.end78
 
 if.end78:                                         ; preds = %if.then77, %if.end75
-  %74 = load ptr, ptr %c.addr, align 8
-  %75 = load ptr, ptr %info, align 8
-  call void @addReplyBulkSds(ptr noundef %74, ptr noundef %75)
+  %83 = load ptr, ptr %c.addr, align 8
+  %84 = load ptr, ptr %info, align 8
+  call void @addReplyBulkSds(ptr noundef %83, ptr noundef %84)
   ret void
 }
 
@@ -16481,42 +16680,45 @@ entry:
   %1 = load ptr, ptr %c.addr, align 8
   call void @addReplyBulkCBuffer(ptr noundef %1, ptr noundef @.str.50, i64 noundef 8)
   %2 = load ptr, ptr %c.addr, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %3, i32 0, i32 2
+  %3 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %4 = load ptr, ptr %3, align 8
+  %ht_used = getelementptr inbounds %struct.dict, ptr %4, i32 0, i32 2
   %arrayidx = getelementptr inbounds [2 x i64], ptr %ht_used, i64 0, i64 0
-  %4 = load i64, ptr %arrayidx, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %ht_used1 = getelementptr inbounds %struct.dict, ptr %5, i32 0, i32 2
+  %5 = load i64, ptr %arrayidx, align 8
+  %6 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8
+  %ht_used1 = getelementptr inbounds %struct.dict, ptr %7, i32 0, i32 2
   %arrayidx2 = getelementptr inbounds [2 x i64], ptr %ht_used1, i64 0, i64 1
-  %6 = load i64, ptr %arrayidx2, align 8
-  %add = add i64 %4, %6
+  %8 = load i64, ptr %arrayidx2, align 8
+  %add = add i64 %5, %8
   call void @addReplyArrayLen(ptr noundef %2, i64 noundef %add)
-  %7 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  %call = call ptr @dictGetIterator(ptr noundef %7)
+  %9 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %call = call ptr @dictGetIterator(ptr noundef %10)
   store ptr %call, ptr %di, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
-  %8 = load ptr, ptr %di, align 8
-  %call3 = call ptr @dictNext(ptr noundef %8)
+  %11 = load ptr, ptr %di, align 8
+  %call3 = call ptr @dictNext(ptr noundef %11)
   store ptr %call3, ptr %de, align 8
   %cmp = icmp ne ptr %call3, null
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %9 = load ptr, ptr %de, align 8
-  %call4 = call ptr @dictGetVal(ptr noundef %9)
+  %12 = load ptr, ptr %de, align 8
+  %call4 = call ptr @dictGetVal(ptr noundef %12)
   store ptr %call4, ptr %ri, align 8
-  %10 = load ptr, ptr %c.addr, align 8
-  %11 = load ptr, ptr %ri, align 8
-  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %name, align 8
-  call void @addReplyBulkCString(ptr noundef %10, ptr noundef %12)
+  %13 = load ptr, ptr %c.addr, align 8
+  %14 = load ptr, ptr %ri, align 8
+  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %14, i32 0, i32 1
+  %15 = load ptr, ptr %name, align 8
+  call void @addReplyBulkCString(ptr noundef %13, ptr noundef %15)
   br label %while.cond, !llvm.loop !60
 
 while.end:                                        ; preds = %while.cond
-  %13 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %13)
+  %16 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %16)
   ret void
 }
 
@@ -17122,59 +17324,60 @@ if.then32:                                        ; preds = %if.then27
   br label %do.body
 
 do.body:                                          ; preds = %if.then32
-  %45 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp33 = icmp slt i32 2, %45
+  %45 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %46 = load i32, ptr %45, align 8
+  %cmp33 = icmp slt i32 2, %46
   br i1 %cmp33, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %do.body
   br label %do.end
 
 if.end35:                                         ; preds = %do.body
-  %46 = load ptr, ptr %ri, align 8
-  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %46, i32 0, i32 1
-  %47 = load ptr, ptr %name, align 8
-  %48 = load ptr, ptr %r, align 8
-  %element36 = getelementptr inbounds %struct.redisReply, ptr %48, i32 0, i32 7
-  %49 = load ptr, ptr %element36, align 8
-  %arrayidx37 = getelementptr inbounds ptr, ptr %49, i64 1
-  %50 = load ptr, ptr %arrayidx37, align 8
-  %str38 = getelementptr inbounds %struct.redisReply, ptr %50, i32 0, i32 4
-  %51 = load ptr, ptr %str38, align 8
-  %52 = load ptr, ptr %r, align 8
-  %element39 = getelementptr inbounds %struct.redisReply, ptr %52, i32 0, i32 7
-  %53 = load ptr, ptr %element39, align 8
-  %arrayidx40 = getelementptr inbounds ptr, ptr %53, i64 2
-  %54 = load ptr, ptr %arrayidx40, align 8
-  %integer41 = getelementptr inbounds %struct.redisReply, ptr %54, i32 0, i32 1
-  %55 = load i64, ptr %integer41, align 8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef @.str.409, ptr noundef %47, ptr noundef %51, i64 noundef %55)
+  %47 = load ptr, ptr %ri, align 8
+  %name = getelementptr inbounds %struct.sentinelRedisInstance, ptr %47, i32 0, i32 1
+  %48 = load ptr, ptr %name, align 8
+  %49 = load ptr, ptr %r, align 8
+  %element36 = getelementptr inbounds %struct.redisReply, ptr %49, i32 0, i32 7
+  %50 = load ptr, ptr %element36, align 8
+  %arrayidx37 = getelementptr inbounds ptr, ptr %50, i64 1
+  %51 = load ptr, ptr %arrayidx37, align 8
+  %str38 = getelementptr inbounds %struct.redisReply, ptr %51, i32 0, i32 4
+  %52 = load ptr, ptr %str38, align 8
+  %53 = load ptr, ptr %r, align 8
+  %element39 = getelementptr inbounds %struct.redisReply, ptr %53, i32 0, i32 7
+  %54 = load ptr, ptr %element39, align 8
+  %arrayidx40 = getelementptr inbounds ptr, ptr %54, i64 2
+  %55 = load ptr, ptr %arrayidx40, align 8
+  %integer41 = getelementptr inbounds %struct.redisReply, ptr %55, i32 0, i32 1
+  %56 = load i64, ptr %integer41, align 8
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef @.str.409, ptr noundef %48, ptr noundef %52, i64 noundef %56)
   br label %do.end
 
 do.end:                                           ; preds = %if.end35, %if.then34
   br label %if.end42
 
 if.end42:                                         ; preds = %do.end, %if.then27
-  %56 = load ptr, ptr %r, align 8
-  %element43 = getelementptr inbounds %struct.redisReply, ptr %56, i32 0, i32 7
-  %57 = load ptr, ptr %element43, align 8
-  %arrayidx44 = getelementptr inbounds ptr, ptr %57, i64 1
-  %58 = load ptr, ptr %arrayidx44, align 8
-  %str45 = getelementptr inbounds %struct.redisReply, ptr %58, i32 0, i32 4
-  %59 = load ptr, ptr %str45, align 8
-  %call46 = call ptr @sdsnew(ptr noundef %59)
-  %60 = load ptr, ptr %ri, align 8
-  %leader47 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %60, i32 0, i32 34
+  %57 = load ptr, ptr %r, align 8
+  %element43 = getelementptr inbounds %struct.redisReply, ptr %57, i32 0, i32 7
+  %58 = load ptr, ptr %element43, align 8
+  %arrayidx44 = getelementptr inbounds ptr, ptr %58, i64 1
+  %59 = load ptr, ptr %arrayidx44, align 8
+  %str45 = getelementptr inbounds %struct.redisReply, ptr %59, i32 0, i32 4
+  %60 = load ptr, ptr %str45, align 8
+  %call46 = call ptr @sdsnew(ptr noundef %60)
+  %61 = load ptr, ptr %ri, align 8
+  %leader47 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %61, i32 0, i32 34
   store ptr %call46, ptr %leader47, align 8
-  %61 = load ptr, ptr %r, align 8
-  %element48 = getelementptr inbounds %struct.redisReply, ptr %61, i32 0, i32 7
-  %62 = load ptr, ptr %element48, align 8
-  %arrayidx49 = getelementptr inbounds ptr, ptr %62, i64 2
-  %63 = load ptr, ptr %arrayidx49, align 8
-  %integer50 = getelementptr inbounds %struct.redisReply, ptr %63, i32 0, i32 1
-  %64 = load i64, ptr %integer50, align 8
-  %65 = load ptr, ptr %ri, align 8
-  %leader_epoch51 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %65, i32 0, i32 35
-  store i64 %64, ptr %leader_epoch51, align 8
+  %62 = load ptr, ptr %r, align 8
+  %element48 = getelementptr inbounds %struct.redisReply, ptr %62, i32 0, i32 7
+  %63 = load ptr, ptr %element48, align 8
+  %arrayidx49 = getelementptr inbounds ptr, ptr %63, i64 2
+  %64 = load ptr, ptr %arrayidx49, align 8
+  %integer50 = getelementptr inbounds %struct.redisReply, ptr %64, i32 0, i32 1
+  %65 = load i64, ptr %integer50, align 8
+  %66 = load ptr, ptr %ri, align 8
+  %leader_epoch51 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %66, i32 0, i32 35
+  store i64 %65, ptr %leader_epoch51, align 8
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end42, %if.end22
@@ -17306,25 +17509,26 @@ if.end21:                                         ; preds = %land.lhs.true, %if.
   %31 = load ptr, ptr %addr26, align 8
   %call27 = call ptr @announceSentinelAddr(ptr noundef %31)
   %arraydecay28 = getelementptr inbounds [32 x i8], ptr %port, i64 0, i64 0
-  %32 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  %33 = load ptr, ptr %master.addr, align 8
-  %failover_state = getelementptr inbounds %struct.sentinelRedisInstance, ptr %33, i32 0, i32 37
-  %34 = load i32, ptr %failover_state, align 8
-  %cmp29 = icmp sgt i32 %34, 0
+  %32 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %master.addr, align 8
+  %failover_state = getelementptr inbounds %struct.sentinelRedisInstance, ptr %34, i32 0, i32 37
+  %35 = load i32, ptr %failover_state, align 8
+  %cmp29 = icmp sgt i32 %35, 0
   %cond = select i1 %cmp29, ptr @sentinel, ptr @.str.354
-  %call31 = call i32 (ptr, ptr, ptr, ptr, ...) @redisAsyncCommand(ptr noundef %27, ptr noundef @sentinelReceiveIsMasterDownReply, ptr noundef %28, ptr noundef @.str.410, ptr noundef %call25, ptr noundef %call27, ptr noundef %arraydecay28, i64 noundef %32, ptr noundef %cond)
+  %call31 = call i32 (ptr, ptr, ptr, ptr, ...) @redisAsyncCommand(ptr noundef %27, ptr noundef @sentinelReceiveIsMasterDownReply, ptr noundef %28, ptr noundef @.str.410, ptr noundef %call25, ptr noundef %call27, ptr noundef %arraydecay28, i64 noundef %33, ptr noundef %cond)
   store i32 %call31, ptr %retval, align 4
-  %35 = load i32, ptr %retval, align 4
-  %cmp32 = icmp eq i32 %35, 0
+  %36 = load i32, ptr %retval, align 4
+  %cmp32 = icmp eq i32 %36, 0
   br i1 %cmp32, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %if.end21
-  %36 = load ptr, ptr %ri, align 8
-  %link35 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %36, i32 0, i32 5
-  %37 = load ptr, ptr %link35, align 8
-  %pending_commands = getelementptr inbounds %struct.instanceLink, ptr %37, i32 0, i32 2
-  %38 = load i32, ptr %pending_commands, align 8
-  %inc = add nsw i32 %38, 1
+  %37 = load ptr, ptr %ri, align 8
+  %link35 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %37, i32 0, i32 5
+  %38 = load ptr, ptr %link35, align 8
+  %pending_commands = getelementptr inbounds %struct.instanceLink, ptr %38, i32 0, i32 2
+  %39 = load i32, ptr %pending_commands, align 8
+  %inc = add nsw i32 %39, 1
   store i32 %inc, ptr %pending_commands, align 8
   br label %if.end36
 
@@ -17332,8 +17536,8 @@ if.end36:                                         ; preds = %if.then34, %if.end2
   br label %while.cond, !llvm.loop !62
 
 while.end:                                        ; preds = %while.cond
-  %39 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %39)
+  %40 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %40)
   ret void
 }
 
@@ -17503,50 +17707,51 @@ land.lhs.true:                                    ; preds = %while.body
   %15 = load ptr, ptr %ri, align 8
   %leader_epoch15 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %15, i32 0, i32 35
   %16 = load i64, ptr %leader_epoch15, align 8
-  %17 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 1), align 8
-  %cmp16 = icmp eq i64 %16, %17
+  %17 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8
+  %cmp16 = icmp eq i64 %16, %18
   br i1 %cmp16, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %18 = load ptr, ptr %counters, align 8
-  %19 = load ptr, ptr %ri, align 8
-  %leader18 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %19, i32 0, i32 34
-  %20 = load ptr, ptr %leader18, align 8
-  %call19 = call i32 @sentinelLeaderIncr(ptr noundef %18, ptr noundef %20)
+  %19 = load ptr, ptr %counters, align 8
+  %20 = load ptr, ptr %ri, align 8
+  %leader18 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %20, i32 0, i32 34
+  %21 = load ptr, ptr %leader18, align 8
+  %call19 = call i32 @sentinelLeaderIncr(ptr noundef %19, ptr noundef %21)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %while.body
   br label %while.cond, !llvm.loop !63
 
 while.end:                                        ; preds = %while.cond
-  %21 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %21)
-  %22 = load ptr, ptr %counters, align 8
-  %call20 = call ptr @dictGetIterator(ptr noundef %22)
+  %22 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %22)
+  %23 = load ptr, ptr %counters, align 8
+  %call20 = call ptr @dictGetIterator(ptr noundef %23)
   store ptr %call20, ptr %di, align 8
   br label %while.cond21
 
 while.cond21:                                     ; preds = %if.end31, %while.end
-  %23 = load ptr, ptr %di, align 8
-  %call22 = call ptr @dictNext(ptr noundef %23)
+  %24 = load ptr, ptr %di, align 8
+  %call22 = call ptr @dictNext(ptr noundef %24)
   store ptr %call22, ptr %de, align 8
   %cmp23 = icmp ne ptr %call22, null
   br i1 %cmp23, label %while.body25, label %while.end32
 
 while.body25:                                     ; preds = %while.cond21
-  %24 = load ptr, ptr %de, align 8
-  %call26 = call i64 @dictGetUnsignedIntegerVal(ptr noundef %24)
+  %25 = load ptr, ptr %de, align 8
+  %call26 = call i64 @dictGetUnsignedIntegerVal(ptr noundef %25)
   store i64 %call26, ptr %votes, align 8
-  %25 = load i64, ptr %votes, align 8
-  %26 = load i64, ptr %max_votes, align 8
-  %cmp27 = icmp ugt i64 %25, %26
+  %26 = load i64, ptr %votes, align 8
+  %27 = load i64, ptr %max_votes, align 8
+  %cmp27 = icmp ugt i64 %26, %27
   br i1 %cmp27, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %while.body25
-  %27 = load i64, ptr %votes, align 8
-  store i64 %27, ptr %max_votes, align 8
-  %28 = load ptr, ptr %de, align 8
-  %call30 = call ptr @dictGetKey(ptr noundef %28)
+  %28 = load i64, ptr %votes, align 8
+  store i64 %28, ptr %max_votes, align 8
+  %29 = load ptr, ptr %de, align 8
+  %call30 = call ptr @dictGetKey(ptr noundef %29)
   store ptr %call30, ptr %winner, align 8
   br label %if.end31
 
@@ -17554,82 +17759,82 @@ if.end31:                                         ; preds = %if.then29, %while.b
   br label %while.cond21, !llvm.loop !64
 
 while.end32:                                      ; preds = %while.cond21
-  %29 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %29)
-  %30 = load ptr, ptr %winner, align 8
-  %tobool33 = icmp ne ptr %30, null
+  %30 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %30)
+  %31 = load ptr, ptr %winner, align 8
+  %tobool33 = icmp ne ptr %31, null
   br i1 %tobool33, label %if.then34, label %if.else
 
 if.then34:                                        ; preds = %while.end32
-  %31 = load ptr, ptr %master.addr, align 8
-  %32 = load i64, ptr %epoch.addr, align 8
-  %33 = load ptr, ptr %winner, align 8
-  %call35 = call ptr @sentinelVoteLeader(ptr noundef %31, i64 noundef %32, ptr noundef %33, ptr noundef %leader_epoch)
+  %32 = load ptr, ptr %master.addr, align 8
+  %33 = load i64, ptr %epoch.addr, align 8
+  %34 = load ptr, ptr %winner, align 8
+  %call35 = call ptr @sentinelVoteLeader(ptr noundef %32, i64 noundef %33, ptr noundef %34, ptr noundef %leader_epoch)
   store ptr %call35, ptr %myvote, align 8
   br label %if.end37
 
 if.else:                                          ; preds = %while.end32
-  %34 = load ptr, ptr %master.addr, align 8
-  %35 = load i64, ptr %epoch.addr, align 8
-  %call36 = call ptr @sentinelVoteLeader(ptr noundef %34, i64 noundef %35, ptr noundef @sentinel, ptr noundef %leader_epoch)
+  %35 = load ptr, ptr %master.addr, align 8
+  %36 = load i64, ptr %epoch.addr, align 8
+  %call36 = call ptr @sentinelVoteLeader(ptr noundef %35, i64 noundef %36, ptr noundef @sentinel, ptr noundef %leader_epoch)
   store ptr %call36, ptr %myvote, align 8
   br label %if.end37
 
 if.end37:                                         ; preds = %if.else, %if.then34
-  %36 = load ptr, ptr %myvote, align 8
-  %tobool38 = icmp ne ptr %36, null
+  %37 = load ptr, ptr %myvote, align 8
+  %tobool38 = icmp ne ptr %37, null
   br i1 %tobool38, label %land.lhs.true39, label %if.end50
 
 land.lhs.true39:                                  ; preds = %if.end37
-  %37 = load i64, ptr %leader_epoch, align 8
-  %38 = load i64, ptr %epoch.addr, align 8
-  %cmp40 = icmp eq i64 %37, %38
+  %38 = load i64, ptr %leader_epoch, align 8
+  %39 = load i64, ptr %epoch.addr, align 8
+  %cmp40 = icmp eq i64 %38, %39
   br i1 %cmp40, label %if.then42, label %if.end50
 
 if.then42:                                        ; preds = %land.lhs.true39
-  %39 = load ptr, ptr %counters, align 8
-  %40 = load ptr, ptr %myvote, align 8
-  %call44 = call i32 @sentinelLeaderIncr(ptr noundef %39, ptr noundef %40)
+  %40 = load ptr, ptr %counters, align 8
+  %41 = load ptr, ptr %myvote, align 8
+  %call44 = call i32 @sentinelLeaderIncr(ptr noundef %40, ptr noundef %41)
   %conv45 = sext i32 %call44 to i64
   store i64 %conv45, ptr %votes43, align 8
-  %41 = load i64, ptr %votes43, align 8
-  %42 = load i64, ptr %max_votes, align 8
-  %cmp46 = icmp ugt i64 %41, %42
+  %42 = load i64, ptr %votes43, align 8
+  %43 = load i64, ptr %max_votes, align 8
+  %cmp46 = icmp ugt i64 %42, %43
   br i1 %cmp46, label %if.then48, label %if.end49
 
 if.then48:                                        ; preds = %if.then42
-  %43 = load i64, ptr %votes43, align 8
-  store i64 %43, ptr %max_votes, align 8
-  %44 = load ptr, ptr %myvote, align 8
-  store ptr %44, ptr %winner, align 8
+  %44 = load i64, ptr %votes43, align 8
+  store i64 %44, ptr %max_votes, align 8
+  %45 = load ptr, ptr %myvote, align 8
+  store ptr %45, ptr %winner, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then48, %if.then42
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end49, %land.lhs.true39, %if.end37
-  %45 = load i32, ptr %voters, align 4
-  %div = udiv i32 %45, 2
+  %46 = load i32, ptr %voters, align 4
+  %div = udiv i32 %46, 2
   %add51 = add i32 %div, 1
   store i32 %add51, ptr %voters_quorum, align 4
-  %46 = load ptr, ptr %winner, align 8
-  %tobool52 = icmp ne ptr %46, null
+  %47 = load ptr, ptr %winner, align 8
+  %tobool52 = icmp ne ptr %47, null
   br i1 %tobool52, label %land.lhs.true53, label %if.end61
 
 land.lhs.true53:                                  ; preds = %if.end50
-  %47 = load i64, ptr %max_votes, align 8
-  %48 = load i32, ptr %voters_quorum, align 4
-  %conv54 = zext i32 %48 to i64
-  %cmp55 = icmp ult i64 %47, %conv54
+  %48 = load i64, ptr %max_votes, align 8
+  %49 = load i32, ptr %voters_quorum, align 4
+  %conv54 = zext i32 %49 to i64
+  %cmp55 = icmp ult i64 %48, %conv54
   br i1 %cmp55, label %if.then60, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true53
-  %49 = load i64, ptr %max_votes, align 8
-  %50 = load ptr, ptr %master.addr, align 8
-  %quorum = getelementptr inbounds %struct.sentinelRedisInstance, ptr %50, i32 0, i32 21
-  %51 = load i32, ptr %quorum, align 8
-  %conv57 = zext i32 %51 to i64
-  %cmp58 = icmp ult i64 %49, %conv57
+  %50 = load i64, ptr %max_votes, align 8
+  %51 = load ptr, ptr %master.addr, align 8
+  %quorum = getelementptr inbounds %struct.sentinelRedisInstance, ptr %51, i32 0, i32 21
+  %52 = load i32, ptr %quorum, align 8
+  %conv57 = zext i32 %52 to i64
+  %cmp58 = icmp ult i64 %50, %conv57
   br i1 %cmp58, label %if.then60, label %if.end61
 
 if.then60:                                        ; preds = %lor.lhs.false, %land.lhs.true53
@@ -17637,13 +17842,13 @@ if.then60:                                        ; preds = %lor.lhs.false, %lan
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then60, %lor.lhs.false, %if.end50
-  %52 = load ptr, ptr %winner, align 8
-  %tobool62 = icmp ne ptr %52, null
+  %53 = load ptr, ptr %winner, align 8
+  %tobool62 = icmp ne ptr %53, null
   br i1 %tobool62, label %cond.true63, label %cond.false65
 
 cond.true63:                                      ; preds = %if.end61
-  %53 = load ptr, ptr %winner, align 8
-  %call64 = call ptr @sdsnew(ptr noundef %53)
+  %54 = load ptr, ptr %winner, align 8
+  %call64 = call ptr @sdsnew(ptr noundef %54)
   br label %cond.end66
 
 cond.false65:                                     ; preds = %if.end61
@@ -17652,12 +17857,12 @@ cond.false65:                                     ; preds = %if.end61
 cond.end66:                                       ; preds = %cond.false65, %cond.true63
   %cond = phi ptr [ %call64, %cond.true63 ], [ null, %cond.false65 ]
   store ptr %cond, ptr %winner, align 8
-  %54 = load ptr, ptr %myvote, align 8
-  call void @sdsfree(ptr noundef %54)
-  %55 = load ptr, ptr %counters, align 8
-  call void @dictRelease(ptr noundef %55)
-  %56 = load ptr, ptr %winner, align 8
-  ret ptr %56
+  %55 = load ptr, ptr %myvote, align 8
+  call void @sdsfree(ptr noundef %55)
+  %56 = load ptr, ptr %counters, align 8
+  call void @dictRelease(ptr noundef %56)
+  %57 = load ptr, ptr %winner, align 8
+  ret ptr %57
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17738,8 +17943,9 @@ if.then9:                                         ; preds = %if.then6
   br label %do.body
 
 do.body:                                          ; preds = %if.then9
-  %19 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp16 = icmp slt i32 2, %19
+  %19 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %20 = load i32, ptr %19, align 8
+  %cmp16 = icmp slt i32 2, %20
   br i1 %cmp16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %do.body
@@ -17758,14 +17964,14 @@ if.end20:                                         ; preds = %do.end, %if.then6
   br label %return
 
 if.end21:                                         ; preds = %if.end5
-  %20 = load ptr, ptr %master.addr, align 8
-  call void @sentinelStartFailover(ptr noundef %20)
+  %21 = load ptr, ptr %master.addr, align 8
+  call void @sentinelStartFailover(ptr noundef %21)
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end21, %if.end20, %if.then4, %if.then
-  %21 = load i32, ptr %retval, align 4
-  ret i32 %21
+  %22 = load i32, ptr %retval, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind
@@ -17990,8 +18196,9 @@ if.end10:                                         ; preds = %if.then9, %if.end
 if.end11:                                         ; preds = %land.lhs.true, %land.end
   %21 = load ptr, ptr %ri.addr, align 8
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.430, ptr noundef %21, ptr noundef @.str.54)
-  %22 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 10), align 8
-  %and12 = and i64 %22, 1
+  %22 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 10
+  %23 = load i64, ptr %22, align 8
+  %and12 = and i64 %23, 1
   %tobool13 = icmp ne i64 %and12, 0
   br i1 %tobool13, label %if.then14, label %if.end15
 
@@ -18000,15 +18207,15 @@ if.then14:                                        ; preds = %if.end11
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %if.end11
-  %23 = load ptr, ptr %ri.addr, align 8
-  %failover_state = getelementptr inbounds %struct.sentinelRedisInstance, ptr %23, i32 0, i32 37
+  %24 = load ptr, ptr %ri.addr, align 8
+  %failover_state = getelementptr inbounds %struct.sentinelRedisInstance, ptr %24, i32 0, i32 37
   store i32 2, ptr %failover_state, align 8
   %call16 = call i64 @mstime()
-  %24 = load ptr, ptr %ri.addr, align 8
-  %failover_state_change_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %24, i32 0, i32 38
-  store i64 %call16, ptr %failover_state_change_time, align 8
   %25 = load ptr, ptr %ri.addr, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.431, ptr noundef %25, ptr noundef @.str.54)
+  %failover_state_change_time = getelementptr inbounds %struct.sentinelRedisInstance, ptr %25, i32 0, i32 38
+  store i64 %call16, ptr %failover_state_change_time, align 8
+  %26 = load ptr, ptr %ri.addr, align 8
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.431, ptr noundef %26, ptr noundef @.str.54)
   br label %return
 
 return:                                           ; preds = %if.end15, %if.end10
@@ -18786,33 +18993,36 @@ entry:
   call void @sentinelReconnectInstance(ptr noundef %0)
   %1 = load ptr, ptr %ri.addr, align 8
   call void @sentinelSendPeriodicCommands(ptr noundef %1)
-  %2 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 3), align 8
-  %tobool = icmp ne i32 %2, 0
+  %2 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 3
+  %3 = load i32, ptr %2, align 8
+  %tobool = icmp ne i32 %3, 0
   br i1 %tobool, label %if.then, label %if.end2
 
 if.then:                                          ; preds = %entry
   %call = call i64 @mstime()
-  %3 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 5), align 8
-  %sub = sub nsw i64 %call, %3
-  %4 = load i64, ptr @sentinel_tilt_period, align 8
-  %cmp = icmp slt i64 %sub, %4
+  %4 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 5
+  %5 = load i64, ptr %4, align 8
+  %sub = sub nsw i64 %call, %5
+  %6 = load i64, ptr @sentinel_tilt_period, align 8
+  %cmp = icmp slt i64 %sub, %6
   br i1 %cmp, label %if.then1, label %if.end
 
 if.then1:                                         ; preds = %if.then
   br label %if.end14
 
 if.end:                                           ; preds = %if.then
-  store i32 0, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 3), align 8
+  %7 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 3
+  store i32 0, ptr %7, align 8
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.444, ptr noundef null, ptr noundef @.str.445)
   br label %if.end2
 
 if.end2:                                          ; preds = %if.end, %entry
-  %5 = load ptr, ptr %ri.addr, align 8
-  call void @sentinelCheckSubjectivelyDown(ptr noundef %5)
-  %6 = load ptr, ptr %ri.addr, align 8
-  %flags = getelementptr inbounds %struct.sentinelRedisInstance, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %flags, align 8
-  %and = and i32 %7, 3
+  %8 = load ptr, ptr %ri.addr, align 8
+  call void @sentinelCheckSubjectivelyDown(ptr noundef %8)
+  %9 = load ptr, ptr %ri.addr, align 8
+  %flags = getelementptr inbounds %struct.sentinelRedisInstance, ptr %9, i32 0, i32 0
+  %10 = load i32, ptr %flags, align 8
+  %and = and i32 %10, 3
   %tobool3 = icmp ne i32 %and, 0
   br i1 %tobool3, label %if.then4, label %if.end5
 
@@ -18820,31 +19030,31 @@ if.then4:                                         ; preds = %if.end2
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %if.end2
-  %8 = load ptr, ptr %ri.addr, align 8
-  %flags6 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %8, i32 0, i32 0
-  %9 = load i32, ptr %flags6, align 8
-  %and7 = and i32 %9, 1
+  %11 = load ptr, ptr %ri.addr, align 8
+  %flags6 = getelementptr inbounds %struct.sentinelRedisInstance, ptr %11, i32 0, i32 0
+  %12 = load i32, ptr %flags6, align 8
+  %and7 = and i32 %12, 1
   %tobool8 = icmp ne i32 %and7, 0
   br i1 %tobool8, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %if.end5
-  %10 = load ptr, ptr %ri.addr, align 8
-  call void @sentinelCheckObjectivelyDown(ptr noundef %10)
-  %11 = load ptr, ptr %ri.addr, align 8
-  %call10 = call i32 @sentinelStartFailoverIfNeeded(ptr noundef %11)
+  %13 = load ptr, ptr %ri.addr, align 8
+  call void @sentinelCheckObjectivelyDown(ptr noundef %13)
+  %14 = load ptr, ptr %ri.addr, align 8
+  %call10 = call i32 @sentinelStartFailoverIfNeeded(ptr noundef %14)
   %tobool11 = icmp ne i32 %call10, 0
   br i1 %tobool11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.then9
-  %12 = load ptr, ptr %ri.addr, align 8
-  call void @sentinelAskMasterStateToOtherSentinels(ptr noundef %12, i32 noundef 1)
+  %15 = load ptr, ptr %ri.addr, align 8
+  call void @sentinelAskMasterStateToOtherSentinels(ptr noundef %15, i32 noundef 1)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.then9
-  %13 = load ptr, ptr %ri.addr, align 8
-  call void @sentinelFailoverStateMachine(ptr noundef %13)
-  %14 = load ptr, ptr %ri.addr, align 8
-  call void @sentinelAskMasterStateToOtherSentinels(ptr noundef %14, i32 noundef 0)
+  %16 = load ptr, ptr %ri.addr, align 8
+  call void @sentinelFailoverStateMachine(ptr noundef %16)
+  %17 = load ptr, ptr %ri.addr, align 8
+  call void @sentinelAskMasterStateToOtherSentinels(ptr noundef %17, i32 noundef 0)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end13, %if.end5, %if.then1
@@ -18936,29 +19146,33 @@ entry:
   %call = call i64 @mstime()
   store i64 %call, ptr %now, align 8
   %0 = load i64, ptr %now, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 6), align 8
-  %sub = sub nsw i64 %0, %1
+  %1 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 6
+  %2 = load i64, ptr %1, align 8
+  %sub = sub nsw i64 %0, %2
   store i64 %sub, ptr %delta, align 8
-  %2 = load i64, ptr %delta, align 8
-  %cmp = icmp slt i64 %2, 0
+  %3 = load i64, ptr %delta, align 8
+  %cmp = icmp slt i64 %3, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %3 = load i64, ptr %delta, align 8
-  %4 = load i64, ptr @sentinel_tilt_trigger, align 8
-  %cmp1 = icmp sgt i64 %3, %4
+  %4 = load i64, ptr %delta, align 8
+  %5 = load i64, ptr @sentinel_tilt_trigger, align 8
+  %cmp1 = icmp sgt i64 %4, %5
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 1, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 3), align 8
+  %6 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 3
+  store i32 1, ptr %6, align 8
   %call2 = call i64 @mstime()
-  store i64 %call2, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 5), align 8
+  %7 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 5
+  store i64 %call2, ptr %7, align 8
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef @.str.446, ptr noundef null, ptr noundef @.str.447)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
   %call3 = call i64 @mstime()
-  store i64 %call3, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 6), align 8
+  %8 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 6
+  store i64 %call3, ptr %8, align 8
   ret void
 }
 
@@ -18966,15 +19180,17 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 define dso_local void @sentinelTimer() #0 {
 entry:
   call void @sentinelCheckTiltCondition()
-  %0 = load ptr, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i32 0, i32 2), align 8
-  call void @sentinelHandleDictOfRedisInstances(ptr noundef %0)
+  %0 = getelementptr inbounds %struct.sentinelState, ptr @sentinel, i32 0, i32 2
+  %1 = load ptr, ptr %0, align 8
+  call void @sentinelHandleDictOfRedisInstances(ptr noundef %1)
   call void @sentinelRunPendingScripts()
   call void @sentinelCollectTerminatedScripts()
   call void @sentinelKillTimedoutScripts()
   %call = call i32 @rand() #12
   %rem = srem i32 %call, 10
   %add = add nsw i32 10, %rem
-  store i32 %add, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 8), align 4
+  %2 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 8
+  store i32 %add, ptr %2, align 4
   ret void
 }
 

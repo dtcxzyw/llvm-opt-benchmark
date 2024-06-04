@@ -2254,7 +2254,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef ptr @_ZN3re2L7ref_mapEv() #0 {
 entry:
-  ret ptr getelementptr inbounds (%"struct.re2::RefStorage", ptr @_ZN3re2L11ref_storageE, i32 0, i32 1)
+  %0 = getelementptr inbounds %"struct.re2::RefStorage", ptr @_ZN3re2L11ref_storageE, i32 0, i32 1
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5200,7 +5201,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3re26Regexp6WalkerIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re217NumCapturesWalkerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3re217NumCapturesWalkerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ncapture_ = getelementptr inbounds %"class.re2::NumCapturesWalker", ptr %this1, i32 0, i32 1
   store i32 0, ptr %ncapture_, align 8
   ret void
@@ -5291,7 +5293,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3re26Regexp6WalkerIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re219NamedCapturesWalkerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3re219NamedCapturesWalkerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %map_ = getelementptr inbounds %"class.re2::NamedCapturesWalker", ptr %this1, i32 0, i32 1
   store ptr null, ptr %map_, align 8
   ret void
@@ -5319,15 +5322,16 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re219NamedCapturesWalkerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3re219NamedCapturesWalkerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %map_ = getelementptr inbounds %"class.re2::NamedCapturesWalker", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %map_, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %map_, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
-  call void @_ZdlPv(ptr noundef %0) #17
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
+  call void @_ZdlPv(ptr noundef %1) #17
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -5381,7 +5385,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3re26Regexp6WalkerIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re218CaptureNamesWalkerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3re218CaptureNamesWalkerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %map_ = getelementptr inbounds %"class.re2::CaptureNamesWalker", ptr %this1, i32 0, i32 1
   store ptr null, ptr %map_, align 8
   ret void
@@ -5409,15 +5414,16 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re218CaptureNamesWalkerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3re218CaptureNamesWalkerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %map_ = getelementptr inbounds %"class.re2::CaptureNamesWalker", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %map_, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %map_, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
-  call void @_ZdlPv(ptr noundef %0) #17
+  call void @_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
+  call void @_ZdlPv(ptr noundef %1) #17
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -8669,7 +8675,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stack_ = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this1, i32 0, i32 1
   call void @_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %stack_)
   %stopped_early_ = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this1, i32 0, i32 2
@@ -8805,7 +8812,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -8815,10 +8823,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #18
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #18
   unreachable
 }
 
@@ -14472,7 +14480,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::debian2::hash_internal::HashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 

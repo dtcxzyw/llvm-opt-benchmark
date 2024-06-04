@@ -750,22 +750,23 @@ for.cond:                                         ; preds = %for.inc, %if.end38
 for.body:                                         ; preds = %for.cond
   %28 = load i32, ptr %idx, align 4
   %idxprom = sext i32 %28 to i64
-  %arrayidx40 = getelementptr [0 x i32], ptr getelementptr inbounds (%struct.MigrateCapsSet, ptr @check_caps_background_snapshot, i32 0, i32 1), i64 0, i64 %idxprom
-  %29 = load i32, ptr %arrayidx40, align 4
-  store i32 %29, ptr %incomp_cap, align 4
-  %30 = load ptr, ptr %new_caps.addr, align 8
-  %31 = load i32, ptr %incomp_cap, align 4
-  %idxprom41 = sext i32 %31 to i64
-  %arrayidx42 = getelementptr i8, ptr %30, i64 %idxprom41
-  %32 = load i8, ptr %arrayidx42, align 1
-  %tobool43 = trunc i8 %32 to i1
+  %29 = getelementptr inbounds %struct.MigrateCapsSet, ptr @check_caps_background_snapshot, i32 0, i32 1
+  %arrayidx40 = getelementptr [0 x i32], ptr %29, i64 0, i64 %idxprom
+  %30 = load i32, ptr %arrayidx40, align 4
+  store i32 %30, ptr %incomp_cap, align 4
+  %31 = load ptr, ptr %new_caps.addr, align 8
+  %32 = load i32, ptr %incomp_cap, align 4
+  %idxprom41 = sext i32 %32 to i64
+  %arrayidx42 = getelementptr i8, ptr %31, i64 %idxprom41
+  %33 = load i8, ptr %arrayidx42, align 1
+  %tobool43 = trunc i8 %33 to i1
   br i1 %tobool43, label %if.then44, label %if.end46
 
 if.then44:                                        ; preds = %for.body
-  %33 = load ptr, ptr %errp.addr, align 8
-  %34 = load i32, ptr %incomp_cap, align 4
-  %call45 = call ptr @qapi_enum_lookup(ptr noundef @MigrationCapability_lookup, i32 noundef %34)
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %33, ptr noundef @.str.56, i32 noundef 553, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.61, ptr noundef %call45)
+  %34 = load ptr, ptr %errp.addr, align 8
+  %35 = load i32, ptr %incomp_cap, align 4
+  %call45 = call ptr @qapi_enum_lookup(ptr noundef @MigrationCapability_lookup, i32 noundef %35)
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %34, ptr noundef @.str.56, i32 noundef 553, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.61, ptr noundef %call45)
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
@@ -774,8 +775,8 @@ if.end46:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end46
-  %35 = load i32, ptr %idx, align 4
-  %inc = add i32 %35, 1
+  %36 = load i32, ptr %idx, align 4
+  %inc = add i32 %36, 1
   store i32 %inc, ptr %idx, align 4
   br label %for.cond, !llvm.loop !5
 
@@ -783,31 +784,31 @@ for.end:                                          ; preds = %for.cond
   br label %if.end47
 
 if.end47:                                         ; preds = %for.end, %if.end28
-  %36 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx48 = getelementptr i8, ptr %36, i64 19
-  %37 = load i8, ptr %arrayidx48, align 1
-  %tobool49 = trunc i8 %37 to i1
+  %37 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx48 = getelementptr i8, ptr %37, i64 19
+  %38 = load i8, ptr %arrayidx48, align 1
+  %tobool49 = trunc i8 %38 to i1
   br i1 %tobool49, label %land.lhs.true50, label %if.end65
 
 land.lhs.true50:                                  ; preds = %if.end47
-  %38 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx51 = getelementptr i8, ptr %38, i64 12
-  %39 = load i8, ptr %arrayidx51, align 1
-  %tobool52 = trunc i8 %39 to i1
+  %39 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx51 = getelementptr i8, ptr %39, i64 12
+  %40 = load i8, ptr %arrayidx51, align 1
+  %tobool52 = trunc i8 %40 to i1
   br i1 %tobool52, label %lor.lhs.false53, label %if.then64
 
 lor.lhs.false53:                                  ; preds = %land.lhs.true50
-  %40 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx54 = getelementptr i8, ptr %40, i64 4
-  %41 = load i8, ptr %arrayidx54, align 1
-  %tobool55 = trunc i8 %41 to i1
+  %41 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx54 = getelementptr i8, ptr %41, i64 4
+  %42 = load i8, ptr %arrayidx54, align 1
+  %tobool55 = trunc i8 %42 to i1
   br i1 %tobool55, label %if.then64, label %lor.lhs.false56
 
 lor.lhs.false56:                                  ; preds = %lor.lhs.false53
-  %42 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx57 = getelementptr i8, ptr %42, i64 0
-  %43 = load i8, ptr %arrayidx57, align 1
-  %tobool58 = trunc i8 %43 to i1
+  %43 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx57 = getelementptr i8, ptr %43, i64 0
+  %44 = load i8, ptr %arrayidx57, align 1
+  %tobool58 = trunc i8 %44 to i1
   br i1 %tobool58, label %if.then64, label %lor.lhs.false59
 
 lor.lhs.false59:                                  ; preds = %lor.lhs.false56
@@ -820,43 +821,43 @@ lor.lhs.false62:                                  ; preds = %lor.lhs.false59
   br i1 %call63, label %if.then64, label %if.end65
 
 if.then64:                                        ; preds = %lor.lhs.false62, %lor.lhs.false59, %lor.lhs.false56, %lor.lhs.false53, %land.lhs.true50
-  %44 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %44, ptr noundef @.str.56, i32 noundef 567, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.62)
+  %45 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %45, ptr noundef @.str.56, i32 noundef 567, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.62)
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
 if.end65:                                         ; preds = %lor.lhs.false62, %if.end47
-  %45 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx66 = getelementptr i8, ptr %45, i64 20
-  %46 = load i8, ptr %arrayidx66, align 1
-  %tobool67 = trunc i8 %46 to i1
+  %46 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx66 = getelementptr i8, ptr %46, i64 20
+  %47 = load i8, ptr %arrayidx66, align 1
+  %tobool67 = trunc i8 %47 to i1
   br i1 %tobool67, label %if.then68, label %if.end80
 
 if.then68:                                        ; preds = %if.end65
-  %47 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx69 = getelementptr i8, ptr %47, i64 6
-  %48 = load i8, ptr %arrayidx69, align 1
-  %tobool70 = trunc i8 %48 to i1
+  %48 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx69 = getelementptr i8, ptr %48, i64 6
+  %49 = load i8, ptr %arrayidx69, align 1
+  %tobool70 = trunc i8 %49 to i1
   br i1 %tobool70, label %if.end72, label %if.then71
 
 if.then71:                                        ; preds = %if.then68
-  %49 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %49, ptr noundef @.str.56, i32 noundef 580, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.63)
+  %50 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %50, ptr noundef @.str.56, i32 noundef 580, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.63)
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
 if.end72:                                         ; preds = %if.then68
-  %50 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx73 = getelementptr i8, ptr %50, i64 4
-  %51 = load i8, ptr %arrayidx73, align 1
-  %tobool74 = trunc i8 %51 to i1
+  %51 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx73 = getelementptr i8, ptr %51, i64 4
+  %52 = load i8, ptr %arrayidx73, align 1
+  %tobool74 = trunc i8 %52 to i1
   br i1 %tobool74, label %if.then75, label %if.end76
 
 if.then75:                                        ; preds = %if.end72
-  %52 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %52, ptr noundef @.str.56, i32 noundef 591, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.64)
+  %53 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %53, ptr noundef @.str.56, i32 noundef 591, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.64)
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
@@ -866,8 +867,8 @@ if.end76:                                         ; preds = %if.end72
   br i1 %call77, label %if.then78, label %if.end79
 
 if.then78:                                        ; preds = %if.end76
-  %53 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %53, ptr noundef @.str.56, i32 noundef 597, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.65)
+  %54 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %54, ptr noundef @.str.56, i32 noundef 597, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.65)
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
@@ -876,22 +877,22 @@ if.end79:                                         ; preds = %if.end76
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end79, %if.end65
-  %54 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx81 = getelementptr i8, ptr %54, i64 12
-  %55 = load i8, ptr %arrayidx81, align 1
-  %tobool82 = trunc i8 %55 to i1
+  %55 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx81 = getelementptr i8, ptr %55, i64 12
+  %56 = load i8, ptr %arrayidx81, align 1
+  %tobool82 = trunc i8 %56 to i1
   br i1 %tobool82, label %if.then83, label %if.end91
 
 if.then83:                                        ; preds = %if.end80
-  %56 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx84 = getelementptr i8, ptr %56, i64 4
-  %57 = load i8, ptr %arrayidx84, align 1
-  %tobool85 = trunc i8 %57 to i1
+  %57 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx84 = getelementptr i8, ptr %57, i64 4
+  %58 = load i8, ptr %arrayidx84, align 1
+  %tobool85 = trunc i8 %58 to i1
   br i1 %tobool85, label %if.then86, label %if.end87
 
 if.then86:                                        ; preds = %if.then83
-  %58 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %58, ptr noundef @.str.56, i32 noundef 604, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.66)
+  %59 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %59, ptr noundef @.str.56, i32 noundef 604, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.66)
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
@@ -901,8 +902,8 @@ if.end87:                                         ; preds = %if.then83
   br i1 %call88, label %if.then89, label %if.end90
 
 if.then89:                                        ; preds = %if.end87
-  %59 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %59, ptr noundef @.str.56, i32 noundef 608, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.67)
+  %60 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %60, ptr noundef @.str.56, i32 noundef 608, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.67)
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
@@ -911,22 +912,22 @@ if.end90:                                         ; preds = %if.end87
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end90, %if.end80
-  %60 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx92 = getelementptr i8, ptr %60, i64 21
-  %61 = load i8, ptr %arrayidx92, align 1
-  %tobool93 = trunc i8 %61 to i1
+  %61 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx92 = getelementptr i8, ptr %61, i64 21
+  %62 = load i8, ptr %arrayidx92, align 1
+  %tobool93 = trunc i8 %62 to i1
   br i1 %tobool93, label %if.then94, label %if.end99
 
 if.then94:                                        ; preds = %if.end91
-  %62 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx95 = getelementptr i8, ptr %62, i64 10
-  %63 = load i8, ptr %arrayidx95, align 1
-  %tobool96 = trunc i8 %63 to i1
+  %63 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx95 = getelementptr i8, ptr %63, i64 10
+  %64 = load i8, ptr %arrayidx95, align 1
+  %tobool96 = trunc i8 %64 to i1
   br i1 %tobool96, label %if.end98, label %if.then97
 
 if.then97:                                        ; preds = %if.then94
-  %64 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %64, ptr noundef @.str.56, i32 noundef 616, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.68)
+  %65 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %65, ptr noundef @.str.56, i32 noundef 616, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.68)
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
@@ -935,29 +936,29 @@ if.end98:                                         ; preds = %if.then94
   br label %if.end99
 
 if.end99:                                         ; preds = %if.end98, %if.end91
-  %65 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx100 = getelementptr i8, ptr %65, i64 22
-  %66 = load i8, ptr %arrayidx100, align 1
-  %tobool101 = trunc i8 %66 to i1
+  %66 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx100 = getelementptr i8, ptr %66, i64 22
+  %67 = load i8, ptr %arrayidx100, align 1
+  %tobool101 = trunc i8 %67 to i1
   br i1 %tobool101, label %if.then102, label %if.end112
 
 if.then102:                                       ; preds = %if.end99
-  %67 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx103 = getelementptr i8, ptr %67, i64 2
-  %68 = load i8, ptr %arrayidx103, align 1
-  %tobool104 = trunc i8 %68 to i1
+  %68 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx103 = getelementptr i8, ptr %68, i64 2
+  %69 = load i8, ptr %arrayidx103, align 1
+  %tobool104 = trunc i8 %69 to i1
   br i1 %tobool104, label %if.then105, label %if.end106
 
 if.then105:                                       ; preds = %if.then102
-  %69 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %69, ptr noundef @.str.56, i32 noundef 623, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.69)
+  %70 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %70, ptr noundef @.str.56, i32 noundef 623, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.69)
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
 if.end106:                                        ; preds = %if.then102
-  %70 = load i8, ptr @kvm_allowed, align 1
-  %tobool107 = trunc i8 %70 to i1
+  %71 = load i8, ptr @kvm_allowed, align 1
+  %tobool107 = trunc i8 %71 to i1
   br i1 %tobool107, label %lor.lhs.false108, label %if.then110
 
 lor.lhs.false108:                                 ; preds = %if.end106
@@ -965,8 +966,8 @@ lor.lhs.false108:                                 ; preds = %if.end106
   br i1 %call109, label %if.end111, label %if.then110
 
 if.then110:                                       ; preds = %lor.lhs.false108, %if.end106
-  %71 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %71, ptr noundef @.str.56, i32 noundef 629, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.70)
+  %72 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %72, ptr noundef @.str.56, i32 noundef 629, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.70)
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
@@ -975,22 +976,22 @@ if.end111:                                        ; preds = %lor.lhs.false108
   br label %if.end112
 
 if.end112:                                        ; preds = %if.end111, %if.end99
-  %72 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx113 = getelementptr i8, ptr %72, i64 12
-  %73 = load i8, ptr %arrayidx113, align 1
-  %tobool114 = trunc i8 %73 to i1
+  %73 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx113 = getelementptr i8, ptr %73, i64 12
+  %74 = load i8, ptr %arrayidx113, align 1
+  %tobool114 = trunc i8 %74 to i1
   br i1 %tobool114, label %if.then115, label %if.end120
 
 if.then115:                                       ; preds = %if.end112
-  %74 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx116 = getelementptr i8, ptr %74, i64 0
-  %75 = load i8, ptr %arrayidx116, align 1
-  %tobool117 = trunc i8 %75 to i1
+  %75 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx116 = getelementptr i8, ptr %75, i64 0
+  %76 = load i8, ptr %arrayidx116, align 1
+  %tobool117 = trunc i8 %76 to i1
   br i1 %tobool117, label %if.then118, label %if.end119
 
 if.then118:                                       ; preds = %if.then115
-  %76 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %76, ptr noundef @.str.56, i32 noundef 636, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.71)
+  %77 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %77, ptr noundef @.str.56, i32 noundef 636, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.71)
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
@@ -999,22 +1000,22 @@ if.end119:                                        ; preds = %if.then115
   br label %if.end120
 
 if.end120:                                        ; preds = %if.end119, %if.end112
-  %77 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx121 = getelementptr i8, ptr %77, i64 4
-  %78 = load i8, ptr %arrayidx121, align 1
-  %tobool122 = trunc i8 %78 to i1
+  %78 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx121 = getelementptr i8, ptr %78, i64 4
+  %79 = load i8, ptr %arrayidx121, align 1
+  %tobool122 = trunc i8 %79 to i1
   br i1 %tobool122, label %if.then123, label %if.end128
 
 if.then123:                                       ; preds = %if.end120
-  %79 = load ptr, ptr %new_caps.addr, align 8
-  %arrayidx124 = getelementptr i8, ptr %79, i64 0
-  %80 = load i8, ptr %arrayidx124, align 1
-  %tobool125 = trunc i8 %80 to i1
+  %80 = load ptr, ptr %new_caps.addr, align 8
+  %arrayidx124 = getelementptr i8, ptr %80, i64 0
+  %81 = load i8, ptr %arrayidx124, align 1
+  %tobool125 = trunc i8 %81 to i1
   br i1 %tobool125, label %if.then126, label %if.end127
 
 if.then126:                                       ; preds = %if.then123
-  %81 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %81, ptr noundef @.str.56, i32 noundef 643, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.72)
+  %82 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %82, ptr noundef @.str.56, i32 noundef 643, ptr noundef @__func__.migrate_caps_check, ptr noundef @.str.72)
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
@@ -1029,8 +1030,8 @@ if.end128:                                        ; preds = %if.end127, %if.end1
 
 cleanup:                                          ; preds = %if.end128, %if.then126, %if.then118, %if.then110, %if.then105, %if.then97, %if.then89, %if.then86, %if.then78, %if.then75, %if.then71, %if.then64, %if.then44, %if.then37, %if.then34, %if.then26, %if.then22, %if.then18
   call void @glib_auto_cleanup_ErrorPropagator(ptr noundef %_auto_errp_prop)
-  %82 = load i1, ptr %retval, align 1
-  ret i1 %82
+  %83 = load i1, ptr %retval, align 1
+  ret i1 %83
 }
 
 declare ptr @migration_incoming_get_current() #1
@@ -1795,17 +1796,20 @@ entry:
   %parameters1 = getelementptr inbounds %struct.MigrationState, ptr %2, i32 0, i32 15
   %announce_max = getelementptr inbounds %struct.MigrationParameters, ptr %parameters1, i32 0, i32 3
   %3 = load i64, ptr %announce_max, align 8
-  store i64 %3, ptr getelementptr inbounds (%struct.AnnounceParameters, ptr @migrate_announce_params.ap, i32 0, i32 1), align 8
-  %4 = load ptr, ptr %s, align 8
-  %parameters2 = getelementptr inbounds %struct.MigrationState, ptr %4, i32 0, i32 15
+  %4 = getelementptr inbounds %struct.AnnounceParameters, ptr @migrate_announce_params.ap, i32 0, i32 1
+  store i64 %3, ptr %4, align 8
+  %5 = load ptr, ptr %s, align 8
+  %parameters2 = getelementptr inbounds %struct.MigrationState, ptr %5, i32 0, i32 15
   %announce_rounds = getelementptr inbounds %struct.MigrationParameters, ptr %parameters2, i32 0, i32 5
-  %5 = load i64, ptr %announce_rounds, align 8
-  store i64 %5, ptr getelementptr inbounds (%struct.AnnounceParameters, ptr @migrate_announce_params.ap, i32 0, i32 2), align 8
-  %6 = load ptr, ptr %s, align 8
-  %parameters3 = getelementptr inbounds %struct.MigrationState, ptr %6, i32 0, i32 15
+  %6 = load i64, ptr %announce_rounds, align 8
+  %7 = getelementptr inbounds %struct.AnnounceParameters, ptr @migrate_announce_params.ap, i32 0, i32 2
+  store i64 %6, ptr %7, align 8
+  %8 = load ptr, ptr %s, align 8
+  %parameters3 = getelementptr inbounds %struct.MigrationState, ptr %8, i32 0, i32 15
   %announce_step = getelementptr inbounds %struct.MigrationParameters, ptr %parameters3, i32 0, i32 7
-  %7 = load i64, ptr %announce_step, align 8
-  store i64 %7, ptr getelementptr inbounds (%struct.AnnounceParameters, ptr @migrate_announce_params.ap, i32 0, i32 3), align 8
+  %9 = load i64, ptr %announce_step, align 8
+  %10 = getelementptr inbounds %struct.AnnounceParameters, ptr @migrate_announce_params.ap, i32 0, i32 3
+  store i64 %9, ptr %10, align 8
   ret ptr @migrate_announce_params.ap
 }
 

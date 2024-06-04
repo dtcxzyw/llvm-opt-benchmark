@@ -1626,11 +1626,12 @@ define linkonce_odr void @_ZN3gmx22SelectionOptionStorageD2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTVN3gmx22SelectionOptionStorageE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::SelectionOptionStorage", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
-  %5 = getelementptr inbounds %"class.gmx::SelectionOptionStorage", ptr %3, i32 0, i32 1
-  call void @_ZN3gmx19SelectionOptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  %4 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3gmx22SelectionOptionStorageE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::SelectionOptionStorage", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
+  %6 = getelementptr inbounds %"class.gmx::SelectionOptionStorage", ptr %3, i32 0, i32 1
+  call void @_ZN3gmx19SelectionOptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   call void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #13
   ret void
 }
@@ -2550,9 +2551,10 @@ define linkonce_odr void @_ZN3gmx26SelectionFileOptionStorageD2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTVN3gmx26SelectionFileOptionStorageE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::SelectionFileOptionStorage", ptr %3, i32 0, i32 2
-  call void @_ZN3gmx23SelectionFileOptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN3gmx26SelectionFileOptionStorageE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::SelectionFileOptionStorage", ptr %3, i32 0, i32 2
+  call void @_ZN3gmx23SelectionFileOptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %3) #13
   ret void
 }
@@ -2997,112 +2999,113 @@ define void @_ZN3gmx22SelectionOptionStorageC2ERKNS_15SelectionOptionEPNS_22Sele
   %23 = getelementptr inbounds %"class.gmx::FlagsTemplate", ptr %7, i32 0, i32 0
   %24 = load i64, ptr %23, align 8
   call void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEEC2INS_15SelectionOptionEEERKNS_14OptionTemplateIS1_T_EENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef nonnull align 8 dereferenceable(88) %18, i64 %24)
-  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTVN3gmx22SelectionOptionStorageE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %25 = getelementptr inbounds %"class.gmx::SelectionOptionStorage", ptr %17, i32 0, i32 1
-  invoke void @_ZN3gmx19SelectionOptionInfoC1EPNS_22SelectionOptionStorageE(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef %17)
-          to label %26 unwind label %52
+  %25 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3gmx22SelectionOptionStorageE, i32 0, i32 0, i32 2
+  store ptr %25, ptr %17, align 8
+  %26 = getelementptr inbounds %"class.gmx::SelectionOptionStorage", ptr %17, i32 0, i32 1
+  invoke void @_ZN3gmx19SelectionOptionInfoC1EPNS_22SelectionOptionStorageE(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef %17)
+          to label %27 unwind label %53
 
-26:                                               ; preds = %3
-  %27 = getelementptr inbounds %"class.gmx::SelectionOptionStorage", ptr %17, i32 0, i32 2
-  %28 = load ptr, ptr %6, align 8
-  store ptr %28, ptr %27, align 8
-  %29 = getelementptr inbounds %"class.gmx::SelectionOptionStorage", ptr %17, i32 0, i32 3
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %"class.gmx::SelectionOption", ptr %30, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
+27:                                               ; preds = %3
+  %28 = getelementptr inbounds %"class.gmx::SelectionOptionStorage", ptr %17, i32 0, i32 2
+  %29 = load ptr, ptr %6, align 8
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"class.gmx::SelectionOptionStorage", ptr %17, i32 0, i32 3
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds %"class.gmx::SelectionOption", ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef %32, ptr noundef nonnull align 1 dereferenceable(1) %14)
-          to label %33 unwind label %56
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %14)
+          to label %34 unwind label %57
 
-33:                                               ; preds = %26
+34:                                               ; preds = %27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #13
-  %34 = getelementptr inbounds %"class.gmx::SelectionOptionStorage", ptr %17, i32 0, i32 4
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %"class.gmx::SelectionOption", ptr %35, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %36, i64 8, i1 false)
-  %37 = load ptr, ptr %6, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %40
+  %35 = getelementptr inbounds %"class.gmx::SelectionOptionStorage", ptr %17, i32 0, i32 4
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds %"class.gmx::SelectionOption", ptr %36, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 8 %37, i64 8, i1 false)
+  %38 = load ptr, ptr %6, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %33
-  br label %42
+40:                                               ; preds = %34
+  br label %43
 
-40:                                               ; preds = %33
+41:                                               ; preds = %34
   invoke void @"_ZZN3gmx22SelectionOptionStorageC1ERKNS_15SelectionOptionEPNS_22SelectionOptionManagerEENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %15)
-          to label %41 unwind label %60
+          to label %42 unwind label %61
 
-41:                                               ; preds = %40
-  br label %42
+42:                                               ; preds = %41
+  br label %43
 
-42:                                               ; preds = %41, %39
-  %43 = invoke noundef zeroext i1 @_ZNK3gmx21AbstractOptionStorage7hasFlagENS_10OptionFlagE(ptr noundef nonnull align 8 dereferenceable(98) %17, i64 noundef 32)
-          to label %44 unwind label %60
+43:                                               ; preds = %42, %40
+  %44 = invoke noundef zeroext i1 @_ZNK3gmx21AbstractOptionStorage7hasFlagENS_10OptionFlagE(ptr noundef nonnull align 8 dereferenceable(98) %17, i64 noundef 32)
+          to label %45 unwind label %61
 
-44:                                               ; preds = %42
-  br i1 %43, label %46, label %45
+45:                                               ; preds = %43
+  br i1 %44, label %47, label %46
 
-45:                                               ; preds = %44
-  br label %48
+46:                                               ; preds = %45
+  br label %49
 
-46:                                               ; preds = %44
+47:                                               ; preds = %45
   invoke void @"_ZZN3gmx22SelectionOptionStorageC1ERKNS_15SelectionOptionEPNS_22SelectionOptionManagerEENK3$_1clEv"(ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %47 unwind label %60
+          to label %48 unwind label %61
 
-47:                                               ; preds = %46
-  br label %48
+48:                                               ; preds = %47
+  br label %49
 
-48:                                               ; preds = %47, %45
-  %49 = getelementptr inbounds %"class.gmx::SelectionOptionStorage", ptr %17, i32 0, i32 2
-  %50 = load ptr, ptr %49, align 8
-  invoke void @_ZN3gmx22SelectionOptionManager14registerOptionEPNS_22SelectionOptionStorageE(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef %17)
-          to label %51 unwind label %60
+49:                                               ; preds = %48, %46
+  %50 = getelementptr inbounds %"class.gmx::SelectionOptionStorage", ptr %17, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8
+  invoke void @_ZN3gmx22SelectionOptionManager14registerOptionEPNS_22SelectionOptionStorageE(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef %17)
+          to label %52 unwind label %61
 
-51:                                               ; preds = %48
+52:                                               ; preds = %49
   ret void
 
-52:                                               ; preds = %3
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %3
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %12, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %13, align 4
-  br label %65
-
-56:                                               ; preds = %26
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %12, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %13, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #13
-  br label %64
-
-60:                                               ; preds = %48, %46, %42, %40
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %12, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %13, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #13
-  br label %64
-
-64:                                               ; preds = %60, %56
-  call void @_ZN3gmx19SelectionOptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  br label %65
-
-65:                                               ; preds = %64, %52
-  call void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %17) #13
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %12, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %13, align 4
   br label %66
 
-66:                                               ; preds = %65
-  %67 = load ptr, ptr %12, align 8
-  %68 = load i32, ptr %13, align 4
-  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
-  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
-  resume { ptr, i32 } %70
+57:                                               ; preds = %27
+  %58 = landingpad { ptr, i32 }
+          cleanup
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %12, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %13, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #13
+  br label %65
+
+61:                                               ; preds = %49, %47, %43, %41
+  %62 = landingpad { ptr, i32 }
+          cleanup
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %12, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %13, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #13
+  br label %65
+
+65:                                               ; preds = %61, %57
+  call void @_ZN3gmx19SelectionOptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #13
+  br label %66
+
+66:                                               ; preds = %65, %53
+  call void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %17) #13
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %12, align 8
+  %69 = load i32, ptr %13, align 4
+  %70 = insertvalue { ptr, i32 } poison, ptr %68, 0
+  %71 = insertvalue { ptr, i32 } %70, i32 %69, 1
+  resume { ptr, i32 } %71
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3171,236 +3174,237 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEEC2INS_15
   %18 = getelementptr inbounds %"class.gmx::FlagsTemplate", ptr %7, i32 0, i32 0
   %19 = load i64, ptr %18, align 8
   call void @_ZN3gmx21AbstractOptionStorageC2ERKNS_14AbstractOptionENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(98) %16, ptr noundef nonnull align 8 dereferenceable(48) %17, i64 %19)
-  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTVN3gmx21OptionStorageTemplateINS_9SelectionEEE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %20 = getelementptr inbounds %"class.gmx::OptionStorageTemplate", ptr %16, i32 0, i32 1
-  call void @_ZNSt6vectorIN3gmx9SelectionESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
-  %21 = getelementptr inbounds %"class.gmx::OptionStorageTemplate", ptr %16, i32 0, i32 2
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %22, i32 0, i32 5
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %25, i32 0, i32 3
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %28, i32 0, i32 4
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %6, align 8
-  %32 = invoke noundef zeroext i1 @_ZNK3gmx14AbstractOption8isVectorEv(ptr noundef nonnull align 8 dereferenceable(48) %31)
-          to label %33 unwind label %65
+  %20 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3gmx21OptionStorageTemplateINS_9SelectionEEE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %16, align 8
+  %21 = getelementptr inbounds %"class.gmx::OptionStorageTemplate", ptr %16, i32 0, i32 1
+  call void @_ZNSt6vectorIN3gmx9SelectionESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
+  %22 = getelementptr inbounds %"class.gmx::OptionStorageTemplate", ptr %16, i32 0, i32 2
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %23, i32 0, i32 5
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %26, i32 0, i32 3
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %29, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %6, align 8
+  %33 = invoke noundef zeroext i1 @_ZNK3gmx14AbstractOption8isVectorEv(ptr noundef nonnull align 8 dereferenceable(48) %32)
+          to label %34 unwind label %66
 
-33:                                               ; preds = %3
-  br i1 %32, label %34, label %38
+34:                                               ; preds = %3
+  br i1 %33, label %35, label %39
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %35, i32 0, i32 2
-  %37 = load i32, ptr %36, align 4
-  br label %42
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %6, align 8
+  %37 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %36, i32 0, i32 2
+  %38 = load i32, ptr %37, align 4
+  br label %43
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %39, i32 0, i32 1
-  %41 = load i32, ptr %40, align 8
-  br label %42
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %40, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8
+  br label %43
 
-42:                                               ; preds = %38, %34
-  %43 = phi i32 [ %37, %34 ], [ %41, %38 ]
-  invoke void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEE11createStoreEPSt6vectorIS1_SaIS1_EEPS1_Pii(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %21, ptr noundef nonnull align 8 dereferenceable(144) %16, ptr noundef %24, ptr noundef %27, ptr noundef %30, i32 noundef %43)
-          to label %44 unwind label %65
+43:                                               ; preds = %39, %35
+  %44 = phi i32 [ %38, %35 ], [ %42, %39 ]
+  invoke void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEE11createStoreEPSt6vectorIS1_SaIS1_EEPS1_Pii(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %22, ptr noundef nonnull align 8 dereferenceable(144) %16, ptr noundef %25, ptr noundef %28, ptr noundef %31, i32 noundef %44)
+          to label %45 unwind label %66
 
-44:                                               ; preds = %42
-  %45 = getelementptr inbounds %"class.gmx::OptionStorageTemplate", ptr %16, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN3gmx9SelectionESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %45) #13
-  %46 = invoke noundef zeroext i1 @_ZNK3gmx21AbstractOptionStorage7hasFlagENS_10OptionFlagE(ptr noundef nonnull align 8 dereferenceable(98) %16, i64 noundef 512)
-          to label %47 unwind label %69
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds %"class.gmx::OptionStorageTemplate", ptr %16, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN3gmx9SelectionESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %46) #13
+  %47 = invoke noundef zeroext i1 @_ZNK3gmx21AbstractOptionStorage7hasFlagENS_10OptionFlagE(ptr noundef nonnull align 8 dereferenceable(98) %16, i64 noundef 512)
+          to label %48 unwind label %70
 
-47:                                               ; preds = %44
-  br i1 %46, label %48, label %95
+48:                                               ; preds = %45
+  br i1 %47, label %49, label %96
 
-48:                                               ; preds = %47
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %49, i32 0, i32 1
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp ne ptr %51, null
-  br i1 %52, label %58, label %53
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %6, align 8
+  %51 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %59, label %54
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %54, i32 0, i32 2
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %58, label %95
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %6, align 8
+  %56 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %55, i32 0, i32 2
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %96
 
-58:                                               ; preds = %53, %48
+59:                                               ; preds = %54, %49
   store i1 true, ptr %14, align 1
-  %59 = call ptr @__cxa_allocate_exception(i64 24) #13
+  %60 = call ptr @__cxa_allocate_exception(i64 24) #13
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef @.str)
-          to label %60 unwind label %73
+          to label %61 unwind label %74
 
-60:                                               ; preds = %58
+61:                                               ; preds = %59
   invoke void @_ZN3gmx8APIErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(56) %11)
-          to label %61 unwind label %77
-
-61:                                               ; preds = %60
-  invoke void @_ZN3gmx13ThrowLocationC2EPKcS2_i(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef @__PRETTY_FUNCTION__._ZN3gmx21OptionStorageTemplateINS_9SelectionEEC2INS_15SelectionOptionEEERKNS_14OptionTemplateIS1_T_EENS_13FlagsTemplateINS_10OptionFlagEEE, ptr noundef @.str.1, i32 noundef 396)
-          to label %62 unwind label %81
+          to label %62 unwind label %78
 
 62:                                               ; preds = %61
-  invoke void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(20) %13)
-          to label %63 unwind label %81
+  invoke void @_ZN3gmx13ThrowLocationC2EPKcS2_i(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef @__PRETTY_FUNCTION__._ZN3gmx21OptionStorageTemplateINS_9SelectionEEC2INS_15SelectionOptionEEERKNS_14OptionTemplateIS1_T_EENS_13FlagsTemplateINS_10OptionFlagEEE, ptr noundef @.str.1, i32 noundef 396)
+          to label %63 unwind label %82
 
 63:                                               ; preds = %62
-  invoke void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::APIError") align 8 %59, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %64 unwind label %85
+  invoke void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(20) %13)
+          to label %64 unwind label %82
 
 64:                                               ; preds = %63
+  invoke void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::APIError") align 8 %60, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %65 unwind label %86
+
+65:                                               ; preds = %64
   store i1 false, ptr %14, align 1
-  invoke void @__cxa_throw(ptr %59, ptr @_ZTIN3gmx8APIErrorE, ptr @_ZN3gmx8APIErrorD2Ev) #16
-          to label %128 unwind label %85
+  invoke void @__cxa_throw(ptr %60, ptr @_ZTIN3gmx8APIErrorE, ptr @_ZN3gmx8APIErrorD2Ev) #16
+          to label %129 unwind label %86
 
-65:                                               ; preds = %42, %3
-  %66 = landingpad { ptr, i32 }
+66:                                               ; preds = %43, %3
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %67 = extractvalue { ptr, i32 } %66, 0
-  store ptr %67, ptr %8, align 8
-  %68 = extractvalue { ptr, i32 } %66, 1
-  store i32 %68, ptr %9, align 4
-  br label %122
-
-69:                                               ; preds = %114, %104, %98, %95, %44
-  %70 = landingpad { ptr, i32 }
-          cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %8, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %9, align 4
-  br label %121
-
-73:                                               ; preds = %58
-  %74 = landingpad { ptr, i32 }
-          cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %8, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %9, align 4
-  br label %91
-
-77:                                               ; preds = %60
-  %78 = landingpad { ptr, i32 }
-          cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %8, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %9, align 4
-  br label %90
-
-81:                                               ; preds = %62, %61
-  %82 = landingpad { ptr, i32 }
-          cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %8, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %9, align 4
-  br label %89
-
-85:                                               ; preds = %64, %63
-  %86 = landingpad { ptr, i32 }
-          cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %8, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %9, align 4
-  call void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
-  br label %89
-
-89:                                               ; preds = %85, %81
-  call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  br label %90
-
-90:                                               ; preds = %89, %77
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #13
-  br label %91
-
-91:                                               ; preds = %90, %73
-  %92 = load i1, ptr %14, align 1
-  br i1 %92, label %93, label %94
-
-93:                                               ; preds = %91
-  call void @__cxa_free_exception(ptr %59) #13
-  br label %94
-
-94:                                               ; preds = %93, %91
-  br label %121
-
-95:                                               ; preds = %53, %47
-  %96 = invoke noundef zeroext i1 @_ZNK3gmx21AbstractOptionStorage7hasFlagENS_10OptionFlagE(ptr noundef nonnull align 8 dereferenceable(98) %16, i64 noundef 512)
-          to label %97 unwind label %69
-
-97:                                               ; preds = %95
-  br i1 %96, label %120, label %98
-
-98:                                               ; preds = %97
-  invoke void @_ZN3gmx21AbstractOptionStorage7setFlagENS_10OptionFlagE(ptr noundef nonnull align 8 dereferenceable(98) %16, i64 noundef 2)
-          to label %99 unwind label %69
-
-99:                                               ; preds = %98
-  %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %100, i32 0, i32 1
-  %102 = load ptr, ptr %101, align 8
-  %103 = icmp ne ptr %102, null
-  br i1 %103, label %104, label %109
-
-104:                                              ; preds = %99
-  %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %105, i32 0, i32 1
-  %107 = load ptr, ptr %106, align 8
-  invoke void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEE15setDefaultValueERKS1_(ptr noundef nonnull align 8 dereferenceable(144) %16, ptr noundef nonnull align 8 dereferenceable(8) %107)
-          to label %108 unwind label %69
-
-108:                                              ; preds = %104
-  br label %109
-
-109:                                              ; preds = %108, %99
-  %110 = load ptr, ptr %6, align 8
-  %111 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %110, i32 0, i32 2
-  %112 = load ptr, ptr %111, align 8
-  %113 = icmp ne ptr %112, null
-  br i1 %113, label %114, label %119
-
-114:                                              ; preds = %109
-  %115 = load ptr, ptr %6, align 8
-  %116 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %115, i32 0, i32 2
-  %117 = load ptr, ptr %116, align 8
-  invoke void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEE20setDefaultValueIfSetERKS1_(ptr noundef nonnull align 8 dereferenceable(144) %16, ptr noundef nonnull align 8 dereferenceable(8) %117)
-          to label %118 unwind label %69
-
-118:                                              ; preds = %114
-  br label %119
-
-119:                                              ; preds = %118, %109
-  br label %120
-
-120:                                              ; preds = %119, %97
-  ret void
-
-121:                                              ; preds = %94, %69
-  call void @_ZNSt10unique_ptrIN3gmx9SelectionESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #13
-  call void @_ZNSt10unique_ptrIN3gmx17IOptionValueStoreINS0_9SelectionEEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #13
-  br label %122
-
-122:                                              ; preds = %121, %65
-  call void @_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
-  call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %16) #13
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %8, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %9, align 4
   br label %123
 
-123:                                              ; preds = %122
-  %124 = load ptr, ptr %8, align 8
-  %125 = load i32, ptr %9, align 4
-  %126 = insertvalue { ptr, i32 } poison, ptr %124, 0
-  %127 = insertvalue { ptr, i32 } %126, i32 %125, 1
-  resume { ptr, i32 } %127
+70:                                               ; preds = %115, %105, %99, %96, %45
+  %71 = landingpad { ptr, i32 }
+          cleanup
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %8, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %9, align 4
+  br label %122
 
-128:                                              ; preds = %64
+74:                                               ; preds = %59
+  %75 = landingpad { ptr, i32 }
+          cleanup
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %8, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %9, align 4
+  br label %92
+
+78:                                               ; preds = %61
+  %79 = landingpad { ptr, i32 }
+          cleanup
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %8, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %9, align 4
+  br label %91
+
+82:                                               ; preds = %63, %62
+  %83 = landingpad { ptr, i32 }
+          cleanup
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %8, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %9, align 4
+  br label %90
+
+86:                                               ; preds = %65, %64
+  %87 = landingpad { ptr, i32 }
+          cleanup
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %8, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %9, align 4
+  call void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
+  br label %90
+
+90:                                               ; preds = %86, %82
+  call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
+  br label %91
+
+91:                                               ; preds = %90, %78
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #13
+  br label %92
+
+92:                                               ; preds = %91, %74
+  %93 = load i1, ptr %14, align 1
+  br i1 %93, label %94, label %95
+
+94:                                               ; preds = %92
+  call void @__cxa_free_exception(ptr %60) #13
+  br label %95
+
+95:                                               ; preds = %94, %92
+  br label %122
+
+96:                                               ; preds = %54, %48
+  %97 = invoke noundef zeroext i1 @_ZNK3gmx21AbstractOptionStorage7hasFlagENS_10OptionFlagE(ptr noundef nonnull align 8 dereferenceable(98) %16, i64 noundef 512)
+          to label %98 unwind label %70
+
+98:                                               ; preds = %96
+  br i1 %97, label %121, label %99
+
+99:                                               ; preds = %98
+  invoke void @_ZN3gmx21AbstractOptionStorage7setFlagENS_10OptionFlagE(ptr noundef nonnull align 8 dereferenceable(98) %16, i64 noundef 2)
+          to label %100 unwind label %70
+
+100:                                              ; preds = %99
+  %101 = load ptr, ptr %6, align 8
+  %102 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %101, i32 0, i32 1
+  %103 = load ptr, ptr %102, align 8
+  %104 = icmp ne ptr %103, null
+  br i1 %104, label %105, label %110
+
+105:                                              ; preds = %100
+  %106 = load ptr, ptr %6, align 8
+  %107 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %106, i32 0, i32 1
+  %108 = load ptr, ptr %107, align 8
+  invoke void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEE15setDefaultValueERKS1_(ptr noundef nonnull align 8 dereferenceable(144) %16, ptr noundef nonnull align 8 dereferenceable(8) %108)
+          to label %109 unwind label %70
+
+109:                                              ; preds = %105
+  br label %110
+
+110:                                              ; preds = %109, %100
+  %111 = load ptr, ptr %6, align 8
+  %112 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %111, i32 0, i32 2
+  %113 = load ptr, ptr %112, align 8
+  %114 = icmp ne ptr %113, null
+  br i1 %114, label %115, label %120
+
+115:                                              ; preds = %110
+  %116 = load ptr, ptr %6, align 8
+  %117 = getelementptr inbounds %"class.gmx::OptionTemplate", ptr %116, i32 0, i32 2
+  %118 = load ptr, ptr %117, align 8
+  invoke void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEE20setDefaultValueIfSetERKS1_(ptr noundef nonnull align 8 dereferenceable(144) %16, ptr noundef nonnull align 8 dereferenceable(8) %118)
+          to label %119 unwind label %70
+
+119:                                              ; preds = %115
+  br label %120
+
+120:                                              ; preds = %119, %110
+  br label %121
+
+121:                                              ; preds = %120, %98
+  ret void
+
+122:                                              ; preds = %95, %70
+  call void @_ZNSt10unique_ptrIN3gmx9SelectionESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #13
+  call void @_ZNSt10unique_ptrIN3gmx17IOptionValueStoreINS0_9SelectionEEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #13
+  br label %123
+
+123:                                              ; preds = %122, %66
+  call void @_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
+  call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %16) #13
+  br label %124
+
+124:                                              ; preds = %123
+  %125 = load ptr, ptr %8, align 8
+  %126 = load i32, ptr %9, align 4
+  %127 = insertvalue { ptr, i32 } poison, ptr %125, 0
+  %128 = insertvalue { ptr, i32 } %127, i32 %126, 1
+  resume { ptr, i32 } %128
+
+129:                                              ; preds = %65
   unreachable
 }
 
@@ -3972,7 +3976,8 @@ define linkonce_odr void @_ZN3gmx8APIErrorC2ERKNS_20ExceptionInitializerE(ptr no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx8APIErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx8APIErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -4007,10 +4012,11 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3gmx8internal14IExceptionInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 24, i1 false)
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 24, i1 false)
   ret void
 }
 
@@ -4508,13 +4514,14 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEED2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTVN3gmx21OptionStorageTemplateINS_9SelectionEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::OptionStorageTemplate", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN3gmx9SelectionESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
-  %5 = getelementptr inbounds %"class.gmx::OptionStorageTemplate", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN3gmx17IOptionValueStoreINS0_9SelectionEEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  %6 = getelementptr inbounds %"class.gmx::OptionStorageTemplate", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  %4 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3gmx21OptionStorageTemplateINS_9SelectionEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::OptionStorageTemplate", ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN3gmx9SelectionESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  %6 = getelementptr inbounds %"class.gmx::OptionStorageTemplate", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN3gmx17IOptionValueStoreINS0_9SelectionEEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  %7 = getelementptr inbounds %"class.gmx::OptionStorageTemplate", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %3) #13
   ret void
 }
@@ -4614,10 +4621,11 @@ define linkonce_odr void @_ZN3gmx22OptionValueStoreVectorINS_9SelectionEEC2EPSt6
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3gmx17IOptionValueStoreINS_9SelectionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx22OptionValueStoreVectorINS_9SelectionEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::OptionValueStoreVector", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx22OptionValueStoreVectorINS_9SelectionEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::OptionValueStoreVector", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -4688,16 +4696,17 @@ define linkonce_odr void @_ZN3gmx21OptionValueStorePlainINS_9SelectionEEC2EPS1_P
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %5, align 8
   call void @_ZN3gmx17IOptionValueStoreINS_9SelectionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx21OptionValueStorePlainINS_9SelectionEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.gmx::OptionValueStorePlain", ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %8, align 4
-  store i32 %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.gmx::OptionValueStorePlain", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %6, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.gmx::OptionValueStorePlain", ptr %9, i32 0, i32 3
-  %15 = load ptr, ptr %7, align 8
-  store ptr %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx21OptionValueStorePlainINS_9SelectionEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.gmx::OptionValueStorePlain", ptr %9, i32 0, i32 1
+  %12 = load i32, ptr %8, align 4
+  store i32 %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.gmx::OptionValueStorePlain", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %6, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.gmx::OptionValueStorePlain", ptr %9, i32 0, i32 3
+  %16 = load ptr, ptr %7, align 8
+  store ptr %16, ptr %15, align 8
   ret void
 }
 
@@ -4717,34 +4726,35 @@ define linkonce_odr void @_ZN3gmx20OptionValueStoreNullINS_9SelectionEEC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN3gmx17IOptionValueStoreINS_9SelectionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx20OptionValueStoreNullINS_9SelectionEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::OptionValueStoreNull", ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorIN3gmx9SelectionESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  %7 = getelementptr inbounds %"class.gmx::OptionValueStoreNull", ptr %5, i32 0, i32 2
-  %8 = getelementptr inbounds %"class.gmx::OptionValueStoreNull", ptr %5, i32 0, i32 1
-  invoke void @_ZN3gmx22OptionValueStoreVectorINS_9SelectionEEC2EPSt6vectorIS1_SaIS1_EE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-          to label %9 unwind label %10
-
-9:                                                ; preds = %1
-  ret void
+  %6 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx20OptionValueStoreNullINS_9SelectionEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::OptionValueStoreNull", ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorIN3gmx9SelectionESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
+  %8 = getelementptr inbounds %"class.gmx::OptionValueStoreNull", ptr %5, i32 0, i32 2
+  %9 = getelementptr inbounds %"class.gmx::OptionValueStoreNull", ptr %5, i32 0, i32 1
+  invoke void @_ZN3gmx22OptionValueStoreVectorINS_9SelectionEEC2EPSt6vectorIS1_SaIS1_EE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9)
+          to label %10 unwind label %11
 
 10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  call void @_ZN3gmx17IOptionValueStoreINS_9SelectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  br label %14
+  ret void
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %3, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %4, align 4
+  call void @_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
+  call void @_ZN3gmx17IOptionValueStoreINS_9SelectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  br label %15
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %3, align 8
+  %17 = load i32, ptr %4, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: noreturn
@@ -4755,7 +4765,8 @@ define linkonce_odr void @_ZN3gmx17IOptionValueStoreINS_9SelectionEEC2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx17IOptionValueStoreINS_9SelectionEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx17IOptionValueStoreINS_9SelectionEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6162,11 +6173,12 @@ define linkonce_odr void @_ZN3gmx20OptionValueStoreNullINS_9SelectionEED2Ev(ptr 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx20OptionValueStoreNullINS_9SelectionEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::OptionValueStoreNull", ptr %3, i32 0, i32 2
-  call void @_ZN3gmx22OptionValueStoreVectorINS_9SelectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
-  %5 = getelementptr inbounds %"class.gmx::OptionValueStoreNull", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx20OptionValueStoreNullINS_9SelectionEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::OptionValueStoreNull", ptr %3, i32 0, i32 2
+  call void @_ZN3gmx22OptionValueStoreVectorINS_9SelectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  %6 = getelementptr inbounds %"class.gmx::OptionValueStoreNull", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   call void @_ZN3gmx17IOptionValueStoreINS_9SelectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -6400,7 +6412,8 @@ define linkonce_odr void @_ZN3gmx8APIErrorC2EOS0_(ptr noundef nonnull align 8 de
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx8APIErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx8APIErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -6413,11 +6426,12 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx8internal14IExceptionInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 24, i1 false)
+  %7 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 24, i1 false)
   ret void
 }
 
@@ -6503,7 +6517,8 @@ define linkonce_odr void @_ZN3gmx8internal14IExceptionInfoC2ERKS1_(ptr noundef n
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -6730,11 +6745,12 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::GromacsException", ptr %8, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %9) #13
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::GromacsException", ptr %9, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10) #13
   ret void
 }
 
@@ -6745,7 +6761,8 @@ define linkonce_odr void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -6884,7 +6901,8 @@ define linkonce_odr void @_ZN3gmx8internal14IExceptionInfoC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6893,9 +6911,10 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -8143,7 +8162,8 @@ define linkonce_odr void @_ZN3gmx19NotImplementedErrorC2ERKNS_20ExceptionInitial
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx8APIErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx19NotImplementedErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx19NotImplementedErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -8165,7 +8185,8 @@ define linkonce_odr void @_ZN3gmx19NotImplementedErrorC2EOS0_(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx8APIErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx19NotImplementedErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx19NotImplementedErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -8476,7 +8497,8 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorC2ERKNS_20ExceptionInitializ
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx14UserInputErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx17InvalidInputErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx17InvalidInputErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -8830,7 +8852,8 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorC2EOS0_(ptr noundef nonnull 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx14UserInputErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx17InvalidInputErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx17InvalidInputErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -8843,7 +8866,8 @@ define linkonce_odr void @_ZN3gmx14UserInputErrorC2EOS0_(ptr noundef nonnull ali
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx14UserInputErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx14UserInputErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -8876,7 +8900,8 @@ define linkonce_odr void @_ZN3gmx14UserInputErrorC2ERKNS_20ExceptionInitializerE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx14UserInputErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx14UserInputErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -9397,7 +9422,7 @@ define void @_ZN3gmx22SelectionOptionStorage20setAllowedValueCountEi(ptr noundef
 
 65:                                               ; preds = %61
   %66 = load i32, ptr %9, align 4
-  %67 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3gmx14UserInputErrorE) #13
+  %67 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3gmx14UserInputErrorE) #13
   %68 = icmp eq i32 %66, %67
   br i1 %68, label %69, label %124
 
@@ -9699,9 +9724,6 @@ declare void @_ZN3gmx21AbstractOptionStorage16setMinValueCountEi(ptr noundef non
 declare void @_ZN3gmx22MessageStringCollector8appendIfEbPKc(ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext, ptr noundef) #4
 
 declare void @_ZN3gmx21AbstractOptionStorage16setMaxValueCountEi(ptr noundef nonnull align 8 dereferenceable(98), i32 noundef) #4
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx22MessageStringCollector6appendEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10387,7 +10409,8 @@ define void @_ZN3gmx19SelectionOptionInfoC2EPNS_22SelectionOptionStorageE(ptr no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx10OptionInfoC2EPNS_21AbstractOptionStorageE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx19SelectionOptionInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx19SelectionOptionInfoE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -10664,7 +10687,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_c
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #12
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZZNK3gmx22OptionManagerContainer3getINS_22SelectionOptionManagerEEEPT_vENKUlvE_clEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
@@ -10739,63 +10762,64 @@ define void @_ZN3gmx26SelectionFileOptionStorageC2ERKNS_19SelectionFileOptionEPN
   %21 = getelementptr inbounds %"class.gmx::FlagsTemplate", ptr %7, i32 0, i32 0
   %22 = load i64, ptr %21, align 8
   call void @_ZN3gmx21AbstractOptionStorageC2ERKNS_14AbstractOptionENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(98) %15, ptr noundef nonnull align 8 dereferenceable(48) %16, i64 %22)
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTVN3gmx26SelectionFileOptionStorageE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %23 = getelementptr inbounds %"class.gmx::SelectionFileOptionStorage", ptr %15, i32 0, i32 2
-  invoke void @_ZN3gmx23SelectionFileOptionInfoC1EPNS_26SelectionFileOptionStorageE(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef %15)
-          to label %24 unwind label %34
+  %23 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN3gmx26SelectionFileOptionStorageE, i32 0, i32 0, i32 2
+  store ptr %23, ptr %15, align 8
+  %24 = getelementptr inbounds %"class.gmx::SelectionFileOptionStorage", ptr %15, i32 0, i32 2
+  invoke void @_ZN3gmx23SelectionFileOptionInfoC1EPNS_26SelectionFileOptionStorageE(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef %15)
+          to label %25 unwind label %35
 
-24:                                               ; preds = %3
-  %25 = getelementptr inbounds %"class.gmx::SelectionFileOptionStorage", ptr %15, i32 0, i32 3
-  %26 = load ptr, ptr %6, align 8
-  store ptr %26, ptr %25, align 8
-  %27 = getelementptr inbounds %"class.gmx::SelectionFileOptionStorage", ptr %15, i32 0, i32 4
-  store i8 0, ptr %27, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %31
+25:                                               ; preds = %3
+  %26 = getelementptr inbounds %"class.gmx::SelectionFileOptionStorage", ptr %15, i32 0, i32 3
+  %27 = load ptr, ptr %6, align 8
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds %"class.gmx::SelectionFileOptionStorage", ptr %15, i32 0, i32 4
+  store i8 0, ptr %28, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %24
-  br label %33
+31:                                               ; preds = %25
+  br label %34
 
-31:                                               ; preds = %24
+32:                                               ; preds = %25
   invoke void @"_ZZN3gmx26SelectionFileOptionStorageC1ERKNS_19SelectionFileOptionEPNS_22SelectionOptionManagerEENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %14)
-          to label %32 unwind label %38
+          to label %33 unwind label %39
 
-32:                                               ; preds = %31
-  br label %33
+33:                                               ; preds = %32
+  br label %34
 
-33:                                               ; preds = %32, %30
+34:                                               ; preds = %33, %31
   ret void
 
-34:                                               ; preds = %3
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %3
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %12, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %13, align 4
-  br label %42
-
-38:                                               ; preds = %31
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %12, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %13, align 4
-  call void @_ZN3gmx23SelectionFileOptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #13
-  br label %42
-
-42:                                               ; preds = %38, %34
-  call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %15) #13
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %12, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %13, align 4
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %12, align 8
-  %45 = load i32, ptr %13, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+39:                                               ; preds = %32
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %12, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %13, align 4
+  call void @_ZN3gmx23SelectionFileOptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #13
+  br label %43
+
+43:                                               ; preds = %39, %35
+  call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %15) #13
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %12, align 8
+  %46 = load i32, ptr %13, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11942,7 +11966,8 @@ define void @_ZN3gmx23SelectionFileOptionInfoC2EPNS_26SelectionFileOptionStorage
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx10OptionInfoC2EPNS_21AbstractOptionStorageE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx23SelectionFileOptionInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx23SelectionFileOptionInfoE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -11967,29 +11992,30 @@ define void @_ZN3gmx19SelectionFileOptionC2EPKc(ptr noundef nonnull align 8 dere
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN3gmx14AbstractOptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx19SelectionFileOptionE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx19SelectionFileOptionE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
   invoke void @_ZN3gmx14AbstractOption14setDescriptionEPKc(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef @.str.33)
-          to label %9 unwind label %10
-
-9:                                                ; preds = %2
-  ret void
+          to label %10 unwind label %11
 
 10:                                               ; preds = %2
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %5, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %6, align 4
-  call void @_ZN3gmx14AbstractOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #13
-  br label %14
+  ret void
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i32, ptr %6, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+11:                                               ; preds = %2
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  call void @_ZN3gmx14AbstractOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #13
+  br label %15
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11999,20 +12025,21 @@ define linkonce_odr void @_ZN3gmx14AbstractOptionC2EPKc(ptr noundef nonnull alig
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx14AbstractOptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %5, i32 0, i32 1
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %5, i32 0, i32 2
-  store i32 1, ptr %7, align 4
-  %8 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %5, i32 0, i32 3
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %5, i32 0, i32 4
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %5, i32 0, i32 5
-  call void @_ZN3gmx13FlagsTemplateINS_10OptionFlagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %12 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %5, i32 0, i32 6
-  store ptr null, ptr %12, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx14AbstractOptionE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %5, i32 0, i32 1
+  store i32 1, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %5, i32 0, i32 2
+  store i32 1, ptr %8, align 4
+  %9 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %5, i32 0, i32 3
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %5, i32 0, i32 4
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %5, i32 0, i32 5
+  call void @_ZN3gmx13FlagsTemplateINS_10OptionFlagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %13 = getelementptr inbounds %"class.gmx::AbstractOption", ptr %5, i32 0, i32 6
+  store ptr null, ptr %13, align 8
   ret void
 }
 
@@ -13112,10 +13139,11 @@ define linkonce_odr void @_ZN3gmx3Any7ContentINS_9SelectionEEC2ERKS2_(ptr nounde
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3gmx3Any8IContentC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx3Any7ContentINS_9SelectionEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::Any::Content.98", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx3Any7ContentINS_9SelectionEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::Any::Content.98", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -13147,7 +13175,8 @@ define linkonce_odr void @_ZN3gmx3Any8IContentC2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx3Any8IContentE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx3Any8IContentE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -14869,6 +14898,9 @@ define linkonce_odr void @_ZN3gmx13FlagsTemplateINS_10OptionFlagEE5clearES1_(ptr
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #12
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -14880,8 +14912,8 @@ attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind memory(none) }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { builtin nounwind }
 attributes #15 = { builtin allocsize(0) }

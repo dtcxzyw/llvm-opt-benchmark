@@ -771,12 +771,12 @@ define hidden void @zbee_append_info(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   %11 = call i32 @vsnprintf(ptr noundef @zbee_append_info.buffer, i64 noundef 512, ptr noundef %9, ptr noundef %10) #5
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   %13 = load ptr, ptr %4, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef @.str.115, ptr noundef @zbee_append_info.buffer)
   %14 = load ptr, ptr %5, align 8
@@ -786,14 +786,8 @@ define hidden void @zbee_append_info(ptr noundef %0, ptr noundef %1, ptr noundef
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
 ; Function Attrs: nounwind
-declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
+declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
 
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
 
@@ -1764,7 +1758,7 @@ define hidden void @zdp_parse_complex_desc(ptr noundef %0, ptr noundef %1, i32 n
   %41 = load i8, ptr %15, align 1
   %42 = zext i8 %41 to i32
   %43 = icmp eq i32 %42, 1
-  br i1 %43, label %44, label %89
+  br i1 %43, label %44, label %91
 
 44:                                               ; preds = %36
   %45 = load ptr, ptr %10, align 8
@@ -1816,98 +1810,102 @@ define hidden void @zdp_parse_complex_desc(ptr noundef %0, ptr noundef %1, i32 n
   %78 = load ptr, ptr %7, align 8
   %79 = getelementptr inbounds %struct._packet_info, ptr %78, i32 0, i32 50
   %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr getelementptr inbounds ([8 x ptr], ptr @zdp_parse_complex_desc.tag_name, i64 0, i64 1), align 8
-  %82 = getelementptr [2 x ptr], ptr %16, i64 0, i64 0
-  %83 = load ptr, ptr %82, align 16
-  %84 = getelementptr [2 x ptr], ptr %16, i64 0, i64 1
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %19, align 8
-  %87 = load ptr, ptr getelementptr inbounds ([8 x ptr], ptr @zdp_parse_complex_desc.tag_name, i64 0, i64 1), align 8
-  %88 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %80, ptr noundef @.str.141, ptr noundef %81, ptr noundef %83, ptr noundef %85, ptr noundef %86, ptr noundef %87)
-  store ptr %88, ptr %14, align 8
-  br label %138
+  %81 = getelementptr inbounds [8 x ptr], ptr @zdp_parse_complex_desc.tag_name, i64 0, i64 1
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr [2 x ptr], ptr %16, i64 0, i64 0
+  %84 = load ptr, ptr %83, align 16
+  %85 = getelementptr [2 x ptr], ptr %16, i64 0, i64 1
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %19, align 8
+  %88 = getelementptr inbounds [8 x ptr], ptr @zdp_parse_complex_desc.tag_name, i64 0, i64 1
+  %89 = load ptr, ptr %88, align 8
+  %90 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %80, ptr noundef @.str.141, ptr noundef %82, ptr noundef %84, ptr noundef %86, ptr noundef %87, ptr noundef %89)
+  store ptr %90, ptr %14, align 8
+  br label %142
 
-89:                                               ; preds = %36
-  %90 = load i8, ptr %15, align 1
-  %91 = zext i8 %90 to i32
-  %92 = icmp eq i32 %91, 6
-  br i1 %92, label %93, label %100
+91:                                               ; preds = %36
+  %92 = load i8, ptr %15, align 1
+  %93 = zext i8 %92 to i32
+  %94 = icmp eq i32 %93, 6
+  br i1 %94, label %95, label %104
 
-93:                                               ; preds = %89
-  %94 = load ptr, ptr %7, align 8
-  %95 = getelementptr inbounds %struct._packet_info, ptr %94, i32 0, i32 50
-  %96 = load ptr, ptr %95, align 8
-  %97 = load ptr, ptr getelementptr inbounds ([8 x ptr], ptr @zdp_parse_complex_desc.tag_name, i64 0, i64 6), align 16
-  %98 = load ptr, ptr getelementptr inbounds ([8 x ptr], ptr @zdp_parse_complex_desc.tag_name, i64 0, i64 6), align 16
-  %99 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %96, ptr noundef @.str.142, ptr noundef %97, ptr noundef %98)
-  store ptr %99, ptr %14, align 8
-  br label %137
+95:                                               ; preds = %91
+  %96 = load ptr, ptr %7, align 8
+  %97 = getelementptr inbounds %struct._packet_info, ptr %96, i32 0, i32 50
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds [8 x ptr], ptr @zdp_parse_complex_desc.tag_name, i64 0, i64 6
+  %100 = load ptr, ptr %99, align 16
+  %101 = getelementptr inbounds [8 x ptr], ptr @zdp_parse_complex_desc.tag_name, i64 0, i64 6
+  %102 = load ptr, ptr %101, align 16
+  %103 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %98, ptr noundef @.str.142, ptr noundef %100, ptr noundef %102)
+  store ptr %103, ptr %14, align 8
+  br label %141
 
-100:                                              ; preds = %89
-  %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds %struct._packet_info, ptr %101, i32 0, i32 50
-  %103 = load ptr, ptr %102, align 8
-  %104 = load ptr, ptr %10, align 8
-  %105 = load ptr, ptr %11, align 8
-  %106 = load i32, ptr %105, align 4
-  %107 = add i32 %106, 1
-  %108 = load i32, ptr %12, align 4
-  %109 = sub i32 %108, 1
-  %110 = call ptr @tvb_get_string_enc(ptr noundef %103, ptr noundef %104, i32 noundef %107, i32 noundef %109, i32 noundef 0)
-  store ptr %110, ptr %20, align 8
-  %111 = load i8, ptr %15, align 1
-  %112 = zext i8 %111 to i32
-  %113 = icmp sle i32 %112, 7
-  br i1 %113, label %114, label %128
+104:                                              ; preds = %91
+  %105 = load ptr, ptr %7, align 8
+  %106 = getelementptr inbounds %struct._packet_info, ptr %105, i32 0, i32 50
+  %107 = load ptr, ptr %106, align 8
+  %108 = load ptr, ptr %10, align 8
+  %109 = load ptr, ptr %11, align 8
+  %110 = load i32, ptr %109, align 4
+  %111 = add i32 %110, 1
+  %112 = load i32, ptr %12, align 4
+  %113 = sub i32 %112, 1
+  %114 = call ptr @tvb_get_string_enc(ptr noundef %107, ptr noundef %108, i32 noundef %111, i32 noundef %113, i32 noundef 0)
+  store ptr %114, ptr %20, align 8
+  %115 = load i8, ptr %15, align 1
+  %116 = zext i8 %115 to i32
+  %117 = icmp sle i32 %116, 7
+  br i1 %117, label %118, label %132
 
-114:                                              ; preds = %100
-  %115 = load ptr, ptr %7, align 8
-  %116 = getelementptr inbounds %struct._packet_info, ptr %115, i32 0, i32 50
-  %117 = load ptr, ptr %116, align 8
-  %118 = load i8, ptr %15, align 1
-  %119 = zext i8 %118 to i64
-  %120 = getelementptr [8 x ptr], ptr @zdp_parse_complex_desc.tag_name, i64 0, i64 %119
+118:                                              ; preds = %104
+  %119 = load ptr, ptr %7, align 8
+  %120 = getelementptr inbounds %struct._packet_info, ptr %119, i32 0, i32 50
   %121 = load ptr, ptr %120, align 8
-  %122 = load ptr, ptr %20, align 8
-  %123 = load i8, ptr %15, align 1
-  %124 = zext i8 %123 to i64
-  %125 = getelementptr [8 x ptr], ptr @zdp_parse_complex_desc.tag_name, i64 0, i64 %124
-  %126 = load ptr, ptr %125, align 8
-  %127 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %117, ptr noundef @.str.143, ptr noundef %121, ptr noundef %122, ptr noundef %126)
-  store ptr %127, ptr %14, align 8
-  br label %136
+  %122 = load i8, ptr %15, align 1
+  %123 = zext i8 %122 to i64
+  %124 = getelementptr [8 x ptr], ptr @zdp_parse_complex_desc.tag_name, i64 0, i64 %123
+  %125 = load ptr, ptr %124, align 8
+  %126 = load ptr, ptr %20, align 8
+  %127 = load i8, ptr %15, align 1
+  %128 = zext i8 %127 to i64
+  %129 = getelementptr [8 x ptr], ptr @zdp_parse_complex_desc.tag_name, i64 0, i64 %128
+  %130 = load ptr, ptr %129, align 8
+  %131 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %121, ptr noundef @.str.143, ptr noundef %125, ptr noundef %126, ptr noundef %130)
+  store ptr %131, ptr %14, align 8
+  br label %140
 
-128:                                              ; preds = %100
-  %129 = load ptr, ptr %7, align 8
-  %130 = getelementptr inbounds %struct._packet_info, ptr %129, i32 0, i32 50
-  %131 = load ptr, ptr %130, align 8
-  %132 = load ptr, ptr @zdp_parse_complex_desc.tag_name, align 16
-  %133 = load ptr, ptr %20, align 8
-  %134 = load ptr, ptr @zdp_parse_complex_desc.tag_name, align 16
-  %135 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %131, ptr noundef @.str.143, ptr noundef %132, ptr noundef %133, ptr noundef %134)
-  store ptr %135, ptr %14, align 8
-  br label %136
+132:                                              ; preds = %104
+  %133 = load ptr, ptr %7, align 8
+  %134 = getelementptr inbounds %struct._packet_info, ptr %133, i32 0, i32 50
+  %135 = load ptr, ptr %134, align 8
+  %136 = load ptr, ptr @zdp_parse_complex_desc.tag_name, align 16
+  %137 = load ptr, ptr %20, align 8
+  %138 = load ptr, ptr @zdp_parse_complex_desc.tag_name, align 16
+  %139 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %135, ptr noundef @.str.143, ptr noundef %136, ptr noundef %137, ptr noundef %138)
+  store ptr %139, ptr %14, align 8
+  br label %140
 
-136:                                              ; preds = %128, %114
-  br label %137
+140:                                              ; preds = %132, %118
+  br label %141
 
-137:                                              ; preds = %136, %93
-  br label %138
+141:                                              ; preds = %140, %95
+  br label %142
 
-138:                                              ; preds = %137, %55
-  %139 = load ptr, ptr %13, align 8
-  %140 = load i32, ptr @hf_zbee_zdp_complex, align 4
-  %141 = load ptr, ptr %10, align 8
-  %142 = load ptr, ptr %11, align 8
-  %143 = load i32, ptr %142, align 4
-  %144 = load i32, ptr %12, align 4
-  %145 = load ptr, ptr %14, align 8
-  %146 = call ptr @proto_tree_add_string(ptr noundef %139, i32 noundef %140, ptr noundef %141, i32 noundef %143, i32 noundef %144, ptr noundef %145)
-  %147 = load i32, ptr %12, align 4
-  %148 = load ptr, ptr %11, align 8
-  %149 = load i32, ptr %148, align 4
-  %150 = add i32 %149, %147
-  store i32 %150, ptr %148, align 4
+142:                                              ; preds = %141, %55
+  %143 = load ptr, ptr %13, align 8
+  %144 = load i32, ptr @hf_zbee_zdp_complex, align 4
+  %145 = load ptr, ptr %10, align 8
+  %146 = load ptr, ptr %11, align 8
+  %147 = load i32, ptr %146, align 4
+  %148 = load i32, ptr %12, align 4
+  %149 = load ptr, ptr %14, align 8
+  %150 = call ptr @proto_tree_add_string(ptr noundef %143, i32 noundef %144, ptr noundef %145, i32 noundef %147, i32 noundef %148, ptr noundef %149)
+  %151 = load i32, ptr %12, align 4
+  %152 = load ptr, ptr %11, align 8
+  %153 = load i32, ptr %152, align 4
+  %154 = add i32 %153, %151
+  store i32 %154, ptr %152, align 4
   ret void
 }
 
@@ -3158,7 +3156,7 @@ declare ptr @find_dissector(ptr noundef) #1
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
 
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
@@ -3420,11 +3418,17 @@ declare void @dissect_zbee_zdp_rsp_security_decommission(ptr noundef, ptr nounde
 
 declare void @dissect_zbee_zdp_rsp_security_challenge(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

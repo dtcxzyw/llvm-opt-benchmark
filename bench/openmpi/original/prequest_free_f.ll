@@ -51,15 +51,16 @@ define void @ompi_request_free_f(ptr noundef %0, ptr noundef %1) #0 {
 16:                                               ; preds = %13, %2
   %17 = load i32, ptr %5, align 4
   %18 = icmp eq i32 0, %17
-  br i1 %18, label %19, label %22
+  br i1 %18, label %19, label %23
 
 19:                                               ; preds = %16
-  %20 = load i32, ptr getelementptr inbounds (%struct.ompi_request_t, ptr @ompi_request_null, i32 0, i32 6), align 8
-  %21 = load ptr, ptr %3, align 8
-  store i32 %20, ptr %21, align 4
-  br label %22
+  %20 = getelementptr inbounds %struct.ompi_request_t, ptr @ompi_request_null, i32 0, i32 6
+  %21 = load i32, ptr %20, align 8
+  %22 = load ptr, ptr %3, align 8
+  store i32 %21, ptr %22, align 4
+  br label %23
 
-22:                                               ; preds = %19, %16
+23:                                               ; preds = %19, %16
   ret void
 }
 

@@ -44,19 +44,22 @@ define hidden void @keypair_context_init(ptr noundef %0, ptr noundef %1, i8 noun
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9, %3
-  br label %17
+  br label %20
 
 13:                                               ; preds = %9
   call void @llvm.memset.p0.i64(ptr align 1 @keypair_context, i8 0, i64 258, i1 false)
   %14 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 3), ptr align 1 %14, i64 8, i1 false)
-  %15 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 4), ptr align 1 %15, i64 8, i1 false)
-  %16 = load i8, ptr %6, align 1
-  store i8 %16, ptr getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 5), align 1
-  br label %17
+  %15 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %14, i64 8, i1 false)
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %16, i64 8, i1 false)
+  %18 = load i8, ptr %6, align 1
+  %19 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 5
+  store i8 %18, ptr %19, align 1
+  br label %20
 
-17:                                               ; preds = %13, %12
+20:                                               ; preds = %13, %12
   ret void
 }
 
@@ -81,164 +84,178 @@ define hidden void @keypair_context_update_seed(ptr noundef %0, i8 noundef zeroe
   store i8 %1, ptr %4, align 1
   %12 = load i8, ptr %4, align 1
   %13 = zext i8 %12 to i32
-  %14 = load i8, ptr getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 6), align 1
-  %15 = zext i8 %14 to i32
-  %16 = sub i32 %15, 1
-  %17 = icmp eq i32 %13, %16
-  %18 = zext i1 %17 to i32
-  store i32 %18, ptr %5, align 4
-  %19 = load i8, ptr %4, align 1
-  %20 = zext i8 %19 to i32
-  %21 = add i32 %20, 1
-  %22 = load i8, ptr getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 5), align 1
-  %23 = zext i8 %22 to i32
-  %24 = icmp eq i32 %21, %23
-  %25 = zext i1 %24 to i32
-  store i32 %25, ptr %6, align 4
-  %26 = load i32, ptr %5, align 4
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %32
+  %14 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 6
+  %15 = load i8, ptr %14, align 1
+  %16 = zext i8 %15 to i32
+  %17 = sub i32 %16, 1
+  %18 = icmp eq i32 %13, %17
+  %19 = zext i1 %18 to i32
+  store i32 %19, ptr %5, align 4
+  %20 = load i8, ptr %4, align 1
+  %21 = zext i8 %20 to i32
+  %22 = add i32 %21, 1
+  %23 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 5
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i32
+  %26 = icmp eq i32 %22, %25
+  %27 = zext i1 %26 to i32
+  store i32 %27, ptr %6, align 4
+  %28 = load i32, ptr %5, align 4
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %36
 
-28:                                               ; preds = %2
-  %29 = load i32, ptr %6, align 4
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %31, label %32
+30:                                               ; preds = %2
+  %31 = load i32, ptr %6, align 4
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %36
 
-31:                                               ; preds = %28
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 2), ptr align 1 getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 1), i64 80, i1 false)
-  br label %32
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 2
+  %35 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %35, i64 80, i1 false)
+  br label %36
 
-32:                                               ; preds = %31, %28, %2
-  %33 = load i8, ptr %4, align 1
-  %34 = zext i8 %33 to i32
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %38
+36:                                               ; preds = %33, %30, %2
+  %37 = load i8, ptr %4, align 1
+  %38 = zext i8 %37 to i32
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %43
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 @keypair_context, ptr align 1 %37, i64 80, i1 false)
-  store i8 1, ptr getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 6), align 1
-  br label %109
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 @keypair_context, ptr align 1 %41, i64 80, i1 false)
+  %42 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 6
+  store i8 1, ptr %42, align 1
+  br label %123
 
-38:                                               ; preds = %32
-  %39 = load i32, ptr %5, align 4
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %47
+43:                                               ; preds = %36
+  %44 = load i32, ptr %5, align 4
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %52
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 @keypair_context, ptr align 1 %42, i64 80, i1 false)
-  %43 = load i32, ptr %6, align 4
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %46, label %45
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 @keypair_context, ptr align 1 %47, i64 80, i1 false)
+  %48 = load i32, ptr %6, align 4
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %51, label %50
 
-45:                                               ; preds = %41
-  br label %109
+50:                                               ; preds = %46
+  br label %123
 
-46:                                               ; preds = %41
-  br label %47
+51:                                               ; preds = %46
+  br label %52
 
-47:                                               ; preds = %46, %38
-  %48 = load i8, ptr %4, align 1
-  %49 = zext i8 %48 to i32
-  %50 = load i8, ptr getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 6), align 1
-  %51 = zext i8 %50 to i32
-  %52 = icmp eq i32 %49, %51
-  br i1 %52, label %53, label %79
+52:                                               ; preds = %51, %43
+  %53 = load i8, ptr %4, align 1
+  %54 = zext i8 %53 to i32
+  %55 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 6
+  %56 = load i8, ptr %55, align 1
+  %57 = zext i8 %56 to i32
+  %58 = icmp eq i32 %54, %57
+  br i1 %58, label %59, label %88
 
-53:                                               ; preds = %47
+59:                                               ; preds = %52
   store i32 0, ptr %7, align 4
-  br label %54
+  br label %60
 
-54:                                               ; preds = %70, %53
-  %55 = load i32, ptr %7, align 4
-  %56 = icmp slt i32 %55, 80
-  br i1 %56, label %57, label %73
+60:                                               ; preds = %77, %59
+  %61 = load i32, ptr %7, align 4
+  %62 = icmp slt i32 %61, 80
+  br i1 %62, label %63, label %80
 
-57:                                               ; preds = %54
-  %58 = load i32, ptr %7, align 4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr [80 x i8], ptr @keypair_context, i64 0, i64 %59
-  %61 = load i8, ptr %60, align 1
-  %62 = zext i8 %61 to i32
-  %63 = load i32, ptr %7, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr [80 x i8], ptr getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 2), i64 0, i64 %64
-  %66 = load i8, ptr %65, align 1
-  %67 = zext i8 %66 to i32
-  %68 = xor i32 %67, %62
-  %69 = trunc i32 %68 to i8
-  store i8 %69, ptr %65, align 1
-  br label %70
+63:                                               ; preds = %60
+  %64 = load i32, ptr %7, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr [80 x i8], ptr @keypair_context, i64 0, i64 %65
+  %67 = load i8, ptr %66, align 1
+  %68 = zext i8 %67 to i32
+  %69 = load i32, ptr %7, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 2
+  %72 = getelementptr [80 x i8], ptr %71, i64 0, i64 %70
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  %75 = xor i32 %74, %68
+  %76 = trunc i32 %75 to i8
+  store i8 %76, ptr %72, align 1
+  br label %77
 
-70:                                               ; preds = %57
-  %71 = load i32, ptr %7, align 4
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %7, align 4
-  br label %54, !llvm.loop !4
+77:                                               ; preds = %63
+  %78 = load i32, ptr %7, align 4
+  %79 = add i32 %78, 1
+  store i32 %79, ptr %7, align 4
+  br label %60, !llvm.loop !4
 
-73:                                               ; preds = %54
-  %74 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 @keypair_context, ptr align 1 %74, i64 80, i1 false)
-  %75 = load i8, ptr getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 6), align 1
-  %76 = zext i8 %75 to i32
-  %77 = add i32 %76, 1
-  %78 = trunc i32 %77 to i8
-  store i8 %78, ptr getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 6), align 1
-  br label %79
+80:                                               ; preds = %60
+  %81 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 @keypair_context, ptr align 1 %81, i64 80, i1 false)
+  %82 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 6
+  %83 = load i8, ptr %82, align 1
+  %84 = zext i8 %83 to i32
+  %85 = add i32 %84, 1
+  %86 = trunc i32 %85 to i8
+  %87 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 6
+  store i8 %86, ptr %87, align 1
+  br label %88
 
-79:                                               ; preds = %73, %47
-  %80 = load i32, ptr %6, align 4
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %82, label %109
+88:                                               ; preds = %80, %52
+  %89 = load i32, ptr %6, align 4
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %91, label %123
 
-82:                                               ; preds = %79
+91:                                               ; preds = %88
   call void @llvm.memset.p0.i64(ptr align 16 %8, i8 0, i64 16, i1 false)
-  %83 = call ptr @rf4ce_addr_table_get_addr_entry_by_ieee(ptr noundef getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 3))
-  store ptr %83, ptr %9, align 8
-  %84 = call ptr @rf4ce_addr_table_get_addr_entry_by_ieee(ptr noundef getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 4))
-  store ptr %84, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 1), ptr align 1 getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 2), i64 80, i1 false)
+  %92 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 3
+  %93 = call ptr @rf4ce_addr_table_get_addr_entry_by_ieee(ptr noundef %92)
+  store ptr %93, ptr %9, align 8
+  %94 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 4
+  %95 = call ptr @rf4ce_addr_table_get_addr_entry_by_ieee(ptr noundef %94)
+  store ptr %95, ptr %10, align 8
+  %96 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 1
+  %97 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %96, ptr align 1 %97, i64 80, i1 false)
   store i32 0, ptr %11, align 4
-  br label %85
+  br label %98
 
-85:                                               ; preds = %101, %82
-  %86 = load i32, ptr %11, align 4
-  %87 = icmp slt i32 %86, 80
-  br i1 %87, label %88, label %104
+98:                                               ; preds = %115, %91
+  %99 = load i32, ptr %11, align 4
+  %100 = icmp slt i32 %99, 80
+  br i1 %100, label %101, label %118
 
-88:                                               ; preds = %85
-  %89 = load i32, ptr %11, align 4
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr [80 x i8], ptr @keypair_context, i64 0, i64 %90
-  %92 = load i8, ptr %91, align 1
-  %93 = zext i8 %92 to i32
-  %94 = load i32, ptr %11, align 4
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr [80 x i8], ptr getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 2), i64 0, i64 %95
-  %97 = load i8, ptr %96, align 1
-  %98 = zext i8 %97 to i32
-  %99 = xor i32 %98, %93
-  %100 = trunc i32 %99 to i8
-  store i8 %100, ptr %96, align 1
-  br label %101
-
-101:                                              ; preds = %88
+101:                                              ; preds = %98
   %102 = load i32, ptr %11, align 4
-  %103 = add i32 %102, 1
-  store i32 %103, ptr %11, align 4
-  br label %85, !llvm.loop !6
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr [80 x i8], ptr @keypair_context, i64 0, i64 %103
+  %105 = load i8, ptr %104, align 1
+  %106 = zext i8 %105 to i32
+  %107 = load i32, ptr %11, align 4
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 2
+  %110 = getelementptr [80 x i8], ptr %109, i64 0, i64 %108
+  %111 = load i8, ptr %110, align 1
+  %112 = zext i8 %111 to i32
+  %113 = xor i32 %112, %106
+  %114 = trunc i32 %113 to i8
+  store i8 %114, ptr %110, align 1
+  br label %115
 
-104:                                              ; preds = %85
-  %105 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
-  call void @keypair_context_calc_key(ptr noundef %105)
-  %106 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
-  %107 = load ptr, ptr %9, align 8
-  %108 = load ptr, ptr %10, align 8
-  call void @nwk_key_storage_add_entry(ptr noundef %106, ptr noundef %107, ptr noundef %108, i32 noundef 0, i32 noundef 1)
-  br label %109
+115:                                              ; preds = %101
+  %116 = load i32, ptr %11, align 4
+  %117 = add i32 %116, 1
+  store i32 %117, ptr %11, align 4
+  br label %98, !llvm.loop !6
 
-109:                                              ; preds = %104, %79, %45, %36
+118:                                              ; preds = %98
+  %119 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
+  call void @keypair_context_calc_key(ptr noundef %119)
+  %120 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
+  %121 = load ptr, ptr %9, align 8
+  %122 = load ptr, ptr %10, align 8
+  call void @nwk_key_storage_add_entry(ptr noundef %120, ptr noundef %121, ptr noundef %122, i32 noundef 0, i32 noundef 1)
+  br label %123
+
+123:                                              ; preds = %118, %88, %50, %40
   ret void
 }
 
@@ -313,63 +330,67 @@ define internal void @keypair_context_calc_key(ptr noundef %0) #0 {
   store i32 0, ptr %3, align 4
   br label %5
 
-5:                                                ; preds = %38, %1
+5:                                                ; preds = %41, %1
   %6 = load i32, ptr %3, align 4
-  %7 = load i8, ptr getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 6), align 1
-  %8 = zext i8 %7 to i32
-  %9 = icmp slt i32 %6, %8
-  br i1 %9, label %10, label %41
+  %7 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 6
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i32
+  %10 = icmp slt i32 %6, %9
+  br i1 %10, label %11, label %44
 
-10:                                               ; preds = %5
+11:                                               ; preds = %5
   store i32 0, ptr %4, align 4
-  br label %11
+  br label %12
 
-11:                                               ; preds = %34, %10
-  %12 = load i32, ptr %4, align 4
-  %13 = icmp slt i32 %12, 16
-  br i1 %13, label %14, label %37
+12:                                               ; preds = %37, %11
+  %13 = load i32, ptr %4, align 4
+  %14 = icmp slt i32 %13, 16
+  br i1 %14, label %15, label %40
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr %3, align 4
-  %16 = mul i32 %15, 16
-  %17 = load i32, ptr %4, align 4
-  %18 = add i32 %16, %17
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr [80 x i8], ptr getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 2), i64 0, i64 %19
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = load i32, ptr %3, align 4
-  %24 = add i32 %23, 1
-  %25 = mul i32 %24, 16
-  %26 = load i32, ptr %4, align 4
-  %27 = add i32 %25, %26
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr [80 x i8], ptr getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 2), i64 0, i64 %28
-  %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i32
-  %32 = xor i32 %31, %22
-  %33 = trunc i32 %32 to i8
-  store i8 %33, ptr %29, align 1
-  br label %34
+15:                                               ; preds = %12
+  %16 = load i32, ptr %3, align 4
+  %17 = mul i32 %16, 16
+  %18 = load i32, ptr %4, align 4
+  %19 = add i32 %17, %18
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 2
+  %22 = getelementptr [80 x i8], ptr %21, i64 0, i64 %20
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  %25 = load i32, ptr %3, align 4
+  %26 = add i32 %25, 1
+  %27 = mul i32 %26, 16
+  %28 = load i32, ptr %4, align 4
+  %29 = add i32 %27, %28
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 2
+  %32 = getelementptr [80 x i8], ptr %31, i64 0, i64 %30
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i32
+  %35 = xor i32 %34, %24
+  %36 = trunc i32 %35 to i8
+  store i8 %36, ptr %32, align 1
+  br label %37
 
-34:                                               ; preds = %14
-  %35 = load i32, ptr %4, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %4, align 4
-  br label %11, !llvm.loop !8
+37:                                               ; preds = %15
+  %38 = load i32, ptr %4, align 4
+  %39 = add i32 %38, 1
+  store i32 %39, ptr %4, align 4
+  br label %12, !llvm.loop !8
 
-37:                                               ; preds = %11
-  br label %38
+40:                                               ; preds = %12
+  br label %41
 
-38:                                               ; preds = %37
-  %39 = load i32, ptr %3, align 4
-  %40 = add i32 %39, 1
-  store i32 %40, ptr %3, align 4
+41:                                               ; preds = %40
+  %42 = load i32, ptr %3, align 4
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %3, align 4
   br label %5, !llvm.loop !9
 
-41:                                               ; preds = %5
-  %42 = load ptr, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 getelementptr inbounds (%struct.keypair_context_s, ptr @keypair_context, i32 0, i32 2, i64 64), i64 16, i1 false)
+44:                                               ; preds = %5
+  %45 = load ptr, ptr %2, align 8
+  %46 = getelementptr inbounds %struct.keypair_context_s, ptr @keypair_context, i32 0, i32 2, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 1 %46, i64 16, i1 false)
   ret void
 }
 
@@ -904,44 +925,52 @@ declare i32 @proto_get_id_by_filter_name(ptr noundef) #4
 ; Function Attrs: nounwind uwtable
 define hidden void @key_exchange_context_init() #0 {
   call void @llvm.memset.p0.i64(ptr align 4 @key_exchange_context, i8 0, i64 8, i1 false)
-  call void @llvm.memset.p0.i64(ptr align 4 getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 1), i8 0, i64 8, i1 false)
-  call void @llvm.memset.p0.i64(ptr align 4 getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 2), i8 0, i64 8, i1 false)
-  call void @llvm.memset.p0.i64(ptr align 4 getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 3), i8 0, i64 8, i1 false)
+  %1 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 4 %1, i8 0, i64 8, i1 false)
+  %2 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 2
+  call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 8, i1 false)
+  %3 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 4 %3, i8 0, i64 8, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @key_exchange_context_start_procedure() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 4), align 4
-  %2 = icmp ne i32 %1, 0
-  br i1 %2, label %4, label %3
+  %1 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 4
+  %2 = load i32, ptr %1, align 4
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %6, label %4
 
-3:                                                ; preds = %0
-  store i32 1, ptr getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 4), align 4
-  br label %4
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 4
+  store i32 1, ptr %5, align 4
+  br label %6
 
-4:                                                ; preds = %3, %0
+6:                                                ; preds = %4, %0
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @key_exchange_context_stop_procedure() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 4), align 4
-  %2 = icmp ne i32 %1, 0
-  br i1 %2, label %3, label %4
+  %1 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 4
+  %2 = load i32, ptr %1, align 4
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %6
 
-3:                                                ; preds = %0
-  store i32 0, ptr getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 4), align 4
-  br label %4
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 4
+  store i32 0, ptr %5, align 4
+  br label %6
 
-4:                                                ; preds = %3, %0
+6:                                                ; preds = %4, %0
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @key_exchange_context_is_procedure_started() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 4), align 4
-  ret i32 %1
+  %1 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 4
+  %2 = load i32, ptr %1, align 4
+  ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -967,14 +996,15 @@ define hidden void @key_exchange_context_set_rand_b(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %7
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 1), ptr align 1 %6, i64 8, i1 false)
-  br label %7
+  %7 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 1 %6, i64 8, i1 false)
+  br label %8
 
-7:                                                ; preds = %5, %1
+8:                                                ; preds = %5, %1
   ret void
 }
 
@@ -984,14 +1014,15 @@ define hidden void @key_exchange_context_set_mac_a(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %7
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 2), ptr align 1 %6, i64 8, i1 false)
-  br label %7
+  %7 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 1 %6, i64 8, i1 false)
+  br label %8
 
-7:                                                ; preds = %5, %1
+8:                                                ; preds = %5, %1
   ret void
 }
 
@@ -1001,14 +1032,15 @@ define hidden void @key_exchange_context_set_mac_b(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %7
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 3), ptr align 1 %6, i64 8, i1 false)
-  br label %7
+  %7 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 1 %6, i64 8, i1 false)
+  br label %8
 
-7:                                                ; preds = %5, %1
+8:                                                ; preds = %5, %1
   ret void
 }
 
@@ -1024,81 +1056,83 @@ define hidden void @key_exchange_calc_key(i32 noundef %0) #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  store ptr getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 2), ptr %3, align 8
-  store ptr getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 3), ptr %4, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = call ptr @rf4ce_addr_table_get_addr_entry_by_ieee(ptr noundef %11)
-  store ptr %12, ptr %5, align 8
-  %13 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 2
+  store ptr %11, ptr %3, align 8
+  %12 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 3
+  store ptr %12, ptr %4, align 8
+  %13 = load ptr, ptr %3, align 8
   %14 = call ptr @rf4ce_addr_table_get_addr_entry_by_ieee(ptr noundef %13)
-  store ptr %14, ptr %6, align 8
+  store ptr %14, ptr %5, align 8
+  %15 = load ptr, ptr %4, align 8
+  %16 = call ptr @rf4ce_addr_table_get_addr_entry_by_ieee(ptr noundef %15)
+  store ptr %16, ptr %6, align 8
   store i32 0, ptr %9, align 4
   store i32 0, ptr %10, align 4
-  br label %15
+  br label %17
 
-15:                                               ; preds = %51, %1
-  %16 = load i32, ptr %10, align 4
-  %17 = icmp ult i32 %16, 64
-  br i1 %17, label %18, label %54
+17:                                               ; preds = %53, %1
+  %18 = load i32, ptr %10, align 4
+  %19 = icmp ult i32 %18, 64
+  br i1 %19, label %20, label %56
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr %10, align 4
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr [64 x %struct.vendor_secret_entry_s], ptr @vendor_secret_storage, i64 0, i64 %20
-  %22 = getelementptr inbounds %struct.vendor_secret_entry_s, ptr %21, i32 0, i32 1
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %26, label %25
+20:                                               ; preds = %17
+  %21 = load i32, ptr %10, align 4
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr [64 x %struct.vendor_secret_entry_s], ptr @vendor_secret_storage, i64 0, i64 %22
+  %24 = getelementptr inbounds %struct.vendor_secret_entry_s, ptr %23, i32 0, i32 1
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %28, label %27
 
-25:                                               ; preds = %18
-  br label %51
+27:                                               ; preds = %20
+  br label %53
 
-26:                                               ; preds = %18
-  %27 = load i32, ptr %10, align 4
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr [64 x %struct.vendor_secret_entry_s], ptr @vendor_secret_storage, i64 0, i64 %28
-  %30 = getelementptr inbounds %struct.vendor_secret_entry_s, ptr %29, i32 0, i32 0
-  %31 = getelementptr inbounds [16 x i8], ptr %30, i64 0, i64 0
-  store ptr %31, ptr %7, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = load i32, ptr %2, align 4
-  %34 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
-  %35 = call i32 @key_exchange_calc_key_cont(ptr noundef %32, i32 noundef %33, i32 noundef 1, ptr noundef %34)
-  store i32 %35, ptr %9, align 4
-  %36 = load i32, ptr %9, align 4
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %43, label %38
+28:                                               ; preds = %20
+  %29 = load i32, ptr %10, align 4
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr [64 x %struct.vendor_secret_entry_s], ptr @vendor_secret_storage, i64 0, i64 %30
+  %32 = getelementptr inbounds %struct.vendor_secret_entry_s, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds [16 x i8], ptr %32, i64 0, i64 0
+  store ptr %33, ptr %7, align 8
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %2, align 4
+  %36 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
+  %37 = call i32 @key_exchange_calc_key_cont(ptr noundef %34, i32 noundef %35, i32 noundef 1, ptr noundef %36)
+  store i32 %37, ptr %9, align 4
+  %38 = load i32, ptr %9, align 4
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %45, label %40
 
-38:                                               ; preds = %26
-  %39 = load ptr, ptr %7, align 8
-  %40 = load i32, ptr %2, align 4
-  %41 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
-  %42 = call i32 @key_exchange_calc_key_cont(ptr noundef %39, i32 noundef %40, i32 noundef 0, ptr noundef %41)
-  store i32 %42, ptr %9, align 4
-  br label %43
+40:                                               ; preds = %28
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i32, ptr %2, align 4
+  %43 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
+  %44 = call i32 @key_exchange_calc_key_cont(ptr noundef %41, i32 noundef %42, i32 noundef 0, ptr noundef %43)
+  store i32 %44, ptr %9, align 4
+  br label %45
 
-43:                                               ; preds = %38, %26
-  %44 = load i32, ptr %9, align 4
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %50
+45:                                               ; preds = %40, %28
+  %46 = load i32, ptr %9, align 4
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %52
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
-  %48 = load ptr, ptr %5, align 8
-  %49 = load ptr, ptr %6, align 8
-  call void @nwk_key_storage_add_entry(ptr noundef %47, ptr noundef %48, ptr noundef %49, i32 noundef 0, i32 noundef 0)
-  br label %54
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
+  %50 = load ptr, ptr %5, align 8
+  %51 = load ptr, ptr %6, align 8
+  call void @nwk_key_storage_add_entry(ptr noundef %49, ptr noundef %50, ptr noundef %51, i32 noundef 0, i32 noundef 0)
+  br label %56
 
-50:                                               ; preds = %43
-  br label %51
+52:                                               ; preds = %45
+  br label %53
 
-51:                                               ; preds = %50, %25
-  %52 = load i32, ptr %10, align 4
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %10, align 4
-  br label %15, !llvm.loop !15
+53:                                               ; preds = %52, %27
+  %54 = load i32, ptr %10, align 4
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %10, align 4
+  br label %17, !llvm.loop !15
 
-54:                                               ; preds = %46, %15
+56:                                               ; preds = %48, %17
   ret void
 }
 
@@ -1675,72 +1709,75 @@ define internal i32 @calc_key_cmac(ptr noundef %0, ptr noundef %1, i32 noundef %
   store i32 %2, ptr %8, align 4
   store ptr %3, ptr %9, align 8
   store ptr @key_exchange_context, ptr %12, align 8
-  store ptr getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 1), ptr %13, align 8
-  %21 = getelementptr inbounds [8 x i8], ptr %10, i64 0, i64 0
-  call void @reverse(ptr noundef %21, ptr noundef getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 2), i16 noundef zeroext 8)
-  %22 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 0
-  call void @reverse(ptr noundef %22, ptr noundef getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 3), i16 noundef zeroext 8)
-  %23 = getelementptr inbounds %struct.rf4ce_key_dk_tag_s, ptr %14, i32 0, i32 0
-  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 0, i64 0
-  %25 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %25, i64 8, i1 false)
-  %26 = getelementptr inbounds %struct.rf4ce_key_dk_tag_s, ptr %14, i32 0, i32 1
+  %21 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 1
+  store ptr %21, ptr %13, align 8
+  %22 = getelementptr inbounds [8 x i8], ptr %10, i64 0, i64 0
+  %23 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 2
+  call void @reverse(ptr noundef %22, ptr noundef %23, i16 noundef zeroext 8)
+  %24 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 0
+  %25 = getelementptr inbounds %struct.key_exchange_context_s, ptr @key_exchange_context, i32 0, i32 3
+  call void @reverse(ptr noundef %24, ptr noundef %25, i16 noundef zeroext 8)
+  %26 = getelementptr inbounds %struct.rf4ce_key_dk_tag_s, ptr %14, i32 0, i32 0
   %27 = getelementptr inbounds [8 x i8], ptr %26, i64 0, i64 0
-  %28 = load ptr, ptr %13, align 8
+  %28 = load ptr, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %28, i64 8, i1 false)
-  %29 = getelementptr inbounds %struct.rf4ce_key_dk_tag_s, ptr %15, i32 0, i32 0
+  %29 = getelementptr inbounds %struct.rf4ce_key_dk_tag_s, ptr %14, i32 0, i32 1
   %30 = getelementptr inbounds [8 x i8], ptr %29, i64 0, i64 0
   %31 = load ptr, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %31, i64 8, i1 false)
-  %32 = getelementptr inbounds %struct.rf4ce_key_dk_tag_s, ptr %15, i32 0, i32 1
+  %32 = getelementptr inbounds %struct.rf4ce_key_dk_tag_s, ptr %15, i32 0, i32 0
   %33 = getelementptr inbounds [8 x i8], ptr %32, i64 0, i64 0
-  %34 = load ptr, ptr %12, align 8
+  %34 = load ptr, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %34, i64 8, i1 false)
-  %35 = getelementptr inbounds %struct.rf4ce_key_context_s, ptr %16, i32 0, i32 0
-  %36 = getelementptr inbounds [9 x i8], ptr %35, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 @.str.1, i64 9, i1 false)
-  %37 = getelementptr inbounds %struct.rf4ce_key_context_s, ptr %16, i32 0, i32 1
-  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 0, i64 0
-  %39 = getelementptr inbounds [8 x i8], ptr %10, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %39, i64 8, i1 false)
-  %40 = getelementptr inbounds %struct.rf4ce_key_context_s, ptr %16, i32 0, i32 2
+  %35 = getelementptr inbounds %struct.rf4ce_key_dk_tag_s, ptr %15, i32 0, i32 1
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 0, i64 0
+  %37 = load ptr, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %37, i64 8, i1 false)
+  %38 = getelementptr inbounds %struct.rf4ce_key_context_s, ptr %16, i32 0, i32 0
+  %39 = getelementptr inbounds [9 x i8], ptr %38, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 @.str.1, i64 9, i1 false)
+  %40 = getelementptr inbounds %struct.rf4ce_key_context_s, ptr %16, i32 0, i32 1
   %41 = getelementptr inbounds [8 x i8], ptr %40, i64 0, i64 0
-  %42 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 0
+  %42 = getelementptr inbounds [8 x i8], ptr %10, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 1 %42, i64 8, i1 false)
-  %43 = getelementptr inbounds %struct.rf4ce_key_context_s, ptr %16, i32 0, i32 3
-  %44 = getelementptr inbounds [16 x i8], ptr %43, i64 0, i64 0
-  %45 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %45, i64 16, i1 false)
-  %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds [16 x i8], ptr %17, i64 0, i64 0
-  call void @rf4ce_aes_cmac(ptr noundef %46, i64 noundef 16, ptr noundef %14, ptr noundef %47)
-  %48 = getelementptr inbounds [16 x i8], ptr %17, i64 0, i64 0
-  %49 = getelementptr inbounds [16 x i8], ptr %18, i64 0, i64 0
-  call void @rf4ce_aes_cmac(ptr noundef %16, i64 noundef 41, ptr noundef %48, ptr noundef %49)
-  %50 = getelementptr inbounds [16 x i8], ptr %18, i64 0, i64 0
-  %51 = getelementptr inbounds [16 x i8], ptr %19, i64 0, i64 0
-  call void @rf4ce_aes_cmac(ptr noundef %15, i64 noundef 16, ptr noundef %50, ptr noundef %51)
-  %52 = getelementptr inbounds [16 x i8], ptr %19, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %20, ptr align 16 %52, i64 4, i1 false)
-  %53 = load i32, ptr %8, align 4
-  %54 = load i32, ptr %20, align 4
-  %55 = icmp eq i32 %53, %54
-  br i1 %55, label %56, label %59
-
-56:                                               ; preds = %4
-  %57 = load ptr, ptr %9, align 8
-  %58 = getelementptr inbounds [16 x i8], ptr %18, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 16 %58, i64 16, i1 false)
-  store i32 1, ptr %5, align 4
-  br label %60
+  %43 = getelementptr inbounds %struct.rf4ce_key_context_s, ptr %16, i32 0, i32 2
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 0, i64 0
+  %45 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %45, i64 8, i1 false)
+  %46 = getelementptr inbounds %struct.rf4ce_key_context_s, ptr %16, i32 0, i32 3
+  %47 = getelementptr inbounds [16 x i8], ptr %46, i64 0, i64 0
+  %48 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %48, i64 16, i1 false)
+  %49 = load ptr, ptr %6, align 8
+  %50 = getelementptr inbounds [16 x i8], ptr %17, i64 0, i64 0
+  call void @rf4ce_aes_cmac(ptr noundef %49, i64 noundef 16, ptr noundef %14, ptr noundef %50)
+  %51 = getelementptr inbounds [16 x i8], ptr %17, i64 0, i64 0
+  %52 = getelementptr inbounds [16 x i8], ptr %18, i64 0, i64 0
+  call void @rf4ce_aes_cmac(ptr noundef %16, i64 noundef 41, ptr noundef %51, ptr noundef %52)
+  %53 = getelementptr inbounds [16 x i8], ptr %18, i64 0, i64 0
+  %54 = getelementptr inbounds [16 x i8], ptr %19, i64 0, i64 0
+  call void @rf4ce_aes_cmac(ptr noundef %15, i64 noundef 16, ptr noundef %53, ptr noundef %54)
+  %55 = getelementptr inbounds [16 x i8], ptr %19, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %20, ptr align 16 %55, i64 4, i1 false)
+  %56 = load i32, ptr %8, align 4
+  %57 = load i32, ptr %20, align 4
+  %58 = icmp eq i32 %56, %57
+  br i1 %58, label %59, label %62
 
 59:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %60
+  %60 = load ptr, ptr %9, align 8
+  %61 = getelementptr inbounds [16 x i8], ptr %18, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 16 %61, i64 16, i1 false)
+  store i32 1, ptr %5, align 4
+  br label %63
 
-60:                                               ; preds = %59, %56
-  %61 = load i32, ptr %5, align 4
-  ret i32 %61
+62:                                               ; preds = %4
+  store i32 0, ptr %5, align 4
+  br label %63
+
+63:                                               ; preds = %62, %59
+  %64 = load i32, ptr %5, align 4
+  ret i32 %64
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

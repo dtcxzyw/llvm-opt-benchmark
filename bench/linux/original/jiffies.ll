@@ -41,26 +41,30 @@ define weak dso_local ptr @clocksource_default_clock() local_unnamed_addr #0 sec
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @register_refined_jiffies(i64 noundef %0) local_unnamed_addr #1 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) @refined_jiffies, ptr noundef nonnull align 8 dereferenceable(184) @clocksource_jiffies, i64 184, i1 false)
-  store ptr @.str, ptr getelementptr inbounds (%struct.clocksource, ptr @refined_jiffies, i64 0, i32 8), align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.clocksource, ptr @refined_jiffies, i64 0, i32 10), align 8
-  %3 = add i32 %2, 1
-  store i32 %3, ptr getelementptr inbounds (%struct.clocksource, ptr @refined_jiffies, i64 0, i32 10), align 8
-  %4 = add i64 %0, 500
-  %5 = sdiv i64 %4, 1000
-  %6 = shl i64 %0, 8
-  %7 = sdiv i64 %4, 2000
-  %8 = add i64 %7, %6
-  %9 = and i64 %5, 4294967295
-  %10 = udiv i64 %8, %9
-  %11 = lshr i64 %10, 1
-  %12 = and i64 %11, 2147483647
-  %13 = add nuw nsw i64 %12, 256000000000
-  %14 = and i64 %10, 4294967295
-  %15 = udiv i64 %13, %14
-  %16 = trunc i64 %15 to i32
-  %17 = shl i32 %16, 8
-  store i32 %17, ptr getelementptr inbounds (%struct.clocksource, ptr @refined_jiffies, i64 0, i32 2), align 8
-  %18 = tail call i32 @__clocksource_register_scale(ptr noundef nonnull @refined_jiffies, i32 noundef 1, i32 noundef 0) #5
+  %2 = getelementptr inbounds %struct.clocksource, ptr @refined_jiffies, i64 0, i32 8
+  store ptr @.str, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.clocksource, ptr @refined_jiffies, i64 0, i32 10
+  %4 = load i32, ptr %3, align 8
+  %5 = add i32 %4, 1
+  %6 = getelementptr inbounds %struct.clocksource, ptr @refined_jiffies, i64 0, i32 10
+  store i32 %5, ptr %6, align 8
+  %7 = add i64 %0, 500
+  %8 = sdiv i64 %7, 1000
+  %9 = shl i64 %0, 8
+  %10 = sdiv i64 %7, 2000
+  %11 = add i64 %10, %9
+  %12 = and i64 %8, 4294967295
+  %13 = udiv i64 %11, %12
+  %14 = lshr i64 %13, 1
+  %15 = and i64 %14, 2147483647
+  %16 = add nuw nsw i64 %15, 256000000000
+  %17 = and i64 %13, 4294967295
+  %18 = udiv i64 %16, %17
+  %19 = trunc i64 %18 to i32
+  %20 = shl i32 %19, 8
+  %21 = getelementptr inbounds %struct.clocksource, ptr @refined_jiffies, i64 0, i32 2
+  store i32 %20, ptr %21, align 8
+  %22 = tail call i32 @__clocksource_register_scale(ptr noundef nonnull @refined_jiffies, i32 noundef 1, i32 noundef 0) #5
   ret i32 0
 }
 

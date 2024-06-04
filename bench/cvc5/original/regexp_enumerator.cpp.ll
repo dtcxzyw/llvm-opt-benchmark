@@ -204,7 +204,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings16RegExpEnumeratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings16RegExpEnumeratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_senum = getelementptr inbounds %"class.cvc5::internal::theory::strings::RegExpEnumerator", ptr %this1, i32 0, i32 1
   %call = invoke noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
           to label %invoke.cont4 unwind label %lpad3
@@ -214,8 +215,8 @@ invoke.cont4:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  %0 = load ptr, ptr %tep.addr, align 8
-  invoke void @_ZN4cvc58internal6theory7strings16StringEnumeratorC1ENS0_8TypeNodeEPNS1_24TypeEnumeratorPropertiesE(ptr noundef nonnull align 8 dereferenceable(56) %d_senum, ptr noundef %agg.tmp2, ptr noundef %0)
+  %1 = load ptr, ptr %tep.addr, align 8
+  invoke void @_ZN4cvc58internal6theory7strings16StringEnumeratorC1ENS0_8TypeNodeEPNS1_24TypeEnumeratorPropertiesE(ptr noundef nonnull align 8 dereferenceable(56) %d_senum, ptr noundef %agg.tmp2, ptr noundef %1)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -223,31 +224,31 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %eh.resume
 
 lpad3:                                            ; preds = %invoke.cont4, %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp2) #3
   br label %ehcleanup
 
@@ -299,16 +300,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory18TypeEnumeratorBaseINS1_7strings16RegExpEnumeratorEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory18TypeEnumeratorBaseINS1_7strings16RegExpEnumeratorEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %eh.resume
 
@@ -368,10 +370,11 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings16RegExpEnumeratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings16RegExpEnumeratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_senum = getelementptr inbounds %"class.cvc5::internal::theory::strings::RegExpEnumerator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %enumerator.addr, align 8
-  %d_senum2 = getelementptr inbounds %"class.cvc5::internal::theory::strings::RegExpEnumerator", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %enumerator.addr, align 8
+  %d_senum2 = getelementptr inbounds %"class.cvc5::internal::theory::strings::RegExpEnumerator", ptr %2, i32 0, i32 1
   invoke void @_ZN4cvc58internal6theory7strings16StringEnumeratorC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %d_senum, ptr noundef nonnull align 8 dereferenceable(56) %d_senum2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -379,22 +382,22 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %eh.resume
 
 lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_7strings16RegExpEnumeratorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -627,7 +630,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings16RegExpEnumeratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings16RegExpEnumeratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_senum = getelementptr inbounds %"class.cvc5::internal::theory::strings::RegExpEnumerator", ptr %this1, i32 0, i32 1
   call void @_ZN4cvc58internal6theory7strings16StringEnumeratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_senum) #3
   call void @_ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_7strings16RegExpEnumeratorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -802,7 +806,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_type = getelementptr inbounds %"class.cvc5::internal::theory::TypeEnumeratorInterface", ptr %this1, i32 0, i32 1
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_type) #3
   ret void
@@ -853,7 +858,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings16StringEnumeratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings16StringEnumeratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_wenum = getelementptr inbounds %"class.cvc5::internal::theory::strings::StringEnumerator", ptr %this1, i32 0, i32 1
   call void @_ZN4cvc58internal6theory7strings13StringEnumLenD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %d_wenum) #3
   call void @_ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_7strings16StringEnumeratorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -924,7 +930,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings8SEnumLenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings8SEnumLenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_curr = getelementptr inbounds %"class.cvc5::internal::theory::strings::SEnumLen", ptr %this1, i32 0, i32 3
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_curr) #3
   %d_witer = getelementptr inbounds %"class.cvc5::internal::theory::strings::SEnumLen", ptr %this1, i32 0, i32 2
@@ -1291,7 +1298,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %type, ptr %type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_type = getelementptr inbounds %"class.cvc5::internal::theory::TypeEnumeratorInterface", ptr %this1, i32 0, i32 1
   call void @_ZN4cvc58internal8TypeNodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %d_type, ptr noundef nonnull align 8 dereferenceable(8) %type)
   ret void

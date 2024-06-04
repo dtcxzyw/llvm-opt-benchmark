@@ -557,13 +557,14 @@ entry:
   store i32 %level, ptr %level.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen16StreamCompressorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZlibStreamCompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8proxygen20ZlibStreamCompressorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %type.addr, align 4
-  store i32 %0, ptr %type_, align 8
+  %1 = load i32, ptr %type.addr, align 4
+  store i32 %1, ptr %type_, align 8
   %level_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %level.addr, align 4
-  store i32 %1, ptr %level_, align 4
+  %2 = load i32, ptr %level.addr, align 4
+  store i32 %2, ptr %level_, align 4
   %status_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this1, i32 0, i32 4
   store i32 0, ptr %status_, align 8
   %init_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this1, i32 0, i32 5
@@ -577,7 +578,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen16StreamCompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8proxygen16StreamCompressorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -587,10 +589,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZlibStreamCompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8proxygen20ZlibStreamCompressorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %init_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this1, i32 0, i32 5
-  %0 = load i8, ptr %init_, align 4
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %init_, align 4
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -608,10 +611,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 

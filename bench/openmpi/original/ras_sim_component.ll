@@ -29,51 +29,63 @@ define internal i32 @ras_sim_component_query(ptr noundef %0, ptr noundef %1) #0 
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 1), align 8
-  %7 = icmp ne ptr null, %6
-  br i1 %7, label %8, label %11
+  %6 = getelementptr inbounds %struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ne ptr null, %7
+  br i1 %8, label %9, label %13
 
-8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8
-  store ptr @prte_ras_sim_module, ptr %9, align 8
-  %10 = load ptr, ptr %5, align 8
-  store i32 1000, ptr %10, align 4
-  store i8 1, ptr getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 5), align 1
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8
+  store ptr @prte_ras_sim_module, ptr %10, align 8
+  %11 = load ptr, ptr %5, align 8
+  store i32 1000, ptr %11, align 4
+  %12 = getelementptr inbounds %struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 5
+  store i8 1, ptr %12, align 1
   store i32 0, ptr %3, align 4
-  br label %14
+  br label %16
 
-11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  store ptr null, ptr %12, align 8
-  %13 = load ptr, ptr %5, align 8
-  store i32 0, ptr %13, align 4
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  store ptr null, ptr %14, align 8
+  %15 = load ptr, ptr %5, align 8
+  store i32 0, ptr %15, align 4
   store i32 -1, ptr %3, align 4
-  br label %14
+  br label %16
 
-14:                                               ; preds = %11, %8
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+16:                                               ; preds = %13, %9
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ras_sim_register() #0 {
   %1 = alloca ptr, align 8
   store ptr @prte_mca_ras_simulator_component, ptr %1, align 8
-  store ptr @.str, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 2), align 8
-  %2 = load ptr, ptr %1, align 8
-  %3 = call i32 @pmix_mca_base_component_var_register(ptr noundef %2, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 5, ptr noundef getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 2))
-  store ptr @.str.3, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 3), align 8
-  %4 = load ptr, ptr %1, align 8
-  %5 = call i32 @pmix_mca_base_component_var_register(ptr noundef %4, ptr noundef @.str.4, ptr noundef @.str.5, i32 noundef 5, ptr noundef getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 3))
-  store ptr null, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 1), align 8
-  %6 = load ptr, ptr %1, align 8
-  %7 = call i32 @pmix_mca_base_component_var_register(ptr noundef %6, ptr noundef @.str.6, ptr noundef @.str.7, i32 noundef 5, ptr noundef getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 1))
-  store i8 1, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 6), align 8
-  %8 = load ptr, ptr %1, align 8
-  %9 = call i32 @pmix_mca_base_component_var_register(ptr noundef %8, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 6))
-  store i8 1, ptr getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 7), align 1
-  %10 = load ptr, ptr %1, align 8
-  %11 = call i32 @pmix_mca_base_component_var_register(ptr noundef %10, ptr noundef @.str.10, ptr noundef @.str.11, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 7))
+  %2 = getelementptr inbounds %struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 2
+  store ptr @.str, ptr %2, align 8
+  %3 = load ptr, ptr %1, align 8
+  %4 = getelementptr inbounds %struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 2
+  %5 = call i32 @pmix_mca_base_component_var_register(ptr noundef %3, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 5, ptr noundef %4)
+  %6 = getelementptr inbounds %struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 3
+  store ptr @.str.3, ptr %6, align 8
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds %struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 3
+  %9 = call i32 @pmix_mca_base_component_var_register(ptr noundef %7, ptr noundef @.str.4, ptr noundef @.str.5, i32 noundef 5, ptr noundef %8)
+  %10 = getelementptr inbounds %struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 1
+  store ptr null, ptr %10, align 8
+  %11 = load ptr, ptr %1, align 8
+  %12 = getelementptr inbounds %struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 1
+  %13 = call i32 @pmix_mca_base_component_var_register(ptr noundef %11, ptr noundef @.str.6, ptr noundef @.str.7, i32 noundef 5, ptr noundef %12)
+  %14 = getelementptr inbounds %struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 6
+  store i8 1, ptr %14, align 8
+  %15 = load ptr, ptr %1, align 8
+  %16 = getelementptr inbounds %struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 6
+  %17 = call i32 @pmix_mca_base_component_var_register(ptr noundef %15, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 7, ptr noundef %16)
+  %18 = getelementptr inbounds %struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 7
+  store i8 1, ptr %18, align 1
+  %19 = load ptr, ptr %1, align 8
+  %20 = getelementptr inbounds %struct.prte_ras_sim_component_t, ptr @prte_mca_ras_simulator_component, i32 0, i32 7
+  %21 = call i32 @pmix_mca_base_component_var_register(ptr noundef %19, ptr noundef @.str.10, ptr noundef @.str.11, i32 noundef 7, ptr noundef %20)
   ret i32 0
 }
 

@@ -329,7 +329,8 @@ entry:
   store i8 %frombool, ptr %reuseOutBuf.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen18StreamDecompressorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %status_ = getelementptr inbounds %"class.proxygen::ZstdStreamDecompressor", ptr %this1, i32 0, i32 1
   store i32 0, ptr %status_, align 8
   %dctx_ = getelementptr inbounds %"class.proxygen::ZstdStreamDecompressor", ptr %this1, i32 0, i32 3
@@ -341,19 +342,19 @@ invoke.cont:                                      ; preds = %entry
   %cachedIOBuf_ = getelementptr inbounds %"class.proxygen::ZstdStreamDecompressor", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEC2IS3_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %cachedIOBuf_, ptr null) #11
   %reuseOutBuf_ = getelementptr inbounds %"class.proxygen::ZstdStreamDecompressor", ptr %this1, i32 0, i32 5
-  %0 = load i8, ptr %reuseOutBuf.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %reuseOutBuf.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %reuseOutBuf_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN8proxygen18StreamDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -371,7 +372,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen18StreamDecompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN8proxygen18StreamDecompressorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1201,7 +1203,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cachedIOBuf_ = getelementptr inbounds %"class.proxygen::ZstdStreamDecompressor", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %cachedIOBuf_) #11
   %dctx_ = getelementptr inbounds %"class.proxygen::ZstdStreamDecompressor", ptr %this1, i32 0, i32 3
@@ -1606,7 +1609,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12out_of_range, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 

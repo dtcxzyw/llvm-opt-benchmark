@@ -4940,53 +4940,55 @@ init:                                             ; preds = %init.check
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %if.end3
-  %8 = load ptr, ptr getelementptr inbounds (%"struct.v8::Isolate::CreateParams", ptr @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, i32 0, i32 2), align 8
-  %9 = load ptr, ptr %params.addr, align 8
-  %snapshot_blob = getelementptr inbounds %"struct.v8::Isolate::CreateParams", ptr %9, i32 0, i32 2
-  store ptr %8, ptr %snapshot_blob, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%"struct.v8::Isolate::CreateParams", ptr @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, i32 0, i32 8), align 8
-  %11 = load ptr, ptr %params.addr, align 8
-  %external_references = getelementptr inbounds %"struct.v8::Isolate::CreateParams", ptr %11, i32 0, i32 8
-  store ptr %10, ptr %external_references, align 8
-  %12 = load ptr, ptr %platform.addr, align 8
-  %13 = load ptr, ptr %isolate, align 8
-  %14 = load ptr, ptr %event_loop.addr, align 8
-  %vtable = load ptr, ptr %12, align 8
+  %8 = getelementptr inbounds %"struct.v8::Isolate::CreateParams", ptr @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %params.addr, align 8
+  %snapshot_blob = getelementptr inbounds %"struct.v8::Isolate::CreateParams", ptr %10, i32 0, i32 2
+  store ptr %9, ptr %snapshot_blob, align 8
+  %11 = getelementptr inbounds %"struct.v8::Isolate::CreateParams", ptr @_ZZN4node10NewIsolateEPN2v87Isolate12CreateParamsEP9uv_loop_sPNS_20MultiIsolatePlatformEPKNS_12SnapshotDataERKNS_15IsolateSettingsEE12first_params, i32 0, i32 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %params.addr, align 8
+  %external_references = getelementptr inbounds %"struct.v8::Isolate::CreateParams", ptr %13, i32 0, i32 8
+  store ptr %12, ptr %external_references, align 8
+  %14 = load ptr, ptr %platform.addr, align 8
+  %15 = load ptr, ptr %isolate, align 8
+  %16 = load ptr, ptr %event_loop.addr, align 8
+  %vtable = load ptr, ptr %14, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 30
-  %15 = load ptr, ptr %vfn, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %13, ptr noundef %14)
-  %16 = load ptr, ptr %params.addr, align 8
-  call void @_ZN4node29SetIsolateCreateParamsForNodeEPN2v87Isolate12CreateParamsE(ptr noundef %16)
-  %17 = load ptr, ptr %isolate, align 8
+  %17 = load ptr, ptr %vfn, align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %15, ptr noundef %16)
   %18 = load ptr, ptr %params.addr, align 8
-  call void @_ZN2v87Isolate10InitializeEPS0_RKNS0_12CreateParamsE(ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(152) %18)
+  call void @_ZN4node29SetIsolateCreateParamsForNodeEPN2v87Isolate12CreateParamsE(ptr noundef %18)
   %19 = load ptr, ptr %isolate, align 8
-  call void @_ZN2v87Isolate5ScopeC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %isolate_scope, ptr noundef %19)
-  %20 = load ptr, ptr %snapshot_data.addr, align 8
-  %cmp4 = icmp eq ptr %20, null
+  %20 = load ptr, ptr %params.addr, align 8
+  call void @_ZN2v87Isolate10InitializeEPS0_RKNS0_12CreateParamsE(ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(152) %20)
+  %21 = load ptr, ptr %isolate, align 8
+  call void @_ZN2v87Isolate5ScopeC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %isolate_scope, ptr noundef %21)
+  %22 = load ptr, ptr %snapshot_data.addr, align 8
+  %cmp4 = icmp eq ptr %22, null
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %init.end
-  %21 = load ptr, ptr %isolate, align 8
-  %22 = load ptr, ptr %settings.addr, align 8
-  call void @_ZN4node19SetIsolateUpForNodeEPN2v87IsolateERKNS_15IsolateSettingsE(ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(64) %22)
+  %23 = load ptr, ptr %isolate, align 8
+  %24 = load ptr, ptr %settings.addr, align 8
+  call void @_ZN4node19SetIsolateUpForNodeEPN2v87IsolateERKNS_15IsolateSettingsE(ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(64) %24)
   br label %if.end6
 
 if.else:                                          ; preds = %init.end
-  %23 = load ptr, ptr %isolate, align 8
-  %24 = load ptr, ptr %settings.addr, align 8
-  call void @_ZN4node22SetIsolateMiscHandlersEPN2v87IsolateERKNS_15IsolateSettingsE(ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(64) %24)
+  %25 = load ptr, ptr %isolate, align 8
+  %26 = load ptr, ptr %settings.addr, align 8
+  call void @_ZN4node22SetIsolateMiscHandlersEPN2v87IsolateERKNS_15IsolateSettingsE(ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(64) %26)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.else, %if.then5
-  %25 = load ptr, ptr %isolate, align 8
-  store ptr %25, ptr %retval, align 8
+  %27 = load ptr, ptr %isolate, align 8
+  store ptr %27, ptr %retval, align 8
   call void @_ZN2v87Isolate5ScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %isolate_scope) #3
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then
-  %26 = load ptr, ptr %retval, align 8
-  ret ptr %26
+  %28 = load ptr, ptr %retval, align 8
+  ret ptr %28
 }
 
 declare noundef ptr @_ZN2v87Isolate8AllocateEv() #1
@@ -10224,7 +10226,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %allocator_ = getelementptr inbounds %"class.node::NodeArrayBufferAllocator", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN2v811ArrayBuffer9AllocatorESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %allocator_) #3
   call void @_ZN4node20ArrayBufferAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -15571,7 +15574,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node24NodeArrayBufferAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node29DebuggingArrayBufferAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4node29DebuggingArrayBufferAllocatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mutex_ = getelementptr inbounds %"class.node::DebuggingArrayBufferAllocator", ptr %this1, i32 0, i32 1
   call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %mutex_)
   %allocations_ = getelementptr inbounds %"class.node::DebuggingArrayBufferAllocator", ptr %this1, i32 0, i32 2
@@ -15646,7 +15650,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v811ArrayBuffer9AllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4node20ArrayBufferAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4node20ArrayBufferAllocatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15685,7 +15690,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2v811ArrayBuffer9AllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2v811ArrayBuffer9AllocatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16307,7 +16313,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node20ArrayBufferAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %zero_fill_field_ = getelementptr inbounds %"class.node::NodeArrayBufferAllocator", ptr %this1, i32 0, i32 1
   store i32 1, ptr %zero_fill_field_, align 8
   %total_mem_usage_ = getelementptr inbounds %"class.node::NodeArrayBufferAllocator", ptr %this1, i32 0, i32 2
@@ -16955,10 +16962,11 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node21InspectorParentHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %impl2 = getelementptr inbounds %"struct.node::InspectorParentHandleImpl", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %impl.addr, align 8
-  call void @_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %impl2, ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  %1 = load ptr, ptr %impl.addr, align 8
+  call void @_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %impl2, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
   ret void
 }
 
@@ -16982,7 +16990,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node21InspectorParentHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node21InspectorParentHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16992,7 +17001,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %impl = getelementptr inbounds %"struct.node::InspectorParentHandleImpl", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %impl) #3
   call void @_ZN4node21InspectorParentHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

@@ -17,9 +17,10 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define dso_local double @bench_mark() #0 {
   %1 = load i64, ptr @begin, align 8
-  %2 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @begin, i32 0, i32 1), align 8
-  %3 = call double @benchmark(i64 %1, i64 %2)
-  ret double %3
+  %2 = getelementptr inbounds { i64, i64 }, ptr @begin, i32 0, i32 1
+  %3 = load i64, ptr %2, align 8
+  %4 = call double @benchmark(i64 %1, i64 %3)
+  ret double %4
 }
 
 ; Function Attrs: nounwind uwtable

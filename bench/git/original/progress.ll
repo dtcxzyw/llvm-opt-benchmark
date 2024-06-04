@@ -1002,7 +1002,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call = call i32 @setitimer(i32 noundef 0, ptr noundef %v, ptr noundef null) #7
-  %call1 = call ptr @signal(i32 noundef 14, ptr noundef inttoptr (i64 1 to ptr)) #7
+  %1 = inttoptr i64 1 to ptr
+  %call1 = call ptr @signal(i32 noundef 14, ptr noundef %1) #7
   store volatile i32 0, ptr @progress_update, align 4
   br label %return
 

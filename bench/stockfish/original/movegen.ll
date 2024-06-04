@@ -2129,9 +2129,10 @@ define linkonce_odr dso_local noundef i64 @_ZN9Stockfish10attacks_bbILNS_9PieceT
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds ([8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 6), i64 0, i64 %4
-  %6 = load i64, ptr %5, align 8
-  ret i64 %6
+  %5 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 6
+  %6 = getelementptr inbounds [64 x i64], ptr %5, i64 0, i64 %4
+  %7 = load i64, ptr %6, align 8
+  ret i64 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2512,9 +2513,10 @@ define linkonce_odr dso_local noundef i64 @_ZN9Stockfish10attacks_bbILNS_9PieceT
   store i64 %1, ptr %4, align 8
   %5 = load i32, ptr %3, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds ([8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 2), i64 0, i64 %6
-  %8 = load i64, ptr %7, align 8
-  ret i64 %8
+  %7 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 2
+  %8 = getelementptr inbounds [64 x i64], ptr %7, i64 0, i64 %6
+  %9 = load i64, ptr %8, align 8
+  ret i64 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5431,9 +5433,10 @@ define linkonce_odr dso_local noundef i64 @_ZN9Stockfish10attacks_bbILNS_9PieceT
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds ([8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 5), i64 0, i64 %4
-  %6 = load i64, ptr %5, align 8
-  ret i64 %6
+  %5 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 5
+  %6 = getelementptr inbounds [64 x i64], ptr %5, i64 0, i64 %4
+  %7 = load i64, ptr %6, align 8
+  ret i64 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

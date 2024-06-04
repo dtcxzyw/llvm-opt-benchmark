@@ -107,117 +107,118 @@ define internal i32 @crypto_authenc_create(ptr noundef %0, ptr noundef %1) #5 al
   store i32 0, ptr %3, align 4, !annotation !5
   %4 = call i32 @crypto_check_attr_type(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %3) #9
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %80
+  br i1 %5, label %6, label %81
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %8 = call noalias noundef align 8 dereferenceable_or_null(616) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 616) #10
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %80, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %8 = load ptr, ptr %7, align 16
+  %9 = call noalias noundef align 8 dereferenceable_or_null(616) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 616) #10
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %81, label %11
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 512
-  %12 = getelementptr inbounds i8, ptr %8, i64 72
-  %13 = getelementptr i8, ptr %1, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = call ptr @crypto_attr_alg_name(ptr noundef %14) #9
-  %16 = load i32, ptr %3, align 4
-  %17 = call i32 @crypto_grab_ahash(ptr noundef %11, ptr noundef %12, ptr noundef %15, i32 noundef 0, i32 noundef %16) #9
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %77
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %9, i64 512
+  %13 = getelementptr inbounds i8, ptr %9, i64 72
+  %14 = getelementptr i8, ptr %1, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = call ptr @crypto_attr_alg_name(ptr noundef %15) #9
+  %17 = load i32, ptr %3, align 4
+  %18 = call i32 @crypto_grab_ahash(ptr noundef %12, ptr noundef %13, ptr noundef %16, i32 noundef 0, i32 noundef %17) #9
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %78
 
-19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %8, i64 528
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr i8, ptr %21, i64 -8
-  %23 = getelementptr inbounds i8, ptr %8, i64 560
-  %24 = getelementptr i8, ptr %1, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = call ptr @crypto_attr_alg_name(ptr noundef %25) #9
-  %27 = load i32, ptr %3, align 4
-  %28 = call i32 @crypto_grab_skcipher(ptr noundef %23, ptr noundef %12, ptr noundef %26, i32 noundef 0, i32 noundef %27) #9
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %77
+20:                                               ; preds = %11
+  %21 = getelementptr inbounds i8, ptr %9, i64 528
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr i8, ptr %22, i64 -8
+  %24 = getelementptr inbounds i8, ptr %9, i64 560
+  %25 = getelementptr i8, ptr %1, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = call ptr @crypto_attr_alg_name(ptr noundef %26) #9
+  %28 = load i32, ptr %3, align 4
+  %29 = call i32 @crypto_grab_skcipher(ptr noundef %24, ptr noundef %13, ptr noundef %27, i32 noundef 0, i32 noundef %28) #9
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %78
 
-30:                                               ; preds = %19
-  %31 = getelementptr inbounds i8, ptr %8, i64 576
-  %32 = load ptr, ptr %31, align 8
-  %33 = load i32, ptr %22, align 8
-  %34 = shl i32 %33, 1
-  %35 = getelementptr inbounds i8, ptr %8, i64 608
-  store i32 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %8, i64 8
-  %37 = getelementptr inbounds i8, ptr %8, i64 128
-  %38 = getelementptr i8, ptr %21, i64 56
-  %39 = getelementptr i8, ptr %32, i64 56
-  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef 128, ptr noundef nonnull @.str, ptr noundef %38, ptr noundef %39) #9
-  %41 = icmp sgt i32 %40, 127
-  br i1 %41, label %77, label %42
+31:                                               ; preds = %20
+  %32 = getelementptr inbounds i8, ptr %9, i64 576
+  %33 = load ptr, ptr %32, align 8
+  %34 = load i32, ptr %23, align 8
+  %35 = shl i32 %34, 1
+  %36 = getelementptr inbounds i8, ptr %9, i64 608
+  store i32 %35, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %9, i64 8
+  %38 = getelementptr inbounds i8, ptr %9, i64 128
+  %39 = getelementptr i8, ptr %22, i64 56
+  %40 = getelementptr i8, ptr %33, i64 56
+  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %38, i64 noundef 128, ptr noundef nonnull @.str, ptr noundef %39, ptr noundef %40) #9
+  %42 = icmp sgt i32 %41, 127
+  br i1 %42, label %78, label %43
 
-42:                                               ; preds = %30
-  %43 = getelementptr inbounds i8, ptr %8, i64 256
-  %44 = getelementptr i8, ptr %21, i64 184
-  %45 = getelementptr i8, ptr %32, i64 184
-  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %43, i64 noundef 128, ptr noundef nonnull @.str, ptr noundef %44, ptr noundef %45) #9
-  %47 = icmp sgt i32 %46, 127
-  br i1 %47, label %77, label %48
+43:                                               ; preds = %31
+  %44 = getelementptr inbounds i8, ptr %9, i64 256
+  %45 = getelementptr i8, ptr %22, i64 184
+  %46 = getelementptr i8, ptr %33, i64 184
+  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %44, i64 noundef 128, ptr noundef nonnull @.str, ptr noundef %45, ptr noundef %46) #9
+  %48 = icmp sgt i32 %47, 127
+  br i1 %48, label %78, label %49
 
-48:                                               ; preds = %42
-  %49 = getelementptr i8, ptr %32, i64 48
-  %50 = load i32, ptr %49, align 8
-  %51 = mul i32 %50, 10
-  %52 = getelementptr i8, ptr %21, i64 48
-  %53 = load i32, ptr %52, align 8
-  %54 = add i32 %51, %53
-  %55 = getelementptr inbounds i8, ptr %8, i64 120
-  store i32 %54, ptr %55, align 8
-  %56 = getelementptr i8, ptr %32, i64 36
-  %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %8, i64 108
-  store i32 %57, ptr %58, align 4
-  %59 = getelementptr i8, ptr %32, i64 44
-  %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %8, i64 116
-  store i32 %60, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %8, i64 112
-  store i32 24, ptr %62, align 8
-  %63 = getelementptr i8, ptr %32, i64 -16
-  %64 = load i32, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %8, i64 56
-  store i32 %64, ptr %65, align 8
-  %66 = getelementptr i8, ptr %32, i64 -12
-  %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %8, i64 64
-  store i32 %67, ptr %68, align 8
-  %69 = load i32, ptr %22, align 8
-  %70 = getelementptr inbounds i8, ptr %8, i64 60
-  store i32 %69, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %8, i64 40
-  store ptr @crypto_authenc_init_tfm, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %8, i64 48
-  store ptr @crypto_authenc_exit_tfm, ptr %72, align 8
-  store ptr @crypto_authenc_setkey, ptr %36, align 8
-  %73 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr @crypto_authenc_encrypt, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr @crypto_authenc_decrypt, ptr %74, align 8
-  store ptr @crypto_authenc_free, ptr %8, align 8
-  %75 = call i32 @aead_register_instance(ptr noundef %0, ptr noundef nonnull %8) #9
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %80, label %77
+49:                                               ; preds = %43
+  %50 = getelementptr i8, ptr %33, i64 48
+  %51 = load i32, ptr %50, align 8
+  %52 = mul i32 %51, 10
+  %53 = getelementptr i8, ptr %22, i64 48
+  %54 = load i32, ptr %53, align 8
+  %55 = add i32 %52, %54
+  %56 = getelementptr inbounds i8, ptr %9, i64 120
+  store i32 %55, ptr %56, align 8
+  %57 = getelementptr i8, ptr %33, i64 36
+  %58 = load i32, ptr %57, align 4
+  %59 = getelementptr inbounds i8, ptr %9, i64 108
+  store i32 %58, ptr %59, align 4
+  %60 = getelementptr i8, ptr %33, i64 44
+  %61 = load i32, ptr %60, align 4
+  %62 = getelementptr inbounds i8, ptr %9, i64 116
+  store i32 %61, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %9, i64 112
+  store i32 24, ptr %63, align 8
+  %64 = getelementptr i8, ptr %33, i64 -16
+  %65 = load i32, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %9, i64 56
+  store i32 %65, ptr %66, align 8
+  %67 = getelementptr i8, ptr %33, i64 -12
+  %68 = load i32, ptr %67, align 4
+  %69 = getelementptr inbounds i8, ptr %9, i64 64
+  store i32 %68, ptr %69, align 8
+  %70 = load i32, ptr %23, align 8
+  %71 = getelementptr inbounds i8, ptr %9, i64 60
+  store i32 %70, ptr %71, align 4
+  %72 = getelementptr inbounds i8, ptr %9, i64 40
+  store ptr @crypto_authenc_init_tfm, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %9, i64 48
+  store ptr @crypto_authenc_exit_tfm, ptr %73, align 8
+  store ptr @crypto_authenc_setkey, ptr %37, align 8
+  %74 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr @crypto_authenc_encrypt, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr @crypto_authenc_decrypt, ptr %75, align 8
+  store ptr @crypto_authenc_free, ptr %9, align 8
+  %76 = call i32 @aead_register_instance(ptr noundef %0, ptr noundef nonnull %9) #9
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %81, label %78
 
-77:                                               ; preds = %48, %42, %30, %19, %10
-  %78 = phi i32 [ %17, %10 ], [ %28, %19 ], [ -36, %30 ], [ -36, %42 ], [ %75, %48 ]
-  %79 = getelementptr inbounds i8, ptr %8, i64 560
-  call void @crypto_drop_spawn(ptr noundef %79) #9
-  call void @crypto_drop_spawn(ptr noundef %11) #9
-  call void @kfree(ptr noundef nonnull %8) #9
-  br label %80
+78:                                               ; preds = %49, %43, %31, %20, %11
+  %79 = phi i32 [ %18, %11 ], [ %29, %20 ], [ -36, %31 ], [ -36, %43 ], [ %76, %49 ]
+  %80 = getelementptr inbounds i8, ptr %9, i64 560
+  call void @crypto_drop_spawn(ptr noundef %80) #9
+  call void @crypto_drop_spawn(ptr noundef %12) #9
+  call void @kfree(ptr noundef nonnull %9) #9
+  br label %81
 
-80:                                               ; preds = %77, %48, %6, %2
-  %81 = phi i32 [ %4, %2 ], [ -12, %6 ], [ %78, %77 ], [ 0, %48 ]
+81:                                               ; preds = %78, %49, %6, %2
+  %82 = phi i32 [ %4, %2 ], [ -12, %6 ], [ %79, %78 ], [ 0, %49 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
-  ret i32 %81
+  ret i32 %82
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -242,61 +243,64 @@ define internal i32 @crypto_authenc_init_tfm(ptr nocapture noundef %0) #5 align 
   %4 = getelementptr i8, ptr %3, i64 440
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = tail call ptr @crypto_spawn_tfm2(ptr noundef %4) #9
-  %7 = icmp ugt ptr %6, inttoptr (i64 -4096 to ptr)
-  br i1 %7, label %8, label %11
+  %7 = inttoptr i64 -4096 to ptr
+  %8 = icmp ugt ptr %6, %7
+  br i1 %8, label %9, label %12
 
-8:                                                ; preds = %1
-  %9 = ptrtoint ptr %6 to i64
-  %10 = trunc i64 %9 to i32
-  br label %39
+9:                                                ; preds = %1
+  %10 = ptrtoint ptr %6 to i64
+  %11 = trunc i64 %10 to i32
+  br label %42
 
-11:                                               ; preds = %1
-  %12 = getelementptr i8, ptr %3, i64 488
-  %13 = tail call ptr @crypto_spawn_tfm2(ptr noundef %12) #9
-  %14 = icmp ugt ptr %13, inttoptr (i64 -4096 to ptr)
-  br i1 %14, label %34, label %15
+12:                                               ; preds = %1
+  %13 = getelementptr i8, ptr %3, i64 488
+  %14 = tail call ptr @crypto_spawn_tfm2(ptr noundef %13) #9
+  %15 = inttoptr i64 -4096 to ptr
+  %16 = icmp ugt ptr %14, %15
+  br i1 %16, label %37, label %17
 
-15:                                               ; preds = %11
-  %16 = tail call ptr @crypto_get_default_null_skcipher() #9
-  %17 = icmp ugt ptr %16, inttoptr (i64 -4096 to ptr)
-  br i1 %17, label %32, label %18
+17:                                               ; preds = %12
+  %18 = tail call ptr @crypto_get_default_null_skcipher() #9
+  %19 = inttoptr i64 -4096 to ptr
+  %20 = icmp ugt ptr %18, %19
+  br i1 %20, label %35, label %21
 
-18:                                               ; preds = %15
+21:                                               ; preds = %17
   store ptr %6, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %13, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %16, ptr %20, align 8
-  %21 = getelementptr i8, ptr %3, i64 536
-  %22 = load i32, ptr %21, align 8
-  %23 = add i32 %22, 128
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %14, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %18, ptr %23, align 8
+  %24 = getelementptr i8, ptr %3, i64 536
   %25 = load i32, ptr %24, align 8
-  %26 = add i32 %25, 80
-  %27 = load i32, ptr %13, align 8
-  %28 = add i32 %27, 80
-  %29 = tail call i32 @llvm.umax.i32(i32 %26, i32 %28)
-  %30 = add i32 %23, %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %30, ptr %31, align 4
-  br label %39
+  %26 = add i32 %25, 128
+  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %28 = load i32, ptr %27, align 8
+  %29 = add i32 %28, 80
+  %30 = load i32, ptr %14, align 8
+  %31 = add i32 %30, 80
+  %32 = tail call i32 @llvm.umax.i32(i32 %29, i32 %31)
+  %33 = add i32 %26, %32
+  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %33, ptr %34, align 4
+  br label %42
 
-32:                                               ; preds = %15
-  %33 = getelementptr inbounds i8, ptr %13, i64 8
-  tail call void @crypto_destroy_tfm(ptr noundef %13, ptr noundef %33) #9
-  br label %34
+35:                                               ; preds = %17
+  %36 = getelementptr inbounds i8, ptr %14, i64 8
+  tail call void @crypto_destroy_tfm(ptr noundef %14, ptr noundef %36) #9
+  br label %37
 
-34:                                               ; preds = %32, %11
-  %35 = phi ptr [ %13, %11 ], [ %16, %32 ]
-  %36 = ptrtoint ptr %35 to i64
-  %37 = trunc i64 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %6, i64 16
-  tail call void @crypto_destroy_tfm(ptr noundef %6, ptr noundef %38) #9
-  br label %39
+37:                                               ; preds = %35, %12
+  %38 = phi ptr [ %14, %12 ], [ %18, %35 ]
+  %39 = ptrtoint ptr %38 to i64
+  %40 = trunc i64 %39 to i32
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
+  tail call void @crypto_destroy_tfm(ptr noundef %6, ptr noundef %41) #9
+  br label %42
 
-39:                                               ; preds = %34, %18, %8
-  %40 = phi i32 [ %10, %8 ], [ %37, %34 ], [ 0, %18 ]
-  ret i32 %40
+42:                                               ; preds = %37, %21, %9
+  %43 = phi i32 [ %11, %9 ], [ %40, %37 ], [ 0, %21 ]
+  ret i32 %43
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

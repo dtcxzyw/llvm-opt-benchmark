@@ -1057,24 +1057,25 @@ define linkonce_odr dso_local void @_ZN6ShaderC2ERK5Model(ptr noundef nonnull al
   store ptr %1, ptr %4, align 8
   %9 = load ptr, ptr %3, align 8
   call void @_ZN7IShaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV6Shader, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %struct.Shader, ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.Shader, ptr %9, i32 0, i32 2
-  call void @_ZN3vecILi3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  %13 = getelementptr inbounds %struct.Shader, ptr %9, i32 0, i32 3
-  call void @_ZN3matILi2ELi3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #3
-  %14 = getelementptr inbounds %struct.Shader, ptr %9, i32 0, i32 4
-  call void @_ZN3matILi3ELi3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %14) #3
-  %15 = getelementptr inbounds %struct.Shader, ptr %9, i32 0, i32 5
+  %10 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV6Shader, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.Shader, ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.Shader, ptr %9, i32 0, i32 2
+  call void @_ZN3vecILi3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %14 = getelementptr inbounds %struct.Shader, ptr %9, i32 0, i32 3
+  call void @_ZN3matILi2ELi3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #3
+  %15 = getelementptr inbounds %struct.Shader, ptr %9, i32 0, i32 4
   call void @_ZN3matILi3ELi3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #3
+  %16 = getelementptr inbounds %struct.Shader, ptr %9, i32 0, i32 5
+  call void @_ZN3matILi3ELi3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %16) #3
   call void @_Z5embedILi4ELi3EE3vecIXT_EERKS0_IXT0_EEd(ptr dead_on_unwind writable sret(%struct.vec.24) align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) @_ZL9light_dir, double noundef 0.000000e+00)
   call void @_ZmlILi4ELi4EE3vecIXT_EERK3matIXT_EXT0_EERKS0_IXT0_EE(ptr dead_on_unwind writable sret(%struct.vec.24) align 8 %7, ptr noundef nonnull align 8 dereferenceable(128) @ModelView, ptr noundef nonnull align 8 dereferenceable(32) %8)
   call void @_Z4projILi3ELi4EE3vecIXT_EERKS0_IXT0_EE(ptr dead_on_unwind writable sret(%struct.vec) align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
   call void @_ZN3vecILi3EE10normalizedEv(ptr dead_on_unwind writable sret(%struct.vec) align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  %16 = getelementptr inbounds %struct.Shader, ptr %9, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %5, i64 24, i1 false)
+  %17 = getelementptr inbounds %struct.Shader, ptr %9, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %5, i64 24, i1 false)
   ret void
 }
 
@@ -2704,7 +2705,8 @@ define linkonce_odr dso_local void @_ZN7IShaderC2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) ({ [3 x ptr] }, ptr @_ZTV7IShader, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTV7IShader, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

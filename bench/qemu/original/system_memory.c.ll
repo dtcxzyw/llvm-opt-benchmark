@@ -351,12 +351,16 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then2
-  store i8 trunc (i64 sub (i64 ptrtoint (ptr @flatview_destroy to i64), i64 ptrtoint (ptr @flatview_destroy to i64)) to i8), ptr %func_type_invalid, align 1
-  %9 = load ptr, ptr %view.addr, align 8
-  %rcu = getelementptr inbounds %struct.FlatView, ptr %9, i32 0, i32 0
+  %9 = ptrtoint ptr @flatview_destroy to i64
+  %10 = ptrtoint ptr @flatview_destroy to i64
+  %11 = sub i64 %9, %10
+  %12 = trunc i64 %11 to i8
+  store i8 %12, ptr %func_type_invalid, align 1
+  %13 = load ptr, ptr %view.addr, align 8
+  %rcu = getelementptr inbounds %struct.FlatView, ptr %13, i32 0, i32 0
   store ptr %rcu, ptr %tmp, align 8
-  %10 = load ptr, ptr %tmp, align 8
-  call void @call_rcu1(ptr noundef %10, ptr noundef @flatview_destroy)
+  %14 = load ptr, ptr %tmp, align 8
+  call void @call_rcu1(ptr noundef %14, ptr noundef @flatview_destroy)
   br label %if.end3
 
 if.end3:                                          ; preds = %if.end, %entry
@@ -583,7 +587,8 @@ do.end:                                           ; preds = %do.cond
 define internal ptr @rcu_read_auto_lock() #0 {
 entry:
   call void @rcu_read_lock()
-  ret ptr inttoptr (i64 1 to ptr)
+  %0 = inttoptr i64 1 to ptr
+  ret ptr %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5863,70 +5868,71 @@ do.end:                                           ; preds = %do.cond
 while.end:                                        ; preds = %while.cond
   %6 = load i32, ptr %i, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr [3 x ptr], ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i32 0, i32 3), i64 0, i64 %idxprom
-  %7 = load atomic i64, ptr %arrayidx monotonic, align 8
-  store i64 %7, ptr %_val10, align 8
+  %7 = getelementptr inbounds %struct.RAMList, ptr @ram_list, i32 0, i32 3
+  %arrayidx = getelementptr [3 x ptr], ptr %7, i64 0, i64 %idxprom
+  %8 = load atomic i64, ptr %arrayidx monotonic, align 8
+  store i64 %8, ptr %_val10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !25
-  %8 = load ptr, ptr %_val10, align 8
-  store ptr %8, ptr %tmp, align 8
-  %9 = load ptr, ptr %tmp, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom6 = sext i32 %10 to i64
+  %9 = load ptr, ptr %_val10, align 8
+  store ptr %9, ptr %tmp, align 8
+  %10 = load ptr, ptr %tmp, align 8
+  %11 = load i32, ptr %i, align 4
+  %idxprom6 = sext i32 %11 to i64
   %arrayidx7 = getelementptr [3 x ptr], ptr %blocks, i64 0, i64 %idxprom6
-  store ptr %9, ptr %arrayidx7, align 8
+  store ptr %10, ptr %arrayidx7, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %while.end
-  %11 = load i32, ptr %i, align 4
-  %inc = add i32 %11, 1
+  %12 = load i32, ptr %i, align 4
+  %inc = add i32 %12, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond4, !llvm.loop !26
 
 for.end:                                          ; preds = %for.cond4
-  %12 = load i64, ptr %page, align 8
-  %div = udiv i64 %12, 2097152
-  store i64 %div, ptr %idx, align 8
   %13 = load i64, ptr %page, align 8
-  %rem = urem i64 %13, 2097152
-  store i64 %rem, ptr %offset, align 8
+  %div = udiv i64 %13, 2097152
+  store i64 %div, ptr %idx, align 8
   %14 = load i64, ptr %page, align 8
-  %15 = load i64, ptr %offset, align 8
-  %sub8 = sub i64 %14, %15
+  %rem = urem i64 %14, 2097152
+  store i64 %rem, ptr %offset, align 8
+  %15 = load i64, ptr %page, align 8
+  %16 = load i64, ptr %offset, align 8
+  %sub8 = sub i64 %15, %16
   store i64 %sub8, ptr %base, align 8
   br label %while.cond9
 
 while.cond9:                                      ; preds = %if.end55, %for.end
-  %16 = load i64, ptr %page, align 8
-  %17 = load i64, ptr %end, align 8
-  %cmp10 = icmp ult i64 %16, %17
+  %17 = load i64, ptr %page, align 8
+  %18 = load i64, ptr %end, align 8
+  %cmp10 = icmp ult i64 %17, %18
   br i1 %cmp10, label %while.body11, label %while.end58
 
 while.body11:                                     ; preds = %while.cond9
-  %18 = load i64, ptr %end, align 8
-  store i64 %18, ptr %_a11, align 8
-  %19 = load i64, ptr %base, align 8
-  %add12 = add i64 %19, 2097152
+  %19 = load i64, ptr %end, align 8
+  store i64 %19, ptr %_a11, align 8
+  %20 = load i64, ptr %base, align 8
+  %add12 = add i64 %20, 2097152
   store i64 %add12, ptr %_b12, align 8
-  %20 = load i64, ptr %_a11, align 8
-  %21 = load i64, ptr %_b12, align 8
-  %cmp14 = icmp ult i64 %20, %21
+  %21 = load i64, ptr %_a11, align 8
+  %22 = load i64, ptr %_b12, align 8
+  %cmp14 = icmp ult i64 %21, %22
   br i1 %cmp14, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %while.body11
-  %22 = load i64, ptr %_a11, align 8
+  %23 = load i64, ptr %_a11, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %while.body11
-  %23 = load i64, ptr %_b12, align 8
+  %24 = load i64, ptr %_b12, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %22, %cond.true ], [ %23, %cond.false ]
+  %cond = phi i64 [ %23, %cond.true ], [ %24, %cond.false ]
   store i64 %cond, ptr %tmp13, align 8
-  %24 = load i64, ptr %tmp13, align 8
-  store i64 %24, ptr %next, align 8
-  %25 = load i8, ptr %mask.addr, align 1
-  %conv = zext i8 %25 to i32
+  %25 = load i64, ptr %tmp13, align 8
+  store i64 %25, ptr %next, align 8
+  %26 = load i8, ptr %mask.addr, align 1
+  %conv = zext i8 %26 to i32
   %and15 = and i32 %conv, 4
   %tobool16 = icmp ne i32 %and15, 0
   %lnot = xor i1 %tobool16, true
@@ -5938,21 +5944,21 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 if.then20:                                        ; preds = %cond.end
   %arrayidx21 = getelementptr [3 x ptr], ptr %blocks, i64 0, i64 2
-  %26 = load ptr, ptr %arrayidx21, align 16
-  %blocks22 = getelementptr inbounds %struct.DirtyMemoryBlocks, ptr %26, i32 0, i32 1
-  %27 = load i64, ptr %idx, align 8
-  %arrayidx23 = getelementptr [0 x ptr], ptr %blocks22, i64 0, i64 %27
-  %28 = load ptr, ptr %arrayidx23, align 8
-  %29 = load i64, ptr %offset, align 8
-  %30 = load i64, ptr %next, align 8
-  %31 = load i64, ptr %page, align 8
-  %sub24 = sub i64 %30, %31
-  call void @bitmap_set_atomic(ptr noundef %28, i64 noundef %29, i64 noundef %sub24)
+  %27 = load ptr, ptr %arrayidx21, align 16
+  %blocks22 = getelementptr inbounds %struct.DirtyMemoryBlocks, ptr %27, i32 0, i32 1
+  %28 = load i64, ptr %idx, align 8
+  %arrayidx23 = getelementptr [0 x ptr], ptr %blocks22, i64 0, i64 %28
+  %29 = load ptr, ptr %arrayidx23, align 8
+  %30 = load i64, ptr %offset, align 8
+  %31 = load i64, ptr %next, align 8
+  %32 = load i64, ptr %page, align 8
+  %sub24 = sub i64 %31, %32
+  call void @bitmap_set_atomic(ptr noundef %29, i64 noundef %30, i64 noundef %sub24)
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then20, %cond.end
-  %32 = load i8, ptr %mask.addr, align 1
-  %conv26 = zext i8 %32 to i32
+  %33 = load i8, ptr %mask.addr, align 1
+  %conv26 = zext i8 %33 to i32
   %and27 = and i32 %conv26, 1
   %tobool28 = icmp ne i32 %and27, 0
   %lnot29 = xor i1 %tobool28, true
@@ -5964,21 +5970,21 @@ if.end25:                                         ; preds = %if.then20, %cond.en
 
 if.then35:                                        ; preds = %if.end25
   %arrayidx36 = getelementptr [3 x ptr], ptr %blocks, i64 0, i64 0
-  %33 = load ptr, ptr %arrayidx36, align 16
-  %blocks37 = getelementptr inbounds %struct.DirtyMemoryBlocks, ptr %33, i32 0, i32 1
-  %34 = load i64, ptr %idx, align 8
-  %arrayidx38 = getelementptr [0 x ptr], ptr %blocks37, i64 0, i64 %34
-  %35 = load ptr, ptr %arrayidx38, align 8
-  %36 = load i64, ptr %offset, align 8
-  %37 = load i64, ptr %next, align 8
-  %38 = load i64, ptr %page, align 8
-  %sub39 = sub i64 %37, %38
-  call void @bitmap_set_atomic(ptr noundef %35, i64 noundef %36, i64 noundef %sub39)
+  %34 = load ptr, ptr %arrayidx36, align 16
+  %blocks37 = getelementptr inbounds %struct.DirtyMemoryBlocks, ptr %34, i32 0, i32 1
+  %35 = load i64, ptr %idx, align 8
+  %arrayidx38 = getelementptr [0 x ptr], ptr %blocks37, i64 0, i64 %35
+  %36 = load ptr, ptr %arrayidx38, align 8
+  %37 = load i64, ptr %offset, align 8
+  %38 = load i64, ptr %next, align 8
+  %39 = load i64, ptr %page, align 8
+  %sub39 = sub i64 %38, %39
+  call void @bitmap_set_atomic(ptr noundef %36, i64 noundef %37, i64 noundef %sub39)
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then35, %if.end25
-  %39 = load i8, ptr %mask.addr, align 1
-  %conv41 = zext i8 %39 to i32
+  %40 = load i8, ptr %mask.addr, align 1
+  %conv41 = zext i8 %40 to i32
   %and42 = and i32 %conv41, 2
   %tobool43 = icmp ne i32 %and42, 0
   %lnot44 = xor i1 %tobool43, true
@@ -5990,27 +5996,27 @@ if.end40:                                         ; preds = %if.then35, %if.end2
 
 if.then50:                                        ; preds = %if.end40
   %arrayidx51 = getelementptr [3 x ptr], ptr %blocks, i64 0, i64 1
-  %40 = load ptr, ptr %arrayidx51, align 8
-  %blocks52 = getelementptr inbounds %struct.DirtyMemoryBlocks, ptr %40, i32 0, i32 1
-  %41 = load i64, ptr %idx, align 8
-  %arrayidx53 = getelementptr [0 x ptr], ptr %blocks52, i64 0, i64 %41
-  %42 = load ptr, ptr %arrayidx53, align 8
-  %43 = load i64, ptr %offset, align 8
-  %44 = load i64, ptr %next, align 8
-  %45 = load i64, ptr %page, align 8
-  %sub54 = sub i64 %44, %45
-  call void @bitmap_set_atomic(ptr noundef %42, i64 noundef %43, i64 noundef %sub54)
+  %41 = load ptr, ptr %arrayidx51, align 8
+  %blocks52 = getelementptr inbounds %struct.DirtyMemoryBlocks, ptr %41, i32 0, i32 1
+  %42 = load i64, ptr %idx, align 8
+  %arrayidx53 = getelementptr [0 x ptr], ptr %blocks52, i64 0, i64 %42
+  %43 = load ptr, ptr %arrayidx53, align 8
+  %44 = load i64, ptr %offset, align 8
+  %45 = load i64, ptr %next, align 8
+  %46 = load i64, ptr %page, align 8
+  %sub54 = sub i64 %45, %46
+  call void @bitmap_set_atomic(ptr noundef %43, i64 noundef %44, i64 noundef %sub54)
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then50, %if.end40
-  %46 = load i64, ptr %next, align 8
-  store i64 %46, ptr %page, align 8
-  %47 = load i64, ptr %idx, align 8
-  %inc56 = add i64 %47, 1
+  %47 = load i64, ptr %next, align 8
+  store i64 %47, ptr %page, align 8
+  %48 = load i64, ptr %idx, align 8
+  %inc56 = add i64 %48, 1
   store i64 %inc56, ptr %idx, align 8
   store i64 0, ptr %offset, align 8
-  %48 = load i64, ptr %base, align 8
-  %add57 = add i64 %48, 2097152
+  %49 = load i64, ptr %base, align 8
+  %add57 = add i64 %49, 2097152
   store i64 %add57, ptr %base, align 8
   br label %while.cond9, !llvm.loop !27
 
@@ -6018,15 +6024,15 @@ while.end58:                                      ; preds = %while.cond9
   br label %for.inc59
 
 for.inc59:                                        ; preds = %while.end58
-  %49 = load ptr, ptr %_rcu_read_auto9, align 8
-  call void @rcu_read_auto_unlock(ptr noundef %49)
+  %50 = load ptr, ptr %_rcu_read_auto9, align 8
+  call void @rcu_read_auto_unlock(ptr noundef %50)
   store ptr null, ptr %_rcu_read_auto9, align 8
   br label %for.cond, !llvm.loop !28
 
 for.end60:                                        ; preds = %for.cond.cleanup
-  %50 = load i64, ptr %start.addr, align 8
-  %51 = load i64, ptr %length.addr, align 8
-  call void @xen_hvm_modified_memory(i64 noundef %50, i64 noundef %51)
+  %51 = load i64, ptr %start.addr, align 8
+  %52 = load i64, ptr %length.addr, align 8
+  call void @xen_hvm_modified_memory(i64 noundef %51, i64 noundef %52)
   br label %return
 
 return:                                           ; preds = %for.end60, %if.then
@@ -9330,47 +9336,48 @@ if.then8:                                         ; preds = %if.end5
   br label %do.body
 
 do.body:                                          ; preds = %if.then8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @memory_listeners, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %tql_prev, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %tql_next, align 8
-  store ptr %11, ptr %_listener, align 8
+  %9 = getelementptr inbounds %struct.QTailQLink, ptr @memory_listeners, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %10, i32 0, i32 1
+  %11 = load ptr, ptr %tql_prev, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %11, i32 0, i32 0
+  %12 = load ptr, ptr %tql_next, align 8
+  store ptr %12, ptr %_listener, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.body
-  %12 = load ptr, ptr %_listener, align 8
-  %tobool9 = icmp ne ptr %12, null
+  %13 = load ptr, ptr %_listener, align 8
+  %tobool9 = icmp ne ptr %13, null
   br i1 %tobool9, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %13 = load ptr, ptr %_listener, align 8
-  %log_global_stop = getelementptr inbounds %struct.MemoryListener, ptr %13, i32 0, i32 11
-  %14 = load ptr, ptr %log_global_stop, align 8
-  %tobool10 = icmp ne ptr %14, null
+  %14 = load ptr, ptr %_listener, align 8
+  %log_global_stop = getelementptr inbounds %struct.MemoryListener, ptr %14, i32 0, i32 11
+  %15 = load ptr, ptr %log_global_stop, align 8
+  %tobool10 = icmp ne ptr %15, null
   br i1 %tobool10, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %for.body
-  %15 = load ptr, ptr %_listener, align 8
-  %log_global_stop12 = getelementptr inbounds %struct.MemoryListener, ptr %15, i32 0, i32 11
-  %16 = load ptr, ptr %log_global_stop12, align 8
-  %17 = load ptr, ptr %_listener, align 8
-  call void %16(ptr noundef %17)
+  %16 = load ptr, ptr %_listener, align 8
+  %log_global_stop12 = getelementptr inbounds %struct.MemoryListener, ptr %16, i32 0, i32 11
+  %17 = load ptr, ptr %log_global_stop12, align 8
+  %18 = load ptr, ptr %_listener, align 8
+  call void %17(ptr noundef %18)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end13
-  %18 = load ptr, ptr %_listener, align 8
-  %link = getelementptr inbounds %struct.MemoryListener, ptr %18, i32 0, i32 20
+  %19 = load ptr, ptr %_listener, align 8
+  %link = getelementptr inbounds %struct.MemoryListener, ptr %19, i32 0, i32 20
   %tql_prev14 = getelementptr inbounds %struct.QTailQLink, ptr %link, i32 0, i32 1
-  %19 = load ptr, ptr %tql_prev14, align 8
-  %tql_prev15 = getelementptr inbounds %struct.QTailQLink, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %tql_prev15, align 8
-  %tql_next16 = getelementptr inbounds %struct.QTailQLink, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %tql_next16, align 8
-  store ptr %21, ptr %_listener, align 8
+  %20 = load ptr, ptr %tql_prev14, align 8
+  %tql_prev15 = getelementptr inbounds %struct.QTailQLink, ptr %20, i32 0, i32 1
+  %21 = load ptr, ptr %tql_prev15, align 8
+  %tql_next16 = getelementptr inbounds %struct.QTailQLink, ptr %21, i32 0, i32 0
+  %22 = load ptr, ptr %tql_next16, align 8
+  store ptr %22, ptr %_listener, align 8
   br label %for.cond, !llvm.loop !45
 
 for.end:                                          ; preds = %for.cond
@@ -9425,58 +9432,62 @@ lor.lhs.false:                                    ; preds = %if.end
   %7 = load ptr, ptr %listener.addr, align 8
   %priority = getelementptr inbounds %struct.MemoryListener, ptr %7, i32 0, i32 17
   %8 = load i32, ptr %priority, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @memory_listeners, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %tql_prev, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %tql_next, align 8
-  %priority2 = getelementptr inbounds %struct.MemoryListener, ptr %11, i32 0, i32 17
-  %12 = load i32, ptr %priority2, align 8
-  %cmp3 = icmp uge i32 %8, %12
+  %9 = getelementptr inbounds %struct.QTailQLink, ptr @memory_listeners, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %10, i32 0, i32 1
+  %11 = load ptr, ptr %tql_prev, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %11, i32 0, i32 0
+  %12 = load ptr, ptr %tql_next, align 8
+  %priority2 = getelementptr inbounds %struct.MemoryListener, ptr %12, i32 0, i32 17
+  %13 = load i32, ptr %priority2, align 8
+  %cmp3 = icmp uge i32 %8, %13
   br i1 %cmp3, label %if.then4, label %if.else9
 
 if.then4:                                         ; preds = %lor.lhs.false, %if.end
   br label %do.body
 
 do.body:                                          ; preds = %if.then4
-  %13 = load ptr, ptr %listener.addr, align 8
-  %link = getelementptr inbounds %struct.MemoryListener, ptr %13, i32 0, i32 20
+  %14 = load ptr, ptr %listener.addr, align 8
+  %link = getelementptr inbounds %struct.MemoryListener, ptr %14, i32 0, i32 20
   store ptr null, ptr %link, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @memory_listeners, i32 0, i32 1), align 8
-  %15 = load ptr, ptr %listener.addr, align 8
-  %link5 = getelementptr inbounds %struct.MemoryListener, ptr %15, i32 0, i32 20
+  %15 = getelementptr inbounds %struct.QTailQLink, ptr @memory_listeners, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %listener.addr, align 8
+  %link5 = getelementptr inbounds %struct.MemoryListener, ptr %17, i32 0, i32 20
   %tql_prev6 = getelementptr inbounds %struct.QTailQLink, ptr %link5, i32 0, i32 1
-  store ptr %14, ptr %tql_prev6, align 8
-  %16 = load ptr, ptr %listener.addr, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @memory_listeners, i32 0, i32 1), align 8
-  %tql_next7 = getelementptr inbounds %struct.QTailQLink, ptr %17, i32 0, i32 0
-  store ptr %16, ptr %tql_next7, align 8
+  store ptr %16, ptr %tql_prev6, align 8
   %18 = load ptr, ptr %listener.addr, align 8
-  %link8 = getelementptr inbounds %struct.MemoryListener, ptr %18, i32 0, i32 20
-  store ptr %link8, ptr getelementptr inbounds (%struct.QTailQLink, ptr @memory_listeners, i32 0, i32 1), align 8
+  %19 = getelementptr inbounds %struct.QTailQLink, ptr @memory_listeners, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %tql_next7 = getelementptr inbounds %struct.QTailQLink, ptr %20, i32 0, i32 0
+  store ptr %18, ptr %tql_next7, align 8
+  %21 = load ptr, ptr %listener.addr, align 8
+  %link8 = getelementptr inbounds %struct.MemoryListener, ptr %21, i32 0, i32 20
+  %22 = getelementptr inbounds %struct.QTailQLink, ptr @memory_listeners, i32 0, i32 1
+  store ptr %link8, ptr %22, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
   br label %if.end30
 
 if.else9:                                         ; preds = %lor.lhs.false
-  %19 = load ptr, ptr @memory_listeners, align 8
-  store ptr %19, ptr %other, align 8
+  %23 = load ptr, ptr @memory_listeners, align 8
+  store ptr %23, ptr %other, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.else9
-  %20 = load ptr, ptr %other, align 8
-  %tobool10 = icmp ne ptr %20, null
+  %24 = load ptr, ptr %other, align 8
+  %tobool10 = icmp ne ptr %24, null
   br i1 %tobool10, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %21 = load ptr, ptr %listener.addr, align 8
-  %priority11 = getelementptr inbounds %struct.MemoryListener, ptr %21, i32 0, i32 17
-  %22 = load i32, ptr %priority11, align 8
-  %23 = load ptr, ptr %other, align 8
-  %priority12 = getelementptr inbounds %struct.MemoryListener, ptr %23, i32 0, i32 17
-  %24 = load i32, ptr %priority12, align 8
-  %cmp13 = icmp ult i32 %22, %24
+  %25 = load ptr, ptr %listener.addr, align 8
+  %priority11 = getelementptr inbounds %struct.MemoryListener, ptr %25, i32 0, i32 17
+  %26 = load i32, ptr %priority11, align 8
+  %27 = load ptr, ptr %other, align 8
+  %priority12 = getelementptr inbounds %struct.MemoryListener, ptr %27, i32 0, i32 17
+  %28 = load i32, ptr %priority12, align 8
+  %cmp13 = icmp ult i32 %26, %28
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %for.body
@@ -9486,39 +9497,39 @@ if.end15:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end15
-  %25 = load ptr, ptr %other, align 8
-  %link16 = getelementptr inbounds %struct.MemoryListener, ptr %25, i32 0, i32 20
-  %26 = load ptr, ptr %link16, align 8
-  store ptr %26, ptr %other, align 8
+  %29 = load ptr, ptr %other, align 8
+  %link16 = getelementptr inbounds %struct.MemoryListener, ptr %29, i32 0, i32 20
+  %30 = load ptr, ptr %link16, align 8
+  store ptr %30, ptr %other, align 8
   br label %for.cond, !llvm.loop !46
 
 for.end:                                          ; preds = %if.then14, %for.cond
   br label %do.body17
 
 do.body17:                                        ; preds = %for.end
-  %27 = load ptr, ptr %other, align 8
-  %link18 = getelementptr inbounds %struct.MemoryListener, ptr %27, i32 0, i32 20
+  %31 = load ptr, ptr %other, align 8
+  %link18 = getelementptr inbounds %struct.MemoryListener, ptr %31, i32 0, i32 20
   %tql_prev19 = getelementptr inbounds %struct.QTailQLink, ptr %link18, i32 0, i32 1
-  %28 = load ptr, ptr %tql_prev19, align 8
-  %29 = load ptr, ptr %listener.addr, align 8
-  %link20 = getelementptr inbounds %struct.MemoryListener, ptr %29, i32 0, i32 20
+  %32 = load ptr, ptr %tql_prev19, align 8
+  %33 = load ptr, ptr %listener.addr, align 8
+  %link20 = getelementptr inbounds %struct.MemoryListener, ptr %33, i32 0, i32 20
   %tql_prev21 = getelementptr inbounds %struct.QTailQLink, ptr %link20, i32 0, i32 1
-  store ptr %28, ptr %tql_prev21, align 8
-  %30 = load ptr, ptr %other, align 8
-  %31 = load ptr, ptr %listener.addr, align 8
-  %link22 = getelementptr inbounds %struct.MemoryListener, ptr %31, i32 0, i32 20
-  store ptr %30, ptr %link22, align 8
-  %32 = load ptr, ptr %listener.addr, align 8
-  %33 = load ptr, ptr %other, align 8
-  %link23 = getelementptr inbounds %struct.MemoryListener, ptr %33, i32 0, i32 20
-  %tql_prev24 = getelementptr inbounds %struct.QTailQLink, ptr %link23, i32 0, i32 1
-  %34 = load ptr, ptr %tql_prev24, align 8
-  %tql_next25 = getelementptr inbounds %struct.QTailQLink, ptr %34, i32 0, i32 0
-  store ptr %32, ptr %tql_next25, align 8
+  store ptr %32, ptr %tql_prev21, align 8
+  %34 = load ptr, ptr %other, align 8
   %35 = load ptr, ptr %listener.addr, align 8
-  %link26 = getelementptr inbounds %struct.MemoryListener, ptr %35, i32 0, i32 20
-  %36 = load ptr, ptr %other, align 8
-  %link27 = getelementptr inbounds %struct.MemoryListener, ptr %36, i32 0, i32 20
+  %link22 = getelementptr inbounds %struct.MemoryListener, ptr %35, i32 0, i32 20
+  store ptr %34, ptr %link22, align 8
+  %36 = load ptr, ptr %listener.addr, align 8
+  %37 = load ptr, ptr %other, align 8
+  %link23 = getelementptr inbounds %struct.MemoryListener, ptr %37, i32 0, i32 20
+  %tql_prev24 = getelementptr inbounds %struct.QTailQLink, ptr %link23, i32 0, i32 1
+  %38 = load ptr, ptr %tql_prev24, align 8
+  %tql_next25 = getelementptr inbounds %struct.QTailQLink, ptr %38, i32 0, i32 0
+  store ptr %36, ptr %tql_next25, align 8
+  %39 = load ptr, ptr %listener.addr, align 8
+  %link26 = getelementptr inbounds %struct.MemoryListener, ptr %39, i32 0, i32 20
+  %40 = load ptr, ptr %other, align 8
+  %link27 = getelementptr inbounds %struct.MemoryListener, ptr %40, i32 0, i32 20
   %tql_prev28 = getelementptr inbounds %struct.QTailQLink, ptr %link27, i32 0, i32 1
   store ptr %link26, ptr %tql_prev28, align 8
   br label %do.end29
@@ -9527,55 +9538,55 @@ do.end29:                                         ; preds = %do.body17
   br label %if.end30
 
 if.end30:                                         ; preds = %do.end29, %do.end
-  %37 = load ptr, ptr %as.addr, align 8
-  %listeners = getelementptr inbounds %struct.AddressSpace, ptr %37, i32 0, i32 7
-  %38 = load ptr, ptr %listeners, align 8
-  %cmp31 = icmp eq ptr %38, null
+  %41 = load ptr, ptr %as.addr, align 8
+  %listeners = getelementptr inbounds %struct.AddressSpace, ptr %41, i32 0, i32 7
+  %42 = load ptr, ptr %listeners, align 8
+  %cmp31 = icmp eq ptr %42, null
   br i1 %cmp31, label %if.then40, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %if.end30
-  %39 = load ptr, ptr %listener.addr, align 8
-  %priority33 = getelementptr inbounds %struct.MemoryListener, ptr %39, i32 0, i32 17
-  %40 = load i32, ptr %priority33, align 8
-  %41 = load ptr, ptr %as.addr, align 8
-  %listeners34 = getelementptr inbounds %struct.AddressSpace, ptr %41, i32 0, i32 7
+  %43 = load ptr, ptr %listener.addr, align 8
+  %priority33 = getelementptr inbounds %struct.MemoryListener, ptr %43, i32 0, i32 17
+  %44 = load i32, ptr %priority33, align 8
+  %45 = load ptr, ptr %as.addr, align 8
+  %listeners34 = getelementptr inbounds %struct.AddressSpace, ptr %45, i32 0, i32 7
   %tql_prev35 = getelementptr inbounds %struct.QTailQLink, ptr %listeners34, i32 0, i32 1
-  %42 = load ptr, ptr %tql_prev35, align 8
-  %tql_prev36 = getelementptr inbounds %struct.QTailQLink, ptr %42, i32 0, i32 1
-  %43 = load ptr, ptr %tql_prev36, align 8
-  %tql_next37 = getelementptr inbounds %struct.QTailQLink, ptr %43, i32 0, i32 0
-  %44 = load ptr, ptr %tql_next37, align 8
-  %priority38 = getelementptr inbounds %struct.MemoryListener, ptr %44, i32 0, i32 17
-  %45 = load i32, ptr %priority38, align 8
-  %cmp39 = icmp uge i32 %40, %45
+  %46 = load ptr, ptr %tql_prev35, align 8
+  %tql_prev36 = getelementptr inbounds %struct.QTailQLink, ptr %46, i32 0, i32 1
+  %47 = load ptr, ptr %tql_prev36, align 8
+  %tql_next37 = getelementptr inbounds %struct.QTailQLink, ptr %47, i32 0, i32 0
+  %48 = load ptr, ptr %tql_next37, align 8
+  %priority38 = getelementptr inbounds %struct.MemoryListener, ptr %48, i32 0, i32 17
+  %49 = load i32, ptr %priority38, align 8
+  %cmp39 = icmp uge i32 %44, %49
   br i1 %cmp39, label %if.then40, label %if.else53
 
 if.then40:                                        ; preds = %lor.lhs.false32, %if.end30
   br label %do.body41
 
 do.body41:                                        ; preds = %if.then40
-  %46 = load ptr, ptr %listener.addr, align 8
-  %link_as = getelementptr inbounds %struct.MemoryListener, ptr %46, i32 0, i32 21
-  store ptr null, ptr %link_as, align 8
-  %47 = load ptr, ptr %as.addr, align 8
-  %listeners42 = getelementptr inbounds %struct.AddressSpace, ptr %47, i32 0, i32 7
-  %tql_prev43 = getelementptr inbounds %struct.QTailQLink, ptr %listeners42, i32 0, i32 1
-  %48 = load ptr, ptr %tql_prev43, align 8
-  %49 = load ptr, ptr %listener.addr, align 8
-  %link_as44 = getelementptr inbounds %struct.MemoryListener, ptr %49, i32 0, i32 21
-  %tql_prev45 = getelementptr inbounds %struct.QTailQLink, ptr %link_as44, i32 0, i32 1
-  store ptr %48, ptr %tql_prev45, align 8
   %50 = load ptr, ptr %listener.addr, align 8
+  %link_as = getelementptr inbounds %struct.MemoryListener, ptr %50, i32 0, i32 21
+  store ptr null, ptr %link_as, align 8
   %51 = load ptr, ptr %as.addr, align 8
-  %listeners46 = getelementptr inbounds %struct.AddressSpace, ptr %51, i32 0, i32 7
-  %tql_prev47 = getelementptr inbounds %struct.QTailQLink, ptr %listeners46, i32 0, i32 1
-  %52 = load ptr, ptr %tql_prev47, align 8
-  %tql_next48 = getelementptr inbounds %struct.QTailQLink, ptr %52, i32 0, i32 0
-  store ptr %50, ptr %tql_next48, align 8
+  %listeners42 = getelementptr inbounds %struct.AddressSpace, ptr %51, i32 0, i32 7
+  %tql_prev43 = getelementptr inbounds %struct.QTailQLink, ptr %listeners42, i32 0, i32 1
+  %52 = load ptr, ptr %tql_prev43, align 8
   %53 = load ptr, ptr %listener.addr, align 8
-  %link_as49 = getelementptr inbounds %struct.MemoryListener, ptr %53, i32 0, i32 21
-  %54 = load ptr, ptr %as.addr, align 8
-  %listeners50 = getelementptr inbounds %struct.AddressSpace, ptr %54, i32 0, i32 7
+  %link_as44 = getelementptr inbounds %struct.MemoryListener, ptr %53, i32 0, i32 21
+  %tql_prev45 = getelementptr inbounds %struct.QTailQLink, ptr %link_as44, i32 0, i32 1
+  store ptr %52, ptr %tql_prev45, align 8
+  %54 = load ptr, ptr %listener.addr, align 8
+  %55 = load ptr, ptr %as.addr, align 8
+  %listeners46 = getelementptr inbounds %struct.AddressSpace, ptr %55, i32 0, i32 7
+  %tql_prev47 = getelementptr inbounds %struct.QTailQLink, ptr %listeners46, i32 0, i32 1
+  %56 = load ptr, ptr %tql_prev47, align 8
+  %tql_next48 = getelementptr inbounds %struct.QTailQLink, ptr %56, i32 0, i32 0
+  store ptr %54, ptr %tql_next48, align 8
+  %57 = load ptr, ptr %listener.addr, align 8
+  %link_as49 = getelementptr inbounds %struct.MemoryListener, ptr %57, i32 0, i32 21
+  %58 = load ptr, ptr %as.addr, align 8
+  %listeners50 = getelementptr inbounds %struct.AddressSpace, ptr %58, i32 0, i32 7
   %tql_prev51 = getelementptr inbounds %struct.QTailQLink, ptr %listeners50, i32 0, i32 1
   store ptr %link_as49, ptr %tql_prev51, align 8
   br label %do.end52
@@ -9584,25 +9595,25 @@ do.end52:                                         ; preds = %do.body41
   br label %if.end79
 
 if.else53:                                        ; preds = %lor.lhs.false32
-  %55 = load ptr, ptr %as.addr, align 8
-  %listeners54 = getelementptr inbounds %struct.AddressSpace, ptr %55, i32 0, i32 7
-  %56 = load ptr, ptr %listeners54, align 8
-  store ptr %56, ptr %other, align 8
+  %59 = load ptr, ptr %as.addr, align 8
+  %listeners54 = getelementptr inbounds %struct.AddressSpace, ptr %59, i32 0, i32 7
+  %60 = load ptr, ptr %listeners54, align 8
+  store ptr %60, ptr %other, align 8
   br label %for.cond55
 
 for.cond55:                                       ; preds = %for.inc63, %if.else53
-  %57 = load ptr, ptr %other, align 8
-  %tobool56 = icmp ne ptr %57, null
+  %61 = load ptr, ptr %other, align 8
+  %tobool56 = icmp ne ptr %61, null
   br i1 %tobool56, label %for.body57, label %for.end65
 
 for.body57:                                       ; preds = %for.cond55
-  %58 = load ptr, ptr %listener.addr, align 8
-  %priority58 = getelementptr inbounds %struct.MemoryListener, ptr %58, i32 0, i32 17
-  %59 = load i32, ptr %priority58, align 8
-  %60 = load ptr, ptr %other, align 8
-  %priority59 = getelementptr inbounds %struct.MemoryListener, ptr %60, i32 0, i32 17
-  %61 = load i32, ptr %priority59, align 8
-  %cmp60 = icmp ult i32 %59, %61
+  %62 = load ptr, ptr %listener.addr, align 8
+  %priority58 = getelementptr inbounds %struct.MemoryListener, ptr %62, i32 0, i32 17
+  %63 = load i32, ptr %priority58, align 8
+  %64 = load ptr, ptr %other, align 8
+  %priority59 = getelementptr inbounds %struct.MemoryListener, ptr %64, i32 0, i32 17
+  %65 = load i32, ptr %priority59, align 8
+  %cmp60 = icmp ult i32 %63, %65
   br i1 %cmp60, label %if.then61, label %if.end62
 
 if.then61:                                        ; preds = %for.body57
@@ -9612,39 +9623,39 @@ if.end62:                                         ; preds = %for.body57
   br label %for.inc63
 
 for.inc63:                                        ; preds = %if.end62
-  %62 = load ptr, ptr %other, align 8
-  %link_as64 = getelementptr inbounds %struct.MemoryListener, ptr %62, i32 0, i32 21
-  %63 = load ptr, ptr %link_as64, align 8
-  store ptr %63, ptr %other, align 8
+  %66 = load ptr, ptr %other, align 8
+  %link_as64 = getelementptr inbounds %struct.MemoryListener, ptr %66, i32 0, i32 21
+  %67 = load ptr, ptr %link_as64, align 8
+  store ptr %67, ptr %other, align 8
   br label %for.cond55, !llvm.loop !47
 
 for.end65:                                        ; preds = %if.then61, %for.cond55
   br label %do.body66
 
 do.body66:                                        ; preds = %for.end65
-  %64 = load ptr, ptr %other, align 8
-  %link_as67 = getelementptr inbounds %struct.MemoryListener, ptr %64, i32 0, i32 21
+  %68 = load ptr, ptr %other, align 8
+  %link_as67 = getelementptr inbounds %struct.MemoryListener, ptr %68, i32 0, i32 21
   %tql_prev68 = getelementptr inbounds %struct.QTailQLink, ptr %link_as67, i32 0, i32 1
-  %65 = load ptr, ptr %tql_prev68, align 8
-  %66 = load ptr, ptr %listener.addr, align 8
-  %link_as69 = getelementptr inbounds %struct.MemoryListener, ptr %66, i32 0, i32 21
+  %69 = load ptr, ptr %tql_prev68, align 8
+  %70 = load ptr, ptr %listener.addr, align 8
+  %link_as69 = getelementptr inbounds %struct.MemoryListener, ptr %70, i32 0, i32 21
   %tql_prev70 = getelementptr inbounds %struct.QTailQLink, ptr %link_as69, i32 0, i32 1
-  store ptr %65, ptr %tql_prev70, align 8
-  %67 = load ptr, ptr %other, align 8
-  %68 = load ptr, ptr %listener.addr, align 8
-  %link_as71 = getelementptr inbounds %struct.MemoryListener, ptr %68, i32 0, i32 21
-  store ptr %67, ptr %link_as71, align 8
-  %69 = load ptr, ptr %listener.addr, align 8
-  %70 = load ptr, ptr %other, align 8
-  %link_as72 = getelementptr inbounds %struct.MemoryListener, ptr %70, i32 0, i32 21
-  %tql_prev73 = getelementptr inbounds %struct.QTailQLink, ptr %link_as72, i32 0, i32 1
-  %71 = load ptr, ptr %tql_prev73, align 8
-  %tql_next74 = getelementptr inbounds %struct.QTailQLink, ptr %71, i32 0, i32 0
-  store ptr %69, ptr %tql_next74, align 8
+  store ptr %69, ptr %tql_prev70, align 8
+  %71 = load ptr, ptr %other, align 8
   %72 = load ptr, ptr %listener.addr, align 8
-  %link_as75 = getelementptr inbounds %struct.MemoryListener, ptr %72, i32 0, i32 21
-  %73 = load ptr, ptr %other, align 8
-  %link_as76 = getelementptr inbounds %struct.MemoryListener, ptr %73, i32 0, i32 21
+  %link_as71 = getelementptr inbounds %struct.MemoryListener, ptr %72, i32 0, i32 21
+  store ptr %71, ptr %link_as71, align 8
+  %73 = load ptr, ptr %listener.addr, align 8
+  %74 = load ptr, ptr %other, align 8
+  %link_as72 = getelementptr inbounds %struct.MemoryListener, ptr %74, i32 0, i32 21
+  %tql_prev73 = getelementptr inbounds %struct.QTailQLink, ptr %link_as72, i32 0, i32 1
+  %75 = load ptr, ptr %tql_prev73, align 8
+  %tql_next74 = getelementptr inbounds %struct.QTailQLink, ptr %75, i32 0, i32 0
+  store ptr %73, ptr %tql_next74, align 8
+  %76 = load ptr, ptr %listener.addr, align 8
+  %link_as75 = getelementptr inbounds %struct.MemoryListener, ptr %76, i32 0, i32 21
+  %77 = load ptr, ptr %other, align 8
+  %link_as76 = getelementptr inbounds %struct.MemoryListener, ptr %77, i32 0, i32 21
   %tql_prev77 = getelementptr inbounds %struct.QTailQLink, ptr %link_as76, i32 0, i32 1
   store ptr %link_as75, ptr %tql_prev77, align 8
   br label %do.end78
@@ -9653,27 +9664,27 @@ do.end78:                                         ; preds = %do.body66
   br label %if.end79
 
 if.end79:                                         ; preds = %do.end78, %do.end52
-  %74 = load ptr, ptr %listener.addr, align 8
-  %75 = load ptr, ptr %as.addr, align 8
-  call void @listener_add_address_space(ptr noundef %74, ptr noundef %75)
-  %76 = load ptr, ptr %listener.addr, align 8
-  %eventfd_add = getelementptr inbounds %struct.MemoryListener, ptr %76, i32 0, i32 13
-  %77 = load ptr, ptr %eventfd_add, align 8
-  %tobool80 = icmp ne ptr %77, null
+  %78 = load ptr, ptr %listener.addr, align 8
+  %79 = load ptr, ptr %as.addr, align 8
+  call void @listener_add_address_space(ptr noundef %78, ptr noundef %79)
+  %80 = load ptr, ptr %listener.addr, align 8
+  %eventfd_add = getelementptr inbounds %struct.MemoryListener, ptr %80, i32 0, i32 13
+  %81 = load ptr, ptr %eventfd_add, align 8
+  %tobool80 = icmp ne ptr %81, null
   br i1 %tobool80, label %if.then83, label %lor.lhs.false81
 
 lor.lhs.false81:                                  ; preds = %if.end79
-  %78 = load ptr, ptr %listener.addr, align 8
-  %eventfd_del = getelementptr inbounds %struct.MemoryListener, ptr %78, i32 0, i32 14
-  %79 = load ptr, ptr %eventfd_del, align 8
-  %tobool82 = icmp ne ptr %79, null
+  %82 = load ptr, ptr %listener.addr, align 8
+  %eventfd_del = getelementptr inbounds %struct.MemoryListener, ptr %82, i32 0, i32 14
+  %83 = load ptr, ptr %eventfd_del, align 8
+  %tobool82 = icmp ne ptr %83, null
   br i1 %tobool82, label %if.then83, label %if.end84
 
 if.then83:                                        ; preds = %lor.lhs.false81, %if.end79
-  %80 = load ptr, ptr %as.addr, align 8
-  %ioeventfd_notifiers = getelementptr inbounds %struct.AddressSpace, ptr %80, i32 0, i32 5
-  %81 = load i32, ptr %ioeventfd_notifiers, align 4
-  %inc = add i32 %81, 1
+  %84 = load ptr, ptr %as.addr, align 8
+  %ioeventfd_notifiers = getelementptr inbounds %struct.AddressSpace, ptr %84, i32 0, i32 5
+  %85 = load i32, ptr %ioeventfd_notifiers, align 4
+  %inc = add i32 %85, 1
   store i32 %inc, ptr %ioeventfd_notifiers, align 4
   br label %if.end84
 
@@ -9897,29 +9908,30 @@ if.else:                                          ; preds = %do.body
   %link12 = getelementptr inbounds %struct.MemoryListener, ptr %18, i32 0, i32 20
   %tql_prev13 = getelementptr inbounds %struct.QTailQLink, ptr %link12, i32 0, i32 1
   %19 = load ptr, ptr %tql_prev13, align 8
-  store ptr %19, ptr getelementptr inbounds (%struct.QTailQLink, ptr @memory_listeners, i32 0, i32 1), align 8
+  %20 = getelementptr inbounds %struct.QTailQLink, ptr @memory_listeners, i32 0, i32 1
+  store ptr %19, ptr %20, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then7
-  %20 = load ptr, ptr %listener.addr, align 8
-  %link15 = getelementptr inbounds %struct.MemoryListener, ptr %20, i32 0, i32 20
-  %21 = load ptr, ptr %link15, align 8
-  %22 = load ptr, ptr %listener.addr, align 8
-  %link16 = getelementptr inbounds %struct.MemoryListener, ptr %22, i32 0, i32 20
+  %21 = load ptr, ptr %listener.addr, align 8
+  %link15 = getelementptr inbounds %struct.MemoryListener, ptr %21, i32 0, i32 20
+  %22 = load ptr, ptr %link15, align 8
+  %23 = load ptr, ptr %listener.addr, align 8
+  %link16 = getelementptr inbounds %struct.MemoryListener, ptr %23, i32 0, i32 20
   %tql_prev17 = getelementptr inbounds %struct.QTailQLink, ptr %link16, i32 0, i32 1
-  %23 = load ptr, ptr %tql_prev17, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %23, i32 0, i32 0
-  store ptr %21, ptr %tql_next, align 8
-  %24 = load ptr, ptr %listener.addr, align 8
-  %link18 = getelementptr inbounds %struct.MemoryListener, ptr %24, i32 0, i32 20
+  %24 = load ptr, ptr %tql_prev17, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %24, i32 0, i32 0
+  store ptr %22, ptr %tql_next, align 8
+  %25 = load ptr, ptr %listener.addr, align 8
+  %link18 = getelementptr inbounds %struct.MemoryListener, ptr %25, i32 0, i32 20
   %tql_prev19 = getelementptr inbounds %struct.QTailQLink, ptr %link18, i32 0, i32 1
   store ptr null, ptr %tql_prev19, align 8
-  %25 = load ptr, ptr %listener.addr, align 8
-  %link20 = getelementptr inbounds %struct.MemoryListener, ptr %25, i32 0, i32 20
+  %26 = load ptr, ptr %listener.addr, align 8
+  %link20 = getelementptr inbounds %struct.MemoryListener, ptr %26, i32 0, i32 20
   %tql_next21 = getelementptr inbounds %struct.QTailQLink, ptr %link20, i32 0, i32 0
   store ptr null, ptr %tql_next21, align 8
-  %26 = load ptr, ptr %listener.addr, align 8
-  %link22 = getelementptr inbounds %struct.MemoryListener, ptr %26, i32 0, i32 20
+  %27 = load ptr, ptr %listener.addr, align 8
+  %link22 = getelementptr inbounds %struct.MemoryListener, ptr %27, i32 0, i32 20
   store ptr null, ptr %link22, align 8
   br label %do.end
 
@@ -9927,64 +9939,64 @@ do.end:                                           ; preds = %if.end14
   br label %do.body23
 
 do.body23:                                        ; preds = %do.end
-  %27 = load ptr, ptr %listener.addr, align 8
-  %link_as = getelementptr inbounds %struct.MemoryListener, ptr %27, i32 0, i32 21
-  %28 = load ptr, ptr %link_as, align 8
-  %cmp24 = icmp ne ptr %28, null
+  %28 = load ptr, ptr %listener.addr, align 8
+  %link_as = getelementptr inbounds %struct.MemoryListener, ptr %28, i32 0, i32 21
+  %29 = load ptr, ptr %link_as, align 8
+  %cmp24 = icmp ne ptr %29, null
   br i1 %cmp24, label %if.then25, label %if.else31
 
 if.then25:                                        ; preds = %do.body23
-  %29 = load ptr, ptr %listener.addr, align 8
-  %link_as26 = getelementptr inbounds %struct.MemoryListener, ptr %29, i32 0, i32 21
+  %30 = load ptr, ptr %listener.addr, align 8
+  %link_as26 = getelementptr inbounds %struct.MemoryListener, ptr %30, i32 0, i32 21
   %tql_prev27 = getelementptr inbounds %struct.QTailQLink, ptr %link_as26, i32 0, i32 1
-  %30 = load ptr, ptr %tql_prev27, align 8
-  %31 = load ptr, ptr %listener.addr, align 8
-  %link_as28 = getelementptr inbounds %struct.MemoryListener, ptr %31, i32 0, i32 21
-  %32 = load ptr, ptr %link_as28, align 8
-  %link_as29 = getelementptr inbounds %struct.MemoryListener, ptr %32, i32 0, i32 21
+  %31 = load ptr, ptr %tql_prev27, align 8
+  %32 = load ptr, ptr %listener.addr, align 8
+  %link_as28 = getelementptr inbounds %struct.MemoryListener, ptr %32, i32 0, i32 21
+  %33 = load ptr, ptr %link_as28, align 8
+  %link_as29 = getelementptr inbounds %struct.MemoryListener, ptr %33, i32 0, i32 21
   %tql_prev30 = getelementptr inbounds %struct.QTailQLink, ptr %link_as29, i32 0, i32 1
-  store ptr %30, ptr %tql_prev30, align 8
+  store ptr %31, ptr %tql_prev30, align 8
   br label %if.end36
 
 if.else31:                                        ; preds = %do.body23
-  %33 = load ptr, ptr %listener.addr, align 8
-  %link_as32 = getelementptr inbounds %struct.MemoryListener, ptr %33, i32 0, i32 21
+  %34 = load ptr, ptr %listener.addr, align 8
+  %link_as32 = getelementptr inbounds %struct.MemoryListener, ptr %34, i32 0, i32 21
   %tql_prev33 = getelementptr inbounds %struct.QTailQLink, ptr %link_as32, i32 0, i32 1
-  %34 = load ptr, ptr %tql_prev33, align 8
-  %35 = load ptr, ptr %listener.addr, align 8
-  %address_space34 = getelementptr inbounds %struct.MemoryListener, ptr %35, i32 0, i32 19
-  %36 = load ptr, ptr %address_space34, align 8
-  %listeners = getelementptr inbounds %struct.AddressSpace, ptr %36, i32 0, i32 7
+  %35 = load ptr, ptr %tql_prev33, align 8
+  %36 = load ptr, ptr %listener.addr, align 8
+  %address_space34 = getelementptr inbounds %struct.MemoryListener, ptr %36, i32 0, i32 19
+  %37 = load ptr, ptr %address_space34, align 8
+  %listeners = getelementptr inbounds %struct.AddressSpace, ptr %37, i32 0, i32 7
   %tql_prev35 = getelementptr inbounds %struct.QTailQLink, ptr %listeners, i32 0, i32 1
-  store ptr %34, ptr %tql_prev35, align 8
+  store ptr %35, ptr %tql_prev35, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else31, %if.then25
-  %37 = load ptr, ptr %listener.addr, align 8
-  %link_as37 = getelementptr inbounds %struct.MemoryListener, ptr %37, i32 0, i32 21
-  %38 = load ptr, ptr %link_as37, align 8
-  %39 = load ptr, ptr %listener.addr, align 8
-  %link_as38 = getelementptr inbounds %struct.MemoryListener, ptr %39, i32 0, i32 21
+  %38 = load ptr, ptr %listener.addr, align 8
+  %link_as37 = getelementptr inbounds %struct.MemoryListener, ptr %38, i32 0, i32 21
+  %39 = load ptr, ptr %link_as37, align 8
+  %40 = load ptr, ptr %listener.addr, align 8
+  %link_as38 = getelementptr inbounds %struct.MemoryListener, ptr %40, i32 0, i32 21
   %tql_prev39 = getelementptr inbounds %struct.QTailQLink, ptr %link_as38, i32 0, i32 1
-  %40 = load ptr, ptr %tql_prev39, align 8
-  %tql_next40 = getelementptr inbounds %struct.QTailQLink, ptr %40, i32 0, i32 0
-  store ptr %38, ptr %tql_next40, align 8
-  %41 = load ptr, ptr %listener.addr, align 8
-  %link_as41 = getelementptr inbounds %struct.MemoryListener, ptr %41, i32 0, i32 21
+  %41 = load ptr, ptr %tql_prev39, align 8
+  %tql_next40 = getelementptr inbounds %struct.QTailQLink, ptr %41, i32 0, i32 0
+  store ptr %39, ptr %tql_next40, align 8
+  %42 = load ptr, ptr %listener.addr, align 8
+  %link_as41 = getelementptr inbounds %struct.MemoryListener, ptr %42, i32 0, i32 21
   %tql_prev42 = getelementptr inbounds %struct.QTailQLink, ptr %link_as41, i32 0, i32 1
   store ptr null, ptr %tql_prev42, align 8
-  %42 = load ptr, ptr %listener.addr, align 8
-  %link_as43 = getelementptr inbounds %struct.MemoryListener, ptr %42, i32 0, i32 21
+  %43 = load ptr, ptr %listener.addr, align 8
+  %link_as43 = getelementptr inbounds %struct.MemoryListener, ptr %43, i32 0, i32 21
   %tql_next44 = getelementptr inbounds %struct.QTailQLink, ptr %link_as43, i32 0, i32 0
   store ptr null, ptr %tql_next44, align 8
-  %43 = load ptr, ptr %listener.addr, align 8
-  %link_as45 = getelementptr inbounds %struct.MemoryListener, ptr %43, i32 0, i32 21
+  %44 = load ptr, ptr %listener.addr, align 8
+  %link_as45 = getelementptr inbounds %struct.MemoryListener, ptr %44, i32 0, i32 21
   store ptr null, ptr %link_as45, align 8
   br label %do.end46
 
 do.end46:                                         ; preds = %if.end36
-  %44 = load ptr, ptr %listener.addr, align 8
-  %address_space47 = getelementptr inbounds %struct.MemoryListener, ptr %44, i32 0, i32 19
+  %45 = load ptr, ptr %listener.addr, align 8
+  %address_space47 = getelementptr inbounds %struct.MemoryListener, ptr %45, i32 0, i32 19
   store ptr null, ptr %address_space47, align 8
   br label %return
 
@@ -10185,42 +10197,45 @@ do.body4:                                         ; preds = %do.end
   %9 = load ptr, ptr %as.addr, align 8
   %address_spaces_link = getelementptr inbounds %struct.AddressSpace, ptr %9, i32 0, i32 8
   store ptr null, ptr %address_spaces_link, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @address_spaces, i32 0, i32 1), align 8
-  %11 = load ptr, ptr %as.addr, align 8
-  %address_spaces_link5 = getelementptr inbounds %struct.AddressSpace, ptr %11, i32 0, i32 8
-  %tql_prev6 = getelementptr inbounds %struct.QTailQLink, ptr %address_spaces_link5, i32 0, i32 1
-  store ptr %10, ptr %tql_prev6, align 8
+  %10 = getelementptr inbounds %struct.QTailQLink, ptr @address_spaces, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %as.addr, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @address_spaces, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %13, i32 0, i32 0
-  store ptr %12, ptr %tql_next, align 8
-  %14 = load ptr, ptr %as.addr, align 8
-  %address_spaces_link7 = getelementptr inbounds %struct.AddressSpace, ptr %14, i32 0, i32 8
-  store ptr %address_spaces_link7, ptr getelementptr inbounds (%struct.QTailQLink, ptr @address_spaces, i32 0, i32 1), align 8
+  %address_spaces_link5 = getelementptr inbounds %struct.AddressSpace, ptr %12, i32 0, i32 8
+  %tql_prev6 = getelementptr inbounds %struct.QTailQLink, ptr %address_spaces_link5, i32 0, i32 1
+  store ptr %11, ptr %tql_prev6, align 8
+  %13 = load ptr, ptr %as.addr, align 8
+  %14 = getelementptr inbounds %struct.QTailQLink, ptr @address_spaces, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %15, i32 0, i32 0
+  store ptr %13, ptr %tql_next, align 8
+  %16 = load ptr, ptr %as.addr, align 8
+  %address_spaces_link7 = getelementptr inbounds %struct.AddressSpace, ptr %16, i32 0, i32 8
+  %17 = getelementptr inbounds %struct.QTailQLink, ptr @address_spaces, i32 0, i32 1
+  store ptr %address_spaces_link7, ptr %17, align 8
   br label %do.end8
 
 do.end8:                                          ; preds = %do.body4
-  %15 = load ptr, ptr %name.addr, align 8
-  %tobool = icmp ne ptr %15, null
+  %18 = load ptr, ptr %name.addr, align 8
+  %tobool = icmp ne ptr %18, null
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %do.end8
-  %16 = load ptr, ptr %name.addr, align 8
+  %19 = load ptr, ptr %name.addr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %do.end8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %16, %cond.true ], [ @.str.40, %cond.false ]
+  %cond = phi ptr [ %19, %cond.true ], [ @.str.40, %cond.false ]
   %call = call noalias ptr @g_strdup(ptr noundef %cond)
-  %17 = load ptr, ptr %as.addr, align 8
-  %name9 = getelementptr inbounds %struct.AddressSpace, ptr %17, i32 0, i32 1
+  %20 = load ptr, ptr %as.addr, align 8
+  %name9 = getelementptr inbounds %struct.AddressSpace, ptr %20, i32 0, i32 1
   store ptr %call, ptr %name9, align 8
-  %18 = load ptr, ptr %as.addr, align 8
-  call void @address_space_update_topology(ptr noundef %18)
-  %19 = load ptr, ptr %as.addr, align 8
-  call void @address_space_update_ioeventfds(ptr noundef %19)
+  %21 = load ptr, ptr %as.addr, align 8
+  call void @address_space_update_topology(ptr noundef %21)
+  %22 = load ptr, ptr %as.addr, align 8
+  call void @address_space_update_ioeventfds(ptr noundef %22)
   ret void
 }
 
@@ -10297,43 +10312,48 @@ if.else:                                          ; preds = %do.body
   %address_spaces_link7 = getelementptr inbounds %struct.AddressSpace, ptr %9, i32 0, i32 8
   %tql_prev8 = getelementptr inbounds %struct.QTailQLink, ptr %address_spaces_link7, i32 0, i32 1
   %10 = load ptr, ptr %tql_prev8, align 8
-  store ptr %10, ptr getelementptr inbounds (%struct.QTailQLink, ptr @address_spaces, i32 0, i32 1), align 8
+  %11 = getelementptr inbounds %struct.QTailQLink, ptr @address_spaces, i32 0, i32 1
+  store ptr %10, ptr %11, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %11 = load ptr, ptr %as.addr, align 8
-  %address_spaces_link9 = getelementptr inbounds %struct.AddressSpace, ptr %11, i32 0, i32 8
-  %12 = load ptr, ptr %address_spaces_link9, align 8
-  %13 = load ptr, ptr %as.addr, align 8
-  %address_spaces_link10 = getelementptr inbounds %struct.AddressSpace, ptr %13, i32 0, i32 8
+  %12 = load ptr, ptr %as.addr, align 8
+  %address_spaces_link9 = getelementptr inbounds %struct.AddressSpace, ptr %12, i32 0, i32 8
+  %13 = load ptr, ptr %address_spaces_link9, align 8
+  %14 = load ptr, ptr %as.addr, align 8
+  %address_spaces_link10 = getelementptr inbounds %struct.AddressSpace, ptr %14, i32 0, i32 8
   %tql_prev11 = getelementptr inbounds %struct.QTailQLink, ptr %address_spaces_link10, i32 0, i32 1
-  %14 = load ptr, ptr %tql_prev11, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %14, i32 0, i32 0
-  store ptr %12, ptr %tql_next, align 8
-  %15 = load ptr, ptr %as.addr, align 8
-  %address_spaces_link12 = getelementptr inbounds %struct.AddressSpace, ptr %15, i32 0, i32 8
+  %15 = load ptr, ptr %tql_prev11, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %15, i32 0, i32 0
+  store ptr %13, ptr %tql_next, align 8
+  %16 = load ptr, ptr %as.addr, align 8
+  %address_spaces_link12 = getelementptr inbounds %struct.AddressSpace, ptr %16, i32 0, i32 8
   %tql_prev13 = getelementptr inbounds %struct.QTailQLink, ptr %address_spaces_link12, i32 0, i32 1
   store ptr null, ptr %tql_prev13, align 8
-  %16 = load ptr, ptr %as.addr, align 8
-  %address_spaces_link14 = getelementptr inbounds %struct.AddressSpace, ptr %16, i32 0, i32 8
+  %17 = load ptr, ptr %as.addr, align 8
+  %address_spaces_link14 = getelementptr inbounds %struct.AddressSpace, ptr %17, i32 0, i32 8
   %tql_next15 = getelementptr inbounds %struct.QTailQLink, ptr %address_spaces_link14, i32 0, i32 0
   store ptr null, ptr %tql_next15, align 8
-  %17 = load ptr, ptr %as.addr, align 8
-  %address_spaces_link16 = getelementptr inbounds %struct.AddressSpace, ptr %17, i32 0, i32 8
+  %18 = load ptr, ptr %as.addr, align 8
+  %address_spaces_link16 = getelementptr inbounds %struct.AddressSpace, ptr %18, i32 0, i32 8
   store ptr null, ptr %address_spaces_link16, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %18 = load ptr, ptr %root, align 8
-  %19 = load ptr, ptr %as.addr, align 8
-  %root17 = getelementptr inbounds %struct.AddressSpace, ptr %19, i32 0, i32 2
-  store ptr %18, ptr %root17, align 8
-  store i8 trunc (i64 sub (i64 ptrtoint (ptr @do_address_space_destroy to i64), i64 ptrtoint (ptr @do_address_space_destroy to i64)) to i8), ptr %func_type_invalid, align 1
+  %19 = load ptr, ptr %root, align 8
   %20 = load ptr, ptr %as.addr, align 8
-  %rcu = getelementptr inbounds %struct.AddressSpace, ptr %20, i32 0, i32 0
+  %root17 = getelementptr inbounds %struct.AddressSpace, ptr %20, i32 0, i32 2
+  store ptr %19, ptr %root17, align 8
+  %21 = ptrtoint ptr @do_address_space_destroy to i64
+  %22 = ptrtoint ptr @do_address_space_destroy to i64
+  %23 = sub i64 %21, %22
+  %24 = trunc i64 %23 to i8
+  store i8 %24, ptr %func_type_invalid, align 1
+  %25 = load ptr, ptr %as.addr, align 8
+  %rcu = getelementptr inbounds %struct.AddressSpace, ptr %25, i32 0, i32 0
   store ptr %rcu, ptr %tmp, align 8
-  %21 = load ptr, ptr %tmp, align 8
-  call void @call_rcu1(ptr noundef %21, ptr noundef @do_address_space_destroy)
+  %26 = load ptr, ptr %tmp, align 8
+  call void @call_rcu1(ptr noundef %26, ptr noundef @do_address_space_destroy)
   ret void
 }
 

@@ -62,7 +62,7 @@ define i32 @ompi_coll_adapt_reduce(ptr noundef %0, ptr noundef %1, i32 noundef %
   %41 = load ptr, ptr %40, align 8
   %42 = call i32 %29(ptr noundef %30, ptr noundef %31, i32 noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %41)
   store i32 %42, ptr %9, align 4
-  br label %65
+  br label %66
 
 43:                                               ; preds = %8
   store ptr null, ptr %19, align 8
@@ -88,21 +88,22 @@ define i32 @ompi_coll_adapt_reduce(ptr noundef %0, ptr noundef %1, i32 noundef %
 58:                                               ; preds = %55
   %59 = load i32, ptr %20, align 4
   store i32 %59, ptr %9, align 4
-  br label %65
+  br label %66
 
 60:                                               ; preds = %55
   br label %61
 
 61:                                               ; preds = %60, %43
-  %62 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 4), align 8
-  %63 = call i32 %62(ptr noundef %19, ptr noundef null)
-  %64 = load i32, ptr %20, align 4
-  store i32 %64, ptr %9, align 4
-  br label %65
+  %62 = getelementptr inbounds %struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 4
+  %63 = load ptr, ptr %62, align 8
+  %64 = call i32 %63(ptr noundef %19, ptr noundef null)
+  %65 = load i32, ptr %20, align 4
+  store i32 %65, ptr %9, align 4
+  br label %66
 
-65:                                               ; preds = %61, %58, %23
-  %66 = load i32, ptr %9, align 4
-  ret i32 %66
+66:                                               ; preds = %61, %58, %23
+  %67 = load i32, ptr %9, align 4
+  ret i32 %67
 }
 
 ; Function Attrs: nounwind uwtable

@@ -298,23 +298,23 @@ define dso_local i32 @acpi_ex_load_op(ptr noundef %0, ptr noundef %1, ptr nocapt
 19:                                               ; preds = %14
   %20 = zext i8 %17 to i32
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 298, ptr noundef nonnull @.str.1, i32 noundef %20) #7
-  br label %106
+  br label %107
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds i8, ptr %15, i64 16
   store i64 0, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 9
   %24 = load i8, ptr %23, align 1
-  switch i8 %24, label %106 [
+  switch i8 %24, label %107 [
     i8 10, label %25
-    i8 3, label %72
+    i8 3, label %73
   ]
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %0, i64 13
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
-  br i1 %28, label %29, label %106
+  br i1 %28, label %29, label %107
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %0, i64 12
@@ -326,7 +326,7 @@ define dso_local i32 @acpi_ex_load_op(ptr noundef %0, ptr noundef %1, ptr nocapt
 34:                                               ; preds = %29
   %35 = tail call i32 @acpi_ds_get_region_arguments(ptr noundef %0) #7
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %106
+  br i1 %36, label %37, label %107
 
 37:                                               ; preds = %34, %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
@@ -337,130 +337,131 @@ define dso_local i32 @acpi_ex_load_op(ptr noundef %0, ptr noundef %1, ptr nocapt
   %39 = and i64 %38, 512
   %40 = icmp eq i64 %39, 0
   %41 = select i1 %40, i32 2080, i32 3264
-  %42 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %43 = call noalias align 8 dereferenceable_or_null(36) ptr @kmalloc_trace(ptr noundef %42, i32 noundef %41, i64 noundef 36) #8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %106, label %45
+  %42 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %43 = load ptr, ptr %42, align 16
+  %44 = call noalias align 8 dereferenceable_or_null(36) ptr @kmalloc_trace(ptr noundef %43, i32 noundef %41, i64 noundef 36) #8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %107, label %46
 
-45:                                               ; preds = %37
+46:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store i64 0, ptr %5, align 8, !annotation !5
-  br label %46
+  br label %47
 
-46:                                               ; preds = %51, %45
-  %47 = phi i32 [ %55, %51 ], [ 0, %45 ]
-  %48 = phi ptr [ %54, %51 ], [ %43, %45 ]
-  %49 = call i32 @acpi_ev_address_space_dispatch(ptr noundef %0, ptr noundef null, i32 noundef 0, i32 noundef %47, i32 noundef 8, ptr noundef nonnull %5) #7
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %57
+47:                                               ; preds = %52, %46
+  %48 = phi i32 [ %56, %52 ], [ 0, %46 ]
+  %49 = phi ptr [ %55, %52 ], [ %44, %46 ]
+  %50 = call i32 @acpi_ev_address_space_dispatch(ptr noundef %0, ptr noundef null, i32 noundef 0, i32 noundef %48, i32 noundef 8, ptr noundef nonnull %5) #7
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %58
 
-51:                                               ; preds = %46
-  %52 = load i64, ptr %5, align 8
-  %53 = trunc i64 %52 to i8
-  store i8 %53, ptr %48, align 1
-  %54 = getelementptr i8, ptr %48, i64 1
-  %55 = add nuw nsw i32 %47, 1
-  %56 = icmp eq i32 %55, 36
-  br i1 %56, label %57, label %46, !llvm.loop !7
+52:                                               ; preds = %47
+  %53 = load i64, ptr %5, align 8
+  %54 = trunc i64 %53 to i8
+  store i8 %54, ptr %49, align 1
+  %55 = getelementptr i8, ptr %49, i64 1
+  %56 = add nuw nsw i32 %48, 1
+  %57 = icmp eq i32 %56, 36
+  br i1 %57, label %58, label %47, !llvm.loop !7
 
-57:                                               ; preds = %51, %46
-  %58 = phi i32 [ %49, %46 ], [ 0, %51 ]
+58:                                               ; preds = %52, %47
+  %59 = phi i32 [ %50, %47 ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  %59 = getelementptr inbounds i8, ptr %43, i64 4
-  %60 = load i32, ptr %59, align 4
-  call void @kfree(ptr noundef nonnull %43) #7
-  %61 = icmp eq i32 %58, 0
-  br i1 %61, label %62, label %106
+  %60 = getelementptr inbounds i8, ptr %44, i64 4
+  %61 = load i32, ptr %60, align 4
+  call void @kfree(ptr noundef nonnull %44) #7
+  %62 = icmp eq i32 %59, 0
+  br i1 %62, label %63, label %107
 
-62:                                               ; preds = %57
-  %63 = icmp ult i32 %60, 36
-  br i1 %63, label %106, label %64
+63:                                               ; preds = %58
+  %64 = icmp ult i32 %61, 36
+  br i1 %64, label %107, label %65
 
-64:                                               ; preds = %62
-  %65 = zext i32 %60 to i64
-  %66 = call fastcc ptr @acpi_os_allocate(i64 noundef %65)
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %106, label %68
+65:                                               ; preds = %63
+  %66 = zext i32 %61 to i64
+  %67 = call fastcc ptr @acpi_os_allocate(i64 noundef %66)
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %107, label %69
 
-68:                                               ; preds = %64
-  %69 = call fastcc i32 @acpi_ex_region_read(ptr noundef %0, i32 noundef %60, ptr noundef nonnull %66)
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %93, label %71
+69:                                               ; preds = %65
+  %70 = call fastcc i32 @acpi_ex_region_read(ptr noundef %0, i32 noundef %61, ptr noundef nonnull %67)
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %94, label %72
 
-71:                                               ; preds = %68
-  call void @kfree(ptr noundef nonnull %66) #7
-  br label %106
+72:                                               ; preds = %69
+  call void @kfree(ptr noundef nonnull %67) #7
+  br label %107
 
-72:                                               ; preds = %21
-  %73 = getelementptr inbounds i8, ptr %0, i64 24
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp ult i32 %74, 36
-  br i1 %75, label %106, label %76
+73:                                               ; preds = %21
+  %74 = getelementptr inbounds i8, ptr %0, i64 24
+  %75 = load i32, ptr %74, align 8
+  %76 = icmp ult i32 %75, 36
+  br i1 %76, label %107, label %77
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
-  %80 = load i32, ptr %79, align 1
-  %81 = icmp ugt i32 %80, %74
-  br i1 %81, label %106, label %82
+77:                                               ; preds = %73
+  %78 = getelementptr inbounds i8, ptr %0, i64 16
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %81 = load i32, ptr %80, align 1
+  %82 = icmp ugt i32 %81, %75
+  br i1 %82, label %107, label %83
 
-82:                                               ; preds = %76
-  %83 = zext i32 %80 to i64
-  %84 = icmp ult i32 %80, 36
-  br i1 %84, label %106, label %85
+83:                                               ; preds = %77
+  %84 = zext i32 %81 to i64
+  %85 = icmp ult i32 %81, 36
+  br i1 %85, label %107, label %86
 
-85:                                               ; preds = %82
+86:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8, !annotation !5
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #7, !srcloc !6
-  %86 = load i64, ptr %4, align 8
+  %87 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  %87 = and i64 %86, 512
-  %88 = icmp eq i64 %87, 0
-  %89 = select i1 %88, i32 2080, i32 3264
-  %90 = call noalias align 8 ptr @__kmalloc(i64 noundef %83, i32 noundef %89) #9
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %106, label %92
+  %88 = and i64 %87, 512
+  %89 = icmp eq i64 %88, 0
+  %90 = select i1 %89, i32 2080, i32 3264
+  %91 = call noalias align 8 ptr @__kmalloc(i64 noundef %84, i32 noundef %90) #9
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %107, label %93
 
-92:                                               ; preds = %85
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %90, ptr align 1 %78, i64 %83, i1 false)
-  br label %93
+93:                                               ; preds = %86
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %91, ptr align 1 %79, i64 %84, i1 false)
+  br label %94
 
-93:                                               ; preds = %92, %68
-  %94 = phi ptr [ %90, %92 ], [ %66, %68 ]
+94:                                               ; preds = %93, %69
+  %95 = phi ptr [ %91, %93 ], [ %67, %69 ]
   call void (ptr, ...) @acpi_info(ptr noundef nonnull @.str) #7
   call void @acpi_ex_exit_interpreter() #7
-  %95 = ptrtoint ptr %94 to i64
-  %96 = call i32 @acpi_tb_install_and_load_table(i64 noundef %95, i8 noundef zeroext 2, ptr noundef nonnull %94, i8 noundef zeroext 1, ptr noundef nonnull %8) #7
+  %96 = ptrtoint ptr %95 to i64
+  %97 = call i32 @acpi_tb_install_and_load_table(i64 noundef %96, i8 noundef zeroext 2, ptr noundef nonnull %95, i8 noundef zeroext 1, ptr noundef nonnull %8) #7
   call void @acpi_ex_enter_interpreter() #7
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %99, label %98
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %100, label %99
 
-98:                                               ; preds = %93
-  call void @kfree(ptr noundef nonnull %94) #7
-  br label %106
+99:                                               ; preds = %94
+  call void @kfree(ptr noundef nonnull %95) #7
+  br label %107
 
-99:                                               ; preds = %93
-  %100 = load i32, ptr %8, align 4
-  %101 = call fastcc i32 @acpi_ex_add_table(i32 noundef %100, ptr noundef nonnull %7), !range !10
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %106
+100:                                              ; preds = %94
+  %101 = load i32, ptr %8, align 4
+  %102 = call fastcc i32 @acpi_ex_add_table(i32 noundef %101, ptr noundef nonnull %7), !range !10
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %104, label %107
 
-103:                                              ; preds = %99
+104:                                              ; preds = %100
   call void @acpi_ex_exit_interpreter() #7
-  %104 = call i32 @acpi_ns_initialize_objects() #7
+  %105 = call i32 @acpi_ns_initialize_objects() #7
   call void @acpi_ex_enter_interpreter() #7
-  %105 = load ptr, ptr %7, align 8
-  call void @acpi_ut_remove_reference(ptr noundef %105) #7
+  %106 = load ptr, ptr %7, align 8
+  call void @acpi_ut_remove_reference(ptr noundef %106) #7
   store i64 -1, ptr %22, align 8
-  br label %106
+  br label %107
 
-106:                                              ; preds = %103, %99, %98, %85, %82, %76, %72, %71, %64, %62, %57, %37, %34, %25, %21, %19
-  %107 = phi i32 [ 12291, %19 ], [ %96, %98 ], [ 0, %103 ], [ %69, %71 ], [ 12291, %25 ], [ %35, %34 ], [ 4, %37 ], [ %58, %57 ], [ 8197, %62 ], [ 4, %64 ], [ 8197, %72 ], [ 12298, %76 ], [ 8197, %82 ], [ 4, %85 ], [ 12291, %21 ], [ %101, %99 ]
+107:                                              ; preds = %104, %100, %99, %86, %83, %77, %73, %72, %65, %63, %58, %37, %34, %25, %21, %19
+  %108 = phi i32 [ 12291, %19 ], [ %97, %99 ], [ 0, %104 ], [ %70, %72 ], [ 12291, %25 ], [ %35, %34 ], [ 4, %37 ], [ %59, %58 ], [ 8197, %63 ], [ 4, %65 ], [ 8197, %73 ], [ 12298, %77 ], [ 8197, %83 ], [ 4, %86 ], [ 12291, %21 ], [ %102, %100 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  ret i32 %107
+  ret i32 %108
 }
 
 ; Function Attrs: null_pointer_is_valid

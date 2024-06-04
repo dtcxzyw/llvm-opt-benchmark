@@ -4529,1664 +4529,1674 @@ define internal i32 @dissect_sccp_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %45
 
 45:                                               ; preds = %37, %4
-  store i32 0, ptr getelementptr inbounds (%struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 2), align 8
-  store i8 -1, ptr getelementptr inbounds (%struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 3), align 4
-  store i8 -1, ptr getelementptr inbounds (%struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 4), align 1
-  store i32 0, ptr getelementptr inbounds (%struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 6), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 9), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 11), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 10), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 12), align 8
-  %46 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 0
-  %47 = load i8, ptr %46, align 8
-  %48 = zext i8 %47 to i32
-  switch i32 %48, label %1322 [
-    i32 1, label %49
-    i32 2, label %123
-    i32 3, label %179
-    i32 4, label %226
-    i32 5, label %282
-    i32 6, label %309
-    i32 7, label %425
-    i32 8, label %479
-    i32 9, label %515
-    i32 10, label %620
-    i32 11, label %743
-    i32 12, label %788
-    i32 13, label %806
-    i32 14, label %842
-    i32 15, label %869
-    i32 16, label %896
-    i32 17, label %950
-    i32 18, label %981
-    i32 19, label %1030
-    i32 20, label %1176
+  %46 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 1
+  store i32 0, ptr %46, align 4
+  %47 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 2
+  store i32 0, ptr %47, align 8
+  %48 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 3
+  store i8 -1, ptr %48, align 4
+  %49 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 4
+  store i8 -1, ptr %49, align 1
+  %50 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 5
+  store i32 0, ptr %50, align 8
+  %51 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 6
+  store i32 0, ptr %51, align 4
+  %52 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 9
+  store i32 0, ptr %52, align 8
+  %53 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 11
+  store ptr null, ptr %53, align 8
+  %54 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 10
+  store ptr null, ptr %54, align 8
+  %55 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr @no_assoc, i32 0, i32 12
+  store ptr null, ptr %55, align 8
+  %56 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 0
+  %57 = load i8, ptr %56, align 8
+  %58 = zext i8 %57 to i32
+  switch i32 %58, label %1332 [
+    i32 1, label %59
+    i32 2, label %133
+    i32 3, label %189
+    i32 4, label %236
+    i32 5, label %292
+    i32 6, label %319
+    i32 7, label %435
+    i32 8, label %489
+    i32 9, label %525
+    i32 10, label %630
+    i32 11, label %753
+    i32 12, label %798
+    i32 13, label %816
+    i32 14, label %852
+    i32 15, label %879
+    i32 16, label %906
+    i32 17, label %960
+    i32 18, label %991
+    i32 19, label %1040
+    i32 20, label %1186
   ]
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %5, align 8
-  %51 = load ptr, ptr %6, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = load ptr, ptr %8, align 8
-  %54 = load i32, ptr %14, align 4
-  %55 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53, i8 noundef zeroext 2, i32 noundef %54, i16 noundef zeroext 3, ptr noundef %19)
-  %56 = zext i16 %55 to i32
-  %57 = load i32, ptr %14, align 4
-  %58 = add i32 %57, %56
-  store i32 %58, ptr %14, align 4
-  %59 = load ptr, ptr %5, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = load ptr, ptr %7, align 8
-  %62 = load ptr, ptr %8, align 8
-  %63 = load i32, ptr %14, align 4
-  %64 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, i8 noundef zeroext 5, i32 noundef %63, i16 noundef zeroext 1, ptr noundef %19)
-  %65 = zext i16 %64 to i32
-  %66 = load i32, ptr %14, align 4
-  %67 = add i32 %66, %65
-  store i32 %67, ptr %14, align 4
-  %68 = load ptr, ptr %6, align 8
-  %69 = load i32, ptr %18, align 4
-  %70 = call ptr @get_sccp_assoc(ptr noundef %68, i32 noundef %69, ptr noundef %19)
-  %71 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %70, ptr %71, align 8
-  %72 = load ptr, ptr %5, align 8
-  %73 = load ptr, ptr %6, align 8
-  %74 = load ptr, ptr %7, align 8
-  %75 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef %19, i32 noundef %75)
-  br label %76
+59:                                               ; preds = %45
+  %60 = load ptr, ptr %5, align 8
+  %61 = load ptr, ptr %6, align 8
+  %62 = load ptr, ptr %7, align 8
+  %63 = load ptr, ptr %8, align 8
+  %64 = load i32, ptr %14, align 4
+  %65 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %63, i8 noundef zeroext 2, i32 noundef %64, i16 noundef zeroext 3, ptr noundef %19)
+  %66 = zext i16 %65 to i32
+  %67 = load i32, ptr %14, align 4
+  %68 = add i32 %67, %66
+  store i32 %68, ptr %14, align 4
+  %69 = load ptr, ptr %5, align 8
+  %70 = load ptr, ptr %6, align 8
+  %71 = load ptr, ptr %7, align 8
+  %72 = load ptr, ptr %8, align 8
+  %73 = load i32, ptr %14, align 4
+  %74 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %69, ptr noundef %70, ptr noundef %71, ptr noundef %72, i8 noundef zeroext 5, i32 noundef %73, i16 noundef zeroext 1, ptr noundef %19)
+  %75 = zext i16 %74 to i32
+  %76 = load i32, ptr %14, align 4
+  %77 = add i32 %76, %75
+  store i32 %77, ptr %14, align 4
+  %78 = load ptr, ptr %6, align 8
+  %79 = load i32, ptr %18, align 4
+  %80 = call ptr @get_sccp_assoc(ptr noundef %78, i32 noundef %79, ptr noundef %19)
+  %81 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %80, ptr %81, align 8
+  %82 = load ptr, ptr %5, align 8
+  %83 = load ptr, ptr %6, align 8
+  %84 = load ptr, ptr %7, align 8
+  %85 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %19, i32 noundef %85)
+  br label %86
 
-76:                                               ; preds = %49
-  %77 = load ptr, ptr %5, align 8
-  %78 = load i32, ptr %14, align 4
-  %79 = call zeroext i8 @tvb_get_guint8(ptr noundef %77, i32 noundef %78)
-  %80 = zext i8 %79 to i16
-  store i16 %80, ptr %9, align 2
-  %81 = load ptr, ptr %7, align 8
-  %82 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %83 = load ptr, ptr %5, align 8
-  %84 = load i32, ptr %14, align 4
-  %85 = load i16, ptr %9, align 2
-  %86 = zext i16 %85 to i32
-  %87 = call ptr @proto_tree_add_uint(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef 1, i32 noundef %86)
+86:                                               ; preds = %59
+  %87 = load ptr, ptr %5, align 8
   %88 = load i32, ptr %14, align 4
-  %89 = load i16, ptr %9, align 2
-  %90 = zext i16 %89 to i32
-  %91 = add i32 %90, %88
-  %92 = trunc i32 %91 to i16
-  store i16 %92, ptr %9, align 2
-  %93 = load i32, ptr %14, align 4
-  %94 = add i32 %93, 1
-  store i32 %94, ptr %14, align 4
-  br label %95
-
-95:                                               ; preds = %76
-  br label %96
-
-96:                                               ; preds = %95
-  %97 = load ptr, ptr %5, align 8
+  %89 = call zeroext i8 @tvb_get_guint8(ptr noundef %87, i32 noundef %88)
+  %90 = zext i8 %89 to i16
+  store i16 %90, ptr %9, align 2
+  %91 = load ptr, ptr %7, align 8
+  %92 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %93 = load ptr, ptr %5, align 8
+  %94 = load i32, ptr %14, align 4
+  %95 = load i16, ptr %9, align 2
+  %96 = zext i16 %95 to i32
+  %97 = call ptr @proto_tree_add_uint(ptr noundef %91, i32 noundef %92, ptr noundef %93, i32 noundef %94, i32 noundef 1, i32 noundef %96)
   %98 = load i32, ptr %14, align 4
-  %99 = call zeroext i8 @tvb_get_guint8(ptr noundef %97, i32 noundef %98)
-  %100 = zext i8 %99 to i16
-  store i16 %100, ptr %12, align 2
-  store i16 %100, ptr %13, align 2
-  %101 = load ptr, ptr %7, align 8
-  %102 = load i32, ptr @hf_sccp_optional_pointer, align 4
-  %103 = load ptr, ptr %5, align 8
-  %104 = load i32, ptr %14, align 4
-  %105 = load i16, ptr %12, align 2
-  %106 = zext i16 %105 to i32
-  %107 = call ptr @proto_tree_add_uint(ptr noundef %101, i32 noundef %102, ptr noundef %103, i32 noundef %104, i32 noundef 1, i32 noundef %106)
+  %99 = load i16, ptr %9, align 2
+  %100 = zext i16 %99 to i32
+  %101 = add i32 %100, %98
+  %102 = trunc i32 %101 to i16
+  store i16 %102, ptr %9, align 2
+  %103 = load i32, ptr %14, align 4
+  %104 = add i32 %103, 1
+  store i32 %104, ptr %14, align 4
+  br label %105
+
+105:                                              ; preds = %86
+  br label %106
+
+106:                                              ; preds = %105
+  %107 = load ptr, ptr %5, align 8
   %108 = load i32, ptr %14, align 4
-  %109 = load i16, ptr %12, align 2
-  %110 = zext i16 %109 to i32
-  %111 = add i32 %110, %108
-  %112 = trunc i32 %111 to i16
-  store i16 %112, ptr %12, align 2
-  %113 = load i32, ptr %14, align 4
-  %114 = add i32 %113, 1
-  store i32 %114, ptr %14, align 4
-  br label %115
+  %109 = call zeroext i8 @tvb_get_guint8(ptr noundef %107, i32 noundef %108)
+  %110 = zext i8 %109 to i16
+  store i16 %110, ptr %12, align 2
+  store i16 %110, ptr %13, align 2
+  %111 = load ptr, ptr %7, align 8
+  %112 = load i32, ptr @hf_sccp_optional_pointer, align 4
+  %113 = load ptr, ptr %5, align 8
+  %114 = load i32, ptr %14, align 4
+  %115 = load i16, ptr %12, align 2
+  %116 = zext i16 %115 to i32
+  %117 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %112, ptr noundef %113, i32 noundef %114, i32 noundef 1, i32 noundef %116)
+  %118 = load i32, ptr %14, align 4
+  %119 = load i16, ptr %12, align 2
+  %120 = zext i16 %119 to i32
+  %121 = add i32 %120, %118
+  %122 = trunc i32 %121 to i16
+  store i16 %122, ptr %12, align 2
+  %123 = load i32, ptr %14, align 4
+  %124 = add i32 %123, 1
+  store i32 %124, ptr %14, align 4
+  br label %125
 
-115:                                              ; preds = %96
-  %116 = load ptr, ptr %5, align 8
-  %117 = load ptr, ptr %6, align 8
-  %118 = load ptr, ptr %7, align 8
-  %119 = load ptr, ptr %8, align 8
-  %120 = load i16, ptr %9, align 2
-  %121 = zext i16 %120 to i32
-  %122 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %116, ptr noundef %117, ptr noundef %118, ptr noundef %119, i8 noundef zeroext 3, i32 noundef %121, ptr noundef %19)
-  br label %1325
+125:                                              ; preds = %106
+  %126 = load ptr, ptr %5, align 8
+  %127 = load ptr, ptr %6, align 8
+  %128 = load ptr, ptr %7, align 8
+  %129 = load ptr, ptr %8, align 8
+  %130 = load i16, ptr %9, align 2
+  %131 = zext i16 %130 to i32
+  %132 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %126, ptr noundef %127, ptr noundef %128, ptr noundef %129, i8 noundef zeroext 3, i32 noundef %131, ptr noundef %19)
+  br label %1335
 
-123:                                              ; preds = %45
-  %124 = load ptr, ptr %5, align 8
-  %125 = load ptr, ptr %6, align 8
-  %126 = load ptr, ptr %7, align 8
-  %127 = load ptr, ptr %8, align 8
-  %128 = load i32, ptr %14, align 4
-  %129 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %124, ptr noundef %125, ptr noundef %126, ptr noundef %127, i8 noundef zeroext 1, i32 noundef %128, i16 noundef zeroext 3, ptr noundef %19)
-  %130 = zext i16 %129 to i32
-  %131 = load i32, ptr %14, align 4
-  %132 = add i32 %131, %130
-  store i32 %132, ptr %14, align 4
-  %133 = load ptr, ptr %5, align 8
-  %134 = load ptr, ptr %6, align 8
-  %135 = load ptr, ptr %7, align 8
-  %136 = load ptr, ptr %8, align 8
-  %137 = load i32, ptr %14, align 4
-  %138 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %133, ptr noundef %134, ptr noundef %135, ptr noundef %136, i8 noundef zeroext 2, i32 noundef %137, i16 noundef zeroext 3, ptr noundef %19)
-  %139 = zext i16 %138 to i32
-  %140 = load i32, ptr %14, align 4
-  %141 = add i32 %140, %139
-  store i32 %141, ptr %14, align 4
-  %142 = load ptr, ptr %6, align 8
-  %143 = load i32, ptr %18, align 4
-  %144 = call ptr @get_sccp_assoc(ptr noundef %142, i32 noundef %143, ptr noundef %19)
-  %145 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %144, ptr %145, align 8
-  %146 = load ptr, ptr %5, align 8
-  %147 = load ptr, ptr %6, align 8
-  %148 = load ptr, ptr %7, align 8
-  %149 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %146, ptr noundef %147, ptr noundef %148, ptr noundef %19, i32 noundef %149)
-  %150 = load ptr, ptr %5, align 8
-  %151 = load ptr, ptr %6, align 8
-  %152 = load ptr, ptr %7, align 8
-  %153 = load ptr, ptr %8, align 8
-  %154 = load i32, ptr %14, align 4
-  %155 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %150, ptr noundef %151, ptr noundef %152, ptr noundef %153, i8 noundef zeroext 5, i32 noundef %154, i16 noundef zeroext 1, ptr noundef %19)
-  %156 = zext i16 %155 to i32
-  %157 = load i32, ptr %14, align 4
-  %158 = add i32 %157, %156
-  store i32 %158, ptr %14, align 4
-  br label %159
-
-159:                                              ; preds = %123
+133:                                              ; preds = %45
+  %134 = load ptr, ptr %5, align 8
+  %135 = load ptr, ptr %6, align 8
+  %136 = load ptr, ptr %7, align 8
+  %137 = load ptr, ptr %8, align 8
+  %138 = load i32, ptr %14, align 4
+  %139 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %134, ptr noundef %135, ptr noundef %136, ptr noundef %137, i8 noundef zeroext 1, i32 noundef %138, i16 noundef zeroext 3, ptr noundef %19)
+  %140 = zext i16 %139 to i32
+  %141 = load i32, ptr %14, align 4
+  %142 = add i32 %141, %140
+  store i32 %142, ptr %14, align 4
+  %143 = load ptr, ptr %5, align 8
+  %144 = load ptr, ptr %6, align 8
+  %145 = load ptr, ptr %7, align 8
+  %146 = load ptr, ptr %8, align 8
+  %147 = load i32, ptr %14, align 4
+  %148 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef %146, i8 noundef zeroext 2, i32 noundef %147, i16 noundef zeroext 3, ptr noundef %19)
+  %149 = zext i16 %148 to i32
+  %150 = load i32, ptr %14, align 4
+  %151 = add i32 %150, %149
+  store i32 %151, ptr %14, align 4
+  %152 = load ptr, ptr %6, align 8
+  %153 = load i32, ptr %18, align 4
+  %154 = call ptr @get_sccp_assoc(ptr noundef %152, i32 noundef %153, ptr noundef %19)
+  %155 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %154, ptr %155, align 8
+  %156 = load ptr, ptr %5, align 8
+  %157 = load ptr, ptr %6, align 8
+  %158 = load ptr, ptr %7, align 8
+  %159 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %156, ptr noundef %157, ptr noundef %158, ptr noundef %19, i32 noundef %159)
   %160 = load ptr, ptr %5, align 8
-  %161 = load i32, ptr %14, align 4
-  %162 = call zeroext i8 @tvb_get_guint8(ptr noundef %160, i32 noundef %161)
-  %163 = zext i8 %162 to i16
-  store i16 %163, ptr %12, align 2
-  store i16 %163, ptr %13, align 2
-  %164 = load ptr, ptr %7, align 8
-  %165 = load i32, ptr @hf_sccp_optional_pointer, align 4
-  %166 = load ptr, ptr %5, align 8
+  %161 = load ptr, ptr %6, align 8
+  %162 = load ptr, ptr %7, align 8
+  %163 = load ptr, ptr %8, align 8
+  %164 = load i32, ptr %14, align 4
+  %165 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %160, ptr noundef %161, ptr noundef %162, ptr noundef %163, i8 noundef zeroext 5, i32 noundef %164, i16 noundef zeroext 1, ptr noundef %19)
+  %166 = zext i16 %165 to i32
   %167 = load i32, ptr %14, align 4
-  %168 = load i16, ptr %12, align 2
-  %169 = zext i16 %168 to i32
-  %170 = call ptr @proto_tree_add_uint(ptr noundef %164, i32 noundef %165, ptr noundef %166, i32 noundef %167, i32 noundef 1, i32 noundef %169)
+  %168 = add i32 %167, %166
+  store i32 %168, ptr %14, align 4
+  br label %169
+
+169:                                              ; preds = %133
+  %170 = load ptr, ptr %5, align 8
   %171 = load i32, ptr %14, align 4
-  %172 = load i16, ptr %12, align 2
-  %173 = zext i16 %172 to i32
-  %174 = add i32 %173, %171
-  %175 = trunc i32 %174 to i16
-  store i16 %175, ptr %12, align 2
-  %176 = load i32, ptr %14, align 4
-  %177 = add i32 %176, 1
-  store i32 %177, ptr %14, align 4
-  br label %178
+  %172 = call zeroext i8 @tvb_get_guint8(ptr noundef %170, i32 noundef %171)
+  %173 = zext i8 %172 to i16
+  store i16 %173, ptr %12, align 2
+  store i16 %173, ptr %13, align 2
+  %174 = load ptr, ptr %7, align 8
+  %175 = load i32, ptr @hf_sccp_optional_pointer, align 4
+  %176 = load ptr, ptr %5, align 8
+  %177 = load i32, ptr %14, align 4
+  %178 = load i16, ptr %12, align 2
+  %179 = zext i16 %178 to i32
+  %180 = call ptr @proto_tree_add_uint(ptr noundef %174, i32 noundef %175, ptr noundef %176, i32 noundef %177, i32 noundef 1, i32 noundef %179)
+  %181 = load i32, ptr %14, align 4
+  %182 = load i16, ptr %12, align 2
+  %183 = zext i16 %182 to i32
+  %184 = add i32 %183, %181
+  %185 = trunc i32 %184 to i16
+  store i16 %185, ptr %12, align 2
+  %186 = load i32, ptr %14, align 4
+  %187 = add i32 %186, 1
+  store i32 %187, ptr %14, align 4
+  br label %188
 
-178:                                              ; preds = %159
-  br label %1325
+188:                                              ; preds = %169
+  br label %1335
 
-179:                                              ; preds = %45
-  %180 = load ptr, ptr %5, align 8
-  %181 = load ptr, ptr %6, align 8
-  %182 = load ptr, ptr %7, align 8
-  %183 = load ptr, ptr %8, align 8
-  %184 = load i32, ptr %14, align 4
-  %185 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %180, ptr noundef %181, ptr noundef %182, ptr noundef %183, i8 noundef zeroext 1, i32 noundef %184, i16 noundef zeroext 3, ptr noundef %19)
-  %186 = zext i16 %185 to i32
-  %187 = load i32, ptr %14, align 4
-  %188 = add i32 %187, %186
-  store i32 %188, ptr %14, align 4
-  %189 = load ptr, ptr %6, align 8
-  %190 = load i32, ptr %18, align 4
-  %191 = call ptr @get_sccp_assoc(ptr noundef %189, i32 noundef %190, ptr noundef %19)
-  %192 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %191, ptr %192, align 8
-  %193 = load ptr, ptr %5, align 8
-  %194 = load ptr, ptr %6, align 8
-  %195 = load ptr, ptr %7, align 8
-  %196 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %193, ptr noundef %194, ptr noundef %195, ptr noundef %19, i32 noundef %196)
-  %197 = load ptr, ptr %5, align 8
-  %198 = load ptr, ptr %6, align 8
-  %199 = load ptr, ptr %7, align 8
-  %200 = load ptr, ptr %8, align 8
-  %201 = load i32, ptr %14, align 4
-  %202 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %197, ptr noundef %198, ptr noundef %199, ptr noundef %200, i8 noundef zeroext 14, i32 noundef %201, i16 noundef zeroext 1, ptr noundef %19)
-  %203 = zext i16 %202 to i32
-  %204 = load i32, ptr %14, align 4
-  %205 = add i32 %204, %203
-  store i32 %205, ptr %14, align 4
-  br label %206
-
-206:                                              ; preds = %179
+189:                                              ; preds = %45
+  %190 = load ptr, ptr %5, align 8
+  %191 = load ptr, ptr %6, align 8
+  %192 = load ptr, ptr %7, align 8
+  %193 = load ptr, ptr %8, align 8
+  %194 = load i32, ptr %14, align 4
+  %195 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %190, ptr noundef %191, ptr noundef %192, ptr noundef %193, i8 noundef zeroext 1, i32 noundef %194, i16 noundef zeroext 3, ptr noundef %19)
+  %196 = zext i16 %195 to i32
+  %197 = load i32, ptr %14, align 4
+  %198 = add i32 %197, %196
+  store i32 %198, ptr %14, align 4
+  %199 = load ptr, ptr %6, align 8
+  %200 = load i32, ptr %18, align 4
+  %201 = call ptr @get_sccp_assoc(ptr noundef %199, i32 noundef %200, ptr noundef %19)
+  %202 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %201, ptr %202, align 8
+  %203 = load ptr, ptr %5, align 8
+  %204 = load ptr, ptr %6, align 8
+  %205 = load ptr, ptr %7, align 8
+  %206 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %203, ptr noundef %204, ptr noundef %205, ptr noundef %19, i32 noundef %206)
   %207 = load ptr, ptr %5, align 8
-  %208 = load i32, ptr %14, align 4
-  %209 = call zeroext i8 @tvb_get_guint8(ptr noundef %207, i32 noundef %208)
-  %210 = zext i8 %209 to i16
-  store i16 %210, ptr %12, align 2
-  store i16 %210, ptr %13, align 2
-  %211 = load ptr, ptr %7, align 8
-  %212 = load i32, ptr @hf_sccp_optional_pointer, align 4
-  %213 = load ptr, ptr %5, align 8
+  %208 = load ptr, ptr %6, align 8
+  %209 = load ptr, ptr %7, align 8
+  %210 = load ptr, ptr %8, align 8
+  %211 = load i32, ptr %14, align 4
+  %212 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %207, ptr noundef %208, ptr noundef %209, ptr noundef %210, i8 noundef zeroext 14, i32 noundef %211, i16 noundef zeroext 1, ptr noundef %19)
+  %213 = zext i16 %212 to i32
   %214 = load i32, ptr %14, align 4
-  %215 = load i16, ptr %12, align 2
-  %216 = zext i16 %215 to i32
-  %217 = call ptr @proto_tree_add_uint(ptr noundef %211, i32 noundef %212, ptr noundef %213, i32 noundef %214, i32 noundef 1, i32 noundef %216)
+  %215 = add i32 %214, %213
+  store i32 %215, ptr %14, align 4
+  br label %216
+
+216:                                              ; preds = %189
+  %217 = load ptr, ptr %5, align 8
   %218 = load i32, ptr %14, align 4
-  %219 = load i16, ptr %12, align 2
-  %220 = zext i16 %219 to i32
-  %221 = add i32 %220, %218
-  %222 = trunc i32 %221 to i16
-  store i16 %222, ptr %12, align 2
-  %223 = load i32, ptr %14, align 4
-  %224 = add i32 %223, 1
-  store i32 %224, ptr %14, align 4
-  br label %225
+  %219 = call zeroext i8 @tvb_get_guint8(ptr noundef %217, i32 noundef %218)
+  %220 = zext i8 %219 to i16
+  store i16 %220, ptr %12, align 2
+  store i16 %220, ptr %13, align 2
+  %221 = load ptr, ptr %7, align 8
+  %222 = load i32, ptr @hf_sccp_optional_pointer, align 4
+  %223 = load ptr, ptr %5, align 8
+  %224 = load i32, ptr %14, align 4
+  %225 = load i16, ptr %12, align 2
+  %226 = zext i16 %225 to i32
+  %227 = call ptr @proto_tree_add_uint(ptr noundef %221, i32 noundef %222, ptr noundef %223, i32 noundef %224, i32 noundef 1, i32 noundef %226)
+  %228 = load i32, ptr %14, align 4
+  %229 = load i16, ptr %12, align 2
+  %230 = zext i16 %229 to i32
+  %231 = add i32 %230, %228
+  %232 = trunc i32 %231 to i16
+  store i16 %232, ptr %12, align 2
+  %233 = load i32, ptr %14, align 4
+  %234 = add i32 %233, 1
+  store i32 %234, ptr %14, align 4
+  br label %235
 
-225:                                              ; preds = %206
-  br label %1325
+235:                                              ; preds = %216
+  br label %1335
 
-226:                                              ; preds = %45
-  %227 = load ptr, ptr %5, align 8
-  %228 = load ptr, ptr %6, align 8
-  %229 = load ptr, ptr %7, align 8
-  %230 = load ptr, ptr %8, align 8
-  %231 = load i32, ptr %14, align 4
-  %232 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %227, ptr noundef %228, ptr noundef %229, ptr noundef %230, i8 noundef zeroext 1, i32 noundef %231, i16 noundef zeroext 3, ptr noundef %19)
-  %233 = zext i16 %232 to i32
-  %234 = load i32, ptr %14, align 4
-  %235 = add i32 %234, %233
-  store i32 %235, ptr %14, align 4
-  %236 = load ptr, ptr %5, align 8
-  %237 = load ptr, ptr %6, align 8
-  %238 = load ptr, ptr %7, align 8
-  %239 = load ptr, ptr %8, align 8
-  %240 = load i32, ptr %14, align 4
-  %241 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %236, ptr noundef %237, ptr noundef %238, ptr noundef %239, i8 noundef zeroext 2, i32 noundef %240, i16 noundef zeroext 3, ptr noundef %19)
-  %242 = zext i16 %241 to i32
-  %243 = load i32, ptr %14, align 4
-  %244 = add i32 %243, %242
-  store i32 %244, ptr %14, align 4
-  %245 = load ptr, ptr %6, align 8
-  %246 = load i32, ptr %18, align 4
-  %247 = call ptr @get_sccp_assoc(ptr noundef %245, i32 noundef %246, ptr noundef %19)
-  %248 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %247, ptr %248, align 8
-  %249 = load ptr, ptr %5, align 8
-  %250 = load ptr, ptr %6, align 8
-  %251 = load ptr, ptr %7, align 8
-  %252 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %249, ptr noundef %250, ptr noundef %251, ptr noundef %19, i32 noundef %252)
-  %253 = load ptr, ptr %5, align 8
-  %254 = load ptr, ptr %6, align 8
-  %255 = load ptr, ptr %7, align 8
-  %256 = load ptr, ptr %8, align 8
-  %257 = load i32, ptr %14, align 4
-  %258 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %253, ptr noundef %254, ptr noundef %255, ptr noundef %256, i8 noundef zeroext 10, i32 noundef %257, i16 noundef zeroext 1, ptr noundef %19)
-  %259 = zext i16 %258 to i32
-  %260 = load i32, ptr %14, align 4
-  %261 = add i32 %260, %259
-  store i32 %261, ptr %14, align 4
-  br label %262
-
-262:                                              ; preds = %226
+236:                                              ; preds = %45
+  %237 = load ptr, ptr %5, align 8
+  %238 = load ptr, ptr %6, align 8
+  %239 = load ptr, ptr %7, align 8
+  %240 = load ptr, ptr %8, align 8
+  %241 = load i32, ptr %14, align 4
+  %242 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %237, ptr noundef %238, ptr noundef %239, ptr noundef %240, i8 noundef zeroext 1, i32 noundef %241, i16 noundef zeroext 3, ptr noundef %19)
+  %243 = zext i16 %242 to i32
+  %244 = load i32, ptr %14, align 4
+  %245 = add i32 %244, %243
+  store i32 %245, ptr %14, align 4
+  %246 = load ptr, ptr %5, align 8
+  %247 = load ptr, ptr %6, align 8
+  %248 = load ptr, ptr %7, align 8
+  %249 = load ptr, ptr %8, align 8
+  %250 = load i32, ptr %14, align 4
+  %251 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %246, ptr noundef %247, ptr noundef %248, ptr noundef %249, i8 noundef zeroext 2, i32 noundef %250, i16 noundef zeroext 3, ptr noundef %19)
+  %252 = zext i16 %251 to i32
+  %253 = load i32, ptr %14, align 4
+  %254 = add i32 %253, %252
+  store i32 %254, ptr %14, align 4
+  %255 = load ptr, ptr %6, align 8
+  %256 = load i32, ptr %18, align 4
+  %257 = call ptr @get_sccp_assoc(ptr noundef %255, i32 noundef %256, ptr noundef %19)
+  %258 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %257, ptr %258, align 8
+  %259 = load ptr, ptr %5, align 8
+  %260 = load ptr, ptr %6, align 8
+  %261 = load ptr, ptr %7, align 8
+  %262 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %259, ptr noundef %260, ptr noundef %261, ptr noundef %19, i32 noundef %262)
   %263 = load ptr, ptr %5, align 8
-  %264 = load i32, ptr %14, align 4
-  %265 = call zeroext i8 @tvb_get_guint8(ptr noundef %263, i32 noundef %264)
-  %266 = zext i8 %265 to i16
-  store i16 %266, ptr %12, align 2
-  store i16 %266, ptr %13, align 2
-  %267 = load ptr, ptr %7, align 8
-  %268 = load i32, ptr @hf_sccp_optional_pointer, align 4
-  %269 = load ptr, ptr %5, align 8
+  %264 = load ptr, ptr %6, align 8
+  %265 = load ptr, ptr %7, align 8
+  %266 = load ptr, ptr %8, align 8
+  %267 = load i32, ptr %14, align 4
+  %268 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %263, ptr noundef %264, ptr noundef %265, ptr noundef %266, i8 noundef zeroext 10, i32 noundef %267, i16 noundef zeroext 1, ptr noundef %19)
+  %269 = zext i16 %268 to i32
   %270 = load i32, ptr %14, align 4
-  %271 = load i16, ptr %12, align 2
-  %272 = zext i16 %271 to i32
-  %273 = call ptr @proto_tree_add_uint(ptr noundef %267, i32 noundef %268, ptr noundef %269, i32 noundef %270, i32 noundef 1, i32 noundef %272)
+  %271 = add i32 %270, %269
+  store i32 %271, ptr %14, align 4
+  br label %272
+
+272:                                              ; preds = %236
+  %273 = load ptr, ptr %5, align 8
   %274 = load i32, ptr %14, align 4
-  %275 = load i16, ptr %12, align 2
-  %276 = zext i16 %275 to i32
-  %277 = add i32 %276, %274
-  %278 = trunc i32 %277 to i16
-  store i16 %278, ptr %12, align 2
-  %279 = load i32, ptr %14, align 4
-  %280 = add i32 %279, 1
-  store i32 %280, ptr %14, align 4
-  br label %281
+  %275 = call zeroext i8 @tvb_get_guint8(ptr noundef %273, i32 noundef %274)
+  %276 = zext i8 %275 to i16
+  store i16 %276, ptr %12, align 2
+  store i16 %276, ptr %13, align 2
+  %277 = load ptr, ptr %7, align 8
+  %278 = load i32, ptr @hf_sccp_optional_pointer, align 4
+  %279 = load ptr, ptr %5, align 8
+  %280 = load i32, ptr %14, align 4
+  %281 = load i16, ptr %12, align 2
+  %282 = zext i16 %281 to i32
+  %283 = call ptr @proto_tree_add_uint(ptr noundef %277, i32 noundef %278, ptr noundef %279, i32 noundef %280, i32 noundef 1, i32 noundef %282)
+  %284 = load i32, ptr %14, align 4
+  %285 = load i16, ptr %12, align 2
+  %286 = zext i16 %285 to i32
+  %287 = add i32 %286, %284
+  %288 = trunc i32 %287 to i16
+  store i16 %288, ptr %12, align 2
+  %289 = load i32, ptr %14, align 4
+  %290 = add i32 %289, 1
+  store i32 %290, ptr %14, align 4
+  br label %291
 
-281:                                              ; preds = %262
-  br label %1325
+291:                                              ; preds = %272
+  br label %1335
 
-282:                                              ; preds = %45
-  %283 = load ptr, ptr %5, align 8
-  %284 = load ptr, ptr %6, align 8
-  %285 = load ptr, ptr %7, align 8
-  %286 = load ptr, ptr %8, align 8
-  %287 = load i32, ptr %14, align 4
-  %288 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %283, ptr noundef %284, ptr noundef %285, ptr noundef %286, i8 noundef zeroext 1, i32 noundef %287, i16 noundef zeroext 3, ptr noundef %19)
-  %289 = zext i16 %288 to i32
-  %290 = load i32, ptr %14, align 4
-  %291 = add i32 %290, %289
-  store i32 %291, ptr %14, align 4
-  %292 = load ptr, ptr %5, align 8
-  %293 = load ptr, ptr %6, align 8
-  %294 = load ptr, ptr %7, align 8
-  %295 = load ptr, ptr %8, align 8
-  %296 = load i32, ptr %14, align 4
-  %297 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %292, ptr noundef %293, ptr noundef %294, ptr noundef %295, i8 noundef zeroext 2, i32 noundef %296, i16 noundef zeroext 3, ptr noundef %19)
-  %298 = zext i16 %297 to i32
-  %299 = load i32, ptr %14, align 4
-  %300 = add i32 %299, %298
-  store i32 %300, ptr %14, align 4
-  %301 = load ptr, ptr %6, align 8
-  %302 = load i32, ptr %18, align 4
-  %303 = call ptr @get_sccp_assoc(ptr noundef %301, i32 noundef %302, ptr noundef %19)
-  %304 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %303, ptr %304, align 8
-  %305 = load ptr, ptr %5, align 8
-  %306 = load ptr, ptr %6, align 8
-  %307 = load ptr, ptr %7, align 8
-  %308 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %305, ptr noundef %306, ptr noundef %307, ptr noundef %19, i32 noundef %308)
-  br label %1325
+292:                                              ; preds = %45
+  %293 = load ptr, ptr %5, align 8
+  %294 = load ptr, ptr %6, align 8
+  %295 = load ptr, ptr %7, align 8
+  %296 = load ptr, ptr %8, align 8
+  %297 = load i32, ptr %14, align 4
+  %298 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %293, ptr noundef %294, ptr noundef %295, ptr noundef %296, i8 noundef zeroext 1, i32 noundef %297, i16 noundef zeroext 3, ptr noundef %19)
+  %299 = zext i16 %298 to i32
+  %300 = load i32, ptr %14, align 4
+  %301 = add i32 %300, %299
+  store i32 %301, ptr %14, align 4
+  %302 = load ptr, ptr %5, align 8
+  %303 = load ptr, ptr %6, align 8
+  %304 = load ptr, ptr %7, align 8
+  %305 = load ptr, ptr %8, align 8
+  %306 = load i32, ptr %14, align 4
+  %307 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %302, ptr noundef %303, ptr noundef %304, ptr noundef %305, i8 noundef zeroext 2, i32 noundef %306, i16 noundef zeroext 3, ptr noundef %19)
+  %308 = zext i16 %307 to i32
+  %309 = load i32, ptr %14, align 4
+  %310 = add i32 %309, %308
+  store i32 %310, ptr %14, align 4
+  %311 = load ptr, ptr %6, align 8
+  %312 = load i32, ptr %18, align 4
+  %313 = call ptr @get_sccp_assoc(ptr noundef %311, i32 noundef %312, ptr noundef %19)
+  %314 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %313, ptr %314, align 8
+  %315 = load ptr, ptr %5, align 8
+  %316 = load ptr, ptr %6, align 8
+  %317 = load ptr, ptr %7, align 8
+  %318 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %315, ptr noundef %316, ptr noundef %317, ptr noundef %19, i32 noundef %318)
+  br label %1335
 
-309:                                              ; preds = %45
-  %310 = load ptr, ptr %5, align 8
-  %311 = load i32, ptr %14, align 4
-  %312 = call i32 @tvb_get_letoh24(ptr noundef %310, i32 noundef %311)
-  store i32 %312, ptr %16, align 4
-  %313 = load ptr, ptr %5, align 8
-  %314 = load ptr, ptr %6, align 8
-  %315 = load ptr, ptr %7, align 8
-  %316 = load ptr, ptr %8, align 8
-  %317 = load i32, ptr %14, align 4
-  %318 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %313, ptr noundef %314, ptr noundef %315, ptr noundef %316, i8 noundef zeroext 1, i32 noundef %317, i16 noundef zeroext 3, ptr noundef %19)
-  %319 = zext i16 %318 to i32
-  %320 = load i32, ptr %14, align 4
-  %321 = add i32 %320, %319
-  store i32 %321, ptr %14, align 4
-  %322 = load ptr, ptr %6, align 8
-  %323 = load i32, ptr %18, align 4
-  %324 = call ptr @get_sccp_assoc(ptr noundef %322, i32 noundef %323, ptr noundef %19)
-  %325 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %324, ptr %325, align 8
-  %326 = load ptr, ptr %5, align 8
-  %327 = load ptr, ptr %6, align 8
-  %328 = load ptr, ptr %7, align 8
-  %329 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %326, ptr noundef %327, ptr noundef %328, ptr noundef %19, i32 noundef %329)
-  %330 = load ptr, ptr %5, align 8
-  %331 = load i32, ptr %14, align 4
-  %332 = call zeroext i8 @tvb_get_guint8(ptr noundef %330, i32 noundef %331)
-  %333 = zext i8 %332 to i32
-  %334 = and i32 %333, 1
-  %335 = trunc i32 %334 to i8
-  store i8 %335, ptr %17, align 1
+319:                                              ; preds = %45
+  %320 = load ptr, ptr %5, align 8
+  %321 = load i32, ptr %14, align 4
+  %322 = call i32 @tvb_get_letoh24(ptr noundef %320, i32 noundef %321)
+  store i32 %322, ptr %16, align 4
+  %323 = load ptr, ptr %5, align 8
+  %324 = load ptr, ptr %6, align 8
+  %325 = load ptr, ptr %7, align 8
+  %326 = load ptr, ptr %8, align 8
+  %327 = load i32, ptr %14, align 4
+  %328 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %323, ptr noundef %324, ptr noundef %325, ptr noundef %326, i8 noundef zeroext 1, i32 noundef %327, i16 noundef zeroext 3, ptr noundef %19)
+  %329 = zext i16 %328 to i32
+  %330 = load i32, ptr %14, align 4
+  %331 = add i32 %330, %329
+  store i32 %331, ptr %14, align 4
+  %332 = load ptr, ptr %6, align 8
+  %333 = load i32, ptr %18, align 4
+  %334 = call ptr @get_sccp_assoc(ptr noundef %332, i32 noundef %333, ptr noundef %19)
+  %335 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %334, ptr %335, align 8
   %336 = load ptr, ptr %5, align 8
   %337 = load ptr, ptr %6, align 8
   %338 = load ptr, ptr %7, align 8
-  %339 = load ptr, ptr %8, align 8
-  %340 = load i32, ptr %14, align 4
-  %341 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %336, ptr noundef %337, ptr noundef %338, ptr noundef %339, i8 noundef zeroext 6, i32 noundef %340, i16 noundef zeroext 1, ptr noundef %19)
-  %342 = zext i16 %341 to i32
-  %343 = load i32, ptr %14, align 4
-  %344 = add i32 %343, %342
-  store i32 %344, ptr %14, align 4
-  br label %345
-
-345:                                              ; preds = %309
+  %339 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %336, ptr noundef %337, ptr noundef %338, ptr noundef %19, i32 noundef %339)
+  %340 = load ptr, ptr %5, align 8
+  %341 = load i32, ptr %14, align 4
+  %342 = call zeroext i8 @tvb_get_guint8(ptr noundef %340, i32 noundef %341)
+  %343 = zext i8 %342 to i32
+  %344 = and i32 %343, 1
+  %345 = trunc i32 %344 to i8
+  store i8 %345, ptr %17, align 1
   %346 = load ptr, ptr %5, align 8
-  %347 = load i32, ptr %14, align 4
-  %348 = call zeroext i8 @tvb_get_guint8(ptr noundef %346, i32 noundef %347)
-  %349 = zext i8 %348 to i16
-  store i16 %349, ptr %9, align 2
-  %350 = load ptr, ptr %7, align 8
-  %351 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %352 = load ptr, ptr %5, align 8
+  %347 = load ptr, ptr %6, align 8
+  %348 = load ptr, ptr %7, align 8
+  %349 = load ptr, ptr %8, align 8
+  %350 = load i32, ptr %14, align 4
+  %351 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %346, ptr noundef %347, ptr noundef %348, ptr noundef %349, i8 noundef zeroext 6, i32 noundef %350, i16 noundef zeroext 1, ptr noundef %19)
+  %352 = zext i16 %351 to i32
   %353 = load i32, ptr %14, align 4
-  %354 = load i16, ptr %9, align 2
-  %355 = zext i16 %354 to i32
-  %356 = call ptr @proto_tree_add_uint(ptr noundef %350, i32 noundef %351, ptr noundef %352, i32 noundef %353, i32 noundef 1, i32 noundef %355)
+  %354 = add i32 %353, %352
+  store i32 %354, ptr %14, align 4
+  br label %355
+
+355:                                              ; preds = %319
+  %356 = load ptr, ptr %5, align 8
   %357 = load i32, ptr %14, align 4
-  %358 = load i16, ptr %9, align 2
-  %359 = zext i16 %358 to i32
-  %360 = add i32 %359, %357
-  %361 = trunc i32 %360 to i16
-  store i16 %361, ptr %9, align 2
-  %362 = load i32, ptr %14, align 4
-  %363 = add i32 %362, 1
-  store i32 %363, ptr %14, align 4
-  br label %364
+  %358 = call zeroext i8 @tvb_get_guint8(ptr noundef %356, i32 noundef %357)
+  %359 = zext i8 %358 to i16
+  store i16 %359, ptr %9, align 2
+  %360 = load ptr, ptr %7, align 8
+  %361 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %362 = load ptr, ptr %5, align 8
+  %363 = load i32, ptr %14, align 4
+  %364 = load i16, ptr %9, align 2
+  %365 = zext i16 %364 to i32
+  %366 = call ptr @proto_tree_add_uint(ptr noundef %360, i32 noundef %361, ptr noundef %362, i32 noundef %363, i32 noundef 1, i32 noundef %365)
+  %367 = load i32, ptr %14, align 4
+  %368 = load i16, ptr %9, align 2
+  %369 = zext i16 %368 to i32
+  %370 = add i32 %369, %367
+  %371 = trunc i32 %370 to i16
+  store i16 %371, ptr %9, align 2
+  %372 = load i32, ptr %14, align 4
+  %373 = add i32 %372, 1
+  store i32 %373, ptr %14, align 4
+  br label %374
 
-364:                                              ; preds = %345
-  %365 = load i32, ptr @sccp_reassemble, align 4
-  %366 = icmp ne i32 %365, 0
-  br i1 %366, label %387, label %367
+374:                                              ; preds = %355
+  %375 = load i32, ptr @sccp_reassemble, align 4
+  %376 = icmp ne i32 %375, 0
+  br i1 %376, label %397, label %377
 
-367:                                              ; preds = %364
-  %368 = load ptr, ptr %7, align 8
-  %369 = load i32, ptr @hf_sccp_segmented_data, align 4
-  %370 = load ptr, ptr %5, align 8
-  %371 = load i16, ptr %9, align 2
-  %372 = zext i16 %371 to i32
-  %373 = load ptr, ptr %5, align 8
-  %374 = load i16, ptr %9, align 2
-  %375 = zext i16 %374 to i32
-  %376 = call zeroext i8 @tvb_get_guint8(ptr noundef %373, i32 noundef %375)
-  %377 = zext i8 %376 to i32
-  %378 = add i32 %377, 1
-  %379 = call ptr @proto_tree_add_item(ptr noundef %368, i32 noundef %369, ptr noundef %370, i32 noundef %372, i32 noundef %378, i32 noundef 0)
+377:                                              ; preds = %374
+  %378 = load ptr, ptr %7, align 8
+  %379 = load i32, ptr @hf_sccp_segmented_data, align 4
   %380 = load ptr, ptr %5, align 8
-  %381 = load ptr, ptr %6, align 8
-  %382 = load ptr, ptr %7, align 8
-  %383 = load ptr, ptr %8, align 8
+  %381 = load i16, ptr %9, align 2
+  %382 = zext i16 %381 to i32
+  %383 = load ptr, ptr %5, align 8
   %384 = load i16, ptr %9, align 2
   %385 = zext i16 %384 to i32
-  %386 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %380, ptr noundef %381, ptr noundef %382, ptr noundef %383, i8 noundef zeroext 15, i32 noundef %385, ptr noundef %19)
+  %386 = call zeroext i8 @tvb_get_guint8(ptr noundef %383, i32 noundef %385)
+  %387 = zext i8 %386 to i32
+  %388 = add i32 %387, 1
+  %389 = call ptr @proto_tree_add_item(ptr noundef %378, i32 noundef %379, ptr noundef %380, i32 noundef %382, i32 noundef %388, i32 noundef 0)
+  %390 = load ptr, ptr %5, align 8
+  %391 = load ptr, ptr %6, align 8
+  %392 = load ptr, ptr %7, align 8
+  %393 = load ptr, ptr %8, align 8
+  %394 = load i16, ptr %9, align 2
+  %395 = zext i16 %394 to i32
+  %396 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %390, ptr noundef %391, ptr noundef %392, ptr noundef %393, i8 noundef zeroext 15, i32 noundef %395, ptr noundef %19)
+  br label %434
+
+397:                                              ; preds = %374
+  %398 = load ptr, ptr %5, align 8
+  %399 = load i16, ptr %9, align 2
+  %400 = zext i16 %399 to i32
+  %401 = add i32 %400, 1
+  %402 = call i32 @tvb_reported_length_remaining(ptr noundef %398, i32 noundef %401)
+  store i32 %402, ptr %20, align 4
+  %403 = load i32, ptr @dt1_ignore_length, align 4
+  %404 = icmp ne i32 %403, 0
+  br i1 %404, label %405, label %415
+
+405:                                              ; preds = %397
+  %406 = load i32, ptr %20, align 4
+  %407 = icmp sgt i32 %406, 255
+  br i1 %407, label %408, label %415
+
+408:                                              ; preds = %405
+  %409 = load ptr, ptr %5, align 8
+  %410 = load i16, ptr %9, align 2
+  %411 = zext i16 %410 to i32
+  %412 = add i32 %411, 1
+  %413 = load i32, ptr %20, align 4
+  %414 = call ptr @tvb_new_subset_length(ptr noundef %409, i32 noundef %412, i32 noundef %413)
+  store ptr %414, ptr %15, align 8
   br label %424
 
-387:                                              ; preds = %364
-  %388 = load ptr, ptr %5, align 8
-  %389 = load i16, ptr %9, align 2
-  %390 = zext i16 %389 to i32
-  %391 = add i32 %390, 1
-  %392 = call i32 @tvb_reported_length_remaining(ptr noundef %388, i32 noundef %391)
-  store i32 %392, ptr %20, align 4
-  %393 = load i32, ptr @dt1_ignore_length, align 4
-  %394 = icmp ne i32 %393, 0
-  br i1 %394, label %395, label %405
-
-395:                                              ; preds = %387
-  %396 = load i32, ptr %20, align 4
-  %397 = icmp sgt i32 %396, 255
-  br i1 %397, label %398, label %405
-
-398:                                              ; preds = %395
-  %399 = load ptr, ptr %5, align 8
-  %400 = load i16, ptr %9, align 2
-  %401 = zext i16 %400 to i32
-  %402 = add i32 %401, 1
-  %403 = load i32, ptr %20, align 4
-  %404 = call ptr @tvb_new_subset_length(ptr noundef %399, i32 noundef %402, i32 noundef %403)
-  store ptr %404, ptr %15, align 8
-  br label %414
-
-405:                                              ; preds = %395, %387
-  %406 = load ptr, ptr %5, align 8
-  %407 = load ptr, ptr %6, align 8
-  %408 = load ptr, ptr %8, align 8
-  %409 = load i16, ptr %9, align 2
-  %410 = load i32, ptr %16, align 4
-  %411 = load i8, ptr %17, align 1
-  %412 = zext i8 %411 to i32
-  %413 = call ptr @sccp_reassemble_fragments(ptr noundef %406, ptr noundef %407, ptr noundef %408, i16 noundef zeroext %409, i32 noundef %410, i32 noundef %412)
-  store ptr %413, ptr %15, align 8
-  br label %414
-
-414:                                              ; preds = %405, %398
-  %415 = load ptr, ptr %15, align 8
-  %416 = icmp ne ptr %415, null
-  br i1 %416, label %417, label %423
-
-417:                                              ; preds = %414
-  %418 = load ptr, ptr %15, align 8
-  %419 = load ptr, ptr %6, align 8
-  %420 = load ptr, ptr %8, align 8
-  %421 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  %422 = load ptr, ptr %421, align 8
-  call void @dissect_sccp_data_param(ptr noundef %418, ptr noundef %419, ptr noundef %420, ptr noundef %422)
-  br label %423
-
-423:                                              ; preds = %417, %414
+415:                                              ; preds = %405, %397
+  %416 = load ptr, ptr %5, align 8
+  %417 = load ptr, ptr %6, align 8
+  %418 = load ptr, ptr %8, align 8
+  %419 = load i16, ptr %9, align 2
+  %420 = load i32, ptr %16, align 4
+  %421 = load i8, ptr %17, align 1
+  %422 = zext i8 %421 to i32
+  %423 = call ptr @sccp_reassemble_fragments(ptr noundef %416, ptr noundef %417, ptr noundef %418, i16 noundef zeroext %419, i32 noundef %420, i32 noundef %422)
+  store ptr %423, ptr %15, align 8
   br label %424
 
-424:                                              ; preds = %423, %367
-  br label %1325
+424:                                              ; preds = %415, %408
+  %425 = load ptr, ptr %15, align 8
+  %426 = icmp ne ptr %425, null
+  br i1 %426, label %427, label %433
 
-425:                                              ; preds = %45
-  %426 = load ptr, ptr %5, align 8
-  %427 = load ptr, ptr %6, align 8
-  %428 = load ptr, ptr %7, align 8
-  %429 = load ptr, ptr %8, align 8
-  %430 = load i32, ptr %14, align 4
-  %431 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %426, ptr noundef %427, ptr noundef %428, ptr noundef %429, i8 noundef zeroext 1, i32 noundef %430, i16 noundef zeroext 3, ptr noundef %19)
-  %432 = zext i16 %431 to i32
-  %433 = load i32, ptr %14, align 4
-  %434 = add i32 %433, %432
-  store i32 %434, ptr %14, align 4
-  %435 = load ptr, ptr %6, align 8
-  %436 = load i32, ptr %18, align 4
-  %437 = call ptr @get_sccp_assoc(ptr noundef %435, i32 noundef %436, ptr noundef %19)
-  %438 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %437, ptr %438, align 8
-  %439 = load ptr, ptr %5, align 8
-  %440 = load ptr, ptr %6, align 8
-  %441 = load ptr, ptr %7, align 8
-  %442 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %439, ptr noundef %440, ptr noundef %441, ptr noundef %19, i32 noundef %442)
-  %443 = load ptr, ptr %5, align 8
-  %444 = load ptr, ptr %6, align 8
-  %445 = load ptr, ptr %7, align 8
-  %446 = load ptr, ptr %8, align 8
-  %447 = load i32, ptr %14, align 4
-  %448 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %443, ptr noundef %444, ptr noundef %445, ptr noundef %446, i8 noundef zeroext 8, i32 noundef %447, i16 noundef zeroext 2, ptr noundef %19)
-  %449 = zext i16 %448 to i32
-  %450 = load i32, ptr %14, align 4
-  %451 = add i32 %450, %449
-  store i32 %451, ptr %14, align 4
-  br label %452
+427:                                              ; preds = %424
+  %428 = load ptr, ptr %15, align 8
+  %429 = load ptr, ptr %6, align 8
+  %430 = load ptr, ptr %8, align 8
+  %431 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  %432 = load ptr, ptr %431, align 8
+  call void @dissect_sccp_data_param(ptr noundef %428, ptr noundef %429, ptr noundef %430, ptr noundef %432)
+  br label %433
 
-452:                                              ; preds = %425
-  %453 = load ptr, ptr %5, align 8
-  %454 = load i32, ptr %14, align 4
-  %455 = call zeroext i8 @tvb_get_guint8(ptr noundef %453, i32 noundef %454)
-  %456 = zext i8 %455 to i16
-  store i16 %456, ptr %9, align 2
-  %457 = load ptr, ptr %7, align 8
-  %458 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %459 = load ptr, ptr %5, align 8
-  %460 = load i32, ptr %14, align 4
-  %461 = load i16, ptr %9, align 2
-  %462 = zext i16 %461 to i32
-  %463 = call ptr @proto_tree_add_uint(ptr noundef %457, i32 noundef %458, ptr noundef %459, i32 noundef %460, i32 noundef 1, i32 noundef %462)
-  %464 = load i32, ptr %14, align 4
-  %465 = load i16, ptr %9, align 2
-  %466 = zext i16 %465 to i32
-  %467 = add i32 %466, %464
-  %468 = trunc i32 %467 to i16
-  store i16 %468, ptr %9, align 2
-  %469 = load i32, ptr %14, align 4
-  %470 = add i32 %469, 1
-  store i32 %470, ptr %14, align 4
-  br label %471
+433:                                              ; preds = %427, %424
+  br label %434
 
-471:                                              ; preds = %452
-  %472 = load ptr, ptr %5, align 8
-  %473 = load ptr, ptr %6, align 8
-  %474 = load ptr, ptr %7, align 8
-  %475 = load ptr, ptr %8, align 8
-  %476 = load i16, ptr %9, align 2
-  %477 = zext i16 %476 to i32
-  %478 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %472, ptr noundef %473, ptr noundef %474, ptr noundef %475, i8 noundef zeroext 15, i32 noundef %477, ptr noundef %19)
-  br label %1325
-
-479:                                              ; preds = %45
-  %480 = load ptr, ptr %5, align 8
-  %481 = load ptr, ptr %6, align 8
-  %482 = load ptr, ptr %7, align 8
-  %483 = load ptr, ptr %8, align 8
-  %484 = load i32, ptr %14, align 4
-  %485 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %480, ptr noundef %481, ptr noundef %482, ptr noundef %483, i8 noundef zeroext 1, i32 noundef %484, i16 noundef zeroext 3, ptr noundef %19)
-  %486 = zext i16 %485 to i32
-  %487 = load i32, ptr %14, align 4
-  %488 = add i32 %487, %486
-  store i32 %488, ptr %14, align 4
-  %489 = load ptr, ptr %6, align 8
-  %490 = load i32, ptr %18, align 4
-  %491 = call ptr @get_sccp_assoc(ptr noundef %489, i32 noundef %490, ptr noundef %19)
-  %492 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %491, ptr %492, align 8
-  %493 = load ptr, ptr %5, align 8
-  %494 = load ptr, ptr %6, align 8
-  %495 = load ptr, ptr %7, align 8
-  %496 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %493, ptr noundef %494, ptr noundef %495, ptr noundef %19, i32 noundef %496)
-  %497 = load ptr, ptr %5, align 8
-  %498 = load ptr, ptr %6, align 8
-  %499 = load ptr, ptr %7, align 8
-  %500 = load ptr, ptr %8, align 8
-  %501 = load i32, ptr %14, align 4
-  %502 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %497, ptr noundef %498, ptr noundef %499, ptr noundef %500, i8 noundef zeroext 7, i32 noundef %501, i16 noundef zeroext 1, ptr noundef %19)
-  %503 = zext i16 %502 to i32
-  %504 = load i32, ptr %14, align 4
-  %505 = add i32 %504, %503
-  store i32 %505, ptr %14, align 4
-  %506 = load ptr, ptr %5, align 8
-  %507 = load ptr, ptr %6, align 8
-  %508 = load ptr, ptr %7, align 8
-  %509 = load ptr, ptr %8, align 8
-  %510 = load i32, ptr %14, align 4
-  %511 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %506, ptr noundef %507, ptr noundef %508, ptr noundef %509, i8 noundef zeroext 9, i32 noundef %510, i16 noundef zeroext 1, ptr noundef %19)
-  %512 = zext i16 %511 to i32
-  %513 = load i32, ptr %14, align 4
-  %514 = add i32 %513, %512
-  store i32 %514, ptr %14, align 4
-  br label %1325
-
-515:                                              ; preds = %45
-  %516 = load ptr, ptr %6, align 8
-  %517 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 0
-  %518 = load i8, ptr %517, align 8
-  %519 = zext i8 %518 to i32
-  %520 = call ptr @new_ud_msg(ptr noundef %516, i32 noundef %519)
-  %521 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 4
-  store ptr %520, ptr %521, align 8
-  %522 = load ptr, ptr %5, align 8
-  %523 = load ptr, ptr %6, align 8
-  %524 = load ptr, ptr %7, align 8
-  %525 = load ptr, ptr %8, align 8
-  %526 = load i32, ptr %14, align 4
-  %527 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %522, ptr noundef %523, ptr noundef %524, ptr noundef %525, i8 noundef zeroext 5, i32 noundef %526, i16 noundef zeroext 1, ptr noundef %19)
-  %528 = zext i16 %527 to i32
-  %529 = load i32, ptr %14, align 4
-  %530 = add i32 %529, %528
-  store i32 %530, ptr %14, align 4
-  br label %531
-
-531:                                              ; preds = %515
-  %532 = load ptr, ptr %5, align 8
-  %533 = load i32, ptr %14, align 4
-  %534 = call zeroext i8 @tvb_get_guint8(ptr noundef %532, i32 noundef %533)
-  %535 = zext i8 %534 to i16
-  store i16 %535, ptr %9, align 2
-  %536 = load ptr, ptr %7, align 8
-  %537 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %538 = load ptr, ptr %5, align 8
-  %539 = load i32, ptr %14, align 4
-  %540 = load i16, ptr %9, align 2
-  %541 = zext i16 %540 to i32
-  %542 = call ptr @proto_tree_add_uint(ptr noundef %536, i32 noundef %537, ptr noundef %538, i32 noundef %539, i32 noundef 1, i32 noundef %541)
-  %543 = load i32, ptr %14, align 4
-  %544 = load i16, ptr %9, align 2
-  %545 = zext i16 %544 to i32
-  %546 = add i32 %545, %543
-  %547 = trunc i32 %546 to i16
-  store i16 %547, ptr %9, align 2
-  %548 = load i32, ptr %14, align 4
-  %549 = add i32 %548, 1
-  store i32 %549, ptr %14, align 4
-  br label %550
-
-550:                                              ; preds = %531
-  br label %551
-
-551:                                              ; preds = %550
-  %552 = load ptr, ptr %5, align 8
-  %553 = load i32, ptr %14, align 4
-  %554 = call zeroext i8 @tvb_get_guint8(ptr noundef %552, i32 noundef %553)
-  %555 = zext i8 %554 to i16
-  store i16 %555, ptr %10, align 2
-  %556 = load ptr, ptr %7, align 8
-  %557 = load i32, ptr @hf_sccp_variable_pointer2, align 4
-  %558 = load ptr, ptr %5, align 8
-  %559 = load i32, ptr %14, align 4
-  %560 = load i16, ptr %10, align 2
-  %561 = zext i16 %560 to i32
-  %562 = call ptr @proto_tree_add_uint(ptr noundef %556, i32 noundef %557, ptr noundef %558, i32 noundef %559, i32 noundef 1, i32 noundef %561)
-  %563 = load i32, ptr %14, align 4
-  %564 = load i16, ptr %10, align 2
-  %565 = zext i16 %564 to i32
-  %566 = add i32 %565, %563
-  %567 = trunc i32 %566 to i16
-  store i16 %567, ptr %10, align 2
-  %568 = load i32, ptr %14, align 4
-  %569 = add i32 %568, 1
-  store i32 %569, ptr %14, align 4
-  br label %570
-
-570:                                              ; preds = %551
-  br label %571
-
-571:                                              ; preds = %570
-  %572 = load ptr, ptr %5, align 8
-  %573 = load i32, ptr %14, align 4
-  %574 = call zeroext i8 @tvb_get_guint8(ptr noundef %572, i32 noundef %573)
-  %575 = zext i8 %574 to i16
-  store i16 %575, ptr %11, align 2
-  %576 = load ptr, ptr %7, align 8
-  %577 = load i32, ptr @hf_sccp_variable_pointer3, align 4
-  %578 = load ptr, ptr %5, align 8
-  %579 = load i32, ptr %14, align 4
-  %580 = load i16, ptr %11, align 2
-  %581 = zext i16 %580 to i32
-  %582 = call ptr @proto_tree_add_uint(ptr noundef %576, i32 noundef %577, ptr noundef %578, i32 noundef %579, i32 noundef 1, i32 noundef %581)
-  %583 = load i32, ptr %14, align 4
-  %584 = load i16, ptr %11, align 2
-  %585 = zext i16 %584 to i32
-  %586 = add i32 %585, %583
-  %587 = trunc i32 %586 to i16
-  store i16 %587, ptr %11, align 2
-  %588 = load i32, ptr %14, align 4
-  %589 = add i32 %588, 1
-  store i32 %589, ptr %14, align 4
-  br label %590
-
-590:                                              ; preds = %571
-  %591 = load ptr, ptr %6, align 8
-  %592 = load i32, ptr %18, align 4
-  %593 = call ptr @get_sccp_assoc(ptr noundef %591, i32 noundef %592, ptr noundef %19)
-  %594 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %593, ptr %594, align 8
-  %595 = load ptr, ptr %5, align 8
-  %596 = load ptr, ptr %6, align 8
-  %597 = load ptr, ptr %7, align 8
-  %598 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %595, ptr noundef %596, ptr noundef %597, ptr noundef %19, i32 noundef %598)
-  %599 = load ptr, ptr %5, align 8
-  %600 = load ptr, ptr %6, align 8
-  %601 = load ptr, ptr %7, align 8
-  %602 = load ptr, ptr %8, align 8
-  %603 = load i16, ptr %9, align 2
-  %604 = zext i16 %603 to i32
-  %605 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %599, ptr noundef %600, ptr noundef %601, ptr noundef %602, i8 noundef zeroext 3, i32 noundef %604, ptr noundef %19)
-  %606 = load ptr, ptr %5, align 8
-  %607 = load ptr, ptr %6, align 8
-  %608 = load ptr, ptr %7, align 8
-  %609 = load ptr, ptr %8, align 8
-  %610 = load i16, ptr %10, align 2
-  %611 = zext i16 %610 to i32
-  %612 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %606, ptr noundef %607, ptr noundef %608, ptr noundef %609, i8 noundef zeroext 4, i32 noundef %611, ptr noundef %19)
-  %613 = load ptr, ptr %5, align 8
-  %614 = load ptr, ptr %6, align 8
-  %615 = load ptr, ptr %7, align 8
-  %616 = load ptr, ptr %8, align 8
-  %617 = load i16, ptr %11, align 2
-  %618 = zext i16 %617 to i32
-  %619 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %613, ptr noundef %614, ptr noundef %615, ptr noundef %616, i8 noundef zeroext 15, i32 noundef %618, ptr noundef %19)
-  br label %1325
-
-620:                                              ; preds = %45
-  %621 = load ptr, ptr %6, align 8
-  %622 = getelementptr inbounds %struct._packet_info, ptr %621, i32 0, i32 21
-  %623 = load i8, ptr %622, align 4
-  %624 = and i8 %623, 1
-  %625 = zext i8 %624 to i32
-  store i32 %625, ptr %21, align 4
-  %626 = load ptr, ptr %6, align 8
-  %627 = getelementptr inbounds %struct._packet_info, ptr %626, i32 0, i32 21
-  %628 = load i8, ptr %627, align 4
-  %629 = and i8 %628, -2
-  %630 = or i8 %629, 1
-  store i8 %630, ptr %627, align 4
-  %631 = load ptr, ptr %6, align 8
-  %632 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 0
-  %633 = load i8, ptr %632, align 8
-  %634 = zext i8 %633 to i32
-  %635 = call ptr @new_ud_msg(ptr noundef %631, i32 noundef %634)
-  %636 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 4
-  store ptr %635, ptr %636, align 8
-  %637 = load ptr, ptr %5, align 8
-  %638 = load ptr, ptr %6, align 8
-  %639 = load ptr, ptr %7, align 8
-  %640 = load ptr, ptr %8, align 8
-  %641 = load i32, ptr %14, align 4
-  %642 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %637, ptr noundef %638, ptr noundef %639, ptr noundef %640, i8 noundef zeroext 11, i32 noundef %641, i16 noundef zeroext 1, ptr noundef %19)
-  %643 = zext i16 %642 to i32
-  %644 = load i32, ptr %14, align 4
-  %645 = add i32 %644, %643
-  store i32 %645, ptr %14, align 4
-  br label %646
-
-646:                                              ; preds = %620
-  %647 = load ptr, ptr %5, align 8
-  %648 = load i32, ptr %14, align 4
-  %649 = call zeroext i8 @tvb_get_guint8(ptr noundef %647, i32 noundef %648)
-  %650 = zext i8 %649 to i16
-  store i16 %650, ptr %9, align 2
-  %651 = load ptr, ptr %7, align 8
-  %652 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %653 = load ptr, ptr %5, align 8
-  %654 = load i32, ptr %14, align 4
-  %655 = load i16, ptr %9, align 2
-  %656 = zext i16 %655 to i32
-  %657 = call ptr @proto_tree_add_uint(ptr noundef %651, i32 noundef %652, ptr noundef %653, i32 noundef %654, i32 noundef 1, i32 noundef %656)
-  %658 = load i32, ptr %14, align 4
-  %659 = load i16, ptr %9, align 2
-  %660 = zext i16 %659 to i32
-  %661 = add i32 %660, %658
-  %662 = trunc i32 %661 to i16
-  store i16 %662, ptr %9, align 2
-  %663 = load i32, ptr %14, align 4
-  %664 = add i32 %663, 1
-  store i32 %664, ptr %14, align 4
-  br label %665
-
-665:                                              ; preds = %646
-  br label %666
-
-666:                                              ; preds = %665
-  %667 = load ptr, ptr %5, align 8
-  %668 = load i32, ptr %14, align 4
-  %669 = call zeroext i8 @tvb_get_guint8(ptr noundef %667, i32 noundef %668)
-  %670 = zext i8 %669 to i16
-  store i16 %670, ptr %10, align 2
-  %671 = load ptr, ptr %7, align 8
-  %672 = load i32, ptr @hf_sccp_variable_pointer2, align 4
-  %673 = load ptr, ptr %5, align 8
-  %674 = load i32, ptr %14, align 4
-  %675 = load i16, ptr %10, align 2
-  %676 = zext i16 %675 to i32
-  %677 = call ptr @proto_tree_add_uint(ptr noundef %671, i32 noundef %672, ptr noundef %673, i32 noundef %674, i32 noundef 1, i32 noundef %676)
-  %678 = load i32, ptr %14, align 4
-  %679 = load i16, ptr %10, align 2
-  %680 = zext i16 %679 to i32
-  %681 = add i32 %680, %678
-  %682 = trunc i32 %681 to i16
-  store i16 %682, ptr %10, align 2
-  %683 = load i32, ptr %14, align 4
-  %684 = add i32 %683, 1
-  store i32 %684, ptr %14, align 4
-  br label %685
-
-685:                                              ; preds = %666
-  br label %686
-
-686:                                              ; preds = %685
-  %687 = load ptr, ptr %5, align 8
-  %688 = load i32, ptr %14, align 4
-  %689 = call zeroext i8 @tvb_get_guint8(ptr noundef %687, i32 noundef %688)
-  %690 = zext i8 %689 to i16
-  store i16 %690, ptr %11, align 2
-  %691 = load ptr, ptr %7, align 8
-  %692 = load i32, ptr @hf_sccp_variable_pointer3, align 4
-  %693 = load ptr, ptr %5, align 8
-  %694 = load i32, ptr %14, align 4
-  %695 = load i16, ptr %11, align 2
-  %696 = zext i16 %695 to i32
-  %697 = call ptr @proto_tree_add_uint(ptr noundef %691, i32 noundef %692, ptr noundef %693, i32 noundef %694, i32 noundef 1, i32 noundef %696)
-  %698 = load i32, ptr %14, align 4
-  %699 = load i16, ptr %11, align 2
-  %700 = zext i16 %699 to i32
-  %701 = add i32 %700, %698
-  %702 = trunc i32 %701 to i16
-  store i16 %702, ptr %11, align 2
-  %703 = load i32, ptr %14, align 4
-  %704 = add i32 %703, 1
-  store i32 %704, ptr %14, align 4
-  br label %705
-
-705:                                              ; preds = %686
-  %706 = load ptr, ptr %6, align 8
-  %707 = load i32, ptr %18, align 4
-  %708 = call ptr @get_sccp_assoc(ptr noundef %706, i32 noundef %707, ptr noundef %19)
-  %709 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %708, ptr %709, align 8
-  %710 = load ptr, ptr %5, align 8
-  %711 = load ptr, ptr %6, align 8
-  %712 = load ptr, ptr %7, align 8
-  %713 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %710, ptr noundef %711, ptr noundef %712, ptr noundef %19, i32 noundef %713)
-  %714 = load ptr, ptr %5, align 8
-  %715 = load ptr, ptr %6, align 8
-  %716 = load ptr, ptr %7, align 8
-  %717 = load ptr, ptr %8, align 8
-  %718 = load i16, ptr %9, align 2
-  %719 = zext i16 %718 to i32
-  %720 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %714, ptr noundef %715, ptr noundef %716, ptr noundef %717, i8 noundef zeroext 3, i32 noundef %719, ptr noundef %19)
-  %721 = load ptr, ptr %5, align 8
-  %722 = load ptr, ptr %6, align 8
-  %723 = load ptr, ptr %7, align 8
-  %724 = load ptr, ptr %8, align 8
-  %725 = load i16, ptr %10, align 2
-  %726 = zext i16 %725 to i32
-  %727 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %721, ptr noundef %722, ptr noundef %723, ptr noundef %724, i8 noundef zeroext 4, i32 noundef %726, ptr noundef %19)
-  %728 = load ptr, ptr %5, align 8
-  %729 = load ptr, ptr %6, align 8
-  %730 = load ptr, ptr %7, align 8
-  %731 = load ptr, ptr %8, align 8
-  %732 = load i16, ptr %11, align 2
-  %733 = zext i16 %732 to i32
-  %734 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %728, ptr noundef %729, ptr noundef %730, ptr noundef %731, i8 noundef zeroext 15, i32 noundef %733, ptr noundef %19)
-  %735 = load i32, ptr %21, align 4
-  %736 = load ptr, ptr %6, align 8
-  %737 = getelementptr inbounds %struct._packet_info, ptr %736, i32 0, i32 21
-  %738 = trunc i32 %735 to i8
-  %739 = load i8, ptr %737, align 4
-  %740 = and i8 %738, 1
-  %741 = and i8 %739, -2
-  %742 = or i8 %741, %740
-  store i8 %742, ptr %737, align 4
-  br label %1325
-
-743:                                              ; preds = %45
-  %744 = load ptr, ptr %5, align 8
-  %745 = load ptr, ptr %6, align 8
-  %746 = load ptr, ptr %7, align 8
-  %747 = load ptr, ptr %8, align 8
-  %748 = load i32, ptr %14, align 4
-  %749 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %744, ptr noundef %745, ptr noundef %746, ptr noundef %747, i8 noundef zeroext 1, i32 noundef %748, i16 noundef zeroext 3, ptr noundef %19)
-  %750 = zext i16 %749 to i32
-  %751 = load i32, ptr %14, align 4
-  %752 = add i32 %751, %750
-  store i32 %752, ptr %14, align 4
-  %753 = load ptr, ptr %6, align 8
-  %754 = load i32, ptr %18, align 4
-  %755 = call ptr @get_sccp_assoc(ptr noundef %753, i32 noundef %754, ptr noundef %19)
-  %756 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %755, ptr %756, align 8
-  %757 = load ptr, ptr %5, align 8
-  %758 = load ptr, ptr %6, align 8
-  %759 = load ptr, ptr %7, align 8
-  %760 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %757, ptr noundef %758, ptr noundef %759, ptr noundef %19, i32 noundef %760)
-  br label %761
-
-761:                                              ; preds = %743
-  %762 = load ptr, ptr %5, align 8
-  %763 = load i32, ptr %14, align 4
-  %764 = call zeroext i8 @tvb_get_guint8(ptr noundef %762, i32 noundef %763)
-  %765 = zext i8 %764 to i16
-  store i16 %765, ptr %9, align 2
-  %766 = load ptr, ptr %7, align 8
-  %767 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %768 = load ptr, ptr %5, align 8
-  %769 = load i32, ptr %14, align 4
-  %770 = load i16, ptr %9, align 2
-  %771 = zext i16 %770 to i32
-  %772 = call ptr @proto_tree_add_uint(ptr noundef %766, i32 noundef %767, ptr noundef %768, i32 noundef %769, i32 noundef 1, i32 noundef %771)
-  %773 = load i32, ptr %14, align 4
-  %774 = load i16, ptr %9, align 2
-  %775 = zext i16 %774 to i32
-  %776 = add i32 %775, %773
-  %777 = trunc i32 %776 to i16
-  store i16 %777, ptr %9, align 2
-  %778 = load i32, ptr %14, align 4
-  %779 = add i32 %778, 1
-  store i32 %779, ptr %14, align 4
-  br label %780
-
-780:                                              ; preds = %761
-  %781 = load ptr, ptr %5, align 8
-  %782 = load ptr, ptr %6, align 8
-  %783 = load ptr, ptr %7, align 8
-  %784 = load ptr, ptr %8, align 8
-  %785 = load i16, ptr %9, align 2
-  %786 = zext i16 %785 to i32
-  %787 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %781, ptr noundef %782, ptr noundef %783, ptr noundef %784, i8 noundef zeroext 15, i32 noundef %786, ptr noundef %19)
-  br label %1325
-
-788:                                              ; preds = %45
-  %789 = load ptr, ptr %5, align 8
-  %790 = load ptr, ptr %6, align 8
-  %791 = load ptr, ptr %7, align 8
-  %792 = load ptr, ptr %8, align 8
-  %793 = load i32, ptr %14, align 4
-  %794 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %789, ptr noundef %790, ptr noundef %791, ptr noundef %792, i8 noundef zeroext 1, i32 noundef %793, i16 noundef zeroext 3, ptr noundef %19)
-  %795 = zext i16 %794 to i32
-  %796 = load i32, ptr %14, align 4
-  %797 = add i32 %796, %795
-  store i32 %797, ptr %14, align 4
-  %798 = load ptr, ptr %6, align 8
-  %799 = load i32, ptr %18, align 4
-  %800 = call ptr @get_sccp_assoc(ptr noundef %798, i32 noundef %799, ptr noundef %19)
-  %801 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %800, ptr %801, align 8
-  %802 = load ptr, ptr %5, align 8
-  %803 = load ptr, ptr %6, align 8
-  %804 = load ptr, ptr %7, align 8
-  %805 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %802, ptr noundef %803, ptr noundef %804, ptr noundef %19, i32 noundef %805)
-  br label %1325
-
-806:                                              ; preds = %45
-  %807 = load ptr, ptr %5, align 8
-  %808 = load ptr, ptr %6, align 8
-  %809 = load ptr, ptr %7, align 8
-  %810 = load ptr, ptr %8, align 8
-  %811 = load i32, ptr %14, align 4
-  %812 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %807, ptr noundef %808, ptr noundef %809, ptr noundef %810, i8 noundef zeroext 1, i32 noundef %811, i16 noundef zeroext 3, ptr noundef %19)
-  %813 = zext i16 %812 to i32
-  %814 = load i32, ptr %14, align 4
-  %815 = add i32 %814, %813
-  store i32 %815, ptr %14, align 4
-  %816 = load ptr, ptr %5, align 8
-  %817 = load ptr, ptr %6, align 8
-  %818 = load ptr, ptr %7, align 8
-  %819 = load ptr, ptr %8, align 8
-  %820 = load i32, ptr %14, align 4
-  %821 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %816, ptr noundef %817, ptr noundef %818, ptr noundef %819, i8 noundef zeroext 2, i32 noundef %820, i16 noundef zeroext 3, ptr noundef %19)
-  %822 = zext i16 %821 to i32
-  %823 = load i32, ptr %14, align 4
-  %824 = add i32 %823, %822
-  store i32 %824, ptr %14, align 4
-  %825 = load ptr, ptr %5, align 8
-  %826 = load ptr, ptr %6, align 8
-  %827 = load ptr, ptr %7, align 8
-  %828 = load ptr, ptr %8, align 8
-  %829 = load i32, ptr %14, align 4
-  %830 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %825, ptr noundef %826, ptr noundef %827, ptr noundef %828, i8 noundef zeroext 12, i32 noundef %829, i16 noundef zeroext 1, ptr noundef %19)
-  %831 = zext i16 %830 to i32
-  %832 = load i32, ptr %14, align 4
-  %833 = add i32 %832, %831
-  store i32 %833, ptr %14, align 4
-  %834 = load ptr, ptr %6, align 8
-  %835 = load i32, ptr %18, align 4
-  %836 = call ptr @get_sccp_assoc(ptr noundef %834, i32 noundef %835, ptr noundef %19)
-  %837 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %836, ptr %837, align 8
-  %838 = load ptr, ptr %5, align 8
-  %839 = load ptr, ptr %6, align 8
-  %840 = load ptr, ptr %7, align 8
-  %841 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %838, ptr noundef %839, ptr noundef %840, ptr noundef %19, i32 noundef %841)
-  br label %1325
-
-842:                                              ; preds = %45
-  %843 = load ptr, ptr %5, align 8
-  %844 = load ptr, ptr %6, align 8
-  %845 = load ptr, ptr %7, align 8
-  %846 = load ptr, ptr %8, align 8
-  %847 = load i32, ptr %14, align 4
-  %848 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %843, ptr noundef %844, ptr noundef %845, ptr noundef %846, i8 noundef zeroext 1, i32 noundef %847, i16 noundef zeroext 3, ptr noundef %19)
-  %849 = zext i16 %848 to i32
-  %850 = load i32, ptr %14, align 4
-  %851 = add i32 %850, %849
-  store i32 %851, ptr %14, align 4
-  %852 = load ptr, ptr %5, align 8
-  %853 = load ptr, ptr %6, align 8
-  %854 = load ptr, ptr %7, align 8
-  %855 = load ptr, ptr %8, align 8
-  %856 = load i32, ptr %14, align 4
-  %857 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %852, ptr noundef %853, ptr noundef %854, ptr noundef %855, i8 noundef zeroext 2, i32 noundef %856, i16 noundef zeroext 3, ptr noundef %19)
-  %858 = zext i16 %857 to i32
-  %859 = load i32, ptr %14, align 4
-  %860 = add i32 %859, %858
-  store i32 %860, ptr %14, align 4
-  %861 = load ptr, ptr %6, align 8
-  %862 = load i32, ptr %18, align 4
-  %863 = call ptr @get_sccp_assoc(ptr noundef %861, i32 noundef %862, ptr noundef %19)
-  %864 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %863, ptr %864, align 8
-  %865 = load ptr, ptr %5, align 8
-  %866 = load ptr, ptr %6, align 8
-  %867 = load ptr, ptr %7, align 8
-  %868 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %865, ptr noundef %866, ptr noundef %867, ptr noundef %19, i32 noundef %868)
-  br label %1325
-
-869:                                              ; preds = %45
-  %870 = load ptr, ptr %5, align 8
-  %871 = load ptr, ptr %6, align 8
-  %872 = load ptr, ptr %7, align 8
-  %873 = load ptr, ptr %8, align 8
-  %874 = load i32, ptr %14, align 4
-  %875 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %870, ptr noundef %871, ptr noundef %872, ptr noundef %873, i8 noundef zeroext 1, i32 noundef %874, i16 noundef zeroext 3, ptr noundef %19)
-  %876 = zext i16 %875 to i32
-  %877 = load i32, ptr %14, align 4
-  %878 = add i32 %877, %876
-  store i32 %878, ptr %14, align 4
-  %879 = load ptr, ptr %5, align 8
-  %880 = load ptr, ptr %6, align 8
-  %881 = load ptr, ptr %7, align 8
-  %882 = load ptr, ptr %8, align 8
-  %883 = load i32, ptr %14, align 4
-  %884 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %879, ptr noundef %880, ptr noundef %881, ptr noundef %882, i8 noundef zeroext 13, i32 noundef %883, i16 noundef zeroext 1, ptr noundef %19)
-  %885 = zext i16 %884 to i32
-  %886 = load i32, ptr %14, align 4
-  %887 = add i32 %886, %885
-  store i32 %887, ptr %14, align 4
-  %888 = load ptr, ptr %6, align 8
-  %889 = load i32, ptr %18, align 4
-  %890 = call ptr @get_sccp_assoc(ptr noundef %888, i32 noundef %889, ptr noundef %19)
-  %891 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %890, ptr %891, align 8
-  %892 = load ptr, ptr %5, align 8
-  %893 = load ptr, ptr %6, align 8
-  %894 = load ptr, ptr %7, align 8
-  %895 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %892, ptr noundef %893, ptr noundef %894, ptr noundef %19, i32 noundef %895)
-  br label %1325
-
-896:                                              ; preds = %45
-  %897 = load ptr, ptr %5, align 8
-  %898 = load ptr, ptr %6, align 8
-  %899 = load ptr, ptr %7, align 8
-  %900 = load ptr, ptr %8, align 8
-  %901 = load i32, ptr %14, align 4
-  %902 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %897, ptr noundef %898, ptr noundef %899, ptr noundef %900, i8 noundef zeroext 1, i32 noundef %901, i16 noundef zeroext 3, ptr noundef %19)
-  %903 = zext i16 %902 to i32
-  %904 = load i32, ptr %14, align 4
-  %905 = add i32 %904, %903
-  store i32 %905, ptr %14, align 4
-  %906 = load ptr, ptr %5, align 8
-  %907 = load ptr, ptr %6, align 8
-  %908 = load ptr, ptr %7, align 8
-  %909 = load ptr, ptr %8, align 8
-  %910 = load i32, ptr %14, align 4
-  %911 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %906, ptr noundef %907, ptr noundef %908, ptr noundef %909, i8 noundef zeroext 2, i32 noundef %910, i16 noundef zeroext 3, ptr noundef %19)
-  %912 = zext i16 %911 to i32
-  %913 = load i32, ptr %14, align 4
-  %914 = add i32 %913, %912
-  store i32 %914, ptr %14, align 4
-  %915 = load ptr, ptr %6, align 8
-  %916 = load i32, ptr %18, align 4
-  %917 = call ptr @get_sccp_assoc(ptr noundef %915, i32 noundef %916, ptr noundef %19)
-  %918 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %917, ptr %918, align 8
-  %919 = load ptr, ptr %5, align 8
-  %920 = load ptr, ptr %6, align 8
-  %921 = load ptr, ptr %7, align 8
-  %922 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %919, ptr noundef %920, ptr noundef %921, ptr noundef %19, i32 noundef %922)
-  %923 = load ptr, ptr %5, align 8
-  %924 = load ptr, ptr %6, align 8
-  %925 = load ptr, ptr %7, align 8
-  %926 = load ptr, ptr %8, align 8
-  %927 = load i32, ptr %14, align 4
-  %928 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %923, ptr noundef %924, ptr noundef %925, ptr noundef %926, i8 noundef zeroext 5, i32 noundef %927, i16 noundef zeroext 1, ptr noundef %19)
-  %929 = zext i16 %928 to i32
-  %930 = load i32, ptr %14, align 4
-  %931 = add i32 %930, %929
-  store i32 %931, ptr %14, align 4
-  %932 = load ptr, ptr %5, align 8
-  %933 = load ptr, ptr %6, align 8
-  %934 = load ptr, ptr %7, align 8
-  %935 = load ptr, ptr %8, align 8
-  %936 = load i32, ptr %14, align 4
-  %937 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %932, ptr noundef %933, ptr noundef %934, ptr noundef %935, i8 noundef zeroext 8, i32 noundef %936, i16 noundef zeroext 2, ptr noundef %19)
-  %938 = zext i16 %937 to i32
-  %939 = load i32, ptr %14, align 4
-  %940 = add i32 %939, %938
-  store i32 %940, ptr %14, align 4
-  %941 = load ptr, ptr %5, align 8
-  %942 = load ptr, ptr %6, align 8
-  %943 = load ptr, ptr %7, align 8
-  %944 = load ptr, ptr %8, align 8
-  %945 = load i32, ptr %14, align 4
-  %946 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %941, ptr noundef %942, ptr noundef %943, ptr noundef %944, i8 noundef zeroext 9, i32 noundef %945, i16 noundef zeroext 1, ptr noundef %19)
-  %947 = zext i16 %946 to i32
-  %948 = load i32, ptr %14, align 4
-  %949 = add i32 %948, %947
-  store i32 %949, ptr %14, align 4
-  br label %1325
-
-950:                                              ; preds = %45
-  %951 = load ptr, ptr %6, align 8
-  %952 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 0
-  %953 = load i8, ptr %952, align 8
-  %954 = zext i8 %953 to i32
-  %955 = call ptr @new_ud_msg(ptr noundef %951, i32 noundef %954)
-  %956 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 4
-  store ptr %955, ptr %956, align 8
-  %957 = load ptr, ptr %5, align 8
-  %958 = load ptr, ptr %6, align 8
-  %959 = load ptr, ptr %7, align 8
-  %960 = load ptr, ptr %8, align 8
-  %961 = load i32, ptr %14, align 4
-  %962 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %957, ptr noundef %958, ptr noundef %959, ptr noundef %960, i8 noundef zeroext 5, i32 noundef %961, i16 noundef zeroext 1, ptr noundef %19)
-  %963 = zext i16 %962 to i32
-  %964 = load i32, ptr %14, align 4
-  %965 = add i32 %964, %963
-  store i32 %965, ptr %14, align 4
-  %966 = load ptr, ptr %5, align 8
-  %967 = load ptr, ptr %6, align 8
-  %968 = load ptr, ptr %7, align 8
-  %969 = load ptr, ptr %8, align 8
-  %970 = load i32, ptr %14, align 4
-  %971 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %966, ptr noundef %967, ptr noundef %968, ptr noundef %969, i8 noundef zeroext 17, i32 noundef %970, i16 noundef zeroext 1, ptr noundef %19)
-  %972 = zext i16 %971 to i32
-  %973 = load i32, ptr %14, align 4
-  %974 = add i32 %973, %972
-  store i32 %974, ptr %14, align 4
-  %975 = load ptr, ptr %5, align 8
-  %976 = load ptr, ptr %6, align 8
-  %977 = load ptr, ptr %7, align 8
-  %978 = load ptr, ptr %8, align 8
-  %979 = load i32, ptr %14, align 4
-  %980 = call i32 @dissect_xudt_common(ptr noundef %975, ptr noundef %976, ptr noundef %977, ptr noundef %978, i32 noundef %979, ptr noundef %19, ptr noundef %12, ptr noundef %13)
-  store i32 %980, ptr %14, align 4
-  br label %1325
-
-981:                                              ; preds = %45
-  %982 = load ptr, ptr %6, align 8
-  %983 = getelementptr inbounds %struct._packet_info, ptr %982, i32 0, i32 21
-  %984 = load i8, ptr %983, align 4
-  %985 = and i8 %984, 1
-  %986 = zext i8 %985 to i32
-  store i32 %986, ptr %22, align 4
-  %987 = load ptr, ptr %6, align 8
-  %988 = getelementptr inbounds %struct._packet_info, ptr %987, i32 0, i32 21
-  %989 = load i8, ptr %988, align 4
-  %990 = and i8 %989, -2
-  %991 = or i8 %990, 1
-  store i8 %991, ptr %988, align 4
-  %992 = load ptr, ptr %6, align 8
-  %993 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 0
-  %994 = load i8, ptr %993, align 8
-  %995 = zext i8 %994 to i32
-  %996 = call ptr @new_ud_msg(ptr noundef %992, i32 noundef %995)
-  %997 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 4
-  store ptr %996, ptr %997, align 8
-  %998 = load ptr, ptr %5, align 8
-  %999 = load ptr, ptr %6, align 8
-  %1000 = load ptr, ptr %7, align 8
-  %1001 = load ptr, ptr %8, align 8
-  %1002 = load i32, ptr %14, align 4
-  %1003 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %998, ptr noundef %999, ptr noundef %1000, ptr noundef %1001, i8 noundef zeroext 11, i32 noundef %1002, i16 noundef zeroext 1, ptr noundef %19)
-  %1004 = zext i16 %1003 to i32
-  %1005 = load i32, ptr %14, align 4
-  %1006 = add i32 %1005, %1004
-  store i32 %1006, ptr %14, align 4
-  %1007 = load ptr, ptr %5, align 8
-  %1008 = load ptr, ptr %6, align 8
-  %1009 = load ptr, ptr %7, align 8
-  %1010 = load ptr, ptr %8, align 8
-  %1011 = load i32, ptr %14, align 4
-  %1012 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %1007, ptr noundef %1008, ptr noundef %1009, ptr noundef %1010, i8 noundef zeroext 17, i32 noundef %1011, i16 noundef zeroext 1, ptr noundef %19)
-  %1013 = zext i16 %1012 to i32
-  %1014 = load i32, ptr %14, align 4
-  %1015 = add i32 %1014, %1013
-  store i32 %1015, ptr %14, align 4
-  %1016 = load ptr, ptr %5, align 8
-  %1017 = load ptr, ptr %6, align 8
-  %1018 = load ptr, ptr %7, align 8
-  %1019 = load ptr, ptr %8, align 8
-  %1020 = load i32, ptr %14, align 4
-  %1021 = call i32 @dissect_xudt_common(ptr noundef %1016, ptr noundef %1017, ptr noundef %1018, ptr noundef %1019, i32 noundef %1020, ptr noundef %19, ptr noundef %12, ptr noundef %13)
-  store i32 %1021, ptr %14, align 4
-  %1022 = load i32, ptr %22, align 4
-  %1023 = load ptr, ptr %6, align 8
-  %1024 = getelementptr inbounds %struct._packet_info, ptr %1023, i32 0, i32 21
-  %1025 = trunc i32 %1022 to i8
-  %1026 = load i8, ptr %1024, align 4
-  %1027 = and i8 %1025, 1
-  %1028 = and i8 %1026, -2
-  %1029 = or i8 %1028, %1027
-  store i8 %1029, ptr %1024, align 4
-  br label %1325
-
-1030:                                             ; preds = %45
-  %1031 = load ptr, ptr %6, align 8
-  %1032 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 0
-  %1033 = load i8, ptr %1032, align 8
-  %1034 = zext i8 %1033 to i32
-  %1035 = call ptr @new_ud_msg(ptr noundef %1031, i32 noundef %1034)
-  %1036 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 4
-  store ptr %1035, ptr %1036, align 8
-  %1037 = load ptr, ptr %5, align 8
-  %1038 = load ptr, ptr %6, align 8
-  %1039 = load ptr, ptr %7, align 8
-  %1040 = load ptr, ptr %8, align 8
-  %1041 = load i32, ptr %14, align 4
-  %1042 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %1037, ptr noundef %1038, ptr noundef %1039, ptr noundef %1040, i8 noundef zeroext 5, i32 noundef %1041, i16 noundef zeroext 1, ptr noundef %19)
-  %1043 = zext i16 %1042 to i32
-  %1044 = load i32, ptr %14, align 4
-  %1045 = add i32 %1044, %1043
-  store i32 %1045, ptr %14, align 4
-  %1046 = load ptr, ptr %5, align 8
-  %1047 = load ptr, ptr %6, align 8
-  %1048 = load ptr, ptr %7, align 8
-  %1049 = load ptr, ptr %8, align 8
-  %1050 = load i32, ptr %14, align 4
-  %1051 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %1046, ptr noundef %1047, ptr noundef %1048, ptr noundef %1049, i8 noundef zeroext 17, i32 noundef %1050, i16 noundef zeroext 1, ptr noundef %19)
-  %1052 = zext i16 %1051 to i32
-  %1053 = load i32, ptr %14, align 4
-  %1054 = add i32 %1053, %1052
-  store i32 %1054, ptr %14, align 4
-  br label %1055
-
-1055:                                             ; preds = %1030
-  %1056 = load ptr, ptr %5, align 8
-  %1057 = load i32, ptr %14, align 4
-  %1058 = call zeroext i16 @tvb_get_letohs(ptr noundef %1056, i32 noundef %1057)
-  store i16 %1058, ptr %9, align 2
-  %1059 = load ptr, ptr %7, align 8
-  %1060 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %1061 = load ptr, ptr %5, align 8
-  %1062 = load i32, ptr %14, align 4
-  %1063 = load i16, ptr %9, align 2
-  %1064 = zext i16 %1063 to i32
-  %1065 = call ptr @proto_tree_add_uint(ptr noundef %1059, i32 noundef %1060, ptr noundef %1061, i32 noundef %1062, i32 noundef 2, i32 noundef %1064)
-  %1066 = load i32, ptr %14, align 4
-  %1067 = load i16, ptr %9, align 2
-  %1068 = zext i16 %1067 to i32
-  %1069 = add i32 %1068, %1066
-  %1070 = trunc i32 %1069 to i16
-  store i16 %1070, ptr %9, align 2
-  %1071 = load i16, ptr %9, align 2
-  %1072 = zext i16 %1071 to i32
-  %1073 = add i32 %1072, 1
-  %1074 = trunc i32 %1073 to i16
-  store i16 %1074, ptr %9, align 2
-  %1075 = load i32, ptr %14, align 4
-  %1076 = add i32 %1075, 2
-  store i32 %1076, ptr %14, align 4
-  br label %1077
-
-1077:                                             ; preds = %1055
-  br label %1078
-
-1078:                                             ; preds = %1077
-  %1079 = load ptr, ptr %5, align 8
-  %1080 = load i32, ptr %14, align 4
-  %1081 = call zeroext i16 @tvb_get_letohs(ptr noundef %1079, i32 noundef %1080)
-  store i16 %1081, ptr %10, align 2
-  %1082 = load ptr, ptr %7, align 8
-  %1083 = load i32, ptr @hf_sccp_variable_pointer2, align 4
-  %1084 = load ptr, ptr %5, align 8
-  %1085 = load i32, ptr %14, align 4
-  %1086 = load i16, ptr %10, align 2
-  %1087 = zext i16 %1086 to i32
-  %1088 = call ptr @proto_tree_add_uint(ptr noundef %1082, i32 noundef %1083, ptr noundef %1084, i32 noundef %1085, i32 noundef 2, i32 noundef %1087)
-  %1089 = load i32, ptr %14, align 4
-  %1090 = load i16, ptr %10, align 2
-  %1091 = zext i16 %1090 to i32
-  %1092 = add i32 %1091, %1089
-  %1093 = trunc i32 %1092 to i16
-  store i16 %1093, ptr %10, align 2
-  %1094 = load i16, ptr %10, align 2
-  %1095 = zext i16 %1094 to i32
-  %1096 = add i32 %1095, 1
-  %1097 = trunc i32 %1096 to i16
-  store i16 %1097, ptr %10, align 2
-  %1098 = load i32, ptr %14, align 4
-  %1099 = add i32 %1098, 2
-  store i32 %1099, ptr %14, align 4
-  br label %1100
-
-1100:                                             ; preds = %1078
-  br label %1101
-
-1101:                                             ; preds = %1100
-  %1102 = load ptr, ptr %5, align 8
-  %1103 = load i32, ptr %14, align 4
-  %1104 = call zeroext i16 @tvb_get_letohs(ptr noundef %1102, i32 noundef %1103)
-  store i16 %1104, ptr %11, align 2
-  %1105 = load ptr, ptr %7, align 8
-  %1106 = load i32, ptr @hf_sccp_variable_pointer3, align 4
-  %1107 = load ptr, ptr %5, align 8
-  %1108 = load i32, ptr %14, align 4
-  %1109 = load i16, ptr %11, align 2
-  %1110 = zext i16 %1109 to i32
-  %1111 = call ptr @proto_tree_add_uint(ptr noundef %1105, i32 noundef %1106, ptr noundef %1107, i32 noundef %1108, i32 noundef 2, i32 noundef %1110)
-  %1112 = load i32, ptr %14, align 4
-  %1113 = load i16, ptr %11, align 2
-  %1114 = zext i16 %1113 to i32
-  %1115 = add i32 %1114, %1112
-  %1116 = trunc i32 %1115 to i16
-  store i16 %1116, ptr %11, align 2
-  %1117 = load i16, ptr %11, align 2
-  %1118 = zext i16 %1117 to i32
-  %1119 = add i32 %1118, 1
-  %1120 = trunc i32 %1119 to i16
-  store i16 %1120, ptr %11, align 2
-  %1121 = load i32, ptr %14, align 4
-  %1122 = add i32 %1121, 2
-  store i32 %1122, ptr %14, align 4
-  br label %1123
-
-1123:                                             ; preds = %1101
-  br label %1124
-
-1124:                                             ; preds = %1123
-  %1125 = load ptr, ptr %5, align 8
-  %1126 = load i32, ptr %14, align 4
-  %1127 = call zeroext i16 @tvb_get_letohs(ptr noundef %1125, i32 noundef %1126)
-  store i16 %1127, ptr %12, align 2
-  store i16 %1127, ptr %13, align 2
-  %1128 = load ptr, ptr %7, align 8
-  %1129 = load i32, ptr @hf_sccp_optional_pointer, align 4
-  %1130 = load ptr, ptr %5, align 8
-  %1131 = load i32, ptr %14, align 4
-  %1132 = load i16, ptr %12, align 2
-  %1133 = zext i16 %1132 to i32
-  %1134 = call ptr @proto_tree_add_uint(ptr noundef %1128, i32 noundef %1129, ptr noundef %1130, i32 noundef %1131, i32 noundef 2, i32 noundef %1133)
-  %1135 = load i32, ptr %14, align 4
-  %1136 = load i16, ptr %12, align 2
-  %1137 = zext i16 %1136 to i32
-  %1138 = add i32 %1137, %1135
-  %1139 = trunc i32 %1138 to i16
-  store i16 %1139, ptr %12, align 2
-  %1140 = load i16, ptr %12, align 2
-  %1141 = zext i16 %1140 to i32
-  %1142 = add i32 %1141, 1
-  %1143 = trunc i32 %1142 to i16
-  store i16 %1143, ptr %12, align 2
-  %1144 = load i32, ptr %14, align 4
-  %1145 = add i32 %1144, 2
-  store i32 %1145, ptr %14, align 4
-  br label %1146
-
-1146:                                             ; preds = %1124
-  %1147 = load ptr, ptr %6, align 8
-  %1148 = load i32, ptr %18, align 4
-  %1149 = call ptr @get_sccp_assoc(ptr noundef %1147, i32 noundef %1148, ptr noundef %19)
-  %1150 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %1149, ptr %1150, align 8
-  %1151 = load ptr, ptr %5, align 8
-  %1152 = load ptr, ptr %6, align 8
-  %1153 = load ptr, ptr %7, align 8
-  %1154 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %1151, ptr noundef %1152, ptr noundef %1153, ptr noundef %19, i32 noundef %1154)
-  %1155 = load ptr, ptr %5, align 8
-  %1156 = load ptr, ptr %6, align 8
-  %1157 = load ptr, ptr %7, align 8
-  %1158 = load ptr, ptr %8, align 8
-  %1159 = load i16, ptr %9, align 2
-  %1160 = zext i16 %1159 to i32
-  %1161 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %1155, ptr noundef %1156, ptr noundef %1157, ptr noundef %1158, i8 noundef zeroext 3, i32 noundef %1160, ptr noundef %19)
-  %1162 = load ptr, ptr %5, align 8
-  %1163 = load ptr, ptr %6, align 8
-  %1164 = load ptr, ptr %7, align 8
-  %1165 = load ptr, ptr %8, align 8
-  %1166 = load i16, ptr %10, align 2
-  %1167 = zext i16 %1166 to i32
-  %1168 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %1162, ptr noundef %1163, ptr noundef %1164, ptr noundef %1165, i8 noundef zeroext 4, i32 noundef %1167, ptr noundef %19)
-  %1169 = load ptr, ptr %5, align 8
-  %1170 = load ptr, ptr %6, align 8
-  %1171 = load ptr, ptr %7, align 8
-  %1172 = load ptr, ptr %8, align 8
-  %1173 = load i16, ptr %11, align 2
-  %1174 = zext i16 %1173 to i32
-  %1175 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %1169, ptr noundef %1170, ptr noundef %1171, ptr noundef %1172, i8 noundef zeroext 19, i32 noundef %1174, ptr noundef %19)
-  br label %1325
-
-1176:                                             ; preds = %45
-  %1177 = load ptr, ptr %6, align 8
-  %1178 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 0
-  %1179 = load i8, ptr %1178, align 8
-  %1180 = zext i8 %1179 to i32
-  %1181 = call ptr @new_ud_msg(ptr noundef %1177, i32 noundef %1180)
-  %1182 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 4
-  store ptr %1181, ptr %1182, align 8
-  %1183 = load ptr, ptr %5, align 8
-  %1184 = load ptr, ptr %6, align 8
-  %1185 = load ptr, ptr %7, align 8
-  %1186 = load ptr, ptr %8, align 8
-  %1187 = load i32, ptr %14, align 4
-  %1188 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %1183, ptr noundef %1184, ptr noundef %1185, ptr noundef %1186, i8 noundef zeroext 11, i32 noundef %1187, i16 noundef zeroext 1, ptr noundef %19)
-  %1189 = zext i16 %1188 to i32
-  %1190 = load i32, ptr %14, align 4
-  %1191 = add i32 %1190, %1189
-  store i32 %1191, ptr %14, align 4
-  %1192 = load ptr, ptr %5, align 8
-  %1193 = load ptr, ptr %6, align 8
-  %1194 = load ptr, ptr %7, align 8
-  %1195 = load ptr, ptr %8, align 8
-  %1196 = load i32, ptr %14, align 4
-  %1197 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %1192, ptr noundef %1193, ptr noundef %1194, ptr noundef %1195, i8 noundef zeroext 17, i32 noundef %1196, i16 noundef zeroext 1, ptr noundef %19)
-  %1198 = zext i16 %1197 to i32
-  %1199 = load i32, ptr %14, align 4
-  %1200 = add i32 %1199, %1198
-  store i32 %1200, ptr %14, align 4
-  br label %1201
-
-1201:                                             ; preds = %1176
-  %1202 = load ptr, ptr %5, align 8
-  %1203 = load i32, ptr %14, align 4
-  %1204 = call zeroext i16 @tvb_get_letohs(ptr noundef %1202, i32 noundef %1203)
-  store i16 %1204, ptr %9, align 2
-  %1205 = load ptr, ptr %7, align 8
-  %1206 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %1207 = load ptr, ptr %5, align 8
-  %1208 = load i32, ptr %14, align 4
-  %1209 = load i16, ptr %9, align 2
-  %1210 = zext i16 %1209 to i32
-  %1211 = call ptr @proto_tree_add_uint(ptr noundef %1205, i32 noundef %1206, ptr noundef %1207, i32 noundef %1208, i32 noundef 2, i32 noundef %1210)
-  %1212 = load i32, ptr %14, align 4
-  %1213 = load i16, ptr %9, align 2
-  %1214 = zext i16 %1213 to i32
-  %1215 = add i32 %1214, %1212
-  %1216 = trunc i32 %1215 to i16
-  store i16 %1216, ptr %9, align 2
-  %1217 = load i16, ptr %9, align 2
-  %1218 = zext i16 %1217 to i32
-  %1219 = add i32 %1218, 1
-  %1220 = trunc i32 %1219 to i16
-  store i16 %1220, ptr %9, align 2
-  %1221 = load i32, ptr %14, align 4
-  %1222 = add i32 %1221, 2
-  store i32 %1222, ptr %14, align 4
-  br label %1223
-
-1223:                                             ; preds = %1201
-  br label %1224
-
-1224:                                             ; preds = %1223
-  %1225 = load ptr, ptr %5, align 8
-  %1226 = load i32, ptr %14, align 4
-  %1227 = call zeroext i16 @tvb_get_letohs(ptr noundef %1225, i32 noundef %1226)
-  store i16 %1227, ptr %10, align 2
-  %1228 = load ptr, ptr %7, align 8
-  %1229 = load i32, ptr @hf_sccp_variable_pointer2, align 4
-  %1230 = load ptr, ptr %5, align 8
-  %1231 = load i32, ptr %14, align 4
-  %1232 = load i16, ptr %10, align 2
-  %1233 = zext i16 %1232 to i32
-  %1234 = call ptr @proto_tree_add_uint(ptr noundef %1228, i32 noundef %1229, ptr noundef %1230, i32 noundef %1231, i32 noundef 2, i32 noundef %1233)
-  %1235 = load i32, ptr %14, align 4
-  %1236 = load i16, ptr %10, align 2
-  %1237 = zext i16 %1236 to i32
-  %1238 = add i32 %1237, %1235
-  %1239 = trunc i32 %1238 to i16
-  store i16 %1239, ptr %10, align 2
-  %1240 = load i16, ptr %10, align 2
-  %1241 = zext i16 %1240 to i32
-  %1242 = add i32 %1241, 1
-  %1243 = trunc i32 %1242 to i16
-  store i16 %1243, ptr %10, align 2
-  %1244 = load i32, ptr %14, align 4
-  %1245 = add i32 %1244, 2
-  store i32 %1245, ptr %14, align 4
-  br label %1246
-
-1246:                                             ; preds = %1224
-  br label %1247
-
-1247:                                             ; preds = %1246
-  %1248 = load ptr, ptr %5, align 8
-  %1249 = load i32, ptr %14, align 4
-  %1250 = call zeroext i16 @tvb_get_letohs(ptr noundef %1248, i32 noundef %1249)
-  store i16 %1250, ptr %11, align 2
-  %1251 = load ptr, ptr %7, align 8
-  %1252 = load i32, ptr @hf_sccp_variable_pointer3, align 4
-  %1253 = load ptr, ptr %5, align 8
-  %1254 = load i32, ptr %14, align 4
-  %1255 = load i16, ptr %11, align 2
-  %1256 = zext i16 %1255 to i32
-  %1257 = call ptr @proto_tree_add_uint(ptr noundef %1251, i32 noundef %1252, ptr noundef %1253, i32 noundef %1254, i32 noundef 2, i32 noundef %1256)
-  %1258 = load i32, ptr %14, align 4
-  %1259 = load i16, ptr %11, align 2
-  %1260 = zext i16 %1259 to i32
-  %1261 = add i32 %1260, %1258
-  %1262 = trunc i32 %1261 to i16
-  store i16 %1262, ptr %11, align 2
-  %1263 = load i16, ptr %11, align 2
-  %1264 = zext i16 %1263 to i32
-  %1265 = add i32 %1264, 1
-  %1266 = trunc i32 %1265 to i16
-  store i16 %1266, ptr %11, align 2
-  %1267 = load i32, ptr %14, align 4
-  %1268 = add i32 %1267, 2
-  store i32 %1268, ptr %14, align 4
-  br label %1269
-
-1269:                                             ; preds = %1247
-  br label %1270
-
-1270:                                             ; preds = %1269
-  %1271 = load ptr, ptr %5, align 8
-  %1272 = load i32, ptr %14, align 4
-  %1273 = call zeroext i16 @tvb_get_letohs(ptr noundef %1271, i32 noundef %1272)
-  store i16 %1273, ptr %12, align 2
-  store i16 %1273, ptr %13, align 2
-  %1274 = load ptr, ptr %7, align 8
-  %1275 = load i32, ptr @hf_sccp_optional_pointer, align 4
-  %1276 = load ptr, ptr %5, align 8
-  %1277 = load i32, ptr %14, align 4
-  %1278 = load i16, ptr %12, align 2
-  %1279 = zext i16 %1278 to i32
-  %1280 = call ptr @proto_tree_add_uint(ptr noundef %1274, i32 noundef %1275, ptr noundef %1276, i32 noundef %1277, i32 noundef 2, i32 noundef %1279)
-  %1281 = load i32, ptr %14, align 4
-  %1282 = load i16, ptr %12, align 2
-  %1283 = zext i16 %1282 to i32
-  %1284 = add i32 %1283, %1281
-  %1285 = trunc i32 %1284 to i16
-  store i16 %1285, ptr %12, align 2
-  %1286 = load i16, ptr %12, align 2
-  %1287 = zext i16 %1286 to i32
-  %1288 = add i32 %1287, 1
-  %1289 = trunc i32 %1288 to i16
-  store i16 %1289, ptr %12, align 2
-  %1290 = load i32, ptr %14, align 4
-  %1291 = add i32 %1290, 2
-  store i32 %1291, ptr %14, align 4
-  br label %1292
-
-1292:                                             ; preds = %1270
-  %1293 = load ptr, ptr %6, align 8
-  %1294 = load i32, ptr %18, align 4
-  %1295 = call ptr @get_sccp_assoc(ptr noundef %1293, i32 noundef %1294, ptr noundef %19)
-  %1296 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
-  store ptr %1295, ptr %1296, align 8
-  %1297 = load ptr, ptr %5, align 8
-  %1298 = load ptr, ptr %6, align 8
-  %1299 = load ptr, ptr %7, align 8
-  %1300 = load i32, ptr %18, align 4
-  call void @build_assoc_tree(ptr noundef %1297, ptr noundef %1298, ptr noundef %1299, ptr noundef %19, i32 noundef %1300)
-  %1301 = load ptr, ptr %5, align 8
-  %1302 = load ptr, ptr %6, align 8
-  %1303 = load ptr, ptr %7, align 8
-  %1304 = load ptr, ptr %8, align 8
-  %1305 = load i16, ptr %9, align 2
-  %1306 = zext i16 %1305 to i32
-  %1307 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %1301, ptr noundef %1302, ptr noundef %1303, ptr noundef %1304, i8 noundef zeroext 3, i32 noundef %1306, ptr noundef %19)
-  %1308 = load ptr, ptr %5, align 8
-  %1309 = load ptr, ptr %6, align 8
-  %1310 = load ptr, ptr %7, align 8
-  %1311 = load ptr, ptr %8, align 8
-  %1312 = load i16, ptr %10, align 2
-  %1313 = zext i16 %1312 to i32
-  %1314 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %1308, ptr noundef %1309, ptr noundef %1310, ptr noundef %1311, i8 noundef zeroext 4, i32 noundef %1313, ptr noundef %19)
-  %1315 = load ptr, ptr %5, align 8
-  %1316 = load ptr, ptr %6, align 8
-  %1317 = load ptr, ptr %7, align 8
-  %1318 = load ptr, ptr %8, align 8
-  %1319 = load i16, ptr %11, align 2
-  %1320 = zext i16 %1319 to i32
-  %1321 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %1315, ptr noundef %1316, ptr noundef %1317, ptr noundef %1318, i8 noundef zeroext 19, i32 noundef %1320, ptr noundef %19)
-  br label %1325
-
-1322:                                             ; preds = %45
-  %1323 = load ptr, ptr %5, align 8
-  %1324 = load ptr, ptr %7, align 8
-  call void @dissect_sccp_unknown_message(ptr noundef %1323, ptr noundef %1324)
-  br label %1325
-
-1325:                                             ; preds = %1322, %1292, %1146, %981, %950, %896, %869, %842, %806, %788, %780, %705, %590, %479, %471, %424, %282, %281, %225, %178, %115
-  %1326 = load i16, ptr %13, align 2
-  %1327 = icmp ne i16 %1326, 0
-  br i1 %1327, label %1328, label %1335
-
-1328:                                             ; preds = %1325
-  %1329 = load ptr, ptr %5, align 8
-  %1330 = load ptr, ptr %6, align 8
-  %1331 = load ptr, ptr %7, align 8
-  %1332 = load ptr, ptr %8, align 8
-  %1333 = load i16, ptr %12, align 2
-  %1334 = zext i16 %1333 to i32
-  call void @dissect_sccp_optional_parameters(ptr noundef %1329, ptr noundef %1330, ptr noundef %1331, ptr noundef %1332, i32 noundef %1334, ptr noundef %19)
+434:                                              ; preds = %433, %377
   br label %1335
 
-1335:                                             ; preds = %1328, %1325
-  %1336 = load i32, ptr %14, align 4
-  ret i32 %1336
+435:                                              ; preds = %45
+  %436 = load ptr, ptr %5, align 8
+  %437 = load ptr, ptr %6, align 8
+  %438 = load ptr, ptr %7, align 8
+  %439 = load ptr, ptr %8, align 8
+  %440 = load i32, ptr %14, align 4
+  %441 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %436, ptr noundef %437, ptr noundef %438, ptr noundef %439, i8 noundef zeroext 1, i32 noundef %440, i16 noundef zeroext 3, ptr noundef %19)
+  %442 = zext i16 %441 to i32
+  %443 = load i32, ptr %14, align 4
+  %444 = add i32 %443, %442
+  store i32 %444, ptr %14, align 4
+  %445 = load ptr, ptr %6, align 8
+  %446 = load i32, ptr %18, align 4
+  %447 = call ptr @get_sccp_assoc(ptr noundef %445, i32 noundef %446, ptr noundef %19)
+  %448 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %447, ptr %448, align 8
+  %449 = load ptr, ptr %5, align 8
+  %450 = load ptr, ptr %6, align 8
+  %451 = load ptr, ptr %7, align 8
+  %452 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %449, ptr noundef %450, ptr noundef %451, ptr noundef %19, i32 noundef %452)
+  %453 = load ptr, ptr %5, align 8
+  %454 = load ptr, ptr %6, align 8
+  %455 = load ptr, ptr %7, align 8
+  %456 = load ptr, ptr %8, align 8
+  %457 = load i32, ptr %14, align 4
+  %458 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %453, ptr noundef %454, ptr noundef %455, ptr noundef %456, i8 noundef zeroext 8, i32 noundef %457, i16 noundef zeroext 2, ptr noundef %19)
+  %459 = zext i16 %458 to i32
+  %460 = load i32, ptr %14, align 4
+  %461 = add i32 %460, %459
+  store i32 %461, ptr %14, align 4
+  br label %462
+
+462:                                              ; preds = %435
+  %463 = load ptr, ptr %5, align 8
+  %464 = load i32, ptr %14, align 4
+  %465 = call zeroext i8 @tvb_get_guint8(ptr noundef %463, i32 noundef %464)
+  %466 = zext i8 %465 to i16
+  store i16 %466, ptr %9, align 2
+  %467 = load ptr, ptr %7, align 8
+  %468 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %469 = load ptr, ptr %5, align 8
+  %470 = load i32, ptr %14, align 4
+  %471 = load i16, ptr %9, align 2
+  %472 = zext i16 %471 to i32
+  %473 = call ptr @proto_tree_add_uint(ptr noundef %467, i32 noundef %468, ptr noundef %469, i32 noundef %470, i32 noundef 1, i32 noundef %472)
+  %474 = load i32, ptr %14, align 4
+  %475 = load i16, ptr %9, align 2
+  %476 = zext i16 %475 to i32
+  %477 = add i32 %476, %474
+  %478 = trunc i32 %477 to i16
+  store i16 %478, ptr %9, align 2
+  %479 = load i32, ptr %14, align 4
+  %480 = add i32 %479, 1
+  store i32 %480, ptr %14, align 4
+  br label %481
+
+481:                                              ; preds = %462
+  %482 = load ptr, ptr %5, align 8
+  %483 = load ptr, ptr %6, align 8
+  %484 = load ptr, ptr %7, align 8
+  %485 = load ptr, ptr %8, align 8
+  %486 = load i16, ptr %9, align 2
+  %487 = zext i16 %486 to i32
+  %488 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %482, ptr noundef %483, ptr noundef %484, ptr noundef %485, i8 noundef zeroext 15, i32 noundef %487, ptr noundef %19)
+  br label %1335
+
+489:                                              ; preds = %45
+  %490 = load ptr, ptr %5, align 8
+  %491 = load ptr, ptr %6, align 8
+  %492 = load ptr, ptr %7, align 8
+  %493 = load ptr, ptr %8, align 8
+  %494 = load i32, ptr %14, align 4
+  %495 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %490, ptr noundef %491, ptr noundef %492, ptr noundef %493, i8 noundef zeroext 1, i32 noundef %494, i16 noundef zeroext 3, ptr noundef %19)
+  %496 = zext i16 %495 to i32
+  %497 = load i32, ptr %14, align 4
+  %498 = add i32 %497, %496
+  store i32 %498, ptr %14, align 4
+  %499 = load ptr, ptr %6, align 8
+  %500 = load i32, ptr %18, align 4
+  %501 = call ptr @get_sccp_assoc(ptr noundef %499, i32 noundef %500, ptr noundef %19)
+  %502 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %501, ptr %502, align 8
+  %503 = load ptr, ptr %5, align 8
+  %504 = load ptr, ptr %6, align 8
+  %505 = load ptr, ptr %7, align 8
+  %506 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %503, ptr noundef %504, ptr noundef %505, ptr noundef %19, i32 noundef %506)
+  %507 = load ptr, ptr %5, align 8
+  %508 = load ptr, ptr %6, align 8
+  %509 = load ptr, ptr %7, align 8
+  %510 = load ptr, ptr %8, align 8
+  %511 = load i32, ptr %14, align 4
+  %512 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %507, ptr noundef %508, ptr noundef %509, ptr noundef %510, i8 noundef zeroext 7, i32 noundef %511, i16 noundef zeroext 1, ptr noundef %19)
+  %513 = zext i16 %512 to i32
+  %514 = load i32, ptr %14, align 4
+  %515 = add i32 %514, %513
+  store i32 %515, ptr %14, align 4
+  %516 = load ptr, ptr %5, align 8
+  %517 = load ptr, ptr %6, align 8
+  %518 = load ptr, ptr %7, align 8
+  %519 = load ptr, ptr %8, align 8
+  %520 = load i32, ptr %14, align 4
+  %521 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %516, ptr noundef %517, ptr noundef %518, ptr noundef %519, i8 noundef zeroext 9, i32 noundef %520, i16 noundef zeroext 1, ptr noundef %19)
+  %522 = zext i16 %521 to i32
+  %523 = load i32, ptr %14, align 4
+  %524 = add i32 %523, %522
+  store i32 %524, ptr %14, align 4
+  br label %1335
+
+525:                                              ; preds = %45
+  %526 = load ptr, ptr %6, align 8
+  %527 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 0
+  %528 = load i8, ptr %527, align 8
+  %529 = zext i8 %528 to i32
+  %530 = call ptr @new_ud_msg(ptr noundef %526, i32 noundef %529)
+  %531 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 4
+  store ptr %530, ptr %531, align 8
+  %532 = load ptr, ptr %5, align 8
+  %533 = load ptr, ptr %6, align 8
+  %534 = load ptr, ptr %7, align 8
+  %535 = load ptr, ptr %8, align 8
+  %536 = load i32, ptr %14, align 4
+  %537 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %532, ptr noundef %533, ptr noundef %534, ptr noundef %535, i8 noundef zeroext 5, i32 noundef %536, i16 noundef zeroext 1, ptr noundef %19)
+  %538 = zext i16 %537 to i32
+  %539 = load i32, ptr %14, align 4
+  %540 = add i32 %539, %538
+  store i32 %540, ptr %14, align 4
+  br label %541
+
+541:                                              ; preds = %525
+  %542 = load ptr, ptr %5, align 8
+  %543 = load i32, ptr %14, align 4
+  %544 = call zeroext i8 @tvb_get_guint8(ptr noundef %542, i32 noundef %543)
+  %545 = zext i8 %544 to i16
+  store i16 %545, ptr %9, align 2
+  %546 = load ptr, ptr %7, align 8
+  %547 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %548 = load ptr, ptr %5, align 8
+  %549 = load i32, ptr %14, align 4
+  %550 = load i16, ptr %9, align 2
+  %551 = zext i16 %550 to i32
+  %552 = call ptr @proto_tree_add_uint(ptr noundef %546, i32 noundef %547, ptr noundef %548, i32 noundef %549, i32 noundef 1, i32 noundef %551)
+  %553 = load i32, ptr %14, align 4
+  %554 = load i16, ptr %9, align 2
+  %555 = zext i16 %554 to i32
+  %556 = add i32 %555, %553
+  %557 = trunc i32 %556 to i16
+  store i16 %557, ptr %9, align 2
+  %558 = load i32, ptr %14, align 4
+  %559 = add i32 %558, 1
+  store i32 %559, ptr %14, align 4
+  br label %560
+
+560:                                              ; preds = %541
+  br label %561
+
+561:                                              ; preds = %560
+  %562 = load ptr, ptr %5, align 8
+  %563 = load i32, ptr %14, align 4
+  %564 = call zeroext i8 @tvb_get_guint8(ptr noundef %562, i32 noundef %563)
+  %565 = zext i8 %564 to i16
+  store i16 %565, ptr %10, align 2
+  %566 = load ptr, ptr %7, align 8
+  %567 = load i32, ptr @hf_sccp_variable_pointer2, align 4
+  %568 = load ptr, ptr %5, align 8
+  %569 = load i32, ptr %14, align 4
+  %570 = load i16, ptr %10, align 2
+  %571 = zext i16 %570 to i32
+  %572 = call ptr @proto_tree_add_uint(ptr noundef %566, i32 noundef %567, ptr noundef %568, i32 noundef %569, i32 noundef 1, i32 noundef %571)
+  %573 = load i32, ptr %14, align 4
+  %574 = load i16, ptr %10, align 2
+  %575 = zext i16 %574 to i32
+  %576 = add i32 %575, %573
+  %577 = trunc i32 %576 to i16
+  store i16 %577, ptr %10, align 2
+  %578 = load i32, ptr %14, align 4
+  %579 = add i32 %578, 1
+  store i32 %579, ptr %14, align 4
+  br label %580
+
+580:                                              ; preds = %561
+  br label %581
+
+581:                                              ; preds = %580
+  %582 = load ptr, ptr %5, align 8
+  %583 = load i32, ptr %14, align 4
+  %584 = call zeroext i8 @tvb_get_guint8(ptr noundef %582, i32 noundef %583)
+  %585 = zext i8 %584 to i16
+  store i16 %585, ptr %11, align 2
+  %586 = load ptr, ptr %7, align 8
+  %587 = load i32, ptr @hf_sccp_variable_pointer3, align 4
+  %588 = load ptr, ptr %5, align 8
+  %589 = load i32, ptr %14, align 4
+  %590 = load i16, ptr %11, align 2
+  %591 = zext i16 %590 to i32
+  %592 = call ptr @proto_tree_add_uint(ptr noundef %586, i32 noundef %587, ptr noundef %588, i32 noundef %589, i32 noundef 1, i32 noundef %591)
+  %593 = load i32, ptr %14, align 4
+  %594 = load i16, ptr %11, align 2
+  %595 = zext i16 %594 to i32
+  %596 = add i32 %595, %593
+  %597 = trunc i32 %596 to i16
+  store i16 %597, ptr %11, align 2
+  %598 = load i32, ptr %14, align 4
+  %599 = add i32 %598, 1
+  store i32 %599, ptr %14, align 4
+  br label %600
+
+600:                                              ; preds = %581
+  %601 = load ptr, ptr %6, align 8
+  %602 = load i32, ptr %18, align 4
+  %603 = call ptr @get_sccp_assoc(ptr noundef %601, i32 noundef %602, ptr noundef %19)
+  %604 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %603, ptr %604, align 8
+  %605 = load ptr, ptr %5, align 8
+  %606 = load ptr, ptr %6, align 8
+  %607 = load ptr, ptr %7, align 8
+  %608 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %605, ptr noundef %606, ptr noundef %607, ptr noundef %19, i32 noundef %608)
+  %609 = load ptr, ptr %5, align 8
+  %610 = load ptr, ptr %6, align 8
+  %611 = load ptr, ptr %7, align 8
+  %612 = load ptr, ptr %8, align 8
+  %613 = load i16, ptr %9, align 2
+  %614 = zext i16 %613 to i32
+  %615 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %609, ptr noundef %610, ptr noundef %611, ptr noundef %612, i8 noundef zeroext 3, i32 noundef %614, ptr noundef %19)
+  %616 = load ptr, ptr %5, align 8
+  %617 = load ptr, ptr %6, align 8
+  %618 = load ptr, ptr %7, align 8
+  %619 = load ptr, ptr %8, align 8
+  %620 = load i16, ptr %10, align 2
+  %621 = zext i16 %620 to i32
+  %622 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %616, ptr noundef %617, ptr noundef %618, ptr noundef %619, i8 noundef zeroext 4, i32 noundef %621, ptr noundef %19)
+  %623 = load ptr, ptr %5, align 8
+  %624 = load ptr, ptr %6, align 8
+  %625 = load ptr, ptr %7, align 8
+  %626 = load ptr, ptr %8, align 8
+  %627 = load i16, ptr %11, align 2
+  %628 = zext i16 %627 to i32
+  %629 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %623, ptr noundef %624, ptr noundef %625, ptr noundef %626, i8 noundef zeroext 15, i32 noundef %628, ptr noundef %19)
+  br label %1335
+
+630:                                              ; preds = %45
+  %631 = load ptr, ptr %6, align 8
+  %632 = getelementptr inbounds %struct._packet_info, ptr %631, i32 0, i32 21
+  %633 = load i8, ptr %632, align 4
+  %634 = and i8 %633, 1
+  %635 = zext i8 %634 to i32
+  store i32 %635, ptr %21, align 4
+  %636 = load ptr, ptr %6, align 8
+  %637 = getelementptr inbounds %struct._packet_info, ptr %636, i32 0, i32 21
+  %638 = load i8, ptr %637, align 4
+  %639 = and i8 %638, -2
+  %640 = or i8 %639, 1
+  store i8 %640, ptr %637, align 4
+  %641 = load ptr, ptr %6, align 8
+  %642 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 0
+  %643 = load i8, ptr %642, align 8
+  %644 = zext i8 %643 to i32
+  %645 = call ptr @new_ud_msg(ptr noundef %641, i32 noundef %644)
+  %646 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 4
+  store ptr %645, ptr %646, align 8
+  %647 = load ptr, ptr %5, align 8
+  %648 = load ptr, ptr %6, align 8
+  %649 = load ptr, ptr %7, align 8
+  %650 = load ptr, ptr %8, align 8
+  %651 = load i32, ptr %14, align 4
+  %652 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %647, ptr noundef %648, ptr noundef %649, ptr noundef %650, i8 noundef zeroext 11, i32 noundef %651, i16 noundef zeroext 1, ptr noundef %19)
+  %653 = zext i16 %652 to i32
+  %654 = load i32, ptr %14, align 4
+  %655 = add i32 %654, %653
+  store i32 %655, ptr %14, align 4
+  br label %656
+
+656:                                              ; preds = %630
+  %657 = load ptr, ptr %5, align 8
+  %658 = load i32, ptr %14, align 4
+  %659 = call zeroext i8 @tvb_get_guint8(ptr noundef %657, i32 noundef %658)
+  %660 = zext i8 %659 to i16
+  store i16 %660, ptr %9, align 2
+  %661 = load ptr, ptr %7, align 8
+  %662 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %663 = load ptr, ptr %5, align 8
+  %664 = load i32, ptr %14, align 4
+  %665 = load i16, ptr %9, align 2
+  %666 = zext i16 %665 to i32
+  %667 = call ptr @proto_tree_add_uint(ptr noundef %661, i32 noundef %662, ptr noundef %663, i32 noundef %664, i32 noundef 1, i32 noundef %666)
+  %668 = load i32, ptr %14, align 4
+  %669 = load i16, ptr %9, align 2
+  %670 = zext i16 %669 to i32
+  %671 = add i32 %670, %668
+  %672 = trunc i32 %671 to i16
+  store i16 %672, ptr %9, align 2
+  %673 = load i32, ptr %14, align 4
+  %674 = add i32 %673, 1
+  store i32 %674, ptr %14, align 4
+  br label %675
+
+675:                                              ; preds = %656
+  br label %676
+
+676:                                              ; preds = %675
+  %677 = load ptr, ptr %5, align 8
+  %678 = load i32, ptr %14, align 4
+  %679 = call zeroext i8 @tvb_get_guint8(ptr noundef %677, i32 noundef %678)
+  %680 = zext i8 %679 to i16
+  store i16 %680, ptr %10, align 2
+  %681 = load ptr, ptr %7, align 8
+  %682 = load i32, ptr @hf_sccp_variable_pointer2, align 4
+  %683 = load ptr, ptr %5, align 8
+  %684 = load i32, ptr %14, align 4
+  %685 = load i16, ptr %10, align 2
+  %686 = zext i16 %685 to i32
+  %687 = call ptr @proto_tree_add_uint(ptr noundef %681, i32 noundef %682, ptr noundef %683, i32 noundef %684, i32 noundef 1, i32 noundef %686)
+  %688 = load i32, ptr %14, align 4
+  %689 = load i16, ptr %10, align 2
+  %690 = zext i16 %689 to i32
+  %691 = add i32 %690, %688
+  %692 = trunc i32 %691 to i16
+  store i16 %692, ptr %10, align 2
+  %693 = load i32, ptr %14, align 4
+  %694 = add i32 %693, 1
+  store i32 %694, ptr %14, align 4
+  br label %695
+
+695:                                              ; preds = %676
+  br label %696
+
+696:                                              ; preds = %695
+  %697 = load ptr, ptr %5, align 8
+  %698 = load i32, ptr %14, align 4
+  %699 = call zeroext i8 @tvb_get_guint8(ptr noundef %697, i32 noundef %698)
+  %700 = zext i8 %699 to i16
+  store i16 %700, ptr %11, align 2
+  %701 = load ptr, ptr %7, align 8
+  %702 = load i32, ptr @hf_sccp_variable_pointer3, align 4
+  %703 = load ptr, ptr %5, align 8
+  %704 = load i32, ptr %14, align 4
+  %705 = load i16, ptr %11, align 2
+  %706 = zext i16 %705 to i32
+  %707 = call ptr @proto_tree_add_uint(ptr noundef %701, i32 noundef %702, ptr noundef %703, i32 noundef %704, i32 noundef 1, i32 noundef %706)
+  %708 = load i32, ptr %14, align 4
+  %709 = load i16, ptr %11, align 2
+  %710 = zext i16 %709 to i32
+  %711 = add i32 %710, %708
+  %712 = trunc i32 %711 to i16
+  store i16 %712, ptr %11, align 2
+  %713 = load i32, ptr %14, align 4
+  %714 = add i32 %713, 1
+  store i32 %714, ptr %14, align 4
+  br label %715
+
+715:                                              ; preds = %696
+  %716 = load ptr, ptr %6, align 8
+  %717 = load i32, ptr %18, align 4
+  %718 = call ptr @get_sccp_assoc(ptr noundef %716, i32 noundef %717, ptr noundef %19)
+  %719 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %718, ptr %719, align 8
+  %720 = load ptr, ptr %5, align 8
+  %721 = load ptr, ptr %6, align 8
+  %722 = load ptr, ptr %7, align 8
+  %723 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %720, ptr noundef %721, ptr noundef %722, ptr noundef %19, i32 noundef %723)
+  %724 = load ptr, ptr %5, align 8
+  %725 = load ptr, ptr %6, align 8
+  %726 = load ptr, ptr %7, align 8
+  %727 = load ptr, ptr %8, align 8
+  %728 = load i16, ptr %9, align 2
+  %729 = zext i16 %728 to i32
+  %730 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %724, ptr noundef %725, ptr noundef %726, ptr noundef %727, i8 noundef zeroext 3, i32 noundef %729, ptr noundef %19)
+  %731 = load ptr, ptr %5, align 8
+  %732 = load ptr, ptr %6, align 8
+  %733 = load ptr, ptr %7, align 8
+  %734 = load ptr, ptr %8, align 8
+  %735 = load i16, ptr %10, align 2
+  %736 = zext i16 %735 to i32
+  %737 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %731, ptr noundef %732, ptr noundef %733, ptr noundef %734, i8 noundef zeroext 4, i32 noundef %736, ptr noundef %19)
+  %738 = load ptr, ptr %5, align 8
+  %739 = load ptr, ptr %6, align 8
+  %740 = load ptr, ptr %7, align 8
+  %741 = load ptr, ptr %8, align 8
+  %742 = load i16, ptr %11, align 2
+  %743 = zext i16 %742 to i32
+  %744 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %738, ptr noundef %739, ptr noundef %740, ptr noundef %741, i8 noundef zeroext 15, i32 noundef %743, ptr noundef %19)
+  %745 = load i32, ptr %21, align 4
+  %746 = load ptr, ptr %6, align 8
+  %747 = getelementptr inbounds %struct._packet_info, ptr %746, i32 0, i32 21
+  %748 = trunc i32 %745 to i8
+  %749 = load i8, ptr %747, align 4
+  %750 = and i8 %748, 1
+  %751 = and i8 %749, -2
+  %752 = or i8 %751, %750
+  store i8 %752, ptr %747, align 4
+  br label %1335
+
+753:                                              ; preds = %45
+  %754 = load ptr, ptr %5, align 8
+  %755 = load ptr, ptr %6, align 8
+  %756 = load ptr, ptr %7, align 8
+  %757 = load ptr, ptr %8, align 8
+  %758 = load i32, ptr %14, align 4
+  %759 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %754, ptr noundef %755, ptr noundef %756, ptr noundef %757, i8 noundef zeroext 1, i32 noundef %758, i16 noundef zeroext 3, ptr noundef %19)
+  %760 = zext i16 %759 to i32
+  %761 = load i32, ptr %14, align 4
+  %762 = add i32 %761, %760
+  store i32 %762, ptr %14, align 4
+  %763 = load ptr, ptr %6, align 8
+  %764 = load i32, ptr %18, align 4
+  %765 = call ptr @get_sccp_assoc(ptr noundef %763, i32 noundef %764, ptr noundef %19)
+  %766 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %765, ptr %766, align 8
+  %767 = load ptr, ptr %5, align 8
+  %768 = load ptr, ptr %6, align 8
+  %769 = load ptr, ptr %7, align 8
+  %770 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %767, ptr noundef %768, ptr noundef %769, ptr noundef %19, i32 noundef %770)
+  br label %771
+
+771:                                              ; preds = %753
+  %772 = load ptr, ptr %5, align 8
+  %773 = load i32, ptr %14, align 4
+  %774 = call zeroext i8 @tvb_get_guint8(ptr noundef %772, i32 noundef %773)
+  %775 = zext i8 %774 to i16
+  store i16 %775, ptr %9, align 2
+  %776 = load ptr, ptr %7, align 8
+  %777 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %778 = load ptr, ptr %5, align 8
+  %779 = load i32, ptr %14, align 4
+  %780 = load i16, ptr %9, align 2
+  %781 = zext i16 %780 to i32
+  %782 = call ptr @proto_tree_add_uint(ptr noundef %776, i32 noundef %777, ptr noundef %778, i32 noundef %779, i32 noundef 1, i32 noundef %781)
+  %783 = load i32, ptr %14, align 4
+  %784 = load i16, ptr %9, align 2
+  %785 = zext i16 %784 to i32
+  %786 = add i32 %785, %783
+  %787 = trunc i32 %786 to i16
+  store i16 %787, ptr %9, align 2
+  %788 = load i32, ptr %14, align 4
+  %789 = add i32 %788, 1
+  store i32 %789, ptr %14, align 4
+  br label %790
+
+790:                                              ; preds = %771
+  %791 = load ptr, ptr %5, align 8
+  %792 = load ptr, ptr %6, align 8
+  %793 = load ptr, ptr %7, align 8
+  %794 = load ptr, ptr %8, align 8
+  %795 = load i16, ptr %9, align 2
+  %796 = zext i16 %795 to i32
+  %797 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %791, ptr noundef %792, ptr noundef %793, ptr noundef %794, i8 noundef zeroext 15, i32 noundef %796, ptr noundef %19)
+  br label %1335
+
+798:                                              ; preds = %45
+  %799 = load ptr, ptr %5, align 8
+  %800 = load ptr, ptr %6, align 8
+  %801 = load ptr, ptr %7, align 8
+  %802 = load ptr, ptr %8, align 8
+  %803 = load i32, ptr %14, align 4
+  %804 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %799, ptr noundef %800, ptr noundef %801, ptr noundef %802, i8 noundef zeroext 1, i32 noundef %803, i16 noundef zeroext 3, ptr noundef %19)
+  %805 = zext i16 %804 to i32
+  %806 = load i32, ptr %14, align 4
+  %807 = add i32 %806, %805
+  store i32 %807, ptr %14, align 4
+  %808 = load ptr, ptr %6, align 8
+  %809 = load i32, ptr %18, align 4
+  %810 = call ptr @get_sccp_assoc(ptr noundef %808, i32 noundef %809, ptr noundef %19)
+  %811 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %810, ptr %811, align 8
+  %812 = load ptr, ptr %5, align 8
+  %813 = load ptr, ptr %6, align 8
+  %814 = load ptr, ptr %7, align 8
+  %815 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %812, ptr noundef %813, ptr noundef %814, ptr noundef %19, i32 noundef %815)
+  br label %1335
+
+816:                                              ; preds = %45
+  %817 = load ptr, ptr %5, align 8
+  %818 = load ptr, ptr %6, align 8
+  %819 = load ptr, ptr %7, align 8
+  %820 = load ptr, ptr %8, align 8
+  %821 = load i32, ptr %14, align 4
+  %822 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %817, ptr noundef %818, ptr noundef %819, ptr noundef %820, i8 noundef zeroext 1, i32 noundef %821, i16 noundef zeroext 3, ptr noundef %19)
+  %823 = zext i16 %822 to i32
+  %824 = load i32, ptr %14, align 4
+  %825 = add i32 %824, %823
+  store i32 %825, ptr %14, align 4
+  %826 = load ptr, ptr %5, align 8
+  %827 = load ptr, ptr %6, align 8
+  %828 = load ptr, ptr %7, align 8
+  %829 = load ptr, ptr %8, align 8
+  %830 = load i32, ptr %14, align 4
+  %831 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %826, ptr noundef %827, ptr noundef %828, ptr noundef %829, i8 noundef zeroext 2, i32 noundef %830, i16 noundef zeroext 3, ptr noundef %19)
+  %832 = zext i16 %831 to i32
+  %833 = load i32, ptr %14, align 4
+  %834 = add i32 %833, %832
+  store i32 %834, ptr %14, align 4
+  %835 = load ptr, ptr %5, align 8
+  %836 = load ptr, ptr %6, align 8
+  %837 = load ptr, ptr %7, align 8
+  %838 = load ptr, ptr %8, align 8
+  %839 = load i32, ptr %14, align 4
+  %840 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %835, ptr noundef %836, ptr noundef %837, ptr noundef %838, i8 noundef zeroext 12, i32 noundef %839, i16 noundef zeroext 1, ptr noundef %19)
+  %841 = zext i16 %840 to i32
+  %842 = load i32, ptr %14, align 4
+  %843 = add i32 %842, %841
+  store i32 %843, ptr %14, align 4
+  %844 = load ptr, ptr %6, align 8
+  %845 = load i32, ptr %18, align 4
+  %846 = call ptr @get_sccp_assoc(ptr noundef %844, i32 noundef %845, ptr noundef %19)
+  %847 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %846, ptr %847, align 8
+  %848 = load ptr, ptr %5, align 8
+  %849 = load ptr, ptr %6, align 8
+  %850 = load ptr, ptr %7, align 8
+  %851 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %848, ptr noundef %849, ptr noundef %850, ptr noundef %19, i32 noundef %851)
+  br label %1335
+
+852:                                              ; preds = %45
+  %853 = load ptr, ptr %5, align 8
+  %854 = load ptr, ptr %6, align 8
+  %855 = load ptr, ptr %7, align 8
+  %856 = load ptr, ptr %8, align 8
+  %857 = load i32, ptr %14, align 4
+  %858 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %853, ptr noundef %854, ptr noundef %855, ptr noundef %856, i8 noundef zeroext 1, i32 noundef %857, i16 noundef zeroext 3, ptr noundef %19)
+  %859 = zext i16 %858 to i32
+  %860 = load i32, ptr %14, align 4
+  %861 = add i32 %860, %859
+  store i32 %861, ptr %14, align 4
+  %862 = load ptr, ptr %5, align 8
+  %863 = load ptr, ptr %6, align 8
+  %864 = load ptr, ptr %7, align 8
+  %865 = load ptr, ptr %8, align 8
+  %866 = load i32, ptr %14, align 4
+  %867 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %862, ptr noundef %863, ptr noundef %864, ptr noundef %865, i8 noundef zeroext 2, i32 noundef %866, i16 noundef zeroext 3, ptr noundef %19)
+  %868 = zext i16 %867 to i32
+  %869 = load i32, ptr %14, align 4
+  %870 = add i32 %869, %868
+  store i32 %870, ptr %14, align 4
+  %871 = load ptr, ptr %6, align 8
+  %872 = load i32, ptr %18, align 4
+  %873 = call ptr @get_sccp_assoc(ptr noundef %871, i32 noundef %872, ptr noundef %19)
+  %874 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %873, ptr %874, align 8
+  %875 = load ptr, ptr %5, align 8
+  %876 = load ptr, ptr %6, align 8
+  %877 = load ptr, ptr %7, align 8
+  %878 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %875, ptr noundef %876, ptr noundef %877, ptr noundef %19, i32 noundef %878)
+  br label %1335
+
+879:                                              ; preds = %45
+  %880 = load ptr, ptr %5, align 8
+  %881 = load ptr, ptr %6, align 8
+  %882 = load ptr, ptr %7, align 8
+  %883 = load ptr, ptr %8, align 8
+  %884 = load i32, ptr %14, align 4
+  %885 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %880, ptr noundef %881, ptr noundef %882, ptr noundef %883, i8 noundef zeroext 1, i32 noundef %884, i16 noundef zeroext 3, ptr noundef %19)
+  %886 = zext i16 %885 to i32
+  %887 = load i32, ptr %14, align 4
+  %888 = add i32 %887, %886
+  store i32 %888, ptr %14, align 4
+  %889 = load ptr, ptr %5, align 8
+  %890 = load ptr, ptr %6, align 8
+  %891 = load ptr, ptr %7, align 8
+  %892 = load ptr, ptr %8, align 8
+  %893 = load i32, ptr %14, align 4
+  %894 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %889, ptr noundef %890, ptr noundef %891, ptr noundef %892, i8 noundef zeroext 13, i32 noundef %893, i16 noundef zeroext 1, ptr noundef %19)
+  %895 = zext i16 %894 to i32
+  %896 = load i32, ptr %14, align 4
+  %897 = add i32 %896, %895
+  store i32 %897, ptr %14, align 4
+  %898 = load ptr, ptr %6, align 8
+  %899 = load i32, ptr %18, align 4
+  %900 = call ptr @get_sccp_assoc(ptr noundef %898, i32 noundef %899, ptr noundef %19)
+  %901 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %900, ptr %901, align 8
+  %902 = load ptr, ptr %5, align 8
+  %903 = load ptr, ptr %6, align 8
+  %904 = load ptr, ptr %7, align 8
+  %905 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %902, ptr noundef %903, ptr noundef %904, ptr noundef %19, i32 noundef %905)
+  br label %1335
+
+906:                                              ; preds = %45
+  %907 = load ptr, ptr %5, align 8
+  %908 = load ptr, ptr %6, align 8
+  %909 = load ptr, ptr %7, align 8
+  %910 = load ptr, ptr %8, align 8
+  %911 = load i32, ptr %14, align 4
+  %912 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %907, ptr noundef %908, ptr noundef %909, ptr noundef %910, i8 noundef zeroext 1, i32 noundef %911, i16 noundef zeroext 3, ptr noundef %19)
+  %913 = zext i16 %912 to i32
+  %914 = load i32, ptr %14, align 4
+  %915 = add i32 %914, %913
+  store i32 %915, ptr %14, align 4
+  %916 = load ptr, ptr %5, align 8
+  %917 = load ptr, ptr %6, align 8
+  %918 = load ptr, ptr %7, align 8
+  %919 = load ptr, ptr %8, align 8
+  %920 = load i32, ptr %14, align 4
+  %921 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %916, ptr noundef %917, ptr noundef %918, ptr noundef %919, i8 noundef zeroext 2, i32 noundef %920, i16 noundef zeroext 3, ptr noundef %19)
+  %922 = zext i16 %921 to i32
+  %923 = load i32, ptr %14, align 4
+  %924 = add i32 %923, %922
+  store i32 %924, ptr %14, align 4
+  %925 = load ptr, ptr %6, align 8
+  %926 = load i32, ptr %18, align 4
+  %927 = call ptr @get_sccp_assoc(ptr noundef %925, i32 noundef %926, ptr noundef %19)
+  %928 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %927, ptr %928, align 8
+  %929 = load ptr, ptr %5, align 8
+  %930 = load ptr, ptr %6, align 8
+  %931 = load ptr, ptr %7, align 8
+  %932 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %929, ptr noundef %930, ptr noundef %931, ptr noundef %19, i32 noundef %932)
+  %933 = load ptr, ptr %5, align 8
+  %934 = load ptr, ptr %6, align 8
+  %935 = load ptr, ptr %7, align 8
+  %936 = load ptr, ptr %8, align 8
+  %937 = load i32, ptr %14, align 4
+  %938 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %933, ptr noundef %934, ptr noundef %935, ptr noundef %936, i8 noundef zeroext 5, i32 noundef %937, i16 noundef zeroext 1, ptr noundef %19)
+  %939 = zext i16 %938 to i32
+  %940 = load i32, ptr %14, align 4
+  %941 = add i32 %940, %939
+  store i32 %941, ptr %14, align 4
+  %942 = load ptr, ptr %5, align 8
+  %943 = load ptr, ptr %6, align 8
+  %944 = load ptr, ptr %7, align 8
+  %945 = load ptr, ptr %8, align 8
+  %946 = load i32, ptr %14, align 4
+  %947 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %942, ptr noundef %943, ptr noundef %944, ptr noundef %945, i8 noundef zeroext 8, i32 noundef %946, i16 noundef zeroext 2, ptr noundef %19)
+  %948 = zext i16 %947 to i32
+  %949 = load i32, ptr %14, align 4
+  %950 = add i32 %949, %948
+  store i32 %950, ptr %14, align 4
+  %951 = load ptr, ptr %5, align 8
+  %952 = load ptr, ptr %6, align 8
+  %953 = load ptr, ptr %7, align 8
+  %954 = load ptr, ptr %8, align 8
+  %955 = load i32, ptr %14, align 4
+  %956 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %951, ptr noundef %952, ptr noundef %953, ptr noundef %954, i8 noundef zeroext 9, i32 noundef %955, i16 noundef zeroext 1, ptr noundef %19)
+  %957 = zext i16 %956 to i32
+  %958 = load i32, ptr %14, align 4
+  %959 = add i32 %958, %957
+  store i32 %959, ptr %14, align 4
+  br label %1335
+
+960:                                              ; preds = %45
+  %961 = load ptr, ptr %6, align 8
+  %962 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 0
+  %963 = load i8, ptr %962, align 8
+  %964 = zext i8 %963 to i32
+  %965 = call ptr @new_ud_msg(ptr noundef %961, i32 noundef %964)
+  %966 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 4
+  store ptr %965, ptr %966, align 8
+  %967 = load ptr, ptr %5, align 8
+  %968 = load ptr, ptr %6, align 8
+  %969 = load ptr, ptr %7, align 8
+  %970 = load ptr, ptr %8, align 8
+  %971 = load i32, ptr %14, align 4
+  %972 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %967, ptr noundef %968, ptr noundef %969, ptr noundef %970, i8 noundef zeroext 5, i32 noundef %971, i16 noundef zeroext 1, ptr noundef %19)
+  %973 = zext i16 %972 to i32
+  %974 = load i32, ptr %14, align 4
+  %975 = add i32 %974, %973
+  store i32 %975, ptr %14, align 4
+  %976 = load ptr, ptr %5, align 8
+  %977 = load ptr, ptr %6, align 8
+  %978 = load ptr, ptr %7, align 8
+  %979 = load ptr, ptr %8, align 8
+  %980 = load i32, ptr %14, align 4
+  %981 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %976, ptr noundef %977, ptr noundef %978, ptr noundef %979, i8 noundef zeroext 17, i32 noundef %980, i16 noundef zeroext 1, ptr noundef %19)
+  %982 = zext i16 %981 to i32
+  %983 = load i32, ptr %14, align 4
+  %984 = add i32 %983, %982
+  store i32 %984, ptr %14, align 4
+  %985 = load ptr, ptr %5, align 8
+  %986 = load ptr, ptr %6, align 8
+  %987 = load ptr, ptr %7, align 8
+  %988 = load ptr, ptr %8, align 8
+  %989 = load i32, ptr %14, align 4
+  %990 = call i32 @dissect_xudt_common(ptr noundef %985, ptr noundef %986, ptr noundef %987, ptr noundef %988, i32 noundef %989, ptr noundef %19, ptr noundef %12, ptr noundef %13)
+  store i32 %990, ptr %14, align 4
+  br label %1335
+
+991:                                              ; preds = %45
+  %992 = load ptr, ptr %6, align 8
+  %993 = getelementptr inbounds %struct._packet_info, ptr %992, i32 0, i32 21
+  %994 = load i8, ptr %993, align 4
+  %995 = and i8 %994, 1
+  %996 = zext i8 %995 to i32
+  store i32 %996, ptr %22, align 4
+  %997 = load ptr, ptr %6, align 8
+  %998 = getelementptr inbounds %struct._packet_info, ptr %997, i32 0, i32 21
+  %999 = load i8, ptr %998, align 4
+  %1000 = and i8 %999, -2
+  %1001 = or i8 %1000, 1
+  store i8 %1001, ptr %998, align 4
+  %1002 = load ptr, ptr %6, align 8
+  %1003 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 0
+  %1004 = load i8, ptr %1003, align 8
+  %1005 = zext i8 %1004 to i32
+  %1006 = call ptr @new_ud_msg(ptr noundef %1002, i32 noundef %1005)
+  %1007 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 4
+  store ptr %1006, ptr %1007, align 8
+  %1008 = load ptr, ptr %5, align 8
+  %1009 = load ptr, ptr %6, align 8
+  %1010 = load ptr, ptr %7, align 8
+  %1011 = load ptr, ptr %8, align 8
+  %1012 = load i32, ptr %14, align 4
+  %1013 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %1008, ptr noundef %1009, ptr noundef %1010, ptr noundef %1011, i8 noundef zeroext 11, i32 noundef %1012, i16 noundef zeroext 1, ptr noundef %19)
+  %1014 = zext i16 %1013 to i32
+  %1015 = load i32, ptr %14, align 4
+  %1016 = add i32 %1015, %1014
+  store i32 %1016, ptr %14, align 4
+  %1017 = load ptr, ptr %5, align 8
+  %1018 = load ptr, ptr %6, align 8
+  %1019 = load ptr, ptr %7, align 8
+  %1020 = load ptr, ptr %8, align 8
+  %1021 = load i32, ptr %14, align 4
+  %1022 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %1017, ptr noundef %1018, ptr noundef %1019, ptr noundef %1020, i8 noundef zeroext 17, i32 noundef %1021, i16 noundef zeroext 1, ptr noundef %19)
+  %1023 = zext i16 %1022 to i32
+  %1024 = load i32, ptr %14, align 4
+  %1025 = add i32 %1024, %1023
+  store i32 %1025, ptr %14, align 4
+  %1026 = load ptr, ptr %5, align 8
+  %1027 = load ptr, ptr %6, align 8
+  %1028 = load ptr, ptr %7, align 8
+  %1029 = load ptr, ptr %8, align 8
+  %1030 = load i32, ptr %14, align 4
+  %1031 = call i32 @dissect_xudt_common(ptr noundef %1026, ptr noundef %1027, ptr noundef %1028, ptr noundef %1029, i32 noundef %1030, ptr noundef %19, ptr noundef %12, ptr noundef %13)
+  store i32 %1031, ptr %14, align 4
+  %1032 = load i32, ptr %22, align 4
+  %1033 = load ptr, ptr %6, align 8
+  %1034 = getelementptr inbounds %struct._packet_info, ptr %1033, i32 0, i32 21
+  %1035 = trunc i32 %1032 to i8
+  %1036 = load i8, ptr %1034, align 4
+  %1037 = and i8 %1035, 1
+  %1038 = and i8 %1036, -2
+  %1039 = or i8 %1038, %1037
+  store i8 %1039, ptr %1034, align 4
+  br label %1335
+
+1040:                                             ; preds = %45
+  %1041 = load ptr, ptr %6, align 8
+  %1042 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 0
+  %1043 = load i8, ptr %1042, align 8
+  %1044 = zext i8 %1043 to i32
+  %1045 = call ptr @new_ud_msg(ptr noundef %1041, i32 noundef %1044)
+  %1046 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 4
+  store ptr %1045, ptr %1046, align 8
+  %1047 = load ptr, ptr %5, align 8
+  %1048 = load ptr, ptr %6, align 8
+  %1049 = load ptr, ptr %7, align 8
+  %1050 = load ptr, ptr %8, align 8
+  %1051 = load i32, ptr %14, align 4
+  %1052 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %1047, ptr noundef %1048, ptr noundef %1049, ptr noundef %1050, i8 noundef zeroext 5, i32 noundef %1051, i16 noundef zeroext 1, ptr noundef %19)
+  %1053 = zext i16 %1052 to i32
+  %1054 = load i32, ptr %14, align 4
+  %1055 = add i32 %1054, %1053
+  store i32 %1055, ptr %14, align 4
+  %1056 = load ptr, ptr %5, align 8
+  %1057 = load ptr, ptr %6, align 8
+  %1058 = load ptr, ptr %7, align 8
+  %1059 = load ptr, ptr %8, align 8
+  %1060 = load i32, ptr %14, align 4
+  %1061 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %1056, ptr noundef %1057, ptr noundef %1058, ptr noundef %1059, i8 noundef zeroext 17, i32 noundef %1060, i16 noundef zeroext 1, ptr noundef %19)
+  %1062 = zext i16 %1061 to i32
+  %1063 = load i32, ptr %14, align 4
+  %1064 = add i32 %1063, %1062
+  store i32 %1064, ptr %14, align 4
+  br label %1065
+
+1065:                                             ; preds = %1040
+  %1066 = load ptr, ptr %5, align 8
+  %1067 = load i32, ptr %14, align 4
+  %1068 = call zeroext i16 @tvb_get_letohs(ptr noundef %1066, i32 noundef %1067)
+  store i16 %1068, ptr %9, align 2
+  %1069 = load ptr, ptr %7, align 8
+  %1070 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %1071 = load ptr, ptr %5, align 8
+  %1072 = load i32, ptr %14, align 4
+  %1073 = load i16, ptr %9, align 2
+  %1074 = zext i16 %1073 to i32
+  %1075 = call ptr @proto_tree_add_uint(ptr noundef %1069, i32 noundef %1070, ptr noundef %1071, i32 noundef %1072, i32 noundef 2, i32 noundef %1074)
+  %1076 = load i32, ptr %14, align 4
+  %1077 = load i16, ptr %9, align 2
+  %1078 = zext i16 %1077 to i32
+  %1079 = add i32 %1078, %1076
+  %1080 = trunc i32 %1079 to i16
+  store i16 %1080, ptr %9, align 2
+  %1081 = load i16, ptr %9, align 2
+  %1082 = zext i16 %1081 to i32
+  %1083 = add i32 %1082, 1
+  %1084 = trunc i32 %1083 to i16
+  store i16 %1084, ptr %9, align 2
+  %1085 = load i32, ptr %14, align 4
+  %1086 = add i32 %1085, 2
+  store i32 %1086, ptr %14, align 4
+  br label %1087
+
+1087:                                             ; preds = %1065
+  br label %1088
+
+1088:                                             ; preds = %1087
+  %1089 = load ptr, ptr %5, align 8
+  %1090 = load i32, ptr %14, align 4
+  %1091 = call zeroext i16 @tvb_get_letohs(ptr noundef %1089, i32 noundef %1090)
+  store i16 %1091, ptr %10, align 2
+  %1092 = load ptr, ptr %7, align 8
+  %1093 = load i32, ptr @hf_sccp_variable_pointer2, align 4
+  %1094 = load ptr, ptr %5, align 8
+  %1095 = load i32, ptr %14, align 4
+  %1096 = load i16, ptr %10, align 2
+  %1097 = zext i16 %1096 to i32
+  %1098 = call ptr @proto_tree_add_uint(ptr noundef %1092, i32 noundef %1093, ptr noundef %1094, i32 noundef %1095, i32 noundef 2, i32 noundef %1097)
+  %1099 = load i32, ptr %14, align 4
+  %1100 = load i16, ptr %10, align 2
+  %1101 = zext i16 %1100 to i32
+  %1102 = add i32 %1101, %1099
+  %1103 = trunc i32 %1102 to i16
+  store i16 %1103, ptr %10, align 2
+  %1104 = load i16, ptr %10, align 2
+  %1105 = zext i16 %1104 to i32
+  %1106 = add i32 %1105, 1
+  %1107 = trunc i32 %1106 to i16
+  store i16 %1107, ptr %10, align 2
+  %1108 = load i32, ptr %14, align 4
+  %1109 = add i32 %1108, 2
+  store i32 %1109, ptr %14, align 4
+  br label %1110
+
+1110:                                             ; preds = %1088
+  br label %1111
+
+1111:                                             ; preds = %1110
+  %1112 = load ptr, ptr %5, align 8
+  %1113 = load i32, ptr %14, align 4
+  %1114 = call zeroext i16 @tvb_get_letohs(ptr noundef %1112, i32 noundef %1113)
+  store i16 %1114, ptr %11, align 2
+  %1115 = load ptr, ptr %7, align 8
+  %1116 = load i32, ptr @hf_sccp_variable_pointer3, align 4
+  %1117 = load ptr, ptr %5, align 8
+  %1118 = load i32, ptr %14, align 4
+  %1119 = load i16, ptr %11, align 2
+  %1120 = zext i16 %1119 to i32
+  %1121 = call ptr @proto_tree_add_uint(ptr noundef %1115, i32 noundef %1116, ptr noundef %1117, i32 noundef %1118, i32 noundef 2, i32 noundef %1120)
+  %1122 = load i32, ptr %14, align 4
+  %1123 = load i16, ptr %11, align 2
+  %1124 = zext i16 %1123 to i32
+  %1125 = add i32 %1124, %1122
+  %1126 = trunc i32 %1125 to i16
+  store i16 %1126, ptr %11, align 2
+  %1127 = load i16, ptr %11, align 2
+  %1128 = zext i16 %1127 to i32
+  %1129 = add i32 %1128, 1
+  %1130 = trunc i32 %1129 to i16
+  store i16 %1130, ptr %11, align 2
+  %1131 = load i32, ptr %14, align 4
+  %1132 = add i32 %1131, 2
+  store i32 %1132, ptr %14, align 4
+  br label %1133
+
+1133:                                             ; preds = %1111
+  br label %1134
+
+1134:                                             ; preds = %1133
+  %1135 = load ptr, ptr %5, align 8
+  %1136 = load i32, ptr %14, align 4
+  %1137 = call zeroext i16 @tvb_get_letohs(ptr noundef %1135, i32 noundef %1136)
+  store i16 %1137, ptr %12, align 2
+  store i16 %1137, ptr %13, align 2
+  %1138 = load ptr, ptr %7, align 8
+  %1139 = load i32, ptr @hf_sccp_optional_pointer, align 4
+  %1140 = load ptr, ptr %5, align 8
+  %1141 = load i32, ptr %14, align 4
+  %1142 = load i16, ptr %12, align 2
+  %1143 = zext i16 %1142 to i32
+  %1144 = call ptr @proto_tree_add_uint(ptr noundef %1138, i32 noundef %1139, ptr noundef %1140, i32 noundef %1141, i32 noundef 2, i32 noundef %1143)
+  %1145 = load i32, ptr %14, align 4
+  %1146 = load i16, ptr %12, align 2
+  %1147 = zext i16 %1146 to i32
+  %1148 = add i32 %1147, %1145
+  %1149 = trunc i32 %1148 to i16
+  store i16 %1149, ptr %12, align 2
+  %1150 = load i16, ptr %12, align 2
+  %1151 = zext i16 %1150 to i32
+  %1152 = add i32 %1151, 1
+  %1153 = trunc i32 %1152 to i16
+  store i16 %1153, ptr %12, align 2
+  %1154 = load i32, ptr %14, align 4
+  %1155 = add i32 %1154, 2
+  store i32 %1155, ptr %14, align 4
+  br label %1156
+
+1156:                                             ; preds = %1134
+  %1157 = load ptr, ptr %6, align 8
+  %1158 = load i32, ptr %18, align 4
+  %1159 = call ptr @get_sccp_assoc(ptr noundef %1157, i32 noundef %1158, ptr noundef %19)
+  %1160 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %1159, ptr %1160, align 8
+  %1161 = load ptr, ptr %5, align 8
+  %1162 = load ptr, ptr %6, align 8
+  %1163 = load ptr, ptr %7, align 8
+  %1164 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %1161, ptr noundef %1162, ptr noundef %1163, ptr noundef %19, i32 noundef %1164)
+  %1165 = load ptr, ptr %5, align 8
+  %1166 = load ptr, ptr %6, align 8
+  %1167 = load ptr, ptr %7, align 8
+  %1168 = load ptr, ptr %8, align 8
+  %1169 = load i16, ptr %9, align 2
+  %1170 = zext i16 %1169 to i32
+  %1171 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %1165, ptr noundef %1166, ptr noundef %1167, ptr noundef %1168, i8 noundef zeroext 3, i32 noundef %1170, ptr noundef %19)
+  %1172 = load ptr, ptr %5, align 8
+  %1173 = load ptr, ptr %6, align 8
+  %1174 = load ptr, ptr %7, align 8
+  %1175 = load ptr, ptr %8, align 8
+  %1176 = load i16, ptr %10, align 2
+  %1177 = zext i16 %1176 to i32
+  %1178 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %1172, ptr noundef %1173, ptr noundef %1174, ptr noundef %1175, i8 noundef zeroext 4, i32 noundef %1177, ptr noundef %19)
+  %1179 = load ptr, ptr %5, align 8
+  %1180 = load ptr, ptr %6, align 8
+  %1181 = load ptr, ptr %7, align 8
+  %1182 = load ptr, ptr %8, align 8
+  %1183 = load i16, ptr %11, align 2
+  %1184 = zext i16 %1183 to i32
+  %1185 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %1179, ptr noundef %1180, ptr noundef %1181, ptr noundef %1182, i8 noundef zeroext 19, i32 noundef %1184, ptr noundef %19)
+  br label %1335
+
+1186:                                             ; preds = %45
+  %1187 = load ptr, ptr %6, align 8
+  %1188 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 0
+  %1189 = load i8, ptr %1188, align 8
+  %1190 = zext i8 %1189 to i32
+  %1191 = call ptr @new_ud_msg(ptr noundef %1187, i32 noundef %1190)
+  %1192 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 4
+  store ptr %1191, ptr %1192, align 8
+  %1193 = load ptr, ptr %5, align 8
+  %1194 = load ptr, ptr %6, align 8
+  %1195 = load ptr, ptr %7, align 8
+  %1196 = load ptr, ptr %8, align 8
+  %1197 = load i32, ptr %14, align 4
+  %1198 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %1193, ptr noundef %1194, ptr noundef %1195, ptr noundef %1196, i8 noundef zeroext 11, i32 noundef %1197, i16 noundef zeroext 1, ptr noundef %19)
+  %1199 = zext i16 %1198 to i32
+  %1200 = load i32, ptr %14, align 4
+  %1201 = add i32 %1200, %1199
+  store i32 %1201, ptr %14, align 4
+  %1202 = load ptr, ptr %5, align 8
+  %1203 = load ptr, ptr %6, align 8
+  %1204 = load ptr, ptr %7, align 8
+  %1205 = load ptr, ptr %8, align 8
+  %1206 = load i32, ptr %14, align 4
+  %1207 = call zeroext i16 @dissect_sccp_parameter(ptr noundef %1202, ptr noundef %1203, ptr noundef %1204, ptr noundef %1205, i8 noundef zeroext 17, i32 noundef %1206, i16 noundef zeroext 1, ptr noundef %19)
+  %1208 = zext i16 %1207 to i32
+  %1209 = load i32, ptr %14, align 4
+  %1210 = add i32 %1209, %1208
+  store i32 %1210, ptr %14, align 4
+  br label %1211
+
+1211:                                             ; preds = %1186
+  %1212 = load ptr, ptr %5, align 8
+  %1213 = load i32, ptr %14, align 4
+  %1214 = call zeroext i16 @tvb_get_letohs(ptr noundef %1212, i32 noundef %1213)
+  store i16 %1214, ptr %9, align 2
+  %1215 = load ptr, ptr %7, align 8
+  %1216 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %1217 = load ptr, ptr %5, align 8
+  %1218 = load i32, ptr %14, align 4
+  %1219 = load i16, ptr %9, align 2
+  %1220 = zext i16 %1219 to i32
+  %1221 = call ptr @proto_tree_add_uint(ptr noundef %1215, i32 noundef %1216, ptr noundef %1217, i32 noundef %1218, i32 noundef 2, i32 noundef %1220)
+  %1222 = load i32, ptr %14, align 4
+  %1223 = load i16, ptr %9, align 2
+  %1224 = zext i16 %1223 to i32
+  %1225 = add i32 %1224, %1222
+  %1226 = trunc i32 %1225 to i16
+  store i16 %1226, ptr %9, align 2
+  %1227 = load i16, ptr %9, align 2
+  %1228 = zext i16 %1227 to i32
+  %1229 = add i32 %1228, 1
+  %1230 = trunc i32 %1229 to i16
+  store i16 %1230, ptr %9, align 2
+  %1231 = load i32, ptr %14, align 4
+  %1232 = add i32 %1231, 2
+  store i32 %1232, ptr %14, align 4
+  br label %1233
+
+1233:                                             ; preds = %1211
+  br label %1234
+
+1234:                                             ; preds = %1233
+  %1235 = load ptr, ptr %5, align 8
+  %1236 = load i32, ptr %14, align 4
+  %1237 = call zeroext i16 @tvb_get_letohs(ptr noundef %1235, i32 noundef %1236)
+  store i16 %1237, ptr %10, align 2
+  %1238 = load ptr, ptr %7, align 8
+  %1239 = load i32, ptr @hf_sccp_variable_pointer2, align 4
+  %1240 = load ptr, ptr %5, align 8
+  %1241 = load i32, ptr %14, align 4
+  %1242 = load i16, ptr %10, align 2
+  %1243 = zext i16 %1242 to i32
+  %1244 = call ptr @proto_tree_add_uint(ptr noundef %1238, i32 noundef %1239, ptr noundef %1240, i32 noundef %1241, i32 noundef 2, i32 noundef %1243)
+  %1245 = load i32, ptr %14, align 4
+  %1246 = load i16, ptr %10, align 2
+  %1247 = zext i16 %1246 to i32
+  %1248 = add i32 %1247, %1245
+  %1249 = trunc i32 %1248 to i16
+  store i16 %1249, ptr %10, align 2
+  %1250 = load i16, ptr %10, align 2
+  %1251 = zext i16 %1250 to i32
+  %1252 = add i32 %1251, 1
+  %1253 = trunc i32 %1252 to i16
+  store i16 %1253, ptr %10, align 2
+  %1254 = load i32, ptr %14, align 4
+  %1255 = add i32 %1254, 2
+  store i32 %1255, ptr %14, align 4
+  br label %1256
+
+1256:                                             ; preds = %1234
+  br label %1257
+
+1257:                                             ; preds = %1256
+  %1258 = load ptr, ptr %5, align 8
+  %1259 = load i32, ptr %14, align 4
+  %1260 = call zeroext i16 @tvb_get_letohs(ptr noundef %1258, i32 noundef %1259)
+  store i16 %1260, ptr %11, align 2
+  %1261 = load ptr, ptr %7, align 8
+  %1262 = load i32, ptr @hf_sccp_variable_pointer3, align 4
+  %1263 = load ptr, ptr %5, align 8
+  %1264 = load i32, ptr %14, align 4
+  %1265 = load i16, ptr %11, align 2
+  %1266 = zext i16 %1265 to i32
+  %1267 = call ptr @proto_tree_add_uint(ptr noundef %1261, i32 noundef %1262, ptr noundef %1263, i32 noundef %1264, i32 noundef 2, i32 noundef %1266)
+  %1268 = load i32, ptr %14, align 4
+  %1269 = load i16, ptr %11, align 2
+  %1270 = zext i16 %1269 to i32
+  %1271 = add i32 %1270, %1268
+  %1272 = trunc i32 %1271 to i16
+  store i16 %1272, ptr %11, align 2
+  %1273 = load i16, ptr %11, align 2
+  %1274 = zext i16 %1273 to i32
+  %1275 = add i32 %1274, 1
+  %1276 = trunc i32 %1275 to i16
+  store i16 %1276, ptr %11, align 2
+  %1277 = load i32, ptr %14, align 4
+  %1278 = add i32 %1277, 2
+  store i32 %1278, ptr %14, align 4
+  br label %1279
+
+1279:                                             ; preds = %1257
+  br label %1280
+
+1280:                                             ; preds = %1279
+  %1281 = load ptr, ptr %5, align 8
+  %1282 = load i32, ptr %14, align 4
+  %1283 = call zeroext i16 @tvb_get_letohs(ptr noundef %1281, i32 noundef %1282)
+  store i16 %1283, ptr %12, align 2
+  store i16 %1283, ptr %13, align 2
+  %1284 = load ptr, ptr %7, align 8
+  %1285 = load i32, ptr @hf_sccp_optional_pointer, align 4
+  %1286 = load ptr, ptr %5, align 8
+  %1287 = load i32, ptr %14, align 4
+  %1288 = load i16, ptr %12, align 2
+  %1289 = zext i16 %1288 to i32
+  %1290 = call ptr @proto_tree_add_uint(ptr noundef %1284, i32 noundef %1285, ptr noundef %1286, i32 noundef %1287, i32 noundef 2, i32 noundef %1289)
+  %1291 = load i32, ptr %14, align 4
+  %1292 = load i16, ptr %12, align 2
+  %1293 = zext i16 %1292 to i32
+  %1294 = add i32 %1293, %1291
+  %1295 = trunc i32 %1294 to i16
+  store i16 %1295, ptr %12, align 2
+  %1296 = load i16, ptr %12, align 2
+  %1297 = zext i16 %1296 to i32
+  %1298 = add i32 %1297, 1
+  %1299 = trunc i32 %1298 to i16
+  store i16 %1299, ptr %12, align 2
+  %1300 = load i32, ptr %14, align 4
+  %1301 = add i32 %1300, 2
+  store i32 %1301, ptr %14, align 4
+  br label %1302
+
+1302:                                             ; preds = %1280
+  %1303 = load ptr, ptr %6, align 8
+  %1304 = load i32, ptr %18, align 4
+  %1305 = call ptr @get_sccp_assoc(ptr noundef %1303, i32 noundef %1304, ptr noundef %19)
+  %1306 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %19, i32 0, i32 3
+  store ptr %1305, ptr %1306, align 8
+  %1307 = load ptr, ptr %5, align 8
+  %1308 = load ptr, ptr %6, align 8
+  %1309 = load ptr, ptr %7, align 8
+  %1310 = load i32, ptr %18, align 4
+  call void @build_assoc_tree(ptr noundef %1307, ptr noundef %1308, ptr noundef %1309, ptr noundef %19, i32 noundef %1310)
+  %1311 = load ptr, ptr %5, align 8
+  %1312 = load ptr, ptr %6, align 8
+  %1313 = load ptr, ptr %7, align 8
+  %1314 = load ptr, ptr %8, align 8
+  %1315 = load i16, ptr %9, align 2
+  %1316 = zext i16 %1315 to i32
+  %1317 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %1311, ptr noundef %1312, ptr noundef %1313, ptr noundef %1314, i8 noundef zeroext 3, i32 noundef %1316, ptr noundef %19)
+  %1318 = load ptr, ptr %5, align 8
+  %1319 = load ptr, ptr %6, align 8
+  %1320 = load ptr, ptr %7, align 8
+  %1321 = load ptr, ptr %8, align 8
+  %1322 = load i16, ptr %10, align 2
+  %1323 = zext i16 %1322 to i32
+  %1324 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %1318, ptr noundef %1319, ptr noundef %1320, ptr noundef %1321, i8 noundef zeroext 4, i32 noundef %1323, ptr noundef %19)
+  %1325 = load ptr, ptr %5, align 8
+  %1326 = load ptr, ptr %6, align 8
+  %1327 = load ptr, ptr %7, align 8
+  %1328 = load ptr, ptr %8, align 8
+  %1329 = load i16, ptr %11, align 2
+  %1330 = zext i16 %1329 to i32
+  %1331 = call zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %1325, ptr noundef %1326, ptr noundef %1327, ptr noundef %1328, i8 noundef zeroext 19, i32 noundef %1330, ptr noundef %19)
+  br label %1335
+
+1332:                                             ; preds = %45
+  %1333 = load ptr, ptr %5, align 8
+  %1334 = load ptr, ptr %7, align 8
+  call void @dissect_sccp_unknown_message(ptr noundef %1333, ptr noundef %1334)
+  br label %1335
+
+1335:                                             ; preds = %1332, %1302, %1156, %991, %960, %906, %879, %852, %816, %798, %790, %715, %600, %489, %481, %434, %292, %291, %235, %188, %125
+  %1336 = load i16, ptr %13, align 2
+  %1337 = icmp ne i16 %1336, 0
+  br i1 %1337, label %1338, label %1345
+
+1338:                                             ; preds = %1335
+  %1339 = load ptr, ptr %5, align 8
+  %1340 = load ptr, ptr %6, align 8
+  %1341 = load ptr, ptr %7, align 8
+  %1342 = load ptr, ptr %8, align 8
+  %1343 = load i16, ptr %12, align 2
+  %1344 = zext i16 %1343 to i32
+  call void @dissect_sccp_optional_parameters(ptr noundef %1339, ptr noundef %1340, ptr noundef %1341, ptr noundef %1342, i32 noundef %1344, ptr noundef %19)
+  br label %1345
+
+1345:                                             ; preds = %1338, %1335
+  %1346 = load i32, ptr %14, align 4
+  ret i32 %1346
 }
 
 declare i32 @tvb_offset_from_real_beginning(ptr noundef) #1

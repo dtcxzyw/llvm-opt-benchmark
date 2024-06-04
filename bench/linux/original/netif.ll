@@ -84,7 +84,7 @@ define dso_local i32 @sel_netif_sid(ptr noundef %0, i32 noundef %1, ptr noundef 
 define internal fastcc i32 @sel_netif_sid_slow(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = tail call ptr @dev_get_by_index(ptr noundef %0, i32 noundef %1) #5
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %60, label %6, !prof !8
+  br i1 %5, label %61, label %6, !prof !8
 
 6:                                                ; preds = %3
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @sel_netif_lock) #5
@@ -125,68 +125,69 @@ define internal fastcc i32 @sel_netif_sid_slow(ptr noundef %0, i32 noundef %1, p
   %31 = getelementptr inbounds i8, ptr %28, i64 28
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %2, align 4
-  br label %55
+  br label %56
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds i8, ptr %4, i64 296
   %35 = tail call i32 @security_netif_sid(ptr noundef %34, ptr noundef %2) #5
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %55
+  br i1 %36, label %37, label %56
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %39 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %38, i32 noundef 2336, i64 noundef 48) #6
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %55, label %41
+  %38 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %39 = load ptr, ptr %38, align 16
+  %40 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %39, i32 noundef 2336, i64 noundef 48) #6
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %56, label %42
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %39, i64 16
-  store ptr %0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 24
-  store i32 %1, ptr %43, align 8
-  %44 = load i32, ptr %2, align 4
-  %45 = getelementptr inbounds i8, ptr %39, i64 28
-  store i32 %44, ptr %45, align 4
-  %46 = load i32, ptr @sel_netif_total, align 4
-  %47 = icmp ult i32 %46, 1024
-  br i1 %47, label %48, label %54
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds i8, ptr %40, i64 16
+  store ptr %0, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %40, i64 24
+  store i32 %1, ptr %44, align 8
+  %45 = load i32, ptr %2, align 4
+  %46 = getelementptr inbounds i8, ptr %40, i64 28
+  store i32 %45, ptr %46, align 4
+  %47 = load i32, ptr @sel_netif_total, align 4
+  %48 = icmp ult i32 %47, 1024
+  br i1 %48, label %49, label %55
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %12, align 16
-  store ptr %49, ptr %39, align 8
-  %50 = getelementptr inbounds i8, ptr %39, i64 8
-  store ptr %12, ptr %50, align 8
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %12, align 16
+  store ptr %50, ptr %40, align 8
+  %51 = getelementptr inbounds i8, ptr %40, i64 8
+  store ptr %12, ptr %51, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  store volatile ptr %39, ptr %12, align 16
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
-  store ptr %39, ptr %51, align 8
-  %52 = load i32, ptr @sel_netif_total, align 4
-  %53 = add i32 %52, 1
-  store i32 %53, ptr @sel_netif_total, align 4
-  br label %55
+  store volatile ptr %40, ptr %12, align 16
+  %52 = getelementptr inbounds i8, ptr %50, i64 8
+  store ptr %40, ptr %52, align 8
+  %53 = load i32, ptr @sel_netif_total, align 4
+  %54 = add i32 %53, 1
+  store i32 %54, ptr @sel_netif_total, align 4
+  br label %56
 
-54:                                               ; preds = %41
-  tail call void @kfree(ptr noundef nonnull %39) #5
-  br label %55
+55:                                               ; preds = %42
+  tail call void @kfree(ptr noundef nonnull %40) #5
+  br label %56
 
-55:                                               ; preds = %54, %48, %37, %33, %30
-  %56 = phi i32 [ 0, %30 ], [ %35, %33 ], [ 0, %54 ], [ 0, %48 ], [ 0, %37 ]
+56:                                               ; preds = %55, %49, %37, %33, %30
+  %57 = phi i32 [ 0, %30 ], [ %35, %33 ], [ 0, %55 ], [ 0, %49 ], [ 0, %37 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @sel_netif_lock) #5
-  %57 = getelementptr inbounds i8, ptr %4, i64 1280
-  %58 = load ptr, ptr %57, align 8
-  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %58, ptr elementtype(i32) %58) #5, !srcloc !10
-  %59 = icmp eq i32 %56, 0
-  br i1 %59, label %64, label %60, !prof !11
+  %58 = getelementptr inbounds i8, ptr %4, i64 1280
+  %59 = load ptr, ptr %58, align 8
+  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %59, ptr elementtype(i32) %59) #5, !srcloc !10
+  %60 = icmp eq i32 %57, 0
+  br i1 %60, label %65, label %61, !prof !11
 
-60:                                               ; preds = %55, %3
-  %61 = phi ptr [ @.str, %3 ], [ @.str.1, %55 ]
-  %62 = phi i32 [ -2, %3 ], [ %56, %55 ]
-  %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %61, ptr noundef nonnull @__func__.sel_netif_sid_slow, i32 noundef %1) #7
-  br label %64
+61:                                               ; preds = %56, %3
+  %62 = phi ptr [ @.str, %3 ], [ @.str.1, %56 ]
+  %63 = phi i32 [ -2, %3 ], [ %57, %56 ]
+  %64 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %62, ptr noundef nonnull @__func__.sel_netif_sid_slow, i32 noundef %1) #7
+  br label %65
 
-64:                                               ; preds = %60, %55
-  %65 = phi i32 [ %56, %55 ], [ %62, %60 ]
-  ret i32 %65
+65:                                               ; preds = %61, %56
+  %66 = phi i32 [ %57, %56 ], [ %63, %61 ]
+  ret i32 %66
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -194,44 +195,45 @@ define dso_local void @sel_netif_flush() local_unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @sel_netif_lock) #5
   br label %1
 
-1:                                                ; preds = %20, %0
-  %2 = phi i64 [ 0, %0 ], [ %21, %20 ]
+1:                                                ; preds = %21, %0
+  %2 = phi i64 [ 0, %0 ], [ %22, %21 ]
   %3 = getelementptr [64 x %struct.list_head], ptr @sel_netif_hash, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 16
   %5 = icmp eq ptr %4, %3
-  br i1 %5, label %20, label %6
+  br i1 %5, label %21, label %6
 
-6:                                                ; preds = %17, %1
-  %7 = phi ptr [ %18, %17 ], [ %4, %1 ]
+6:                                                ; preds = %18, %1
+  %7 = phi ptr [ %19, %18 ], [ %4, %1 ]
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %9, ptr %11, align 8
   store volatile ptr %10, ptr %9, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %8, align 8
-  %12 = load i32, ptr @sel_netif_total, align 4
-  %13 = add i32 %12, -1
-  store i32 %13, ptr @sel_netif_total, align 4
-  %14 = icmp eq ptr %7, null
-  br i1 %14, label %17, label %15
+  %12 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %12, ptr %8, align 8
+  %13 = load i32, ptr @sel_netif_total, align 4
+  %14 = add i32 %13, -1
+  store i32 %14, ptr @sel_netif_total, align 4
+  %15 = icmp eq ptr %7, null
+  br i1 %15, label %18, label %16
 
-15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
-  tail call void @kvfree_call_rcu(ptr noundef %16, ptr noundef nonnull %7) #5
-  br label %17
+16:                                               ; preds = %6
+  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  tail call void @kvfree_call_rcu(ptr noundef %17, ptr noundef nonnull %7) #5
+  br label %18
 
-17:                                               ; preds = %15, %6
-  %18 = load ptr, ptr %7, align 8
-  %19 = icmp eq ptr %18, %3
-  br i1 %19, label %20, label %6, !llvm.loop !12
+18:                                               ; preds = %16, %6
+  %19 = load ptr, ptr %7, align 8
+  %20 = icmp eq ptr %19, %3
+  br i1 %20, label %21, label %6, !llvm.loop !12
 
-20:                                               ; preds = %17, %1
-  %21 = add nuw nsw i64 %2, 1
-  %22 = icmp eq i64 %21, 64
-  br i1 %22, label %23, label %1, !llvm.loop !13
+21:                                               ; preds = %18, %1
+  %22 = add nuw nsw i64 %2, 1
+  %23 = icmp eq i64 %22, 64
+  br i1 %23, label %24, label %1, !llvm.loop !13
 
-23:                                               ; preds = %20
+24:                                               ; preds = %21
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @sel_netif_lock) #5
   ret void
 }
@@ -296,7 +298,7 @@ declare dso_local i32 @register_netdevice_notifier(ptr noundef) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @sel_netif_netdev_notifier_handler(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = icmp eq i64 %1, 2
-  br i1 %4, label %5, label %43
+  br i1 %4, label %5, label %44
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %2, align 8
@@ -337,7 +339,7 @@ define internal noundef i32 @sel_netif_netdev_notifier_handler(ptr nocapture rea
 31:                                               ; preds = %28, %24, %5
   %32 = phi ptr [ null, %5 ], [ %20, %24 ], [ null, %28 ]
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %42, label %34
+  br i1 %33, label %43, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %32, i64 8
@@ -346,20 +348,21 @@ define internal noundef i32 @sel_netif_netdev_notifier_handler(ptr nocapture rea
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %36, ptr %38, align 8
   store volatile ptr %37, ptr %36, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %35, align 8
-  %39 = load i32, ptr @sel_netif_total, align 4
-  %40 = add i32 %39, -1
-  store i32 %40, ptr @sel_netif_total, align 4
-  %41 = getelementptr inbounds i8, ptr %32, i64 32
-  tail call void @kvfree_call_rcu(ptr noundef %41, ptr noundef nonnull %32) #5
-  br label %42
-
-42:                                               ; preds = %34, %31
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @sel_netif_lock) #5
-  tail call void @__rcu_read_unlock() #5
+  %39 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %39, ptr %35, align 8
+  %40 = load i32, ptr @sel_netif_total, align 4
+  %41 = add i32 %40, -1
+  store i32 %41, ptr @sel_netif_total, align 4
+  %42 = getelementptr inbounds i8, ptr %32, i64 32
+  tail call void @kvfree_call_rcu(ptr noundef %42, ptr noundef nonnull %32) #5
   br label %43
 
-43:                                               ; preds = %42, %3
+43:                                               ; preds = %34, %31
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @sel_netif_lock) #5
+  tail call void @__rcu_read_unlock() #5
+  br label %44
+
+44:                                               ; preds = %43, %3
   ret i32 0
 }
 

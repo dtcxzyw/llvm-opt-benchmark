@@ -1822,51 +1822,52 @@ define internal zeroext i1 @_is_user_min_admin_level(ptr noundef %0, i32 noundef
   store i8 %11, ptr %8, align 1
   store i8 1, ptr %9, align 1
   %12 = load i32, ptr %6, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169), align 8
-  %14 = icmp ne i32 %12, %13
-  br i1 %14, label %15, label %35
+  %13 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp ne i32 %12, %14
+  br i1 %15, label %16, label %36
 
-15:                                               ; preds = %4
-  %16 = load i32, ptr %6, align 4
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %35
+16:                                               ; preds = %4
+  %17 = load i32, ptr %6, align 4
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %36
 
-18:                                               ; preds = %15
-  %19 = load i8, ptr %8, align 1
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %25
+19:                                               ; preds = %16
+  %20 = load i8, ptr %8, align 1
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %26
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %5, align 8
-  %23 = load i32, ptr %6, align 4
-  %24 = call i32 @assoc_mgr_get_admin_level_locked(ptr noundef %22, i32 noundef %23)
-  store i32 %24, ptr %10, align 4
-  br label %29
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %5, align 8
+  %24 = load i32, ptr %6, align 4
+  %25 = call i32 @assoc_mgr_get_admin_level_locked(ptr noundef %23, i32 noundef %24)
+  store i32 %25, ptr %10, align 4
+  br label %30
 
-25:                                               ; preds = %18
-  %26 = load ptr, ptr %5, align 8
-  %27 = load i32, ptr %6, align 4
-  %28 = call i32 @assoc_mgr_get_admin_level(ptr noundef %26, i32 noundef %27)
-  store i32 %28, ptr %10, align 4
-  br label %29
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i32, ptr %6, align 4
+  %29 = call i32 @assoc_mgr_get_admin_level(ptr noundef %27, i32 noundef %28)
+  store i32 %29, ptr %10, align 4
+  br label %30
 
-29:                                               ; preds = %25, %21
-  %30 = load i32, ptr %10, align 4
-  %31 = load i32, ptr %7, align 4
-  %32 = icmp ult i32 %30, %31
-  br i1 %32, label %33, label %34
+30:                                               ; preds = %26, %22
+  %31 = load i32, ptr %10, align 4
+  %32 = load i32, ptr %7, align 4
+  %33 = icmp ult i32 %31, %32
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %29
+34:                                               ; preds = %30
   store i8 0, ptr %9, align 1
-  br label %34
-
-34:                                               ; preds = %33, %29
   br label %35
 
-35:                                               ; preds = %34, %15, %4
-  %36 = load i8, ptr %9, align 1
-  %37 = trunc i8 %36 to i1
-  ret i1 %37
+35:                                               ; preds = %34, %30
+  br label %36
+
+36:                                               ; preds = %35, %16, %4
+  %37 = load i8, ptr %9, align 1
+  %38 = trunc i8 %37 to i1
+  ret i1 %38
 }
 
 ; Function Attrs: nounwind uwtable

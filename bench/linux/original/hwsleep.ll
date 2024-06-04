@@ -28,28 +28,28 @@ define dso_local i32 @acpi_hw_legacy_sleep(i8 noundef zeroext %0) local_unnamed_
   %5 = tail call ptr @acpi_hw_get_bit_register_info(i32 noundef 18) #3
   %6 = tail call i32 @acpi_write_bit_register(i32 noundef 6, i32 noundef 1) #3
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %78
+  br i1 %7, label %8, label %79
 
 8:                                                ; preds = %1
   %9 = tail call i32 @acpi_hw_disable_all_gpes() #3
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %78
+  br i1 %10, label %11, label %79
 
 11:                                               ; preds = %8
   %12 = tail call i32 @acpi_hw_clear_acpi_status() #3
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %78
+  br i1 %13, label %14, label %79
 
 14:                                               ; preds = %11
   store i8 0, ptr @acpi_gbl_system_awake_and_running, align 1
   %15 = tail call i32 @acpi_hw_enable_all_wakeup_gpes() #3
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %78
+  br i1 %16, label %17, label %79
 
 17:                                               ; preds = %14
   %18 = call i32 @acpi_hw_register_read(i32 noundef 3, ptr noundef nonnull %2) #3
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %78
+  br i1 %19, label %20, label %79
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %4, i64 2
@@ -78,7 +78,7 @@ define dso_local i32 @acpi_hw_legacy_sleep(i8 noundef zeroext %0) local_unnamed_
   %42 = or i32 %41, %29
   %43 = call i32 @acpi_hw_write_pm1_control(i32 noundef %36, i32 noundef %42) #3
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %78
+  br i1 %44, label %45, label %79
 
 45:                                               ; preds = %20
   %46 = load i16, ptr %23, align 2
@@ -90,63 +90,64 @@ define dso_local i32 @acpi_hw_legacy_sleep(i8 noundef zeroext %0) local_unnamed_
   %51 = zext i16 %50 to i32
   %52 = or i32 %42, %51
   %53 = icmp ult i8 %0, 4
-  br i1 %53, label %54, label %56
+  br i1 %53, label %54, label %57
 
 54:                                               ; preds = %45
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 11)) #3
-          to label %56 [label %56, label %55], !srcloc !6
+  %55 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 11
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull %55) #3
+          to label %57 [label %57, label %56], !srcloc !6
 
-55:                                               ; preds = %54
+56:                                               ; preds = %54
   call void asm sideeffect "wbinvd", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  br label %56
+  br label %57
 
-56:                                               ; preds = %55, %54, %54, %45
-  %57 = load i32, ptr %2, align 4
-  %58 = call i32 @acpi_os_enter_sleep(i8 noundef zeroext %0, i32 noundef %57, i32 noundef %52) #3
-  switch i32 %58, label %59 [
-    i32 16387, label %78
-    i32 0, label %60
+57:                                               ; preds = %56, %54, %54, %45
+  %58 = load i32, ptr %2, align 4
+  %59 = call i32 @acpi_os_enter_sleep(i8 noundef zeroext %0, i32 noundef %58, i32 noundef %52) #3
+  switch i32 %59, label %60 [
+    i32 16387, label %79
+    i32 0, label %61
   ]
 
-59:                                               ; preds = %56
-  br label %78
+60:                                               ; preds = %57
+  br label %79
 
-60:                                               ; preds = %56
-  %61 = load i32, ptr %2, align 4
-  %62 = call i32 @acpi_hw_write_pm1_control(i32 noundef %61, i32 noundef %52) #3
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %78
+61:                                               ; preds = %57
+  %62 = load i32, ptr %2, align 4
+  %63 = call i32 @acpi_hw_write_pm1_control(i32 noundef %62, i32 noundef %52) #3
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %79
 
-64:                                               ; preds = %60
-  %65 = icmp ugt i8 %0, 3
-  br i1 %65, label %66, label %71
+65:                                               ; preds = %61
+  %66 = icmp ugt i8 %0, 3
+  br i1 %66, label %67, label %72
 
-66:                                               ; preds = %64
+67:                                               ; preds = %65
   call void @acpi_os_stall(i32 noundef 10000000) #3
-  %67 = load i16, ptr %23, align 2
-  %68 = zext i16 %67 to i32
-  %69 = call i32 @acpi_hw_register_write(i32 noundef 3, i32 noundef %68) #3
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %78
+  %68 = load i16, ptr %23, align 2
+  %69 = zext i16 %68 to i32
+  %70 = call i32 @acpi_hw_register_write(i32 noundef 3, i32 noundef %69) #3
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %79
 
-71:                                               ; preds = %66, %64
-  br label %72
+72:                                               ; preds = %67, %65
+  br label %73
 
-72:                                               ; preds = %75, %71
-  %73 = call i32 @acpi_read_bit_register(i32 noundef 6, ptr noundef nonnull %3) #3
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %78
+73:                                               ; preds = %76, %72
+  %74 = call i32 @acpi_read_bit_register(i32 noundef 6, ptr noundef nonnull %3) #3
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %79
 
-75:                                               ; preds = %72
-  %76 = load i32, ptr %3, align 4
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %72, label %78, !llvm.loop !8
+76:                                               ; preds = %73
+  %77 = load i32, ptr %3, align 4
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %73, label %79, !llvm.loop !8
 
-78:                                               ; preds = %75, %72, %66, %60, %59, %56, %20, %17, %14, %11, %8, %1
-  %79 = phi i32 [ %58, %59 ], [ %6, %1 ], [ %9, %8 ], [ %12, %11 ], [ %15, %14 ], [ %18, %17 ], [ %43, %20 ], [ 0, %56 ], [ %62, %60 ], [ %69, %66 ], [ %73, %72 ], [ 0, %75 ]
+79:                                               ; preds = %76, %73, %67, %61, %60, %57, %20, %17, %14, %11, %8, %1
+  %80 = phi i32 [ %59, %60 ], [ %6, %1 ], [ %9, %8 ], [ %12, %11 ], [ %15, %14 ], [ %18, %17 ], [ %43, %20 ], [ 0, %57 ], [ %63, %61 ], [ %70, %67 ], [ %74, %73 ], [ 0, %76 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
-  ret i32 %79
+  ret i32 %80
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -244,36 +245,40 @@ define dso_local i32 @acpi_hw_legacy_wake(i8 noundef zeroext %0) local_unnamed_a
   tail call void @acpi_hw_execute_sleep_method(ptr noundef nonnull @.str, i32 noundef 2) #3
   %2 = tail call i32 @acpi_hw_disable_all_gpes() #3
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %22
+  br i1 %3, label %4, label %26
 
 4:                                                ; preds = %1
   %5 = tail call i32 @acpi_hw_enable_all_runtime_gpes() #3
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %22
+  br i1 %6, label %7, label %26
 
 7:                                                ; preds = %4
   %8 = zext i8 %0 to i32
   tail call void @acpi_hw_execute_sleep_method(ptr noundef nonnull @.str.1, i32 noundef %8) #3
   %9 = tail call i32 @acpi_write_bit_register(i32 noundef 6, i32 noundef 1) #3
   store i8 1, ptr @acpi_gbl_system_awake_and_running, align 1
-  %10 = load i8, ptr getelementptr inbounds ([5 x %struct.acpi_fixed_event_info], ptr @acpi_gbl_fixed_event_info, i64 0, i64 2, i32 1), align 1
-  %11 = zext i8 %10 to i32
-  %12 = tail call i32 @acpi_write_bit_register(i32 noundef %11, i32 noundef 1) #3
-  %13 = load i8, ptr getelementptr inbounds ([5 x %struct.acpi_fixed_event_info], ptr @acpi_gbl_fixed_event_info, i64 0, i64 2), align 4
-  %14 = zext i8 %13 to i32
-  %15 = tail call i32 @acpi_write_bit_register(i32 noundef %14, i32 noundef 1) #3
-  %16 = load i8, ptr getelementptr inbounds ([5 x %struct.acpi_fixed_event_info], ptr @acpi_gbl_fixed_event_info, i64 0, i64 3, i32 1), align 1
-  %17 = zext i8 %16 to i32
-  %18 = tail call i32 @acpi_write_bit_register(i32 noundef %17, i32 noundef 1) #3
-  %19 = load i8, ptr getelementptr inbounds ([5 x %struct.acpi_fixed_event_info], ptr @acpi_gbl_fixed_event_info, i64 0, i64 3), align 2
+  %10 = getelementptr inbounds [5 x %struct.acpi_fixed_event_info], ptr @acpi_gbl_fixed_event_info, i64 0, i64 2, i32 1
+  %11 = load i8, ptr %10, align 1
+  %12 = zext i8 %11 to i32
+  %13 = tail call i32 @acpi_write_bit_register(i32 noundef %12, i32 noundef 1) #3
+  %14 = getelementptr inbounds [5 x %struct.acpi_fixed_event_info], ptr @acpi_gbl_fixed_event_info, i64 0, i64 2
+  %15 = load i8, ptr %14, align 4
+  %16 = zext i8 %15 to i32
+  %17 = tail call i32 @acpi_write_bit_register(i32 noundef %16, i32 noundef 1) #3
+  %18 = getelementptr inbounds [5 x %struct.acpi_fixed_event_info], ptr @acpi_gbl_fixed_event_info, i64 0, i64 3, i32 1
+  %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = tail call i32 @acpi_write_bit_register(i32 noundef %20, i32 noundef 1) #3
+  %22 = getelementptr inbounds [5 x %struct.acpi_fixed_event_info], ptr @acpi_gbl_fixed_event_info, i64 0, i64 3
+  %23 = load i8, ptr %22, align 2
+  %24 = zext i8 %23 to i32
+  %25 = tail call i32 @acpi_write_bit_register(i32 noundef %24, i32 noundef 1) #3
   tail call void @acpi_hw_execute_sleep_method(ptr noundef nonnull @.str, i32 noundef 1) #3
-  br label %22
+  br label %26
 
-22:                                               ; preds = %7, %4, %1
-  %23 = phi i32 [ 0, %7 ], [ %2, %1 ], [ %5, %4 ]
-  ret i32 %23
+26:                                               ; preds = %7, %4, %1
+  %27 = phi i32 [ 0, %7 ], [ %2, %1 ], [ %5, %4 ]
+  ret i32 %27
 }
 
 ; Function Attrs: null_pointer_is_valid

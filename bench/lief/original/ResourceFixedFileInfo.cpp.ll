@@ -79,11 +79,12 @@ define void @_ZN4LIEF2PE21ResourceFixedFileInfoC2ERKS1_(ptr noundef nonnull alig
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE21ResourceFixedFileInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 64, i1 false)
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF2PE21ResourceFixedFileInfoE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 64, i1 false)
   ret void
 }
 
@@ -141,33 +142,34 @@ define void @_ZN4LIEF2PE21ResourceFixedFileInfoC2Ev(ptr noundef nonnull align 8 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE21ResourceFixedFileInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 1
-  store i32 -17890115, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 2
-  store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 3
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 4
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 5
-  store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 6
-  store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 7
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 8
-  store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 9
-  store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 10
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF2PE21ResourceFixedFileInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 1
+  store i32 -17890115, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 2
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 3
+  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 4
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 5
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 6
+  store i32 0, ptr %10, align 4
+  %11 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 7
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 8
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 9
   store i64 0, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 11
+  %14 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 10
   store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 12
-  store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 13
-  store i32 0, ptr %16, align 4
+  %15 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 11
+  store i64 0, ptr %15, align 8
+  %16 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 12
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %3, i32 0, i32 13
+  store i32 0, ptr %17, align 4
   ret void
 }
 
@@ -181,75 +183,76 @@ define void @_ZN4LIEF2PE21ResourceFixedFileInfoC2ERKNS0_7details27pe_resource_fi
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE21ResourceFixedFileInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 1
-  store i32 %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 1
-  store i32 %13, ptr %10, align 4
-  %14 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %15, i32 0, i32 2
-  %17 = load i32, ptr %16, align 1
-  store i32 %17, ptr %14, align 8
-  %18 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %19, i32 0, i32 3
-  %21 = load i32, ptr %20, align 1
-  store i32 %21, ptr %18, align 4
-  %22 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 5
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %23, i32 0, i32 4
-  %25 = load i32, ptr %24, align 1
-  store i32 %25, ptr %22, align 8
-  %26 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 6
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %27, i32 0, i32 5
-  %29 = load i32, ptr %28, align 1
-  store i32 %29, ptr %26, align 4
-  %30 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 7
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %31, i32 0, i32 6
-  %33 = load i32, ptr %32, align 1
-  store i32 %33, ptr %30, align 8
-  %34 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 8
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %35, i32 0, i32 7
-  %37 = load i32, ptr %36, align 1
-  store i32 %37, ptr %34, align 4
-  %38 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 9
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %39, i32 0, i32 8
-  %41 = load i32, ptr %40, align 1
-  %42 = zext i32 %41 to i64
-  store i64 %42, ptr %38, align 8
-  %43 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 10
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %44, i32 0, i32 9
-  %46 = load i32, ptr %45, align 1
-  %47 = zext i32 %46 to i64
-  store i64 %47, ptr %43, align 8
-  %48 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 11
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %49, i32 0, i32 10
-  %51 = load i32, ptr %50, align 1
-  %52 = zext i32 %51 to i64
-  store i64 %52, ptr %48, align 8
-  %53 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 12
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %54, i32 0, i32 11
-  %56 = load i32, ptr %55, align 1
-  store i32 %56, ptr %53, align 8
-  %57 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 13
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %58, i32 0, i32 12
-  %60 = load i32, ptr %59, align 1
-  store i32 %60, ptr %57, align 4
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF2PE21ResourceFixedFileInfoE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 1
+  store i32 %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 1
+  store i32 %14, ptr %11, align 4
+  %15 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %16, i32 0, i32 2
+  %18 = load i32, ptr %17, align 1
+  store i32 %18, ptr %15, align 8
+  %19 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 4
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %20, i32 0, i32 3
+  %22 = load i32, ptr %21, align 1
+  store i32 %22, ptr %19, align 4
+  %23 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 5
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %24, i32 0, i32 4
+  %26 = load i32, ptr %25, align 1
+  store i32 %26, ptr %23, align 8
+  %27 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 6
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %28, i32 0, i32 5
+  %30 = load i32, ptr %29, align 1
+  store i32 %30, ptr %27, align 4
+  %31 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 7
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %32, i32 0, i32 6
+  %34 = load i32, ptr %33, align 1
+  store i32 %34, ptr %31, align 8
+  %35 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 8
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %36, i32 0, i32 7
+  %38 = load i32, ptr %37, align 1
+  store i32 %38, ptr %35, align 4
+  %39 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 9
+  %40 = load ptr, ptr %4, align 8
+  %41 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %40, i32 0, i32 8
+  %42 = load i32, ptr %41, align 1
+  %43 = zext i32 %42 to i64
+  store i64 %43, ptr %39, align 8
+  %44 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 10
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %45, i32 0, i32 9
+  %47 = load i32, ptr %46, align 1
+  %48 = zext i32 %47 to i64
+  store i64 %48, ptr %44, align 8
+  %49 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 11
+  %50 = load ptr, ptr %4, align 8
+  %51 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %50, i32 0, i32 10
+  %52 = load i32, ptr %51, align 1
+  %53 = zext i32 %52 to i64
+  store i64 %53, ptr %49, align 8
+  %54 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 12
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %55, i32 0, i32 11
+  %57 = load i32, ptr %56, align 1
+  store i32 %57, ptr %54, align 8
+  %58 = getelementptr inbounds %"class.LIEF::PE::ResourceFixedFileInfo", ptr %5, i32 0, i32 13
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_fixed_file_info", ptr %59, i32 0, i32 12
+  %61 = load i32, ptr %60, align 1
+  store i32 %61, ptr %58, align 4
   ret void
 }
 

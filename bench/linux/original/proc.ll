@@ -279,152 +279,153 @@ define internal noundef i32 @proc_keys_show(ptr noundef %0, ptr noundef %1) #4 a
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 16777216
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %36, label %26
+  br i1 %25, label %37, label %26
 
 26:                                               ; preds = %2
   tail call void @__rcu_read_lock() #8
   %27 = call ptr @search_cred_keyrings_rcu(ptr noundef nonnull %4) #8
   call void @__rcu_read_unlock() #8
-  %28 = icmp ugt ptr %27, inttoptr (i64 -4096 to ptr)
-  br i1 %28, label %36, label %29
+  %28 = inttoptr i64 -4096 to ptr
+  %29 = icmp ugt ptr %27, %28
+  br i1 %29, label %37, label %30
 
-29:                                               ; preds = %26
-  %30 = ptrtoint ptr %27 to i64
-  %31 = and i64 %30, -2
-  %32 = inttoptr i64 %31 to ptr
-  call void @key_put(ptr noundef %32) #8
-  %33 = ptrtoint ptr %5 to i64
-  %34 = or i64 %33, 1
-  %35 = inttoptr i64 %34 to ptr
-  br label %36
+30:                                               ; preds = %26
+  %31 = ptrtoint ptr %27 to i64
+  %32 = and i64 %31, -2
+  %33 = inttoptr i64 %32 to ptr
+  call void @key_put(ptr noundef %33) #8
+  %34 = ptrtoint ptr %5 to i64
+  %35 = or i64 %34, 1
+  %36 = inttoptr i64 %35 to ptr
+  br label %37
 
-36:                                               ; preds = %29, %26, %2
-  %37 = phi ptr [ %5, %26 ], [ %35, %29 ], [ %5, %2 ]
-  %38 = load ptr, ptr %8, align 8
-  %39 = call i32 @key_task_permission(ptr noundef %37, ptr noundef %38, i32 noundef 1) #8
-  %40 = icmp slt i32 %39, 0
-  br i1 %40, label %120, label %41
+37:                                               ; preds = %30, %26, %2
+  %38 = phi ptr [ %5, %26 ], [ %36, %30 ], [ %5, %2 ]
+  %39 = load ptr, ptr %8, align 8
+  %40 = call i32 @key_task_permission(ptr noundef %38, ptr noundef %39, i32 noundef 1) #8
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %121, label %42
 
-41:                                               ; preds = %36
-  %42 = call i64 @ktime_get_real_seconds() #8
+42:                                               ; preds = %37
+  %43 = call i64 @ktime_get_real_seconds() #8
   call void @__rcu_read_lock() #8
-  %43 = getelementptr i8, ptr %1, i64 80
-  %44 = load volatile i64, ptr %43, align 8
-  %45 = icmp eq i64 %44, 9223372036854775807
-  br i1 %45, label %46, label %47
+  %44 = getelementptr i8, ptr %1, i64 80
+  %45 = load volatile i64, ptr %44, align 8
+  %46 = icmp eq i64 %45, 9223372036854775807
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %41
+47:                                               ; preds = %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %3, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
-  br label %73
+  br label %74
 
-47:                                               ; preds = %41
-  %48 = icmp slt i64 %42, %44
-  br i1 %48, label %50, label %49
+48:                                               ; preds = %42
+  %49 = icmp slt i64 %43, %45
+  br i1 %49, label %51, label %50
 
-49:                                               ; preds = %47
+50:                                               ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %3, ptr noundef nonnull align 1 dereferenceable(5) @.str.5, i64 5, i1 false)
-  br label %73
+  br label %74
 
-50:                                               ; preds = %47
-  %51 = sub i64 %44, %42
-  %52 = icmp ult i64 %51, 60
-  br i1 %52, label %53, label %55
+51:                                               ; preds = %48
+  %52 = sub i64 %45, %43
+  %53 = icmp ult i64 %52, 60
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %50
-  %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.6, i64 noundef %51) #8
-  br label %73
+54:                                               ; preds = %51
+  %55 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.6, i64 noundef %52) #8
+  br label %74
 
-55:                                               ; preds = %50
-  %56 = icmp ult i64 %51, 3600
-  br i1 %56, label %57, label %60
+56:                                               ; preds = %51
+  %57 = icmp ult i64 %52, 3600
+  br i1 %57, label %58, label %61
 
-57:                                               ; preds = %55
-  %58 = udiv i64 %51, 60
-  %59 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.7, i64 noundef %58) #8
-  br label %73
+58:                                               ; preds = %56
+  %59 = udiv i64 %52, 60
+  %60 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.7, i64 noundef %59) #8
+  br label %74
 
-60:                                               ; preds = %55
-  %61 = icmp ult i64 %51, 86400
-  br i1 %61, label %62, label %65
+61:                                               ; preds = %56
+  %62 = icmp ult i64 %52, 86400
+  br i1 %62, label %63, label %66
 
-62:                                               ; preds = %60
-  %63 = udiv i64 %51, 3600
-  %64 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.8, i64 noundef %63) #8
-  br label %73
+63:                                               ; preds = %61
+  %64 = udiv i64 %52, 3600
+  %65 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.8, i64 noundef %64) #8
+  br label %74
 
-65:                                               ; preds = %60
-  %66 = icmp ult i64 %51, 604800
-  br i1 %66, label %67, label %70
+66:                                               ; preds = %61
+  %67 = icmp ult i64 %52, 604800
+  br i1 %67, label %68, label %71
 
-67:                                               ; preds = %65
-  %68 = udiv i64 %51, 86400
-  %69 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.9, i64 noundef %68) #8
-  br label %73
+68:                                               ; preds = %66
+  %69 = udiv i64 %52, 86400
+  %70 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.9, i64 noundef %69) #8
+  br label %74
 
-70:                                               ; preds = %65
-  %71 = udiv i64 %51, 604800
-  %72 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.10, i64 noundef %71) #8
-  br label %73
+71:                                               ; preds = %66
+  %72 = udiv i64 %52, 604800
+  %73 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.10, i64 noundef %72) #8
+  br label %74
 
-73:                                               ; preds = %70, %67, %62, %57, %53, %49, %46
-  %74 = getelementptr i8, ptr %1, i64 112
-  %75 = load volatile i16, ptr %74, align 8
+74:                                               ; preds = %71, %68, %63, %58, %54, %50, %47
+  %75 = getelementptr i8, ptr %1, i64 112
+  %76 = load volatile i16, ptr %75, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
-  %76 = getelementptr i8, ptr %1, i64 120
-  %77 = load volatile i64, ptr %76, align 8
-  %78 = getelementptr i8, ptr %1, i64 -4
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp eq i16 %75, 0
-  %81 = select i1 %80, i32 45, i32 73
-  %82 = and i64 %77, 2
-  %83 = icmp eq i64 %82, 0
-  %84 = select i1 %83, i32 45, i32 82
-  %85 = and i64 %77, 1
-  %86 = icmp eq i64 %85, 0
-  %87 = select i1 %86, i32 45, i32 68
-  %88 = and i64 %77, 4
-  %89 = icmp eq i64 %88, 0
-  %90 = select i1 %89, i32 45, i32 81
-  %91 = and i64 %77, 8
-  %92 = icmp eq i64 %91, 0
-  %93 = select i1 %92, i32 45, i32 85
-  %94 = icmp slt i16 %75, 0
-  %95 = select i1 %94, i32 78, i32 45
-  %96 = and i64 %77, 32
-  %97 = icmp eq i64 %96, 0
-  %98 = select i1 %97, i32 45, i32 105
-  %99 = load volatile i32, ptr %5, align 4
-  %100 = load i32, ptr %22, align 8
-  %101 = getelementptr i8, ptr %1, i64 96
-  %102 = load i32, ptr %101, align 8
-  %103 = icmp eq i32 %102, -1
-  %104 = load i32, ptr @overflowuid, align 4
-  %105 = select i1 %103, i32 %104, i32 %102
-  %106 = getelementptr i8, ptr %1, i64 100
-  %107 = load i32, ptr %106, align 4
-  %108 = icmp eq i32 %107, -1
-  %109 = load i32, ptr @overflowgid, align 4
-  %110 = select i1 %108, i32 %109, i32 %107
-  %111 = getelementptr i8, ptr %1, i64 144
-  %112 = load ptr, ptr %111, align 8
+  %77 = getelementptr i8, ptr %1, i64 120
+  %78 = load volatile i64, ptr %77, align 8
+  %79 = getelementptr i8, ptr %1, i64 -4
+  %80 = load i32, ptr %79, align 4
+  %81 = icmp eq i16 %76, 0
+  %82 = select i1 %81, i32 45, i32 73
+  %83 = and i64 %78, 2
+  %84 = icmp eq i64 %83, 0
+  %85 = select i1 %84, i32 45, i32 82
+  %86 = and i64 %78, 1
+  %87 = icmp eq i64 %86, 0
+  %88 = select i1 %87, i32 45, i32 68
+  %89 = and i64 %78, 4
+  %90 = icmp eq i64 %89, 0
+  %91 = select i1 %90, i32 45, i32 81
+  %92 = and i64 %78, 8
+  %93 = icmp eq i64 %92, 0
+  %94 = select i1 %93, i32 45, i32 85
+  %95 = icmp slt i16 %76, 0
+  %96 = select i1 %95, i32 78, i32 45
+  %97 = and i64 %78, 32
+  %98 = icmp eq i64 %97, 0
+  %99 = select i1 %98, i32 45, i32 105
+  %100 = load volatile i32, ptr %5, align 4
+  %101 = load i32, ptr %22, align 8
+  %102 = getelementptr i8, ptr %1, i64 96
+  %103 = load i32, ptr %102, align 8
+  %104 = icmp eq i32 %103, -1
+  %105 = load i32, ptr @overflowuid, align 4
+  %106 = select i1 %104, i32 %105, i32 %103
+  %107 = getelementptr i8, ptr %1, i64 100
+  %108 = load i32, ptr %107, align 4
+  %109 = icmp eq i32 %108, -1
+  %110 = load i32, ptr @overflowgid, align 4
+  %111 = select i1 %109, i32 %110, i32 %108
+  %112 = getelementptr i8, ptr %1, i64 144
   %113 = load ptr, ptr %112, align 8
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %79, i32 noundef %81, i32 noundef %84, i32 noundef %87, i32 noundef %90, i32 noundef %93, i32 noundef %95, i32 noundef %98, i32 noundef %99, ptr noundef nonnull %3, i32 noundef %100, i32 noundef %105, i32 noundef %110, ptr noundef %113) #8
-  %114 = load ptr, ptr %111, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 96
-  %116 = load ptr, ptr %115, align 8
-  %117 = icmp eq ptr %116, null
-  br i1 %117, label %119, label %118
+  %114 = load ptr, ptr %113, align 8
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %80, i32 noundef %82, i32 noundef %85, i32 noundef %88, i32 noundef %91, i32 noundef %94, i32 noundef %96, i32 noundef %99, i32 noundef %100, ptr noundef nonnull %3, i32 noundef %101, i32 noundef %106, i32 noundef %111, ptr noundef %114) #8
+  %115 = load ptr, ptr %112, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 96
+  %117 = load ptr, ptr %116, align 8
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %120, label %119
 
-118:                                              ; preds = %73
-  call void %116(ptr noundef %5, ptr noundef %0) #8
-  br label %119
-
-119:                                              ; preds = %118, %73
-  call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #8
-  call void @__rcu_read_unlock() #8
+119:                                              ; preds = %74
+  call void %117(ptr noundef %5, ptr noundef %0) #8
   br label %120
 
-120:                                              ; preds = %119, %36
+120:                                              ; preds = %119, %74
+  call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #8
+  call void @__rcu_read_unlock() #8
+  br label %121
+
+121:                                              ; preds = %120, %37
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
   ret i32 0

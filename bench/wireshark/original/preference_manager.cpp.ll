@@ -403,7 +403,8 @@ define void @_ZN17PreferenceManagerC2EP7QObject(ptr noundef nonnull align 8 dere
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV17PreferenceManager, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV17PreferenceManager, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -414,20 +415,21 @@ define void @_ZN17PreferenceManagerD2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV17PreferenceManager, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN17PreferenceManager9factoriesEv()
-  invoke void @_ZN4QMapIiP17PreferenceFactoryE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %5 unwind label %6
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV17PreferenceManager, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN17PreferenceManager9factoriesEv()
+  invoke void @_ZN4QMapIiP17PreferenceFactoryE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %6 unwind label %7
 
-5:                                                ; preds = %1
+6:                                                ; preds = %1
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 
-6:                                                ; preds = %1
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #12
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #12
   unreachable
 }
 

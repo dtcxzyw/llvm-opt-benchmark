@@ -244,86 +244,87 @@ define dso_local void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceabl
   %5 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV6Sample, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 1
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 2
+  %7 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTV6Sample, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 1
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 3
+  %9 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 2
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 4
+  %10 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 3
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 5
-  store i8 3, ptr %11, align 8
-  %12 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 20
-  store i8 1, ptr %12, align 4
-  %13 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 21
-  store i8 1, ptr %13, align 1
-  %14 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 22
-  store i8 1, ptr %14, align 2
-  %15 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 23
-  store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 25
+  %11 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 4
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 5
+  store i8 3, ptr %12, align 8
+  %13 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 20
+  store i8 1, ptr %13, align 4
+  %14 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 21
+  store i8 1, ptr %14, align 1
+  %15 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 22
+  store i8 1, ptr %15, align 2
+  %16 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 23
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 26
-  call void @_ZN15SampleDebugDrawC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #10
+  %17 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 25
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 26
+  call void @_ZN15SampleDebugDrawC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #10
   invoke void @_ZN6Sample19resetCommonSettingsEv(ptr noundef nonnull align 8 dereferenceable(200) %6)
-          to label %18 unwind label %36
+          to label %19 unwind label %37
 
-18:                                               ; preds = %1
-  %19 = invoke noundef ptr @_Z19dtAllocNavMeshQueryv()
-          to label %20 unwind label %36
+19:                                               ; preds = %1
+  %20 = invoke noundef ptr @_Z19dtAllocNavMeshQueryv()
+          to label %21 unwind label %37
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 3
-  store ptr %19, ptr %21, align 8
-  %22 = invoke noundef ptr @_Z12dtAllocCrowdv()
-          to label %23 unwind label %36
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 3
+  store ptr %20, ptr %22, align 8
+  %23 = invoke noundef ptr @_Z12dtAllocCrowdv()
+          to label %24 unwind label %37
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 4
-  store ptr %22, ptr %24, align 8
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 4
+  store ptr %23, ptr %25, align 8
   store i32 0, ptr %5, align 4
-  br label %25
+  br label %26
 
-25:                                               ; preds = %33, %23
-  %26 = load i32, ptr %5, align 4
-  %27 = icmp slt i32 %26, 9
-  br i1 %27, label %28, label %40
+26:                                               ; preds = %34, %24
+  %27 = load i32, ptr %5, align 4
+  %28 = icmp slt i32 %27, 9
+  br i1 %28, label %29, label %41
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 24
-  %30 = load i32, ptr %5, align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [9 x ptr], ptr %29, i64 0, i64 %31
-  store ptr null, ptr %32, align 8
-  br label %33
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 24
+  %31 = load i32, ptr %5, align 4
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds [9 x ptr], ptr %30, i64 0, i64 %32
+  store ptr null, ptr %33, align 8
+  br label %34
 
-33:                                               ; preds = %28
-  %34 = load i32, ptr %5, align 4
-  %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %5, align 4
-  br label %25, !llvm.loop !5
+34:                                               ; preds = %29
+  %35 = load i32, ptr %5, align 4
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %5, align 4
+  br label %26, !llvm.loop !5
 
-36:                                               ; preds = %20, %18, %1
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %21, %19, %1
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %3, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %4, align 4
-  call void @_ZN15SampleDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #10
-  br label %41
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %3, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %4, align 4
+  call void @_ZN15SampleDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #10
+  br label %42
 
-40:                                               ; preds = %25
+41:                                               ; preds = %26
   ret void
 
-41:                                               ; preds = %36
-  %42 = load ptr, ptr %3, align 8
-  %43 = load i32, ptr %4, align 4
-  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
-  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
-  resume { ptr, i32 } %45
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %3, align 8
+  %44 = load i32, ptr %4, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -332,7 +333,8 @@ define linkonce_odr dso_local void @_ZN15SampleDebugDrawC2Ev(ptr noundef nonnull
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN11DebugDrawGLC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV15SampleDebugDraw, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV15SampleDebugDraw, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -393,81 +395,82 @@ define dso_local void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV6Sample, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.Sample, ptr %4, i32 0, i32 3
-  %6 = load ptr, ptr %5, align 8
-  invoke void @_Z18dtFreeNavMeshQueryP14dtNavMeshQuery(ptr noundef %6)
-          to label %7 unwind label %42
+  %5 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTV6Sample, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %class.Sample, ptr %4, i32 0, i32 3
+  %7 = load ptr, ptr %6, align 8
+  invoke void @_Z18dtFreeNavMeshQueryP14dtNavMeshQuery(ptr noundef %7)
+          to label %8 unwind label %43
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %class.Sample, ptr %4, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  invoke void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef %9)
-          to label %10 unwind label %42
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %class.Sample, ptr %4, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  invoke void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef %10)
+          to label %11 unwind label %43
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds %class.Sample, ptr %4, i32 0, i32 4
-  %12 = load ptr, ptr %11, align 8
-  invoke void @_Z11dtFreeCrowdP7dtCrowd(ptr noundef %12)
-          to label %13 unwind label %42
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds %class.Sample, ptr %4, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8
+  invoke void @_Z11dtFreeCrowdP7dtCrowd(ptr noundef %13)
+          to label %14 unwind label %43
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds %class.Sample, ptr %4, i32 0, i32 23
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %21, label %17
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds %class.Sample, ptr %4, i32 0, i32 23
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %22, label %18
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 1
-  %20 = load ptr, ptr %19, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(8) %15) #10
-  br label %21
-
-21:                                               ; preds = %17, %13
-  store i32 0, ptr %3, align 4
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %16, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 1
+  %21 = load ptr, ptr %20, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %16) #10
   br label %22
 
-22:                                               ; preds = %37, %21
-  %23 = load i32, ptr %3, align 4
-  %24 = icmp slt i32 %23, 9
-  br i1 %24, label %25, label %40
+22:                                               ; preds = %18, %14
+  store i32 0, ptr %3, align 4
+  br label %23
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds %class.Sample, ptr %4, i32 0, i32 24
-  %27 = load i32, ptr %3, align 4
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [9 x ptr], ptr %26, i64 0, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %36, label %32
+23:                                               ; preds = %38, %22
+  %24 = load i32, ptr %3, align 4
+  %25 = icmp slt i32 %24, 9
+  br i1 %25, label %26, label %41
 
-32:                                               ; preds = %25
-  %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 1
-  %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(8) %30) #10
-  br label %36
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds %class.Sample, ptr %4, i32 0, i32 24
+  %28 = load i32, ptr %3, align 4
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds [9 x ptr], ptr %27, i64 0, i64 %29
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %37, label %33
 
-36:                                               ; preds = %32, %25
+33:                                               ; preds = %26
+  %34 = load ptr, ptr %31, align 8
+  %35 = getelementptr inbounds ptr, ptr %34, i64 1
+  %36 = load ptr, ptr %35, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(8) %31) #10
   br label %37
 
-37:                                               ; preds = %36
-  %38 = load i32, ptr %3, align 4
-  %39 = add nsw i32 %38, 1
-  store i32 %39, ptr %3, align 4
-  br label %22, !llvm.loop !7
+37:                                               ; preds = %33, %26
+  br label %38
 
-40:                                               ; preds = %22
-  %41 = getelementptr inbounds %class.Sample, ptr %4, i32 0, i32 26
-  call void @_ZN15SampleDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #10
+38:                                               ; preds = %37
+  %39 = load i32, ptr %3, align 4
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr %3, align 4
+  br label %23, !llvm.loop !7
+
+41:                                               ; preds = %23
+  %42 = getelementptr inbounds %class.Sample, ptr %4, i32 0, i32 26
+  call void @_ZN15SampleDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %42) #10
   ret void
 
-42:                                               ; preds = %10, %7, %1
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %11, %8, %1
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #9
+  %45 = extractvalue { ptr, i32 } %44, 0
+  call void @__clang_call_terminate(ptr %45) #9
   unreachable
 }
 
@@ -2049,7 +2052,8 @@ define linkonce_odr dso_local void @_ZN11DebugDrawGLC2Ev(ptr noundef nonnull ali
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN11duDebugDrawC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV11DebugDrawGL, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV11DebugDrawGL, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2058,7 +2062,8 @@ define linkonce_odr dso_local void @_ZN11duDebugDrawC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV11duDebugDraw, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV11duDebugDraw, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

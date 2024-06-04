@@ -264,27 +264,28 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_security_loc
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef i32 @early_security_init() local_unnamed_addr #0 section ".init.text" align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1736) @security_hook_heads, i8 0, i64 1736, i1 false)
-  br i1 icmp ult (ptr @__start_early_lsm_info, ptr @__end_early_lsm_info), label %1, label %10
+  %1 = icmp ult ptr @__start_early_lsm_info, @__end_early_lsm_info
+  br i1 %1, label %2, label %11
 
-1:                                                ; preds = %7, %0
-  %2 = phi ptr [ %8, %7 ], [ @__start_early_lsm_info, %0 ]
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %7
+2:                                                ; preds = %8, %0
+  %3 = phi ptr [ %9, %8 ], [ @__start_early_lsm_info, %0 ]
+  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %8
 
-6:                                                ; preds = %1
-  store ptr @lsm_enabled_true, ptr %3, align 8
-  br label %7
+7:                                                ; preds = %2
+  store ptr @lsm_enabled_true, ptr %4, align 8
+  br label %8
 
-7:                                                ; preds = %6, %1
-  tail call fastcc void @prepare_lsm(ptr noundef %2) #15
-  tail call fastcc void @initialize_lsm(ptr noundef %2) #15
-  %8 = getelementptr i8, ptr %2, i64 48
-  %9 = icmp ult ptr %8, @__end_early_lsm_info
-  br i1 %9, label %1, label %10, !llvm.loop !6
+8:                                                ; preds = %7, %2
+  tail call fastcc void @prepare_lsm(ptr noundef %3) #15
+  tail call fastcc void @initialize_lsm(ptr noundef %3) #15
+  %9 = getelementptr i8, ptr %3, i64 48
+  %10 = icmp ult ptr %9, @__end_early_lsm_info
+  br i1 %10, label %2, label %11, !llvm.loop !6
 
-10:                                               ; preds = %7, %0
+11:                                               ; preds = %8, %0
   ret i32 0
 }
 
@@ -447,48 +448,49 @@ define dso_local noundef i32 @security_init() local_unnamed_addr #0 section ".in
   br label %18
 
 18:                                               ; preds = %13, %11
-  br i1 icmp ult (ptr @__start_early_lsm_info, ptr @__end_early_lsm_info), label %19, label %44
+  %19 = icmp ult ptr @__start_early_lsm_info, @__end_early_lsm_info
+  br i1 %19, label %20, label %45
 
-19:                                               ; preds = %41, %18
-  %20 = phi ptr [ %42, %41 ], [ @__start_early_lsm_info, %18 ]
-  %21 = load i1, ptr @debug, align 1
-  br i1 %21, label %22, label %34
+20:                                               ; preds = %42, %18
+  %21 = phi ptr [ %43, %42 ], [ @__start_early_lsm_info, %18 ]
+  %22 = load i1, ptr @debug, align 1
+  br i1 %22, label %23, label %35
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 24
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %30, label %27
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %21, align 8
+  %25 = getelementptr inbounds i8, ptr %21, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %31, label %28
 
-27:                                               ; preds = %22
-  %28 = load i32, ptr %25, align 4
-  %29 = icmp ne i32 %28, 0
-  br label %30
+28:                                               ; preds = %23
+  %29 = load i32, ptr %26, align 4
+  %30 = icmp ne i32 %29, 0
+  br label %31
 
-30:                                               ; preds = %27, %22
-  %31 = phi i1 [ %29, %27 ], [ false, %22 ]
-  %32 = select i1 %31, ptr @.str.36, ptr @.str.37
-  %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef %23, ptr noundef nonnull %32) #16
-  br label %34
+31:                                               ; preds = %28, %23
+  %32 = phi i1 [ %30, %28 ], [ false, %23 ]
+  %33 = select i1 %32, ptr @.str.36, ptr @.str.37
+  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef %24, ptr noundef nonnull %33) #16
+  br label %35
 
-34:                                               ; preds = %30, %19
-  %35 = getelementptr inbounds i8, ptr %20, i64 24
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %41, label %38
+35:                                               ; preds = %31, %20
+  %36 = getelementptr inbounds i8, ptr %21, i64 24
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %42, label %39
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %20, align 8
-  %40 = tail call fastcc i32 @lsm_append(ptr noundef %39)
-  br label %41
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %21, align 8
+  %41 = tail call fastcc i32 @lsm_append(ptr noundef %40)
+  br label %42
 
-41:                                               ; preds = %38, %34
-  %42 = getelementptr i8, ptr %20, i64 48
-  %43 = icmp ult ptr %42, @__end_early_lsm_info
-  br i1 %43, label %19, label %44, !llvm.loop !15
+42:                                               ; preds = %39, %35
+  %43 = getelementptr i8, ptr %21, i64 48
+  %44 = icmp ult ptr %43, @__end_early_lsm_info
+  br i1 %44, label %20, label %45, !llvm.loop !15
 
-44:                                               ; preds = %41, %18
+45:                                               ; preds = %42, %18
   tail call fastcc void @ordered_lsm_init() #15
   ret i32 0
 }
@@ -549,174 +551,177 @@ define internal fastcc noundef i32 @lsm_append(ptr noundef %0) unnamed_addr #3 a
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @ordered_lsm_init() unnamed_addr #0 section ".init.text" align 16 {
-  %1 = sdiv exact i64 sub (i64 ptrtoint (ptr @__end_lsm_info to i64), i64 ptrtoint (ptr @__start_lsm_info to i64)), 48
-  %2 = add nsw i64 %1, 1
-  %3 = icmp ugt i64 %2, 2305843009213693951
-  br i1 %3, label %7, label %4, !prof !16
+  %1 = ptrtoint ptr @__end_lsm_info to i64
+  %2 = ptrtoint ptr @__start_lsm_info to i64
+  %3 = sub i64 %1, %2
+  %4 = sdiv exact i64 %3, 48
+  %5 = add nsw i64 %4, 1
+  %6 = icmp ugt i64 %5, 2305843009213693951
+  br i1 %6, label %10, label %7, !prof !16
 
-4:                                                ; preds = %0
-  %5 = shl nuw nsw i64 %2, 3
-  %6 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %5, i32 noundef 3520) #18
-  br label %7
+7:                                                ; preds = %0
+  %8 = shl nuw nsw i64 %5, 3
+  %9 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %8, i32 noundef 3520) #18
+  br label %10
 
-7:                                                ; preds = %4, %0
-  %8 = phi ptr [ %6, %4 ], [ null, %0 ]
-  store ptr %8, ptr @ordered_lsms, align 8
-  %9 = load ptr, ptr @chosen_lsm_order, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %18, label %11
-
-11:                                               ; preds = %7
-  %12 = load ptr, ptr @chosen_major_lsm, align 8
+10:                                               ; preds = %7, %0
+  %11 = phi ptr [ %9, %7 ], [ null, %0 ]
+  store ptr %11, ptr @ordered_lsms, align 8
+  %12 = load ptr, ptr @chosen_lsm_order, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %16, label %14
+  br i1 %13, label %21, label %14
 
-14:                                               ; preds = %11
-  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.45, ptr noundef nonnull %12, ptr noundef nonnull %9) #16
+14:                                               ; preds = %10
+  %15 = load ptr, ptr @chosen_major_lsm, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %19, label %17
+
+17:                                               ; preds = %14
+  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.45, ptr noundef nonnull %15, ptr noundef nonnull %12) #16
   store ptr null, ptr @chosen_major_lsm, align 8
-  br label %16
-
-16:                                               ; preds = %14, %11
-  %17 = load ptr, ptr @chosen_lsm_order, align 8
-  tail call fastcc void @ordered_lsm_parse(ptr noundef %17, ptr noundef nonnull @.str.46) #15
   br label %19
 
-18:                                               ; preds = %7
+19:                                               ; preds = %17, %14
+  %20 = load ptr, ptr @chosen_lsm_order, align 8
+  tail call fastcc void @ordered_lsm_parse(ptr noundef %20, ptr noundef nonnull @.str.46) #15
+  br label %22
+
+21:                                               ; preds = %10
   tail call fastcc void @ordered_lsm_parse(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.47) #15
-  br label %19
+  br label %22
 
-19:                                               ; preds = %18, %16
-  %20 = load ptr, ptr @ordered_lsms, align 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %29, label %23
+22:                                               ; preds = %21, %19
+  %23 = load ptr, ptr @ordered_lsms, align 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %32, label %26
 
-23:                                               ; preds = %23, %19
-  %24 = phi ptr [ %27, %23 ], [ %21, %19 ]
-  %25 = phi ptr [ %26, %23 ], [ %20, %19 ]
-  tail call fastcc void @prepare_lsm(ptr noundef nonnull %24) #15
-  %26 = getelementptr i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %23, !llvm.loop !20
+26:                                               ; preds = %26, %22
+  %27 = phi ptr [ %30, %26 ], [ %24, %22 ]
+  %28 = phi ptr [ %29, %26 ], [ %23, %22 ]
+  tail call fastcc void @prepare_lsm(ptr noundef nonnull %27) #15
+  %29 = getelementptr i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %26, !llvm.loop !20
 
-29:                                               ; preds = %23, %19
+32:                                               ; preds = %26, %22
   tail call fastcc void @report_lsm_order() #15
-  %30 = load i1, ptr @debug, align 1
-  br i1 %30, label %31, label %34
+  %33 = load i1, ptr @debug, align 1
+  br i1 %33, label %34, label %37
 
-31:                                               ; preds = %29
-  %32 = load i32, ptr @blob_sizes.0, align 4
-  %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.48, i32 noundef %32) #16
-  br label %34
+34:                                               ; preds = %32
+  %35 = load i32, ptr @blob_sizes.0, align 4
+  %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.48, i32 noundef %35) #16
+  br label %37
 
-34:                                               ; preds = %31, %29
-  %35 = load i1, ptr @debug, align 1
-  br i1 %35, label %36, label %39
+37:                                               ; preds = %34, %32
+  %38 = load i1, ptr @debug, align 1
+  br i1 %38, label %39, label %42
 
-36:                                               ; preds = %34
-  %37 = load i32, ptr @blob_sizes.1, align 4
-  %38 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, i32 noundef %37) #16
-  br label %39
+39:                                               ; preds = %37
+  %40 = load i32, ptr @blob_sizes.1, align 4
+  %41 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, i32 noundef %40) #16
+  br label %42
 
-39:                                               ; preds = %36, %34
-  %40 = load i1, ptr @debug, align 1
-  br i1 %40, label %41, label %44
+42:                                               ; preds = %39, %37
+  %43 = load i1, ptr @debug, align 1
+  br i1 %43, label %44, label %47
 
-41:                                               ; preds = %39
-  %42 = load i32, ptr @blob_sizes.2, align 4
-  %43 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.50, i32 noundef %42) #16
-  br label %44
+44:                                               ; preds = %42
+  %45 = load i32, ptr @blob_sizes.2, align 4
+  %46 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.50, i32 noundef %45) #16
+  br label %47
 
-44:                                               ; preds = %41, %39
-  %45 = load i1, ptr @debug, align 1
-  br i1 %45, label %46, label %49
+47:                                               ; preds = %44, %42
+  %48 = load i1, ptr @debug, align 1
+  br i1 %48, label %49, label %52
 
-46:                                               ; preds = %44
-  %47 = load i32, ptr @blob_sizes.4, align 4
-  %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.51, i32 noundef %47) #16
-  br label %49
+49:                                               ; preds = %47
+  %50 = load i32, ptr @blob_sizes.4, align 4
+  %51 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.51, i32 noundef %50) #16
+  br label %52
 
-49:                                               ; preds = %46, %44
-  %50 = load i1, ptr @debug, align 1
-  br i1 %50, label %51, label %54
+52:                                               ; preds = %49, %47
+  %53 = load i1, ptr @debug, align 1
+  br i1 %53, label %54, label %57
 
-51:                                               ; preds = %49
-  %52 = load i32, ptr @blob_sizes.5, align 4
-  %53 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52, i32 noundef %52) #16
-  br label %54
+54:                                               ; preds = %52
+  %55 = load i32, ptr @blob_sizes.5, align 4
+  %56 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52, i32 noundef %55) #16
+  br label %57
 
-54:                                               ; preds = %51, %49
-  %55 = load i1, ptr @debug, align 1
-  br i1 %55, label %56, label %59
+57:                                               ; preds = %54, %52
+  %58 = load i1, ptr @debug, align 1
+  br i1 %58, label %59, label %62
 
-56:                                               ; preds = %54
-  %57 = load i32, ptr @blob_sizes.3, align 4
-  %58 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.53, i32 noundef %57) #16
-  br label %59
+59:                                               ; preds = %57
+  %60 = load i32, ptr @blob_sizes.3, align 4
+  %61 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.53, i32 noundef %60) #16
+  br label %62
 
-59:                                               ; preds = %56, %54
-  %60 = load i1, ptr @debug, align 1
-  br i1 %60, label %61, label %64
+62:                                               ; preds = %59, %57
+  %63 = load i1, ptr @debug, align 1
+  br i1 %63, label %64, label %67
 
-61:                                               ; preds = %59
-  %62 = load i32, ptr @blob_sizes.6, align 4
-  %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.54, i32 noundef %62) #16
-  br label %64
+64:                                               ; preds = %62
+  %65 = load i32, ptr @blob_sizes.6, align 4
+  %66 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.54, i32 noundef %65) #16
+  br label %67
 
-64:                                               ; preds = %61, %59
-  %65 = load i1, ptr @debug, align 1
-  br i1 %65, label %66, label %69
+67:                                               ; preds = %64, %62
+  %68 = load i1, ptr @debug, align 1
+  br i1 %68, label %69, label %72
 
-66:                                               ; preds = %64
-  %67 = load i32, ptr @blob_sizes.7, align 4
-  %68 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55, i32 noundef %67) #16
-  br label %69
+69:                                               ; preds = %67
+  %70 = load i32, ptr @blob_sizes.7, align 4
+  %71 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55, i32 noundef %70) #16
+  br label %72
 
-69:                                               ; preds = %66, %64
-  %70 = load i32, ptr @blob_sizes.1, align 4
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %74, label %72
+72:                                               ; preds = %69, %67
+  %73 = load i32, ptr @blob_sizes.1, align 4
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %77, label %75
 
-72:                                               ; preds = %69
-  %73 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.56, i32 noundef %70, i32 noundef 0, i32 noundef 262144, ptr noundef null) #17
-  store ptr %73, ptr @lsm_file_cache, align 8
-  br label %74
+75:                                               ; preds = %72
+  %76 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.56, i32 noundef %73, i32 noundef 0, i32 noundef 262144, ptr noundef null) #17
+  store ptr %76, ptr @lsm_file_cache, align 8
+  br label %77
 
-74:                                               ; preds = %72, %69
-  %75 = load i32, ptr @blob_sizes.2, align 4
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %79, label %77
+77:                                               ; preds = %75, %72
+  %78 = load i32, ptr @blob_sizes.2, align 4
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %82, label %80
 
-77:                                               ; preds = %74
-  %78 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.57, i32 noundef %75, i32 noundef 0, i32 noundef 262144, ptr noundef null) #17
-  store ptr %78, ptr @lsm_inode_cache, align 8
-  br label %79
+80:                                               ; preds = %77
+  %81 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.57, i32 noundef %78, i32 noundef 0, i32 noundef 262144, ptr noundef null) #17
+  store ptr %81, ptr @lsm_inode_cache, align 8
+  br label %82
 
-79:                                               ; preds = %77, %74
-  %80 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !21
-  %81 = inttoptr i64 %80 to ptr
-  %82 = getelementptr inbounds i8, ptr %81, i64 1784
-  %83 = load ptr, ptr %82, align 8
-  tail call fastcc void @lsm_early_cred(ptr noundef %83) #15
-  tail call fastcc void @lsm_early_task(ptr noundef %81) #15
-  %84 = load ptr, ptr @ordered_lsms, align 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %93, label %87
+82:                                               ; preds = %80, %77
+  %83 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !21
+  %84 = inttoptr i64 %83 to ptr
+  %85 = getelementptr inbounds i8, ptr %84, i64 1784
+  %86 = load ptr, ptr %85, align 8
+  tail call fastcc void @lsm_early_cred(ptr noundef %86) #15
+  tail call fastcc void @lsm_early_task(ptr noundef %84) #15
+  %87 = load ptr, ptr @ordered_lsms, align 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %96, label %90
 
-87:                                               ; preds = %87, %79
-  %88 = phi ptr [ %91, %87 ], [ %85, %79 ]
-  %89 = phi ptr [ %90, %87 ], [ %84, %79 ]
-  tail call fastcc void @initialize_lsm(ptr noundef nonnull %88) #15
-  %90 = getelementptr i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %93, label %87, !llvm.loop !22
+90:                                               ; preds = %90, %82
+  %91 = phi ptr [ %94, %90 ], [ %88, %82 ]
+  %92 = phi ptr [ %93, %90 ], [ %87, %82 ]
+  tail call fastcc void @initialize_lsm(ptr noundef nonnull %91) #15
+  %93 = getelementptr i8, ptr %92, i64 8
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %96, label %90, !llvm.loop !22
 
-93:                                               ; preds = %87, %79
-  %94 = load ptr, ptr @ordered_lsms, align 8
-  tail call void @kfree(ptr noundef %94) #17
+96:                                               ; preds = %90, %82
+  %97 = load ptr, ptr @ordered_lsms, align 8
+  tail call void @kfree(ptr noundef %97) #17
   ret void
 }
 
@@ -980,54 +985,11 @@ define dso_local i32 @security_binder_set_context_mgr(ptr noundef %0) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_binder_transaction(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 1), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !31
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_binder_transfer_binder(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 2), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !32
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_binder_transfer_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 1
   br label %4
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 3), %3 ], [ %6, %8 ]
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -1035,9 +997,9 @@ define dso_local i32 @security_binder_transfer_file(ptr noundef %0, ptr noundef 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !33
+  br i1 %12, label %4, label %13, !llvm.loop !31
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -1045,55 +1007,35 @@ define dso_local i32 @security_binder_transfer_file(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_ptrace_access_check(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
+define dso_local i32 @security_binder_transfer_binder(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 2
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 4), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !34
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !32
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_ptrace_traceme(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 5), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !35
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_capget(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_binder_transfer_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 3
   br label %5
 
-5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 6), %4 ], [ %7, %9 ]
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -1101,9 +1043,9 @@ define dso_local i32 @security_capget(ptr noundef %0, ptr noundef %1, ptr nounde
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #17
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !36
+  br i1 %13, label %5, label %14, !llvm.loop !33
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -1111,11 +1053,58 @@ define dso_local i32 @security_capget(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_capset(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_ptrace_access_check(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 4
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !34
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_ptrace_traceme(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 5
+  br label %3
+
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !35
+
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_capget(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
+  %5 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 6
   br label %6
 
-6:                                                ; preds = %10, %5
-  %7 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 7), %5 ], [ %8, %10 ]
+6:                                                ; preds = %10, %4
+  %7 = phi ptr [ %5, %4 ], [ %8, %10 ]
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %10
@@ -1123,9 +1112,9 @@ define dso_local i32 @security_capset(ptr noundef %0, ptr noundef %1, ptr nounde
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 %12(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #17
+  %13 = tail call i32 %12(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #17
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %6, label %15, !llvm.loop !37
+  br i1 %14, label %6, label %15, !llvm.loop !36
 
 15:                                               ; preds = %10, %6
   %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
@@ -1133,99 +1122,81 @@ define dso_local i32 @security_capset(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_capset(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 align 16 {
+  %6 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 7
+  br label %7
+
+7:                                                ; preds = %11, %5
+  %8 = phi ptr [ %6, %5 ], [ %9, %11 ]
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %16, label %11
+
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call i32 %13(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #17
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %7, label %16, !llvm.loop !37
+
+16:                                               ; preds = %11, %7
+  %17 = phi i32 [ %14, %11 ], [ 0, %7 ]
+  ret i32 %17
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_capable(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
-  br label %5
+  %5 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 8
+  br label %6
 
-5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 8), %4 ], [ %7, %9 ]
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %14, label %9
+6:                                                ; preds = %10, %4
+  %7 = phi ptr [ %5, %4 ], [ %8, %10 ]
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %15, label %10
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #17
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !38
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i32 %12(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #17
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %6, label %15, !llvm.loop !38
 
-14:                                               ; preds = %9, %5
-  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
-  ret i32 %15
+15:                                               ; preds = %10, %6
+  %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_quotactl(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
-  br label %5
+  %5 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 9
+  br label %6
 
-5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 9), %4 ], [ %7, %9 ]
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %14, label %9
+6:                                                ; preds = %10, %4
+  %7 = phi ptr [ %5, %4 ], [ %8, %10 ]
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %15, label %10
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #17
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !39
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i32 %12(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #17
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %6, label %15, !llvm.loop !39
 
-14:                                               ; preds = %9, %5
-  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
-  ret i32 %15
+15:                                               ; preds = %10, %6
+  %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_quota_on(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 10), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !40
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_syslog(i32 noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 11), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(i32 noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !41
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_settime64(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 10
   br label %3
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 12), %2 ], [ %5, %7 ]
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1233,9 +1204,9 @@ define dso_local i32 @security_settime64(ptr noundef %0, ptr noundef %1) local_u
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = tail call i32 %9(ptr noundef %0) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !42
+  br i1 %11, label %3, label %12, !llvm.loop !40
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1243,11 +1214,12 @@ define dso_local i32 @security_settime64(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_vm_enough_memory_mm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_syslog(i32 noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 11
   br label %3
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 13), %2 ], [ %5, %7 ]
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1255,14 +1227,60 @@ define dso_local i32 @security_vm_enough_memory_mm(ptr noundef %0, i64 noundef %
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i64 noundef %1) #17
-  %11 = icmp slt i32 %10, 1
-  br i1 %11, label %12, label %3, !llvm.loop !43
+  %10 = tail call i32 %9(i32 noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !41
 
 12:                                               ; preds = %7, %3
-  %13 = phi i32 [ 1, %3 ], [ 0, %7 ]
-  %14 = tail call i32 @__vm_enough_memory(ptr noundef %0, i64 noundef %1, i32 noundef %13) #17
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_settime64(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 12
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !42
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
   ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_vm_enough_memory_mm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 13
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i64 noundef %1) #17
+  %12 = icmp slt i32 %11, 1
+  br i1 %12, label %13, label %4, !llvm.loop !43
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ 1, %4 ], [ 0, %8 ]
+  %15 = tail call i32 @__vm_enough_memory(ptr noundef %0, i64 noundef %1, i32 noundef %14) #17
+  ret i32 %15
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1270,32 +1288,11 @@ declare dso_local i32 @__vm_enough_memory(ptr noundef, i64 noundef, i32 noundef)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_bprm_creds_for_exec(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 14), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !44
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_bprm_creds_from_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 14
   br label %3
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 15), %2 ], [ %5, %7 ]
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -1303,9 +1300,9 @@ define dso_local i32 @security_bprm_creds_from_file(ptr noundef %0, ptr noundef 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = tail call i32 %9(ptr noundef %0) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !45
+  br i1 %11, label %3, label %12, !llvm.loop !44
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1313,138 +1310,167 @@ define dso_local i32 @security_bprm_creds_from_file(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_bprm_creds_from_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 15
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !45
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_bprm_check(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 16
+  br label %3
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 16), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !46
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !46
 
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_bprm_committing_creds(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 17), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 17
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !47
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !47
 
-10:                                               ; preds = %4, %1
+11:                                               ; preds = %5, %1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_bprm_committed_creds(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 18), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 18
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !48
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !48
 
-10:                                               ; preds = %4, %1
+11:                                               ; preds = %5, %1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_fs_context_submount(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 19
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 19), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !49
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !49
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_fs_context_dup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 20
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 20), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !50
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !50
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_fs_context_parse_param(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 21), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %16, label %5
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 21
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %17, label %6
 
-5:                                                ; preds = %12, %2
-  %6 = phi ptr [ %14, %12 ], [ %3, %2 ]
-  %7 = phi i32 [ %13, %12 ], [ -519, %2 ]
-  %8 = getelementptr inbounds i8, ptr %6, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  switch i32 %10, label %16 [
-    i32 0, label %12
-    i32 -519, label %11
+6:                                                ; preds = %13, %2
+  %7 = phi ptr [ %15, %13 ], [ %4, %2 ]
+  %8 = phi i32 [ %14, %13 ], [ -519, %2 ]
+  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  switch i32 %11, label %17 [
+    i32 0, label %13
+    i32 -519, label %12
   ]
 
-11:                                               ; preds = %5
-  br label %12
+12:                                               ; preds = %6
+  br label %13
 
-12:                                               ; preds = %11, %5
-  %13 = phi i32 [ %10, %5 ], [ %7, %11 ]
-  %14 = load ptr, ptr %6, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %5, !llvm.loop !51
+13:                                               ; preds = %12, %6
+  %14 = phi i32 [ %11, %6 ], [ %8, %12 ]
+  %15 = load ptr, ptr %7, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %6, !llvm.loop !51
 
-16:                                               ; preds = %12, %5, %2
-  %17 = phi i32 [ -519, %2 ], [ %10, %5 ], [ %13, %12 ]
-  ret i32 %17
+17:                                               ; preds = %13, %6, %2
+  %18 = phi i32 [ -519, %2 ], [ %11, %6 ], [ %14, %13 ]
+  ret i32 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1470,74 +1496,77 @@ define dso_local i32 @security_sb_alloc(ptr noundef %0) local_unnamed_addr #3 al
 12:                                               ; preds = %6, %4
   %13 = phi i32 [ 0, %4 ], [ %11, %6 ]
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %28, !prof !9
+  %15 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 22
+  br i1 %14, label %16, label %29, !prof !9
 
-15:                                               ; preds = %19, %12
-  %16 = phi ptr [ %17, %19 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 22), %12 ]
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %24, label %19
+16:                                               ; preds = %20, %12
+  %17 = phi ptr [ %18, %20 ], [ %15, %12 ]
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %25, label %20
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %0) #17
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %15, label %24, !llvm.loop !52
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call i32 %22(ptr noundef %0) #17
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %16, label %25, !llvm.loop !52
 
-24:                                               ; preds = %19, %15
-  %25 = phi i32 [ %22, %19 ], [ 0, %15 ]
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %28, label %27, !prof !9
+25:                                               ; preds = %20, %16
+  %26 = phi i32 [ %23, %20 ], [ 0, %16 ]
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %29, label %28, !prof !9
 
-27:                                               ; preds = %24
+28:                                               ; preds = %25
   tail call void @security_sb_free(ptr noundef %0)
-  br label %28
+  br label %29
 
-28:                                               ; preds = %27, %24, %12
-  %29 = phi i32 [ %13, %12 ], [ %25, %27 ], [ %25, %24 ]
-  ret i32 %29
+29:                                               ; preds = %28, %25, %12
+  %30 = phi i32 [ %13, %12 ], [ %26, %28 ], [ %26, %25 ]
+  ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sb_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 24), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 24
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !53
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !53
 
-10:                                               ; preds = %4, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 160
-  %12 = load ptr, ptr %11, align 32
-  tail call void @kfree(ptr noundef %12) #17
-  store ptr null, ptr %11, align 32
+11:                                               ; preds = %5, %1
+  %12 = getelementptr inbounds i8, ptr %0, i64 160
+  %13 = load ptr, ptr %12, align 32
+  tail call void @kfree(ptr noundef %13) #17
+  store ptr null, ptr %12, align 32
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sb_delete(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 23), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 23
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !54
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !54
 
-10:                                               ; preds = %4, %1
+11:                                               ; preds = %5, %1
   ret void
 }
 
@@ -1545,305 +1574,39 @@ define dso_local void @security_sb_delete(ptr noundef %0) local_unnamed_addr #3 
 define dso_local void @security_free_mnt_opts(ptr nocapture noundef %0) #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %15, label %4
+  br i1 %3, label %16, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 25), align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %14, label %7
+  %5 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 25
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %15, label %8
 
-7:                                                ; preds = %7, %4
-  %8 = phi ptr [ %12, %7 ], [ %5, %4 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %0, align 8
-  tail call void %10(ptr noundef %11) #17
-  %12 = load ptr, ptr %8, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %7, !llvm.loop !55
+8:                                                ; preds = %8, %4
+  %9 = phi ptr [ %13, %8 ], [ %6, %4 ]
+  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %0, align 8
+  tail call void %11(ptr noundef %12) #17
+  %13 = load ptr, ptr %9, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %8, !llvm.loop !55
 
-14:                                               ; preds = %7, %4
+15:                                               ; preds = %8, %4
   store ptr null, ptr %0, align 8
-  br label %15
+  br label %16
 
-15:                                               ; preds = %14, %1
+16:                                               ; preds = %15, %1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_sb_eat_lsm_opts(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 26), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !56
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_mnt_opts_compat(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 27), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !57
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_remount(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 28), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !58
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_kern_mount(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 29), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !59
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_show_options(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 30), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !60
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_statfs(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 31), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !61
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_mount(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #3 align 16 {
-  br label %6
-
-6:                                                ; preds = %10, %5
-  %7 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 32), %5 ], [ %8, %10 ]
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %15, label %10
-
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 %12(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #17
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %6, label %15, !llvm.loop !62
-
-15:                                               ; preds = %10, %6
-  %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
-  ret i32 %16
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_umount(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 33), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !63
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_pivotroot(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 34), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !64
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_set_mnt_opts(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #3 align 16 {
-  %5 = icmp eq ptr %1, null
-  %6 = select i1 %5, i32 0, i32 -95
-  %7 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 35), align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %18, label %12
-
-9:                                                ; preds = %12
-  %10 = load ptr, ptr %13, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %18, label %12, !llvm.loop !65
-
-12:                                               ; preds = %9, %4
-  %13 = phi ptr [ %10, %9 ], [ %7, %4 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #17
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %9, label %18, !llvm.loop !65
-
-18:                                               ; preds = %12, %9, %4
-  %19 = phi i32 [ %6, %4 ], [ 0, %9 ], [ %16, %12 ]
-  ret i32 %19
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_clone_mnt_opts(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #3 align 16 {
-  br label %5
-
-5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 36), %4 ], [ %7, %9 ]
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %14, label %9
-
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #17
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !66
-
-14:                                               ; preds = %9, %5
-  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
-  ret i32 %15
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_move_mount(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 37), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !67
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_path_notify(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 26
   br label %4
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 40), %3 ], [ %6, %8 ]
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -1851,13 +1614,293 @@ define dso_local i32 @security_path_notify(ptr noundef %0, i64 noundef %1, i32 n
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, i64 noundef %1, i32 noundef %2) #17
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !68
+  br i1 %12, label %4, label %13, !llvm.loop !56
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
   ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_sb_mnt_opts_compat(ptr noundef %0, ptr noundef %1) #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 27
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !57
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_sb_remount(ptr noundef %0, ptr noundef %1) #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 28
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !58
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_sb_kern_mount(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 29
+  br label %3
+
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !59
+
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_sb_show_options(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 30
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !60
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_sb_statfs(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 31
+  br label %3
+
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !61
+
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_sb_mount(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #3 align 16 {
+  %6 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 32
+  br label %7
+
+7:                                                ; preds = %11, %5
+  %8 = phi ptr [ %6, %5 ], [ %9, %11 ]
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %16, label %11
+
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call i32 %13(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #17
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %7, label %16, !llvm.loop !62
+
+16:                                               ; preds = %11, %7
+  %17 = phi i32 [ %14, %11 ], [ 0, %7 ]
+  ret i32 %17
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_sb_umount(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 33
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !63
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_sb_pivotroot(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 34
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !64
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_sb_set_mnt_opts(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #3 align 16 {
+  %5 = icmp eq ptr %1, null
+  %6 = select i1 %5, i32 0, i32 -95
+  %7 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 35
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %19, label %13
+
+10:                                               ; preds = %13
+  %11 = load ptr, ptr %14, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %19, label %13, !llvm.loop !65
+
+13:                                               ; preds = %10, %4
+  %14 = phi ptr [ %11, %10 ], [ %8, %4 ]
+  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #17
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %10, label %19, !llvm.loop !65
+
+19:                                               ; preds = %13, %10, %4
+  %20 = phi i32 [ %6, %4 ], [ 0, %10 ], [ %17, %13 ]
+  ret i32 %20
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_sb_clone_mnt_opts(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #3 align 16 {
+  %5 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 36
+  br label %6
+
+6:                                                ; preds = %10, %4
+  %7 = phi ptr [ %5, %4 ], [ %8, %10 ]
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %15, label %10
+
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i32 %12(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #17
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %6, label %15, !llvm.loop !66
+
+15:                                               ; preds = %10, %6
+  %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
+  ret i32 %16
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_move_mount(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 37
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !67
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_path_notify(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 40
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, i64 noundef %1, i32 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !68
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1882,62 +1925,64 @@ define dso_local i32 @security_inode_alloc(ptr noundef %0) local_unnamed_addr #3
 11:                                               ; preds = %6, %4
   %12 = phi i32 [ 0, %4 ], [ %10, %6 ]
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %27, !prof !9
+  %14 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 41
+  br i1 %13, label %15, label %28, !prof !9
 
-14:                                               ; preds = %18, %11
-  %15 = phi ptr [ %16, %18 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 41), %11 ]
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %23, label %18
+15:                                               ; preds = %19, %11
+  %16 = phi ptr [ %17, %19 ], [ %14, %11 ]
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %24, label %19
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20(ptr noundef %0) #17
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %14, label %23, !llvm.loop !69
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds i8, ptr %17, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 %21(ptr noundef %0) #17
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %15, label %24, !llvm.loop !69
 
-23:                                               ; preds = %18, %14
-  %24 = phi i32 [ %21, %18 ], [ 0, %14 ]
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %27, label %26, !prof !9
+24:                                               ; preds = %19, %15
+  %25 = phi i32 [ %22, %19 ], [ 0, %15 ]
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %28, label %27, !prof !9
 
-26:                                               ; preds = %23
+27:                                               ; preds = %24
   tail call void @security_inode_free(ptr noundef %0)
-  br label %27
+  br label %28
 
-27:                                               ; preds = %26, %23, %11
-  %28 = phi i32 [ %12, %11 ], [ %24, %26 ], [ %24, %23 ]
-  ret i32 %28
+28:                                               ; preds = %27, %24, %11
+  %29 = phi i32 [ %12, %11 ], [ %25, %27 ], [ %25, %24 ]
+  ret i32 %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_inode_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
   tail call void @integrity_inode_free(ptr noundef %0) #17
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 42), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 42
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !70
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !70
 
-10:                                               ; preds = %4, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %15, label %14
+11:                                               ; preds = %5, %1
+  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %16, label %15
 
-14:                                               ; preds = %10
-  tail call void @call_rcu(ptr noundef nonnull %12, ptr noundef nonnull @inode_free_by_rcu) #17
-  br label %15
+15:                                               ; preds = %11
+  tail call void @call_rcu(ptr noundef nonnull %13, ptr noundef nonnull @inode_free_by_rcu) #17
+  br label %16
 
-15:                                               ; preds = %14, %10
+16:                                               ; preds = %15, %11
   ret void
 }
 
@@ -1956,10 +2001,34 @@ define internal void @inode_free_by_rcu(ptr noundef %0) #3 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_dentry_init_security(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 align 16 {
+  %7 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 38
+  br label %8
+
+8:                                                ; preds = %12, %6
+  %9 = phi ptr [ %7, %6 ], [ %10, %12 ]
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %17, label %12
+
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call i32 %14(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #17
+  %16 = icmp eq i32 %15, -95
+  br i1 %16, label %8, label %17, !llvm.loop !71
+
+17:                                               ; preds = %12, %8
+  %18 = phi i32 [ %15, %12 ], [ -95, %8 ]
+  ret i32 %18
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_dentry_create_files_as(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
+  %6 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 39
   br label %7
 
-7:                                                ; preds = %11, %6
-  %8 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 38), %6 ], [ %9, %11 ]
+7:                                                ; preds = %11, %5
+  %8 = phi ptr [ %6, %5 ], [ %9, %11 ]
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %16, label %11
@@ -1967,35 +2036,13 @@ define dso_local i32 @security_dentry_init_security(ptr noundef %0, i32 noundef 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %9, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #17
-  %15 = icmp eq i32 %14, -95
-  br i1 %15, label %7, label %16, !llvm.loop !71
+  %14 = tail call i32 %13(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #17
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %7, label %16, !llvm.loop !72
 
 16:                                               ; preds = %11, %7
-  %17 = phi i32 [ %14, %11 ], [ -95, %7 ]
+  %17 = phi i32 [ %14, %11 ], [ 0, %7 ]
   ret i32 %17
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_dentry_create_files_as(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
-  br label %6
-
-6:                                                ; preds = %10, %5
-  %7 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 39), %5 ], [ %8, %10 ]
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %15, label %10
-
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 %12(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #17
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %6, label %15, !llvm.loop !72
-
-15:                                               ; preds = %10, %6
-  %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
-  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2007,12 +2054,12 @@ define dso_local i32 @security_inode_init_security(ptr noundef %0, ptr noundef %
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 512
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %61, !prof !9
+  br i1 %10, label %11, label %62, !prof !9
 
 11:                                               ; preds = %5
   %12 = load i32, ptr @blob_sizes.7, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %61, label %14
+  br i1 %13, label %62, label %14
 
 14:                                               ; preds = %11
   %15 = icmp eq ptr %3, null
@@ -2033,90 +2080,92 @@ define dso_local i32 @security_inode_init_security(ptr noundef %0, ptr noundef %
 24:                                               ; preds = %21, %16
   %25 = phi ptr [ %23, %21 ], [ null, %16 ]
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %61, label %27
+  br i1 %26, label %62, label %27
 
 27:                                               ; preds = %24, %14
   %28 = phi ptr [ %25, %24 ], [ null, %14 ]
-  %29 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 43), align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %39, label %31
+  %29 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 43
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %40, label %32
 
-31:                                               ; preds = %36, %27
-  %32 = phi ptr [ %37, %36 ], [ %29, %27 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
-  %34 = load ptr, ptr %33, align 8
-  %35 = call i32 %34(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %28, ptr noundef nonnull %6) #17
-  switch i32 %35, label %45 [
-    i32 -95, label %36
-    i32 0, label %36
+32:                                               ; preds = %37, %27
+  %33 = phi ptr [ %38, %37 ], [ %30, %27 ]
+  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %36 = call i32 %35(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %28, ptr noundef nonnull %6) #17
+  switch i32 %36, label %46 [
+    i32 -95, label %37
+    i32 0, label %37
   ]
 
-36:                                               ; preds = %31, %31
-  %37 = load ptr, ptr %32, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %31, !llvm.loop !73
+37:                                               ; preds = %32, %32
+  %38 = load ptr, ptr %33, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %32, !llvm.loop !73
 
-39:                                               ; preds = %36, %27
-  %40 = phi i32 [ -95, %27 ], [ %35, %36 ]
-  %41 = load i32, ptr %6, align 4
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %45, label %43
+40:                                               ; preds = %37, %27
+  %41 = phi i32 [ -95, %27 ], [ %36, %37 ]
+  %42 = load i32, ptr %6, align 4
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %46, label %44
 
-43:                                               ; preds = %39
-  %44 = call i32 %3(ptr noundef %0, ptr noundef %28, ptr noundef %4) #17
-  br label %45
+44:                                               ; preds = %40
+  %45 = call i32 %3(ptr noundef %0, ptr noundef %28, ptr noundef %4) #17
+  br label %46
 
-45:                                               ; preds = %43, %39, %31
-  %46 = phi i32 [ %44, %43 ], [ %40, %39 ], [ %35, %31 ]
-  %47 = load i32, ptr %6, align 4
-  %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %49, label %58
+46:                                               ; preds = %44, %40, %32
+  %47 = phi i32 [ %45, %44 ], [ %41, %40 ], [ %36, %32 ]
+  %48 = load i32, ptr %6, align 4
+  %49 = icmp sgt i32 %48, 0
+  br i1 %49, label %50, label %59
 
-49:                                               ; preds = %49, %45
-  %50 = phi i32 [ %56, %49 ], [ %47, %45 ]
-  %51 = add nsw i32 %50, -1
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr %struct.xattr, ptr %28, i64 %52, i32 1
-  %54 = load ptr, ptr %53, align 8
-  call void @kfree(ptr noundef %54) #17
-  %55 = load i32, ptr %6, align 4
-  %56 = add i32 %55, -1
-  store i32 %56, ptr %6, align 4
-  %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %49, label %58, !llvm.loop !74
+50:                                               ; preds = %50, %46
+  %51 = phi i32 [ %57, %50 ], [ %48, %46 ]
+  %52 = add nsw i32 %51, -1
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr %struct.xattr, ptr %28, i64 %53, i32 1
+  %55 = load ptr, ptr %54, align 8
+  call void @kfree(ptr noundef %55) #17
+  %56 = load i32, ptr %6, align 4
+  %57 = add i32 %56, -1
+  store i32 %57, ptr %6, align 4
+  %58 = icmp sgt i32 %57, 0
+  br i1 %58, label %50, label %59, !llvm.loop !74
 
-58:                                               ; preds = %49, %45
+59:                                               ; preds = %50, %46
   call void @kfree(ptr noundef %28) #17
-  %59 = icmp eq i32 %46, -95
-  %60 = select i1 %59, i32 0, i32 %46
-  br label %61
+  %60 = icmp eq i32 %47, -95
+  %61 = select i1 %60, i32 0, i32 %47
+  br label %62
 
-61:                                               ; preds = %58, %24, %11, %5
-  %62 = phi i32 [ %60, %58 ], [ 0, %5 ], [ 0, %11 ], [ -12, %24 ]
+62:                                               ; preds = %59, %24, %11, %5
+  %63 = phi i32 [ %61, %59 ], [ 0, %5 ], [ 0, %11 ], [ -12, %24 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  ret i32 %62
+  ret i32 %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_inode_init_security_anon(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
-  br label %4
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 44
+  br label %5
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 44), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !75
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !75
 
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2125,24 +2174,25 @@ define dso_local i32 @security_inode_create(ptr noundef %0, ptr noundef %1, i16 
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %17, !prof !9
+  %8 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 45
+  br i1 %7, label %9, label %18, !prof !9
 
-8:                                                ; preds = %12, %3
-  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 45), %3 ]
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %17, label %12
+9:                                                ; preds = %13, %3
+  %10 = phi ptr [ %11, %13 ], [ %8, %3 ]
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %18, label %13
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #17
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %8, label %17, !llvm.loop !76
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #17
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %9, label %18, !llvm.loop !76
 
-17:                                               ; preds = %12, %8, %3
-  %18 = phi i32 [ 0, %3 ], [ %15, %12 ], [ 0, %8 ]
-  ret i32 %18
+18:                                               ; preds = %13, %9, %3
+  %19 = phi i32 [ 0, %3 ], [ %16, %13 ], [ 0, %9 ]
+  ret i32 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2153,24 +2203,25 @@ define dso_local i32 @security_inode_link(ptr noundef %0, ptr noundef %1, ptr no
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %19, !prof !9
+  %10 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 46
+  br i1 %9, label %11, label %20, !prof !9
 
-10:                                               ; preds = %14, %3
-  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 46), %3 ]
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %19, label %14
+11:                                               ; preds = %15, %3
+  %12 = phi ptr [ %13, %15 ], [ %10, %3 ]
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %20, label %15
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %10, label %19, !llvm.loop !77
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 %17(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %11, label %20, !llvm.loop !77
 
-19:                                               ; preds = %14, %10, %3
-  %20 = phi i32 [ 0, %3 ], [ %17, %14 ], [ 0, %10 ]
-  ret i32 %20
+20:                                               ; preds = %15, %11, %3
+  %21 = phi i32 [ 0, %3 ], [ %18, %15 ], [ 0, %11 ]
+  ret i32 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2181,24 +2232,25 @@ define dso_local i32 @security_inode_unlink(ptr noundef %0, ptr noundef %1) loca
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 512
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %18, !prof !9
+  %9 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 47
+  br i1 %8, label %10, label %19, !prof !9
 
-9:                                                ; preds = %13, %2
-  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 47), %2 ]
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %18, label %13
+10:                                               ; preds = %14, %2
+  %11 = phi ptr [ %12, %14 ], [ %9, %2 ]
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %19, label %14
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1) #17
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %9, label %18, !llvm.loop !78
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #17
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %10, label %19, !llvm.loop !78
 
-18:                                               ; preds = %13, %9, %2
-  %19 = phi i32 [ 0, %2 ], [ %16, %13 ], [ 0, %9 ]
-  ret i32 %19
+19:                                               ; preds = %14, %10, %2
+  %20 = phi i32 [ 0, %2 ], [ %17, %14 ], [ 0, %10 ]
+  ret i32 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2207,24 +2259,25 @@ define dso_local i32 @security_inode_symlink(ptr noundef %0, ptr noundef %1, ptr
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %17, !prof !9
+  %8 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 48
+  br i1 %7, label %9, label %18, !prof !9
 
-8:                                                ; preds = %12, %3
-  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 48), %3 ]
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %17, label %12
+9:                                                ; preds = %13, %3
+  %10 = phi ptr [ %11, %13 ], [ %8, %3 ]
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %18, label %13
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %8, label %17, !llvm.loop !79
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %9, label %18, !llvm.loop !79
 
-17:                                               ; preds = %12, %8, %3
-  %18 = phi i32 [ 0, %3 ], [ %15, %12 ], [ 0, %8 ]
-  ret i32 %18
+18:                                               ; preds = %13, %9, %3
+  %19 = phi i32 [ 0, %3 ], [ %16, %13 ], [ 0, %9 ]
+  ret i32 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2233,24 +2286,25 @@ define dso_local i32 @security_inode_mkdir(ptr noundef %0, ptr noundef %1, i16 n
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %17, !prof !9
+  %8 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 49
+  br i1 %7, label %9, label %18, !prof !9
 
-8:                                                ; preds = %12, %3
-  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 49), %3 ]
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %17, label %12
+9:                                                ; preds = %13, %3
+  %10 = phi ptr [ %11, %13 ], [ %8, %3 ]
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %18, label %13
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #17
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %8, label %17, !llvm.loop !80
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #17
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %9, label %18, !llvm.loop !80
 
-17:                                               ; preds = %12, %8, %3
-  %18 = phi i32 [ 0, %3 ], [ %15, %12 ], [ 0, %8 ]
-  ret i32 %18
+18:                                               ; preds = %13, %9, %3
+  %19 = phi i32 [ 0, %3 ], [ %16, %13 ], [ 0, %9 ]
+  ret i32 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2261,24 +2315,25 @@ define dso_local i32 @security_inode_rmdir(ptr noundef %0, ptr noundef %1) local
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 512
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %18, !prof !9
+  %9 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 50
+  br i1 %8, label %10, label %19, !prof !9
 
-9:                                                ; preds = %13, %2
-  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 50), %2 ]
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %18, label %13
+10:                                               ; preds = %14, %2
+  %11 = phi ptr [ %12, %14 ], [ %9, %2 ]
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %19, label %14
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1) #17
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %9, label %18, !llvm.loop !81
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #17
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %10, label %19, !llvm.loop !81
 
-18:                                               ; preds = %13, %9, %2
-  %19 = phi i32 [ 0, %2 ], [ %16, %13 ], [ 0, %9 ]
-  ret i32 %19
+19:                                               ; preds = %14, %10, %2
+  %20 = phi i32 [ 0, %2 ], [ %17, %14 ], [ 0, %10 ]
+  ret i32 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2287,24 +2342,25 @@ define dso_local i32 @security_inode_mknod(ptr noundef %0, ptr noundef %1, i16 n
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 512
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %18, !prof !9
+  %9 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 51
+  br i1 %8, label %10, label %19, !prof !9
 
-9:                                                ; preds = %13, %4
-  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 51), %4 ]
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %18, label %13
+10:                                               ; preds = %14, %4
+  %11 = phi ptr [ %12, %14 ], [ %9, %4 ]
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %19, label %14
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) #17
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %9, label %18, !llvm.loop !82
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) #17
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %10, label %19, !llvm.loop !82
 
-18:                                               ; preds = %13, %9, %4
-  %19 = phi i32 [ 0, %4 ], [ %16, %13 ], [ 0, %9 ]
-  ret i32 %19
+19:                                               ; preds = %14, %10, %4
+  %20 = phi i32 [ 0, %4 ], [ %17, %14 ], [ 0, %10 ]
+  ret i32 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2315,7 +2371,7 @@ define dso_local i32 @security_inode_rename(ptr noundef %0, ptr noundef %1, ptr 
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 512
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %48, !prof !9
+  br i1 %11, label %12, label %50, !prof !9
 
 12:                                               ; preds = %5
   %13 = load i32, ptr %3, align 8
@@ -2330,50 +2386,52 @@ define dso_local i32 @security_inode_rename(ptr noundef %0, ptr noundef %1, ptr 
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 512
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %48, !prof !9
+  br i1 %22, label %23, label %50, !prof !9
 
 23:                                               ; preds = %16, %12
   %24 = and i32 %4, 2
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %38, label %26
+  %26 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 52
+  br i1 %25, label %39, label %27
 
-26:                                               ; preds = %30, %23
-  %27 = phi ptr [ %28, %30 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 52), %23 ]
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %35, label %30
+27:                                               ; preds = %31, %23
+  %28 = phi ptr [ %29, %31 ], [ %26, %23 ]
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %36, label %31
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %28, i64 24
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 %32(ptr noundef %2, ptr noundef %3, ptr noundef %0, ptr noundef %1) #17
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %26, label %35, !llvm.loop !83
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %29, i64 24
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call i32 %33(ptr noundef %2, ptr noundef %3, ptr noundef %0, ptr noundef %1) #17
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %27, label %36, !llvm.loop !83
 
-35:                                               ; preds = %30, %26
-  %36 = phi i32 [ %33, %30 ], [ 0, %26 ]
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %48
+36:                                               ; preds = %31, %27
+  %37 = phi i32 [ %34, %31 ], [ 0, %27 ]
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %50
 
-38:                                               ; preds = %35, %23
-  br label %39
+39:                                               ; preds = %36, %23
+  %40 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 52
+  br label %41
 
-39:                                               ; preds = %43, %38
-  %40 = phi ptr [ %41, %43 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 52), %38 ]
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %48, label %43
+41:                                               ; preds = %45, %39
+  %42 = phi ptr [ %43, %45 ], [ %40, %39 ]
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %50, label %45
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %41, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 %45(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #17
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %39, label %48, !llvm.loop !84
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call i32 %47(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #17
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %41, label %50, !llvm.loop !84
 
-48:                                               ; preds = %43, %39, %35, %16, %5
-  %49 = phi i32 [ %36, %35 ], [ 0, %16 ], [ 0, %5 ], [ %46, %43 ], [ 0, %39 ]
-  ret i32 %49
+50:                                               ; preds = %45, %41, %36, %16, %5
+  %51 = phi i32 [ %37, %36 ], [ 0, %16 ], [ 0, %5 ], [ %48, %45 ], [ 0, %41 ]
+  ret i32 %51
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2384,24 +2442,25 @@ define dso_local i32 @security_inode_readlink(ptr noundef %0) local_unnamed_addr
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %17, !prof !9
+  %8 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 53
+  br i1 %7, label %9, label %18, !prof !9
 
-8:                                                ; preds = %12, %1
-  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 53), %1 ]
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %17, label %12
+9:                                                ; preds = %13, %1
+  %10 = phi ptr [ %11, %13 ], [ %8, %1 ]
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %18, label %13
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %0) #17
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %8, label %17, !llvm.loop !85
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 %15(ptr noundef %0) #17
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %9, label %18, !llvm.loop !85
 
-17:                                               ; preds = %12, %8, %1
-  %18 = phi i32 [ 0, %1 ], [ %15, %12 ], [ 0, %8 ]
-  ret i32 %18
+18:                                               ; preds = %13, %9, %1
+  %19 = phi i32 [ 0, %1 ], [ %16, %13 ], [ 0, %9 ]
+  ret i32 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2410,24 +2469,25 @@ define dso_local i32 @security_inode_follow_link(ptr noundef %0, ptr noundef %1,
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %17, !prof !9
+  %8 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 54
+  br i1 %7, label %9, label %18, !prof !9
 
-8:                                                ; preds = %12, %3
-  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 54), %3 ]
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %17, label %12
+9:                                                ; preds = %13, %3
+  %10 = phi ptr [ %11, %13 ], [ %8, %3 ]
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %18, label %13
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #17
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %8, label %17, !llvm.loop !86
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #17
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %9, label %18, !llvm.loop !86
 
-17:                                               ; preds = %12, %8, %3
-  %18 = phi i32 [ 0, %3 ], [ %15, %12 ], [ 0, %8 ]
-  ret i32 %18
+18:                                               ; preds = %13, %9, %3
+  %19 = phi i32 [ 0, %3 ], [ %16, %13 ], [ 0, %9 ]
+  ret i32 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2436,24 +2496,25 @@ define dso_local i32 @security_inode_permission(ptr noundef %0, i32 noundef %1) 
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 512
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %16, !prof !9
+  %7 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 55
+  br i1 %6, label %8, label %17, !prof !9
 
-7:                                                ; preds = %11, %2
-  %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 55), %2 ]
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %16, label %11
+8:                                                ; preds = %12, %2
+  %9 = phi ptr [ %10, %12 ], [ %7, %2 ]
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %17, label %12
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef %0, i32 noundef %1) #17
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %7, label %16, !llvm.loop !87
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call i32 %14(ptr noundef %0, i32 noundef %1) #17
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %8, label %17, !llvm.loop !87
 
-16:                                               ; preds = %11, %7, %2
-  %17 = phi i32 [ 0, %2 ], [ %14, %11 ], [ 0, %7 ]
-  ret i32 %17
+17:                                               ; preds = %12, %8, %2
+  %18 = phi i32 [ 0, %2 ], [ %15, %12 ], [ 0, %8 ]
+  ret i32 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2464,24 +2525,25 @@ define dso_local i32 @security_inode_setattr(ptr nocapture readnone %0, ptr noun
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %19, !prof !9
+  %10 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 56
+  br i1 %9, label %11, label %20, !prof !9
 
-10:                                               ; preds = %14, %3
-  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 56), %3 ]
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %19, label %14
+11:                                               ; preds = %15, %3
+  %12 = phi ptr [ %13, %15 ], [ %10, %3 ]
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %20, label %15
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %1, ptr noundef %2) #17
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %10, label %19, !llvm.loop !88
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 %17(ptr noundef %1, ptr noundef %2) #17
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %11, label %20, !llvm.loop !88
 
-19:                                               ; preds = %14, %10, %3
-  %20 = phi i32 [ 0, %3 ], [ %17, %14 ], [ 0, %10 ]
-  ret i32 %20
+20:                                               ; preds = %15, %11, %3
+  %21 = phi i32 [ 0, %3 ], [ %18, %15 ], [ 0, %11 ]
+  ret i32 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2494,24 +2556,25 @@ define dso_local i32 @security_inode_getattr(ptr noundef %0) local_unnamed_addr 
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %19, !prof !9
+  %10 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 57
+  br i1 %9, label %11, label %20, !prof !9
 
-10:                                               ; preds = %14, %1
-  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 57), %1 ]
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %19, label %14
+11:                                               ; preds = %15, %1
+  %12 = phi ptr [ %13, %15 ], [ %10, %1 ]
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %20, label %15
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0) #17
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %10, label %19, !llvm.loop !89
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 %17(ptr noundef %0) #17
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %11, label %20, !llvm.loop !89
 
-19:                                               ; preds = %14, %10, %1
-  %20 = phi i32 [ 0, %1 ], [ %17, %14 ], [ 0, %10 ]
-  ret i32 %20
+20:                                               ; preds = %15, %11, %1
+  %21 = phi i32 [ 0, %1 ], [ %18, %15 ], [ 0, %11 ]
+  ret i32 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2522,38 +2585,39 @@ define dso_local i32 @security_inode_setxattr(ptr noundef %0, ptr noundef %1, pt
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 512
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %30, !prof !9
+  br i1 %12, label %13, label %31, !prof !9
 
 13:                                               ; preds = %6
-  %14 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 58), align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %25, label %19
+  %14 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 58
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %26, label %20
 
-16:                                               ; preds = %19
-  %17 = load ptr, ptr %20, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %25, label %19, !llvm.loop !90
+17:                                               ; preds = %20
+  %18 = load ptr, ptr %21, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %26, label %20, !llvm.loop !90
 
-19:                                               ; preds = %16, %13
-  %20 = phi ptr [ %17, %16 ], [ %14, %13 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #17
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %16, label %25, !llvm.loop !90
+20:                                               ; preds = %17, %13
+  %21 = phi ptr [ %18, %17 ], [ %15, %13 ]
+  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call i32 %23(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #17
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %17, label %26, !llvm.loop !90
 
-25:                                               ; preds = %19, %16, %13
-  %26 = phi i32 [ 1, %13 ], [ 0, %16 ], [ %23, %19 ]
-  %27 = icmp eq i32 %26, 1
-  br i1 %27, label %28, label %30
+26:                                               ; preds = %20, %17, %13
+  %27 = phi i32 [ 1, %13 ], [ 0, %17 ], [ %24, %20 ]
+  %28 = icmp eq i32 %27, 1
+  br i1 %28, label %29, label %31
 
-28:                                               ; preds = %25
-  %29 = tail call i32 @cap_inode_setxattr(ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #17
-  br label %30
+29:                                               ; preds = %26
+  %30 = tail call i32 @cap_inode_setxattr(ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #17
+  br label %31
 
-30:                                               ; preds = %28, %25, %6
-  %31 = phi i32 [ 0, %6 ], [ %29, %28 ], [ %26, %25 ]
-  ret i32 %31
+31:                                               ; preds = %29, %26, %6
+  %32 = phi i32 [ 0, %6 ], [ %30, %29 ], [ %27, %26 ]
+  ret i32 %32
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2567,24 +2631,25 @@ define dso_local i32 @security_inode_set_acl(ptr noundef %0, ptr noundef %1, ptr
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 512
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %20, !prof !9
+  %11 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 63
+  br i1 %10, label %12, label %21, !prof !9
 
-11:                                               ; preds = %15, %4
-  %12 = phi ptr [ %13, %15 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 63), %4 ]
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %20, label %15
+12:                                               ; preds = %16, %4
+  %13 = phi ptr [ %14, %16 ], [ %11, %4 ]
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %21, label %16
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #17
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %11, label %20, !llvm.loop !91
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call i32 %18(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #17
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %12, label %21, !llvm.loop !91
 
-20:                                               ; preds = %15, %11, %4
-  %21 = phi i32 [ 0, %4 ], [ %18, %15 ], [ 0, %11 ]
-  ret i32 %21
+21:                                               ; preds = %16, %12, %4
+  %22 = phi i32 [ 0, %4 ], [ %19, %16 ], [ 0, %12 ]
+  ret i32 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2595,24 +2660,25 @@ define dso_local i32 @security_inode_get_acl(ptr noundef %0, ptr noundef %1, ptr
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %19, !prof !9
+  %10 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 64
+  br i1 %9, label %11, label %20, !prof !9
 
-10:                                               ; preds = %14, %3
-  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 64), %3 ]
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %19, label %14
+11:                                               ; preds = %15, %3
+  %12 = phi ptr [ %13, %15 ], [ %10, %3 ]
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %20, label %15
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %10, label %19, !llvm.loop !92
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 %17(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %11, label %20, !llvm.loop !92
 
-19:                                               ; preds = %14, %10, %3
-  %20 = phi i32 [ 0, %3 ], [ %17, %14 ], [ 0, %10 ]
-  ret i32 %20
+20:                                               ; preds = %15, %11, %3
+  %21 = phi i32 [ 0, %3 ], [ %18, %15 ], [ 0, %11 ]
+  ret i32 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2623,24 +2689,25 @@ define dso_local i32 @security_inode_remove_acl(ptr noundef %0, ptr noundef %1, 
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %19, !prof !9
+  %10 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 65
+  br i1 %9, label %11, label %20, !prof !9
 
-10:                                               ; preds = %14, %3
-  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 65), %3 ]
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %19, label %14
+11:                                               ; preds = %15, %3
+  %12 = phi ptr [ %13, %15 ], [ %10, %3 ]
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %20, label %15
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %10, label %19, !llvm.loop !93
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 %17(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %11, label %20, !llvm.loop !93
 
-19:                                               ; preds = %14, %10, %3
-  %20 = phi i32 [ 0, %3 ], [ %17, %14 ], [ 0, %10 ]
-  ret i32 %20
+20:                                               ; preds = %15, %11, %3
+  %21 = phi i32 [ 0, %3 ], [ %18, %15 ], [ 0, %11 ]
+  ret i32 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2651,21 +2718,22 @@ define dso_local void @security_inode_post_setxattr(ptr noundef %0, ptr noundef 
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 512
   %11 = icmp ne i32 %10, 0
-  %12 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 59), align 8
-  %13 = icmp eq ptr %12, null
-  %14 = select i1 %11, i1 true, i1 %13
-  br i1 %14, label %21, label %15, !prof !94
+  %12 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 59
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  %15 = select i1 %11, i1 true, i1 %14
+  br i1 %15, label %22, label %16, !prof !94
 
-15:                                               ; preds = %15, %5
-  %16 = phi ptr [ %19, %15 ], [ %12, %5 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
-  %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #17
-  %19 = load ptr, ptr %16, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %15, !llvm.loop !95
+16:                                               ; preds = %16, %5
+  %17 = phi ptr [ %20, %16 ], [ %13, %5 ]
+  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %19 = load ptr, ptr %18, align 8
+  tail call void %19(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #17
+  %20 = load ptr, ptr %17, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %16, !llvm.loop !95
 
-21:                                               ; preds = %15, %5
+22:                                               ; preds = %16, %5
   ret void
 }
 
@@ -2677,24 +2745,25 @@ define dso_local i32 @security_inode_getxattr(ptr noundef %0, ptr noundef %1) lo
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 512
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %18, !prof !9
+  %9 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 60
+  br i1 %8, label %10, label %19, !prof !9
 
-9:                                                ; preds = %13, %2
-  %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 60), %2 ]
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %18, label %13
+10:                                               ; preds = %14, %2
+  %11 = phi ptr [ %12, %14 ], [ %9, %2 ]
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %19, label %14
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1) #17
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %9, label %18, !llvm.loop !96
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #17
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %10, label %19, !llvm.loop !96
 
-18:                                               ; preds = %13, %9, %2
-  %19 = phi i32 [ 0, %2 ], [ %16, %13 ], [ 0, %9 ]
-  ret i32 %19
+19:                                               ; preds = %14, %10, %2
+  %20 = phi i32 [ 0, %2 ], [ %17, %14 ], [ 0, %10 ]
+  ret i32 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2705,24 +2774,25 @@ define dso_local i32 @security_inode_listxattr(ptr noundef %0) local_unnamed_add
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %17, !prof !9
+  %8 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 61
+  br i1 %7, label %9, label %18, !prof !9
 
-8:                                                ; preds = %12, %1
-  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 61), %1 ]
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %17, label %12
+9:                                                ; preds = %13, %1
+  %10 = phi ptr [ %11, %13 ], [ %8, %1 ]
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %18, label %13
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %0) #17
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %8, label %17, !llvm.loop !97
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 %15(ptr noundef %0) #17
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %9, label %18, !llvm.loop !97
 
-17:                                               ; preds = %12, %8, %1
-  %18 = phi i32 [ 0, %1 ], [ %15, %12 ], [ 0, %8 ]
-  ret i32 %18
+18:                                               ; preds = %13, %9, %1
+  %19 = phi i32 [ 0, %1 ], [ %16, %13 ], [ 0, %9 ]
+  ret i32 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2733,38 +2803,39 @@ define dso_local i32 @security_inode_removexattr(ptr noundef %0, ptr noundef %1,
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %27, !prof !9
+  br i1 %9, label %10, label %28, !prof !9
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 62), align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %22, label %16
+  %11 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 62
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %23, label %17
 
-13:                                               ; preds = %16
-  %14 = load ptr, ptr %17, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %22, label %16, !llvm.loop !98
+14:                                               ; preds = %17
+  %15 = load ptr, ptr %18, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %23, label %17, !llvm.loop !98
 
-16:                                               ; preds = %13, %10
-  %17 = phi ptr [ %14, %13 ], [ %11, %10 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %19(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %13, label %22, !llvm.loop !98
+17:                                               ; preds = %14, %10
+  %18 = phi ptr [ %15, %14 ], [ %12, %10 ]
+  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i32 %20(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %14, label %23, !llvm.loop !98
 
-22:                                               ; preds = %16, %13, %10
-  %23 = phi i32 [ 1, %10 ], [ 0, %13 ], [ %20, %16 ]
-  %24 = icmp eq i32 %23, 1
-  br i1 %24, label %25, label %27
+23:                                               ; preds = %17, %14, %10
+  %24 = phi i32 [ 1, %10 ], [ 0, %14 ], [ %21, %17 ]
+  %25 = icmp eq i32 %24, 1
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %22
-  %26 = tail call i32 @cap_inode_removexattr(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
-  br label %27
+26:                                               ; preds = %23
+  %27 = tail call i32 @cap_inode_removexattr(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
+  br label %28
 
-27:                                               ; preds = %25, %22, %3
-  %28 = phi i32 [ 0, %3 ], [ %26, %25 ], [ %23, %22 ]
-  ret i32 %28
+28:                                               ; preds = %26, %23, %3
+  %29 = phi i32 [ 0, %3 ], [ %27, %26 ], [ %24, %23 ]
+  ret i32 %29
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2772,32 +2843,11 @@ declare dso_local i32 @cap_inode_removexattr(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_inode_need_killpriv(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 66), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !99
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_killpriv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 66
   br label %3
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 67), %2 ], [ %5, %7 ]
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -2805,13 +2855,36 @@ define dso_local i32 @security_inode_killpriv(ptr noundef %0, ptr noundef %1) lo
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = tail call i32 %9(ptr noundef %0) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !100
+  br i1 %11, label %3, label %12, !llvm.loop !99
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
   ret i32 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_inode_killpriv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 67
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !100
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2820,24 +2893,25 @@ define dso_local i32 @security_inode_getsecurity(ptr noundef %0, ptr noundef %1,
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %19, !prof !9
+  %10 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 68
+  br i1 %9, label %11, label %20, !prof !9
 
-10:                                               ; preds = %14, %5
-  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 68), %5 ]
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %19, label %14
+11:                                               ; preds = %15, %5
+  %12 = phi ptr [ %13, %15 ], [ %10, %5 ]
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %20, label %15
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) #17
-  %18 = icmp eq i32 %17, -95
-  br i1 %18, label %10, label %19, !llvm.loop !101
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 %17(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) #17
+  %19 = icmp eq i32 %18, -95
+  br i1 %19, label %11, label %20, !llvm.loop !101
 
-19:                                               ; preds = %14, %10, %5
-  %20 = phi i32 [ -95, %5 ], [ %17, %14 ], [ -95, %10 ]
-  ret i32 %20
+20:                                               ; preds = %15, %11, %5
+  %21 = phi i32 [ -95, %5 ], [ %18, %15 ], [ -95, %11 ]
+  ret i32 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2846,24 +2920,25 @@ define dso_local i32 @security_inode_setsecurity(ptr noundef %0, ptr noundef %1,
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %19, !prof !9
+  %10 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 69
+  br i1 %9, label %11, label %20, !prof !9
 
-10:                                               ; preds = %14, %5
-  %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 69), %5 ]
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %19, label %14
+11:                                               ; preds = %15, %5
+  %12 = phi ptr [ %13, %15 ], [ %10, %5 ]
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %20, label %15
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #17
-  %18 = icmp eq i32 %17, -95
-  br i1 %18, label %10, label %19, !llvm.loop !102
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 %17(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #17
+  %19 = icmp eq i32 %18, -95
+  br i1 %19, label %11, label %20, !llvm.loop !102
 
-19:                                               ; preds = %14, %10, %5
-  %20 = phi i32 [ -95, %5 ], [ %17, %14 ], [ -95, %10 ]
-  ret i32 %20
+20:                                               ; preds = %15, %11, %5
+  %21 = phi i32 [ -95, %5 ], [ %18, %15 ], [ -95, %11 ]
+  ret i32 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2872,131 +2947,137 @@ define dso_local i32 @security_inode_listsecurity(ptr noundef %0, ptr noundef %1
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %17, !prof !9
+  %8 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 70
+  br i1 %7, label %9, label %18, !prof !9
 
-8:                                                ; preds = %12, %3
-  %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 70), %3 ]
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %17, label %12
+9:                                                ; preds = %13, %3
+  %10 = phi ptr [ %11, %13 ], [ %8, %3 ]
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %18, label %13
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %0, ptr noundef %1, i64 noundef %2) #17
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %8, label %17, !llvm.loop !103
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, i64 noundef %2) #17
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %9, label %18, !llvm.loop !103
 
-17:                                               ; preds = %12, %8, %3
-  %18 = phi i32 [ 0, %3 ], [ %15, %12 ], [ 0, %8 ]
-  ret i32 %18
+18:                                               ; preds = %13, %9, %3
+  %19 = phi i32 [ 0, %3 ], [ %16, %13 ], [ 0, %9 ]
+  ret i32 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_inode_getsecid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 71), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 71
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %12, label %6
 
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %9, %5 ], [ %3, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %0, ptr noundef %1) #17
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %5, !llvm.loop !104
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %10, %6 ], [ %4, %2 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = load ptr, ptr %7, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %6, !llvm.loop !104
 
-11:                                               ; preds = %5, %2
+12:                                               ; preds = %6, %2
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_inode_copy_up(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  br label %3
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 72
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 72), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !105
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !105
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_inode_copy_up_xattr(ptr noundef %0) #3 align 16 {
-  br label %2
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 73
+  br label %3
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 73), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, -95
-  br i1 %10, label %2, label %11, !llvm.loop !106
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, -95
+  br i1 %11, label %3, label %12, !llvm.loop !106
 
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_kernfs_init_security(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 74
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 74), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !107
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !107
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_file_permission(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 75
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 75), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !108
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !108
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3021,63 +3102,65 @@ define dso_local i32 @security_file_alloc(ptr noundef %0) local_unnamed_addr #3 
 11:                                               ; preds = %6, %4
   %12 = phi i32 [ 0, %4 ], [ %10, %6 ]
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %27
+  %14 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 76
+  br i1 %13, label %15, label %28
 
-14:                                               ; preds = %18, %11
-  %15 = phi ptr [ %16, %18 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 76), %11 ]
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %23, label %18
+15:                                               ; preds = %19, %11
+  %16 = phi ptr [ %17, %19 ], [ %14, %11 ]
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %24, label %19
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20(ptr noundef %0) #17
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %14, label %23, !llvm.loop !109
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds i8, ptr %17, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 %21(ptr noundef %0) #17
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %15, label %24, !llvm.loop !109
 
-23:                                               ; preds = %18, %14
-  %24 = phi i32 [ %21, %18 ], [ 0, %14 ]
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %27, label %26, !prof !9
+24:                                               ; preds = %19, %15
+  %25 = phi i32 [ %22, %19 ], [ 0, %15 ]
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %28, label %27, !prof !9
 
-26:                                               ; preds = %23
+27:                                               ; preds = %24
   tail call void @security_file_free(ptr noundef %0)
-  br label %27
+  br label %28
 
-27:                                               ; preds = %26, %23, %11
-  %28 = phi i32 [ %12, %11 ], [ %24, %26 ], [ %24, %23 ]
-  ret i32 %28
+28:                                               ; preds = %27, %24, %11
+  %29 = phi i32 [ %12, %11 ], [ %25, %27 ], [ %25, %24 ]
+  ret i32 %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_file_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 77), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 77
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !110
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !110
 
-10:                                               ; preds = %4, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 192
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %16, label %14
+11:                                               ; preds = %5, %1
+  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %17, label %15
 
-14:                                               ; preds = %10
-  store ptr null, ptr %11, align 8
-  %15 = load ptr, ptr @lsm_file_cache, align 8
-  tail call void @kmem_cache_free(ptr noundef %15, ptr noundef nonnull %12) #17
-  br label %16
+15:                                               ; preds = %11
+  store ptr null, ptr %12, align 8
+  %16 = load ptr, ptr @lsm_file_cache, align 8
+  tail call void @kmem_cache_free(ptr noundef %16, ptr noundef nonnull %13) #17
+  br label %17
 
-16:                                               ; preds = %14, %10
+17:                                               ; preds = %15, %11
   ret void
 }
 
@@ -3086,46 +3169,48 @@ declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_file_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #3 align 16 {
-  br label %4
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 78
+  br label %5
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 78), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, i64 noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !111
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, i32 noundef %1, i64 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !111
 
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_file_ioctl_compat(ptr noundef %0, i32 noundef %1, i64 noundef %2) #3 align 16 {
-  br label %4
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 79
+  br label %5
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 79), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, i64 noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !112
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, i32 noundef %1, i64 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !112
 
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3160,76 +3245,34 @@ define dso_local i32 @security_mmap_file(ptr noundef %0, i64 noundef %1, i64 nou
 
 22:                                               ; preds = %17, %15, %6, %3
   %23 = phi i64 [ %16, %15 ], [ %1, %3 ], [ %1, %6 ], [ %21, %17 ]
-  br label %24
+  %24 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 81
+  br label %25
 
-24:                                               ; preds = %28, %22
-  %25 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 81), %22 ], [ %26, %28 ]
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %33, label %28
+25:                                               ; preds = %29, %22
+  %26 = phi ptr [ %24, %22 ], [ %27, %29 ]
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %34, label %29
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %26, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 %30(ptr noundef %0, i64 noundef %1, i64 noundef %23, i64 noundef %2) #17
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %24, label %33, !llvm.loop !113
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds i8, ptr %27, i64 24
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call i32 %31(ptr noundef %0, i64 noundef %1, i64 noundef %23, i64 noundef %2) #17
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %25, label %34, !llvm.loop !113
 
-33:                                               ; preds = %28, %24
-  %34 = phi i32 [ %31, %28 ], [ 0, %24 ]
-  ret i32 %34
+34:                                               ; preds = %29, %25
+  %35 = phi i32 [ %32, %29 ], [ 0, %25 ]
+  ret i32 %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_mmap_addr(i64 noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 80), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(i64 noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !114
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_file_mprotect(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 82), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, i64 noundef %1, i64 noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !115
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_file_lock(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 80
   br label %3
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 83), %2 ], [ %5, %7 ]
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -3237,9 +3280,9 @@ define dso_local i32 @security_file_lock(ptr noundef %0, i32 noundef %1) local_u
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
+  %10 = tail call i32 %9(i64 noundef %0) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !116
+  br i1 %11, label %3, label %12, !llvm.loop !114
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -3247,11 +3290,35 @@ define dso_local i32 @security_file_lock(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_file_mprotect(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 82
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, i64 noundef %1, i64 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !115
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_file_lock(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 83
   br label %4
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 84), %3 ], [ %6, %8 ]
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -3259,9 +3326,9 @@ define dso_local i32 @security_file_fcntl(ptr noundef %0, i32 noundef %1, i64 no
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, i64 noundef %2) #17
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !117
+  br i1 %12, label %4, label %13, !llvm.loop !116
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -3269,110 +3336,138 @@ define dso_local i32 @security_file_fcntl(ptr noundef %0, i32 noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_file_set_fowner(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 85), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+define dso_local i32 @security_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 84
+  br label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !118
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
 
-10:                                               ; preds = %4, %1
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, i32 noundef %1, i64 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !117
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local void @security_file_set_fowner(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 85
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
+
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !118
+
+11:                                               ; preds = %5, %1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_file_send_sigiotask(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
-  br label %4
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 86
+  br label %5
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 86), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !119
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !119
 
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_file_receive(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 87
+  br label %3
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 87), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !120
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !120
 
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_file_open(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 88
+  br label %3
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 88), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !121
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !121
 
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_file_truncate(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 89
+  br label %3
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 89), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !122
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !122
 
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3398,55 +3493,57 @@ define dso_local i32 @security_task_alloc(ptr noundef %0, i64 noundef %1) local_
 13:                                               ; preds = %7, %5
   %14 = phi i32 [ 0, %5 ], [ %12, %7 ]
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %29
+  %16 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 90
+  br i1 %15, label %17, label %30
 
-16:                                               ; preds = %20, %13
-  %17 = phi ptr [ %18, %20 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 90), %13 ]
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %25, label %20
+17:                                               ; preds = %21, %13
+  %18 = phi ptr [ %19, %21 ], [ %16, %13 ]
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %26, label %21
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %0, i64 noundef %1) #17
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %16, label %25, !llvm.loop !123
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call i32 %23(ptr noundef %0, i64 noundef %1) #17
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %17, label %26, !llvm.loop !123
 
-25:                                               ; preds = %20, %16
-  %26 = phi i32 [ %23, %20 ], [ 0, %16 ]
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %29, label %28, !prof !9
+26:                                               ; preds = %21, %17
+  %27 = phi i32 [ %24, %21 ], [ 0, %17 ]
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %30, label %29, !prof !9
 
-28:                                               ; preds = %25
+29:                                               ; preds = %26
   tail call void @security_task_free(ptr noundef %0)
-  br label %29
+  br label %30
 
-29:                                               ; preds = %28, %25, %13
-  %30 = phi i32 [ %14, %13 ], [ %26, %28 ], [ %26, %25 ]
-  ret i32 %30
+30:                                               ; preds = %29, %26, %13
+  %31 = phi i32 [ %14, %13 ], [ %27, %29 ], [ %27, %26 ]
+  ret i32 %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_task_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 91), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 91
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !124
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !124
 
-10:                                               ; preds = %4, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 2696
-  %12 = load ptr, ptr %11, align 8
-  tail call void @kfree(ptr noundef %12) #17
-  store ptr null, ptr %11, align 8
+11:                                               ; preds = %5, %1
+  %12 = getelementptr inbounds i8, ptr %0, i64 2696
+  %13 = load ptr, ptr %12, align 8
+  tail call void @kfree(ptr noundef %13) #17
+  store ptr null, ptr %12, align 8
   ret void
 }
 
@@ -3474,33 +3571,34 @@ define dso_local i32 @security_cred_alloc_blank(ptr noundef %0, i32 noundef %1) 
 14:                                               ; preds = %7, %5
   %15 = phi i32 [ 0, %5 ], [ %13, %7 ]
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %30
+  %17 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 92
+  br i1 %16, label %18, label %31
 
-17:                                               ; preds = %21, %14
-  %18 = phi ptr [ %19, %21 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 92), %14 ]
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %26, label %21
+18:                                               ; preds = %22, %14
+  %19 = phi ptr [ %20, %22 ], [ %17, %14 ]
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %27, label %22
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %23(ptr noundef %0, i32 noundef %1) #17
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %17, label %26, !llvm.loop !125
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call i32 %24(ptr noundef %0, i32 noundef %1) #17
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %18, label %27, !llvm.loop !125
 
-26:                                               ; preds = %21, %17
-  %27 = phi i32 [ %24, %21 ], [ 0, %17 ]
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %30, label %29, !prof !9
+27:                                               ; preds = %22, %18
+  %28 = phi i32 [ %25, %22 ], [ 0, %18 ]
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %31, label %30, !prof !9
 
-29:                                               ; preds = %26
+30:                                               ; preds = %27
   tail call void @security_cred_free(ptr noundef %0)
-  br label %30
+  br label %31
 
-30:                                               ; preds = %29, %26, %14
-  %31 = phi i32 [ %15, %14 ], [ %27, %29 ], [ %27, %26 ]
-  ret i32 %31
+31:                                               ; preds = %30, %27, %14
+  %32 = phi i32 [ %15, %14 ], [ %28, %30 ], [ %28, %27 ]
+  ret i32 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3508,29 +3606,30 @@ define dso_local void @security_cred_free(ptr noundef %0) local_unnamed_addr #3 
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %16, label %5, !prof !16
+  br i1 %4, label %17, label %5, !prof !16
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 93), align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %14, label %8
+  %6 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 93
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %15, label %9
 
-8:                                                ; preds = %8, %5
-  %9 = phi ptr [ %12, %8 ], [ %6, %5 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
-  %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef %0) #17
-  %12 = load ptr, ptr %9, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %8, !llvm.loop !126
+9:                                                ; preds = %9, %5
+  %10 = phi ptr [ %13, %9 ], [ %7, %5 ]
+  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = load ptr, ptr %11, align 8
+  tail call void %12(ptr noundef %0) #17
+  %13 = load ptr, ptr %10, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %9, !llvm.loop !126
 
-14:                                               ; preds = %8, %5
-  %15 = load ptr, ptr %2, align 8
-  tail call void @kfree(ptr noundef %15) #17
+15:                                               ; preds = %9, %5
+  %16 = load ptr, ptr %2, align 8
+  tail call void @kfree(ptr noundef %16) #17
   store ptr null, ptr %2, align 8
-  br label %16
+  br label %17
 
-16:                                               ; preds = %14, %1
+17:                                               ; preds = %15, %1
   ret void
 }
 
@@ -3558,212 +3657,245 @@ define dso_local i32 @security_prepare_creds(ptr noundef %0, ptr noundef %1, i32
 15:                                               ; preds = %8, %6
   %16 = phi i32 [ 0, %6 ], [ %14, %8 ]
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %31
+  %18 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 94
+  br i1 %17, label %19, label %32
 
-18:                                               ; preds = %22, %15
-  %19 = phi ptr [ %20, %22 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 94), %15 ]
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %27, label %22
+19:                                               ; preds = %23, %15
+  %20 = phi ptr [ %21, %23 ], [ %18, %15 ]
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %28, label %23
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 %24(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %18, label %27, !llvm.loop !127
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %21, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call i32 %25(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %19, label %28, !llvm.loop !127
 
-27:                                               ; preds = %22, %18
-  %28 = phi i32 [ %25, %22 ], [ 0, %18 ]
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %31, label %30, !prof !9
+28:                                               ; preds = %23, %19
+  %29 = phi i32 [ %26, %23 ], [ 0, %19 ]
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %32, label %31, !prof !9
 
-30:                                               ; preds = %27
+31:                                               ; preds = %28
   tail call void @security_cred_free(ptr noundef %0)
-  br label %31
+  br label %32
 
-31:                                               ; preds = %30, %27, %15
-  %32 = phi i32 [ %16, %15 ], [ %28, %30 ], [ %28, %27 ]
-  ret i32 %32
+32:                                               ; preds = %31, %28, %15
+  %33 = phi i32 [ %16, %15 ], [ %29, %31 ], [ %29, %28 ]
+  ret i32 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_transfer_creds(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 95), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 95
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %12, label %6
 
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %9, %5 ], [ %3, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %0, ptr noundef %1) #17
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %5, !llvm.loop !128
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %10, %6 ], [ %4, %2 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = load ptr, ptr %7, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %6, !llvm.loop !128
 
-11:                                               ; preds = %5, %2
+12:                                               ; preds = %6, %2
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_cred_getsecid(ptr noundef %0, ptr noundef %1) #3 align 16 {
   store i32 0, ptr %1, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 96), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 96
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %12, label %6
 
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %9, %5 ], [ %3, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %0, ptr noundef %1) #17
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %5, !llvm.loop !129
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %10, %6 ], [ %4, %2 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = load ptr, ptr %7, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %6, !llvm.loop !129
 
-11:                                               ; preds = %5, %2
+12:                                               ; preds = %6, %2
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_kernel_act_as(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 97
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 97), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !130
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !130
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_kernel_create_files_as(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 98
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 98), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !131
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !131
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_kernel_module_request(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 99
+  br label %3
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 99), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !132
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !132
 
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_kernel_read_file(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #3 align 16 {
-  br label %4
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 102
+  br label %5
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 102), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !133
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !133
 
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_kernel_post_read_file(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #3 align 16 {
-  br label %5
+  %5 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 103
+  br label %6
 
-5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 103), %4 ], [ %7, %9 ]
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %14, label %9
+6:                                                ; preds = %10, %4
+  %7 = phi ptr [ %5, %4 ], [ %8, %10 ]
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %15, label %10
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #17
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !134
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i32 %12(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #17
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %6, label %15, !llvm.loop !134
 
-14:                                               ; preds = %9, %5
-  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
-  ret i32 %15
+15:                                               ; preds = %10, %6
+  %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_kernel_load_data(i32 noundef %0, i1 noundef zeroext %1) #3 align 16 {
-  br label %3
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 100
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 100), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(i32 noundef %0, i1 noundef zeroext %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !135
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(i32 noundef %0, i1 noundef zeroext %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !135
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_kernel_post_load_data(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) #3 align 16 {
+  %5 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 101
+  br label %6
+
+6:                                                ; preds = %10, %4
+  %7 = phi ptr [ %5, %4 ], [ %8, %10 ]
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %15, label %10
+
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i32 %12(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) #17
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %6, label %15, !llvm.loop !136
+
+15:                                               ; preds = %10, %6
+  %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
+  ret i32 %16
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_task_fix_setuid(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 104
   br label %5
 
-5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 101), %4 ], [ %7, %9 ]
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -3771,9 +3903,9 @@ define dso_local i32 @security_kernel_post_load_data(ptr noundef %0, i64 noundef
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) #17
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !136
+  br i1 %13, label %5, label %14, !llvm.loop !137
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -3781,77 +3913,81 @@ define dso_local i32 @security_kernel_post_load_data(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_fix_setuid(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 104), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !137
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_task_fix_setgid(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
-  br label %4
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 105
+  br label %5
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 105), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !138
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !138
 
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_task_fix_setgroups(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 106
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 106), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !139
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !139
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_task_setpgid(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 107
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !140
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_task_getpgid(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 108
   br label %3
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 107), %2 ], [ %5, %7 ]
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -3859,9 +3995,9 @@ define dso_local i32 @security_task_setpgid(ptr noundef %0, i32 noundef %1) loca
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
+  %10 = tail call i32 %9(ptr noundef %0) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !140
+  br i1 %11, label %3, label %12, !llvm.loop !141
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -3869,117 +4005,123 @@ define dso_local i32 @security_task_setpgid(ptr noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_getpgid(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 108), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !141
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_task_getsid(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 109
+  br label %3
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 109), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !142
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !142
 
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_current_getsecid_subj(ptr noundef %0) #3 align 16 {
   store i32 0, ptr %0, align 4
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 110), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 110
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !143
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !143
 
-10:                                               ; preds = %4, %1
+11:                                               ; preds = %5, %1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_task_getsecid_obj(ptr noundef %0, ptr noundef %1) #3 align 16 {
   store i32 0, ptr %1, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 111), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 111
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %12, label %6
 
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %9, %5 ], [ %3, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %0, ptr noundef %1) #17
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %5, !llvm.loop !144
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %10, %6 ], [ %4, %2 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = load ptr, ptr %7, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %6, !llvm.loop !144
 
-11:                                               ; preds = %5, %2
+12:                                               ; preds = %6, %2
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_task_setnice(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 112
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 112), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !145
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !145
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_task_setioprio(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 113
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !146
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_task_getioprio(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 114
   br label %3
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 113), %2 ], [ %5, %7 ]
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -3987,9 +4129,9 @@ define dso_local i32 @security_task_setioprio(ptr noundef %0, i32 noundef %1) lo
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
+  %10 = tail call i32 %9(ptr noundef %0) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !146
+  br i1 %11, label %3, label %12, !llvm.loop !147
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -3997,143 +4139,12 @@ define dso_local i32 @security_task_setioprio(ptr noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_getioprio(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 114), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !147
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_task_prlimit(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 115), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !148
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_setrlimit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 116), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, ptr noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !149
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_setscheduler(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 117), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !150
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_getscheduler(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 118), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !151
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_movememory(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 119), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !152
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_kill(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 115
   br label %5
 
-5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 120), %4 ], [ %7, %9 ]
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -4141,9 +4152,9 @@ define dso_local i32 @security_task_kill(ptr noundef %0, ptr noundef %1, i32 nou
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #17
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !153
+  br i1 %13, label %5, label %14, !llvm.loop !148
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -4151,83 +4162,35 @@ define dso_local i32 @security_task_kill(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_prctl(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 align 16 {
-  %6 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 121), align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %19, label %8
+define dso_local i32 @security_task_setrlimit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 116
+  br label %5
 
-8:                                                ; preds = %15, %5
-  %9 = phi ptr [ %17, %15 ], [ %6, %5 ]
-  %10 = phi i32 [ %16, %15 ], [ -38, %5 ]
-  %11 = getelementptr inbounds i8, ptr %9, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 %12(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #17
-  switch i32 %13, label %19 [
-    i32 -38, label %15
-    i32 0, label %14
-  ]
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
 
-14:                                               ; preds = %8
-  br label %15
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, i32 noundef %1, ptr noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !149
 
-15:                                               ; preds = %14, %8
-  %16 = phi i32 [ %10, %8 ], [ 0, %14 ]
-  %17 = load ptr, ptr %9, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %8, !llvm.loop !154
-
-19:                                               ; preds = %15, %8, %5
-  %20 = phi i32 [ -38, %5 ], [ %16, %15 ], [ %13, %8 ]
-  ret i32 %20
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_task_to_inode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 122), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
-
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %9, %5 ], [ %3, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %0, ptr noundef %1) #17
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %5, !llvm.loop !155
-
-11:                                               ; preds = %5, %2
-  ret void
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_create_user_ns(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 123), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !156
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_ipc_permission(ptr noundef %0, i16 noundef signext %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_setscheduler(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 117
   br label %3
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 124), %2 ], [ %5, %7 ]
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -4235,9 +4198,9 @@ define dso_local i32 @security_ipc_permission(ptr noundef %0, i16 noundef signex
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i16 noundef signext %1) #17
+  %10 = tail call i32 %9(ptr noundef %0) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !157
+  br i1 %11, label %3, label %12, !llvm.loop !150
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -4245,22 +4208,190 @@ define dso_local i32 @security_ipc_permission(ptr noundef %0, i16 noundef signex
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_task_getscheduler(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 118
+  br label %3
+
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !151
+
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_task_movememory(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 119
+  br label %3
+
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !152
+
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_task_kill(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
+  %5 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 120
+  br label %6
+
+6:                                                ; preds = %10, %4
+  %7 = phi ptr [ %5, %4 ], [ %8, %10 ]
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %15, label %10
+
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i32 %12(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #17
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %6, label %15, !llvm.loop !153
+
+15:                                               ; preds = %10, %6
+  %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
+  ret i32 %16
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_task_prctl(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 align 16 {
+  %6 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 121
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %20, label %9
+
+9:                                                ; preds = %16, %5
+  %10 = phi ptr [ %18, %16 ], [ %7, %5 ]
+  %11 = phi i32 [ %17, %16 ], [ -38, %5 ]
+  %12 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call i32 %13(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #17
+  switch i32 %14, label %20 [
+    i32 -38, label %16
+    i32 0, label %15
+  ]
+
+15:                                               ; preds = %9
+  br label %16
+
+16:                                               ; preds = %15, %9
+  %17 = phi i32 [ %11, %9 ], [ 0, %15 ]
+  %18 = load ptr, ptr %10, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %9, !llvm.loop !154
+
+20:                                               ; preds = %16, %9, %5
+  %21 = phi i32 [ -38, %5 ], [ %17, %16 ], [ %14, %9 ]
+  ret i32 %21
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local void @security_task_to_inode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 122
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %12, label %6
+
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %10, %6 ], [ %4, %2 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = load ptr, ptr %7, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %6, !llvm.loop !155
+
+12:                                               ; preds = %6, %2
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_create_user_ns(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 123
+  br label %3
+
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !156
+
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_ipc_permission(ptr noundef %0, i16 noundef signext %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 124
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i16 noundef signext %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !157
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_ipc_getsecid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   store i32 0, ptr %1, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 125), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 125
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %12, label %6
 
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %9, %5 ], [ %3, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %0, ptr noundef %1) #17
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %5, !llvm.loop !158
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %10, %6 ], [ %4, %2 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = load ptr, ptr %7, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %6, !llvm.loop !158
 
-11:                                               ; preds = %5, %2
+12:                                               ; preds = %6, %2
   ret void
 }
 
@@ -4287,55 +4418,57 @@ define dso_local i32 @security_msg_msg_alloc(ptr noundef %0) local_unnamed_addr 
 12:                                               ; preds = %6, %4
   %13 = phi i32 [ 0, %4 ], [ %11, %6 ]
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %28, !prof !9
+  %15 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 126
+  br i1 %14, label %16, label %29, !prof !9
 
-15:                                               ; preds = %19, %12
-  %16 = phi ptr [ %17, %19 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 126), %12 ]
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %24, label %19
+16:                                               ; preds = %20, %12
+  %17 = phi ptr [ %18, %20 ], [ %15, %12 ]
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %25, label %20
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %0) #17
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %15, label %24, !llvm.loop !159
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call i32 %22(ptr noundef %0) #17
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %16, label %25, !llvm.loop !159
 
-24:                                               ; preds = %19, %15
-  %25 = phi i32 [ %22, %19 ], [ 0, %15 ]
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %28, label %27, !prof !9
+25:                                               ; preds = %20, %16
+  %26 = phi i32 [ %23, %20 ], [ 0, %16 ]
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %29, label %28, !prof !9
 
-27:                                               ; preds = %24
+28:                                               ; preds = %25
   tail call void @security_msg_msg_free(ptr noundef %0)
-  br label %28
+  br label %29
 
-28:                                               ; preds = %27, %24, %12
-  %29 = phi i32 [ %13, %12 ], [ %25, %27 ], [ %25, %24 ]
-  ret i32 %29
+29:                                               ; preds = %28, %25, %12
+  %30 = phi i32 [ %13, %12 ], [ %26, %28 ], [ %26, %25 ]
+  ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_msg_msg_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 127), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 127
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !160
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !160
 
-10:                                               ; preds = %4, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8
-  tail call void @kfree(ptr noundef %12) #17
-  store ptr null, ptr %11, align 8
+11:                                               ; preds = %5, %1
+  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = load ptr, ptr %12, align 8
+  tail call void @kfree(ptr noundef %13) #17
+  store ptr null, ptr %12, align 8
   ret void
 }
 
@@ -4362,108 +4495,67 @@ define dso_local i32 @security_msg_queue_alloc(ptr noundef %0) local_unnamed_add
 12:                                               ; preds = %6, %4
   %13 = phi i32 [ 0, %4 ], [ %11, %6 ]
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %28, !prof !9
+  %15 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 128
+  br i1 %14, label %16, label %29, !prof !9
 
-15:                                               ; preds = %19, %12
-  %16 = phi ptr [ %17, %19 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 128), %12 ]
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %24, label %19
+16:                                               ; preds = %20, %12
+  %17 = phi ptr [ %18, %20 ], [ %15, %12 ]
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %25, label %20
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %0) #17
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %15, label %24, !llvm.loop !161
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call i32 %22(ptr noundef %0) #17
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %16, label %25, !llvm.loop !161
 
-24:                                               ; preds = %19, %15
-  %25 = phi i32 [ %22, %19 ], [ 0, %15 ]
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %28, label %27, !prof !9
+25:                                               ; preds = %20, %16
+  %26 = phi i32 [ %23, %20 ], [ 0, %16 ]
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %29, label %28, !prof !9
 
-27:                                               ; preds = %24
+28:                                               ; preds = %25
   tail call void @security_msg_queue_free(ptr noundef %0)
-  br label %28
+  br label %29
 
-28:                                               ; preds = %27, %24, %12
-  %29 = phi i32 [ %13, %12 ], [ %25, %27 ], [ %25, %24 ]
-  ret i32 %29
+29:                                               ; preds = %28, %25, %12
+  %30 = phi i32 [ %13, %12 ], [ %26, %28 ], [ %26, %25 ]
+  ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_msg_queue_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 129), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 129
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !162
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !162
 
-10:                                               ; preds = %4, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 16
-  tail call void @kfree(ptr noundef %12) #17
-  store ptr null, ptr %11, align 16
+11:                                               ; preds = %5, %1
+  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = load ptr, ptr %12, align 16
+  tail call void @kfree(ptr noundef %13) #17
+  store ptr null, ptr %12, align 16
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_msg_queue_associate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 130), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !163
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_msg_queue_msgctl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 131), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !164
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_msg_queue_msgsnd(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 130
   br label %4
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 132), %3 ], [ %6, %8 ]
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -4471,9 +4563,9 @@ define dso_local i32 @security_msg_queue_msgsnd(ptr noundef %0, ptr noundef %1, 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !165
+  br i1 %12, label %4, label %13, !llvm.loop !163
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -4481,25 +4573,72 @@ define dso_local i32 @security_msg_queue_msgsnd(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_msg_queue_msgctl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 131
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !164
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_msg_queue_msgsnd(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 132
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !165
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_msg_queue_msgrcv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 16 {
-  br label %6
+  %6 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 133
+  br label %7
 
-6:                                                ; preds = %10, %5
-  %7 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 133), %5 ], [ %8, %10 ]
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %15, label %10
+7:                                                ; preds = %11, %5
+  %8 = phi ptr [ %6, %5 ], [ %9, %11 ]
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %16, label %11
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 %12(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #17
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %6, label %15, !llvm.loop !166
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call i32 %13(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #17
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %7, label %16, !llvm.loop !166
 
-15:                                               ; preds = %10, %6
-  %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
-  ret i32 %16
+16:                                               ; preds = %11, %7
+  %17 = phi i32 [ %14, %11 ], [ 0, %7 ]
+  ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4525,108 +4664,67 @@ define dso_local i32 @security_shm_alloc(ptr noundef %0) local_unnamed_addr #3 a
 12:                                               ; preds = %6, %4
   %13 = phi i32 [ 0, %4 ], [ %11, %6 ]
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %28, !prof !9
+  %15 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 134
+  br i1 %14, label %16, label %29, !prof !9
 
-15:                                               ; preds = %19, %12
-  %16 = phi ptr [ %17, %19 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 134), %12 ]
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %24, label %19
+16:                                               ; preds = %20, %12
+  %17 = phi ptr [ %18, %20 ], [ %15, %12 ]
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %25, label %20
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %0) #17
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %15, label %24, !llvm.loop !167
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call i32 %22(ptr noundef %0) #17
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %16, label %25, !llvm.loop !167
 
-24:                                               ; preds = %19, %15
-  %25 = phi i32 [ %22, %19 ], [ 0, %15 ]
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %28, label %27, !prof !9
+25:                                               ; preds = %20, %16
+  %26 = phi i32 [ %23, %20 ], [ 0, %16 ]
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %29, label %28, !prof !9
 
-27:                                               ; preds = %24
+28:                                               ; preds = %25
   tail call void @security_shm_free(ptr noundef %0)
-  br label %28
+  br label %29
 
-28:                                               ; preds = %27, %24, %12
-  %29 = phi i32 [ %13, %12 ], [ %25, %27 ], [ %25, %24 ]
-  ret i32 %29
+29:                                               ; preds = %28, %25, %12
+  %30 = phi i32 [ %13, %12 ], [ %26, %28 ], [ %26, %25 ]
+  ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_shm_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 135), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 135
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !168
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !168
 
-10:                                               ; preds = %4, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 16
-  tail call void @kfree(ptr noundef %12) #17
-  store ptr null, ptr %11, align 16
+11:                                               ; preds = %5, %1
+  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = load ptr, ptr %12, align 16
+  tail call void @kfree(ptr noundef %13) #17
+  store ptr null, ptr %12, align 16
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_shm_associate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 136), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !169
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_shm_shmctl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 137), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !170
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_shm_shmat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 136
   br label %4
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 138), %3 ], [ %6, %8 ]
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -4634,13 +4732,59 @@ define dso_local i32 @security_shm_shmat(ptr noundef %0, ptr noundef %1, i32 nou
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !171
+  br i1 %12, label %4, label %13, !llvm.loop !169
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
   ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_shm_shmctl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 137
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !170
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_shm_shmat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 138
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !171
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4666,158 +4810,165 @@ define dso_local i32 @security_sem_alloc(ptr noundef %0) local_unnamed_addr #3 a
 12:                                               ; preds = %6, %4
   %13 = phi i32 [ 0, %4 ], [ %11, %6 ]
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %28, !prof !9
+  %15 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 139
+  br i1 %14, label %16, label %29, !prof !9
 
-15:                                               ; preds = %19, %12
-  %16 = phi ptr [ %17, %19 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 139), %12 ]
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %24, label %19
+16:                                               ; preds = %20, %12
+  %17 = phi ptr [ %18, %20 ], [ %15, %12 ]
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %25, label %20
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %0) #17
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %15, label %24, !llvm.loop !172
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call i32 %22(ptr noundef %0) #17
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %16, label %25, !llvm.loop !172
 
-24:                                               ; preds = %19, %15
-  %25 = phi i32 [ %22, %19 ], [ 0, %15 ]
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %28, label %27, !prof !9
+25:                                               ; preds = %20, %16
+  %26 = phi i32 [ %23, %20 ], [ 0, %16 ]
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %29, label %28, !prof !9
 
-27:                                               ; preds = %24
+28:                                               ; preds = %25
   tail call void @security_sem_free(ptr noundef %0)
-  br label %28
+  br label %29
 
-28:                                               ; preds = %27, %24, %12
-  %29 = phi i32 [ %13, %12 ], [ %25, %27 ], [ %25, %24 ]
-  ret i32 %29
+29:                                               ; preds = %28, %25, %12
+  %30 = phi i32 [ %13, %12 ], [ %26, %28 ], [ %26, %25 ]
+  ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sem_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 140), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 140
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !173
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !173
 
-10:                                               ; preds = %4, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 16
-  tail call void @kfree(ptr noundef %12) #17
-  store ptr null, ptr %11, align 16
+11:                                               ; preds = %5, %1
+  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = load ptr, ptr %12, align 16
+  tail call void @kfree(ptr noundef %13) #17
+  store ptr null, ptr %12, align 16
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_sem_associate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 141
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 141), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !174
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !174
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_sem_semctl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 142
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 142), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !175
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !175
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_sem_semop(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
-  br label %5
+  %5 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 143
+  br label %6
 
-5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 143), %4 ], [ %7, %9 ]
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %14, label %9
+6:                                                ; preds = %10, %4
+  %7 = phi ptr [ %5, %4 ], [ %8, %10 ]
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %15, label %10
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #17
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !176
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i32 %12(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #17
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %6, label %15, !llvm.loop !176
 
-14:                                               ; preds = %9, %5
-  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
-  ret i32 %15
+15:                                               ; preds = %10, %6
+  %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_d_instantiate(ptr noundef %0, ptr noundef %1) #3 align 16 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %12, label %4
+  br i1 %3, label %13, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 512
   %8 = icmp ne i32 %7, 0
-  %9 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 145), align 8
-  %10 = icmp eq ptr %9, null
-  %11 = select i1 %8, i1 true, i1 %10
-  br i1 %11, label %23, label %15, !prof !94
+  %9 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 145
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  %12 = select i1 %8, i1 true, i1 %11
+  br i1 %12, label %25, label %17, !prof !94
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 145), align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %23, label %15
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 145
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %25, label %17
 
-15:                                               ; preds = %12, %4
-  %16 = phi ptr [ %13, %12 ], [ %9, %4 ]
-  br label %17
+17:                                               ; preds = %13, %4
+  %18 = phi ptr [ %15, %13 ], [ %10, %4 ]
+  br label %19
 
-17:                                               ; preds = %17, %15
-  %18 = phi ptr [ %21, %17 ], [ %16, %15 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
-  %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef %0, ptr noundef %1) #17
-  %21 = load ptr, ptr %18, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %17, !llvm.loop !177
+19:                                               ; preds = %19, %17
+  %20 = phi ptr [ %23, %19 ], [ %18, %17 ]
+  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %22 = load ptr, ptr %21, align 8
+  tail call void %22(ptr noundef %0, ptr noundef %1) #17
+  %23 = load ptr, ptr %20, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %19, !llvm.loop !177
 
-23:                                               ; preds = %17, %12, %4
+25:                                               ; preds = %19, %13, %4
   ret void
 }
 
@@ -4832,7 +4983,7 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
   %7 = icmp eq i32 %0, 0
   %8 = icmp eq ptr %2, null
   %9 = or i1 %7, %8
-  br i1 %9, label %98, label %10
+  br i1 %9, label %99, label %10
 
 10:                                               ; preds = %4
   %11 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -4844,7 +4995,7 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
   tail call void @llvm.write_register.i64(metadata !0, i64 %15)
   %17 = and i64 %16, 4294967295
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %98
+  br i1 %18, label %19, label %99
 
 19:                                               ; preds = %10
   %20 = icmp eq i32 %3, 0
@@ -4854,119 +5005,120 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
   %22 = icmp eq i32 %3, 1
   %23 = icmp ne ptr %1, null
   %24 = and i1 %23, %22
-  br i1 %24, label %25, label %98
+  br i1 %24, label %25, label %99
 
 25:                                               ; preds = %21
   %26 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef 32) #17
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %98
+  br i1 %27, label %28, label %99
 
 28:                                               ; preds = %25
   %29 = load i64, ptr %5, align 8
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %98, label %31
+  br i1 %30, label %99, label %31
 
 31:                                               ; preds = %28, %19
-  %32 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 146), align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %82, label %34
+  %32 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 146
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %83, label %35
 
-34:                                               ; preds = %31
-  %35 = icmp eq ptr %1, null
-  br label %36
+35:                                               ; preds = %31
+  %36 = icmp eq ptr %1, null
+  br label %37
 
-36:                                               ; preds = %68, %34
-  %37 = phi ptr [ %32, %34 ], [ %74, %68 ]
-  %38 = phi ptr [ %1, %34 ], [ %73, %68 ]
-  %39 = phi i64 [ 0, %34 ], [ %72, %68 ]
-  %40 = phi i64 [ %14, %34 ], [ %71, %68 ]
-  %41 = phi i8 [ 0, %34 ], [ %70, %68 ]
-  %42 = phi i32 [ 0, %34 ], [ %69, %68 ]
-  br i1 %20, label %50, label %43
+37:                                               ; preds = %69, %35
+  %38 = phi ptr [ %33, %35 ], [ %75, %69 ]
+  %39 = phi ptr [ %1, %35 ], [ %74, %69 ]
+  %40 = phi i64 [ 0, %35 ], [ %73, %69 ]
+  %41 = phi i64 [ %14, %35 ], [ %72, %69 ]
+  %42 = phi i8 [ 0, %35 ], [ %71, %69 ]
+  %43 = phi i32 [ 0, %35 ], [ %70, %69 ]
+  br i1 %20, label %51, label %44
 
-43:                                               ; preds = %36
-  %44 = load i64, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %37, i64 32
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
-  %48 = load i64, ptr %47, align 8
-  %49 = icmp eq i64 %44, %48
-  br i1 %49, label %50, label %68
+44:                                               ; preds = %37
+  %45 = load i64, ptr %5, align 8
+  %46 = getelementptr inbounds i8, ptr %38, i64 32
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = load i64, ptr %48, align 8
+  %50 = icmp eq i64 %45, %49
+  br i1 %50, label %51, label %69
 
-50:                                               ; preds = %43, %36
-  store i64 %40, ptr %6, align 8
-  %51 = getelementptr i8, ptr %1, i64 %39
-  %52 = select i1 %35, ptr %38, ptr %51
-  %53 = getelementptr inbounds i8, ptr %37, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %55 = call i32 %54(i32 noundef %0, ptr noundef %52, ptr noundef nonnull %6, i32 noundef %3) #17
-  switch i32 %55, label %56 [
-    i32 -95, label %68
-    i32 -7, label %61
+51:                                               ; preds = %44, %37
+  store i64 %41, ptr %6, align 8
+  %52 = getelementptr i8, ptr %1, i64 %40
+  %53 = select i1 %36, ptr %39, ptr %52
+  %54 = getelementptr inbounds i8, ptr %38, i64 24
+  %55 = load ptr, ptr %54, align 8
+  %56 = call i32 %55(i32 noundef %0, ptr noundef %53, ptr noundef nonnull %6, i32 noundef %3) #17
+  switch i32 %56, label %57 [
+    i32 -95, label %69
+    i32 -7, label %62
   ]
 
-56:                                               ; preds = %50
-  %57 = icmp slt i32 %55, 0
-  br i1 %57, label %98, label %58
+57:                                               ; preds = %51
+  %58 = icmp slt i32 %56, 0
+  br i1 %58, label %99, label %59
 
-58:                                               ; preds = %56
-  %59 = load i64, ptr %6, align 8
-  %60 = sub i64 %40, %59
-  br label %61
+59:                                               ; preds = %57
+  %60 = load i64, ptr %6, align 8
+  %61 = sub i64 %41, %60
+  br label %62
 
-61:                                               ; preds = %58, %50
-  %62 = phi i32 [ %55, %58 ], [ 0, %50 ]
-  %63 = phi i8 [ %41, %58 ], [ 1, %50 ]
-  %64 = phi i64 [ %60, %58 ], [ 0, %50 ]
-  %65 = load i64, ptr %6, align 8
-  %66 = add i64 %65, %39
-  %67 = add i32 %62, %42
-  br i1 %20, label %68, label %76
+62:                                               ; preds = %59, %51
+  %63 = phi i32 [ %56, %59 ], [ 0, %51 ]
+  %64 = phi i8 [ %42, %59 ], [ 1, %51 ]
+  %65 = phi i64 [ %61, %59 ], [ 0, %51 ]
+  %66 = load i64, ptr %6, align 8
+  %67 = add i64 %66, %40
+  %68 = add i32 %63, %43
+  br i1 %20, label %69, label %77
 
-68:                                               ; preds = %61, %50, %43
-  %69 = phi i32 [ %42, %43 ], [ %67, %61 ], [ %42, %50 ]
-  %70 = phi i8 [ %41, %43 ], [ %63, %61 ], [ %41, %50 ]
-  %71 = phi i64 [ %40, %43 ], [ %64, %61 ], [ %40, %50 ]
-  %72 = phi i64 [ %39, %43 ], [ %66, %61 ], [ %39, %50 ]
-  %73 = phi ptr [ %38, %43 ], [ %52, %61 ], [ %52, %50 ]
-  %74 = load ptr, ptr %37, align 8
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %76, label %36, !llvm.loop !180
+69:                                               ; preds = %62, %51, %44
+  %70 = phi i32 [ %43, %44 ], [ %68, %62 ], [ %43, %51 ]
+  %71 = phi i8 [ %42, %44 ], [ %64, %62 ], [ %42, %51 ]
+  %72 = phi i64 [ %41, %44 ], [ %65, %62 ], [ %41, %51 ]
+  %73 = phi i64 [ %40, %44 ], [ %67, %62 ], [ %40, %51 ]
+  %74 = phi ptr [ %39, %44 ], [ %53, %62 ], [ %53, %51 ]
+  %75 = load ptr, ptr %38, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %77, label %37, !llvm.loop !180
 
-76:                                               ; preds = %68, %61
-  %77 = phi i32 [ %69, %68 ], [ %67, %61 ]
-  %78 = phi i8 [ %70, %68 ], [ %63, %61 ]
-  %79 = phi i64 [ %72, %68 ], [ %66, %61 ]
-  %80 = and i8 %78, 1
-  %81 = icmp ne i8 %80, 0
-  br label %82
+77:                                               ; preds = %69, %62
+  %78 = phi i32 [ %70, %69 ], [ %68, %62 ]
+  %79 = phi i8 [ %71, %69 ], [ %64, %62 ]
+  %80 = phi i64 [ %73, %69 ], [ %67, %62 ]
+  %81 = and i8 %79, 1
+  %82 = icmp ne i8 %81, 0
+  br label %83
 
-82:                                               ; preds = %76, %31
-  %83 = phi i32 [ 0, %31 ], [ %77, %76 ]
-  %84 = phi i1 [ false, %31 ], [ %81, %76 ]
-  %85 = phi i64 [ 0, %31 ], [ %79, %76 ]
-  %86 = call i64 @llvm.read_register.i64(metadata !0)
-  %87 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 %85, i64 8, i64 %86) #17, !srcloc !181
-  %88 = extractvalue { ptr, i64 } %87, 0
-  %89 = extractvalue { ptr, i64 } %87, 1
-  %90 = ptrtoint ptr %88 to i64
-  call void @llvm.write_register.i64(metadata !0, i64 %89)
-  %91 = and i64 %90, 4294967295
-  %92 = icmp ne i64 %91, 0
-  %93 = select i1 %92, i1 true, i1 %84
-  %94 = select i1 %92, i32 -14, i32 -7
-  br i1 %93, label %98, label %95
+83:                                               ; preds = %77, %31
+  %84 = phi i32 [ 0, %31 ], [ %78, %77 ]
+  %85 = phi i1 [ false, %31 ], [ %82, %77 ]
+  %86 = phi i64 [ 0, %31 ], [ %80, %77 ]
+  %87 = call i64 @llvm.read_register.i64(metadata !0)
+  %88 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 %86, i64 8, i64 %87) #17, !srcloc !181
+  %89 = extractvalue { ptr, i64 } %88, 0
+  %90 = extractvalue { ptr, i64 } %88, 1
+  %91 = ptrtoint ptr %89 to i64
+  call void @llvm.write_register.i64(metadata !0, i64 %90)
+  %92 = and i64 %91, 4294967295
+  %93 = icmp ne i64 %92, 0
+  %94 = select i1 %93, i1 true, i1 %85
+  %95 = select i1 %93, i32 -14, i32 -7
+  br i1 %94, label %99, label %96
 
-95:                                               ; preds = %82
-  %96 = icmp eq i32 %83, 0
-  %97 = select i1 %96, i32 -95, i32 %83
-  br label %98
+96:                                               ; preds = %83
+  %97 = icmp eq i32 %84, 0
+  %98 = select i1 %97, i32 -95, i32 %84
+  br label %99
 
-98:                                               ; preds = %95, %82, %56, %28, %25, %21, %10, %4
-  %99 = phi i32 [ -22, %4 ], [ -14, %10 ], [ -22, %21 ], [ -14, %25 ], [ -22, %28 ], [ %94, %82 ], [ %97, %95 ], [ %55, %56 ]
+99:                                               ; preds = %96, %83, %57, %28, %25, %21, %10, %4
+  %100 = phi i32 [ -22, %4 ], [ -14, %10 ], [ -22, %21 ], [ -14, %25 ], [ -22, %28 ], [ %95, %83 ], [ %98, %96 ], [ %56, %57 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
-  ret i32 %99
+  ret i32 %100
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -4983,67 +5135,69 @@ define dso_local i32 @security_setselfattr(i32 noundef %0, ptr noundef %1, i64 n
   %5 = icmp ne i32 %3, 0
   %6 = icmp ult i64 %2, 32
   %7 = or i1 %6, %5
-  br i1 %7, label %45, label %8
+  br i1 %7, label %47, label %8
 
 8:                                                ; preds = %4
   %9 = icmp ugt i64 %2, 4096
-  br i1 %9, label %45, label %10
+  br i1 %9, label %47, label %10
 
 10:                                               ; preds = %8
   %11 = tail call ptr @memdup_user(ptr noundef %1, i64 noundef %2) #17
-  %12 = icmp ugt ptr %11, inttoptr (i64 -4096 to ptr)
-  br i1 %12, label %13, label %16
+  %12 = inttoptr i64 -4096 to ptr
+  %13 = icmp ugt ptr %11, %12
+  br i1 %13, label %14, label %17
 
-13:                                               ; preds = %10
-  %14 = ptrtoint ptr %11 to i64
-  %15 = trunc i64 %14 to i32
+14:                                               ; preds = %10
+  %15 = ptrtoint ptr %11 to i64
+  %16 = trunc i64 %15 to i32
+  br label %47
+
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds i8, ptr %11, i64 16
+  %19 = load i64, ptr %18, align 8
+  %20 = icmp ugt i64 %19, %2
+  br i1 %20, label %45, label %21
+
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %11, i64 24
+  %23 = load i64, ptr %22, align 8
+  %24 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 32)
+  %25 = extractvalue { i64, i1 } %24, 1
+  %26 = extractvalue { i64, i1 } %24, 0
+  %27 = icmp ult i64 %19, %26
+  %28 = or i1 %25, %27
+  %29 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 147
+  br i1 %28, label %45, label %30
+
+30:                                               ; preds = %34, %21
+  %31 = phi ptr [ %32, %34 ], [ %29, %21 ]
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %45, label %34
+
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds i8, ptr %32, i64 32
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = load i64, ptr %37, align 8
+  %39 = load i64, ptr %11, align 8
+  %40 = icmp eq i64 %38, %39
+  br i1 %40, label %41, label %30, !llvm.loop !182
+
+41:                                               ; preds = %34
+  %42 = getelementptr inbounds i8, ptr %32, i64 24
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call i32 %43(i32 noundef %0, ptr noundef %11, i64 noundef %2, i32 noundef 0) #17
   br label %45
 
-16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %11, i64 16
-  %18 = load i64, ptr %17, align 8
-  %19 = icmp ugt i64 %18, %2
-  br i1 %19, label %43, label %20
-
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %11, i64 24
-  %22 = load i64, ptr %21, align 8
-  %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %22, i64 32)
-  %24 = extractvalue { i64, i1 } %23, 1
-  %25 = extractvalue { i64, i1 } %23, 0
-  %26 = icmp ult i64 %18, %25
-  %27 = or i1 %24, %26
-  br i1 %27, label %43, label %28
-
-28:                                               ; preds = %32, %20
-  %29 = phi ptr [ %30, %32 ], [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 147), %20 ]
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %43, label %32
-
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %30, i64 32
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  %36 = load i64, ptr %35, align 8
-  %37 = load i64, ptr %11, align 8
-  %38 = icmp eq i64 %36, %37
-  br i1 %38, label %39, label %28, !llvm.loop !182
-
-39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %30, i64 24
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call i32 %41(i32 noundef %0, ptr noundef %11, i64 noundef %2, i32 noundef 0) #17
-  br label %43
-
-43:                                               ; preds = %39, %28, %20, %16
-  %44 = phi i32 [ %42, %39 ], [ -22, %20 ], [ -22, %16 ], [ -95, %28 ]
+45:                                               ; preds = %41, %30, %21, %17
+  %46 = phi i32 [ %44, %41 ], [ -22, %21 ], [ -22, %17 ], [ -95, %30 ]
   tail call void @kfree(ptr noundef %11) #17
-  br label %45
+  br label %47
 
-45:                                               ; preds = %43, %13, %8, %4
-  %46 = phi i32 [ %15, %13 ], [ %44, %43 ], [ -22, %4 ], [ -7, %8 ]
-  ret i32 %46
+47:                                               ; preds = %45, %14, %8, %4
+  %48 = phi i32 [ %16, %14 ], [ %46, %45 ], [ -22, %4 ], [ -7, %8 ]
+  ret i32 %48
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -5056,291 +5210,102 @@ declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #11
 define dso_local i32 @security_getprocattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
   %5 = icmp eq i32 %1, 0
   %6 = sext i32 %1 to i64
-  br label %7
+  %7 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 148
+  br label %8
 
-7:                                                ; preds = %12, %4
-  %8 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 148), %4 ], [ %9, %12 ]
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %22, label %11
+8:                                                ; preds = %13, %4
+  %9 = phi ptr [ %7, %4 ], [ %10, %13 ]
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %23, label %12
 
-11:                                               ; preds = %7
-  br i1 %5, label %18, label %12
+12:                                               ; preds = %8
+  br i1 %5, label %19, label %13
 
-12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = icmp eq i64 %16, %6
-  br i1 %17, label %18, label %7, !llvm.loop !183
+13:                                               ; preds = %12
+  %14 = getelementptr inbounds i8, ptr %10, i64 32
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = icmp eq i64 %17, %6
+  br i1 %18, label %19, label %8, !llvm.loop !183
 
-18:                                               ; preds = %12, %11
-  %19 = getelementptr inbounds i8, ptr %9, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20(ptr noundef %0, ptr noundef %2, ptr noundef %3) #17
-  br label %22
+19:                                               ; preds = %13, %12
+  %20 = getelementptr inbounds i8, ptr %10, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 %21(ptr noundef %0, ptr noundef %2, ptr noundef %3) #17
+  br label %23
 
-22:                                               ; preds = %18, %7
-  %23 = phi i32 [ %21, %18 ], [ -22, %7 ]
-  ret i32 %23
+23:                                               ; preds = %19, %8
+  %24 = phi i32 [ %22, %19 ], [ -22, %8 ]
+  ret i32 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_setprocattr(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #3 align 16 {
   %5 = icmp eq i32 %0, 0
   %6 = sext i32 %0 to i64
-  br label %7
+  %7 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 149
+  br label %8
 
-7:                                                ; preds = %12, %4
-  %8 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 149), %4 ], [ %9, %12 ]
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %22, label %11
+8:                                                ; preds = %13, %4
+  %9 = phi ptr [ %7, %4 ], [ %10, %13 ]
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %23, label %12
 
-11:                                               ; preds = %7
-  br i1 %5, label %18, label %12
+12:                                               ; preds = %8
+  br i1 %5, label %19, label %13
 
-12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = icmp eq i64 %16, %6
-  br i1 %17, label %18, label %7, !llvm.loop !184
+13:                                               ; preds = %12
+  %14 = getelementptr inbounds i8, ptr %10, i64 32
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = icmp eq i64 %17, %6
+  br i1 %18, label %19, label %8, !llvm.loop !184
 
-18:                                               ; preds = %12, %11
-  %19 = getelementptr inbounds i8, ptr %9, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20(ptr noundef %1, ptr noundef %2, i64 noundef %3) #17
-  br label %22
+19:                                               ; preds = %13, %12
+  %20 = getelementptr inbounds i8, ptr %10, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 %21(ptr noundef %1, ptr noundef %2, i64 noundef %3) #17
+  br label %23
 
-22:                                               ; preds = %18, %7
-  %23 = phi i32 [ %21, %18 ], [ -22, %7 ]
-  ret i32 %23
+23:                                               ; preds = %19, %8
+  %24 = phi i32 [ %22, %19 ], [ -22, %8 ]
+  ret i32 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_netlink_send(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 144
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 144), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !185
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !185
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_ismaclabel(ptr noundef %0) #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 150), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !186
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_secid_to_secctx(i32 noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 151), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(i32 noundef %0, ptr noundef %1, ptr noundef %2) #17
-  %12 = icmp eq i32 %11, -95
-  br i1 %12, label %4, label %13, !llvm.loop !187
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ -95, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_secctx_to_secid(ptr noundef %0, i32 noundef %1, ptr noundef %2) #3 align 16 {
-  store i32 0, ptr %2, align 4
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 152), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, ptr noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !188
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_release_secctx(ptr noundef %0, i32 noundef %1) #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 153), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
-
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %9, %5 ], [ %3, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %0, i32 noundef %1) #17
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %5, !llvm.loop !189
-
-11:                                               ; preds = %5, %2
-  ret void
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_inode_invalidate_secctx(ptr noundef %0) #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 154), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
-
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !190
-
-10:                                               ; preds = %4, %1
-  ret void
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_notifysecctx(ptr noundef %0, ptr noundef %1, i32 noundef %2) #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 155), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !191
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_setsecctx(ptr noundef %0, ptr noundef %1, i32 noundef %2) #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 156), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !192
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_getsecctx(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 157), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
-  %12 = icmp eq i32 %11, -95
-  br i1 %12, label %4, label %13, !llvm.loop !193
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ -95, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_unix_stream_connect(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 158), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !194
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_unix_may_send(ptr noundef %0, ptr noundef %1) #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 150
   br label %3
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 159), %2 ], [ %5, %7 ]
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -5348,9 +5313,9 @@ define dso_local i32 @security_unix_may_send(ptr noundef %0, ptr noundef %1) #3 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = tail call i32 %9(ptr noundef %0) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !195
+  br i1 %11, label %3, label %12, !llvm.loop !186
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -5358,11 +5323,12 @@ define dso_local i32 @security_unix_may_send(ptr noundef %0, ptr noundef %1) #3 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_create(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_secid_to_secctx(i32 noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 151
   br label %5
 
-5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 160), %4 ], [ %7, %9 ]
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -5370,9 +5336,33 @@ define dso_local i32 @security_socket_create(i32 noundef %0, i32 noundef %1, i32
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #17
+  %12 = tail call i32 %11(i32 noundef %0, ptr noundef %1, ptr noundef %2) #17
+  %13 = icmp eq i32 %12, -95
+  br i1 %13, label %5, label %14, !llvm.loop !187
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ -95, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_secctx_to_secid(ptr noundef %0, i32 noundef %1, ptr noundef %2) #3 align 16 {
+  store i32 0, ptr %2, align 4
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 152
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, i32 noundef %1, ptr noundef %2) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !196
+  br i1 %13, label %5, label %14, !llvm.loop !188
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -5380,11 +5370,167 @@ define dso_local i32 @security_socket_create(i32 noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_post_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 16 {
+define dso_local void @security_release_secctx(ptr noundef %0, i32 noundef %1) #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 153
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %12, label %6
+
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %10, %6 ], [ %4, %2 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef %0, i32 noundef %1) #17
+  %10 = load ptr, ptr %7, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %6, !llvm.loop !189
+
+12:                                               ; preds = %6, %2
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local void @security_inode_invalidate_secctx(ptr noundef %0) #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 154
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
+
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !190
+
+11:                                               ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_inode_notifysecctx(ptr noundef %0, ptr noundef %1, i32 noundef %2) #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 155
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !191
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_inode_setsecctx(ptr noundef %0, ptr noundef %1, i32 noundef %2) #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 156
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !192
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_inode_getsecctx(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 157
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
+  %13 = icmp eq i32 %12, -95
+  br i1 %13, label %5, label %14, !llvm.loop !193
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ -95, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_unix_stream_connect(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 158
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !194
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_unix_may_send(ptr noundef %0, ptr noundef %1) #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 159
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !195
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_socket_create(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
+  %5 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 160
   br label %6
 
-6:                                                ; preds = %10, %5
-  %7 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 161), %5 ], [ %8, %10 ]
+6:                                                ; preds = %10, %4
+  %7 = phi ptr [ %5, %4 ], [ %8, %10 ]
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %10
@@ -5392,9 +5538,9 @@ define dso_local i32 @security_socket_post_create(ptr noundef %0, i32 noundef %1
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 %12(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #17
+  %13 = tail call i32 %12(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #17
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %6, label %15, !llvm.loop !197
+  br i1 %14, label %6, label %15, !llvm.loop !196
 
 15:                                               ; preds = %10, %6
   %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
@@ -5402,297 +5548,12 @@ define dso_local i32 @security_socket_post_create(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_socketpair(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 162), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !198
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_bind(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 163), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !199
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_connect(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 164), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !200
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_listen(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 165), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !201
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_accept(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 166), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !202
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_sendmsg(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 167), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !203
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_recvmsg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
-  br label %5
-
-5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 168), %4 ], [ %7, %9 ]
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %14, label %9
-
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #17
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !204
-
-14:                                               ; preds = %9, %5
-  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
-  ret i32 %15
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_getsockname(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 169), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !205
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_getpeername(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 170), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !206
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_getsockopt(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 171), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, i32 noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !207
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_setsockopt(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 172), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, i32 noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !208
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_shutdown(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 173), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !209
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sock_rcv_skb(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 174), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !210
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_getpeersec_stream(ptr noundef %0, ptr %1, i8 %2, ptr %3, i8 %4, i32 noundef %5) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_post_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 16 {
+  %6 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 161
   br label %7
 
-7:                                                ; preds = %11, %6
-  %8 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 175), %6 ], [ %9, %11 ]
+7:                                                ; preds = %11, %5
+  %8 = phi ptr [ %6, %5 ], [ %9, %11 ]
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %16, label %11
@@ -5700,21 +5561,22 @@ define dso_local i32 @security_socket_getpeersec_stream(ptr noundef %0, ptr %1, 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %9, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef %0, ptr %1, i8 %2, ptr %3, i8 %4, i32 noundef %5) #17
-  %15 = icmp eq i32 %14, -92
-  br i1 %15, label %7, label %16, !llvm.loop !211
+  %14 = tail call i32 %13(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #17
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %7, label %16, !llvm.loop !197
 
 16:                                               ; preds = %11, %7
-  %17 = phi i32 [ %14, %11 ], [ -92, %7 ]
+  %17 = phi i32 [ %14, %11 ], [ 0, %7 ]
   ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_getpeersec_dgram(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
+define dso_local i32 @security_socket_socketpair(ptr noundef %0, ptr noundef %1) #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 162
   br label %4
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 176), %3 ], [ %6, %8 ]
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -5722,31 +5584,9 @@ define dso_local i32 @security_socket_getpeersec_dgram(ptr noundef %0, ptr nound
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
-  %12 = icmp eq i32 %11, -92
-  br i1 %12, label %4, label %13, !llvm.loop !212
-
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ -92, %4 ]
-  ret i32 %14
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sk_alloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
-  br label %4
-
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 177), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, i32 noundef %2) #17
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !213
+  br i1 %12, label %4, label %13, !llvm.loop !198
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -5754,359 +5594,699 @@ define dso_local i32 @security_sk_alloc(ptr noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_sk_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 178), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+define dso_local i32 @security_socket_bind(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 163
+  br label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !214
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
 
-10:                                               ; preds = %4, %1
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !199
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_socket_connect(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 164
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !200
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_socket_listen(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 165
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !201
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_socket_accept(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 166
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !202
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_socket_sendmsg(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 167
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !203
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_socket_recvmsg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
+  %5 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 168
+  br label %6
+
+6:                                                ; preds = %10, %4
+  %7 = phi ptr [ %5, %4 ], [ %8, %10 ]
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %15, label %10
+
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i32 %12(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #17
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %6, label %15, !llvm.loop !204
+
+15:                                               ; preds = %10, %6
+  %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
+  ret i32 %16
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_socket_getsockname(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 169
+  br label %3
+
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !205
+
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_socket_getpeername(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 170
+  br label %3
+
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !206
+
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_socket_getsockopt(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 171
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, i32 noundef %1, i32 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !207
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_socket_setsockopt(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 172
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, i32 noundef %1, i32 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !208
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_socket_shutdown(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 173
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !209
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_sock_rcv_skb(ptr noundef %0, ptr noundef %1) #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 174
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !210
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_socket_getpeersec_stream(ptr noundef %0, ptr %1, i8 %2, ptr %3, i8 %4, i32 noundef %5) local_unnamed_addr #3 align 16 {
+  %7 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 175
+  br label %8
+
+8:                                                ; preds = %12, %6
+  %9 = phi ptr [ %7, %6 ], [ %10, %12 ]
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %17, label %12
+
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call i32 %14(ptr noundef %0, ptr %1, i8 %2, ptr %3, i8 %4, i32 noundef %5) #17
+  %16 = icmp eq i32 %15, -92
+  br i1 %16, label %8, label %17, !llvm.loop !211
+
+17:                                               ; preds = %12, %8
+  %18 = phi i32 [ %15, %12 ], [ -92, %8 ]
+  ret i32 %18
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_socket_getpeersec_dgram(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 176
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
+  %13 = icmp eq i32 %12, -92
+  br i1 %13, label %5, label %14, !llvm.loop !212
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ -92, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_sk_alloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 177
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, i32 noundef %1, i32 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !213
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local void @security_sk_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 178
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
+
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !214
+
+11:                                               ; preds = %5, %1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sk_clone(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 179), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 179
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %12, label %6
 
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %9, %5 ], [ %3, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %0, ptr noundef %1) #17
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %5, !llvm.loop !215
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %10, %6 ], [ %4, %2 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = load ptr, ptr %7, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %6, !llvm.loop !215
 
-11:                                               ; preds = %5, %2
+12:                                               ; preds = %6, %2
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sk_classify_flow(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 180), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %13, label %5
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 180
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %14, label %6
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 20
-  br label %7
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %1, i64 20
+  br label %8
 
-7:                                                ; preds = %7, %5
-  %8 = phi ptr [ %3, %5 ], [ %11, %7 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
-  %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef %0, ptr noundef %6) #17
-  %11 = load ptr, ptr %8, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %7, !llvm.loop !216
+8:                                                ; preds = %8, %6
+  %9 = phi ptr [ %4, %6 ], [ %12, %8 ]
+  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %11 = load ptr, ptr %10, align 8
+  tail call void %11(ptr noundef %0, ptr noundef %7) #17
+  %12 = load ptr, ptr %9, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %8, !llvm.loop !216
 
-13:                                               ; preds = %7, %2
+14:                                               ; preds = %8, %2
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_req_classify_flow(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 188), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 188
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %12, label %6
 
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %9, %5 ], [ %3, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %0, ptr noundef %1) #17
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %5, !llvm.loop !217
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %10, %6 ], [ %4, %2 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = load ptr, ptr %7, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %6, !llvm.loop !217
 
-11:                                               ; preds = %5, %2
+12:                                               ; preds = %6, %2
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sock_graft(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 181), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 181
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %12, label %6
 
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %9, %5 ], [ %3, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %0, ptr noundef %1) #17
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %5, !llvm.loop !218
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %10, %6 ], [ %4, %2 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = load ptr, ptr %7, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %6, !llvm.loop !218
 
-11:                                               ; preds = %5, %2
+12:                                               ; preds = %6, %2
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_inet_conn_request(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
-  br label %4
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 182
+  br label %5
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 182), %3 ], [ %6, %8 ]
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !219
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !219
 
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  ret i32 %14
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_inet_csk_clone(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 183), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 183
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %12, label %6
 
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %9, %5 ], [ %3, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %0, ptr noundef %1) #17
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %5, !llvm.loop !220
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %10, %6 ], [ %4, %2 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = load ptr, ptr %7, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %6, !llvm.loop !220
 
-11:                                               ; preds = %5, %2
+12:                                               ; preds = %6, %2
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_inet_conn_established(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 184), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 184
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %12, label %6
 
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %9, %5 ], [ %3, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %0, ptr noundef %1) #17
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %5, !llvm.loop !221
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %10, %6 ], [ %4, %2 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = load ptr, ptr %7, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %6, !llvm.loop !221
 
-11:                                               ; preds = %5, %2
+12:                                               ; preds = %6, %2
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_secmark_relabel_packet(i32 noundef %0) #3 align 16 {
-  br label %2
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 185
+  br label %3
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 185), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(i32 noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !222
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(i32 noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !222
 
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_secmark_refcount_inc() #3 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 186), align 8
-  %2 = icmp eq ptr %1, null
-  br i1 %2, label %9, label %3
+  %1 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 186
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %10, label %4
 
-3:                                                ; preds = %3, %0
-  %4 = phi ptr [ %7, %3 ], [ %1, %0 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
-  %6 = load ptr, ptr %5, align 8
-  tail call void %6() #17
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %3, !llvm.loop !223
+4:                                                ; preds = %4, %0
+  %5 = phi ptr [ %8, %4 ], [ %2, %0 ]
+  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = load ptr, ptr %6, align 8
+  tail call void %7() #17
+  %8 = load ptr, ptr %5, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %4, !llvm.loop !223
 
-9:                                                ; preds = %3, %0
+10:                                               ; preds = %4, %0
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_secmark_refcount_dec() #3 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 187), align 8
-  %2 = icmp eq ptr %1, null
-  br i1 %2, label %9, label %3
+  %1 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 187
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %10, label %4
 
-3:                                                ; preds = %3, %0
-  %4 = phi ptr [ %7, %3 ], [ %1, %0 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
-  %6 = load ptr, ptr %5, align 8
-  tail call void %6() #17
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %3, !llvm.loop !224
+4:                                                ; preds = %4, %0
+  %5 = phi ptr [ %8, %4 ], [ %2, %0 ]
+  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = load ptr, ptr %6, align 8
+  tail call void %7() #17
+  %8 = load ptr, ptr %5, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %4, !llvm.loop !224
 
-9:                                                ; preds = %3, %0
+10:                                               ; preds = %4, %0
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_tun_dev_alloc_security(ptr noundef %0) #3 align 16 {
-  br label %2
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 189
+  br label %3
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 189), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !225
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !225
 
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_tun_dev_free_security(ptr noundef %0) #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 190), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 190
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !226
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !226
 
-10:                                               ; preds = %4, %1
+11:                                               ; preds = %5, %1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_tun_dev_create() #3 align 16 {
-  br label %1
+  %1 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 191
+  br label %2
 
-1:                                                ; preds = %5, %0
-  %2 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 191), %0 ], [ %3, %5 ]
-  %3 = load ptr, ptr %2, align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %10, label %5
+2:                                                ; preds = %6, %0
+  %3 = phi ptr [ %1, %0 ], [ %4, %6 ]
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %11, label %6
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7() #17
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %1, label %10, !llvm.loop !227
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i32 %8() #17
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %2, label %11, !llvm.loop !227
 
-10:                                               ; preds = %5, %1
-  %11 = phi i32 [ %8, %5 ], [ 0, %1 ]
-  ret i32 %11
+11:                                               ; preds = %6, %2
+  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
+  ret i32 %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_tun_dev_attach_queue(ptr noundef %0) #3 align 16 {
-  br label %2
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 192
+  br label %3
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 192), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !228
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !228
 
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_tun_dev_attach(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  br label %3
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 193
+  br label %4
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 193), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !229
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !229
 
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_tun_dev_open(ptr noundef %0) #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 194), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !230
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sctp_assoc_request(ptr noundef %0, ptr noundef %1) #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 194
   br label %3
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 195), %2 ], [ %5, %7 ]
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -6114,9 +6294,9 @@ define dso_local i32 @security_sctp_assoc_request(ptr noundef %0, ptr noundef %1
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = tail call i32 %9(ptr noundef %0) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !231
+  br i1 %11, label %3, label %12, !llvm.loop !230
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -6124,96 +6304,78 @@ define dso_local i32 @security_sctp_assoc_request(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_sctp_assoc_request(ptr noundef %0, ptr noundef %1) #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 195
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !231
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_sctp_bind_connect(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #3 align 16 {
-  br label %5
+  %5 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 196
+  br label %6
 
-5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 196), %4 ], [ %7, %9 ]
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %14, label %9
+6:                                                ; preds = %10, %4
+  %7 = phi ptr [ %5, %4 ], [ %8, %10 ]
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %15, label %10
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #17
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !232
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i32 %12(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #17
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %6, label %15, !llvm.loop !232
 
-14:                                               ; preds = %9, %5
-  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
-  ret i32 %15
+15:                                               ; preds = %10, %6
+  %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_sctp_sk_clone(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 197), align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %12, label %6
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 197
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %13, label %7
 
-6:                                                ; preds = %6, %3
-  %7 = phi ptr [ %10, %6 ], [ %4, %3 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
-  %9 = load ptr, ptr %8, align 8
-  tail call void %9(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
-  %10 = load ptr, ptr %7, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %6, !llvm.loop !233
+7:                                                ; preds = %7, %3
+  %8 = phi ptr [ %11, %7 ], [ %5, %3 ]
+  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = load ptr, ptr %9, align 8
+  tail call void %10(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
+  %11 = load ptr, ptr %8, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %7, !llvm.loop !233
 
-12:                                               ; preds = %6, %3
+13:                                               ; preds = %7, %3
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_sctp_assoc_established(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 198), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !234
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_mptcp_add_subflow(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  br label %3
-
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 199), %2 ], [ %5, %7 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !235
-
-12:                                               ; preds = %7, %3
-  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
-  ret i32 %13
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_key_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 198
   br label %4
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 200), %3 ], [ %6, %8 ]
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -6221,9 +6383,9 @@ define dso_local i32 @security_key_alloc(ptr noundef %0, ptr noundef %1, i64 nou
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i64 noundef %2) #17
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !236
+  br i1 %12, label %4, label %13, !llvm.loop !234
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -6231,30 +6393,102 @@ define dso_local i32 @security_key_alloc(ptr noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_key_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 201), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+define dso_local i32 @security_mptcp_add_subflow(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 199
+  br label %4
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !235
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_key_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 200
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !237
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
 
-10:                                               ; preds = %4, %1
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i64 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !236
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local void @security_key_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 201
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
+
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !237
+
+11:                                               ; preds = %5, %1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_key_permission(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+  %4 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 202
+  br label %5
+
+5:                                                ; preds = %9, %3
+  %6 = phi ptr [ %4, %3 ], [ %7, %9 ]
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !238
+
+14:                                               ; preds = %9, %5
+  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  ret i32 %15
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_key_getsecurity(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+  store ptr null, ptr %1, align 8
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 203
   br label %4
 
-4:                                                ; preds = %8, %3
-  %5 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 202), %3 ], [ %6, %8 ]
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -6262,9 +6496,9 @@ define dso_local i32 @security_key_permission(ptr noundef %0, ptr noundef %1, i3
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !238
+  br i1 %12, label %4, label %13, !llvm.loop !239
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -6272,12 +6506,35 @@ define dso_local i32 @security_key_permission(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_key_getsecurity(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  store ptr null, ptr %1, align 8
+define dso_local i32 @security_audit_rule_init(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
+  %5 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 204
+  br label %6
+
+6:                                                ; preds = %10, %4
+  %7 = phi ptr [ %5, %4 ], [ %8, %10 ]
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %15, label %10
+
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i32 %12(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #17
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %6, label %15, !llvm.loop !240
+
+15:                                               ; preds = %10, %6
+  %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
+  ret i32 %16
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_audit_rule_known(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 205
   br label %3
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 203), %2 ], [ %5, %7 ]
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -6285,9 +6542,9 @@ define dso_local i32 @security_key_getsecurity(ptr noundef %0, ptr noundef %1) l
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
+  %10 = tail call i32 %9(ptr noundef %0) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !239
+  br i1 %11, label %3, label %12, !llvm.loop !241
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -6295,118 +6552,55 @@ define dso_local i32 @security_key_getsecurity(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_audit_rule_init(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
-  br label %5
-
-5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 204), %4 ], [ %7, %9 ]
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %14, label %9
-
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #17
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !240
-
-14:                                               ; preds = %9, %5
-  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
-  ret i32 %15
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_audit_rule_known(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 205), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !241
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_audit_rule_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 207), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 207
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !242
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !242
 
-10:                                               ; preds = %4, %1
+11:                                               ; preds = %5, %1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_audit_rule_match(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
-  br label %5
+  %5 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 206
+  br label %6
 
-5:                                                ; preds = %9, %4
-  %6 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 206), %4 ], [ %7, %9 ]
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %14, label %9
+6:                                                ; preds = %10, %4
+  %7 = phi ptr [ %5, %4 ], [ %8, %10 ]
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %15, label %10
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #17
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !243
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i32 %12(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #17
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %6, label %15, !llvm.loop !243
 
-14:                                               ; preds = %9, %5
-  %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
-  ret i32 %15
+15:                                               ; preds = %10, %6
+  %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_locked_down(i32 noundef %0) #3 align 16 {
-  br label %2
-
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 208), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(i32 noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !244
-
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_perf_event_open(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 208
   br label %3
 
-3:                                                ; preds = %7, %2
-  %4 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 209), %2 ], [ %5, %7 ]
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -6414,9 +6608,9 @@ define dso_local i32 @security_perf_event_open(ptr noundef %0, i32 noundef %1) l
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
+  %10 = tail call i32 %9(i32 noundef %0) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !245
+  br i1 %11, label %3, label %12, !llvm.loop !244
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -6424,140 +6618,147 @@ define dso_local i32 @security_perf_event_open(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_perf_event_open(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+  %3 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 209
+  br label %4
+
+4:                                                ; preds = %8, %2
+  %5 = phi ptr [ %3, %2 ], [ %6, %8 ]
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %4, label %13, !llvm.loop !245
+
+13:                                               ; preds = %8, %4
+  %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
+  ret i32 %14
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_perf_event_alloc(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 210
+  br label %3
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 210), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !246
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !246
 
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @security_perf_event_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 211), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 211
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %4, %1
-  %5 = phi ptr [ %8, %4 ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #17
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %4, !llvm.loop !247
+5:                                                ; preds = %5, %1
+  %6 = phi ptr [ %9, %5 ], [ %3, %1 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef %0) #17
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %5, !llvm.loop !247
 
-10:                                               ; preds = %4, %1
+11:                                               ; preds = %5, %1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_perf_event_read(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 212
+  br label %3
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 212), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !248
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !248
 
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_perf_event_write(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 213
+  br label %3
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 213), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !249
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !249
 
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_uring_override_creds(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  br label %2
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 214
+  br label %3
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 214), %1 ], [ %4, %6 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !250
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !250
 
-11:                                               ; preds = %6, %2
-  %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  ret i32 %12
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @security_uring_sqpoll() local_unnamed_addr #3 align 16 {
-  br label %1
-
-1:                                                ; preds = %5, %0
-  %2 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 215), %0 ], [ %3, %5 ]
-  %3 = load ptr, ptr %2, align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %10, label %5
-
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7() #17
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %1, label %10, !llvm.loop !251
-
-10:                                               ; preds = %5, %1
-  %11 = phi i32 [ %8, %5 ], [ 0, %1 ]
-  ret i32 %11
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_uring_cmd(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %1 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 215
   br label %2
 
-2:                                                ; preds = %6, %1
-  %3 = phi ptr [ getelementptr inbounds (%struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 216), %1 ], [ %4, %6 ]
+2:                                                ; preds = %6, %0
+  %3 = phi ptr [ %1, %0 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -6565,13 +6766,36 @@ define dso_local i32 @security_uring_cmd(ptr noundef %0) local_unnamed_addr #3 a
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #17
+  %9 = tail call i32 %8() #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !252
+  br i1 %10, label %2, label %11, !llvm.loop !251
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
   ret i32 %12
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @security_uring_cmd(ptr noundef %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds %struct.security_hook_heads, ptr @security_hook_heads, i64 0, i32 216
+  br label %3
+
+3:                                                ; preds = %7, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %7 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i32 %9(ptr noundef %0) #17
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %3, label %12, !llvm.loop !252
+
+12:                                               ; preds = %7, %3
+  %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -6758,261 +6982,267 @@ define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) u
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   store ptr null, ptr %3, align 8, !annotation !178
-  br i1 icmp ult (ptr @__start_lsm_info, ptr @__end_lsm_info), label %4, label %13
+  %4 = icmp ult ptr @__start_lsm_info, @__end_lsm_info
+  br i1 %4, label %5, label %14
 
-4:                                                ; preds = %10, %2
-  %5 = phi ptr [ %11, %10 ], [ @__start_lsm_info, %2 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, -1
-  br i1 %8, label %9, label %10
+5:                                                ; preds = %11, %2
+  %6 = phi ptr [ %12, %11 ], [ @__start_lsm_info, %2 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp eq i32 %8, -1
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %4
-  tail call fastcc void @append_ordered_lsm(ptr noundef %5, ptr noundef nonnull @.str.58) #15
-  br label %10
+10:                                               ; preds = %5
+  tail call fastcc void @append_ordered_lsm(ptr noundef %6, ptr noundef nonnull @.str.58) #15
+  br label %11
 
-10:                                               ; preds = %9, %4
-  %11 = getelementptr i8, ptr %5, i64 48
-  %12 = icmp ult ptr %11, @__end_lsm_info
-  br i1 %12, label %4, label %13, !llvm.loop !253
+11:                                               ; preds = %10, %5
+  %12 = getelementptr i8, ptr %6, i64 48
+  %13 = icmp ult ptr %12, @__end_lsm_info
+  br i1 %13, label %5, label %14, !llvm.loop !253
 
-13:                                               ; preds = %10, %2
-  %14 = load ptr, ptr @chosen_major_lsm, align 8
-  %15 = icmp eq ptr %14, null
-  %16 = or i1 %15, icmp uge (ptr @__start_lsm_info, ptr @__end_lsm_info)
-  br i1 %16, label %47, label %17
+14:                                               ; preds = %11, %2
+  %15 = load ptr, ptr @chosen_major_lsm, align 8
+  %16 = icmp eq ptr %15, null
+  %17 = icmp uge ptr @__start_lsm_info, @__end_lsm_info
+  %18 = or i1 %16, %17
+  br i1 %18, label %49, label %19
 
-17:                                               ; preds = %44, %13
-  %18 = phi ptr [ %45, %44 ], [ @__start_lsm_info, %13 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
-  %20 = load i64, ptr %19, align 8
-  %21 = and i64 %20, 1
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %44, label %23
+19:                                               ; preds = %46, %14
+  %20 = phi ptr [ %47, %46 ], [ @__start_lsm_info, %14 ]
+  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = load i64, ptr %21, align 8
+  %23 = and i64 %22, 1
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %46, label %25
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %18, align 8
-  %25 = load ptr, ptr @chosen_major_lsm, align 8
-  %26 = tail call i32 @strcmp(ptr noundef %24, ptr noundef %25) #17
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %44, label %28
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %20, align 8
+  %27 = load ptr, ptr @chosen_major_lsm, align 8
+  %28 = tail call i32 @strcmp(ptr noundef %26, ptr noundef %27) #17
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %46, label %30
 
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %18, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %33
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds i8, ptr %20, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %35
 
-32:                                               ; preds = %28
-  store ptr @lsm_enabled_false, ptr %29, align 8
-  br label %39
+34:                                               ; preds = %30
+  store ptr @lsm_enabled_false, ptr %31, align 8
+  br label %41
 
-33:                                               ; preds = %28
-  %34 = icmp eq ptr %30, @lsm_enabled_true
-  br i1 %34, label %35, label %36
+35:                                               ; preds = %30
+  %36 = icmp eq ptr %32, @lsm_enabled_true
+  br i1 %36, label %37, label %38
 
-35:                                               ; preds = %33
-  store ptr @lsm_enabled_false, ptr %29, align 8
-  br label %39
+37:                                               ; preds = %35
+  store ptr @lsm_enabled_false, ptr %31, align 8
+  br label %41
 
-36:                                               ; preds = %33
-  %37 = icmp eq ptr %30, @lsm_enabled_false
-  br i1 %37, label %39, label %38
+38:                                               ; preds = %35
+  %39 = icmp eq ptr %32, @lsm_enabled_false
+  br i1 %39, label %41, label %40
 
-38:                                               ; preds = %36
-  store i32 0, ptr %30, align 4
-  br label %39
+40:                                               ; preds = %38
+  store i32 0, ptr %32, align 4
+  br label %41
 
-39:                                               ; preds = %38, %36, %35, %32
-  %40 = load i1, ptr @debug, align 1
-  br i1 %40, label %41, label %44
+41:                                               ; preds = %40, %38, %37, %34
+  %42 = load i1, ptr @debug, align 1
+  br i1 %42, label %43, label %46
 
-41:                                               ; preds = %39
-  %42 = load ptr, ptr %18, align 8
-  %43 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.59, ptr noundef %25, ptr noundef %42) #16
-  br label %44
+43:                                               ; preds = %41
+  %44 = load ptr, ptr %20, align 8
+  %45 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.59, ptr noundef %27, ptr noundef %44) #16
+  br label %46
 
-44:                                               ; preds = %41, %39, %23, %17
-  %45 = getelementptr i8, ptr %18, i64 48
-  %46 = icmp ult ptr %45, @__end_lsm_info
-  br i1 %46, label %17, label %47, !llvm.loop !254
+46:                                               ; preds = %43, %41, %25, %19
+  %47 = getelementptr i8, ptr %20, i64 48
+  %48 = icmp ult ptr %47, @__end_lsm_info
+  br i1 %48, label %19, label %49, !llvm.loop !254
 
-47:                                               ; preds = %44, %13
-  %48 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 3264) #17
-  store ptr %48, ptr %3, align 8
-  %49 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str.60) #17
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %79, label %51
+49:                                               ; preds = %46, %14
+  %50 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 3264) #17
+  store ptr %50, ptr %3, align 8
+  %51 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str.60) #17
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %82, label %53
 
-51:                                               ; preds = %76, %47
-  %52 = phi ptr [ %77, %76 ], [ %49, %47 ]
-  br i1 icmp ult (ptr @__start_lsm_info, ptr @__end_lsm_info), label %53, label %68
+53:                                               ; preds = %79, %49
+  %54 = phi ptr [ %80, %79 ], [ %51, %49 ]
+  %55 = icmp ult ptr @__start_lsm_info, @__end_lsm_info
+  br i1 %55, label %56, label %71
 
-53:                                               ; preds = %64, %51
-  %54 = phi ptr [ %66, %64 ], [ @__start_lsm_info, %51 ]
-  %55 = phi i8 [ %65, %64 ], [ 0, %51 ]
-  %56 = load ptr, ptr %54, align 8
-  %57 = call i32 @strcmp(ptr noundef %56, ptr noundef nonnull dereferenceable(1) %52) #17
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %64
+56:                                               ; preds = %67, %53
+  %57 = phi ptr [ %69, %67 ], [ @__start_lsm_info, %53 ]
+  %58 = phi i8 [ %68, %67 ], [ 0, %53 ]
+  %59 = load ptr, ptr %57, align 8
+  %60 = call i32 @strcmp(ptr noundef %59, ptr noundef nonnull dereferenceable(1) %54) #17
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %67
 
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %54, i64 8
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %64
+62:                                               ; preds = %56
+  %63 = getelementptr inbounds i8, ptr %57, i64 8
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %67
 
-63:                                               ; preds = %59
-  call fastcc void @append_ordered_lsm(ptr noundef %54, ptr noundef %1) #15
-  br label %64
+66:                                               ; preds = %62
+  call fastcc void @append_ordered_lsm(ptr noundef %57, ptr noundef %1) #15
+  br label %67
 
-64:                                               ; preds = %63, %59, %53
-  %65 = phi i8 [ %55, %53 ], [ 1, %63 ], [ 1, %59 ]
-  %66 = getelementptr i8, ptr %54, i64 48
-  %67 = icmp ult ptr %66, @__end_lsm_info
-  br i1 %67, label %53, label %68, !llvm.loop !255
+67:                                               ; preds = %66, %62, %56
+  %68 = phi i8 [ %58, %56 ], [ 1, %66 ], [ 1, %62 ]
+  %69 = getelementptr i8, ptr %57, i64 48
+  %70 = icmp ult ptr %69, @__end_lsm_info
+  br i1 %70, label %56, label %71, !llvm.loop !255
 
-68:                                               ; preds = %64, %51
-  %69 = phi i8 [ 0, %51 ], [ %65, %64 ]
-  %70 = and i8 %69, 1
-  %71 = icmp eq i8 %70, 0
-  br i1 %71, label %72, label %76
+71:                                               ; preds = %67, %53
+  %72 = phi i8 [ 0, %53 ], [ %68, %67 ]
+  %73 = and i8 %72, 1
+  %74 = icmp eq i8 %73, 0
+  br i1 %74, label %75, label %79
 
-72:                                               ; preds = %68
-  %73 = load i1, ptr @debug, align 1
-  br i1 %73, label %74, label %76
+75:                                               ; preds = %71
+  %76 = load i1, ptr @debug, align 1
+  br i1 %76, label %77, label %79
 
-74:                                               ; preds = %72
-  %75 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.61, ptr noundef %1, ptr noundef nonnull %52) #16
-  br label %76
+77:                                               ; preds = %75
+  %78 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.61, ptr noundef %1, ptr noundef nonnull %54) #16
+  br label %79
 
-76:                                               ; preds = %74, %72, %68
-  %77 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str.60) #17
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %79, label %51, !llvm.loop !256
-
-79:                                               ; preds = %76, %47
-  %80 = load ptr, ptr @chosen_major_lsm, align 8
+79:                                               ; preds = %77, %75, %71
+  %80 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str.60) #17
   %81 = icmp eq ptr %80, null
-  br i1 %81, label %103, label %82
+  br i1 %81, label %82, label %53, !llvm.loop !256
 
-82:                                               ; preds = %79
-  br i1 icmp ult (ptr @__start_lsm_info, ptr @__end_lsm_info), label %83, label %144
+82:                                               ; preds = %79, %49
+  %83 = load ptr, ptr @chosen_major_lsm, align 8
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %107, label %85
 
-83:                                               ; preds = %100, %82
-  %84 = phi ptr [ %101, %100 ], [ @__start_lsm_info, %82 ]
-  %85 = load ptr, ptr @ordered_lsms, align 8
-  br label %86
+85:                                               ; preds = %82
+  %86 = icmp ult ptr @__start_lsm_info, @__end_lsm_info
+  br i1 %86, label %87, label %150
 
-86:                                               ; preds = %86, %83
-  %87 = phi ptr [ %85, %83 ], [ %92, %86 ]
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp ne ptr %88, null
-  %90 = icmp ne ptr %88, %84
-  %91 = and i1 %90, %89
-  %92 = getelementptr i8, ptr %87, i64 8
-  br i1 %91, label %86, label %93, !llvm.loop !257
+87:                                               ; preds = %104, %85
+  %88 = phi ptr [ %105, %104 ], [ @__start_lsm_info, %85 ]
+  %89 = load ptr, ptr @ordered_lsms, align 8
+  br label %90
 
-93:                                               ; preds = %86
-  br i1 %89, label %100, label %94
+90:                                               ; preds = %90, %87
+  %91 = phi ptr [ %89, %87 ], [ %96, %90 ]
+  %92 = load ptr, ptr %91, align 8
+  %93 = icmp ne ptr %92, null
+  %94 = icmp ne ptr %92, %88
+  %95 = and i1 %94, %93
+  %96 = getelementptr i8, ptr %91, i64 8
+  br i1 %95, label %90, label %97, !llvm.loop !257
 
-94:                                               ; preds = %93
-  %95 = load ptr, ptr %84, align 8
-  %96 = load ptr, ptr @chosen_major_lsm, align 8
-  %97 = call i32 @strcmp(ptr noundef %95, ptr noundef %96) #17
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %100
+97:                                               ; preds = %90
+  br i1 %93, label %104, label %98
 
-99:                                               ; preds = %94
-  call fastcc void @append_ordered_lsm(ptr noundef %84, ptr noundef nonnull @.str.62) #15
-  br label %100
+98:                                               ; preds = %97
+  %99 = load ptr, ptr %88, align 8
+  %100 = load ptr, ptr @chosen_major_lsm, align 8
+  %101 = call i32 @strcmp(ptr noundef %99, ptr noundef %100) #17
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %104
 
-100:                                              ; preds = %99, %94, %93
-  %101 = getelementptr i8, ptr %84, i64 48
-  %102 = icmp ult ptr %101, @__end_lsm_info
-  br i1 %102, label %83, label %103, !llvm.loop !258
+103:                                              ; preds = %98
+  call fastcc void @append_ordered_lsm(ptr noundef %88, ptr noundef nonnull @.str.62) #15
+  br label %104
 
-103:                                              ; preds = %100, %79
-  br i1 icmp ult (ptr @__start_lsm_info, ptr @__end_lsm_info), label %105, label %144
+104:                                              ; preds = %103, %98, %97
+  %105 = getelementptr i8, ptr %88, i64 48
+  %106 = icmp ult ptr %105, @__end_lsm_info
+  br i1 %106, label %87, label %107, !llvm.loop !258
 
-104:                                              ; preds = %111
-  br i1 icmp ult (ptr @__start_lsm_info, ptr @__end_lsm_info), label %114, label %144
+107:                                              ; preds = %104, %82
+  %108 = icmp ult ptr @__start_lsm_info, @__end_lsm_info
+  br i1 %108, label %111, label %150
 
-105:                                              ; preds = %111, %103
-  %106 = phi ptr [ %112, %111 ], [ @__start_lsm_info, %103 ]
-  %107 = getelementptr inbounds i8, ptr %106, i64 8
-  %108 = load i32, ptr %107, align 8
-  %109 = icmp eq i32 %108, 1
-  br i1 %109, label %110, label %111
+109:                                              ; preds = %117
+  %110 = icmp ult ptr @__start_lsm_info, @__end_lsm_info
+  br i1 %110, label %120, label %150
 
-110:                                              ; preds = %105
-  call fastcc void @append_ordered_lsm(ptr noundef %106, ptr noundef nonnull @.str.63) #15
-  br label %111
+111:                                              ; preds = %117, %107
+  %112 = phi ptr [ %118, %117 ], [ @__start_lsm_info, %107 ]
+  %113 = getelementptr inbounds i8, ptr %112, i64 8
+  %114 = load i32, ptr %113, align 8
+  %115 = icmp eq i32 %114, 1
+  br i1 %115, label %116, label %117
 
-111:                                              ; preds = %110, %105
-  %112 = getelementptr i8, ptr %106, i64 48
-  %113 = icmp ult ptr %112, @__end_lsm_info
-  br i1 %113, label %105, label %104, !llvm.loop !259
-
-114:                                              ; preds = %141, %104
-  %115 = phi ptr [ %142, %141 ], [ @__start_lsm_info, %104 ]
-  %116 = load ptr, ptr @ordered_lsms, align 8
+116:                                              ; preds = %111
+  call fastcc void @append_ordered_lsm(ptr noundef %112, ptr noundef nonnull @.str.63) #15
   br label %117
 
-117:                                              ; preds = %117, %114
-  %118 = phi ptr [ %116, %114 ], [ %123, %117 ]
-  %119 = load ptr, ptr %118, align 8
-  %120 = icmp ne ptr %119, null
-  %121 = icmp ne ptr %119, %115
-  %122 = and i1 %121, %120
-  %123 = getelementptr i8, ptr %118, i64 8
-  br i1 %122, label %117, label %124, !llvm.loop !257
+117:                                              ; preds = %116, %111
+  %118 = getelementptr i8, ptr %112, i64 48
+  %119 = icmp ult ptr %118, @__end_lsm_info
+  br i1 %119, label %111, label %109, !llvm.loop !259
 
-124:                                              ; preds = %117
-  br i1 %120, label %141, label %125
+120:                                              ; preds = %147, %109
+  %121 = phi ptr [ %148, %147 ], [ @__start_lsm_info, %109 ]
+  %122 = load ptr, ptr @ordered_lsms, align 8
+  br label %123
 
-125:                                              ; preds = %124
-  %126 = getelementptr inbounds i8, ptr %115, i64 24
-  %127 = load ptr, ptr %126, align 8
-  %128 = icmp eq ptr %127, null
-  br i1 %128, label %129, label %130
+123:                                              ; preds = %123, %120
+  %124 = phi ptr [ %122, %120 ], [ %129, %123 ]
+  %125 = load ptr, ptr %124, align 8
+  %126 = icmp ne ptr %125, null
+  %127 = icmp ne ptr %125, %121
+  %128 = and i1 %127, %126
+  %129 = getelementptr i8, ptr %124, i64 8
+  br i1 %128, label %123, label %130, !llvm.loop !257
 
-129:                                              ; preds = %125
-  store ptr @lsm_enabled_false, ptr %126, align 8
-  br label %136
+130:                                              ; preds = %123
+  br i1 %126, label %147, label %131
 
-130:                                              ; preds = %125
-  %131 = icmp eq ptr %127, @lsm_enabled_true
-  br i1 %131, label %132, label %133
+131:                                              ; preds = %130
+  %132 = getelementptr inbounds i8, ptr %121, i64 24
+  %133 = load ptr, ptr %132, align 8
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %135, label %136
 
-132:                                              ; preds = %130
-  store ptr @lsm_enabled_false, ptr %126, align 8
-  br label %136
+135:                                              ; preds = %131
+  store ptr @lsm_enabled_false, ptr %132, align 8
+  br label %142
 
-133:                                              ; preds = %130
-  %134 = icmp eq ptr %127, @lsm_enabled_false
-  br i1 %134, label %136, label %135
-
-135:                                              ; preds = %133
-  store i32 0, ptr %127, align 4
-  br label %136
-
-136:                                              ; preds = %135, %133, %132, %129
-  %137 = load i1, ptr @debug, align 1
-  br i1 %137, label %138, label %141
+136:                                              ; preds = %131
+  %137 = icmp eq ptr %133, @lsm_enabled_true
+  br i1 %137, label %138, label %139
 
 138:                                              ; preds = %136
-  %139 = load ptr, ptr %115, align 8
-  %140 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.64, ptr noundef %1, ptr noundef %139) #16
-  br label %141
+  store ptr @lsm_enabled_false, ptr %132, align 8
+  br label %142
 
-141:                                              ; preds = %138, %136, %124
-  %142 = getelementptr i8, ptr %115, i64 48
-  %143 = icmp ult ptr %142, @__end_lsm_info
-  br i1 %143, label %114, label %144, !llvm.loop !260
+139:                                              ; preds = %136
+  %140 = icmp eq ptr %133, @lsm_enabled_false
+  br i1 %140, label %142, label %141
 
-144:                                              ; preds = %141, %104, %103, %82
-  call void @kfree(ptr noundef %48) #17
+141:                                              ; preds = %139
+  store i32 0, ptr %133, align 4
+  br label %142
+
+142:                                              ; preds = %141, %139, %138, %135
+  %143 = load i1, ptr @debug, align 1
+  br i1 %143, label %144, label %147
+
+144:                                              ; preds = %142
+  %145 = load ptr, ptr %121, align 8
+  %146 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.64, ptr noundef %1, ptr noundef %145) #16
+  br label %147
+
+147:                                              ; preds = %144, %142, %130
+  %148 = getelementptr i8, ptr %121, i64 48
+  %149 = icmp ult ptr %148, @__end_lsm_info
+  br i1 %149, label %120, label %150, !llvm.loop !260
+
+150:                                              ; preds = %147, %109, %107, %85
+  call void @kfree(ptr noundef %50) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   ret void
 }
@@ -7020,73 +7250,74 @@ define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) u
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @report_lsm_order() unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.67) #16
-  br i1 icmp ult (ptr @__start_early_lsm_info, ptr @__end_early_lsm_info), label %2, label %21
+  %2 = icmp ult ptr @__start_early_lsm_info, @__end_early_lsm_info
+  br i1 %2, label %3, label %22
 
-2:                                                ; preds = %17, %0
-  %3 = phi ptr [ %19, %17 ], [ @__start_early_lsm_info, %0 ]
-  %4 = phi i32 [ %18, %17 ], [ 0, %0 ]
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %17, label %8
+3:                                                ; preds = %18, %0
+  %4 = phi ptr [ %20, %18 ], [ @__start_early_lsm_info, %0 ]
+  %5 = phi i32 [ %19, %18 ], [ 0, %0 ]
+  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %18, label %9
 
-8:                                                ; preds = %2
-  %9 = load i32, ptr %6, align 4
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %17, label %11
+9:                                                ; preds = %3
+  %10 = load i32, ptr %7, align 4
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %18, label %12
 
-11:                                               ; preds = %8
-  %12 = add i32 %4, 1
-  %13 = icmp eq i32 %4, 0
-  %14 = select i1 %13, ptr @.str.69, ptr @.str.60
-  %15 = load ptr, ptr %3, align 8
-  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.68, ptr noundef nonnull %14, ptr noundef %15) #16
-  br label %17
+12:                                               ; preds = %9
+  %13 = add i32 %5, 1
+  %14 = icmp eq i32 %5, 0
+  %15 = select i1 %14, ptr @.str.69, ptr @.str.60
+  %16 = load ptr, ptr %4, align 8
+  %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.68, ptr noundef nonnull %15, ptr noundef %16) #16
+  br label %18
 
-17:                                               ; preds = %11, %8, %2
-  %18 = phi i32 [ %12, %11 ], [ %4, %8 ], [ %4, %2 ]
-  %19 = getelementptr i8, ptr %3, i64 48
-  %20 = icmp ult ptr %19, @__end_early_lsm_info
-  br i1 %20, label %2, label %21, !llvm.loop !261
+18:                                               ; preds = %12, %9, %3
+  %19 = phi i32 [ %13, %12 ], [ %5, %9 ], [ %5, %3 ]
+  %20 = getelementptr i8, ptr %4, i64 48
+  %21 = icmp ult ptr %20, @__end_early_lsm_info
+  br i1 %21, label %3, label %22, !llvm.loop !261
 
-21:                                               ; preds = %17, %0
-  %22 = phi i32 [ 0, %0 ], [ %18, %17 ]
-  %23 = load ptr, ptr @ordered_lsms, align 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %47, label %26
+22:                                               ; preds = %18, %0
+  %23 = phi i32 [ 0, %0 ], [ %19, %18 ]
+  %24 = load ptr, ptr @ordered_lsms, align 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %48, label %27
 
-26:                                               ; preds = %42, %21
-  %27 = phi ptr [ %45, %42 ], [ %24, %21 ]
-  %28 = phi ptr [ %44, %42 ], [ %23, %21 ]
-  %29 = phi i32 [ %43, %42 ], [ %22, %21 ]
-  %30 = getelementptr inbounds i8, ptr %27, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %42, label %33
+27:                                               ; preds = %43, %22
+  %28 = phi ptr [ %46, %43 ], [ %25, %22 ]
+  %29 = phi ptr [ %45, %43 ], [ %24, %22 ]
+  %30 = phi i32 [ %44, %43 ], [ %23, %22 ]
+  %31 = getelementptr inbounds i8, ptr %28, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %43, label %34
 
-33:                                               ; preds = %26
-  %34 = load i32, ptr %31, align 4
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %42, label %36
+34:                                               ; preds = %27
+  %35 = load i32, ptr %32, align 4
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %43, label %37
 
-36:                                               ; preds = %33
-  %37 = add i32 %29, 1
-  %38 = icmp eq i32 %29, 0
-  %39 = select i1 %38, ptr @.str.69, ptr @.str.60
-  %40 = load ptr, ptr %27, align 8
-  %41 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.68, ptr noundef nonnull %39, ptr noundef %40) #16
-  br label %42
+37:                                               ; preds = %34
+  %38 = add i32 %30, 1
+  %39 = icmp eq i32 %30, 0
+  %40 = select i1 %39, ptr @.str.69, ptr @.str.60
+  %41 = load ptr, ptr %28, align 8
+  %42 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.68, ptr noundef nonnull %40, ptr noundef %41) #16
+  br label %43
 
-42:                                               ; preds = %36, %33, %26
-  %43 = phi i32 [ %37, %36 ], [ %29, %33 ], [ %29, %26 ]
-  %44 = getelementptr i8, ptr %28, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %26, !llvm.loop !262
+43:                                               ; preds = %37, %34, %27
+  %44 = phi i32 [ %38, %37 ], [ %30, %34 ], [ %30, %27 ]
+  %45 = getelementptr i8, ptr %29, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %27, !llvm.loop !262
 
-47:                                               ; preds = %42, %21
-  %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.70) #16
+48:                                               ; preds = %43, %22
+  %49 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.70) #16
   ret void
 }
 
@@ -7162,60 +7393,63 @@ define internal fastcc void @append_ordered_lsm(ptr noundef %0, ptr noundef %1) 
   br i1 %9, label %4, label %11, !llvm.loop !257
 
 11:                                               ; preds = %4
-  br i1 %7, label %38, label %12
+  br i1 %7, label %41, label %12
 
 12:                                               ; preds = %11
   %13 = load i32, ptr @last_lsm, align 4
   %14 = sext i32 %13 to i64
-  %15 = sdiv exact i64 sub (i64 ptrtoint (ptr @__end_lsm_info to i64), i64 ptrtoint (ptr @__start_lsm_info to i64)), 48
-  %16 = icmp eq i64 %15, %14
-  br i1 %16, label %17, label %18, !prof !16
+  %15 = ptrtoint ptr @__end_lsm_info to i64
+  %16 = ptrtoint ptr @__start_lsm_info to i64
+  %17 = sub i64 %15, %16
+  %18 = sdiv exact i64 %17, 48
+  %19 = icmp eq i64 %18, %14
+  br i1 %19, label %20, label %21, !prof !16
 
-17:                                               ; preds = %12
+20:                                               ; preds = %12
   tail call void asm sideeffect "442: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 442b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 442) #17, !srcloc !263
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.65, ptr noundef %1) #17
   tail call void asm sideeffect "443: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 443b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 443) #17, !srcloc !264
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.44, i32 174, i32 2313, i64 12) #17, !srcloc !265
   tail call void asm sideeffect "444: nop\0A\09.pushsection .discard.instr_end\0A\09.long 444b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 444) #17, !srcloc !266
   tail call void asm sideeffect "445: nop\0A\09.pushsection .discard.instr_end\0A\09.long 445b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 445) #17, !srcloc !267
+  br label %41
+
+21:                                               ; preds = %12
+  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %21
+  store ptr @lsm_enabled_true, ptr %22, align 8
+  br label %26
+
+26:                                               ; preds = %25, %21
+  %27 = add i32 %13, 1
+  store i32 %27, ptr @last_lsm, align 4
+  %28 = getelementptr ptr, ptr %3, i64 %14
+  store ptr %0, ptr %28, align 8
+  %29 = load i1, ptr @debug, align 1
+  br i1 %29, label %30, label %41
+
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %0, align 8
+  %32 = load ptr, ptr %22, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %38, label %34
+
+34:                                               ; preds = %30
+  %35 = load i32, ptr %32, align 4
+  %36 = icmp eq i32 %35, 0
+  %37 = select i1 %36, ptr @.str.37, ptr @.str.36
   br label %38
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %23
+38:                                               ; preds = %34, %30
+  %39 = phi ptr [ %37, %34 ], [ @.str.37, %30 ]
+  %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.66, ptr noundef %1, ptr noundef %31, ptr noundef nonnull %39) #16
+  br label %41
 
-22:                                               ; preds = %18
-  store ptr @lsm_enabled_true, ptr %19, align 8
-  br label %23
-
-23:                                               ; preds = %22, %18
-  %24 = add i32 %13, 1
-  store i32 %24, ptr @last_lsm, align 4
-  %25 = getelementptr ptr, ptr %3, i64 %14
-  store ptr %0, ptr %25, align 8
-  %26 = load i1, ptr @debug, align 1
-  br i1 %26, label %27, label %38
-
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %0, align 8
-  %29 = load ptr, ptr %19, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %35, label %31
-
-31:                                               ; preds = %27
-  %32 = load i32, ptr %29, align 4
-  %33 = icmp eq i32 %32, 0
-  %34 = select i1 %33, ptr @.str.37, ptr @.str.36
-  br label %35
-
-35:                                               ; preds = %31, %27
-  %36 = phi ptr [ %34, %31 ], [ @.str.37, %27 ]
-  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.66, ptr noundef %1, ptr noundef %28, ptr noundef nonnull %36) #16
-  br label %38
-
-38:                                               ; preds = %35, %23, %17, %11
+41:                                               ; preds = %38, %26, %20, %11
   ret void
 }
 

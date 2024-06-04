@@ -435,7 +435,8 @@ entry:
   store i64 %len, ptr %len.addr, align 8
   %0 = load ptr, ptr %data.addr, align 8
   %1 = load i64, ptr %len.addr, align 8
-  %call1 = call noundef i64 @_ZN4absl13hash_internal12LowLevelHashEPKvmmPKm(ptr noundef %0, i64 noundef %1, i64 noundef ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), ptr noundef @_ZN4absl13hash_internalL9kHashSaltE)
+  %2 = ptrtoint ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64
+  %call1 = call noundef i64 @_ZN4absl13hash_internal12LowLevelHashEPKvmmPKm(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef @_ZN4absl13hash_internalL9kHashSaltE)
   ret i64 %call1
 }
 

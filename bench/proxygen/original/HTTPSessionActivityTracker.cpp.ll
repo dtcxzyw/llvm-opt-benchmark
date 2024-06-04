@@ -97,20 +97,21 @@ entry:
   store i64 %ingressThreshold, ptr %ingressThreshold.addr, align 8
   store i64 %egressThreshold, ptr %egressThreshold.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen26HTTPSessionActivityTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen26HTTPSessionActivityTrackerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %managedConnection_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %managedConnection.addr, align 8
-  store ptr %0, ptr %managedConnection_, align 8
+  %1 = load ptr, ptr %managedConnection.addr, align 8
+  store ptr %1, ptr %managedConnection_, align 8
   %ingressSize_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this1, i32 0, i32 2
   store i64 0, ptr %ingressSize_, align 8
   %sessionBodyOffset_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this1, i32 0, i32 3
   store i64 0, ptr %sessionBodyOffset_, align 8
   %ingressThreshold_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this1, i32 0, i32 4
-  %1 = load i64, ptr %ingressThreshold.addr, align 8
-  store i64 %1, ptr %ingressThreshold_, align 8
+  %2 = load i64, ptr %ingressThreshold.addr, align 8
+  store i64 %2, ptr %ingressThreshold_, align 8
   %egressThreshold_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this1, i32 0, i32 5
-  %2 = load i64, ptr %egressThreshold.addr, align 8
-  store i64 %2, ptr %egressThreshold_, align 8
+  %3 = load i64, ptr %egressThreshold.addr, align 8
+  store i64 %3, ptr %egressThreshold_, align 8
   ret void
 }
 
@@ -575,25 +576,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @"_ZZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS_16ByteEventTrackerEPNS_15HTTPTransactionEENK3$_1clEv"(ptr noundef nonnull align 8 dereferenceable(16) %2) #3
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @"_ZZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS_16ByteEventTrackerEPNS_15HTTPTransactionEENK3$_1clEv"(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #12
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #12
   unreachable
 }
 

@@ -76,8 +76,9 @@ entry:
   br i1 %tobool, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i32 0, i32 1), align 8
-  %tobool1 = icmp ne i64 %1, 0
+  %1 = getelementptr inbounds %struct.strbuf, ptr @git_default_name, i32 0, i32 1
+  %2 = load i64, ptr %1, align 8
+  %tobool1 = icmp ne i64 %2, 0
   br i1 %tobool1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -87,8 +88,9 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_name, i32 0, i32 2), align 8
-  ret ptr %2
+  %3 = getelementptr inbounds %struct.strbuf, ptr @git_default_name, i32 0, i32 2
+  %4 = load ptr, ptr %3, align 8
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -186,23 +188,24 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr @.str.17, ptr @xgetpwuid_self.fallback, align 8
-  store ptr @.str.18, ptr getelementptr inbounds (%struct.passwd, ptr @xgetpwuid_self.fallback, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %struct.passwd, ptr @xgetpwuid_self.fallback, i32 0, i32 4
+  store ptr @.str.18, ptr %1, align 8
   store ptr @xgetpwuid_self.fallback, ptr %pw, align 8
-  %1 = load ptr, ptr %is_bogus.addr, align 8
-  %tobool3 = icmp ne ptr %1, null
+  %2 = load ptr, ptr %is_bogus.addr, align 8
+  %tobool3 = icmp ne ptr %2, null
   br i1 %tobool3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  %2 = load ptr, ptr %is_bogus.addr, align 8
-  store i32 1, ptr %2, align 4
+  %3 = load ptr, ptr %is_bogus.addr, align 8
+  store i32 1, ptr %3, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %entry
-  %3 = load ptr, ptr %pw, align 8
-  ret ptr %3
+  %4 = load ptr, ptr %pw, align 8
+  ret ptr %4
 }
 
 declare void @strbuf_trim(ptr noundef) #1
@@ -217,33 +220,34 @@ entry:
   br i1 %tobool, label %if.end15, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_email, i32 0, i32 1), align 8
-  %tobool1 = icmp ne i64 %1, 0
+  %1 = getelementptr inbounds %struct.strbuf, ptr @git_default_email, i32 0, i32 1
+  %2 = load i64, ptr %1, align 8
+  %tobool1 = icmp ne i64 %2, 0
   br i1 %tobool1, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %call = call ptr @getenv(ptr noundef @.str) #9
   store ptr %call, ptr %email, align 8
-  %2 = load ptr, ptr %email, align 8
-  %tobool2 = icmp ne ptr %2, null
+  %3 = load ptr, ptr %email, align 8
+  %tobool2 = icmp ne ptr %3, null
   br i1 %tobool2, label %land.lhs.true3, label %if.else
 
 land.lhs.true3:                                   ; preds = %if.then
-  %3 = load ptr, ptr %email, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 0
-  %4 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %4 to i32
+  %4 = load ptr, ptr %email, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %4, i64 0
+  %5 = load i8, ptr %arrayidx, align 1
+  %conv = sext i8 %5 to i32
   %tobool4 = icmp ne i32 %conv, 0
   br i1 %tobool4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %land.lhs.true3
-  %5 = load ptr, ptr %email, align 8
-  call void @strbuf_addstr(ptr noundef @git_default_email, ptr noundef %5)
-  %6 = load i32, ptr @committer_ident_explicitly_given, align 4
-  %or = or i32 %6, 2
+  %6 = load ptr, ptr %email, align 8
+  call void @strbuf_addstr(ptr noundef @git_default_email, ptr noundef %6)
+  %7 = load i32, ptr @committer_ident_explicitly_given, align 4
+  %or = or i32 %7, 2
   store i32 %or, ptr @committer_ident_explicitly_given, align 4
-  %7 = load i32, ptr @author_ident_explicitly_given, align 4
-  %or6 = or i32 %7, 2
+  %8 = load i32, ptr @author_ident_explicitly_given, align 4
+  %or6 = or i32 %8, 2
   store i32 %or6, ptr @author_ident_explicitly_given, align 4
   br label %if.end14
 
@@ -252,18 +256,18 @@ if.else:                                          ; preds = %land.lhs.true3, %if
   br i1 false, label %land.lhs.true7, label %if.else12
 
 land.lhs.true7:                                   ; preds = %if.else
-  %8 = load ptr, ptr %email, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %8, i64 0
-  %9 = load i8, ptr %arrayidx8, align 1
-  %conv9 = sext i8 %9 to i32
+  %9 = load ptr, ptr %email, align 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %9, i64 0
+  %10 = load i8, ptr %arrayidx8, align 1
+  %conv9 = sext i8 %10 to i32
   %tobool10 = icmp ne i32 %conv9, 0
   br i1 %tobool10, label %if.then11, label %if.else12
 
 if.then11:                                        ; preds = %land.lhs.true7
-  %10 = load ptr, ptr %email, align 8
-  call void @strbuf_addstr(ptr noundef @git_default_email, ptr noundef %10)
   %11 = load ptr, ptr %email, align 8
-  call void @free(ptr noundef %11) #9
+  call void @strbuf_addstr(ptr noundef @git_default_email, ptr noundef %11)
+  %12 = load ptr, ptr %email, align 8
+  call void @free(ptr noundef %12) #9
   br label %if.end
 
 if.else12:                                        ; preds = %land.lhs.true7, %if.else
@@ -279,8 +283,9 @@ if.end14:                                         ; preds = %if.end, %if.then5
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end14, %land.lhs.true, %entry
-  %12 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_email, i32 0, i32 2), align 8
-  ret ptr %12
+  %13 = getelementptr inbounds %struct.strbuf, ptr @git_default_email, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8
+  ret ptr %14
 }
 
 ; Function Attrs: nounwind
@@ -1184,28 +1189,32 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then
-  %7 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_author_email, i32 0, i32 1), align 8
-  %tobool9 = icmp ne i64 %7, 0
+  %7 = getelementptr inbounds %struct.strbuf, ptr @git_author_email, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8
+  %tobool9 = icmp ne i64 %8, 0
   br i1 %tobool9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %land.lhs.true
-  %8 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_author_email, i32 0, i32 2), align 8
-  store ptr %8, ptr %email.addr, align 8
+  %9 = getelementptr inbounds %struct.strbuf, ptr @git_author_email, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %email.addr, align 8
   br label %if.end16
 
 if.else:                                          ; preds = %land.lhs.true, %if.then
-  %9 = load i32, ptr %whose_ident.addr, align 4
-  %cmp11 = icmp eq i32 %9, 2
+  %11 = load i32, ptr %whose_ident.addr, align 4
+  %cmp11 = icmp eq i32 %11, 2
   br i1 %cmp11, label %land.lhs.true13, label %if.end
 
 land.lhs.true13:                                  ; preds = %if.else
-  %10 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_committer_email, i32 0, i32 1), align 8
-  %tobool14 = icmp ne i64 %10, 0
+  %12 = getelementptr inbounds %struct.strbuf, ptr @git_committer_email, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8
+  %tobool14 = icmp ne i64 %13, 0
   br i1 %tobool14, label %if.then15, label %if.end
 
 if.then15:                                        ; preds = %land.lhs.true13
-  %11 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_committer_email, i32 0, i32 2), align 8
-  store ptr %11, ptr %email.addr, align 8
+  %14 = getelementptr inbounds %struct.strbuf, ptr @git_committer_email, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %email.addr, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then15, %land.lhs.true13, %if.else
@@ -1215,29 +1224,29 @@ if.end16:                                         ; preds = %if.end, %if.then10
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end16, %entry
-  %12 = load ptr, ptr %email.addr, align 8
-  %tobool18 = icmp ne ptr %12, null
+  %16 = load ptr, ptr %email.addr, align 8
+  %tobool18 = icmp ne ptr %16, null
   br i1 %tobool18, label %if.end35, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  %13 = load i32, ptr %strict, align 4
-  %tobool20 = icmp ne i32 %13, 0
+  %17 = load i32, ptr %strict, align 4
+  %tobool20 = icmp ne i32 %17, 0
   br i1 %tobool20, label %land.lhs.true21, label %if.end27
 
 land.lhs.true21:                                  ; preds = %if.then19
-  %14 = load i32, ptr @ident_use_config_only, align 4
-  %tobool22 = icmp ne i32 %14, 0
+  %18 = load i32, ptr @ident_use_config_only, align 4
+  %tobool22 = icmp ne i32 %18, 0
   br i1 %tobool22, label %land.lhs.true23, label %if.end27
 
 land.lhs.true23:                                  ; preds = %land.lhs.true21
-  %15 = load i32, ptr @ident_config_given, align 4
-  %and24 = and i32 %15, 2
+  %19 = load i32, ptr @ident_config_given, align 4
+  %and24 = and i32 %19, 2
   %tobool25 = icmp ne i32 %and24, 0
   br i1 %tobool25, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %land.lhs.true23
-  %16 = load i32, ptr %whose_ident.addr, align 4
-  call void @ident_env_hint(i32 noundef %16)
+  %20 = load i32, ptr %whose_ident.addr, align 4
+  call void @ident_env_hint(i32 noundef %20)
   %call = call ptr @_(ptr noundef @.str.2)
   call void (ptr, ...) @die(ptr noundef %call) #11
   unreachable
@@ -1245,65 +1254,69 @@ if.then26:                                        ; preds = %land.lhs.true23
 if.end27:                                         ; preds = %land.lhs.true23, %land.lhs.true21, %if.then19
   %call28 = call ptr @ident_default_email()
   store ptr %call28, ptr %email.addr, align 8
-  %17 = load i32, ptr %strict, align 4
-  %tobool29 = icmp ne i32 %17, 0
+  %21 = load i32, ptr %strict, align 4
+  %tobool29 = icmp ne i32 %21, 0
   br i1 %tobool29, label %land.lhs.true30, label %if.end34
 
 land.lhs.true30:                                  ; preds = %if.end27
-  %18 = load i32, ptr @default_email_is_bogus, align 4
-  %tobool31 = icmp ne i32 %18, 0
+  %22 = load i32, ptr @default_email_is_bogus, align 4
+  %tobool31 = icmp ne i32 %22, 0
   br i1 %tobool31, label %if.then32, label %if.end34
 
 if.then32:                                        ; preds = %land.lhs.true30
-  %19 = load i32, ptr %whose_ident.addr, align 4
-  call void @ident_env_hint(i32 noundef %19)
+  %23 = load i32, ptr %whose_ident.addr, align 4
+  call void @ident_env_hint(i32 noundef %23)
   %call33 = call ptr @_(ptr noundef @.str.3)
-  %20 = load ptr, ptr %email.addr, align 8
-  call void (ptr, ...) @die(ptr noundef %call33, ptr noundef %20) #11
+  %24 = load ptr, ptr %email.addr, align 8
+  call void (ptr, ...) @die(ptr noundef %call33, ptr noundef %24) #11
   unreachable
 
 if.end34:                                         ; preds = %land.lhs.true30, %if.end27
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end34, %if.end17
-  %21 = load i32, ptr %want_name, align 4
-  %tobool36 = icmp ne i32 %21, 0
+  %25 = load i32, ptr %want_name, align 4
+  %tobool36 = icmp ne i32 %25, 0
   br i1 %tobool36, label %if.then37, label %if.end91
 
 if.then37:                                        ; preds = %if.end35
   store i32 0, ptr %using_default, align 4
-  %22 = load ptr, ptr %name.addr, align 8
-  %tobool38 = icmp ne ptr %22, null
+  %26 = load ptr, ptr %name.addr, align 8
+  %tobool38 = icmp ne ptr %26, null
   br i1 %tobool38, label %if.end53, label %if.then39
 
 if.then39:                                        ; preds = %if.then37
-  %23 = load i32, ptr %whose_ident.addr, align 4
-  %cmp40 = icmp eq i32 %23, 1
+  %27 = load i32, ptr %whose_ident.addr, align 4
+  %cmp40 = icmp eq i32 %27, 1
   br i1 %cmp40, label %land.lhs.true42, label %if.else45
 
 land.lhs.true42:                                  ; preds = %if.then39
-  %24 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_author_name, i32 0, i32 1), align 8
-  %tobool43 = icmp ne i64 %24, 0
+  %28 = getelementptr inbounds %struct.strbuf, ptr @git_author_name, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %tobool43 = icmp ne i64 %29, 0
   br i1 %tobool43, label %if.then44, label %if.else45
 
 if.then44:                                        ; preds = %land.lhs.true42
-  %25 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_author_name, i32 0, i32 2), align 8
-  store ptr %25, ptr %name.addr, align 8
+  %30 = getelementptr inbounds %struct.strbuf, ptr @git_author_name, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %name.addr, align 8
   br label %if.end52
 
 if.else45:                                        ; preds = %land.lhs.true42, %if.then39
-  %26 = load i32, ptr %whose_ident.addr, align 4
-  %cmp46 = icmp eq i32 %26, 2
+  %32 = load i32, ptr %whose_ident.addr, align 4
+  %cmp46 = icmp eq i32 %32, 2
   br i1 %cmp46, label %land.lhs.true48, label %if.end51
 
 land.lhs.true48:                                  ; preds = %if.else45
-  %27 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_committer_name, i32 0, i32 1), align 8
-  %tobool49 = icmp ne i64 %27, 0
+  %33 = getelementptr inbounds %struct.strbuf, ptr @git_committer_name, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8
+  %tobool49 = icmp ne i64 %34, 0
   br i1 %tobool49, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %land.lhs.true48
-  %28 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_committer_name, i32 0, i32 2), align 8
-  store ptr %28, ptr %name.addr, align 8
+  %35 = getelementptr inbounds %struct.strbuf, ptr @git_committer_name, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8
+  store ptr %36, ptr %name.addr, align 8
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then50, %land.lhs.true48, %if.else45
@@ -1313,29 +1326,29 @@ if.end52:                                         ; preds = %if.end51, %if.then4
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end52, %if.then37
-  %29 = load ptr, ptr %name.addr, align 8
-  %tobool54 = icmp ne ptr %29, null
+  %37 = load ptr, ptr %name.addr, align 8
+  %tobool54 = icmp ne ptr %37, null
   br i1 %tobool54, label %if.end72, label %if.then55
 
 if.then55:                                        ; preds = %if.end53
-  %30 = load i32, ptr %strict, align 4
-  %tobool56 = icmp ne i32 %30, 0
+  %38 = load i32, ptr %strict, align 4
+  %tobool56 = icmp ne i32 %38, 0
   br i1 %tobool56, label %land.lhs.true57, label %if.end64
 
 land.lhs.true57:                                  ; preds = %if.then55
-  %31 = load i32, ptr @ident_use_config_only, align 4
-  %tobool58 = icmp ne i32 %31, 0
+  %39 = load i32, ptr @ident_use_config_only, align 4
+  %tobool58 = icmp ne i32 %39, 0
   br i1 %tobool58, label %land.lhs.true59, label %if.end64
 
 land.lhs.true59:                                  ; preds = %land.lhs.true57
-  %32 = load i32, ptr @ident_config_given, align 4
-  %and60 = and i32 %32, 1
+  %40 = load i32, ptr @ident_config_given, align 4
+  %and60 = and i32 %40, 1
   %tobool61 = icmp ne i32 %and60, 0
   br i1 %tobool61, label %if.end64, label %if.then62
 
 if.then62:                                        ; preds = %land.lhs.true59
-  %33 = load i32, ptr %whose_ident.addr, align 4
-  call void @ident_env_hint(i32 noundef %33)
+  %41 = load i32, ptr %whose_ident.addr, align 4
+  call void @ident_env_hint(i32 noundef %41)
   %call63 = call ptr @_(ptr noundef @.str.4)
   call void (ptr, ...) @die(ptr noundef %call63) #11
   unreachable
@@ -1344,160 +1357,160 @@ if.end64:                                         ; preds = %land.lhs.true59, %l
   %call65 = call ptr @ident_default_name()
   store ptr %call65, ptr %name.addr, align 8
   store i32 1, ptr %using_default, align 4
-  %34 = load i32, ptr %strict, align 4
-  %tobool66 = icmp ne i32 %34, 0
+  %42 = load i32, ptr %strict, align 4
+  %tobool66 = icmp ne i32 %42, 0
   br i1 %tobool66, label %land.lhs.true67, label %if.end71
 
 land.lhs.true67:                                  ; preds = %if.end64
-  %35 = load i32, ptr @default_name_is_bogus, align 4
-  %tobool68 = icmp ne i32 %35, 0
+  %43 = load i32, ptr @default_name_is_bogus, align 4
+  %tobool68 = icmp ne i32 %43, 0
   br i1 %tobool68, label %if.then69, label %if.end71
 
 if.then69:                                        ; preds = %land.lhs.true67
-  %36 = load i32, ptr %whose_ident.addr, align 4
-  call void @ident_env_hint(i32 noundef %36)
+  %44 = load i32, ptr %whose_ident.addr, align 4
+  call void @ident_env_hint(i32 noundef %44)
   %call70 = call ptr @_(ptr noundef @.str.5)
-  %37 = load ptr, ptr %name.addr, align 8
-  call void (ptr, ...) @die(ptr noundef %call70, ptr noundef %37) #11
+  %45 = load ptr, ptr %name.addr, align 8
+  call void (ptr, ...) @die(ptr noundef %call70, ptr noundef %45) #11
   unreachable
 
 if.end71:                                         ; preds = %land.lhs.true67, %if.end64
   br label %if.end72
 
 if.end72:                                         ; preds = %if.end71, %if.end53
-  %38 = load ptr, ptr %name.addr, align 8
-  %39 = load i8, ptr %38, align 1
-  %tobool73 = icmp ne i8 %39, 0
+  %46 = load ptr, ptr %name.addr, align 8
+  %47 = load i8, ptr %46, align 1
+  %tobool73 = icmp ne i8 %47, 0
   br i1 %tobool73, label %if.end83, label %if.then74
 
 if.then74:                                        ; preds = %if.end72
-  %40 = load i32, ptr %strict, align 4
-  %tobool75 = icmp ne i32 %40, 0
+  %48 = load i32, ptr %strict, align 4
+  %tobool75 = icmp ne i32 %48, 0
   br i1 %tobool75, label %if.then76, label %if.end81
 
 if.then76:                                        ; preds = %if.then74
-  %41 = load i32, ptr %using_default, align 4
-  %tobool77 = icmp ne i32 %41, 0
+  %49 = load i32, ptr %using_default, align 4
+  %tobool77 = icmp ne i32 %49, 0
   br i1 %tobool77, label %if.then78, label %if.end79
 
 if.then78:                                        ; preds = %if.then76
-  %42 = load i32, ptr %whose_ident.addr, align 4
-  call void @ident_env_hint(i32 noundef %42)
+  %50 = load i32, ptr %whose_ident.addr, align 4
+  call void @ident_env_hint(i32 noundef %50)
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then78, %if.then76
   %call80 = call ptr @_(ptr noundef @.str.6)
-  %43 = load ptr, ptr %email.addr, align 8
-  call void (ptr, ...) @die(ptr noundef %call80, ptr noundef %43) #11
+  %51 = load ptr, ptr %email.addr, align 8
+  call void (ptr, ...) @die(ptr noundef %call80, ptr noundef %51) #11
   unreachable
 
 if.end81:                                         ; preds = %if.then74
   %call82 = call ptr @xgetpwuid_self(ptr noundef null)
   store ptr %call82, ptr %pw, align 8
-  %44 = load ptr, ptr %pw, align 8
-  %pw_name = getelementptr inbounds %struct.passwd, ptr %44, i32 0, i32 0
-  %45 = load ptr, ptr %pw_name, align 8
-  store ptr %45, ptr %name.addr, align 8
+  %52 = load ptr, ptr %pw, align 8
+  %pw_name = getelementptr inbounds %struct.passwd, ptr %52, i32 0, i32 0
+  %53 = load ptr, ptr %pw_name, align 8
+  store ptr %53, ptr %name.addr, align 8
   br label %if.end83
 
 if.end83:                                         ; preds = %if.end81, %if.end72
-  %46 = load i32, ptr %strict, align 4
-  %tobool84 = icmp ne i32 %46, 0
+  %54 = load i32, ptr %strict, align 4
+  %tobool84 = icmp ne i32 %54, 0
   br i1 %tobool84, label %land.lhs.true85, label %if.end90
 
 land.lhs.true85:                                  ; preds = %if.end83
-  %47 = load ptr, ptr %name.addr, align 8
-  %call86 = call i32 @has_non_crud(ptr noundef %47)
+  %55 = load ptr, ptr %name.addr, align 8
+  %call86 = call i32 @has_non_crud(ptr noundef %55)
   %tobool87 = icmp ne i32 %call86, 0
   br i1 %tobool87, label %if.end90, label %if.then88
 
 if.then88:                                        ; preds = %land.lhs.true85
   %call89 = call ptr @_(ptr noundef @.str.7)
-  %48 = load ptr, ptr %name.addr, align 8
-  call void (ptr, ...) @die(ptr noundef %call89, ptr noundef %48) #11
+  %56 = load ptr, ptr %name.addr, align 8
+  call void (ptr, ...) @die(ptr noundef %call89, ptr noundef %56) #11
   unreachable
 
 if.end90:                                         ; preds = %land.lhs.true85, %if.end83
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end90, %if.end35
-  %49 = load ptr, ptr %ident, align 8
-  call void @strbuf_setlen(ptr noundef %49, i64 noundef 0)
-  %50 = load i32, ptr %want_name, align 4
-  %tobool92 = icmp ne i32 %50, 0
+  %57 = load ptr, ptr %ident, align 8
+  call void @strbuf_setlen(ptr noundef %57, i64 noundef 0)
+  %58 = load i32, ptr %want_name, align 4
+  %tobool92 = icmp ne i32 %58, 0
   br i1 %tobool92, label %if.then93, label %if.end94
 
 if.then93:                                        ; preds = %if.end91
-  %51 = load ptr, ptr %ident, align 8
-  %52 = load ptr, ptr %name.addr, align 8
-  call void @strbuf_addstr_without_crud(ptr noundef %51, ptr noundef %52)
-  %53 = load ptr, ptr %ident, align 8
-  call void @strbuf_addstr(ptr noundef %53, ptr noundef @.str.8)
+  %59 = load ptr, ptr %ident, align 8
+  %60 = load ptr, ptr %name.addr, align 8
+  call void @strbuf_addstr_without_crud(ptr noundef %59, ptr noundef %60)
+  %61 = load ptr, ptr %ident, align 8
+  call void @strbuf_addstr(ptr noundef %61, ptr noundef @.str.8)
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then93, %if.end91
-  %54 = load ptr, ptr %ident, align 8
-  %55 = load ptr, ptr %email.addr, align 8
-  call void @strbuf_addstr_without_crud(ptr noundef %54, ptr noundef %55)
-  %56 = load i32, ptr %want_name, align 4
-  %tobool95 = icmp ne i32 %56, 0
+  %62 = load ptr, ptr %ident, align 8
+  %63 = load ptr, ptr %email.addr, align 8
+  call void @strbuf_addstr_without_crud(ptr noundef %62, ptr noundef %63)
+  %64 = load i32, ptr %want_name, align 4
+  %tobool95 = icmp ne i32 %64, 0
   br i1 %tobool95, label %if.then96, label %if.end97
 
 if.then96:                                        ; preds = %if.end94
-  %57 = load ptr, ptr %ident, align 8
-  call void @strbuf_addch(ptr noundef %57, i32 noundef 62)
+  %65 = load ptr, ptr %ident, align 8
+  call void @strbuf_addch(ptr noundef %65, i32 noundef 62)
   br label %if.end97
 
 if.end97:                                         ; preds = %if.then96, %if.end94
-  %58 = load i32, ptr %want_date, align 4
-  %tobool98 = icmp ne i32 %58, 0
+  %66 = load i32, ptr %want_date, align 4
+  %tobool98 = icmp ne i32 %66, 0
   br i1 %tobool98, label %if.then99, label %if.end115
 
 if.then99:                                        ; preds = %if.end97
-  %59 = load ptr, ptr %ident, align 8
-  call void @strbuf_addch(ptr noundef %59, i32 noundef 32)
-  %60 = load ptr, ptr %date_str.addr, align 8
-  %tobool100 = icmp ne ptr %60, null
+  %67 = load ptr, ptr %ident, align 8
+  call void @strbuf_addch(ptr noundef %67, i32 noundef 32)
+  %68 = load ptr, ptr %date_str.addr, align 8
+  %tobool100 = icmp ne ptr %68, null
   br i1 %tobool100, label %land.lhs.true101, label %if.else112
 
 land.lhs.true101:                                 ; preds = %if.then99
-  %61 = load ptr, ptr %date_str.addr, align 8
-  %arrayidx102 = getelementptr inbounds i8, ptr %61, i64 0
-  %62 = load i8, ptr %arrayidx102, align 1
-  %conv103 = sext i8 %62 to i32
+  %69 = load ptr, ptr %date_str.addr, align 8
+  %arrayidx102 = getelementptr inbounds i8, ptr %69, i64 0
+  %70 = load i8, ptr %arrayidx102, align 1
+  %conv103 = sext i8 %70 to i32
   %tobool104 = icmp ne i32 %conv103, 0
   br i1 %tobool104, label %if.then105, label %if.else112
 
 if.then105:                                       ; preds = %land.lhs.true101
-  %63 = load ptr, ptr %date_str.addr, align 8
-  %64 = load ptr, ptr %ident, align 8
-  %call106 = call i32 @parse_date(ptr noundef %63, ptr noundef %64)
+  %71 = load ptr, ptr %date_str.addr, align 8
+  %72 = load ptr, ptr %ident, align 8
+  %call106 = call i32 @parse_date(ptr noundef %71, ptr noundef %72)
   %cmp107 = icmp slt i32 %call106, 0
   br i1 %cmp107, label %if.then109, label %if.end111
 
 if.then109:                                       ; preds = %if.then105
   %call110 = call ptr @_(ptr noundef @.str.9)
-  %65 = load ptr, ptr %date_str.addr, align 8
-  call void (ptr, ...) @die(ptr noundef %call110, ptr noundef %65) #11
+  %73 = load ptr, ptr %date_str.addr, align 8
+  call void (ptr, ...) @die(ptr noundef %call110, ptr noundef %73) #11
   unreachable
 
 if.end111:                                        ; preds = %if.then105
   br label %if.end114
 
 if.else112:                                       ; preds = %land.lhs.true101, %if.then99
-  %66 = load ptr, ptr %ident, align 8
+  %74 = load ptr, ptr %ident, align 8
   %call113 = call ptr @ident_default_date()
-  call void @strbuf_addstr(ptr noundef %66, ptr noundef %call113)
+  call void @strbuf_addstr(ptr noundef %74, ptr noundef %call113)
   br label %if.end114
 
 if.end114:                                        ; preds = %if.else112, %if.end111
   br label %if.end115
 
 if.end115:                                        ; preds = %if.end114, %if.end97
-  %67 = load ptr, ptr %ident, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %67, i32 0, i32 2
-  %68 = load ptr, ptr %buf, align 8
-  ret ptr %68
+  %75 = load ptr, ptr %ident, align 8
+  %buf = getelementptr inbounds %struct.strbuf, ptr %75, i32 0, i32 2
+  %76 = load ptr, ptr %buf, align 8
+  ret ptr %76
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1790,8 +1803,9 @@ declare i32 @parse_date(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @ident_default_date() #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_date, i32 0, i32 1), align 8
-  %tobool = icmp ne i64 %0, 0
+  %0 = getelementptr inbounds %struct.strbuf, ptr @git_default_date, i32 0, i32 1
+  %1 = load i64, ptr %0, align 8
+  %tobool = icmp ne i64 %1, 0
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1799,8 +1813,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_default_date, i32 0, i32 2), align 8
-  ret ptr %1
+  %2 = getelementptr inbounds %struct.strbuf, ptr @git_default_date, i32 0, i32 2
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable

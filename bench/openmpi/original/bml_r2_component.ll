@@ -24,8 +24,10 @@ define i32 @mca_bml_r2_component_close() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mca_bml_r2_component_register() #0 {
-  store i8 1, ptr getelementptr inbounds (%struct.mca_bml_r2_module_t, ptr @mca_bml_r2, i32 0, i32 6), align 1
-  %1 = call i32 @mca_base_component_var_register(ptr noundef @mca_bml_r2_component, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef getelementptr inbounds (%struct.mca_bml_r2_module_t, ptr @mca_bml_r2, i32 0, i32 6))
+  %1 = getelementptr inbounds %struct.mca_bml_r2_module_t, ptr @mca_bml_r2, i32 0, i32 6
+  store i8 1, ptr %1, align 1
+  %2 = getelementptr inbounds %struct.mca_bml_r2_module_t, ptr @mca_bml_r2, i32 0, i32 6
+  %3 = call i32 @mca_base_component_var_register(ptr noundef @mca_bml_r2_component, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %2)
   ret i32 0
 }
 
@@ -50,18 +52,19 @@ define ptr @mca_bml_r2_component_init(ptr noundef %0, i1 noundef zeroext %1, i1 
 
 16:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %19
+  br label %20
 
 17:                                               ; preds = %3
   %18 = load ptr, ptr %5, align 8
   store i32 100, ptr %18, align 4
-  store i8 0, ptr getelementptr inbounds (%struct.mca_bml_r2_module_t, ptr @mca_bml_r2, i32 0, i32 5), align 8
+  %19 = getelementptr inbounds %struct.mca_bml_r2_module_t, ptr @mca_bml_r2, i32 0, i32 5
+  store i8 0, ptr %19, align 8
   store ptr @mca_bml_r2, ptr %4, align 8
-  br label %19
+  br label %20
 
-19:                                               ; preds = %17, %16
-  %20 = load ptr, ptr %4, align 8
-  ret ptr %20
+20:                                               ; preds = %17, %16
+  %21 = load ptr, ptr %4, align 8
+  ret ptr %21
 }
 
 declare i32 @mca_btl_base_select(i1 noundef zeroext, i1 noundef zeroext) #1

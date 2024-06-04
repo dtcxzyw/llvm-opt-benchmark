@@ -246,10 +246,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %id.addr, align 8
   call void @_ZN4base16HistogramSamplesC2Em(ptr noundef nonnull align 8 dereferenceable(40) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %local_counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %bucket_ranges.addr, align 8
-  %call = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %1)
+  %2 = load ptr, ptr %bucket_ranges.addr, align 8
+  %call = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -268,11 +269,11 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %call7 = call noundef i64 @_ZNKSt6vectorIiSaIiEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %local_counts_6) #8
   store i64 %call7, ptr %counts_size_, align 8
   %bucket_ranges_ = getelementptr inbounds %"class.base::SampleVector", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %bucket_ranges.addr, align 8
-  store ptr %2, ptr %bucket_ranges_, align 8
+  %3 = load ptr, ptr %bucket_ranges.addr, align 8
+  store ptr %3, ptr %bucket_ranges_, align 8
   %bucket_ranges_9 = getelementptr inbounds %"class.base::SampleVector", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %bucket_ranges_9, align 8
-  %call12 = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %3)
+  %4 = load ptr, ptr %bucket_ranges_9, align 8
+  %call12 = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %4)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont3
@@ -296,31 +297,31 @@ if.then:                                          ; preds = %invoke.cont17
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup26
 
 lpad2:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
   br label %ehcleanup26
 
 lpad10:                                           ; preds = %invoke.cont20, %if.else, %invoke.cont16, %invoke.cont14, %invoke.cont11, %invoke.cont3
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont17
@@ -340,12 +341,12 @@ invoke.cont24:                                    ; preds = %invoke.cont22
   br label %if.end
 
 lpad23:                                           ; preds = %invoke.cont22
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp19) #8
   br label %ehcleanup
 
@@ -628,25 +629,26 @@ entry:
   %0 = load i64, ptr %id.addr, align 8
   %1 = load ptr, ptr %meta.addr, align 8
   call void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr noundef nonnull align 8 dereferenceable(40) %this1, i64 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %local_counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %local_counts_) #8
   %counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %counts.addr, align 8
-  store ptr %2, ptr %counts_, align 8
+  %3 = load ptr, ptr %counts.addr, align 8
+  store ptr %3, ptr %counts_, align 8
   %counts_size_ = getelementptr inbounds %"class.base::SampleVector", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %bucket_ranges.addr, align 8
-  %call = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %3)
+  %4 = load ptr, ptr %bucket_ranges.addr, align 8
+  %call = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store i64 %call, ptr %counts_size_, align 8
   %bucket_ranges_ = getelementptr inbounds %"class.base::SampleVector", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %bucket_ranges.addr, align 8
-  store ptr %4, ptr %bucket_ranges_, align 8
+  %5 = load ptr, ptr %bucket_ranges.addr, align 8
+  store ptr %5, ptr %bucket_ranges_, align 8
   %bucket_ranges_2 = getelementptr inbounds %"class.base::SampleVector", ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %bucket_ranges_2, align 8
-  %call4 = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %5)
+  %6 = load ptr, ptr %bucket_ranges_2, align 8
+  %call4 = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %6)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -670,12 +672,12 @@ if.then:                                          ; preds = %invoke.cont9
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont32, %if.else30, %invoke.cont26, %invoke.cont24, %invoke.cont21, %if.end, %invoke.cont12, %if.else, %invoke.cont8, %invoke.cont6, %invoke.cont3, %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont9
@@ -695,19 +697,19 @@ invoke.cont16:                                    ; preds = %invoke.cont14
   br label %if.end
 
 lpad15:                                           ; preds = %invoke.cont14
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp11) #8
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont16, %if.then
   %bucket_ranges_20 = getelementptr inbounds %"class.base::SampleVector", ptr %this1, i32 0, i32 4
-  %12 = load ptr, ptr %bucket_ranges_20, align 8
-  %call22 = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %12)
+  %13 = load ptr, ptr %bucket_ranges_20, align 8
+  %call22 = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %13)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.end
@@ -747,12 +749,12 @@ invoke.cont36:                                    ; preds = %invoke.cont34
   br label %if.end38
 
 lpad35:                                           ; preds = %invoke.cont34
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp31) #8
   br label %ehcleanup
 
@@ -824,7 +826,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %local_counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %local_counts_) #8
   call void @_ZN4base16HistogramSamplesD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #8
@@ -1680,23 +1683,24 @@ entry:
   store ptr %bucket_ranges, ptr %bucket_ranges.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base19SampleCountIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base20SampleVectorIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4base20SampleVectorIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %counts_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %counts.addr, align 8
-  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 0) #8
+  %1 = load ptr, ptr %counts.addr, align 8
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 0) #8
   store ptr %call, ptr %counts_, align 8
   %counts_size_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %counts.addr, align 8
-  %call2 = call noundef i64 @_ZNKSt6vectorIiSaIiEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #8
+  %2 = load ptr, ptr %counts.addr, align 8
+  %call2 = call noundef i64 @_ZNKSt6vectorIiSaIiEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #8
   store i64 %call2, ptr %counts_size_, align 8
   %bucket_ranges_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %bucket_ranges.addr, align 8
-  store ptr %2, ptr %bucket_ranges_, align 8
+  %3 = load ptr, ptr %bucket_ranges.addr, align 8
+  store ptr %3, ptr %bucket_ranges_, align 8
   %index_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this1, i32 0, i32 4
   store i64 0, ptr %index_, align 8
   %bucket_ranges_3 = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %bucket_ranges_3, align 8
-  %call4 = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %3)
+  %4 = load ptr, ptr %bucket_ranges_3, align 8
+  %call4 = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1720,12 +1724,12 @@ if.then:                                          ; preds = %invoke.cont9
   br label %if.end
 
 lpad:                                             ; preds = %if.end, %invoke.cont12, %if.else, %invoke.cont8, %invoke.cont6, %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont9
@@ -1745,12 +1749,12 @@ invoke.cont16:                                    ; preds = %invoke.cont14
   br label %if.end
 
 lpad15:                                           ; preds = %invoke.cont14
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp11) #8
   br label %ehcleanup
 
@@ -1779,7 +1783,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base19SampleCountIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4base19SampleCountIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1904,21 +1909,22 @@ entry:
   store ptr %bucket_ranges, ptr %bucket_ranges.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base19SampleCountIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base20SampleVectorIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4base20SampleVectorIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %counts_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %counts.addr, align 8
-  store ptr %0, ptr %counts_, align 8
+  %1 = load ptr, ptr %counts.addr, align 8
+  store ptr %1, ptr %counts_, align 8
   %counts_size_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %counts_size.addr, align 8
-  store i64 %1, ptr %counts_size_, align 8
+  %2 = load i64, ptr %counts_size.addr, align 8
+  store i64 %2, ptr %counts_size_, align 8
   %bucket_ranges_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %bucket_ranges.addr, align 8
-  store ptr %2, ptr %bucket_ranges_, align 8
+  %3 = load ptr, ptr %bucket_ranges.addr, align 8
+  store ptr %3, ptr %bucket_ranges_, align 8
   %index_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this1, i32 0, i32 4
   store i64 0, ptr %index_, align 8
   %bucket_ranges_2 = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %bucket_ranges_2, align 8
-  %call = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %3)
+  %4 = load ptr, ptr %bucket_ranges_2, align 8
+  %call = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1942,12 +1948,12 @@ if.then:                                          ; preds = %invoke.cont7
   br label %if.end
 
 lpad:                                             ; preds = %if.end, %invoke.cont10, %if.else, %invoke.cont6, %invoke.cont4, %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont7
@@ -1967,12 +1973,12 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   br label %if.end
 
 lpad13:                                           ; preds = %invoke.cont12
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp9) #8
   br label %ehcleanup
 

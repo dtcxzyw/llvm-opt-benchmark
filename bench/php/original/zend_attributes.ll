@@ -5050,16 +5050,17 @@ define hidden void @zend_register_attribute_ce() #0 {
   %16 = load ptr, ptr @zend_ce_sensitive_parameter, align 8
   %17 = call ptr @zend_mark_internal_attribute(ptr noundef %16)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @attributes_object_handlers_sensitive_parameter_value, ptr align 8 @std_object_handlers, i64 200, i1 false)
-  store ptr @attributes_sensitive_parameter_value_get_properties_for, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @attributes_object_handlers_sensitive_parameter_value, i32 0, i32 24), align 8
-  %18 = call ptr @register_class_SensitiveParameterValue()
-  store ptr %18, ptr @zend_ce_sensitive_parameter_value, align 8
-  %19 = load ptr, ptr @zend_ce_sensitive_parameter_value, align 8
-  %20 = getelementptr inbounds %struct._zend_class_entry, ptr %19, i32 0, i32 29
-  store ptr @attributes_object_handlers_sensitive_parameter_value, ptr %20, align 8
-  %21 = call ptr @register_class_Override()
-  store ptr %21, ptr @zend_ce_override, align 8
-  %22 = load ptr, ptr @zend_ce_override, align 8
-  %23 = call ptr @zend_mark_internal_attribute(ptr noundef %22)
+  %18 = getelementptr inbounds %struct._zend_object_handlers, ptr @attributes_object_handlers_sensitive_parameter_value, i32 0, i32 24
+  store ptr @attributes_sensitive_parameter_value_get_properties_for, ptr %18, align 8
+  %19 = call ptr @register_class_SensitiveParameterValue()
+  store ptr %19, ptr @zend_ce_sensitive_parameter_value, align 8
+  %20 = load ptr, ptr @zend_ce_sensitive_parameter_value, align 8
+  %21 = getelementptr inbounds %struct._zend_class_entry, ptr %20, i32 0, i32 29
+  store ptr @attributes_object_handlers_sensitive_parameter_value, ptr %21, align 8
+  %22 = call ptr @register_class_Override()
+  store ptr %22, ptr @zend_ce_override, align 8
+  %23 = load ptr, ptr @zend_ce_override, align 8
+  %24 = call ptr @zend_mark_internal_attribute(ptr noundef %23)
   ret void
 }
 

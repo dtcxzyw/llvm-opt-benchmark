@@ -2740,7 +2740,8 @@ invoke.cont195:                                   ; preds = %invoke.cont193
           to label %invoke.cont198 unwind label %lpad79
 
 invoke.cont198:                                   ; preds = %invoke.cont195
-  invoke void @_ZN5eastl6rbtreeIPKcNS_4pairIKS2_iEENS_8str_lessIS2_EENS_9allocatorENS_9use_firstIS5_EELb1ELb1EE4findERS4_(ptr sret(%"struct.eastl::rbtree_iterator.0") align 8 %ref.tmp200, ptr noundef nonnull align 8 dereferenceable(41) %stringMap76, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds ([20 x ptr], ptr @_ZL7strings, i64 0, i64 3))
+  %43 = getelementptr inbounds [20 x ptr], ptr @_ZL7strings, i64 0, i64 3
+  invoke void @_ZN5eastl6rbtreeIPKcNS_4pairIKS2_iEENS_8str_lessIS2_EENS_9allocatorENS_9use_firstIS5_EELb1ELb1EE4findERS4_(ptr sret(%"struct.eastl::rbtree_iterator.0") align 8 %ref.tmp200, ptr noundef nonnull align 8 dereferenceable(41) %stringMap76, ptr noundef nonnull align 8 dereferenceable(8) %43)
           to label %invoke.cont201 unwind label %lpad79
 
 invoke.cont201:                                   ; preds = %invoke.cont198
@@ -2757,24 +2758,25 @@ invoke.cont205:                                   ; preds = %invoke.cont202
           to label %invoke.cont207 unwind label %lpad79
 
 invoke.cont207:                                   ; preds = %invoke.cont205
-  %43 = load ptr, ptr getelementptr inbounds ([20 x ptr], ptr @_ZL7strings, i64 0, i64 4), align 16
-  %call210 = invoke noundef i64 @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEE5eraseES3_(ptr noundef nonnull align 8 dereferenceable(41) %stringMap76, ptr noundef %43)
+  %44 = getelementptr inbounds [20 x ptr], ptr @_ZL7strings, i64 0, i64 4
+  %45 = load ptr, ptr %44, align 16
+  %call210 = invoke noundef i64 @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEE5eraseES3_(ptr noundef nonnull align 8 dereferenceable(41) %stringMap76, ptr noundef %45)
           to label %invoke.cont209 unwind label %lpad79
 
 invoke.cont209:                                   ; preds = %invoke.cont207
   store i64 %call210, ptr %n, align 8
-  %44 = load i64, ptr %nExpectedSize, align 8
-  %dec211 = add i64 %44, -1
+  %46 = load i64, ptr %nExpectedSize, align 8
+  %dec211 = add i64 %46, -1
   store i64 %dec211, ptr %nExpectedSize, align 8
-  %45 = load i64, ptr %n, align 8
-  %cmp212 = icmp eq i64 %45, 1
+  %47 = load i64, ptr %n, align 8
+  %cmp212 = icmp eq i64 %47, 1
   %call214 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp212, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 154, ptr noundef @.str.22)
           to label %invoke.cont213 unwind label %lpad79
 
 invoke.cont213:                                   ; preds = %invoke.cont209
   %call215 = call noundef i64 @_ZNK5eastl6rbtreeIPKcNS_4pairIKS2_iEENS_8str_lessIS2_EENS_9allocatorENS_9use_firstIS5_EELb1ELb1EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(41) %stringMap76) #8
-  %46 = load i64, ptr %nExpectedSize, align 8
-  %cmp216 = icmp eq i64 %call215, %46
+  %48 = load i64, ptr %nExpectedSize, align 8
+  %cmp216 = icmp eq i64 %call215, %48
   %call218 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp216, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 155, ptr noundef @.str.20)
           to label %invoke.cont217 unwind label %lpad79
 
@@ -2787,10 +2789,10 @@ invoke.cont219:                                   ; preds = %invoke.cont217
           to label %invoke.cont220 unwind label %lpad79
 
 invoke.cont220:                                   ; preds = %invoke.cont219
-  %47 = load i32, ptr %call221, align 4
-  store i32 %47, ptr %x, align 4
-  %48 = load i32, ptr %x, align 4
-  %cmp222 = icmp eq i32 %48, 0
+  %49 = load i32, ptr %call221, align 4
+  store i32 %49, ptr %x, align 4
+  %50 = load i32, ptr %x, align 4
+  %cmp222 = icmp eq i32 %50, 0
   %call224 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp222, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 162, ptr noundef @.str.24)
           to label %invoke.cont223 unwind label %lpad79
 
@@ -2804,10 +2806,10 @@ invoke.cont225:                                   ; preds = %invoke.cont223
           to label %invoke.cont227 unwind label %lpad79
 
 invoke.cont227:                                   ; preds = %invoke.cont225
-  %49 = load i32, ptr %call228, align 4
-  store i32 %49, ptr %x, align 4
-  %50 = load i32, ptr %x, align 4
-  %cmp229 = icmp eq i32 %50, 1
+  %51 = load i32, ptr %call228, align 4
+  store i32 %51, ptr %x, align 4
+  %52 = load i32, ptr %x, align 4
+  %cmp229 = icmp eq i32 %52, 1
   %call231 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp229, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 166, ptr noundef @.str.26)
           to label %invoke.cont230 unwind label %lpad79
 
@@ -2826,10 +2828,10 @@ invoke.cont234:                                   ; preds = %invoke.cont232
           to label %invoke.cont236 unwind label %lpad79
 
 invoke.cont236:                                   ; preds = %invoke.cont234
-  %51 = load i32, ptr %call237, align 4
-  store i32 %51, ptr %x, align 4
-  %52 = load i32, ptr %x, align 4
-  %cmp238 = icmp eq i32 %52, 10
+  %53 = load i32, ptr %call237, align 4
+  store i32 %53, ptr %x, align 4
+  %54 = load i32, ptr %x, align 4
+  %cmp238 = icmp eq i32 %54, 10
   %call240 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp238, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 171, ptr noundef @.str.27)
           to label %invoke.cont239 unwind label %lpad79
 
@@ -2838,10 +2840,10 @@ invoke.cont239:                                   ; preds = %invoke.cont236
           to label %invoke.cont241 unwind label %lpad79
 
 invoke.cont241:                                   ; preds = %invoke.cont239
-  %53 = load i32, ptr %call242, align 4
-  store i32 %53, ptr %x, align 4
-  %54 = load i32, ptr %x, align 4
-  %cmp243 = icmp eq i32 %54, 11
+  %55 = load i32, ptr %call242, align 4
+  store i32 %55, ptr %x, align 4
+  %56 = load i32, ptr %x, align 4
+  %cmp243 = icmp eq i32 %56, 11
   %call245 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp243, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 173, ptr noundef @.str.28)
           to label %invoke.cont244 unwind label %lpad79
 
@@ -2861,43 +2863,43 @@ invoke.cont252:                                   ; preds = %invoke.cont251
   br label %for.cond254
 
 for.cond254:                                      ; preds = %for.inc262, %invoke.cont252
-  %55 = load i32, ptr %i253, align 4
-  %cmp255 = icmp slt i32 %55, 10
+  %57 = load i32, ptr %i253, align 4
+  %cmp255 = icmp slt i32 %57, 10
   br i1 %cmp255, label %for.body256, label %for.end264
 
 for.body256:                                      ; preds = %for.cond254
-  %56 = load i32, ptr %i253, align 4
-  %idxprom257 = sext i32 %56 to i64
+  %58 = load i32, ptr %i253, align 4
+  %idxprom257 = sext i32 %58 to i64
   %arrayidx258 = getelementptr inbounds [20 x ptr], ptr @_ZL7strings, i64 0, i64 %idxprom257
-  %57 = load ptr, ptr %arrayidx258, align 8
-  invoke void @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEE6insertES3_RKi(ptr sret(%"struct.eastl::pair") align 8 %tmp259, ptr noundef nonnull align 8 dereferenceable(41) %stringMap1, ptr noundef %57, ptr noundef nonnull align 4 dereferenceable(4) %i253)
+  %59 = load ptr, ptr %arrayidx258, align 8
+  invoke void @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEE6insertES3_RKi(ptr sret(%"struct.eastl::pair") align 8 %tmp259, ptr noundef nonnull align 8 dereferenceable(41) %stringMap1, ptr noundef %59, ptr noundef nonnull align 4 dereferenceable(4) %i253)
           to label %invoke.cont261 unwind label %lpad260
 
 invoke.cont261:                                   ; preds = %for.body256
   br label %for.inc262
 
 for.inc262:                                       ; preds = %invoke.cont261
-  %58 = load i32, ptr %i253, align 4
-  %inc263 = add nsw i32 %58, 1
+  %60 = load i32, ptr %i253, align 4
+  %inc263 = add nsw i32 %60, 1
   store i32 %inc263, ptr %i253, align 4
   br label %for.cond254, !llvm.loop !17
 
 lpad250:                                          ; preds = %invoke.cont251, %invoke.cont244
-  %59 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %exn.slot, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %ehselector.slot, align 4
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %exn.slot, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %ehselector.slot, align 4
   br label %ehcleanup314
 
 lpad260:                                          ; preds = %invoke.cont268, %invoke.cont265, %for.end264, %for.body256
-  %62 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %exn.slot, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %ehselector.slot, align 4
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %exn.slot, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %ehselector.slot, align 4
   br label %ehcleanup313
 
 for.end264:                                       ; preds = %for.cond254
@@ -2941,53 +2943,53 @@ invoke.cont281:                                   ; preds = %invoke.cont279
   br label %for.cond284
 
 for.cond284:                                      ; preds = %for.inc309, %invoke.cont281
-  %65 = load i32, ptr %i283, align 4
-  %cmp285 = icmp slt i32 %65, 10
+  %67 = load i32, ptr %i283, align 4
+  %cmp285 = icmp slt i32 %67, 10
   br i1 %cmp285, label %for.body286, label %for.end311
 
 for.body286:                                      ; preds = %for.cond284
-  %66 = load i32, ptr %i283, align 4
-  %idxprom287 = sext i32 %66 to i64
+  %68 = load i32, ptr %i283, align 4
+  %idxprom287 = sext i32 %68 to i64
   %arrayidx288 = getelementptr inbounds [20 x ptr], ptr @_ZL7strings, i64 0, i64 %idxprom287
-  %67 = load ptr, ptr %arrayidx288, align 8
-  %call290 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEEixES3_(ptr noundef nonnull align 8 dereferenceable(41) %stringMap1, ptr noundef %67)
+  %69 = load ptr, ptr %arrayidx288, align 8
+  %call290 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEEixES3_(ptr noundef nonnull align 8 dereferenceable(41) %stringMap1, ptr noundef %69)
           to label %invoke.cont289 unwind label %lpad270
 
 invoke.cont289:                                   ; preds = %for.body286
-  %68 = load i32, ptr %call290, align 4
-  %69 = load i32, ptr %i283, align 4
-  %idxprom291 = sext i32 %69 to i64
+  %70 = load i32, ptr %call290, align 4
+  %71 = load i32, ptr %i283, align 4
+  %idxprom291 = sext i32 %71 to i64
   %arrayidx292 = getelementptr inbounds [20 x ptr], ptr @_ZL7strings, i64 0, i64 %idxprom291
-  %70 = load ptr, ptr %arrayidx292, align 8
-  %call294 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEEixES3_(ptr noundef nonnull align 8 dereferenceable(41) %stringMap2248, ptr noundef %70)
+  %72 = load ptr, ptr %arrayidx292, align 8
+  %call294 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEEixES3_(ptr noundef nonnull align 8 dereferenceable(41) %stringMap2248, ptr noundef %72)
           to label %invoke.cont293 unwind label %lpad270
 
 invoke.cont293:                                   ; preds = %invoke.cont289
-  %71 = load i32, ptr %call294, align 4
-  %cmp295 = icmp eq i32 %68, %71
+  %73 = load i32, ptr %call294, align 4
+  %cmp295 = icmp eq i32 %70, %73
   %call297 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp295, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 200, ptr noundef @.str.33)
           to label %invoke.cont296 unwind label %lpad270
 
 invoke.cont296:                                   ; preds = %invoke.cont293
-  %72 = load i32, ptr %i283, align 4
-  %idxprom298 = sext i32 %72 to i64
+  %74 = load i32, ptr %i283, align 4
+  %idxprom298 = sext i32 %74 to i64
   %arrayidx299 = getelementptr inbounds [20 x ptr], ptr @_ZL7strings, i64 0, i64 %idxprom298
-  %73 = load ptr, ptr %arrayidx299, align 8
-  %call301 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEEixES3_(ptr noundef nonnull align 8 dereferenceable(41) %stringMap1, ptr noundef %73)
+  %75 = load ptr, ptr %arrayidx299, align 8
+  %call301 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEEixES3_(ptr noundef nonnull align 8 dereferenceable(41) %stringMap1, ptr noundef %75)
           to label %invoke.cont300 unwind label %lpad270
 
 invoke.cont300:                                   ; preds = %invoke.cont296
-  %74 = load i32, ptr %call301, align 4
-  %75 = load i32, ptr %i283, align 4
-  %idxprom302 = sext i32 %75 to i64
+  %76 = load i32, ptr %call301, align 4
+  %77 = load i32, ptr %i283, align 4
+  %idxprom302 = sext i32 %77 to i64
   %arrayidx303 = getelementptr inbounds [20 x ptr], ptr @_ZL7strings, i64 0, i64 %idxprom302
-  %76 = load ptr, ptr %arrayidx303, align 8
-  %call305 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEEixES3_(ptr noundef nonnull align 8 dereferenceable(41) %stringMap3, ptr noundef %76)
+  %78 = load ptr, ptr %arrayidx303, align 8
+  %call305 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEEixES3_(ptr noundef nonnull align 8 dereferenceable(41) %stringMap3, ptr noundef %78)
           to label %invoke.cont304 unwind label %lpad270
 
 invoke.cont304:                                   ; preds = %invoke.cont300
-  %77 = load i32, ptr %call305, align 4
-  %cmp306 = icmp eq i32 %74, %77
+  %79 = load i32, ptr %call305, align 4
+  %cmp306 = icmp eq i32 %76, %79
   %call308 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp306, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 201, ptr noundef @.str.34)
           to label %invoke.cont307 unwind label %lpad270
 
@@ -2995,18 +2997,18 @@ invoke.cont307:                                   ; preds = %invoke.cont304
   br label %for.inc309
 
 for.inc309:                                       ; preds = %invoke.cont307
-  %78 = load i32, ptr %i283, align 4
-  %inc310 = add nsw i32 %78, 1
+  %80 = load i32, ptr %i283, align 4
+  %inc310 = add nsw i32 %80, 1
   store i32 %inc310, ptr %i283, align 4
   br label %for.cond284, !llvm.loop !18
 
 lpad270:                                          ; preds = %invoke.cont304, %invoke.cont300, %invoke.cont296, %invoke.cont293, %invoke.cont289, %for.body286, %invoke.cont279, %invoke.cont277, %invoke.cont275, %invoke.cont273, %invoke.cont271, %invoke.cont269
-  %79 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %exn.slot, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %ehselector.slot, align 4
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %exn.slot, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %ehselector.slot, align 4
   call void @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(41) %stringMap3) #8
   br label %ehcleanup313
 
@@ -3014,8 +3016,8 @@ for.end311:                                       ; preds = %for.cond284
   call void @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(41) %stringMap3) #8
   call void @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(41) %stringMap2248) #8
   call void @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(41) %stringMap1) #8
-  %82 = load i32, ptr %nErrorCount, align 4
-  ret i32 %82
+  %84 = load i32, ptr %nErrorCount, align 4
+  ret i32 %84
 
 ehcleanup313:                                     ; preds = %lpad270, %lpad260
   call void @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(41) %stringMap2248) #8

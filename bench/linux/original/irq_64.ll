@@ -26,57 +26,62 @@ define dso_local noundef i32 @irq_init_percpu_irqstack(i32 noundef %0) local_unn
   %3 = zext i32 %0 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
-  %6 = add i64 %5, ptrtoint (ptr getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 5) to i64)
-  %7 = inttoptr i64 %6 to ptr
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %37
+  %6 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 5
+  %7 = ptrtoint ptr %6 to i64
+  %8 = add i64 %5, %7
+  %9 = inttoptr i64 %8 to ptr
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %42
 
-10:                                               ; preds = %1
-  %11 = add i64 %5, ptrtoint (ptr @irq_stack_backing_store to i64)
-  %12 = inttoptr i64 %11 to ptr
+12:                                               ; preds = %1
+  %13 = ptrtoint ptr @irq_stack_backing_store to i64
+  %14 = add i64 %5, %13
+  %15 = inttoptr i64 %14 to ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
-  br label %13
+  br label %16
 
-13:                                               ; preds = %13, %10
-  %14 = phi i64 [ 0, %10 ], [ %23, %13 ]
-  %15 = shl nuw nsw i64 %14, 12
-  %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = tail call i64 @per_cpu_ptr_to_phys(ptr noundef %16) #4
-  %18 = load i64, ptr @vmemmap_base, align 8
-  %19 = inttoptr i64 %18 to ptr
-  %20 = lshr i64 %17, 12
-  %21 = getelementptr %struct.page, ptr %19, i64 %20
-  %22 = getelementptr [4 x ptr], ptr %2, i64 0, i64 %14
-  store ptr %21, ptr %22, align 8
-  %23 = add nuw nsw i64 %14, 1
-  %24 = icmp eq i64 %23, 4
-  br i1 %24, label %25, label %13, !llvm.loop !6
+16:                                               ; preds = %16, %12
+  %17 = phi i64 [ 0, %12 ], [ %26, %16 ]
+  %18 = shl nuw nsw i64 %17, 12
+  %19 = getelementptr i8, ptr %15, i64 %18
+  %20 = tail call i64 @per_cpu_ptr_to_phys(ptr noundef %19) #4
+  %21 = load i64, ptr @vmemmap_base, align 8
+  %22 = inttoptr i64 %21 to ptr
+  %23 = lshr i64 %20, 12
+  %24 = getelementptr %struct.page, ptr %22, i64 %23
+  %25 = getelementptr [4 x ptr], ptr %2, i64 0, i64 %17
+  store ptr %24, ptr %25, align 8
+  %26 = add nuw nsw i64 %17, 1
+  %27 = icmp eq i64 %26, 4
+  br i1 %27, label %28, label %16, !llvm.loop !6
 
-25:                                               ; preds = %13
-  %26 = load i64, ptr @__default_kernel_pte_mask, align 8
-  %27 = and i64 %26, -9223372036854775453
-  %28 = call ptr @vmap(ptr noundef nonnull %2, i32 noundef 4, i64 noundef 4, i64 %27) #4
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %35, label %30
+28:                                               ; preds = %16
+  %29 = load i64, ptr @__default_kernel_pte_mask, align 8
+  %30 = and i64 %29, -9223372036854775453
+  %31 = call ptr @vmap(ptr noundef nonnull %2, i32 noundef 4, i64 noundef 4, i64 %30) #4
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %40, label %33
 
-30:                                               ; preds = %25
-  %31 = getelementptr i8, ptr %28, i64 16376
-  %32 = load i64, ptr %4, align 8
-  %33 = add i64 %32, ptrtoint (ptr getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 5) to i64)
-  %34 = inttoptr i64 %33 to ptr
-  store ptr %31, ptr %34, align 8
-  br label %35
+33:                                               ; preds = %28
+  %34 = getelementptr i8, ptr %31, i64 16376
+  %35 = load i64, ptr %4, align 8
+  %36 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 5
+  %37 = ptrtoint ptr %36 to i64
+  %38 = add i64 %35, %37
+  %39 = inttoptr i64 %38 to ptr
+  store ptr %34, ptr %39, align 8
+  br label %40
 
-35:                                               ; preds = %30, %25
-  %36 = phi i32 [ 0, %30 ], [ -12, %25 ]
+40:                                               ; preds = %33, %28
+  %41 = phi i32 [ 0, %33 ], [ -12, %28 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #4
-  br label %37
+  br label %42
 
-37:                                               ; preds = %35, %1
-  %38 = phi i32 [ %36, %35 ], [ 0, %1 ]
-  ret i32 %38
+42:                                               ; preds = %40, %1
+  %43 = phi i32 [ %41, %40 ], [ 0, %1 ]
+  ret i32 %43
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

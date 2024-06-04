@@ -2404,146 +2404,147 @@ define void @column_register_fields() #0 {
   call void @column_deregister_fields()
   %17 = load ptr, ptr @prefs, align 8
   %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %113
+  br i1 %18, label %19, label %114
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @prefs, align 8
   %21 = call i32 @g_list_length(ptr noundef %20)
-  store i32 %21, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 1), align 8
-  %22 = call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 80)
-  store ptr %22, ptr %2, align 8
-  %23 = call noalias ptr @g_malloc0_n(i64 noundef 46, i64 noundef 4) #8
-  store ptr %23, ptr %5, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr i32, ptr %24, i64 6
-  store i32 1, ptr %25, align 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr i32, ptr %26, i64 3
-  store i32 1, ptr %27, align 4
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr i32, ptr %28, i64 4
-  store i32 1, ptr %29, align 4
-  %30 = load ptr, ptr @prefs, align 8
-  %31 = call ptr @g_list_first(ptr noundef %30)
-  store ptr %31, ptr %6, align 8
-  br label %32
+  %22 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 1
+  store i32 %21, ptr %22, align 8
+  %23 = call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 80)
+  store ptr %23, ptr %2, align 8
+  %24 = call noalias ptr @g_malloc0_n(i64 noundef 46, i64 noundef 4) #8
+  store ptr %24, ptr %5, align 8
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr i32, ptr %25, i64 6
+  store i32 1, ptr %26, align 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr i32, ptr %27, i64 3
+  store i32 1, ptr %28, align 4
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr i32, ptr %29, i64 4
+  store i32 1, ptr %30, align 4
+  %31 = load ptr, ptr @prefs, align 8
+  %32 = call ptr @g_list_first(ptr noundef %31)
+  store ptr %32, ptr %6, align 8
+  br label %33
 
-32:                                               ; preds = %95, %19
-  %33 = load ptr, ptr %6, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %99
+33:                                               ; preds = %96, %19
+  %34 = load ptr, ptr %6, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %100
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct._GList, ptr %36, i32 0, i32 0
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %4, align 8
-  %39 = load ptr, ptr %5, align 8
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct._fmt_data, ptr %40, i32 0, i32 1
-  %42 = load i32, ptr %41, align 8
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr i32, ptr %39, i64 %43
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %94, label %47
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds %struct._GList, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %4, align 8
+  %40 = load ptr, ptr %5, align 8
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds %struct._fmt_data, ptr %41, i32 0, i32 1
+  %43 = load i32, ptr %42, align 8
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr i32, ptr %40, i64 %44
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %95, label %48
 
-47:                                               ; preds = %35
-  %48 = load ptr, ptr %5, align 8
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct._fmt_data, ptr %49, i32 0, i32 1
-  %51 = load i32, ptr %50, align 8
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr i32, ptr %48, i64 %52
-  store i32 1, ptr %53, align 4
-  %54 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #8
-  store ptr %54, ptr %1, align 8
-  %55 = load ptr, ptr %1, align 8
-  store i32 -1, ptr %55, align 4
+48:                                               ; preds = %36
+  %49 = load ptr, ptr %5, align 8
+  %50 = load ptr, ptr %4, align 8
+  %51 = getelementptr inbounds %struct._fmt_data, ptr %50, i32 0, i32 1
+  %52 = load i32, ptr %51, align 8
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr i32, ptr %49, i64 %53
+  store i32 1, ptr %54, align 4
+  %55 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #8
+  store ptr %55, ptr %1, align 8
   %56 = load ptr, ptr %1, align 8
-  %57 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 0
-  store ptr %56, ptr %57, align 8
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %struct._fmt_data, ptr %58, i32 0, i32 1
-  %60 = load i32, ptr %59, align 8
-  %61 = call ptr @col_format_desc(i32 noundef %60)
-  %62 = call noalias ptr @g_strdup(ptr noundef %61)
-  %63 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
-  %64 = getelementptr inbounds %struct._header_field_info, ptr %63, i32 0, i32 0
-  store ptr %62, ptr %64, align 8
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct._fmt_data, ptr %65, i32 0, i32 1
-  %67 = load i32, ptr %66, align 8
-  %68 = call ptr @col_format_abbrev(i32 noundef %67)
-  %69 = call noalias ptr @g_strdup(ptr noundef %68)
-  %70 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
-  %71 = getelementptr inbounds %struct._header_field_info, ptr %70, i32 0, i32 1
-  store ptr %69, ptr %71, align 8
-  %72 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
-  %73 = getelementptr inbounds %struct._header_field_info, ptr %72, i32 0, i32 2
-  store i32 26, ptr %73, align 8
-  %74 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
-  %75 = getelementptr inbounds %struct._header_field_info, ptr %74, i32 0, i32 3
-  store i32 0, ptr %75, align 4
-  %76 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
-  %77 = getelementptr inbounds %struct._header_field_info, ptr %76, i32 0, i32 4
-  store ptr null, ptr %77, align 8
-  %78 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
-  %79 = getelementptr inbounds %struct._header_field_info, ptr %78, i32 0, i32 5
-  store i64 0, ptr %79, align 8
-  %80 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
-  %81 = getelementptr inbounds %struct._header_field_info, ptr %80, i32 0, i32 6
-  store ptr null, ptr %81, align 8
-  %82 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
-  %83 = getelementptr inbounds %struct._header_field_info, ptr %82, i32 0, i32 7
-  store i32 -1, ptr %83, align 8
-  %84 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
-  %85 = getelementptr inbounds %struct._header_field_info, ptr %84, i32 0, i32 8
-  store i32 0, ptr %85, align 4
-  %86 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
-  %87 = getelementptr inbounds %struct._header_field_info, ptr %86, i32 0, i32 9
-  store i32 0, ptr %87, align 8
-  %88 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
-  %89 = getelementptr inbounds %struct._header_field_info, ptr %88, i32 0, i32 10
-  store i32 -1, ptr %89, align 4
-  %90 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
-  %91 = getelementptr inbounds %struct._header_field_info, ptr %90, i32 0, i32 11
-  store ptr null, ptr %91, align 8
-  %92 = load ptr, ptr %2, align 8
-  %93 = call ptr @g_array_append_vals(ptr noundef %92, ptr noundef %3, i32 noundef 1)
-  br label %94
-
-94:                                               ; preds = %47, %35
+  store i32 -1, ptr %56, align 4
+  %57 = load ptr, ptr %1, align 8
+  %58 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 0
+  store ptr %57, ptr %58, align 8
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds %struct._fmt_data, ptr %59, i32 0, i32 1
+  %61 = load i32, ptr %60, align 8
+  %62 = call ptr @col_format_desc(i32 noundef %61)
+  %63 = call noalias ptr @g_strdup(ptr noundef %62)
+  %64 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
+  %65 = getelementptr inbounds %struct._header_field_info, ptr %64, i32 0, i32 0
+  store ptr %63, ptr %65, align 8
+  %66 = load ptr, ptr %4, align 8
+  %67 = getelementptr inbounds %struct._fmt_data, ptr %66, i32 0, i32 1
+  %68 = load i32, ptr %67, align 8
+  %69 = call ptr @col_format_abbrev(i32 noundef %68)
+  %70 = call noalias ptr @g_strdup(ptr noundef %69)
+  %71 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
+  %72 = getelementptr inbounds %struct._header_field_info, ptr %71, i32 0, i32 1
+  store ptr %70, ptr %72, align 8
+  %73 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
+  %74 = getelementptr inbounds %struct._header_field_info, ptr %73, i32 0, i32 2
+  store i32 26, ptr %74, align 8
+  %75 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
+  %76 = getelementptr inbounds %struct._header_field_info, ptr %75, i32 0, i32 3
+  store i32 0, ptr %76, align 4
+  %77 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
+  %78 = getelementptr inbounds %struct._header_field_info, ptr %77, i32 0, i32 4
+  store ptr null, ptr %78, align 8
+  %79 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
+  %80 = getelementptr inbounds %struct._header_field_info, ptr %79, i32 0, i32 5
+  store i64 0, ptr %80, align 8
+  %81 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
+  %82 = getelementptr inbounds %struct._header_field_info, ptr %81, i32 0, i32 6
+  store ptr null, ptr %82, align 8
+  %83 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
+  %84 = getelementptr inbounds %struct._header_field_info, ptr %83, i32 0, i32 7
+  store i32 -1, ptr %84, align 8
+  %85 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
+  %86 = getelementptr inbounds %struct._header_field_info, ptr %85, i32 0, i32 8
+  store i32 0, ptr %86, align 4
+  %87 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
+  %88 = getelementptr inbounds %struct._header_field_info, ptr %87, i32 0, i32 9
+  store i32 0, ptr %88, align 8
+  %89 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
+  %90 = getelementptr inbounds %struct._header_field_info, ptr %89, i32 0, i32 10
+  store i32 -1, ptr %90, align 4
+  %91 = getelementptr inbounds %struct.hf_register_info, ptr %3, i32 0, i32 1
+  %92 = getelementptr inbounds %struct._header_field_info, ptr %91, i32 0, i32 11
+  store ptr null, ptr %92, align 8
+  %93 = load ptr, ptr %2, align 8
+  %94 = call ptr @g_array_append_vals(ptr noundef %93, ptr noundef %3, i32 noundef 1)
   br label %95
 
-95:                                               ; preds = %94
-  %96 = load ptr, ptr %6, align 8
-  %97 = getelementptr inbounds %struct._GList, ptr %96, i32 0, i32 1
-  %98 = load ptr, ptr %97, align 8
-  store ptr %98, ptr %6, align 8
-  br label %32, !llvm.loop !15
+95:                                               ; preds = %48, %36
+  br label %96
 
-99:                                               ; preds = %32
-  %100 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %100)
-  %101 = load ptr, ptr %2, align 8
-  %102 = getelementptr inbounds %struct._GArray, ptr %101, i32 0, i32 1
-  %103 = load i32, ptr %102, align 8
-  store i32 %103, ptr @hf_cols_cleanup, align 4
-  %104 = load i32, ptr @proto_cols, align 4
-  %105 = load ptr, ptr %2, align 8
-  %106 = getelementptr inbounds %struct._GArray, ptr %105, i32 0, i32 0
-  %107 = load ptr, ptr %106, align 8
-  %108 = load ptr, ptr %2, align 8
-  %109 = getelementptr inbounds %struct._GArray, ptr %108, i32 0, i32 1
-  %110 = load i32, ptr %109, align 8
-  call void @proto_register_field_array(i32 noundef %104, ptr noundef %107, i32 noundef %110)
-  %111 = load ptr, ptr %2, align 8
-  %112 = call ptr @g_array_free(ptr noundef %111, i32 noundef 0)
-  store ptr %112, ptr @hf_cols, align 8
-  br label %113
+96:                                               ; preds = %95
+  %97 = load ptr, ptr %6, align 8
+  %98 = getelementptr inbounds %struct._GList, ptr %97, i32 0, i32 1
+  %99 = load ptr, ptr %98, align 8
+  store ptr %99, ptr %6, align 8
+  br label %33, !llvm.loop !15
 
-113:                                              ; preds = %99, %16
+100:                                              ; preds = %33
+  %101 = load ptr, ptr %5, align 8
+  call void @g_free(ptr noundef %101)
+  %102 = load ptr, ptr %2, align 8
+  %103 = getelementptr inbounds %struct._GArray, ptr %102, i32 0, i32 1
+  %104 = load i32, ptr %103, align 8
+  store i32 %104, ptr @hf_cols_cleanup, align 4
+  %105 = load i32, ptr @proto_cols, align 4
+  %106 = load ptr, ptr %2, align 8
+  %107 = getelementptr inbounds %struct._GArray, ptr %106, i32 0, i32 0
+  %108 = load ptr, ptr %107, align 8
+  %109 = load ptr, ptr %2, align 8
+  %110 = getelementptr inbounds %struct._GArray, ptr %109, i32 0, i32 1
+  %111 = load i32, ptr %110, align 8
+  call void @proto_register_field_array(i32 noundef %105, ptr noundef %108, i32 noundef %111)
+  %112 = load ptr, ptr %2, align 8
+  %113 = call ptr @g_array_free(ptr noundef %112, i32 noundef 0)
+  store ptr %113, ptr @hf_cols, align 8
+  br label %114
+
+114:                                              ; preds = %100, %16
   ret void
 }
 
@@ -2624,191 +2625,196 @@ define internal ptr @get_timestamp_column_longest_string(i32 noundef %0, i32 nou
   store i32 %0, ptr %4, align 4
   store i32 %1, ptr %5, align 4
   %6 = load i32, ptr %4, align 4
-  switch i32 %6, label %93 [
+  switch i32 %6, label %98 [
     i32 2, label %7
     i32 8, label %7
-    i32 3, label %24
-    i32 9, label %24
-    i32 1, label %41
-    i32 7, label %41
-    i32 0, label %58
-    i32 4, label %58
-    i32 5, label %58
-    i32 6, label %75
-    i32 10, label %92
+    i32 3, label %25
+    i32 9, label %25
+    i32 1, label %43
+    i32 7, label %43
+    i32 0, label %61
+    i32 4, label %61
+    i32 5, label %61
+    i32 6, label %79
+    i32 10, label %97
   ]
 
 7:                                                ; preds = %2, %2
   %8 = load i32, ptr %5, align 4
   %9 = icmp eq i32 %8, -1
-  br i1 %9, label %10, label %12
+  br i1 %9, label %10, label %13
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @ts_ymd, i64 0, i64 9), align 8
-  store ptr %11, ptr %3, align 8
-  br label %94
+  %11 = getelementptr inbounds [10 x ptr], ptr @ts_ymd, i64 0, i64 9
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %3, align 8
+  br label %99
 
-12:                                               ; preds = %7
-  %13 = load i32, ptr %5, align 4
-  %14 = icmp sge i32 %13, 0
-  br i1 %14, label %15, label %23
+13:                                               ; preds = %7
+  %14 = load i32, ptr %5, align 4
+  %15 = icmp sge i32 %14, 0
+  br i1 %15, label %16, label %24
 
-15:                                               ; preds = %12
-  %16 = load i32, ptr %5, align 4
-  %17 = icmp slt i32 %16, 10
-  br i1 %17, label %18, label %23
+16:                                               ; preds = %13
+  %17 = load i32, ptr %5, align 4
+  %18 = icmp slt i32 %17, 10
+  br i1 %18, label %19, label %24
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr %5, align 4
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr [10 x ptr], ptr @ts_ymd, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %3, align 8
-  br label %94
+19:                                               ; preds = %16
+  %20 = load i32, ptr %5, align 4
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr [10 x ptr], ptr @ts_ymd, i64 0, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %3, align 8
+  br label %99
 
-23:                                               ; preds = %15, %12
+24:                                               ; preds = %16, %13
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str.149, i32 noundef 7, ptr noundef @.str.201, i64 noundef 566, ptr noundef @__func__.get_timestamp_column_longest_string, ptr noundef @.str.202) #9
   unreachable
 
-24:                                               ; preds = %2, %2
-  %25 = load i32, ptr %5, align 4
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %27, label %29
+25:                                               ; preds = %2, %2
+  %26 = load i32, ptr %5, align 4
+  %27 = icmp eq i32 %26, -1
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @ts_ydoy, i64 0, i64 9), align 8
-  store ptr %28, ptr %3, align 8
-  br label %94
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds [10 x ptr], ptr @ts_ydoy, i64 0, i64 9
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %3, align 8
+  br label %99
 
-29:                                               ; preds = %24
-  %30 = load i32, ptr %5, align 4
-  %31 = icmp sge i32 %30, 0
-  br i1 %31, label %32, label %40
+31:                                               ; preds = %25
+  %32 = load i32, ptr %5, align 4
+  %33 = icmp sge i32 %32, 0
+  br i1 %33, label %34, label %42
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr %5, align 4
-  %34 = icmp slt i32 %33, 10
-  br i1 %34, label %35, label %40
+34:                                               ; preds = %31
+  %35 = load i32, ptr %5, align 4
+  %36 = icmp slt i32 %35, 10
+  br i1 %36, label %37, label %42
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr %5, align 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr [10 x ptr], ptr @ts_ydoy, i64 0, i64 %37
-  %39 = load ptr, ptr %38, align 8
-  store ptr %39, ptr %3, align 8
-  br label %94
+37:                                               ; preds = %34
+  %38 = load i32, ptr %5, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr [10 x ptr], ptr @ts_ydoy, i64 0, i64 %39
+  %41 = load ptr, ptr %40, align 8
+  store ptr %41, ptr %3, align 8
+  br label %99
 
-40:                                               ; preds = %32, %29
+42:                                               ; preds = %34, %31
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str.149, i32 noundef 7, ptr noundef @.str.201, i64 noundef 579, ptr noundef @__func__.get_timestamp_column_longest_string, ptr noundef @.str.202) #9
   unreachable
 
-41:                                               ; preds = %2, %2
-  %42 = load i32, ptr %5, align 4
-  %43 = icmp eq i32 %42, -1
-  br i1 %43, label %44, label %46
+43:                                               ; preds = %2, %2
+  %44 = load i32, ptr %5, align 4
+  %45 = icmp eq i32 %44, -1
+  br i1 %45, label %46, label %49
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @ts_abstime, i64 0, i64 9), align 8
-  store ptr %45, ptr %3, align 8
-  br label %94
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds [10 x ptr], ptr @ts_abstime, i64 0, i64 9
+  %48 = load ptr, ptr %47, align 8
+  store ptr %48, ptr %3, align 8
+  br label %99
 
-46:                                               ; preds = %41
-  %47 = load i32, ptr %5, align 4
-  %48 = icmp sge i32 %47, 0
-  br i1 %48, label %49, label %57
-
-49:                                               ; preds = %46
+49:                                               ; preds = %43
   %50 = load i32, ptr %5, align 4
-  %51 = icmp slt i32 %50, 10
-  br i1 %51, label %52, label %57
+  %51 = icmp sge i32 %50, 0
+  br i1 %51, label %52, label %60
 
 52:                                               ; preds = %49
   %53 = load i32, ptr %5, align 4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr [10 x ptr], ptr @ts_abstime, i64 0, i64 %54
-  %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %3, align 8
-  br label %94
+  %54 = icmp slt i32 %53, 10
+  br i1 %54, label %55, label %60
 
-57:                                               ; preds = %49, %46
+55:                                               ; preds = %52
+  %56 = load i32, ptr %5, align 4
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr [10 x ptr], ptr @ts_abstime, i64 0, i64 %57
+  %59 = load ptr, ptr %58, align 8
+  store ptr %59, ptr %3, align 8
+  br label %99
+
+60:                                               ; preds = %52, %49
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str.149, i32 noundef 7, ptr noundef @.str.201, i64 noundef 592, ptr noundef @__func__.get_timestamp_column_longest_string, ptr noundef @.str.202) #9
   unreachable
 
-58:                                               ; preds = %2, %2, %2
-  %59 = load i32, ptr %5, align 4
-  %60 = icmp eq i32 %59, -1
-  br i1 %60, label %61, label %63
+61:                                               ; preds = %2, %2, %2
+  %62 = load i32, ptr %5, align 4
+  %63 = icmp eq i32 %62, -1
+  br i1 %63, label %64, label %67
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @ts_rel_delta_time, i64 0, i64 9), align 8
-  store ptr %62, ptr %3, align 8
-  br label %94
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds [10 x ptr], ptr @ts_rel_delta_time, i64 0, i64 9
+  %66 = load ptr, ptr %65, align 8
+  store ptr %66, ptr %3, align 8
+  br label %99
 
-63:                                               ; preds = %58
-  %64 = load i32, ptr %5, align 4
-  %65 = icmp sge i32 %64, 0
-  br i1 %65, label %66, label %74
+67:                                               ; preds = %61
+  %68 = load i32, ptr %5, align 4
+  %69 = icmp sge i32 %68, 0
+  br i1 %69, label %70, label %78
 
-66:                                               ; preds = %63
-  %67 = load i32, ptr %5, align 4
-  %68 = icmp slt i32 %67, 10
-  br i1 %68, label %69, label %74
+70:                                               ; preds = %67
+  %71 = load i32, ptr %5, align 4
+  %72 = icmp slt i32 %71, 10
+  br i1 %72, label %73, label %78
 
-69:                                               ; preds = %66
-  %70 = load i32, ptr %5, align 4
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr [10 x ptr], ptr @ts_rel_delta_time, i64 0, i64 %71
-  %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr %3, align 8
-  br label %94
+73:                                               ; preds = %70
+  %74 = load i32, ptr %5, align 4
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr [10 x ptr], ptr @ts_rel_delta_time, i64 0, i64 %75
+  %77 = load ptr, ptr %76, align 8
+  store ptr %77, ptr %3, align 8
+  br label %99
 
-74:                                               ; preds = %66, %63
+78:                                               ; preds = %70, %67
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str.149, i32 noundef 7, ptr noundef @.str.201, i64 noundef 606, ptr noundef @__func__.get_timestamp_column_longest_string, ptr noundef @.str.202) #9
   unreachable
 
-75:                                               ; preds = %2
-  %76 = load i32, ptr %5, align 4
-  %77 = icmp eq i32 %76, -1
-  br i1 %77, label %78, label %80
+79:                                               ; preds = %2
+  %80 = load i32, ptr %5, align 4
+  %81 = icmp eq i32 %80, -1
+  br i1 %81, label %82, label %85
 
-78:                                               ; preds = %75
-  %79 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @ts_epoch_time, i64 0, i64 9), align 8
-  store ptr %79, ptr %3, align 8
-  br label %94
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds [10 x ptr], ptr @ts_epoch_time, i64 0, i64 9
+  %84 = load ptr, ptr %83, align 8
+  store ptr %84, ptr %3, align 8
+  br label %99
 
-80:                                               ; preds = %75
-  %81 = load i32, ptr %5, align 4
-  %82 = icmp sge i32 %81, 0
-  br i1 %82, label %83, label %91
+85:                                               ; preds = %79
+  %86 = load i32, ptr %5, align 4
+  %87 = icmp sge i32 %86, 0
+  br i1 %87, label %88, label %96
 
-83:                                               ; preds = %80
-  %84 = load i32, ptr %5, align 4
-  %85 = icmp slt i32 %84, 10
-  br i1 %85, label %86, label %91
+88:                                               ; preds = %85
+  %89 = load i32, ptr %5, align 4
+  %90 = icmp slt i32 %89, 10
+  br i1 %90, label %91, label %96
 
-86:                                               ; preds = %83
-  %87 = load i32, ptr %5, align 4
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr [10 x ptr], ptr @ts_epoch_time, i64 0, i64 %88
-  %90 = load ptr, ptr %89, align 8
-  store ptr %90, ptr %3, align 8
-  br label %94
+91:                                               ; preds = %88
+  %92 = load i32, ptr %5, align 4
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr [10 x ptr], ptr @ts_epoch_time, i64 0, i64 %93
+  %95 = load ptr, ptr %94, align 8
+  store ptr %95, ptr %3, align 8
+  br label %99
 
-91:                                               ; preds = %83, %80
+96:                                               ; preds = %88, %85
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str.149, i32 noundef 7, ptr noundef @.str.201, i64 noundef 619, ptr noundef @__func__.get_timestamp_column_longest_string, ptr noundef @.str.202) #9
   unreachable
 
-92:                                               ; preds = %2
+97:                                               ; preds = %2
   store ptr @.str.203, ptr %3, align 8
-  br label %94
+  br label %99
 
-93:                                               ; preds = %2
+98:                                               ; preds = %2
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str.149, i32 noundef 7, ptr noundef @.str.201, i64 noundef 626, ptr noundef @__func__.get_timestamp_column_longest_string, ptr noundef @.str.202) #9
   unreachable
 
-94:                                               ; preds = %92, %86, %78, %69, %61, %52, %44, %35, %27, %18, %10
-  %95 = load ptr, ptr %3, align 8
-  ret ptr %95
+99:                                               ; preds = %97, %91, %82, %73, %64, %55, %46, %37, %28, %19, %10
+  %100 = load ptr, ptr %3, align 8
+  ret ptr %100
 }
 
 declare i32 @timestamp_get_type() #1

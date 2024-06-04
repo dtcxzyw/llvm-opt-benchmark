@@ -41,29 +41,30 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @sysfs_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call ptr @kernfs_create_root(ptr noundef null, i32 noundef 2, ptr noundef null) #4
   store ptr %1, ptr @sysfs_root, align 8
-  %2 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
-  br i1 %2, label %3, label %6
+  %2 = inttoptr i64 -4096 to ptr
+  %3 = icmp ugt ptr %1, %2
+  br i1 %3, label %4, label %7
 
-3:                                                ; preds = %0
-  %4 = ptrtoint ptr %1 to i64
-  %5 = trunc i64 %4 to i32
-  br label %12
+4:                                                ; preds = %0
+  %5 = ptrtoint ptr %1 to i64
+  %6 = trunc i64 %5 to i32
+  br label %13
 
-6:                                                ; preds = %0
-  %7 = tail call ptr @kernfs_root_to_node(ptr noundef %1) #4
-  store ptr %7, ptr @sysfs_root_kn, align 8
-  %8 = tail call i32 @register_filesystem(ptr noundef nonnull @sysfs_fs_type) #4
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %12, label %10
+7:                                                ; preds = %0
+  %8 = tail call ptr @kernfs_root_to_node(ptr noundef %1) #4
+  store ptr %8, ptr @sysfs_root_kn, align 8
+  %9 = tail call i32 @register_filesystem(ptr noundef nonnull @sysfs_fs_type) #4
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %13, label %11
 
-10:                                               ; preds = %6
-  %11 = load ptr, ptr @sysfs_root, align 8
-  tail call void @kernfs_destroy_root(ptr noundef %11) #4
-  br label %12
+11:                                               ; preds = %7
+  %12 = load ptr, ptr @sysfs_root, align 8
+  tail call void @kernfs_destroy_root(ptr noundef %12) #4
+  br label %13
 
-12:                                               ; preds = %10, %6, %3
-  %13 = phi i32 [ %5, %3 ], [ %8, %10 ], [ 0, %6 ]
-  ret i32 %13
+13:                                               ; preds = %11, %7, %4
+  %14 = phi i32 [ %6, %4 ], [ %9, %11 ], [ 0, %7 ]
+  ret i32 %14
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -88,43 +89,44 @@ define internal noundef i32 @sysfs_init_fs_context(ptr nocapture noundef %0) #2 
 
 6:                                                ; preds = %1
   %7 = tail call zeroext i1 @kobj_ns_current_may_mount(i32 noundef 1) #4
-  br i1 %7, label %8, label %25
+  br i1 %7, label %8, label %26
 
 8:                                                ; preds = %6, %1
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %10 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 32) #5
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %25, label %12
+  %9 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 32) #5
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %26, label %13
 
-12:                                               ; preds = %8
-  %13 = tail call ptr @kobj_ns_grab_current(i32 noundef 1) #4
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %13, ptr %14, align 8
-  %15 = load ptr, ptr @sysfs_root, align 8
-  store ptr %15, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
-  store i64 1650812274, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %10, ptr %17, align 8
+13:                                               ; preds = %8
+  %14 = tail call ptr @kobj_ns_grab_current(i32 noundef 1) #4
+  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %14, ptr %15, align 8
+  %16 = load ptr, ptr @sysfs_root, align 8
+  store ptr %16, ptr %11, align 8
+  %17 = getelementptr inbounds i8, ptr %11, i64 16
+  store i64 1650812274, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %11, ptr %18, align 8
   store ptr @sysfs_fs_context_ops, ptr %0, align 8
-  %18 = icmp eq ptr %13, null
-  br i1 %18, label %21, label %19
+  %19 = icmp eq ptr %14, null
+  br i1 %19, label %22, label %20
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr @init_user_ns, ptr %20, align 8
-  br label %21
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr @init_user_ns, ptr %21, align 8
+  br label %22
 
-21:                                               ; preds = %19, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 148
-  %23 = load i32, ptr %22, align 4
-  %24 = or i32 %23, 131072
-  store i32 %24, ptr %22, align 4
-  br label %25
+22:                                               ; preds = %20, %13
+  %23 = getelementptr inbounds i8, ptr %0, i64 148
+  %24 = load i32, ptr %23, align 4
+  %25 = or i32 %24, 131072
+  store i32 %25, ptr %23, align 4
+  br label %26
 
-25:                                               ; preds = %21, %8, %6
-  %26 = phi i32 [ 0, %21 ], [ -1, %6 ], [ -12, %8 ]
-  ret i32 %26
+26:                                               ; preds = %22, %8, %6
+  %27 = phi i32 [ 0, %22 ], [ -1, %6 ], [ -12, %8 ]
+  ret i32 %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

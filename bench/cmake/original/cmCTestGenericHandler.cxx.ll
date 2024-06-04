@@ -802,29 +802,30 @@ define dso_local void @_ZN21cmCTestGenericHandlerC2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21cmCTestGenericHandler, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 8
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 9
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV21cmCTestGenericHandler, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 8
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
-  %6 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 10
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 11
+  %6 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 9
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
+  %7 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 10
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
-  %8 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 12
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
-  %9 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 5
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 7
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 13
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 1
-  store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 2
-  store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 4
-  store i64 0, ptr %14, align 8
+  %8 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 11
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  %9 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 12
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
+  %10 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 5
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 7
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 13
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 1
+  store i8 0, ptr %13, align 8
+  %14 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 2
+  store i8 0, ptr %14, align 1
+  %15 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 4
+  store i64 0, ptr %15, align 8
   ret void
 }
 
@@ -853,17 +854,18 @@ define dso_local void @_ZN21cmCTestGenericHandlerD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21cmCTestGenericHandler, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 12
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 11
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
-  %6 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 10
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV21cmCTestGenericHandler, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 12
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %6 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 11
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 9
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
-  %8 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 8
+  %7 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 10
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
+  %8 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 9
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  %9 = getelementptr inbounds %class.cmCTestGenericHandler, ptr %3, i32 0, i32 8
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
   ret void
 }
 

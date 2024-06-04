@@ -989,457 +989,464 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   %5 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
   store i16 0, ptr %4, align 2, !annotation !5
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %7 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 64) #17
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %11, label %9
+  %6 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %7 = load ptr, ptr %6, align 16
+  %8 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 64) #17
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %12, label %10
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %10, ptr noundef nonnull @.str.21) #15
-  br label %260
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %11, ptr noundef nonnull @.str.21) #15
+  br label %267
 
-11:                                               ; preds = %1
-  %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
-  br label %13
+12:                                               ; preds = %1
+  %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
+  br label %14
 
-13:                                               ; preds = %17, %11
-  %14 = phi ptr [ @vga_list, %11 ], [ %15, %17 ]
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, @vga_list
-  br i1 %16, label %21, label %17
+14:                                               ; preds = %18, %12
+  %15 = phi ptr [ @vga_list, %12 ], [ %16, %18 ]
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, @vga_list
+  br i1 %17, label %22, label %18
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, %0
-  br i1 %20, label %21, label %13, !llvm.loop !9
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, %0
+  br i1 %21, label %22, label %14, !llvm.loop !9
 
-21:                                               ; preds = %17, %13
-  %22 = phi ptr [ %15, %17 ], [ null, %13 ]
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %25, label %24
+22:                                               ; preds = %18, %14
+  %23 = phi ptr [ %16, %18 ], [ null, %14 ]
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %26, label %25
 
-24:                                               ; preds = %21
+25:                                               ; preds = %22
   tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #14, !srcloc !18
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 781, i32 0, i64 12) #14, !srcloc !19
   unreachable
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 24
-  store i32 15, ptr %27, align 8
-  %28 = load i32, ptr @vga_decode_count, align 4
-  %29 = add i32 %28, 1
-  store i32 %29, ptr @vga_decode_count, align 4
-  %30 = call i32 @pci_read_config_word(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %4) #14
-  %31 = load i16, ptr %4, align 2
-  %32 = and i16 %31, 1
-  %33 = icmp eq i16 %32, 0
-  br i1 %33, label %38, label %34
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %0, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %8, i64 24
+  store i32 15, ptr %28, align 8
+  %29 = load i32, ptr @vga_decode_count, align 4
+  %30 = add i32 %29, 1
+  store i32 %30, ptr @vga_decode_count, align 4
+  %31 = call i32 @pci_read_config_word(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %4) #14
+  %32 = load i16, ptr %4, align 2
+  %33 = and i16 %32, 1
+  %34 = icmp eq i16 %33, 0
+  br i1 %34, label %39, label %35
 
-34:                                               ; preds = %25
-  %35 = getelementptr inbounds i8, ptr %7, i64 28
-  %36 = load i32, ptr %35, align 4
-  %37 = or i32 %36, 1
-  store i32 %37, ptr %35, align 4
-  br label %38
+35:                                               ; preds = %26
+  %36 = getelementptr inbounds i8, ptr %8, i64 28
+  %37 = load i32, ptr %36, align 4
+  %38 = or i32 %37, 1
+  store i32 %38, ptr %36, align 4
+  br label %39
 
-38:                                               ; preds = %34, %25
-  %39 = and i16 %31, 2
-  %40 = icmp eq i16 %39, 0
-  br i1 %40, label %45, label %41
+39:                                               ; preds = %35, %26
+  %40 = and i16 %32, 2
+  %41 = icmp eq i16 %40, 0
+  br i1 %41, label %46, label %42
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %7, i64 28
-  %43 = load i32, ptr %42, align 4
-  %44 = or i32 %43, 2
-  store i32 %44, ptr %42, align 4
-  br label %45
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds i8, ptr %8, i64 28
+  %44 = load i32, ptr %43, align 4
+  %45 = or i32 %44, 2
+  store i32 %45, ptr %43, align 4
+  br label %46
 
-45:                                               ; preds = %41, %38
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %66, label %49
+46:                                               ; preds = %42, %39
+  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %67, label %50
 
-49:                                               ; preds = %62, %45
-  %50 = phi ptr [ %64, %62 ], [ %47, %45 ]
-  %51 = getelementptr inbounds i8, ptr %50, i64 56
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %62, label %54
+50:                                               ; preds = %63, %46
+  %51 = phi ptr [ %65, %63 ], [ %48, %46 ]
+  %52 = getelementptr inbounds i8, ptr %51, i64 56
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %63, label %55
 
-54:                                               ; preds = %49
+55:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #14
   store i16 0, ptr %5, align 2, !annotation !5
-  %55 = call i32 @pci_read_config_word(ptr noundef nonnull %52, i32 noundef 62, ptr noundef nonnull %5) #14
-  %56 = load i16, ptr %5, align 2
-  %57 = and i16 %56, 8
-  %58 = icmp eq i16 %57, 0
-  br i1 %58, label %59, label %61
+  %56 = call i32 @pci_read_config_word(ptr noundef nonnull %53, i32 noundef 62, ptr noundef nonnull %5) #14
+  %57 = load i16, ptr %5, align 2
+  %58 = and i16 %57, 8
+  %59 = icmp eq i16 %58, 0
+  br i1 %59, label %60, label %62
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %7, i64 28
-  store i32 0, ptr %60, align 4
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds i8, ptr %8, i64 28
+  store i32 0, ptr %61, align 4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #14
-  br label %66
+  br label %67
 
-61:                                               ; preds = %54
+62:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #14
-  br label %62
+  br label %63
 
-62:                                               ; preds = %61, %49
-  %63 = getelementptr inbounds i8, ptr %50, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %49, !llvm.loop !20
+63:                                               ; preds = %62, %50
+  %64 = getelementptr inbounds i8, ptr %51, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %50, !llvm.loop !20
 
-66:                                               ; preds = %62, %59, %45
-  %67 = load ptr, ptr @vga_default, align 8
-  br label %68
+67:                                               ; preds = %63, %60, %46
+  %68 = load ptr, ptr @vga_default, align 8
+  br label %69
 
-68:                                               ; preds = %72, %66
-  %69 = phi ptr [ @vga_list, %66 ], [ %70, %72 ]
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, @vga_list
-  br i1 %71, label %76, label %72
+69:                                               ; preds = %73, %67
+  %70 = phi ptr [ @vga_list, %67 ], [ %71, %73 ]
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, @vga_list
+  br i1 %72, label %77, label %73
 
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %70, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %74, %67
-  br i1 %75, label %76, label %68, !llvm.loop !9
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds i8, ptr %71, i64 16
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, %68
+  br i1 %76, label %77, label %69, !llvm.loop !9
 
-76:                                               ; preds = %72, %68
-  %77 = phi ptr [ %70, %72 ], [ null, %68 ]
-  %78 = load ptr, ptr %26, align 8
+77:                                               ; preds = %73, %69
+  %78 = phi ptr [ %71, %73 ], [ null, %69 ]
+  %79 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #14
   store i16 0, ptr %2, align 2, !annotation !5
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
   store i16 0, ptr %3, align 2, !annotation !5
-  %79 = icmp eq ptr %77, null
-  br i1 %79, label %84, label %80
+  %80 = icmp eq ptr %78, null
+  br i1 %80, label %85, label %81
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %77, i64 53
-  %82 = load i8, ptr %81, align 1, !range !14, !noundef !15
-  %83 = icmp eq i8 %82, 0
-  br i1 %83, label %84, label %171
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds i8, ptr %78, i64 53
+  %83 = load i8, ptr %82, align 1, !range !14, !noundef !15
+  %84 = icmp eq i8 %83, 0
+  br i1 %84, label %85, label %176
 
-84:                                               ; preds = %80, %76
-  %85 = load i32, ptr getelementptr inbounds (%struct.screen_info, ptr @screen_info, i64 0, i32 16), align 1
-  %86 = zext i32 %85 to i64
-  %87 = load i32, ptr getelementptr inbounds (%struct.screen_info, ptr @screen_info, i64 0, i32 17), align 1
+85:                                               ; preds = %81, %77
+  %86 = getelementptr inbounds %struct.screen_info, ptr @screen_info, i64 0, i32 16
+  %87 = load i32, ptr %86, align 1
   %88 = zext i32 %87 to i64
-  %89 = load i32, ptr getelementptr inbounds (%struct.screen_info, ptr @screen_info, i64 0, i32 33), align 1
-  %90 = and i32 %89, 2
-  %91 = icmp eq i32 %90, 0
-  %92 = load i32, ptr getelementptr inbounds (%struct.screen_info, ptr @screen_info, i64 0, i32 34), align 1
-  %93 = zext i32 %92 to i64
-  %94 = shl nuw i64 %93, 32
-  %95 = select i1 %91, i64 0, i64 %94
-  %96 = or disjoint i64 %95, %86
-  %97 = add i64 %96, %88
-  %98 = getelementptr inbounds i8, ptr %78, i64 920
-  br label %99
+  %89 = getelementptr inbounds %struct.screen_info, ptr @screen_info, i64 0, i32 17
+  %90 = load i32, ptr %89, align 1
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds %struct.screen_info, ptr @screen_info, i64 0, i32 33
+  %93 = load i32, ptr %92, align 1
+  %94 = and i32 %93, 2
+  %95 = icmp eq i32 %94, 0
+  %96 = getelementptr inbounds %struct.screen_info, ptr @screen_info, i64 0, i32 34
+  %97 = load i32, ptr %96, align 1
+  %98 = zext i32 %97 to i64
+  %99 = shl nuw i64 %98, 32
+  %100 = select i1 %95, i64 0, i64 %99
+  %101 = or disjoint i64 %100, %88
+  %102 = add i64 %101, %91
+  %103 = getelementptr inbounds i8, ptr %79, i64 920
+  br label %104
 
-99:                                               ; preds = %119, %84
-  %100 = phi i64 [ 0, %84 ], [ %120, %119 ]
-  %101 = getelementptr [11 x %struct.resource], ptr %98, i64 0, i64 %100
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %124, label %103
+104:                                              ; preds = %124, %85
+  %105 = phi i64 [ 0, %85 ], [ %125, %124 ]
+  %106 = getelementptr [11 x %struct.resource], ptr %103, i64 0, i64 %105
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %129, label %108
 
-103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %101, i64 24
-  %105 = load i64, ptr %104, align 8
-  %106 = and i64 %105, 7936
-  %107 = icmp eq i64 %106, 512
-  br i1 %107, label %108, label %119
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds i8, ptr %106, i64 24
+  %110 = load i64, ptr %109, align 8
+  %111 = and i64 %110, 7936
+  %112 = icmp eq i64 %111, 512
+  br i1 %112, label %113, label %124
 
-108:                                              ; preds = %103
-  %109 = load i64, ptr %101, align 8
-  %110 = icmp eq i64 %109, 0
-  br i1 %110, label %119, label %111
+113:                                              ; preds = %108
+  %114 = load i64, ptr %106, align 8
+  %115 = icmp eq i64 %114, 0
+  br i1 %115, label %124, label %116
 
-111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %101, i64 8
-  %113 = load i64, ptr %112, align 8
-  %114 = icmp ne i64 %113, 0
-  %115 = icmp uge i64 %96, %109
-  %116 = select i1 %114, i1 %115, i1 false
-  %117 = icmp ult i64 %97, %113
-  %118 = select i1 %116, i1 %117, i1 false
-  br i1 %118, label %122, label %119
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds i8, ptr %106, i64 8
+  %118 = load i64, ptr %117, align 8
+  %119 = icmp ne i64 %118, 0
+  %120 = icmp uge i64 %101, %114
+  %121 = select i1 %119, i1 %120, i1 false
+  %122 = icmp ult i64 %102, %118
+  %123 = select i1 %121, i1 %122, i1 false
+  br i1 %123, label %127, label %124
 
-119:                                              ; preds = %111, %108, %103
-  %120 = add nuw nsw i64 %100, 1
-  %121 = icmp eq i64 %120, 11
-  br i1 %121, label %124, label %99, !llvm.loop !21
+124:                                              ; preds = %116, %113, %108
+  %125 = add nuw nsw i64 %105, 1
+  %126 = icmp eq i64 %125, 11
+  br i1 %126, label %129, label %104, !llvm.loop !21
 
-122:                                              ; preds = %111
-  %123 = getelementptr inbounds i8, ptr %7, i64 53
-  store i8 1, ptr %123, align 1
-  br label %161
+127:                                              ; preds = %116
+  %128 = getelementptr inbounds i8, ptr %8, i64 53
+  store i8 1, ptr %128, align 1
+  br label %166
 
-124:                                              ; preds = %119, %99
-  br i1 %79, label %130, label %125
+129:                                              ; preds = %124, %104
+  br i1 %80, label %135, label %130
 
-125:                                              ; preds = %124
-  %126 = getelementptr inbounds i8, ptr %77, i64 28
-  %127 = load i32, ptr %126, align 4
-  %128 = and i32 %127, 3
-  %129 = icmp eq i32 %128, 3
-  br i1 %129, label %171, label %130
-
-130:                                              ; preds = %125, %124
-  %131 = getelementptr inbounds i8, ptr %7, i64 28
+130:                                              ; preds = %129
+  %131 = getelementptr inbounds i8, ptr %78, i64 28
   %132 = load i32, ptr %131, align 4
   %133 = and i32 %132, 3
   %134 = icmp eq i32 %133, 3
-  br i1 %134, label %161, label %135
+  br i1 %134, label %176, label %135
 
-135:                                              ; preds = %130
-  %136 = call i32 @pci_read_config_word(ptr noundef %78, i32 noundef 4, ptr noundef nonnull %2) #14
-  %137 = load i16, ptr %2, align 2
-  %138 = and i16 %137, 3
-  %139 = icmp eq i16 %138, 0
-  br i1 %139, label %160, label %140
+135:                                              ; preds = %130, %129
+  %136 = getelementptr inbounds i8, ptr %8, i64 28
+  %137 = load i32, ptr %136, align 4
+  %138 = and i32 %137, 3
+  %139 = icmp eq i32 %138, 3
+  br i1 %139, label %166, label %140
 
 140:                                              ; preds = %135
-  %141 = getelementptr inbounds i8, ptr %78, i64 816
-  %142 = load ptr, ptr %141, align 8
-  %143 = call zeroext i1 @is_acpi_device_node(ptr noundef %142) #14
-  %144 = getelementptr i8, ptr %142, i64 -16
-  %145 = icmp ne ptr %144, null
-  %146 = and i1 %143, %145
-  br i1 %146, label %147, label %152
+  %141 = call i32 @pci_read_config_word(ptr noundef %79, i32 noundef 4, ptr noundef nonnull %2) #14
+  %142 = load i16, ptr %2, align 2
+  %143 = and i16 %142, 3
+  %144 = icmp eq i16 %143, 0
+  br i1 %144, label %165, label %145
 
-147:                                              ; preds = %140
-  %148 = call ptr @acpi_device_hid(ptr noundef nonnull %144) #14
-  %149 = call i32 @strcmp(ptr noundef %148, ptr noundef nonnull dereferenceable(9) @.str.27) #14
-  %150 = icmp eq i32 %149, 0
-  %151 = or i1 %79, %150
-  br i1 %151, label %161, label %153
+145:                                              ; preds = %140
+  %146 = getelementptr inbounds i8, ptr %79, i64 816
+  %147 = load ptr, ptr %146, align 8
+  %148 = call zeroext i1 @is_acpi_device_node(ptr noundef %147) #14
+  %149 = getelementptr i8, ptr %147, i64 -16
+  %150 = icmp ne ptr %149, null
+  %151 = and i1 %148, %150
+  br i1 %151, label %152, label %157
 
-152:                                              ; preds = %140
-  br i1 %79, label %161, label %153
+152:                                              ; preds = %145
+  %153 = call ptr @acpi_device_hid(ptr noundef nonnull %149) #14
+  %154 = call i32 @strcmp(ptr noundef %153, ptr noundef nonnull dereferenceable(9) @.str.27) #14
+  %155 = icmp eq i32 %154, 0
+  %156 = or i1 %80, %155
+  br i1 %156, label %166, label %158
 
-153:                                              ; preds = %152, %147
-  %154 = getelementptr inbounds i8, ptr %77, i64 16
-  %155 = load ptr, ptr %154, align 8
-  %156 = call i32 @pci_read_config_word(ptr noundef %155, i32 noundef 4, ptr noundef nonnull %3) #14
-  %157 = load i16, ptr %3, align 2
-  %158 = and i16 %157, 3
-  %159 = icmp eq i16 %158, 0
-  br i1 %159, label %161, label %171
+157:                                              ; preds = %145
+  br i1 %80, label %166, label %158
 
-160:                                              ; preds = %135
+158:                                              ; preds = %157, %152
+  %159 = getelementptr inbounds i8, ptr %78, i64 16
+  %160 = load ptr, ptr %159, align 8
+  %161 = call i32 @pci_read_config_word(ptr noundef %160, i32 noundef 4, ptr noundef nonnull %3) #14
+  %162 = load i16, ptr %3, align 2
+  %163 = and i16 %162, 3
+  %164 = icmp eq i16 %163, 0
+  br i1 %164, label %166, label %176
+
+165:                                              ; preds = %140
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #14
-  br i1 %79, label %162, label %172
+  br i1 %80, label %167, label %177
 
-161:                                              ; preds = %153, %152, %147, %130, %122
+166:                                              ; preds = %158, %157, %152, %135, %127
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #14
-  br label %162
+  br label %167
 
-162:                                              ; preds = %161, %160
-  %163 = getelementptr inbounds i8, ptr %0, i64 184
-  %164 = load ptr, ptr @vga_default, align 8
-  %165 = icmp eq ptr %164, null
-  %166 = select i1 %165, ptr @.str.25, ptr @.str.24
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %163, ptr noundef nonnull @.str.23, ptr noundef nonnull %166) #15
-  %167 = load ptr, ptr @vga_default, align 8
-  %168 = icmp eq ptr %167, %0
-  br i1 %168, label %172, label %169
+167:                                              ; preds = %166, %165
+  %168 = getelementptr inbounds i8, ptr %0, i64 184
+  %169 = load ptr, ptr @vga_default, align 8
+  %170 = icmp eq ptr %169, null
+  %171 = select i1 %170, ptr @.str.25, ptr @.str.24
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %168, ptr noundef nonnull @.str.23, ptr noundef nonnull %171) #15
+  %172 = load ptr, ptr @vga_default, align 8
+  %173 = icmp eq ptr %172, %0
+  br i1 %173, label %177, label %174
 
-169:                                              ; preds = %162
-  call void @pci_dev_put(ptr noundef %167) #14
-  %170 = call ptr @pci_dev_get(ptr noundef %0) #14
-  store ptr %170, ptr @vga_default, align 8
-  br label %172
+174:                                              ; preds = %167
+  call void @pci_dev_put(ptr noundef %172) #14
+  %175 = call ptr @pci_dev_get(ptr noundef %0) #14
+  store ptr %175, ptr @vga_default, align 8
+  br label %177
 
-171:                                              ; preds = %153, %125, %80
+176:                                              ; preds = %158, %130, %81
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #14
-  br label %172
+  br label %177
 
-172:                                              ; preds = %171, %169, %162, %160
-  %173 = getelementptr inbounds i8, ptr %7, i64 52
-  store i8 1, ptr %173, align 4
-  %174 = load volatile ptr, ptr @vga_list, align 8
-  %175 = icmp eq ptr %174, @vga_list
-  %176 = load ptr, ptr %26, align 8
-  br i1 %175, label %177, label %179
+177:                                              ; preds = %176, %174, %167, %165
+  %178 = getelementptr inbounds i8, ptr %8, i64 52
+  store i8 1, ptr %178, align 4
+  %179 = load volatile ptr, ptr @vga_list, align 8
+  %180 = icmp eq ptr %179, @vga_list
+  %181 = load ptr, ptr %27, align 8
+  br i1 %180, label %182, label %184
 
-177:                                              ; preds = %172
-  %178 = getelementptr inbounds i8, ptr %176, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %178, ptr noundef nonnull @.str.28) #15
-  br label %231
+182:                                              ; preds = %177
+  %183 = getelementptr inbounds i8, ptr %181, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %183, ptr noundef nonnull @.str.28) #15
+  br label %236
 
-179:                                              ; preds = %172
-  %180 = getelementptr inbounds i8, ptr %176, i64 16
-  %181 = load ptr, ptr %180, align 8
-  %182 = icmp eq ptr %181, null
-  br i1 %182, label %224, label %187
+184:                                              ; preds = %177
+  %185 = getelementptr inbounds i8, ptr %181, i64 16
+  %186 = load ptr, ptr %185, align 8
+  %187 = icmp eq ptr %186, null
+  br i1 %187, label %229, label %192
 
-183:                                              ; preds = %191
-  %184 = getelementptr inbounds i8, ptr %188, i64 16
-  %185 = load ptr, ptr %184, align 8
-  %186 = icmp eq ptr %185, null
-  br i1 %186, label %224, label %187, !llvm.loop !22
-
-187:                                              ; preds = %183, %179
-  %188 = phi ptr [ %185, %183 ], [ %181, %179 ]
-  %189 = getelementptr inbounds i8, ptr %188, i64 56
+188:                                              ; preds = %196
+  %189 = getelementptr inbounds i8, ptr %193, i64 16
   %190 = load ptr, ptr %189, align 8
-  br label %194
+  %191 = icmp eq ptr %190, null
+  br i1 %191, label %229, label %192, !llvm.loop !22
 
-191:                                              ; preds = %220, %205
-  %192 = load ptr, ptr %195, align 8
-  %193 = icmp eq ptr %192, @vga_list
-  br i1 %193, label %183, label %194, !llvm.loop !23
+192:                                              ; preds = %188, %184
+  %193 = phi ptr [ %190, %188 ], [ %186, %184 ]
+  %194 = getelementptr inbounds i8, ptr %193, i64 56
+  %195 = load ptr, ptr %194, align 8
+  br label %199
 
-194:                                              ; preds = %191, %187
-  %195 = phi ptr [ %192, %191 ], [ %174, %187 ]
-  %196 = getelementptr inbounds i8, ptr %195, i64 16
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 16
-  %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 56
-  %201 = load ptr, ptr %200, align 8
-  %202 = icmp eq ptr %190, %201
-  br i1 %202, label %203, label %205
+196:                                              ; preds = %225, %210
+  %197 = load ptr, ptr %200, align 8
+  %198 = icmp eq ptr %197, @vga_list
+  br i1 %198, label %188, label %199, !llvm.loop !23
 
-203:                                              ; preds = %194
-  %204 = getelementptr inbounds i8, ptr %195, i64 52
-  store i8 0, ptr %204, align 4
-  br label %205
+199:                                              ; preds = %196, %192
+  %200 = phi ptr [ %197, %196 ], [ %179, %192 ]
+  %201 = getelementptr inbounds i8, ptr %200, i64 16
+  %202 = load ptr, ptr %201, align 8
+  %203 = getelementptr inbounds i8, ptr %202, i64 16
+  %204 = load ptr, ptr %203, align 8
+  %205 = getelementptr inbounds i8, ptr %204, i64 56
+  %206 = load ptr, ptr %205, align 8
+  %207 = icmp eq ptr %195, %206
+  br i1 %207, label %208, label %210
 
-205:                                              ; preds = %203, %194
-  %206 = icmp eq ptr %199, null
-  br i1 %206, label %191, label %207
+208:                                              ; preds = %199
+  %209 = getelementptr inbounds i8, ptr %200, i64 52
+  store i8 0, ptr %209, align 4
+  br label %210
 
-207:                                              ; preds = %220, %205
-  %208 = phi ptr [ %222, %220 ], [ %199, %205 ]
-  %209 = getelementptr inbounds i8, ptr %208, i64 56
-  %210 = load ptr, ptr %209, align 8
-  %211 = icmp eq ptr %210, null
-  br i1 %211, label %220, label %212
+210:                                              ; preds = %208, %199
+  %211 = icmp eq ptr %204, null
+  br i1 %211, label %196, label %212
 
-212:                                              ; preds = %207
-  %213 = load ptr, ptr %26, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 16
+212:                                              ; preds = %225, %210
+  %213 = phi ptr [ %227, %225 ], [ %204, %210 ]
+  %214 = getelementptr inbounds i8, ptr %213, i64 56
   %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 56
-  %217 = load ptr, ptr %216, align 8
-  %218 = icmp eq ptr %210, %217
-  br i1 %218, label %219, label %220
+  %216 = icmp eq ptr %215, null
+  br i1 %216, label %225, label %217
 
-219:                                              ; preds = %212
-  store i8 0, ptr %173, align 4
-  br label %220
-
-220:                                              ; preds = %219, %212, %207
-  %221 = getelementptr inbounds i8, ptr %208, i64 16
+217:                                              ; preds = %212
+  %218 = load ptr, ptr %27, align 8
+  %219 = getelementptr inbounds i8, ptr %218, i64 16
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds i8, ptr %220, i64 56
   %222 = load ptr, ptr %221, align 8
-  %223 = icmp eq ptr %222, null
-  br i1 %223, label %191, label %207, !llvm.loop !24
+  %223 = icmp eq ptr %215, %222
+  br i1 %223, label %224, label %225
 
-224:                                              ; preds = %183, %179
-  %225 = load i8, ptr %173, align 4, !range !14, !noundef !15
-  %226 = icmp eq i8 %225, 0
-  %227 = load ptr, ptr %26, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 184
-  br i1 %226, label %230, label %229
+224:                                              ; preds = %217
+  store i8 0, ptr %178, align 4
+  br label %225
 
-229:                                              ; preds = %224
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %228, ptr noundef nonnull @.str.28) #15
-  br label %231
+225:                                              ; preds = %224, %217, %212
+  %226 = getelementptr inbounds i8, ptr %213, i64 16
+  %227 = load ptr, ptr %226, align 8
+  %228 = icmp eq ptr %227, null
+  br i1 %228, label %196, label %212, !llvm.loop !24
 
-230:                                              ; preds = %224
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %228, ptr noundef nonnull @.str.29) #15
-  br label %231
+229:                                              ; preds = %188, %184
+  %230 = load i8, ptr %178, align 4, !range !14, !noundef !15
+  %231 = icmp eq i8 %230, 0
+  %232 = load ptr, ptr %27, align 8
+  %233 = getelementptr inbounds i8, ptr %232, i64 184
+  br i1 %231, label %235, label %234
 
-231:                                              ; preds = %230, %229, %177
-  %232 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @vga_list, i64 0, i32 1), align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.list_head, ptr @vga_list, i64 0, i32 1), align 8
-  store ptr @vga_list, ptr %7, align 8
-  %233 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %232, ptr %233, align 8
-  store volatile ptr %7, ptr %232, align 8
-  %234 = load i32, ptr @vga_count, align 4
-  %235 = add i32 %234, 1
-  store i32 %235, ptr @vga_count, align 4
-  %236 = getelementptr inbounds i8, ptr %0, i64 184
-  %237 = load i32, ptr %27, align 8
-  %238 = and i32 %237, 3
-  switch i32 %238, label %241 [
-    i32 3, label %242
-    i32 1, label %239
-    i32 2, label %240
+234:                                              ; preds = %229
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %233, ptr noundef nonnull @.str.28) #15
+  br label %236
+
+235:                                              ; preds = %229
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %233, ptr noundef nonnull @.str.29) #15
+  br label %236
+
+236:                                              ; preds = %235, %234, %182
+  %237 = getelementptr inbounds %struct.list_head, ptr @vga_list, i64 0, i32 1
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds %struct.list_head, ptr @vga_list, i64 0, i32 1
+  store ptr %8, ptr %239, align 8
+  store ptr @vga_list, ptr %8, align 8
+  %240 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %238, ptr %240, align 8
+  store volatile ptr %8, ptr %238, align 8
+  %241 = load i32, ptr @vga_count, align 4
+  %242 = add i32 %241, 1
+  store i32 %242, ptr @vga_count, align 4
+  %243 = getelementptr inbounds i8, ptr %0, i64 184
+  %244 = load i32, ptr %28, align 8
+  %245 = and i32 %244, 3
+  switch i32 %245, label %248 [
+    i32 3, label %249
+    i32 1, label %246
+    i32 2, label %247
   ]
 
-239:                                              ; preds = %231
-  br label %242
+246:                                              ; preds = %236
+  br label %249
 
-240:                                              ; preds = %231
-  br label %242
+247:                                              ; preds = %236
+  br label %249
 
-241:                                              ; preds = %231
-  br label %242
+248:                                              ; preds = %236
+  br label %249
 
-242:                                              ; preds = %241, %240, %239, %231
-  %243 = phi ptr [ @.str.5, %241 ], [ @.str.4, %240 ], [ @.str.3, %239 ], [ @.str.2, %231 ]
-  %244 = getelementptr inbounds i8, ptr %7, i64 28
-  %245 = load i32, ptr %244, align 4
-  %246 = and i32 %245, 3
-  switch i32 %246, label %249 [
-    i32 3, label %250
-    i32 1, label %247
-    i32 2, label %248
+249:                                              ; preds = %248, %247, %246, %236
+  %250 = phi ptr [ @.str.5, %248 ], [ @.str.4, %247 ], [ @.str.3, %246 ], [ @.str.2, %236 ]
+  %251 = getelementptr inbounds i8, ptr %8, i64 28
+  %252 = load i32, ptr %251, align 4
+  %253 = and i32 %252, 3
+  switch i32 %253, label %256 [
+    i32 3, label %257
+    i32 1, label %254
+    i32 2, label %255
   ]
 
-247:                                              ; preds = %242
-  br label %250
+254:                                              ; preds = %249
+  br label %257
 
-248:                                              ; preds = %242
-  br label %250
+255:                                              ; preds = %249
+  br label %257
 
-249:                                              ; preds = %242
-  br label %250
+256:                                              ; preds = %249
+  br label %257
 
-250:                                              ; preds = %249, %248, %247, %242
-  %251 = phi ptr [ @.str.5, %249 ], [ @.str.4, %248 ], [ @.str.3, %247 ], [ @.str.2, %242 ]
-  %252 = getelementptr inbounds i8, ptr %7, i64 32
-  %253 = load i32, ptr %252, align 8
-  %254 = and i32 %253, 3
-  switch i32 %254, label %257 [
-    i32 3, label %258
-    i32 1, label %255
-    i32 2, label %256
+257:                                              ; preds = %256, %255, %254, %249
+  %258 = phi ptr [ @.str.5, %256 ], [ @.str.4, %255 ], [ @.str.3, %254 ], [ @.str.2, %249 ]
+  %259 = getelementptr inbounds i8, ptr %8, i64 32
+  %260 = load i32, ptr %259, align 8
+  %261 = and i32 %260, 3
+  switch i32 %261, label %264 [
+    i32 3, label %265
+    i32 1, label %262
+    i32 2, label %263
   ]
 
-255:                                              ; preds = %250
-  br label %258
+262:                                              ; preds = %257
+  br label %265
 
-256:                                              ; preds = %250
-  br label %258
+263:                                              ; preds = %257
+  br label %265
 
-257:                                              ; preds = %250
-  br label %258
+264:                                              ; preds = %257
+  br label %265
 
-258:                                              ; preds = %257, %256, %255, %250
-  %259 = phi ptr [ @.str.5, %257 ], [ @.str.4, %256 ], [ @.str.3, %255 ], [ @.str.2, %250 ]
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %236, ptr noundef nonnull @.str.26, ptr noundef nonnull %243, ptr noundef nonnull %251, ptr noundef nonnull %259) #15
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %12) #14
-  br label %260
+265:                                              ; preds = %264, %263, %262, %257
+  %266 = phi ptr [ @.str.5, %264 ], [ @.str.4, %263 ], [ @.str.3, %262 ], [ @.str.2, %257 ]
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %243, ptr noundef nonnull @.str.26, ptr noundef nonnull %250, ptr noundef nonnull %258, ptr noundef nonnull %266) #15
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %13) #14
+  br label %267
 
-260:                                              ; preds = %258, %9
+267:                                              ; preds = %265, %10
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14
-  ret i1 %8
+  ret i1 %9
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1449,156 +1456,157 @@ declare dso_local i64 @noop_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 define internal i64 @vga_arb_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %8 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 1024) #17
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %80, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %8 = load ptr, ptr %7, align 16
+  %9 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3264, i64 noundef 1024) #17
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %81, label %11
 
-10:                                               ; preds = %4
-  %11 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
-  %13 = load ptr, ptr %12, align 8
-  %14 = ptrtoint ptr %13 to i64
-  switch i64 %14, label %16 [
-    i64 -1, label %15
-    i64 0, label %15
+11:                                               ; preds = %4
+  %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
+  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = ptrtoint ptr %14 to i64
+  switch i64 %15, label %17 [
+    i64 -1, label %16
+    i64 0, label %16
   ]
 
-15:                                               ; preds = %10, %10
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %11) #14
-  store i64 28263411883601513, ptr %8, align 8
-  br label %68
+16:                                               ; preds = %11, %11
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %12) #14
+  store i64 28263411883601513, ptr %9, align 8
+  br label %69
 
-16:                                               ; preds = %20, %10
-  %17 = phi ptr [ %18, %20 ], [ @vga_list, %10 ]
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, @vga_list
-  br i1 %19, label %24, label %20
+17:                                               ; preds = %21, %11
+  %18 = phi ptr [ %19, %21 ], [ @vga_list, %11 ]
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, @vga_list
+  br i1 %20, label %25, label %21
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %18, i64 16
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, %13
-  br i1 %23, label %24, label %16, !llvm.loop !9
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, %14
+  br i1 %24, label %25, label %17, !llvm.loop !9
 
-24:                                               ; preds = %20, %16
-  %25 = phi ptr [ %18, %20 ], [ null, %16 ]
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %28
+25:                                               ; preds = %21, %17
+  %26 = phi ptr [ %19, %21 ], [ null, %17 ]
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %29
 
-27:                                               ; preds = %24
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %11) #14
-  store i64 28263411883601513, ptr %8, align 8
-  br label %68
+28:                                               ; preds = %25
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %12) #14
+  store i64 28263411883601513, ptr %9, align 8
+  br label %69
 
-28:                                               ; preds = %24
-  %29 = load i32, ptr @vga_decode_count, align 4
-  %30 = getelementptr inbounds i8, ptr %13, i64 264
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %36
+29:                                               ; preds = %25
+  %30 = load i32, ptr @vga_decode_count, align 4
+  %31 = getelementptr inbounds i8, ptr %14, i64 264
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %13, i64 184
-  %35 = load ptr, ptr %34, align 8
-  br label %36
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds i8, ptr %14, i64 184
+  %36 = load ptr, ptr %35, align 8
+  br label %37
 
-36:                                               ; preds = %33, %28
-  %37 = phi ptr [ %35, %33 ], [ %31, %28 ]
-  %38 = getelementptr inbounds i8, ptr %25, i64 24
-  %39 = load i32, ptr %38, align 8
-  %40 = and i32 %39, 3
-  switch i32 %40, label %43 [
-    i32 3, label %44
-    i32 1, label %41
-    i32 2, label %42
+37:                                               ; preds = %34, %29
+  %38 = phi ptr [ %36, %34 ], [ %32, %29 ]
+  %39 = getelementptr inbounds i8, ptr %26, i64 24
+  %40 = load i32, ptr %39, align 8
+  %41 = and i32 %40, 3
+  switch i32 %41, label %44 [
+    i32 3, label %45
+    i32 1, label %42
+    i32 2, label %43
   ]
 
-41:                                               ; preds = %36
-  br label %44
+42:                                               ; preds = %37
+  br label %45
 
-42:                                               ; preds = %36
-  br label %44
+43:                                               ; preds = %37
+  br label %45
 
-43:                                               ; preds = %36
-  br label %44
+44:                                               ; preds = %37
+  br label %45
 
-44:                                               ; preds = %43, %42, %41, %36
-  %45 = phi ptr [ @.str.5, %43 ], [ @.str.4, %42 ], [ @.str.3, %41 ], [ @.str.2, %36 ]
-  %46 = getelementptr inbounds i8, ptr %25, i64 28
-  %47 = load i32, ptr %46, align 4
-  %48 = and i32 %47, 3
-  switch i32 %48, label %51 [
-    i32 3, label %52
-    i32 1, label %49
-    i32 2, label %50
+45:                                               ; preds = %44, %43, %42, %37
+  %46 = phi ptr [ @.str.5, %44 ], [ @.str.4, %43 ], [ @.str.3, %42 ], [ @.str.2, %37 ]
+  %47 = getelementptr inbounds i8, ptr %26, i64 28
+  %48 = load i32, ptr %47, align 4
+  %49 = and i32 %48, 3
+  switch i32 %49, label %52 [
+    i32 3, label %53
+    i32 1, label %50
+    i32 2, label %51
   ]
 
-49:                                               ; preds = %44
-  br label %52
+50:                                               ; preds = %45
+  br label %53
 
-50:                                               ; preds = %44
-  br label %52
+51:                                               ; preds = %45
+  br label %53
 
-51:                                               ; preds = %44
-  br label %52
+52:                                               ; preds = %45
+  br label %53
 
-52:                                               ; preds = %51, %50, %49, %44
-  %53 = phi ptr [ @.str.5, %51 ], [ @.str.4, %50 ], [ @.str.3, %49 ], [ @.str.2, %44 ]
-  %54 = getelementptr inbounds i8, ptr %25, i64 32
-  %55 = load i32, ptr %54, align 8
-  %56 = and i32 %55, 3
-  switch i32 %56, label %59 [
-    i32 3, label %60
-    i32 1, label %57
-    i32 2, label %58
+53:                                               ; preds = %52, %51, %50, %45
+  %54 = phi ptr [ @.str.5, %52 ], [ @.str.4, %51 ], [ @.str.3, %50 ], [ @.str.2, %45 ]
+  %55 = getelementptr inbounds i8, ptr %26, i64 32
+  %56 = load i32, ptr %55, align 8
+  %57 = and i32 %56, 3
+  switch i32 %57, label %60 [
+    i32 3, label %61
+    i32 1, label %58
+    i32 2, label %59
   ]
 
-57:                                               ; preds = %52
-  br label %60
+58:                                               ; preds = %53
+  br label %61
 
-58:                                               ; preds = %52
-  br label %60
+59:                                               ; preds = %53
+  br label %61
 
-59:                                               ; preds = %52
-  br label %60
+60:                                               ; preds = %53
+  br label %61
 
-60:                                               ; preds = %59, %58, %57, %52
-  %61 = phi ptr [ @.str.5, %59 ], [ @.str.4, %58 ], [ @.str.3, %57 ], [ @.str.2, %52 ]
-  %62 = getelementptr inbounds i8, ptr %25, i64 36
-  %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %25, i64 40
-  %65 = load i32, ptr %64, align 8
-  %66 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 1024, ptr noundef nonnull @.str.10, i32 noundef %29, ptr noundef %37, ptr noundef nonnull %45, ptr noundef nonnull %53, ptr noundef nonnull %61, i32 noundef %63, i32 noundef %65) #14
-  %67 = sext i32 %66 to i64
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %11) #14
-  br label %68
+61:                                               ; preds = %60, %59, %58, %53
+  %62 = phi ptr [ @.str.5, %60 ], [ @.str.4, %59 ], [ @.str.3, %58 ], [ @.str.2, %53 ]
+  %63 = getelementptr inbounds i8, ptr %26, i64 36
+  %64 = load i32, ptr %63, align 4
+  %65 = getelementptr inbounds i8, ptr %26, i64 40
+  %66 = load i32, ptr %65, align 8
+  %67 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 1024, ptr noundef nonnull @.str.10, i32 noundef %30, ptr noundef %38, ptr noundef nonnull %46, ptr noundef nonnull %54, ptr noundef nonnull %62, i32 noundef %64, i32 noundef %66) #14
+  %68 = sext i32 %67 to i64
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %12) #14
+  br label %69
 
-68:                                               ; preds = %60, %27, %15
-  %69 = phi i64 [ 7, %15 ], [ 7, %27 ], [ %67, %60 ]
-  %70 = tail call i64 @llvm.umin.i64(i64 %69, i64 %2)
-  %71 = icmp ugt i64 %70, 1024
-  br i1 %71, label %72, label %73, !prof !25
+69:                                               ; preds = %61, %28, %16
+  %70 = phi i64 [ 7, %16 ], [ 7, %28 ], [ %68, %61 ]
+  %71 = tail call i64 @llvm.umin.i64(i64 %70, i64 %2)
+  %72 = icmp ugt i64 %71, 1024
+  br i1 %72, label %73, label %74, !prof !25
 
-72:                                               ; preds = %68
-  tail call void @__copy_overflow(i32 noundef 1024, i64 noundef %70) #14
-  br label %75
+73:                                               ; preds = %69
+  tail call void @__copy_overflow(i32 noundef 1024, i64 noundef %71) #14
+  br label %76
 
-73:                                               ; preds = %68
-  %74 = tail call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %8, i64 noundef %70) #14
-  br label %75
+74:                                               ; preds = %69
+  %75 = tail call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %9, i64 noundef %71) #14
+  br label %76
 
-75:                                               ; preds = %73, %72
-  %76 = phi i64 [ %74, %73 ], [ %70, %72 ]
-  tail call void @kfree(ptr noundef nonnull %8) #14
-  %77 = and i64 %76, 4294967295
-  %78 = icmp eq i64 %77, 0
-  %79 = select i1 %78, i64 %70, i64 -14
-  br label %80
+76:                                               ; preds = %74, %73
+  %77 = phi i64 [ %75, %74 ], [ %71, %73 ]
+  tail call void @kfree(ptr noundef nonnull %9) #14
+  %78 = and i64 %77, 4294967295
+  %79 = icmp eq i64 %78, 0
+  %80 = select i1 %79, i64 %71, i64 -14
+  br label %81
 
-80:                                               ; preds = %75, %4
-  %81 = phi i64 [ -12, %4 ], [ %79, %75 ]
-  ret i64 %81
+81:                                               ; preds = %76, %4
+  %82 = phi i64 [ -12, %4 ], [ %80, %76 ]
+  ret i64 %82
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2057,39 +2065,40 @@ define internal noundef i32 @vga_arb_fpoll(ptr noundef %0, ptr noundef %1) #1 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @vga_arb_open(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #1 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
-  %4 = tail call noalias align 8 dereferenceable_or_null(288) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 288) #17
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %18, label %6
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noalias align 8 dereferenceable_or_null(288) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 288) #17
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %19, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 280
-  store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 200
-  store ptr %4, ptr %8, align 8
-  %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_user_lock) #14
-  %10 = load ptr, ptr @vga_user_list, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %4, ptr %11, align 8
-  store ptr %10, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @vga_user_list, ptr %12, align 8
-  store volatile ptr %4, ptr @vga_user_list, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_user_lock, i64 noundef %9) #14
-  %13 = load ptr, ptr @vga_default, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %13, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 36
-  store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 0, ptr %17, align 8
-  br label %18
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %5, i64 280
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 200
+  store ptr %5, ptr %9, align 8
+  %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_user_lock) #14
+  %11 = load ptr, ptr @vga_user_list, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %5, ptr %12, align 8
+  store ptr %11, ptr %5, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr @vga_user_list, ptr %13, align 8
+  store volatile ptr %5, ptr @vga_user_list, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_user_lock, i64 noundef %10) #14
+  %14 = load ptr, ptr @vga_default, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %14, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %14, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 36
+  store i32 0, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  store i32 0, ptr %18, align 8
+  br label %19
 
-18:                                               ; preds = %6, %2
-  %19 = phi i32 [ 0, %6 ], [ -12, %2 ]
-  ret i32 %19
+19:                                               ; preds = %7, %2
+  %20 = phi i32 [ 0, %7 ], [ -12, %2 ]
+  ret i32 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2103,210 +2112,212 @@ define internal noundef i32 @vga_arb_release(ptr nocapture readnone %0, ptr noca
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %7, ptr %9, align 8
   store volatile ptr %8, ptr %7, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
-  br label %11
+  %10 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %10, ptr %4, align 8
+  %11 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %11, ptr %6, align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  br label %13
 
-11:                                               ; preds = %126, %2
-  %12 = phi i64 [ 0, %2 ], [ %127, %126 ]
-  %13 = getelementptr [16 x %struct.vga_arb_user_card], ptr %10, i64 0, i64 %12
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %126, label %16
+13:                                               ; preds = %128, %2
+  %14 = phi i64 [ 0, %2 ], [ %129, %128 ]
+  %15 = getelementptr [16 x %struct.vga_arb_user_card], ptr %12, i64 0, i64 %14
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %128, label %18
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %13, i64 12
-  %18 = load i32, ptr %17, align 4
-  %19 = add i32 %18, -1
-  store i32 %19, ptr %17, align 4
-  %20 = icmp eq i32 %18, 0
-  br i1 %20, label %21, label %26
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = load i32, ptr %19, align 4
+  %21 = add i32 %20, -1
+  store i32 %21, ptr %19, align 4
+  %22 = icmp eq i32 %20, 0
+  br i1 %22, label %23, label %28
 
-21:                                               ; preds = %72, %16
-  %22 = getelementptr inbounds i8, ptr %13, i64 8
-  %23 = load i32, ptr %22, align 8
-  %24 = add i32 %23, -1
-  store i32 %24, ptr %22, align 8
-  %25 = icmp eq i32 %23, 0
-  br i1 %25, label %126, label %76
+23:                                               ; preds = %74, %18
+  %24 = getelementptr inbounds i8, ptr %15, i64 8
+  %25 = load i32, ptr %24, align 8
+  %26 = add i32 %25, -1
+  store i32 %26, ptr %24, align 8
+  %27 = icmp eq i32 %25, 0
+  br i1 %27, label %128, label %78
 
-26:                                               ; preds = %72, %16
-  %27 = load ptr, ptr %13, align 8
-  %28 = icmp eq ptr %27, null
-  %29 = load ptr, ptr @vga_default, align 8
-  %30 = select i1 %28, ptr %29, ptr %27
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %72, label %32
+28:                                               ; preds = %74, %18
+  %29 = load ptr, ptr %15, align 8
+  %30 = icmp eq ptr %29, null
+  %31 = load ptr, ptr @vga_default, align 8
+  %32 = select i1 %30, ptr %31, ptr %29
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %74, label %34
 
-32:                                               ; preds = %26
-  %33 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
-  br label %34
+34:                                               ; preds = %28
+  %35 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
+  br label %36
 
-34:                                               ; preds = %38, %32
-  %35 = phi ptr [ @vga_list, %32 ], [ %36, %38 ]
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, @vga_list
-  br i1 %37, label %42, label %38
+36:                                               ; preds = %40, %34
+  %37 = phi ptr [ @vga_list, %34 ], [ %38, %40 ]
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, @vga_list
+  br i1 %39, label %44, label %40
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, %30
-  br i1 %41, label %42, label %34, !llvm.loop !9
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds i8, ptr %38, i64 16
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, %32
+  br i1 %43, label %44, label %36, !llvm.loop !9
 
-42:                                               ; preds = %38, %34
-  %43 = phi ptr [ %36, %38 ], [ null, %34 ]
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %71, label %45
+44:                                               ; preds = %40, %36
+  %45 = phi ptr [ %38, %40 ], [ null, %36 ]
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %73, label %47
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %43, i64 32
-  %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %43, i64 36
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %53, label %51
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds i8, ptr %45, i64 32
+  %49 = load i32, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %45, i64 36
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %55, label %53
 
-51:                                               ; preds = %45
-  %52 = add i32 %49, -1
-  store i32 %52, ptr %48, align 4
-  br label %53
+53:                                               ; preds = %47
+  %54 = add i32 %51, -1
+  store i32 %54, ptr %50, align 4
+  br label %55
 
-53:                                               ; preds = %51, %45
-  %54 = getelementptr inbounds i8, ptr %43, i64 36
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %59
+55:                                               ; preds = %53, %47
+  %56 = getelementptr inbounds i8, ptr %45, i64 36
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %61
 
-57:                                               ; preds = %53
-  %58 = and i32 %47, -2
-  store i32 %58, ptr %46, align 8
-  br label %59
+59:                                               ; preds = %55
+  %60 = and i32 %49, -2
+  store i32 %60, ptr %48, align 8
+  br label %61
 
-59:                                               ; preds = %57, %53
-  %60 = getelementptr inbounds i8, ptr %43, i64 40
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %66
+61:                                               ; preds = %59, %55
+  %62 = getelementptr inbounds i8, ptr %45, i64 40
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %68
 
-63:                                               ; preds = %59
-  %64 = load i32, ptr %46, align 8
-  %65 = and i32 %64, -3
-  store i32 %65, ptr %46, align 8
-  br label %66
+65:                                               ; preds = %61
+  %66 = load i32, ptr %48, align 8
+  %67 = and i32 %66, -3
+  store i32 %67, ptr %48, align 8
+  br label %68
 
-66:                                               ; preds = %63, %59
-  %67 = load i32, ptr %46, align 8
-  %68 = icmp eq i32 %47, %67
-  br i1 %68, label %71, label %69
+68:                                               ; preds = %65, %61
+  %69 = load i32, ptr %48, align 8
+  %70 = icmp eq i32 %49, %69
+  br i1 %70, label %73, label %71
 
-69:                                               ; preds = %66
-  %70 = tail call i32 @__wake_up(ptr noundef nonnull @vga_wait_queue, i32 noundef 3, i32 noundef 0, ptr noundef null) #14
-  br label %71
+71:                                               ; preds = %68
+  %72 = tail call i32 @__wake_up(ptr noundef nonnull @vga_wait_queue, i32 noundef 3, i32 noundef 0, ptr noundef null) #14
+  br label %73
 
-71:                                               ; preds = %69, %66, %42
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %33) #14
-  br label %72
+73:                                               ; preds = %71, %68, %44
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %35) #14
+  br label %74
 
-72:                                               ; preds = %71, %26
-  %73 = load i32, ptr %17, align 4
-  %74 = add i32 %73, -1
-  store i32 %74, ptr %17, align 4
-  %75 = icmp eq i32 %73, 0
-  br i1 %75, label %21, label %26, !llvm.loop !32
+74:                                               ; preds = %73, %28
+  %75 = load i32, ptr %19, align 4
+  %76 = add i32 %75, -1
+  store i32 %76, ptr %19, align 4
+  %77 = icmp eq i32 %75, 0
+  br i1 %77, label %23, label %28, !llvm.loop !32
 
-76:                                               ; preds = %122, %21
-  %77 = load ptr, ptr %13, align 8
-  %78 = icmp eq ptr %77, null
-  %79 = load ptr, ptr @vga_default, align 8
-  %80 = select i1 %78, ptr %79, ptr %77
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %122, label %82
+78:                                               ; preds = %124, %23
+  %79 = load ptr, ptr %15, align 8
+  %80 = icmp eq ptr %79, null
+  %81 = load ptr, ptr @vga_default, align 8
+  %82 = select i1 %80, ptr %81, ptr %79
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %124, label %84
 
-82:                                               ; preds = %76
-  %83 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
-  br label %84
+84:                                               ; preds = %78
+  %85 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
+  br label %86
 
-84:                                               ; preds = %88, %82
-  %85 = phi ptr [ @vga_list, %82 ], [ %86, %88 ]
-  %86 = load ptr, ptr %85, align 8
-  %87 = icmp eq ptr %86, @vga_list
-  br i1 %87, label %92, label %88
+86:                                               ; preds = %90, %84
+  %87 = phi ptr [ @vga_list, %84 ], [ %88, %90 ]
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp eq ptr %88, @vga_list
+  br i1 %89, label %94, label %90
 
-88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %86, i64 16
-  %90 = load ptr, ptr %89, align 8
-  %91 = icmp eq ptr %90, %80
-  br i1 %91, label %92, label %84, !llvm.loop !9
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds i8, ptr %88, i64 16
+  %92 = load ptr, ptr %91, align 8
+  %93 = icmp eq ptr %92, %82
+  br i1 %93, label %94, label %86, !llvm.loop !9
 
-92:                                               ; preds = %88, %84
-  %93 = phi ptr [ %86, %88 ], [ null, %84 ]
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %121, label %95
+94:                                               ; preds = %90, %86
+  %95 = phi ptr [ %88, %90 ], [ null, %86 ]
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %123, label %97
 
-95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %93, i64 32
-  %97 = load i32, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %93, i64 40
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds i8, ptr %95, i64 32
   %99 = load i32, ptr %98, align 8
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %103, label %101
+  %100 = getelementptr inbounds i8, ptr %95, i64 40
+  %101 = load i32, ptr %100, align 8
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %105, label %103
 
-101:                                              ; preds = %95
-  %102 = add i32 %99, -1
-  store i32 %102, ptr %98, align 8
-  br label %103
+103:                                              ; preds = %97
+  %104 = add i32 %101, -1
+  store i32 %104, ptr %100, align 8
+  br label %105
 
-103:                                              ; preds = %101, %95
-  %104 = getelementptr inbounds i8, ptr %93, i64 36
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %109
+105:                                              ; preds = %103, %97
+  %106 = getelementptr inbounds i8, ptr %95, i64 36
+  %107 = load i32, ptr %106, align 4
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %111
 
-107:                                              ; preds = %103
-  %108 = and i32 %97, -2
-  store i32 %108, ptr %96, align 8
-  br label %109
+109:                                              ; preds = %105
+  %110 = and i32 %99, -2
+  store i32 %110, ptr %98, align 8
+  br label %111
 
-109:                                              ; preds = %107, %103
-  %110 = getelementptr inbounds i8, ptr %93, i64 40
-  %111 = load i32, ptr %110, align 8
-  %112 = icmp eq i32 %111, 0
-  br i1 %112, label %113, label %116
+111:                                              ; preds = %109, %105
+  %112 = getelementptr inbounds i8, ptr %95, i64 40
+  %113 = load i32, ptr %112, align 8
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %115, label %118
 
-113:                                              ; preds = %109
-  %114 = load i32, ptr %96, align 8
-  %115 = and i32 %114, -3
-  store i32 %115, ptr %96, align 8
-  br label %116
+115:                                              ; preds = %111
+  %116 = load i32, ptr %98, align 8
+  %117 = and i32 %116, -3
+  store i32 %117, ptr %98, align 8
+  br label %118
 
-116:                                              ; preds = %113, %109
-  %117 = load i32, ptr %96, align 8
-  %118 = icmp eq i32 %97, %117
-  br i1 %118, label %121, label %119
+118:                                              ; preds = %115, %111
+  %119 = load i32, ptr %98, align 8
+  %120 = icmp eq i32 %99, %119
+  br i1 %120, label %123, label %121
 
-119:                                              ; preds = %116
-  %120 = tail call i32 @__wake_up(ptr noundef nonnull @vga_wait_queue, i32 noundef 3, i32 noundef 0, ptr noundef null) #14
-  br label %121
+121:                                              ; preds = %118
+  %122 = tail call i32 @__wake_up(ptr noundef nonnull @vga_wait_queue, i32 noundef 3, i32 noundef 0, ptr noundef null) #14
+  br label %123
 
-121:                                              ; preds = %119, %116, %92
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %83) #14
-  br label %122
+123:                                              ; preds = %121, %118, %94
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %85) #14
+  br label %124
 
-122:                                              ; preds = %121, %76
-  %123 = load i32, ptr %22, align 8
-  %124 = add i32 %123, -1
-  store i32 %124, ptr %22, align 8
-  %125 = icmp eq i32 %123, 0
-  br i1 %125, label %126, label %76, !llvm.loop !33
+124:                                              ; preds = %123, %78
+  %125 = load i32, ptr %24, align 8
+  %126 = add i32 %125, -1
+  store i32 %126, ptr %24, align 8
+  %127 = icmp eq i32 %125, 0
+  br i1 %127, label %128, label %78, !llvm.loop !33
 
-126:                                              ; preds = %122, %21, %11
-  %127 = add nuw nsw i64 %12, 1
-  %128 = icmp eq i64 %127, 16
-  br i1 %128, label %129, label %11, !llvm.loop !34
+128:                                              ; preds = %124, %23, %13
+  %129 = add nuw nsw i64 %14, 1
+  %130 = icmp eq i64 %129, 16
+  br i1 %130, label %131, label %13, !llvm.loop !34
 
-129:                                              ; preds = %126
+131:                                              ; preds = %128
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_user_lock, i64 noundef %5) #14
   tail call void @kfree(ptr noundef %4) #14
   ret i32 0
@@ -2475,20 +2486,20 @@ define internal noundef i32 @pci_notify(ptr nocapture readnone %0, i64 noundef %
   %5 = getelementptr i8, ptr %2, i64 -116
   %6 = load i32, ptr %5, align 4
   %7 = lshr i32 %6, 8
-  switch i32 %7, label %71 [
+  switch i32 %7, label %73 [
     i32 768, label %8
     i32 1, label %8
   ]
 
 8:                                                ; preds = %3, %3
-  switch i64 %1, label %71 [
+  switch i64 %1, label %73 [
     i64 0, label %9
     i64 1, label %11
   ]
 
 9:                                                ; preds = %8
   %10 = tail call fastcc zeroext i1 @vga_arbiter_add_pci_device(ptr noundef %4)
-  br label %48
+  br label %50
 
 11:                                               ; preds = %8
   %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
@@ -2509,7 +2520,7 @@ define internal noundef i32 @pci_notify(ptr nocapture readnone %0, i64 noundef %
 21:                                               ; preds = %17, %13
   %22 = phi ptr [ %15, %17 ], [ null, %13 ]
   %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %47
+  br i1 %23, label %24, label %49
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr @vga_default, align 8
@@ -2544,59 +2555,61 @@ define internal noundef i32 @pci_notify(ptr nocapture readnone %0, i64 noundef %
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   store ptr %41, ptr %43, align 8
   store volatile ptr %42, ptr %41, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %22, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %40, align 8
-  %44 = load i32, ptr @vga_count, align 4
-  %45 = add i32 %44, -1
-  store i32 %45, ptr @vga_count, align 4
-  %46 = tail call i32 @__wake_up(ptr noundef nonnull @vga_wait_queue, i32 noundef 3, i32 noundef 0, ptr noundef null) #14
-  br label %47
+  %44 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %44, ptr %22, align 8
+  %45 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %45, ptr %40, align 8
+  %46 = load i32, ptr @vga_count, align 4
+  %47 = add i32 %46, -1
+  store i32 %47, ptr @vga_count, align 4
+  %48 = tail call i32 @__wake_up(ptr noundef nonnull @vga_wait_queue, i32 noundef 3, i32 noundef 0, ptr noundef null) #14
+  br label %49
 
-47:                                               ; preds = %39, %21
+49:                                               ; preds = %39, %21
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %12) #14
   tail call void @kfree(ptr noundef %22) #14
-  br label %48
+  br label %50
 
-48:                                               ; preds = %47, %9
-  %49 = phi i1 [ %10, %9 ], [ %23, %47 ]
-  br i1 %49, label %50, label %71
-
-50:                                               ; preds = %48
-  %51 = load i1, ptr @vga_arbiter_used, align 1
-  br i1 %51, label %52, label %71
+50:                                               ; preds = %49, %9
+  %51 = phi i1 [ %10, %9 ], [ %23, %49 ]
+  br i1 %51, label %52, label %73
 
 52:                                               ; preds = %50
-  %53 = load i32, ptr @vga_count, align 4
-  %54 = icmp slt i32 %53, 2
-  %55 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
-  %56 = load ptr, ptr @vga_list, align 8
-  %57 = icmp eq ptr %56, @vga_list
-  br i1 %57, label %70, label %58
+  %53 = load i1, ptr @vga_arbiter_used, align 1
+  br i1 %53, label %54, label %73
 
-58:                                               ; preds = %67, %52
-  %59 = phi ptr [ %68, %67 ], [ %56, %52 ]
-  %60 = getelementptr inbounds i8, ptr %59, i64 56
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %67, label %63
+54:                                               ; preds = %52
+  %55 = load i32, ptr @vga_count, align 4
+  %56 = icmp slt i32 %55, 2
+  %57 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
+  %58 = load ptr, ptr @vga_list, align 8
+  %59 = icmp eq ptr %58, @vga_list
+  br i1 %59, label %72, label %60
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %59, i64 16
-  %65 = load ptr, ptr %64, align 8
-  %66 = tail call i32 %61(ptr noundef %65, i1 noundef zeroext %54) #14
-  tail call fastcc void @vga_update_device_decodes(ptr noundef %59, i32 noundef %66)
-  br label %67
+60:                                               ; preds = %69, %54
+  %61 = phi ptr [ %70, %69 ], [ %58, %54 ]
+  %62 = getelementptr inbounds i8, ptr %61, i64 56
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %69, label %65
 
-67:                                               ; preds = %63, %58
-  %68 = load ptr, ptr %59, align 8
-  %69 = icmp eq ptr %68, @vga_list
-  br i1 %69, label %70, label %58, !llvm.loop !6
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds i8, ptr %61, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call i32 %63(ptr noundef %67, i1 noundef zeroext %56) #14
+  tail call fastcc void @vga_update_device_decodes(ptr noundef %61, i32 noundef %68)
+  br label %69
 
-70:                                               ; preds = %67, %52
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %55) #14
-  br label %71
+69:                                               ; preds = %65, %60
+  %70 = load ptr, ptr %61, align 8
+  %71 = icmp eq ptr %70, @vga_list
+  br i1 %71, label %72, label %60, !llvm.loop !6
 
-71:                                               ; preds = %70, %50, %48, %8, %3
+72:                                               ; preds = %69, %54
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %57) #14
+  br label %73
+
+73:                                               ; preds = %72, %52, %50, %8, %3
   ret i32 0
 }
 

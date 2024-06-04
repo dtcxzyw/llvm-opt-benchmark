@@ -3238,372 +3238,373 @@ define weak_odr hidden void @_ZN5ceres8internal21PartitionedMatrixViewILi2ELi3EL
   store ptr %2, ptr %6, align 8
   %29 = load ptr, ptr %4, align 8
   call void @_ZN5ceres8internal25PartitionedMatrixViewBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #16
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5ceres8internal21PartitionedMatrixViewILi2ELi3ELi3EEE, i32 0, i32 0, i32 2), ptr %29, align 8
-  %30 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 1
-  %31 = load ptr, ptr %5, align 8
-  invoke void @_ZN5ceres8internal12LinearSolver7OptionsC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(128) %30, ptr noundef nonnull align 8 dereferenceable(128) %31)
-          to label %32 unwind label %56
+  %30 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5ceres8internal21PartitionedMatrixViewILi2ELi3ELi3EEE, i32 0, i32 0, i32 2
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 1
+  %32 = load ptr, ptr %5, align 8
+  invoke void @_ZN5ceres8internal12LinearSolver7OptionsC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(128) %31, ptr noundef nonnull align 8 dereferenceable(128) %32)
+          to label %33 unwind label %57
 
-32:                                               ; preds = %3
-  %33 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 2
-  %34 = load ptr, ptr %6, align 8
-  store ptr %34, ptr %33, align 8
-  %35 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 8
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #16
-  %36 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 9
+33:                                               ; preds = %3
+  %34 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 2
+  %35 = load ptr, ptr %6, align 8
+  store ptr %35, ptr %34, align 8
+  %36 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 8
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #16
-  %37 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8
-  %39 = invoke noundef ptr @_ZNK5ceres8internal17BlockSparseMatrix15block_structureEv(ptr noundef nonnull align 8 dereferenceable(56) %38)
-          to label %40 unwind label %60
+  %37 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 9
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #16
+  %38 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8
+  %40 = invoke noundef ptr @_ZNK5ceres8internal17BlockSparseMatrix15block_structureEv(ptr noundef nonnull align 8 dereferenceable(56) %39)
+          to label %41 unwind label %61
 
-40:                                               ; preds = %32
-  store ptr %39, ptr %9, align 8
-  %41 = load ptr, ptr %9, align 8
-  %42 = icmp ne ptr %41, null
-  %43 = xor i1 %42, true
+41:                                               ; preds = %33
+  store ptr %40, ptr %9, align 8
+  %42 = load ptr, ptr %9, align 8
+  %43 = icmp ne ptr %42, null
+  %44 = xor i1 %43, true
   store i1 false, ptr %12, align 1
-  br i1 %43, label %45, label %44
+  br i1 %44, label %46, label %45
 
-44:                                               ; preds = %40
-  br label %53
+45:                                               ; preds = %41
+  br label %54
 
-45:                                               ; preds = %40
+46:                                               ; preds = %41
   invoke void @_ZN6google17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %46 unwind label %60
-
-46:                                               ; preds = %45
-  invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef @.str, i32 noundef 54)
-          to label %47 unwind label %60
+          to label %47 unwind label %61
 
 47:                                               ; preds = %46
+  invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef @.str, i32 noundef 54)
+          to label %48 unwind label %61
+
+48:                                               ; preds = %47
   store i1 true, ptr %12, align 1
-  %48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %11)
-          to label %49 unwind label %64
+  %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %11)
+          to label %50 unwind label %65
 
-49:                                               ; preds = %47
-  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef @.str.3)
-          to label %51 unwind label %64
+50:                                               ; preds = %48
+  %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef @.str.3)
+          to label %52 unwind label %65
 
-51:                                               ; preds = %49
-  invoke void @_ZN6google17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(8) %50)
-          to label %52 unwind label %64
+52:                                               ; preds = %50
+  invoke void @_ZN6google17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(8) %51)
+          to label %53 unwind label %65
 
-52:                                               ; preds = %51
-  br label %53
+53:                                               ; preds = %52
+  br label %54
 
-53:                                               ; preds = %52, %44
-  %54 = load i1, ptr %12, align 1
-  br i1 %54, label %55, label %70
+54:                                               ; preds = %53, %45
+  %55 = load i1, ptr %12, align 1
+  br i1 %55, label %56, label %71
 
-55:                                               ; preds = %53
+56:                                               ; preds = %54
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #17
   unreachable
 
-56:                                               ; preds = %3
-  %57 = landingpad { ptr, i32 }
+57:                                               ; preds = %3
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %7, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %8, align 4
-  br label %225
-
-60:                                               ; preds = %206, %197, %184, %175, %172, %171, %169, %167, %163, %156, %46, %45, %32
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %7, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %8, align 4
-  br label %224
-
-64:                                               ; preds = %51, %49, %47
-  %65 = landingpad { ptr, i32 }
-          cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %7, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %8, align 4
-  %68 = load i1, ptr %12, align 1
-  br i1 %68, label %111, label %113
-
-69:                                               ; No predecessors!
-  br label %70
-
-70:                                               ; preds = %69, %53
-  %71 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 1
-  %72 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %71, i32 0, i32 14
-  %73 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %72, i64 noundef 0) #16
-  %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 4
-  store i32 %74, ptr %75, align 4
-  %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %76, i32 0, i32 0
-  %78 = call noundef i64 @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %77) #16
-  %79 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 4
-  %80 = load i32, ptr %79, align 4
-  %81 = sext i32 %80 to i64
-  %82 = sub i64 %78, %81
-  %83 = trunc i64 %82 to i32
-  %84 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 5
-  store i32 %83, ptr %84, align 8
-  %85 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 3
-  store i32 0, ptr %85, align 8
-  %86 = load ptr, ptr %9, align 8
-  %87 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %86, i32 0, i32 1
-  store ptr %87, ptr %13, align 8
-  %88 = load ptr, ptr %13, align 8
-  %89 = call ptr @_ZNKSt6vectorIN5ceres8internal14CompressedListESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %88) #16
-  %90 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %14, i32 0, i32 0
-  store ptr %89, ptr %90, align 8
-  %91 = load ptr, ptr %13, align 8
-  %92 = call ptr @_ZNKSt6vectorIN5ceres8internal14CompressedListESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %91) #16
-  %93 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %15, i32 0, i32 0
-  store ptr %92, ptr %93, align 8
-  br label %94
-
-94:                                               ; preds = %115, %70
-  %95 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKN5ceres8internal14CompressedListESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #16
-  br i1 %95, label %96, label %117
-
-96:                                               ; preds = %94
-  %97 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN5ceres8internal14CompressedListESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
-  store ptr %97, ptr %16, align 8
-  %98 = load ptr, ptr %16, align 8
-  %99 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %98, i32 0, i32 1
-  store ptr %99, ptr %17, align 8
-  %100 = load ptr, ptr %17, align 8
-  %101 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt6vectorIN5ceres8internal4CellESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %100, i64 noundef 0) #16
-  %102 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %101, i32 0, i32 0
-  %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 4
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp slt i32 %103, %105
-  br i1 %106, label %107, label %114
-
-107:                                              ; preds = %96
-  %108 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 3
-  %109 = load i32, ptr %108, align 8
-  %110 = add nsw i32 %109, 1
-  store i32 %110, ptr %108, align 8
-  br label %114
-
-111:                                              ; preds = %64
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #17
-  unreachable
-
-112:                                              ; No predecessors!
-  br label %113
-
-113:                                              ; preds = %112, %64
-  br label %224
-
-114:                                              ; preds = %107, %96
-  br label %115
-
-115:                                              ; preds = %114
-  %116 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN5ceres8internal14CompressedListESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
-  br label %94
-
-117:                                              ; preds = %94
-  %118 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 6
-  store i32 0, ptr %118, align 4
-  %119 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 7
-  store i32 0, ptr %119, align 8
-  store i32 0, ptr %18, align 4
-  br label %120
-
-120:                                              ; preds = %152, %117
-  %121 = load i32, ptr %18, align 4
-  %122 = sext i32 %121 to i64
-  %123 = load ptr, ptr %9, align 8
-  %124 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %123, i32 0, i32 0
-  %125 = call noundef i64 @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %124) #16
-  %126 = icmp ult i64 %122, %125
-  br i1 %126, label %127, label %155
-
-127:                                              ; preds = %120
-  %128 = load ptr, ptr %9, align 8
-  %129 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %128, i32 0, i32 0
-  %130 = load i32, ptr %18, align 4
-  %131 = sext i32 %130 to i64
-  %132 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %129, i64 noundef %131) #16
-  store ptr %132, ptr %19, align 8
-  %133 = load i32, ptr %18, align 4
-  %134 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 4
-  %135 = load i32, ptr %134, align 4
-  %136 = icmp slt i32 %133, %135
-  br i1 %136, label %137, label %144
-
-137:                                              ; preds = %127
-  %138 = load ptr, ptr %19, align 8
-  %139 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %138, i32 0, i32 0
-  %140 = load i32, ptr %139, align 4
-  %141 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 6
-  %142 = load i32, ptr %141, align 4
-  %143 = add nsw i32 %142, %140
-  store i32 %143, ptr %141, align 4
-  br label %151
-
-144:                                              ; preds = %127
-  %145 = load ptr, ptr %19, align 8
-  %146 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %145, i32 0, i32 0
-  %147 = load i32, ptr %146, align 4
-  %148 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 7
-  %149 = load i32, ptr %148, align 8
-  %150 = add nsw i32 %149, %147
-  store i32 %150, ptr %148, align 8
-  br label %151
-
-151:                                              ; preds = %144, %137
-  br label %152
-
-152:                                              ; preds = %151
-  %153 = load i32, ptr %18, align 4
-  %154 = add nsw i32 %153, 1
-  store i32 %154, ptr %18, align 4
-  br label %120, !llvm.loop !4
-
-155:                                              ; preds = %120
-  br label %156
-
-156:                                              ; preds = %155
-  %157 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 6
-  %158 = load i32, ptr %157, align 4
-  %159 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 7
-  %160 = load i32, ptr %159, align 8
-  %161 = add nsw i32 %158, %160
-  %162 = invoke noundef i32 @_ZN6google21GetReferenceableValueEi(i32 noundef %161)
-          to label %163 unwind label %60
-
-163:                                              ; preds = %156
-  %164 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 2
-  %165 = load ptr, ptr %164, align 8
-  %166 = invoke noundef i32 @_ZNK5ceres8internal17BlockSparseMatrix8num_colsEv(ptr noundef nonnull align 8 dereferenceable(56) %165)
-          to label %167 unwind label %60
-
-167:                                              ; preds = %163
-  %168 = invoke noundef i32 @_ZN6google21GetReferenceableValueEi(i32 noundef %166)
-          to label %169 unwind label %60
-
-169:                                              ; preds = %167
-  %170 = invoke noundef ptr @_ZN6google12Check_EQImplB5cxx11EiiPKc(i32 noundef %162, i32 noundef %168, ptr noundef @.str.4)
-          to label %171 unwind label %60
-
-171:                                              ; preds = %169
-  invoke void @_ZN6google13CheckOpStringC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %170)
-          to label %172 unwind label %60
-
-172:                                              ; preds = %171
-  %173 = invoke noundef zeroext i1 @_ZNK6google13CheckOpStringcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %20)
-          to label %174 unwind label %60
-
-174:                                              ; preds = %172
-  br i1 %173, label %175, label %184
-
-175:                                              ; preds = %174
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef @.str, i32 noundef 85, ptr noundef nonnull align 8 dereferenceable(8) %20)
-          to label %176 unwind label %60
-
-176:                                              ; preds = %175
-  %177 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %21)
-          to label %178 unwind label %179
-
-178:                                              ; preds = %176
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #17
-  unreachable
-
-179:                                              ; preds = %176
-  %180 = landingpad { ptr, i32 }
-          cleanup
-  %181 = extractvalue { ptr, i32 } %180, 0
-  store ptr %181, ptr %7, align 8
-  %182 = extractvalue { ptr, i32 } %180, 1
-  store i32 %182, ptr %8, align 4
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #17
-  unreachable
-
-183:                                              ; No predecessors!
-  br label %224
-
-184:                                              ; preds = %174
-  %185 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 2
-  %186 = load ptr, ptr %185, align 8
-  %187 = invoke noundef ptr @_ZNK5ceres8internal17BlockSparseMatrix25transpose_block_structureEv(ptr noundef nonnull align 8 dereferenceable(56) %186)
-          to label %188 unwind label %60
-
-188:                                              ; preds = %184
-  store ptr %187, ptr %22, align 8
-  %189 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 1
-  %190 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %189, i32 0, i32 13
-  %191 = load i32, ptr %190, align 8
-  store i32 %191, ptr %23, align 4
-  %192 = load ptr, ptr %22, align 8
-  %193 = icmp ne ptr %192, null
-  br i1 %193, label %194, label %223
-
-194:                                              ; preds = %188
-  %195 = load i32, ptr %23, align 4
-  %196 = icmp sgt i32 %195, 1
-  br i1 %196, label %197, label %223
-
-197:                                              ; preds = %194
-  %198 = load i32, ptr %23, align 4
-  %199 = mul nsw i32 %198, 4
-  store i32 %199, ptr %24, align 4
-  %200 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 4
-  %201 = load i32, ptr %200, align 4
-  %202 = load i32, ptr %24, align 4
-  %203 = load ptr, ptr %22, align 8
-  %204 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %203, i32 0, i32 1
-  %205 = call noundef ptr @_ZNKSt6vectorIN5ceres8internal14CompressedListESaIS2_EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %204) #16
-  invoke void @_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_21PartitionedMatrixViewILi2ELi3ELi3EEC1ERKNS0_12LinearSolver7OptionsERKNS0_17BlockSparseMatrixEEUlRKS2_E_EESt6vectorIiSaIiEEiiiPKT_OT0_(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %25, i32 noundef 0, i32 noundef %201, i32 noundef %202, ptr noundef %205, ptr noundef nonnull align 1 dereferenceable(1) %26)
-          to label %206 unwind label %60
-
-206:                                              ; preds = %197
-  %207 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 8
-  %208 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %207, ptr noundef nonnull align 8 dereferenceable(24) %25) #16
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #16
-  %209 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 4
-  %210 = load i32, ptr %209, align 4
-  %211 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 4
-  %212 = load i32, ptr %211, align 4
-  %213 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 5
-  %214 = load i32, ptr %213, align 8
-  %215 = add nsw i32 %212, %214
-  %216 = load i32, ptr %24, align 4
-  %217 = load ptr, ptr %22, align 8
-  %218 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %217, i32 0, i32 1
-  %219 = call noundef ptr @_ZNKSt6vectorIN5ceres8internal14CompressedListESaIS2_EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %218) #16
-  invoke void @_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_21PartitionedMatrixViewILi2ELi3ELi3EEC1ERKNS0_12LinearSolver7OptionsERKNS0_17BlockSparseMatrixEEUlRKS2_E0_EESt6vectorIiSaIiEEiiiPKT_OT0_(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %27, i32 noundef %210, i32 noundef %215, i32 noundef %216, ptr noundef %219, ptr noundef nonnull align 1 dereferenceable(1) %28)
-          to label %220 unwind label %60
-
-220:                                              ; preds = %206
-  %221 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 9
-  %222 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %221, ptr noundef nonnull align 8 dereferenceable(24) %27) #16
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #16
-  br label %223
-
-223:                                              ; preds = %220, %194, %188
-  ret void
-
-224:                                              ; preds = %183, %113, %60
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #16
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #16
-  call void @_ZN5ceres8internal12LinearSolver7OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %30) #16
-  br label %225
-
-225:                                              ; preds = %224, %56
-  call void @_ZN5ceres8internal25PartitionedMatrixViewBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #16
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %7, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %8, align 4
   br label %226
 
-226:                                              ; preds = %225
-  %227 = load ptr, ptr %7, align 8
-  %228 = load i32, ptr %8, align 4
-  %229 = insertvalue { ptr, i32 } poison, ptr %227, 0
-  %230 = insertvalue { ptr, i32 } %229, i32 %228, 1
-  resume { ptr, i32 } %230
+61:                                               ; preds = %207, %198, %185, %176, %173, %172, %170, %168, %164, %157, %47, %46, %33
+  %62 = landingpad { ptr, i32 }
+          cleanup
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %7, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %8, align 4
+  br label %225
+
+65:                                               ; preds = %52, %50, %48
+  %66 = landingpad { ptr, i32 }
+          cleanup
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %7, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %8, align 4
+  %69 = load i1, ptr %12, align 1
+  br i1 %69, label %112, label %114
+
+70:                                               ; No predecessors!
+  br label %71
+
+71:                                               ; preds = %70, %54
+  %72 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 1
+  %73 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %72, i32 0, i32 14
+  %74 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %73, i64 noundef 0) #16
+  %75 = load i32, ptr %74, align 4
+  %76 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 4
+  store i32 %75, ptr %76, align 4
+  %77 = load ptr, ptr %9, align 8
+  %78 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %77, i32 0, i32 0
+  %79 = call noundef i64 @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %78) #16
+  %80 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 4
+  %81 = load i32, ptr %80, align 4
+  %82 = sext i32 %81 to i64
+  %83 = sub i64 %79, %82
+  %84 = trunc i64 %83 to i32
+  %85 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 5
+  store i32 %84, ptr %85, align 8
+  %86 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 3
+  store i32 0, ptr %86, align 8
+  %87 = load ptr, ptr %9, align 8
+  %88 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %87, i32 0, i32 1
+  store ptr %88, ptr %13, align 8
+  %89 = load ptr, ptr %13, align 8
+  %90 = call ptr @_ZNKSt6vectorIN5ceres8internal14CompressedListESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %89) #16
+  %91 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %14, i32 0, i32 0
+  store ptr %90, ptr %91, align 8
+  %92 = load ptr, ptr %13, align 8
+  %93 = call ptr @_ZNKSt6vectorIN5ceres8internal14CompressedListESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %92) #16
+  %94 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %15, i32 0, i32 0
+  store ptr %93, ptr %94, align 8
+  br label %95
+
+95:                                               ; preds = %116, %71
+  %96 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKN5ceres8internal14CompressedListESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #16
+  br i1 %96, label %97, label %118
+
+97:                                               ; preds = %95
+  %98 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN5ceres8internal14CompressedListESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
+  store ptr %98, ptr %16, align 8
+  %99 = load ptr, ptr %16, align 8
+  %100 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %99, i32 0, i32 1
+  store ptr %100, ptr %17, align 8
+  %101 = load ptr, ptr %17, align 8
+  %102 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt6vectorIN5ceres8internal4CellESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %101, i64 noundef 0) #16
+  %103 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %102, i32 0, i32 0
+  %104 = load i32, ptr %103, align 4
+  %105 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 4
+  %106 = load i32, ptr %105, align 4
+  %107 = icmp slt i32 %104, %106
+  br i1 %107, label %108, label %115
+
+108:                                              ; preds = %97
+  %109 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 3
+  %110 = load i32, ptr %109, align 8
+  %111 = add nsw i32 %110, 1
+  store i32 %111, ptr %109, align 8
+  br label %115
+
+112:                                              ; preds = %65
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #17
+  unreachable
+
+113:                                              ; No predecessors!
+  br label %114
+
+114:                                              ; preds = %113, %65
+  br label %225
+
+115:                                              ; preds = %108, %97
+  br label %116
+
+116:                                              ; preds = %115
+  %117 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN5ceres8internal14CompressedListESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
+  br label %95
+
+118:                                              ; preds = %95
+  %119 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 6
+  store i32 0, ptr %119, align 4
+  %120 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 7
+  store i32 0, ptr %120, align 8
+  store i32 0, ptr %18, align 4
+  br label %121
+
+121:                                              ; preds = %153, %118
+  %122 = load i32, ptr %18, align 4
+  %123 = sext i32 %122 to i64
+  %124 = load ptr, ptr %9, align 8
+  %125 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %124, i32 0, i32 0
+  %126 = call noundef i64 @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %125) #16
+  %127 = icmp ult i64 %123, %126
+  br i1 %127, label %128, label %156
+
+128:                                              ; preds = %121
+  %129 = load ptr, ptr %9, align 8
+  %130 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %129, i32 0, i32 0
+  %131 = load i32, ptr %18, align 4
+  %132 = sext i32 %131 to i64
+  %133 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %130, i64 noundef %132) #16
+  store ptr %133, ptr %19, align 8
+  %134 = load i32, ptr %18, align 4
+  %135 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 4
+  %136 = load i32, ptr %135, align 4
+  %137 = icmp slt i32 %134, %136
+  br i1 %137, label %138, label %145
+
+138:                                              ; preds = %128
+  %139 = load ptr, ptr %19, align 8
+  %140 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %139, i32 0, i32 0
+  %141 = load i32, ptr %140, align 4
+  %142 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 6
+  %143 = load i32, ptr %142, align 4
+  %144 = add nsw i32 %143, %141
+  store i32 %144, ptr %142, align 4
+  br label %152
+
+145:                                              ; preds = %128
+  %146 = load ptr, ptr %19, align 8
+  %147 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %146, i32 0, i32 0
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 7
+  %150 = load i32, ptr %149, align 8
+  %151 = add nsw i32 %150, %148
+  store i32 %151, ptr %149, align 8
+  br label %152
+
+152:                                              ; preds = %145, %138
+  br label %153
+
+153:                                              ; preds = %152
+  %154 = load i32, ptr %18, align 4
+  %155 = add nsw i32 %154, 1
+  store i32 %155, ptr %18, align 4
+  br label %121, !llvm.loop !4
+
+156:                                              ; preds = %121
+  br label %157
+
+157:                                              ; preds = %156
+  %158 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 6
+  %159 = load i32, ptr %158, align 4
+  %160 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 7
+  %161 = load i32, ptr %160, align 8
+  %162 = add nsw i32 %159, %161
+  %163 = invoke noundef i32 @_ZN6google21GetReferenceableValueEi(i32 noundef %162)
+          to label %164 unwind label %61
+
+164:                                              ; preds = %157
+  %165 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 2
+  %166 = load ptr, ptr %165, align 8
+  %167 = invoke noundef i32 @_ZNK5ceres8internal17BlockSparseMatrix8num_colsEv(ptr noundef nonnull align 8 dereferenceable(56) %166)
+          to label %168 unwind label %61
+
+168:                                              ; preds = %164
+  %169 = invoke noundef i32 @_ZN6google21GetReferenceableValueEi(i32 noundef %167)
+          to label %170 unwind label %61
+
+170:                                              ; preds = %168
+  %171 = invoke noundef ptr @_ZN6google12Check_EQImplB5cxx11EiiPKc(i32 noundef %163, i32 noundef %169, ptr noundef @.str.4)
+          to label %172 unwind label %61
+
+172:                                              ; preds = %170
+  invoke void @_ZN6google13CheckOpStringC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %171)
+          to label %173 unwind label %61
+
+173:                                              ; preds = %172
+  %174 = invoke noundef zeroext i1 @_ZNK6google13CheckOpStringcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %20)
+          to label %175 unwind label %61
+
+175:                                              ; preds = %173
+  br i1 %174, label %176, label %185
+
+176:                                              ; preds = %175
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef @.str, i32 noundef 85, ptr noundef nonnull align 8 dereferenceable(8) %20)
+          to label %177 unwind label %61
+
+177:                                              ; preds = %176
+  %178 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %21)
+          to label %179 unwind label %180
+
+179:                                              ; preds = %177
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #17
+  unreachable
+
+180:                                              ; preds = %177
+  %181 = landingpad { ptr, i32 }
+          cleanup
+  %182 = extractvalue { ptr, i32 } %181, 0
+  store ptr %182, ptr %7, align 8
+  %183 = extractvalue { ptr, i32 } %181, 1
+  store i32 %183, ptr %8, align 4
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #17
+  unreachable
+
+184:                                              ; No predecessors!
+  br label %225
+
+185:                                              ; preds = %175
+  %186 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 2
+  %187 = load ptr, ptr %186, align 8
+  %188 = invoke noundef ptr @_ZNK5ceres8internal17BlockSparseMatrix25transpose_block_structureEv(ptr noundef nonnull align 8 dereferenceable(56) %187)
+          to label %189 unwind label %61
+
+189:                                              ; preds = %185
+  store ptr %188, ptr %22, align 8
+  %190 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 1
+  %191 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %190, i32 0, i32 13
+  %192 = load i32, ptr %191, align 8
+  store i32 %192, ptr %23, align 4
+  %193 = load ptr, ptr %22, align 8
+  %194 = icmp ne ptr %193, null
+  br i1 %194, label %195, label %224
+
+195:                                              ; preds = %189
+  %196 = load i32, ptr %23, align 4
+  %197 = icmp sgt i32 %196, 1
+  br i1 %197, label %198, label %224
+
+198:                                              ; preds = %195
+  %199 = load i32, ptr %23, align 4
+  %200 = mul nsw i32 %199, 4
+  store i32 %200, ptr %24, align 4
+  %201 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 4
+  %202 = load i32, ptr %201, align 4
+  %203 = load i32, ptr %24, align 4
+  %204 = load ptr, ptr %22, align 8
+  %205 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %204, i32 0, i32 1
+  %206 = call noundef ptr @_ZNKSt6vectorIN5ceres8internal14CompressedListESaIS2_EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %205) #16
+  invoke void @_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_21PartitionedMatrixViewILi2ELi3ELi3EEC1ERKNS0_12LinearSolver7OptionsERKNS0_17BlockSparseMatrixEEUlRKS2_E_EESt6vectorIiSaIiEEiiiPKT_OT0_(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %25, i32 noundef 0, i32 noundef %202, i32 noundef %203, ptr noundef %206, ptr noundef nonnull align 1 dereferenceable(1) %26)
+          to label %207 unwind label %61
+
+207:                                              ; preds = %198
+  %208 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 8
+  %209 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %208, ptr noundef nonnull align 8 dereferenceable(24) %25) #16
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #16
+  %210 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 4
+  %211 = load i32, ptr %210, align 4
+  %212 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 4
+  %213 = load i32, ptr %212, align 4
+  %214 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 5
+  %215 = load i32, ptr %214, align 8
+  %216 = add nsw i32 %213, %215
+  %217 = load i32, ptr %24, align 4
+  %218 = load ptr, ptr %22, align 8
+  %219 = getelementptr inbounds %"struct.ceres::internal::CompressedRowBlockStructure", ptr %218, i32 0, i32 1
+  %220 = call noundef ptr @_ZNKSt6vectorIN5ceres8internal14CompressedListESaIS2_EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %219) #16
+  invoke void @_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_21PartitionedMatrixViewILi2ELi3ELi3EEC1ERKNS0_12LinearSolver7OptionsERKNS0_17BlockSparseMatrixEEUlRKS2_E0_EESt6vectorIiSaIiEEiiiPKT_OT0_(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %27, i32 noundef %211, i32 noundef %216, i32 noundef %217, ptr noundef %220, ptr noundef nonnull align 1 dereferenceable(1) %28)
+          to label %221 unwind label %61
+
+221:                                              ; preds = %207
+  %222 = getelementptr inbounds %"class.ceres::internal::PartitionedMatrixView", ptr %29, i32 0, i32 9
+  %223 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %222, ptr noundef nonnull align 8 dereferenceable(24) %27) #16
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #16
+  br label %224
+
+224:                                              ; preds = %221, %195, %189
+  ret void
+
+225:                                              ; preds = %184, %114, %61
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #16
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #16
+  call void @_ZN5ceres8internal12LinearSolver7OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %31) #16
+  br label %226
+
+226:                                              ; preds = %225, %57
+  call void @_ZN5ceres8internal25PartitionedMatrixViewBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #16
+  br label %227
+
+227:                                              ; preds = %226
+  %228 = load ptr, ptr %7, align 8
+  %229 = load i32, ptr %8, align 4
+  %230 = insertvalue { ptr, i32 } poison, ptr %228, 0
+  %231 = insertvalue { ptr, i32 } %230, i32 %229, 1
+  resume { ptr, i32 } %231
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3611,7 +3612,8 @@ define linkonce_odr hidden void @_ZN5ceres8internal25PartitionedMatrixViewBaseC2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5ceres8internal25PartitionedMatrixViewBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5ceres8internal25PartitionedMatrixViewBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13537,35 +13539,36 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal
   store ptr %3, ptr %9, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %12, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(128) %13) #16
-  %14 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(144) %12) #16
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = load ptr, ptr %9, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5ceres8internal19ParallelInvokeStateEJRiS6_RKiEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
-          to label %18 unwind label %19
-
-18:                                               ; preds = %4
-  ret void
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %12, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(128) %14) #16
+  %15 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(144) %12) #16
+  %16 = load ptr, ptr %7, align 8
+  %17 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5ceres8internal19ParallelInvokeStateEJRiS6_RKiEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+          to label %19 unwind label %20
 
 19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %10, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %11, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
-  br label %23
+  ret void
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %10, align 8
-  %25 = load i32, ptr %11, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+20:                                               ; preds = %4
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %10, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %11, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
+  br label %24
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %10, align 8
+  %26 = load i32, ptr %11, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13723,11 +13726,12 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 

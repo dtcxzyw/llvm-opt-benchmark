@@ -22,24 +22,26 @@ define i32 @prte_odls_base_select() #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %5 = call i32 @pmix_mca_base_select(ptr noundef @.str, i32 noundef %4, ptr noundef getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 12), ptr noundef %3, ptr noundef %2, ptr noundef null)
-  %6 = icmp ne i32 0, %5
-  br i1 %6, label %7, label %8
+  %4 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %5 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 12
+  %7 = call i32 @pmix_mca_base_select(ptr noundef @.str, i32 noundef %5, ptr noundef %6, ptr noundef %3, ptr noundef %2, ptr noundef null)
+  %8 = icmp ne i32 0, %7
+  br i1 %8, label %9, label %10
 
-7:                                                ; preds = %0
+9:                                                ; preds = %0
   store i32 -13, ptr %1, align 4
-  br label %10
+  br label %12
 
-8:                                                ; preds = %0
-  %9 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @prte_odls, ptr align 8 %9, i64 40, i1 false)
+10:                                               ; preds = %0
+  %11 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @prte_odls, ptr align 8 %11, i64 40, i1 false)
   store i32 0, ptr %1, align 4
-  br label %10
+  br label %12
 
-10:                                               ; preds = %8, %7
-  %11 = load i32, ptr %1, align 4
-  ret i32 %11
+12:                                               ; preds = %10, %9
+  %13 = load i32, ptr %1, align 4
+  ret i32 %13
 }
 
 declare i32 @pmix_mca_base_select(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1

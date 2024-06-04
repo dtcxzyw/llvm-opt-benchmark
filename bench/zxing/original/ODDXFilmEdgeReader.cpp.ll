@@ -1133,11 +1133,12 @@ define internal void @_ZN5ZXing4OneD12_GLOBAL__N_19DXFEStateC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ZXing4OneD9RowReader13DecodingStateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5ZXing4OneD12_GLOBAL__N_19DXFEStateE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.ZXing::OneD::(anonymous namespace)::DXFEState", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.ZXing::OneD::(anonymous namespace)::DXFEState", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN5ZXing4OneD12_GLOBAL__N_15ClockESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5ZXing4OneD12_GLOBAL__N_19DXFEStateE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.ZXing::OneD::(anonymous namespace)::DXFEState", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"struct.ZXing::OneD::(anonymous namespace)::DXFEState", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN5ZXing4OneD12_GLOBAL__N_15ClockESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
   ret void
 }
 
@@ -2313,7 +2314,8 @@ define linkonce_odr void @_ZN5ZXing4OneD9RowReader13DecodingStateC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5ZXing4OneD9RowReader13DecodingStateE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5ZXing4OneD9RowReader13DecodingStateE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2331,9 +2333,10 @@ define internal void @_ZN5ZXing4OneD12_GLOBAL__N_19DXFEStateD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5ZXing4OneD12_GLOBAL__N_19DXFEStateE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.ZXing::OneD::(anonymous namespace)::DXFEState", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN5ZXing4OneD12_GLOBAL__N_15ClockESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5ZXing4OneD12_GLOBAL__N_19DXFEStateE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.ZXing::OneD::(anonymous namespace)::DXFEState", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN5ZXing4OneD12_GLOBAL__N_15ClockESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
   call void @_ZN5ZXing4OneD9RowReader13DecodingStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }

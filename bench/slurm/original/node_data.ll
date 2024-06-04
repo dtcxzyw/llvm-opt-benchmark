@@ -95,167 +95,168 @@ define void @node_data_dump() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  %4 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %5 = and i64 %4, 1
-  %6 = icmp ne i64 %5, 0
-  br i1 %6, label %8, label %7
-
-7:                                                ; preds = %0
-  br label %123
+  %4 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %5 = load i64, ptr %4, align 8
+  %6 = and i64 %5, 1
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %0
+  br label %124
+
+9:                                                ; preds = %0
   store i32 0, ptr %3, align 4
-  br label %9
+  br label %10
 
-9:                                                ; preds = %120, %8
-  %10 = call ptr @next_node(ptr noundef %3)
-  store ptr %10, ptr %1, align 8
-  %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %123
+10:                                               ; preds = %121, %9
+  %11 = call ptr @next_node(ptr noundef %3)
+  store ptr %11, ptr %1, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %124
 
-12:                                               ; preds = %9
-  br label %13
-
-13:                                               ; preds = %12
+13:                                               ; preds = %10
   br label %14
 
 14:                                               ; preds = %13
-  %15 = call i32 @get_log_level()
-  %16 = icmp sge i32 %15, 3
-  br i1 %16, label %17, label %86
+  br label %15
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds %struct.node_record, ptr %18, i32 0, i32 35
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds %struct.node_record, ptr %21, i32 0, i32 2
-  %23 = load i16, ptr %22, align 8
-  %24 = zext i16 %23 to i32
-  %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds %struct.node_record, ptr %25, i32 0, i32 72
-  %27 = load i16, ptr %26, align 2
-  %28 = zext i16 %27 to i32
-  %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds %struct.node_record, ptr %29, i32 0, i32 2
-  %31 = load i16, ptr %30, align 8
-  %32 = zext i16 %31 to i32
-  %33 = sdiv i32 %28, %32
-  %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds %struct.node_record, ptr %34, i32 0, i32 10
-  %36 = load i16, ptr %35, align 2
-  %37 = zext i16 %36 to i32
-  %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr inbounds %struct.node_record, ptr %38, i32 0, i32 69
-  %40 = load i16, ptr %39, align 8
-  %41 = zext i16 %40 to i32
-  %42 = load ptr, ptr %1, align 8
-  %43 = getelementptr inbounds %struct.node_record, ptr %42, i32 0, i32 71
-  %44 = load i16, ptr %43, align 8
-  %45 = zext i16 %44 to i32
-  %46 = load i32, ptr %3, align 4
-  %47 = add nsw i32 %46, 1
-  %48 = call i32 @cr_get_coremap_offset(i32 noundef %47)
-  %49 = load ptr, ptr %1, align 8
-  %50 = getelementptr inbounds %struct.node_record, ptr %49, i32 0, i32 15
-  %51 = load i16, ptr %50, align 8
-  %52 = zext i16 %51 to i32
-  %53 = load ptr, ptr %1, align 8
-  %54 = getelementptr inbounds %struct.node_record, ptr %53, i32 0, i32 75
-  %55 = load i16, ptr %54, align 8
-  %56 = zext i16 %55 to i32
-  %57 = load ptr, ptr %1, align 8
-  %58 = getelementptr inbounds %struct.node_record, ptr %57, i32 0, i32 52
-  %59 = load i64, ptr %58, align 8
-  %60 = load ptr, ptr @select_node_usage, align 8
-  %61 = load ptr, ptr %1, align 8
-  %62 = getelementptr inbounds %struct.node_record, ptr %61, i32 0, i32 27
-  %63 = load i32, ptr %62, align 8
-  %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds %struct.node_use_record_t, ptr %60, i64 %64
-  %66 = getelementptr inbounds %struct.node_use_record_t, ptr %65, i32 0, i32 0
-  %67 = load i64, ptr %66, align 8
-  %68 = load ptr, ptr @select_node_usage, align 8
-  %69 = load ptr, ptr %1, align 8
-  %70 = getelementptr inbounds %struct.node_record, ptr %69, i32 0, i32 27
-  %71 = load i32, ptr %70, align 8
-  %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds %struct.node_use_record_t, ptr %68, i64 %72
-  %74 = getelementptr inbounds %struct.node_use_record_t, ptr %73, i32 0, i32 2
-  %75 = load i16, ptr %74, align 8
-  %76 = call ptr @_node_state_str(i16 noundef zeroext %75)
-  %77 = load ptr, ptr @select_node_usage, align 8
-  %78 = load ptr, ptr %1, align 8
-  %79 = getelementptr inbounds %struct.node_record, ptr %78, i32 0, i32 27
-  %80 = load i32, ptr %79, align 8
-  %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds %struct.node_use_record_t, ptr %77, i64 %81
-  %83 = getelementptr inbounds %struct.node_use_record_t, ptr %82, i32 0, i32 2
-  %84 = load i16, ptr %83, align 8
-  %85 = zext i16 %84 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str, ptr noundef @plugin_type, ptr noundef @__func__.node_data_dump, ptr noundef %20, i32 noundef %24, i32 noundef %33, i32 noundef %37, i32 noundef %41, i32 noundef %45, i32 noundef %48, i32 noundef %52, i32 noundef %56, i64 noundef %59, i64 noundef %67, ptr noundef %76, i32 noundef %85)
-  br label %86
+15:                                               ; preds = %14
+  %16 = call i32 @get_log_level()
+  %17 = icmp sge i32 %16, 3
+  br i1 %17, label %18, label %87
 
-86:                                               ; preds = %17, %14
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %1, align 8
+  %20 = getelementptr inbounds %struct.node_record, ptr %19, i32 0, i32 35
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %1, align 8
+  %23 = getelementptr inbounds %struct.node_record, ptr %22, i32 0, i32 2
+  %24 = load i16, ptr %23, align 8
+  %25 = zext i16 %24 to i32
+  %26 = load ptr, ptr %1, align 8
+  %27 = getelementptr inbounds %struct.node_record, ptr %26, i32 0, i32 72
+  %28 = load i16, ptr %27, align 2
+  %29 = zext i16 %28 to i32
+  %30 = load ptr, ptr %1, align 8
+  %31 = getelementptr inbounds %struct.node_record, ptr %30, i32 0, i32 2
+  %32 = load i16, ptr %31, align 8
+  %33 = zext i16 %32 to i32
+  %34 = sdiv i32 %29, %33
+  %35 = load ptr, ptr %1, align 8
+  %36 = getelementptr inbounds %struct.node_record, ptr %35, i32 0, i32 10
+  %37 = load i16, ptr %36, align 2
+  %38 = zext i16 %37 to i32
+  %39 = load ptr, ptr %1, align 8
+  %40 = getelementptr inbounds %struct.node_record, ptr %39, i32 0, i32 69
+  %41 = load i16, ptr %40, align 8
+  %42 = zext i16 %41 to i32
+  %43 = load ptr, ptr %1, align 8
+  %44 = getelementptr inbounds %struct.node_record, ptr %43, i32 0, i32 71
+  %45 = load i16, ptr %44, align 8
+  %46 = zext i16 %45 to i32
+  %47 = load i32, ptr %3, align 4
+  %48 = add nsw i32 %47, 1
+  %49 = call i32 @cr_get_coremap_offset(i32 noundef %48)
+  %50 = load ptr, ptr %1, align 8
+  %51 = getelementptr inbounds %struct.node_record, ptr %50, i32 0, i32 15
+  %52 = load i16, ptr %51, align 8
+  %53 = zext i16 %52 to i32
+  %54 = load ptr, ptr %1, align 8
+  %55 = getelementptr inbounds %struct.node_record, ptr %54, i32 0, i32 75
+  %56 = load i16, ptr %55, align 8
+  %57 = zext i16 %56 to i32
+  %58 = load ptr, ptr %1, align 8
+  %59 = getelementptr inbounds %struct.node_record, ptr %58, i32 0, i32 52
+  %60 = load i64, ptr %59, align 8
+  %61 = load ptr, ptr @select_node_usage, align 8
+  %62 = load ptr, ptr %1, align 8
+  %63 = getelementptr inbounds %struct.node_record, ptr %62, i32 0, i32 27
+  %64 = load i32, ptr %63, align 8
+  %65 = zext i32 %64 to i64
+  %66 = getelementptr inbounds %struct.node_use_record_t, ptr %61, i64 %65
+  %67 = getelementptr inbounds %struct.node_use_record_t, ptr %66, i32 0, i32 0
+  %68 = load i64, ptr %67, align 8
+  %69 = load ptr, ptr @select_node_usage, align 8
+  %70 = load ptr, ptr %1, align 8
+  %71 = getelementptr inbounds %struct.node_record, ptr %70, i32 0, i32 27
+  %72 = load i32, ptr %71, align 8
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds %struct.node_use_record_t, ptr %69, i64 %73
+  %75 = getelementptr inbounds %struct.node_use_record_t, ptr %74, i32 0, i32 2
+  %76 = load i16, ptr %75, align 8
+  %77 = call ptr @_node_state_str(i16 noundef zeroext %76)
+  %78 = load ptr, ptr @select_node_usage, align 8
+  %79 = load ptr, ptr %1, align 8
+  %80 = getelementptr inbounds %struct.node_record, ptr %79, i32 0, i32 27
+  %81 = load i32, ptr %80, align 8
+  %82 = zext i32 %81 to i64
+  %83 = getelementptr inbounds %struct.node_use_record_t, ptr %78, i64 %82
+  %84 = getelementptr inbounds %struct.node_use_record_t, ptr %83, i32 0, i32 2
+  %85 = load i16, ptr %84, align 8
+  %86 = zext i16 %85 to i32
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str, ptr noundef @plugin_type, ptr noundef @__func__.node_data_dump, ptr noundef %21, i32 noundef %25, i32 noundef %34, i32 noundef %38, i32 noundef %42, i32 noundef %46, i32 noundef %49, i32 noundef %53, i32 noundef %57, i64 noundef %60, i64 noundef %68, ptr noundef %77, i32 noundef %86)
   br label %87
 
-87:                                               ; preds = %86
+87:                                               ; preds = %18, %15
   br label %88
 
 88:                                               ; preds = %87
-  %89 = load ptr, ptr @select_node_usage, align 8
-  %90 = load ptr, ptr %1, align 8
-  %91 = getelementptr inbounds %struct.node_record, ptr %90, i32 0, i32 27
-  %92 = load i32, ptr %91, align 8
-  %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds %struct.node_use_record_t, ptr %89, i64 %93
-  %95 = getelementptr inbounds %struct.node_use_record_t, ptr %94, i32 0, i32 1
-  %96 = load ptr, ptr %95, align 8
-  %97 = icmp ne ptr %96, null
-  br i1 %97, label %98, label %107
+  br label %89
 
-98:                                               ; preds = %88
-  %99 = load ptr, ptr @select_node_usage, align 8
-  %100 = load ptr, ptr %1, align 8
-  %101 = getelementptr inbounds %struct.node_record, ptr %100, i32 0, i32 27
-  %102 = load i32, ptr %101, align 8
-  %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds %struct.node_use_record_t, ptr %99, i64 %103
-  %105 = getelementptr inbounds %struct.node_use_record_t, ptr %104, i32 0, i32 1
-  %106 = load ptr, ptr %105, align 8
-  store ptr %106, ptr %2, align 8
-  br label %111
+89:                                               ; preds = %88
+  %90 = load ptr, ptr @select_node_usage, align 8
+  %91 = load ptr, ptr %1, align 8
+  %92 = getelementptr inbounds %struct.node_record, ptr %91, i32 0, i32 27
+  %93 = load i32, ptr %92, align 8
+  %94 = zext i32 %93 to i64
+  %95 = getelementptr inbounds %struct.node_use_record_t, ptr %90, i64 %94
+  %96 = getelementptr inbounds %struct.node_use_record_t, ptr %95, i32 0, i32 1
+  %97 = load ptr, ptr %96, align 8
+  %98 = icmp ne ptr %97, null
+  br i1 %98, label %99, label %108
 
-107:                                              ; preds = %88
-  %108 = load ptr, ptr %1, align 8
-  %109 = getelementptr inbounds %struct.node_record, ptr %108, i32 0, i32 26
-  %110 = load ptr, ptr %109, align 8
-  store ptr %110, ptr %2, align 8
-  br label %111
+99:                                               ; preds = %89
+  %100 = load ptr, ptr @select_node_usage, align 8
+  %101 = load ptr, ptr %1, align 8
+  %102 = getelementptr inbounds %struct.node_record, ptr %101, i32 0, i32 27
+  %103 = load i32, ptr %102, align 8
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr inbounds %struct.node_use_record_t, ptr %100, i64 %104
+  %106 = getelementptr inbounds %struct.node_use_record_t, ptr %105, i32 0, i32 1
+  %107 = load ptr, ptr %106, align 8
+  store ptr %107, ptr %2, align 8
+  br label %112
 
-111:                                              ; preds = %107, %98
-  %112 = load ptr, ptr %2, align 8
-  %113 = icmp ne ptr %112, null
-  br i1 %113, label %114, label %119
+108:                                              ; preds = %89
+  %109 = load ptr, ptr %1, align 8
+  %110 = getelementptr inbounds %struct.node_record, ptr %109, i32 0, i32 26
+  %111 = load ptr, ptr %110, align 8
+  store ptr %111, ptr %2, align 8
+  br label %112
 
-114:                                              ; preds = %111
-  %115 = load ptr, ptr %2, align 8
-  %116 = load ptr, ptr %1, align 8
-  %117 = getelementptr inbounds %struct.node_record, ptr %116, i32 0, i32 35
-  %118 = load ptr, ptr %117, align 8
-  call void @gres_node_state_log(ptr noundef %115, ptr noundef %118)
-  br label %119
+112:                                              ; preds = %108, %99
+  %113 = load ptr, ptr %2, align 8
+  %114 = icmp ne ptr %113, null
+  br i1 %114, label %115, label %120
 
-119:                                              ; preds = %114, %111
+115:                                              ; preds = %112
+  %116 = load ptr, ptr %2, align 8
+  %117 = load ptr, ptr %1, align 8
+  %118 = getelementptr inbounds %struct.node_record, ptr %117, i32 0, i32 35
+  %119 = load ptr, ptr %118, align 8
+  call void @gres_node_state_log(ptr noundef %116, ptr noundef %119)
   br label %120
 
-120:                                              ; preds = %119
-  %121 = load i32, ptr %3, align 4
-  %122 = add nsw i32 %121, 1
-  store i32 %122, ptr %3, align 4
-  br label %9, !llvm.loop !8
+120:                                              ; preds = %115, %112
+  br label %121
 
-123:                                              ; preds = %9, %7
+121:                                              ; preds = %120
+  %122 = load i32, ptr %3, align 4
+  %123 = add nsw i32 %122, 1
+  store i32 %123, ptr %3, align 4
+  br label %10, !llvm.loop !8
+
+124:                                              ; preds = %10, %8
   ret void
 }
 

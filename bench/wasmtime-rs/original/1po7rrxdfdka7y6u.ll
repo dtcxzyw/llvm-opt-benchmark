@@ -443,7 +443,7 @@ define { i64, i64 } @"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !3
   %10 = call zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4359db74af2d2730E"(ptr align 8 %0, ptr align 8 %7, i64 %9)
-  br i1 %10, label %22, label %11
+  br i1 %10, label %23, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
@@ -455,28 +455,29 @@ define { i64, i64 } @"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u
   %18 = load ptr, ptr %17, align 8, !nonnull !3, !align !4, !noundef !3
   store i64 %16, ptr %18, align 8
   %19 = load i64, ptr @anon.1aeac91d5d7d29a7a9ade3e054cb05dc.0, align 8, !range !13, !noundef !3
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1aeac91d5d7d29a7a9ade3e054cb05dc.0, i64 8), align 8
+  %20 = getelementptr inbounds i8, ptr @anon.1aeac91d5d7d29a7a9ade3e054cb05dc.0, i64 8
+  %21 = load i64, ptr %20, align 8
   store i64 %19, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %20, ptr %21, align 8
-  br label %27
+  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %21, ptr %22, align 8
+  br label %28
 
-22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !nonnull !3, !align !4, !noundef !3
-  %25 = load i64, ptr %24, align 8, !noundef !3
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %25, ptr %26, align 8
+23:                                               ; preds = %3
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8, !nonnull !3, !align !4, !noundef !3
+  %26 = load i64, ptr %25, align 8, !noundef !3
+  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %26, ptr %27, align 8
   store i64 1, ptr %5, align 8
-  br label %27
+  br label %28
 
-27:                                               ; preds = %22, %11
-  %28 = load i64, ptr %5, align 8, !range !13, !noundef !3
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
-  %30 = load i64, ptr %29, align 8
-  %31 = insertvalue { i64, i64 } poison, i64 %28, 0
-  %32 = insertvalue { i64, i64 } %31, i64 %30, 1
-  ret { i64, i64 } %32
+28:                                               ; preds = %23, %11
+  %29 = load i64, ptr %5, align 8, !range !13, !noundef !3
+  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = load i64, ptr %30, align 8
+  %32 = insertvalue { i64, i64 } poison, i64 %29, 0
+  %33 = insertvalue { i64, i64 } %32, i64 %31, 1
+  ret { i64, i64 } %33
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

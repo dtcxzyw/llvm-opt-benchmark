@@ -6329,26 +6329,29 @@ do.body:                                          ; preds = %if.then4
   %6 = load ptr, ptr %c.addr, align 8
   %next = getelementptr inbounds %struct.QemuConsole, ptr %6, i32 0, i32 15
   store ptr null, ptr %next, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @consoles, i32 0, i32 1), align 8
-  %8 = load ptr, ptr %c.addr, align 8
-  %next5 = getelementptr inbounds %struct.QemuConsole, ptr %8, i32 0, i32 15
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next5, i32 0, i32 1
-  store ptr %7, ptr %tql_prev, align 8
+  %7 = getelementptr inbounds %struct.QTailQLink, ptr @consoles, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %c.addr, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @consoles, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %10, i32 0, i32 0
-  store ptr %9, ptr %tql_next, align 8
-  %11 = load ptr, ptr %c.addr, align 8
-  %next6 = getelementptr inbounds %struct.QemuConsole, ptr %11, i32 0, i32 15
-  store ptr %next6, ptr getelementptr inbounds (%struct.QTailQLink, ptr @consoles, i32 0, i32 1), align 8
+  %next5 = getelementptr inbounds %struct.QemuConsole, ptr %9, i32 0, i32 15
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next5, i32 0, i32 1
+  store ptr %8, ptr %tql_prev, align 8
+  %10 = load ptr, ptr %c.addr, align 8
+  %11 = getelementptr inbounds %struct.QTailQLink, ptr @consoles, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %12, i32 0, i32 0
+  store ptr %10, ptr %tql_next, align 8
+  %13 = load ptr, ptr %c.addr, align 8
+  %next6 = getelementptr inbounds %struct.QemuConsole, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds %struct.QTailQLink, ptr @consoles, i32 0, i32 1
+  store ptr %next6, ptr %14, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
   br label %if.end75
 
 if.else:                                          ; preds = %if.end
-  %12 = load ptr, ptr %c.addr, align 8
-  %call7 = call ptr @object_dynamic_cast(ptr noundef %12, ptr noundef @.str.10)
+  %15 = load ptr, ptr %c.addr, align 8
+  %call7 = call ptr @object_dynamic_cast(ptr noundef %15, ptr noundef @.str.10)
   %tobool8 = icmp ne ptr %call7, null
   br i1 %tobool8, label %lor.lhs.false9, label %if.then11
 
@@ -6357,123 +6360,128 @@ lor.lhs.false9:                                   ; preds = %if.else
   br i1 %call10, label %if.then11, label %if.else23
 
 if.then11:                                        ; preds = %lor.lhs.false9, %if.else
-  %13 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @consoles, i32 0, i32 1), align 8
-  %tql_prev12 = getelementptr inbounds %struct.QTailQLink, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %tql_prev12, align 8
-  %tql_next13 = getelementptr inbounds %struct.QTailQLink, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %tql_next13, align 8
-  store ptr %15, ptr %last, align 8
-  %16 = load ptr, ptr %last, align 8
-  %index14 = getelementptr inbounds %struct.QemuConsole, ptr %16, i32 0, i32 1
-  %17 = load i32, ptr %index14, align 8
-  %add = add i32 %17, 1
-  %18 = load ptr, ptr %c.addr, align 8
-  %index15 = getelementptr inbounds %struct.QemuConsole, ptr %18, i32 0, i32 1
+  %16 = getelementptr inbounds %struct.QTailQLink, ptr @consoles, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %tql_prev12 = getelementptr inbounds %struct.QTailQLink, ptr %17, i32 0, i32 1
+  %18 = load ptr, ptr %tql_prev12, align 8
+  %tql_next13 = getelementptr inbounds %struct.QTailQLink, ptr %18, i32 0, i32 0
+  %19 = load ptr, ptr %tql_next13, align 8
+  store ptr %19, ptr %last, align 8
+  %20 = load ptr, ptr %last, align 8
+  %index14 = getelementptr inbounds %struct.QemuConsole, ptr %20, i32 0, i32 1
+  %21 = load i32, ptr %index14, align 8
+  %add = add i32 %21, 1
+  %22 = load ptr, ptr %c.addr, align 8
+  %index15 = getelementptr inbounds %struct.QemuConsole, ptr %22, i32 0, i32 1
   store i32 %add, ptr %index15, align 8
   br label %do.body16
 
 do.body16:                                        ; preds = %if.then11
-  %19 = load ptr, ptr %c.addr, align 8
-  %next17 = getelementptr inbounds %struct.QemuConsole, ptr %19, i32 0, i32 15
+  %23 = load ptr, ptr %c.addr, align 8
+  %next17 = getelementptr inbounds %struct.QemuConsole, ptr %23, i32 0, i32 15
   store ptr null, ptr %next17, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @consoles, i32 0, i32 1), align 8
-  %21 = load ptr, ptr %c.addr, align 8
-  %next18 = getelementptr inbounds %struct.QemuConsole, ptr %21, i32 0, i32 15
+  %24 = getelementptr inbounds %struct.QTailQLink, ptr @consoles, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %c.addr, align 8
+  %next18 = getelementptr inbounds %struct.QemuConsole, ptr %26, i32 0, i32 15
   %tql_prev19 = getelementptr inbounds %struct.QTailQLink, ptr %next18, i32 0, i32 1
-  store ptr %20, ptr %tql_prev19, align 8
-  %22 = load ptr, ptr %c.addr, align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @consoles, i32 0, i32 1), align 8
-  %tql_next20 = getelementptr inbounds %struct.QTailQLink, ptr %23, i32 0, i32 0
-  store ptr %22, ptr %tql_next20, align 8
-  %24 = load ptr, ptr %c.addr, align 8
-  %next21 = getelementptr inbounds %struct.QemuConsole, ptr %24, i32 0, i32 15
-  store ptr %next21, ptr getelementptr inbounds (%struct.QTailQLink, ptr @consoles, i32 0, i32 1), align 8
+  store ptr %25, ptr %tql_prev19, align 8
+  %27 = load ptr, ptr %c.addr, align 8
+  %28 = getelementptr inbounds %struct.QTailQLink, ptr @consoles, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  %tql_next20 = getelementptr inbounds %struct.QTailQLink, ptr %29, i32 0, i32 0
+  store ptr %27, ptr %tql_next20, align 8
+  %30 = load ptr, ptr %c.addr, align 8
+  %next21 = getelementptr inbounds %struct.QemuConsole, ptr %30, i32 0, i32 15
+  %31 = getelementptr inbounds %struct.QTailQLink, ptr @consoles, i32 0, i32 1
+  store ptr %next21, ptr %31, align 8
   br label %do.end22
 
 do.end22:                                         ; preds = %do.body16
   br label %if.end74
 
 if.else23:                                        ; preds = %lor.lhs.false9
-  %25 = load ptr, ptr @consoles, align 8
-  store ptr %25, ptr %it, align 8
+  %32 = load ptr, ptr @consoles, align 8
+  store ptr %32, ptr %it, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.else23
-  %26 = load ptr, ptr %it, align 8
-  %next24 = getelementptr inbounds %struct.QemuConsole, ptr %26, i32 0, i32 15
-  %27 = load ptr, ptr %next24, align 8
-  %cmp25 = icmp ne ptr %27, null
+  %33 = load ptr, ptr %it, align 8
+  %next24 = getelementptr inbounds %struct.QemuConsole, ptr %33, i32 0, i32 15
+  %34 = load ptr, ptr %next24, align 8
+  %cmp25 = icmp ne ptr %34, null
   br i1 %cmp25, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond
-  %28 = load ptr, ptr %it, align 8
-  %call26 = call ptr @object_dynamic_cast(ptr noundef %28, ptr noundef @.str.10)
+  %35 = load ptr, ptr %it, align 8
+  %call26 = call ptr @object_dynamic_cast(ptr noundef %35, ptr noundef @.str.10)
   %tobool27 = icmp ne ptr %call26, null
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond
-  %29 = phi i1 [ false, %while.cond ], [ %tobool27, %land.rhs ]
-  br i1 %29, label %while.body, label %while.end
+  %36 = phi i1 [ false, %while.cond ], [ %tobool27, %land.rhs ]
+  br i1 %36, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.end
-  %30 = load ptr, ptr %it, align 8
-  %next28 = getelementptr inbounds %struct.QemuConsole, ptr %30, i32 0, i32 15
-  %31 = load ptr, ptr %next28, align 8
-  store ptr %31, ptr %it, align 8
+  %37 = load ptr, ptr %it, align 8
+  %next28 = getelementptr inbounds %struct.QemuConsole, ptr %37, i32 0, i32 15
+  %38 = load ptr, ptr %next28, align 8
+  store ptr %38, ptr %it, align 8
   br label %while.cond, !llvm.loop !35
 
 while.end:                                        ; preds = %land.end
-  %32 = load ptr, ptr %it, align 8
-  %call29 = call ptr @object_dynamic_cast(ptr noundef %32, ptr noundef @.str.10)
+  %39 = load ptr, ptr %it, align 8
+  %call29 = call ptr @object_dynamic_cast(ptr noundef %39, ptr noundef @.str.10)
   %tobool30 = icmp ne ptr %call29, null
   br i1 %tobool30, label %if.then31, label %if.else52
 
 if.then31:                                        ; preds = %while.end
-  %33 = load ptr, ptr %it, align 8
-  %index32 = getelementptr inbounds %struct.QemuConsole, ptr %33, i32 0, i32 1
-  %34 = load i32, ptr %index32, align 8
-  %add33 = add i32 %34, 1
-  %35 = load ptr, ptr %c.addr, align 8
-  %index34 = getelementptr inbounds %struct.QemuConsole, ptr %35, i32 0, i32 1
+  %40 = load ptr, ptr %it, align 8
+  %index32 = getelementptr inbounds %struct.QemuConsole, ptr %40, i32 0, i32 1
+  %41 = load i32, ptr %index32, align 8
+  %add33 = add i32 %41, 1
+  %42 = load ptr, ptr %c.addr, align 8
+  %index34 = getelementptr inbounds %struct.QemuConsole, ptr %42, i32 0, i32 1
   store i32 %add33, ptr %index34, align 8
   br label %do.body35
 
 do.body35:                                        ; preds = %if.then31
-  %36 = load ptr, ptr %it, align 8
-  %next36 = getelementptr inbounds %struct.QemuConsole, ptr %36, i32 0, i32 15
-  %37 = load ptr, ptr %next36, align 8
-  %38 = load ptr, ptr %c.addr, align 8
-  %next37 = getelementptr inbounds %struct.QemuConsole, ptr %38, i32 0, i32 15
-  store ptr %37, ptr %next37, align 8
-  %cmp38 = icmp ne ptr %37, null
+  %43 = load ptr, ptr %it, align 8
+  %next36 = getelementptr inbounds %struct.QemuConsole, ptr %43, i32 0, i32 15
+  %44 = load ptr, ptr %next36, align 8
+  %45 = load ptr, ptr %c.addr, align 8
+  %next37 = getelementptr inbounds %struct.QemuConsole, ptr %45, i32 0, i32 15
+  store ptr %44, ptr %next37, align 8
+  %cmp38 = icmp ne ptr %44, null
   br i1 %cmp38, label %if.then39, label %if.else44
 
 if.then39:                                        ; preds = %do.body35
-  %39 = load ptr, ptr %c.addr, align 8
-  %next40 = getelementptr inbounds %struct.QemuConsole, ptr %39, i32 0, i32 15
-  %40 = load ptr, ptr %c.addr, align 8
-  %next41 = getelementptr inbounds %struct.QemuConsole, ptr %40, i32 0, i32 15
-  %41 = load ptr, ptr %next41, align 8
-  %next42 = getelementptr inbounds %struct.QemuConsole, ptr %41, i32 0, i32 15
+  %46 = load ptr, ptr %c.addr, align 8
+  %next40 = getelementptr inbounds %struct.QemuConsole, ptr %46, i32 0, i32 15
+  %47 = load ptr, ptr %c.addr, align 8
+  %next41 = getelementptr inbounds %struct.QemuConsole, ptr %47, i32 0, i32 15
+  %48 = load ptr, ptr %next41, align 8
+  %next42 = getelementptr inbounds %struct.QemuConsole, ptr %48, i32 0, i32 15
   %tql_prev43 = getelementptr inbounds %struct.QTailQLink, ptr %next42, i32 0, i32 1
   store ptr %next40, ptr %tql_prev43, align 8
   br label %if.end46
 
 if.else44:                                        ; preds = %do.body35
-  %42 = load ptr, ptr %c.addr, align 8
-  %next45 = getelementptr inbounds %struct.QemuConsole, ptr %42, i32 0, i32 15
-  store ptr %next45, ptr getelementptr inbounds (%struct.QTailQLink, ptr @consoles, i32 0, i32 1), align 8
+  %49 = load ptr, ptr %c.addr, align 8
+  %next45 = getelementptr inbounds %struct.QemuConsole, ptr %49, i32 0, i32 15
+  %50 = getelementptr inbounds %struct.QTailQLink, ptr @consoles, i32 0, i32 1
+  store ptr %next45, ptr %50, align 8
   br label %if.end46
 
 if.end46:                                         ; preds = %if.else44, %if.then39
-  %43 = load ptr, ptr %c.addr, align 8
-  %44 = load ptr, ptr %it, align 8
-  %next47 = getelementptr inbounds %struct.QemuConsole, ptr %44, i32 0, i32 15
-  store ptr %43, ptr %next47, align 8
-  %45 = load ptr, ptr %it, align 8
-  %next48 = getelementptr inbounds %struct.QemuConsole, ptr %45, i32 0, i32 15
-  %46 = load ptr, ptr %c.addr, align 8
-  %next49 = getelementptr inbounds %struct.QemuConsole, ptr %46, i32 0, i32 15
+  %51 = load ptr, ptr %c.addr, align 8
+  %52 = load ptr, ptr %it, align 8
+  %next47 = getelementptr inbounds %struct.QemuConsole, ptr %52, i32 0, i32 15
+  store ptr %51, ptr %next47, align 8
+  %53 = load ptr, ptr %it, align 8
+  %next48 = getelementptr inbounds %struct.QemuConsole, ptr %53, i32 0, i32 15
+  %54 = load ptr, ptr %c.addr, align 8
+  %next49 = getelementptr inbounds %struct.QemuConsole, ptr %54, i32 0, i32 15
   %tql_prev50 = getelementptr inbounds %struct.QTailQLink, ptr %next49, i32 0, i32 1
   store ptr %next48, ptr %tql_prev50, align 8
   br label %do.end51
@@ -6482,69 +6490,69 @@ do.end51:                                         ; preds = %if.end46
   br label %if.end73
 
 if.else52:                                        ; preds = %while.end
-  %47 = load ptr, ptr %it, align 8
-  %index53 = getelementptr inbounds %struct.QemuConsole, ptr %47, i32 0, i32 1
-  %48 = load i32, ptr %index53, align 8
-  %49 = load ptr, ptr %c.addr, align 8
-  %index54 = getelementptr inbounds %struct.QemuConsole, ptr %49, i32 0, i32 1
-  store i32 %48, ptr %index54, align 8
+  %55 = load ptr, ptr %it, align 8
+  %index53 = getelementptr inbounds %struct.QemuConsole, ptr %55, i32 0, i32 1
+  %56 = load i32, ptr %index53, align 8
+  %57 = load ptr, ptr %c.addr, align 8
+  %index54 = getelementptr inbounds %struct.QemuConsole, ptr %57, i32 0, i32 1
+  store i32 %56, ptr %index54, align 8
   br label %do.body55
 
 do.body55:                                        ; preds = %if.else52
-  %50 = load ptr, ptr %it, align 8
-  %next56 = getelementptr inbounds %struct.QemuConsole, ptr %50, i32 0, i32 15
+  %58 = load ptr, ptr %it, align 8
+  %next56 = getelementptr inbounds %struct.QemuConsole, ptr %58, i32 0, i32 15
   %tql_prev57 = getelementptr inbounds %struct.QTailQLink, ptr %next56, i32 0, i32 1
-  %51 = load ptr, ptr %tql_prev57, align 8
-  %52 = load ptr, ptr %c.addr, align 8
-  %next58 = getelementptr inbounds %struct.QemuConsole, ptr %52, i32 0, i32 15
+  %59 = load ptr, ptr %tql_prev57, align 8
+  %60 = load ptr, ptr %c.addr, align 8
+  %next58 = getelementptr inbounds %struct.QemuConsole, ptr %60, i32 0, i32 15
   %tql_prev59 = getelementptr inbounds %struct.QTailQLink, ptr %next58, i32 0, i32 1
-  store ptr %51, ptr %tql_prev59, align 8
-  %53 = load ptr, ptr %it, align 8
-  %54 = load ptr, ptr %c.addr, align 8
-  %next60 = getelementptr inbounds %struct.QemuConsole, ptr %54, i32 0, i32 15
-  store ptr %53, ptr %next60, align 8
-  %55 = load ptr, ptr %c.addr, align 8
-  %56 = load ptr, ptr %it, align 8
-  %next61 = getelementptr inbounds %struct.QemuConsole, ptr %56, i32 0, i32 15
+  store ptr %59, ptr %tql_prev59, align 8
+  %61 = load ptr, ptr %it, align 8
+  %62 = load ptr, ptr %c.addr, align 8
+  %next60 = getelementptr inbounds %struct.QemuConsole, ptr %62, i32 0, i32 15
+  store ptr %61, ptr %next60, align 8
+  %63 = load ptr, ptr %c.addr, align 8
+  %64 = load ptr, ptr %it, align 8
+  %next61 = getelementptr inbounds %struct.QemuConsole, ptr %64, i32 0, i32 15
   %tql_prev62 = getelementptr inbounds %struct.QTailQLink, ptr %next61, i32 0, i32 1
-  %57 = load ptr, ptr %tql_prev62, align 8
-  %tql_next63 = getelementptr inbounds %struct.QTailQLink, ptr %57, i32 0, i32 0
-  store ptr %55, ptr %tql_next63, align 8
-  %58 = load ptr, ptr %c.addr, align 8
-  %next64 = getelementptr inbounds %struct.QemuConsole, ptr %58, i32 0, i32 15
-  %59 = load ptr, ptr %it, align 8
-  %next65 = getelementptr inbounds %struct.QemuConsole, ptr %59, i32 0, i32 15
+  %65 = load ptr, ptr %tql_prev62, align 8
+  %tql_next63 = getelementptr inbounds %struct.QTailQLink, ptr %65, i32 0, i32 0
+  store ptr %63, ptr %tql_next63, align 8
+  %66 = load ptr, ptr %c.addr, align 8
+  %next64 = getelementptr inbounds %struct.QemuConsole, ptr %66, i32 0, i32 15
+  %67 = load ptr, ptr %it, align 8
+  %next65 = getelementptr inbounds %struct.QemuConsole, ptr %67, i32 0, i32 15
   %tql_prev66 = getelementptr inbounds %struct.QTailQLink, ptr %next65, i32 0, i32 1
   store ptr %next64, ptr %tql_prev66, align 8
   br label %do.end67
 
 do.end67:                                         ; preds = %do.body55
-  %60 = load ptr, ptr %c.addr, align 8
-  %index68 = getelementptr inbounds %struct.QemuConsole, ptr %60, i32 0, i32 1
-  %61 = load i32, ptr %index68, align 8
-  %add69 = add i32 %61, 1
+  %68 = load ptr, ptr %c.addr, align 8
+  %index68 = getelementptr inbounds %struct.QemuConsole, ptr %68, i32 0, i32 1
+  %69 = load i32, ptr %index68, align 8
+  %add69 = add i32 %69, 1
   store i32 %add69, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.end67
-  %62 = load ptr, ptr %it, align 8
-  %cmp70 = icmp ne ptr %62, null
+  %70 = load ptr, ptr %it, align 8
+  %cmp70 = icmp ne ptr %70, null
   br i1 %cmp70, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %63 = load i32, ptr %i, align 4
-  %64 = load ptr, ptr %it, align 8
-  %index71 = getelementptr inbounds %struct.QemuConsole, ptr %64, i32 0, i32 1
-  store i32 %63, ptr %index71, align 8
+  %71 = load i32, ptr %i, align 4
+  %72 = load ptr, ptr %it, align 8
+  %index71 = getelementptr inbounds %struct.QemuConsole, ptr %72, i32 0, i32 1
+  store i32 %71, ptr %index71, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %65 = load ptr, ptr %it, align 8
-  %next72 = getelementptr inbounds %struct.QemuConsole, ptr %65, i32 0, i32 15
-  %66 = load ptr, ptr %next72, align 8
-  store ptr %66, ptr %it, align 8
-  %67 = load i32, ptr %i, align 4
-  %inc = add i32 %67, 1
+  %73 = load ptr, ptr %it, align 8
+  %next72 = getelementptr inbounds %struct.QemuConsole, ptr %73, i32 0, i32 15
+  %74 = load ptr, ptr %next72, align 8
+  store ptr %74, ptr %it, align 8
+  %75 = load i32, ptr %i, align 4
+  %inc = add i32 %75, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !36
 

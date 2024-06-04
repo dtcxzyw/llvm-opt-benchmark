@@ -900,188 +900,189 @@ if.then:                                          ; preds = %for.end
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.end
-  store ptr getelementptr inbounds ([8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 1), ptr %nd, align 8
-  %202 = load ptr, ptr %nd, align 8
-  %used211 = getelementptr inbounds %struct.NICInfo, ptr %202, i32 0, i32 5
-  %203 = load i32, ptr %used211, align 8
-  %tobool212 = icmp ne i32 %203, 0
+  %202 = getelementptr inbounds [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 1
+  store ptr %202, ptr %nd, align 8
+  %203 = load ptr, ptr %nd, align 8
+  %used211 = getelementptr inbounds %struct.NICInfo, ptr %203, i32 0, i32 5
+  %204 = load i32, ptr %used211, align 8
+  %tobool212 = icmp ne i32 %204, 0
   br i1 %tobool212, label %if.then213, label %if.end215
 
 if.then213:                                       ; preds = %if.end
-  %204 = load ptr, ptr %nd, align 8
-  call void @qemu_check_nic_model(ptr noundef %204, ptr noundef @.str.25)
-  %205 = load ptr, ptr %s, align 8
-  %gem1 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %205, i32 0, i32 17
+  %205 = load ptr, ptr %nd, align 8
+  call void @qemu_check_nic_model(ptr noundef %205, ptr noundef @.str.25)
+  %206 = load ptr, ptr %s, align 8
+  %gem1 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %206, i32 0, i32 17
   %call214 = call ptr @DEVICE(ptr noundef %gem1)
-  %206 = load ptr, ptr %nd, align 8
-  call void @qdev_set_nic_properties(ptr noundef %call214, ptr noundef %206)
+  %207 = load ptr, ptr %nd, align 8
+  call void @qdev_set_nic_properties(ptr noundef %call214, ptr noundef %207)
   br label %if.end215
 
 if.end215:                                        ; preds = %if.then213, %if.end
-  %207 = load ptr, ptr %s, align 8
-  %gem0216 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %207, i32 0, i32 16
-  %208 = load ptr, ptr %errp.addr, align 8
-  %call217 = call zeroext i1 @object_property_set_int(ptr noundef %gem0216, ptr noundef @.str.58, i64 noundef 17236236, ptr noundef %208)
-  %209 = load ptr, ptr %s, align 8
-  %gem0218 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %209, i32 0, i32 16
-  %210 = load ptr, ptr %errp.addr, align 8
-  %call219 = call zeroext i1 @object_property_set_int(ptr noundef %gem0218, ptr noundef @.str.59, i64 noundef 8, ptr noundef %210)
-  %211 = load ptr, ptr %s, align 8
-  %gem0220 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %211, i32 0, i32 16
+  %208 = load ptr, ptr %s, align 8
+  %gem0216 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %208, i32 0, i32 16
+  %209 = load ptr, ptr %errp.addr, align 8
+  %call217 = call zeroext i1 @object_property_set_int(ptr noundef %gem0216, ptr noundef @.str.58, i64 noundef 17236236, ptr noundef %209)
+  %210 = load ptr, ptr %s, align 8
+  %gem0218 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %210, i32 0, i32 16
+  %211 = load ptr, ptr %errp.addr, align 8
+  %call219 = call zeroext i1 @object_property_set_int(ptr noundef %gem0218, ptr noundef @.str.59, i64 noundef 8, ptr noundef %211)
+  %212 = load ptr, ptr %s, align 8
+  %gem0220 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %212, i32 0, i32 16
   %call221 = call ptr @SYS_BUS_DEVICE(ptr noundef %gem0220)
-  %212 = load ptr, ptr %errp.addr, align 8
-  %call222 = call zeroext i1 @sysbus_realize(ptr noundef %call221, ptr noundef %212)
-  %213 = load ptr, ptr %s, align 8
-  %gem0223 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %213, i32 0, i32 16
+  %213 = load ptr, ptr %errp.addr, align 8
+  %call222 = call zeroext i1 @sysbus_realize(ptr noundef %call221, ptr noundef %213)
+  %214 = load ptr, ptr %s, align 8
+  %gem0223 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %214, i32 0, i32 16
   %call224 = call ptr @SYS_BUS_DEVICE(ptr noundef %gem0223)
-  %214 = load ptr, ptr %memmap, align 8
-  %arrayidx225 = getelementptr %struct.MemMapEntry, ptr %214, i64 36
+  %215 = load ptr, ptr %memmap, align 8
+  %arrayidx225 = getelementptr %struct.MemMapEntry, ptr %215, i64 36
   %base226 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx225, i32 0, i32 0
-  %215 = load i64, ptr %base226, align 8
-  call void @sysbus_mmio_map(ptr noundef %call224, i32 noundef 0, i64 noundef %215)
-  %216 = load ptr, ptr %s, align 8
-  %gem0227 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %216, i32 0, i32 16
-  %call228 = call ptr @SYS_BUS_DEVICE(ptr noundef %gem0227)
+  %216 = load i64, ptr %base226, align 8
+  call void @sysbus_mmio_map(ptr noundef %call224, i32 noundef 0, i64 noundef %216)
   %217 = load ptr, ptr %s, align 8
-  %plic229 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %217, i32 0, i32 5
-  %218 = load ptr, ptr %plic229, align 16
-  %call230 = call ptr @DEVICE(ptr noundef %218)
+  %gem0227 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %217, i32 0, i32 16
+  %call228 = call ptr @SYS_BUS_DEVICE(ptr noundef %gem0227)
+  %218 = load ptr, ptr %s, align 8
+  %plic229 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %218, i32 0, i32 5
+  %219 = load ptr, ptr %plic229, align 16
+  %call230 = call ptr @DEVICE(ptr noundef %219)
   %call231 = call ptr @qdev_get_gpio_in(ptr noundef %call230, i32 noundef 64)
   call void @sysbus_connect_irq(ptr noundef %call228, i32 noundef 0, ptr noundef %call231)
-  %219 = load ptr, ptr %s, align 8
-  %gem1232 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %219, i32 0, i32 17
-  %220 = load ptr, ptr %errp.addr, align 8
-  %call233 = call zeroext i1 @object_property_set_int(ptr noundef %gem1232, ptr noundef @.str.58, i64 noundef 17236236, ptr noundef %220)
-  %221 = load ptr, ptr %s, align 8
-  %gem1234 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %221, i32 0, i32 17
-  %222 = load ptr, ptr %errp.addr, align 8
-  %call235 = call zeroext i1 @object_property_set_int(ptr noundef %gem1234, ptr noundef @.str.59, i64 noundef 9, ptr noundef %222)
-  %223 = load ptr, ptr %s, align 8
-  %gem1236 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %223, i32 0, i32 17
+  %220 = load ptr, ptr %s, align 8
+  %gem1232 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %220, i32 0, i32 17
+  %221 = load ptr, ptr %errp.addr, align 8
+  %call233 = call zeroext i1 @object_property_set_int(ptr noundef %gem1232, ptr noundef @.str.58, i64 noundef 17236236, ptr noundef %221)
+  %222 = load ptr, ptr %s, align 8
+  %gem1234 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %222, i32 0, i32 17
+  %223 = load ptr, ptr %errp.addr, align 8
+  %call235 = call zeroext i1 @object_property_set_int(ptr noundef %gem1234, ptr noundef @.str.59, i64 noundef 9, ptr noundef %223)
+  %224 = load ptr, ptr %s, align 8
+  %gem1236 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %224, i32 0, i32 17
   %call237 = call ptr @SYS_BUS_DEVICE(ptr noundef %gem1236)
-  %224 = load ptr, ptr %errp.addr, align 8
-  %call238 = call zeroext i1 @sysbus_realize(ptr noundef %call237, ptr noundef %224)
-  %225 = load ptr, ptr %s, align 8
-  %gem1239 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %225, i32 0, i32 17
+  %225 = load ptr, ptr %errp.addr, align 8
+  %call238 = call zeroext i1 @sysbus_realize(ptr noundef %call237, ptr noundef %225)
+  %226 = load ptr, ptr %s, align 8
+  %gem1239 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %226, i32 0, i32 17
   %call240 = call ptr @SYS_BUS_DEVICE(ptr noundef %gem1239)
-  %226 = load ptr, ptr %memmap, align 8
-  %arrayidx241 = getelementptr %struct.MemMapEntry, ptr %226, i64 37
+  %227 = load ptr, ptr %memmap, align 8
+  %arrayidx241 = getelementptr %struct.MemMapEntry, ptr %227, i64 37
   %base242 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx241, i32 0, i32 0
-  %227 = load i64, ptr %base242, align 8
-  call void @sysbus_mmio_map(ptr noundef %call240, i32 noundef 0, i64 noundef %227)
-  %228 = load ptr, ptr %s, align 8
-  %gem1243 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %228, i32 0, i32 17
-  %call244 = call ptr @SYS_BUS_DEVICE(ptr noundef %gem1243)
+  %228 = load i64, ptr %base242, align 8
+  call void @sysbus_mmio_map(ptr noundef %call240, i32 noundef 0, i64 noundef %228)
   %229 = load ptr, ptr %s, align 8
-  %plic245 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %229, i32 0, i32 5
-  %230 = load ptr, ptr %plic245, align 16
-  %call246 = call ptr @DEVICE(ptr noundef %230)
+  %gem1243 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %229, i32 0, i32 17
+  %call244 = call ptr @SYS_BUS_DEVICE(ptr noundef %gem1243)
+  %230 = load ptr, ptr %s, align 8
+  %plic245 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %230, i32 0, i32 5
+  %231 = load ptr, ptr %plic245, align 16
+  %call246 = call ptr @DEVICE(ptr noundef %231)
   %call247 = call ptr @qdev_get_gpio_in(ptr noundef %call246, i32 noundef 70)
   call void @sysbus_connect_irq(ptr noundef %call244, i32 noundef 0, ptr noundef %call247)
-  %231 = load ptr, ptr %memmap, align 8
-  %arrayidx248 = getelementptr %struct.MemMapEntry, ptr %231, i64 38
+  %232 = load ptr, ptr %memmap, align 8
+  %arrayidx248 = getelementptr %struct.MemMapEntry, ptr %232, i64 38
   %base249 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx248, i32 0, i32 0
-  %232 = load i64, ptr %base249, align 8
-  %233 = load ptr, ptr %memmap, align 8
-  %arrayidx250 = getelementptr %struct.MemMapEntry, ptr %233, i64 38
+  %233 = load i64, ptr %base249, align 8
+  %234 = load ptr, ptr %memmap, align 8
+  %arrayidx250 = getelementptr %struct.MemMapEntry, ptr %234, i64 38
   %size251 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx250, i32 0, i32 1
-  %234 = load i64, ptr %size251, align 8
-  call void @create_unimplemented_device(ptr noundef @.str.60, i64 noundef %232, i64 noundef %234)
-  %235 = load ptr, ptr %memmap, align 8
-  %arrayidx252 = getelementptr %struct.MemMapEntry, ptr %235, i64 39
+  %235 = load i64, ptr %size251, align 8
+  call void @create_unimplemented_device(ptr noundef @.str.60, i64 noundef %233, i64 noundef %235)
+  %236 = load ptr, ptr %memmap, align 8
+  %arrayidx252 = getelementptr %struct.MemMapEntry, ptr %236, i64 39
   %base253 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx252, i32 0, i32 0
-  %236 = load i64, ptr %base253, align 8
-  %237 = load ptr, ptr %memmap, align 8
-  %arrayidx254 = getelementptr %struct.MemMapEntry, ptr %237, i64 39
+  %237 = load i64, ptr %base253, align 8
+  %238 = load ptr, ptr %memmap, align 8
+  %arrayidx254 = getelementptr %struct.MemMapEntry, ptr %238, i64 39
   %size255 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx254, i32 0, i32 1
-  %238 = load i64, ptr %size255, align 8
-  call void @create_unimplemented_device(ptr noundef @.str.61, i64 noundef %236, i64 noundef %238)
-  %239 = load ptr, ptr %memmap, align 8
-  %arrayidx256 = getelementptr %struct.MemMapEntry, ptr %239, i64 40
+  %239 = load i64, ptr %size255, align 8
+  call void @create_unimplemented_device(ptr noundef @.str.61, i64 noundef %237, i64 noundef %239)
+  %240 = load ptr, ptr %memmap, align 8
+  %arrayidx256 = getelementptr %struct.MemMapEntry, ptr %240, i64 40
   %base257 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx256, i32 0, i32 0
-  %240 = load i64, ptr %base257, align 8
-  %241 = load ptr, ptr %memmap, align 8
-  %arrayidx258 = getelementptr %struct.MemMapEntry, ptr %241, i64 40
+  %241 = load i64, ptr %base257, align 8
+  %242 = load ptr, ptr %memmap, align 8
+  %arrayidx258 = getelementptr %struct.MemMapEntry, ptr %242, i64 40
   %size259 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx258, i32 0, i32 1
-  %242 = load i64, ptr %size259, align 8
-  call void @create_unimplemented_device(ptr noundef @.str.62, i64 noundef %240, i64 noundef %242)
-  %243 = load ptr, ptr %envm_data, align 8
-  %244 = load ptr, ptr %dev.addr, align 8
-  %245 = load ptr, ptr %memmap, align 8
-  %arrayidx260 = getelementptr %struct.MemMapEntry, ptr %245, i64 43
+  %243 = load i64, ptr %size259, align 8
+  call void @create_unimplemented_device(ptr noundef @.str.62, i64 noundef %241, i64 noundef %243)
+  %244 = load ptr, ptr %envm_data, align 8
+  %245 = load ptr, ptr %dev.addr, align 8
+  %246 = load ptr, ptr %memmap, align 8
+  %arrayidx260 = getelementptr %struct.MemMapEntry, ptr %246, i64 43
   %size261 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx260, i32 0, i32 1
-  %246 = load i64, ptr %size261, align 8
-  call void @memory_region_init_rom(ptr noundef %243, ptr noundef %244, ptr noundef @.str.63, i64 noundef %246, ptr noundef @error_fatal)
-  %247 = load ptr, ptr %system_memory, align 8
-  %248 = load ptr, ptr %memmap, align 8
-  %arrayidx262 = getelementptr %struct.MemMapEntry, ptr %248, i64 43
+  %247 = load i64, ptr %size261, align 8
+  call void @memory_region_init_rom(ptr noundef %244, ptr noundef %245, ptr noundef @.str.63, i64 noundef %247, ptr noundef @error_fatal)
+  %248 = load ptr, ptr %system_memory, align 8
+  %249 = load ptr, ptr %memmap, align 8
+  %arrayidx262 = getelementptr %struct.MemMapEntry, ptr %249, i64 43
   %base263 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx262, i32 0, i32 0
-  %249 = load i64, ptr %base263, align 8
-  %250 = load ptr, ptr %envm_data, align 8
-  call void @memory_region_add_subregion(ptr noundef %247, i64 noundef %249, ptr noundef %250)
-  %251 = load ptr, ptr %s, align 8
-  %ioscb = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %251, i32 0, i32 8
+  %250 = load i64, ptr %base263, align 8
+  %251 = load ptr, ptr %envm_data, align 8
+  call void @memory_region_add_subregion(ptr noundef %248, i64 noundef %250, ptr noundef %251)
+  %252 = load ptr, ptr %s, align 8
+  %ioscb = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %252, i32 0, i32 8
   %call264 = call ptr @SYS_BUS_DEVICE(ptr noundef %ioscb)
-  %252 = load ptr, ptr %errp.addr, align 8
-  %call265 = call zeroext i1 @sysbus_realize(ptr noundef %call264, ptr noundef %252)
-  %253 = load ptr, ptr %s, align 8
-  %ioscb266 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %253, i32 0, i32 8
+  %253 = load ptr, ptr %errp.addr, align 8
+  %call265 = call zeroext i1 @sysbus_realize(ptr noundef %call264, ptr noundef %253)
+  %254 = load ptr, ptr %s, align 8
+  %ioscb266 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %254, i32 0, i32 8
   %call267 = call ptr @SYS_BUS_DEVICE(ptr noundef %ioscb266)
-  %254 = load ptr, ptr %memmap, align 8
-  %arrayidx268 = getelementptr %struct.MemMapEntry, ptr %254, i64 46
+  %255 = load ptr, ptr %memmap, align 8
+  %arrayidx268 = getelementptr %struct.MemMapEntry, ptr %255, i64 46
   %base269 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx268, i32 0, i32 0
-  %255 = load i64, ptr %base269, align 8
-  call void @sysbus_mmio_map(ptr noundef %call267, i32 noundef 0, i64 noundef %255)
-  %256 = load ptr, ptr %s, align 8
-  %ioscb270 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %256, i32 0, i32 8
-  %call271 = call ptr @SYS_BUS_DEVICE(ptr noundef %ioscb270)
+  %256 = load i64, ptr %base269, align 8
+  call void @sysbus_mmio_map(ptr noundef %call267, i32 noundef 0, i64 noundef %256)
   %257 = load ptr, ptr %s, align 8
-  %plic272 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %257, i32 0, i32 5
-  %258 = load ptr, ptr %plic272, align 16
-  %call273 = call ptr @DEVICE(ptr noundef %258)
+  %ioscb270 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %257, i32 0, i32 8
+  %call271 = call ptr @SYS_BUS_DEVICE(ptr noundef %ioscb270)
+  %258 = load ptr, ptr %s, align 8
+  %plic272 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %258, i32 0, i32 5
+  %259 = load ptr, ptr %plic272, align 16
+  %call273 = call ptr @DEVICE(ptr noundef %259)
   %call274 = call ptr @qdev_get_gpio_in(ptr noundef %call273, i32 noundef 96)
   call void @sysbus_connect_irq(ptr noundef %call271, i32 noundef 0, ptr noundef %call274)
-  %259 = load ptr, ptr %memmap, align 8
-  %arrayidx275 = getelementptr %struct.MemMapEntry, ptr %259, i64 49
+  %260 = load ptr, ptr %memmap, align 8
+  %arrayidx275 = getelementptr %struct.MemMapEntry, ptr %260, i64 49
   %base276 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx275, i32 0, i32 0
-  %260 = load i64, ptr %base276, align 8
-  %261 = load ptr, ptr %memmap, align 8
-  %arrayidx277 = getelementptr %struct.MemMapEntry, ptr %261, i64 49
+  %261 = load i64, ptr %base276, align 8
+  %262 = load ptr, ptr %memmap, align 8
+  %arrayidx277 = getelementptr %struct.MemMapEntry, ptr %262, i64 49
   %size278 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx277, i32 0, i32 1
-  %262 = load i64, ptr %size278, align 8
-  call void @create_unimplemented_device(ptr noundef @.str.64, i64 noundef %260, i64 noundef %262)
-  %263 = load ptr, ptr %memmap, align 8
-  %arrayidx279 = getelementptr %struct.MemMapEntry, ptr %263, i64 47
+  %263 = load i64, ptr %size278, align 8
+  call void @create_unimplemented_device(ptr noundef @.str.64, i64 noundef %261, i64 noundef %263)
+  %264 = load ptr, ptr %memmap, align 8
+  %arrayidx279 = getelementptr %struct.MemMapEntry, ptr %264, i64 47
   %base280 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx279, i32 0, i32 0
-  %264 = load i64, ptr %base280, align 8
-  %265 = load ptr, ptr %memmap, align 8
-  %arrayidx281 = getelementptr %struct.MemMapEntry, ptr %265, i64 47
+  %265 = load i64, ptr %base280, align 8
+  %266 = load ptr, ptr %memmap, align 8
+  %arrayidx281 = getelementptr %struct.MemMapEntry, ptr %266, i64 47
   %size282 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx281, i32 0, i32 1
-  %266 = load i64, ptr %size282, align 8
-  call void @create_unimplemented_device(ptr noundef @.str.65, i64 noundef %264, i64 noundef %266)
-  %267 = load ptr, ptr %memmap, align 8
-  %arrayidx283 = getelementptr %struct.MemMapEntry, ptr %267, i64 48
+  %267 = load i64, ptr %size282, align 8
+  call void @create_unimplemented_device(ptr noundef @.str.65, i64 noundef %265, i64 noundef %267)
+  %268 = load ptr, ptr %memmap, align 8
+  %arrayidx283 = getelementptr %struct.MemMapEntry, ptr %268, i64 48
   %base284 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx283, i32 0, i32 0
-  %268 = load i64, ptr %base284, align 8
-  %269 = load ptr, ptr %memmap, align 8
-  %arrayidx285 = getelementptr %struct.MemMapEntry, ptr %269, i64 48
+  %269 = load i64, ptr %base284, align 8
+  %270 = load ptr, ptr %memmap, align 8
+  %arrayidx285 = getelementptr %struct.MemMapEntry, ptr %270, i64 48
   %size286 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx285, i32 0, i32 1
-  %270 = load i64, ptr %size286, align 8
-  call void @create_unimplemented_device(ptr noundef @.str.66, i64 noundef %268, i64 noundef %270)
-  %271 = load ptr, ptr %qspi_xip_mem, align 8
-  %272 = load ptr, ptr %dev.addr, align 8
-  %273 = load ptr, ptr %memmap, align 8
-  %arrayidx287 = getelementptr %struct.MemMapEntry, ptr %273, i64 45
+  %271 = load i64, ptr %size286, align 8
+  call void @create_unimplemented_device(ptr noundef @.str.66, i64 noundef %269, i64 noundef %271)
+  %272 = load ptr, ptr %qspi_xip_mem, align 8
+  %273 = load ptr, ptr %dev.addr, align 8
+  %274 = load ptr, ptr %memmap, align 8
+  %arrayidx287 = getelementptr %struct.MemMapEntry, ptr %274, i64 45
   %size288 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx287, i32 0, i32 1
-  %274 = load i64, ptr %size288, align 8
-  call void @memory_region_init_rom(ptr noundef %271, ptr noundef %272, ptr noundef @.str.67, i64 noundef %274, ptr noundef @error_fatal)
-  %275 = load ptr, ptr %system_memory, align 8
-  %276 = load ptr, ptr %memmap, align 8
-  %arrayidx289 = getelementptr %struct.MemMapEntry, ptr %276, i64 45
+  %275 = load i64, ptr %size288, align 8
+  call void @memory_region_init_rom(ptr noundef %272, ptr noundef %273, ptr noundef @.str.67, i64 noundef %275, ptr noundef @error_fatal)
+  %276 = load ptr, ptr %system_memory, align 8
+  %277 = load ptr, ptr %memmap, align 8
+  %arrayidx289 = getelementptr %struct.MemMapEntry, ptr %277, i64 45
   %base290 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx289, i32 0, i32 0
-  %277 = load i64, ptr %base290, align 8
-  %278 = load ptr, ptr %qspi_xip_mem, align 8
-  call void @memory_region_add_subregion(ptr noundef %275, i64 noundef %277, ptr noundef %278)
+  %278 = load i64, ptr %base290, align 8
+  %279 = load ptr, ptr %qspi_xip_mem, align 8
+  call void @memory_region_add_subregion(ptr noundef %276, i64 noundef %278, ptr noundef %279)
   ret void
 }
 

@@ -273,20 +273,23 @@ define linkonce_odr dso_local noundef i32 @_ZN9Stockfish4Eval4NNUE8Features11Hal
   %7 = load i32, ptr %4, align 4
   %8 = load i32, ptr %6, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [64 x i32], ptr getelementptr inbounds ([2 x [64 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm9OrientTBLE, i64 0, i64 1), i64 0, i64 %9
-  %11 = load i32, ptr %10, align 4
-  %12 = xor i32 %7, %11
-  %13 = load i32, ptr %5, align 4
-  %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds [16 x i32], ptr getelementptr inbounds ([2 x [16 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16PieceSquareIndexE, i64 0, i64 1), i64 0, i64 %14
-  %16 = load i32, ptr %15, align 4
-  %17 = add i32 %12, %16
-  %18 = load i32, ptr %6, align 4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [64 x i32], ptr getelementptr inbounds ([2 x [64 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11KingBucketsE, i64 0, i64 1), i64 0, i64 %19
-  %21 = load i32, ptr %20, align 4
-  %22 = add i32 %17, %21
-  ret i32 %22
+  %10 = getelementptr inbounds [2 x [64 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm9OrientTBLE, i64 0, i64 1
+  %11 = getelementptr inbounds [64 x i32], ptr %10, i64 0, i64 %9
+  %12 = load i32, ptr %11, align 4
+  %13 = xor i32 %7, %12
+  %14 = load i32, ptr %5, align 4
+  %15 = zext i32 %14 to i64
+  %16 = getelementptr inbounds [2 x [16 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm16PieceSquareIndexE, i64 0, i64 1
+  %17 = getelementptr inbounds [16 x i32], ptr %16, i64 0, i64 %15
+  %18 = load i32, ptr %17, align 4
+  %19 = add i32 %13, %18
+  %20 = load i32, ptr %6, align 4
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds [2 x [64 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11KingBucketsE, i64 0, i64 1
+  %23 = getelementptr inbounds [64 x i32], ptr %22, i64 0, i64 %21
+  %24 = load i32, ptr %23, align 4
+  %25 = add i32 %19, %24
+  ret i32 %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

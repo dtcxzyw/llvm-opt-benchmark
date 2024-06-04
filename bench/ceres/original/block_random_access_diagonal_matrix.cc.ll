@@ -3929,119 +3929,120 @@ define hidden void @_ZN5ceres8internal31BlockRandomAccessDiagonalMatrixC2ERKSt6v
   store i32 %3, ptr %8, align 4
   %18 = load ptr, ptr %5, align 8
   call void @_ZN5ceres8internal23BlockRandomAccessMatrixC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5ceres8internal31BlockRandomAccessDiagonalMatrixE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %7, align 8
-  store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 2
-  %22 = load i32, ptr %8, align 4
-  store i32 %22, ptr %21, align 8
-  %23 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #16
-  %24 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 4
-  call void @_ZNSt6vectorISt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #16
-  %25 = load ptr, ptr %6, align 8
-  invoke void @_ZN5ceres8internal25CompressedRowSparseMatrix25CreateBlockDiagonalMatrixEPKdRKSt6vectorINS0_5BlockESaIS5_EE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %9, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %25)
-          to label %26 unwind label %64
+  %19 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5ceres8internal31BlockRandomAccessDiagonalMatrixE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 1
+  %21 = load ptr, ptr %7, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 2
+  %23 = load i32, ptr %8, align 4
+  store i32 %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %24) #16
+  %25 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 4
+  call void @_ZNSt6vectorISt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #16
+  %26 = load ptr, ptr %6, align 8
+  invoke void @_ZN5ceres8internal25CompressedRowSparseMatrix25CreateBlockDiagonalMatrixEPKdRKSt6vectorINS0_5BlockESaIS5_EE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %9, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %26)
+          to label %27 unwind label %65
 
-26:                                               ; preds = %4
-  %27 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 3
-  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %9) #16
+27:                                               ; preds = %4
+  %28 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 3
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %9) #16
   call void @_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #16
-  %29 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 3
-  %30 = call noundef ptr @_ZNKSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29) #16
-  %31 = invoke noundef ptr @_ZN5ceres8internal25CompressedRowSparseMatrix14mutable_valuesEv(ptr noundef nonnull align 8 dereferenceable(144) %30)
-          to label %32 unwind label %64
+  %30 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 3
+  %31 = call noundef ptr @_ZNKSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %30) #16
+  %32 = invoke noundef ptr @_ZN5ceres8internal25CompressedRowSparseMatrix14mutable_valuesEv(ptr noundef nonnull align 8 dereferenceable(144) %31)
+          to label %33 unwind label %65
 
-32:                                               ; preds = %26
-  store ptr %31, ptr %12, align 8
-  %33 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 4
-  %34 = load ptr, ptr %6, align 8
-  %35 = call noundef i64 @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %34) #16
-  invoke void @_ZNSt6vectorISt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS3_EESaIS6_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %35)
-          to label %36 unwind label %64
+33:                                               ; preds = %27
+  store ptr %32, ptr %12, align 8
+  %34 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 4
+  %35 = load ptr, ptr %6, align 8
+  %36 = call noundef i64 @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %35) #16
+  invoke void @_ZNSt6vectorISt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS3_EESaIS6_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %36)
+          to label %37 unwind label %65
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %6, align 8
-  store ptr %37, ptr %13, align 8
-  %38 = load ptr, ptr %13, align 8
-  %39 = call ptr @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %38) #16
-  %40 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %14, i32 0, i32 0
-  store ptr %39, ptr %40, align 8
-  %41 = load ptr, ptr %13, align 8
-  %42 = call ptr @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %41) #16
-  %43 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %15, i32 0, i32 0
-  store ptr %42, ptr %43, align 8
-  br label %44
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %6, align 8
+  store ptr %38, ptr %13, align 8
+  %39 = load ptr, ptr %13, align 8
+  %40 = call ptr @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %39) #16
+  %41 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %14, i32 0, i32 0
+  store ptr %40, ptr %41, align 8
+  %42 = load ptr, ptr %13, align 8
+  %43 = call ptr @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #16
+  %44 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %15, i32 0, i32 0
+  store ptr %43, ptr %44, align 8
+  br label %45
 
-44:                                               ; preds = %62, %36
-  %45 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKN5ceres8internal5BlockESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #16
-  br i1 %45, label %46, label %72
+45:                                               ; preds = %63, %37
+  %46 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKN5ceres8internal5BlockESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #16
+  br i1 %46, label %47, label %73
 
-46:                                               ; preds = %44
-  %47 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN5ceres8internal5BlockESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
-  store ptr %47, ptr %16, align 8
-  %48 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 4
+47:                                               ; preds = %45
+  %48 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN5ceres8internal5BlockESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
+  store ptr %48, ptr %16, align 8
+  %49 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %18, i32 0, i32 4
   invoke void @_ZSt11make_uniqueIN5ceres8internal8CellInfoEJRPdEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.18") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %49 unwind label %64
+          to label %50 unwind label %65
 
-49:                                               ; preds = %46
-  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %51 unwind label %68
+50:                                               ; preds = %47
+  %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %52 unwind label %69
 
-51:                                               ; preds = %49
+52:                                               ; preds = %50
   call void @_ZNSt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #16
-  %52 = load ptr, ptr %16, align 8
-  %53 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %52, i32 0, i32 0
-  %54 = load i32, ptr %53, align 4
-  %55 = load ptr, ptr %16, align 8
-  %56 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %55, i32 0, i32 0
-  %57 = load i32, ptr %56, align 4
-  %58 = mul nsw i32 %54, %57
-  %59 = load ptr, ptr %12, align 8
-  %60 = sext i32 %58 to i64
-  %61 = getelementptr inbounds double, ptr %59, i64 %60
-  store ptr %61, ptr %12, align 8
-  br label %62
+  %53 = load ptr, ptr %16, align 8
+  %54 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %53, i32 0, i32 0
+  %55 = load i32, ptr %54, align 4
+  %56 = load ptr, ptr %16, align 8
+  %57 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %56, i32 0, i32 0
+  %58 = load i32, ptr %57, align 4
+  %59 = mul nsw i32 %55, %58
+  %60 = load ptr, ptr %12, align 8
+  %61 = sext i32 %59 to i64
+  %62 = getelementptr inbounds double, ptr %60, i64 %61
+  store ptr %62, ptr %12, align 8
+  br label %63
 
-62:                                               ; preds = %51
-  %63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN5ceres8internal5BlockESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
-  br label %44
+63:                                               ; preds = %52
+  %64 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN5ceres8internal5BlockESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
+  br label %45
 
-64:                                               ; preds = %46, %32, %26, %4
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %47, %33, %27, %4
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %10, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %11, align 4
-  br label %73
-
-68:                                               ; preds = %49
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %10, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %11, align 4
-  call void @_ZNSt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #16
-  br label %73
-
-72:                                               ; preds = %44
-  ret void
-
-73:                                               ; preds = %68, %64
-  call void @_ZNSt6vectorISt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #16
-  call void @_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #16
-  call void @_ZN5ceres8internal23BlockRandomAccessMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #16
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %10, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %11, align 4
   br label %74
 
-74:                                               ; preds = %73
-  %75 = load ptr, ptr %10, align 8
-  %76 = load i32, ptr %11, align 4
-  %77 = insertvalue { ptr, i32 } poison, ptr %75, 0
-  %78 = insertvalue { ptr, i32 } %77, i32 %76, 1
-  resume { ptr, i32 } %78
+69:                                               ; preds = %50
+  %70 = landingpad { ptr, i32 }
+          cleanup
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %10, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %11, align 4
+  call void @_ZNSt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #16
+  br label %74
+
+73:                                               ; preds = %45
+  ret void
+
+74:                                               ; preds = %69, %65
+  call void @_ZNSt6vectorISt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #16
+  call void @_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #16
+  call void @_ZN5ceres8internal23BlockRandomAccessMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #16
+  br label %75
+
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %10, align 8
+  %77 = load i32, ptr %11, align 4
+  %78 = insertvalue { ptr, i32 } poison, ptr %76, 0
+  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
+  resume { ptr, i32 } %79
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4049,7 +4050,8 @@ define linkonce_odr hidden void @_ZN5ceres8internal23BlockRandomAccessMatrixC2Ev
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5ceres8internal23BlockRandomAccessMatrixE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5ceres8internal23BlockRandomAccessMatrixE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5282,11 +5284,12 @@ define linkonce_odr hidden void @_ZN5ceres8internal31BlockRandomAccessDiagonalMa
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5ceres8internal31BlockRandomAccessDiagonalMatrixE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorISt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
-  %5 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5ceres8internal31BlockRandomAccessDiagonalMatrixE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorISt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
+  %6 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDiagonalMatrix", ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #16
   call void @_ZN5ceres8internal23BlockRandomAccessMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   ret void
 }
@@ -9116,7 +9119,8 @@ define linkonce_odr hidden void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9130,7 +9134,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -26568,7 +26573,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal20manage_caching_sizesENS_6Ac
 
 16:                                               ; preds = %13
   invoke void @_ZN5Eigen8internal10CacheSizesC2Ev(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes)
-          to label %17 unwind label %28
+          to label %17 unwind label %30
 
 17:                                               ; preds = %16
   call void @__cxa_guard_release(ptr @_ZGVZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes) #16
@@ -26577,7 +26582,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal20manage_caching_sizesENS_6Ac
 18:                                               ; preds = %17, %13, %4
   %19 = load i32, ptr %5, align 4
   %20 = icmp eq i32 %19, 1
-  br i1 %20, label %21, label %32
+  br i1 %20, label %21, label %34
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %6, align 8
@@ -26585,54 +26590,58 @@ define linkonce_odr hidden void @_ZN5Eigen8internal20manage_caching_sizesENS_6Ac
   store i64 %23, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, align 8
   %24 = load ptr, ptr %7, align 8
   %25 = load i64, ptr %24, align 8
-  store i64 %25, ptr getelementptr inbounds (%"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 1), align 8
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i64, ptr %26, align 8
-  store i64 %27, ptr getelementptr inbounds (%"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 2), align 8
-  br label %44
+  %26 = getelementptr inbounds %"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 1
+  store i64 %25, ptr %26, align 8
+  %27 = load ptr, ptr %8, align 8
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds %"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 2
+  store i64 %28, ptr %29, align 8
+  br label %48
 
-28:                                               ; preds = %16
-  %29 = landingpad { ptr, i32 }
+30:                                               ; preds = %16
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %9, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %10, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %9, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %10, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes) #16
-  br label %45
+  br label %49
 
-32:                                               ; preds = %18
-  %33 = load i32, ptr %5, align 4
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %42
+34:                                               ; preds = %18
+  %35 = load i32, ptr %5, align 4
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %46
 
-35:                                               ; preds = %32
-  %36 = load i64, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, align 8
-  %37 = load ptr, ptr %6, align 8
-  store i64 %36, ptr %37, align 8
-  %38 = load i64, ptr getelementptr inbounds (%"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 1), align 8
-  %39 = load ptr, ptr %7, align 8
+37:                                               ; preds = %34
+  %38 = load i64, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, align 8
+  %39 = load ptr, ptr %6, align 8
   store i64 %38, ptr %39, align 8
-  %40 = load i64, ptr getelementptr inbounds (%"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 2), align 8
-  %41 = load ptr, ptr %8, align 8
-  store i64 %40, ptr %41, align 8
-  br label %43
+  %40 = getelementptr inbounds %"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 1
+  %41 = load i64, ptr %40, align 8
+  %42 = load ptr, ptr %7, align 8
+  store i64 %41, ptr %42, align 8
+  %43 = getelementptr inbounds %"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 2
+  %44 = load i64, ptr %43, align 8
+  %45 = load ptr, ptr %8, align 8
+  store i64 %44, ptr %45, align 8
+  br label %47
 
-42:                                               ; preds = %32
-  br label %43
+46:                                               ; preds = %34
+  br label %47
 
-43:                                               ; preds = %42, %35
-  br label %44
+47:                                               ; preds = %46, %37
+  br label %48
 
-44:                                               ; preds = %43, %21
+48:                                               ; preds = %47, %21
   ret void
 
-45:                                               ; preds = %28
-  %46 = load ptr, ptr %9, align 8
-  %47 = load i32, ptr %10, align 4
-  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
-  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
-  resume { ptr, i32 } %49
+49:                                               ; preds = %30
+  %50 = load ptr, ptr %9, align 8
+  %51 = load i32, ptr %10, align 4
+  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39504,35 +39513,36 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal
   store ptr %3, ptr %9, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %12, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(128) %13) #16
-  %14 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(144) %12) #16
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = load ptr, ptr %9, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5ceres8internal19ParallelInvokeStateEJRiS6_RKiEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
-          to label %18 unwind label %19
-
-18:                                               ; preds = %4
-  ret void
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %12, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(128) %14) #16
+  %15 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(144) %12) #16
+  %16 = load ptr, ptr %7, align 8
+  %17 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5ceres8internal19ParallelInvokeStateEJRiS6_RKiEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+          to label %19 unwind label %20
 
 19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %10, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %11, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
-  br label %23
+  ret void
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %10, align 8
-  %25 = load i32, ptr %11, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+20:                                               ; preds = %4
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %10, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %11, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
+  br label %24
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %10, align 8
+  %26 = load i32, ptr %11, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39690,11 +39700,12 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 

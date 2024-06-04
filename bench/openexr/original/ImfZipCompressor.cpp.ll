@@ -50,26 +50,27 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %hdr.addr, align 8
   call void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(49) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213ZipCompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_213ZipCompressorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_maxScanLineSize = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %maxScanLineSize.addr, align 8
-  %conv = trunc i64 %1 to i32
+  %2 = load i64, ptr %maxScanLineSize.addr, align 8
+  %conv = trunc i64 %2 to i32
   store i32 %conv, ptr %_maxScanLineSize, align 8
   %_numScanLines = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %numScanLines.addr, align 8
-  %conv2 = trunc i64 %2 to i32
+  %3 = load i64, ptr %numScanLines.addr, align 8
+  %conv2 = trunc i64 %3 to i32
   store i32 %conv2, ptr %_numScanLines, align 4
   %_outBuffer = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this1, i32 0, i32 3
   store ptr null, ptr %_outBuffer, align 8
   %_zip = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this1, i32 0, i32 4
-  %3 = load i64, ptr %maxScanLineSize.addr, align 8
-  %4 = load i64, ptr %numScanLines.addr, align 8
-  %5 = load ptr, ptr %hdr.addr, align 8
-  %call = invoke noundef i32 @_ZNK7Imf_3_26Header19zipCompressionLevelEv(ptr noundef nonnull align 8 dereferenceable(49) %5)
+  %4 = load i64, ptr %maxScanLineSize.addr, align 8
+  %5 = load i64, ptr %numScanLines.addr, align 8
+  %6 = load ptr, ptr %hdr.addr, align 8
+  %call = invoke noundef i32 @_ZNK7Imf_3_26Header19zipCompressionLevelEv(ptr noundef nonnull align 8 dereferenceable(49) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN7Imf_3_23ZipC1Emmi(ptr noundef nonnull align 8 dereferenceable(20) %_zip, i64 noundef %3, i64 noundef %4, i32 noundef %call)
+  invoke void @_ZN7Imf_3_23ZipC1Emmi(ptr noundef nonnull align 8 dereferenceable(20) %_zip, i64 noundef %4, i64 noundef %5, i32 noundef %call)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -87,21 +88,21 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont7, %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_23ZipD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %_zip) #3
   br label %ehcleanup
 
@@ -142,14 +143,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213ZipCompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_213ZipCompressorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_outBuffer = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %_outBuffer, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_outBuffer, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdaPv(ptr noundef %0) #9
+  call void @_ZdaPv(ptr noundef %1) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry

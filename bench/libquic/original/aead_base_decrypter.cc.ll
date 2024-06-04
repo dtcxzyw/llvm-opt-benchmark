@@ -85,19 +85,20 @@ entry:
   store i64 %nonce_prefix_size, ptr %nonce_prefix_size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net13QuicDecrypterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net17AeadBaseDecrypterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3net17AeadBaseDecrypterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %aead_alg_ = getelementptr inbounds %"class.net::AeadBaseDecrypter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %aead_alg.addr, align 8
-  store ptr %0, ptr %aead_alg_, align 8
+  %1 = load ptr, ptr %aead_alg.addr, align 8
+  store ptr %1, ptr %aead_alg_, align 8
   %key_size_ = getelementptr inbounds %"class.net::AeadBaseDecrypter", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %key_size.addr, align 8
-  store i64 %1, ptr %key_size_, align 8
+  %2 = load i64, ptr %key_size.addr, align 8
+  store i64 %2, ptr %key_size_, align 8
   %auth_tag_size_ = getelementptr inbounds %"class.net::AeadBaseDecrypter", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %auth_tag_size.addr, align 8
-  store i64 %2, ptr %auth_tag_size_, align 8
+  %3 = load i64, ptr %auth_tag_size.addr, align 8
+  store i64 %3, ptr %auth_tag_size_, align 8
   %nonce_prefix_size_ = getelementptr inbounds %"class.net::AeadBaseDecrypter", ptr %this1, i32 0, i32 4
-  %3 = load i64, ptr %nonce_prefix_size.addr, align 8
-  store i64 %3, ptr %nonce_prefix_size_, align 8
+  %4 = load i64, ptr %nonce_prefix_size.addr, align 8
+  store i64 %4, ptr %nonce_prefix_size_, align 8
   %have_preliminary_key_ = getelementptr inbounds %"class.net::AeadBaseDecrypter", ptr %this1, i32 0, i32 5
   store i8 0, ptr %have_preliminary_key_, align 8
   %ctx_ = getelementptr inbounds %"class.net::AeadBaseDecrypter", ptr %this1, i32 0, i32 8
@@ -119,21 +120,21 @@ if.then:                                          ; preds = %invoke.cont4
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup67
 
 lpad2:                                            ; preds = %invoke.cont60, %if.else58, %invoke.cont54, %if.end52, %invoke.cont46, %if.else44, %invoke.cont40, %if.end38, %invoke.cont32, %if.else30, %invoke.cont26, %if.end24, %invoke.cont18, %if.else16, %invoke.cont12, %if.end, %invoke.cont5, %if.else, %invoke.cont3, %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont4
@@ -153,12 +154,12 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   br label %if.end
 
 lpad8:                                            ; preds = %invoke.cont7
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp) #6
   br label %ehcleanup
 
@@ -193,12 +194,12 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   br label %if.end24
 
 lpad21:                                           ; preds = %invoke.cont20
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp17) #6
   br label %ehcleanup
 
@@ -233,12 +234,12 @@ invoke.cont36:                                    ; preds = %invoke.cont34
   br label %if.end38
 
 lpad35:                                           ; preds = %invoke.cont34
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp31) #6
   br label %ehcleanup
 
@@ -273,12 +274,12 @@ invoke.cont50:                                    ; preds = %invoke.cont48
   br label %if.end52
 
 lpad49:                                           ; preds = %invoke.cont48
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp45) #6
   br label %ehcleanup
 
@@ -313,12 +314,12 @@ invoke.cont64:                                    ; preds = %invoke.cont62
   br label %if.end66
 
 lpad63:                                           ; preds = %invoke.cont62
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp59) #6
   br label %ehcleanup
 
@@ -347,7 +348,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net13QuicDecrypterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3net13QuicDecrypterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -417,7 +419,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net17AeadBaseDecrypterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3net17AeadBaseDecrypterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ctx_ = getelementptr inbounds %"class.net::AeadBaseDecrypter", ptr %this1, i32 0, i32 8
   call void @_ZN3net16ScopedEVPAEADCtxD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ctx_) #6
   call void @_ZN3net13QuicDecrypterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6

@@ -308,7 +308,8 @@ entry:
   %call = call ptr @qemu_ram_mmap(i32 noundef -1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef 0)
   store ptr %call, ptr %ptr, align 8
   %5 = load ptr, ptr %ptr, align 8
-  %cmp = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
+  %6 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %5, %6
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -316,27 +317,27 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %alignment.addr, align 8
-  %tobool4 = icmp ne ptr %6, null
+  %7 = load ptr, ptr %alignment.addr, align 8
+  %tobool4 = icmp ne ptr %7, null
   br i1 %tobool4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
-  %7 = load i64, ptr %align, align 8
-  %8 = load ptr, ptr %alignment.addr, align 8
-  store i64 %7, ptr %8, align 8
+  %8 = load i64, ptr %align, align 8
+  %9 = load ptr, ptr %alignment.addr, align 8
+  store i64 %8, ptr %9, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.end
-  %9 = load i64, ptr %size.addr, align 8
-  %10 = load ptr, ptr %ptr, align 8
-  call void @trace_qemu_anon_ram_alloc(i64 noundef %9, ptr noundef %10)
+  %10 = load i64, ptr %size.addr, align 8
   %11 = load ptr, ptr %ptr, align 8
-  store ptr %11, ptr %retval, align 8
+  call void @trace_qemu_anon_ram_alloc(i64 noundef %10, ptr noundef %11)
+  %12 = load ptr, ptr %ptr, align 8
+  store ptr %12, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then
-  %12 = load ptr, ptr %retval, align 8
-  ret ptr %12
+  %13 = load ptr, ptr %retval, align 8
+  ret ptr %13
 }
 
 declare ptr @qemu_ram_mmap(i32 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef) #3
@@ -905,17 +906,18 @@ for.end:                                          ; preds = %for.cond
   br label %if.end2
 
 if.end2:                                          ; preds = %for.end, %entry
-  %10 = load i32, ptr getelementptr inbounds (%struct.sigaction, ptr @sigbus_oldact, i32 0, i32 2), align 8
-  %and = and i32 %10, 4
+  %10 = getelementptr inbounds %struct.sigaction, ptr @sigbus_oldact, i32 0, i32 2
+  %11 = load i32, ptr %10, align 8
+  %and = and i32 %11, 4
   %tobool3 = icmp ne i32 %and, 0
   br i1 %tobool3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end2
-  %11 = load ptr, ptr @sigbus_oldact, align 8
-  %12 = load i32, ptr %signal.addr, align 4
-  %13 = load ptr, ptr %siginfo.addr, align 8
-  %14 = load ptr, ptr %ctx.addr, align 8
-  call void %11(i32 noundef %12, ptr noundef %13, ptr noundef %14)
+  %12 = load ptr, ptr @sigbus_oldact, align 8
+  %13 = load i32, ptr %signal.addr, align 4
+  %14 = load ptr, ptr %siginfo.addr, align 8
+  %15 = load ptr, ptr %ctx.addr, align 8
+  call void %12(i32 noundef %13, ptr noundef %14, ptr noundef %15)
   br label %return
 
 if.end5:                                          ; preds = %if.end2
@@ -1382,7 +1384,8 @@ cond.end6:                                        ; preds = %cond.false5, %cond.
   %call10 = call ptr @mmap64(ptr noundef null, i64 noundef %23, i32 noundef 3, i32 noundef %24, i32 noundef -1, i64 noundef 0) #11
   store ptr %call10, ptr %ptr, align 8
   %25 = load ptr, ptr %ptr, align 8
-  %cmp11 = icmp eq ptr %25, inttoptr (i64 -1 to ptr)
+  %26 = inttoptr i64 -1 to ptr
+  %cmp11 = icmp eq ptr %25, %26
   br i1 %cmp11, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end6
@@ -1391,9 +1394,9 @@ if.then:                                          ; preds = %cond.end6
   unreachable
 
 if.end:                                           ; preds = %cond.end6
-  %26 = load ptr, ptr %ptr, align 8
-  %27 = load i64, ptr %pagesz, align 8
-  %call12 = call i32 @mprotect(ptr noundef %26, i64 noundef %27, i32 noundef 0) #11
+  %27 = load ptr, ptr %ptr, align 8
+  %28 = load i64, ptr %pagesz, align 8
+  %call12 = call i32 @mprotect(ptr noundef %27, i64 noundef %28, i32 noundef 0) #11
   %cmp13 = icmp ne i32 %call12, 0
   br i1 %cmp13, label %if.then14, label %if.end15
 
@@ -1403,8 +1406,8 @@ if.then14:                                        ; preds = %if.end
   unreachable
 
 if.end15:                                         ; preds = %if.end
-  %28 = load ptr, ptr %ptr, align 8
-  ret ptr %28
+  %29 = load ptr, ptr %ptr, align 8
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

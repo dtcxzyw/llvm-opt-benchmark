@@ -21,7 +21,8 @@ entry:
   br i1 %cmp.i, label %cond.true19.i, label %cond.false21.i
 
 cond.true19.i:                                    ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::PidCache", ptr @_ZN5folly12_GLOBAL__N_16cache_E, i64 0, i32 1), align 4, !tbaa !7
+  %1 = getelementptr inbounds %"class.folly::(anonymous namespace)::PidCache", ptr @_ZN5folly12_GLOBAL__N_16cache_E, i64 0, i32 1
+  %2 = load i32, ptr %1, align 4, !tbaa !7
   br label %_ZN5folly12_GLOBAL__N_18PidCache3getEv.exit
 
 cond.false21.i:                                   ; preds = %entry
@@ -29,7 +30,7 @@ cond.false21.i:                                   ; preds = %entry
   br label %_ZN5folly12_GLOBAL__N_18PidCache3getEv.exit
 
 _ZN5folly12_GLOBAL__N_18PidCache3getEv.exit:      ; preds = %cond.false21.i, %cond.true19.i
-  %cond.i = phi i32 [ %1, %cond.true19.i ], [ %call22.i, %cond.false21.i ]
+  %cond.i = phi i32 [ %2, %cond.true19.i ], [ %call22.i, %cond.false21.i ]
   ret i32 %cond.i
 }
 
@@ -101,41 +102,42 @@ if.end.i.i24:                                     ; preds = %_ZN5folly8FunctionI
   br label %_ZN5folly8FunctionIFbvEED2Ev.exit
 
 _ZN5folly8FunctionIFbvEED2Ev.exit:                ; preds = %if.end.i.i24, %_ZN5folly8FunctionIFvvEED2Ev.exit21
-  store i32 %call, ptr getelementptr inbounds (%"class.folly::(anonymous namespace)::PidCache", ptr @_ZN5folly12_GLOBAL__N_16cache_E, i64 0, i32 1), align 4, !tbaa !7
+  %6 = getelementptr inbounds %"class.folly::(anonymous namespace)::PidCache", ptr @_ZN5folly12_GLOBAL__N_16cache_E, i64 0, i32 1
+  store i32 %call, ptr %6, align 4, !tbaa !7
   store atomic i8 2, ptr @_ZN5folly12_GLOBAL__N_16cache_E release, align 4
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = load ptr, ptr %exec_.i16, align 8, !tbaa !21
-  %tobool.not.i.i27 = icmp eq ptr %7, null
+  %8 = load ptr, ptr %exec_.i16, align 8, !tbaa !21
+  %tobool.not.i.i27 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i27, label %_ZN5folly8FunctionIFvvEED2Ev.exit30, label %if.end.i.i28
 
 if.end.i.i28:                                     ; preds = %lpad
-  %call.i.i29 = call noundef i64 %7(i32 noundef 1, ptr noundef nonnull %agg.tmp8, ptr noundef null) #8
+  %call.i.i29 = call noundef i64 %8(i32 noundef 1, ptr noundef nonnull %agg.tmp8, ptr noundef null) #8
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit30
 
 _ZN5folly8FunctionIFvvEED2Ev.exit30:              ; preds = %if.end.i.i28, %lpad
-  %8 = load ptr, ptr %exec_.i14, align 8, !tbaa !21
-  %tobool.not.i.i32 = icmp eq ptr %8, null
+  %9 = load ptr, ptr %exec_.i14, align 8, !tbaa !21
+  %tobool.not.i.i32 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i32, label %_ZN5folly8FunctionIFvvEED2Ev.exit35, label %if.end.i.i33
 
 if.end.i.i33:                                     ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit30
-  %call.i.i34 = call noundef i64 %8(i32 noundef 1, ptr noundef nonnull %agg.tmp6, ptr noundef null) #8
+  %call.i.i34 = call noundef i64 %9(i32 noundef 1, ptr noundef nonnull %agg.tmp6, ptr noundef null) #8
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit35
 
 _ZN5folly8FunctionIFvvEED2Ev.exit35:              ; preds = %if.end.i.i33, %_ZN5folly8FunctionIFvvEED2Ev.exit30
-  %9 = load ptr, ptr %exec_.i, align 8, !tbaa !18
-  %tobool.not.i.i37 = icmp eq ptr %9, null
+  %10 = load ptr, ptr %exec_.i, align 8, !tbaa !18
+  %tobool.not.i.i37 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i37, label %_ZN5folly8FunctionIFbvEED2Ev.exit40, label %if.end.i.i38
 
 if.end.i.i38:                                     ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit35
-  %call.i.i39 = call noundef i64 %9(i32 noundef 1, ptr noundef nonnull %agg.tmp, ptr noundef null) #8
+  %call.i.i39 = call noundef i64 %10(i32 noundef 1, ptr noundef nonnull %agg.tmp, ptr noundef null) #8
   br label %_ZN5folly8FunctionIFbvEED2Ev.exit40
 
 _ZN5folly8FunctionIFbvEED2Ev.exit40:              ; preds = %if.end.i.i38, %_ZN5folly8FunctionIFvvEED2Ev.exit35
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %7
 
 if.end:                                           ; preds = %_ZN5folly8FunctionIFbvEED2Ev.exit, %land.lhs.true, %entry
   ret i32 %call

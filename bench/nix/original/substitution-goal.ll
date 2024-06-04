@@ -4720,221 +4720,222 @@ define void @_ZN3nix20PathSubstitutionGoalC2ERKNS_9StorePathERNS_6WorkerENS_10Re
   call void @_ZN3nix9StorePathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
   call void @_ZN3nix11DerivedPathCI2St7variantIJNS_17DerivedPathOpaqueENS_16DerivedPathBuiltEEEIS2_vvS2_vEEOT_(ptr noundef nonnull align 8 dereferenceable(73) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #1
   invoke void @_ZN3nix4GoalC2ERNS_6WorkerENS_11DerivedPathE(ptr noundef nonnull align 8 dereferenceable(720) %21, ptr noundef nonnull align 8 dereferenceable(649) %22, ptr noundef %10)
-          to label %25 unwind label %73
+          to label %25 unwind label %74
 
 25:                                               ; preds = %5
   call void @_ZN3nix11DerivedPathD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %10) #1
   call void @_ZN3nix17DerivedPathOpaqueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3nix20PathSubstitutionGoalE, i32 0, i32 0, i32 2), ptr %21, align 8
-  %26 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 1
-  %27 = load ptr, ptr %7, align 8
-  invoke void @_ZN3nix9StorePathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %27)
-          to label %28 unwind label %77
+  %26 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3nix20PathSubstitutionGoalE, i32 0, i32 0, i32 2
+  store ptr %26, ptr %21, align 8
+  %27 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 1
+  %28 = load ptr, ptr %7, align 8
+  invoke void @_ZN3nix9StorePathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28)
+          to label %29 unwind label %78
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 2
-  call void @_ZNSt8optionalIN3nix9StorePathEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %29) #1
-  %30 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 3
-  call void @_ZNSt7__cxx114listIN3nix3refINS1_5StoreEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #1
-  %31 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 4
-  call void @_ZNSt10shared_ptrIN3nix5StoreEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #1
-  %32 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 5
-  store i8 0, ptr %32, align 8
-  %33 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 6
-  call void @_ZNSt10shared_ptrIKN3nix13ValidPathInfoEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #1
-  %34 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 7
-  invoke void @_ZN3nix4PipeC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %34)
-          to label %35 unwind label %81
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 2
+  call void @_ZNSt8optionalIN3nix9StorePathEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %30) #1
+  %31 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 3
+  call void @_ZNSt7__cxx114listIN3nix3refINS1_5StoreEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #1
+  %32 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 4
+  call void @_ZNSt10shared_ptrIN3nix5StoreEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #1
+  %33 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 5
+  store i8 0, ptr %33, align 8
+  %34 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 6
+  call void @_ZNSt10shared_ptrIKN3nix13ValidPathInfoEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %34) #1
+  %35 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 7
+  invoke void @_ZN3nix4PipeC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %35)
+          to label %36 unwind label %82
 
-35:                                               ; preds = %28
-  %36 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 8
-  call void @_ZNSt6threadC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #1
-  %37 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 9
-  invoke void @_ZNSt7promiseIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37)
-          to label %38 unwind label %85
+36:                                               ; preds = %29
+  %37 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 8
+  call void @_ZNSt6threadC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #1
+  %38 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 9
+  invoke void @_ZNSt7promiseIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38)
+          to label %39 unwind label %86
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 10
-  %40 = load i8, ptr %9, align 1
-  %41 = trunc i8 %40 to i1
-  %42 = zext i1 %41 to i8
-  store i8 %42, ptr %39, align 8
-  %43 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #1
-  %44 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 12
-  call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %44) #1
-  %45 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 13
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 10
+  %41 = load i8, ptr %9, align 1
+  %42 = trunc i8 %41 to i1
+  %43 = zext i1 %42 to i8
+  store i8 %43, ptr %40, align 8
+  %44 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #1
+  %45 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 12
   call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %45) #1
-  %46 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 14
+  %46 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 13
   call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %46) #1
-  %47 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 15
+  %47 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 14
   call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %47) #1
-  %48 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 17
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %4, i64 96, i1 false)
-  %49 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 16
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3nix20PathSubstitutionGoal4initEv to i64), i64 0 }, ptr %49, align 8
+  %48 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 15
+  call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %48) #1
+  %49 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr align 8 %4, i64 96, i1 false)
+  %50 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 16
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3nix20PathSubstitutionGoal4initEv to i64), i64 0 }, ptr %50, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %50 unwind label %89
+          to label %51 unwind label %90
 
-50:                                               ; preds = %38
-  %51 = load ptr, ptr %8, align 8
-  %52 = getelementptr inbounds %"class.nix::Worker", ptr %51, i32 0, i32 21
-  %53 = load ptr, ptr %52, align 8
+51:                                               ; preds = %39
+  %52 = load ptr, ptr %8, align 8
+  %53 = getelementptr inbounds %"class.nix::Worker", ptr %52, i32 0, i32 21
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr i8, ptr %54, i64 -24
-  %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %53, i64 %56
-  %58 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 1
-  invoke void @_ZNK3nix14StoreDirConfig14printStorePathB5cxx11ERKNS_9StorePathE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(344) %57, ptr noundef nonnull align 8 dereferenceable(32) %58)
-          to label %59 unwind label %93
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr i8, ptr %55, i64 -24
+  %57 = load i64, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %54, i64 %57
+  %59 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 1
+  invoke void @_ZNK3nix14StoreDirConfig14printStorePathB5cxx11ERKNS_9StorePathE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(344) %58, ptr noundef nonnull align 8 dereferenceable(32) %59)
+          to label %60 unwind label %94
 
-59:                                               ; preds = %50
+60:                                               ; preds = %51
   invoke void @_ZN3nix3fmtIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES6_RKS6_DpRKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %60 unwind label %97
+          to label %61 unwind label %98
 
-60:                                               ; preds = %59
-  %61 = getelementptr inbounds %"struct.nix::Goal", ptr %21, i32 0, i32 8
-  %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %14) #1
+61:                                               ; preds = %60
+  %62 = getelementptr inbounds %"struct.nix::Goal", ptr %21, i32 0, i32 8
+  %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %14) #1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #1
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef @.str.4) #1
-  %63 = getelementptr inbounds { i64, ptr }, ptr %18, i32 0, i32 0
-  %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds { i64, ptr }, ptr %18, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8
-  invoke void @_ZN3nix4Goal5traceESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(720) %21, i64 %64, ptr %66)
-          to label %67 unwind label %103
+  %64 = getelementptr inbounds { i64, ptr }, ptr %18, i32 0, i32 0
+  %65 = load i64, ptr %64, align 8
+  %66 = getelementptr inbounds { i64, ptr }, ptr %18, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8
+  invoke void @_ZN3nix4Goal5traceESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(720) %21, i64 %65, ptr %67)
+          to label %68 unwind label %104
 
-67:                                               ; preds = %60
-  %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds %"class.nix::Worker", ptr %68, i32 0, i32 28
-  invoke void @_ZSt11make_uniqueIN3nix13MaintainCountImEEJRmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.91") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %69)
-          to label %70 unwind label %103
+68:                                               ; preds = %61
+  %69 = load ptr, ptr %8, align 8
+  %70 = getelementptr inbounds %"class.nix::Worker", ptr %69, i32 0, i32 28
+  invoke void @_ZSt11make_uniqueIN3nix13MaintainCountImEEJRmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.91") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %70)
+          to label %71 unwind label %104
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 12
-  %72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %19) #1
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %21, i32 0, i32 12
+  %73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull align 8 dereferenceable(8) %19) #1
   call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #1
   ret void
 
-73:                                               ; preds = %5
-  %74 = landingpad { ptr, i32 }
+74:                                               ; preds = %5
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %12, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %13, align 4
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %12, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %13, align 4
   call void @_ZN3nix11DerivedPathD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %10) #1
   call void @_ZN3nix17DerivedPathOpaqueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #1
+  br label %112
+
+78:                                               ; preds = %25
+  %79 = landingpad { ptr, i32 }
+          cleanup
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %12, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %13, align 4
   br label %111
 
-77:                                               ; preds = %25
-  %78 = landingpad { ptr, i32 }
+82:                                               ; preds = %29
+  %83 = landingpad { ptr, i32 }
           cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %12, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %13, align 4
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %12, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %13, align 4
   br label %110
 
-81:                                               ; preds = %28
-  %82 = landingpad { ptr, i32 }
+86:                                               ; preds = %36
+  %87 = landingpad { ptr, i32 }
           cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %12, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %13, align 4
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %12, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %13, align 4
   br label %109
 
-85:                                               ; preds = %35
-  %86 = landingpad { ptr, i32 }
+90:                                               ; preds = %39
+  %91 = landingpad { ptr, i32 }
           cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %12, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %13, align 4
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %12, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %13, align 4
+  br label %103
+
+94:                                               ; preds = %51
+  %95 = landingpad { ptr, i32 }
+          cleanup
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %12, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %13, align 4
+  br label %102
+
+98:                                               ; preds = %60
+  %99 = landingpad { ptr, i32 }
+          cleanup
+  %100 = extractvalue { ptr, i32 } %99, 0
+  store ptr %100, ptr %12, align 8
+  %101 = extractvalue { ptr, i32 } %99, 1
+  store i32 %101, ptr %13, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #1
+  br label %102
+
+102:                                              ; preds = %98, %94
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #1
+  br label %103
+
+103:                                              ; preds = %102, %90
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #1
   br label %108
 
-89:                                               ; preds = %38
-  %90 = landingpad { ptr, i32 }
+104:                                              ; preds = %68, %61
+  %105 = landingpad { ptr, i32 }
           cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %12, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %13, align 4
-  br label %102
+  %106 = extractvalue { ptr, i32 } %105, 0
+  store ptr %106, ptr %12, align 8
+  %107 = extractvalue { ptr, i32 } %105, 1
+  store i32 %107, ptr %13, align 4
+  br label %108
 
-93:                                               ; preds = %50
-  %94 = landingpad { ptr, i32 }
-          cleanup
-  %95 = extractvalue { ptr, i32 } %94, 0
-  store ptr %95, ptr %12, align 8
-  %96 = extractvalue { ptr, i32 } %94, 1
-  store i32 %96, ptr %13, align 4
-  br label %101
-
-97:                                               ; preds = %59
-  %98 = landingpad { ptr, i32 }
-          cleanup
-  %99 = extractvalue { ptr, i32 } %98, 0
-  store ptr %99, ptr %12, align 8
-  %100 = extractvalue { ptr, i32 } %98, 1
-  store i32 %100, ptr %13, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #1
-  br label %101
-
-101:                                              ; preds = %97, %93
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #1
-  br label %102
-
-102:                                              ; preds = %101, %89
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #1
-  br label %107
-
-103:                                              ; preds = %67, %60
-  %104 = landingpad { ptr, i32 }
-          cleanup
-  %105 = extractvalue { ptr, i32 } %104, 0
-  store ptr %105, ptr %12, align 8
-  %106 = extractvalue { ptr, i32 } %104, 1
-  store i32 %106, ptr %13, align 4
-  br label %107
-
-107:                                              ; preds = %103, %102
+108:                                              ; preds = %104, %103
+  call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #1
   call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #1
   call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #1
   call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #1
-  call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #1
-  call void @_ZNSt7promiseIvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #1
-  br label %108
-
-108:                                              ; preds = %107, %85
-  call void @_ZNSt6threadD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #1
-  call void @_ZN3nix4PipeD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %34) #1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #1
+  call void @_ZNSt7promiseIvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #1
   br label %109
 
-109:                                              ; preds = %108, %81
-  call void @_ZNSt10shared_ptrIKN3nix13ValidPathInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #1
-  call void @_ZNSt10shared_ptrIN3nix5StoreEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #1
-  call void @_ZNSt7__cxx114listIN3nix3refINS1_5StoreEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #1
-  call void @_ZNSt8optionalIN3nix9StorePathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %29) #1
-  call void @_ZN3nix9StorePathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #1
+109:                                              ; preds = %108, %86
+  call void @_ZNSt6threadD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #1
+  call void @_ZN3nix4PipeD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %35) #1
   br label %110
 
-110:                                              ; preds = %109, %77
-  call void @_ZN3nix4GoalD2Ev(ptr noundef nonnull align 8 dereferenceable(720) %21) #1
+110:                                              ; preds = %109, %82
+  call void @_ZNSt10shared_ptrIKN3nix13ValidPathInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %34) #1
+  call void @_ZNSt10shared_ptrIN3nix5StoreEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #1
+  call void @_ZNSt7__cxx114listIN3nix3refINS1_5StoreEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #1
+  call void @_ZNSt8optionalIN3nix9StorePathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %30) #1
+  call void @_ZN3nix9StorePathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #1
   br label %111
 
-111:                                              ; preds = %110, %73
-  %112 = load ptr, ptr %12, align 8
-  %113 = load i32, ptr %13, align 4
-  %114 = insertvalue { ptr, i32 } poison, ptr %112, 0
-  %115 = insertvalue { ptr, i32 } %114, i32 %113, 1
-  resume { ptr, i32 } %115
+111:                                              ; preds = %110, %78
+  call void @_ZN3nix4GoalD2Ev(ptr noundef nonnull align 8 dereferenceable(720) %21) #1
+  br label %112
+
+112:                                              ; preds = %111, %74
+  %113 = load ptr, ptr %12, align 8
+  %114 = load i32, ptr %13, align 4
+  %115 = insertvalue { ptr, i32 } poison, ptr %113, 0
+  %116 = insertvalue { ptr, i32 } %115, i32 %114, 1
+  resume { ptr, i32 } %116
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4974,28 +4975,29 @@ define linkonce_odr void @_ZN3nix4GoalC2ERNS_6WorkerENS_11DerivedPathE(ptr nound
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   call void @_ZNSt23enable_shared_from_thisIN3nix4GoalEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3nix4GoalE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 2
-  %10 = load ptr, ptr %5, align 8
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 3
-  call void @_ZNSt3setISt10shared_ptrIN3nix4GoalEENS1_15CompareGoalPtrsESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #1
-  %12 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 4
-  call void @_ZNSt3setISt8weak_ptrIN3nix4GoalEESt10owner_lessIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #1
-  %13 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 5
-  store i64 0, ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 6
+  %9 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3nix4GoalE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 2
+  %11 = load ptr, ptr %5, align 8
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 3
+  call void @_ZNSt3setISt10shared_ptrIN3nix4GoalEENS1_15CompareGoalPtrsESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #1
+  %13 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 4
+  call void @_ZNSt3setISt8weak_ptrIN3nix4GoalEESt10owner_lessIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #1
+  %14 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 5
   store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 7
+  %15 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 6
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #1
-  %17 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 9
-  store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 10
-  call void @_ZN3nix11BuildResultC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %18) #1
-  %19 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 11
-  call void @_ZNSt8optionalIN3nix5ErrorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %19) #1
+  %16 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 7
+  store i64 0, ptr %16, align 8
+  %17 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #1
+  %18 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 9
+  store i32 0, ptr %18, align 8
+  %19 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 10
+  call void @_ZN3nix11BuildResultC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %19) #1
+  %20 = getelementptr inbounds %"struct.nix::Goal", ptr %7, i32 0, i32 11
+  call void @_ZNSt8optionalIN3nix5ErrorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %20) #1
   ret void
 }
 
@@ -5248,7 +5250,7 @@ define void @_ZN3nix20PathSubstitutionGoal4initEv(ptr noundef nonnull align 8 de
 
 37:                                               ; preds = %36
   call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #1
-  br label %85
+  br label %87
 
 38:                                               ; preds = %36
   %39 = landingpad { ptr, i32 }
@@ -5258,119 +5260,121 @@ define void @_ZN3nix20PathSubstitutionGoal4initEv(ptr noundef nonnull align 8 de
   %41 = extractvalue { ptr, i32 } %39, 1
   store i32 %41, ptr %6, align 4
   call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #1
-  br label %86
+  br label %88
 
 42:                                               ; preds = %29, %1
-  %43 = load i8, ptr getelementptr inbounds (%"class.nix::Settings", ptr @_ZN3nix8settingsE, i32 0, i32 21), align 8
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %76
+  %43 = getelementptr inbounds %"class.nix::Settings", ptr @_ZN3nix8settingsE, i32 0, i32 21
+  %44 = load i8, ptr %43, align 8
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %77
 
-45:                                               ; preds = %42
+46:                                               ; preds = %42
   store i1 true, ptr %10, align 1
-  %46 = call ptr @__cxa_allocate_exception(i64 376) #1
+  %47 = call ptr @__cxa_allocate_exception(i64 376) #1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %47 unwind label %59
+          to label %48 unwind label %60
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds %"struct.nix::Goal", ptr %12, i32 0, i32 2
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds %"class.nix::Worker", ptr %49, i32 0, i32 21
-  %51 = load ptr, ptr %50, align 8
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds %"struct.nix::Goal", ptr %12, i32 0, i32 2
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds %"class.nix::Worker", ptr %50, i32 0, i32 21
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr i8, ptr %52, i64 -24
-  %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %51, i64 %54
-  %56 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %12, i32 0, i32 1
-  invoke void @_ZNK3nix14StoreDirConfig14printStorePathB5cxx11ERKNS_9StorePathE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(344) %55, ptr noundef nonnull align 8 dereferenceable(32) %56)
-          to label %57 unwind label %63
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr i8, ptr %53, i64 -24
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %52, i64 %55
+  %57 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %12, i32 0, i32 1
+  invoke void @_ZNK3nix14StoreDirConfig14printStorePathB5cxx11ERKNS_9StorePathE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(344) %56, ptr noundef nonnull align 8 dereferenceable(32) %57)
+          to label %58 unwind label %64
 
-57:                                               ; preds = %47
-  invoke void @_ZN3nix5ErrorCI2NS_9BaseErrorEIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERKS6_DpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %46, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %58 unwind label %67
+58:                                               ; preds = %48
+  invoke void @_ZN3nix5ErrorCI2NS_9BaseErrorEIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERKS6_DpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %47, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %59 unwind label %68
 
-58:                                               ; preds = %57
+59:                                               ; preds = %58
   store i1 false, ptr %10, align 1
-  invoke void @__cxa_throw(ptr %46, ptr @_ZTIN3nix5ErrorE, ptr @_ZN3nix5ErrorD2Ev) #24
-          to label %91 unwind label %67
+  invoke void @__cxa_throw(ptr %47, ptr @_ZTIN3nix5ErrorE, ptr @_ZN3nix5ErrorD2Ev) #24
+          to label %93 unwind label %68
 
-59:                                               ; preds = %45
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %46
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %5, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %6, align 4
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %5, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %6, align 4
+  br label %73
+
+64:                                               ; preds = %48
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %5, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %6, align 4
   br label %72
 
-63:                                               ; preds = %47
-  %64 = landingpad { ptr, i32 }
+68:                                               ; preds = %59, %58
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %5, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %6, align 4
-  br label %71
-
-67:                                               ; preds = %58, %57
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %5, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %6, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %5, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %6, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #1
-  br label %71
-
-71:                                               ; preds = %67, %63
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #1
   br label %72
 
-72:                                               ; preds = %71, %59
+72:                                               ; preds = %68, %64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #1
+  br label %73
+
+73:                                               ; preds = %72, %60
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #1
-  %73 = load i1, ptr %10, align 1
-  br i1 %73, label %74, label %75
+  %74 = load i1, ptr %10, align 1
+  br i1 %74, label %75, label %76
 
-74:                                               ; preds = %72
-  call void @__cxa_free_exception(ptr %46) #1
-  br label %75
+75:                                               ; preds = %73
+  call void @__cxa_free_exception(ptr %47) #1
+  br label %76
 
-75:                                               ; preds = %74, %72
-  br label %86
+76:                                               ; preds = %75, %73
+  br label %88
 
-76:                                               ; preds = %42
-  %77 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN3nix11BaseSettingIbEcvRbEv(ptr noundef nonnull align 8 dereferenceable(139) getelementptr inbounds (%"class.nix::Settings", ptr @_ZN3nix8settingsE, i32 0, i32 34))
-  %78 = load i8, ptr %77, align 1
-  %79 = trunc i8 %78 to i1
-  br i1 %79, label %80, label %81
+77:                                               ; preds = %42
+  %78 = getelementptr inbounds %"class.nix::Settings", ptr @_ZN3nix8settingsE, i32 0, i32 34
+  %79 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN3nix11BaseSettingIbEcvRbEv(ptr noundef nonnull align 8 dereferenceable(139) %78)
+  %80 = load i8, ptr %79, align 1
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %82, label %83
 
-80:                                               ; preds = %76
+82:                                               ; preds = %77
   call void @_ZN3nix22getDefaultSubstitutersB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::list.75") align 8 %11)
-  br label %82
+  br label %84
 
-81:                                               ; preds = %76
+83:                                               ; preds = %77
   call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx114listIN3nix3refINS1_5StoreEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #1
-  br label %82
+  br label %84
 
-82:                                               ; preds = %81, %80
-  %83 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %12, i32 0, i32 3
-  %84 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt7__cxx114listIN3nix3refINS1_5StoreEEESaIS4_EEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %11) #1
+84:                                               ; preds = %83, %82
+  %85 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %12, i32 0, i32 3
+  %86 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt7__cxx114listIN3nix3refINS1_5StoreEEESaIS4_EEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %11) #1
   call void @_ZNSt7__cxx114listIN3nix3refINS1_5StoreEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #1
   call void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8 dereferenceable(1080) %12)
-  br label %85
+  br label %87
 
-85:                                               ; preds = %82, %37
+87:                                               ; preds = %84, %37
   ret void
 
-86:                                               ; preds = %75, %38
-  %87 = load ptr, ptr %5, align 8
-  %88 = load i32, ptr %6, align 4
-  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
-  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
-  resume { ptr, i32 } %90
+88:                                               ; preds = %76, %38
+  %89 = load ptr, ptr %5, align 8
+  %90 = load i32, ptr %6, align 4
+  %91 = insertvalue { ptr, i32 } poison, ptr %89, 0
+  %92 = insertvalue { ptr, i32 } %91, i32 %90, 1
+  resume { ptr, i32 } %92
 
-91:                                               ; preds = %58
+93:                                               ; preds = %59
   unreachable
 }
 
@@ -5888,35 +5892,36 @@ define linkonce_odr void @_ZN3nix4GoalD2Ev(ptr noundef nonnull align 8 dereferen
   %3 = alloca %"class.std::basic_string_view", align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3nix4GoalE, i32 0, i32 0, i32 2), ptr %4, align 8
+  %5 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3nix4GoalE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef @.str.22) #1
-  %5 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 0
-  %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 1
-  %8 = load ptr, ptr %7, align 8
-  invoke void @_ZN3nix4Goal5traceESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(720) %4, i64 %6, ptr %8)
-          to label %9 unwind label %16
+  %6 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 0
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  invoke void @_ZN3nix4Goal5traceESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(720) %4, i64 %7, ptr %9)
+          to label %10 unwind label %17
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds %"struct.nix::Goal", ptr %4, i32 0, i32 11
-  call void @_ZNSt8optionalIN3nix5ErrorEED2Ev(ptr noundef nonnull align 8 dereferenceable(384) %10) #1
-  %11 = getelementptr inbounds %"struct.nix::Goal", ptr %4, i32 0, i32 10
-  call void @_ZN3nix11BuildResultD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %11) #1
-  %12 = getelementptr inbounds %"struct.nix::Goal", ptr %4, i32 0, i32 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #1
-  %13 = getelementptr inbounds %"struct.nix::Goal", ptr %4, i32 0, i32 4
-  call void @_ZNSt3setISt8weak_ptrIN3nix4GoalEESt10owner_lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #1
-  %14 = getelementptr inbounds %"struct.nix::Goal", ptr %4, i32 0, i32 3
-  call void @_ZNSt3setISt10shared_ptrIN3nix4GoalEENS1_15CompareGoalPtrsESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #1
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZNSt23enable_shared_from_thisIN3nix4GoalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #1
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %"struct.nix::Goal", ptr %4, i32 0, i32 11
+  call void @_ZNSt8optionalIN3nix5ErrorEED2Ev(ptr noundef nonnull align 8 dereferenceable(384) %11) #1
+  %12 = getelementptr inbounds %"struct.nix::Goal", ptr %4, i32 0, i32 10
+  call void @_ZN3nix11BuildResultD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %12) #1
+  %13 = getelementptr inbounds %"struct.nix::Goal", ptr %4, i32 0, i32 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #1
+  %14 = getelementptr inbounds %"struct.nix::Goal", ptr %4, i32 0, i32 4
+  call void @_ZNSt3setISt8weak_ptrIN3nix4GoalEESt10owner_lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #1
+  %15 = getelementptr inbounds %"struct.nix::Goal", ptr %4, i32 0, i32 3
+  call void @_ZNSt3setISt10shared_ptrIN3nix4GoalEENS1_15CompareGoalPtrsESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #1
+  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  call void @_ZNSt23enable_shared_from_thisIN3nix4GoalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #1
   ret void
 
-16:                                               ; preds = %1
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %1
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #23
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #23
   unreachable
 }
 
@@ -5925,45 +5930,46 @@ define void @_ZN3nix20PathSubstitutionGoalD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3nix20PathSubstitutionGoalE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3nix20PathSubstitutionGoalE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN3nix20PathSubstitutionGoal7cleanupEv(ptr noundef nonnull align 8 dereferenceable(1080) %3)
-          to label %4 unwind label %18
+          to label %5 unwind label %19
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 15
-  call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #1
-  %6 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 14
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 15
   call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #1
-  %7 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 13
+  %7 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 14
   call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  %8 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 12
+  %8 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 13
   call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #1
-  %9 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #1
-  %10 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 9
-  call void @_ZNSt7promiseIvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #1
-  %11 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 8
-  call void @_ZNSt6threadD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #1
-  %12 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 7
-  call void @_ZN3nix4PipeD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %12) #1
-  %13 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 6
-  call void @_ZNSt10shared_ptrIKN3nix13ValidPathInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #1
-  %14 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 4
-  call void @_ZNSt10shared_ptrIN3nix5StoreEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #1
-  %15 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx114listIN3nix3refINS1_5StoreEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #1
-  %16 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 2
-  call void @_ZNSt8optionalIN3nix9StorePathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #1
-  %17 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 1
-  call void @_ZN3nix9StorePathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #1
+  %9 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 12
+  call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #1
+  %10 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #1
+  %11 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 9
+  call void @_ZNSt7promiseIvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #1
+  %12 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 8
+  call void @_ZNSt6threadD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #1
+  %13 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 7
+  call void @_ZN3nix4PipeD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %13) #1
+  %14 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 6
+  call void @_ZNSt10shared_ptrIKN3nix13ValidPathInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #1
+  %15 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 4
+  call void @_ZNSt10shared_ptrIN3nix5StoreEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #1
+  %16 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx114listIN3nix3refINS1_5StoreEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #1
+  %17 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 2
+  call void @_ZNSt8optionalIN3nix9StorePathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #1
+  %18 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %3, i32 0, i32 1
+  call void @_ZN3nix9StorePathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #1
   call void @_ZN3nix4GoalD2Ev(ptr noundef nonnull align 8 dereferenceable(720) %3) #1
   ret void
 
-18:                                               ; preds = %1
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %1
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #23
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #23
   unreachable
 }
 
@@ -6321,7 +6327,8 @@ define linkonce_odr void @_ZN3nix5ErrorCI2NS_9BaseErrorEIJNSt7__cxx1112basic_str
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERKS7_DpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix5ErrorE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3nix5ErrorE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -6530,10 +6537,10 @@ define void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8
 
 103:                                              ; preds = %102, %85
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #1
-  br label %534
+  br label %536
 
 104:                                              ; preds = %77, %73
-  br label %532
+  br label %534
 
 105:                                              ; preds = %1
   %106 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 3
@@ -6636,7 +6643,7 @@ define void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8
 
 167:                                              ; preds = %163, %159
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #1
-  br label %534
+  br label %536
 
 168:                                              ; preds = %158, %138
   br label %190
@@ -6664,7 +6671,7 @@ define void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8
 
 188:                                              ; preds = %169
   call void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8 dereferenceable(1080) %48)
-  br label %532
+  br label %534
 
 189:                                              ; preds = %169
   br label %190
@@ -6699,7 +6706,7 @@ define void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8
   %205 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIKN3nix13ValidPathInfoEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %204, ptr noundef nonnull align 8 dereferenceable(16) %18) #1
   call void @_ZNSt10shared_ptrIKN3nix13ValidPathInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #1
   call void @_ZN3nix3refIKNS_13ValidPathInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #1
-  br label %281
+  br label %283
 
 206:                                              ; preds = %200
   %207 = landingpad { ptr, i32 }
@@ -6727,7 +6734,7 @@ define void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8
 
 214:                                              ; preds = %210, %206
   %215 = load i32, ptr %9, align 4
-  %216 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix11InvalidPathE) #1
+  %216 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix11InvalidPathE) #1
   %217 = icmp eq i32 %215, %216
   br i1 %217, label %218, label %222
 
@@ -6736,673 +6743,675 @@ define void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8
   %220 = call ptr @__cxa_begin_catch(ptr %219) #1
   store ptr %220, ptr %23, align 8
   invoke void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8 dereferenceable(1080) %48)
-          to label %221 unwind label %276
+          to label %221 unwind label %278
 
 221:                                              ; preds = %218
   call void @__cxa_end_catch()
-  br label %532
+  br label %534
 
 222:                                              ; preds = %214
-  %223 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix19SubstituterDisabledE) #1
+  %223 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix19SubstituterDisabledE) #1
   %224 = icmp eq i32 %215, %223
-  br i1 %224, label %225, label %234
+  br i1 %224, label %225, label %235
 
 225:                                              ; preds = %222
   %226 = load ptr, ptr %8, align 8
   %227 = call ptr @__cxa_begin_catch(ptr %226) #1
   store ptr %227, ptr %22, align 8
-  %228 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN3nix11BaseSettingIbEcvRbEv(ptr noundef nonnull align 8 dereferenceable(139) getelementptr inbounds (%"class.nix::Settings", ptr @_ZN3nix8settingsE, i32 0, i32 14))
-          to label %229 unwind label %270
+  %228 = getelementptr inbounds %"class.nix::Settings", ptr @_ZN3nix8settingsE, i32 0, i32 14
+  %229 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN3nix11BaseSettingIbEcvRbEv(ptr noundef nonnull align 8 dereferenceable(139) %228)
+          to label %230 unwind label %272
 
-229:                                              ; preds = %225
-  %230 = load i8, ptr %228, align 1
-  %231 = trunc i8 %230 to i1
-  br i1 %231, label %232, label %274
+230:                                              ; preds = %225
+  %231 = load i8, ptr %229, align 1
+  %232 = trunc i8 %231 to i1
+  br i1 %232, label %233, label %276
 
-232:                                              ; preds = %229
+233:                                              ; preds = %230
   invoke void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8 dereferenceable(1080) %48)
-          to label %233 unwind label %270
+          to label %234 unwind label %272
 
-233:                                              ; preds = %232
+234:                                              ; preds = %233
   call void @__cxa_end_catch()
-  br label %532
+  br label %534
 
-234:                                              ; preds = %222
-  %235 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix5ErrorE) #1
-  %236 = icmp eq i32 %215, %235
-  br i1 %236, label %237, label %534
+235:                                              ; preds = %222
+  %236 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix5ErrorE) #1
+  %237 = icmp eq i32 %215, %236
+  br i1 %237, label %238, label %536
 
-237:                                              ; preds = %234
-  %238 = load ptr, ptr %8, align 8
-  %239 = call ptr @__cxa_begin_catch(ptr %238) #1
-  store ptr %239, ptr %20, align 8
-  %240 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN3nix11BaseSettingIbEcvRbEv(ptr noundef nonnull align 8 dereferenceable(139) getelementptr inbounds (%"class.nix::Settings", ptr @_ZN3nix8settingsE, i32 0, i32 14))
-          to label %241 unwind label %255
+238:                                              ; preds = %235
+  %239 = load ptr, ptr %8, align 8
+  %240 = call ptr @__cxa_begin_catch(ptr %239) #1
+  store ptr %240, ptr %20, align 8
+  %241 = getelementptr inbounds %"class.nix::Settings", ptr @_ZN3nix8settingsE, i32 0, i32 14
+  %242 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN3nix11BaseSettingIbEcvRbEv(ptr noundef nonnull align 8 dereferenceable(139) %241)
+          to label %243 unwind label %257
 
-241:                                              ; preds = %237
-  %242 = load i8, ptr %240, align 1
-  %243 = trunc i8 %242 to i1
-  br i1 %243, label %244, label %267
+243:                                              ; preds = %238
+  %244 = load i8, ptr %242, align 1
+  %245 = trunc i8 %244 to i1
+  br i1 %245, label %246, label %269
 
-244:                                              ; preds = %241
-  br label %245
+246:                                              ; preds = %243
+  br label %247
 
-245:                                              ; preds = %244
-  %246 = load i32, ptr @_ZN3nix9verbosityE, align 4
-  %247 = icmp sle i32 0, %246
-  br i1 %247, label %248, label %263
+247:                                              ; preds = %246
+  %248 = load i32, ptr @_ZN3nix9verbosityE, align 4
+  %249 = icmp sle i32 0, %248
+  br i1 %249, label %250, label %265
 
-248:                                              ; preds = %245
-  %249 = load ptr, ptr @_ZN3nix6loggerE, align 8
-  %250 = load ptr, ptr %20, align 8
-  %251 = invoke noundef nonnull align 8 dereferenceable(328) ptr @_ZN3nix9BaseError4infoEv(ptr noundef nonnull align 8 dereferenceable(376) %250)
-          to label %252 unwind label %255
+250:                                              ; preds = %247
+  %251 = load ptr, ptr @_ZN3nix6loggerE, align 8
+  %252 = load ptr, ptr %20, align 8
+  %253 = invoke noundef nonnull align 8 dereferenceable(328) ptr @_ZN3nix9BaseError4infoEv(ptr noundef nonnull align 8 dereferenceable(376) %252)
+          to label %254 unwind label %257
 
-252:                                              ; preds = %248
-  invoke void @_ZN3nix9ErrorInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(328) %21, ptr noundef nonnull align 8 dereferenceable(328) %251)
-          to label %253 unwind label %255
+254:                                              ; preds = %250
+  invoke void @_ZN3nix9ErrorInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(328) %21, ptr noundef nonnull align 8 dereferenceable(328) %253)
+          to label %255 unwind label %257
 
-253:                                              ; preds = %252
-  invoke void @_ZN3nix6Logger5logEIENS_9VerbosityENS_9ErrorInfoE(ptr noundef nonnull align 8 dereferenceable(8) %249, i32 noundef 0, ptr noundef %21)
-          to label %254 unwind label %259
+255:                                              ; preds = %254
+  invoke void @_ZN3nix6Logger5logEIENS_9VerbosityENS_9ErrorInfoE(ptr noundef nonnull align 8 dereferenceable(8) %251, i32 noundef 0, ptr noundef %21)
+          to label %256 unwind label %261
 
-254:                                              ; preds = %253
+256:                                              ; preds = %255
   call void @_ZN3nix9ErrorInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %21) #1
-  br label %263
-
-255:                                              ; preds = %267, %265, %252, %248, %237
-  %256 = landingpad { ptr, i32 }
-          cleanup
-  %257 = extractvalue { ptr, i32 } %256, 0
-  store ptr %257, ptr %8, align 8
-  %258 = extractvalue { ptr, i32 } %256, 1
-  store i32 %258, ptr %9, align 4
-  br label %268
-
-259:                                              ; preds = %253
-  %260 = landingpad { ptr, i32 }
-          cleanup
-  %261 = extractvalue { ptr, i32 } %260, 0
-  store ptr %261, ptr %8, align 8
-  %262 = extractvalue { ptr, i32 } %260, 1
-  store i32 %262, ptr %9, align 4
-  call void @_ZN3nix9ErrorInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %21) #1
-  br label %268
-
-263:                                              ; preds = %254, %245
-  br label %264
-
-264:                                              ; preds = %263
   br label %265
 
-265:                                              ; preds = %264
-  invoke void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8 dereferenceable(1080) %48)
-          to label %266 unwind label %255
+257:                                              ; preds = %269, %267, %254, %250, %238
+  %258 = landingpad { ptr, i32 }
+          cleanup
+  %259 = extractvalue { ptr, i32 } %258, 0
+  store ptr %259, ptr %8, align 8
+  %260 = extractvalue { ptr, i32 } %258, 1
+  store i32 %260, ptr %9, align 4
+  br label %270
+
+261:                                              ; preds = %255
+  %262 = landingpad { ptr, i32 }
+          cleanup
+  %263 = extractvalue { ptr, i32 } %262, 0
+  store ptr %263, ptr %8, align 8
+  %264 = extractvalue { ptr, i32 } %262, 1
+  store i32 %264, ptr %9, align 4
+  call void @_ZN3nix9ErrorInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %21) #1
+  br label %270
+
+265:                                              ; preds = %256, %247
+  br label %266
 
 266:                                              ; preds = %265
+  br label %267
+
+267:                                              ; preds = %266
+  invoke void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8 dereferenceable(1080) %48)
+          to label %268 unwind label %257
+
+268:                                              ; preds = %267
   call void @__cxa_end_catch()
-  br label %532
+  br label %534
 
-267:                                              ; preds = %241
+269:                                              ; preds = %243
   invoke void @__cxa_rethrow() #24
-          to label %542 unwind label %255
+          to label %544 unwind label %257
 
-268:                                              ; preds = %259, %255
+270:                                              ; preds = %261, %257
   invoke void @__cxa_end_catch()
-          to label %269 unwind label %539
+          to label %271 unwind label %541
 
-269:                                              ; preds = %268
-  br label %534
+271:                                              ; preds = %270
+  br label %536
 
-270:                                              ; preds = %274, %232, %225
-  %271 = landingpad { ptr, i32 }
+272:                                              ; preds = %276, %233, %225
+  %273 = landingpad { ptr, i32 }
           cleanup
-  %272 = extractvalue { ptr, i32 } %271, 0
-  store ptr %272, ptr %8, align 8
-  %273 = extractvalue { ptr, i32 } %271, 1
-  store i32 %273, ptr %9, align 4
+  %274 = extractvalue { ptr, i32 } %273, 0
+  store ptr %274, ptr %8, align 8
+  %275 = extractvalue { ptr, i32 } %273, 1
+  store i32 %275, ptr %9, align 4
   invoke void @__cxa_end_catch()
-          to label %275 unwind label %539
+          to label %277 unwind label %541
 
-274:                                              ; preds = %229
+276:                                              ; preds = %230
   invoke void @__cxa_rethrow() #24
-          to label %542 unwind label %270
+          to label %544 unwind label %272
 
-275:                                              ; preds = %270
-  br label %534
+277:                                              ; preds = %272
+  br label %536
 
-276:                                              ; preds = %218
-  %277 = landingpad { ptr, i32 }
+278:                                              ; preds = %218
+  %279 = landingpad { ptr, i32 }
           cleanup
-  %278 = extractvalue { ptr, i32 } %277, 0
-  store ptr %278, ptr %8, align 8
-  %279 = extractvalue { ptr, i32 } %277, 1
-  store i32 %279, ptr %9, align 4
+  %280 = extractvalue { ptr, i32 } %279, 0
+  store ptr %280, ptr %8, align 8
+  %281 = extractvalue { ptr, i32 } %279, 1
+  store i32 %281, ptr %9, align 4
   invoke void @__cxa_end_catch()
-          to label %280 unwind label %539
+          to label %282 unwind label %541
 
-280:                                              ; preds = %276
-  br label %534
+282:                                              ; preds = %278
+  br label %536
 
-281:                                              ; preds = %203
-  %282 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
-  %283 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %282) #1
-  %284 = getelementptr inbounds %"struct.nix::ValidPathInfo", ptr %283, i32 0, i32 1
-  %285 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 1
-  %286 = call noundef zeroext i1 @_ZNK3nix9StorePathneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %284, ptr noundef nonnull align 8 dereferenceable(32) %285)
-  br i1 %286, label %287, label %393
+283:                                              ; preds = %203
+  %284 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
+  %285 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %284) #1
+  %286 = getelementptr inbounds %"struct.nix::ValidPathInfo", ptr %285, i32 0, i32 1
+  %287 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 1
+  %288 = call noundef zeroext i1 @_ZNK3nix9StorePathneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %286, ptr noundef nonnull align 8 dereferenceable(32) %287)
+  br i1 %288, label %289, label %395
 
-287:                                              ; preds = %281
-  %288 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
-  %289 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %288) #1
-  %290 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 4
-  %291 = call noundef nonnull align 8 dereferenceable(264) ptr @_ZNKSt19__shared_ptr_accessIN3nix5StoreELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %290) #1
-  %292 = call noundef zeroext i1 @_ZNK3nix13ValidPathInfo18isContentAddressedERKNS_5StoreE(ptr noundef nonnull align 8 dereferenceable(384) %289, ptr noundef nonnull align 8 dereferenceable(264) %291)
-  br i1 %292, label %293, label %312
+289:                                              ; preds = %283
+  %290 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
+  %291 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %290) #1
+  %292 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 4
+  %293 = call noundef nonnull align 8 dereferenceable(264) ptr @_ZNKSt19__shared_ptr_accessIN3nix5StoreELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %292) #1
+  %294 = call noundef zeroext i1 @_ZNK3nix13ValidPathInfo18isContentAddressedERKNS_5StoreE(ptr noundef nonnull align 8 dereferenceable(384) %291, ptr noundef nonnull align 8 dereferenceable(264) %293)
+  br i1 %294, label %295, label %314
 
-293:                                              ; preds = %287
-  %294 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
-  %295 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %294) #1
-  %296 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %295, i32 0, i32 3
-  %297 = call noundef zeroext i1 @_ZNKSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(48) %296) #1
-  br i1 %297, label %298, label %312
+295:                                              ; preds = %289
+  %296 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
+  %297 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %296) #1
+  %298 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %297, i32 0, i32 3
+  %299 = call noundef zeroext i1 @_ZNKSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(48) %298) #1
+  br i1 %299, label %300, label %314
 
-298:                                              ; preds = %293
-  %299 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
-  %300 = call noundef nonnull align 8 dereferenceable(384) ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %299) #1
-  call void @_ZSt11make_sharedIN3nix13ValidPathInfoEJRKS1_EESt10shared_ptrIT_EDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.270") align 8 %24, ptr noundef nonnull align 8 dereferenceable(384) %300)
-  %301 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 1
-  %302 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %24) #1
-  %303 = getelementptr inbounds %"struct.nix::ValidPathInfo", ptr %302, i32 0, i32 1
-  %304 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN3nix9StorePathaSERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %303, ptr noundef nonnull align 8 dereferenceable(32) %301)
-          to label %305 unwind label %308
+300:                                              ; preds = %295
+  %301 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
+  %302 = call noundef nonnull align 8 dereferenceable(384) ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %301) #1
+  call void @_ZSt11make_sharedIN3nix13ValidPathInfoEJRKS1_EESt10shared_ptrIT_EDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.270") align 8 %24, ptr noundef nonnull align 8 dereferenceable(384) %302)
+  %303 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 1
+  %304 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %24) #1
+  %305 = getelementptr inbounds %"struct.nix::ValidPathInfo", ptr %304, i32 0, i32 1
+  %306 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN3nix9StorePathaSERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef nonnull align 8 dereferenceable(32) %303)
+          to label %307 unwind label %310
 
-305:                                              ; preds = %298
-  %306 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
-  %307 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIKN3nix13ValidPathInfoEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EERKS_IT_EEE5valueERS3_E4typeESE_(ptr noundef nonnull align 8 dereferenceable(16) %306, ptr noundef nonnull align 8 dereferenceable(16) %24) #1
+307:                                              ; preds = %300
+  %308 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
+  %309 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIKN3nix13ValidPathInfoEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EERKS_IT_EEE5valueERS3_E4typeESE_(ptr noundef nonnull align 8 dereferenceable(16) %308, ptr noundef nonnull align 8 dereferenceable(16) %24) #1
   call void @_ZNSt10shared_ptrIN3nix13ValidPathInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #1
-  br label %392
+  br label %394
 
-308:                                              ; preds = %298
-  %309 = landingpad { ptr, i32 }
+310:                                              ; preds = %300
+  %311 = landingpad { ptr, i32 }
           cleanup
-  %310 = extractvalue { ptr, i32 } %309, 0
-  store ptr %310, ptr %8, align 8
-  %311 = extractvalue { ptr, i32 } %309, 1
-  store i32 %311, ptr %9, align 4
+  %312 = extractvalue { ptr, i32 } %311, 0
+  store ptr %312, ptr %8, align 8
+  %313 = extractvalue { ptr, i32 } %311, 1
+  store i32 %313, ptr %9, align 4
   call void @_ZNSt10shared_ptrIN3nix13ValidPathInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #1
-  br label %534
+  br label %536
 
-312:                                              ; preds = %293, %287
-  br label %313
+314:                                              ; preds = %295, %289
+  br label %315
 
-313:                                              ; preds = %312
+315:                                              ; preds = %314
   store i32 0, ptr %25, align 4
-  %314 = load i32, ptr %25, align 4
-  %315 = load i32, ptr @_ZN3nix9verbosityE, align 4
-  %316 = icmp sle i32 %314, %315
-  br i1 %316, label %317, label %390
+  %316 = load i32, ptr %25, align 4
+  %317 = load i32, ptr @_ZN3nix9verbosityE, align 4
+  %318 = icmp sle i32 %316, %317
+  br i1 %318, label %319, label %392
 
-317:                                              ; preds = %313
-  %318 = load ptr, ptr @_ZN3nix6loggerE, align 8
-  %319 = load i32, ptr %25, align 4
+319:                                              ; preds = %315
+  %320 = load ptr, ptr @_ZN3nix6loggerE, align 8
+  %321 = load i32, ptr %25, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %29)
-          to label %320 unwind label %361
+          to label %322 unwind label %363
 
-320:                                              ; preds = %317
-  %321 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 4
-  %322 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3nix5StoreELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %321) #1
-  %323 = load ptr, ptr %322, align 8
-  %324 = getelementptr inbounds ptr, ptr %323, i64 3
+322:                                              ; preds = %319
+  %323 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 4
+  %324 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3nix5StoreELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %323) #1
   %325 = load ptr, ptr %324, align 8
-  invoke void %325(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %30, ptr noundef nonnull align 8 dereferenceable(264) %322)
-          to label %326 unwind label %365
+  %326 = getelementptr inbounds ptr, ptr %325, i64 3
+  %327 = load ptr, ptr %326, align 8
+  invoke void %327(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %30, ptr noundef nonnull align 8 dereferenceable(264) %324)
+          to label %328 unwind label %367
 
-326:                                              ; preds = %320
-  %327 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 2
-  %328 = load ptr, ptr %327, align 8
-  %329 = getelementptr inbounds %"class.nix::Worker", ptr %328, i32 0, i32 21
+328:                                              ; preds = %322
+  %329 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 2
   %330 = load ptr, ptr %329, align 8
-  %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr i8, ptr %331, i64 -24
-  %333 = load i64, ptr %332, align 8
-  %334 = getelementptr inbounds i8, ptr %330, i64 %333
-  %335 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 1
-  invoke void @_ZNK3nix14StoreDirConfig14printStorePathB5cxx11ERKNS_9StorePathE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %31, ptr noundef nonnull align 8 dereferenceable(344) %334, ptr noundef nonnull align 8 dereferenceable(32) %335)
-          to label %336 unwind label %369
+  %331 = getelementptr inbounds %"class.nix::Worker", ptr %330, i32 0, i32 21
+  %332 = load ptr, ptr %331, align 8
+  %333 = load ptr, ptr %332, align 8
+  %334 = getelementptr i8, ptr %333, i64 -24
+  %335 = load i64, ptr %334, align 8
+  %336 = getelementptr inbounds i8, ptr %332, i64 %335
+  %337 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 1
+  invoke void @_ZNK3nix14StoreDirConfig14printStorePathB5cxx11ERKNS_9StorePathE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %31, ptr noundef nonnull align 8 dereferenceable(344) %336, ptr noundef nonnull align 8 dereferenceable(32) %337)
+          to label %338 unwind label %371
 
-336:                                              ; preds = %326
-  %337 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 4
-  %338 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3nix5StoreELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %337) #1
-  %339 = load ptr, ptr %338, align 8
-  %340 = getelementptr i8, ptr %339, i64 -24
-  %341 = load i64, ptr %340, align 8
-  %342 = getelementptr inbounds i8, ptr %338, i64 %341
-  %343 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
-  %344 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %343) #1
-  %345 = getelementptr inbounds %"struct.nix::ValidPathInfo", ptr %344, i32 0, i32 1
-  invoke void @_ZNK3nix14StoreDirConfig14printStorePathB5cxx11ERKNS_9StorePathE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %32, ptr noundef nonnull align 8 dereferenceable(344) %342, ptr noundef nonnull align 8 dereferenceable(32) %345)
-          to label %346 unwind label %373
+338:                                              ; preds = %328
+  %339 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 4
+  %340 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3nix5StoreELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %339) #1
+  %341 = load ptr, ptr %340, align 8
+  %342 = getelementptr i8, ptr %341, i64 -24
+  %343 = load i64, ptr %342, align 8
+  %344 = getelementptr inbounds i8, ptr %340, i64 %343
+  %345 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
+  %346 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %345) #1
+  %347 = getelementptr inbounds %"struct.nix::ValidPathInfo", ptr %346, i32 0, i32 1
+  invoke void @_ZNK3nix14StoreDirConfig14printStorePathB5cxx11ERKNS_9StorePathE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %32, ptr noundef nonnull align 8 dereferenceable(344) %344, ptr noundef nonnull align 8 dereferenceable(32) %347)
+          to label %348 unwind label %375
 
-346:                                              ; preds = %336
+348:                                              ; preds = %338
   invoke void @_ZN3nix3fmtIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_EEES6_RKS6_DpRKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
-          to label %347 unwind label %377
+          to label %349 unwind label %379
 
-347:                                              ; preds = %346
-  %348 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #1
-  %349 = getelementptr inbounds { i64, ptr }, ptr %26, i32 0, i32 0
-  %350 = extractvalue { i64, ptr } %348, 0
-  store i64 %350, ptr %349, align 8
-  %351 = getelementptr inbounds { i64, ptr }, ptr %26, i32 0, i32 1
-  %352 = extractvalue { i64, ptr } %348, 1
-  store ptr %352, ptr %351, align 8
-  %353 = getelementptr inbounds { i64, ptr }, ptr %26, i32 0, i32 0
-  %354 = load i64, ptr %353, align 8
-  %355 = getelementptr inbounds { i64, ptr }, ptr %26, i32 0, i32 1
-  %356 = load ptr, ptr %355, align 8
-  %357 = load ptr, ptr %318, align 8
-  %358 = getelementptr inbounds ptr, ptr %357, i64 6
-  %359 = load ptr, ptr %358, align 8
-  invoke void %359(ptr noundef nonnull align 8 dereferenceable(8) %318, i32 noundef %319, i64 %354, ptr %356)
-          to label %360 unwind label %381
+349:                                              ; preds = %348
+  %350 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #1
+  %351 = getelementptr inbounds { i64, ptr }, ptr %26, i32 0, i32 0
+  %352 = extractvalue { i64, ptr } %350, 0
+  store i64 %352, ptr %351, align 8
+  %353 = getelementptr inbounds { i64, ptr }, ptr %26, i32 0, i32 1
+  %354 = extractvalue { i64, ptr } %350, 1
+  store ptr %354, ptr %353, align 8
+  %355 = getelementptr inbounds { i64, ptr }, ptr %26, i32 0, i32 0
+  %356 = load i64, ptr %355, align 8
+  %357 = getelementptr inbounds { i64, ptr }, ptr %26, i32 0, i32 1
+  %358 = load ptr, ptr %357, align 8
+  %359 = load ptr, ptr %320, align 8
+  %360 = getelementptr inbounds ptr, ptr %359, i64 6
+  %361 = load ptr, ptr %360, align 8
+  invoke void %361(ptr noundef nonnull align 8 dereferenceable(8) %320, i32 noundef %321, i64 %356, ptr %358)
+          to label %362 unwind label %383
 
-360:                                              ; preds = %347
+362:                                              ; preds = %349
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #1
-  br label %390
+  br label %392
 
-361:                                              ; preds = %317
-  %362 = landingpad { ptr, i32 }
+363:                                              ; preds = %319
+  %364 = landingpad { ptr, i32 }
           cleanup
-  %363 = extractvalue { ptr, i32 } %362, 0
-  store ptr %363, ptr %8, align 8
-  %364 = extractvalue { ptr, i32 } %362, 1
-  store i32 %364, ptr %9, align 4
-  br label %389
-
-365:                                              ; preds = %320
-  %366 = landingpad { ptr, i32 }
-          cleanup
-  %367 = extractvalue { ptr, i32 } %366, 0
-  store ptr %367, ptr %8, align 8
-  %368 = extractvalue { ptr, i32 } %366, 1
-  store i32 %368, ptr %9, align 4
-  br label %388
-
-369:                                              ; preds = %326
-  %370 = landingpad { ptr, i32 }
-          cleanup
-  %371 = extractvalue { ptr, i32 } %370, 0
-  store ptr %371, ptr %8, align 8
-  %372 = extractvalue { ptr, i32 } %370, 1
-  store i32 %372, ptr %9, align 4
-  br label %387
-
-373:                                              ; preds = %336
-  %374 = landingpad { ptr, i32 }
-          cleanup
-  %375 = extractvalue { ptr, i32 } %374, 0
-  store ptr %375, ptr %8, align 8
-  %376 = extractvalue { ptr, i32 } %374, 1
-  store i32 %376, ptr %9, align 4
-  br label %386
-
-377:                                              ; preds = %346
-  %378 = landingpad { ptr, i32 }
-          cleanup
-  %379 = extractvalue { ptr, i32 } %378, 0
-  store ptr %379, ptr %8, align 8
-  %380 = extractvalue { ptr, i32 } %378, 1
-  store i32 %380, ptr %9, align 4
-  br label %385
-
-381:                                              ; preds = %347
-  %382 = landingpad { ptr, i32 }
-          cleanup
-  %383 = extractvalue { ptr, i32 } %382, 0
-  store ptr %383, ptr %8, align 8
-  %384 = extractvalue { ptr, i32 } %382, 1
-  store i32 %384, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #1
-  br label %385
-
-385:                                              ; preds = %381, %377
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #1
-  br label %386
-
-386:                                              ; preds = %385, %373
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #1
-  br label %387
-
-387:                                              ; preds = %386, %369
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #1
-  br label %388
-
-388:                                              ; preds = %387, %365
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #1
-  br label %389
-
-389:                                              ; preds = %388, %361
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #1
-  br label %534
-
-390:                                              ; preds = %360, %313
+  %365 = extractvalue { ptr, i32 } %364, 0
+  store ptr %365, ptr %8, align 8
+  %366 = extractvalue { ptr, i32 } %364, 1
+  store i32 %366, ptr %9, align 4
   br label %391
 
-391:                                              ; preds = %390
-  call void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8 dereferenceable(1080) %48)
-  br label %532
+367:                                              ; preds = %322
+  %368 = landingpad { ptr, i32 }
+          cleanup
+  %369 = extractvalue { ptr, i32 } %368, 0
+  store ptr %369, ptr %8, align 8
+  %370 = extractvalue { ptr, i32 } %368, 1
+  store i32 %370, ptr %9, align 4
+  br label %390
 
-392:                                              ; preds = %305
+371:                                              ; preds = %328
+  %372 = landingpad { ptr, i32 }
+          cleanup
+  %373 = extractvalue { ptr, i32 } %372, 0
+  store ptr %373, ptr %8, align 8
+  %374 = extractvalue { ptr, i32 } %372, 1
+  store i32 %374, ptr %9, align 4
+  br label %389
+
+375:                                              ; preds = %338
+  %376 = landingpad { ptr, i32 }
+          cleanup
+  %377 = extractvalue { ptr, i32 } %376, 0
+  store ptr %377, ptr %8, align 8
+  %378 = extractvalue { ptr, i32 } %376, 1
+  store i32 %378, ptr %9, align 4
+  br label %388
+
+379:                                              ; preds = %348
+  %380 = landingpad { ptr, i32 }
+          cleanup
+  %381 = extractvalue { ptr, i32 } %380, 0
+  store ptr %381, ptr %8, align 8
+  %382 = extractvalue { ptr, i32 } %380, 1
+  store i32 %382, ptr %9, align 4
+  br label %387
+
+383:                                              ; preds = %349
+  %384 = landingpad { ptr, i32 }
+          cleanup
+  %385 = extractvalue { ptr, i32 } %384, 0
+  store ptr %385, ptr %8, align 8
+  %386 = extractvalue { ptr, i32 } %384, 1
+  store i32 %386, ptr %9, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #1
+  br label %387
+
+387:                                              ; preds = %383, %379
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #1
+  br label %388
+
+388:                                              ; preds = %387, %375
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #1
+  br label %389
+
+389:                                              ; preds = %388, %371
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #1
+  br label %390
+
+390:                                              ; preds = %389, %367
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #1
+  br label %391
+
+391:                                              ; preds = %390, %363
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #1
+  br label %536
+
+392:                                              ; preds = %362, %315
   br label %393
 
-393:                                              ; preds = %392, %281
-  %394 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
-  call void @_ZSt20dynamic_pointer_castIKN3nix7NarInfoEKNS0_13ValidPathInfoEESt10shared_ptrIT_ERKS5_IT0_E(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.273") align 8 %33, ptr noundef nonnull align 8 dereferenceable(16) %394) #1
-  %395 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 2
-  %396 = load ptr, ptr %395, align 8
-  %397 = getelementptr inbounds %"class.nix::Worker", ptr %396, i32 0, i32 34
-  %398 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
-  %399 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %398) #1
-  %400 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %399, i32 0, i32 5
-  invoke void @_ZSt11make_uniqueIN3nix13MaintainCountImEEJRmRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.91") align 8 %34, ptr noundef nonnull align 8 dereferenceable(8) %397, ptr noundef nonnull align 8 dereferenceable(8) %400)
-          to label %401 unwind label %467
+393:                                              ; preds = %392
+  call void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8 dereferenceable(1080) %48)
+  br label %534
 
-401:                                              ; preds = %393
-  %402 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 14
-  %403 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %402, ptr noundef nonnull align 8 dereferenceable(8) %34) #1
+394:                                              ; preds = %307
+  br label %395
+
+395:                                              ; preds = %394, %283
+  %396 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
+  call void @_ZSt20dynamic_pointer_castIKN3nix7NarInfoEKNS0_13ValidPathInfoEESt10shared_ptrIT_ERKS5_IT0_E(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.273") align 8 %33, ptr noundef nonnull align 8 dereferenceable(16) %396) #1
+  %397 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 2
+  %398 = load ptr, ptr %397, align 8
+  %399 = getelementptr inbounds %"class.nix::Worker", ptr %398, i32 0, i32 34
+  %400 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
+  %401 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %400) #1
+  %402 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %401, i32 0, i32 5
+  invoke void @_ZSt11make_uniqueIN3nix13MaintainCountImEEJRmRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.91") align 8 %34, ptr noundef nonnull align 8 dereferenceable(8) %399, ptr noundef nonnull align 8 dereferenceable(8) %402)
+          to label %403 unwind label %469
+
+403:                                              ; preds = %395
+  %404 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 14
+  %405 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %404, ptr noundef nonnull align 8 dereferenceable(8) %34) #1
   call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #1
-  %404 = call noundef zeroext i1 @_ZNKSt12__shared_ptrIKN3nix7NarInfoELN9__gnu_cxx12_Lock_policyE2EEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #1
-  br i1 %404, label %405, label %417
+  %406 = call noundef zeroext i1 @_ZNKSt12__shared_ptrIKN3nix7NarInfoELN9__gnu_cxx12_Lock_policyE2EEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #1
+  br i1 %406, label %407, label %419
 
-405:                                              ; preds = %401
-  %406 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix7NarInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %33) #1
-  %407 = getelementptr inbounds %"struct.nix::NarInfo", ptr %406, i32 0, i32 4
-  %408 = load i64, ptr %407, align 8
-  %409 = icmp ne i64 %408, 0
-  br i1 %409, label %410, label %417
+407:                                              ; preds = %403
+  %408 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix7NarInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %33) #1
+  %409 = getelementptr inbounds %"struct.nix::NarInfo", ptr %408, i32 0, i32 4
+  %410 = load i64, ptr %409, align 8
+  %411 = icmp ne i64 %410, 0
+  br i1 %411, label %412, label %419
 
-410:                                              ; preds = %405
-  %411 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 2
-  %412 = load ptr, ptr %411, align 8
-  %413 = getelementptr inbounds %"class.nix::Worker", ptr %412, i32 0, i32 32
-  %414 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix7NarInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %33) #1
-  %415 = getelementptr inbounds %"struct.nix::NarInfo", ptr %414, i32 0, i32 4
-  invoke void @_ZSt11make_uniqueIN3nix13MaintainCountImEEJRmRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.91") align 8 %35, ptr noundef nonnull align 8 dereferenceable(8) %413, ptr noundef nonnull align 8 dereferenceable(8) %415)
-          to label %416 unwind label %467
+412:                                              ; preds = %407
+  %413 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 2
+  %414 = load ptr, ptr %413, align 8
+  %415 = getelementptr inbounds %"class.nix::Worker", ptr %414, i32 0, i32 32
+  %416 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix7NarInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %33) #1
+  %417 = getelementptr inbounds %"struct.nix::NarInfo", ptr %416, i32 0, i32 4
+  invoke void @_ZSt11make_uniqueIN3nix13MaintainCountImEEJRmRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.91") align 8 %35, ptr noundef nonnull align 8 dereferenceable(8) %415, ptr noundef nonnull align 8 dereferenceable(8) %417)
+          to label %418 unwind label %469
 
-416:                                              ; preds = %410
-  br label %418
+418:                                              ; preds = %412
+  br label %420
 
-417:                                              ; preds = %405, %401
+419:                                              ; preds = %407, %403
   call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EEC2IS4_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr null) #1
-  br label %418
+  br label %420
 
-418:                                              ; preds = %417, %416
-  %419 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 15
-  %420 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %419, ptr noundef nonnull align 8 dereferenceable(8) %35) #1
+420:                                              ; preds = %419, %418
+  %421 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 15
+  %422 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %421, ptr noundef nonnull align 8 dereferenceable(8) %35) #1
   call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #1
-  %421 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 2
-  %422 = load ptr, ptr %421, align 8
-  invoke void @_ZN3nix6Worker14updateProgressEv(ptr noundef nonnull align 8 dereferenceable(649) %422)
-          to label %423 unwind label %467
+  %423 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 2
+  %424 = load ptr, ptr %423, align 8
+  invoke void @_ZN3nix6Worker14updateProgressEv(ptr noundef nonnull align 8 dereferenceable(649) %424)
+          to label %425 unwind label %469
 
-423:                                              ; preds = %418
-  %424 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 4
-  %425 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3nix5StoreELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %424) #1
-  %426 = load ptr, ptr %425, align 8
-  %427 = getelementptr i8, ptr %426, i64 -24
-  %428 = load i64, ptr %427, align 8
-  %429 = getelementptr inbounds i8, ptr %425, i64 %428
-  %430 = getelementptr inbounds %"struct.nix::StoreConfig", ptr %429, i32 0, i32 2
-  %431 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3nix11BaseSettingIbEcvRKbEv(ptr noundef nonnull align 8 dereferenceable(139) %430)
-          to label %432 unwind label %467
+425:                                              ; preds = %420
+  %426 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 4
+  %427 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3nix5StoreELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %426) #1
+  %428 = load ptr, ptr %427, align 8
+  %429 = getelementptr i8, ptr %428, i64 -24
+  %430 = load i64, ptr %429, align 8
+  %431 = getelementptr inbounds i8, ptr %427, i64 %430
+  %432 = getelementptr inbounds %"struct.nix::StoreConfig", ptr %431, i32 0, i32 2
+  %433 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3nix11BaseSettingIbEcvRKbEv(ptr noundef nonnull align 8 dereferenceable(139) %432)
+          to label %434 unwind label %469
 
-432:                                              ; preds = %423
-  %433 = load i8, ptr %431, align 1
-  %434 = trunc i8 %433 to i1
-  br i1 %434, label %490, label %435
+434:                                              ; preds = %425
+  %435 = load i8, ptr %433, align 1
+  %436 = trunc i8 %435 to i1
+  br i1 %436, label %492, label %437
 
-435:                                              ; preds = %432
-  %436 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 2
-  %437 = load ptr, ptr %436, align 8
-  %438 = getelementptr inbounds %"class.nix::Worker", ptr %437, i32 0, i32 21
+437:                                              ; preds = %434
+  %438 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 2
   %439 = load ptr, ptr %438, align 8
-  %440 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
-  %441 = call noundef nonnull align 8 dereferenceable(384) ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %440) #1
-  %442 = load ptr, ptr %439, align 8
-  %443 = getelementptr inbounds ptr, ptr %442, i64 7
-  %444 = load ptr, ptr %443, align 8
-  %445 = invoke noundef zeroext i1 %444(ptr noundef nonnull align 8 dereferenceable(264) %439, ptr noundef nonnull align 8 dereferenceable(384) %441)
-          to label %446 unwind label %467
+  %440 = getelementptr inbounds %"class.nix::Worker", ptr %439, i32 0, i32 21
+  %441 = load ptr, ptr %440, align 8
+  %442 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
+  %443 = call noundef nonnull align 8 dereferenceable(384) ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %442) #1
+  %444 = load ptr, ptr %441, align 8
+  %445 = getelementptr inbounds ptr, ptr %444, i64 7
+  %446 = load ptr, ptr %445, align 8
+  %447 = invoke noundef zeroext i1 %446(ptr noundef nonnull align 8 dereferenceable(264) %441, ptr noundef nonnull align 8 dereferenceable(384) %443)
+          to label %448 unwind label %469
 
-446:                                              ; preds = %435
-  br i1 %445, label %447, label %490
+448:                                              ; preds = %437
+  br i1 %447, label %449, label %492
 
-447:                                              ; preds = %446
+449:                                              ; preds = %448
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %37)
-          to label %448 unwind label %471
+          to label %450 unwind label %473
 
-448:                                              ; preds = %447
-  %449 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 2
-  %450 = load ptr, ptr %449, align 8
-  %451 = getelementptr inbounds %"class.nix::Worker", ptr %450, i32 0, i32 21
+450:                                              ; preds = %449
+  %451 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 2
   %452 = load ptr, ptr %451, align 8
-  %453 = load ptr, ptr %452, align 8
-  %454 = getelementptr i8, ptr %453, i64 -24
-  %455 = load i64, ptr %454, align 8
-  %456 = getelementptr inbounds i8, ptr %452, i64 %455
-  %457 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 1
-  invoke void @_ZNK3nix14StoreDirConfig14printStorePathB5cxx11ERKNS_9StorePathE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %38, ptr noundef nonnull align 8 dereferenceable(344) %456, ptr noundef nonnull align 8 dereferenceable(32) %457)
-          to label %458 unwind label %475
+  %453 = getelementptr inbounds %"class.nix::Worker", ptr %452, i32 0, i32 21
+  %454 = load ptr, ptr %453, align 8
+  %455 = load ptr, ptr %454, align 8
+  %456 = getelementptr i8, ptr %455, i64 -24
+  %457 = load i64, ptr %456, align 8
+  %458 = getelementptr inbounds i8, ptr %454, i64 %457
+  %459 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 1
+  invoke void @_ZNK3nix14StoreDirConfig14printStorePathB5cxx11ERKNS_9StorePathE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %38, ptr noundef nonnull align 8 dereferenceable(344) %458, ptr noundef nonnull align 8 dereferenceable(32) %459)
+          to label %460 unwind label %477
 
-458:                                              ; preds = %448
-  %459 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 4
-  %460 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3nix5StoreELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %459) #1
-  %461 = load ptr, ptr %460, align 8
-  %462 = getelementptr inbounds ptr, ptr %461, i64 3
+460:                                              ; preds = %450
+  %461 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 4
+  %462 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3nix5StoreELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %461) #1
   %463 = load ptr, ptr %462, align 8
-  invoke void %463(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr noundef nonnull align 8 dereferenceable(264) %460)
-          to label %464 unwind label %479
+  %464 = getelementptr inbounds ptr, ptr %463, i64 3
+  %465 = load ptr, ptr %464, align 8
+  invoke void %465(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr noundef nonnull align 8 dereferenceable(264) %462)
+          to label %466 unwind label %481
 
-464:                                              ; preds = %458
+466:                                              ; preds = %460
   invoke void @_ZN3nix4warnIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEEvRKS6_DpRKT_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %39)
-          to label %465 unwind label %483
+          to label %467 unwind label %485
 
-465:                                              ; preds = %464
+467:                                              ; preds = %466
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #1
   invoke void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8 dereferenceable(1080) %48)
-          to label %466 unwind label %467
+          to label %468 unwind label %469
 
-466:                                              ; preds = %465
+468:                                              ; preds = %467
   store i32 1, ptr %40, align 4
-  br label %530
+  br label %532
 
-467:                                              ; preds = %525, %509, %503, %465, %435, %423, %418, %410, %393
-  %468 = landingpad { ptr, i32 }
+469:                                              ; preds = %527, %511, %505, %467, %437, %425, %420, %412, %395
+  %470 = landingpad { ptr, i32 }
           cleanup
-  %469 = extractvalue { ptr, i32 } %468, 0
-  store ptr %469, ptr %8, align 8
-  %470 = extractvalue { ptr, i32 } %468, 1
-  store i32 %470, ptr %9, align 4
-  br label %533
+  %471 = extractvalue { ptr, i32 } %470, 0
+  store ptr %471, ptr %8, align 8
+  %472 = extractvalue { ptr, i32 } %470, 1
+  store i32 %472, ptr %9, align 4
+  br label %535
 
-471:                                              ; preds = %447
-  %472 = landingpad { ptr, i32 }
+473:                                              ; preds = %449
+  %474 = landingpad { ptr, i32 }
           cleanup
-  %473 = extractvalue { ptr, i32 } %472, 0
-  store ptr %473, ptr %8, align 8
-  %474 = extractvalue { ptr, i32 } %472, 1
-  store i32 %474, ptr %9, align 4
+  %475 = extractvalue { ptr, i32 } %474, 0
+  store ptr %475, ptr %8, align 8
+  %476 = extractvalue { ptr, i32 } %474, 1
+  store i32 %476, ptr %9, align 4
+  br label %491
+
+477:                                              ; preds = %450
+  %478 = landingpad { ptr, i32 }
+          cleanup
+  %479 = extractvalue { ptr, i32 } %478, 0
+  store ptr %479, ptr %8, align 8
+  %480 = extractvalue { ptr, i32 } %478, 1
+  store i32 %480, ptr %9, align 4
+  br label %490
+
+481:                                              ; preds = %460
+  %482 = landingpad { ptr, i32 }
+          cleanup
+  %483 = extractvalue { ptr, i32 } %482, 0
+  store ptr %483, ptr %8, align 8
+  %484 = extractvalue { ptr, i32 } %482, 1
+  store i32 %484, ptr %9, align 4
   br label %489
 
-475:                                              ; preds = %448
-  %476 = landingpad { ptr, i32 }
+485:                                              ; preds = %466
+  %486 = landingpad { ptr, i32 }
           cleanup
-  %477 = extractvalue { ptr, i32 } %476, 0
-  store ptr %477, ptr %8, align 8
-  %478 = extractvalue { ptr, i32 } %476, 1
-  store i32 %478, ptr %9, align 4
-  br label %488
-
-479:                                              ; preds = %458
-  %480 = landingpad { ptr, i32 }
-          cleanup
-  %481 = extractvalue { ptr, i32 } %480, 0
-  store ptr %481, ptr %8, align 8
-  %482 = extractvalue { ptr, i32 } %480, 1
-  store i32 %482, ptr %9, align 4
-  br label %487
-
-483:                                              ; preds = %464
-  %484 = landingpad { ptr, i32 }
-          cleanup
-  %485 = extractvalue { ptr, i32 } %484, 0
-  store ptr %485, ptr %8, align 8
-  %486 = extractvalue { ptr, i32 } %484, 1
-  store i32 %486, ptr %9, align 4
+  %487 = extractvalue { ptr, i32 } %486, 0
+  store ptr %487, ptr %8, align 8
+  %488 = extractvalue { ptr, i32 } %486, 1
+  store i32 %488, ptr %9, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #1
-  br label %487
-
-487:                                              ; preds = %483, %479
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #1
-  br label %488
-
-488:                                              ; preds = %487, %475
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #1
   br label %489
 
-489:                                              ; preds = %488, %471
+489:                                              ; preds = %485, %481
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #1
+  br label %490
+
+490:                                              ; preds = %489, %477
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #1
+  br label %491
+
+491:                                              ; preds = %490, %473
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #1
-  br label %533
+  br label %535
 
-490:                                              ; preds = %446, %432
-  %491 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
-  %492 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %491) #1
-  %493 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %492, i32 0, i32 3
-  store ptr %493, ptr %41, align 8
-  %494 = load ptr, ptr %41, align 8
-  %495 = call ptr @_ZNKSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %494) #1
-  %496 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %42, i32 0, i32 0
-  store ptr %495, ptr %496, align 8
-  %497 = load ptr, ptr %41, align 8
-  %498 = call ptr @_ZNKSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %497) #1
-  %499 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %43, i32 0, i32 0
-  store ptr %498, ptr %499, align 8
-  br label %500
+492:                                              ; preds = %448, %434
+  %493 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 6
+  %494 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN3nix13ValidPathInfoELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %493) #1
+  %495 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %494, i32 0, i32 3
+  store ptr %495, ptr %41, align 8
+  %496 = load ptr, ptr %41, align 8
+  %497 = call ptr @_ZNKSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %496) #1
+  %498 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %42, i32 0, i32 0
+  store ptr %497, ptr %498, align 8
+  %499 = load ptr, ptr %41, align 8
+  %500 = call ptr @_ZNKSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %499) #1
+  %501 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %43, i32 0, i32 0
+  store ptr %500, ptr %501, align 8
+  br label %502
 
-500:                                              ; preds = %520, %490
-  %501 = call noundef zeroext i1 @_ZSteqRKSt23_Rb_tree_const_iteratorIN3nix9StorePathEES4_(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %43) #1
-  %502 = xor i1 %501, true
-  br i1 %502, label %503, label %522
+502:                                              ; preds = %522, %492
+  %503 = call noundef zeroext i1 @_ZSteqRKSt23_Rb_tree_const_iteratorIN3nix9StorePathEES4_(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %43) #1
+  %504 = xor i1 %503, true
+  br i1 %504, label %505, label %524
 
-503:                                              ; preds = %500
-  %504 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt23_Rb_tree_const_iteratorIN3nix9StorePathEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #1
-  store ptr %504, ptr %44, align 8
-  %505 = load ptr, ptr %44, align 8
-  %506 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 1
-  %507 = invoke noundef zeroext i1 @_ZNK3nix9StorePathneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %505, ptr noundef nonnull align 8 dereferenceable(32) %506)
-          to label %508 unwind label %467
+505:                                              ; preds = %502
+  %506 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt23_Rb_tree_const_iteratorIN3nix9StorePathEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #1
+  store ptr %506, ptr %44, align 8
+  %507 = load ptr, ptr %44, align 8
+  %508 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 1
+  %509 = invoke noundef zeroext i1 @_ZNK3nix9StorePathneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %507, ptr noundef nonnull align 8 dereferenceable(32) %508)
+          to label %510 unwind label %469
 
-508:                                              ; preds = %503
-  br i1 %507, label %509, label %519
+510:                                              ; preds = %505
+  br i1 %509, label %511, label %521
 
-509:                                              ; preds = %508
-  %510 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 2
-  %511 = load ptr, ptr %510, align 8
-  %512 = load ptr, ptr %44, align 8
+511:                                              ; preds = %510
+  %512 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 2
+  %513 = load ptr, ptr %512, align 8
+  %514 = load ptr, ptr %44, align 8
   call void @_ZNSt8optionalIN3nix14ContentAddressEEC2ESt9nullopt_t(ptr noundef nonnull align 8 dereferenceable(96) %47) #1
-  invoke void @_ZN3nix6Worker24makePathSubstitutionGoalERKNS_9StorePathENS_10RepairFlagESt8optionalINS_14ContentAddressEE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.287") align 8 %46, ptr noundef nonnull align 8 dereferenceable(649) %511, ptr noundef nonnull align 8 dereferenceable(32) %512, i1 noundef zeroext false, ptr noundef byval(%"class.std::optional") align 8 %47)
-          to label %513 unwind label %467
+  invoke void @_ZN3nix6Worker24makePathSubstitutionGoalERKNS_9StorePathENS_10RepairFlagESt8optionalINS_14ContentAddressEE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.287") align 8 %46, ptr noundef nonnull align 8 dereferenceable(649) %513, ptr noundef nonnull align 8 dereferenceable(32) %514, i1 noundef zeroext false, ptr noundef byval(%"class.std::optional") align 8 %47)
+          to label %515 unwind label %469
 
-513:                                              ; preds = %509
+515:                                              ; preds = %511
   call void @_ZNSt10shared_ptrIN3nix4GoalEEC2INS0_20PathSubstitutionGoalEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %46) #1
   invoke void @_ZN3nix4Goal9addWaiteeESt10shared_ptrIS0_E(ptr noundef nonnull align 8 dereferenceable(720) %48, ptr noundef %45)
-          to label %514 unwind label %515
+          to label %516 unwind label %517
 
-514:                                              ; preds = %513
+516:                                              ; preds = %515
   call void @_ZNSt10shared_ptrIN3nix4GoalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #1
   call void @_ZNSt10shared_ptrIN3nix20PathSubstitutionGoalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #1
-  br label %519
+  br label %521
 
-515:                                              ; preds = %513
-  %516 = landingpad { ptr, i32 }
+517:                                              ; preds = %515
+  %518 = landingpad { ptr, i32 }
           cleanup
-  %517 = extractvalue { ptr, i32 } %516, 0
-  store ptr %517, ptr %8, align 8
-  %518 = extractvalue { ptr, i32 } %516, 1
-  store i32 %518, ptr %9, align 4
+  %519 = extractvalue { ptr, i32 } %518, 0
+  store ptr %519, ptr %8, align 8
+  %520 = extractvalue { ptr, i32 } %518, 1
+  store i32 %520, ptr %9, align 4
   call void @_ZNSt10shared_ptrIN3nix4GoalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #1
   call void @_ZNSt10shared_ptrIN3nix20PathSubstitutionGoalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #1
-  br label %533
+  br label %535
 
-519:                                              ; preds = %514, %508
-  br label %520
+521:                                              ; preds = %516, %510
+  br label %522
 
-520:                                              ; preds = %519
-  %521 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt23_Rb_tree_const_iteratorIN3nix9StorePathEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #1
-  br label %500
+522:                                              ; preds = %521
+  %523 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt23_Rb_tree_const_iteratorIN3nix9StorePathEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #1
+  br label %502
 
-522:                                              ; preds = %500
-  %523 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 3
-  %524 = call noundef zeroext i1 @_ZNKSt3setISt10shared_ptrIN3nix4GoalEENS1_15CompareGoalPtrsESaIS3_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(48) %523) #1
-  br i1 %524, label %525, label %527
+524:                                              ; preds = %502
+  %525 = getelementptr inbounds %"struct.nix::Goal", ptr %48, i32 0, i32 3
+  %526 = call noundef zeroext i1 @_ZNKSt3setISt10shared_ptrIN3nix4GoalEENS1_15CompareGoalPtrsESaIS3_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(48) %525) #1
+  br i1 %526, label %527, label %529
 
-525:                                              ; preds = %522
+527:                                              ; preds = %524
   invoke void @_ZN3nix20PathSubstitutionGoal15referencesValidEv(ptr noundef nonnull align 8 dereferenceable(1080) %48)
-          to label %526 unwind label %467
+          to label %528 unwind label %469
 
-526:                                              ; preds = %525
-  br label %529
+528:                                              ; preds = %527
+  br label %531
 
-527:                                              ; preds = %522
-  %528 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 16
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3nix20PathSubstitutionGoal15referencesValidEv to i64), i64 0 }, ptr %528, align 8
-  br label %529
+529:                                              ; preds = %524
+  %530 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %48, i32 0, i32 16
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3nix20PathSubstitutionGoal15referencesValidEv to i64), i64 0 }, ptr %530, align 8
+  br label %531
 
-529:                                              ; preds = %527, %526
+531:                                              ; preds = %529, %528
   store i32 0, ptr %40, align 4
-  br label %530
+  br label %532
 
-530:                                              ; preds = %529, %466
+532:                                              ; preds = %531, %468
   call void @_ZNSt10shared_ptrIKN3nix7NarInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #1
-  %531 = load i32, ptr %40, align 4
-  switch i32 %531, label %542 [
-    i32 0, label %532
-    i32 1, label %532
+  %533 = load i32, ptr %40, align 4
+  switch i32 %533, label %544 [
+    i32 0, label %534
+    i32 1, label %534
   ]
 
-532:                                              ; preds = %530, %530, %391, %266, %233, %221, %188, %104
+534:                                              ; preds = %532, %532, %393, %268, %234, %221, %188, %104
   ret void
 
-533:                                              ; preds = %515, %489, %467
+535:                                              ; preds = %517, %491, %469
   call void @_ZNSt10shared_ptrIKN3nix7NarInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #1
-  br label %534
+  br label %536
 
-534:                                              ; preds = %533, %389, %308, %280, %275, %269, %234, %167, %103
-  %535 = load ptr, ptr %8, align 8
-  %536 = load i32, ptr %9, align 4
-  %537 = insertvalue { ptr, i32 } poison, ptr %535, 0
-  %538 = insertvalue { ptr, i32 } %537, i32 %536, 1
-  resume { ptr, i32 } %538
+536:                                              ; preds = %535, %391, %310, %282, %277, %271, %235, %167, %103
+  %537 = load ptr, ptr %8, align 8
+  %538 = load i32, ptr %9, align 4
+  %539 = insertvalue { ptr, i32 } poison, ptr %537, 0
+  %540 = insertvalue { ptr, i32 } %539, i32 %538, 1
+  resume { ptr, i32 } %540
 
-539:                                              ; preds = %276, %270, %268
-  %540 = landingpad { ptr, i32 }
+541:                                              ; preds = %278, %272, %270
+  %542 = landingpad { ptr, i32 }
           catch ptr null
-  %541 = extractvalue { ptr, i32 } %540, 0
-  call void @__clang_call_terminate(ptr %541) #23
+  %543 = extractvalue { ptr, i32 } %542, 0
+  call void @__clang_call_terminate(ptr %543) #23
   unreachable
 
-542:                                              ; preds = %530, %274, %267
+544:                                              ; preds = %532, %276, %269
   unreachable
 }
 
@@ -7772,9 +7781,6 @@ define linkonce_odr void @_ZN3nix3refIKNS_13ValidPathInfoEED2Ev(ptr noundef nonn
   call void @_ZNSt10shared_ptrIKN3nix13ValidPathInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #1
   ret void
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix6Logger5logEIENS_9VerbosityENS_9ErrorInfoE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef %2) #5 comdat align 2 {
@@ -8390,7 +8396,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt23_Rb_t
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #18
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #17
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -8647,141 +8653,142 @@ define void @_ZN3nix20PathSubstitutionGoal8tryToRunEv(ptr noundef nonnull align 
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef i32 @_ZN3nix6Worker18getNrSubstitutionsEv(ptr noundef nonnull align 8 dereferenceable(649) %25)
   store i32 1, ptr %4, align 4
-  %27 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3nix11BaseSettingIjEcvRjEv(ptr noundef nonnull align 8 dereferenceable(145) getelementptr inbounds (%"class.nix::Settings", ptr @_ZN3nix8settingsE, i32 0, i32 19))
-  %28 = load i32, ptr %27, align 4
-  store i32 %28, ptr %5, align 4
-  %29 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp uge i32 %26, %30
-  br i1 %31, label %32, label %41
+  %27 = getelementptr inbounds %"class.nix::Settings", ptr @_ZN3nix8settingsE, i32 0, i32 19
+  %28 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3nix11BaseSettingIjEcvRjEv(ptr noundef nonnull align 8 dereferenceable(145) %27)
+  %29 = load i32, ptr %28, align 4
+  store i32 %29, ptr %5, align 4
+  %30 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp uge i32 %26, %31
+  br i1 %32, label %33, label %42
 
-32:                                               ; preds = %1
-  %33 = getelementptr inbounds %"struct.nix::Goal", ptr %19, i32 0, i32 2
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %19, i64 8
-  call void @_ZNSt23enable_shared_from_thisIN3nix4GoalEE16shared_from_thisEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.284") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %35)
-  invoke void @_ZN3nix6Worker16waitForBuildSlotESt10shared_ptrINS_4GoalEE(ptr noundef nonnull align 8 dereferenceable(649) %34, ptr noundef %6)
-          to label %36 unwind label %37
+33:                                               ; preds = %1
+  %34 = getelementptr inbounds %"struct.nix::Goal", ptr %19, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %19, i64 8
+  call void @_ZNSt23enable_shared_from_thisIN3nix4GoalEE16shared_from_thisEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.284") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %36)
+  invoke void @_ZN3nix6Worker16waitForBuildSlotESt10shared_ptrINS_4GoalEE(ptr noundef nonnull align 8 dereferenceable(649) %35, ptr noundef %6)
+          to label %37 unwind label %38
 
-36:                                               ; preds = %32
+37:                                               ; preds = %33
   call void @_ZNSt10shared_ptrIN3nix4GoalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #1
-  br label %73
+  br label %74
 
-37:                                               ; preds = %32
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %33
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %7, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %8, align 4
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %7, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %8, align 4
   call void @_ZNSt10shared_ptrIN3nix4GoalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #1
-  br label %88
+  br label %89
 
-41:                                               ; preds = %1
-  %42 = getelementptr inbounds %"struct.nix::Goal", ptr %19, i32 0, i32 2
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %"class.nix::Worker", ptr %43, i32 0, i32 31
-  call void @_ZSt11make_uniqueIN3nix13MaintainCountImEEJRmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.91") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %44)
-  %45 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %19, i32 0, i32 13
-  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %9) #1
+42:                                               ; preds = %1
+  %43 = getelementptr inbounds %"struct.nix::Goal", ptr %19, i32 0, i32 2
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %"class.nix::Worker", ptr %44, i32 0, i32 31
+  call void @_ZSt11make_uniqueIN3nix13MaintainCountImEEJRmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.91") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %45)
+  %46 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %19, i32 0, i32 13
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(8) %9) #1
   call void @_ZNSt10unique_ptrIN3nix13MaintainCountImEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #1
-  %47 = getelementptr inbounds %"struct.nix::Goal", ptr %19, i32 0, i32 2
-  %48 = load ptr, ptr %47, align 8
-  call void @_ZN3nix6Worker14updateProgressEv(ptr noundef nonnull align 8 dereferenceable(649) %48)
-  %49 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %19, i32 0, i32 7
-  call void @_ZN3nix4Pipe6createEv(ptr noundef nonnull align 4 dereferenceable(8) %49)
+  %48 = getelementptr inbounds %"struct.nix::Goal", ptr %19, i32 0, i32 2
+  %49 = load ptr, ptr %48, align 8
+  call void @_ZN3nix6Worker14updateProgressEv(ptr noundef nonnull align 8 dereferenceable(649) %49)
+  %50 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %19, i32 0, i32 7
+  call void @_ZN3nix4Pipe6createEv(ptr noundef nonnull align 4 dereferenceable(8) %50)
   call void @_ZNSt7promiseIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10)
-  %50 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %19, i32 0, i32 9
-  %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt7promiseIvEaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %10) #1
+  %51 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %19, i32 0, i32 9
+  %52 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt7promiseIvEaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %10) #1
   call void @_ZNSt7promiseIvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #1
-  %52 = getelementptr inbounds %class.anon, ptr %12, i32 0, i32 0
-  store ptr %19, ptr %52, align 8
+  %53 = getelementptr inbounds %class.anon, ptr %12, i32 0, i32 0
+  store ptr %19, ptr %53, align 8
   call void @"_ZNSt6threadC2IZN3nix20PathSubstitutionGoal8tryToRunEvE3$_0JEvEEOT_DpOT0_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %53 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %19, i32 0, i32 8
-  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6threadaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(8) %11) #1
+  %54 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %19, i32 0, i32 8
+  %55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6threadaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 8 dereferenceable(8) %11) #1
   call void @_ZNSt6threadD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #1
-  %55 = getelementptr inbounds %"struct.nix::Goal", ptr %19, i32 0, i32 2
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %19, i64 8
-  call void @_ZNSt23enable_shared_from_thisIN3nix4GoalEE16shared_from_thisEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.284") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %57)
-  %58 = getelementptr inbounds [1 x i32], ptr %16, i64 0, i64 0
-  %59 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %19, i32 0, i32 7
-  %60 = getelementptr inbounds %"class.nix::Pipe", ptr %59, i32 0, i32 0
-  %61 = invoke noundef i32 @_ZNK3nix11AutoCloseFD3getEv(ptr noundef nonnull align 4 dereferenceable(4) %60)
-          to label %62 unwind label %74
+  %56 = getelementptr inbounds %"struct.nix::Goal", ptr %19, i32 0, i32 2
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %19, i64 8
+  call void @_ZNSt23enable_shared_from_thisIN3nix4GoalEE16shared_from_thisEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.284") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %58)
+  %59 = getelementptr inbounds [1 x i32], ptr %16, i64 0, i64 0
+  %60 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %19, i32 0, i32 7
+  %61 = getelementptr inbounds %"class.nix::Pipe", ptr %60, i32 0, i32 0
+  %62 = invoke noundef i32 @_ZNK3nix11AutoCloseFD3getEv(ptr noundef nonnull align 4 dereferenceable(4) %61)
+          to label %63 unwind label %75
 
-62:                                               ; preds = %41
-  store i32 %61, ptr %58, align 4
-  %63 = getelementptr inbounds %"class.std::initializer_list", ptr %15, i32 0, i32 0
-  %64 = getelementptr inbounds [1 x i32], ptr %16, i64 0, i64 0
-  store ptr %64, ptr %63, align 8
-  %65 = getelementptr inbounds %"class.std::initializer_list", ptr %15, i32 0, i32 1
-  store i64 1, ptr %65, align 8
+63:                                               ; preds = %42
+  store i32 %62, ptr %59, align 4
+  %64 = getelementptr inbounds %"class.std::initializer_list", ptr %15, i32 0, i32 0
+  %65 = getelementptr inbounds [1 x i32], ptr %16, i64 0, i64 0
+  store ptr %65, ptr %64, align 8
+  %66 = getelementptr inbounds %"class.std::initializer_list", ptr %15, i32 0, i32 1
+  store i64 1, ptr %66, align 8
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #1
-  %66 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 1
-  %69 = load i64, ptr %68, align 8
-  invoke void @_ZNSt3setIiSt4lessIiESaIiEEC2ESt16initializer_listIiERKS1_RKS2_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr %67, i64 %69, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
-          to label %70 unwind label %78
+  %67 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 1
+  %70 = load i64, ptr %69, align 8
+  invoke void @_ZNSt3setIiSt4lessIiESaIiEEC2ESt16initializer_listIiERKS1_RKS2_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr %68, i64 %70, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
+          to label %71 unwind label %79
 
-70:                                               ; preds = %62
-  invoke void @_ZN3nix6Worker12childStartedESt10shared_ptrINS_4GoalEERKSt3setIiSt4lessIiESaIiEEbb(ptr noundef nonnull align 8 dereferenceable(649) %56, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(48) %14, i1 noundef zeroext true, i1 noundef zeroext false)
-          to label %71 unwind label %82
+71:                                               ; preds = %63
+  invoke void @_ZN3nix6Worker12childStartedESt10shared_ptrINS_4GoalEERKSt3setIiSt4lessIiESaIiEEbb(ptr noundef nonnull align 8 dereferenceable(649) %57, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(48) %14, i1 noundef zeroext true, i1 noundef zeroext false)
+          to label %72 unwind label %83
 
-71:                                               ; preds = %70
+72:                                               ; preds = %71
   call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #1
   call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #1
   call void @_ZNSt10shared_ptrIN3nix4GoalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #1
-  %72 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %19, i32 0, i32 16
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3nix20PathSubstitutionGoal8finishedEv to i64), i64 0 }, ptr %72, align 8
-  br label %73
+  %73 = getelementptr inbounds %"struct.nix::PathSubstitutionGoal", ptr %19, i32 0, i32 16
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3nix20PathSubstitutionGoal8finishedEv to i64), i64 0 }, ptr %73, align 8
+  br label %74
 
-73:                                               ; preds = %71, %36
+74:                                               ; preds = %72, %37
   ret void
 
-74:                                               ; preds = %41
-  %75 = landingpad { ptr, i32 }
+75:                                               ; preds = %42
+  %76 = landingpad { ptr, i32 }
           cleanup
-  %76 = extractvalue { ptr, i32 } %75, 0
-  store ptr %76, ptr %7, align 8
-  %77 = extractvalue { ptr, i32 } %75, 1
-  store i32 %77, ptr %8, align 4
-  br label %87
-
-78:                                               ; preds = %62
-  %79 = landingpad { ptr, i32 }
-          cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %7, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %8, align 4
-  br label %86
-
-82:                                               ; preds = %70
-  %83 = landingpad { ptr, i32 }
-          cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %7, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %8, align 4
-  call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #1
-  br label %86
-
-86:                                               ; preds = %82, %78
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #1
-  br label %87
-
-87:                                               ; preds = %86, %74
-  call void @_ZNSt10shared_ptrIN3nix4GoalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #1
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %7, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %8, align 4
   br label %88
 
-88:                                               ; preds = %87, %37
-  %89 = load ptr, ptr %7, align 8
-  %90 = load i32, ptr %8, align 4
-  %91 = insertvalue { ptr, i32 } poison, ptr %89, 0
-  %92 = insertvalue { ptr, i32 } %91, i32 %90, 1
-  resume { ptr, i32 } %92
+79:                                               ; preds = %63
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %7, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %8, align 4
+  br label %87
+
+83:                                               ; preds = %71
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %7, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %8, align 4
+  call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #1
+  br label %87
+
+87:                                               ; preds = %83, %79
+  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #1
+  br label %88
+
+88:                                               ; preds = %87, %75
+  call void @_ZNSt10shared_ptrIN3nix4GoalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #1
+  br label %89
+
+89:                                               ; preds = %88, %38
+  %90 = load ptr, ptr %7, align 8
+  %91 = load i32, ptr %8, align 4
+  %92 = insertvalue { ptr, i32 } poison, ptr %90, 0
+  %93 = insertvalue { ptr, i32 } %92, i32 %91, 1
+  resume { ptr, i32 } %93
 }
 
 declare void @_ZN3nix6Worker6wakeUpESt10shared_ptrINS_4GoalEE(ptr noundef nonnull align 8 dereferenceable(649), ptr noundef) #3
@@ -9097,7 +9104,7 @@ define void @_ZN3nix20PathSubstitutionGoal8finishedEv(ptr noundef nonnull align 
 
 40:                                               ; preds = %36, %32
   %41 = load i32, ptr %6, align 4
-  %42 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #1
+  %42 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #1
   %43 = icmp eq i32 %41, %42
   br i1 %43, label %44, label %211
 
@@ -9188,7 +9195,7 @@ define void @_ZN3nix20PathSubstitutionGoal8finishedEv(ptr noundef nonnull align 
 
 88:                                               ; preds = %84
   %89 = load i32, ptr %6, align 4
-  %90 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix14SubstituteGoneE) #1
+  %90 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix14SubstituteGoneE) #1
   %91 = icmp eq i32 %89, %90
   br i1 %91, label %92, label %103
 
@@ -10285,7 +10292,7 @@ define linkonce_odr noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIc
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #11
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIcEE8allocateERS0_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #5 comdat align 2 {
@@ -10363,13 +10370,13 @@ define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIcE11_M_max_sizeEv(ptr n
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #11
+declare void @_ZSt28__throw_bad_array_new_lengthv() #10
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #11
+declare void @_ZSt17__throw_bad_allocv() #10
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #12
+declare noundef nonnull ptr @_Znwm(i64 noundef) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
@@ -12778,7 +12785,8 @@ define linkonce_odr void @_ZNSt13__future_base7_ResultIvEC2Ev(ptr noundef nonnul
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt13__future_base7_ResultIvEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt13__future_base7_ResultIvEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -12964,11 +12972,12 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_St
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %4, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(32) %5) #1
-  %6 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #1
-  call void @_ZNSt16allocator_traitsISaIvEE9constructINSt13__future_base13_State_baseV2EJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %6) #1
+  %5 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %4, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(32) %6) #1
+  %7 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #1
+  call void @_ZNSt16allocator_traitsISaIvEE9constructINSt13__future_base13_State_baseV2EJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %7) #1
   ret void
 }
 
@@ -13124,11 +13133,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -13292,7 +13302,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #13
+declare void @llvm.trap() #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
@@ -13317,25 +13327,26 @@ define linkonce_odr void @_ZNSt13__future_base13_State_baseV2C2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #1
-  %5 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 2
-  invoke void @_ZNSt23__atomic_futex_unsignedILj2147483648EEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0)
-          to label %6 unwind label %9
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #1
+  %6 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 2
+  invoke void @_ZNSt23__atomic_futex_unsignedILj2147483648EEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef 0)
+          to label %7 unwind label %10
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 3
-  call void @_ZNSt11atomic_flagC2Eb(ptr noundef nonnull align 1 dereferenceable(1) %7, i1 noundef zeroext false) #1
-  %8 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 5
-  call void @_ZNSt9once_flagC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %8) #1
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 3
+  call void @_ZNSt11atomic_flagC2Eb(ptr noundef nonnull align 1 dereferenceable(1) %8, i1 noundef zeroext false) #1
+  %9 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 5
+  call void @_ZNSt9once_flagC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9) #1
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #23
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #23
   unreachable
 }
 
@@ -13405,9 +13416,10 @@ define linkonce_odr void @_ZNSt13__future_base13_State_baseV2D2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #1
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #1
   ret void
 }
 
@@ -14154,7 +14166,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #11
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #2 comdat align 2 {
@@ -15056,11 +15068,12 @@ define linkonce_odr void @_ZNSt12future_errorC2ERKS_(ptr noundef nonnull align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.std::future_error", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.std::future_error", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false)
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.std::future_error", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.std::future_error", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
   ret void
 }
 
@@ -15098,53 +15111,54 @@ define linkonce_odr void @_ZNSt12future_errorC2ESt10error_code(ptr noundef nonnu
   %12 = load ptr, ptr %5, align 8
   call void @_ZNKSt10error_code7messageB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %4)
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %13 unwind label %16
+          to label %13 unwind label %17
 
 13:                                               ; preds = %3
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %14 unwind label %20
+          to label %14 unwind label %21
 
 14:                                               ; preds = %13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %"class.std::future_error", ptr %12, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %4, i64 16, i1 false)
+  %15 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"class.std::future_error", ptr %12, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %4, i64 16, i1 false)
   ret void
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %8, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %9, align 4
-  br label %24
-
-20:                                               ; preds = %13
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %8, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #1
-  br label %24
-
-24:                                               ; preds = %20, %16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #1
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %8, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %9, align 4
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i32, ptr %9, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+21:                                               ; preds = %13
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %8, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %9, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #1
+  br label %25
+
+25:                                               ; preds = %21, %17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #1
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %8, align 8
+  %28 = load i32, ptr %9, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt15future_categoryv() #14
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt15future_categoryv() #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10error_codeC2EiRKNSt3_V214error_categoryE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 comdat align 2 {
@@ -15785,7 +15799,7 @@ define linkonce_odr noundef ptr @_ZNSt11char_traitsIcE4moveEPcPKcm(ptr noundef %
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #11
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt10error_code8categoryEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
@@ -18100,48 +18114,49 @@ define linkonce_odr void @_ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11ch
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.nix::BaseError", ptr %9, i32 0, i32 1
-  %11 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %10, i32 0, i32 0
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %10, i32 0, i32 1
-  %13 = load ptr, ptr %5, align 8
-  %14 = load ptr, ptr %6, align 8
-  invoke void @_ZN3nix7HintFmtC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERKS7_DpRKT_(ptr noundef nonnull align 8 dereferenceable(224) %12, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %15 unwind label %22
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.nix::BaseError", ptr %9, i32 0, i32 1
+  %12 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %11, i32 0, i32 0
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %6, align 8
+  invoke void @_ZN3nix7HintFmtC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERKS7_DpRKT_(ptr noundef nonnull align 8 dereferenceable(224) %13, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
+          to label %16 unwind label %23
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %10, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN3nix3PosEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #1
-  %17 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %10, i32 0, i32 3
-  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 24, i1 false)
-  call void @_ZNSt7__cxx114listIN3nix5TraceESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #1
-  %18 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %10, i32 0, i32 4
-  store i32 1, ptr %18, align 8
-  %19 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %10, i32 0, i32 5
-  %20 = getelementptr inbounds %"class.nix::Suggestions", ptr %19, i32 0, i32 0
-  call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 48, i1 false)
-  call void @_ZNSt3setIN3nix10SuggestionESt4lessIS1_ESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #1
-  %21 = getelementptr inbounds %"class.nix::BaseError", ptr %9, i32 0, i32 2
-  call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #1
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %11, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN3nix3PosEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #1
+  %18 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %11, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 24, i1 false)
+  call void @_ZNSt7__cxx114listIN3nix5TraceESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #1
+  %19 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %11, i32 0, i32 4
+  store i32 1, ptr %19, align 8
+  %20 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %11, i32 0, i32 5
+  %21 = getelementptr inbounds %"class.nix::Suggestions", ptr %20, i32 0, i32 0
+  call void @llvm.memset.p0.i64(ptr align 8 %21, i8 0, i64 48, i1 false)
+  call void @_ZNSt3setIN3nix10SuggestionESt4lessIS1_ESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #1
+  %22 = getelementptr inbounds %"class.nix::BaseError", ptr %9, i32 0, i32 2
+  call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #1
   ret void
 
-22:                                               ; preds = %3
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %3
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %7, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %8, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %7, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %8, align 4
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #1
-  br label %26
+  br label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %7, align 8
-  %28 = load i32, ptr %8, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %7, align 8
+  %29 = load i32, ptr %8, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -18179,7 +18194,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -18259,11 +18275,12 @@ define linkonce_odr void @_ZN3nix9BaseErrorD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nix::BaseError", ptr %3, i32 0, i32 2
-  call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #1
-  %5 = getelementptr inbounds %"class.nix::BaseError", ptr %3, i32 0, i32 1
-  call void @_ZN3nix9ErrorInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %5) #1
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nix::BaseError", ptr %3, i32 0, i32 2
+  call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #1
+  %6 = getelementptr inbounds %"class.nix::BaseError", ptr %3, i32 0, i32 1
+  call void @_ZN3nix9ErrorInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %6) #1
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
   ret void
 }
@@ -18455,16 +18472,17 @@ define linkonce_odr void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESa
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 2
-  store i8 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 4
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 4
-  %10 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 5
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #1
+  %6 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 2
+  store i8 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 4
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 4
+  %11 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 5
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #1
   ret void
 }
 
@@ -18936,21 +18954,22 @@ define linkonce_odr void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESa
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %3)
-          to label %4 unwind label %6
+          to label %5 unwind label %7
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %3, i32 0, i32 5
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #1
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %3, i32 0, i32 5
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #1
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #1
   ret void
 
-6:                                                ; preds = %1
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #23
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #23
   unreachable
 }
 
@@ -21879,7 +21898,7 @@ define linkonce_odr void @_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESa
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io17bad_format_stringEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io17bad_format_stringEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) #14 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -21923,13 +21942,14 @@ define linkonce_odr void @_ZN5boost2io17bad_format_stringC2Emm(ptr noundef nonnu
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %5, align 8
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %7, i32 0, i32 2
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %5, align 8
+  store i64 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %7, i32 0, i32 2
+  %12 = load i64, ptr %6, align 8
+  store i64 %12, ptr %11, align 8
   ret void
 }
 
@@ -27367,53 +27387,56 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERK
   call void @_ZN5boost2io17bad_format_stringC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #1
   %10 = getelementptr inbounds i8, ptr %7, i64 32
   invoke void @_ZN5boost9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %10)
-          to label %11 unwind label %16
+          to label %11 unwind label %19
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 2, i32 2), ptr %13, align 8
-  %14 = load ptr, ptr %4, align 8
-  invoke void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef %14)
-          to label %15 unwind label %20
+  %12 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %7, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 2, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = load ptr, ptr %4, align 8
+  invoke void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef %17)
+          to label %18 unwind label %23
 
-15:                                               ; preds = %11
+18:                                               ; preds = %11
   ret void
 
-16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
+19:                                               ; preds = %2
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %5, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %6, align 4
-  br label %25
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  br label %28
 
-20:                                               ; preds = %11
-  %21 = landingpad { ptr, i32 }
+23:                                               ; preds = %11
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %5, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %6, align 4
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %24) #1
-  br label %25
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  %27 = getelementptr inbounds i8, ptr %7, i64 32
+  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %27) #1
+  br label %28
 
-25:                                               ; preds = %20, %16
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @_ZN5boost2io17bad_format_stringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #1
+28:                                               ; preds = %23, %19
+  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @_ZN5boost2io17bad_format_stringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #1
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  br label %27
+  br label %30
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %5, align 8
+  %32 = load i32, ptr %6, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -27434,7 +27457,8 @@ define linkonce_odr void @_ZN5boost16exception_detail10clone_baseC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -27447,11 +27471,12 @@ define linkonce_odr void @_ZN5boost2io17bad_format_stringC2ERKS1_(ptr noundef no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false)
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
   ret void
 }
 
@@ -27460,15 +27485,16 @@ define linkonce_odr void @_ZN5boost9exceptionC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 1
-  call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %5 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 2
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 1
+  call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %6 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 2
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 4
-  store i32 -1, ptr %7, align 8
+  %7 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 3
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 4
+  store i32 -1, ptr %8, align 8
   ret void
 }
 
@@ -27486,9 +27512,10 @@ define linkonce_odr void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 1
-  call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #1
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 1
+  call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #1
   ret void
 }
 
@@ -27603,7 +27630,7 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -27613,7 +27640,7 @@ define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEE
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -27630,7 +27657,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io17bad_format_string4whatEv(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -27640,7 +27667,7 @@ define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringE
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -27673,7 +27700,8 @@ define linkonce_odr void @_ZN5boost2io12format_errorC2ERKS1_(ptr noundef nonnull
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12format_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost2io12format_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -27694,7 +27722,8 @@ define linkonce_odr void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 der
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -27800,34 +27829,37 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERK
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 32
   invoke void @_ZN5boost9exceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(36) %14)
-          to label %15 unwind label %18
+          to label %15 unwind label %21
 
 15:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 1, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 2, i32 2), ptr %17, align 8
+  %16 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %7, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 1, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %20 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 2, i32 2
+  store ptr %20, ptr %19, align 8
   ret void
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @_ZN5boost2io17bad_format_stringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #1
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %5, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %6, align 4
+  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @_ZN5boost2io17bad_format_stringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #1
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  br label %23
+  br label %26
 
-23:                                               ; preds = %18
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i32, ptr %6, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -27956,7 +27988,8 @@ define linkonce_odr void @_ZN5boost16exception_detail10clone_baseC2ERKS1_(ptr no
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -27967,15 +28000,16 @@ define linkonce_odr void @_ZN5boost9exceptionC2ERKS0_(ptr noundef nonnull align 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.boost::exception", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.boost::exception", ptr %7, i32 0, i32 1
-  call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %9 = getelementptr inbounds %"class.boost::exception", ptr %5, i32 0, i32 2
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.boost::exception", ptr %10, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %11, i64 20, i1 false)
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.boost::exception", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"class.boost::exception", ptr %8, i32 0, i32 1
+  call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %10 = getelementptr inbounds %"class.boost::exception", ptr %5, i32 0, i32 2
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.boost::exception", ptr %11, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %12, i64 20, i1 false)
   ret void
 }
 
@@ -28063,7 +28097,8 @@ define linkonce_odr void @_ZN5boost2io12format_errorC2Ev(ptr noundef nonnull ali
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12format_errorE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost2io12format_errorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -30782,7 +30817,7 @@ define linkonce_odr { ptr, i64 } @_ZNSt6vectorIbSaIbEEixEm(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io13too_many_argsEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io13too_many_argsEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) #14 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -30826,13 +30861,14 @@ define linkonce_odr void @_ZN5boost2io13too_many_argsC2Emm(ptr noundef nonnull a
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %5, align 8
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %7, i32 0, i32 2
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %5, align 8
+  store i64 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %7, i32 0, i32 2
+  %12 = load i64, ptr %6, align 8
+  store i64 %12, ptr %11, align 8
   ret void
 }
 
@@ -31511,53 +31547,56 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS2_(
   call void @_ZN5boost2io13too_many_argsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #1
   %10 = getelementptr inbounds i8, ptr %7, i64 32
   invoke void @_ZN5boost9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %10)
-          to label %11 unwind label %16
+          to label %11 unwind label %19
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 2, i32 2), ptr %13, align 8
-  %14 = load ptr, ptr %4, align 8
-  invoke void @_ZN5boost10wrapexceptINS_2io13too_many_argsEE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef %14)
-          to label %15 unwind label %20
+  %12 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %7, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 2, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = load ptr, ptr %4, align 8
+  invoke void @_ZN5boost10wrapexceptINS_2io13too_many_argsEE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef %17)
+          to label %18 unwind label %23
 
-15:                                               ; preds = %11
+18:                                               ; preds = %11
   ret void
 
-16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
+19:                                               ; preds = %2
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %5, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %6, align 4
-  br label %25
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  br label %28
 
-20:                                               ; preds = %11
-  %21 = landingpad { ptr, i32 }
+23:                                               ; preds = %11
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %5, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %6, align 4
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %24) #1
-  br label %25
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  %27 = getelementptr inbounds i8, ptr %7, i64 32
+  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %27) #1
+  br label %28
 
-25:                                               ; preds = %20, %16
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @_ZN5boost2io13too_many_argsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #1
+28:                                               ; preds = %23, %19
+  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @_ZN5boost2io13too_many_argsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #1
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  br label %27
+  br label %30
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %5, align 8
+  %32 = load i32, ptr %6, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -31582,11 +31621,12 @@ define linkonce_odr void @_ZN5boost2io13too_many_argsC2ERKS1_(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false)
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
   ret void
 }
 
@@ -31710,7 +31750,7 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -31720,7 +31760,7 @@ define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -31737,7 +31777,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io13too_many_args4whatEv(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -31747,7 +31787,7 @@ define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED1E
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -31785,34 +31825,37 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS3_(
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 32
   invoke void @_ZN5boost9exceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(36) %14)
-          to label %15 unwind label %18
+          to label %15 unwind label %21
 
 15:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 1, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 2, i32 2), ptr %17, align 8
+  %16 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %7, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 1, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %20 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 2, i32 2
+  store ptr %20, ptr %19, align 8
   ret void
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @_ZN5boost2io13too_many_argsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #1
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %5, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %6, align 4
+  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @_ZN5boost2io13too_many_argsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #1
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  br label %23
+  br label %26
 
-23:                                               ; preds = %18
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i32, ptr %6, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -31850,55 +31893,60 @@ define linkonce_odr void @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsI
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load ptr, ptr %4, align 8
   invoke void @_ZN5boost16base_from_memberINS_10shared_ptrINS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEEEELi0EEC2IPS7_NS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEET_T0_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-          to label %11 unwind label %18
+          to label %11 unwind label %23
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 1, i32 3), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  %14 = getelementptr inbounds %"class.boost::base_from_member", ptr %13, i32 0, i32 0
-  %15 = call noundef ptr @_ZNK5boost10shared_ptrINS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #1
-  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), ptr noundef %15)
-          to label %16 unwind label %22
+  %12 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 3
+  store ptr %12, ptr %7, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 1, i32 3
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds %"class.boost::base_from_member", ptr %15, i32 0, i32 0
+  %17 = call noundef ptr @_ZNK5boost10shared_ptrINS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #1
+  %18 = getelementptr inbounds [4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1
+  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %18, ptr noundef %17)
+          to label %19 unwind label %27
 
-16:                                               ; preds = %11
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 1, i32 3), ptr %17, align 8
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 3
+  store ptr %20, ptr %7, align 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 24
+  %22 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 1, i32 3
+  store ptr %22, ptr %21, align 8
   ret void
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+23:                                               ; preds = %2
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
-  br label %27
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  br label %32
 
-22:                                               ; preds = %11
-  %23 = landingpad { ptr, i32 }
+27:                                               ; preds = %11
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %5, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %6, align 4
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @_ZN5boost16base_from_memberINS_10shared_ptrINS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEEEELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #1
-  br label %27
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %5, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %6, align 4
+  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @_ZN5boost16base_from_memberINS_10shared_ptrINS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEEEELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #1
+  br label %32
 
-27:                                               ; preds = %22, %18
-  %28 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %28) #1
-  br label %29
+32:                                               ; preds = %27, %23
+  %33 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %33) #1
+  br label %34
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %5, align 8
-  %31 = load i32, ptr %6, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %5, align 8
+  %36 = load i32, ptr %6, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind writable sret(%"class.std::locale") align 8, ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(8)) #3
@@ -32470,7 +32518,7 @@ define linkonce_odr void @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsI
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -32483,7 +32531,7 @@ define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -32676,10 +32724,11 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_al
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5boost6detail15sp_counted_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEENS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEENS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
   ret void
 }
 
@@ -32698,11 +32747,12 @@ define linkonce_odr void @_ZN5boost6detail15sp_counted_baseC2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail15sp_counted_baseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5boost6detail15sp_counted_baseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -38647,7 +38697,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrINSt13__future_base13_State_baseV2E
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_future_errori(i32 noundef) #11
+declare void @_ZSt20__throw_future_errori(i32 noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt14__basic_futureIvE6_ResetC2ERS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
@@ -38852,7 +38902,7 @@ define linkonce_odr void @_ZNSt15__exception_ptr13exception_ptrC2EDn(ptr noundef
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef) #11
+declare void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15__exception_ptr13exception_ptrC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 comdat align 2 {
@@ -39177,7 +39227,7 @@ define linkonce_odr noundef zeroext i1 @_ZSteqNSt6thread2idES0_(i64 %0, i64 %1) 
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #17
+declare void @abort() #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #5 comdat {
@@ -39609,7 +39659,7 @@ define linkonce_odr void @_ZN5boost2io6detail8put_lastIcSt11char_traitsIcENSt7__
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io12too_few_argsEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io12too_few_argsEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) #14 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -39653,13 +39703,14 @@ define linkonce_odr void @_ZN5boost2io12too_few_argsC2Emm(ptr noundef nonnull al
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.boost::io::too_few_args", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %5, align 8
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.boost::io::too_few_args", ptr %7, i32 0, i32 2
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.boost::io::too_few_args", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %5, align 8
+  store i64 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.boost::io::too_few_args", ptr %7, i32 0, i32 2
+  %12 = load i64, ptr %6, align 8
+  store i64 %12, ptr %11, align 8
   ret void
 }
 
@@ -39784,53 +39835,56 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io12too_few_argsEEC2ERKS2_(p
   call void @_ZN5boost2io12too_few_argsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #1
   %10 = getelementptr inbounds i8, ptr %7, i64 32
   invoke void @_ZN5boost9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %10)
-          to label %11 unwind label %16
+          to label %11 unwind label %19
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 2, i32 2), ptr %13, align 8
-  %14 = load ptr, ptr %4, align 8
-  invoke void @_ZN5boost10wrapexceptINS_2io12too_few_argsEE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef %14)
-          to label %15 unwind label %20
+  %12 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %7, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 2, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = load ptr, ptr %4, align 8
+  invoke void @_ZN5boost10wrapexceptINS_2io12too_few_argsEE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef %17)
+          to label %18 unwind label %23
 
-15:                                               ; preds = %11
+18:                                               ; preds = %11
   ret void
 
-16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
+19:                                               ; preds = %2
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %5, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %6, align 4
-  br label %25
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  br label %28
 
-20:                                               ; preds = %11
-  %21 = landingpad { ptr, i32 }
+23:                                               ; preds = %11
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %5, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %6, align 4
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %24) #1
-  br label %25
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  %27 = getelementptr inbounds i8, ptr %7, i64 32
+  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %27) #1
+  br label %28
 
-25:                                               ; preds = %20, %16
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @_ZN5boost2io12too_few_argsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #1
+28:                                               ; preds = %23, %19
+  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @_ZN5boost2io12too_few_argsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #1
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  br label %27
+  br label %30
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %5, align 8
+  %32 = load i32, ptr %6, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39855,11 +39909,12 @@ define linkonce_odr void @_ZN5boost2io12too_few_argsC2ERKS1_(ptr noundef nonnull
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.boost::io::too_few_args", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.boost::io::too_few_args", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false)
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.boost::io::too_few_args", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.boost::io::too_few_args", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
   ret void
 }
 
@@ -39983,7 +40038,7 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io12too_few_argsEED0Ev(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io12too_few_argsEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io12too_few_argsEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -39993,7 +40048,7 @@ define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io12too_few_argsEED1Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io12too_few_argsEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io12too_few_argsEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -40010,7 +40065,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io12too_few_args4whatEv(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io12too_few_argsEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io12too_few_argsEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -40020,7 +40075,7 @@ define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io12too_few_argsEED1Ev
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io12too_few_argsEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io12too_few_argsEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -40058,34 +40113,37 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io12too_few_argsEEC2ERKS3_(p
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 32
   invoke void @_ZN5boost9exceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(36) %14)
-          to label %15 unwind label %18
+          to label %15 unwind label %21
 
 15:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 1, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 2, i32 2), ptr %17, align 8
+  %16 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %7, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 1, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %20 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 2, i32 2
+  store ptr %20, ptr %19, align 8
   ret void
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @_ZN5boost2io12too_few_argsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #1
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %5, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %6, align 4
+  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @_ZN5boost2io12too_few_argsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #1
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  br label %23
+  br label %26
 
-23:                                               ; preds = %18
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i32, ptr %6, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -40894,33 +40952,34 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESa
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.405", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(384) %9) #1
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(400) %8) #1
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3nix13ValidPathInfoEJRKS4_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(384) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.405", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(384) %10) #1
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(400) %8) #1
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3nix13ValidPathInfoEJRKS4_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(384) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #1
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #1
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -41199,32 +41258,33 @@ define linkonce_odr void @_ZN3nix13ValidPathInfoC2ERKS0_(ptr noundef nonnull ali
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN3nix20UnkeyedValidPathInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(352) %7, ptr noundef nonnull align 8 dereferenceable(352) %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"struct.nix::ValidPathInfo", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"struct.nix::ValidPathInfo", ptr %10, i32 0, i32 1
-  invoke void @_ZN3nix9StorePathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"struct.nix::ValidPathInfo", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"struct.nix::ValidPathInfo", ptr %11, i32 0, i32 1
+  invoke void @_ZN3nix9StorePathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN3nix20UnkeyedValidPathInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %7) #1
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN3nix20UnkeyedValidPathInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %7) #1
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -41236,68 +41296,69 @@ define linkonce_odr void @_ZN3nix20UnkeyedValidPathInfoC2ERKS0_(ptr noundef nonn
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %9, i32 0, i32 1
-  call void @_ZNSt8optionalIN3nix9StorePathEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %10)
-  %11 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %7, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %12, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %13, i64 80, i1 false)
-  %14 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %7, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %15, i32 0, i32 3
-  invoke void @_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %16)
-          to label %17 unwind label %28
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %10, i32 0, i32 1
+  call void @_ZNSt8optionalIN3nix9StorePathEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %11)
+  %12 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %7, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %13, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %14, i64 80, i1 false)
+  %15 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %7, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %16, i32 0, i32 3
+  invoke void @_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %17)
+          to label %18 unwind label %29
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %7, i32 0, i32 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %19, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %20, i64 25, i1 false)
-  %21 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %7, i32 0, i32 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %22, i32 0, i32 8
-  invoke void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %23)
-          to label %24 unwind label %32
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %7, i32 0, i32 4
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %20, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %21, i64 25, i1 false)
+  %22 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %7, i32 0, i32 8
+  %23 = load ptr, ptr %4, align 8
+  %24 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %23, i32 0, i32 8
+  invoke void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %24)
+          to label %25 unwind label %33
 
-24:                                               ; preds = %17
-  %25 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %7, i32 0, i32 9
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %26, i32 0, i32 9
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %27, i64 96, i1 false)
+25:                                               ; preds = %18
+  %26 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %7, i32 0, i32 9
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %27, i32 0, i32 9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %28, i64 96, i1 false)
   ret void
 
-28:                                               ; preds = %2
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %2
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %5, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %6, align 4
-  br label %36
-
-32:                                               ; preds = %17
-  %33 = landingpad { ptr, i32 }
-          cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %5, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %6, align 4
-  call void @_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #1
-  br label %36
-
-36:                                               ; preds = %32, %28
-  call void @_ZNSt8optionalIN3nix9StorePathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #1
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %5, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %6, align 4
   br label %37
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %5, align 8
-  %39 = load i32, ptr %6, align 4
-  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
-  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
-  resume { ptr, i32 } %41
+33:                                               ; preds = %18
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %5, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %6, align 4
+  call void @_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #1
+  br label %37
+
+37:                                               ; preds = %33, %29
+  call void @_ZNSt8optionalIN3nix9StorePathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #1
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %5, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -41305,13 +41366,14 @@ define linkonce_odr void @_ZN3nix20UnkeyedValidPathInfoD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %3, i32 0, i32 8
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #1
-  %5 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %3, i32 0, i32 3
-  call void @_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #1
-  %6 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %3, i32 0, i32 1
-  call void @_ZNSt8optionalIN3nix9StorePathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #1
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %3, i32 0, i32 8
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #1
+  %6 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %3, i32 0, i32 3
+  call void @_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #1
+  %7 = getelementptr inbounds %"struct.nix::UnkeyedValidPathInfo", ptr %3, i32 0, i32 1
+  call void @_ZNSt8optionalIN3nix9StorePathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #1
   ret void
 }
 
@@ -41320,9 +41382,10 @@ define linkonce_odr void @_ZN3nix13ValidPathInfoD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.nix::ValidPathInfo", ptr %3, i32 0, i32 1
-  call void @_ZN3nix9StorePathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #1
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.nix::ValidPathInfo", ptr %3, i32 0, i32 1
+  call void @_ZN3nix9StorePathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #1
   call void @_ZN3nix20UnkeyedValidPathInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %3) #1
   ret void
 }
@@ -43116,7 +43179,7 @@ define linkonce_odr void @_ZN3nix12formatHelperIN5boost12basic_formatIcSt11char_
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #18
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIKN3nix7NarInfoEEC2IKNS0_13ValidPathInfoEEERKS_IT_EPS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #2 comdat align 2 {
@@ -43238,7 +43301,7 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #19
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt13_Rb_tree_nodeIN3nix9StorePathEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #2 comdat align 2 {
@@ -43441,7 +43504,8 @@ define linkonce_odr void @_ZNSt12bad_weak_ptrC2Ev(ptr noundef nonnull align 8 de
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -43460,31 +43524,32 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3nix20
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3nix20PathSubstitutionGoal8tryToRunEvE3$_0EEEEEE", i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @"_ZNSt6thread8_InvokerISt5tupleIJZN3nix20PathSubstitutionGoal8tryToRunEvE3$_0EEEC2IJS4_EEEDpOT_"(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3nix20PathSubstitutionGoal8tryToRunEvE3$_0EEEEEE", i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @"_ZNSt6thread8_InvokerISt5tupleIJZN3nix20PathSubstitutionGoal8tryToRunEvE3$_0EEEC2IJS4_EEEDpOT_"(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -43552,7 +43617,8 @@ define linkonce_odr void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -44417,7 +44483,7 @@ define linkonce_odr void @_ZNSt7promiseIvE13set_exceptionENSt15__exception_ptr13
 declare void @_ZSt17current_exceptionv(ptr dead_on_unwind writable sret(%"class.std::__exception_ptr::exception_ptr") align 8) #4
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare i64 @pthread_self() #14
+declare i64 @pthread_self() #13
 
 declare void @_ZN3nix23createInterruptCallbackESt8functionIFvvEE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.420") align 8, ptr noundef) #3
 
@@ -45473,7 +45539,7 @@ define internal noundef i32 @_ZL14__gthread_oncePiPFvvE(ptr noundef %0, ptr noun
 declare void @__once_proxy() #3
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) #11
+declare void @_ZSt20__throw_system_errori(i32 noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt9once_flag18_Prepare_executionD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
@@ -45487,7 +45553,7 @@ define linkonce_odr void @_ZNSt9once_flag18_Prepare_executionD2Ev(ptr noundef no
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #20
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENKUlvE_cvPFvvEEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
@@ -45632,7 +45698,7 @@ define linkonce_odr noundef zeroext i1 @_ZNKSt14_Function_base8_M_emptyEv(ptr no
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() #11
+declare void @_ZSt25__throw_bad_function_callv() #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerINSt13__future_base13_State_baseV27_SetterIvvEEE21_M_not_empty_functionIS4_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
@@ -47534,7 +47600,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_t
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #18
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #17
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -47547,7 +47613,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_t
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #18
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #17
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -47646,10 +47712,10 @@ define linkonce_odr void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tre
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #19
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #18
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #19
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11_Alloc_nodeclIRKiEEPSt13_Rb_tree_nodeIiEOT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #5 comdat align 2 {
@@ -47873,6 +47939,9 @@ define internal void @_GLOBAL__sub_I_substitution_goal.cc() #0 section ".text.st
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #20
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -47883,17 +47952,17 @@ attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind memory(none) }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #14 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #13 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nounwind memory(none) }
 attributes #21 = { builtin allocsize(0) }
 attributes #22 = { builtin nounwind }
 attributes #23 = { noreturn nounwind }

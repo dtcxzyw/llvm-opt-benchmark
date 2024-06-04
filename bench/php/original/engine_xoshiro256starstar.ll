@@ -898,7 +898,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   %192 = load i32, ptr %27, align 4
   %193 = load ptr, ptr %26, align 8
   call void @zend_wrong_parameter_error(i32 noundef %189, i32 noundef %190, ptr noundef %191, i32 noundef %192, ptr noundef %193)
-  br label %337
+  br label %340
 
 194:                                              ; preds = %180
   br label %195
@@ -906,15 +906,15 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
 195:                                              ; preds = %194
   %196 = load i8, ptr %19, align 1
   %197 = trunc i8 %196 to i1
-  br i1 %197, label %198, label %243
+  br i1 %197, label %198, label %244
 
 198:                                              ; preds = %195
   br label %199
 
-199:                                              ; preds = %226, %198
+199:                                              ; preds = %227, %198
   %200 = call i32 @php_random_bytes_throw(ptr noundef %32, i64 noundef 32)
   %201 = icmp eq i32 %200, -1
-  br i1 %201, label %202, label %209
+  br i1 %201, label %202, label %210
 
 202:                                              ; preds = %199
   %203 = load ptr, ptr @random_ce_Random_RandomException, align 8
@@ -922,220 +922,223 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   br label %205
 
 205:                                              ; preds = %202
-  %206 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %207 = icmp ne ptr %206, null
-  call void @llvm.assume(i1 %207)
-  br label %337
+  %206 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %207 = load ptr, ptr %206, align 8
+  %208 = icmp ne ptr %207, null
+  call void @llvm.assume(i1 %208)
+  br label %340
 
-208:                                              ; No predecessors!
-  br label %209
-
-209:                                              ; preds = %208, %199
+209:                                              ; No predecessors!
   br label %210
 
-210:                                              ; preds = %209
-  %211 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 0
-  %212 = load i64, ptr %211, align 16
-  %213 = icmp eq i64 %212, 0
-  br i1 %213, label %214, label %226
+210:                                              ; preds = %209, %199
+  br label %211
 
-214:                                              ; preds = %210
-  %215 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 1
-  %216 = load i64, ptr %215, align 8
-  %217 = icmp eq i64 %216, 0
-  br i1 %217, label %218, label %226
+211:                                              ; preds = %210
+  %212 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 0
+  %213 = load i64, ptr %212, align 16
+  %214 = icmp eq i64 %213, 0
+  br i1 %214, label %215, label %227
 
-218:                                              ; preds = %214
-  %219 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 2
-  %220 = load i64, ptr %219, align 16
-  %221 = icmp eq i64 %220, 0
-  br i1 %221, label %222, label %226
+215:                                              ; preds = %211
+  %216 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 1
+  %217 = load i64, ptr %216, align 8
+  %218 = icmp eq i64 %217, 0
+  br i1 %218, label %219, label %227
 
-222:                                              ; preds = %218
-  %223 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 3
-  %224 = load i64, ptr %223, align 8
-  %225 = icmp eq i64 %224, 0
-  br label %226
+219:                                              ; preds = %215
+  %220 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 2
+  %221 = load i64, ptr %220, align 16
+  %222 = icmp eq i64 %221, 0
+  br i1 %222, label %223, label %227
 
-226:                                              ; preds = %222, %218, %214, %210
-  %227 = phi i1 [ false, %218 ], [ false, %214 ], [ false, %210 ], [ %225, %222 ]
-  %228 = xor i1 %227, true
+223:                                              ; preds = %219
+  %224 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 3
+  %225 = load i64, ptr %224, align 8
+  %226 = icmp eq i64 %225, 0
+  br label %227
+
+227:                                              ; preds = %223, %219, %215, %211
+  %228 = phi i1 [ false, %219 ], [ false, %215 ], [ false, %211 ], [ %226, %223 ]
   %229 = xor i1 %228, true
-  %230 = zext i1 %229 to i32
-  %231 = sext i32 %230 to i64
-  %232 = icmp ne i64 %231, 0
-  br i1 %232, label %199, label %233
+  %230 = xor i1 %229, true
+  %231 = zext i1 %230 to i32
+  %232 = sext i32 %231 to i64
+  %233 = icmp ne i64 %232, 0
+  br i1 %233, label %199, label %234
 
-233:                                              ; preds = %226
-  %234 = load ptr, ptr %16, align 8
-  %235 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 0
-  %236 = load i64, ptr %235, align 16
-  %237 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 1
-  %238 = load i64, ptr %237, align 8
-  %239 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 2
-  %240 = load i64, ptr %239, align 16
-  %241 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 3
-  %242 = load i64, ptr %241, align 8
-  call void @php_random_xoshiro256starstar_seed256(ptr noundef %234, i64 noundef %236, i64 noundef %238, i64 noundef %240, i64 noundef %242)
-  br label %337
+234:                                              ; preds = %227
+  %235 = load ptr, ptr %16, align 8
+  %236 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 0
+  %237 = load i64, ptr %236, align 16
+  %238 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 1
+  %239 = load i64, ptr %238, align 8
+  %240 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 2
+  %241 = load i64, ptr %240, align 16
+  %242 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 3
+  %243 = load i64, ptr %242, align 8
+  call void @php_random_xoshiro256starstar_seed256(ptr noundef %235, i64 noundef %237, i64 noundef %239, i64 noundef %241, i64 noundef %243)
+  br label %340
 
-243:                                              ; preds = %195
-  %244 = load ptr, ptr %17, align 8
-  %245 = icmp ne ptr %244, null
-  br i1 %245, label %246, label %333
+244:                                              ; preds = %195
+  %245 = load ptr, ptr %17, align 8
+  %246 = icmp ne ptr %245, null
+  br i1 %246, label %247, label %336
 
-246:                                              ; preds = %243
-  %247 = load ptr, ptr %17, align 8
-  %248 = getelementptr inbounds %struct._zend_string, ptr %247, i32 0, i32 2
-  %249 = load i64, ptr %248, align 8
-  %250 = icmp eq i64 %249, 32
-  br i1 %250, label %251, label %327
+247:                                              ; preds = %244
+  %248 = load ptr, ptr %17, align 8
+  %249 = getelementptr inbounds %struct._zend_string, ptr %248, i32 0, i32 2
+  %250 = load i64, ptr %249, align 8
+  %251 = icmp eq i64 %250, 32
+  br i1 %251, label %252, label %329
 
-251:                                              ; preds = %246
+252:                                              ; preds = %247
   store i32 0, ptr %34, align 4
-  br label %252
+  br label %253
 
-252:                                              ; preds = %286, %251
-  %253 = load i32, ptr %34, align 4
-  %254 = icmp ult i32 %253, 4
-  br i1 %254, label %255, label %289
+253:                                              ; preds = %287, %252
+  %254 = load i32, ptr %34, align 4
+  %255 = icmp ult i32 %254, 4
+  br i1 %255, label %256, label %290
 
-255:                                              ; preds = %252
-  %256 = load i32, ptr %34, align 4
-  %257 = zext i32 %256 to i64
-  %258 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 %257
-  store i64 0, ptr %258, align 8
+256:                                              ; preds = %253
+  %257 = load i32, ptr %34, align 4
+  %258 = zext i32 %257 to i64
+  %259 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 %258
+  store i64 0, ptr %259, align 8
   store i32 0, ptr %35, align 4
-  br label %259
+  br label %260
 
-259:                                              ; preds = %282, %255
-  %260 = load i32, ptr %35, align 4
-  %261 = icmp ult i32 %260, 8
-  br i1 %261, label %262, label %285
+260:                                              ; preds = %283, %256
+  %261 = load i32, ptr %35, align 4
+  %262 = icmp ult i32 %261, 8
+  br i1 %262, label %263, label %286
 
-262:                                              ; preds = %259
-  %263 = load ptr, ptr %17, align 8
-  %264 = getelementptr inbounds %struct._zend_string, ptr %263, i32 0, i32 3
-  %265 = load i32, ptr %34, align 4
-  %266 = mul i32 %265, 8
-  %267 = load i32, ptr %35, align 4
-  %268 = add i32 %266, %267
-  %269 = zext i32 %268 to i64
-  %270 = getelementptr inbounds [1 x i8], ptr %264, i64 0, i64 %269
-  %271 = load i8, ptr %270, align 1
-  %272 = zext i8 %271 to i64
-  %273 = load i32, ptr %35, align 4
-  %274 = mul i32 %273, 8
-  %275 = zext i32 %274 to i64
-  %276 = shl i64 %272, %275
-  %277 = load i32, ptr %34, align 4
-  %278 = zext i32 %277 to i64
-  %279 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 %278
-  %280 = load i64, ptr %279, align 8
-  %281 = add i64 %280, %276
-  store i64 %281, ptr %279, align 8
-  br label %282
+263:                                              ; preds = %260
+  %264 = load ptr, ptr %17, align 8
+  %265 = getelementptr inbounds %struct._zend_string, ptr %264, i32 0, i32 3
+  %266 = load i32, ptr %34, align 4
+  %267 = mul i32 %266, 8
+  %268 = load i32, ptr %35, align 4
+  %269 = add i32 %267, %268
+  %270 = zext i32 %269 to i64
+  %271 = getelementptr inbounds [1 x i8], ptr %265, i64 0, i64 %270
+  %272 = load i8, ptr %271, align 1
+  %273 = zext i8 %272 to i64
+  %274 = load i32, ptr %35, align 4
+  %275 = mul i32 %274, 8
+  %276 = zext i32 %275 to i64
+  %277 = shl i64 %273, %276
+  %278 = load i32, ptr %34, align 4
+  %279 = zext i32 %278 to i64
+  %280 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 %279
+  %281 = load i64, ptr %280, align 8
+  %282 = add i64 %281, %277
+  store i64 %282, ptr %280, align 8
+  br label %283
 
-282:                                              ; preds = %262
-  %283 = load i32, ptr %35, align 4
-  %284 = add i32 %283, 1
-  store i32 %284, ptr %35, align 4
-  br label %259
+283:                                              ; preds = %263
+  %284 = load i32, ptr %35, align 4
+  %285 = add i32 %284, 1
+  store i32 %285, ptr %35, align 4
+  br label %260
 
-285:                                              ; preds = %259
-  br label %286
+286:                                              ; preds = %260
+  br label %287
 
-286:                                              ; preds = %285
-  %287 = load i32, ptr %34, align 4
-  %288 = add i32 %287, 1
-  store i32 %288, ptr %34, align 4
-  br label %252
+287:                                              ; preds = %286
+  %288 = load i32, ptr %34, align 4
+  %289 = add i32 %288, 1
+  store i32 %289, ptr %34, align 4
+  br label %253
 
-289:                                              ; preds = %252
-  %290 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 0
-  %291 = load i64, ptr %290, align 16
-  %292 = icmp eq i64 %291, 0
-  br i1 %292, label %293, label %305
+290:                                              ; preds = %253
+  %291 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 0
+  %292 = load i64, ptr %291, align 16
+  %293 = icmp eq i64 %292, 0
+  br i1 %293, label %294, label %306
 
-293:                                              ; preds = %289
-  %294 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 1
-  %295 = load i64, ptr %294, align 8
-  %296 = icmp eq i64 %295, 0
-  br i1 %296, label %297, label %305
+294:                                              ; preds = %290
+  %295 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 1
+  %296 = load i64, ptr %295, align 8
+  %297 = icmp eq i64 %296, 0
+  br i1 %297, label %298, label %306
 
-297:                                              ; preds = %293
-  %298 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 2
-  %299 = load i64, ptr %298, align 16
-  %300 = icmp eq i64 %299, 0
-  br i1 %300, label %301, label %305
+298:                                              ; preds = %294
+  %299 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 2
+  %300 = load i64, ptr %299, align 16
+  %301 = icmp eq i64 %300, 0
+  br i1 %301, label %302, label %306
 
-301:                                              ; preds = %297
-  %302 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 3
-  %303 = load i64, ptr %302, align 8
-  %304 = icmp eq i64 %303, 0
-  br label %305
+302:                                              ; preds = %298
+  %303 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 3
+  %304 = load i64, ptr %303, align 8
+  %305 = icmp eq i64 %304, 0
+  br label %306
 
-305:                                              ; preds = %301, %297, %293, %289
-  %306 = phi i1 [ false, %297 ], [ false, %293 ], [ false, %289 ], [ %304, %301 ]
-  %307 = xor i1 %306, true
+306:                                              ; preds = %302, %298, %294, %290
+  %307 = phi i1 [ false, %298 ], [ false, %294 ], [ false, %290 ], [ %305, %302 ]
   %308 = xor i1 %307, true
-  %309 = zext i1 %308 to i32
-  %310 = sext i32 %309 to i64
-  %311 = icmp ne i64 %310, 0
-  br i1 %311, label %312, label %317
+  %309 = xor i1 %308, true
+  %310 = zext i1 %309 to i32
+  %311 = sext i32 %310 to i64
+  %312 = icmp ne i64 %311, 0
+  br i1 %312, label %313, label %319
 
-312:                                              ; preds = %305
+313:                                              ; preds = %306
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef @.str.1)
-  br label %313
+  br label %314
 
-313:                                              ; preds = %312
-  %314 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %315 = icmp ne ptr %314, null
-  call void @llvm.assume(i1 %315)
-  br label %337
+314:                                              ; preds = %313
+  %315 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %316 = load ptr, ptr %315, align 8
+  %317 = icmp ne ptr %316, null
+  call void @llvm.assume(i1 %317)
+  br label %340
 
-316:                                              ; No predecessors!
-  br label %317
+318:                                              ; No predecessors!
+  br label %319
 
-317:                                              ; preds = %316, %305
-  %318 = load ptr, ptr %16, align 8
-  %319 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 0
-  %320 = load i64, ptr %319, align 16
-  %321 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 1
-  %322 = load i64, ptr %321, align 8
-  %323 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 2
-  %324 = load i64, ptr %323, align 16
-  %325 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 3
-  %326 = load i64, ptr %325, align 8
-  call void @php_random_xoshiro256starstar_seed256(ptr noundef %318, i64 noundef %320, i64 noundef %322, i64 noundef %324, i64 noundef %326)
-  br label %332
+319:                                              ; preds = %318, %306
+  %320 = load ptr, ptr %16, align 8
+  %321 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 0
+  %322 = load i64, ptr %321, align 16
+  %323 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 1
+  %324 = load i64, ptr %323, align 8
+  %325 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 2
+  %326 = load i64, ptr %325, align 16
+  %327 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 3
+  %328 = load i64, ptr %327, align 8
+  call void @php_random_xoshiro256starstar_seed256(ptr noundef %320, i64 noundef %322, i64 noundef %324, i64 noundef %326, i64 noundef %328)
+  br label %335
 
-327:                                              ; preds = %246
+329:                                              ; preds = %247
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef @.str.2)
-  br label %328
+  br label %330
 
-328:                                              ; preds = %327
-  %329 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %330 = icmp ne ptr %329, null
-  call void @llvm.assume(i1 %330)
-  br label %337
+330:                                              ; preds = %329
+  %331 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %332 = load ptr, ptr %331, align 8
+  %333 = icmp ne ptr %332, null
+  call void @llvm.assume(i1 %333)
+  br label %340
 
-331:                                              ; No predecessors!
-  br label %332
+334:                                              ; No predecessors!
+  br label %335
 
-332:                                              ; preds = %331, %317
-  br label %336
+335:                                              ; preds = %334, %319
+  br label %339
 
-333:                                              ; preds = %243
-  %334 = load ptr, ptr %16, align 8
-  %335 = load i64, ptr %18, align 8
-  call void @php_random_xoshiro256starstar_seed64(ptr noundef %334, i64 noundef %335)
-  br label %336
+336:                                              ; preds = %244
+  %337 = load ptr, ptr %16, align 8
+  %338 = load i64, ptr %18, align 8
+  call void @php_random_xoshiro256starstar_seed64(ptr noundef %337, i64 noundef %338)
+  br label %339
 
-336:                                              ; preds = %333, %332
-  br label %337
+339:                                              ; preds = %336, %335
+  br label %340
 
-337:                                              ; preds = %336, %328, %313, %233, %205, %188
+340:                                              ; preds = %339, %330, %314, %234, %205, %188
   ret void
 }
 

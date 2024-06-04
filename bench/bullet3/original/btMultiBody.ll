@@ -995,7 +995,8 @@ entry:
   %frombool2 = zext i1 %0 to i8
   store i8 %frombool2, ptr %.addr, align 1
   %this3 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11btMultiBody, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV11btMultiBody, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this3, align 8
   %m_baseCollider = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 1
   store ptr null, ptr %m_baseCollider, align 8
   %m_baseName = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 2
@@ -1023,11 +1024,11 @@ entry:
   store float 1.000000e+00, ptr %ref.tmp16, align 4
   call void @_ZN12btQuaternionC2ERKfS1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_baseQuat_interpolate, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16)
   %m_baseMass = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 7
-  %1 = load float, ptr %mass.addr, align 4
-  store float %1, ptr %m_baseMass, align 8
+  %2 = load float, ptr %mass.addr, align 4
+  store float %2, ptr %m_baseMass, align 8
   %m_baseInertia = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 8
-  %2 = load ptr, ptr %inertia.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_baseInertia, ptr align 4 %2, i64 16, i1 false)
+  %3 = load ptr, ptr %inertia.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_baseInertia, ptr align 4 %3, i64 16, i1 false)
   %m_baseForce = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 9
   call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_baseForce)
   %m_baseTorque = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 10
@@ -1084,15 +1085,15 @@ invoke.cont28:                                    ; preds = %invoke.cont27
 
 invoke.cont29:                                    ; preds = %invoke.cont28
   %m_fixedBase = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 25
-  %3 = load i8, ptr %fixedBase.addr, align 1
-  %tobool = trunc i8 %3 to i1
+  %4 = load i8, ptr %fixedBase.addr, align 1
+  %tobool = trunc i8 %4 to i1
   %frombool30 = zext i1 %tobool to i8
   store i8 %frombool30, ptr %m_fixedBase, align 1
   %m_awake = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 26
   store i8 1, ptr %m_awake, align 2
   %m_canSleep = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 27
-  %4 = load i8, ptr %canSleep.addr, align 1
-  %tobool31 = trunc i8 %4 to i1
+  %5 = load i8, ptr %canSleep.addr, align 1
+  %tobool31 = trunc i8 %5 to i1
   %frombool32 = zext i1 %tobool31 to i8
   store i8 %frombool32, ptr %m_canSleep, align 1
   %m_canWakeup = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 28
@@ -1196,18 +1197,18 @@ invoke.cont76:                                    ; preds = %invoke.cont65
   %m_cachedInertiaValid = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 24
   store i8 0, ptr %m_cachedInertiaValid, align 8
   %m_links77 = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 14
-  %5 = load i32, ptr %n_links.addr, align 4
+  %6 = load i32, ptr %n_links.addr, align 4
   invoke void @_ZN15btMultibodyLinkC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %ref.tmp78)
           to label %invoke.cont79 unwind label %lpad25
 
 invoke.cont79:                                    ; preds = %invoke.cont76
-  invoke void @_ZN20btAlignedObjectArrayI15btMultibodyLinkE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %m_links77, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(688) %ref.tmp78)
+  invoke void @_ZN20btAlignedObjectArrayI15btMultibodyLinkE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %m_links77, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(688) %ref.tmp78)
           to label %invoke.cont80 unwind label %lpad25
 
 invoke.cont80:                                    ; preds = %invoke.cont79
   %m_matrixBuf81 = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 19
-  %6 = load i32, ptr %n_links.addr, align 4
-  %add = add nsw i32 %6, 1
+  %7 = load i32, ptr %n_links.addr, align 4
+  %add = add nsw i32 %7, 1
   invoke void @_ZN11btMatrix3x3C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp82)
           to label %invoke.cont83 unwind label %lpad25
 
@@ -1243,57 +1244,57 @@ invoke.cont96:                                    ; preds = %invoke.cont95
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup100
 
 lpad17:                                           ; preds = %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup99
 
 lpad19:                                           ; preds = %invoke.cont18
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup98
 
 lpad21:                                           ; preds = %invoke.cont20
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   br label %ehcleanup97
 
 lpad23:                                           ; preds = %invoke.cont22
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad25:                                           ; preds = %invoke.cont95, %invoke.cont94, %invoke.cont89, %invoke.cont84, %invoke.cont83, %invoke.cont80, %invoke.cont79, %invoke.cont76, %invoke.cont65, %invoke.cont54, %invoke.cont43, %invoke.cont29, %invoke.cont28, %invoke.cont27, %invoke.cont26, %invoke.cont24
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayI11btMatrix3x3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_matrixBuf) #10
   br label %ehcleanup
 
@@ -2236,7 +2237,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11btMultiBody, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV11btMultiBody, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_matrixBuf = getelementptr inbounds %class.btMultiBody, ptr %this1, i32 0, i32 19
   call void @_ZN20btAlignedObjectArrayI11btMatrix3x3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_matrixBuf) #10
   %m_vectorBuf = getelementptr inbounds %class.btMultiBody, ptr %this1, i32 0, i32 18

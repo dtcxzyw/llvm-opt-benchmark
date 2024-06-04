@@ -15,51 +15,52 @@ declare dso_local void @mpi_fdiv_r(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noalias noundef ptr @mpi_barrett_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   tail call void @mpi_normalize(ptr noundef %0) #3
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %4 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 48) #4
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %26, label %6
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %4 = load ptr, ptr %3, align 16
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 48) #4
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %27, label %7
 
-6:                                                ; preds = %2
-  %7 = icmp eq i32 %1, 0
-  br i1 %7, label %11, label %8
+7:                                                ; preds = %2
+  %8 = icmp eq i32 %1, 0
+  br i1 %8, label %12, label %9
 
-8:                                                ; preds = %6
-  %9 = tail call ptr @mpi_copy(ptr noundef %0) #3
-  store ptr %9, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 1, ptr %10, align 8
-  br label %12
+9:                                                ; preds = %7
+  %10 = tail call ptr @mpi_copy(ptr noundef %0) #3
+  store ptr %10, ptr %5, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 1, ptr %11, align 8
+  br label %13
 
-11:                                               ; preds = %6
-  store ptr %0, ptr %4, align 8
-  br label %12
+12:                                               ; preds = %7
+  store ptr %0, ptr %5, align 8
+  br label %13
 
-12:                                               ; preds = %11, %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
-  %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 12
-  store i32 %14, ptr %15, align 4
-  %16 = add i32 %14, 1
-  %17 = tail call ptr @mpi_alloc(i32 noundef %16) #3
-  %18 = tail call ptr @mpi_set_ui(ptr noundef %17, i64 noundef 1) #3
-  %19 = shl i32 %14, 1
-  tail call void @mpi_lshift_limbs(ptr noundef %17, i32 noundef %19) #3
-  tail call void @mpi_fdiv_q(ptr noundef %17, ptr noundef %17, ptr noundef %0) #3
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %17, ptr %20, align 8
-  %21 = or disjoint i32 %19, 1
-  %22 = tail call ptr @mpi_alloc(i32 noundef %21) #3
-  %23 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %22, ptr %23, align 8
-  %24 = tail call ptr @mpi_alloc(i32 noundef %21) #3
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %24, ptr %25, align 8
-  br label %26
+13:                                               ; preds = %12, %9
+  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = load i32, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %15, ptr %16, align 4
+  %17 = add i32 %15, 1
+  %18 = tail call ptr @mpi_alloc(i32 noundef %17) #3
+  %19 = tail call ptr @mpi_set_ui(ptr noundef %18, i64 noundef 1) #3
+  %20 = shl i32 %15, 1
+  tail call void @mpi_lshift_limbs(ptr noundef %18, i32 noundef %20) #3
+  tail call void @mpi_fdiv_q(ptr noundef %18, ptr noundef %18, ptr noundef %0) #3
+  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %18, ptr %21, align 8
+  %22 = or disjoint i32 %20, 1
+  %23 = tail call ptr @mpi_alloc(i32 noundef %22) #3
+  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %23, ptr %24, align 8
+  %25 = tail call ptr @mpi_alloc(i32 noundef %22) #3
+  %26 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %25, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %12, %2
-  %27 = phi ptr [ %4, %12 ], [ null, %2 ]
-  ret ptr %27
+27:                                               ; preds = %13, %2
+  %28 = phi ptr [ %5, %13 ], [ null, %2 ]
+  ret ptr %28
 }
 
 ; Function Attrs: null_pointer_is_valid

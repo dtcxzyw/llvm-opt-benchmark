@@ -390,7 +390,7 @@ define internal i32 @_signal_batch_script_step(ptr noundef %0, i32 noundef %1) #
 15:                                               ; preds = %2
   %16 = call i32 (ptr, ...) @error(ptr noundef @.str.2, ptr noundef @__func__._signal_batch_script_step)
   store i32 -1, ptr %3, align 4
-  br label %50
+  br label %51
 
 17:                                               ; preds = %2
   call void @llvm.memset.p0.i64(ptr align 4 %7, i8 0, i64 16, i1 false)
@@ -413,44 +413,45 @@ define internal i32 @_signal_batch_script_step(ptr noundef %0, i32 noundef %1) #
   %30 = getelementptr inbounds %struct.signal_tasks_msg, ptr %7, i32 0, i32 0
   store i16 1, ptr %30, align 4
   call void @slurm_msg_t_init(ptr noundef %6)
-  %31 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 171), align 8
-  call void @slurm_msg_set_r_uid(ptr noundef %6, i32 noundef %31)
-  %32 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 15
-  store i16 6004, ptr %32, align 4
-  %33 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 12
-  store ptr %7, ptr %33, align 8
-  %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 0
-  %36 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 13
-  %37 = load i16, ptr %36, align 8
-  %38 = call i32 @slurm_conf_get_addr(ptr noundef %34, ptr noundef %35, i16 noundef zeroext %37)
-  %39 = icmp eq i32 %38, -1
-  br i1 %39, label %40, label %43
+  %31 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 171
+  %32 = load i32, ptr %31, align 8
+  call void @slurm_msg_set_r_uid(ptr noundef %6, i32 noundef %32)
+  %33 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 15
+  store i16 6004, ptr %33, align 4
+  %34 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 12
+  store ptr %7, ptr %34, align 8
+  %35 = load ptr, ptr %9, align 8
+  %36 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 0
+  %37 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 13
+  %38 = load i16, ptr %37, align 8
+  %39 = call i32 @slurm_conf_get_addr(ptr noundef %35, ptr noundef %36, i16 noundef zeroext %38)
+  %40 = icmp eq i32 %39, -1
+  br i1 %40, label %41, label %44
 
-40:                                               ; preds = %17
-  %41 = load ptr, ptr %9, align 8
-  %42 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef @__func__._signal_batch_script_step, ptr noundef %41)
+41:                                               ; preds = %17
+  %42 = load ptr, ptr %9, align 8
+  %43 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef @__func__._signal_batch_script_step, ptr noundef %42)
   store i32 -1, ptr %3, align 4
-  br label %50
+  br label %51
 
-43:                                               ; preds = %17
-  %44 = call i32 @slurm_send_recv_rc_msg_only_one(ptr noundef %6, ptr noundef %8, i32 noundef 0)
-  %45 = icmp slt i32 %44, 0
-  br i1 %45, label %46, label %48
+44:                                               ; preds = %17
+  %45 = call i32 @slurm_send_recv_rc_msg_only_one(ptr noundef %6, ptr noundef %8, i32 noundef 0)
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %43
-  %47 = call i32 (ptr, ...) @error(ptr noundef @.str.4, ptr noundef @__func__._signal_batch_script_step)
+47:                                               ; preds = %44
+  %48 = call i32 (ptr, ...) @error(ptr noundef @.str.4, ptr noundef @__func__._signal_batch_script_step)
   store i32 -1, ptr %8, align 4
-  br label %48
+  br label %49
 
-48:                                               ; preds = %46, %43
-  %49 = load i32, ptr %8, align 4
-  store i32 %49, ptr %3, align 4
-  br label %50
+49:                                               ; preds = %47, %44
+  %50 = load i32, ptr %8, align 4
+  store i32 %50, ptr %3, align 4
+  br label %51
 
-50:                                               ; preds = %48, %40, %15
-  %51 = load i32, ptr %3, align 4
-  ret i32 %51
+51:                                               ; preds = %49, %41, %15
+  %52 = load i32, ptr %3, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
@@ -668,7 +669,7 @@ define internal i32 @_terminate_batch_script_step(ptr noundef %0) #0 {
 14:                                               ; preds = %1
   %15 = call i32 (ptr, ...) @error(ptr noundef @.str.2, ptr noundef @__func__._terminate_batch_script_step)
   store i32 -1, ptr %2, align 4
-  br label %47
+  br label %48
 
 16:                                               ; preds = %1
   call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 16, i1 false)
@@ -689,44 +690,45 @@ define internal i32 @_terminate_batch_script_step(ptr noundef %0) #0 {
   call void @slurm_msg_t_init(ptr noundef %4)
   %27 = getelementptr inbounds %struct.slurm_msg, ptr %4, i32 0, i32 15
   store i16 6006, ptr %27, align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 171), align 8
-  call void @slurm_msg_set_r_uid(ptr noundef %4, i32 noundef %28)
-  %29 = getelementptr inbounds %struct.slurm_msg, ptr %4, i32 0, i32 12
-  store ptr %5, ptr %29, align 8
-  %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds %struct.slurm_msg, ptr %4, i32 0, i32 0
-  %32 = getelementptr inbounds %struct.slurm_msg, ptr %4, i32 0, i32 13
-  %33 = load i16, ptr %32, align 8
-  %34 = call i32 @slurm_conf_get_addr(ptr noundef %30, ptr noundef %31, i16 noundef zeroext %33)
-  %35 = icmp eq i32 %34, -1
-  br i1 %35, label %36, label %39
+  %28 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 171
+  %29 = load i32, ptr %28, align 8
+  call void @slurm_msg_set_r_uid(ptr noundef %4, i32 noundef %29)
+  %30 = getelementptr inbounds %struct.slurm_msg, ptr %4, i32 0, i32 12
+  store ptr %5, ptr %30, align 8
+  %31 = load ptr, ptr %8, align 8
+  %32 = getelementptr inbounds %struct.slurm_msg, ptr %4, i32 0, i32 0
+  %33 = getelementptr inbounds %struct.slurm_msg, ptr %4, i32 0, i32 13
+  %34 = load i16, ptr %33, align 8
+  %35 = call i32 @slurm_conf_get_addr(ptr noundef %31, ptr noundef %32, i16 noundef zeroext %34)
+  %36 = icmp eq i32 %35, -1
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %16
-  %37 = load ptr, ptr %8, align 8
-  %38 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef @__func__._terminate_batch_script_step, ptr noundef %37)
+37:                                               ; preds = %16
+  %38 = load ptr, ptr %8, align 8
+  %39 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef @__func__._terminate_batch_script_step, ptr noundef %38)
   store i32 -1, ptr %2, align 4
-  br label %47
+  br label %48
 
-39:                                               ; preds = %16
-  %40 = call i32 @slurm_send_recv_rc_msg_only_one(ptr noundef %4, ptr noundef %6, i32 noundef 0)
-  store i32 %40, ptr %7, align 4
-  %41 = load i32, ptr %7, align 4
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %45
+40:                                               ; preds = %16
+  %41 = call i32 @slurm_send_recv_rc_msg_only_one(ptr noundef %4, ptr noundef %6, i32 noundef 0)
+  store i32 %41, ptr %7, align 4
+  %42 = load i32, ptr %7, align 4
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %39
-  %44 = load i32, ptr %7, align 4
-  store i32 %44, ptr %6, align 4
-  br label %45
+44:                                               ; preds = %40
+  %45 = load i32, ptr %7, align 4
+  store i32 %45, ptr %6, align 4
+  br label %46
 
-45:                                               ; preds = %43, %39
-  %46 = load i32, ptr %6, align 4
-  store i32 %46, ptr %2, align 4
-  br label %47
+46:                                               ; preds = %44, %40
+  %47 = load i32, ptr %6, align 4
+  store i32 %47, ptr %2, align 4
+  br label %48
 
-47:                                               ; preds = %45, %36, %14
-  %48 = load i32, ptr %2, align 4
-  ret i32 %48
+48:                                               ; preds = %46, %37, %14
+  %49 = load i32, ptr %2, align 4
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable

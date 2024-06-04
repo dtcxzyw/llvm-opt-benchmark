@@ -9,22 +9,23 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
 define dso_local ptr @first_online_pgdat() local_unnamed_addr #0 align 16 {
-  %1 = load i64, ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), align 8
-  %2 = icmp eq i64 %1, 0
-  br i1 %2, label %6, label %3
+  %1 = getelementptr inbounds [6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1
+  %2 = load i64, ptr %1, align 8
+  %3 = icmp eq i64 %2, 0
+  br i1 %3, label %7, label %4
 
-3:                                                ; preds = %0
-  %4 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1) #6, !srcloc !5
-  %5 = trunc i64 %4 to i32
-  br label %6
+4:                                                ; preds = %0
+  %5 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %2) #6, !srcloc !5
+  %6 = trunc i64 %5 to i32
+  br label %7
 
-6:                                                ; preds = %3, %0
-  %7 = phi i32 [ %5, %3 ], [ 64, %0 ]
-  %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 64)
-  %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %9
-  %11 = load ptr, ptr %10, align 8
-  ret ptr %11
+7:                                                ; preds = %4, %0
+  %8 = phi i32 [ %6, %4 ], [ 64, %0 ]
+  %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 64)
+  %10 = zext nneg i32 %9 to i64
+  %11 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %10
+  %12 = load ptr, ptr %11, align 8
+  ret ptr %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
@@ -33,35 +34,36 @@ define dso_local ptr @next_online_pgdat(ptr nocapture noundef readonly %0) local
   %3 = load i32, ptr %2, align 64
   %4 = add i32 %3, 1
   %5 = icmp ugt i32 %4, 63
-  br i1 %5, label %14, label %6, !prof !6
+  br i1 %5, label %15, label %6, !prof !6
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), align 8
-  %8 = zext nneg i32 %4 to i64
-  %9 = shl nsw i64 -1, %8
-  %10 = and i64 %7, %9
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %14, label %12
+  %7 = getelementptr inbounds [6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1
+  %8 = load i64, ptr %7, align 8
+  %9 = zext nneg i32 %4 to i64
+  %10 = shl nsw i64 -1, %9
+  %11 = and i64 %8, %10
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %15, label %13
 
-12:                                               ; preds = %6
-  %13 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %10) #6, !srcloc !5
-  br label %14
+13:                                               ; preds = %6
+  %14 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %11) #6, !srcloc !5
+  br label %15
 
-14:                                               ; preds = %12, %6, %1
-  %15 = phi i64 [ 64, %1 ], [ %13, %12 ], [ 64, %6 ]
-  %16 = and i64 %15, 4294967232
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %22
+15:                                               ; preds = %13, %6, %1
+  %16 = phi i64 [ 64, %1 ], [ %14, %13 ], [ 64, %6 ]
+  %17 = and i64 %16, 4294967232
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %23
 
-18:                                               ; preds = %14
-  %19 = and i64 %15, 63
-  %20 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %19
-  %21 = load ptr, ptr %20, align 8
-  br label %22
+19:                                               ; preds = %15
+  %20 = and i64 %16, 63
+  %21 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %20
+  %22 = load ptr, ptr %21, align 8
+  br label %23
 
-22:                                               ; preds = %18, %14
-  %23 = phi ptr [ %21, %18 ], [ null, %14 ]
-  ret ptr %23
+23:                                               ; preds = %19, %15
+  %24 = phi ptr [ %22, %19 ], [ null, %15 ]
+  ret ptr %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
@@ -74,42 +76,43 @@ define dso_local ptr @next_zone(ptr noundef readonly %0) local_unnamed_addr #0 a
 
 6:                                                ; preds = %1
   %7 = getelementptr i8, ptr %0, i64 1216
-  br label %29
+  br label %30
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %3, i64 13120
   %10 = load i32, ptr %9, align 64
   %11 = add i32 %10, 1
   %12 = icmp ugt i32 %11, 63
-  br i1 %12, label %21, label %13, !prof !6
+  br i1 %12, label %22, label %13, !prof !6
 
 13:                                               ; preds = %8
-  %14 = load i64, ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), align 8
-  %15 = zext nneg i32 %11 to i64
-  %16 = shl nsw i64 -1, %15
-  %17 = and i64 %14, %16
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %21, label %19
+  %14 = getelementptr inbounds [6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1
+  %15 = load i64, ptr %14, align 8
+  %16 = zext nneg i32 %11 to i64
+  %17 = shl nsw i64 -1, %16
+  %18 = and i64 %15, %17
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %22, label %20
 
-19:                                               ; preds = %13
-  %20 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %17) #6, !srcloc !5
-  br label %21
+20:                                               ; preds = %13
+  %21 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %18) #6, !srcloc !5
+  br label %22
 
-21:                                               ; preds = %19, %13, %8
-  %22 = phi i64 [ 64, %8 ], [ %20, %19 ], [ 64, %13 ]
-  %23 = and i64 %22, 4294967232
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %29
+22:                                               ; preds = %20, %13, %8
+  %23 = phi i64 [ 64, %8 ], [ %21, %20 ], [ 64, %13 ]
+  %24 = and i64 %23, 4294967232
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %26, label %30
 
-25:                                               ; preds = %21
-  %26 = and i64 %22, 63
-  %27 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %26
-  %28 = load ptr, ptr %27, align 8
-  br label %29
+26:                                               ; preds = %22
+  %27 = and i64 %23, 63
+  %28 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  br label %30
 
-29:                                               ; preds = %25, %21, %6
-  %30 = phi ptr [ %7, %6 ], [ %28, %25 ], [ null, %21 ]
-  ret ptr %30
+30:                                               ; preds = %26, %22, %6
+  %31 = phi ptr [ %7, %6 ], [ %29, %26 ], [ null, %22 ]
+  ret ptr %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -179,8 +182,10 @@ define dso_local void @lruvec_init(ptr noundef %0) local_unnamed_addr #2 align 1
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %13, align 8
   store volatile ptr %12, ptr %11, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %9, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %10, align 8
+  %14 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %14, ptr %9, align 8
+  %15 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %15, ptr %10, align 8
   ret void
 }
 

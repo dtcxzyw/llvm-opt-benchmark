@@ -140,24 +140,27 @@ do.body:                                          ; preds = %if.end
   %7 = load ptr, ptr %bdrv_graph4, align 8
   %next_aio = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %7, i32 0, i32 1
   store ptr null, ptr %next_aio, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @aio_context_list, i32 0, i32 1), align 8
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %bdrv_graph5 = getelementptr inbounds %struct.AioContext, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %bdrv_graph5, align 8
-  %next_aio6 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %10, i32 0, i32 1
+  %8 = getelementptr inbounds %struct.QTailQLink, ptr @aio_context_list, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %ctx.addr, align 8
+  %bdrv_graph5 = getelementptr inbounds %struct.AioContext, ptr %10, i32 0, i32 2
+  %11 = load ptr, ptr %bdrv_graph5, align 8
+  %next_aio6 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %11, i32 0, i32 1
   %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next_aio6, i32 0, i32 1
-  store ptr %8, ptr %tql_prev, align 8
-  %11 = load ptr, ptr %ctx.addr, align 8
-  %bdrv_graph7 = getelementptr inbounds %struct.AioContext, ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %bdrv_graph7, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @aio_context_list, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %13, i32 0, i32 0
-  store ptr %12, ptr %tql_next, align 8
-  %14 = load ptr, ptr %ctx.addr, align 8
-  %bdrv_graph8 = getelementptr inbounds %struct.AioContext, ptr %14, i32 0, i32 2
-  %15 = load ptr, ptr %bdrv_graph8, align 8
-  %next_aio9 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %15, i32 0, i32 1
-  store ptr %next_aio9, ptr getelementptr inbounds (%struct.QTailQLink, ptr @aio_context_list, i32 0, i32 1), align 8
+  store ptr %9, ptr %tql_prev, align 8
+  %12 = load ptr, ptr %ctx.addr, align 8
+  %bdrv_graph7 = getelementptr inbounds %struct.AioContext, ptr %12, i32 0, i32 2
+  %13 = load ptr, ptr %bdrv_graph7, align 8
+  %14 = getelementptr inbounds %struct.QTailQLink, ptr @aio_context_list, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %15, i32 0, i32 0
+  store ptr %13, ptr %tql_next, align 8
+  %16 = load ptr, ptr %ctx.addr, align 8
+  %bdrv_graph8 = getelementptr inbounds %struct.AioContext, ptr %16, i32 0, i32 2
+  %17 = load ptr, ptr %bdrv_graph8, align 8
+  %next_aio9 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds %struct.QTailQLink, ptr @aio_context_list, i32 0, i32 1
+  store ptr %next_aio9, ptr %18, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
@@ -317,39 +320,40 @@ if.else:                                          ; preds = %do.body
   %next_aio10 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %16, i32 0, i32 1
   %tql_prev11 = getelementptr inbounds %struct.QTailQLink, ptr %next_aio10, i32 0, i32 1
   %17 = load ptr, ptr %tql_prev11, align 8
-  store ptr %17, ptr getelementptr inbounds (%struct.QTailQLink, ptr @aio_context_list, i32 0, i32 1), align 8
+  %18 = getelementptr inbounds %struct.QTailQLink, ptr @aio_context_list, i32 0, i32 1
+  store ptr %17, ptr %18, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %18 = load ptr, ptr %ctx.addr, align 8
-  %bdrv_graph12 = getelementptr inbounds %struct.AioContext, ptr %18, i32 0, i32 2
-  %19 = load ptr, ptr %bdrv_graph12, align 8
-  %next_aio13 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %next_aio13, align 8
-  %21 = load ptr, ptr %ctx.addr, align 8
-  %bdrv_graph14 = getelementptr inbounds %struct.AioContext, ptr %21, i32 0, i32 2
-  %22 = load ptr, ptr %bdrv_graph14, align 8
-  %next_aio15 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %22, i32 0, i32 1
+  %19 = load ptr, ptr %ctx.addr, align 8
+  %bdrv_graph12 = getelementptr inbounds %struct.AioContext, ptr %19, i32 0, i32 2
+  %20 = load ptr, ptr %bdrv_graph12, align 8
+  %next_aio13 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %20, i32 0, i32 1
+  %21 = load ptr, ptr %next_aio13, align 8
+  %22 = load ptr, ptr %ctx.addr, align 8
+  %bdrv_graph14 = getelementptr inbounds %struct.AioContext, ptr %22, i32 0, i32 2
+  %23 = load ptr, ptr %bdrv_graph14, align 8
+  %next_aio15 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %23, i32 0, i32 1
   %tql_prev16 = getelementptr inbounds %struct.QTailQLink, ptr %next_aio15, i32 0, i32 1
-  %23 = load ptr, ptr %tql_prev16, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %23, i32 0, i32 0
-  store ptr %20, ptr %tql_next, align 8
-  %24 = load ptr, ptr %ctx.addr, align 8
-  %bdrv_graph17 = getelementptr inbounds %struct.AioContext, ptr %24, i32 0, i32 2
-  %25 = load ptr, ptr %bdrv_graph17, align 8
-  %next_aio18 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %25, i32 0, i32 1
+  %24 = load ptr, ptr %tql_prev16, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %24, i32 0, i32 0
+  store ptr %21, ptr %tql_next, align 8
+  %25 = load ptr, ptr %ctx.addr, align 8
+  %bdrv_graph17 = getelementptr inbounds %struct.AioContext, ptr %25, i32 0, i32 2
+  %26 = load ptr, ptr %bdrv_graph17, align 8
+  %next_aio18 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %26, i32 0, i32 1
   %tql_prev19 = getelementptr inbounds %struct.QTailQLink, ptr %next_aio18, i32 0, i32 1
   store ptr null, ptr %tql_prev19, align 8
-  %26 = load ptr, ptr %ctx.addr, align 8
-  %bdrv_graph20 = getelementptr inbounds %struct.AioContext, ptr %26, i32 0, i32 2
-  %27 = load ptr, ptr %bdrv_graph20, align 8
-  %next_aio21 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %27, i32 0, i32 1
+  %27 = load ptr, ptr %ctx.addr, align 8
+  %bdrv_graph20 = getelementptr inbounds %struct.AioContext, ptr %27, i32 0, i32 2
+  %28 = load ptr, ptr %bdrv_graph20, align 8
+  %next_aio21 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %28, i32 0, i32 1
   %tql_next22 = getelementptr inbounds %struct.QTailQLink, ptr %next_aio21, i32 0, i32 0
   store ptr null, ptr %tql_next22, align 8
-  %28 = load ptr, ptr %ctx.addr, align 8
-  %bdrv_graph23 = getelementptr inbounds %struct.AioContext, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %bdrv_graph23, align 8
-  %next_aio24 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %29, i32 0, i32 1
+  %29 = load ptr, ptr %ctx.addr, align 8
+  %bdrv_graph23 = getelementptr inbounds %struct.AioContext, ptr %29, i32 0, i32 2
+  %30 = load ptr, ptr %bdrv_graph23, align 8
+  %next_aio24 = getelementptr inbounds %struct.BdrvGraphRWlock, ptr %30, i32 0, i32 1
   store ptr null, ptr %next_aio24, align 8
   br label %do.cond
 
@@ -357,10 +361,10 @@ do.cond:                                          ; preds = %if.end
   br label %do.end
 
 do.end:                                           ; preds = %do.cond
-  %30 = load ptr, ptr %ctx.addr, align 8
-  %bdrv_graph25 = getelementptr inbounds %struct.AioContext, ptr %30, i32 0, i32 2
-  %31 = load ptr, ptr %bdrv_graph25, align 8
-  call void @g_free(ptr noundef %31)
+  %31 = load ptr, ptr %ctx.addr, align 8
+  %bdrv_graph25 = getelementptr inbounds %struct.AioContext, ptr %31, i32 0, i32 2
+  %32 = load ptr, ptr %bdrv_graph25, align 8
+  call void @g_free(ptr noundef %32)
   call void @glib_autoptr_cleanup_QemuLockable(ptr noundef %qemu_lockable_auto5)
   ret void
 }

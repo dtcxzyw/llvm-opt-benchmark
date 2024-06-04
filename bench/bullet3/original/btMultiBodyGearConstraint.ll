@@ -256,7 +256,8 @@ entry:
   %2 = load i32, ptr %linkA.addr, align 4
   %3 = load i32, ptr %linkB.addr, align 4
   call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, i1 noundef zeroext false, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV25btMultiBodyGearConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV25btMultiBodyGearConstraint, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %m_pivotInA = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this1, i32 0, i32 3
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_pivotInA)
           to label %invoke.cont unwind label %lpad
@@ -288,12 +289,12 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #10
   br label %eh.resume
 

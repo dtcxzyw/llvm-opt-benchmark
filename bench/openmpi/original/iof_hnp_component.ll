@@ -47,38 +47,40 @@ define internal i32 @prte_iof_hnp_query(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %6 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 10), align 4
-  %7 = zext i8 %6 to i32
-  %8 = and i32 4, %7
-  %9 = icmp ne i32 %8, 0
-  br i1 %9, label %18, label %10
+  %6 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 10
+  %7 = load i8, ptr %6, align 4
+  %8 = zext i8 %7 to i32
+  %9 = and i32 4, %8
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %20, label %11
 
-10:                                               ; preds = %2
-  %11 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 10), align 4
-  %12 = zext i8 %11 to i32
-  %13 = and i32 4, %12
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %18, label %15
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 10
+  %13 = load i8, ptr %12, align 4
+  %14 = zext i8 %13 to i32
+  %15 = and i32 4, %14
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %20, label %17
 
-15:                                               ; preds = %10
-  %16 = load ptr, ptr %5, align 8
-  store i32 -1, ptr %16, align 4
-  %17 = load ptr, ptr %4, align 8
-  store ptr null, ptr %17, align 8
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %5, align 8
+  store i32 -1, ptr %18, align 4
+  %19 = load ptr, ptr %4, align 8
+  store ptr null, ptr %19, align 8
   store i32 -1, ptr %3, align 4
-  br label %21
+  br label %23
 
-18:                                               ; preds = %10, %2
-  %19 = load ptr, ptr %5, align 8
-  store i32 100, ptr %19, align 4
-  %20 = load ptr, ptr %4, align 8
-  store ptr @prte_iof_hnp_module, ptr %20, align 8
+20:                                               ; preds = %11, %2
+  %21 = load ptr, ptr %5, align 8
+  store i32 100, ptr %21, align 4
+  %22 = load ptr, ptr %4, align 8
+  store ptr @prte_iof_hnp_module, ptr %22, align 8
   store i32 0, ptr %3, align 4
-  br label %21
+  br label %23
 
-21:                                               ; preds = %18, %15
-  %22 = load i32, ptr %3, align 4
-  ret i32 %22
+23:                                               ; preds = %20, %17
+  %24 = load i32, ptr %3, align 4
+  ret i32 %24
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

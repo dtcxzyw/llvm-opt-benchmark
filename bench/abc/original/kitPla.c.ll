@@ -1441,135 +1441,137 @@ define i64 @Kit_PlaToTruth6(ptr noundef %0, i32 noundef %1) #0 {
   %8 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
-  %9 = load i64, ptr getelementptr inbounds ([8 x i64], ptr @Kit_PlaToTruth6.Truth, i64 0, i64 6), align 16
-  store i64 %9, ptr %6, align 8
+  %9 = getelementptr inbounds [8 x i64], ptr @Kit_PlaToTruth6.Truth, i64 0, i64 6
+  %10 = load i64, ptr %9, align 16
+  store i64 %10, ptr %6, align 8
   store i32 0, ptr %8, align 4
-  br label %10
+  br label %11
 
-10:                                               ; preds = %74, %2
-  %11 = load i64, ptr getelementptr inbounds ([8 x i64], ptr @Kit_PlaToTruth6.Truth, i64 0, i64 7), align 8
-  store i64 %11, ptr %5, align 8
+11:                                               ; preds = %76, %2
+  %12 = getelementptr inbounds [8 x i64], ptr @Kit_PlaToTruth6.Truth, i64 0, i64 7
+  %13 = load i64, ptr %12, align 8
+  store i64 %13, ptr %5, align 8
   store i32 0, ptr %7, align 4
-  br label %12
+  br label %14
 
-12:                                               ; preds = %59, %10
-  %13 = load i32, ptr %7, align 4
-  %14 = load i32, ptr %4, align 4
-  %15 = icmp slt i32 %13, %14
-  br i1 %15, label %16, label %64
+14:                                               ; preds = %61, %11
+  %15 = load i32, ptr %7, align 4
+  %16 = load i32, ptr %4, align 4
+  %17 = icmp slt i32 %15, %16
+  br i1 %17, label %18, label %66
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %8, align 4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %17, i64 %19
-  %21 = load i8, ptr %20, align 1
-  %22 = sext i8 %21 to i32
-  %23 = icmp eq i32 %22, 49
-  br i1 %23, label %24, label %31
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %3, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds i8, ptr %19, i64 %21
+  %23 = load i8, ptr %22, align 1
+  %24 = sext i8 %23 to i32
+  %25 = icmp eq i32 %24, 49
+  br i1 %25, label %26, label %33
 
-24:                                               ; preds = %16
-  %25 = load i32, ptr %7, align 4
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [8 x i64], ptr @Kit_PlaToTruth6.Truth, i64 0, i64 %26
-  %28 = load i64, ptr %27, align 8
-  %29 = load i64, ptr %5, align 8
-  %30 = and i64 %29, %28
-  store i64 %30, ptr %5, align 8
-  br label %58
+26:                                               ; preds = %18
+  %27 = load i32, ptr %7, align 4
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds [8 x i64], ptr @Kit_PlaToTruth6.Truth, i64 0, i64 %28
+  %30 = load i64, ptr %29, align 8
+  %31 = load i64, ptr %5, align 8
+  %32 = and i64 %31, %30
+  store i64 %32, ptr %5, align 8
+  br label %60
 
-31:                                               ; preds = %16
-  %32 = load ptr, ptr %3, align 8
-  %33 = load i32, ptr %8, align 4
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %32, i64 %34
-  %36 = load i8, ptr %35, align 1
-  %37 = sext i8 %36 to i32
-  %38 = icmp eq i32 %37, 48
-  br i1 %38, label %39, label %47
+33:                                               ; preds = %18
+  %34 = load ptr, ptr %3, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds i8, ptr %34, i64 %36
+  %38 = load i8, ptr %37, align 1
+  %39 = sext i8 %38 to i32
+  %40 = icmp eq i32 %39, 48
+  br i1 %40, label %41, label %49
 
-39:                                               ; preds = %31
-  %40 = load i32, ptr %7, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [8 x i64], ptr @Kit_PlaToTruth6.Truth, i64 0, i64 %41
-  %43 = load i64, ptr %42, align 8
-  %44 = xor i64 %43, -1
-  %45 = load i64, ptr %5, align 8
-  %46 = and i64 %45, %44
-  store i64 %46, ptr %5, align 8
-  br label %57
-
-47:                                               ; preds = %31
-  %48 = load ptr, ptr %3, align 8
-  %49 = load i32, ptr %8, align 4
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %48, i64 %50
-  %52 = load i8, ptr %51, align 1
-  %53 = sext i8 %52 to i32
-  %54 = icmp ne i32 %53, 45
-  br i1 %54, label %55, label %56
-
-55:                                               ; preds = %47
-  br label %56
-
-56:                                               ; preds = %55, %47
-  br label %57
-
-57:                                               ; preds = %56, %39
-  br label %58
-
-58:                                               ; preds = %57, %24
+41:                                               ; preds = %33
+  %42 = load i32, ptr %7, align 4
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds [8 x i64], ptr @Kit_PlaToTruth6.Truth, i64 0, i64 %43
+  %45 = load i64, ptr %44, align 8
+  %46 = xor i64 %45, -1
+  %47 = load i64, ptr %5, align 8
+  %48 = and i64 %47, %46
+  store i64 %48, ptr %5, align 8
   br label %59
 
-59:                                               ; preds = %58
-  %60 = load i32, ptr %7, align 4
-  %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %7, align 4
-  %62 = load i32, ptr %8, align 4
-  %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %8, align 4
-  br label %12, !llvm.loop !18
+49:                                               ; preds = %33
+  %50 = load ptr, ptr %3, align 8
+  %51 = load i32, ptr %8, align 4
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i8, ptr %50, i64 %52
+  %54 = load i8, ptr %53, align 1
+  %55 = sext i8 %54 to i32
+  %56 = icmp ne i32 %55, 45
+  br i1 %56, label %57, label %58
 
-64:                                               ; preds = %12
-  %65 = load i64, ptr %5, align 8
-  %66 = load i64, ptr %6, align 8
-  %67 = or i64 %66, %65
-  store i64 %67, ptr %6, align 8
-  %68 = load i32, ptr %8, align 4
-  %69 = add nsw i32 %68, 1
-  store i32 %69, ptr %8, align 4
+57:                                               ; preds = %49
+  br label %58
+
+58:                                               ; preds = %57, %49
+  br label %59
+
+59:                                               ; preds = %58, %41
+  br label %60
+
+60:                                               ; preds = %59, %26
+  br label %61
+
+61:                                               ; preds = %60
+  %62 = load i32, ptr %7, align 4
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %7, align 4
+  %64 = load i32, ptr %8, align 4
+  %65 = add nsw i32 %64, 1
+  store i32 %65, ptr %8, align 4
+  br label %14, !llvm.loop !18
+
+66:                                               ; preds = %14
+  %67 = load i64, ptr %5, align 8
+  %68 = load i64, ptr %6, align 8
+  %69 = or i64 %68, %67
+  store i64 %69, ptr %6, align 8
   %70 = load i32, ptr %8, align 4
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %8, align 4
   %72 = load i32, ptr %8, align 4
   %73 = add nsw i32 %72, 1
   store i32 %73, ptr %8, align 4
-  br label %74
+  %74 = load i32, ptr %8, align 4
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr %8, align 4
+  br label %76
 
-74:                                               ; preds = %64
-  %75 = load ptr, ptr %3, align 8
-  %76 = load i32, ptr %8, align 4
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %75, i64 %77
-  %79 = load i8, ptr %78, align 1
-  %80 = icmp ne i8 %79, 0
-  br i1 %80, label %10, label %81, !llvm.loop !19
+76:                                               ; preds = %66
+  %77 = load ptr, ptr %3, align 8
+  %78 = load i32, ptr %8, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i8, ptr %77, i64 %79
+  %81 = load i8, ptr %80, align 1
+  %82 = icmp ne i8 %81, 0
+  br i1 %82, label %11, label %83, !llvm.loop !19
 
-81:                                               ; preds = %74
-  %82 = load ptr, ptr %3, align 8
-  %83 = call i32 @Kit_PlaIsComplement(ptr noundef %82)
-  %84 = icmp ne i32 %83, 0
-  br i1 %84, label %85, label %88
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %3, align 8
+  %85 = call i32 @Kit_PlaIsComplement(ptr noundef %84)
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %90
 
-85:                                               ; preds = %81
-  %86 = load i64, ptr %6, align 8
-  %87 = xor i64 %86, -1
-  store i64 %87, ptr %6, align 8
-  br label %88
+87:                                               ; preds = %83
+  %88 = load i64, ptr %6, align 8
+  %89 = xor i64 %88, -1
+  store i64 %89, ptr %6, align 8
+  br label %90
 
-88:                                               ; preds = %85, %81
-  %89 = load i64, ptr %6, align 8
-  ret i64 %89
+90:                                               ; preds = %87, %83
+  %91 = load i64, ptr %6, align 8
+  ret i64 %91
 }
 
 ; Function Attrs: nounwind uwtable

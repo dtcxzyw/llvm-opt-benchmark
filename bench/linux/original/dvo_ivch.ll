@@ -33,118 +33,119 @@ define internal noundef zeroext i1 @ivch_init(ptr nocapture noundef %0, ptr noun
   %3 = alloca [1 x i8], align 1
   %4 = alloca [2 x i8], align 2
   %5 = alloca [3 x %struct.i2c_msg], align 16
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %7 = tail call noalias noundef align 8 dereferenceable_or_null(54) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 54) #7
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %58, label %9
+  %6 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %7 = load ptr, ptr %6, align 16
+  %8 = tail call noalias noundef align 8 dereferenceable_or_null(54) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 54) #7
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %59, label %10
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %7, ptr %11, align 8
-  store i8 1, ptr %7, align 8
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %1, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %8, ptr %12, align 8
+  store i8 1, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #8
   store i8 0, ptr %3, align 1, !annotation !5
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #8
   store i16 0, ptr %4, align 2, !annotation !5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !5
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
-  %13 = load i32, ptr %12, align 4
-  %14 = trunc i32 %13 to i16
-  store i16 %14, ptr %5, align 16
-  %15 = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 1, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %5, i64 4
-  store i16 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
-  store i16 0, ptr %18, align 16
-  %19 = getelementptr inbounds i8, ptr %5, i64 18
-  store i16 16384, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %5, i64 20
-  store i16 1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %3, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 32
-  store i16 %14, ptr %22, align 16
-  %23 = getelementptr inbounds i8, ptr %5, i64 34
-  store i16 16385, ptr %23, align 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 36
-  store i16 2, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr %4, ptr %25, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = load i32, ptr %13, align 4
+  %15 = trunc i32 %14 to i16
+  store i16 %15, ptr %5, align 16
+  %16 = getelementptr inbounds i8, ptr %5, i64 2
+  store i16 1, ptr %16, align 2
+  %17 = getelementptr inbounds i8, ptr %5, i64 4
+  store i16 0, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr null, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  store i16 0, ptr %19, align 16
+  %20 = getelementptr inbounds i8, ptr %5, i64 18
+  store i16 16384, ptr %20, align 2
+  %21 = getelementptr inbounds i8, ptr %5, i64 20
+  store i16 1, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %3, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %5, i64 32
+  store i16 %15, ptr %23, align 16
+  %24 = getelementptr inbounds i8, ptr %5, i64 34
+  store i16 16385, ptr %24, align 2
+  %25 = getelementptr inbounds i8, ptr %5, i64 36
+  store i16 2, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %5, i64 40
+  store ptr %4, ptr %26, align 8
   store i8 0, ptr %3, align 1
-  %26 = call i32 @i2c_transfer(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 3) #8
-  %27 = icmp eq i32 %26, 3
-  br i1 %27, label %28, label %32
+  %27 = call i32 @i2c_transfer(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 3) #8
+  %28 = icmp eq i32 %27, 3
+  br i1 %28, label %29, label %33
 
-28:                                               ; preds = %9
-  %29 = load i8, ptr %4, align 2
-  %30 = and i8 %29, 127
-  %31 = zext nneg i8 %30 to i32
-  br label %38
+29:                                               ; preds = %10
+  %30 = load i8, ptr %4, align 2
+  %31 = and i8 %30, 127
+  %32 = zext nneg i8 %31 to i32
+  br label %39
 
-32:                                               ; preds = %9
-  %33 = load i8, ptr %7, align 8, !range !6, !noundef !7
-  %34 = icmp eq i8 %33, 0
-  br i1 %34, label %35, label %38
+33:                                               ; preds = %10
+  %34 = load i8, ptr %8, align 8, !range !6, !noundef !7
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %1, i64 852
-  %37 = load i32, ptr %12, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef %36, i32 noundef %37) #8
-  br label %38
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds i8, ptr %1, i64 852
+  %38 = load i32, ptr %13, align 4
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef %37, i32 noundef %38) #8
+  br label %39
 
-38:                                               ; preds = %35, %32, %28
-  %39 = phi i32 [ %31, %28 ], [ 0, %35 ], [ 0, %32 ]
+39:                                               ; preds = %36, %33, %29
+  %40 = phi i32 [ %32, %29 ], [ 0, %36 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #8
-  br i1 %27, label %40, label %57
+  br i1 %28, label %41, label %58
 
-40:                                               ; preds = %38
-  store i8 0, ptr %7, align 8
-  %41 = load i32, ptr %12, align 4
-  %42 = icmp eq i32 %41, %39
-  br i1 %42, label %44, label %43
+41:                                               ; preds = %39
+  store i8 0, ptr %8, align 8
+  %42 = load i32, ptr %13, align 4
+  %43 = icmp eq i32 %42, %40
+  br i1 %43, label %45, label %44
 
-43:                                               ; preds = %40
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %39, i32 noundef %41) #8
-  br label %57
+44:                                               ; preds = %41
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %40, i32 noundef %42) #8
+  br label %58
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %7, i64 2
-  call fastcc void @ivch_read(ptr noundef %0, i32 noundef 32, ptr noundef %45)
-  %46 = getelementptr inbounds i8, ptr %7, i64 4
-  call fastcc void @ivch_read(ptr noundef %0, i32 noundef 33, ptr noundef %46)
-  %47 = getelementptr inbounds i8, ptr %7, i64 6
-  br label %48
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds i8, ptr %8, i64 2
+  call fastcc void @ivch_read(ptr noundef %0, i32 noundef 32, ptr noundef %46)
+  %47 = getelementptr inbounds i8, ptr %8, i64 4
+  call fastcc void @ivch_read(ptr noundef %0, i32 noundef 33, ptr noundef %47)
+  %48 = getelementptr inbounds i8, ptr %8, i64 6
+  br label %49
 
-48:                                               ; preds = %48, %44
-  %49 = phi i64 [ 0, %44 ], [ %54, %48 ]
-  %50 = getelementptr [24 x i16], ptr @backup_addresses, i64 0, i64 %49
-  %51 = load i16, ptr %50, align 2
-  %52 = zext i16 %51 to i32
-  %53 = getelementptr i16, ptr %47, i64 %49
-  call fastcc void @ivch_read(ptr noundef %0, i32 noundef %52, ptr noundef %53)
-  %54 = add nuw nsw i64 %49, 1
-  %55 = icmp eq i64 %54, 24
-  br i1 %55, label %56, label %48, !llvm.loop !8
+49:                                               ; preds = %49, %45
+  %50 = phi i64 [ 0, %45 ], [ %55, %49 ]
+  %51 = getelementptr [24 x i16], ptr @backup_addresses, i64 0, i64 %50
+  %52 = load i16, ptr %51, align 2
+  %53 = zext i16 %52 to i32
+  %54 = getelementptr i16, ptr %48, i64 %50
+  call fastcc void @ivch_read(ptr noundef %0, i32 noundef %53, ptr noundef %54)
+  %55 = add nuw nsw i64 %50, 1
+  %56 = icmp eq i64 %55, 24
+  br i1 %56, label %57, label %49, !llvm.loop !8
 
-56:                                               ; preds = %48
+57:                                               ; preds = %49
   call void @ivch_dump_regs(ptr noundef %0)
-  br label %58
+  br label %59
 
-57:                                               ; preds = %43, %38
-  call void @kfree(ptr noundef nonnull %7) #8
-  br label %58
+58:                                               ; preds = %44, %39
+  call void @kfree(ptr noundef nonnull %8) #8
+  br label %59
 
-58:                                               ; preds = %57, %56, %2
-  %59 = phi i1 [ false, %57 ], [ true, %56 ], [ false, %2 ]
-  ret i1 %59
+59:                                               ; preds = %58, %57, %2
+  %60 = phi i1 [ false, %58 ], [ true, %57 ], [ false, %2 ]
+  ret i1 %60
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

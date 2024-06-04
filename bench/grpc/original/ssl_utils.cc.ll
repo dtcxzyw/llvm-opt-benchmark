@@ -3099,16 +3099,18 @@ entry:
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %1 = load i64, ptr getelementptr inbounds (%struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1), align 8
+  %1 = getelementptr inbounds %struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1
+  %2 = load i64, ptr %1, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %2 = load i8, ptr getelementptr inbounds (%struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1), align 8
-  %conv = zext i8 %2 to i64
+  %3 = getelementptr inbounds %struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1
+  %4 = load i8, ptr %3, align 8
+  %conv = zext i8 %4 to i64
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %1, %cond.true ], [ %conv, %cond.false ]
+  %cond = phi i64 [ %2, %cond.true ], [ %conv, %cond.false ]
   %cmp = icmp eq i64 %cond, 0
   br i1 %cmp, label %cond.true1, label %cond.false2
 
@@ -3116,19 +3118,23 @@ cond.true1:                                       ; preds = %cond.end
   br label %cond.end8
 
 cond.false2:                                      ; preds = %cond.end
-  %3 = load ptr, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, align 8
-  %tobool3 = icmp ne ptr %3, null
+  %5 = load ptr, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, align 8
+  %tobool3 = icmp ne ptr %5, null
   br i1 %tobool3, label %cond.true4, label %cond.false5
 
 cond.true4:                                       ; preds = %cond.false2
-  %4 = load ptr, ptr getelementptr inbounds (%"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", ptr getelementptr inbounds (%struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1), i32 0, i32 1), align 8
+  %6 = getelementptr inbounds %struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1
+  %7 = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
   br label %cond.end6
 
 cond.false5:                                      ; preds = %cond.false2
+  %9 = getelementptr inbounds %struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1
+  %10 = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %9, i32 0, i32 1
   br label %cond.end6
 
 cond.end6:                                        ; preds = %cond.false5, %cond.true4
-  %cond7 = phi ptr [ %4, %cond.true4 ], [ getelementptr inbounds (%"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr getelementptr inbounds (%struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1), i32 0, i32 1), %cond.false5 ]
+  %cond7 = phi ptr [ %8, %cond.true4 ], [ %10, %cond.false5 ]
   br label %cond.end8
 
 cond.end8:                                        ; preds = %cond.end6, %cond.true1
@@ -3916,33 +3922,39 @@ entry:
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %1 = load i64, ptr getelementptr inbounds (%struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1), align 8
+  %1 = getelementptr inbounds %struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1
+  %2 = load i64, ptr %1, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %2 = load i8, ptr getelementptr inbounds (%struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1), align 8
-  %conv = zext i8 %2 to i64
+  %3 = getelementptr inbounds %struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1
+  %4 = load i8, ptr %3, align 8
+  %conv = zext i8 %4 to i64
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %1, %cond.true ], [ %conv, %cond.false ]
+  %cond = phi i64 [ %2, %cond.true ], [ %conv, %cond.false ]
   %cmp = icmp eq i64 %cond, 0
   br i1 %cmp, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  %3 = load ptr, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, align 8
-  %tobool1 = icmp ne ptr %3, null
+  %5 = load ptr, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, align 8
+  %tobool1 = icmp ne ptr %5, null
   br i1 %tobool1, label %cond.true2, label %cond.false3
 
 cond.true2:                                       ; preds = %if.then
-  %4 = load ptr, ptr getelementptr inbounds (%"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", ptr getelementptr inbounds (%struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1), i32 0, i32 1), align 8
+  %6 = getelementptr inbounds %struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1
+  %7 = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
   br label %cond.end4
 
 cond.false3:                                      ; preds = %if.then
+  %9 = getelementptr inbounds %struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1
+  %10 = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %9, i32 0, i32 1
   br label %cond.end4
 
 cond.end4:                                        ; preds = %cond.false3, %cond.true2
-  %cond5 = phi ptr [ %4, %cond.true2 ], [ getelementptr inbounds (%"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr getelementptr inbounds (%struct.grpc_slice, ptr @_ZN9grpc_core19DefaultSslRootStore23default_pem_root_certs_E, i32 0, i32 1), i32 0, i32 1), %cond.false3 ]
+  %cond5 = phi ptr [ %8, %cond.true2 ], [ %10, %cond.false3 ]
   %call = call noundef ptr @_Z31tsi_ssl_root_certs_store_createPKc(ptr noundef %cond5)
   store ptr %call, ptr @_ZN9grpc_core19DefaultSslRootStore19default_root_store_E, align 8
   br label %if.end
@@ -7672,7 +7684,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7682,7 +7695,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

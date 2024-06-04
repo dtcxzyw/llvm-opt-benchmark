@@ -391,7 +391,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen9ByteEventE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8proxygen9ByteEventE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this1, i32 0, i32 3
   call void @_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %callback_) #8
   %listHook = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this1, i32 0, i32 1

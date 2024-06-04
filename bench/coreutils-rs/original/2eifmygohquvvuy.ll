@@ -3923,61 +3923,62 @@ define available_externally hidden noundef i8 @"_ZN81_$LT$$RF$$u5b$u8$u5d$$u20$a
   %34 = load i64, ptr %5, align 8, !range !6, !noundef !5
   switch i64 %34, label %35 [
     i64 0, label %36
-    i64 1, label %40
+    i64 1, label %41
   ]
 
-35:                                               ; preds = %44, %3
+35:                                               ; preds = %45, %3
   unreachable
 
 36:                                               ; preds = %3
   %37 = load i64, ptr @anon.89d496195775227db4ef3cf0d704f36f.2.llvm.15859092204462515359, align 8, !range !6, !noundef !5
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @anon.89d496195775227db4ef3cf0d704f36f.2.llvm.15859092204462515359, i64 8), align 8
+  %38 = getelementptr inbounds i8, ptr @anon.89d496195775227db4ef3cf0d704f36f.2.llvm.15859092204462515359, i64 8
+  %39 = load i64, ptr %38, align 8
   store i64 %37, ptr %12, align 8
-  %39 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %38, ptr %39, align 8
-  br label %44
+  %40 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 %39, ptr %40, align 8
+  br label %45
 
-40:                                               ; preds = %3
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
-  %42 = load i64, ptr %41, align 8, !noundef !5
-  %43 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %42, ptr %43, align 8
+41:                                               ; preds = %3
+  %42 = getelementptr inbounds i8, ptr %5, i64 8
+  %43 = load i64, ptr %42, align 8, !noundef !5
+  %44 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 %43, ptr %44, align 8
   store i64 1, ptr %12, align 8
-  br label %44
+  br label %45
 
-44:                                               ; preds = %40, %36
+45:                                               ; preds = %41, %36
   call void @llvm.lifetime.end.p0(i64 16, ptr %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr %11)
-  %45 = load i64, ptr %12, align 8, !range !6, !noundef !5
-  switch i64 %45, label %35 [
-    i64 0, label %46
-    i64 1, label %48
+  %46 = load i64, ptr %12, align 8, !range !6, !noundef !5
+  switch i64 %46, label %35 [
+    i64 0, label %47
+    i64 1, label %49
   ]
 
-46:                                               ; preds = %44
-  %47 = icmp uge i64 %16, %2
-  br i1 %47, label %50, label %49
+47:                                               ; preds = %45
+  %48 = icmp uge i64 %16, %2
+  br i1 %48, label %51, label %50
 
-48:                                               ; preds = %44
+49:                                               ; preds = %45
   store i8 2, ptr %13, align 1
-  br label %52
+  br label %53
 
-49:                                               ; preds = %46
+50:                                               ; preds = %47
   store i8 1, ptr %13, align 1
-  br label %51
-
-50:                                               ; preds = %46
-  store i8 0, ptr %13, align 1
-  br label %51
-
-51:                                               ; preds = %50, %49
   br label %52
 
-52:                                               ; preds = %51, %48
+51:                                               ; preds = %47
+  store i8 0, ptr %13, align 1
+  br label %52
+
+52:                                               ; preds = %51, %50
+  br label %53
+
+53:                                               ; preds = %52, %49
   call void @llvm.lifetime.end.p0(i64 16, ptr %12)
-  %53 = load i8, ptr %13, align 1, !range !13, !noundef !5
-  ret i8 %53
+  %54 = load i8, ptr %13, align 1, !range !13, !noundef !5
+  ret i8 %54
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

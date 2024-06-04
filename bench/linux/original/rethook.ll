@@ -75,20 +75,21 @@ define dso_local void @arch_rethook_trampoline_callback(ptr noundef %0) #1 align
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   store i64 16, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128
-  store i64 ptrtoint (ptr @arch_rethook_trampoline to i64), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
-  store i64 -1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
-  %6 = load i64, ptr %5, align 8
-  %7 = add i64 %6, 16
-  store i64 %7, ptr %5, align 8
-  %8 = getelementptr i8, ptr %0, i64 168
-  %9 = ptrtoint ptr %8 to i64
-  %10 = tail call i64 @rethook_trampoline_handler(ptr noundef %0, i64 noundef %9) #4
-  %11 = getelementptr inbounds i8, ptr %0, i64 144
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 160
-  store i64 %12, ptr %13, align 8
+  %4 = ptrtoint ptr @arch_rethook_trampoline to i64
+  store i64 %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  store i64 -1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = load i64, ptr %6, align 8
+  %8 = add i64 %7, 16
+  store i64 %8, ptr %6, align 8
+  %9 = getelementptr i8, ptr %0, i64 168
+  %10 = ptrtoint ptr %9 to i64
+  %11 = tail call i64 @rethook_trampoline_handler(ptr noundef %0, i64 noundef %10) #4
+  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 160
+  store i64 %13, ptr %14, align 8
   ret void
 }
 
@@ -113,7 +114,8 @@ define dso_local void @arch_rethook_prepare(ptr nocapture noundef writeonly %0, 
   %9 = load i64, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %9, ptr %10, align 8
-  store i64 ptrtoint (ptr @arch_rethook_trampoline to i64), ptr %6, align 8
+  %11 = ptrtoint ptr @arch_rethook_trampoline to i64
+  store i64 %11, ptr %6, align 8
   ret void
 }
 

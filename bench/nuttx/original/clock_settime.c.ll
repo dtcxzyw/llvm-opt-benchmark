@@ -23,21 +23,21 @@ define i32 @clock_settime(i32 noundef %0, ptr noundef %1) #0 {
 9:                                                ; preds = %8
   %10 = load i32, ptr %3, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %52
+  br i1 %11, label %12, label %58
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds %struct.timespec, ptr %13, i32 0, i32 1
   %15 = load i64, ptr %14, align 8
   %16 = icmp sge i64 %15, 0
-  br i1 %16, label %17, label %52
+  br i1 %16, label %17, label %58
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr inbounds %struct.timespec, ptr %18, i32 0, i32 1
   %20 = load i64, ptr %19, align 8
   %21 = icmp slt i64 %20, 1000000000
-  br i1 %21, label %22, label %52
+  br i1 %21, label %22, label %58
 
 22:                                               ; preds = %17
   %23 = call i64 @up_irq_save()
@@ -50,64 +50,70 @@ define i32 @clock_settime(i32 noundef %0, ptr noundef %1) #0 {
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds %struct.timespec, ptr %28, i32 0, i32 1
   %30 = load i64, ptr %29, align 8
-  store i64 %30, ptr getelementptr inbounds (%struct.timespec, ptr @g_basetime, i32 0, i32 1), align 8
-  %31 = load i64, ptr getelementptr inbounds (%struct.timespec, ptr @g_basetime, i32 0, i32 1), align 8
-  %32 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 1
+  %31 = getelementptr inbounds %struct.timespec, ptr @g_basetime, i32 0, i32 1
+  store i64 %30, ptr %31, align 8
+  %32 = getelementptr inbounds %struct.timespec, ptr @g_basetime, i32 0, i32 1
   %33 = load i64, ptr %32, align 8
-  %34 = icmp slt i64 %31, %33
-  br i1 %34, label %35, label %40
+  %34 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = icmp slt i64 %33, %35
+  br i1 %36, label %37, label %44
 
-35:                                               ; preds = %22
-  %36 = load i64, ptr getelementptr inbounds (%struct.timespec, ptr @g_basetime, i32 0, i32 1), align 8
-  %37 = add nsw i64 %36, 1000000000
-  store i64 %37, ptr getelementptr inbounds (%struct.timespec, ptr @g_basetime, i32 0, i32 1), align 8
-  %38 = load i64, ptr @g_basetime, align 8
-  %39 = add i64 %38, -1
-  store i64 %39, ptr @g_basetime, align 8
-  br label %40
+37:                                               ; preds = %22
+  %38 = getelementptr inbounds %struct.timespec, ptr @g_basetime, i32 0, i32 1
+  %39 = load i64, ptr %38, align 8
+  %40 = add nsw i64 %39, 1000000000
+  %41 = getelementptr inbounds %struct.timespec, ptr @g_basetime, i32 0, i32 1
+  store i64 %40, ptr %41, align 8
+  %42 = load i64, ptr @g_basetime, align 8
+  %43 = add i64 %42, -1
+  store i64 %43, ptr @g_basetime, align 8
+  br label %44
 
-40:                                               ; preds = %35, %22
-  %41 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 1
-  %42 = load i64, ptr %41, align 8
-  %43 = load i64, ptr getelementptr inbounds (%struct.timespec, ptr @g_basetime, i32 0, i32 1), align 8
-  %44 = sub nsw i64 %43, %42
-  store i64 %44, ptr getelementptr inbounds (%struct.timespec, ptr @g_basetime, i32 0, i32 1), align 8
-  %45 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 0
+44:                                               ; preds = %37, %22
+  %45 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 1
   %46 = load i64, ptr %45, align 8
-  %47 = load i64, ptr @g_basetime, align 8
-  %48 = sub i64 %47, %46
-  store i64 %48, ptr @g_basetime, align 8
-  %49 = load i64, ptr %6, align 8
-  call void @up_irq_restore(i64 noundef %49)
-  br label %50
+  %47 = getelementptr inbounds %struct.timespec, ptr @g_basetime, i32 0, i32 1
+  %48 = load i64, ptr %47, align 8
+  %49 = sub nsw i64 %48, %46
+  %50 = getelementptr inbounds %struct.timespec, ptr @g_basetime, i32 0, i32 1
+  store i64 %49, ptr %50, align 8
+  %51 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 0
+  %52 = load i64, ptr %51, align 8
+  %53 = load i64, ptr @g_basetime, align 8
+  %54 = sub i64 %53, %52
+  store i64 %54, ptr @g_basetime, align 8
+  %55 = load i64, ptr %6, align 8
+  call void @up_irq_restore(i64 noundef %55)
+  br label %56
 
-50:                                               ; preds = %40
-  br label %51
-
-51:                                               ; preds = %50
-  br label %58
-
-52:                                               ; preds = %17, %12, %9
-  br label %53
-
-53:                                               ; preds = %52
-  br label %54
-
-54:                                               ; preds = %53
-  br label %55
-
-55:                                               ; preds = %54
-  %56 = call ptr @__errno()
-  store i32 22, ptr %56, align 4
+56:                                               ; preds = %44
   br label %57
 
-57:                                               ; preds = %55
-  store i32 -1, ptr %7, align 4
-  br label %58
+57:                                               ; preds = %56
+  br label %64
 
-58:                                               ; preds = %57, %51
-  %59 = load i32, ptr %7, align 4
-  ret i32 %59
+58:                                               ; preds = %17, %12, %9
+  br label %59
+
+59:                                               ; preds = %58
+  br label %60
+
+60:                                               ; preds = %59
+  br label %61
+
+61:                                               ; preds = %60
+  %62 = call ptr @__errno()
+  store i32 22, ptr %62, align 4
+  br label %63
+
+63:                                               ; preds = %61
+  store i32 -1, ptr %7, align 4
+  br label %64
+
+64:                                               ; preds = %63, %57
+  %65 = load i32, ptr %7, align 4
+  ret i32 %65
 }
 
 ; Function Attrs: nounwind uwtable

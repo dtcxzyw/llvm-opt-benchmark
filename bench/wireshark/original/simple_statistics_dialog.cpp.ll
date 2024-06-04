@@ -1220,214 +1220,216 @@ define void @_ZN22SimpleStatisticsDialogC2ER7QWidgetR11CaptureFileP18_stat_tap_t
   %23 = load ptr, ptr %9, align 8
   %24 = load i32, ptr %12, align 4
   call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %21, ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(48) %23, i32 noundef %24)
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, i32 0, i32 2), ptr %21, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, i32 1, i32 2), ptr %25, align 8
-  %26 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
-  %27 = load ptr, ptr %10, align 8
+  %25 = getelementptr inbounds { [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, i32 0, i32 2
+  store ptr %25, ptr %21, align 8
+  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %27 = getelementptr inbounds { [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, i32 1, i32 2
   store ptr %27, ptr %26, align 8
-  %28 = load ptr, ptr %10, align 8
-  %29 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %28, i32 0, i32 14
-  %30 = load i32, ptr %29, align 8
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %29, align 8
-  %32 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %33, i32 0, i32 1
+  %28 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
+  %29 = load ptr, ptr %10, align 8
+  store ptr %29, ptr %28, align 8
+  %30 = load ptr, ptr %10, align 8
+  %31 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %30, i32 0, i32 14
+  %32 = load i32, ptr %31, align 8
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %31, align 8
+  %34 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
   %35 = load ptr, ptr %34, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %35)
-          to label %36 unwind label %68
+  %36 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %37)
+          to label %38 unwind label %70
 
-36:                                               ; preds = %6
+38:                                               ; preds = %6
   invoke void @_ZN15WiresharkDialog17setWindowSubtitleERK7QString(ptr noundef nonnull align 8 dereferenceable(133) %21, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %37 unwind label %72
+          to label %39 unwind label %74
 
-37:                                               ; preds = %36
+39:                                               ; preds = %38
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #2
-  %38 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %39, i32 0, i32 1
+  %40 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
   %41 = load ptr, ptr %40, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef %41)
-          to label %42 unwind label %68
+  %42 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef %43)
+          to label %44 unwind label %70
 
-42:                                               ; preds = %37
+44:                                               ; preds = %39
   invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %21, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %16)
-          to label %43 unwind label %76
+          to label %45 unwind label %78
 
-43:                                               ; preds = %42
+45:                                               ; preds = %44
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #2
   call void @_ZN5QListI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #2
   store i32 0, ptr %18, align 4
-  br label %44
+  br label %46
 
-44:                                               ; preds = %65, %43
-  %45 = load i32, ptr %18, align 4
-  %46 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %47, i32 0, i32 9
-  %49 = load i64, ptr %48, align 8
-  %50 = trunc i64 %49 to i32
-  %51 = icmp slt i32 %45, %50
-  br i1 %51, label %52, label %88
+46:                                               ; preds = %67, %45
+  %47 = load i32, ptr %18, align 4
+  %48 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %49, i32 0, i32 9
+  %51 = load i64, ptr %50, align 8
+  %52 = trunc i64 %51 to i32
+  %53 = icmp slt i32 %47, %52
+  br i1 %53, label %54, label %90
 
-52:                                               ; preds = %44
-  %53 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %54, i32 0, i32 10
+54:                                               ; preds = %46
+  %55 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
   %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr %18, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr %struct._stat_tap_table_item, ptr %56, i64 %58
-  %60 = getelementptr inbounds %struct._stat_tap_table_item, ptr %59, i32 0, i32 2
-  %61 = load ptr, ptr %60, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef %61)
-          to label %62 unwind label %80
+  %57 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %56, i32 0, i32 10
+  %58 = load ptr, ptr %57, align 8
+  %59 = load i32, ptr %18, align 4
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr %struct._stat_tap_table_item, ptr %58, i64 %60
+  %62 = getelementptr inbounds %struct._stat_tap_table_item, ptr %61, i32 0, i32 2
+  %63 = load ptr, ptr %62, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef %63)
+          to label %64 unwind label %82
 
-62:                                               ; preds = %52
-  %63 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI7QStringElsEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %19)
-          to label %64 unwind label %84
+64:                                               ; preds = %54
+  %65 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI7QStringElsEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %66 unwind label %86
 
-64:                                               ; preds = %62
+66:                                               ; preds = %64
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #2
-  br label %65
+  br label %67
 
-65:                                               ; preds = %64
-  %66 = load i32, ptr %18, align 4
-  %67 = add i32 %66, 1
-  store i32 %67, ptr %18, align 4
-  br label %44, !llvm.loop !4
+67:                                               ; preds = %66
+  %68 = load i32, ptr %18, align 4
+  %69 = add i32 %68, 1
+  store i32 %69, ptr %18, align 4
+  br label %46, !llvm.loop !4
 
-68:                                               ; preds = %37, %6
-  %69 = landingpad { ptr, i32 }
+70:                                               ; preds = %39, %6
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %14, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %15, align 4
-  br label %125
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %14, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %15, align 4
+  br label %127
 
-72:                                               ; preds = %36
-  %73 = landingpad { ptr, i32 }
+74:                                               ; preds = %38
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %14, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %15, align 4
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %14, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %15, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #2
-  br label %125
+  br label %127
 
-76:                                               ; preds = %42
-  %77 = landingpad { ptr, i32 }
+78:                                               ; preds = %44
+  %79 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %14, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %15, align 4
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %14, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %15, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #2
-  br label %125
+  br label %127
 
-80:                                               ; preds = %122, %115, %113, %111, %90, %88, %52
-  %81 = landingpad { ptr, i32 }
+82:                                               ; preds = %124, %117, %115, %113, %92, %90, %54
+  %83 = landingpad { ptr, i32 }
           cleanup
-  %82 = extractvalue { ptr, i32 } %81, 0
-  store ptr %82, ptr %14, align 8
-  %83 = extractvalue { ptr, i32 } %81, 1
-  store i32 %83, ptr %15, align 4
-  br label %124
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %14, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %15, align 4
+  br label %126
 
-84:                                               ; preds = %62
-  %85 = landingpad { ptr, i32 }
+86:                                               ; preds = %64
+  %87 = landingpad { ptr, i32 }
           cleanup
-  %86 = extractvalue { ptr, i32 } %85, 0
-  store ptr %86, ptr %14, align 8
-  %87 = extractvalue { ptr, i32 } %85, 1
-  store i32 %87, ptr %15, align 4
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %14, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %15, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #2
-  br label %124
+  br label %126
 
-88:                                               ; preds = %44
-  %89 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %21)
-          to label %90 unwind label %80
+90:                                               ; preds = %46
+  %91 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %21)
+          to label %92 unwind label %82
 
-90:                                               ; preds = %88
-  invoke void @_ZN11QTreeWidget15setHeaderLabelsERK5QListI7QStringE(ptr noundef nonnull align 8 dereferenceable(40) %89, ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %91 unwind label %80
+92:                                               ; preds = %90
+  invoke void @_ZN11QTreeWidget15setHeaderLabelsERK5QListI7QStringE(ptr noundef nonnull align 8 dereferenceable(40) %91, ptr noundef nonnull align 8 dereferenceable(24) %17)
+          to label %93 unwind label %82
 
-91:                                               ; preds = %90
+93:                                               ; preds = %92
   store i32 0, ptr %20, align 4
-  br label %92
+  br label %94
 
-92:                                               ; preds = %119, %91
-  %93 = load i32, ptr %20, align 4
-  %94 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %95, i32 0, i32 9
-  %97 = load i64, ptr %96, align 8
-  %98 = trunc i64 %97 to i32
-  %99 = icmp slt i32 %93, %98
-  br i1 %99, label %100, label %122
+94:                                               ; preds = %121, %93
+  %95 = load i32, ptr %20, align 4
+  %96 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %97, i32 0, i32 9
+  %99 = load i64, ptr %98, align 8
+  %100 = trunc i64 %99 to i32
+  %101 = icmp slt i32 %95, %100
+  br i1 %101, label %102, label %124
 
-100:                                              ; preds = %92
-  %101 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %102, i32 0, i32 10
+102:                                              ; preds = %94
+  %103 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
   %104 = load ptr, ptr %103, align 8
-  %105 = load i32, ptr %20, align 4
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr %struct._stat_tap_table_item, ptr %104, i64 %106
-  %108 = getelementptr inbounds %struct._stat_tap_table_item, ptr %107, i32 0, i32 1
-  %109 = load i32, ptr %108, align 4
-  %110 = icmp eq i32 %109, 1
-  br i1 %110, label %111, label %118
+  %105 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %104, i32 0, i32 10
+  %106 = load ptr, ptr %105, align 8
+  %107 = load i32, ptr %20, align 4
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr %struct._stat_tap_table_item, ptr %106, i64 %108
+  %110 = getelementptr inbounds %struct._stat_tap_table_item, ptr %109, i32 0, i32 1
+  %111 = load i32, ptr %110, align 4
+  %112 = icmp eq i32 %111, 1
+  br i1 %112, label %113, label %120
 
-111:                                              ; preds = %100
-  %112 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %21)
-          to label %113 unwind label %80
-
-113:                                              ; preds = %111
-  %114 = invoke noundef ptr @_ZNK11QTreeWidget10headerItemEv(ptr noundef nonnull align 8 dereferenceable(40) %112)
-          to label %115 unwind label %80
+113:                                              ; preds = %102
+  %114 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %21)
+          to label %115 unwind label %82
 
 115:                                              ; preds = %113
-  %116 = load i32, ptr %20, align 4
-  invoke void @_ZN15QTreeWidgetItem16setTextAlignmentEii(ptr noundef nonnull align 8 dereferenceable(92) %114, i32 noundef %116, i32 noundef 2)
-          to label %117 unwind label %80
+  %116 = invoke noundef ptr @_ZNK11QTreeWidget10headerItemEv(ptr noundef nonnull align 8 dereferenceable(40) %114)
+          to label %117 unwind label %82
 
 117:                                              ; preds = %115
-  br label %118
+  %118 = load i32, ptr %20, align 4
+  invoke void @_ZN15QTreeWidgetItem16setTextAlignmentEii(ptr noundef nonnull align 8 dereferenceable(92) %116, i32 noundef %118, i32 noundef 2)
+          to label %119 unwind label %82
 
-118:                                              ; preds = %117, %100
-  br label %119
+119:                                              ; preds = %117
+  br label %120
 
-119:                                              ; preds = %118
-  %120 = load i32, ptr %20, align 4
-  %121 = add i32 %120, 1
-  store i32 %121, ptr %20, align 4
-  br label %92, !llvm.loop !6
+120:                                              ; preds = %119, %102
+  br label %121
 
-122:                                              ; preds = %92
+121:                                              ; preds = %120
+  %122 = load i32, ptr %20, align 4
+  %123 = add i32 %122, 1
+  store i32 %123, ptr %20, align 4
+  br label %94, !llvm.loop !6
+
+124:                                              ; preds = %94
   invoke void @_ZN18TapParameterDialog16setDisplayFilterERK7QString(ptr noundef nonnull align 8 dereferenceable(224) %21, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %123 unwind label %80
+          to label %125 unwind label %82
 
-123:                                              ; preds = %122
+125:                                              ; preds = %124
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #2
   ret void
 
-124:                                              ; preds = %84, %80
+126:                                              ; preds = %86, %82
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #2
-  br label %125
+  br label %127
 
-125:                                              ; preds = %124, %76, %72, %68
+127:                                              ; preds = %126, %78, %74, %70
   call void @_ZN18TapParameterDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %21) #2
-  br label %126
+  br label %128
 
-126:                                              ; preds = %125
-  %127 = load ptr, ptr %14, align 8
-  %128 = load i32, ptr %15, align 4
-  %129 = insertvalue { ptr, i32 } poison, ptr %127, 0
-  %130 = insertvalue { ptr, i32 } %129, i32 %128, 1
-  resume { ptr, i32 } %130
+128:                                              ; preds = %127
+  %129 = load ptr, ptr %14, align 8
+  %130 = load i32, ptr %15, align 4
+  %131 = insertvalue { ptr, i32 } poison, ptr %129, 0
+  %132 = insertvalue { ptr, i32 } %131, i32 %130, 1
+  resume { ptr, i32 } %132
 }
 
 declare void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) unnamed_addr #4
@@ -1879,13 +1881,14 @@ define linkonce_odr void @_ZN30SimpleStatisticsTreeWidgetItemC2EP15QTreeWidgetIt
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN15QTreeWidgetItemC2EPS_i(ptr noundef nonnull align 8 dereferenceable(92) %9, ptr noundef %10, i32 noundef 1000)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV30SimpleStatisticsTreeWidgetItem, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %class.SimpleStatisticsTreeWidgetItem, ptr %9, i32 0, i32 1
-  %12 = load i32, ptr %7, align 4
-  store i32 %12, ptr %11, align 4
-  %13 = getelementptr inbounds %class.SimpleStatisticsTreeWidgetItem, ptr %9, i32 0, i32 2
-  %14 = load ptr, ptr %8, align 8
-  store ptr %14, ptr %13, align 8
+  %11 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV30SimpleStatisticsTreeWidgetItem, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %class.SimpleStatisticsTreeWidgetItem, ptr %9, i32 0, i32 1
+  %13 = load i32, ptr %7, align 4
+  store i32 %13, ptr %12, align 4
+  %14 = getelementptr inbounds %class.SimpleStatisticsTreeWidgetItem, ptr %9, i32 0, i32 2
+  %15 = load ptr, ptr %8, align 8
+  store ptr %15, ptr %14, align 8
   ret void
 }
 
@@ -2893,51 +2896,53 @@ define void @_ZN22SimpleStatisticsDialogD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %6, i32 0, i32 14
-  %8 = load i32, ptr %7, align 8
-  %9 = add i32 %8, -1
-  store i32 %9, ptr %7, align 8
-  %10 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %3, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %11, i32 0, i32 14
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %26
+  %4 = getelementptr inbounds { [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %8, i32 0, i32 14
+  %10 = load i32, ptr %9, align 8
+  %11 = add i32 %10, -1
+  store i32 %11, ptr %9, align 8
+  %12 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %3, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %13, i32 0, i32 14
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %28
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %3, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %17, i32 0, i32 13
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %3, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %25
+  %20 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %19, i32 0, i32 13
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %27
 
-21:                                               ; preds = %15
-  %22 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %3, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  invoke void @free_stat_tables(ptr noundef %23)
-          to label %24 unwind label %27
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %3, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  invoke void @free_stat_tables(ptr noundef %25)
+          to label %26 unwind label %29
 
-24:                                               ; preds = %21
-  br label %25
+26:                                               ; preds = %23
+  br label %27
 
-25:                                               ; preds = %24, %15
-  br label %26
+27:                                               ; preds = %26, %17
+  br label %28
 
-26:                                               ; preds = %25, %1
+28:                                               ; preds = %27, %1
   call void @_ZN18TapParameterDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %3) #2
   ret void
 
-27:                                               ; preds = %21
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %23
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #20
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #20
   unreachable
 }
 

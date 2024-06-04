@@ -606,7 +606,7 @@ define internal void @zend_accel_blacklist_update_regexp(ptr noundef %0) #0 {
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %1
-  br label %212
+  br label %213
 
 21:                                               ; preds = %1
   %22 = load ptr, ptr %2, align 8
@@ -626,13 +626,13 @@ define internal void @zend_accel_blacklist_update_regexp(ptr noundef %0) #0 {
   store i32 0, ptr %4, align 4
   br label %31
 
-31:                                               ; preds = %211, %21
+31:                                               ; preds = %212, %21
   %32 = load i32, ptr %4, align 4
   %33 = load ptr, ptr %2, align 8
   %34 = getelementptr inbounds %struct._zend_blacklist, ptr %33, i32 0, i32 2
   %35 = load i32, ptr %34, align 4
   %36 = icmp slt i32 %32, %35
-  br i1 %36, label %37, label %212
+  br i1 %36, label %37, label %213
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %2, align 8
@@ -808,7 +808,7 @@ define internal void @zend_accel_blacklist_update_regexp(ptr noundef %0) #0 {
   %138 = load i32, ptr %137, align 4
   %139 = sub nsw i32 %138, 1
   %140 = icmp eq i32 %135, %139
-  br i1 %140, label %141, label %205
+  br i1 %140, label %141, label %206
 
 141:                                              ; preds = %134, %129
   %142 = load ptr, ptr %12, align 8
@@ -879,60 +879,61 @@ define internal void @zend_accel_blacklist_update_regexp(ptr noundef %0) #0 {
   %181 = load i64, ptr %6, align 8
   %182 = trunc i64 %181 to i32
   call void @blacklist_report_regexp_error(ptr noundef %180, i32 noundef %182)
-  br label %212
+  br label %213
 
 183:                                              ; preds = %161
-  %184 = load i8, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i32 0, i32 3), align 8
-  %185 = trunc i8 %184 to i1
-  br i1 %185, label %186, label %198
+  %184 = getelementptr inbounds %struct._zend_pcre_globals, ptr @pcre_globals, i32 0, i32 3
+  %185 = load i8, ptr %184, align 8
+  %186 = trunc i8 %185 to i1
+  br i1 %186, label %187, label %199
 
-186:                                              ; preds = %183
-  %187 = load ptr, ptr %8, align 8
-  %188 = getelementptr inbounds %struct._zend_regexp_list, ptr %187, i32 0, i32 0
-  %189 = load ptr, ptr %188, align 8
-  %190 = call i32 @php_pcre2_jit_compile(ptr noundef %189, i32 noundef 1)
-  %191 = icmp sgt i32 0, %190
-  br i1 %191, label %192, label %197
+187:                                              ; preds = %183
+  %188 = load ptr, ptr %8, align 8
+  %189 = getelementptr inbounds %struct._zend_regexp_list, ptr %188, i32 0, i32 0
+  %190 = load ptr, ptr %189, align 8
+  %191 = call i32 @php_pcre2_jit_compile(ptr noundef %190, i32 noundef 1)
+  %192 = icmp sgt i32 0, %191
+  br i1 %192, label %193, label %198
 
-192:                                              ; preds = %186
-  %193 = load i32, ptr %5, align 4
-  %194 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 0
-  %195 = call i32 @php_pcre2_get_error_message(i32 noundef %193, ptr noundef %194, i64 noundef 128)
-  %196 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 0
-  call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef @.str.7, ptr noundef %196)
-  br label %197
-
-197:                                              ; preds = %192, %186
+193:                                              ; preds = %187
+  %194 = load i32, ptr %5, align 4
+  %195 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 0
+  %196 = call i32 @php_pcre2_get_error_message(i32 noundef %194, ptr noundef %195, i64 noundef 128)
+  %197 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 0
+  call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef @.str.7, ptr noundef %197)
   br label %198
 
-198:                                              ; preds = %197, %183
-  %199 = getelementptr inbounds [12288 x i8], ptr %9, i64 0, i64 0
-  %200 = getelementptr inbounds i8, ptr %199, i64 2
-  store ptr %200, ptr %10, align 8
-  %201 = load ptr, ptr %8, align 8
-  %202 = load ptr, ptr %7, align 8
-  store ptr %201, ptr %202, align 8
-  %203 = load ptr, ptr %8, align 8
-  %204 = getelementptr inbounds %struct._zend_regexp_list, ptr %203, i32 0, i32 1
-  store ptr %204, ptr %7, align 8
-  br label %211
+198:                                              ; preds = %193, %187
+  br label %199
 
-205:                                              ; preds = %134
-  %206 = load ptr, ptr %10, align 8
-  store ptr %206, ptr %13, align 8
+199:                                              ; preds = %198, %183
+  %200 = getelementptr inbounds [12288 x i8], ptr %9, i64 0, i64 0
+  %201 = getelementptr inbounds i8, ptr %200, i64 2
+  store ptr %201, ptr %10, align 8
+  %202 = load ptr, ptr %8, align 8
+  %203 = load ptr, ptr %7, align 8
+  store ptr %202, ptr %203, align 8
+  %204 = load ptr, ptr %8, align 8
+  %205 = getelementptr inbounds %struct._zend_regexp_list, ptr %204, i32 0, i32 1
+  store ptr %205, ptr %7, align 8
+  br label %212
+
+206:                                              ; preds = %134
   %207 = load ptr, ptr %10, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i32 1
-  store ptr %208, ptr %10, align 8
-  store i8 124, ptr %207, align 1
-  %209 = load i32, ptr %4, align 4
-  %210 = add nsw i32 %209, 1
-  store i32 %210, ptr %4, align 4
-  br label %211
+  store ptr %207, ptr %13, align 8
+  %208 = load ptr, ptr %10, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i32 1
+  store ptr %209, ptr %10, align 8
+  store i8 124, ptr %208, align 1
+  %210 = load i32, ptr %4, align 4
+  %211 = add nsw i32 %210, 1
+  store i32 %211, ptr %4, align 4
+  br label %212
 
-211:                                              ; preds = %205, %198
+212:                                              ; preds = %206, %199
   br label %31
 
-212:                                              ; preds = %175, %31, %20
+213:                                              ; preds = %175, %31, %20
   ret void
 }
 

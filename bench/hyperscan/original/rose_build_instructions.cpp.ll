@@ -5928,14 +5928,15 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckLookaroundD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue224RoseInstrCheckLookaroundE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue224RoseInstrCheckLookaroundE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %look = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %look, align 8
-  %tobool.not.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %look, align 8
+  %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
   br label %_ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit:   ; preds = %if.then.i.i.i, %entry
@@ -5945,14 +5946,15 @@ _ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit:   ; preds = %if.then.i.i.i, %ent
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckLookaroundD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue224RoseInstrCheckLookaroundE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue224RoseInstrCheckLookaroundE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %look.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %look.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %look.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue224RoseInstrCheckLookaroundD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
   br label %_ZN3ue224RoseInstrCheckLookaroundD2Ev.exit
 
 _ZN3ue224RoseInstrCheckLookaroundD2Ev.exit:       ; preds = %if.then.i.i.i.i, %entry
@@ -9091,14 +9093,15 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue224RoseInstrSparseIterBeginD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue224RoseInstrSparseIterBeginE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue224RoseInstrSparseIterBeginE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %jump_table = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 3
-  %0 = load ptr, ptr %jump_table, align 8
-  %tobool.not.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %jump_table, align 8
+  %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIjPKN3ue215RoseInstructionEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
   br label %_ZNSt6vectorISt4pairIjPKN3ue215RoseInstructionEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIjPKN3ue215RoseInstructionEESaIS5_EED2Ev.exit: ; preds = %if.then.i.i.i, %entry
@@ -9108,14 +9111,15 @@ _ZNSt6vectorISt4pairIjPKN3ue215RoseInstructionEESaIS5_EED2Ev.exit: ; preds = %if
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue224RoseInstrSparseIterBeginD0Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue224RoseInstrSparseIterBeginE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue224RoseInstrSparseIterBeginE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %jump_table.i = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 3
-  %0 = load ptr, ptr %jump_table.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %jump_table.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue224RoseInstrSparseIterBeginD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
   br label %_ZN3ue224RoseInstrSparseIterBeginD2Ev.exit
 
 _ZN3ue224RoseInstrSparseIterBeginD2Ev.exit:       ; preds = %if.then.i.i.i.i, %entry
@@ -9302,14 +9306,15 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrSparseIterAnyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue222RoseInstrSparseIterAnyE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue222RoseInstrSparseIterAnyE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %keys = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %this, i64 0, i32 2
-  %0 = load ptr, ptr %keys, align 8
-  %tobool.not.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %keys, align 8
+  %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %if.then.i.i.i, %entry
@@ -9319,14 +9324,15 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %if.then.i.i.i, %ent
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrSparseIterAnyD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue222RoseInstrSparseIterAnyE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue222RoseInstrSparseIterAnyE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %keys.i = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %this, i64 0, i32 2
-  %0 = load ptr, ptr %keys.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %keys.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue222RoseInstrSparseIterAnyD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
   br label %_ZN3ue222RoseInstrSparseIterAnyD2Ev.exit
 
 _ZN3ue222RoseInstrSparseIterAnyD2Ev.exit:         ; preds = %if.then.i.i.i.i, %entry
@@ -9480,22 +9486,23 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue221RoseInstrCheckLongLitD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue221RoseInstrCheckLongLitE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue221RoseInstrCheckLongLitE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %literal, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1, i32 2
-  %cmp.i.i.i = icmp eq ptr %0, %1
+  %1 = load ptr, ptr %literal, align 8
+  %2 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1, i32 2
+  %cmp.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
   %_M_string_length.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1, i32 1
-  %2 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp3.i.i.i = icmp ult i64 %2, 16
+  %3 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %cmp3.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %1) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -9505,22 +9512,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue221RoseInstrCheckLongLitD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue221RoseInstrCheckLongLitE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue221RoseInstrCheckLongLitE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %literal.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %literal.i, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1, i32 2
-  %cmp.i.i.i.i = icmp eq ptr %0, %1
+  %1 = load ptr, ptr %literal.i, align 8
+  %2 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1, i32 2
+  %cmp.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
   %_M_string_length.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1, i32 1
-  %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  %cmp3.i.i.i.i = icmp ult i64 %2, 16
+  %3 = load i64, ptr %_M_string_length.i.i.i.i, align 8
+  %cmp3.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN3ue221RoseInstrCheckLongLitD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %1) #23
   br label %_ZN3ue221RoseInstrCheckLongLitD2Ev.exit
 
 _ZN3ue221RoseInstrCheckLongLitD2Ev.exit:          ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
@@ -9601,22 +9609,23 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue227RoseInstrCheckLongLitNocaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue227RoseInstrCheckLongLitNocaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue227RoseInstrCheckLongLitNocaseE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %literal, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1, i32 2
-  %cmp.i.i.i = icmp eq ptr %0, %1
+  %1 = load ptr, ptr %literal, align 8
+  %2 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1, i32 2
+  %cmp.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
   %_M_string_length.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1, i32 1
-  %2 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp3.i.i.i = icmp ult i64 %2, 16
+  %3 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %cmp3.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %1) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -9626,22 +9635,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue227RoseInstrCheckLongLitNocaseD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue227RoseInstrCheckLongLitNocaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue227RoseInstrCheckLongLitNocaseE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %literal.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %literal.i, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1, i32 2
-  %cmp.i.i.i.i = icmp eq ptr %0, %1
+  %1 = load ptr, ptr %literal.i, align 8
+  %2 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1, i32 2
+  %cmp.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
   %_M_string_length.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1, i32 1
-  %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  %cmp3.i.i.i.i = icmp ult i64 %2, 16
+  %3 = load i64, ptr %_M_string_length.i.i.i.i, align 8
+  %cmp3.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN3ue227RoseInstrCheckLongLitNocaseD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %1) #23
   br label %_ZN3ue227RoseInstrCheckLongLitNocaseD2Ev.exit
 
 _ZN3ue227RoseInstrCheckLongLitNocaseD2Ev.exit:    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
@@ -9722,22 +9732,23 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckMedLitD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue220RoseInstrCheckMedLitE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue220RoseInstrCheckMedLitE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %literal, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1, i32 2
-  %cmp.i.i.i = icmp eq ptr %0, %1
+  %1 = load ptr, ptr %literal, align 8
+  %2 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1, i32 2
+  %cmp.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
   %_M_string_length.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1, i32 1
-  %2 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp3.i.i.i = icmp ult i64 %2, 16
+  %3 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %cmp3.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %1) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -9747,22 +9758,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckMedLitD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue220RoseInstrCheckMedLitE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue220RoseInstrCheckMedLitE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %literal.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %literal.i, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1, i32 2
-  %cmp.i.i.i.i = icmp eq ptr %0, %1
+  %1 = load ptr, ptr %literal.i, align 8
+  %2 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1, i32 2
+  %cmp.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
   %_M_string_length.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1, i32 1
-  %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  %cmp3.i.i.i.i = icmp ult i64 %2, 16
+  %3 = load i64, ptr %_M_string_length.i.i.i.i, align 8
+  %cmp3.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN3ue220RoseInstrCheckMedLitD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %1) #23
   br label %_ZN3ue220RoseInstrCheckMedLitD2Ev.exit
 
 _ZN3ue220RoseInstrCheckMedLitD2Ev.exit:           ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
@@ -9843,22 +9855,23 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue226RoseInstrCheckMedLitNocaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue226RoseInstrCheckMedLitNocaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue226RoseInstrCheckMedLitNocaseE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %literal, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1, i32 2
-  %cmp.i.i.i = icmp eq ptr %0, %1
+  %1 = load ptr, ptr %literal, align 8
+  %2 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1, i32 2
+  %cmp.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
   %_M_string_length.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1, i32 1
-  %2 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp3.i.i.i = icmp ult i64 %2, 16
+  %3 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %cmp3.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %1) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -9868,22 +9881,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue226RoseInstrCheckMedLitNocaseD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue226RoseInstrCheckMedLitNocaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue226RoseInstrCheckMedLitNocaseE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %literal.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %literal.i, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1, i32 2
-  %cmp.i.i.i.i = icmp eq ptr %0, %1
+  %1 = load ptr, ptr %literal.i, align 8
+  %2 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1, i32 2
+  %cmp.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
   %_M_string_length.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1, i32 1
-  %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  %cmp3.i.i.i.i = icmp ult i64 %2, 16
+  %3 = load i64, ptr %_M_string_length.i.i.i.i, align 8
+  %cmp3.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN3ue226RoseInstrCheckMedLitNocaseD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %1) #23
   br label %_ZN3ue226RoseInstrCheckMedLitNocaseD2Ev.exit
 
 _ZN3ue226RoseInstrCheckMedLitNocaseD2Ev.exit:     ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
@@ -9964,27 +9978,28 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue228RoseInstrMultipathLookaroundD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue228RoseInstrMultipathLookaroundE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue228RoseInstrMultipathLookaroundE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %multi_look = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %multi_look, align 8
+  %1 = load ptr, ptr %multi_look, align 8
   %_M_finish.i = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %1 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
+  %2 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i, %entry
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i ], [ %0, %entry ]
-  %2 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i ], [ %1, %entry ]
+  %3 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
   br label %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::vector.115", ptr %__first.addr.04.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !21
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i
@@ -9992,12 +10007,12 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt6ve
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %entry
-  %3 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %0, %entry ]
-  %tobool.not.i.i.i = icmp eq ptr %3, null
+  %4 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %1, %entry ]
+  %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIS_IN3ue29LookEntryESaIS1_EESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #23
   br label %_ZNSt6vectorIS_IN3ue29LookEntryESaIS1_EESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIS_IN3ue29LookEntryESaIS1_EESaIS3_EED2Ev.exit: ; preds = %if.then.i.i.i, %invoke.cont.i
@@ -10007,27 +10022,28 @@ _ZNSt6vectorIS_IN3ue29LookEntryESaIS1_EESaIS3_EED2Ev.exit: ; preds = %if.then.i.
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue228RoseInstrMultipathLookaroundD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue228RoseInstrMultipathLookaroundE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ue228RoseInstrMultipathLookaroundE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8
   %multi_look.i = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %multi_look.i, align 8
+  %1 = load ptr, ptr %multi_look.i, align 8
   %_M_finish.i.i = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %1 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.not3.i.i.i.i.i = icmp eq ptr %0, %1
+  %2 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.not3.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i, %entry
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i ], [ %0, %entry ]
-  %2 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i ], [ %1, %entry ]
+  %3 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
   br label %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::vector.115", ptr %__first.addr.04.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !21
 
 invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i
@@ -10035,12 +10051,12 @@ invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyISt6ve
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %entry
-  %3 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %0, %entry ]
-  %tobool.not.i.i.i.i = icmp eq ptr %3, null
+  %4 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %1, %entry ]
+  %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue228RoseInstrMultipathLookaroundD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #23
   br label %_ZN3ue228RoseInstrMultipathLookaroundD2Ev.exit
 
 _ZN3ue228RoseInstrMultipathLookaroundD2Ev.exit:   ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
@@ -12042,7 +12058,8 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIcN3ue
 
 if.then.i.i.i:                                    ; preds = %cond.true.i
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception.i.i.i, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2
+  store ptr %3, ptr %exception.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
   unreachable
 
@@ -12072,14 +12089,14 @@ vector.body:                                      ; preds = %vector.body, %vecto
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %wide.load = load <16 x i8>, ptr %next.gep71, align 1, !alias.scope !31, !noalias !28
-  %3 = getelementptr i8, ptr %next.gep71, i64 16
-  %wide.load73 = load <16 x i8>, ptr %3, align 1, !alias.scope !31, !noalias !28
+  %4 = getelementptr i8, ptr %next.gep71, i64 16
+  %wide.load73 = load <16 x i8>, ptr %4, align 1, !alias.scope !31, !noalias !28
   store <16 x i8> %wide.load, ptr %next.gep, align 1, !alias.scope !28, !noalias !31
-  %4 = getelementptr i8, ptr %next.gep, i64 16
-  store <16 x i8> %wide.load73, ptr %4, align 1, !alias.scope !28, !noalias !31
+  %5 = getelementptr i8, ptr %next.gep, i64 16
+  store <16 x i8> %wide.load73, ptr %5, align 1, !alias.scope !28, !noalias !31
   %index.next = add nuw i64 %index, 32
-  %5 = icmp eq i64 %index.next, %n.vec
-  br i1 %5, label %middle.block, label %vector.body, !llvm.loop !33
+  %6 = icmp eq i64 %index.next, %n.vec
+  br i1 %6, label %middle.block, label %vector.body, !llvm.loop !33
 
 middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %sub.ptr.sub.i, %n.vec
@@ -12108,8 +12125,8 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %wide.load88 = load <8 x i8>, ptr %next.gep87, align 1, !alias.scope !31, !noalias !28
   store <8 x i8> %wide.load88, ptr %next.gep86, align 1, !alias.scope !28, !noalias !31
   %index.next89 = add nuw i64 %index85, 8
-  %6 = icmp eq i64 %index.next89, %n.vec77
-  br i1 %6, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !36
+  %7 = icmp eq i64 %index.next89, %n.vec77
+  br i1 %7, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !36
 
 vec.epilog.middle.block:                          ; preds = %vec.epilog.vector.body
   %cmp.n84 = icmp eq i64 %sub.ptr.sub.i, %n.vec77
@@ -12125,8 +12142,8 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %__first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__first.addr.07.i.i.i.i.ph, %for.body.i.i.i.i.preheader ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %7 = load i8, ptr %__first.addr.07.i.i.i.i, align 1, !alias.scope !31, !noalias !28
-  store i8 %7, ptr %__cur.08.i.i.i.i, align 1, !alias.scope !28, !noalias !31
+  %8 = load i8, ptr %__first.addr.07.i.i.i.i, align 1, !alias.scope !31, !noalias !28
+  store i8 %8, ptr %__cur.08.i.i.i.i, align 1, !alias.scope !28, !noalias !31
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i, i64 1
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
@@ -12141,10 +12158,10 @@ if.then.i68:                                      ; preds = %_ZNSt6vectorIcN3ue2
           to label %_ZNSt12_Vector_baseIcN3ue216AlignedAllocatorIcLm64EEEE13_M_deallocateEPcm.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i68
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #22
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #22
   unreachable
 
 _ZNSt12_Vector_baseIcN3ue216AlignedAllocatorIcLm64EEEE13_M_deallocateEPcm.exit: ; preds = %if.then.i68, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE11_S_relocateEPcS4_S4_RS2_.exit

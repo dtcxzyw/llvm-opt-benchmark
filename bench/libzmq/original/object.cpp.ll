@@ -73,13 +73,14 @@ entry:
   store ptr %ctx_, ptr %ctx_.addr, align 8
   store i32 %tid_, ptr %tid_.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN3zmq8object_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN3zmq8object_tE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_ctx = getelementptr inbounds %"class.zmq::object_t", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %ctx_.addr, align 8
-  store ptr %0, ptr %_ctx, align 8
+  %1 = load ptr, ptr %ctx_.addr, align 8
+  store ptr %1, ptr %_ctx, align 8
   %_tid = getelementptr inbounds %"class.zmq::object_t", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %tid_.addr, align 4
-  store i32 %1, ptr %_tid, align 8
+  %2 = load i32, ptr %tid_.addr, align 4
+  store i32 %2, ptr %_tid, align 8
   ret void
 }
 
@@ -91,17 +92,18 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %parent_, ptr %parent_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN3zmq8object_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN3zmq8object_tE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_ctx = getelementptr inbounds %"class.zmq::object_t", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %parent_.addr, align 8
-  %_ctx2 = getelementptr inbounds %"class.zmq::object_t", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %_ctx2, align 8
-  store ptr %1, ptr %_ctx, align 8
+  %1 = load ptr, ptr %parent_.addr, align 8
+  %_ctx2 = getelementptr inbounds %"class.zmq::object_t", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %_ctx2, align 8
+  store ptr %2, ptr %_ctx, align 8
   %_tid = getelementptr inbounds %"class.zmq::object_t", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %parent_.addr, align 8
-  %_tid3 = getelementptr inbounds %"class.zmq::object_t", ptr %2, i32 0, i32 2
-  %3 = load i32, ptr %_tid3, align 8
-  store i32 %3, ptr %_tid, align 8
+  %3 = load ptr, ptr %parent_.addr, align 8
+  %_tid3 = getelementptr inbounds %"class.zmq::object_t", ptr %3, i32 0, i32 2
+  %4 = load i32, ptr %_tid3, align 8
+  store i32 %4, ptr %_tid, align 8
   ret void
 }
 

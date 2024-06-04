@@ -727,13 +727,13 @@ define dso_local noundef i32 @intel_backlight_device_register(ptr noundef %0) lo
   tail call void asm sideeffect "937: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 937b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 937) #9, !srcloc !39
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 922, i32 2305, i64 12) #9, !srcloc !40
   tail call void asm sideeffect "938: nop\0A\09.pushsection .discard.instr_end\0A\09.long 938b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 938) #9, !srcloc !41
-  br label %103
+  br label %104
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 2024
   %10 = load i8, ptr %9, align 8, !range !28, !noundef !29
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %103, label %12
+  br i1 %11, label %104, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 2036
@@ -764,7 +764,7 @@ define dso_local noundef i32 @intel_backlight_device_register(ptr noundef %0) lo
 25:                                               ; preds = %22, %20
   %26 = phi ptr [ %24, %22 ], [ null, %20 ]
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %26, ptr noundef nonnull @.str.8) #10
-  br label %103
+  br label %104
 
 27:                                               ; preds = %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, i8 0, i64 28, i1 false)
@@ -810,7 +810,7 @@ define dso_local noundef i32 @intel_backlight_device_register(ptr noundef %0) lo
   store i32 %56, ptr %55, align 4
   %57 = tail call noalias ptr @kstrdup(ptr noundef nonnull @.str.9, i32 noundef 3264) #9
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %103, label %59
+  br i1 %58, label %104, label %59
 
 59:                                               ; preds = %37
   %60 = tail call ptr @backlight_device_get_by_name(ptr noundef nonnull %57) #9
@@ -828,64 +828,65 @@ define dso_local noundef i32 @intel_backlight_device_register(ptr noundef %0) lo
   %68 = load ptr, ptr %67, align 8
   %69 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.10, i32 noundef %66, ptr noundef %68) #9
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %103, label %71
+  br i1 %70, label %104, label %71
 
 71:                                               ; preds = %62, %59
   %72 = phi ptr [ %69, %62 ], [ %57, %59 ]
   %73 = getelementptr inbounds i8, ptr %0, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr @backlight_device_register(ptr noundef nonnull %72, ptr noundef %74, ptr noundef %0, ptr noundef nonnull @intel_backlight_device_ops, ptr noundef nonnull %2) #9
-  %76 = icmp ugt ptr %75, inttoptr (i64 -4096 to ptr)
-  br i1 %76, label %77, label %90
+  %76 = inttoptr i64 -4096 to ptr
+  %77 = icmp ugt ptr %75, %76
+  br i1 %77, label %78, label %91
 
-77:                                               ; preds = %71
-  %78 = icmp eq ptr %3, null
-  br i1 %78, label %82, label %79
+78:                                               ; preds = %71
+  %79 = icmp eq ptr %3, null
+  br i1 %79, label %83, label %80
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %3, i64 8
-  %81 = load ptr, ptr %80, align 8
-  br label %82
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds i8, ptr %3, i64 8
+  %82 = load ptr, ptr %81, align 8
+  br label %83
 
-82:                                               ; preds = %79, %77
-  %83 = phi ptr [ %81, %79 ], [ null, %77 ]
-  %84 = getelementptr inbounds i8, ptr %0, i64 64
-  %85 = load i32, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 96
-  %87 = load ptr, ptr %86, align 8
-  %88 = ptrtoint ptr %75 to i64
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %83, ptr noundef nonnull @.str.11, i32 noundef %85, ptr noundef %87, ptr noundef nonnull %72, i64 noundef %88) #10
-  %89 = trunc i64 %88 to i32
-  br label %101
+83:                                               ; preds = %80, %78
+  %84 = phi ptr [ %82, %80 ], [ null, %78 ]
+  %85 = getelementptr inbounds i8, ptr %0, i64 64
+  %86 = load i32, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %0, i64 96
+  %88 = load ptr, ptr %87, align 8
+  %89 = ptrtoint ptr %75 to i64
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %84, ptr noundef nonnull @.str.11, i32 noundef %86, ptr noundef %88, ptr noundef nonnull %72, i64 noundef %89) #10
+  %90 = trunc i64 %89 to i32
+  br label %102
 
-90:                                               ; preds = %71
+91:                                               ; preds = %71
   store ptr %75, ptr %4, align 8
-  %91 = icmp eq ptr %3, null
-  br i1 %91, label %95, label %92
+  %92 = icmp eq ptr %3, null
+  br i1 %92, label %96, label %93
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %3, i64 8
-  %94 = load ptr, ptr %93, align 8
-  br label %95
+93:                                               ; preds = %91
+  %94 = getelementptr inbounds i8, ptr %3, i64 8
+  %95 = load ptr, ptr %94, align 8
+  br label %96
 
-95:                                               ; preds = %92, %90
-  %96 = phi ptr [ %94, %92 ], [ null, %90 ]
-  %97 = getelementptr inbounds i8, ptr %0, i64 64
-  %98 = load i32, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 96
-  %100 = load ptr, ptr %99, align 8
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %96, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %98, ptr noundef %100, ptr noundef nonnull %72) #9
-  br label %101
+96:                                               ; preds = %93, %91
+  %97 = phi ptr [ %95, %93 ], [ null, %91 ]
+  %98 = getelementptr inbounds i8, ptr %0, i64 64
+  %99 = load i32, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 96
+  %101 = load ptr, ptr %100, align 8
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %97, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %99, ptr noundef %101, ptr noundef nonnull %72) #9
+  br label %102
 
-101:                                              ; preds = %95, %82
-  %102 = phi i32 [ %89, %82 ], [ 0, %95 ]
+102:                                              ; preds = %96, %83
+  %103 = phi i32 [ %90, %83 ], [ 0, %96 ]
   call void @kfree(ptr noundef nonnull %72) #9
-  br label %103
+  br label %104
 
-103:                                              ; preds = %101, %62, %37, %25, %8, %7
-  %104 = phi i32 [ %102, %101 ], [ 0, %25 ], [ -19, %7 ], [ 0, %8 ], [ -12, %37 ], [ -12, %62 ]
+104:                                              ; preds = %102, %62, %37, %25, %8, %7
+  %105 = phi i32 [ %103, %102 ], [ 0, %25 ], [ -19, %7 ], [ 0, %8 ], [ -12, %37 ], [ -12, %62 ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #9
-  ret i32 %104
+  ret i32 %105
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2899,25 +2900,26 @@ define internal noundef i32 @ext_pwm_setup_backlight(ptr nocapture noundef %0, i
   %9 = icmp eq i48 %8, 0
   %10 = tail call i32 @__SCT__might_resched() #9
   %11 = getelementptr inbounds i8, ptr %0, i64 2056
-  store ptr inttoptr (i64 -19 to ptr), ptr %11, align 8
-  %12 = select i1 %9, ptr @.str.40, ptr @.str.42
-  %13 = getelementptr inbounds i8, ptr %0, i64 2056
-  %14 = icmp eq ptr %3, null
-  br i1 %14, label %18, label %15
+  %12 = inttoptr i64 -19 to ptr
+  store ptr %12, ptr %11, align 8
+  %13 = select i1 %9, ptr @.str.40, ptr @.str.42
+  %14 = getelementptr inbounds i8, ptr %0, i64 2056
+  %15 = icmp eq ptr %3, null
+  br i1 %15, label %19, label %16
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
-  %17 = load ptr, ptr %16, align 8
-  br label %18
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = load ptr, ptr %17, align 8
+  br label %19
 
-18:                                               ; preds = %15, %2
-  %19 = phi ptr [ %17, %15 ], [ null, %2 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
-  %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
-  %23 = load ptr, ptr %22, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %19, ptr noundef nonnull @.str.43, i32 noundef %21, ptr noundef %23, ptr noundef nonnull %12) #10
-  store ptr null, ptr %13, align 8
+19:                                               ; preds = %16, %2
+  %20 = phi ptr [ %18, %16 ], [ null, %2 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = load i32, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  %24 = load ptr, ptr %23, align 8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %20, ptr noundef nonnull @.str.43, i32 noundef %22, ptr noundef %24, ptr noundef nonnull %13) #10
+  store ptr null, ptr %14, align 8
   ret i32 -19
 }
 

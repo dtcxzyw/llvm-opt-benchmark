@@ -6501,447 +6501,470 @@ entry:
   %coerce.dive11 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp10, i32 0, i32 0
   %17 = load ptr, ptr %coerce.dive11, align 8
   %call12 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %14, i64 %16, i1 noundef zeroext false, ptr %17)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 1), ptr noundef %call12)
+  %18 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 1
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %call12)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp15, ptr align 4 @constinit.31, i64 288, i1 false)
   %_M_array17 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp14, i32 0, i32 0
   %arraystart18 = getelementptr inbounds [72 x float], ptr %ref.tmp15, i64 0, i64 0
   store ptr %arraystart18, ptr %_M_array17, align 8
   %_M_len19 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp14, i32 0, i32 1
   store i64 72, ptr %_M_len19, align 8
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp13, ptr %19, i64 %21)
+  %19 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp13, ptr %20, i64 %22)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp20) #17
-  %22 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp13, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp13, i32 0, i32 1
-  %25 = load i64, ptr %24, align 8
+  %23 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp13, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp13, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
   %coerce.dive21 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp20, i32 0, i32 0
-  %26 = load ptr, ptr %coerce.dive21, align 8
-  %call22 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %23, i64 %25, i1 noundef zeroext false, ptr %26)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 2), ptr noundef %call22)
+  %27 = load ptr, ptr %coerce.dive21, align 8
+  %call22 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %24, i64 %26, i1 noundef zeroext false, ptr %27)
+  %28 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 2
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %call22)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp25, ptr align 4 @constinit.32, i64 288, i1 false)
   %_M_array27 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp24, i32 0, i32 0
   %arraystart28 = getelementptr inbounds [72 x float], ptr %ref.tmp25, i64 0, i64 0
   store ptr %arraystart28, ptr %_M_array27, align 8
   %_M_len29 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp24, i32 0, i32 1
   store i64 72, ptr %_M_len29, align 8
-  %27 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp24, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp24, i32 0, i32 1
-  %30 = load i64, ptr %29, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp23, ptr %28, i64 %30)
+  %29 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp24, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp24, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp23, ptr %30, i64 %32)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp30) #17
-  %31 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp23, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp23, i32 0, i32 1
-  %34 = load i64, ptr %33, align 8
+  %33 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp23, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp23, i32 0, i32 1
+  %36 = load i64, ptr %35, align 8
   %coerce.dive31 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp30, i32 0, i32 0
-  %35 = load ptr, ptr %coerce.dive31, align 8
-  %call32 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %32, i64 %34, i1 noundef zeroext false, ptr %35)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 3), ptr noundef %call32)
+  %37 = load ptr, ptr %coerce.dive31, align 8
+  %call32 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %34, i64 %36, i1 noundef zeroext false, ptr %37)
+  %38 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 3
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %call32)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp35, ptr align 4 @constinit.33, i64 288, i1 false)
   %_M_array37 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp34, i32 0, i32 0
   %arraystart38 = getelementptr inbounds [72 x float], ptr %ref.tmp35, i64 0, i64 0
   store ptr %arraystart38, ptr %_M_array37, align 8
   %_M_len39 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp34, i32 0, i32 1
   store i64 72, ptr %_M_len39, align 8
-  %36 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp34, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp34, i32 0, i32 1
-  %39 = load i64, ptr %38, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp33, ptr %37, i64 %39)
+  %39 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp34, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp34, i32 0, i32 1
+  %42 = load i64, ptr %41, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp33, ptr %40, i64 %42)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp40) #17
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp33, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp33, i32 0, i32 1
-  %43 = load i64, ptr %42, align 8
+  %43 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp33, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp33, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
   %coerce.dive41 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp40, i32 0, i32 0
-  %44 = load ptr, ptr %coerce.dive41, align 8
-  %call42 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %41, i64 %43, i1 noundef zeroext false, ptr %44)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 4), ptr noundef %call42)
+  %47 = load ptr, ptr %coerce.dive41, align 8
+  %call42 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %44, i64 %46, i1 noundef zeroext false, ptr %47)
+  %48 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 4
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef %call42)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp45, ptr align 4 @constinit.34, i64 288, i1 false)
   %_M_array47 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp44, i32 0, i32 0
   %arraystart48 = getelementptr inbounds [72 x float], ptr %ref.tmp45, i64 0, i64 0
   store ptr %arraystart48, ptr %_M_array47, align 8
   %_M_len49 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp44, i32 0, i32 1
   store i64 72, ptr %_M_len49, align 8
-  %45 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp44, i32 0, i32 1
-  %48 = load i64, ptr %47, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, ptr %46, i64 %48)
-  call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp50) #17
-  %49 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp43, i32 0, i32 0
+  %49 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp44, i32 0, i32 0
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp43, i32 0, i32 1
+  %51 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp44, i32 0, i32 1
   %52 = load i64, ptr %51, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, ptr %50, i64 %52)
+  call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp50) #17
+  %53 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp43, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp43, i32 0, i32 1
+  %56 = load i64, ptr %55, align 8
   %coerce.dive51 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp50, i32 0, i32 0
-  %53 = load ptr, ptr %coerce.dive51, align 8
-  %call52 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %50, i64 %52, i1 noundef zeroext false, ptr %53)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 5), ptr noundef %call52)
+  %57 = load ptr, ptr %coerce.dive51, align 8
+  %call52 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %54, i64 %56, i1 noundef zeroext false, ptr %57)
+  %58 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 5
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %call52)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp55, ptr align 4 @constinit.35, i64 288, i1 false)
   %_M_array57 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp54, i32 0, i32 0
   %arraystart58 = getelementptr inbounds [72 x float], ptr %ref.tmp55, i64 0, i64 0
   store ptr %arraystart58, ptr %_M_array57, align 8
   %_M_len59 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp54, i32 0, i32 1
   store i64 72, ptr %_M_len59, align 8
-  %54 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp54, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp54, i32 0, i32 1
-  %57 = load i64, ptr %56, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp53, ptr %55, i64 %57)
+  %59 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp54, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp54, i32 0, i32 1
+  %62 = load i64, ptr %61, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp53, ptr %60, i64 %62)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp60) #17
-  %58 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 1
-  %61 = load i64, ptr %60, align 8
+  %63 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 1
+  %66 = load i64, ptr %65, align 8
   %coerce.dive61 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp60, i32 0, i32 0
-  %62 = load ptr, ptr %coerce.dive61, align 8
-  %call62 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %59, i64 %61, i1 noundef zeroext false, ptr %62)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 6), ptr noundef %call62)
+  %67 = load ptr, ptr %coerce.dive61, align 8
+  %call62 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %64, i64 %66, i1 noundef zeroext false, ptr %67)
+  %68 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 6
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef %call62)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp65, ptr align 4 @constinit.36, i64 288, i1 false)
   %_M_array67 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp64, i32 0, i32 0
   %arraystart68 = getelementptr inbounds [72 x float], ptr %ref.tmp65, i64 0, i64 0
   store ptr %arraystart68, ptr %_M_array67, align 8
   %_M_len69 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp64, i32 0, i32 1
   store i64 72, ptr %_M_len69, align 8
-  %63 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp64, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp64, i32 0, i32 1
-  %66 = load i64, ptr %65, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp63, ptr %64, i64 %66)
+  %69 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp64, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp64, i32 0, i32 1
+  %72 = load i64, ptr %71, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp63, ptr %70, i64 %72)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp70) #17
-  %67 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp63, i32 0, i32 0
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp63, i32 0, i32 1
-  %70 = load i64, ptr %69, align 8
+  %73 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp63, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp63, i32 0, i32 1
+  %76 = load i64, ptr %75, align 8
   %coerce.dive71 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp70, i32 0, i32 0
-  %71 = load ptr, ptr %coerce.dive71, align 8
-  %call72 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %68, i64 %70, i1 noundef zeroext false, ptr %71)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 7), ptr noundef %call72)
+  %77 = load ptr, ptr %coerce.dive71, align 8
+  %call72 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %74, i64 %76, i1 noundef zeroext false, ptr %77)
+  %78 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 7
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef %call72)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp75, ptr align 4 @constinit.37, i64 288, i1 false)
   %_M_array77 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp74, i32 0, i32 0
   %arraystart78 = getelementptr inbounds [72 x float], ptr %ref.tmp75, i64 0, i64 0
   store ptr %arraystart78, ptr %_M_array77, align 8
   %_M_len79 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp74, i32 0, i32 1
   store i64 72, ptr %_M_len79, align 8
-  %72 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp74, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp74, i32 0, i32 1
-  %75 = load i64, ptr %74, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp73, ptr %73, i64 %75)
+  %79 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp74, i32 0, i32 0
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp74, i32 0, i32 1
+  %82 = load i64, ptr %81, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp73, ptr %80, i64 %82)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp80) #17
-  %76 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp73, i32 0, i32 0
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp73, i32 0, i32 1
-  %79 = load i64, ptr %78, align 8
+  %83 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp73, i32 0, i32 0
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp73, i32 0, i32 1
+  %86 = load i64, ptr %85, align 8
   %coerce.dive81 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp80, i32 0, i32 0
-  %80 = load ptr, ptr %coerce.dive81, align 8
-  %call82 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %77, i64 %79, i1 noundef zeroext false, ptr %80)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 8), ptr noundef %call82)
+  %87 = load ptr, ptr %coerce.dive81, align 8
+  %call82 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %84, i64 %86, i1 noundef zeroext false, ptr %87)
+  %88 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 8
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef %call82)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp85, ptr align 4 @constinit.38, i64 288, i1 false)
   %_M_array87 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp84, i32 0, i32 0
   %arraystart88 = getelementptr inbounds [72 x float], ptr %ref.tmp85, i64 0, i64 0
   store ptr %arraystart88, ptr %_M_array87, align 8
   %_M_len89 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp84, i32 0, i32 1
   store i64 72, ptr %_M_len89, align 8
-  %81 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp84, i32 0, i32 0
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp84, i32 0, i32 1
-  %84 = load i64, ptr %83, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp83, ptr %82, i64 %84)
+  %89 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp84, i32 0, i32 0
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp84, i32 0, i32 1
+  %92 = load i64, ptr %91, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp83, ptr %90, i64 %92)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp90) #17
-  %85 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp83, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp83, i32 0, i32 1
-  %88 = load i64, ptr %87, align 8
+  %93 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp83, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp83, i32 0, i32 1
+  %96 = load i64, ptr %95, align 8
   %coerce.dive91 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp90, i32 0, i32 0
-  %89 = load ptr, ptr %coerce.dive91, align 8
-  %call92 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %86, i64 %88, i1 noundef zeroext false, ptr %89)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 9), ptr noundef %call92)
+  %97 = load ptr, ptr %coerce.dive91, align 8
+  %call92 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %94, i64 %96, i1 noundef zeroext false, ptr %97)
+  %98 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 9
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef %call92)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp95, ptr align 4 @constinit.39, i64 288, i1 false)
   %_M_array97 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp94, i32 0, i32 0
   %arraystart98 = getelementptr inbounds [72 x float], ptr %ref.tmp95, i64 0, i64 0
   store ptr %arraystart98, ptr %_M_array97, align 8
   %_M_len99 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp94, i32 0, i32 1
   store i64 72, ptr %_M_len99, align 8
-  %90 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp94, i32 0, i32 0
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp94, i32 0, i32 1
-  %93 = load i64, ptr %92, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp93, ptr %91, i64 %93)
+  %99 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp94, i32 0, i32 0
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp94, i32 0, i32 1
+  %102 = load i64, ptr %101, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp93, ptr %100, i64 %102)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp100) #17
-  %94 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp93, i32 0, i32 0
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp93, i32 0, i32 1
-  %97 = load i64, ptr %96, align 8
+  %103 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp93, i32 0, i32 0
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp93, i32 0, i32 1
+  %106 = load i64, ptr %105, align 8
   %coerce.dive101 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp100, i32 0, i32 0
-  %98 = load ptr, ptr %coerce.dive101, align 8
-  %call102 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %95, i64 %97, i1 noundef zeroext false, ptr %98)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 10), ptr noundef %call102)
+  %107 = load ptr, ptr %coerce.dive101, align 8
+  %call102 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %104, i64 %106, i1 noundef zeroext false, ptr %107)
+  %108 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 10
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef %call102)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp105, ptr align 4 @constinit.40, i64 288, i1 false)
   %_M_array107 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp104, i32 0, i32 0
   %arraystart108 = getelementptr inbounds [72 x float], ptr %ref.tmp105, i64 0, i64 0
   store ptr %arraystart108, ptr %_M_array107, align 8
   %_M_len109 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp104, i32 0, i32 1
   store i64 72, ptr %_M_len109, align 8
-  %99 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp104, i32 0, i32 0
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp104, i32 0, i32 1
-  %102 = load i64, ptr %101, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp103, ptr %100, i64 %102)
+  %109 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp104, i32 0, i32 0
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp104, i32 0, i32 1
+  %112 = load i64, ptr %111, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp103, ptr %110, i64 %112)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp110) #17
-  %103 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp103, i32 0, i32 0
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp103, i32 0, i32 1
-  %106 = load i64, ptr %105, align 8
+  %113 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp103, i32 0, i32 0
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp103, i32 0, i32 1
+  %116 = load i64, ptr %115, align 8
   %coerce.dive111 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp110, i32 0, i32 0
-  %107 = load ptr, ptr %coerce.dive111, align 8
-  %call112 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %104, i64 %106, i1 noundef zeroext false, ptr %107)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 11), ptr noundef %call112)
+  %117 = load ptr, ptr %coerce.dive111, align 8
+  %call112 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %114, i64 %116, i1 noundef zeroext false, ptr %117)
+  %118 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 11
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef %call112)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp115, ptr align 4 @constinit.41, i64 288, i1 false)
   %_M_array117 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp114, i32 0, i32 0
   %arraystart118 = getelementptr inbounds [72 x float], ptr %ref.tmp115, i64 0, i64 0
   store ptr %arraystart118, ptr %_M_array117, align 8
   %_M_len119 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp114, i32 0, i32 1
   store i64 72, ptr %_M_len119, align 8
-  %108 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp114, i32 0, i32 0
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp114, i32 0, i32 1
-  %111 = load i64, ptr %110, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp113, ptr %109, i64 %111)
+  %119 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp114, i32 0, i32 0
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp114, i32 0, i32 1
+  %122 = load i64, ptr %121, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp113, ptr %120, i64 %122)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp120) #17
-  %112 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 0
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 1
-  %115 = load i64, ptr %114, align 8
+  %123 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 0
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 1
+  %126 = load i64, ptr %125, align 8
   %coerce.dive121 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp120, i32 0, i32 0
-  %116 = load ptr, ptr %coerce.dive121, align 8
-  %call122 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %113, i64 %115, i1 noundef zeroext false, ptr %116)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 12), ptr noundef %call122)
+  %127 = load ptr, ptr %coerce.dive121, align 8
+  %call122 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %124, i64 %126, i1 noundef zeroext false, ptr %127)
+  %128 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 12
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %128, ptr noundef %call122)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp125, ptr align 4 @constinit.42, i64 288, i1 false)
   %_M_array127 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp124, i32 0, i32 0
   %arraystart128 = getelementptr inbounds [72 x float], ptr %ref.tmp125, i64 0, i64 0
   store ptr %arraystart128, ptr %_M_array127, align 8
   %_M_len129 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp124, i32 0, i32 1
   store i64 72, ptr %_M_len129, align 8
-  %117 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp124, i32 0, i32 0
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp124, i32 0, i32 1
-  %120 = load i64, ptr %119, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp123, ptr %118, i64 %120)
+  %129 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp124, i32 0, i32 0
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp124, i32 0, i32 1
+  %132 = load i64, ptr %131, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp123, ptr %130, i64 %132)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp130) #17
-  %121 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp123, i32 0, i32 0
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp123, i32 0, i32 1
-  %124 = load i64, ptr %123, align 8
+  %133 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp123, i32 0, i32 0
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp123, i32 0, i32 1
+  %136 = load i64, ptr %135, align 8
   %coerce.dive131 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp130, i32 0, i32 0
-  %125 = load ptr, ptr %coerce.dive131, align 8
-  %call132 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %122, i64 %124, i1 noundef zeroext false, ptr %125)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 13), ptr noundef %call132)
+  %137 = load ptr, ptr %coerce.dive131, align 8
+  %call132 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %134, i64 %136, i1 noundef zeroext false, ptr %137)
+  %138 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 13
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %138, ptr noundef %call132)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp135, ptr align 4 @constinit.43, i64 288, i1 false)
   %_M_array137 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp134, i32 0, i32 0
   %arraystart138 = getelementptr inbounds [72 x float], ptr %ref.tmp135, i64 0, i64 0
   store ptr %arraystart138, ptr %_M_array137, align 8
   %_M_len139 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp134, i32 0, i32 1
   store i64 72, ptr %_M_len139, align 8
-  %126 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp134, i32 0, i32 0
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp134, i32 0, i32 1
-  %129 = load i64, ptr %128, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp133, ptr %127, i64 %129)
+  %139 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp134, i32 0, i32 0
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp134, i32 0, i32 1
+  %142 = load i64, ptr %141, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp133, ptr %140, i64 %142)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp140) #17
-  %130 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp133, i32 0, i32 0
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp133, i32 0, i32 1
-  %133 = load i64, ptr %132, align 8
+  %143 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp133, i32 0, i32 0
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp133, i32 0, i32 1
+  %146 = load i64, ptr %145, align 8
   %coerce.dive141 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp140, i32 0, i32 0
-  %134 = load ptr, ptr %coerce.dive141, align 8
-  %call142 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %131, i64 %133, i1 noundef zeroext false, ptr %134)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 14), ptr noundef %call142)
+  %147 = load ptr, ptr %coerce.dive141, align 8
+  %call142 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %144, i64 %146, i1 noundef zeroext false, ptr %147)
+  %148 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 14
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef %call142)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp145, ptr align 4 @constinit.44, i64 288, i1 false)
   %_M_array147 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp144, i32 0, i32 0
   %arraystart148 = getelementptr inbounds [72 x float], ptr %ref.tmp145, i64 0, i64 0
   store ptr %arraystart148, ptr %_M_array147, align 8
   %_M_len149 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp144, i32 0, i32 1
   store i64 72, ptr %_M_len149, align 8
-  %135 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp144, i32 0, i32 0
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp144, i32 0, i32 1
-  %138 = load i64, ptr %137, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp143, ptr %136, i64 %138)
+  %149 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp144, i32 0, i32 0
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp144, i32 0, i32 1
+  %152 = load i64, ptr %151, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp143, ptr %150, i64 %152)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp150) #17
-  %139 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp143, i32 0, i32 0
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp143, i32 0, i32 1
-  %142 = load i64, ptr %141, align 8
+  %153 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp143, i32 0, i32 0
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp143, i32 0, i32 1
+  %156 = load i64, ptr %155, align 8
   %coerce.dive151 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp150, i32 0, i32 0
-  %143 = load ptr, ptr %coerce.dive151, align 8
-  %call152 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %140, i64 %142, i1 noundef zeroext false, ptr %143)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 15), ptr noundef %call152)
+  %157 = load ptr, ptr %coerce.dive151, align 8
+  %call152 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %154, i64 %156, i1 noundef zeroext false, ptr %157)
+  %158 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 15
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %158, ptr noundef %call152)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp155, ptr align 4 @constinit.45, i64 288, i1 false)
   %_M_array157 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp154, i32 0, i32 0
   %arraystart158 = getelementptr inbounds [72 x float], ptr %ref.tmp155, i64 0, i64 0
   store ptr %arraystart158, ptr %_M_array157, align 8
   %_M_len159 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp154, i32 0, i32 1
   store i64 72, ptr %_M_len159, align 8
-  %144 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp154, i32 0, i32 0
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp154, i32 0, i32 1
-  %147 = load i64, ptr %146, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp153, ptr %145, i64 %147)
+  %159 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp154, i32 0, i32 0
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp154, i32 0, i32 1
+  %162 = load i64, ptr %161, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp153, ptr %160, i64 %162)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp160) #17
-  %148 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp153, i32 0, i32 0
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp153, i32 0, i32 1
-  %151 = load i64, ptr %150, align 8
+  %163 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp153, i32 0, i32 0
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp153, i32 0, i32 1
+  %166 = load i64, ptr %165, align 8
   %coerce.dive161 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp160, i32 0, i32 0
-  %152 = load ptr, ptr %coerce.dive161, align 8
-  %call162 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %149, i64 %151, i1 noundef zeroext false, ptr %152)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 16), ptr noundef %call162)
+  %167 = load ptr, ptr %coerce.dive161, align 8
+  %call162 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %164, i64 %166, i1 noundef zeroext false, ptr %167)
+  %168 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 16
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %168, ptr noundef %call162)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp165, ptr align 4 @constinit.46, i64 288, i1 false)
   %_M_array167 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp164, i32 0, i32 0
   %arraystart168 = getelementptr inbounds [72 x float], ptr %ref.tmp165, i64 0, i64 0
   store ptr %arraystart168, ptr %_M_array167, align 8
   %_M_len169 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp164, i32 0, i32 1
   store i64 72, ptr %_M_len169, align 8
-  %153 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp164, i32 0, i32 0
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp164, i32 0, i32 1
-  %156 = load i64, ptr %155, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp163, ptr %154, i64 %156)
+  %169 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp164, i32 0, i32 0
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp164, i32 0, i32 1
+  %172 = load i64, ptr %171, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp163, ptr %170, i64 %172)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp170) #17
-  %157 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp163, i32 0, i32 0
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp163, i32 0, i32 1
-  %160 = load i64, ptr %159, align 8
+  %173 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp163, i32 0, i32 0
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp163, i32 0, i32 1
+  %176 = load i64, ptr %175, align 8
   %coerce.dive171 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp170, i32 0, i32 0
-  %161 = load ptr, ptr %coerce.dive171, align 8
-  %call172 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %158, i64 %160, i1 noundef zeroext false, ptr %161)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 17), ptr noundef %call172)
+  %177 = load ptr, ptr %coerce.dive171, align 8
+  %call172 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %174, i64 %176, i1 noundef zeroext false, ptr %177)
+  %178 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 17
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef %call172)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp175, ptr align 4 @constinit.47, i64 288, i1 false)
   %_M_array177 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp174, i32 0, i32 0
   %arraystart178 = getelementptr inbounds [72 x float], ptr %ref.tmp175, i64 0, i64 0
   store ptr %arraystart178, ptr %_M_array177, align 8
   %_M_len179 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp174, i32 0, i32 1
   store i64 72, ptr %_M_len179, align 8
-  %162 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp174, i32 0, i32 0
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp174, i32 0, i32 1
-  %165 = load i64, ptr %164, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp173, ptr %163, i64 %165)
+  %179 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp174, i32 0, i32 0
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp174, i32 0, i32 1
+  %182 = load i64, ptr %181, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp173, ptr %180, i64 %182)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp180) #17
-  %166 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp173, i32 0, i32 0
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp173, i32 0, i32 1
-  %169 = load i64, ptr %168, align 8
+  %183 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp173, i32 0, i32 0
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp173, i32 0, i32 1
+  %186 = load i64, ptr %185, align 8
   %coerce.dive181 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp180, i32 0, i32 0
-  %170 = load ptr, ptr %coerce.dive181, align 8
-  %call182 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %167, i64 %169, i1 noundef zeroext false, ptr %170)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 18), ptr noundef %call182)
+  %187 = load ptr, ptr %coerce.dive181, align 8
+  %call182 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %184, i64 %186, i1 noundef zeroext false, ptr %187)
+  %188 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 18
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef %call182)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp185, ptr align 4 @constinit.48, i64 288, i1 false)
   %_M_array187 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp184, i32 0, i32 0
   %arraystart188 = getelementptr inbounds [72 x float], ptr %ref.tmp185, i64 0, i64 0
   store ptr %arraystart188, ptr %_M_array187, align 8
   %_M_len189 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp184, i32 0, i32 1
   store i64 72, ptr %_M_len189, align 8
-  %171 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp184, i32 0, i32 0
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp184, i32 0, i32 1
-  %174 = load i64, ptr %173, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp183, ptr %172, i64 %174)
+  %189 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp184, i32 0, i32 0
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp184, i32 0, i32 1
+  %192 = load i64, ptr %191, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp183, ptr %190, i64 %192)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp190) #17
-  %175 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp183, i32 0, i32 0
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp183, i32 0, i32 1
-  %178 = load i64, ptr %177, align 8
+  %193 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp183, i32 0, i32 0
+  %194 = load ptr, ptr %193, align 8
+  %195 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp183, i32 0, i32 1
+  %196 = load i64, ptr %195, align 8
   %coerce.dive191 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp190, i32 0, i32 0
-  %179 = load ptr, ptr %coerce.dive191, align 8
-  %call192 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %176, i64 %178, i1 noundef zeroext false, ptr %179)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 19), ptr noundef %call192)
+  %197 = load ptr, ptr %coerce.dive191, align 8
+  %call192 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %194, i64 %196, i1 noundef zeroext false, ptr %197)
+  %198 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 19
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %198, ptr noundef %call192)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp195, ptr align 4 @constinit.49, i64 288, i1 false)
   %_M_array197 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp194, i32 0, i32 0
   %arraystart198 = getelementptr inbounds [72 x float], ptr %ref.tmp195, i64 0, i64 0
   store ptr %arraystart198, ptr %_M_array197, align 8
   %_M_len199 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp194, i32 0, i32 1
   store i64 72, ptr %_M_len199, align 8
-  %180 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp194, i32 0, i32 0
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp194, i32 0, i32 1
-  %183 = load i64, ptr %182, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp193, ptr %181, i64 %183)
+  %199 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp194, i32 0, i32 0
+  %200 = load ptr, ptr %199, align 8
+  %201 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp194, i32 0, i32 1
+  %202 = load i64, ptr %201, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp193, ptr %200, i64 %202)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp200) #17
-  %184 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp193, i32 0, i32 0
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp193, i32 0, i32 1
-  %187 = load i64, ptr %186, align 8
+  %203 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp193, i32 0, i32 0
+  %204 = load ptr, ptr %203, align 8
+  %205 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp193, i32 0, i32 1
+  %206 = load i64, ptr %205, align 8
   %coerce.dive201 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp200, i32 0, i32 0
-  %188 = load ptr, ptr %coerce.dive201, align 8
-  %call202 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %185, i64 %187, i1 noundef zeroext false, ptr %188)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 20), ptr noundef %call202)
+  %207 = load ptr, ptr %coerce.dive201, align 8
+  %call202 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %204, i64 %206, i1 noundef zeroext false, ptr %207)
+  %208 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 20
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %208, ptr noundef %call202)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp205, ptr align 4 @constinit.50, i64 288, i1 false)
   %_M_array207 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp204, i32 0, i32 0
   %arraystart208 = getelementptr inbounds [72 x float], ptr %ref.tmp205, i64 0, i64 0
   store ptr %arraystart208, ptr %_M_array207, align 8
   %_M_len209 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp204, i32 0, i32 1
   store i64 72, ptr %_M_len209, align 8
-  %189 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp204, i32 0, i32 0
-  %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp204, i32 0, i32 1
-  %192 = load i64, ptr %191, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp203, ptr %190, i64 %192)
+  %209 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp204, i32 0, i32 0
+  %210 = load ptr, ptr %209, align 8
+  %211 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp204, i32 0, i32 1
+  %212 = load i64, ptr %211, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp203, ptr %210, i64 %212)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp210) #17
-  %193 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp203, i32 0, i32 0
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp203, i32 0, i32 1
-  %196 = load i64, ptr %195, align 8
+  %213 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp203, i32 0, i32 0
+  %214 = load ptr, ptr %213, align 8
+  %215 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp203, i32 0, i32 1
+  %216 = load i64, ptr %215, align 8
   %coerce.dive211 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp210, i32 0, i32 0
-  %197 = load ptr, ptr %coerce.dive211, align 8
-  %call212 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %194, i64 %196, i1 noundef zeroext false, ptr %197)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 21), ptr noundef %call212)
+  %217 = load ptr, ptr %coerce.dive211, align 8
+  %call212 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %214, i64 %216, i1 noundef zeroext false, ptr %217)
+  %218 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 21
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %218, ptr noundef %call212)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp215, ptr align 4 @constinit.51, i64 288, i1 false)
   %_M_array217 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp214, i32 0, i32 0
   %arraystart218 = getelementptr inbounds [72 x float], ptr %ref.tmp215, i64 0, i64 0
   store ptr %arraystart218, ptr %_M_array217, align 8
   %_M_len219 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp214, i32 0, i32 1
   store i64 72, ptr %_M_len219, align 8
-  %198 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp214, i32 0, i32 0
-  %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp214, i32 0, i32 1
-  %201 = load i64, ptr %200, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp213, ptr %199, i64 %201)
+  %219 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp214, i32 0, i32 0
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp214, i32 0, i32 1
+  %222 = load i64, ptr %221, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp213, ptr %220, i64 %222)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp220) #17
-  %202 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp213, i32 0, i32 0
-  %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp213, i32 0, i32 1
-  %205 = load i64, ptr %204, align 8
+  %223 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp213, i32 0, i32 0
+  %224 = load ptr, ptr %223, align 8
+  %225 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp213, i32 0, i32 1
+  %226 = load i64, ptr %225, align 8
   %coerce.dive221 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp220, i32 0, i32 0
-  %206 = load ptr, ptr %coerce.dive221, align 8
-  %call222 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %203, i64 %205, i1 noundef zeroext false, ptr %206)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 22), ptr noundef %call222)
+  %227 = load ptr, ptr %coerce.dive221, align 8
+  %call222 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %224, i64 %226, i1 noundef zeroext false, ptr %227)
+  %228 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 22
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %228, ptr noundef %call222)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp225, ptr align 4 @constinit.52, i64 288, i1 false)
   %_M_array227 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp224, i32 0, i32 0
   %arraystart228 = getelementptr inbounds [72 x float], ptr %ref.tmp225, i64 0, i64 0
   store ptr %arraystart228, ptr %_M_array227, align 8
   %_M_len229 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp224, i32 0, i32 1
   store i64 72, ptr %_M_len229, align 8
-  %207 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp224, i32 0, i32 0
-  %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp224, i32 0, i32 1
-  %210 = load i64, ptr %209, align 8
-  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp223, ptr %208, i64 %210)
+  %229 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp224, i32 0, i32 0
+  %230 = load ptr, ptr %229, align 8
+  %231 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp224, i32 0, i32 1
+  %232 = load i64, ptr %231, align 8
+  call void @_ZN4pstd4spanIKfEC2ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp223, ptr %230, i64 %232)
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp230) #17
-  %211 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp223, i32 0, i32 0
-  %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp223, i32 0, i32 1
-  %214 = load i64, ptr %213, align 8
+  %233 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp223, i32 0, i32 0
+  %234 = load ptr, ptr %233, align 8
+  %235 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp223, i32 0, i32 1
+  %236 = load i64, ptr %235, align 8
   %coerce.dive231 = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.59", ptr %agg.tmp230, i32 0, i32 0
-  %215 = load ptr, ptr %coerce.dive231, align 8
-  %call232 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %212, i64 %214, i1 noundef zeroext false, ptr %215)
-  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 23), ptr noundef %call232)
+  %237 = load ptr, ptr %coerce.dive231, align 8
+  %call232 = call noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr %234, i64 %236, i1 noundef zeroext false, ptr %237)
+  %238 = getelementptr inbounds %"class.pbrt::Spectrum", ptr @_ZN4pbrt11PixelSensor18swatchReflectancesE, i64 23
+  call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS4_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %238, ptr noundef %call232)
   ret void
 }
 

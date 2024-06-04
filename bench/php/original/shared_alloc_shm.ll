@@ -115,7 +115,7 @@ define internal i32 @create_segments(i64 noundef %0, ptr noundef %1, ptr noundef
   %61 = load ptr, ptr %9, align 8
   store ptr @.str, ptr %61, align 8
   store i32 0, ptr %5, align 4
-  br label %215
+  br label %216
 
 62:                                               ; preds = %57
   %63 = load i64, ptr %6, align 8
@@ -147,7 +147,7 @@ define internal i32 @create_segments(i64 noundef %0, ptr noundef %1, ptr noundef
   %85 = load ptr, ptr %9, align 8
   store ptr @.str.1, ptr %85, align 8
   store i32 0, ptr %5, align 4
-  br label %215
+  br label %216
 
 86:                                               ; preds = %62
   %87 = load ptr, ptr %7, align 8
@@ -193,12 +193,12 @@ define internal i32 @create_segments(i64 noundef %0, ptr noundef %1, ptr noundef
   store i32 0, ptr %10, align 4
   br label %114
 
-114:                                              ; preds = %211, %112
+114:                                              ; preds = %212, %112
   %115 = load i32, ptr %10, align 4
   %116 = load ptr, ptr %8, align 8
   %117 = load i32, ptr %116, align 4
   %118 = icmp slt i32 %115, %117
-  br i1 %118, label %119, label %214
+  br i1 %118, label %119, label %215
 
 119:                                              ; preds = %114
   %120 = load i64, ptr %12, align 8
@@ -255,7 +255,7 @@ define internal i32 @create_segments(i64 noundef %0, ptr noundef %1, ptr noundef
 
 155:                                              ; preds = %147
   store i32 0, ptr %5, align 4
-  br label %215
+  br label %216
 
 156:                                              ; preds = %147
   %157 = load ptr, ptr %18, align 8
@@ -279,64 +279,65 @@ define internal i32 @create_segments(i64 noundef %0, ptr noundef %1, ptr noundef
   %174 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %173, i32 0, i32 0
   %175 = getelementptr inbounds %struct._zend_shared_segment, ptr %174, i32 0, i32 3
   %176 = load ptr, ptr %175, align 8
-  %177 = icmp eq ptr %176, inttoptr (i64 -1 to ptr)
-  br i1 %177, label %178, label %187
+  %177 = inttoptr i64 -1 to ptr
+  %178 = icmp eq ptr %176, %177
+  br i1 %178, label %179, label %188
 
-178:                                              ; preds = %156
-  %179 = load ptr, ptr %9, align 8
-  store ptr @.str.2, ptr %179, align 8
-  %180 = load ptr, ptr %18, align 8
-  %181 = load i32, ptr %10, align 4
-  %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %180, i64 %182
-  %184 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %183, i32 0, i32 1
-  %185 = load i32, ptr %184, align 8
-  %186 = call i32 @shmctl(i32 noundef %185, i32 noundef 0, ptr noundef %16) #3
+179:                                              ; preds = %156
+  %180 = load ptr, ptr %9, align 8
+  store ptr @.str.2, ptr %180, align 8
+  %181 = load ptr, ptr %18, align 8
+  %182 = load i32, ptr %10, align 4
+  %183 = sext i32 %182 to i64
+  %184 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %181, i64 %183
+  %185 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %184, i32 0, i32 1
+  %186 = load i32, ptr %185, align 8
+  %187 = call i32 @shmctl(i32 noundef %186, i32 noundef 0, ptr noundef %16) #3
   store i32 0, ptr %5, align 4
-  br label %215
+  br label %216
 
-187:                                              ; preds = %156
-  %188 = load ptr, ptr %18, align 8
-  %189 = load i32, ptr %10, align 4
-  %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %188, i64 %190
-  %192 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %191, i32 0, i32 1
-  %193 = load i32, ptr %192, align 8
-  %194 = call i32 @shmctl(i32 noundef %193, i32 noundef 0, ptr noundef %16) #3
-  %195 = load ptr, ptr %18, align 8
-  %196 = load i32, ptr %10, align 4
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %195, i64 %197
-  %199 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %198, i32 0, i32 0
-  %200 = getelementptr inbounds %struct._zend_shared_segment, ptr %199, i32 0, i32 2
-  store i64 0, ptr %200, align 8
-  %201 = load i64, ptr %11, align 8
-  %202 = load ptr, ptr %18, align 8
-  %203 = load i32, ptr %10, align 4
-  %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %202, i64 %204
-  %206 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %205, i32 0, i32 0
-  %207 = getelementptr inbounds %struct._zend_shared_segment, ptr %206, i32 0, i32 0
-  store i64 %201, ptr %207, align 8
-  %208 = load i64, ptr %11, align 8
-  %209 = load i64, ptr %12, align 8
-  %210 = sub i64 %209, %208
-  store i64 %210, ptr %12, align 8
-  br label %211
+188:                                              ; preds = %156
+  %189 = load ptr, ptr %18, align 8
+  %190 = load i32, ptr %10, align 4
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %189, i64 %191
+  %193 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %192, i32 0, i32 1
+  %194 = load i32, ptr %193, align 8
+  %195 = call i32 @shmctl(i32 noundef %194, i32 noundef 0, ptr noundef %16) #3
+  %196 = load ptr, ptr %18, align 8
+  %197 = load i32, ptr %10, align 4
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %196, i64 %198
+  %200 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %199, i32 0, i32 0
+  %201 = getelementptr inbounds %struct._zend_shared_segment, ptr %200, i32 0, i32 2
+  store i64 0, ptr %201, align 8
+  %202 = load i64, ptr %11, align 8
+  %203 = load ptr, ptr %18, align 8
+  %204 = load i32, ptr %10, align 4
+  %205 = sext i32 %204 to i64
+  %206 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %203, i64 %205
+  %207 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %206, i32 0, i32 0
+  %208 = getelementptr inbounds %struct._zend_shared_segment, ptr %207, i32 0, i32 0
+  store i64 %202, ptr %208, align 8
+  %209 = load i64, ptr %11, align 8
+  %210 = load i64, ptr %12, align 8
+  %211 = sub i64 %210, %209
+  store i64 %211, ptr %12, align 8
+  br label %212
 
-211:                                              ; preds = %187
-  %212 = load i32, ptr %10, align 4
-  %213 = add nsw i32 %212, 1
-  store i32 %213, ptr %10, align 4
+212:                                              ; preds = %188
+  %213 = load i32, ptr %10, align 4
+  %214 = add nsw i32 %213, 1
+  store i32 %214, ptr %10, align 4
   br label %114
 
-214:                                              ; preds = %114
+215:                                              ; preds = %114
   store i32 1, ptr %5, align 4
-  br label %215
+  br label %216
 
-215:                                              ; preds = %214, %178, %155, %84, %60
-  %216 = load i32, ptr %5, align 4
-  ret i32 %216
+216:                                              ; preds = %215, %179, %155, %84, %60
+  %217 = load i32, ptr %5, align 4
+  ret i32 %217
 }
 
 ; Function Attrs: nounwind uwtable

@@ -91,7 +91,7 @@ module asm ".previous\09\09\09\09\09"
 define dso_local i32 @agp_amd64_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i32, ptr @agp_off, align 4
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %3, label %28
+  br i1 %2, label %3, label %30
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__pci_register_driver(ptr noundef nonnull @agp_amd64_pci_driver, ptr noundef null, ptr noundef nonnull @.str) #6
@@ -99,7 +99,7 @@ define dso_local i32 @agp_amd64_init() local_unnamed_addr #0 section ".init.text
   %6 = load i32, ptr @agp_bridges_found, align 4
   %7 = icmp eq i32 %6, 0
   %8 = select i1 %5, i1 %7, i1 false
-  br i1 %8, label %9, label %28
+  br i1 %8, label %9, label %30
 
 9:                                                ; preds = %3
   %10 = load i8, ptr @agp_try_unsupported, align 1, !range !5, !noundef !6
@@ -112,29 +112,31 @@ define dso_local i32 @agp_amd64_init() local_unnamed_addr #0 section ".init.text
 15:                                               ; preds = %9
   %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #7
   %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #7
-  br label %27
+  br label %29
 
 18:                                               ; preds = %9
   %19 = tail call zeroext i16 @amd_nb_num() #6
   %20 = icmp eq i16 %19, 0
-  br i1 %20, label %27, label %21
+  br i1 %20, label %29, label %21
 
 21:                                               ; preds = %18
-  store ptr @agp_amd64_pci_promisc_table, ptr getelementptr inbounds (%struct.pci_driver, ptr @agp_amd64_pci_driver, i64 0, i32 1), align 8
-  %22 = tail call i32 @driver_attach(ptr noundef nonnull getelementptr inbounds (%struct.pci_driver, ptr @agp_amd64_pci_driver, i64 0, i32 13)) #6
-  %23 = icmp eq i32 %22, 0
-  %24 = load i32, ptr @agp_bridges_found, align 4
+  %22 = getelementptr inbounds %struct.pci_driver, ptr @agp_amd64_pci_driver, i64 0, i32 1
+  store ptr @agp_amd64_pci_promisc_table, ptr %22, align 8
+  %23 = getelementptr inbounds %struct.pci_driver, ptr @agp_amd64_pci_driver, i64 0, i32 13
+  %24 = tail call i32 @driver_attach(ptr noundef nonnull %23) #6
   %25 = icmp eq i32 %24, 0
-  %26 = select i1 %23, i1 %25, i1 false
-  br i1 %26, label %27, label %28
+  %26 = load i32, ptr @agp_bridges_found, align 4
+  %27 = icmp eq i32 %26, 0
+  %28 = select i1 %25, i1 %27, i1 false
+  br i1 %28, label %29, label %30
 
-27:                                               ; preds = %21, %18, %15
+29:                                               ; preds = %21, %18, %15
   tail call void @pci_unregister_driver(ptr noundef nonnull @agp_amd64_pci_driver) #6
-  br label %28
+  br label %30
 
-28:                                               ; preds = %27, %21, %3, %0
-  %29 = phi i32 [ -22, %0 ], [ %4, %3 ], [ %22, %21 ], [ -19, %27 ]
-  ret i32 %29
+30:                                               ; preds = %29, %21, %3, %0
+  %31 = phi i32 [ -22, %0 ], [ %4, %3 ], [ %24, %21 ], [ -19, %29 ]
+  ret i32 %31
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -607,24 +609,25 @@ define internal void @agp_amd64_remove(ptr nocapture noundef readonly %0) #4 ali
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = add i64 %6, 2147483648
-  %8 = icmp ugt ptr %5, inttoptr (i64 -2147483649 to ptr)
-  %9 = load i64, ptr @phys_base, align 8
-  %10 = load i64, ptr @page_offset_base, align 8
-  %11 = sub i64 -2147483648, %10
-  %12 = select i1 %8, i64 %9, i64 %11
-  %13 = add i64 %7, %12
-  %14 = getelementptr inbounds i8, ptr %3, i64 140
-  %15 = load i32, ptr %14, align 4
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr [7 x %struct.aper_size_info_32], ptr @amd64_aperture_sizes, i64 0, i64 %16
-  %18 = load i32, ptr %17, align 16
-  %19 = sext i32 %18 to i64
-  tail call void @__release_region(ptr noundef nonnull @iomem_resource, i64 noundef %13, i64 noundef %19) #6
+  %8 = inttoptr i64 -2147483649 to ptr
+  %9 = icmp ugt ptr %5, %8
+  %10 = load i64, ptr @phys_base, align 8
+  %11 = load i64, ptr @page_offset_base, align 8
+  %12 = sub i64 -2147483648, %11
+  %13 = select i1 %9, i64 %10, i64 %12
+  %14 = add i64 %7, %13
+  %15 = getelementptr inbounds i8, ptr %3, i64 140
+  %16 = load i32, ptr %15, align 4
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr [7 x %struct.aper_size_info_32], ptr @amd64_aperture_sizes, i64 0, i64 %17
+  %19 = load i32, ptr %18, align 16
+  %20 = sext i32 %19 to i64
+  tail call void @__release_region(ptr noundef nonnull @iomem_resource, i64 noundef %14, i64 noundef %20) #6
   tail call void @agp_remove_bridge(ptr noundef %3) #6
   tail call void @agp_put_bridge(ptr noundef %3) #6
-  %20 = load i32, ptr @agp_bridges_found, align 4
-  %21 = add i32 %20, -1
-  store i32 %21, ptr @agp_bridges_found, align 4
+  %21 = load i32, ptr @agp_bridges_found, align 4
+  %22 = add i32 %21, -1
+  store i32 %22, ptr @agp_bridges_found, align 4
   ret void
 }
 
@@ -869,62 +872,63 @@ define internal noundef i32 @amd_8151_configure() #4 align 16 {
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = add i64 %6, 2147483648
-  %8 = icmp ugt ptr %5, inttoptr (i64 -2147483649 to ptr)
-  %9 = load i64, ptr @phys_base, align 8
-  %10 = load i64, ptr @page_offset_base, align 8
-  %11 = sub i64 1097364144128, %10
-  %12 = select i1 %8, i64 %9, i64 %11
-  %13 = add i64 %7, %12
-  %14 = tail call zeroext i1 @amd_nb_has_feature(i32 noundef 1) #6
-  br i1 %14, label %15, label %44
+  %8 = inttoptr i64 -2147483649 to ptr
+  %9 = icmp ugt ptr %5, %8
+  %10 = load i64, ptr @phys_base, align 8
+  %11 = load i64, ptr @page_offset_base, align 8
+  %12 = sub i64 1097364144128, %11
+  %13 = select i1 %9, i64 %10, i64 %12
+  %14 = add i64 %7, %13
+  %15 = tail call zeroext i1 @amd_nb_has_feature(i32 noundef 1) #6
+  br i1 %15, label %16, label %45
 
-15:                                               ; preds = %0
-  %16 = tail call zeroext i16 @amd_nb_num() #6
-  %17 = icmp eq i16 %16, 0
-  br i1 %17, label %43, label %18
+16:                                               ; preds = %0
+  %17 = tail call zeroext i16 @amd_nb_num() #6
+  %18 = icmp eq i16 %17, 0
+  br i1 %18, label %44, label %19
 
-18:                                               ; preds = %15
-  %19 = lshr i64 %13, 8
-  %20 = trunc i64 %19 to i32
-  %21 = and i32 %20, -16
-  br label %22
+19:                                               ; preds = %16
+  %20 = lshr i64 %14, 8
+  %21 = trunc i64 %20 to i32
+  %22 = and i32 %21, -16
+  br label %23
 
-22:                                               ; preds = %22, %18
-  %23 = phi i32 [ 0, %18 ], [ %39, %22 ]
-  %24 = call ptr @node_to_amd_nb(i32 noundef %23) #6
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8
+23:                                               ; preds = %23, %19
+  %24 = phi i32 [ 0, %19 ], [ %40, %23 ]
+  %25 = call ptr @node_to_amd_nb(i32 noundef %24) #6
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
   store i32 0, ptr %2, align 4, !annotation !10
-  %27 = call i32 @pci_read_config_dword(ptr noundef %26, i32 noundef 148, ptr noundef nonnull %2) #6
-  %28 = load i32, ptr %2, align 4
-  %29 = zext i32 %28 to i64
-  %30 = shl nuw nsw i64 %29, 25
+  %28 = call i32 @pci_read_config_dword(ptr noundef %27, i32 noundef 148, ptr noundef nonnull %2) #6
+  %29 = load i32, ptr %2, align 4
+  %30 = zext i32 %29 to i64
+  %31 = shl nuw nsw i64 %30, 25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #6
   store i32 0, ptr %1, align 4, !annotation !10
-  %31 = call i32 @pci_write_config_dword(ptr noundef %26, i32 noundef 152, i32 noundef %21) #6
-  %32 = call i32 @pci_read_config_dword(ptr noundef %26, i32 noundef 144, ptr noundef nonnull %1) #6
-  %33 = load i32, ptr %1, align 4
-  %34 = and i32 %33, -114
-  %35 = or disjoint i32 %34, 65
-  store i32 %35, ptr %1, align 4
-  %36 = call i32 @pci_write_config_dword(ptr noundef %26, i32 noundef 144, i32 noundef %35) #6
+  %32 = call i32 @pci_write_config_dword(ptr noundef %27, i32 noundef 152, i32 noundef %22) #6
+  %33 = call i32 @pci_read_config_dword(ptr noundef %27, i32 noundef 144, ptr noundef nonnull %1) #6
+  %34 = load i32, ptr %1, align 4
+  %35 = and i32 %34, -114
+  %36 = or disjoint i32 %35, 65
+  store i32 %36, ptr %1, align 4
+  %37 = call i32 @pci_write_config_dword(ptr noundef %27, i32 noundef 144, i32 noundef %36) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
-  %37 = load ptr, ptr @agp_bridge, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
-  store i64 %30, ptr %38, align 8
-  %39 = add nuw nsw i32 %23, 1
-  %40 = call zeroext i16 @amd_nb_num() #6
-  %41 = zext i16 %40 to i32
-  %42 = icmp ult i32 %39, %41
-  br i1 %42, label %22, label %43, !llvm.loop !17
+  %38 = load ptr, ptr @agp_bridge, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 96
+  store i64 %31, ptr %39, align 8
+  %40 = add nuw nsw i32 %24, 1
+  %41 = call zeroext i16 @amd_nb_num() #6
+  %42 = zext i16 %41 to i32
+  %43 = icmp ult i32 %40, %42
+  br i1 %43, label %23, label %44, !llvm.loop !17
 
-43:                                               ; preds = %22, %15
+44:                                               ; preds = %23, %16
   call void @amd_flush_garts() #6
-  br label %44
+  br label %45
 
-44:                                               ; preds = %43, %0
+45:                                               ; preds = %44, %0
   ret i32 0
 }
 

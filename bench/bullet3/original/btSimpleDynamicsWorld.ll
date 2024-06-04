@@ -212,10 +212,11 @@ entry:
   %1 = load ptr, ptr %pairCache.addr, align 8
   %2 = load ptr, ptr %collisionConfiguration.addr, align 8
   call void @_ZN15btDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(280) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTV21btSimpleDynamicsWorld, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [38 x ptr] }, ptr @_ZTV21btSimpleDynamicsWorld, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %m_constraintSolver = getelementptr inbounds %class.btSimpleDynamicsWorld, ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %constraintSolver.addr, align 8
-  store ptr %3, ptr %m_constraintSolver, align 8
+  %4 = load ptr, ptr %constraintSolver.addr, align 8
+  store ptr %4, ptr %m_constraintSolver, align 8
   %m_ownsConstraintSolver = getelementptr inbounds %class.btSimpleDynamicsWorld, ptr %this1, i32 0, i32 2
   store i8 0, ptr %m_ownsConstraintSolver, align 8
   %m_gravity = getelementptr inbounds %class.btSimpleDynamicsWorld, ptr %this1, i32 0, i32 4
@@ -229,12 +230,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN15btDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this1) #9
   br label %eh.resume
 
@@ -264,7 +265,8 @@ entry:
   %1 = load ptr, ptr %broadphase.addr, align 8
   %2 = load ptr, ptr %collisionConfiguration.addr, align 8
   call void @_ZN16btCollisionWorldC2EP12btDispatcherP21btBroadphaseInterfaceP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(121) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTV15btDynamicsWorld, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [38 x ptr] }, ptr @_ZTV15btDynamicsWorld, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %m_internalTickCallback = getelementptr inbounds %class.btDynamicsWorld, ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_internalTickCallback, align 8
   %m_internalPreTickCallback = getelementptr inbounds %class.btDynamicsWorld, ptr %this1, i32 0, i32 2
@@ -279,12 +281,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN16btCollisionWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %this1) #9
   br label %eh.resume
 
@@ -337,16 +339,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTV21btSimpleDynamicsWorld, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [38 x ptr] }, ptr @_ZTV21btSimpleDynamicsWorld, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ownsConstraintSolver = getelementptr inbounds %class.btSimpleDynamicsWorld, ptr %this1, i32 0, i32 2
-  %0 = load i8, ptr %m_ownsConstraintSolver, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %m_ownsConstraintSolver, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_constraintSolver = getelementptr inbounds %class.btSimpleDynamicsWorld, ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m_constraintSolver, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %1)
+  %2 = load ptr, ptr %m_constraintSolver, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -357,10 +360,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #10
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #10
   unreachable
 }
 
@@ -1456,7 +1459,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

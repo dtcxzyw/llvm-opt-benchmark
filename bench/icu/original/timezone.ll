@@ -565,7 +565,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_758TimeZoneE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6icu_758TimeZoneE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fID = getelementptr inbounds %"class.icu_75::TimeZone", ptr %this1, i32 0, i32 1
   invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %fID)
           to label %invoke.cont unwind label %lpad
@@ -574,12 +575,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -600,7 +601,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -611,7 +613,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -636,22 +639,23 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_758TimeZoneE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6icu_758TimeZoneE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fID = getelementptr inbounds %"class.icu_75::TimeZone", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %id.addr, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fID, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %2 = load ptr, ptr %id.addr, align 8
+  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fID, ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -671,7 +675,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_758TimeZoneE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6icu_758TimeZoneE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fID = getelementptr inbounds %"class.icu_75::TimeZone", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fID) #11
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
@@ -705,10 +710,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %source.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #11
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_758TimeZoneE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6icu_758TimeZoneE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fID = getelementptr inbounds %"class.icu_75::TimeZone", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %source.addr, align 8
-  %fID2 = getelementptr inbounds %"class.icu_75::TimeZone", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %source.addr, align 8
+  %fID2 = getelementptr inbounds %"class.icu_75::TimeZone", ptr %2, i32 0, i32 1
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fID, ptr noundef nonnull align 8 dereferenceable(64) %fID2)
           to label %invoke.cont unwind label %lpad
 
@@ -716,12 +722,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -741,7 +747,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -1879,16 +1886,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513TZEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513TZEnumerationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %localMap = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %localMap, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %localMap, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %localMap2 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %localMap2, align 8
-  invoke void @uprv_free_75(ptr noundef %1)
+  %2 = load ptr, ptr %localMap2, align 8
+  invoke void @uprv_free_75(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -1899,10 +1907,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #12
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #12
   unreachable
 }
 
@@ -5234,10 +5242,11 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %index = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %newIndex.addr, align 4
-  store i32 %1, ptr %index, align 8
+  %2 = load i32, ptr %newIndex.addr, align 4
+  store i32 %2, ptr %index, align 8
   %errorIndex = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %this1, i32 0, i32 2
   store i32 -1, ptr %errorIndex, align 4
   ret void
@@ -6572,7 +6581,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7145,30 +7155,31 @@ entry:
   store i8 %adoptMapData, ptr %adoptMapData.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513TZEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513TZEnumerationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pos = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 4
   store i32 0, ptr %pos, align 4
-  %0 = load ptr, ptr %mapData.addr, align 8
+  %1 = load ptr, ptr %mapData.addr, align 8
   %map = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %map, align 8
-  %1 = load i8, ptr %adoptMapData.addr, align 1
-  %tobool = icmp ne i8 %1, 0
+  store ptr %1, ptr %map, align 8
+  %2 = load i8, ptr %adoptMapData.addr, align 1
+  %tobool = icmp ne i8 %2, 0
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr %mapData.addr, align 8
+  %3 = load ptr, ptr %mapData.addr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %2, %cond.true ], [ null, %cond.false ]
+  %cond = phi ptr [ %3, %cond.true ], [ null, %cond.false ]
   %localMap = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 2
   store ptr %cond, ptr %localMap, align 8
-  %3 = load i32, ptr %mapLen.addr, align 4
+  %4 = load i32, ptr %mapLen.addr, align 4
   %len = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 3
-  store i32 %3, ptr %len, align 8
+  store i32 %4, ptr %len, align 8
   ret void
 }
 
@@ -7958,7 +7969,8 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513TZEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513TZEnumerationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %map = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 1
   store ptr null, ptr %map, align 8
   %localMap = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 2
@@ -7967,17 +7979,17 @@ entry:
   store i32 0, ptr %len, align 8
   %pos = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 4
   store i32 0, ptr %pos, align 4
-  %0 = load ptr, ptr %other.addr, align 8
-  %localMap2 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %localMap2, align 8
-  %cmp = icmp ne ptr %1, null
+  %1 = load ptr, ptr %other.addr, align 8
+  %localMap2 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %1, i32 0, i32 2
+  %2 = load ptr, ptr %localMap2, align 8
+  %cmp = icmp ne ptr %2, null
   br i1 %cmp, label %if.then, label %if.else22
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %other.addr, align 8
-  %len3 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %2, i32 0, i32 3
-  %3 = load i32, ptr %len3, align 8
-  %conv = sext i32 %3 to i64
+  %3 = load ptr, ptr %other.addr, align 8
+  %len3 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %3, i32 0, i32 3
+  %4 = load i32, ptr %len3, align 8
+  %conv = sext i32 %4 to i64
   %mul = mul i64 %conv, 4
   %call = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul) #14
           to label %invoke.cont unwind label %lpad
@@ -7986,53 +7998,53 @@ invoke.cont:                                      ; preds = %if.then
   %localMap4 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 2
   store ptr %call, ptr %localMap4, align 8
   %localMap5 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %localMap5, align 8
-  %cmp6 = icmp ne ptr %4, null
+  %5 = load ptr, ptr %localMap5, align 8
+  %cmp6 = icmp ne ptr %5, null
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %invoke.cont
-  %5 = load ptr, ptr %other.addr, align 8
-  %len8 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %5, i32 0, i32 3
-  %6 = load i32, ptr %len8, align 8
+  %6 = load ptr, ptr %other.addr, align 8
+  %len8 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %6, i32 0, i32 3
+  %7 = load i32, ptr %len8, align 8
   %len9 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 3
-  store i32 %6, ptr %len9, align 8
+  store i32 %7, ptr %len9, align 8
   br label %do.body
 
 do.body:                                          ; preds = %if.then7
   %localMap10 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 2
-  %7 = load ptr, ptr %localMap10, align 8
-  %8 = load ptr, ptr %other.addr, align 8
-  %localMap11 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %localMap11, align 8
+  %8 = load ptr, ptr %localMap10, align 8
+  %9 = load ptr, ptr %other.addr, align 8
+  %localMap11 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %9, i32 0, i32 2
+  %10 = load ptr, ptr %localMap11, align 8
   %len12 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 3
-  %10 = load i32, ptr %len12, align 8
-  %conv13 = sext i32 %10 to i64
+  %11 = load i32, ptr %len12, align 8
+  %conv13 = sext i32 %11 to i64
   %mul14 = mul i64 %conv13, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %9, i64 %mul14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %10, i64 %mul14, i1 false)
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
   br label %do.end
 
 do.end:                                           ; preds = %do.cond
-  %11 = load ptr, ptr %other.addr, align 8
-  %pos15 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %11, i32 0, i32 4
-  %12 = load i32, ptr %pos15, align 4
+  %12 = load ptr, ptr %other.addr, align 8
+  %pos15 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %12, i32 0, i32 4
+  %13 = load i32, ptr %pos15, align 4
   %pos16 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 4
-  store i32 %12, ptr %pos16, align 4
+  store i32 %13, ptr %pos16, align 4
   %localMap17 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 2
-  %13 = load ptr, ptr %localMap17, align 8
+  %14 = load ptr, ptr %localMap17, align 8
   %map18 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 1
-  store ptr %13, ptr %map18, align 8
+  store ptr %14, ptr %map18, align 8
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7517StringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1) #11
   br label %eh.resume
 
@@ -8049,23 +8061,23 @@ if.end:                                           ; preds = %if.else, %do.end
   br label %if.end30
 
 if.else22:                                        ; preds = %entry
-  %17 = load ptr, ptr %other.addr, align 8
-  %map23 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %map23, align 8
+  %18 = load ptr, ptr %other.addr, align 8
+  %map23 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %map23, align 8
   %map24 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 1
-  store ptr %18, ptr %map24, align 8
+  store ptr %19, ptr %map24, align 8
   %localMap25 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 2
   store ptr null, ptr %localMap25, align 8
-  %19 = load ptr, ptr %other.addr, align 8
-  %len26 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %19, i32 0, i32 3
-  %20 = load i32, ptr %len26, align 8
+  %20 = load ptr, ptr %other.addr, align 8
+  %len26 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %20, i32 0, i32 3
+  %21 = load i32, ptr %len26, align 8
   %len27 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 3
-  store i32 %20, ptr %len27, align 8
-  %21 = load ptr, ptr %other.addr, align 8
-  %pos28 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %21, i32 0, i32 4
-  %22 = load i32, ptr %pos28, align 4
+  store i32 %21, ptr %len27, align 8
+  %22 = load ptr, ptr %other.addr, align 8
+  %pos28 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %22, i32 0, i32 4
+  %23 = load i32, ptr %pos28, align 4
   %pos29 = getelementptr inbounds %"class.icu_75::TZEnumeration", ptr %this1, i32 0, i32 4
-  store i32 %22, ptr %pos29, align 4
+  store i32 %23, ptr %pos29, align 4
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else22, %if.end

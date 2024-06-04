@@ -1670,7 +1670,8 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4cvc58internal6theory18PartitionGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4cvc58internal6theory18PartitionGeneratorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %d_startTime = getelementptr inbounds %"class.cvc5::internal::theory::PartitionGenerator", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_startTime)
           to label %invoke.cont6 unwind label %lpad5
@@ -1689,10 +1690,10 @@ invoke.cont7:                                     ; preds = %invoke.cont6
 
 invoke.cont9:                                     ; preds = %invoke.cont7
   %parallel = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call, i32 0, i32 36
-  %2 = load ptr, ptr %parallel, align 8
-  %computePartitions = getelementptr inbounds %"struct.cvc5::internal::options::HolderPARALLEL", ptr %2, i32 0, i32 9
-  %3 = load i64, ptr %computePartitions, align 8
-  store i64 %3, ptr %d_numPartitions, align 8
+  %3 = load ptr, ptr %parallel, align 8
+  %computePartitions = getelementptr inbounds %"struct.cvc5::internal::options::HolderPARALLEL", ptr %3, i32 0, i32 9
+  %4 = load i64, ptr %computePartitions, align 8
+  store i64 %4, ptr %d_numPartitions, align 8
   %d_numChecks = getelementptr inbounds %"class.cvc5::internal::theory::PartitionGenerator", ptr %this1, i32 0, i32 6
   store i64 0, ptr %d_numChecks, align 8
   %d_betweenChecks = getelementptr inbounds %"class.cvc5::internal::theory::PartitionGenerator", ptr %this1, i32 0, i32 7
@@ -1734,28 +1735,28 @@ invoke.cont21:                                    ; preds = %invoke.cont9
   %d_valuation22 = getelementptr inbounds %"class.cvc5::internal::theory::PartitionGenerator", ptr %this1, i32 0, i32 4
   %call23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN4cvc58internal6theory9ValuationESt14default_deleteIS3_EEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(8) %d_valuation22, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19) #3
   call void @_ZNSt10unique_ptrIN4cvc58internal6theory9ValuationESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19) #3
-  %4 = load ptr, ptr %propEngine.addr, align 8
+  %5 = load ptr, ptr %propEngine.addr, align 8
   %d_propEngine = getelementptr inbounds %"class.cvc5::internal::theory::PartitionGenerator", ptr %this1, i32 0, i32 3
-  store ptr %4, ptr %d_propEngine, align 8
+  store ptr %5, ptr %d_propEngine, align 8
   %call25 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont24 unwind label %lpad20
 
 invoke.cont24:                                    ; preds = %invoke.cont21
   %parallel26 = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call25, i32 0, i32 36
-  %5 = load ptr, ptr %parallel26, align 8
-  %partitionConflictSize = getelementptr inbounds %"struct.cvc5::internal::options::HolderPARALLEL", ptr %5, i32 0, i32 15
-  %6 = load i64, ptr %partitionConflictSize, align 8
+  %6 = load ptr, ptr %parallel26, align 8
+  %partitionConflictSize = getelementptr inbounds %"struct.cvc5::internal::options::HolderPARALLEL", ptr %6, i32 0, i32 15
+  %7 = load i64, ptr %partitionConflictSize, align 8
   %d_conflictSize = getelementptr inbounds %"class.cvc5::internal::theory::PartitionGenerator", ptr %this1, i32 0, i32 12
-  store i64 %6, ptr %d_conflictSize, align 8
+  store i64 %7, ptr %d_conflictSize, align 8
   %d_conflictSize27 = getelementptr inbounds %"class.cvc5::internal::theory::PartitionGenerator", ptr %this1, i32 0, i32 12
-  %7 = load i64, ptr %d_conflictSize27, align 8
-  %tobool = icmp ne i64 %7, 0
+  %8 = load i64, ptr %d_conflictSize27, align 8
+  %tobool = icmp ne i64 %8, 0
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont24
   %d_numPartitions28 = getelementptr inbounds %"class.cvc5::internal::theory::PartitionGenerator", ptr %this1, i32 0, i32 5
-  %8 = load i64, ptr %d_numPartitions28, align 8
-  %call30 = invoke noundef double @_ZSt4log2ImEN9__gnu_cxx11__enable_ifIXsr12__is_integerIT_EE7__valueEdE6__typeES2_(i64 noundef %8)
+  %9 = load i64, ptr %d_numPartitions28, align 8
+  %call30 = invoke noundef double @_ZSt4log2ImEN9__gnu_cxx11__enable_ifIXsr12__is_integerIT_EE7__valueEdE6__typeES2_(i64 noundef %9)
           to label %invoke.cont29 unwind label %lpad20
 
 invoke.cont29:                                    ; preds = %if.then
@@ -1765,21 +1766,21 @@ invoke.cont29:                                    ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %ehcleanup
 
@@ -1788,30 +1789,30 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
   br label %eh.resume
 
 lpad5:                                            ; preds = %invoke.cont6, %invoke.cont4
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup39
 
 lpad8:                                            ; preds = %invoke.cont7
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup38
 
 lpad20:                                           ; preds = %if.then, %invoke.cont21, %invoke.cont9
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_usedLemmaLiterals) #3
   call void @_ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_lemmaLiterals) #3
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_lemmaMap) #3
@@ -2127,7 +2128,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4cvc58internal6theory18TheoryEngineModuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4cvc58internal6theory18TheoryEngineModuleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_name = getelementptr inbounds %"class.cvc5::internal::theory::TheoryEngineModule", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name) #3
   %d_out = getelementptr inbounds %"class.cvc5::internal::theory::TheoryEngineModule", ptr %this1, i32 0, i32 1
@@ -6538,7 +6540,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4cvc58internal6theory18PartitionGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4cvc58internal6theory18PartitionGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_usedLemmaLiterals = getelementptr inbounds %"class.cvc5::internal::theory::PartitionGenerator", ptr %this1, i32 0, i32 17
   call void @_ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_usedLemmaLiterals) #3
   %d_lemmaLiterals = getelementptr inbounds %"class.cvc5::internal::theory::PartitionGenerator", ptr %this1, i32 0, i32 16
@@ -8046,7 +8049,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4cvc58internal6theory13OutputChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4cvc58internal6theory13OutputChannelE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_name = getelementptr inbounds %"class.cvc5::internal::theory::OutputChannel", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name) #3
   ret void

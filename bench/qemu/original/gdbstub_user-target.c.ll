@@ -183,27 +183,29 @@ entry:
   %ts = alloca ptr, align 8
   store ptr %params, ptr %params.addr, align 8
   store ptr %user_ctx, ptr %user_ctx.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 1), align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %0, i32 0, i32 39
-  %1 = load ptr, ptr %opaque, align 16
-  store ptr %1, ptr %ts, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
-  %3 = load ptr, ptr %ts, align 8
-  %info = getelementptr inbounds %struct.TaskState, ptr %3, i32 0, i32 7
-  %4 = load ptr, ptr %info, align 8
-  %code_offset = getelementptr inbounds %struct.image_info, ptr %4, i32 0, i32 11
-  %5 = load i64, ptr %code_offset, align 8
-  %6 = load ptr, ptr %ts, align 8
-  %info1 = getelementptr inbounds %struct.TaskState, ptr %6, i32 0, i32 7
-  %7 = load ptr, ptr %info1, align 8
-  %data_offset = getelementptr inbounds %struct.image_info, ptr %7, i32 0, i32 12
-  %8 = load i64, ptr %data_offset, align 8
-  %9 = load ptr, ptr %ts, align 8
-  %info2 = getelementptr inbounds %struct.TaskState, ptr %9, i32 0, i32 7
-  %10 = load ptr, ptr %info2, align 8
-  %data_offset3 = getelementptr inbounds %struct.image_info, ptr %10, i32 0, i32 12
-  %11 = load i64, ptr %data_offset3, align 8
-  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %2, ptr noundef @.str, i64 noundef %5, i64 noundef %8, i64 noundef %11)
+  %0 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i32 0, i32 39
+  %2 = load ptr, ptr %opaque, align 16
+  store ptr %2, ptr %ts, align 8
+  %3 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %ts, align 8
+  %info = getelementptr inbounds %struct.TaskState, ptr %5, i32 0, i32 7
+  %6 = load ptr, ptr %info, align 8
+  %code_offset = getelementptr inbounds %struct.image_info, ptr %6, i32 0, i32 11
+  %7 = load i64, ptr %code_offset, align 8
+  %8 = load ptr, ptr %ts, align 8
+  %info1 = getelementptr inbounds %struct.TaskState, ptr %8, i32 0, i32 7
+  %9 = load ptr, ptr %info1, align 8
+  %data_offset = getelementptr inbounds %struct.image_info, ptr %9, i32 0, i32 12
+  %10 = load i64, ptr %data_offset, align 8
+  %11 = load ptr, ptr %ts, align 8
+  %info2 = getelementptr inbounds %struct.TaskState, ptr %11, i32 0, i32 7
+  %12 = load ptr, ptr %info2, align 8
+  %data_offset3 = getelementptr inbounds %struct.image_info, ptr %12, i32 0, i32 12
+  %13 = load i64, ptr %data_offset3, align 8
+  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %4, ptr noundef @.str, i64 noundef %7, i64 noundef %10, i64 noundef %13)
   call void @gdb_put_strbuf()
   ret void
 }
@@ -247,25 +249,26 @@ if.end:                                           ; preds = %entry
   %arrayidx3 = getelementptr %union.GdbCmdVariant, ptr %6, i64 1
   %7 = load i64, ptr %arrayidx3, align 8
   store i64 %7, ptr %len, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 1), align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %8, i32 0, i32 39
-  %9 = load ptr, ptr %opaque, align 16
-  store ptr %9, ptr %ts, align 8
-  %10 = load ptr, ptr %ts, align 8
-  %info = getelementptr inbounds %struct.TaskState, ptr %10, i32 0, i32 7
-  %11 = load ptr, ptr %info, align 8
-  %saved_auxv4 = getelementptr inbounds %struct.image_info, ptr %11, i32 0, i32 13
-  %12 = load i64, ptr %saved_auxv4, align 8
-  store i64 %12, ptr %saved_auxv, align 8
-  %13 = load ptr, ptr %ts, align 8
-  %info5 = getelementptr inbounds %struct.TaskState, ptr %13, i32 0, i32 7
-  %14 = load ptr, ptr %info5, align 8
-  %auxv_len6 = getelementptr inbounds %struct.image_info, ptr %14, i32 0, i32 14
-  %15 = load i64, ptr %auxv_len6, align 8
-  store i64 %15, ptr %auxv_len, align 8
-  %16 = load i64, ptr %offset, align 8
-  %17 = load i64, ptr %auxv_len, align 8
-  %cmp7 = icmp uge i64 %16, %17
+  %8 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %opaque = getelementptr inbounds %struct.CPUState, ptr %9, i32 0, i32 39
+  %10 = load ptr, ptr %opaque, align 16
+  store ptr %10, ptr %ts, align 8
+  %11 = load ptr, ptr %ts, align 8
+  %info = getelementptr inbounds %struct.TaskState, ptr %11, i32 0, i32 7
+  %12 = load ptr, ptr %info, align 8
+  %saved_auxv4 = getelementptr inbounds %struct.image_info, ptr %12, i32 0, i32 13
+  %13 = load i64, ptr %saved_auxv4, align 8
+  store i64 %13, ptr %saved_auxv, align 8
+  %14 = load ptr, ptr %ts, align 8
+  %info5 = getelementptr inbounds %struct.TaskState, ptr %14, i32 0, i32 7
+  %15 = load ptr, ptr %info5, align 8
+  %auxv_len6 = getelementptr inbounds %struct.image_info, ptr %15, i32 0, i32 14
+  %16 = load i64, ptr %auxv_len6, align 8
+  store i64 %16, ptr %auxv_len, align 8
+  %17 = load i64, ptr %offset, align 8
+  %18 = load i64, ptr %auxv_len, align 8
+  %cmp7 = icmp uge i64 %17, %18
   br i1 %cmp7, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end
@@ -273,8 +276,8 @@ if.then8:                                         ; preds = %if.end
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %18 = load i64, ptr %len, align 8
-  %cmp11 = icmp ugt i64 %18, 2045
+  %19 = load i64, ptr %len, align 8
+  %cmp11 = icmp ugt i64 %19, 2045
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end10
@@ -282,42 +285,47 @@ if.then12:                                        ; preds = %if.end10
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.end10
-  %19 = load i64, ptr %len, align 8
-  %20 = load i64, ptr %auxv_len, align 8
-  %21 = load i64, ptr %offset, align 8
-  %sub = sub i64 %20, %21
-  %cmp14 = icmp ult i64 %19, %sub
+  %20 = load i64, ptr %len, align 8
+  %21 = load i64, ptr %auxv_len, align 8
+  %22 = load i64, ptr %offset, align 8
+  %sub = sub i64 %21, %22
+  %cmp14 = icmp ult i64 %20, %sub
   br i1 %cmp14, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.end13
-  %22 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
-  %call16 = call ptr @g_string_assign(ptr noundef %22, ptr noundef @.str.3)
+  %23 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %24 = load ptr, ptr %23, align 8
+  %call16 = call ptr @g_string_assign(ptr noundef %24, ptr noundef @.str.3)
   br label %if.end19
 
 if.else:                                          ; preds = %if.end13
-  %23 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
-  %call17 = call ptr @g_string_assign(ptr noundef %23, ptr noundef @.str.4)
-  %24 = load i64, ptr %auxv_len, align 8
-  %25 = load i64, ptr %offset, align 8
-  %sub18 = sub i64 %24, %25
+  %25 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %26 = load ptr, ptr %25, align 8
+  %call17 = call ptr @g_string_assign(ptr noundef %26, ptr noundef @.str.4)
+  %27 = load i64, ptr %auxv_len, align 8
+  %28 = load i64, ptr %offset, align 8
+  %sub18 = sub i64 %27, %28
   store i64 %sub18, ptr %len, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.then15
-  %26 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 15), align 8
-  %27 = load i64, ptr %len, align 8
-  %conv = trunc i64 %27 to i32
-  %call20 = call ptr @g_byte_array_set_size(ptr noundef %26, i32 noundef %conv)
-  %28 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 2), align 8
-  %29 = load i64, ptr %saved_auxv, align 8
-  %30 = load i64, ptr %offset, align 8
-  %add = add i64 %29, %30
-  %31 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 15), align 8
-  %data21 = getelementptr inbounds %struct._GByteArray, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %data21, align 8
-  %33 = load i64, ptr %len, align 8
-  %conv22 = trunc i64 %33 to i32
-  %call23 = call i32 @target_memory_rw_debug(ptr noundef %28, i64 noundef %add, ptr noundef %32, i32 noundef %conv22, i1 noundef zeroext false)
+  %29 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 15
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i64, ptr %len, align 8
+  %conv = trunc i64 %31 to i32
+  %call20 = call ptr @g_byte_array_set_size(ptr noundef %30, i32 noundef %conv)
+  %32 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8
+  %34 = load i64, ptr %saved_auxv, align 8
+  %35 = load i64, ptr %offset, align 8
+  %add = add i64 %34, %35
+  %36 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 15
+  %37 = load ptr, ptr %36, align 8
+  %data21 = getelementptr inbounds %struct._GByteArray, ptr %37, i32 0, i32 0
+  %38 = load ptr, ptr %data21, align 8
+  %39 = load i64, ptr %len, align 8
+  %conv22 = trunc i64 %39 to i32
+  %call23 = call i32 @target_memory_rw_debug(ptr noundef %33, i64 noundef %add, ptr noundef %38, i32 noundef %conv22, i1 noundef zeroext false)
   %tobool = icmp ne i32 %call23, 0
   br i1 %tobool, label %if.then24, label %if.end26
 
@@ -326,21 +334,25 @@ if.then24:                                        ; preds = %if.end19
   br label %return
 
 if.end26:                                         ; preds = %if.end19
-  %34 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
-  %35 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 15), align 8
-  %data27 = getelementptr inbounds %struct._GByteArray, ptr %35, i32 0, i32 0
-  %36 = load ptr, ptr %data27, align 8
-  %37 = load i64, ptr %len, align 8
-  %conv28 = trunc i64 %37 to i32
-  call void @gdb_memtox(ptr noundef %34, ptr noundef %36, i32 noundef %conv28)
-  %38 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
-  %str = getelementptr inbounds %struct._GString, ptr %38, i32 0, i32 0
-  %39 = load ptr, ptr %str, align 8
-  %40 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
-  %len29 = getelementptr inbounds %struct._GString, ptr %40, i32 0, i32 1
-  %41 = load i64, ptr %len29, align 8
-  %conv30 = trunc i64 %41 to i32
-  %call31 = call i32 @gdb_put_packet_binary(ptr noundef %39, i32 noundef %conv30, i1 noundef zeroext true)
+  %40 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 15
+  %43 = load ptr, ptr %42, align 8
+  %data27 = getelementptr inbounds %struct._GByteArray, ptr %43, i32 0, i32 0
+  %44 = load ptr, ptr %data27, align 8
+  %45 = load i64, ptr %len, align 8
+  %conv28 = trunc i64 %45 to i32
+  call void @gdb_memtox(ptr noundef %41, ptr noundef %44, i32 noundef %conv28)
+  %46 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %47 = load ptr, ptr %46, align 8
+  %str = getelementptr inbounds %struct._GString, ptr %47, i32 0, i32 0
+  %48 = load ptr, ptr %str, align 8
+  %49 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %50 = load ptr, ptr %49, align 8
+  %len29 = getelementptr inbounds %struct._GString, ptr %50, i32 0, i32 1
+  %51 = load i64, ptr %len29, align 8
+  %conv30 = trunc i64 %51 to i32
+  %call31 = call i32 @gdb_put_packet_binary(ptr noundef %48, i32 noundef %conv30, i1 noundef zeroext true)
   br label %return
 
 return:                                           ; preds = %if.end26, %if.then24, %if.then8, %if.then
@@ -439,30 +451,33 @@ entry:
   %arrayidx2 = getelementptr %union.GdbCmdVariant, ptr %5, i64 2
   %6 = load i64, ptr %arrayidx2, align 8
   store i64 %6, ptr %mode, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 2), align 8
-  %call3 = call ptr @cpu_env(ptr noundef %7)
-  %8 = load ptr, ptr %filename, align 8
-  %9 = load i64, ptr %flags, align 8
-  %conv = trunc i64 %9 to i32
-  %10 = load i64, ptr %mode, align 8
-  %conv4 = trunc i64 %10 to i32
-  %call5 = call i32 @do_guest_openat(ptr noundef %call3, i32 noundef 0, ptr noundef %8, i32 noundef %conv, i32 noundef %conv4, i1 noundef zeroext false)
+  %7 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  %call3 = call ptr @cpu_env(ptr noundef %8)
+  %9 = load ptr, ptr %filename, align 8
+  %10 = load i64, ptr %flags, align 8
+  %conv = trunc i64 %10 to i32
+  %11 = load i64, ptr %mode, align 8
+  %conv4 = trunc i64 %11 to i32
+  %call5 = call i32 @do_guest_openat(ptr noundef %call3, i32 noundef 0, ptr noundef %9, i32 noundef %conv, i32 noundef %conv4, i1 noundef zeroext false)
   store i32 %call5, ptr %fd, align 4
-  %11 = load i32, ptr %fd, align 4
-  %cmp = icmp slt i32 %11, 0
+  %12 = load i32, ptr %fd, align 4
+  %cmp = icmp slt i32 %12, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %12 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
+  %13 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %14 = load ptr, ptr %13, align 8
   %call7 = call ptr @__errno_location() #5
-  %13 = load i32, ptr %call7, align 4
-  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %12, ptr noundef @.str.6, i32 noundef %13)
+  %15 = load i32, ptr %call7, align 4
+  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %14, ptr noundef @.str.6, i32 noundef %15)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %14 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
-  %15 = load i32, ptr %fd, align 4
-  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %14, ptr noundef @.str.7, i32 noundef %15)
+  %16 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i32, ptr %fd, align 4
+  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %17, ptr noundef @.str.7, i32 noundef %18)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -486,19 +501,22 @@ entry:
   %arrayidx = getelementptr %union.GdbCmdVariant, ptr %1, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   store ptr %3, ptr %hex_filename, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 15), align 8
-  %5 = load ptr, ptr %hex_filename, align 8
+  %4 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 15
+  %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %hex_filename, align 8
-  %call = call i64 @strlen(ptr noundef %6) #6
+  %7 = load ptr, ptr %hex_filename, align 8
+  %call = call i64 @strlen(ptr noundef %7) #6
   %div = udiv i64 %call, 2
   %conv = trunc i64 %div to i32
-  call void @gdb_hextomem(ptr noundef %4, ptr noundef %5, i32 noundef %conv)
-  %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 15), align 8
-  %call1 = call ptr @g_byte_array_append(ptr noundef %7, ptr noundef @.str.13, i32 noundef 1)
-  %8 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 15), align 8
-  %data2 = getelementptr inbounds %struct._GByteArray, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %data2, align 8
-  ret ptr %9
+  call void @gdb_hextomem(ptr noundef %5, ptr noundef %6, i32 noundef %conv)
+  %8 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 15
+  %9 = load ptr, ptr %8, align 8
+  %call1 = call ptr @g_byte_array_append(ptr noundef %9, ptr noundef @.str.13, i32 noundef 1)
+  %10 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 15
+  %11 = load ptr, ptr %10, align 8
+  %data2 = getelementptr inbounds %struct._GByteArray, ptr %11, i32 0, i32 0
+  %12 = load ptr, ptr %data2, align 8
+  ret ptr %12
 }
 
 declare i32 @do_guest_openat(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) #1
@@ -537,10 +555,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
+  %4 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %5 = load ptr, ptr %4, align 8
   %call2 = call ptr @__errno_location() #5
-  %5 = load i32, ptr %call2, align 4
-  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %4, ptr noundef @.str.6, i32 noundef %5)
+  %6 = load i32, ptr %call2, align 4
+  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %5, ptr noundef @.str.6, i32 noundef %6)
   call void @gdb_put_strbuf()
   br label %return
 
@@ -635,18 +654,19 @@ if.end:                                           ; preds = %cond.end
   br i1 %cmp10, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.end
-  %22 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
+  %22 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %23 = load ptr, ptr %22, align 8
   %call13 = call ptr @__errno_location() #5
-  %23 = load i32, ptr %call13, align 4
-  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %22, ptr noundef @.str.6, i32 noundef %23)
+  %24 = load i32, ptr %call13, align 4
+  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %23, ptr noundef @.str.6, i32 noundef %24)
   call void @gdb_put_strbuf()
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
 if.end14:                                         ; preds = %if.end
-  %24 = load ptr, ptr %buf, align 8
-  %25 = load i64, ptr %n, align 8
-  call void @hostio_reply_with_data(ptr noundef %24, i64 noundef %25)
+  %25 = load ptr, ptr %buf, align 8
+  %26 = load i64, ptr %n, align 8
+  call void @hostio_reply_with_data(ptr noundef %25, i64 noundef %26)
   store i32 0, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
@@ -691,22 +711,26 @@ entry:
   %n.addr = alloca i64, align 8
   store ptr %buf, ptr %buf.addr, align 8
   store i64 %n, ptr %n.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
-  %1 = load i64, ptr %n.addr, align 8
-  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %0, ptr noundef @.str.14, i64 noundef %1)
-  %2 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
-  %3 = load ptr, ptr %buf.addr, align 8
-  %4 = load i64, ptr %n.addr, align 8
-  %conv = trunc i64 %4 to i32
-  call void @gdb_memtox(ptr noundef %2, ptr noundef %3, i32 noundef %conv)
-  %5 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
-  %str = getelementptr inbounds %struct._GString, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %str, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
-  %len = getelementptr inbounds %struct._GString, ptr %7, i32 0, i32 1
-  %8 = load i64, ptr %len, align 8
-  %conv1 = trunc i64 %8 to i32
-  %call = call i32 @gdb_put_packet_binary(ptr noundef %6, i32 noundef %conv1, i1 noundef zeroext true)
+  %0 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i64, ptr %n.addr, align 8
+  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %1, ptr noundef @.str.14, i64 noundef %2)
+  %3 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %buf.addr, align 8
+  %6 = load i64, ptr %n.addr, align 8
+  %conv = trunc i64 %6 to i32
+  call void @gdb_memtox(ptr noundef %4, ptr noundef %5, i32 noundef %conv)
+  %7 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %8 = load ptr, ptr %7, align 8
+  %str = getelementptr inbounds %struct._GString, ptr %8, i32 0, i32 0
+  %9 = load ptr, ptr %str, align 8
+  %10 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %11 = load ptr, ptr %10, align 8
+  %len = getelementptr inbounds %struct._GString, ptr %11, i32 0, i32 1
+  %12 = load i64, ptr %len, align 8
+  %conv1 = trunc i64 %12 to i32
+  %call = call i32 @gdb_put_packet_binary(ptr noundef %9, i32 noundef %conv1, i1 noundef zeroext true)
   ret void
 }
 
@@ -745,18 +769,19 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  %5 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
+  %5 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %6 = load ptr, ptr %5, align 8
   %call6 = call ptr @__errno_location() #5
-  %6 = load i32, ptr %call6, align 4
-  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %5, ptr noundef @.str.6, i32 noundef %6)
+  %7 = load i32, ptr %call6, align 4
+  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %6, ptr noundef @.str.6, i32 noundef %7)
   call void @gdb_put_strbuf()
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
 if.end7:                                          ; preds = %if.end
-  %7 = load ptr, ptr %buf, align 8
-  %8 = load i64, ptr %n, align 8
-  call void @hostio_reply_with_data(ptr noundef %7, i64 noundef %8)
+  %8 = load ptr, ptr %buf, align 8
+  %9 = load i64, ptr %n, align 8
+  call void @hostio_reply_with_data(ptr noundef %8, i64 noundef %9)
   store i32 0, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
@@ -901,17 +926,18 @@ if.then32:                                        ; preds = %if.end28
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then32, %if.end28
-  %31 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i32 0, i32 14), align 8
-  %32 = load i32, ptr %length, align 4
-  %33 = load ptr, ptr %ts, align 8
-  %bprm36 = getelementptr inbounds %struct.TaskState, ptr %33, i32 0, i32 8
-  %34 = load ptr, ptr %bprm36, align 8
-  %filename37 = getelementptr inbounds %struct.linux_binprm, ptr %34, i32 0, i32 9
-  %35 = load ptr, ptr %filename37, align 8
-  %36 = load i32, ptr %offset, align 4
-  %idx.ext = zext i32 %36 to i64
-  %add.ptr = getelementptr i8, ptr %35, i64 %idx.ext
-  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %31, ptr noundef @.str.10, i32 noundef %32, ptr noundef %add.ptr)
+  %31 = getelementptr inbounds %struct.GDBState, ptr @gdbserver_state, i32 0, i32 14
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i32, ptr %length, align 4
+  %34 = load ptr, ptr %ts, align 8
+  %bprm36 = getelementptr inbounds %struct.TaskState, ptr %34, i32 0, i32 8
+  %35 = load ptr, ptr %bprm36, align 8
+  %filename37 = getelementptr inbounds %struct.linux_binprm, ptr %35, i32 0, i32 9
+  %36 = load ptr, ptr %filename37, align 8
+  %37 = load i32, ptr %offset, align 4
+  %idx.ext = zext i32 %37 to i64
+  %add.ptr = getelementptr i8, ptr %36, i64 %idx.ext
+  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %32, ptr noundef @.str.10, i32 noundef %33, ptr noundef %add.ptr)
   call void @gdb_put_strbuf()
   br label %return
 

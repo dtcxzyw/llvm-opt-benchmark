@@ -948,14 +948,15 @@ if.end13:                                         ; preds = %lor.lhs.false9
   %12 = load ptr, ptr %tree2, align 8
   %object22 = getelementptr inbounds %struct.tree, ptr %12, i32 0, i32 0
   %oid23 = getelementptr inbounds %struct.object, ptr %object22, i32 0, i32 1
-  call void @diff_tree_oid(ptr noundef %oid21, ptr noundef %oid23, ptr noundef @.str.6, ptr noundef getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i32 0, i32 52))
+  %13 = getelementptr inbounds %struct.rev_info, ptr @log_tree_opt, i32 0, i32 52
+  call void @diff_tree_oid(ptr noundef %oid21, ptr noundef %oid23, ptr noundef @.str.6, ptr noundef %13)
   %call24 = call i32 @log_tree_diff_flush(ptr noundef @log_tree_opt)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then12, %if.then
-  %13 = load i32, ptr %retval, align 4
-  ret i32 %13
+  %14 = load i32, ptr %retval, align 4
+  ret i32 %14
 }
 
 declare i32 @error(ptr noundef, ...) #3

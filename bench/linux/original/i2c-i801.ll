@@ -1001,7 +1001,7 @@ define internal fastcc void @i801_add_tco(ptr nocapture noundef %0) unnamed_addr
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 196608
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %76, label %13
+  br i1 %12, label %77, label %13
 
 13:                                               ; preds = %1
   %14 = call i32 @pci_read_config_dword(ptr noundef %8, i32 noundef 80, ptr noundef nonnull %5) #15
@@ -1009,7 +1009,7 @@ define internal fastcc void @i801_add_tco(ptr nocapture noundef %0) unnamed_addr
   %16 = load i32, ptr %6, align 4
   %17 = and i32 %16, 256
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %76, label %19
+  br i1 %18, label %77, label %19
 
 19:                                               ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false)
@@ -1108,15 +1108,16 @@ define internal fastcc void @i801_add_tco(ptr nocapture noundef %0) unnamed_addr
   %71 = phi ptr [ %40, %29 ], [ %49, %47 ], [ %69, %50 ]
   %72 = getelementptr inbounds i8, ptr %0, i64 1112
   store ptr %71, ptr %72, align 8
-  %73 = icmp ugt ptr %71, inttoptr (i64 -4096 to ptr)
-  br i1 %73, label %74, label %76
+  %73 = inttoptr i64 -4096 to ptr
+  %74 = icmp ugt ptr %71, %73
+  br i1 %74, label %75, label %77
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %8, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %75, ptr noundef nonnull @.str.31) #17
-  br label %76
+75:                                               ; preds = %70
+  %76 = getelementptr inbounds i8, ptr %8, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %76, ptr noundef nonnull @.str.31) #17
+  br label %77
 
-76:                                               ; preds = %74, %70, %13, %1
+77:                                               ; preds = %75, %70, %13, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #15
@@ -1199,7 +1200,7 @@ define internal fastcc void @i801_probe_optional_slaves(ptr noundef %0) unnamed_
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 32768
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %60
+  br i1 %8, label %9, label %62
 
 9:                                                ; preds = %1
   %10 = load i8, ptr @apanel_addr, align 1
@@ -1233,76 +1234,78 @@ define internal fastcc void @i801_probe_optional_slaves(ptr noundef %0) unnamed_
 
 24:                                               ; preds = %22, %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  store ptr inttoptr (i64 -2 to ptr), ptr %3, align 8
-  %25 = call zeroext i1 @dmi_match(i32 noundef 6, ptr noundef nonnull @.str.40) #15
-  br i1 %25, label %26, label %58
+  %25 = inttoptr i64 -2 to ptr
+  store ptr %25, ptr %3, align 8
+  %26 = call zeroext i1 @dmi_match(i32 noundef 6, ptr noundef nonnull @.str.40) #15
+  br i1 %26, label %27, label %60
 
-26:                                               ; preds = %24
-  %27 = call i32 @acpi_get_devices(ptr noundef null, ptr noundef nonnull @check_acpi_smo88xx_device, ptr noundef null, ptr noundef nonnull %3) #15
-  %28 = load ptr, ptr %3, align 8
-  %29 = icmp ugt ptr %28, inttoptr (i64 -4096 to ptr)
+27:                                               ; preds = %24
+  %28 = call i32 @acpi_get_devices(ptr noundef null, ptr noundef nonnull @check_acpi_smo88xx_device, ptr noundef null, ptr noundef nonnull %3) #15
+  %29 = load ptr, ptr %3, align 8
+  %30 = inttoptr i64 -4096 to ptr
+  %31 = icmp ugt ptr %29, %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  br i1 %29, label %59, label %30
+  br i1 %31, label %61, label %32
 
-30:                                               ; preds = %26
+32:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 80, i1 false), !annotation !14
-  %31 = call ptr @dmi_get_system_info(i32 noundef 7) #15
-  br label %32
+  %33 = call ptr @dmi_get_system_info(i32 noundef 7) #15
+  br label %34
 
-32:                                               ; preds = %38, %30
-  %33 = phi i64 [ 0, %30 ], [ %39, %38 ]
-  %34 = getelementptr [11 x %struct.anon.5], ptr @dell_lis3lv02d_devices, i64 0, i64 %33
-  %35 = load ptr, ptr %34, align 16
-  %36 = call i32 @strcmp(ptr noundef %31, ptr noundef %35) #15
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %41, label %38
+34:                                               ; preds = %40, %32
+  %35 = phi i64 [ 0, %32 ], [ %41, %40 ]
+  %36 = getelementptr [11 x %struct.anon.5], ptr @dell_lis3lv02d_devices, i64 0, i64 %35
+  %37 = load ptr, ptr %36, align 16
+  %38 = call i32 @strcmp(ptr noundef %33, ptr noundef %37) #15
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %43, label %40
 
-38:                                               ; preds = %32
-  %39 = add nuw nsw i64 %33, 1
-  %40 = icmp eq i64 %39, 11
-  br i1 %40, label %44, label %32, !llvm.loop !18
+40:                                               ; preds = %34
+  %41 = add nuw nsw i64 %35, 1
+  %42 = icmp eq i64 %41, 11
+  br i1 %42, label %46, label %34, !llvm.loop !18
 
-41:                                               ; preds = %32
-  %42 = and i64 %33, 4294967295
-  %43 = icmp eq i64 %42, 11
-  br label %44
+43:                                               ; preds = %34
+  %44 = and i64 %35, 4294967295
+  %45 = icmp eq i64 %44, 11
+  br label %46
 
-44:                                               ; preds = %41, %38
-  %45 = phi i1 [ %43, %41 ], [ true, %38 ]
-  %46 = phi i64 [ %33, %41 ], [ 11, %38 ]
-  br i1 %45, label %47, label %51
+46:                                               ; preds = %43, %40
+  %47 = phi i1 [ %45, %43 ], [ true, %40 ]
+  %48 = phi i64 [ %35, %43 ], [ 11, %40 ]
+  br i1 %47, label %49, label %53
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %0, i64 1040
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %50, ptr noundef nonnull @.str.49) #17
-  br label %57
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds i8, ptr %0, i64 1040
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %52, ptr noundef nonnull @.str.49) #17
+  br label %59
 
-51:                                               ; preds = %44
+53:                                               ; preds = %46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 80, i1 false)
-  %52 = getelementptr [11 x %struct.anon.5], ptr @dell_lis3lv02d_devices, i64 0, i64 %46, i32 1
-  %53 = load i16, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 22
-  store i16 %53, ptr %54, align 2
-  %55 = call i64 @strscpy(ptr noundef nonnull %2, ptr noundef nonnull @.str.50, i64 noundef 20) #15
-  %56 = call ptr @i2c_new_client_device(ptr noundef %0, ptr noundef nonnull %2) #15
-  br label %57
+  %54 = getelementptr [11 x %struct.anon.5], ptr @dell_lis3lv02d_devices, i64 0, i64 %48, i32 1
+  %55 = load i16, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %2, i64 22
+  store i16 %55, ptr %56, align 2
+  %57 = call i64 @strscpy(ptr noundef nonnull %2, ptr noundef nonnull @.str.50, i64 noundef 20) #15
+  %58 = call ptr @i2c_new_client_device(ptr noundef %0, ptr noundef nonnull %2) #15
+  br label %59
 
-57:                                               ; preds = %51, %47
+59:                                               ; preds = %53, %49
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #15
-  br label %59
+  br label %61
 
-58:                                               ; preds = %24
+60:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  br label %59
+  br label %61
 
-59:                                               ; preds = %58, %57, %26
+61:                                               ; preds = %60, %59, %27
   call void @i2c_register_spd(ptr noundef %0) #15
-  br label %60
+  br label %62
 
-60:                                               ; preds = %59, %1
+62:                                               ; preds = %61, %1
   ret void
 }
 

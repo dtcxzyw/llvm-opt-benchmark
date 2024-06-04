@@ -497,388 +497,390 @@ define void @_ZN15IOConsoleDialogC2ER7QWidget7QStringPFiPKcPPcS6_PvEPFvPFvS4_S7_
   %43 = getelementptr inbounds %class.QFlags, ptr %15, i32 0, i32 0
   %44 = load i32, ptr %43, align 4
   call void @_ZN19GeometryStateDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef %42, i32 %44)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15IOConsoleDialog, i32 0, i32 0, i32 2), ptr %41, align 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15IOConsoleDialog, i32 0, i32 1, i32 2), ptr %45, align 8
-  %46 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
-  %47 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #15
-          to label %48 unwind label %65
-
-48:                                               ; preds = %7
+  %45 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15IOConsoleDialog, i32 0, i32 0, i32 2
+  store ptr %45, ptr %41, align 8
+  %46 = getelementptr inbounds i8, ptr %41, i64 16
+  %47 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15IOConsoleDialog, i32 0, i32 1, i32 2
   store ptr %47, ptr %46, align 8
-  %49 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 2
-  %50 = load ptr, ptr %11, align 8
-  store ptr %50, ptr %49, align 8
-  %51 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 3
-  %52 = load ptr, ptr %12, align 8
+  %48 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
+  %49 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #15
+          to label %50 unwind label %67
+
+50:                                               ; preds = %7
+  store ptr %49, ptr %48, align 8
+  %51 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 2
+  %52 = load ptr, ptr %11, align 8
   store ptr %52, ptr %51, align 8
-  %53 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 4
-  %54 = load ptr, ptr %13, align 8
+  %53 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 3
+  %54 = load ptr, ptr %12, align 8
   store ptr %54, ptr %53, align 8
-  %55 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 5
-  %56 = load ptr, ptr %14, align 8
+  %55 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 4
+  %56 = load ptr, ptr %13, align 8
   store ptr %56, ptr %55, align 8
-  %57 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  invoke void @_ZN18Ui_IOConsoleDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(56) %58, ptr noundef %41)
-          to label %59 unwind label %65
+  %57 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 5
+  %58 = load ptr, ptr %14, align 8
+  store ptr %58, ptr %57, align 8
+  %59 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8
+  invoke void @_ZN18Ui_IOConsoleDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef %41)
+          to label %61 unwind label %67
 
-59:                                               ; preds = %48
-  %60 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %61 unwind label %65
+61:                                               ; preds = %50
+  %62 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %63 unwind label %67
 
-61:                                               ; preds = %59
-  br i1 %60, label %62, label %69
+63:                                               ; preds = %61
+  br i1 %62, label %64, label %71
 
-62:                                               ; preds = %61
+64:                                               ; preds = %63
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef @.str)
-          to label %63 unwind label %65
+          to label %65 unwind label %67
 
-63:                                               ; preds = %62
-  %64 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+65:                                               ; preds = %64
+  %66 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %18) #14
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
-  br label %69
+  br label %71
 
-65:                                               ; preds = %148, %143, %138, %131, %117, %110, %104, %97, %91, %87, %85, %78, %70, %69, %62, %59, %48, %7
-  %66 = landingpad { ptr, i32 }
+67:                                               ; preds = %150, %145, %140, %133, %119, %112, %106, %99, %93, %89, %87, %80, %72, %71, %64, %61, %50, %7
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %67 = extractvalue { ptr, i32 } %66, 0
-  store ptr %67, ptr %16, align 8
-  %68 = extractvalue { ptr, i32 } %66, 1
-  store i32 %68, ptr %17, align 4
-  br label %207
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %16, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %17, align 4
+  br label %209
 
-69:                                               ; preds = %63, %61
+71:                                               ; preds = %65, %63
   invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %41, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %70 unwind label %65
+          to label %72 unwind label %67
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %72, i32 0, i32 2
+72:                                               ; preds = %71
+  %73 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
   %74 = load ptr, ptr %73, align 8
-  invoke void @_ZN19GeometryStateDialog17loadSplitterStateEP9QSplitter(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef %74)
-          to label %75 unwind label %65
+  %75 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %74, i32 0, i32 2
+  %76 = load ptr, ptr %75, align 8
+  invoke void @_ZN19GeometryStateDialog17loadSplitterStateEP9QSplitter(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef %76)
+          to label %77 unwind label %67
 
-75:                                               ; preds = %70
-  %76 = load ptr, ptr @mainApp, align 8
+77:                                               ; preds = %72
+  %78 = load ptr, ptr @mainApp, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %2) #14
-  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %19, ptr noundef nonnull align 8 dereferenceable(216) %76, ptr noundef %20)
-          to label %77 unwind label %154
+  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %19, ptr noundef nonnull align 8 dereferenceable(216) %78, ptr noundef %20)
+          to label %79 unwind label %156
 
-77:                                               ; preds = %75
+79:                                               ; preds = %77
   invoke void @_ZN7QWidget14setWindowTitleERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(24) %19)
-          to label %78 unwind label %158
+          to label %80 unwind label %160
 
-78:                                               ; preds = %77
+80:                                               ; preds = %79
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #14
-  %79 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %80, i32 0, i32 6
+  %81 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
   %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %82, i32 0, i32 6
+  %84 = load ptr, ptr %83, align 8
   invoke void @_ZN15IOConsoleDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %22, ptr noundef @.str.1, ptr noundef null, i32 noundef -1)
-          to label %83 unwind label %65
+          to label %85 unwind label %67
 
-83:                                               ; preds = %78
-  %84 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %82, ptr noundef nonnull align 8 dereferenceable(24) %22, i32 noundef 3)
-          to label %85 unwind label %163
-
-85:                                               ; preds = %83
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
-  store ptr %84, ptr %21, align 8
-  %86 = load ptr, ptr %21, align 8
-  invoke void @_ZN11QPushButton10setDefaultEb(ptr noundef nonnull align 8 dereferenceable(40) %86, i1 noundef zeroext true)
-          to label %87 unwind label %65
+85:                                               ; preds = %80
+  %86 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %84, ptr noundef nonnull align 8 dereferenceable(24) %22, i32 noundef 3)
+          to label %87 unwind label %165
 
 87:                                               ; preds = %85
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
+  store ptr %86, ptr %21, align 8
   %88 = load ptr, ptr %21, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef @.str.2)
-          to label %89 unwind label %65
+  invoke void @_ZN11QPushButton10setDefaultEb(ptr noundef nonnull align 8 dereferenceable(40) %88, i1 noundef zeroext true)
+          to label %89 unwind label %67
 
 89:                                               ; preds = %87
+  %90 = load ptr, ptr %21, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef @.str.2)
+          to label %91 unwind label %67
+
+91:                                               ; preds = %89
   invoke void @_ZN12QKeySequenceC1ERK7QStringNS_14SequenceFormatE(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(24) %24, i32 noundef 0)
-          to label %90 unwind label %167
+          to label %92 unwind label %169
 
-90:                                               ; preds = %89
-  invoke void @_ZN15QAbstractButton11setShortcutERK12QKeySequence(ptr noundef nonnull align 8 dereferenceable(40) %88, ptr noundef nonnull align 8 dereferenceable(8) %23)
-          to label %91 unwind label %171
+92:                                               ; preds = %91
+  invoke void @_ZN15QAbstractButton11setShortcutERK12QKeySequence(ptr noundef nonnull align 8 dereferenceable(40) %90, ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %93 unwind label %173
 
-91:                                               ; preds = %90
+93:                                               ; preds = %92
   call void @_ZN12QKeySequenceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #14
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
-  %92 = load ptr, ptr %21, align 8
+  %94 = load ptr, ptr %21, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %26, align 8
-  %93 = getelementptr inbounds { i64, i64 }, ptr %26, i32 0, i32 0
-  %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds { i64, i64 }, ptr %26, i32 0, i32 1
+  %95 = getelementptr inbounds { i64, i64 }, ptr %26, i32 0, i32 0
   %96 = load i64, ptr %95, align 8
+  %97 = getelementptr inbounds { i64, i64 }, ptr %26, i32 0, i32 1
+  %98 = load i64, ptr %97, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15IOConsoleDialog11acceptInputEv to i64), i64 0 }, ptr %27, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15IOConsoleDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %25, ptr noundef %92, i64 %94, i64 %96, ptr noundef %41, ptr noundef byval({ i64, i64 }) align 8 %27, i32 noundef 0)
-          to label %97 unwind label %65
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15IOConsoleDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %25, ptr noundef %94, i64 %96, i64 %98, ptr noundef %41, ptr noundef byval({ i64, i64 }) align 8 %27, i32 noundef 0)
+          to label %99 unwind label %67
 
-97:                                               ; preds = %91
+99:                                               ; preds = %93
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #14
-  %98 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %99, i32 0, i32 6
+  %100 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
   %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %101, i32 0, i32 6
+  %103 = load ptr, ptr %102, align 8
   invoke void @_ZN15IOConsoleDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %29, ptr noundef @.str.3, ptr noundef null, i32 noundef -1)
-          to label %102 unwind label %65
+          to label %104 unwind label %67
 
-102:                                              ; preds = %97
-  %103 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %101, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef 3)
-          to label %104 unwind label %176
+104:                                              ; preds = %99
+  %105 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %103, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef 3)
+          to label %106 unwind label %178
 
-104:                                              ; preds = %102
+106:                                              ; preds = %104
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #14
-  store ptr %103, ptr %28, align 8
-  %105 = load ptr, ptr %28, align 8
+  store ptr %105, ptr %28, align 8
+  %107 = load ptr, ptr %28, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %31, align 8
-  %106 = getelementptr inbounds { i64, i64 }, ptr %31, i32 0, i32 0
-  %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds { i64, i64 }, ptr %31, i32 0, i32 1
+  %108 = getelementptr inbounds { i64, i64 }, ptr %31, i32 0, i32 0
   %109 = load i64, ptr %108, align 8
+  %110 = getelementptr inbounds { i64, i64 }, ptr %31, i32 0, i32 1
+  %111 = load i64, ptr %110, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15IOConsoleDialog17on_clearActivatedEv to i64), i64 0 }, ptr %32, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15IOConsoleDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %30, ptr noundef %105, i64 %107, i64 %109, ptr noundef %41, ptr noundef byval({ i64, i64 }) align 8 %32, i32 noundef 0)
-          to label %110 unwind label %65
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15IOConsoleDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %30, ptr noundef %107, i64 %109, i64 %111, ptr noundef %41, ptr noundef byval({ i64, i64 }) align 8 %32, i32 noundef 0)
+          to label %112 unwind label %67
 
-110:                                              ; preds = %104
+112:                                              ; preds = %106
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #14
-  %111 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %112, i32 0, i32 3
+  %113 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
   %114 = load ptr, ptr %113, align 8
-  %115 = load ptr, ptr @mainApp, align 8
-  invoke void @_ZNK15MainApplication13monospaceFontEb(ptr dead_on_unwind writable sret(%class.QFont) align 8 %33, ptr noundef nonnull align 8 dereferenceable(216) %115, i1 noundef zeroext false)
-          to label %116 unwind label %65
+  %115 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %114, i32 0, i32 3
+  %116 = load ptr, ptr %115, align 8
+  %117 = load ptr, ptr @mainApp, align 8
+  invoke void @_ZNK15MainApplication13monospaceFontEb(ptr dead_on_unwind writable sret(%class.QFont) align 8 %33, ptr noundef nonnull align 8 dereferenceable(216) %117, i1 noundef zeroext false)
+          to label %118 unwind label %67
 
-116:                                              ; preds = %110
-  invoke void @_ZN7QWidget7setFontERK5QFont(ptr noundef nonnull align 8 dereferenceable(40) %114, ptr noundef nonnull align 8 dereferenceable(12) %33)
-          to label %117 unwind label %180
+118:                                              ; preds = %112
+  invoke void @_ZN7QWidget7setFontERK5QFont(ptr noundef nonnull align 8 dereferenceable(40) %116, ptr noundef nonnull align 8 dereferenceable(12) %33)
+          to label %119 unwind label %182
 
-117:                                              ; preds = %116
+119:                                              ; preds = %118
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %33) #14
-  %118 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %119, i32 0, i32 3
+  %120 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
   %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %121, i32 0, i32 3
+  %123 = load ptr, ptr %122, align 8
   invoke void @_ZN15IOConsoleDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %35, ptr noundef @.str.4, ptr noundef null, i32 noundef -1)
-          to label %122 unwind label %65
+          to label %124 unwind label %67
 
-122:                                              ; preds = %117
-  %123 = load ptr, ptr %21, align 8
-  invoke void @_ZNK15QAbstractButton8shortcutEv(ptr dead_on_unwind writable sret(%class.QKeySequence) align 8 %37, ptr noundef nonnull align 8 dereferenceable(40) %123)
-          to label %124 unwind label %184
+124:                                              ; preds = %119
+  %125 = load ptr, ptr %21, align 8
+  invoke void @_ZNK15QAbstractButton8shortcutEv(ptr dead_on_unwind writable sret(%class.QKeySequence) align 8 %37, ptr noundef nonnull align 8 dereferenceable(40) %125)
+          to label %126 unwind label %186
 
-124:                                              ; preds = %122
+126:                                              ; preds = %124
   invoke void @_ZNK12QKeySequence8toStringENS_14SequenceFormatE(ptr dead_on_unwind writable sret(%class.QString) align 8 %36, ptr noundef nonnull align 8 dereferenceable(8) %37, i32 noundef 0)
-          to label %125 unwind label %188
+          to label %127 unwind label %190
 
-125:                                              ; preds = %124
+127:                                              ; preds = %126
   call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %39, i8 noundef signext 32) #14
-  %126 = getelementptr inbounds %struct.QLatin1Char, ptr %39, i32 0, i32 0
-  %127 = load i8, ptr %126, align 1
-  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %38, i8 %127) #14
-  %128 = getelementptr inbounds %class.QChar, ptr %38, i32 0, i32 0
-  %129 = load i16, ptr %128, align 2
-  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %34, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36, i32 noundef 0, i16 %129)
-          to label %130 unwind label %192
+  %128 = getelementptr inbounds %struct.QLatin1Char, ptr %39, i32 0, i32 0
+  %129 = load i8, ptr %128, align 1
+  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %38, i8 %129) #14
+  %130 = getelementptr inbounds %class.QChar, ptr %38, i32 0, i32 0
+  %131 = load i16, ptr %130, align 2
+  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %34, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36, i32 noundef 0, i16 %131)
+          to label %132 unwind label %194
 
-130:                                              ; preds = %125
-  invoke void @_ZN9QTextEdit18setPlaceholderTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %121, ptr noundef nonnull align 8 dereferenceable(24) %34)
-          to label %131 unwind label %196
+132:                                              ; preds = %127
+  invoke void @_ZN9QTextEdit18setPlaceholderTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %123, ptr noundef nonnull align 8 dereferenceable(24) %34)
+          to label %133 unwind label %198
 
-131:                                              ; preds = %130
+133:                                              ; preds = %132
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
   call void @_ZN12QKeySequenceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #14
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #14
-  %132 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %133, i32 0, i32 4
+  %134 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
   %135 = load ptr, ptr %134, align 8
-  %136 = load ptr, ptr @mainApp, align 8
-  invoke void @_ZNK15MainApplication13monospaceFontEb(ptr dead_on_unwind writable sret(%class.QFont) align 8 %40, ptr noundef nonnull align 8 dereferenceable(216) %136, i1 noundef zeroext false)
-          to label %137 unwind label %65
+  %136 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %135, i32 0, i32 4
+  %137 = load ptr, ptr %136, align 8
+  %138 = load ptr, ptr @mainApp, align 8
+  invoke void @_ZNK15MainApplication13monospaceFontEb(ptr dead_on_unwind writable sret(%class.QFont) align 8 %40, ptr noundef nonnull align 8 dereferenceable(216) %138, i1 noundef zeroext false)
+          to label %139 unwind label %67
 
-137:                                              ; preds = %131
-  invoke void @_ZN7QWidget7setFontERK5QFont(ptr noundef nonnull align 8 dereferenceable(40) %135, ptr noundef nonnull align 8 dereferenceable(12) %40)
-          to label %138 unwind label %203
+139:                                              ; preds = %133
+  invoke void @_ZN7QWidget7setFontERK5QFont(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull align 8 dereferenceable(12) %40)
+          to label %140 unwind label %205
 
-138:                                              ; preds = %137
+140:                                              ; preds = %139
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %40) #14
-  %139 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %140, i32 0, i32 4
+  %141 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
   %142 = load ptr, ptr %141, align 8
-  invoke void @_ZN9QTextEdit11setReadOnlyEb(ptr noundef nonnull align 8 dereferenceable(40) %142, i1 noundef zeroext true)
-          to label %143 unwind label %65
+  %143 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %142, i32 0, i32 4
+  %144 = load ptr, ptr %143, align 8
+  invoke void @_ZN9QTextEdit11setReadOnlyEb(ptr noundef nonnull align 8 dereferenceable(40) %144, i1 noundef zeroext true)
+          to label %145 unwind label %67
 
-143:                                              ; preds = %138
-  %144 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %145, i32 0, i32 5
+145:                                              ; preds = %140
+  %146 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 1
   %147 = load ptr, ptr %146, align 8
-  invoke void @_ZN6QLabel5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %147)
-          to label %148 unwind label %65
+  %148 = getelementptr inbounds %class.Ui_IOConsoleDialog, ptr %147, i32 0, i32 5
+  %149 = load ptr, ptr %148, align 8
+  invoke void @_ZN6QLabel5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %149)
+          to label %150 unwind label %67
 
-148:                                              ; preds = %143
-  %149 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 3
-  %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 5
+150:                                              ; preds = %145
+  %151 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 3
   %152 = load ptr, ptr %151, align 8
-  invoke void %150(ptr noundef @_ZL14print_functionPKcPv, ptr noundef %41, ptr noundef %152)
-          to label %153 unwind label %65
+  %153 = getelementptr inbounds %class.IOConsoleDialog, ptr %41, i32 0, i32 5
+  %154 = load ptr, ptr %153, align 8
+  invoke void %152(ptr noundef @_ZL14print_functionPKcPv, ptr noundef %41, ptr noundef %154)
+          to label %155 unwind label %67
 
-153:                                              ; preds = %148
+155:                                              ; preds = %150
   ret void
 
-154:                                              ; preds = %75
-  %155 = landingpad { ptr, i32 }
+156:                                              ; preds = %77
+  %157 = landingpad { ptr, i32 }
           cleanup
-  %156 = extractvalue { ptr, i32 } %155, 0
-  store ptr %156, ptr %16, align 8
-  %157 = extractvalue { ptr, i32 } %155, 1
-  store i32 %157, ptr %17, align 4
-  br label %162
+  %158 = extractvalue { ptr, i32 } %157, 0
+  store ptr %158, ptr %16, align 8
+  %159 = extractvalue { ptr, i32 } %157, 1
+  store i32 %159, ptr %17, align 4
+  br label %164
 
-158:                                              ; preds = %77
-  %159 = landingpad { ptr, i32 }
+160:                                              ; preds = %79
+  %161 = landingpad { ptr, i32 }
           cleanup
-  %160 = extractvalue { ptr, i32 } %159, 0
-  store ptr %160, ptr %16, align 8
-  %161 = extractvalue { ptr, i32 } %159, 1
-  store i32 %161, ptr %17, align 4
+  %162 = extractvalue { ptr, i32 } %161, 0
+  store ptr %162, ptr %16, align 8
+  %163 = extractvalue { ptr, i32 } %161, 1
+  store i32 %163, ptr %17, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
-  br label %162
+  br label %164
 
-162:                                              ; preds = %158, %154
+164:                                              ; preds = %160, %156
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #14
-  br label %207
+  br label %209
 
-163:                                              ; preds = %83
-  %164 = landingpad { ptr, i32 }
+165:                                              ; preds = %85
+  %166 = landingpad { ptr, i32 }
           cleanup
-  %165 = extractvalue { ptr, i32 } %164, 0
-  store ptr %165, ptr %16, align 8
-  %166 = extractvalue { ptr, i32 } %164, 1
-  store i32 %166, ptr %17, align 4
+  %167 = extractvalue { ptr, i32 } %166, 0
+  store ptr %167, ptr %16, align 8
+  %168 = extractvalue { ptr, i32 } %166, 1
+  store i32 %168, ptr %17, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
-  br label %207
+  br label %209
 
-167:                                              ; preds = %89
-  %168 = landingpad { ptr, i32 }
+169:                                              ; preds = %91
+  %170 = landingpad { ptr, i32 }
           cleanup
-  %169 = extractvalue { ptr, i32 } %168, 0
-  store ptr %169, ptr %16, align 8
-  %170 = extractvalue { ptr, i32 } %168, 1
-  store i32 %170, ptr %17, align 4
-  br label %175
+  %171 = extractvalue { ptr, i32 } %170, 0
+  store ptr %171, ptr %16, align 8
+  %172 = extractvalue { ptr, i32 } %170, 1
+  store i32 %172, ptr %17, align 4
+  br label %177
 
-171:                                              ; preds = %90
-  %172 = landingpad { ptr, i32 }
+173:                                              ; preds = %92
+  %174 = landingpad { ptr, i32 }
           cleanup
-  %173 = extractvalue { ptr, i32 } %172, 0
-  store ptr %173, ptr %16, align 8
-  %174 = extractvalue { ptr, i32 } %172, 1
-  store i32 %174, ptr %17, align 4
+  %175 = extractvalue { ptr, i32 } %174, 0
+  store ptr %175, ptr %16, align 8
+  %176 = extractvalue { ptr, i32 } %174, 1
+  store i32 %176, ptr %17, align 4
   call void @_ZN12QKeySequenceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #14
-  br label %175
+  br label %177
 
-175:                                              ; preds = %171, %167
+177:                                              ; preds = %173, %169
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
-  br label %207
+  br label %209
 
-176:                                              ; preds = %102
-  %177 = landingpad { ptr, i32 }
+178:                                              ; preds = %104
+  %179 = landingpad { ptr, i32 }
           cleanup
-  %178 = extractvalue { ptr, i32 } %177, 0
-  store ptr %178, ptr %16, align 8
-  %179 = extractvalue { ptr, i32 } %177, 1
-  store i32 %179, ptr %17, align 4
+  %180 = extractvalue { ptr, i32 } %179, 0
+  store ptr %180, ptr %16, align 8
+  %181 = extractvalue { ptr, i32 } %179, 1
+  store i32 %181, ptr %17, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #14
-  br label %207
+  br label %209
 
-180:                                              ; preds = %116
-  %181 = landingpad { ptr, i32 }
+182:                                              ; preds = %118
+  %183 = landingpad { ptr, i32 }
           cleanup
-  %182 = extractvalue { ptr, i32 } %181, 0
-  store ptr %182, ptr %16, align 8
-  %183 = extractvalue { ptr, i32 } %181, 1
-  store i32 %183, ptr %17, align 4
+  %184 = extractvalue { ptr, i32 } %183, 0
+  store ptr %184, ptr %16, align 8
+  %185 = extractvalue { ptr, i32 } %183, 1
+  store i32 %185, ptr %17, align 4
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %33) #14
-  br label %207
+  br label %209
 
-184:                                              ; preds = %122
-  %185 = landingpad { ptr, i32 }
+186:                                              ; preds = %124
+  %187 = landingpad { ptr, i32 }
           cleanup
-  %186 = extractvalue { ptr, i32 } %185, 0
-  store ptr %186, ptr %16, align 8
-  %187 = extractvalue { ptr, i32 } %185, 1
-  store i32 %187, ptr %17, align 4
+  %188 = extractvalue { ptr, i32 } %187, 0
+  store ptr %188, ptr %16, align 8
+  %189 = extractvalue { ptr, i32 } %187, 1
+  store i32 %189, ptr %17, align 4
+  br label %204
+
+190:                                              ; preds = %126
+  %191 = landingpad { ptr, i32 }
+          cleanup
+  %192 = extractvalue { ptr, i32 } %191, 0
+  store ptr %192, ptr %16, align 8
+  %193 = extractvalue { ptr, i32 } %191, 1
+  store i32 %193, ptr %17, align 4
+  br label %203
+
+194:                                              ; preds = %127
+  %195 = landingpad { ptr, i32 }
+          cleanup
+  %196 = extractvalue { ptr, i32 } %195, 0
+  store ptr %196, ptr %16, align 8
+  %197 = extractvalue { ptr, i32 } %195, 1
+  store i32 %197, ptr %17, align 4
   br label %202
 
-188:                                              ; preds = %124
-  %189 = landingpad { ptr, i32 }
+198:                                              ; preds = %132
+  %199 = landingpad { ptr, i32 }
           cleanup
-  %190 = extractvalue { ptr, i32 } %189, 0
-  store ptr %190, ptr %16, align 8
-  %191 = extractvalue { ptr, i32 } %189, 1
-  store i32 %191, ptr %17, align 4
-  br label %201
-
-192:                                              ; preds = %125
-  %193 = landingpad { ptr, i32 }
-          cleanup
-  %194 = extractvalue { ptr, i32 } %193, 0
-  store ptr %194, ptr %16, align 8
-  %195 = extractvalue { ptr, i32 } %193, 1
-  store i32 %195, ptr %17, align 4
-  br label %200
-
-196:                                              ; preds = %130
-  %197 = landingpad { ptr, i32 }
-          cleanup
-  %198 = extractvalue { ptr, i32 } %197, 0
-  store ptr %198, ptr %16, align 8
-  %199 = extractvalue { ptr, i32 } %197, 1
-  store i32 %199, ptr %17, align 4
+  %200 = extractvalue { ptr, i32 } %199, 0
+  store ptr %200, ptr %16, align 8
+  %201 = extractvalue { ptr, i32 } %199, 1
+  store i32 %201, ptr %17, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
-  br label %200
-
-200:                                              ; preds = %196, %192
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
-  br label %201
-
-201:                                              ; preds = %200, %188
-  call void @_ZN12QKeySequenceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #14
   br label %202
 
-202:                                              ; preds = %201, %184
+202:                                              ; preds = %198, %194
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
+  br label %203
+
+203:                                              ; preds = %202, %190
+  call void @_ZN12QKeySequenceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #14
+  br label %204
+
+204:                                              ; preds = %203, %186
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #14
-  br label %207
+  br label %209
 
-203:                                              ; preds = %137
-  %204 = landingpad { ptr, i32 }
+205:                                              ; preds = %139
+  %206 = landingpad { ptr, i32 }
           cleanup
-  %205 = extractvalue { ptr, i32 } %204, 0
-  store ptr %205, ptr %16, align 8
-  %206 = extractvalue { ptr, i32 } %204, 1
-  store i32 %206, ptr %17, align 4
+  %207 = extractvalue { ptr, i32 } %206, 0
+  store ptr %207, ptr %16, align 8
+  %208 = extractvalue { ptr, i32 } %206, 1
+  store i32 %208, ptr %17, align 4
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %40) #14
-  br label %207
+  br label %209
 
-207:                                              ; preds = %203, %202, %180, %176, %175, %163, %162, %65
+209:                                              ; preds = %205, %204, %182, %178, %177, %165, %164, %67
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %41) #14
-  br label %208
+  br label %210
 
-208:                                              ; preds = %207
-  %209 = load ptr, ptr %16, align 8
-  %210 = load i32, ptr %17, align 4
-  %211 = insertvalue { ptr, i32 } poison, ptr %209, 0
-  %212 = insertvalue { ptr, i32 } %211, i32 %210, 1
-  resume { ptr, i32 } %212
+210:                                              ; preds = %209
+  %211 = load ptr, ptr %16, align 8
+  %212 = load i32, ptr %17, align 4
+  %213 = insertvalue { ptr, i32 } poison, ptr %211, 0
+  %214 = insertvalue { ptr, i32 } %213, i32 %212, 1
+  resume { ptr, i32 } %214
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -906,11 +908,13 @@ define linkonce_odr void @_ZN19GeometryStateDialogC2EP7QWidget6QFlagsIN2Qt10Wind
   %10 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %11 = load i32, ptr %10, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef null, i32 %11)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %class.GeometryStateDialog, ptr %9, i32 0, i32 1
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  %12 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.GeometryStateDialog, ptr %9, i32 0, i32 1
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
   ret void
 }
 
@@ -2116,35 +2120,37 @@ define void @_ZN15IOConsoleDialogD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15IOConsoleDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15IOConsoleDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.IOConsoleDialog, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15IOConsoleDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15IOConsoleDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.IOConsoleDialog, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #16
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #16
+  br label %11
 
-9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds %class.IOConsoleDialog, ptr %3, i32 0, i32 4
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %class.IOConsoleDialog, ptr %3, i32 0, i32 5
+11:                                               ; preds = %10, %1
+  %12 = getelementptr inbounds %class.IOConsoleDialog, ptr %3, i32 0, i32 4
   %13 = load ptr, ptr %12, align 8
-  invoke void %11(ptr noundef %13)
-          to label %14 unwind label %15
+  %14 = getelementptr inbounds %class.IOConsoleDialog, ptr %3, i32 0, i32 5
+  %15 = load ptr, ptr %14, align 8
+  invoke void %13(ptr noundef %15)
+          to label %16 unwind label %17
 
-14:                                               ; preds = %9
+16:                                               ; preds = %11
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #14
   ret void
 
-15:                                               ; preds = %9
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %11
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #17
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #17
   unreachable
 }
 

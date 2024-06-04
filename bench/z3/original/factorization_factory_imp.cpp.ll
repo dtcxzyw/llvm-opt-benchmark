@@ -265,18 +265,19 @@ entry:
   %call3 = call noundef i32 @_ZNK3nla6mon_eq3varEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %call4 = call noundef nonnull align 8 dereferenceable(34) ptr @_ZNK3nla7emonicsixEj(ptr noundef nonnull align 8 dereferenceable(216) %call2, i32 noundef %call3)
   call void @_ZN3nla21factorization_factoryC2ERK7svectorIjjEPKNS_5monicE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef %call4)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nla25factorization_factory_impE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3nla25factorization_factory_impE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %m_core = getelementptr inbounds %"struct.nla::factorization_factory_imp", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %s.addr, align 8
-  store ptr %3, ptr %m_core, align 8
-  %m_mon = getelementptr inbounds %"struct.nla::factorization_factory_imp", ptr %this1, i32 0, i32 2
   %4 = load ptr, ptr %s.addr, align 8
-  %call5 = invoke noundef nonnull align 8 dereferenceable(216) ptr @_ZNK3nla4core5emonsEv(ptr noundef nonnull align 8 dereferenceable(4720) %4)
+  store ptr %4, ptr %m_core, align 8
+  %m_mon = getelementptr inbounds %"struct.nla::factorization_factory_imp", ptr %this1, i32 0, i32 2
+  %5 = load ptr, ptr %s.addr, align 8
+  %call5 = invoke noundef nonnull align 8 dereferenceable(216) ptr @_ZNK3nla4core5emonsEv(ptr noundef nonnull align 8 dereferenceable(4720) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %5 = load ptr, ptr %rm.addr, align 8
-  %call7 = invoke noundef i32 @_ZNK3nla6mon_eq3varEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %6 = load ptr, ptr %rm.addr, align 8
+  %call7 = invoke noundef i32 @_ZNK3nla6mon_eq3varEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
@@ -286,17 +287,17 @@ invoke.cont6:                                     ; preds = %invoke.cont
 invoke.cont8:                                     ; preds = %invoke.cont6
   store ptr %call9, ptr %m_mon, align 8
   %m_rm = getelementptr inbounds %"struct.nla::factorization_factory_imp", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %rm.addr, align 8
-  store ptr %6, ptr %m_rm, align 8
+  %7 = load ptr, ptr %rm.addr, align 8
+  store ptr %7, ptr %m_rm, align 8
   ret void
 
 lpad:                                             ; preds = %invoke.cont6, %invoke.cont, %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN3nla21factorization_factoryD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
   br label %eh.resume
 
@@ -366,13 +367,14 @@ entry:
   store ptr %vars, ptr %vars.addr, align 8
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nla21factorization_factoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3nla21factorization_factoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_vars = getelementptr inbounds %"struct.nla::factorization_factory", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %vars.addr, align 8
-  store ptr %0, ptr %m_vars, align 8
+  %1 = load ptr, ptr %vars.addr, align 8
+  store ptr %1, ptr %m_vars, align 8
   %m_monic = getelementptr inbounds %"struct.nla::factorization_factory", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %m.addr, align 8
-  store ptr %1, ptr %m_monic, align 8
+  %2 = load ptr, ptr %m.addr, align 8
+  store ptr %2, ptr %m_monic, align 8
   ret void
 }
 

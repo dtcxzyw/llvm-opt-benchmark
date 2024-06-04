@@ -526,7 +526,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -554,7 +554,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -970,122 +970,125 @@ define ptr @Nwk_NodeIfToHop2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %21 = load ptr, ptr %10, align 8
   %22 = call ptr @If_CutData(ptr noundef %21)
   store ptr %22, ptr %5, align 8
-  br label %97
+  br label %100
 
 23:                                               ; preds = %4
   %24 = load ptr, ptr %9, align 8
   %25 = load ptr, ptr %10, align 8
   call void @Vec_PtrPush(ptr noundef %24, ptr noundef %25)
   %26 = load ptr, ptr %10, align 8
-  call void @If_CutSetData(ptr noundef %26, ptr noundef inttoptr (i64 1 to ptr))
-  %27 = load ptr, ptr %8, align 8
-  %28 = call i32 @If_ObjIsCi(ptr noundef %27)
-  %29 = icmp ne i32 %28, 0
-  br i1 %29, label %30, label %33
+  %27 = inttoptr i64 1 to ptr
+  call void @If_CutSetData(ptr noundef %26, ptr noundef %27)
+  %28 = load ptr, ptr %8, align 8
+  %29 = call i32 @If_ObjIsCi(ptr noundef %28)
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %34
 
-30:                                               ; preds = %23
-  %31 = load ptr, ptr %10, align 8
-  %32 = call ptr @If_CutData(ptr noundef %31)
-  store ptr %32, ptr %5, align 8
-  br label %97
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %10, align 8
+  %33 = call ptr @If_CutData(ptr noundef %32)
+  store ptr %33, ptr %5, align 8
+  br label %100
 
-33:                                               ; preds = %23
-  %34 = load ptr, ptr %8, align 8
-  store ptr %34, ptr %11, align 8
-  br label %35
+34:                                               ; preds = %23
+  %35 = load ptr, ptr %8, align 8
+  store ptr %35, ptr %11, align 8
+  br label %36
 
-35:                                               ; preds = %90, %33
-  %36 = load ptr, ptr %11, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %94
+36:                                               ; preds = %93, %34
+  %37 = load ptr, ptr %11, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %97
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %6, align 8
-  %40 = load ptr, ptr %7, align 8
-  %41 = load ptr, ptr %11, align 8
-  %42 = getelementptr inbounds %struct.If_Obj_t_, ptr %41, i32 0, i32 6
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = call ptr @Nwk_NodeIfToHop2_rec(ptr noundef %39, ptr noundef %40, ptr noundef %43, ptr noundef %44)
-  store ptr %45, ptr %13, align 8
-  %46 = load ptr, ptr %13, align 8
-  %47 = icmp eq ptr %46, inttoptr (i64 1 to ptr)
-  br i1 %47, label %48, label %49
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %6, align 8
+  %41 = load ptr, ptr %7, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = getelementptr inbounds %struct.If_Obj_t_, ptr %42, i32 0, i32 6
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %9, align 8
+  %46 = call ptr @Nwk_NodeIfToHop2_rec(ptr noundef %40, ptr noundef %41, ptr noundef %44, ptr noundef %45)
+  store ptr %46, ptr %13, align 8
+  %47 = load ptr, ptr %13, align 8
+  %48 = inttoptr i64 1 to ptr
+  %49 = icmp eq ptr %47, %48
+  br i1 %49, label %50, label %51
 
-48:                                               ; preds = %38
+50:                                               ; preds = %39
+  br label %93
+
+51:                                               ; preds = %39
+  %52 = load ptr, ptr %6, align 8
+  %53 = load ptr, ptr %7, align 8
+  %54 = load ptr, ptr %11, align 8
+  %55 = getelementptr inbounds %struct.If_Obj_t_, ptr %54, i32 0, i32 7
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %9, align 8
+  %58 = call ptr @Nwk_NodeIfToHop2_rec(ptr noundef %52, ptr noundef %53, ptr noundef %56, ptr noundef %57)
+  store ptr %58, ptr %14, align 8
+  %59 = load ptr, ptr %14, align 8
+  %60 = inttoptr i64 1 to ptr
+  %61 = icmp eq ptr %59, %60
+  br i1 %61, label %62, label %63
+
+62:                                               ; preds = %51
+  br label %93
+
+63:                                               ; preds = %51
+  %64 = load ptr, ptr %6, align 8
+  %65 = load ptr, ptr %13, align 8
+  %66 = load ptr, ptr %11, align 8
+  %67 = load i32, ptr %66, align 8
+  %68 = lshr i32 %67, 4
+  %69 = and i32 %68, 1
+  %70 = call ptr @Hop_NotCond(ptr noundef %65, i32 noundef %69)
+  %71 = load ptr, ptr %14, align 8
+  %72 = load ptr, ptr %11, align 8
+  %73 = load i32, ptr %72, align 8
+  %74 = lshr i32 %73, 5
+  %75 = and i32 %74, 1
+  %76 = call ptr @Hop_NotCond(ptr noundef %71, i32 noundef %75)
+  %77 = call ptr @Hop_And(ptr noundef %64, ptr noundef %70, ptr noundef %76)
+  store ptr %77, ptr %12, align 8
+  %78 = load ptr, ptr %11, align 8
+  %79 = load i32, ptr %78, align 8
+  %80 = lshr i32 %79, 6
+  %81 = and i32 %80, 1
+  %82 = load ptr, ptr %8, align 8
+  %83 = load i32, ptr %82, align 8
+  %84 = lshr i32 %83, 6
+  %85 = and i32 %84, 1
+  %86 = icmp ne i32 %81, %85
+  br i1 %86, label %87, label %90
+
+87:                                               ; preds = %63
+  %88 = load ptr, ptr %12, align 8
+  %89 = call ptr @Hop_Not(ptr noundef %88)
+  store ptr %89, ptr %12, align 8
   br label %90
 
-49:                                               ; preds = %38
-  %50 = load ptr, ptr %6, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = load ptr, ptr %11, align 8
-  %53 = getelementptr inbounds %struct.If_Obj_t_, ptr %52, i32 0, i32 7
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %9, align 8
-  %56 = call ptr @Nwk_NodeIfToHop2_rec(ptr noundef %50, ptr noundef %51, ptr noundef %54, ptr noundef %55)
-  store ptr %56, ptr %14, align 8
-  %57 = load ptr, ptr %14, align 8
-  %58 = icmp eq ptr %57, inttoptr (i64 1 to ptr)
-  br i1 %58, label %59, label %60
-
-59:                                               ; preds = %49
-  br label %90
-
-60:                                               ; preds = %49
-  %61 = load ptr, ptr %6, align 8
-  %62 = load ptr, ptr %13, align 8
-  %63 = load ptr, ptr %11, align 8
-  %64 = load i32, ptr %63, align 8
-  %65 = lshr i32 %64, 4
-  %66 = and i32 %65, 1
-  %67 = call ptr @Hop_NotCond(ptr noundef %62, i32 noundef %66)
-  %68 = load ptr, ptr %14, align 8
-  %69 = load ptr, ptr %11, align 8
-  %70 = load i32, ptr %69, align 8
-  %71 = lshr i32 %70, 5
-  %72 = and i32 %71, 1
-  %73 = call ptr @Hop_NotCond(ptr noundef %68, i32 noundef %72)
-  %74 = call ptr @Hop_And(ptr noundef %61, ptr noundef %67, ptr noundef %73)
-  store ptr %74, ptr %12, align 8
-  %75 = load ptr, ptr %11, align 8
-  %76 = load i32, ptr %75, align 8
-  %77 = lshr i32 %76, 6
-  %78 = and i32 %77, 1
-  %79 = load ptr, ptr %8, align 8
-  %80 = load i32, ptr %79, align 8
-  %81 = lshr i32 %80, 6
-  %82 = and i32 %81, 1
-  %83 = icmp ne i32 %78, %82
-  br i1 %83, label %84, label %87
-
-84:                                               ; preds = %60
-  %85 = load ptr, ptr %12, align 8
-  %86 = call ptr @Hop_Not(ptr noundef %85)
-  store ptr %86, ptr %12, align 8
-  br label %87
-
-87:                                               ; preds = %84, %60
-  %88 = load ptr, ptr %10, align 8
-  %89 = load ptr, ptr %12, align 8
-  call void @If_CutSetData(ptr noundef %88, ptr noundef %89)
-  br label %94
-
-90:                                               ; preds = %59, %48
-  %91 = load ptr, ptr %11, align 8
-  %92 = getelementptr inbounds %struct.If_Obj_t_, ptr %91, i32 0, i32 8
-  %93 = load ptr, ptr %92, align 8
-  store ptr %93, ptr %11, align 8
-  br label %35, !llvm.loop !7
-
-94:                                               ; preds = %87, %35
-  %95 = load ptr, ptr %10, align 8
-  %96 = call ptr @If_CutData(ptr noundef %95)
-  store ptr %96, ptr %5, align 8
+90:                                               ; preds = %87, %63
+  %91 = load ptr, ptr %10, align 8
+  %92 = load ptr, ptr %12, align 8
+  call void @If_CutSetData(ptr noundef %91, ptr noundef %92)
   br label %97
 
-97:                                               ; preds = %94, %30, %20
-  %98 = load ptr, ptr %5, align 8
-  ret ptr %98
+93:                                               ; preds = %62, %50
+  %94 = load ptr, ptr %11, align 8
+  %95 = getelementptr inbounds %struct.If_Obj_t_, ptr %94, i32 0, i32 8
+  %96 = load ptr, ptr %95, align 8
+  store ptr %96, ptr %11, align 8
+  br label %36, !llvm.loop !7
+
+97:                                               ; preds = %90, %36
+  %98 = load ptr, ptr %10, align 8
+  %99 = call ptr @If_CutData(ptr noundef %98)
+  store ptr %99, ptr %5, align 8
+  br label %100
+
+100:                                              ; preds = %97, %31, %20
+  %101 = load ptr, ptr %5, align 8
+  ret ptr %101
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1289,103 +1292,104 @@ define ptr @Nwk_NodeIfToHop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %54 = call ptr @Nwk_NodeIfToHop2_rec(ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %53)
   store ptr %54, ptr %9, align 8
   %55 = load ptr, ptr %9, align 8
-  %56 = icmp eq ptr %55, inttoptr (i64 1 to ptr)
-  br i1 %56, label %57, label %59
+  %56 = inttoptr i64 1 to ptr
+  %57 = icmp eq ptr %55, %56
+  br i1 %57, label %58, label %60
 
-57:                                               ; preds = %44
-  %58 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
+58:                                               ; preds = %44
+  %59 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
   store ptr null, ptr %4, align 8
-  br label %110
+  br label %111
 
-59:                                               ; preds = %44
+60:                                               ; preds = %44
   store i32 0, ptr %11, align 4
-  br label %60
+  br label %61
 
-60:                                               ; preds = %84, %59
-  %61 = load i32, ptr %11, align 4
-  %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds %struct.If_Cut_t_, ptr %62, i32 0, i32 7
-  %64 = load i64, ptr %63, align 4
-  %65 = lshr i64 %64, 24
-  %66 = and i64 %65, 255
-  %67 = trunc i64 %66 to i32
-  %68 = icmp slt i32 %61, %67
-  br i1 %68, label %69, label %79
+61:                                               ; preds = %85, %60
+  %62 = load i32, ptr %11, align 4
+  %63 = load ptr, ptr %8, align 8
+  %64 = getelementptr inbounds %struct.If_Cut_t_, ptr %63, i32 0, i32 7
+  %65 = load i64, ptr %64, align 4
+  %66 = lshr i64 %65, 24
+  %67 = and i64 %66, 255
+  %68 = trunc i64 %67 to i32
+  %69 = icmp slt i32 %62, %68
+  br i1 %69, label %70, label %80
 
-69:                                               ; preds = %60
-  %70 = load ptr, ptr %6, align 8
-  %71 = load ptr, ptr %8, align 8
-  %72 = getelementptr inbounds %struct.If_Cut_t_, ptr %71, i32 0, i32 8
-  %73 = load i32, ptr %11, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [0 x i32], ptr %72, i64 0, i64 %74
-  %76 = load i32, ptr %75, align 4
-  %77 = call ptr @If_ManObj(ptr noundef %70, i32 noundef %76)
-  store ptr %77, ptr %10, align 8
-  %78 = icmp ne ptr %77, null
-  br label %79
+70:                                               ; preds = %61
+  %71 = load ptr, ptr %6, align 8
+  %72 = load ptr, ptr %8, align 8
+  %73 = getelementptr inbounds %struct.If_Cut_t_, ptr %72, i32 0, i32 8
+  %74 = load i32, ptr %11, align 4
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds [0 x i32], ptr %73, i64 0, i64 %75
+  %77 = load i32, ptr %76, align 4
+  %78 = call ptr @If_ManObj(ptr noundef %71, i32 noundef %77)
+  store ptr %78, ptr %10, align 8
+  %79 = icmp ne ptr %78, null
+  br label %80
 
-79:                                               ; preds = %69, %60
-  %80 = phi i1 [ false, %60 ], [ %78, %69 ]
-  br i1 %80, label %81, label %87
+80:                                               ; preds = %70, %61
+  %81 = phi i1 [ false, %61 ], [ %79, %70 ]
+  br i1 %81, label %82, label %88
 
-81:                                               ; preds = %79
-  %82 = load ptr, ptr %10, align 8
-  %83 = call ptr @If_ObjCutBest(ptr noundef %82)
-  call void @If_CutSetData(ptr noundef %83, ptr noundef null)
-  br label %84
+82:                                               ; preds = %80
+  %83 = load ptr, ptr %10, align 8
+  %84 = call ptr @If_ObjCutBest(ptr noundef %83)
+  call void @If_CutSetData(ptr noundef %84, ptr noundef null)
+  br label %85
 
-84:                                               ; preds = %81
-  %85 = load i32, ptr %11, align 4
-  %86 = add nsw i32 %85, 1
-  store i32 %86, ptr %11, align 4
-  br label %60, !llvm.loop !9
+85:                                               ; preds = %82
+  %86 = load i32, ptr %11, align 4
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %11, align 4
+  br label %61, !llvm.loop !9
 
-87:                                               ; preds = %79
+88:                                               ; preds = %80
   store i32 0, ptr %11, align 4
-  br label %88
+  br label %89
 
-88:                                               ; preds = %105, %87
-  %89 = load i32, ptr %11, align 4
-  %90 = load ptr, ptr %6, align 8
-  %91 = getelementptr inbounds %struct.If_Man_t_, ptr %90, i32 0, i32 7
-  %92 = load ptr, ptr %91, align 8
-  %93 = call i32 @Vec_PtrSize(ptr noundef %92)
-  %94 = icmp slt i32 %89, %93
-  br i1 %94, label %95, label %101
+89:                                               ; preds = %106, %88
+  %90 = load i32, ptr %11, align 4
+  %91 = load ptr, ptr %6, align 8
+  %92 = getelementptr inbounds %struct.If_Man_t_, ptr %91, i32 0, i32 7
+  %93 = load ptr, ptr %92, align 8
+  %94 = call i32 @Vec_PtrSize(ptr noundef %93)
+  %95 = icmp slt i32 %90, %94
+  br i1 %95, label %96, label %102
 
-95:                                               ; preds = %88
-  %96 = load ptr, ptr %6, align 8
-  %97 = getelementptr inbounds %struct.If_Man_t_, ptr %96, i32 0, i32 7
-  %98 = load ptr, ptr %97, align 8
-  %99 = load i32, ptr %11, align 4
-  %100 = call ptr @Vec_PtrEntry(ptr noundef %98, i32 noundef %99)
-  store ptr %100, ptr %8, align 8
-  br label %101
+96:                                               ; preds = %89
+  %97 = load ptr, ptr %6, align 8
+  %98 = getelementptr inbounds %struct.If_Man_t_, ptr %97, i32 0, i32 7
+  %99 = load ptr, ptr %98, align 8
+  %100 = load i32, ptr %11, align 4
+  %101 = call ptr @Vec_PtrEntry(ptr noundef %99, i32 noundef %100)
+  store ptr %101, ptr %8, align 8
+  br label %102
 
-101:                                              ; preds = %95, %88
-  %102 = phi i1 [ false, %88 ], [ true, %95 ]
-  br i1 %102, label %103, label %108
+102:                                              ; preds = %96, %89
+  %103 = phi i1 [ false, %89 ], [ true, %96 ]
+  br i1 %103, label %104, label %109
 
-103:                                              ; preds = %101
-  %104 = load ptr, ptr %8, align 8
-  call void @If_CutSetData(ptr noundef %104, ptr noundef null)
-  br label %105
+104:                                              ; preds = %102
+  %105 = load ptr, ptr %8, align 8
+  call void @If_CutSetData(ptr noundef %105, ptr noundef null)
+  br label %106
 
-105:                                              ; preds = %103
-  %106 = load i32, ptr %11, align 4
-  %107 = add nsw i32 %106, 1
-  store i32 %107, ptr %11, align 4
-  br label %88, !llvm.loop !10
+106:                                              ; preds = %104
+  %107 = load i32, ptr %11, align 4
+  %108 = add nsw i32 %107, 1
+  store i32 %108, ptr %11, align 4
+  br label %89, !llvm.loop !10
 
-108:                                              ; preds = %101
-  %109 = load ptr, ptr %9, align 8
-  store ptr %109, ptr %4, align 8
-  br label %110
+109:                                              ; preds = %102
+  %110 = load ptr, ptr %9, align 8
+  store ptr %110, ptr %4, align 8
+  br label %111
 
-110:                                              ; preds = %108, %57
-  %111 = load ptr, ptr %4, align 8
-  ret ptr %111
+111:                                              ; preds = %109, %58
+  %112 = load ptr, ptr %4, align 8
+  ret ptr %112
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2116,22 +2120,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #7
+declare i64 @strlen(ptr noundef) #6
 
 ; Function Attrs: nounwind
 declare void @free(ptr noundef) #5
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @Vec_IntAlloc(i32 noundef %0) #0 {
@@ -2266,7 +2264,7 @@ define internal void @Vec_PtrGrow(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #8
+declare ptr @realloc(ptr noundef, i64 noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @Vec_PtrAlloc(i32 noundef %0) #0 {
@@ -2326,15 +2324,21 @@ define internal ptr @Vec_PtrAlloc(i32 noundef %0) #0 {
 ; Function Attrs: nounwind
 declare ptr @strcpy(ptr noundef, ptr noundef) #5
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(0) }

@@ -324,98 +324,100 @@ define void @esp_sa_record_add_from_dissector(i8 noundef zeroext %0, ptr noundef
   store ptr null, ptr %17, align 8
   %19 = load i32, ptr @extra_esp_sa_records, align 8
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %8
   %22 = call noalias ptr @g_malloc_n(i64 noundef 16, i64 noundef 112) #10
-  store ptr %22, ptr getelementptr inbounds (%struct.extra_esp_sa_records_t, ptr @extra_esp_sa_records, i32 0, i32 1), align 8
-  br label %23
+  %23 = getelementptr inbounds %struct.extra_esp_sa_records_t, ptr @extra_esp_sa_records, i32 0, i32 1
+  store ptr %22, ptr %23, align 8
+  br label %24
 
-23:                                               ; preds = %21, %8
-  %24 = load i32, ptr @extra_esp_sa_records, align 8
-  %25 = icmp ult i32 %24, 16
-  br i1 %25, label %26, label %32
+24:                                               ; preds = %21, %8
+  %25 = load i32, ptr @extra_esp_sa_records, align 8
+  %26 = icmp ult i32 %25, 16
+  br i1 %26, label %27, label %34
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct.extra_esp_sa_records_t, ptr @extra_esp_sa_records, i32 0, i32 1), align 8
-  %28 = load i32, ptr @extra_esp_sa_records, align 8
-  %29 = add i32 %28, 1
-  store i32 %29, ptr @extra_esp_sa_records, align 8
-  %30 = zext i32 %28 to i64
-  %31 = getelementptr %struct.uat_esp_sa_record_t, ptr %27, i64 %30
-  store ptr %31, ptr %17, align 8
-  br label %33
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds %struct.extra_esp_sa_records_t, ptr @extra_esp_sa_records, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr @extra_esp_sa_records, align 8
+  %31 = add i32 %30, 1
+  store i32 %31, ptr @extra_esp_sa_records, align 8
+  %32 = zext i32 %30 to i64
+  %33 = getelementptr %struct.uat_esp_sa_record_t, ptr %29, i64 %32
+  store ptr %33, ptr %17, align 8
+  br label %35
 
-32:                                               ; preds = %23
+34:                                               ; preds = %24
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str, i32 noundef 16) #11
   unreachable
 
-33:                                               ; preds = %26
-  %34 = load i8, ptr %9, align 1
-  %35 = load ptr, ptr %17, align 8
-  %36 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %35, i32 0, i32 0
-  store i8 %34, ptr %36, align 8
-  %37 = load ptr, ptr %10, align 8
-  %38 = call noalias ptr @g_strdup(ptr noundef %37)
-  %39 = load ptr, ptr %17, align 8
-  %40 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %39, i32 0, i32 1
-  store ptr %38, ptr %40, align 8
-  %41 = load ptr, ptr %11, align 8
-  %42 = call noalias ptr @g_strdup(ptr noundef %41)
-  %43 = load ptr, ptr %17, align 8
-  %44 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %43, i32 0, i32 2
-  store ptr %42, ptr %44, align 8
-  %45 = load ptr, ptr %12, align 8
-  %46 = call noalias ptr @g_strdup(ptr noundef %45)
-  %47 = load ptr, ptr %17, align 8
-  %48 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %47, i32 0, i32 3
-  store ptr %46, ptr %48, align 8
-  %49 = load i8, ptr %13, align 1
-  %50 = load ptr, ptr %17, align 8
-  %51 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %50, i32 0, i32 4
-  store i8 %49, ptr %51, align 8
-  %52 = load ptr, ptr %14, align 8
-  %53 = call noalias ptr @g_strdup(ptr noundef %52)
-  %54 = load ptr, ptr %17, align 8
-  %55 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %54, i32 0, i32 5
-  store ptr %53, ptr %55, align 8
+35:                                               ; preds = %27
+  %36 = load i8, ptr %9, align 1
+  %37 = load ptr, ptr %17, align 8
+  %38 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %37, i32 0, i32 0
+  store i8 %36, ptr %38, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = call noalias ptr @g_strdup(ptr noundef %39)
+  %41 = load ptr, ptr %17, align 8
+  %42 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %41, i32 0, i32 1
+  store ptr %40, ptr %42, align 8
+  %43 = load ptr, ptr %11, align 8
+  %44 = call noalias ptr @g_strdup(ptr noundef %43)
+  %45 = load ptr, ptr %17, align 8
+  %46 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %45, i32 0, i32 2
+  store ptr %44, ptr %46, align 8
+  %47 = load ptr, ptr %12, align 8
+  %48 = call noalias ptr @g_strdup(ptr noundef %47)
+  %49 = load ptr, ptr %17, align 8
+  %50 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %49, i32 0, i32 3
+  store ptr %48, ptr %50, align 8
+  %51 = load i8, ptr %13, align 1
+  %52 = load ptr, ptr %17, align 8
+  %53 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %52, i32 0, i32 4
+  store i8 %51, ptr %53, align 8
+  %54 = load ptr, ptr %14, align 8
+  %55 = call noalias ptr @g_strdup(ptr noundef %54)
   %56 = load ptr, ptr %17, align 8
-  %57 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %56, i32 0, i32 6
-  store ptr null, ptr %57, align 8
+  %57 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %56, i32 0, i32 5
+  store ptr %55, ptr %57, align 8
   %58 = load ptr, ptr %17, align 8
-  %59 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %58, i32 0, i32 8
-  store i32 0, ptr %59, align 4
-  %60 = load i8, ptr %15, align 1
-  %61 = load ptr, ptr %17, align 8
-  %62 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %61, i32 0, i32 10
-  store i8 %60, ptr %62, align 8
-  %63 = load ptr, ptr %16, align 8
-  %64 = call noalias ptr @g_strdup(ptr noundef %63)
-  %65 = load ptr, ptr %17, align 8
-  %66 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %65, i32 0, i32 11
-  store ptr %64, ptr %66, align 8
+  %59 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %58, i32 0, i32 6
+  store ptr null, ptr %59, align 8
+  %60 = load ptr, ptr %17, align 8
+  %61 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %60, i32 0, i32 8
+  store i32 0, ptr %61, align 4
+  %62 = load i8, ptr %15, align 1
+  %63 = load ptr, ptr %17, align 8
+  %64 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %63, i32 0, i32 10
+  store i8 %62, ptr %64, align 8
+  %65 = load ptr, ptr %16, align 8
+  %66 = call noalias ptr @g_strdup(ptr noundef %65)
   %67 = load ptr, ptr %17, align 8
-  %68 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %67, i32 0, i32 12
-  store ptr null, ptr %68, align 8
+  %68 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %67, i32 0, i32 11
+  store ptr %66, ptr %68, align 8
   %69 = load ptr, ptr %17, align 8
-  %70 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %69, i32 0, i32 14
-  store i8 32, ptr %70, align 4
+  %70 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %69, i32 0, i32 12
+  store ptr null, ptr %70, align 8
   %71 = load ptr, ptr %17, align 8
-  %72 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %71, i32 0, i32 15
-  store i32 0, ptr %72, align 8
-  store ptr null, ptr %18, align 8
+  %72 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %71, i32 0, i32 14
+  store i8 32, ptr %72, align 4
   %73 = load ptr, ptr %17, align 8
-  %74 = call zeroext i1 @uat_esp_sa_record_update_cb(ptr noundef %73, ptr noundef %18)
-  %75 = load ptr, ptr %18, align 8
-  %76 = icmp ne ptr %75, null
-  br i1 %76, label %77, label %79
+  %74 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %73, i32 0, i32 15
+  store i32 0, ptr %74, align 8
+  store ptr null, ptr %18, align 8
+  %75 = load ptr, ptr %17, align 8
+  %76 = call zeroext i1 @uat_esp_sa_record_update_cb(ptr noundef %75, ptr noundef %18)
+  %77 = load ptr, ptr %18, align 8
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %79, label %81
 
-77:                                               ; preds = %33
-  %78 = load ptr, ptr %18, align 8
-  call void @g_free(ptr noundef %78)
-  br label %79
+79:                                               ; preds = %35
+  %80 = load ptr, ptr %18, align 8
+  call void @g_free(ptr noundef %80)
+  br label %81
 
-79:                                               ; preds = %77, %33
+81:                                               ; preds = %79, %35
   ret void
 }
 
@@ -1906,30 +1908,33 @@ define internal void @ipsec_cleanup_protocol() #0 {
   store i32 0, ptr %1, align 4
   br label %2
 
-2:                                                ; preds = %11, %0
+2:                                                ; preds = %12, %0
   %3 = load i32, ptr %1, align 4
   %4 = load i32, ptr @extra_esp_sa_records, align 8
   %5 = icmp ult i32 %3, %4
-  br i1 %5, label %6, label %14
+  br i1 %5, label %6, label %15
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (%struct.extra_esp_sa_records_t, ptr @extra_esp_sa_records, i32 0, i32 1), align 8
-  %8 = load i32, ptr %1, align 4
-  %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.uat_esp_sa_record_t, ptr %7, i64 %9
-  call void @uat_esp_sa_record_free_cb(ptr noundef %10)
-  br label %11
+  %7 = getelementptr inbounds %struct.extra_esp_sa_records_t, ptr @extra_esp_sa_records, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i32, ptr %1, align 4
+  %10 = zext i32 %9 to i64
+  %11 = getelementptr %struct.uat_esp_sa_record_t, ptr %8, i64 %10
+  call void @uat_esp_sa_record_free_cb(ptr noundef %11)
+  br label %12
 
-11:                                               ; preds = %6
-  %12 = load i32, ptr %1, align 4
-  %13 = add i32 %12, 1
-  store i32 %13, ptr %1, align 4
+12:                                               ; preds = %6
+  %13 = load i32, ptr %1, align 4
+  %14 = add i32 %13, 1
+  store i32 %14, ptr %1, align 4
   br label %2, !llvm.loop !13
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (%struct.extra_esp_sa_records_t, ptr @extra_esp_sa_records, i32 0, i32 1), align 8
-  call void @g_free(ptr noundef %15)
-  store ptr null, ptr getelementptr inbounds (%struct.extra_esp_sa_records_t, ptr @extra_esp_sa_records, i32 0, i32 1), align 8
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds %struct.extra_esp_sa_records_t, ptr @extra_esp_sa_records, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  call void @g_free(ptr noundef %17)
+  %18 = getelementptr inbounds %struct.extra_esp_sa_records_t, ptr @extra_esp_sa_records, i32 0, i32 1
+  store ptr null, ptr %18, align 8
   store i32 0, ptr @extra_esp_sa_records, align 8
   ret void
 }
@@ -4999,7 +5004,7 @@ define internal i32 @get_esp_sa(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   store i32 0, ptr %31, align 4
   br label %35
 
-35:                                               ; preds = %153, %14
+35:                                               ; preds = %154, %14
   %36 = load i32, ptr %29, align 4
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %48
@@ -5022,164 +5027,165 @@ define internal i32 @get_esp_sa(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 
 48:                                               ; preds = %46, %35
   %49 = phi i1 [ false, %35 ], [ %47, %46 ]
-  br i1 %49, label %50, label %154
+  br i1 %49, label %50, label %155
 
 50:                                               ; preds = %48
   %51 = load i32, ptr %31, align 4
   %52 = load i32, ptr @extra_esp_sa_records, align 8
   %53 = icmp ult i32 %51, %52
-  br i1 %53, label %54, label %60
+  br i1 %53, label %54, label %61
 
 54:                                               ; preds = %50
-  %55 = load ptr, ptr getelementptr inbounds (%struct.extra_esp_sa_records_t, ptr @extra_esp_sa_records, i32 0, i32 1), align 8
-  %56 = load i32, ptr %31, align 4
-  %57 = add i32 %56, 1
-  store i32 %57, ptr %31, align 4
-  %58 = zext i32 %56 to i64
-  %59 = getelementptr %struct.uat_esp_sa_record_t, ptr %55, i64 %58
-  store ptr %59, ptr %32, align 8
-  br label %66
+  %55 = getelementptr inbounds %struct.extra_esp_sa_records_t, ptr @extra_esp_sa_records, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i32, ptr %31, align 4
+  %58 = add i32 %57, 1
+  store i32 %58, ptr %31, align 4
+  %59 = zext i32 %57 to i64
+  %60 = getelementptr %struct.uat_esp_sa_record_t, ptr %56, i64 %59
+  store ptr %60, ptr %32, align 8
+  br label %67
 
-60:                                               ; preds = %50
-  %61 = load ptr, ptr @uat_esp_sa_records, align 8
-  %62 = load i32, ptr %30, align 4
-  %63 = add i32 %62, 1
-  store i32 %63, ptr %30, align 4
-  %64 = zext i32 %62 to i64
-  %65 = getelementptr %struct.uat_esp_sa_record_t, ptr %61, i64 %64
-  store ptr %65, ptr %32, align 8
-  br label %66
+61:                                               ; preds = %50
+  %62 = load ptr, ptr @uat_esp_sa_records, align 8
+  %63 = load i32, ptr %30, align 4
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %30, align 4
+  %65 = zext i32 %63 to i64
+  %66 = getelementptr %struct.uat_esp_sa_record_t, ptr %62, i64 %65
+  store ptr %66, ptr %32, align 8
+  br label %67
 
-66:                                               ; preds = %60, %54
-  %67 = load i32, ptr %15, align 4
-  %68 = load ptr, ptr %32, align 8
-  %69 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %68, i32 0, i32 0
-  %70 = load i8, ptr %69, align 8
-  %71 = zext i8 %70 to i32
-  %72 = icmp eq i32 %67, %71
-  br i1 %72, label %73, label %153
+67:                                               ; preds = %61, %54
+  %68 = load i32, ptr %15, align 4
+  %69 = load ptr, ptr %32, align 8
+  %70 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %69, i32 0, i32 0
+  %71 = load i8, ptr %70, align 8
+  %72 = zext i8 %71 to i32
+  %73 = icmp eq i32 %68, %72
+  br i1 %73, label %74, label %154
 
-73:                                               ; preds = %66
-  %74 = load ptr, ptr %16, align 8
-  %75 = load ptr, ptr %32, align 8
-  %76 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %75, i32 0, i32 1
-  %77 = load ptr, ptr %76, align 8
-  %78 = load i32, ptr %15, align 4
-  %79 = call i32 @filter_address_match(ptr noundef %74, ptr noundef %77, i32 noundef %78)
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %81, label %153
+74:                                               ; preds = %67
+  %75 = load ptr, ptr %16, align 8
+  %76 = load ptr, ptr %32, align 8
+  %77 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %76, i32 0, i32 1
+  %78 = load ptr, ptr %77, align 8
+  %79 = load i32, ptr %15, align 4
+  %80 = call i32 @filter_address_match(ptr noundef %75, ptr noundef %78, i32 noundef %79)
+  %81 = icmp ne i32 %80, 0
+  br i1 %81, label %82, label %154
 
-81:                                               ; preds = %73
-  %82 = load ptr, ptr %17, align 8
-  %83 = load ptr, ptr %32, align 8
-  %84 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %83, i32 0, i32 2
-  %85 = load ptr, ptr %84, align 8
-  %86 = load i32, ptr %15, align 4
-  %87 = call i32 @filter_address_match(ptr noundef %82, ptr noundef %85, i32 noundef %86)
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %89, label %153
+82:                                               ; preds = %74
+  %83 = load ptr, ptr %17, align 8
+  %84 = load ptr, ptr %32, align 8
+  %85 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %84, i32 0, i32 2
+  %86 = load ptr, ptr %85, align 8
+  %87 = load i32, ptr %15, align 4
+  %88 = call i32 @filter_address_match(ptr noundef %83, ptr noundef %86, i32 noundef %87)
+  %89 = icmp ne i32 %88, 0
+  br i1 %89, label %90, label %154
 
-89:                                               ; preds = %81
-  %90 = load i32, ptr %18, align 4
-  %91 = load ptr, ptr %32, align 8
-  %92 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %91, i32 0, i32 3
-  %93 = load ptr, ptr %92, align 8
-  %94 = call i32 @filter_spi_match(i32 noundef %90, ptr noundef %93)
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %153
+90:                                               ; preds = %82
+  %91 = load i32, ptr %18, align 4
+  %92 = load ptr, ptr %32, align 8
+  %93 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %92, i32 0, i32 3
+  %94 = load ptr, ptr %93, align 8
+  %95 = call i32 @filter_spi_match(i32 noundef %91, ptr noundef %94)
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %154
 
-96:                                               ; preds = %89
+97:                                               ; preds = %90
   store i32 1, ptr %29, align 4
-  %97 = load ptr, ptr %32, align 8
-  %98 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %97, i32 0, i32 4
-  %99 = load i8, ptr %98, align 8
-  %100 = zext i8 %99 to i32
-  %101 = load ptr, ptr %19, align 8
-  store i32 %100, ptr %101, align 4
-  %102 = load ptr, ptr %32, align 8
-  %103 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %102, i32 0, i32 10
-  %104 = load i8, ptr %103, align 8
-  %105 = zext i8 %104 to i32
-  %106 = load ptr, ptr %20, align 8
-  store i32 %105, ptr %106, align 4
-  %107 = load ptr, ptr %32, align 8
-  %108 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %107, i32 0, i32 12
-  %109 = load ptr, ptr %108, align 8
-  %110 = load ptr, ptr %23, align 8
-  store ptr %109, ptr %110, align 8
-  %111 = load ptr, ptr %32, align 8
-  %112 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %111, i32 0, i32 13
-  %113 = load i32, ptr %112, align 8
-  %114 = icmp eq i32 %113, -1
-  br i1 %114, label %115, label %117
+  %98 = load ptr, ptr %32, align 8
+  %99 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %98, i32 0, i32 4
+  %100 = load i8, ptr %99, align 8
+  %101 = zext i8 %100 to i32
+  %102 = load ptr, ptr %19, align 8
+  store i32 %101, ptr %102, align 4
+  %103 = load ptr, ptr %32, align 8
+  %104 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %103, i32 0, i32 10
+  %105 = load i8, ptr %104, align 8
+  %106 = zext i8 %105 to i32
+  %107 = load ptr, ptr %20, align 8
+  store i32 %106, ptr %107, align 4
+  %108 = load ptr, ptr %32, align 8
+  %109 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %108, i32 0, i32 12
+  %110 = load ptr, ptr %109, align 8
+  %111 = load ptr, ptr %23, align 8
+  store ptr %110, ptr %111, align 8
+  %112 = load ptr, ptr %32, align 8
+  %113 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %112, i32 0, i32 13
+  %114 = load i32, ptr %113, align 8
+  %115 = icmp eq i32 %114, -1
+  br i1 %115, label %116, label %118
 
-115:                                              ; preds = %96
-  %116 = load ptr, ptr %24, align 8
-  store i32 0, ptr %116, align 4
+116:                                              ; preds = %97
+  %117 = load ptr, ptr %24, align 8
+  store i32 0, ptr %117, align 4
   store i32 0, ptr %29, align 4
-  br label %122
+  br label %123
 
-117:                                              ; preds = %96
-  %118 = load ptr, ptr %32, align 8
-  %119 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %118, i32 0, i32 13
-  %120 = load i32, ptr %119, align 8
-  %121 = load ptr, ptr %24, align 8
-  store i32 %120, ptr %121, align 4
-  br label %122
+118:                                              ; preds = %97
+  %119 = load ptr, ptr %32, align 8
+  %120 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %119, i32 0, i32 13
+  %121 = load i32, ptr %120, align 8
+  %122 = load ptr, ptr %24, align 8
+  store i32 %121, ptr %122, align 4
+  br label %123
 
-122:                                              ; preds = %117, %115
-  %123 = load ptr, ptr %32, align 8
-  %124 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %123, i32 0, i32 6
-  %125 = load ptr, ptr %124, align 8
-  %126 = load ptr, ptr %21, align 8
-  store ptr %125, ptr %126, align 8
-  %127 = load ptr, ptr %32, align 8
-  %128 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %127, i32 0, i32 7
-  %129 = load i32, ptr %128, align 8
-  %130 = icmp eq i32 %129, -1
-  br i1 %130, label %131, label %133
+123:                                              ; preds = %118, %116
+  %124 = load ptr, ptr %32, align 8
+  %125 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %124, i32 0, i32 6
+  %126 = load ptr, ptr %125, align 8
+  %127 = load ptr, ptr %21, align 8
+  store ptr %126, ptr %127, align 8
+  %128 = load ptr, ptr %32, align 8
+  %129 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %128, i32 0, i32 7
+  %130 = load i32, ptr %129, align 8
+  %131 = icmp eq i32 %130, -1
+  br i1 %131, label %132, label %134
 
-131:                                              ; preds = %122
-  %132 = load ptr, ptr %22, align 8
-  store i32 0, ptr %132, align 4
+132:                                              ; preds = %123
+  %133 = load ptr, ptr %22, align 8
+  store i32 0, ptr %133, align 4
   store i32 0, ptr %29, align 4
-  br label %138
+  br label %139
 
-133:                                              ; preds = %122
-  %134 = load ptr, ptr %32, align 8
-  %135 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %134, i32 0, i32 7
-  %136 = load i32, ptr %135, align 8
-  %137 = load ptr, ptr %22, align 8
-  store i32 %136, ptr %137, align 4
-  br label %138
+134:                                              ; preds = %123
+  %135 = load ptr, ptr %32, align 8
+  %136 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %135, i32 0, i32 7
+  %137 = load i32, ptr %136, align 8
+  %138 = load ptr, ptr %22, align 8
+  store i32 %137, ptr %138, align 4
+  br label %139
 
-138:                                              ; preds = %133, %131
-  %139 = load ptr, ptr %32, align 8
-  %140 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %139, i32 0, i32 9
-  %141 = load ptr, ptr %25, align 8
-  store ptr %140, ptr %141, align 8
-  %142 = load ptr, ptr %32, align 8
-  %143 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %142, i32 0, i32 8
-  %144 = load ptr, ptr %26, align 8
-  store ptr %143, ptr %144, align 8
-  %145 = load ptr, ptr %32, align 8
-  %146 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %145, i32 0, i32 14
-  %147 = load i8, ptr %146, align 4
-  %148 = load ptr, ptr %27, align 8
-  store i8 %147, ptr %148, align 1
-  %149 = load ptr, ptr %32, align 8
-  %150 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %149, i32 0, i32 15
-  %151 = load i32, ptr %150, align 8
-  %152 = load ptr, ptr %28, align 8
-  store i32 %151, ptr %152, align 4
-  br label %153
+139:                                              ; preds = %134, %132
+  %140 = load ptr, ptr %32, align 8
+  %141 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %140, i32 0, i32 9
+  %142 = load ptr, ptr %25, align 8
+  store ptr %141, ptr %142, align 8
+  %143 = load ptr, ptr %32, align 8
+  %144 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %143, i32 0, i32 8
+  %145 = load ptr, ptr %26, align 8
+  store ptr %144, ptr %145, align 8
+  %146 = load ptr, ptr %32, align 8
+  %147 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %146, i32 0, i32 14
+  %148 = load i8, ptr %147, align 4
+  %149 = load ptr, ptr %27, align 8
+  store i8 %148, ptr %149, align 1
+  %150 = load ptr, ptr %32, align 8
+  %151 = getelementptr inbounds %struct.uat_esp_sa_record_t, ptr %150, i32 0, i32 15
+  %152 = load i32, ptr %151, align 8
+  %153 = load ptr, ptr %28, align 8
+  store i32 %152, ptr %153, align 4
+  br label %154
 
-153:                                              ; preds = %138, %89, %81, %73, %66
+154:                                              ; preds = %139, %90, %82, %74, %67
   br label %35, !llvm.loop !16
 
-154:                                              ; preds = %48
-  %155 = load i32, ptr %29, align 4
-  ret i32 %155
+155:                                              ; preds = %48
+  %156 = load i32, ptr %29, align 4
+  ret i32 %156
 }
 
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) #3

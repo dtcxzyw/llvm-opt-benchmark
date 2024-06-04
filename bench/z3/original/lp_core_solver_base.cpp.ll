@@ -2795,7 +2795,8 @@ entry:
   store ptr %lower_bound_values, ptr %lower_bound_values.addr, align 8
   store ptr %upper_bound_values, ptr %upper_bound_values.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_total_iterations = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_total_iterations, align 8
   %m_iters_with_no_cost_growing = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 2
@@ -2804,15 +2805,15 @@ entry:
   store i32 7, ptr %m_status, align 8
   %m_inf_heap = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 5
   store i32 1024, ptr %ref.tmp, align 4
-  %0 = load ptr, ptr %A.addr, align 8
-  %call = call noundef i32 @_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE12column_countEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
+  %1 = load ptr, ptr %A.addr, align 8
+  %call = call noundef i32 @_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE12column_countEv(ptr noundef nonnull align 8 dereferenceable(120) %1)
   store i32 %call, ptr %ref.tmp2, align 4
   %call3 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
-  %1 = load i32, ptr %call3, align 4
-  call void @_ZN4heapIN2lp8lpvar_ltEEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_inf_heap, i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  %2 = load i32, ptr %call3, align 4
+  call void @_ZN4heapIN2lp8lpvar_ltEEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_inf_heap, i32 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
   %m_pivot_row = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 6
-  %2 = load ptr, ptr %A.addr, align 8
-  %call5 = invoke noundef i32 @_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE12column_countEv(ptr noundef nonnull align 8 dereferenceable(120) %2)
+  %3 = load ptr, ptr %A.addr, align 8
+  %call5 = invoke noundef i32 @_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE12column_countEv(ptr noundef nonnull align 8 dereferenceable(120) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2821,29 +2822,29 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %m_A = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 7
-  %3 = load ptr, ptr %A.addr, align 8
-  store ptr %3, ptr %m_A, align 8
+  %4 = load ptr, ptr %A.addr, align 8
+  store ptr %4, ptr %m_A, align 8
   %m_basis = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 8
-  %4 = load ptr, ptr %basis.addr, align 8
-  store ptr %4, ptr %m_basis, align 8
+  %5 = load ptr, ptr %basis.addr, align 8
+  store ptr %5, ptr %m_basis, align 8
   %m_nbasis = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 9
-  %5 = load ptr, ptr %nbasis.addr, align 8
-  store ptr %5, ptr %m_nbasis, align 8
+  %6 = load ptr, ptr %nbasis.addr, align 8
+  store ptr %6, ptr %m_nbasis, align 8
   %m_basis_heading = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 10
-  %6 = load ptr, ptr %heading.addr, align 8
-  store ptr %6, ptr %m_basis_heading, align 8
+  %7 = load ptr, ptr %heading.addr, align 8
+  store ptr %7, ptr %m_basis_heading, align 8
   %m_x = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 11
-  %7 = load ptr, ptr %x.addr, align 8
-  store ptr %7, ptr %m_x, align 8
+  %8 = load ptr, ptr %x.addr, align 8
+  store ptr %8, ptr %m_x, align 8
   %m_costs = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 12
-  %8 = load ptr, ptr %costs.addr, align 8
-  store ptr %8, ptr %m_costs, align 8
+  %9 = load ptr, ptr %costs.addr, align 8
+  store ptr %9, ptr %m_costs, align 8
   %m_settings = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 13
-  %9 = load ptr, ptr %settings.addr, align 8
-  store ptr %9, ptr %m_settings, align 8
+  %10 = load ptr, ptr %settings.addr, align 8
+  store ptr %10, ptr %m_settings, align 8
   %m_column_names = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 14
-  %10 = load ptr, ptr %column_names.addr, align 8
-  store ptr %10, ptr %m_column_names, align 8
+  %11 = load ptr, ptr %column_names.addr, align 8
+  store ptr %11, ptr %m_column_names, align 8
   %m_d = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 15
   %call9 = invoke noundef i32 @_ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE3m_nEv(ptr noundef nonnull align 8 dereferenceable(185) %this1)
           to label %invoke.cont8 unwind label %lpad7
@@ -2854,14 +2855,14 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   %m_column_types = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 16
-  %11 = load ptr, ptr %column_types.addr, align 8
-  store ptr %11, ptr %m_column_types, align 8
+  %12 = load ptr, ptr %column_types.addr, align 8
+  store ptr %12, ptr %m_column_types, align 8
   %m_lower_bounds = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 17
-  %12 = load ptr, ptr %lower_bound_values.addr, align 8
-  store ptr %12, ptr %m_lower_bounds, align 8
+  %13 = load ptr, ptr %lower_bound_values.addr, align 8
+  store ptr %13, ptr %m_lower_bounds, align 8
   %m_upper_bounds = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 18
-  %13 = load ptr, ptr %upper_bound_values.addr, align 8
-  store ptr %13, ptr %m_upper_bounds, align 8
+  %14 = load ptr, ptr %upper_bound_values.addr, align 8
+  store ptr %14, ptr %m_upper_bounds, align 8
   %m_nbasis_sort_counter = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 19
   store i32 0, ptr %m_nbasis_sort_counter, align 8
   %m_trace_of_basis_change_vector = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 21
@@ -2883,30 +2884,30 @@ invoke.cont13:                                    ; preds = %invoke.cont12
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup14
 
 lpad7:                                            ; preds = %invoke.cont8, %invoke.cont6
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont12, %invoke.cont10
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   call void @_ZN6vectorIjLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_trace_of_basis_change_vector) #3
   call void @_ZN6vectorI8rationalLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_d) #3
   br label %ehcleanup
@@ -3473,7 +3474,8 @@ entry:
   store ptr %lower_bound_values, ptr %lower_bound_values.addr, align 8
   store ptr %upper_bound_values, ptr %upper_bound_values.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2lp19lp_core_solver_baseI8rationalS1_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN2lp19lp_core_solver_baseI8rationalS1_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_total_iterations = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_total_iterations, align 8
   %m_iters_with_no_cost_growing = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 2
@@ -3482,15 +3484,15 @@ entry:
   store i32 7, ptr %m_status, align 8
   %m_inf_heap = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 5
   store i32 1024, ptr %ref.tmp, align 4
-  %0 = load ptr, ptr %A.addr, align 8
-  %call = call noundef i32 @_ZNK2lp13static_matrixI8rationalS1_E12column_countEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
+  %1 = load ptr, ptr %A.addr, align 8
+  %call = call noundef i32 @_ZNK2lp13static_matrixI8rationalS1_E12column_countEv(ptr noundef nonnull align 8 dereferenceable(120) %1)
   store i32 %call, ptr %ref.tmp2, align 4
   %call3 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
-  %1 = load i32, ptr %call3, align 4
-  call void @_ZN4heapIN2lp8lpvar_ltEEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_inf_heap, i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  %2 = load i32, ptr %call3, align 4
+  call void @_ZN4heapIN2lp8lpvar_ltEEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_inf_heap, i32 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
   %m_pivot_row = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 6
-  %2 = load ptr, ptr %A.addr, align 8
-  %call5 = invoke noundef i32 @_ZNK2lp13static_matrixI8rationalS1_E12column_countEv(ptr noundef nonnull align 8 dereferenceable(120) %2)
+  %3 = load ptr, ptr %A.addr, align 8
+  %call5 = invoke noundef i32 @_ZNK2lp13static_matrixI8rationalS1_E12column_countEv(ptr noundef nonnull align 8 dereferenceable(120) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -3499,29 +3501,29 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %m_A = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 7
-  %3 = load ptr, ptr %A.addr, align 8
-  store ptr %3, ptr %m_A, align 8
+  %4 = load ptr, ptr %A.addr, align 8
+  store ptr %4, ptr %m_A, align 8
   %m_basis = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 8
-  %4 = load ptr, ptr %basis.addr, align 8
-  store ptr %4, ptr %m_basis, align 8
+  %5 = load ptr, ptr %basis.addr, align 8
+  store ptr %5, ptr %m_basis, align 8
   %m_nbasis = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 9
-  %5 = load ptr, ptr %nbasis.addr, align 8
-  store ptr %5, ptr %m_nbasis, align 8
+  %6 = load ptr, ptr %nbasis.addr, align 8
+  store ptr %6, ptr %m_nbasis, align 8
   %m_basis_heading = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 10
-  %6 = load ptr, ptr %heading.addr, align 8
-  store ptr %6, ptr %m_basis_heading, align 8
+  %7 = load ptr, ptr %heading.addr, align 8
+  store ptr %7, ptr %m_basis_heading, align 8
   %m_x = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 11
-  %7 = load ptr, ptr %x.addr, align 8
-  store ptr %7, ptr %m_x, align 8
+  %8 = load ptr, ptr %x.addr, align 8
+  store ptr %8, ptr %m_x, align 8
   %m_costs = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 12
-  %8 = load ptr, ptr %costs.addr, align 8
-  store ptr %8, ptr %m_costs, align 8
+  %9 = load ptr, ptr %costs.addr, align 8
+  store ptr %9, ptr %m_costs, align 8
   %m_settings = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 13
-  %9 = load ptr, ptr %settings.addr, align 8
-  store ptr %9, ptr %m_settings, align 8
+  %10 = load ptr, ptr %settings.addr, align 8
+  store ptr %10, ptr %m_settings, align 8
   %m_column_names = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 14
-  %10 = load ptr, ptr %column_names.addr, align 8
-  store ptr %10, ptr %m_column_names, align 8
+  %11 = load ptr, ptr %column_names.addr, align 8
+  store ptr %11, ptr %m_column_names, align 8
   %m_d = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 15
   %call9 = invoke noundef i32 @_ZNK2lp19lp_core_solver_baseI8rationalS1_E3m_nEv(ptr noundef nonnull align 8 dereferenceable(185) %this1)
           to label %invoke.cont8 unwind label %lpad7
@@ -3532,14 +3534,14 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   %m_column_types = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 16
-  %11 = load ptr, ptr %column_types.addr, align 8
-  store ptr %11, ptr %m_column_types, align 8
+  %12 = load ptr, ptr %column_types.addr, align 8
+  store ptr %12, ptr %m_column_types, align 8
   %m_lower_bounds = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 17
-  %12 = load ptr, ptr %lower_bound_values.addr, align 8
-  store ptr %12, ptr %m_lower_bounds, align 8
+  %13 = load ptr, ptr %lower_bound_values.addr, align 8
+  store ptr %13, ptr %m_lower_bounds, align 8
   %m_upper_bounds = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 18
-  %13 = load ptr, ptr %upper_bound_values.addr, align 8
-  store ptr %13, ptr %m_upper_bounds, align 8
+  %14 = load ptr, ptr %upper_bound_values.addr, align 8
+  store ptr %14, ptr %m_upper_bounds, align 8
   %m_nbasis_sort_counter = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 19
   store i32 0, ptr %m_nbasis_sort_counter, align 8
   %m_trace_of_basis_change_vector = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 21
@@ -3561,30 +3563,30 @@ invoke.cont13:                                    ; preds = %invoke.cont12
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup14
 
 lpad7:                                            ; preds = %invoke.cont8, %invoke.cont6
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont12, %invoke.cont10
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   call void @_ZN6vectorIjLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_trace_of_basis_change_vector) #3
   call void @_ZN6vectorI8rationalLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_d) #3
   br label %ehcleanup
@@ -5643,7 +5645,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_trace_of_basis_change_vector = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 21
   call void @_ZN6vectorIjLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_trace_of_basis_change_vector) #3
   %m_d = getelementptr inbounds %"class.lp::lp_core_solver_base.7", ptr %this1, i32 0, i32 15
@@ -5680,7 +5683,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2lp19lp_core_solver_baseI8rationalS1_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN2lp19lp_core_solver_baseI8rationalS1_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_trace_of_basis_change_vector = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 21
   call void @_ZN6vectorIjLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_trace_of_basis_change_vector) #3
   %m_d = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %this1, i32 0, i32 15
@@ -6883,10 +6887,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -6896,7 +6901,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -7134,7 +7140,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

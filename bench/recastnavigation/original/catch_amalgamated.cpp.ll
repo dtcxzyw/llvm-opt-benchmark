@@ -17899,7 +17899,8 @@ define linkonce_odr dso_local void @_ZN5Catch9Benchmark6Detail20optimized_away_e
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9Benchmark6Detail20optimized_away_errorE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch9Benchmark6Detail20optimized_away_errorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -20862,521 +20863,522 @@ define dso_local void @_ZN5Catch6ConfigC2ERKNS_10ConfigDataE(ptr noundef nonnull
   store ptr %1, ptr %4, align 8
   %37 = load ptr, ptr %3, align 8
   call void @_ZN5Catch7IConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #7
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN5Catch6ConfigE, i32 0, i32 0, i32 2), ptr %37, align 8
-  %38 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
-  %39 = load ptr, ptr %4, align 8
-  invoke void @_ZN5Catch10ConfigDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(272) %38, ptr noundef nonnull align 8 dereferenceable(272) %39)
-          to label %40 unwind label %62
+  %38 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN5Catch6ConfigE, i32 0, i32 0, i32 2
+  store ptr %38, ptr %37, align 8
+  %39 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
+  %40 = load ptr, ptr %4, align 8
+  invoke void @_ZN5Catch10ConfigDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(272) %39, ptr noundef nonnull align 8 dereferenceable(272) %40)
+          to label %41 unwind label %63
 
-40:                                               ; preds = %2
-  %41 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 2
-  call void @_ZNSt6vectorIN5Catch21ProcessedReporterSpecESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #7
-  %42 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 3
-  call void @_ZN5Catch8TestSpecC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %42) #7
-  %43 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 4
-  store i8 0, ptr %43, align 8
-  %44 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
-  %45 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %44, i32 0, i32 33
-  store ptr %45, ptr %7, align 8
-  %46 = load ptr, ptr %7, align 8
-  %47 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #7
-  %48 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %8, i32 0, i32 0
-  store ptr %47, ptr %48, align 8
-  %49 = load ptr, ptr %7, align 8
-  %50 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %49) #7
-  %51 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %9, i32 0, i32 0
-  store ptr %50, ptr %51, align 8
-  br label %52
+41:                                               ; preds = %2
+  %42 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 2
+  call void @_ZNSt6vectorIN5Catch21ProcessedReporterSpecESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %42) #7
+  %43 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 3
+  call void @_ZN5Catch8TestSpecC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %43) #7
+  %44 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 4
+  store i8 0, ptr %44, align 8
+  %45 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
+  %46 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %45, i32 0, i32 33
+  store ptr %46, ptr %7, align 8
+  %47 = load ptr, ptr %7, align 8
+  %48 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %47) #7
+  %49 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %8, i32 0, i32 0
+  store ptr %48, ptr %49, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %50) #7
+  %52 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %9, i32 0, i32 0
+  store ptr %51, ptr %52, align 8
+  br label %53
 
-52:                                               ; preds = %60, %40
-  %53 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #7
-  br i1 %53, label %54, label %70
+53:                                               ; preds = %61, %41
+  %54 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #7
+  br i1 %54, label %55, label %71
 
-54:                                               ; preds = %52
-  %55 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #7
-  store ptr %55, ptr %10, align 8
-  %56 = load ptr, ptr %10, align 8
-  invoke void @_ZN5Catch4trimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %56)
-          to label %57 unwind label %66
+55:                                               ; preds = %53
+  %56 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #7
+  store ptr %56, ptr %10, align 8
+  %57 = load ptr, ptr %10, align 8
+  invoke void @_ZN5Catch4trimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %57)
+          to label %58 unwind label %67
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr %10, align 8
-  %59 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %11) #7
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %10, align 8
+  %60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %11) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #7
-  br label %60
+  br label %61
 
-60:                                               ; preds = %57
-  %61 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #7
-  br label %52
+61:                                               ; preds = %58
+  %62 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #7
+  br label %53
 
-62:                                               ; preds = %2
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %2
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %5, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %6, align 4
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %5, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %6, align 4
+  br label %262
+
+67:                                               ; preds = %133, %131, %129, %126, %82, %55
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %5, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %6, align 4
   br label %261
 
-66:                                               ; preds = %132, %130, %128, %125, %81, %54
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %5, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %6, align 4
-  br label %260
+71:                                               ; preds = %53
+  %72 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
+  %73 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %72, i32 0, i32 34
+  store ptr %73, ptr %12, align 8
+  %74 = load ptr, ptr %12, align 8
+  %75 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %74) #7
+  %76 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %13, i32 0, i32 0
+  store ptr %75, ptr %76, align 8
+  %77 = load ptr, ptr %12, align 8
+  %78 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %77) #7
+  %79 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %14, i32 0, i32 0
+  store ptr %78, ptr %79, align 8
+  br label %80
 
-70:                                               ; preds = %52
-  %71 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
-  %72 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %71, i32 0, i32 34
-  store ptr %72, ptr %12, align 8
-  %73 = load ptr, ptr %12, align 8
-  %74 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %73) #7
-  %75 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %13, i32 0, i32 0
-  store ptr %74, ptr %75, align 8
-  %76 = load ptr, ptr %12, align 8
-  %77 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %76) #7
-  %78 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %14, i32 0, i32 0
-  store ptr %77, ptr %78, align 8
-  br label %79
+80:                                               ; preds = %88, %71
+  %81 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14) #7
+  br i1 %81, label %82, label %90
 
-79:                                               ; preds = %87, %70
-  %80 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14) #7
-  br i1 %80, label %81, label %89
+82:                                               ; preds = %80
+  %83 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #7
+  store ptr %83, ptr %15, align 8
+  %84 = load ptr, ptr %15, align 8
+  invoke void @_ZN5Catch4trimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %84)
+          to label %85 unwind label %67
 
-81:                                               ; preds = %79
-  %82 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #7
-  store ptr %82, ptr %15, align 8
-  %83 = load ptr, ptr %15, align 8
-  invoke void @_ZN5Catch4trimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %83)
-          to label %84 unwind label %66
-
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %15, align 8
-  %86 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %16) #7
+85:                                               ; preds = %82
+  %86 = load ptr, ptr %15, align 8
+  %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %16) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #7
-  br label %87
+  br label %88
 
-87:                                               ; preds = %84
-  %88 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #7
-  br label %79
+88:                                               ; preds = %85
+  %89 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #7
+  br label %80
 
-89:                                               ; preds = %79
-  %90 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
-  %91 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %90, i32 0, i32 32
-  %92 = call noundef zeroext i1 @_ZNKSt6vectorIN5Catch12ReporterSpecESaIS1_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %91) #7
-  br i1 %92, label %93, label %125
+90:                                               ; preds = %80
+  %91 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
+  %92 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %91, i32 0, i32 32
+  %93 = call noundef zeroext i1 @_ZNKSt6vectorIN5Catch12ReporterSpecESaIS1_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %92) #7
+  br i1 %93, label %94, label %126
 
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
-  %95 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %94, i32 0, i32 32
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
+  %96 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %95, i32 0, i32 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %19)
-          to label %96 unwind label %101
+          to label %97 unwind label %102
 
-96:                                               ; preds = %93
+97:                                               ; preds = %94
   invoke void @_ZN5Catch8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20)
-          to label %97 unwind label %105
-
-97:                                               ; preds = %96
-  invoke void @_ZN5Catch8OptionalINS_10ColourModeEEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %21)
-          to label %98 unwind label %109
+          to label %98 unwind label %106
 
 98:                                               ; preds = %97
+  invoke void @_ZN5Catch8OptionalINS_10ColourModeEEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %21)
+          to label %99 unwind label %110
+
+99:                                               ; preds = %98
   call void @llvm.memset.p0.i64(ptr align 8 %22, i8 0, i64 48, i1 false)
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #7
   invoke void @_ZN5Catch12ReporterSpecC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8OptionalIS6_EENS7_INS_10ColourModeEEESt3mapIS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull align 8 dereferenceable(136) %17, ptr noundef %18, ptr noundef %20, ptr noundef %21, ptr noundef %22)
-          to label %99 unwind label %113
-
-99:                                               ; preds = %98
-  invoke void @_ZNSt6vectorIN5Catch12ReporterSpecESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %95, ptr noundef nonnull align 8 dereferenceable(136) %17)
-          to label %100 unwind label %117
+          to label %100 unwind label %114
 
 100:                                              ; preds = %99
+  invoke void @_ZNSt6vectorIN5Catch12ReporterSpecESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(136) %17)
+          to label %101 unwind label %118
+
+101:                                              ; preds = %100
   call void @_ZN5Catch12ReporterSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %17) #7
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #7
   call void @_ZN5Catch8OptionalINS_10ColourModeEED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %21) #7
   call void @_ZN5Catch8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #7
+  br label %126
+
+102:                                              ; preds = %94
+  %103 = landingpad { ptr, i32 }
+          cleanup
+  %104 = extractvalue { ptr, i32 } %103, 0
+  store ptr %104, ptr %5, align 8
+  %105 = extractvalue { ptr, i32 } %103, 1
+  store i32 %105, ptr %6, align 4
   br label %125
 
-101:                                              ; preds = %93
-  %102 = landingpad { ptr, i32 }
+106:                                              ; preds = %97
+  %107 = landingpad { ptr, i32 }
           cleanup
-  %103 = extractvalue { ptr, i32 } %102, 0
-  store ptr %103, ptr %5, align 8
-  %104 = extractvalue { ptr, i32 } %102, 1
-  store i32 %104, ptr %6, align 4
+  %108 = extractvalue { ptr, i32 } %107, 0
+  store ptr %108, ptr %5, align 8
+  %109 = extractvalue { ptr, i32 } %107, 1
+  store i32 %109, ptr %6, align 4
   br label %124
 
-105:                                              ; preds = %96
-  %106 = landingpad { ptr, i32 }
+110:                                              ; preds = %98
+  %111 = landingpad { ptr, i32 }
           cleanup
-  %107 = extractvalue { ptr, i32 } %106, 0
-  store ptr %107, ptr %5, align 8
-  %108 = extractvalue { ptr, i32 } %106, 1
-  store i32 %108, ptr %6, align 4
+  %112 = extractvalue { ptr, i32 } %111, 0
+  store ptr %112, ptr %5, align 8
+  %113 = extractvalue { ptr, i32 } %111, 1
+  store i32 %113, ptr %6, align 4
   br label %123
 
-109:                                              ; preds = %97
-  %110 = landingpad { ptr, i32 }
+114:                                              ; preds = %99
+  %115 = landingpad { ptr, i32 }
           cleanup
-  %111 = extractvalue { ptr, i32 } %110, 0
-  store ptr %111, ptr %5, align 8
-  %112 = extractvalue { ptr, i32 } %110, 1
-  store i32 %112, ptr %6, align 4
+  %116 = extractvalue { ptr, i32 } %115, 0
+  store ptr %116, ptr %5, align 8
+  %117 = extractvalue { ptr, i32 } %115, 1
+  store i32 %117, ptr %6, align 4
   br label %122
 
-113:                                              ; preds = %98
-  %114 = landingpad { ptr, i32 }
+118:                                              ; preds = %100
+  %119 = landingpad { ptr, i32 }
           cleanup
-  %115 = extractvalue { ptr, i32 } %114, 0
-  store ptr %115, ptr %5, align 8
-  %116 = extractvalue { ptr, i32 } %114, 1
-  store i32 %116, ptr %6, align 4
-  br label %121
-
-117:                                              ; preds = %99
-  %118 = landingpad { ptr, i32 }
-          cleanup
-  %119 = extractvalue { ptr, i32 } %118, 0
-  store ptr %119, ptr %5, align 8
-  %120 = extractvalue { ptr, i32 } %118, 1
-  store i32 %120, ptr %6, align 4
+  %120 = extractvalue { ptr, i32 } %119, 0
+  store ptr %120, ptr %5, align 8
+  %121 = extractvalue { ptr, i32 } %119, 1
+  store i32 %121, ptr %6, align 4
   call void @_ZN5Catch12ReporterSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %17) #7
-  br label %121
+  br label %122
 
-121:                                              ; preds = %117, %113
+122:                                              ; preds = %118, %114
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #7
   call void @_ZN5Catch8OptionalINS_10ColourModeEED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %21) #7
-  br label %122
-
-122:                                              ; preds = %121, %109
-  call void @_ZN5Catch8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #7
   br label %123
 
-123:                                              ; preds = %122, %105
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+123:                                              ; preds = %122, %110
+  call void @_ZN5Catch8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #7
   br label %124
 
-124:                                              ; preds = %123, %101
+124:                                              ; preds = %123, %106
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+  br label %125
+
+125:                                              ; preds = %124, %102
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #7
-  br label %260
+  br label %261
 
-125:                                              ; preds = %100, %89
-  %126 = invoke noundef zeroext i1 @_ZN5Catch12_GLOBAL__N_121enableBazelEnvSupportEv()
-          to label %127 unwind label %66
+126:                                              ; preds = %101, %90
+  %127 = invoke noundef zeroext i1 @_ZN5Catch12_GLOBAL__N_121enableBazelEnvSupportEv()
+          to label %128 unwind label %67
 
-127:                                              ; preds = %125
-  br i1 %126, label %128, label %130
-
-128:                                              ; preds = %127
-  invoke void @_ZN5Catch6Config16readBazelEnvVarsEv(ptr noundef nonnull align 8 dereferenceable(353) %37)
-          to label %129 unwind label %66
+128:                                              ; preds = %126
+  br i1 %127, label %129, label %131
 
 129:                                              ; preds = %128
-  br label %130
+  invoke void @_ZN5Catch6Config16readBazelEnvVarsEv(ptr noundef nonnull align 8 dereferenceable(353) %37)
+          to label %130 unwind label %67
 
-130:                                              ; preds = %129, %127
-  %131 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch17ITagAliasRegistry3getEv()
-          to label %132 unwind label %66
+130:                                              ; preds = %129
+  br label %131
 
-132:                                              ; preds = %130
-  invoke void @_ZN5Catch14TestSpecParserC1ERKNS_17ITagAliasRegistryE(ptr noundef nonnull align 8 dereferenceable(256) %23, ptr noundef nonnull align 8 dereferenceable(8) %131)
-          to label %133 unwind label %66
+131:                                              ; preds = %130, %128
+  %132 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch17ITagAliasRegistry3getEv()
+          to label %133 unwind label %67
 
-133:                                              ; preds = %132
-  %134 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
-  %135 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %134, i32 0, i32 33
-  %136 = call noundef zeroext i1 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %135) #7
-  br i1 %136, label %161, label %137
+133:                                              ; preds = %131
+  invoke void @_ZN5Catch14TestSpecParserC1ERKNS_17ITagAliasRegistryE(ptr noundef nonnull align 8 dereferenceable(256) %23, ptr noundef nonnull align 8 dereferenceable(8) %132)
+          to label %134 unwind label %67
 
-137:                                              ; preds = %133
-  %138 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 4
-  store i8 1, ptr %138, align 8
-  %139 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
-  %140 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %139, i32 0, i32 33
-  store ptr %140, ptr %24, align 8
-  %141 = load ptr, ptr %24, align 8
-  %142 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %141) #7
-  %143 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %25, i32 0, i32 0
-  store ptr %142, ptr %143, align 8
-  %144 = load ptr, ptr %24, align 8
-  %145 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %144) #7
-  %146 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %26, i32 0, i32 0
-  store ptr %145, ptr %146, align 8
-  br label %147
+134:                                              ; preds = %133
+  %135 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
+  %136 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %135, i32 0, i32 33
+  %137 = call noundef zeroext i1 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %136) #7
+  br i1 %137, label %162, label %138
 
-147:                                              ; preds = %154, %137
-  %148 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26) #7
-  br i1 %148, label %149, label %160
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 4
+  store i8 1, ptr %139, align 8
+  %140 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
+  %141 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %140, i32 0, i32 33
+  store ptr %141, ptr %24, align 8
+  %142 = load ptr, ptr %24, align 8
+  %143 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %142) #7
+  %144 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %25, i32 0, i32 0
+  store ptr %143, ptr %144, align 8
+  %145 = load ptr, ptr %24, align 8
+  %146 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %145) #7
+  %147 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %26, i32 0, i32 0
+  store ptr %146, ptr %147, align 8
+  br label %148
 
-149:                                              ; preds = %147
-  %150 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %25) #7
-  store ptr %150, ptr %27, align 8
-  %151 = load ptr, ptr %27, align 8
-  %152 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN5Catch14TestSpecParser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(256) %23, ptr noundef nonnull align 8 dereferenceable(32) %151)
-          to label %153 unwind label %156
+148:                                              ; preds = %155, %138
+  %149 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26) #7
+  br i1 %149, label %150, label %161
 
-153:                                              ; preds = %149
-  br label %154
+150:                                              ; preds = %148
+  %151 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %25) #7
+  store ptr %151, ptr %27, align 8
+  %152 = load ptr, ptr %27, align 8
+  %153 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN5Catch14TestSpecParser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(256) %23, ptr noundef nonnull align 8 dereferenceable(32) %152)
+          to label %154 unwind label %157
 
-154:                                              ; preds = %153
-  %155 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %25) #7
-  br label %147
+154:                                              ; preds = %150
+  br label %155
 
-156:                                              ; preds = %209, %204, %186, %179, %175, %161, %149
-  %157 = landingpad { ptr, i32 }
+155:                                              ; preds = %154
+  %156 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %25) #7
+  br label %148
+
+157:                                              ; preds = %210, %205, %187, %180, %176, %162, %150
+  %158 = landingpad { ptr, i32 }
           cleanup
-  %158 = extractvalue { ptr, i32 } %157, 0
-  store ptr %158, ptr %5, align 8
-  %159 = extractvalue { ptr, i32 } %157, 1
-  store i32 %159, ptr %6, align 4
-  br label %259
+  %159 = extractvalue { ptr, i32 } %158, 0
+  store ptr %159, ptr %5, align 8
+  %160 = extractvalue { ptr, i32 } %158, 1
+  store i32 %160, ptr %6, align 4
+  br label %260
 
-160:                                              ; preds = %147
-  br label %161
+161:                                              ; preds = %148
+  br label %162
 
-161:                                              ; preds = %160, %133
+162:                                              ; preds = %161, %134
   invoke void @_ZN5Catch14TestSpecParser8testSpecEv(ptr dead_on_unwind writable sret(%"class.Catch::TestSpec") align 8 %28, ptr noundef nonnull align 8 dereferenceable(256) %23)
-          to label %162 unwind label %156
+          to label %163 unwind label %157
 
-162:                                              ; preds = %161
-  %163 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 3
-  %164 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5Catch8TestSpecaSEOS0_(ptr noundef nonnull align 8 dereferenceable(48) %163, ptr noundef nonnull align 8 dereferenceable(48) %28) #7
+163:                                              ; preds = %162
+  %164 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 3
+  %165 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5Catch8TestSpecaSEOS0_(ptr noundef nonnull align 8 dereferenceable(48) %164, ptr noundef nonnull align 8 dereferenceable(48) %28) #7
   call void @_ZN5Catch8TestSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %28) #7
   store i8 0, ptr %29, align 1
-  %165 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
-  %166 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %165, i32 0, i32 32
-  store ptr %166, ptr %30, align 8
-  %167 = load ptr, ptr %30, align 8
-  %168 = call ptr @_ZNSt6vectorIN5Catch12ReporterSpecESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %167) #7
-  %169 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.40", ptr %31, i32 0, i32 0
-  store ptr %168, ptr %169, align 8
-  %170 = load ptr, ptr %30, align 8
-  %171 = call ptr @_ZNSt6vectorIN5Catch12ReporterSpecESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %170) #7
-  %172 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.40", ptr %32, i32 0, i32 0
-  store ptr %171, ptr %172, align 8
-  br label %173
+  %166 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
+  %167 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %166, i32 0, i32 32
+  store ptr %167, ptr %30, align 8
+  %168 = load ptr, ptr %30, align 8
+  %169 = call ptr @_ZNSt6vectorIN5Catch12ReporterSpecESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %168) #7
+  %170 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.40", ptr %31, i32 0, i32 0
+  store ptr %169, ptr %170, align 8
+  %171 = load ptr, ptr %30, align 8
+  %172 = call ptr @_ZNSt6vectorIN5Catch12ReporterSpecESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %171) #7
+  %173 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.40", ptr %32, i32 0, i32 0
+  store ptr %172, ptr %173, align 8
+  br label %174
 
-173:                                              ; preds = %243, %162
-  %174 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN5Catch12ReporterSpecESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32) #7
-  br i1 %174, label %175, label %258
+174:                                              ; preds = %244, %163
+  %175 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN5Catch12ReporterSpecESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32) #7
+  br i1 %175, label %176, label %259
 
-175:                                              ; preds = %173
-  %176 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Catch12ReporterSpecESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %31) #7
-  store ptr %176, ptr %33, align 8
-  %177 = load ptr, ptr %33, align 8
-  %178 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Catch12ReporterSpec10outputFileB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136) %177)
-          to label %179 unwind label %156
+176:                                              ; preds = %174
+  %177 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Catch12ReporterSpecESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %31) #7
+  store ptr %177, ptr %33, align 8
+  %178 = load ptr, ptr %33, align 8
+  %179 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Catch12ReporterSpec10outputFileB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136) %178)
+          to label %180 unwind label %157
 
-179:                                              ; preds = %175
-  %180 = invoke noundef zeroext i1 @_ZNK5Catch8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4noneEv(ptr noundef nonnull align 8 dereferenceable(40) %178)
-          to label %181 unwind label %156
+180:                                              ; preds = %176
+  %181 = invoke noundef zeroext i1 @_ZNK5Catch8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4noneEv(ptr noundef nonnull align 8 dereferenceable(40) %179)
+          to label %182 unwind label %157
 
-181:                                              ; preds = %179
-  br i1 %180, label %182, label %204
-
-182:                                              ; preds = %181
-  br label %183
+182:                                              ; preds = %180
+  br i1 %181, label %183, label %205
 
 183:                                              ; preds = %182
-  %184 = load i8, ptr %29, align 1
-  %185 = trunc i8 %184 to i1
-  br i1 %185, label %186, label %201
+  br label %184
 
-186:                                              ; preds = %183
+184:                                              ; preds = %183
+  %185 = load i8, ptr %29, align 1
+  %186 = trunc i8 %185 to i1
+  br i1 %186, label %187, label %202
+
+187:                                              ; preds = %184
   invoke void @_ZN5Catch20ReusableStringStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %35)
-          to label %187 unwind label %156
+          to label %188 unwind label %157
 
-187:                                              ; preds = %186
-  %188 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIA65_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 1 dereferenceable(65) @.str.10)
-          to label %189 unwind label %192
+188:                                              ; preds = %187
+  %189 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIA65_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 1 dereferenceable(65) @.str.10)
+          to label %190 unwind label %193
 
-189:                                              ; preds = %187
-  invoke void @_ZNK5Catch20ReusableStringStream3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %34, ptr noundef nonnull align 8 dereferenceable(16) %188)
-          to label %190 unwind label %192
-
-190:                                              ; preds = %189
-  invoke void @_ZN5Catch18throw_domain_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %34) #24
-          to label %191 unwind label %196
+190:                                              ; preds = %188
+  invoke void @_ZNK5Catch20ReusableStringStream3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %34, ptr noundef nonnull align 8 dereferenceable(16) %189)
+          to label %191 unwind label %193
 
 191:                                              ; preds = %190
+  invoke void @_ZN5Catch18throw_domain_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %34) #24
+          to label %192 unwind label %197
+
+192:                                              ; preds = %191
   unreachable
 
-192:                                              ; preds = %189, %187
-  %193 = landingpad { ptr, i32 }
+193:                                              ; preds = %190, %188
+  %194 = landingpad { ptr, i32 }
           cleanup
-  %194 = extractvalue { ptr, i32 } %193, 0
-  store ptr %194, ptr %5, align 8
-  %195 = extractvalue { ptr, i32 } %193, 1
-  store i32 %195, ptr %6, align 4
-  br label %200
+  %195 = extractvalue { ptr, i32 } %194, 0
+  store ptr %195, ptr %5, align 8
+  %196 = extractvalue { ptr, i32 } %194, 1
+  store i32 %196, ptr %6, align 4
+  br label %201
 
-196:                                              ; preds = %190
-  %197 = landingpad { ptr, i32 }
+197:                                              ; preds = %191
+  %198 = landingpad { ptr, i32 }
           cleanup
-  %198 = extractvalue { ptr, i32 } %197, 0
-  store ptr %198, ptr %5, align 8
-  %199 = extractvalue { ptr, i32 } %197, 1
-  store i32 %199, ptr %6, align 4
+  %199 = extractvalue { ptr, i32 } %198, 0
+  store ptr %199, ptr %5, align 8
+  %200 = extractvalue { ptr, i32 } %198, 1
+  store i32 %200, ptr %6, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #7
-  br label %200
+  br label %201
 
-200:                                              ; preds = %196, %192
+201:                                              ; preds = %197, %193
   call void @_ZN5Catch20ReusableStringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #7
-  br label %259
+  br label %260
 
-201:                                              ; preds = %183
-  br label %202
-
-202:                                              ; preds = %201
+202:                                              ; preds = %184
   br label %203
 
 203:                                              ; preds = %202
-  store i8 1, ptr %29, align 1
   br label %204
 
-204:                                              ; preds = %203, %181
-  %205 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 2
-  %206 = getelementptr inbounds %"struct.Catch::ProcessedReporterSpec", ptr %36, i32 0, i32 0
-  %207 = load ptr, ptr %33, align 8
-  %208 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Catch12ReporterSpec4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136) %207)
-          to label %209 unwind label %156
+204:                                              ; preds = %203
+  store i8 1, ptr %29, align 1
+  br label %205
 
-209:                                              ; preds = %204
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %206, ptr noundef nonnull align 8 dereferenceable(32) %208)
-          to label %210 unwind label %156
+205:                                              ; preds = %204, %182
+  %206 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 2
+  %207 = getelementptr inbounds %"struct.Catch::ProcessedReporterSpec", ptr %36, i32 0, i32 0
+  %208 = load ptr, ptr %33, align 8
+  %209 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Catch12ReporterSpec4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136) %208)
+          to label %210 unwind label %157
 
-210:                                              ; preds = %209
-  %211 = getelementptr inbounds %"struct.Catch::ProcessedReporterSpec", ptr %36, i32 0, i32 1
-  %212 = load ptr, ptr %33, align 8
-  %213 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Catch12ReporterSpec10outputFileB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136) %212)
-          to label %214 unwind label %245
+210:                                              ; preds = %205
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %207, ptr noundef nonnull align 8 dereferenceable(32) %209)
+          to label %211 unwind label %157
 
-214:                                              ; preds = %210
-  %215 = invoke noundef zeroext i1 @_ZNK5Catch8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(40) %213)
-          to label %216 unwind label %245
+211:                                              ; preds = %210
+  %212 = getelementptr inbounds %"struct.Catch::ProcessedReporterSpec", ptr %36, i32 0, i32 1
+  %213 = load ptr, ptr %33, align 8
+  %214 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Catch12ReporterSpec10outputFileB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136) %213)
+          to label %215 unwind label %246
 
-216:                                              ; preds = %214
-  br i1 %215, label %217, label %223
+215:                                              ; preds = %211
+  %216 = invoke noundef zeroext i1 @_ZNK5Catch8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(40) %214)
+          to label %217 unwind label %246
 
-217:                                              ; preds = %216
-  %218 = load ptr, ptr %33, align 8
-  %219 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Catch12ReporterSpec10outputFileB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136) %218)
-          to label %220 unwind label %245
+217:                                              ; preds = %215
+  br i1 %216, label %218, label %224
 
-220:                                              ; preds = %217
-  %221 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Catch8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(40) %219)
-          to label %222 unwind label %245
+218:                                              ; preds = %217
+  %219 = load ptr, ptr %33, align 8
+  %220 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Catch12ReporterSpec10outputFileB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136) %219)
+          to label %221 unwind label %246
 
-222:                                              ; preds = %220
-  br label %226
+221:                                              ; preds = %218
+  %222 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Catch8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(40) %220)
+          to label %223 unwind label %246
 
-223:                                              ; preds = %216
-  %224 = load ptr, ptr %4, align 8
-  %225 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %224, i32 0, i32 29
-  br label %226
+223:                                              ; preds = %221
+  br label %227
 
-226:                                              ; preds = %223, %222
-  %227 = phi ptr [ %221, %222 ], [ %225, %223 ]
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %211, ptr noundef nonnull align 8 dereferenceable(32) %227)
-          to label %228 unwind label %245
+224:                                              ; preds = %217
+  %225 = load ptr, ptr %4, align 8
+  %226 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %225, i32 0, i32 29
+  br label %227
 
-228:                                              ; preds = %226
-  %229 = getelementptr inbounds %"struct.Catch::ProcessedReporterSpec", ptr %36, i32 0, i32 2
-  %230 = load ptr, ptr %33, align 8
-  %231 = invoke noundef nonnull align 8 dereferenceable(9) ptr @_ZNK5Catch12ReporterSpec10colourModeEv(ptr noundef nonnull align 8 dereferenceable(136) %230)
-          to label %232 unwind label %249
+227:                                              ; preds = %224, %223
+  %228 = phi ptr [ %222, %223 ], [ %226, %224 ]
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %212, ptr noundef nonnull align 8 dereferenceable(32) %228)
+          to label %229 unwind label %246
 
-232:                                              ; preds = %228
-  %233 = load ptr, ptr %4, align 8
-  %234 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %233, i32 0, i32 27
-  %235 = invoke noundef zeroext i8 @_ZNK5Catch8OptionalINS_10ColourModeEE7valueOrERKS1_(ptr noundef nonnull align 8 dereferenceable(9) %231, ptr noundef nonnull align 1 dereferenceable(1) %234)
-          to label %236 unwind label %249
+229:                                              ; preds = %227
+  %230 = getelementptr inbounds %"struct.Catch::ProcessedReporterSpec", ptr %36, i32 0, i32 2
+  %231 = load ptr, ptr %33, align 8
+  %232 = invoke noundef nonnull align 8 dereferenceable(9) ptr @_ZNK5Catch12ReporterSpec10colourModeEv(ptr noundef nonnull align 8 dereferenceable(136) %231)
+          to label %233 unwind label %250
 
-236:                                              ; preds = %232
-  store i8 %235, ptr %229, align 8
-  %237 = getelementptr inbounds %"struct.Catch::ProcessedReporterSpec", ptr %36, i32 0, i32 3
-  %238 = load ptr, ptr %33, align 8
-  %239 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5Catch12ReporterSpec13customOptionsB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136) %238)
-          to label %240 unwind label %249
+233:                                              ; preds = %229
+  %234 = load ptr, ptr %4, align 8
+  %235 = getelementptr inbounds %"struct.Catch::ConfigData", ptr %234, i32 0, i32 27
+  %236 = invoke noundef zeroext i8 @_ZNK5Catch8OptionalINS_10ColourModeEE7valueOrERKS1_(ptr noundef nonnull align 8 dereferenceable(9) %232, ptr noundef nonnull align 1 dereferenceable(1) %235)
+          to label %237 unwind label %250
 
-240:                                              ; preds = %236
-  invoke void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(48) %237, ptr noundef nonnull align 8 dereferenceable(48) %239)
-          to label %241 unwind label %249
+237:                                              ; preds = %233
+  store i8 %236, ptr %230, align 8
+  %238 = getelementptr inbounds %"struct.Catch::ProcessedReporterSpec", ptr %36, i32 0, i32 3
+  %239 = load ptr, ptr %33, align 8
+  %240 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5Catch12ReporterSpec13customOptionsB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136) %239)
+          to label %241 unwind label %250
 
-241:                                              ; preds = %240
-  invoke void @_ZNSt6vectorIN5Catch21ProcessedReporterSpecESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %205, ptr noundef nonnull align 8 dereferenceable(120) %36)
-          to label %242 unwind label %254
+241:                                              ; preds = %237
+  invoke void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(48) %238, ptr noundef nonnull align 8 dereferenceable(48) %240)
+          to label %242 unwind label %250
 
 242:                                              ; preds = %241
-  call void @_ZN5Catch21ProcessedReporterSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %36) #7
-  br label %243
+  invoke void @_ZNSt6vectorIN5Catch21ProcessedReporterSpecESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %206, ptr noundef nonnull align 8 dereferenceable(120) %36)
+          to label %243 unwind label %255
 
 243:                                              ; preds = %242
-  %244 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Catch12ReporterSpecESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %31) #7
-  br label %173
-
-245:                                              ; preds = %226, %220, %217, %214, %210
-  %246 = landingpad { ptr, i32 }
-          cleanup
-  %247 = extractvalue { ptr, i32 } %246, 0
-  store ptr %247, ptr %5, align 8
-  %248 = extractvalue { ptr, i32 } %246, 1
-  store i32 %248, ptr %6, align 4
-  br label %253
-
-249:                                              ; preds = %240, %236, %232, %228
-  %250 = landingpad { ptr, i32 }
-          cleanup
-  %251 = extractvalue { ptr, i32 } %250, 0
-  store ptr %251, ptr %5, align 8
-  %252 = extractvalue { ptr, i32 } %250, 1
-  store i32 %252, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %211) #7
-  br label %253
-
-253:                                              ; preds = %249, %245
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %206) #7
-  br label %259
-
-254:                                              ; preds = %241
-  %255 = landingpad { ptr, i32 }
-          cleanup
-  %256 = extractvalue { ptr, i32 } %255, 0
-  store ptr %256, ptr %5, align 8
-  %257 = extractvalue { ptr, i32 } %255, 1
-  store i32 %257, ptr %6, align 4
   call void @_ZN5Catch21ProcessedReporterSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %36) #7
-  br label %259
+  br label %244
 
-258:                                              ; preds = %173
+244:                                              ; preds = %243
+  %245 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Catch12ReporterSpecESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %31) #7
+  br label %174
+
+246:                                              ; preds = %227, %221, %218, %215, %211
+  %247 = landingpad { ptr, i32 }
+          cleanup
+  %248 = extractvalue { ptr, i32 } %247, 0
+  store ptr %248, ptr %5, align 8
+  %249 = extractvalue { ptr, i32 } %247, 1
+  store i32 %249, ptr %6, align 4
+  br label %254
+
+250:                                              ; preds = %241, %237, %233, %229
+  %251 = landingpad { ptr, i32 }
+          cleanup
+  %252 = extractvalue { ptr, i32 } %251, 0
+  store ptr %252, ptr %5, align 8
+  %253 = extractvalue { ptr, i32 } %251, 1
+  store i32 %253, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %212) #7
+  br label %254
+
+254:                                              ; preds = %250, %246
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %207) #7
+  br label %260
+
+255:                                              ; preds = %242
+  %256 = landingpad { ptr, i32 }
+          cleanup
+  %257 = extractvalue { ptr, i32 } %256, 0
+  store ptr %257, ptr %5, align 8
+  %258 = extractvalue { ptr, i32 } %256, 1
+  store i32 %258, ptr %6, align 4
+  call void @_ZN5Catch21ProcessedReporterSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %36) #7
+  br label %260
+
+259:                                              ; preds = %174
   call void @_ZN5Catch14TestSpecParserD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %23) #7
   ret void
 
-259:                                              ; preds = %254, %253, %200, %156
+260:                                              ; preds = %255, %254, %201, %157
   call void @_ZN5Catch14TestSpecParserD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %23) #7
-  br label %260
-
-260:                                              ; preds = %259, %124, %66
-  call void @_ZN5Catch8TestSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %42) #7
-  call void @_ZNSt6vectorIN5Catch21ProcessedReporterSpecESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #7
-  call void @_ZN5Catch10ConfigDataD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %38) #7
   br label %261
 
-261:                                              ; preds = %260, %62
-  call void @_ZN5Catch7IConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #7
+261:                                              ; preds = %260, %125, %67
+  call void @_ZN5Catch8TestSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %43) #7
+  call void @_ZNSt6vectorIN5Catch21ProcessedReporterSpecESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %42) #7
+  call void @_ZN5Catch10ConfigDataD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %39) #7
   br label %262
 
-262:                                              ; preds = %261
-  %263 = load ptr, ptr %5, align 8
-  %264 = load i32, ptr %6, align 4
-  %265 = insertvalue { ptr, i32 } poison, ptr %263, 0
-  %266 = insertvalue { ptr, i32 } %265, i32 %264, 1
-  resume { ptr, i32 } %266
+262:                                              ; preds = %261, %63
+  call void @_ZN5Catch7IConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #7
+  br label %263
+
+263:                                              ; preds = %262
+  %264 = load ptr, ptr %5, align 8
+  %265 = load i32, ptr %6, align 4
+  %266 = insertvalue { ptr, i32 } poison, ptr %264, 0
+  %267 = insertvalue { ptr, i32 } %266, i32 %265, 1
+  resume { ptr, i32 } %267
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -21384,7 +21386,8 @@ define linkonce_odr dso_local void @_ZN5Catch7IConfigC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN5Catch7IConfigE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN5Catch7IConfigE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -22544,13 +22547,14 @@ define dso_local void @_ZN5Catch6ConfigD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN5Catch6ConfigE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Config", ptr %3, i32 0, i32 3
-  call void @_ZN5Catch8TestSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #7
-  %5 = getelementptr inbounds %"class.Catch::Config", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN5Catch21ProcessedReporterSpecESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
-  %6 = getelementptr inbounds %"class.Catch::Config", ptr %3, i32 0, i32 1
-  call void @_ZN5Catch10ConfigDataD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6) #7
+  %4 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN5Catch6ConfigE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Config", ptr %3, i32 0, i32 3
+  call void @_ZN5Catch8TestSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #7
+  %6 = getelementptr inbounds %"class.Catch::Config", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN5Catch21ProcessedReporterSpecESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #7
+  %7 = getelementptr inbounds %"class.Catch::Config", ptr %3, i32 0, i32 1
+  call void @_ZN5Catch10ConfigDataD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %7) #7
   call void @_ZN5Catch7IConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 }
@@ -23671,7 +23675,7 @@ define dso_local void @_ZN5Catch13ScopedMessageD2Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5Catch19uncaught_exceptionsEv() #0 {
-  %1 = call noundef i32 @_ZSt19uncaught_exceptionsv() #22
+  %1 = call noundef i32 @_ZSt19uncaught_exceptionsv() #21
   %2 = icmp sgt i32 %1, 0
   ret i1 %2
 }
@@ -24189,7 +24193,7 @@ define internal { ptr, i64 } @"_ZZN5Catch8CapturerC1ENS_9StringRefERKNS_14Source
   %19 = load i64, ptr %6, align 8
   %20 = call noundef signext i8 @_ZNK5Catch9StringRefixEm(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %19) #7
   %21 = zext i8 %20 to i32
-  %22 = call i32 @isspace(i32 noundef %21) #22
+  %22 = call i32 @isspace(i32 noundef %21) #21
   %23 = icmp ne i32 %22, 0
   br label %24
 
@@ -24221,7 +24225,7 @@ define internal { ptr, i64 } @"_ZZN5Catch8CapturerC1ENS_9StringRefERKNS_14Source
   %40 = load i64, ptr %7, align 8
   %41 = call noundef signext i8 @_ZNK5Catch9StringRefixEm(ptr noundef nonnull align 8 dereferenceable(16) %39, i64 noundef %40) #7
   %42 = zext i8 %41 to i32
-  %43 = call i32 @isspace(i32 noundef %42) #22
+  %43 = call i32 @isspace(i32 noundef %42) #21
   %44 = icmp ne i32 %43, 0
   br label %45
 
@@ -24876,7 +24880,7 @@ define dso_local void @_ZN5Catch7SessionC2Ev(ptr noundef nonnull align 8 derefer
 
 159:                                              ; preds = %155
   %160 = load i32, ptr %4, align 4
-  %161 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #7
+  %161 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #7
   %162 = icmp eq i32 %160, %161
   br i1 %162, label %163, label %210
 
@@ -25051,34 +25055,35 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6ParserC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6ParserE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %5, i32 0, i32 1
-  invoke void @_ZN5Catch5Clara7ExeNameC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6)
-          to label %7 unwind label %10
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6ParserE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %5, i32 0, i32 1
+  invoke void @_ZN5Catch5Clara7ExeNameC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7)
+          to label %8 unwind label %11
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %5, i32 0, i32 2
-  call void @_ZNSt6vectorIN5Catch5Clara3OptESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #7
-  %9 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %5, i32 0, i32 3
-  call void @_ZNSt6vectorIN5Catch5Clara3ArgESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #7
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %5, i32 0, i32 2
+  call void @_ZNSt6vectorIN5Catch5Clara3OptESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #7
+  %10 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %5, i32 0, i32 3
+  call void @_ZNSt6vectorIN5Catch5Clara3ArgESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
 
-10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %3, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %4, align 4
   call void @_ZN5Catch5Clara6Detail10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  br label %14
+  br label %15
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %3, align 8
+  %17 = load i32, ptr %4, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25860,9 +25865,6 @@ define linkonce_odr dso_local void @_ZNSt15__exception_ptr13exception_ptrD2Ev(pt
 8:                                                ; preds = %7, %1
   ret void
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #13
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch8TextFlowlsERSoRKNS0_6ColumnE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #4 personality ptr @__gxx_personality_v0 {
@@ -30941,13 +30943,14 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6ParserD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6ParserE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN5Catch5Clara3ArgESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
-  %5 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN5Catch5Clara3OptESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
-  %6 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %3, i32 0, i32 1
-  call void @_ZN5Catch5Clara7ExeNameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #7
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6ParserE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN5Catch5Clara3ArgESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
+  %6 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN5Catch5Clara3OptESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #7
+  %7 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %3, i32 0, i32 1
+  call void @_ZN5Catch5Clara7ExeNameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #7
   call void @_ZN5Catch5Clara6Detail10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 }
@@ -31623,9 +31626,10 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS1_10Pa
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #7
   ret void
 }
@@ -32098,7 +32102,7 @@ define dso_local noundef i32 @_ZN5Catch7Session11runInternalEv(ptr noundef nonnu
 
 201:                                              ; preds = %200, %69
   %202 = load i32, ptr %5, align 4
-  %203 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #7
+  %203 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #7
   %204 = icmp eq i32 %202, %203
   br i1 %204, label %205, label %229
 
@@ -35563,7 +35567,7 @@ define dso_local noundef i32 @_ZNK5Catch9StringRef7compareES0_(ptr noundef nonnu
   %16 = getelementptr inbounds %"class.Catch::StringRef", ptr %5, i32 0, i32 1
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
   %18 = load i64, ptr %17, align 8
-  %19 = call i32 @strncmp(ptr noundef %12, ptr noundef %14, i64 noundef %18) #22
+  %19 = call i32 @strncmp(ptr noundef %12, ptr noundef %14, i64 noundef %18) #21
   store i32 %19, ptr %7, align 4
   %20 = load i32, ptr %7, align 4
   %21 = icmp ne i32 %20, 0
@@ -35662,10 +35666,11 @@ define dso_local void @_ZN5Catch8TestSpec7PatternC2ERKNSt7__cxx1112basic_stringI
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec7PatternE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::TestSpec::Pattern", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec7PatternE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::TestSpec::Pattern", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
   ret void
 }
 
@@ -35674,9 +35679,10 @@ define dso_local void @_ZN5Catch8TestSpec7PatternD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec7PatternE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::TestSpec::Pattern", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec7PatternE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::TestSpec::Pattern", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   ret void
 }
 
@@ -35711,49 +35717,50 @@ define dso_local void @_ZN5Catch8TestSpec11NamePatternC2ERKNSt7__cxx1112basic_st
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN5Catch8TestSpec7PatternC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec11NamePatternE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = getelementptr inbounds %"class.Catch::TestSpec::NamePattern", ptr %10, i32 0, i32 1
-  %13 = load ptr, ptr %5, align 8
-  invoke void @_ZN5Catch7toLowerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %14 unwind label %16
+  %12 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec11NamePatternE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds %"class.Catch::TestSpec::NamePattern", ptr %10, i32 0, i32 1
+  %14 = load ptr, ptr %5, align 8
+  invoke void @_ZN5Catch7toLowerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %14)
+          to label %15 unwind label %17
 
-14:                                               ; preds = %3
-  invoke void @_ZN5Catch15WildcardPatternC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13CaseSensitiveE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 1)
-          to label %15 unwind label %20
+15:                                               ; preds = %3
+  invoke void @_ZN5Catch15WildcardPatternC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13CaseSensitiveE(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 1)
+          to label %16 unwind label %21
 
-15:                                               ; preds = %14
+16:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
   ret void
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %8, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %9, align 4
-  br label %24
-
-20:                                               ; preds = %14
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %8, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
-  br label %24
-
-24:                                               ; preds = %20, %16
-  call void @_ZN5Catch8TestSpec7PatternD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #7
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %8, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %9, align 4
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i32, ptr %9, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+21:                                               ; preds = %15
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %8, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %9, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
+  br label %25
+
+25:                                               ; preds = %21, %17
+  call void @_ZN5Catch8TestSpec7PatternD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #7
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %8, align 8
+  %28 = load i32, ptr %9, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -35993,31 +36000,32 @@ define dso_local void @_ZN5Catch8TestSpec10TagPatternC2ERKNSt7__cxx1112basic_str
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN5Catch8TestSpec7PatternC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec10TagPatternE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.Catch::TestSpec::TagPattern", ptr %9, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %11 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec10TagPatternE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.Catch::TestSpec::TagPattern", ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZN5Catch8TestSpec7PatternD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #7
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZN5Catch8TestSpec7PatternD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #7
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -39777,10 +39785,11 @@ define linkonce_odr dso_local void @_ZN5Catch18GeneratorExceptionC2EPKc(ptr noun
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch18GeneratorExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::GeneratorException", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch18GeneratorExceptionE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::GeneratorException", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -39798,9 +39807,10 @@ define dso_local void @_ZN5Catch10Generators20GeneratorUntypedBaseD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch10Generators20GeneratorUntypedBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Generators::GeneratorUntypedBase", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch10Generators20GeneratorUntypedBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Generators::GeneratorUntypedBase", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   ret void
 }
 
@@ -42415,35 +42425,36 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS1_10Pa
   %8 = load ptr, ptr %4, align 8
   %9 = call noundef i32 @_ZNK5Catch5Clara6Detail11BasicResultIvE4typeEv(ptr noundef nonnull align 8 dereferenceable(48) %8)
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %7, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
-  %12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Catch5Clara6Detail11BasicResultIvE12errorMessageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %13 unwind label %15
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8
+  %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Catch5Clara6Detail11BasicResultIvE12errorMessageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(48) %12)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %14 unwind label %15
+14:                                               ; preds = %2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %15 unwind label %16
 
-14:                                               ; preds = %13
+15:                                               ; preds = %14
   ret void
 
-15:                                               ; preds = %13, %2
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %14, %2
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %5, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %6, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %5, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %6, align 4
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #7
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %5, align 8
-  %21 = load i32, ptr %6, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %5, align 8
+  %22 = load i32, ptr %6, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -42523,35 +42534,36 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS1_10Pa
   %8 = load ptr, ptr %4, align 8
   %9 = call noundef i32 @_ZNK5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEE4typeEv(ptr noundef nonnull align 8 dereferenceable(48) %8)
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %7, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
-  %12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEE12errorMessageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %13 unwind label %15
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8
+  %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEE12errorMessageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(48) %12)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %14 unwind label %15
+14:                                               ; preds = %2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %15 unwind label %16
 
-14:                                               ; preds = %13
+15:                                               ; preds = %14
   ret void
 
-15:                                               ; preds = %13, %2
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %14, %2
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %5, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %6, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %5, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %6, align 4
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #7
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %5, align 8
-  %21 = load i32, ptr %6, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %5, align 8
+  %22 = load i32, ptr %6, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -42559,9 +42571,10 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS0_15Pa
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #7
   ret void
 }
@@ -42571,9 +42584,10 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultIvED2Ev(p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.150", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.150", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseIvED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #7
   ret void
 }
@@ -42593,33 +42607,34 @@ define dso_local void @_ZN5Catch5Clara3OptC2ERb(ptr noundef nonnull align 8 dere
   call void @_ZSt11make_sharedIN5Catch5Clara6Detail12BoundFlagRefEJRbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.158") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %10)
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_12BoundFlagRefEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #7
   invoke void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2ERKSt10shared_ptrINS1_8BoundRefEE(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %11 unwind label %13
+          to label %11 unwind label %14
 
 11:                                               ; preds = %2
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail12BoundFlagRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %9, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #7
+  %12 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %9, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #7
   ret void
 
-13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %7, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %8, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %7, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %8, align 4
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail12BoundFlagRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
-  br label %17
+  br label %18
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i32, ptr %8, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -42659,16 +42674,17 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 1
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 2
-  %8 = load ptr, ptr %4, align 8
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  %9 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #7
-  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 4
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 1
+  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 2
+  %9 = load ptr, ptr %4, align 8
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9) #7
+  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #7
+  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #7
   ret void
 }
 
@@ -43842,32 +43858,33 @@ define dso_local void @_ZN5Catch5Clara7ExeNameC2Ev(ptr noundef nonnull align 8 d
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_7ExeNameEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara7ExeNameE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %5, i32 0, i32 1
-  invoke void @_ZSt11make_sharedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA13_KcEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %6, ptr noundef nonnull align 1 dereferenceable(13) @.str.75)
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara7ExeNameE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %5, i32 0, i32 1
+  invoke void @_ZSt11make_sharedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA13_KcEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %7, ptr noundef nonnull align 1 dereferenceable(13) @.str.75)
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %5, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail17BoundValueRefBaseEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %5, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail17BoundValueRefBaseEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_7ExeNameEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -43876,7 +43893,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_7ExeNameEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_7ExeNameEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -46429,11 +46447,12 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS1_10Pa
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %8, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9) #7
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %9, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10) #7
   ret void
 }
 
@@ -46751,47 +46770,48 @@ define dso_local void @_ZN5Catch5Clara4HelpC2ERb(ptr noundef nonnull align 8 der
   %18 = load ptr, ptr %4, align 8
   store ptr %18, ptr %17, align 8
   call void @"_ZN5Catch5Clara3OptC2IZNS0_4HelpC1ERbE3$_0EERKT_"(ptr noundef nonnull align 8 dereferenceable(120) %16, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara4HelpE, i32 0, i32 0, i32 2), ptr %16, align 8
+  %19 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara4HelpE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %16, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.83, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %19 unwind label %33
+          to label %20 unwind label %34
 
-19:                                               ; preds = %2
-  %20 = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %21 unwind label %37
+20:                                               ; preds = %2
+  %21 = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %22 unwind label %38
 
-21:                                               ; preds = %19
+22:                                               ; preds = %20
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef @.str.84, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %22 unwind label %41
+          to label %23 unwind label %42
 
-22:                                               ; preds = %21
-  %23 = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZN5Catch5Clara3OptixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %20, ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %24 unwind label %45
+23:                                               ; preds = %22
+  %24 = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZN5Catch5Clara3OptixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %21, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %25 unwind label %46
 
-24:                                               ; preds = %22
+25:                                               ; preds = %23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef @.str.85, ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %25 unwind label %49
+          to label %26 unwind label %50
 
-25:                                               ; preds = %24
-  %26 = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZN5Catch5Clara3OptixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %23, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %27 unwind label %53
+26:                                               ; preds = %25
+  %27 = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZN5Catch5Clara3OptixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %24, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %28 unwind label %54
 
-27:                                               ; preds = %25
+28:                                               ; preds = %26
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef @.str.86, ptr noundef nonnull align 1 dereferenceable(1) %15)
-          to label %28 unwind label %57
+          to label %29 unwind label %58
 
-28:                                               ; preds = %27
-  %29 = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZN5Catch5Clara3OptixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %26, ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %30 unwind label %61
+29:                                               ; preds = %28
+  %30 = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZN5Catch5Clara3OptixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %27, ptr noundef nonnull align 8 dereferenceable(32) %14)
+          to label %31 unwind label %62
 
-30:                                               ; preds = %28
-  %31 = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEE8optionalEv(ptr noundef nonnull align 8 dereferenceable(96) %29)
-          to label %32 unwind label %61
+31:                                               ; preds = %29
+  %32 = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEE8optionalEv(ptr noundef nonnull align 8 dereferenceable(96) %30)
+          to label %33 unwind label %62
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #7
@@ -46802,114 +46822,114 @@ define dso_local void @_ZN5Catch5Clara4HelpC2ERb(ptr noundef nonnull align 8 der
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #7
   ret void
 
-33:                                               ; preds = %2
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %2
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %8, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %9, align 4
-  br label %71
-
-37:                                               ; preds = %19
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %8, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %9, align 4
-  br label %70
-
-41:                                               ; preds = %21
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %8, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %9, align 4
-  br label %69
-
-45:                                               ; preds = %22
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %8, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %9, align 4
-  br label %68
-
-49:                                               ; preds = %24
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %8, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %9, align 4
-  br label %67
-
-53:                                               ; preds = %25
-  %54 = landingpad { ptr, i32 }
-          cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %8, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %9, align 4
-  br label %66
-
-57:                                               ; preds = %27
-  %58 = landingpad { ptr, i32 }
-          cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %8, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %9, align 4
-  br label %65
-
-61:                                               ; preds = %30, %28
-  %62 = landingpad { ptr, i32 }
-          cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %8, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #7
-  br label %65
-
-65:                                               ; preds = %61, %57
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #7
-  br label %66
-
-66:                                               ; preds = %65, %53
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #7
-  br label %67
-
-67:                                               ; preds = %66, %49
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #7
-  br label %68
-
-68:                                               ; preds = %67, %45
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #7
-  br label %69
-
-69:                                               ; preds = %68, %41
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #7
-  br label %70
-
-70:                                               ; preds = %69, %37
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
-  br label %71
-
-71:                                               ; preds = %70, %33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #7
-  call void @_ZN5Catch5Clara3OptD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %16) #7
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %8, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %9, align 4
   br label %72
 
-72:                                               ; preds = %71
-  %73 = load ptr, ptr %8, align 8
-  %74 = load i32, ptr %9, align 4
-  %75 = insertvalue { ptr, i32 } poison, ptr %73, 0
-  %76 = insertvalue { ptr, i32 } %75, i32 %74, 1
-  resume { ptr, i32 } %76
+38:                                               ; preds = %20
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %8, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %9, align 4
+  br label %71
+
+42:                                               ; preds = %22
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %8, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %9, align 4
+  br label %70
+
+46:                                               ; preds = %23
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %8, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %9, align 4
+  br label %69
+
+50:                                               ; preds = %25
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %8, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %9, align 4
+  br label %68
+
+54:                                               ; preds = %26
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %8, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %9, align 4
+  br label %67
+
+58:                                               ; preds = %28
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %8, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %9, align 4
+  br label %66
+
+62:                                               ; preds = %31, %29
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %8, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %9, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #7
+  br label %66
+
+66:                                               ; preds = %62, %58
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #7
+  br label %67
+
+67:                                               ; preds = %66, %54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #7
+  br label %68
+
+68:                                               ; preds = %67, %50
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #7
+  br label %69
+
+69:                                               ; preds = %68, %46
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #7
+  br label %70
+
+70:                                               ; preds = %69, %42
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #7
+  br label %71
+
+71:                                               ; preds = %70, %38
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
+  br label %72
+
+72:                                               ; preds = %71, %34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #7
+  call void @_ZN5Catch5Clara3OptD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %16) #7
+  br label %73
+
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %8, align 8
+  %75 = load i32, ptr %9, align 4
+  %76 = insertvalue { ptr, i32 } poison, ptr %74, 0
+  %77 = insertvalue { ptr, i32 } %76, i32 %75, 1
+  resume { ptr, i32 } %77
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -46927,9 +46947,10 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS0_4HelpC1ERbE3$_0EERKT_"(ptr nou
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2ERKSt10shared_ptrINS1_8BoundRefEE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail15BoundFlagLambdaIZNS1_4HelpC1ERbE3$_0EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #7
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
 }
 
@@ -47083,9 +47104,10 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptC2INSt7__cxx1112basic_str
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEERT_RKSB_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47101,9 +47123,10 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_0EENS0_13accept_many_tERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47122,9 +47145,10 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2ERKSt10shared_ptrINS1_8BoundRefEE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_1EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #7
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
 }
 
@@ -47140,9 +47164,10 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_2vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47158,9 +47183,10 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_3EENS0_13accept_many_tERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47176,9 +47202,10 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_4vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47194,9 +47221,10 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptC2IdvEERT_RKNSt7__cxx1112
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IdvEERT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47212,9 +47240,10 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_5vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47230,9 +47259,10 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptC2ISt6vectorINSt7__cxx111
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2ISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEvEERT_RKSC_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47248,9 +47278,10 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_6vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47266,9 +47297,10 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_7vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47284,9 +47316,10 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_8vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47302,9 +47335,10 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_9vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47320,9 +47354,10 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_10vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47338,9 +47373,10 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptC2IjvEERT_RKNSt7__cxx1112
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IjvEERT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47356,9 +47392,10 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptC2IlvEERT_RKNSt7__cxx1112
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IlvEERT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47374,9 +47411,10 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_11vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47392,9 +47430,10 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_12vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   ret void
 }
 
@@ -47453,7 +47492,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3ArgCI2NS0_6Detail13ParserRef
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEC2ISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEvEERT_RKSC_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3ArgE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3ArgE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -47484,9 +47524,10 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #7
   ret void
 }
@@ -47505,11 +47546,12 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara7ExeNameD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara7ExeNameE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail17BoundValueRefBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
-  %5 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara7ExeNameE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail17BoundValueRefBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
+  %6 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_7ExeNameEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 }
@@ -47980,7 +48022,7 @@ define dso_local void @_ZN5Catch7Context13createContextEv() #4 align 2 {
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #14
+declare noundef nonnull ptr @_Znwm(i64 noundef) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5Catch7ContextC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
@@ -49636,7 +49678,7 @@ define dso_local void @_ZN5Catch10ErrnoGuardC2Ev(ptr noundef nonnull align 4 der
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #15
+declare ptr @__errno_location() #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5Catch10ErrnoGuardD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #0 align 2 {
@@ -49655,9 +49697,10 @@ define dso_local void @_ZN5Catch27ExceptionTranslatorRegistryD2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch27ExceptionTranslatorRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::ExceptionTranslatorRegistry", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrIKNS0_20IExceptionTranslatorEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch27ExceptionTranslatorRegistryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::ExceptionTranslatorRegistry", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrIKNS0_20IExceptionTranslatorEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
   call void @_ZN5Catch28IExceptionTranslatorRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 }
@@ -49856,7 +49899,7 @@ define dso_local void @_ZNK5Catch27ExceptionTranslatorRegistry24translateActiveE
 
 35:                                               ; preds = %31
   %36 = load i32, ptr %9, align 4
-  %37 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5Catch20TestFailureExceptionE) #7
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5Catch20TestFailureExceptionE) #7
   %38 = icmp eq i32 %36, %37
   br i1 %38, label %39, label %43
 
@@ -49872,7 +49915,7 @@ define dso_local void @_ZNK5Catch27ExceptionTranslatorRegistry24translateActiveE
   unreachable
 
 43:                                               ; preds = %35
-  %44 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5Catch17TestSkipExceptionE) #7
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5Catch17TestSkipExceptionE) #7
   %45 = icmp eq i32 %36, %44
   br i1 %45, label %46, label %50
 
@@ -49888,7 +49931,7 @@ define dso_local void @_ZNK5Catch27ExceptionTranslatorRegistry24translateActiveE
   unreachable
 
 50:                                               ; preds = %43
-  %51 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #7
+  %51 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #7
   %52 = icmp eq i32 %36, %51
   br i1 %52, label %53, label %62
 
@@ -49911,7 +49954,7 @@ define dso_local void @_ZNK5Catch27ExceptionTranslatorRegistry24translateActiveE
   br label %112
 
 62:                                               ; preds = %50
-  %63 = call i32 @llvm.eh.typeid.for(ptr @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #7
+  %63 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #7
   %64 = icmp eq i32 %36, %63
   br i1 %64, label %65, label %70
 
@@ -49928,7 +49971,7 @@ define dso_local void @_ZNK5Catch27ExceptionTranslatorRegistry24translateActiveE
   br label %112
 
 70:                                               ; preds = %62
-  %71 = call i32 @llvm.eh.typeid.for(ptr @_ZTIPKc) #7
+  %71 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIPKc) #7
   %72 = icmp eq i32 %36, %71
   br i1 %72, label %73, label %78
 
@@ -50190,7 +50233,7 @@ define dso_local void @_ZN5Catch21FatalConditionHandlerC2Ev(ptr noundef nonnull 
 declare i64 @sysconf(i32 noundef) #8
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) #14
+declare noundef nonnull ptr @_Znam(i64 noundef) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5Catch21FatalConditionHandlerD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 align 2 {
@@ -50276,47 +50319,48 @@ define internal void @_ZN5CatchL12handleSignalEi(i32 noundef %0) #4 {
   store ptr @.str.490, ptr %3, align 8
   store ptr @_ZN5CatchL10signalDefsE, ptr %4, align 8
   store ptr @_ZN5CatchL10signalDefsE, ptr %5, align 8
-  store ptr getelementptr inbounds (%"struct.Catch::SignalDefs", ptr @_ZN5CatchL10signalDefsE, i64 6), ptr %6, align 8
-  br label %8
+  %8 = getelementptr inbounds %"struct.Catch::SignalDefs", ptr @_ZN5CatchL10signalDefsE, i64 6
+  store ptr %8, ptr %6, align 8
+  br label %9
 
-8:                                                ; preds = %24, %1
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = icmp ne ptr %9, %10
-  br i1 %11, label %12, label %27
+9:                                                ; preds = %25, %1
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = icmp ne ptr %10, %11
+  br i1 %12, label %13, label %28
 
-12:                                               ; preds = %8
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %7, align 8
-  %14 = load i32, ptr %2, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds %"struct.Catch::SignalDefs", ptr %15, i32 0, i32 0
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp eq i32 %14, %17
-  br i1 %18, label %19, label %23
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %5, align 8
+  store ptr %14, ptr %7, align 8
+  %15 = load i32, ptr %2, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds %"struct.Catch::SignalDefs", ptr %16, i32 0, i32 0
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp eq i32 %15, %18
+  br i1 %19, label %20, label %24
 
-19:                                               ; preds = %12
-  %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %"struct.Catch::SignalDefs", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %3, align 8
-  br label %27
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds %"struct.Catch::SignalDefs", ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %3, align 8
+  br label %28
 
-23:                                               ; preds = %12
-  br label %24
+24:                                               ; preds = %13
+  br label %25
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %"struct.Catch::SignalDefs", ptr %25, i32 1
-  store ptr %26, ptr %5, align 8
-  br label %8
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds %"struct.Catch::SignalDefs", ptr %26, i32 1
+  store ptr %27, ptr %5, align 8
+  br label %9
 
-27:                                               ; preds = %19, %8
+28:                                               ; preds = %20, %9
   call void @_ZN5CatchL29restorePreviousSignalHandlersEv() #7
-  %28 = load ptr, ptr %3, align 8
-  call void @_ZN12_GLOBAL__N_111reportFatalEPKc(ptr noundef %28)
-  %29 = load i32, ptr %2, align 4
-  %30 = call i32 @raise(i32 noundef %29) #7
+  %29 = load ptr, ptr %3, align 8
+  call void @_ZN12_GLOBAL__N_111reportFatalEPKc(ptr noundef %29)
+  %30 = load i32, ptr %2, align 4
+  %31 = call i32 @raise(i32 noundef %30) #7
   ret void
 }
 
@@ -51060,7 +51104,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -51636,14 +51680,14 @@ define internal void @_ZN5Catch12_GLOBAL__N_113listListenersERNS_14IEventListene
 }
 
 ; Function Attrs: uwtable
-define internal void @__cxx_global_var_init() #16 section ".text.startup" {
+define internal void @__cxx_global_var_init() #15 section ".text.startup" {
   call void @_ZN5Catch12LeakDetectorC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5CatchL12leakDetectorE)
   %1 = call i32 @__cxa_atexit(ptr @_ZN5Catch12LeakDetectorD1Ev, ptr @_ZN5CatchL12leakDetectorE, ptr @__dso_handle) #7
   ret void
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) #17 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) #16 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -52181,7 +52225,7 @@ define dso_local void @_ZN5Catch9parseUIntERKNSt7__cxx1112basic_stringIcSt11char
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %9, align 4
-  %45 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #7
+  %45 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #7
   %46 = icmp eq i32 %44, %45
   br i1 %46, label %47, label %53
 
@@ -52204,7 +52248,7 @@ define dso_local void @_ZN5Catch9parseUIntERKNSt7__cxx1112basic_stringIcSt11char
   br label %71
 
 53:                                               ; preds = %43
-  %54 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12out_of_range) #7
+  %54 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12out_of_range) #7
   %55 = icmp eq i32 %44, %54
   br i1 %55, label %56, label %72
 
@@ -54127,7 +54171,7 @@ define internal noundef i64 @"_ZZN5Catch6Detail17splitReporterSpecB5cxx11ENS_9St
   store i64 %8, ptr %6, align 8
   br label %9
 
-9:                                                ; preds = %52, %2
+9:                                                ; preds = %53, %2
   br label %10
 
 10:                                               ; preds = %27, %9
@@ -54166,7 +54210,7 @@ define internal noundef i64 @"_ZZN5Catch6Detail17splitReporterSpecB5cxx11ENS_9St
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef i64 @_ZNK5Catch9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #7
   %36 = icmp ult i64 %32, %35
-  br i1 %36, label %37, label %49
+  br i1 %36, label %37, label %50
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds %class.anon.279, ptr %7, i32 0, i32 0
@@ -54175,37 +54219,38 @@ define internal noundef i64 @"_ZZN5Catch6Detail17splitReporterSpecB5cxx11ENS_9St
   %41 = add i64 %40, 1
   %42 = call noundef signext i8 @_ZNK5Catch9StringRefixEm(ptr noundef nonnull align 8 dereferenceable(16) %39, i64 noundef %41) #7
   %43 = sext i8 %42 to i32
-  %44 = load i8, ptr getelementptr inbounds (i8, ptr @.str.211, i64 1), align 1
-  %45 = sext i8 %44 to i32
-  %46 = icmp eq i32 %43, %45
-  br i1 %46, label %47, label %49
+  %44 = getelementptr inbounds i8, ptr @.str.211, i64 1
+  %45 = load i8, ptr %44, align 1
+  %46 = sext i8 %45 to i32
+  %47 = icmp eq i32 %43, %46
+  br i1 %47, label %48, label %50
 
-47:                                               ; preds = %37
-  %48 = load i64, ptr %6, align 8
-  store i64 %48, ptr %3, align 8
-  br label %59
+48:                                               ; preds = %37
+  %49 = load i64, ptr %6, align 8
+  store i64 %49, ptr %3, align 8
+  br label %60
 
-49:                                               ; preds = %37, %30
-  %50 = load i64, ptr %6, align 8
-  %51 = add i64 %50, 1
-  store i64 %51, ptr %6, align 8
-  br label %52
+50:                                               ; preds = %37, %30
+  %51 = load i64, ptr %6, align 8
+  %52 = add i64 %51, 1
+  store i64 %52, ptr %6, align 8
+  br label %53
 
-52:                                               ; preds = %49
-  %53 = load i64, ptr %6, align 8
-  %54 = getelementptr inbounds %class.anon.279, ptr %7, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = call noundef i64 @_ZNK5Catch9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #7
-  %57 = icmp ult i64 %53, %56
-  br i1 %57, label %9, label %58, !llvm.loop !33
+53:                                               ; preds = %50
+  %54 = load i64, ptr %6, align 8
+  %55 = getelementptr inbounds %class.anon.279, ptr %7, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  %57 = call noundef i64 @_ZNK5Catch9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %56) #7
+  %58 = icmp ult i64 %54, %57
+  br i1 %58, label %9, label %59, !llvm.loop !33
 
-58:                                               ; preds = %52
+59:                                               ; preds = %53
   store i64 -1, ptr %3, align 8
-  br label %59
+  br label %60
 
-59:                                               ; preds = %58, %47
-  %60 = load i64, ptr %3, align 8
-  ret i64 %60
+60:                                               ; preds = %59, %48
+  %61 = load i64, ptr %3, align 8
+  ret i64 %61
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -54381,7 +54426,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK5Catch9StringRefeqES0_(ptr
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds %"class.Catch::StringRef", ptr %8, i32 0, i32 1
   %20 = load i64, ptr %19, align 8
-  %21 = call i32 @memcmp(ptr noundef %16, ptr noundef %18, i64 noundef %20) #22
+  %21 = call i32 @memcmp(ptr noundef %16, ptr noundef %18, i64 noundef %20) #21
   %22 = icmp eq i32 %21, 0
   br label %23
 
@@ -55613,185 +55658,186 @@ define dso_local void @_ZN5Catch10RunContextC2EPKNS_7IConfigEONS_6Detail10unique
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch14IResultCaptureC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN5Catch10RunContextE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 3
-  %15 = load ptr, ptr %14, align 8
-  %16 = invoke { ptr, i64 } %15(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %17 unwind label %79
+  %11 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN5Catch10RunContextE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds ptr, ptr %14, i64 3
+  %16 = load ptr, ptr %15, align 8
+  %17 = invoke { ptr, i64 } %16(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %18 unwind label %80
 
-17:                                               ; preds = %3
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
-  %19 = extractvalue { ptr, i64 } %16, 0
-  store ptr %19, ptr %18, align 8
-  %20 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
-  %21 = extractvalue { ptr, i64 } %16, 1
-  store i64 %21, ptr %20, align 8
-  %22 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
-  %25 = load i64, ptr %24, align 8
-  invoke void @_ZN5Catch11TestRunInfoC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr %23, i64 %25)
-          to label %26 unwind label %79
+18:                                               ; preds = %3
+  %19 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
+  %20 = extractvalue { ptr, i64 } %17, 0
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
+  %22 = extractvalue { ptr, i64 } %17, 1
+  store i64 %22, ptr %21, align 8
+  %23 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  invoke void @_ZN5Catch11TestRunInfoC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr %24, i64 %26)
+          to label %27 unwind label %80
 
-26:                                               ; preds = %17
-  %27 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 2
-  store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 3
+27:                                               ; preds = %18
+  %28 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 2
   store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 4
-  invoke void @_ZN5Catch8OptionalINS_15AssertionResultEEC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %29)
-          to label %30 unwind label %79
+  %29 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 3
+  store ptr null, ptr %29, align 8
+  %30 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 4
+  invoke void @_ZN5Catch8OptionalINS_15AssertionResultEEC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %30)
+          to label %31 unwind label %80
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 5
-  %32 = load ptr, ptr %5, align 8
-  store ptr %32, ptr %31, align 8
-  %33 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 6
-  call void @_ZN5Catch6TotalsC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %33) #7
-  %34 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 7
-  %35 = load ptr, ptr %6, align 8
-  call void @_ZN5Catch6Detail10unique_ptrINS_14IEventListenerEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %35) #7
-  %36 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 8
-  call void @_ZNSt6vectorIN5Catch11MessageInfoESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #7
-  %37 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 9
-  call void @_ZNSt6vectorIN5Catch13ScopedMessageESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #7
-  %38 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 10
-  %39 = getelementptr inbounds %"struct.Catch::AssertionInfo", ptr %38, i32 0, i32 0
-  call void @llvm.memset.p0.i64(ptr align 8 %39, i8 0, i64 16, i1 false)
-  call void @_ZN5Catch9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #7
-  %40 = getelementptr inbounds %"struct.Catch::AssertionInfo", ptr %38, i32 0, i32 1
-  call void @_ZN5Catch14SourceLineInfoC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef @.str.14, i64 noundef 0) #7
-  %41 = getelementptr inbounds %"struct.Catch::AssertionInfo", ptr %38, i32 0, i32 2
-  call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 16, i1 false)
-  call void @_ZN5Catch9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #7
-  %42 = getelementptr inbounds %"struct.Catch::AssertionInfo", ptr %38, i32 0, i32 3
-  store i32 1, ptr %42, align 8
-  %43 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 11
-  call void @_ZNSt6vectorIN5Catch14SectionEndInfoESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #7
-  %44 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 12
-  call void @_ZNSt6vectorIPN5Catch16TestCaseTracking8ITrackerESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #7
-  %45 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 13
-  invoke void @_ZN5Catch16TestCaseTracking14TrackerContextC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %45)
-          to label %46 unwind label %83
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 5
+  %33 = load ptr, ptr %5, align 8
+  store ptr %33, ptr %32, align 8
+  %34 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 6
+  call void @_ZN5Catch6TotalsC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %34) #7
+  %35 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 7
+  %36 = load ptr, ptr %6, align 8
+  call void @_ZN5Catch6Detail10unique_ptrINS_14IEventListenerEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %36) #7
+  %37 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 8
+  call void @_ZNSt6vectorIN5Catch11MessageInfoESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #7
+  %38 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 9
+  call void @_ZNSt6vectorIN5Catch13ScopedMessageESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #7
+  %39 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 10
+  %40 = getelementptr inbounds %"struct.Catch::AssertionInfo", ptr %39, i32 0, i32 0
+  call void @llvm.memset.p0.i64(ptr align 8 %40, i8 0, i64 16, i1 false)
+  call void @_ZN5Catch9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #7
+  %41 = getelementptr inbounds %"struct.Catch::AssertionInfo", ptr %39, i32 0, i32 1
+  call void @_ZN5Catch14SourceLineInfoC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef @.str.14, i64 noundef 0) #7
+  %42 = getelementptr inbounds %"struct.Catch::AssertionInfo", ptr %39, i32 0, i32 2
+  call void @llvm.memset.p0.i64(ptr align 8 %42, i8 0, i64 16, i1 false)
+  call void @_ZN5Catch9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #7
+  %43 = getelementptr inbounds %"struct.Catch::AssertionInfo", ptr %39, i32 0, i32 3
+  store i32 1, ptr %43, align 8
+  %44 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 11
+  call void @_ZNSt6vectorIN5Catch14SectionEndInfoESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #7
+  %45 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 12
+  call void @_ZNSt6vectorIPN5Catch16TestCaseTracking8ITrackerESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #7
+  %46 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 13
+  invoke void @_ZN5Catch16TestCaseTracking14TrackerContextC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %46)
+          to label %47 unwind label %84
 
-46:                                               ; preds = %30
-  %47 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 14
-  invoke void @_ZN5Catch21FatalConditionHandlerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47)
-          to label %48 unwind label %87
+47:                                               ; preds = %31
+  %48 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 14
+  invoke void @_ZN5Catch21FatalConditionHandlerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48)
+          to label %49 unwind label %88
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 15
-  store i8 0, ptr %49, align 1
-  %50 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 16
-  store i8 1, ptr %50, align 2
-  %51 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 17
-  %52 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 5
-  %53 = load ptr, ptr %52, align 8
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 15
+  store i8 0, ptr %50, align 1
+  %51 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 16
+  store i8 1, ptr %51, align 2
+  %52 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 17
+  %53 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 5
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds ptr, ptr %54, i64 4
-  %56 = load ptr, ptr %55, align 8
-  %57 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(8) %53)
-          to label %58 unwind label %91
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds ptr, ptr %55, i64 4
+  %57 = load ptr, ptr %56, align 8
+  %58 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(8) %54)
+          to label %59 unwind label %92
 
-58:                                               ; preds = %48
-  br i1 %57, label %67, label %59
+59:                                               ; preds = %49
+  br i1 %58, label %68, label %60
 
-59:                                               ; preds = %58
-  %60 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 7
-  %61 = call noundef ptr @_ZN5Catch6Detail10unique_ptrINS_14IEventListenerEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %60) #7
-  %62 = invoke noundef nonnull align 1 dereferenceable(2) ptr @_ZNK5Catch14IEventListener14getPreferencesEv(ptr noundef nonnull align 8 dereferenceable(24) %61)
-          to label %63 unwind label %91
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 7
+  %62 = call noundef ptr @_ZN5Catch6Detail10unique_ptrINS_14IEventListenerEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %61) #7
+  %63 = invoke noundef nonnull align 1 dereferenceable(2) ptr @_ZNK5Catch14IEventListener14getPreferencesEv(ptr noundef nonnull align 8 dereferenceable(24) %62)
+          to label %64 unwind label %92
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %62, i32 0, i32 1
-  %65 = load i8, ptr %64, align 1
-  %66 = trunc i8 %65 to i1
-  br label %67
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %63, i32 0, i32 1
+  %66 = load i8, ptr %65, align 1
+  %67 = trunc i8 %66 to i1
+  br label %68
 
-67:                                               ; preds = %63, %58
-  %68 = phi i1 [ true, %58 ], [ %66, %63 ]
-  %69 = zext i1 %68 to i8
-  store i8 %69, ptr %51, align 1
-  %70 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch24getCurrentMutableContextEv()
-          to label %71 unwind label %91
+68:                                               ; preds = %64, %59
+  %69 = phi i1 [ true, %59 ], [ %67, %64 ]
+  %70 = zext i1 %69 to i8
+  store i8 %70, ptr %52, align 1
+  %71 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch24getCurrentMutableContextEv()
+          to label %72 unwind label %92
 
-71:                                               ; preds = %67
-  call void @_ZN5Catch7Context16setResultCaptureEPNS_14IResultCaptureE(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef %10)
-  %72 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 7
-  %73 = call noundef ptr @_ZN5Catch6Detail10unique_ptrINS_14IEventListenerEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %72) #7
-  %74 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 1
-  %75 = load ptr, ptr %73, align 8
-  %76 = getelementptr inbounds ptr, ptr %75, i64 4
-  %77 = load ptr, ptr %76, align 8
-  invoke void %77(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull align 8 dereferenceable(16) %74)
-          to label %78 unwind label %91
+72:                                               ; preds = %68
+  call void @_ZN5Catch7Context16setResultCaptureEPNS_14IResultCaptureE(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef %10)
+  %73 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 7
+  %74 = call noundef ptr @_ZN5Catch6Detail10unique_ptrINS_14IEventListenerEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %73) #7
+  %75 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 1
+  %76 = load ptr, ptr %74, align 8
+  %77 = getelementptr inbounds ptr, ptr %76, i64 4
+  %78 = load ptr, ptr %77, align 8
+  invoke void %78(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(16) %75)
+          to label %79 unwind label %92
 
-78:                                               ; preds = %71
+79:                                               ; preds = %72
   ret void
 
-79:                                               ; preds = %26, %17, %3
-  %80 = landingpad { ptr, i32 }
+80:                                               ; preds = %27, %18, %3
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %8, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %9, align 4
-  br label %97
-
-83:                                               ; preds = %30
-  %84 = landingpad { ptr, i32 }
-          cleanup
-  %85 = extractvalue { ptr, i32 } %84, 0
-  store ptr %85, ptr %8, align 8
-  %86 = extractvalue { ptr, i32 } %84, 1
-  store i32 %86, ptr %9, align 4
-  br label %96
-
-87:                                               ; preds = %46
-  %88 = landingpad { ptr, i32 }
-          cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %8, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %9, align 4
-  br label %95
-
-91:                                               ; preds = %71, %67, %59, %48
-  %92 = landingpad { ptr, i32 }
-          cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  store ptr %93, ptr %8, align 8
-  %94 = extractvalue { ptr, i32 } %92, 1
-  store i32 %94, ptr %9, align 4
-  call void @_ZN5Catch21FatalConditionHandlerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #7
-  br label %95
-
-95:                                               ; preds = %91, %87
-  call void @_ZN5Catch16TestCaseTracking14TrackerContextD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %45) #7
-  br label %96
-
-96:                                               ; preds = %95, %83
-  call void @_ZNSt6vectorIPN5Catch16TestCaseTracking8ITrackerESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #7
-  call void @_ZNSt6vectorIN5Catch14SectionEndInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #7
-  call void @_ZNSt6vectorIN5Catch13ScopedMessageESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #7
-  call void @_ZNSt6vectorIN5Catch11MessageInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #7
-  call void @_ZN5Catch6Detail10unique_ptrINS_14IEventListenerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #7
-  call void @_ZN5Catch8OptionalINS_15AssertionResultEED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %29) #7
-  br label %97
-
-97:                                               ; preds = %96, %79
-  call void @_ZN5Catch14IResultCaptureD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %8, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %9, align 4
   br label %98
 
-98:                                               ; preds = %97
-  %99 = load ptr, ptr %8, align 8
-  %100 = load i32, ptr %9, align 4
-  %101 = insertvalue { ptr, i32 } poison, ptr %99, 0
-  %102 = insertvalue { ptr, i32 } %101, i32 %100, 1
-  resume { ptr, i32 } %102
+84:                                               ; preds = %31
+  %85 = landingpad { ptr, i32 }
+          cleanup
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %8, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %9, align 4
+  br label %97
+
+88:                                               ; preds = %47
+  %89 = landingpad { ptr, i32 }
+          cleanup
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %8, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %9, align 4
+  br label %96
+
+92:                                               ; preds = %72, %68, %60, %49
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  %94 = extractvalue { ptr, i32 } %93, 0
+  store ptr %94, ptr %8, align 8
+  %95 = extractvalue { ptr, i32 } %93, 1
+  store i32 %95, ptr %9, align 4
+  call void @_ZN5Catch21FatalConditionHandlerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #7
+  br label %96
+
+96:                                               ; preds = %92, %88
+  call void @_ZN5Catch16TestCaseTracking14TrackerContextD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %46) #7
+  br label %97
+
+97:                                               ; preds = %96, %84
+  call void @_ZNSt6vectorIPN5Catch16TestCaseTracking8ITrackerESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #7
+  call void @_ZNSt6vectorIN5Catch14SectionEndInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #7
+  call void @_ZNSt6vectorIN5Catch13ScopedMessageESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #7
+  call void @_ZNSt6vectorIN5Catch11MessageInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #7
+  call void @_ZN5Catch6Detail10unique_ptrINS_14IEventListenerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #7
+  call void @_ZN5Catch8OptionalINS_15AssertionResultEED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %30) #7
+  br label %98
+
+98:                                               ; preds = %97, %80
+  call void @_ZN5Catch14IResultCaptureD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %99
+
+99:                                               ; preds = %98
+  %100 = load ptr, ptr %8, align 8
+  %101 = load i32, ptr %9, align 4
+  %102 = insertvalue { ptr, i32 } poison, ptr %100, 0
+  %103 = insertvalue { ptr, i32 } %102, i32 %101, 1
+  resume { ptr, i32 } %103
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -55799,7 +55845,8 @@ define linkonce_odr dso_local void @_ZN5Catch14IResultCaptureC2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN5Catch14IResultCaptureE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN5Catch14IResultCaptureE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -56857,7 +56904,7 @@ define dso_local void @_ZN5Catch10RunContext14runCurrentTestERNSt7__cxx1112basic
 
 83:                                               ; preds = %79, %75
   %84 = load i32, ptr %11, align 4
-  %85 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5Catch20TestFailureExceptionE) #7
+  %85 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5Catch20TestFailureExceptionE) #7
   %86 = icmp eq i32 %84, %85
   br i1 %86, label %87, label %116
 
@@ -56919,7 +56966,7 @@ define dso_local void @_ZN5Catch10RunContext14runCurrentTestERNSt7__cxx1112basic
   ret void
 
 116:                                              ; preds = %83
-  %117 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5Catch17TestSkipExceptionE) #7
+  %117 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5Catch17TestSkipExceptionE) #7
   %118 = icmp eq i32 %84, %117
   br i1 %118, label %119, label %123
 
@@ -60241,7 +60288,7 @@ define dso_local noundef zeroext i1 @_ZNK5Catch14SourceLineInfoeqERKS0_(ptr noun
   %22 = load ptr, ptr %4, align 8
   %23 = getelementptr inbounds %"struct.Catch::SourceLineInfo", ptr %22, i32 0, i32 0
   %24 = load ptr, ptr %23, align 8
-  %25 = call i32 @strcmp(ptr noundef %21, ptr noundef %24) #22
+  %25 = call i32 @strcmp(ptr noundef %21, ptr noundef %24) #21
   %26 = icmp eq i32 %25, 0
   br label %27
 
@@ -60255,7 +60302,7 @@ define dso_local noundef zeroext i1 @_ZNK5Catch14SourceLineInfoeqERKS0_(ptr noun
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #18
+declare i32 @strcmp(ptr noundef, ptr noundef) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5Catch14SourceLineInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 {
@@ -60296,7 +60343,7 @@ define dso_local noundef zeroext i1 @_ZNK5Catch14SourceLineInfoltERKS0_(ptr noun
   %29 = load ptr, ptr %4, align 8
   %30 = getelementptr inbounds %"struct.Catch::SourceLineInfo", ptr %29, i32 0, i32 0
   %31 = load ptr, ptr %30, align 8
-  %32 = call i32 @strcmp(ptr noundef %28, ptr noundef %31) #22
+  %32 = call i32 @strcmp(ptr noundef %28, ptr noundef %31) #21
   %33 = icmp slt i32 %32, 0
   br label %34
 
@@ -60413,7 +60460,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorINSt15__exception_ptr13exception
 }
 
 ; Function Attrs: uwtable
-define internal void @__cxx_global_var_init.226() #16 section ".text.startup" {
+define internal void @__cxx_global_var_init.226() #15 section ".text.startup" {
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #7
   ret void
@@ -60704,7 +60751,7 @@ define dso_local noundef signext i8 @_ZN5Catch7toLowerEc(i8 noundef signext %0) 
   store i8 %0, ptr %2, align 1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
-  %5 = call i32 @tolower(i32 noundef %4) #22
+  %5 = call i32 @tolower(i32 noundef %4) #21
   %6 = trunc i32 %5 to i8
   ret i8 %6
 }
@@ -60722,7 +60769,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @tolower(i32 noundef) #18
+declare i32 @tolower(i32 noundef) #17
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17find_first_not_ofEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) #8
@@ -61015,13 +61062,13 @@ define dso_local void @_ZN5Catch9StringRefC2EPKc(ptr noundef nonnull align 8 der
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = call i64 @strlen(ptr noundef %7) #22
+  %8 = call i64 @strlen(ptr noundef %7) #21
   call void @_ZN5Catch9StringRefC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6, i64 noundef %8) #7
   ret void
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #18
+declare i64 @strlen(ptr noundef) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5Catch9StringRefltES0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, i64 %2) #0 align 2 {
@@ -61048,7 +61095,7 @@ define dso_local noundef zeroext i1 @_ZNK5Catch9StringRefltES0_(ptr noundef nonn
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds %"class.Catch::StringRef", ptr %9, i32 0, i32 1
   %21 = load i64, ptr %20, align 8
-  %22 = call i32 @strncmp(ptr noundef %17, ptr noundef %19, i64 noundef %21) #22
+  %22 = call i32 @strncmp(ptr noundef %17, ptr noundef %19, i64 noundef %21) #21
   %23 = icmp sle i32 %22, 0
   store i1 %23, ptr %4, align 1
   br label %33
@@ -61060,7 +61107,7 @@ define dso_local noundef zeroext i1 @_ZNK5Catch9StringRefltES0_(ptr noundef nonn
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds %"class.Catch::StringRef", ptr %5, i32 0, i32 1
   %30 = load i64, ptr %29, align 8
-  %31 = call i32 @strncmp(ptr noundef %26, ptr noundef %28, i64 noundef %30) #22
+  %31 = call i32 @strncmp(ptr noundef %26, ptr noundef %28, i64 noundef %30) #21
   %32 = icmp slt i32 %31, 0
   store i1 %32, ptr %4, align 1
   br label %33
@@ -61071,7 +61118,7 @@ define dso_local noundef zeroext i1 @_ZNK5Catch9StringRefltES0_(ptr noundef nonn
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #18
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #17
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) #9
 
@@ -61167,9 +61214,10 @@ define dso_local void @_ZN5Catch16TagAliasRegistryD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch16TagAliasRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::TagAliasRegistry", ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Catch8TagAliasESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #7
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch16TagAliasRegistryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::TagAliasRegistry", ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Catch8TagAliasESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #7
   call void @_ZN5Catch17ITagAliasRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 }
@@ -61491,7 +61539,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.324", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.324", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -63827,11 +63875,12 @@ define dso_local void @_ZN5Catch16TestCaseTracking8ITrackerD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking8ITrackerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_16TestCaseTracking8ITrackerEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
-  %5 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %3, i32 0, i32 1
-  call void @_ZN5Catch16TestCaseTracking15NameAndLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #7
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking8ITrackerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_16TestCaseTracking8ITrackerEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
+  %6 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %3, i32 0, i32 1
+  call void @_ZN5Catch16TestCaseTracking15NameAndLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #7
   ret void
 }
 
@@ -64236,10 +64285,11 @@ define dso_local void @_ZN5Catch16TestCaseTracking11TrackerBaseC2EONS0_15NameAnd
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %8, align 8
   call void @_ZN5Catch16TestCaseTracking8ITrackerC2EONS0_15NameAndLocationEPS1_(ptr noundef nonnull align 8 dereferenceable(92) %9, ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking11TrackerBaseE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"class.Catch::TestCaseTracking::TrackerBase", ptr %9, i32 0, i32 1
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
+  %12 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking11TrackerBaseE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"class.Catch::TestCaseTracking::TrackerBase", ptr %9, i32 0, i32 1
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
   ret void
 }
 
@@ -64252,17 +64302,18 @@ define linkonce_odr dso_local void @_ZN5Catch16TestCaseTracking8ITrackerC2EONS0_
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking8ITrackerE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  call void @_ZN5Catch16TestCaseTracking15NameAndLocationC2EOS1_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %9) #7
-  %10 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %7, i32 0, i32 3
-  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_16TestCaseTracking8ITrackerEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #7
-  %13 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %7, i32 0, i32 4
-  store i32 0, ptr %13, align 8
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking8ITrackerE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  call void @_ZN5Catch16TestCaseTracking15NameAndLocationC2EOS1_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %10) #7
+  %11 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %7, i32 0, i32 3
+  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_16TestCaseTracking8ITrackerEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #7
+  %14 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %7, i32 0, i32 4
+  store i32 0, ptr %14, align 8
   ret void
 }
 
@@ -64609,89 +64660,90 @@ define dso_local void @_ZN5Catch16TestCaseTracking14SectionTrackerC2EONS0_15Name
   %15 = load ptr, ptr %7, align 8
   %16 = load ptr, ptr %8, align 8
   call void @_ZN5Catch16TestCaseTracking11TrackerBaseC2EONS0_15NameAndLocationERNS0_14TrackerContextEPNS0_8ITrackerE(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef %16)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking14SectionTrackerE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %17 = getelementptr inbounds %"class.Catch::TestCaseTracking::SectionTracker", ptr %13, i32 0, i32 1
-  call void @_ZNSt6vectorIN5Catch9StringRefESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #7
-  %18 = getelementptr inbounds %"class.Catch::TestCaseTracking::SectionTracker", ptr %13, i32 0, i32 2
-  %19 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5Catch16TestCaseTracking8ITracker15nameAndLocationEv(ptr noundef nonnull align 8 dereferenceable(92) %13)
-          to label %20 unwind label %47
+  %17 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking14SectionTrackerE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %13, align 8
+  %18 = getelementptr inbounds %"class.Catch::TestCaseTracking::SectionTracker", ptr %13, i32 0, i32 1
+  call void @_ZNSt6vectorIN5Catch9StringRefESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #7
+  %19 = getelementptr inbounds %"class.Catch::TestCaseTracking::SectionTracker", ptr %13, i32 0, i32 2
+  %20 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5Catch16TestCaseTracking8ITracker15nameAndLocationEv(ptr noundef nonnull align 8 dereferenceable(92) %13)
+          to label %21 unwind label %48
 
-20:                                               ; preds = %4
-  %21 = getelementptr inbounds %"struct.Catch::TestCaseTracking::NameAndLocation", ptr %19, i32 0, i32 0
-  call void @_ZN5Catch9StringRefC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(32) %21) #7
-  %22 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 1
-  %25 = load i64, ptr %24, align 8
-  %26 = invoke { ptr, i64 } @_ZN5Catch4trimENS_9StringRefE(ptr %23, i64 %25)
-          to label %27 unwind label %47
+21:                                               ; preds = %4
+  %22 = getelementptr inbounds %"struct.Catch::TestCaseTracking::NameAndLocation", ptr %20, i32 0, i32 0
+  call void @_ZN5Catch9StringRefC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(32) %22) #7
+  %23 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  %27 = invoke { ptr, i64 } @_ZN5Catch4trimENS_9StringRefE(ptr %24, i64 %26)
+          to label %28 unwind label %48
 
-27:                                               ; preds = %20
-  %28 = getelementptr inbounds { ptr, i64 }, ptr %18, i32 0, i32 0
-  %29 = extractvalue { ptr, i64 } %26, 0
-  store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds { ptr, i64 }, ptr %18, i32 0, i32 1
-  %31 = extractvalue { ptr, i64 } %26, 1
-  store i64 %31, ptr %30, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = icmp ne ptr %32, null
-  br i1 %33, label %34, label %56
+28:                                               ; preds = %21
+  %29 = getelementptr inbounds { ptr, i64 }, ptr %19, i32 0, i32 0
+  %30 = extractvalue { ptr, i64 } %27, 0
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds { ptr, i64 }, ptr %19, i32 0, i32 1
+  %32 = extractvalue { ptr, i64 } %27, 1
+  store i64 %32, ptr %31, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %57
 
-34:                                               ; preds = %27
-  br label %35
+35:                                               ; preds = %28
+  br label %36
 
-35:                                               ; preds = %46, %34
-  %36 = load ptr, ptr %8, align 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 5
-  %39 = load ptr, ptr %38, align 8
-  %40 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(92) %36)
-          to label %41 unwind label %47
+36:                                               ; preds = %47, %35
+  %37 = load ptr, ptr %8, align 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds ptr, ptr %38, i64 5
+  %40 = load ptr, ptr %39, align 8
+  %41 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(92) %37)
+          to label %42 unwind label %48
 
-41:                                               ; preds = %35
-  %42 = xor i1 %40, true
-  br i1 %42, label %43, label %51
+42:                                               ; preds = %36
+  %43 = xor i1 %41, true
+  br i1 %43, label %44, label %52
 
-43:                                               ; preds = %41
-  %44 = load ptr, ptr %8, align 8
-  %45 = invoke noundef ptr @_ZNK5Catch16TestCaseTracking8ITracker6parentEv(ptr noundef nonnull align 8 dereferenceable(92) %44)
-          to label %46 unwind label %47
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %8, align 8
+  %46 = invoke noundef ptr @_ZNK5Catch16TestCaseTracking8ITracker6parentEv(ptr noundef nonnull align 8 dereferenceable(92) %45)
+          to label %47 unwind label %48
 
-46:                                               ; preds = %43
-  store ptr %45, ptr %8, align 8
-  br label %35, !llvm.loop !39
+47:                                               ; preds = %44
+  store ptr %46, ptr %8, align 8
+  br label %36, !llvm.loop !39
 
-47:                                               ; preds = %51, %43, %35, %20, %4
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %52, %44, %36, %21, %4
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %10, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %11, align 4
-  call void @_ZNSt6vectorIN5Catch9StringRefESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #7
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %10, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %11, align 4
+  call void @_ZNSt6vectorIN5Catch9StringRefESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #7
   call void @_ZN5Catch16TestCaseTracking11TrackerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %13) #7
+  br label %58
+
+52:                                               ; preds = %42
+  %53 = load ptr, ptr %8, align 8
+  store ptr %53, ptr %12, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = getelementptr inbounds %"class.Catch::TestCaseTracking::SectionTracker", ptr %54, i32 0, i32 1
+  invoke void @_ZN5Catch16TestCaseTracking14SectionTracker14addNextFiltersERKSt6vectorINS_9StringRefESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef nonnull align 8 dereferenceable(24) %55)
+          to label %56 unwind label %48
+
+56:                                               ; preds = %52
   br label %57
 
-51:                                               ; preds = %41
-  %52 = load ptr, ptr %8, align 8
-  store ptr %52, ptr %12, align 8
-  %53 = load ptr, ptr %12, align 8
-  %54 = getelementptr inbounds %"class.Catch::TestCaseTracking::SectionTracker", ptr %53, i32 0, i32 1
-  invoke void @_ZN5Catch16TestCaseTracking14SectionTracker14addNextFiltersERKSt6vectorINS_9StringRefESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef nonnull align 8 dereferenceable(24) %54)
-          to label %55 unwind label %47
-
-55:                                               ; preds = %51
-  br label %56
-
-56:                                               ; preds = %55, %27
+57:                                               ; preds = %56, %28
   ret void
 
-57:                                               ; preds = %47
-  %58 = load ptr, ptr %10, align 8
-  %59 = load i32, ptr %11, align 4
-  %60 = insertvalue { ptr, i32 } poison, ptr %58, 0
-  %61 = insertvalue { ptr, i32 } %60, i32 %59, 1
-  resume { ptr, i32 } %61
+58:                                               ; preds = %48
+  %59 = load ptr, ptr %10, align 8
+  %60 = load i32, ptr %11, align 4
+  %61 = insertvalue { ptr, i32 } poison, ptr %59, 0
+  %62 = insertvalue { ptr, i32 } %61, i32 %60, 1
+  resume { ptr, i32 } %62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -68495,7 +68547,7 @@ define linkonce_odr dso_local void @_ZN5Catch8TextFlow7ColumnsC2ERKS1_(ptr nound
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef i32 @_ZSt19uncaught_exceptionsv() #18
+declare noundef i32 @_ZSt19uncaught_exceptionsv() #17
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5Catch15WildcardPatternC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13CaseSensitiveE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -70224,9 +70276,10 @@ define dso_local void @_ZN5Catch8Matchers18MatcherUntypedBaseD2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Matchers::MatcherUntypedBase", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Matchers::MatcherUntypedBase", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   ret void
 }
 
@@ -70348,7 +70401,8 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers14IsEmptyMatcherC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14IsEmptyMatcherE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14IsEmptyMatcherE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -70371,10 +70425,11 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers14HasSizeMatcherC2Em(ptr n
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14HasSizeMatcherE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::Matchers::HasSizeMatcher", ptr %5, i32 0, i32 1
-  %7 = load i64, ptr %4, align 8
-  store i64 %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14HasSizeMatcherE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::Matchers::HasSizeMatcher", ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %4, align 8
+  store i64 %8, ptr %7, align 8
   ret void
 }
 
@@ -70466,31 +70521,32 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers23ExceptionMessageMatcherC
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5Catch8Matchers11MatcherBaseISt9exceptionEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers23ExceptionMessageMatcherE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Catch::Matchers::ExceptionMessageMatcher", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers23ExceptionMessageMatcherE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.Catch::Matchers::ExceptionMessageMatcher", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZN5Catch8Matchers11MatcherBaseISt9exceptionED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #7
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN5Catch8Matchers11MatcherBaseISt9exceptionED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #7
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -70508,103 +70564,104 @@ define dso_local void @_ZN5Catch8Matchers16WithinAbsMatcherC2Edd(ptr noundef non
   store double %2, ptr %6, align 8
   %12 = load ptr, ptr %4, align 8
   call void @_ZN5Catch8Matchers11MatcherBaseIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers16WithinAbsMatcherE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.Catch::Matchers::WithinAbsMatcher", ptr %12, i32 0, i32 1
-  %14 = load double, ptr %5, align 8
-  store double %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"class.Catch::Matchers::WithinAbsMatcher", ptr %12, i32 0, i32 2
-  %16 = load double, ptr %6, align 8
-  store double %16, ptr %15, align 8
-  br label %17
+  %13 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers16WithinAbsMatcherE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.Catch::Matchers::WithinAbsMatcher", ptr %12, i32 0, i32 1
+  %15 = load double, ptr %5, align 8
+  store double %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.Catch::Matchers::WithinAbsMatcher", ptr %12, i32 0, i32 2
+  %17 = load double, ptr %6, align 8
+  store double %17, ptr %16, align 8
+  br label %18
 
-17:                                               ; preds = %3
-  %18 = load double, ptr %6, align 8
-  %19 = fcmp oge double %18, 0.000000e+00
-  br i1 %19, label %45, label %20
+18:                                               ; preds = %3
+  %19 = load double, ptr %6, align 8
+  %20 = fcmp oge double %19, 0.000000e+00
+  br i1 %20, label %46, label %21
 
-20:                                               ; preds = %17
+21:                                               ; preds = %18
   invoke void @_ZN5Catch20ReusableStringStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %21 unwind label %32
+          to label %22 unwind label %33
 
-21:                                               ; preds = %20
-  %22 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIA17_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(17) @.str.257)
-          to label %23 unwind label %36
+22:                                               ; preds = %21
+  %23 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIA17_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(17) @.str.257)
+          to label %24 unwind label %37
 
-23:                                               ; preds = %21
-  %24 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIdEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %25 unwind label %36
+24:                                               ; preds = %22
+  %25 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIdEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %26 unwind label %37
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   store i8 46, ptr %11, align 1
-  %26 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIcEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %27 unwind label %36
+  %27 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIcEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %28 unwind label %37
 
-27:                                               ; preds = %25
-  %28 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIA32_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 1 dereferenceable(32) @.str.258)
-          to label %29 unwind label %36
+28:                                               ; preds = %26
+  %29 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIA32_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 1 dereferenceable(32) @.str.258)
+          to label %30 unwind label %37
 
-29:                                               ; preds = %27
-  invoke void @_ZNK5Catch20ReusableStringStream3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %30 unwind label %36
-
-30:                                               ; preds = %29
-  invoke void @_ZN5Catch18throw_domain_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
-          to label %31 unwind label %40
+30:                                               ; preds = %28
+  invoke void @_ZNK5Catch20ReusableStringStream3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %29)
+          to label %31 unwind label %37
 
 31:                                               ; preds = %30
+  invoke void @_ZN5Catch18throw_domain_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
+          to label %32 unwind label %41
+
+32:                                               ; preds = %31
   unreachable
 
-32:                                               ; preds = %20
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %21
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %9, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %10, align 4
-  br label %48
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %9, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %10, align 4
+  br label %49
 
-36:                                               ; preds = %29, %27, %25, %23, %21
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %30, %28, %26, %24, %22
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %9, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %10, align 4
-  br label %44
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %9, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %10, align 4
+  br label %45
 
-40:                                               ; preds = %30
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %31
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %9, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %10, align 4
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %9, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %10, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
-  br label %44
+  br label %45
 
-44:                                               ; preds = %40, %36
+45:                                               ; preds = %41, %37
   call void @_ZN5Catch20ReusableStringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %48
+  br label %49
 
-45:                                               ; preds = %17
-  br label %46
-
-46:                                               ; preds = %45
+46:                                               ; preds = %18
   br label %47
 
 47:                                               ; preds = %46
+  br label %48
+
+48:                                               ; preds = %47
   ret void
 
-48:                                               ; preds = %44, %32
+49:                                               ; preds = %45, %33
   call void @_ZN5Catch8Matchers11MatcherBaseIdED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #7
-  br label %49
+  br label %50
 
-49:                                               ; preds = %48
-  %50 = load ptr, ptr %9, align 8
-  %51 = load i32, ptr %10, align 4
-  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
-  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
-  resume { ptr, i32 } %53
+50:                                               ; preds = %49
+  %51 = load ptr, ptr %9, align 8
+  %52 = load i32, ptr %10, align 4
+  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
+  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
+  resume { ptr, i32 } %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -70613,7 +70670,8 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers11MatcherBaseIdEC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherUntypedBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers11MatcherBaseIdEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers11MatcherBaseIdEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -70791,87 +70849,85 @@ define dso_local void @_ZN5Catch8Matchers17WithinUlpsMatcherC2EdmNS0_6Detail17Fl
   store i8 %3, ptr %8, align 1
   %13 = load ptr, ptr %5, align 8
   call void @_ZN5Catch8Matchers11MatcherBaseIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17WithinUlpsMatcherE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"class.Catch::Matchers::WithinUlpsMatcher", ptr %13, i32 0, i32 1
-  %15 = load double, ptr %6, align 8
-  store double %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.Catch::Matchers::WithinUlpsMatcher", ptr %13, i32 0, i32 2
-  %17 = load i64, ptr %7, align 8
-  store i64 %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.Catch::Matchers::WithinUlpsMatcher", ptr %13, i32 0, i32 3
-  %19 = load i8, ptr %8, align 1
-  store i8 %19, ptr %18, align 8
-  br label %20
+  %14 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17WithinUlpsMatcherE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.Catch::Matchers::WithinUlpsMatcher", ptr %13, i32 0, i32 1
+  %16 = load double, ptr %6, align 8
+  store double %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.Catch::Matchers::WithinUlpsMatcher", ptr %13, i32 0, i32 2
+  %18 = load i64, ptr %7, align 8
+  store i64 %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.Catch::Matchers::WithinUlpsMatcher", ptr %13, i32 0, i32 3
+  %20 = load i8, ptr %8, align 1
+  store i8 %20, ptr %19, align 8
+  br label %21
 
-20:                                               ; preds = %4
-  %21 = getelementptr inbounds %"class.Catch::Matchers::WithinUlpsMatcher", ptr %13, i32 0, i32 3
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 1
-  br i1 %23, label %49, label %24
+21:                                               ; preds = %4
+  %22 = getelementptr inbounds %"class.Catch::Matchers::WithinUlpsMatcher", ptr %13, i32 0, i32 3
+  %23 = load i8, ptr %22, align 8
+  %24 = icmp eq i8 %23, 1
+  br i1 %24, label %50, label %25
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds %"class.Catch::Matchers::WithinUlpsMatcher", ptr %13, i32 0, i32 2
-  %26 = load i64, ptr %25, align 8
-  %27 = call noundef i32 @_ZNSt14numeric_limitsIjE3maxEv() #7
-  %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %26, %28
-  br i1 %29, label %49, label %30
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds %"class.Catch::Matchers::WithinUlpsMatcher", ptr %13, i32 0, i32 2
+  %27 = load i64, ptr %26, align 8
+  %28 = call noundef i32 @_ZNSt14numeric_limitsIjE3maxEv() #7
+  %29 = zext i32 %28 to i64
+  %30 = icmp ult i64 %27, %29
+  br i1 %30, label %50, label %31
 
-30:                                               ; preds = %24
+31:                                               ; preds = %25
   invoke void @_ZN5Catch20ReusableStringStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10)
-          to label %31 unwind label %36
+          to label %32 unwind label %37
 
-31:                                               ; preds = %30
-  %32 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIA57_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(57) @.str.261)
-          to label %33 unwind label %40
+32:                                               ; preds = %31
+  %33 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIA57_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(57) @.str.261)
+          to label %34 unwind label %41
 
-33:                                               ; preds = %31
-  invoke void @_ZNK5Catch20ReusableStringStream3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %32)
-          to label %34 unwind label %40
-
-34:                                               ; preds = %33
-  invoke void @_ZN5Catch18throw_domain_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %9) #24
-          to label %35 unwind label %44
+34:                                               ; preds = %32
+  invoke void @_ZNK5Catch20ReusableStringStream3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %33)
+          to label %35 unwind label %41
 
 35:                                               ; preds = %34
+  invoke void @_ZN5Catch18throw_domain_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %9) #24
+          to label %36 unwind label %45
+
+36:                                               ; preds = %35
   unreachable
 
-36:                                               ; preds = %30
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %31
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %11, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %12, align 4
-  br label %55
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %11, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %12, align 4
+  br label %56
 
-40:                                               ; preds = %33, %31
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %34, %32
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %11, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %12, align 4
-  br label %48
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %11, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %12, align 4
+  br label %49
 
-44:                                               ; preds = %34
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %35
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %11, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %12, align 4
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %11, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %12, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #7
-  br label %48
+  br label %49
 
-48:                                               ; preds = %44, %40
+49:                                               ; preds = %45, %41
   call void @_ZN5Catch20ReusableStringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
-  br label %55
+  br label %56
 
-49:                                               ; preds = %24, %20
-  br label %50
-
-50:                                               ; preds = %49
+50:                                               ; preds = %25, %21
   br label %51
 
 51:                                               ; preds = %50
@@ -70884,18 +70940,21 @@ define dso_local void @_ZN5Catch8Matchers17WithinUlpsMatcherC2EdmNS0_6Detail17Fl
   br label %54
 
 54:                                               ; preds = %53
+  br label %55
+
+55:                                               ; preds = %54
   ret void
 
-55:                                               ; preds = %48, %36
+56:                                               ; preds = %49, %37
   call void @_ZN5Catch8Matchers11MatcherBaseIdED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #7
-  br label %56
+  br label %57
 
-56:                                               ; preds = %55
-  %57 = load ptr, ptr %11, align 8
-  %58 = load i32, ptr %12, align 4
-  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
-  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
-  resume { ptr, i32 } %60
+57:                                               ; preds = %56
+  %58 = load ptr, ptr %11, align 8
+  %59 = load i32, ptr %12, align 4
+  %60 = insertvalue { ptr, i32 } poison, ptr %58, 0
+  %61 = insertvalue { ptr, i32 } %60, i32 %59, 1
+  resume { ptr, i32 } %61
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -71415,148 +71474,149 @@ define dso_local void @_ZN5Catch8Matchers16WithinRelMatcherC2Edd(ptr noundef non
   store double %2, ptr %6, align 8
   %13 = load ptr, ptr %4, align 8
   call void @_ZN5Catch8Matchers11MatcherBaseIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers16WithinRelMatcherE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"class.Catch::Matchers::WithinRelMatcher", ptr %13, i32 0, i32 1
-  %15 = load double, ptr %5, align 8
-  store double %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.Catch::Matchers::WithinRelMatcher", ptr %13, i32 0, i32 2
-  %17 = load double, ptr %6, align 8
-  store double %17, ptr %16, align 8
-  br label %18
+  %14 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers16WithinRelMatcherE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.Catch::Matchers::WithinRelMatcher", ptr %13, i32 0, i32 1
+  %16 = load double, ptr %5, align 8
+  store double %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.Catch::Matchers::WithinRelMatcher", ptr %13, i32 0, i32 2
+  %18 = load double, ptr %6, align 8
+  store double %18, ptr %17, align 8
+  br label %19
 
-18:                                               ; preds = %3
-  %19 = getelementptr inbounds %"class.Catch::Matchers::WithinRelMatcher", ptr %13, i32 0, i32 2
-  %20 = load double, ptr %19, align 8
-  %21 = fcmp oge double %20, 0.000000e+00
-  br i1 %21, label %41, label %22
+19:                                               ; preds = %3
+  %20 = getelementptr inbounds %"class.Catch::Matchers::WithinRelMatcher", ptr %13, i32 0, i32 2
+  %21 = load double, ptr %20, align 8
+  %22 = fcmp oge double %21, 0.000000e+00
+  br i1 %22, label %42, label %23
 
-22:                                               ; preds = %18
+23:                                               ; preds = %19
   invoke void @_ZN5Catch20ReusableStringStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %23 unwind label %28
+          to label %24 unwind label %29
 
-23:                                               ; preds = %22
-  %24 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIA59_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(59) @.str.266)
-          to label %25 unwind label %32
+24:                                               ; preds = %23
+  %25 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIA59_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(59) @.str.266)
+          to label %26 unwind label %33
 
-25:                                               ; preds = %23
-  invoke void @_ZNK5Catch20ReusableStringStream3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %24)
-          to label %26 unwind label %32
-
-26:                                               ; preds = %25
-  invoke void @_ZN5Catch18throw_domain_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
-          to label %27 unwind label %36
+26:                                               ; preds = %24
+  invoke void @_ZNK5Catch20ReusableStringStream3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %25)
+          to label %27 unwind label %33
 
 27:                                               ; preds = %26
+  invoke void @_ZN5Catch18throw_domain_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
+          to label %28 unwind label %37
+
+28:                                               ; preds = %27
   unreachable
 
-28:                                               ; preds = %48, %22
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %49, %23
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %9, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %10, align 4
-  br label %66
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %9, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %10, align 4
+  br label %67
 
-32:                                               ; preds = %25, %23
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %26, %24
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %9, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %10, align 4
-  br label %40
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %9, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %10, align 4
+  br label %41
 
-36:                                               ; preds = %26
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %27
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %9, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %10, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %9, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %10, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
-  br label %40
+  br label %41
 
-40:                                               ; preds = %36, %32
+41:                                               ; preds = %37, %33
   call void @_ZN5Catch20ReusableStringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %66
+  br label %67
 
-41:                                               ; preds = %18
-  br label %42
-
-42:                                               ; preds = %41
+42:                                               ; preds = %19
   br label %43
 
 43:                                               ; preds = %42
   br label %44
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds %"class.Catch::Matchers::WithinRelMatcher", ptr %13, i32 0, i32 2
-  %46 = load double, ptr %45, align 8
-  %47 = fcmp olt double %46, 1.000000e+00
-  br i1 %47, label %63, label %48
+  br label %45
 
-48:                                               ; preds = %44
+45:                                               ; preds = %44
+  %46 = getelementptr inbounds %"class.Catch::Matchers::WithinRelMatcher", ptr %13, i32 0, i32 2
+  %47 = load double, ptr %46, align 8
+  %48 = fcmp olt double %47, 1.000000e+00
+  br i1 %48, label %64, label %49
+
+49:                                               ; preds = %45
   invoke void @_ZN5Catch20ReusableStringStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %49 unwind label %28
+          to label %50 unwind label %29
 
-49:                                               ; preds = %48
-  %50 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIA59_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 1 dereferenceable(59) @.str.267)
-          to label %51 unwind label %54
+50:                                               ; preds = %49
+  %51 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIA59_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 1 dereferenceable(59) @.str.267)
+          to label %52 unwind label %55
 
-51:                                               ; preds = %49
-  invoke void @_ZNK5Catch20ReusableStringStream3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %50)
-          to label %52 unwind label %54
-
-52:                                               ; preds = %51
-  invoke void @_ZN5Catch18throw_domain_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
-          to label %53 unwind label %58
+52:                                               ; preds = %50
+  invoke void @_ZNK5Catch20ReusableStringStream3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %51)
+          to label %53 unwind label %55
 
 53:                                               ; preds = %52
+  invoke void @_ZN5Catch18throw_domain_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
+          to label %54 unwind label %59
+
+54:                                               ; preds = %53
   unreachable
 
-54:                                               ; preds = %51, %49
-  %55 = landingpad { ptr, i32 }
+55:                                               ; preds = %52, %50
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %9, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %10, align 4
-  br label %62
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %9, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %10, align 4
+  br label %63
 
-58:                                               ; preds = %52
-  %59 = landingpad { ptr, i32 }
+59:                                               ; preds = %53
+  %60 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %9, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %10, align 4
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %9, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %10, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #7
-  br label %62
+  br label %63
 
-62:                                               ; preds = %58, %54
+63:                                               ; preds = %59, %55
   call void @_ZN5Catch20ReusableStringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %66
+  br label %67
 
-63:                                               ; preds = %44
-  br label %64
-
-64:                                               ; preds = %63
+64:                                               ; preds = %45
   br label %65
 
 65:                                               ; preds = %64
+  br label %66
+
+66:                                               ; preds = %65
   ret void
 
-66:                                               ; preds = %62, %40, %28
+67:                                               ; preds = %63, %41, %29
   call void @_ZN5Catch8Matchers11MatcherBaseIdED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #7
-  br label %67
+  br label %68
 
-67:                                               ; preds = %66
-  %68 = load ptr, ptr %9, align 8
-  %69 = load i32, ptr %10, align 4
-  %70 = insertvalue { ptr, i32 } poison, ptr %68, 0
-  %71 = insertvalue { ptr, i32 } %70, i32 %69, 1
-  resume { ptr, i32 } %71
+68:                                               ; preds = %67
+  %69 = load ptr, ptr %9, align 8
+  %70 = load i32, ptr %10, align 4
+  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
+  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
+  resume { ptr, i32 } %72
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -71881,7 +71941,8 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers12IsNaNMatcherC2Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers11MatcherBaseIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers12IsNaNMatcherE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers12IsNaNMatcherE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -71999,7 +72060,8 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers14AllTrueMatcherC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14AllTrueMatcherE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14AllTrueMatcherE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -72053,7 +72115,8 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers15NoneTrueMatcherC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers15NoneTrueMatcherE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch8Matchers15NoneTrueMatcherE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -72107,7 +72170,8 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers14AnyTrueMatcherC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14AnyTrueMatcherE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14AnyTrueMatcherE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -72203,33 +72267,34 @@ define dso_local void @_ZN5Catch8Matchers17StringMatcherBaseC2ENS_9StringRefERKN
   store ptr %3, ptr %7, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZN5Catch8Matchers11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17StringMatcherBaseE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.Catch::Matchers::StringMatcherBase", ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %7, align 8
-  invoke void @_ZN5Catch8Matchers11CasedStringC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %14)
-          to label %15 unwind label %17
+  %13 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17StringMatcherBaseE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.Catch::Matchers::StringMatcherBase", ptr %12, i32 0, i32 1
+  %15 = load ptr, ptr %7, align 8
+  invoke void @_ZN5Catch8Matchers11CasedStringC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %15)
+          to label %16 unwind label %18
 
-15:                                               ; preds = %4
-  %16 = getelementptr inbounds %"class.Catch::Matchers::StringMatcherBase", ptr %12, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %5, i64 16, i1 false)
+16:                                               ; preds = %4
+  %17 = getelementptr inbounds %"class.Catch::Matchers::StringMatcherBase", ptr %12, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %5, i64 16, i1 false)
   ret void
 
-17:                                               ; preds = %4
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %4
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %8, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %9, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %8, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %9, align 4
   call void @_ZN5Catch8Matchers11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #7
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %8, align 8
-  %23 = load i32, ptr %9, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -72238,7 +72303,8 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers11MatcherBaseINSt7__cxx111
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherUntypedBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -72387,7 +72453,8 @@ define dso_local void @_ZN5Catch8Matchers19StringEqualsMatcherC2ERKNS0_11CasedSt
   %15 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
   %16 = load i64, ptr %15, align 8
   call void @_ZN5Catch8Matchers17StringMatcherBaseC2ENS_9StringRefERKNS0_11CasedStringE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr %14, i64 %16, ptr noundef nonnull align 8 dereferenceable(40) %12)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers19StringEqualsMatcherE, i32 0, i32 0, i32 2), ptr %6, align 8
+  %17 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers19StringEqualsMatcherE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %6, align 8
   ret void
 }
 
@@ -72430,7 +72497,8 @@ define dso_local void @_ZN5Catch8Matchers21StringContainsMatcherC2ERKNS0_11Cased
   %15 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
   %16 = load i64, ptr %15, align 8
   call void @_ZN5Catch8Matchers17StringMatcherBaseC2ENS_9StringRefERKNS0_11CasedStringE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr %14, i64 %16, ptr noundef nonnull align 8 dereferenceable(40) %12)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers21StringContainsMatcherE, i32 0, i32 0, i32 2), ptr %6, align 8
+  %17 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers21StringContainsMatcherE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %6, align 8
   ret void
 }
 
@@ -72473,7 +72541,8 @@ define dso_local void @_ZN5Catch8Matchers17StartsWithMatcherC2ERKNS0_11CasedStri
   %15 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
   %16 = load i64, ptr %15, align 8
   call void @_ZN5Catch8Matchers17StringMatcherBaseC2ENS_9StringRefERKNS0_11CasedStringE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr %14, i64 %16, ptr noundef nonnull align 8 dereferenceable(40) %12)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17StartsWithMatcherE, i32 0, i32 0, i32 2), ptr %6, align 8
+  %17 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17StartsWithMatcherE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %6, align 8
   ret void
 }
 
@@ -72538,7 +72607,8 @@ define dso_local void @_ZN5Catch8Matchers15EndsWithMatcherC2ERKNS0_11CasedString
   %15 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
   %16 = load i64, ptr %15, align 8
   call void @_ZN5Catch8Matchers17StringMatcherBaseC2ENS_9StringRefERKNS0_11CasedStringE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr %14, i64 %16, ptr noundef nonnull align 8 dereferenceable(40) %12)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers15EndsWithMatcherE, i32 0, i32 0, i32 2), ptr %6, align 8
+  %17 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers15EndsWithMatcherE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %6, align 8
   ret void
 }
 
@@ -72592,12 +72662,13 @@ define dso_local void @_ZN5Catch8Matchers12RegexMatcherC2ENSt7__cxx1112basic_str
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5Catch8Matchers11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers12RegexMatcherE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Catch::Matchers::RegexMatcher", ptr %7, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1) #7
-  %9 = getelementptr inbounds %"class.Catch::Matchers::RegexMatcher", ptr %7, i32 0, i32 2
-  %10 = load i32, ptr %6, align 4
-  store i32 %10, ptr %9, align 8
+  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers12RegexMatcherE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.Catch::Matchers::RegexMatcher", ptr %7, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1) #7
+  %10 = getelementptr inbounds %"class.Catch::Matchers::RegexMatcher", ptr %7, i32 0, i32 2
+  %11 = load i32, ptr %6, align 4
+  store i32 %11, ptr %10, align 8
   ret void
 }
 
@@ -73164,13 +73235,14 @@ define linkonce_odr dso_local void @_ZN5Catch9MatchExprINSt7__cxx1112basic_strin
   %12 = load ptr, ptr %11, align 8
   %13 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %7, i1 noundef zeroext true, i1 noundef zeroext %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8Matchers11MatcherBaseIS6_EEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %14 = getelementptr inbounds %"class.Catch::MatchExpr", ptr %7, i32 0, i32 1
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.Catch::MatchExpr", ptr %7, i32 0, i32 2
-  %17 = load ptr, ptr %6, align 8
-  store ptr %17, ptr %16, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8Matchers11MatcherBaseIS6_EEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %7, align 8
+  %15 = getelementptr inbounds %"class.Catch::MatchExpr", ptr %7, i32 0, i32 1
+  %16 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.Catch::MatchExpr", ptr %7, i32 0, i32 2
+  %18 = load ptr, ptr %6, align 8
+  store ptr %18, ptr %17, align 8
   ret void
 }
 
@@ -73197,9 +73269,10 @@ define dso_local void @_ZN5Catch21StreamingReporterBaseD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch21StreamingReporterBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::StreamingReporterBase", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN5Catch11SectionInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
+  %4 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTVN5Catch21StreamingReporterBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::StreamingReporterBase", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN5Catch11SectionInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
   call void @_ZN5Catch12ReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #7
   ret void
 }
@@ -73332,72 +73405,73 @@ define dso_local void @_ZN5Catch12ReporterBaseC2EONS_14ReporterConfigE(ptr nound
   %8 = load ptr, ptr %4, align 8
   %9 = call noundef ptr @_ZNK5Catch14ReporterConfig10fullConfigEv(ptr noundef nonnull align 8 dereferenceable(72) %8)
   call void @_ZN5Catch14IEventListenerC2EPKNS_7IConfigE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch12ReporterBaseE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
-  call void @_ZNO5Catch14ReporterConfig10takeStreamEv(ptr dead_on_unwind writable sret(%"class.Catch::Detail::unique_ptr.68") align 8 %10, ptr noundef nonnull align 8 dereferenceable(72) %11)
-  %12 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 2
-  %13 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 1
-  %14 = call noundef ptr @_ZN5Catch6Detail10unique_ptrINS_7IStreamEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #7
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 2
-  %17 = load ptr, ptr %16, align 8
-  %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %19 unwind label %31
+  %10 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTVN5Catch12ReporterBaseE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8
+  call void @_ZNO5Catch14ReporterConfig10takeStreamEv(ptr dead_on_unwind writable sret(%"class.Catch::Detail::unique_ptr.68") align 8 %11, ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %13 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 2
+  %14 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 1
+  %15 = call noundef ptr @_ZN5Catch6Detail10unique_ptrINS_7IStreamEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #7
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds ptr, ptr %16, i64 2
+  %18 = load ptr, ptr %17, align 8
+  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %20 unwind label %32
 
-19:                                               ; preds = %2
-  store ptr %18, ptr %12, align 8
-  %20 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 3
-  %21 = load ptr, ptr %4, align 8
-  %22 = call noundef zeroext i8 @_ZNK5Catch14ReporterConfig10colourModeEv(ptr noundef nonnull align 8 dereferenceable(72) %21)
-  %23 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 1
-  %24 = invoke noundef ptr @_ZN5Catch6Detail10unique_ptrINS_7IStreamEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
-          to label %25 unwind label %31
+20:                                               ; preds = %2
+  store ptr %19, ptr %13, align 8
+  %21 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 3
+  %22 = load ptr, ptr %4, align 8
+  %23 = call noundef zeroext i8 @_ZNK5Catch14ReporterConfig10colourModeEv(ptr noundef nonnull align 8 dereferenceable(72) %22)
+  %24 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 1
+  %25 = invoke noundef ptr @_ZN5Catch6Detail10unique_ptrINS_7IStreamEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %26 unwind label %32
 
-25:                                               ; preds = %19
-  invoke void @_ZN5Catch14makeColourImplENS_10ColourModeEPNS_7IStreamE(ptr dead_on_unwind writable sret(%"class.Catch::Detail::unique_ptr.69") align 8 %20, i8 noundef zeroext %22, ptr noundef %24)
-          to label %26 unwind label %31
+26:                                               ; preds = %20
+  invoke void @_ZN5Catch14makeColourImplENS_10ColourModeEPNS_7IStreamE(ptr dead_on_unwind writable sret(%"class.Catch::Detail::unique_ptr.69") align 8 %21, i8 noundef zeroext %23, ptr noundef %25)
+          to label %27 unwind label %32
 
-26:                                               ; preds = %25
-  %27 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 4
-  %28 = load ptr, ptr %4, align 8
-  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5Catch14ReporterConfig13customOptionsB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %28)
-  invoke void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %29)
-          to label %30 unwind label %35
+27:                                               ; preds = %26
+  %28 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 4
+  %29 = load ptr, ptr %4, align 8
+  %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5Catch14ReporterConfig13customOptionsB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %29)
+  invoke void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(48) %30)
+          to label %31 unwind label %36
 
-30:                                               ; preds = %26
+31:                                               ; preds = %27
   ret void
 
-31:                                               ; preds = %25, %19, %2
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %26, %20, %2
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %5, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %6, align 4
-  br label %39
-
-35:                                               ; preds = %26
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %5, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %6, align 4
-  call void @_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #7
-  br label %39
-
-39:                                               ; preds = %35, %31
-  call void @_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  call void @_ZN5Catch14IEventListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #7
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %5, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %6, align 4
   br label %40
 
-40:                                               ; preds = %39
-  %41 = load ptr, ptr %5, align 8
-  %42 = load i32, ptr %6, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+36:                                               ; preds = %27
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %5, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %6, align 4
+  call void @_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #7
+  br label %40
+
+40:                                               ; preds = %36, %32
+  call void @_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #7
+  call void @_ZN5Catch14IEventListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #7
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %5, align 8
+  %43 = load i32, ptr %6, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -73407,12 +73481,13 @@ define linkonce_odr dso_local void @_ZN5Catch14IEventListenerC2EPKNS_7IConfigE(p
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch14IEventListenerE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::IEventListener", ptr %5, i32 0, i32 1
-  call void @_ZN5Catch19ReporterPreferencesC2Ev(ptr noundef nonnull align 1 dereferenceable(2) %6) #7
-  %7 = getelementptr inbounds %"class.Catch::IEventListener", ptr %5, i32 0, i32 2
-  %8 = load ptr, ptr %4, align 8
-  store ptr %8, ptr %7, align 8
+  %6 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTVN5Catch14IEventListenerE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::IEventListener", ptr %5, i32 0, i32 1
+  call void @_ZN5Catch19ReporterPreferencesC2Ev(ptr noundef nonnull align 1 dereferenceable(2) %7) #7
+  %8 = getelementptr inbounds %"class.Catch::IEventListener", ptr %5, i32 0, i32 2
+  %9 = load ptr, ptr %4, align 8
+  store ptr %9, ptr %8, align 8
   ret void
 }
 
@@ -73421,13 +73496,14 @@ define dso_local void @_ZN5Catch12ReporterBaseD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch12ReporterBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %3, i32 0, i32 4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #7
-  %5 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %3, i32 0, i32 3
-  call void @_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  %6 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %3, i32 0, i32 1
-  call void @_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
+  %4 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTVN5Catch12ReporterBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %3, i32 0, i32 4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #7
+  %6 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %3, i32 0, i32 3
+  call void @_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
+  %7 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %3, i32 0, i32 1
+  call void @_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #7
   call void @_ZN5Catch14IEventListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #7
   ret void
 }
@@ -75851,57 +75927,58 @@ define dso_local void @_ZN5Catch15ConsoleReporterC2EONS_14ReporterConfigE(ptr no
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch21StreamingReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(72) %10)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch15ConsoleReporterE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.Catch::ConsoleReporter", ptr %9, i32 0, i32 1
-  %12 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %class.anon.408, ptr %6, i32 0, i32 0
-  %15 = load ptr, ptr %4, align 8
-  store ptr %15, ptr %14, align 8
+  %11 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTVN5Catch15ConsoleReporterE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.Catch::ConsoleReporter", ptr %9, i32 0, i32 1
+  %13 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds %class.anon.408, ptr %6, i32 0, i32 0
+  %16 = load ptr, ptr %4, align 8
+  store ptr %16, ptr %15, align 8
   invoke void @"_ZZN5Catch15ConsoleReporterC1EONS_14ReporterConfigEENK3$_0clEv"(ptr dead_on_unwind writable sret(%"class.std::vector.403") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %16 unwind label %20
+          to label %17 unwind label %21
 
-16:                                               ; preds = %2
-  invoke void @_ZN5Catch6Detail11make_uniqueINS_12TablePrinterEJRSoSt6vectorINS_12_GLOBAL__N_110ColumnInfoESaIS6_EEEEENS0_10unique_ptrIT_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.Catch::Detail::unique_ptr.402") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %17 unwind label %24
+17:                                               ; preds = %2
+  invoke void @_ZN5Catch6Detail11make_uniqueINS_12TablePrinterEJRSoSt6vectorINS_12_GLOBAL__N_110ColumnInfoESaIS6_EEEEENS0_10unique_ptrIT_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.Catch::Detail::unique_ptr.402") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %18 unwind label %25
 
-17:                                               ; preds = %16
+18:                                               ; preds = %17
   call void @_ZNSt6vectorIN5Catch12_GLOBAL__N_110ColumnInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
-  %18 = getelementptr inbounds %"class.Catch::ConsoleReporter", ptr %9, i32 0, i32 2
-  store i8 0, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.Catch::ConsoleReporter", ptr %9, i32 0, i32 3
-  store i8 0, ptr %19, align 1
+  %19 = getelementptr inbounds %"class.Catch::ConsoleReporter", ptr %9, i32 0, i32 2
+  store i8 0, ptr %19, align 8
+  %20 = getelementptr inbounds %"class.Catch::ConsoleReporter", ptr %9, i32 0, i32 3
+  store i8 0, ptr %20, align 1
   ret void
 
-20:                                               ; preds = %2
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %7, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %8, align 4
-  br label %28
-
-24:                                               ; preds = %16
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %7, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %8, align 4
-  call void @_ZNSt6vectorIN5Catch12_GLOBAL__N_110ColumnInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
-  br label %28
-
-28:                                               ; preds = %24, %20
-  call void @_ZN5Catch21StreamingReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %9) #7
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %7, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %8, align 4
   br label %29
 
-29:                                               ; preds = %28
-  %30 = load ptr, ptr %7, align 8
-  %31 = load i32, ptr %8, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+25:                                               ; preds = %17
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %7, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %8, align 4
+  call void @_ZNSt6vectorIN5Catch12_GLOBAL__N_110ColumnInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
+  br label %29
+
+29:                                               ; preds = %25, %21
+  call void @_ZN5Catch21StreamingReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %9) #7
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %7, align 8
+  %32 = load i32, ptr %8, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -75916,45 +75993,46 @@ define linkonce_odr dso_local void @_ZN5Catch21StreamingReporterBaseC2EONS_14Rep
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5Catch12ReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(72) %9)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch21StreamingReporterBaseE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %10 = getelementptr inbounds %"class.Catch::StreamingReporterBase", ptr %8, i32 0, i32 1
-  %11 = call { ptr, i64 } @_ZN5Catchli3_srEPKcm(ptr noundef @.str.517, i64 noundef 28) #7
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 0
-  %13 = extractvalue { ptr, i64 } %11, 0
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
-  %15 = extractvalue { ptr, i64 } %11, 1
-  store i64 %15, ptr %14, align 8
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
-  %19 = load i64, ptr %18, align 8
-  invoke void @_ZN5Catch11TestRunInfoC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr %17, i64 %19)
-          to label %20 unwind label %23
+  %10 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTVN5Catch21StreamingReporterBaseE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds %"class.Catch::StreamingReporterBase", ptr %8, i32 0, i32 1
+  %12 = call { ptr, i64 } @_ZN5Catchli3_srEPKcm(ptr noundef @.str.517, i64 noundef 28) #7
+  %13 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 0
+  %14 = extractvalue { ptr, i64 } %12, 0
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
+  %16 = extractvalue { ptr, i64 } %12, 1
+  store i64 %16, ptr %15, align 8
+  %17 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8
+  invoke void @_ZN5Catch11TestRunInfoC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr %18, i64 %20)
+          to label %21 unwind label %24
 
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds %"class.Catch::StreamingReporterBase", ptr %8, i32 0, i32 2
-  store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds %"class.Catch::StreamingReporterBase", ptr %8, i32 0, i32 3
-  call void @_ZNSt6vectorIN5Catch11SectionInfoESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #7
+21:                                               ; preds = %2
+  %22 = getelementptr inbounds %"class.Catch::StreamingReporterBase", ptr %8, i32 0, i32 2
+  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds %"class.Catch::StreamingReporterBase", ptr %8, i32 0, i32 3
+  call void @_ZNSt6vectorIN5Catch11SectionInfoESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #7
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %6, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %7, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %6, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %7, align 4
   call void @_ZN5Catch12ReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #7
-  br label %27
+  br label %28
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %6, align 8
-  %29 = load i32, ptr %7, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %6, align 8
+  %30 = load i32, ptr %7, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -79955,15 +80033,16 @@ define dso_local void @_ZN5Catch22CumulativeReporterBaseD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch22CumulativeReporterBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIPN5Catch22CumulativeReporterBase11SectionNodeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
-  %5 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %3, i32 0, i32 5
-  call void @_ZN5Catch6Detail10unique_ptrINS_22CumulativeReporterBase11SectionNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  %6 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_22CumulativeReporterBase4NodeINS0_13TestCaseStatsENS3_11SectionNodeEEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #7
-  %7 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %3, i32 0, i32 3
-  call void @_ZN5Catch6Detail10unique_ptrINS_22CumulativeReporterBase4NodeINS_12TestRunStatsENS3_INS_13TestCaseStatsENS2_11SectionNodeEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #7
+  %4 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN5Catch22CumulativeReporterBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIPN5Catch22CumulativeReporterBase11SectionNodeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
+  %6 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %3, i32 0, i32 5
+  call void @_ZN5Catch6Detail10unique_ptrINS_22CumulativeReporterBase11SectionNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
+  %7 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_22CumulativeReporterBase4NodeINS0_13TestCaseStatsENS3_11SectionNodeEEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #7
+  %8 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %3, i32 0, i32 3
+  call void @_ZN5Catch6Detail10unique_ptrINS_22CumulativeReporterBase4NodeINS_12TestRunStatsENS3_INS_13TestCaseStatsENS2_11SectionNodeEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #7
   call void @_ZN5Catch12ReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #7
   ret void
 }
@@ -82345,50 +82424,51 @@ define dso_local void @_ZN5Catch13JunitReporterC2EONS_14ReporterConfigE(ptr noun
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch22CumulativeReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch13JunitReporterE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::JunitReporter", ptr %7, i32 0, i32 1
-  %10 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
-  invoke void @_ZN5Catch9XmlWriterC1ERSo(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %23
+  %9 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN5Catch13JunitReporterE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::JunitReporter", ptr %7, i32 0, i32 1
+  %11 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  invoke void @_ZN5Catch9XmlWriterC1ERSo(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %24
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.Catch::JunitReporter", ptr %7, i32 0, i32 2
-  call void @_ZN5Catch5TimerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #7
-  %14 = getelementptr inbounds %"class.Catch::JunitReporter", ptr %7, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #7
-  %15 = getelementptr inbounds %"class.Catch::JunitReporter", ptr %7, i32 0, i32 4
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.Catch::JunitReporter", ptr %7, i32 0, i32 2
+  call void @_ZN5Catch5TimerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #7
+  %15 = getelementptr inbounds %"class.Catch::JunitReporter", ptr %7, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #7
-  %16 = getelementptr inbounds %"class.Catch::JunitReporter", ptr %7, i32 0, i32 5
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.Catch::JunitReporter", ptr %7, i32 0, i32 6
-  store i8 0, ptr %17, align 4
-  %18 = getelementptr inbounds %"class.Catch::IEventListener", ptr %7, i32 0, i32 1
-  %19 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %18, i32 0, i32 0
-  store i8 1, ptr %19, align 8
-  %20 = getelementptr inbounds %"class.Catch::IEventListener", ptr %7, i32 0, i32 1
-  %21 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %20, i32 0, i32 1
-  store i8 1, ptr %21, align 1
-  %22 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 1
-  store i8 0, ptr %22, align 8
+  %16 = getelementptr inbounds %"class.Catch::JunitReporter", ptr %7, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #7
+  %17 = getelementptr inbounds %"class.Catch::JunitReporter", ptr %7, i32 0, i32 5
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.Catch::JunitReporter", ptr %7, i32 0, i32 6
+  store i8 0, ptr %18, align 4
+  %19 = getelementptr inbounds %"class.Catch::IEventListener", ptr %7, i32 0, i32 1
+  %20 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %19, i32 0, i32 0
+  store i8 1, ptr %20, align 8
+  %21 = getelementptr inbounds %"class.Catch::IEventListener", ptr %7, i32 0, i32 1
+  %22 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %21, i32 0, i32 1
+  store i8 1, ptr %22, align 1
+  %23 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 1
+  store i8 0, ptr %23, align 8
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %5, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %6, align 4
   call void @_ZN5Catch22CumulativeReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %7) #7
-  br label %27
+  br label %28
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %5, align 8
+  %30 = load i32, ptr %6, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -82402,59 +82482,60 @@ define linkonce_odr dso_local void @_ZN5Catch22CumulativeReporterBaseC2EONS_14Re
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch12ReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch22CumulativeReporterBaseE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 1
-  store i8 1, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 2
-  store i8 1, ptr %10, align 1
-  %11 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 3
-  invoke void @_ZN5Catch6Detail10unique_ptrINS_22CumulativeReporterBase4NodeINS_12TestRunStatsENS3_INS_13TestCaseStatsENS2_11SectionNodeEEEEEEC2EDn(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr null)
-          to label %12 unwind label %18
+  %9 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN5Catch22CumulativeReporterBaseE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 1
+  store i8 1, ptr %10, align 8
+  %11 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 2
+  store i8 1, ptr %11, align 1
+  %12 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 3
+  invoke void @_ZN5Catch6Detail10unique_ptrINS_22CumulativeReporterBase4NodeINS_12TestRunStatsENS3_INS_13TestCaseStatsENS2_11SectionNodeEEEEEEC2EDn(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr null)
+          to label %13 unwind label %19
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 4
-  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_22CumulativeReporterBase4NodeINS0_13TestCaseStatsENS3_11SectionNodeEEEEESaIS8_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #7
-  %14 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 5
-  invoke void @_ZN5Catch6Detail10unique_ptrINS_22CumulativeReporterBase11SectionNodeEEC2EDn(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr null)
-          to label %15 unwind label %22
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 4
+  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_22CumulativeReporterBase4NodeINS0_13TestCaseStatsENS3_11SectionNodeEEEEESaIS8_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #7
+  %15 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 5
+  invoke void @_ZN5Catch6Detail10unique_ptrINS_22CumulativeReporterBase11SectionNodeEEC2EDn(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr null)
+          to label %16 unwind label %23
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 6
-  store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 7
-  call void @_ZNSt6vectorIPN5Catch22CumulativeReporterBase11SectionNodeESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #7
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 6
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 7
+  call void @_ZNSt6vectorIPN5Catch22CumulativeReporterBase11SectionNodeESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #7
   ret void
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %2
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
-  br label %26
-
-22:                                               ; preds = %12
-  %23 = landingpad { ptr, i32 }
-          cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %5, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %6, align 4
-  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_22CumulativeReporterBase4NodeINS0_13TestCaseStatsENS3_11SectionNodeEEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #7
-  call void @_ZN5Catch6Detail10unique_ptrINS_22CumulativeReporterBase4NodeINS_12TestRunStatsENS3_INS_13TestCaseStatsENS2_11SectionNodeEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #7
-  br label %26
-
-26:                                               ; preds = %22, %18
-  call void @_ZN5Catch12ReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #7
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
   br label %27
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+23:                                               ; preds = %13
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_22CumulativeReporterBase4NodeINS0_13TestCaseStatsENS3_11SectionNodeEEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #7
+  call void @_ZN5Catch6Detail10unique_ptrINS_22CumulativeReporterBase4NodeINS_12TestRunStatsENS3_INS_13TestCaseStatsENS2_11SectionNodeEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #7
+  br label %27
+
+27:                                               ; preds = %23, %19
+  call void @_ZN5Catch12ReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #7
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %5, align 8
+  %30 = load i32, ptr %6, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -87940,7 +88021,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.471", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.471", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -91149,42 +91230,43 @@ define dso_local void @_ZN5Catch11XmlReporterC2EONS_14ReporterConfigE(ptr nounde
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch21StreamingReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch11XmlReporterE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::XmlReporter", ptr %7, i32 0, i32 1
-  call void @_ZN5Catch5TimerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #7
-  %10 = getelementptr inbounds %"class.Catch::XmlReporter", ptr %7, i32 0, i32 2
-  %11 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
-  invoke void @_ZN5Catch9XmlWriterC1ERSo(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %19
+  %9 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN5Catch11XmlReporterE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::XmlReporter", ptr %7, i32 0, i32 1
+  call void @_ZN5Catch5TimerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %11 = getelementptr inbounds %"class.Catch::XmlReporter", ptr %7, i32 0, i32 2
+  %12 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8
+  invoke void @_ZN5Catch9XmlWriterC1ERSo(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %20
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds %"class.Catch::XmlReporter", ptr %7, i32 0, i32 3
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.Catch::IEventListener", ptr %7, i32 0, i32 1
-  %16 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %15, i32 0, i32 0
-  store i8 1, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.Catch::IEventListener", ptr %7, i32 0, i32 1
-  %18 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %17, i32 0, i32 1
-  store i8 1, ptr %18, align 1
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds %"class.Catch::XmlReporter", ptr %7, i32 0, i32 3
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds %"class.Catch::IEventListener", ptr %7, i32 0, i32 1
+  %17 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %16, i32 0, i32 0
+  store i8 1, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.Catch::IEventListener", ptr %7, i32 0, i32 1
+  %19 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %18, i32 0, i32 1
+  store i8 1, ptr %19, align 1
   ret void
 
-19:                                               ; preds = %2
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %2
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %5, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %6, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %5, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %6, align 4
   call void @_ZN5Catch21StreamingReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %7) #7
-  br label %23
+  br label %24
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %5, align 8
+  %26 = load i32, ptr %6, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -91192,9 +91274,10 @@ define dso_local void @_ZN5Catch11XmlReporterD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch11XmlReporterE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::XmlReporter", ptr %3, i32 0, i32 2
-  call void @_ZN5Catch9XmlWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #7
+  %4 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN5Catch11XmlReporterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::XmlReporter", ptr %3, i32 0, i32 2
+  call void @_ZN5Catch9XmlWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #7
   call void @_ZN5Catch21StreamingReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #7
   ret void
 }
@@ -96516,9 +96599,10 @@ define linkonce_odr dso_local void @_ZN5Catch8TestSpec11NamePatternD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec11NamePatternE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::TestSpec::NamePattern", ptr %3, i32 0, i32 1
-  call void @_ZN5Catch15WildcardPatternD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #7
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec11NamePatternE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::TestSpec::NamePattern", ptr %3, i32 0, i32 1
+  call void @_ZN5Catch15WildcardPatternD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #7
   call void @_ZN5Catch8TestSpec7PatternD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
   ret void
 }
@@ -96538,9 +96622,10 @@ define linkonce_odr dso_local void @_ZN5Catch8TestSpec10TagPatternD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec10TagPatternE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::TestSpec::TagPattern", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec10TagPatternE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::TestSpec::TagPattern", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   call void @_ZN5Catch8TestSpec7PatternD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
   ret void
 }
@@ -96570,9 +96655,10 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers17StringMatcherBaseD2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17StringMatcherBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Matchers::StringMatcherBase", ptr %3, i32 0, i32 1
-  call void @_ZN5Catch8Matchers11CasedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #7
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17StringMatcherBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Matchers::StringMatcherBase", ptr %3, i32 0, i32 1
+  call void @_ZN5Catch8Matchers11CasedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #7
   call void @_ZN5Catch8Matchers11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
   ret void
 }
@@ -96664,9 +96750,10 @@ define linkonce_odr dso_local void @_ZN5Catch6Detail18EnumValuesRegistryD2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch6Detail18EnumValuesRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Detail::EnumValuesRegistry", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS1_8EnumInfoEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch6Detail18EnumValuesRegistryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Detail::EnumValuesRegistry", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS1_8EnumInfoEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
   call void @_ZN5Catch26IMutableEnumValuesRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 }
@@ -96712,17 +96799,18 @@ define linkonce_odr dso_local void @_ZN5Catch12TestRegistryD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch12TestRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
-  %5 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch12TestRegistryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
-  %6 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_12ITestInvokerEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #7
-  %7 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIPN5Catch12TestCaseInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #7
-  %8 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_12TestCaseInfoEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #7
+  %6 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #7
+  %7 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_12ITestInvokerEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #7
+  %8 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIPN5Catch12TestCaseInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #7
+  %9 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_12TestCaseInfoEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #7
   call void @_ZN5Catch17ITestCaseRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 }
@@ -96742,9 +96830,10 @@ define linkonce_odr dso_local void @_ZN5Catch16TestCaseTracking14SectionTrackerD
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking14SectionTrackerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::TestCaseTracking::SectionTracker", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5Catch9StringRefESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking14SectionTrackerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::TestCaseTracking::SectionTracker", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5Catch9StringRefESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
   call void @_ZN5Catch16TestCaseTracking11TrackerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #7
   ret void
 }
@@ -97069,7 +97158,8 @@ define linkonce_odr dso_local void @_ZNSt9exceptionC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -105066,7 +105156,7 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorIN5Catch11MessageInfoE
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @isspace(i32 noundef) #18
+declare i32 @isspace(i32 noundef) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -105448,7 +105538,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail10ParserBaseC2Ev(ptr n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ParserBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ParserBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -107039,18 +107130,19 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 8
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %9
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %3, i32 0, i32 1
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %10
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase", ptr %3, i32 0, i32 1
-  call void @_ZN5Catch5Clara6Detail10ParseStateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #7
-  br label %9
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase", ptr %3, i32 0, i32 1
+  call void @_ZN5Catch5Clara6Detail10ParseStateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #7
+  br label %10
 
-9:                                                ; preds = %7, %1
+10:                                               ; preds = %8, %1
   call void @_ZN5Catch5Clara6Detail10ResultBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #7
   ret void
 }
@@ -107064,7 +107156,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #19
+declare void @abort() #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Catch12ReporterSpecESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
@@ -110630,32 +110722,33 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptC2ERKS1_(ptr noundef nonn
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -110669,62 +110762,63 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  %12 = load i32, ptr %11, align 8
-  store i32 %12, ptr %9, align 8
-  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %7, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %14, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %15) #7
-  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %7, i32 0, i32 3
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %17, i32 0, i32 3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %18)
-          to label %19 unwind label %24
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 8
+  store i32 %13, ptr %10, align 8
+  %14 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %7, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %15, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %16) #7
+  %17 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %7, i32 0, i32 3
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %18, i32 0, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %19)
+          to label %20 unwind label %25
 
-19:                                               ; preds = %2
-  %20 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %7, i32 0, i32 4
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %21, i32 0, i32 4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %23 unwind label %28
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %7, i32 0, i32 4
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %22, i32 0, i32 4
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %23)
+          to label %24 unwind label %29
 
-23:                                               ; preds = %19
+24:                                               ; preds = %20
   ret void
 
-24:                                               ; preds = %2
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %2
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %5, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %6, align 4
-  br label %32
-
-28:                                               ; preds = %19
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %5, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #7
-  br label %32
-
-32:                                               ; preds = %28, %24
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #7
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %5, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %6, align 4
   br label %33
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %5, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+29:                                               ; preds = %20
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %5, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #7
+  br label %33
+
+33:                                               ; preds = %29, %25
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #7
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #7
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %5, align 8
+  %36 = load i32, ptr %6, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -110736,7 +110830,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -110757,13 +110852,14 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %3, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
-  %5 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %3, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
-  %6 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
+  %6 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
+  %7 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 }
@@ -110783,7 +110879,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail10ParserBaseC2ERKS2_(p
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ParserBaseE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ParserBaseE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -112020,7 +112117,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3ArgC2ERKS1_(ptr noundef nonn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3ArgE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3ArgE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -112035,62 +112133,63 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3A
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %10, i32 0, i32 1
-  %12 = load i32, ptr %11, align 8
-  store i32 %12, ptr %9, align 8
-  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %7, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %14, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %15) #7
-  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %7, i32 0, i32 3
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %17, i32 0, i32 3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %18)
-          to label %19 unwind label %24
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 8
+  store i32 %13, ptr %10, align 8
+  %14 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %7, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %15, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %16) #7
+  %17 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %7, i32 0, i32 3
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %18, i32 0, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %19)
+          to label %20 unwind label %25
 
-19:                                               ; preds = %2
-  %20 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %7, i32 0, i32 4
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %21, i32 0, i32 4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %23 unwind label %28
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %7, i32 0, i32 4
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %22, i32 0, i32 4
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %23)
+          to label %24 unwind label %29
 
-23:                                               ; preds = %19
+24:                                               ; preds = %20
   ret void
 
-24:                                               ; preds = %2
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %2
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %5, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %6, align 4
-  br label %32
-
-28:                                               ; preds = %19
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %5, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #7
-  br label %32
-
-32:                                               ; preds = %28, %24
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #7
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %5, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %6, align 4
   br label %33
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %5, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+29:                                               ; preds = %20
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %5, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #7
+  br label %33
+
+33:                                               ; preds = %29, %25
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #7
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #7
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %5, align 8
+  %36 = load i32, ptr %6, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -112102,7 +112201,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -112111,13 +112211,14 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3A
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %3, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
-  %5 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %3, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
-  %6 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
+  %6 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
+  %7 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 }
@@ -113305,13 +113406,14 @@ define linkonce_odr dso_local void @_ZN5Catch13MultiReporterCI2NS_14IEventListen
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch14IEventListenerC2EPKNS_7IConfigE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch13MultiReporterE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.Catch::MultiReporter", ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #7
-  %8 = getelementptr inbounds %"class.Catch::MultiReporter", ptr %5, i32 0, i32 2
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.Catch::MultiReporter", ptr %5, i32 0, i32 3
-  store i64 0, ptr %9, align 8
+  %7 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTVN5Catch13MultiReporterE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.Catch::MultiReporter", ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #7
+  %9 = getelementptr inbounds %"class.Catch::MultiReporter", ptr %5, i32 0, i32 2
+  store i8 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.Catch::MultiReporter", ptr %5, i32 0, i32 3
+  store i64 0, ptr %10, align 8
   ret void
 }
 
@@ -114515,7 +114617,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.502", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.502", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -114602,7 +114704,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIPKN5
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #18
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIPKN5Catch14TestCaseHandleES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSB_PSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #4 comdat align 2 {
@@ -115495,14 +115597,14 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.502", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.502", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #18
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt8_Rb_treeIPKN5Catch14TestCaseHandleES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_Alloc_nodeclIRKS3_EEPSt13_Rb_tree_nodeIS3_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
@@ -116263,7 +116365,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.496", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.496", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -116276,17 +116378,17 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.496", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.496", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #18
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #17
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef) #18
+declare noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local ptr @_ZNKSt8_Rb_treeIPKN5Catch14TestCaseHandleES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
@@ -116696,7 +116798,7 @@ define internal noundef zeroext i1 @_ZN5Catch12_GLOBAL__N_113isReservedTagENS_9S
 16:                                               ; preds = %13
   %17 = call noundef signext i8 @_ZNK5Catch9StringRefixEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 0) #7
   %18 = zext i8 %17 to i32
-  %19 = call i32 @isalnum(i32 noundef %18) #22
+  %19 = call i32 @isalnum(i32 noundef %18) #21
   %20 = icmp ne i32 %19, 0
   %21 = xor i1 %20, true
   br label %22
@@ -116752,7 +116854,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @isalnum(i32 noundef) #18
+declare i32 @isalnum(i32 noundef) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local ptr @_ZNSt6vectorIN5Catch3TagESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
@@ -117930,16 +118032,17 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 8
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %3, i32 0, i32 1
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %1
-  br label %8
+8:                                                ; preds = %1
+  br label %9
 
-8:                                                ; preds = %7, %1
+9:                                                ; preds = %8, %1
   call void @_ZN5Catch5Clara6Detail10ResultBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #7
   ret void
 }
@@ -118481,41 +118584,42 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ResultBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %7, i32 0, i32 1
-  %10 = load i32, ptr %9, align 8
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %21
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %7, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %22
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase", ptr %7, i32 0, i32 1
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase", ptr %14, i32 0, i32 1
-  invoke void @_ZN5Catch5Clara6Detail10ParseStateC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %15)
-          to label %16 unwind label %17
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase", ptr %7, i32 0, i32 1
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase", ptr %15, i32 0, i32 1
+  invoke void @_ZN5Catch5Clara6Detail10ParseStateC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %16)
+          to label %17 unwind label %18
 
-16:                                               ; preds = %12
-  br label %21
-
-17:                                               ; preds = %12
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
-  call void @_ZN5Catch5Clara6Detail10ResultBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #7
+17:                                               ; preds = %13
   br label %22
 
-21:                                               ; preds = %16, %2
+18:                                               ; preds = %13
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
+  call void @_ZN5Catch5Clara6Detail10ResultBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #7
+  br label %23
+
+22:                                               ; preds = %17, %2
   ret void
 
-22:                                               ; preds = %17
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i32, ptr %6, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %5, align 8
+  %25 = load i32, ptr %6, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -118525,12 +118629,13 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail10ResultBaseC2ERKS2_(p
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ResultBaseE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %8, align 8
-  store i32 %9, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ResultBaseE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 8
+  store i32 %10, ptr %7, align 8
   ret void
 }
 
@@ -118557,56 +118662,57 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3A
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @_ZSt11make_sharedIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEEJRSC_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.509") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @_ZSt11make_sharedIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEEJRSC_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.509") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -118615,7 +118721,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -118837,33 +118944,34 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESE_(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEJRSF_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESE_(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEJRSF_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -119021,11 +119129,12 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -119209,10 +119318,11 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13BoundValueRefISt6vec
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -119222,7 +119332,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch5Clara6Detail8BoundRefC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail17BoundValueRefBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail17BoundValueRefBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -119336,7 +119447,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail8BoundRefC2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail8BoundRefE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail8BoundRefE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -120178,7 +120290,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.523", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.523", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -121660,7 +121772,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.523", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.523", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -123291,7 +123403,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.272", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.272", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -125484,7 +125596,7 @@ declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #6
 declare noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000)) #9
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #18
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZSt4findIPKccET_S2_S2_RKT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #4 comdat {
@@ -126964,7 +127076,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn104_N5Catch10Generators12_GLOBAL__N_116GeneratorTracker12setGeneratorEONS_6Detail10unique_ptrINS0_20GeneratorUntypedBaseEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #16 align 2 {
+define internal void @_ZThn104_N5Catch10Generators12_GLOBAL__N_116GeneratorTracker12setGeneratorEONS_6Detail10unique_ptrINS0_20GeneratorUntypedBaseEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #15 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -128386,7 +128498,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.566", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.566", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -129929,7 +130041,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117isBreakableBeforeEc(i8 no
   store i8 %0, ptr %2, align 1
   %3 = load i8, ptr %2, align 1
   %4 = sext i8 %3 to i32
-  %5 = call noundef ptr @memchr(ptr noundef @_ZZN12_GLOBAL__N_117isBreakableBeforeEcE5chars, i32 noundef %4, i64 noundef 5) #22
+  %5 = call noundef ptr @memchr(ptr noundef @_ZZN12_GLOBAL__N_117isBreakableBeforeEcE5chars, i32 noundef %4, i64 noundef 5) #21
   %6 = icmp ne ptr %5, null
   ret i1 %6
 }
@@ -129940,13 +130052,13 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116isBreakableAfterEc(i8 nou
   store i8 %0, ptr %2, align 1
   %3 = load i8, ptr %2, align 1
   %4 = sext i8 %3 to i32
-  %5 = call noundef ptr @memchr(ptr noundef @_ZZN12_GLOBAL__N_116isBreakableAfterEcE5chars, i32 noundef %4, i64 noundef 15) #22
+  %5 = call noundef ptr @memchr(ptr noundef @_ZZN12_GLOBAL__N_116isBreakableAfterEcE5chars, i32 noundef %4, i64 noundef 15) #21
   %6 = icmp ne ptr %5, null
   ret i1 %6
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) #18
+declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5Catch8TextFlow6Column14const_iteratorC2ERKS1_NS2_6EndTagE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 comdat align 2 {
@@ -131560,7 +131672,8 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherUntypedBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherGenericBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherGenericBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -131569,9 +131682,10 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers18MatcherUntypedBaseC2Ev(p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Matchers::MatcherUntypedBase", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Matchers::MatcherUntypedBase", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   ret void
 }
 
@@ -131581,7 +131695,8 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers11MatcherBaseISt9exception
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherUntypedBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers11MatcherBaseISt9exceptionEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch8Matchers11MatcherBaseISt9exceptionEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -137725,9 +137840,10 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultIvECI2NS1
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseIvECI2NS1_10ResultBaseEENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.150", ptr %5, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.150", ptr %5, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
   ret void
 }
 
@@ -137740,7 +137856,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseIvECI
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
   call void @_ZN5Catch5Clara6Detail10ResultBaseC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseIvEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseIvEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -137751,10 +137868,11 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail10ResultBaseC2ENS1_10R
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ResultBaseE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %4, align 4
-  store i32 %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ResultBaseE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %5, i32 0, i32 1
+  %8 = load i32, ptr %4, align 4
+  store i32 %8, ptr %7, align 8
   ret void
 }
 
@@ -139783,7 +139901,8 @@ define linkonce_odr dso_local void @_ZN5Catch9Benchmark6Detail20optimized_away_e
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9Benchmark6Detail20optimized_away_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch9Benchmark6Detail20optimized_away_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -139794,7 +139913,8 @@ define linkonce_odr dso_local void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull a
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -140682,7 +140802,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.583", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.583", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -144685,11 +144805,14 @@ define internal void @_ZN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IR
   call void @_ZN5Catch12_GLOBAL__N_111RegistryHubC2Ev(ptr noundef nonnull align 8 dereferenceable(304) %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 304
   call void @_ZN5Catch10ISingletonC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #7
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEEE, i32 0, i32 1, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 304
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEEE, i32 0, i32 2, i32 2), ptr %6, align 8
+  %5 = getelementptr inbounds { [16 x ptr], [11 x ptr], [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds { [16 x ptr], [11 x ptr], [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEEE, i32 0, i32 1, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 304
+  %9 = getelementptr inbounds { [16 x ptr], [11 x ptr], [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEEE, i32 0, i32 2, i32 2
+  store ptr %9, ptr %8, align 8
   ret void
 }
 
@@ -144703,45 +144826,47 @@ define internal void @_ZN5Catch12_GLOBAL__N_111RegistryHubC2Ev(ptr noundef nonnu
   call void @_ZN5Catch12IRegistryHubC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   call void @_ZN5Catch19IMutableRegistryHubC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, i32 1, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %5, i32 0, i32 2
-  call void @_ZN5Catch12TestRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %8) #7
-  %9 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %5, i32 0, i32 3
-  invoke void @_ZN5Catch16ReporterRegistryC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %10 unwind label %15
+  %7 = getelementptr inbounds { [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds { [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %5, i32 0, i32 2
+  call void @_ZN5Catch12TestRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #7
+  %11 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %5, i32 0, i32 3
+  invoke void @_ZN5Catch16ReporterRegistryC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %12 unwind label %17
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %5, i32 0, i32 4
-  call void @_ZN5Catch27ExceptionTranslatorRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #7
-  %12 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %5, i32 0, i32 5
-  call void @_ZN5Catch16TagAliasRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #7
-  %13 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %5, i32 0, i32 6
-  call void @_ZN5Catch24StartupExceptionRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #7
-  %14 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %5, i32 0, i32 7
-  call void @_ZN5Catch6Detail18EnumValuesRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #7
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %5, i32 0, i32 4
+  call void @_ZN5Catch27ExceptionTranslatorRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #7
+  %14 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %5, i32 0, i32 5
+  call void @_ZN5Catch16TagAliasRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #7
+  %15 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %5, i32 0, i32 6
+  call void @_ZN5Catch24StartupExceptionRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #7
+  %16 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %5, i32 0, i32 7
+  call void @_ZN5Catch6Detail18EnumValuesRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #7
   ret void
 
-15:                                               ; preds = %1
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %1
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %3, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %4, align 4
-  call void @_ZN5Catch12TestRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %8) #7
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @_ZN5Catch19IMutableRegistryHubD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #7
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %3, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %4, align 4
+  call void @_ZN5Catch12TestRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #7
+  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  call void @_ZN5Catch19IMutableRegistryHubD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #7
   call void @_ZN5Catch12IRegistryHubD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  br label %20
+  br label %22
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %3, align 8
-  %22 = load i32, ptr %4, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %3, align 8
+  %24 = load i32, ptr %4, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -144749,7 +144874,8 @@ define linkonce_odr dso_local void @_ZN5Catch10ISingletonC2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Catch10ISingletonE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Catch10ISingletonE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -144996,7 +145122,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch12_GLOB
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED1Ev(ptr noundef %0) unnamed_addr #20 align 2 {
+define internal void @_ZThn8_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED1Ev(ptr noundef %0) unnamed_addr #19 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -145006,7 +145132,7 @@ define internal void @_ZThn8_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED0Ev(ptr noundef %0) unnamed_addr #20 align 2 {
+define internal void @_ZThn8_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED0Ev(ptr noundef %0) unnamed_addr #19 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -145016,7 +145142,7 @@ define internal void @_ZThn8_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerReporterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Detail10unique_ptrINS_16IReporterFactoryEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) unnamed_addr #16 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerReporterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Detail10unique_ptrINS_16IReporterFactoryEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) unnamed_addr #15 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -145031,7 +145157,7 @@ define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerReporte
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerListenerENS_6Detail10unique_ptrINS_20EventListenerFactoryEEE(ptr noundef %0, ptr noundef %1) unnamed_addr #16 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerListenerENS_6Detail10unique_ptrINS_20EventListenerFactoryEEE(ptr noundef %0, ptr noundef %1) unnamed_addr #15 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -145043,7 +145169,7 @@ define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerListene
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub12registerTestEONS_6Detail10unique_ptrINS_12TestCaseInfoEEEONS3_INS_12ITestInvokerEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #16 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub12registerTestEONS_6Detail10unique_ptrINS_12TestCaseInfoEEEONS3_INS_12ITestInvokerEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #15 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -145059,7 +145185,7 @@ define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub12registerTestEON
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub18registerTranslatorEONS_6Detail10unique_ptrINS_20IExceptionTranslatorEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #16 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub18registerTranslatorEONS_6Detail10unique_ptrINS_20IExceptionTranslatorEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #15 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -145072,7 +145198,7 @@ define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub18registerTransla
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerTagAliasERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKNS_14SourceLineInfoE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #16 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerTagAliasERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKNS_14SourceLineInfoE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #15 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -145091,7 +145217,7 @@ define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub16registerTagAlia
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub24registerStartupExceptionEv(ptr noundef %0) unnamed_addr #20 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub24registerStartupExceptionEv(ptr noundef %0) unnamed_addr #19 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -145101,7 +145227,7 @@ define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub24registerStartup
 }
 
 ; Function Attrs: uwtable
-define internal noundef ptr @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub28getMutableEnumValuesRegistryEv(ptr noundef %0) unnamed_addr #16 align 2 {
+define internal noundef ptr @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub28getMutableEnumValuesRegistryEv(ptr noundef %0) unnamed_addr #15 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -145111,7 +145237,7 @@ define internal noundef ptr @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub28getMutab
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn304_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED1Ev(ptr noundef %0) unnamed_addr #20 align 2 {
+define internal void @_ZThn304_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED1Ev(ptr noundef %0) unnamed_addr #19 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -145121,7 +145247,7 @@ define internal void @_ZThn304_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubE
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn304_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED0Ev(ptr noundef %0) unnamed_addr #20 align 2 {
+define internal void @_ZThn304_N5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEED0Ev(ptr noundef %0) unnamed_addr #19 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -145135,7 +145261,8 @@ define linkonce_odr dso_local void @_ZN5Catch12IRegistryHubC2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch12IRegistryHubE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5Catch12IRegistryHubE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -145144,7 +145271,8 @@ define linkonce_odr dso_local void @_ZN5Catch19IMutableRegistryHubC2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5Catch19IMutableRegistryHubE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5Catch19IMutableRegistryHubE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -145154,19 +145282,20 @@ define linkonce_odr dso_local void @_ZN5Catch12TestRegistryC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch17ITestCaseRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch12TestRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_12TestCaseInfoEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
-  %5 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIPN5Catch12TestCaseInfoESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
-  %6 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_12ITestInvokerEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #7
-  %7 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #7
-  %8 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 5
-  store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #7
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch12TestRegistryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_12TestCaseInfoEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
+  %6 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIPN5Catch12TestCaseInfoESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #7
+  %7 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_12ITestInvokerEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #7
+  %8 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #7
+  %9 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 5
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
 }
 
@@ -145176,9 +145305,10 @@ define linkonce_odr dso_local void @_ZN5Catch27ExceptionTranslatorRegistryC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch28IExceptionTranslatorRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch27ExceptionTranslatorRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::ExceptionTranslatorRegistry", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrIKNS0_20IExceptionTranslatorEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch27ExceptionTranslatorRegistryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::ExceptionTranslatorRegistry", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrIKNS0_20IExceptionTranslatorEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
   ret void
 }
 
@@ -145188,9 +145318,10 @@ define linkonce_odr dso_local void @_ZN5Catch16TagAliasRegistryC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch17ITagAliasRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch16TagAliasRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::TagAliasRegistry", ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Catch8TagAliasESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #7
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch16TagAliasRegistryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::TagAliasRegistry", ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Catch8TagAliasESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #7
   ret void
 }
 
@@ -145210,9 +145341,10 @@ define linkonce_odr dso_local void @_ZN5Catch6Detail18EnumValuesRegistryC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch26IMutableEnumValuesRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch6Detail18EnumValuesRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Detail::EnumValuesRegistry", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS1_8EnumInfoEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch6Detail18EnumValuesRegistryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Detail::EnumValuesRegistry", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS1_8EnumInfoEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
   ret void
 }
 
@@ -145221,23 +145353,25 @@ define internal void @_ZN5Catch12_GLOBAL__N_111RegistryHubD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %3, i32 0, i32 7
-  call void @_ZN5Catch6Detail18EnumValuesRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
-  %6 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %3, i32 0, i32 6
-  call void @_ZN5Catch24StartupExceptionRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #7
-  %7 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %3, i32 0, i32 5
-  call void @_ZN5Catch16TagAliasRegistryD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #7
-  %8 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %3, i32 0, i32 4
-  call void @_ZN5Catch27ExceptionTranslatorRegistryD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %9 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %3, i32 0, i32 3
-  call void @_ZN5Catch16ReporterRegistryD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #7
-  %10 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %3, i32 0, i32 2
-  call void @_ZN5Catch12TestRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #7
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @_ZN5Catch19IMutableRegistryHubD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #7
+  %4 = getelementptr inbounds { [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds { [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %3, i32 0, i32 7
+  call void @_ZN5Catch6Detail18EnumValuesRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
+  %8 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %3, i32 0, i32 6
+  call void @_ZN5Catch24StartupExceptionRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #7
+  %9 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %3, i32 0, i32 5
+  call void @_ZN5Catch16TagAliasRegistryD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #7
+  %10 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %3, i32 0, i32 4
+  call void @_ZN5Catch27ExceptionTranslatorRegistryD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #7
+  %11 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %3, i32 0, i32 3
+  call void @_ZN5Catch16ReporterRegistryD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #7
+  %12 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %3, i32 0, i32 2
+  call void @_ZN5Catch12TestRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %12) #7
+  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  call void @_ZN5Catch19IMutableRegistryHubD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #7
   call void @_ZN5Catch12IRegistryHubD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 }
@@ -145253,7 +145387,7 @@ define internal void @_ZN5Catch12_GLOBAL__N_111RegistryHubD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHubD1Ev(ptr noundef %0) unnamed_addr #20 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHubD1Ev(ptr noundef %0) unnamed_addr #19 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -145263,7 +145397,7 @@ define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHubD1Ev(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHubD0Ev(ptr noundef %0) unnamed_addr #20 align 2 {
+define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHubD0Ev(ptr noundef %0) unnamed_addr #19 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -145277,7 +145411,8 @@ define linkonce_odr dso_local void @_ZN5Catch17ITestCaseRegistryC2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch17ITestCaseRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch17ITestCaseRegistryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -145463,7 +145598,8 @@ define linkonce_odr dso_local void @_ZN5Catch28IExceptionTranslatorRegistryC2Ev(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch28IExceptionTranslatorRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch28IExceptionTranslatorRegistryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -145531,7 +145667,8 @@ define linkonce_odr dso_local void @_ZN5Catch17ITagAliasRegistryC2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch17ITagAliasRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch17ITagAliasRegistryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -145647,7 +145784,8 @@ define linkonce_odr dso_local void @_ZN5Catch26IMutableEnumValuesRegistryC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch26IMutableEnumValuesRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch26IMutableEnumValuesRegistryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -151533,7 +151671,7 @@ define linkonce_odr dso_local noundef i64 @_ZNSt11char_traitsIwE6lengthEPKw(ptr 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call i64 @wcslen(ptr noundef %3) #22
+  %4 = call i64 @wcslen(ptr noundef %3) #21
   ret i64 %4
 }
 
@@ -151629,7 +151767,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIwSt11char_traits
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @wcslen(ptr noundef) #18
+declare i64 @wcslen(ptr noundef) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZSt8distanceIPKwENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #4 comdat {
@@ -151760,12 +151898,13 @@ define linkonce_odr dso_local void @_ZN5Catch18GeneratorExceptionC2ERKS0_(ptr no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch18GeneratorExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.Catch::GeneratorException", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.Catch::GeneratorException", ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %7, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch18GeneratorExceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.Catch::GeneratorException", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.Catch::GeneratorException", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %8, align 8
   ret void
 }
 
@@ -153491,9 +153630,10 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS0_15Pa
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEC2ENS1_10ResultTypeERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %7, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #7
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %7, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #7
   ret void
 }
 
@@ -153507,11 +153647,12 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ResultBaseC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase.148", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %6, align 8
-  %10 = load i32, ptr %9, align 4
-  store i32 %10, ptr %8, align 4
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase.148", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %6, align 8
+  %11 = load i32, ptr %10, align 4
+  store i32 %11, ptr %9, align 4
   ret void
 }
 
@@ -153529,10 +153670,11 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS0_15Pa
   %7 = load ptr, ptr %4, align 8
   %8 = load i32, ptr %5, align 4
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %6, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10) #7
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #7
   ret void
 }
 
@@ -153545,7 +153687,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
   call void @_ZN5Catch5Clara6Detail10ResultBaseC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -153599,7 +153742,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
   call void @_ZN5Catch5Clara6Detail10ResultBaseC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -153624,9 +153768,10 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS1_10Pa
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEC2ENS1_10ResultTypeERKS3_(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(48) %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %7, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #7
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %7, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #7
   ret void
 }
 
@@ -153642,31 +153787,32 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ResultBaseC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(12) %9, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  invoke void @_ZN5Catch5Clara6Detail10ParseStateC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  invoke void @_ZN5Catch5Clara6Detail10ParseStateC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %3
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %7, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %8, align 4
-  call void @_ZN5Catch5Clara6Detail10ResultBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i32, ptr %8, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %7, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %8, align 4
+  call void @_ZN5Catch5Clara6Detail10ResultBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -153868,33 +154014,34 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail12BoundFlagRefESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail12BoundFlagRefESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail12BoundFlagRefESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail12BoundFlagRefEJRbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail12BoundFlagRefESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail12BoundFlagRefESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail12BoundFlagRefESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail12BoundFlagRefEJRbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -154174,10 +154321,11 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail12BoundFlagRefC2ERb(pt
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail16BoundFlagRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail12BoundFlagRefE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundFlagRef", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail12BoundFlagRefE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundFlagRef", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -154187,7 +154335,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail16BoundFlagRefBaseC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch5Clara6Detail8BoundRefC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail16BoundFlagRefBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail16BoundFlagRefBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -154316,7 +154465,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -154993,10 +155143,11 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS1_10Pa
   %7 = load ptr, ptr %4, align 8
   %8 = load i32, ptr %5, align 4
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %6, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10) #7
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #7
   ret void
 }
 
@@ -155011,10 +155162,11 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultIvEC2ENS1
   %7 = load ptr, ptr %4, align 8
   %8 = load i32, ptr %5, align 4
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseIvECI2NS1_10ResultBaseEENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.150", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %6, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10) #7
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.150", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #7
   ret void
 }
 
@@ -155198,33 +155350,34 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceINSt7__cxx1112
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.600", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(32) %9) #7
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA13_KcEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(13) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.600", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(32) %10) #7
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA13_KcEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(13) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -155775,33 +155928,34 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.608", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESB_(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRSC_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.608", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESB_(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRSC_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -156081,10 +156235,11 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13BoundValueRefINSt7__
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef.610", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef.610", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -157161,11 +157316,12 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptC2EOS1_(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %8, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %9) #7
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %9, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
 }
 
@@ -157178,24 +157334,25 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr %7, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %12, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %13) #7
-  %14 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %15, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16) #7
-  %17 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 4
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %18, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %19) #7
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %13, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %14) #7
+  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %16, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %17) #7
+  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 4
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %19, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %20) #7
   ret void
 }
 
@@ -157208,7 +157365,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -157535,7 +157693,7 @@ define linkonce_odr dso_local void @_ZSt9__advanceIN9__gnu_cxx17__normal_iterato
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #21
+declare i1 @llvm.is.constant.i64(i64) #20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN5Catch5Clara3OptESt6vectorIS3_SaIS3_EEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
@@ -158504,7 +158662,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3ArgC2EOS1_(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3ArgE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara3ArgE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -158517,24 +158676,25 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3A
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr %7, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %5, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %12, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %13) #7
-  %14 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %5, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %15, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16) #7
-  %17 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %5, i32 0, i32 4
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %18, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %19) #7
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %5, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %13, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %14) #7
+  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %16, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %17) #7
+  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %5, i32 0, i32 4
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %19, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %20) #7
   ret void
 }
 
@@ -158547,7 +158707,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -161981,33 +162142,34 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS1_4HelpC1ERbE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.620", ptr %8, i32 0, i32 1
-  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS1_4HelpC1ERbE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS1_4HelpC1ERbE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail15BoundFlagLambdaIZNS4_4HelpC1ERbE3$_0EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS1_4HelpC1ERbE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.620", ptr %8, i32 0, i32 1
+  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS1_4HelpC1ERbE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS1_4HelpC1ERbE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail15BoundFlagLambdaIZNS4_4HelpC1ERbE3$_0EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -162287,10 +162449,11 @@ define internal void @"_ZN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_4HelpC1ERbE3
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail16BoundFlagRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_4HelpC1ERbE3$_0EE", i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundFlagLambda", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_4HelpC1ERbE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundFlagLambda", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -162807,57 +162970,58 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6ParserC2ERKS1_(ptr noundef n
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6ParserE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %10, i32 0, i32 1
-  call void @_ZN5Catch5Clara7ExeNameC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %11) #7
-  %12 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %7, i32 0, i32 2
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %13, i32 0, i32 2
-  invoke void @_ZNSt6vectorIN5Catch5Clara3OptESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %15 unwind label %20
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6ParserE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %11, i32 0, i32 1
+  call void @_ZN5Catch5Clara7ExeNameC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %12) #7
+  %13 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %7, i32 0, i32 2
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %14, i32 0, i32 2
+  invoke void @_ZNSt6vectorIN5Catch5Clara3OptESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15)
+          to label %16 unwind label %21
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %7, i32 0, i32 3
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %17, i32 0, i32 3
-  invoke void @_ZNSt6vectorIN5Catch5Clara3ArgESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %18)
-          to label %19 unwind label %24
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %7, i32 0, i32 3
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %18, i32 0, i32 3
+  invoke void @_ZNSt6vectorIN5Catch5Clara3ArgESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %25
 
-19:                                               ; preds = %15
+20:                                               ; preds = %16
   ret void
 
-20:                                               ; preds = %2
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %5, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %6, align 4
-  br label %28
-
-24:                                               ; preds = %15
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %5, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %6, align 4
-  call void @_ZNSt6vectorIN5Catch5Clara3OptESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #7
-  br label %28
-
-28:                                               ; preds = %24, %20
-  call void @_ZN5Catch5Clara7ExeNameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #7
-  call void @_ZN5Catch5Clara6Detail10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #7
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %5, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %6, align 4
   br label %29
 
-29:                                               ; preds = %28
-  %30 = load ptr, ptr %5, align 8
-  %31 = load i32, ptr %6, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+25:                                               ; preds = %16
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %5, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %6, align 4
+  call void @_ZNSt6vectorIN5Catch5Clara3OptESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #7
+  br label %29
+
+29:                                               ; preds = %25, %21
+  call void @_ZN5Catch5Clara7ExeNameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #7
+  call void @_ZN5Catch5Clara6Detail10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #7
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %5, align 8
+  %32 = load i32, ptr %6, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -162882,15 +163046,16 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara7ExeNameC2ERKS1_(ptr noundef 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_7ExeNameEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara7ExeNameE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %8, i32 0, i32 1
-  call void @_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %11, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail17BoundValueRefBaseEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12) #7
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara7ExeNameE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %9, i32 0, i32 1
+  call void @_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %12, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail17BoundValueRefBaseEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %13) #7
   ret void
 }
 
@@ -163053,7 +163218,8 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_7ExeNameEEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_7ExeNameEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -163723,56 +163889,57 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @_ZSt11make_sharedIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRS9_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.166") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @_ZSt11make_sharedIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRS9_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.166") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -163824,56 +163991,57 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.624") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.624") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -164094,33 +164262,34 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.631", ptr %8, i32 0, i32 1
-  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail15BoundManyLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_0EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.631", ptr %8, i32 0, i32 1
+  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail15BoundManyLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_0EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -164401,7 +164570,8 @@ define internal void @"_ZN5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommand
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_0EC2ERKS5_"(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_0EE", i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -164413,10 +164583,11 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_0EE", i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -164563,32 +164734,33 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS0_15Pa
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -164614,21 +164786,22 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ResultBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %5, i32 0, i32 1
-  %8 = load i32, ptr %7, align 8
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %15
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %5, i32 0, i32 1
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %16
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase.148", ptr %5, i32 0, i32 1
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase.148", ptr %12, i32 0, i32 1
-  %14 = load i32, ptr %13, align 4
-  store i32 %14, ptr %11, align 4
-  br label %15
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase.148", ptr %5, i32 0, i32 1
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase.148", ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 4
+  store i32 %15, ptr %12, align 4
+  br label %16
 
-15:                                               ; preds = %10, %2
+16:                                               ; preds = %11, %2
   ret void
 }
 
@@ -165394,33 +165567,34 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_1EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.640", ptr %8, i32 0, i32 1
-  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_1EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_1EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail15BoundFlagLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_1EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_1EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.640", ptr %8, i32 0, i32 1
+  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_1EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_1EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail15BoundFlagLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_1EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -165700,10 +165874,11 @@ define internal void @"_ZN5Catch5Clara6Detail15BoundFlagLambdaIZNS_21makeCommand
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail16BoundFlagRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundFlagLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_1EE", i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundFlagLambda.642", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundFlagLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_1EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundFlagLambda.642", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -165917,56 +166092,57 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.643") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.643") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -166187,33 +166363,34 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.650", ptr %8, i32 0, i32 1
-  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_2EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.650", ptr %8, i32 0, i32 1
+  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_2EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -166493,10 +166670,11 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_2EE", i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.652", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_2EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.652", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -166879,56 +167057,57 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.653") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.653") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -167149,33 +167328,34 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.660", ptr %8, i32 0, i32 1
-  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail15BoundManyLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_3EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.660", ptr %8, i32 0, i32 1
+  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail15BoundManyLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_3EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -167456,7 +167636,8 @@ define internal void @"_ZN5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommand
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_3EC2ERKS5_"(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_3EE", i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_3EE", i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -167468,10 +167649,11 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_3EE", i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.663", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_3EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.663", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -167867,56 +168049,57 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.664") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.664") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -168137,33 +168320,34 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.671", ptr %8, i32 0, i32 1
-  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_4EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.671", ptr %8, i32 0, i32 1
+  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_4EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -168443,10 +168627,11 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_4EE", i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.673", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_4EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.673", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -168718,56 +168903,57 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @_ZSt11make_sharedIN5Catch5Clara6Detail13BoundValueRefIdEEJRdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.674") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @_ZSt11make_sharedIN5Catch5Clara6Detail13BoundValueRefIdEEJRdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.674") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_13BoundValueRefIdEEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_13BoundValueRefIdEEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail13BoundValueRefIdEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -168988,33 +169174,34 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.681", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail13BoundValueRefIdEEJRdEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.681", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail13BoundValueRefIdEEJRdEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -169294,10 +169481,11 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13BoundValueRefIdEC2ER
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefIdEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef.683", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefIdEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef.683", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -169589,56 +169777,57 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.684") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.684") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -169859,33 +170048,34 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.691", ptr %8, i32 0, i32 1
-  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_5EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.691", ptr %8, i32 0, i32 1
+  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_5EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -170165,10 +170355,11 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_5EE", i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.693", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_5EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.693", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -171369,56 +171560,57 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @_ZSt11make_sharedIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEEJRSC_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.509") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @_ZSt11make_sharedIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEEJRSC_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.509") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -171434,56 +171626,57 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.694") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.694") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -171704,33 +171897,34 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.701", ptr %8, i32 0, i32 1
-  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_6EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.701", ptr %8, i32 0, i32 1
+  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_6EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -172010,10 +172204,11 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_6EE", i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.703", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_6EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.703", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -172411,56 +172606,57 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.704") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.704") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -172681,33 +172877,34 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.711", ptr %8, i32 0, i32 1
-  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_7EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.711", ptr %8, i32 0, i32 1
+  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_7EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -172987,10 +173184,11 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_7EE", i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.713", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_7EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.713", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -173470,56 +173668,57 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.714") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.714") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -173740,33 +173939,34 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.721", ptr %8, i32 0, i32 1
-  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_8EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.721", ptr %8, i32 0, i32 1
+  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_8EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -174046,10 +174246,11 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_8EE", i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.723", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_8EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.723", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -174456,56 +174657,57 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.724") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.724") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -174726,33 +174928,34 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.731", ptr %8, i32 0, i32 1
-  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_9EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.731", ptr %8, i32 0, i32 1
+  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE3$_9EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -175032,10 +175235,11 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_9EE", i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.733", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_9EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.733", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -175491,56 +175695,57 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.734") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.734") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -175761,33 +175966,34 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.741", ptr %8, i32 0, i32 1
-  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE4$_10EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.741", ptr %8, i32 0, i32 1
+  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE4$_10EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -176067,10 +176273,11 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_10EE", i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.743", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_10EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.743", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -176482,56 +176689,57 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @_ZSt11make_sharedIN5Catch5Clara6Detail13BoundValueRefIjEEJRjEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.744") align 8 %7, ptr noundef nonnull align 4 dereferenceable(4) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @_ZSt11make_sharedIN5Catch5Clara6Detail13BoundValueRefIjEEJRjEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.744") align 8 %7, ptr noundef nonnull align 4 dereferenceable(4) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_13BoundValueRefIjEEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_13BoundValueRefIjEEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail13BoundValueRefIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -176752,33 +176960,34 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIjEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.751", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIjEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIjEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail13BoundValueRefIjEEJRjEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIjEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.751", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIjEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIjEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail13BoundValueRefIjEEJRjEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -177058,10 +177267,11 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13BoundValueRefIjEC2ER
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefIjEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef.753", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefIjEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef.753", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -177353,56 +177563,57 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @_ZSt11make_sharedIN5Catch5Clara6Detail13BoundValueRefIlEEJRlEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.754") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @_ZSt11make_sharedIN5Catch5Clara6Detail13BoundValueRefIlEEJRlEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.754") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_13BoundValueRefIlEEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_13BoundValueRefIlEEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail13BoundValueRefIlEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -177623,33 +177834,34 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.761", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail13BoundValueRefIlEEJRlEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.761", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail13BoundValueRefIlEEJRlEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -177929,10 +178141,11 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13BoundValueRefIlEC2ER
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefIlEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef.763", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefIlEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef.763", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -178224,56 +178437,57 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.764") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.764") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -178494,33 +178708,34 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.771", ptr %8, i32 0, i32 1
-  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE4$_11EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.771", ptr %8, i32 0, i32 1
+  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE4$_11EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -178800,10 +179015,11 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_11EE", i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.773", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_11EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.773", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -179218,56 +179434,57 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.774") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %19
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  invoke void @"_ZSt11make_sharedIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EEJRKS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.774") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %3
-  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+15:                                               ; preds = %3
+  call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2INS2_11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EEvEEOS_IT_E"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
-  %15 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %16 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #7
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %27
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
-  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -179488,33 +179705,34 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.781", ptr %8, i32 0, i32 1
-  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  %11 = load ptr, ptr %5, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE4$_12EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.781", ptr %8, i32 0, i32 1
+  call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %11 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
+  %12 = load ptr, ptr %5, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructIN5Catch5Clara6Detail11BoundLambdaIZNS3_21makeCommandLineParserERNS3_10ConfigDataEE4$_12EEJRKS9_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -179794,10 +180012,11 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_12EE", i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.783", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_12EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.783", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
   ret void
 }
 
@@ -180573,7 +180792,8 @@ define internal void @_ZN5Catch12_GLOBAL__N_114ANSIColourImplC2EPNS_7IStreamE(pt
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch10ColourImplC2EPNS_7IStreamE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_114ANSIColourImplE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_114ANSIColourImplE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -180597,10 +180817,11 @@ define linkonce_odr dso_local void @_ZN5Catch10ColourImplC2EPNS_7IStreamE(ptr no
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10ColourImplE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::ColourImpl", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch10ColourImplE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::ColourImpl", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -180860,7 +181081,8 @@ define internal void @_ZN5Catch12_GLOBAL__N_112NoColourImplC2EPNS_7IStreamE(ptr 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch10ColourImplC2EPNS_7IStreamE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_112NoColourImplE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_112NoColourImplE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -180932,7 +181154,8 @@ define linkonce_odr dso_local void @_ZNSt12domain_errorC2ERKS_(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12domain_error, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12domain_error, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -183887,39 +184110,40 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_110CoutStreamC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Catch7IStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110CoutStreamE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::CoutStream", ptr %5, i32 0, i32 1
-  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch4coutEv()
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr i8, ptr %8, i64 -24
-  %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 %10
-  %12 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %11)
-          to label %13 unwind label %15
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110CoutStreamE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::CoutStream", ptr %5, i32 0, i32 1
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch4coutEv()
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr i8, ptr %9, i64 -24
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %8, i64 %11
+  %13 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %1
-  invoke void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %12)
-          to label %14 unwind label %15
+14:                                               ; preds = %1
+  invoke void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %13)
+          to label %15 unwind label %16
 
-14:                                               ; preds = %13
+15:                                               ; preds = %14
   ret void
 
-15:                                               ; preds = %13, %1
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %14, %1
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %3, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %4, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
   call void @_ZN5Catch7IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %3, align 8
-  %21 = load i32, ptr %4, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %3, align 8
+  %22 = load i32, ptr %4, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -183940,7 +184164,8 @@ define linkonce_odr dso_local void @_ZN5Catch7IStreamC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch7IStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch7IStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -184009,53 +184234,54 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_114DebugOutStreamC2Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Catch7IStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_114DebugOutStreamE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::DebugOutStream", ptr %5, i32 0, i32 1
-  invoke void @_ZN5Catch6Detail11make_uniqueINS0_12_GLOBAL__N_113StreamBufImplINS2_17OutputDebugWriterELm256EEEJEEENS0_10unique_ptrIT_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.Catch::Detail::unique_ptr.788") align 8 %6)
-          to label %7 unwind label %13
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_114DebugOutStreamE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::DebugOutStream", ptr %5, i32 0, i32 1
+  invoke void @_ZN5Catch6Detail11make_uniqueINS0_12_GLOBAL__N_113StreamBufImplINS2_17OutputDebugWriterELm256EEEJEEENS0_10unique_ptrIT_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.Catch::Detail::unique_ptr.788") align 8 %7)
+          to label %8 unwind label %14
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::DebugOutStream", ptr %5, i32 0, i32 2
-  %9 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::DebugOutStream", ptr %5, i32 0, i32 1
-  %10 = invoke noundef ptr @_ZN5Catch6Detail10unique_ptrINS0_12_GLOBAL__N_113StreamBufImplINS2_17OutputDebugWriterELm256EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %11 unwind label %17
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::DebugOutStream", ptr %5, i32 0, i32 2
+  %10 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::DebugOutStream", ptr %5, i32 0, i32 1
+  %11 = invoke noundef ptr @_ZN5Catch6Detail10unique_ptrINS0_12_GLOBAL__N_113StreamBufImplINS2_17OutputDebugWriterELm256EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %12 unwind label %18
 
-11:                                               ; preds = %7
-  invoke void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10)
-          to label %12 unwind label %17
+12:                                               ; preds = %8
+  invoke void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %11)
+          to label %13 unwind label %18
 
-12:                                               ; preds = %11
+13:                                               ; preds = %12
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %1
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %3, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %4, align 4
-  br label %21
-
-17:                                               ; preds = %11, %7
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
-  call void @_ZN5Catch6Detail10unique_ptrINS0_12_GLOBAL__N_113StreamBufImplINS2_17OutputDebugWriterELm256EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  br label %21
-
-21:                                               ; preds = %17, %13
-  call void @_ZN5Catch7IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %3, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %4, align 4
   br label %22
 
-22:                                               ; preds = %21
-  %23 = load ptr, ptr %3, align 8
-  %24 = load i32, ptr %4, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+18:                                               ; preds = %12, %8
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  call void @_ZN5Catch6Detail10unique_ptrINS0_12_GLOBAL__N_113StreamBufImplINS2_17OutputDebugWriterELm256EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #7
+  br label %22
+
+22:                                               ; preds = %18, %14
+  call void @_ZN5Catch7IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
+  br label %23
+
+23:                                               ; preds = %22
+  %24 = load ptr, ptr %3, align 8
+  %25 = load i32, ptr %4, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -184172,34 +184398,35 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_113StreamBufImplINS1_17Output
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_113StreamBufImplINS1_17OutputDebugWriterELm256EEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::StreamBufImpl", ptr %5, i32 0, i32 1
-  %7 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
-  %8 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::StreamBufImpl", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %10 = getelementptr inbounds i8, ptr %9, i64 256
-  invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %7, ptr noundef %10)
-          to label %11 unwind label %12
-
-11:                                               ; preds = %1
-  ret void
+  %6 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_113StreamBufImplINS1_17OutputDebugWriterELm256EEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::StreamBufImpl", ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
+  %9 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::StreamBufImpl", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds [256 x i8], ptr %9, i64 0, i64 0
+  %11 = getelementptr inbounds i8, ptr %10, i64 256
+  invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %8, ptr noundef %11)
+          to label %12 unwind label %13
 
 12:                                               ; preds = %1
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %3, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %4, align 4
-  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #7
-  br label %16
+  ret void
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %4, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %3, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %4, align 4
+  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #7
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -184476,39 +184703,40 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_110CerrStreamC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Catch7IStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110CerrStreamE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::CerrStream", ptr %5, i32 0, i32 1
-  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch4cerrEv()
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr i8, ptr %8, i64 -24
-  %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 %10
-  %12 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %11)
-          to label %13 unwind label %15
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110CerrStreamE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::CerrStream", ptr %5, i32 0, i32 1
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch4cerrEv()
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr i8, ptr %9, i64 -24
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %8, i64 %11
+  %13 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %1
-  invoke void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %12)
-          to label %14 unwind label %15
+14:                                               ; preds = %1
+  invoke void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %13)
+          to label %15 unwind label %16
 
-14:                                               ; preds = %13
+15:                                               ; preds = %14
   ret void
 
-15:                                               ; preds = %13, %1
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %14, %1
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %3, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %4, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
   call void @_ZN5Catch7IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %3, align 8
-  %21 = load i32, ptr %4, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %3, align 8
+  %22 = load i32, ptr %4, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -184529,9 +184757,10 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_110CerrStreamD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110CerrStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::CerrStream", ptr %3, i32 0, i32 1
-  call void @_ZNSoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #7
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110CerrStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::CerrStream", ptr %3, i32 0, i32 1
+  call void @_ZNSoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
   call void @_ZN5Catch7IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 }
@@ -184590,131 +184819,132 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_110FileStreamC2ERKNSt7__cxx11
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5Catch7IStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110FileStreamE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::FileStream", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %11)
-          to label %12 unwind label %36
+  %11 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110FileStreamE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::FileStream", ptr %10, i32 0, i32 1
+  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %12)
+          to label %13 unwind label %37
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::FileStream", ptr %10, i32 0, i32 1
-  %14 = load ptr, ptr %4, align 8
-  %15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #7
-  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %13, ptr noundef %15, i32 noundef 16)
-          to label %16 unwind label %40
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::FileStream", ptr %10, i32 0, i32 1
+  %15 = load ptr, ptr %4, align 8
+  %16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #7
+  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %14, ptr noundef %16, i32 noundef 16)
+          to label %17 unwind label %41
 
-16:                                               ; preds = %12
-  br label %17
+17:                                               ; preds = %13
+  br label %18
 
-17:                                               ; preds = %16
-  %18 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::FileStream", ptr %10, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr i8, ptr %19, i64 -24
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 %21
-  %23 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %22)
-          to label %24 unwind label %40
+18:                                               ; preds = %17
+  %19 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::FileStream", ptr %10, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr i8, ptr %20, i64 -24
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %19, i64 %22
+  %24 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %23)
+          to label %25 unwind label %41
 
-24:                                               ; preds = %17
-  br i1 %23, label %25, label %53
-
-25:                                               ; preds = %24
-  invoke void @_ZN5Catch20ReusableStringStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %26 unwind label %40
+25:                                               ; preds = %18
+  br i1 %24, label %26, label %54
 
 26:                                               ; preds = %25
-  %27 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIA23_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(23) @.str.614)
-          to label %28 unwind label %44
+  invoke void @_ZN5Catch20ReusableStringStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %27 unwind label %41
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr %4, align 8
-  %30 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(32) %29)
-          to label %31 unwind label %44
+27:                                               ; preds = %26
+  %28 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIA23_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(23) @.str.614)
+          to label %29 unwind label %45
 
-31:                                               ; preds = %28
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %4, align 8
+  %31 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(32) %30)
+          to label %32 unwind label %45
+
+32:                                               ; preds = %29
   store i8 39, ptr %9, align 1
-  %32 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIcEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %33 unwind label %44
+  %33 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Catch20ReusableStringStreamlsIcEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %34 unwind label %45
 
-33:                                               ; preds = %31
-  invoke void @_ZNK5Catch20ReusableStringStream3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %32)
-          to label %34 unwind label %44
-
-34:                                               ; preds = %33
-  invoke void @_ZN5Catch18throw_domain_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
-          to label %35 unwind label %48
+34:                                               ; preds = %32
+  invoke void @_ZNK5Catch20ReusableStringStream3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %33)
+          to label %35 unwind label %45
 
 35:                                               ; preds = %34
+  invoke void @_ZN5Catch18throw_domain_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
+          to label %36 unwind label %49
+
+36:                                               ; preds = %35
   unreachable
 
-36:                                               ; preds = %2
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %2
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %5, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %6, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %5, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %6, align 4
+  br label %61
+
+41:                                               ; preds = %56, %26, %18, %13
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %5, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %6, align 4
   br label %60
 
-40:                                               ; preds = %55, %25, %17, %12
-  %41 = landingpad { ptr, i32 }
+45:                                               ; preds = %34, %32, %29, %27
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %5, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %6, align 4
-  br label %59
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %5, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %6, align 4
+  br label %53
 
-44:                                               ; preds = %33, %31, %28, %26
-  %45 = landingpad { ptr, i32 }
+49:                                               ; preds = %35
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %5, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %6, align 4
-  br label %52
-
-48:                                               ; preds = %34
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %5, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %6, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %5, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %6, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
-  br label %52
+  br label %53
 
-52:                                               ; preds = %48, %44
+53:                                               ; preds = %49, %45
   call void @_ZN5Catch20ReusableStringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  br label %59
+  br label %60
 
-53:                                               ; preds = %24
-  br label %54
-
-54:                                               ; preds = %53
+54:                                               ; preds = %25
   br label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::FileStream", ptr %10, i32 0, i32 1
-  %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef @_ZSt7unitbufRSt8ios_base)
-          to label %58 unwind label %40
+  br label %56
 
-58:                                               ; preds = %55
+56:                                               ; preds = %55
+  %57 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::FileStream", ptr %10, i32 0, i32 1
+  %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef @_ZSt7unitbufRSt8ios_base)
+          to label %59 unwind label %41
+
+59:                                               ; preds = %56
   ret void
 
-59:                                               ; preds = %52, %40
-  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %11) #7
-  br label %60
-
-60:                                               ; preds = %59, %36
-  call void @_ZN5Catch7IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+60:                                               ; preds = %53, %41
+  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %12) #7
   br label %61
 
-61:                                               ; preds = %60
-  %62 = load ptr, ptr %5, align 8
-  %63 = load i32, ptr %6, align 4
-  %64 = insertvalue { ptr, i32 } poison, ptr %62, 0
-  %65 = insertvalue { ptr, i32 } %64, i32 %63, 1
-  resume { ptr, i32 } %65
+61:                                               ; preds = %60, %37
+  call void @_ZN5Catch7IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
+  br label %62
+
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %5, align 8
+  %64 = load i32, ptr %6, align 4
+  %65 = insertvalue { ptr, i32 } poison, ptr %63, 0
+  %66 = insertvalue { ptr, i32 } %65, i32 %64, 1
+  resume { ptr, i32 } %66
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -185357,7 +185587,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.791", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.791", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -187435,7 +187665,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -187448,7 +187678,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -187614,7 +187844,8 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_16AutomakeRepo
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_16AutomakeReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_16AutomakeReporterEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -187636,7 +187867,8 @@ define linkonce_odr dso_local void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch16IReporterFactoryE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch16IReporterFactoryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -187784,7 +188016,8 @@ define linkonce_odr dso_local void @_ZN5Catch16AutomakeReporterC2EONS_14Reporter
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch21StreamingReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(72) %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch16AutomakeReporterE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTVN5Catch16AutomakeReporterE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -187871,7 +188104,8 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_15CompactRepor
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_15CompactReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_15CompactReporterEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -188032,7 +188266,8 @@ define linkonce_odr dso_local void @_ZN5Catch15CompactReporterCI2NS_21StreamingR
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch21StreamingReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(72) %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch15CompactReporterE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTVN5Catch15CompactReporterE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -188085,7 +188320,8 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_15ConsoleRepor
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_15ConsoleReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_15ConsoleReporterEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -188286,7 +188522,8 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_13JunitReporte
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_13JunitReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_13JunitReporterEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -188487,7 +188724,8 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_17SonarQubeRep
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_17SonarQubeReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_17SonarQubeReporterEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -188650,40 +188888,41 @@ define linkonce_odr dso_local void @_ZN5Catch17SonarQubeReporterC2EONS_14Reporte
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch22CumulativeReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch17SonarQubeReporterE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.Catch::SonarQubeReporter", ptr %7, i32 0, i32 1
-  %10 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
-  invoke void @_ZN5Catch9XmlWriterC1ERSo(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %18
+  %9 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN5Catch17SonarQubeReporterE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.Catch::SonarQubeReporter", ptr %7, i32 0, i32 1
+  %11 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  invoke void @_ZN5Catch9XmlWriterC1ERSo(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %19
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.Catch::IEventListener", ptr %7, i32 0, i32 1
-  %14 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %13, i32 0, i32 0
-  store i8 1, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.Catch::IEventListener", ptr %7, i32 0, i32 1
-  %16 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %15, i32 0, i32 1
-  store i8 1, ptr %16, align 1
-  %17 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 1
-  store i8 0, ptr %17, align 8
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.Catch::IEventListener", ptr %7, i32 0, i32 1
+  %15 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %14, i32 0, i32 0
+  store i8 1, ptr %15, align 8
+  %16 = getelementptr inbounds %"class.Catch::IEventListener", ptr %7, i32 0, i32 1
+  %17 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %16, i32 0, i32 1
+  store i8 1, ptr %17, align 1
+  %18 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 1
+  store i8 0, ptr %18, align 8
   ret void
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %2
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
   call void @_ZN5Catch22CumulativeReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %7) #7
-  br label %22
+  br label %23
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i32, ptr %6, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %5, align 8
+  %25 = load i32, ptr %6, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -188743,7 +188982,8 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_11TAPReporterE
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_11TAPReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_11TAPReporterEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -188904,12 +189144,13 @@ define linkonce_odr dso_local void @_ZN5Catch11TAPReporterC2EONS_14ReporterConfi
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch21StreamingReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(72) %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch11TAPReporterE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.Catch::TAPReporter", ptr %5, i32 0, i32 1
-  store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Catch::IEventListener", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %8, i32 0, i32 1
-  store i8 1, ptr %9, align 1
+  %7 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTVN5Catch11TAPReporterE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.Catch::TAPReporter", ptr %5, i32 0, i32 1
+  store i64 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.Catch::IEventListener", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %9, i32 0, i32 1
+  store i8 1, ptr %10, align 1
   ret void
 }
 
@@ -188970,7 +189211,8 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_16TeamCityRepo
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_16TeamCityReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_16TeamCityReporterEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -189131,14 +189373,15 @@ define linkonce_odr dso_local void @_ZN5Catch16TeamCityReporterC2EONS_14Reporter
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch21StreamingReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(72) %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch16TeamCityReporterE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.Catch::TeamCityReporter", ptr %5, i32 0, i32 1
-  store i8 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Catch::TeamCityReporter", ptr %5, i32 0, i32 2
-  call void @_ZN5Catch5TimerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #7
-  %9 = getelementptr inbounds %"class.Catch::IEventListener", ptr %5, i32 0, i32 1
-  %10 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %9, i32 0, i32 0
-  store i8 1, ptr %10, align 8
+  %7 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTVN5Catch16TeamCityReporterE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.Catch::TeamCityReporter", ptr %5, i32 0, i32 1
+  store i8 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.Catch::TeamCityReporter", ptr %5, i32 0, i32 2
+  call void @_ZN5Catch5TimerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #7
+  %10 = getelementptr inbounds %"class.Catch::IEventListener", ptr %5, i32 0, i32 1
+  %11 = getelementptr inbounds %"struct.Catch::ReporterPreferences", ptr %10, i32 0, i32 0
+  store i8 1, ptr %11, align 8
   ret void
 }
 
@@ -189199,7 +189442,8 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_11XmlReporterE
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_11XmlReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_11XmlReporterEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -191508,7 +191752,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.283", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.283", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -191521,7 +191765,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.283", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.283", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -192110,7 +192354,8 @@ define linkonce_odr dso_local void @_ZN5Catch9SingletonINS_13StringStreamsES1_S1
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZN5Catch13StringStreamsC2Ev(ptr noundef nonnull align 8 dereferenceable(424) %4)
   call void @_ZN5Catch10ISingletonC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_13StringStreamsES1_S1_EE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %5 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_13StringStreamsES1_S1_EE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %3, align 8
   ret void
 }
 
@@ -193889,34 +194134,36 @@ define internal void @_ZN5Catch10Generators12_GLOBAL__N_116GeneratorTrackerC2EON
   call void @_ZN5Catch16TestCaseTracking11TrackerBaseC2EONS0_15NameAndLocationERNS0_14TrackerContextEPNS0_8ITrackerE(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef %14)
   %15 = getelementptr inbounds i8, ptr %11, i64 104
   call void @_ZN5Catch17IGeneratorTrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #7
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN5Catch10Generators12_GLOBAL__N_116GeneratorTrackerE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 104
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN5Catch10Generators12_GLOBAL__N_116GeneratorTrackerE, i32 0, i32 1, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds %"struct.Catch::Generators::(anonymous namespace)::GeneratorTracker", ptr %11, i32 0, i32 2
-  invoke void @_ZN5Catch6Detail10unique_ptrINS_10Generators20GeneratorUntypedBaseEEC2EDn(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr null)
-          to label %18 unwind label %19
+  %16 = getelementptr inbounds { [12 x ptr], [7 x ptr] }, ptr @_ZTVN5Catch10Generators12_GLOBAL__N_116GeneratorTrackerE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %11, align 8
+  %17 = getelementptr inbounds i8, ptr %11, i64 104
+  %18 = getelementptr inbounds { [12 x ptr], [7 x ptr] }, ptr @_ZTVN5Catch10Generators12_GLOBAL__N_116GeneratorTrackerE, i32 0, i32 1, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"struct.Catch::Generators::(anonymous namespace)::GeneratorTracker", ptr %11, i32 0, i32 2
+  invoke void @_ZN5Catch6Detail10unique_ptrINS_10Generators20GeneratorUntypedBaseEEC2EDn(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr null)
+          to label %20 unwind label %21
 
-18:                                               ; preds = %4
+20:                                               ; preds = %4
   ret void
 
-19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
+21:                                               ; preds = %4
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %9, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %10, align 4
-  %23 = getelementptr inbounds i8, ptr %11, i64 104
-  call void @_ZN5Catch17IGeneratorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #7
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %9, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %10, align 4
+  %25 = getelementptr inbounds i8, ptr %11, i64 104
+  call void @_ZN5Catch17IGeneratorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #7
   call void @_ZN5Catch16TestCaseTracking11TrackerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %11) #7
-  br label %24
+  br label %26
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %9, align 8
-  %26 = load i32, ptr %10, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %9, align 8
+  %28 = load i32, ptr %10, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -193937,7 +194184,8 @@ define linkonce_odr dso_local void @_ZN5Catch17IGeneratorTrackerC2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch17IGeneratorTrackerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Catch17IGeneratorTrackerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -194045,7 +194293,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Catch10Gene
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn104_N5Catch10Generators12_GLOBAL__N_116GeneratorTrackerD1Ev(ptr noundef %0) unnamed_addr #20 align 2 {
+define internal void @_ZThn104_N5Catch10Generators12_GLOBAL__N_116GeneratorTrackerD1Ev(ptr noundef %0) unnamed_addr #19 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -194055,7 +194303,7 @@ define internal void @_ZThn104_N5Catch10Generators12_GLOBAL__N_116GeneratorTrack
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn104_N5Catch10Generators12_GLOBAL__N_116GeneratorTrackerD0Ev(ptr noundef %0) unnamed_addr #20 align 2 {
+define internal void @_ZThn104_N5Catch10Generators12_GLOBAL__N_116GeneratorTrackerD0Ev(ptr noundef %0) unnamed_addr #19 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -194065,7 +194313,7 @@ define internal void @_ZThn104_N5Catch10Generators12_GLOBAL__N_116GeneratorTrack
 }
 
 ; Function Attrs: uwtable
-define internal noundef zeroext i1 @_ZThn104_NK5Catch10Generators12_GLOBAL__N_116GeneratorTracker12hasGeneratorEv(ptr noundef %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZThn104_NK5Catch10Generators12_GLOBAL__N_116GeneratorTracker12hasGeneratorEv(ptr noundef %0) unnamed_addr #15 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -194075,7 +194323,7 @@ define internal noundef zeroext i1 @_ZThn104_NK5Catch10Generators12_GLOBAL__N_11
 }
 
 ; Function Attrs: uwtable
-define internal noundef ptr @_ZThn104_NK5Catch10Generators12_GLOBAL__N_116GeneratorTracker12getGeneratorEv(ptr noundef %0) unnamed_addr #16 align 2 {
+define internal noundef ptr @_ZThn104_NK5Catch10Generators12_GLOBAL__N_116GeneratorTracker12getGeneratorEv(ptr noundef %0) unnamed_addr #15 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -199906,7 +200154,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.329", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.329", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -199919,7 +200167,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.329", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.329", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -210857,10 +211105,11 @@ define internal void @_ZN5Catch12_GLOBAL__N_121TestInvokerAsFunctionC2EPFvvE(ptr
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch12ITestInvokerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_121TestInvokerAsFunctionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Catch::(anonymous namespace)::TestInvokerAsFunction", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_121TestInvokerAsFunctionE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Catch::(anonymous namespace)::TestInvokerAsFunction", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -210882,7 +211131,8 @@ define linkonce_odr dso_local void @_ZN5Catch12ITestInvokerC2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch12ITestInvokerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch12ITestInvokerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -214975,10 +215225,11 @@ define linkonce_odr dso_local void @_ZNSt11regex_errorC2ENSt15regex_constants10e
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %6, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11regex_error, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.std::regex_error", ptr %7, i32 0, i32 1
-  %10 = load i32, ptr %5, align 4
-  store i32 %10, ptr %9, align 8
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt11regex_error, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.std::regex_error", ptr %7, i32 0, i32 1
+  %11 = load i32, ptr %5, align 4
+  store i32 %11, ptr %10, align 8
   ret void
 }
 
@@ -215894,7 +216145,7 @@ declare noundef i64 @_ZNKSt6locale2id5_M_idEv(ptr noundef nonnull align 8 derefe
 declare void @_ZSt16__throw_bad_castv() #12
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #22
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #21
 
 declare void @__cxa_bad_cast()
 
@@ -217272,34 +217523,35 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceINSt8__detail4
   store ptr %2, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.870", ptr %10, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(88) %11) #7
-  %12 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #7
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEEJRKSt6localeRNSt15regex_constants18syntax_option_typeEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
-          to label %15 unwind label %16
-
-15:                                               ; preds = %3
-  ret void
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.870", ptr %10, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(88) %12) #7
+  %13 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #7
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEEJRKSt6localeRNSt15regex_constants18syntax_option_typeEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
+          to label %16 unwind label %17
 
 16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %8, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %9, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
-  br label %20
+  ret void
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %9, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %8, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %9, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -227856,7 +228108,7 @@ define linkonce_odr dso_local i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_class
   store ptr %43, ptr %7, align 8
   br label %26, !llvm.loop !309
 
-44:                                               ; preds = %84, %75, %69, %68, %65, %62, %38, %36, %30
+44:                                               ; preds = %85, %76, %70, %69, %66, %63, %38, %36, %30
   %45 = landingpad { ptr, i32 }
           cleanup
   %46 = extractvalue { ptr, i32 } %45, 0
@@ -227864,105 +228116,106 @@ define linkonce_odr dso_local i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_class
   %47 = extractvalue { ptr, i32 } %45, 1
   store i32 %47, ptr %13, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #7
-  br label %88
+  br label %89
 
 48:                                               ; preds = %26
   store ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, ptr %14, align 8
   store ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, ptr %15, align 8
-  store ptr getelementptr inbounds (%"struct.std::pair.911", ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 15), ptr %16, align 8
-  br label %49
+  %49 = getelementptr inbounds %"struct.std::pair.911", ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 15
+  store ptr %49, ptr %16, align 8
+  br label %50
 
-49:                                               ; preds = %81, %48
-  %50 = load ptr, ptr %15, align 8
-  %51 = load ptr, ptr %16, align 8
-  %52 = icmp ne ptr %50, %51
-  br i1 %52, label %53, label %84
+50:                                               ; preds = %82, %48
+  %51 = load ptr, ptr %15, align 8
+  %52 = load ptr, ptr %16, align 8
+  %53 = icmp ne ptr %51, %52
+  br i1 %53, label %54, label %85
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %15, align 8
-  store ptr %54, ptr %17, align 8
-  %55 = load ptr, ptr %17, align 8
-  %56 = getelementptr inbounds %"struct.std::pair.911", ptr %55, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %57)
-  br i1 %58, label %59, label %80
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %15, align 8
+  store ptr %55, ptr %17, align 8
+  %56 = load ptr, ptr %17, align 8
+  %57 = getelementptr inbounds %"struct.std::pair.911", ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %58)
+  br i1 %59, label %60, label %81
 
-59:                                               ; preds = %53
-  %60 = load i8, ptr %9, align 1
-  %61 = trunc i8 %60 to i1
-  br i1 %61, label %62, label %73
+60:                                               ; preds = %54
+  %61 = load i8, ptr %9, align 1
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %74
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr %17, align 8
-  %64 = getelementptr inbounds %"struct.std::pair.911", ptr %63, i32 0, i32 1
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %17, align 8
+  %65 = getelementptr inbounds %"struct.std::pair.911", ptr %64, i32 0, i32 1
   invoke void @_ZNSt7__cxx1112regex_traitsIcE10_RegexMaskC2Eth(ptr noundef nonnull align 2 dereferenceable(3) %19, i16 noundef zeroext 768, i8 noundef zeroext 0)
-          to label %65 unwind label %44
+          to label %66 unwind label %44
 
-65:                                               ; preds = %62
-  %66 = load i32, ptr %19, align 2
-  %67 = invoke i32 @_ZNKSt7__cxx1112regex_traitsIcE10_RegexMaskanES2_(ptr noundef nonnull align 2 dereferenceable(3) %64, i32 %66)
-          to label %68 unwind label %44
-
-68:                                               ; preds = %65
-  store i32 %67, ptr %18, align 2
-  invoke void @_ZNSt7__cxx1112regex_traitsIcE10_RegexMaskC2Eth(ptr noundef nonnull align 2 dereferenceable(3) %20, i16 noundef zeroext 0, i8 noundef zeroext 0)
+66:                                               ; preds = %63
+  %67 = load i32, ptr %19, align 2
+  %68 = invoke i32 @_ZNKSt7__cxx1112regex_traitsIcE10_RegexMaskanES2_(ptr noundef nonnull align 2 dereferenceable(3) %65, i32 %67)
           to label %69 unwind label %44
 
-69:                                               ; preds = %68
-  %70 = load i32, ptr %20, align 2
-  %71 = invoke noundef zeroext i1 @_ZNKSt7__cxx1112regex_traitsIcE10_RegexMaskneES2_(ptr noundef nonnull align 2 dereferenceable(3) %18, i32 %70)
-          to label %72 unwind label %44
+69:                                               ; preds = %66
+  store i32 %68, ptr %18, align 2
+  invoke void @_ZNSt7__cxx1112regex_traitsIcE10_RegexMaskC2Eth(ptr noundef nonnull align 2 dereferenceable(3) %20, i16 noundef zeroext 0, i8 noundef zeroext 0)
+          to label %70 unwind label %44
 
-72:                                               ; preds = %69
-  br label %73
+70:                                               ; preds = %69
+  %71 = load i32, ptr %20, align 2
+  %72 = invoke noundef zeroext i1 @_ZNKSt7__cxx1112regex_traitsIcE10_RegexMaskneES2_(ptr noundef nonnull align 2 dereferenceable(3) %18, i32 %71)
+          to label %73 unwind label %44
 
-73:                                               ; preds = %72, %59
-  %74 = phi i1 [ false, %59 ], [ %71, %72 ]
-  br i1 %74, label %75, label %77
+73:                                               ; preds = %70
+  br label %74
 
-75:                                               ; preds = %73
+74:                                               ; preds = %73, %60
+  %75 = phi i1 [ false, %60 ], [ %72, %73 ]
+  br i1 %75, label %76, label %78
+
+76:                                               ; preds = %74
   invoke void @_ZNSt7__cxx1112regex_traitsIcE10_RegexMaskC2Eth(ptr noundef nonnull align 2 dereferenceable(3) %5, i16 noundef zeroext 1024, i8 noundef zeroext 0)
-          to label %76 unwind label %44
+          to label %77 unwind label %44
 
-76:                                               ; preds = %75
+77:                                               ; preds = %76
   store i32 1, ptr %21, align 4
-  br label %86
+  br label %87
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr %17, align 8
-  %79 = getelementptr inbounds %"struct.std::pair.911", ptr %78, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %5, ptr align 8 %79, i64 4, i1 false)
+78:                                               ; preds = %74
+  %79 = load ptr, ptr %17, align 8
+  %80 = getelementptr inbounds %"struct.std::pair.911", ptr %79, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %5, ptr align 8 %80, i64 4, i1 false)
   store i32 1, ptr %21, align 4
-  br label %86
+  br label %87
 
-80:                                               ; preds = %53
-  br label %81
+81:                                               ; preds = %54
+  br label %82
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr %15, align 8
-  %83 = getelementptr inbounds %"struct.std::pair.911", ptr %82, i32 1
-  store ptr %83, ptr %15, align 8
-  br label %49
+82:                                               ; preds = %81
+  %83 = load ptr, ptr %15, align 8
+  %84 = getelementptr inbounds %"struct.std::pair.911", ptr %83, i32 1
+  store ptr %84, ptr %15, align 8
+  br label %50
 
-84:                                               ; preds = %49
+85:                                               ; preds = %50
   invoke void @_ZNSt7__cxx1112regex_traitsIcE10_RegexMaskC2Eth(ptr noundef nonnull align 2 dereferenceable(3) %5, i16 noundef zeroext 0, i8 noundef zeroext 0)
-          to label %85 unwind label %44
+          to label %86 unwind label %44
 
-85:                                               ; preds = %84
+86:                                               ; preds = %85
   store i32 1, ptr %21, align 4
-  br label %86
+  br label %87
 
-86:                                               ; preds = %85, %77, %76
+87:                                               ; preds = %86, %78, %77
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #7
-  %87 = load i32, ptr %5, align 2
-  ret i32 %87
+  %88 = load i32, ptr %5, align 2
+  ret i32 %88
 
-88:                                               ; preds = %44
-  %89 = load ptr, ptr %12, align 8
-  %90 = load i32, ptr %13, align 4
-  %91 = insertvalue { ptr, i32 } poison, ptr %89, 0
-  %92 = insertvalue { ptr, i32 } %91, i32 %90, 1
-  resume { ptr, i32 } %92
+89:                                               ; preds = %44
+  %90 = load ptr, ptr %12, align 8
+  %91 = load i32, ptr %13, align 4
+  %92 = insertvalue { ptr, i32 } poison, ptr %90, 0
+  %93 = insertvalue { ptr, i32 } %92, i32 %91, 1
+  resume { ptr, i32 } %93
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -240529,93 +240782,95 @@ define linkonce_odr dso_local void @_ZNKSt7__cxx1112regex_traitsIcE18lookup_coll
   store ptr %36, ptr %7, align 8
   br label %22, !llvm.loop !339
 
-37:                                               ; preds = %51, %31, %26
+37:                                               ; preds = %52, %31, %26
   %38 = landingpad { ptr, i32 }
           cleanup
   %39 = extractvalue { ptr, i32 } %38, 0
   store ptr %39, ptr %11, align 8
   %40 = extractvalue { ptr, i32 } %38, 1
   store i32 %40, ptr %12, align 4
-  br label %71
+  br label %73
 
 41:                                               ; preds = %22
   store ptr @_ZZNKSt7__cxx1112regex_traitsIcE18lookup_collatenameIPKcEENS_12basic_stringIcSt11char_traitsIcESaIcEEET_SA_E14__collatenames, ptr %13, align 8
   store ptr @_ZZNKSt7__cxx1112regex_traitsIcE18lookup_collatenameIPKcEENS_12basic_stringIcSt11char_traitsIcESaIcEEET_SA_E14__collatenames, ptr %14, align 8
-  store ptr getelementptr inbounds (ptr, ptr @_ZZNKSt7__cxx1112regex_traitsIcE18lookup_collatenameIPKcEENS_12basic_stringIcSt11char_traitsIcESaIcEEET_SA_E14__collatenames, i64 128), ptr %15, align 8
-  br label %42
+  %42 = getelementptr inbounds ptr, ptr @_ZZNKSt7__cxx1112regex_traitsIcE18lookup_collatenameIPKcEENS_12basic_stringIcSt11char_traitsIcESaIcEEET_SA_E14__collatenames, i64 128
+  store ptr %42, ptr %15, align 8
+  br label %43
 
-42:                                               ; preds = %66, %41
-  %43 = load ptr, ptr %14, align 8
-  %44 = load ptr, ptr %15, align 8
-  %45 = icmp ne ptr %43, %44
-  br i1 %45, label %46, label %69
+43:                                               ; preds = %68, %41
+  %44 = load ptr, ptr %14, align 8
+  %45 = load ptr, ptr %15, align 8
+  %46 = icmp ne ptr %44, %45
+  br i1 %46, label %47, label %71
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %14, align 8
-  store ptr %47, ptr %16, align 8
-  %48 = load ptr, ptr %16, align 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %49)
-  br i1 %50, label %51, label %65
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %14, align 8
+  store ptr %48, ptr %16, align 8
+  %49 = load ptr, ptr %16, align 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %50)
+  br i1 %51, label %52, label %67
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %9, align 8
-  %53 = load ptr, ptr %16, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %55 = sub i64 %54, ptrtoint (ptr @_ZZNKSt7__cxx1112regex_traitsIcE18lookup_collatenameIPKcEENS_12basic_stringIcSt11char_traitsIcESaIcEEET_SA_E14__collatenames to i64)
-  %56 = sdiv exact i64 %55, 8
-  %57 = trunc i64 %56 to i8
-  %58 = invoke noundef signext i8 @_ZNKSt5ctypeIcE5widenEc(ptr noundef nonnull align 8 dereferenceable(570) %52, i8 noundef signext %57)
-          to label %59 unwind label %37
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %9, align 8
+  %54 = load ptr, ptr %16, align 8
+  %55 = ptrtoint ptr %54 to i64
+  %56 = ptrtoint ptr @_ZZNKSt7__cxx1112regex_traitsIcE18lookup_collatenameIPKcEENS_12basic_stringIcSt11char_traitsIcESaIcEEET_SA_E14__collatenames to i64
+  %57 = sub i64 %55, %56
+  %58 = sdiv exact i64 %57, 8
+  %59 = trunc i64 %58 to i8
+  %60 = invoke noundef signext i8 @_ZNKSt5ctypeIcE5widenEc(ptr noundef nonnull align 8 dereferenceable(570) %53, i8 noundef signext %59)
+          to label %61 unwind label %37
 
-59:                                               ; preds = %51
+61:                                               ; preds = %52
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 1, i8 noundef signext %58, ptr noundef nonnull align 1 dereferenceable(1) %17)
-          to label %60 unwind label %61
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 1, i8 noundef signext %60, ptr noundef nonnull align 1 dereferenceable(1) %17)
+          to label %62 unwind label %63
 
-60:                                               ; preds = %59
+62:                                               ; preds = %61
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #7
   store i32 1, ptr %18, align 4
-  br label %70
+  br label %72
 
-61:                                               ; preds = %59
-  %62 = landingpad { ptr, i32 }
+63:                                               ; preds = %61
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %11, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %12, align 4
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %11, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %12, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #7
-  br label %71
+  br label %73
 
-65:                                               ; preds = %46
-  br label %66
+67:                                               ; preds = %47
+  br label %68
 
-66:                                               ; preds = %65
-  %67 = load ptr, ptr %14, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i32 1
-  store ptr %68, ptr %14, align 8
-  br label %42
+68:                                               ; preds = %67
+  %69 = load ptr, ptr %14, align 8
+  %70 = getelementptr inbounds ptr, ptr %69, i32 1
+  store ptr %70, ptr %14, align 8
+  br label %43
 
-69:                                               ; preds = %42
+71:                                               ; preds = %43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #7
   store i32 1, ptr %18, align 4
-  br label %70
+  br label %72
 
-70:                                               ; preds = %69, %60
+72:                                               ; preds = %71, %62
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #7
   ret void
 
-71:                                               ; preds = %61, %37
+73:                                               ; preds = %63, %37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #7
-  br label %72
+  br label %74
 
-72:                                               ; preds = %71
-  %73 = load ptr, ptr %11, align 8
-  %74 = load i32, ptr %12, align 4
-  %75 = insertvalue { ptr, i32 } poison, ptr %73, 0
-  %76 = insertvalue { ptr, i32 } %75, i32 %74, 1
-  resume { ptr, i32 } %76
+74:                                               ; preds = %73
+  %75 = load ptr, ptr %11, align 8
+  %76 = load i32, ptr %12, align 4
+  %77 = insertvalue { ptr, i32 } poison, ptr %75, 0
+  %78 = insertvalue { ptr, i32 } %77, i32 %76, 1
+  resume { ptr, i32 } %78
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -244783,7 +245038,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.967", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.967", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -246162,7 +246417,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.967", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.967", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -256272,11 +256527,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt8__detail9_ExecutorIN9__
   %15 = getelementptr inbounds %"class.std::__cxx11::basic_regex", ptr %14, i32 0, i32 2
   %16 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %15) #7
   %17 = getelementptr inbounds %"struct.std::__detail::_NFA", ptr %16, i32 0, i32 2
-  %18 = call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, ptr noundef getelementptr inbounds (i8, ptr @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, i64 1), i1 noundef zeroext false)
-  store i32 %18, ptr %5, align 2
-  %19 = load i32, ptr %5, align 2
-  %20 = call noundef zeroext i1 @_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext %12, i32 %19)
-  ret i1 %20
+  %18 = getelementptr inbounds i8, ptr @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, i64 1
+  %19 = call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE10_M_is_wordEcE3__s, ptr noundef %18, i1 noundef zeroext false)
+  store i32 %19, ptr %5, align 2
+  %20 = load i32, ptr %5, align 2
+  %21 = call noundef zeroext i1 @_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext %12, i32 %20)
+  ret i1 %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -259149,11 +259405,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt8__detail9_ExecutorIN9__
   %15 = getelementptr inbounds %"class.std::__cxx11::basic_regex", ptr %14, i32 0, i32 2
   %16 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %15) #7
   %17 = getelementptr inbounds %"struct.std::__detail::_NFA", ptr %16, i32 0, i32 2
-  %18 = call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, ptr noundef getelementptr inbounds (i8, ptr @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, i64 1), i1 noundef zeroext false)
-  store i32 %18, ptr %5, align 2
-  %19 = load i32, ptr %5, align 2
-  %20 = call noundef zeroext i1 @_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext %12, i32 %19)
-  ret i1 %20
+  %18 = getelementptr inbounds i8, ptr @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, i64 1
+  %19 = call i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s, ptr noundef %18, i1 noundef zeroext false)
+  store i32 %19, ptr %5, align 2
+  %20 = load i32, ptr %5, align 2
+  %21 = call noundef zeroext i1 @_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext %12, i32 %20)
+  ret i1 %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -259309,17 +259566,18 @@ define linkonce_odr dso_local void @_ZN5Catch20ITransientExpressionC2Ebb(ptr nou
   %8 = zext i1 %2 to i8
   store i8 %8, ptr %6, align 1
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch20ITransientExpressionE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.Catch::ITransientExpression", ptr %9, i32 0, i32 1
-  %11 = load i8, ptr %5, align 1
-  %12 = trunc i8 %11 to i1
-  %13 = zext i1 %12 to i8
-  store i8 %13, ptr %10, align 8
-  %14 = getelementptr inbounds %"class.Catch::ITransientExpression", ptr %9, i32 0, i32 2
-  %15 = load i8, ptr %6, align 1
-  %16 = trunc i8 %15 to i1
-  %17 = zext i1 %16 to i8
-  store i8 %17, ptr %14, align 1
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Catch20ITransientExpressionE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.Catch::ITransientExpression", ptr %9, i32 0, i32 1
+  %12 = load i8, ptr %5, align 1
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"class.Catch::ITransientExpression", ptr %9, i32 0, i32 2
+  %16 = load i8, ptr %6, align 1
+  %17 = trunc i8 %16 to i1
+  %18 = zext i1 %17 to i8
+  store i8 %18, ptr %15, align 1
   ret void
 }
 
@@ -267625,7 +267883,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.471", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #22
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #21
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.471", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -268421,11 +268679,14 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_catch_amalgamated.cpp() #16 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_catch_amalgamated.cpp() #15 section ".text.startup" {
   call void @__cxx_global_var_init()
   call void @__cxx_global_var_init.226()
   ret void
 }
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #22
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }
@@ -268440,16 +268701,16 @@ attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind memory(none) }
-attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #22 = { nounwind willreturn memory(read) }
+attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #21 = { nounwind willreturn memory(read) }
+attributes #22 = { nounwind memory(none) }
 attributes #23 = { noreturn nounwind }
 attributes #24 = { noreturn }
 attributes #25 = { builtin nounwind }

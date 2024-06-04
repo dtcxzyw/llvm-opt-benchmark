@@ -51,10 +51,11 @@ define internal { i64, ptr } @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$T$
 ; Function Attrs: nonlazybind uwtable
 define internal { i64, ptr } @"_ZN102_$LT$core..ops..range..RangeToInclusive$LT$T$GT$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$11start_bound17h0edcfcd50131b7d3E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, align 8, !range !4, !noundef !5
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8), align 8
-  %4 = insertvalue { i64, ptr } poison, i64 %2, 0
-  %5 = insertvalue { i64, ptr } %4, ptr %3, 1
-  ret { i64, ptr } %5
+  %3 = getelementptr inbounds i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = insertvalue { i64, ptr } poison, i64 %2, 0
+  %6 = insertvalue { i64, ptr } %5, ptr %4, 1
+  ret { i64, ptr } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1010,10 +1011,11 @@ define internal { i64, ptr } @"_ZN91_$LT$core..ops..range..Range$LT$T$GT$$u20$as
 ; Function Attrs: nonlazybind uwtable
 define internal { i64, ptr } @"_ZN93_$LT$core..ops..range..RangeTo$LT$T$GT$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$11start_bound17he7ea9c370e277687E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, align 8, !range !4, !noundef !5
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8), align 8
-  %4 = insertvalue { i64, ptr } poison, i64 %2, 0
-  %5 = insertvalue { i64, ptr } %4, ptr %3, 1
-  ret { i64, ptr } %5
+  %3 = getelementptr inbounds i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = insertvalue { i64, ptr } poison, i64 %2, 0
+  %6 = insertvalue { i64, ptr } %5, ptr %4, 1
+  ret { i64, ptr } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1047,10 +1049,11 @@ define internal { i64, ptr } @"_ZN95_$LT$core..ops..range..RangeFrom$LT$T$GT$$u2
 ; Function Attrs: nonlazybind uwtable
 define internal { i64, ptr } @"_ZN95_$LT$core..ops..range..RangeFrom$LT$T$GT$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$9end_bound17hc44a320f347aead2E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, align 8, !range !4, !noundef !5
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8), align 8
-  %4 = insertvalue { i64, ptr } poison, i64 %2, 0
-  %5 = insertvalue { i64, ptr } %4, ptr %3, 1
-  ret { i64, ptr } %5
+  %3 = getelementptr inbounds i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = insertvalue { i64, ptr } poison, i64 %2, 0
+  %6 = insertvalue { i64, ptr } %5, ptr %4, 1
+  ret { i64, ptr } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1260,11 +1263,12 @@ define void @"_ZN95_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$nom.
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %8, ptr %9, align 8
   %10 = load i64, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, align 8, !range !4, !noundef !5
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8), align 8
-  %12 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %11, ptr %13, align 8
+  %11 = getelementptr inbounds i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %10, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 %12, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr %3)
   ret void
 }
@@ -1299,17 +1303,18 @@ define void @"_ZN93_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$nom..t
   store i64 %4, ptr %5, align 8
   store i64 1, ptr %3, align 8
   %6 = load i64, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, align 8, !range !4, !noundef !5
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8), align 8
+  %7 = getelementptr inbounds i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8
+  %8 = load i64, ptr %7, align 8
   store i64 %6, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %7, ptr %8, align 8
-  %9 = load i64, ptr %3, align 8, !range !4, !noundef !5
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %9, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %11, ptr %13, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %8, ptr %9, align 8
+  %10 = load i64, ptr %3, align 8, !range !4, !noundef !5
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %10, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 %12, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr %3)
   ret void
 }
@@ -1398,17 +1403,18 @@ define void @"_ZN102_$LT$core..ops..range..RangeToInclusive$LT$usize$GT$$u20$as$
   store i64 %4, ptr %5, align 8
   store i64 0, ptr %3, align 8
   %6 = load i64, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, align 8, !range !4, !noundef !5
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8), align 8
+  %7 = getelementptr inbounds i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8
+  %8 = load i64, ptr %7, align 8
   store i64 %6, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %7, ptr %8, align 8
-  %9 = load i64, ptr %3, align 8, !range !4, !noundef !5
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %9, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %11, ptr %13, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %8, ptr %9, align 8
+  %10 = load i64, ptr %3, align 8, !range !4, !noundef !5
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %10, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 %12, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr %3)
   ret void
 }
@@ -1457,16 +1463,18 @@ define { i64, i64 } @"_ZN102_$LT$core..ops..range..RangeToInclusive$LT$usize$GT$
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN82_$LT$core..ops..range..RangeFull$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$6bounds17h42c396e03aa15e7bE"(ptr noalias nocapture noundef sret({ { i64, [1 x i64] }, { i64, [1 x i64] } }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1) unnamed_addr #0 {
   %3 = load i64, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, align 8, !range !4, !noundef !5
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8), align 8
+  %4 = getelementptr inbounds i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8
+  %5 = load i64, ptr %4, align 8
   store i64 %3, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %4, ptr %5, align 8
-  %6 = load i64, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, align 8, !range !4, !noundef !5
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8), align 8
-  %8 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %7, ptr %9, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %5, ptr %6, align 8
+  %7 = load i64, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, align 8, !range !4, !noundef !5
+  %8 = getelementptr inbounds i8, ptr @anon.8736c6f1f0a1bd9fbd14a2be22959cfd.0, i64 8
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %7, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 %9, ptr %11, align 8
   ret void
 }
 

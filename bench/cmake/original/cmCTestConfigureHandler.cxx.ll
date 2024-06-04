@@ -189,7 +189,8 @@ define dso_local void @_ZN23cmCTestConfigureHandlerC2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN21cmCTestGenericHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(284) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23cmCTestConfigureHandler, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV23cmCTestConfigureHandler, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

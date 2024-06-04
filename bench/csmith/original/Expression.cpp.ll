@@ -1372,17 +1372,18 @@ define dso_local void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV10Expression, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.Expression, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %4, align 4
-  store i32 %7, ptr %6, align 8
-  %8 = getelementptr inbounds %class.Expression, ptr %5, i32 0, i32 2
-  %9 = load i32, ptr @eid, align 4
-  %10 = add nsw i32 %9, 1
-  store i32 %10, ptr @eid, align 4
-  store i32 %9, ptr %8, align 4
-  %11 = getelementptr inbounds %class.Expression, ptr %5, i32 0, i32 3
-  store ptr null, ptr %11, align 8
+  %6 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTV10Expression, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.Expression, ptr %5, i32 0, i32 1
+  %8 = load i32, ptr %4, align 4
+  store i32 %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.Expression, ptr %5, i32 0, i32 2
+  %10 = load i32, ptr @eid, align 4
+  %11 = add nsw i32 %10, 1
+  store i32 %11, ptr @eid, align 4
+  store i32 %10, ptr %9, align 4
+  %12 = getelementptr inbounds %class.Expression, ptr %5, i32 0, i32 3
+  store ptr null, ptr %12, align 8
   ret void
 }
 
@@ -1393,14 +1394,15 @@ define dso_local void @_ZN10ExpressionC2ERKS_(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV10Expression, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.Expression, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.Expression, ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %8, align 8
-  store i32 %9, ptr %6, align 8
-  %10 = getelementptr inbounds %class.Expression, ptr %5, i32 0, i32 3
-  store ptr null, ptr %10, align 8
+  %6 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTV10Expression, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.Expression, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %class.Expression, ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 8
+  store i32 %10, ptr %7, align 8
+  %11 = getelementptr inbounds %class.Expression, ptr %5, i32 0, i32 3
+  store ptr null, ptr %11, align 8
   ret void
 }
 

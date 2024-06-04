@@ -969,18 +969,21 @@ entry:
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 0
   %1 = load ptr, ptr %arrayidx, align 8
   store ptr %1, ptr @progname, align 8
-  store ptr @.str.1, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 1), align 8
-  %2 = load i32, ptr %argc.addr, align 4
-  %3 = load ptr, ptr %argv.addr, align 8
-  %call = call i32 @u_parseArgs(i32 noundef %2, ptr noundef %3, i32 noundef 23, ptr noundef @_ZL7options)
+  %2 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 1
+  store ptr @.str.1, ptr %2, align 8
+  %3 = load i32, ptr %argc.addr, align 4
+  %4 = load ptr, ptr %argv.addr, align 8
+  %call = call i32 @u_parseArgs(i32 noundef %3, ptr noundef %4, i32 noundef 23, ptr noundef @_ZL7options)
   store i32 %call, ptr %argc.addr, align 4
-  %4 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 6), align 2
-  %tobool = icmp ne i8 %4, 0
+  %5 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 6
+  %6 = load i8, ptr %5, align 2
+  %tobool = icmp ne i8 %6, 0
   br i1 %tobool, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %5 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 4, i32 6), align 2
-  %tobool1 = icmp ne i8 %5, 0
+  %7 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 4, i32 6
+  %8 = load i8, ptr %7, align 2
+  %tobool1 = icmp ne i8 %8, 0
   br i1 %tobool1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -988,54 +991,58 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %if.end28
 
 if.else:                                          ; preds = %lor.lhs.false
-  %6 = load i8, ptr %needsHelp, align 1
-  %tobool2 = icmp ne i8 %6, 0
+  %9 = load i8, ptr %needsHelp, align 1
+  %tobool2 = icmp ne i8 %9, 0
   br i1 %tobool2, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %7 = load i32, ptr %argc.addr, align 4
-  %cmp = icmp slt i32 %7, 0
+  %10 = load i32, ptr %argc.addr, align 4
+  %cmp = icmp slt i32 %10, 0
   br i1 %cmp, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %land.lhs.true
-  %8 = load ptr, ptr @stderr, align 8
-  %9 = load ptr, ptr @progname, align 8
-  %10 = load ptr, ptr %argv.addr, align 8
-  %11 = load i32, ptr %argc.addr, align 4
-  %sub = sub nsw i32 0, %11
+  %11 = load ptr, ptr @stderr, align 8
+  %12 = load ptr, ptr @progname, align 8
+  %13 = load ptr, ptr %argv.addr, align 8
+  %14 = load i32, ptr %argc.addr, align 4
+  %sub = sub nsw i32 0, %14
   %idxprom = sext i32 %sub to i64
-  %arrayidx4 = getelementptr inbounds ptr, ptr %10, i64 %idxprom
-  %12 = load ptr, ptr %arrayidx4, align 8
-  %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.2, ptr noundef %9, ptr noundef %12)
-  %13 = load ptr, ptr @stderr, align 8
-  %14 = load ptr, ptr @progname, align 8
-  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.3, ptr noundef %14)
+  %arrayidx4 = getelementptr inbounds ptr, ptr %13, i64 %idxprom
+  %15 = load ptr, ptr %arrayidx4, align 8
+  %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.2, ptr noundef %12, ptr noundef %15)
+  %16 = load ptr, ptr @stderr, align 8
+  %17 = load ptr, ptr @progname, align 8
+  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.3, ptr noundef %17)
   store i32 1, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %if.else
-  %15 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 6), align 2
-  %tobool7 = icmp ne i8 %15, 0
+  %18 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 6
+  %19 = load i8, ptr %18, align 2
+  %tobool7 = icmp ne i8 %19, 0
   br i1 %tobool7, label %if.end18, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %if.end
-  %16 = load ptr, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 1), align 8
-  %call9 = call i32 @strcmp(ptr noundef %16, ptr noundef @.str.1) #14
+  %20 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %call9 = call i32 @strcmp(ptr noundef %21, ptr noundef @.str.1) #14
   %cmp10 = icmp ne i32 %call9, 0
   br i1 %cmp10, label %if.then11, label %if.end18
 
 if.then11:                                        ; preds = %land.lhs.true8
-  %17 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 6), align 2
-  %call12 = call noundef i32 @_ZL18pkg_getPkgDataPathaP7UOption(i8 noundef signext %17, ptr noundef getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1))
+  %22 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 6
+  %23 = load i8, ptr %22, align 2
+  %24 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1
+  %call12 = call noundef i32 @_ZL18pkg_getPkgDataPathaP7UOption(i8 noundef signext %23, ptr noundef %24)
   %cmp13 = icmp ne i32 %call12, 0
   br i1 %cmp13, label %if.then14, label %if.end17
 
 if.then14:                                        ; preds = %if.then11
-  %18 = load ptr, ptr @stderr, align 8
-  %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.4)
-  %19 = load ptr, ptr @stderr, align 8
-  %20 = load ptr, ptr @progname, align 8
-  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.3, ptr noundef %20)
+  %25 = load ptr, ptr @stderr, align 8
+  %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.4)
+  %26 = load ptr, ptr @stderr, align 8
+  %27 = load ptr, ptr @progname, align 8
+  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.3, ptr noundef %27)
   store i32 1, ptr %retval, align 4
   br label %return
 
@@ -1043,28 +1050,29 @@ if.end17:                                         ; preds = %if.then11
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end17, %land.lhs.true8, %if.end
-  %21 = load i8, ptr getelementptr inbounds (%struct.UOption, ptr @_ZL7options, i32 0, i32 6), align 2
-  %tobool19 = icmp ne i8 %21, 0
+  %28 = getelementptr inbounds %struct.UOption, ptr @_ZL7options, i32 0, i32 6
+  %29 = load i8, ptr %28, align 2
+  %tobool19 = icmp ne i8 %29, 0
   br i1 %tobool19, label %if.end23, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %22 = load ptr, ptr @stderr, align 8
-  %call21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.5)
-  %23 = load ptr, ptr @stderr, align 8
-  %24 = load ptr, ptr @progname, align 8
-  %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.3, ptr noundef %24)
+  %30 = load ptr, ptr @stderr, align 8
+  %call21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef @.str.5)
+  %31 = load ptr, ptr @stderr, align 8
+  %32 = load ptr, ptr @progname, align 8
+  %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.3, ptr noundef %32)
   store i32 1, ptr %retval, align 4
   br label %return
 
 if.end23:                                         ; preds = %if.end18
-  %25 = load i32, ptr %argc.addr, align 4
-  %cmp24 = icmp eq i32 %25, 1
+  %33 = load i32, ptr %argc.addr, align 4
+  %cmp24 = icmp eq i32 %33, 1
   br i1 %cmp24, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %if.end23
-  %26 = load ptr, ptr @stderr, align 8
-  %27 = load ptr, ptr @progname, align 8
-  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.6, ptr noundef %27)
+  %34 = load ptr, ptr @stderr, align 8
+  %35 = load ptr, ptr @progname, align 8
+  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.6, ptr noundef %35)
   store i32 1, ptr %retval, align 4
   br label %return
 
@@ -1072,46 +1080,46 @@ if.end27:                                         ; preds = %if.end23
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end27, %if.then
-  %28 = load i32, ptr %argc.addr, align 4
-  %cmp29 = icmp slt i32 %28, 0
+  %36 = load i32, ptr %argc.addr, align 4
+  %cmp29 = icmp slt i32 %36, 0
   br i1 %cmp29, label %if.then32, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %if.end28
-  %29 = load i8, ptr %needsHelp, align 1
-  %tobool31 = icmp ne i8 %29, 0
+  %37 = load i8, ptr %needsHelp, align 1
+  %tobool31 = icmp ne i8 %37, 0
   br i1 %tobool31, label %if.then32, label %if.end81
 
 if.then32:                                        ; preds = %lor.lhs.false30, %if.end28
-  %30 = load ptr, ptr @stderr, align 8
-  %31 = load ptr, ptr @progname, align 8
-  %call33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef @.str.7, ptr noundef %31)
-  %32 = load ptr, ptr @stderr, align 8
-  %call34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef @.str.8)
+  %38 = load ptr, ptr @stderr, align 8
+  %39 = load ptr, ptr @progname, align 8
+  %call33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef @.str.7, ptr noundef %39)
+  %40 = load ptr, ptr @stderr, align 8
+  %call34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.8)
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then32
-  %33 = load i32, ptr %i, align 4
-  %cmp35 = icmp ult i32 %33, 23
+  %41 = load i32, ptr %i, align 4
+  %cmp35 = icmp ult i32 %41, 23
   br i1 %cmp35, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %34 = load ptr, ptr @stderr, align 8
-  %35 = load i32, ptr %i, align 4
-  %cmp36 = icmp ult i32 %35, 1
+  %42 = load ptr, ptr @stderr, align 8
+  %43 = load i32, ptr %i, align 4
+  %cmp36 = icmp ult i32 %43, 1
   %cond = select i1 %cmp36, ptr @.str.10, ptr @.str.11
-  %36 = load i32, ptr %i, align 4
-  %idxprom37 = zext i32 %36 to i64
+  %44 = load i32, ptr %i, align 4
+  %idxprom37 = zext i32 %44 to i64
   %arrayidx38 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 %idxprom37
   %shortName = getelementptr inbounds %struct.UOption, ptr %arrayidx38, i32 0, i32 4
-  %37 = load i8, ptr %shortName, align 8
-  %conv = sext i8 %37 to i32
-  %38 = load i32, ptr %i, align 4
-  %idxprom39 = zext i32 %38 to i64
+  %45 = load i8, ptr %shortName, align 8
+  %conv = sext i8 %45 to i32
+  %46 = load i32, ptr %i, align 4
+  %idxprom39 = zext i32 %46 to i64
   %arrayidx40 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 %idxprom39
   %longName = getelementptr inbounds %struct.UOption, ptr %arrayidx40, i32 0, i32 0
-  %39 = load ptr, ptr %longName, align 8
-  %tobool41 = icmp ne ptr %39, null
+  %47 = load ptr, ptr %longName, align 8
+  %tobool41 = icmp ne ptr %47, null
   br i1 %tobool41, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %for.body
@@ -1123,95 +1131,95 @@ cond.false:                                       ; preds = %for.body
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond-lvalue = phi ptr [ @.str.12, %cond.true ], [ @.str.13, %cond.false ]
   %arraydecay = getelementptr inbounds [6 x i8], ptr %cond-lvalue, i64 0, i64 0
-  %40 = load i32, ptr %i, align 4
-  %idxprom42 = zext i32 %40 to i64
+  %48 = load i32, ptr %i, align 4
+  %idxprom42 = zext i32 %48 to i64
   %arrayidx43 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 %idxprom42
   %longName44 = getelementptr inbounds %struct.UOption, ptr %arrayidx43, i32 0, i32 0
-  %41 = load ptr, ptr %longName44, align 8
-  %tobool45 = icmp ne ptr %41, null
+  %49 = load ptr, ptr %longName44, align 8
+  %tobool45 = icmp ne ptr %49, null
   br i1 %tobool45, label %cond.true46, label %cond.false50
 
 cond.true46:                                      ; preds = %cond.end
-  %42 = load i32, ptr %i, align 4
-  %idxprom47 = zext i32 %42 to i64
+  %50 = load i32, ptr %i, align 4
+  %idxprom47 = zext i32 %50 to i64
   %arrayidx48 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 %idxprom47
   %longName49 = getelementptr inbounds %struct.UOption, ptr %arrayidx48, i32 0, i32 0
-  %43 = load ptr, ptr %longName49, align 8
+  %51 = load ptr, ptr %longName49, align 8
   br label %cond.end51
 
 cond.false50:                                     ; preds = %cond.end
   br label %cond.end51
 
 cond.end51:                                       ; preds = %cond.false50, %cond.true46
-  %cond52 = phi ptr [ %43, %cond.true46 ], [ @.str.11, %cond.false50 ]
-  %44 = load i32, ptr %i, align 4
-  %idxprom53 = zext i32 %44 to i64
+  %cond52 = phi ptr [ %51, %cond.true46 ], [ @.str.11, %cond.false50 ]
+  %52 = load i32, ptr %i, align 4
+  %idxprom53 = zext i32 %52 to i64
   %arrayidx54 = getelementptr inbounds [23 x [320 x i8]], ptr @_ZL12options_help, i64 0, i64 %idxprom53
   %arraydecay55 = getelementptr inbounds [320 x i8], ptr %arrayidx54, i64 0, i64 0
-  %call56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.9, ptr noundef %cond, i32 noundef %conv, ptr noundef %arraydecay, ptr noundef %cond52, ptr noundef %arraydecay55)
+  %call56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.9, ptr noundef %cond, i32 noundef %conv, ptr noundef %arraydecay, ptr noundef %cond52, ptr noundef %arraydecay55)
   br label %for.inc
 
 for.inc:                                          ; preds = %cond.end51
-  %45 = load i32, ptr %i, align 4
-  %inc = add i32 %45, 1
+  %53 = load i32, ptr %i, align 4
+  %inc = add i32 %53, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond
-  %46 = load ptr, ptr @stderr, align 8
-  %call57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef @.str.14)
+  %54 = load ptr, ptr @stderr, align 8
+  %call57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef @.str.14)
   store i32 0, ptr %i, align 4
   br label %for.cond58
 
 for.cond58:                                       ; preds = %for.inc78, %for.end
-  %47 = load i32, ptr %i, align 4
-  %cmp59 = icmp ult i32 %47, 4
+  %55 = load i32, ptr %i, align 4
+  %cmp59 = icmp ult i32 %55, 4
   br i1 %cmp59, label %for.body60, label %for.end80
 
 for.body60:                                       ; preds = %for.cond58
-  %48 = load ptr, ptr @stderr, align 8
-  %49 = load i32, ptr %i, align 4
-  %idxprom61 = zext i32 %49 to i64
+  %56 = load ptr, ptr @stderr, align 8
+  %57 = load i32, ptr %i, align 4
+  %idxprom61 = zext i32 %57 to i64
   %arrayidx62 = getelementptr inbounds [4 x %struct.anon], ptr @_ZL5modes, i64 0, i64 %idxprom61
   %name = getelementptr inbounds %struct.anon, ptr %arrayidx62, i32 0, i32 0
-  %50 = load ptr, ptr %name, align 8
-  %call63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str.15, ptr noundef %50)
-  %51 = load i32, ptr %i, align 4
-  %idxprom64 = zext i32 %51 to i64
+  %58 = load ptr, ptr %name, align 8
+  %call63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.15, ptr noundef %58)
+  %59 = load i32, ptr %i, align 4
+  %idxprom64 = zext i32 %59 to i64
   %arrayidx65 = getelementptr inbounds [4 x %struct.anon], ptr @_ZL5modes, i64 0, i64 %idxprom64
   %alt_name = getelementptr inbounds %struct.anon, ptr %arrayidx65, i32 0, i32 1
-  %52 = load ptr, ptr %alt_name, align 8
-  %tobool66 = icmp ne ptr %52, null
+  %60 = load ptr, ptr %alt_name, align 8
+  %tobool66 = icmp ne ptr %60, null
   br i1 %tobool66, label %if.then67, label %if.else72
 
 if.then67:                                        ; preds = %for.body60
-  %53 = load ptr, ptr @stderr, align 8
-  %54 = load i32, ptr %i, align 4
-  %idxprom68 = zext i32 %54 to i64
+  %61 = load ptr, ptr @stderr, align 8
+  %62 = load i32, ptr %i, align 4
+  %idxprom68 = zext i32 %62 to i64
   %arrayidx69 = getelementptr inbounds [4 x %struct.anon], ptr @_ZL5modes, i64 0, i64 %idxprom68
   %alt_name70 = getelementptr inbounds %struct.anon, ptr %arrayidx69, i32 0, i32 1
-  %55 = load ptr, ptr %alt_name70, align 8
-  %call71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef @.str.16, ptr noundef %55)
+  %63 = load ptr, ptr %alt_name70, align 8
+  %call71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef @.str.16, ptr noundef %63)
   br label %if.end74
 
 if.else72:                                        ; preds = %for.body60
-  %56 = load ptr, ptr @stderr, align 8
-  %call73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.17)
+  %64 = load ptr, ptr @stderr, align 8
+  %call73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef @.str.17)
   br label %if.end74
 
 if.end74:                                         ; preds = %if.else72, %if.then67
-  %57 = load ptr, ptr @stderr, align 8
-  %58 = load i32, ptr %i, align 4
-  %idxprom75 = zext i32 %58 to i64
+  %65 = load ptr, ptr @stderr, align 8
+  %66 = load i32, ptr %i, align 4
+  %idxprom75 = zext i32 %66 to i64
   %arrayidx76 = getelementptr inbounds [4 x %struct.anon], ptr @_ZL5modes, i64 0, i64 %idxprom75
   %desc = getelementptr inbounds %struct.anon, ptr %arrayidx76, i32 0, i32 2
-  %59 = load ptr, ptr %desc, align 8
-  %call77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef @.str.18, ptr noundef %59)
+  %67 = load ptr, ptr %desc, align 8
+  %call77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef @.str.18, ptr noundef %67)
   br label %for.inc78
 
 for.inc78:                                        ; preds = %if.end74
-  %60 = load i32, ptr %i, align 4
-  %inc79 = add i32 %60, 1
+  %68 = load i32, ptr %i, align 4
+  %inc79 = add i32 %68, 1
   store i32 %inc79, ptr %i, align 4
   br label %for.cond58, !llvm.loop !7
 
@@ -1221,34 +1229,38 @@ for.end80:                                        ; preds = %for.cond58
 
 if.end81:                                         ; preds = %lor.lhs.false30
   call void @llvm.memset.p0.i64(ptr align 8 %o, i8 0, i64 152, i1 false)
-  %61 = load ptr, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 1), align 8
+  %69 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 1
+  %70 = load ptr, ptr %69, align 8
   %mode = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 12
-  store ptr %61, ptr %mode, align 8
-  %62 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 14, i32 6), align 2
-  %tobool82 = icmp ne i8 %62, 0
+  store ptr %70, ptr %mode, align 8
+  %71 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 14, i32 6
+  %72 = load i8, ptr %71, align 2
+  %tobool82 = icmp ne i8 %72, 0
   br i1 %tobool82, label %cond.true83, label %cond.false84
 
 cond.true83:                                      ; preds = %if.end81
-  %63 = load ptr, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 14, i32 1), align 8
+  %73 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 14, i32 1
+  %74 = load ptr, ptr %73, align 8
   br label %cond.end85
 
 cond.false84:                                     ; preds = %if.end81
   br label %cond.end85
 
 cond.end85:                                       ; preds = %cond.false84, %cond.true83
-  %cond86 = phi ptr [ %63, %cond.true83 ], [ null, %cond.false84 ]
+  %cond86 = phi ptr [ %74, %cond.true83 ], [ null, %cond.false84 ]
   %version = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 13
   store ptr %cond86, ptr %version, align 8
-  %64 = load ptr, ptr getelementptr inbounds (%struct.UOption, ptr @_ZL7options, i32 0, i32 1), align 8
+  %75 = getelementptr inbounds %struct.UOption, ptr @_ZL7options, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8
   %shortName87 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 4
-  store ptr %64, ptr %shortName87, align 8
+  store ptr %76, ptr %shortName87, align 8
   %shortName88 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 4
-  %65 = load ptr, ptr %shortName88, align 8
-  %call89 = call i64 @strlen(ptr noundef %65) #14
+  %77 = load ptr, ptr %shortName88, align 8
+  %call89 = call i64 @strlen(ptr noundef %77) #14
   %conv90 = trunc i64 %call89 to i32
   store i32 %conv90, ptr %len, align 4
-  %66 = load i32, ptr %len, align 4
-  %add = add nsw i32 %66, 1
+  %78 = load i32, ptr %len, align 4
+  %add = add nsw i32 %78, 1
   %add91 = add nsw i32 %add, 1
   %conv92 = sext i32 %add91 to i64
   %mul = mul i64 %conv92, 1
@@ -1256,72 +1268,72 @@ cond.end85:                                       ; preds = %cond.false84, %cond
   store ptr %call93, ptr %csname, align 8
   store ptr %call93, ptr %cp, align 8
   %shortName94 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 4
-  %67 = load ptr, ptr %shortName94, align 8
-  store ptr %67, ptr %sp, align 8
-  %68 = load i8, ptr %67, align 1
-  %tobool95 = icmp ne i8 %68, 0
+  %79 = load ptr, ptr %shortName94, align 8
+  store ptr %79, ptr %sp, align 8
+  %80 = load i8, ptr %79, align 1
+  %tobool95 = icmp ne i8 %80, 0
   br i1 %tobool95, label %if.then96, label %if.end119
 
 if.then96:                                        ; preds = %cond.end85
-  %69 = load ptr, ptr %sp, align 8
-  %70 = load i8, ptr %69, align 1
-  %conv97 = sext i8 %70 to i32
+  %81 = load ptr, ptr %sp, align 8
+  %82 = load i8, ptr %81, align 1
+  %conv97 = sext i8 %82 to i32
   %call98 = call i32 @isalpha(i32 noundef %conv97) #14
   %tobool99 = icmp ne i32 %call98, 0
   br i1 %tobool99, label %cond.true100, label %cond.false101
 
 cond.true100:                                     ; preds = %if.then96
-  %71 = load ptr, ptr %sp, align 8
-  %72 = load i8, ptr %71, align 1
+  %83 = load ptr, ptr %sp, align 8
+  %84 = load i8, ptr %83, align 1
   br label %cond.end102
 
 cond.false101:                                    ; preds = %if.then96
   br label %cond.end102
 
 cond.end102:                                      ; preds = %cond.false101, %cond.true100
-  %cond103 = phi i8 [ %72, %cond.true100 ], [ 95, %cond.false101 ]
-  %73 = load ptr, ptr %cp, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %73, i32 1
+  %cond103 = phi i8 [ %84, %cond.true100 ], [ 95, %cond.false101 ]
+  %85 = load ptr, ptr %cp, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %85, i32 1
   store ptr %incdec.ptr, ptr %cp, align 8
-  store i8 %cond103, ptr %73, align 1
-  %74 = load ptr, ptr %sp, align 8
-  %incdec.ptr104 = getelementptr inbounds i8, ptr %74, i32 1
+  store i8 %cond103, ptr %85, align 1
+  %86 = load ptr, ptr %sp, align 8
+  %incdec.ptr104 = getelementptr inbounds i8, ptr %86, i32 1
   store ptr %incdec.ptr104, ptr %sp, align 8
   br label %for.cond105
 
 for.cond105:                                      ; preds = %for.inc116, %cond.end102
-  %75 = load ptr, ptr %sp, align 8
-  %76 = load i8, ptr %75, align 1
-  %tobool106 = icmp ne i8 %76, 0
+  %87 = load ptr, ptr %sp, align 8
+  %88 = load i8, ptr %87, align 1
+  %tobool106 = icmp ne i8 %88, 0
   br i1 %tobool106, label %for.body107, label %for.end118
 
 for.body107:                                      ; preds = %for.cond105
-  %77 = load ptr, ptr %sp, align 8
-  %78 = load i8, ptr %77, align 1
-  %conv108 = sext i8 %78 to i32
+  %89 = load ptr, ptr %sp, align 8
+  %90 = load i8, ptr %89, align 1
+  %conv108 = sext i8 %90 to i32
   %call109 = call i32 @isalnum(i32 noundef %conv108) #14
   %tobool110 = icmp ne i32 %call109, 0
   br i1 %tobool110, label %cond.true111, label %cond.false112
 
 cond.true111:                                     ; preds = %for.body107
-  %79 = load ptr, ptr %sp, align 8
-  %80 = load i8, ptr %79, align 1
+  %91 = load ptr, ptr %sp, align 8
+  %92 = load i8, ptr %91, align 1
   br label %cond.end113
 
 cond.false112:                                    ; preds = %for.body107
   br label %cond.end113
 
 cond.end113:                                      ; preds = %cond.false112, %cond.true111
-  %cond114 = phi i8 [ %80, %cond.true111 ], [ 95, %cond.false112 ]
-  %81 = load ptr, ptr %cp, align 8
-  %incdec.ptr115 = getelementptr inbounds i8, ptr %81, i32 1
+  %cond114 = phi i8 [ %92, %cond.true111 ], [ 95, %cond.false112 ]
+  %93 = load ptr, ptr %cp, align 8
+  %incdec.ptr115 = getelementptr inbounds i8, ptr %93, i32 1
   store ptr %incdec.ptr115, ptr %cp, align 8
-  store i8 %cond114, ptr %81, align 1
+  store i8 %cond114, ptr %93, align 1
   br label %for.inc116
 
 for.inc116:                                       ; preds = %cond.end113
-  %82 = load ptr, ptr %sp, align 8
-  %incdec.ptr117 = getelementptr inbounds i8, ptr %82, i32 1
+  %94 = load ptr, ptr %sp, align 8
+  %incdec.ptr117 = getelementptr inbounds i8, ptr %94, i32 1
   store ptr %incdec.ptr117, ptr %sp, align 8
   br label %for.cond105, !llvm.loop !8
 
@@ -1329,31 +1341,34 @@ for.end118:                                       ; preds = %for.cond105
   br label %if.end119
 
 if.end119:                                        ; preds = %for.end118, %cond.end85
-  %83 = load ptr, ptr %cp, align 8
-  store i8 0, ptr %83, align 1
-  %84 = load ptr, ptr %csname, align 8
+  %95 = load ptr, ptr %cp, align 8
+  store i8 0, ptr %95, align 1
+  %96 = load ptr, ptr %csname, align 8
   %cShortName = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 5
-  store ptr %84, ptr %cShortName, align 8
-  %85 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 16, i32 6), align 2
-  %tobool120 = icmp ne i8 %85, 0
+  store ptr %96, ptr %cShortName, align 8
+  %97 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 16, i32 6
+  %98 = load i8, ptr %97, align 2
+  %tobool120 = icmp ne i8 %98, 0
   br i1 %tobool120, label %if.then121, label %if.else122
 
 if.then121:                                       ; preds = %if.end119
-  %86 = load ptr, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 16, i32 1), align 8
+  %99 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 16, i32 1
+  %100 = load ptr, ptr %99, align 8
   %libName = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 17
-  store ptr %86, ptr %libName, align 8
+  store ptr %100, ptr %libName, align 8
   br label %if.end125
 
 if.else122:                                       ; preds = %if.end119
   %shortName123 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 4
-  %87 = load ptr, ptr %shortName123, align 8
+  %101 = load ptr, ptr %shortName123, align 8
   %libName124 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 17
-  store ptr %87, ptr %libName124, align 8
+  store ptr %101, ptr %libName124, align 8
   br label %if.end125
 
 if.end125:                                        ; preds = %if.else122, %if.then121
-  %88 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 17, i32 6), align 2
-  %tobool126 = icmp ne i8 %88, 0
+  %102 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 17, i32 6
+  %103 = load i8, ptr %102, align 2
+  %tobool126 = icmp ne i8 %103, 0
   br i1 %tobool126, label %if.then127, label %if.else128
 
 if.then127:                                       ; preds = %if.end125
@@ -1367,15 +1382,16 @@ if.else128:                                       ; preds = %if.end125
   br label %if.end130
 
 if.end130:                                        ; preds = %if.else128, %if.then127
-  %89 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 19, i32 6), align 2
-  %tobool131 = icmp ne i8 %89, 0
+  %104 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 19, i32 6
+  %105 = load i8, ptr %104, align 2
+  %tobool131 = icmp ne i8 %105, 0
   br i1 %tobool131, label %if.then132, label %if.else134
 
 if.then132:                                       ; preds = %if.end130
   %pdsbuild = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 22
   store i8 0, ptr %pdsbuild, align 4
-  %90 = load ptr, ptr @stdout, align 8
-  %call133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef @.str.19)
+  %106 = load ptr, ptr @stdout, align 8
+  %call133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef @.str.19)
   br label %if.end136
 
 if.else134:                                       ; preds = %if.end130
@@ -1384,17 +1400,20 @@ if.else134:                                       ; preds = %if.end130
   br label %if.end136
 
 if.end136:                                        ; preds = %if.else134, %if.then132
-  %91 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 6), align 2
+  %107 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 6
+  %108 = load i8, ptr %107, align 2
   %verbose = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 19
-  store i8 %91, ptr %verbose, align 1
-  %92 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 6), align 2
-  %tobool137 = icmp ne i8 %92, 0
+  store i8 %108, ptr %verbose, align 1
+  %109 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 6
+  %110 = load i8, ptr %109, align 2
+  %tobool137 = icmp ne i8 %110, 0
   br i1 %tobool137, label %if.then138, label %if.else139
 
 if.then138:                                       ; preds = %if.end136
-  %93 = load ptr, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 1), align 8
+  %111 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 1
+  %112 = load ptr, ptr %111, align 8
   %options = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 11
-  store ptr %93, ptr %options, align 8
+  store ptr %112, ptr %options, align 8
   br label %if.end141
 
 if.else139:                                       ; preds = %if.end136
@@ -1403,8 +1422,9 @@ if.else139:                                       ; preds = %if.end136
   br label %if.end141
 
 if.end141:                                        ; preds = %if.else139, %if.then138
-  %94 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 6), align 2
-  %tobool142 = icmp ne i8 %94, 0
+  %113 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 6
+  %114 = load i8, ptr %113, align 2
+  %tobool142 = icmp ne i8 %114, 0
   br i1 %tobool142, label %if.then143, label %if.else144
 
 if.then143:                                       ; preds = %if.end141
@@ -1413,28 +1433,32 @@ if.then143:                                       ; preds = %if.end141
   br label %if.end149
 
 if.else144:                                       ; preds = %if.end141
-  %95 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 6), align 2
-  %tobool145 = icmp ne i8 %95, 0
+  %115 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 6
+  %116 = load i8, ptr %115, align 2
+  %tobool145 = icmp ne i8 %116, 0
   br i1 %tobool145, label %if.then146, label %if.end148
 
 if.then146:                                       ; preds = %if.else144
-  %96 = load ptr, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 1), align 8
+  %117 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 1
+  %118 = load ptr, ptr %117, align 8
   %comment147 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 14
-  store ptr %96, ptr %comment147, align 8
+  store ptr %118, ptr %comment147, align 8
   br label %if.end148
 
 if.end148:                                        ; preds = %if.then146, %if.else144
   br label %if.end149
 
 if.end149:                                        ; preds = %if.end148, %if.then143
-  %97 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 8, i32 6), align 2
-  %tobool150 = icmp ne i8 %97, 0
+  %119 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 8, i32 6
+  %120 = load i8, ptr %119, align 2
+  %tobool150 = icmp ne i8 %120, 0
   br i1 %tobool150, label %if.then151, label %if.else152
 
 if.then151:                                       ; preds = %if.end149
-  %98 = load ptr, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 8, i32 1), align 8
+  %121 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 8, i32 1
+  %122 = load ptr, ptr %121, align 8
   %targetDir = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 7
-  store ptr %98, ptr %targetDir, align 8
+  store ptr %122, ptr %targetDir, align 8
   br label %if.end154
 
 if.else152:                                       ; preds = %if.end149
@@ -1443,35 +1467,40 @@ if.else152:                                       ; preds = %if.end149
   br label %if.end154
 
 if.end154:                                        ; preds = %if.else152, %if.then151
-  %99 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 9, i32 6), align 2
+  %123 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 9, i32 6
+  %124 = load i8, ptr %123, align 2
   %rebuild = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 18
-  store i8 %99, ptr %rebuild, align 8
-  %100 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 10, i32 6), align 2
-  %tobool155 = icmp ne i8 %100, 0
+  store i8 %124, ptr %rebuild, align 8
+  %125 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 10, i32 6
+  %126 = load i8, ptr %125, align 2
+  %tobool155 = icmp ne i8 %126, 0
   br i1 %tobool155, label %if.then156, label %if.else157
 
 if.then156:                                       ; preds = %if.end154
-  %101 = load ptr, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 10, i32 1), align 8
+  %127 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 10, i32 1
+  %128 = load ptr, ptr %127, align 8
   %tmpDir = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 9
-  store ptr %101, ptr %tmpDir, align 8
+  store ptr %128, ptr %tmpDir, align 8
   br label %if.end160
 
 if.else157:                                       ; preds = %if.end154
   %targetDir158 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 7
-  %102 = load ptr, ptr %targetDir158, align 8
+  %129 = load ptr, ptr %targetDir158, align 8
   %tmpDir159 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 9
-  store ptr %102, ptr %tmpDir159, align 8
+  store ptr %129, ptr %tmpDir159, align 8
   br label %if.end160
 
 if.end160:                                        ; preds = %if.else157, %if.then156
-  %103 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 11, i32 6), align 2
-  %tobool161 = icmp ne i8 %103, 0
+  %130 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 11, i32 6
+  %131 = load i8, ptr %130, align 2
+  %tobool161 = icmp ne i8 %131, 0
   br i1 %tobool161, label %if.then162, label %if.else163
 
 if.then162:                                       ; preds = %if.end160
-  %104 = load ptr, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 11, i32 1), align 8
+  %132 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 11, i32 1
+  %133 = load ptr, ptr %132, align 8
   %install = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 15
-  store ptr %104, ptr %install, align 8
+  store ptr %133, ptr %install, align 8
   br label %if.end165
 
 if.else163:                                       ; preds = %if.end160
@@ -1480,14 +1509,16 @@ if.else163:                                       ; preds = %if.end160
   br label %if.end165
 
 if.end165:                                        ; preds = %if.else163, %if.then162
-  %105 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 12, i32 6), align 2
-  %tobool166 = icmp ne i8 %105, 0
+  %134 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 12, i32 6
+  %135 = load i8, ptr %134, align 2
+  %tobool166 = icmp ne i8 %135, 0
   br i1 %tobool166, label %if.then167, label %if.else168
 
 if.then167:                                       ; preds = %if.end165
-  %106 = load ptr, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 12, i32 1), align 8
+  %136 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 12, i32 1
+  %137 = load ptr, ptr %136, align 8
   %srcDir = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 10
-  store ptr %106, ptr %srcDir, align 8
+  store ptr %137, ptr %srcDir, align 8
   br label %if.end170
 
 if.else168:                                       ; preds = %if.end165
@@ -1496,28 +1527,31 @@ if.else168:                                       ; preds = %if.end165
   br label %if.end170
 
 if.end170:                                        ; preds = %if.else168, %if.then167
-  %107 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 13, i32 6), align 2
-  %tobool171 = icmp ne i8 %107, 0
+  %138 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 13, i32 6
+  %139 = load i8, ptr %138, align 2
+  %tobool171 = icmp ne i8 %139, 0
   br i1 %tobool171, label %if.then172, label %if.else173
 
 if.then172:                                       ; preds = %if.end170
-  %108 = load ptr, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 13, i32 1), align 8
+  %140 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 13, i32 1
+  %141 = load ptr, ptr %140, align 8
   %entryName = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 6
-  store ptr %108, ptr %entryName, align 8
+  store ptr %141, ptr %entryName, align 8
   br label %if.end176
 
 if.else173:                                       ; preds = %if.end170
   %cShortName174 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 5
-  %109 = load ptr, ptr %cShortName174, align 8
+  %142 = load ptr, ptr %cShortName174, align 8
   %entryName175 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 6
-  store ptr %109, ptr %entryName175, align 8
+  store ptr %142, ptr %entryName175, align 8
   br label %if.end176
 
 if.end176:                                        ; preds = %if.else173, %if.then172
   %withoutAssembly = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 21
   store i8 0, ptr %withoutAssembly, align 1
-  %110 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 18, i32 6), align 2
-  %tobool177 = icmp ne i8 %110, 0
+  %143 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 18, i32 6
+  %144 = load i8, ptr %143, align 2
+  %tobool177 = icmp ne i8 %144, 0
   br i1 %tobool177, label %if.then178, label %if.end180
 
 if.then178:                                       ; preds = %if.end176
@@ -1526,13 +1560,14 @@ if.then178:                                       ; preds = %if.end176
   br label %if.end180
 
 if.end180:                                        ; preds = %if.then178, %if.end176
-  %111 = load i8, ptr getelementptr inbounds ([23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 22, i32 6), align 2
-  %tobool181 = icmp ne i8 %111, 0
+  %145 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 22, i32 6
+  %146 = load i8, ptr %145, align 2
+  %tobool181 = icmp ne i8 %146, 0
   br i1 %tobool181, label %if.then182, label %if.end184
 
 if.then182:                                       ; preds = %if.end180
-  %112 = load ptr, ptr @stdout, align 8
-  %call183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef @.str.22)
+  %147 = load ptr, ptr @stdout, align 8
+  %call183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %147, ptr noundef @.str.22)
   br label %if.end184
 
 if.end184:                                        ; preds = %if.then182, %if.end180
@@ -1541,51 +1576,51 @@ if.end184:                                        ; preds = %if.then182, %if.end
   br label %for.cond185
 
 for.cond185:                                      ; preds = %for.inc193, %if.end184
-  %113 = load i32, ptr %n, align 4
-  %114 = load i32, ptr %argc.addr, align 4
-  %cmp186 = icmp slt i32 %113, %114
+  %148 = load i32, ptr %n, align 4
+  %149 = load i32, ptr %argc.addr, align 4
+  %cmp186 = icmp slt i32 %148, %149
   br i1 %cmp186, label %for.body187, label %for.end195
 
 for.body187:                                      ; preds = %for.cond185
   %fileListFiles = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 0
-  %115 = load ptr, ptr %fileListFiles, align 8
-  %116 = load ptr, ptr %argv.addr, align 8
-  %117 = load i32, ptr %n, align 4
-  %idxprom188 = sext i32 %117 to i64
-  %arrayidx189 = getelementptr inbounds ptr, ptr %116, i64 %idxprom188
-  %118 = load ptr, ptr %arrayidx189, align 8
-  %call190 = call ptr @uprv_strdup_75(ptr noundef %118)
-  %call191 = call ptr @pkg_appendToList(ptr noundef %115, ptr noundef %tail, ptr noundef %call190)
+  %150 = load ptr, ptr %fileListFiles, align 8
+  %151 = load ptr, ptr %argv.addr, align 8
+  %152 = load i32, ptr %n, align 4
+  %idxprom188 = sext i32 %152 to i64
+  %arrayidx189 = getelementptr inbounds ptr, ptr %151, i64 %idxprom188
+  %153 = load ptr, ptr %arrayidx189, align 8
+  %call190 = call ptr @uprv_strdup_75(ptr noundef %153)
+  %call191 = call ptr @pkg_appendToList(ptr noundef %150, ptr noundef %tail, ptr noundef %call190)
   %fileListFiles192 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 0
   store ptr %call191, ptr %fileListFiles192, align 8
   br label %for.inc193
 
 for.inc193:                                       ; preds = %for.body187
-  %119 = load i32, ptr %n, align 4
-  %inc194 = add nsw i32 %119, 1
+  %154 = load i32, ptr %n, align 4
+  %inc194 = add nsw i32 %154, 1
   store i32 %inc194, ptr %n, align 4
   br label %for.cond185, !llvm.loop !9
 
 for.end195:                                       ; preds = %for.cond185
   call void @_ZL9loadListsP12UPKGOptions_P10UErrorCode(ptr noundef %o, ptr noundef %status)
-  %120 = load i32, ptr %status, align 4
-  %call196 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %120)
+  %155 = load i32, ptr %status, align 4
+  %call196 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %155)
   %tobool197 = icmp ne i8 %call196, 0
   br i1 %tobool197, label %if.then198, label %if.end201
 
 if.then198:                                       ; preds = %for.end195
-  %121 = load ptr, ptr @stderr, align 8
-  %122 = load i32, ptr %status, align 4
-  %call199 = call ptr @u_errorName_75(i32 noundef %122)
-  %call200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef @.str.23, ptr noundef %call199)
+  %156 = load ptr, ptr @stderr, align 8
+  %157 = load i32, ptr %status, align 4
+  %call199 = call ptr @u_errorName_75(i32 noundef %157)
+  %call200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef @.str.23, ptr noundef %call199)
   store i32 2, ptr %retval, align 4
   br label %return
 
 if.end201:                                        ; preds = %for.end195
   %call202 = call noundef i32 @_ZL18pkg_executeOptionsP12UPKGOptions_(ptr noundef %o)
   store i32 %call202, ptr %result, align 4
-  %123 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %cmp203 = icmp ne ptr %123, null
+  %158 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %cmp203 = icmp ne ptr %158, null
   br i1 %cmp203, label %if.then204, label %if.end218
 
 if.then204:                                       ; preds = %if.end201
@@ -1593,98 +1628,98 @@ if.then204:                                       ; preds = %if.end201
   br label %for.cond205
 
 for.cond205:                                      ; preds = %for.inc215, %if.then204
-  %124 = load i32, ptr %n, align 4
-  %cmp206 = icmp slt i32 %124, 17
+  %159 = load i32, ptr %n, align 4
+  %cmp206 = icmp slt i32 %159, 17
   br i1 %cmp206, label %for.body207, label %for.end217
 
 for.body207:                                      ; preds = %for.cond205
-  %125 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %126 = load i32, ptr %n, align 4
-  %idxprom208 = sext i32 %126 to i64
-  %arrayidx209 = getelementptr inbounds ptr, ptr %125, i64 %idxprom208
-  %127 = load ptr, ptr %arrayidx209, align 8
-  %cmp210 = icmp ne ptr %127, null
+  %160 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %161 = load i32, ptr %n, align 4
+  %idxprom208 = sext i32 %161 to i64
+  %arrayidx209 = getelementptr inbounds ptr, ptr %160, i64 %idxprom208
+  %162 = load ptr, ptr %arrayidx209, align 8
+  %cmp210 = icmp ne ptr %162, null
   br i1 %cmp210, label %if.then211, label %if.end214
 
 if.then211:                                       ; preds = %for.body207
-  %128 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %129 = load i32, ptr %n, align 4
-  %idxprom212 = sext i32 %129 to i64
-  %arrayidx213 = getelementptr inbounds ptr, ptr %128, i64 %idxprom212
-  %130 = load ptr, ptr %arrayidx213, align 8
-  call void @uprv_free_75(ptr noundef %130)
+  %163 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %164 = load i32, ptr %n, align 4
+  %idxprom212 = sext i32 %164 to i64
+  %arrayidx213 = getelementptr inbounds ptr, ptr %163, i64 %idxprom212
+  %165 = load ptr, ptr %arrayidx213, align 8
+  call void @uprv_free_75(ptr noundef %165)
   br label %if.end214
 
 if.end214:                                        ; preds = %if.then211, %for.body207
   br label %for.inc215
 
 for.inc215:                                       ; preds = %if.end214
-  %131 = load i32, ptr %n, align 4
-  %inc216 = add nsw i32 %131, 1
+  %166 = load i32, ptr %n, align 4
+  %inc216 = add nsw i32 %166, 1
   store i32 %inc216, ptr %n, align 4
   br label %for.cond205, !llvm.loop !10
 
 for.end217:                                       ; preds = %for.cond205
-  %132 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  call void @uprv_free_75(ptr noundef %132)
+  %167 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  call void @uprv_free_75(ptr noundef %167)
   br label %if.end218
 
 if.end218:                                        ; preds = %for.end217, %if.end201
   %cShortName219 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 5
-  %133 = load ptr, ptr %cShortName219, align 8
-  %cmp220 = icmp ne ptr %133, null
+  %168 = load ptr, ptr %cShortName219, align 8
+  %cmp220 = icmp ne ptr %168, null
   br i1 %cmp220, label %if.then221, label %if.end223
 
 if.then221:                                       ; preds = %if.end218
   %cShortName222 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 5
-  %134 = load ptr, ptr %cShortName222, align 8
-  call void @uprv_free_75(ptr noundef %134)
+  %169 = load ptr, ptr %cShortName222, align 8
+  call void @uprv_free_75(ptr noundef %169)
   br label %if.end223
 
 if.end223:                                        ; preds = %if.then221, %if.end218
   %fileListFiles224 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 0
-  %135 = load ptr, ptr %fileListFiles224, align 8
-  %cmp225 = icmp ne ptr %135, null
+  %170 = load ptr, ptr %fileListFiles224, align 8
+  %cmp225 = icmp ne ptr %170, null
   br i1 %cmp225, label %if.then226, label %if.end228
 
 if.then226:                                       ; preds = %if.end223
   %fileListFiles227 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 0
-  %136 = load ptr, ptr %fileListFiles227, align 8
-  call void @pkg_deleteList(ptr noundef %136)
+  %171 = load ptr, ptr %fileListFiles227, align 8
+  call void @pkg_deleteList(ptr noundef %171)
   br label %if.end228
 
 if.end228:                                        ; preds = %if.then226, %if.end223
   %filePaths = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 1
-  %137 = load ptr, ptr %filePaths, align 8
-  %cmp229 = icmp ne ptr %137, null
+  %172 = load ptr, ptr %filePaths, align 8
+  %cmp229 = icmp ne ptr %172, null
   br i1 %cmp229, label %if.then230, label %if.end232
 
 if.then230:                                       ; preds = %if.end228
   %filePaths231 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 1
-  %138 = load ptr, ptr %filePaths231, align 8
-  call void @pkg_deleteList(ptr noundef %138)
+  %173 = load ptr, ptr %filePaths231, align 8
+  call void @pkg_deleteList(ptr noundef %173)
   br label %if.end232
 
 if.end232:                                        ; preds = %if.then230, %if.end228
   %files = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 2
-  %139 = load ptr, ptr %files, align 8
-  %cmp233 = icmp ne ptr %139, null
+  %174 = load ptr, ptr %files, align 8
+  %cmp233 = icmp ne ptr %174, null
   br i1 %cmp233, label %if.then234, label %if.end236
 
 if.then234:                                       ; preds = %if.end232
   %files235 = getelementptr inbounds %struct.UPKGOptions_, ptr %o, i32 0, i32 2
-  %140 = load ptr, ptr %files235, align 8
-  call void @pkg_deleteList(ptr noundef %140)
+  %175 = load ptr, ptr %files235, align 8
+  call void @pkg_deleteList(ptr noundef %175)
   br label %if.end236
 
 if.end236:                                        ; preds = %if.then234, %if.end232
-  %141 = load i32, ptr %result, align 4
-  store i32 %141, ptr %retval, align 4
+  %176 = load i32, ptr %result, align 4
+  store i32 %176, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end236, %if.then198, %for.end80, %if.then25, %if.then20, %if.then14, %if.then3
-  %142 = load i32, ptr %retval, align 4
-  ret i32 %142
+  %177 = load i32, ptr %retval, align 4
+  ret i32 %177
 }
 
 declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) #5
@@ -2729,7 +2764,8 @@ land.lhs.true160:                                 ; preds = %land.lhs.true
 if.then163:                                       ; preds = %land.lhs.true160
   %arraydecay164 = getelementptr inbounds [2048 x i8], ptr %checkLibFile, i64 0, i64 0
   %arraydecay165 = getelementptr inbounds [512 x i8], ptr %targetDir, i64 0, i64 0
-  %call166 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay164, i64 noundef 2048, ptr noundef @.str.64, ptr noundef %arraydecay165, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2)) #11
+  %100 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %call166 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay164, i64 noundef 2048, ptr noundef @.str.64, ptr noundef %arraydecay165, ptr noundef %100) #11
   %arraydecay167 = getelementptr inbounds [2048 x i8], ptr %checkLibFile, i64 0, i64 0
   %call168 = call signext i8 @T_FileStream_file_exists(ptr noundef %arraydecay167)
   %tobool169 = icmp ne i8 %call168, 0
@@ -2737,59 +2773,59 @@ if.then163:                                       ; preds = %land.lhs.true160
 
 if.then170:                                       ; preds = %if.then163
   %arraydecay171 = getelementptr inbounds [2048 x i8], ptr %checkLibFile, i64 0, i64 0
-  %100 = load ptr, ptr %o.addr, align 8
-  %srcDir172 = getelementptr inbounds %struct.UPKGOptions_, ptr %100, i32 0, i32 10
-  %101 = load ptr, ptr %srcDir172, align 8
-  %call173 = call signext i8 @isFileModTimeLater(ptr noundef %arraydecay171, ptr noundef %101, i8 noundef signext 1)
+  %101 = load ptr, ptr %o.addr, align 8
+  %srcDir172 = getelementptr inbounds %struct.UPKGOptions_, ptr %101, i32 0, i32 10
+  %102 = load ptr, ptr %srcDir172, align 8
+  %call173 = call signext i8 @isFileModTimeLater(ptr noundef %arraydecay171, ptr noundef %102, i8 noundef signext 1)
   %tobool174 = icmp ne i8 %call173, 0
   br i1 %tobool174, label %land.lhs.true175, label %if.else200
 
 land.lhs.true175:                                 ; preds = %if.then170
   %arraydecay176 = getelementptr inbounds [2048 x i8], ptr %checkLibFile, i64 0, i64 0
-  %102 = load ptr, ptr %o.addr, align 8
-  %options = getelementptr inbounds %struct.UPKGOptions_, ptr %102, i32 0, i32 11
-  %103 = load ptr, ptr %options, align 8
-  %call177 = call signext i8 @isFileModTimeLater(ptr noundef %arraydecay176, ptr noundef %103, i8 noundef signext 0)
+  %103 = load ptr, ptr %o.addr, align 8
+  %options = getelementptr inbounds %struct.UPKGOptions_, ptr %103, i32 0, i32 11
+  %104 = load ptr, ptr %options, align 8
+  %call177 = call signext i8 @isFileModTimeLater(ptr noundef %arraydecay176, ptr noundef %104, i8 noundef signext 0)
   %tobool178 = icmp ne i8 %call177, 0
   br i1 %tobool178, label %if.then179, label %if.else200
 
 if.then179:                                       ; preds = %land.lhs.true175
-  %104 = load ptr, ptr %o.addr, align 8
-  %install180 = getelementptr inbounds %struct.UPKGOptions_, ptr %104, i32 0, i32 15
-  %105 = load ptr, ptr %install180, align 8
-  %cmp181 = icmp ne ptr %105, null
+  %105 = load ptr, ptr %o.addr, align 8
+  %install180 = getelementptr inbounds %struct.UPKGOptions_, ptr %105, i32 0, i32 15
+  %106 = load ptr, ptr %install180, align 8
+  %cmp181 = icmp ne ptr %106, null
   br i1 %cmp181, label %if.then182, label %if.else192
 
 if.then182:                                       ; preds = %if.then179
-  %106 = load ptr, ptr %o.addr, align 8
-  %verbose183 = getelementptr inbounds %struct.UPKGOptions_, ptr %106, i32 0, i32 19
-  %107 = load i8, ptr %verbose183, align 1
-  %tobool184 = icmp ne i8 %107, 0
+  %107 = load ptr, ptr %o.addr, align 8
+  %verbose183 = getelementptr inbounds %struct.UPKGOptions_, ptr %107, i32 0, i32 19
+  %108 = load i8, ptr %verbose183, align 1
+  %tobool184 = icmp ne i8 %108, 0
   br i1 %tobool184, label %if.then185, label %if.end188
 
 if.then185:                                       ; preds = %if.then182
-  %108 = load ptr, ptr @stdout, align 8
-  %109 = load ptr, ptr %o.addr, align 8
-  %install186 = getelementptr inbounds %struct.UPKGOptions_, ptr %109, i32 0, i32 15
-  %110 = load ptr, ptr %install186, align 8
-  %call187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef @.str.65, ptr noundef %110)
+  %109 = load ptr, ptr @stdout, align 8
+  %110 = load ptr, ptr %o.addr, align 8
+  %install186 = getelementptr inbounds %struct.UPKGOptions_, ptr %110, i32 0, i32 15
+  %111 = load ptr, ptr %install186, align 8
+  %call187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef @.str.65, ptr noundef %111)
   br label %if.end188
 
 if.end188:                                        ; preds = %if.then185, %if.then182
-  %111 = load ptr, ptr %o.addr, align 8
-  %install189 = getelementptr inbounds %struct.UPKGOptions_, ptr %111, i32 0, i32 15
-  %112 = load ptr, ptr %install189, align 8
+  %112 = load ptr, ptr %o.addr, align 8
+  %install189 = getelementptr inbounds %struct.UPKGOptions_, ptr %112, i32 0, i32 15
+  %113 = load ptr, ptr %install189, align 8
   %arraydecay190 = getelementptr inbounds [512 x i8], ptr %targetDir, i64 0, i64 0
-  %113 = load i8, ptr %noVersion, align 1
-  %call191 = call noundef i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef %112, ptr noundef %arraydecay190, i8 noundef signext %113)
+  %114 = load i8, ptr %noVersion, align 1
+  %call191 = call noundef i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef %113, ptr noundef %arraydecay190, i8 noundef signext %114)
   store i32 %call191, ptr %result, align 4
   br label %if.end199
 
 if.else192:                                       ; preds = %if.then179
-  %114 = load ptr, ptr %o.addr, align 8
-  %verbose193 = getelementptr inbounds %struct.UPKGOptions_, ptr %114, i32 0, i32 19
-  %115 = load i8, ptr %verbose193, align 1
-  %tobool194 = icmp ne i8 %115, 0
+  %115 = load ptr, ptr %o.addr, align 8
+  %verbose193 = getelementptr inbounds %struct.UPKGOptions_, ptr %115, i32 0, i32 19
+  %116 = load i8, ptr %verbose193, align 1
+  %tobool194 = icmp ne i8 %116, 0
   br i1 %tobool194, label %if.then195, label %if.end198
 
 if.then195:                                       ; preds = %if.else192
@@ -2801,31 +2837,31 @@ if.end198:                                        ; preds = %if.then195, %if.els
   br label %if.end199
 
 if.end199:                                        ; preds = %if.end198, %if.end188
-  %116 = load i32, ptr %result, align 4
-  store i32 %116, ptr %retval, align 4
+  %117 = load i32, ptr %result, align 4
+  store i32 %117, ptr %retval, align 4
   br label %return
 
 if.else200:                                       ; preds = %land.lhs.true175, %if.then170
-  %117 = load ptr, ptr %o.addr, align 8
-  %verbose201 = getelementptr inbounds %struct.UPKGOptions_, ptr %117, i32 0, i32 19
-  %118 = load i8, ptr %verbose201, align 1
-  %tobool202 = icmp ne i8 %118, 0
+  %118 = load ptr, ptr %o.addr, align 8
+  %verbose201 = getelementptr inbounds %struct.UPKGOptions_, ptr %118, i32 0, i32 19
+  %119 = load i8, ptr %verbose201, align 1
+  %tobool202 = icmp ne i8 %119, 0
   br i1 %tobool202, label %land.lhs.true203, label %if.end210
 
 land.lhs.true203:                                 ; preds = %if.else200
-  %119 = load ptr, ptr %o.addr, align 8
-  %install204 = getelementptr inbounds %struct.UPKGOptions_, ptr %119, i32 0, i32 15
-  %120 = load ptr, ptr %install204, align 8
-  %cmp205 = icmp ne ptr %120, null
+  %120 = load ptr, ptr %o.addr, align 8
+  %install204 = getelementptr inbounds %struct.UPKGOptions_, ptr %120, i32 0, i32 15
+  %121 = load ptr, ptr %install204, align 8
+  %cmp205 = icmp ne ptr %121, null
   br i1 %cmp205, label %if.then206, label %if.end210
 
 if.then206:                                       ; preds = %land.lhs.true203
-  %121 = load ptr, ptr @stdout, align 8
+  %122 = load ptr, ptr @stdout, align 8
   %arraydecay207 = getelementptr inbounds [2048 x i8], ptr %checkLibFile, i64 0, i64 0
-  %122 = load ptr, ptr %o.addr, align 8
-  %install208 = getelementptr inbounds %struct.UPKGOptions_, ptr %122, i32 0, i32 15
-  %123 = load ptr, ptr %install208, align 8
-  %call209 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef @.str.67, ptr noundef %arraydecay207, ptr noundef %123)
+  %123 = load ptr, ptr %o.addr, align 8
+  %install208 = getelementptr inbounds %struct.UPKGOptions_, ptr %123, i32 0, i32 15
+  %124 = load ptr, ptr %install208, align 8
+  %call209 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef @.str.67, ptr noundef %arraydecay207, ptr noundef %124)
   br label %if.end210
 
 if.end210:                                        ; preds = %if.then206, %land.lhs.true203, %if.else200
@@ -2835,26 +2871,26 @@ if.end211:                                        ; preds = %if.end210
   br label %if.end223
 
 if.else212:                                       ; preds = %if.then163
-  %124 = load ptr, ptr %o.addr, align 8
-  %verbose213 = getelementptr inbounds %struct.UPKGOptions_, ptr %124, i32 0, i32 19
-  %125 = load i8, ptr %verbose213, align 1
-  %tobool214 = icmp ne i8 %125, 0
+  %125 = load ptr, ptr %o.addr, align 8
+  %verbose213 = getelementptr inbounds %struct.UPKGOptions_, ptr %125, i32 0, i32 19
+  %126 = load i8, ptr %verbose213, align 1
+  %tobool214 = icmp ne i8 %126, 0
   br i1 %tobool214, label %land.lhs.true215, label %if.end222
 
 land.lhs.true215:                                 ; preds = %if.else212
-  %126 = load ptr, ptr %o.addr, align 8
-  %install216 = getelementptr inbounds %struct.UPKGOptions_, ptr %126, i32 0, i32 15
-  %127 = load ptr, ptr %install216, align 8
-  %cmp217 = icmp ne ptr %127, null
+  %127 = load ptr, ptr %o.addr, align 8
+  %install216 = getelementptr inbounds %struct.UPKGOptions_, ptr %127, i32 0, i32 15
+  %128 = load ptr, ptr %install216, align 8
+  %cmp217 = icmp ne ptr %128, null
   br i1 %cmp217, label %if.then218, label %if.end222
 
 if.then218:                                       ; preds = %land.lhs.true215
-  %128 = load ptr, ptr @stdout, align 8
+  %129 = load ptr, ptr @stdout, align 8
   %arraydecay219 = getelementptr inbounds [2048 x i8], ptr %checkLibFile, i64 0, i64 0
-  %129 = load ptr, ptr %o.addr, align 8
-  %install220 = getelementptr inbounds %struct.UPKGOptions_, ptr %129, i32 0, i32 15
-  %130 = load ptr, ptr %install220, align 8
-  %call221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef @.str.68, ptr noundef %arraydecay219, ptr noundef %130)
+  %130 = load ptr, ptr %o.addr, align 8
+  %install220 = getelementptr inbounds %struct.UPKGOptions_, ptr %130, i32 0, i32 15
+  %131 = load ptr, ptr %install220, align 8
+  %call221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef @.str.68, ptr noundef %arraydecay219, ptr noundef %131)
   br label %if.end222
 
 if.end222:                                        ; preds = %if.then218, %land.lhs.true215, %if.else212
@@ -2864,136 +2900,136 @@ if.end223:                                        ; preds = %if.end222, %if.end2
   br label %if.end224
 
 if.end224:                                        ; preds = %if.end223, %land.lhs.true160, %land.lhs.true, %lor.lhs.false155
-  %131 = load ptr, ptr %o.addr, align 8
-  %call225 = call noundef ptr @_ZL13pkg_checkFlagP12UPKGOptions_(ptr noundef %131)
+  %132 = load ptr, ptr %o.addr, align 8
+  %call225 = call noundef ptr @_ZL13pkg_checkFlagP12UPKGOptions_(ptr noundef %132)
   %cmp226 = icmp eq ptr %call225, null
   br i1 %cmp226, label %if.then227, label %if.end228
 
 if.then227:                                       ; preds = %if.end224
-  %132 = load i32, ptr %result, align 4
-  store i32 %132, ptr %retval, align 4
+  %133 = load i32, ptr %result, align 4
+  store i32 %133, ptr %retval, align 4
   br label %return
 
 if.end228:                                        ; preds = %if.end224
-  %133 = load ptr, ptr %o.addr, align 8
-  %withoutAssembly = getelementptr inbounds %struct.UPKGOptions_, ptr %133, i32 0, i32 21
-  %134 = load i8, ptr %withoutAssembly, align 1
-  %tobool229 = icmp ne i8 %134, 0
+  %134 = load ptr, ptr %o.addr, align 8
+  %withoutAssembly = getelementptr inbounds %struct.UPKGOptions_, ptr %134, i32 0, i32 21
+  %135 = load i8, ptr %withoutAssembly, align 1
+  %tobool229 = icmp ne i8 %135, 0
   br i1 %tobool229, label %if.else282, label %land.lhs.true230
 
 land.lhs.true230:                                 ; preds = %if.end228
-  %135 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx231 = getelementptr inbounds ptr, ptr %135, i64 0
-  %136 = load ptr, ptr %arrayidx231, align 8
-  %arrayidx232 = getelementptr inbounds i8, ptr %136, i64 0
-  %137 = load i8, ptr %arrayidx232, align 1
-  %conv233 = sext i8 %137 to i32
+  %136 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx231 = getelementptr inbounds ptr, ptr %136, i64 0
+  %137 = load ptr, ptr %arrayidx231, align 8
+  %arrayidx232 = getelementptr inbounds i8, ptr %137, i64 0
+  %138 = load i8, ptr %arrayidx232, align 1
+  %conv233 = sext i8 %138 to i32
   %cmp234 = icmp ne i32 %conv233, 0
   br i1 %cmp234, label %if.then235, label %if.else282
 
 if.then235:                                       ; preds = %land.lhs.true230
-  %138 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx236 = getelementptr inbounds ptr, ptr %138, i64 0
-  %139 = load ptr, ptr %arrayidx236, align 8
-  store ptr %139, ptr %genccodeAssembly, align 8
-  %140 = load ptr, ptr %o.addr, align 8
-  %verbose237 = getelementptr inbounds %struct.UPKGOptions_, ptr %140, i32 0, i32 19
-  %141 = load i8, ptr %verbose237, align 1
-  %tobool238 = icmp ne i8 %141, 0
+  %139 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx236 = getelementptr inbounds ptr, ptr %139, i64 0
+  %140 = load ptr, ptr %arrayidx236, align 8
+  store ptr %140, ptr %genccodeAssembly, align 8
+  %141 = load ptr, ptr %o.addr, align 8
+  %verbose237 = getelementptr inbounds %struct.UPKGOptions_, ptr %141, i32 0, i32 19
+  %142 = load i8, ptr %verbose237, align 1
+  %tobool238 = icmp ne i8 %142, 0
   br i1 %tobool238, label %if.then239, label %if.end242
 
 if.then239:                                       ; preds = %if.then235
-  %142 = load ptr, ptr @stdout, align 8
+  %143 = load ptr, ptr @stdout, align 8
   %arraydecay240 = getelementptr inbounds [512 x i8], ptr %gencFilePath, i64 0, i64 0
-  %143 = load ptr, ptr %genccodeAssembly, align 8
-  %call241 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef @.str.69, ptr noundef %arraydecay240, ptr noundef %143)
+  %144 = load ptr, ptr %genccodeAssembly, align 8
+  %call241 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef @.str.69, ptr noundef %arraydecay240, ptr noundef %144)
   br label %if.end242
 
 if.end242:                                        ; preds = %if.then239, %if.then235
-  %144 = load ptr, ptr %genccodeAssembly, align 8
-  %tobool243 = icmp ne ptr %144, null
+  %145 = load ptr, ptr %genccodeAssembly, align 8
+  %tobool243 = icmp ne ptr %145, null
   br i1 %tobool243, label %land.lhs.true244, label %if.else279
 
 land.lhs.true244:                                 ; preds = %if.end242
-  %145 = load ptr, ptr %genccodeAssembly, align 8
-  %call245 = call i64 @strlen(ptr noundef %145) #14
+  %146 = load ptr, ptr %genccodeAssembly, align 8
+  %call245 = call i64 @strlen(ptr noundef %146) #14
   %cmp246 = icmp ugt i64 %call245, 3
   br i1 %cmp246, label %land.lhs.true247, label %if.else279
 
 land.lhs.true247:                                 ; preds = %land.lhs.true244
-  %146 = load ptr, ptr %genccodeAssembly, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %146, i64 3
+  %147 = load ptr, ptr %genccodeAssembly, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %147, i64 3
   %call248 = call signext i8 @checkAssemblyHeaderName(ptr noundef %add.ptr)
   %tobool249 = icmp ne i8 %call248, 0
   br i1 %tobool249, label %if.then250, label %if.else279
 
 if.then250:                                       ; preds = %land.lhs.true247
   %arraydecay251 = getelementptr inbounds [2048 x i8], ptr %datFileNamePath, i64 0, i64 0
-  %147 = load ptr, ptr %o.addr, align 8
-  %tmpDir252 = getelementptr inbounds %struct.UPKGOptions_, ptr %147, i32 0, i32 9
-  %148 = load ptr, ptr %tmpDir252, align 8
-  %149 = load ptr, ptr %o.addr, align 8
-  %entryName = getelementptr inbounds %struct.UPKGOptions_, ptr %149, i32 0, i32 6
-  %150 = load ptr, ptr %entryName, align 8
+  %148 = load ptr, ptr %o.addr, align 8
+  %tmpDir252 = getelementptr inbounds %struct.UPKGOptions_, ptr %148, i32 0, i32 9
+  %149 = load ptr, ptr %tmpDir252, align 8
+  %150 = load ptr, ptr %o.addr, align 8
+  %entryName = getelementptr inbounds %struct.UPKGOptions_, ptr %150, i32 0, i32 6
+  %151 = load ptr, ptr %entryName, align 8
   %arraydecay253 = getelementptr inbounds [512 x i8], ptr %gencFilePath, i64 0, i64 0
-  call void @writeAssemblyCode(ptr noundef %arraydecay251, ptr noundef %148, ptr noundef %150, ptr noundef null, ptr noundef %arraydecay253, i64 noundef 512)
+  call void @writeAssemblyCode(ptr noundef %arraydecay251, ptr noundef %149, ptr noundef %151, ptr noundef null, ptr noundef %arraydecay253, i64 noundef 512)
   %arraydecay254 = getelementptr inbounds [512 x i8], ptr %targetDir, i64 0, i64 0
-  %151 = load i8, ptr %mode, align 1
+  %152 = load i8, ptr %mode, align 1
   %arraydecay255 = getelementptr inbounds [512 x i8], ptr %gencFilePath, i64 0, i64 0
-  %call256 = call noundef i32 @_ZL26pkg_createWithAssemblyCodePKccS0_(ptr noundef %arraydecay254, i8 noundef signext %151, ptr noundef %arraydecay255)
+  %call256 = call noundef i32 @_ZL26pkg_createWithAssemblyCodePKccS0_(ptr noundef %arraydecay254, i8 noundef signext %152, ptr noundef %arraydecay255)
   store i32 %call256, ptr %result, align 4
-  %152 = load i32, ptr %result, align 4
-  %cmp257 = icmp ne i32 %152, 0
+  %153 = load i32, ptr %result, align 4
+  %cmp257 = icmp ne i32 %153, 0
   br i1 %cmp257, label %if.then258, label %if.else260
 
 if.then258:                                       ; preds = %if.then250
-  %153 = load ptr, ptr @stderr, align 8
-  %call259 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %153, ptr noundef @.str.70)
-  %154 = load i32, ptr %result, align 4
-  store i32 %154, ptr %retval, align 4
+  %154 = load ptr, ptr @stderr, align 8
+  %call259 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef @.str.70)
+  %155 = load i32, ptr %result, align 4
+  store i32 %155, ptr %retval, align 4
   br label %return
 
 if.else260:                                       ; preds = %if.then250
-  %155 = load i8, ptr %mode, align 1
-  %conv261 = sext i8 %155 to i32
+  %156 = load i8, ptr %mode, align 1
+  %conv261 = sext i8 %156 to i32
   %cmp262 = icmp eq i32 %conv261, 115
   br i1 %cmp262, label %if.then263, label %if.end277
 
 if.then263:                                       ; preds = %if.else260
-  %156 = load ptr, ptr %o.addr, align 8
-  %install264 = getelementptr inbounds %struct.UPKGOptions_, ptr %156, i32 0, i32 15
-  %157 = load ptr, ptr %install264, align 8
-  %cmp265 = icmp ne ptr %157, null
+  %157 = load ptr, ptr %o.addr, align 8
+  %install264 = getelementptr inbounds %struct.UPKGOptions_, ptr %157, i32 0, i32 15
+  %158 = load ptr, ptr %install264, align 8
+  %cmp265 = icmp ne ptr %158, null
   br i1 %cmp265, label %if.then266, label %if.end276
 
 if.then266:                                       ; preds = %if.then263
-  %158 = load ptr, ptr %o.addr, align 8
-  %verbose267 = getelementptr inbounds %struct.UPKGOptions_, ptr %158, i32 0, i32 19
-  %159 = load i8, ptr %verbose267, align 1
-  %tobool268 = icmp ne i8 %159, 0
+  %159 = load ptr, ptr %o.addr, align 8
+  %verbose267 = getelementptr inbounds %struct.UPKGOptions_, ptr %159, i32 0, i32 19
+  %160 = load i8, ptr %verbose267, align 1
+  %tobool268 = icmp ne i8 %160, 0
   br i1 %tobool268, label %if.then269, label %if.end272
 
 if.then269:                                       ; preds = %if.then266
-  %160 = load ptr, ptr @stdout, align 8
-  %161 = load ptr, ptr %o.addr, align 8
-  %install270 = getelementptr inbounds %struct.UPKGOptions_, ptr %161, i32 0, i32 15
-  %162 = load ptr, ptr %install270, align 8
-  %call271 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %160, ptr noundef @.str.71, ptr noundef %162)
+  %161 = load ptr, ptr @stdout, align 8
+  %162 = load ptr, ptr %o.addr, align 8
+  %install270 = getelementptr inbounds %struct.UPKGOptions_, ptr %162, i32 0, i32 15
+  %163 = load ptr, ptr %install270, align 8
+  %call271 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef @.str.71, ptr noundef %163)
   br label %if.end272
 
 if.end272:                                        ; preds = %if.then269, %if.then266
-  %163 = load ptr, ptr %o.addr, align 8
-  %install273 = getelementptr inbounds %struct.UPKGOptions_, ptr %163, i32 0, i32 15
-  %164 = load ptr, ptr %install273, align 8
+  %164 = load ptr, ptr %o.addr, align 8
+  %install273 = getelementptr inbounds %struct.UPKGOptions_, ptr %164, i32 0, i32 15
+  %165 = load ptr, ptr %install273, align 8
   %arraydecay274 = getelementptr inbounds [512 x i8], ptr %targetDir, i64 0, i64 0
-  %165 = load i8, ptr %noVersion, align 1
-  %call275 = call noundef i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef %164, ptr noundef %arraydecay274, i8 noundef signext %165)
+  %166 = load i8, ptr %noVersion, align 1
+  %call275 = call noundef i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef %165, ptr noundef %arraydecay274, i8 noundef signext %166)
   store i32 %call275, ptr %result, align 4
   br label %if.end276
 
 if.end276:                                        ; preds = %if.end272, %if.then263
-  %166 = load i32, ptr %result, align 4
-  store i32 %166, ptr %retval, align 4
+  %167 = load i32, ptr %result, align 4
+  store i32 %167, ptr %retval, align 4
   br label %return
 
 if.end277:                                        ; preds = %if.else260
@@ -3003,9 +3039,9 @@ if.end278:                                        ; preds = %if.end277
   br label %if.end281
 
 if.else279:                                       ; preds = %land.lhs.true247, %land.lhs.true244, %if.end242
-  %167 = load ptr, ptr @stderr, align 8
-  %168 = load ptr, ptr %genccodeAssembly, align 8
-  %call280 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef @.str.72, ptr noundef %168)
+  %168 = load ptr, ptr @stderr, align 8
+  %169 = load ptr, ptr %genccodeAssembly, align 8
+  %call280 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef @.str.72, ptr noundef %169)
   store i32 -1, ptr %retval, align 4
   br label %return
 
@@ -3013,30 +3049,30 @@ if.end281:                                        ; preds = %if.end278
   br label %if.end317
 
 if.else282:                                       ; preds = %land.lhs.true230, %if.end228
-  %169 = load ptr, ptr %o.addr, align 8
-  %verbose283 = getelementptr inbounds %struct.UPKGOptions_, ptr %169, i32 0, i32 19
-  %170 = load i8, ptr %verbose283, align 1
-  %tobool284 = icmp ne i8 %170, 0
+  %170 = load ptr, ptr %o.addr, align 8
+  %verbose283 = getelementptr inbounds %struct.UPKGOptions_, ptr %170, i32 0, i32 19
+  %171 = load i8, ptr %verbose283, align 1
+  %tobool284 = icmp ne i8 %171, 0
   br i1 %tobool284, label %if.then285, label %if.end288
 
 if.then285:                                       ; preds = %if.else282
-  %171 = load ptr, ptr @stdout, align 8
+  %172 = load ptr, ptr @stdout, align 8
   %arraydecay286 = getelementptr inbounds [512 x i8], ptr %gencFilePath, i64 0, i64 0
-  %call287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef @.str.73, ptr noundef %arraydecay286)
+  %call287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %172, ptr noundef @.str.73, ptr noundef %arraydecay286)
   br label %if.end288
 
 if.end288:                                        ; preds = %if.then285, %if.else282
-  %172 = load ptr, ptr %o.addr, align 8
-  %withoutAssembly289 = getelementptr inbounds %struct.UPKGOptions_, ptr %172, i32 0, i32 21
-  %173 = load i8, ptr %withoutAssembly289, align 1
-  %tobool290 = icmp ne i8 %173, 0
+  %173 = load ptr, ptr %o.addr, align 8
+  %withoutAssembly289 = getelementptr inbounds %struct.UPKGOptions_, ptr %173, i32 0, i32 21
+  %174 = load i8, ptr %withoutAssembly289, align 1
+  %tobool290 = icmp ne i8 %174, 0
   br i1 %tobool290, label %if.then291, label %if.else294
 
 if.then291:                                       ; preds = %if.end288
-  %174 = load ptr, ptr %o.addr, align 8
+  %175 = load ptr, ptr %o.addr, align 8
   %arraydecay292 = getelementptr inbounds [512 x i8], ptr %targetDir, i64 0, i64 0
-  %175 = load i8, ptr %mode, align 1
-  %call293 = call noundef i32 @_ZL29pkg_createWithoutAssemblyCodeP12UPKGOptions_PKcc(ptr noundef %174, ptr noundef %arraydecay292, i8 noundef signext %175)
+  %176 = load i8, ptr %mode, align 1
+  %call293 = call noundef i32 @_ZL29pkg_createWithoutAssemblyCodeP12UPKGOptions_PKcc(ptr noundef %175, ptr noundef %arraydecay292, i8 noundef signext %176)
   store i32 %call293, ptr %result, align 4
   br label %if.end312
 
@@ -3045,15 +3081,15 @@ if.else294:                                       ; preds = %if.end288
   %arraydecay295 = getelementptr inbounds [10 x i8], ptr %optMatchArch, i64 0, i64 0
   call void @_ZL22pkg_createOptMatchArchPc(ptr noundef %arraydecay295)
   %arraydecay296 = getelementptr inbounds [2048 x i8], ptr %datFileNamePath, i64 0, i64 0
-  %176 = load ptr, ptr %o.addr, align 8
-  %tmpDir297 = getelementptr inbounds %struct.UPKGOptions_, ptr %176, i32 0, i32 9
-  %177 = load ptr, ptr %tmpDir297, align 8
-  %178 = load ptr, ptr %o.addr, align 8
-  %entryName298 = getelementptr inbounds %struct.UPKGOptions_, ptr %178, i32 0, i32 6
-  %179 = load ptr, ptr %entryName298, align 8
+  %177 = load ptr, ptr %o.addr, align 8
+  %tmpDir297 = getelementptr inbounds %struct.UPKGOptions_, ptr %177, i32 0, i32 9
+  %178 = load ptr, ptr %tmpDir297, align 8
+  %179 = load ptr, ptr %o.addr, align 8
+  %entryName298 = getelementptr inbounds %struct.UPKGOptions_, ptr %179, i32 0, i32 6
+  %180 = load ptr, ptr %entryName298, align 8
   %arrayidx299 = getelementptr inbounds [10 x i8], ptr %optMatchArch, i64 0, i64 0
-  %180 = load i8, ptr %arrayidx299, align 1
-  %conv300 = sext i8 %180 to i32
+  %181 = load i8, ptr %arrayidx299, align 1
+  %conv300 = sext i8 %181 to i32
   %cmp301 = icmp eq i32 %conv300, 0
   br i1 %cmp301, label %cond.true302, label %cond.false303
 
@@ -3067,87 +3103,87 @@ cond.false303:                                    ; preds = %if.else294
 cond.end305:                                      ; preds = %cond.false303, %cond.true302
   %cond306 = phi ptr [ null, %cond.true302 ], [ %arraydecay304, %cond.false303 ]
   %arraydecay307 = getelementptr inbounds [512 x i8], ptr %gencFilePath, i64 0, i64 0
-  call void @writeObjectCode(ptr noundef %arraydecay296, ptr noundef %177, ptr noundef %179, ptr noundef %cond306, ptr noundef null, ptr noundef %arraydecay307, i64 noundef 512, i8 noundef signext 1)
+  call void @writeObjectCode(ptr noundef %arraydecay296, ptr noundef %178, ptr noundef %180, ptr noundef %cond306, ptr noundef null, ptr noundef %arraydecay307, i64 noundef 512, i8 noundef signext 1)
   %arraydecay308 = getelementptr inbounds [10 x i8], ptr %optMatchArch, i64 0, i64 0
   call void @_ZL23pkg_destroyOptMatchArchPc(ptr noundef %arraydecay308)
   %arraydecay309 = getelementptr inbounds [512 x i8], ptr %targetDir, i64 0, i64 0
-  %181 = load i8, ptr %mode, align 1
+  %182 = load i8, ptr %mode, align 1
   %arraydecay310 = getelementptr inbounds [512 x i8], ptr %gencFilePath, i64 0, i64 0
-  %call311 = call noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef %arraydecay309, i8 noundef signext %181, ptr noundef %arraydecay310, ptr noundef null, i8 noundef signext 0)
+  %call311 = call noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef %arraydecay309, i8 noundef signext %182, ptr noundef %arraydecay310, ptr noundef null, i8 noundef signext 0)
   store i32 %call311, ptr %result, align 4
   br label %if.end312
 
 if.end312:                                        ; preds = %cond.end305, %if.then291
-  %182 = load i32, ptr %result, align 4
-  %cmp313 = icmp ne i32 %182, 0
+  %183 = load i32, ptr %result, align 4
+  %cmp313 = icmp ne i32 %183, 0
   br i1 %cmp313, label %if.then314, label %if.end316
 
 if.then314:                                       ; preds = %if.end312
-  %183 = load ptr, ptr @stderr, align 8
-  %call315 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %183, ptr noundef @.str.74)
-  %184 = load i32, ptr %result, align 4
-  store i32 %184, ptr %retval, align 4
+  %184 = load ptr, ptr @stderr, align 8
+  %call315 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef @.str.74)
+  %185 = load i32, ptr %result, align 4
+  store i32 %185, ptr %retval, align 4
   br label %return
 
 if.end316:                                        ; preds = %if.end312
   br label %if.end317
 
 if.end317:                                        ; preds = %if.end316, %if.end281
-  %185 = load i8, ptr %mode, align 1
-  %conv318 = sext i8 %185 to i32
+  %186 = load i8, ptr %mode, align 1
+  %conv318 = sext i8 %186 to i32
   %cmp319 = icmp eq i32 %conv318, 115
   br i1 %cmp319, label %if.end342, label %if.then320
 
 if.then320:                                       ; preds = %if.end317
-  %186 = load ptr, ptr %o.addr, align 8
-  %verbose321 = getelementptr inbounds %struct.UPKGOptions_, ptr %186, i32 0, i32 19
-  %187 = load i8, ptr %verbose321, align 1
-  %tobool322 = icmp ne i8 %187, 0
+  %187 = load ptr, ptr %o.addr, align 8
+  %verbose321 = getelementptr inbounds %struct.UPKGOptions_, ptr %187, i32 0, i32 19
+  %188 = load i8, ptr %verbose321, align 1
+  %tobool322 = icmp ne i8 %188, 0
   br i1 %tobool322, label %if.then323, label %if.end325
 
 if.then323:                                       ; preds = %if.then320
-  %188 = load ptr, ptr @stdout, align 8
-  %call324 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %188, ptr noundef @.str.75)
+  %189 = load ptr, ptr @stdout, align 8
+  %call324 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef @.str.75)
   br label %if.end325
 
 if.end325:                                        ; preds = %if.then323, %if.then320
   %arraydecay326 = getelementptr inbounds [512 x i8], ptr %targetDir, i64 0, i64 0
-  %189 = load ptr, ptr %o.addr, align 8
-  %version327 = getelementptr inbounds %struct.UPKGOptions_, ptr %189, i32 0, i32 13
-  %190 = load ptr, ptr %version327, align 8
-  %191 = load i8, ptr %reverseExt, align 1
-  %call328 = call noundef i32 @_ZL18pkg_archiveLibraryPKcS0_a(ptr noundef %arraydecay326, ptr noundef %190, i8 noundef signext %191)
+  %190 = load ptr, ptr %o.addr, align 8
+  %version327 = getelementptr inbounds %struct.UPKGOptions_, ptr %190, i32 0, i32 13
+  %191 = load ptr, ptr %version327, align 8
+  %192 = load i8, ptr %reverseExt, align 1
+  %call328 = call noundef i32 @_ZL18pkg_archiveLibraryPKcS0_a(ptr noundef %arraydecay326, ptr noundef %191, i8 noundef signext %192)
   store i32 %call328, ptr %result, align 4
-  %192 = load i32, ptr %result, align 4
-  %cmp329 = icmp ne i32 %192, 0
+  %193 = load i32, ptr %result, align 4
+  %cmp329 = icmp ne i32 %193, 0
   br i1 %cmp329, label %if.then330, label %if.end332
 
 if.then330:                                       ; preds = %if.end325
-  %193 = load ptr, ptr @stderr, align 8
-  %call331 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef @.str.76)
-  %194 = load i32, ptr %result, align 4
-  store i32 %194, ptr %retval, align 4
+  %194 = load ptr, ptr @stderr, align 8
+  %call331 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef @.str.76)
+  %195 = load i32, ptr %result, align 4
+  store i32 %195, ptr %retval, align 4
   br label %return
 
 if.end332:                                        ; preds = %if.end325
-  %195 = load i8, ptr %noVersion, align 1
-  %tobool333 = icmp ne i8 %195, 0
+  %196 = load i8, ptr %noVersion, align 1
+  %tobool333 = icmp ne i8 %196, 0
   br i1 %tobool333, label %if.end341, label %if.then334
 
 if.then334:                                       ; preds = %if.end332
   %arraydecay335 = getelementptr inbounds [512 x i8], ptr %targetDir, i64 0, i64 0
-  %196 = load i8, ptr %noVersion, align 1
-  %call336 = call noundef i32 @_ZL18pkg_createSymLinksPKca(ptr noundef %arraydecay335, i8 noundef signext %196)
+  %197 = load i8, ptr %noVersion, align 1
+  %call336 = call noundef i32 @_ZL18pkg_createSymLinksPKca(ptr noundef %arraydecay335, i8 noundef signext %197)
   store i32 %call336, ptr %result, align 4
-  %197 = load i32, ptr %result, align 4
-  %cmp337 = icmp ne i32 %197, 0
+  %198 = load i32, ptr %result, align 4
+  %cmp337 = icmp ne i32 %198, 0
   br i1 %cmp337, label %if.then338, label %if.end340
 
 if.then338:                                       ; preds = %if.then334
-  %198 = load ptr, ptr @stderr, align 8
-  %call339 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef @.str.77)
-  %199 = load i32, ptr %result, align 4
-  store i32 %199, ptr %retval, align 4
+  %199 = load ptr, ptr @stderr, align 8
+  %call339 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %199, ptr noundef @.str.77)
+  %200 = load i32, ptr %result, align 4
+  store i32 %200, ptr %retval, align 4
   br label %return
 
 if.end340:                                        ; preds = %if.then334
@@ -3157,44 +3193,44 @@ if.end341:                                        ; preds = %if.end340, %if.end3
   br label %if.end342
 
 if.end342:                                        ; preds = %if.end341, %if.end317
-  %200 = load ptr, ptr %o.addr, align 8
-  %install343 = getelementptr inbounds %struct.UPKGOptions_, ptr %200, i32 0, i32 15
-  %201 = load ptr, ptr %install343, align 8
-  %cmp344 = icmp ne ptr %201, null
+  %201 = load ptr, ptr %o.addr, align 8
+  %install343 = getelementptr inbounds %struct.UPKGOptions_, ptr %201, i32 0, i32 15
+  %202 = load ptr, ptr %install343, align 8
+  %cmp344 = icmp ne ptr %202, null
   br i1 %cmp344, label %if.then345, label %if.end359
 
 if.then345:                                       ; preds = %if.end342
-  %202 = load ptr, ptr %o.addr, align 8
-  %verbose346 = getelementptr inbounds %struct.UPKGOptions_, ptr %202, i32 0, i32 19
-  %203 = load i8, ptr %verbose346, align 1
-  %tobool347 = icmp ne i8 %203, 0
+  %203 = load ptr, ptr %o.addr, align 8
+  %verbose346 = getelementptr inbounds %struct.UPKGOptions_, ptr %203, i32 0, i32 19
+  %204 = load i8, ptr %verbose346, align 1
+  %tobool347 = icmp ne i8 %204, 0
   br i1 %tobool347, label %if.then348, label %if.end351
 
 if.then348:                                       ; preds = %if.then345
-  %204 = load ptr, ptr @stdout, align 8
-  %205 = load ptr, ptr %o.addr, align 8
-  %install349 = getelementptr inbounds %struct.UPKGOptions_, ptr %205, i32 0, i32 15
-  %206 = load ptr, ptr %install349, align 8
-  %call350 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %204, ptr noundef @.str.78, ptr noundef %206)
+  %205 = load ptr, ptr @stdout, align 8
+  %206 = load ptr, ptr %o.addr, align 8
+  %install349 = getelementptr inbounds %struct.UPKGOptions_, ptr %206, i32 0, i32 15
+  %207 = load ptr, ptr %install349, align 8
+  %call350 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef @.str.78, ptr noundef %207)
   br label %if.end351
 
 if.end351:                                        ; preds = %if.then348, %if.then345
-  %207 = load ptr, ptr %o.addr, align 8
-  %install352 = getelementptr inbounds %struct.UPKGOptions_, ptr %207, i32 0, i32 15
-  %208 = load ptr, ptr %install352, align 8
+  %208 = load ptr, ptr %o.addr, align 8
+  %install352 = getelementptr inbounds %struct.UPKGOptions_, ptr %208, i32 0, i32 15
+  %209 = load ptr, ptr %install352, align 8
   %arraydecay353 = getelementptr inbounds [512 x i8], ptr %targetDir, i64 0, i64 0
-  %209 = load i8, ptr %noVersion, align 1
-  %call354 = call noundef i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef %208, ptr noundef %arraydecay353, i8 noundef signext %209)
+  %210 = load i8, ptr %noVersion, align 1
+  %call354 = call noundef i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef %209, ptr noundef %arraydecay353, i8 noundef signext %210)
   store i32 %call354, ptr %result, align 4
-  %210 = load i32, ptr %result, align 4
-  %cmp355 = icmp ne i32 %210, 0
+  %211 = load i32, ptr %result, align 4
+  %cmp355 = icmp ne i32 %211, 0
   br i1 %cmp355, label %if.then356, label %if.end358
 
 if.then356:                                       ; preds = %if.end351
-  %211 = load ptr, ptr @stderr, align 8
-  %call357 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %211, ptr noundef @.str.79)
-  %212 = load i32, ptr %result, align 4
-  store i32 %212, ptr %retval, align 4
+  %212 = load ptr, ptr @stderr, align 8
+  %call357 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef @.str.79)
+  %213 = load i32, ptr %result, align 4
+  store i32 %213, ptr %retval, align 4
   br label %return
 
 if.end358:                                        ; preds = %if.end351
@@ -3207,13 +3243,13 @@ if.end360:                                        ; preds = %if.end359
   br label %if.end361
 
 if.end361:                                        ; preds = %if.end360
-  %213 = load i32, ptr %result, align 4
-  store i32 %213, ptr %retval, align 4
+  %214 = load i32, ptr %result, align 4
+  store i32 %214, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end361, %if.then356, %if.then338, %if.then330, %if.then314, %if.else279, %if.end276, %if.then258, %if.then227, %if.end199, %if.end106, %if.then94, %if.then79, %if.then53, %if.end19
-  %214 = load i32, ptr %retval, align 4
-  ret i32 %214
+  %215 = load i32, ptr %retval, align 4
+  ret i32 %215
 }
 
 declare void @pkg_deleteList(ptr noundef) #5
@@ -3797,176 +3833,186 @@ if.then10:                                        ; preds = %land.lhs.true
   %14 = load ptr, ptr @_ZL12pkgDataFlags, align 8
   %arrayidx11 = getelementptr inbounds ptr, ptr %14, i64 2
   %15 = load ptr, ptr %arrayidx11, align 8
-  %call12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3), i64 noundef 256, ptr noundef @.str.113, ptr noundef @_ZL12libFileNames, ptr noundef %13, ptr noundef %15) #11
+  %16 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3
+  %call12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef 256, ptr noundef @.str.113, ptr noundef @_ZL12libFileNames, ptr noundef %13, ptr noundef %15) #11
   br label %if.end23
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
-  %16 = load ptr, ptr %FILE_SUFFIX, align 8
-  %17 = load i8, ptr %reverseExt.addr, align 1
-  %tobool13 = icmp ne i8 %17, 0
+  %17 = load ptr, ptr %FILE_SUFFIX, align 8
+  %18 = load i8, ptr %reverseExt.addr, align 1
+  %tobool13 = icmp ne i8 %18, 0
   br i1 %tobool13, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.else
-  %18 = load ptr, ptr %version.addr, align 8
+  %19 = load ptr, ptr %version.addr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.else
-  %19 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx14 = getelementptr inbounds ptr, ptr %19, i64 2
-  %20 = load ptr, ptr %arrayidx14, align 8
+  %20 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx14 = getelementptr inbounds ptr, ptr %20, i64 2
+  %21 = load ptr, ptr %arrayidx14, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond15 = phi ptr [ %18, %cond.true ], [ %20, %cond.false ]
-  %21 = load ptr, ptr %FILE_EXTENSION_SEP, align 8
-  %22 = load i8, ptr %reverseExt.addr, align 1
-  %tobool16 = icmp ne i8 %22, 0
+  %cond15 = phi ptr [ %19, %cond.true ], [ %21, %cond.false ]
+  %22 = load ptr, ptr %FILE_EXTENSION_SEP, align 8
+  %23 = load i8, ptr %reverseExt.addr, align 1
+  %tobool16 = icmp ne i8 %23, 0
   br i1 %tobool16, label %cond.true17, label %cond.false19
 
 cond.true17:                                      ; preds = %cond.end
-  %23 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %23, i64 2
-  %24 = load ptr, ptr %arrayidx18, align 8
+  %24 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx18 = getelementptr inbounds ptr, ptr %24, i64 2
+  %25 = load ptr, ptr %arrayidx18, align 8
   br label %cond.end20
 
 cond.false19:                                     ; preds = %cond.end
-  %25 = load ptr, ptr %version.addr, align 8
+  %26 = load ptr, ptr %version.addr, align 8
   br label %cond.end20
 
 cond.end20:                                       ; preds = %cond.false19, %cond.true17
-  %cond21 = phi ptr [ %24, %cond.true17 ], [ %25, %cond.false19 ]
-  %call22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3), i64 noundef 256, ptr noundef @.str.114, ptr noundef @_ZL12libFileNames, ptr noundef %16, ptr noundef %cond15, ptr noundef %21, ptr noundef %cond21) #11
+  %cond21 = phi ptr [ %25, %cond.true17 ], [ %26, %cond.false19 ]
+  %27 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3
+  %call22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %27, i64 noundef 256, ptr noundef @.str.114, ptr noundef @_ZL12libFileNames, ptr noundef %17, ptr noundef %cond15, ptr noundef %22, ptr noundef %cond21) #11
   br label %if.end23
 
 if.end23:                                         ; preds = %cond.end20, %if.then10
-  %26 = load i8, ptr %noVersion.addr, align 1
-  %tobool24 = icmp ne i8 %26, 0
+  %28 = load i8, ptr %noVersion.addr, align 1
+  %tobool24 = icmp ne i8 %28, 0
   br i1 %tobool24, label %land.lhs.true25, label %if.else32
 
 land.lhs.true25:                                  ; preds = %if.end23
-  %27 = load i8, ptr %reverseExt.addr, align 1
-  %tobool26 = icmp ne i8 %27, 0
+  %29 = load i8, ptr %reverseExt.addr, align 1
+  %tobool26 = icmp ne i8 %29, 0
   br i1 %tobool26, label %if.else32, label %if.then27
 
 if.then27:                                        ; preds = %land.lhs.true25
-  %28 = load ptr, ptr %FILE_SUFFIX, align 8
-  %29 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %29, i64 1
-  %30 = load ptr, ptr %arrayidx28, align 8
-  %call29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1), i64 noundef 256, ptr noundef @.str.113, ptr noundef @_ZL12libFileNames, ptr noundef %28, ptr noundef %30) #11
-  %31 = load ptr, ptr %FILE_SUFFIX, align 8
-  %32 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx30 = getelementptr inbounds ptr, ptr %32, i64 1
-  %33 = load ptr, ptr %arrayidx30, align 8
-  %call31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), i64 noundef 256, ptr noundef @.str.113, ptr noundef @_ZL12libFileNames, ptr noundef %31, ptr noundef %33) #11
+  %30 = load ptr, ptr %FILE_SUFFIX, align 8
+  %31 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx28 = getelementptr inbounds ptr, ptr %31, i64 1
+  %32 = load ptr, ptr %arrayidx28, align 8
+  %33 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1
+  %call29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef 256, ptr noundef @.str.113, ptr noundef @_ZL12libFileNames, ptr noundef %30, ptr noundef %32) #11
+  %34 = load ptr, ptr %FILE_SUFFIX, align 8
+  %35 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx30 = getelementptr inbounds ptr, ptr %35, i64 1
+  %36 = load ptr, ptr %arrayidx30, align 8
+  %37 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %call31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef 256, ptr noundef @.str.113, ptr noundef @_ZL12libFileNames, ptr noundef %34, ptr noundef %36) #11
   br label %if.end59
 
 if.else32:                                        ; preds = %land.lhs.true25, %if.end23
-  %34 = load ptr, ptr %FILE_SUFFIX, align 8
-  %35 = load i8, ptr %reverseExt.addr, align 1
-  %tobool33 = icmp ne i8 %35, 0
+  %38 = load ptr, ptr %FILE_SUFFIX, align 8
+  %39 = load i8, ptr %reverseExt.addr, align 1
+  %tobool33 = icmp ne i8 %39, 0
   br i1 %tobool33, label %cond.true34, label %cond.false35
 
 cond.true34:                                      ; preds = %if.else32
-  %36 = load ptr, ptr %version_major.addr, align 8
+  %40 = load ptr, ptr %version_major.addr, align 8
   br label %cond.end37
 
 cond.false35:                                     ; preds = %if.else32
-  %37 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx36 = getelementptr inbounds ptr, ptr %37, i64 1
-  %38 = load ptr, ptr %arrayidx36, align 8
+  %41 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx36 = getelementptr inbounds ptr, ptr %41, i64 1
+  %42 = load ptr, ptr %arrayidx36, align 8
   br label %cond.end37
 
 cond.end37:                                       ; preds = %cond.false35, %cond.true34
-  %cond38 = phi ptr [ %36, %cond.true34 ], [ %38, %cond.false35 ]
-  %39 = load ptr, ptr %FILE_EXTENSION_SEP, align 8
-  %40 = load i8, ptr %reverseExt.addr, align 1
-  %tobool39 = icmp ne i8 %40, 0
+  %cond38 = phi ptr [ %40, %cond.true34 ], [ %42, %cond.false35 ]
+  %43 = load ptr, ptr %FILE_EXTENSION_SEP, align 8
+  %44 = load i8, ptr %reverseExt.addr, align 1
+  %tobool39 = icmp ne i8 %44, 0
   br i1 %tobool39, label %cond.true40, label %cond.false42
 
 cond.true40:                                      ; preds = %cond.end37
-  %41 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx41 = getelementptr inbounds ptr, ptr %41, i64 1
-  %42 = load ptr, ptr %arrayidx41, align 8
+  %45 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx41 = getelementptr inbounds ptr, ptr %45, i64 1
+  %46 = load ptr, ptr %arrayidx41, align 8
   br label %cond.end43
 
 cond.false42:                                     ; preds = %cond.end37
-  %43 = load ptr, ptr %version_major.addr, align 8
+  %47 = load ptr, ptr %version_major.addr, align 8
   br label %cond.end43
 
 cond.end43:                                       ; preds = %cond.false42, %cond.true40
-  %cond44 = phi ptr [ %42, %cond.true40 ], [ %43, %cond.false42 ]
-  %call45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1), i64 noundef 256, ptr noundef @.str.114, ptr noundef @_ZL12libFileNames, ptr noundef %34, ptr noundef %cond38, ptr noundef %39, ptr noundef %cond44) #11
-  %44 = load ptr, ptr %FILE_SUFFIX, align 8
-  %45 = load i8, ptr %reverseExt.addr, align 1
-  %tobool46 = icmp ne i8 %45, 0
+  %cond44 = phi ptr [ %46, %cond.true40 ], [ %47, %cond.false42 ]
+  %48 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1
+  %call45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %48, i64 noundef 256, ptr noundef @.str.114, ptr noundef @_ZL12libFileNames, ptr noundef %38, ptr noundef %cond38, ptr noundef %43, ptr noundef %cond44) #11
+  %49 = load ptr, ptr %FILE_SUFFIX, align 8
+  %50 = load i8, ptr %reverseExt.addr, align 1
+  %tobool46 = icmp ne i8 %50, 0
   br i1 %tobool46, label %cond.true47, label %cond.false48
 
 cond.true47:                                      ; preds = %cond.end43
-  %46 = load ptr, ptr %version.addr, align 8
+  %51 = load ptr, ptr %version.addr, align 8
   br label %cond.end50
 
 cond.false48:                                     ; preds = %cond.end43
-  %47 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx49 = getelementptr inbounds ptr, ptr %47, i64 1
-  %48 = load ptr, ptr %arrayidx49, align 8
+  %52 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx49 = getelementptr inbounds ptr, ptr %52, i64 1
+  %53 = load ptr, ptr %arrayidx49, align 8
   br label %cond.end50
 
 cond.end50:                                       ; preds = %cond.false48, %cond.true47
-  %cond51 = phi ptr [ %46, %cond.true47 ], [ %48, %cond.false48 ]
-  %49 = load ptr, ptr %FILE_EXTENSION_SEP, align 8
-  %50 = load i8, ptr %reverseExt.addr, align 1
-  %tobool52 = icmp ne i8 %50, 0
+  %cond51 = phi ptr [ %51, %cond.true47 ], [ %53, %cond.false48 ]
+  %54 = load ptr, ptr %FILE_EXTENSION_SEP, align 8
+  %55 = load i8, ptr %reverseExt.addr, align 1
+  %tobool52 = icmp ne i8 %55, 0
   br i1 %tobool52, label %cond.true53, label %cond.false55
 
 cond.true53:                                      ; preds = %cond.end50
-  %51 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx54 = getelementptr inbounds ptr, ptr %51, i64 1
-  %52 = load ptr, ptr %arrayidx54, align 8
+  %56 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx54 = getelementptr inbounds ptr, ptr %56, i64 1
+  %57 = load ptr, ptr %arrayidx54, align 8
   br label %cond.end56
 
 cond.false55:                                     ; preds = %cond.end50
-  %53 = load ptr, ptr %version.addr, align 8
+  %58 = load ptr, ptr %version.addr, align 8
   br label %cond.end56
 
 cond.end56:                                       ; preds = %cond.false55, %cond.true53
-  %cond57 = phi ptr [ %52, %cond.true53 ], [ %53, %cond.false55 ]
-  %call58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), i64 noundef 256, ptr noundef @.str.114, ptr noundef @_ZL12libFileNames, ptr noundef %44, ptr noundef %cond51, ptr noundef %49, ptr noundef %cond57) #11
+  %cond57 = phi ptr [ %57, %cond.true53 ], [ %58, %cond.false55 ]
+  %59 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %call58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %59, i64 noundef 256, ptr noundef @.str.114, ptr noundef @_ZL12libFileNames, ptr noundef %49, ptr noundef %cond51, ptr noundef %54, ptr noundef %cond57) #11
   br label %if.end59
 
 if.end59:                                         ; preds = %cond.end56, %if.then27
-  %54 = load ptr, ptr %o.addr, align 8
-  %verbose60 = getelementptr inbounds %struct.UPKGOptions_, ptr %54, i32 0, i32 19
-  %55 = load i8, ptr %verbose60, align 1
-  %tobool61 = icmp ne i8 %55, 0
+  %60 = load ptr, ptr %o.addr, align 8
+  %verbose60 = getelementptr inbounds %struct.UPKGOptions_, ptr %60, i32 0, i32 19
+  %61 = load i8, ptr %verbose60, align 1
+  %tobool61 = icmp ne i8 %61, 0
   br i1 %tobool61, label %if.then62, label %if.end64
 
 if.then62:                                        ; preds = %if.end59
-  %56 = load ptr, ptr @stdout, align 8
-  %call63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.115, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2))
+  %62 = load ptr, ptr @stdout, align 8
+  %63 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %call63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef @.str.115, ptr noundef %63)
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then62, %if.end59
-  %57 = load i8, ptr %mode.addr, align 1
-  %conv65 = sext i8 %57 to i32
+  %64 = load i8, ptr %mode.addr, align 1
+  %conv65 = sext i8 %64 to i32
   %cmp66 = icmp eq i32 %conv65, 115
   br i1 %cmp66, label %if.then67, label %if.end75
 
 if.then67:                                        ; preds = %if.end64
-  %58 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx68 = getelementptr inbounds ptr, ptr %58, i64 3
-  %59 = load ptr, ptr %arrayidx68, align 8
-  %call69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), i64 noundef 256, ptr noundef @.str.116, ptr noundef @_ZL12libFileNames, ptr noundef %59) #11
-  store i8 0, ptr getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1), align 16
-  %60 = load ptr, ptr %o.addr, align 8
-  %verbose70 = getelementptr inbounds %struct.UPKGOptions_, ptr %60, i32 0, i32 19
-  %61 = load i8, ptr %verbose70, align 1
-  %tobool71 = icmp ne i8 %61, 0
+  %65 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx68 = getelementptr inbounds ptr, ptr %65, i64 3
+  %66 = load ptr, ptr %arrayidx68, align 8
+  %67 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %call69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %67, i64 noundef 256, ptr noundef @.str.116, ptr noundef @_ZL12libFileNames, ptr noundef %66) #11
+  %68 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1
+  store i8 0, ptr %68, align 16
+  %69 = load ptr, ptr %o.addr, align 8
+  %verbose70 = getelementptr inbounds %struct.UPKGOptions_, ptr %69, i32 0, i32 19
+  %70 = load i8, ptr %verbose70, align 1
+  %tobool71 = icmp ne i8 %70, 0
   br i1 %tobool71, label %if.then72, label %if.end74
 
 if.then72:                                        ; preds = %if.then67
-  %62 = load ptr, ptr @stdout, align 8
-  %call73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef @.str.117, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2))
+  %71 = load ptr, ptr @stdout, align 8
+  %72 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %call73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef @.str.117, ptr noundef %72)
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then72, %if.then67
@@ -4001,42 +4047,44 @@ entry:
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 16
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = load ptr, ptr %installDir.addr, align 8
-  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 512, ptr noundef @.str.118, ptr noundef %0, ptr noundef %2, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), ptr noundef %3, ptr noundef @.str.55, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2)) #11
+  %4 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %5 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 512, ptr noundef @.str.118, ptr noundef %0, ptr noundef %2, ptr noundef %4, ptr noundef %3, ptr noundef @.str.55, ptr noundef %5) #11
   store i32 %call, ptr %ret, align 4
   %arraydecay1 = getelementptr inbounds [512 x i8], ptr %cmd, i64 0, i64 0
   %call2 = call noundef i32 @_ZL10runCommandPKca(ptr noundef %arraydecay1, i8 noundef signext 0)
   store i32 %call2, ptr %result, align 4
-  %4 = load i32, ptr %result, align 4
-  %cmp = icmp ne i32 %4, 0
+  %6 = load i32, ptr %result, align 4
+  %cmp = icmp ne i32 %6, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr @stderr, align 8
+  %7 = load ptr, ptr @stderr, align 8
   %arraydecay3 = getelementptr inbounds [512 x i8], ptr %cmd, i64 0, i64 0
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.119, ptr noundef %arraydecay3)
-  %6 = load i32, ptr %result, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %7 = load i8, ptr %noVersion.addr, align 1
-  %tobool = icmp ne i8 %7, 0
-  br i1 %tobool, label %if.then5, label %if.else
-
-if.then5:                                         ; preds = %if.end
+  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.119, ptr noundef %arraydecay3)
   %8 = load i32, ptr %result, align 4
   store i32 %8, ptr %retval, align 4
   br label %return
 
+if.end:                                           ; preds = %entry
+  %9 = load i8, ptr %noVersion.addr, align 1
+  %tobool = icmp ne i8 %9, 0
+  br i1 %tobool, label %if.then5, label %if.else
+
+if.then5:                                         ; preds = %if.end
+  %10 = load i32, ptr %result, align 4
+  store i32 %10, ptr %retval, align 4
+  br label %return
+
 if.else:                                          ; preds = %if.end
-  %9 = load ptr, ptr %installDir.addr, align 8
-  %call6 = call noundef i32 @_ZL18pkg_createSymLinksPKca(ptr noundef %9, i8 noundef signext 1)
+  %11 = load ptr, ptr %installDir.addr, align 8
+  %call6 = call noundef i32 @_ZL18pkg_createSymLinksPKca(ptr noundef %11, i8 noundef signext 1)
   store i32 %call6, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.else, %if.then5, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+  %12 = load i32, ptr %retval, align 4
+  ret i32 %12
 }
 
 declare i32 @printf(ptr noundef, ...) #5
@@ -4776,21 +4824,22 @@ if.then4:                                         ; preds = %if.then2
   %8 = load ptr, ptr %targetDir.addr, align 8
   %call7 = call i64 @strlen(ptr noundef %8) #14
   %add8 = add i64 %add, %call7
-  %call9 = call i64 @strlen(ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2)) #14
+  %9 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %call9 = call i64 @strlen(ptr noundef %9) #14
   %add10 = add i64 %add8, %call9
-  %9 = load ptr, ptr %objectFile.addr, align 8
-  %call11 = call i64 @strlen(ptr noundef %9) #14
+  %10 = load ptr, ptr %objectFile.addr, align 8
+  %call11 = call i64 @strlen(ptr noundef %10) #14
   %add12 = add i64 %add10, %call11
-  %10 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx13 = getelementptr inbounds ptr, ptr %10, i64 15
-  %11 = load ptr, ptr %arrayidx13, align 8
-  %call14 = call i64 @strlen(ptr noundef %11) #14
+  %11 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx13 = getelementptr inbounds ptr, ptr %11, i64 15
+  %12 = load ptr, ptr %arrayidx13, align 8
+  %call14 = call i64 @strlen(ptr noundef %12) #14
   %add15 = add i64 %add12, %call14
   %add16 = add i64 %add15, 20
   %conv17 = trunc i64 %add16 to i32
   store i32 %conv17, ptr %length, align 4
-  %12 = load i32, ptr %length, align 4
-  %conv18 = sext i32 %12 to i64
+  %13 = load i32, ptr %length, align 4
+  %conv18 = sext i32 %13 to i64
   %mul = mul i64 1, %conv18
   %call19 = call noalias ptr @uprv_malloc_75(i64 noundef %mul) #12
   store ptr %call19, ptr %cmd, align 8
@@ -4798,8 +4847,8 @@ if.then4:                                         ; preds = %if.then2
   br i1 %cmp20, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %if.then4
-  %13 = load ptr, ptr @stderr, align 8
-  %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.137)
+  %14 = load ptr, ptr @stderr, align 8
+  %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.137)
   store i32 -1, ptr %retval, align 4
   br label %return
 
@@ -4808,32 +4857,34 @@ if.end23:                                         ; preds = %if.then4
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end23, %if.then2
-  %14 = load ptr, ptr %cmd, align 8
-  %15 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx25 = getelementptr inbounds ptr, ptr %15, i64 13
-  %16 = load ptr, ptr %arrayidx25, align 8
-  %17 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx26 = getelementptr inbounds ptr, ptr %17, i64 14
-  %18 = load ptr, ptr %arrayidx26, align 8
-  %19 = load ptr, ptr %targetDir.addr, align 8
-  %20 = load ptr, ptr %objectFile.addr, align 8
-  %call27 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %14, ptr noundef @.str.138, ptr noundef %16, ptr noundef %18, ptr noundef %19, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), ptr noundef %20) #11
-  %21 = load ptr, ptr %cmd, align 8
-  %call28 = call noundef i32 @_ZL10runCommandPKca(ptr noundef %21, i8 noundef signext 0)
+  %15 = load ptr, ptr %cmd, align 8
+  %16 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx25 = getelementptr inbounds ptr, ptr %16, i64 13
+  %17 = load ptr, ptr %arrayidx25, align 8
+  %18 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx26 = getelementptr inbounds ptr, ptr %18, i64 14
+  %19 = load ptr, ptr %arrayidx26, align 8
+  %20 = load ptr, ptr %targetDir.addr, align 8
+  %21 = load ptr, ptr %objectFile.addr, align 8
+  %22 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %call27 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %15, ptr noundef @.str.138, ptr noundef %17, ptr noundef %19, ptr noundef %20, ptr noundef %22, ptr noundef %21) #11
+  %23 = load ptr, ptr %cmd, align 8
+  %call28 = call noundef i32 @_ZL10runCommandPKca(ptr noundef %23, i8 noundef signext 0)
   store i32 %call28, ptr %result, align 4
-  %22 = load i32, ptr %result, align 4
-  %cmp29 = icmp eq i32 %22, 0
+  %24 = load i32, ptr %result, align 4
+  %cmp29 = icmp eq i32 %24, 0
   br i1 %cmp29, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %if.end24
-  %23 = load ptr, ptr %cmd, align 8
-  %24 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx31 = getelementptr inbounds ptr, ptr %24, i64 15
-  %25 = load ptr, ptr %arrayidx31, align 8
-  %26 = load ptr, ptr %targetDir.addr, align 8
-  %call32 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %23, ptr noundef @.str.139, ptr noundef %25, ptr noundef %26, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2)) #11
-  %27 = load ptr, ptr %cmd, align 8
-  %call33 = call noundef i32 @_ZL10runCommandPKca(ptr noundef %27, i8 noundef signext 0)
+  %25 = load ptr, ptr %cmd, align 8
+  %26 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx31 = getelementptr inbounds ptr, ptr %26, i64 15
+  %27 = load ptr, ptr %arrayidx31, align 8
+  %28 = load ptr, ptr %targetDir.addr, align 8
+  %29 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %call32 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %25, ptr noundef @.str.139, ptr noundef %27, ptr noundef %28, ptr noundef %29) #11
+  %30 = load ptr, ptr %cmd, align 8
+  %call33 = call noundef i32 @_ZL10runCommandPKca(ptr noundef %30, i8 noundef signext 0)
   store i32 %call33, ptr %result, align 4
   br label %if.end34
 
@@ -4841,59 +4892,61 @@ if.end34:                                         ; preds = %if.then30, %if.end2
   br label %if.end86
 
 if.else:                                          ; preds = %if.end
-  %28 = load ptr, ptr %cmd, align 8
-  %cmp35 = icmp eq ptr %28, null
+  %31 = load ptr, ptr %cmd, align 8
+  %cmp35 = icmp eq ptr %31, null
   br i1 %cmp35, label %if.then36, label %if.end73
 
 if.then36:                                        ; preds = %if.else
-  %29 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx37 = getelementptr inbounds ptr, ptr %29, i64 8
-  %30 = load ptr, ptr %arrayidx37, align 8
-  %call38 = call i64 @strlen(ptr noundef %30) #14
-  %31 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx39 = getelementptr inbounds ptr, ptr %31, i64 9
-  %32 = load ptr, ptr %arrayidx39, align 8
-  %call40 = call i64 @strlen(ptr noundef %32) #14
+  %32 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx37 = getelementptr inbounds ptr, ptr %32, i64 8
+  %33 = load ptr, ptr %arrayidx37, align 8
+  %call38 = call i64 @strlen(ptr noundef %33) #14
+  %34 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx39 = getelementptr inbounds ptr, ptr %34, i64 9
+  %35 = load ptr, ptr %arrayidx39, align 8
+  %call40 = call i64 @strlen(ptr noundef %35) #14
   %add41 = add i64 %call38, %call40
-  %33 = load ptr, ptr %targetDir.addr, align 8
-  %call42 = call i64 @strlen(ptr noundef %33) #14
-  %call43 = call i64 @strlen(ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3)) #14
+  %36 = load ptr, ptr %targetDir.addr, align 8
+  %call42 = call i64 @strlen(ptr noundef %36) #14
+  %37 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3
+  %call43 = call i64 @strlen(ptr noundef %37) #14
   %add44 = add i64 %call42, %call43
   %mul45 = mul i64 %add44, 2
   %add46 = add i64 %add41, %mul45
-  %34 = load ptr, ptr %objectFile.addr, align 8
-  %call47 = call i64 @strlen(ptr noundef %34) #14
+  %38 = load ptr, ptr %objectFile.addr, align 8
+  %call47 = call i64 @strlen(ptr noundef %38) #14
   %add48 = add i64 %add46, %call47
-  %35 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx49 = getelementptr inbounds ptr, ptr %35, i64 10
-  %36 = load ptr, ptr %arrayidx49, align 8
-  %call50 = call i64 @strlen(ptr noundef %36) #14
+  %39 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx49 = getelementptr inbounds ptr, ptr %39, i64 10
+  %40 = load ptr, ptr %arrayidx49, align 8
+  %call50 = call i64 @strlen(ptr noundef %40) #14
   %add51 = add i64 %add48, %call50
-  %37 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx52 = getelementptr inbounds ptr, ptr %37, i64 10
-  %38 = load ptr, ptr %arrayidx52, align 8
-  %arrayidx53 = getelementptr inbounds i8, ptr %38, i64 0
-  %39 = load i8, ptr %arrayidx53, align 1
-  %conv54 = sext i8 %39 to i32
+  %41 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx52 = getelementptr inbounds ptr, ptr %41, i64 10
+  %42 = load ptr, ptr %arrayidx52, align 8
+  %arrayidx53 = getelementptr inbounds i8, ptr %42, i64 0
+  %43 = load i8, ptr %arrayidx53, align 1
+  %conv54 = sext i8 %43 to i32
   %cmp55 = icmp eq i32 %conv54, 0
-  %cond = select i1 %cmp55, ptr @.str.11, ptr getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1)
+  %44 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1
+  %cond = select i1 %cmp55, ptr @.str.11, ptr %44
   %call56 = call i64 @strlen(ptr noundef %cond) #14
   %add57 = add i64 %add51, %call56
-  %40 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx58 = getelementptr inbounds ptr, ptr %40, i64 11
-  %41 = load ptr, ptr %arrayidx58, align 8
-  %call59 = call i64 @strlen(ptr noundef %41) #14
+  %45 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx58 = getelementptr inbounds ptr, ptr %45, i64 11
+  %46 = load ptr, ptr %arrayidx58, align 8
+  %call59 = call i64 @strlen(ptr noundef %46) #14
   %add60 = add i64 %add57, %call59
-  %42 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx61 = getelementptr inbounds ptr, ptr %42, i64 12
-  %43 = load ptr, ptr %arrayidx61, align 8
-  %call62 = call i64 @strlen(ptr noundef %43) #14
+  %47 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx61 = getelementptr inbounds ptr, ptr %47, i64 12
+  %48 = load ptr, ptr %arrayidx61, align 8
+  %call62 = call i64 @strlen(ptr noundef %48) #14
   %add63 = add i64 %add60, %call62
   %add64 = add i64 %add63, 20
   %conv65 = trunc i64 %add64 to i32
   store i32 %conv65, ptr %length, align 4
-  %44 = load i32, ptr %length, align 4
-  %conv66 = sext i32 %44 to i64
+  %49 = load i32, ptr %length, align 4
+  %conv66 = sext i32 %49 to i64
   %mul67 = mul i64 1, %conv66
   %call68 = call noalias ptr @uprv_malloc_75(i64 noundef %mul67) #12
   store ptr %call68, ptr %cmd, align 8
@@ -4901,8 +4954,8 @@ if.then36:                                        ; preds = %if.else
   br i1 %cmp69, label %if.then70, label %if.end72
 
 if.then70:                                        ; preds = %if.then36
-  %45 = load ptr, ptr @stderr, align 8
-  %call71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef @.str.137)
+  %50 = load ptr, ptr @stderr, align 8
+  %call71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.137)
   store i32 -1, ptr %retval, align 4
   br label %return
 
@@ -4911,67 +4964,69 @@ if.end72:                                         ; preds = %if.then36
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end72, %if.else
-  %46 = load ptr, ptr %cmd, align 8
-  %47 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx74 = getelementptr inbounds ptr, ptr %47, i64 8
-  %48 = load ptr, ptr %arrayidx74, align 8
-  %49 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx75 = getelementptr inbounds ptr, ptr %49, i64 9
-  %50 = load ptr, ptr %arrayidx75, align 8
-  %51 = load ptr, ptr %targetDir.addr, align 8
-  %52 = load ptr, ptr %objectFile.addr, align 8
-  %53 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx76 = getelementptr inbounds ptr, ptr %53, i64 10
-  %54 = load ptr, ptr %arrayidx76, align 8
-  %55 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx77 = getelementptr inbounds ptr, ptr %55, i64 10
-  %56 = load ptr, ptr %arrayidx77, align 8
-  %arrayidx78 = getelementptr inbounds i8, ptr %56, i64 0
-  %57 = load i8, ptr %arrayidx78, align 1
-  %conv79 = sext i8 %57 to i32
-  %cmp80 = icmp eq i32 %conv79, 0
-  %cond81 = select i1 %cmp80, ptr @.str.11, ptr getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1)
+  %51 = load ptr, ptr %cmd, align 8
+  %52 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx74 = getelementptr inbounds ptr, ptr %52, i64 8
+  %53 = load ptr, ptr %arrayidx74, align 8
+  %54 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx75 = getelementptr inbounds ptr, ptr %54, i64 9
+  %55 = load ptr, ptr %arrayidx75, align 8
+  %56 = load ptr, ptr %targetDir.addr, align 8
+  %57 = load ptr, ptr %objectFile.addr, align 8
   %58 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx82 = getelementptr inbounds ptr, ptr %58, i64 11
-  %59 = load ptr, ptr %arrayidx82, align 8
+  %arrayidx76 = getelementptr inbounds ptr, ptr %58, i64 10
+  %59 = load ptr, ptr %arrayidx76, align 8
   %60 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx83 = getelementptr inbounds ptr, ptr %60, i64 12
-  %61 = load ptr, ptr %arrayidx83, align 8
-  %call84 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %46, ptr noundef @.str.140, ptr noundef %48, ptr noundef %50, ptr noundef %51, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3), ptr noundef %52, ptr noundef %54, ptr noundef %cond81, ptr noundef %59, ptr noundef %61) #11
-  %62 = load ptr, ptr %cmd, align 8
-  %call85 = call noundef i32 @_ZL10runCommandPKca(ptr noundef %62, i8 noundef signext 0)
+  %arrayidx77 = getelementptr inbounds ptr, ptr %60, i64 10
+  %61 = load ptr, ptr %arrayidx77, align 8
+  %arrayidx78 = getelementptr inbounds i8, ptr %61, i64 0
+  %62 = load i8, ptr %arrayidx78, align 1
+  %conv79 = sext i8 %62 to i32
+  %cmp80 = icmp eq i32 %conv79, 0
+  %63 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1
+  %cond81 = select i1 %cmp80, ptr @.str.11, ptr %63
+  %64 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx82 = getelementptr inbounds ptr, ptr %64, i64 11
+  %65 = load ptr, ptr %arrayidx82, align 8
+  %66 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx83 = getelementptr inbounds ptr, ptr %66, i64 12
+  %67 = load ptr, ptr %arrayidx83, align 8
+  %68 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3
+  %call84 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %51, ptr noundef @.str.140, ptr noundef %53, ptr noundef %55, ptr noundef %56, ptr noundef %68, ptr noundef %57, ptr noundef %59, ptr noundef %cond81, ptr noundef %65, ptr noundef %67) #11
+  %69 = load ptr, ptr %cmd, align 8
+  %call85 = call noundef i32 @_ZL10runCommandPKca(ptr noundef %69, i8 noundef signext 0)
   store i32 %call85, ptr %result, align 4
   br label %if.end86
 
 if.end86:                                         ; preds = %if.end73, %if.end34
-  %63 = load i32, ptr %result, align 4
-  %cmp87 = icmp ne i32 %63, 0
+  %70 = load i32, ptr %result, align 4
+  %cmp87 = icmp ne i32 %70, 0
   br i1 %cmp87, label %if.then88, label %if.end90
 
 if.then88:                                        ; preds = %if.end86
-  %64 = load ptr, ptr @stderr, align 8
-  %65 = load ptr, ptr %cmd, align 8
-  %call89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef @.str.141, ptr noundef %65)
+  %71 = load ptr, ptr @stderr, align 8
+  %72 = load ptr, ptr %cmd, align 8
+  %call89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef @.str.141, ptr noundef %72)
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then88, %if.end86
-  %66 = load i8, ptr %freeCmd, align 1
-  %tobool = icmp ne i8 %66, 0
+  %73 = load i8, ptr %freeCmd, align 1
+  %tobool = icmp ne i8 %73, 0
   br i1 %tobool, label %if.then91, label %if.end92
 
 if.then91:                                        ; preds = %if.end90
-  %67 = load ptr, ptr %cmd, align 8
-  call void @uprv_free_75(ptr noundef %67)
+  %74 = load ptr, ptr %cmd, align 8
+  call void @uprv_free_75(ptr noundef %74)
   br label %if.end92
 
 if.end92:                                         ; preds = %if.then91, %if.end90
-  %68 = load i32, ptr %result, align 4
-  store i32 %68, ptr %retval, align 4
+  %75 = load i32, ptr %result, align 4
+  store i32 %75, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end92, %if.then70, %if.then21
-  %69 = load i32, ptr %retval, align 4
-  ret i32 %69
+  %76 = load i32, ptr %retval, align 4
+  ret i32 %76
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5049,88 +5104,95 @@ cond.false14:                                     ; preds = %cond.end
 
 cond.end15:                                       ; preds = %cond.false14, %cond.true12
   %cond16 = phi ptr [ %17, %cond.true12 ], [ %18, %cond.false14 ]
-  %call17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), i64 noundef 256, ptr noundef @.str.142, ptr noundef @_ZL12libFileNames, ptr noundef %cond, ptr noundef %cond10, ptr noundef %cond16) #11
+  %19 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %call17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %19, i64 noundef 256, ptr noundef @.str.142, ptr noundef @_ZL12libFileNames, ptr noundef %cond, ptr noundef %cond10, ptr noundef %cond16) #11
   %arraydecay = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
-  %19 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %19, i64 13
-  %20 = load ptr, ptr %arrayidx18, align 8
-  %21 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx19 = getelementptr inbounds ptr, ptr %21, i64 14
-  %22 = load ptr, ptr %arrayidx19, align 8
-  %23 = load ptr, ptr %targetDir.addr, align 8
+  %20 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx18 = getelementptr inbounds ptr, ptr %20, i64 13
+  %21 = load ptr, ptr %arrayidx18, align 8
+  %22 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx19 = getelementptr inbounds ptr, ptr %22, i64 14
+  %23 = load ptr, ptr %arrayidx19, align 8
   %24 = load ptr, ptr %targetDir.addr, align 8
-  %call20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 2048, ptr noundef @.str.143, ptr noundef %20, ptr noundef %22, ptr noundef %23, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), ptr noundef %24, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3)) #11
+  %25 = load ptr, ptr %targetDir.addr, align 8
+  %26 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %27 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3
+  %call20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 2048, ptr noundef @.str.143, ptr noundef %21, ptr noundef %23, ptr noundef %24, ptr noundef %26, ptr noundef %25, ptr noundef %27) #11
   %arraydecay21 = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
   %call22 = call noundef i32 @_ZL10runCommandPKca(ptr noundef %arraydecay21, i8 noundef signext 0)
   store i32 %call22, ptr %result, align 4
-  %25 = load i32, ptr %result, align 4
-  %cmp23 = icmp ne i32 %25, 0
+  %28 = load i32, ptr %result, align 4
+  %cmp23 = icmp ne i32 %28, 0
   br i1 %cmp23, label %if.then24, label %if.end
 
 if.then24:                                        ; preds = %cond.end15
-  %26 = load ptr, ptr @stderr, align 8
+  %29 = load ptr, ptr @stderr, align 8
   %arraydecay25 = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
-  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.144, ptr noundef %arraydecay25)
-  %27 = load i32, ptr %result, align 4
-  store i32 %27, ptr %retval, align 4
+  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef @.str.144, ptr noundef %arraydecay25)
+  %30 = load i32, ptr %result, align 4
+  store i32 %30, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %cond.end15
   %arraydecay27 = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
-  %28 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %28, i64 15
-  %29 = load ptr, ptr %arrayidx28, align 8
-  %30 = load ptr, ptr %targetDir.addr, align 8
-  %call29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay27, i64 noundef 2048, ptr noundef @.str.139, ptr noundef %29, ptr noundef %30, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2)) #11
+  %31 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx28 = getelementptr inbounds ptr, ptr %31, i64 15
+  %32 = load ptr, ptr %arrayidx28, align 8
+  %33 = load ptr, ptr %targetDir.addr, align 8
+  %34 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %call29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay27, i64 noundef 2048, ptr noundef @.str.139, ptr noundef %32, ptr noundef %33, ptr noundef %34) #11
   %arraydecay30 = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
   %call31 = call noundef i32 @_ZL10runCommandPKca(ptr noundef %arraydecay30, i8 noundef signext 0)
   store i32 %call31, ptr %result, align 4
-  %31 = load i32, ptr %result, align 4
-  %cmp32 = icmp ne i32 %31, 0
+  %35 = load i32, ptr %result, align 4
+  %cmp32 = icmp ne i32 %35, 0
   br i1 %cmp32, label %if.then33, label %if.end36
 
 if.then33:                                        ; preds = %if.end
-  %32 = load ptr, ptr @stderr, align 8
+  %36 = load ptr, ptr @stderr, align 8
   %arraydecay34 = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
-  %call35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef @.str.144, ptr noundef %arraydecay34)
-  %33 = load i32, ptr %result, align 4
-  store i32 %33, ptr %retval, align 4
+  %call35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef @.str.144, ptr noundef %arraydecay34)
+  %37 = load i32, ptr %result, align 4
+  store i32 %37, ptr %retval, align 4
   br label %return
 
 if.end36:                                         ; preds = %if.end
   %arraydecay37 = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
-  %34 = load ptr, ptr %targetDir.addr, align 8
-  %call38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay37, i64 noundef 2048, ptr noundef @.str.139, ptr noundef @.str.145, ptr noundef %34, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3)) #11
+  %38 = load ptr, ptr %targetDir.addr, align 8
+  %39 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3
+  %call38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay37, i64 noundef 2048, ptr noundef @.str.139, ptr noundef @.str.145, ptr noundef %38, ptr noundef %39) #11
   %arraydecay39 = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
   %call40 = call noundef i32 @_ZL10runCommandPKca(ptr noundef %arraydecay39, i8 noundef signext 0)
   store i32 %call40, ptr %result, align 4
-  %35 = load i32, ptr %result, align 4
-  %cmp41 = icmp ne i32 %35, 0
+  %40 = load i32, ptr %result, align 4
+  %cmp41 = icmp ne i32 %40, 0
   br i1 %cmp41, label %if.then42, label %if.end45
 
 if.then42:                                        ; preds = %if.end36
-  %36 = load ptr, ptr @stderr, align 8
+  %41 = load ptr, ptr @stderr, align 8
   %arraydecay43 = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
-  %call44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef @.str.144, ptr noundef %arraydecay43)
-  %37 = load i32, ptr %result, align 4
-  store i32 %37, ptr %retval, align 4
+  %call44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef @.str.144, ptr noundef %arraydecay43)
+  %42 = load i32, ptr %result, align 4
+  store i32 %42, ptr %retval, align 4
   br label %return
 
 if.end45:                                         ; preds = %if.end36
   br label %if.end47
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %call46 = call ptr @strcpy(ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3)) #11
+  %43 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %44 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3
+  %call46 = call ptr @strcpy(ptr noundef %43, ptr noundef %44) #11
   br label %if.end47
 
 if.end47:                                         ; preds = %if.else, %if.end45
-  %38 = load i32, ptr %result, align 4
-  store i32 %38, ptr %retval, align 4
+  %45 = load i32, ptr %result, align 4
+  store i32 %45, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end47, %if.then42, %if.then33, %if.then24
-  %39 = load i32, ptr %retval, align 4
-  ret i32 %39
+  %46 = load i32, ptr %retval, align 4
+  ret i32 %46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5154,47 +5216,54 @@ entry:
   %cmp = icmp eq i64 %call, 0
   %cond = select i1 %cmp, ptr @.str.11, ptr @.str.21
   store ptr %cond, ptr %FILE_EXTENSION_SEP, align 8
-  %call1 = call i64 @strlen(ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2)) #14
+  %2 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %call1 = call i64 @strlen(ptr noundef %2) #14
   %cmp2 = icmp eq i64 %call1, 0
   br i1 %cmp2, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call3 = call i64 @strlen(ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1)) #14
+  %3 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1
+  %call3 = call i64 @strlen(ptr noundef %3) #14
   %cmp4 = icmp eq i64 %call3, 0
   br i1 %cmp4, label %if.then, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %call6 = call i32 @strcmp(ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1)) #14
+  %4 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %5 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1
+  %call6 = call i32 @strcmp(ptr noundef %4, ptr noundef %5) #14
   %cmp7 = icmp eq i32 %call6, 0
   br i1 %cmp7, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false5, %lor.lhs.false, %entry
-  %2 = load i32, ptr %result, align 4
-  store i32 %2, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false5
-  %arraydecay = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
-  %3 = load ptr, ptr %targetDir.addr, align 8
-  %call8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 2048, ptr noundef @.str.146, ptr noundef %3, ptr noundef @.str.145, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1), ptr noundef @.str.147, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1)) #11
-  %arraydecay9 = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
-  %call10 = call noundef i32 @_ZL10runCommandPKca(ptr noundef %arraydecay9, i8 noundef signext 0)
-  store i32 %call10, ptr %result, align 4
-  %4 = load i32, ptr %result, align 4
-  %cmp11 = icmp ne i32 %4, 0
-  br i1 %cmp11, label %if.then12, label %if.end15
-
-if.then12:                                        ; preds = %if.end
-  %5 = load ptr, ptr @stderr, align 8
-  %arraydecay13 = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
-  %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.148, ptr noundef %arraydecay13)
   %6 = load i32, ptr %result, align 4
   store i32 %6, ptr %retval, align 4
   br label %return
 
+if.end:                                           ; preds = %lor.lhs.false5
+  %arraydecay = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
+  %7 = load ptr, ptr %targetDir.addr, align 8
+  %8 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1
+  %9 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %10 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1
+  %call8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 2048, ptr noundef @.str.146, ptr noundef %7, ptr noundef @.str.145, ptr noundef %8, ptr noundef @.str.147, ptr noundef %9, ptr noundef %10) #11
+  %arraydecay9 = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
+  %call10 = call noundef i32 @_ZL10runCommandPKca(ptr noundef %arraydecay9, i8 noundef signext 0)
+  store i32 %call10, ptr %result, align 4
+  %11 = load i32, ptr %result, align 4
+  %cmp11 = icmp ne i32 %11, 0
+  br i1 %cmp11, label %if.then12, label %if.end15
+
+if.then12:                                        ; preds = %if.end
+  %12 = load ptr, ptr @stderr, align 8
+  %arraydecay13 = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
+  %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.148, ptr noundef %arraydecay13)
+  %13 = load i32, ptr %result, align 4
+  store i32 %13, ptr %retval, align 4
+  br label %return
+
 if.end15:                                         ; preds = %if.end
-  %7 = load i8, ptr %specialHandling.addr, align 1
-  %tobool = icmp ne i8 %7, 0
+  %14 = load i8, ptr %specialHandling.addr, align 1
+  %tobool = icmp ne i8 %14, 0
   br i1 %tobool, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %if.end15
@@ -5205,32 +5274,33 @@ if.else:                                          ; preds = %if.end15
 
 normal_symlink_mode:                              ; preds = %if.else, %if.then16
   %arraydecay17 = getelementptr inbounds [512 x i8], ptr %name1, i64 0, i64 0
-  %8 = load ptr, ptr %FILE_EXTENSION_SEP, align 8
-  %9 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %9, i64 1
-  %10 = load ptr, ptr %arrayidx18, align 8
-  %call19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay17, i64 noundef 512, ptr noundef @.str.113, ptr noundef @_ZL12libFileNames, ptr noundef %8, ptr noundef %10) #11
+  %15 = load ptr, ptr %FILE_EXTENSION_SEP, align 8
+  %16 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx18 = getelementptr inbounds ptr, ptr %16, i64 1
+  %17 = load ptr, ptr %arrayidx18, align 8
+  %call19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay17, i64 noundef 512, ptr noundef @.str.113, ptr noundef @_ZL12libFileNames, ptr noundef %15, ptr noundef %17) #11
   %arraydecay20 = getelementptr inbounds [512 x i8], ptr %name2, i64 0, i64 0
-  %call21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay20, i64 noundef 512, ptr noundef @.str.133, ptr noundef getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2)) #11
+  %18 = getelementptr inbounds [4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2
+  %call21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay20, i64 noundef 512, ptr noundef @.str.133, ptr noundef %18) #11
   br label %if.end22
 
 if.end22:                                         ; preds = %normal_symlink_mode
   %arraydecay23 = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
-  %11 = load ptr, ptr %targetDir.addr, align 8
+  %19 = load ptr, ptr %targetDir.addr, align 8
   %arraydecay24 = getelementptr inbounds [512 x i8], ptr %name1, i64 0, i64 0
   %arraydecay25 = getelementptr inbounds [512 x i8], ptr %name2, i64 0, i64 0
   %arraydecay26 = getelementptr inbounds [512 x i8], ptr %name1, i64 0, i64 0
-  %call27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay23, i64 noundef 2048, ptr noundef @.str.146, ptr noundef %11, ptr noundef @.str.145, ptr noundef %arraydecay24, ptr noundef @.str.147, ptr noundef %arraydecay25, ptr noundef %arraydecay26) #11
+  %call27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay23, i64 noundef 2048, ptr noundef @.str.146, ptr noundef %19, ptr noundef @.str.145, ptr noundef %arraydecay24, ptr noundef @.str.147, ptr noundef %arraydecay25, ptr noundef %arraydecay26) #11
   %arraydecay28 = getelementptr inbounds [2048 x i8], ptr %cmd, i64 0, i64 0
   %call29 = call noundef i32 @_ZL10runCommandPKca(ptr noundef %arraydecay28, i8 noundef signext 0)
   store i32 %call29, ptr %result, align 4
-  %12 = load i32, ptr %result, align 4
-  store i32 %12, ptr %retval, align 4
+  %20 = load i32, ptr %result, align 4
+  store i32 %20, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end22, %if.then12, %if.then
-  %13 = load i32, ptr %retval, align 4
-  ret i32 %13
+  %21 = load i32, ptr %retval, align 4
+  ret i32 %21
 }
 
 declare i32 @parseFlagsFile(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) #5

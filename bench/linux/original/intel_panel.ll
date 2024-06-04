@@ -534,7 +534,7 @@ define dso_local void @intel_panel_add_edid_fixed_modes(ptr noundef %0, i1 nound
   %168 = load ptr, ptr %0, align 8
   %169 = load ptr, ptr %4, align 8
   %170 = icmp eq ptr %169, %4
-  br i1 %170, label %223, label %171
+  br i1 %170, label %225, label %171
 
 171:                                              ; preds = %167
   %172 = icmp eq ptr %168, null
@@ -596,13 +596,15 @@ define dso_local void @intel_panel_add_edid_fixed_modes(ptr noundef %0, i1 nound
   %221 = getelementptr inbounds i8, ptr %220, i64 8
   store ptr %219, ptr %221, align 8
   store volatile ptr %220, ptr %219, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %177, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %218, align 8
+  %222 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %222, ptr %177, align 8
+  %223 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %223, ptr %218, align 8
   tail call void @drm_mode_destroy(ptr noundef %168, ptr noundef %178) #7
-  %222 = icmp eq ptr %179, %4
-  br i1 %222, label %223, label %176, !llvm.loop !13
+  %224 = icmp eq ptr %179, %4
+  br i1 %224, label %225, label %176, !llvm.loop !13
 
-223:                                              ; preds = %182, %167
+225:                                              ; preds = %182, %167
   ret void
 }
 
@@ -1331,39 +1333,42 @@ define dso_local void @intel_panel_fini(ptr noundef %0) local_unnamed_addr #0 al
   %2 = getelementptr inbounds i8, ptr %0, i64 2000
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  %5 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
-  %6 = or i1 %4, %5
-  br i1 %6, label %8, label %7
+  %5 = inttoptr i64 -4096 to ptr
+  %6 = icmp ugt ptr %3, %5
+  %7 = or i1 %4, %6
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
+8:                                                ; preds = %1
   tail call void @drm_edid_free(ptr noundef %3) #7
-  br label %8
+  br label %9
 
-8:                                                ; preds = %7, %1
+9:                                                ; preds = %8, %1
   tail call void @intel_backlight_destroy(ptr noundef %2) #7
   tail call void @intel_bios_fini_panel(ptr noundef %2) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 2008
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %9
-  br i1 %11, label %21, label %12
+  %10 = getelementptr inbounds i8, ptr %0, i64 2008
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, %10
+  br i1 %12, label %24, label %13
 
-12:                                               ; preds = %12, %8
-  %13 = phi ptr [ %15, %12 ], [ %10, %8 ]
-  %14 = getelementptr i8, ptr %13, i64 -64
-  %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %17, ptr %18, align 8
-  store volatile ptr %15, ptr %17, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %13, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %16, align 8
-  %19 = load ptr, ptr %0, align 8
-  tail call void @drm_mode_destroy(ptr noundef %19, ptr noundef %14) #7
-  %20 = icmp eq ptr %15, %9
-  br i1 %20, label %21, label %12, !llvm.loop !33
+13:                                               ; preds = %13, %9
+  %14 = phi ptr [ %16, %13 ], [ %11, %9 ]
+  %15 = getelementptr i8, ptr %14, i64 -64
+  %16 = load ptr, ptr %14, align 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %18, ptr %19, align 8
+  store volatile ptr %16, ptr %18, align 8
+  %20 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %20, ptr %14, align 8
+  %21 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %21, ptr %17, align 8
+  %22 = load ptr, ptr %0, align 8
+  tail call void @drm_mode_destroy(ptr noundef %22, ptr noundef %15) #7
+  %23 = icmp eq ptr %16, %10
+  br i1 %23, label %24, label %13, !llvm.loop !33
 
-21:                                               ; preds = %12, %8
+24:                                               ; preds = %13, %9
   ret void
 }
 

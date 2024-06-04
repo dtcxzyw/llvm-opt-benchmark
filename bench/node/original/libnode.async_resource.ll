@@ -265,37 +265,38 @@ entry:
   store ptr %name, ptr %name.addr, align 8
   store double %trigger_async_id, ptr %trigger_async_id.addr, align 8
   %this3 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node13AsyncResourceE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node13AsyncResourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %env_ = getelementptr inbounds %"class.node::AsyncResource", ptr %this3, i32 0, i32 1
-  %0 = load ptr, ptr %isolate.addr, align 8
-  %call = call noundef ptr @_ZN4node11Environment10GetCurrentEPN2v87IsolateE(ptr noundef %0)
+  %1 = load ptr, ptr %isolate.addr, align 8
+  %call = call noundef ptr @_ZN4node11Environment10GetCurrentEPN2v87IsolateE(ptr noundef %1)
   store ptr %call, ptr %env_, align 8
   %resource_ = getelementptr inbounds %"class.node::AsyncResource", ptr %this3, i32 0, i32 2
-  %1 = load ptr, ptr %isolate.addr, align 8
+  %2 = load ptr, ptr %isolate.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %resource, i64 8, i1 false)
   %coerce.dive4 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive5 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive4, i32 0, i32 0
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive6, align 8
-  store ptr %2, ptr %that.i, align 8
+  %3 = load ptr, ptr %coerce.dive6, align 8
+  store ptr %3, ptr %that.i, align 8
   store ptr %resource_, ptr %this.addr.i, align 8
-  store ptr %1, ptr %isolate.addr.i, align 8
+  store ptr %2, ptr %isolate.addr.i, align 8
   %this3.i = load ptr, ptr %this.addr.i, align 8
-  %3 = load ptr, ptr %isolate.addr.i, align 8
+  %4 = load ptr, ptr %isolate.addr.i, align 8
   store ptr %that.i, ptr %this.addr.i20, align 8
   %this1.i = load ptr, ptr %this.addr.i20, align 8
   store ptr %this1.i, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %4 = load ptr, ptr %this1.i.i, align 8
-  store ptr %4, ptr %slot.addr.i, align 8
-  %5 = load ptr, ptr %slot.addr.i, align 8
-  store ptr %3, ptr %isolate.addr.i18, align 8
-  store ptr %5, ptr %that.addr.i, align 8
-  %6 = load ptr, ptr %that.addr.i, align 8
-  store ptr %6, ptr %value.addr.i, align 8
-  %7 = load ptr, ptr %value.addr.i, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %cmp.i = icmp eq i64 %8, 0
+  %5 = load ptr, ptr %this1.i.i, align 8
+  store ptr %5, ptr %slot.addr.i, align 8
+  %6 = load ptr, ptr %slot.addr.i, align 8
+  store ptr %4, ptr %isolate.addr.i18, align 8
+  store ptr %6, ptr %that.addr.i, align 8
+  %7 = load ptr, ptr %that.addr.i, align 8
+  store ptr %7, ptr %value.addr.i, align 8
+  %8 = load ptr, ptr %value.addr.i, align 8
+  %9 = ptrtoint ptr %8 to i64
+  %cmp.i = icmp eq i64 %9, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -303,32 +304,32 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN2v814PersistentBaseINS_6ObjectEE3NewEPNS_7IsolateEPS1_.exit
 
 if.end.i:                                         ; preds = %entry
-  %9 = load ptr, ptr %isolate.addr.i18, align 8
-  %10 = load ptr, ptr %that.addr.i, align 8
-  store ptr %10, ptr %value.addr.i24, align 8
-  %11 = load ptr, ptr %value.addr.i24, align 8
-  %12 = load i64, ptr %11, align 8
-  %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %12) #3
+  %10 = load ptr, ptr %isolate.addr.i18, align 8
+  %11 = load ptr, ptr %that.addr.i, align 8
+  store ptr %11, ptr %value.addr.i24, align 8
+  %12 = load ptr, ptr %value.addr.i24, align 8
+  %13 = load i64, ptr %12, align 8
+  %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %13) #3
   store ptr %call2.i, ptr %retval.i, align 8
   br label %_ZN2v814PersistentBaseINS_6ObjectEE3NewEPNS_7IsolateEPS1_.exit
 
 _ZN2v814PersistentBaseINS_6ObjectEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %if.end.i, %if.then.i
-  %13 = load ptr, ptr %retval.i, align 8
+  %14 = load ptr, ptr %retval.i, align 8
   store ptr %this3.i, ptr %this.addr.i22, align 8
-  store ptr %13, ptr %location.addr.i, align 8
+  store ptr %14, ptr %location.addr.i, align 8
   %this1.i23 = load ptr, ptr %this.addr.i22, align 8
-  %14 = load ptr, ptr %location.addr.i, align 8
+  %15 = load ptr, ptr %location.addr.i, align 8
   store ptr %this1.i23, ptr %this.addr.i25, align 8
-  store ptr %14, ptr %location.addr.i26, align 8
+  store ptr %15, ptr %location.addr.i26, align 8
   %this1.i27 = load ptr, ptr %this.addr.i25, align 8
-  %15 = load ptr, ptr %location.addr.i26, align 8
-  store ptr %15, ptr %this1.i27, align 8
+  %16 = load ptr, ptr %location.addr.i26, align 8
+  store ptr %16, ptr %this1.i27, align 8
   br label %do.body
 
 do.body:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE3NewEPNS_7IsolateEPS1_.exit
   %env_7 = getelementptr inbounds %"class.node::AsyncResource", ptr %this3, i32 0, i32 1
-  %16 = load ptr, ptr %env_7, align 8
-  %cmp = icmp ne ptr %16, null
+  %17 = load ptr, ptr %env_7, align 8
+  %cmp = icmp ne ptr %17, null
   %lnot = xor i1 %cmp, true
   %lnot8 = xor i1 %lnot, true
   %lnot9 = xor i1 %lnot8, true
@@ -349,21 +350,21 @@ if.end:                                           ; preds = %do.end, %do.body
   br label %do.end11
 
 do.end11:                                         ; preds = %if.end
-  %17 = load ptr, ptr %isolate.addr, align 8
+  %18 = load ptr, ptr %isolate.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp12, ptr align 8 %resource, i64 8, i1 false)
-  %18 = load ptr, ptr %name.addr, align 8
-  %19 = load double, ptr %trigger_async_id.addr, align 8
+  %19 = load ptr, ptr %name.addr, align 8
+  %20 = load double, ptr %trigger_async_id.addr, align 8
   %coerce.dive13 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp12, i32 0, i32 0
   %coerce.dive14 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive13, i32 0, i32 0
   %coerce.dive15 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive14, i32 0, i32 0
-  %20 = load ptr, ptr %coerce.dive15, align 8
-  %call16 = call { double, double } @_ZN4node13EmitAsyncInitEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKcd(ptr noundef %17, ptr %20, ptr noundef %18, double noundef %19)
-  %21 = getelementptr inbounds { double, double }, ptr %ref.tmp, i32 0, i32 0
-  %22 = extractvalue { double, double } %call16, 0
-  store double %22, ptr %21, align 8
-  %23 = getelementptr inbounds { double, double }, ptr %ref.tmp, i32 0, i32 1
-  %24 = extractvalue { double, double } %call16, 1
-  store double %24, ptr %23, align 8
+  %21 = load ptr, ptr %coerce.dive15, align 8
+  %call16 = call { double, double } @_ZN4node13EmitAsyncInitEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKcd(ptr noundef %18, ptr %21, ptr noundef %19, double noundef %20)
+  %22 = getelementptr inbounds { double, double }, ptr %ref.tmp, i32 0, i32 0
+  %23 = extractvalue { double, double } %call16, 0
+  store double %23, ptr %22, align 8
+  %24 = getelementptr inbounds { double, double }, ptr %ref.tmp, i32 0, i32 1
+  %25 = extractvalue { double, double } %call16, 1
+  store double %25, ptr %24, align 8
   %async_context_17 = getelementptr inbounds %"class.node::AsyncResource", ptr %this3, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %async_context_17, ptr align 8 %ref.tmp, i64 16, i1 false)
   ret void
@@ -433,16 +434,17 @@ entry:
   %agg.tmp = alloca %"struct.node::async_context", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node13AsyncResourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node13AsyncResourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.node::AsyncResource", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %env_, align 8
+  %1 = load ptr, ptr %env_, align 8
   %async_context_ = getelementptr inbounds %"class.node::AsyncResource", ptr %this1, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %async_context_, i64 16, i1 false)
-  %1 = getelementptr inbounds { double, double }, ptr %agg.tmp, i32 0, i32 0
-  %2 = load double, ptr %1, align 8
-  %3 = getelementptr inbounds { double, double }, ptr %agg.tmp, i32 0, i32 1
-  %4 = load double, ptr %3, align 8
-  call void @_ZN4node16EmitAsyncDestroyEPNS_11EnvironmentENS_13async_contextE(ptr noundef %0, double %2, double %4)
+  %2 = getelementptr inbounds { double, double }, ptr %agg.tmp, i32 0, i32 0
+  %3 = load double, ptr %2, align 8
+  %4 = getelementptr inbounds { double, double }, ptr %agg.tmp, i32 0, i32 1
+  %5 = load double, ptr %4, align 8
+  call void @_ZN4node16EmitAsyncDestroyEPNS_11EnvironmentENS_13async_contextE(ptr noundef %1, double %3, double %5)
   %resource_ = getelementptr inbounds %"class.node::AsyncResource", ptr %this1, i32 0, i32 2
   store ptr %resource_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -450,8 +452,8 @@ entry:
   %this1.i3 = load ptr, ptr %this.addr.i2, align 8
   store ptr %this1.i3, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %5 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -460,8 +462,8 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   store ptr %this1.i3, ptr %this.addr.i4, align 8
   %this1.i5 = load ptr, ptr %this.addr.i4, align 8
-  %6 = load ptr, ptr %this1.i5, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %6) #3
+  %7 = load ptr, ptr %this1.i5, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %7) #3
   store ptr %this1.i3, ptr %this.addr.i6, align 8
   %this1.i7 = load ptr, ptr %this.addr.i6, align 8
   store ptr null, ptr %this1.i7, align 8

@@ -14873,150 +14873,159 @@ define hidden void @Init_Numeric() #0 {
   %89 = call i64 @rb_fstring_new(ptr noundef @.str.21, i64 noundef 1)
   store i64 %89, ptr @rb_fix_to_s_static, align 16
   %90 = call i64 @rb_fstring_new(ptr noundef @.str.91, i64 noundef 1)
-  store i64 %90, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 1), align 8
-  %91 = call i64 @rb_fstring_new(ptr noundef @.str.92, i64 noundef 1)
-  store i64 %91, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 2), align 16
-  %92 = call i64 @rb_fstring_new(ptr noundef @.str.93, i64 noundef 1)
-  store i64 %92, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 3), align 8
-  %93 = call i64 @rb_fstring_new(ptr noundef @.str.94, i64 noundef 1)
-  store i64 %93, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 4), align 16
-  %94 = call i64 @rb_fstring_new(ptr noundef @.str.95, i64 noundef 1)
-  store i64 %94, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 5), align 8
-  %95 = call i64 @rb_fstring_new(ptr noundef @.str.96, i64 noundef 1)
-  store i64 %95, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 6), align 16
-  %96 = call i64 @rb_fstring_new(ptr noundef @.str.97, i64 noundef 1)
-  store i64 %96, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 7), align 8
-  %97 = call i64 @rb_fstring_new(ptr noundef @.str.98, i64 noundef 1)
-  store i64 %97, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 8), align 16
-  %98 = call i64 @rb_fstring_new(ptr noundef @.str.99, i64 noundef 1)
-  store i64 %98, ptr getelementptr inbounds ([10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 9), align 8
+  %91 = getelementptr inbounds [10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 1
+  store i64 %90, ptr %91, align 8
+  %92 = call i64 @rb_fstring_new(ptr noundef @.str.92, i64 noundef 1)
+  %93 = getelementptr inbounds [10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 2
+  store i64 %92, ptr %93, align 16
+  %94 = call i64 @rb_fstring_new(ptr noundef @.str.93, i64 noundef 1)
+  %95 = getelementptr inbounds [10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 3
+  store i64 %94, ptr %95, align 8
+  %96 = call i64 @rb_fstring_new(ptr noundef @.str.94, i64 noundef 1)
+  %97 = getelementptr inbounds [10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 4
+  store i64 %96, ptr %97, align 16
+  %98 = call i64 @rb_fstring_new(ptr noundef @.str.95, i64 noundef 1)
+  %99 = getelementptr inbounds [10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 5
+  store i64 %98, ptr %99, align 8
+  %100 = call i64 @rb_fstring_new(ptr noundef @.str.96, i64 noundef 1)
+  %101 = getelementptr inbounds [10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 6
+  store i64 %100, ptr %101, align 16
+  %102 = call i64 @rb_fstring_new(ptr noundef @.str.97, i64 noundef 1)
+  %103 = getelementptr inbounds [10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 7
+  store i64 %102, ptr %103, align 8
+  %104 = call i64 @rb_fstring_new(ptr noundef @.str.98, i64 noundef 1)
+  %105 = getelementptr inbounds [10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 8
+  store i64 %104, ptr %105, align 16
+  %106 = call i64 @rb_fstring_new(ptr noundef @.str.99, i64 noundef 1)
+  %107 = getelementptr inbounds [10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 9
+  store i64 %106, ptr %107, align 8
   store i32 0, ptr %1, align 4
-  br label %99
+  br label %108
 
-99:                                               ; preds = %107, %0
-  %100 = load i32, ptr %1, align 4
-  %101 = icmp slt i32 %100, 10
-  br i1 %101, label %102, label %110
+108:                                              ; preds = %116, %0
+  %109 = load i32, ptr %1, align 4
+  %110 = icmp slt i32 %109, 10
+  br i1 %110, label %111, label %119
 
-102:                                              ; preds = %99
-  %103 = load i32, ptr %1, align 4
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr [10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 %104
-  %106 = load i64, ptr %105, align 8
-  call void @rb_gc_register_mark_object(i64 noundef %106)
-  br label %107
+111:                                              ; preds = %108
+  %112 = load i32, ptr %1, align 4
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr [10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 %113
+  %115 = load i64, ptr %114, align 8
+  call void @rb_gc_register_mark_object(i64 noundef %115)
+  br label %116
 
-107:                                              ; preds = %102
-  %108 = load i32, ptr %1, align 4
-  %109 = add i32 %108, 1
-  store i32 %109, ptr %1, align 4
-  br label %99, !llvm.loop !13
+116:                                              ; preds = %111
+  %117 = load i32, ptr %1, align 4
+  %118 = add i32 %117, 1
+  store i32 %118, ptr %1, align 4
+  br label %108, !llvm.loop !13
 
-110:                                              ; preds = %99
-  %111 = load i64, ptr @rb_cNumeric, align 8
-  %112 = call i64 @rb_define_class(ptr noundef @.str.100, i64 noundef %111)
-  store i64 %112, ptr @rb_cFloat, align 8
-  %113 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_undef_alloc_func(i64 noundef %113)
-  %114 = load i64, ptr @rb_cFloat, align 8
-  %115 = call i64 @rb_class_of(i64 noundef %114) #19
-  call void @rb_undef_method(i64 noundef %115, ptr noundef @.str.57)
-  %116 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_const(i64 noundef %116, ptr noundef @.str.101, i64 noundef 5)
-  %117 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_const(i64 noundef %117, ptr noundef @.str.102, i64 noundef 107)
-  %118 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_const(i64 noundef %118, ptr noundef @.str.103, i64 noundef 31)
-  %119 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_const(i64 noundef %119, ptr noundef @.str.104, i64 noundef -2041)
-  %120 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_const(i64 noundef %120, ptr noundef @.str.105, i64 noundef 2049)
-  %121 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_const(i64 noundef %121, ptr noundef @.str.106, i64 noundef -613)
+119:                                              ; preds = %108
+  %120 = load i64, ptr @rb_cNumeric, align 8
+  %121 = call i64 @rb_define_class(ptr noundef @.str.100, i64 noundef %120)
+  store i64 %121, ptr @rb_cFloat, align 8
   %122 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_const(i64 noundef %122, ptr noundef @.str.107, i64 noundef 617)
+  call void @rb_undef_alloc_func(i64 noundef %122)
   %123 = load i64, ptr @rb_cFloat, align 8
-  %124 = call i64 @rb_float_new_inline(double noundef 0x10000000000000)
-  call void @rb_define_const(i64 noundef %123, ptr noundef @.str.108, i64 noundef %124)
+  %124 = call i64 @rb_class_of(i64 noundef %123) #19
+  call void @rb_undef_method(i64 noundef %124, ptr noundef @.str.57)
   %125 = load i64, ptr @rb_cFloat, align 8
-  %126 = call i64 @rb_float_new_inline(double noundef 0x7FEFFFFFFFFFFFFF)
-  call void @rb_define_const(i64 noundef %125, ptr noundef @.str.109, i64 noundef %126)
+  call void @rb_define_const(i64 noundef %125, ptr noundef @.str.101, i64 noundef 5)
+  %126 = load i64, ptr @rb_cFloat, align 8
+  call void @rb_define_const(i64 noundef %126, ptr noundef @.str.102, i64 noundef 107)
   %127 = load i64, ptr @rb_cFloat, align 8
-  %128 = call i64 @rb_float_new_inline(double noundef 0x3CB0000000000000)
-  call void @rb_define_const(i64 noundef %127, ptr noundef @.str.110, i64 noundef %128)
+  call void @rb_define_const(i64 noundef %127, ptr noundef @.str.103, i64 noundef 31)
+  %128 = load i64, ptr @rb_cFloat, align 8
+  call void @rb_define_const(i64 noundef %128, ptr noundef @.str.104, i64 noundef -2041)
   %129 = load i64, ptr @rb_cFloat, align 8
-  %130 = call i64 @rb_float_new_inline(double noundef 0x7FF0000000000000)
-  call void @rb_define_const(i64 noundef %129, ptr noundef @.str.111, i64 noundef %130)
+  call void @rb_define_const(i64 noundef %129, ptr noundef @.str.105, i64 noundef 2049)
+  %130 = load i64, ptr @rb_cFloat, align 8
+  call void @rb_define_const(i64 noundef %130, ptr noundef @.str.106, i64 noundef -613)
   %131 = load i64, ptr @rb_cFloat, align 8
-  %132 = call double @nan(ptr noundef @.str.22) #19
-  %133 = call i64 @rb_float_new_inline(double noundef %132)
-  call void @rb_define_const(i64 noundef %131, ptr noundef @.str.112, i64 noundef %133)
+  call void @rb_define_const(i64 noundef %131, ptr noundef @.str.107, i64 noundef 617)
+  %132 = load i64, ptr @rb_cFloat, align 8
+  %133 = call i64 @rb_float_new_inline(double noundef 0x10000000000000)
+  call void @rb_define_const(i64 noundef %132, ptr noundef @.str.108, i64 noundef %133)
   %134 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %134, ptr noundef @.str.60, ptr noundef @flo_to_s, i32 noundef 0)
-  %135 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_alias(i64 noundef %135, ptr noundef @.str.61, ptr noundef @.str.60)
+  %135 = call i64 @rb_float_new_inline(double noundef 0x7FEFFFFFFFFFFFFF)
+  call void @rb_define_const(i64 noundef %134, ptr noundef @.str.109, i64 noundef %135)
   %136 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %136, ptr noundef @.str.24, ptr noundef @flo_coerce, i32 noundef 1)
-  %137 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %137, ptr noundef @.str.72, ptr noundef @rb_float_plus, i32 noundef 1)
+  %137 = call i64 @rb_float_new_inline(double noundef 0x3CB0000000000000)
+  call void @rb_define_const(i64 noundef %136, ptr noundef @.str.110, i64 noundef %137)
   %138 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %138, ptr noundef @.str.73, ptr noundef @rb_float_minus, i32 noundef 1)
-  %139 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %139, ptr noundef @.str.74, ptr noundef @rb_float_mul, i32 noundef 1)
+  %139 = call i64 @rb_float_new_inline(double noundef 0x7FF0000000000000)
+  call void @rb_define_const(i64 noundef %138, ptr noundef @.str.111, i64 noundef %139)
   %140 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %140, ptr noundef @.str.75, ptr noundef @rb_float_div, i32 noundef 1)
-  %141 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %141, ptr noundef @.str.113, ptr noundef @flo_quo, i32 noundef 1)
-  %142 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %142, ptr noundef @.str.38, ptr noundef @flo_quo, i32 noundef 1)
+  %141 = call double @nan(ptr noundef @.str.22) #19
+  %142 = call i64 @rb_float_new_inline(double noundef %141)
+  call void @rb_define_const(i64 noundef %140, ptr noundef @.str.112, i64 noundef %142)
   %143 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %143, ptr noundef @.str.41, ptr noundef @flo_mod, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %143, ptr noundef @.str.60, ptr noundef @flo_to_s, i32 noundef 0)
   %144 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %144, ptr noundef @.str.42, ptr noundef @flo_mod, i32 noundef 1)
+  call void @rb_define_alias(i64 noundef %144, ptr noundef @.str.61, ptr noundef @.str.60)
   %145 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %145, ptr noundef @.str.40, ptr noundef @flo_divmod, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %145, ptr noundef @.str.24, ptr noundef @flo_coerce, i32 noundef 1)
   %146 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %146, ptr noundef @.str.76, ptr noundef @rb_float_pow, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %146, ptr noundef @.str.72, ptr noundef @rb_float_plus, i32 noundef 1)
   %147 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %147, ptr noundef @.str.79, ptr noundef @rb_float_equal, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %147, ptr noundef @.str.73, ptr noundef @rb_float_minus, i32 noundef 1)
   %148 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %148, ptr noundef @.str.78, ptr noundef @rb_float_equal, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %148, ptr noundef @.str.74, ptr noundef @rb_float_mul, i32 noundef 1)
   %149 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %149, ptr noundef @.str.36, ptr noundef @flo_cmp, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %149, ptr noundef @.str.75, ptr noundef @rb_float_div, i32 noundef 1)
   %150 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %150, ptr noundef @.str.80, ptr noundef @rb_float_gt, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %150, ptr noundef @.str.113, ptr noundef @flo_quo, i32 noundef 1)
   %151 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %151, ptr noundef @.str.81, ptr noundef @flo_ge, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %151, ptr noundef @.str.38, ptr noundef @flo_quo, i32 noundef 1)
   %152 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %152, ptr noundef @.str.82, ptr noundef @flo_lt, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %152, ptr noundef @.str.41, ptr noundef @flo_mod, i32 noundef 1)
   %153 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %153, ptr noundef @.str.83, ptr noundef @flo_le, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %153, ptr noundef @.str.42, ptr noundef @flo_mod, i32 noundef 1)
   %154 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %154, ptr noundef @.str.37, ptr noundef @rb_float_eql, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %154, ptr noundef @.str.40, ptr noundef @flo_divmod, i32 noundef 1)
   %155 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %155, ptr noundef @.str.114, ptr noundef @flo_hash, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %155, ptr noundef @.str.76, ptr noundef @rb_float_pow, i32 noundef 1)
   %156 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %156, ptr noundef @.str.115, ptr noundef @flo_to_i, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %156, ptr noundef @.str.79, ptr noundef @rb_float_equal, i32 noundef 1)
   %157 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %157, ptr noundef @.str.46, ptr noundef @flo_to_i, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %157, ptr noundef @.str.78, ptr noundef @rb_float_equal, i32 noundef 1)
   %158 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %158, ptr noundef @.str.49, ptr noundef @flo_floor, i32 noundef -1)
+  call void @rb_define_method(i64 noundef %158, ptr noundef @.str.36, ptr noundef @flo_cmp, i32 noundef 1)
   %159 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %159, ptr noundef @.str.50, ptr noundef @flo_ceil, i32 noundef -1)
+  call void @rb_define_method(i64 noundef %159, ptr noundef @.str.80, ptr noundef @rb_float_gt, i32 noundef 1)
   %160 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %160, ptr noundef @.str.51, ptr noundef @flo_round, i32 noundef -1)
+  call void @rb_define_method(i64 noundef %160, ptr noundef @.str.81, ptr noundef @flo_ge, i32 noundef 1)
   %161 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %161, ptr noundef @.str.52, ptr noundef @flo_truncate, i32 noundef -1)
+  call void @rb_define_method(i64 noundef %161, ptr noundef @.str.82, ptr noundef @flo_lt, i32 noundef 1)
   %162 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %162, ptr noundef @.str.116, ptr noundef @flo_is_nan_p, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %162, ptr noundef @.str.83, ptr noundef @flo_le, i32 noundef 1)
   %163 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %163, ptr noundef @.str.117, ptr noundef @rb_flo_is_infinite_p, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %163, ptr noundef @.str.37, ptr noundef @rb_float_eql, i32 noundef 1)
   %164 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %164, ptr noundef @.str.118, ptr noundef @rb_flo_is_finite_p, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %164, ptr noundef @.str.114, ptr noundef @flo_hash, i32 noundef 0)
   %165 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %165, ptr noundef @.str.119, ptr noundef @flo_next_float, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %165, ptr noundef @.str.115, ptr noundef @flo_to_i, i32 noundef 0)
   %166 = load i64, ptr @rb_cFloat, align 8
-  call void @rb_define_method(i64 noundef %166, ptr noundef @.str.120, ptr noundef @flo_prev_float, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %166, ptr noundef @.str.46, ptr noundef @flo_to_i, i32 noundef 0)
+  %167 = load i64, ptr @rb_cFloat, align 8
+  call void @rb_define_method(i64 noundef %167, ptr noundef @.str.49, ptr noundef @flo_floor, i32 noundef -1)
+  %168 = load i64, ptr @rb_cFloat, align 8
+  call void @rb_define_method(i64 noundef %168, ptr noundef @.str.50, ptr noundef @flo_ceil, i32 noundef -1)
+  %169 = load i64, ptr @rb_cFloat, align 8
+  call void @rb_define_method(i64 noundef %169, ptr noundef @.str.51, ptr noundef @flo_round, i32 noundef -1)
+  %170 = load i64, ptr @rb_cFloat, align 8
+  call void @rb_define_method(i64 noundef %170, ptr noundef @.str.52, ptr noundef @flo_truncate, i32 noundef -1)
+  %171 = load i64, ptr @rb_cFloat, align 8
+  call void @rb_define_method(i64 noundef %171, ptr noundef @.str.116, ptr noundef @flo_is_nan_p, i32 noundef 0)
+  %172 = load i64, ptr @rb_cFloat, align 8
+  call void @rb_define_method(i64 noundef %172, ptr noundef @.str.117, ptr noundef @rb_flo_is_infinite_p, i32 noundef 0)
+  %173 = load i64, ptr @rb_cFloat, align 8
+  call void @rb_define_method(i64 noundef %173, ptr noundef @.str.118, ptr noundef @rb_flo_is_finite_p, i32 noundef 0)
+  %174 = load i64, ptr @rb_cFloat, align 8
+  call void @rb_define_method(i64 noundef %174, ptr noundef @.str.119, ptr noundef @flo_next_float, i32 noundef 0)
+  %175 = load i64, ptr @rb_cFloat, align 8
+  call void @rb_define_method(i64 noundef %175, ptr noundef @.str.120, ptr noundef @flo_prev_float, i32 noundef 0)
   ret void
 }
 

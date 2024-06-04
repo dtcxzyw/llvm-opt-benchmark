@@ -490,7 +490,7 @@ define internal void @core_loadimage_ps(ptr noundef %0, ptr noundef %1, ptr noun
   %34 = getelementptr inbounds %struct.usershape_s, ptr %33, i32 0, i32 13
   %35 = load ptr, ptr %34, align 8
   %36 = icmp ne ptr %35, null
-  br i1 %36, label %84, label %37
+  br i1 %36, label %85, label %37
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %6, align 8
@@ -498,7 +498,7 @@ define internal void @core_loadimage_ps(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %37
-  br label %121
+  br label %122
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %6, align 8
@@ -509,7 +509,7 @@ define internal void @core_loadimage_ps(ptr noundef %0, ptr noundef %1, ptr noun
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds %struct.usershape_s, ptr %46, i32 0, i32 6
   %48 = load i32, ptr %47, align 8
-  switch i32 %48, label %73 [
+  switch i32 %48, label %74 [
     i32 6, label %49
     i32 7, label %49
   ]
@@ -533,94 +533,95 @@ define internal void @core_loadimage_ps(ptr noundef %0, ptr noundef %1, ptr noun
   %63 = load ptr, ptr %6, align 8
   %64 = getelementptr inbounds %struct.usershape_s, ptr %63, i32 0, i32 13
   %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, inttoptr (i64 -1 to ptr)
-  br i1 %66, label %67, label %70
+  %66 = inttoptr i64 -1 to ptr
+  %67 = icmp eq ptr %65, %66
+  br i1 %67, label %68, label %71
 
-67:                                               ; preds = %49
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct.usershape_s, ptr %68, i32 0, i32 13
-  store ptr null, ptr %69, align 8
-  br label %70
+68:                                               ; preds = %49
+  %69 = load ptr, ptr %6, align 8
+  %70 = getelementptr inbounds %struct.usershape_s, ptr %69, i32 0, i32 13
+  store ptr null, ptr %70, align 8
+  br label %71
 
-70:                                               ; preds = %67, %49
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds %struct.usershape_s, ptr %71, i32 0, i32 3
-  store i8 1, ptr %72, align 4
-  br label %74
+71:                                               ; preds = %68, %49
+  %72 = load ptr, ptr %6, align 8
+  %73 = getelementptr inbounds %struct.usershape_s, ptr %72, i32 0, i32 3
+  store i8 1, ptr %73, align 4
+  br label %75
 
-73:                                               ; preds = %41
-  br label %74
+74:                                               ; preds = %41
+  br label %75
 
-74:                                               ; preds = %73, %70
-  %75 = load ptr, ptr %6, align 8
-  %76 = getelementptr inbounds %struct.usershape_s, ptr %75, i32 0, i32 13
-  %77 = load ptr, ptr %76, align 8
-  %78 = icmp ne ptr %77, null
-  br i1 %78, label %79, label %82
+75:                                               ; preds = %74, %71
+  %76 = load ptr, ptr %6, align 8
+  %77 = getelementptr inbounds %struct.usershape_s, ptr %76, i32 0, i32 13
+  %78 = load ptr, ptr %77, align 8
+  %79 = icmp ne ptr %78, null
+  br i1 %79, label %80, label %83
 
-79:                                               ; preds = %74
-  %80 = load ptr, ptr %6, align 8
-  %81 = getelementptr inbounds %struct.usershape_s, ptr %80, i32 0, i32 15
-  store ptr @ps_freeimage, ptr %81, align 8
-  br label %82
+80:                                               ; preds = %75
+  %81 = load ptr, ptr %6, align 8
+  %82 = getelementptr inbounds %struct.usershape_s, ptr %81, i32 0, i32 15
+  store ptr @ps_freeimage, ptr %82, align 8
+  br label %83
 
-82:                                               ; preds = %79, %74
-  %83 = load ptr, ptr %6, align 8
-  call void @gvusershape_file_release(ptr noundef %83)
-  br label %84
+83:                                               ; preds = %80, %75
+  %84 = load ptr, ptr %6, align 8
+  call void @gvusershape_file_release(ptr noundef %84)
+  br label %85
 
-84:                                               ; preds = %82, %32
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct.usershape_s, ptr %85, i32 0, i32 13
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp ne ptr %87, null
-  br i1 %88, label %89, label %121
+85:                                               ; preds = %83, %32
+  %86 = load ptr, ptr %6, align 8
+  %87 = getelementptr inbounds %struct.usershape_s, ptr %86, i32 0, i32 13
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %122
 
-89:                                               ; preds = %84
-  %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr inbounds %struct.boxf, ptr %2, i32 0, i32 0
-  %92 = getelementptr inbounds %struct.pointf_s, ptr %91, i32 0, i32 0
-  %93 = load double, ptr %92, align 8
-  %94 = load ptr, ptr %6, align 8
-  %95 = getelementptr inbounds %struct.usershape_s, ptr %94, i32 0, i32 8
-  %96 = load i32, ptr %95, align 8
-  %97 = sitofp i32 %96 to double
-  %98 = fsub double %93, %97
-  %99 = getelementptr inbounds %struct.boxf, ptr %2, i32 0, i32 0
-  %100 = getelementptr inbounds %struct.pointf_s, ptr %99, i32 0, i32 1
-  %101 = load double, ptr %100, align 8
-  %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr inbounds %struct.usershape_s, ptr %102, i32 0, i32 9
-  %104 = load i32, ptr %103, align 4
-  %105 = sitofp i32 %104 to double
-  %106 = fsub double %101, %105
-  call void (ptr, ptr, ...) @gvprintf(ptr noundef %90, ptr noundef @.str.60, double noundef %98, double noundef %106)
-  %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds %struct.usershape_s, ptr %107, i32 0, i32 3
-  %109 = load i8, ptr %108, align 4
-  %110 = trunc i8 %109 to i1
-  br i1 %110, label %111, label %114
+90:                                               ; preds = %85
+  %91 = load ptr, ptr %5, align 8
+  %92 = getelementptr inbounds %struct.boxf, ptr %2, i32 0, i32 0
+  %93 = getelementptr inbounds %struct.pointf_s, ptr %92, i32 0, i32 0
+  %94 = load double, ptr %93, align 8
+  %95 = load ptr, ptr %6, align 8
+  %96 = getelementptr inbounds %struct.usershape_s, ptr %95, i32 0, i32 8
+  %97 = load i32, ptr %96, align 8
+  %98 = sitofp i32 %97 to double
+  %99 = fsub double %94, %98
+  %100 = getelementptr inbounds %struct.boxf, ptr %2, i32 0, i32 0
+  %101 = getelementptr inbounds %struct.pointf_s, ptr %100, i32 0, i32 1
+  %102 = load double, ptr %101, align 8
+  %103 = load ptr, ptr %6, align 8
+  %104 = getelementptr inbounds %struct.usershape_s, ptr %103, i32 0, i32 9
+  %105 = load i32, ptr %104, align 4
+  %106 = sitofp i32 %105 to double
+  %107 = fsub double %102, %106
+  call void (ptr, ptr, ...) @gvprintf(ptr noundef %91, ptr noundef @.str.60, double noundef %99, double noundef %107)
+  %108 = load ptr, ptr %6, align 8
+  %109 = getelementptr inbounds %struct.usershape_s, ptr %108, i32 0, i32 3
+  %110 = load i8, ptr %109, align 4
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %112, label %115
 
-111:                                              ; preds = %89
-  %112 = load ptr, ptr %5, align 8
-  %113 = load ptr, ptr %6, align 8
-  call void @epsf_emit_body(ptr noundef %112, ptr noundef %113)
-  br label %119
+112:                                              ; preds = %90
+  %113 = load ptr, ptr %5, align 8
+  %114 = load ptr, ptr %6, align 8
+  call void @epsf_emit_body(ptr noundef %113, ptr noundef %114)
+  br label %120
 
-114:                                              ; preds = %89
-  %115 = load ptr, ptr %5, align 8
-  %116 = load ptr, ptr %6, align 8
-  %117 = getelementptr inbounds %struct.usershape_s, ptr %116, i32 0, i32 2
-  %118 = load i32, ptr %117, align 8
-  call void (ptr, ptr, ...) @gvprintf(ptr noundef %115, ptr noundef @.str.61, i32 noundef %118)
-  br label %119
+115:                                              ; preds = %90
+  %116 = load ptr, ptr %5, align 8
+  %117 = load ptr, ptr %6, align 8
+  %118 = getelementptr inbounds %struct.usershape_s, ptr %117, i32 0, i32 2
+  %119 = load i32, ptr %118, align 8
+  call void (ptr, ptr, ...) @gvprintf(ptr noundef %116, ptr noundef @.str.61, i32 noundef %119)
+  br label %120
 
-119:                                              ; preds = %114, %111
-  %120 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @gvprintf(ptr noundef %120, ptr noundef @.str.62)
-  br label %121
+120:                                              ; preds = %115, %112
+  %121 = load ptr, ptr %5, align 8
+  call void (ptr, ptr, ...) @gvprintf(ptr noundef %121, ptr noundef @.str.62)
+  br label %122
 
-121:                                              ; preds = %119, %84, %40
+122:                                              ; preds = %120, %85, %40
   ret void
 }
 

@@ -72,132 +72,137 @@ define i32 @mcs_g_init() #0 {
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %14
-  br label %71
+  br label %76
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 99), align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %22, label %21
-
-21:                                               ; preds = %18
-  store i32 1, ptr @plugin_inited, align 4
-  br label %71
+  %19 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 99
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %23, label %22
 
 22:                                               ; preds = %18
+  store i32 1, ptr @plugin_inited, align 4
+  br label %76
+
+23:                                               ; preds = %18
   call void @slurm_xfree(ptr noundef @mcs_params_common)
   call void @slurm_xfree(ptr noundef @mcs_params_specific)
-  %23 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 100), align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %34, label %25
+  %24 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 100
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %36, label %27
 
-25:                                               ; preds = %22
-  br label %26
+27:                                               ; preds = %23
+  br label %28
 
-26:                                               ; preds = %25
-  br label %27
+28:                                               ; preds = %27
+  br label %29
 
-27:                                               ; preds = %26
-  %28 = call i32 @get_log_level()
-  %29 = icmp sge i32 %28, 3
-  br i1 %29, label %30, label %31
+29:                                               ; preds = %28
+  %30 = call i32 @get_log_level()
+  %31 = icmp sge i32 %30, 3
+  br i1 %31, label %32, label %33
 
-30:                                               ; preds = %27
+32:                                               ; preds = %29
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.3)
-  br label %31
-
-31:                                               ; preds = %30, %27
-  br label %32
-
-32:                                               ; preds = %31
   br label %33
 
-33:                                               ; preds = %32
-  br label %54
+33:                                               ; preds = %32, %29
+  br label %34
 
-34:                                               ; preds = %22
-  %35 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 100), align 8
-  %36 = call ptr @xstrdup(ptr noundef %35)
-  store ptr %36, ptr @mcs_params_common, align 8
-  %37 = load ptr, ptr @mcs_params_common, align 8
-  %38 = call ptr @xstrchr(ptr noundef %37, i32 noundef 58)
-  store ptr %38, ptr %3, align 8
-  %39 = load ptr, ptr %3, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %53
+34:                                               ; preds = %33
+  br label %35
 
-41:                                               ; preds = %34
+35:                                               ; preds = %34
+  br label %57
+
+36:                                               ; preds = %23
+  %37 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 100
+  %38 = load ptr, ptr %37, align 8
+  %39 = call ptr @xstrdup(ptr noundef %38)
+  store ptr %39, ptr @mcs_params_common, align 8
+  %40 = load ptr, ptr @mcs_params_common, align 8
+  %41 = call ptr @xstrchr(ptr noundef %40, i32 noundef 58)
+  store ptr %41, ptr %3, align 8
   %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1
-  %44 = load i8, ptr %43, align 1
-  %45 = sext i8 %44 to i32
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %51
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %56
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1
-  %50 = call ptr @xstrdup(ptr noundef %49)
-  store ptr %50, ptr @mcs_params_specific, align 8
-  br label %51
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 1
+  %47 = load i8, ptr %46, align 1
+  %48 = sext i8 %47 to i32
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %54
 
-51:                                               ; preds = %47, %41
-  %52 = load ptr, ptr %3, align 8
-  store i8 0, ptr %52, align 1
-  br label %53
-
-53:                                               ; preds = %51, %34
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 1
+  %53 = call ptr @xstrdup(ptr noundef %52)
+  store ptr %53, ptr @mcs_params_specific, align 8
   br label %54
 
-54:                                               ; preds = %53, %33
-  %55 = load ptr, ptr @mcs_params_common, align 8
-  %56 = call i32 @_slurm_mcs_check_and_load_privatedata(ptr noundef %55)
-  %57 = load ptr, ptr @mcs_params_common, align 8
-  %58 = call i32 @_slurm_mcs_check_and_load_enforced(ptr noundef %57)
-  %59 = load ptr, ptr @mcs_params_common, align 8
-  %60 = call i32 @_slurm_mcs_check_and_load_select(ptr noundef %59)
-  %61 = load ptr, ptr %2, align 8
-  %62 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 99), align 8
-  %63 = call ptr @plugin_context_create(ptr noundef %61, ptr noundef %62, ptr noundef @ops, ptr noundef @syms, i64 noundef 16)
-  store ptr %63, ptr @g_mcs_context, align 8
-  %64 = load ptr, ptr @g_mcs_context, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %70, label %66
+54:                                               ; preds = %50, %44
+  %55 = load ptr, ptr %3, align 8
+  store i8 0, ptr %55, align 1
+  br label %56
 
-66:                                               ; preds = %54
-  %67 = load ptr, ptr %2, align 8
-  %68 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 99), align 8
-  %69 = call i32 (ptr, ...) @error(ptr noundef @.str.4, ptr noundef %67, ptr noundef %68)
+56:                                               ; preds = %54, %36
+  br label %57
+
+57:                                               ; preds = %56, %35
+  %58 = load ptr, ptr @mcs_params_common, align 8
+  %59 = call i32 @_slurm_mcs_check_and_load_privatedata(ptr noundef %58)
+  %60 = load ptr, ptr @mcs_params_common, align 8
+  %61 = call i32 @_slurm_mcs_check_and_load_enforced(ptr noundef %60)
+  %62 = load ptr, ptr @mcs_params_common, align 8
+  %63 = call i32 @_slurm_mcs_check_and_load_select(ptr noundef %62)
+  %64 = load ptr, ptr %2, align 8
+  %65 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 99
+  %66 = load ptr, ptr %65, align 8
+  %67 = call ptr @plugin_context_create(ptr noundef %64, ptr noundef %66, ptr noundef @ops, ptr noundef @syms, i64 noundef 16)
+  store ptr %67, ptr @g_mcs_context, align 8
+  %68 = load ptr, ptr @g_mcs_context, align 8
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %75, label %70
+
+70:                                               ; preds = %57
+  %71 = load ptr, ptr %2, align 8
+  %72 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 99
+  %73 = load ptr, ptr %72, align 8
+  %74 = call i32 (ptr, ...) @error(ptr noundef @.str.4, ptr noundef %71, ptr noundef %73)
   store i32 -1, ptr %1, align 4
   store i32 0, ptr @plugin_inited, align 4
-  br label %71
+  br label %76
 
-70:                                               ; preds = %54
+75:                                               ; preds = %57
   store i32 2, ptr @plugin_inited, align 4
-  br label %71
+  br label %76
 
-71:                                               ; preds = %70, %66, %21, %17
-  br label %72
+76:                                               ; preds = %75, %70, %22, %17
+  br label %77
 
-72:                                               ; preds = %71
-  %73 = call i32 @pthread_mutex_unlock(ptr noundef @g_mcs_context_lock) #5
-  store i32 %73, ptr %5, align 4
-  %74 = load i32, ptr %5, align 4
-  %75 = icmp ne i32 %74, 0
-  br i1 %75, label %76, label %79
+77:                                               ; preds = %76
+  %78 = call i32 @pthread_mutex_unlock(ptr noundef @g_mcs_context_lock) #5
+  store i32 %78, ptr %5, align 4
+  %79 = load i32, ptr %5, align 4
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %84
 
-76:                                               ; preds = %72
-  %77 = load i32, ptr %5, align 4
-  %78 = call ptr @__errno_location() #6
-  store i32 %77, ptr %78, align 4
+81:                                               ; preds = %77
+  %82 = load i32, ptr %5, align 4
+  %83 = call ptr @__errno_location() #6
+  store i32 %82, ptr %83, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.5, ptr noundef @.str.2, i32 noundef 128, ptr noundef @__func__.mcs_g_init) #7
   unreachable
 
-79:                                               ; preds = %72
-  br label %80
+84:                                               ; preds = %77
+  br label %85
 
-80:                                               ; preds = %79
-  %81 = load i32, ptr %1, align 4
-  ret i32 %81
+85:                                               ; preds = %84
+  %86 = load i32, ptr %1, align 4
+  ret i32 %86
 }
 
 ; Function Attrs: nounwind
@@ -551,21 +556,22 @@ define i32 @mcs_g_check_mcs_label(i32 noundef %0, ptr noundef %1, i1 noundef zer
 
 11:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %19
+  br label %20
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr getelementptr inbounds (%struct.slurm_mcs_ops, ptr @ops, i32 0, i32 1), align 8
-  %14 = load i32, ptr %5, align 4
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i8, ptr %7, align 1
-  %17 = trunc i8 %16 to i1
-  %18 = call i32 %13(i32 noundef %14, ptr noundef %15, i1 noundef zeroext %17)
-  store i32 %18, ptr %4, align 4
-  br label %19
+  %13 = getelementptr inbounds %struct.slurm_mcs_ops, ptr @ops, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr %5, align 4
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i8, ptr %7, align 1
+  %18 = trunc i8 %17 to i1
+  %19 = call i32 %14(i32 noundef %15, ptr noundef %16, i1 noundef zeroext %18)
+  store i32 %19, ptr %4, align 4
+  br label %20
 
-19:                                               ; preds = %12, %11
-  %20 = load i32, ptr %4, align 4
-  ret i32 %20
+20:                                               ; preds = %12, %11
+  %21 = load i32, ptr %4, align 4
+  ret i32 %21
 }
 
 declare ptr @xstrcasestr(ptr noundef, ptr noundef) #4

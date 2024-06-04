@@ -48,52 +48,53 @@ define internal ptr @v2_alloc_pgtable(ptr noundef %0, ptr noundef %1) #0 align 1
   %22 = getelementptr inbounds i8, ptr %0, i64 272
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
-  br i1 %23, label %51, label %24
+  br i1 %23, label %52, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %1, i64 16
   %26 = ptrtoint ptr %21 to i64
   %27 = add i64 %26, 2147483648
-  %28 = icmp ugt ptr %21, inttoptr (i64 -2147483649 to ptr)
-  %29 = load i64, ptr @phys_base, align 8
-  %30 = load i64, ptr @page_offset_base, align 8
-  %31 = sub i64 -2147483648, %30
-  %32 = select i1 %28, i64 %29, i64 %31
-  %33 = add i64 %27, %32
-  %34 = tail call i32 @amd_iommu_domain_set_gcr3(ptr noundef %25, i32 noundef 0, i64 noundef %33) #8
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %48
+  %28 = inttoptr i64 -2147483649 to ptr
+  %29 = icmp ugt ptr %21, %28
+  %30 = load i64, ptr @phys_base, align 8
+  %31 = load i64, ptr @page_offset_base, align 8
+  %32 = sub i64 -2147483648, %31
+  %33 = select i1 %29, i64 %30, i64 %32
+  %34 = add i64 %27, %33
+  %35 = tail call i32 @amd_iommu_domain_set_gcr3(ptr noundef %25, i32 noundef 0, i64 noundef %34) #8
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %49
 
-36:                                               ; preds = %24
-  %37 = load i32, ptr @amd_iommu_gpt_level, align 4
-  %38 = icmp eq i32 %37, 5
-  %39 = select i1 %38, i32 57, i32 52
-  %40 = getelementptr inbounds i8, ptr %0, i64 104
-  %41 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr @iommu_v2_map_pages, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 232
-  store ptr @iommu_v2_unmap_pages, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr @iommu_v2_iova_to_phys, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 1075843072, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %39, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 52, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr @v2_flush_ops, ptr %47, align 8
-  br label %51
+37:                                               ; preds = %24
+  %38 = load i32, ptr @amd_iommu_gpt_level, align 4
+  %39 = icmp eq i32 %38, 5
+  %40 = select i1 %39, i32 57, i32 52
+  %41 = getelementptr inbounds i8, ptr %0, i64 104
+  %42 = getelementptr inbounds i8, ptr %0, i64 224
+  store ptr @iommu_v2_map_pages, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 232
+  store ptr @iommu_v2_unmap_pages, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 240
+  store ptr @iommu_v2_iova_to_phys, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 1075843072, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %40, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 52, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr @v2_flush_ops, ptr %48, align 8
+  br label %52
 
-48:                                               ; preds = %24
-  %49 = load ptr, ptr %22, align 8
-  %50 = ptrtoint ptr %49 to i64
-  tail call void @free_pages(i64 noundef %50, i32 noundef 0) #8
-  br label %51
+49:                                               ; preds = %24
+  %50 = load ptr, ptr %22, align 8
+  %51 = ptrtoint ptr %50 to i64
+  tail call void @free_pages(i64 noundef %51, i32 noundef 0) #8
+  br label %52
 
-51:                                               ; preds = %48, %36, %20
-  %52 = phi ptr [ null, %48 ], [ %40, %36 ], [ null, %20 ]
-  ret ptr %52
+52:                                               ; preds = %49, %37, %20
+  %53 = phi ptr [ null, %49 ], [ %41, %37 ], [ null, %20 ]
+  ret ptr %53
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -160,11 +161,11 @@ define internal noundef i32 @iommu_v2_map_pages(ptr noundef %0, i64 noundef %1, 
   %25 = icmp eq i32 %24, 0
   %26 = or i1 %23, %25
   %27 = or i1 %26, %20
-  br i1 %27, label %178, label %28
+  br i1 %27, label %180, label %28
 
 28:                                               ; preds = %22
   %29 = icmp eq i64 %12, 0
-  br i1 %29, label %168, label %30
+  br i1 %29, label %170, label %30
 
 30:                                               ; preds = %28
   %31 = icmp ult i64 %3, 2097152
@@ -186,11 +187,11 @@ define internal noundef i32 @iommu_v2_map_pages(ptr noundef %0, i64 noundef %1, 
   %47 = or i1 %33, %37
   br label %48
 
-48:                                               ; preds = %155, %30
-  %49 = phi i64 [ %1, %30 ], [ %160, %155 ]
-  %50 = phi i64 [ 0, %30 ], [ %162, %155 ]
-  %51 = phi i64 [ %2, %30 ], [ %161, %155 ]
-  %52 = phi i8 [ 0, %30 ], [ %152, %155 ]
+48:                                               ; preds = %157, %30
+  %49 = phi i64 [ %1, %30 ], [ %162, %157 ]
+  %50 = phi i64 [ 0, %30 ], [ %164, %157 ]
+  %51 = phi i64 [ %2, %30 ], [ %163, %157 ]
+  %52 = phi i8 [ 0, %30 ], [ %154, %157 ]
   %53 = load i32, ptr %35, align 4
   %54 = load ptr, ptr %36, align 8
   %55 = load i32, ptr @amd_iommu_gpt_level, align 4
@@ -203,16 +204,16 @@ define internal noundef i32 @iommu_v2_map_pages(ptr noundef %0, i64 noundef %1, 
   %62 = getelementptr i64, ptr %54, i64 %61
   %63 = and i64 %49, -4096
   %64 = icmp slt i32 %56, %39
-  br i1 %64, label %137, label %65
+  br i1 %64, label %139, label %65
 
 65:                                               ; preds = %48
   %66 = icmp eq i32 %53, -1
   br label %67
 
-67:                                               ; preds = %135, %65
-  %68 = phi i8 [ %52, %65 ], [ %131, %135 ]
-  %69 = phi ptr [ %62, %65 ], [ %134, %135 ]
-  %70 = phi i32 [ %56, %65 ], [ %133, %135 ]
+67:                                               ; preds = %137, %65
+  %68 = phi i8 [ %52, %65 ], [ %133, %137 ]
+  %69 = phi ptr [ %62, %65 ], [ %136, %137 ]
+  %70 = phi i32 [ %56, %65 ], [ %135, %137 ]
   %71 = load i64, ptr %69, align 8
   %72 = and i64 %71, 1
   %73 = icmp eq i64 %72, 0
@@ -221,11 +222,11 @@ define internal noundef i32 @iommu_v2_map_pages(ptr noundef %0, i64 noundef %1, 
 74:                                               ; preds = %67
   %75 = and i64 %71, 128
   %76 = icmp eq i64 %75, 0
-  br i1 %76, label %118, label %77
+  br i1 %76, label %120, label %77
 
 77:                                               ; preds = %74
   %78 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %69, i64 0, i64 %71, ptr elementtype(i64) %69) #8, !srcloc !11
-  br label %130, !llvm.loop !12
+  br label %132, !llvm.loop !12
 
 79:                                               ; preds = %67
   br i1 %66, label %80, label %82
@@ -238,162 +239,164 @@ define internal noundef i32 @iommu_v2_map_pages(ptr noundef %0, i64 noundef %1, 
   %83 = phi i32 [ %81, %80 ], [ %53, %79 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 %40, ptr %9, align 4
-  br i1 %42, label %84, label %91
+  br i1 %42, label %84, label %92
 
 84:                                               ; preds = %82
   %85 = sext i32 %83 to i64
-  %86 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), i64 %85) #8, !srcloc !15
-  %87 = icmp ult i8 %86, 2
-  call void @llvm.assume(i1 %87)
-  %88 = icmp eq i8 %86, 0
-  br i1 %88, label %89, label %91
+  %86 = getelementptr inbounds [6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1
+  %87 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %86, i64 %85) #8, !srcloc !15
+  %88 = icmp ult i8 %87, 2
+  call void @llvm.assume(i1 %88)
+  %89 = icmp eq i8 %87, 0
+  br i1 %89, label %90, label %92
 
-89:                                               ; preds = %84
-  %90 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull %9, i32 noundef %83) #9
+90:                                               ; preds = %84
+  %91 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull %9, i32 noundef %83) #9
   call void @dump_stack() #9
-  br label %91
+  br label %92
 
-91:                                               ; preds = %89, %84, %82
+92:                                               ; preds = %90, %84, %82
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %92 = call ptr @__alloc_pages(i32 noundef %40, i32 noundef 0, i32 noundef %83, ptr noundef null) #8
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %102, label %94
+  %93 = call ptr @__alloc_pages(i32 noundef %40, i32 noundef 0, i32 noundef %83, ptr noundef null) #8
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %103, label %95
 
-94:                                               ; preds = %91
-  %95 = load i64, ptr @vmemmap_base, align 8
-  %96 = ptrtoint ptr %92 to i64
-  %97 = sub i64 %96, %95
-  %98 = shl i64 %97, 6
-  %99 = load i64, ptr @page_offset_base, align 8
-  %100 = add i64 %98, %99
-  %101 = inttoptr i64 %100 to ptr
-  br label %102
+95:                                               ; preds = %92
+  %96 = load i64, ptr @vmemmap_base, align 8
+  %97 = ptrtoint ptr %93 to i64
+  %98 = sub i64 %97, %96
+  %99 = shl i64 %98, 6
+  %100 = load i64, ptr @page_offset_base, align 8
+  %101 = add i64 %99, %100
+  %102 = inttoptr i64 %101 to ptr
+  br label %103
 
-102:                                              ; preds = %94, %91
-  %103 = phi ptr [ %101, %94 ], [ null, %91 ]
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %130, label %105
+103:                                              ; preds = %95, %92
+  %104 = phi ptr [ %102, %95 ], [ null, %92 ]
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %132, label %106
 
-105:                                              ; preds = %102
-  %106 = ptrtoint ptr %103 to i64
-  %107 = add i64 %106, 2147483648
-  %108 = icmp ugt ptr %103, inttoptr (i64 -2147483649 to ptr)
-  %109 = load i64, ptr @phys_base, align 8
-  %110 = load i64, ptr @page_offset_base, align 8
-  %111 = sub i64 -2147483648, %110
-  %112 = select i1 %108, i64 %109, i64 %111
-  %113 = add i64 %107, %112
-  %114 = or i64 %113, 103
-  %115 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %69, i64 %114, i64 %71, ptr elementtype(i64) %69) #8, !srcloc !16
-  %116 = icmp eq i64 %115, %71
-  br i1 %116, label %130, label %117, !llvm.loop !12
+106:                                              ; preds = %103
+  %107 = ptrtoint ptr %104 to i64
+  %108 = add i64 %107, 2147483648
+  %109 = inttoptr i64 -2147483649 to ptr
+  %110 = icmp ugt ptr %104, %109
+  %111 = load i64, ptr @phys_base, align 8
+  %112 = load i64, ptr @page_offset_base, align 8
+  %113 = sub i64 -2147483648, %112
+  %114 = select i1 %110, i64 %111, i64 %113
+  %115 = add i64 %108, %114
+  %116 = or i64 %115, 103
+  %117 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %69, i64 %116, i64 %71, ptr elementtype(i64) %69) #8, !srcloc !16
+  %118 = icmp eq i64 %117, %71
+  br i1 %118, label %132, label %119, !llvm.loop !12
 
-117:                                              ; preds = %105
-  call void @free_pages(i64 noundef %106, i32 noundef 0) #8
-  br label %130, !llvm.loop !12
+119:                                              ; preds = %106
+  call void @free_pages(i64 noundef %107, i32 noundef 0) #8
+  br label %132, !llvm.loop !12
 
-118:                                              ; preds = %74
-  %119 = add nsw i32 %70, -1
-  %120 = and i64 %71, 4503599627366400
-  %121 = load i64, ptr @page_offset_base, align 8
-  %122 = add i64 %121, %120
-  %123 = inttoptr i64 %122 to ptr
-  %124 = mul i32 %119, 9
-  %125 = add i32 %124, 12
-  %126 = zext nneg i32 %125 to i64
-  %127 = lshr i64 %63, %126
-  %128 = and i64 %127, 511
-  %129 = getelementptr i64, ptr %123, i64 %128
-  br label %130
+120:                                              ; preds = %74
+  %121 = add nsw i32 %70, -1
+  %122 = and i64 %71, 4503599627366400
+  %123 = load i64, ptr @page_offset_base, align 8
+  %124 = add i64 %123, %122
+  %125 = inttoptr i64 %124 to ptr
+  %126 = mul i32 %121, 9
+  %127 = add i32 %126, 12
+  %128 = zext nneg i32 %127 to i64
+  %129 = lshr i64 %63, %128
+  %130 = and i64 %129, 511
+  %131 = getelementptr i64, ptr %125, i64 %130
+  br label %132
 
-130:                                              ; preds = %118, %117, %105, %102, %77
-  %131 = phi i8 [ %68, %102 ], [ %68, %105 ], [ %68, %117 ], [ %68, %118 ], [ 1, %77 ]
-  %132 = phi i32 [ 1, %102 ], [ 2, %105 ], [ 2, %117 ], [ 0, %118 ], [ 2, %77 ]
-  %133 = phi i32 [ %70, %102 ], [ %70, %105 ], [ %70, %117 ], [ %119, %118 ], [ %70, %77 ]
-  %134 = phi ptr [ %69, %102 ], [ %69, %105 ], [ %69, %117 ], [ %129, %118 ], [ %69, %77 ]
-  switch i32 %132, label %151 [
-    i32 0, label %135
-    i32 2, label %135
+132:                                              ; preds = %120, %119, %106, %103, %77
+  %133 = phi i8 [ %68, %103 ], [ %68, %106 ], [ %68, %119 ], [ %68, %120 ], [ 1, %77 ]
+  %134 = phi i32 [ 1, %103 ], [ 2, %106 ], [ 2, %119 ], [ 0, %120 ], [ 2, %77 ]
+  %135 = phi i32 [ %70, %103 ], [ %70, %106 ], [ %70, %119 ], [ %121, %120 ], [ %70, %77 ]
+  %136 = phi ptr [ %69, %103 ], [ %69, %106 ], [ %69, %119 ], [ %131, %120 ], [ %69, %77 ]
+  switch i32 %134, label %153 [
+    i32 0, label %137
+    i32 2, label %137
   ]
 
-135:                                              ; preds = %130, %130
-  %136 = icmp slt i32 %133, %39
-  br i1 %136, label %137, label %67, !llvm.loop !12
+137:                                              ; preds = %132, %132
+  %138 = icmp slt i32 %135, %39
+  br i1 %138, label %139, label %67, !llvm.loop !12
 
-137:                                              ; preds = %135, %48
-  %138 = phi i8 [ %52, %48 ], [ %131, %135 ]
-  %139 = phi ptr [ %62, %48 ], [ %134, %135 ]
-  %140 = load i64, ptr %139, align 8
-  %141 = and i64 %140, 1
-  %142 = icmp eq i64 %141, 0
-  br i1 %142, label %151, label %143
+139:                                              ; preds = %137, %48
+  %140 = phi i8 [ %52, %48 ], [ %133, %137 ]
+  %141 = phi ptr [ %62, %48 ], [ %136, %137 ]
+  %142 = load i64, ptr %141, align 8
+  %143 = and i64 %142, 1
+  %144 = icmp eq i64 %143, 0
+  br i1 %144, label %153, label %145
 
-143:                                              ; preds = %137
-  %144 = and i64 %140, 4503599627366400
-  %145 = load i64, ptr @page_offset_base, align 8
-  %146 = add i64 %145, %144
-  %147 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %139, i64 0, i64 %140, ptr elementtype(i64) %139) #8, !srcloc !17
-  switch i64 %34, label %151 [
-    i64 1073741824, label %148
-    i64 2097152, label %150
+145:                                              ; preds = %139
+  %146 = and i64 %142, 4503599627366400
+  %147 = load i64, ptr @page_offset_base, align 8
+  %148 = add i64 %147, %146
+  %149 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %141, i64 0, i64 %142, ptr elementtype(i64) %141) #8, !srcloc !17
+  switch i64 %34, label %153 [
+    i64 1073741824, label %150
+    i64 2097152, label %152
   ]
 
-148:                                              ; preds = %143
-  %149 = inttoptr i64 %146 to ptr
-  call fastcc void @free_pgtable(ptr noundef %149, i32 noundef %43)
-  br label %151
+150:                                              ; preds = %145
+  %151 = inttoptr i64 %148 to ptr
+  call fastcc void @free_pgtable(ptr noundef %151, i32 noundef %43)
+  br label %153
 
-150:                                              ; preds = %143
-  call void @free_pages(i64 noundef %146, i32 noundef 0) #8
-  br label %151
+152:                                              ; preds = %145
+  call void @free_pages(i64 noundef %148, i32 noundef 0) #8
+  br label %153
 
-151:                                              ; preds = %150, %148, %143, %137, %130
-  %152 = phi i8 [ %138, %137 ], [ 1, %143 ], [ 1, %150 ], [ 1, %148 ], [ %131, %130 ]
-  %153 = phi ptr [ %139, %137 ], [ %139, %143 ], [ %139, %150 ], [ %139, %148 ], [ null, %130 ]
-  %154 = icmp eq ptr %153, null
-  br i1 %154, label %164, label %155
+153:                                              ; preds = %152, %150, %145, %139, %132
+  %154 = phi i8 [ %140, %139 ], [ 1, %145 ], [ 1, %152 ], [ 1, %150 ], [ %133, %132 ]
+  %155 = phi ptr [ %141, %139 ], [ %141, %145 ], [ %141, %152 ], [ %141, %150 ], [ null, %132 ]
+  %156 = icmp eq ptr %155, null
+  br i1 %156, label %166, label %157
 
-155:                                              ; preds = %151
-  %156 = and i64 %51, 4503599627366400
-  %157 = or disjoint i64 %156, %46
-  %158 = or disjoint i64 %157, 128
-  %159 = select i1 %47, i64 %158, i64 %157
-  store i64 %159, ptr %153, align 8
-  %160 = add i64 %49, %34
-  %161 = add i64 %51, %34
-  %162 = add i64 %50, %34
-  %163 = icmp ult i64 %162, %12
-  br i1 %163, label %48, label %164, !llvm.loop !18
+157:                                              ; preds = %153
+  %158 = and i64 %51, 4503599627366400
+  %159 = or disjoint i64 %158, %46
+  %160 = or disjoint i64 %159, 128
+  %161 = select i1 %47, i64 %160, i64 %159
+  store i64 %161, ptr %155, align 8
+  %162 = add i64 %49, %34
+  %163 = add i64 %51, %34
+  %164 = add i64 %50, %34
+  %165 = icmp ult i64 %164, %12
+  br i1 %165, label %48, label %166, !llvm.loop !18
 
-164:                                              ; preds = %155, %151
-  %165 = phi i64 [ %162, %155 ], [ %50, %151 ]
-  %166 = phi i32 [ 0, %155 ], [ -22, %151 ]
-  %167 = icmp eq i8 %152, 0
-  br label %168
+166:                                              ; preds = %157, %153
+  %167 = phi i64 [ %164, %157 ], [ %50, %153 ]
+  %168 = phi i32 [ 0, %157 ], [ -22, %153 ]
+  %169 = icmp eq i8 %154, 0
+  br label %170
 
-168:                                              ; preds = %164, %28
-  %169 = phi i64 [ 0, %28 ], [ %165, %164 ]
-  %170 = phi i1 [ true, %28 ], [ %167, %164 ]
-  %171 = phi i32 [ 0, %28 ], [ %166, %164 ]
-  br i1 %170, label %173, label %172
+170:                                              ; preds = %166, %28
+  %171 = phi i64 [ 0, %28 ], [ %167, %166 ]
+  %172 = phi i1 [ true, %28 ], [ %169, %166 ]
+  %173 = phi i32 [ 0, %28 ], [ %168, %166 ]
+  br i1 %172, label %175, label %174
 
-172:                                              ; preds = %168
+174:                                              ; preds = %170
   call void @amd_iommu_domain_flush_pages(ptr noundef %10, i64 noundef %1, i64 noundef %12) #8
-  br label %173
+  br label %175
 
-173:                                              ; preds = %172, %168
-  %174 = icmp eq ptr %7, null
-  br i1 %174, label %178, label %175
+175:                                              ; preds = %174, %170
+  %176 = icmp eq ptr %7, null
+  br i1 %176, label %180, label %177
 
-175:                                              ; preds = %173
-  %176 = load i64, ptr %7, align 8
-  %177 = add i64 %176, %169
-  store i64 %177, ptr %7, align 8
-  br label %178
+177:                                              ; preds = %175
+  %178 = load i64, ptr %7, align 8
+  %179 = add i64 %178, %171
+  store i64 %179, ptr %7, align 8
+  br label %180
 
-178:                                              ; preds = %175, %173, %22
-  %179 = phi i32 [ -22, %22 ], [ %171, %175 ], [ %171, %173 ]
-  ret i32 %179
+180:                                              ; preds = %177, %175, %22
+  %181 = phi i32 [ -22, %22 ], [ %173, %177 ], [ %173, %175 ]
+  ret i32 %181
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

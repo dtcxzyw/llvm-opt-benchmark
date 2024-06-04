@@ -287,66 +287,67 @@ define internal i64 @find_mmap_addr(i64 noundef %0) #0 {
   %8 = call i32 (ptr, ...) @printf(ptr noundef @.str.15, i64 noundef %7)
   br label %9
 
-9:                                                ; preds = %43, %1
+9:                                                ; preds = %44, %1
   %10 = load i64, ptr %4, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = load i64, ptr %3, align 8
   %13 = call ptr @mmap(ptr noundef %11, i64 noundef %12, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #6
   store ptr %13, ptr %5, align 8
   %14 = load ptr, ptr %5, align 8
-  %15 = icmp ne ptr %14, inttoptr (i64 -1 to ptr)
-  br i1 %15, label %16, label %33
+  %15 = inttoptr i64 -1 to ptr
+  %16 = icmp ne ptr %14, %15
+  br i1 %16, label %17, label %34
 
-16:                                               ; preds = %9
-  %17 = load ptr, ptr %5, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = inttoptr i64 %18 to ptr
-  %20 = load i64, ptr %3, align 8
-  %21 = call i32 @munmap(ptr noundef %19, i64 noundef %20) #6
-  store i32 %21, ptr %6, align 4
-  %22 = load ptr, ptr %5, align 8
-  %23 = load i64, ptr %4, align 8
-  %24 = inttoptr i64 %23 to ptr
-  %25 = icmp eq ptr %22, %24
-  br i1 %25, label %26, label %30
+17:                                               ; preds = %9
+  %18 = load ptr, ptr %5, align 8
+  %19 = ptrtoint ptr %18 to i64
+  %20 = inttoptr i64 %19 to ptr
+  %21 = load i64, ptr %3, align 8
+  %22 = call i32 @munmap(ptr noundef %20, i64 noundef %21) #6
+  store i32 %22, ptr %6, align 4
+  %23 = load ptr, ptr %5, align 8
+  %24 = load i64, ptr %4, align 8
+  %25 = inttoptr i64 %24 to ptr
+  %26 = icmp eq ptr %23, %25
+  br i1 %26, label %27, label %31
 
-26:                                               ; preds = %16
-  %27 = load i64, ptr %4, align 8
-  %28 = call i32 (ptr, ...) @printf(ptr noundef @.str.16, i64 noundef %27)
-  %29 = load i64, ptr %4, align 8
-  store i64 %29, ptr %2, align 8
-  br label %45
+27:                                               ; preds = %17
+  %28 = load i64, ptr %4, align 8
+  %29 = call i32 (ptr, ...) @printf(ptr noundef @.str.16, i64 noundef %28)
+  %30 = load i64, ptr %4, align 8
+  store i64 %30, ptr %2, align 8
+  br label %46
 
-30:                                               ; preds = %16
-  %31 = load i64, ptr %4, align 8
-  %32 = call i32 (ptr, ...) @printf(ptr noundef @.str.17, i64 noundef %31)
-  br label %38
+31:                                               ; preds = %17
+  %32 = load i64, ptr %4, align 8
+  %33 = call i32 (ptr, ...) @printf(ptr noundef @.str.17, i64 noundef %32)
+  br label %39
 
-33:                                               ; preds = %9
-  %34 = load i64, ptr %4, align 8
-  %35 = call ptr @__errno_location() #7
-  %36 = load i32, ptr %35, align 4
-  %37 = call i32 (ptr, ...) @printf(ptr noundef @.str.18, i64 noundef %34, i32 noundef %36)
-  br label %38
+34:                                               ; preds = %9
+  %35 = load i64, ptr %4, align 8
+  %36 = call ptr @__errno_location() #7
+  %37 = load i32, ptr %36, align 4
+  %38 = call i32 (ptr, ...) @printf(ptr noundef @.str.18, i64 noundef %35, i32 noundef %37)
+  br label %39
 
-38:                                               ; preds = %33, %30
-  %39 = load i64, ptr %4, align 8
-  %40 = lshr i64 %39, 1
-  store i64 %40, ptr %4, align 8
-  %41 = load i64, ptr %4, align 8
-  %42 = icmp ne i64 %41, 0
-  br i1 %42, label %43, label %44
+39:                                               ; preds = %34, %31
+  %40 = load i64, ptr %4, align 8
+  %41 = lshr i64 %40, 1
+  store i64 %41, ptr %4, align 8
+  %42 = load i64, ptr %4, align 8
+  %43 = icmp ne i64 %42, 0
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %38
+44:                                               ; preds = %39
   br label %9
 
-44:                                               ; preds = %38
+45:                                               ; preds = %39
   store i64 0, ptr %2, align 8
-  br label %45
+  br label %46
 
-45:                                               ; preds = %44, %26
-  %46 = load i64, ptr %2, align 8
-  ret i64 %46
+46:                                               ; preds = %45, %27
+  %47 = load i64, ptr %2, align 8
+  ret i64 %47
 }
 
 declare i32 @close(i32 noundef) #3

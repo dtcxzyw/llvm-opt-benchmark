@@ -102,258 +102,259 @@ define hidden void @_ZNK8rawspeed17TiffEntryWithData6anchorEv(ptr nocapture nonn
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8rawspeed9TiffEntryE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !9
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr null, ptr %5, align 8, !tbaa !20
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %6, align 8, !tbaa !21
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 57005, ptr %7, align 4, !tbaa !22
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 0, ptr %8, align 8, !tbaa !23
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !23
-  %11 = zext i32 %10 to i64
-  %12 = add nuw nsw i64 %11, 2
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !21
-  %15 = zext i32 %14 to i64
-  %16 = icmp ugt i64 %12, %15
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %3
-  tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #21
-  unreachable
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8rawspeed9TiffEntryE, i64 0, i32 0, i64 2
+  store ptr %4, ptr %0, align 8, !tbaa !6
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr null, ptr %6, align 8, !tbaa !20
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %7, align 8, !tbaa !21
+  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 57005, ptr %8, align 4, !tbaa !22
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 0, ptr %9, align 8, !tbaa !23
+  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = load i32, ptr %10, align 8, !tbaa !23
+  %12 = zext i32 %11 to i64
+  %13 = add nuw nsw i64 %12, 2
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = load i32, ptr %14, align 8, !tbaa !21
+  %16 = zext i32 %15 to i64
+  %17 = icmp ugt i64 %13, %16
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
-  %20 = getelementptr inbounds i8, ptr %2, i64 12
-  %21 = load i32, ptr %20, align 4, !tbaa !22
-  %22 = icmp eq i32 %21, 57005
-  %23 = load ptr, ptr %2, align 8, !tbaa !20, !nonnull !24, !noundef !24
-  %24 = icmp sgt i32 %14, -1
-  tail call void @llvm.assume(i1 %24)
-  %25 = add nuw nsw i32 %10, 2
-  %26 = icmp ule i32 %25, %14
-  tail call void @llvm.assume(i1 %26)
-  %27 = icmp sgt i32 %10, -1
+  tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #21
+  unreachable
+
+19:                                               ; preds = %3
+  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds i8, ptr %2, i64 12
+  %22 = load i32, ptr %21, align 4, !tbaa !22
+  %23 = icmp eq i32 %22, 57005
+  %24 = load ptr, ptr %2, align 8, !tbaa !20, !nonnull !24, !noundef !24
+  %25 = icmp sgt i32 %15, -1
+  tail call void @llvm.assume(i1 %25)
+  %26 = add nuw nsw i32 %11, 2
+  %27 = icmp ule i32 %26, %15
   tail call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds i8, ptr %23, i64 %11
-  %29 = load i16, ptr %28, align 1
-  %30 = tail call i16 @llvm.bswap.i16(i16 %29)
-  %31 = select i1 %22, i16 %29, i16 %30
-  store i32 %25, ptr %9, align 8, !tbaa !23
-  %32 = zext i16 %31 to i32
-  store i32 %32, ptr %19, align 8, !tbaa !25
-  %33 = zext nneg i32 %25 to i64
-  %34 = add nuw nsw i64 %33, 2
-  %35 = icmp ugt i64 %34, %15
-  br i1 %35, label %36, label %37
+  %28 = icmp sgt i32 %11, -1
+  tail call void @llvm.assume(i1 %28)
+  %29 = getelementptr inbounds i8, ptr %24, i64 %12
+  %30 = load i16, ptr %29, align 1
+  %31 = tail call i16 @llvm.bswap.i16(i16 %30)
+  %32 = select i1 %23, i16 %30, i16 %31
+  store i32 %26, ptr %10, align 8, !tbaa !23
+  %33 = zext i16 %32 to i32
+  store i32 %33, ptr %20, align 8, !tbaa !25
+  %34 = zext nneg i32 %26 to i64
+  %35 = add nuw nsw i64 %34, 2
+  %36 = icmp ugt i64 %35, %16
+  br i1 %36, label %37, label %38
 
-36:                                               ; preds = %18
+37:                                               ; preds = %19
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #21
   unreachable
 
-37:                                               ; preds = %18
-  %38 = add nuw nsw i32 %10, 4
-  %39 = icmp ule i32 %38, %14
-  tail call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds i8, ptr %23, i64 %33
-  %41 = load i16, ptr %40, align 1
-  %42 = tail call i16 @llvm.bswap.i16(i16 %41)
-  %43 = select i1 %22, i16 %41, i16 %42
-  store i32 %38, ptr %9, align 8, !tbaa !23
-  %44 = zext i16 %43 to i32
-  %45 = icmp ugt i16 %43, 13
-  br i1 %45, label %46, label %47
+38:                                               ; preds = %19
+  %39 = add nuw nsw i32 %11, 4
+  %40 = icmp ule i32 %39, %15
+  tail call void @llvm.assume(i1 %40)
+  %41 = getelementptr inbounds i8, ptr %24, i64 %34
+  %42 = load i16, ptr %41, align 1
+  %43 = tail call i16 @llvm.bswap.i16(i16 %42)
+  %44 = select i1 %23, i16 %42, i16 %43
+  store i32 %39, ptr %10, align 8, !tbaa !23
+  %45 = zext i16 %44 to i32
+  %46 = icmp ugt i16 %44, 13
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %37
-  tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE, i32 noundef %44) #21
+47:                                               ; preds = %38
+  tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE, i32 noundef %45) #21
   unreachable
 
-47:                                               ; preds = %37
-  %48 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %44, ptr %48, align 4, !tbaa !26
-  %49 = zext nneg i32 %38 to i64
-  %50 = add nuw nsw i64 %49, 4
-  %51 = icmp ugt i64 %50, %15
-  br i1 %51, label %52, label %53
+48:                                               ; preds = %38
+  %49 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 %45, ptr %49, align 4, !tbaa !26
+  %50 = zext nneg i32 %39 to i64
+  %51 = add nuw nsw i64 %50, 4
+  %52 = icmp ugt i64 %51, %16
+  br i1 %52, label %53, label %54
 
-52:                                               ; preds = %47
+53:                                               ; preds = %48
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #21
   unreachable
 
-53:                                               ; preds = %47
-  %54 = add nuw nsw i32 %10, 8
-  %55 = icmp ule i32 %54, %14
-  tail call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds i8, ptr %23, i64 %49
-  %57 = load i32, ptr %56, align 1
-  %58 = tail call i32 @llvm.bswap.i32(i32 %57)
-  %59 = select i1 %22, i32 %57, i32 %58
-  store i32 %54, ptr %9, align 8, !tbaa !23
-  %60 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 %59, ptr %60, align 8, !tbaa !27
-  %61 = zext nneg i16 %43 to i64
-  %62 = getelementptr inbounds [14 x i32], ptr @_ZN8rawspeed9TiffEntry10datashiftsE, i64 0, i64 %61
-  %63 = load i32, ptr %62, align 4, !tbaa !28
-  %64 = lshr i32 -1, %63
-  %65 = icmp ugt i32 %59, %64
-  br i1 %65, label %66, label %67
+54:                                               ; preds = %48
+  %55 = add nuw nsw i32 %11, 8
+  %56 = icmp ule i32 %55, %15
+  tail call void @llvm.assume(i1 %56)
+  %57 = getelementptr inbounds i8, ptr %24, i64 %50
+  %58 = load i32, ptr %57, align 1
+  %59 = tail call i32 @llvm.bswap.i32(i32 %58)
+  %60 = select i1 %23, i32 %58, i32 %59
+  store i32 %55, ptr %10, align 8, !tbaa !23
+  %61 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 %60, ptr %61, align 8, !tbaa !27
+  %62 = zext nneg i16 %44 to i64
+  %63 = getelementptr inbounds [14 x i32], ptr @_ZN8rawspeed9TiffEntry10datashiftsE, i64 0, i64 %62
+  %64 = load i32, ptr %63, align 4, !tbaa !28
+  %65 = lshr i32 -1, %64
+  %66 = icmp ugt i32 %60, %65
+  br i1 %66, label %67, label %68
 
-66:                                               ; preds = %53
+67:                                               ; preds = %54
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE) #21
   unreachable
 
-67:                                               ; preds = %53
-  %68 = shl i32 %59, %63
-  %69 = icmp ult i32 %68, 5
-  %70 = zext nneg i32 %54 to i64
-  br i1 %69, label %71, label %95
+68:                                               ; preds = %54
+  %69 = shl i32 %60, %64
+  %70 = icmp ult i32 %69, 5
+  %71 = zext nneg i32 %55 to i64
+  br i1 %70, label %72, label %96
 
-71:                                               ; preds = %67
-  %72 = zext nneg i32 %68 to i64
-  %73 = add nuw nsw i64 %72, %70
-  %74 = icmp ugt i64 %73, %15
-  br i1 %74, label %75, label %76
+72:                                               ; preds = %68
+  %73 = zext nneg i32 %69 to i64
+  %74 = add nuw nsw i64 %73, %71
+  %75 = icmp ugt i64 %74, %16
+  br i1 %75, label %76, label %77
 
-75:                                               ; preds = %71
+76:                                               ; preds = %72
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #21, !noalias !29
   unreachable
 
-76:                                               ; preds = %71
-  %77 = add nuw nsw i32 %68, %54
-  %78 = icmp ule i32 %77, %14
-  tail call void @llvm.assume(i1 %78)
-  %79 = getelementptr inbounds i8, ptr %23, i64 %70
-  %80 = zext i32 %21 to i64
-  %81 = shl nuw i64 %80, 32
-  %82 = or disjoint i64 %81, %72
-  store ptr %79, ptr %5, align 8
-  store i64 %82, ptr %6, align 8
-  store i32 0, ptr %8, align 8
-  %83 = load i32, ptr %9, align 8, !tbaa !23
-  %84 = zext i32 %83 to i64
-  %85 = add nuw nsw i64 %84, 4
-  %86 = load i32, ptr %13, align 8, !tbaa !21
-  %87 = zext i32 %86 to i64
-  %88 = icmp ugt i64 %85, %87
-  br i1 %88, label %89, label %90
+77:                                               ; preds = %72
+  %78 = add nuw nsw i32 %69, %55
+  %79 = icmp ule i32 %78, %15
+  tail call void @llvm.assume(i1 %79)
+  %80 = getelementptr inbounds i8, ptr %24, i64 %71
+  %81 = zext i32 %22 to i64
+  %82 = shl nuw i64 %81, 32
+  %83 = or disjoint i64 %82, %73
+  store ptr %80, ptr %6, align 8
+  store i64 %83, ptr %7, align 8
+  store i32 0, ptr %9, align 8
+  %84 = load i32, ptr %10, align 8, !tbaa !23
+  %85 = zext i32 %84 to i64
+  %86 = add nuw nsw i64 %85, 4
+  %87 = load i32, ptr %14, align 8, !tbaa !21
+  %88 = zext i32 %87 to i64
+  %89 = icmp ugt i64 %86, %88
+  br i1 %89, label %90, label %91
 
-89:                                               ; preds = %76
+90:                                               ; preds = %77
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj) #21
   unreachable
 
-90:                                               ; preds = %76
-  %91 = icmp sgt i32 %86, -1
-  tail call void @llvm.assume(i1 %91)
-  %92 = add nuw nsw i32 %83, 4
-  %93 = icmp ule i32 %92, %86
-  tail call void @llvm.assume(i1 %93)
-  %94 = icmp sgt i32 %83, -1
+91:                                               ; preds = %77
+  %92 = icmp sgt i32 %87, -1
+  tail call void @llvm.assume(i1 %92)
+  %93 = add nuw nsw i32 %84, 4
+  %94 = icmp ule i32 %93, %87
   tail call void @llvm.assume(i1 %94)
-  store i32 %92, ptr %9, align 8, !tbaa !23
-  br label %151
+  %95 = icmp sgt i32 %84, -1
+  tail call void @llvm.assume(i1 %95)
+  store i32 %93, ptr %10, align 8, !tbaa !23
+  br label %152
 
-95:                                               ; preds = %67
-  %96 = add nuw nsw i64 %70, 4
-  %97 = icmp ugt i64 %96, %15
-  br i1 %97, label %98, label %99
+96:                                               ; preds = %68
+  %97 = add nuw nsw i64 %71, 4
+  %98 = icmp ugt i64 %97, %16
+  br i1 %98, label %99, label %100
 
-98:                                               ; preds = %95
+99:                                               ; preds = %96
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #21
   unreachable
 
-99:                                               ; preds = %95
-  %100 = add nuw nsw i32 %10, 12
-  %101 = icmp ule i32 %100, %14
-  tail call void @llvm.assume(i1 %101)
-  %102 = getelementptr inbounds i8, ptr %23, i64 %70
-  %103 = load i32, ptr %102, align 1
-  %104 = tail call i32 @llvm.bswap.i32(i32 %103)
-  %105 = select i1 %22, i32 %103, i32 %104
-  store i32 %100, ptr %9, align 8, !tbaa !23
-  %106 = icmp eq i16 %43, 13
-  %107 = icmp eq i16 %31, -14796
-  %108 = select i1 %106, i1 true, i1 %107
-  %109 = icmp eq i16 %31, -28036
-  %110 = select i1 %108, i1 true, i1 %109
-  %111 = icmp eq i16 %31, 46
-  %112 = select i1 %110, i1 true, i1 %111
-  %113 = icmp eq i16 %31, -4096
-  %114 = select i1 %112, i1 true, i1 %113
-  %115 = icmp eq i16 %31, 330
-  %116 = select i1 %114, i1 true, i1 %115
-  %117 = icmp eq i16 %31, -30871
-  %118 = select i1 %116, i1 true, i1 %117
-  br i1 %118, label %119, label %136
+100:                                              ; preds = %96
+  %101 = add nuw nsw i32 %11, 12
+  %102 = icmp ule i32 %101, %15
+  tail call void @llvm.assume(i1 %102)
+  %103 = getelementptr inbounds i8, ptr %24, i64 %71
+  %104 = load i32, ptr %103, align 1
+  %105 = tail call i32 @llvm.bswap.i32(i32 %104)
+  %106 = select i1 %23, i32 %104, i32 %105
+  store i32 %101, ptr %10, align 8, !tbaa !23
+  %107 = icmp eq i16 %44, 13
+  %108 = icmp eq i16 %32, -14796
+  %109 = select i1 %107, i1 true, i1 %108
+  %110 = icmp eq i16 %32, -28036
+  %111 = select i1 %109, i1 true, i1 %110
+  %112 = icmp eq i16 %32, 46
+  %113 = select i1 %111, i1 true, i1 %112
+  %114 = icmp eq i16 %32, -4096
+  %115 = select i1 %113, i1 true, i1 %114
+  %116 = icmp eq i16 %32, 330
+  %117 = select i1 %115, i1 true, i1 %116
+  %118 = icmp eq i16 %32, -30871
+  %119 = select i1 %117, i1 true, i1 %118
+  br i1 %119, label %120, label %137
 
-119:                                              ; preds = %99
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(20) %2, i64 16, i1 false)
-  store i32 %105, ptr %8, align 8, !tbaa !23
-  %120 = load i32, ptr %6, align 8, !tbaa !21
-  %121 = icmp ult i32 %120, %105
-  br i1 %121, label %122, label %123
+120:                                              ; preds = %100
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %2, i64 16, i1 false)
+  store i32 %106, ptr %9, align 8, !tbaa !23
+  %121 = load i32, ptr %7, align 8, !tbaa !21
+  %122 = icmp ult i32 %121, %106
+  br i1 %122, label %123, label %124
 
-122:                                              ; preds = %119
+123:                                              ; preds = %120
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj) #21
   unreachable
 
-123:                                              ; preds = %119
-  %124 = icmp sgt i32 %120, -1
-  tail call void @llvm.assume(i1 %124)
-  %125 = icmp sgt i32 %105, -1
+124:                                              ; preds = %120
+  %125 = icmp sgt i32 %121, -1
   tail call void @llvm.assume(i1 %125)
-  %126 = zext nneg i32 %105 to i64
-  %127 = zext i32 %68 to i64
-  %128 = add nuw nsw i64 %126, %127
-  %129 = zext nneg i32 %120 to i64
-  %130 = icmp ugt i64 %128, %129
-  br i1 %130, label %131, label %132
+  %126 = icmp sgt i32 %106, -1
+  tail call void @llvm.assume(i1 %126)
+  %127 = zext nneg i32 %106 to i64
+  %128 = zext i32 %69 to i64
+  %129 = add nuw nsw i64 %127, %128
+  %130 = zext nneg i32 %121 to i64
+  %131 = icmp ugt i64 %129, %130
+  br i1 %131, label %132, label %133
 
-131:                                              ; preds = %123
+132:                                              ; preds = %124
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj) #21
   unreachable
 
-132:                                              ; preds = %123
-  %133 = add nuw nsw i32 %105, %68
-  %134 = icmp ule i32 %133, %120
-  tail call void @llvm.assume(i1 %134)
-  %135 = icmp sgt i32 %68, -1
+133:                                              ; preds = %124
+  %134 = add nuw nsw i32 %106, %69
+  %135 = icmp ule i32 %134, %121
   tail call void @llvm.assume(i1 %135)
-  br label %151
+  %136 = icmp sgt i32 %69, -1
+  tail call void @llvm.assume(i1 %136)
+  br label %152
 
-136:                                              ; preds = %99
-  %137 = zext i32 %105 to i64
-  %138 = zext i32 %68 to i64
-  %139 = add nuw nsw i64 %137, %138
-  %140 = icmp ugt i64 %139, %15
-  br i1 %140, label %141, label %142
+137:                                              ; preds = %100
+  %138 = zext i32 %106 to i64
+  %139 = zext i32 %69 to i64
+  %140 = add nuw nsw i64 %138, %139
+  %141 = icmp ugt i64 %140, %16
+  br i1 %141, label %142, label %143
 
-141:                                              ; preds = %136
+142:                                              ; preds = %137
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #21, !noalias !32
   unreachable
 
-142:                                              ; preds = %136
-  %143 = add nuw nsw i32 %105, %68
-  %144 = icmp ule i32 %143, %14
-  tail call void @llvm.assume(i1 %144)
-  %145 = icmp sgt i32 %105, -1
+143:                                              ; preds = %137
+  %144 = add nuw nsw i32 %106, %69
+  %145 = icmp ule i32 %144, %15
   tail call void @llvm.assume(i1 %145)
-  %146 = icmp sgt i32 %68, -1
+  %146 = icmp sgt i32 %106, -1
   tail call void @llvm.assume(i1 %146)
-  %147 = getelementptr inbounds i8, ptr %23, i64 %137
-  %148 = zext i32 %21 to i64
-  %149 = shl nuw i64 %148, 32
-  %150 = or disjoint i64 %149, %138
-  store ptr %147, ptr %5, align 8
-  store i64 %150, ptr %6, align 8
-  store i32 0, ptr %8, align 8
-  br label %151
+  %147 = icmp sgt i32 %69, -1
+  tail call void @llvm.assume(i1 %147)
+  %148 = getelementptr inbounds i8, ptr %24, i64 %138
+  %149 = zext i32 %22 to i64
+  %150 = shl nuw i64 %149, 32
+  %151 = or disjoint i64 %150, %139
+  store ptr %148, ptr %6, align 8
+  store i64 %151, ptr %7, align 8
+  store i32 0, ptr %9, align 8
+  br label %152
 
-151:                                              ; preds = %142, %132, %90
+152:                                              ; preds = %143, %133, %91
   ret void
 }
 
@@ -364,10 +365,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 define linkonce_odr hidden void @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #22
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKczE3buf)
   %4 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 8192, ptr noundef %0, ptr noundef nonnull %2) #22
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   call void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 65536, ptr noundef nonnull @.str.15, ptr noundef nonnull %3)
   %5 = call ptr @__cxa_allocate_exception(i64 16) #22
   invoke void @_ZN8rawspeed19TiffParserExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %3)
@@ -393,40 +394,41 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDENS_7TiffTagENS_12TiffDataTypeEjNS_10ByteStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %5) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8rawspeed9TiffEntryE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %7, align 8, !tbaa !9
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %2, ptr %9, align 8, !tbaa !25
-  %10 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %3, ptr %10, align 4, !tbaa !26
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 %4, ptr %11, align 8, !tbaa !27
-  %12 = zext i32 %3 to i64
-  %13 = getelementptr inbounds [14 x i32], ptr @_ZN8rawspeed9TiffEntry10datashiftsE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !28
-  %15 = lshr i32 -1, %14
-  %16 = icmp ult i32 %15, %4
-  br i1 %16, label %17, label %18
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8rawspeed9TiffEntryE, i64 0, i32 0, i64 2
+  store ptr %7, ptr %0, align 8, !tbaa !6
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %8, align 8, !tbaa !9
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 %2, ptr %10, align 8, !tbaa !25
+  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 %3, ptr %11, align 4, !tbaa !26
+  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 %4, ptr %12, align 8, !tbaa !27
+  %13 = zext i32 %3 to i64
+  %14 = getelementptr inbounds [14 x i32], ptr @_ZN8rawspeed9TiffEntry10datashiftsE, i64 0, i64 %13
+  %15 = load i32, ptr %14, align 4, !tbaa !28
+  %16 = lshr i32 -1, %15
+  %17 = icmp ult i32 %16, %4
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %6
+18:                                               ; preds = %6
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str.2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDENS_7TiffTagENS_12TiffDataTypeEjNS_10ByteStreamE) #21
   unreachable
 
-18:                                               ; preds = %6
-  %19 = shl i32 %4, %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  %21 = load i32, ptr %20, align 8, !tbaa !21
-  %22 = icmp eq i32 %21, %19
-  br i1 %22, label %24, label %23
+19:                                               ; preds = %6
+  %20 = shl i32 %4, %15
+  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = load i32, ptr %21, align 8, !tbaa !21
+  %23 = icmp eq i32 %22, %20
+  br i1 %23, label %25, label %24
 
-23:                                               ; preds = %18
+24:                                               ; preds = %19
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDENS_7TiffTagENS_12TiffDataTypeEjNS_10ByteStreamE) #21
   unreachable
 
-24:                                               ; preds = %18
+25:                                               ; preds = %19
   ret void
 }
 
@@ -451,50 +453,51 @@ define hidden void @_ZN8rawspeed17TiffEntryWithDataC2EPNS_7TiffIFDENS_7TiffTagEN
   store i32 %3, ptr %11, align 4, !tbaa !26
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %12, align 8, !tbaa !27
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8rawspeed17TiffEntryWithDataE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !6
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = load ptr, ptr %5, align 8, !tbaa !20, !nonnull !24, !noundef !24
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !21
-  %17 = icmp sgt i32 %16, -1
-  tail call void @llvm.assume(i1 %17)
-  %18 = zext nneg i32 %16 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  %19 = icmp eq i32 %16, 0
-  br i1 %19, label %20, label %23
+  %13 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8rawspeed17TiffEntryWithDataE, i64 0, i32 0, i64 2
+  store ptr %13, ptr %0, align 8, !tbaa !6
+  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = load ptr, ptr %5, align 8, !tbaa !20, !nonnull !24, !noundef !24
+  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = load i32, ptr %16, align 8, !tbaa !21
+  %18 = icmp sgt i32 %17, -1
+  tail call void @llvm.assume(i1 %18)
+  %19 = zext nneg i32 %17 to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  %20 = icmp eq i32 %17, 0
+  br i1 %20, label %21, label %24
 
-20:                                               ; preds = %6
-  %21 = getelementptr inbounds i8, ptr null, i64 %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %21, ptr %22, align 8, !tbaa !35
-  br label %27
+21:                                               ; preds = %6
+  %22 = getelementptr inbounds i8, ptr null, i64 %19
+  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %22, ptr %23, align 8, !tbaa !35
+  br label %28
 
-23:                                               ; preds = %6
-  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #24
-  store ptr %24, ptr %13, align 8, !tbaa !37
-  %25 = getelementptr inbounds i8, ptr %24, i64 %18
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %25, ptr %26, align 8, !tbaa !35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %14, i64 %18, i1 false)
-  br label %27
+24:                                               ; preds = %6
+  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #24
+  store ptr %25, ptr %14, align 8, !tbaa !37
+  %26 = getelementptr inbounds i8, ptr %25, i64 %19
+  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %26, ptr %27, align 8, !tbaa !35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %15, i64 %19, i1 false)
+  br label %28
 
-27:                                               ; preds = %23, %20
-  %28 = phi ptr [ null, %20 ], [ %24, %23 ]
-  %29 = phi ptr [ %21, %20 ], [ %25, %23 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
-  %31 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %29, ptr %31, align 8, !tbaa !38
-  %32 = ptrtoint ptr %29 to i64
-  %33 = ptrtoint ptr %28 to i64
-  %34 = sub i64 %32, %33
-  %35 = and i64 %34, 2147483648
-  %36 = icmp eq i64 %35, 0
-  tail call void @llvm.assume(i1 %36)
-  %37 = and i64 %34, 2147483647
-  %38 = or disjoint i64 %37, 244834610708480
-  store ptr %28, ptr %8, align 8
-  store i64 %38, ptr %9, align 8
-  store i32 0, ptr %30, align 8
+28:                                               ; preds = %24, %21
+  %29 = phi ptr [ null, %21 ], [ %25, %24 ]
+  %30 = phi ptr [ %22, %21 ], [ %26, %24 ]
+  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %30, ptr %32, align 8, !tbaa !38
+  %33 = ptrtoint ptr %30 to i64
+  %34 = ptrtoint ptr %29 to i64
+  %35 = sub i64 %33, %34
+  %36 = and i64 %35, 2147483648
+  %37 = icmp eq i64 %36, 0
+  tail call void @llvm.assume(i1 %37)
+  %38 = and i64 %35, 2147483647
+  %39 = or disjoint i64 %38, 244834610708480
+  store ptr %29, ptr %8, align 8
+  store i64 %39, ptr %9, align 8
+  store i32 0, ptr %31, align 8
   store i32 %4, ptr %12, align 8, !tbaa !27
   ret void
 }
@@ -1307,32 +1310,33 @@ define hidden { ptr, i64 } @_ZNK8rawspeed9TiffEntry14getRootIfdDataEv(ptr nocapt
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !49
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %13, label %5
+  br i1 %4, label %14, label %5
 
-5:                                                ; preds = %9, %1
-  %6 = phi ptr [ %11, %9 ], [ %3, %1 ]
+5:                                                ; preds = %10, %1
+  %6 = phi ptr [ %12, %10 ], [ %3, %1 ]
   %7 = load ptr, ptr %6, align 8, !tbaa !6
-  %8 = icmp eq ptr %7, getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8rawspeed11TiffRootIFDE, i64 0, i32 0, i64 2)
-  br i1 %8, label %14, label %9
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8rawspeed11TiffRootIFDE, i64 0, i32 0, i64 2
+  %9 = icmp eq ptr %7, %8
+  br i1 %9, label %15, label %10
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !49
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %5, !llvm.loop !50
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !49
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %5, !llvm.loop !50
 
-13:                                               ; preds = %9, %1
+14:                                               ; preds = %10, %1
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed9TiffEntry14getRootIfdDataEv) #21
   unreachable
 
-14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %6, i64 104
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 112
-  %18 = load i64, ptr %17, align 8
-  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
-  ret { ptr, i64 } %20
+15:                                               ; preds = %5
+  %16 = getelementptr inbounds i8, ptr %6, i64 104
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %6, i64 112
+  %19 = load i64, ptr %18, align 8
+  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
+  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
+  ret { ptr, i64 } %21
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -1384,10 +1388,10 @@ declare void @llvm.assume(i1 noundef) #10
 define linkonce_odr hidden void @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #22
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKczE3buf)
   %4 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 8192, ptr noundef %0, ptr noundef nonnull %2) #22
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   call void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 65536, ptr noundef nonnull @.str.15, ptr noundef nonnull %3)
   %5 = call ptr @__cxa_allocate_exception(i64 16) #22
   invoke void @_ZN8rawspeed11IOExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %3)
@@ -1405,26 +1409,21 @@ define linkonce_odr hidden void @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEE
   resume { ptr, i32 } %8
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #13
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
-
-declare void @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef, ptr noundef, ...) local_unnamed_addr #14
+declare void @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef, ptr noundef, ...) local_unnamed_addr #13
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN8rawspeed11IOExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden void @_ZN8rawspeed11IOExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #14 comdat align 2 {
   tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #26
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN8rawspeed11IOExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !6
+  %3 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8rawspeed11IOExceptionE, i64 0, i32 0, i64 2
+  store ptr %3, ptr %0, align 8, !tbaa !6
   ret void
 }
 
@@ -1433,60 +1432,68 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
 ; Function Attrs: cold mustprogress optsize uwtable
-define linkonce_odr hidden void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !6
+  %3 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 0, i32 0, i64 2
+  store ptr %3, ptr %0, align 8, !tbaa !6
   invoke void @_ZN8rawspeed17RawspeedException3logEPKc(ptr noundef %1) #26
-          to label %3 unwind label %4
-
-3:                                                ; preds = %2
-  ret void
+          to label %4 unwind label %5
 
 4:                                                ; preds = %2
-  %5 = landingpad { ptr, i32 }
+  ret void
+
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 }
 
-declare void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #14
+declare void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #13
 
 ; Function Attrs: cold mustprogress optsize uwtable
-define linkonce_odr hidden void @_ZN8rawspeed17RawspeedException3logEPKc(ptr noundef %0) local_unnamed_addr #16 comdat align 2 {
+define linkonce_odr hidden void @_ZN8rawspeed17RawspeedException3logEPKc(ptr noundef %0) local_unnamed_addr #15 comdat align 2 {
   tail call void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 65536, ptr noundef nonnull @.str.15, ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #17
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #16
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #19
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #13
+declare i16 @llvm.bswap.i16(i16) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #13
+declare i32 @llvm.bswap.i32(i32) #12
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN8rawspeed19TiffParserExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden void @_ZN8rawspeed19TiffParserExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #14 comdat align 2 {
   tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #26
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN8rawspeed19TiffParserExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !6
+  %3 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8rawspeed19TiffParserExceptionE, i64 0, i32 0, i64 2
+  store ptr %3, ptr %0, align 8, !tbaa !6
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #20
+declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #13
+declare i64 @llvm.bswap.i64(i64) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #20
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -1499,16 +1506,16 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn }
-attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #15 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #16 = { cold mustprogress optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #17 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #18 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #19 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #20 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #14 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #15 = { cold mustprogress optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #16 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #17 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #18 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #19 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #20 = { nocallback nofree nosync nounwind willreturn }
 attributes #21 = { cold noreturn }
 attributes #22 = { nounwind }
 attributes #23 = { noreturn }

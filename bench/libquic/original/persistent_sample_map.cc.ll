@@ -339,12 +339,13 @@ entry:
   %0 = load i64, ptr %id.addr, align 8
   %1 = load ptr, ptr %meta.addr, align 8
   call void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr noundef nonnull align 8 dereferenceable(40) %this1, i64 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4base19PersistentSampleMapE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4base19PersistentSampleMapE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %sample_counts_ = getelementptr inbounds %"class.base::PersistentSampleMap", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %sample_counts_) #10
   %allocator_ = getelementptr inbounds %"class.base::PersistentSampleMap", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %allocator.addr, align 8
-  store ptr %2, ptr %allocator_, align 8
+  %3 = load ptr, ptr %allocator.addr, align 8
+  store ptr %3, ptr %allocator_, align 8
   %records_ = getelementptr inbounds %"class.base::PersistentSampleMap", ptr %this1, i32 0, i32 3
   store ptr null, ptr %records_, align 8
   ret void
@@ -369,16 +370,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4base19PersistentSampleMapE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4base19PersistentSampleMapE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %records_ = getelementptr inbounds %"class.base::PersistentSampleMap", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %records_, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %records_, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %records_2 = getelementptr inbounds %"class.base::PersistentSampleMap", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %records_2, align 8
-  invoke void @_ZN4base26PersistentSampleMapRecords7ReleaseEPKv(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %this1)
+  %2 = load ptr, ptr %records_2, align 8
+  invoke void @_ZN4base26PersistentSampleMapRecords7ReleaseEPKv(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -391,10 +393,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #11
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #11
   unreachable
 }
 
@@ -957,15 +959,16 @@ entry:
   store ptr %sample_counts, ptr %sample_counts.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base19SampleCountIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base12_GLOBAL__N_127PersistentSampleMapIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4base12_GLOBAL__N_127PersistentSampleMapIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %iter_ = getelementptr inbounds %"class.base::(anonymous namespace)::PersistentSampleMapIterator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %sample_counts.addr, align 8
-  %call = call ptr @_ZNKSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
+  %1 = load ptr, ptr %sample_counts.addr, align 8
+  %call = call ptr @_ZNKSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #10
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %iter_, i32 0, i32 0
   store ptr %call, ptr %coerce.dive, align 8
   %end_ = getelementptr inbounds %"class.base::(anonymous namespace)::PersistentSampleMapIterator", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %sample_counts.addr, align 8
-  %call2 = call ptr @_ZNKSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #10
+  %2 = load ptr, ptr %sample_counts.addr, align 8
+  %call2 = call ptr @_ZNKSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #10
   %coerce.dive3 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %end_, i32 0, i32 0
   store ptr %call2, ptr %coerce.dive3, align 8
   invoke void @_ZN4base12_GLOBAL__N_127PersistentSampleMapIterator16SkipEmptyBucketsEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
@@ -975,12 +978,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN4base19SampleCountIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
   br label %eh.resume
 
@@ -1924,7 +1927,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base19SampleCountIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4base19SampleCountIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

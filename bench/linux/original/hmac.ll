@@ -43,108 +43,109 @@ define internal i32 @hmac_create(ptr noundef %0, ptr noundef %1) #2 align 16 {
   store i32 0, ptr %3, align 4, !annotation !5
   %4 = call i32 @crypto_check_attr_type(ptr noundef %1, i32 noundef 14, ptr noundef nonnull %3) #7
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %69
+  br i1 %5, label %6, label %70
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %8 = call noalias noundef align 8 dereferenceable_or_null(600) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 600) #8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %69, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %8 = load ptr, ptr %7, align 16
+  %9 = call noalias noundef align 8 dereferenceable_or_null(600) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 600) #8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %70, label %11
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 552
-  %12 = getelementptr inbounds i8, ptr %8, i64 112
-  %13 = getelementptr i8, ptr %1, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = call ptr @crypto_attr_alg_name(ptr noundef %14) #7
-  %16 = load i32, ptr %3, align 4
-  %17 = call i32 @crypto_grab_shash(ptr noundef %11, ptr noundef %12, ptr noundef %15, i32 noundef 0, i32 noundef %16) #7
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %67
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %9, i64 552
+  %13 = getelementptr inbounds i8, ptr %9, i64 112
+  %14 = getelementptr i8, ptr %1, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = call ptr @crypto_attr_alg_name(ptr noundef %15) #7
+  %17 = load i32, ptr %3, align 4
+  %18 = call i32 @crypto_grab_shash(ptr noundef %12, ptr noundef %13, ptr noundef %16, i32 noundef 0, i32 noundef %17) #7
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %68
 
-19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %8, i64 568
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr i8, ptr %21, i64 -48
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, @shash_no_setkey
-  br i1 %24, label %30, label %25
+20:                                               ; preds = %11
+  %21 = getelementptr inbounds i8, ptr %9, i64 568
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr i8, ptr %22, i64 -48
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %24, @shash_no_setkey
+  br i1 %25, label %31, label %26
 
-25:                                               ; preds = %19
-  %26 = getelementptr i8, ptr %21, i64 32
-  %27 = load i32, ptr %26, align 8
-  %28 = and i32 %27, 16384
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %67, label %30
+26:                                               ; preds = %20
+  %27 = getelementptr i8, ptr %22, i64 32
+  %28 = load i32, ptr %27, align 8
+  %29 = and i32 %28, 16384
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %68, label %31
 
-30:                                               ; preds = %25, %19
-  %31 = getelementptr i8, ptr %21, i64 -8
-  %32 = load i32, ptr %31, align 8
-  %33 = getelementptr i8, ptr %21, i64 -4
-  %34 = load i32, ptr %33, align 4
-  %35 = getelementptr i8, ptr %21, i64 36
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp ugt i32 %32, %36
-  %38 = icmp ult i32 %34, %36
-  %39 = select i1 %37, i1 true, i1 %38
-  br i1 %39, label %67, label %40
+31:                                               ; preds = %26, %20
+  %32 = getelementptr i8, ptr %22, i64 -8
+  %33 = load i32, ptr %32, align 8
+  %34 = getelementptr i8, ptr %22, i64 -4
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr i8, ptr %22, i64 36
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp ugt i32 %33, %37
+  %39 = icmp ult i32 %35, %37
+  %40 = select i1 %38, i1 true, i1 %39
+  br i1 %40, label %68, label %41
 
-40:                                               ; preds = %30
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
-  %42 = call i32 @crypto_inst_setname(ptr noundef %12, ptr noundef %41, ptr noundef %21) #7
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %67
+41:                                               ; preds = %31
+  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %43 = call i32 @crypto_inst_setname(ptr noundef %13, ptr noundef %42, ptr noundef %22) #7
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %68
 
-44:                                               ; preds = %40
-  %45 = getelementptr i8, ptr %21, i64 48
-  %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %8, i64 8
-  %48 = getelementptr inbounds i8, ptr %8, i64 104
-  %49 = getelementptr inbounds i8, ptr %8, i64 160
-  store i32 %46, ptr %49, align 8
-  %50 = load i32, ptr %35, align 4
-  %51 = getelementptr inbounds i8, ptr %8, i64 148
-  store i32 %50, ptr %51, align 4
-  %52 = shl i32 %34, 1
-  %53 = add i32 %52, 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 152
-  store i32 %53, ptr %54, align 8
-  store i32 %32, ptr %48, align 8
-  %55 = getelementptr inbounds i8, ptr %8, i64 108
-  store i32 %34, ptr %55, align 4
-  store ptr @hmac_init, ptr %47, align 8
-  %56 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr @hmac_update, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr @hmac_final, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr @hmac_finup, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %8, i64 48
-  store ptr @hmac_export, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %8, i64 56
-  store ptr @hmac_import, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %8, i64 64
-  store ptr @hmac_setkey, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %8, i64 72
-  store ptr @hmac_init_tfm, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %8, i64 88
-  store ptr @hmac_clone_tfm, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %8, i64 80
-  store ptr @hmac_exit_tfm, ptr %64, align 8
-  store ptr @shash_free_singlespawn_instance, ptr %8, align 8
-  %65 = call i32 @shash_register_instance(ptr noundef %0, ptr noundef nonnull %8) #7
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %69, label %67
+45:                                               ; preds = %41
+  %46 = getelementptr i8, ptr %22, i64 48
+  %47 = load i32, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %9, i64 8
+  %49 = getelementptr inbounds i8, ptr %9, i64 104
+  %50 = getelementptr inbounds i8, ptr %9, i64 160
+  store i32 %47, ptr %50, align 8
+  %51 = load i32, ptr %36, align 4
+  %52 = getelementptr inbounds i8, ptr %9, i64 148
+  store i32 %51, ptr %52, align 4
+  %53 = shl i32 %35, 1
+  %54 = add i32 %53, 8
+  %55 = getelementptr inbounds i8, ptr %9, i64 152
+  store i32 %54, ptr %55, align 8
+  store i32 %33, ptr %49, align 8
+  %56 = getelementptr inbounds i8, ptr %9, i64 108
+  store i32 %35, ptr %56, align 4
+  store ptr @hmac_init, ptr %48, align 8
+  %57 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr @hmac_update, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr @hmac_final, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr @hmac_finup, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %9, i64 48
+  store ptr @hmac_export, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %9, i64 56
+  store ptr @hmac_import, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %9, i64 64
+  store ptr @hmac_setkey, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %9, i64 72
+  store ptr @hmac_init_tfm, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %9, i64 88
+  store ptr @hmac_clone_tfm, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %9, i64 80
+  store ptr @hmac_exit_tfm, ptr %65, align 8
+  store ptr @shash_free_singlespawn_instance, ptr %9, align 8
+  %66 = call i32 @shash_register_instance(ptr noundef %0, ptr noundef nonnull %9) #7
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %70, label %68
 
-67:                                               ; preds = %44, %40, %30, %25, %10
-  %68 = phi i32 [ %17, %10 ], [ -22, %25 ], [ -22, %30 ], [ %42, %40 ], [ %65, %44 ]
-  call void @shash_free_singlespawn_instance(ptr noundef nonnull %8) #7
-  br label %69
+68:                                               ; preds = %45, %41, %31, %26, %11
+  %69 = phi i32 [ %18, %11 ], [ -22, %26 ], [ -22, %31 ], [ %43, %41 ], [ %66, %45 ]
+  call void @shash_free_singlespawn_instance(ptr noundef nonnull %9) #7
+  br label %70
 
-69:                                               ; preds = %67, %44, %6, %2
-  %70 = phi i32 [ %4, %2 ], [ -12, %6 ], [ %68, %67 ], [ 0, %44 ]
+70:                                               ; preds = %68, %45, %6, %2
+  %71 = phi i32 [ %4, %2 ], [ -12, %6 ], [ %69, %68 ], [ 0, %45 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
-  ret i32 %70
+  ret i32 %71
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -397,25 +398,26 @@ define internal i32 @hmac_init_tfm(ptr nocapture noundef %0) #2 align 16 {
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 440
   %5 = tail call ptr @crypto_spawn_tfm2(ptr noundef %4) #7
-  %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
-  br i1 %6, label %7, label %10
+  %6 = inttoptr i64 -4096 to ptr
+  %7 = icmp ugt ptr %5, %6
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %1
-  %8 = ptrtoint ptr %5 to i64
-  %9 = trunc i64 %8 to i32
-  br label %14
+8:                                                ; preds = %1
+  %9 = ptrtoint ptr %5 to i64
+  %10 = trunc i64 %9 to i32
+  br label %15
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = load i32, ptr %5, align 8
-  %13 = add i32 %12, 8
-  store i32 %13, ptr %0, align 8
-  store ptr %5, ptr %11, align 8
-  br label %14
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = load i32, ptr %5, align 8
+  %14 = add i32 %13, 8
+  store i32 %14, ptr %0, align 8
+  store ptr %5, ptr %12, align 8
+  br label %15
 
-14:                                               ; preds = %10, %7
-  %15 = phi i32 [ %9, %7 ], [ 0, %10 ]
-  ret i32 %15
+15:                                               ; preds = %11, %8
+  %16 = phi i32 [ %10, %8 ], [ 0, %11 ]
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -423,22 +425,23 @@ define internal i32 @hmac_clone_tfm(ptr nocapture noundef writeonly %0, ptr noca
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @crypto_clone_shash(ptr noundef %4) #7
-  %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
-  br i1 %6, label %7, label %10
+  %6 = inttoptr i64 -4096 to ptr
+  %7 = icmp ugt ptr %5, %6
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %2
-  %8 = ptrtoint ptr %5 to i64
-  %9 = trunc i64 %8 to i32
-  br label %12
+8:                                                ; preds = %2
+  %9 = ptrtoint ptr %5 to i64
+  %10 = trunc i64 %9 to i32
+  br label %13
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %5, ptr %11, align 8
-  br label %12
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %5, ptr %12, align 8
+  br label %13
 
-12:                                               ; preds = %10, %7
-  %13 = phi i32 [ %9, %7 ], [ 0, %10 ]
-  ret i32 %13
+13:                                               ; preds = %11, %8
+  %14 = phi i32 [ %10, %8 ], [ 0, %11 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

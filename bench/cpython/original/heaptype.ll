@@ -1269,60 +1269,61 @@ if.end4:                                          ; preds = %if.end
   %tp_basicsize = getelementptr inbounds %struct._typeobject, ptr %3, i32 0, i32 2
   %4 = load i64, ptr %tp_basicsize, align 8
   %conv = trunc i64 %4 to i32
-  store i32 %conv, ptr getelementptr inbounds (%struct.PyType_Spec, ptr @MinimalType_spec, i32 0, i32 1), align 8
-  %5 = load ptr, ptr %class, align 8
-  %call5 = call ptr @PyType_FromSpecWithBases(ptr noundef @MinimalType_spec, ptr noundef %5)
+  %5 = getelementptr inbounds %struct.PyType_Spec, ptr @MinimalType_spec, i32 0, i32 1
+  store i32 %conv, ptr %5, align 8
+  %6 = load ptr, ptr %class, align 8
+  %call5 = call ptr @PyType_FromSpecWithBases(ptr noundef @MinimalType_spec, ptr noundef %6)
   store ptr %call5, ptr %new, align 8
-  %6 = load ptr, ptr %new, align 8
-  %cmp6 = icmp eq ptr %6, null
+  %7 = load ptr, ptr %new, align 8
+  %cmp6 = icmp eq ptr %7, null
   br i1 %cmp6, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end4
   br label %finally
 
 if.end9:                                          ; preds = %if.end4
-  %7 = load ptr, ptr %new, align 8
-  %call10 = call ptr @Py_TYPE(ptr noundef %7)
-  %8 = load ptr, ptr %metaclass, align 8
-  %cmp11 = icmp ne ptr %call10, %8
+  %8 = load ptr, ptr %new, align 8
+  %call10 = call ptr @Py_TYPE(ptr noundef %8)
+  %9 = load ptr, ptr %metaclass, align 8
+  %cmp11 = icmp ne ptr %call10, %9
   br i1 %cmp11, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end9
-  %9 = load ptr, ptr @PyExc_AssertionError, align 8
-  call void @PyErr_SetString(ptr noundef %9, ptr noundef @.str.45)
+  %10 = load ptr, ptr @PyExc_AssertionError, align 8
+  call void @PyErr_SetString(ptr noundef %10, ptr noundef @.str.45)
   br label %finally
 
 if.end14:                                         ; preds = %if.end9
-  %10 = load ptr, ptr %class, align 8
-  %call15 = call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef %10, ptr noundef @.str.46, ptr noundef @.str.47)
+  %11 = load ptr, ptr %class, align 8
+  %call15 = call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef %11, ptr noundef @.str.46, ptr noundef @.str.47)
   store ptr %call15, ptr %subclasses, align 8
-  %11 = load ptr, ptr %subclasses, align 8
-  %tobool = icmp ne ptr %11, null
+  %12 = load ptr, ptr %subclasses, align 8
+  %tobool = icmp ne ptr %12, null
   br i1 %tobool, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
   br label %finally
 
 if.end17:                                         ; preds = %if.end14
-  %12 = load ptr, ptr %subclasses, align 8
-  %13 = load ptr, ptr %new, align 8
-  %call18 = call i32 @PySequence_Contains(ptr noundef %12, ptr noundef %13)
+  %13 = load ptr, ptr %subclasses, align 8
+  %14 = load ptr, ptr %new, align 8
+  %call18 = call i32 @PySequence_Contains(ptr noundef %13, ptr noundef %14)
   store i32 %call18, ptr %r, align 4
-  %14 = load i32, ptr %r, align 4
-  %cmp19 = icmp slt i32 %14, 0
+  %15 = load i32, ptr %r, align 4
+  %cmp19 = icmp slt i32 %15, 0
   br i1 %cmp19, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end17
   br label %finally
 
 if.end22:                                         ; preds = %if.end17
-  %15 = load i32, ptr %r, align 4
-  %cmp23 = icmp eq i32 %15, 0
+  %16 = load i32, ptr %r, align 4
+  %cmp23 = icmp eq i32 %16, 0
   br i1 %cmp23, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %if.end22
-  %16 = load ptr, ptr @PyExc_AssertionError, align 8
-  call void @PyErr_SetString(ptr noundef %16, ptr noundef @.str.48)
+  %17 = load ptr, ptr @PyExc_AssertionError, align 8
+  call void @PyErr_SetString(ptr noundef %17, ptr noundef @.str.48)
   br label %finally
 
 if.end26:                                         ; preds = %if.end22
@@ -1331,16 +1332,16 @@ if.end26:                                         ; preds = %if.end22
   br label %finally
 
 finally:                                          ; preds = %if.end26, %if.then25, %if.then21, %if.then16, %if.then13, %if.then8, %if.then3, %if.then
-  %17 = load ptr, ptr %metaclass, align 8
-  call void @Py_XDECREF(ptr noundef %17)
-  %18 = load ptr, ptr %class, align 8
+  %18 = load ptr, ptr %metaclass, align 8
   call void @Py_XDECREF(ptr noundef %18)
-  %19 = load ptr, ptr %new, align 8
+  %19 = load ptr, ptr %class, align 8
   call void @Py_XDECREF(ptr noundef %19)
-  %20 = load ptr, ptr %subclasses, align 8
+  %20 = load ptr, ptr %new, align 8
   call void @Py_XDECREF(ptr noundef %20)
-  %21 = load ptr, ptr %result, align 8
-  ret ptr %21
+  %21 = load ptr, ptr %subclasses, align 8
+  call void @Py_XDECREF(ptr noundef %21)
+  %22 = load ptr, ptr %result, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2847,11 +2848,12 @@ entry:
   store ptr %tp, ptr %tp.addr, align 8
   store ptr %args, ptr %args.addr, align 8
   store ptr %kwargs, ptr %kwargs.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 37), align 8
-  %1 = load ptr, ptr %tp.addr, align 8
-  %2 = load ptr, ptr %args.addr, align 8
-  %3 = load ptr, ptr %kwargs.addr, align 8
-  %call = call ptr %0(ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %0 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 37
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %tp.addr, align 8
+  %3 = load ptr, ptr %args.addr, align 8
+  %4 = load ptr, ptr %kwargs.addr, align 8
+  %call = call ptr %1(ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret ptr %call
 }
 

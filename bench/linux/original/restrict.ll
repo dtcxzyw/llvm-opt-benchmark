@@ -73,17 +73,17 @@ define internal noundef i32 @ca_keys_setup(ptr noundef %0) #0 section ".init.tex
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @restrict_link_by_signature(ptr nocapture readnone %0, ptr noundef readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
   %5 = icmp eq ptr %3, null
-  br i1 %5, label %49, label %6
+  br i1 %5, label %50, label %6
 
 6:                                                ; preds = %4
   %7 = icmp eq ptr %1, @key_type_asymmetric
-  br i1 %7, label %8, label %49
+  br i1 %7, label %8, label %50
 
 8:                                                ; preds = %6
   %9 = getelementptr i8, ptr %2, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %49, label %12
+  br i1 %11, label %50, label %12
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
@@ -100,7 +100,7 @@ define dso_local i32 @restrict_link_by_signature(ptr nocapture readnone %0, ptr 
   %20 = getelementptr i8, ptr %10, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %49, label %23
+  br i1 %22, label %50, label %23
 
 23:                                               ; preds = %19, %15, %12
   %24 = load ptr, ptr @ca_keyid, align 8
@@ -111,7 +111,7 @@ define dso_local i32 @restrict_link_by_signature(ptr nocapture readnone %0, ptr 
   %27 = getelementptr i8, ptr %10, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @asymmetric_key_id_partial(ptr noundef %28, ptr noundef nonnull %24) #7
-  br i1 %29, label %30, label %49
+  br i1 %29, label %30, label %50
 
 30:                                               ; preds = %26, %23
   %31 = load ptr, ptr %10, align 8
@@ -120,32 +120,33 @@ define dso_local i32 @restrict_link_by_signature(ptr nocapture readnone %0, ptr 
   %34 = getelementptr i8, ptr %10, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr @find_asymmetric_key(ptr noundef nonnull %3, ptr noundef %31, ptr noundef %33, ptr noundef %35, i1 noundef zeroext false) #7
-  %37 = icmp ugt ptr %36, inttoptr (i64 -4096 to ptr)
-  br i1 %37, label %49, label %38
+  %37 = inttoptr i64 -4096 to ptr
+  %38 = icmp ugt ptr %36, %37
+  br i1 %38, label %50, label %39
 
-38:                                               ; preds = %30
-  %39 = load i1, ptr @use_builtin_keys, align 1
-  br i1 %39, label %40, label %45
+39:                                               ; preds = %30
+  %40 = load i1, ptr @use_builtin_keys, align 1
+  br i1 %40, label %41, label %46
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %36, i64 128
-  %42 = load volatile i64, ptr %41, align 8
-  %43 = and i64 %42, 64
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %47, label %45
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %36, i64 128
+  %43 = load volatile i64, ptr %42, align 8
+  %44 = and i64 %43, 64
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %48, label %46
 
-45:                                               ; preds = %40, %38
-  %46 = tail call i32 @verify_signature(ptr noundef %36, ptr noundef nonnull %10) #7
-  br label %47
+46:                                               ; preds = %41, %39
+  %47 = tail call i32 @verify_signature(ptr noundef %36, ptr noundef nonnull %10) #7
+  br label %48
 
-47:                                               ; preds = %45, %40
-  %48 = phi i32 [ %46, %45 ], [ -126, %40 ]
+48:                                               ; preds = %46, %41
+  %49 = phi i32 [ %47, %46 ], [ -126, %41 ]
   tail call void @key_put(ptr noundef %36) #7
-  br label %49
+  br label %50
 
-49:                                               ; preds = %47, %30, %26, %19, %8, %6, %4
-  %50 = phi i32 [ %48, %47 ], [ -126, %4 ], [ -95, %6 ], [ -65, %8 ], [ -126, %19 ], [ -1, %26 ], [ -126, %30 ]
-  ret i32 %50
+50:                                               ; preds = %48, %30, %26, %19, %8, %6, %4
+  %51 = phi i32 [ %49, %48 ], [ -126, %4 ], [ -95, %6 ], [ -65, %8 ], [ -126, %19 ], [ -1, %26 ], [ -126, %30 ]
+  ret i32 %51
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -236,28 +237,28 @@ define dso_local i32 @restrict_link_by_key_or_keyring(ptr noundef %0, ptr nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @key_or_keyring_common(ptr noundef %0, ptr noundef readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #1 align 16 {
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %107, label %7
+  br i1 %6, label %109, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, @key_type_keyring
-  br i1 %10, label %11, label %107
+  br i1 %10, label %11, label %109
 
 11:                                               ; preds = %7
   %12 = icmp ne ptr %3, null
   %13 = or i1 %12, %4
-  br i1 %13, label %14, label %107
+  br i1 %13, label %14, label %109
 
 14:                                               ; preds = %11
   %15 = icmp eq ptr %1, @key_type_asymmetric
-  br i1 %15, label %16, label %107
+  br i1 %15, label %16, label %109
 
 16:                                               ; preds = %14
   %17 = getelementptr i8, ptr %2, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %107, label %20
+  br i1 %19, label %109, label %20
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %18, align 8
@@ -274,16 +275,16 @@ define internal fastcc i32 @key_or_keyring_common(ptr noundef %0, ptr noundef re
   %28 = getelementptr i8, ptr %18, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %107, label %31
+  br i1 %30, label %109, label %31
 
 31:                                               ; preds = %27, %23, %20
-  br i1 %12, label %32, label %84
+  br i1 %12, label %32, label %85
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %3, i64 152
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, @key_type_keyring
-  br i1 %35, label %36, label %44
+  br i1 %35, label %36, label %45
 
 36:                                               ; preds = %32
   %37 = getelementptr i8, ptr %18, i64 8
@@ -291,117 +292,119 @@ define internal fastcc i32 @key_or_keyring_common(ptr noundef %0, ptr noundef re
   %39 = getelementptr i8, ptr %18, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @find_asymmetric_key(ptr noundef nonnull %3, ptr noundef %21, ptr noundef %38, ptr noundef %40, i1 noundef zeroext false) #7
-  %42 = icmp ugt ptr %41, inttoptr (i64 -4096 to ptr)
-  %43 = select i1 %42, ptr null, ptr %41
-  br label %84
+  %42 = inttoptr i64 -4096 to ptr
+  %43 = icmp ugt ptr %41, %42
+  %44 = select i1 %43, ptr null, ptr %41
+  br label %85
 
-44:                                               ; preds = %32
-  %45 = icmp eq ptr %34, @key_type_asymmetric
-  br i1 %45, label %46, label %107
+45:                                               ; preds = %32
+  %46 = icmp eq ptr %34, @key_type_asymmetric
+  br i1 %46, label %47, label %109
 
-46:                                               ; preds = %44
-  %47 = getelementptr i8, ptr %3, i64 192
-  %48 = load ptr, ptr %47, align 8
-  br i1 %22, label %49, label %62
+47:                                               ; preds = %45
+  %48 = getelementptr i8, ptr %3, i64 192
+  %49 = load ptr, ptr %48, align 8
+  br i1 %22, label %50, label %63
 
-49:                                               ; preds = %46
-  %50 = getelementptr i8, ptr %18, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %61
+50:                                               ; preds = %47
+  %51 = getelementptr i8, ptr %18, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %62
 
-53:                                               ; preds = %49
-  %54 = getelementptr i8, ptr %48, i64 16
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr i8, ptr %18, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call zeroext i1 @asymmetric_key_id_same(ptr noundef %55, ptr noundef %57) #7
-  br i1 %58, label %59, label %84
+54:                                               ; preds = %50
+  %55 = getelementptr i8, ptr %49, i64 16
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr i8, ptr %18, i64 16
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call zeroext i1 @asymmetric_key_id_same(ptr noundef %56, ptr noundef %58) #7
+  br i1 %59, label %60, label %85
 
-59:                                               ; preds = %53
-  %60 = tail call fastcc ptr @__key_get(ptr noundef nonnull %3)
-  br label %84
+60:                                               ; preds = %54
+  %61 = tail call fastcc ptr @__key_get(ptr noundef nonnull %3)
+  br label %85
 
-61:                                               ; preds = %49
-  br i1 %22, label %67, label %62
+62:                                               ; preds = %50
+  br i1 %22, label %68, label %63
 
-62:                                               ; preds = %61, %46
-  %63 = getelementptr i8, ptr %18, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %75
+63:                                               ; preds = %62, %47
+  %64 = getelementptr i8, ptr %18, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %76
 
-66:                                               ; preds = %62
-  br i1 %22, label %67, label %70
+67:                                               ; preds = %63
+  br i1 %22, label %68, label %71
 
-67:                                               ; preds = %66, %61
-  %68 = getelementptr i8, ptr %18, i64 8
-  %69 = load ptr, ptr %68, align 8
-  br label %70
+68:                                               ; preds = %67, %62
+  %69 = getelementptr i8, ptr %18, i64 8
+  %70 = load ptr, ptr %69, align 8
+  br label %71
 
-70:                                               ; preds = %67, %66
-  %71 = phi ptr [ %69, %67 ], [ %21, %66 ]
-  %72 = tail call fastcc zeroext i1 @match_either_id(ptr noundef %48, ptr noundef %71)
-  br i1 %72, label %73, label %84
+71:                                               ; preds = %68, %67
+  %72 = phi ptr [ %70, %68 ], [ %21, %67 ]
+  %73 = tail call fastcc zeroext i1 @match_either_id(ptr noundef %49, ptr noundef %72)
+  br i1 %73, label %74, label %85
 
-73:                                               ; preds = %70
-  %74 = tail call fastcc ptr @__key_get(ptr noundef nonnull %3)
-  br label %84
+74:                                               ; preds = %71
+  %75 = tail call fastcc ptr @__key_get(ptr noundef nonnull %3)
+  br label %85
 
-75:                                               ; preds = %62
-  %76 = getelementptr i8, ptr %48, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = tail call zeroext i1 @asymmetric_key_id_same(ptr noundef %77, ptr noundef nonnull %64) #7
-  br i1 %78, label %79, label %84
+76:                                               ; preds = %63
+  %77 = getelementptr i8, ptr %49, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = tail call zeroext i1 @asymmetric_key_id_same(ptr noundef %78, ptr noundef nonnull %65) #7
+  br i1 %79, label %80, label %85
 
-79:                                               ; preds = %75
-  %80 = load ptr, ptr %18, align 8
-  %81 = tail call fastcc zeroext i1 @match_either_id(ptr noundef %48, ptr noundef %80)
-  br i1 %81, label %82, label %84
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %18, align 8
+  %82 = tail call fastcc zeroext i1 @match_either_id(ptr noundef %49, ptr noundef %81)
+  br i1 %82, label %83, label %85
 
-82:                                               ; preds = %79
-  %83 = tail call fastcc ptr @__key_get(ptr noundef nonnull %3)
-  br label %84
+83:                                               ; preds = %80
+  %84 = tail call fastcc ptr @__key_get(ptr noundef nonnull %3)
+  br label %85
 
-84:                                               ; preds = %82, %79, %75, %73, %70, %59, %53, %36, %31
-  %85 = phi ptr [ null, %31 ], [ %43, %36 ], [ %3, %82 ], [ null, %79 ], [ null, %75 ], [ %3, %59 ], [ null, %53 ], [ %3, %73 ], [ null, %70 ]
-  %86 = icmp eq ptr %85, null
-  %87 = select i1 %4, i1 %86, i1 false
-  br i1 %87, label %88, label %97
+85:                                               ; preds = %83, %80, %76, %74, %71, %60, %54, %36, %31
+  %86 = phi ptr [ null, %31 ], [ %44, %36 ], [ %3, %83 ], [ null, %80 ], [ null, %76 ], [ %3, %60 ], [ null, %54 ], [ %3, %74 ], [ null, %71 ]
+  %87 = icmp eq ptr %86, null
+  %88 = select i1 %4, i1 %87, i1 false
+  br i1 %88, label %89, label %99
 
-88:                                               ; preds = %84
-  %89 = load ptr, ptr %18, align 8
-  %90 = getelementptr i8, ptr %18, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr i8, ptr %18, i64 16
-  %93 = load ptr, ptr %92, align 8
-  %94 = tail call ptr @find_asymmetric_key(ptr noundef nonnull %0, ptr noundef %89, ptr noundef %91, ptr noundef %93, i1 noundef zeroext false) #7
-  %95 = icmp ugt ptr %94, inttoptr (i64 -4096 to ptr)
-  %96 = select i1 %95, ptr null, ptr %94
-  br label %97
+89:                                               ; preds = %85
+  %90 = load ptr, ptr %18, align 8
+  %91 = getelementptr i8, ptr %18, i64 8
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr i8, ptr %18, i64 16
+  %94 = load ptr, ptr %93, align 8
+  %95 = tail call ptr @find_asymmetric_key(ptr noundef nonnull %0, ptr noundef %90, ptr noundef %92, ptr noundef %94, i1 noundef zeroext false) #7
+  %96 = inttoptr i64 -4096 to ptr
+  %97 = icmp ugt ptr %95, %96
+  %98 = select i1 %97, ptr null, ptr %95
+  br label %99
 
-97:                                               ; preds = %88, %84
-  %98 = phi ptr [ %85, %84 ], [ %96, %88 ]
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %107, label %100
+99:                                               ; preds = %89, %85
+  %100 = phi ptr [ %86, %85 ], [ %98, %89 ]
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %109, label %102
 
-100:                                              ; preds = %97
-  %101 = tail call i32 @key_validate(ptr noundef nonnull %98) #7
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %105
+102:                                              ; preds = %99
+  %103 = tail call i32 @key_validate(ptr noundef nonnull %100) #7
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %105, label %107
 
-103:                                              ; preds = %100
-  %104 = tail call i32 @verify_signature(ptr noundef nonnull %98, ptr noundef nonnull %18) #7
-  br label %105
-
-105:                                              ; preds = %103, %100
-  %106 = phi i32 [ %104, %103 ], [ %101, %100 ]
-  tail call void @key_put(ptr noundef nonnull %98) #7
+105:                                              ; preds = %102
+  %106 = tail call i32 @verify_signature(ptr noundef nonnull %100, ptr noundef nonnull %18) #7
   br label %107
 
-107:                                              ; preds = %105, %97, %44, %27, %16, %14, %11, %7, %5
-  %108 = phi i32 [ %106, %105 ], [ -126, %5 ], [ -95, %7 ], [ -126, %11 ], [ -95, %14 ], [ -65, %16 ], [ -126, %27 ], [ -95, %44 ], [ -126, %97 ]
-  ret i32 %108
+107:                                              ; preds = %105, %102
+  %108 = phi i32 [ %106, %105 ], [ %103, %102 ]
+  tail call void @key_put(ptr noundef nonnull %100) #7
+  br label %109
+
+109:                                              ; preds = %107, %99, %45, %27, %16, %14, %11, %7, %5
+  %110 = phi i32 [ %108, %107 ], [ -126, %5 ], [ -95, %7 ], [ -126, %11 ], [ -95, %14 ], [ -65, %16 ], [ -126, %27 ], [ -95, %45 ], [ -126, %99 ]
+  ret i32 %110
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

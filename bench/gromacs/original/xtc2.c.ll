@@ -29,52 +29,54 @@ define i32 @Ptngc_find_magic_index(i32 noundef %0) #0 {
   %3 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %4 = load i32, ptr %2, align 4
-  %5 = load i32, ptr getelementptr inbounds ([92 x i32], ptr @magic, i64 0, i64 23), align 4
-  %6 = icmp ugt i32 %4, %5
-  br i1 %6, label %7, label %14
+  %5 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 23
+  %6 = load i32, ptr %5, align 4
+  %7 = icmp ugt i32 %4, %6
+  br i1 %7, label %8, label %16
 
-7:                                                ; preds = %1
-  %8 = load i32, ptr %2, align 4
-  %9 = load i32, ptr getelementptr inbounds ([92 x i32], ptr @magic, i64 0, i64 46), align 8
-  %10 = icmp ugt i32 %8, %9
-  br i1 %10, label %11, label %12
+8:                                                ; preds = %1
+  %9 = load i32, ptr %2, align 4
+  %10 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 46
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ugt i32 %9, %11
+  br i1 %12, label %13, label %14
 
-11:                                               ; preds = %7
+13:                                               ; preds = %8
   store i32 47, ptr %3, align 4
-  br label %13
-
-12:                                               ; preds = %7
-  store i32 24, ptr %3, align 4
-  br label %13
-
-13:                                               ; preds = %12, %11
   br label %15
 
-14:                                               ; preds = %1
-  store i32 0, ptr %3, align 4
+14:                                               ; preds = %8
+  store i32 24, ptr %3, align 4
   br label %15
 
 15:                                               ; preds = %14, %13
-  br label %16
+  br label %17
 
-16:                                               ; preds = %23, %15
-  %17 = load i32, ptr %3, align 4
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %18
-  %20 = load i32, ptr %19, align 4
-  %21 = load i32, ptr %2, align 4
-  %22 = icmp ule i32 %20, %21
-  br i1 %22, label %23, label %26
+16:                                               ; preds = %1
+  store i32 0, ptr %3, align 4
+  br label %17
 
-23:                                               ; preds = %16
-  %24 = load i32, ptr %3, align 4
-  %25 = add nsw i32 %24, 1
-  store i32 %25, ptr %3, align 4
-  br label %16, !llvm.loop !4
+17:                                               ; preds = %16, %15
+  br label %18
 
-26:                                               ; preds = %16
-  %27 = load i32, ptr %3, align 4
-  ret i32 %27
+18:                                               ; preds = %25, %17
+  %19 = load i32, ptr %3, align 4
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %20
+  %22 = load i32, ptr %21, align 4
+  %23 = load i32, ptr %2, align 4
+  %24 = icmp ule i32 %22, %23
+  br i1 %24, label %25, label %28
+
+25:                                               ; preds = %18
+  %26 = load i32, ptr %3, align 4
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %3, align 4
+  br label %18, !llvm.loop !4
+
+28:                                               ; preds = %18
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable

@@ -55,57 +55,58 @@ define dso_local void @intel_display_debugfs_params(ptr noundef %0) local_unname
 
 17:                                               ; preds = %14, %1
   %18 = phi ptr [ %12, %1 ], [ %16, %14 ]
-  %19 = icmp ugt ptr %18, inttoptr (i64 -4096 to ptr)
-  br i1 %19, label %53, label %20
+  %19 = inttoptr i64 -4096 to ptr
+  %20 = icmp ugt ptr %18, %19
+  br i1 %20, label %54, label %21
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 6744
-  call void @debugfs_create_str(ptr noundef nonnull @.str.1, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %21) #5
-  %22 = getelementptr inbounds i8, ptr %0, i64 6752
-  %23 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.2, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %22, ptr noundef nonnull @intel_display_param_int_fops_ro) #5
-  %24 = getelementptr inbounds i8, ptr %0, i64 6756
-  %25 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.3, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %24, ptr noundef nonnull @intel_display_param_int_fops) #5
-  %26 = getelementptr inbounds i8, ptr %0, i64 6760
-  %27 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.4, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %26, ptr noundef nonnull @intel_display_param_int_fops_ro) #5
-  %28 = getelementptr inbounds i8, ptr %0, i64 6764
-  %29 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.5, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %28, ptr noundef nonnull @intel_display_param_int_fops_ro) #5
-  %30 = getelementptr inbounds i8, ptr %0, i64 6768
-  call void @debugfs_create_bool(ptr noundef nonnull @.str.6, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %30) #5
-  %31 = getelementptr inbounds i8, ptr %0, i64 6769
-  call void @debugfs_create_bool(ptr noundef nonnull @.str.7, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %31) #5
-  %32 = getelementptr inbounds i8, ptr %0, i64 6772
-  %33 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.8, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %32, ptr noundef nonnull @intel_display_param_int_fops_ro) #5
-  %34 = getelementptr inbounds i8, ptr %0, i64 6776
-  call void @debugfs_create_bool(ptr noundef nonnull @.str.9, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %34) #5
-  %35 = getelementptr inbounds i8, ptr %0, i64 6780
-  %36 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.10, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %35, ptr noundef nonnull @intel_display_param_int_fops) #5
-  %37 = getelementptr inbounds i8, ptr %0, i64 6784
-  %38 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.11, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %37, ptr noundef nonnull @intel_display_param_int_fops_ro) #5
-  %39 = getelementptr inbounds i8, ptr %0, i64 6788
-  %40 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.12, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %39, ptr noundef nonnull @intel_display_param_int_fops) #5
-  %41 = getelementptr inbounds i8, ptr %0, i64 6792
-  call void @debugfs_create_bool(ptr noundef nonnull @.str.13, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %41) #5
-  %42 = getelementptr inbounds i8, ptr %0, i64 6793
-  call void @debugfs_create_bool(ptr noundef nonnull @.str.14, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %42) #5
-  %43 = getelementptr inbounds i8, ptr %0, i64 6794
-  call void @debugfs_create_bool(ptr noundef nonnull @.str.15, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %43) #5
-  %44 = getelementptr inbounds i8, ptr %0, i64 6795
-  call void @debugfs_create_bool(ptr noundef nonnull @.str.16, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %44) #5
-  %45 = getelementptr inbounds i8, ptr %0, i64 6796
-  call void @debugfs_create_bool(ptr noundef nonnull @.str.17, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %45) #5
-  %46 = getelementptr inbounds i8, ptr %0, i64 6797
-  call void @debugfs_create_bool(ptr noundef nonnull @.str.18, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %46) #5
-  %47 = getelementptr inbounds i8, ptr %0, i64 6800
-  %48 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.19, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %47, ptr noundef nonnull @intel_display_param_int_fops) #5
-  %49 = getelementptr inbounds i8, ptr %0, i64 6804
-  %50 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.20, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %49, ptr noundef nonnull @intel_display_param_int_fops) #5
-  %51 = getelementptr inbounds i8, ptr %0, i64 6808
-  call void @debugfs_create_bool(ptr noundef nonnull @.str.21, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %51) #5
-  %52 = getelementptr inbounds i8, ptr %0, i64 6809
-  call void @debugfs_create_bool(ptr noundef nonnull @.str.22, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %52) #5
-  br label %53
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %0, i64 6744
+  call void @debugfs_create_str(ptr noundef nonnull @.str.1, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %22) #5
+  %23 = getelementptr inbounds i8, ptr %0, i64 6752
+  %24 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.2, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %23, ptr noundef nonnull @intel_display_param_int_fops_ro) #5
+  %25 = getelementptr inbounds i8, ptr %0, i64 6756
+  %26 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.3, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %25, ptr noundef nonnull @intel_display_param_int_fops) #5
+  %27 = getelementptr inbounds i8, ptr %0, i64 6760
+  %28 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.4, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %27, ptr noundef nonnull @intel_display_param_int_fops_ro) #5
+  %29 = getelementptr inbounds i8, ptr %0, i64 6764
+  %30 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.5, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %29, ptr noundef nonnull @intel_display_param_int_fops_ro) #5
+  %31 = getelementptr inbounds i8, ptr %0, i64 6768
+  call void @debugfs_create_bool(ptr noundef nonnull @.str.6, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %31) #5
+  %32 = getelementptr inbounds i8, ptr %0, i64 6769
+  call void @debugfs_create_bool(ptr noundef nonnull @.str.7, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %32) #5
+  %33 = getelementptr inbounds i8, ptr %0, i64 6772
+  %34 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.8, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %33, ptr noundef nonnull @intel_display_param_int_fops_ro) #5
+  %35 = getelementptr inbounds i8, ptr %0, i64 6776
+  call void @debugfs_create_bool(ptr noundef nonnull @.str.9, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %35) #5
+  %36 = getelementptr inbounds i8, ptr %0, i64 6780
+  %37 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.10, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %36, ptr noundef nonnull @intel_display_param_int_fops) #5
+  %38 = getelementptr inbounds i8, ptr %0, i64 6784
+  %39 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.11, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %38, ptr noundef nonnull @intel_display_param_int_fops_ro) #5
+  %40 = getelementptr inbounds i8, ptr %0, i64 6788
+  %41 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.12, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %40, ptr noundef nonnull @intel_display_param_int_fops) #5
+  %42 = getelementptr inbounds i8, ptr %0, i64 6792
+  call void @debugfs_create_bool(ptr noundef nonnull @.str.13, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %42) #5
+  %43 = getelementptr inbounds i8, ptr %0, i64 6793
+  call void @debugfs_create_bool(ptr noundef nonnull @.str.14, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %43) #5
+  %44 = getelementptr inbounds i8, ptr %0, i64 6794
+  call void @debugfs_create_bool(ptr noundef nonnull @.str.15, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %44) #5
+  %45 = getelementptr inbounds i8, ptr %0, i64 6795
+  call void @debugfs_create_bool(ptr noundef nonnull @.str.16, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %45) #5
+  %46 = getelementptr inbounds i8, ptr %0, i64 6796
+  call void @debugfs_create_bool(ptr noundef nonnull @.str.17, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %46) #5
+  %47 = getelementptr inbounds i8, ptr %0, i64 6797
+  call void @debugfs_create_bool(ptr noundef nonnull @.str.18, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %47) #5
+  %48 = getelementptr inbounds i8, ptr %0, i64 6800
+  %49 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.19, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %48, ptr noundef nonnull @intel_display_param_int_fops) #5
+  %50 = getelementptr inbounds i8, ptr %0, i64 6804
+  %51 = call ptr @debugfs_create_file_unsafe(ptr noundef nonnull @.str.20, i16 noundef zeroext 384, ptr noundef %18, ptr noundef %50, ptr noundef nonnull @intel_display_param_int_fops) #5
+  %52 = getelementptr inbounds i8, ptr %0, i64 6808
+  call void @debugfs_create_bool(ptr noundef nonnull @.str.21, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %52) #5
+  %53 = getelementptr inbounds i8, ptr %0, i64 6809
+  call void @debugfs_create_bool(ptr noundef nonnull @.str.22, i16 noundef zeroext 256, ptr noundef %18, ptr noundef %53) #5
+  br label %54
 
-53:                                               ; preds = %20, %17
+54:                                               ; preds = %21, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #5
   ret void
 }

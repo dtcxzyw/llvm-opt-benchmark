@@ -12,35 +12,36 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @reserve_bios_regions() local_unnamed_addr #0 section ".init.text" align 16 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 4), align 8
-  %2 = icmp eq i32 %1, 0
-  br i1 %2, label %25, label %3
+  %1 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 4
+  %2 = load i32, ptr %1, align 8
+  %3 = icmp eq i32 %2, 0
+  br i1 %3, label %26, label %4
 
-3:                                                ; preds = %0
-  %4 = load i64, ptr @page_offset_base, align 8
-  %5 = add i64 %4, 1043
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load i16, ptr %6, align 2
-  %8 = zext i16 %7 to i32
-  %9 = shl nuw nsw i32 %8, 10
-  %10 = add i16 %7, -637
-  %11 = icmp ult i16 %10, -509
-  %12 = select i1 %11, i32 651264, i32 %9
-  %13 = add i64 %4, 1038
-  %14 = inttoptr i64 %13 to ptr
-  %15 = load i16, ptr %14, align 2
-  %16 = zext i16 %15 to i32
-  %17 = shl nuw nsw i32 %16, 4
-  %18 = icmp ugt i16 %15, 8191
-  %19 = tail call i32 @llvm.umin.i32(i32 %17, i32 %12)
-  %20 = select i1 %18, i32 %19, i32 %12
-  %21 = zext nneg i32 %20 to i64
-  %22 = sub nsw i32 1048576, %20
-  %23 = zext i32 %22 to i64
-  %24 = tail call i32 @memblock_reserve(i64 noundef %21, i64 noundef %23) #3
-  br label %25
+4:                                                ; preds = %0
+  %5 = load i64, ptr @page_offset_base, align 8
+  %6 = add i64 %5, 1043
+  %7 = inttoptr i64 %6 to ptr
+  %8 = load i16, ptr %7, align 2
+  %9 = zext i16 %8 to i32
+  %10 = shl nuw nsw i32 %9, 10
+  %11 = add i16 %8, -637
+  %12 = icmp ult i16 %11, -509
+  %13 = select i1 %12, i32 651264, i32 %10
+  %14 = add i64 %5, 1038
+  %15 = inttoptr i64 %14 to ptr
+  %16 = load i16, ptr %15, align 2
+  %17 = zext i16 %16 to i32
+  %18 = shl nuw nsw i32 %17, 4
+  %19 = icmp ugt i16 %16, 8191
+  %20 = tail call i32 @llvm.umin.i32(i32 %18, i32 %13)
+  %21 = select i1 %19, i32 %20, i32 %13
+  %22 = zext nneg i32 %21 to i64
+  %23 = sub nsw i32 1048576, %21
+  %24 = zext i32 %23 to i64
+  %25 = tail call i32 @memblock_reserve(i64 noundef %22, i64 noundef %24) #3
+  br label %26
 
-25:                                               ; preds = %3, %0
+26:                                               ; preds = %4, %0
   ret void
 }
 

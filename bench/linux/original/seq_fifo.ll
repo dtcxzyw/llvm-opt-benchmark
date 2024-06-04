@@ -16,47 +16,48 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @snd_seq_fifo_new(i32 noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %3 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 72) #5
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %20, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 72) #5
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %21, label %6
 
-5:                                                ; preds = %1
-  %6 = tail call ptr @snd_seq_pool_new(i32 noundef %0) #6
-  store ptr %6, ptr %3, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %9
+6:                                                ; preds = %1
+  %7 = tail call ptr @snd_seq_pool_new(i32 noundef %0) #6
+  store ptr %7, ptr %4, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %5
-  tail call void @kfree(ptr noundef nonnull %3) #6
-  br label %20
+9:                                                ; preds = %6
+  tail call void @kfree(ptr noundef nonnull %4) #6
+  br label %21
 
-9:                                                ; preds = %5
-  %10 = tail call i32 @snd_seq_pool_init(ptr noundef nonnull %6) #6
-  %11 = icmp slt i32 %10, 0
-  br i1 %11, label %12, label %14
+10:                                               ; preds = %6
+  %11 = tail call i32 @snd_seq_pool_init(ptr noundef nonnull %7) #6
+  %12 = icmp slt i32 %11, 0
+  br i1 %12, label %13, label %15
 
-12:                                               ; preds = %9
-  %13 = tail call i32 @snd_seq_pool_delete(ptr noundef nonnull %3) #6
-  tail call void @kfree(ptr noundef nonnull %3) #6
-  br label %20
+13:                                               ; preds = %10
+  %14 = tail call i32 @snd_seq_pool_delete(ptr noundef nonnull %4) #6
+  tail call void @kfree(ptr noundef nonnull %4) #6
+  br label %21
 
-14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %3, i64 28
-  store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
-  store volatile i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 40
-  tail call void @__init_waitqueue_head(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull @snd_seq_fifo_new.__key) #6
-  %18 = getelementptr inbounds i8, ptr %3, i64 64
-  store volatile i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
-  br label %20
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds i8, ptr %4, i64 28
+  store i32 0, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %4, i64 32
+  store volatile i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %4, i64 40
+  tail call void @__init_waitqueue_head(ptr noundef %18, ptr noundef nonnull @.str, ptr noundef nonnull @snd_seq_fifo_new.__key) #6
+  %19 = getelementptr inbounds i8, ptr %4, i64 64
+  store volatile i32 0, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %20, i8 0, i64 20, i1 false)
+  br label %21
 
-20:                                               ; preds = %14, %12, %8, %1
-  %21 = phi ptr [ null, %8 ], [ null, %12 ], [ %3, %14 ], [ null, %1 ]
-  ret ptr %21
+21:                                               ; preds = %15, %13, %9, %1
+  %22 = phi ptr [ null, %9 ], [ null, %13 ], [ %4, %15 ], [ null, %1 ]
+  ret ptr %22
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -373,17 +373,18 @@ define internal void @_ZN12_GLOBAL__N_14ImplC2Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3dap3net6ServerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14ImplE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 1
-  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #12
-  %5 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 2
-  call void @_ZNSt6threadC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
-  %6 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN3dap6SocketESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  %7 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 4
-  call void @_ZNSt6atomicIbEC2Eb(ptr noundef nonnull align 1 dereferenceable(1) %7, i1 noundef zeroext true) #12
-  %8 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 5
-  call void @_ZNSt8functionIFvPKcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14ImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 1
+  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
+  %6 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 2
+  call void @_ZNSt6threadC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  %7 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN3dap6SocketESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  %8 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 4
+  call void @_ZNSt6atomicIbEC2Eb(ptr noundef nonnull align 1 dereferenceable(1) %8, i1 noundef zeroext true) #12
+  %9 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 5
+  call void @_ZNSt8functionIFvPKcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
   ret void
 }
 
@@ -548,7 +549,8 @@ define linkonce_odr dso_local void @_ZN3dap3net6ServerC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dap3net6ServerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3dap3net6ServerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -615,28 +617,29 @@ define internal void @_ZN12_GLOBAL__N_14ImplD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14ImplE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 3
-  %6 = load ptr, ptr %5, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(104) %3)
-          to label %7 unwind label %11
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14ImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds ptr, ptr %5, i64 3
+  %7 = load ptr, ptr %6, align 8
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(104) %3)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 5
-  call void @_ZNSt8functionIFvPKcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
-  %9 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN3dap6SocketESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 2
-  call void @_ZNSt6threadD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 5
+  call void @_ZNSt8functionIFvPKcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
+  %10 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN3dap6SocketESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  %11 = getelementptr inbounds %"class.(anonymous namespace)::Impl", ptr %3, i32 0, i32 2
+  call void @_ZNSt6threadD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
   call void @_ZN3dap3net6ServerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #14
   unreachable
 }
 
@@ -2341,31 +2344,32 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12_GLOB
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12_GLOBAL__N_14Impl5startEiRKSt8functionIFvRKSt10shared_ptrIN3dap12ReaderWriterEEEERKS5_IFvPKcEEEUlvE_EEEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJZN12_GLOBAL__N_14Impl5startEiRKSt8functionIFvRKSt10shared_ptrIN3dap12ReaderWriterEEEERKS4_IFvPKcEEEUlvE_EEEC2IJSL_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12_GLOBAL__N_14Impl5startEiRKSt8functionIFvRKSt10shared_ptrIN3dap12ReaderWriterEEEERKS5_IFvPKcEEEUlvE_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJZN12_GLOBAL__N_14Impl5startEiRKSt8functionIFvRKSt10shared_ptrIN3dap12ReaderWriterEEEERKS4_IFvPKcEEEUlvE_EEEC2IJSL_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2433,7 +2437,8 @@ define linkonce_odr dso_local void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2458,9 +2463,10 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12_GLOB
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12_GLOBAL__N_14Impl5startEiRKSt8functionIFvRKSt10shared_ptrIN3dap12ReaderWriterEEEERKS5_IFvPKcEEEUlvE_EEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %3, i32 0, i32 1
-  call void @_ZNSt6thread8_InvokerISt5tupleIJZN12_GLOBAL__N_14Impl5startEiRKSt8functionIFvRKSt10shared_ptrIN3dap12ReaderWriterEEEERKS4_IFvPKcEEEUlvE_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #12
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12_GLOBAL__N_14Impl5startEiRKSt8functionIFvRKSt10shared_ptrIN3dap12ReaderWriterEEEERKS5_IFvPKcEEEUlvE_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %3, i32 0, i32 1
+  call void @_ZNSt6thread8_InvokerISt5tupleIJZN12_GLOBAL__N_14Impl5startEiRKSt8functionIFvRKSt10shared_ptrIN3dap12ReaderWriterEEEERKS4_IFvPKcEEEUlvE_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #12
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret void
 }

@@ -1297,7 +1297,7 @@ lpad98:                                           ; preds = %cond.end96
 
 catch.dispatch:                                   ; preds = %lpad98
   %sel = load i32, ptr %ehselector.slot, align 4
-  %96 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3ue212CompileErrorE) #2
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3ue212CompileErrorE) #2
   %matches = icmp eq i32 %sel, %96
   br i1 %matches, label %catch, label %ehcleanup110
 
@@ -1391,7 +1391,7 @@ ehcleanup111:                                     ; preds = %ehcleanup110, %lpad
 
 catch.dispatch112:                                ; preds = %ehcleanup111, %lpad73
   %sel113 = load i32, ptr %ehselector.slot, align 4
-  %114 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3ue212CompileErrorE) #2
+  %114 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3ue212CompileErrorE) #2
   %matches114 = icmp eq i32 %sel113, %114
   br i1 %matches114, label %catch120, label %catch.fallthrough
 
@@ -1431,7 +1431,7 @@ invoke.cont129:                                   ; preds = %cond.end126
   br label %return
 
 catch.fallthrough:                                ; preds = %catch.dispatch112
-  %123 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #2
+  %123 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #2
   %matches115 = icmp eq i32 %sel113, %123
   br i1 %matches115, label %catch118, label %catch116
 
@@ -2046,9 +2046,6 @@ declare void @_ZN3ue22NGC1ERKNS_14CompileContextEmj(ptr noundef nonnull align 8 
 
 declare void @_ZN3ue213addExpressionERNS_2NGEjPKcjPK11hs_expr_extj(ptr noundef nonnull align 8 dereferenceable(1104), i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #4
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #6
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZN3ue212CompileError18setExpressionIndexEj(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) #4
@@ -2058,7 +2055,7 @@ declare void @__cxa_rethrow()
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #2
   call void @_ZSt9terminatev() #15
   unreachable
@@ -2087,7 +2084,7 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #8
+declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN3ue224hs_compile_lit_multi_intEPKPKcPKjS5_PKPK11hs_expr_extPKmjjPK16hs_platform_infoPP11hs_databasePP16hs_compile_errorRKNS_4GreyE(ptr noundef %expressions, ptr noundef %flags, ptr noundef %ids, ptr noundef %ext, ptr noundef %lens, i32 noundef %elements, i32 noundef %mode, ptr noundef %platform, ptr noundef %db, ptr noundef %comp_error, ptr noundef nonnull align 8 dereferenceable(292) %g) #3 personality ptr @__gxx_personality_v0 {
@@ -2629,7 +2626,7 @@ lpad112:                                          ; preds = %cond.end108
 
 catch.dispatch:                                   ; preds = %lpad112
   %sel = load i32, ptr %ehselector.slot, align 4
-  %108 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3ue212CompileErrorE) #2
+  %108 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3ue212CompileErrorE) #2
   %matches = icmp eq i32 %sel, %108
   br i1 %matches, label %catch, label %ehcleanup124
 
@@ -2723,7 +2720,7 @@ ehcleanup125:                                     ; preds = %ehcleanup124, %lpad
 
 catch.dispatch126:                                ; preds = %ehcleanup125, %lpad85
   %sel127 = load i32, ptr %ehselector.slot, align 4
-  %126 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3ue212CompileErrorE) #2
+  %126 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3ue212CompileErrorE) #2
   %matches128 = icmp eq i32 %sel127, %126
   br i1 %matches128, label %catch134, label %catch.fallthrough
 
@@ -2763,7 +2760,7 @@ invoke.cont143:                                   ; preds = %cond.end140
   br label %return
 
 catch.fallthrough:                                ; preds = %catch.dispatch126
-  %135 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #2
+  %135 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #2
   %matches129 = icmp eq i32 %sel127, %135
   br i1 %matches129, label %catch132, label %catch130
 
@@ -3824,7 +3821,7 @@ ehcleanup123:                                     ; preds = %ehcleanup122, %lpad
 
 catch.dispatch:                                   ; preds = %ehcleanup123, %lpad57, %lpad52
   %sel = load i32, ptr %ehselector.slot, align 4
-  %85 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3ue212CompileErrorE) #2
+  %85 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3ue212CompileErrorE) #2
   %matches = icmp eq i32 %sel, %85
   br i1 %matches, label %catch127, label %catch.fallthrough
 
@@ -3844,7 +3841,7 @@ invoke.cont130:                                   ; preds = %catch127
   br label %return
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %89 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #2
+  %89 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #2
   %matches124 = icmp eq i32 %sel, %89
   br i1 %matches124, label %catch125, label %catch
 
@@ -3981,7 +3978,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 declare i64 @cpuid_flags() #4
 
@@ -4035,7 +4032,7 @@ entry:
   %3 = load ptr, ptr %edx.addr, align 8
   %4 = load i32, ptr %op.addr, align 4
   %5 = load i32, ptr %leaf.addr, align 4
-  %6 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %4, i32 %5) #6, !srcloc !8
+  %6 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %4, i32 %5) #13, !srcloc !8
   %asmresult = extractvalue { i32, i32, i32, i32 } %6, 0
   %asmresult1 = extractvalue { i32, i32, i32, i32 } %6, 1
   %asmresult2 = extractvalue { i32, i32, i32, i32 } %6, 2
@@ -4060,7 +4057,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #10
+declare i64 @strlen(ptr noundef) #9
 
 declare ptr @__cxa_allocate_exception(i64)
 
@@ -4073,7 +4070,8 @@ entry:
   store ptr %why, ptr %why.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue212CompileErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(32) %why)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4206,7 +4204,7 @@ entry:
 declare noundef ptr @_ZN3ue220generateCompileErrorERKNS_12CompileErrorE(ptr noundef nonnull align 8 dereferenceable(48)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 declare void @_ZN3ue212CompileErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
@@ -5028,7 +5026,7 @@ entry:
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #12
+declare void @_ZdlPv(ptr noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt8_Rb_treeIxSt4pairIKxjESt10_Select1stIS2_ESt4lessIxESaIS2_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #1 comdat align 2 {
@@ -7823,7 +7821,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #13
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %__s) #1 comdat align 2 {
@@ -8037,20 +8035,23 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #13
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind memory(none) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind memory(none) }
 attributes #14 = { noreturn }
 attributes #15 = { noreturn nounwind }
 attributes #16 = { nounwind willreturn memory(read) }

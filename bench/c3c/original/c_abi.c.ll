@@ -807,57 +807,58 @@ define dso_local void @c_abi_func_create(ptr noundef %0) #0 {
   %5 = and i16 %4, -257
   %6 = or i16 %5, 256
   store i16 %6, ptr %3, align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 10), align 8
-  switch i32 %7, label %20 [
-    i32 1, label %8
-    i32 3, label %10
-    i32 2, label %12
-    i32 4, label %14
-    i32 9, label %16
-    i32 5, label %18
+  %7 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 10
+  %8 = load i32, ptr %7, align 8
+  switch i32 %8, label %21 [
+    i32 1, label %9
+    i32 3, label %11
+    i32 2, label %13
+    i32 4, label %15
+    i32 9, label %17
+    i32 5, label %19
   ]
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %2, align 8
-  call void @c_abi_func_create_x64(ptr noundef %9)
-  br label %23
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %2, align 8
+  call void @c_abi_func_create_x64(ptr noundef %10)
+  br label %24
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr %2, align 8
-  call void @c_abi_func_create_x86(ptr noundef %11)
-  br label %23
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %2, align 8
+  call void @c_abi_func_create_x86(ptr noundef %12)
+  br label %24
 
-12:                                               ; preds = %1
-  %13 = load ptr, ptr %2, align 8
-  call void @c_abi_func_create_win64(ptr noundef %13)
-  br label %23
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %2, align 8
+  call void @c_abi_func_create_win64(ptr noundef %14)
+  br label %24
 
-14:                                               ; preds = %1
-  %15 = load ptr, ptr %2, align 8
-  call void @c_abi_func_create_aarch64(ptr noundef %15)
-  br label %23
+15:                                               ; preds = %1
+  %16 = load ptr, ptr %2, align 8
+  call void @c_abi_func_create_aarch64(ptr noundef %16)
+  br label %24
 
-16:                                               ; preds = %1
-  %17 = load ptr, ptr %2, align 8
-  call void @c_abi_func_create_riscv(ptr noundef %17)
-  br label %23
+17:                                               ; preds = %1
+  %18 = load ptr, ptr %2, align 8
+  call void @c_abi_func_create_riscv(ptr noundef %18)
+  br label %24
 
-18:                                               ; preds = %1
-  %19 = load ptr, ptr %2, align 8
-  call void @c_abi_func_create_wasm(ptr noundef %19)
-  br label %23
+19:                                               ; preds = %1
+  %20 = load ptr, ptr %2, align 8
+  call void @c_abi_func_create_wasm(ptr noundef %20)
+  br label %24
 
-20:                                               ; preds = %1
-  br label %21
+21:                                               ; preds = %1
+  br label %22
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   call void (ptr, ...) @error_exit(ptr noundef @.str, ptr noundef @.str.3, ptr noundef @__func__.c_abi_func_create, ptr noundef @.str.2, i32 noundef 217) #4
   unreachable
 
-22:                                               ; No predecessors!
-  br label %23
+23:                                               ; No predecessors!
+  br label %24
 
-23:                                               ; preds = %22, %18, %16, %14, %12, %10, %8
+24:                                               ; preds = %23, %19, %17, %15, %13, %11, %9
   ret void
 }
 
@@ -923,85 +924,87 @@ define dso_local ptr @c_abi_classify_argument_type_default(ptr noundef %0) #0 {
   %12 = load ptr, ptr %6, align 8
   %13 = call ptr @abi_arg_new_indirect_by_val(ptr noundef %12)
   store ptr %13, ptr %5, align 8
-  br label %57
+  br label %59
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr %6, align 8
   %16 = call zeroext i1 @type_is_int128(ptr noundef %15)
-  br i1 %16, label %17, label %23
+  br i1 %16, label %17, label %24
 
 17:                                               ; preds = %14
-  %18 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 26), align 1
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %23, label %20
+  %18 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 26
+  %19 = load i8, ptr %18, align 1
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %24, label %21
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %6, align 8
-  %22 = call ptr @abi_arg_new_indirect_by_val(ptr noundef %21)
-  store ptr %22, ptr %5, align 8
-  br label %57
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %6, align 8
+  %23 = call ptr @abi_arg_new_indirect_by_val(ptr noundef %22)
+  store ptr %23, ptr %5, align 8
+  br label %59
 
-23:                                               ; preds = %17, %14
-  %24 = load ptr, ptr %6, align 8
-  store ptr %24, ptr %4, align 8
-  %25 = load ptr, ptr %4, align 8
-  store ptr %25, ptr %2, align 8
-  %26 = load ptr, ptr %2, align 8
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %3, align 4
-  %28 = load i32, ptr %3, align 4
-  %29 = icmp eq i32 %28, 31
-  br i1 %29, label %30, label %35
+24:                                               ; preds = %17, %14
+  %25 = load ptr, ptr %6, align 8
+  store ptr %25, ptr %4, align 8
+  %26 = load ptr, ptr %4, align 8
+  store ptr %26, ptr %2, align 8
+  %27 = load ptr, ptr %2, align 8
+  %28 = load i32, ptr %27, align 8
+  store i32 %28, ptr %3, align 4
+  %29 = load i32, ptr %3, align 4
+  %30 = icmp eq i32 %29, 31
+  br i1 %30, label %31, label %36
 
-30:                                               ; preds = %23
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.Type_, ptr %31, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  %34 = load i32, ptr %33, align 8
-  store i32 %34, ptr %3, align 4
-  br label %35
+31:                                               ; preds = %24
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds %struct.Type_, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i32, ptr %34, align 8
+  store i32 %35, ptr %3, align 4
+  br label %36
 
-35:                                               ; preds = %30, %23
-  %36 = load i32, ptr %3, align 4
-  %37 = icmp uge i32 %36, 2
-  br i1 %37, label %38, label %41
+36:                                               ; preds = %31, %24
+  %37 = load i32, ptr %3, align 4
+  %38 = icmp uge i32 %37, 2
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %35
-  %39 = load i32, ptr %3, align 4
-  %40 = icmp ule i32 %39, 12
-  br label %41
+39:                                               ; preds = %36
+  %40 = load i32, ptr %3, align 4
+  %41 = icmp ule i32 %40, 12
+  br label %42
 
-41:                                               ; preds = %38, %35
-  %42 = phi i1 [ false, %35 ], [ %40, %38 ]
-  br i1 %42, label %43, label %50
+42:                                               ; preds = %39, %36
+  %43 = phi i1 [ false, %36 ], [ %41, %39 ]
+  br i1 %43, label %44, label %52
 
-43:                                               ; preds = %41
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.Type_, ptr %44, i32 0, i32 7
-  %46 = load i32, ptr %45, align 8
-  %47 = and i32 %46, 255
-  %48 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 33), align 8
-  %49 = icmp ult i32 %47, %48
-  br label %50
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds %struct.Type_, ptr %45, i32 0, i32 7
+  %47 = load i32, ptr %46, align 8
+  %48 = and i32 %47, 255
+  %49 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 33
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp ult i32 %48, %50
+  br label %52
 
-50:                                               ; preds = %43, %41
-  %51 = phi i1 [ false, %41 ], [ %49, %43 ]
-  br i1 %51, label %52, label %55
+52:                                               ; preds = %44, %42
+  %53 = phi i1 [ false, %42 ], [ %51, %44 ]
+  br i1 %53, label %54, label %57
 
-52:                                               ; preds = %50
-  %53 = load ptr, ptr %6, align 8
-  %54 = call ptr @abi_arg_new_direct_int_ext(ptr noundef %53)
-  store ptr %54, ptr %5, align 8
-  br label %57
-
-55:                                               ; preds = %50
-  %56 = call ptr @abi_arg_new_direct()
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %6, align 8
+  %56 = call ptr @abi_arg_new_direct_int_ext(ptr noundef %55)
   store ptr %56, ptr %5, align 8
-  br label %57
+  br label %59
 
-57:                                               ; preds = %55, %52, %20, %11
-  %58 = load ptr, ptr %5, align 8
-  ret ptr %58
+57:                                               ; preds = %52
+  %58 = call ptr @abi_arg_new_direct()
+  store ptr %58, ptr %5, align 8
+  br label %59
+
+59:                                               ; preds = %57, %54, %21, %11
+  %60 = load ptr, ptr %5, align 8
+  ret ptr %60
 }
 
 ; Function Attrs: nounwind uwtable

@@ -162,371 +162,400 @@ define void @expose(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %9 = alloca %struct.timeval, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 288
   %11 = load ptr, ptr %10, align 8, !tbaa !6
-  %12 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !17
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %24, label %14
+  %12 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %13 = load i32, ptr %12, align 8, !tbaa !17
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %25, label %15
 
-14:                                               ; preds = %6
+15:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
-  %15 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #13
-  %16 = load i64, ptr %9, align 8, !tbaa !27
-  %17 = add nsw i64 %16, -1290608000
-  %18 = sitofp i64 %17 to double
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !29
-  %21 = sitofp i64 %20 to double
-  %22 = fmul reassoc nsz arcp contract afn double %21, 0x3EB0C6F7A0B5ED8D
-  %23 = fadd reassoc nsz arcp contract afn double %22, %18
+  %16 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #13
+  %17 = load i64, ptr %9, align 8, !tbaa !27
+  %18 = add nsw i64 %17, -1290608000
+  %19 = sitofp i64 %18 to double
+  %20 = getelementptr inbounds i8, ptr %9, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !29
+  %22 = sitofp i64 %21 to double
+  %23 = fmul reassoc nsz arcp contract afn double %22, 0x3EB0C6F7A0B5ED8D
+  %24 = fadd reassoc nsz arcp contract afn double %23, %19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
-  br label %24
+  br label %25
 
-24:                                               ; preds = %14, %6
-  %25 = phi reassoc nsz arcp contract afn double [ %23, %14 ], [ 0.000000e+00, %6 ]
-  %26 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %27 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %26) #13
-  %28 = load ptr, ptr %10, align 8, !tbaa !6
-  %29 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %30 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %29) #13
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
-  %32 = load i32, ptr %31, align 8, !tbaa !31
-  %33 = icmp eq i32 %32, %30
-  br i1 %33, label %185, label %34
+25:                                               ; preds = %15, %6
+  %26 = phi reassoc nsz arcp contract afn double [ %24, %15 ], [ 0.000000e+00, %6 ]
+  %27 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %28 = load ptr, ptr %27, align 8, !tbaa !30
+  %29 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %28) #13
+  %30 = load ptr, ptr %10, align 8, !tbaa !6
+  %31 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %32 = load ptr, ptr %31, align 8, !tbaa !30
+  %33 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %32) #13
+  %34 = getelementptr inbounds i8, ptr %30, i64 16
+  %35 = load i32, ptr %34, align 8, !tbaa !31
+  %36 = icmp eq i32 %35, %33
+  br i1 %36, label %210, label %37
 
-34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %28, i64 24
-  %36 = load i32, ptr %35, align 8, !tbaa !32
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %40, label %38
+37:                                               ; preds = %25
+  %38 = getelementptr inbounds i8, ptr %30, i64 24
+  %39 = load i32, ptr %38, align 8, !tbaa !32
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %43, label %41
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %10, align 8, !tbaa !6
-  tail call fastcc void @_preview_quit(ptr %39)
-  br label %40
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %10, align 8, !tbaa !6
+  tail call fastcc void @_preview_quit(ptr %42)
+  br label %43
 
-40:                                               ; preds = %38, %34
-  store i32 %30, ptr %31, align 8, !tbaa !31
-  %41 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %42 = load ptr, ptr %41, align 8, !tbaa !34
-  tail call void @dt_ui_restore_panels(ptr noundef %42) #13
-  %43 = icmp eq i32 %30, 1
-  %44 = icmp ult i32 %30, 2
-  br i1 %44, label %45, label %87
+43:                                               ; preds = %41, %37
+  store i32 %33, ptr %34, align 8, !tbaa !31
+  %44 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %45 = load ptr, ptr %44, align 8, !tbaa !33
+  %46 = load ptr, ptr %45, align 8, !tbaa !34
+  tail call void @dt_ui_restore_panels(ptr noundef %46) #13
+  %47 = icmp eq i32 %33, 1
+  %48 = icmp ult i32 %33, 2
+  br i1 %48, label %49, label %98
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %47 = load ptr, ptr %46, align 8, !tbaa !34
-  %48 = tail call ptr @dt_ui_thumbtable(ptr noundef %47) #13
-  %49 = getelementptr inbounds i8, ptr %48, i64 144
-  store i32 0, ptr %49, align 8, !tbaa !38
-  %50 = getelementptr inbounds i8, ptr %28, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !16
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !41
-  tail call void @gtk_widget_hide(ptr noundef %53) #13
-  %54 = load ptr, ptr %28, align 8, !tbaa !14
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !41
-  tail call void @gtk_widget_hide(ptr noundef %56) #13
-  %57 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %58 = load ptr, ptr %57, align 8, !tbaa !34
-  %59 = tail call ptr @dt_ui_thumbtable(ptr noundef %58) #13
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !43
+49:                                               ; preds = %43
+  %50 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %51 = load ptr, ptr %50, align 8, !tbaa !33
+  %52 = load ptr, ptr %51, align 8, !tbaa !34
+  %53 = tail call ptr @dt_ui_thumbtable(ptr noundef %52) #13
+  %54 = getelementptr inbounds i8, ptr %53, i64 144
+  store i32 0, ptr %54, align 8, !tbaa !38
+  %55 = getelementptr inbounds i8, ptr %30, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !16
+  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !41
+  tail call void @gtk_widget_hide(ptr noundef %58) #13
+  %59 = load ptr, ptr %30, align 8, !tbaa !14
+  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !41
   tail call void @gtk_widget_hide(ptr noundef %61) #13
-  %62 = and i32 %32, -2
-  %63 = icmp eq i32 %62, 2
-  br i1 %63, label %64, label %71
+  %62 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %63 = load ptr, ptr %62, align 8, !tbaa !33
+  %64 = load ptr, ptr %63, align 8, !tbaa !34
+  %65 = tail call ptr @dt_ui_thumbtable(ptr noundef %64) #13
+  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %67 = load ptr, ptr %66, align 8, !tbaa !43
+  tail call void @gtk_widget_hide(ptr noundef %67) #13
+  %68 = and i32 %35, -2
+  %69 = icmp eq i32 %68, 2
+  br i1 %69, label %70, label %78
 
-64:                                               ; preds = %45
-  %65 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %66 = load ptr, ptr %65, align 8, !tbaa !34
-  %67 = tail call ptr @dt_ui_thumbtable(ptr noundef %66) #13
-  %68 = getelementptr inbounds i8, ptr %28, i64 32
-  %69 = load i32, ptr %68, align 8, !tbaa !44
-  %70 = tail call i32 @dt_thumbtable_set_offset(ptr noundef %67, i32 noundef %69, i32 noundef 0) #13
-  br label %71
-
-71:                                               ; preds = %64, %45
-  %72 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
+70:                                               ; preds = %49
+  %71 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %72 = load ptr, ptr %71, align 8, !tbaa !33
   %73 = load ptr, ptr %72, align 8, !tbaa !34
   %74 = tail call ptr @dt_ui_thumbtable(ptr noundef %73) #13
-  %75 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %76 = load ptr, ptr %75, align 8, !tbaa !34
-  %77 = tail call ptr @dt_ui_center_base(ptr noundef %76) #13
-  %78 = select i1 %43, i32 1, i32 3
-  tail call void @dt_thumbtable_set_parent(ptr noundef %74, ptr noundef %77, i32 noundef %78) #13
-  %79 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %80 = load ptr, ptr %79, align 8, !tbaa !34
-  %81 = tail call ptr @dt_ui_thumbtable(ptr noundef %80) #13
-  tail call void @dt_thumbtable_full_redraw(ptr noundef %81, i32 noundef 1) #13
-  %82 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %83 = load ptr, ptr %82, align 8, !tbaa !34
-  %84 = tail call ptr @dt_ui_thumbtable(ptr noundef %83) #13
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !43
-  tail call void @gtk_widget_show(ptr noundef %86) #13
-  br label %151
+  %75 = getelementptr inbounds i8, ptr %30, i64 32
+  %76 = load i32, ptr %75, align 8, !tbaa !44
+  %77 = tail call i32 @dt_thumbtable_set_offset(ptr noundef %74, i32 noundef %76, i32 noundef 0) #13
+  br label %78
 
-87:                                               ; preds = %40
-  %88 = and i32 %30, -2
-  %89 = icmp eq i32 %88, 2
-  br i1 %89, label %90, label %151
+78:                                               ; preds = %70, %49
+  %79 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %80 = load ptr, ptr %79, align 8, !tbaa !33
+  %81 = load ptr, ptr %80, align 8, !tbaa !34
+  %82 = tail call ptr @dt_ui_thumbtable(ptr noundef %81) #13
+  %83 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %84 = load ptr, ptr %83, align 8, !tbaa !33
+  %85 = load ptr, ptr %84, align 8, !tbaa !34
+  %86 = tail call ptr @dt_ui_center_base(ptr noundef %85) #13
+  %87 = select i1 %47, i32 1, i32 3
+  tail call void @dt_thumbtable_set_parent(ptr noundef %82, ptr noundef %86, i32 noundef %87) #13
+  %88 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %89 = load ptr, ptr %88, align 8, !tbaa !33
+  %90 = load ptr, ptr %89, align 8, !tbaa !34
+  %91 = tail call ptr @dt_ui_thumbtable(ptr noundef %90) #13
+  tail call void @dt_thumbtable_full_redraw(ptr noundef %91, i32 noundef 1) #13
+  %92 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %93 = load ptr, ptr %92, align 8, !tbaa !33
+  %94 = load ptr, ptr %93, align 8, !tbaa !34
+  %95 = tail call ptr @dt_ui_thumbtable(ptr noundef %94) #13
+  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  %97 = load ptr, ptr %96, align 8, !tbaa !43
+  tail call void @gtk_widget_show(ptr noundef %97) #13
+  br label %168
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %92 = load ptr, ptr %91, align 8, !tbaa !34
-  %93 = tail call ptr @dt_ui_thumbtable(ptr noundef %92) #13
-  %94 = tail call i32 @dt_thumbtable_get_offset(ptr noundef %93) #13
-  %95 = getelementptr inbounds i8, ptr %28, i64 32
-  store i32 %94, ptr %95, align 8, !tbaa !44
-  %96 = getelementptr inbounds i8, ptr %28, i64 28
-  %97 = load i32, ptr %96, align 4, !tbaa !45
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %129
+98:                                               ; preds = %43
+  %99 = and i32 %33, -2
+  %100 = icmp eq i32 %99, 2
+  br i1 %100, label %101, label %168
 
-99:                                               ; preds = %90
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
-  %100 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.70) #13
-  %101 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.69, i32 noundef %100) #13
-  %102 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !17
-  %103 = and i32 %102, 256
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %106, label %105
-
-105:                                              ; preds = %99
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.3, i32 noundef 210, ptr noundef nonnull @__FUNCTION__._lighttable_check_layout, ptr noundef %101) #13
-  br label %106
-
-106:                                              ; preds = %105, %99
-  %107 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !46
-  %108 = tail call ptr @dt_database_get(ptr noundef %107) #13
-  %109 = call i32 @sqlite3_prepare_v2(ptr noundef %108, ptr noundef %101, i32 noundef -1, ptr noundef nonnull %8, ptr noundef null) #13
+101:                                              ; preds = %98
+  %102 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %103 = load ptr, ptr %102, align 8, !tbaa !33
+  %104 = load ptr, ptr %103, align 8, !tbaa !34
+  %105 = tail call ptr @dt_ui_thumbtable(ptr noundef %104) #13
+  %106 = tail call i32 @dt_thumbtable_get_offset(ptr noundef %105) #13
+  %107 = getelementptr inbounds i8, ptr %30, i64 32
+  store i32 %106, ptr %107, align 8, !tbaa !44
+  %108 = getelementptr inbounds i8, ptr %30, i64 28
+  %109 = load i32, ptr %108, align 4, !tbaa !45
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %117, label %111
+  br i1 %110, label %111, label %144
 
-111:                                              ; preds = %106
-  %112 = load ptr, ptr @stderr, align 8, !tbaa !47
-  %113 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !46
-  %114 = call ptr @dt_database_get(ptr noundef %113) #13
-  %115 = call ptr @sqlite3_errmsg(ptr noundef %114) #13
-  %116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.3, i32 noundef 210, ptr noundef nonnull @__FUNCTION__._lighttable_check_layout, ptr noundef %101, ptr noundef %115) #14
-  br label %117
+111:                                              ; preds = %101
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  %112 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.70) #13
+  %113 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.69, i32 noundef %112) #13
+  %114 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %115 = load i32, ptr %114, align 8, !tbaa !17
+  %116 = and i32 %115, 256
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %119, label %118
 
-117:                                              ; preds = %111, %106
-  %118 = load ptr, ptr %8, align 8, !tbaa !47
-  %119 = call i32 @sqlite3_step(ptr noundef %118) #13
-  %120 = icmp eq i32 %119, 100
-  br i1 %120, label %121, label %124
+118:                                              ; preds = %111
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.3, i32 noundef 210, ptr noundef nonnull @__FUNCTION__._lighttable_check_layout, ptr noundef %113) #13
+  br label %119
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %8, align 8, !tbaa !47
-  %123 = call i32 @sqlite3_column_int(ptr noundef %122, i32 noundef 0) #13
-  br label %124
+119:                                              ; preds = %118, %111
+  %120 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
+  %121 = load ptr, ptr %120, align 8, !tbaa !46
+  %122 = tail call ptr @dt_database_get(ptr noundef %121) #13
+  %123 = call i32 @sqlite3_prepare_v2(ptr noundef %122, ptr noundef %113, i32 noundef -1, ptr noundef nonnull %8, ptr noundef null) #13
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %132, label %125
 
-124:                                              ; preds = %121, %117
-  %125 = phi i32 [ %123, %121 ], [ %94, %117 ]
-  call void @g_free(ptr noundef %101) #13
-  %126 = load ptr, ptr %8, align 8, !tbaa !47
-  %127 = call i32 @sqlite3_finalize(ptr noundef %126) #13
-  %128 = load ptr, ptr %28, align 8, !tbaa !14
-  call void @dt_culling_init(ptr noundef %128, i32 noundef %125) #13
+125:                                              ; preds = %119
+  %126 = load ptr, ptr @stderr, align 8, !tbaa !47
+  %127 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
+  %128 = load ptr, ptr %127, align 8, !tbaa !46
+  %129 = call ptr @dt_database_get(ptr noundef %128) #13
+  %130 = call ptr @sqlite3_errmsg(ptr noundef %129) #13
+  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %126, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.3, i32 noundef 210, ptr noundef nonnull @__FUNCTION__._lighttable_check_layout, ptr noundef %113, ptr noundef %130) #14
+  br label %132
+
+132:                                              ; preds = %125, %119
+  %133 = load ptr, ptr %8, align 8, !tbaa !47
+  %134 = call i32 @sqlite3_step(ptr noundef %133) #13
+  %135 = icmp eq i32 %134, 100
+  br i1 %135, label %136, label %139
+
+136:                                              ; preds = %132
+  %137 = load ptr, ptr %8, align 8, !tbaa !47
+  %138 = call i32 @sqlite3_column_int(ptr noundef %137, i32 noundef 0) #13
+  br label %139
+
+139:                                              ; preds = %136, %132
+  %140 = phi i32 [ %138, %136 ], [ %106, %132 ]
+  call void @g_free(ptr noundef %113) #13
+  %141 = load ptr, ptr %8, align 8, !tbaa !47
+  %142 = call i32 @sqlite3_finalize(ptr noundef %141) #13
+  %143 = load ptr, ptr %30, align 8, !tbaa !14
+  call void @dt_culling_init(ptr noundef %143, i32 noundef %140) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
-  br label %131
+  br label %146
 
-129:                                              ; preds = %90
-  %130 = load ptr, ptr %28, align 8, !tbaa !14
-  tail call void @dt_culling_init(ptr noundef %130, i32 noundef %94) #13
-  br label %131
+144:                                              ; preds = %101
+  %145 = load ptr, ptr %30, align 8, !tbaa !14
+  tail call void @dt_culling_init(ptr noundef %145, i32 noundef %106) #13
+  br label %146
 
-131:                                              ; preds = %129, %124
-  %132 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %133 = load ptr, ptr %132, align 8, !tbaa !34
-  %134 = call ptr @dt_ui_thumbtable(ptr noundef %133) #13
-  %135 = getelementptr inbounds i8, ptr %134, i64 16
-  %136 = load ptr, ptr %135, align 8, !tbaa !43
-  call void @gtk_widget_hide(ptr noundef %136) #13
-  %137 = getelementptr inbounds i8, ptr %28, i64 8
-  %138 = load ptr, ptr %137, align 8, !tbaa !16
-  %139 = getelementptr inbounds i8, ptr %138, i64 8
-  %140 = load ptr, ptr %139, align 8, !tbaa !41
-  call void @gtk_widget_hide(ptr noundef %140) #13
-  %141 = load ptr, ptr %28, align 8, !tbaa !14
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
-  %143 = load ptr, ptr %142, align 8, !tbaa !41
-  call void @gtk_widget_show(ptr noundef %143) #13
-  %144 = load ptr, ptr %28, align 8, !tbaa !14
-  %145 = getelementptr inbounds i8, ptr %144, i64 60
-  %146 = load i32, ptr %145, align 4, !tbaa !48
-  %147 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %148 = load ptr, ptr %147, align 8, !tbaa !34
-  %149 = call ptr @dt_ui_thumbtable(ptr noundef %148) #13
-  %150 = getelementptr inbounds i8, ptr %149, i64 144
-  store i32 %146, ptr %150, align 8, !tbaa !38
-  store i32 1, ptr %96, align 4, !tbaa !45
-  br label %155
+146:                                              ; preds = %144, %139
+  %147 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %148 = load ptr, ptr %147, align 8, !tbaa !33
+  %149 = load ptr, ptr %148, align 8, !tbaa !34
+  %150 = call ptr @dt_ui_thumbtable(ptr noundef %149) #13
+  %151 = getelementptr inbounds i8, ptr %150, i64 16
+  %152 = load ptr, ptr %151, align 8, !tbaa !43
+  call void @gtk_widget_hide(ptr noundef %152) #13
+  %153 = getelementptr inbounds i8, ptr %30, i64 8
+  %154 = load ptr, ptr %153, align 8, !tbaa !16
+  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %156 = load ptr, ptr %155, align 8, !tbaa !41
+  call void @gtk_widget_hide(ptr noundef %156) #13
+  %157 = load ptr, ptr %30, align 8, !tbaa !14
+  %158 = getelementptr inbounds i8, ptr %157, i64 8
+  %159 = load ptr, ptr %158, align 8, !tbaa !41
+  call void @gtk_widget_show(ptr noundef %159) #13
+  %160 = load ptr, ptr %30, align 8, !tbaa !14
+  %161 = getelementptr inbounds i8, ptr %160, i64 60
+  %162 = load i32, ptr %161, align 4, !tbaa !48
+  %163 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %164 = load ptr, ptr %163, align 8, !tbaa !33
+  %165 = load ptr, ptr %164, align 8, !tbaa !34
+  %166 = call ptr @dt_ui_thumbtable(ptr noundef %165) #13
+  %167 = getelementptr inbounds i8, ptr %166, i64 144
+  store i32 %162, ptr %167, align 8, !tbaa !38
+  store i32 1, ptr %108, align 4, !tbaa !45
+  br label %172
 
-151:                                              ; preds = %87, %71
-  %152 = getelementptr inbounds i8, ptr %28, i64 28
-  store i32 1, ptr %152, align 4, !tbaa !45
-  %153 = load i32, ptr %35, align 8, !tbaa !32
-  %154 = icmp eq i32 %153, 0
-  br i1 %154, label %178, label %155
+168:                                              ; preds = %98, %78
+  %169 = getelementptr inbounds i8, ptr %30, i64 28
+  store i32 1, ptr %169, align 4, !tbaa !45
+  %170 = load i32, ptr %38, align 8, !tbaa !32
+  %171 = icmp eq i32 %170, 0
+  br i1 %171, label %201, label %172
 
-155:                                              ; preds = %151, %131
-  %156 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %157 = load ptr, ptr %156, align 8, !tbaa !34
-  %158 = call ptr @dt_ui_thumbtable(ptr noundef %157) #13
-  %159 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %160 = load ptr, ptr %159, align 8, !tbaa !34
-  %161 = call ptr @dt_ui_center_base(ptr noundef %160) #13
-  call void @dt_thumbtable_set_parent(ptr noundef %158, ptr noundef %161, i32 noundef 0) #13
-  %162 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %163 = getelementptr inbounds i8, ptr %162, i64 568
-  %164 = load ptr, ptr %163, align 8, !tbaa !49
-  call void @dt_lib_set_visible(ptr noundef %164, i32 noundef 0) #13
-  %165 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %166 = getelementptr inbounds i8, ptr %165, i64 416
-  %167 = load ptr, ptr %166, align 8, !tbaa !63
-  call void @dt_lib_set_visible(ptr noundef %167, i32 noundef 1) #13
-  %168 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %169 = load ptr, ptr %168, align 8, !tbaa !34
-  call void @dt_ui_scrollbars_show(ptr noundef %169, i32 noundef 0) #13
-  %170 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %171 = load ptr, ptr %170, align 8, !tbaa !34
-  %172 = call ptr @dt_ui_thumbtable(ptr noundef %171) #13
-  %173 = load ptr, ptr %28, align 8, !tbaa !14
-  %174 = getelementptr inbounds i8, ptr %173, i64 28
-  %175 = load i32, ptr %174, align 4, !tbaa !64
-  %176 = call i32 @dt_thumbtable_set_offset_image(ptr noundef %172, i32 noundef %175, i32 noundef 1) #13
-  %177 = load ptr, ptr %28, align 8, !tbaa !14
-  call void @dt_culling_update_active_images_list(ptr noundef %177) #13
-  br label %185
-
-178:                                              ; preds = %151
-  %179 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %180 = getelementptr inbounds i8, ptr %179, i64 416
-  %181 = load ptr, ptr %180, align 8, !tbaa !63
-  tail call void @dt_lib_set_visible(ptr noundef %181, i32 noundef 0) #13
-  %182 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
+172:                                              ; preds = %168, %146
+  %173 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %174 = load ptr, ptr %173, align 8, !tbaa !33
+  %175 = load ptr, ptr %174, align 8, !tbaa !34
+  %176 = call ptr @dt_ui_thumbtable(ptr noundef %175) #13
+  %177 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %178 = load ptr, ptr %177, align 8, !tbaa !33
+  %179 = load ptr, ptr %178, align 8, !tbaa !34
+  %180 = call ptr @dt_ui_center_base(ptr noundef %179) #13
+  call void @dt_thumbtable_set_parent(ptr noundef %176, ptr noundef %180, i32 noundef 0) #13
+  %181 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %182 = load ptr, ptr %181, align 8, !tbaa !30
   %183 = getelementptr inbounds i8, ptr %182, i64 568
   %184 = load ptr, ptr %183, align 8, !tbaa !49
-  tail call void @dt_lib_set_visible(ptr noundef %184, i32 noundef 1) #13
-  br label %185
+  call void @dt_lib_set_visible(ptr noundef %184, i32 noundef 0) #13
+  %185 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %186 = load ptr, ptr %185, align 8, !tbaa !30
+  %187 = getelementptr inbounds i8, ptr %186, i64 416
+  %188 = load ptr, ptr %187, align 8, !tbaa !63
+  call void @dt_lib_set_visible(ptr noundef %188, i32 noundef 1) #13
+  %189 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %190 = load ptr, ptr %189, align 8, !tbaa !33
+  %191 = load ptr, ptr %190, align 8, !tbaa !34
+  call void @dt_ui_scrollbars_show(ptr noundef %191, i32 noundef 0) #13
+  %192 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %193 = load ptr, ptr %192, align 8, !tbaa !33
+  %194 = load ptr, ptr %193, align 8, !tbaa !34
+  %195 = call ptr @dt_ui_thumbtable(ptr noundef %194) #13
+  %196 = load ptr, ptr %30, align 8, !tbaa !14
+  %197 = getelementptr inbounds i8, ptr %196, i64 28
+  %198 = load i32, ptr %197, align 4, !tbaa !64
+  %199 = call i32 @dt_thumbtable_set_offset_image(ptr noundef %195, i32 noundef %198, i32 noundef 1) #13
+  %200 = load ptr, ptr %30, align 8, !tbaa !14
+  call void @dt_culling_update_active_images_list(ptr noundef %200) #13
+  br label %210
 
-185:                                              ; preds = %178, %155, %24
-  %186 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 21), align 8, !tbaa !65
-  %187 = icmp eq ptr %186, null
-  br i1 %187, label %240, label %188
+201:                                              ; preds = %168
+  %202 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %203 = load ptr, ptr %202, align 8, !tbaa !30
+  %204 = getelementptr inbounds i8, ptr %203, i64 416
+  %205 = load ptr, ptr %204, align 8, !tbaa !63
+  tail call void @dt_lib_set_visible(ptr noundef %205, i32 noundef 0) #13
+  %206 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %207 = load ptr, ptr %206, align 8, !tbaa !30
+  %208 = getelementptr inbounds i8, ptr %207, i64 568
+  %209 = load ptr, ptr %208, align 8, !tbaa !49
+  tail call void @dt_lib_set_visible(ptr noundef %209, i32 noundef 1) #13
+  br label %210
 
-188:                                              ; preds = %185
-  %189 = call i32 @dt_collection_get_count_no_group(ptr noundef nonnull %186) #13
-  %190 = icmp eq i32 %189, 0
-  br i1 %190, label %240, label %191
+210:                                              ; preds = %201, %172, %25
+  %211 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 21
+  %212 = load ptr, ptr %211, align 8, !tbaa !65
+  %213 = icmp eq ptr %212, null
+  br i1 %213, label %268, label %214
 
-191:                                              ; preds = %188
-  %192 = getelementptr inbounds i8, ptr %11, i64 24
-  %193 = load i32, ptr %192, align 8, !tbaa !32
-  %194 = icmp eq i32 %193, 0
-  br i1 %194, label %210, label %195
+214:                                              ; preds = %210
+  %215 = call i32 @dt_collection_get_count_no_group(ptr noundef nonnull %212) #13
+  %216 = icmp eq i32 %215, 0
+  br i1 %216, label %268, label %217
 
-195:                                              ; preds = %191
-  %196 = getelementptr inbounds i8, ptr %11, i64 8
-  %197 = load ptr, ptr %196, align 8, !tbaa !16
-  %198 = getelementptr inbounds i8, ptr %197, i64 8
-  %199 = load ptr, ptr %198, align 8, !tbaa !41
-  %200 = call i32 @gtk_widget_get_visible(ptr noundef %199) #13
-  %201 = icmp eq i32 %200, 0
-  br i1 %201, label %202, label %206
+217:                                              ; preds = %214
+  %218 = getelementptr inbounds i8, ptr %11, i64 24
+  %219 = load i32, ptr %218, align 8, !tbaa !32
+  %220 = icmp eq i32 %219, 0
+  br i1 %220, label %236, label %221
 
-202:                                              ; preds = %195
-  %203 = load ptr, ptr %196, align 8, !tbaa !16
-  %204 = getelementptr inbounds i8, ptr %203, i64 8
-  %205 = load ptr, ptr %204, align 8, !tbaa !41
-  call void @gtk_widget_show(ptr noundef %205) #13
-  br label %206
+221:                                              ; preds = %217
+  %222 = getelementptr inbounds i8, ptr %11, i64 8
+  %223 = load ptr, ptr %222, align 8, !tbaa !16
+  %224 = getelementptr inbounds i8, ptr %223, i64 8
+  %225 = load ptr, ptr %224, align 8, !tbaa !41
+  %226 = call i32 @gtk_widget_get_visible(ptr noundef %225) #13
+  %227 = icmp eq i32 %226, 0
+  br i1 %227, label %228, label %232
 
-206:                                              ; preds = %202, %195
-  %207 = load ptr, ptr %11, align 8, !tbaa !14
-  %208 = getelementptr inbounds i8, ptr %207, i64 8
-  %209 = load ptr, ptr %208, align 8, !tbaa !41
-  call void @gtk_widget_hide(ptr noundef %209) #13
-  br label %240
+228:                                              ; preds = %221
+  %229 = load ptr, ptr %222, align 8, !tbaa !16
+  %230 = getelementptr inbounds i8, ptr %229, i64 8
+  %231 = load ptr, ptr %230, align 8, !tbaa !41
+  call void @gtk_widget_show(ptr noundef %231) #13
+  br label %232
 
-210:                                              ; preds = %191
-  switch i32 %27, label %240 [
-    i32 0, label %211
-    i32 1, label %211
-    i32 2, label %225
-    i32 3, label %225
+232:                                              ; preds = %228, %221
+  %233 = load ptr, ptr %11, align 8, !tbaa !14
+  %234 = getelementptr inbounds i8, ptr %233, i64 8
+  %235 = load ptr, ptr %234, align 8, !tbaa !41
+  call void @gtk_widget_hide(ptr noundef %235) #13
+  br label %268
+
+236:                                              ; preds = %217
+  switch i32 %29, label %268 [
+    i32 0, label %237
+    i32 1, label %237
+    i32 2, label %253
+    i32 3, label %253
   ]
 
-211:                                              ; preds = %210, %210
-  %212 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %213 = load ptr, ptr %212, align 8, !tbaa !34
-  %214 = call ptr @dt_ui_thumbtable(ptr noundef %213) #13
-  %215 = getelementptr inbounds i8, ptr %214, i64 16
-  %216 = load ptr, ptr %215, align 8, !tbaa !43
-  %217 = call i32 @gtk_widget_get_visible(ptr noundef %216) #13
-  %218 = icmp eq i32 %217, 0
-  br i1 %218, label %219, label %240
+237:                                              ; preds = %236, %236
+  %238 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %239 = load ptr, ptr %238, align 8, !tbaa !33
+  %240 = load ptr, ptr %239, align 8, !tbaa !34
+  %241 = call ptr @dt_ui_thumbtable(ptr noundef %240) #13
+  %242 = getelementptr inbounds i8, ptr %241, i64 16
+  %243 = load ptr, ptr %242, align 8, !tbaa !43
+  %244 = call i32 @gtk_widget_get_visible(ptr noundef %243) #13
+  %245 = icmp eq i32 %244, 0
+  br i1 %245, label %246, label %268
 
-219:                                              ; preds = %211
-  %220 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %221 = load ptr, ptr %220, align 8, !tbaa !34
-  %222 = call ptr @dt_ui_thumbtable(ptr noundef %221) #13
-  %223 = getelementptr inbounds i8, ptr %222, i64 16
-  %224 = load ptr, ptr %223, align 8, !tbaa !43
-  call void @gtk_widget_show(ptr noundef %224) #13
-  br label %240
+246:                                              ; preds = %237
+  %247 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %248 = load ptr, ptr %247, align 8, !tbaa !33
+  %249 = load ptr, ptr %248, align 8, !tbaa !34
+  %250 = call ptr @dt_ui_thumbtable(ptr noundef %249) #13
+  %251 = getelementptr inbounds i8, ptr %250, i64 16
+  %252 = load ptr, ptr %251, align 8, !tbaa !43
+  call void @gtk_widget_show(ptr noundef %252) #13
+  br label %268
 
-225:                                              ; preds = %210, %210
-  %226 = load ptr, ptr %11, align 8, !tbaa !14
-  %227 = getelementptr inbounds i8, ptr %226, i64 8
-  %228 = load ptr, ptr %227, align 8, !tbaa !41
-  %229 = call i32 @gtk_widget_get_visible(ptr noundef %228) #13
-  %230 = icmp eq i32 %229, 0
-  br i1 %230, label %231, label %235
+253:                                              ; preds = %236, %236
+  %254 = load ptr, ptr %11, align 8, !tbaa !14
+  %255 = getelementptr inbounds i8, ptr %254, i64 8
+  %256 = load ptr, ptr %255, align 8, !tbaa !41
+  %257 = call i32 @gtk_widget_get_visible(ptr noundef %256) #13
+  %258 = icmp eq i32 %257, 0
+  br i1 %258, label %259, label %263
 
-231:                                              ; preds = %225
-  %232 = load ptr, ptr %11, align 8, !tbaa !14
-  %233 = getelementptr inbounds i8, ptr %232, i64 8
-  %234 = load ptr, ptr %233, align 8, !tbaa !41
-  call void @gtk_widget_show(ptr noundef %234) #13
-  br label %235
+259:                                              ; preds = %253
+  %260 = load ptr, ptr %11, align 8, !tbaa !14
+  %261 = getelementptr inbounds i8, ptr %260, i64 8
+  %262 = load ptr, ptr %261, align 8, !tbaa !41
+  call void @gtk_widget_show(ptr noundef %262) #13
+  br label %263
 
-235:                                              ; preds = %231, %225
-  %236 = getelementptr inbounds i8, ptr %11, i64 8
-  %237 = load ptr, ptr %236, align 8, !tbaa !16
-  %238 = getelementptr inbounds i8, ptr %237, i64 8
-  %239 = load ptr, ptr %238, align 8, !tbaa !41
-  call void @gtk_widget_hide(ptr noundef %239) #13
-  br label %240
+263:                                              ; preds = %259, %253
+  %264 = getelementptr inbounds i8, ptr %11, i64 8
+  %265 = load ptr, ptr %264, align 8, !tbaa !16
+  %266 = getelementptr inbounds i8, ptr %265, i64 8
+  %267 = load ptr, ptr %266, align 8, !tbaa !41
+  call void @gtk_widget_hide(ptr noundef %267) #13
+  br label %268
 
-240:                                              ; preds = %235, %219, %211, %210, %206, %188, %185
-  %241 = getelementptr inbounds i8, ptr %11, i64 28
-  store i32 1, ptr %241, align 4, !tbaa !45
-  %242 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !17
-  %243 = and i32 %242, 1040
-  %244 = icmp eq i32 %243, 1040
-  br i1 %244, label %245, label %256
+268:                                              ; preds = %263, %246, %237, %236, %232, %214, %210
+  %269 = getelementptr inbounds i8, ptr %11, i64 28
+  store i32 1, ptr %269, align 4, !tbaa !45
+  %270 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %271 = load i32, ptr %270, align 8, !tbaa !17
+  %272 = and i32 %271, 1040
+  %273 = icmp eq i32 %272, 1040
+  br i1 %273, label %274, label %285
 
-245:                                              ; preds = %240
+274:                                              ; preds = %268
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
-  %246 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #13
-  %247 = load i64, ptr %7, align 8, !tbaa !27
-  %248 = add nsw i64 %247, -1290608000
-  %249 = sitofp i64 %248 to double
-  %250 = getelementptr inbounds i8, ptr %7, i64 8
-  %251 = load i64, ptr %250, align 8, !tbaa !29
-  %252 = sitofp i64 %251 to double
-  %253 = fmul reassoc nsz arcp contract afn double %252, 0x3EB0C6F7A0B5ED8D
+  %275 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #13
+  %276 = load i64, ptr %7, align 8, !tbaa !27
+  %277 = add nsw i64 %276, -1290608000
+  %278 = sitofp i64 %277 to double
+  %279 = getelementptr inbounds i8, ptr %7, i64 8
+  %280 = load i64, ptr %279, align 8, !tbaa !29
+  %281 = sitofp i64 %280 to double
+  %282 = fmul reassoc nsz arcp contract afn double %281, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
-  %254 = fsub reassoc nsz arcp contract afn double %249, %25
-  %255 = fadd reassoc nsz arcp contract afn double %254, %253
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1, double noundef %255) #13
-  br label %256
+  %283 = fsub reassoc nsz arcp contract afn double %278, %26
+  %284 = fadd reassoc nsz arcp contract afn double %283, %282
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1, double noundef %284) #13
+  br label %285
 
-256:                                              ; preds = %245, %240
+285:                                              ; preds = %274, %268
   ret void
 }
 
@@ -548,96 +577,108 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #6
 define void @enter(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %5 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %4) #13
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !32
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %24
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %6 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %5) #13
+  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = load i32, ptr %7, align 8, !tbaa !32
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %28
 
-9:                                                ; preds = %1
-  switch i32 %5, label %24 [
-    i32 1, label %11
-    i32 0, label %10
+10:                                               ; preds = %1
+  switch i32 %6, label %28 [
+    i32 1, label %12
+    i32 0, label %11
   ]
 
-10:                                               ; preds = %9
-  br label %11
+11:                                               ; preds = %10
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = phi i32 [ 3, %10 ], [ %5, %9 ]
-  %13 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %14 = load ptr, ptr %13, align 8, !tbaa !34
-  %15 = tail call ptr @dt_ui_thumbtable(ptr noundef %14) #13
-  %16 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %17 = load ptr, ptr %16, align 8, !tbaa !34
-  %18 = tail call ptr @dt_ui_center_base(ptr noundef %17) #13
-  tail call void @dt_thumbtable_set_parent(ptr noundef %15, ptr noundef %18, i32 noundef %12) #13
-  %19 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
+12:                                               ; preds = %11, %10
+  %13 = phi i32 [ 3, %11 ], [ %6, %10 ]
+  %14 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %15 = load ptr, ptr %14, align 8, !tbaa !33
+  %16 = load ptr, ptr %15, align 8, !tbaa !34
+  %17 = tail call ptr @dt_ui_thumbtable(ptr noundef %16) #13
+  %18 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %19 = load ptr, ptr %18, align 8, !tbaa !33
   %20 = load ptr, ptr %19, align 8, !tbaa !34
-  %21 = tail call ptr @dt_ui_thumbtable(ptr noundef %20) #13
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !43
-  tail call void @gtk_widget_show(ptr noundef %23) #13
-  br label %24
+  %21 = tail call ptr @dt_ui_center_base(ptr noundef %20) #13
+  tail call void @dt_thumbtable_set_parent(ptr noundef %17, ptr noundef %21, i32 noundef %13) #13
+  %22 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %23 = load ptr, ptr %22, align 8, !tbaa !33
+  %24 = load ptr, ptr %23, align 8, !tbaa !34
+  %25 = tail call ptr @dt_ui_thumbtable(ptr noundef %24) #13
+  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !43
+  tail call void @gtk_widget_show(ptr noundef %27) #13
+  br label %28
 
-24:                                               ; preds = %11, %9, %1
-  %25 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 27), align 8, !tbaa !66
-  tail call void @dt_undo_clear(ptr noundef %25, i32 noundef 2041) #13
-  %26 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %27 = load ptr, ptr %26, align 8, !tbaa !34
-  %28 = tail call ptr @dt_ui_center(ptr noundef %27) #13
-  tail call void @gtk_widget_grab_focus(ptr noundef %28) #13
-  %29 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 21), align 8, !tbaa !65
-  tail call void @dt_collection_hint_message(ptr noundef %29) #13
-  %30 = and i32 %5, -2
-  %31 = icmp eq i32 %30, 2
-  br i1 %31, label %35, label %32
+28:                                               ; preds = %12, %10, %1
+  %29 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 27
+  %30 = load ptr, ptr %29, align 8, !tbaa !66
+  tail call void @dt_undo_clear(ptr noundef %30, i32 noundef 2041) #13
+  %31 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %32 = load ptr, ptr %31, align 8, !tbaa !33
+  %33 = load ptr, ptr %32, align 8, !tbaa !34
+  %34 = tail call ptr @dt_ui_center(ptr noundef %33) #13
+  tail call void @gtk_widget_grab_focus(ptr noundef %34) #13
+  %35 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 21
+  %36 = load ptr, ptr %35, align 8, !tbaa !65
+  tail call void @dt_collection_hint_message(ptr noundef %36) #13
+  %37 = and i32 %6, -2
+  %38 = icmp eq i32 %37, 2
+  br i1 %38, label %42, label %39
 
-32:                                               ; preds = %24
-  %33 = load i32, ptr %6, align 8, !tbaa !32
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %49, label %35
+39:                                               ; preds = %28
+  %40 = load i32, ptr %7, align 8, !tbaa !32
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %58, label %42
 
-35:                                               ; preds = %32, %24
-  %36 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %37 = getelementptr inbounds i8, ptr %36, i64 568
-  %38 = load ptr, ptr %37, align 8, !tbaa !49
-  tail call void @dt_lib_set_visible(ptr noundef %38, i32 noundef 0) #13
-  %39 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %40 = getelementptr inbounds i8, ptr %39, i64 416
-  %41 = load ptr, ptr %40, align 8, !tbaa !63
-  tail call void @dt_lib_set_visible(ptr noundef %41, i32 noundef 1) #13
-  %42 = load i32, ptr %6, align 8, !tbaa !32
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %47, label %44
+42:                                               ; preds = %39, %28
+  %43 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %44 = load ptr, ptr %43, align 8, !tbaa !30
+  %45 = getelementptr inbounds i8, ptr %44, i64 568
+  %46 = load ptr, ptr %45, align 8, !tbaa !49
+  tail call void @dt_lib_set_visible(ptr noundef %46, i32 noundef 0) #13
+  %47 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %48 = load ptr, ptr %47, align 8, !tbaa !30
+  %49 = getelementptr inbounds i8, ptr %48, i64 416
+  %50 = load ptr, ptr %49, align 8, !tbaa !63
+  tail call void @dt_lib_set_visible(ptr noundef %50, i32 noundef 1) #13
+  %51 = load i32, ptr %7, align 8, !tbaa !32
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %56, label %53
 
-44:                                               ; preds = %35
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !16
-  tail call void @dt_culling_update_active_images_list(ptr noundef %46) #13
-  br label %56
+53:                                               ; preds = %42
+  %54 = getelementptr inbounds i8, ptr %3, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !16
+  tail call void @dt_culling_update_active_images_list(ptr noundef %55) #13
+  br label %67
 
-47:                                               ; preds = %35
-  %48 = load ptr, ptr %3, align 8, !tbaa !14
-  tail call void @dt_culling_update_active_images_list(ptr noundef %48) #13
-  br label %56
+56:                                               ; preds = %42
+  %57 = load ptr, ptr %3, align 8, !tbaa !14
+  tail call void @dt_culling_update_active_images_list(ptr noundef %57) #13
+  br label %67
 
-49:                                               ; preds = %32
-  %50 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %51 = getelementptr inbounds i8, ptr %50, i64 416
-  %52 = load ptr, ptr %51, align 8, !tbaa !63
-  tail call void @dt_lib_set_visible(ptr noundef %52, i32 noundef 0) #13
-  %53 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %54 = getelementptr inbounds i8, ptr %53, i64 568
-  %55 = load ptr, ptr %54, align 8, !tbaa !49
-  tail call void @dt_lib_set_visible(ptr noundef %55, i32 noundef 1) #13
-  br label %56
+58:                                               ; preds = %39
+  %59 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %60 = load ptr, ptr %59, align 8, !tbaa !30
+  %61 = getelementptr inbounds i8, ptr %60, i64 416
+  %62 = load ptr, ptr %61, align 8, !tbaa !63
+  tail call void @dt_lib_set_visible(ptr noundef %62, i32 noundef 0) #13
+  %63 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %64 = load ptr, ptr %63, align 8, !tbaa !30
+  %65 = getelementptr inbounds i8, ptr %64, i64 568
+  %66 = load ptr, ptr %65, align 8, !tbaa !49
+  tail call void @dt_lib_set_visible(ptr noundef %66, i32 noundef 1) #13
+  br label %67
 
-56:                                               ; preds = %49, %47, %44
-  %57 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %58 = load ptr, ptr %57, align 8, !tbaa !34
-  tail call void @dt_ui_restore_panels(ptr noundef %58) #13
+67:                                               ; preds = %58, %56, %53
+  %68 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %69 = load ptr, ptr %68, align 8, !tbaa !33
+  %70 = load ptr, ptr %69, align 8, !tbaa !34
+  tail call void @dt_ui_restore_panels(ptr noundef %70) #13
   ret void
 }
 
@@ -664,21 +705,22 @@ define void @init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %2, ptr %3, align 8, !tbaa !6
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %5 = getelementptr inbounds i8, ptr %4, i64 512
-  store ptr @_preview_get_state, ptr %5, align 8, !tbaa !67
-  %6 = getelementptr inbounds i8, ptr %4, i64 520
-  store ptr @_preview_set_state, ptr %6, align 8, !tbaa !68
-  %7 = getelementptr inbounds i8, ptr %4, i64 448
-  store ptr %0, ptr %7, align 8, !tbaa !69
-  %8 = getelementptr inbounds i8, ptr %4, i64 528
-  store ptr @_lighttable_change_offset, ptr %8, align 8, !tbaa !70
-  %9 = getelementptr inbounds i8, ptr %4, i64 488
-  store ptr @_culling_reinit, ptr %9, align 8, !tbaa !71
-  %10 = getelementptr inbounds i8, ptr %4, i64 496
-  store ptr @_culling_preview_refresh, ptr %10, align 8, !tbaa !72
-  %11 = getelementptr inbounds i8, ptr %4, i64 504
-  store ptr @_culling_preview_reload_overlays, ptr %11, align 8, !tbaa !73
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %6 = getelementptr inbounds i8, ptr %5, i64 512
+  store ptr @_preview_get_state, ptr %6, align 8, !tbaa !67
+  %7 = getelementptr inbounds i8, ptr %5, i64 520
+  store ptr @_preview_set_state, ptr %7, align 8, !tbaa !68
+  %8 = getelementptr inbounds i8, ptr %5, i64 448
+  store ptr %0, ptr %8, align 8, !tbaa !69
+  %9 = getelementptr inbounds i8, ptr %5, i64 528
+  store ptr @_lighttable_change_offset, ptr %9, align 8, !tbaa !70
+  %10 = getelementptr inbounds i8, ptr %5, i64 488
+  store ptr @_culling_reinit, ptr %10, align 8, !tbaa !71
+  %11 = getelementptr inbounds i8, ptr %5, i64 496
+  store ptr @_culling_preview_refresh, ptr %11, align 8, !tbaa !72
+  %12 = getelementptr inbounds i8, ptr %5, i64 504
+  store ptr @_culling_preview_reload_overlays, ptr %12, align 8, !tbaa !73
   tail call void (...) @dt_collection_memory_update() #13
   ret void
 }
@@ -700,116 +742,132 @@ define internal void @_preview_set_state(ptr nocapture noundef readonly %0, i32 
   %5 = icmp eq i32 %1, 0
   %6 = getelementptr i8, ptr %0, i64 288
   %7 = load ptr, ptr %6, align 8, !tbaa !6
-  br i1 %5, label %85, label %8
+  br i1 %5, label %101, label %8
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %10 = load ptr, ptr %9, align 8, !tbaa !34
-  %11 = tail call ptr @dt_ui_thumbtable(ptr noundef %10) #13
-  %12 = tail call i32 @dt_thumbtable_get_offset(ptr noundef %11) #13
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
-  store i32 %12, ptr %13, align 8, !tbaa !44
-  %14 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %15 = load ptr, ptr %14, align 8, !tbaa !34
-  %16 = tail call ptr @dt_ui_thumbtable(ptr noundef %15) #13
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !43
-  tail call void @gtk_widget_hide(ptr noundef %18) #13
-  %19 = load ptr, ptr %7, align 8, !tbaa !14
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !41
-  tail call void @gtk_widget_hide(ptr noundef %21) #13
-  %22 = getelementptr inbounds i8, ptr %7, i64 20
-  store i32 %2, ptr %22, align 4, !tbaa !74
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !16
-  %25 = getelementptr inbounds i8, ptr %24, i64 100
-  store i32 %3, ptr %25, align 4, !tbaa !75
-  %26 = getelementptr inbounds i8, ptr %7, i64 24
-  store i32 1, ptr %26, align 8, !tbaa !32
-  %27 = load i32, ptr %13, align 8, !tbaa !44
-  tail call void @dt_culling_init(ptr noundef %24, i32 noundef %27) #13
-  %28 = load ptr, ptr %23, align 8, !tbaa !16
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !41
-  tail call void @gtk_widget_show(ptr noundef %30) #13
-  %31 = load ptr, ptr %23, align 8, !tbaa !16
-  %32 = getelementptr inbounds i8, ptr %31, i64 60
-  %33 = load i32, ptr %32, align 4, !tbaa !48
-  %34 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %35 = load ptr, ptr %34, align 8, !tbaa !34
-  %36 = tail call ptr @dt_ui_thumbtable(ptr noundef %35) #13
-  %37 = getelementptr inbounds i8, ptr %36, i64 144
-  store i32 %33, ptr %37, align 8, !tbaa !38
-  %38 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %39 = load ptr, ptr %38, align 8, !tbaa !34
-  %40 = tail call ptr @dt_ui_thumbtable(ptr noundef %39) #13
-  %41 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %42 = load ptr, ptr %41, align 8, !tbaa !34
-  %43 = tail call ptr @dt_ui_center_base(ptr noundef %42) #13
-  tail call void @dt_thumbtable_set_parent(ptr noundef %40, ptr noundef %43, i32 noundef 0) #13
-  %44 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %45 = getelementptr inbounds i8, ptr %44, i64 568
-  %46 = load ptr, ptr %45, align 8, !tbaa !49
-  tail call void @dt_lib_set_visible(ptr noundef %46, i32 noundef 0) #13
-  %47 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %48 = getelementptr inbounds i8, ptr %47, i64 416
-  %49 = load ptr, ptr %48, align 8, !tbaa !63
-  tail call void @dt_lib_set_visible(ptr noundef %49, i32 noundef 1) #13
-  %50 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %51 = load ptr, ptr %50, align 8, !tbaa !34
-  %52 = tail call ptr @dt_ui_thumbtable(ptr noundef %51) #13
-  %53 = load ptr, ptr %23, align 8, !tbaa !16
-  %54 = getelementptr inbounds i8, ptr %53, i64 28
-  %55 = load i32, ptr %54, align 4, !tbaa !64
-  %56 = tail call i32 @dt_thumbtable_set_offset_image(ptr noundef %52, i32 noundef %55, i32 noundef 1) #13
-  %57 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !76
-  tail call void @g_slist_free(ptr noundef %59) #13
-  %60 = load ptr, ptr %23, align 8, !tbaa !16
-  %61 = getelementptr inbounds i8, ptr %60, i64 28
-  %62 = load i32, ptr %61, align 4, !tbaa !64
-  %63 = sext i32 %62 to i64
-  %64 = inttoptr i64 %63 to ptr
-  %65 = tail call ptr @g_slist_prepend(ptr noundef null, ptr noundef %64) #13
-  %66 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
+  %9 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %12 = tail call ptr @dt_ui_thumbtable(ptr noundef %11) #13
+  %13 = tail call i32 @dt_thumbtable_get_offset(ptr noundef %12) #13
+  %14 = getelementptr inbounds i8, ptr %7, i64 32
+  store i32 %13, ptr %14, align 8, !tbaa !44
+  %15 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %16 = load ptr, ptr %15, align 8, !tbaa !33
+  %17 = load ptr, ptr %16, align 8, !tbaa !34
+  %18 = tail call ptr @dt_ui_thumbtable(ptr noundef %17) #13
+  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !43
+  tail call void @gtk_widget_hide(ptr noundef %20) #13
+  %21 = load ptr, ptr %7, align 8, !tbaa !14
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !41
+  tail call void @gtk_widget_hide(ptr noundef %23) #13
+  %24 = getelementptr inbounds i8, ptr %7, i64 20
+  store i32 %2, ptr %24, align 4, !tbaa !74
+  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !16
+  %27 = getelementptr inbounds i8, ptr %26, i64 100
+  store i32 %3, ptr %27, align 4, !tbaa !75
+  %28 = getelementptr inbounds i8, ptr %7, i64 24
+  store i32 1, ptr %28, align 8, !tbaa !32
+  %29 = load i32, ptr %14, align 8, !tbaa !44
+  tail call void @dt_culling_init(ptr noundef %26, i32 noundef %29) #13
+  %30 = load ptr, ptr %25, align 8, !tbaa !16
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !41
+  tail call void @gtk_widget_show(ptr noundef %32) #13
+  %33 = load ptr, ptr %25, align 8, !tbaa !16
+  %34 = getelementptr inbounds i8, ptr %33, i64 60
+  %35 = load i32, ptr %34, align 4, !tbaa !48
+  %36 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %37 = load ptr, ptr %36, align 8, !tbaa !33
+  %38 = load ptr, ptr %37, align 8, !tbaa !34
+  %39 = tail call ptr @dt_ui_thumbtable(ptr noundef %38) #13
+  %40 = getelementptr inbounds i8, ptr %39, i64 144
+  store i32 %35, ptr %40, align 8, !tbaa !38
+  %41 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %42 = load ptr, ptr %41, align 8, !tbaa !33
+  %43 = load ptr, ptr %42, align 8, !tbaa !34
+  %44 = tail call ptr @dt_ui_thumbtable(ptr noundef %43) #13
+  %45 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %46 = load ptr, ptr %45, align 8, !tbaa !33
+  %47 = load ptr, ptr %46, align 8, !tbaa !34
+  %48 = tail call ptr @dt_ui_center_base(ptr noundef %47) #13
+  tail call void @dt_thumbtable_set_parent(ptr noundef %44, ptr noundef %48, i32 noundef 0) #13
+  %49 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %50 = load ptr, ptr %49, align 8, !tbaa !30
+  %51 = getelementptr inbounds i8, ptr %50, i64 568
+  %52 = load ptr, ptr %51, align 8, !tbaa !49
+  tail call void @dt_lib_set_visible(ptr noundef %52, i32 noundef 0) #13
+  %53 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %54 = load ptr, ptr %53, align 8, !tbaa !30
+  %55 = getelementptr inbounds i8, ptr %54, i64 416
+  %56 = load ptr, ptr %55, align 8, !tbaa !63
+  tail call void @dt_lib_set_visible(ptr noundef %56, i32 noundef 1) #13
+  %57 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %58 = load ptr, ptr %57, align 8, !tbaa !33
+  %59 = load ptr, ptr %58, align 8, !tbaa !34
+  %60 = tail call ptr @dt_ui_thumbtable(ptr noundef %59) #13
+  %61 = load ptr, ptr %25, align 8, !tbaa !16
+  %62 = getelementptr inbounds i8, ptr %61, i64 28
+  %63 = load i32, ptr %62, align 4, !tbaa !64
+  %64 = tail call i32 @dt_thumbtable_set_offset_image(ptr noundef %60, i32 noundef %63, i32 noundef 1) #13
+  %65 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %66 = load ptr, ptr %65, align 8, !tbaa !30
   %67 = getelementptr inbounds i8, ptr %66, i64 16
-  store ptr %65, ptr %67, align 8, !tbaa !76
-  %68 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !77
-  %69 = and i32 %68, 1
-  %70 = icmp ne i32 %69, 0
-  %71 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 1), align 8
-  %72 = icmp ne i32 %71, 0
-  %73 = select i1 %70, i1 %72, i1 false
-  br i1 %73, label %74, label %79
+  %68 = load ptr, ptr %67, align 8, !tbaa !76
+  tail call void @g_slist_free(ptr noundef %68) #13
+  %69 = load ptr, ptr %25, align 8, !tbaa !16
+  %70 = getelementptr inbounds i8, ptr %69, i64 28
+  %71 = load i32, ptr %70, align 4, !tbaa !64
+  %72 = sext i32 %71 to i64
+  %73 = inttoptr i64 %72 to ptr
+  %74 = tail call ptr @g_slist_prepend(ptr noundef null, ptr noundef %73) #13
+  %75 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %76 = load ptr, ptr %75, align 8, !tbaa !30
+  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  store ptr %74, ptr %77, align 8, !tbaa !76
+  %78 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
+  %79 = load i32, ptr %78, align 8, !tbaa !77
+  %80 = and i32 %79, 1
+  %81 = icmp ne i32 %80, 0
+  %82 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 1
+  %83 = load i32, ptr %82, align 8
+  %84 = icmp ne i32 %83, 0
+  %85 = select i1 %81, i1 %84, i1 false
+  br i1 %85, label %86, label %92
 
-74:                                               ; preds = %8
-  %75 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !17
-  %76 = and i32 %75, 1048576
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %79, label %78
+86:                                               ; preds = %8
+  %87 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %88 = load i32, ptr %87, align 8, !tbaa !17
+  %89 = and i32 %88, 1048576
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %92, label %91
 
-78:                                               ; preds = %74
+91:                                               ; preds = %86
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 518, ptr noundef nonnull @__FUNCTION__._preview_enter, ptr noundef nonnull @.str.4) #13
-  br label %79
+  br label %92
 
-79:                                               ; preds = %78, %74, %8
-  %80 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !78
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %80, i32 noundef 1) #13
-  %81 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %82 = load ptr, ptr %81, align 8, !tbaa !34
-  tail call void @dt_ui_restore_panels(ptr noundef %82) #13
-  %83 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %84 = load ptr, ptr %83, align 8, !tbaa !34
-  tail call void @dt_ui_scrollbars_show(ptr noundef %84, i32 noundef 0) #13
-  br label %86
+92:                                               ; preds = %91, %86, %8
+  %93 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
+  %94 = load ptr, ptr %93, align 8, !tbaa !78
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %94, i32 noundef 1) #13
+  %95 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %96 = load ptr, ptr %95, align 8, !tbaa !33
+  %97 = load ptr, ptr %96, align 8, !tbaa !34
+  tail call void @dt_ui_restore_panels(ptr noundef %97) #13
+  %98 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %99 = load ptr, ptr %98, align 8, !tbaa !33
+  %100 = load ptr, ptr %99, align 8, !tbaa !34
+  tail call void @dt_ui_scrollbars_show(ptr noundef %100, i32 noundef 0) #13
+  br label %102
 
-85:                                               ; preds = %4
+101:                                              ; preds = %4
   tail call fastcc void @_preview_quit(ptr %7)
-  br label %86
+  br label %102
 
-86:                                               ; preds = %85, %79
+102:                                              ; preds = %101, %92
   ret void
 }
 
@@ -927,74 +985,82 @@ declare void @dt_collection_memory_update(...) local_unnamed_addr #6
 define void @leave(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !76
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %24, label %8
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = load ptr, ptr %6, align 8, !tbaa !76
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %30, label %9
 
-8:                                                ; preds = %1
-  tail call void @g_slist_free(ptr noundef nonnull %6) #13
-  %9 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr null, ptr %10, align 8, !tbaa !76
-  %11 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !77
-  %12 = and i32 %11, 1
-  %13 = icmp ne i32 %12, 0
-  %14 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 1), align 8
-  %15 = icmp ne i32 %14, 0
-  %16 = select i1 %13, i1 %15, i1 false
-  br i1 %16, label %17, label %22
+9:                                                ; preds = %1
+  tail call void @g_slist_free(ptr noundef nonnull %7) #13
+  %10 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr null, ptr %12, align 8, !tbaa !76
+  %13 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
+  %14 = load i32, ptr %13, align 8, !tbaa !77
+  %15 = and i32 %14, 1
+  %16 = icmp ne i32 %15, 0
+  %17 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 1
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp ne i32 %18, 0
+  %20 = select i1 %16, i1 %19, i1 false
+  br i1 %20, label %21, label %27
 
-17:                                               ; preds = %8
-  %18 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !17
-  %19 = and i32 %18, 1048576
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %22, label %21
+21:                                               ; preds = %9
+  %22 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %23 = load i32, ptr %22, align 8, !tbaa !17
+  %24 = and i32 %23, 1048576
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %27, label %26
 
-21:                                               ; preds = %17
+26:                                               ; preds = %21
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 577, ptr noundef nonnull @__FUNCTION__.leave, ptr noundef nonnull @.str.4) #13
-  br label %22
+  br label %27
 
-22:                                               ; preds = %21, %17, %8
-  %23 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !78
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %23, i32 noundef 1) #13
-  br label %24
+27:                                               ; preds = %26, %21, %9
+  %28 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
+  %29 = load ptr, ptr %28, align 8, !tbaa !78
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %29, i32 noundef 1) #13
+  br label %30
 
-24:                                               ; preds = %22, %1
-  %25 = load ptr, ptr %3, align 8, !tbaa !14
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !41
-  tail call void @gtk_widget_hide(ptr noundef %27) #13
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !16
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !41
-  tail call void @gtk_widget_hide(ptr noundef %31) #13
-  %32 = getelementptr inbounds i8, ptr %3, i64 24
-  %33 = load i32, ptr %32, align 8, !tbaa !32
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %41, label %35
+30:                                               ; preds = %27, %1
+  %31 = load ptr, ptr %3, align 8, !tbaa !14
+  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !41
+  tail call void @gtk_widget_hide(ptr noundef %33) #13
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !16
+  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !41
+  tail call void @gtk_widget_hide(ptr noundef %37) #13
+  %38 = getelementptr inbounds i8, ptr %3, i64 24
+  %39 = load i32, ptr %38, align 8, !tbaa !32
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %47, label %41
 
-35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %3, i64 20
-  %37 = load i32, ptr %36, align 4, !tbaa !74
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %41
+41:                                               ; preds = %30
+  %42 = getelementptr inbounds i8, ptr %3, i64 20
+  %43 = load i32, ptr %42, align 4, !tbaa !74
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %47
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %2, align 8, !tbaa !6
-  tail call fastcc void @_preview_quit(ptr %40)
-  br label %41
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %2, align 8, !tbaa !6
+  tail call fastcc void @_preview_quit(ptr %46)
+  br label %47
 
-41:                                               ; preds = %39, %35, %24
-  %42 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %43 = load ptr, ptr %42, align 8, !tbaa !34
-  %44 = tail call ptr @dt_ui_thumbtable(ptr noundef %43) #13
-  tail call void @dt_thumbtable_set_parent(ptr noundef %44, ptr noundef null, i32 noundef 0) #13
-  %45 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %46 = load ptr, ptr %45, align 8, !tbaa !34
-  tail call void @dt_ui_scrollbars_show(ptr noundef %46, i32 noundef 0) #13
+47:                                               ; preds = %45, %41, %30
+  %48 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %49 = load ptr, ptr %48, align 8, !tbaa !33
+  %50 = load ptr, ptr %49, align 8, !tbaa !34
+  %51 = tail call ptr @dt_ui_thumbtable(ptr noundef %50) #13
+  tail call void @dt_thumbtable_set_parent(ptr noundef %51, ptr noundef null, i32 noundef 0) #13
+  %52 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %53 = load ptr, ptr %52, align 8, !tbaa !33
+  %54 = load ptr, ptr %53, align 8, !tbaa !34
+  tail call void @dt_ui_scrollbars_show(ptr noundef %54, i32 noundef 0) #13
   ret void
 }
 
@@ -1013,102 +1079,115 @@ define internal fastcc void @_preview_quit(ptr nocapture %0) unnamed_addr #1 {
   %7 = getelementptr inbounds i8, ptr %6, i64 64
   %8 = load i32, ptr %7, align 8, !tbaa !80
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %14, label %10
+  br i1 %9, label %15, label %10
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 22), align 8, !tbaa !81
-  %12 = getelementptr inbounds i8, ptr %6, i64 28
-  %13 = load i32, ptr %12, align 4, !tbaa !64
-  tail call void @dt_selection_select_single(ptr noundef %11, i32 noundef %13) #13
-  br label %14
+  %11 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 22
+  %12 = load ptr, ptr %11, align 8, !tbaa !81
+  %13 = getelementptr inbounds i8, ptr %6, i64 28
+  %14 = load i32, ptr %13, align 4, !tbaa !64
+  tail call void @dt_selection_select_single(ptr noundef %12, i32 noundef %14) #13
+  br label %15
 
-14:                                               ; preds = %10, %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %15, align 8, !tbaa !32
-  %16 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %17 = load ptr, ptr %16, align 8, !tbaa !34
-  tail call void @dt_ui_restore_panels(ptr noundef %17) #13
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load i32, ptr %18, align 8, !tbaa !31
-  %20 = and i32 %19, -2
-  %21 = icmp eq i32 %20, 2
-  br i1 %21, label %22, label %37
+15:                                               ; preds = %10, %1
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %16, align 8, !tbaa !32
+  %17 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %18 = load ptr, ptr %17, align 8, !tbaa !33
+  %19 = load ptr, ptr %18, align 8, !tbaa !34
+  tail call void @dt_ui_restore_panels(ptr noundef %19) #13
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load i32, ptr %20, align 8, !tbaa !31
+  %22 = and i32 %21, -2
+  %23 = icmp eq i32 %22, 2
+  br i1 %23, label %24, label %42
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %0, align 8, !tbaa !14
-  %24 = getelementptr inbounds i8, ptr %23, i64 60
-  %25 = load i32, ptr %24, align 4, !tbaa !48
-  %26 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %27 = load ptr, ptr %26, align 8, !tbaa !34
-  %28 = tail call ptr @dt_ui_thumbtable(ptr noundef %27) #13
-  %29 = getelementptr inbounds i8, ptr %28, i64 144
-  store i32 %25, ptr %29, align 8, !tbaa !38
-  %30 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %31 = getelementptr inbounds i8, ptr %30, i64 568
-  %32 = load ptr, ptr %31, align 8, !tbaa !49
-  tail call void @dt_lib_set_visible(ptr noundef %32, i32 noundef 0) #13
-  %33 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %34 = getelementptr inbounds i8, ptr %33, i64 416
-  %35 = load ptr, ptr %34, align 8, !tbaa !63
-  tail call void @dt_lib_set_visible(ptr noundef %35, i32 noundef 1) #13
-  %36 = load ptr, ptr %0, align 8, !tbaa !14
-  tail call void @dt_culling_update_active_images_list(ptr noundef %36) #13
-  br label %73
+24:                                               ; preds = %15
+  %25 = load ptr, ptr %0, align 8, !tbaa !14
+  %26 = getelementptr inbounds i8, ptr %25, i64 60
+  %27 = load i32, ptr %26, align 4, !tbaa !48
+  %28 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %29 = load ptr, ptr %28, align 8, !tbaa !33
+  %30 = load ptr, ptr %29, align 8, !tbaa !34
+  %31 = tail call ptr @dt_ui_thumbtable(ptr noundef %30) #13
+  %32 = getelementptr inbounds i8, ptr %31, i64 144
+  store i32 %27, ptr %32, align 8, !tbaa !38
+  %33 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %34 = load ptr, ptr %33, align 8, !tbaa !30
+  %35 = getelementptr inbounds i8, ptr %34, i64 568
+  %36 = load ptr, ptr %35, align 8, !tbaa !49
+  tail call void @dt_lib_set_visible(ptr noundef %36, i32 noundef 0) #13
+  %37 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %38 = load ptr, ptr %37, align 8, !tbaa !30
+  %39 = getelementptr inbounds i8, ptr %38, i64 416
+  %40 = load ptr, ptr %39, align 8, !tbaa !63
+  tail call void @dt_lib_set_visible(ptr noundef %40, i32 noundef 1) #13
+  %41 = load ptr, ptr %0, align 8, !tbaa !14
+  tail call void @dt_culling_update_active_images_list(ptr noundef %41) #13
+  br label %86
 
-37:                                               ; preds = %14
-  %38 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %39 = load ptr, ptr %38, align 8, !tbaa !34
-  %40 = tail call ptr @dt_ui_thumbtable(ptr noundef %39) #13
-  %41 = getelementptr inbounds i8, ptr %40, i64 144
-  store i32 0, ptr %41, align 8, !tbaa !38
-  %42 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %43 = getelementptr inbounds i8, ptr %42, i64 416
-  %44 = load ptr, ptr %43, align 8, !tbaa !63
-  tail call void @dt_lib_set_visible(ptr noundef %44, i32 noundef 0) #13
-  %45 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %46 = getelementptr inbounds i8, ptr %45, i64 568
-  %47 = load ptr, ptr %46, align 8, !tbaa !49
-  tail call void @dt_lib_set_visible(ptr noundef %47, i32 noundef 1) #13
-  %48 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %49 = load ptr, ptr %48, align 8, !tbaa !34
-  %50 = tail call ptr @dt_ui_thumbtable(ptr noundef %49) #13
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
-  %52 = load i32, ptr %51, align 8, !tbaa !44
-  %53 = tail call i32 @dt_thumbtable_set_offset(ptr noundef %50, i32 noundef %52, i32 noundef 1) #13
-  %54 = load i32, ptr %18, align 8, !tbaa !31
-  switch i32 %54, label %64 [
-    i32 1, label %56
-    i32 0, label %55
+42:                                               ; preds = %15
+  %43 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %44 = load ptr, ptr %43, align 8, !tbaa !33
+  %45 = load ptr, ptr %44, align 8, !tbaa !34
+  %46 = tail call ptr @dt_ui_thumbtable(ptr noundef %45) #13
+  %47 = getelementptr inbounds i8, ptr %46, i64 144
+  store i32 0, ptr %47, align 8, !tbaa !38
+  %48 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %49 = load ptr, ptr %48, align 8, !tbaa !30
+  %50 = getelementptr inbounds i8, ptr %49, i64 416
+  %51 = load ptr, ptr %50, align 8, !tbaa !63
+  tail call void @dt_lib_set_visible(ptr noundef %51, i32 noundef 0) #13
+  %52 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %53 = load ptr, ptr %52, align 8, !tbaa !30
+  %54 = getelementptr inbounds i8, ptr %53, i64 568
+  %55 = load ptr, ptr %54, align 8, !tbaa !49
+  tail call void @dt_lib_set_visible(ptr noundef %55, i32 noundef 1) #13
+  %56 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %57 = load ptr, ptr %56, align 8, !tbaa !33
+  %58 = load ptr, ptr %57, align 8, !tbaa !34
+  %59 = tail call ptr @dt_ui_thumbtable(ptr noundef %58) #13
+  %60 = getelementptr inbounds i8, ptr %0, i64 32
+  %61 = load i32, ptr %60, align 8, !tbaa !44
+  %62 = tail call i32 @dt_thumbtable_set_offset(ptr noundef %59, i32 noundef %61, i32 noundef 1) #13
+  %63 = load i32, ptr %20, align 8, !tbaa !31
+  switch i32 %63, label %75 [
+    i32 1, label %65
+    i32 0, label %64
   ]
 
-55:                                               ; preds = %37
-  br label %56
+64:                                               ; preds = %42
+  br label %65
 
-56:                                               ; preds = %55, %37
-  %57 = phi i32 [ 3, %55 ], [ %54, %37 ]
-  %58 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %59 = load ptr, ptr %58, align 8, !tbaa !34
-  %60 = tail call ptr @dt_ui_thumbtable(ptr noundef %59) #13
-  %61 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %62 = load ptr, ptr %61, align 8, !tbaa !34
-  %63 = tail call ptr @dt_ui_center_base(ptr noundef %62) #13
-  tail call void @dt_thumbtable_set_parent(ptr noundef %60, ptr noundef %63, i32 noundef %57) #13
-  br label %64
+65:                                               ; preds = %64, %42
+  %66 = phi i32 [ 3, %64 ], [ %63, %42 ]
+  %67 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %68 = load ptr, ptr %67, align 8, !tbaa !33
+  %69 = load ptr, ptr %68, align 8, !tbaa !34
+  %70 = tail call ptr @dt_ui_thumbtable(ptr noundef %69) #13
+  %71 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %72 = load ptr, ptr %71, align 8, !tbaa !33
+  %73 = load ptr, ptr %72, align 8, !tbaa !34
+  %74 = tail call ptr @dt_ui_center_base(ptr noundef %73) #13
+  tail call void @dt_thumbtable_set_parent(ptr noundef %70, ptr noundef %74, i32 noundef %66) #13
+  br label %75
 
-64:                                               ; preds = %56, %37
-  %65 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %66 = load ptr, ptr %65, align 8, !tbaa !34
-  %67 = tail call ptr @dt_ui_thumbtable(ptr noundef %66) #13
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
-  %69 = load ptr, ptr %68, align 8, !tbaa !43
-  tail call void @gtk_widget_show(ptr noundef %69) #13
-  %70 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %71 = load ptr, ptr %70, align 8, !tbaa !34
-  %72 = tail call ptr @dt_ui_thumbtable(ptr noundef %71) #13
-  tail call void @dt_thumbtable_full_redraw(ptr noundef %72, i32 noundef 1) #13
-  br label %73
+75:                                               ; preds = %65, %42
+  %76 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %77 = load ptr, ptr %76, align 8, !tbaa !33
+  %78 = load ptr, ptr %77, align 8, !tbaa !34
+  %79 = tail call ptr @dt_ui_thumbtable(ptr noundef %78) #13
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %81 = load ptr, ptr %80, align 8, !tbaa !43
+  tail call void @gtk_widget_show(ptr noundef %81) #13
+  %82 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %83 = load ptr, ptr %82, align 8, !tbaa !33
+  %84 = load ptr, ptr %83, align 8, !tbaa !34
+  %85 = tail call ptr @dt_ui_thumbtable(ptr noundef %84) #13
+  tail call void @dt_thumbtable_full_redraw(ptr noundef %85, i32 noundef 1) #13
+  br label %86
 
-73:                                               ; preds = %64, %22
+86:                                               ; preds = %75, %24
   ret void
 }
 
@@ -1124,21 +1203,23 @@ declare void @dt_control_set_mouse_over_id(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @scrollbar_changed(ptr nocapture noundef readnone %0, double noundef %1, double noundef %2) local_unnamed_addr #1 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %5 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %4) #13
-  %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %13
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %6 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %5) #13
+  %7 = icmp eq i32 %6, 1
+  br i1 %7, label %8, label %15
 
-7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %9 = load ptr, ptr %8, align 8, !tbaa !34
-  %10 = tail call ptr @dt_ui_thumbtable(ptr noundef %9) #13
-  %11 = fptrunc double %1 to float
-  %12 = fptrunc double %2 to float
-  tail call void @dt_thumbtable_scrollbar_changed(ptr noundef %10, float noundef %11, float noundef %12) #13
-  br label %13
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %12 = tail call ptr @dt_ui_thumbtable(ptr noundef %11) #13
+  %13 = fptrunc double %1 to float
+  %14 = fptrunc double %2 to float
+  tail call void @dt_thumbtable_scrollbar_changed(ptr noundef %12, float noundef %13, float noundef %14) #13
+  br label %15
 
-13:                                               ; preds = %7, %3
+15:                                               ; preds = %8, %3
   ret void
 }
 
@@ -1146,220 +1227,224 @@ declare void @dt_thumbtable_scrollbar_changed(ptr noundef, float noundef, float 
 
 ; Function Attrs: nounwind uwtable
 define internal float @_action_process_infos(ptr nocapture readnone %0, i32 %1, i32 noundef %2, float noundef %3) #1 {
-  %5 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %6 = getelementptr inbounds i8, ptr %5, i64 448
-  %7 = load ptr, ptr %6, align 8, !tbaa !69
-  %8 = getelementptr inbounds i8, ptr %7, i64 288
-  %9 = load ptr, ptr %8, align 8, !tbaa !6
-  %10 = fcmp reassoc nsz arcp contract afn une float %3, 0xC7EFFFFFE0000000
-  br i1 %10, label %11, label %45
+  %5 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %7 = getelementptr inbounds i8, ptr %6, i64 448
+  %8 = load ptr, ptr %7, align 8, !tbaa !69
+  %9 = getelementptr inbounds i8, ptr %8, i64 288
+  %10 = load ptr, ptr %9, align 8, !tbaa !6
+  %11 = fcmp reassoc nsz arcp contract afn une float %3, 0xC7EFFFFFE0000000
+  br i1 %11, label %12, label %46
 
-11:                                               ; preds = %4
-  %12 = icmp eq i32 %2, 1
-  %13 = getelementptr inbounds i8, ptr %9, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !32
-  %15 = icmp eq i32 %14, 0
-  br i1 %12, label %25, label %16
+12:                                               ; preds = %4
+  %13 = icmp eq i32 %2, 1
+  %14 = getelementptr inbounds i8, ptr %10, i64 24
+  %15 = load i32, ptr %14, align 8, !tbaa !32
+  %16 = icmp eq i32 %15, 0
+  br i1 %13, label %26, label %17
 
-16:                                               ; preds = %11
-  br i1 %15, label %20, label %17
+17:                                               ; preds = %12
+  br i1 %16, label %21, label %18
 
-17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !16
-  tail call void @dt_culling_force_overlay(ptr noundef %19, i32 noundef 0) #13
-  br label %20
+18:                                               ; preds = %17
+  %19 = getelementptr inbounds i8, ptr %10, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !16
+  tail call void @dt_culling_force_overlay(ptr noundef %20, i32 noundef 0) #13
+  br label %21
 
-20:                                               ; preds = %17, %16
-  %21 = getelementptr inbounds i8, ptr %9, i64 16
-  %22 = load i32, ptr %21, align 8, !tbaa !31
-  %23 = and i32 %22, -2
-  %24 = icmp eq i32 %23, 2
-  br i1 %24, label %42, label %45
+21:                                               ; preds = %18, %17
+  %22 = getelementptr inbounds i8, ptr %10, i64 16
+  %23 = load i32, ptr %22, align 8, !tbaa !31
+  %24 = and i32 %23, -2
+  %25 = icmp eq i32 %24, 2
+  br i1 %25, label %43, label %46
 
-25:                                               ; preds = %11
-  br i1 %15, label %32, label %26
+26:                                               ; preds = %12
+  br i1 %16, label %33, label %27
 
-26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %9, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !16
-  %29 = getelementptr inbounds i8, ptr %28, i64 104
-  %30 = load i32, ptr %29, align 8, !tbaa !82
-  switch i32 %30, label %32 [
-    i32 0, label %31
-    i32 6, label %31
+27:                                               ; preds = %26
+  %28 = getelementptr inbounds i8, ptr %10, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !16
+  %30 = getelementptr inbounds i8, ptr %29, i64 104
+  %31 = load i32, ptr %30, align 8, !tbaa !82
+  switch i32 %31, label %33 [
+    i32 0, label %32
+    i32 6, label %32
   ]
 
-31:                                               ; preds = %26, %26
-  tail call void @dt_culling_force_overlay(ptr noundef nonnull %28, i32 noundef 1) #13
-  br label %32
+32:                                               ; preds = %27, %27
+  tail call void @dt_culling_force_overlay(ptr noundef nonnull %29, i32 noundef 1) #13
+  br label %33
 
-32:                                               ; preds = %31, %26, %25
-  %33 = getelementptr inbounds i8, ptr %9, i64 16
-  %34 = load i32, ptr %33, align 8, !tbaa !31
-  %35 = and i32 %34, -2
-  %36 = icmp eq i32 %35, 2
-  br i1 %36, label %37, label %45
+33:                                               ; preds = %32, %27, %26
+  %34 = getelementptr inbounds i8, ptr %10, i64 16
+  %35 = load i32, ptr %34, align 8, !tbaa !31
+  %36 = and i32 %35, -2
+  %37 = icmp eq i32 %36, 2
+  br i1 %37, label %38, label %46
 
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %9, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !16
-  %40 = getelementptr inbounds i8, ptr %39, i64 104
-  %41 = load i32, ptr %40, align 8, !tbaa !82
-  switch i32 %41, label %45 [
-    i32 0, label %42
-    i32 6, label %42
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds i8, ptr %10, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !16
+  %41 = getelementptr inbounds i8, ptr %40, i64 104
+  %42 = load i32, ptr %41, align 8, !tbaa !82
+  switch i32 %42, label %46 [
+    i32 0, label %43
+    i32 6, label %43
   ]
 
-42:                                               ; preds = %37, %37, %20
-  %43 = phi i32 [ 0, %20 ], [ 1, %37 ], [ 1, %37 ]
-  %44 = load ptr, ptr %9, align 8, !tbaa !14
-  tail call void @dt_culling_force_overlay(ptr noundef %44, i32 noundef %43) #13
-  br label %45
+43:                                               ; preds = %38, %38, %21
+  %44 = phi i32 [ 0, %21 ], [ 1, %38 ], [ 1, %38 ]
+  %45 = load ptr, ptr %10, align 8, !tbaa !14
+  tail call void @dt_culling_force_overlay(ptr noundef %45, i32 noundef %44) #13
+  br label %46
 
-45:                                               ; preds = %42, %37, %32, %20, %4
-  %46 = getelementptr inbounds i8, ptr %9, i64 24
-  %47 = load i32, ptr %46, align 8, !tbaa !32
-  %48 = sitofp i32 %47 to float
-  ret float %48
+46:                                               ; preds = %43, %38, %33, %21, %4
+  %47 = getelementptr inbounds i8, ptr %10, i64 24
+  %48 = load i32, ptr %47, align 8, !tbaa !32
+  %49 = sitofp i32 %48 to float
+  ret float %49
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef float @_action_process_move(ptr noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3) #1 {
   %5 = fcmp reassoc nsz arcp contract afn une float %3, 0xC7EFFFFFE0000000
-  br i1 %5, label %6, label %91
+  br i1 %5, label %6, label %94
 
 6:                                                ; preds = %4
   %7 = ptrtoint ptr %0 to i64
   %8 = trunc i64 %7 to i32
-  %9 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %10 = getelementptr inbounds i8, ptr %9, i64 448
-  %11 = load ptr, ptr %10, align 8, !tbaa !69
-  %12 = getelementptr inbounds i8, ptr %11, i64 288
-  %13 = load ptr, ptr %12, align 8, !tbaa !6
-  %14 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %9) #13
-  %15 = getelementptr inbounds i8, ptr %13, i64 24
-  %16 = load i32, ptr %15, align 8, !tbaa !32
-  %17 = freeze i32 %16
-  %18 = icmp eq i32 %17, 0
-  %19 = icmp ult i32 %14, 2
-  %20 = select i1 %18, i1 %19, i1 false
-  br i1 %20, label %21, label %54
+  %9 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
+  %11 = getelementptr inbounds i8, ptr %10, i64 448
+  %12 = load ptr, ptr %11, align 8, !tbaa !69
+  %13 = getelementptr inbounds i8, ptr %12, i64 288
+  %14 = load ptr, ptr %13, align 8, !tbaa !6
+  %15 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %10) #13
+  %16 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = load i32, ptr %16, align 8, !tbaa !32
+  %18 = freeze i32 %17
+  %19 = icmp eq i32 %18, 0
+  %20 = icmp ult i32 %15, 2
+  %21 = select i1 %19, i1 %20, i1 false
+  br i1 %21, label %22, label %56
 
-21:                                               ; preds = %6
-  %22 = icmp eq i32 %1, 1
-  %23 = zext i1 %22 to i32
-  %24 = icmp eq i32 %8, 1
-  %25 = icmp eq i32 %2, 2
-  %26 = and i1 %24, %25
-  br i1 %26, label %48, label %27
+22:                                               ; preds = %6
+  %23 = icmp eq i32 %1, 1
+  %24 = zext i1 %23 to i32
+  %25 = icmp eq i32 %8, 1
+  %26 = icmp eq i32 %2, 2
+  %27 = and i1 %25, %26
+  br i1 %27, label %49, label %28
 
-27:                                               ; preds = %21
-  %28 = icmp eq i32 %8, 2
-  %29 = icmp eq i32 %2, 1
-  %30 = and i1 %28, %29
-  br i1 %30, label %48, label %31
+28:                                               ; preds = %22
+  %29 = icmp eq i32 %8, 2
+  %30 = icmp eq i32 %2, 1
+  %31 = and i1 %29, %30
+  br i1 %31, label %49, label %32
 
-31:                                               ; preds = %27
-  %32 = and i1 %24, %29
-  br i1 %32, label %48, label %33
+32:                                               ; preds = %28
+  %33 = and i1 %25, %30
+  br i1 %33, label %49, label %34
 
-33:                                               ; preds = %31
-  %34 = and i1 %28, %25
-  br i1 %34, label %48, label %35
+34:                                               ; preds = %32
+  %35 = and i1 %29, %26
+  br i1 %35, label %49, label %36
 
-35:                                               ; preds = %33
-  %36 = icmp eq i32 %8, 3
-  %37 = and i1 %36, %29
-  br i1 %37, label %48, label %38
+36:                                               ; preds = %34
+  %37 = icmp eq i32 %8, 3
+  %38 = and i1 %37, %30
+  br i1 %38, label %49, label %39
 
-38:                                               ; preds = %35
-  %39 = and i1 %36, %25
-  br i1 %39, label %48, label %40
+39:                                               ; preds = %36
+  %40 = and i1 %37, %26
+  br i1 %40, label %49, label %41
 
-40:                                               ; preds = %38
-  %41 = icmp eq i32 %8, 0
-  %42 = and i1 %41, %25
-  br i1 %42, label %48, label %43
+41:                                               ; preds = %39
+  %42 = icmp eq i32 %8, 0
+  %43 = and i1 %42, %26
+  br i1 %43, label %49, label %44
 
-43:                                               ; preds = %40
-  %44 = and i1 %41, %29
-  br i1 %44, label %48, label %45
+44:                                               ; preds = %41
+  %45 = and i1 %42, %30
+  br i1 %45, label %49, label %46
 
-45:                                               ; preds = %43
-  %46 = icmp eq i32 %8, 4
-  %47 = and i1 %46, %29
-  br i1 %47, label %48, label %91
+46:                                               ; preds = %44
+  %47 = icmp eq i32 %8, 4
+  %48 = and i1 %47, %30
+  br i1 %48, label %49, label %94
 
-48:                                               ; preds = %45, %43, %40, %38, %35, %33, %31, %27, %21
-  %49 = phi i32 [ 11, %45 ], [ 8, %43 ], [ 7, %40 ], [ 6, %38 ], [ 5, %35 ], [ 4, %33 ], [ 3, %31 ], [ 2, %27 ], [ 1, %21 ]
-  %50 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %51 = load ptr, ptr %50, align 8, !tbaa !34
-  %52 = tail call ptr @dt_ui_thumbtable(ptr noundef %51) #13
-  %53 = tail call i32 @dt_thumbtable_key_move(ptr noundef %52, i32 noundef %49, i32 noundef %23) #13
-  br label %87
+49:                                               ; preds = %46, %44, %41, %39, %36, %34, %32, %28, %22
+  %50 = phi i32 [ 11, %46 ], [ 8, %44 ], [ 7, %41 ], [ 6, %39 ], [ 5, %36 ], [ 4, %34 ], [ 3, %32 ], [ 2, %28 ], [ 1, %22 ]
+  %51 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %52 = load ptr, ptr %51, align 8, !tbaa !33
+  %53 = load ptr, ptr %52, align 8, !tbaa !34
+  %54 = tail call ptr @dt_ui_thumbtable(ptr noundef %53) #13
+  %55 = tail call i32 @dt_thumbtable_key_move(ptr noundef %54, i32 noundef %50, i32 noundef %24) #13
+  br label %89
 
-54:                                               ; preds = %6
-  %55 = icmp ne i32 %17, 0
-  %56 = and i32 %14, -2
-  %57 = icmp eq i32 %56, 2
-  %58 = select i1 %55, i1 true, i1 %57
-  br i1 %58, label %59, label %91
+56:                                               ; preds = %6
+  %57 = icmp ne i32 %18, 0
+  %58 = and i32 %15, -2
+  %59 = icmp eq i32 %58, 2
+  %60 = select i1 %57, i1 true, i1 %59
+  br i1 %60, label %61, label %94
 
-59:                                               ; preds = %54
-  %60 = icmp eq i32 %8, 1
-  %61 = icmp eq i32 %2, 2
-  %62 = and i1 %60, %61
-  br i1 %62, label %81, label %63
+61:                                               ; preds = %56
+  %62 = icmp eq i32 %8, 1
+  %63 = icmp eq i32 %2, 2
+  %64 = and i1 %62, %63
+  br i1 %64, label %83, label %65
 
-63:                                               ; preds = %59
-  %64 = icmp eq i32 %8, 2
-  %65 = icmp eq i32 %2, 1
-  %66 = and i1 %64, %65
-  br i1 %66, label %81, label %67
+65:                                               ; preds = %61
+  %66 = icmp eq i32 %8, 2
+  %67 = icmp eq i32 %2, 1
+  %68 = and i1 %66, %67
+  br i1 %68, label %83, label %69
 
-67:                                               ; preds = %63
-  %68 = and i1 %60, %65
-  br i1 %68, label %81, label %69
-
-69:                                               ; preds = %67
-  %70 = and i1 %64, %61
-  br i1 %70, label %81, label %71
+69:                                               ; preds = %65
+  %70 = and i1 %62, %67
+  br i1 %70, label %83, label %71
 
 71:                                               ; preds = %69
-  %72 = icmp eq i32 %8, 3
-  %73 = and i1 %72, %65
-  br i1 %73, label %81, label %74
+  %72 = and i1 %66, %63
+  br i1 %72, label %83, label %73
 
-74:                                               ; preds = %71
-  %75 = and i1 %72, %61
-  br i1 %75, label %81, label %76
+73:                                               ; preds = %71
+  %74 = icmp eq i32 %8, 3
+  %75 = and i1 %74, %67
+  br i1 %75, label %83, label %76
 
-76:                                               ; preds = %74
-  %77 = icmp eq i32 %8, 0
-  %78 = and i1 %77, %61
-  br i1 %78, label %81, label %79
+76:                                               ; preds = %73
+  %77 = and i1 %74, %63
+  br i1 %77, label %83, label %78
 
-79:                                               ; preds = %76
-  %80 = and i1 %77, %65
-  br i1 %80, label %81, label %91
+78:                                               ; preds = %76
+  %79 = icmp eq i32 %8, 0
+  %80 = and i1 %79, %63
+  br i1 %80, label %83, label %81
 
-81:                                               ; preds = %79, %76, %74, %71, %69, %67, %63, %59
-  %82 = phi i32 [ 8, %79 ], [ 7, %76 ], [ 6, %74 ], [ 5, %71 ], [ 4, %69 ], [ 3, %67 ], [ 2, %63 ], [ 1, %59 ]
-  %83 = select i1 %18, i64 0, i64 8
-  %84 = getelementptr inbounds i8, ptr %13, i64 %83
-  %85 = load ptr, ptr %84, align 8, !tbaa !47
-  %86 = tail call i32 @dt_culling_key_move(ptr noundef %85, i32 noundef %82) #13
-  br label %87
+81:                                               ; preds = %78
+  %82 = and i1 %79, %67
+  br i1 %82, label %83, label %94
 
-87:                                               ; preds = %81, %48
-  %88 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %89 = load ptr, ptr %88, align 8, !tbaa !34
-  %90 = tail call ptr @dt_ui_center(ptr noundef %89) #13
-  tail call void @gtk_widget_queue_draw(ptr noundef %90) #13
-  br label %91
+83:                                               ; preds = %81, %78, %76, %73, %71, %69, %65, %61
+  %84 = phi i32 [ 8, %81 ], [ 7, %78 ], [ 6, %76 ], [ 5, %73 ], [ 4, %71 ], [ 3, %69 ], [ 2, %65 ], [ 1, %61 ]
+  %85 = select i1 %19, i64 0, i64 8
+  %86 = getelementptr inbounds i8, ptr %14, i64 %85
+  %87 = load ptr, ptr %86, align 8, !tbaa !47
+  %88 = tail call i32 @dt_culling_key_move(ptr noundef %87, i32 noundef %84) #13
+  br label %89
 
-91:                                               ; preds = %87, %79, %54, %45, %4
+89:                                               ; preds = %83, %49
+  %90 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %91 = load ptr, ptr %90, align 8, !tbaa !33
+  %92 = load ptr, ptr %91, align 8, !tbaa !34
+  %93 = tail call ptr @dt_ui_center(ptr noundef %92) #13
+  tail call void @gtk_widget_queue_draw(ptr noundef %93) #13
+  br label %94
+
+94:                                               ; preds = %89, %81, %56, %46, %4
   ret float 0.000000e+00
 }
 
@@ -1383,16 +1468,16 @@ define ptr @mouse_actions(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %15 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %13, i32 noundef 2, i32 noundef 0, ptr noundef %14) #13
   %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #13
   %17 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %15, i32 noundef 7, i32 noundef 0, ptr noundef %16) #13
-  br label %59
+  br label %60
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds i8, ptr %3, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !31
-  switch i32 %20, label %59 [
+  switch i32 %20, label %60 [
     i32 1, label %21
-    i32 2, label %39
-    i32 3, label %39
-    i32 0, label %54
+    i32 2, label %40
+    i32 3, label %40
+    i32 0, label %55
   ]
 
 21:                                               ; preds = %18
@@ -1406,49 +1491,50 @@ define ptr @mouse_actions(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %29 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %27, i32 noundef 0, i32 noundef 1, ptr noundef %28) #13
   %30 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 5) #13
   %31 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %29, i32 noundef 0, i32 noundef 4, ptr noundef %30) #13
-  %32 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 21), align 8, !tbaa !65
-  %33 = getelementptr inbounds i8, ptr %32, i64 100
-  %34 = load i32, ptr %33, align 4, !tbaa !83
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %59, label %36
+  %32 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 21
+  %33 = load ptr, ptr %32, align 8, !tbaa !65
+  %34 = getelementptr inbounds i8, ptr %33, i64 100
+  %35 = load i32, ptr %34, align 4, !tbaa !83
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %60, label %37
 
-36:                                               ; preds = %21
-  %37 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #13
-  %38 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %31, i32 noundef 6, i32 noundef 256, ptr noundef %37) #13
-  br label %59
+37:                                               ; preds = %21
+  %38 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #13
+  %39 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %31, i32 noundef 6, i32 noundef 256, ptr noundef %38) #13
+  br label %60
 
-39:                                               ; preds = %18, %18
-  %40 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.16, i32 noundef 5) #13
-  %41 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %5, i32 noundef 3, i32 noundef 0, ptr noundef %40) #13
-  %42 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #13
-  %43 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %41, i32 noundef 3, i32 noundef 4, ptr noundef %42) #13
-  %44 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef 5) #13
-  %45 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %43, i32 noundef 7, i32 noundef 0, ptr noundef %44) #13
-  %46 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 5) #13
-  %47 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %45, i32 noundef 3, i32 noundef 5, ptr noundef %46) #13
-  %48 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.25, i32 noundef 5) #13
-  %49 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %47, i32 noundef 7, i32 noundef 1, ptr noundef %48) #13
-  %50 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef 5) #13
-  %51 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %49, i32 noundef 2, i32 noundef 0, ptr noundef %50) #13
-  %52 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef 5) #13
-  %53 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %51, i32 noundef 2, i32 noundef 1, ptr noundef %52) #13
-  br label %59
+40:                                               ; preds = %18, %18
+  %41 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.16, i32 noundef 5) #13
+  %42 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %5, i32 noundef 3, i32 noundef 0, ptr noundef %41) #13
+  %43 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #13
+  %44 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %42, i32 noundef 3, i32 noundef 4, ptr noundef %43) #13
+  %45 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef 5) #13
+  %46 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %44, i32 noundef 7, i32 noundef 0, ptr noundef %45) #13
+  %47 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 5) #13
+  %48 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %46, i32 noundef 3, i32 noundef 5, ptr noundef %47) #13
+  %49 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.25, i32 noundef 5) #13
+  %50 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %48, i32 noundef 7, i32 noundef 1, ptr noundef %49) #13
+  %51 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef 5) #13
+  %52 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %50, i32 noundef 2, i32 noundef 0, ptr noundef %51) #13
+  %53 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef 5) #13
+  %54 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %52, i32 noundef 2, i32 noundef 1, ptr noundef %53) #13
+  br label %60
 
-54:                                               ; preds = %18
-  %55 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.27, i32 noundef 5) #13
-  %56 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %5, i32 noundef 3, i32 noundef 0, ptr noundef %55) #13
-  %57 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 5) #13
-  %58 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %56, i32 noundef 7, i32 noundef 0, ptr noundef %57) #13
-  br label %59
+55:                                               ; preds = %18
+  %56 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.27, i32 noundef 5) #13
+  %57 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %5, i32 noundef 3, i32 noundef 0, ptr noundef %56) #13
+  %58 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 5) #13
+  %59 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %57, i32 noundef 7, i32 noundef 0, ptr noundef %58) #13
+  br label %60
 
-59:                                               ; preds = %54, %39, %36, %21, %18, %9
-  %60 = phi ptr [ %17, %9 ], [ %38, %36 ], [ %31, %21 ], [ %53, %39 ], [ %58, %54 ], [ %5, %18 ]
-  %61 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.29) #13
-  %62 = icmp eq i32 %61, 0
-  %63 = select i1 %62, ptr @.str.31, ptr @.str.30
-  %64 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %63, i32 noundef 5) #13
-  %65 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %60, i32 noundef 0, i32 noundef 1, ptr noundef %64) #13
-  ret ptr %65
+60:                                               ; preds = %55, %40, %37, %21, %18, %9
+  %61 = phi ptr [ %17, %9 ], [ %39, %37 ], [ %31, %21 ], [ %54, %40 ], [ %59, %55 ], [ %5, %18 ]
+  %62 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.29) #13
+  %63 = icmp eq i32 %62, 0
+  %64 = select i1 %63, ptr @.str.31, ptr @.str.30
+  %65 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %64, i32 noundef 5) #13
+  %66 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %61, i32 noundef 0, i32 noundef 1, ptr noundef %65) #13
+  ret ptr %66
 }
 
 declare ptr @dt_mouse_action_create_simple(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
@@ -1464,242 +1550,266 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %5 = tail call ptr @dt_culling_new(i32 noundef 1) #13
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !16
-  %7 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %8 = load ptr, ptr %7, align 8, !tbaa !34
-  %9 = tail call ptr @dt_ui_center_base(ptr noundef %8) #13
-  %10 = tail call i64 @gtk_overlay_get_type() #16
-  %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #13
-  %12 = load ptr, ptr %3, align 8, !tbaa !14
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !41
-  tail call void @gtk_overlay_add_overlay(ptr noundef %11, ptr noundef %14) #13
-  %15 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %16 = load ptr, ptr %15, align 8, !tbaa !34
-  %17 = tail call ptr @dt_ui_center_base(ptr noundef %16) #13
-  %18 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %10) #13
-  %19 = load ptr, ptr %6, align 8, !tbaa !16
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !41
-  tail call void @gtk_overlay_add_overlay(ptr noundef %18, ptr noundef %21) #13
-  %22 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %23 = load ptr, ptr %22, align 8, !tbaa !34
-  %24 = tail call ptr @dt_ui_center_base(ptr noundef %23) #13
-  %25 = tail call ptr @g_type_check_instance_cast(ptr noundef %24, i64 noundef %10) #13
-  %26 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %27 = load ptr, ptr %26, align 8, !tbaa !34
-  %28 = tail call ptr @dt_ui_log_msg(ptr noundef %27) #13
-  %29 = tail call ptr @gtk_widget_get_parent(ptr noundef %28) #13
-  tail call void @gtk_overlay_reorder_overlay(ptr noundef %25, ptr noundef %29, i32 noundef -1) #13
-  %30 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
+  %7 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
+  %9 = load ptr, ptr %8, align 8, !tbaa !34
+  %10 = tail call ptr @dt_ui_center_base(ptr noundef %9) #13
+  %11 = tail call i64 @gtk_overlay_get_type() #16
+  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %11) #13
+  %13 = load ptr, ptr %3, align 8, !tbaa !14
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !41
+  tail call void @gtk_overlay_add_overlay(ptr noundef %12, ptr noundef %15) #13
+  %16 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %17 = load ptr, ptr %16, align 8, !tbaa !33
+  %18 = load ptr, ptr %17, align 8, !tbaa !34
+  %19 = tail call ptr @dt_ui_center_base(ptr noundef %18) #13
+  %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %11) #13
+  %21 = load ptr, ptr %6, align 8, !tbaa !16
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !41
+  tail call void @gtk_overlay_add_overlay(ptr noundef %20, ptr noundef %23) #13
+  %24 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %25 = load ptr, ptr %24, align 8, !tbaa !33
+  %26 = load ptr, ptr %25, align 8, !tbaa !34
+  %27 = tail call ptr @dt_ui_center_base(ptr noundef %26) #13
+  %28 = tail call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef %11) #13
+  %29 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %30 = load ptr, ptr %29, align 8, !tbaa !33
   %31 = load ptr, ptr %30, align 8, !tbaa !34
-  %32 = tail call ptr @dt_ui_center_base(ptr noundef %31) #13
-  %33 = tail call ptr @g_type_check_instance_cast(ptr noundef %32, i64 noundef %10) #13
-  %34 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %35 = load ptr, ptr %34, align 8, !tbaa !34
-  %36 = tail call ptr @dt_ui_toast_msg(ptr noundef %35) #13
-  %37 = tail call ptr @gtk_widget_get_parent(ptr noundef %36) #13
-  tail call void @gtk_overlay_reorder_overlay(ptr noundef %33, ptr noundef %37, i32 noundef -1) #13
-  %38 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %39 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %40 = getelementptr inbounds i8, ptr %39, i64 1432
-  %41 = load ptr, ptr %40, align 8, !tbaa !84
-  tail call void @dt_view_manager_module_toolbox_add(ptr noundef %38, ptr noundef %41, i32 noundef 3) #13
-  %42 = tail call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_display, i32 noundef 0, ptr noundef null) #13
-  %43 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.32, i32 noundef 5) #13
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %42, ptr noundef %43) #13
-  %44 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  tail call void @dt_view_manager_module_toolbox_add(ptr noundef %44, ptr noundef %42, i32 noundef 1) #13
-  %45 = tail call ptr @gtk_popover_new(ptr noundef %42) #13
-  %46 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr %45, ptr %46, align 8, !tbaa !85
-  %47 = tail call ptr @g_type_check_instance_cast(ptr noundef %45, i64 noundef 80) #13
-  tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %47, ptr noundef nonnull @.str.33, i32 noundef 0, ptr noundef null) #13
-  %48 = tail call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef 80) #13
-  %49 = load ptr, ptr %46, align 8, !tbaa !85
-  %50 = tail call i64 @g_signal_connect_data(ptr noundef %48, ptr noundef nonnull @.str.34, ptr noundef nonnull @gtk_widget_show_all, ptr noundef %49, ptr noundef null, i32 noundef 2) #13
-  %51 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #13
-  %52 = load ptr, ptr %46, align 8, !tbaa !85
-  %53 = tail call i64 @gtk_container_get_type() #16
-  %54 = tail call ptr @g_type_check_instance_cast(ptr noundef %52, i64 noundef %53) #13
-  tail call void @gtk_container_add(ptr noundef %54, ptr noundef %51) #13
-  %55 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef 0, ptr noundef nonnull @_profile_display_intent_callback, ptr noundef null, ptr noundef nonnull @gui_init.intents_list) #13
-  %56 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.41, i32 noundef 0, ptr noundef nonnull @_profile_display2_intent_callback, ptr noundef null, ptr noundef nonnull @gui_init.intents_list) #13
-  %57 = tail call ptr @dt_bauhaus_combobox_new(ptr noundef null) #13
-  %58 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %57, ptr noundef null, ptr noundef nonnull @.str.43) #13
-  %59 = tail call ptr @dt_bauhaus_combobox_new(ptr noundef null) #13
-  %60 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %59, ptr noundef null, ptr noundef nonnull @.str.44) #13
-  %61 = tail call i64 @gtk_box_get_type() #16
-  %62 = tail call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %61) #13
-  tail call void @gtk_box_pack_start(ptr noundef %62, ptr noundef %57, i32 noundef 1, i32 noundef 1, i32 noundef 0) #13
-  %63 = tail call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %61) #13
-  tail call void @gtk_box_pack_start(ptr noundef %63, ptr noundef %55, i32 noundef 1, i32 noundef 1, i32 noundef 0) #13
-  %64 = tail call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %61) #13
-  %65 = tail call ptr @gtk_separator_new(i32 noundef 0) #13
-  tail call void @gtk_box_pack_start(ptr noundef %64, ptr noundef %65, i32 noundef 1, i32 noundef 1, i32 noundef 0) #13
-  %66 = tail call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %61) #13
-  tail call void @gtk_box_pack_start(ptr noundef %66, ptr noundef %59, i32 noundef 1, i32 noundef 1, i32 noundef 0) #13
-  %67 = tail call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %61) #13
-  tail call void @gtk_box_pack_start(ptr noundef %67, ptr noundef %56, i32 noundef 1, i32 noundef 1, i32 noundef 0) #13
-  %68 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %69 = load ptr, ptr %68, align 8, !tbaa !47
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %86
+  %32 = tail call ptr @dt_ui_log_msg(ptr noundef %31) #13
+  %33 = tail call ptr @gtk_widget_get_parent(ptr noundef %32) #13
+  tail call void @gtk_overlay_reorder_overlay(ptr noundef %28, ptr noundef %33, i32 noundef -1) #13
+  %34 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %35 = load ptr, ptr %34, align 8, !tbaa !33
+  %36 = load ptr, ptr %35, align 8, !tbaa !34
+  %37 = tail call ptr @dt_ui_center_base(ptr noundef %36) #13
+  %38 = tail call ptr @g_type_check_instance_cast(ptr noundef %37, i64 noundef %11) #13
+  %39 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %40 = load ptr, ptr %39, align 8, !tbaa !33
+  %41 = load ptr, ptr %40, align 8, !tbaa !34
+  %42 = tail call ptr @dt_ui_toast_msg(ptr noundef %41) #13
+  %43 = tail call ptr @gtk_widget_get_parent(ptr noundef %42) #13
+  tail call void @gtk_overlay_reorder_overlay(ptr noundef %38, ptr noundef %43, i32 noundef -1) #13
+  %44 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %45 = load ptr, ptr %44, align 8, !tbaa !30
+  %46 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %47 = load ptr, ptr %46, align 8, !tbaa !33
+  %48 = getelementptr inbounds i8, ptr %47, i64 1432
+  %49 = load ptr, ptr %48, align 8, !tbaa !84
+  tail call void @dt_view_manager_module_toolbox_add(ptr noundef %45, ptr noundef %49, i32 noundef 3) #13
+  %50 = tail call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_display, i32 noundef 0, ptr noundef null) #13
+  %51 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.32, i32 noundef 5) #13
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %50, ptr noundef %51) #13
+  %52 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %53 = load ptr, ptr %52, align 8, !tbaa !30
+  tail call void @dt_view_manager_module_toolbox_add(ptr noundef %53, ptr noundef %50, i32 noundef 1) #13
+  %54 = tail call ptr @gtk_popover_new(ptr noundef %50) #13
+  %55 = getelementptr inbounds i8, ptr %3, i64 40
+  store ptr %54, ptr %55, align 8, !tbaa !85
+  %56 = tail call ptr @g_type_check_instance_cast(ptr noundef %54, i64 noundef 80) #13
+  tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %56, ptr noundef nonnull @.str.33, i32 noundef 0, ptr noundef null) #13
+  %57 = tail call ptr @g_type_check_instance_cast(ptr noundef %50, i64 noundef 80) #13
+  %58 = load ptr, ptr %55, align 8, !tbaa !85
+  %59 = tail call i64 @g_signal_connect_data(ptr noundef %57, ptr noundef nonnull @.str.34, ptr noundef nonnull @gtk_widget_show_all, ptr noundef %58, ptr noundef null, i32 noundef 2) #13
+  %60 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #13
+  %61 = load ptr, ptr %55, align 8, !tbaa !85
+  %62 = tail call i64 @gtk_container_get_type() #16
+  %63 = tail call ptr @g_type_check_instance_cast(ptr noundef %61, i64 noundef %62) #13
+  tail call void @gtk_container_add(ptr noundef %63, ptr noundef %60) #13
+  %64 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef 0, ptr noundef nonnull @_profile_display_intent_callback, ptr noundef null, ptr noundef nonnull @gui_init.intents_list) #13
+  %65 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.41, i32 noundef 0, ptr noundef nonnull @_profile_display2_intent_callback, ptr noundef null, ptr noundef nonnull @gui_init.intents_list) #13
+  %66 = tail call ptr @dt_bauhaus_combobox_new(ptr noundef null) #13
+  %67 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %66, ptr noundef null, ptr noundef nonnull @.str.43) #13
+  %68 = tail call ptr @dt_bauhaus_combobox_new(ptr noundef null) #13
+  %69 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %68, ptr noundef null, ptr noundef nonnull @.str.44) #13
+  %70 = tail call i64 @gtk_box_get_type() #16
+  %71 = tail call ptr @g_type_check_instance_cast(ptr noundef %60, i64 noundef %70) #13
+  tail call void @gtk_box_pack_start(ptr noundef %71, ptr noundef %66, i32 noundef 1, i32 noundef 1, i32 noundef 0) #13
+  %72 = tail call ptr @g_type_check_instance_cast(ptr noundef %60, i64 noundef %70) #13
+  tail call void @gtk_box_pack_start(ptr noundef %72, ptr noundef %64, i32 noundef 1, i32 noundef 1, i32 noundef 0) #13
+  %73 = tail call ptr @g_type_check_instance_cast(ptr noundef %60, i64 noundef %70) #13
+  %74 = tail call ptr @gtk_separator_new(i32 noundef 0) #13
+  tail call void @gtk_box_pack_start(ptr noundef %73, ptr noundef %74, i32 noundef 1, i32 noundef 1, i32 noundef 0) #13
+  %75 = tail call ptr @g_type_check_instance_cast(ptr noundef %60, i64 noundef %70) #13
+  tail call void @gtk_box_pack_start(ptr noundef %75, ptr noundef %68, i32 noundef 1, i32 noundef 1, i32 noundef 0) #13
+  %76 = tail call ptr @g_type_check_instance_cast(ptr noundef %60, i64 noundef %70) #13
+  tail call void @gtk_box_pack_start(ptr noundef %76, ptr noundef %65, i32 noundef 1, i32 noundef 1, i32 noundef 0) #13
+  %77 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %78 = load ptr, ptr %77, align 8, !tbaa !86
+  %79 = load ptr, ptr %78, align 8, !tbaa !47
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %81, label %98
 
-71:                                               ; preds = %128, %1
-  %72 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.46, i32 noundef 5) #13
-  %73 = tail call ptr @dt_ioppr_get_location_tooltip(ptr noundef nonnull @.str.45, ptr noundef %72) #13
-  tail call void @gtk_widget_set_tooltip_markup(ptr noundef %57, ptr noundef %73) #13
-  tail call void @g_free(ptr noundef %73) #13
-  %74 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.47, i32 noundef 5) #13
-  %75 = tail call ptr @dt_ioppr_get_location_tooltip(ptr noundef nonnull @.str.45, ptr noundef %74) #13
-  tail call void @gtk_widget_set_tooltip_markup(ptr noundef %59, ptr noundef %75) #13
-  tail call void @g_free(ptr noundef %75) #13
-  %76 = tail call ptr @g_type_check_instance_cast(ptr noundef %57, i64 noundef 80) #13
-  %77 = tail call i64 @g_signal_connect_data(ptr noundef %76, ptr noundef nonnull @.str.48, ptr noundef nonnull @_profile_display_profile_callback, ptr noundef null, ptr noundef null, i32 noundef 0) #13
-  %78 = tail call ptr @g_type_check_instance_cast(ptr noundef %59, i64 noundef 80) #13
-  %79 = tail call i64 @g_signal_connect_data(ptr noundef %78, ptr noundef nonnull @.str.48, ptr noundef nonnull @_profile_display2_profile_callback, ptr noundef null, ptr noundef null, i32 noundef 0) #13
-  %80 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !77
-  %81 = and i32 %80, 2
-  %82 = icmp ne i32 %81, 0
-  %83 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 33), align 8
-  %84 = icmp ne i32 %83, 0
-  %85 = select i1 %82, i1 %84, i1 false
-  br i1 %85, label %132, label %137
+81:                                               ; preds = %142, %1
+  %82 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.46, i32 noundef 5) #13
+  %83 = tail call ptr @dt_ioppr_get_location_tooltip(ptr noundef nonnull @.str.45, ptr noundef %82) #13
+  tail call void @gtk_widget_set_tooltip_markup(ptr noundef %66, ptr noundef %83) #13
+  tail call void @g_free(ptr noundef %83) #13
+  %84 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.47, i32 noundef 5) #13
+  %85 = tail call ptr @dt_ioppr_get_location_tooltip(ptr noundef nonnull @.str.45, ptr noundef %84) #13
+  tail call void @gtk_widget_set_tooltip_markup(ptr noundef %68, ptr noundef %85) #13
+  tail call void @g_free(ptr noundef %85) #13
+  %86 = tail call ptr @g_type_check_instance_cast(ptr noundef %66, i64 noundef 80) #13
+  %87 = tail call i64 @g_signal_connect_data(ptr noundef %86, ptr noundef nonnull @.str.48, ptr noundef nonnull @_profile_display_profile_callback, ptr noundef null, ptr noundef null, i32 noundef 0) #13
+  %88 = tail call ptr @g_type_check_instance_cast(ptr noundef %68, i64 noundef 80) #13
+  %89 = tail call i64 @g_signal_connect_data(ptr noundef %88, ptr noundef nonnull @.str.48, ptr noundef nonnull @_profile_display2_profile_callback, ptr noundef null, ptr noundef null, i32 noundef 0) #13
+  %90 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
+  %91 = load i32, ptr %90, align 8, !tbaa !77
+  %92 = and i32 %91, 2
+  %93 = icmp ne i32 %92, 0
+  %94 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 33
+  %95 = load i32, ptr %94, align 8
+  %96 = icmp ne i32 %95, 0
+  %97 = select i1 %93, i1 %96, i1 false
+  br i1 %97, label %146, label %152
 
-86:                                               ; preds = %128, %1
-  %87 = phi ptr [ %130, %128 ], [ %69, %1 ]
-  %88 = load ptr, ptr %87, align 8, !tbaa !87
-  %89 = getelementptr inbounds i8, ptr %88, i64 1048
-  %90 = load i32, ptr %89, align 8, !tbaa !89
-  %91 = icmp sgt i32 %90, -1
-  br i1 %91, label %92, label %108
+98:                                               ; preds = %142, %1
+  %99 = phi ptr [ %144, %142 ], [ %79, %1 ]
+  %100 = load ptr, ptr %99, align 8, !tbaa !87
+  %101 = getelementptr inbounds i8, ptr %100, i64 1048
+  %102 = load i32, ptr %101, align 8, !tbaa !89
+  %103 = icmp sgt i32 %102, -1
+  br i1 %103, label %104, label %121
 
-92:                                               ; preds = %86
-  %93 = getelementptr inbounds i8, ptr %88, i64 516
-  tail call void @dt_bauhaus_combobox_add(ptr noundef %57, ptr noundef nonnull %93) #13
-  %94 = load i32, ptr %88, align 8, !tbaa !91
-  %95 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %96 = getelementptr inbounds i8, ptr %95, i64 108
-  %97 = load i32, ptr %96, align 4, !tbaa !92
-  %98 = icmp eq i32 %94, %97
-  br i1 %98, label %99, label %108
+104:                                              ; preds = %98
+  %105 = getelementptr inbounds i8, ptr %100, i64 516
+  tail call void @dt_bauhaus_combobox_add(ptr noundef %66, ptr noundef nonnull %105) #13
+  %106 = load i32, ptr %100, align 8, !tbaa !91
+  %107 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %108 = load ptr, ptr %107, align 8, !tbaa !86
+  %109 = getelementptr inbounds i8, ptr %108, i64 108
+  %110 = load i32, ptr %109, align 4, !tbaa !92
+  %111 = icmp eq i32 %106, %110
+  br i1 %111, label %112, label %121
 
-99:                                               ; preds = %92
-  %100 = icmp eq i32 %94, 0
-  br i1 %100, label %101, label %106
+112:                                              ; preds = %104
+  %113 = icmp eq i32 %106, 0
+  br i1 %113, label %114, label %119
 
-101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %88, i64 4
-  %103 = getelementptr inbounds i8, ptr %95, i64 124
-  %104 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) %103) #17
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %108
+114:                                              ; preds = %112
+  %115 = getelementptr inbounds i8, ptr %100, i64 4
+  %116 = getelementptr inbounds i8, ptr %108, i64 124
+  %117 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %115, ptr noundef nonnull dereferenceable(1) %116) #17
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %119, label %121
 
-106:                                              ; preds = %101, %99
-  %107 = load i32, ptr %89, align 8, !tbaa !89
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %57, i32 noundef %107) #13
-  br label %108
+119:                                              ; preds = %114, %112
+  %120 = load i32, ptr %101, align 8, !tbaa !89
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %66, i32 noundef %120) #13
+  br label %121
 
-108:                                              ; preds = %106, %101, %92, %86
-  %109 = getelementptr inbounds i8, ptr %88, i64 1052
-  %110 = load i32, ptr %109, align 4, !tbaa !94
-  %111 = icmp sgt i32 %110, -1
-  br i1 %111, label %112, label %128
+121:                                              ; preds = %119, %114, %104, %98
+  %122 = getelementptr inbounds i8, ptr %100, i64 1052
+  %123 = load i32, ptr %122, align 4, !tbaa !94
+  %124 = icmp sgt i32 %123, -1
+  br i1 %124, label %125, label %142
 
-112:                                              ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %88, i64 516
-  tail call void @dt_bauhaus_combobox_add(ptr noundef %59, ptr noundef nonnull %113) #13
-  %114 = load i32, ptr %88, align 8, !tbaa !91
-  %115 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %116 = getelementptr inbounds i8, ptr %115, i64 112
-  %117 = load i32, ptr %116, align 8, !tbaa !95
-  %118 = icmp eq i32 %114, %117
-  br i1 %118, label %119, label %128
+125:                                              ; preds = %121
+  %126 = getelementptr inbounds i8, ptr %100, i64 516
+  tail call void @dt_bauhaus_combobox_add(ptr noundef %68, ptr noundef nonnull %126) #13
+  %127 = load i32, ptr %100, align 8, !tbaa !91
+  %128 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %129 = load ptr, ptr %128, align 8, !tbaa !86
+  %130 = getelementptr inbounds i8, ptr %129, i64 112
+  %131 = load i32, ptr %130, align 8, !tbaa !95
+  %132 = icmp eq i32 %127, %131
+  br i1 %132, label %133, label %142
 
-119:                                              ; preds = %112
-  %120 = icmp eq i32 %114, 0
-  br i1 %120, label %121, label %126
+133:                                              ; preds = %125
+  %134 = icmp eq i32 %127, 0
+  br i1 %134, label %135, label %140
 
-121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %88, i64 4
-  %123 = getelementptr inbounds i8, ptr %115, i64 636
-  %124 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %122, ptr noundef nonnull dereferenceable(1) %123) #17
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %126, label %128
+135:                                              ; preds = %133
+  %136 = getelementptr inbounds i8, ptr %100, i64 4
+  %137 = getelementptr inbounds i8, ptr %129, i64 636
+  %138 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull dereferenceable(1) %137) #17
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %140, label %142
 
-126:                                              ; preds = %121, %119
-  %127 = load i32, ptr %109, align 4, !tbaa !94
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %59, i32 noundef %127) #13
-  br label %128
+140:                                              ; preds = %135, %133
+  %141 = load i32, ptr %122, align 4, !tbaa !94
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %68, i32 noundef %141) #13
+  br label %142
 
-128:                                              ; preds = %126, %121, %112, %108
-  %129 = getelementptr inbounds i8, ptr %87, i64 8
-  %130 = load ptr, ptr %129, align 8, !tbaa !47
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %71, label %86
+142:                                              ; preds = %140, %135, %125, %121
+  %143 = getelementptr inbounds i8, ptr %99, i64 8
+  %144 = load ptr, ptr %143, align 8, !tbaa !47
+  %145 = icmp eq ptr %144, null
+  br i1 %145, label %81, label %98
 
-132:                                              ; preds = %71
-  %133 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !17
-  %134 = and i32 %133, 1048576
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %137, label %136
+146:                                              ; preds = %81
+  %147 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %148 = load i32, ptr %147, align 8, !tbaa !17
+  %149 = and i32 %148, 1048576
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %152, label %151
 
-136:                                              ; preds = %132
+151:                                              ; preds = %146
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 1240, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51) #13
-  br label %137
+  br label %152
 
-137:                                              ; preds = %136, %132, %71
-  %138 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !78
-  tail call void @dt_control_signal_connect(ptr noundef %138, i32 noundef 33, ptr noundef nonnull @_profile_display_changed, ptr noundef %57) #13
-  %139 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !77
-  %140 = and i32 %139, 2
-  %141 = icmp ne i32 %140, 0
-  %142 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 33), align 8
-  %143 = icmp ne i32 %142, 0
-  %144 = select i1 %141, i1 %143, i1 false
-  br i1 %144, label %145, label %150
+152:                                              ; preds = %151, %146, %81
+  %153 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
+  %154 = load ptr, ptr %153, align 8, !tbaa !78
+  tail call void @dt_control_signal_connect(ptr noundef %154, i32 noundef 33, ptr noundef nonnull @_profile_display_changed, ptr noundef %66) #13
+  %155 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
+  %156 = load i32, ptr %155, align 8, !tbaa !77
+  %157 = and i32 %156, 2
+  %158 = icmp ne i32 %157, 0
+  %159 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 33
+  %160 = load i32, ptr %159, align 8
+  %161 = icmp ne i32 %160, 0
+  %162 = select i1 %158, i1 %161, i1 false
+  br i1 %162, label %163, label %169
 
-145:                                              ; preds = %137
-  %146 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !17
-  %147 = and i32 %146, 1048576
-  %148 = icmp eq i32 %147, 0
-  br i1 %148, label %150, label %149
+163:                                              ; preds = %152
+  %164 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %165 = load i32, ptr %164, align 8, !tbaa !17
+  %166 = and i32 %165, 1048576
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %169, label %168
 
-149:                                              ; preds = %145
+168:                                              ; preds = %163
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 1242, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.51) #13
-  br label %150
+  br label %169
 
-150:                                              ; preds = %149, %145, %137
-  %151 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !78
-  tail call void @dt_control_signal_connect(ptr noundef %151, i32 noundef 33, ptr noundef nonnull @_profile_display2_changed, ptr noundef %59) #13
-  %152 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull @_action_def_move) #13
-  tail call void @dt_shortcut_register(ptr noundef %152, i32 noundef 0, i32 noundef 2, i32 noundef 65360, i32 noundef 0) #13
-  tail call void @dt_shortcut_register(ptr noundef %152, i32 noundef 0, i32 noundef 1, i32 noundef 65367, i32 noundef 0) #13
-  %153 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.54, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_action_def_move) #13
-  tail call void @dt_shortcut_register(ptr noundef %153, i32 noundef 0, i32 noundef 2, i32 noundef 65361, i32 noundef 0) #13
-  tail call void @dt_shortcut_register(ptr noundef %153, i32 noundef 0, i32 noundef 1, i32 noundef 65363, i32 noundef 0) #13
-  %154 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.55, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @_action_def_move) #13
-  tail call void @dt_shortcut_register(ptr noundef %154, i32 noundef 0, i32 noundef 2, i32 noundef 65364, i32 noundef 0) #13
-  tail call void @dt_shortcut_register(ptr noundef %154, i32 noundef 0, i32 noundef 1, i32 noundef 65362, i32 noundef 0) #13
-  %155 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.56, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @_action_def_move) #13
-  tail call void @dt_shortcut_register(ptr noundef %155, i32 noundef 0, i32 noundef 2, i32 noundef 65366, i32 noundef 0) #13
-  tail call void @dt_shortcut_register(ptr noundef %155, i32 noundef 0, i32 noundef 1, i32 noundef 65365, i32 noundef 0) #13
-  %156 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @__FUNCTION__.leave, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @_action_def_move) #13
-  tail call void @dt_shortcut_register(ptr noundef %156, i32 noundef 0, i32 noundef 1, i32 noundef 65307, i32 noundef 8) #13
-  %157 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef nonnull @dt_action_def_infos) #13
-  tail call void @dt_shortcut_register(ptr noundef %157, i32 noundef 0, i32 noundef 0, i32 noundef 105, i32 noundef 0) #13
-  %158 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.57, ptr noundef nonnull @_accel_align_to_grid, i32 noundef 0, i32 noundef 0) #13
-  %159 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.58, ptr noundef nonnull @_accel_reset_first_offset, i32 noundef 0, i32 noundef 0) #13
-  %160 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.59, ptr noundef nonnull @_accel_select_toggle, i32 noundef 32, i32 noundef 0) #13
-  %161 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.60, ptr noundef nonnull @_accel_select_single, i32 noundef 65293, i32 noundef 0) #13
-  %162 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.61, ptr noundef nonnull @_lighttable_undo_callback, i32 noundef 122, i32 noundef 4) #13
-  %163 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.62, ptr noundef nonnull @_lighttable_redo_callback, i32 noundef 121, i32 noundef 4) #13
-  %164 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef nonnull @_accel_culling_zoom_100, i32 noundef 0, i32 noundef 0) #13
-  %165 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.64, ptr noundef nonnull @_accel_culling_zoom_fit, i32 noundef 0, i32 noundef 0) #13
-  %166 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.65, ptr noundef nonnull @zoom_in_callback, i32 noundef 43, i32 noundef 4) #13
-  %167 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef nonnull @zoom_max_callback, i32 noundef 43, i32 noundef 8) #13
-  %168 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.67, ptr noundef nonnull @zoom_out_callback, i32 noundef 45, i32 noundef 4) #13
-  %169 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.68, ptr noundef nonnull @zoom_min_callback, i32 noundef 45, i32 noundef 8) #13
+169:                                              ; preds = %168, %163, %152
+  %170 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
+  %171 = load ptr, ptr %170, align 8, !tbaa !78
+  tail call void @dt_control_signal_connect(ptr noundef %171, i32 noundef 33, ptr noundef nonnull @_profile_display2_changed, ptr noundef %68) #13
+  %172 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull @_action_def_move) #13
+  tail call void @dt_shortcut_register(ptr noundef %172, i32 noundef 0, i32 noundef 2, i32 noundef 65360, i32 noundef 0) #13
+  tail call void @dt_shortcut_register(ptr noundef %172, i32 noundef 0, i32 noundef 1, i32 noundef 65367, i32 noundef 0) #13
+  %173 = inttoptr i64 1 to ptr
+  %174 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.54, ptr noundef nonnull %173, ptr noundef nonnull @_action_def_move) #13
+  tail call void @dt_shortcut_register(ptr noundef %174, i32 noundef 0, i32 noundef 2, i32 noundef 65361, i32 noundef 0) #13
+  tail call void @dt_shortcut_register(ptr noundef %174, i32 noundef 0, i32 noundef 1, i32 noundef 65363, i32 noundef 0) #13
+  %175 = inttoptr i64 2 to ptr
+  %176 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.55, ptr noundef nonnull %175, ptr noundef nonnull @_action_def_move) #13
+  tail call void @dt_shortcut_register(ptr noundef %176, i32 noundef 0, i32 noundef 2, i32 noundef 65364, i32 noundef 0) #13
+  tail call void @dt_shortcut_register(ptr noundef %176, i32 noundef 0, i32 noundef 1, i32 noundef 65362, i32 noundef 0) #13
+  %177 = inttoptr i64 3 to ptr
+  %178 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.56, ptr noundef nonnull %177, ptr noundef nonnull @_action_def_move) #13
+  tail call void @dt_shortcut_register(ptr noundef %178, i32 noundef 0, i32 noundef 2, i32 noundef 65366, i32 noundef 0) #13
+  tail call void @dt_shortcut_register(ptr noundef %178, i32 noundef 0, i32 noundef 1, i32 noundef 65365, i32 noundef 0) #13
+  %179 = inttoptr i64 4 to ptr
+  %180 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @__FUNCTION__.leave, ptr noundef nonnull %179, ptr noundef nonnull @_action_def_move) #13
+  tail call void @dt_shortcut_register(ptr noundef %180, i32 noundef 0, i32 noundef 1, i32 noundef 65307, i32 noundef 8) #13
+  %181 = tail call ptr @dt_action_define(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef nonnull @dt_action_def_infos) #13
+  tail call void @dt_shortcut_register(ptr noundef %181, i32 noundef 0, i32 noundef 0, i32 noundef 105, i32 noundef 0) #13
+  %182 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.57, ptr noundef nonnull @_accel_align_to_grid, i32 noundef 0, i32 noundef 0) #13
+  %183 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.58, ptr noundef nonnull @_accel_reset_first_offset, i32 noundef 0, i32 noundef 0) #13
+  %184 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.59, ptr noundef nonnull @_accel_select_toggle, i32 noundef 32, i32 noundef 0) #13
+  %185 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.60, ptr noundef nonnull @_accel_select_single, i32 noundef 65293, i32 noundef 0) #13
+  %186 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.61, ptr noundef nonnull @_lighttable_undo_callback, i32 noundef 122, i32 noundef 4) #13
+  %187 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.62, ptr noundef nonnull @_lighttable_redo_callback, i32 noundef 121, i32 noundef 4) #13
+  %188 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef nonnull @_accel_culling_zoom_100, i32 noundef 0, i32 noundef 0) #13
+  %189 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.64, ptr noundef nonnull @_accel_culling_zoom_fit, i32 noundef 0, i32 noundef 0) #13
+  %190 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.65, ptr noundef nonnull @zoom_in_callback, i32 noundef 43, i32 noundef 4) #13
+  %191 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef nonnull @zoom_max_callback, i32 noundef 43, i32 noundef 8) #13
+  %192 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.67, ptr noundef nonnull @zoom_out_callback, i32 noundef 45, i32 noundef 4) #13
+  %193 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.68, ptr noundef nonnull @zoom_min_callback, i32 noundef 45, i32 noundef 8) #13
   ret void
 }
 
@@ -1748,52 +1858,56 @@ declare ptr @dt_bauhaus_combobox_new_full(ptr noundef, ptr noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define internal void @_profile_display_intent_callback(ptr noundef %0, ptr nocapture readnone %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #13
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %5 = getelementptr inbounds i8, ptr %4, i64 2172
-  %6 = load i32, ptr %5, align 4, !tbaa !96
-  %7 = icmp ugt i32 %3, 3
-  %8 = icmp eq i32 %3, %6
-  %9 = select i1 %7, i1 true, i1 %8
-  br i1 %9, label %16, label %10
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %5 = load ptr, ptr %4, align 8, !tbaa !86
+  %6 = getelementptr inbounds i8, ptr %5, i64 2172
+  %7 = load i32, ptr %6, align 4, !tbaa !96
+  %8 = icmp ugt i32 %3, 3
+  %9 = icmp eq i32 %3, %7
+  %10 = select i1 %8, i1 true, i1 %9
+  br i1 %10, label %18, label %11
 
-10:                                               ; preds = %2
-  store i32 %3, ptr %5, align 4, !tbaa !96
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #13
+11:                                               ; preds = %2
+  store i32 %3, ptr %6, align 4, !tbaa !96
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %12) #13
   tail call void (...) @dt_colorspaces_update_display_transforms() #13
-  %13 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  %15 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #13
+  %14 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %15 = load ptr, ptr %14, align 8, !tbaa !86
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %16) #13
   tail call void (...) @dt_control_queue_redraw_center() #13
-  br label %16
+  br label %18
 
-16:                                               ; preds = %10, %2
+18:                                               ; preds = %11, %2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_profile_display2_intent_callback(ptr noundef %0, ptr nocapture readnone %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #13
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %5 = getelementptr inbounds i8, ptr %4, i64 2176
-  %6 = load i32, ptr %5, align 8, !tbaa !97
-  %7 = icmp ugt i32 %3, 3
-  %8 = icmp eq i32 %3, %6
-  %9 = select i1 %7, i1 true, i1 %8
-  br i1 %9, label %16, label %10
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %5 = load ptr, ptr %4, align 8, !tbaa !86
+  %6 = getelementptr inbounds i8, ptr %5, i64 2176
+  %7 = load i32, ptr %6, align 8, !tbaa !97
+  %8 = icmp ugt i32 %3, 3
+  %9 = icmp eq i32 %3, %7
+  %10 = select i1 %8, i1 true, i1 %9
+  br i1 %10, label %18, label %11
 
-10:                                               ; preds = %2
-  store i32 %3, ptr %5, align 8, !tbaa !97
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #13
+11:                                               ; preds = %2
+  store i32 %3, ptr %6, align 8, !tbaa !97
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %12) #13
   tail call void (...) @dt_colorspaces_update_display2_transforms() #13
-  %13 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  %15 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #13
+  %14 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %15 = load ptr, ptr %14, align 8, !tbaa !86
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %16) #13
   tail call void (...) @dt_control_queue_redraw_center() #13
-  br label %16
+  br label %18
 
-16:                                               ; preds = %10, %2
+18:                                               ; preds = %11, %2
   ret void
 }
 
@@ -1824,190 +1938,206 @@ declare void @g_free(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define internal void @_profile_display_profile_callback(ptr noundef %0, ptr nocapture readnone %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #13
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %5 = load ptr, ptr %4, align 8, !tbaa !47
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %33, label %11
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %5 = load ptr, ptr %4, align 8, !tbaa !86
+  %6 = load ptr, ptr %5, align 8, !tbaa !47
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %34, label %12
 
-7:                                                ; preds = %11
-  %8 = getelementptr inbounds i8, ptr %12, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !47
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %33, label %11
+8:                                                ; preds = %12
+  %9 = getelementptr inbounds i8, ptr %13, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !47
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %34, label %12
 
-11:                                               ; preds = %7, %2
-  %12 = phi ptr [ %9, %7 ], [ %5, %2 ]
-  %13 = load ptr, ptr %12, align 8, !tbaa !87
-  %14 = getelementptr inbounds i8, ptr %13, i64 1048
-  %15 = load i32, ptr %14, align 8, !tbaa !89
-  %16 = icmp eq i32 %15, %3
-  br i1 %16, label %17, label %7
+12:                                               ; preds = %8, %2
+  %13 = phi ptr [ %10, %8 ], [ %6, %2 ]
+  %14 = load ptr, ptr %13, align 8, !tbaa !87
+  %15 = getelementptr inbounds i8, ptr %14, i64 1048
+  %16 = load i32, ptr %15, align 8, !tbaa !89
+  %17 = icmp eq i32 %16, %3
+  br i1 %17, label %18, label %8
 
-17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %4, i64 108
-  %19 = load i32, ptr %18, align 4, !tbaa !92
-  %20 = load i32, ptr %13, align 8, !tbaa !91
-  %21 = icmp eq i32 %19, %20
-  br i1 %21, label %22, label %29
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds i8, ptr %5, i64 108
+  %20 = load i32, ptr %19, align 4, !tbaa !92
+  %21 = load i32, ptr %14, align 8, !tbaa !91
+  %22 = icmp eq i32 %20, %21
+  br i1 %22, label %23, label %30
 
-22:                                               ; preds = %17
-  %23 = icmp eq i32 %19, 0
-  br i1 %23, label %24, label %60
+23:                                               ; preds = %18
+  %24 = icmp eq i32 %20, 0
+  br i1 %24, label %25, label %68
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %4, i64 124
-  %26 = getelementptr inbounds i8, ptr %13, i64 4
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %26) #17
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %60, label %29
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %5, i64 124
+  %27 = getelementptr inbounds i8, ptr %14, i64 4
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %27) #17
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %68, label %30
 
-29:                                               ; preds = %24, %17
-  store i32 %20, ptr %18, align 4, !tbaa !92
-  %30 = getelementptr inbounds i8, ptr %4, i64 124
-  %31 = getelementptr inbounds i8, ptr %13, i64 4
-  %32 = tail call i64 @g_strlcpy(ptr noundef nonnull %30, ptr noundef nonnull %31, i64 noundef 512) #13
-  br label %40
+30:                                               ; preds = %25, %18
+  store i32 %21, ptr %19, align 4, !tbaa !92
+  %31 = getelementptr inbounds i8, ptr %5, i64 124
+  %32 = getelementptr inbounds i8, ptr %14, i64 4
+  %33 = tail call i64 @g_strlcpy(ptr noundef nonnull %31, ptr noundef nonnull %32, i64 noundef 512) #13
+  br label %42
 
-33:                                               ; preds = %7, %2
-  %34 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %0) #13
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.75, ptr noundef %34) #13
-  %35 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %36 = getelementptr inbounds i8, ptr %35, i64 108
-  %37 = load i32, ptr %36, align 4, !tbaa !92
-  %38 = icmp eq i32 %37, 8
-  store i32 8, ptr %36, align 4, !tbaa !92
-  %39 = getelementptr inbounds i8, ptr %35, i64 124
-  store i8 0, ptr %39, align 4, !tbaa !98
-  br i1 %38, label %60, label %40
+34:                                               ; preds = %8, %2
+  %35 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %0) #13
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.75, ptr noundef %35) #13
+  %36 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %37 = load ptr, ptr %36, align 8, !tbaa !86
+  %38 = getelementptr inbounds i8, ptr %37, i64 108
+  %39 = load i32, ptr %38, align 4, !tbaa !92
+  %40 = icmp eq i32 %39, 8
+  store i32 8, ptr %38, align 4, !tbaa !92
+  %41 = getelementptr inbounds i8, ptr %37, i64 124
+  store i8 0, ptr %41, align 4, !tbaa !98
+  br i1 %40, label %68, label %42
 
-40:                                               ; preds = %33, %29
-  %41 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
-  %43 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %42) #13
-  tail call void (...) @dt_colorspaces_update_display_transforms() #13
-  %44 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
+42:                                               ; preds = %34, %30
+  %43 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %44 = load ptr, ptr %43, align 8, !tbaa !86
   %45 = getelementptr inbounds i8, ptr %44, i64 8
-  %46 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %45) #13
-  %47 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !77
-  %48 = and i32 %47, 1
-  %49 = icmp ne i32 %48, 0
-  %50 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 33), align 8
-  %51 = icmp ne i32 %50, 0
-  %52 = select i1 %49, i1 %51, i1 false
-  br i1 %52, label %53, label %58
+  %46 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %45) #13
+  tail call void (...) @dt_colorspaces_update_display_transforms() #13
+  %47 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %48 = load ptr, ptr %47, align 8, !tbaa !86
+  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %49) #13
+  %51 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
+  %52 = load i32, ptr %51, align 8, !tbaa !77
+  %53 = and i32 %52, 1
+  %54 = icmp ne i32 %53, 0
+  %55 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 33
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp ne i32 %56, 0
+  %58 = select i1 %54, i1 %57, i1 false
+  br i1 %58, label %59, label %65
 
-53:                                               ; preds = %40
-  %54 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !17
-  %55 = and i32 %54, 1048576
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %58, label %57
+59:                                               ; preds = %42
+  %60 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %61 = load i32, ptr %60, align 8, !tbaa !17
+  %62 = and i32 %61, 1048576
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %65, label %64
 
-57:                                               ; preds = %53
+64:                                               ; preds = %59
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1036, ptr noundef nonnull @__FUNCTION__._profile_display_profile_callback, ptr noundef nonnull @.str.51) #13
-  br label %58
+  br label %65
 
-58:                                               ; preds = %57, %53, %40
-  %59 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !78
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %59, i32 noundef 33, i32 noundef 4) #13
+65:                                               ; preds = %64, %59, %42
+  %66 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
+  %67 = load ptr, ptr %66, align 8, !tbaa !78
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %67, i32 noundef 33, i32 noundef 4) #13
   tail call void (...) @dt_control_queue_redraw_center() #13
-  br label %60
+  br label %68
 
-60:                                               ; preds = %58, %33, %24, %22
+68:                                               ; preds = %65, %34, %25, %23
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_profile_display2_profile_callback(ptr noundef %0, ptr nocapture readnone %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #13
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %5 = load ptr, ptr %4, align 8, !tbaa !47
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %33, label %11
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %5 = load ptr, ptr %4, align 8, !tbaa !86
+  %6 = load ptr, ptr %5, align 8, !tbaa !47
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %34, label %12
 
-7:                                                ; preds = %11
-  %8 = getelementptr inbounds i8, ptr %12, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !47
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %33, label %11
+8:                                                ; preds = %12
+  %9 = getelementptr inbounds i8, ptr %13, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !47
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %34, label %12
 
-11:                                               ; preds = %7, %2
-  %12 = phi ptr [ %9, %7 ], [ %5, %2 ]
-  %13 = load ptr, ptr %12, align 8, !tbaa !87
-  %14 = getelementptr inbounds i8, ptr %13, i64 1052
-  %15 = load i32, ptr %14, align 4, !tbaa !94
-  %16 = icmp eq i32 %15, %3
-  br i1 %16, label %17, label %7
+12:                                               ; preds = %8, %2
+  %13 = phi ptr [ %10, %8 ], [ %6, %2 ]
+  %14 = load ptr, ptr %13, align 8, !tbaa !87
+  %15 = getelementptr inbounds i8, ptr %14, i64 1052
+  %16 = load i32, ptr %15, align 4, !tbaa !94
+  %17 = icmp eq i32 %16, %3
+  br i1 %17, label %18, label %8
 
-17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %4, i64 112
-  %19 = load i32, ptr %18, align 8, !tbaa !95
-  %20 = load i32, ptr %13, align 8, !tbaa !91
-  %21 = icmp eq i32 %19, %20
-  br i1 %21, label %22, label %29
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds i8, ptr %5, i64 112
+  %20 = load i32, ptr %19, align 8, !tbaa !95
+  %21 = load i32, ptr %14, align 8, !tbaa !91
+  %22 = icmp eq i32 %20, %21
+  br i1 %22, label %23, label %30
 
-22:                                               ; preds = %17
-  %23 = icmp eq i32 %19, 0
-  br i1 %23, label %24, label %60
+23:                                               ; preds = %18
+  %24 = icmp eq i32 %20, 0
+  br i1 %24, label %25, label %68
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %4, i64 636
-  %26 = getelementptr inbounds i8, ptr %13, i64 4
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %26) #17
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %60, label %29
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %5, i64 636
+  %27 = getelementptr inbounds i8, ptr %14, i64 4
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %27) #17
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %68, label %30
 
-29:                                               ; preds = %24, %17
-  store i32 %20, ptr %18, align 8, !tbaa !95
-  %30 = getelementptr inbounds i8, ptr %4, i64 636
-  %31 = getelementptr inbounds i8, ptr %13, i64 4
-  %32 = tail call i64 @g_strlcpy(ptr noundef nonnull %30, ptr noundef nonnull %31, i64 noundef 512) #13
-  br label %40
+30:                                               ; preds = %25, %18
+  store i32 %21, ptr %19, align 8, !tbaa !95
+  %31 = getelementptr inbounds i8, ptr %5, i64 636
+  %32 = getelementptr inbounds i8, ptr %14, i64 4
+  %33 = tail call i64 @g_strlcpy(ptr noundef nonnull %31, ptr noundef nonnull %32, i64 noundef 512) #13
+  br label %42
 
-33:                                               ; preds = %7, %2
-  %34 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %0) #13
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.76, ptr noundef %34) #13
-  %35 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %36 = getelementptr inbounds i8, ptr %35, i64 112
-  %37 = load i32, ptr %36, align 8, !tbaa !95
-  %38 = icmp eq i32 %37, 19
-  store i32 19, ptr %36, align 8, !tbaa !95
-  %39 = getelementptr inbounds i8, ptr %35, i64 636
-  store i8 0, ptr %39, align 4, !tbaa !98
-  br i1 %38, label %60, label %40
+34:                                               ; preds = %8, %2
+  %35 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %0) #13
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.76, ptr noundef %35) #13
+  %36 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %37 = load ptr, ptr %36, align 8, !tbaa !86
+  %38 = getelementptr inbounds i8, ptr %37, i64 112
+  %39 = load i32, ptr %38, align 8, !tbaa !95
+  %40 = icmp eq i32 %39, 19
+  store i32 19, ptr %38, align 8, !tbaa !95
+  %41 = getelementptr inbounds i8, ptr %37, i64 636
+  store i8 0, ptr %41, align 4, !tbaa !98
+  br i1 %40, label %68, label %42
 
-40:                                               ; preds = %33, %29
-  %41 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
-  %43 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %42) #13
-  tail call void (...) @dt_colorspaces_update_display2_transforms() #13
-  %44 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
+42:                                               ; preds = %34, %30
+  %43 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %44 = load ptr, ptr %43, align 8, !tbaa !86
   %45 = getelementptr inbounds i8, ptr %44, i64 8
-  %46 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %45) #13
-  %47 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !77
-  %48 = and i32 %47, 1
-  %49 = icmp ne i32 %48, 0
-  %50 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 33), align 8
-  %51 = icmp ne i32 %50, 0
-  %52 = select i1 %49, i1 %51, i1 false
-  br i1 %52, label %53, label %58
+  %46 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %45) #13
+  tail call void (...) @dt_colorspaces_update_display2_transforms() #13
+  %47 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %48 = load ptr, ptr %47, align 8, !tbaa !86
+  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %49) #13
+  %51 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
+  %52 = load i32, ptr %51, align 8, !tbaa !77
+  %53 = and i32 %52, 1
+  %54 = icmp ne i32 %53, 0
+  %55 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 33
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp ne i32 %56, 0
+  %58 = select i1 %54, i1 %57, i1 false
+  br i1 %58, label %59, label %65
 
-53:                                               ; preds = %40
-  %54 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !17
-  %55 = and i32 %54, 1048576
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %58, label %57
+59:                                               ; preds = %42
+  %60 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %61 = load i32, ptr %60, align 8, !tbaa !17
+  %62 = and i32 %61, 1048576
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %65, label %64
 
-57:                                               ; preds = %53
+64:                                               ; preds = %59
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1078, ptr noundef nonnull @__FUNCTION__._profile_display2_profile_callback, ptr noundef nonnull @.str.51) #13
-  br label %58
+  br label %65
 
-58:                                               ; preds = %57, %53, %40
-  %59 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !78
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %59, i32 noundef 33, i32 noundef 7) #13
+65:                                               ; preds = %64, %59, %42
+  %66 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
+  %67 = load ptr, ptr %66, align 8, !tbaa !78
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %67, i32 noundef 33, i32 noundef 7) #13
   tail call void (...) @dt_control_queue_redraw_center() #13
-  br label %60
+  br label %68
 
-60:                                               ; preds = %58, %33, %24, %22
+68:                                               ; preds = %65, %34, %25, %23
   ret void
 }
 
@@ -2017,55 +2147,57 @@ declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, p
 define internal void @_profile_display_changed(ptr nocapture readnone %0, i8 zeroext %1, ptr noundef %2) #1 {
   %4 = tail call i64 @gtk_widget_get_type() #16
   %5 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef %4) #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %7 = load ptr, ptr %6, align 8, !tbaa !47
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %37, label %9
+  %6 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %7 = load ptr, ptr %6, align 8, !tbaa !86
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %39, label %10
 
-9:                                                ; preds = %33, %3
-  %10 = phi ptr [ %35, %33 ], [ %7, %3 ]
-  %11 = load ptr, ptr %10, align 8, !tbaa !87
-  %12 = getelementptr inbounds i8, ptr %11, i64 1048
-  %13 = load i32, ptr %12, align 8, !tbaa !89
-  %14 = icmp sgt i32 %13, -1
-  br i1 %14, label %15, label %33
+10:                                               ; preds = %35, %3
+  %11 = phi ptr [ %37, %35 ], [ %8, %3 ]
+  %12 = load ptr, ptr %11, align 8, !tbaa !87
+  %13 = getelementptr inbounds i8, ptr %12, i64 1048
+  %14 = load i32, ptr %13, align 8, !tbaa !89
+  %15 = icmp sgt i32 %14, -1
+  br i1 %15, label %16, label %35
 
-15:                                               ; preds = %9
-  %16 = load i32, ptr %11, align 8, !tbaa !91
-  %17 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %18 = getelementptr inbounds i8, ptr %17, i64 108
-  %19 = load i32, ptr %18, align 4, !tbaa !92
-  %20 = icmp eq i32 %16, %19
-  br i1 %20, label %21, label %33
+16:                                               ; preds = %10
+  %17 = load i32, ptr %12, align 8, !tbaa !91
+  %18 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %19 = load ptr, ptr %18, align 8, !tbaa !86
+  %20 = getelementptr inbounds i8, ptr %19, i64 108
+  %21 = load i32, ptr %20, align 4, !tbaa !92
+  %22 = icmp eq i32 %17, %21
+  br i1 %22, label %23, label %35
 
-21:                                               ; preds = %15
-  %22 = icmp eq i32 %16, 0
-  br i1 %22, label %23, label %28
+23:                                               ; preds = %16
+  %24 = icmp eq i32 %17, 0
+  br i1 %24, label %25, label %30
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %11, i64 4
-  %25 = getelementptr inbounds i8, ptr %17, i64 124
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %25) #17
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %33
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %12, i64 4
+  %27 = getelementptr inbounds i8, ptr %19, i64 124
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %27) #17
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %35
 
-28:                                               ; preds = %23, %21
-  %29 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %5) #13
-  %30 = load i32, ptr %12, align 8, !tbaa !89
-  %31 = icmp eq i32 %29, %30
-  br i1 %31, label %33, label %32
+30:                                               ; preds = %25, %23
+  %31 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %5) #13
+  %32 = load i32, ptr %13, align 8, !tbaa !89
+  %33 = icmp eq i32 %31, %32
+  br i1 %33, label %35, label %34
 
-32:                                               ; preds = %28
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %5, i32 noundef %30) #13
-  br label %37
+34:                                               ; preds = %30
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %5, i32 noundef %32) #13
+  br label %39
 
-33:                                               ; preds = %28, %23, %15, %9
-  %34 = getelementptr inbounds i8, ptr %10, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !47
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %9
+35:                                               ; preds = %30, %25, %16, %10
+  %36 = getelementptr inbounds i8, ptr %11, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !47
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %10
 
-37:                                               ; preds = %33, %32, %3
+39:                                               ; preds = %35, %34, %3
   ret void
 }
 
@@ -2073,55 +2205,57 @@ define internal void @_profile_display_changed(ptr nocapture readnone %0, i8 zer
 define internal void @_profile_display2_changed(ptr nocapture readnone %0, i8 zeroext %1, ptr noundef %2) #1 {
   %4 = tail call i64 @gtk_widget_get_type() #16
   %5 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef %4) #13
-  %6 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %7 = load ptr, ptr %6, align 8, !tbaa !47
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %37, label %9
+  %6 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %7 = load ptr, ptr %6, align 8, !tbaa !86
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %39, label %10
 
-9:                                                ; preds = %33, %3
-  %10 = phi ptr [ %35, %33 ], [ %7, %3 ]
-  %11 = load ptr, ptr %10, align 8, !tbaa !87
-  %12 = getelementptr inbounds i8, ptr %11, i64 1052
-  %13 = load i32, ptr %12, align 4, !tbaa !94
-  %14 = icmp sgt i32 %13, -1
-  br i1 %14, label %15, label %33
+10:                                               ; preds = %35, %3
+  %11 = phi ptr [ %37, %35 ], [ %8, %3 ]
+  %12 = load ptr, ptr %11, align 8, !tbaa !87
+  %13 = getelementptr inbounds i8, ptr %12, i64 1052
+  %14 = load i32, ptr %13, align 4, !tbaa !94
+  %15 = icmp sgt i32 %14, -1
+  br i1 %15, label %16, label %35
 
-15:                                               ; preds = %9
-  %16 = load i32, ptr %11, align 8, !tbaa !91
-  %17 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 28), align 8, !tbaa !86
-  %18 = getelementptr inbounds i8, ptr %17, i64 112
-  %19 = load i32, ptr %18, align 8, !tbaa !95
-  %20 = icmp eq i32 %16, %19
-  br i1 %20, label %21, label %33
+16:                                               ; preds = %10
+  %17 = load i32, ptr %12, align 8, !tbaa !91
+  %18 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 28
+  %19 = load ptr, ptr %18, align 8, !tbaa !86
+  %20 = getelementptr inbounds i8, ptr %19, i64 112
+  %21 = load i32, ptr %20, align 8, !tbaa !95
+  %22 = icmp eq i32 %17, %21
+  br i1 %22, label %23, label %35
 
-21:                                               ; preds = %15
-  %22 = icmp eq i32 %16, 0
-  br i1 %22, label %23, label %28
+23:                                               ; preds = %16
+  %24 = icmp eq i32 %17, 0
+  br i1 %24, label %25, label %30
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %11, i64 4
-  %25 = getelementptr inbounds i8, ptr %17, i64 636
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %25) #17
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %33
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %12, i64 4
+  %27 = getelementptr inbounds i8, ptr %19, i64 636
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %27) #17
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %35
 
-28:                                               ; preds = %23, %21
-  %29 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %5) #13
-  %30 = load i32, ptr %12, align 4, !tbaa !94
-  %31 = icmp eq i32 %29, %30
-  br i1 %31, label %33, label %32
+30:                                               ; preds = %25, %23
+  %31 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %5) #13
+  %32 = load i32, ptr %13, align 4, !tbaa !94
+  %33 = icmp eq i32 %31, %32
+  br i1 %33, label %35, label %34
 
-32:                                               ; preds = %28
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %5, i32 noundef %30) #13
-  br label %37
+34:                                               ; preds = %30
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %5, i32 noundef %32) #13
+  br label %39
 
-33:                                               ; preds = %28, %23, %15, %9
-  %34 = getelementptr inbounds i8, ptr %10, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !47
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %9
+35:                                               ; preds = %30, %25, %16, %10
+  %36 = getelementptr inbounds i8, ptr %11, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !47
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %10
 
-37:                                               ; preds = %33, %32, %3
+39:                                               ; preds = %35, %34, %3
   ret void
 }
 
@@ -2133,177 +2267,195 @@ declare ptr @dt_action_register(ptr noundef, ptr noundef, ptr noundef, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @_accel_align_to_grid(ptr nocapture readnone %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %3 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %2) #13
-  %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %10
+  %2 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %3) #13
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %6, label %12
 
-5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %7 = load ptr, ptr %6, align 8, !tbaa !34
-  %8 = tail call ptr @dt_ui_thumbtable(ptr noundef %7) #13
-  %9 = tail call i32 @dt_thumbtable_key_move(ptr noundef %8, i32 noundef 9, i32 noundef 0) #13
-  br label %10
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
+  %9 = load ptr, ptr %8, align 8, !tbaa !34
+  %10 = tail call ptr @dt_ui_thumbtable(ptr noundef %9) #13
+  %11 = tail call i32 @dt_thumbtable_key_move(ptr noundef %10, i32 noundef 9, i32 noundef 0) #13
+  br label %12
 
-10:                                               ; preds = %5, %1
+12:                                               ; preds = %6, %1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_accel_reset_first_offset(ptr nocapture readnone %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %3 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %2) #13
-  %4 = icmp ult i32 %3, 2
-  br i1 %4, label %5, label %10
+  %2 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %3) #13
+  %5 = icmp ult i32 %4, 2
+  br i1 %5, label %6, label %12
 
-5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !33
-  %7 = load ptr, ptr %6, align 8, !tbaa !34
-  %8 = tail call ptr @dt_ui_thumbtable(ptr noundef %7) #13
-  %9 = tail call i32 @dt_thumbtable_reset_first_offset(ptr noundef %8) #13
-  br label %10
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
+  %9 = load ptr, ptr %8, align 8, !tbaa !34
+  %10 = tail call ptr @dt_ui_thumbtable(ptr noundef %9) #13
+  %11 = tail call i32 @dt_thumbtable_reset_first_offset(ptr noundef %10) #13
+  br label %12
 
-10:                                               ; preds = %5, %1
+12:                                               ; preds = %6, %1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_accel_select_toggle(ptr nocapture readnone %0) #1 {
   %2 = tail call i32 (...) @dt_control_get_mouse_over_id() #13
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 22), align 8, !tbaa !81
-  tail call void @dt_selection_toggle(ptr noundef %3, i32 noundef %2) #13
+  %3 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 22
+  %4 = load ptr, ptr %3, align 8, !tbaa !81
+  tail call void @dt_selection_toggle(ptr noundef %4, i32 noundef %2) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_accel_select_single(ptr nocapture readnone %0) #1 {
   %2 = tail call i32 (...) @dt_control_get_mouse_over_id() #13
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 22), align 8, !tbaa !81
-  tail call void @dt_selection_select_single(ptr noundef %3, i32 noundef %2) #13
+  %3 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 22
+  %4 = load ptr, ptr %3, align 8, !tbaa !81
+  tail call void @dt_selection_select_single(ptr noundef %4, i32 noundef %2) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lighttable_undo_callback(ptr nocapture readnone %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 27), align 8, !tbaa !66
-  tail call void @dt_undo_do_undo(ptr noundef %2, i32 noundef 2041) #13
+  %2 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 27
+  %3 = load ptr, ptr %2, align 8, !tbaa !66
+  tail call void @dt_undo_do_undo(ptr noundef %3, i32 noundef 2041) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lighttable_redo_callback(ptr nocapture readnone %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 27), align 8, !tbaa !66
-  tail call void @dt_undo_do_redo(ptr noundef %2, i32 noundef 2041) #13
+  %2 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 27
+  %3 = load ptr, ptr %2, align 8, !tbaa !66
+  tail call void @dt_undo_do_redo(ptr noundef %3, i32 noundef 2041) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_accel_culling_zoom_100(ptr nocapture readnone %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %3 = getelementptr inbounds i8, ptr %2, i64 448
-  %4 = load ptr, ptr %3, align 8, !tbaa !69
-  %5 = getelementptr inbounds i8, ptr %4, i64 288
-  %6 = load ptr, ptr %5, align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !32
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %12, label %10
+  %2 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = getelementptr inbounds i8, ptr %3, i64 448
+  %5 = load ptr, ptr %4, align 8, !tbaa !69
+  %6 = getelementptr inbounds i8, ptr %5, i64 288
+  %7 = load ptr, ptr %6, align 8, !tbaa !6
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load i32, ptr %8, align 8, !tbaa !32
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %13, label %11
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
-  br label %19
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  br label %21
 
-12:                                               ; preds = %1
-  %13 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef nonnull %2) #13
-  %14 = icmp eq i32 %13, 2
-  br i1 %14, label %19, label %15
+13:                                               ; preds = %1
+  %14 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef nonnull %3) #13
+  %15 = icmp eq i32 %14, 2
+  br i1 %15, label %21, label %16
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %17 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %16) #13
-  %18 = icmp eq i32 %17, 3
-  br i1 %18, label %19, label %22
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %18 = load ptr, ptr %17, align 8, !tbaa !30
+  %19 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %18) #13
+  %20 = icmp eq i32 %19, 3
+  br i1 %20, label %21, label %24
 
-19:                                               ; preds = %15, %12, %10
-  %20 = phi ptr [ %11, %10 ], [ %6, %15 ], [ %6, %12 ]
-  %21 = load ptr, ptr %20, align 8, !tbaa !47
-  tail call void @dt_culling_zoom_max(ptr noundef %21) #13
-  br label %22
+21:                                               ; preds = %16, %13, %11
+  %22 = phi ptr [ %12, %11 ], [ %7, %16 ], [ %7, %13 ]
+  %23 = load ptr, ptr %22, align 8, !tbaa !47
+  tail call void @dt_culling_zoom_max(ptr noundef %23) #13
+  br label %24
 
-22:                                               ; preds = %19, %15
+24:                                               ; preds = %21, %16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_accel_culling_zoom_fit(ptr nocapture readnone %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %3 = getelementptr inbounds i8, ptr %2, i64 448
-  %4 = load ptr, ptr %3, align 8, !tbaa !69
-  %5 = getelementptr inbounds i8, ptr %4, i64 288
-  %6 = load ptr, ptr %5, align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !32
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %12, label %10
+  %2 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = getelementptr inbounds i8, ptr %3, i64 448
+  %5 = load ptr, ptr %4, align 8, !tbaa !69
+  %6 = getelementptr inbounds i8, ptr %5, i64 288
+  %7 = load ptr, ptr %6, align 8, !tbaa !6
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load i32, ptr %8, align 8, !tbaa !32
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %13, label %11
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
-  br label %19
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  br label %21
 
-12:                                               ; preds = %1
-  %13 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef nonnull %2) #13
-  %14 = icmp eq i32 %13, 2
-  br i1 %14, label %19, label %15
+13:                                               ; preds = %1
+  %14 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef nonnull %3) #13
+  %15 = icmp eq i32 %14, 2
+  br i1 %15, label %21, label %16
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %17 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %16) #13
-  %18 = icmp eq i32 %17, 3
-  br i1 %18, label %19, label %22
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %18 = load ptr, ptr %17, align 8, !tbaa !30
+  %19 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %18) #13
+  %20 = icmp eq i32 %19, 3
+  br i1 %20, label %21, label %24
 
-19:                                               ; preds = %15, %12, %10
-  %20 = phi ptr [ %11, %10 ], [ %6, %15 ], [ %6, %12 ]
-  %21 = load ptr, ptr %20, align 8, !tbaa !47
-  tail call void @dt_culling_zoom_fit(ptr noundef %21) #13
-  br label %22
+21:                                               ; preds = %16, %13, %11
+  %22 = phi ptr [ %12, %11 ], [ %7, %16 ], [ %7, %13 ]
+  %23 = load ptr, ptr %22, align 8, !tbaa !47
+  tail call void @dt_culling_zoom_fit(ptr noundef %23) #13
+  br label %24
 
-22:                                               ; preds = %19, %15
+24:                                               ; preds = %21, %16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @zoom_in_callback(ptr nocapture readnone %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %3 = tail call i32 @dt_view_lighttable_get_zoom(ptr noundef %2) #13
-  %4 = tail call i32 @llvm.smax.i32(i32 %3, i32 2)
-  %5 = add nsw i32 %4, -1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  tail call void @dt_view_lighttable_set_zoom(ptr noundef %6, i32 noundef %5) #13
+  %2 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = tail call i32 @dt_view_lighttable_get_zoom(ptr noundef %3) #13
+  %5 = tail call i32 @llvm.smax.i32(i32 %4, i32 2)
+  %6 = add nsw i32 %5, -1
+  %7 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %8 = load ptr, ptr %7, align 8, !tbaa !30
+  tail call void @dt_view_lighttable_set_zoom(ptr noundef %8, i32 noundef %6) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @zoom_max_callback(ptr nocapture readnone %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  tail call void @dt_view_lighttable_set_zoom(ptr noundef %2, i32 noundef 1) #13
+  %2 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  tail call void @dt_view_lighttable_set_zoom(ptr noundef %3, i32 noundef 1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @zoom_out_callback(ptr nocapture readnone %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  %3 = tail call i32 @dt_view_lighttable_get_zoom(ptr noundef %2) #13
-  %4 = tail call i32 @llvm.smin.i32(i32 %3, i32 49)
-  %5 = add nsw i32 %4, 1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  tail call void @dt_view_lighttable_set_zoom(ptr noundef %6, i32 noundef %5) #13
+  %2 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = tail call i32 @dt_view_lighttable_get_zoom(ptr noundef %3) #13
+  %5 = tail call i32 @llvm.smin.i32(i32 %4, i32 49)
+  %6 = add nsw i32 %5, 1
+  %7 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %8 = load ptr, ptr %7, align 8, !tbaa !30
+  tail call void @dt_view_lighttable_set_zoom(ptr noundef %8, i32 noundef %6) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @zoom_min_callback(ptr nocapture readnone %0) #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !30
-  tail call void @dt_view_lighttable_set_zoom(ptr noundef %2, i32 noundef 25) #13
+  %2 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  tail call void @dt_view_lighttable_set_zoom(ptr noundef %3, i32 noundef 25) #13
   ret void
 }
 

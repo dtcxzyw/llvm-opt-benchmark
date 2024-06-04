@@ -543,7 +543,7 @@ define i32 @mca_base_component_repository_init() #0 {
   %2 = alloca i32, align 4
   %3 = load i8, ptr @initialized, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %40, label %5
+  br i1 %4, label %42, label %5
 
 5:                                                ; preds = %0
   %6 = call i32 @mca_base_framework_open(ptr noundef @opal_dl_base_framework, i32 noundef 0)
@@ -557,7 +557,7 @@ define i32 @mca_base_component_repository_init() #0 {
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.6, ptr noundef @.str.7, i32 noundef 254, ptr noundef @__func__.mca_base_component_repository_init, i32 noundef %10)
   %11 = load i32, ptr %2, align 4
   store i32 %11, ptr %1, align 4
-  br label %41
+  br label %43
 
 12:                                               ; preds = %5
   %13 = call i32 @opal_dl_base_select()
@@ -568,68 +568,70 @@ define i32 @mca_base_component_repository_init() #0 {
 
 15:                                               ; preds = %14
   %16 = load i32, ptr @opal_class_init_epoch, align 4
-  %17 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i32 0, i32 4), align 8
-  %18 = icmp ne i32 %16, %17
-  br i1 %18, label %19, label %20
+  %17 = getelementptr inbounds %struct.opal_class_t, ptr @opal_hash_table_t_class, i32 0, i32 4
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp ne i32 %16, %18
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %15
+20:                                               ; preds = %15
   call void @opal_class_initialize(ptr noundef @opal_hash_table_t_class)
-  br label %20
-
-20:                                               ; preds = %19, %15
-  store ptr @opal_hash_table_t_class, ptr @mca_base_component_repository, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_base_component_repository, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @mca_base_component_repository)
   br label %21
 
-21:                                               ; preds = %20
-  br label %22
+21:                                               ; preds = %20, %15
+  store ptr @opal_hash_table_t_class, ptr @mca_base_component_repository, align 8
+  %22 = getelementptr inbounds %struct.opal_object_t, ptr @mca_base_component_repository, i32 0, i32 1
+  store volatile i32 1, ptr %22, align 8
+  call void @opal_obj_run_constructors(ptr noundef @mca_base_component_repository)
+  br label %23
 
-22:                                               ; preds = %21
-  %23 = call i32 @opal_hash_table_init(ptr noundef @mca_base_component_repository, i64 noundef 128)
-  store i32 %23, ptr %2, align 4
-  %24 = load i32, ptr %2, align 4
-  %25 = icmp ne i32 0, %24
-  br i1 %25, label %26, label %29
+23:                                               ; preds = %21
+  br label %24
 
-26:                                               ; preds = %22
-  %27 = call i32 @mca_base_framework_close(ptr noundef @opal_dl_base_framework)
-  %28 = load i32, ptr %2, align 4
-  store i32 %28, ptr %1, align 4
-  br label %41
+24:                                               ; preds = %23
+  %25 = call i32 @opal_hash_table_init(ptr noundef @mca_base_component_repository, i64 noundef 128)
+  store i32 %25, ptr %2, align 4
+  %26 = load i32, ptr %2, align 4
+  %27 = icmp ne i32 0, %26
+  br i1 %27, label %28, label %31
 
-29:                                               ; preds = %22
-  %30 = load ptr, ptr @mca_base_component_path, align 8
-  %31 = call i32 @mca_base_component_repository_add(ptr noundef %30)
-  store i32 %31, ptr %2, align 4
-  %32 = load i32, ptr %2, align 4
-  %33 = icmp ne i32 0, %32
-  br i1 %33, label %34, label %39
+28:                                               ; preds = %24
+  %29 = call i32 @mca_base_framework_close(ptr noundef @opal_dl_base_framework)
+  %30 = load i32, ptr %2, align 4
+  store i32 %30, ptr %1, align 4
+  br label %43
 
-34:                                               ; preds = %29
-  br label %35
+31:                                               ; preds = %24
+  %32 = load ptr, ptr @mca_base_component_path, align 8
+  %33 = call i32 @mca_base_component_repository_add(ptr noundef %32)
+  store i32 %33, ptr %2, align 4
+  %34 = load i32, ptr %2, align 4
+  %35 = icmp ne i32 0, %34
+  br i1 %35, label %36, label %41
 
-35:                                               ; preds = %34
+36:                                               ; preds = %31
+  br label %37
+
+37:                                               ; preds = %36
   call void @opal_obj_run_destructors(ptr noundef @mca_base_component_repository)
-  br label %36
+  br label %38
 
-36:                                               ; preds = %35
-  %37 = call i32 @mca_base_framework_close(ptr noundef @opal_dl_base_framework)
-  %38 = load i32, ptr %2, align 4
-  store i32 %38, ptr %1, align 4
-  br label %41
+38:                                               ; preds = %37
+  %39 = call i32 @mca_base_framework_close(ptr noundef @opal_dl_base_framework)
+  %40 = load i32, ptr %2, align 4
+  store i32 %40, ptr %1, align 4
+  br label %43
 
-39:                                               ; preds = %29
+41:                                               ; preds = %31
   store i8 1, ptr @initialized, align 1
-  br label %40
+  br label %42
 
-40:                                               ; preds = %39, %0
+42:                                               ; preds = %41, %0
   store i32 0, ptr %1, align 4
-  br label %41
+  br label %43
 
-41:                                               ; preds = %40, %36, %26, %9
-  %42 = load i32, ptr %1, align 4
-  ret i32 %42
+43:                                               ; preds = %42, %38, %28, %9
+  %44 = load i32, ptr %1, align 4
+  ret i32 %44
 }
 
 declare i32 @mca_base_framework_open(ptr noundef, i32 noundef) #4

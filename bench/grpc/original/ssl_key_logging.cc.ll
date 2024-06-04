@@ -424,7 +424,8 @@ entry:
   store ptr %cache, ptr %cache.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerENS_19PolymorphicRefCountENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lock_ = getelementptr inbounds %"class.tsi::TlsSessionKeyLoggerCache::TlsSessionKeyLogger", ptr %this1, i32 0, i32 1
   invoke void @_ZN4absl12lts_202308025MutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lock_)
           to label %invoke.cont unwind label %lpad
@@ -451,21 +452,21 @@ invoke.cont5:                                     ; preds = %if.then
   unreachable
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup44
 
 lpad4:                                            ; preds = %invoke.cont35, %if.end33, %invoke.cont22, %if.then21, %do.end15, %if.then11, %do.body6, %if.then
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup41
 
 if.end:                                           ; preds = %do.body
@@ -509,8 +510,8 @@ invoke.cont18:                                    ; preds = %do.end15
   %fd_ = getelementptr inbounds %"class.tsi::TlsSessionKeyLoggerCache::TlsSessionKeyLogger", ptr %this1, i32 0, i32 2
   store ptr %call19, ptr %fd_, align 8
   %fd_20 = getelementptr inbounds %"class.tsi::TlsSessionKeyLoggerCache::TlsSessionKeyLogger", ptr %this1, i32 0, i32 2
-  %6 = load ptr, ptr %fd_20, align 8
-  %cmp = icmp eq ptr %6, null
+  %7 = load ptr, ptr %fd_20, align 8
+  %cmp = icmp eq ptr %7, null
   br i1 %cmp, label %if.then21, label %if.end33
 
 if.then21:                                        ; preds = %invoke.cont18
@@ -519,8 +520,8 @@ if.then21:                                        ; preds = %invoke.cont18
 
 invoke.cont22:                                    ; preds = %if.then21
   %call23 = call ptr @__errno_location() #14
-  %7 = load i32, ptr %call23, align 4
-  invoke void @_Z13grpc_os_errorRKN9grpc_core13DebugLocationEiPKc(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, i32 noundef %7, ptr noundef @.str.4)
+  %8 = load i32, ptr %call23, align 4
+  invoke void @_Z13grpc_os_errorRKN9grpc_core13DebugLocationEiPKc(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, i32 noundef %8, ptr noundef @.str.4)
           to label %invoke.cont24 unwind label %lpad4
 
 invoke.cont24:                                    ; preds = %invoke.cont22
@@ -543,31 +544,31 @@ invoke.cont32:                                    ; preds = %invoke.cont29
   br label %if.end33
 
 lpad25:                                           ; preds = %invoke.cont24
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %ehcleanup41
 
 lpad28:                                           ; preds = %invoke.cont26
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad31:                                           ; preds = %invoke.cont29
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #3
   br label %ehcleanup
 
@@ -588,12 +589,12 @@ invoke.cont35:                                    ; preds = %if.end33
           to label %invoke.cont39 unwind label %lpad4
 
 invoke.cont39:                                    ; preds = %invoke.cont35
-  %17 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 0
-  %18 = extractvalue { ptr, i8 } %call40, 0
-  store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 1
-  %20 = extractvalue { ptr, i8 } %call40, 1
-  store i8 %20, ptr %19, align 8
+  %18 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 0
+  %19 = extractvalue { ptr, i8 } %call40, 0
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 1
+  %21 = extractvalue { ptr, i8 } %call40, 1
+  store i8 %21, ptr %20, align 8
   ret void
 
 ehcleanup41:                                      ; preds = %ehcleanup, %lpad25, %lpad4
@@ -627,23 +628,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -928,21 +930,22 @@ entry:
   %coerce = alloca %"struct.std::_Rb_tree_iterator", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lock_ = getelementptr inbounds %"class.tsi::TlsSessionKeyLoggerCache::TlsSessionKeyLogger", ptr %this1, i32 0, i32 1
   invoke void @_ZN4absl12lts_202308029MutexLockC2EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %lock, ptr noundef %lock_)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %fd_ = getelementptr inbounds %"class.tsi::TlsSessionKeyLoggerCache::TlsSessionKeyLogger", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %fd_, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %fd_, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
   %fd_2 = getelementptr inbounds %"class.tsi::TlsSessionKeyLoggerCache::TlsSessionKeyLogger", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %fd_2, align 8
-  %call = invoke i32 @fclose(ptr noundef %1)
+  %2 = load ptr, ptr %fd_2, align 8
+  %call = invoke i32 @fclose(ptr noundef %2)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %if.then
@@ -950,8 +953,8 @@ invoke.cont3:                                     ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont3, %invoke.cont
   call void @_ZN4absl12lts_202308029MutexLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lock) #3
-  %2 = load ptr, ptr @_ZN3tsi12_GLOBAL__N_130g_tls_session_key_log_cache_muE, align 8
-  invoke void @_ZN4absl12lts_202308029MutexLockC2EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %lock4, ptr noundef %2)
+  %3 = load ptr, ptr @_ZN3tsi12_GLOBAL__N_130g_tls_session_key_log_cache_muE, align 8
+  invoke void @_ZN4absl12lts_202308029MutexLockC2EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %lock4, ptr noundef %3)
           to label %invoke.cont5 unwind label %terminate.lpad
 
 invoke.cont5:                                     ; preds = %if.end
@@ -983,13 +986,13 @@ invoke.cont11:                                    ; preds = %invoke.cont8
 land.rhs:                                         ; preds = %invoke.cont11
   %call17 = call noundef ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %it) #3
   %second = getelementptr inbounds %"struct.std::pair.4", ptr %call17, i32 0, i32 1
-  %3 = load ptr, ptr %second, align 8
-  %cmp18 = icmp eq ptr %3, %this1
+  %4 = load ptr, ptr %second, align 8
+  %cmp18 = icmp eq ptr %4, %this1
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %invoke.cont11
-  %4 = phi i1 [ false, %invoke.cont11 ], [ %cmp18, %land.rhs ]
-  br i1 %4, label %if.then19, label %if.end28
+  %5 = phi i1 [ false, %invoke.cont11 ], [ %cmp18, %land.rhs ]
+  br i1 %5, label %if.then19, label %if.end28
 
 if.then19:                                        ; preds = %land.end
   %cache_20 = getelementptr inbounds %"class.tsi::TlsSessionKeyLoggerCache::TlsSessionKeyLogger", ptr %this1, i32 0, i32 4
@@ -1000,8 +1003,8 @@ invoke.cont21:                                    ; preds = %if.then19
   %tls_session_key_logger_map_23 = getelementptr inbounds %"class.tsi::TlsSessionKeyLoggerCache", ptr %call22, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %it, i64 8, i1 false)
   %coerce.dive24 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %agg.tmp, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive24, align 8
-  %call26 = invoke ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerESt4lessIS5_ESaISt4pairIKS5_S9_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISE_E(ptr noundef nonnull align 8 dereferenceable(48) %tls_session_key_logger_map_23, ptr %5)
+  %6 = load ptr, ptr %coerce.dive24, align 8
+  %call26 = invoke ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerESt4lessIS5_ESaISt4pairIKS5_S9_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISE_E(ptr noundef nonnull align 8 dereferenceable(48) %tls_session_key_logger_map_23, ptr %6)
           to label %invoke.cont25 unwind label %terminate.lpad
 
 invoke.cont25:                                    ; preds = %invoke.cont21
@@ -1021,10 +1024,10 @@ if.end28:                                         ; preds = %invoke.cont25, %lan
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont21, %if.then19, %invoke.cont8, %invoke.cont6, %invoke.cont5, %if.end, %if.then, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #15
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #15
   unreachable
 }
 
@@ -1437,7 +1440,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tls_session_key_logger_map_ = getelementptr inbounds %"class.tsi::TlsSessionKeyLoggerCache", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerESt4lessIS5_ESaISt4pairIKS5_S9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %tls_session_key_logger_map_) #3
   store ptr %this1, ptr @_ZN3tsi12_GLOBAL__N_116g_cache_instanceE, align 8
@@ -1457,23 +1461,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted.0", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -1503,9 +1508,10 @@ entry:
   %lock = alloca %"class.absl::lts_20230802::MutexLock", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr @_ZN3tsi12_GLOBAL__N_130g_tls_session_key_log_cache_muE, align 8
-  invoke void @_ZN4absl12lts_202308029MutexLockC2EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %lock, ptr noundef %0)
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr @_ZN3tsi12_GLOBAL__N_130g_tls_session_key_log_cache_muE, align 8
+  invoke void @_ZN4absl12lts_202308029MutexLockC2EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %lock, ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1517,10 +1523,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #15
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #15
   unreachable
 }
 
@@ -2524,7 +2530,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

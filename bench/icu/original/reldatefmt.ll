@@ -1175,13 +1175,14 @@ entry:
   %pl = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeCacheDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeCacheDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i32 0, ptr %style, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc27, %entry
-  %0 = load i32, ptr %style, align 4
-  %cmp = icmp slt i32 %0, 3
+  %1 = load i32, ptr %style, align 4
+  %cmp = icmp slt i32 %1, 3
   br i1 %cmp, label %for.body, label %for.end29
 
 for.body:                                         ; preds = %for.cond
@@ -1189,8 +1190,8 @@ for.body:                                         ; preds = %for.cond
   br label %for.cond2
 
 for.cond2:                                        ; preds = %for.inc24, %for.body
-  %1 = load i32, ptr %relUnit, align 4
-  %cmp3 = icmp slt i32 %1, 15
+  %2 = load i32, ptr %relUnit, align 4
+  %cmp3 = icmp slt i32 %2, 15
   br i1 %cmp3, label %for.body4, label %for.end26
 
 for.body4:                                        ; preds = %for.cond2
@@ -1198,58 +1199,58 @@ for.body4:                                        ; preds = %for.cond2
   br label %for.cond5
 
 for.cond5:                                        ; preds = %for.inc, %for.body4
-  %2 = load i32, ptr %pl, align 4
-  %cmp6 = icmp slt i32 %2, 8
+  %3 = load i32, ptr %pl, align 4
+  %cmp6 = icmp slt i32 %3, 8
   br i1 %cmp6, label %for.body7, label %for.end
 
 for.body7:                                        ; preds = %for.cond5
   %relativeUnitsFormatters = getelementptr inbounds %"class.icu_75::RelativeDateTimeCacheData", ptr %this1, i32 0, i32 2
-  %3 = load i32, ptr %style, align 4
-  %idxprom = sext i32 %3 to i64
+  %4 = load i32, ptr %style, align 4
+  %idxprom = sext i32 %4 to i64
   %arrayidx = getelementptr inbounds [3 x [15 x [2 x [8 x ptr]]]], ptr %relativeUnitsFormatters, i64 0, i64 %idxprom
-  %4 = load i32, ptr %relUnit, align 4
-  %idxprom8 = sext i32 %4 to i64
+  %5 = load i32, ptr %relUnit, align 4
+  %idxprom8 = sext i32 %5 to i64
   %arrayidx9 = getelementptr inbounds [15 x [2 x [8 x ptr]]], ptr %arrayidx, i64 0, i64 %idxprom8
   %arrayidx10 = getelementptr inbounds [2 x [8 x ptr]], ptr %arrayidx9, i64 0, i64 0
-  %5 = load i32, ptr %pl, align 4
-  %idxprom11 = sext i32 %5 to i64
+  %6 = load i32, ptr %pl, align 4
+  %idxprom11 = sext i32 %6 to i64
   %arrayidx12 = getelementptr inbounds [8 x ptr], ptr %arrayidx10, i64 0, i64 %idxprom11
-  %6 = load ptr, ptr %arrayidx12, align 8
-  %isnull = icmp eq ptr %6, null
+  %7 = load ptr, ptr %arrayidx12, align 8
+  %isnull = icmp eq ptr %7, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body7
-  call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #9
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %6) #9
+  call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #9
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %7) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body7
   %relativeUnitsFormatters13 = getelementptr inbounds %"class.icu_75::RelativeDateTimeCacheData", ptr %this1, i32 0, i32 2
-  %7 = load i32, ptr %style, align 4
-  %idxprom14 = sext i32 %7 to i64
+  %8 = load i32, ptr %style, align 4
+  %idxprom14 = sext i32 %8 to i64
   %arrayidx15 = getelementptr inbounds [3 x [15 x [2 x [8 x ptr]]]], ptr %relativeUnitsFormatters13, i64 0, i64 %idxprom14
-  %8 = load i32, ptr %relUnit, align 4
-  %idxprom16 = sext i32 %8 to i64
+  %9 = load i32, ptr %relUnit, align 4
+  %idxprom16 = sext i32 %9 to i64
   %arrayidx17 = getelementptr inbounds [15 x [2 x [8 x ptr]]], ptr %arrayidx15, i64 0, i64 %idxprom16
   %arrayidx18 = getelementptr inbounds [2 x [8 x ptr]], ptr %arrayidx17, i64 0, i64 1
-  %9 = load i32, ptr %pl, align 4
-  %idxprom19 = sext i32 %9 to i64
+  %10 = load i32, ptr %pl, align 4
+  %idxprom19 = sext i32 %10 to i64
   %arrayidx20 = getelementptr inbounds [8 x ptr], ptr %arrayidx18, i64 0, i64 %idxprom19
-  %10 = load ptr, ptr %arrayidx20, align 8
-  %isnull21 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %arrayidx20, align 8
+  %isnull21 = icmp eq ptr %11, null
   br i1 %isnull21, label %delete.end23, label %delete.notnull22
 
 delete.notnull22:                                 ; preds = %delete.end
-  call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #9
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %10) #9
+  call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #9
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %11) #9
   br label %delete.end23
 
 delete.end23:                                     ; preds = %delete.notnull22, %delete.end
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end23
-  %11 = load i32, ptr %pl, align 4
-  %inc = add nsw i32 %11, 1
+  %12 = load i32, ptr %pl, align 4
+  %inc = add nsw i32 %12, 1
   store i32 %inc, ptr %pl, align 4
   br label %for.cond5, !llvm.loop !4
 
@@ -1257,8 +1258,8 @@ for.end:                                          ; preds = %for.cond5
   br label %for.inc24
 
 for.inc24:                                        ; preds = %for.end
-  %12 = load i32, ptr %relUnit, align 4
-  %inc25 = add nsw i32 %12, 1
+  %13 = load i32, ptr %relUnit, align 4
+  %inc25 = add nsw i32 %13, 1
   store i32 %inc25, ptr %relUnit, align 4
   br label %for.cond2, !llvm.loop !6
 
@@ -1266,20 +1267,20 @@ for.end26:                                        ; preds = %for.cond2
   br label %for.inc27
 
 for.inc27:                                        ; preds = %for.end26
-  %13 = load i32, ptr %style, align 4
-  %inc28 = add nsw i32 %13, 1
+  %14 = load i32, ptr %style, align 4
+  %inc28 = add nsw i32 %14, 1
   store i32 %inc28, ptr %style, align 4
   br label %for.cond, !llvm.loop !7
 
 for.end29:                                        ; preds = %for.cond
   %combinedDateAndTime = getelementptr inbounds %"class.icu_75::RelativeDateTimeCacheData", ptr %this1, i32 0, i32 5
-  %14 = load ptr, ptr %combinedDateAndTime, align 8
-  %isnull30 = icmp eq ptr %14, null
+  %15 = load ptr, ptr %combinedDateAndTime, align 8
+  %isnull30 = icmp eq ptr %15, null
   br i1 %isnull30, label %delete.end32, label %delete.notnull31
 
 delete.notnull31:                                 ; preds = %for.end29
-  call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %14) #9
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %14) #9
+  call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #9
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %15) #9
   br label %delete.end32
 
 delete.end32:                                     ; preds = %delete.notnull31, %for.end29
@@ -1287,11 +1288,11 @@ delete.end32:                                     ; preds = %delete.notnull31, %
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %emptyString) #9
   %absoluteUnits = getelementptr inbounds %"class.icu_75::RelativeDateTimeCacheData", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [3 x [15 x [6 x %"class.icu_75::UnicodeString"]]], ptr %absoluteUnits, i32 0, i32 0, i32 0, i32 0
-  %15 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin, i64 270
+  %16 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin, i64 270
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %delete.end32
-  %arraydestroy.elementPast = phi ptr [ %15, %delete.end32 ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %16, %delete.end32 ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #9
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -1916,7 +1917,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512SharedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeCacheDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeCacheDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %absoluteUnits = getelementptr inbounds %"class.icu_75::RelativeDateTimeCacheData", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [3 x [15 x [6 x %"class.icu_75::UnicodeString"]]], ptr %absoluteUnits, i32 0, i32 0, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin, i64 270
@@ -1944,8 +1946,8 @@ invoke.cont4:                                     ; preds = %arrayctor.cont
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc27, %invoke.cont4
-  %0 = load i32, ptr %style, align 4
-  %cmp = icmp slt i32 %0, 3
+  %1 = load i32, ptr %style, align 4
+  %cmp = icmp slt i32 %1, 3
   br i1 %cmp, label %for.body, label %for.end29
 
 for.body:                                         ; preds = %for.cond
@@ -1953,8 +1955,8 @@ for.body:                                         ; preds = %for.cond
   br label %for.cond5
 
 for.cond5:                                        ; preds = %for.inc24, %for.body
-  %1 = load i32, ptr %relUnit, align 4
-  %cmp6 = icmp slt i32 %1, 15
+  %2 = load i32, ptr %relUnit, align 4
+  %cmp6 = icmp slt i32 %2, 15
   br i1 %cmp6, label %for.body7, label %for.end26
 
 for.body7:                                        ; preds = %for.cond5
@@ -1962,50 +1964,50 @@ for.body7:                                        ; preds = %for.cond5
   br label %for.cond8
 
 for.cond8:                                        ; preds = %for.inc, %for.body7
-  %2 = load i32, ptr %pl, align 4
-  %cmp9 = icmp slt i32 %2, 8
+  %3 = load i32, ptr %pl, align 4
+  %cmp9 = icmp slt i32 %3, 8
   br i1 %cmp9, label %for.body10, label %for.end
 
 for.body10:                                       ; preds = %for.cond8
   %relativeUnitsFormatters = getelementptr inbounds %"class.icu_75::RelativeDateTimeCacheData", ptr %this1, i32 0, i32 2
-  %3 = load i32, ptr %style, align 4
-  %idxprom = sext i32 %3 to i64
+  %4 = load i32, ptr %style, align 4
+  %idxprom = sext i32 %4 to i64
   %arrayidx = getelementptr inbounds [3 x [15 x [2 x [8 x ptr]]]], ptr %relativeUnitsFormatters, i64 0, i64 %idxprom
-  %4 = load i32, ptr %relUnit, align 4
-  %idxprom11 = sext i32 %4 to i64
+  %5 = load i32, ptr %relUnit, align 4
+  %idxprom11 = sext i32 %5 to i64
   %arrayidx12 = getelementptr inbounds [15 x [2 x [8 x ptr]]], ptr %arrayidx, i64 0, i64 %idxprom11
   %arrayidx13 = getelementptr inbounds [2 x [8 x ptr]], ptr %arrayidx12, i64 0, i64 0
-  %5 = load i32, ptr %pl, align 4
-  %idxprom14 = sext i32 %5 to i64
+  %6 = load i32, ptr %pl, align 4
+  %idxprom14 = sext i32 %6 to i64
   %arrayidx15 = getelementptr inbounds [8 x ptr], ptr %arrayidx13, i64 0, i64 %idxprom14
   store ptr null, ptr %arrayidx15, align 8
   %relativeUnitsFormatters16 = getelementptr inbounds %"class.icu_75::RelativeDateTimeCacheData", ptr %this1, i32 0, i32 2
-  %6 = load i32, ptr %style, align 4
-  %idxprom17 = sext i32 %6 to i64
+  %7 = load i32, ptr %style, align 4
+  %idxprom17 = sext i32 %7 to i64
   %arrayidx18 = getelementptr inbounds [3 x [15 x [2 x [8 x ptr]]]], ptr %relativeUnitsFormatters16, i64 0, i64 %idxprom17
-  %7 = load i32, ptr %relUnit, align 4
-  %idxprom19 = sext i32 %7 to i64
+  %8 = load i32, ptr %relUnit, align 4
+  %idxprom19 = sext i32 %8 to i64
   %arrayidx20 = getelementptr inbounds [15 x [2 x [8 x ptr]]], ptr %arrayidx18, i64 0, i64 %idxprom19
   %arrayidx21 = getelementptr inbounds [2 x [8 x ptr]], ptr %arrayidx20, i64 0, i64 1
-  %8 = load i32, ptr %pl, align 4
-  %idxprom22 = sext i32 %8 to i64
+  %9 = load i32, ptr %pl, align 4
+  %idxprom22 = sext i32 %9 to i64
   %arrayidx23 = getelementptr inbounds [8 x ptr], ptr %arrayidx21, i64 0, i64 %idxprom22
   store ptr null, ptr %arrayidx23, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body10
-  %9 = load i32, ptr %pl, align 4
-  %inc = add nsw i32 %9, 1
+  %10 = load i32, ptr %pl, align 4
+  %inc = add nsw i32 %10, 1
   store i32 %inc, ptr %pl, align 4
   br label %for.cond8, !llvm.loop !11
 
 lpad:                                             ; preds = %arrayctor.loop
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   %arraydestroy.isempty = icmp eq ptr %array.begin, %arrayctor.cur
   br i1 %arraydestroy.isempty, label %arraydestroy.done2, label %arraydestroy.body
 
@@ -2020,22 +2022,22 @@ arraydestroy.done2:                               ; preds = %arraydestroy.body, 
   br label %ehcleanup
 
 lpad3:                                            ; preds = %arrayctor.cont
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   %array.begin38 = getelementptr inbounds [3 x [15 x [6 x %"class.icu_75::UnicodeString"]]], ptr %absoluteUnits, i32 0, i32 0, i32 0, i32 0
-  %16 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin38, i64 270
+  %17 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin38, i64 270
   br label %arraydestroy.body39
 
 for.end:                                          ; preds = %for.cond8
   br label %for.inc24
 
 for.inc24:                                        ; preds = %for.end
-  %17 = load i32, ptr %relUnit, align 4
-  %inc25 = add nsw i32 %17, 1
+  %18 = load i32, ptr %relUnit, align 4
+  %inc25 = add nsw i32 %18, 1
   store i32 %inc25, ptr %relUnit, align 4
   br label %for.cond5, !llvm.loop !12
 
@@ -2043,8 +2045,8 @@ for.end26:                                        ; preds = %for.cond5
   br label %for.inc27
 
 for.inc27:                                        ; preds = %for.end26
-  %18 = load i32, ptr %style, align 4
-  %inc28 = add nsw i32 %18, 1
+  %19 = load i32, ptr %style, align 4
+  %inc28 = add nsw i32 %19, 1
   store i32 %inc28, ptr %style, align 4
   br label %for.cond, !llvm.loop !13
 
@@ -2053,21 +2055,21 @@ for.end29:                                        ; preds = %for.cond
   br label %for.cond30
 
 for.cond30:                                       ; preds = %for.inc35, %for.end29
-  %19 = load i32, ptr %i, align 4
-  %cmp31 = icmp slt i32 %19, 3
+  %20 = load i32, ptr %i, align 4
+  %cmp31 = icmp slt i32 %20, 3
   br i1 %cmp31, label %for.body32, label %for.end37
 
 for.body32:                                       ; preds = %for.cond30
   %fallBackCache = getelementptr inbounds %"class.icu_75::RelativeDateTimeCacheData", ptr %this1, i32 0, i32 4
-  %20 = load i32, ptr %i, align 4
-  %idxprom33 = sext i32 %20 to i64
+  %21 = load i32, ptr %i, align 4
+  %idxprom33 = sext i32 %21 to i64
   %arrayidx34 = getelementptr inbounds [3 x i32], ptr %fallBackCache, i64 0, i64 %idxprom33
   store i32 -1, ptr %arrayidx34, align 4
   br label %for.inc35
 
 for.inc35:                                        ; preds = %for.body32
-  %21 = load i32, ptr %i, align 4
-  %inc36 = add nsw i32 %21, 1
+  %22 = load i32, ptr %i, align 4
+  %inc36 = add nsw i32 %22, 1
   store i32 %inc36, ptr %i, align 4
   br label %for.cond30, !llvm.loop !14
 
@@ -2075,7 +2077,7 @@ for.end37:                                        ; preds = %for.cond30
   ret void
 
 arraydestroy.body39:                              ; preds = %arraydestroy.body39, %lpad3
-  %arraydestroy.elementPast40 = phi ptr [ %16, %lpad3 ], [ %arraydestroy.element41, %arraydestroy.body39 ]
+  %arraydestroy.elementPast40 = phi ptr [ %17, %lpad3 ], [ %arraydestroy.element41, %arraydestroy.body39 ]
   %arraydestroy.element41 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast40, i64 -1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element41) #9
   %arraydestroy.done42 = icmp eq ptr %arraydestroy.element41, %array.begin38
@@ -2229,7 +2231,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -2750,22 +2753,23 @@ entry:
   store ptr %src, ptr %src.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7514FormattedValueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fData = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %src.addr, align 8
-  %fData2 = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %fData2, align 8
-  store ptr %1, ptr %fData, align 8
+  %1 = load ptr, ptr %src.addr, align 8
+  %fData2 = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %fData2, align 8
+  store ptr %2, ptr %fData, align 8
   %fErrorCode = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %src.addr, align 8
-  %fErrorCode3 = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %2, i32 0, i32 2
-  %3 = load i32, ptr %fErrorCode3, align 8
-  store i32 %3, ptr %fErrorCode, align 8
-  %4 = load ptr, ptr %src.addr, align 8
-  %fData4 = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %4, i32 0, i32 1
-  store ptr null, ptr %fData4, align 8
+  %3 = load ptr, ptr %src.addr, align 8
+  %fErrorCode3 = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %3, i32 0, i32 2
+  %4 = load i32, ptr %fErrorCode3, align 8
+  store i32 %4, ptr %fErrorCode, align 8
   %5 = load ptr, ptr %src.addr, align 8
-  %fErrorCode5 = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %5, i32 0, i32 2
+  %fData4 = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %5, i32 0, i32 1
+  store ptr null, ptr %fData4, align 8
+  %6 = load ptr, ptr %src.addr, align 8
+  %fErrorCode5 = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %6, i32 0, i32 2
   store i32 27, ptr %fErrorCode5, align 8
   ret void
 }
@@ -2776,7 +2780,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7514FormattedValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7514FormattedValueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2786,17 +2791,18 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fData = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %fData, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %fData, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(300) %0) #9
+  %2 = load ptr, ptr %vfn, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(300) %1) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -3116,7 +3122,8 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fCache = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fCache, align 8
   %fNumberFormat = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 2
@@ -3134,29 +3141,29 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7525RelativeDateTimeFormatter4initEPNS_12NumberFormatEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this1, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %1 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7525RelativeDateTimeFormatter4initEPNS_12NumberFormatEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this1, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLocale) #9
   br label %ehcleanup
 
@@ -3178,7 +3185,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3522,7 +3530,8 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fCache = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fCache, align 8
   %fNumberFormat = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 2
@@ -3536,86 +3545,13 @@ entry:
   %fOptBreakIterator = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 6
   store ptr null, ptr %fOptBreakIterator, align 8
   %fLocale = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 7
-  %0 = load ptr, ptr %locale.addr, align 8
-  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLocale, ptr noundef nonnull align 8 dereferenceable(217) %0)
+  %1 = load ptr, ptr %locale.addr, align 8
+  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLocale, ptr noundef nonnull align 8 dereferenceable(217) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7525RelativeDateTimeFormatter4initEPNS_12NumberFormatEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this1, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %1)
-          to label %invoke.cont3 unwind label %lpad2
-
-invoke.cont3:                                     ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
-          cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLocale) #9
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad2, %lpad
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val4
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7525RelativeDateTimeFormatterC2ERKNS_6LocaleEPNS_12NumberFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %nfToAdopt, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %locale.addr = alloca ptr, align 8
-  %nfToAdopt.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %locale, ptr %locale.addr, align 8
-  store ptr %nfToAdopt, ptr %nfToAdopt.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %fCache = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 1
-  store ptr null, ptr %fCache, align 8
-  %fNumberFormat = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 2
-  store ptr null, ptr %fNumberFormat, align 8
-  %fPluralRules = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 3
-  store ptr null, ptr %fPluralRules, align 8
-  %fStyle = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 4
-  store i32 0, ptr %fStyle, align 8
-  %fContext = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 5
-  store i32 256, ptr %fContext, align 4
-  %fOptBreakIterator = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 6
-  store ptr null, ptr %fOptBreakIterator, align 8
-  %fLocale = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 7
-  %0 = load ptr, ptr %locale.addr, align 8
-  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLocale, ptr noundef nonnull align 8 dereferenceable(217) %0)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %nfToAdopt.addr, align 8
   %2 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7525RelativeDateTimeFormatter4initEPNS_12NumberFormatEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this1, ptr noundef %1, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  invoke void @_ZN6icu_7525RelativeDateTimeFormatter4initEPNS_12NumberFormatEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this1, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -3653,6 +3589,80 @@ eh.resume:                                        ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_7525RelativeDateTimeFormatterC2ERKNS_6LocaleEPNS_12NumberFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %nfToAdopt, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %locale.addr = alloca ptr, align 8
+  %nfToAdopt.addr = alloca ptr, align 8
+  %status.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %locale, ptr %locale.addr, align 8
+  store ptr %nfToAdopt, ptr %nfToAdopt.addr, align 8
+  store ptr %status, ptr %status.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %fCache = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %fCache, align 8
+  %fNumberFormat = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 2
+  store ptr null, ptr %fNumberFormat, align 8
+  %fPluralRules = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 3
+  store ptr null, ptr %fPluralRules, align 8
+  %fStyle = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 4
+  store i32 0, ptr %fStyle, align 8
+  %fContext = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 5
+  store i32 256, ptr %fContext, align 4
+  %fOptBreakIterator = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 6
+  store ptr null, ptr %fOptBreakIterator, align 8
+  %fLocale = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 7
+  %1 = load ptr, ptr %locale.addr, align 8
+  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLocale, ptr noundef nonnull align 8 dereferenceable(217) %1)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  %2 = load ptr, ptr %nfToAdopt.addr, align 8
+  %3 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7525RelativeDateTimeFormatter4initEPNS_12NumberFormatEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this1, ptr noundef %2, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %invoke.cont3 unwind label %lpad2
+
+invoke.cont3:                                     ; preds = %invoke.cont
+  ret void
+
+lpad:                                             ; preds = %entry
+  %4 = landingpad { ptr, i32 }
+          cleanup
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad2:                                            ; preds = %invoke.cont
+  %7 = landingpad { ptr, i32 }
+          cleanup
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
+  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLocale) #9
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad2, %lpad
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val4
+}
+
+; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7525RelativeDateTimeFormatterC2ERKNS_6LocaleEPNS_12NumberFormatE35UDateRelativeDateTimeFormatterStyle15UDisplayContextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %nfToAdopt, i32 noundef %styl, i32 noundef %capitalizationContext, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %this.addr = alloca ptr, align 8
@@ -3672,7 +3682,8 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fCache = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fCache, align 8
   %fNumberFormat = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 2
@@ -3680,22 +3691,22 @@ entry:
   %fPluralRules = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 3
   store ptr null, ptr %fPluralRules, align 8
   %fStyle = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 4
-  %0 = load i32, ptr %styl.addr, align 4
-  store i32 %0, ptr %fStyle, align 8
+  %1 = load i32, ptr %styl.addr, align 4
+  store i32 %1, ptr %fStyle, align 8
   %fContext = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 5
-  %1 = load i32, ptr %capitalizationContext.addr, align 4
-  store i32 %1, ptr %fContext, align 4
+  %2 = load i32, ptr %capitalizationContext.addr, align 4
+  store i32 %2, ptr %fContext, align 4
   %fOptBreakIterator = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 6
   store ptr null, ptr %fOptBreakIterator, align 8
   %fLocale = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %locale.addr, align 8
-  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLocale, ptr noundef nonnull align 8 dereferenceable(217) %2)
+  %3 = load ptr, ptr %locale.addr, align 8
+  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLocale, ptr noundef nonnull align 8 dereferenceable(217) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load ptr, ptr %status.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %4)
+  %4 = load ptr, ptr %status.addr, align 8
+  %5 = load i32, ptr %4, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %5)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -3706,66 +3717,66 @@ if.then:                                          ; preds = %invoke.cont3
   br label %if.end21
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %if.else, %if.end18, %invoke.cont12, %if.then11, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLocale) #9
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont3
-  %11 = load i32, ptr %styl.addr, align 4
-  %cmp = icmp slt i32 %11, 0
+  %12 = load i32, ptr %styl.addr, align 4
+  %cmp = icmp slt i32 %12, 0
   br i1 %cmp, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %12 = load i32, ptr %styl.addr, align 4
-  %cmp4 = icmp sle i32 3, %12
+  %13 = load i32, ptr %styl.addr, align 4
+  %cmp4 = icmp sle i32 3, %13
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.end
-  %13 = load ptr, ptr %status.addr, align 8
-  store i32 1, ptr %13, align 4
+  %14 = load ptr, ptr %status.addr, align 8
+  store i32 1, ptr %14, align 4
   br label %if.end21
 
 if.end6:                                          ; preds = %lor.lhs.false
-  %14 = load i32, ptr %capitalizationContext.addr, align 4
-  %shr = ashr i32 %14, 8
+  %15 = load i32, ptr %capitalizationContext.addr, align 4
+  %shr = ashr i32 %15, 8
   %cmp7 = icmp ne i32 %shr, 1
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end6
-  %15 = load ptr, ptr %status.addr, align 8
-  store i32 1, ptr %15, align 4
+  %16 = load ptr, ptr %status.addr, align 8
+  store i32 1, ptr %16, align 4
   br label %if.end21
 
 if.end9:                                          ; preds = %if.end6
-  %16 = load i32, ptr %capitalizationContext.addr, align 4
-  %cmp10 = icmp eq i32 %16, 258
+  %17 = load i32, ptr %capitalizationContext.addr, align 4
+  %cmp10 = icmp eq i32 %17, 258
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end9
-  %17 = load ptr, ptr %locale.addr, align 8
-  %18 = load ptr, ptr %status.addr, align 8
-  %call13 = invoke noundef ptr @_ZN6icu_7513BreakIterator22createSentenceInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %18 = load ptr, ptr %locale.addr, align 8
+  %19 = load ptr, ptr %status.addr, align 8
+  %call13 = invoke noundef ptr @_ZN6icu_7513BreakIterator22createSentenceInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
           to label %invoke.cont12 unwind label %lpad2
 
 invoke.cont12:                                    ; preds = %if.then11
   store ptr %call13, ptr %bi, align 8
-  %19 = load ptr, ptr %status.addr, align 8
-  %20 = load i32, ptr %19, align 4
-  %call15 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %20)
+  %20 = load ptr, ptr %status.addr, align 8
+  %21 = load i32, ptr %20, align 4
+  %call15 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %21)
           to label %invoke.cont14 unwind label %lpad2
 
 invoke.cont14:                                    ; preds = %invoke.cont12
@@ -3776,19 +3787,19 @@ if.then17:                                        ; preds = %invoke.cont14
   br label %if.end21
 
 if.end18:                                         ; preds = %invoke.cont14
-  %21 = load ptr, ptr %nfToAdopt.addr, align 8
-  %22 = load ptr, ptr %bi, align 8
-  %23 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7525RelativeDateTimeFormatter4initEPNS_12NumberFormatEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this1, ptr noundef %21, ptr noundef %22, ptr noundef nonnull align 4 dereferenceable(4) %23)
+  %22 = load ptr, ptr %nfToAdopt.addr, align 8
+  %23 = load ptr, ptr %bi, align 8
+  %24 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7525RelativeDateTimeFormatter4initEPNS_12NumberFormatEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this1, ptr noundef %22, ptr noundef %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
           to label %invoke.cont19 unwind label %lpad2
 
 invoke.cont19:                                    ; preds = %if.end18
   br label %if.end21
 
 if.else:                                          ; preds = %if.end9
-  %24 = load ptr, ptr %nfToAdopt.addr, align 8
-  %25 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7525RelativeDateTimeFormatter4initEPNS_12NumberFormatEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this1, ptr noundef %24, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %25)
+  %25 = load ptr, ptr %nfToAdopt.addr, align 8
+  %26 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7525RelativeDateTimeFormatter4initEPNS_12NumberFormatEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this1, ptr noundef %25, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %26)
           to label %invoke.cont20 unwind label %lpad2
 
 invoke.cont20:                                    ; preds = %if.else
@@ -3823,92 +3834,93 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fCache = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %fCache2 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %fCache2, align 8
-  store ptr %2, ptr %fCache, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %fCache2 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %fCache2, align 8
+  store ptr %3, ptr %fCache, align 8
   %fNumberFormat = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %other.addr, align 8
-  %fNumberFormat3 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %fNumberFormat3, align 8
-  store ptr %4, ptr %fNumberFormat, align 8
+  %4 = load ptr, ptr %other.addr, align 8
+  %fNumberFormat3 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %4, i32 0, i32 2
+  %5 = load ptr, ptr %fNumberFormat3, align 8
+  store ptr %5, ptr %fNumberFormat, align 8
   %fPluralRules = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %other.addr, align 8
-  %fPluralRules4 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %5, i32 0, i32 3
-  %6 = load ptr, ptr %fPluralRules4, align 8
-  store ptr %6, ptr %fPluralRules, align 8
+  %6 = load ptr, ptr %other.addr, align 8
+  %fPluralRules4 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %6, i32 0, i32 3
+  %7 = load ptr, ptr %fPluralRules4, align 8
+  store ptr %7, ptr %fPluralRules, align 8
   %fStyle = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 4
-  %7 = load ptr, ptr %other.addr, align 8
-  %fStyle5 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %7, i32 0, i32 4
-  %8 = load i32, ptr %fStyle5, align 8
-  store i32 %8, ptr %fStyle, align 8
+  %8 = load ptr, ptr %other.addr, align 8
+  %fStyle5 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %8, i32 0, i32 4
+  %9 = load i32, ptr %fStyle5, align 8
+  store i32 %9, ptr %fStyle, align 8
   %fContext = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 5
-  %9 = load ptr, ptr %other.addr, align 8
-  %fContext6 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %9, i32 0, i32 5
-  %10 = load i32, ptr %fContext6, align 4
-  store i32 %10, ptr %fContext, align 4
+  %10 = load ptr, ptr %other.addr, align 8
+  %fContext6 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %10, i32 0, i32 5
+  %11 = load i32, ptr %fContext6, align 4
+  store i32 %11, ptr %fContext, align 4
   %fOptBreakIterator = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 6
-  %11 = load ptr, ptr %other.addr, align 8
-  %fOptBreakIterator7 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %11, i32 0, i32 6
-  %12 = load ptr, ptr %fOptBreakIterator7, align 8
-  store ptr %12, ptr %fOptBreakIterator, align 8
+  %12 = load ptr, ptr %other.addr, align 8
+  %fOptBreakIterator7 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %12, i32 0, i32 6
+  %13 = load ptr, ptr %fOptBreakIterator7, align 8
+  store ptr %13, ptr %fOptBreakIterator, align 8
   %fLocale = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 7
-  %13 = load ptr, ptr %other.addr, align 8
-  %fLocale8 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %13, i32 0, i32 7
+  %14 = load ptr, ptr %other.addr, align 8
+  %fLocale8 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %14, i32 0, i32 7
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLocale, ptr noundef nonnull align 8 dereferenceable(217) %fLocale8)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %fCache9 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 1
-  %14 = load ptr, ptr %fCache9, align 8
-  invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %15 = load ptr, ptr %fCache9, align 8
+  invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont
   %fNumberFormat12 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 2
-  %15 = load ptr, ptr %fNumberFormat12, align 8
-  invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
+  %16 = load ptr, ptr %fNumberFormat12, align 8
+  invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %invoke.cont13 unwind label %lpad10
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   %fPluralRules14 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 3
-  %16 = load ptr, ptr %fPluralRules14, align 8
-  invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %16)
+  %17 = load ptr, ptr %fPluralRules14, align 8
+  invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %invoke.cont15 unwind label %lpad10
 
 invoke.cont15:                                    ; preds = %invoke.cont13
   %fOptBreakIterator16 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 6
-  %17 = load ptr, ptr %fOptBreakIterator16, align 8
-  %cmp = icmp ne ptr %17, null
+  %18 = load ptr, ptr %fOptBreakIterator16, align 8
+  %cmp = icmp ne ptr %18, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont15
   %fOptBreakIterator17 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 6
-  %18 = load ptr, ptr %fOptBreakIterator17, align 8
-  invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %18)
+  %19 = load ptr, ptr %fOptBreakIterator17, align 8
+  invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %invoke.cont18 unwind label %lpad10
 
 invoke.cont18:                                    ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %if.then, %invoke.cont13, %invoke.cont11, %invoke.cont
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLocale) #9
   br label %ehcleanup
 
@@ -3935,7 +3947,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4180,16 +4193,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fCache = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %fCache, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %fCache, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %fCache2 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %fCache2, align 8
-  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %2 = load ptr, ptr %fCache2, align 8
+  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -4197,14 +4211,14 @@ invoke.cont:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont, %entry
   %fNumberFormat = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %fNumberFormat, align 8
-  %cmp3 = icmp ne ptr %2, null
+  %3 = load ptr, ptr %fNumberFormat, align 8
+  %cmp3 = icmp ne ptr %3, null
   br i1 %cmp3, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %if.end
   %fNumberFormat5 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %fNumberFormat5, align 8
-  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %4 = load ptr, ptr %fNumberFormat5, align 8
+  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %if.then4
@@ -4212,14 +4226,14 @@ invoke.cont6:                                     ; preds = %if.then4
 
 if.end7:                                          ; preds = %invoke.cont6, %if.end
   %fPluralRules = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %fPluralRules, align 8
-  %cmp8 = icmp ne ptr %4, null
+  %5 = load ptr, ptr %fPluralRules, align 8
+  %cmp8 = icmp ne ptr %5, null
   br i1 %cmp8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.end7
   %fPluralRules10 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %fPluralRules10, align 8
-  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %6 = load ptr, ptr %fPluralRules10, align 8
+  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %invoke.cont11 unwind label %terminate.lpad
 
 invoke.cont11:                                    ; preds = %if.then9
@@ -4227,14 +4241,14 @@ invoke.cont11:                                    ; preds = %if.then9
 
 if.end12:                                         ; preds = %invoke.cont11, %if.end7
   %fOptBreakIterator = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 6
-  %6 = load ptr, ptr %fOptBreakIterator, align 8
-  %cmp13 = icmp ne ptr %6, null
+  %7 = load ptr, ptr %fOptBreakIterator, align 8
+  %cmp13 = icmp ne ptr %7, null
   br i1 %cmp13, label %if.then14, label %if.end17
 
 if.then14:                                        ; preds = %if.end12
   %fOptBreakIterator15 = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this1, i32 0, i32 6
-  %7 = load ptr, ptr %fOptBreakIterator15, align 8
-  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  %8 = load ptr, ptr %fOptBreakIterator15, align 8
+  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %invoke.cont16 unwind label %terminate.lpad
 
 invoke.cont16:                                    ; preds = %if.then14
@@ -4247,10 +4261,10 @@ if.end17:                                         ; preds = %invoke.cont16, %if.
   ret void
 
 terminate.lpad:                                   ; preds = %if.then14, %if.then9, %if.then4, %if.then
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #11
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #11
   unreachable
 }
 
@@ -4850,7 +4864,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fCompiledPattern = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern) #9
   call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
@@ -6454,10 +6469,11 @@ entry:
   store ptr %nfToAdopt, ptr %nfToAdopt.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512SharedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518SharedNumberFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7518SharedNumberFormatE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr = getelementptr inbounds %"class.icu_75::SharedNumberFormat", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %nfToAdopt.addr, align 8
-  store ptr %0, ptr %ptr, align 8
+  %1 = load ptr, ptr %nfToAdopt.addr, align 8
+  store ptr %1, ptr %ptr, align 8
   ret void
 }
 
@@ -6658,7 +6674,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7514FormattedValueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fData = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fData, align 8
   %fErrorCode = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %this1, i32 0, i32 2
@@ -7932,7 +7949,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %softRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %this1, i32 0, i32 1
   store i32 0, ptr %softRefCount, align 8
   %hardRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %this1, i32 0, i32 2
@@ -7978,20 +7996,21 @@ entry:
   store ptr %cacheData, ptr %cacheData.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512ResourceSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %outputData = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::RelDateTimeFmtDataSink", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %cacheData.addr, align 8
-  store ptr %0, ptr %outputData, align 8
   %1 = load ptr, ptr %cacheData.addr, align 8
-  %fallBackCache = getelementptr inbounds %"class.icu_75::RelativeDateTimeCacheData", ptr %1, i32 0, i32 4
+  store ptr %1, ptr %outputData, align 8
+  %2 = load ptr, ptr %cacheData.addr, align 8
+  %fallBackCache = getelementptr inbounds %"class.icu_75::RelativeDateTimeCacheData", ptr %2, i32 0, i32 4
   %arrayidx = getelementptr inbounds [3 x i32], ptr %fallBackCache, i64 0, i64 0
   store i32 -1, ptr %arrayidx, align 8
-  %2 = load ptr, ptr %cacheData.addr, align 8
-  %fallBackCache2 = getelementptr inbounds %"class.icu_75::RelativeDateTimeCacheData", ptr %2, i32 0, i32 4
+  %3 = load ptr, ptr %cacheData.addr, align 8
+  %fallBackCache2 = getelementptr inbounds %"class.icu_75::RelativeDateTimeCacheData", ptr %3, i32 0, i32 4
   %arrayidx3 = getelementptr inbounds [3 x i32], ptr %fallBackCache2, i64 0, i64 1
   store i32 -1, ptr %arrayidx3, align 4
-  %3 = load ptr, ptr %cacheData.addr, align 8
-  %fallBackCache4 = getelementptr inbounds %"class.icu_75::RelativeDateTimeCacheData", ptr %3, i32 0, i32 4
+  %4 = load ptr, ptr %cacheData.addr, align 8
+  %fallBackCache4 = getelementptr inbounds %"class.icu_75::RelativeDateTimeCacheData", ptr %4, i32 0, i32 4
   %arrayidx5 = getelementptr inbounds [3 x i32], ptr %fallBackCache4, i64 0, i64 2
   store i32 -1, ptr %arrayidx5, align 8
   ret void
@@ -8191,7 +8210,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10055,7 +10075,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10374,7 +10395,8 @@ entry:
   %coerce.dive = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %agg.tmp, i32 0, i32 0
   %0 = load i8, ptr %coerce.dive, align 1
   call void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300) %this1, i8 %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7529FormattedRelativeDateTimeDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7529FormattedRelativeDateTimeDataE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10408,12 +10430,13 @@ entry:
   store i32 %errorCode, ptr %errorCode.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7514FormattedValueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fData = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fData, align 8
   %fErrorCode = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %errorCode.addr, align 4
-  store i32 %0, ptr %fErrorCode, align 8
+  %1 = load i32, ptr %errorCode.addr, align 4
+  store i32 %1, ptr %fErrorCode, align 8
   ret void
 }
 
@@ -10498,10 +10521,11 @@ entry:
   store ptr %results, ptr %results.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7514FormattedValueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fData = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %results.addr, align 8
-  store ptr %0, ptr %fData, align 8
+  %1 = load ptr, ptr %results.addr, align 8
+  store ptr %1, ptr %fData, align 8
   %fErrorCode = getelementptr inbounds %"class.icu_75::FormattedRelativeDateTime", ptr %this1, i32 0, i32 2
   store i32 0, ptr %fErrorCode, align 8
   ret void
@@ -10628,22 +10652,23 @@ entry:
   store ptr %loc, ptr %loc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_758CacheKeyINS_25RelativeDateTimeCacheDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_25RelativeDateTimeCacheDataEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_25RelativeDateTimeCacheDataEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fLoc = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %loc.addr, align 8
-  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc, ptr noundef nonnull align 8 dereferenceable(217) %0)
+  %1 = load ptr, ptr %loc.addr, align 8
+  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc, ptr noundef nonnull align 8 dereferenceable(217) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6icu_758CacheKeyINS_25RelativeDateTimeCacheDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1) #9
   br label %eh.resume
 
@@ -10661,7 +10686,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_25RelativeDateTimeCacheDataEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_25RelativeDateTimeCacheDataEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fLoc = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this1, i32 0, i32 2
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc) #9
   call void @_ZN6icu_758CacheKeyINS_25RelativeDateTimeCacheDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1) #9
@@ -10767,7 +10793,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512CacheKeyBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_758CacheKeyINS_25RelativeDateTimeCacheDataEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_758CacheKeyINS_25RelativeDateTimeCacheDataEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10911,7 +10938,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7512CacheKeyBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_7512CacheKeyBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fCreationStatus = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %this1, i32 0, i32 1
   store i32 0, ptr %fCreationStatus, align 8
   %fIsPrimary = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %this1, i32 0, i32 2
@@ -11125,10 +11153,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_758CacheKeyINS_25RelativeDateTimeCacheDataEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(13) %this1, ptr noundef nonnull align 8 dereferenceable(13) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_25RelativeDateTimeCacheDataEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_25RelativeDateTimeCacheDataEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fLoc = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %other.addr, align 8
-  %fLoc2 = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %1, i32 0, i32 2
+  %2 = load ptr, ptr %other.addr, align 8
+  %fLoc2 = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %2, i32 0, i32 2
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc, ptr noundef nonnull align 8 dereferenceable(217) %fLoc2)
           to label %invoke.cont unwind label %lpad
 
@@ -11136,12 +11165,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_758CacheKeyINS_25RelativeDateTimeCacheDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1) #9
   br label %eh.resume
 
@@ -11163,7 +11192,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6icu_7512CacheKeyBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %this1, ptr noundef nonnull align 8 dereferenceable(13) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_758CacheKeyINS_25RelativeDateTimeCacheDataEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_758CacheKeyINS_25RelativeDateTimeCacheDataEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -11177,12 +11207,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7512CacheKeyBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_7512CacheKeyBaseE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fCreationStatus = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %fCreationStatus2 = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %fCreationStatus2, align 8
-  store i32 %2, ptr %fCreationStatus, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %fCreationStatus2 = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %2, i32 0, i32 1
+  %3 = load i32, ptr %fCreationStatus2, align 8
+  store i32 %3, ptr %fCreationStatus, align 8
   %fIsPrimary = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %this1, i32 0, i32 2
   store i8 0, ptr %fIsPrimary, align 4
   ret void

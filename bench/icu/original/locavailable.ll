@@ -484,7 +484,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %errorCode = getelementptr inbounds %"class.icu_75::ErrorCode", ptr %this1, i32 0, i32 1
   store i32 0, ptr %errorCode, align 8
   ret void
@@ -693,10 +694,11 @@ entry:
   store i32 %type, ptr %type.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_133AvailableLocalesStringEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_133AvailableLocalesStringEnumerationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fType = getelementptr inbounds %"class.(anonymous namespace)::AvailableLocalesStringEnumeration", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %type.addr, align 4
-  store i32 %0, ptr %fType, align 4
+  %1 = load i32, ptr %type.addr, align 4
+  store i32 %1, ptr %fType, align 4
   %fIndex = getelementptr inbounds %"class.(anonymous namespace)::AvailableLocalesStringEnumeration", ptr %this1, i32 0, i32 2
   store i32 0, ptr %fIndex, align 8
   ret void
@@ -1130,7 +1132,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512ResourceSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120AvailableLocalesSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120AvailableLocalesSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1212,7 +1215,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1392,7 +1396,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1469,23 +1474,24 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load i32, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, align 4
-  %3 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 0, i64 1), align 4
-  %add = add nsw i32 %2, %3
+  %3 = getelementptr inbounds [2 x i32], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 0, i64 1
+  %4 = load i32, ptr %3, align 4
+  %add = add nsw i32 %2, %4
   store i32 %add, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %entry
   %fType2 = getelementptr inbounds %"class.(anonymous namespace)::AvailableLocalesStringEnumeration", ptr %this1, i32 0, i32 1
-  %4 = load i32, ptr %fType2, align 4
-  %idxprom = zext i32 %4 to i64
+  %5 = load i32, ptr %fType2, align 4
+  %idxprom = zext i32 %5 to i64
   %arrayidx = getelementptr inbounds [2 x i32], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 0, i64 %idxprom
-  %5 = load i32, ptr %arrayidx, align 4
-  store i32 %5, ptr %retval, align 4
+  %6 = load i32, ptr %arrayidx, align 4
+  store i32 %6, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
+  %7 = load i32, ptr %retval, align 4
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

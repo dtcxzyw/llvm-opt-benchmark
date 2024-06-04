@@ -1420,17 +1420,18 @@ define internal noundef i32 @_ZN6asmjit9_abi_1_103x86L18Emitter_emitPrologEPNS0_
   %7 = and i8 %6, 1
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %0, ptr %8, align 8, !tbaa !21
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !102
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = and i32 %4, 196608
-  %11 = icmp ne i32 %10, 0
-  %12 = zext i1 %11 to i8
-  store i8 %12, ptr %9, align 8, !tbaa !13
-  %13 = getelementptr inbounds i8, ptr %3, i64 17
-  store i8 %7, ptr %13, align 1, !tbaa !20
-  %14 = call noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitPrologERKNS0_9FuncFrameE(ptr noundef nonnull align 8 dereferenceable(18) %3, ptr noundef nonnull align 4 dereferenceable(100) %1)
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 0, i32 0, i64 2
+  store ptr %9, ptr %3, align 8, !tbaa !102
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = and i32 %4, 196608
+  %12 = icmp ne i32 %11, 0
+  %13 = zext i1 %12 to i8
+  store i8 %13, ptr %10, align 8, !tbaa !13
+  %14 = getelementptr inbounds i8, ptr %3, i64 17
+  store i8 %7, ptr %14, align 1, !tbaa !20
+  %15 = call noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitPrologERKNS0_9FuncFrameE(ptr noundef nonnull align 8 dereferenceable(18) %3, ptr noundef nonnull align 4 dereferenceable(100) %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
-  ret i32 %14
+  ret i32 %15
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1443,17 +1444,18 @@ define internal noundef i32 @_ZN6asmjit9_abi_1_103x86L18Emitter_emitEpilogEPNS0_
   %7 = and i8 %6, 1
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %0, ptr %8, align 8, !tbaa !21
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !102
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = and i32 %4, 196608
-  %11 = icmp ne i32 %10, 0
-  %12 = zext i1 %11 to i8
-  store i8 %12, ptr %9, align 8, !tbaa !13
-  %13 = getelementptr inbounds i8, ptr %3, i64 17
-  store i8 %7, ptr %13, align 1, !tbaa !20
-  %14 = call noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS0_9FuncFrameE(ptr noundef nonnull align 8 dereferenceable(18) %3, ptr noundef nonnull align 4 dereferenceable(100) %1)
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 0, i32 0, i64 2
+  store ptr %9, ptr %3, align 8, !tbaa !102
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = and i32 %4, 196608
+  %12 = icmp ne i32 %11, 0
+  %13 = zext i1 %12 to i8
+  store i8 %13, ptr %10, align 8, !tbaa !13
+  %14 = getelementptr inbounds i8, ptr %3, i64 17
+  store i8 %7, ptr %14, align 1, !tbaa !20
+  %15 = call noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS0_9FuncFrameE(ptr noundef nonnull align 8 dereferenceable(18) %3, ptr noundef nonnull align 4 dereferenceable(100) %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
-  ret i32 %14
+  ret i32 %15
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1466,17 +1468,18 @@ define internal noundef i32 @_ZN6asmjit9_abi_1_103x86L26Emitter_emitArgsAssignme
   %8 = and i8 %7, 1
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %0, ptr %9, align 8, !tbaa !21
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !102
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
-  %11 = and i32 %5, 196608
-  %12 = icmp ne i32 %11, 0
-  %13 = zext i1 %12 to i8
-  store i8 %13, ptr %10, align 8, !tbaa !13
-  %14 = getelementptr inbounds i8, ptr %4, i64 17
-  store i8 %8, ptr %14, align 1, !tbaa !20
-  %15 = call noundef i32 @_ZN6asmjit9_abi_1_1014BaseEmitHelper18emitArgsAssignmentERKNS0_9FuncFrameERKNS0_18FuncArgsAssignmentE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(100) %1, ptr noundef nonnull align 8 dereferenceable(268) %2)
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 0, i32 0, i64 2
+  store ptr %10, ptr %4, align 8, !tbaa !102
+  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = and i32 %5, 196608
+  %13 = icmp ne i32 %12, 0
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %11, align 8, !tbaa !13
+  %15 = getelementptr inbounds i8, ptr %4, i64 17
+  store i8 %8, ptr %15, align 1, !tbaa !20
+  %16 = call noundef i32 @_ZN6asmjit9_abi_1_1014BaseEmitHelper18emitArgsAssignmentERKNS0_9FuncFrameERKNS0_18FuncArgsAssignmentE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(100) %1, ptr noundef nonnull align 8 dereferenceable(268) %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
-  ret i32 %15
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind

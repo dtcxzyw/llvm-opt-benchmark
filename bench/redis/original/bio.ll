@@ -131,8 +131,9 @@ if.then14:                                        ; preds = %for.body11
   br label %do.body
 
 do.body:                                          ; preds = %if.then14
-  %13 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp15 = icmp slt i32 3, %13
+  %13 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %14 = load i32, ptr %13, align 8
+  %cmp15 = icmp slt i32 3, %14
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.body
@@ -140,8 +141,8 @@ if.then16:                                        ; preds = %do.body
 
 if.end17:                                         ; preds = %do.body
   %call18 = call ptr @__errno_location() #8
-  %14 = load i32, ptr %call18, align 4
-  %call19 = call ptr @strerror(i32 noundef %14) #7
+  %15 = load i32, ptr %call18, align 4
+  %call19 = call ptr @strerror(i32 noundef %15) #7
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str, ptr noundef %call19)
   br label %do.end
 
@@ -150,15 +151,15 @@ do.end:                                           ; preds = %if.end17, %if.then1
   unreachable
 
 if.end20:                                         ; preds = %for.body11
-  %15 = load i64, ptr %thread, align 8
-  %16 = load i64, ptr %j, align 8
-  %arrayidx21 = getelementptr inbounds [3 x i64], ptr @bio_threads, i64 0, i64 %16
-  store i64 %15, ptr %arrayidx21, align 8
+  %16 = load i64, ptr %thread, align 8
+  %17 = load i64, ptr %j, align 8
+  %arrayidx21 = getelementptr inbounds [3 x i64], ptr @bio_threads, i64 0, i64 %17
+  store i64 %16, ptr %arrayidx21, align 8
   br label %for.inc22
 
 for.inc22:                                        ; preds = %if.end20
-  %17 = load i64, ptr %j, align 8
-  %inc23 = add i64 %17, 1
+  %18 = load i64, ptr %j, align 8
+  %inc23 = add i64 %18, 1
   store i64 %inc23, ptr %j, align 8
   br label %for.cond9, !llvm.loop !8
 
@@ -231,11 +232,12 @@ cond.end:                                         ; preds = %3, %cond.true
   %arrayidx = getelementptr inbounds [3 x ptr], ptr @bio_worker_title, i64 0, i64 %4
   %5 = load ptr, ptr %arrayidx, align 8
   %call2 = call i32 @pthread_setname_np(i64 noundef %call, ptr noundef %5) #7
-  %6 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 407), align 8
-  call void @redisSetCpuAffinity(ptr noundef %6)
+  %6 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 407
+  %7 = load ptr, ptr %6, align 8
+  call void @redisSetCpuAffinity(ptr noundef %7)
   call void @makeThreadKillable()
-  %7 = load i64, ptr %worker, align 8
-  %arrayidx3 = getelementptr inbounds [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %7
+  %8 = load i64, ptr %worker, align 8
+  %arrayidx3 = getelementptr inbounds [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %8
   %call4 = call i32 @pthread_mutex_lock(ptr noundef %arrayidx3) #7
   %call5 = call i32 @sigemptyset(ptr noundef %sigset) #7
   %call6 = call i32 @sigaddset(ptr noundef %sigset, i32 noundef 14) #7
@@ -247,8 +249,9 @@ if.then:                                          ; preds = %cond.end
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp9 = icmp slt i32 3, %8
+  %9 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %10 = load i32, ptr %9, align 8
+  %cmp9 = icmp slt i32 3, %10
   br i1 %cmp9, label %if.then11, label %if.end
 
 if.then11:                                        ; preds = %do.body
@@ -256,8 +259,8 @@ if.then11:                                        ; preds = %do.body
 
 if.end:                                           ; preds = %do.body
   %call12 = call ptr @__errno_location() #8
-  %9 = load i32, ptr %call12, align 4
-  %call13 = call ptr @strerror(i32 noundef %9) #7
+  %11 = load i32, ptr %call12, align 4
+  %call13 = call ptr @strerror(i32 noundef %11) #7
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.3, ptr noundef %call13)
   br label %do.end
 
@@ -268,47 +271,47 @@ if.end14:                                         ; preds = %do.end, %cond.end
   br label %while.body
 
 while.body:                                       ; preds = %if.end146, %if.then18, %if.end14
-  %10 = load i64, ptr %worker, align 8
-  %arrayidx15 = getelementptr inbounds [3 x ptr], ptr @bio_jobs, i64 0, i64 %10
-  %11 = load ptr, ptr %arrayidx15, align 8
-  %len = getelementptr inbounds %struct.list, ptr %11, i32 0, i32 5
-  %12 = load i64, ptr %len, align 8
-  %cmp16 = icmp eq i64 %12, 0
+  %12 = load i64, ptr %worker, align 8
+  %arrayidx15 = getelementptr inbounds [3 x ptr], ptr @bio_jobs, i64 0, i64 %12
+  %13 = load ptr, ptr %arrayidx15, align 8
+  %len = getelementptr inbounds %struct.list, ptr %13, i32 0, i32 5
+  %14 = load i64, ptr %len, align 8
+  %cmp16 = icmp eq i64 %14, 0
   br i1 %cmp16, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %while.body
-  %13 = load i64, ptr %worker, align 8
-  %arrayidx19 = getelementptr inbounds [3 x %union.pthread_cond_t], ptr @bio_newjob_cond, i64 0, i64 %13
-  %14 = load i64, ptr %worker, align 8
-  %arrayidx20 = getelementptr inbounds [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %14
+  %15 = load i64, ptr %worker, align 8
+  %arrayidx19 = getelementptr inbounds [3 x %union.pthread_cond_t], ptr @bio_newjob_cond, i64 0, i64 %15
+  %16 = load i64, ptr %worker, align 8
+  %arrayidx20 = getelementptr inbounds [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %16
   %call21 = call i32 @pthread_cond_wait(ptr noundef %arrayidx19, ptr noundef %arrayidx20)
   br label %while.body
 
 if.end22:                                         ; preds = %while.body
-  %15 = load i64, ptr %worker, align 8
-  %arrayidx23 = getelementptr inbounds [3 x ptr], ptr @bio_jobs, i64 0, i64 %15
-  %16 = load ptr, ptr %arrayidx23, align 8
-  %head = getelementptr inbounds %struct.list, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %head, align 8
-  store ptr %17, ptr %ln, align 8
-  %18 = load ptr, ptr %ln, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %18, i32 0, i32 2
-  %19 = load ptr, ptr %value, align 8
-  store ptr %19, ptr %job, align 8
-  %20 = load i64, ptr %worker, align 8
-  %arrayidx24 = getelementptr inbounds [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %20
+  %17 = load i64, ptr %worker, align 8
+  %arrayidx23 = getelementptr inbounds [3 x ptr], ptr @bio_jobs, i64 0, i64 %17
+  %18 = load ptr, ptr %arrayidx23, align 8
+  %head = getelementptr inbounds %struct.list, ptr %18, i32 0, i32 0
+  %19 = load ptr, ptr %head, align 8
+  store ptr %19, ptr %ln, align 8
+  %20 = load ptr, ptr %ln, align 8
+  %value = getelementptr inbounds %struct.listNode, ptr %20, i32 0, i32 2
+  %21 = load ptr, ptr %value, align 8
+  store ptr %21, ptr %job, align 8
+  %22 = load i64, ptr %worker, align 8
+  %arrayidx24 = getelementptr inbounds [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %22
   %call25 = call i32 @pthread_mutex_unlock(ptr noundef %arrayidx24) #7
-  %21 = load ptr, ptr %job, align 8
-  %type = getelementptr inbounds %struct.anon.1, ptr %21, i32 0, i32 0
-  %22 = load i32, ptr %type, align 8
-  store i32 %22, ptr %job_type, align 4
-  %23 = load i32, ptr %job_type, align 4
-  %cmp26 = icmp eq i32 %23, 0
+  %23 = load ptr, ptr %job, align 8
+  %type = getelementptr inbounds %struct.anon.1, ptr %23, i32 0, i32 0
+  %24 = load i32, ptr %type, align 8
+  store i32 %24, ptr %job_type, align 4
+  %25 = load i32, ptr %job_type, align 4
+  %cmp26 = icmp eq i32 %25, 0
   br i1 %cmp26, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %if.end22
-  %24 = load ptr, ptr %job, align 8
-  %need_fsync = getelementptr inbounds %struct.anon.2, ptr %24, i32 0, i32 3
+  %26 = load ptr, ptr %job, align 8
+  %need_fsync = getelementptr inbounds %struct.anon.2, ptr %26, i32 0, i32 3
   %bf.load = load i8, ptr %need_fsync, align 8
   %bf.clear = and i8 %bf.load, 1
   %bf.cast = zext i8 %bf.clear to i32
@@ -316,31 +319,32 @@ if.then28:                                        ; preds = %if.end22
   br i1 %tobool29, label %land.lhs.true, label %if.end50
 
 land.lhs.true:                                    ; preds = %if.then28
-  %25 = load ptr, ptr %job, align 8
-  %fd = getelementptr inbounds %struct.anon.2, ptr %25, i32 0, i32 1
-  %26 = load i32, ptr %fd, align 4
-  %call30 = call i32 @fdatasync(i32 noundef %26)
+  %27 = load ptr, ptr %job, align 8
+  %fd = getelementptr inbounds %struct.anon.2, ptr %27, i32 0, i32 1
+  %28 = load i32, ptr %fd, align 4
+  %call30 = call i32 @fdatasync(i32 noundef %28)
   %cmp31 = icmp eq i32 %call30, -1
   br i1 %cmp31, label %land.lhs.true33, label %if.end50
 
 land.lhs.true33:                                  ; preds = %land.lhs.true
   %call34 = call ptr @__errno_location() #8
-  %27 = load i32, ptr %call34, align 4
-  %cmp35 = icmp ne i32 %27, 9
+  %29 = load i32, ptr %call34, align 4
+  %cmp35 = icmp ne i32 %29, 9
   br i1 %cmp35, label %land.lhs.true37, label %if.end50
 
 land.lhs.true37:                                  ; preds = %land.lhs.true33
   %call38 = call ptr @__errno_location() #8
-  %28 = load i32, ptr %call38, align 4
-  %cmp39 = icmp ne i32 %28, 22
+  %30 = load i32, ptr %call38, align 4
+  %cmp39 = icmp ne i32 %30, 22
   br i1 %cmp39, label %if.then41, label %if.end50
 
 if.then41:                                        ; preds = %land.lhs.true37
   br label %do.body42
 
 do.body42:                                        ; preds = %if.then41
-  %29 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp43 = icmp slt i32 3, %29
+  %31 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %32 = load i32, ptr %31, align 8
+  %cmp43 = icmp slt i32 3, %32
   br i1 %cmp43, label %if.then45, label %if.end46
 
 if.then45:                                        ; preds = %do.body42
@@ -348,8 +352,8 @@ if.then45:                                        ; preds = %do.body42
 
 if.end46:                                         ; preds = %do.body42
   %call47 = call ptr @__errno_location() #8
-  %30 = load i32, ptr %call47, align 4
-  %call48 = call ptr @strerror(i32 noundef %30) #7
+  %33 = load i32, ptr %call47, align 4
+  %call48 = call ptr @strerror(i32 noundef %33) #7
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.4, ptr noundef %call48)
   br label %do.end49
 
@@ -357,8 +361,8 @@ do.end49:                                         ; preds = %if.end46, %if.then4
   br label %if.end50
 
 if.end50:                                         ; preds = %do.end49, %land.lhs.true37, %land.lhs.true33, %land.lhs.true, %if.then28
-  %31 = load ptr, ptr %job, align 8
-  %need_reclaim_cache = getelementptr inbounds %struct.anon.2, ptr %31, i32 0, i32 3
+  %34 = load ptr, ptr %job, align 8
+  %need_reclaim_cache = getelementptr inbounds %struct.anon.2, ptr %34, i32 0, i32 3
   %bf.load51 = load i8, ptr %need_reclaim_cache, align 8
   %bf.lshr = lshr i8 %bf.load51, 1
   %bf.clear52 = and i8 %bf.lshr, 1
@@ -367,10 +371,10 @@ if.end50:                                         ; preds = %do.end49, %land.lhs
   br i1 %tobool54, label %if.then55, label %if.end70
 
 if.then55:                                        ; preds = %if.end50
-  %32 = load ptr, ptr %job, align 8
-  %fd56 = getelementptr inbounds %struct.anon.2, ptr %32, i32 0, i32 1
-  %33 = load i32, ptr %fd56, align 4
-  %call57 = call i32 @reclaimFilePageCache(i32 noundef %33, i64 noundef 0, i64 noundef 0)
+  %35 = load ptr, ptr %job, align 8
+  %fd56 = getelementptr inbounds %struct.anon.2, ptr %35, i32 0, i32 1
+  %36 = load i32, ptr %fd56, align 4
+  %call57 = call i32 @reclaimFilePageCache(i32 noundef %36, i64 noundef 0, i64 noundef 0)
   %cmp58 = icmp eq i32 %call57, -1
   br i1 %cmp58, label %if.then60, label %if.end69
 
@@ -378,8 +382,9 @@ if.then60:                                        ; preds = %if.then55
   br label %do.body61
 
 do.body61:                                        ; preds = %if.then60
-  %34 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp62 = icmp slt i32 2, %34
+  %37 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %38 = load i32, ptr %37, align 8
+  %cmp62 = icmp slt i32 2, %38
   br i1 %cmp62, label %if.then64, label %if.end65
 
 if.then64:                                        ; preds = %do.body61
@@ -387,8 +392,8 @@ if.then64:                                        ; preds = %do.body61
 
 if.end65:                                         ; preds = %do.body61
   %call66 = call ptr @__errno_location() #8
-  %35 = load i32, ptr %call66, align 4
-  %call67 = call ptr @strerror(i32 noundef %35) #7
+  %39 = load i32, ptr %call66, align 4
+  %call67 = call ptr @strerror(i32 noundef %39) #7
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef @.str.5, ptr noundef %call67)
   br label %do.end68
 
@@ -399,71 +404,75 @@ if.end69:                                         ; preds = %do.end68, %if.then5
   br label %if.end70
 
 if.end70:                                         ; preds = %if.end69, %if.end50
-  %36 = load ptr, ptr %job, align 8
-  %fd71 = getelementptr inbounds %struct.anon.2, ptr %36, i32 0, i32 1
-  %37 = load i32, ptr %fd71, align 4
-  %call72 = call i32 @close(i32 noundef %37)
+  %40 = load ptr, ptr %job, align 8
+  %fd71 = getelementptr inbounds %struct.anon.2, ptr %40, i32 0, i32 1
+  %41 = load i32, ptr %fd71, align 4
+  %call72 = call i32 @close(i32 noundef %41)
   br label %if.end146
 
 if.else:                                          ; preds = %if.end22
-  %38 = load i32, ptr %job_type, align 4
-  %cmp73 = icmp eq i32 %38, 1
+  %42 = load i32, ptr %job_type, align 4
+  %cmp73 = icmp eq i32 %42, 1
   br i1 %cmp73, label %if.then77, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else
-  %39 = load i32, ptr %job_type, align 4
-  %cmp75 = icmp eq i32 %39, 3
+  %43 = load i32, ptr %job_type, align 4
+  %cmp75 = icmp eq i32 %43, 3
   br i1 %cmp75, label %if.then77, label %if.else139
 
 if.then77:                                        ; preds = %lor.lhs.false, %if.else
-  %40 = load ptr, ptr %job, align 8
-  %fd78 = getelementptr inbounds %struct.anon.2, ptr %40, i32 0, i32 1
-  %41 = load i32, ptr %fd78, align 4
-  %call79 = call i32 @fdatasync(i32 noundef %41)
+  %44 = load ptr, ptr %job, align 8
+  %fd78 = getelementptr inbounds %struct.anon.2, ptr %44, i32 0, i32 1
+  %45 = load i32, ptr %fd78, align 4
+  %call79 = call i32 @fdatasync(i32 noundef %45)
   %cmp80 = icmp eq i32 %call79, -1
   br i1 %cmp80, label %land.lhs.true82, label %if.else107
 
 land.lhs.true82:                                  ; preds = %if.then77
   %call83 = call ptr @__errno_location() #8
-  %42 = load i32, ptr %call83, align 4
-  %cmp84 = icmp ne i32 %42, 9
+  %46 = load i32, ptr %call83, align 4
+  %cmp84 = icmp ne i32 %46, 9
   br i1 %cmp84, label %land.lhs.true86, label %if.else107
 
 land.lhs.true86:                                  ; preds = %land.lhs.true82
   %call87 = call ptr @__errno_location() #8
-  %43 = load i32, ptr %call87, align 4
-  %cmp88 = icmp ne i32 %43, 22
+  %47 = load i32, ptr %call87, align 4
+  %cmp88 = icmp ne i32 %47, 22
   br i1 %cmp88, label %if.then90, label %if.else107
 
 if.then90:                                        ; preds = %land.lhs.true86
   br label %do.body91
 
 do.body91:                                        ; preds = %if.then90
-  %44 = load atomic i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 215) monotonic, align 8
-  store i32 %44, ptr %atomic-temp, align 4
-  %45 = load i32, ptr %atomic-temp, align 4
-  store i32 %45, ptr %last_status, align 4
+  %48 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 215
+  %49 = load atomic i32, ptr %48 monotonic, align 8
+  store i32 %49, ptr %atomic-temp, align 4
+  %50 = load i32, ptr %atomic-temp, align 4
+  store i32 %50, ptr %last_status, align 4
   br label %do.end92
 
 do.end92:                                         ; preds = %do.body91
   store i32 -1, ptr %.atomictmp, align 4
-  %46 = load i32, ptr %.atomictmp, align 4
-  store atomic i32 %46, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 215) monotonic, align 8
+  %51 = load i32, ptr %.atomictmp, align 4
+  %52 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 215
+  store atomic i32 %51, ptr %52 monotonic, align 8
   %call94 = call ptr @__errno_location() #8
-  %47 = load i32, ptr %call94, align 4
-  store i32 %47, ptr %.atomictmp93, align 4
-  %48 = load i32, ptr %.atomictmp93, align 4
-  store atomic i32 %48, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 216) monotonic, align 4
-  %49 = load i32, ptr %last_status, align 4
-  %cmp95 = icmp eq i32 %49, 0
+  %53 = load i32, ptr %call94, align 4
+  store i32 %53, ptr %.atomictmp93, align 4
+  %54 = load i32, ptr %.atomictmp93, align 4
+  %55 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 216
+  store atomic i32 %54, ptr %55 monotonic, align 4
+  %56 = load i32, ptr %last_status, align 4
+  %cmp95 = icmp eq i32 %56, 0
   br i1 %cmp95, label %if.then97, label %if.end106
 
 if.then97:                                        ; preds = %do.end92
   br label %do.body98
 
 do.body98:                                        ; preds = %if.then97
-  %50 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp99 = icmp slt i32 3, %50
+  %57 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %58 = load i32, ptr %57, align 8
+  %cmp99 = icmp slt i32 3, %58
   br i1 %cmp99, label %if.then101, label %if.end102
 
 if.then101:                                       ; preds = %do.body98
@@ -471,8 +480,8 @@ if.then101:                                       ; preds = %do.body98
 
 if.end102:                                        ; preds = %do.body98
   %call103 = call ptr @__errno_location() #8
-  %51 = load i32, ptr %call103, align 4
-  %call104 = call ptr @strerror(i32 noundef %51) #7
+  %59 = load i32, ptr %call103, align 4
+  %call104 = call ptr @strerror(i32 noundef %59) #7
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.4, ptr noundef %call104)
   br label %do.end105
 
@@ -484,19 +493,21 @@ if.end106:                                        ; preds = %do.end105, %do.end9
 
 if.else107:                                       ; preds = %land.lhs.true86, %land.lhs.true82, %if.then77
   store i32 0, ptr %.atomictmp108, align 4
-  %52 = load i32, ptr %.atomictmp108, align 4
-  store atomic i32 %52, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 215) monotonic, align 8
-  %53 = load ptr, ptr %job, align 8
-  %offset = getelementptr inbounds %struct.anon.2, ptr %53, i32 0, i32 2
-  %54 = load i64, ptr %offset, align 8
-  store i64 %54, ptr %.atomictmp109, align 8
-  %55 = load i64, ptr %.atomictmp109, align 8
-  store atomic i64 %55, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 264) monotonic, align 8
+  %60 = load i32, ptr %.atomictmp108, align 4
+  %61 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 215
+  store atomic i32 %60, ptr %61 monotonic, align 8
+  %62 = load ptr, ptr %job, align 8
+  %offset = getelementptr inbounds %struct.anon.2, ptr %62, i32 0, i32 2
+  %63 = load i64, ptr %offset, align 8
+  store i64 %63, ptr %.atomictmp109, align 8
+  %64 = load i64, ptr %.atomictmp109, align 8
+  %65 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 264
+  store atomic i64 %64, ptr %65 monotonic, align 8
   br label %if.end110
 
 if.end110:                                        ; preds = %if.else107, %if.end106
-  %56 = load ptr, ptr %job, align 8
-  %need_reclaim_cache111 = getelementptr inbounds %struct.anon.2, ptr %56, i32 0, i32 3
+  %66 = load ptr, ptr %job, align 8
+  %need_reclaim_cache111 = getelementptr inbounds %struct.anon.2, ptr %66, i32 0, i32 3
   %bf.load112 = load i8, ptr %need_reclaim_cache111, align 8
   %bf.lshr113 = lshr i8 %bf.load112, 1
   %bf.clear114 = and i8 %bf.lshr113, 1
@@ -505,10 +516,10 @@ if.end110:                                        ; preds = %if.else107, %if.end
   br i1 %tobool116, label %if.then117, label %if.end132
 
 if.then117:                                       ; preds = %if.end110
-  %57 = load ptr, ptr %job, align 8
-  %fd118 = getelementptr inbounds %struct.anon.2, ptr %57, i32 0, i32 1
-  %58 = load i32, ptr %fd118, align 4
-  %call119 = call i32 @reclaimFilePageCache(i32 noundef %58, i64 noundef 0, i64 noundef 0)
+  %67 = load ptr, ptr %job, align 8
+  %fd118 = getelementptr inbounds %struct.anon.2, ptr %67, i32 0, i32 1
+  %68 = load i32, ptr %fd118, align 4
+  %call119 = call i32 @reclaimFilePageCache(i32 noundef %68, i64 noundef 0, i64 noundef 0)
   %cmp120 = icmp eq i32 %call119, -1
   br i1 %cmp120, label %if.then122, label %if.end131
 
@@ -516,8 +527,9 @@ if.then122:                                       ; preds = %if.then117
   br label %do.body123
 
 do.body123:                                       ; preds = %if.then122
-  %59 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp124 = icmp slt i32 2, %59
+  %69 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %70 = load i32, ptr %69, align 8
+  %cmp124 = icmp slt i32 2, %70
   br i1 %cmp124, label %if.then126, label %if.end127
 
 if.then126:                                       ; preds = %do.body123
@@ -525,8 +537,8 @@ if.then126:                                       ; preds = %do.body123
 
 if.end127:                                        ; preds = %do.body123
   %call128 = call ptr @__errno_location() #8
-  %60 = load i32, ptr %call128, align 4
-  %call129 = call ptr @strerror(i32 noundef %60) #7
+  %71 = load i32, ptr %call128, align 4
+  %call129 = call ptr @strerror(i32 noundef %71) #7
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef @.str.5, ptr noundef %call129)
   br label %do.end130
 
@@ -537,33 +549,33 @@ if.end131:                                        ; preds = %do.end130, %if.then
   br label %if.end132
 
 if.end132:                                        ; preds = %if.end131, %if.end110
-  %61 = load i32, ptr %job_type, align 4
-  %cmp133 = icmp eq i32 %61, 3
+  %72 = load i32, ptr %job_type, align 4
+  %cmp133 = icmp eq i32 %72, 3
   br i1 %cmp133, label %if.then135, label %if.end138
 
 if.then135:                                       ; preds = %if.end132
-  %62 = load ptr, ptr %job, align 8
-  %fd136 = getelementptr inbounds %struct.anon.2, ptr %62, i32 0, i32 1
-  %63 = load i32, ptr %fd136, align 4
-  %call137 = call i32 @close(i32 noundef %63)
+  %73 = load ptr, ptr %job, align 8
+  %fd136 = getelementptr inbounds %struct.anon.2, ptr %73, i32 0, i32 1
+  %74 = load i32, ptr %fd136, align 4
+  %call137 = call i32 @close(i32 noundef %74)
   br label %if.end138
 
 if.end138:                                        ; preds = %if.then135, %if.end132
   br label %if.end145
 
 if.else139:                                       ; preds = %lor.lhs.false
-  %64 = load i32, ptr %job_type, align 4
-  %cmp140 = icmp eq i32 %64, 2
+  %75 = load i32, ptr %job_type, align 4
+  %cmp140 = icmp eq i32 %75, 2
   br i1 %cmp140, label %if.then142, label %if.else143
 
 if.then142:                                       ; preds = %if.else139
-  %65 = load ptr, ptr %job, align 8
-  %free_fn = getelementptr inbounds %struct.anon.3, ptr %65, i32 0, i32 1
-  %66 = load ptr, ptr %free_fn, align 8
-  %67 = load ptr, ptr %job, align 8
-  %free_args = getelementptr inbounds %struct.anon.3, ptr %67, i32 0, i32 2
+  %76 = load ptr, ptr %job, align 8
+  %free_fn = getelementptr inbounds %struct.anon.3, ptr %76, i32 0, i32 1
+  %77 = load ptr, ptr %free_fn, align 8
+  %78 = load ptr, ptr %job, align 8
+  %free_args = getelementptr inbounds %struct.anon.3, ptr %78, i32 0, i32 2
   %arraydecay = getelementptr inbounds [0 x ptr], ptr %free_args, i64 0, i64 0
-  call void %66(ptr noundef %arraydecay)
+  call void %77(ptr noundef %arraydecay)
   br label %if.end144
 
 if.else143:                                       ; preds = %if.else139
@@ -578,24 +590,24 @@ if.end145:                                        ; preds = %if.end144, %if.end1
   br label %if.end146
 
 if.end146:                                        ; preds = %if.end145, %if.end70
-  %68 = load ptr, ptr %job, align 8
-  call void @zfree(ptr noundef %68)
-  %69 = load i64, ptr %worker, align 8
-  %arrayidx147 = getelementptr inbounds [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %69
+  %79 = load ptr, ptr %job, align 8
+  call void @zfree(ptr noundef %79)
+  %80 = load i64, ptr %worker, align 8
+  %arrayidx147 = getelementptr inbounds [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %80
   %call148 = call i32 @pthread_mutex_lock(ptr noundef %arrayidx147) #7
-  %70 = load i64, ptr %worker, align 8
-  %arrayidx149 = getelementptr inbounds [3 x ptr], ptr @bio_jobs, i64 0, i64 %70
-  %71 = load ptr, ptr %arrayidx149, align 8
-  %72 = load ptr, ptr %ln, align 8
-  call void @listDelNode(ptr noundef %71, ptr noundef %72)
-  %73 = load i32, ptr %job_type, align 4
-  %idxprom = sext i32 %73 to i64
+  %81 = load i64, ptr %worker, align 8
+  %arrayidx149 = getelementptr inbounds [3 x ptr], ptr @bio_jobs, i64 0, i64 %81
+  %82 = load ptr, ptr %arrayidx149, align 8
+  %83 = load ptr, ptr %ln, align 8
+  call void @listDelNode(ptr noundef %82, ptr noundef %83)
+  %84 = load i32, ptr %job_type, align 4
+  %idxprom = sext i32 %84 to i64
   %arrayidx150 = getelementptr inbounds [4 x i64], ptr @bio_jobs_counter, i64 0, i64 %idxprom
-  %74 = load i64, ptr %arrayidx150, align 8
-  %dec = add i64 %74, -1
+  %85 = load i64, ptr %arrayidx150, align 8
+  %dec = add i64 %85, -1
   store i64 %dec, ptr %arrayidx150, align 8
-  %75 = load i64, ptr %worker, align 8
-  %arrayidx151 = getelementptr inbounds [3 x %union.pthread_cond_t], ptr @bio_newjob_cond, i64 0, i64 %75
+  %86 = load i64, ptr %worker, align 8
+  %arrayidx151 = getelementptr inbounds [3 x %union.pthread_cond_t], ptr @bio_newjob_cond, i64 0, i64 %86
   %call152 = call i32 @pthread_cond_signal(ptr noundef %arrayidx151) #7
   br label %while.body
 }
@@ -1026,18 +1038,19 @@ if.then10:                                        ; preds = %if.then6
   br label %do.body
 
 do.body:                                          ; preds = %if.then10
-  %9 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp11 = icmp slt i32 3, %9
+  %9 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %10 = load i32, ptr %9, align 8
+  %cmp11 = icmp slt i32 3, %10
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %do.body
   br label %do.end
 
 if.end13:                                         ; preds = %do.body
-  %10 = load i64, ptr %j, align 8
-  %11 = load i32, ptr %err, align 4
-  %call14 = call ptr @strerror(i32 noundef %11) #7
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.7, i64 noundef %10, ptr noundef %call14)
+  %11 = load i64, ptr %j, align 8
+  %12 = load i32, ptr %err, align 4
+  %call14 = call ptr @strerror(i32 noundef %12) #7
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.7, i64 noundef %11, ptr noundef %call14)
   br label %do.end
 
 do.end:                                           ; preds = %if.end13, %if.then12
@@ -1047,16 +1060,17 @@ if.else:                                          ; preds = %if.then6
   br label %do.body15
 
 do.body15:                                        ; preds = %if.else
-  %12 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp16 = icmp slt i32 3, %12
+  %13 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %14 = load i32, ptr %13, align 8
+  %cmp16 = icmp slt i32 3, %14
   br i1 %cmp16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %do.body15
   br label %do.end19
 
 if.end18:                                         ; preds = %do.body15
-  %13 = load i64, ptr %j, align 8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.8, i64 noundef %13)
+  %15 = load i64, ptr %j, align 8
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.8, i64 noundef %15)
   br label %do.end19
 
 do.end19:                                         ; preds = %if.end18, %if.then17
@@ -1069,8 +1083,8 @@ if.end21:                                         ; preds = %if.end20, %land.lhs
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end21, %if.then
-  %14 = load i64, ptr %j, align 8
-  %inc = add i64 %14, 1
+  %16 = load i64, ptr %j, align 8
+  %inc = add i64 %16, 1
   store i64 %inc, ptr %j, align 8
   br label %for.cond, !llvm.loop !11
 
